@@ -8,16 +8,14 @@ import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
-import app.revanced.patcher.patch.annotations.DependsOn
-import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
-import app.revanced.patches.youtube.misc.playertype.annotation.PlayerTypeHookCompatibility
 import app.revanced.patches.youtube.misc.playertype.fingerprint.UpdatePlayerTypeFingerprint
+import app.revanced.shared.annotation.YouTubeCompatibility
+import app.revanced.shared.util.integrations.Constants.UTILS_PATH
 
 @Name("player-type-hook")
 @Description("Hook to get the current player type of WatchWhileActivity")
-@PlayerTypeHookCompatibility
+@YouTubeCompatibility
 @Version("0.0.1")
-@DependsOn([IntegrationsPatch::class])
 class PlayerTypeHookPatch : BytecodePatch(
     listOf(
         UpdatePlayerTypeFingerprint
@@ -27,7 +25,7 @@ class PlayerTypeHookPatch : BytecodePatch(
         // hook YouTubePlayerOverlaysLayout.updatePlayerLayout()
         UpdatePlayerTypeFingerprint.result!!.mutableMethod.addInstruction(
             0,
-            "invoke-static { p1 }, Lapp/revanced/integrations/patches/PlayerTypeHookPatch;->YouTubePlayerOverlaysLayout_updatePlayerTypeHookEX(Ljava/lang/Object;)V"
+            "invoke-static { p1 }, $UTILS_PATH/PlayerTypeHookPatch;->YouTubePlayerOverlaysLayout_updatePlayerTypeHookEX(Ljava/lang/Object;)V"
         )
         return PatchResultSuccess()
     }

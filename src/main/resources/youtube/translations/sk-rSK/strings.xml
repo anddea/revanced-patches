@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="about">O aplikácií</string>
+    <string name="about_api">Táto aplikácia používá API poskytované SponsorBlock-om</string>
+    <string name="about_api_sum">Pre viac informácií a možností stiahnutia aj pre iné platformy ťuknite tu: sponsor.ajay.app</string>
+    <string name="about_madeby">Integráciu vytvoril JakubWeg</string>
+    <string name="accessibility_settings_edu_opt_in_text">Zapnúť zjednodušenie ovládania pre video prehrávač?</string>
+    <string name="accessibility_settings_edu_opt_out_text">Vaše ovládiacie prvky sú upravené, pretože je zapnutá služba zjednodušia.</string>
+    <string name="api_url_changed">Adresa URL API bola zmenená</string>
+    <string name="api_url_invalid">Zadaná adresa URL API je neplatná</string>
+    <string name="api_url_reset">Adresa URL API bola resetovaná</string>
+    <string name="color_change">Chcete zmeniť farby?</string>
+    <string name="color_change_sum">"Teraz môžete zmeniť farbu kategórie kliknutím nad ňu."</string>
+    <string name="color_changed">Farba bola zmenená</string>
+    <string name="color_invalid">Neplatný hexadecimálny kód</string>
+    <string name="color_reset">Farba bola resetovaná</string>
+    <string name="diff_segments">Čo robiť s rôznymi segmentami</string>
+    <string name="enable_sb">Povoliť SponsorBlock</string>
+    <string name="enable_sb_sum">SponsorBlock je crowdsourcingový systém na preskakovanie otravných častí vo videách Youtubu</string>
+    <string name="enable_segmadding">Povoliť pridanie nového segmentu</string>
+    <string name="enable_segmadding_sum">Zapnutím povolíte experimentálne pridávanie segmentov (vzniknú problémy s viditeľnosťou tlačidiel)</string>
+    <string name="enable_voting">Povoliť hlasovanie</string>
+    <string name="enable_voting_sum">Pre povolenie hlasovania zapnite túto možnosť.</string>
+    <string name="general">Všeobecné</string>
+    <string name="general_adjusting">Úprava nového kroku segmentu</string>
+    <string name="general_adjusting_sum">Počet milisekúnd, ktoré môžete posunúť, keď používate tlačidlá pre nastavenie času pri pridávaní nového segmentu</string>
+    <string name="general_api_url">Zmeniť adresu URL API</string>
+    <string name="general_api_url_sum">"Adresa, ktorú SponsorBlock používa na uskutočňovanie hovorov na server. &lt;b&gt;Nemeňte ju, ak neviete, čo robíte.&lt;/b&gt;"</string>
+    <string name="general_min_duration">Minimálna dĺžka segmentu</string>
+    <string name="general_min_duration_sum">Segmenty kratšie, ako nastavená hodnota (v sekundách) nebudú preskočené ani zobrazené v prehrávači</string>
+    <string name="general_skipcount">Preskočiť počet sledovaní</string>
+    <string name="general_skipcount_sum">Toto umožňuje systému SponsorBlock vedieť, koľko času ľudia ušetrili. Rozšírenie odošle správu serveru zakaždým, keď segment preskočíte</string>
+    <string name="general_skiptoast">Zobraziť informačný text pri automatickom preskočení segmentu</string>
+    <string name="general_skiptoast_sum">Klepnutím zobrazíte príklad informačného textu</string>
+    <string name="general_time_without_sb_sum">Tento čas sa zobrazí v zátvorkách vedľa aktuálneho času. Zobrazuje sa celkové trvanie videa po odpočítaní všetkých segmentov.</string>
+    <string name="microg_settings">Nastavenie MicroG</string>
+    <string name="minutes">minúty</string>
+    <string name="new_segment_choose_category">Vyberte kategóriu segmentu</string>
+    <string name="new_segment_confirm_content" formatted="false">"Segment trvá od %02d:%02d do %02d:%02d (%d minút %02d sekúnd)
+Je pripravený na odoslanie?"</string>
+    <string name="new_segment_confirm_title">Sú časy správne?</string>
+    <string name="new_segment_disabled_category">"Túto kategóriu ste zakázali v nastaveniach, pre odoslanie ju povoľte"</string>
+    <string name="new_segment_edit_by_hand_content">Chcete upraviť časovanie pre začiatok alebo koniec segmentu?</string>
+    <string name="new_segment_edit_by_hand_parse_error">Zadaný neplatný čas</string>
+    <string name="new_segment_edit_by_hand_saved">Hotovo</string>
+    <string name="new_segment_edit_by_hand_title">Ručne upravte časovanie segmentu</string>
+    <string name="new_segment_mark_end">koniec</string>
+    <string name="new_segment_mark_locations_first">Najprv označte dve miesta na časovej lište</string>
+    <string name="new_segment_mark_time_as_question" formatted="false">Nastaviť %02d:%02d:%04d ako začiatok alebo koniec nového segmentu?</string>
+    <string name="new_segment_now">teraz</string>
+    <string name="new_segment_time_end">Čas, kedy segment končí</string>
+    <string name="new_segment_time_end_set">Koniec segmentu nastavený</string>
+    <string name="new_segment_time_start">Čas, kedy segment začína</string>
+    <string name="new_segment_time_start_set">Začiatok segmentu nastavený</string>
+    <string name="new_segment_title">Nový SponsorBlock segment</string>
+    <string name="reset">Resetovať</string>
+    <string name="revanced_ads_settings_title">Nastavenia reklám</string>
+    <string name="revanced_adremover_album_card_in_search_summary_off">Karty albumov sú zobrazené z výsledkov vyhľadávania</string>
+    <string name="revanced_adremover_album_card_in_search_summary_on">Karty albumov sú skryté z výsledkov vyhľadávania</string>
+    <string name="revanced_adremover_breaking_news_shelf_summary_off">Panely s najnovšími správamy sú zobrazené</string>
+    <string name="revanced_adremover_breaking_news_shelf_summary_on">Panely s najnovšími správamy sú skryté</string>
+    <string name="revanced_adremover_community_guidelines_title">Skryť pravidlá komunity</string>
+    <string name="revanced_adremover_in_feed_survey_summary_on">Prieskumy kanálov sú skryté</string>
+    <string name="revanced_adremover_in_feed_survey_title">Skryť prieskumy kanálov</string>
+    <string name="revanced_adremover_latest_posts_summary_off">Najnovšie príspevky sú zobrazené</string>
+    <string name="revanced_adremover_latest_posts_summary_on">Najnovšie príspevky sú skryté</string>
+    <string name="revanced_adremover_latest_posts_title">Skryť najnovšie príspevky</string>
+    <string name="revanced_adremover_medical_panel_summary_off">Lekárske panely sú zobrazené</string>
+    <string name="revanced_adremover_medical_panel_summary_on">Lekárske panely sú skryté</string>
+    <string name="revanced_adremover_medical_panel_title">Skryť lekárske panely</string>
+</resources>

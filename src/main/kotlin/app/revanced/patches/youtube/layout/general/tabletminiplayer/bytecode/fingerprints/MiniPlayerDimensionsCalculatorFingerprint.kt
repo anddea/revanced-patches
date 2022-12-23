@@ -1,0 +1,22 @@
+package app.revanced.patches.youtube.layout.general.tabletminiplayer.bytecode.fingerprints
+
+import app.revanced.patcher.extensions.or
+import app.revanced.patcher.fingerprint.method.annotation.FuzzyPatternScanMethod
+import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import org.jf.dexlib2.AccessFlags
+import org.jf.dexlib2.Opcode
+
+@FuzzyPatternScanMethod(2) // TODO: Find a good threshold value
+object MiniPlayerDimensionsCalculatorFingerprint : MethodFingerprint(
+    "V",
+    AccessFlags.PUBLIC or AccessFlags.FINAL,
+    listOf("L"),
+    listOf(
+        Opcode.INVOKE_DIRECT,
+        Opcode.MOVE_RESULT,
+        Opcode.IF_NEZ,
+        Opcode.FLOAT_TO_DOUBLE,
+        Opcode.CONST_WIDE_HIGH16,
+        Opcode.CMPL_DOUBLE,
+    )
+)

@@ -7,18 +7,18 @@ import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
+import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
-import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patches.music.layout.premium.annotations.HideGetPremiumCompatibility
 import app.revanced.patches.music.layout.premium.fingerprints.HideGetPremiumFingerprint
 import app.revanced.patches.music.layout.premium.fingerprints.HideGetPremiumParentFingerprint
+import app.revanced.shared.annotation.YouTubeMusicCompatibility
 
 @Patch
 @Name("hide-get-premium")
 @Description("Removes all \"Get Premium\" evidences from the avatar menu.")
-@HideGetPremiumCompatibility
+@YouTubeMusicCompatibility
 @Version("0.0.1")
 class HideGetPremiumPatch : BytecodePatch(
     listOf(
