@@ -1,0 +1,43 @@
+package app.revanced.patches.youtube.layout.seekbar.seekbartapping.bytecode.fingerprints
+
+import app.revanced.patcher.extensions.or
+import app.revanced.patcher.fingerprint.method.annotation.FuzzyPatternScanMethod
+import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import org.jf.dexlib2.AccessFlags
+import org.jf.dexlib2.Opcode
+
+@FuzzyPatternScanMethod(2) // FIXME: Test this threshold and find the best value.
+object SeekbarTappingParentFingerprint : MethodFingerprint(
+    "L", AccessFlags.PUBLIC or AccessFlags.FINAL, listOf(), listOf(
+        Opcode.INVOKE_VIRTUAL,
+        Opcode.MOVE_RESULT_OBJECT,
+        Opcode.INVOKE_VIRTUAL,
+        Opcode.MOVE_RESULT_OBJECT,
+        Opcode.CONST_4,
+        Opcode.NEW_ARRAY,
+        Opcode.INVOKE_VIRTUAL,
+        Opcode.MOVE_RESULT_OBJECT,
+        Opcode.INVOKE_VIRTUAL,
+        Opcode.MOVE_RESULT_WIDE,
+        Opcode.INVOKE_STATIC,
+        Opcode.MOVE_RESULT_OBJECT,
+        Opcode.INVOKE_STATIC,
+        Opcode.MOVE_RESULT_OBJECT,
+        Opcode.CONST_4,
+        Opcode.APUT_OBJECT,
+        Opcode.INVOKE_VIRTUAL,
+        Opcode.MOVE_RESULT_OBJECT,
+        Opcode.INVOKE_VIRTUAL,
+        Opcode.MOVE_RESULT_WIDE,
+        Opcode.INVOKE_STATIC,
+        Opcode.MOVE_RESULT_OBJECT,
+        Opcode.INVOKE_STATIC,
+        Opcode.MOVE_RESULT_OBJECT,
+        Opcode.CONST_4,
+        Opcode.APUT_OBJECT,
+        Opcode.CONST,
+        Opcode.INVOKE_VIRTUAL,
+        Opcode.MOVE_RESULT_OBJECT,
+        Opcode.RETURN_OBJECT
+    )
+)

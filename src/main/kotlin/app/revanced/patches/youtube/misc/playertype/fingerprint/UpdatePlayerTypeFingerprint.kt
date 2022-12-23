@@ -6,11 +6,13 @@ import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 
+//TODO constrain to only match in YoutubePlayerOverlaysLayout?
 @FuzzyPatternScanMethod(2)
 object UpdatePlayerTypeFingerprint : MethodFingerprint(
     "V",
     AccessFlags.PUBLIC or AccessFlags.FINAL,
-    opcodes = listOf(
+    null,
+    listOf(
         Opcode.INVOKE_VIRTUAL,
         Opcode.IGET_OBJECT,
         Opcode.IF_NE,

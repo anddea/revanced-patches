@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:yt="http://schemas.android.com/apk/res-auto">
+
+    <!-- PREFERENCE_CATEGORY: MICROG_SETTINGS
+    <PreferenceCategory android:title="@string/microg_settings">
+        <PreferenceScreen android:title="@string/microg_notification_settings" android:summary="@string/microg_notification_settings_summary">
+            <intent android:targetPackage="com.mgoogle.android.gms" android:targetClass="org.microg.gms.ui.SettingsActivity" />
+        </PreferenceScreen>
+    </PreferenceCategory>PREFERENCE_CATEGORY: MICROG_SETTINGS -->
+
+    <!-- PREFERENCE_CATEGORY: REVANCED_SETTINGS
+    <PreferenceCategory android:layout_height="fill_parent" android:title="@string/revanced_settings" />PREFERENCE_CATEGORY: REVANCED_SETTINGS -->
+
+    <!-- PREFERENCE: ADS_SETTINGS
+    <PreferenceScreen android:title="@string/revanced_ads_settings_title" android:key="ads_settings" android:summary="@string/revanced_ads_settings_summary">
+        <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_ads_settings_title" />PREFERENCE: ADS_SETTINGS -->
+
+        <!-- SETTINGS: HIDE_VIDEO_ADS
+        <SwitchPreference android:title="@string/revanced_video_ads_removal_title" android:key="revanced_video_ads_removal" android:defaultValue="true" android:summaryOn="@string/revanced_video_ads_removal_summary_on" android:summaryOff="@string/revanced_video_ads_removal_summary_off" />SETTINGS: HIDE_VIDEO_ADS -->
+
+        <!-- SETTINGS: HIDE_GENERAL_ADS
+        <SwitchPreference android:title="@string/revanced_adremover_general_ads_title" android:key="revanced_adremover_general_ads" android:defaultValue="true" android:summaryOn="@string/revanced_adremover_general_ads_summary_on" android:summaryOff="@string/revanced_adremover_general_ads_summary_off" />
+        <SwitchPreference android:title="@string/revanced_adremover_button_ads_title" android:key="revanced_adremover_button_ads" android:defaultValue="true" android:summaryOn="@string/revanced_adremover_button_ads_summary_on" android:summaryOff="@string/revanced_adremover_button_ads_summary_off" />
+        <SwitchPreference android:title="@string/revanced_adremover_merchandise_title" android:key="revanced_adremover_merchandise" android:defaultValue="true" android:summaryOn="@string/revanced_adremover_medical_panel_summary_on" android:summaryOff="@string/revanced_adremover_medical_panel_summary_off" />
+        <SwitchPreference android:title="@string/revanced_adremover_community_posts_title" android:key="revanced_adremover_community_posts" android:defaultValue="false" android:summaryOn="@string/revanced_adremover_community_posts_summary_on" android:summaryOff="@string/revanced_adremover_community_posts_summary_off" />
+        <SwitchPreference android:title="@string/revanced_adremover_compact_banner_title" android:key="revanced_adremover_compact_banner" android:defaultValue="true" android:summaryOn="@string/revanced_adremover_compact_banner_summary_on" android:summaryOff="@string/revanced_adremover_compact_banner_summary_off" />
+        <SwitchPreference android:title="@string/revanced_adremover_movie_shelf_title" android:key="revanced_adremover_movie_shelf" android:defaultValue="false" android:summaryOn="@string/revanced_adremover_movie_shelf_summary_on" android:summaryOff="@string/revanced_adremover_movie_shelf_summary_off" />
+        <SwitchPreference android:title="@string/revanced_adremover_in_feed_survey_title" android:key="revanced_adremover_feed_survey" android:defaultValue="true" android:summaryOn="@string/revanced_adremover_in_feed_survey_summary_on" android:summaryOff="@string/revanced_adremover_in_feed_survey_summary_off" />
+        <SwitchPreference android:title="@string/revanced_adremover_image_shelf_title" android:key="revanced_adremover_image_shelf" android:defaultValue="true" android:summaryOn="@string/revanced_adremover_image_shelf_summary_on" android:summaryOff="@string/revanced_adremover_image_shelf_summary_off" />
+        <SwitchPreference android:title="@string/revanced_adremover_community_guidelines_title" android:key="revanced_adremover_community_guidelines" android:defaultValue="true" android:summaryOn="@string/revanced_adremover_community_guidelines_summary_on" android:summaryOff="@string/revanced_adremover_community_guidelines_summary_off" />
+        <SwitchPreference android:title="@string/revanced_adremover_emergency_box_title" android:key="revanced_adremover_emergency_box" android:defaultValue="true" android:summaryOn="@string/revanced_adremover_emergency_box_summary_on" android:summaryOff="@string/revanced_adremover_emergency_box_summary_off" />
+        <SwitchPreference android:title="@string/revanced_adremover_info_panel_title" android:key="revanced_adremover_info_panel" android:defaultValue="true" android:summaryOn="@string/revanced_adremover_info_panel_summary_on" android:summaryOff="@string/revanced_adremover_info_panel_summary_off" />
+        <SwitchPreference android:title="@string/revanced_adremover_medical_panel_title" android:key="revanced_adremover_medical_panel" android:defaultValue="true" android:summaryOn="@string/revanced_adremover_medical_panel_summary_on" android:summaryOff="@string/revanced_adremover_medical_panel_summary_off" />
+        <SwitchPreference android:title="@string/revanced_adremover_paid_content_title" android:key="revanced_adremover_paid_content" android:defaultValue="true" android:summaryOn="@string/revanced_adremover_paid_content_summary_on" android:summaryOff="@string/revanced_adremover_paid_content_summary_off" />
+        <SwitchPreference android:title="@string/revanced_adremover_suggestions_title" android:key="revanced_adremover_suggestions" android:defaultValue="true" android:summaryOn="@string/revanced_adremover_suggestions_summary_on" android:summaryOff="@string/revanced_adremover_suggestions_summary_off" />
+        <SwitchPreference android:title="@string/revanced_adremover_latest_posts_title" android:key="revanced_adremover_latest_posts" android:defaultValue="true" android:summaryOn="@string/revanced_adremover_latest_posts_summary_on" android:summaryOff="@string/revanced_adremover_latest_posts_summary_off" />
+        <SwitchPreference android:title="@string/revanced_adremover_channel_guidelines_title" android:key="revanced_adremover_channel_guidelines" android:defaultValue="true" android:summaryOn="@string/revanced_adremover_channel_guidelines_summary_on" android:summaryOff="@string/revanced_adremover_channel_guidelines_summary_off" />
+        <SwitchPreference android:title="@string/revanced_adremover_self_sponsor_title" android:key="revanced_adremover_self_sponsor" android:defaultValue="true" android:summaryOn="@string/revanced_adremover_self_sponsor_summary_on" android:summaryOff="@string/revanced_adremover_self_sponsor_summary_off" />
+        <SwitchPreference android:title="@string/revanced_adremover_chapter_teaser_title" android:key="revanced_adremover_chapter_teaser" android:defaultValue="true" android:summaryOn="@string/revanced_adremover_chapter_teaser_summary_on" android:summaryOff="@string/revanced_adremover_chapter_teaser_summary_off" />
+        <SwitchPreference android:title="@string/revanced_adremover_separator_title" android:key="revanced_adremover_separator" android:defaultValue="true" android:summaryOn="@string/revanced_adremover_separator_summary_on" android:summaryOff="@string/revanced_adremover_separator_summary_off" />
+        <SwitchPreference android:title="@string/revanced_adremover_official_card_in_search_title" android:key="revanced_adremover_official_card_in_search" android:defaultValue="true" android:summaryOn="@string/revanced_adremover_official_card_in_search_summary_on" android:summaryOff="@string/revanced_adremover_official_card_in_search_summary_off" />
+        <SwitchPreference android:title="@string/revanced_adremover_album_card_in_search_title" android:key="revanced_adremover_album_card_in_search" android:defaultValue="true" android:summaryOn="@string/revanced_adremover_album_card_in_search_summary_on" android:summaryOff="@string/revanced_adremover_album_card_in_search_summary_off" />
+        <SwitchPreference android:title="@string/revanced_adremover_breaking_news_shelf_title" android:key="revanced_adremover_breaking_news_shelf" android:defaultValue="false" android:summaryOn="@string/revanced_adremover_breaking_news_shelf_summary_on" android:summaryOff="@string/revanced_adremover_breaking_news_shelf_summary_off" />
+        <SwitchPreference android:title="@string/revanced_adremover_web_search_panel_title" android:key="revanced_adremover_web_search_panel" android:defaultValue="true" android:summaryOn="@string/revanced_adremover_web_search_panel_summary_on" android:summaryOff="@string/revanced_adremover_web_search_panel_summary_off" />
+        <SwitchPreference android:title="@string/revanced_adremover_view_products_title" android:key="revanced_adremover_view_products" android:defaultValue="true" android:summaryOn="@string/revanced_adremover_view_products_summary_on" android:summaryOff="@string/revanced_adremover_view_products_summary_off" />
+        <SwitchPreference android:title="@string/revanced_adremover_timed_reactions_title" android:key="revanced_adremover_timed_reactions" android:defaultValue="true" android:summaryOn="@string/revanced_adremover_timed_reactions_summary_on" android:summaryOff="@string/revanced_adremover_timed_reactions_summary_off" />
+        <PreferenceScreen android:title="@string/revanced_adremover_custom_filter_title" android:key="revanced_adremover_custom_filter" android:summary="@string/revanced_adremover_custom_filter_summary" >
+            <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_adremover_custom_filter_title" />
+            <SwitchPreference android:title="@string/revanced_adremover_user_filter_title" android:key="revanced_adremover_user_filter" android:defaultValue="false" android:summaryOn="@string/revanced_adremover_user_filter_summary_on" android:summaryOff="@string/revanced_adremover_user_filter_summary_off" />
+            <EditTextPreference android:title="@string/revanced_adremover_custom_filter_title" android:key="revanced_adremover_custom_strings" android:summary="@string/revanced_adremover_custom_filter_summary" android:defaultValue="" android:inputType="text" />
+        </PreferenceScreen>SETTINGS: HIDE_GENERAL_ADS -->
+
+    <!-- PREFERENCE: ADS_SETTINGS
+    </PreferenceScreen>PREFERENCE: ADS_SETTINGS -->
+
+
+    <!-- PREFERENCE: SWIPE_SETTINGS
+    <PreferenceScreen android:title="@string/revanced_swipe_controls_title" android:key="swipe_controls" android:summary="@string/revanced_swipe_controls_summary">
+        <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_swipe_controls_title" />PREFERENCE: SWIPE_SETTINGS -->
+
+        <!-- SETTINGS: SWIPE_CONTROLS
+        <SwitchPreference android:title="@string/revanced_enable_swipe_auto_brightness_title" android:key="revanced_enable_swipe_auto_brightness" android:defaultValue="false" android:summaryOn="@string/revanced_enable_swipe_auto_brightness_summary_on" android:summaryOff="@string/revanced_enable_swipe_auto_brightness_summary_off" />
+        <SwitchPreference android:title="@string/revanced_enable_swipe_brightness_title" android:key="revanced_enable_swipe_brightness" android:defaultValue="true" android:summaryOn="@string/revanced_enable_swipe_brightness_summary_on" android:summaryOff="@string/revanced_enable_swipe_brightness_summary_off" />
+        <SwitchPreference android:title="@string/revanced_enable_swipe_volume_title" android:key="revanced_enable_swipe_volume" android:defaultValue="true" android:summaryOn="@string/revanced_enable_swipe_volume_summary_on" android:summaryOff="@string/revanced_enable_swipe_volume_summary_off" />
+        <SwitchPreference android:title="@string/revanced_enable_always_swipe_title" android:key="revanced_enable_always_swipe" android:defaultValue="true" android:summaryOn="@string/revanced_enable_always_swipe_summary_on" android:summaryOff="@string/revanced_enable_always_swipe_summary_off" />
+        <SwitchPreference android:title="@string/revanced_enable_press_to_swipe_title" android:key="revanced_enable_press_to_swipe" android:defaultValue="false" android:summaryOn="@string/revanced_enable_press_to_swipe_summary_on" android:summaryOff="@string/revanced_enable_press_to_swipe_summary_off" />
+        <SwitchPreference android:title="@string/revanced_enable_swipe_haptic_feedback_title" android:key="revanced_enable_swipe_haptic_feedback" android:defaultValue="true" android:summaryOn="@string/revanced_enable_swipe_haptic_feedback_summary_on" android:summaryOff="@string/revanced_enable_swipe_haptic_feedback_summary_off" />
+        <EditTextPreference android:title="@string/revanced_swipe_overlay_timeout_title" android:key="revanced_swipe_overlay_timeout" android:summary="@string/revanced_swipe_overlay_timeout_summary" android:defaultValue="500" android:inputType="number" />
+        <EditTextPreference android:title="@string/revanced_swipe_overlay_text_size_title" android:key="revanced_swipe_overlay_text_size" android:summary="@string/revanced_swipe_overlay_text_size_summary" android:defaultValue="27" android:inputType="number" />
+        <EditTextPreference android:title="@string/revanced_swipe_overlay_background_alpha_title" android:key="revanced_swipe_overlay_background_alpha" android:summary="@string/revanced_swipe_overlay_background_alpha_summary" android:defaultValue="127" android:inputType="number" />
+        <EditTextPreference android:title="@string/revanced_swipe_magnitude_threshold_title" android:key="revanced_swipe_magnitude_threshold" android:summary="@string/revanced_swipe_magnitude_threshold_summary" android:defaultValue="0" android:inputType="number" />SETTINGS: SWIPE_CONTROLS -->
+
+    <!-- PREFERENCE: SWIPE_SETTINGS
+    </PreferenceScreen>PREFERENCE: SWIPE_SETTINGS -->
+
+
+    <!-- PREFERENCE: LAYOUT_SETTINGS
+    <PreferenceScreen android:title="@string/revanced_layout_settings_title" android:key="layout" android:summary="@string/revanced_layout_settings_summary">PREFERENCE: LAYOUT_SETTINGS -->
+
+    <!-- PREFERENCE_HEADER: GENERAL
+        <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_layout_settings_general" />PREFERENCE_HEADER: GENERAL -->
+
+        <!-- SETTINGS: HIDE_STORIES_SHELF
+        <SwitchPreference android:title="@string/revanced_hide_stories_shelf_title" android:key="revanced_hide_stories_shelf" android:defaultValue="true" android:summaryOn="@string/revanced_hide_stories_shelf_summary_on" android:summaryOff="@string/revanced_hide_stories_shelf_summary_off" />SETTINGS: HIDE_STORIES_SHELF -->
+
+        <!-- SETTINGS: HIDE_CREATE_BUTTON
+        <SwitchPreference android:title="@string/revanced_hide_create_button_title" android:key="revanced_hide_create_button" android:defaultValue="true" android:summaryOn="@string/revanced_hide_create_button_summary_on" android:summaryOff="@string/revanced_hide_create_button_summary_off" />SETTINGS: HIDE_CREATE_BUTTON -->
+
+        <!-- SETTINGS: SHORTS_COMPONENT.PARENT
+        <PreferenceScreen android:title="@string/revanced_hide_shorts_component_title" android:key="revanced_hide_shorts_component" android:summary="@string/revanced_hide_shorts_component_summary">SETTINGS: SHORTS_COMPONENT.PARENT -->
+
+            <!-- SETTINGS: SHORTS_COMPONENT_PARENT.A
+            <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_hide_shorts_component_title" />SETTINGS: SHORTS_COMPONENT_PARENT.A -->
+
+            <!-- SETTINGS: HIDE_SHORTS_BUTTON
+            <SwitchPreference android:title="@string/revanced_hide_shorts_button_title" android:key="revanced_hide_shorts_button" android:defaultValue="true" android:summaryOn="@string/revanced_hide_shorts_button_summary_on" android:summaryOff="@string/revanced_hide_shorts_button_summary_off" />SETTINGS: HIDE_SHORTS_BUTTON -->
+
+            <!-- SETTINGS: HIDE_SHORTS_SHELF
+            <SwitchPreference android:title="@string/revanced_hide_shorts_shelf_title" android:key="revanced_hide_shorts_shelf" android:defaultValue="true" android:summaryOn="@string/revanced_hide_shorts_shelf_summary_on" android:summaryOff="@string/revanced_hide_shorts_shelf_summary_off" />SETTINGS: HIDE_SHORTS_SHELF -->
+
+            <!-- SETTINGS: SHORTS_COMPONENT_PARENT.B
+            <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_hide_shorts_player_component_title" />SETTINGS: SHORTS_COMPONENT_PARENT.B -->
+
+            <!-- SETTINGS: HIDE_STARTUP_SHORTS_PLAYER
+            <SwitchPreference android:title="@string/revanced_hide_startup_shorts_player_title" android:key="revanced_hide_startup_shorts_player" android:defaultValue="true" android:summaryOn="@string/revanced_hide_startup_shorts_player_summary_on" android:summaryOff="@string/revanced_hide_startup_shorts_player_summary_off" />SETTINGS: HIDE_STARTUP_SHORTS_PLAYER -->
+
+            <!-- SETTINGS: HIDE_SHORTS_COMPONENTS
+            <SwitchPreference android:title="@string/revanced_hide_shorts_player_comments_button_title" android:key="revanced_hide_shorts_player_comments_button" android:defaultValue="false" android:summaryOn="@string/revanced_hide_shorts_player_comments_button_summary_on" android:summaryOff="@string/revanced_hide_shorts_player_comments_button_summary_off" />
+            <SwitchPreference android:title="@string/revanced_hide_shorts_player_remix_button_title" android:key="revanced_hide_shorts_player_remix_button" android:defaultValue="false" android:summaryOn="@string/revanced_hide_shorts_player_remix_button_summary_on" android:summaryOff="@string/revanced_hide_shorts_player_remix_button_summary_off" />
+            <SwitchPreference android:title="@string/revanced_hide_shorts_player_thanks_button_title" android:key="revanced_hide_shorts_player_thanks_button" android:defaultValue="true" android:summaryOn="@string/revanced_hide_shorts_player_thanks_button_summary_on" android:summaryOff="@string/revanced_hide_shorts_player_thanks_button_summary_off" />
+            <SwitchPreference android:title="@string/revanced_hide_shorts_player_subscriptions_button_title" android:key="revanced_hide_shorts_player_subscriptions_button" android:defaultValue="true" android:summaryOn="@string/revanced_hide_shorts_player_subscriptions_button_summary_on" android:summaryOff="@string/revanced_hide_shorts_player_subscriptions_button_summary_off" />SETTINGS: HIDE_SHORTS_COMPONENTS -->
+
+        <!-- SETTINGS: SHORTS_COMPONENT.PARENT
+        </PreferenceScreen>SETTINGS: SHORTS_COMPONENT.PARENT -->
+
+        <!-- SETTINGS: ENABLE_WIDE_SEARCHBAR
+        <SwitchPreference android:title="@string/revanced_enable_wide_searchbar_title" android:key="revanced_enable_wide_searchbar" android:defaultValue="false" android:summaryOn="@string/revanced_enable_wide_searchbar_summary_on" android:summaryOff="@string/revanced_enable_wide_searchbar_summary_off" />SETTINGS: ENABLE_WIDE_SEARCHBAR -->
+
+        <!-- SETTINGS: ENABLE_TABLET_MINIPLAYER
+        <SwitchPreference android:title="@string/revanced_enable_tablet_miniplayer_title" android:key="revanced_enable_tablet_miniplayer" android:defaultValue="false" android:summaryOn="@string/revanced_enable_tablet_miniplayer_summary_on" android:summaryOff="@string/revanced_enable_tablet_miniplayer_summary_off" />SETTINGS: ENABLE_TABLET_MINIPLAYER -->
+
+        <!-- SETTINGS: HIDE_AUTO_CAPTIONS
+        <SwitchPreference android:title="@string/revanced_hide_auto_captions_title" android:key="revanced_hide_auto_captions" android:defaultValue="false" android:summaryOn="@string/revanced_hide_auto_captions_summary_on" android:summaryOff="@string/revanced_hide_auto_captions_summary_off" />SETTINGS: HIDE_AUTO_CAPTIONS -->
+
+        <!-- SETTINGS: HIDE_AUTO_PLAYER_POPUP_PANELS
+        <SwitchPreference android:title="@string/revanced_hide_auto_player_popup_panels_title" android:key="revanced_hide_auto_player_popup_panels" android:defaultValue="true" android:summaryOn="@string/revanced_hide_auto_player_popup_panels_summary_on" android:summaryOff="@string/revanced_hide_auto_player_popup_panels_summary_off" />SETTINGS: HIDE_AUTO_PLAYER_POPUP_PANELS -->
+
+        <!-- SETTINGS: HIDE_MIX_PLAYLISTS
+        <SwitchPreference android:title="@string/revanced_hide_mix_playlists_title" android:key="revanced_hide_mix_playlists" android:defaultValue="false" android:summaryOn="@string/revanced_hide_mix_playlists_summary_on" android:summaryOff="@string/revanced_hide_mix_playlists_summary_off" />SETTINGS: HIDE_MIX_PLAYLISTS -->
+
+        <!-- SETTINGS: HIDE_CROWDFUNDING_BOX
+        <SwitchPreference android:title="@string/revanced_hide_crowdfunding_box_title" android:key="revanced_hide_crowdfunding_box" android:defaultValue="true" android:summaryOn="@string/revanced_hide_crowdfunding_box_summary_on" android:summaryOff="@string/revanced_hide_crowdfunding_box_summary_off" />SETTINGS: HIDE_CROWDFUNDING_BOX -->
+
+        <!-- SETTINGS: HIDE_EMAIL_ADDRESS
+        <SwitchPreference android:title="@string/revanced_hide_email_address_title" android:key="revanced_hide_email_address" android:defaultValue="true" android:summaryOn="@string/revanced_hide_email_address_summary_on" android:summaryOff="@string/revanced_hide_email_address_summary_off" />SETTINGS: HIDE_EMAIL_ADDRESS -->
+
+        <!-- SETTINGS: HEADER_SWITCH
+        <SwitchPreference android:title="@string/revanced_override_premium_header_title" android:key="revanced_override_premium_header" android:defaultValue="false" android:summaryOn="@string/revanced_override_premium_header_summary_on" android:summaryOff="@string/revanced_override_premium_header_summary_off" />SETTINGS: HEADER_SWITCH -->
+
+    <!-- PREFERENCE_HEADER: PLAYER
+        <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_layout_settings_player" />PREFERENCE_HEADER: PLAYER -->
+
+        <!-- SETTINGS: HIDE_CAST_BUTTON
+        <SwitchPreference android:title="@string/revanced_hide_cast_button_title" android:key="revanced_hide_cast_button" android:defaultValue="true" android:summaryOn="@string/revanced_hide_cast_button_summary_on" android:summaryOff="@string/revanced_hide_cast_button_summary_off" />SETTINGS: HIDE_CAST_BUTTON -->
+
+        <!-- SETTINGS: HIDE_AUTOPLAY_BUTTON
+        <SwitchPreference android:title="@string/revanced_hide_autoplay_button_title" android:key="revanced_hide_autoplay_button" android:defaultValue="true" android:summaryOn="@string/revanced_hide_autoplay_button_summary_on" android:summaryOff="@string/revanced_hide_autoplay_button_summary_off" />SETTINGS: HIDE_AUTOPLAY_BUTTON -->
+
+        <!-- SETTINGS: HIDE_CAPTIONS_BUTTON
+        <SwitchPreference android:title="@string/revanced_hide_captions_button_title" android:key="revanced_hide_captions_button" android:defaultValue="false" android:summaryOn="@string/revanced_hide_captions_button_summary_on" android:summaryOff="@string/revanced_hide_captions_button_summary_off" />SETTINGS: HIDE_CAPTIONS_BUTTON -->
+
+        <!-- SETTINGS: HIDE_ENDSCREEN_CARDS
+        <SwitchPreference android:title="@string/revanced_hide_endscreen_cards_title" android:key="revanced_hide_endscreen_cards" android:defaultValue="true" android:summaryOn="@string/revanced_hide_endscreen_cards_summary_on" android:summaryOff="@string/revanced_hide_endscreen_cards_summary_off" />SETTINGS: HIDE_ENDSCREEN_CARDS -->
+
+        <!-- SETTINGS: HIDE_INFO_CARDS
+        <SwitchPreference android:title="@string/revanced_hide_info_cards_title" android:key="revanced_hide_info_cards" android:defaultValue="true" android:summaryOn="@string/revanced_hide_info_cards_summary_on" android:summaryOff="@string/revanced_hide_info_cards_summary_off" />SETTINGS: HIDE_INFO_CARDS -->
+
+        <!-- SETTINGS: HIDE_CHANNEL_WATERMARK
+        <SwitchPreference android:title="@string/revanced_hide_channel_watermark_title" android:key="revanced_hide_channel_watermark" android:defaultValue="true" android:summaryOn="@string/revanced_hide_channel_watermark_summary_on" android:summaryOff="@string/revanced_hide_channel_watermark_summary_off" />SETTINGS: HIDE_CHANNEL_WATERMARK -->
+
+        <!-- SETTINGS: HIDE_SUGGESTED_ACTION
+        <SwitchPreference android:title="@string/revanced_hide_suggested_actions_title" android:key="revanced_hide_suggested_actions" android:defaultValue="true" android:summaryOn="@string/revanced_hide_suggested_actions_summary_on" android:summaryOff="@string/revanced_hide_suggested_actions_summary_off" />SETTINGS: HIDE_SUGGESTED_ACTION -->
+
+        <!-- SETTINGS: HIDE_PALYER_OVERLAY_FILTER
+        <SwitchPreference android:title="@string/revanced_hide_player_overlay_filter_title" android:key="revanced_hide_player_overlay_filter" android:defaultValue="false" android:summaryOn="@string/revanced_hide_player_overlay_filter_summary_on" android:summaryOff="@string/revanced_hide_player_overlay_filter_summary_off" />SETTINGS: HIDE_PALYER_OVERLAY_FILTER -->
+
+
+    <!-- PREFERENCE_HEADER: FULLSCREEN
+        <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_layout_settings_fullscreen" />PREFERENCE_HEADER: FULLSCREEN -->
+
+        <!-- SETTINGS: HIDE_FULLSCREEN_BUTTON_CONTAINER
+        <SwitchPreference android:title="@string/revanced_hide_fullscreen_button_container_title" android:key="revanced_hide_fullscreen_button_container" android:defaultValue="false" android:summaryOn="@string/revanced_hide_fullscreen_button_container_summary_on" android:summaryOff="@string/revanced_hide_fullscreen_button_container_summary_off" />SETTINGS: HIDE_FULLSCREEN_BUTTON_CONTAINER -->
+
+        <!-- SETTINGS: HIDE_ENDSCREEN_OVERLAY
+        <SwitchPreference android:title="@string/revanced_hide_endscreen_overlay_title" android:key="revanced_hide_endscreen_overlay" android:defaultValue="false" android:summaryOn="@string/revanced_hide_endscreen_overlay_summary_on" android:summaryOff="@string/revanced_hide_endscreen_overlay_summary_off" />SETTINGS: HIDE_ENDSCREEN_OVERLAY -->
+
+        <!-- SETTINGS: HIDE_FILMSTRIP_OVERLAY
+        <SwitchPreference android:title="@string/revanced_hide_filmstrip_overlay_title" android:key="revanced_hide_filmstrip_overlay" android:defaultValue="false" android:summaryOn="@string/revanced_hide_filmstrip_overlay_summary_on" android:summaryOff="@string/revanced_hide_filmstrip_overlay_summary_off" />SETTINGS: HIDE_FILMSTRIP_OVERLAY -->
+
+        <!-- SETTINGS: DISABLE_HAPTIC_FEEDBACK
+        <PreferenceScreen android:title="@string/revanced_disable_haptic_feedback_title" android:key="revanced_disable_haptic_feedback" android:summary="@string/revanced_disable_haptic_feedback_summary">
+            <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_disable_haptic_feedback_title" />
+            <SwitchPreference android:title="@string/revanced_disable_haptic_feedback_seek_title" android:key="revanced_disable_haptic_feedback_seek" android:defaultValue="false" android:summaryOn="@string/revanced_disable_haptic_feedback_seek_summary_on" android:summaryOff="@string/revanced_disable_haptic_feedback_seek_summary_off" />
+            <SwitchPreference android:title="@string/revanced_disable_haptic_feedback_scrubbing_title" android:key="revanced_disable_haptic_feedback_scrubbing" android:defaultValue="false" android:summaryOn="@string/revanced_disable_haptic_feedback_scrubbing_summary_on" android:summaryOff="@string/revanced_disable_haptic_feedback_scrubbing_summary_off" />
+            <SwitchPreference android:title="@string/revanced_disable_haptic_feedback_chapters_title" android:key="revanced_disable_haptic_feedback_chapters" android:defaultValue="false" android:summaryOn="@string/revanced_disable_haptic_feedback_chapters_summary_on" android:summaryOff="@string/revanced_disable_haptic_feedback_chapters_summary_off" />
+            <SwitchPreference android:title="@string/revanced_disable_haptic_feedback_zoom_title" android:key="revanced_disable_haptic_feedback_zoom" android:defaultValue="false" android:summaryOn="@string/revanced_disable_haptic_feedback_zoom_summary_on" android:summaryOff="@string/revanced_disable_haptic_feedback_zoom_summary_off" />
+        </PreferenceScreen>SETTINGS: DISABLE_HAPTIC_FEEDBACK -->
+
+    <!-- PREFERENCE_HEADER: BOTTOM_PLAYER
+        <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_layout_settings_bottomplayer" />PREFERENCE_HEADER: BOTTOM_PLAYER -->
+
+        <!-- SETTINGS: BUTTON_CONTAINER
+        <PreferenceScreen android:title="@string/revanced_hide_button_container_title" android:key="revanced_hide_button_container" android:summary="@string/revanced_hide_button_container_summary">
+            <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_hide_button_container_title" />
+            <SwitchPreference android:title="@string/revanced_hide_button_like_title" android:key="revanced_hide_button_like" android:defaultValue="false" android:summaryOn="@string/revanced_hide_button_like_summary_on" android:summaryOff="@string/revanced_hide_button_like_summary_off" />
+            <SwitchPreference android:title="@string/revanced_hide_button_dislike_title" android:key="revanced_hide_button_dislike" android:defaultValue="false" android:summaryOn="@string/revanced_hide_button_dislike_summary_on" android:summaryOff="@string/revanced_hide_button_dislike_summary_off" />
+            <SwitchPreference android:title="@string/revanced_hide_button_share_title" android:key="revanced_hide_button_share" android:defaultValue="false" android:summaryOn="@string/revanced_hide_button_share_summary_on" android:summaryOff="@string/revanced_hide_button_share_summary_off" />
+            <SwitchPreference android:title="@string/revanced_hide_button_live_chat_title" android:key="revanced_hide_button_live_chat" android:defaultValue="false" android:summaryOn="@string/revanced_hide_button_live_chat_summary_on" android:summaryOff="@string/revanced_hide_button_live_chat_summary_off" />
+            <SwitchPreference android:title="@string/revanced_hide_button_report_title" android:key="revanced_hide_button_report" android:defaultValue="false" android:summaryOn="@string/revanced_hide_button_report_summary_on" android:summaryOff="@string/revanced_hide_button_report_summary_off" />
+            <SwitchPreference android:title="@string/revanced_hide_button_create_short_title" android:key="revanced_hide_button_create_short" android:defaultValue="false" android:summaryOn="@string/revanced_hide_button_create_short_summary_on" android:summaryOff="@string/revanced_hide_button_create_short_summary_off" />
+            <SwitchPreference android:title="@string/revanced_hide_button_thanks_title" android:key="revanced_hide_button_thanks" android:defaultValue="false" android:summaryOn="@string/revanced_hide_button_thanks_summary_on" android:summaryOff="@string/revanced_hide_button_thanks_summary_off" />
+            <SwitchPreference android:title="@string/revanced_hide_button_create_clip_title" android:key="revanced_hide_button_create_clip" android:defaultValue="false" android:summaryOn="@string/revanced_hide_button_create_clip_summary_on" android:summaryOff="@string/revanced_hide_button_create_clip_summary_off" />
+            <SwitchPreference android:title="@string/revanced_hide_button_download_title" android:key="revanced_hide_button_download" android:defaultValue="false" android:summaryOn="@string/revanced_hide_button_download_summary_on" android:summaryOff="@string/revanced_hide_button_download_summary_off" />
+            <SwitchPreference android:title="@string/revanced_hide_button_playlist_title" android:key="revanced_hide_button_playlist" android:defaultValue="false" android:summaryOn="@string/revanced_hide_button_playlist_summary_on" android:summaryOff="@string/revanced_hide_button_playlist_summary_off" />
+        </PreferenceScreen>SETTINGS: BUTTON_CONTAINER -->
+
+        <!-- SETTINGS: COMMENT_COMPONENT
+        <PreferenceScreen android:title="@string/revanced_hide_comments_component_title" android:key="revanced_hide_comments_component" android:summary="@string/revanced_hide_comments_component_summary">
+            <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_hide_comments_component_title" />
+            <SwitchPreference android:title="@string/revanced_hide_comments_section_title" android:key="revanced_hide_comments_section" android:defaultValue="false" android:summaryOn="@string/revanced_hide_comments_section_summary_on" android:summaryOff="@string/revanced_hide_comments_section_summary_off" />
+            <SwitchPreference android:title="@string/revanced_hide_preview_comment_title" android:key="revanced_hide_preview_comment" android:defaultValue="false" android:summaryOn="@string/revanced_hide_preview_comment_on" android:summaryOff="@string/revanced_hide_preview_comment_off" />
+        </PreferenceScreen>SETTINGS: COMMENT_COMPONENT -->
+
+    <!-- PREFERENCE_HEADER: FLYOUT_PANEL
+        <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_layout_settings_flyoutmenu" />PREFERENCE_HEADER: FLYOUT_PANEL -->
+
+        <!-- SETTINGS: ENABLE_OLD_STYLE_QUALITY_LAYOUT
+        <SwitchPreference android:title="@string/revanced_enable_oldstyle_quality_layout_title" android:key="revanced_enable_oldstyle_quality_layout" android:defaultValue="true" android:summaryOn="@string/revanced_enable_oldstyle_quality_layout_summary_on" android:summaryOff="@string/revanced_enable_oldstyle_quality_layout_summary_off" />SETTINGS: ENABLE_OLD_STYLE_QUALITY_LAYOUT -->
+
+        <!-- SETTINGS: FLYOUT_PANEL_COMPONENT
+        <PreferenceScreen android:title="@string/revanced_player_flyout_panel_title" android:key="revanced_player_flyout_panel" android:summary="@string/revanced_player_flyout_panel_summary">
+            <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_player_flyout_panel_title" />
+            <SwitchPreference android:title="@string/revanced_hide_menu_captions_title" android:key="revanced_hide_menu_captions" android:defaultValue="false" android:summaryOn="@string/revanced_hide_menu_captions_summary_on" android:summaryOff="@string/revanced_hide_menu_captions_summary_off" />
+            <SwitchPreference android:title="@string/revanced_hide_menu_loop_video_title" android:key="revanced_hide_menu_loop_video" android:defaultValue="false" android:summaryOn="@string/revanced_hide_menu_loop_video_summary_on" android:summaryOff="@string/revanced_hide_menu_loop_video_summary_off" />
+            <SwitchPreference android:title="@string/revanced_hide_menu_ambient_mode_title" android:key="revanced_hide_menu_ambient_mode" android:defaultValue="false" android:summaryOn="@string/revanced_hide_menu_ambient_mode_summary_on" android:summaryOff="@string/revanced_hide_menu_ambient_mode_summary_off" />
+            <SwitchPreference android:title="@string/revanced_hide_menu_report_title" android:key="revanced_hide_menu_report" android:defaultValue="false" android:summaryOn="@string/revanced_hide_menu_report_summary_on" android:summaryOff="@string/revanced_hide_menu_report_summary_off" />
+            <SwitchPreference android:title="@string/revanced_hide_menu_help_title" android:key="revanced_hide_menu_help" android:defaultValue="false" android:summaryOn="@string/revanced_hide_menu_help_summary_on" android:summaryOff="@string/revanced_hide_menu_help_summary_off" />
+            <SwitchPreference android:title="@string/revanced_hide_menu_more_info_title" android:key="revanced_hide_menu_more_info" android:defaultValue="false" android:summaryOn="@string/revanced_hide_menu_more_info_summary_on" android:summaryOff="@string/revanced_hide_menu_more_info_summary_off" />
+            <SwitchPreference android:title="@string/revanced_hide_menu_listening_controls_title" android:key="revanced_hide_menu_listening_controls" android:defaultValue="false" android:summaryOn="@string/revanced_hide_menu_listening_controls_summary_on" android:summaryOff="@string/revanced_hide_menu_listening_controls_summary_off" />
+            <SwitchPreference android:title="@string/revanced_hide_menu_audio_track_title" android:key="revanced_hide_menu_audio_track" android:defaultValue="false" android:summaryOn="@string/revanced_hide_menu_audio_track_summary_on" android:summaryOff="@string/revanced_hide_menu_audio_track_summary_off" />
+            <SwitchPreference android:title="@string/revanced_hide_menu_watch_in_vr_title" android:key="revanced_hide_menu_watch_in_vr" android:defaultValue="false" android:summaryOn="@string/revanced_hide_menu_watch_in_vr_summary_on" android:summaryOff="@string/revanced_hide_menu_watch_in_vr_summary_off" />
+            <SwitchPreference android:title="@string/revanced_hide_menu_stats_for_nerds_title" android:key="hide_menu_stats_for_nerds" android:defaultValue="false" android:summaryOn="@string/revanced_hide_menu_stats_for_nerds_summary_on" android:summaryOff="@string/revanced_hide_menu_stats_for_nerds_summary_off" />
+            <SwitchPreference android:title="@string/revanced_hide_menu_listen_with_youtube_music_title" android:key="revanced_hide_menu_listen_with_youtube_music" android:defaultValue="false" android:summaryOn="@string/revanced_hide_menu_listen_with_youtube_music_summary_on" android:summaryOff="@string/revanced_hide_menu_listen_with_youtube_music_summary_off" />
+        </PreferenceScreen>SETTINGS: FLYOUT_PANEL_COMPONENT -->
+
+    <!-- PREFERENCE_HEADER: SEEKBAR
+        <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_layout_settings_seekbar" />PREFERENCE_HEADER: SEEKBAR -->
+
+    <!-- SETTINGS: ENABLE_SEEKBAR_TAPPING
+        <SwitchPreference android:title="@string/revanced_enable_seekbar_tapping_title" android:key="revanced_enable_seekbar_tapping" android:defaultValue="true" android:summaryOn="@string/revanced_enable_seekbar_tapping_summary_on" android:summaryOff="@string/revanced_enable_seekbar_tapping_summary_off" />SETTINGS: ENABLE_SEEKBAR_TAPPING -->
+
+    <!-- SETTINGS: HIDE_TIME_AND_SEEKBAR
+        <SwitchPreference android:title="@string/revanced_hide_time_and_seekbar_title" android:key="revanced_hide_time_and_seekbar" android:defaultValue="false" android:summaryOn="@string/revanced_hide_time_and_seekbar_summary_on" android:summaryOff="@string/revanced_hide_time_and_seekbar_summary_off" />SETTINGS: HIDE_TIME_AND_SEEKBAR -->
+
+    <!-- PREFERENCE: LAYOUT_SETTINGS
+    </PreferenceScreen>PREFERENCE: LAYOUT_SETTINGS -->
+
+    <!-- PREFERENCE: MISC_SETTINGS
+    <PreferenceScreen android:title="@string/revanced_misc_settings_title" android:key="misc" android:summary="@string/revanced_misc_settings_summary">
+        <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_misc_settings_title" />PREFERENCE: MISC_SETTINGS -->
+
+        <!-- SETTINGS: ENABLE_EXTERNAL_BROWSER
+        <SwitchPreference android:title="@string/revanced_enable_external_browser_title" android:key="revanced_enable_external_browser" android:defaultValue="true" android:summaryOn="@string/revanced_enable_external_browser_summary_on" android:summaryOff="@string/revanced_enable_external_browser_summary_off" />SETTINGS: ENABLE_EXTERNAL_BROWSER -->
+
+        <!-- SETTINGS: ENABLE_OPEN_LINKS_DIRECTLY
+        <SwitchPreference android:title="@string/revanced_enable_open_links_directly_title" android:key="revanced_enable_open_links_directly" android:defaultValue="true" android:summaryOn="@string/revanced_enable_open_links_directly_summary_on" android:summaryOff="@string/revanced_enable_open_links_directly_summary_off" />SETTINGS: ENABLE_OPEN_LINKS_DIRECTLY -->
+
+        <!-- SETTINGS: ENABLE_MINIMIZED_PLAYBACK
+        <SwitchPreference android:title="@string/revanced_enable_minimized_playback_title" android:key="revanced_enable_minimized_playback" android:defaultValue="true" android:summaryOn="@string/revanced_enable_minimized_playback_summary_on" android:summaryOff="@string/revanced_enable_minimized_playback_summary_off" />SETTINGS: ENABLE_MINIMIZED_PLAYBACK -->
+
+        <!-- SETTINGS: ENABLE_HDR_AUTO_BRIGHTNESS
+        <SwitchPreference android:title="@string/revanced_enable_hdr_auto_brightness_title" android:key="revanced_enable_hdr_auto_brightness" android:defaultValue="false" android:summaryOn="@string/revanced_enable_hdr_auto_brightness_summary_on" android:summaryOff="@string/revanced_enable_hdr_auto_brightness_summary_off" />SETTINGS: ENABLE_HDR_AUTO_BRIGHTNESS -->
+
+        <!-- SETTINGS: CUSTOM_VIDEO_BUFFER
+        <PreferenceScreen android:title="@string/revanced_custom_video_buffer_title" android:key="revanced_custom_video_buffer" android:summary="@string/revanced_custom_video_buffer_summary">
+            <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_custom_video_buffer_title" />
+            <EditTextPreference android:title="@string/revanced_custom_video_buffer_maximum_title" android:key="revanced_custom_video_buffer_maximum" android:summary="@string/revanced_custom_video_buffer_maximum_summary" android:defaultValue="120000" android:inputType="number" />
+            <EditTextPreference android:title="@string/revanced_custom_video_buffer_playback_start_title" android:key="revanced_custom_video_buffer_playback_start" android:summary="@string/revanced_custom_video_buffer_playback_start_summary" android:defaultValue="2500" android:inputType="number" />
+            <EditTextPreference android:title="@string/revanced_custom_video_buffer_rebuffer_title" android:key="revanced_custom_video_buffer_rebuffer" android:summary="@string/revanced_custom_video_buffer_rebuffer_summary" android:defaultValue="5000" android:inputType="number" />
+        </PreferenceScreen>SETTINGS: CUSTOM_VIDEO_BUFFER -->
+
+    <!-- PREFERENCE: MISC_SETTINGS
+    </PreferenceScreen>PREFERENCE: MISC_SETTINGS -->
+
+
+    <!-- PREFERENCE_CATEGORY: REVANCED_EXTENDED_SETTINGS
+    <PreferenceCategory android:layout_height="fill_parent" android:title="@string/revanced_extended_settings" />PREFERENCE_CATEGORY: REVANCED_EXTENDED_SETTINGS -->
+
+    <!-- PREFERENCE: VIDEO_SETTINGS
+    <PreferenceScreen android:title="@string/revanced_video_settings_title" android:key="video_settings" android:summary="@string/revanced_video_settings_summary">
+        <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_video_settings_title" />PREFERENCE: VIDEO_SETTINGS -->
+
+        <!-- SETTINGS: DEFAULT_VIDEO_QUALITY
+        <ListPreference android:title="@string/revanced_default_video_quality_wifi_title" android:key="revanced_default_video_quality_wifi" android:summary="@string/revanced_default_video_quality_wifi_summary" android:entries="@array/revanced_video_quality_entries" android:defaultValue="-2" android:entryValues="@array/revanced_video_quality_entry_values" />
+        <ListPreference android:title="@string/revanced_default_video_quality_mobile_title" android:key="revanced_default_video_quality_mobile" android:summary="@string/revanced_default_video_quality_mobile_summary" android:entries="@array/revanced_video_quality_entries" android:defaultValue="-2" android:entryValues="@array/revanced_video_quality_entry_values" />SETTINGS: DEFAULT_VIDEO_QUALITY -->
+
+        <!-- SETTINGS: DEFAULT_VIDEO_SPEED
+        <ListPreference android:title="@string/revanced_default_video_speed_title" android:key="revanced_default_video_speed" android:summary="@string/revanced_default_video_speed_summary" android:entries="@array/revanced_video_speed_entries" android:defaultValue="-2" android:entryValues="@array/revanced_video_speed_entry_values" />SETTINGS: DEFAULT_VIDEO_SPEED -->
+
+        <!-- SETTINGS: DEFAULT_VIDEO_QUALITY
+        <SwitchPreference android:title="@string/revanced_enable_save_video_quality_title" android:key="revanced_enable_save_video_quality" android:defaultValue="false" android:summaryOn="@string/revanced_enable_save_video_quality_summary_on" android:summaryOff="@string/revanced_enable_save_video_quality_summary_off" />SETTINGS: DEFAULT_VIDEO_QUALITY -->
+
+        <!-- SETTINGS: CUSTOM_VIDEO_SPEED
+        <SwitchPreference android:title="@string/revanced_enable_custom_video_speed_title" android:key="revanced_enable_custom_video_speed" android:defaultValue="false" android:summaryOn="@string/revanced_enable_custom_video_speed_summary_on" android:summaryOff="@string/revanced_enable_custom_video_speed_summary_off" />SETTINGS: CUSTOM_VIDEO_SPEED -->
+
+    <!-- PREFERENCE: VIDEO_SETTINGS
+    </PreferenceScreen>PREFERENCE: VIDEO_SETTINGS -->
+
+
+    <!-- PREFERENCE: OVERLAY_BUTTONS
+    <PreferenceScreen android:title="@string/revanced_overlay_button_title" android:key="overlaybutton" android:summary="@string/revanced_overlay_button_summary">
+        <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_overlay_button_title" />
+        <SwitchPreference android:title="@string/revanced_overlay_button_whitelist_title" android:key="revanced_overlay_button_whitelist" android:defaultValue="false" android:summaryOn="@string/revanced_overlay_button_whitelist_summary_on" android:summaryOff="@string/revanced_overlay_button_whitelist_summary_off" />
+        <SwitchPreference android:title="@string/revanced_overlay_button_copy_url_title" android:key="revanced_overlay_button_copy_url" android:defaultValue="false" android:summaryOn="@string/revanced_overlay_button_copy_url_summary_on" android:summaryOff="@string/revanced_overlay_button_copy_url_summary_off" />
+        <SwitchPreference android:title="@string/revanced_overlay_button_copy_url_with_timestamp_title" android:key="revanced_overlay_button_copy_url_with_timestamp" android:defaultValue="false" android:summaryOn="@string/revanced_overlay_button_copy_url_with_timestamp_summary_on" android:summaryOff="@string/revanced_overlay_button_copy_url_with_timestamp_summary_off" />
+        <SwitchPreference android:title="@string/revanced_overlay_button_auto_repeat_title" android:key="revanced_overlay_button_auto_repeat" android:defaultValue="false" android:summaryOn="@string/revanced_overlay_button_auto_repeat_summary_on" android:summaryOff="@string/revanced_overlay_button_auto_repeat_summary_off" />
+        <SwitchPreference android:title="@string/revanced_enable_always_auto_repeat_title" android:key="revanced_enable_always_auto_repeat" android:defaultValue="false" android:summaryOn="@string/revanced_enable_always_auto_repeat_summary_on" android:summaryOff="@string/revanced_enable_always_auto_repeat_summary_off" />
+        <SwitchPreference android:title="@string/revanced_overlay_button_downloads_title" android:key="revanced_overlay_button_downloads" android:defaultValue="true" android:summaryOn="@string/revanced_overlay_button_downloads_summary_on" android:summaryOff="@string/revanced_overlay_button_downloads_summary_off" />
+        <PreferenceScreen android:title="@string/revanced_downloader_settings_title" android:summary="@string/revanced_downloader_settings_summary">
+            <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_downloader_settings_title" />
+            <EditTextPreference android:hint="ussr.razar.youtube_dl" android:title="@string/revanced_downloader_package_name_title" android:key="revanced_downloader_package_name" android:summary="@string/revanced_downloader_package_name_summary" android:inputType="text" />
+            <Preference android:title="PowerTube" android:selectable="true" android:key="PowerTube"/>
+            <Preference android:title="NewPipe" android:selectable="true" android:key="NewPipe"/>
+            <Preference android:title="NewPipe x Sponsorblock" android:selectable="true" android:key="NewPipe_SponsorBlock"/>
+            <Preference android:title="Seal" android:selectable="true" android:key="Seal"/>
+        </PreferenceScreen>
+        <PreferenceScreen android:title="@string/revanced_whitelisting_settings_title" android:key="whitelisting" android:summary="@string/revanced_whitelisting_settings_summary">
+            <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_whitelisting_settings_title" />
+        </PreferenceScreen>
+    </PreferenceScreen>PREFERENCE: OVERLAY_BUTTONS -->
+
+
+    <!-- PREFERENCE: EXTENDED_SETTINGS
+    <PreferenceScreen android:title="@string/revanced_extended_title" android:key="extended" android:summary="@string/revanced_extended_summary">PREFERENCE: EXTENDED_SETTINGS -->
+
+        <!-- SETTINGS: EXPERIMENTAL_FLAGS
+        <Preference android:title=" " android:selectable="false" android:key="revanced_experimental_flag" android:summary="@string/revanced_experimental_flag" />SETTINGS: EXPERIMENTAL_FLAGS -->
+        <!-- SETTINGS: FIX_VIDEO_PLAYBACK
+        <SwitchPreference android:title="@string/revanced_fix_video_playback_title" android:key="revanced_fix_video_playback" android:defaultValue="false" android:summaryOn="@string/revanced_fix_video_playback_summary_on" android:summaryOff="@string/revanced_fix_video_playback_summary_off" />SETTINGS: FIX_VIDEO_PLAYBACK -->
+        <!-- SETTINGS: ENABLE_OLD_LAYOUT
+        <SwitchPreference android:title="@string/revanced_enable_old_layout_title" android:key="revanced_enable_old_layout" android:defaultValue="false" android:summaryOn="@string/revanced_enable_old_layout_summary_on" android:summaryOff="@string/revanced_enable_old_layout_summary_off" />SETTINGS: ENABLE_OLD_LAYOUT -->
+        <!-- SETTINGS: LAYOUT_SWITCH
+        <SwitchPreference android:title="@string/revanced_enable_tablet_layout_title" android:key="revanced_enable_tablet_layout" android:summary="@string/revanced_enable_tablet_layout_summary" android:defaultValue="false" />
+        <SwitchPreference android:title="@string/revanced_enable_phone_layout_title" android:key="revanced_enable_phone_layout" android:summary="@string/revanced_enable_phone_layout_summary" android:defaultValue="false" />SETTINGS: LAYOUT_SWITCH -->
+
+        <!-- SETTINGS: ABOUT
+        <Preference android:title=" " android:selectable="false" android:summary="@string/pref_about_category" />
+        <PreferenceScreen android:title="@string/revanced_patches_information"  android:summary="@string/revanced_patches_information_summary" >
+            <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_tool_used" />
+            <Preference android:title="revanced-patches" android:selectable="false" android:summary="2.147.0" />
+            <Preference android:title="revanced-integrations" android:key="revanced-integrations" android:selectable="false"/>
+
+            <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_video_ads_removal_title" />
+            <Preference android:title="hide-general-ads" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="hide-video-ads" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+
+            <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_swipe_controls_title" />
+            <Preference android:title="swipe-controls" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+
+            <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_layout_settings_general" />
+            <Preference android:title="hide-stories" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="hide-create-button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="hide-shorts-button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="hide-shorts-component" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="hide-startup-shorts-player" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="enable-wide-searchbar" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="enable-tablet-miniplayer" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="hide-auto-captions" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="hide-auto-player-popup-panels" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="hide-mix-playlists" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="hide-crowdfunding-box" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="hide-email-address" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="header-switch" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+
+            <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_layout_settings_player" />
+            <Preference android:title="hide-cast-button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="hide-autoplay-button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="hide-captions-button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="hide-endscreen-cards" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="hide-info-cards" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="hide-channel-watermark" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="hide-suggested-actions" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="hide-player-overlay-filter" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+
+            <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_layout_settings_fullscreen" />
+            <Preference android:title="hide-fullscreen-buttoncontainer" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="hide-endscreen-overlay" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="hide-filmstrip-overlay" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="disable-haptic-feedback" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+
+            <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_layout_settings_bottomplayer" />
+            <Preference android:title="hide-button-container" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="hide-comment-component" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+
+            <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_layout_settings_flyoutmenu" />
+            <Preference android:title="enable-oldstyle-quality-layout" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="hide-flyout-panel" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+
+            <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_layout_settings_seekbar" />
+            <Preference android:title="enable-seekbar-tapping" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="hide-time-and-seekbar" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+
+            <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_misc_settings_title" />
+            <Preference android:title="enable-external-browser" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="enable-open-links-directly" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="enable-minimized-playback" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="enable-hdr-auto-brightness" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="custom-video-buffer" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+
+            <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_video_settings_title" />
+            <Preference android:title="default-video-quality" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="default-video-speed" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="custom-video-speed" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+
+            <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_overlay_button_title" />
+            <Preference android:title="overlay-buttons" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+
+            <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_extended_title" />
+            <Preference android:title="enable-old-layout" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="layout-switch" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+
+            <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_others_title" />
+            <Preference android:title="return-youtube-dislike" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="sponsorblock" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="microg-support" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="client-spoof" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="hide-pip-notification" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="optimize-resource" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="remove-player-button-background" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="translations" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="labels" android:summary="@string/revanced_labels_default" android:selectable="false"/>
+            <Preference android:title="icons" android:summary="@string/revanced_icons_default" android:selectable="false"/>
+            <Preference android:title="themes" android:summary="@string/revanced_themes_default" android:selectable="false"/>
+        </PreferenceScreen>SETTINGS: ABOUT -->
+
+    <!-- PREFERENCE: EXTENDED_SETTINGS
+    </PreferenceScreen>PREFERENCE: EXTENDED_SETTINGS -->
+
+</PreferenceScreen>

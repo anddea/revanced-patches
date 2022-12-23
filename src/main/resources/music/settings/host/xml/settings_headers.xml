@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+        <PreferenceScreen android:title="@string/revanced_settings_name" android:key="pref_screen_first" android:summary="ReVanced Music Extended">
+            <com.google.android.apps.youtube.music.ui.preference.PreferenceCategoryCompat android:title="@string/revanced_category_ads_name" android:key="revanced_settings_ads">
+                <com.google.android.apps.youtube.music.ui.preference.SwitchCompatPreference android:title="@string/revanced_show_ads_name" android:key="revanced_music_video_ads" android:summary="@string/revanced_show_ads_description" android:defaultValue="false" />
+            </com.google.android.apps.youtube.music.ui.preference.PreferenceCategoryCompat>
+            <com.google.android.apps.youtube.music.ui.preference.PreferenceCategoryCompat android:title="@string/revanced_category_design_name" android:key="revanced_settings_design">
+                <com.google.android.apps.youtube.music.ui.preference.SwitchCompatPreference android:title="@string/revanced_nav_bar_name" android:key="revanced_black_navbar" android:summary="@string/revanced_nav_bar_description" android:defaultValue="true" />
+                <com.google.android.apps.youtube.music.ui.preference.SwitchCompatPreference android:title="@string/revanced_mini_player_color_name" android:key="revanced_mini_player_color" android:summary="@string/revanced_mini_player_color_description" android:defaultValue="true" />
+            </com.google.android.apps.youtube.music.ui.preference.PreferenceCategoryCompat>
+            <com.google.android.apps.youtube.music.ui.preference.PreferenceCategoryCompat android:title="@string/revanced_category_listening_name" android:key="revanced_settings_listening">
+                <com.google.android.apps.youtube.music.ui.preference.SwitchCompatPreference android:title="@string/revanced_enforce_codecs_unlock_toggle_name" android:key="revanced_music_codecs_unlock" android:summary="@string/revanced_enforce_codecs_unlock_toggle_description" android:defaultValue="true" />
+                <com.google.android.apps.youtube.music.ui.preference.SwitchCompatPreference android:title="@string/revanced_enforce_minimized_player_toggle_name" android:key="revanced_enforce_minimized_player" android:summary="@string/revanced_enforce_minimized_player_toggle_description" android:defaultValue="true" />
+            </com.google.android.apps.youtube.music.ui.preference.PreferenceCategoryCompat>
+            <com.google.android.apps.youtube.music.ui.preference.PreferenceCategoryCompat android:title="@string/revanced_category_navigation_name" android:key="revanced_settings_navigation">
+                <com.google.android.apps.youtube.music.ui.preference.SwitchCompatPreference android:title="@string/revanced_cast_button_name" android:key="revanced_music_cast_button" android:summary="@string/revanced_cast_button_description" android:defaultValue="true" />
+                <com.google.android.apps.youtube.music.ui.preference.SwitchCompatPreference android:title="@string/revanced_compact_header_name" android:key="revanced_compact_header" android:summary="@string/revanced_compact_header_description" android:defaultValue="true" />
+                <com.google.android.apps.youtube.music.ui.preference.SwitchCompatPreference android:title="@string/revanced_tablet_mode_name" android:key="revanced_tablet_mode" android:summary="@string/revanced_tablet_mode_description" android:defaultValue="true" />
+            </com.google.android.apps.youtube.music.ui.preference.PreferenceCategoryCompat>
+        </PreferenceScreen>
+</PreferenceScreen>

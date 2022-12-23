@@ -9,53 +9,67 @@ The official Patch bundle provided by ReVanced and the community.
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
-| `always-autorepeat` | Always repeats the playing video again. | 17.49.37 |
-| `client-spoof` | Spoofs the YouTube or Vanced client to prevent playback issues. | all |
-| `comments` | Hides components related to comments. | 17.49.37 |
-| `custom-branding` | Changes the YouTube launcher icon and name to your choice (defaults to ReVanced). | all |
+| `client-spoof` | Spoofs the YouTube client to prevent playback issues. | 17.49.37 |
+| `custom-branding-icon-blue` | Changes the YouTube launcher icon (ReVanced Blue). | 17.49.37 |
+| `custom-branding-icon-red` | Changes the YouTube launcher icon (ReVanced Red). | 17.49.37 |
+| `custom-branding-icon-revancify` | Changes the YouTube launcher icon (Revancify). | 17.49.37 |
+| `custom-branding-name` | Changes the YouTube launcher name to your choice (defaults to ReVanced Extended). | 17.49.37 |
 | `custom-video-buffer` | Lets you change the buffers of videos. | 17.49.37 |
 | `custom-video-speed` | Adds more video speed options. | 17.49.37 |
-| `debugging` | Adds debugging options. | all |
-| `disable-auto-captions` | Disable forced captions from being automatically enabled. | 17.49.37 |
-| `disable-auto-player-popup-panels` | Disable automatic popup panels (playlist or live chat) on video player. | 17.49.37 |
-| `disable-fullscreen-panels` | Disables video description and comments panel in fullscreen view. | 17.49.37 |
-| `disable-startup-shorts-player` | Disables playing YouTube Shorts when launching YouTube. | 17.49.37 |
-| `disable-zoom-haptics` | Disables haptics when zooming. | all |
-| `downloads` | Enables downloading music and videos from YouTube. | 17.49.37 |
+| `default-video-quality` | Adds ability to set default video quality settings. | 17.49.37 |
+| `default-video-speed` | Adds ability to set default video speed settings. | 17.49.37 |
+| `disable-haptic-feedback` | Disable haptic feedback when swiping. | 17.49.37 |
+| `enable-external-browser` | Use an external browser to open the url. | 17.49.37 |
+| `enable-hdr-auto-brightness` | Makes the brightness of HDR videos follow the system default. | 17.49.37 |
+| `enable-minimized-playback` | Enables minimized and background playback. | 17.49.37 |
+| `enable-old-layout` | Spoof the YouTube client version to use the old layout. | 17.49.37 |
+| `enable-oldstyle-quality-layout` | Enables the original quality flyout menu. | 17.49.37 |
+| `enable-open-links-directly` | Bypass URL redirects (youtube.com/redirect) when opening links in video descriptions. | 17.49.37 |
+| `enable-seekbar-tapping` | Enables tap-to-seek on the seekbar of the video player. | 17.49.37 |
+| `enable-tablet-miniplayer` | Enables the tablet mini player layout. | 17.49.37 |
 | `enable-wide-searchbar` | Replaces the search icon with a wide search bar. This will hide the YouTube logo when active. | 17.49.37 |
-| `general-ads` | Removes general ads. | 17.49.37 |
-| `hdr-auto-brightness` | Makes the brightness of HDR videos follow the system default. | 17.49.37 |
-| `hide-album-cards` | Hides the album cards below the artist description. | 17.49.37 |
-| `hide-artist-card` | Hides the artist card below the searchbar. | 17.49.37 |
+| `force-premium-heading` | Forces premium heading on the home screen. | 17.49.37 |
+| `header-switch` | Add switch to change header. | 17.49.37 |
+| `hide-auto-captions` | Hide captions from being automatically enabled. | 17.49.37 |
+| `hide-auto-player-popup-panels` | Hide automatic popup panels (playlist or live chat) on video player. | 17.49.37 |
 | `hide-autoplay-button` | Hides the autoplay button in the video player. | 17.49.37 |
-| `hide-captions-button` | Hides the captions button on video player. | 17.49.37 |
-| `hide-cast-button` | Hides the cast button in the video player. | all |
+| `hide-button-container` | Adds options to hide action buttons under a video. | 17.49.37 |
+| `hide-cast-button` | Hides the cast button in the video player. | 17.49.37 |
+| `hide-channel-watermark` | Hides creator's watermarks on videos. | 17.49.37 |
+| `hide-comment-component` | Adds options to hide comment component under a video. | 17.49.37 |
 | `hide-create-button` | Hides the create button in the navigation bar. | 17.49.37 |
 | `hide-crowdfunding-box` | Hides the crowdfunding box between the player and video description. | 17.49.37 |
 | `hide-email-address` | Hides the email address in the account switcher. | 17.49.37 |
 | `hide-endscreen-cards` | Hides the suggested video cards at the end of a video in fullscreen. | 17.49.37 |
+| `hide-endscreen-overlay` | Hide endscreen overlay on swipe controls. | 17.49.37 |
+| `hide-filmstrip-overlay` | Hide flimstrip overlay on swipe controls. | 17.49.37 |
+| `hide-flyout-panel` | Adds options to hide player settings flyout panel. | 17.49.37 |
+| `hide-fullscreen-buttoncontainer` | Hides the button containers in fullscreen. | 17.49.37 |
+| `hide-general-ads` | Hooks the method which parses the bytes into a ComponentContext to filter components. | 17.49.37 |
 | `hide-info-cards` | Hides info-cards in videos. | 17.49.37 |
-| `hide-my-mix` | Hides mix playlists. | 17.49.37 |
-| `hide-shorts-button` | Hides the shorts button on the navigation bar. | 17.49.37 |
+| `hide-mix-playlists` | Removes mix playlists from home feed and video player. | 17.49.37 |
+| `hide-pip-notification` | Disable pip notification when you first launch pip mode. | 17.49.37 |
+| `hide-player-captions-button` | Hides the captions button in the video player. | 17.49.37 |
+| `hide-player-overlay-filter` | Hide the suggested actions bar inside the player. | 17.49.37 |
+| `hide-shorts-button` | Hides the shorts button in the navigation bar. | 17.49.37 |
+| `hide-shorts-component` | Hides other Shorts components. | 17.49.37 |
+| `hide-startup-shorts-player` | Disables playing YouTube Shorts when launching YouTube. | 17.49.37 |
+| `hide-stories` | Hides YouTube Stories shelf on the feed. | 17.49.37 |
+| `hide-suggested-actions` | Hide the suggested actions bar inside the player. | 17.49.37 |
 | `hide-time-and-seekbar` | Hides progress bar and time counter on videos. | 17.49.37 |
-| `hide-video-buttons` | Adds options to hide action buttons under a video. | 17.49.37 |
-| `hide-watch-in-vr` | Hides the Watch in VR option in the player settings flyout panel. | 17.49.37 |
-| `hide-watermark` | Hides creator's watermarks on videos. | 17.49.37 |
+| `hide-video-ads` | Removes ads in the video player. | 17.49.37 |
+| `layout-switch` | Tricks the dpi to use some tablet/phone layouts. | 17.49.37 |
+| `materialyou` | Enables MaterialYou theme for Android 12+ | 17.49.37 |
 | `microg-support` | Allows YouTube ReVanced to run without root and under a different package name with Vanced MicroG. | 17.49.37 |
-| `minimized-playback` | Enables minimized and background playback. | 17.49.37 |
-| `old-quality-layout` | Enables the original video quality flyout in the video player settings | 17.49.37 |
-| `open-links-directly` | Bypasses URL redirects and opens links directly inside YouTube app. | 17.49.37 |
-| `premium-heading` | Shows premium branding on the home screen. | all |
-| `remember-video-quality` | Adds the ability to remember the video quality you chose in the video quality flyout. | 17.49.37 |
+| `optimize-resource` | Removes duplicate resources and adds missing translation files from YouTube. | 17.49.37 |
+| `overlay-buttons` | Add overlay buttons for ReVanced Extended. | 17.49.37 |
 | `remove-player-button-background` | Removes the background from the video player buttons. | 17.49.37 |
 | `return-youtube-dislike` | Shows the dislike count of videos using the Return YouTube Dislike API. | 17.49.37 |
-| `seekbar-tapping` | Enables tap-to-seek on the seekbar of the video player. | 17.49.37 |
-| `settings` | Adds settings for ReVanced to YouTube. | all |
+| `settings` | Applies mandatory patches to implement ReVanced settings into the application. | 17.49.37 |
 | `sponsorblock` | Integrate SponsorBlock. | 17.49.37 |
 | `swipe-controls` | Adds volume and brightness swipe controls. | 17.49.37 |
-| `tablet-mini-player` | Enables the tablet mini player layout. | 17.49.37 |
-| `theme` | Applies a custom theme. | all |
-| `video-ads` | Removes ads in the video player. | 17.49.37 |
+| `theme` | Applies a custom theme (default: amoled). | 17.49.37 |
+| `translations` | Add Crowdin Translations | 17.49.37 |
 </details>
 
 ### [📦 `com.google.android.apps.youtube.music`](https://play.google.com/store/apps/details?id=com.google.android.apps.youtube.music)
@@ -63,186 +77,27 @@ The official Patch bundle provided by ReVanced and the community.
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
-| `background-play` | Enables playing music in the background. | 5.36.51 |
-| `codecs-unlock` | Adds more audio codec options. The new audio codecs usually result in better audio quality. | 5.36.51 |
-| `compact-header` | Hides the music category bar at the top of the homepage. | 5.36.51 |
-| `exclusive-audio-playback` | Enables the option to play music without video. | 5.36.51 |
-| `hide-get-premium` | Removes all "Get Premium" evidences from the avatar menu. | 5.36.51 |
-| `minimized-playback-music` | Enables minimized playback on Kids music. | 5.36.51 |
-| `music-microg-support` | Allows YouTube Music ReVanced to run without root and under a different package name. | 5.36.51 |
-| `music-video-ads` | Removes ads in the music player. | 5.36.51 |
-| `tasteBuilder-remover` | Removes the "Tell us which artists you like" card from the home screen. | 5.36.51 |
-| `upgrade-button-remover` | Removes the upgrade tab from the pivot bar. | 5.36.51 |
-</details>
-
-### [📦 `com.ss.android.ugc.trill`](https://play.google.com/store/apps/details?id=com.ss.android.ugc.trill)
-<details>
-
-| 💊 Patch | 📜 Description | 🏹 Target Version |
-|:--------:|:--------------:|:-----------------:|
-| `disable-login-requirement` | Do not force login. | all |
-| `downloads` | Removes download restrictions and changes the default path to download to. | all |
-| `feed-filter` | Filters tiktok videos: removing ads, removing livestreams. | all |
-| `fix-google-login` | Allows logging in with a Google account. | all |
-| `hide-ads` | Removes ads from TikTok. | all |
-| `playback-speed` | Enables the playback speed option for all videos. | all |
-| `settings` | Adds ReVanced settings to TikTok. | all |
-| `show-seekbar` | Shows progress bar for all video. | all |
-| `sim-spoof` | Spoofs the information which is retrieved from the sim-card. | all |
-</details>
-
-### [📦 `com.zhiliaoapp.musically`](https://play.google.com/store/apps/details?id=com.zhiliaoapp.musically)
-<details>
-
-| 💊 Patch | 📜 Description | 🏹 Target Version |
-|:--------:|:--------------:|:-----------------:|
-| `disable-login-requirement` | Do not force login. | all |
-| `downloads` | Removes download restrictions and changes the default path to download to. | all |
-| `feed-filter` | Filters tiktok videos: removing ads, removing livestreams. | all |
-| `fix-google-login` | Allows logging in with a Google account. | all |
-| `hide-ads` | Removes ads from TikTok. | all |
-| `playback-speed` | Enables the playback speed option for all videos. | all |
-| `settings` | Adds ReVanced settings to TikTok. | all |
-| `show-seekbar` | Shows progress bar for all video. | all |
-| `sim-spoof` | Spoofs the information which is retrieved from the sim-card. | all |
-</details>
-
-### [📦 `tv.twitch.android.app`](https://play.google.com/store/apps/details?id=tv.twitch.android.app)
-<details>
-
-| 💊 Patch | 📜 Description | 🏹 Target Version |
-|:--------:|:--------------:|:-----------------:|
-| `block-audio-ads` | Blocks audio ads in streams and VODs. | all |
-| `block-embedded-ads` | Blocks embedded steam ads using services like TTV.lol or PurpleAdBlocker. | all |
-| `block-video-ads` | Blocks video ads in streams and VODs. | all |
-| `debug-mode` | Enables Twitch's internal debugging mode. | all |
-| `settings` | Adds settings menu to Twitch. | all |
-| `show-deleted-messages` | Shows deleted chat messages behind a clickable spoiler. | all |
-</details>
-
-### [📦 `com.spotify.music`](https://play.google.com/store/apps/details?id=com.spotify.music)
-<details>
-
-| 💊 Patch | 📜 Description | 🏹 Target Version |
-|:--------:|:--------------:|:-----------------:|
-| `disable-capture-restriction` | Allows capturing Spotify's audio output while screen sharing or screen recording. | all |
-| `hide-premium-navbar` | Removes the premium tab from the navbar. | all |
-| `spotify-theme` | Applies a custom theme. | all |
-</details>
-
-### [📦 `com.twitter.android`](https://play.google.com/store/apps/details?id=com.twitter.android)
-<details>
-
-| 💊 Patch | 📜 Description | 🏹 Target Version |
-|:--------:|:--------------:|:-----------------:|
-| `dynamic-color` | Replaces the default Twitter Blue with the users Material You palette. | all |
-| `monochrome-icon` | Adds a monochrome icon. | all |
-| `timeline-ads` | Removes ads from the Twitter timeline. Might require clearing app data to remove already cached ads. | all |
-</details>
-
-### [📦 `com.reddit.frontpage`](https://play.google.com/store/apps/details?id=com.reddit.frontpage)
-<details>
-
-| 💊 Patch | 📜 Description | 🏹 Target Version |
-|:--------:|:--------------:|:-----------------:|
-| `general-reddit-ads` | Removes general ads from the Reddit frontpage and subreddits. | all |
-| `premium-icon-reddit` | Unlocks premium Reddit app icons. | all |
-</details>
-
-### [📦 `com.vanced.android.youtube`](https://play.google.com/store/apps/details?id=com.vanced.android.youtube)
-<details>
-
-| 💊 Patch | 📜 Description | 🏹 Target Version |
-|:--------:|:--------------:|:-----------------:|
-| `client-spoof` | Spoofs the YouTube or Vanced client to prevent playback issues. | all |
-</details>
-
-### [📦 `com.myprog.hexedit`](https://play.google.com/store/apps/details?id=com.myprog.hexedit)
-<details>
-
-| 💊 Patch | 📜 Description | 🏹 Target Version |
-|:--------:|:--------------:|:-----------------:|
-| `disable-ads` | Disables ads in HexEditor. | all |
-</details>
-
-### [📦 `org.citra.citra_emu`](https://play.google.com/store/apps/details?id=org.citra.citra_emu)
-<details>
-
-| 💊 Patch | 📜 Description | 🏹 Target Version |
-|:--------:|:--------------:|:-----------------:|
-| `premium-unlock` | Unlocks premium functions. | all |
-</details>
-
-### [📦 `org.citra.citra_emu.canary`](https://play.google.com/store/apps/details?id=org.citra.citra_emu.canary)
-<details>
-
-| 💊 Patch | 📜 Description | 🏹 Target Version |
-|:--------:|:--------------:|:-----------------:|
-| `premium-unlock` | Unlocks premium functions. | all |
-</details>
-
-### [📦 `com.backdrops.wallpapers`](https://play.google.com/store/apps/details?id=com.backdrops.wallpapers)
-<details>
-
-| 💊 Patch | 📜 Description | 🏹 Target Version |
-|:--------:|:--------------:|:-----------------:|
-| `pro-unlock` | Unlocks pro-only functions. | all |
-</details>
-
-### [📦 `de.dwd.warnapp`](https://play.google.com/store/apps/details?id=de.dwd.warnapp)
-<details>
-
-| 💊 Patch | 📜 Description | 🏹 Target Version |
-|:--------:|:--------------:|:-----------------:|
-| `promo-code-unlock` | Disables the validation of promo code. Any code will work to unlock all features. | all |
-</details>
-
-### [📦 `co.windyapp.android`](https://play.google.com/store/apps/details?id=co.windyapp.android)
-<details>
-
-| 💊 Patch | 📜 Description | 🏹 Target Version |
-|:--------:|:--------------:|:-----------------:|
-| `unlock-pro` | Unlocks all pro features. | all |
-</details>
-
-### [📦 `org.totschnig.myexpenses`](https://play.google.com/store/apps/details?id=org.totschnig.myexpenses)
-<details>
-
-| 💊 Patch | 📜 Description | 🏹 Target Version |
-|:--------:|:--------------:|:-----------------:|
-| `unlock-pro` | Unlocks all professional features. | all |
-</details>
-
-### [📦 `com.awedea.nyx`](https://play.google.com/store/apps/details?id=com.awedea.nyx)
-<details>
-
-| 💊 Patch | 📜 Description | 🏹 Target Version |
-|:--------:|:--------------:|:-----------------:|
-| `unlock-pro` | Unlocks all pro features. | all |
-</details>
-
-### [📦 `com.ithebk.expensemanager`](https://play.google.com/store/apps/details?id=com.ithebk.expensemanager)
-<details>
-
-| 💊 Patch | 📜 Description | 🏹 Target Version |
-|:--------:|:--------------:|:-----------------:|
-| `unlock-pro` | Unlocks pro features. | all |
-</details>
-
-### [📦 `ginlemon.iconpackstudio`](https://play.google.com/store/apps/details?id=ginlemon.iconpackstudio)
-<details>
-
-| 💊 Patch | 📜 Description | 🏹 Target Version |
-|:--------:|:--------------:|:-----------------:|
-| `unlock-pro` | Unlocks all pro features. | all |
-</details>
-
-### [📦 `com.ticktick.task`](https://play.google.com/store/apps/details?id=com.ticktick.task)
-<details>
-
-| 💊 Patch | 📜 Description | 🏹 Target Version |
-|:--------:|:--------------:|:-----------------:|
-| `unlock-themes` | Unlocks all themes. | all |
+| `background-play` | Enables playing music in the background. | all |
+| `black-navbar` | Sets the navigation bar color to black. | all |
+| `client-spoof-music` | Spoofs the YouTube Music client. | all |
+| `codecs-unlock` | Adds more audio codec options. The new audio codecs usually result in better audio quality. | all |
+| `compact-header` | Hides the music category bar at the top of the homepage. | all |
+| `custom-branding-music-red` | Changes the YouTube Music launcher icon to your choice (defaults to ReVanced Red). | all |
+| `custom-branding-music-revancify` | Changes the YouTube Music launcher icon to your choice (Revancify). | all |
+| `exclusive-audio-playback` | Enables the option to play music without video. | all |
+| `hide-get-premium` | Removes all "Get Premium" evidences from the avatar menu. | all |
+| `hide-music-cast-button` | Hides the cast button in the video player and header | all |
+| `minimized-playback-music` | Enables minimized playback on Kids music. | all |
+| `minimized-player` | Permanently keep player minimized even if another track is played. | all |
+| `miniplayer-color` | Matches the fullscreen player color with the minimized one. | all |
+| `music-microg-support` | Allows YouTube Music ReVanced to run without root and under a different package name. | all |
+| `music-settings` | Adds settings for ReVanced to YouTube Music. | all |
+| `music-video-ads` | Removes ads in the music player. | all |
+| `optimize-resource-music` | Remove unnecessary resources. | all |
+| `tablet-mode` | Unlocks landscape mode. | all |
+| `tasteBuilder-remover` | Removes the "Tell us which artists you like" card from the home screen. | all |
+| `translations-music` | Add Crowdin Translations for YouTube Music | all |
+| `upgrade-button-remover` | Removes the upgrade tab from the pivot bar. | all |
 </details>
 
 
@@ -288,74 +143,8 @@ Example:
       {
         "name": "com.google.android.youtube",
         "versions": [
-          "17.22.36",
-          "17.24.35",
-          "17.26.35",
-          "17.27.39",
-          "17.28.34",
-          "17.29.34",
-          "17.32.35",
-          "17.33.42"
+          "17.49.37"
         ]
-      }
-    ]
-  },
-  {
-    "name": "theme",
-    "description": "Enables a custom theme.",
-    "version": "0.0.1",
-    "excluded": false,
-    "deprecated": false,
-    "options": [
-      {
-        "key": "theme",
-        "title": "Theme",
-        "description": "Select a theme.",
-        "required": true,
-        "choices": [
-          "Amoled"
-        ]
-      }
-    ],
-    "dependencies": [
-      "locale-config-fix"
-    ],
-    "compatiblePackages": [
-      {
-        "name": "com.google.android.youtube",
-        "versions": []
-      }
-    ]
-  },
-  {
-    "name": "custom-branding",
-    "description": "Changes the YouTube launcher icon and name to your choice (defaults to ReVanced).",
-    "version": "0.0.1",
-    "excluded": false,
-    "deprecated": false,
-    "options": [
-      {
-        "key": "appName",
-        "title": "Application Name",
-        "description": "The name of the application it will show on your home screen.",
-        "required": true,
-        "choices": null
-      },
-      {
-        "key": "appIconPath",
-        "title": "Application Icon Path",
-        "description": "A path to the icon of the application.",
-        "required": false,
-        "choices": null
-      }
-    ],
-    "dependencies": [
-      "locale-config-fix"
-    ],
-    "compatiblePackages": [
-      {
-        "name": "com.google.android.youtube",
-        "versions": []
       }
     ]
   }

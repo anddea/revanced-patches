@@ -5,18 +5,18 @@ import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
-import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patches.music.layout.tastebuilder.annotations.RemoveTasteBuilderCompatibility
 import app.revanced.patches.music.layout.tastebuilder.fingerprints.TasteBuilderConstructorFingerprint
+import app.revanced.shared.annotation.YouTubeMusicCompatibility
 import org.jf.dexlib2.iface.instruction.formats.Instruction22c
 
 @Patch
 @Name("tasteBuilder-remover")
 @Description("Removes the \"Tell us which artists you like\" card from the home screen.")
-@RemoveTasteBuilderCompatibility
+@YouTubeMusicCompatibility
 @Version("0.0.1")
 class RemoveTasteBuilderPatch : BytecodePatch(
     listOf(

@@ -6,7 +6,6 @@ import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 
-
 @FuzzyPatternScanMethod(2) // FIXME: Test this threshold and find the best value.
 object BackgroundPlaybackDisableFingerprint : MethodFingerprint(
     "Z", AccessFlags.PUBLIC or AccessFlags.STATIC, listOf("L"), listOf(

@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.misc.integrations.fingerprints
 
-import app.revanced.patches.shared.integrations.patch.AbstractIntegrationsPatch.IntegrationsFingerprint
+import app.revanced.shared.patches.integrations.AbstractIntegrationsPatch.IntegrationsFingerprint
 
 object ServiceFingerprint : IntegrationsFingerprint(
     customFingerprint = { methodDef -> methodDef.definingClass.endsWith("ApiPlayerService;") && methodDef.name == "<init>" },

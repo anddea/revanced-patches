@@ -1,10 +1,9 @@
 package app.revanced.patches.youtube.misc.playercontrols.fingerprints
 
-
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
-import app.revanced.patches.youtube.misc.playercontrols.bytecode.patch.PlayerControlsBytecodePatch
-import org.jf.dexlib2.Opcode
+import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourcdIdPatch
 import org.jf.dexlib2.iface.instruction.WideLiteralInstruction
+import org.jf.dexlib2.Opcode
 
 object BottomControlsInflateFingerprint : MethodFingerprint(
     opcodes = listOf(
@@ -15,7 +14,7 @@ object BottomControlsInflateFingerprint : MethodFingerprint(
     customFingerprint = { methodDef ->
         methodDef.implementation?.instructions?.any { instruction ->
             instruction.opcode.ordinal == Opcode.CONST.ordinal &&
-            (instruction as? WideLiteralInstruction)?.wideLiteral == PlayerControlsBytecodePatch.bottomUiContainerResourceId
+            (instruction as? WideLiteralInstruction)?.wideLiteral == SharedResourcdIdPatch.bottomUiContainerResourceId
         } == true
     }
 )

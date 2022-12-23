@@ -1,0 +1,85 @@
+package app.revanced.patches.youtube.ads.general.resource.patch
+
+import app.revanced.patcher.annotation.Description
+import app.revanced.patcher.annotation.Name
+import app.revanced.patcher.annotation.Version
+import app.revanced.patcher.data.ResourceContext
+import app.revanced.patcher.patch.annotations.DependsOn
+import app.revanced.patcher.patch.annotations.Patch
+import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.ResourcePatch
+import app.revanced.patches.youtube.ads.general.bytecode.patch.GeneralAdsBytecodePatch
+import app.revanced.patches.youtube.ads.general.bytecode.patch.GeneralAdsSecondaryBytecodePatch
+import app.revanced.patches.youtube.misc.litho.filter.patch.LithoFilterPatch
+import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
+import app.revanced.shared.annotation.YouTubeCompatibility
+import app.revanced.shared.extensions.doRecursively
+import app.revanced.shared.extensions.startsWithAny
+import app.revanced.shared.util.resources.ResourceHelper
+import org.w3c.dom.Element
+
+@Patch
+@Name("hide-general-ads")
+@Description("Hooks the method which parses the bytes into a ComponentContext to filter components.")
+@DependsOn(
+    [
+        GeneralAdsBytecodePatch::class,
+        GeneralAdsSecondaryBytecodePatch::class,
+        LithoFilterPatch::class,
+        SettingsPatch::class
+    ]
+)
+@YouTubeCompatibility
+@Version("0.0.1")
+class GeneralAdsPatch : ResourcePatch {
+    private val resourceFileNames = arrayOf(
+        "promoted_",
+        "promotion_",
+        "compact_premium_",
+        "compact_promoted_",
+    )
+
+    private val replacements = arrayOf(
+        "height",
+        "width",
+        "marginTop"
+    )
+
+    override fun execute(context: ResourceContext): PatchResult {
+        context.forEach {
+
+            if (!it.name.startsWithAny(*resourceFileNames)) return@forEach
+
+            // for each file in the "layouts" directory replace all necessary attributes content
+            context.xmlEditor[it.absolutePath].use { editor ->
+                editor.file.doRecursively { node ->
+                    replacements.forEach replacement@{ replacement ->
+                        if (node !is Element) return@replacement
+
+                        node.getAttributeNode("android:layout_$replacement")?.let { attribute ->
+                            attribute.textContent = "0.0dip"
+                        }
+                    }
+                }
+            }
+        }
+
+        /*
+         add settings
+         */
+        ResourceHelper.addSettings(
+            context,
+            "PREFERENCE_CATEGORY: REVANCED_SETTINGS",
+            "PREFERENCE: ADS_SETTINGS",
+            "SETTINGS: HIDE_GENERAL_ADS"
+        )
+
+        ResourceHelper.patchSuccess(
+            context,
+            "hide-general-ads"
+        )
+
+        return PatchResultSuccess()
+    }
+}
