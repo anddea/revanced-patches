@@ -223,6 +223,8 @@
     <string name="revanced_enable_press_to_swipe_summary_off">El gesto de presionar para deslizar está desactivado</string>
     <string name="revanced_enable_press_to_swipe_summary_on">El gesto de presionar para deslizar está activado</string>
     <string name="revanced_enable_press_to_swipe_title">Activar gesto de presionar para deslizar</string>
+    <string name="revanced_enable_phone_layout_summary">Modifica los DPI para utilizar algunos diseños de teléfono</string>
+    <string name="revanced_enable_phone_layout_title">Activar diseño de teléfono</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">La pulsación en la barra de progreso está desactivada</string>
     <string name="revanced_enable_save_video_quality_summary_off">No se guardan los valores de calidad del vídeo incluso cuando cambia la calidad del vídeo </string>
     <string name="revanced_enable_save_video_quality_summary_on">Se guarda el valor de la calidad del vídeo cada vez que cambia la calidad del vídeo</string>
@@ -244,6 +246,8 @@
     <string name="revanced_enable_tablet_miniplayer_summary_off">El minirreproductor para tabletas está desactivado</string>
     <string name="revanced_enable_tablet_miniplayer_summary_on">El minirreproductor para tabletas está activado</string>
     <string name="revanced_enable_tablet_miniplayer_title">Activar minirreproductor para tabletas</string>
+    <string name="revanced_enable_tablet_layout_summary">Modifica los DPI para utilizar algunos diseños de tableta</string>
+    <string name="revanced_enable_tablet_layout_title">Activar diseño de tableta</string>
     <string name="revanced_enable_wide_searchbar_summary_off">La barra de búsqueda ancha está desactivada</string>
     <string name="revanced_enable_wide_searchbar_summary_on">La barra de búsqueda ancha está activada</string>
     <string name="revanced_enable_wide_searchbar_title">Activar barra de búsqueda ancha</string>
@@ -253,6 +257,9 @@
     <string name="revanced_extended_settings">Ajustes de ReVanced Extended</string>
     <string name="revanced_extended_summary">Ajustes relacionados con Extended</string>
     <string name="revanced_extended_title">Ajustes de Extended</string>
+    <string name="revanced_fix_video_playback_summary_off">La reparación de los problemas de búfer de reproducción de vídeo está desactivada</string>
+    <string name="revanced_fix_video_playback_summary_on">La reparación de los problemas de búfer de reproducción de vídeo está activada</string>
+    <string name="revanced_fix_video_playback_title">Reparar problemas de búfer de reproducción de vídeo</string>
     <string name="revanced_hide_auto_captions_summary_off">Los subtítulos se activan cuando la reproducción de un vídeo con subtítulos es obligatoria</string>
     <string name="revanced_hide_auto_captions_summary_on">"Los subtítulos no están activados cuando la reproducción de un vídeo con subtítulos es obligatoria"</string>
     <string name="revanced_hide_auto_captions_title">Ocultar subtítulos automáticos</string>
@@ -436,6 +443,25 @@
     <string name="revanced_patches_information">Información de parches</string>
     <string name="revanced_player_flyout_panel_summary">Ocultar los componentes del panel flotante de los ajustes del reproductor</string>
     <string name="revanced_player_flyout_panel_title">Componentes del panel flotante del reproductor</string>
+    <string name="revanced_reboot_warning_general">"Como esta es todavía una característica experimental, puede haber otros problemas desconocidos.
+¿Está seguro de que desea continuar?"</string>
+    <string name="revanced_reboot_warning_oldlayout">"Modifica la versión del cliente de YouTube a v17.28.35 para cargar el diseño antiguo
+
+En los ajustes de la aplicación, la versión de YouTube puede estar marcada como v17.28.35"</string>
+    <string name="revanced_reboot_warning_phone">"Modifica los DPI para cambiar algunos diseños a diseños de teléfono.
+
+Si activas este ajuste, las siguientes funciones estarán disponibles:
+- Publicaciones comunitarias
+- Ocultar lista de reproducción Mix"</string>
+    <string name="revanced_reboot_warning_playback">"Repara los problemas de búfer de reproducción de vídeo en algunas regiones.
+
+Si activas este ajuste, puede ocurrir el siguiente problema:
+- Al reproducir un vídeo en la lista de reproducción, es posible que el problema no se solucione"</string>
+    <string name="revanced_reboot_warning_tablet">"Modifica los DPI para cambiar algunos diseños a diseños de tableta.
+
+Si activas este ajuste, las siguientes características no estarán disponibles:
+- Modo ambiente
+- Publicaciones comunitarias"</string>
     <string name="revanced_ryd_mirror_attribution_summary">Los datos de No Me Gusta son proporcionados por la API True RYD Worker. Toque aquí para obtener más información.</string>
     <string name="revanced_ryd_mirror_attribution_title">true-ryd.cane.workers.dev</string>
     <string name="revanced_ryd_mirror_enable_summary_off">El Mirror de la API está desactivado</string>
