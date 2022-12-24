@@ -59,12 +59,14 @@ class TranslationsPatch : ResourcePatch {
             "ko-rKR",
             "pl-rPL",
             "pt-rBR",
+            "pt-rPT",
             "ru-rRU",
             "sk-rSK",
             "tr-rTR",
             "uk-rUA",
             "vi-rVN",
-            "zh-rCN"
+            "zh-rCN",
+            "zh-rTW"
         )
     }
 }
