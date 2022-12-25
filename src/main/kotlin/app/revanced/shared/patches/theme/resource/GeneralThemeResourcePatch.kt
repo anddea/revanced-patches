@@ -13,66 +13,69 @@ import org.w3c.dom.Element
 class GeneralThemeResourcePatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
 
-        // copies the resource file to change the splash screen color
-        context.xmlEditor["res/values/attrs.xml"].use { editor ->
-            with(editor.file) {
-                val resourcesNode = getElementsByTagName("resources").item(0) as Element
+        // edit the resource files to change the splash screen color
+        val attrsPath = "res/values/attrs.xml"
+        val stylesPaths: List<String> = listOf(
+            "res/values/styles.xml", // Android 11 (and below)
+            "res/values-v31/styles.xml", // Android 12 (and above)
+        )
 
-                val newElement: Element = createElement("attr")
-                newElement.setAttribute("format", "reference")
-                newElement.setAttribute("name", "splashScreenColor")
+        context.xmlEditor[attrsPath].use { editor ->
+            val file = editor.file
 
-                resourcesNode.appendChild(newElement)
-            }
+            (file.getElementsByTagName("resources").item(0) as Element).appendChild(
+                file.createElement("attr").apply {
+                    setAttribute("format", "reference")
+                    setAttribute("name", "splashScreenColor")
+                }
+            )
         }
+        stylesPaths.forEachIndexed { pathIndex, stylesPath ->
+            context.xmlEditor[stylesPath].use { editor ->
+                val file = editor.file
 
-        context.xmlEditor["res/values/styles.xml"].use { editor ->
-            with(editor.file) {
-                val resourcesNode = getElementsByTagName("resources").item(0) as Element
+                val childNodes = (file.getElementsByTagName("resources").item(0) as Element).childNodes
 
-                for (i in 0 until resourcesNode.childNodes.length) {
-                    val node = resourcesNode.childNodes.item(i) as? Element ?: continue
+                for (i in 0 until childNodes.length) {
+                    val node = childNodes.item(i) as? Element ?: continue
+                    val nodeAttributeName = node.getAttribute("name")
 
-                    val newElement: Element = createElement("item")
-                    newElement.setAttribute("name", "splashScreenColor")
+                    file.createElement("item").apply {
+                        setAttribute(
+                            "name",
+                            when (pathIndex) {
+                                0 -> "splashScreenColor"
+                                1 -> "android:windowSplashScreenBackground"
+                                else -> "null"
+                            }
+                        )
 
-                    when (node.getAttribute("name")) {
-                        "Base.Theme.YouTube.Launcher.Dark" -> {
-                            newElement.appendChild(createTextNode("@color/yt_black1"))
+                        appendChild(
+                            file.createTextNode(
+                                when (pathIndex) {
+                                    0 -> when (nodeAttributeName) {
+                                        "Base.Theme.YouTube.Launcher.Dark" -> "@color/yt_black1"
+                                        "Base.Theme.YouTube.Launcher.Light" -> "@color/yt_white1"
+                                        else -> "null"
+                                    }
+                                    1 -> when (nodeAttributeName) {
+                                        "Base.Theme.YouTube.Launcher" -> "?attr/splashScreenColor"
+                                        else -> "null"
+                                    }
+                                    else -> "null"
+                                }
+                            )
+                        )
 
-                            node.appendChild(newElement)
-                        }
-                        "Base.Theme.YouTube.Launcher.Light" -> {
-                            newElement.appendChild(createTextNode("@color/yt_white1"));
-
-                            node.appendChild(newElement)
-                        }
+                        if (this.textContent != "null")
+                            node.appendChild(this)
                     }
                 }
             }
         }
 
-        context.xmlEditor["res/values-v31/styles.xml"].use { editor ->
-            with(editor.file) {
-                val resourcesNode = getElementsByTagName("resources").item(0) as Element
-
-                val newElement: Element = createElement("item")
-                newElement.setAttribute("name", "android:windowSplashScreenBackground")
-
-                for (i in 0 until resourcesNode.childNodes.length) {
-                    val node = resourcesNode.childNodes.item(i) as? Element ?: continue
-
-                    if (node.getAttribute("name") == "Base.Theme.YouTube.Launcher") {
-                        newElement.appendChild(createTextNode("?attr/splashScreenColor"))
-
-                        node.appendChild(newElement)
-                    }
-                }
-            }
-        }
-
-        arrayOf("drawable", "drawable-sw600dp").forEach { drawablePath ->
-            context.xmlEditor["res/$drawablePath/quantum_launchscreen_youtube.xml"].use { editor ->
+        arrayOf("drawable", "drawable-sw600dp").forEach { quantumLaunchscreenPath ->
+            context.xmlEditor["res/$quantumLaunchscreenPath/quantum_launchscreen_youtube.xml"].use { editor ->
                 val resourcesNode = editor.file.getElementsByTagName("item").item(0) as Element
 
                 if (resourcesNode.attributes.getNamedItem("android:drawable") != null)
