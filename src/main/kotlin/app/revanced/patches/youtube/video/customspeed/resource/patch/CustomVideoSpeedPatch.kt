@@ -4,20 +4,18 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.patch.annotations.DependsOn
-import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
-import app.revanced.patches.youtube.video.customspeed.bytecode.patch.CustomVideoSpeedBytecodePatch
+import app.revanced.patcher.patch.annotations.DependsOn
+import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
+import app.revanced.patches.youtube.video.customspeed.bytecode.patch.CustomVideoSpeedBytecodePatch
 import app.revanced.shared.annotation.YouTubeCompatibility
 import app.revanced.shared.patches.options.PatchOptions
 import app.revanced.shared.util.resources.ResourceHelper
 import app.revanced.shared.util.resources.ResourceUtils.copyXmlNode
-import java.nio.file.Files
-import java.nio.file.StandardCopyOption
 
 @Patch
 @Name("custom-video-speed")
@@ -39,11 +37,11 @@ class CustomVideoSpeedPatch : ResourcePatch {
          */
         context.copyXmlNode("youtube/speed/host", "values/arrays.xml", "resources")
 
-        var speed = PatchOptions.CustomSpeedArrays
+        val speed = PatchOptions.CustomSpeedArrays
             ?: return PatchResultError("Invalid video speed array.")
 
         val splits = speed.replace(" ","").split(",")
-        if (splits.count() < 1) throw IllegalArgumentException("Invalid speed elements")
+        if (splits.isEmpty()) throw IllegalArgumentException("Invalid speed elements")
         val speedElements = splits.map { it }
         for (index in 0 until splits.count()) {
             ResourceHelper.addEntryValues(context, speedElements[index])

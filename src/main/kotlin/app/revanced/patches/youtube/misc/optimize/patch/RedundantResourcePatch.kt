@@ -30,7 +30,7 @@ class RedundantResourcePatch : ResourcePatch {
             WHITELIST_XHDPI,
             WHITELIST_XXXHDPI
         ).forEach { (path, array) ->
-            val tmpDirectory = "$path" + "-v21"
+            val tmpDirectory = path + "-v21"
             Files.createDirectory(context["res"].resolve(tmpDirectory).toPath())
 
             (WHITELIST_GENERAL + array).forEach { name ->
@@ -40,9 +40,9 @@ class RedundantResourcePatch : ResourcePatch {
                             context["res"].resolve("$tmpDirectory/$name").toPath(),
                             StandardCopyOption.REPLACE_EXISTING
                     )
-                } catch (e: Exception) {}
+                } catch (_: Exception) {}
             }
-            val directoryPath = context["res"].resolve("$path")
+            val directoryPath = context["res"].resolve(path)
 
             Files.walk(directoryPath.toPath())
                     .map(Path::toFile)

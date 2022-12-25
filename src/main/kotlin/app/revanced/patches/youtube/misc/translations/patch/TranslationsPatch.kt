@@ -25,7 +25,7 @@ class TranslationsPatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
 
         LANGUAGE_LIST.forEach { language ->
-            val directory = "values-" + "$language" + "-v21"
+            val directory = "values-" + language + "-v21"
             val relativePath = "$language/strings.xml"
 
             context["res/$directory"].mkdir()

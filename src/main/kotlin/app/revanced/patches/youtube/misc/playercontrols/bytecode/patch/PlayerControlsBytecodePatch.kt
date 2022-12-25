@@ -73,19 +73,19 @@ class PlayerControlsBytecodePatch : BytecodePatch(
         }
 
         fun injectVisibility(descriptor: String) {
-            showPlayerControlsFingerprintResult.injectVisibilityCall("$descriptor", "changeVisibility")
+            showPlayerControlsFingerprintResult.injectVisibilityCall(descriptor, "changeVisibility")
         }
 
         fun injectVisibilityNegated(descriptor: String) {
-            visibilityNegatedFingerprintResult.injectVisibilityCall("$descriptor", "changeVisibilityNegatedImmediate")
+            visibilityNegatedFingerprintResult.injectVisibilityCall(descriptor, "changeVisibilityNegatedImmediate")
         }
 
         fun initializeSB(descriptor: String) {
-            controlsLayoutInflateFingerprintResult.injectCalls("$descriptor")
+            controlsLayoutInflateFingerprintResult.injectCalls(descriptor)
         }
 
         fun initializeControl(descriptor: String) {
-            inflateFingerprintResult.injectCalls("$descriptor")
+            inflateFingerprintResult.injectCalls(descriptor)
         }
     }
 }

@@ -4,15 +4,12 @@ import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patches.youtube.extended.oldlayout.bytecode.fingerprints.OldLayoutFingerprint
 import app.revanced.shared.annotation.YouTubeCompatibility
 import app.revanced.shared.util.integrations.Constants.EXTENDED_PATH
-import app.revanced.shared.util.integrations.Constants.UTILS_PATH
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Name("enable-old-layout-bytecode-patch")

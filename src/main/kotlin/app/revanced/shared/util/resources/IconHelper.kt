@@ -77,6 +77,6 @@ internal object IconHelper {
                     )
                 }
             }
-        } catch (e: Exception) {}
+        } catch (_: Exception) {}
     }
 }

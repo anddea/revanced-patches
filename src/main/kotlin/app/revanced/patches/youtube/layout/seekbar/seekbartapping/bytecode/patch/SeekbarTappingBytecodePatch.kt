@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.layout.seekbar.seekbartapping.bytecode.patch
 
-import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
@@ -13,11 +12,11 @@ import app.revanced.patches.youtube.layout.seekbar.seekbartapping.bytecode.finge
 import app.revanced.patches.youtube.layout.seekbar.seekbartapping.bytecode.fingerprints.SeekbarTappingParentFingerprint
 import app.revanced.shared.annotation.YouTubeCompatibility
 import app.revanced.shared.util.integrations.Constants.SEEKBAR_LAYOUT
+import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.builder.instruction.BuilderInstruction21t
+import org.jf.dexlib2.iface.Method
 import org.jf.dexlib2.iface.instruction.formats.Instruction11n
 import org.jf.dexlib2.iface.instruction.formats.Instruction35c
-import org.jf.dexlib2.iface.Method
-import org.jf.dexlib2.Opcode
 
 @Name("enable-seekbar-tapping-bytecode-patch")
 @YouTubeCompatibility

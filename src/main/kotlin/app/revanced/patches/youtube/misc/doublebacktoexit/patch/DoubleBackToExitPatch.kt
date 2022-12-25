@@ -6,11 +6,10 @@ import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.data.toMethodWalker
 import app.revanced.patcher.extensions.addInstruction
-import app.revanced.patcher.extensions.instruction
-import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.misc.doublebacktoexit.fingerprint.RecyclerViewFingerprint
 import app.revanced.patches.youtube.misc.doublebacktoexit.fingerprint.ScrollPositionFingerprint
@@ -19,8 +18,6 @@ import app.revanced.shared.extensions.toErrorResult
 import app.revanced.shared.patches.gestures.PredictiveBackGesturePatch
 import app.revanced.shared.util.bytecode.BytecodeHelper
 import app.revanced.shared.util.integrations.Constants.UTILS_PATH
-
-import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.Opcode
 
 @Name("enable-double-back-to-exit")

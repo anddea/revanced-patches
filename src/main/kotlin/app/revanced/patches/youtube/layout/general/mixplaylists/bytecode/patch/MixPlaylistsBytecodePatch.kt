@@ -3,7 +3,6 @@ package app.revanced.patches.youtube.layout.general.mixplaylists.bytecode.patch
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.instruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patcher.patch.BytecodePatch
@@ -12,11 +11,10 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patches.youtube.layout.general.mixplaylists.bytecode.fingerprints.*
 import app.revanced.shared.annotation.YouTubeCompatibility
 import app.revanced.shared.extensions.injectHideCall
-import app.revanced.shared.util.bytecode.BytecodeHelper
-import org.jf.dexlib2.iface.instruction.formats.Instruction21c
 import org.jf.dexlib2.iface.instruction.Instruction
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
+import org.jf.dexlib2.iface.instruction.formats.Instruction21c
 
 @Name("hide-mix-playlists-bytecode-patch")
 @YouTubeCompatibility

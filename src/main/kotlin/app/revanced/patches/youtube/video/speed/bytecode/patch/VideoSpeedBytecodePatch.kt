@@ -13,7 +13,6 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patcher.util.smali.toInstructions
-import app.revanced.patches.youtube.video.speed.bytecode.fingerprints.VideoSpeedReferenceFingerprint
 import app.revanced.patches.youtube.video.speed.bytecode.fingerprints.VideoSpeedSetterFingerprint
 import app.revanced.patches.youtube.video.speed.bytecode.fingerprints.VideoUserSpeedChangeFingerprint
 import app.revanced.patches.youtube.misc.videoid.legacy.patch.LegacyVideoIdPatch

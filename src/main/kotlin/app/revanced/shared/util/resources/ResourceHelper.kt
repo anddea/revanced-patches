@@ -9,7 +9,7 @@ internal object ResourceHelper {
         context: ResourceContext,
         speed: String
     ) {
-        var path = "res/values/arrays.xml"
+        val path = "res/values/arrays.xml"
 
         context.xmlEditor[path].use { editor ->
             with(editor.file) {
@@ -21,7 +21,7 @@ internal object ResourceHelper {
                     val node = resourcesNode.childNodes.item(i) as? Element ?: continue
 
                     if (node.getAttribute("name") == "revanced_video_speed_entry_values") {
-                        newElement.appendChild(createTextNode("$speed"))
+                        newElement.appendChild(createTextNode(speed))
 
                         node.appendChild(newElement)
                     }
@@ -34,7 +34,7 @@ internal object ResourceHelper {
         context: ResourceContext,
         speed: String
     ) {
-        var path = "res/values/arrays.xml"
+        val path = "res/values/arrays.xml"
 
         context.xmlEditor[path].use { editor ->
             with(editor.file) {
@@ -46,7 +46,7 @@ internal object ResourceHelper {
                     val node = resourcesNode.childNodes.item(i) as? Element ?: continue
 
                     if (node.getAttribute("name") == "revanced_video_speed_entries") {
-                        newElement.appendChild(createTextNode("$speed"))
+                        newElement.appendChild(createTextNode(speed))
 
                         node.appendChild(newElement)
                     }
@@ -261,7 +261,7 @@ internal object ResourceHelper {
         prefs.writeText(
             prefs.readText().replace(
                 "@string/revanced_labels_default",
-                "$appName"
+                appName
             )
         )
     }

@@ -48,8 +48,8 @@ class MusicMicroGBytecodePatch : BytecodePatch(
     // - "com.google.android.gms.phenotype.UPDATE",
     // - "com.google.android.gms.phenotype",
     override fun execute(context: BytecodeContext): PatchResult {
-        var YouTubePackageName = PatchOptions.YouTube_PackageName
-        var MusicPackageName = PatchOptions.Music_PackageName
+        val YouTubePackageName = PatchOptions.YouTube_PackageName
+        val MusicPackageName = PatchOptions.Music_PackageName
 
         // apply common microG patch
         MicroGBytecodeHelper.patchBytecode(
