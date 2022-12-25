@@ -127,7 +127,7 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         val instanceRegister = 0
         NextGenWatchLayoutFingerprint.result!!.mutableMethod.addInstruction(
             3, // after super call
-            "invoke-static/range {p$instanceRegister}, Lapp/revanced/integrations/sponsorblock/PlayerController;->addSkipSponsorView15(Landroid/view/View;)V"
+            "invoke-static/range {p$instanceRegister}, $INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR->addSkipSponsorView15(Landroid/view/View;)V"
         )
 
         BytecodeHelper.injectInit(context, "FirstRun", "initializationSB")

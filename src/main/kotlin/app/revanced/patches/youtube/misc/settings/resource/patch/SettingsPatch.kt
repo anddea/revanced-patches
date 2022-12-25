@@ -14,6 +14,7 @@ import app.revanced.patches.youtube.misc.manifest.patch.FixLocaleConfigErrorPatc
 import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourcdIdPatch
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsBytecodePatch
 import app.revanced.shared.annotation.YouTubeCompatibility
+import app.revanced.shared.patches.options.PatchOptions
 import app.revanced.shared.patches.settings.AbstractSettingsResourcePatch
 import app.revanced.shared.util.resources.ResourceHelper
 import app.revanced.shared.util.resources.ResourceUtils
@@ -27,6 +28,7 @@ import org.w3c.dom.Element
     [
         FixLocaleConfigErrorPatch::class,
         IntegrationsPatch::class,
+        PatchOptions::class,
         SharedResourcdIdPatch::class,
         SettingsBytecodePatch::class
     ]
