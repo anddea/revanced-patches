@@ -4,6 +4,8 @@
     <string name="about_api">Ta aplikacja używa API od SponsorBlock</string>
     <string name="about_api_sum">Dotknij, aby dowiedzieć się więcej i zobacz jak pobrać na inne platformy na stronie: sponsor.ajay.app</string>
     <string name="about_madeby">Integracja wykonana przez JakubWeg</string>
+    <string name="accessibility_settings_edu_opt_in_text">Włączyć gesty dostępności dla odtwarzacza wideo?</string>
+    <string name="accessibility_settings_edu_opt_out_text">Twoje ustawienia są zmienione, ponieważ gesty są włączone.</string>
     <string name="api_url_changed">Link API został zmieniony</string>
     <string name="api_url_invalid">Podany adres API jest nieprawidłowy</string>
     <string name="api_url_reset">Zresetuj adres API</string>
@@ -25,6 +27,7 @@
     <string name="enable_voting">Włącz ocenianie</string>
     <string name="enable_voting_sum">Włącz, aby oceniać segmenty.</string>
     <string name="general">Główne</string>
+    <string name="general_adjusting">Dostosowywanie nowego segmentu</string>
     <string name="general_adjusting_sum">Liczba milisekund, którą można przewinąć za pomocą przycisków regulacji czasu, podczas dodawania nowego segmentu</string>
     <string name="general_api_url">Zmień adres API</string>
     <string name="general_api_url_sum">"Adres SponsorBlock jest używany do wykonywania połączeń z serwerem. &lt;b&gt;Nie zmieniaj tego, chyba że wiesz, co robisz.&lt;b&gt;"</string>
@@ -61,10 +64,16 @@
     <string name="new_segment_mark_start">rozpocznij</string>
     <string name="new_segment_mark_time_as_question" formatted="false">Ustawić %02d:%02d:%04d jako początek czy koniec nowego segmentu?</string>
     <string name="new_segment_now">teraz</string>
+    <string name="new_segment_time_end">Segment kończy się na</string>
+    <string name="new_segment_time_end_set">Koniec segmentu</string>
+    <string name="new_segment_time_start">Segment zaczyna się</string>
+    <string name="new_segment_time_start_set">Początek segmentu</string>
     <string name="new_segment_title">Nowy segment SponsorBlock</string>
     <string name="reset">Zresetuj</string>
     <string name="revanced_ads_settings_summary">Ustawienia dotyczące reklam</string>
     <string name="revanced_ads_settings_title">Ustawienia reklam</string>
+    <string name="revanced_adremover_album_card_in_search_summary_off">Karty albumów są wyświetlane na podstawie wyników wyszukiwania</string>
+    <string name="revanced_adremover_album_card_in_search_title">Ukryj karty albumów</string>
     <string name="revanced_adremover_breaking_news_shelf_summary_off">Pokazywane są pułki z bieżącymi wiadomościami</string>
     <string name="revanced_adremover_breaking_news_shelf_summary_on">Pułki z bieżącymi wiadomościami są ukryte</string>
     <string name="revanced_adremover_breaking_news_shelf_title">Ukryj pułki z bieżącymi wiadomościami</string>
@@ -103,9 +112,15 @@
     <string name="revanced_adremover_in_feed_survey_summary_off">Wyświetlane są ankiety</string>
     <string name="revanced_adremover_in_feed_survey_summary_on">Ankiety są ukryte</string>
     <string name="revanced_adremover_in_feed_survey_title">Ukryj ankiety</string>
+    <string name="revanced_adremover_latest_posts_summary_off">Pokazywane są najnowsze posty</string>
+    <string name="revanced_adremover_latest_posts_summary_on">Najnowsze posty są ukryte</string>
+    <string name="revanced_adremover_latest_posts_title">Ukryj najnowsze posty</string>
     <string name="revanced_adremover_medical_panel_summary_off">Pokazywane są panele medyczne</string>
     <string name="revanced_adremover_medical_panel_summary_on">Panele medyczne są ukryte</string>
     <string name="revanced_adremover_medical_panel_title">Ukryj panele medyczne</string>
+    <string name="revanced_adremover_merchandise_summary_off">Banery towarowe są pokazane</string>
+    <string name="revanced_adremover_merchandise_summary_on">Banery towarowe są ukryte</string>
+    <string name="revanced_adremover_merchandise_title">Ukryj banery towarowe</string>
     <string name="revanced_adremover_movie_shelf_summary_off">Pokazywane są pułki z filmami</string>
     <string name="revanced_adremover_movie_shelf_summary_on">Pułki z filmami są ukryte</string>
     <string name="revanced_adremover_movie_shelf_title">Ukryj pułki z filmami</string>
@@ -148,11 +163,16 @@
     <string name="revanced_default_video_speed_summary">Wybierz preferowaną prędkość wideo</string>
     <string name="revanced_default_video_speed_title">Domyślna prędkość wideo</string>
     <string name="revanced_downloader_not_installed">nie jest zainstalowany. Zainstaluj go.</string>
+    <string name="revanced_downloader_package_name_summary">"Nazwa pakietu aplikacji pobierającej, np. NewPipe lub PowerTube"</string>
+    <string name="revanced_downloader_package_name_title">Nazwa pakietu pobierającego</string>
     <string name="revanced_downloader_settings_summary">Ustawienia związane z domyślną aplikacją do pobierania</string>
     <string name="revanced_downloader_settings_title">Ustawienia aplikacji do pobierania</string>
     <string name="revanced_hide_endscreen_overlay_summary_off">Pokazywane są rekomendacje YouTube na końcach wideo</string>
     <string name="revanced_hide_endscreen_overlay_summary_on">Rekomendacje YouTube na końcach wideo są ukryte</string>
     <string name="revanced_hide_endscreen_overlay_title">Ukryj rekomendacje YouTube na końcach wideo</string>
+    <string name="revanced_disable_haptic_feedback_scrubbing_summary_off">Powiadomienia zwrotne (wibracje) są włączone</string>
+    <string name="revanced_disable_haptic_feedback_scrubbing_summary_on">Powiadomienia zwrotne (wibracje) są wyłączone</string>
+    <string name="revanced_disable_haptic_feedback_scrubbing_title">Wyłączyć wibracje</string>
     <string name="revanced_disable_haptic_feedback_title">Wyłącz wibracje</string>
     <string name="revanced_disable_haptic_feedback_zoom_summary_off">Wibracja podczas powiększenia wideo jest włączona</string>
     <string name="revanced_disable_haptic_feedback_zoom_summary_on">Wibracja podczas powiększenia wideo jest wyłączona</string>
@@ -179,6 +199,9 @@
     <string name="revanced_enable_old_layout_summary_off">Wygląd YouTube będzie zgodny ze statusem Twojego konta Google</string>
     <string name="revanced_enable_old_layout_summary_on">Oszukaj YouTube, aby wymusić włączenie starego wyglądu</string>
     <string name="revanced_enable_old_layout_title">Włącz stary wygląd</string>
+    <string name="revanced_enable_oldstyle_seekbar_color_summary_off">Pokazywany jest nowy kolor pasków oglądania</string>
+    <string name="revanced_enable_oldstyle_seekbar_color_summary_on">Pokazywany jest stary kolor pasków oglądania</string>
+    <string name="revanced_enable_oldstyle_seekbar_color_title">Włącz stary wygląd koloru pasków oglądania</string>
     <string name="revanced_enable_oldstyle_quality_layout_summary_off">Wyświetlany jest nowy styl zmieniania jakości</string>
     <string name="revanced_enable_oldstyle_quality_layout_summary_on">Stary styl zmieniania jakości jest wyświetlany</string>
     <string name="revanced_enable_oldstyle_quality_layout_title">Włącz stary styl zmieniania jakości</string>
@@ -193,6 +216,7 @@
     <string name="revanced_enable_save_video_quality_summary_off">Nie zapisuje preferowanej jakości wideo nawet przy zmianie jakości</string>
     <string name="revanced_enable_save_video_quality_summary_on">Zapisz wybraną jakość wideo jako preferowaną za każdym razem gdy ją zmienisz</string>
     <string name="revanced_enable_save_video_quality_title">Włącz zapisywanie jakości wideo</string>
+    <string name="revanced_enable_seekbar_tapping_summary_on">Przewijanie przy użyciu osi czasu jest włączone</string>
     <string name="revanced_enable_swipe_auto_brightness_summary_off">Nawet jeśli jasność jest ustawiona na 0, przesuwając palcem, automatyczna jasność nie jest włączana</string>
     <string name="revanced_enable_swipe_auto_brightness_summary_on">Jeśli jasność jest ustawiona na 0, przesuwając palcem, automatyczna jasność jest włączana</string>
     <string name="revanced_enable_swipe_auto_brightness_title">Włącz automatyczną jasność przesuwając palcem</string>
@@ -208,6 +232,7 @@
     <string name="revanced_enable_tablet_miniplayer_summary_off">Miniodtwarzacz tabletowy jest wyłączony</string>
     <string name="revanced_enable_tablet_miniplayer_summary_on">Miniodtwarzacz tabletowy jest włączony</string>
     <string name="revanced_enable_tablet_miniplayer_title">Włącz miniodtwarzacz tabletowy</string>
+    <string name="revanced_enable_tablet_layout_summary">Zmyl DPI by moc używać widoku Tabletowego</string>
     <string name="revanced_enable_tablet_layout_title">Włącz układ tabletu</string>
     <string name="revanced_enable_wide_searchbar_summary_off">Szeroki pasek wyszukiwania jest wyłączony</string>
     <string name="revanced_enable_wide_searchbar_summary_on">Szeroki pasek wyszukiwania jest włączony</string>
@@ -235,6 +260,9 @@
     <string name="revanced_hide_button_create_clip_summary_off">Pokazywane są przyciski do tworzenia klipów</string>
     <string name="revanced_hide_button_create_clip_summary_on">Przyciski do tworzenia klipów są ukryte</string>
     <string name="revanced_hide_button_create_clip_title">Ukryj przyciski do tworzenia klipów</string>
+    <string name="revanced_hide_button_create_short_summary_off">Przycusk Utwórz Shorty jest widoczny</string>
+    <string name="revanced_hide_button_create_short_summary_on">Przycisk Utworz Shorty jest ukryty</string>
+    <string name="revanced_hide_button_create_short_title">Ukryj przycisk tworzenia shortów</string>
     <string name="revanced_hide_button_dislike_summary_off">Pokazywane są przyciski łapki w dół</string>
     <string name="revanced_hide_button_dislike_summary_on">Przyciski łapki w dół są ukryte</string>
     <string name="revanced_hide_button_dislike_title">Ukryj przyciski łapki w dół</string>
@@ -268,6 +296,7 @@
     <string name="revanced_hide_channel_watermark_summary_off">Pokazywane są znaki wodne kanałów</string>
     <string name="revanced_hide_channel_watermark_summary_on">Znaki wodne kanałów są ukryte</string>
     <string name="revanced_hide_channel_watermark_title">Ukryj znaki wodne kanałów</string>
+    <string name="revanced_hide_comments_component_summary">Ukrywa sekcje komentarzy</string>
     <string name="revanced_hide_comments_section_summary_off">Komentarze są pokazywane</string>
     <string name="revanced_hide_comments_section_summary_on">Komentarze są ukryte</string>
     <string name="revanced_hide_comments_section_title">Ukryj komentarze</string>
