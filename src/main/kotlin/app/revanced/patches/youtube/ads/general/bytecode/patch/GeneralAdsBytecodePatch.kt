@@ -3,16 +3,14 @@ package app.revanced.patches.youtube.ads.general.bytecode.patch
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.instruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
-import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
-import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
+import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.ads.general.bytecode.fingerprints.ComponentContextParserFingerprint
 import app.revanced.patches.youtube.ads.general.bytecode.fingerprints.EmptyComponentBuilderFingerprint
@@ -20,14 +18,14 @@ import app.revanced.shared.annotation.YouTubeCompatibility
 import app.revanced.shared.patches.mapping.ResourceMappingPatch
 import app.revanced.shared.util.bytecode.BytecodeHelper
 import app.revanced.shared.util.integrations.Constants.ADS_PATH
+import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.builder.instruction.BuilderInstruction21s
-import org.jf.dexlib2.iface.instruction.formats.Instruction31i
 import org.jf.dexlib2.iface.instruction.Instruction
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
+import org.jf.dexlib2.iface.instruction.formats.Instruction31i
 import org.jf.dexlib2.iface.reference.FieldReference
 import org.jf.dexlib2.iface.reference.MethodReference
-import org.jf.dexlib2.Opcode
 
 @DependsOn([ResourceMappingPatch::class])
 @Name("hide-general-ads-bytecode-patch")

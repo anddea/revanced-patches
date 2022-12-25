@@ -37,7 +37,7 @@ import app.revanced.shared.util.resources.ResourceUtils.copyXmlNode
 class OverlayButtonsResourcePatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
 
-        var icon = PatchOptions.Overlay_Buttons_Icon
+        val icon = PatchOptions.Overlay_Buttons_Icon
 
         /*
          * Copy resources

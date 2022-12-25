@@ -1,6 +1,5 @@
 package app.revanced.shared.fingerprints
 
-import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourcdIdPatch
 import org.jf.dexlib2.Opcode

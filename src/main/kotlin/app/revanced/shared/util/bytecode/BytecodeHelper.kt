@@ -60,9 +60,9 @@ internal object BytecodeHelper {
     ) {
         context.classes.forEach { classDef ->
             classDef.methods.forEach { method ->
-                if (classDef.type.endsWith("PatchStatus;") && method.name == "$name") {
+                if (classDef.type.endsWith("PatchStatus;") && method.name == name) {
                     val patchStatusMethod =
-                        context.proxy(classDef).mutableClass.methods.first { it.name == "$name" }
+                        context.proxy(classDef).mutableClass.methods.first { it.name == name }
 
                     patchStatusMethod.replaceInstruction(
                         0,

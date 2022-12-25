@@ -3,11 +3,10 @@ package app.revanced.patches.youtube.misc.microg.bytecode.patch
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstruction
-import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.youtube.layout.player.castbutton.resource.patch.HideCastButtonPatch
 import app.revanced.patches.youtube.misc.clientspoof.resource.patch.ClientSpoofPatch
 import app.revanced.patches.youtube.misc.microg.bytecode.fingerprints.*
@@ -40,7 +39,7 @@ class MicroGBytecodePatch : BytecodePatch(
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
 
-        var packageName = PatchOptions.YouTube_PackageName
+        val packageName = PatchOptions.YouTube_PackageName
 
         // apply common microG patch
         MicroGBytecodeHelper.patchBytecode(

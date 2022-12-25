@@ -5,18 +5,13 @@ import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.data.toMethodWalker
-import app.revanced.patcher.extensions.addInstruction
-import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.removeInstruction
-import app.revanced.patcher.extensions.instruction
-import app.revanced.patcher.extensions.or
-import app.revanced.patcher.extensions.replaceInstruction
+import app.revanced.patcher.extensions.*
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprintResult
-import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.youtube.misc.playertype.patch.PlayerTypeHookPatch
@@ -25,15 +20,15 @@ import app.revanced.shared.annotation.YouTubeCompatibility
 import app.revanced.shared.patches.timebar.HookTimebarPatch
 import app.revanced.shared.util.integrations.Constants.VIDEO_PATH
 import org.jf.dexlib2.AccessFlags
+import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.builder.MutableMethodImplementation
-import org.jf.dexlib2.iface.instruction.formats.Instruction21c
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
+import org.jf.dexlib2.iface.instruction.formats.Instruction21c
 import org.jf.dexlib2.iface.reference.FieldReference
 import org.jf.dexlib2.iface.reference.MethodReference
 import org.jf.dexlib2.immutable.ImmutableMethod
 import org.jf.dexlib2.immutable.ImmutableMethodParameter
-import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.util.MethodUtil
 
 @Name("video-id-hook-mainstream")
@@ -175,7 +170,7 @@ class MainstreamVideoIdPatch : BytecodePatch(
             (InsertMethod.implementation!!.instructions[InsertIndex] as OneRegisterInstruction).registerA
 
         injectCall("$VideoInformation->setCurrentVideoId(Ljava/lang/String;)V")
-        injectCallonCreate("$VideoInformation", "onCreate")
+        injectCallonCreate(VideoInformation, "onCreate")
 
         offset++ // offset so setCurrentVideoId is called before any injected call
 

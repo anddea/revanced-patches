@@ -8,7 +8,6 @@ import app.revanced.shared.util.resources.ResourceHelper
 import app.revanced.shared.util.resources.ResourceUtils
 import app.revanced.shared.util.resources.ResourceUtils.copyResources
 import app.revanced.shared.util.resources.ResourceUtils.copyXmlNode
-import org.w3c.dom.Element
 
 /**
  * Abstract settings resource patch

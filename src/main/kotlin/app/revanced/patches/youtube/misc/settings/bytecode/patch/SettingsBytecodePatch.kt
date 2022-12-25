@@ -70,18 +70,6 @@ class SettingsBytecodePatch : BytecodePatch(
                                         val viewRegister = (instructions.elementAt(index) as Instruction31i).registerA
                                         mutableMethod.implementation!!.injectTheme(index + 2, viewRegister, "setSecondaryTheme")
                                     }
-/*
-                                    resourceIds[2] -> { // tertiary theme
-                                        val insertIndex = index - 3
-                                        val invokeInstruction = instructions.elementAt(insertIndex)
-                                        if (invokeInstruction.opcode != Opcode.IF_NE) return@forEachIndexed
-
-                                        val mutableMethod = context.proxy(classDef).mutableClass.findMutableMethodOf(method)
-
-                                        val viewRegister = (instructions.elementAt(index) as Instruction31i).registerA
-                                        mutableMethod.implementation!!.injectTheme(index + 2, viewRegister, "setTertiaryTheme")
-                                    }
-*/
                                 }
                             }
                             else -> return@forEachIndexed

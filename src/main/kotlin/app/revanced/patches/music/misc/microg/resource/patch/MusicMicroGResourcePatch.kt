@@ -27,7 +27,7 @@ import app.revanced.shared.util.microg.MicroGResourceHelper
 @Version("0.0.2")
 class MusicMicroGResourcePatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
-        var MusicPackageName = PatchOptions.Music_PackageName
+        val MusicPackageName = PatchOptions.Music_PackageName
 
         // update manifest
         MicroGResourceHelper.patchManifest(

@@ -12,7 +12,6 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.misc.videoid.legacy.fingerprint.LegacyVideoIdFingerprint
 import app.revanced.shared.annotation.YouTubeCompatibility
-import app.revanced.shared.util.integrations.Constants.VIDEO_PATH
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Name("video-id-hook-legacy")

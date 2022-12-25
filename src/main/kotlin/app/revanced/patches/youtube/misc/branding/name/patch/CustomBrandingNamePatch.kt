@@ -32,7 +32,7 @@ class CustomBrandingNamePatch : ResourcePatch {
 
         // App name
         val resourceFileNames = arrayOf("strings.xml")
-        var appName = PatchOptions.YouTube_AppName
+        val appName = PatchOptions.YouTube_AppName
 
         context.forEach {
             if (!it.name.startsWithAny(*resourceFileNames)) return@forEach

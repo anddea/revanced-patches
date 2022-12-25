@@ -42,9 +42,9 @@ class CustomVideoSpeedBytecodePatch : BytecodePatch(
             "$VIDEO_PATH/VideoSpeedEntries;"
     }
     override fun execute(context: BytecodeContext): PatchResult {
-        var speed = PatchOptions.CustomSpeedArrays
+        val speed = PatchOptions.CustomSpeedArrays
         val splits = speed!!.replace(" ","").split(",")
-        if (splits.count() < 1) throw IllegalArgumentException("Invalid speed elements")
+        if (splits.isEmpty()) throw IllegalArgumentException("Invalid speed elements")
         val videoSpeedsArray = splits.map { it.toFloat().toRawBits() }
 
         val arrayGenMethod = SpeedArrayGeneratorFingerprint.result?.mutableMethod!!

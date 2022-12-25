@@ -5,19 +5,18 @@ import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.instruction
-import app.revanced.patcher.patch.annotations.DependsOn
-import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.annotations.DependsOn
+import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.music.misc.integrations.patch.MusicIntegrationsPatch
 import app.revanced.patches.music.misc.settings.patch.MusicSettingsPatch
 import app.revanced.shared.annotation.YouTubeMusicCompatibility
 import app.revanced.shared.extensions.findMutableMethodOf
 import app.revanced.shared.patches.mapping.ResourceMappingPatch
-import org.jf.dexlib2.iface.instruction.formats.Instruction31i
 import org.jf.dexlib2.Opcode
+import org.jf.dexlib2.iface.instruction.formats.Instruction31i
 
 @Patch
 @DependsOn(

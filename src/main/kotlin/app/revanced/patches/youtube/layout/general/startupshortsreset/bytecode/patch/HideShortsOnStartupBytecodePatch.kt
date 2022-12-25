@@ -12,7 +12,6 @@ import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.layout.general.startupshortsreset.bytecode.fingerprints.UserWasInShortsFingerprint
 import app.revanced.shared.annotation.YouTubeCompatibility
 import app.revanced.shared.util.integrations.Constants.GENERAL_LAYOUT
-import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Name("hide-startup-shorts-player-bytecode-patch")
 @YouTubeCompatibility

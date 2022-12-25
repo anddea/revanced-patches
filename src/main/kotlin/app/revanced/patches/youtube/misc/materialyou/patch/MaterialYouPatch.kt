@@ -45,7 +45,7 @@ class MaterialYouPatch : ResourcePatch {
         )
 
         arrayOf(drawables1, drawables2, layout1).forEach { (path, resourceNames) ->
-            Files.createDirectory(context["res"].resolve("$path").toPath())
+            Files.createDirectory(context["res"].resolve(path).toPath())
             resourceNames.forEach { name ->
                 val monetPath = "$path/$name"
 

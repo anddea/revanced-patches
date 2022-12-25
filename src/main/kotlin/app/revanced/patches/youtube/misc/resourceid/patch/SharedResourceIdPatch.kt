@@ -36,7 +36,7 @@ class SharedResourcdIdPatch : ResourcePatch {
 
         fun findSharedResourceId(type: String, name: String) = ResourceMappingPatch
             .resourceMappings
-            .single { it.type == "$type" && it.name == "$name" }.id
+            .single { it.type == type && it.name == name }.id
 
         abclistmenuitemLabelId = findSharedResourceId("layout", "abc_list_menu_item_layout")
         accountSwitcherAccessibilityLabelId = findSharedResourceId("string", "account_switcher_accessibility_label")

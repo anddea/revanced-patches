@@ -3,18 +3,17 @@ package app.revanced.patches.youtube.layout.general.stories.bytecode.patch
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.shared.annotation.YouTubeCompatibility
 import app.revanced.shared.extensions.findMutableMethodOf
 import app.revanced.shared.extensions.injectHideCall
 import app.revanced.shared.patches.mapping.ResourceMappingPatch
+import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.iface.instruction.formats.Instruction22c
 import org.jf.dexlib2.iface.instruction.formats.Instruction31i
-import org.jf.dexlib2.Opcode
 
 @Name("hide-stories-bytecode-patch")
 @DependsOn([ResourceMappingPatch::class])

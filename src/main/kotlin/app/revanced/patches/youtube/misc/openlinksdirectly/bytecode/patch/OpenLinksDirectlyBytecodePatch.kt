@@ -11,10 +11,9 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patches.youtube.misc.openlinksdirectly.bytecode.fingerprints.*
 import app.revanced.shared.annotation.YouTubeCompatibility
 import app.revanced.shared.util.integrations.Constants.MISC_PATH
+import org.jf.dexlib2.iface.instruction.Instruction
 import org.jf.dexlib2.iface.instruction.formats.Instruction11x
 import org.jf.dexlib2.iface.instruction.formats.Instruction35c
-import org.jf.dexlib2.iface.instruction.Instruction
-import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Name("enable-open-links-directly-bytecode-patch")
 @YouTubeCompatibility
