@@ -214,6 +214,9 @@
     <string name="revanced_enable_old_layout_summary_off">YouTubeのレイアウトはGoogleアカウントのステータスに従います</string>
     <string name="revanced_enable_old_layout_summary_on">強制的に古いレイアウトを有効にするために、YouTubeのバージョンを偽装します</string>
     <string name="revanced_enable_old_layout_title">古いレイアウトを有効にする</string>
+    <string name="revanced_enable_oldstyle_seekbar_color_summary_off">新しいシークバーの色(白)が使用されます</string>
+    <string name="revanced_enable_oldstyle_seekbar_color_summary_on">古いシークバーの色(赤)が使用されます</string>
+    <string name="revanced_enable_oldstyle_seekbar_color_title">古いスタイルのシークバーの色(赤)を使用する</string>
     <string name="revanced_enable_oldstyle_quality_layout_summary_off">新しい形式の画質設定を使用する</string>
     <string name="revanced_enable_oldstyle_quality_layout_summary_on">古い形式の画質設定を使用する</string>
     <string name="revanced_enable_oldstyle_quality_layout_title">古い形式の画質設定画面を有効にする</string>
@@ -396,8 +399,6 @@
     <string name="revanced_hide_shorts_shelf_summary_off">ショート欄は表示されます</string>
     <string name="revanced_hide_shorts_shelf_summary_on">ショート欄は非表示です</string>
     <string name="revanced_hide_shorts_shelf_title">ショート欄</string>
-    <string name="revanced_hide_startup_shorts_player_summary_off">アプリの起動時にショートプレーヤーは無効になっています</string>
-    <string name="revanced_hide_startup_shorts_player_summary_on">アプリの起動時にショートプレーヤーは有効になっています</string>
     <string name="revanced_hide_startup_shorts_player_title">アプリ起動時のショートプレーヤー</string>
     <string name="revanced_hide_stories_shelf_summary_off">ストーリー欄は表示されます</string>
     <string name="revanced_hide_stories_shelf_summary_on">ストーリー欄は非表示です</string>
@@ -517,7 +518,7 @@
     <string name="revanced_whitelisting_channel_name">チャンネル名</string>
     <string name="revanced_whitelisting_empty">ホワイトリストに登録されたチャンネルはありません</string>
     <string name="revanced_whitelisting_excluded">ホワイトリストに追加されていません</string>
-    <string name="revanced_whitelisting_included">ホワイトリストに追加</string>
+    <string name="revanced_whitelisting_included">ホワイトリストに追加しました</string>
     <string name="revanced_whitelisting_title">チャンネルのホワイトリスト</string>
     <string name="revanced_whitelisting_fetch_failed">チャンネル詳細の取得に失敗しました。受信したコード : %d</string>
     <string name="revanced_whitelisting_reboot">チャンネルホワイトリスト設定を適用するには再起動してください</string>
@@ -569,7 +570,7 @@
     <string name="skipped_endcard">アウトロをスキップしました</string>
     <string name="skipped_filler">つなぎシーンをスキップしました</string>
     <string name="skipped_intermission">イントロをスキップしました</string>
-    <string name="skipped_nomusic">音楽以外のセクションをスキップしました</string>
+    <string name="skipped_nomusic">音楽以外の部分をスキップしました</string>
     <string name="skipped_preview">プレビューをスキップしました</string>
     <string name="skipped_segment">スポンサーセグメントをスキップしました</string>
     <string name="skipped_selfpromo">セルフプロモーションをスキップしました</string>
@@ -601,7 +602,7 @@
     <string name="submit_succeeded">セグメントが正常に送信されました</string>
     <string name="tap_skip">タップしてスキップ</string>
     <string name="vote_category">カテゴリーを変更する</string>
-    <string name="vote_downvote">低評価</string>
+    <string name="vote_downvote">反対</string>
     <string name="vote_failed_forbidden">"セグメントに投票できません。
 
 %s"</string>
@@ -611,5 +612,5 @@
     <string name="vote_no_segments">投票できるセグメントがありません</string>
     <string name="vote_started">セグメントへ投票しています…</string>
     <string name="vote_succeeded">投票しました</string>
-    <string name="vote_upvote">高評価</string>
+    <string name="vote_upvote">賛成</string>
 </resources>
