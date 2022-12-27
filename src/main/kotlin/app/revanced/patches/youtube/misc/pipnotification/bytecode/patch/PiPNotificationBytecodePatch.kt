@@ -28,7 +28,8 @@ class PiPNotificationBytecodePatch : BytecodePatch(
         ).map {
             it.result ?: return it.toErrorResult()
         }.forEach { result ->
-            result.mutableMethod.addInstruction(0, "return-void")
+            val index = result.scanResult.patternScanResult!!.startIndex + 1
+            result.mutableMethod.addInstruction(index, "return-void")
         }
 
         return PatchResultSuccess()
