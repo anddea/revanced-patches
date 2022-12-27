@@ -20,8 +20,8 @@
     <string name="diff_segments">Was soll mit verschiedenen Segmenten gemacht werden</string>
     <string name="enable_sb">SponsorBlock aktivieren</string>
     <string name="enable_sb_sum">SponsorBlock ist ein auf Crowdsourcing basierendes System zum Überspringen von störenden Abschnitten in YouTube-Videos</string>
-    <string name="enable_sb_mirror">SponsorBlock aktivieren</string>
-    <string name="enable_sb_mirror_sum">Wenn der SponsorBlock API-Server heruntergefahren wird, wechseln Sie den Mirror-API-Server auf den Standard-API-Server</string>
+    <string name="enable_sb_mirror">SponsorBlock Mirror aktivieren</string>
+    <string name="enable_sb_mirror_sum">Wenn der SponsorBlock API-Server heruntergefahren wird, Mirror API-Server als standard verwenden</string>
     <string name="enable_segmadding">Hinzufügen neuer Segmente erlauben</string>
     <string name="enable_segmadding_sum">Aktivieren Sie diese Option, um das Hinzufügen von experimentellen Segmenten zu ermöglichen (es gibt Probleme mit der Sichtbarkeit von Buttons)</string>
     <string name="enable_voting">Abstimmung aktivieren</string>
@@ -129,9 +129,9 @@ Ist es fertig zum Einreichen?"</string>
     <string name="revanced_adremover_official_card_in_search_summary_off">Offizielle Karten werden aus den Suchergebnissen angezeigt</string>
     <string name="revanced_adremover_official_card_in_search_summary_on">Offizielle Karten sind aus Suchergebnissen ausgeblendet</string>
     <string name="revanced_adremover_official_card_in_search_title">Verstecke Offizielle Karten </string>
-    <string name="revanced_adremover_paid_content_summary_off">Bezahlter Inhalt wird angezeigt</string>
-    <string name="revanced_adremover_paid_content_summary_on">Bezahlter Inhalt ist ausgeblendet</string>
-    <string name="revanced_adremover_paid_content_title">Verstecke bezahlte Inhalte</string>
+    <string name="revanced_adremover_paid_content_summary_off">Bezahltes Werbelabel wird angezeigt</string>
+    <string name="revanced_adremover_paid_content_summary_on">Bezahltes Werbelabel ist versteckt</string>
+    <string name="revanced_adremover_paid_content_title">Verstecke bezahlte Werbung</string>
     <string name="revanced_adremover_self_sponsor_summary_off">Selbstgesponserte Karten werden angezeigt</string>
     <string name="revanced_adremover_self_sponsor_summary_on">Selbstgesponserte Karten sind versteckt</string>
     <string name="revanced_adremover_self_sponsor_title">Verstecke selbstgesponserte Karten </string>
@@ -214,12 +214,6 @@ Ist es fertig zum Einreichen?"</string>
     <string name="revanced_enable_old_layout_summary_off">YouTube Layout folgt Ihrem Google-Kontostatus</string>
     <string name="revanced_enable_old_layout_summary_on">Umgehe die YouTube Version, um das neue Layout zu deaktivieren</string>
     <string name="revanced_enable_old_layout_title">Altes Layout aktivieren</string>
-    <string name="revanced_enable_oldstyle_seekbar_color_summary_off">Neue Farbe der Fortschrittsleiste wird verwendet</string>
-    <string name="revanced_enable_oldstyle_seekbar_color_summary_on">Alte Farbe der Fortschrittsleiste wird verwendet</string>
-    <string name="revanced_enable_oldstyle_seekbar_color_title">Aktiviere die alte Farbe der Fortschrittsleiste</string>
-    <string name="revanced_enable_oldstyle_quality_layout_summary_off">Neuer Stil der Qualitätseinstellungen wird angezeigt</string>
-    <string name="revanced_enable_oldstyle_quality_layout_summary_on">Alter Stil der Qualitätseinstellungen wird angezeigt</string>
-    <string name="revanced_enable_oldstyle_quality_layout_title">Aktiviere alten Stil der Qualitätseinstellungen</string>
     <string name="revanced_enable_open_links_directly_summary_off">URL-Weiterleitung (youtube.com/redirect) wird verwendet, wenn Links in Videobeschreibungen geöffnet werden</string>
     <string name="revanced_enable_open_links_directly_summary_on">Umgehe URL-Umleitungen (youtube.com/redirect) beim Öffnen von Links in Videobeschreibungen</string>
     <string name="revanced_enable_open_links_directly_title">Links direkt öffnen</string>
@@ -399,6 +393,8 @@ Ist es fertig zum Einreichen?"</string>
     <string name="revanced_hide_shorts_shelf_summary_off">Ausschnitte aus Shorts in Kanälen werden angezeigt</string>
     <string name="revanced_hide_shorts_shelf_summary_on">Ausschnitte aus Shorts in Kanälen sind versteckt</string>
     <string name="revanced_hide_shorts_shelf_title">Verstecke Ausschnitte aus Shorts in Kanälen</string>
+    <string name="revanced_hide_startup_shorts_player_summary_off">Shorts Player ist beim Start der App aktiviert</string>
+    <string name="revanced_hide_startup_shorts_player_summary_on">Shorts-Player ist beim Start der App deaktiviert</string>
     <string name="revanced_hide_startup_shorts_player_title">Shorts Player beim Start der App</string>
     <string name="revanced_hide_stories_shelf_summary_off">Story Ausschnitte in Kanälen werden angezeigt</string>
     <string name="revanced_hide_stories_shelf_summary_on">Story Ausschnitte in Kanälen sind versteckt</string>
