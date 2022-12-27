@@ -138,6 +138,9 @@
     <string name="revanced_adremover_separator_summary_off">灰色の区切りは表示されます</string>
     <string name="revanced_adremover_separator_summary_on">灰色の区切りは非表示です</string>
     <string name="revanced_adremover_separator_title">灰色の区切り</string>
+    <string name="revanced_adremover_subscribers_community_guidelines_summary_off">購読者コミュニティガイドラインが表示されます</string>
+    <string name="revanced_adremover_subscribers_community_guidelines_summary_on">購読者コミュニティガイドラインは非表示です</string>
+    <string name="revanced_adremover_subscribers_community_guidelines_title">購読者コミュニティガイドラインを非表示</string>
     <string name="revanced_adremover_suggestions_summary_off">一般的な提案は表示されます</string>
     <string name="revanced_adremover_suggestions_summary_on">一般的な提案は非表示です</string>
     <string name="revanced_adremover_suggestions_title">提案</string>
@@ -214,6 +217,12 @@
     <string name="revanced_enable_old_layout_summary_off">YouTubeのレイアウトはGoogleアカウントのステータスに従います</string>
     <string name="revanced_enable_old_layout_summary_on">強制的に古いレイアウトを有効にするために、YouTubeのバージョンを偽装します</string>
     <string name="revanced_enable_old_layout_title">古いレイアウトを有効にする</string>
+    <string name="revanced_enable_old_quality_layout_summary_off">新しい形式の画質設定は表示されています</string>
+    <string name="revanced_enable_old_quality_layout_summary_on">古い形式の画質設定は表示されています</string>
+    <string name="revanced_enable_old_quality_layout_title">古い形式の画質設定画面を有効にする</string>
+    <string name="revanced_enable_old_seekbar_color_summary_off">新しいシークバーの色 (白) が使用されます</string>
+    <string name="revanced_enable_old_seekbar_color_summary_on">古いシークバーの色 (赤) が使用されます</string>
+    <string name="revanced_enable_old_seekbar_color_title">古いスタイルのシークバーの色 (赤) を使用する</string>
     <string name="revanced_enable_open_links_directly_summary_off">URL リダイレクト (youtube.com/redirect) は、動画の概要欄のリンクを開くときに使用されます</string>
     <string name="revanced_enable_open_links_directly_summary_on">概要欄からリンクを開いたとき、URLリダイレクト(youtube.com/redirect)を回避して、直リンクにします</string>
     <string name="revanced_enable_open_links_directly_title">直リンクを有効にする</string>
@@ -454,6 +463,10 @@
 
 この設定を有効にすると、次の問題が発生する可能性があります:
 - プレイリスト内の動画を再生する場合、問題が修正されない可能性があります"</string>
+    <string name="revanced_reboot_warning_swipe">"プレイヤーコントローラーの表示に関係なく、常にスワイプジェスチャーを有効にします。
+
+この設定を有効にすると、次の機能は使用できません:
+- シークバーのタップに不具合が発生する場合があります"</string>
     <string name="revanced_reboot_warning_tablet">"一部のレイアウトをタブレット用のレイアウトに変更するために dpi を偽装します。
 
 この設定を有効にすると、次の機能は利用できません:
