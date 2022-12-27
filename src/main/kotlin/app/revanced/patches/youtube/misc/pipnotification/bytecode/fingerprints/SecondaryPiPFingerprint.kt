@@ -11,7 +11,7 @@ object SecondaryPiPFingerprint : MethodFingerprint(
         Opcode.CHECK_CAST,
         Opcode.INVOKE_VIRTUAL,
         Opcode.CHECK_CAST,
-        Opcode.INVOKE_VIRTUAL
+        Opcode.IGET_OBJECT
     ),
     strings = listOf("honeycomb.Shell\$HomeActivity")
 )
