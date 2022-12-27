@@ -28,32 +28,6 @@ internal object BytecodeHelper {
         }
     }
 
-    fun injectBackPressed(
-        context: BytecodeContext
-    ) {
-        context.classes.forEach { classDef ->
-            classDef.methods.forEach { method ->
-                if (classDef.type.endsWith("WatchWhileActivity;") && method.name == "onBackPressed") {
-                    val onBackPressedMethod =
-                        context.proxy(classDef).mutableClass.methods.first { it.name == "onBackPressed" }
-
-                    val onBackPressedMethodInstructions =
-                        onBackPressedMethod.implementation!!.instructions
-
-                    for ((index, instruction) in onBackPressedMethodInstructions.withIndex()) {
-                        if (instruction.opcode != Opcode.RETURN_VOID) continue
-
-                        onBackPressedMethod.addInstruction(
-                            index,
-                            "invoke-static {p0}, $UTILS_PATH/DoubleBackToExitPatch;->doubleBackToExit(Lcom/google/android/apps/youtube/app/watchwhile/WatchWhileActivity;)V"
-                        )
-                        break
-                    }
-                }
-            }
-        }
-    }
-
     fun patchStatus(
         context: BytecodeContext,
         name: String

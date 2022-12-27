@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.misc.doublebacktoexit.fingerprint
+package app.revanced.patches.youtube.misc.doublebacktoclose.fingerprint
 
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
