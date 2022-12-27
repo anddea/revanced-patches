@@ -21,7 +21,7 @@
     <string name="enable_sb">تمكين مانِع الرُعَاة \"SponsorBlock\"</string>
     <string name="enable_sb_sum">مانِع الرُعَاة هو نظام جماعي لتخطي الأجزاء المُمِلَّة في مقاطع اليوتيوب</string>
     <string name="enable_sb_mirror">تمكين SponsorBlock البديل</string>
-    <string name="enable_sb_mirror_sum">عند إغلاق خادم API التابع لــ SponsorBlock، قم بتبديل خادم API البديل إلى خادم API افتراضي</string>
+    <string name="enable_sb_mirror_sum">عند توقف خادم API التابع لــ SponsorBlock، قم بتعيين خادم API البديل ليكون خادم API الإفتراضي</string>
     <string name="enable_segmadding">تمكين إضافة مقطع جديد</string>
     <string name="enable_segmadding_sum">قم بتشغيل هذا الخيار لتمكين إضافة مقطع (قد يوجد مشاكل في رؤية الزر!)</string>
     <string name="enable_voting">تمكين التصويت</string>
@@ -128,9 +128,9 @@
     <string name="revanced_adremover_official_card_in_search_summary_off">يتم عرض البطاقات الرسمية من نتائج البحث</string>
     <string name="revanced_adremover_official_card_in_search_summary_on">تم إخفاء البطاقات الرسمية من نتائج البحث</string>
     <string name="revanced_adremover_official_card_in_search_title">إخفاء البطاقات الرسمية</string>
-    <string name="revanced_adremover_paid_content_summary_off">يتم عرض المحتوى المدفوع</string>
-    <string name="revanced_adremover_paid_content_summary_on">تم إخفاء المحتوى المدفوع</string>
-    <string name="revanced_adremover_paid_content_title">إخفاء المحتوى المدفوع</string>
+    <string name="revanced_adremover_paid_content_summary_off">يتم عرض علامة الترويج المدفوع</string>
+    <string name="revanced_adremover_paid_content_summary_on">تم إخفاء علامة الترويج المدفوع</string>
+    <string name="revanced_adremover_paid_content_title">إخفاء الترويج المدفوع</string>
     <string name="revanced_adremover_self_sponsor_summary_off">يتم عرض بطاقات الرعاية الذاتية</string>
     <string name="revanced_adremover_self_sponsor_summary_on">تم إخفاء بطاقات الرعاية الذاتية</string>
     <string name="revanced_adremover_self_sponsor_title">إخفاء بطاقات الرعاية الذاتية</string>
@@ -152,14 +152,15 @@
     <string name="revanced_adremover_web_search_panel_summary_off">يتم عرض لوحات البحث على الويب</string>
     <string name="revanced_adremover_web_search_panel_summary_on">تم إخفاء لوحات البحث على الويب</string>
     <string name="revanced_adremover_web_search_panel_title">إخفاء لوحات بحث الويب</string>
-    <string name="revanced_custom_video_buffer_maximum_summary">المدة الزمنية القصوى التي سيحاول المشغل تحميلها مسبقًا من الفيديو</string>
+    <string name="revanced_custom_video_buffer_maximum_summary">المدة الزمنية القصوى التي سيحاول المشغل تحميلها مسبقًا من الفيديو
+الإفتراضي:120000</string>
     <string name="revanced_custom_video_buffer_maximum_title">الحد الأقصى لحجم التحميل المسبق</string>
     <string name="revanced_custom_video_buffer_playback_start_summary">المدة التي يجب تحميلها مسبقًا من الفيديو لكي يبدأ أو يستأنف بعد إجراء المستخدم مثل تقديم الفيديو، (بالمللي ثانية)
-
-الافتراضي: 2500</string>
+الافتراضي:2500</string>
     <string name="revanced_custom_video_buffer_playback_start_title">حجم بَدْء التحميل المسبق</string>
-    <string name="revanced_custom_video_buffer_rebuffer_summary">مدة الوسائط التي يجب تخزينها مؤقتًا لاستئناف التشغيل بعد التحميل المسبق</string>
-    <string name="revanced_custom_video_buffer_rebuffer_title">حجم التحميل المسبق</string>
+    <string name="revanced_custom_video_buffer_rebuffer_summary">المدة التي يجب تحميلها مسبقًا من الفيديو لإستئناف التشغيل بعد إعادة التحميل (بالمللي ثانية). تم تعريف إعادة التحميل المسبق على إنها إنتهاء الجزء المُنَّزَّل من الفيديو وليست بسبب إجراءات المستخدم
+الإفتراضي:5000</string>
+    <string name="revanced_custom_video_buffer_rebuffer_title">حجم إعادة التحميل المسبق</string>
     <string name="revanced_custom_video_buffer_summary">الإعدادات المتعلقة بحجم التحميل المسبق</string>
     <string name="revanced_custom_video_buffer_title">إعدادات التحميل المسبق</string>
     <string name="revanced_default_video_quality_mobile_summary">تحديد جودة الفيديو الافتراضية على شبكة الجوّال</string>
@@ -215,12 +216,12 @@
     <string name="revanced_enable_old_layout_summary_off">سيتبع تصميم YouTube حالة حسابك في Google</string>
     <string name="revanced_enable_old_layout_summary_on">خداع إصدار YouTube لفرض تفعيل التصميم القديم</string>
     <string name="revanced_enable_old_layout_title">تمكين التصميم القديم</string>
-    <string name="revanced_enable_oldstyle_seekbar_color_summary_off">يتم استخدام لون شريط الوقت بالشكل الجديد</string>
-    <string name="revanced_enable_oldstyle_seekbar_color_summary_on">يتم استخدام لون شريط الوقت بالشكل القديم</string>
-    <string name="revanced_enable_oldstyle_seekbar_color_title">تمكين لون شريط الوقت بالشكل القديم</string>
-    <string name="revanced_enable_oldstyle_quality_layout_summary_off">يتم عرض المظهر الجديد لإعدادات جودة الفيديو</string>
-    <string name="revanced_enable_oldstyle_quality_layout_summary_on">يتم عرض المظهر القديم لإعدادات جودة الفيديو</string>
-    <string name="revanced_enable_oldstyle_quality_layout_title">تمكين المظهر القديم لإعدادات جودة الفيديو</string>
+    <string name="revanced_enable_old_quality_layout_summary_off">يتم عرض المظهر الجديد لإعدادات جودة الفيديو</string>
+    <string name="revanced_enable_old_quality_layout_summary_on">يتم عرض المظهر القديم لإعدادات جودة الفيديو</string>
+    <string name="revanced_enable_old_quality_layout_title">تمكين المظهر القديم لإعدادات جودة الفيديو</string>
+    <string name="revanced_enable_old_seekbar_color_summary_off">يتم استخدام لون شريط تقدم الفيديو بالشكل الجديد</string>
+    <string name="revanced_enable_old_seekbar_color_summary_on">يتم استخدام لون شريط تقدم الفيديو بالشكل القديم</string>
+    <string name="revanced_enable_old_seekbar_color_title">تمكين لون شريط تقدم الفيديو بالشكل القديم</string>
     <string name="revanced_enable_open_links_directly_summary_off">تُستخدم إعادة توجيه عنوان URL (youtube.com/redirect) عند فتح الروابط في أوصاف الفيديو</string>
     <string name="revanced_enable_open_links_directly_summary_on">تجاوز إعادة توجيه عناوين URL (youtube.com/redirect) عند فتح الروابط في أوصاف الفيديو</string>
     <string name="revanced_enable_open_links_directly_title">تمكين فتح الروابط بشكل مباشر</string>
@@ -400,6 +401,8 @@
     <string name="revanced_hide_shorts_shelf_summary_off">يتم عرض رفوف الفيديوهات القصيرة (Shorts)</string>
     <string name="revanced_hide_shorts_shelf_summary_on">تم إخفاء رفوف الفيديوهات القصيرة (Shorts)</string>
     <string name="revanced_hide_shorts_shelf_title">إخفاء رف الفيديوهات القصيرة (Shorts)</string>
+    <string name="revanced_hide_startup_shorts_player_summary_off">تم تمكين مشغل Shorts عند بَدْء تشغيل التطبيق</string>
+    <string name="revanced_hide_startup_shorts_player_summary_on">تم تعطيل مشغل Shorts عند بَدْء تشغيل التطبيق</string>
     <string name="revanced_hide_startup_shorts_player_title">مشغل Shorts عند بَدْء تشغيل التطبيق</string>
     <string name="revanced_hide_stories_shelf_summary_off">يتم عرض رفوف القصص</string>
     <string name="revanced_hide_stories_shelf_summary_on">تم إخفاء رفوف القصص</string>
@@ -495,13 +498,17 @@
     <string name="revanced_settings">(ReVanced) إعدادات</string>
     <string name="revanced_swipe_controls_summary">الإعدادات المتعلقة بالتفاعلات</string>
     <string name="revanced_swipe_controls_title">إعدادات التفاعل</string>
-    <string name="revanced_swipe_magnitude_threshold_summary">الحد الأدنى من الحجم قبل اكتشاف السحب</string>
+    <string name="revanced_swipe_magnitude_threshold_summary">مقدار الحد الأدنى للتمرير قبل اكتشاف السحب
+الإفتراضي:0</string>
     <string name="revanced_swipe_magnitude_threshold_title">مقدار حد السحب</string>
-    <string name="revanced_swipe_overlay_background_alpha_summary">قيمة شفافية خلفية واجهة السحب (0-255)</string>
+    <string name="revanced_swipe_overlay_background_alpha_summary">قيمة شفافية خلفية واجهة السحب (0-255)
+الإفتراضي:127</string>
     <string name="revanced_swipe_overlay_background_alpha_title">شفافية خلفية واجهة السحب</string>
-    <string name="revanced_swipe_overlay_text_size_summary">حجم النص على واجهة السحب</string>
+    <string name="revanced_swipe_overlay_text_size_summary">حجم النص على واجهة السحب
+الإفتراضي:27</string>
     <string name="revanced_swipe_overlay_text_size_title">حجم نص واجهة السحب</string>
-    <string name="revanced_swipe_overlay_timeout_summary">كم من الوقت تظهر واجهة السحب بعد التغيير (بالملي ثانية)</string>
+    <string name="revanced_swipe_overlay_timeout_summary">مقدار الوقت الذي تظهر فيه واجهة السحب بعد التغيير (بالملي ثانية)
+الإفتراضي:500</string>
     <string name="revanced_swipe_overlay_timeout_title">مهلة واجهة السحب</string>
     <string name="revanced_tool_used">الأداة المستخدمة</string>
     <string name="revanced_video_ads_removal_summary_off">يتم عرض إعلانات الفيديو</string>

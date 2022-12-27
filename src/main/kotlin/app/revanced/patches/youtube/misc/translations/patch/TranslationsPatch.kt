@@ -52,6 +52,7 @@ class TranslationsPatch : ResourcePatch {
             "bn",
             "be-rBY",
             "de-rDE",
+            "el-rGR",
             "es-rES",
             "fr-rFR",
             "hu-rHU",
