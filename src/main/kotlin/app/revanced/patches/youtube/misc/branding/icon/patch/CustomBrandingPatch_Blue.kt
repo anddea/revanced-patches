@@ -15,8 +15,8 @@ import app.revanced.shared.util.resources.IconHelper
 import app.revanced.shared.util.resources.ResourceHelper
 
 @Patch(false)
-@Name("custom-branding-icon-blue")
-@Description("Changes the YouTube launcher icon (ReVanced Blue).")
+@Name("custom-branding-icon-afn-blue")
+@Description("Changes the YouTube launcher icon (Afn / Blue).")
 @DependsOn([SettingsPatch::class])
 @YouTubeCompatibility
 @Version("0.0.1")
