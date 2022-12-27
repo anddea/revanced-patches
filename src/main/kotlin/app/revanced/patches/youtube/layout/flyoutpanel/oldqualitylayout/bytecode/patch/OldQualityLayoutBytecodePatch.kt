@@ -12,7 +12,7 @@ import app.revanced.shared.annotation.YouTubeCompatibility
 import app.revanced.shared.util.integrations.Constants.FLYOUTPANEL_LAYOUT
 import org.jf.dexlib2.iface.instruction.FiveRegisterInstruction
 
-@Name("enable-oldstyle-quality-layout-bytecode-patch")
+@Name("enable-old-quality-layout-bytecode-patch")
 @YouTubeCompatibility
 @Version("0.0.1")
 class OldQualityLayoutBytecodePatch : BytecodePatch(
