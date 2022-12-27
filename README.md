@@ -10,8 +10,8 @@ The official Patch bundle provided by ReVanced and the community.
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
 | `client-spoof` | Spoofs the YouTube client to prevent playback issues. | 17.49.37 |
-| `custom-branding-icon-blue` | Changes the YouTube launcher icon (ReVanced Blue). | 17.49.37 |
-| `custom-branding-icon-red` | Changes the YouTube launcher icon (ReVanced Red). | 17.49.37 |
+| `custom-branding-icon-afn-blue` | Changes the YouTube launcher icon (Afn / Blue). | 17.49.37 |
+| `custom-branding-icon-afn-red` | Changes the YouTube launcher icon (Afn / Red). | 17.49.37 |
 | `custom-branding-icon-revancify` | Changes the YouTube launcher icon (Revancify). | 17.49.37 |
 | `custom-branding-name` | Changes the YouTube launcher name to your choice (defaults to ReVanced Extended). | 17.49.37 |
 | `custom-video-buffer` | Lets you change the buffers of videos. | 17.49.37 |
@@ -23,7 +23,8 @@ The official Patch bundle provided by ReVanced and the community.
 | `enable-hdr-auto-brightness` | Makes the brightness of HDR videos follow the system default. | 17.49.37 |
 | `enable-minimized-playback` | Enables minimized and background playback. | 17.49.37 |
 | `enable-old-layout` | Spoof the YouTube client version to use the old layout. | 17.49.37 |
-| `enable-oldstyle-quality-layout` | Enables the original quality flyout menu. | 17.49.37 |
+| `enable-old-quality-layout` | Enables the original quality flyout menu. | 17.49.37 |
+| `enable-old-seekbar-color` | Enable old seekbar color in dark mode. | 17.49.37 |
 | `enable-open-links-directly` | Bypass URL redirects (youtube.com/redirect) when opening links in video descriptions. | 17.49.37 |
 | `enable-seekbar-tapping` | Enables tap-to-seek on the seekbar of the video player. | 17.49.37 |
 | `enable-tablet-miniplayer` | Enables the tablet mini player layout. | 17.49.37 |
