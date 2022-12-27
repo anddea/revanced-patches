@@ -215,8 +215,8 @@
     <!-- PREFERENCE_HEADER: FLYOUT_PANEL
         <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_layout_settings_flyoutmenu" />PREFERENCE_HEADER: FLYOUT_PANEL -->
 
-        <!-- SETTINGS: ENABLE_OLD_STYLE_QUALITY_LAYOUT
-        <SwitchPreference android:title="@string/revanced_enable_oldstyle_quality_layout_title" android:key="revanced_enable_oldstyle_quality_layout" android:defaultValue="true" android:summaryOn="@string/revanced_enable_oldstyle_quality_layout_summary_on" android:summaryOff="@string/revanced_enable_oldstyle_quality_layout_summary_off" />SETTINGS: ENABLE_OLD_STYLE_QUALITY_LAYOUT -->
+        <!-- SETTINGS: ENABLE_OLD_QUALITY_LAYOUT
+        <SwitchPreference android:title="@string/revanced_enable_old_quality_layout_title" android:key="revanced_enable_old_quality_layout" android:defaultValue="true" android:summaryOn="@string/revanced_enable_old_quality_layout_summary_on" android:summaryOff="@string/revanced_enable_old_quality_layout_summary_off" />SETTINGS: ENABLE_OLD_QUALITY_LAYOUT -->
 
         <!-- SETTINGS: FLYOUT_PANEL_COMPONENT
         <PreferenceScreen android:title="@string/revanced_player_flyout_panel_title" android:key="revanced_player_flyout_panel" android:summary="@string/revanced_player_flyout_panel_summary">
@@ -388,7 +388,7 @@
 
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_layout_settings_flyoutmenu" />
             <Preference android:title="enable-old-seekbar-color" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
-            <Preference android:title="enable-oldstyle-quality-layout" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="enable-old-quality-layout" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-flyout-panel" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
 
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_layout_settings_seekbar" />

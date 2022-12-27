@@ -15,7 +15,7 @@ import app.revanced.shared.annotation.YouTubeCompatibility
 import app.revanced.shared.util.resources.ResourceHelper
 
 @Patch
-@Name("enable-oldstyle-quality-layout")
+@Name("enable-old-quality-layout")
 @Description("Enables the original quality flyout menu.")
 @DependsOn(
     [
@@ -36,12 +36,12 @@ class OldQualityLayoutPatch : ResourcePatch {
             "PREFERENCE_CATEGORY: REVANCED_SETTINGS",
             "PREFERENCE: LAYOUT_SETTINGS",
             "PREFERENCE_HEADER: FLYOUT_PANEL",
-            "SETTINGS: ENABLE_OLD_STYLE_QUALITY_LAYOUT"
+            "SETTINGS: ENABLE_OLD_QUALITY_LAYOUT"
         )
 
         ResourceHelper.patchSuccess(
             context,
-            "enable-oldstyle-quality-layout"
+            "enable-old-quality-layout"
         )
 
         return PatchResultSuccess()
