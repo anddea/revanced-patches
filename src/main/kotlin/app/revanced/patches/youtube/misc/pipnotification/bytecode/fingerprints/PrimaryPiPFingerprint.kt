@@ -13,5 +13,5 @@ object PrimaryPiPFingerprint : MethodFingerprint(
         Opcode.CHECK_CAST,
         Opcode.IGET_OBJECT
     ),
-    strings = listOf("OnYpcTransactionListener")
+    strings = listOf("honeycomb.Shell\$HomeActivity")
 )
