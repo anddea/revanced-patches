@@ -85,6 +85,9 @@
     <string name="revanced_adremover_channel_guidelines_summary_off">채널 가이드라인을 보여줍니다.</string>
     <string name="revanced_adremover_channel_guidelines_summary_on">채널 가이드라인을 숨깁니다.</string>
     <string name="revanced_adremover_channel_guidelines_title">채널 가이드라인 제거</string>
+    <string name="revanced_adremover_channelbar_join_button_summary_off">채널바 가입 버튼을 보여줍니다.</string>
+    <string name="revanced_adremover_channelbar_join_button_summary_on">채널바 가입 버튼을 숨깁니다.</string>
+    <string name="revanced_adremover_channelbar_join_button_title">채널바 가입 버튼 제거</string>
     <string name="revanced_adremover_chapter_teaser_summary_off">챕터 티저를 보여줍니다.</string>
     <string name="revanced_adremover_chapter_teaser_summary_on">챕터 티저를 숨깁니다.</string>
     <string name="revanced_adremover_chapter_teaser_title">영상 하단 챕터 티저 제거</string>
@@ -129,8 +132,8 @@
     <string name="revanced_adremover_official_card_in_search_summary_off">검색 결과에서 공식 카드를 보여줍니다.</string>
     <string name="revanced_adremover_official_card_in_search_summary_on">검색 결과에서 공식 카드를 숨깁니다.</string>
     <string name="revanced_adremover_official_card_in_search_title">공식 카드 제거</string>
-    <string name="revanced_adremover_paid_content_summary_off">유료광고 포함 라벨을 보여줍니다</string>
-    <string name="revanced_adremover_paid_content_summary_on">유료광고 포함 라벨을 숨깁니다</string>
+    <string name="revanced_adremover_paid_content_summary_off">유료광고 포함 라벨을 보여줍니다.</string>
+    <string name="revanced_adremover_paid_content_summary_on">유료광고 포함 라벨을 숨깁니다.</string>
     <string name="revanced_adremover_paid_content_title">유료광고 포함 라벨 제거</string>
     <string name="revanced_adremover_self_sponsor_summary_off">셀프 스폰서 카드를 보여줍니다.</string>
     <string name="revanced_adremover_self_sponsor_summary_on">셀프 스폰서 카드를 숨깁니다.</string>
@@ -138,6 +141,9 @@
     <string name="revanced_adremover_separator_summary_off">영상을 구분하는 회색 표시를 보여줍니다.</string>
     <string name="revanced_adremover_separator_summary_on">영상을 구분하는 회색 표시를 숨깁니다.</string>
     <string name="revanced_adremover_separator_title">영상을 구분하는 회색 표시 제거</string>
+    <string name="revanced_adremover_subscribers_community_guidelines_summary_off">구독자를 위한 커뮤니티 가이드라인을 보여줍니다.</string>
+    <string name="revanced_adremover_subscribers_community_guidelines_summary_on">구독자를 위한 커뮤니티 가이드라인을 숨깁니다.</string>
+    <string name="revanced_adremover_subscribers_community_guidelines_title">구독자를 위한 커뮤니티 가이드라인 제거</string>
     <string name="revanced_adremover_suggestions_summary_off">제안 섹션을 보여줍니다.</string>
     <string name="revanced_adremover_suggestions_summary_on">제안 섹션을 숨깁니다.</string>
     <string name="revanced_adremover_suggestions_title">제안 섹션 제거</string>
@@ -153,12 +159,12 @@
     <string name="revanced_adremover_web_search_panel_summary_off">웹 검색 패널을 보여줍니다.</string>
     <string name="revanced_adremover_web_search_panel_summary_on">웹 검색 패널을 숨깁니다.</string>
     <string name="revanced_adremover_web_search_panel_title">웹 검색 패널 제거</string>
-    <string name="revanced_custom_video_buffer_maximum_summary">플레이어가 버퍼링할 영상의 최대 길이</string>
-    <string name="revanced_custom_video_buffer_maximum_title">최대 버퍼 설정</string>
-    <string name="revanced_custom_video_buffer_playback_start_summary">영상을 일시정지한 후 다시 재생하기 전에 미리 버퍼링할 영상의 길이</string>
-    <string name="revanced_custom_video_buffer_playback_start_title">일시정지후 버퍼링</string>
-    <string name="revanced_custom_video_buffer_rebuffer_summary">영상 재생 중 버퍼링이 필요할 때 미리 가져올 영상의 길이</string>
-    <string name="revanced_custom_video_buffer_rebuffer_title">재버퍼링</string>
+    <string name="revanced_custom_video_buffer_maximum_summary">플레이어가 버퍼링할 영상의 최대 길이에 영향을 미칩니다.</string>
+    <string name="revanced_custom_video_buffer_maximum_title">최대 버퍼 크기 설정</string>
+    <string name="revanced_custom_video_buffer_playback_start_summary">영상을 일시정지한 후 다시 재생하기 전에 미리 버퍼링할 영상의 길이에 영향을 미칩니다.</string>
+    <string name="revanced_custom_video_buffer_playback_start_title">일시정지후 버퍼링 크기 설정</string>
+    <string name="revanced_custom_video_buffer_rebuffer_summary">영상 재생 중 버퍼링이 필요할 때 미리 가져올 영상의 길이에 영향을 미칩니다.</string>
+    <string name="revanced_custom_video_buffer_rebuffer_title">재버퍼링 크기 설정</string>
     <string name="revanced_custom_video_buffer_summary">동영상 버퍼 관련 설정입니다.</string>
     <string name="revanced_custom_video_buffer_title">동영상 버퍼 설정</string>
     <string name="revanced_default_video_quality_mobile_summary">모바일 데이터를 사용 중일 때의 기본 영상 화질을 선택합니다.</string>
@@ -178,20 +184,20 @@
     <string name="revanced_hide_filmstrip_overlay_summary_off">필름 스트립 오버레이를 보여줍니다.</string>
     <string name="revanced_hide_filmstrip_overlay_summary_on">필름 스트립 오버레이를 숨깁니다.</string>
     <string name="revanced_hide_filmstrip_overlay_title">필름 스트립 오버레이 제거</string>
-    <string name="revanced_disable_haptic_feedback_scrubbing_summary_off">화면을 문지를때 진동 피드백이 활성화 되었습니다.</string>
-    <string name="revanced_disable_haptic_feedback_scrubbing_summary_on">화면을 문지를때 진동 피드백이 비활성화 되었습니다.</string>
-    <string name="revanced_disable_haptic_feedback_scrubbing_title">화면을 문지를때 진동 피드백 비활성화</string>
-    <string name="revanced_disable_haptic_feedback_seek_summary_off">탐색바 진동 피드백이 활성화 되었습니다.</string>
-    <string name="revanced_disable_haptic_feedback_seek_summary_on">탐색바 진동 피드백이 비활성화 되었습니다</string>
-    <string name="revanced_disable_haptic_feedback_seek_title">탐색바 진동 피드백 비활성화</string>
-    <string name="revanced_disable_haptic_feedback_chapters_summary_off">챕터 진동 피드백이 활성화 되었습니다.</string>
-    <string name="revanced_disable_haptic_feedback_chapters_summary_on">챕터 진동 피드백이 비활성화 되었습니다.</string>
-    <string name="revanced_disable_haptic_feedback_chapters_title">챕터 진동 피드백 비활성화</string>
-    <string name="revanced_disable_haptic_feedback_summary">길게 눌렀을 때 진동 피드백 비활성화</string>
+    <string name="revanced_disable_haptic_feedback_scrubbing_summary_off">위로 스와이프할 때 진동 피드백을 활성화합니다.</string>
+    <string name="revanced_disable_haptic_feedback_scrubbing_summary_on">위로 스와이프할 때 진동 피드백을 비활성화합니다.</string>
+    <string name="revanced_disable_haptic_feedback_scrubbing_title">위로 스와이프할 때 진동 피드백 비활성화</string>
+    <string name="revanced_disable_haptic_feedback_seek_summary_off">탐색할 때 진동 피드백을 활성화합니다.</string>
+    <string name="revanced_disable_haptic_feedback_seek_summary_on">탐색할 때 진동 피드백을 비활성화합니다.</string>
+    <string name="revanced_disable_haptic_feedback_seek_title">탐색할 때 진동 피드백 비활성화</string>
+    <string name="revanced_disable_haptic_feedback_chapters_summary_off">챕터를 탐색할 때 진동 피드백을 활성화합니다.</string>
+    <string name="revanced_disable_haptic_feedback_chapters_summary_on">챕터를 탐색할 때 진동 피드백을 비활성화합니다.</string>
+    <string name="revanced_disable_haptic_feedback_chapters_title">챕터를 탐색할 때 진동 피드백 비활성화</string>
+    <string name="revanced_disable_haptic_feedback_summary">길게 눌렀을 때 진동 피드백을 비활성화합니다.</string>
     <string name="revanced_disable_haptic_feedback_title">진동 피드백 비활성화</string>
-    <string name="revanced_disable_haptic_feedback_zoom_summary_off">동영상 확대 시 진동 피드백이 활성화 되었습니다.</string>
-    <string name="revanced_disable_haptic_feedback_zoom_summary_on">동영상 확대 시 진동 피드백이 비활성화 되었습니다.</string>
-    <string name="revanced_disable_haptic_feedback_zoom_title">동영상 확대 시 진동 피드백 비활성화</string>
+    <string name="revanced_disable_haptic_feedback_zoom_summary_off">동영상을 확대할 때 진동 피드백을 활성화합니다.</string>
+    <string name="revanced_disable_haptic_feedback_zoom_summary_on">동영상을 확대할 때 진동 피드백을 비활성화합니다.</string>
+    <string name="revanced_disable_haptic_feedback_zoom_title">동영상을 확대할 때 진동 피드백 비활성화</string>
     <string name="revanced_copytimestamp_success">타임스탬프가 클립보드에 저장되었습니다.</string>
     <string name="revanced_enable_always_auto_repeat_summary_off">자동 반복 기능이 꺼져 있습니다.</string>
     <string name="revanced_enable_always_auto_repeat_summary_on">자동 반복 기능이 켜져 있습니다.</string>
@@ -207,42 +213,42 @@
     <string name="revanced_enable_external_browser_title">외부 브라우저 활성화</string>
     <string name="revanced_enable_hdr_auto_brightness_summary_off">HDR 영상 밝기가 기기의 현재 밝기로 자동 설정됩니다.</string>
     <string name="revanced_enable_hdr_auto_brightness_summary_on">HDR 영상 밝기가 최대로 자동 설정됩니다.</string>
-    <string name="revanced_enable_hdr_auto_brightness_title">HDR 영상 최대 밝기 설정</string>
+    <string name="revanced_enable_hdr_auto_brightness_title">HDR 영상 최대 밝기 활성화</string>
     <string name="revanced_enable_minimized_playback_summary_off">백그라운드 재생을 비활성화합니다.</string>
     <string name="revanced_enable_minimized_playback_summary_on">백그라운드 재생을 활성화합니다.</string>
     <string name="revanced_enable_minimized_playback_title">백그라운드 재생</string>
     <string name="revanced_enable_old_layout_summary_off">YouTube 레이아웃이 Google 계정 상태를 따라갑니다.</string>
     <string name="revanced_enable_old_layout_summary_on">YouTube 버전을 속여서 이전 레이아웃을 강제로 활성화합니다.</string>
     <string name="revanced_enable_old_layout_title">이전 레이아웃 활성화</string>
-    <string name="revanced_enable_old_quality_layout_summary_off">새로운 스타일의 동영상 품질 설정을 보여줍니다</string>
-    <string name="revanced_enable_old_quality_layout_summary_on">이전 스타일의 동영상 품질 설정을 보여줍니다</string>
+    <string name="revanced_enable_old_quality_layout_summary_off">새로운 스타일의 동영상 품질 설정을 보여줍니다.</string>
+    <string name="revanced_enable_old_quality_layout_summary_on">이전 스타일의 동영상 품질 설정을 보여줍니다.</string>
     <string name="revanced_enable_old_quality_layout_title">이전 스타일의 동영상 품질 설정 활성화</string>
-    <string name="revanced_enable_old_seekbar_color_summary_off">새로운 재생바 색상을 사용합니다</string>
-    <string name="revanced_enable_old_seekbar_color_summary_on">이전 재생바 색상을 사용합니다</string>
+    <string name="revanced_enable_old_seekbar_color_summary_off">새로운 재생바 색상을 사용합니다.</string>
+    <string name="revanced_enable_old_seekbar_color_summary_on">이전 재생바 색상을 사용합니다.</string>
     <string name="revanced_enable_old_seekbar_color_title">이전 재생바 색상 활성화</string>
     <string name="revanced_enable_open_links_directly_summary_off">영상 설명의 URL을 열 때 URL 리다이렉션(youtube.com/redirect)을 사용합니다.</string>
     <string name="revanced_enable_open_links_directly_summary_on">영상 설명의 URL을 열 때 URL 리다이렉션(youtube.com/redirect)을 거치지 않고 다이렉트로 연결됩니다.</string>
     <string name="revanced_enable_open_links_directly_title">리다이렉션 없이 링크 바로 열기</string>
-    <string name="revanced_enable_press_to_swipe_summary_off">눌러서 스와이프 비활성화됨</string>
-    <string name="revanced_enable_press_to_swipe_summary_on">눌러서 스와이프 활성화됨</string>
-    <string name="revanced_enable_press_to_swipe_title">눌러서 스와이프 제스쳐 활성화</string>
+    <string name="revanced_enable_press_to_swipe_summary_off">눌러서 스와이프 제스처를 활성화 하지 않습니다.</string>
+    <string name="revanced_enable_press_to_swipe_summary_on">눌러서 스와이프 제스처를 활성화합니다.</string>
+    <string name="revanced_enable_press_to_swipe_title">눌러서 스와이프 제스처 활성화</string>
     <string name="revanced_enable_phone_layout_summary">dpi를 속여 일부 레이아웃을 휴대폰 레이아웃으로 변경합니다.</string>
     <string name="revanced_enable_phone_layout_title">휴대폰 레이아웃 활성화</string>
-    <string name="revanced_enable_seekbar_tapping_summary_off">재생바 터치만으로 탐색 기능이 비활성화 되어있습니다.</string>
-    <string name="revanced_enable_save_video_quality_summary_off">동영상 화질을 변경할 때마다 영상 화질 값을 저장하지 않습니다</string>
-    <string name="revanced_enable_save_video_quality_summary_on">동영상 화질을 변경할 때마다 영상 화질 값을 저장합니다</string>
+    <string name="revanced_enable_seekbar_tapping_summary_off">재생바 터치 조작이 비활성화 되어있습니다.</string>
+    <string name="revanced_enable_save_video_quality_summary_off">동영상 화질을 변경할 때마다 영상 화질 값을 저장하지 않습니다.</string>
+    <string name="revanced_enable_save_video_quality_summary_on">동영상 화질을 변경할 때마다 영상 화질 값을 저장합니다.</string>
     <string name="revanced_enable_save_video_quality_title">동영상 화질 저장 활성화</string>
-    <string name="revanced_enable_seekbar_tapping_summary_on">재생바 터치만으로 탐색 기능이 활성화 되어있습니다.</string>
-    <string name="revanced_enable_seekbar_tapping_title">재생바 터치만으로 탐색 기능 활성화</string>
+    <string name="revanced_enable_seekbar_tapping_summary_on">재생바 터치 조작이 활성화 되어있습니다.</string>
+    <string name="revanced_enable_seekbar_tapping_title">재생바 터치 조작 활성화</string>
     <string name="revanced_enable_swipe_auto_brightness_summary_off">스와이프 조작으로 화면 밝기가 0이 되더라도 자동으로 밝기를 조절하지 않습니다.</string>
     <string name="revanced_enable_swipe_auto_brightness_summary_on">스와이프 조작으로 화면 밝기가 0이 되면 자동으로 밝기를 조절합니다.</string>
     <string name="revanced_enable_swipe_auto_brightness_title">스와이프 조작 중 자동 밝기 활성화</string>
     <string name="revanced_enable_swipe_brightness_summary_off">스와이프 제스처로 밝기 조절을 활성화 하지 않습니다.</string>
     <string name="revanced_enable_swipe_brightness_summary_on">스와이프 제스처로 밝기 조절을 활성화합니다.</string>
     <string name="revanced_enable_swipe_brightness_title">스와이프 제스처로 밝기 조절 활성화</string>
-    <string name="revanced_enable_swipe_haptic_feedback_summary_off">눌러서 스와이프 진동 피드백 비활성화되었습니다.</string>
-    <string name="revanced_enable_swipe_haptic_feedback_summary_on">눌러서 스와이프 진동 피드백이 활성화되었습니다.</string>
-    <string name="revanced_enable_swipe_haptic_feedback_title">눌러서 스와이프 진동 피드백 활성화</string>
+    <string name="revanced_enable_swipe_haptic_feedback_summary_off">눌러서 스와이프시 진동 피드백을 활성화 하지 않습니다.</string>
+    <string name="revanced_enable_swipe_haptic_feedback_summary_on">눌러서 스와이프시 진동 피드백을 활성화합니다.</string>
+    <string name="revanced_enable_swipe_haptic_feedback_title">눌러서 스와이프시 진동 피드백 활성화</string>
     <string name="revanced_enable_swipe_volume_summary_off">스와이프 제스처로 볼륨 조절을 활성화 하지 않습니다.</string>
     <string name="revanced_enable_swipe_volume_summary_on">스와이프 제스처로 볼륨 조절을 활성화합니다.</string>
     <string name="revanced_enable_swipe_volume_title">스와이프 제스처로 볼륨 조절 활성화</string>
@@ -255,14 +261,14 @@
     <string name="revanced_enable_wide_searchbar_summary_on">넓은 검색 바를 사용합니다.</string>
     <string name="revanced_enable_wide_searchbar_title">넓은 검색 바 활성화</string>
     <string name="revanced_experimental_flag">실험적 플래그</string>
-    <string name="revanced_extended_issue_center_summary">문제를 보고하거나 제안 사항을 여기에 남기세요</string>
+    <string name="revanced_extended_issue_center_summary">버그 리포팅이나, 기능 제안은 이곳에 남겨주세요.</string>
     <string name="revanced_extended_issue_center_title">ReVanced Extended Issue Center</string>
     <string name="revanced_extended_settings">ReVanced Extended 설정</string>
-    <string name="revanced_extended_summary">Extended 관련 설정입니다</string>
+    <string name="revanced_extended_summary">Extended 관련 설정입니다.</string>
     <string name="revanced_extended_title">Extended 설정</string>
-    <string name="revanced_fix_video_playback_summary_off">버퍼링 이슈 해결을 비활성화 합니다.</string>
-    <string name="revanced_fix_video_playback_summary_on">버퍼링 이슈 해결을 활성화 합니다.</string>
-    <string name="revanced_fix_video_playback_title">버퍼링 이슈 해결</string>
+    <string name="revanced_fix_video_playback_summary_off">버퍼링 이슈 수정이 비활성화 되어있습니다.</string>
+    <string name="revanced_fix_video_playback_summary_on">버퍼링 이슈 수정이 활성화 되어있습니다.</string>
+    <string name="revanced_fix_video_playback_title">버퍼링 이슈 수정</string>
     <string name="revanced_hide_auto_captions_summary_off">자막 사용이 강제된 동영상에서 자막을 보여줍니다.</string>
     <string name="revanced_hide_auto_captions_summary_on">"자막 사용이 강제된 동영상에서 자막을 보여주지 않습니다."</string>
     <string name="revanced_hide_auto_captions_title">자동 자막 제거</string>
@@ -319,7 +325,7 @@
     <string name="revanced_hide_comments_section_summary_on">댓글 영역을 숨깁니다.</string>
     <string name="revanced_hide_comments_section_title">댓글 영역 제거</string>
     <string name="revanced_hide_create_button_summary_off">만들기 버튼을 보여줍니다.</string>
-    <string name="revanced_hide_create_button_summary_on">만들기 버튼을 비활성화합니다.</string>
+    <string name="revanced_hide_create_button_summary_on">만들기 버튼을 숨깁니다.</string>
     <string name="revanced_hide_create_button_title">만들기 버튼 제거</string>
     <string name="revanced_hide_crowdfunding_box_summary_off">크라우드펀딩 박스를 보여줍니다.</string>
     <string name="revanced_hide_crowdfunding_box_summary_on">크라우드펀딩 박스를 숨깁니다.</string>
@@ -399,9 +405,9 @@
     <string name="revanced_hide_shorts_shelf_summary_off">Shorts 선반을 보여줍니다.</string>
     <string name="revanced_hide_shorts_shelf_summary_on">Shorts 선반을 숨깁니다.</string>
     <string name="revanced_hide_shorts_shelf_title">Shorts 선반 제거</string>
-    <string name="revanced_hide_startup_shorts_player_summary_off">앱 시작시 Shorts 플레이어가 활성화됩니다.</string>
-    <string name="revanced_hide_startup_shorts_player_summary_on">앱 시작시 Shorts 플레이어가 비활성화됩니다.</string>
-    <string name="revanced_hide_startup_shorts_player_title">앱 시작시 Shorts 플레이어 보이기</string>
+    <string name="revanced_hide_startup_shorts_player_summary_off">앱 시작시 Shorts 플레이어를 보여줍니다.</string>
+    <string name="revanced_hide_startup_shorts_player_summary_on">앱 시작시 Shorts 플레이어를 숨깁니다.</string>
+    <string name="revanced_hide_startup_shorts_player_title">앱 시작시 Shorts 플레이어 제거</string>
     <string name="revanced_hide_stories_shelf_summary_off">스토리 선반을 보여줍니다.</string>
     <string name="revanced_hide_stories_shelf_summary_on">스토리 선반을 숨깁니다.</string>
     <string name="revanced_hide_stories_shelf_title">스토리 선반 제거</string>
@@ -444,7 +450,7 @@
     <string name="revanced_override_premium_header_title">프리미엄 헤더</string>
     <string name="revanced_patches_information_summary">적용된 패치에 대한 정보입니다.</string>
     <string name="revanced_patches_information">패치 정보</string>
-    <string name="revanced_player_flyout_panel_summary">플레이어 메뉴 구성 요소를 제거합니다.</string>
+    <string name="revanced_player_flyout_panel_summary">플레이어 메뉴 구성요소를 제거합니다.</string>
     <string name="revanced_player_flyout_panel_title">플레이어 메뉴 구성요소</string>
     <string name="revanced_reboot_warning_general">"이것은 여전히 실험적인 기능이기 때문에, 알려지지 않은 다른 문제가 있을 수 있습니다.
 그래도 계속하시겠습니까?"</string>
@@ -460,6 +466,10 @@
 
 이 설정을 활성화하면 다음과 같은 문제가 발생할 수 있습니다.
 - 재생 목록에서 영상을 재생할 때, 문제가 해결되지 않을 수 있습니다."</string>
+    <string name="revanced_reboot_warning_swipe">"플레이어 컨트롤의 표시 여부에 관계없이 항상 스와이프 제스처를 활성화합니다.
+
+이 설정을 활성화하면 다음과 같은 문제가 발생할 수 있습니다.
+- 재생바 터치 조작이 때때로 의도한대로 작동하지 않습니다."</string>
     <string name="revanced_reboot_warning_tablet">"dpi를 속여 일부 레이아웃을 태블릿 레이아웃으로 변경합니다.
 
 이 설정을 활성화하면 다음 기능을 사용할 수 없습니다.
