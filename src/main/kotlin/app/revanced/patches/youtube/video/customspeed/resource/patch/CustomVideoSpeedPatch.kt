@@ -48,6 +48,8 @@ class CustomVideoSpeedPatch : ResourcePatch {
             ResourceHelper.addEntries(context, speedElements[index] + "x")
         }
 
+        ResourceHelper.addSpeed(context)
+
         /*
          add settings
          */
