@@ -58,6 +58,19 @@ internal object ResourceHelper {
         )
     }
 
+    fun addSpeed(
+        context: ResourceContext
+    ) {
+        val prefs = context["res/xml/revanced_prefs.xml"]
+        prefs.writeText(
+            prefs.readText()
+            .replace(
+                "revanced_default_video_speed\"",
+                "revanced_default_video_speed\" android:entries=\"@array/revanced_video_speed_entries\" android:entryValues=\"@array/revanced_video_speed_entry_values\""
+            )
+        )
+    }
+
     fun addSettings(
         context: ResourceContext,
         PreferenceCategory: String,
