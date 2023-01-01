@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="about">關於</string>
+    <string name="about">關於 Transl. Proj. By inotia00</string>
     <string name="about_api">此軟體使用 SponsorBlock 的API</string>
     <string name="about_api_sum">點擊以了解更多並檢視其他平台的下載： sponsor.ajay.app</string>
-    <string name="about_madeby">由 JakubWeg 整合</string>
+    <string name="about_madeby">由 JakubWeg 整合, 由 oSumAtrIX 重新編碼</string>
     <string name="accessibility_settings_edu_opt_in_text">啟用播放器的輔助功能？</string>
-    <string name="accessibility_settings_edu_opt_out_text">因為無障礙服務已啟用，您的控件已被修改。</string>
+    <string name="accessibility_settings_edu_opt_out_text">您的控件已被修改，因為無障礙服務已打開。</string>
     <string name="api_url_changed">API 網址已更換</string>
     <string name="api_url_invalid">提供 的API 網址無效</string>
-    <string name="api_url_reset">重製API 網址</string>
+    <string name="api_url_reset">API 網址重設</string>
     <string name="api_mirror_url_changed">API 鏡像網址已更改</string>
     <string name="api_mirror_url_invalid">提供的API 鏡像網址無效</string>
     <string name="api_mirror_url_reset">重置API 鏡像網址</string>
-    <string name="color_change">你是否想更改顏色？</string>
+    <string name="color_change">你在找變更顏色的地方嗎?</string>
     <string name="color_change_sum">"你現在可以點擊上面各類別來變更顏色"</string>
     <string name="color_changed">已變更顏色</string>
     <string name="color_invalid">無效的 hex 碼</string>
@@ -23,53 +23,53 @@
     <string name="enable_sb_mirror">啟用 SponsorBlock 鏡像</string>
     <string name="enable_sb_mirror_sum">當 SponsorBlock API 伺服器宕機時，切換鏡像 API 伺服器為默認 API 伺服器</string>
     <string name="enable_segmadding">啟用新增新片段</string>
-    <string name="enable_segmadding_sum">開啟此選項以啟用實驗性質的片段新增功能 (按鈕有可見性問題)</string>
+    <string name="enable_segmadding_sum">開啟此選項以啟用實驗性質的片段新增功能 （按鈕有可見性問題）</string>
     <string name="enable_voting">啟用投票</string>
     <string name="enable_voting_sum">開啟此項以啟用投票</string>
     <string name="general">一般</string>
-    <string name="general_adjusting">調整新片段步進</string>
-    <string name="general_adjusting_sum">這是按下時間調整按鈕加入新片段時可以移動的毫秒數</string>
+    <string name="general_adjusting">新片段調整步進</string>
+    <string name="general_adjusting_sum">這是在你新增新片段時時間調整按鈕每次移動的毫秒數</string>
     <string name="general_api_url">更改 API 網址</string>
     <string name="general_api_url_sum">"SponsorBlock 用於調用伺服器的地址。&lt;b&gt;除非您知道自己在做什麼，否則請勿更改此網址。&lt;/b&gt;"</string>
     <string name="general_api_mirror_url">更改 API 鏡像網址</string>
     <string name="general_api_mirror_url_sum">"鏡像伺服器網址用於當 SponsorBlock 服務器宕機的切換。 &lt;b&gt;除非您知道自己在做什麼，否則不要改變這個網址。 &lt;/b&gt;"</string>
     <string name="general_min_duration">最短片段持續時間</string>
-    <string name="general_min_duration_sum">小於設定值（以秒為單位）的片段不會被跳過或在播放器中顯示</string>
-    <string name="general_skipcount">追蹤跳過的片段數</string>
-    <string name="general_skipcount_sum">這讓 SponsorBlock 排行榜系統知道人們節省了多少時間。每次跳過一段時，本擴充套件都會向伺服器發送一則訊息</string>
+    <string name="general_min_duration_sum">短於設定值（以秒為單位）的片段將不會被跳過或顯示在播放器中</string>
+    <string name="general_skipcount">跳過計數追蹤</string>
+    <string name="general_skipcount_sum">這讓 SponsorBlock 排行榜系統知道人們節省了多少時間。每次跳過一段時，本擴充套件都會向伺服器發送一條訊息</string>
     <string name="general_skiptoast">自動跳過片段時顯示提示</string>
     <string name="general_skiptoast_sum">點此預覽提示範例</string>
     <string name="general_time_without_sb">顯示不包含片段的時間</string>
     <string name="general_time_without_sb_sum">此時間顯示在目前時間旁邊的括號中。顯示總影片時長減去片段後的時間。</string>
-    <string name="general_uuid">你的私人使用者 id</string>
+    <string name="general_uuid">你的使用者名稱</string>
     <string name="general_uuid_sum">這應該保密。就像密碼一樣不應該與任何人共享。如果任何人取得這個ID，他們可以冒充你</string>
     <string name="microg_not_installed_notice">請安裝 MicroG</string>
     <string name="microg_not_installed_warning">未找到 MicroG</string>
     <string name="microg_notification_settings">通知設定</string>
     <string name="microg_notification_settings_summary">"1. 需要開啟 Google 裝置註冊 和 連網通知推播 才能顯示通知。
 2. ReVanced 需要在 連網通知推播 下顯示為 已註冊。
-3. 連網通知推播 中的 當前狀態 必須顯示為 已連接。"</string>
+3. 連網通知推播 中的 當前狀態 必須顯示為 已連結。"</string>
     <string name="microg_settings">MicroG 設定</string>
     <string name="minutes">分鐘</string>
     <string name="new_segment_choose_category">選擇分段類別</string>
     <string name="new_segment_confirm_content" formatted="false">"該段從 %02d:%02d 持續到 %02d:%02d (%d 分 %02d 秒)
-準備好提交了嗎？"</string>
+準備好送出了嗎？"</string>
     <string name="new_segment_confirm_title">時間是否正確？</string>
     <string name="new_segment_disabled_category">"您已在設定中停用此類別，啟用該項方能提交"</string>
     <string name="new_segment_edit_by_hand_content">您要編輯片段開始或結束的時間嗎？</string>
     <string name="new_segment_edit_by_hand_parse_error">給定的時間無效</string>
     <string name="new_segment_edit_by_hand_saved">完成</string>
     <string name="new_segment_edit_by_hand_title">手動編輯片段的時間</string>
-    <string name="new_segment_mark_end">结束</string>
+    <string name="new_segment_mark_end">結尾</string>
     <string name="new_segment_mark_locations_first">先在時間軸上標記兩個位置</string>
     <string name="new_segment_mark_start">開始</string>
-    <string name="new_segment_mark_time_as_question" formatted="false">設定 %02d:%02d:%04d 為新片段的開始或結束？</string>
+    <string name="new_segment_mark_time_as_question" formatted="false">將 d:d:d 設定為新片段的開始或結束？</string>
     <string name="new_segment_now">現在</string>
     <string name="new_segment_time_end">片段結束的時間</string>
     <string name="new_segment_time_end_set">已設定片段結束</string>
     <string name="new_segment_time_start">片段開始的時間</string>
     <string name="new_segment_time_start_set">已設定片段開始</string>
-    <string name="new_segment_title">新 SponsorBlock 片段</string>
+    <string name="new_segment_title">新的 SponsorBlock 片段</string>
     <string name="reset">重置</string>
     <string name="revanced_ads_settings_summary">廣告相關設定</string>
     <string name="revanced_ads_settings_title">廣告設定</string>
@@ -220,4 +220,154 @@
     <string name="revanced_enable_press_to_swipe_summary_off">長按以滑動已停用</string>
     <string name="revanced_enable_press_to_swipe_summary_on">長按以滑動已啟用</string>
     <string name="revanced_enable_press_to_swipe_title">長按以滑動手勢</string>
+    <string name="revanced_experimental_flag">實驗性功能</string>
+    <string name="revanced_extended_settings">ReVanced Extended 設定</string>
+    <string name="revanced_extended_summary">Extended 相關設定</string>
+    <string name="revanced_extended_title">Extended 設定</string>
+    <string name="revanced_hide_comments_section_summary_off">留言區已顯示</string>
+    <string name="revanced_hide_comments_section_summary_on">留言區已隱藏</string>
+    <string name="revanced_hide_comments_section_title">隱藏留言區</string>
+    <string name="revanced_hide_email_address_summary_off">Email 地址已隱藏</string>
+    <string name="revanced_hide_email_address_summary_on">Email 地址已顯示</string>
+    <string name="revanced_hide_email_address_title">Email 地址</string>
+    <string name="revanced_hide_preview_comment_off">留言區預覽已顯示</string>
+    <string name="revanced_hide_preview_comment_on">留言區預覽已隱藏</string>
+    <string name="revanced_hide_preview_comment_title">隱藏留言區預覽</string>
+    <string name="revanced_hide_time_and_seekbar_summary_off">播放器時間軸已隱藏</string>
+    <string name="revanced_hide_time_and_seekbar_summary_on">播放器時間軸已顯示</string>
+    <string name="revanced_hide_time_and_seekbar_title">播放器時間軸</string>
+    <string name="revanced_layout_settings_summary">佈局相關設定</string>
+    <string name="revanced_layout_settings_title">佈局設定</string>
+    <string name="revanced_override_premium_header_summary_off">目前標題：預設標誌</string>
+    <string name="revanced_override_premium_header_summary_on">目前標題： Premium 標誌</string>
+    <string name="revanced_override_premium_header_title">Premium 標誌</string>
+    <string name="revanced_reboot_warning_phone">"欺騙Dpi讓一些布局更改為手機模式的佈局
+
+如果啟用此設置，則以下功能可用：
+- 社群貼文
+- 隱藏我的合輯
+
+由於這仍然是一項實驗性功能， 可能還有其他 
+未知問題。 你確定要繼續嗎？"</string>
+    <string name="revanced_reboot_warning_playback">"修復部分地區的影片播放緩衝問題
+
+這是 ReVanced 團隊正式添加的功能，但在以下狀態會出現問題：
+- 播放 播放列表 中的影片時，播放結束後會自動跳過下一部影片
+
+由於這仍然是一個實驗性功能，可能還有其他未知問題。
+你確定要繼續嗎？"</string>
+    <string name="revanced_reboot_warning_tablet">"欺騙Dpi讓一些佈局更改為平板模式的佈局
+
+如果啟用此設置，則以下功能不可用：
+
+- 環境模式
+- 社群貼文
+
+由於這仍然是一項實驗性功能， 可能還有其他未知問題。
+你確定要繼續嗎？"</string>
+    <string name="revanced_ryd_attribution_summary">此整合使用來自 https://returnyoutubedislike.com 的 Return YouTube Dislike API。點按以了解更多訊息</string>
+    <string name="revanced_ryd_attribution_title">Return YouTube Dislike 套件</string>
+    <string name="revanced_ryd_settings_summary">Return YouTube Dislike 設定</string>
+    <string name="revanced_settings">Revanced 設定</string>
+    <string name="revanced_swipe_magnitude_threshold_summary">滑動發生的閾值量</string>
+    <string name="revanced_swipe_magnitude_threshold_title">滑動幅度閾值</string>
+    <string name="revanced_swipe_overlay_text_size_summary">滑動覆蓋的文字大小</string>
+    <string name="revanced_swipe_overlay_text_size_title">滑動覆蓋文字大小</string>
+    <string name="revanced_swipe_overlay_timeout_summary">覆蓋可見的毫秒數</string>
+    <string name="revanced_swipe_overlay_timeout_title">滑動覆蓋逾時</string>
+    <string name="revanced_tool_used">使用的工具</string>
+    <string name="revanced_video_quality_common_error">設定品質失敗</string>
+    <string name="revanced_video_quality_internet_error">沒有網路</string>
+    <string name="revanced_video_quality_mobile">將預設行動網路品質更改為：</string>
+    <string name="revanced_video_quality_mobile_error">無法更改預設行動網路品質</string>
+    <string name="revanced_video_quality_wifi">將預設 Wi-Fi 品質更改為：</string>
+    <string name="revanced_video_quality_wifi_error">更改預設 WI-FI 品質失敗</string>
+    <string name="revanced_video_settings_summary">影片畫質設定</string>
+    <string name="revanced_video_settings_title">影片設定</string>
+    <string name="revanced_whitelisting_add_failed" formatted="false">將頻道 %s 新增到 %s 白名單失敗</string>
+    <string name="revanced_whitelisting_added" formatted="false">頻道 %s 已新增到 %s 白名單</string>
+    <string name="revanced_whitelisting_ads">廣告</string>
+    <string name="revanced_whitelisting_fetch_failed">查詢頻道詳細訊息失敗，收到代碼 %d</string>
+    <string name="revanced_whitelisting_remove_failed" formatted="false">無法從 %s 白名單中刪除頻道 %s</string>
+    <string name="revanced_whitelisting_removed" formatted="false">頻道 %s 已從 %s 白名單中刪除</string>
+    <string name="sb_guidelines_popup_already_read">已閱讀</string>
+    <string name="sb_guidelines_popup_content">"建議在送出任何片段前閱讀 SponsorBlock 指南"</string>
+    <string name="sb_guidelines_popup_open">給我看看</string>
+    <string name="sb_guidelines_popup_title">有指南</string>
+    <string name="sb_guidelines_preference_sum">指南包含有關送出片段的提示和規則</string>
+    <string name="sb_guidelines_preference_title">檢視指南</string>
+    <string name="sb_settings">SponsorBlock 設定</string>
+    <string name="sb_summary">SponsorBlock 相關設定</string>
+    <string name="segments_endcards">結束卡/片尾</string>
+    <string name="segments_endcards_sum">片尾或 YouTube 結束卡出現時。並不是口述結論</string>
+    <string name="segments_filler">贅詞/笑話</string>
+    <string name="segments_filler_sum">僅為影片中主要內容所不相關的贅字或幽默片段。這不應有內容或背景細節</string>
+    <string name="segments_intermission">中場休息/介紹動畫</string>
+    <string name="segments_intermission_sum">沒有實際內容的段落。可能是暫停、靜態畫面、重複動畫</string>
+    <string name="segments_nomusic">音樂：非音樂部分</string>
+    <string name="segments_nomusic_sum">僅用於音樂影片。跳過非官方混音的部分影片</string>
+    <string name="segments_preview">預覽/回顧</string>
+    <string name="segments_preview_sum">"回顧以前的集數，或預覽目前影片或同一系列未來影片中稍後出現的內容。片段不應提供額外訊息。"</string>
+    <string name="segments_selfpromo">無償/自我推銷</string>
+    <string name="segments_selfpromo_sum">當有無償或自我推銷時。這包括有關商品、捐贈或與誰合作的訊息的特定部分</string>
+    <string name="segments_sponsor">贊助</string>
+    <string name="segments_sponsor_sum">付費促銷、付費推薦和直接廣告</string>
+    <string name="segments_subscribe">互動提醒（訂閱）</string>
+    <string name="segments_subscribe_sum">當在任何免費或付費平台上出現按讚、訂閱、關注或與他們互動的簡短提醒時</string>
+    <string name="settings_export_failed">無法匯出設定</string>
+    <string name="settings_ie">匯入/匯出設定</string>
+    <string name="settings_ie_sum">這是你所有的設定值，可用於桌面擴充套件的JSON，並包含你的使用者ID，請謹慎分享此檔案</string>
+    <string name="settings_import_failed">匯入設定失敗</string>
+    <string name="settings_import_successful">設定已成功匯入</string>
+    <string name="skip_automatically">自動跳過</string>
+    <string name="skip_automatically_once">自動跳過一次</string>
+    <string name="skip_ignore">"忽略"</string>
+    <string name="skip_showbutton">顯示跳過按鈕</string>
+    <string name="skip_sponsor">跳過片段</string>
+    <string name="skipped_endcard">跳過了結尾</string>
+    <string name="skipped_filler">跳過了贅詞</string>
+    <string name="skipped_intermission">跳過了開頭</string>
+    <string name="skipped_nomusic">跳過了非音樂片段</string>
+    <string name="skipped_preview">跳過了預覽</string>
+    <string name="skipped_segment">跳過了贊助片段</string>
+    <string name="skipped_selfpromo">跳過了自我宣傳</string>
+    <string name="skipped_sponsor">跳過了贊助</string>
+    <string name="skipped_subscribe">跳過了煩人的提醒</string>
+    <string name="skipped_unsubmitted">跳過了未送出的片段</string>
+    <string name="stats">統計資料</string>
+    <string name="stats_loading">載入中..</string>
+    <string name="stats_saved">"您幫人們省下了 &lt;b&gt;%s&lt;/b&gt; 個片段。"</string>
+    <string name="stats_saved_sum">"這是他們生命中的 &lt;b&gt;%s&lt;/b&gt; 。點擊以檢視排行榜"</string>
+    <string name="stats_sb_disabled">SponsorBlock 已停用</string>
+    <string name="stats_self_saved">"您已跳過 &lt;b&gt;%s&lt;/b&gt; 個片段。"</string>
+    <string name="stats_self_saved_sum">"那是&lt;b&gt;%s&lt;/b&gt;。"</string>
+    <string name="stats_submissions">送出數：&lt;b&gt;%s&lt;/b&gt;</string>
+    <string name="stats_username">您的使用者名稱：&lt;b&gt;%s&lt;/b&gt;</string>
+    <string name="stats_username_change">點擊以更改您的使用者名稱</string>
+    <string name="stats_username_change_unknown_error" formatted="false">無法更改使用者名稱：狀態：%d %s</string>
+    <string name="stats_username_changed">使用者名稱已成功更改</string>
+    <string name="submit_failed_duplicate">"無法送出片段。
+已經存在"</string>
+    <string name="submit_failed_forbidden">"無法送出片段。
+
+%s"</string>
+    <string name="submit_failed_rate_limit">"無法送出片段。
+頻率受限（來自同一用戶或 IP 的次數過多）"</string>
+    <string name="submit_failed_invalid">無法送出分段：%s</string>
+    <string name="submit_failed_unknown_error" formatted="false">無法送出片段：狀態：%d %s</string>
+    <string name="submit_started">正在送出片段…</string>
+    <string name="submit_succeeded">片段送出成功</string>
+    <string name="tap_skip">點擊跳過</string>
+    <string name="vote_category">更改分類</string>
+    <string name="vote_downvote">不喜歡</string>
+    <string name="vote_failed_forbidden">"不能為片段投票。
+
+%s"</string>
+    <string name="vote_failed_rate_limit">"無法為片段投票。
+頻率受限（來自同一用戶或 IP 的次數過多）"</string>
+    <string name="vote_failed_unknown_error" formatted="false">無法為片段投票：狀態：%d %s</string>
+    <string name="vote_no_segments">沒有可供投票的片段</string>
+    <string name="vote_started">為片段投票……</string>
+    <string name="vote_succeeded">投票成功</string>
+    <string name="vote_upvote">喜歡</string>
 </resources>
