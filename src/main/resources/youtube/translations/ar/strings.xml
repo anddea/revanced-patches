@@ -46,9 +46,7 @@
     <string name="microg_not_installed_notice">الرجاء تثبيت MicroG</string>
     <string name="microg_not_installed_warning">لم يتم العثور على MicroG</string>
     <string name="microg_notification_settings">إعدادات الإشعارات</string>
-    <string name="microg_notification_settings_summary">"1. يحتاج تسجيل جهاز Google و Google Cloud Messaging إلى تمكينهما للحصول على للإشعارات.
-2. يحتاج ReVanced إلى أن يظهر كمسجل تحت المراسلة السحابية.
-3. يجب عدم قطع الإتصال في المراسلة السحابية."</string>
+    <string name="microg_notification_settings_summary">"1. يحتاج تسجيل جهاز Google و Google Cloud Messaging إلى تمكينهما للحصول على للإشعارات.  2. يحتاج ReVanced إلى أن يظهر كمسجل تحت المراسلة السحابية.  3. يجب عدم قطع الإتصال في المراسلة السحابية."</string>
     <string name="microg_settings">إعدادات MicroG</string>
     <string name="minutes">m</string>
     <string name="new_segment_choose_category">اختيار فئة المقطع</string>
@@ -84,6 +82,9 @@
     <string name="revanced_adremover_channel_guidelines_summary_off">يتم عرض إرشادات القناة</string>
     <string name="revanced_adremover_channel_guidelines_summary_on">تم إخفاء إرشادات القناة</string>
     <string name="revanced_adremover_channel_guidelines_title">إخفاء إرشادات القناة</string>
+    <string name="revanced_adremover_channel_member_shelf_summary_off">يتم عرض رف أعضاء القناة</string>
+    <string name="revanced_adremover_channel_member_shelf_summary_on">تم إخفاء رف أعضاء القناة</string>
+    <string name="revanced_adremover_channel_member_shelf_title">إخفاء رف أعضاء القناة</string>
     <string name="revanced_adremover_channelbar_join_button_summary_off">يتم عرض زر الانتساب للقناة</string>
     <string name="revanced_adremover_channelbar_join_button_summary_on">تم إخفاء زر الانتساب للقناة</string>
     <string name="revanced_adremover_channelbar_join_button_title">إخفاء زر الانتساب للقناة</string>
@@ -158,14 +159,11 @@
     <string name="revanced_adremover_web_search_panel_summary_off">يتم عرض لوحات البحث على الويب</string>
     <string name="revanced_adremover_web_search_panel_summary_on">تم إخفاء لوحات البحث على الويب</string>
     <string name="revanced_adremover_web_search_panel_title">إخفاء لوحات بحث الويب</string>
-    <string name="revanced_custom_video_buffer_maximum_summary">المدة الزمنية القصوى التي سيحاول المشغل تحميلها مسبقًا من الفيديو
-الإفتراضي:120000</string>
+    <string name="revanced_custom_video_buffer_maximum_summary">المدة الزمنية القصوى التي سيحاول المشغل تحميلها مسبقًا من الفيديو  الإفتراضي:120000</string>
     <string name="revanced_custom_video_buffer_maximum_title">الحد الأقصى لحجم التحميل المسبق</string>
-    <string name="revanced_custom_video_buffer_playback_start_summary">المدة التي يجب تحميلها مسبقًا من الفيديو لكي يبدأ أو يستأنف بعد إجراء المستخدم مثل تقديم الفيديو، (بالمللي ثانية)
-الافتراضي:2500</string>
+    <string name="revanced_custom_video_buffer_playback_start_summary">المدة التي يجب تحميلها مسبقًا من الفيديو لكي يبدأ أو يستأنف بعد إجراء المستخدم مثل تقديم الفيديو، (بالمللي ثانية)  الافتراضي:2500</string>
     <string name="revanced_custom_video_buffer_playback_start_title">حجم بَدْء التحميل المسبق</string>
-    <string name="revanced_custom_video_buffer_rebuffer_summary">المدة التي يجب تحميلها مسبقًا من الفيديو لإستئناف التشغيل بعد إعادة التحميل (بالمللي ثانية). تم تعريف إعادة التحميل المسبق على إنها إنتهاء الجزء المُنَّزَّل من الفيديو وليست بسبب إجراءات المستخدم
-الإفتراضي:5000</string>
+    <string name="revanced_custom_video_buffer_rebuffer_summary">المدة التي يجب تحميلها مسبقًا من الفيديو لإستئناف التشغيل بعد إعادة التحميل (بالمللي ثانية). تم تعريف إعادة التحميل المسبق على إنها إنتهاء الجزء المُنَّزَّل من الفيديو وليست بسبب إجراءات المستخدم  الإفتراضي:5000</string>
     <string name="revanced_custom_video_buffer_rebuffer_title">حجم إعادة التحميل المسبق</string>
     <string name="revanced_custom_video_buffer_summary">الإعدادات المتعلقة بحجم التحميل المسبق</string>
     <string name="revanced_custom_video_buffer_title">إعدادات التحميل المسبق</string>
@@ -454,40 +452,18 @@
     <string name="revanced_patches_information">معلومات التعديلات</string>
     <string name="revanced_player_flyout_panel_summary">إخفاء المكون الخاص بلوحة إعدادات المشغل المنبثقة</string>
     <string name="revanced_player_flyout_panel_title">المكون الخاص بلوحة إعدادات المشغل المنبثقة</string>
-    <string name="revanced_reboot_warning_general">"نظرًا لأن هذه المِيزة لا تزال تجريبية، فقد تكون هناك مشكلات أخرى غير معروفة.
-هل أنت متأكد أنك تريد الاستمرار بالرغم من ذلك؟"</string>
-    <string name="revanced_reboot_warning_oldlayout">"يخدع إصدار YouTube إلى الإصدار 17.28.35 لتحميل التصميم القديم
-
-في إعدادات التطبيق، قد يتم تمييز إصدار YouTube كـ v17.28.35"</string>
-    <string name="revanced_reboot_warning_phone">"حيل نقطة في البوصة لتغيير بعض التصميمات لتصميمات الجوال.
-
-إذا قمت بتمكين هذا الإعداد، فستتوفر الميزات التالية:
-- مشاركات المجتمع
-- إخفاء قائمة تشغيل التشكيلة"</string>
-    <string name="revanced_reboot_warning_playback">"إصلاح مشاكل التحميل المسبق لتشغيل الفيديو في بعض المناطق.
-
-إذا قمت بتمكين هذا الإعداد، فقد تحدث المشكلة التالية:
-- عند تشغيل مقطع فيديو في قائمة التشغيل، قد لا يتم حل المشكلة"</string>
-    <string name="revanced_reboot_warning_swipe">"تمكين إيماءات السحب بشكل دائم سواءً عناصر تحكم المشغل مرئية أو غير مرئية
-
-إذا قمت بتمكين هذا الإعداد، فلن تتوفر الميزات التالية:
-- ببعض الأوقات يؤدي النقر على شريط تقدم الفيديو إلى حدوث أخطاء"</string>
-    <string name="revanced_reboot_warning_tablet">"حيل نقطة في البوصة لتغيير بعض التصميمات لتصميمات الجهاز اللوحي.
-
-إذا قمت بتمكين هذا الإعداد، فستتوفر الميزات التالية:
-- الوضع المحيط
-- مشاركات المجتمع"</string>
+    <string name="revanced_reboot_warning_general">"نظرًا لأن هذه المِيزة لا تزال تجريبية، فقد تكون هناك مشكلات أخرى غير معروفة.  هل أنت متأكد أنك تريد الاستمرار بالرغم من ذلك؟"</string>
+    <string name="revanced_reboot_warning_oldlayout">"يخدع إصدار YouTube إلى الإصدار 17.28.35 لتحميل التصميم القديم  في إعدادات التطبيق، قد يتم تمييز إصدار YouTube كـ v17.28.35"</string>
+    <string name="revanced_reboot_warning_phone">"حيل نقطة في البوصة لتغيير بعض التصميمات لتصميمات الجوال.  إذا قمت بتمكين هذا الإعداد، فستتوفر الميزات التالية:  - مشاركات المجتمع  - إخفاء قائمة تشغيل التشكيلة"</string>
+    <string name="revanced_reboot_warning_playback">"إصلاح مشاكل التحميل المسبق لتشغيل الفيديو في بعض المناطق.  إذا قمت بتمكين هذا الإعداد، فقد تحدث المشكلة التالية:  - عند تشغيل مقطع فيديو في قائمة التشغيل، قد لا يتم حل المشكلة"</string>
+    <string name="revanced_reboot_warning_swipe">"تمكين إيماءات السحب بشكل دائم سواءً عناصر تحكم المشغل مرئية أو غير مرئية  إذا قمت بتمكين هذا الإعداد، فلن تتوفر الميزات التالية:  - ببعض الأوقات يؤدي النقر على شريط تقدم الفيديو إلى حدوث أخطاء"</string>
+    <string name="revanced_reboot_warning_tablet">"حيل نقطة في البوصة لتغيير بعض التصميمات لتصميمات الجهاز اللوحي.  إذا قمت بتمكين هذا الإعداد، فستتوفر الميزات التالية:  - الوضع المحيط  - مشاركات المجتمع"</string>
     <string name="revanced_ryd_mirror_attribution_summary">يتم توفير بيانات عدم إعجاب مقاطع يوتيوب بواسطة True RYD Worker API. اضغط هنا لمعرفة المزيد.</string>
     <string name="revanced_ryd_mirror_attribution_title">true-ryd.cane.workers.dev</string>
     <string name="revanced_ryd_mirror_enable_summary_off">تم تعطيل API البديل</string>
     <string name="revanced_ryd_mirror_enable_summary_on">تم تمكين API البديل</string>
     <string name="revanced_ryd_mirror_enable_title">تمكين API البديل</string>
-    <string name="revanced_ryd_mirror_guidelines_popup_summary">"تستخدم True RYD Worker API عدد إبداءات عدم الإعجاب المعروضة في YouTube API Endpoint.
-
-قم بتمكين هذا الخيار فقط لأولئك الذين يواجهون
-مشاكل أثناء استخدام واجهة برمجة تطبيقات RYD الافتراضية.
-
- هل ترغب في الاستمرار؟"</string>
+    <string name="revanced_ryd_mirror_guidelines_popup_summary">"تستخدم True RYD Worker API عدد إبداءات عدم الإعجاب المعروضة في YouTube API Endpoint.  قم بتمكين هذا الخيار فقط لأولئك الذين يواجهون  مشاكل أثناء استخدام واجهة برمجة تطبيقات RYD الافتراضية.  هل ترغب في الاستمرار؟"</string>
     <string name="revanced_ryd_mirror_guidelines_popup_title">True RYD Worker</string>
     <string name="revanced_ryd_attribution_summary">يتم توفير بيانات عدم إعجاب مقاطع يوتيوب بواسطة the Return YouTube Dislike API. اضغط هنا لمعرفة المزيد.</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
@@ -505,20 +481,17 @@
     <string name="revanced_ryd_failure_send_vote_failed">فشل ReturnYouTubeDislike في إرسال التصويت</string>
     <string name="revanced_ryd_settings_summary">الإعدادات المتعلقة بإرجاع عدد عدم الإعجاب</string>
     <string name="revanced_ryd_settings_title">إرجاع YouTube Dislike</string>
+    <string name="revanced_ryd_video_likes_hidden_by_video_owner">مخفي</string>
     <string name="revanced_settings">(ReVanced) إعدادات</string>
     <string name="revanced_swipe_controls_summary">الإعدادات المتعلقة بالتفاعلات</string>
     <string name="revanced_swipe_controls_title">إعدادات التفاعل</string>
-    <string name="revanced_swipe_magnitude_threshold_summary">مقدار الحد الأدنى للتمرير قبل اكتشاف السحب
-الإفتراضي:0</string>
+    <string name="revanced_swipe_magnitude_threshold_summary">مقدار الحد الأدنى للتمرير قبل اكتشاف السحب  الإفتراضي:0</string>
     <string name="revanced_swipe_magnitude_threshold_title">مقدار حد السحب</string>
-    <string name="revanced_swipe_overlay_background_alpha_summary">قيمة شفافية خلفية واجهة السحب (0-255)
-الإفتراضي:127</string>
+    <string name="revanced_swipe_overlay_background_alpha_summary">قيمة شفافية خلفية واجهة السحب (0-255)  الإفتراضي:127</string>
     <string name="revanced_swipe_overlay_background_alpha_title">شفافية خلفية واجهة السحب</string>
-    <string name="revanced_swipe_overlay_text_size_summary">حجم النص على واجهة السحب
-الإفتراضي:27</string>
+    <string name="revanced_swipe_overlay_text_size_summary">حجم النص على واجهة السحب    الإفتراضي:27</string>
     <string name="revanced_swipe_overlay_text_size_title">حجم نص واجهة السحب</string>
-    <string name="revanced_swipe_overlay_timeout_summary">مقدار الوقت الذي تظهر فيه واجهة السحب بعد التغيير (بالملي ثانية)
-الإفتراضي:500</string>
+    <string name="revanced_swipe_overlay_timeout_summary">مقدار الوقت الذي تظهر فيه واجهة السحب بعد التغيير (بالملي ثانية)    الإفتراضي:500</string>
     <string name="revanced_swipe_overlay_timeout_title">مهلة واجهة السحب</string>
     <string name="revanced_tool_used">الأداة المستخدمة</string>
     <string name="revanced_video_ads_removal_summary_off">يتم عرض إعلانات الفيديو</string>
