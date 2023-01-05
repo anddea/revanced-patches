@@ -4,6 +4,7 @@ import app.revanced.patcher.extensions.MethodFingerprintExtensions.name
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
+import app.revanced.patcher.util.proxy.mutableTypes.MutableField
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.smali.toInstruction
 import app.revanced.shared.util.integrations.Constants.INTEGRATIONS_PATH
@@ -63,6 +64,17 @@ fun MutableClass.transformMethods(transform: MutableMethod.() -> MutableMethod) 
     val transformedMethods = methods.map { it.transform() }
     methods.clear()
     methods.addAll(transformedMethods)
+}
+
+/**
+ * apply a transform to all fields of the class
+ *
+ * @param transform the transformation function. original field goes in, transformed field goes out
+ */
+fun MutableClass.transformFields(transform: MutableField.() -> MutableField) {
+    val transformedFields = fields.map { it.transform() }
+    fields.clear()
+    fields.addAll(transformedFields)
 }
 
 internal fun Node.doRecursively(action: (Node) -> Unit) {
