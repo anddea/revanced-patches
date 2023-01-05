@@ -57,6 +57,8 @@
     <string name="revanced_adremover_community_posts_summary_off">A Közösségi posztok meg vannak jelenítve</string>
     <string name="revanced_adremover_community_posts_summary_on">A Közösségi posztok el vannak rejtve</string>
     <string name="revanced_adremover_community_posts_title">Közösségi posztok elrejtése</string>
+    <string name="revanced_adremover_custom_filter_summary">Szűrje a komponenseket a nevük alapján, vesszővel elválasztva</string>
+    <string name="revanced_adremover_custom_filter_title">Egyéni szűrö</string>
     <string name="revanced_adremover_emergency_box_summary_off">A vészhelyzeti dobozok láthatóak</string>
     <string name="revanced_adremover_emergency_box_summary_on">A vészhelyzeti dobozok el vannak rejtve</string>
     <string name="revanced_adremover_emergency_box_title">Vészhelyzeti dobozok elrejtése</string>
@@ -69,6 +71,12 @@
     <string name="revanced_adremover_latest_posts_summary_off">A Legutóbbi bejegyzések láthatóak</string>
     <string name="revanced_adremover_latest_posts_summary_on">A Legutóbbi bejegyzések el vannak rejtve</string>
     <string name="revanced_adremover_latest_posts_title">Legutóbbi bejegyzések elrejtése</string>
+    <string name="revanced_adremover_medical_panel_summary_off">Az egészségügyi panelek meg vannak jelenítve</string>
+    <string name="revanced_adremover_medical_panel_summary_on">Az egészségügyi panelek el vannak rejtve</string>
+    <string name="revanced_adremover_medical_panel_title">Az egészségügyi panelek elrejtése</string>
+    <string name="revanced_adremover_merchandise_summary_off">Az árubannerek láthatóak</string>
+    <string name="revanced_adremover_merchandise_summary_on">Az árubannerek el vannak rejtve</string>
+    <string name="revanced_adremover_merchandise_title">Az árubannerek elrejtése</string>
     <string name="revanced_adremover_movie_shelf_summary_off">A Mozifilm polcok láthatóak</string>
     <string name="revanced_adremover_movie_shelf_summary_on">A Mozifilm polcok el vannak rejtve</string>
     <string name="revanced_adremover_movie_shelf_title">Mozifilm polcok elrejtése</string>
@@ -81,6 +89,12 @@
     <string name="revanced_adremover_self_sponsor_summary_off">A saját szponzorálású kártyák meg vannak jelenítve</string>
     <string name="revanced_adremover_self_sponsor_summary_on">A saját szponzorálású kártyák el vannak rejtve</string>
     <string name="revanced_adremover_self_sponsor_title">Saját szponzorálású kártyák elrejtése</string>
+    <string name="revanced_adremover_separator_summary_off">A szürke elválasztók meg vannak jelenítve</string>
+    <string name="revanced_adremover_separator_summary_on">A szürke elválasztók el vannak rejtve</string>
+    <string name="revanced_adremover_separator_title">Szürke elválasztó elrejtése</string>
+    <string name="revanced_adremover_subscribers_community_guidelines_summary_off">A Feliratkozók közösségi irányelvei meg vannak rejtve</string>
+    <string name="revanced_adremover_subscribers_community_guidelines_summary_on">A Feliratkozók közösségi irányelvei el vannak rejtve</string>
+    <string name="revanced_adremover_subscribers_community_guidelines_title">A Feliratkozók közösségi irányelveinek elrejtése</string>
     <string name="revanced_adremover_suggestions_summary_off">A Javaslatok láthatóak</string>
     <string name="revanced_adremover_suggestions_summary_on">A Javaslatok el vannak rejtve</string>
     <string name="revanced_adremover_suggestions_title">Javaslatok elrejtése</string>
@@ -108,9 +122,13 @@
     <string name="revanced_default_video_speed_summary">Válaszd ki az alapértelmezett videó sebességet</string>
     <string name="revanced_default_video_speed_title">Alapértelmezett videó sebesség</string>
     <string name="revanced_downloader_not_installed">Nincs telepítve. Kérjük telepítse a telefonra/tabletre.</string>
+    <string name="revanced_downloader_package_name_summary">"A letöltőalkalmazás csomagneve, például NewPipe vagy PowerTube"</string>
     <string name="revanced_downloader_package_name_title">Letöltő csomag neve</string>
     <string name="revanced_downloader_settings_summary">Alapértelmezett Letöltőhöz kapcsolódó beállítások</string>
     <string name="revanced_downloader_settings_title">Letöltő beállítások</string>
+    <string name="revanced_disable_haptic_feedback_chapters_summary_off">A Fejezetek haptikus jelzése engedélyezve van</string>
+    <string name="revanced_disable_haptic_feedback_chapters_summary_on">A Fejezetek haptikus jelzése el van rejtve</string>
+    <string name="revanced_disable_haptic_feedback_chapters_title">Fejezetek haptikus jelzésének kikapcsolása</string>
     <string name="revanced_enable_always_auto_repeat_summary_off">Az Automatikus ismétlés ki van kapcsolva</string>
     <string name="revanced_enable_always_auto_repeat_summary_on">Az Automatikus ismétlés be van kapcsolva</string>
     <string name="revanced_enable_always_auto_repeat_title">Automatikus ismétlés</string>
@@ -229,13 +247,55 @@
     <string name="revanced_overlay_button_copy_url_summary_off">A Link másola gomb el van rejtve a lejátszóból</string>
     <string name="revanced_overlay_button_copy_url_summary_on">A Link másolása gomb meg van jelenítve a lejátszóban</string>
     <string name="revanced_overlay_button_copy_url_title">A Link Másolása gomb megjelenítése a lejátszóban</string>
+    <string name="revanced_overlay_button_copy_url_with_timestamp_summary_off">Link másolása az időtartammal gomb el van rejtve a lejátszóból</string>
+    <string name="revanced_overlay_button_copy_url_with_timestamp_summary_on">Link másolása az időtartammal gomb meg van jelenítve a lejátszóban</string>
+    <string name="revanced_overlay_button_copy_url_with_timestamp_title">Link másolása az időtartammal gomb (Lejátszóban jelenik meg)</string>
     <string name="revanced_overlay_button_downloads_summary_off">A Letöltés gomb el van rejtve a lejátszóból</string>
     <string name="revanced_overlay_button_downloads_summary_on">A Letöltés gomb meg van jelenítve a lejátszóban</string>
     <string name="revanced_overlay_button_downloads_title">Letöltés gomb megjelenítése a lejátszóban</string>
+    <string name="revanced_overlay_button_whitelist_summary_off">A Fehérlista gomb el van rejtve</string>
+    <string name="revanced_overlay_button_whitelist_summary_on">A Fehérlista gomb meg van jelenítve</string>
+    <string name="revanced_overlay_button_whitelist_title">Fehérlista gomb megjelenítése</string>
+    <string name="revanced_override_premium_header_summary_off">Jelenlegi fejléc: Alapértelmezett YouTube fejléc</string>
+    <string name="revanced_override_premium_header_summary_on">Jelenlegi fejléc: YouTube Premium fejléc</string>
+    <string name="revanced_override_premium_header_title">YouTube Premium Fejléc</string>
+    <string name="revanced_patches_information_summary">Információ az alkalmazott patchekről</string>
+    <string name="revanced_reboot_warning_general">"Mivel ez egyelőre kísérleti funkció, további ismeretlen problémák merülhetnek fel.
+Biztos, hogy folytatni szeretné?"</string>
+    <string name="revanced_reboot_warning_oldlayout">"Trükkök a YouTube kliens verzió v17.28.35 a régi elrendezés betöltéséhez
+
+Az alkalmazás beállításaiban (Névjegy) a YouTube verziója v17.28.35-nek lesz jelölve."</string>
+    <string name="revanced_reboot_warning_phone">"Trükkök a dpi-vel, hogy egyes elrendezéseket telefonos elrendezésekre változtasson.
+
+Ha engedélyezi ezt a beállítást, a következő funkciók állnak rendelkezésre:
+- Közösségi posztok
+- „Egyveleg” lejátszási lista elrejtése"</string>
+    <string name="revanced_reboot_warning_playback">"A videólejátszás pufferproblémáinak javítása egyes régiókban.
+
+Ha engedélyezi ezt a beállítást, a következő probléma léphet fel:
+- A lejátszási listában lévő videó lejátszásakor előfordulhat, hogy a probléma nem javul."</string>
+    <string name="revanced_reboot_warning_tablet">"Trükkök a dpi-vel, hogy egyes elrendezéseket táblagépes elrendezésekre változtasson.
+
+Ha engedélyezi ezt a beállítást, a következő funkciók nem állnak rendelkezésre:
+- Ambient mód
+- Közösségi posztok"</string>
+    <string name="revanced_ryd_mirror_enable_summary_off">A RYD Mirror API ki van kapcsolva</string>
+    <string name="revanced_ryd_mirror_enable_summary_on">A RYD Mirror API engedélyezve van</string>
+    <string name="revanced_ryd_mirror_enable_title">RYD Mirror API engedélyezése</string>
+    <string name="revanced_ryd_attribution_summary">A Dislike adatokat a Return YouTube Dislike API szolgáltatja. További információkért érints ide.</string>
+    <string name="revanced_ryd_dislike_percentage_summary_off">A Dislike-ok számlálásban vannak megjelenítve (Normál)</string>
+    <string name="revanced_ryd_dislike_percentage_summary_on">A Dislike-ok százalékban vannak megjelenítve</string>
+    <string name="revanced_ryd_dislike_percentage_title">Dislike-ok megjelenítése százalékban</string>
+    <string name="revanced_ryd_enable_summary_off">A Dislike-ok ki vannak kapcsolva</string>
+    <string name="revanced_ryd_enable_summary_on">A Dislike-ok meg vannak jelenítve</string>
+    <string name="revanced_ryd_enable_title">YouTube Dislike visszaállítása (RYD)</string>
+    <string name="revanced_ryd_failure_client_rate_limit_requested">A Dislike számláló jelenleg nem érhető el (Kliens API limit elérve)</string>
+    <string name="revanced_ryd_failure_confirm_vote_failed">A ReturnYouTubeDislike nem tudta jóváhagyni a szavazatatot</string>
     <string name="revanced_ryd_failure_connection_timeout">A Dislike számláló ideiglenesen nem érhető el (Az API kifutott az időböl)</string>
     <string name="revanced_ryd_failure_register_user">A ReturnYouTubeDislike nem tudta regisztrálni önt új felhasználóként</string>
     <string name="revanced_ryd_failure_send_vote_failed">A ReturnYouTubeDislike nem tudta elküldeni a szavazatot</string>
     <string name="revanced_ryd_settings_summary">Beállítások a YouTube Dislike visszaállításához</string>
+    <string name="revanced_ryd_settings_title">YouTube Dislike visszaállítása (RYD)</string>
     <string name="revanced_settings">ReVanced beállítások</string>
     <string name="revanced_swipe_controls_summary">Lejátszó vezérlőkhöz kapcsolódó beállítások</string>
     <string name="revanced_swipe_controls_title">Lejátszó vezérlői beállítások</string>
@@ -255,11 +315,14 @@
     <string name="revanced_whitelisting_excluded">Nincs hozzáadva a fehérlistához</string>
     <string name="revanced_whitelisting_included">Hozzá lett adva a fehérlistához</string>
     <string name="revanced_whitelisting_title">Csatorna Fehérlista</string>
+    <string name="revanced_whitelisting_reboot">Indítsa újra az alkalmazást hogy alkalmazni tudjuk a fehérlista beállításokat</string>
+    <string name="revanced_whitelisting_settings_summary">Ellenőrizze vagy távolítsa el a fehérlistához hozzáadott csatornák listáját</string>
     <string name="revanced_whitelisting_settings_title">Fehérlista beállítások</string>
     <string name="revanced_whitelisting_speed">Videó Lejátszási Sebesség</string>
     <string name="revanced_whitelisting_speed_button">Sebesség</string>
     <string name="sb_connection_failed">A SponsorBlock szerver nem válaszol!</string>
     <string name="sb_guidelines_popup_content">"Javasolt a SponsorBlock irányelvek elolvasása a szegmensek beküldése előtt"</string>
+    <string name="sb_guidelines_preference_sum">Az irányelvek tippeket és szabályokat tartalmaznak a szegmensek beküldésével kapcsolatban</string>
     <string name="sb_settings">SponsorBlock beállítások</string>
     <string name="sb_summary">SponsorBlock-hoz kapcsolódó beállítások</string>
     <string name="sb_switching_success">A váltás sikeresen megtörtént. Videó újratöltése..</string>
@@ -280,21 +343,28 @@
     <string name="segments_subscribe_sum">Ha van egy rövid emlékeztető, hogy lájkolják, feliratkozzanak, kövessék őket vagy lépjenek kapcsolatba velük bármely ingyenes vagy fizetős platformon.</string>
     <string name="settings_export_failed">Hiba történt a beállítások exportálásakor</string>
     <string name="settings_ie">Import/Export beállítások</string>
+    <string name="settings_ie_sum">Ez a teljes konfiguráció, amely alkalmazható a JSON asztali bővítményében. Ez magában foglalja a privát felhasználói azonosítóját is, ezért ügyeljen arra, hogy okosan ossza meg ezt.</string>
     <string name="settings_import_failed">Hiba történt a beállítások importálásakor</string>
     <string name="settings_import_successful">A beállítások sikeresen importálva lettek</string>
     <string name="skip_automatically">Automatikus átugrás</string>
+    <string name="skip_automatically_once">Automatikus átugrás egyszer</string>
+    <string name="skip_ignore">"Ne csináljon semmit."</string>
     <string name="skip_showbutton">Átugrás gomb mutatása</string>
     <string name="skip_sponsor">Szegmens átugrása</string>
     <string name="skipped_endcard">Outro átugorva</string>
     <string name="skipped_intermission">Intró/Bevezető átugorva</string>
+    <string name="skipped_nomusic">A Nem-zenei rész átugorva</string>
     <string name="skipped_preview">Előnézet átugorva</string>
     <string name="skipped_segment">Átugrott egy szponzor részt</string>
     <string name="skipped_selfpromo">Önpromóció átugorva</string>
     <string name="skipped_sponsor">Szponzor átugorva</string>
+    <string name="skipped_subscribe">Feliratkozás önpromóció átugorva</string>
     <string name="stats">Statisztikák</string>
     <string name="stats_loading">Betöltés..</string>
     <string name="stats_sb_disabled">A SponsorBlock ki van kapcsolva</string>
+    <string name="stats_username">Az ön felhasználóneve: &lt;b&gt;%s&lt;/b&gt;</string>
     <string name="stats_username_change">Érints ide a felhasználóneved megváltoztatásához</string>
+    <string name="stats_username_change_unknown_error" formatted="false">Nem tudjuk megváltoztatni a felhasználónevet: Státusz: %d %s</string>
     <string name="stats_username_changed">A felhasználónév sikeresen megváltoztatva</string>
     <string name="tap_skip">Érintsen az átugráshoz</string>
     <string name="vote_succeeded">Sikeresen szavaztál</string>
