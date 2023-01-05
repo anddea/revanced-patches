@@ -8,7 +8,10 @@ import org.jf.dexlib2.Opcode
 
 @FuzzyPatternScanMethod(2) // FIXME: Test this threshold and find the best value.
 object BackgroundPlaybackDisableFingerprint : MethodFingerprint(
-    "Z", AccessFlags.PUBLIC or AccessFlags.STATIC, listOf("L"), listOf(
+    returnType = "Z",
+    access = AccessFlags.PUBLIC or AccessFlags.STATIC,
+    parameters = listOf("L"),
+    opcodes = listOf(
         Opcode.CONST_4,
         Opcode.IF_EQZ,
         Opcode.IGET,

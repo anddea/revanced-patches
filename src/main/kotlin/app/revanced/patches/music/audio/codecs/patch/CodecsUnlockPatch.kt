@@ -18,12 +18,13 @@ import app.revanced.patches.music.audio.codecs.fingerprints.CodecsLockFingerprin
 import app.revanced.patches.music.misc.integrations.patch.MusicIntegrationsPatch
 import app.revanced.patches.music.misc.settings.patch.MusicSettingsPatch
 import app.revanced.shared.annotation.YouTubeMusicCompatibility
+import app.revanced.shared.util.integrations.Constants.MUSIC_SETTINGS_PATH
 import org.jf.dexlib2.Opcode
 
 @Patch
 @DependsOn([MusicIntegrationsPatch::class, MusicSettingsPatch::class])
-@Name("codecs-unlock")
-@Description("Adds more audio codec options. The new audio codecs usually result in better audio quality.")
+@Name("enable-opus-codec")
+@Description("Enable opus codec when playing audio.")
 @YouTubeMusicCompatibility
 @Version("0.0.1")
 class CodecsUnlockPatch : BytecodePatch(
@@ -55,7 +56,7 @@ class CodecsUnlockPatch : BytecodePatch(
 
         codecsLockMethod.addInstructions(
             instructionIndex + 2, """
-                invoke-static {}, Lapp/revanced/integrations/settings/MusicSettings;->getCodecsUnlock()Z
+                invoke-static {}, $MUSIC_SETTINGS_PATH->enableOpusCodec()Z
                 move-result v7
                 if-eqz v7, :mp4a
                 invoke-static {}, ${allCodecsMethod.definingClass}->${allCodecsMethod.name}()Ljava/util/Set;

@@ -17,6 +17,7 @@ import app.revanced.patches.music.layout.castbutton.fingerprints.HideCastButtonP
 import app.revanced.patches.music.misc.integrations.patch.MusicIntegrationsPatch
 import app.revanced.patches.music.misc.settings.patch.MusicSettingsPatch
 import app.revanced.shared.annotation.YouTubeMusicCompatibility
+import app.revanced.shared.util.integrations.Constants.MUSIC_SETTINGS_PATH
 
 @Patch
 @DependsOn([MusicIntegrationsPatch::class, MusicSettingsPatch::class])
@@ -36,7 +37,7 @@ class HideWatermarkPatch : BytecodePatch(
 
         result.mutableMethod.addInstructions(
             0, """
-            invoke-static {p1}, Lapp/revanced/integrations/settings/MusicSettings;->getCastButtonOverrideV2(I)I
+            invoke-static {p1}, $MUSIC_SETTINGS_PATH->hideCastButton(I)I
             move-result p1
         """
         )

@@ -14,10 +14,11 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.music.layout.miniplayercolor.fingerprints.MiniplayerColorFingerprint
-import app.revanced.patches.music.layout.miniplayercolor.fingerprints.MiniplayerColorParentFingerprint
 import app.revanced.patches.music.misc.integrations.patch.MusicIntegrationsPatch
 import app.revanced.patches.music.misc.settings.patch.MusicSettingsPatch
 import app.revanced.shared.annotation.YouTubeMusicCompatibility
+import app.revanced.shared.fingerprints.MiniplayerColorParentFingerprint
+import app.revanced.shared.util.integrations.Constants.MUSIC_SETTINGS_PATH
 import org.jf.dexlib2.iface.instruction.Instruction
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 import org.jf.dexlib2.iface.reference.FieldReference
@@ -25,7 +26,7 @@ import org.jf.dexlib2.iface.reference.MethodReference
 
 @Patch
 @DependsOn([MusicIntegrationsPatch::class, MusicSettingsPatch::class])
-@Name("miniplayer-color")
+@Name("enable-color-match-player")
 @Description("Matches the fullscreen player color with the minimized one.")
 @YouTubeMusicCompatibility
 @Version("0.0.1")
@@ -72,7 +73,7 @@ class MiniplayerColorPatch : BytecodePatch(
 
         miniplayerColorMethod.addInstructions(
             insertIndex, """
-            invoke-static {}, Lapp/revanced/integrations/settings/MusicSettings;->getMiniPlayerColor()Z
+            invoke-static {}, $MUSIC_SETTINGS_PATH->enableColorMatchPlayer()Z
             move-result v2
             if-eqz v2, :off
             iget v0, p0, ${miniplayerColorResult.classDef.type}->${Reference_A_1.name}:${Reference_A_1.type}

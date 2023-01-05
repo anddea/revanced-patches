@@ -1,6 +1,8 @@
 package app.revanced.shared.util.resources
 
 import app.revanced.patcher.data.ResourceContext
+import java.nio.file.Files
+import java.nio.file.StandardCopyOption
 import org.w3c.dom.Element
 
 internal object ResourceHelper {
@@ -201,6 +203,25 @@ internal object ResourceHelper {
                 "DeveloperPrefsFragment\" app:iconSpaceReserved=\"false\" /><Preference android:title=\"@string/revanced_settings\" android:summary=\"@string/revanced_extended_settings\"><intent android:targetPackage=\"com.google.android.youtube\" android:data=\"revanced_settings\" android:targetClass=\"com.google.android.apps.youtube.app.settings.videoquality.VideoQualitySettingsActivity\"/></Preference><!-- PREFERENCE: RETURN_YOUTUBE_DISLIKE<Preference android:title=\"@string/revanced_ryd_settings_title\" android:summary=\"@string/revanced_ryd_settings_summary\"><intent android:targetPackage=\"com.google.android.youtube\" android:data=\"ryd_settings\" android:targetClass=\"com.google.android.apps.youtube.app.settings.videoquality.VideoQualitySettingsActivity\" /></Preference>PREFERENCE: RETURN_YOUTUBE_DISLIKE --><!-- PREFERENCE: SPONSOR_BLOCK<Preference android:title=\"@string/sb_settings\" android:summary=\"@string/sb_summary\"><intent android:targetPackage=\"com.google.android.youtube\" android:data=\"sponsorblock_settings\" android:targetClass=\"com.google.android.apps.youtube.app.settings.videoquality.VideoQualitySettingsActivity\" /></Preference>PREFERENCE: SPONSOR_BLOCK -->"
             )
         )
+    }
+
+    fun addTranslations(
+        context: ResourceContext,
+        sourceDirectory: String,
+        languageArray: Array<String>
+    ) {
+        languageArray.forEach { language ->
+            val directory = "values-$language-v21"
+            val relativePath = "$language/strings.xml"
+
+            context["res/$directory"].mkdir()
+
+            Files.copy(
+                this.javaClass.classLoader.getResourceAsStream("$sourceDirectory/translations/$relativePath")!!,
+                context["res"].resolve("$directory/strings.xml").toPath(),
+                StandardCopyOption.REPLACE_EXISTING
+            )
+        }
     }
 
     fun addReVancedSettings(

@@ -6,7 +6,10 @@ import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 
 object  AudioOnlyEnablerFingerprint: MethodFingerprint(
-    "Z", AccessFlags.PUBLIC or AccessFlags.FINAL, listOf(), listOf(
+    returnType = "Z",
+    access = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = listOf(),
+    opcodes = listOf(
         Opcode.IGET_OBJECT,
         Opcode.INVOKE_INTERFACE,
         Opcode.MOVE_RESULT_OBJECT,

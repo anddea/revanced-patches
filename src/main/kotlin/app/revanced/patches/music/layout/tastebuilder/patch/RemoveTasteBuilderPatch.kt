@@ -14,7 +14,7 @@ import app.revanced.shared.annotation.YouTubeMusicCompatibility
 import org.jf.dexlib2.iface.instruction.formats.Instruction22c
 
 @Patch
-@Name("tasteBuilder-remover")
+@Name("hide-taste-builder")
 @Description("Removes the \"Tell us which artists you like\" card from the home screen.")
 @YouTubeMusicCompatibility
 @Version("0.0.1")
