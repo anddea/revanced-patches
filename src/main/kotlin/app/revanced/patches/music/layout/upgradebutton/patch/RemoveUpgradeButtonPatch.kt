@@ -17,9 +17,8 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction22c
 import org.jf.dexlib2.iface.instruction.formats.Instruction35c
 import org.jf.dexlib2.Opcode
 
-
 @Patch
-@Name("upgrade-button-remover")
+@Name("hide-upgrade-button")
 @Description("Removes the upgrade tab from the pivot bar.")
 @YouTubeMusicCompatibility
 @Version("0.0.1")

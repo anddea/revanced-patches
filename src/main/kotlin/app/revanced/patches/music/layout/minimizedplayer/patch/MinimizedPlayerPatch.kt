@@ -15,12 +15,13 @@ import app.revanced.patches.music.layout.minimizedplayer.fingerprints.MinimizedP
 import app.revanced.patches.music.misc.integrations.patch.MusicIntegrationsPatch
 import app.revanced.patches.music.misc.settings.patch.MusicSettingsPatch
 import app.revanced.shared.annotation.YouTubeMusicCompatibility
+import app.revanced.shared.util.integrations.Constants.MUSIC_SETTINGS_PATH
 import org.jf.dexlib2.iface.instruction.Instruction
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
 @DependsOn([MusicIntegrationsPatch::class, MusicSettingsPatch::class])
-@Name("minimized-player")
+@Name("enable-force-minimized-player")
 @Description("Permanently keep player minimized even if another track is played.")
 @YouTubeMusicCompatibility
 @Version("0.0.1")
@@ -39,7 +40,7 @@ class MinimizedPlayerPatch : BytecodePatch(
 
         method.addInstructions(
             index, """
-            invoke-static {}, Lapp/revanced/integrations/settings/MusicSettings;->getEnforceMinimizedPlayer()Z
+            invoke-static {}, $MUSIC_SETTINGS_PATH->enableForceMinimizedPlayer()Z
             move-result v$register
             if-nez v$register, :enforce
         """, listOf(ExternalLabel("enforce", jumpInstruction))

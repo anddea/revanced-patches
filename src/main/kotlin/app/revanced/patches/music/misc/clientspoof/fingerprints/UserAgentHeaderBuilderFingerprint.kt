@@ -5,6 +5,10 @@ import org.jf.dexlib2.Opcode
 
 object UserAgentHeaderBuilderFingerprint : MethodFingerprint(
     parameters = listOf("L"),
-    opcodes = listOf(Opcode.MOVE_RESULT_OBJECT, Opcode.INVOKE_VIRTUAL, Opcode.CONST_16),
+    opcodes = listOf(
+        Opcode.MOVE_RESULT_OBJECT,
+        Opcode.INVOKE_VIRTUAL,
+        Opcode.CONST_16
+    ),
     strings = listOf("(Linux; U; Android ")
 )

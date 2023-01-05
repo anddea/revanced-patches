@@ -13,6 +13,7 @@ import app.revanced.patches.music.misc.integrations.patch.MusicIntegrationsPatch
 import app.revanced.patches.music.misc.settings.patch.MusicSettingsPatch
 import app.revanced.shared.annotation.YouTubeMusicCompatibility
 import app.revanced.shared.patches.videoads.GeneralVideoAdsPatch
+import app.revanced.shared.util.integrations.Constants.MUSIC_SETTINGS_PATH
 
 @Patch
 @DependsOn(
@@ -22,13 +23,13 @@ import app.revanced.shared.patches.videoads.GeneralVideoAdsPatch
         MusicSettingsPatch::class
     ]
 )
-@Name("music-video-ads")
+@Name("hide-music-ads")
 @Description("Removes ads in the music player.")
 @YouTubeMusicCompatibility
 @Version("0.0.1")
 class MusicVideoAdsPatch : BytecodePatch() {
     override fun execute(context: BytecodeContext): PatchResult {
-        val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/settings/MusicSettings;->getShowAds()Z"
+        val INTEGRATIONS_CLASS_DESCRIPTOR = "$MUSIC_SETTINGS_PATH->hideMusicAds()Z"
 
         GeneralVideoAdsPatch.injectLegacyAds(INTEGRATIONS_CLASS_DESCRIPTOR)
 

@@ -14,11 +14,12 @@ import app.revanced.patches.music.layout.compactheader.fingerprints.CompactHeade
 import app.revanced.patches.music.misc.integrations.patch.MusicIntegrationsPatch
 import app.revanced.patches.music.misc.settings.patch.MusicSettingsPatch
 import app.revanced.shared.annotation.YouTubeMusicCompatibility
+import app.revanced.shared.util.integrations.Constants.MUSIC_SETTINGS_PATH
 import org.jf.dexlib2.builder.instruction.BuilderInstruction11x
 
 @Patch
 @DependsOn([MusicIntegrationsPatch::class, MusicSettingsPatch::class])
-@Name("compact-header")
+@Name("hide-compact-header")
 @Description("Hides the music category bar at the top of the homepage.")
 @YouTubeMusicCompatibility
 @Version("0.0.1")
@@ -35,7 +36,7 @@ class CompactHeaderPatch : BytecodePatch(
         val register = (method.implementation!!.instructions[insertIndex - 1] as BuilderInstruction11x).registerA
         method.addInstructions(
             insertIndex, """
-                invoke-static {}, Lapp/revanced/integrations/settings/MusicSettings;->getCompactHeader()I
+                invoke-static {}, $MUSIC_SETTINGS_PATH->hideCompactHeader()I
                 move-result v2
                 invoke-virtual {v${register}, v2}, Landroid/view/View;->setVisibility(I)V
             """
