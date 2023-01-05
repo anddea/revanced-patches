@@ -3,24 +3,26 @@ package app.revanced.patches.youtube.layout.general.pivotbar.createbutton.byteco
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.MethodFingerprintExtensions.name
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
+import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patches.youtube.layout.general.pivotbar.createbutton.bytecode.fingerprints.PivotBarCreateButtonViewFingerprint
+import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourcdIdPatch
 import app.revanced.shared.annotation.YouTubeCompatibility
-import app.revanced.shared.fingerprints.PivotBarFingerprint
 import app.revanced.shared.util.integrations.Constants.GENERAL_LAYOUT
 import app.revanced.shared.util.pivotbar.InjectionUtils.injectHook
 import app.revanced.shared.util.pivotbar.InjectionUtils.REGISTER_TEMPLATE_REPLACEMENT
+import org.jf.dexlib2.dexbacked.reference.DexBackedMethodReference
+import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 
 @Name("hide-create-button-bytecode-patch")
+@DependsOn([SharedResourcdIdPatch::class])
 @YouTubeCompatibility
 @Version("0.0.1")
 class CreateButtonRemoverBytecodePatch : BytecodePatch(
-    listOf(PivotBarFingerprint)
+    listOf(PivotBarCreateButtonViewFingerprint)
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
 
@@ -28,23 +30,40 @@ class CreateButtonRemoverBytecodePatch : BytecodePatch(
          * Resolve fingerprints
          */
 
-        val pivotBarResult = PivotBarFingerprint.result ?: return PatchResultError("PivotBarFingerprint failed")
+        val createButtonResult = PivotBarCreateButtonViewFingerprint.result ?: return PatchResultError("PivotBarCreateButtonViewFingerprint failed")
+        val createButtonMethod = createButtonResult.mutableMethod
+        val createButtonInstructions = createButtonMethod.implementation!!.instructions
 
-        if (!PivotBarCreateButtonViewFingerprint.resolve(context, pivotBarResult.mutableMethod, pivotBarResult.mutableClass))
-            return PatchResultError("${PivotBarCreateButtonViewFingerprint.name} failed")
+        createButtonInstructions.filter { instruction ->
+            val fieldReference = (instruction as? ReferenceInstruction)?.reference as? DexBackedMethodReference
+            fieldReference?.let { it.definingClass == "Lcom/google/android/apps/youtube/app/ui/pivotbar/PivotBar;" && it.name == "c" } == true
+        }.forEach { instruction ->
+            if (!isSeondary) {
+                isSeondary = true;
+                return@forEach
+            }
 
-        val createButtonResult = PivotBarCreateButtonViewFingerprint.result!!
-        val insertIndex = createButtonResult.scanResult.patternScanResult!!.endIndex
+            insertIndex = createButtonInstructions.indexOf(instruction) + 2
 
-        /*
-         * Inject hooks
-         */
+            /*
+            * Inject hooks
+            */
 
-        val hook =
-            "invoke-static { v$REGISTER_TEMPLATE_REPLACEMENT }, $GENERAL_LAYOUT->hideCreateButton(Landroid/view/View;)V"
+            createButtonMethod.injectHook(hook, insertIndex)
 
-        createButtonResult.mutableMethod.injectHook(hook, insertIndex)
+            return PatchResultSuccess()
+        }
 
-        return PatchResultSuccess()
+        return PatchResultError("Could not find the method to hook.")
+    }
+
+    internal companion object {
+        const val hook =
+            "invoke-static { v$REGISTER_TEMPLATE_REPLACEMENT }, $GENERAL_LAYOUT" +
+            "->" +
+            "hideCreateButton(Landroid/view/View;)V"
+
+        private var insertIndex: Int = 0
+        private var isSeondary: Boolean = false
     }
 }
