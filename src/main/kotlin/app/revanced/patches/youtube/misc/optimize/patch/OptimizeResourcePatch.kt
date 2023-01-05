@@ -9,7 +9,6 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patches.youtube.misc.optimize.patch.MissingTranslationPatch
 import app.revanced.patches.youtube.misc.optimize.patch.RedundantResourcePatch
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
 import app.revanced.shared.annotation.YouTubeCompatibility
@@ -20,7 +19,6 @@ import app.revanced.shared.util.resources.ResourceHelper
 @DependsOn(
     [
         RedundantResourcePatch::class,
-        MissingTranslationPatch::class,
         SettingsPatch::class
     ]
 )
