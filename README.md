@@ -79,26 +79,28 @@ The official Patch bundle provided by ReVanced and the community.
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
 | `background-play` | Enables playing music in the background. | all |
-| `black-navbar` | Sets the navigation bar color to black. | all |
 | `client-spoof-music` | Spoofs the YouTube Music client. | all |
-| `codecs-unlock` | Adds more audio codec options. The new audio codecs usually result in better audio quality. | all |
-| `compact-header` | Hides the music category bar at the top of the homepage. | all |
 | `custom-branding-music-red` | Changes the YouTube Music launcher icon to your choice (defaults to ReVanced Red). | all |
 | `custom-branding-music-revancify` | Changes the YouTube Music launcher icon to your choice (Revancify). | all |
+| `enable-black-navbar` | Sets the navigation bar color to black. | all |
+| `enable-color-match-player` | Matches the fullscreen player color with the minimized one. | all |
+| `enable-force-minimized-player` | Permanently keep player minimized even if another track is played. | all |
+| `enable-force-shuffle` | Enable force shuffle even if another track is played. | all |
+| `enable-opus-codec` | Enable opus codec when playing audio. | all |
+| `enable-tablet-mode` | Enable landscape mode on phone. | all |
+| `enable-zen-mode` | Adds a grey tint to the video player to reduce eye strain. | all |
 | `exclusive-audio-playback` | Enables the option to play music without video. | all |
+| `hide-compact-header` | Hides the music category bar at the top of the homepage. | all |
 | `hide-get-premium` | Removes all "Get Premium" evidences from the avatar menu. | all |
+| `hide-music-ads` | Removes ads in the music player. | all |
 | `hide-music-cast-button` | Hides the cast button in the video player and header | all |
+| `hide-taste-builder` | Removes the "Tell us which artists you like" card from the home screen. | all |
+| `hide-upgrade-button` | Removes the upgrade tab from the pivot bar. | all |
 | `minimized-playback-music` | Enables minimized playback on Kids music. | all |
-| `minimized-player` | Permanently keep player minimized even if another track is played. | all |
-| `miniplayer-color` | Matches the fullscreen player color with the minimized one. | all |
 | `music-microg-support` | Allows YouTube Music ReVanced to run without root and under a different package name. | all |
 | `music-settings` | Adds settings for ReVanced to YouTube Music. | all |
-| `music-video-ads` | Removes ads in the music player. | all |
 | `optimize-resource-music` | Remove unnecessary resources. | all |
-| `tablet-mode` | Unlocks landscape mode. | all |
-| `tasteBuilder-remover` | Removes the "Tell us which artists you like" card from the home screen. | all |
 | `translations-music` | Add Crowdin Translations for YouTube Music | all |
-| `upgrade-button-remover` | Removes the upgrade tab from the pivot bar. | all |
 </details>
 
 
