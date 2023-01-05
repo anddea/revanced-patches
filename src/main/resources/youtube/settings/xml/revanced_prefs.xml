@@ -71,7 +71,7 @@
         <EditTextPreference android:title="@string/revanced_swipe_overlay_timeout_title" android:key="revanced_swipe_overlay_timeout" android:summary="@string/revanced_swipe_overlay_timeout_summary" android:defaultValue="500" android:inputType="number" />
         <EditTextPreference android:title="@string/revanced_swipe_overlay_text_size_title" android:key="revanced_swipe_overlay_text_size" android:summary="@string/revanced_swipe_overlay_text_size_summary" android:defaultValue="27" android:inputType="number" />
         <EditTextPreference android:title="@string/revanced_swipe_overlay_background_alpha_title" android:key="revanced_swipe_overlay_background_alpha" android:summary="@string/revanced_swipe_overlay_background_alpha_summary" android:defaultValue="127" android:inputType="number" />
-        <EditTextPreference android:title="@string/revanced_swipe_magnitude_threshold_title" android:key="revanced_swipe_magnitude_threshold" android:summary="@string/revanced_swipe_magnitude_threshold_summary" android:defaultValue="0" android:inputType="number" />
+        <EditTextPreference android:title="@string/revanced_swipe_magnitude_threshold_title" android:key="revanced_swipe_magnitude_threshold" android:summary="@string/revanced_swipe_magnitude_threshold_summary" android:defaultValue="0" android:inputType="number" />SETTINGS: SWIPE_CONTROLS -->
 
     <!-- PREFERENCE: SWIPE_SETTINGS
     </PreferenceScreen>PREFERENCE: SWIPE_SETTINGS -->
@@ -343,7 +343,7 @@
         <Preference android:title=" " android:selectable="false" android:summary="@string/pref_about_category" />
         <PreferenceScreen android:title="@string/revanced_patches_information"  android:summary="@string/revanced_patches_information_summary" >
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_tool_used" />
-            <Preference android:title="revanced-patches" android:selectable="false" android:summary="2.152.0" />
+            <Preference android:title="revanced-patches" android:selectable="false" android:summary="2.152.1" />
             <Preference android:title="revanced-integrations" android:key="revanced-integrations" android:selectable="false"/>
 
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_video_ads_removal_title" />
