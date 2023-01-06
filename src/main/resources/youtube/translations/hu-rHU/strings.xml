@@ -23,8 +23,12 @@
     <string name="general_adjusting_sum">Ez az ezredmásodpercek száma, amelyet áthelyezhet, amikor új szegmens hozzáadása közben használja az időbeállító gombokat</string>
     <string name="general_api_mirror_url">API Mirror URL megváltoztatása</string>
     <string name="general_api_mirror_url_sum">"Mirror szerver címe, amelyre a SponsorBlock szerver leállása esetén át kell váltani. &lt;b&gt;Ne változtasson ezen, hacsak nem tudja, mit csinál. &lt;/b&gt;"</string>
+    <string name="general_min_duration_sum">A beállított értéknél (másodpercben) rövidebb szegmensek nem kerülnek kihagyásra, illetve nem jelennek meg a lejátszóban.</string>
+    <string name="general_skipcount">Számlálás nyomonkövetésének átugrása</string>
     <string name="general_skipcount_sum">Ez tudatja a SponsorBlock ranglista rendszerével, hogy mennyi időt spóroltak az emberek. A bővítmény üzenetet küld a szervernek, valahányszor átugrik egy szakaszt</string>
+    <string name="general_time_without_sb">Idő mutatása szegmensek nélkül</string>
     <string name="general_time_without_sb_sum">Ez az idő zárójelben jelenik meg az aktuális idő mellett. Ez a videó teljes időtartamát mutatja, levonva a szegmenseket.</string>
+    <string name="general_uuid">Az ön privát felhasználói azonosítója</string>
     <string name="general_uuid_sum">Ezt bizalmasan kell kezelni. Ez olyan, mint egy jelszó, és nem szabad megosztani senkivel. Ha valakinek megvan, akkor megszemélyesítheti Önt.</string>
     <string name="microg_not_installed_notice">Kérjük telepítse a MicroG-t</string>
     <string name="microg_not_installed_warning">A MicoG nem található</string>
@@ -36,6 +40,8 @@
     <string name="minutes">perc</string>
     <string name="new_segment_choose_category">Válassza ki a szegmens kategóriáját</string>
     <string name="new_segment_confirm_title">Helyesek az idők?</string>
+    <string name="new_segment_disabled_category">"A beállításoknál letiltotta ezt a kategóriát, engedélyezze, hogy elküldhesse"</string>
+    <string name="new_segment_edit_by_hand_content">A szegmens kezdetének vagy végének időzítését szeretné szerkeszteni?</string>
     <string name="new_segment_edit_by_hand_parse_error">Érvénytelen időt adott meg</string>
     <string name="new_segment_edit_by_hand_title">A szegmens időzítésének kézi beállítása</string>
     <string name="new_segment_mark_locations_first">Jelöljön ki először két helyet az idősávon</string>
@@ -51,6 +57,11 @@
     <string name="revanced_adremover_channel_guidelines_summary_off">A csatornák irányelvei meg vannak jelenítve</string>
     <string name="revanced_adremover_channel_guidelines_summary_on">A csatornák irányelvei el vannak rejtve</string>
     <string name="revanced_adremover_channel_guidelines_title">Csatornák irányelveinek elrejtése</string>
+    <string name="revanced_adremover_channel_member_shelf_summary_off">A Csatorna tag fül meg van jelenítve</string>
+    <string name="revanced_adremover_channel_member_shelf_summary_on">A Csatorna tag fül el van rejtve</string>
+    <string name="revanced_adremover_channel_member_shelf_title">Csatorna tag fül elrejtése</string>
+    <string name="revanced_adremover_channelbar_join_button_summary_off">A Csatorna tagság „Csatlakozás” gomb meg van jelenítve</string>
+    <string name="revanced_adremover_channelbar_join_button_summary_on">A Csatorna tagság „Csatlakozás” gomb el van rejtve</string>
     <string name="revanced_adremover_community_guidelines_summary_off">A Közösségi Irányelvek jelzése meg van jelenítve</string>
     <string name="revanced_adremover_community_guidelines_summary_on">A Közösségi Irányelvek jelzése el van rejtve</string>
     <string name="revanced_adremover_community_guidelines_title">Közösségi Irányelvek jelzés elrejtése</string>
