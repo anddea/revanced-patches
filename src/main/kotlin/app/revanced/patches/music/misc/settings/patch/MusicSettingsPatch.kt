@@ -52,7 +52,12 @@ class MusicSettingsPatch : ResourcePatch {
          */
 
         context.copyXmlNode("music/settings/host", "xml/settings_headers.xml", "PreferenceScreen")
-        context.copyXmlNode("music/settings/host", "xml/settings_prefs_compat.xml", "com.google.android.apps.youtube.music.ui.preference.PreferenceCategoryCompat")
+
+        // Removed since YouTube Music v5.38.xx
+
+        try {
+            context.copyXmlNode("music/settings/host", "xml/settings_prefs_compat.xml", "com.google.android.apps.youtube.music.ui.preference.PreferenceCategoryCompat")
+        } catch (_: Exception) {}
 
         return PatchResultSuccess()
     }
