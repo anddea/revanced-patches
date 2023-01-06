@@ -5,14 +5,14 @@ import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 
-object CodecsLockFingerprint : MethodFingerprint(
-    returnType = "L",
-    access = AccessFlags.PUBLIC or AccessFlags.STATIC,
+object AllCodecsFingerprint : MethodFingerprint(
+    returnType = "J",
+    access = AccessFlags.PUBLIC or AccessFlags.FINAL,
     opcodes = listOf(
-        Opcode.NEW_INSTANCE,
-        Opcode.NEW_INSTANCE,
+        Opcode.IF_NEZ,
+        Opcode.GOTO,
         Opcode.INVOKE_STATIC,
-        Opcode.MOVE_RESULT_OBJECT
-    ),
-    strings = listOf("eac3_supported")
+        Opcode.MOVE_RESULT,
+        Opcode.INVOKE_STATIC
+    )
 )

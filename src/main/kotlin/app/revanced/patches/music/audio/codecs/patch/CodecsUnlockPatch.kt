@@ -7,19 +7,21 @@ import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.data.toMethodWalker
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.instruction
+import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.music.audio.codecs.fingerprints.AllCodecsReferenceFingerprint
-import app.revanced.patches.music.audio.codecs.fingerprints.CodecsLockFingerprint
+import app.revanced.patches.music.audio.codecs.fingerprints.*
 import app.revanced.patches.music.misc.integrations.patch.MusicIntegrationsPatch
 import app.revanced.patches.music.misc.settings.patch.MusicSettingsPatch
 import app.revanced.shared.annotation.YouTubeMusicCompatibility
+import app.revanced.shared.extensions.toErrorResult
 import app.revanced.shared.util.integrations.Constants.MUSIC_SETTINGS_PATH
-import org.jf.dexlib2.Opcode
+import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
+import org.jf.dexlib2.iface.Method
 
 @Patch
 @DependsOn([MusicIntegrationsPatch::class, MusicSettingsPatch::class])
@@ -29,41 +31,43 @@ import org.jf.dexlib2.Opcode
 @Version("0.0.1")
 class CodecsUnlockPatch : BytecodePatch(
     listOf(
-        CodecsLockFingerprint, AllCodecsReferenceFingerprint
+        AllCodecsParentFingerprint,
+        CodecsLockFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
-        val codecsLockResult = CodecsLockFingerprint.result!!
-        val codecsLockMethod = codecsLockResult.mutableMethod
 
-        val implementation = codecsLockMethod.implementation!!
+        AllCodecsParentFingerprint.result?.let { parentResult ->
+            AllCodecsFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.let { result ->
+                allCodecsMethod = 
+                context.toMethodWalker(result.method)
+                    .nextMethod(result.scanResult.patternScanResult!!.endIndex)
+                    .getMethod()
 
-        val scanResultStartIndex = codecsLockResult.scanResult.patternScanResult!!.startIndex
-        val instructionIndex = scanResultStartIndex +
-                if (implementation.instructions[scanResultStartIndex - 1].opcode == Opcode.CHECK_CAST) {
-                    // for 5.16.xx and lower
-                    -3
-                } else {
-                    // since 5.17.xx
-                    -2
-                }
+            } ?: return AllCodecsFingerprint.toErrorResult()
+        } ?: return AllCodecsParentFingerprint.toErrorResult()
 
-        val allCodecsResult = AllCodecsReferenceFingerprint.result!!
-        val allCodecsMethod =
-            context.toMethodWalker(allCodecsResult.method)
-                .nextMethod(allCodecsResult.scanResult.patternScanResult!!.startIndex)
-                .getMethod()
+        CodecsLockFingerprint.result?.let { result ->
+            val endIndex = result.scanResult.patternScanResult!!.endIndex
 
-        codecsLockMethod.addInstructions(
-            instructionIndex + 2, """
-                invoke-static {}, $MUSIC_SETTINGS_PATH->enableOpusCodec()Z
-                move-result v7
-                if-eqz v7, :mp4a
-                invoke-static {}, ${allCodecsMethod.definingClass}->${allCodecsMethod.name}()Ljava/util/Set;
-                move-result-object p4
-                """, listOf(ExternalLabel("mp4a", codecsLockMethod.instruction(instructionIndex + 2)))
-        )
+            with(result.mutableMethod) {
+                val register = (instruction(endIndex) as OneRegisterInstruction).registerA
+                addInstructions(
+                    endIndex + 1, """
+                        invoke-static {}, $MUSIC_SETTINGS_PATH->enableOpusCodec()Z
+                        move-result v7
+                        if-eqz v7, :mp4a
+                        invoke-static {}, ${allCodecsMethod.definingClass}->${allCodecsMethod.name}()Ljava/util/Set;
+                        move-result-object v$register
+                    """, listOf(ExternalLabel("mp4a", instruction(endIndex + 1)))
+                )
+            }
+        } ?: return CodecsLockFingerprint.toErrorResult()
 
         return PatchResultSuccess()
+    }
+
+    private companion object {
+        lateinit var allCodecsMethod: Method
     }
 }
