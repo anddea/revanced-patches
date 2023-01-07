@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.layout.seekbar.oldseekbarcolor.bytecode.patch
+package app.revanced.patches.youtube.layout.seekbar.customseekbarcolor.bytecode.patch
 
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
@@ -13,13 +13,14 @@ import app.revanced.shared.extensions.toResult
 import app.revanced.shared.patches.mapping.ResourceMappingPatch
 import app.revanced.shared.util.integrations.Constants.SEEKBAR_LAYOUT
 import org.jf.dexlib2.Opcode
+import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.iface.instruction.formats.Instruction31i
 
 @DependsOn([ResourceMappingPatch::class])
-@Name("old-seekbar-color-bytecode-patch")
+@Name("custom-seekbar-color-bytecode-patch")
 @YouTubeCompatibility
 @Version("0.0.1")
-class OldSeekbarColorBytecodePatch : BytecodePatch() {
+class CustomSeekbarColorBytecodePatch : BytecodePatch() {
 
     // list of resource names to get the id of
     private val resourceIds = arrayOf(
@@ -38,15 +39,15 @@ class OldSeekbarColorBytecodePatch : BytecodePatch() {
                             Opcode.CONST -> {
                                 when ((instruction as Instruction31i).wideLiteral) {
                                     resourceIds[0] -> { // seekbar color
-                                        val insertIndex = index + 1
+                                        val registerIndex = index + 2
 
                                         val mutableMethod = context.proxy(classDef).mutableClass.findMutableMethodOf(method)
 
-                                        val viewRegister = (instructions.elementAt(index) as Instruction31i).registerA
+                                        val viewRegister = (instructions.elementAt(registerIndex) as OneRegisterInstruction).registerA
 
                                         mutableMethod.addInstructions(
-                                            insertIndex, """
-                                                invoke-static {v$viewRegister}, $SEEKBAR_LAYOUT->enableOldSeekbarColor(I)I
+                                            registerIndex + 1, """
+                                                invoke-static {v$viewRegister}, $SEEKBAR_LAYOUT->enableCustomSeekbarColor(I)I
                                                 move-result v$viewRegister
                                             """
                                         )
