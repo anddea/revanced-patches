@@ -37,8 +37,8 @@
     <string name="general_min_duration_sum">Los segmentos más cortos que el valor establecido (en segundos) no se omitirán ni se mostrarán en el reproductor</string>
     <string name="general_skipcount">Rastreo de cantidad de omisiones</string>
     <string name="general_skipcount_sum">Esto permite que el sistema de clasificación de SponsorBlock sepa cuánto tiempo han ahorrado las personas. La extensión envía un mensaje al servidor cada vez que omites un segmento</string>
-    <string name="general_skiptoast">Mostrar mensaje al omitir segmento automáticamente</string>
-    <string name="general_skiptoast_sum">Clic para mirar un ejemplo de aviso</string>
+    <string name="general_skiptoast">Mostrar aviso al omitir segmento automáticamente</string>
+    <string name="general_skiptoast_sum">Toque para mostrar un ejemplo de aviso</string>
     <string name="general_time_without_sb">Mostrar tiempo sin segmentos</string>
     <string name="general_time_without_sb_sum">Este tiempo aparece entre paréntesis junto al tiempo actual. Muestra la duración total del vídeo sin ningún segmento.</string>
     <string name="general_uuid">Su ID de usuario privado</string>
@@ -491,9 +491,9 @@ Active esta opción solo para aquellos que experimentan problemas al usar la API
     <string name="revanced_ryd_mirror_guidelines_popup_title">True RYD Worker</string>
     <string name="revanced_ryd_attribution_summary">Los datos de No Me Gusta son proporcionados por la API Return YouTube Dislike. Toque aquí para obtener más información.</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
-    <string name="revanced_ryd_dislike_percentage_summary_off">No Me Gusta mostrado como número</string>
-    <string name="revanced_ryd_dislike_percentage_summary_on">No Me Gusta mostrado como porcentaje</string>
-    <string name="revanced_ryd_dislike_percentage_title">No Me Gusta como porcentaje</string>
+    <string name="revanced_ryd_dislike_percentage_summary_off">Los No Me Gusta se muestran como número</string>
+    <string name="revanced_ryd_dislike_percentage_summary_on">Los No Me Gusta se muestran como porcentaje</string>
+    <string name="revanced_ryd_dislike_percentage_title">Porcentaje de No Me Gusta</string>
     <string name="revanced_ryd_enable_summary_off">Los No Me Gusta están ocultos</string>
     <string name="revanced_ryd_enable_summary_on">Los No Me Gusta están visibles</string>
     <string name="revanced_ryd_enable_title">Return YouTube Dislike</string>
@@ -505,6 +505,9 @@ Active esta opción solo para aquellos que experimentan problemas al usar la API
     <string name="revanced_ryd_failure_send_vote_failed">ReturnYouTubeDislike no pudo enviar el voto</string>
     <string name="revanced_ryd_settings_summary">Ajustes para Return YouTube Dislike</string>
     <string name="revanced_ryd_settings_title">Return YouTube Dislike</string>
+    <string name="revanced_ryd_dislike_separator_summary_off">Los No Me Gusta se muestran sin separador</string>
+    <string name="revanced_ryd_dislike_separator_summary_on">Los No Me Gusta se muestran con separador</string>
+    <string name="revanced_ryd_dislike_separator_title">Separador de No Me Gusta</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Oculto</string>
     <string name="revanced_settings">Ajustes de ReVanced</string>
     <string name="revanced_swipe_controls_summary">Ajustes relacionados con los controles de deslizamiento</string>
