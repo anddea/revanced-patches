@@ -11,6 +11,7 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patches.youtube.misc.swiperefresh.fingerprint.SwipeRefreshLayoutFingerprint
 import app.revanced.shared.annotation.YouTubeCompatibility
+import app.revanced.shared.extensions.toErrorResult
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Name("enable-swipe-refresh")
@@ -23,7 +24,7 @@ class SwipeRefreshPatch : BytecodePatch(
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
-        val result = SwipeRefreshLayoutFingerprint.result!!
+        val result = SwipeRefreshLayoutFingerprint.result ?:return SwipeRefreshLayoutFingerprint.toErrorResult()
         val method = result.mutableMethod
         val index = result.scanResult.patternScanResult!!.endIndex
         val register = (method.instruction(index) as OneRegisterInstruction).registerA

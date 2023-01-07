@@ -25,6 +25,7 @@ class SharedResourcdIdPatch : ResourcePatch {
         var educationTextViewResourceId: Long = -1
         var emptycolorLabelId: Long = -1
         var imageOnlyTabId: Long = -1
+        var imageWithTextTabId: Long = -1
         var layoutCircle: Long = -1
         var layoutIcon: Long = -1
         var layoutVideo: Long = -1
@@ -47,6 +48,7 @@ class SharedResourcdIdPatch : ResourcePatch {
         educationTextViewResourceId = findSharedResourceId("id", "user_education_text_view")
         emptycolorLabelId = findSharedResourceId("color", "inline_time_bar_colorized_bar_empty_color_dark")
         imageOnlyTabId = findSharedResourceId("layout", "image_only_tab")
+        imageWithTextTabId = findSharedResourceId("layout", "image_with_text_tab")
         layoutCircle = findSharedResourceId("layout", "endscreen_element_layout_circle")
         layoutIcon = findSharedResourceId("layout", "endscreen_element_layout_icon")
         layoutVideo = findSharedResourceId("layout", "endscreen_element_layout_video")
