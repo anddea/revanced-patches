@@ -33,6 +33,7 @@ class MusicTranslationsPatch : ResourcePatch {
             "be-rBY",
             "bn",
             "de-rDE",
+            "el-rGR",
             "es-rES",
             "fr-rFR",
             "hi-rIN",
