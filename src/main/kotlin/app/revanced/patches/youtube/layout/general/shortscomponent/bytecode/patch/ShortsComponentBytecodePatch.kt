@@ -6,6 +6,7 @@ import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.shared.extensions.findMutableMethodOf
 import app.revanced.shared.extensions.injectHideCall
@@ -31,6 +32,7 @@ class ShortsComponentBytecodePatch : BytecodePatch() {
     ).map { name ->
         ResourceMappingPatch.resourceMappings.single { it.name == name }.id
     }
+    private var patchSuccessArray = Array(resourceIds.size) {false}
 
     override fun execute(context: BytecodeContext): PatchResult {
         context.classes.forEach { classDef ->
@@ -49,6 +51,8 @@ class ShortsComponentBytecodePatch : BytecodePatch() {
 
                                         val viewRegister = (instructions.elementAt(index + 3) as OneRegisterInstruction).registerA
                                         mutableMethod.implementation!!.injectHideCall(index + 4, viewRegister, "layout/GeneralLayoutPatch", "hideShortsPlayerCommentsButton")
+
+                                        patchSuccessArray[0] = true;
                                     }
 
                                     resourceIds[1] -> { // shorts player remix
@@ -60,6 +64,8 @@ class ShortsComponentBytecodePatch : BytecodePatch() {
 
                                         val viewRegister = (invokeInstruction as Instruction21c).registerA
                                         mutableMethod.implementation!!.injectHideCall(index - 1, viewRegister, "layout/GeneralLayoutPatch", "hideShortsPlayerRemixButton")
+
+                                        patchSuccessArray[1] = true;
                                     }
 
                                     resourceIds[2] -> { // shorts player subscriptions banner
@@ -71,6 +77,8 @@ class ShortsComponentBytecodePatch : BytecodePatch() {
 
                                         val viewRegister = (invokeInstruction as Instruction21c).registerA
                                         mutableMethod.implementation!!.injectHideCall(insertIndex, viewRegister, "layout/GeneralLayoutPatch", "hideShortsPlayerSubscriptionsButton")
+
+                                        patchSuccessArray[2] = true;
                                     }
                                 }
                             }
@@ -80,9 +88,11 @@ class ShortsComponentBytecodePatch : BytecodePatch() {
                 }
             }
         }
-
-        BytecodeHelper.patchStatus(context, "ShortsComponent")
-
-        return PatchResultSuccess()
+        val errorIndex = patchSuccessArray.indexOf(false)
+        return if (errorIndex == -1) {
+            BytecodeHelper.patchStatus(context, "ShortsComponent")
+            PatchResultSuccess()
+        } else
+            PatchResultError("Instruction not found: $errorIndex")
     }
 }

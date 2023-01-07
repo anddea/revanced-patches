@@ -7,11 +7,11 @@ import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.instruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.shared.annotation.YouTubeCompatibility
 import app.revanced.shared.extensions.findMutableMethodOf
+import app.revanced.shared.extensions.toResult
 import app.revanced.shared.patches.mapping.ResourceMappingPatch
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.iface.instruction.formats.Instruction21c
@@ -30,6 +30,7 @@ class PlayerOverlayFilterBytecodePatch : BytecodePatch() {
     ).map { name ->
         ResourceMappingPatch.resourceMappings.single { it.name == name }.id
     }
+    private var patchSuccessArray = Array(resourceIds.size) {false}
 
     override fun execute(context: BytecodeContext): PatchResult {
         context.classes.forEach { classDef ->
@@ -59,6 +60,9 @@ class PlayerOverlayFilterBytecodePatch : BytecodePatch() {
                                                 invoke-virtual {v$viewRegister, v$dummyRegister}, Landroid/widget/ImageView;->setImageResource(I)V
                                             """, listOf(ExternalLabel("currentcolor", mutableMethod.instruction(insertIndex + 1)))
                                         )
+
+                                        patchSuccessArray[0] = true;
+                                        patchSuccessArray[1] = true;
                                     }
                                 }
                             }
@@ -68,6 +72,6 @@ class PlayerOverlayFilterBytecodePatch : BytecodePatch() {
                 }
             }
         }
-        return PatchResultSuccess()
+        return toResult(patchSuccessArray.indexOf(false))
     }
 }

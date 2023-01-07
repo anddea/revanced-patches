@@ -3,16 +3,16 @@ package app.revanced.patches.youtube.ads.general.bytecode.patch
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.shared.annotation.YouTubeCompatibility
 import app.revanced.shared.extensions.findMutableMethodOf
 import app.revanced.shared.extensions.injectHideCall
+import app.revanced.shared.extensions.toResult
 import app.revanced.shared.patches.mapping.ResourceMappingPatch
-import org.jf.dexlib2.iface.instruction.formats.*
 import org.jf.dexlib2.Opcode
+import org.jf.dexlib2.iface.instruction.formats.*
 
 @Name("hide-general-ads-secondary-bytecode-patch")
 @DependsOn([ResourceMappingPatch::class])
@@ -26,6 +26,7 @@ class GeneralAdsSecondaryBytecodePatch : BytecodePatch() {
     ).map { name ->
         ResourceMappingPatch.resourceMappings.single { it.name == name }.id
     }
+    private var patchSuccessArray = Array(resourceIds.size) {false}
 
     override fun execute(context: BytecodeContext): PatchResult {
         context.classes.forEach { classDef ->
@@ -44,6 +45,7 @@ class GeneralAdsSecondaryBytecodePatch : BytecodePatch() {
 
                                         val viewRegister = (invokeInstruction as Instruction35c).registerC
                                         mutableMethod.implementation!!.injectHideCall(insertIndex, viewRegister, "ads/GeneralAdsPatch", "hideAdAttributionView")
+                                        patchSuccessArray[0] = true;
                                     }
 
                                     resourceIds[1] -> { // breaking news
@@ -55,6 +57,7 @@ class GeneralAdsSecondaryBytecodePatch : BytecodePatch() {
 
                                         val viewRegister = (invokeInstruction as Instruction21c).registerA
                                         mutableMethod.implementation!!.injectHideCall(insertIndex, viewRegister, "ads/GeneralAdsPatch", "hideBreakingNewsShelf")
+                                        patchSuccessArray[1] = true;
                                     }
 
                                     resourceIds[2] -> { // album cards
@@ -66,6 +69,7 @@ class GeneralAdsSecondaryBytecodePatch : BytecodePatch() {
 
                                         val viewRegister = (invokeInstruction as Instruction21c).registerA
                                         mutableMethod.implementation!!.injectHideCall(insertIndex, viewRegister, "ads/GeneralAdsPatch", "hideAlbumCards")
+                                        patchSuccessArray[2] = true;
                                     }
                                 }
                             }
@@ -75,6 +79,6 @@ class GeneralAdsSecondaryBytecodePatch : BytecodePatch() {
                 }
             }
         }
-        return PatchResultSuccess()
+        return toResult(patchSuccessArray.indexOf(false))
     }
 }
