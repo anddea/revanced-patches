@@ -5,15 +5,15 @@ import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
-import app.revanced.shared.extensions.findMutableMethodOf
+import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.shared.annotation.YouTubeCompatibility
+import app.revanced.shared.extensions.findMutableMethodOf
+import app.revanced.shared.extensions.toResult
 import app.revanced.shared.patches.mapping.ResourceMappingPatch
-import org.jf.dexlib2.iface.instruction.formats.Instruction31i
 import org.jf.dexlib2.Opcode
+import org.jf.dexlib2.iface.instruction.formats.Instruction31i
 
 @Name("sponsorblock-secondary-bytecode-patch")
 @DependsOn([ResourceMappingPatch::class])
@@ -30,6 +30,7 @@ class SponsorBlockSecondaryBytecodePatch : BytecodePatch() {
             .resourceMappings
             .single { it.type == type && it.name == name }.id
     }
+    private var patchSuccessArray = Array(resourceIds.size) {false}
 
     override fun execute(context: BytecodeContext): PatchResult {
         context.classes.forEach { classDef ->
@@ -53,6 +54,7 @@ class SponsorBlockSecondaryBytecodePatch : BytecodePatch() {
                                             """
                                         )
 
+                                        patchSuccessArray[0] = true;
                                     }
 
                                     resourceIds[1] -> { // player overlay
@@ -66,6 +68,8 @@ class SponsorBlockSecondaryBytecodePatch : BytecodePatch() {
                                             insertIndex,
                                                 "invoke-static {p0}, Lapp/revanced/integrations/sponsorblock/player/ui/SponsorBlockView;->initialize(Ljava/lang/Object;)V"
                                         )
+
+                                        patchSuccessArray[1] = true;
                                     }
                                 }
                             }
@@ -75,6 +79,6 @@ class SponsorBlockSecondaryBytecodePatch : BytecodePatch() {
                 }
             }
         }
-        return PatchResultSuccess()
+        return toResult(patchSuccessArray.indexOf(false))
     }
 }

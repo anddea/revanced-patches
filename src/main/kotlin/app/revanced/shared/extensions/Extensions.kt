@@ -2,7 +2,9 @@ package app.revanced.shared.extensions
 
 import app.revanced.patcher.extensions.MethodFingerprintExtensions.name
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultError
+import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
 import app.revanced.patcher.util.proxy.mutableTypes.MutableField
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
@@ -90,4 +92,10 @@ internal fun String.startsWithAny(vararg prefixes: String): Boolean {
     return false
 }
 
+internal fun toResult(errorIndex: Int): PatchResult {
+    if (errorIndex == -1)
+        return PatchResultSuccess()
+    else
+        return PatchResultError("Instruction not found: $errorIndex")
+}
 
