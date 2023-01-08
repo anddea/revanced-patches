@@ -34,14 +34,14 @@ class CreateButtonRemoverBytecodePatch : BytecodePatch(
          * Resolve fingerprints
          */
 
-        PivotBarFingerprint.result?.let { result ->
-            val startIndex = result.scanResult.patternScanResult!!.startIndex
-            val pivotBarInstructions = result.mutableMethod.implementation!!.instructions
+        PivotBarFingerprint.result?.let {
+            val startIndex = it.scanResult.patternScanResult!!.startIndex
+            val pivotBarInstructions = it.mutableMethod.implementation!!.instructions
             createRef = (pivotBarInstructions.elementAt(startIndex) as ReferenceInstruction).reference as DexBackedMethodReference
         } ?: return PivotBarFingerprint.toErrorResult()
 
-        PivotBarCreateButtonViewFingerprint.result?.let { result ->
-            with (result.mutableMethod){
+        PivotBarCreateButtonViewFingerprint.result?.let {
+            with (it.mutableMethod){
                 val createButtonInstructions = implementation!!.instructions
                 createButtonInstructions.filter { instruction ->
                     val fieldReference = (instruction as? ReferenceInstruction)?.reference as? DexBackedMethodReference

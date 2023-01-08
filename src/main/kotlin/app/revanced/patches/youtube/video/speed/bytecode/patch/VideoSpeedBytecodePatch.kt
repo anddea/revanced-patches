@@ -46,11 +46,11 @@ class VideoSpeedBytecodePatch : BytecodePatch(
         VideoSpeedParentFingerprint.result?.let { parentResult ->
             val parentClassDef = parentResult.classDef
 
-            VideoSpeedChangedFingerprint.also { it.resolve(context, parentClassDef) }.result?.let { result ->
-                startIndex = result.scanResult.patternScanResult!!.startIndex
-                endIndex = result.scanResult.patternScanResult!!.endIndex
+            VideoSpeedChangedFingerprint.also { it.resolve(context, parentClassDef) }.result?.let {
+                startIndex = it.scanResult.patternScanResult!!.startIndex
+                endIndex = it.scanResult.patternScanResult!!.endIndex
                 
-                with (result.method) {
+                with (it.method) {
                     val speedInstruction = implementation!!.instructions
 
                     firstRef = 
@@ -65,7 +65,7 @@ class VideoSpeedBytecodePatch : BytecodePatch(
                     val register =
                         (speedInstruction.elementAt(endIndex) as FiveRegisterInstruction).registerD
 
-                    result.mutableMethod.addInstruction(
+                    it.mutableMethod.addInstruction(
                         endIndex,
                         "invoke-static { v$register }, $INTEGRATIONS_VIDEO_SPEED_CLASS_DESCRIPTOR" +
                         "->" +
@@ -104,12 +104,12 @@ class VideoSpeedBytecodePatch : BytecodePatch(
 
         } ?: return VideoSpeedParentFingerprint.toErrorResult()
 
-        VideoSpeedSetterFingerprint.result?.let { result ->
-            result.mutableMethod.addInstructions(
+        VideoSpeedSetterFingerprint.result?.let {
+            it.mutableMethod.addInstructions(
                     0, """
                         invoke-static {}, $INTEGRATIONS_VIDEO_SPEED_CLASS_DESCRIPTOR->getSpeedValue()F
                         move-result v0
-                        invoke-direct {p0, v0}, ${result.classDef.type}->overrideSpeed(F)V
+                        invoke-direct {p0, v0}, ${it.classDef.type}->overrideSpeed(F)V
                     """,
                 )
         } ?: return VideoSpeedSetterFingerprint.toErrorResult()

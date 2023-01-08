@@ -36,10 +36,10 @@ class DoubleBackToClosePatch : BytecodePatch(
         /*
         Hook onBackPressed method inside WatchWhileActivity
          */
-        OnBackPressedFingerprint.result?.let { result ->
-            val insertIndex = result.scanResult.patternScanResult!!.endIndex
+        OnBackPressedFingerprint.result?.let {
+            val insertIndex = it.scanResult.patternScanResult!!.endIndex
 
-            with(result.mutableMethod) {
+            with(it.mutableMethod) {
                 addInstruction(
                     insertIndex,
                     "invoke-static {p0}, $INTEGRATIONS_CLASS_DESCRIPTOR" +
@@ -53,9 +53,9 @@ class DoubleBackToClosePatch : BytecodePatch(
         /*
         Inject the methods which start of ScrollView
          */
-        ScrollPositionFingerprint.result?.let { result ->
-            val insertMethod = context.toMethodWalker(result.method)
-                .nextMethod(result.scanResult.patternScanResult!!.startIndex + 1, true)
+        ScrollPositionFingerprint.result?.let {
+            val insertMethod = context.toMethodWalker(it.method)
+                .nextMethod(it.scanResult.patternScanResult!!.startIndex + 1, true)
                 .getMethod() as MutableMethod
 
             val insertIndex = insertMethod.implementation!!.instructions.size - 1 - 1
@@ -68,9 +68,9 @@ class DoubleBackToClosePatch : BytecodePatch(
         Inject the methods which stop of ScrollView
          */
         ScrollTopParentFingerprint.result?.let { parentResult ->
-            ScrollTopFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.let { result ->
-                val insertMethod = result.mutableMethod
-                val insertIndex = result.scanResult.patternScanResult!!.endIndex
+            ScrollTopFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.let {
+                val insertMethod = it.mutableMethod
+                val insertIndex = it.scanResult.patternScanResult!!.endIndex
 
                 injectScrollView(insertMethod, insertIndex, "onStopScrollView")
             } ?: return ScrollTopFingerprint.toErrorResult()

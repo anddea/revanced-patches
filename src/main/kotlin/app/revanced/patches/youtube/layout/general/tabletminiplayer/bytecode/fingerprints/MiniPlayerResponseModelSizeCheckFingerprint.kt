@@ -6,15 +6,15 @@ import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 
 object MiniPlayerResponseModelSizeCheckFingerprint : MethodFingerprint(
-    "L",
-    AccessFlags.PUBLIC or AccessFlags.FINAL,
-    listOf("L", "L"),
-    listOf(
+    returnType = "L",
+    access = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = listOf("L", "L"),
+    opcodes = listOf(
         Opcode.RETURN_OBJECT,
         Opcode.CHECK_CAST,
         Opcode.CHECK_CAST,
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT,
-        Opcode.IF_NEZ,
+        Opcode.IF_NEZ
     )
 )

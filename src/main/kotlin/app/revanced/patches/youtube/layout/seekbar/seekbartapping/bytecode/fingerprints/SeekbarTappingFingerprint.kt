@@ -1,33 +1,26 @@
 package app.revanced.patches.youtube.layout.seekbar.seekbartapping.bytecode.fingerprints
 
 import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.method.annotation.FuzzyPatternScanMethod
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
+import org.jf.dexlib2.iface.instruction.NarrowLiteralInstruction
 
-@FuzzyPatternScanMethod(2) // FIXME: Test this threshold and find the best value.
 object SeekbarTappingFingerprint : MethodFingerprint(
-    "Z", AccessFlags.PUBLIC or AccessFlags.FINAL, listOf("L"), listOf(
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT_WIDE,
-        Opcode.IGET,
-        Opcode.IGET_OBJECT,
-        Opcode.IGET,
-        Opcode.DIV_INT_2ADDR,
-        Opcode.ADD_INT,
-        Opcode.SUB_INT_2ADDR,
-        Opcode.INT_TO_FLOAT,
-        Opcode.CMPG_FLOAT,
-        Opcode.IF_GTZ,
-        Opcode.INT_TO_FLOAT,
-        Opcode.CMPG_FLOAT,
-        Opcode.IF_GTZ,
-        Opcode.CONST_4,
-        Opcode.INVOKE_INTERFACE,
+    returnType = "Z",
+    access = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = listOf("L"),
+    opcodes = listOf(
         Opcode.NEW_INSTANCE,
         Opcode.INVOKE_DIRECT,
         Opcode.IPUT_OBJECT,
-        Opcode.INVOKE_VIRTUAL
-    )
+        Opcode.INVOKE_VIRTUAL,
+        Opcode.RETURN
+    ),
+    customFingerprint = { methodDef ->
+        methodDef.name == "onTouchEvent"
+        && methodDef.implementation!!.instructions.any {
+            ((it as? NarrowLiteralInstruction)?.narrowLiteral == 2147483647)
+        }
+    }
 )
