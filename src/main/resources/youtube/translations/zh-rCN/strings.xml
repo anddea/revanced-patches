@@ -162,6 +162,8 @@
     <string name="revanced_adremover_web_search_panel_summary_off">网页搜索面板已显示</string>
     <string name="revanced_adremover_web_search_panel_summary_on">网页搜索面板已隐藏</string>
     <string name="revanced_adremover_web_search_panel_title">网页搜索面板</string>
+    <string name="revanced_custom_seekbar_color_value_summary">输入颜色代码以更改在暗色模式下的进度条颜色</string>
+    <string name="revanced_custom_seekbar_color_value_title">自定义进度条颜色</string>
     <string name="revanced_custom_video_buffer_maximum_summary">播放器尝试缓冲视频的最大时长</string>
     <string name="revanced_custom_video_buffer_maximum_title">缓冲区最大时长</string>
     <string name="revanced_custom_video_buffer_playback_start_summary">在用户操作（如搜索）后，开始或恢复播放视频的缓冲区时长</string>
@@ -208,6 +210,9 @@
     <string name="revanced_enable_always_swipe_summary_off">显示播放控制时，禁用滑动手势</string>
     <string name="revanced_enable_always_swipe_summary_on">无论播放控制显示与否，总是启用滑动手势</string>
     <string name="revanced_enable_always_swipe_title">滑动手势</string>
+    <string name="revanced_enable_custom_seekbar_color_summary_off">自定义进度条颜色已禁用</string>
+    <string name="revanced_enable_custom_seekbar_color_summary_on">自定义进度条颜色已启用</string>
+    <string name="revanced_enable_custom_seekbar_color_title">暗色模式自定义进度条颜色</string>
     <string name="revanced_enable_custom_video_speed_summary_off">自定义播放速度已禁用</string>
     <string name="revanced_enable_custom_video_speed_summary_on">自定义播放速度已启用</string>
     <string name="revanced_enable_custom_video_speed_title">自定义播放速度</string>
@@ -226,9 +231,6 @@
     <string name="revanced_enable_old_quality_layout_summary_off">新版画质设置已显示</string>
     <string name="revanced_enable_old_quality_layout_summary_on">旧版画质设置已显示</string>
     <string name="revanced_enable_old_quality_layout_title">旧版画质布局</string>
-    <string name="revanced_enable_old_seekbar_color_summary_off">当前进度条颜色：新版</string>
-    <string name="revanced_enable_old_seekbar_color_summary_on">当前进度条颜色：旧版</string>
-    <string name="revanced_enable_old_seekbar_color_title">旧版进度条颜色</string>
     <string name="revanced_enable_open_links_directly_summary_off">当前打开视频描述中的链接时，使用重定向（youtube.com/redirect）</string>
     <string name="revanced_enable_open_links_directly_summary_on">当前打开视频描述中的链接时，绕过重定向（youtube.com/redirect）直接打开</string>
     <string name="revanced_enable_open_links_directly_title">直接打开链接</string>
@@ -241,6 +243,9 @@
     <string name="revanced_enable_save_video_quality_summary_off">修改视频画质时不保存为默认画质</string>
     <string name="revanced_enable_save_video_quality_summary_on">修改视频画质时保存为默认画质</string>
     <string name="revanced_enable_save_video_quality_title">保存视频画质</string>
+    <string name="revanced_enable_save_video_speed_summary_off">当更改视频速度时不保存为默认视频速度</string>
+    <string name="revanced_enable_save_video_speed_summary_on">当更改视频速度时保存为默认视频速度</string>
+    <string name="revanced_enable_save_video_speed_title">保存默认视频速度</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">进度条点击已启用</string>
     <string name="revanced_enable_seekbar_tapping_title">进度条点击</string>
     <string name="revanced_enable_swipe_auto_brightness_summary_off">即使滑动亮度设置为0，也不启用自动亮度</string>
@@ -505,7 +510,17 @@
     <string name="revanced_ryd_failure_send_vote_failed">ReturnYouTubeDislike 无法发送投票</string>
     <string name="revanced_ryd_settings_summary">恢复 YouTube 点踩设置</string>
     <string name="revanced_ryd_settings_title">恢复 YouTube 点踩</string>
+    <string name="revanced_ryd_dislike_separator_summary_off">不以分隔符显示点踩</string>
+    <string name="revanced_ryd_dislike_separator_summary_on">以分隔符显示点踩</string>
+    <string name="revanced_ryd_dislike_separator_title">点踩分隔符</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">隐藏</string>
+    <string name="revanced_save_video_quality_common_error">设置画质失败</string>
+    <string name="revanced_save_video_quality_internet_error">无网络连接</string>
+    <string name="revanced_save_video_quality_mobile">更改移动数据默认画质为：</string>
+    <string name="revanced_save_video_quality_mobile_error">无法更改移动数据默认画质</string>
+    <string name="revanced_save_video_quality_wifi">更改 WiFi 默认画质为：</string>
+    <string name="revanced_save_video_quality_wifi_error">无法更改 WiFi 默认画质</string>
+    <string name="revanced_save_video_speed">更改默认视频速度为：</string>
     <string name="revanced_settings">ReVanced 设置</string>
     <string name="revanced_swipe_controls_summary">滑动控制相关设置</string>
     <string name="revanced_swipe_controls_title">滑动控制设置</string>
@@ -521,12 +536,6 @@
     <string name="revanced_video_ads_removal_summary_off">视频广告已显示</string>
     <string name="revanced_video_ads_removal_summary_on">视频广告已隐藏</string>
     <string name="revanced_video_ads_removal_title">视频广告</string>
-    <string name="revanced_video_quality_common_error">设置画质失败</string>
-    <string name="revanced_video_quality_internet_error">无网络连接</string>
-    <string name="revanced_video_quality_mobile">更改移动网络的默认画质为：</string>
-    <string name="revanced_video_quality_mobile_error">更改移动网络的默认画质失败</string>
-    <string name="revanced_video_quality_wifi">更改 WiFi 的默认画质为：</string>
-    <string name="revanced_video_quality_wifi_error">更改 WiFi 的默认画质失败</string>
     <string name="revanced_video_settings_summary">视频相关设置</string>
     <string name="revanced_video_settings_title">视频设置</string>
     <string name="revanced_whitelisting_add_failed" formatted="false">无法将频道 %s 添加到 %s 白名单</string>

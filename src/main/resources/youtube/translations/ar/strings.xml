@@ -159,6 +159,8 @@
     <string name="revanced_adremover_web_search_panel_summary_off">يتم عرض لوحات البحث على الويب</string>
     <string name="revanced_adremover_web_search_panel_summary_on">تم إخفاء لوحات البحث على الويب</string>
     <string name="revanced_adremover_web_search_panel_title">إخفاء لوحات بحث الويب</string>
+    <string name="revanced_custom_seekbar_color_value_summary">اكتب رمز لون شريط تقدم الفيديو لاستخدامه في المظهر الداكن</string>
+    <string name="revanced_custom_seekbar_color_value_title">قيمة لون شريط تقدم الفيديو المخصصة</string>
     <string name="revanced_custom_video_buffer_maximum_summary">المدة الزمنية القصوى التي سيحاول المشغل تحميلها مسبقًا من الفيديو
 
 الإفتراضي:120000</string>
@@ -210,6 +212,9 @@
     <string name="revanced_enable_always_swipe_summary_off">تعطيل إيماءات السحب عندما تكون عناصر تحكم المشغل مرئية</string>
     <string name="revanced_enable_always_swipe_summary_on">تمكين إيماءات السحب بشكل دائم سواءً عناصر تحكم المشغل مرئية أو غير مرئية</string>
     <string name="revanced_enable_always_swipe_title">تمكين إيماءة السحب بشكل دائم</string>
+    <string name="revanced_enable_custom_seekbar_color_summary_off">تم تعطيل لون شريط تقدم الفيديو المخصص</string>
+    <string name="revanced_enable_custom_seekbar_color_summary_on">تم تمكين لون شريط تقدم الفيديو المخصص</string>
+    <string name="revanced_enable_custom_seekbar_color_title">تمكين لون شريط تقدم الفيديو المخصص في المظهر الداكن</string>
     <string name="revanced_enable_custom_video_speed_summary_off">تم تعطيل سرعة التشغيل المخصصة</string>
     <string name="revanced_enable_custom_video_speed_summary_on">تم تمكين سرعة التشغيل المخصصة</string>
     <string name="revanced_enable_custom_video_speed_title">تمكين سرعة الفيديو المخصصة</string>
@@ -228,9 +233,6 @@
     <string name="revanced_enable_old_quality_layout_summary_off">يتم عرض المظهر الجديد لإعدادات جودة الفيديو</string>
     <string name="revanced_enable_old_quality_layout_summary_on">يتم عرض المظهر القديم لإعدادات جودة الفيديو</string>
     <string name="revanced_enable_old_quality_layout_title">تمكين المظهر القديم لإعدادات جودة الفيديو</string>
-    <string name="revanced_enable_old_seekbar_color_summary_off">يتم استخدام لون شريط تقدم الفيديو بالشكل الجديد</string>
-    <string name="revanced_enable_old_seekbar_color_summary_on">يتم استخدام لون شريط تقدم الفيديو بالشكل القديم</string>
-    <string name="revanced_enable_old_seekbar_color_title">تمكين لون شريط تقدم الفيديو بالشكل القديم</string>
     <string name="revanced_enable_open_links_directly_summary_off">تُستخدم إعادة توجيه عنوان URL (youtube.com/redirect) عند فتح الروابط في أوصاف الفيديو</string>
     <string name="revanced_enable_open_links_directly_summary_on">تجاوز إعادة توجيه عناوين URL (youtube.com/redirect) عند فتح الروابط في أوصاف الفيديو</string>
     <string name="revanced_enable_open_links_directly_title">تمكين فتح الروابط بشكل مباشر</string>
@@ -243,6 +245,9 @@
     <string name="revanced_enable_save_video_quality_summary_off">لا يحتفظ بقيمة جودة الفيديو حتى عند تغيير جودة الفيديو</string>
     <string name="revanced_enable_save_video_quality_summary_on">الاحتفاظ بقيمة جودة الفيديو كلما قمت بتغيير جودة الفيديو</string>
     <string name="revanced_enable_save_video_quality_title">تمكين حفظ جودة الفيديو</string>
+    <string name="revanced_enable_save_video_speed_summary_off">لا يحفظ قيم سرعة الفيديو حتى عند تغيير سرعة الفيديو</string>
+    <string name="revanced_enable_save_video_speed_summary_on">حفظ قيمة سرعة الفيديو كلما قمت بتغيير سرعة الفيديو</string>
+    <string name="revanced_enable_save_video_speed_title">تمكين حفظ سرعة الفيديو</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">تم تمكين النقر على شريط الوقت (شريط تقدم الفيديو)</string>
     <string name="revanced_enable_seekbar_tapping_title">تمكين النقر على شريط الوقت</string>
     <string name="revanced_enable_swipe_auto_brightness_summary_off">حتى إذا تم ضبط السطوع على 0 عن طريق السحب، فلن يتم تنشيط السطوع التلقائي</string>
@@ -362,9 +367,9 @@
     <string name="revanced_hide_menu_listening_controls_summary_off">يتم عرض قائمة التحكم في الإستماع</string>
     <string name="revanced_hide_menu_listening_controls_summary_on">تم إخفاء قائمة التحكم في الإستماع</string>
     <string name="revanced_hide_menu_listening_controls_title">إخفاء قائمة عناصر التحكم في الإستماع</string>
-    <string name="revanced_hide_menu_listen_with_youtube_music_summary_off">يتم عرض الاستماع مع قائمة موسيقى اليوتيوب</string>
-    <string name="revanced_hide_menu_listen_with_youtube_music_summary_on">تم إخفاء الاستماع مع قائمة موسيقى اليوتيوب</string>
-    <string name="revanced_hide_menu_listen_with_youtube_music_title">إخفاء الاستماع مع قائمة موسيقى اليوتيوب</string>
+    <string name="revanced_hide_menu_listen_with_youtube_music_summary_off">يتم عرض قائمة الاستماع مع موسيقى YouTube</string>
+    <string name="revanced_hide_menu_listen_with_youtube_music_summary_on">تم إخفاء قائمة الاستماع مع موسيقى YouTube</string>
+    <string name="revanced_hide_menu_listen_with_youtube_music_title">إخفاء قائمة الاستماع مع موسيقى YouTube</string>
     <string name="revanced_hide_menu_loop_video_summary_off">يتم عرض قائمة تكرار الفيديو</string>
     <string name="revanced_hide_menu_loop_video_summary_on">تم إخفاء قائمة تكرار الفيديو</string>
     <string name="revanced_hide_menu_loop_video_title">إخفاء قائمة تكرار الفيديو</string>
@@ -496,6 +501,13 @@
     <string name="revanced_ryd_dislike_separator_summary_on">يتم عرض عدم الإعجاب بالفاصل</string>
     <string name="revanced_ryd_dislike_separator_title">عدم الإعجاب بالفاصل</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">مخفي</string>
+    <string name="revanced_save_video_quality_common_error">فشل في تعيين الجودة</string>
+    <string name="revanced_save_video_quality_internet_error">لا يوجد اتصال بالإنترنت</string>
+    <string name="revanced_save_video_quality_mobile">تغيير جودة بيانات الجوّال الافتراضية إلى:</string>
+    <string name="revanced_save_video_quality_mobile_error">فشل في تغيير جودة بيانات الجوّال الافتراضية</string>
+    <string name="revanced_save_video_quality_wifi">تغيير جودة Wi-Fi الافتراضية إلى:</string>
+    <string name="revanced_save_video_quality_wifi_error">فشل في تغيير جودة Wi-FI الافتراضية</string>
+    <string name="revanced_save_video_speed">تغيير السرعة الافتراضية إلى:</string>
     <string name="revanced_settings">(ReVanced) إعدادات</string>
     <string name="revanced_swipe_controls_summary">الإعدادات المتعلقة بالتفاعلات</string>
     <string name="revanced_swipe_controls_title">إعدادات التفاعل</string>
@@ -519,12 +531,6 @@
     <string name="revanced_video_ads_removal_summary_off">يتم عرض إعلانات الفيديو</string>
     <string name="revanced_video_ads_removal_summary_on">تم إخفاء إعلانات الفيديو</string>
     <string name="revanced_video_ads_removal_title">إخفاء إعلانات الفيديو</string>
-    <string name="revanced_video_quality_common_error">فشل في ضبط الجودة</string>
-    <string name="revanced_video_quality_internet_error">لا يوجد اتصال بالإنترنت</string>
-    <string name="revanced_video_quality_mobile">تغيير جودة بيانات الجوال الافتراضية إلى:</string>
-    <string name="revanced_video_quality_mobile_error">فشل في تغيير جودة بيانات الجوال الافتراضية</string>
-    <string name="revanced_video_quality_wifi">تغيير جودة Wi-Fi الافتراضية إلى:</string>
-    <string name="revanced_video_quality_wifi_error">فشل في تغيير جودة Wi-Fi الافتراضية</string>
     <string name="revanced_video_settings_summary">الإعدادات المتعلقة بالفيديو</string>
     <string name="revanced_video_settings_title">إعدادات الفيديو</string>
     <string name="revanced_whitelisting_add_failed" formatted="false">فشل إضافة القناة %s إلى القائمة البيضاء %s</string>

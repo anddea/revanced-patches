@@ -162,6 +162,8 @@
     <string name="revanced_adremover_web_search_panel_summary_off">網頁搜索面板已顯示</string>
     <string name="revanced_adremover_web_search_panel_summary_on">網頁搜索面板已隱藏</string>
     <string name="revanced_adremover_web_search_panel_title">隱藏網頁搜索面板</string>
+    <string name="revanced_custom_seekbar_color_value_summary">輸入Hex碼來自訂在深色模式時的搜索欄顏色</string>
+    <string name="revanced_custom_seekbar_color_value_title">自訂搜索欄顏色</string>
     <string name="revanced_custom_video_buffer_maximum_summary">播放器嘗試緩衝媒體的最大時長</string>
     <string name="revanced_custom_video_buffer_maximum_title">最大緩衝區大小</string>
     <string name="revanced_custom_video_buffer_playback_start_summary">使用者執行操作後（如搜尋），媒體進行緩衝以開始或繼續的持續期間</string>
@@ -208,6 +210,9 @@
     <string name="revanced_enable_always_swipe_summary_off">顯示播放控制時，停用滑動手勢</string>
     <string name="revanced_enable_always_swipe_summary_on">無論播放控制顯示與否，總是啟用滑動手勢</string>
     <string name="revanced_enable_always_swipe_title">總是啟用滑動手勢</string>
+    <string name="revanced_enable_custom_seekbar_color_summary_off">自訂搜索欄顏色已禁用</string>
+    <string name="revanced_enable_custom_seekbar_color_summary_on">自訂搜索欄顏色已啟用</string>
+    <string name="revanced_enable_custom_seekbar_color_title">自訂深色模式時搜索欄的顏色</string>
     <string name="revanced_enable_custom_video_speed_summary_off">自訂播放速度已停用</string>
     <string name="revanced_enable_custom_video_speed_summary_on">自訂播放速度已啟用</string>
     <string name="revanced_enable_custom_video_speed_title">啟用自訂播放速度</string>
@@ -226,9 +231,6 @@
     <string name="revanced_enable_old_quality_layout_summary_off">顯示新版品質設定</string>
     <string name="revanced_enable_old_quality_layout_summary_on">顯示舊版品質設定</string>
     <string name="revanced_enable_old_quality_layout_title">使用舊版畫質設定</string>
-    <string name="revanced_enable_old_seekbar_color_summary_off">已使用新版進度條顏色</string>
-    <string name="revanced_enable_old_seekbar_color_summary_on">已使用舊版進度條顏色</string>
-    <string name="revanced_enable_old_seekbar_color_title">啟用舊版進度條顏色</string>
     <string name="revanced_enable_open_links_directly_summary_off">當開啟視訊描述中的連結時，使用重新導向 (youtube.com/redirect)</string>
     <string name="revanced_enable_open_links_directly_summary_on">當開啟視訊描述中的連結時，略過重新導向 (youtube.com/redirect)</string>
     <string name="revanced_enable_open_links_directly_title">啟用直接開啟連結</string>
@@ -241,6 +243,9 @@
     <string name="revanced_enable_save_video_quality_summary_off">即使更改影片品質也不記憶影片品質設定</string>
     <string name="revanced_enable_save_video_quality_summary_on">更改影片品質時記憶影片品質設定</string>
     <string name="revanced_enable_save_video_quality_title">記憶影片畫質</string>
+    <string name="revanced_enable_save_video_speed_summary_off">即使更改影片速度也不記憶影片速度設定</string>
+    <string name="revanced_enable_save_video_speed_summary_on">更改影片速度時記憶影片速度設定</string>
+    <string name="revanced_enable_save_video_speed_title">Enable save video speed</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">進度條點擊已啟用</string>
     <string name="revanced_enable_seekbar_tapping_title">啟用進度條點擊</string>
     <string name="revanced_enable_swipe_auto_brightness_summary_off">當亮度手勢設為 0 時\"不啟用\"自動調整亮度</string>
@@ -506,7 +511,17 @@
     <string name="revanced_ryd_failure_send_vote_failed">ReturnYouTubeDislike 無法傳送投票</string>
     <string name="revanced_ryd_settings_summary">Return YouTube Dislike 設定</string>
     <string name="revanced_ryd_settings_title">Return YouTube Dislike</string>
+    <string name="revanced_ryd_dislike_separator_summary_off">隱藏讚與倒讚間的分隔線</string>
+    <string name="revanced_ryd_dislike_separator_summary_on">顯示讚與倒讚間的分隔線</string>
+    <string name="revanced_ryd_dislike_separator_title">讚與倒讚間的分隔線</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">隱藏</string>
+    <string name="revanced_save_video_quality_common_error">設定品質失敗</string>
+    <string name="revanced_save_video_quality_internet_error">沒有網路連線</string>
+    <string name="revanced_save_video_quality_mobile">將預設行動網路品質更改為：</string>
+    <string name="revanced_save_video_quality_mobile_error">更改預設行動網路品質失敗</string>
+    <string name="revanced_save_video_quality_wifi">將預設 Wi-Fi 品質更改為：</string>
+    <string name="revanced_save_video_quality_wifi_error">更改預設 WI-FI 品質失敗</string>
+    <string name="revanced_save_video_speed">將預設播放速度更改為：</string>
     <string name="revanced_settings">ReVanced 設定</string>
     <string name="revanced_swipe_controls_summary">滑動控制相關設定</string>
     <string name="revanced_swipe_controls_title">滑動控制設定</string>
@@ -518,16 +533,10 @@
     <string name="revanced_swipe_overlay_text_size_title">設定畫面的文字大小</string>
     <string name="revanced_swipe_overlay_timeout_summary">設定畫面的顯示時間(毫秒)</string>
     <string name="revanced_swipe_overlay_timeout_title">滑動設定畫面的顯示時間</string>
-    <string name="revanced_tool_used">使用的工具</string>
+    <string name="revanced_tool_used">使用的工具 --唐懂翻譯</string>
     <string name="revanced_video_ads_removal_summary_off">影片廣告已顯示</string>
     <string name="revanced_video_ads_removal_summary_on">影片廣告已隱藏</string>
     <string name="revanced_video_ads_removal_title">隱藏影片廣告</string>
-    <string name="revanced_video_quality_common_error">設定品質失敗</string>
-    <string name="revanced_video_quality_internet_error">沒有網路連線</string>
-    <string name="revanced_video_quality_mobile">將預設行動網路品質更改為：</string>
-    <string name="revanced_video_quality_mobile_error">無法更改預設行動網路品質</string>
-    <string name="revanced_video_quality_wifi">將預設 Wi-Fi 品質更改為：</string>
-    <string name="revanced_video_quality_wifi_error">更改預設 WI-FI 品質失敗</string>
     <string name="revanced_video_settings_summary">影片畫質設定</string>
     <string name="revanced_video_settings_title">影片設定</string>
     <string name="revanced_whitelisting_add_failed" formatted="false">將 %s 頻道加入 %s 白名單失敗</string>

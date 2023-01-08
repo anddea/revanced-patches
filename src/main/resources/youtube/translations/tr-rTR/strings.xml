@@ -162,6 +162,8 @@ Gönderilmeye hazır mı?"</string>
     <string name="revanced_adremover_web_search_panel_summary_off">Gizlenmiyor</string>
     <string name="revanced_adremover_web_search_panel_summary_on">Gizleniyor</string>
     <string name="revanced_adremover_web_search_panel_title">Web arama sonuçları</string>
+    <string name="revanced_custom_seekbar_color_value_summary">Karalık modda kullanılacak zaman çubuğunun rengi</string>
+    <string name="revanced_custom_seekbar_color_value_title">Özel zaman çubuğu renk değeri</string>
     <string name="revanced_custom_video_buffer_maximum_summary">Oynatıcının arabelleğe almaya çalışacağı maksimum medya süresi</string>
     <string name="revanced_custom_video_buffer_maximum_title">Maksimum arabellek boyutu</string>
     <string name="revanced_custom_video_buffer_playback_start_summary">Videoyu ileri veya geri sarmak gibi eylemler sırasında videonun yürütülmesi için arabelleğe alınacak medya süresi (milisaniye)
@@ -210,6 +212,9 @@ Gönderilmeye hazır mı?"</string>
     <string name="revanced_enable_always_swipe_summary_off">Oynatıcı kontrolleri göründüğünde kaydırma hareketlerini devre dışı bırakın</string>
     <string name="revanced_enable_always_swipe_summary_on">Oyuncu kontrollerinin görünüp görünmemesine bakılmaksızın her zaman kaydırma hareketlerini etkinleştirin</string>
     <string name="revanced_enable_always_swipe_title">Her zaman kaydırma hareketini etkinleştir</string>
+    <string name="revanced_enable_custom_seekbar_color_summary_off">Devre dışı</string>
+    <string name="revanced_enable_custom_seekbar_color_summary_on">Etkin</string>
+    <string name="revanced_enable_custom_seekbar_color_title">Karanlık modda özel zaman çubuğu rengini etkinleştir</string>
     <string name="revanced_enable_custom_video_speed_summary_off">Kapalı</string>
     <string name="revanced_enable_custom_video_speed_summary_on">Açık</string>
     <string name="revanced_enable_custom_video_speed_title">Özel video hızını etkinleştir</string>
@@ -228,9 +233,6 @@ Gönderilmeye hazır mı?"</string>
     <string name="revanced_enable_old_quality_layout_summary_off">Yeni stil kullanılıyor</string>
     <string name="revanced_enable_old_quality_layout_summary_on">Eski stil kullanılıyor</string>
     <string name="revanced_enable_old_quality_layout_title">Eski stilde kalite arayüzünü etkinleştir</string>
-    <string name="revanced_enable_old_seekbar_color_summary_off">Yeni zaman çubuğu rengi kullanıldı</string>
-    <string name="revanced_enable_old_seekbar_color_summary_on">Eski zaman çubuğu rengi kullanıldı</string>
-    <string name="revanced_enable_old_seekbar_color_title">Eski zaman çubuğu rengini kullan</string>
     <string name="revanced_enable_open_links_directly_summary_off">URL (youtube.com/redirect), video açıklamalarındaki linkleri açarken kullanılır</string>
     <string name="revanced_enable_open_links_directly_summary_on">Video açıklamalarındaki bağlantıları açarken URL yönlendirmelerini (youtube.com/redirect) atlayın</string>
     <string name="revanced_enable_open_links_directly_title">Bağlantıları direkt açmayı etkinleştir</string>
@@ -243,6 +245,9 @@ Gönderilmeye hazır mı?"</string>
     <string name="revanced_enable_save_video_quality_summary_off">Video kalitesini değiştirseniz bile varsayılan değer olarak kaydetmez</string>
     <string name="revanced_enable_save_video_quality_summary_on">Video kalitesini her değiştirdiğinizde varsayılan değer olarak kaydeder</string>
     <string name="revanced_enable_save_video_quality_title">Video kalitesini kaydetmeyi etkinleştir</string>
+    <string name="revanced_enable_save_video_speed_summary_off">Video hızı kaydedilmeyecek</string>
+    <string name="revanced_enable_save_video_speed_summary_on">Video hızı kayıtlı kalacak</string>
+    <string name="revanced_enable_save_video_speed_title">Video hızını kaydetmeyi etkinleştir</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">Zaman çubuğuna (video ilerleme çubuğu) dokunma etkin</string>
     <string name="revanced_enable_seekbar_tapping_title">Zaman çubuğuna dokunma</string>
     <string name="revanced_enable_swipe_auto_brightness_summary_off">Parlaklık kaydırılarak 0 olarak ayarlansa bile otomatik parlaklık etkinleştirilmez</string>
@@ -508,6 +513,13 @@ Bu seçeneği yalnızca varsayılan RYD API'sini kullanırken sorun yaşayanlar 
     <string name="revanced_ryd_dislike_separator_summary_on">Açık</string>
     <string name="revanced_ryd_dislike_separator_title">Dislike Ayırıcıları</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Gizlendi</string>
+    <string name="revanced_save_video_quality_common_error">Kalite ayarlanamadı</string>
+    <string name="revanced_save_video_quality_internet_error">İnternet bağlantısı yok</string>
+    <string name="revanced_save_video_quality_mobile">Varsayılan mobil veri video kalitesi:</string>
+    <string name="revanced_save_video_quality_mobile_error">Varsayılan mobil veri video kalitesi değiştirilemedi</string>
+    <string name="revanced_save_video_quality_wifi">Varsayılan Wİ-Fİ video kalitesi:</string>
+    <string name="revanced_save_video_quality_wifi_error">Varsayılan Wİ-Fİ video kalitesi değiştirilemedi</string>
+    <string name="revanced_save_video_speed">Varsayılan hız:</string>
     <string name="revanced_settings">ReVanced Ayarları</string>
     <string name="revanced_swipe_controls_summary">Kaydırma kontrolleri ilgili ayarlar</string>
     <string name="revanced_swipe_controls_title">Kaydırma Kontrolleri Ayarları</string>
@@ -523,12 +535,6 @@ Bu seçeneği yalnızca varsayılan RYD API'sini kullanırken sorun yaşayanlar 
     <string name="revanced_video_ads_removal_summary_off">Gizlenmiyor</string>
     <string name="revanced_video_ads_removal_summary_on">Gizlendi</string>
     <string name="revanced_video_ads_removal_title">Video reklamlarını gizle</string>
-    <string name="revanced_video_quality_common_error">Kalite ayarlanamadı</string>
-    <string name="revanced_video_quality_internet_error">İnternet bağlantısı yok</string>
-    <string name="revanced_video_quality_mobile">Varsayılan mobil veri kalitesi şu şekilde değiştiriliyor:</string>
-    <string name="revanced_video_quality_mobile_error">Varsayılan mobil veri kalitesi değiştirilemedi</string>
-    <string name="revanced_video_quality_wifi">Varsayılan Wi-Fi kalitesi şu şekilde değiştiriliyor:</string>
-    <string name="revanced_video_quality_wifi_error">Varsayılan Wi-Fi kalitesi değiştirilemedi</string>
     <string name="revanced_video_settings_summary">Videoyla ilgili ayarlar</string>
     <string name="revanced_video_settings_title">Video ayarları</string>
     <string name="revanced_whitelisting_add_failed" formatted="false">Kanal %s, %s beyaz listeye eklenemedi</string>
