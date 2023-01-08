@@ -162,6 +162,8 @@ Bạn đã sẵn sàng để gửi đi chưa?"</string>
     <string name="revanced_adremover_web_search_panel_summary_off">Kết quả tìm kiếm từ web được hiển thị</string>
     <string name="revanced_adremover_web_search_panel_summary_on">Kết quả tìm kiếm từ web đã ẩn</string>
     <string name="revanced_adremover_web_search_panel_title">Ẩn Kết quả tìm kiếm từ web</string>
+    <string name="revanced_custom_seekbar_color_value_summary">Nhập mã màu hex của thanh tiến trình mà bạn muốn thay đổi khi ở chế độ tối</string>
+    <string name="revanced_custom_seekbar_color_value_title">Thay đổi màu thanh tiến trình ở chế độ tối</string>
     <string name="revanced_custom_video_buffer_maximum_summary">Thời lượng tối đa của video mà trình phát sẽ cố gắng lưu vào bộ đệm</string>
     <string name="revanced_custom_video_buffer_maximum_title">Thời lượng bộ đệm tối đa</string>
     <string name="revanced_custom_video_buffer_playback_start_summary">Thời lượng của video phải được đệm để bắt đầu phát hoặc tiếp tục phát sau một hành động của người dùng, chẳng hạn như tua video</string>
@@ -208,9 +210,12 @@ Bạn đã sẵn sàng để gửi đi chưa?"</string>
     <string name="revanced_enable_always_swipe_summary_off">Tắt cử chỉ vuốt khi lớp phủ điều khiển trình phát hiển thị</string>
     <string name="revanced_enable_always_swipe_summary_on">Luôn bật cử chỉ vuốt bất kể lớp phủ điều khiển trình phát có hiển thị hay không</string>
     <string name="revanced_enable_always_swipe_title">Luôn bật Cử chỉ vuốt</string>
-    <string name="revanced_enable_custom_video_speed_summary_off">Tốc độ phát tùy chỉnh đã tắt</string>
-    <string name="revanced_enable_custom_video_speed_summary_on">Tốc độ phát tùy chỉnh đang bật</string>
-    <string name="revanced_enable_custom_video_speed_title">Bật Tốc độ phát tùy chỉnh</string>
+    <string name="revanced_enable_custom_seekbar_color_summary_off">Màu thanh tiến trình tùy chỉnh ở chế độ tối đã tắt</string>
+    <string name="revanced_enable_custom_seekbar_color_summary_on">Màu thanh tiến trình tùy chỉnh ở chế độ tối đang bật</string>
+    <string name="revanced_enable_custom_seekbar_color_title">Bật Màu thanh tiến trình tùy chỉnh ở chế độ tối</string>
+    <string name="revanced_enable_custom_video_speed_summary_off">Tốc độ phát video tùy chỉnh đã tắt</string>
+    <string name="revanced_enable_custom_video_speed_summary_on">Tốc độ phát video tùy chỉnh đang bật</string>
+    <string name="revanced_enable_custom_video_speed_title">Bật Tốc độ phát video tùy chỉnh</string>
     <string name="revanced_enable_external_browser_summary_off">Trình duyệt bên ngoài ứng dụng đã tắt</string>
     <string name="revanced_enable_external_browser_summary_on">Trình duyệt bên ngoài ứng dụng đang bật</string>
     <string name="revanced_enable_external_browser_title">Bật Trình duyệt bên ngoài ứng dụng</string>
@@ -226,9 +231,6 @@ Bạn đã sẵn sàng để gửi đi chưa?"</string>
     <string name="revanced_enable_old_quality_layout_summary_off">Bố cục chất lượng video đang xem kiểu mới được hiển thị</string>
     <string name="revanced_enable_old_quality_layout_summary_on">Bố cục chất lượng video đang xem kiểu cũ được hiển thị</string>
     <string name="revanced_enable_old_quality_layout_title">Bật bố cục Chất lượng video kiểu cũ</string>
-    <string name="revanced_enable_old_seekbar_color_summary_off">Màu thanh tiến trình kiểu mới được sử dụng</string>
-    <string name="revanced_enable_old_seekbar_color_summary_on">Màu thanh tiến trình kiểu cũ được sử dụng</string>
-    <string name="revanced_enable_old_seekbar_color_title">Bật Màu thanh tiến trình kiểu cũ</string>
     <string name="revanced_enable_open_links_directly_summary_off">Chuyển hướng URL (youtube.com/redirect) được sử dụng khi mở liên kết trong phần mô tả video</string>
     <string name="revanced_enable_open_links_directly_summary_on">Bỏ qua chuyển hướng URL (youtube.com/redirect) khi mở liên kết trong phần mô tả video</string>
     <string name="revanced_enable_open_links_directly_title">Bật Cho phép mở liên kết trực tiếp</string>
@@ -241,6 +243,9 @@ Bạn đã sẵn sàng để gửi đi chưa?"</string>
     <string name="revanced_enable_save_video_quality_summary_off">Không lưu chất lượng video đã chọn ngay cả khi bạn thay đổi chất lượng video</string>
     <string name="revanced_enable_save_video_quality_summary_on">Lưu lại chất lượng video đã chọn bất cứ khi nào bạn thay đổi chất lượng video</string>
     <string name="revanced_enable_save_video_quality_title">Bật Lưu lại chất lượng video</string>
+    <string name="revanced_enable_save_video_speed_summary_off">Không lưu tốc độ phát video đã chọn ngay cả khi bạn thay đổi tốc độ phát video</string>
+    <string name="revanced_enable_save_video_speed_summary_on">Lưu lại tốc độ phát video đã chọn bất cứ khi nào bạn thay đổi tốc độ phát video</string>
+    <string name="revanced_enable_save_video_speed_title">Bật Lưu lại tốc độ phát video</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">Chạm thanh tiến trình để tua video đang bật</string>
     <string name="revanced_enable_seekbar_tapping_title">Bật Chạm thanh tiến trình để tua video</string>
     <string name="revanced_enable_swipe_auto_brightness_summary_off">Ngay cả khi độ sáng được đặt thành 0 bằng cử chỉ vuốt, độ sáng tự động vẫn sẽ không được bật</string>
@@ -509,6 +514,13 @@ Bạn có chắc chắn muốn tiếp tục không?"</string>
     <string name="revanced_ryd_dislike_separator_summary_on">Số lượt không thích được hiển thị với dấu phân cách</string>
     <string name="revanced_ryd_dislike_separator_title">Hiển thị số lượt không thích với dấu phân cách</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Ẩn</string>
+    <string name="revanced_save_video_quality_common_error">Lưu chất lượng video thất bại</string>
+    <string name="revanced_save_video_quality_internet_error">Không có kết nối mạng</string>
+    <string name="revanced_save_video_quality_mobile">Đã lưu chất lượng video trên mạng Di động thành:</string>
+    <string name="revanced_save_video_quality_mobile_error">Lưu chất lượng video trên mạng Di động thất bại</string>
+    <string name="revanced_save_video_quality_wifi">Đã lưu chất lượng video trên mạng Wi-Fi thành:</string>
+    <string name="revanced_save_video_quality_wifi_error">Lưu chất lượng video trên mạng Wi-Fi thất bại</string>
+    <string name="revanced_save_video_speed">Đã lưu tốc độ phát video mặc định thành:</string>
     <string name="revanced_settings">Cài đặt ReVanced</string>
     <string name="revanced_swipe_controls_summary">Các tuỳ chọn cài đặt liên quan đến điều khiển bằng cử chỉ vuốt</string>
     <string name="revanced_swipe_controls_title">Điều khiển bằng cử chỉ vuốt</string>
@@ -524,12 +536,6 @@ Bạn có chắc chắn muốn tiếp tục không?"</string>
     <string name="revanced_video_ads_removal_summary_off">Quảng cáo trên video được hiển thị</string>
     <string name="revanced_video_ads_removal_summary_on">Quảng cáo trên video đã ẩn</string>
     <string name="revanced_video_ads_removal_title">Ẩn Quảng cáo trên video</string>
-    <string name="revanced_video_quality_common_error">Đặt chất lượng video thất bại</string>
-    <string name="revanced_video_quality_internet_error">Không có kết nối mạng</string>
-    <string name="revanced_video_quality_mobile">Đã lưu chất lượng video trên mạng Di động thành: </string>
-    <string name="revanced_video_quality_mobile_error">Lưu chất lượng video trên mạng Di động thất bại</string>
-    <string name="revanced_video_quality_wifi">Đã lưu chất lượng video trên mạng Wi-Fi thành: </string>
-    <string name="revanced_video_quality_wifi_error">Lưu chất lượng video trên mạng Wi-Fi thất bại</string>
     <string name="revanced_video_settings_summary">Các tuỳ chọn cài đặt liên quan đến video</string>
     <string name="revanced_video_settings_title">Video</string>
     <string name="revanced_whitelisting_add_failed" formatted="false">Không thể thêm kênh %s vào danh sách bỏ chặn %s</string>

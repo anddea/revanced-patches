@@ -162,6 +162,8 @@ Est-il prêt à être soumis?"</string>
     <string name="revanced_adremover_web_search_panel_summary_off">Les panneaux de recherche Web sont affichés</string>
     <string name="revanced_adremover_web_search_panel_summary_on">Les panneaux de recherche Web sont cachés</string>
     <string name="revanced_adremover_web_search_panel_title">Cacher les panneaux de recherche web</string>
+    <string name="revanced_custom_seekbar_color_value_summary">Saisissez le code hexadécimal de couleur de la barre de recherche à utiliser en mode sombre</string>
+    <string name="revanced_custom_seekbar_color_value_title">Valeur de couleur de la barre de recherche personnalisée</string>
     <string name="revanced_custom_video_buffer_maximum_summary">La durée maximale du média que le lecteur tentera de mettre en mémoire tampon</string>
     <string name="revanced_custom_video_buffer_maximum_title">Mémoire tampon maximum</string>
     <string name="revanced_custom_video_buffer_playback_start_summary">La durée des supports qui doivent être mis en mémoire tampon pour que la lecture commence ou reprenne après une action de l’utilisateur telle que la recherche</string>
@@ -208,6 +210,9 @@ Est-il prêt à être soumis?"</string>
     <string name="revanced_enable_always_swipe_summary_off">Désactiver les gestes de balayage lorsque les commandes du lecteur sont visibles</string>
     <string name="revanced_enable_always_swipe_summary_on">Toujours activer les gestes de balayage lorsque les commandes du joueur sont visibles ou non</string>
     <string name="revanced_enable_always_swipe_title">Toujours activer les gestes de balayage</string>
+    <string name="revanced_enable_custom_seekbar_color_summary_off">La couleur de la barre de recherche personnalisée est désactivée</string>
+    <string name="revanced_enable_custom_seekbar_color_summary_on">La couleur de la barre de recherche personnalisée est activée</string>
+    <string name="revanced_enable_custom_seekbar_color_title">Activer la couleur de la barre de recherche personnalisée en mode sombre</string>
     <string name="revanced_enable_custom_video_speed_summary_off">La vitesse de lecture personnalisée est désactivée</string>
     <string name="revanced_enable_custom_video_speed_summary_on">La vitesse de lecture personnalisée est activée</string>
     <string name="revanced_enable_custom_video_speed_title">Activer la vitesse de vidéo personnalisée</string>
@@ -226,9 +231,6 @@ Est-il prêt à être soumis?"</string>
     <string name="revanced_enable_old_quality_layout_summary_off">La nouvelle interface des paramètres de qualité vidéo est affiché</string>
     <string name="revanced_enable_old_quality_layout_summary_on">L\'ancienne interface des paramètres de qualité vidéo est affiché</string>
     <string name="revanced_enable_old_quality_layout_title">Activer l\'ancienne interface de qualité vidéo</string>
-    <string name="revanced_enable_old_seekbar_color_summary_off">Une nouvelle couleur de barre de recherche est utilisée</string>
-    <string name="revanced_enable_old_seekbar_color_summary_on">L\'ancienne couleur de la barre de recherche est utilisée</string>
-    <string name="revanced_enable_old_seekbar_color_title">Activer l\'ancienne couleur de la barre de recherche</string>
     <string name="revanced_enable_open_links_directly_summary_off">Redirection d\'URL (youtube.com/redirect) est utilisée lors de l\'ouverture de liens dans les descriptions de vidéos</string>
     <string name="revanced_enable_open_links_directly_summary_on">Contournement des redirections URL (youtube.com/redirect) lors de l’ouverture de liens dans les descriptions de vidéo</string>
     <string name="revanced_enable_open_links_directly_title">Activer les liens ouverts directement</string>
@@ -241,6 +243,9 @@ Est-il prêt à être soumis?"</string>
     <string name="revanced_enable_save_video_quality_summary_off">N’enregistre pas les valeurs de qualité vidéo même lorsque la qualité vidéo est modifiée</string>
     <string name="revanced_enable_save_video_quality_summary_on">Enregistre la valeur de qualité vidéo chaque fois que vous modifiez la qualité vidéo</string>
     <string name="revanced_enable_save_video_quality_title">Activer l\'enregistrement de la qualité de la vidéo</string>
+    <string name="revanced_enable_save_video_speed_summary_off">N’enregistre pas les valeurs de vitesse vidéo même en changeant la vitesse vidéo</string>
+    <string name="revanced_enable_save_video_speed_summary_on">Enregistrez la valeur de vitesse vidéo chaque fois que vous modifiez la vitesse vidéo</string>
+    <string name="revanced_enable_save_video_speed_title">Activer la vitesse d’enregistrement vidéo</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">Le tapotage de la barre de recherche est activé</string>
     <string name="revanced_enable_seekbar_tapping_title">Activer le tapotage de la barre de recherche</string>
     <string name="revanced_enable_swipe_auto_brightness_summary_off">Même si la luminosité est réglée à 0 par balayage, la luminosité automatique n\'est pas activée</string>
@@ -504,6 +509,13 @@ Vous voulez continuer ?"</string>
     <string name="revanced_ryd_dislike_separator_summary_on">Dislikes indiquéavec séparateur</string>
     <string name="revanced_ryd_dislike_separator_title">Dislikes avec séparateur</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Cacher</string>
+    <string name="revanced_save_video_quality_common_error">Impossible de définir la qualité</string>
+    <string name="revanced_save_video_quality_internet_error">Pas de connexion internet</string>
+    <string name="revanced_save_video_quality_mobile">Changer la qualité des données mobiles par défaut en :</string>
+    <string name="revanced_save_video_quality_mobile_error">Impossible de modifier la qualité des données mobiles par défaut</string>
+    <string name="revanced_save_video_quality_wifi">Changer la qualité Wi-Fi par défaut en :</string>
+    <string name="revanced_save_video_quality_wifi_error">Impossible de modifier la qualité WI-FI par défaut</string>
+    <string name="revanced_save_video_speed">Changer la vitesse par défaut en :</string>
     <string name="revanced_settings">Paramètres ReVanced</string>
     <string name="revanced_swipe_controls_summary">Paramètres liés aux contrôles par balayage</string>
     <string name="revanced_swipe_controls_title">Paramètres des contrôles de balayage</string>
@@ -519,12 +531,6 @@ Vous voulez continuer ?"</string>
     <string name="revanced_video_ads_removal_summary_off">Les annonces vidéo sont affichées</string>
     <string name="revanced_video_ads_removal_summary_on">Les annonces vidéo sont cachées</string>
     <string name="revanced_video_ads_removal_title">Cacher les annonces vidéo</string>
-    <string name="revanced_video_quality_common_error">Impossible de définir la qualité</string>
-    <string name="revanced_video_quality_internet_error">Pas de connexion internet</string>
-    <string name="revanced_video_quality_mobile">Changer la qualité des données mobiles par défaut en:</string>
-    <string name="revanced_video_quality_mobile_error">Impossible de modifier la qualité des données mobiles par défaut</string>
-    <string name="revanced_video_quality_wifi">Changer la qualité Wi-Fi par défaut pour:</string>
-    <string name="revanced_video_quality_wifi_error">Impossible de modifier la qualité WI-FI par défaut</string>
     <string name="revanced_video_settings_summary">Paramètres liés à la vidéo</string>
     <string name="revanced_video_settings_title">Paramètres vidéo</string>
     <string name="revanced_whitelisting_add_failed" formatted="false">Échec d’ajout de chaîne %s à la liste blanche %s</string>
