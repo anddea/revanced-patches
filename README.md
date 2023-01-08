@@ -14,6 +14,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `custom-branding-icon-afn-red` | Changes the YouTube launcher icon (Afn / Red). | 18.01.35 |
 | `custom-branding-icon-revancify` | Changes the YouTube launcher icon (Revancify). | 18.01.35 |
 | `custom-branding-name` | Changes the YouTube launcher name to your choice (defaults to ReVanced Extended). | 18.01.35 |
+| `custom-seekbar-color` | Change seekbar color in dark mode. | 18.01.35 |
 | `custom-video-buffer` | Lets you change the buffers of videos. | 18.01.35 |
 | `custom-video-speed` | Adds more video speed options. | 18.01.35 |
 | `default-video-quality` | Adds ability to set default video quality settings. | 18.01.35 |
@@ -24,7 +25,6 @@ The official Patch bundle provided by ReVanced and the community.
 | `enable-minimized-playback` | Enables minimized and background playback. | 18.01.35 |
 | `enable-old-layout` | Spoof the YouTube client version to use the old layout. | 18.01.35 |
 | `enable-old-quality-layout` | Enables the original quality flyout menu. | 18.01.35 |
-| `enable-old-seekbar-color` | Enable old seekbar color in dark mode. | 18.01.35 |
 | `enable-open-links-directly` | Bypass URL redirects (youtube.com/redirect) when opening links in video descriptions. | 18.01.35 |
 | `enable-seekbar-tapping` | Enables tap-to-seek on the seekbar of the video player. | 18.01.35 |
 | `enable-tablet-miniplayer` | Enables the tablet mini player layout. | 18.01.35 |
@@ -147,7 +147,6 @@ Example:
         "name": "com.google.android.youtube",
         "versions": [
           "17.49.37",
-          "18.01.33",
           "18.01.35"
         ]
       }
