@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.layout.seekbar.seekbartapping.bytecode.fingerprints
+package app.revanced.patches.youtube.layout.seekbar.timeandseekbar.bytecode.fingerprints
 
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
@@ -7,13 +7,13 @@ import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.iface.instruction.WideLiteralInstruction
 
-object SeekbarTappingParentFingerprint : MethodFingerprint(
-    returnType = "L",
-    access = AccessFlags.PUBLIC or AccessFlags.FINAL,
+object TimeCounterParentFingerprint : MethodFingerprint(
+    returnType = "V",
+    access = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
     customFingerprint = { methodDef ->
         methodDef.implementation?.instructions?.any { instruction ->
             instruction.opcode.ordinal == Opcode.CONST.ordinal &&
-                    (instruction as? WideLiteralInstruction)?.wideLiteral == SharedResourcdIdPatch.accessibilityProgressTimeLabelId
+                    (instruction as? WideLiteralInstruction)?.wideLiteral == SharedResourcdIdPatch.timebarColorLabelId
         } == true
     }
 )

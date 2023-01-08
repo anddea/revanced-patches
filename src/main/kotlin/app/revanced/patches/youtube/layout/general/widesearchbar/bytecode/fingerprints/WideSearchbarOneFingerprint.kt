@@ -6,7 +6,10 @@ import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 
 object WideSearchbarOneFingerprint : MethodFingerprint(
-    "L",AccessFlags.PUBLIC or AccessFlags.FINAL, listOf("L", "L"), listOf(
+    returnType = "L",
+    access = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = listOf("L", "L"),
+    opcodes = listOf(
         Opcode.IF_NEZ,
         Opcode.SGET_OBJECT,
         Opcode.IGET_OBJECT,

@@ -10,11 +10,9 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.youtube.layout.general.widesearchbar.bytecode.fingerprints.WideSearchbarOneFingerprint
-import app.revanced.patches.youtube.layout.general.widesearchbar.bytecode.fingerprints.WideSearchbarOneParentFingerprint
-import app.revanced.patches.youtube.layout.general.widesearchbar.bytecode.fingerprints.WideSearchbarTwoFingerprint
-import app.revanced.patches.youtube.layout.general.widesearchbar.bytecode.fingerprints.WideSearchbarTwoParentFingerprint
+import app.revanced.patches.youtube.layout.general.widesearchbar.bytecode.fingerprints.*
 import app.revanced.shared.annotation.YouTubeCompatibility
+import app.revanced.shared.extensions.toErrorResult
 import app.revanced.shared.util.integrations.Constants.GENERAL_LAYOUT
 
 @Name("enable-wide-searchbar-bytecode-patch")
@@ -22,29 +20,28 @@ import app.revanced.shared.util.integrations.Constants.GENERAL_LAYOUT
 @Version("0.0.1")
 class WideSearchbarBytecodePatch : BytecodePatch(
     listOf(
-        WideSearchbarOneParentFingerprint, WideSearchbarTwoParentFingerprint
+        WideSearchbarOneParentFingerprint,
+        WideSearchbarTwoParentFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
-        WideSearchbarOneFingerprint.resolve(context, WideSearchbarOneParentFingerprint.result!!.classDef)
-        WideSearchbarTwoFingerprint.resolve(context, WideSearchbarTwoParentFingerprint.result!!.classDef)
 
-        val resultOne = WideSearchbarOneFingerprint.result
-        val targetMethodOne =
-            context
-            .toMethodWalker(resultOne!!.method)
-            .nextMethod(resultOne.scanResult.patternScanResult!!.endIndex, true)
-            .getMethod() as MutableMethod
+        arrayOf(
+            WideSearchbarOneParentFingerprint to WideSearchbarOneFingerprint,
+            WideSearchbarTwoParentFingerprint to WideSearchbarTwoFingerprint
+        ).map { (parentFingerprint, fingerprint) ->
+            parentFingerprint.result?.let { parentResult ->
+                fingerprint.also { it.resolve(context, parentResult.classDef) }.result?.let {
+                    val targetMethod =
+                        context
+                        .toMethodWalker(it.method)
+                        .nextMethod(it.scanResult.patternScanResult!!.endIndex, true)
+                        .getMethod() as MutableMethod
 
-
-        val resultTwo = WideSearchbarTwoFingerprint.result
-        val targetMethodTwo =
-            context.toMethodWalker(resultTwo!!.method)
-            .nextMethod(resultTwo.scanResult.patternScanResult!!.startIndex, true)
-            .getMethod() as MutableMethod
-
-        injectSearchBarHook(targetMethodOne)
-        injectSearchBarHook(targetMethodTwo)
+                    injectSearchBarHook(targetMethod)
+                } ?: return fingerprint.toErrorResult()
+            } ?: return parentFingerprint.toErrorResult()
+        }
 
         return PatchResultSuccess()
     }

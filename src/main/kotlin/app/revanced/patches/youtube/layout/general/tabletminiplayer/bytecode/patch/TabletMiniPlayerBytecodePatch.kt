@@ -4,21 +4,22 @@ import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
+import app.revanced.patcher.fingerprint.method.impl.MethodFingerprintResult
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.youtube.layout.general.tabletminiplayer.bytecode.fingerprints.MiniPlayerDimensionsCalculatorFingerprint
-import app.revanced.patches.youtube.layout.general.tabletminiplayer.bytecode.fingerprints.MiniPlayerOverrideFingerprint
-import app.revanced.patches.youtube.layout.general.tabletminiplayer.bytecode.fingerprints.MiniPlayerOverrideNoContextFingerprint
-import app.revanced.patches.youtube.layout.general.tabletminiplayer.bytecode.fingerprints.MiniPlayerResponseModelSizeCheckFingerprint
+import app.revanced.patches.youtube.layout.general.tabletminiplayer.bytecode.fingerprints.*
+import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourcdIdPatch
 import app.revanced.shared.annotation.YouTubeCompatibility
+import app.revanced.shared.extensions.toErrorResult
 import app.revanced.shared.util.integrations.Constants.GENERAL_LAYOUT
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Name("enable-tablet-miniplayer-bytecode-patch")
+@DependsOn([SharedResourcdIdPatch::class])
 @YouTubeCompatibility
 @Version("0.0.1")
 class TabletMiniPlayerBytecodePatch : BytecodePatch(
@@ -28,35 +29,33 @@ class TabletMiniPlayerBytecodePatch : BytecodePatch(
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
-        // first resolve the fingerprints via the parent fingerprint
-        val miniPlayerClass = MiniPlayerDimensionsCalculatorFingerprint.result!!.classDef
 
-        /*
-         * no context parameter method
-         */
-        MiniPlayerOverrideNoContextFingerprint.resolve(context, miniPlayerClass)
-        val (method, _, parameterRegister) = MiniPlayerOverrideNoContextFingerprint.addProxyCall()
-        // - 1 means to insert before the return instruction
-        val secondInsertIndex = method.implementation!!.instructions.size - 1
-        method.insertOverride(secondInsertIndex, parameterRegister /** same register used to return **/)
+        MiniPlayerDimensionsCalculatorFingerprint.result?.let { parentResult ->
+            // first resolve the fingerprints via the parent fingerprint
+            val miniPlayerClass = parentResult.classDef
 
-        /*
-         * method with context parameter
-         */
-        MiniPlayerOverrideFingerprint.resolve(context, miniPlayerClass)
-        val (_, _, _) = MiniPlayerOverrideFingerprint.addProxyCall()
-
-        /*
-         * size check return value override
-         */
-        val (_, _, _) = MiniPlayerResponseModelSizeCheckFingerprint.addProxyCall()
+            arrayOf(
+                MiniPlayerOverrideNoContextFingerprint,
+                MiniPlayerOverrideFingerprint,
+                MiniPlayerResponseModelSizeCheckFingerprint
+            ).map {
+                it to (it.also { it.resolve(context, miniPlayerClass) }.result ?: return it.toErrorResult())
+            }.forEach { (fingerprint, result) ->
+                if (fingerprint == MiniPlayerOverrideNoContextFingerprint) {
+                    val (method, _, parameterRegister) = result.addProxyCall()
+                    method.insertOverride(method.implementation!!.instructions.size - 1, parameterRegister)
+                } else {
+                    val (_, _, _) = result.addProxyCall()
+                }
+            }
+        } ?: return MiniPlayerDimensionsCalculatorFingerprint.toErrorResult()
 
         return PatchResultSuccess()
     }
 
     // helper methods
     private companion object {
-        fun MethodFingerprint.addProxyCall(): Triple<MutableMethod, Int, Int> {
+        fun MethodFingerprintResult.addProxyCall(): Triple<MutableMethod, Int, Int> {
             val (method, scanIndex, parameterRegister) = this.unwrap()
             method.insertOverride(scanIndex, parameterRegister)
 
@@ -73,10 +72,9 @@ class TabletMiniPlayerBytecodePatch : BytecodePatch(
             )
         }
 
-        fun MethodFingerprint.unwrap(): Triple<MutableMethod, Int, Int> {
-            val result = this.result!!
-            val scanIndex = result.scanResult.patternScanResult!!.endIndex
-            val method = result.mutableMethod
+        fun MethodFingerprintResult.unwrap(): Triple<MutableMethod, Int, Int> {
+            val scanIndex = this.scanResult.patternScanResult!!.endIndex
+            val method = this.mutableMethod
             val instructions = method.implementation!!.instructions
             val parameterRegister = (instructions[scanIndex] as OneRegisterInstruction).registerA
 

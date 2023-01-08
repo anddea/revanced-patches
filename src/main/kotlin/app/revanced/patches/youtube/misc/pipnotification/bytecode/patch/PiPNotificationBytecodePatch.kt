@@ -27,9 +27,9 @@ class PiPNotificationBytecodePatch : BytecodePatch(
             SecondaryPiPFingerprint
         ).map {
             it.result ?: return it.toErrorResult()
-        }.forEach { result ->
-            val index = result.scanResult.patternScanResult!!.startIndex + 1
-            result.mutableMethod.addInstruction(index, "return-void")
+        }.forEach {
+            val index = it.scanResult.patternScanResult!!.startIndex + 1
+            it.mutableMethod.addInstruction(index, "return-void")
         }
 
         return PatchResultSuccess()

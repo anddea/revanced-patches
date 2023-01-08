@@ -9,15 +9,18 @@ import app.revanced.patcher.extensions.instruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.misc.minimizedplayback.bytecode.fingerprints.*
+import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourcdIdPatch
 import app.revanced.shared.annotation.YouTubeCompatibility
 import app.revanced.shared.util.integrations.Constants.MISC_PATH
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 import org.jf.dexlib2.iface.reference.MethodReference
 
 @Name("enable-minimized-playback-bytecode-patch")
+@DependsOn([SharedResourcdIdPatch::class])
 @YouTubeCompatibility
 @Version("0.0.1")
 class MinimizedPlaybackBytecodePatch : BytecodePatch(
