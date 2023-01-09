@@ -9,6 +9,7 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patches.youtube.extended.oldlayout.bytecode.fingerprints.OldLayoutFingerprint
 import app.revanced.shared.annotation.YouTubeCompatibility
+import app.revanced.shared.extensions.toErrorResult
 import app.revanced.shared.util.integrations.Constants.EXTENDED_PATH
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
@@ -22,17 +23,19 @@ class OldLayoutBytecodePatch : BytecodePatch(
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
 
-        val result = OldLayoutFingerprint.result!!
-        val method = result.mutableMethod
-        val index = result.scanResult.patternScanResult!!.startIndex
-        val register = (method.implementation!!.instructions[index] as OneRegisterInstruction).registerA
+        OldLayoutFingerprint.result?.let {
+            val insertIndex = it.scanResult.patternScanResult!!.startIndex
 
-        method.addInstructions(
-            index + 1, """
-            invoke-static {v$register}, $EXTENDED_PATH/VersionOverridePatch;->getVersionOverride(Ljava/lang/String;)Ljava/lang/String;
-            move-result-object v$register
-        """
-        )
+            with (it.mutableMethod) {
+                val register = (this.implementation!!.instructions[insertIndex] as OneRegisterInstruction).registerA
+                addInstructions(
+                    insertIndex + 1, """
+                        invoke-static {v$register}, $EXTENDED_PATH/VersionOverridePatch;->getVersionOverride(Ljava/lang/String;)Ljava/lang/String;
+                        move-result-object v$register
+                    """
+                )
+            }
+        } ?: return OldLayoutFingerprint.toErrorResult()
 
         return PatchResultSuccess()
     }

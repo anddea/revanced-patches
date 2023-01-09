@@ -11,7 +11,7 @@ import org.jf.dexlib2.AccessFlags
 @YouTubeCompatibility
 @Version("0.0.1")
 object InfocardsIncognitoFingerprint : MethodFingerprint(
-    "Ljava/lang/Boolean;",
-    AccessFlags.PUBLIC or AccessFlags.FINAL,
+    returnType = "Ljava/lang/Boolean;",
+    access = AccessFlags.PUBLIC or AccessFlags.FINAL,
     strings = listOf("vibrator")
 )

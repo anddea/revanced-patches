@@ -7,13 +7,12 @@ import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.instruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.extensions.MethodFingerprintExtensions.name
 import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.layout.general.autocaptions.bytecode.fingerprints.*
 import app.revanced.shared.annotation.YouTubeCompatibility
+import app.revanced.shared.extensions.toErrorResult
 import app.revanced.shared.fingerprints.SubtitleButtonControllerFingerprint
 import app.revanced.shared.util.integrations.Constants.GENERAL_LAYOUT
 
@@ -32,8 +31,8 @@ class AutoCaptionsBytecodePatch : BytecodePatch(
             StartVideoInformerFingerprint.toPatch(Status.DISABLED),
             SubtitleButtonControllerFingerprint.toPatch(Status.ENABLED)
         ).forEach { (fingerprint, status) ->
-            with(fingerprint.result ?: return PatchResultError("Failed to find ${fingerprint.name} method.")) {
-                mutableMethod.addInstructions(
+            with(fingerprint.result?.mutableMethod ?: return fingerprint.toErrorResult()) {
+                addInstructions(
                     0,
                     """
                     const/4 v0, ${status.value}
@@ -43,19 +42,19 @@ class AutoCaptionsBytecodePatch : BytecodePatch(
             }
         }
 
-        val subtitleTrackMethod = SubtitleTrackFingerprint.result!!.mutableMethod
-
-        subtitleTrackMethod.addInstructions(
-            0, """
-            invoke-static {}, $GENERAL_LAYOUT->hideAutoCaptions()Z
-            move-result v0
-            if-eqz v0, :auto_captions_shown
-            sget-boolean v0, $GENERAL_LAYOUT->captionsButtonStatus:Z
-            if-nez v0, :auto_captions_shown
-            const/4 v0, 0x1
-            return v0
-            """, listOf(ExternalLabel("auto_captions_shown", subtitleTrackMethod.instruction(0)))
-        )
+        SubtitleTrackFingerprint.result?.mutableMethod?.let {
+            it.addInstructions(
+                0, """
+                    invoke-static {}, $GENERAL_LAYOUT->hideAutoCaptions()Z
+                    move-result v0
+                    if-eqz v0, :auto_captions_shown
+                    sget-boolean v0, $GENERAL_LAYOUT->captionsButtonStatus:Z
+                    if-nez v0, :auto_captions_shown
+                    const/4 v0, 0x1
+                    return v0
+                """, listOf(ExternalLabel("auto_captions_shown", it.instruction(0)))
+            )
+        } ?: return SubtitleTrackFingerprint.toErrorResult()
 
         return PatchResultSuccess()
     }

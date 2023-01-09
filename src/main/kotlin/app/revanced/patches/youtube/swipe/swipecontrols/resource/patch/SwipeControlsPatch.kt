@@ -10,6 +10,7 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patches.youtube.swipe.swipecontrols.bytecode.patch.SwipeControlsBytecodePatch
+import app.revanced.patches.youtube.swipe.swipebrightnessinhdr.bytecode.patch.SwipeGestureBrightnessInHDRPatch
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
 import app.revanced.shared.annotation.YouTubeCompatibility
 import app.revanced.shared.util.resources.ResourceHelper
@@ -22,7 +23,8 @@ import app.revanced.shared.util.resources.ResourceUtils.copyResources
 @DependsOn(
     [
         SettingsPatch::class,
-        SwipeControlsBytecodePatch::class
+        SwipeControlsBytecodePatch::class,
+        SwipeGestureBrightnessInHDRPatch::class
     ]
 )
 @YouTubeCompatibility

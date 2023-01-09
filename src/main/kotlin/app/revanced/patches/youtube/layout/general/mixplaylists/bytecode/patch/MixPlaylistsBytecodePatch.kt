@@ -4,13 +4,14 @@ import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.instruction
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.method.impl.MethodFingerprintResult
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patches.youtube.layout.general.mixplaylists.bytecode.fingerprints.*
 import app.revanced.shared.annotation.YouTubeCompatibility
 import app.revanced.shared.extensions.injectHideCall
+import app.revanced.shared.extensions.toErrorResult
 import org.jf.dexlib2.iface.instruction.Instruction
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
@@ -29,34 +30,41 @@ class MixPlaylistsBytecodePatch : BytecodePatch(
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
 
-        arrayOf(CreateMixPlaylistFingerprint, SecondCreateMixPlaylistFingerprint).forEach(::addHook)
-        ThirdCreateMixPlaylistFingerprint.hookMixPlaylists(true)
-        FourthCreateMixPlaylistFingerprint.hookMixPlaylists(false)
+        arrayOf(
+            CreateMixPlaylistFingerprint,
+            SecondCreateMixPlaylistFingerprint
+        ).map {
+            it.result ?: return it.toErrorResult()
+        }.forEach {
+            it.addHook()
+        }
+
+        arrayOf(
+            ThirdCreateMixPlaylistFingerprint to true,
+            FourthCreateMixPlaylistFingerprint to false
+        ).map { (fingerprint, boolean) ->
+            fingerprint.result?.hookMixPlaylists(boolean) ?: return fingerprint.toErrorResult()
+        }
 
         return PatchResultSuccess()
     }
 
-    private fun addHook(fingerprint: MethodFingerprint) {
-        with (fingerprint.result!!) {
-            val insertIndex = scanResult.patternScanResult!!.endIndex - 3
+    private fun MethodFingerprintResult.addHook() {
+        val insertIndex = scanResult.patternScanResult!!.endIndex - 3
+        val register = (mutableMethod.instruction(insertIndex - 2) as OneRegisterInstruction).registerA
 
-            val register = (mutableMethod.instruction(insertIndex - 2) as OneRegisterInstruction).registerA
-
-            mutableMethod.implementation!!.injectHideCall(insertIndex, register, "layout/GeneralLayoutPatch", "hideMixPlaylists")
-        }
+        mutableMethod.implementation!!.injectHideCall(insertIndex, register, "layout/GeneralLayoutPatch", "hideMixPlaylists")
     }
 
-    fun MethodFingerprint.hookMixPlaylists(isThirdFingerprint: Boolean) {
+    private fun MethodFingerprintResult.hookMixPlaylists(isThirdFingerprint: Boolean) {
         fun getRegister(instruction: Instruction): Int {
-                if (isThirdFingerprint) return (instruction as TwoRegisterInstruction).registerA
-                return (instruction as Instruction21c).registerA
+            if (isThirdFingerprint) return (instruction as TwoRegisterInstruction).registerA
+            return (instruction as Instruction21c).registerA
         }
-        with(this.result!!) {
-                val endIndex = scanResult.patternScanResult!!.endIndex
-                val instruction = method.implementation!!.instructions.elementAt(endIndex)
-                val register = getRegister(instruction)
+        val endIndex = scanResult.patternScanResult!!.endIndex
+        val instruction = method.implementation!!.instructions.elementAt(endIndex)
+        val register = getRegister(instruction)
 
-                mutableMethod.implementation!!.injectHideCall(endIndex, register, "layout/GeneralLayoutPatch", "hideMixPlaylists")
-        }
+        mutableMethod.implementation!!.injectHideCall(endIndex, register, "layout/GeneralLayoutPatch", "hideMixPlaylists")
     }
 }

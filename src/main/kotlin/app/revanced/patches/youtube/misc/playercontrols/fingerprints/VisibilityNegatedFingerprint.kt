@@ -6,7 +6,10 @@ import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 
 object VisibilityNegatedFingerprint : MethodFingerprint(
-    "V", AccessFlags.PUBLIC or AccessFlags.FINAL, listOf("Z"), opcodes = listOf(
+    returnType = "V",
+    access = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = listOf("Z"),
+    opcodes = listOf(
         Opcode.IF_EQZ
     )
 )

@@ -9,6 +9,7 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patches.youtube.misc.externalbrowser.bytecode.fingerprints.*
 import app.revanced.shared.annotation.YouTubeCompatibility
+import app.revanced.shared.extensions.toErrorResult
 import app.revanced.shared.util.integrations.Constants.MISC_PATH
 import org.jf.dexlib2.iface.instruction.formats.Instruction21c
 
@@ -28,19 +29,20 @@ class ExternalBrowserBytecodePatch : BytecodePatch(
             ExternalBrowserPrimaryFingerprint,
             ExternalBrowserSecondaryFingerprint,
             ExternalBrowserTertiaryFingerprint
-        ).forEach { fingerprint ->
-            val result = fingerprint.result!!
-            val method = result.mutableMethod
+        ).forEach {
+            val result = it.result?: return it.toErrorResult()
             val endIndex = result.scanResult.patternScanResult!!.endIndex
-            val register = (method.implementation!!.instructions[endIndex] as Instruction21c).registerA
-
-            method.addInstructions(
+            with (result.mutableMethod) {
+                val register = (implementation!!.instructions[endIndex] as Instruction21c).registerA
+                addInstructions(
                     endIndex + 1, """
-                    invoke-static {v$register}, $MISC_PATH/ExternalBrowserPatch;->enableExternalBrowser(Ljava/lang/String;)Ljava/lang/String;
-                    move-result-object v$register
-                """
-            )
+                        invoke-static {v$register}, $MISC_PATH/ExternalBrowserPatch;->enableExternalBrowser(Ljava/lang/String;)Ljava/lang/String;
+                        move-result-object v$register
+                    """
+                )
+            }
         }
+
         return PatchResultSuccess()
     }
 }

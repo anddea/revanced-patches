@@ -14,9 +14,9 @@ object ControlsLayoutInflateFingerprint : MethodFingerprint(
         Opcode.MOVE_RESULT_OBJECT
     ),
     customFingerprint = { methodDef ->
-        methodDef.implementation?.instructions?.any { instruction ->
-            instruction.opcode.ordinal == Opcode.CONST.ordinal &&
-            (instruction as? WideLiteralInstruction)?.wideLiteral == SharedResourcdIdPatch.controlsLayoutStubResourceId
+        methodDef.implementation?.instructions?.any {
+            it.opcode.ordinal == Opcode.CONST.ordinal &&
+                    (it as? WideLiteralInstruction)?.wideLiteral == SharedResourcdIdPatch.controlsLayoutStubResourceId
         } == true
     }
 )

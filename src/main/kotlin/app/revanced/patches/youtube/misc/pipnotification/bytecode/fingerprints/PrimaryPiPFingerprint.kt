@@ -6,7 +6,10 @@ import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 
 object PrimaryPiPFingerprint : MethodFingerprint(
-    "V", AccessFlags.PUBLIC or AccessFlags.FINAL, listOf("L"), listOf(
+    returnType = "V",
+    access = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = listOf("L"),
+    opcodes = listOf(
         Opcode.IGET_OBJECT,
         Opcode.CHECK_CAST,
         Opcode.INVOKE_VIRTUAL,

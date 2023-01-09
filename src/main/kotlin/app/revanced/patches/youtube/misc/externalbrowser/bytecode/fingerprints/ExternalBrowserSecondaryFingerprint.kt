@@ -6,7 +6,9 @@ import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 
 object ExternalBrowserSecondaryFingerprint : MethodFingerprint(
-    "L", AccessFlags.PUBLIC or AccessFlags.FINAL, opcodes = listOf(
+    returnType = "L",
+    access = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    opcodes = listOf(
         Opcode.IPUT_OBJECT,
         Opcode.NEW_INSTANCE,
         Opcode.CONST_STRING

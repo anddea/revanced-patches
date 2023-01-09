@@ -6,7 +6,11 @@ import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 
 object VideoQualityReferenceFingerprint : MethodFingerprint(
-    "V", AccessFlags.PUBLIC or AccessFlags.FINAL, listOf("L"), listOf(
-        Opcode.IPUT_OBJECT, Opcode.RETURN_VOID
+    returnType = "V",
+    access = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = listOf("L"),
+    opcodes = listOf(
+        Opcode.IPUT_OBJECT,
+        Opcode.RETURN_VOID
     )
 )

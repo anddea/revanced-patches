@@ -30,12 +30,15 @@ class WideSearchbarBytecodePatch : BytecodePatch(
             WideSearchbarOneParentFingerprint to WideSearchbarOneFingerprint,
             WideSearchbarTwoParentFingerprint to WideSearchbarTwoFingerprint
         ).map { (parentFingerprint, fingerprint) ->
-            parentFingerprint.result?.let { parentResult ->
-                fingerprint.also { it.resolve(context, parentResult.classDef) }.result?.let {
+            parentFingerprint.result?.classDef?.let { classDef ->
+                fingerprint.also { it.resolve(context, classDef) }.result?.let {
+                    val index = if (fingerprint == WideSearchbarOneFingerprint) it.scanResult.patternScanResult!!.endIndex
+                    else it.scanResult.patternScanResult!!.startIndex
+
                     val targetMethod =
                         context
                         .toMethodWalker(it.method)
-                        .nextMethod(it.scanResult.patternScanResult!!.endIndex, true)
+                        .nextMethod(index, true)
                         .getMethod() as MutableMethod
 
                     injectSearchBarHook(targetMethod)
