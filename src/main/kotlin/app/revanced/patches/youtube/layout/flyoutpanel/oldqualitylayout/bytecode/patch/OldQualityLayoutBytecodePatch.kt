@@ -3,12 +3,13 @@ package app.revanced.patches.youtube.layout.flyoutpanel.oldqualitylayout.bytecod
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstruction
+import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patches.youtube.layout.flyoutpanel.oldqualitylayout.bytecode.fingerprints.QualityMenuViewInflateFingerprint
 import app.revanced.shared.annotation.YouTubeCompatibility
+import app.revanced.shared.extensions.toErrorResult
 import app.revanced.shared.util.integrations.Constants.FLYOUTPANEL_LAYOUT
 import org.jf.dexlib2.iface.instruction.FiveRegisterInstruction
 
@@ -19,21 +20,18 @@ class OldQualityLayoutBytecodePatch : BytecodePatch(
     listOf(QualityMenuViewInflateFingerprint)
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
-        val inflateFingerprintResult = QualityMenuViewInflateFingerprint.result!!
-        val method = inflateFingerprintResult.mutableMethod
-        val instructions = method.implementation!!.instructions
 
-        // at this index the listener is added to the list view
-        val listenerInvokeRegister = instructions.size - 1 - 1
+        QualityMenuViewInflateFingerprint.result?.mutableMethod?.let {
+            with (it.implementation!!.instructions) {
+                val insertIndex = this.size - 1 - 1
+                val register = (this[insertIndex] as FiveRegisterInstruction).registerC
 
-        // get the register which stores the quality menu list view
-        val onItemClickViewRegister = (instructions[listenerInvokeRegister] as FiveRegisterInstruction).registerC
-
-        // insert the integrations method
-        method.addInstruction(
-            listenerInvokeRegister, // insert the integrations instructions right before the listener
-            "invoke-static { v$onItemClickViewRegister }, $FLYOUTPANEL_LAYOUT->enableOldQualityMenu(Landroid/widget/ListView;)V"
-        )
+                it.addInstructions(
+                    insertIndex, // insert the integrations instructions right before the listener
+                    "invoke-static { v$register }, $FLYOUTPANEL_LAYOUT->enableOldQualityMenu(Landroid/widget/ListView;)V"
+                )
+            }
+        } ?: return QualityMenuViewInflateFingerprint.toErrorResult()
 
         return PatchResultSuccess()
     }

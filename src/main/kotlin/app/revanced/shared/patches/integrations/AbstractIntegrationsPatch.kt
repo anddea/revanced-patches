@@ -9,6 +9,7 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.shared.extensions.toErrorResult
 import org.jf.dexlib2.iface.Method
 
 @Description("Applies mandatory patches to implement the ReVanced integrations into the application.")
@@ -37,7 +38,7 @@ abstract class AbstractIntegrationsPatch(
                     "sput-object v$contextRegister, " +
                             "$integrationsDescriptor->context:Landroid/content/Context;"
                 )
-            } ?: return PatchResultError("Could not find hook target fingerprint.")
+            } ?: return toErrorResult()
             return PatchResultSuccess()
         }
 

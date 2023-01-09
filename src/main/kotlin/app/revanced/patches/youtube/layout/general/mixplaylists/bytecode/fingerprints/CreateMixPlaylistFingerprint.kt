@@ -12,7 +12,10 @@ import org.jf.dexlib2.Opcode
 @YouTubeCompatibility
 @Version("0.0.1")
 object CreateMixPlaylistFingerprint : MethodFingerprint(
-    "V", AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR, listOf("L", "L", "L", "L", "L", "L", "L"), listOf(
+    returnType = "V",
+    access = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
+    parameters = listOf("L", "L", "L", "L", "L", "L", "L"),
+    opcodes = listOf(
         Opcode.INVOKE_DIRECT,
         Opcode.IPUT_OBJECT,
         Opcode.INVOKE_VIRTUAL,

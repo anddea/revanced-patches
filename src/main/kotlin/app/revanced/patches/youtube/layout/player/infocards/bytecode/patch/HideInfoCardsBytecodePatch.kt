@@ -11,6 +11,7 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patches.youtube.layout.player.infocards.bytecode.fingerprints.InfocardsIncognitoFingerprint
 import app.revanced.patches.youtube.layout.player.infocards.bytecode.fingerprints.InfocardsIncognitoParentFingerprint
 import app.revanced.shared.annotation.YouTubeCompatibility
+import app.revanced.shared.extensions.toErrorResult
 import app.revanced.shared.util.integrations.Constants.PLAYER_LAYOUT
 
 @Name("hide-info-cards-bytecode-patch")
@@ -20,16 +21,17 @@ class HideInfoCardsBytecodePatch : BytecodePatch(
     listOf(InfocardsIncognitoParentFingerprint)
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
-        with(InfocardsIncognitoFingerprint.also {
-            it.resolve(context, InfocardsIncognitoParentFingerprint.result!!.classDef)
-        }.result!!.mutableMethod) {
-                addInstructions(
+        InfocardsIncognitoParentFingerprint.result?.classDef?.let { classDef ->
+            InfocardsIncognitoFingerprint.also {
+                it.resolve(context, classDef)
+            }.result?.mutableMethod?.
+            addInstructions(
                 1, """
                     invoke-static {v0}, $PLAYER_LAYOUT->hideInfoCard(Z)Z
                     move-result v0
-                """
-                )
-        }
+                    """
+            ) ?: return InfocardsIncognitoFingerprint.toErrorResult()
+        } ?: return InfocardsIncognitoParentFingerprint.toErrorResult()
 
         return PatchResultSuccess()
     }

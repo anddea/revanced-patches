@@ -65,14 +65,14 @@ class CreateButtonRemoverBytecodePatch : BytecodePatch(
         } ?: return PivotBarCreateButtonViewFingerprint.toErrorResult()
     }
 
-    internal companion object {
+    private companion object {
         const val hook =
             "invoke-static { v$REGISTER_TEMPLATE_REPLACEMENT }, $GENERAL_LAYOUT" +
             "->" +
             "hideCreateButton(Landroid/view/View;)V"
 
-        private lateinit var createRef: DexBackedMethodReference
+        lateinit var createRef: DexBackedMethodReference
 
-        private var isSeondary: Boolean = false
+        var isSeondary: Boolean = false
     }
 }

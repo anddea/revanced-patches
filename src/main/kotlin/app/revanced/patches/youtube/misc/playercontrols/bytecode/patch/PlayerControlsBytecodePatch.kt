@@ -15,6 +15,7 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patches.youtube.misc.playercontrols.fingerprints.*
 import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourcdIdPatch
 import app.revanced.shared.annotation.YouTubeCompatibility
+import app.revanced.shared.extensions.toErrorResult
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Name("player-controls-bytecode-patch")
@@ -31,24 +32,33 @@ class PlayerControlsBytecodePatch : BytecodePatch(
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
-        showPlayerControlsFingerprintResult = PlayerControlsVisibilityFingerprint.result!!
-        controlsLayoutInflateFingerprintResult = ControlsLayoutInflateFingerprint.result!!
 
-        // TODO: another solution is required, this is hacky
-        listOf(BottomControlsInflateFingerprint).resolve(context, context.classes)
-        inflateFingerprintResult = BottomControlsInflateFingerprint.result!!
+        PlayerControlsVisibilityFingerprint.result?.let {
+            showPlayerControlsResult = it
+        } ?: return PlayerControlsVisibilityFingerprint.toErrorResult()
 
-        VisibilityNegatedFingerprint.resolve(context, VisibilityNegatedParentFingerprint.result!!.classDef)
-        visibilityNegatedFingerprintResult = VisibilityNegatedFingerprint.result!!
+        ControlsLayoutInflateFingerprint.result?.let {
+            controlsLayoutInflateResult = it
+        } ?: return ControlsLayoutInflateFingerprint.toErrorResult()
+
+        BottomControlsInflateFingerprint.result?.let {
+            inflateResult = it
+        } ?: return BottomControlsInflateFingerprint.toErrorResult()
+
+        VisibilityNegatedParentFingerprint.result?.let { parentResult ->
+            VisibilityNegatedFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.let {
+                visibilityNegatedResult = it
+            } ?: return VisibilityNegatedFingerprint.toErrorResult()
+        } ?: return VisibilityNegatedParentFingerprint.toErrorResult()
 
         return PatchResultSuccess()
     }
 
     internal companion object {
-        lateinit var showPlayerControlsFingerprintResult: MethodFingerprintResult
-        lateinit var controlsLayoutInflateFingerprintResult: MethodFingerprintResult
-        lateinit var inflateFingerprintResult: MethodFingerprintResult
-        lateinit var visibilityNegatedFingerprintResult: MethodFingerprintResult
+        lateinit var showPlayerControlsResult: MethodFingerprintResult
+        lateinit var controlsLayoutInflateResult: MethodFingerprintResult
+        lateinit var inflateResult: MethodFingerprintResult
+        lateinit var visibilityNegatedResult: MethodFingerprintResult
 
         fun MethodFingerprintResult.injectVisibilityCall(
             descriptor: String,
@@ -60,32 +70,33 @@ class PlayerControlsBytecodePatch : BytecodePatch(
             )
         }
 
-        fun MethodFingerprintResult.injectCalls(
+        private fun MethodFingerprintResult.injectCalls(
             descriptor: String
         ) {
             val endIndex = scanResult.patternScanResult!!.endIndex
-            val viewRegister = (mutableMethod.instruction(endIndex) as OneRegisterInstruction).registerA
-
-            mutableMethod.addInstruction(
-                endIndex + 1,
-                "invoke-static {v$viewRegister}, $descriptor->initialize(Ljava/lang/Object;)V"
-            )
+            with (mutableMethod) {
+                val viewRegister = (instruction(endIndex) as OneRegisterInstruction).registerA
+                addInstruction(
+                    endIndex + 1,
+                    "invoke-static {v$viewRegister}, $descriptor->initialize(Ljava/lang/Object;)V"
+                )
+            }
         }
 
         fun injectVisibility(descriptor: String) {
-            showPlayerControlsFingerprintResult.injectVisibilityCall(descriptor, "changeVisibility")
+            showPlayerControlsResult.injectVisibilityCall(descriptor, "changeVisibility")
         }
 
         fun injectVisibilityNegated(descriptor: String) {
-            visibilityNegatedFingerprintResult.injectVisibilityCall(descriptor, "changeVisibilityNegatedImmediate")
+            visibilityNegatedResult.injectVisibilityCall(descriptor, "changeVisibilityNegatedImmediate")
         }
 
         fun initializeSB(descriptor: String) {
-            controlsLayoutInflateFingerprintResult.injectCalls(descriptor)
+            controlsLayoutInflateResult.injectCalls(descriptor)
         }
 
         fun initializeControl(descriptor: String) {
-            inflateFingerprintResult.injectCalls(descriptor)
+            inflateResult.injectCalls(descriptor)
         }
     }
 }

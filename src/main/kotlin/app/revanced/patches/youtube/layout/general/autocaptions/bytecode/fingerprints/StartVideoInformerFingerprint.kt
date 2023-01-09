@@ -6,18 +6,11 @@ import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 
 object StartVideoInformerFingerprint : MethodFingerprint(
-    "V", AccessFlags.PUBLIC or AccessFlags.FINAL, listOf("L", "L", "L", "L"), listOf(
-        Opcode.INVOKE_STATIC,
-        Opcode.IGET_OBJECT,
-        Opcode.IGET_OBJECT,
-        Opcode.NEW_INSTANCE,
-        Opcode.INVOKE_DIRECT,
+    returnType = "V",
+    access = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    opcodes = listOf(
         Opcode.INVOKE_INTERFACE,
-        Opcode.IF_EQZ,
-        Opcode.CONST_STRING,
-        Opcode.INVOKE_INTERFACE,
-        Opcode.IGET_OBJECT,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT,
-    )
+        Opcode.RETURN_VOID,
+    ),
+    strings = listOf("pc")
 )

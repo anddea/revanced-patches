@@ -11,6 +11,7 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.layout.player.autoplaybutton.bytecode.fingerprints.LayoutConstructorFingerprint
 import app.revanced.shared.annotation.YouTubeCompatibility
+import app.revanced.shared.extensions.toErrorResult
 import app.revanced.shared.patches.mapping.ResourceMappingPatch
 import app.revanced.shared.util.integrations.Constants.PLAYER_LAYOUT
 import org.jf.dexlib2.iface.instruction.Instruction
@@ -28,31 +29,33 @@ class HideAutoplayButtonBytecodePatch : BytecodePatch(
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
-        val layoutGenMethodResult = LayoutConstructorFingerprint.result!!
-        val layoutGenMethod = layoutGenMethodResult.mutableMethod
-        val layoutGenMethodInstructions = layoutGenMethod.implementation!!.instructions
-
         // resolve the offsets such as ...
         val autoNavPreviewStubId = ResourceMappingPatch.resourceMappings.single {
             it.name == "autonav_preview_stub"
         }.id
-        // where to insert the branch instructions and ...
-        val insertIndex = layoutGenMethodInstructions.indexOfFirst {
-            (it as? WideLiteralInstruction)?.wideLiteral == autoNavPreviewStubId
-        }
-        // where to branch away
-        val branchIndex = layoutGenMethodInstructions.subList(insertIndex + 1, layoutGenMethodInstructions.size - 1).indexOfFirst {
-            ((it as? ReferenceInstruction)?.reference as? MethodReference)?.name == "addOnLayoutChangeListener"
-        } + 2
 
-        val jumpInstruction = layoutGenMethodInstructions[insertIndex + branchIndex] as Instruction
-        layoutGenMethod.addInstructions(
-                insertIndex, """
-                invoke-static {}, $PLAYER_LAYOUT->hideAutoPlayButton()Z
-                move-result v15
-                if-nez v15, :hidden
-            """, listOf(ExternalLabel("hidden", jumpInstruction))
-        )
+        LayoutConstructorFingerprint.result?.mutableMethod?.let { method ->
+            with (method.implementation!!.instructions) {
+                // where to insert the branch instructions and ...
+                val insertIndex = this.indexOfFirst {
+                    (it as? WideLiteralInstruction)?.wideLiteral == autoNavPreviewStubId
+                }
+                // where to branch away
+                val branchIndex = this.subList(insertIndex + 1, this.size - 1).indexOfFirst {
+                    ((it as? ReferenceInstruction)?.reference as? MethodReference)?.name == "addOnLayoutChangeListener"
+                } + 2
+
+                val jumpInstruction = this[insertIndex + branchIndex] as Instruction
+
+                method.addInstructions(
+                    insertIndex, """
+                        invoke-static {}, $PLAYER_LAYOUT->hideAutoPlayButton()Z
+                        move-result v15
+                        if-nez v15, :hidden
+                    """, listOf(ExternalLabel("hidden", jumpInstruction))
+                )
+            }
+        } ?: return LayoutConstructorFingerprint.toErrorResult()
 
         return PatchResultSuccess()
     }

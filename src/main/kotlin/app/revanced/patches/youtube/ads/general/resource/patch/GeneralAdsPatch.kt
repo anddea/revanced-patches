@@ -38,12 +38,20 @@ class GeneralAdsPatch : ResourcePatch {
         "promotion_",
         "compact_premium_",
         "compact_promoted_",
+        "simple_text_section",
     )
 
     private val replacements = arrayOf(
         "height",
         "width",
         "marginTop"
+    )
+
+    private val additionalReplacements = arrayOf(
+        "Bottom",
+        "End",
+        "Start",
+        "Top"
     )
 
     override fun execute(context: ResourceContext): PatchResult {
@@ -53,13 +61,25 @@ class GeneralAdsPatch : ResourcePatch {
 
             // for each file in the "layouts" directory replace all necessary attributes content
             context.xmlEditor[it.absolutePath].use { editor ->
-                editor.file.doRecursively { node ->
+                editor.file.doRecursively {
                     replacements.forEach replacement@{ replacement ->
-                        if (node !is Element) return@replacement
+                        if (it !is Element) return@replacement
 
-                        node.getAttributeNode("android:layout_$replacement")?.let { attribute ->
+                        it.getAttributeNode("android:layout_$replacement")?.let { attribute ->
                             attribute.textContent = "0.0dip"
                         }
+                    }
+                }
+            }
+        }
+
+        context.xmlEditor["res/layout/simple_text_section.xml"].use { editor ->
+            editor.file.doRecursively {
+                additionalReplacements.forEach replacement@{ replacement ->
+                    if (it !is Element) return@replacement
+
+                    it.getAttributeNode("android:padding_$replacement")?.let { attribute ->
+                        attribute.textContent = "0.0dip"
                     }
                 }
             }

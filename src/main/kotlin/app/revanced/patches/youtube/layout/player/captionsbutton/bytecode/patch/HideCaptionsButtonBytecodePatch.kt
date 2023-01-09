@@ -8,6 +8,7 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.shared.annotation.YouTubeCompatibility
+import app.revanced.shared.extensions.toErrorResult
 import app.revanced.shared.fingerprints.SubtitleButtonControllerFingerprint
 import app.revanced.shared.util.integrations.Constants.PLAYER_LAYOUT
 import org.jf.dexlib2.Opcode
@@ -15,24 +16,27 @@ import org.jf.dexlib2.Opcode
 @Name("hide-captions-button-bytecode-patch")
 @YouTubeCompatibility
 @Version("0.0.1")
-class HideCaptionsButtonBytecodePatch : BytecodePatch(listOf(
-    SubtitleButtonControllerFingerprint,
-)) {
+class HideCaptionsButtonBytecodePatch : BytecodePatch(
+    listOf(
+        SubtitleButtonControllerFingerprint
+    )
+) {
     override fun execute(context: BytecodeContext): PatchResult {
 
-        val subtitleButtonControllerMethod = SubtitleButtonControllerFingerprint.result!!.mutableMethod
-        val subtitleButtonControllerMethodInstructions = subtitleButtonControllerMethod.implementation!!.instructions
+        SubtitleButtonControllerFingerprint.result?.mutableMethod?.let {
+            with (it.implementation!!.instructions) {
+                for ((index, instruction) in this.withIndex()) {
+                    if (instruction.opcode != Opcode.IGET_BOOLEAN) continue
 
-        for ((index, instruction) in subtitleButtonControllerMethodInstructions.withIndex()) {
-            if (instruction.opcode != Opcode.IGET_BOOLEAN) continue
+                    it.addInstruction(
+                        index + 1,
+                        "invoke-static {v0}, $PLAYER_LAYOUT->hideCaptionsButton(Landroid/widget/ImageView;)V"
+                    )
 
-            subtitleButtonControllerMethod.addInstruction(
-                index + 1,
-                "invoke-static {v0}, $PLAYER_LAYOUT->hideCaptionsButton(Landroid/widget/ImageView;)V"
-            )
-
-            break
-        }
+                    break
+                }
+            }
+        } ?: return SubtitleButtonControllerFingerprint.toErrorResult()
 
         return PatchResultSuccess()
     }

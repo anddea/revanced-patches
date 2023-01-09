@@ -19,12 +19,12 @@ object AccountSwitcherAccessibilityLabelFingerprint : MethodFingerprint(
         Opcode.NEW_ARRAY,
         Opcode.CONST_4,
         Opcode.APUT_OBJECT,
-        Opcode.CONST,
+        Opcode.CONST
     ),
     customFingerprint = { methodDef ->
-        methodDef.implementation?.instructions?.any { instruction ->
-            instruction.opcode.ordinal == Opcode.CONST.ordinal &&
-            (instruction as? WideLiteralInstruction)?.wideLiteral == SharedResourcdIdPatch.accountSwitcherAccessibilityLabelId
+        methodDef.implementation?.instructions?.any { it ->
+            it.opcode.ordinal == Opcode.CONST.ordinal &&
+            (it as? WideLiteralInstruction)?.wideLiteral == SharedResourcdIdPatch.accountSwitcherAccessibilityLabelId
         } == true
     }
 )

@@ -4,20 +4,21 @@ import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.addInstruction
-import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.annotations.DependsOn
+import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourcdIdPatch
 import app.revanced.patches.youtube.misc.settings.bytecode.fingerprints.ThemeSetterSystemFingerprint
+import app.revanced.shared.annotation.YouTubeCompatibility
 import app.revanced.shared.extensions.findMutableMethodOf
 import app.revanced.shared.extensions.injectTheme
+import app.revanced.shared.extensions.toErrorResult
 import app.revanced.shared.patches.mapping.ResourceMappingPatch
-import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
-import app.revanced.shared.annotation.YouTubeCompatibility
 import app.revanced.shared.util.integrations.Constants.INTEGRATIONS_PATH
-import org.jf.dexlib2.iface.instruction.formats.Instruction31i
 import org.jf.dexlib2.Opcode
+import org.jf.dexlib2.iface.instruction.formats.Instruction31i
 
 @Name("settings-bytecode-patch")
 @DependsOn(
@@ -80,21 +81,24 @@ class SettingsBytecodePatch : BytecodePatch(
         }
 
         // apply the current theme of the settings page
-        with(ThemeSetterSystemFingerprint.result!!) {
-            with(mutableMethod) {
-                val call = "invoke-static {v0}, $INTEGRATIONS_PATH/utils/ThemeHelper;->setTheme(Ljava/lang/Object;)V"
-
+        ThemeSetterSystemFingerprint.result?.let {
+            with(it.mutableMethod) {
                 addInstruction(
-                    scanResult.patternScanResult!!.startIndex,
-                    call
+                    it.scanResult.patternScanResult!!.startIndex,
+                    SET_THEME
                 )
 
                 addInstruction(
-                    mutableMethod.implementation!!.instructions.size - 1,
-                    call
+                    this.implementation!!.instructions.size - 1,
+                    SET_THEME
                 )
             }
-        }
+        } ?: return ThemeSetterSystemFingerprint.toErrorResult()
+
         return PatchResultSuccess()
+    }
+    companion object {
+        const val SET_THEME =
+            "invoke-static {v0}, $INTEGRATIONS_PATH/utils/ThemeHelper;->setTheme(Ljava/lang/Object;)V"
     }
 }

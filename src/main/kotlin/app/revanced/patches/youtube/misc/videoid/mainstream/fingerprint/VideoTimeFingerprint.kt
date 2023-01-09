@@ -6,7 +6,10 @@ import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 
 object VideoTimeFingerprint : MethodFingerprint (
-    "V", AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR, listOf("J", "J", "J", "J", "I", "L"), listOf(
+    returnType = "V",
+    access = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
+    parameters = listOf("J", "J", "J", "J", "I", "L"),
+    opcodes = listOf(
         Opcode.INVOKE_DIRECT,
         Opcode.IPUT_WIDE,
         Opcode.IPUT_WIDE,

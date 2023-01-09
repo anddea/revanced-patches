@@ -11,9 +11,9 @@ object VisibilityNegatedParentFingerprint : MethodFingerprint(
     returnType = "V",
     access = AccessFlags.PUBLIC or AccessFlags.FINAL,
     customFingerprint = { methodDef ->
-        methodDef.implementation?.instructions?.any { instruction ->
-            instruction.opcode.ordinal == Opcode.CONST.ordinal &&
-            (instruction as? WideLiteralInstruction)?.wideLiteral == SharedResourcdIdPatch.educationTextViewResourceId
+        methodDef.implementation?.instructions?.any {
+            it.opcode.ordinal == Opcode.CONST.ordinal &&
+                    (it as? WideLiteralInstruction)?.wideLiteral == SharedResourcdIdPatch.educationTextViewResourceId
         } == true
     }
 )

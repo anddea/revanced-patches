@@ -101,7 +101,7 @@ class EnforceShufflePatch : BytecodePatch(
                 ImmutableField(
                     mutableMethod.definingClass,
                     "shuffleclass",
-                    "$SHUFFLE_CLASS",
+                    SHUFFLE_CLASS,
                     AccessFlags.PUBLIC or AccessFlags.STATIC,
                     null,
                     null,

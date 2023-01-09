@@ -17,9 +17,9 @@ object PivotBarFingerprint : MethodFingerprint(
     ),
     customFingerprint = { methodDef ->
         methodDef.definingClass == "Lcom/google/android/apps/youtube/app/ui/pivotbar/PivotBar;" &&
-        methodDef.implementation?.instructions?.any { instruction ->
-            instruction.opcode.ordinal == Opcode.CONST.ordinal &&
-            (instruction as? WideLiteralInstruction)?.wideLiteral == SharedResourcdIdPatch.imageWithTextTabId
+        methodDef.implementation?.instructions?.any {
+            it.opcode.ordinal == Opcode.CONST.ordinal &&
+            (it as? WideLiteralInstruction)?.wideLiteral == SharedResourcdIdPatch.imageWithTextTabId
         } == true
     }
 )

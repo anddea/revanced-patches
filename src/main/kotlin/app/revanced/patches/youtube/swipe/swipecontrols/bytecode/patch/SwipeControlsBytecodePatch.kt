@@ -9,11 +9,11 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.util.TypeUtil.traverseClassHierarchy
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
-import app.revanced.patches.youtube.misc.hdrbrightness.bytecode.patch.HDRBrightnessBytecodePatch
 import app.revanced.patches.youtube.misc.playertype.patch.PlayerTypeHookPatch
 import app.revanced.patches.youtube.swipe.swipecontrols.bytecode.fingerprints.SwipeControlsHostActivityFingerprint
 import app.revanced.patches.youtube.swipe.swipecontrols.bytecode.fingerprints.WatchWhileActivityFingerprint
 import app.revanced.shared.annotation.YouTubeCompatibility
+import app.revanced.shared.extensions.toErrorResult
 import app.revanced.shared.extensions.transformMethods
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.immutable.ImmutableMethod
@@ -23,7 +23,6 @@ import org.jf.dexlib2.immutable.ImmutableMethod
 @Version("0.0.3")
 @DependsOn(
     [
-        HDRBrightnessBytecodePatch::class,
         PlayerTypeHookPatch::class
     ]
 )
@@ -34,8 +33,8 @@ class SwipeControlsBytecodePatch : BytecodePatch(
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
-        val wrapperClass = SwipeControlsHostActivityFingerprint.result!!.mutableClass
-        val targetClass = WatchWhileActivityFingerprint.result!!.mutableClass
+        val wrapperClass = SwipeControlsHostActivityFingerprint.result?.mutableClass ?: return SwipeControlsHostActivityFingerprint.toErrorResult()
+        val targetClass = WatchWhileActivityFingerprint.result?.mutableClass ?: return WatchWhileActivityFingerprint.toErrorResult()
 
         // inject the wrapper class from integrations into the class hierarchy of WatchWhileActivity
         wrapperClass.setSuperClass(targetClass.superclass)

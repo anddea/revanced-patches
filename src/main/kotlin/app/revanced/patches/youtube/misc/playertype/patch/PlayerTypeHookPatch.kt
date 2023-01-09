@@ -10,6 +10,7 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patches.youtube.misc.playertype.fingerprint.UpdatePlayerTypeFingerprint
 import app.revanced.shared.annotation.YouTubeCompatibility
+import app.revanced.shared.extensions.toErrorResult
 import app.revanced.shared.util.integrations.Constants.UTILS_PATH
 
 @Name("player-type-hook")
@@ -23,10 +24,11 @@ class PlayerTypeHookPatch : BytecodePatch(
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
         // hook YouTubePlayerOverlaysLayout.updatePlayerLayout()
-        UpdatePlayerTypeFingerprint.result!!.mutableMethod.addInstruction(
+        UpdatePlayerTypeFingerprint.result?.mutableMethod?.addInstruction(
             0,
             "invoke-static { p1 }, $UTILS_PATH/PlayerTypeHookPatch;->YouTubePlayerOverlaysLayout_updatePlayerTypeHookEX(Ljava/lang/Object;)V"
-        )
+        ) ?: return UpdatePlayerTypeFingerprint.toErrorResult()
+
         return PatchResultSuccess()
     }
 }

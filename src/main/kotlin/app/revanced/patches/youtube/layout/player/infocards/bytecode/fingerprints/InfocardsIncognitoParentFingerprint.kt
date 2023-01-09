@@ -11,7 +11,7 @@ import org.jf.dexlib2.AccessFlags
 @YouTubeCompatibility
 @Version("0.0.1")
 object InfocardsIncognitoParentFingerprint : MethodFingerprint(
-    "Ljava/lang/String;",
-    AccessFlags.PUBLIC or AccessFlags.FINAL,
+    returnType = "Ljava/lang/String;",
+    access = AccessFlags.PUBLIC or AccessFlags.FINAL,
     strings = listOf("player_overlay_info_card_teaser"),
 )

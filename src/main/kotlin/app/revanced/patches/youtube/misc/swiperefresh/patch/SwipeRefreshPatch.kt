@@ -24,12 +24,18 @@ class SwipeRefreshPatch : BytecodePatch(
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
-        val result = SwipeRefreshLayoutFingerprint.result ?:return SwipeRefreshLayoutFingerprint.toErrorResult()
-        val method = result.mutableMethod
-        val index = result.scanResult.patternScanResult!!.endIndex
-        val register = (method.instruction(index) as OneRegisterInstruction).registerA
 
-        method.addInstruction(index, "const/4 v$register, 0x0")
+        SwipeRefreshLayoutFingerprint.result?.let {
+            with (it.mutableMethod) {
+                val insertIndex = it.scanResult.patternScanResult!!.endIndex
+                val register = (instruction(insertIndex) as OneRegisterInstruction).registerA
+
+                addInstruction(
+                    insertIndex,
+                    "const/4 v$register, 0x0"
+                )
+            }
+        } ?: return SwipeRefreshLayoutFingerprint.toErrorResult()
 
         return PatchResultSuccess()
     }

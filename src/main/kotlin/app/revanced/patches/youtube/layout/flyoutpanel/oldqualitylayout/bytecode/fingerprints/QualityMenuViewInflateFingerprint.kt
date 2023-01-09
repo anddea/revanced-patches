@@ -8,9 +8,9 @@ import org.jf.dexlib2.Opcode
 object QualityMenuViewInflateFingerprint : MethodFingerprint(
     opcodes = listOf(Opcode.INVOKE_SUPER),
     customFingerprint = { methodDef ->
-        methodDef.implementation?.instructions?.any { instruction ->
-            instruction.opcode.ordinal == Opcode.CONST.ordinal &&
-            (instruction as? WideLiteralInstruction)?.wideLiteral == SharedResourcdIdPatch.videoqualityfragmentLabelId
+        methodDef.implementation?.instructions?.any {
+            it.opcode.ordinal == Opcode.CONST.ordinal &&
+            (it as? WideLiteralInstruction)?.wideLiteral == SharedResourcdIdPatch.videoqualityfragmentLabelId
         } == true
     }
 )

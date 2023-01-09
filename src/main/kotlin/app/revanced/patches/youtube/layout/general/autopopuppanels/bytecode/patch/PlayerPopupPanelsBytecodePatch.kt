@@ -11,6 +11,7 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.layout.general.autopopuppanels.bytecode.fingerprints.EngagementPanelControllerFingerprint
 import app.revanced.shared.annotation.YouTubeCompatibility
+import app.revanced.shared.extensions.toErrorResult
 import app.revanced.shared.util.integrations.Constants.GENERAL_LAYOUT
 
 @Name("hide-auto-player-popup-panels-bytecode-patch")
@@ -22,18 +23,19 @@ class PlayerPopupPanelsBytecodePatch : BytecodePatch(
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
-        val engagementPanelControllerMethod = EngagementPanelControllerFingerprint.result!!.mutableMethod
 
-        engagementPanelControllerMethod.addInstructions(
-            0, """
-            invoke-static { }, $GENERAL_LAYOUT->hideAutoPlayerPopupPanels()Z
-            move-result v0
-            if-eqz v0, :player_popup_panels_shown
-            if-eqz p4, :player_popup_panels_shown
-            const/4 v0, 0x0
-            return-object v0
-            """, listOf(ExternalLabel("player_popup_panels_shown", engagementPanelControllerMethod.instruction(0)))
-        )
+        EngagementPanelControllerFingerprint.result?.mutableMethod?.let {
+            it.addInstructions(
+                0, """
+                    invoke-static {}, $GENERAL_LAYOUT->hideAutoPlayerPopupPanels()Z
+                    move-result v0
+                    if-eqz v0, :player_popup_panels_shown
+                    if-eqz p4, :player_popup_panels_shown
+                    const/4 v0, 0x0
+                    return-object v0
+                """, listOf(ExternalLabel("player_popup_panels_shown", it.instruction(0)))
+            )
+        } ?: return EngagementPanelControllerFingerprint.toErrorResult()
 
         return PatchResultSuccess()
     }

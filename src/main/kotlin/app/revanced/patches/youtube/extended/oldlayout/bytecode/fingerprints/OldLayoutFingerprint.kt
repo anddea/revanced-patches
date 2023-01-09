@@ -6,7 +6,10 @@ import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 
 object OldLayoutFingerprint : MethodFingerprint(
-    "L", AccessFlags.PUBLIC or AccessFlags.STATIC, listOf("L"), listOf(
+    returnType = "L",
+    access = AccessFlags.PUBLIC or AccessFlags.STATIC,
+    parameters = listOf("L"),
+    opcodes = listOf(
         Opcode.IGET_OBJECT,
         Opcode.GOTO,
         Opcode.CONST_STRING,
