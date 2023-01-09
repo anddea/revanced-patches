@@ -21,7 +21,6 @@ The official Patch bundle provided by ReVanced and the community.
 | `default-video-speed` | Adds ability to set default video speed settings. | 18.01.35 |
 | `disable-haptic-feedback` | Disable haptic feedback when swiping. | 18.01.35 |
 | `enable-external-browser` | Use an external browser to open the url. | 18.01.35 |
-| `enable-hdr-auto-brightness` | Makes the brightness of HDR videos follow the system default. | 18.01.35 |
 | `enable-minimized-playback` | Enables minimized and background playback. | 18.01.35 |
 | `enable-old-layout` | Spoof the YouTube client version to use the old layout. | 18.01.35 |
 | `enable-old-quality-layout` | Enables the original quality flyout menu. | 18.01.35 |
