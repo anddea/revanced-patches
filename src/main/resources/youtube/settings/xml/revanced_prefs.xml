@@ -264,9 +264,6 @@
         <!-- SETTINGS: ENABLE_MINIMIZED_PLAYBACK
         <SwitchPreference android:title="@string/revanced_enable_minimized_playback_title" android:key="revanced_enable_minimized_playback" android:defaultValue="true" android:summaryOn="@string/revanced_enable_minimized_playback_summary_on" android:summaryOff="@string/revanced_enable_minimized_playback_summary_off" />SETTINGS: ENABLE_MINIMIZED_PLAYBACK -->
 
-        <!-- SETTINGS: ENABLE_HDR_AUTO_BRIGHTNESS
-        <SwitchPreference android:title="@string/revanced_enable_hdr_auto_brightness_title" android:key="revanced_enable_hdr_auto_brightness" android:defaultValue="false" android:summaryOn="@string/revanced_enable_hdr_auto_brightness_summary_on" android:summaryOff="@string/revanced_enable_hdr_auto_brightness_summary_off" />SETTINGS: ENABLE_HDR_AUTO_BRIGHTNESS -->
-
         <!-- SETTINGS: CUSTOM_VIDEO_BUFFER
         <PreferenceScreen android:title="@string/revanced_custom_video_buffer_title" android:key="revanced_custom_video_buffer" android:summary="@string/revanced_custom_video_buffer_summary">
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_custom_video_buffer_title" />
@@ -404,7 +401,6 @@
             <Preference android:title="enable-external-browser" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="enable-open-links-directly" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="enable-minimized-playback" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
-            <Preference android:title="enable-hdr-auto-brightness" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="custom-video-buffer" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
 
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_video_settings_title" />
