@@ -16,7 +16,7 @@ import app.revanced.shared.util.resources.ResourceHelper
 
 @Patch
 @Name("hide-player-overlay-filter")
-@Description("Hide the suggested actions bar inside the player.")
+@Description("Remove the dark filter layer from the player's background.")
 @DependsOn(
     [
         SettingsPatch::class,
