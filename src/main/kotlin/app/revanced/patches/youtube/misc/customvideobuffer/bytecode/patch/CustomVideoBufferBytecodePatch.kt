@@ -20,13 +20,24 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 @Version("0.0.1")
 class CustomVideoBufferBytecodePatch : BytecodePatch(
     listOf(
+        MaxBufferAltFingerprint,
         MaxBufferFingerprint,
         PlaybackBufferFingerprint,
         ReBufferFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
-        execMaxBuffer()
+
+        /**
+         * Temporary try .. catch is used because priority of fingerprint properties are not implemented yet
+         * But it's not an ideal method
+         * see https://github.com/revanced/revanced-patcher/issues/148
+         */
+        try {
+            execMaxBuffer()
+        } catch (_: Exception) {
+            execMaxBufferAlt()
+        }
         execPlaybackBuffer()
         execReBuffer()
         return PatchResultSuccess()
@@ -36,6 +47,18 @@ class CustomVideoBufferBytecodePatch : BytecodePatch(
         const val INTEGRATIONS_BUFFER_CLASS_DESCRIPTOR =
             "$MISC_PATH/CustomVideoBufferPatch;"
     }
+    private fun execMaxBufferAlt() {
+        val (method, result) = MaxBufferAltFingerprint.unwrap(true, -1)
+        val (index, register) = result
+
+        method.addInstructions(
+            index + 1, """
+           invoke-static {}, $INTEGRATIONS_BUFFER_CLASS_DESCRIPTOR->setMaxBuffer()I
+           move-result v$register
+        """
+        )
+    }
+
     private fun execMaxBuffer() {
         val (method, result) = MaxBufferFingerprint.unwrap(true, -1)
         val (index, register) = result
