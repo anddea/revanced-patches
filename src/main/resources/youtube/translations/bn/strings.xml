@@ -8,12 +8,12 @@
     <string name="accessibility_settings_edu_opt_out_text">আপনার নিয়ন্ত্রণ পরিবর্তন করা হয়েছে কারণ একটি Accessibility পরিষেবা চালু আছে।</string>
     <string name="api_url_changed">API URL পরিবর্তন হয়েছে</string>
     <string name="api_url_invalid">প্রদত্ত API URL ভুল</string>
-    <string name="api_url_reset">API URL রিসেট</string>
+    <string name="api_url_reset">API URL পুনঃসেট</string>
     <string name="api_mirror_url_changed">মিরর API URL পরিবর্তন হয়েছে</string>
     <string name="api_mirror_url_invalid">প্রদত্ত মিরর API URL ভুল</string>
     <string name="api_mirror_url_reset">মিরর API URL পুনঃসেট হয়েছে</string>
     <string name="color_change">আপনি কি রং পরিবর্তন করতে চাচ্ছেন?</string>
-    <string name="color_change_sum">"এখন আপনি চাইলে প্রতিটি বিভাগ অনুযায়ী রং পরিবর্তন করতে পারেন।"</string>
+    <string name="color_change_sum">"এটির উপর ক্লিক করে এখন আপনি চাইলে একটি বিভাগের রং পরিবর্তন করতে পারেন।"</string>
     <string name="color_changed">রং পরিবর্তন হয়েছে</string>
     <string name="color_invalid">ভুল hex কোড</string>
     <string name="color_reset">রং পুনঃসেট</string>
@@ -59,7 +59,7 @@
     <string name="new_segment_confirm_title">সময়কাল কি সঠিক?</string>
     <string name="new_segment_disabled_category">"আপনি সেটিংসে এই বিভাগটি বন্ধ করেছেন, সেগমেন্ট জমা দিতে এটি চালু করুন"</string>
     <string name="new_segment_edit_by_hand_content">আপনি কি সেগমেন্টের শুরু বা শেষের সময় সম্পাদনা করতে চান?</string>
-    <string name="new_segment_edit_by_hand_parse_error">ভুল সময় দেয়া হয়েছে</string>
+    <string name="new_segment_edit_by_hand_parse_error">অবৈধ সময় দেওয়া হয়েছে</string>
     <string name="new_segment_edit_by_hand_saved">সম্পন্ন হয়েছে</string>
     <string name="new_segment_edit_by_hand_title">সেগমেন্টের সময় ম্যানুয়ালি সম্পাদনা করুন</string>
     <string name="new_segment_mark_end">শেষ</string>
@@ -80,7 +80,7 @@
     <string name="revanced_adremover_album_card_in_search_title">অ্যালবাম কার্ড লুকান</string>
     <string name="revanced_adremover_breaking_news_shelf_summary_off">সর্বশেষ খবর শেলফ দৃশ্যমান আছে</string>
     <string name="revanced_adremover_breaking_news_shelf_summary_on">সর্বশেষ খবর শেলফ লুকানো আছে</string>
-    <string name="revanced_adremover_breaking_news_shelf_title">সর্বশেষ খবর শেলফ লুকান</string>
+    <string name="revanced_adremover_breaking_news_shelf_title">ব্রেকিং নিউজ শেলফ লুকান</string>
     <string name="revanced_adremover_button_ads_summary_off">বাটনযুক্ত বিজ্ঞাপন দৃশ্যমান আছে</string>
     <string name="revanced_adremover_button_ads_summary_on">বাটনযুক্ত বিজ্ঞাপন লুকানো আছে</string>
     <string name="revanced_adremover_button_ads_title">বাটনযুক্ত বিজ্ঞাপন লুকান</string>
@@ -250,6 +250,9 @@
     <string name="revanced_enable_swipe_brightness_summary_off">সোয়াইপ করে উজ্জ্বলতা পরিবর্তন করা অক্ষম আছে</string>
     <string name="revanced_enable_swipe_brightness_summary_on">সোয়াইপ করে উজ্জ্বলতা পরিবর্তন করা সক্রিয় আছে</string>
     <string name="revanced_enable_swipe_brightness_title">উজ্জ্বলতা সংকেত সক্রিয় করুন</string>
+    <string name="revanced_enable_swipe_brightness_in_hdr_summary_off">HDR ভিডিও চালানোর সময়, YouTube দ্বারা নির্দিষ্ট করা উজ্জ্বলতার মান প্রয়োগ করা হয়েছে</string>
+    <string name="revanced_enable_swipe_brightness_in_hdr_summary_on">HDR ভিডিও চালানোর সময়, সোয়াইপ অঙ্গভঙ্গি উজ্জ্বলতার মান প্রয়োগ করা হয়</string>
+    <string name="revanced_enable_swipe_brightness_in_hdr_title">HDR ভিডিওতে সোয়াইপ অঙ্গভঙ্গির উজ্জলতা মান সক্রিয় করা হয়েছে</string>
     <string name="revanced_enable_swipe_haptic_feedback_summary_off">প্রেস-টু-সোয়াইপ হ্যাপটিক ফিডবেক অক্ষম আছে</string>
     <string name="revanced_enable_swipe_haptic_feedback_summary_on">প্রেস-টু-সোয়াইপ হ্যাপটিক ফিডবেক সক্রিয় আছে</string>
     <string name="revanced_enable_swipe_haptic_feedback_title">প্রেস-টু-সোয়াইপ হ্যাপটিক ফিডবেক সক্রিয় করুন</string>
@@ -480,7 +483,6 @@
 - অ্যাম্বিয়েন্ট মোড
 - কমিউনিটি পোস্ট"</string>
     <string name="revanced_ryd_mirror_attribution_summary">অপছন্দের তথ্য প্রদান করা হয় True RYD Worker API দ্বারা। আরও জানতে আলতো চাপুন।</string>
-    <string name="revanced_ryd_mirror_attribution_title">true-ryd.cane.workers.dev</string>
     <string name="revanced_ryd_mirror_enable_summary_off">মিরর API নিস্ক্রিয় রয়েছে</string>
     <string name="revanced_ryd_mirror_enable_summary_on">মিরর API সক্রিয় রয়েছে</string>
     <string name="revanced_ryd_mirror_enable_title">মিরর API সক্রিয় করুন</string>
@@ -495,6 +497,9 @@
     <string name="revanced_ryd_dislike_percentage_summary_off">অপছন্দ সংখ্যা অনুযায়ী দৃশ্যমান আছে</string>
     <string name="revanced_ryd_dislike_percentage_summary_on">অপছন্দ শতাংশ অনুযায়ী দৃশ্যমান আছে</string>
     <string name="revanced_ryd_dislike_percentage_title">শতাংশ অনুযায়ী অপছন্দ</string>
+    <string name="revanced_ryd_compact_layout_summary_off">পছন্দ বাটন সেরা চেহারার জন্য সাজানো হয়েছে</string>
+    <string name="revanced_ryd_compact_layout_summary_on">লাইক বোতামটি ন্যূনতম প্রস্থের জন্য সাজানো হয়েছে</string>
+    <string name="revanced_ryd_compact_layout_title">কমপ্যাক্ট পছন্দ বাটন</string>
     <string name="revanced_ryd_enable_summary_off">অপছন্দ দৃশ্যমান নেই</string>
     <string name="revanced_ryd_enable_summary_on">অপছন্দ দৃশ্যমান আছে</string>
     <string name="revanced_ryd_enable_title">YouTube এর অপছন্দ ফিরানো</string>

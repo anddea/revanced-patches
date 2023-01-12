@@ -159,6 +159,8 @@
     <string name="revanced_adremover_web_search_panel_summary_off">Вилучення панелі веб-пошуку вимкнено</string>
     <string name="revanced_adremover_web_search_panel_summary_on">Вилучення панелі веб-пошуку увімкнено</string>
     <string name="revanced_adremover_web_search_panel_title">Вилучення панелі веб-пошуку</string>
+    <string name="revanced_custom_seekbar_color_value_summary">Введіть HEX код кольору панелі пошуку для використання в темному режимі</string>
+    <string name="revanced_custom_seekbar_color_value_title">Користувацьке значення кольору панелі пошуку</string>
     <string name="revanced_custom_video_buffer_maximum_summary">Максимальна тривалість буферизації відео (в мілісекундах)\nТипово:120000</string>
     <string name="revanced_custom_video_buffer_maximum_title">Максимальний розмір буферу</string>
     <string name="revanced_custom_video_buffer_playback_start_summary">Тривалість відео, які мають бути буферизовані для запуску або відновлення після виконання користувацьких дій, таких як пошук (у мілісекундах)\nТипово:2500</string>
@@ -202,6 +204,9 @@
     <string name="revanced_enable_always_auto_repeat_summary_off">Автовідтворення вимкнено</string>
     <string name="revanced_enable_always_auto_repeat_summary_on">Автовідтворення увімкнено</string>
     <string name="revanced_enable_always_auto_repeat_title">Автовідтворення</string>
+    <string name="revanced_enable_custom_seekbar_color_summary_off">Кастомний колір панелі пошуку вимкнено</string>
+    <string name="revanced_enable_custom_seekbar_color_summary_on">Кастомний колір панелі пошуку увімкнено</string>
+    <string name="revanced_enable_custom_seekbar_color_title">Увімкнути кастомний колір панелі пошуку в темному режимі</string>
     <string name="revanced_enable_custom_video_speed_summary_off">Додаткові пункти у швидкості відтворення відео вимкнено</string>
     <string name="revanced_enable_custom_video_speed_summary_on">Додаткові пункти у швидкості відтворення відео увімкнено</string>
     <string name="revanced_enable_custom_video_speed_title">Увімкнути додаткові параметри швидкісті відео</string>
@@ -229,6 +234,9 @@
     <string name="revanced_enable_save_video_quality_summary_off">Збереження типової якості відео вимкнено</string>
     <string name="revanced_enable_save_video_quality_summary_on">Збереження типової якості відео увімкнено</string>
     <string name="revanced_enable_save_video_quality_title">Збереження типової якості відео</string>
+    <string name="revanced_enable_save_video_speed_summary_off">Не зберігати значення швидкості відео навіть при зміні швидкості відео</string>
+    <string name="revanced_enable_save_video_speed_summary_on">Зберегти значення швидкості відео щоразу, коли ви змінюєте швидкість відео</string>
+    <string name="revanced_enable_save_video_speed_title">Увімкнути збереження швидкості відео</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">Натискання на рядок перемотування відео увімкнено</string>
     <string name="revanced_enable_seekbar_tapping_title">Натискання на рядок перемотування відео</string>
     <string name="revanced_enable_swipe_auto_brightness_summary_off">Автояркість не активується при яскравості, встановленій жестом на 0</string>
@@ -237,6 +245,9 @@
     <string name="revanced_enable_swipe_brightness_summary_off">Зміна яскравості жестом вимкнено</string>
     <string name="revanced_enable_swipe_brightness_summary_on">Зміна яскравості жестом увімкнено</string>
     <string name="revanced_enable_swipe_brightness_title">Зміна яскравості жестом</string>
+    <string name="revanced_enable_swipe_brightness_in_hdr_summary_off">При відтворенні HDR-відео, застосовується значення яскравості визначені YouTube</string>
+    <string name="revanced_enable_swipe_brightness_in_hdr_summary_on">При відтворенні HDR відео значення яскравості свайпом буде застосовано</string>
+    <string name="revanced_enable_swipe_brightness_in_hdr_title">Увімкнути використання яскравості свайпом в HDR відео</string>
     <string name="revanced_enable_swipe_haptic_feedback_summary_off">Вібровідгук при натисканні вимкнено</string>
     <string name="revanced_enable_swipe_haptic_feedback_summary_on">Вібровідгук при натисканні увімкнено</string>
     <string name="revanced_enable_swipe_haptic_feedback_title">Вібровідгук при натисканні жесту</string>
@@ -342,6 +353,15 @@
     <string name="revanced_hide_menu_captions_summary_off">Меню субтитрів увімкнено</string>
     <string name="revanced_hide_menu_captions_summary_on">Меню субтитрів вимкнено</string>
     <string name="revanced_hide_menu_captions_title">Меню субтитрів</string>
+    <string name="revanced_hide_menu_help_summary_off">Допомога &amp; меню зворотного зв\'язку показано</string>
+    <string name="revanced_hide_menu_help_summary_on">Допомога &amp; меню зворотного зв\'язку приховано</string>
+    <string name="revanced_hide_menu_help_title">Приховати допомогу &amp; меню зворотного зв\'язку</string>
+    <string name="revanced_hide_menu_listening_controls_summary_off">Меню управління прослуховування показано</string>
+    <string name="revanced_hide_menu_listening_controls_summary_on">Меню управління прослуховуванням приховано</string>
+    <string name="revanced_hide_menu_listening_controls_title">Сховати меню керування прослуховуванням</string>
+    <string name="revanced_hide_menu_listen_with_youtube_music_summary_off">Меню \"Слухати через YouTube Music\" відображається</string>
+    <string name="revanced_hide_menu_listen_with_youtube_music_summary_on">Меню \"Слухати через YouTube Music\" сховано</string>
+    <string name="revanced_hide_menu_listen_with_youtube_music_title">Сховати меню \"Слухати через YouTube Music\"</string>
     <string name="revanced_hide_menu_loop_video_summary_off">Меню зациклювання відео увімкнено</string>
     <string name="revanced_hide_menu_loop_video_summary_on">Меню зациклювання відео вимкнено</string>
     <string name="revanced_hide_menu_loop_video_title">Меню зациклювання відео</string>
@@ -357,6 +377,12 @@
     <string name="revanced_hide_menu_watch_in_vr_summary_off">Вилучення «Дивитись у VR» вимкнено</string>
     <string name="revanced_hide_menu_watch_in_vr_summary_on">Вилучення «Дивитись у VR» увімкнено</string>
     <string name="revanced_hide_menu_watch_in_vr_title">Вилучення Дивитись у VR</string>
+    <string name="revanced_hide_mix_playlists_summary_off">Показувати \"Мікс плейлист\"</string>
+    <string name="revanced_hide_mix_playlists_summary_on">\"Мікс плейлист\" сховано</string>
+    <string name="revanced_hide_mix_playlists_title">Сховати \"Мікс плейлист\"</string>
+    <string name="revanced_hide_player_overlay_filter_summary_off">Відображати фільтр оверлею плеєра</string>
+    <string name="revanced_hide_player_overlay_filter_summary_on">Фільтр оверлею плеєра сховано</string>
+    <string name="revanced_hide_player_overlay_filter_title">Приховати сітку накладання плеєра</string>
     <string name="revanced_hide_preview_comment_off">Вилучення спойлерів коментарів вимкнено</string>
     <string name="revanced_hide_preview_comment_on">Вилучення спойлерів коментарів увімкнено</string>
     <string name="revanced_hide_preview_comment_title">Спойлер коментарів</string>
@@ -365,9 +391,31 @@
     <string name="revanced_hide_shorts_button_title">Вилучення кнопки Shorts</string>
     <string name="revanced_hide_shorts_component_summary">Приховує розділ Shorts або компонент програвача Shorts</string>
     <string name="revanced_hide_shorts_component_title">Вилучення елементів коротких відео</string>
+    <string name="revanced_hide_shorts_player_comments_button_summary_off">Кнопка коментування в плеєрі коротких відео видима</string>
+    <string name="revanced_hide_shorts_player_comments_button_summary_on">Кнопка \"Коментарі\" у плеєрі коротких відео схована</string>
+    <string name="revanced_hide_shorts_player_comments_button_title">Сховати кнопку коментарів у плеєрі коротких відео</string>
+    <string name="revanced_hide_shorts_player_component_title">Сховати компоненти плеєра коротких відео</string>
+    <string name="revanced_hide_shorts_player_remix_button_summary_off">Кнопка \"Ремікс\" у плеєрі коротких відео видима</string>
+    <string name="revanced_hide_shorts_player_remix_button_summary_on">Кнопка \"Ремікс\" у плеєрі коротких відео схована</string>
+    <string name="revanced_hide_shorts_player_remix_button_title">Сховати кнопку \"Ремікс\" у плеєрі коротких відео</string>
+    <string name="revanced_hide_shorts_player_subscriptions_button_summary_off">Кнопка \"Підписатися\" у плеєрі коротких відео видима</string>
+    <string name="revanced_hide_shorts_player_subscriptions_button_summary_on">Кнопка \"Підписатися\" у плеєрі коротких відео схована</string>
+    <string name="revanced_hide_shorts_player_subscriptions_button_title">Сховати кнопку \"Підписатися\" у плеєрі коротких відео</string>
+    <string name="revanced_hide_shorts_player_thanks_button_summary_off">Кнопка \"Подяк\" у плеєрі коротких відео видима</string>
+    <string name="revanced_hide_shorts_player_thanks_button_summary_on">Кнопка \"Подяк\" у плеєрі коротких відео схована</string>
+    <string name="revanced_hide_shorts_player_thanks_button_title">Сховати кнопку \"Подяк\" у плеєрі коротких відео</string>
+    <string name="revanced_hide_shorts_shelf_summary_off">Показати полиці коротких відео</string>
+    <string name="revanced_hide_shorts_shelf_summary_on">Полиці коротких відео сховані</string>
+    <string name="revanced_hide_shorts_shelf_title">Сховати полиці коротких відео</string>
+    <string name="revanced_hide_startup_shorts_player_summary_off">Плеєр коротких відео відображається при запуску програми</string>
+    <string name="revanced_hide_startup_shorts_player_summary_on">Плеєр коротких відео схований при запуску програми</string>
+    <string name="revanced_hide_startup_shorts_player_title">Сховати плеєр коротких відео при запуску програми</string>
     <string name="revanced_hide_stories_shelf_summary_off">Публікації історій показана</string>
     <string name="revanced_hide_stories_shelf_summary_on">Публікації історій прихована</string>
     <string name="revanced_hide_stories_shelf_title">Вилучення Публікацій історій</string>
+    <string name="revanced_hide_suggested_actions_summary_off">Пропоновані дії показані</string>
+    <string name="revanced_hide_suggested_actions_summary_on">Пропоновані дії сховані</string>
+    <string name="revanced_hide_suggested_actions_title">Сховати запропоновані дії</string>
     <string name="revanced_hide_time_and_seekbar_summary_off">Смугу для перемотування та час перегляду вимкнено</string>
     <string name="revanced_hide_time_and_seekbar_summary_on">Смугу для перемотування та час перегляду увімкнено</string>
     <string name="revanced_hide_time_and_seekbar_title">Смуга та час перегляду</string>
@@ -376,6 +424,7 @@
     <string name="revanced_layout_settings_fullscreen">Налаштування повноекранного інтерфейсу</string>
     <string name="revanced_layout_settings_general">Додаткові налаштування вигляду</string>
     <string name="revanced_layout_settings_player">Налаштування інтерфейсу плеєра</string>
+    <string name="revanced_layout_settings_seekbar">Параметрів інтерфейсу панелі пошуку</string>
     <string name="revanced_layout_settings_summary">Додаткові налаштування вигляду</string>
     <string name="revanced_layout_settings_title">Вигляд</string>
     <string name="revanced_misc_settings_summary">Додаткові налаштування іншого</string>
@@ -403,30 +452,60 @@
     <string name="revanced_override_premium_header_title">Premium заголовок на головній сторінці</string>
     <string name="revanced_patches_information_summary">Інформація про застосовані патчі</string>
     <string name="revanced_patches_information">Патчі</string>
+    <string name="revanced_player_flyout_panel_summary">Параметрі приховування компонентів опції спливаючей панелі плеєра</string>
+    <string name="revanced_player_flyout_panel_title">Компонент спливаючей панелі плеєра</string>
+    <string name="revanced_reboot_warning_general">"Оскільки це експериментальна функція, можуть бути невідомі проблеми.
+Ви впевнені, що хочете продовжити?"</string>
+    <string name="revanced_reboot_warning_oldlayout">"Підміняє версію клієнта YouTube на v17.28.35 для відображення старого інтерфейсу
+
+У налаштуваннях програми версія YouTube може бути показана як v17.28.35"</string>
     <string name="revanced_reboot_warning_phone">"Обманює роздільну здатність, щоб змінити деякі елементи на елементи телефону.\n\nЯкщо ввімкнути цей параметр, будуть доступні такі функції:\n - Публікації спільноти\n - Вилучення Мій плейлист"</string>
     <string name="revanced_reboot_warning_playback">"Виправляти проблеми буферу відтворення відео в деяких регіонах.\n\nЯкщо увімкнути це налаштування, може виникнути наступна проблема:\n- При відтворенні відео в списку відтворення можливо не виправити проблему"</string>
+    <string name="revanced_reboot_warning_swipe">"Постійні жести, незалежно від стану кнопок плеєра
+
+Якщо цей параметр увімкнено, можуть виникнути такі проблеми:
+- Натискання на шкалу відтворення буде іноді глючити"</string>
     <string name="revanced_reboot_warning_tablet">"Обманює роздільну здатність, щоб змінити деякі елементи на елементи планшета.\n\nЯкщо ввімкнути це налаштування, такі функції будуть недоступні:\n - Фонове підсвічування\n - Публікації спільноти"</string>
     <string name="revanced_ryd_mirror_attribution_summary">Ця інтерпретація використовує True RYD Worker API.\nНатисніть тут, щоб отримати більше інформації.</string>
-    <string name="revanced_ryd_mirror_attribution_title">true-ryd.cane.workers.dev</string>
     <string name="revanced_ryd_mirror_enable_summary_off">Дзеркало API вимкнено</string>
     <string name="revanced_ryd_mirror_enable_summary_on">Дзеркало API увімкнено</string>
     <string name="revanced_ryd_mirror_enable_title">Увімкнути Дзеркальний API</string>
     <string name="revanced_ryd_mirror_guidelines_popup_summary">"True RYD Worker API використовує кількість оцінок \"не подобається\", яка відображається в кінцевій точці YouTube API.\n\nУвага!\nВмикайте цей параметр якщо у вас виникають проблеми під час використання стандартного API RYD.\n\nБажаєте продовжити?"</string>
+    <string name="revanced_ryd_mirror_guidelines_popup_title">True RYD Worker</string>
     <string name="revanced_ryd_attribution_summary">Ця інтеграція використовує RYD API.\nНатисніть тут, щоб отримати більше інформації.</string>
     <string name="revanced_ryd_attribution_title">Інтеграція YouTube Дислайків</string>
     <string name="revanced_ryd_dislike_percentage_summary_off">Дислайки відображаються числом</string>
     <string name="revanced_ryd_dislike_percentage_summary_on">Дислайки відображаються у відсотках</string>
     <string name="revanced_ryd_dislike_percentage_title">Відображення дислайків у відсотках або цифрами</string>
+    <string name="revanced_ryd_compact_layout_summary_off">Кнопка \"Лайк\" стилізована для кращого зовнішнього вигляду</string>
+    <string name="revanced_ryd_compact_layout_summary_on">Кнопка \"Лайк\" стилізована під мінімальну ширину</string>
+    <string name="revanced_ryd_compact_layout_title">Компактна кнопка \"Лайк\"</string>
     <string name="revanced_ryd_enable_summary_off">Відображення дислайків вимкнено</string>
     <string name="revanced_ryd_enable_summary_on">Відображення дислайків увімкнено</string>
     <string name="revanced_ryd_enable_title">Увімкніть, щоб знову бачити дислайки</string>
+    <string name="revanced_ryd_failure_client_rate_limit_requested">Дизлайки недоступні (досягнутий ліміт клієнта API)</string>
+    <string name="revanced_ryd_failure_confirm_user">ReturnYouTubeDislike не зміг підтвердити нового користувача</string>
+    <string name="revanced_ryd_failure_confirm_vote_failed">ReturnYouTubeDislike не зміг підтвердити голос</string>
+    <string name="revanced_ryd_failure_connection_timeout">Дизлайки тимчасово недоступні (час API закінчився)</string>
+    <string name="revanced_ryd_failure_register_user">ReturnYouTubeDislike: помилка реєстрації нового користувача</string>
+    <string name="revanced_ryd_failure_send_vote_failed">ReturnYouTubeDislike: помилка надсилання відмітки</string>
     <string name="revanced_ryd_settings_summary">Додаткові налаштування для повернення YouTube Дислайків</string>
     <string name="revanced_ryd_settings_title">Повернення YouTube Дислайків</string>
+    <string name="revanced_ryd_video_likes_hidden_by_video_owner">Приховано</string>
+    <string name="revanced_save_video_quality_common_error">Помилка встановлення якості відео</string>
+    <string name="revanced_save_video_quality_internet_error">Відсутнє з\'єднання Інтернет</string>
+    <string name="revanced_save_video_quality_mobile">Зміна стандартної якості відео при мобільному з\'єднанні на:</string>
+    <string name="revanced_save_video_quality_mobile_error">Не вдалося змінити якість відео для мобільних мереж за замовчуванням</string>
+    <string name="revanced_save_video_quality_wifi">Зміна якості відео для Wi-Fi мереж за замовчуванням на:</string>
+    <string name="revanced_save_video_quality_wifi_error">Не вдалося змінити якість відео для WI-FI мереж за замовчуванням</string>
+    <string name="revanced_save_video_speed">Зміна швидкості відео за замовчуванням на:</string>
     <string name="revanced_settings">ReVanced Extended </string>
     <string name="revanced_swipe_controls_summary">Додаткові налаштування керування жестами</string>
     <string name="revanced_swipe_controls_title">Керування жестами </string>
     <string name="revanced_swipe_magnitude_threshold_summary">Мінімальна амплітуда руху, що розпізнається як жест</string>
     <string name="revanced_swipe_magnitude_threshold_title">Поріг величини жесту</string>
+    <string name="revanced_swipe_overlay_background_alpha_summary">Видимість фону накладення при свайпе</string>
+    <string name="revanced_swipe_overlay_background_alpha_title">Видимість фону при свайпе</string>
     <string name="revanced_swipe_overlay_text_size_summary">Розмір шрифту в оверлеї</string>
     <string name="revanced_swipe_overlay_text_size_title">Розмір шрифту оверлея</string>
     <string name="revanced_swipe_overlay_timeout_summary">Як довго оверлей відображатиметься після зміни</string>
@@ -440,10 +519,23 @@
     <string name="revanced_whitelisting_add_failed" formatted="false">Не вдалося додати канал %s до білого списку %s</string>
     <string name="revanced_whitelisting_added" formatted="false">Канал %s був доданий до білого списку %s</string>
     <string name="revanced_whitelisting_ads">Реклама</string>
+    <string name="revanced_whitelisting_ads_button">Реклама</string>
+    <string name="revanced_whitelisting_channel_name">Назва каналу</string>
+    <string name="revanced_whitelisting_empty">Немає каналів з білого списку</string>
+    <string name="revanced_whitelisting_excluded">Не додано в білий список</string>
+    <string name="revanced_whitelisting_included">Додано в білий список</string>
+    <string name="revanced_whitelisting_title">Білий список каналів</string>
     <string name="revanced_whitelisting_fetch_failed">Не вдалося отримати дані про канал, отримано код %d</string>
+    <string name="revanced_whitelisting_reboot">Перезапустіть додаток для застосування правил білого списку</string>
     <string name="revanced_whitelisting_remove_failed" formatted="false">Не вдалося видалити канал %s із білого списку %s</string>
     <string name="revanced_whitelisting_removed" formatted="false">Канал %s видалено з білого списку %s</string>
+    <string name="revanced_whitelisting_settings_summary">Перевірте чи видаліть список каналів, доданих до білого списку</string>
+    <string name="revanced_whitelisting_settings_title">Налаштування білого списку</string>
+    <string name="revanced_whitelisting_speed">Швидкість відео</string>
+    <string name="revanced_whitelisting_speed_button">Швидкість</string>
     <string name="revanced_whitelisting_sponsorblock">SponsorBlock</string>
+    <string name="revanced_whitelisting_sponsorblock_button">SB</string>
+    <string name="sb_connection_failed">Сервер Sponsorblock не відповідає!</string>
     <string name="sb_guidelines_popup_already_read">Вже прочитано</string>
     <string name="sb_guidelines_popup_content">"Перед відправною будь-якого сегмента рекомендується прочитати Sponsor Block інструкції"</string>
     <string name="sb_guidelines_popup_open">Показати</string>
@@ -452,6 +544,8 @@
     <string name="sb_guidelines_preference_title">Переглянути інструкцію</string>
     <string name="sb_settings">SponsorBlock</string>
     <string name="sb_summary">Додаткові налаштування SponsorBlock</string>
+    <string name="sb_switching_success">Перемкнено успішно. Перезавантажте відео</string>
+    <string name="sb_switching_to_mirror">Перемикання дзеркалення сервера API на основний API-сервер..</string>
     <string name="segments_endcards">Кінцева заставка/титри</string>
     <string name="segments_endcards_sum">Титри або час появи кінцевих заставок YouTube. Не для підведення підсумків сказаного у відео.</string>
     <string name="segments_filler">Жарти без контекста</string>
@@ -474,6 +568,7 @@
     <string name="settings_import_failed">Не вдалося імпортувати дані</string>
     <string name="settings_import_successful">Налаштування було вдало імпортовано</string>
     <string name="skip_automatically">Автоматично пропускати</string>
+    <string name="skip_automatically_once">Пропустити автоматично один раз</string>
     <string name="skip_ignore">"Не робити нічого"</string>
     <string name="skip_showbutton">Показувати кнопку пропуску</string>
     <string name="skip_sponsor">Пропустити сегмент</string>
