@@ -45,7 +45,7 @@
     <string name="general_uuid_sum">Bu gizli saxlanılmalıdır. Bu parol kimidir və heç kimlə paylaşılmamalıdır. Əgər kimsə buna sahibdirsə, o, sizi təqlid edə bilər</string>
     <string name="microg_not_installed_notice">Zəhmət olmasa MicroG-ni quraşdırın</string>
     <string name="microg_not_installed_warning">MicroG tapılmadı</string>
-    <string name="microg_notification_settings">MicroG Bildiriş parametrləri</string>
+    <string name="microg_notification_settings">MicroG bildiriş parametrləri</string>
     <string name="microg_notification_settings_summary">"1. Bildirişlər üçün Google cihazının qeydiyyatı və Bulud Mesajlaşması aktivləşdirilməlidir.
 2. ReVanced Cloud Messaging altında qeydiyyatdan keçdiyi kimi göstərilməlidir.
 3. Bulud Mesajlaşmasında cari vəziyyət qoşulu olmalıdır."</string>
@@ -76,22 +76,28 @@ Təqdim etməyə hazırdır?"</string>
     <string name="revanced_adremover_album_card_in_search_summary_off">Albom kartları axtarış nəticələrində göstərilir</string>
     <string name="revanced_adremover_album_card_in_search_summary_on">Albom kartları axtariş nəticələrində göstərilmir</string>
     <string name="revanced_adremover_album_card_in_search_title">Albom kartlarını gizlət</string>
-    <string name="revanced_adremover_breaking_news_shelf_summary_off">Son dəqiqə xəbərlər paneli gizli deyil</string>
-    <string name="revanced_adremover_breaking_news_shelf_summary_on">Son dəqiqə xəbərlər paneli gizlidi</string>
+    <string name="revanced_adremover_breaking_news_shelf_summary_off">Son dəqiqə xəbərlər paneli aktivdir</string>
+    <string name="revanced_adremover_breaking_news_shelf_summary_on">Son dəqiqə xəbərlər paneli deaktivdir</string>
     <string name="revanced_adremover_breaking_news_shelf_title">Son dəqiqə xəbərlər panelini gizlət</string>
-    <string name="revanced_adremover_button_ads_summary_off">Basılan reklamlar gizli deyil</string>
-    <string name="revanced_adremover_button_ads_summary_on">Basılan reklamlar gizlidi</string>
-    <string name="revanced_adremover_button_ads_title">Basılan reklamlari gizlət</string>
-    <string name="revanced_adremover_channel_guidelines_summary_off">Kanal təlimatlarını gizli deyil</string>
-    <string name="revanced_adremover_channel_guidelines_summary_on">Kanal təlimatlarını gizlidi</string>
+    <string name="revanced_adremover_button_ads_summary_off">Basılan (düymə) reklamlar aktivdir</string>
+    <string name="revanced_adremover_button_ads_summary_on">Basılan reklamlar deaktivdir</string>
+    <string name="revanced_adremover_button_ads_title">Basılan reklamları gizlət</string>
+    <string name="revanced_adremover_channel_guidelines_summary_off">Kanal təlimatları aktivdir</string>
+    <string name="revanced_adremover_channel_guidelines_summary_on">Kanal təlimatları deaktivdir</string>
     <string name="revanced_adremover_channel_guidelines_title">Kanal təlimatlarını gizlət</string>
+    <string name="revanced_adremover_channel_member_shelf_summary_off">Kanal üzvü rəfi göstərilir</string>
+    <string name="revanced_adremover_channel_member_shelf_summary_on">Kanal üzvü rəfi gizlədilib</string>
+    <string name="revanced_adremover_channel_member_shelf_title">Kanal rəfi üzvünü deaktiv et</string>
+    <string name="revanced_adremover_channelbar_join_button_summary_off">Kanal çubuğuna qoşulma düyməsi göstərilir</string>
+    <string name="revanced_adremover_channelbar_join_button_summary_on">Kanal çubuğuna qoşulma düyməsi gizlədilib</string>
+    <string name="revanced_adremover_channelbar_join_button_title">Kanal çubuğuna qoşulma düyməsini deaktiv et</string>
     <string name="revanced_adremover_chapter_teaser_summary_off">Bölüm tizerləri göstərilir</string>
     <string name="revanced_adremover_chapter_teaser_summary_on">Bölüm tizerləri gizlədilib</string>
-    <string name="revanced_adremover_chapter_teaser_title">Videoların altında bölüm tizerini gizlədin</string>
-    <string name="revanced_adremover_community_guidelines_summary_off">İcma Qaydaları Təlimatı gizli deyil</string>
-    <string name="revanced_adremover_community_guidelines_summary_on">İcma Qaydaları Təlimatı gizlidi</string>
-    <string name="revanced_adremover_community_guidelines_title">İcma Qaydalar Təlimatını gizlət</string>
-    <string name="revanced_adremover_community_posts_summary_off">İcma Qaydalar Təlimatı gizli deyil</string>
+    <string name="revanced_adremover_chapter_teaser_title">Videoların altında bölüm tizerini gizlət</string>
+    <string name="revanced_adremover_community_guidelines_summary_off">İcma qaydaları göstərilir</string>
+    <string name="revanced_adremover_community_guidelines_summary_on">İcma qaydaları gizlədilib</string>
+    <string name="revanced_adremover_community_guidelines_title">İcma qaydalarını deaktiv et</string>
+    <string name="revanced_adremover_community_posts_summary_off">İcma qaydalarını aktiv et</string>
     <string name="revanced_adremover_community_posts_summary_on">İcma yazıları gizlədilib</string>
     <string name="revanced_adremover_community_posts_title">İcma postlarını gizlət</string>
     <string name="revanced_adremover_compact_banner_summary_off">Kompakt bannerlər göstərilir</string>
@@ -115,8 +121,8 @@ Təqdim etməyə hazırdır?"</string>
     <string name="revanced_adremover_in_feed_survey_summary_on">Lent sorğusu gizlədilib</string>
     <string name="revanced_adremover_in_feed_survey_title">Lent sorğularını gizlədin</string>
     <string name="revanced_adremover_latest_posts_summary_off">Ən son paylaşımlar göstərilir</string>
-    <string name="revanced_adremover_latest_posts_summary_on">Son paylaşımlar gizlədilib</string>
-    <string name="revanced_adremover_latest_posts_title">Son paylaşımları gizlət</string>
+    <string name="revanced_adremover_latest_posts_summary_on">Ən son paylaşımlar gizlədilib</string>
+    <string name="revanced_adremover_latest_posts_title">Ən son paylaşımları gizlət</string>
     <string name="revanced_adremover_medical_panel_summary_off">Tibbi panellər göstərilir</string>
     <string name="revanced_adremover_medical_panel_summary_on">Tibbi panellər gizlidir</string>
     <string name="revanced_adremover_medical_panel_title">Tibbi panelləri gizlədin</string>
@@ -129,12 +135,18 @@ Təqdim etməyə hazırdır?"</string>
     <string name="revanced_adremover_official_card_in_search_summary_off">Rəsmi kartlar axtarış nəticələrindən göstərilir</string>
     <string name="revanced_adremover_official_card_in_search_summary_on">Rəsmi kartlar axtarış nəticələrindən gizlədilib</string>
     <string name="revanced_adremover_official_card_in_search_title">Rəsmi kartları gizlət</string>
+    <string name="revanced_adremover_paid_content_summary_off">Ödənişli tanıtım etiketi göstərilir</string>
+    <string name="revanced_adremover_paid_content_summary_on">Ödənişli tanıtım etiketi gizlədilib</string>
+    <string name="revanced_adremover_paid_content_title">Ödənişli tanıtımı deaktiv et</string>
     <string name="revanced_adremover_self_sponsor_summary_off">Özünə sponsorluq edilən kartlar göstərilir</string>
     <string name="revanced_adremover_self_sponsor_summary_on">Özünə sponsorluq edilən kartlar gizlədilib</string>
     <string name="revanced_adremover_self_sponsor_title">Özünə sponsorluq edilən kartları gizlət</string>
     <string name="revanced_adremover_separator_summary_off">Boz ayırıcılar göstərilir</string>
     <string name="revanced_adremover_separator_summary_on">Boz ayırıcılar gizlədilib</string>
     <string name="revanced_adremover_separator_title">Boz ayırıcını gizlədin</string>
+    <string name="revanced_adremover_subscribers_community_guidelines_summary_off">Abunəçilərin icma qaydaları göstərilir</string>
+    <string name="revanced_adremover_subscribers_community_guidelines_summary_on">Abunəçilərin icma qaydaları gizlədilib</string>
+    <string name="revanced_adremover_subscribers_community_guidelines_title">Abunəçilərin icma təlimatlarını deaktiv et</string>
     <string name="revanced_adremover_suggestions_summary_off">Təkliflər göstərilir</string>
     <string name="revanced_adremover_suggestions_summary_on">Təkliflər gizlədilib</string>
     <string name="revanced_adremover_suggestions_title">Təklifləri gizlət</string>
@@ -150,6 +162,8 @@ Təqdim etməyə hazırdır?"</string>
     <string name="revanced_adremover_web_search_panel_summary_off">Veb axtarış panelləri göstərilir</string>
     <string name="revanced_adremover_web_search_panel_summary_on">Veb axtarış panelləri gizlədilib</string>
     <string name="revanced_adremover_web_search_panel_title">Veb axtarış panellərini gizlət</string>
+    <string name="revanced_custom_seekbar_color_value_summary">Qaranlıq rejimdə istifadə etmək üçün axtarış çubuğu rənginin hex kodunu yazın</string>
+    <string name="revanced_custom_seekbar_color_value_title">Xüsusi axtarış çubuğunun rəng dəyəri</string>
     <string name="revanced_custom_video_buffer_maximum_summary">Pleyerin bufer etməyə çalışacağı maksimum media müddəti</string>
     <string name="revanced_custom_video_buffer_maximum_title">Maksimum bufer ölçüsü</string>
     <string name="revanced_custom_video_buffer_playback_start_summary">Axtarış kimi istifadəçi hərəkətindən sonra oxutmanın başlaması və ya davam etməsi üçün buferə salınmalı olan medianın müddəti</string>
@@ -193,6 +207,9 @@ Təqdim etməyə hazırdır?"</string>
     <string name="revanced_enable_always_auto_repeat_summary_off">Həmişə avtomatik təkrarlama deaktivdir</string>
     <string name="revanced_enable_always_auto_repeat_summary_on">Həmişə avtomatik təkrarlama aktivdir</string>
     <string name="revanced_enable_always_auto_repeat_title">Həmişə avtomatik təkrarla</string>
+    <string name="revanced_enable_custom_seekbar_color_summary_off">Fərdi axtarış çubuğunun rəngi deaktiv edilib</string>
+    <string name="revanced_enable_custom_seekbar_color_summary_on">Fərdi axtarış çubuğunun rəngi aktivləşdirilib</string>
+    <string name="revanced_enable_custom_seekbar_color_title">Qaranlıq rejimdə fərdi axtarış çubuğu rəngini aktiv et</string>
     <string name="revanced_enable_custom_video_speed_summary_off">Fərdi oynatma sürəti deaktiv edilib</string>
     <string name="revanced_enable_custom_video_speed_summary_on">Fərdi oynatma sürəti aktivdir</string>
     <string name="revanced_enable_custom_video_speed_title">Fərdi video sürətini aktivləşdir</string>
@@ -205,6 +222,9 @@ Təqdim etməyə hazırdır?"</string>
     <string name="revanced_enable_old_layout_summary_off">YouTube örtüyü Google Hesabınızın statusunu izləyəcək</string>
     <string name="revanced_enable_old_layout_summary_on">Yeni tərtibatı deaktiv etmək üçün YouTube versiyasını aldadın</string>
     <string name="revanced_enable_old_layout_title">Köhnə örtüyü aktiv et</string>
+    <string name="revanced_enable_old_quality_layout_summary_off">Yeni stil keyfiyyət parametrləri göstərilir</string>
+    <string name="revanced_enable_old_quality_layout_summary_on">Köhnə stil keyfiyyət parametrləri göstərilir</string>
+    <string name="revanced_enable_old_quality_layout_title">Köhnə stil keyfiyyət düzənini aktiv et</string>
     <string name="revanced_enable_open_links_directly_summary_off">URL yönləndirməsi (youtube.com/redirect) video təsvirlərində keçidləri açarkən istifadə olunur</string>
     <string name="revanced_enable_open_links_directly_summary_on">Video təsvirlərində keçidləri açarkən URL yönləndirmələrini (youtube.com/redirect) keçin</string>
     <string name="revanced_enable_open_links_directly_title">Açıq bağlantıları birbaşa aktivləşdir</string>
@@ -217,6 +237,9 @@ Təqdim etməyə hazırdır?"</string>
     <string name="revanced_enable_save_video_quality_summary_off">Video keyfiyyətini dəyişdirərkən belə video keyfiyyət dəyərini yadda saxlama</string>
     <string name="revanced_enable_save_video_quality_summary_on">Video keyfiyyətini hər dəfə dəyişdirdiyiniz zaman video keyfiyyət dəyərini yadda saxlayın</string>
     <string name="revanced_enable_save_video_quality_title">Video keyfiyyətinin yadda saxlanılmasını aktiv et</string>
+    <string name="revanced_enable_save_video_speed_summary_off">Video sürətini dəyişdirərkən belə video sürət dəyərlərini saxlamır</string>
+    <string name="revanced_enable_save_video_speed_summary_on">Video sürətini hər dəfə dəyişdirdiyiniz zaman video sürət dəyərini yadda saxlayın</string>
+    <string name="revanced_enable_save_video_speed_title">Video sürətinin yadda saxlanılmasını aktiv et</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">Axtarış çubuğuna toxunma (video tərəqqi çubuğu) aktivdir</string>
     <string name="revanced_enable_seekbar_tapping_title">Axtarış çubuğuna toxunma aktivdir</string>
     <string name="revanced_enable_swipe_auto_brightness_summary_off">Sürüşdürməklə parlaqlıq 0-a təyin edilsə belə, avtomatik parlaqlıq aktivləşdirilmir</string>
@@ -225,6 +248,9 @@ Təqdim etməyə hazırdır?"</string>
     <string name="revanced_enable_swipe_brightness_summary_off">Parlaqlıq üçün sürüşdürmə idarəetmələri deaktiv edilib</string>
     <string name="revanced_enable_swipe_brightness_summary_on">Parlaqlıq üçün sürüşdürmə idarəetmələri aktivləşdirilib</string>
     <string name="revanced_enable_swipe_brightness_title">Parlaqlıq üçün sürüşdürmə jestlərini aktiv et</string>
+    <string name="revanced_enable_swipe_brightness_in_hdr_summary_off">HDR videolar oynadıldığında YouTube tərəfindən müəyyən edilmiş parlaqlıq dəyərləri tətbiq edilir</string>
+    <string name="revanced_enable_swipe_brightness_in_hdr_summary_on">HDR videonu oynadarkən sürüşdürmə jesti parlaqlıq dəyərləri tətbiq edilir</string>
+    <string name="revanced_enable_swipe_brightness_in_hdr_title">HDR videoda sürüşdürmə jesti parlaqlıq dəyərlərini aktiv et</string>
     <string name="revanced_enable_swipe_haptic_feedback_summary_off">Bölmələrə haptik toxunma rəyi deaktivdir</string>
     <string name="revanced_enable_swipe_haptic_feedback_summary_on">Bölmələrə haptik toxunma rəyi aktivdir</string>
     <string name="revanced_enable_swipe_haptic_feedback_title">Basaraq sürüşdürmə haptik rəyini aktivləşdir</string>
@@ -384,6 +410,9 @@ Təqdim etməyə hazırdır?"</string>
     <string name="revanced_hide_shorts_shelf_summary_off">Şort rəfləri göstərilir</string>
     <string name="revanced_hide_shorts_shelf_summary_on">Şort rəfləri gizlədilib</string>
     <string name="revanced_hide_shorts_shelf_title">Şort rəflərini gizlət</string>
+    <string name="revanced_hide_startup_shorts_player_summary_off">Şort pleyeri proqramın başlanğıcında göstərilir</string>
+    <string name="revanced_hide_startup_shorts_player_summary_on">Şort pleyeri proqram başlanğıcında gizlədilib</string>
+    <string name="revanced_hide_startup_shorts_player_title">Proqram başlanğıcında şort pleyerini deaktiv et</string>
     <string name="revanced_hide_stories_shelf_summary_off">Hekayə rəfləri göstərilir</string>
     <string name="revanced_hide_stories_shelf_summary_on">Hekayə rəfləri gizlədilib</string>
     <string name="revanced_hide_stories_shelf_title">Hekayə rəflərini gizlət</string>
@@ -442,13 +471,16 @@ Bu ayarı aktiv etsəniz, aşağıdakı funksiyalar əlçatan olacaq:
 
 Bu ayarı aktiv etsəniz, aşağıdakı problem yarana bilər:
 - Pleylistdə video oynadılan zaman problem həll olunmaya bilər"</string>
+    <string name="revanced_reboot_warning_swipe">"Pleyer nəzarətçisinin görünməsindən asılı olmayaraq həmişə sürüşdürmə jestini aktiv edin.
+
+Bu ayarı aktiv etsəniz, aşağıdakı funksiyalar mövcud olmayacaq:
+- Axtarış çubuğuna toxunma zamanı bəzən səhvlik olur"</string>
     <string name="revanced_reboot_warning_tablet">"Bəzi tərtibatları planşet tərtibatlarına dəyişmək üçün dpi-ni aldadır.
 
 Bu ayarı aktiv etsəniz, aşağıdakı funksiyalar mövcud olmayacaq:
 - Mühit rejimi (Ambient mode)
 - İcma yazıları"</string>
     <string name="revanced_ryd_mirror_attribution_summary">Bəyənməmə məlumatları True RYD Worker API tərəfindən təmin edilir. Ətraflı öyrənmək üçün bura toxunun.</string>
-    <string name="revanced_ryd_mirror_attribution_title">true-ryd.cane.workers.dev</string>
     <string name="revanced_ryd_mirror_enable_summary_off">Güzgü API deaktiv edilib</string>
     <string name="revanced_ryd_mirror_enable_summary_on">Güzgü API aktiv edilib</string>
     <string name="revanced_ryd_mirror_enable_title">Güzgü API-ni aktivləşdir</string>
@@ -463,6 +495,9 @@ Davam etmək istərdinizmi?"</string>
     <string name="revanced_ryd_dislike_percentage_summary_off">Bəyənməmələr rəqəm kimi göstərilir</string>
     <string name="revanced_ryd_dislike_percentage_summary_on">Bəyənməmələr faiz olaraq göstərilir</string>
     <string name="revanced_ryd_dislike_percentage_title">Bəyənməmələr faiz olaraq</string>
+    <string name="revanced_ryd_compact_layout_summary_off">Bəyənmə düyməsi ən yaxşı görünüş üçün tərtib edilmişdir</string>
+    <string name="revanced_ryd_compact_layout_summary_on">Bəyənmə düyməsi minimum eni üçün tərtib edilmişdir</string>
+    <string name="revanced_ryd_compact_layout_title">Kompakt bəyənmə düyməsi</string>
     <string name="revanced_ryd_enable_summary_off">Bəyənməmələr göstərilmir</string>
     <string name="revanced_ryd_enable_summary_on">Bəyənməmələr göstərilir</string>
     <string name="revanced_ryd_enable_title">YouTube bəyənməmələrini geri qaytar</string>
@@ -474,6 +509,14 @@ Davam etmək istərdinizmi?"</string>
     <string name="revanced_ryd_failure_send_vote_failed">ReturnYouTubeDislike səsverməni göndərə bilmədi</string>
     <string name="revanced_ryd_settings_summary">RYD üçün parametrlər</string>
     <string name="revanced_ryd_settings_title">YouTube Bəyənməməsini qaytarın</string>
+    <string name="revanced_ryd_video_likes_hidden_by_video_owner">Gizlədilmiş</string>
+    <string name="revanced_save_video_quality_common_error">Keyfiyyəti təyin etmək mümkün olmadı</string>
+    <string name="revanced_save_video_quality_internet_error">İnternet bağlantısı yoxdur</string>
+    <string name="revanced_save_video_quality_mobile">Defolt mobil məlumat keyfiyyətinin dəyişdirilməsi:</string>
+    <string name="revanced_save_video_quality_mobile_error">Defolt mobil məlumat keyfiyyətini dəyişmək mümkün olmadı</string>
+    <string name="revanced_save_video_quality_wifi">Defolt Wi-Fi keyfiyyətinin dəyişdirilməsi:</string>
+    <string name="revanced_save_video_quality_wifi_error">Defolt Wi-Fi keyfiyyətini dəyişmək mümkün olmadı</string>
+    <string name="revanced_save_video_speed">Standart sürətin dəyişdirilməsi:</string>
     <string name="revanced_settings">ReVanced parametrləri</string>
     <string name="revanced_swipe_controls_summary">Sürüşdürmə idarəetmələri ilə əlaqəli parametrlər</string>
     <string name="revanced_swipe_controls_title">Sürüşdürmə idarəetmə parametrləri</string>

@@ -85,6 +85,9 @@
     <string name="revanced_adremover_channel_guidelines_summary_off">チャンネルガイドラインは表示されます</string>
     <string name="revanced_adremover_channel_guidelines_summary_on">チャンネルガイドラインは非表示です</string>
     <string name="revanced_adremover_channel_guidelines_title">チャンネルガイドライン</string>
+    <string name="revanced_adremover_channel_member_shelf_summary_off">チャンネルメンバー欄は表示されます</string>
+    <string name="revanced_adremover_channel_member_shelf_summary_on">チャンネルメンバー欄は非表示です</string>
+    <string name="revanced_adremover_channel_member_shelf_title">チャンネルメンバー欄</string>
     <string name="revanced_adremover_channelbar_join_button_summary_off">チャンネルバーにある参加ボタンは表示されます</string>
     <string name="revanced_adremover_channelbar_join_button_summary_on">チャンネルバーにある参加ボタンは非表示です</string>
     <string name="revanced_adremover_channelbar_join_button_title">チャンネルバーにある参加ボタン</string>
@@ -159,6 +162,8 @@
     <string name="revanced_adremover_web_search_panel_summary_off">ウェブ検索パネルは表示されます</string>
     <string name="revanced_adremover_web_search_panel_summary_on">ウェブ検索パネルは非表示です</string>
     <string name="revanced_adremover_web_search_panel_title">ウェブ検索パネル</string>
+    <string name="revanced_custom_seekbar_color_value_summary">シークバーの色の16進数を入力してダークモードで使用します</string>
+    <string name="revanced_custom_seekbar_color_value_title">シークバーの色を変更する</string>
     <string name="revanced_custom_video_buffer_maximum_summary">プレーヤーがバッファリングしようとするメディアの最大時間</string>
     <string name="revanced_custom_video_buffer_maximum_title">バッファリングの最大値</string>
     <string name="revanced_custom_video_buffer_playback_start_summary">シーク移動などのユーザーアクションの後に再生を開始または再開するためのバッファリングを行う時間</string>
@@ -202,6 +207,9 @@
     <string name="revanced_enable_always_auto_repeat_summary_off">常に自動リピートはオフです</string>
     <string name="revanced_enable_always_auto_repeat_summary_on">常に自動リピートは有効です</string>
     <string name="revanced_enable_always_auto_repeat_title">常に自動リピート</string>
+    <string name="revanced_enable_custom_seekbar_color_summary_off">シークバーの色を変更は無効です</string>
+    <string name="revanced_enable_custom_seekbar_color_summary_on">シークバーの色を変更は有効です</string>
+    <string name="revanced_enable_custom_seekbar_color_title">ダークモードでシークバーの色を変更する</string>
     <string name="revanced_enable_custom_video_speed_summary_off">カスタム再生速度は無効です</string>
     <string name="revanced_enable_custom_video_speed_summary_on">カスタム再生速度は有効です</string>
     <string name="revanced_enable_custom_video_speed_title">カスタム動画再生速度</string>
@@ -223,12 +231,15 @@
     <string name="revanced_enable_press_to_swipe_summary_off">スワイプコントロールは無効です</string>
     <string name="revanced_enable_press_to_swipe_summary_on">スワイプコントロールは有効です</string>
     <string name="revanced_enable_press_to_swipe_title">スワイプコントロール</string>
-    <string name="revanced_enable_phone_layout_summary">一部のスマホ用のレイアウトを使用出来るようにに dpi を偽装します</string>
+    <string name="revanced_enable_phone_layout_summary">一部のスマホ用のレイアウトを使用出来るように dpi を偽装します</string>
     <string name="revanced_enable_phone_layout_title">スマートフォン用のレイアウト</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">シークバー(動画進捗バー)のタップは有効です</string>
     <string name="revanced_enable_save_video_quality_summary_off">動画の画質を変更しても画質の値は保存されません</string>
     <string name="revanced_enable_save_video_quality_summary_on">動画の画質を変更するたびに、画質の値が保存されます</string>
     <string name="revanced_enable_save_video_quality_title">動画の画質を保存</string>
+    <string name="revanced_enable_save_video_speed_summary_off">動画の再生速度を変更して再生速度は保存されません</string>
+    <string name="revanced_enable_save_video_speed_summary_on">動画の再生速度を変更するたびに、再生速度が保存されます</string>
+    <string name="revanced_enable_save_video_speed_title">動画の再生速度の保存を有効にする</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">シークバー(動画進捗バー)のタップは有効です</string>
     <string name="revanced_enable_seekbar_tapping_title">シークバー(動画進捗バー)のタップ</string>
     <string name="revanced_enable_swipe_auto_brightness_summary_off">スワイプで明るさが0に設定されていても、自動明るさ調整は働きません</string>
@@ -237,6 +248,9 @@
     <string name="revanced_enable_swipe_brightness_summary_off">明るさのスワイプコントロールは無効です</string>
     <string name="revanced_enable_swipe_brightness_summary_on">明るさのスワイプコントロールは有効です</string>
     <string name="revanced_enable_swipe_brightness_title">明るさのスワイプコントロール</string>
+    <string name="revanced_enable_swipe_brightness_in_hdr_summary_off">HDR 動画を再生する場合、YouTube で指定された輝度値が適用されます</string>
+    <string name="revanced_enable_swipe_brightness_in_hdr_summary_on">HDR 動画を再生するとき、スワイプジェスチャーの輝度値が適用されます</string>
+    <string name="revanced_enable_swipe_brightness_in_hdr_title">HDR 動画でスワイプジェスチャーの輝度値を有効にします</string>
     <string name="revanced_enable_swipe_haptic_feedback_summary_off">スワイプコントロールの触覚(振動)フィードバックは無効です</string>
     <string name="revanced_enable_swipe_haptic_feedback_summary_on">スワイプコントロールの触覚(振動)フィードバックは有効です</string>
     <string name="revanced_enable_swipe_haptic_feedback_title">スワイプコントロールの触覚(振動)フィードバック</string>
@@ -246,7 +260,7 @@
     <string name="revanced_enable_tablet_miniplayer_summary_off">タブレットのミニプレーヤーは無効です</string>
     <string name="revanced_enable_tablet_miniplayer_summary_on">タブレットのミニプレーヤーは有効です</string>
     <string name="revanced_enable_tablet_miniplayer_title">タブレットのミニプレーヤー</string>
-    <string name="revanced_enable_tablet_layout_summary">一部のタブレット用のレイアウトを使用出来るようにに dpi を偽装します</string>
+    <string name="revanced_enable_tablet_layout_summary">一部のタブレット用のレイアウトを使用出来るように dpi を偽装します</string>
     <string name="revanced_enable_tablet_layout_title">タブレット用のレイアウト</string>
     <string name="revanced_enable_wide_searchbar_summary_off">幅広い検索バーは無効です</string>
     <string name="revanced_enable_wide_searchbar_summary_on">幅広い検索バーは有効です</string>
@@ -467,7 +481,6 @@
 - アンビエントモード
 - コミュニティの投稿"</string>
     <string name="revanced_ryd_mirror_attribution_summary">低評価のデータは、True RYD Worker APIによって提供されます。詳細はここをタップしてください。</string>
-    <string name="revanced_ryd_mirror_attribution_title">true-ryd.cane.workers.dev</string>
     <string name="revanced_ryd_mirror_enable_summary_off">ミラー API は無効です</string>
     <string name="revanced_ryd_mirror_enable_summary_on">ミラー API は有効です</string>
     <string name="revanced_ryd_mirror_enable_title">ミラー API </string>
@@ -480,6 +493,9 @@
     <string name="revanced_ryd_dislike_percentage_summary_off">低評価数を数字で表示</string>
     <string name="revanced_ryd_dislike_percentage_summary_on">低評価数をパーセントで表示します</string>
     <string name="revanced_ryd_dislike_percentage_title">低評価数をパーセントで表示</string>
+    <string name="revanced_ryd_compact_layout_summary_off">最高の外観のためにスタイル化されたボタン</string>
+    <string name="revanced_ryd_compact_layout_summary_on">最小幅のボタンスタイルにする</string>
+    <string name="revanced_ryd_compact_layout_title">コンパクトないいねボタン</string>
     <string name="revanced_ryd_enable_summary_off">低評価数は非表示です</string>
     <string name="revanced_ryd_enable_summary_on">低評価数は表示されます</string>
     <string name="revanced_ryd_enable_title">低評価数を表示する(Return YouTube Dislike)</string>
@@ -491,6 +507,14 @@
     <string name="revanced_ryd_failure_send_vote_failed">ReturnYouTubeDislike は投票を送信できませんでした</string>
     <string name="revanced_ryd_settings_summary">低評価数の表示(Return YouTube Dislike) の設定</string>
     <string name="revanced_ryd_settings_title">低評価数の表示(Return YouTube Dislike)</string>
+    <string name="revanced_ryd_video_likes_hidden_by_video_owner">非表示</string>
+    <string name="revanced_save_video_quality_common_error">画質を設定できませんでした</string>
+    <string name="revanced_save_video_quality_internet_error">インターネットに接続できません</string>
+    <string name="revanced_save_video_quality_mobile">モバイルデータ通信でのデフォルト画質:</string>
+    <string name="revanced_save_video_quality_mobile_error">モバイルデータ通信でのデフォルト画質を変更できませんでした</string>
+    <string name="revanced_save_video_quality_wifi">Wi-Fi でのデフォルト画質:</string>
+    <string name="revanced_save_video_quality_wifi_error">Wi-Fi でのデフォルト画質を変更できませんでした</string>
+    <string name="revanced_save_video_speed">デフォルトの再生速度を変更:</string>
     <string name="revanced_settings">Revancedの設定</string>
     <string name="revanced_swipe_controls_summary">スワイプコントロール関連の設定</string>
     <string name="revanced_swipe_controls_title">スワイプコントロールの設定</string>
