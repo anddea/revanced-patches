@@ -5,7 +5,7 @@
     <string name="about_api_sum">Dotknij, aby dowiedzieć się więcej i zobacz jak pobrać na inne platformy na stronie: sponsor.ajay.app</string>
     <string name="about_madeby">Integracja wykonana przez JakubWeg</string>
     <string name="accessibility_settings_edu_opt_in_text">Włączyć gesty dostępności dla odtwarzacza wideo?</string>
-    <string name="accessibility_settings_edu_opt_out_text">Twoje ustawienia są zmienione, ponieważ gesty są włączone.</string>
+    <string name="accessibility_settings_edu_opt_out_text">Twoje ustawienia są zmienione, ponieważ serwis ułatwień dostępu jest włączony.</string>
     <string name="api_url_changed">Adres API został zmieniony</string>
     <string name="api_url_invalid">Podany adres API jest nieprawidłowy</string>
     <string name="api_url_reset">Adres API został zresetowany</string>
@@ -182,16 +182,12 @@
     <string name="revanced_downloader_package_name_title">Nazwa pakietu aplikacji do pobierania wideo</string>
     <string name="revanced_downloader_settings_summary">Ustawienia związane z domyślną aplikacją do pobierania</string>
     <string name="revanced_downloader_settings_title">Zmień domyślną aplikację do pobierania</string>
-    <string name="revanced_hide_endscreen_overlay_summary_off">Wyświetlane</string>
-    <string name="revanced_hide_endscreen_overlay_summary_on">Ukryte</string>
-    <string name="revanced_hide_endscreen_overlay_title">Rekomendacje YouTube na końcach wideo</string>
-    <string name="revanced_hide_filmstrip_overlay_summary_off">Włączone</string>
-    <string name="revanced_hide_filmstrip_overlay_summary_on">Wyłączone</string>
     <string name="revanced_disable_haptic_feedback_scrubbing_summary_off">Włączone</string>
     <string name="revanced_disable_haptic_feedback_scrubbing_summary_on">Wyłączone</string>
-    <string name="revanced_disable_haptic_feedback_scrubbing_title">Wibracje podczas aktywacji przeciągania</string>
+    <string name="revanced_disable_haptic_feedback_scrubbing_title">Wibracje podczas przeciągania</string>
     <string name="revanced_disable_haptic_feedback_seek_summary_off">Włączone</string>
     <string name="revanced_disable_haptic_feedback_seek_summary_on">Wyłączone</string>
+    <string name="revanced_disable_haptic_feedback_seek_title">Wibracje podczas przewijania</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">Włączone</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">Wyłączone</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">Wibracje podczas zmieniania rozdziału</string>
@@ -234,19 +230,20 @@
     <string name="revanced_enable_save_video_quality_summary_off">Nie zapisuje preferowanej jakości wideo nawet przy zmianie jakości</string>
     <string name="revanced_enable_save_video_quality_summary_on">Zapisuje wybraną jakość wideo jako preferowaną za każdym razem, gdy ją zmienisz</string>
     <string name="revanced_enable_save_video_quality_title">Zapisywanie jakości wideo</string>
-    <string name="revanced_enable_save_video_speed_summary_off">Nie zapisuje prędkości nawet przy zmianie prędkości</string>
-    <string name="revanced_enable_save_video_speed_summary_on">Zapisuje wybraną prędkość jako preferowaną za każdym razem, gdy ją zmienisz</string>
-    <string name="revanced_enable_save_video_speed_title">Zapisywanie prędkości wideo</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">Włączone</string>
     <string name="revanced_enable_seekbar_tapping_title">Klikanie w pasek wideo</string>
     <string name="revanced_enable_swipe_auto_brightness_summary_off">Jest wyłączona, nawet jeśli jasność jest ustawiona na 0</string>
     <string name="revanced_enable_swipe_auto_brightness_summary_on">Jest włączona, kiedy jasność jest ustawiona na 0</string>
-    <string name="revanced_enable_swipe_auto_brightness_title">Automatyczna jasność przesuwając palcem</string>
+    <string name="revanced_enable_swipe_auto_brightness_title">Automatyczna jasność przesuwając</string>
     <string name="revanced_enable_swipe_brightness_summary_off">Wyłączone</string>
     <string name="revanced_enable_swipe_brightness_summary_on">Włączone</string>
     <string name="revanced_enable_swipe_brightness_title">Zmienianie jasności przesuwaniem</string>
+    <string name="revanced_enable_swipe_brightness_in_hdr_summary_off">Jasność ustawiana tylko automatycznie</string>
+    <string name="revanced_enable_swipe_brightness_in_hdr_summary_on">Włączone</string>
+    <string name="revanced_enable_swipe_brightness_in_hdr_title">Zmienianie jakości przesuwaniem w wideo z HDR</string>
     <string name="revanced_enable_swipe_haptic_feedback_summary_off">Wyłączone</string>
     <string name="revanced_enable_swipe_haptic_feedback_summary_on">Włączone</string>
+    <string name="revanced_enable_swipe_haptic_feedback_title">Wibracje naciskania, by przesunąć</string>
     <string name="revanced_enable_swipe_volume_summary_off">Wyłączone</string>
     <string name="revanced_enable_swipe_volume_summary_on">Włączone</string>
     <string name="revanced_enable_swipe_volume_title">Zmienianie głośności przesuwaniem</string>
@@ -264,9 +261,6 @@
     <string name="revanced_extended_settings">Ustawienia ReVanced Extended</string>
     <string name="revanced_extended_summary">Ustawienia eksperymentalne i lista zastosowanych łatek</string>
     <string name="revanced_extended_title">Ustawienia eksperymentalne</string>
-    <string name="revanced_fix_video_playback_summary_off">Nie</string>
-    <string name="revanced_fix_video_playback_summary_on">Tak</string>
-    <string name="revanced_fix_video_playback_title">Napraw problem z odtwarzaniem wideo</string>
     <string name="revanced_hide_auto_captions_summary_off">W wideo z wymuszonymi napisami</string>
     <string name="revanced_hide_auto_captions_summary_on">"Nigdy"</string>
     <string name="revanced_hide_auto_captions_title">Wymuszone napisy</string>
@@ -334,6 +328,12 @@
     <string name="revanced_hide_endscreen_cards_summary_off">Widoczne</string>
     <string name="revanced_hide_endscreen_cards_summary_on">Ukryte</string>
     <string name="revanced_hide_endscreen_cards_title">Karty na końcach wideo</string>
+    <string name="revanced_hide_endscreen_overlay_summary_off">Wyświetlane</string>
+    <string name="revanced_hide_endscreen_overlay_summary_on">Ukryte</string>
+    <string name="revanced_hide_endscreen_overlay_title">Rekomendacje YouTube na końcach wideo</string>
+    <string name="revanced_hide_filmstrip_overlay_summary_off">Włączone</string>
+    <string name="revanced_hide_filmstrip_overlay_summary_on">Wyłączone</string>
+    <string name="revanced_hide_filmstrip_overlay_title">Precyzyjniejsze przesuwanie po pasku wideo</string>
     <string name="revanced_hide_fullscreen_button_container_summary_off">Widoczne</string>
     <string name="revanced_hide_fullscreen_button_container_summary_on">Ukryte</string>
     <string name="revanced_hide_fullscreen_button_container_title">Przyciski na dole odtwarzacza w trybie pełnoekranowym</string>
@@ -385,6 +385,7 @@
     <string name="revanced_hide_shorts_button_summary_off">Widoczny</string>
     <string name="revanced_hide_shorts_button_summary_on">Ukryty</string>
     <string name="revanced_hide_shorts_button_title">Przycisk do shortów</string>
+    <string name="revanced_hide_shorts_component_summary">Ukryj Shorty lub przyciski w odtwarzaczu Shortów</string>
     <string name="revanced_hide_shorts_component_title">Ukryj shorty</string>
     <string name="revanced_hide_shorts_player_comments_button_summary_off">Widoczny</string>
     <string name="revanced_hide_shorts_player_comments_button_summary_on">Ukryty</string>
@@ -392,6 +393,7 @@
     <string name="revanced_hide_shorts_player_component_title">Ukryj niektóre przyciski w odtwarzaczu shortów</string>
     <string name="revanced_hide_shorts_player_remix_button_summary_off">Widoczny</string>
     <string name="revanced_hide_shorts_player_remix_button_summary_on">Ukryty</string>
+    <string name="revanced_hide_shorts_player_remix_button_title">Przyciski do tworzenia bardzo krótkich wideo</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_off">Wyświetlane</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_on">Ukryte</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_title">Przyciski do subskrybowania podczas shortów</string>
@@ -401,8 +403,9 @@
     <string name="revanced_hide_shorts_shelf_summary_off">Wyświetlane</string>
     <string name="revanced_hide_shorts_shelf_summary_on">Ukryte</string>
     <string name="revanced_hide_shorts_shelf_title">Półki z shortami</string>
-    <string name="revanced_hide_startup_shorts_player_summary_off">Wyświetlane</string>
-    <string name="revanced_hide_startup_shorts_player_summary_on">Ukryte</string>
+    <string name="revanced_hide_startup_shorts_player_summary_off">Włączone</string>
+    <string name="revanced_hide_startup_shorts_player_summary_on">Wyłączone</string>
+    <string name="revanced_hide_startup_shorts_player_title">Shorty przy starcie aplikacji</string>
     <string name="revanced_hide_stories_shelf_summary_off">Wyświetlane</string>
     <string name="revanced_hide_stories_shelf_summary_on">Ukryte</string>
     <string name="revanced_hide_stories_shelf_title">Półki z relacjami</string>
@@ -420,6 +423,7 @@
     <string name="revanced_layout_settings_seekbar">Ustawienia wyglądu pasków wideo</string>
     <string name="revanced_layout_settings_summary">Ustawienia związane z układem</string>
     <string name="revanced_layout_settings_title">Ustawienia układu</string>
+    <string name="revanced_misc_settings_summary">Ustawienia związane z różnymi rzeczami</string>
     <string name="revanced_misc_settings_title">Różne ustawienia</string>
     <string name="revanced_others_title">Inne</string>
     <string name="revanced_overlay_button_auto_repeat_summary_off">Ukryty</string>
@@ -456,24 +460,14 @@ W ustawieniach aplikacji wersja YouTube może być wyświetlana jako v17.28.35"<
 Jeśli włączysz to ustawienie, dostępne będą następujące funkcje:
 - Posty
 - Ukrywanie automatycznie stworzonych playlist"</string>
-    <string name="revanced_reboot_warning_playback">"Naprawia problem z odtwarzaniem wideo. 
+    <string name="revanced_reboot_warning_swipe">"Włącza możliwość przesuwania, nawet gdy wyświetlane są przyciski odtwarzacza.
 
-Jeśli włączysz to ustawienie, podczas odtwarzania wideo z playlisty następny utwór może automatycznie zostać pominięty po zakończeniu wideo"</string>
+Jeśli ją włączysz, klikanie w pasek wideo może nie działać poprawnie"</string>
     <string name="revanced_reboot_warning_tablet">"Oszukuje dpi, aby zmienić niektóre układy na układ tabletu.
 
 Jeśli włączysz to ustawienie, następujące funkcje nie będą dostępne:
 - Tryb otoczenia
 - Posty"</string>
-    <string name="revanced_ryd_mirror_attribution_summary">Dane o łapkach w dół są dostarczane przez API True RYD Worker. Dotknij tutaj by dowiedzieć się więcej.</string>
-    <string name="revanced_ryd_mirror_enable_summary_off">Wyłączone</string>
-    <string name="revanced_ryd_mirror_enable_summary_on">Włączone</string>
-    <string name="revanced_ryd_mirror_enable_title">Alternatywne API</string>
-    <string name="revanced_ryd_mirror_guidelines_popup_summary">"API True RYD Worker używa liczby łapek w dół z Końcowego Punktu YouTube API. 
-
-Włącz tę opcję tylko, jeżeli doświadczasz problemów podczas używania domyślnego RYD API.
-
-Czy chcesz kontynuować?"</string>
-    <string name="revanced_ryd_mirror_guidelines_popup_title">True RYD Worker</string>
     <string name="revanced_ryd_attribution_summary">Dane o łapkach w dół są dostarczane przez API Return YouTube Dislike. Dotknij tutaj by dowiedzieć się więcej.</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_dislike_percentage_summary_off">Liczba</string>
@@ -489,17 +483,24 @@ Czy chcesz kontynuować?"</string>
     <string name="revanced_ryd_failure_confirm_user">ReturnYouTubeDislike nie potwierdziło nowego użytkownika</string>
     <string name="revanced_ryd_failure_confirm_vote_failed">ReturnYouTubeDislike nie potwierdziło łapki w dół</string>
     <string name="revanced_ryd_failure_connection_timeout">Łapki w dół są tymczasowo niedostępne (API nie reaguje)</string>
+    <string name="revanced_ryd_failure_register_user">ReturnYouTubeDislike nie zarejestrowało nowego użytkownika</string>
     <string name="revanced_ryd_failure_send_vote_failed">ReturnYouTubeDislike nie zajerestrowało łapki w dół</string>
     <string name="revanced_ryd_settings_summary">Ustawania przycisków łapki w dół</string>
     <string name="revanced_ryd_settings_title">Return YouTube Dislike</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Ukryte</string>
     <string name="revanced_save_video_quality_common_error">Jakość nie została ustawiona</string>
     <string name="revanced_save_video_quality_internet_error">Brak połączenia z internetem</string>
+    <string name="revanced_save_video_quality_mobile">Zmienianie domyślnej jakości podczas używania danych mobilnych na:</string>
+    <string name="revanced_save_video_quality_mobile_error">Zmiana domyślnej jakości podczas używania danych mobilnych się nie powiodła</string>
+    <string name="revanced_save_video_quality_wifi">Zmienianie domyślnej jakości podczas używania Wi-Fi na:</string>
+    <string name="revanced_save_video_quality_wifi_error">Zmiana domyślnej jakości podczas używania Wi-Fi się nie powiodła</string>
     <string name="revanced_settings">Ustawienia ReVanced</string>
     <string name="revanced_swipe_controls_summary">Ustawienia związane z przesuwaniem</string>
     <string name="revanced_swipe_controls_title">Ustawienia przesuwania</string>
     <string name="revanced_swipe_magnitude_threshold_summary">Wysokość na której ma działać gest przeciągnięcia</string>
     <string name="revanced_swipe_magnitude_threshold_title">Próg gestu przeciągnięcia</string>
+    <string name="revanced_swipe_overlay_background_alpha_summary">Widoczność tła nakładki przesuwania</string>
+    <string name="revanced_swipe_overlay_background_alpha_title">Widoczność tła przesuwania</string>
     <string name="revanced_swipe_overlay_text_size_summary">Rozmiar tekstu dla nakładki gestu</string>
     <string name="revanced_swipe_overlay_text_size_title">Rozmiar tekstu nakładki</string>
     <string name="revanced_swipe_overlay_timeout_summary">Ilość milisekund, przez które nakładka jest widoczna</string>

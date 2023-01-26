@@ -183,12 +183,6 @@ revanced_adremover_channelbar_join_button_summary_off</string>
     <string name="revanced_downloader_package_name_title">Nome do pacote do aplicativo de download</string>
     <string name="revanced_downloader_settings_summary">Configurações padrão relacionadas ao aplicativo de download</string>
     <string name="revanced_downloader_settings_title">Configurações do aplicativo de download</string>
-    <string name="revanced_hide_endscreen_overlay_summary_off">Sobreposição de tela final é mostrada</string>
-    <string name="revanced_hide_endscreen_overlay_summary_on">Sobreposição da tela final está oculta</string>
-    <string name="revanced_hide_endscreen_overlay_title">Ocultar a sobreposição da tela final</string>
-    <string name="revanced_hide_filmstrip_overlay_summary_off">Sobreposição da fita de filme é mostrada</string>
-    <string name="revanced_hide_filmstrip_overlay_summary_on">Sobreposição da fita de filme está oculta</string>
-    <string name="revanced_hide_filmstrip_overlay_title">Ocultar sobreposição da fita de filme</string>
     <string name="revanced_disable_haptic_feedback_scrubbing_summary_off">Feedback tátil está ativado</string>
     <string name="revanced_disable_haptic_feedback_scrubbing_summary_on">Feedback tátil está desativado</string>
     <string name="revanced_disable_haptic_feedback_scrubbing_title">Desativar o feedback tátil</string>
@@ -237,9 +231,6 @@ revanced_adremover_channelbar_join_button_summary_off</string>
     <string name="revanced_enable_save_video_quality_summary_off">Não salva valores de qualidade de vídeo, mesmo ao alterar a qualidade de vídeo</string>
     <string name="revanced_enable_save_video_quality_summary_on">Salvar o valor de qualidade de vídeo sempre que alterar a qualidade de vídeo</string>
     <string name="revanced_enable_save_video_quality_title">Ativar salvar qualidade de vídeo</string>
-    <string name="revanced_enable_save_video_speed_summary_off">Não salva valores de velocidade de vídeo mesmo quando muda a velocidade do vídeo</string>
-    <string name="revanced_enable_save_video_speed_summary_on">Salve o valor da velocidade do vídeo sempre que você mudar a velocidade do vídeo</string>
-    <string name="revanced_enable_save_video_speed_title">Ativar velocidade de vídeo personalizada</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">Toque na barra de busca está ativado</string>
     <string name="revanced_enable_seekbar_tapping_title">Ativar toque na barra de busca</string>
     <string name="revanced_enable_swipe_auto_brightness_summary_off">Mesmo que o brilho seja ajustado para 0 com o gesto de deslizar, o brilho automático não é ativado</string>
@@ -271,9 +262,6 @@ revanced_adremover_channelbar_join_button_summary_off</string>
     <string name="revanced_extended_settings">Configurações do ReVanced Extended</string>
     <string name="revanced_extended_summary">Configurações relacionadas ao Revanced Extended</string>
     <string name="revanced_extended_title">Configurações Extended</string>
-    <string name="revanced_fix_video_playback_summary_off">Correção de problemas de buffer de vídeo desativada</string>
-    <string name="revanced_fix_video_playback_summary_on">Correção de problemas de buffer de vídeo ativada</string>
-    <string name="revanced_fix_video_playback_title">Corrigir problemas de buffer de vídeo</string>
     <string name="revanced_hide_auto_captions_summary_off">As legendas são ativadas quando um vídeo com legendas é reproduzido</string>
     <string name="revanced_hide_auto_captions_summary_on">"As legendas não são ativadas quando um vídeo com legendas é reproduzido"</string>
     <string name="revanced_hide_auto_captions_title">Ocultar legendas automáticas</string>
@@ -309,53 +297,59 @@ revanced_adremover_channelbar_join_button_summary_off</string>
     <string name="revanced_hide_button_report_summary_off">O botão de denúncia será exibido</string>
     <string name="revanced_hide_button_report_summary_on">O botão de denúncia está oculto</string>
     <string name="revanced_hide_button_report_title">Ocultar o botão de denúncia</string>
-    <string name="revanced_hide_button_share_summary_off">O botão de compartilhar é exibido.</string>
-    <string name="revanced_hide_button_share_summary_on">O botão de compartilhar é oculto.</string>
-    <string name="revanced_hide_button_share_title">Ocultar botão de compartilhar.</string>
-    <string name="revanced_hide_button_thanks_summary_off">O botão de agradecimento é exibido.</string>
-    <string name="revanced_hide_button_thanks_summary_on">O botão de agradecimento é oculto.</string>
-    <string name="revanced_hide_button_thanks_title">Ocultar botão de agradecimento.</string>
-    <string name="revanced_hide_captions_button_summary_off">O botão de legendas é exibido.</string>
-    <string name="revanced_hide_captions_button_summary_on">O botão de legendas é oculto.</string>
-    <string name="revanced_hide_captions_button_title">Ocultar botão de legendas.</string>
-    <string name="revanced_hide_cast_button_summary_off">O botão de transmissão é exibido.</string>
-    <string name="revanced_hide_cast_button_summary_on">O botão de transmissão é oculto.</string>
-    <string name="revanced_hide_cast_button_title">Ocultar botão de transmissão.</string>
-    <string name="revanced_hide_channel_watermark_summary_off">A marca d\'água do canal é exibida.</string>
-    <string name="revanced_hide_channel_watermark_summary_on">A marca d\'água do canal é oculta.</string>
-    <string name="revanced_hide_channel_watermark_title">Ocultar marca d\'água do canal.</string>
-    <string name="revanced_hide_comments_component_summary">Oculta a seção ou componente de comentários.</string>
-    <string name="revanced_hide_comments_component_title">Ocultar componente de comentários.</string>
-    <string name="revanced_hide_comments_section_summary_off">A seção de comentários é exibida.</string>
-    <string name="revanced_hide_comments_section_summary_on">A seção de comentários é oculta.</string>
-    <string name="revanced_hide_comments_section_title">Ocultar seção de comentários.</string>
-    <string name="revanced_hide_create_button_summary_off">O botão de criação é exibido.</string>
-    <string name="revanced_hide_create_button_summary_on">O botão de criação é oculto.</string>
-    <string name="revanced_hide_create_button_title">Ocultar botão de criação.</string>
-    <string name="revanced_hide_crowdfunding_box_summary_off">A caixa de financiamento coletivo é exibida.</string>
-    <string name="revanced_hide_crowdfunding_box_summary_on">A caixa de financiamento coletivo é oculta.</string>
-    <string name="revanced_hide_crowdfunding_box_title">Ocultar caixa de financiamento coletivo.</string>
-    <string name="revanced_hide_email_address_summary_off">O endereço de e-mail é exibido.</string>
-    <string name="revanced_hide_email_address_summary_on">O endereço de e-mail é oculto.</string>
-    <string name="revanced_hide_email_address_title">Ocultar endereço de e-mail.</string>
-    <string name="revanced_hide_endscreen_cards_summary_off">Os cards de tela final são exibidas.</string>
-    <string name="revanced_hide_endscreen_cards_summary_on">Os cards de tela final são ocultas.</string>
-    <string name="revanced_hide_endscreen_cards_title">Ocultar cards de tela final.</string>
-    <string name="revanced_hide_fullscreen_button_container_summary_off">O container de botões de tela cheia é exibido.</string>
-    <string name="revanced_hide_fullscreen_button_container_summary_on">O container de botões de tela cheia é oculto.</string>
-    <string name="revanced_hide_fullscreen_button_container_title">Ocultar container de botões de tela cheia.</string>
-    <string name="revanced_hide_info_cards_summary_off">Os cards de informações são exibidas.</string>
-    <string name="revanced_hide_info_cards_summary_on">Os cards de informações são ocultos.</string>
-    <string name="revanced_hide_info_cards_title">Ocultar cards de informações.</string>
-    <string name="revanced_hide_menu_ambient_mode_summary_off">O menu de modo ambiente é exibido.</string>
-    <string name="revanced_hide_menu_ambient_mode_summary_on">O menu de modo ambiente é oculto.</string>
-    <string name="revanced_hide_menu_ambient_mode_title">Ocultar menu de modo ambiente.</string>
-    <string name="revanced_hide_menu_audio_track_summary_off">O menu de faixa de áudio é exibido.</string>
-    <string name="revanced_hide_menu_audio_track_summary_on">O menu de faixa de áudio é oculto.</string>
-    <string name="revanced_hide_menu_audio_track_title">Ocultar menu de faixa de áudio.</string>
-    <string name="revanced_hide_menu_captions_summary_off">O menu de legendas é exibido.</string>
-    <string name="revanced_hide_menu_captions_summary_on">O menu de legendas é oculto.</string>
-    <string name="revanced_hide_menu_captions_title">Ocultar menu de legendas.</string>
+    <string name="revanced_hide_button_share_summary_off">O botão de compartilhar será exibido</string>
+    <string name="revanced_hide_button_share_summary_on">O botão de compartilhar está oculto</string>
+    <string name="revanced_hide_button_share_title">Ocultar botão de compartilhar</string>
+    <string name="revanced_hide_button_thanks_summary_off">O botão de agradecimento será exibido</string>
+    <string name="revanced_hide_button_thanks_summary_on">O botão de agradecimento está oculto</string>
+    <string name="revanced_hide_button_thanks_title">Ocultar botão de agradecimento</string>
+    <string name="revanced_hide_captions_button_summary_off">O botão de legendas será exibido</string>
+    <string name="revanced_hide_captions_button_summary_on">O botão de legendas está oculto</string>
+    <string name="revanced_hide_captions_button_title">Ocultar botão de legendas</string>
+    <string name="revanced_hide_cast_button_summary_off">O botão de transmissão será exibido</string>
+    <string name="revanced_hide_cast_button_summary_on">O botão de transmissão está oculto</string>
+    <string name="revanced_hide_cast_button_title">Ocultar botão de transmissão</string>
+    <string name="revanced_hide_channel_watermark_summary_off">A marca d\'água do canal será exibida</string>
+    <string name="revanced_hide_channel_watermark_summary_on">A marca d\'água do canal está oculta</string>
+    <string name="revanced_hide_channel_watermark_title">Ocultar marca d\'água do canal</string>
+    <string name="revanced_hide_comments_component_summary">Oculta a seção ou componente de comentários</string>
+    <string name="revanced_hide_comments_component_title">Ocultar componente de comentários</string>
+    <string name="revanced_hide_comments_section_summary_off">A seção de comentários será exibida</string>
+    <string name="revanced_hide_comments_section_summary_on">A seção de comentários está oculta</string>
+    <string name="revanced_hide_comments_section_title">Ocultar seção de comentários</string>
+    <string name="revanced_hide_create_button_summary_off">O botão de criação será exibido</string>
+    <string name="revanced_hide_create_button_summary_on">O botão de criação está oculto</string>
+    <string name="revanced_hide_create_button_title">Ocultar botão de criação</string>
+    <string name="revanced_hide_crowdfunding_box_summary_off">A caixa de financiamento coletivo será exibida</string>
+    <string name="revanced_hide_crowdfunding_box_summary_on">A caixa de financiamento coletivo está oculta</string>
+    <string name="revanced_hide_crowdfunding_box_title">Ocultar caixa de financiamento coletivo</string>
+    <string name="revanced_hide_email_address_summary_off">O endereço de e-mail será exibido</string>
+    <string name="revanced_hide_email_address_summary_on">O endereço de e-mail está oculto</string>
+    <string name="revanced_hide_email_address_title">Ocultar endereço de e-mail</string>
+    <string name="revanced_hide_endscreen_cards_summary_off">Os cards de tela final serão exibidos</string>
+    <string name="revanced_hide_endscreen_cards_summary_on">Os cards de tela final serão ocultados</string>
+    <string name="revanced_hide_endscreen_cards_title">Ocultar cards de tela final</string>
+    <string name="revanced_hide_endscreen_overlay_summary_off">Sobreposição de tela final é mostrada</string>
+    <string name="revanced_hide_endscreen_overlay_summary_on">Sobreposição da tela final está oculta</string>
+    <string name="revanced_hide_endscreen_overlay_title">Ocultar a sobreposição da tela final</string>
+    <string name="revanced_hide_filmstrip_overlay_summary_off">Sobreposição da fita de filme é mostrada</string>
+    <string name="revanced_hide_filmstrip_overlay_summary_on">Sobreposição da fita de filme está oculta</string>
+    <string name="revanced_hide_filmstrip_overlay_title">Ocultar sobreposição da fita de filme</string>
+    <string name="revanced_hide_fullscreen_button_container_summary_off">O container de botões de tela cheia será exibido</string>
+    <string name="revanced_hide_fullscreen_button_container_summary_on">O container de botões de tela cheia está oculto</string>
+    <string name="revanced_hide_fullscreen_button_container_title">Ocultar container de botões em tela cheia</string>
+    <string name="revanced_hide_info_cards_summary_off">Os cards de informações serão exibidos</string>
+    <string name="revanced_hide_info_cards_summary_on">Os cards de informações estão ocultos</string>
+    <string name="revanced_hide_info_cards_title">Ocultar cards de informações</string>
+    <string name="revanced_hide_menu_ambient_mode_summary_off">O menu de modo ambiente será exibido</string>
+    <string name="revanced_hide_menu_ambient_mode_summary_on">O menu de modo ambiente está oculto</string>
+    <string name="revanced_hide_menu_ambient_mode_title">Ocultar menu de modo ambiente</string>
+    <string name="revanced_hide_menu_audio_track_summary_off">O menu de faixa de áudio será exibido</string>
+    <string name="revanced_hide_menu_audio_track_summary_on">O menu de faixa de áudio está oculto</string>
+    <string name="revanced_hide_menu_audio_track_title">Ocultar menu de faixa de áudio</string>
+    <string name="revanced_hide_menu_captions_summary_off">O menu de legendas será exibido</string>
+    <string name="revanced_hide_menu_captions_summary_on">O menu de legendas está oculto</string>
+    <string name="revanced_hide_menu_captions_title">Ocultar menu de legendas</string>
     <string name="revanced_hide_menu_help_summary_off">Menu de ajuda &amp; é mostrado</string>
     <string name="revanced_hide_menu_help_summary_on">Menu de ajuda &amp; está oculto</string>
     <string name="revanced_hide_menu_help_title">Ocultar menu de ajuda &amp;</string>
@@ -467,10 +461,6 @@ Nas configurações do aplicativo, a versão do YouTube pode estar marcada como 
 Se você habilitar essa configuração, os seguintes recursos estarão disponíveis:
 - Publicações da comunidade
 - Ocultar o mix de playlist"</string>
-    <string name="revanced_reboot_warning_playback">"Corrige problemas de buffer de reprodução de vídeo em algumas regiões.
-
-Se você habilitar essa configuração, o seguinte problema pode ocorrer:
-- Ao reproduzir um vídeo na playlist, o problema pode não ser corrigido"</string>
     <string name="revanced_reboot_warning_swipe">"Habilite sempre o gesto de deslizar, independentemente da visibilidade do controlador do player.
 
  Se você habilitar esta configuração, os seguintes recursos não estarão disponíveis:
@@ -480,16 +470,6 @@ Se você habilitar essa configuração, o seguinte problema pode ocorrer:
 Se você habilitar essa configuração, os seguintes recursos não estarão disponíveis:
 - Modo ambiente
 - Publicações da comunidade"</string>
-    <string name="revanced_ryd_mirror_attribution_summary">Os dados dos Dislikes são fornecidos pela API True RYD Worker. Toque aqui para saber mais.</string>
-    <string name="revanced_ryd_mirror_enable_summary_off">A API Mirror está desativada</string>
-    <string name="revanced_ryd_mirror_enable_summary_on">A API Mirror está ativada</string>
-    <string name="revanced_ryd_mirror_enable_title">Ativar a API Mirror</string>
-    <string name="revanced_ryd_mirror_guidelines_popup_summary">"A API True RYD Worker utiliza a contagem de dislikes exposta no endpoint da API do YouTube.
-
-Habilite esta opção apenas para aqueles que enfrentam problemas ao usar a API RYD padrão.
-
-Você gostaria de continuar?"</string>
-    <string name="revanced_ryd_mirror_guidelines_popup_title">True RYD Worker</string>
     <string name="revanced_ryd_attribution_summary">Os dados de dislikes são fornecidos pela API Return YouTube Dislike. Toque aqui para obter mais informações.</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_dislike_percentage_summary_off">Dislikes exibidos como número</string>
@@ -516,18 +496,17 @@ Você gostaria de continuar?"</string>
     <string name="revanced_save_video_quality_mobile_error">Falha ao alterar a qualidade padrão dos dados móveis</string>
     <string name="revanced_save_video_quality_wifi">Alterar qualidade padrão do Wi-Fi para:</string>
     <string name="revanced_save_video_quality_wifi_error">Falha ao alterar a qualidade WI-FI padrão</string>
-    <string name="revanced_save_video_speed">Alterar a velocidade padrão para:</string>
     <string name="revanced_settings">Configurações do ReVanced</string>
-    <string name="revanced_swipe_controls_summary">Configurações relacionadas aos controles de swipe</string>
-    <string name="revanced_swipe_controls_title">Configurações de controles de swipe</string>
-    <string name="revanced_swipe_magnitude_threshold_summary">A quantidade de limiar para o swipe ocorrer</string>
-    <string name="revanced_swipe_magnitude_threshold_title">Limiar de magnitude de swipe</string>
-    <string name="revanced_swipe_overlay_background_alpha_summary">A visibilidade do fundo de sobreposição de swipe</string>
-    <string name="revanced_swipe_overlay_background_alpha_title">Visibilidade de fundo de swipey</string>
-    <string name="revanced_swipe_overlay_text_size_summary">O tamanho do texto para a sobreposição de swipe</string>
-    <string name="revanced_swipe_overlay_text_size_title">Tamanho do texto da sobreposição de swipe</string>
+    <string name="revanced_swipe_controls_summary">Configurações relacionadas aos controles por gestos</string>
+    <string name="revanced_swipe_controls_title">Configurações de controles por gestos</string>
+    <string name="revanced_swipe_magnitude_threshold_summary">A distância a ser percorrida pelo gesto de deslizar</string>
+    <string name="revanced_swipe_magnitude_threshold_title">Aderência do gesto de deslizar</string>
+    <string name="revanced_swipe_overlay_background_alpha_summary">A visibilidade do fundo da sobreposição de gestos</string>
+    <string name="revanced_swipe_overlay_background_alpha_title">Visibilidade do fundo de gestos</string>
+    <string name="revanced_swipe_overlay_text_size_summary">O tamanho do texto para a sobreposição de gestos</string>
+    <string name="revanced_swipe_overlay_text_size_title">Tamanho do texto da sobreposição de gestos</string>
     <string name="revanced_swipe_overlay_timeout_summary">A quantidade de milissegundos em que a sobreposição é visível</string>
-    <string name="revanced_swipe_overlay_timeout_title">Tempo limite da sobreposição de swipet</string>
+    <string name="revanced_swipe_overlay_timeout_title">Tempo limite da sobreposição de gestos</string>
     <string name="revanced_tool_used">Ferramenta usada</string>
     <string name="revanced_video_ads_removal_summary_off">Anúncios de vídeo são exibidos</string>
     <string name="revanced_video_ads_removal_summary_on">Anúncios de vídeo estão ocultos</string>

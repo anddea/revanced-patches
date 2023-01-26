@@ -185,12 +185,6 @@ Gönderilmeye hazır mı?"</string>
     <string name="revanced_downloader_package_name_title">İndirici paket adı</string>
     <string name="revanced_downloader_settings_summary">Varsayılan indirici ile ilgili ayarlar</string>
     <string name="revanced_downloader_settings_title">İndirici ayarları</string>
-    <string name="revanced_hide_endscreen_overlay_summary_off">Gizlenmiyor</string>
-    <string name="revanced_hide_endscreen_overlay_summary_on">Gizleniyor</string>
-    <string name="revanced_hide_endscreen_overlay_title">Bitiş ekranı arayüzü</string>
-    <string name="revanced_hide_filmstrip_overlay_summary_off">Gizlenmiyor</string>
-    <string name="revanced_hide_filmstrip_overlay_summary_on">Gizleniyor</string>
-    <string name="revanced_hide_filmstrip_overlay_title">Film şeridi yerleşimini gizle</string>
     <string name="revanced_disable_haptic_feedback_scrubbing_summary_off">Dokunsal geri bildirim temizleme etkinleştirildi</string>
     <string name="revanced_disable_haptic_feedback_scrubbing_summary_on">Dokunsal geri bildirim temizleme devre dışı</string>
     <string name="revanced_disable_haptic_feedback_scrubbing_title">Dokunsal geri bildirimi temizlemeyi devre dışı bırak</string>
@@ -239,9 +233,6 @@ Gönderilmeye hazır mı?"</string>
     <string name="revanced_enable_save_video_quality_summary_off">Video kalitesini değiştirseniz bile varsayılan değer olarak kaydetmez</string>
     <string name="revanced_enable_save_video_quality_summary_on">Video kalitesini her değiştirdiğinizde varsayılan değer olarak kaydeder</string>
     <string name="revanced_enable_save_video_quality_title">Video kalitesini kaydetmeyi etkinleştir</string>
-    <string name="revanced_enable_save_video_speed_summary_off">Video hızı kaydedilmeyecek</string>
-    <string name="revanced_enable_save_video_speed_summary_on">Video hızı kayıtlı kalacak</string>
-    <string name="revanced_enable_save_video_speed_title">Video hızını kaydetmeyi etkinleştir</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">Zaman çubuğuna (video ilerleme çubuğu) dokunma etkin</string>
     <string name="revanced_enable_seekbar_tapping_title">Zaman çubuğuna dokunma</string>
     <string name="revanced_enable_swipe_auto_brightness_summary_off">Parlaklık kaydırılarak 0 olarak ayarlansa bile otomatik parlaklık etkinleştirilmez</string>
@@ -273,9 +264,6 @@ Gönderilmeye hazır mı?"</string>
     <string name="revanced_extended_settings">ReVanced Gelişmiş ayarlar</string>
     <string name="revanced_extended_summary">Gelişmiş ayarlar</string>
     <string name="revanced_extended_title">Genişletilmiş Ayarlar</string>
-    <string name="revanced_fix_video_playback_summary_off">Video oynatma arabelleği sorunlarını düzeltme kapalı</string>
-    <string name="revanced_fix_video_playback_summary_on">Video oynatma arabelleği sorunlarını düzeltme açık</string>
-    <string name="revanced_fix_video_playback_title">Video oynatma arabelleği sorunlarını düzelt</string>
     <string name="revanced_hide_auto_captions_summary_off">Altyazılı bir video oynatılırken altyazılar etkinleştirildi</string>
     <string name="revanced_hide_auto_captions_summary_on">"Altyazılı bir video oynatılırken altyazılar etkinleştirilmedi"</string>
     <string name="revanced_hide_auto_captions_title">Otomatik altyazıları gizle</string>
@@ -343,6 +331,12 @@ Gönderilmeye hazır mı?"</string>
     <string name="revanced_hide_endscreen_cards_summary_off">Gizlenmiyor</string>
     <string name="revanced_hide_endscreen_cards_summary_on">Gizleniyor</string>
     <string name="revanced_hide_endscreen_cards_title">Bitiş ekranı kartları</string>
+    <string name="revanced_hide_endscreen_overlay_summary_off">Gizlenmiyor</string>
+    <string name="revanced_hide_endscreen_overlay_summary_on">Gizleniyor</string>
+    <string name="revanced_hide_endscreen_overlay_title">Bitiş ekranı arayüzü</string>
+    <string name="revanced_hide_filmstrip_overlay_summary_off">Gizlenmiyor</string>
+    <string name="revanced_hide_filmstrip_overlay_summary_on">Gizleniyor</string>
+    <string name="revanced_hide_filmstrip_overlay_title">Film şeridi yerleşimini gizle</string>
     <string name="revanced_hide_fullscreen_button_container_summary_off">Gizlenmiyor</string>
     <string name="revanced_hide_fullscreen_button_container_summary_on">Gizleniyor</string>
     <string name="revanced_hide_fullscreen_button_container_title">Tam ekran buton kapsayıcısı</string>
@@ -466,10 +460,6 @@ Gönderilmeye hazır mı?"</string>
  Bu ayarı etkinleştirirseniz, aşağıdaki özellikler kullanılabilir:
  - Topluluk Gönderileri
 - Mix oynatma listesini gizle"</string>
-    <string name="revanced_reboot_warning_playback">"Bazı bölgelerde video oynatma arabelleği sorunlarını düzeltin.
-
-Bu ayarı etkinleştirirseniz, aşağıdaki sorun oluşabilir:
-- Oynatma listesindeki bir videoyu oynatırken sorun çözülmeyebilir"</string>
     <string name="revanced_reboot_warning_swipe">"Oynatıcı denetleyicisinin görünürlüğünden bağımsız olarak her zaman kaydırma hareketini etkinleştirin.
 
 Bu ayarı etkinleştirirseniz aşağıdaki özellikler kullanılamaz:
@@ -479,16 +469,6 @@ Bu ayarı etkinleştirirseniz aşağıdaki özellikler kullanılamaz:
 Bu ayarı etkinleştirirseniz aşağıdaki özellikler kullanılamaz:
 - Ortam modu
 - Topluluk Gönderileri"</string>
-    <string name="revanced_ryd_mirror_attribution_summary">Beğenmeme verileri True RYD Worker API tarafından sağlanır. Daha fazlasını öğrenmek için buraya dokunun.</string>
-    <string name="revanced_ryd_mirror_enable_summary_off">Alternatif API kapalı</string>
-    <string name="revanced_ryd_mirror_enable_summary_on">Yansıma API\'si aktif</string>
-    <string name="revanced_ryd_mirror_enable_title">Kaynak API\'sini Etkinleştir</string>
-    <string name="revanced_ryd_mirror_guidelines_popup_summary">"True RYD Worker API, YouTube API Uç Noktasında gösterilen beğenmeme sayısını kullanır.
-
-Bu seçeneği yalnızca varsayılan RYD API'sini kullanırken sorun yaşayanlar için etkinleştirin.
-
- Devam etmek ister misin?"</string>
-    <string name="revanced_ryd_mirror_guidelines_popup_title">Gerçek RYD Çalışanı</string>
     <string name="revanced_ryd_attribution_summary">Beğenmeme verileri True RYD Worker API tarafından sağlanır. Daha fazlasını öğrenmek için buraya dokunun.</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_dislike_percentage_summary_off">Beğenmemeler sayı olarak gösterilir</string>
@@ -515,7 +495,6 @@ Bu seçeneği yalnızca varsayılan RYD API'sini kullanırken sorun yaşayanlar 
     <string name="revanced_save_video_quality_mobile_error">Varsayılan mobil veri video kalitesi değiştirilemedi</string>
     <string name="revanced_save_video_quality_wifi">Varsayılan Wİ-Fİ video kalitesi:</string>
     <string name="revanced_save_video_quality_wifi_error">Varsayılan Wİ-Fİ video kalitesi değiştirilemedi</string>
-    <string name="revanced_save_video_speed">Varsayılan hız:</string>
     <string name="revanced_settings">ReVanced Ayarları</string>
     <string name="revanced_swipe_controls_summary">Kaydırma kontrolleri ilgili ayarlar</string>
     <string name="revanced_swipe_controls_title">Kaydırma Kontrolleri Ayarları</string>

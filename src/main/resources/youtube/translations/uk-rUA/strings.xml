@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="about">Про нас</string>
-    <string name="about_api">Цей додаток використовує API з SponsorBlock</string>
+    <string name="about_api">Цей застосунок використовує API з SponsorBlock</string>
     <string name="about_api_sum">Натисніть, щоб дізнатися більше, і побачити завантаження для інших платформ на: sponsor.ajay.app</string>
     <string name="about_madeby">Автор інтеграції - JakubWeg</string>
     <string name="accessibility_settings_edu_opt_in_text">Увімкнути спеціальні можливості для відеоплеєра?</string>
@@ -176,16 +176,10 @@
     <string name="revanced_default_video_speed_summary">Виберіть типову швидкість відео</string>
     <string name="revanced_default_video_speed_title">Типова швидкість відео</string>
     <string name="revanced_downloader_not_installed">не встановлено. Будь ласка, встановіть.</string>
-    <string name="revanced_downloader_package_name_summary">"Назва пакета програми завантажувача"</string>
+    <string name="revanced_downloader_package_name_summary">"Назва пакета застосунку завантажувача"</string>
     <string name="revanced_downloader_package_name_title">Назва пакета завантажувача</string>
     <string name="revanced_downloader_settings_summary">Налаштування завантажувача за умовчанням</string>
     <string name="revanced_downloader_settings_title">Налаштування завантаження</string>
-    <string name="revanced_hide_endscreen_overlay_summary_off">Вилучення Накладання кінцевого екрана вимкнено</string>
-    <string name="revanced_hide_endscreen_overlay_summary_on">Вилучення Накладання кінцевого екрана увімкнено</string>
-    <string name="revanced_hide_endscreen_overlay_title">Вилучення Накладання кінцевого екрана</string>
-    <string name="revanced_hide_filmstrip_overlay_summary_off">Вилучення Накладення кіноплівки вимкнено</string>
-    <string name="revanced_hide_filmstrip_overlay_summary_on">Вилучення Накладення кіноплівки увімкнено</string>
-    <string name="revanced_hide_filmstrip_overlay_title">Вилучення Накладення кіноплівки</string>
     <string name="revanced_disable_haptic_feedback_scrubbing_summary_off">Вібровідгук при перемотуванні жестом вгору по рядку перемотування увімкнено</string>
     <string name="revanced_disable_haptic_feedback_scrubbing_summary_on">Вібровідгук при перемотуванні жестом вгору по рядку перемотування вимкнено</string>
     <string name="revanced_disable_haptic_feedback_scrubbing_title">Вимкнути Вібровідгук при перемотуванні жестом вгору по рядку перемотування</string>
@@ -234,9 +228,6 @@
     <string name="revanced_enable_save_video_quality_summary_off">Збереження типової якості відео вимкнено</string>
     <string name="revanced_enable_save_video_quality_summary_on">Збереження типової якості відео увімкнено</string>
     <string name="revanced_enable_save_video_quality_title">Збереження типової якості відео</string>
-    <string name="revanced_enable_save_video_speed_summary_off">Не зберігати значення швидкості відео навіть при зміні швидкості відео</string>
-    <string name="revanced_enable_save_video_speed_summary_on">Зберегти значення швидкості відео щоразу, коли ви змінюєте швидкість відео</string>
-    <string name="revanced_enable_save_video_speed_title">Увімкнути збереження швидкості відео</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">Натискання на рядок перемотування відео увімкнено</string>
     <string name="revanced_enable_seekbar_tapping_title">Натискання на рядок перемотування відео</string>
     <string name="revanced_enable_swipe_auto_brightness_summary_off">Автояркість не активується при яскравості, встановленій жестом на 0</string>
@@ -268,9 +259,6 @@
     <string name="revanced_extended_settings">Додаткові налаштування ReVanced Extended</string>
     <string name="revanced_extended_summary">Додаткові налаштування розширеного</string>
     <string name="revanced_extended_title">Розширенні</string>
-    <string name="revanced_fix_video_playback_summary_off">Виправлення проблем із буфером відтворення відео вимкнено</string>
-    <string name="revanced_fix_video_playback_summary_on">Виправлення проблем із буфером відтворення відео увімкнено</string>
-    <string name="revanced_fix_video_playback_title">Виправлення проблем із буфером відтворення відео</string>
     <string name="revanced_hide_auto_captions_summary_off">Автоматично включати відображення субтитрів за їх присутності</string>
     <string name="revanced_hide_auto_captions_summary_on">"Автоматично вимикати відображення субтитрів за їх присутності"</string>
     <string name="revanced_hide_auto_captions_title">Автоматичні субтитри</string>
@@ -338,6 +326,12 @@
     <string name="revanced_hide_endscreen_cards_summary_off">Картки наприкінці відео увімкнено</string>
     <string name="revanced_hide_endscreen_cards_summary_on">Картки наприкінці відео вимкнено</string>
     <string name="revanced_hide_endscreen_cards_title">Картки наприкінці відео</string>
+    <string name="revanced_hide_endscreen_overlay_summary_off">Вилучення Накладання кінцевого екрана вимкнено</string>
+    <string name="revanced_hide_endscreen_overlay_summary_on">Вилучення Накладання кінцевого екрана увімкнено</string>
+    <string name="revanced_hide_endscreen_overlay_title">Вилучення Накладання кінцевого екрана</string>
+    <string name="revanced_hide_filmstrip_overlay_summary_off">Вилучення Накладення кіноплівки вимкнено</string>
+    <string name="revanced_hide_filmstrip_overlay_summary_on">Вилучення Накладення кіноплівки увімкнено</string>
+    <string name="revanced_hide_filmstrip_overlay_title">Вилучення Накладення кіноплівки</string>
     <string name="revanced_hide_fullscreen_button_container_summary_off">Контейнер кнопки повноекранного режиму увімкнено</string>
     <string name="revanced_hide_fullscreen_button_container_summary_on">Контейнер кнопки повноекранного режиму вимкнено</string>
     <string name="revanced_hide_fullscreen_button_container_title">Контейнер кнопки повноекранного режиму</string>
@@ -407,9 +401,9 @@
     <string name="revanced_hide_shorts_shelf_summary_off">Показати полиці коротких відео</string>
     <string name="revanced_hide_shorts_shelf_summary_on">Полиці коротких відео сховані</string>
     <string name="revanced_hide_shorts_shelf_title">Сховати полиці коротких відео</string>
-    <string name="revanced_hide_startup_shorts_player_summary_off">Плеєр коротких відео відображається при запуску програми</string>
-    <string name="revanced_hide_startup_shorts_player_summary_on">Плеєр коротких відео схований при запуску програми</string>
-    <string name="revanced_hide_startup_shorts_player_title">Сховати плеєр коротких відео при запуску програми</string>
+    <string name="revanced_hide_startup_shorts_player_summary_off">Плеєр коротких відео відображається при запуску застосунку </string>
+    <string name="revanced_hide_startup_shorts_player_summary_on">Плеєр коротких відео схований при запуску застосунку </string>
+    <string name="revanced_hide_startup_shorts_player_title">Сховати плеєр коротких відео при запуску застосунку</string>
     <string name="revanced_hide_stories_shelf_summary_off">Публікації історій показана</string>
     <string name="revanced_hide_stories_shelf_summary_on">Публікації історій прихована</string>
     <string name="revanced_hide_stories_shelf_title">Вилучення Публікацій історій</string>
@@ -458,20 +452,13 @@
 Ви впевнені, що хочете продовжити?"</string>
     <string name="revanced_reboot_warning_oldlayout">"Підміняє версію клієнта YouTube на v17.28.35 для відображення старого інтерфейсу
 
-У налаштуваннях програми версія YouTube може бути показана як v17.28.35"</string>
+У налаштуваннях застосунку версія YouTube може бути показана як v17.28.35"</string>
     <string name="revanced_reboot_warning_phone">"Обманює роздільну здатність, щоб змінити деякі елементи на елементи телефону.\n\nЯкщо ввімкнути цей параметр, будуть доступні такі функції:\n - Публікації спільноти\n - Вилучення Мій плейлист"</string>
-    <string name="revanced_reboot_warning_playback">"Виправляти проблеми буферу відтворення відео в деяких регіонах.\n\nЯкщо увімкнути це налаштування, може виникнути наступна проблема:\n- При відтворенні відео в списку відтворення можливо не виправити проблему"</string>
     <string name="revanced_reboot_warning_swipe">"Постійні жести, незалежно від стану кнопок плеєра
 
 Якщо цей параметр увімкнено, можуть виникнути такі проблеми:
 - Натискання на шкалу відтворення буде іноді глючити"</string>
     <string name="revanced_reboot_warning_tablet">"Обманює роздільну здатність, щоб змінити деякі елементи на елементи планшета.\n\nЯкщо ввімкнути це налаштування, такі функції будуть недоступні:\n - Фонове підсвічування\n - Публікації спільноти"</string>
-    <string name="revanced_ryd_mirror_attribution_summary">Ця інтерпретація використовує True RYD Worker API.\nНатисніть тут, щоб отримати більше інформації.</string>
-    <string name="revanced_ryd_mirror_enable_summary_off">Дзеркало API вимкнено</string>
-    <string name="revanced_ryd_mirror_enable_summary_on">Дзеркало API увімкнено</string>
-    <string name="revanced_ryd_mirror_enable_title">Увімкнути Дзеркальний API</string>
-    <string name="revanced_ryd_mirror_guidelines_popup_summary">"True RYD Worker API використовує кількість оцінок \"не подобається\", яка відображається в кінцевій точці YouTube API.\n\nУвага!\nВмикайте цей параметр якщо у вас виникають проблеми під час використання стандартного API RYD.\n\nБажаєте продовжити?"</string>
-    <string name="revanced_ryd_mirror_guidelines_popup_title">True RYD Worker</string>
     <string name="revanced_ryd_attribution_summary">Ця інтеграція використовує RYD API.\nНатисніть тут, щоб отримати більше інформації.</string>
     <string name="revanced_ryd_attribution_title">Інтеграція YouTube Дислайків</string>
     <string name="revanced_ryd_dislike_percentage_summary_off">Дислайки відображаються числом</string>
@@ -489,7 +476,7 @@
     <string name="revanced_ryd_failure_connection_timeout">Дизлайки тимчасово недоступні (час API закінчився)</string>
     <string name="revanced_ryd_failure_register_user">ReturnYouTubeDislike: помилка реєстрації нового користувача</string>
     <string name="revanced_ryd_failure_send_vote_failed">ReturnYouTubeDislike: помилка надсилання відмітки</string>
-    <string name="revanced_ryd_settings_summary">Додаткові налаштування для повернення YouTube Дислайків</string>
+    <string name="revanced_ryd_settings_summary">Додаткові налаштування для повернення YouTube Дизлайків</string>
     <string name="revanced_ryd_settings_title">Повернення YouTube Дислайків</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Приховано</string>
     <string name="revanced_save_video_quality_common_error">Помилка встановлення якості відео</string>
@@ -498,7 +485,6 @@
     <string name="revanced_save_video_quality_mobile_error">Не вдалося змінити якість відео для мобільних мереж за замовчуванням</string>
     <string name="revanced_save_video_quality_wifi">Зміна якості відео для Wi-Fi мереж за замовчуванням на:</string>
     <string name="revanced_save_video_quality_wifi_error">Не вдалося змінити якість відео для WI-FI мереж за замовчуванням</string>
-    <string name="revanced_save_video_speed">Зміна швидкості відео за замовчуванням на:</string>
     <string name="revanced_settings">ReVanced Extended </string>
     <string name="revanced_swipe_controls_summary">Додаткові налаштування керування жестами</string>
     <string name="revanced_swipe_controls_title">Керування жестами </string>
@@ -526,7 +512,7 @@
     <string name="revanced_whitelisting_included">Додано в білий список</string>
     <string name="revanced_whitelisting_title">Білий список каналів</string>
     <string name="revanced_whitelisting_fetch_failed">Не вдалося отримати дані про канал, отримано код %d</string>
-    <string name="revanced_whitelisting_reboot">Перезапустіть додаток для застосування правил білого списку</string>
+    <string name="revanced_whitelisting_reboot">Перезавантажити для застосування налаштувань білого списку каналів</string>
     <string name="revanced_whitelisting_remove_failed" formatted="false">Не вдалося видалити канал %s із білого списку %s</string>
     <string name="revanced_whitelisting_removed" formatted="false">Канал %s видалено з білого списку %s</string>
     <string name="revanced_whitelisting_settings_summary">Перевірте чи видаліть список каналів, доданих до білого списку</string>
@@ -547,7 +533,7 @@
     <string name="sb_switching_success">Перемкнено успішно. Перезавантажте відео</string>
     <string name="sb_switching_to_mirror">Перемикання дзеркалення сервера API на основний API-сервер..</string>
     <string name="segments_endcards">Кінцева заставка/титри</string>
-    <string name="segments_endcards_sum">Титри або час появи кінцевих заставок YouTube. Не для підведення підсумків сказаного у відео.</string>
+    <string name="segments_endcards_sum">Титри або час появи кінцевих заставок YouTube. Не для підбивання підсумків сказаного у відео.</string>
     <string name="segments_filler">Жарти без контекста</string>
     <string name="segments_filler_sum">Сцени додані як жарти і не потрібні для розуміння основного змісту відео. Не для сегментів, що пояснюють контекст чи передісторія.</string>
     <string name="segments_intermission">Пауза/Заставка</string>

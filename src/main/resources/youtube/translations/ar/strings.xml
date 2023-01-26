@@ -185,12 +185,6 @@
     <string name="revanced_downloader_package_name_title">اسم حُزْمَة أداة التنزيل</string>
     <string name="revanced_downloader_settings_summary">الإعدادات الإفتراضية المتعلقة بالتنزيل</string>
     <string name="revanced_downloader_settings_title">إعدادات التنزيل</string>
-    <string name="revanced_hide_endscreen_overlay_summary_off">يتم عرض واجهة شاشة النهاية</string>
-    <string name="revanced_hide_endscreen_overlay_summary_on">تم إخفاء واجهة شاشة النهاية</string>
-    <string name="revanced_hide_endscreen_overlay_title">إخفاء واجهة شاشة النهاية</string>
-    <string name="revanced_hide_filmstrip_overlay_summary_off">يتم عرض واجهة شريط الفيلم</string>
-    <string name="revanced_hide_filmstrip_overlay_summary_on">تم إخفاء واجهة شريط الفيلم</string>
-    <string name="revanced_hide_filmstrip_overlay_title">إخفاء واجهة شريط الفيلم</string>
     <string name="revanced_disable_haptic_feedback_scrubbing_summary_off">تم تمكين ردود الفعل اللمسية</string>
     <string name="revanced_disable_haptic_feedback_scrubbing_summary_on">تم تعطيل ردود الفعل اللمسية</string>
     <string name="revanced_disable_haptic_feedback_scrubbing_title">تعطيل ردود الفعل اللمسية الخانقة</string>
@@ -239,9 +233,6 @@
     <string name="revanced_enable_save_video_quality_summary_off">لا يحتفظ بقيمة جودة الفيديو حتى عند تغيير جودة الفيديو</string>
     <string name="revanced_enable_save_video_quality_summary_on">الاحتفاظ بقيمة جودة الفيديو كلما قمت بتغيير جودة الفيديو</string>
     <string name="revanced_enable_save_video_quality_title">تمكين حفظ جودة الفيديو</string>
-    <string name="revanced_enable_save_video_speed_summary_off">لا يحفظ قيم سرعة الفيديو حتى عند تغيير سرعة الفيديو</string>
-    <string name="revanced_enable_save_video_speed_summary_on">حفظ قيمة سرعة الفيديو كلما قمت بتغيير سرعة الفيديو</string>
-    <string name="revanced_enable_save_video_speed_title">تمكين حفظ سرعة الفيديو</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">تم تمكين النقر على شريط الوقت (شريط تقدم الفيديو)</string>
     <string name="revanced_enable_seekbar_tapping_title">تمكين النقر على شريط الوقت</string>
     <string name="revanced_enable_swipe_auto_brightness_summary_off">حتى إذا تم ضبط السطوع على 0 عن طريق السحب، فلن يتم تنشيط السطوع التلقائي</string>
@@ -273,9 +264,6 @@
     <string name="revanced_extended_settings">إعدادات ReVanced Extended</string>
     <string name="revanced_extended_summary">الإعدادات المتعلقة بــ Extended</string>
     <string name="revanced_extended_title">إعدادات Extended</string>
-    <string name="revanced_fix_video_playback_summary_off">تم إيقاف تشغيل إصلاح مشكلات التحميل المسبق لتشغيل الفيديو</string>
-    <string name="revanced_fix_video_playback_summary_on">تم تشغيل إصلاح مشكلات التحميل المسبق لتشغيل الفيديو</string>
-    <string name="revanced_fix_video_playback_title">إصلاح مشكلات التحميل المسبق لتشغيل الفيديو</string>
     <string name="revanced_hide_auto_captions_summary_off">تم تمكين التَّرْجَمَة عند فرض تشغيل مقطع فيديو مع التَّرْجَمَة</string>
     <string name="revanced_hide_auto_captions_summary_on">"تم تعطيل التَّرْجَمَة عند فرض تشغيل مقطع فيديو مع التَّرْجَمَة"</string>
     <string name="revanced_hide_auto_captions_title">إخفاء التَّرْجَمَة التلقائية</string>
@@ -343,6 +331,12 @@
     <string name="revanced_hide_endscreen_cards_summary_off">يتم عرض بطاقات شاشة النهاية</string>
     <string name="revanced_hide_endscreen_cards_summary_on">تم إخفاء بطاقات شاشة النهاية</string>
     <string name="revanced_hide_endscreen_cards_title">إخفاء بطاقات شاشة النهاية</string>
+    <string name="revanced_hide_endscreen_overlay_summary_off">يتم عرض واجهة شاشة النهاية</string>
+    <string name="revanced_hide_endscreen_overlay_summary_on">تم إخفاء واجهة شاشة النهاية</string>
+    <string name="revanced_hide_endscreen_overlay_title">إخفاء واجهة شاشة النهاية</string>
+    <string name="revanced_hide_filmstrip_overlay_summary_off">يتم عرض واجهة شريط الفيلم</string>
+    <string name="revanced_hide_filmstrip_overlay_summary_on">تم إخفاء واجهة شريط الفيلم</string>
+    <string name="revanced_hide_filmstrip_overlay_title">إخفاء واجهة شريط الفيلم</string>
     <string name="revanced_hide_fullscreen_button_container_summary_off">يتم عرض حاوية زر ملء الشاشة</string>
     <string name="revanced_hide_fullscreen_button_container_summary_on">تم إخفاء حاوية زر ملء الشاشة</string>
     <string name="revanced_hide_fullscreen_button_container_title">إخفاء حاوية زر ملء الشاشة</string>
@@ -465,18 +459,11 @@
 إذا قمت بتمكين هذا الإعداد، فستتوفر الميزات التالية:
 - مشاركات المجتمع
 - إخفاء قائمة تشغيل التشكيلة"</string>
-    <string name="revanced_reboot_warning_playback">"إصلاح مشاكل التحميل المسبق لتشغيل الفيديو في بعض المناطق.  إذا قمت بتمكين هذا الإعداد، فقد تحدث المشكلة التالية:  - عند تشغيل مقطع فيديو في قائمة التشغيل، قد لا يتم حل المشكلة"</string>
     <string name="revanced_reboot_warning_swipe">"تمكين إيماءات السحب بشكل دائم سواءً عناصر تحكم المشغل مرئية أو غير مرئية  إذا قمت بتمكين هذا الإعداد، فلن تتوفر الميزات التالية:  - ببعض الأوقات يؤدي النقر على شريط تقدم الفيديو إلى حدوث أخطاء"</string>
     <string name="revanced_reboot_warning_tablet">"حِيَل نقطة في البوصة لتغيير بعض التصميمات لتصميمات الجهاز اللوحي.
 إذا قمت بتمكين هذا الإعداد، فلن ستتوفر الميزات التالية:
 - الإضاءة السينمائية
 - مشاركات المجتمع"</string>
-    <string name="revanced_ryd_mirror_attribution_summary">يتم توفير بيانات عدم إعجاب مقاطع يوتيوب بواسطة True RYD Worker API. اضغط هنا لمعرفة المزيد.</string>
-    <string name="revanced_ryd_mirror_enable_summary_off">تم تعطيل API البديل</string>
-    <string name="revanced_ryd_mirror_enable_summary_on">تم تمكين API البديل</string>
-    <string name="revanced_ryd_mirror_enable_title">تمكين API البديل</string>
-    <string name="revanced_ryd_mirror_guidelines_popup_summary">"تستخدم True RYD Worker API عدد إبداءات عدم الإعجاب المعروضة في YouTube API Endpoint.  قم بتمكين هذا الخيار فقط لأولئك الذين يواجهون  مشاكل أثناء استخدام واجهة برمجة تطبيقات RYD الافتراضية.  هل ترغب في الاستمرار؟"</string>
-    <string name="revanced_ryd_mirror_guidelines_popup_title">True RYD Worker</string>
     <string name="revanced_ryd_attribution_summary">يتم توفير بيانات عدم إعجاب مقاطع يوتيوب بواسطة the Return YouTube Dislike API. اضغط هنا لمعرفة المزيد.</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_dislike_percentage_summary_off">يظهر عدد عدم الإعجاب كـ رَقَم</string>
@@ -503,7 +490,6 @@
     <string name="revanced_save_video_quality_mobile_error">فشل في تغيير جودة بيانات الجوّال الافتراضية</string>
     <string name="revanced_save_video_quality_wifi">تغيير جودة Wi-Fi الافتراضية إلى:</string>
     <string name="revanced_save_video_quality_wifi_error">فشل في تغيير جودة Wi-FI الافتراضية</string>
-    <string name="revanced_save_video_speed">تغيير السرعة الافتراضية إلى:</string>
     <string name="revanced_settings">(ReVanced) إعدادات</string>
     <string name="revanced_swipe_controls_summary">الإعدادات المتعلقة بالتفاعلات</string>
     <string name="revanced_swipe_controls_title">إعدادات التفاعل</string>

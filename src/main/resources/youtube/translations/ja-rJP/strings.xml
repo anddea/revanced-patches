@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="about">概要</string>
-    <string name="about_api">このアプリは Sponsor Block の API を使用しています</string>
-    <string name="about_api_sum">詳細についてはこちらをタップしてください。他のプラットフォームへのダウンロードは sponsor.ajay.app をご覧ください。</string>
+    <string name="about_api">Sponsor Blockについて</string>
+    <string name="about_api_sum">このアプリは Sponsor Block の API を使用しています。詳細についてはこちらをタップしてください。</string>
     <string name="about_madeby">JakubWeg による統合</string>
     <string name="accessibility_settings_edu_opt_in_text">動画プレーヤーのアクセシビリティコントロールをオンにしますか？</string>
     <string name="accessibility_settings_edu_opt_out_text">アクセシビリティサービスがオンになっているため、コントロールは変更されます。</string>
@@ -15,12 +15,12 @@
     <string name="color_change">色の変更をお探しですか?</string>
     <string name="color_change_sum">"上記のカテゴリをクリックすることで、カテゴリの色を変更できます。"</string>
     <string name="color_changed">色を変更しました</string>
-    <string name="color_invalid">無効な16進数コードです</string>
+    <string name="color_invalid">無効なカラーコードです</string>
     <string name="color_reset">色をリセット</string>
     <string name="diff_segments">セグメントの設定</string>
     <string name="enable_sb">SponsorBlock を有効にする</string>
     <string name="enable_sb_sum">SponsorBlock は、YouTubeの動画の迷惑/無駄な部分をスキップするためのクラウドソースシステムです</string>
-    <string name="enable_sb_mirror">SponsorBlock を有効にする</string>
+    <string name="enable_sb_mirror">ミラーAPIサーバーを有効にする</string>
     <string name="enable_sb_mirror_sum">SponsorBlock APIサーバーがダウンした場合、ミラーAPIサーバーをデフォルトAPIサーバーに切り替えます。</string>
     <string name="enable_segmadding">新しいセグメントの追加を有効にする</string>
     <string name="enable_segmadding_sum">実験的なセグメントの追加を有効にするにはこれをオンにします(ボタンの表示に問題があります)</string>
@@ -150,8 +150,8 @@
     <string name="revanced_adremover_suggestions_summary_off">一般的な提案は表示されます</string>
     <string name="revanced_adremover_suggestions_summary_on">一般的な提案は非表示です</string>
     <string name="revanced_adremover_suggestions_title">提案</string>
-    <string name="revanced_adremover_timed_reactions_summary_off">コメント欄のリアクション(一部の動画のみ表示)は表示されます</string>
-    <string name="revanced_adremover_timed_reactions_summary_on">コメント欄のリアクション(一部の動画のみ表示)はは非表示です</string>
+    <string name="revanced_adremover_timed_reactions_summary_off">コメント欄のリアクションは表示されます</string>
+    <string name="revanced_adremover_timed_reactions_summary_on">コメント欄のリアクションは非表示です</string>
     <string name="revanced_adremover_timed_reactions_title">コメント欄のリアクション(一部の動画のみ表示)</string>
     <string name="revanced_adremover_user_filter_summary_off">ユーザー フィルタは無効です</string>
     <string name="revanced_adremover_user_filter_summary_on">ユーザー フィルタは有効です</string>
@@ -162,7 +162,7 @@
     <string name="revanced_adremover_web_search_panel_summary_off">ウェブ検索パネルは表示されます</string>
     <string name="revanced_adremover_web_search_panel_summary_on">ウェブ検索パネルは非表示です</string>
     <string name="revanced_adremover_web_search_panel_title">ウェブ検索パネル</string>
-    <string name="revanced_custom_seekbar_color_value_summary">シークバーの色の16進数を入力してダークモードで使用します</string>
+    <string name="revanced_custom_seekbar_color_value_summary">カラーコードを入力してシークバーの色を変更します</string>
     <string name="revanced_custom_seekbar_color_value_title">シークバーの色を変更する</string>
     <string name="revanced_custom_video_buffer_maximum_summary">プレーヤーがバッファリングしようとするメディアの最大時間</string>
     <string name="revanced_custom_video_buffer_maximum_title">バッファリングの最大値</string>
@@ -183,12 +183,6 @@
     <string name="revanced_downloader_package_name_title">ダウンローダーのパッケージ名</string>
     <string name="revanced_downloader_settings_summary">デフォルトの動画ダウンローダー関連の設定</string>
     <string name="revanced_downloader_settings_title">動画ダウンローダーの設定</string>
-    <string name="revanced_hide_endscreen_overlay_summary_off">終了画面オーバーレイは表示されます</string>
-    <string name="revanced_hide_endscreen_overlay_summary_on">終了画面オーバーレイは非表示です</string>
-    <string name="revanced_hide_endscreen_overlay_title">終了画面オーバーレイ</string>
-    <string name="revanced_hide_filmstrip_overlay_summary_off">動画プレーヤーの映写スライドは表示されます</string>
-    <string name="revanced_hide_filmstrip_overlay_summary_on">動画プレーヤーの映写スライドは非表示です</string>
-    <string name="revanced_hide_filmstrip_overlay_title">動画プレーヤーの映写スライド</string>
     <string name="revanced_disable_haptic_feedback_scrubbing_summary_off">触覚(振動)フィードバックのスクラブは有効です</string>
     <string name="revanced_disable_haptic_feedback_scrubbing_summary_on">触覚(振動)フィードバックのスクラブは無効です</string>
     <string name="revanced_disable_haptic_feedback_scrubbing_title">触覚(振動)フィードバックのスクラブ</string>
@@ -207,9 +201,9 @@
     <string name="revanced_enable_always_auto_repeat_summary_off">常に自動リピートはオフです</string>
     <string name="revanced_enable_always_auto_repeat_summary_on">常に自動リピートは有効です</string>
     <string name="revanced_enable_always_auto_repeat_title">常に自動リピート</string>
-    <string name="revanced_enable_custom_seekbar_color_summary_off">シークバーの色を変更は無効です</string>
-    <string name="revanced_enable_custom_seekbar_color_summary_on">シークバーの色を変更は有効です</string>
-    <string name="revanced_enable_custom_seekbar_color_title">ダークモードでシークバーの色を変更する</string>
+    <string name="revanced_enable_custom_seekbar_color_summary_off">シークバーの色の変更は無効です</string>
+    <string name="revanced_enable_custom_seekbar_color_summary_on">シークバーの色の変更は有効です</string>
+    <string name="revanced_enable_custom_seekbar_color_title">シークバーの色を変更する(ダークモードのみ有効)</string>
     <string name="revanced_enable_custom_video_speed_summary_off">カスタム再生速度は無効です</string>
     <string name="revanced_enable_custom_video_speed_summary_on">カスタム再生速度は有効です</string>
     <string name="revanced_enable_custom_video_speed_title">カスタム動画再生速度</string>
@@ -231,15 +225,12 @@
     <string name="revanced_enable_press_to_swipe_summary_off">スワイプコントロールは無効です</string>
     <string name="revanced_enable_press_to_swipe_summary_on">スワイプコントロールは有効です</string>
     <string name="revanced_enable_press_to_swipe_title">スワイプコントロール</string>
-    <string name="revanced_enable_phone_layout_summary">一部のスマホ用のレイアウトを使用出来るように dpi を偽装します</string>
+    <string name="revanced_enable_phone_layout_summary">一部のスマホ用のレイアウトを使用できるように dpi を偽装します</string>
     <string name="revanced_enable_phone_layout_title">スマートフォン用のレイアウト</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">シークバー(動画進捗バー)のタップは有効です</string>
     <string name="revanced_enable_save_video_quality_summary_off">動画の画質を変更しても画質の値は保存されません</string>
     <string name="revanced_enable_save_video_quality_summary_on">動画の画質を変更するたびに、画質の値が保存されます</string>
     <string name="revanced_enable_save_video_quality_title">動画の画質を保存</string>
-    <string name="revanced_enable_save_video_speed_summary_off">動画の再生速度を変更して再生速度は保存されません</string>
-    <string name="revanced_enable_save_video_speed_summary_on">動画の再生速度を変更するたびに、再生速度が保存されます</string>
-    <string name="revanced_enable_save_video_speed_title">動画の再生速度の保存を有効にする</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">シークバー(動画進捗バー)のタップは有効です</string>
     <string name="revanced_enable_seekbar_tapping_title">シークバー(動画進捗バー)のタップ</string>
     <string name="revanced_enable_swipe_auto_brightness_summary_off">スワイプで明るさが0に設定されていても、自動明るさ調整は働きません</string>
@@ -248,9 +239,9 @@
     <string name="revanced_enable_swipe_brightness_summary_off">明るさのスワイプコントロールは無効です</string>
     <string name="revanced_enable_swipe_brightness_summary_on">明るさのスワイプコントロールは有効です</string>
     <string name="revanced_enable_swipe_brightness_title">明るさのスワイプコントロール</string>
-    <string name="revanced_enable_swipe_brightness_in_hdr_summary_off">HDR 動画を再生する場合、YouTube で指定された輝度値が適用されます</string>
-    <string name="revanced_enable_swipe_brightness_in_hdr_summary_on">HDR 動画を再生するとき、スワイプジェスチャーの輝度値が適用されます</string>
-    <string name="revanced_enable_swipe_brightness_in_hdr_title">HDR 動画でスワイプジェスチャーの輝度値を有効にします</string>
+    <string name="revanced_enable_swipe_brightness_in_hdr_summary_off">HDR 動画を再生する場合、YouTube で指定された明るさの値が適用されます</string>
+    <string name="revanced_enable_swipe_brightness_in_hdr_summary_on">HDR 動画を再生する場合、スワイプジェスチャーの明るさが適用されます</string>
+    <string name="revanced_enable_swipe_brightness_in_hdr_title">HDR 動画でスワイプジェスチャーの明るさを有効にする</string>
     <string name="revanced_enable_swipe_haptic_feedback_summary_off">スワイプコントロールの触覚(振動)フィードバックは無効です</string>
     <string name="revanced_enable_swipe_haptic_feedback_summary_on">スワイプコントロールの触覚(振動)フィードバックは有効です</string>
     <string name="revanced_enable_swipe_haptic_feedback_title">スワイプコントロールの触覚(振動)フィードバック</string>
@@ -260,7 +251,7 @@
     <string name="revanced_enable_tablet_miniplayer_summary_off">タブレットのミニプレーヤーは無効です</string>
     <string name="revanced_enable_tablet_miniplayer_summary_on">タブレットのミニプレーヤーは有効です</string>
     <string name="revanced_enable_tablet_miniplayer_title">タブレットのミニプレーヤー</string>
-    <string name="revanced_enable_tablet_layout_summary">一部のタブレット用のレイアウトを使用出来るように dpi を偽装します</string>
+    <string name="revanced_enable_tablet_layout_summary">一部のタブレット用のレイアウトを使用できるように dpi を偽装します</string>
     <string name="revanced_enable_tablet_layout_title">タブレット用のレイアウト</string>
     <string name="revanced_enable_wide_searchbar_summary_off">幅広い検索バーは無効です</string>
     <string name="revanced_enable_wide_searchbar_summary_on">幅広い検索バーは有効です</string>
@@ -271,9 +262,6 @@
     <string name="revanced_extended_settings">ReVanced Extended の設定</string>
     <string name="revanced_extended_summary">Extended 関連の設定</string>
     <string name="revanced_extended_title">Extended の設定</string>
-    <string name="revanced_fix_video_playback_summary_off">動画再生バッファリングの問題を修正 は無効です</string>
-    <string name="revanced_fix_video_playback_summary_on">動画再生バッファリングの問題を修正 は有効です</string>
-    <string name="revanced_fix_video_playback_title">動画再生バッファリングの問題を修正する</string>
     <string name="revanced_hide_auto_captions_summary_off">字幕付きの動画が再生されると強制的に字幕が有効になります</string>
     <string name="revanced_hide_auto_captions_summary_on">"字幕付きの動画が再生されても強制的に字幕が有効になりません"</string>
     <string name="revanced_hide_auto_captions_title">自動で字幕を表示</string>
@@ -341,6 +329,12 @@
     <string name="revanced_hide_endscreen_cards_summary_off">終了画面のカード(別動画の表示)は表示されます</string>
     <string name="revanced_hide_endscreen_cards_summary_on">終了画面のカード(別動画の表示)は非表示です</string>
     <string name="revanced_hide_endscreen_cards_title">終了画面のカード</string>
+    <string name="revanced_hide_endscreen_overlay_summary_off">終了画面オーバーレイは表示されます</string>
+    <string name="revanced_hide_endscreen_overlay_summary_on">終了画面オーバーレイは非表示です</string>
+    <string name="revanced_hide_endscreen_overlay_title">終了画面オーバーレイ</string>
+    <string name="revanced_hide_filmstrip_overlay_summary_off">動画プレーヤーの映写スライドは表示されます</string>
+    <string name="revanced_hide_filmstrip_overlay_summary_on">動画プレーヤーの映写スライドは非表示です</string>
+    <string name="revanced_hide_filmstrip_overlay_title">動画プレーヤーの映写スライド</string>
     <string name="revanced_hide_fullscreen_button_container_summary_off">全画面表示のボタンは表示されます</string>
     <string name="revanced_hide_fullscreen_button_container_summary_on">全画面表示のボタンは非表示です</string>
     <string name="revanced_hide_fullscreen_button_container_title">全画面表示のボタン</string>
@@ -393,23 +387,23 @@
     <string name="revanced_hide_shorts_button_summary_on">YouTubeショートのボタンは非表示です</string>
     <string name="revanced_hide_shorts_button_title">YouTubeショートのボタン</string>
     <string name="revanced_hide_shorts_component_summary">YouTubeショートのセクションまたはプレーヤーを非表示にします</string>
-    <string name="revanced_hide_shorts_component_title">YouTubeショート のコンポーネント(高評価ボタン、共有ボタンなど)</string>
-    <string name="revanced_hide_shorts_player_comments_button_summary_off">YouTubeショート のコメントのボタンは表示されます</string>
-    <string name="revanced_hide_shorts_player_comments_button_summary_on">YouTubeショート のコメントのボタンは非表示です</string>
-    <string name="revanced_hide_shorts_player_comments_button_title">YouTubeショート のコメントのボタン</string>
+    <string name="revanced_hide_shorts_component_title">YouTubeショート</string>
+    <string name="revanced_hide_shorts_player_comments_button_summary_off">YouTubeショートのコメントのボタンは表示されます</string>
+    <string name="revanced_hide_shorts_player_comments_button_summary_on">YouTubeショートのコメントのボタンは非表示です</string>
+    <string name="revanced_hide_shorts_player_comments_button_title">コメントのボタン</string>
     <string name="revanced_hide_shorts_player_component_title">YouTubeショート のプレイヤーのコンポーネント(高評価ボタン、共有ボタンなど)</string>
-    <string name="revanced_hide_shorts_player_remix_button_summary_off">YouTubeショート内プレーヤーのリミックスボタンは表示されます</string>
-    <string name="revanced_hide_shorts_player_remix_button_summary_on">YouTubeショート内プレーヤーのリミックスボタンは非表示です</string>
-    <string name="revanced_hide_shorts_player_remix_button_title">YouTubeショート内プレーヤーのリミックスボタン</string>
+    <string name="revanced_hide_shorts_player_remix_button_summary_off">YouTubeショート内のプレーヤーのリミックスボタンは表示されます</string>
+    <string name="revanced_hide_shorts_player_remix_button_summary_on">YouTubeショート内のプレーヤーのリミックスボタンは非表示です</string>
+    <string name="revanced_hide_shorts_player_remix_button_title">リミックスボタン</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_off">YouTubeショートのプレーヤーのサブスクボタンは表示されます</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_on">YouTubeショートのプレーヤーのサブスクボタンは非表示です</string>
-    <string name="revanced_hide_shorts_player_subscriptions_button_title">YouTubeショートのプレーヤーのサブスク ボタン</string>
-    <string name="revanced_hide_shorts_player_thanks_button_summary_off">YouTubeショート のプレーヤーの感謝ボタンは表示されます</string>
-    <string name="revanced_hide_shorts_player_thanks_button_summary_on">YouTubeショート のプレイヤーの感謝ボタンは非表示です</string>
-    <string name="revanced_hide_shorts_player_thanks_button_title">YouTubeショート のプレイヤーの感謝ボタン</string>
-    <string name="revanced_hide_shorts_shelf_summary_off">YouTubeショート 欄は表示されます</string>
-    <string name="revanced_hide_shorts_shelf_summary_on">YouTubeショート 欄は非表示です</string>
-    <string name="revanced_hide_shorts_shelf_title">YouTubeショート 欄</string>
+    <string name="revanced_hide_shorts_player_subscriptions_button_title">サブスクリプションボタン</string>
+    <string name="revanced_hide_shorts_player_thanks_button_summary_off">YouTubeショートのプレーヤーのThanksボタンは表示されます</string>
+    <string name="revanced_hide_shorts_player_thanks_button_summary_on">YouTubeショートのプレーヤーのThanksボタンは非表示です</string>
+    <string name="revanced_hide_shorts_player_thanks_button_title">Thanksボタン</string>
+    <string name="revanced_hide_shorts_shelf_summary_off">YouTubeショート欄は表示されます</string>
+    <string name="revanced_hide_shorts_shelf_summary_on">YouTubeショート欄は非表示です</string>
+    <string name="revanced_hide_shorts_shelf_title">YouTubeショート欄</string>
     <string name="revanced_hide_startup_shorts_player_summary_off">アプリの起動時にYouTubeショートのプレーヤーは有効になっています</string>
     <string name="revanced_hide_startup_shorts_player_summary_on">アプリの起動時にYouTubeショートのプレーヤーは無効になっています</string>
     <string name="revanced_hide_startup_shorts_player_title">アプリ起動時のYouTubeショート</string>
@@ -467,10 +461,6 @@
 この設定を有効にすると、次の機能は利用できません:
 - アンビエントモード
 - コミュニティの投稿"</string>
-    <string name="revanced_reboot_warning_playback">"一部の国/地域で動画再生バッファリングの問題を修正しました。
-
-この設定を有効にすると、次の問題が発生する可能性があります:
-- プレイリスト内の動画を再生する場合、問題が修正されない可能性があります"</string>
     <string name="revanced_reboot_warning_swipe">"プレーヤーコントローラーの表示に関係なく、常にスワイプジェスチャーを有効にします。
 
 この設定を有効にすると、次の機能は使用できません:
@@ -480,22 +470,14 @@
 この設定を有効にすると、次の機能は利用できません:
 - アンビエントモード
 - コミュニティの投稿"</string>
-    <string name="revanced_ryd_mirror_attribution_summary">低評価のデータは、True RYD Worker APIによって提供されます。詳細はここをタップしてください。</string>
-    <string name="revanced_ryd_mirror_enable_summary_off">ミラー API は無効です</string>
-    <string name="revanced_ryd_mirror_enable_summary_on">ミラー API は有効です</string>
-    <string name="revanced_ryd_mirror_enable_title">ミラー API </string>
-    <string name="revanced_ryd_mirror_guidelines_popup_summary">"True RYD Worker API は、YouTube API エンドポイントで公開されている低評価数を使用します。
-デフォルトの RYD API の使用中に問題が発生した場合にのみ、このオプションを有効にしてください。
-続行しますか？"</string>
-    <string name="revanced_ryd_mirror_guidelines_popup_title">True RYD Worker</string>
     <string name="revanced_ryd_attribution_summary">低評価のデータは、Return YouTube Dislike API によって提供されます。詳細はこちらをタップしてください。</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_dislike_percentage_summary_off">低評価数を数字で表示</string>
     <string name="revanced_ryd_dislike_percentage_summary_on">低評価数をパーセントで表示します</string>
     <string name="revanced_ryd_dislike_percentage_title">低評価数をパーセントで表示</string>
-    <string name="revanced_ryd_compact_layout_summary_off">最高の外観のためにスタイル化されたボタン</string>
-    <string name="revanced_ryd_compact_layout_summary_on">最小幅のボタンスタイルにする</string>
-    <string name="revanced_ryd_compact_layout_title">コンパクトないいねボタン</string>
+    <string name="revanced_ryd_compact_layout_summary_off">最高の外観のためにスタイル化された高評価ボタン</string>
+    <string name="revanced_ryd_compact_layout_summary_on">高評価ボタンを最小幅のスタイルにする</string>
+    <string name="revanced_ryd_compact_layout_title">コンパクトな高評価ボタン</string>
     <string name="revanced_ryd_enable_summary_off">低評価数は非表示です</string>
     <string name="revanced_ryd_enable_summary_on">低評価数は表示されます</string>
     <string name="revanced_ryd_enable_title">低評価数を表示する(Return YouTube Dislike)</string>
@@ -514,7 +496,6 @@
     <string name="revanced_save_video_quality_mobile_error">モバイルデータ通信でのデフォルト画質を変更できませんでした</string>
     <string name="revanced_save_video_quality_wifi">Wi-Fi でのデフォルト画質:</string>
     <string name="revanced_save_video_quality_wifi_error">Wi-Fi でのデフォルト画質を変更できませんでした</string>
-    <string name="revanced_save_video_speed">デフォルトの再生速度を変更:</string>
     <string name="revanced_settings">Revancedの設定</string>
     <string name="revanced_swipe_controls_summary">スワイプコントロール関連の設定</string>
     <string name="revanced_swipe_controls_title">スワイプコントロールの設定</string>
@@ -574,7 +555,7 @@
     <string name="segments_preview_sum">"前回の動画のあらすじや動画後半の内容の予告。ただ話しているものではなく、映像が編集されているものを指します。"</string>
     <string name="segments_selfpromo">無報酬/セルフプロモーション</string>
     <string name="segments_selfpromo_sum">無報酬またはセルフプロモーションを除いてスポンサーと同様です。商品、寄付、または誰とコラボしたかに関するセクションが含まれます</string>
-    <string name="segments_sponsor">スポンサー</string>
+    <string name="segments_sponsor">スポンサー広告</string>
     <string name="segments_sponsor_sum">有料プロモーション、有料紹介、ダイレクト広告</string>
     <string name="segments_subscribe">インタラクション リマインダー (チャンネル登録)</string>
     <string name="segments_subscribe_sum">動画の途中に高評価、チャンネル登録、フォローの短いリマインダーがある場合</string>
@@ -595,7 +576,7 @@
     <string name="skipped_preview">プレビューをスキップしました</string>
     <string name="skipped_segment">スポンサーセグメントをスキップしました</string>
     <string name="skipped_selfpromo">セルフプロモーションをスキップしました</string>
-    <string name="skipped_sponsor">スポンサーをスキップしました</string>
+    <string name="skipped_sponsor">スポンサー広告をスキップしました</string>
     <string name="skipped_subscribe">迷惑なリマインダーをスキップしました</string>
     <string name="skipped_unsubmitted">未送信のセグメントをスキップしました</string>
     <string name="stats">統計情報</string>
