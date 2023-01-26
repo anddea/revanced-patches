@@ -6,10 +6,12 @@ import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.*
+import app.revanced.shared.annotation.RVXCompatibility
 
 @Patch
 @Name("patch-options")
 @Description("Create an options.toml file.")
+@RVXCompatibility
 @Version("0.0.1")
 class PatchOptions : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
