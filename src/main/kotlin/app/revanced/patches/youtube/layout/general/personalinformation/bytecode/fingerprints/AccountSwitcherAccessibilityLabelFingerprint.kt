@@ -1,16 +1,10 @@
 package app.revanced.patches.youtube.layout.general.personalinformation.bytecode.fingerprints
 
-import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourcdIdPatch
-import app.revanced.shared.annotation.YouTubeCompatibility
-import org.jf.dexlib2.iface.instruction.WideLiteralInstruction
 import org.jf.dexlib2.Opcode
+import org.jf.dexlib2.iface.instruction.WideLiteralInstruction
 
-@Name("account-switcher-accessibility-label-fingerprint")
-@YouTubeCompatibility
-@Version("0.0.1")
 object AccountSwitcherAccessibilityLabelFingerprint : MethodFingerprint(
     opcodes = listOf(
         Opcode.INVOKE_VIRTUAL,

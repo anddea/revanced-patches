@@ -6,7 +6,10 @@ import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 
 object SubtitleButtonControllerFingerprint : MethodFingerprint(
-    "V", AccessFlags.PUBLIC or AccessFlags.FINAL, listOf("L"), listOf(
+    returnType = "V",
+    access = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = listOf("L"),
+    opcodes = listOf(
         Opcode.IGET_OBJECT,
         Opcode.IF_NEZ,
         Opcode.RETURN_VOID,
@@ -15,6 +18,6 @@ object SubtitleButtonControllerFingerprint : MethodFingerprint(
         Opcode.IF_NEZ,
         Opcode.CONST,
         Opcode.INVOKE_VIRTUAL,
-        Opcode.IGET_OBJECT,
+        Opcode.IGET_OBJECT
     )
 )
