@@ -6,9 +6,12 @@ import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 
 object OnDrawFingerprint : MethodFingerprint (
-    "V", AccessFlags.PUBLIC or AccessFlags.FINAL, listOf("L"),
-    listOf(Opcode.MOVE_OBJECT_FROM16, Opcode.MOVE_OBJECT_FROM16),
-    customFingerprint = { methodDef ->
-        methodDef.name == "onDraw"
-    }
+    returnType = "V",
+    access = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = listOf("L"),
+    opcodes = listOf(
+        Opcode.MOVE_OBJECT_FROM16,
+        Opcode.MOVE_OBJECT_FROM16
+    ),
+    customFingerprint = {it.name == "onDraw"}
 )

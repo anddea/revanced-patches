@@ -6,7 +6,10 @@ import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 
 object MainstreamVideoAdsFingerprint : MethodFingerprint(
-    "V", AccessFlags.PRIVATE or AccessFlags.FINAL, listOf("L","Z"), listOf(
+    returnType = "V",
+    access = AccessFlags.PRIVATE or AccessFlags.FINAL,
+    parameters = listOf("L","Z"),
+    opcodes = listOf(
         Opcode.IGET_OBJECT,
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT_OBJECT,

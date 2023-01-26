@@ -1,16 +1,10 @@
 package app.revanced.patches.youtube.layout.general.mixplaylists.bytecode.fingerprints
 
-import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
-import app.revanced.shared.annotation.YouTubeCompatibility
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 
-@Name("mix-playlists-second-fingerprint")
-@YouTubeCompatibility
-@Version("0.0.1")
 object SecondCreateMixPlaylistFingerprint : MethodFingerprint(
     returnType = "V",
     access = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,

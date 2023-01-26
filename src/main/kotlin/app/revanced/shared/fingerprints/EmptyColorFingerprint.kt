@@ -6,7 +6,7 @@ import org.jf.dexlib2.iface.instruction.WideLiteralInstruction
 import org.jf.dexlib2.Opcode
 
 object EmptyColorFingerprint : MethodFingerprint(
-    "V",
+    returnType = "V",
     opcodes = listOf(Opcode.DIV_LONG_2ADDR),
     customFingerprint = { methodDef ->
         methodDef.implementation?.instructions?.any { instruction ->

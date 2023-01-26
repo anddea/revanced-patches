@@ -40,8 +40,8 @@ class CreateButtonRemoverBytecodePatch : BytecodePatch(
             createRef = (pivotBarInstructions.elementAt(startIndex) as ReferenceInstruction).reference as DexBackedMethodReference
         } ?: return PivotBarFingerprint.toErrorResult()
 
-        PivotBarCreateButtonViewFingerprint.result?.let {
-            with (it.mutableMethod){
+        PivotBarCreateButtonViewFingerprint.result?.let { result ->
+            with (result.mutableMethod){
                 val createButtonInstructions = implementation!!.instructions
                 createButtonInstructions.filter { instruction ->
                     val fieldReference = (instruction as? ReferenceInstruction)?.reference as? DexBackedMethodReference
