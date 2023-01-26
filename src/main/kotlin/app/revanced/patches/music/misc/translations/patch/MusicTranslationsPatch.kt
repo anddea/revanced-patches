@@ -30,6 +30,7 @@ class MusicTranslationsPatch : ResourcePatch {
 
     private companion object {
         val LANGUAGE_LIST = arrayOf(
+            "az-rAZ",
             "be-rBY",
             "bn",
             "de-rDE",
