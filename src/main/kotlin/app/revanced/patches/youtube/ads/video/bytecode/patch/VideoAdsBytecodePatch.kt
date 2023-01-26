@@ -7,7 +7,6 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
-import app.revanced.patches.youtube.misc.videoid.mainstream.patch.MainstreamVideoIdPatch
 import app.revanced.shared.annotation.YouTubeCompatibility
 import app.revanced.shared.patches.videoads.GeneralVideoAdsPatch
 import app.revanced.shared.util.bytecode.BytecodeHelper
@@ -15,8 +14,7 @@ import app.revanced.shared.util.integrations.Constants.ADS_PATH
 
 @DependsOn(
     [
-        GeneralVideoAdsPatch::class,
-        MainstreamVideoIdPatch::class
+        GeneralVideoAdsPatch::class
     ]
 )
 @Name("hide-video-ads-bytecode-patch")

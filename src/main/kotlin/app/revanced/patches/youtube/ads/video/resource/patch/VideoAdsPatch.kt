@@ -38,14 +38,6 @@ class VideoAdsPatch : ResourcePatch {
             "SETTINGS: HIDE_VIDEO_ADS"
         )
 
-        ResourceHelper.addSettings2(
-            context,
-            "PREFERENCE_CATEGORY: REVANCED_EXTENDED_SETTINGS",
-            "PREFERENCE: EXTENDED_SETTINGS",
-            "SETTINGS: EXPERIMENTAL_FLAGS",
-            "SETTINGS: FIX_VIDEO_PLAYBACK"
-        )
-
         ResourceHelper.patchSuccess(
             context,
             "hide-video-ads"
