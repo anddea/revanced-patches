@@ -139,6 +139,9 @@
         <!-- SETTINGS: HIDE_EMAIL_ADDRESS
         <SwitchPreference android:title="@string/revanced_hide_email_address_title" android:key="revanced_hide_email_address" android:defaultValue="true" android:summaryOn="@string/revanced_hide_email_address_summary_on" android:summaryOff="@string/revanced_hide_email_address_summary_off" />SETTINGS: HIDE_EMAIL_ADDRESS -->
 
+        <!-- SETTINGS: HIDE_SNACKBAR
+        <SwitchPreference android:title="@string/revanced_hide_snackbar_title" android:key="revanced_hide_snackbar" android:defaultValue="false" android:summaryOn="@string/revanced_hide_snackbar_summary_on" android:summaryOff="@string/revanced_hide_snackbar_summary_off" />SETTINGS: HIDE_SNACKBAR -->
+
         <!-- SETTINGS: HEADER_SWITCH
         <SwitchPreference android:title="@string/revanced_override_premium_header_title" android:key="revanced_override_premium_header" android:defaultValue="false" android:summaryOn="@string/revanced_override_premium_header_summary_on" android:summaryOff="@string/revanced_override_premium_header_summary_off" />SETTINGS: HEADER_SWITCH -->
 
@@ -364,6 +367,7 @@
             <Preference android:title="hide-mix-playlists" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-crowdfunding-box" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-email-address" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="hide-snackbar" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="header-switch" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
 
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_layout_settings_player" />
