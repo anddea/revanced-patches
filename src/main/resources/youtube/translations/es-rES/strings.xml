@@ -30,7 +30,7 @@
     <string name="general_adjusting">Ajustar paso de nuevo segmento</string>
     <string name="general_adjusting_sum">Esta es la cantidad de milisegundos que puede moverse cuando usa los botones de ajuste de tiempo mientras añade un nuevo segmento</string>
     <string name="general_api_url">Cambiar la URL de la API</string>
-    <string name="general_api_url_sum">"La dirección que utiliza SponsorBlock para hacer llamadas al servidor. &lt;b&gt;No cambie esto a menos que sepa lo que está haciendo.&lt;/b&gt;\""</string>
+    <string name="general_api_url_sum">"\"La dirección que utiliza SponsorBlock para hacer llamadas al servidor. &lt;b&gt;No cambie esto a menos que sepa lo que está haciendo.&lt;/b&gt;\""</string>
     <string name="general_api_mirror_url">Cambiar la URL del Mirror de la API</string>
     <string name="general_api_mirror_url_sum">"Dirección del servidor Mirror para cambiar cuando el servidor de SponsorBlock esté caido. &lt;b&gt;No cambie esto a menos que sepa lo que está haciendo.&lt;/b&gt;"</string>
     <string name="general_min_duration">Duración mínima del segmento</string>
@@ -183,12 +183,6 @@
     <string name="revanced_downloader_package_name_title">Nombre del paquete del descargador</string>
     <string name="revanced_downloader_settings_summary">Ajustes relacionados con el descargador predeterminado</string>
     <string name="revanced_downloader_settings_title">Ajustes del descargador</string>
-    <string name="revanced_hide_endscreen_overlay_summary_off">La superposición de la pantalla final está visible</string>
-    <string name="revanced_hide_endscreen_overlay_summary_on">La superposición de la pantalla final está oculta</string>
-    <string name="revanced_hide_endscreen_overlay_title">Ocultar superposición de pantalla final</string>
-    <string name="revanced_hide_filmstrip_overlay_summary_off">La superposición de la tira de película está visible</string>
-    <string name="revanced_hide_filmstrip_overlay_summary_on">La superposición de la tira de película está oculta</string>
-    <string name="revanced_hide_filmstrip_overlay_title">Ocultar superposición de tira de película</string>
     <string name="revanced_disable_haptic_feedback_scrubbing_summary_off">La vibración al deslizar está activada</string>
     <string name="revanced_disable_haptic_feedback_scrubbing_summary_on">La vibración al deslizar está desactivada</string>
     <string name="revanced_disable_haptic_feedback_scrubbing_title">Desactivar vibración al deslizar</string>
@@ -237,9 +231,6 @@
     <string name="revanced_enable_save_video_quality_summary_off">No se guardan los valores de calidad del vídeo incluso cuando cambia la calidad del vídeo </string>
     <string name="revanced_enable_save_video_quality_summary_on">Se guarda el valor de la calidad del vídeo cada vez que cambia la calidad del vídeo</string>
     <string name="revanced_enable_save_video_quality_title">Activar guardado de calidad de vídeo</string>
-    <string name="revanced_enable_save_video_speed_summary_off">El valor de la velocidad de vídeo no se guarda incluso cuando cambia la velocidad de vídeo</string>
-    <string name="revanced_enable_save_video_speed_summary_on">El valor de la velocidad de vídeo se guarda cada vez que cambia la velocidad de vídeo </string>
-    <string name="revanced_enable_save_video_speed_title">Activar guardado de velocidad de vídeo</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">La pulsación en la barra de progreso está activada</string>
     <string name="revanced_enable_seekbar_tapping_title">Activar pulsación en barra de progreso</string>
     <string name="revanced_enable_swipe_auto_brightness_summary_off">Incluso si el brillo se establece en 0 al deslizar, el brillo automático no está activado</string>
@@ -271,9 +262,6 @@
     <string name="revanced_extended_settings">Ajustes de ReVanced Extended</string>
     <string name="revanced_extended_summary">Ajustes relacionados con Extended</string>
     <string name="revanced_extended_title">Ajustes de Extended</string>
-    <string name="revanced_fix_video_playback_summary_off">La reparación de los problemas de búfer de reproducción de vídeo está desactivada</string>
-    <string name="revanced_fix_video_playback_summary_on">La reparación de los problemas de búfer de reproducción de vídeo está activada</string>
-    <string name="revanced_fix_video_playback_title">Reparar problemas de búfer de reproducción de vídeo</string>
     <string name="revanced_hide_auto_captions_summary_off">Los subtítulos se activan cuando la reproducción de un vídeo con subtítulos es obligatoria</string>
     <string name="revanced_hide_auto_captions_summary_on">"Los subtítulos no están activados cuando la reproducción de un vídeo con subtítulos es obligatoria"</string>
     <string name="revanced_hide_auto_captions_title">Ocultar subtítulos automáticos</string>
@@ -341,6 +329,12 @@
     <string name="revanced_hide_endscreen_cards_summary_off">Las tarjetas de la pantalla final están visibles</string>
     <string name="revanced_hide_endscreen_cards_summary_on">Las tarjetas de la pantalla final están ocultas</string>
     <string name="revanced_hide_endscreen_cards_title">Ocultar tarjetas de pantalla final</string>
+    <string name="revanced_hide_endscreen_overlay_summary_off">La superposición de la pantalla final está visible</string>
+    <string name="revanced_hide_endscreen_overlay_summary_on">La superposición de la pantalla final está oculta</string>
+    <string name="revanced_hide_endscreen_overlay_title">Ocultar superposición de pantalla final</string>
+    <string name="revanced_hide_filmstrip_overlay_summary_off">La superposición de la tira de película está visible</string>
+    <string name="revanced_hide_filmstrip_overlay_summary_on">La superposición de la tira de película está oculta</string>
+    <string name="revanced_hide_filmstrip_overlay_title">Ocultar superposición de tira de película</string>
     <string name="revanced_hide_fullscreen_button_container_summary_off">El contenedor de botones en pantalla completa está visible</string>
     <string name="revanced_hide_fullscreen_button_container_summary_on">El contenedor de botones en pantalla completa está oculto</string>
     <string name="revanced_hide_fullscreen_button_container_title">Ocultar contenedor de botones en pantalla completa</string>
@@ -362,24 +356,24 @@
     <string name="revanced_hide_menu_listening_controls_summary_off">El menú Controles Auditivos está visible</string>
     <string name="revanced_hide_menu_listening_controls_summary_on">El menú Controles Auditivos está oculto</string>
     <string name="revanced_hide_menu_listening_controls_title">Ocultar menú Controles Auditivos</string>
-    <string name="revanced_hide_menu_listen_with_youtube_music_summary_off">El menú Escuchar con YouTube Music está visible</string>
-    <string name="revanced_hide_menu_listen_with_youtube_music_summary_on">El menú Escuchar con YouTube Music está oculto</string>
-    <string name="revanced_hide_menu_listen_with_youtube_music_title">Ocultar menú Escuchar con YouTube Music</string>
-    <string name="revanced_hide_menu_loop_video_summary_off">El menú Reproducción en Bucle está visible</string>
-    <string name="revanced_hide_menu_loop_video_summary_on">El menú Reproducción en Bucle está oculto</string>
-    <string name="revanced_hide_menu_loop_video_title">Ocultar menú Reproducción en Bucle</string>
+    <string name="revanced_hide_menu_listen_with_youtube_music_summary_off">El menú Escuchar Con YouTube Music está visible</string>
+    <string name="revanced_hide_menu_listen_with_youtube_music_summary_on">El menú Escuchar Con YouTube Music está oculto</string>
+    <string name="revanced_hide_menu_listen_with_youtube_music_title">Ocultar menú Escuchar Con YouTube Music</string>
+    <string name="revanced_hide_menu_loop_video_summary_off">El menú Reproducción En Bucle está visible</string>
+    <string name="revanced_hide_menu_loop_video_summary_on">El menú Reproducción En Bucle está oculto</string>
+    <string name="revanced_hide_menu_loop_video_title">Ocultar menú Reproducción En Bucle</string>
     <string name="revanced_hide_menu_more_info_summary_off">El menú Más Información está visible</string>
     <string name="revanced_hide_menu_more_info_summary_on">El menú Más Información está oculto</string>
     <string name="revanced_hide_menu_more_info_title">Ocultar menú Más Información</string>
     <string name="revanced_hide_menu_report_summary_off">El menú Denunciar está visible</string>
     <string name="revanced_hide_menu_report_summary_on">El menú Denunciar está oculto</string>
     <string name="revanced_hide_menu_report_title">Ocultar menú Denunciar</string>
-    <string name="revanced_hide_menu_stats_for_nerds_summary_off">El menú Estadísticas para Nerds está visible</string>
-    <string name="revanced_hide_menu_stats_for_nerds_summary_on">El menú Estadísticas para Nerds está oculto</string>
-    <string name="revanced_hide_menu_stats_for_nerds_title">Ocultar menú Estadísticas para Nerds</string>
-    <string name="revanced_hide_menu_watch_in_vr_summary_off">El menú Ver en Realidad Virtual está visible</string>
-    <string name="revanced_hide_menu_watch_in_vr_summary_on">El menú Ver en Realidad Virtual está oculto</string>
-    <string name="revanced_hide_menu_watch_in_vr_title">Ocultar menú Ver en Realidad Virtual</string>
+    <string name="revanced_hide_menu_stats_for_nerds_summary_off">El menú Estadísticas Para Nerds está visible</string>
+    <string name="revanced_hide_menu_stats_for_nerds_summary_on">El menú Estadísticas Para Nerds está oculto</string>
+    <string name="revanced_hide_menu_stats_for_nerds_title">Ocultar menú Estadísticas Para Nerds</string>
+    <string name="revanced_hide_menu_watch_in_vr_summary_off">El menú Ver En Realidad Virtual está visible</string>
+    <string name="revanced_hide_menu_watch_in_vr_summary_on">El menú Ver En Realidad Virtual está oculto</string>
+    <string name="revanced_hide_menu_watch_in_vr_title">Ocultar menú Ver En Realidad Virtual</string>
     <string name="revanced_hide_mix_playlists_summary_off">La lista de reproducción Mix está visible</string>
     <string name="revanced_hide_mix_playlists_summary_on">La lista de reproducción Mix está oculta</string>
     <string name="revanced_hide_mix_playlists_title">Ocultar lista de reproducción Mix</string>
@@ -410,6 +404,9 @@
     <string name="revanced_hide_shorts_shelf_summary_off">Los estantes de Shorts están visibles</string>
     <string name="revanced_hide_shorts_shelf_summary_on">Los estantes de Shorts están ocultos</string>
     <string name="revanced_hide_shorts_shelf_title">Ocultar estante de Shorts</string>
+    <string name="revanced_hide_snackbar_summary_off">La barra de snack está visible</string>
+    <string name="revanced_hide_snackbar_summary_on">La barra de snack está oculta</string>
+    <string name="revanced_hide_snackbar_title">Ocultar barra de snack</string>
     <string name="revanced_hide_startup_shorts_player_summary_off">El reproductor de Shorts está visible al iniciar la aplicación</string>
     <string name="revanced_hide_startup_shorts_player_summary_on">El reproductor de Shorts está oculto al iniciar la aplicación</string>
     <string name="revanced_hide_startup_shorts_player_title">Ocultar reproductor de Shorts al iniciar la app</string>
@@ -467,10 +464,6 @@ En los ajustes de la aplicación, la versión de YouTube puede estar marcada com
 Si activas este ajuste, las siguientes funciones estarán disponibles:
 - Publicaciones comunitarias
 - Ocultar lista de reproducción Mix\""</string>
-    <string name="revanced_reboot_warning_playback">"Repara los problemas de búfer de reproducción de vídeo en algunas regiones.
-
-Si activas este ajuste, puede ocurrir el siguiente problema:
-- Al reproducir un vídeo en la lista de reproducción, es posible que el problema no se solucione\""</string>
     <string name="revanced_reboot_warning_swipe">"Activa el gesto de deslizar siempre independientemente de la visibilidad del controlador del reproductor.
 
 Si activas este ajuste, las siguientes funciones no estarán disponibles:
@@ -480,16 +473,6 @@ Si activas este ajuste, las siguientes funciones no estarán disponibles:
 Si activas este ajuste, las siguientes características no estarán disponibles:
 - Modo ambiente
 - Publicaciones comunitarias\""</string>
-    <string name="revanced_ryd_mirror_attribution_summary">Los datos de No Me Gusta son proporcionados por la API True RYD Worker. Toque aquí para obtener más información.</string>
-    <string name="revanced_ryd_mirror_enable_summary_off">El Mirror de la API está desactivado</string>
-    <string name="revanced_ryd_mirror_enable_summary_on">El Mirror de la API está activado</string>
-    <string name="revanced_ryd_mirror_enable_title">Activar Mirror de la API</string>
-    <string name="revanced_ryd_mirror_guidelines_popup_summary">"La API True RYD Worker utiliza el recuento de No Me Gusta expuesto en el punto final de la API de YouTube.
-
-Active esta opción solo para aquellos que experimentan problemas al usar la API de RYD predeterminada.
-
-¿Desea continuar?"</string>
-    <string name="revanced_ryd_mirror_guidelines_popup_title">True RYD Worker</string>
     <string name="revanced_ryd_attribution_summary">Los datos de No Me Gusta son proporcionados por la API de Return YouTube Dislike.
 Toque aquí para obtener más información.</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
@@ -517,7 +500,6 @@ Toque aquí para obtener más información.</string>
     <string name="revanced_save_video_quality_mobile_error">No se pudo cambiar la calidad predeterminada con datos móviles</string>
     <string name="revanced_save_video_quality_wifi">Cambiando la calidad predeterminada con Wi-Fi a: </string>
     <string name="revanced_save_video_quality_wifi_error">No se pudo cambiar la calidad predeterminada con Wi-Fi</string>
-    <string name="revanced_save_video_speed">Cambiando la velocidad predeterminada a: </string>
     <string name="revanced_settings">Ajustes de ReVanced</string>
     <string name="revanced_swipe_controls_summary">Ajustes relacionados con los controles de deslizamiento</string>
     <string name="revanced_swipe_controls_title">Ajustes de controles de deslizamiento</string>

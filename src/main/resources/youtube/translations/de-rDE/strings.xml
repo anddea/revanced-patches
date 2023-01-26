@@ -183,12 +183,6 @@ Ist es fertig zum Einreichen?"</string>
     <string name="revanced_downloader_package_name_title">Paketname des Downloaders</string>
     <string name="revanced_downloader_settings_summary">Standardeinstellungen für Downloader</string>
     <string name="revanced_downloader_settings_title">Downloader-Einstellungen</string>
-    <string name="revanced_hide_endscreen_overlay_summary_off">Endbildschirm-Overlay wird angezeigt</string>
-    <string name="revanced_hide_endscreen_overlay_summary_on">Endbildschirm-Overlay sind ausgeblendet</string>
-    <string name="revanced_hide_endscreen_overlay_title">Verstecke Endbildschirm-Overlay</string>
-    <string name="revanced_hide_filmstrip_overlay_summary_off">Filmstreifen-Overlay wird angezeigt</string>
-    <string name="revanced_hide_filmstrip_overlay_summary_on">Filmstreifen-Overlay ist versteckt</string>
-    <string name="revanced_hide_filmstrip_overlay_title">Verstecke Filmstreifen-Overlay</string>
     <string name="revanced_disable_haptic_feedback_scrubbing_summary_off">Haptisches Feedback beim wischen ist aktiviert</string>
     <string name="revanced_disable_haptic_feedback_scrubbing_summary_on">Haptisches Feedback beim wischen ist deaktiviert</string>
     <string name="revanced_disable_haptic_feedback_scrubbing_title">Deaktiviere haptisches Feedback beim wischen</string>
@@ -237,9 +231,6 @@ Ist es fertig zum Einreichen?"</string>
     <string name="revanced_enable_save_video_quality_summary_off">Speichert die Werte für die Videoqualität nicht, selbst wenn die Videoqualität geändert wird</string>
     <string name="revanced_enable_save_video_quality_summary_on">Speichere den Wert der Videoqualität, wenn du die Videoqualität änderst</string>
     <string name="revanced_enable_save_video_quality_title">Aktiviere Videoqualität speichern</string>
-    <string name="revanced_enable_save_video_speed_summary_off">Speichert keine Videogeschwindigkeitswerte, selbst wenn die Videogeschwindigkeit geändert wird</string>
-    <string name="revanced_enable_save_video_speed_summary_on">Speichern Sie den Videogeschwindigkeitswert, wenn Sie die Videogeschwindigkeit ändern</string>
-    <string name="revanced_enable_save_video_speed_title">Aktivieren Sie die Videogeschwindigkeit speichern</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">Tippen der Suchleiste ist aktiviert</string>
     <string name="revanced_enable_seekbar_tapping_title">Aktiviere Suchleisten-Tippen (Video Fortschrittsbalken)</string>
     <string name="revanced_enable_swipe_auto_brightness_summary_off">Auch wenn die Helligkeit durch Wischen auf 0 gesetzt wird, ist die automatische Helligkeit nicht aktiviert</string>
@@ -271,9 +262,6 @@ Ist es fertig zum Einreichen?"</string>
     <string name="revanced_extended_settings">ReVanced Erweiterte Einstellungen</string>
     <string name="revanced_extended_summary">Erweiterte verwandte Einstellungen</string>
     <string name="revanced_extended_title">Erweiterte Einstellungen</string>
-    <string name="revanced_fix_video_playback_summary_off">Behebung von Pufferproblemen ist deaktiviert</string>
-    <string name="revanced_fix_video_playback_summary_on">Behebung von Pufferproblemen ist aktivert</string>
-    <string name="revanced_fix_video_playback_title">Behebung von Pufferproblemen</string>
     <string name="revanced_hide_auto_captions_summary_off">Untertitel werden aktiviert, wenn die Wiedergabe eines Videos mit Untertiteln erzwungen wird</string>
     <string name="revanced_hide_auto_captions_summary_on">"Untertitel werden nicht aktiviert, wenn die Wiedergabe eines Videos mit Untertiteln erzwungen wird"</string>
     <string name="revanced_hide_auto_captions_title">Verstecke automatische Untertitel</string>
@@ -341,6 +329,12 @@ Ist es fertig zum Einreichen?"</string>
     <string name="revanced_hide_endscreen_cards_summary_off">Endbildschirmkarten werden angezeigt</string>
     <string name="revanced_hide_endscreen_cards_summary_on">Endbildschirmkarten sind versteckt</string>
     <string name="revanced_hide_endscreen_cards_title">Verstecke Endbildschirmkarten</string>
+    <string name="revanced_hide_endscreen_overlay_summary_off">Endbildschirm-Overlay wird angezeigt</string>
+    <string name="revanced_hide_endscreen_overlay_summary_on">Endbildschirm-Overlay sind ausgeblendet</string>
+    <string name="revanced_hide_endscreen_overlay_title">Verstecke Endbildschirm-Overlay</string>
+    <string name="revanced_hide_filmstrip_overlay_summary_off">Filmstreifen-Overlay wird angezeigt</string>
+    <string name="revanced_hide_filmstrip_overlay_summary_on">Filmstreifen-Overlay ist versteckt</string>
+    <string name="revanced_hide_filmstrip_overlay_title">Verstecke Filmstreifen-Overlay</string>
     <string name="revanced_hide_fullscreen_button_container_summary_off">Vollbild Schalflächen werden angezeigt</string>
     <string name="revanced_hide_fullscreen_button_container_summary_on">Vollbild Schaltflächen sind versteckt</string>
     <string name="revanced_hide_fullscreen_button_container_title">Verstecke untere Schaltflächen im Vollbild</string>
@@ -467,10 +461,6 @@ In den App-Einstellungen kann die YouTube-Version als v17.28.35 markiert werden"
 Wenn du diese Einstellung aktivierst, sind folgende Funktionen verfügbar:
 - Community-Beiträge
 - Mix-Wiedergabeliste ausblenden"</string>
-    <string name="revanced_reboot_warning_playback">"Behebung von Videopuffer-Problemen in eigenen Regionen
-
-Wenn diese Einstellung aktiviert wird, kann folgendes Problem auftreten:
-- Beim Abspielen eines Videos in der Wiedergabeliste kann das Problem nicht behoben werden"</string>
     <string name="revanced_reboot_warning_swipe">"Immer wischen-Geste aktivieren, unabhängig von der Sichtbarkeit des Player-Controllers.
 
 Wenn Sie diese Einstellung aktivieren, sind die folgenden Funktionen nicht verfügbar:
@@ -480,16 +470,6 @@ Wenn Sie diese Einstellung aktivieren, sind die folgenden Funktionen nicht verf�
 Wenn diese Einstellung aktiviert wird, sind folgende Funktionen nicht verfügbar:
 - Ambient-Modus
 - Communitybeiträge"</string>
-    <string name="revanced_ryd_mirror_attribution_summary">Dislike Daten werden von der True RYD Worker API zur Verfügung gestellt. Tippe hier, um mehr zu erfahren.</string>
-    <string name="revanced_ryd_mirror_enable_summary_off">Mirror-API ist deaktiviert</string>
-    <string name="revanced_ryd_mirror_enable_summary_on">Mirror-API ist aktiviert</string>
-    <string name="revanced_ryd_mirror_enable_title">Aktiviere Mirror-API</string>
-    <string name="revanced_ryd_mirror_guidelines_popup_summary">"Echte RYD Worker API, verwendet die Dislike Anzahl im YouTube API Endpunkt.
-
-Diese Option nur dann aktivieren, wenn Probleme mit der Standard-RYD-API bestehen.
-
-Möchtest du fortfahren?"</string>
-    <string name="revanced_ryd_mirror_guidelines_popup_title">True RYD Worker</string>
     <string name="revanced_ryd_attribution_summary">Dislikes Daten werden von der True RYD Worker API zur Verfügung gestellt. Tippe hier, um mehr zu erfahren.</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_dislike_percentage_summary_off">Dislikes als Nummer angezeigt</string>
@@ -516,7 +496,6 @@ Möchtest du fortfahren?"</string>
     <string name="revanced_save_video_quality_mobile_error">Standardqualität für mobile Daten konnte nicht geändert werden</string>
     <string name="revanced_save_video_quality_wifi">Ändern der Standard-WLAN-Qualität in:</string>
     <string name="revanced_save_video_quality_wifi_error">Standard-WLAN-Qualität konnte nicht geändert werden</string>
-    <string name="revanced_save_video_speed">Ändern der Standardgeschwindigkeit zu:</string>
     <string name="revanced_settings">ReVanced Einstellungen</string>
     <string name="revanced_swipe_controls_summary">Wischgesten bezogene Einstellungen</string>
     <string name="revanced_swipe_controls_title">Wischgesten Einstellungen</string>
