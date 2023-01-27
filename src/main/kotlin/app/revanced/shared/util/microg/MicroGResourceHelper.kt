@@ -31,6 +31,9 @@ internal object MicroGResourceHelper {
                 "$fromPackageName.permission.C2D_MESSAGE",
                 "$toPackageName.permission.C2D_MESSAGE"
             ).replace(
+                "$fromPackageName.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION",
+                "$toPackageName.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+            ).replace(
                 "com.google.android.c2dm",
                 "${Constants.MICROG_VENDOR}.android.c2dm"
             ).replace(
