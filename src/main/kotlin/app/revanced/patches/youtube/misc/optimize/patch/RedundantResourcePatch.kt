@@ -59,7 +59,8 @@ class RedundantResourcePatch : ResourcePatch {
             "youtube/resource",
             ResourceUtils.ResourceGroup(
                 "raw",
-                "third_party_licenses"
+                "third_party_licenses",
+                "third_party_license_metadata"
             )
         )
 
