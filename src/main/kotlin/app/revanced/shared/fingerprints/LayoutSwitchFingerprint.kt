@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.extended.layoutswitch.bytecode.fingerprints
+package app.revanced.shared.fingerprints
 
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
