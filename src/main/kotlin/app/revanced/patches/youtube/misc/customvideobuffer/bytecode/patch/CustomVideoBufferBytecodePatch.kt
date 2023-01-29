@@ -3,15 +3,17 @@ package app.revanced.patches.youtube.misc.customvideobuffer.bytecode.patch
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
+import app.revanced.patcher.data.toMethodWalker
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.instruction
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.method.impl.MethodFingerprintResult
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.misc.customvideobuffer.bytecode.fingerprints.*
 import app.revanced.shared.annotation.YouTubeCompatibility
+import app.revanced.shared.extensions.toErrorResult
 import app.revanced.shared.util.integrations.Constants.MISC_PATH
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
@@ -20,7 +22,6 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 @Version("0.0.1")
 class CustomVideoBufferBytecodePatch : BytecodePatch(
     listOf(
-        MaxBufferAltFingerprint,
         MaxBufferFingerprint,
         PlaybackBufferFingerprint,
         ReBufferFingerprint
@@ -28,18 +29,15 @@ class CustomVideoBufferBytecodePatch : BytecodePatch(
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
 
-        /**
-         * Temporary try .. catch is used because priority of fingerprint properties are not implemented yet
-         * But it's not an ideal method
-         * see https://github.com/revanced/revanced-patcher/issues/148
-         */
-        try {
-            execMaxBuffer()
-        } catch (_: Exception) {
-            execMaxBufferAlt()
+        MaxBufferFingerprint.result?.injectMaxBuffer(context) ?: return MaxBufferFingerprint.toErrorResult()
+
+        arrayOf(
+            PlaybackBufferFingerprint to "setPlaybackBuffer",
+            ReBufferFingerprint to "setReBuffer"
+        ).map { (fingerprint, name) ->
+            fingerprint.result?.mutableMethod?.insertOverride(name) ?: return fingerprint.toErrorResult()
         }
-        execPlaybackBuffer()
-        execReBuffer()
+
         return PatchResultSuccess()
     }
 
@@ -47,65 +45,29 @@ class CustomVideoBufferBytecodePatch : BytecodePatch(
         const val INTEGRATIONS_BUFFER_CLASS_DESCRIPTOR =
             "$MISC_PATH/CustomVideoBufferPatch;"
     }
-    private fun execMaxBufferAlt() {
-        val (method, result) = MaxBufferAltFingerprint.unwrap(true, -1)
-        val (index, register) = result
 
-        method.addInstructions(
-            index + 1, """
-           invoke-static {}, $INTEGRATIONS_BUFFER_CLASS_DESCRIPTOR->setMaxBuffer()I
-           move-result v$register
-        """
-        )
+    private fun MethodFingerprintResult.injectMaxBuffer(
+        context: BytecodeContext
+    ) {
+        val insertMethod = context.toMethodWalker(this.method)
+            .nextMethod(this.scanResult.patternScanResult!!.endIndex, true)
+            .getMethod() as MutableMethod
+
+        insertMethod.insertOverride("setMaxBuffer")
     }
 
-    private fun execMaxBuffer() {
-        val (method, result) = MaxBufferFingerprint.unwrap(true, -1)
-        val (index, register) = result
+    private fun MutableMethod.insertOverride(
+        descriptor: String
+    ) {
+        val index = this.implementation!!.instructions.size - 1 - 2
+        val register = (this.instruction(index) as OneRegisterInstruction).registerA
 
-        method.addInstructions(
-            index + 1, """
-           invoke-static {}, $INTEGRATIONS_BUFFER_CLASS_DESCRIPTOR->setMaxBuffer()I
-           move-result v$register
-        """
+        this.addInstructions(
+            index,
+            """
+                invoke-static {}, $INTEGRATIONS_BUFFER_CLASS_DESCRIPTOR->$descriptor()I
+                move-result v$register
+                """
         )
-    }
-
-    private fun execPlaybackBuffer() {
-        val (method, result) = PlaybackBufferFingerprint.unwrap()
-        val (index, register) = result
-
-        method.addInstructions(
-            index + 1, """
-           invoke-static {}, $INTEGRATIONS_BUFFER_CLASS_DESCRIPTOR->setPlaybackBuffer()I
-           move-result v$register
-        """
-        )
-    }
-
-    private fun execReBuffer() {
-        val (method, result) = ReBufferFingerprint.unwrap()
-        val (index, register) = result
-
-        method.addInstructions(
-            index + 1, """
-           invoke-static {}, $INTEGRATIONS_BUFFER_CLASS_DESCRIPTOR->setReBuffer()I
-           move-result v$register
-        """
-        )
-    }
-
-    private fun MethodFingerprint.unwrap(
-        forEndIndex: Boolean = false,
-        offset: Int = 0
-    ): Pair<MutableMethod, Pair<Int, Int>> {
-        val result = this.result!!
-        val method = result.mutableMethod
-        val scanResult = result.scanResult.patternScanResult!!
-        val index = (if (forEndIndex) scanResult.endIndex else scanResult.startIndex) + offset
-
-        val register = (method.instruction(index) as OneRegisterInstruction).registerA
-
-        return method to (index to register)
     }
 }
