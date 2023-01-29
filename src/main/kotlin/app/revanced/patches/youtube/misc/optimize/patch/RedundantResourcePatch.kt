@@ -88,7 +88,9 @@ class RedundantResourcePatch : ResourcePatch {
         )
 
         val WHITELIST_MDPI = "drawable-mdpi" to arrayOf(
-            "ic_searchable.webp"
+            "ic_searchable.webp",
+            "generic_dark_x1.png",
+            "generic_light_x1.png"
         )
 
         val WHITELIST_HDPI = "drawable-hdpi" to arrayOf(
