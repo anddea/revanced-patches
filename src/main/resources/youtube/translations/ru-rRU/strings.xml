@@ -45,6 +45,7 @@
     <string name="general_uuid_sum">Это нужно держать в секрете. Это как пароль, не стоит им ни с кем делиться. Если он у кого-то есть, он сможет выдать себя за Вас</string>
     <string name="microg_not_installed_notice">Пожалуйста, установите MicroG</string>
     <string name="microg_not_installed_warning">MicroG не найден</string>
+    <string name="microg_not_running_warning">MicroG не работает в фоновом режиме</string>
     <string name="microg_notification_settings">Настройки уведомлений</string>
     <string name="microg_notification_settings_summary">"1. Регистрация устройства в Google и Cloud Messanging должны быть включены для отправки уведомлений.
 2. ReVanced должен отображаться как зарегистрированный в Cloud Messaging.
@@ -81,7 +82,7 @@
     <string name="revanced_adremover_breaking_news_shelf_title">Последние новости</string>
     <string name="revanced_adremover_button_ads_summary_off">Видеообъявления в ленте показаны</string>
     <string name="revanced_adremover_button_ads_summary_on">Видеообъявления в ленте скрыты</string>
-    <string name="revanced_adremover_button_ads_title">Видеообъявления в ленте</string>
+    <string name="revanced_adremover_button_ads_title">Видеообъявления</string>
     <string name="revanced_adremover_channel_guidelines_summary_off">Правила канала показаны</string>
     <string name="revanced_adremover_channel_guidelines_summary_on">Правила канала скрыты</string>
     <string name="revanced_adremover_channel_guidelines_title">Правила канала</string>
@@ -93,7 +94,7 @@
     <string name="revanced_adremover_channelbar_join_button_title">Спонсировать</string>
     <string name="revanced_adremover_chapter_teaser_summary_off">Тизер главы под видео показан</string>
     <string name="revanced_adremover_chapter_teaser_summary_on">Тизер главы под видео скрыт</string>
-    <string name="revanced_adremover_chapter_teaser_title">Тизер главы под видео</string>
+    <string name="revanced_adremover_chapter_teaser_title">Тизер главы</string>
     <string name="revanced_adremover_community_guidelines_summary_off">Правила сообщества показаны</string>
     <string name="revanced_adremover_community_guidelines_summary_on">Правила сообщества скрыты</string>
     <string name="revanced_adremover_community_guidelines_title">Правила сообщества</string>
@@ -119,16 +120,16 @@
     <string name="revanced_adremover_info_panel_title">Информационные панели</string>
     <string name="revanced_adremover_in_feed_survey_summary_off">Опросы в ленте показаны</string>
     <string name="revanced_adremover_in_feed_survey_summary_on">Опросы в ленте скрыты</string>
-    <string name="revanced_adremover_in_feed_survey_title">Опросы в ленте</string>
+    <string name="revanced_adremover_in_feed_survey_title">Опросы</string>
     <string name="revanced_adremover_latest_posts_summary_off">Последние посты показаны</string>
     <string name="revanced_adremover_latest_posts_summary_on">Последние посты скрыты</string>
     <string name="revanced_adremover_latest_posts_title">Последние посты</string>
     <string name="revanced_adremover_medical_panel_summary_off">Медицинские панели показаны</string>
     <string name="revanced_adremover_medical_panel_summary_on">Медицинские панели скрыты</string>
     <string name="revanced_adremover_medical_panel_title">Медицинские панели</string>
-    <string name="revanced_adremover_merchandise_summary_off">Баннеры товаров показаны</string>
-    <string name="revanced_adremover_merchandise_summary_on">Баннеры товаров скрыты</string>
-    <string name="revanced_adremover_merchandise_title">Баннеры товаров</string>
+    <string name="revanced_adremover_merchandise_summary_off">Баннеры торговли показаны</string>
+    <string name="revanced_adremover_merchandise_summary_on">Баннеры торговли скрыты</string>
+    <string name="revanced_adremover_merchandise_title">Баннеры торговли</string>
     <string name="revanced_adremover_movie_shelf_summary_off">Публикации фильмов показаны</string>
     <string name="revanced_adremover_movie_shelf_summary_on">Публикации фильмов скрыты</string>
     <string name="revanced_adremover_movie_shelf_title">Фильмы</string>
@@ -146,7 +147,7 @@
     <string name="revanced_adremover_separator_title">Серые разделители</string>
     <string name="revanced_adremover_subscribers_community_guidelines_summary_off">Рекомендации сообщества подписчиков показаны</string>
     <string name="revanced_adremover_subscribers_community_guidelines_summary_on">Рекомендации сообщества подписчиков скрыты</string>
-    <string name="revanced_adremover_subscribers_community_guidelines_title">Рекомендации сообщества подписчиков</string>
+    <string name="revanced_adremover_subscribers_community_guidelines_title">Рекомендации сообщества</string>
     <string name="revanced_adremover_suggestions_summary_off">Предложения показаны</string>
     <string name="revanced_adremover_suggestions_summary_on">Предложения скрыты</string>
     <string name="revanced_adremover_suggestions_title">Предложения</string>
@@ -156,9 +157,9 @@
     <string name="revanced_adremover_user_filter_summary_off">Пользовательский фильтр отключен</string>
     <string name="revanced_adremover_user_filter_summary_on">Пользовательский фильтр включен</string>
     <string name="revanced_adremover_user_filter_title">Пользовательский фильтр</string>
-    <string name="revanced_adremover_view_products_summary_off">Баннеры просмотра товаров показаны</string>
-    <string name="revanced_adremover_view_products_summary_on">Баннеры просмотра товаров скрыты</string>
-    <string name="revanced_adremover_view_products_title">Баннеры просмотра товаров</string>
+    <string name="revanced_adremover_view_products_summary_off">Баннеры товаров показаны</string>
+    <string name="revanced_adremover_view_products_summary_on">Баннеры товаров скрыты</string>
+    <string name="revanced_adremover_view_products_title">Баннеры товаров</string>
     <string name="revanced_adremover_web_search_panel_summary_off">Панели веб поиска показаны</string>
     <string name="revanced_adremover_web_search_panel_summary_on">Панели веб поиска скрыты</string>
     <string name="revanced_adremover_web_search_panel_title">Панели веб поиска</string>
@@ -322,10 +323,10 @@
     <string name="revanced_hide_create_button_title">Создать</string>
     <string name="revanced_hide_crowdfunding_box_summary_off">Краудфандинг колонка показана</string>
     <string name="revanced_hide_crowdfunding_box_summary_on">Краудфандинг колонка скрыта</string>
-    <string name="revanced_hide_crowdfunding_box_title">Краудфандинг колонка</string>
+    <string name="revanced_hide_crowdfunding_box_title">Краудфандинг</string>
     <string name="revanced_hide_email_address_summary_off">Адрес электронной почты показан</string>
     <string name="revanced_hide_email_address_summary_on">Адрес электронной почты скрыт</string>
-    <string name="revanced_hide_email_address_title">Адрес электронной почты</string>
+    <string name="revanced_hide_email_address_title">Электронная почта</string>
     <string name="revanced_hide_endscreen_cards_summary_off">Конечные заставки показаны</string>
     <string name="revanced_hide_endscreen_cards_summary_on">Конечные заставки скрыты</string>
     <string name="revanced_hide_endscreen_cards_title">Конечные заставки</string>
@@ -341,6 +342,9 @@
     <string name="revanced_hide_info_cards_summary_off">Подсказки показаны</string>
     <string name="revanced_hide_info_cards_summary_on">Подсказки скрыты</string>
     <string name="revanced_hide_info_cards_title">Подсказки</string>
+    <string name="revanced_hide_live_chat_button_summary_off">Кнопка \"Живой чат\" показана</string>
+    <string name="revanced_hide_live_chat_button_summary_on">Кнопка \"Живой чат\" скрыта</string>
+    <string name="revanced_hide_live_chat_button_title">Живой чат</string>
     <string name="revanced_hide_menu_ambient_mode_summary_off">Меню режима окружающей подсветки показано</string>
     <string name="revanced_hide_menu_ambient_mode_summary_on">Меню режима окружающей подсветки скрыто</string>
     <string name="revanced_hide_menu_ambient_mode_title">Режим окружающей подсветки</string>
@@ -377,9 +381,15 @@
     <string name="revanced_hide_mix_playlists_summary_off">Плейлист \"Джем\" показан</string>
     <string name="revanced_hide_mix_playlists_summary_on">Плейлист \"Джем\" скрыт</string>
     <string name="revanced_hide_mix_playlists_title">Плейлист \"Джем\"</string>
+    <string name="revanced_hide_next_button_summary_off">Кнопка следующего видео показана</string>
+    <string name="revanced_hide_next_button_summary_on">Кнопка следующего видео скрыта</string>
+    <string name="revanced_hide_next_button_title">Следующее видео</string>
     <string name="revanced_hide_player_overlay_filter_summary_off">Затемнение плеера на паузе показано</string>
     <string name="revanced_hide_player_overlay_filter_summary_on">Затемнение плеера на паузе скрыто</string>
     <string name="revanced_hide_player_overlay_filter_title">Затемнение плеера на паузе</string>
+    <string name="revanced_hide_prev_button_summary_off">Кнопка предыдущего видео показана</string>
+    <string name="revanced_hide_prev_button_summary_on">Кнопка предыдущего видео скрыта</string>
+    <string name="revanced_hide_prev_button_title">Предыдущее видео</string>
     <string name="revanced_hide_preview_comment_off">Предпросмотр комментария показан</string>
     <string name="revanced_hide_preview_comment_on">Предпросмотр комментария скрыт</string>
     <string name="revanced_hide_preview_comment_title">Предпросмотр комментария</string>
@@ -464,10 +474,6 @@
 Если этот параметр включен, следующие функции будут доступны:
 - Сообщения сообщества
 - Скрытие \"Джем\" плейлиста"</string>
-    <string name="revanced_reboot_warning_swipe">"Постоянные жесты, вне зависимости от состояния кнопок плеера
-
-Если этот параметр включен, могут возникнуть следующие проблемы:
-- Нажатие на шкалу воспроизведения видео будет иногда глючить"</string>
     <string name="revanced_reboot_warning_tablet">"Подменяет DPI для изменения некоторых элементов интерфейса на планшетный
 
 Если этот параметр включен, следующие функции будут не доступны:
@@ -485,11 +491,6 @@
     <string name="revanced_ryd_enable_summary_on">Дизлайки показаны</string>
     <string name="revanced_ryd_enable_title">Возвращение дизлайков YouTube</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Дизлайки недоступны (достигнут лимит клиента API)</string>
-    <string name="revanced_ryd_failure_confirm_user">ReturnYouTubeDislike не смог подтвердить нового пользователя</string>
-    <string name="revanced_ryd_failure_confirm_vote_failed">ReturnYouTubeDislike не смог подтвердить голосование</string>
-    <string name="revanced_ryd_failure_connection_timeout">Дизлайки временно недоступны (время API истекло)</string>
-    <string name="revanced_ryd_failure_register_user">ReturnYouTubeDislike не смог зарегистрировать нового пользователя</string>
-    <string name="revanced_ryd_failure_send_vote_failed">ReturnYouTubeDislike не смог выслать голосование</string>
     <string name="revanced_ryd_settings_summary">Настройки опции возвращения дизлайков YouTube (Return YouTube Dislike)</string>
     <string name="revanced_ryd_settings_title">Возвращение дизлайков YouTube</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Скрыто</string>

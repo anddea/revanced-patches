@@ -45,6 +45,7 @@
     <string name="general_uuid_sum">Cela doit rester privé. C’est comme un mot de passe et ne doit pas être partagé avec quiconque. Si quelqu’un a cela, ils peuvent se faire passer pour vous</string>
     <string name="microg_not_installed_notice">Veuillez installer MicroG</string>
     <string name="microg_not_installed_warning">MicroG n’est pas trouvé</string>
+    <string name="microg_not_running_warning">MicroG ne fonctionne pas en arrière-plan</string>
     <string name="microg_notification_settings">Paramètres de notifications</string>
     <string name="microg_notification_settings_summary">"1. L’enregistrement des appareils Google et la Messagerie Cloud doivent être activés pour les notifications.
 2. ReVanced doit être affiché comme enregistré sous Messagerie Cloud
@@ -341,6 +342,9 @@ Est-il prêt à être soumis?"</string>
     <string name="revanced_hide_info_cards_summary_off">Les cartes d’information sont affichés</string>
     <string name="revanced_hide_info_cards_summary_on">Les cartes d’information sont cachées</string>
     <string name="revanced_hide_info_cards_title">Cacher les infos</string>
+    <string name="revanced_hide_live_chat_button_summary_off">Le bouton Chat en direct est affiché </string>
+    <string name="revanced_hide_live_chat_button_summary_on">Le bouton Chat en direct est caché </string>
+    <string name="revanced_hide_live_chat_button_title">Cacher le bouton Chat en direct </string>
     <string name="revanced_hide_menu_ambient_mode_summary_off">Le mode Ambiant est affiché</string>
     <string name="revanced_hide_menu_ambient_mode_summary_on">Le mode Ambiant est caché</string>
     <string name="revanced_hide_menu_ambient_mode_title">Cacher le mode Ambiant</string>
@@ -377,9 +381,15 @@ Est-il prêt à être soumis?"</string>
     <string name="revanced_hide_mix_playlists_summary_off">La playlist Mix est affichée</string>
     <string name="revanced_hide_mix_playlists_summary_on">La playlist Mix est cachée</string>
     <string name="revanced_hide_mix_playlists_title">Cacher la playlist Mix</string>
+    <string name="revanced_hide_next_button_summary_off">Le bouton \"suivant\" est affiché</string>
+    <string name="revanced_hide_next_button_summary_on">Le bouton \"suivant\" est caché</string>
+    <string name="revanced_hide_next_button_title">Cacher le bouton\"suivant\"</string>
     <string name="revanced_hide_player_overlay_filter_summary_off">Le filtre de superposition du lecteur est affiché</string>
     <string name="revanced_hide_player_overlay_filter_summary_on">Le filtre de superposition du lecteur est caché</string>
     <string name="revanced_hide_player_overlay_filter_title">Cacher le filtre de superposition du lecteur</string>
+    <string name="revanced_hide_prev_button_summary_off">Le bouton \"précédent\" est affiché</string>
+    <string name="revanced_hide_prev_button_summary_on">Le bouton \"précédent\" est caché </string>
+    <string name="revanced_hide_prev_button_title">Cacher le bouton \"précédent\"</string>
     <string name="revanced_hide_preview_comment_off">L\'aperçu du commentaire affiché</string>
     <string name="revanced_hide_preview_comment_on">L\'aperçu du commentaire caché</string>
     <string name="revanced_hide_preview_comment_title">Cacher l\'aperçu du commentaire</string>
@@ -404,9 +414,9 @@ Est-il prêt à être soumis?"</string>
     <string name="revanced_hide_shorts_shelf_summary_off">Les Shorts à la page d\'accueil sont affichées</string>
     <string name="revanced_hide_shorts_shelf_summary_on">Les Shorts à la page d\'accueil sont cachées</string>
     <string name="revanced_hide_shorts_shelf_title">Cacher les Shorts a la page d\'accueil</string>
-    <string name="revanced_hide_snackbar_summary_off">Le Snackbar est caché</string>
-    <string name="revanced_hide_snackbar_summary_on">Le Snackbar est affiché</string>
-    <string name="revanced_hide_snackbar_title">Cacher le snackbar (Bouton qui rajoute une action a un message)</string>
+    <string name="revanced_hide_snackbar_summary_off">Le Snackbar est affiché</string>
+    <string name="revanced_hide_snackbar_summary_on">Le Snackbar est caché</string>
+    <string name="revanced_hide_snackbar_title">Cacher le snackbar (Rajoute une action a un message)</string>
     <string name="revanced_hide_startup_shorts_player_summary_off">Le lecteur Shorts est désactivé au démarrage de l\'application</string>
     <string name="revanced_hide_startup_shorts_player_summary_on">Le lecteur Shorts est activé au démarrage de l\'application</string>
     <string name="revanced_hide_startup_shorts_player_title">Lecteur de Shorts au démarrage de l\'application</string>
@@ -460,11 +470,6 @@ Est-il prêt à être soumis?"</string>
 
  - Publications communautaires 
  - Masquer la liste de lecture Mix"</string>
-    <string name="revanced_reboot_warning_swipe">"Activez toujours le geste de balayage indépendamment de la visibilité du contrôleur de joueur.
-
-Si vous activez ce paramètre, les fonctionnalités suivantes ne sont pas disponibles : 
-
-- La barre de recherche peut buggé "</string>
     <string name="revanced_reboot_warning_tablet">"Permet de modifier certaines mises en page pour les tablettes. Si vous activez ce paramètre, les fonctionnalités suivantes ne sont pas disponibles : 
 
  - Mode ambiant 
@@ -474,18 +479,13 @@ Si vous activez ce paramètre, les fonctionnalités suivantes ne sont pas dispon
     <string name="revanced_ryd_dislike_percentage_summary_off">Les dislikes sont affichées sous forme de nombre</string>
     <string name="revanced_ryd_dislike_percentage_summary_on">Les dislikes sont affichés sous forme de pourcentage</string>
     <string name="revanced_ryd_dislike_percentage_title">Dislikes en pourcentage</string>
-    <string name="revanced_ryd_compact_layout_summary_off">Le bouton \"J\'aime\" et séparé par un trait</string>
+    <string name="revanced_ryd_compact_layout_summary_off">Le bouton \"J\'aime\" est séparé par un trait</string>
     <string name="revanced_ryd_compact_layout_summary_on">Le bouton \"J\'aime\" n\'est pas séparé par un trait</string>
     <string name="revanced_ryd_compact_layout_title">Design du bouton \"J\'aime\" </string>
     <string name="revanced_ryd_enable_summary_off">Les dislikes ne sont pas affichés</string>
     <string name="revanced_ryd_enable_summary_on">Les dislikes sont affichées</string>
     <string name="revanced_ryd_enable_title">Retour YouTube Dislike</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Les dislikes ne sont disponible  (limite de clients d\'API atteinte)</string>
-    <string name="revanced_ryd_failure_confirm_user">RetourYouTubeDislike n\'a pas réussi à confirmer le nouvel utilisateur</string>
-    <string name="revanced_ryd_failure_confirm_vote_failed">RetourYouTubeDislike a échoué à confirmer le vote</string>
-    <string name="revanced_ryd_failure_connection_timeout">Les dislikes sont temporairement indisponible (temporisation de l’API)</string>
-    <string name="revanced_ryd_failure_register_user">RetourYouTubeDislike n\'a pas pu s\'inscrire en tant que nouvel utilisateur</string>
-    <string name="revanced_ryd_failure_send_vote_failed">RetourYouTubeDislike a échoué à envoyer le vote</string>
     <string name="revanced_ryd_settings_summary">Paramètres pour le retour du nombre de gens qui ont mis \"Je n\'aimes pas\"</string>
     <string name="revanced_ryd_settings_title">Retour YouTube Dislike</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Cacher</string>
