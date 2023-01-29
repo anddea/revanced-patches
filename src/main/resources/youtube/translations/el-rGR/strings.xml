@@ -341,6 +341,9 @@
     <string name="revanced_hide_info_cards_summary_off">Οι κάρτες πληροφοριών εμφανίζονται</string>
     <string name="revanced_hide_info_cards_summary_on">Οι κάρτες πληροφοριών είναι κρυμμένες</string>
     <string name="revanced_hide_info_cards_title">Απόκρυψη καρτών πληροφοριών</string>
+    <string name="revanced_hide_live_chat_button_summary_off">Live chat button is shown</string>
+    <string name="revanced_hide_live_chat_button_summary_on">Live chat button is hidden</string>
+    <string name="revanced_hide_live_chat_button_title">Hide live chat button</string>
     <string name="revanced_hide_menu_ambient_mode_summary_off">Το μενού \"Λειτουργία περιβάλλοντος\" εμφανίζεται</string>
     <string name="revanced_hide_menu_ambient_mode_summary_on">Το μενού \"Λειτουργία περιβάλλοντος\" είναι κρυμμένο</string>
     <string name="revanced_hide_menu_ambient_mode_title">Απόκρυψη του μενού \"Λειτουργία περιβάλλοντος\"</string>
@@ -377,9 +380,15 @@
     <string name="revanced_hide_mix_playlists_summary_off">Η λίστα αναπαραγωγής Mix εμφανίζεται</string>
     <string name="revanced_hide_mix_playlists_summary_on">Η λίστα αναπαραγωγής Mix είναι κρυμμένη</string>
     <string name="revanced_hide_mix_playlists_title">Απόκρυψη λίστας αναπαραγωγής Mix</string>
+    <string name="revanced_hide_next_button_summary_off">Next button is shown</string>
+    <string name="revanced_hide_next_button_summary_on">Next button is hidden</string>
+    <string name="revanced_hide_next_button_title">Hide next button</string>
     <string name="revanced_hide_player_overlay_filter_summary_off">Το φίλτρο επικάλυψης του video player εμφανίζεται</string>
     <string name="revanced_hide_player_overlay_filter_summary_on">Το φίλτρο επικάλυψης του video player είναι κρυμμένο</string>
     <string name="revanced_hide_player_overlay_filter_title">Απόκρυψη φίλτρου επικάλυψης του player</string>
+    <string name="revanced_hide_prev_button_summary_off">Prev button is shown</string>
+    <string name="revanced_hide_prev_button_summary_on">Prev button is hidden</string>
+    <string name="revanced_hide_prev_button_title">Hide prev button</string>
     <string name="revanced_hide_preview_comment_off">Η προεπισκόπηση σχολίου εμφανίζεται</string>
     <string name="revanced_hide_preview_comment_on">Η προεπισκόπηση σχολίου είναι κρυμμένη</string>
     <string name="revanced_hide_preview_comment_title">Απόκρυψη προεπισκόπησης σχολίου</string>
@@ -404,6 +413,9 @@
     <string name="revanced_hide_shorts_shelf_summary_off">Οι ενότητες shorts εμφανίζονται</string>
     <string name="revanced_hide_shorts_shelf_summary_on">Οι ενότητες shorts είναι κρυμμένες</string>
     <string name="revanced_hide_shorts_shelf_title">Απόκρυψη της ενότητας Shorts</string>
+    <string name="revanced_hide_snackbar_summary_off">Το Snackbar εμφανίζεται</string>
+    <string name="revanced_hide_snackbar_summary_on">Το Snackbar είναι κρυμμένο</string>
+    <string name="revanced_hide_snackbar_title">Απόκρυψη snackbar</string>
     <string name="revanced_hide_startup_shorts_player_summary_off">Το shorts player εμφανίζεται κατά την εκκίνηση της εφαρμογής</string>
     <string name="revanced_hide_startup_shorts_player_summary_on">Το shorts player είναι κρυμμένο κατά την εκκίνηση της εφαρμογής</string>
     <string name="revanced_hide_startup_shorts_player_title">Απόκρυψη του shorts player κατά την εκκίνηση της εφαρμογής</string>
@@ -461,10 +473,6 @@
 Εάν ενεργοποιήσετε αυτή τη ρύθμιση, είναι διαθέσιμες οι ακόλουθες λειτουργίες:
 - Κοινοτικές αναρτήσεις
 - Απόκρυψη λίστας αναπαραγωγής Mix"</string>
-    <string name="revanced_reboot_warning_swipe">"Ενεργοποίηση χειρονομιών swipe πάντα, ανεξάρτητα από το αν τα χειριστήρια αναπαραγωγής βίντεο είναι ορατά ή όχι.
-
-Εάν ενεργοποιήσετε αυτή τη ρύθμιση, ενδέχεται να υπάρξουν τα παρακάτω θέματα:
-- Το πάτημα της γραμμής χρόνου είναι μερικές φορές προβληματικό"</string>
     <string name="revanced_reboot_warning_tablet">"Εξαπατά το dpi για να αλλάξει κάποιες διατάξεις σε διατάξεις tablet.
 
 Εάν ενεργοποιήσετε αυτή τη ρύθμιση, οι ακόλουθες λειτουργίες δεν είναι διαθέσιμες:
@@ -482,11 +490,6 @@
     <string name="revanced_ryd_enable_summary_on">Τα dislikes εμφανίζονται</string>
     <string name="revanced_ryd_enable_title">Επιστρέψτε το \"Δεν μου αρέσει\" στο YouTube</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Dislikes μη διαθέσιμα (το όριο του API του πελάτη έχει επιτευχθεί)</string>
-    <string name="revanced_ryd_failure_confirm_user">Το ReturnYouTubeDislike απέτυχε να επιβεβαιώσει τον νέο χρήστη</string>
-    <string name="revanced_ryd_failure_confirm_vote_failed">Το ReturnYouTubeDislike απέτυχε να επιβεβαιώσει την ψήφο</string>
-    <string name="revanced_ryd_failure_connection_timeout">Τα dislikes είναι προσωρινά μή διαθέσιμα (χρονοκαθυστέρηση API)</string>
-    <string name="revanced_ryd_failure_register_user">Το ReturnYouTubeDislike απέτυχε να καταχωρήσει τον νέο χρήστη</string>
-    <string name="revanced_ryd_failure_send_vote_failed">Το ReturnYouTubeDislike απέτυχε να στείλει ψήφο</string>
     <string name="revanced_ryd_settings_summary">Ρυθμίσεις για το Return YouTube Dislike</string>
     <string name="revanced_ryd_settings_title">Return Youtube Dislike</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Κρυφό</string>

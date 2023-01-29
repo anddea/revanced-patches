@@ -341,6 +341,9 @@
     <string name="revanced_hide_info_cards_summary_off">Las tarjetas de información están visibles</string>
     <string name="revanced_hide_info_cards_summary_on">Las tarjetas de información están ocultas</string>
     <string name="revanced_hide_info_cards_title">Ocultar tarjetas de información</string>
+    <string name="revanced_hide_live_chat_button_summary_off">El botón Chat En Directo está visible</string>
+    <string name="revanced_hide_live_chat_button_summary_on">El botón Chat En Directo está oculto</string>
+    <string name="revanced_hide_live_chat_button_title">Ocultar botón Chat En Directo</string>
     <string name="revanced_hide_menu_ambient_mode_summary_off">El menú Modo Ambiente está visible</string>
     <string name="revanced_hide_menu_ambient_mode_summary_on">El menú Modo Ambiente está oculto</string>
     <string name="revanced_hide_menu_ambient_mode_title">Ocultar menú Modo Ambiente</string>
@@ -377,9 +380,15 @@
     <string name="revanced_hide_mix_playlists_summary_off">La lista de reproducción Mix está visible</string>
     <string name="revanced_hide_mix_playlists_summary_on">La lista de reproducción Mix está oculta</string>
     <string name="revanced_hide_mix_playlists_title">Ocultar lista de reproducción Mix</string>
+    <string name="revanced_hide_next_button_summary_off">El botón Siguiente está visible</string>
+    <string name="revanced_hide_next_button_summary_on">El botón Siguiente está oculto</string>
+    <string name="revanced_hide_next_button_title">Ocultar botón Siguiente</string>
     <string name="revanced_hide_player_overlay_filter_summary_off">El filtro de superposición del reproductor está visible</string>
     <string name="revanced_hide_player_overlay_filter_summary_on">El filtro de superposición del reproductor está oculto</string>
     <string name="revanced_hide_player_overlay_filter_title">Ocultar filtro de superposición del reproductor</string>
+    <string name="revanced_hide_prev_button_summary_off">El botón Anterior está visible</string>
+    <string name="revanced_hide_prev_button_summary_on">El botón Anterior está oculto</string>
+    <string name="revanced_hide_prev_button_title">Ocultar botón Anterior</string>
     <string name="revanced_hide_preview_comment_off">La vista previa de comentarios está visible</string>
     <string name="revanced_hide_preview_comment_on">La vista previa de comentarios está oculta</string>
     <string name="revanced_hide_preview_comment_title">Ocultar vista previa de comentarios</string>
@@ -454,21 +463,17 @@
     <string name="revanced_patches_information">Información de parches</string>
     <string name="revanced_player_flyout_panel_summary">Ocultar los componentes del panel flotante de los ajustes del reproductor</string>
     <string name="revanced_player_flyout_panel_title">Componentes del panel flotante del reproductor</string>
-    <string name="revanced_reboot_warning_general">"Como esta es todavía una característica experimental, puede haber otros problemas desconocidos.
+    <string name="revanced_reboot_warning_general">"\"Como esta es todavía una característica experimental, puede haber otros problemas desconocidos.
 ¿Está seguro de que desea continuar?\""</string>
     <string name="revanced_reboot_warning_oldlayout">"Modifica la versión del cliente de YouTube a v17.28.35 para cargar el diseño antiguo
 
 En los ajustes de la aplicación, la versión de YouTube puede estar marcada como v17.28.35"</string>
-    <string name="revanced_reboot_warning_phone">"Modifica los DPI para cambiar algunos diseños a diseños de teléfono.
+    <string name="revanced_reboot_warning_phone">"\"Modifica los DPI para cambiar algunos diseños a diseños de teléfono.
 
 Si activas este ajuste, las siguientes funciones estarán disponibles:
 - Publicaciones comunitarias
 - Ocultar lista de reproducción Mix\""</string>
-    <string name="revanced_reboot_warning_swipe">"Activa el gesto de deslizar siempre independientemente de la visibilidad del controlador del reproductor.
-
-Si activas este ajuste, las siguientes funciones no estarán disponibles:
-- Las pulsaciones en la barra de progreso a veces tienen errores\""</string>
-    <string name="revanced_reboot_warning_tablet">"Modifica los DPI para cambiar algunos diseños a diseños de tableta.
+    <string name="revanced_reboot_warning_tablet">"\"Modifica los DPI para cambiar algunos diseños a diseños de tableta.
 
 Si activas este ajuste, las siguientes características no estarán disponibles:
 - Modo ambiente
@@ -486,11 +491,6 @@ Toque aquí para obtener más información.</string>
     <string name="revanced_ryd_enable_summary_on">Los No Me Gusta están visibles</string>
     <string name="revanced_ryd_enable_title">Return YouTube Dislike</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Los No Me Gusta no están disponibles (se alcanzó el límite de la API del cliente)</string>
-    <string name="revanced_ryd_failure_confirm_user">ReturnYouTubeDislike no pudo confirmar el nuevo usuario</string>
-    <string name="revanced_ryd_failure_confirm_vote_failed">ReturnYouTubeDislike no pudo confirmar el voto</string>
-    <string name="revanced_ryd_failure_connection_timeout">Los No Me Gusta están temporalmente no disponibles (la API agotó el tiempo de espera)</string>
-    <string name="revanced_ryd_failure_register_user">ReturnYouTubeDislike no pudo registrarse como nuevo usuario</string>
-    <string name="revanced_ryd_failure_send_vote_failed">ReturnYouTubeDislike no pudo enviar el voto</string>
     <string name="revanced_ryd_settings_summary">Ajustes para Return YouTube Dislike</string>
     <string name="revanced_ryd_settings_title">Return YouTube Dislike</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Oculto</string>
@@ -535,7 +535,7 @@ Toque aquí para obtener más información.</string>
     <string name="revanced_whitelisting_speed">Velocidad de vídeo</string>
     <string name="revanced_whitelisting_speed_button">Velocidad</string>
     <string name="revanced_whitelisting_sponsorblock">SponsorBlock</string>
-    <string name="revanced_whitelisting_sponsorblock_button">SB</string>
+    <string name="revanced_whitelisting_sponsorblock_button">SponsorBlock</string>
     <string name="sb_connection_failed">¡El servidor de Sponsorblock no responde!</string>
     <string name="sb_guidelines_popup_already_read">Ya leído</string>
     <string name="sb_guidelines_popup_content">"Se recomienda leer las normas de SponsorBlock antes de enviar cualquier segmento"</string>

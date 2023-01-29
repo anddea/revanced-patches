@@ -45,6 +45,7 @@
     <string name="general_uuid_sum">يجب أن يبقى هذا خاصًا. انه مثل كلمة المرور ولا ينبغي مشاركته مع أي شخص. إذا كان شخص ما يملك هذا، فيمكنه انتحال شخصيتك</string>
     <string name="microg_not_installed_notice">الرجاء تثبيت MicroG</string>
     <string name="microg_not_installed_warning">لم يتم العثور على MicroG</string>
+    <string name="microg_not_running_warning">لا يعمل MicroG في الخلفية</string>
     <string name="microg_notification_settings">إعدادات الإشعارات</string>
     <string name="microg_notification_settings_summary">"1. يحتاج تسجيل جهاز Google و Google Cloud Messaging إلى تمكينهما للحصول على للإشعارات.  2. يحتاج ReVanced إلى أن يظهر كمسجل تحت المراسلة السحابية.  3. يجب عدم قطع الإتصال في المراسلة السحابية."</string>
     <string name="microg_settings">إعدادات MicroG</string>
@@ -343,6 +344,9 @@
     <string name="revanced_hide_info_cards_summary_off">يتم عرض بطاقات المعلومات</string>
     <string name="revanced_hide_info_cards_summary_on">تم إخفاء بطاقات المعلومات</string>
     <string name="revanced_hide_info_cards_title">إخفاء بطاقات المعلومات</string>
+    <string name="revanced_hide_live_chat_button_summary_off">يتم عرض زر المحادثات المباشرة</string>
+    <string name="revanced_hide_live_chat_button_summary_on">تم إخفاء زر المحادثات المباشرة</string>
+    <string name="revanced_hide_live_chat_button_title">إخفاء زر المحادثات المباشرة</string>
     <string name="revanced_hide_menu_ambient_mode_summary_off">يتم عرض قائمة الإضاءة السينمائية</string>
     <string name="revanced_hide_menu_ambient_mode_summary_on">تم إخفاء قائمة الإضاءة السينمائية</string>
     <string name="revanced_hide_menu_ambient_mode_title">إخفاء قائمة الإضاءة السينمائية</string>
@@ -379,9 +383,15 @@
     <string name="revanced_hide_mix_playlists_summary_off">يتم عرض قائمة تشغيل التشكيلة</string>
     <string name="revanced_hide_mix_playlists_summary_on">تم إخفاء قائمة تشغيل التشكيلة</string>
     <string name="revanced_hide_mix_playlists_title">إخفاء قائمة تشغيل التشكيلة</string>
+    <string name="revanced_hide_next_button_summary_off">يتم عرض زر التالي</string>
+    <string name="revanced_hide_next_button_summary_on">تم إخفاء زر التالي</string>
+    <string name="revanced_hide_next_button_title">إخفاء زر التالي</string>
     <string name="revanced_hide_player_overlay_filter_summary_off">يتم عرض فلتر خلفية واجهة المشغل</string>
     <string name="revanced_hide_player_overlay_filter_summary_on">تم إخفاء فلتر خلفية واجهة المشغل</string>
     <string name="revanced_hide_player_overlay_filter_title">إخفاء فلتر خلفية واجهة المشغل</string>
+    <string name="revanced_hide_prev_button_summary_off">يتم عرض زر السابق</string>
+    <string name="revanced_hide_prev_button_summary_on">تم إخفاء زر السابق</string>
+    <string name="revanced_hide_prev_button_title">إخفاء زر السابق</string>
     <string name="revanced_hide_preview_comment_off">يتم عرض تعليق المعاينة</string>
     <string name="revanced_hide_preview_comment_on">تم إخفاء تعليق المعاينة</string>
     <string name="revanced_hide_preview_comment_title">إخفاء تعليق المعاينة</string>
@@ -462,7 +472,6 @@
 إذا قمت بتمكين هذا الإعداد، فستتوفر الميزات التالية:
 - مشاركات المجتمع
 - إخفاء قائمة تشغيل التشكيلة"</string>
-    <string name="revanced_reboot_warning_swipe">"تمكين إيماءات السحب بشكل دائم سواءً عناصر تحكم المشغل مرئية أو غير مرئية  إذا قمت بتمكين هذا الإعداد، فلن تتوفر الميزات التالية:  - ببعض الأوقات يؤدي النقر على شريط تقدم الفيديو إلى حدوث أخطاء"</string>
     <string name="revanced_reboot_warning_tablet">"حِيَل نقطة في البوصة لتغيير بعض التصميمات لتصميمات الجهاز اللوحي.
 إذا قمت بتمكين هذا الإعداد، فلن ستتوفر الميزات التالية:
 - الإضاءة السينمائية
@@ -479,11 +488,6 @@
     <string name="revanced_ryd_enable_summary_on">يتم عرض عدم الإعجاب</string>
     <string name="revanced_ryd_enable_title">إرجاع YouTube Dislike</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">عدم الإعجاب غير متاح (تم الوصول إلى حد API العميل)</string>
-    <string name="revanced_ryd_failure_confirm_user">فشل ReturnYouTubeDislike في تأكيد المستخدم الجديد</string>
-    <string name="revanced_ryd_failure_confirm_vote_failed">فشل ReturnYouTubeDislike في تأكيد التصويت</string>
-    <string name="revanced_ryd_failure_connection_timeout">عدم الإعجاب غير متوفر مؤقتًا (انتهت مهلة API)</string>
-    <string name="revanced_ryd_failure_register_user">فشل ReturnYouTubeDislike في التسجيل كمستخدم جديد</string>
-    <string name="revanced_ryd_failure_send_vote_failed">فشل ReturnYouTubeDislike في إرسال التصويت</string>
     <string name="revanced_ryd_settings_summary">الإعدادات المتعلقة بإرجاع عدد عدم الإعجاب</string>
     <string name="revanced_ryd_settings_title">إرجاع YouTube Dislike</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">مخفي</string>

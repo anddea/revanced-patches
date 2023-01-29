@@ -341,6 +341,9 @@
     <string name="revanced_hide_info_cards_summary_off">영상 정보 카드가 노출됩니다.</string>
     <string name="revanced_hide_info_cards_summary_on">영상 정보 카드가 숨겨집니다.</string>
     <string name="revanced_hide_info_cards_title">영상 정보 카드 숨기기</string>
+    <string name="revanced_hide_live_chat_button_summary_off">실시간 채팅 버튼이 노출됩니다.</string>
+    <string name="revanced_hide_live_chat_button_summary_on">실시간 채팅 버튼이 숨겨집니다.</string>
+    <string name="revanced_hide_live_chat_button_title">실시간 채팅 버튼 숨기기</string>
     <string name="revanced_hide_menu_ambient_mode_summary_off">영화 조명 메뉴가 노출됩니다.</string>
     <string name="revanced_hide_menu_ambient_mode_summary_on">영화 조명 메뉴가 숨겨집니다.</string>
     <string name="revanced_hide_menu_ambient_mode_title">영화 조명 메뉴 숨기기</string>
@@ -377,9 +380,15 @@
     <string name="revanced_hide_mix_playlists_summary_off">Mix 플레이리스트가 노출됩니다.</string>
     <string name="revanced_hide_mix_playlists_summary_on">Mix 플레이리스트가 숨겨집니다.</string>
     <string name="revanced_hide_mix_playlists_title">Mix 플레이리스트 숨기기</string>
+    <string name="revanced_hide_next_button_summary_off">다음 동영상 버튼이 노출됩니다.</string>
+    <string name="revanced_hide_next_button_summary_on">다음 동영상 버튼이 숨겨집니다.</string>
+    <string name="revanced_hide_next_button_title">다음 동영상 버튼 숨기기</string>
     <string name="revanced_hide_player_overlay_filter_summary_off">플레이어 오버레이 필터가 노출됩니다.</string>
     <string name="revanced_hide_player_overlay_filter_summary_on">플레이어 오버레이 필터가 숨겨집니다.</string>
     <string name="revanced_hide_player_overlay_filter_title">플레이어 오버레이 필터 숨기기</string>
+    <string name="revanced_hide_prev_button_summary_off">이전 동영상 버튼이 노출됩니다.</string>
+    <string name="revanced_hide_prev_button_summary_on">이전 동영상 버튼이 숨겨집니다.</string>
+    <string name="revanced_hide_prev_button_title">이전 동영상 버튼 숨기기</string>
     <string name="revanced_hide_preview_comment_off">미리보기 댓글이 노출됩니다.</string>
     <string name="revanced_hide_preview_comment_on">미리보기 댓글이 숨겨집니다.</string>
     <string name="revanced_hide_preview_comment_title">미리보기 댓글 숨기기</string>
@@ -404,6 +413,9 @@
     <string name="revanced_hide_shorts_shelf_summary_off">Shorts 선반이 노출됩니다.</string>
     <string name="revanced_hide_shorts_shelf_summary_on">Shorts 선반이 숨겨집니다.</string>
     <string name="revanced_hide_shorts_shelf_title">Shorts 선반 숨기기</string>
+    <string name="revanced_hide_snackbar_summary_off">스낵바(하단 팝업)이 보여집니다.</string>
+    <string name="revanced_hide_snackbar_summary_on">스낵바(하단 팝업)이 숨겨집니다.</string>
+    <string name="revanced_hide_snackbar_title">스낵바(하단 팝업) 숨기기</string>
     <string name="revanced_hide_startup_shorts_player_summary_off">앱 시작시 Shorts 플레이어가 노출됩니다.</string>
     <string name="revanced_hide_startup_shorts_player_summary_on">앱 시작시 Shorts 플레이어가 숨겨집니다.</string>
     <string name="revanced_hide_startup_shorts_player_title">앱 시작시 Shorts 플레이어 숨기기</string>
@@ -461,10 +473,6 @@
 이 설정을 활성화하면 다음 기능을 사용할 수 있습니다.
 - 영화 조명
 - 커뮤니티 게시글"</string>
-    <string name="revanced_reboot_warning_swipe">"플레이어 컨트롤의 표시 여부에 관계없이 항상 스와이프 제스처를 활성화합니다.
-
-이 설정을 활성화하면 다음과 같은 문제가 발생할 수 있습니다.
-- 재생바 터치 조작이 때때로 의도한대로 작동하지 않습니다."</string>
     <string name="revanced_reboot_warning_tablet">"dpi를 속여 일부 레이아웃을 태블릿 레이아웃으로 변경합니다.
 
 이 설정을 활성화하면 다음 기능을 사용할 수 없습니다.
@@ -482,11 +490,6 @@
     <string name="revanced_ryd_enable_summary_on">싫어요 개수가 노출됩니다.</string>
     <string name="revanced_ryd_enable_title">Return Youtube Dislike 설정</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">ReturnYouTubeDislike 에러: 싫어요 개수를 표시할 수 없습니다. (클라이언트 API 제한 도달)</string>
-    <string name="revanced_ryd_failure_confirm_user">ReturnYouTubeDislike 에러: 서버에서 사용자를 식별할 수 없습니다.</string>
-    <string name="revanced_ryd_failure_confirm_vote_failed">ReturnYouTubeDislike 에러: 서버에서 vote를 식별할 수 없습니다.</string>
-    <string name="revanced_ryd_failure_connection_timeout">ReturnYouTubeDislike 에러: 싫어요 개수를 일시적으로 표시할 수 없습니다. (응답 시간 초과)</string>
-    <string name="revanced_ryd_failure_register_user">ReturnYouTubeDislike 에러: 사용자 등록에 실패하였습니다.</string>
-    <string name="revanced_ryd_failure_send_vote_failed">ReturnYouTubeDislike 에러: vote 제출에 실패하였습니다.</string>
     <string name="revanced_ryd_settings_summary">Return YouTube Dislike에 관련 설정입니다.</string>
     <string name="revanced_ryd_settings_title">Return Youtube Dislike 설정</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">숨겨짐</string>
