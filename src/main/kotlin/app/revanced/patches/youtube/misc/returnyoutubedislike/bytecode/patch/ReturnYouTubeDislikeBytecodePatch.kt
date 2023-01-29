@@ -12,12 +12,18 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patches.youtube.misc.returnyoutubedislike.bytecode.fingerprints.*
+import app.revanced.patches.youtube.misc.playertype.patch.PlayerTypeHookPatch
 import app.revanced.patches.youtube.misc.videoid.legacy.patch.LegacyVideoIdPatch
 import app.revanced.shared.annotation.YouTubeCompatibility
 import app.revanced.shared.util.integrations.Constants.UTILS_PATH
 
 @Name("return-youtube-dislike-bytecode-patch")
-@DependsOn([LegacyVideoIdPatch::class])
+@DependsOn(
+    [
+        LegacyVideoIdPatch::class,
+        PlayerTypeHookPatch::class
+    ]
+)
 @YouTubeCompatibility
 @Version("0.0.1")
 class ReturnYouTubeDislikeBytecodePatch : BytecodePatch(
