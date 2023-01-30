@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="about">概要</string>
-    <string name="about_api">Sponsor Blockについて</string>
-    <string name="about_api_sum">このアプリは Sponsor Block の API を使用しています。詳細についてはこちらをタップしてください。</string>
+    <string name="about_api">SponsorBlockについて</string>
+    <string name="about_api_sum">このアプリは SponsorBlock の API を使用しています。詳細についてはこちらをタップしてください。</string>
     <string name="about_madeby">JakubWeg による統合</string>
     <string name="accessibility_settings_edu_opt_in_text">動画プレーヤーのアクセシビリティコントロールをオンにしますか？</string>
-    <string name="accessibility_settings_edu_opt_out_text">アクセシビリティサービスがオンになっているため、コントロールは変更されます。</string>
+    <string name="accessibility_settings_edu_opt_out_text">アクセシビリティサービスが有効になっているためコントロールは変更されます。</string>
     <string name="api_url_changed">API の URL を変更しました</string>
     <string name="api_url_invalid">指定された API の URL が無効です</string>
     <string name="api_url_reset">API の URL をリセットしました</string>
@@ -171,17 +171,9 @@
     <string name="revanced_adremover_web_search_panel_title">ウェブ検索パネルを非表示にする</string>
     <string name="revanced_custom_seekbar_color_value_summary">カラーコードを入力してシークバーの色を変更します</string>
     <string name="revanced_custom_seekbar_color_value_title">シークバーの色を変更する</string>
-    <string name="revanced_custom_video_buffer_maximum_summary">プレーヤーがバッファリングしようとするメディアの最大時間</string>
-    <string name="revanced_custom_video_buffer_maximum_title">バッファリングの最大値</string>
-    <string name="revanced_custom_video_buffer_playback_start_summary">シーク移動などのユーザーアクションの後に再生を開始または再開するためのバッファリングを行う時間</string>
-    <string name="revanced_custom_video_buffer_playback_start_title">再生開始バッファサイズ</string>
-    <string name="revanced_custom_video_buffer_rebuffer_summary">再バッファ後に再生を再開するためにバッファリングする必要があるメディアの時間</string>
-    <string name="revanced_custom_video_buffer_rebuffer_title">再バッファリングサイズ</string>
-    <string name="revanced_custom_video_buffer_summary">動画バッファリングサイズ関連の設定</string>
-    <string name="revanced_custom_video_buffer_title">バッファリングの設定</string>
     <string name="revanced_default_video_quality_mobile_summary">モバイルデータ通信でのデフォルト画質を選択</string>
     <string name="revanced_default_video_quality_mobile_title">モバイルデータ通信でのデフォルト画質</string>
-    <string name="revanced_default_video_quality_wifi_summary">Wi-Fi でのデフォルト画質の選択</string>
+    <string name="revanced_default_video_quality_wifi_summary">Wi-Fi でのデフォルト画質を選択</string>
     <string name="revanced_default_video_quality_wifi_title">Wi-Fi でのデフォルト画質</string>
     <string name="revanced_default_video_speed_summary">デフォルトの動画再生速度を選択</string>
     <string name="revanced_default_video_speed_title">デフォルトの再生速度</string>
@@ -205,11 +197,11 @@
     <string name="revanced_disable_haptic_feedback_zoom_summary_on">動画をズームする時の触覚(振動)フィードバックは無効です</string>
     <string name="revanced_disable_haptic_feedback_zoom_title">動画をズームする時の触覚(振動)フィードバックを無効にする</string>
     <string name="revanced_copytimestamp_success">タイムスタンプをコピーしました</string>
-    <string name="revanced_enable_always_auto_repeat_summary_off">常に自動リピートは無効です
+    <string name="revanced_enable_always_auto_repeat_summary_off">常に自動リピートは無効です。
 再生中の動画を常にリピートします</string>
-    <string name="revanced_enable_always_auto_repeat_summary_on">常に自動リピートは有効です
+    <string name="revanced_enable_always_auto_repeat_summary_on">常に自動リピートは有効です。
 再生中の動画を常にリピートします</string>
-    <string name="revanced_enable_always_auto_repeat_title">常に自動リピート</string>
+    <string name="revanced_enable_always_auto_repeat_title">常に自動リピートを有効にする</string>
     <string name="revanced_enable_custom_seekbar_color_summary_off">シークバーの色の変更は無効です</string>
     <string name="revanced_enable_custom_seekbar_color_summary_on">シークバーの色の変更は有効です</string>
     <string name="revanced_enable_custom_seekbar_color_title">シークバーの色を変更する(ダークモードのみ有効)</string>
@@ -269,6 +261,8 @@ HDR動画の明るさをシステムのデフォルトに従います</string>
     <string name="revanced_enable_wide_searchbar_summary_on">幅広い検索バーは有効です
 検索アイコンを幅の広い検索バーに置き換えます。(これが有効になっている時にYouTubeのロゴが非表示になります)</string>
     <string name="revanced_enable_wide_searchbar_title">幅広い検索バーを有効にする</string>
+    <string name="revanced_enable_vp9_codec_summary">デバイス情報を偽装してVP9コーデックを有効にします</string>
+    <string name="revanced_enable_vp9_codec_title">VP9コーデックを有効にする</string>
     <string name="revanced_experimental_flag">実験的な機能</string>
     <string name="revanced_extended_issue_center_summary">問題を報告するか、提案をここに残してください</string>
     <string name="revanced_extended_issue_center_title">ReVanced Extended 問題 センター</string>
@@ -276,10 +270,10 @@ HDR動画の明るさをシステムのデフォルトに従います</string>
     <string name="revanced_extended_summary">Extended 関連の設定</string>
     <string name="revanced_extended_title">Extended の設定</string>
     <string name="revanced_hide_auto_captions_summary_off">字幕付きの動画が再生されると強制的に字幕が有効になります
-強制字幕表示が自動的に有効になるのを無効にします</string>
+強制字幕表示が自動的に有効になるのを防ぎます</string>
     <string name="revanced_hide_auto_captions_summary_on">"字幕付きの動画が再生されても強制的に字幕が有効になりません
-強制字幕表示が自動的に有効になるのを無効にします"</string>
-    <string name="revanced_hide_auto_captions_title">自動で字幕を表示するのを無効化</string>
+強制字幕表示が自動的に有効になるのを防ぎます"</string>
+    <string name="revanced_hide_auto_captions_title">自動で字幕を表示するのを無効にする</string>
     <string name="revanced_hide_auto_player_popup_panels_summary_off">プレーヤーのポップアップパネルは自動的に表示されます
 プレーヤーの自動ポップアップパネル (プレイリストまたはライブチャット)を無効にします。</string>
     <string name="revanced_hide_auto_player_popup_panels_summary_on">プレーヤーのポップアップパネルは自動的に表示されません
@@ -460,7 +454,7 @@ YouTubeの起動時にYouTubeショートの再生を無効にします</string>
     <string name="revanced_others_title">その他</string>
     <string name="revanced_overlay_button_auto_repeat_summary_off">自動リピートボタンは非表示です</string>
     <string name="revanced_overlay_button_auto_repeat_summary_on">自動リピートボタンは表示されます</string>
-    <string name="revanced_overlay_button_auto_repeat_title">自動リピートボタン</string>
+    <string name="revanced_overlay_button_auto_repeat_title">自動リピートボタンを表示する</string>
     <string name="revanced_overlay_button_copy_url_summary_off">リンクをコピーするボタンはプレーヤー上で非表示になっています
 動画のリンクをコピーするためのボタンをプレーヤーに追加します</string>
     <string name="revanced_overlay_button_copy_url_summary_on">リンクをコピーするボタンはプレーヤー上で表示されます
@@ -499,6 +493,9 @@ YouTubeの起動時にYouTubeショートの再生を無効にします</string>
 この設定を有効にすると、次の機能は利用できません:
 - アンビエントモード
 - コミュニティの投稿"</string>
+    <string name="revanced_reboot_warning_vp9">"VP9コーデックを有効にするためにデバイス情報を偽装します
+
+これらの設定は非常に古いので、有効ではないかもしれません"</string>
     <string name="revanced_ryd_attribution_summary">低評価のデータは、Return YouTube Dislike API によって提供されます。詳細はこちらをタップしてください。</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_dislike_percentage_summary_off">低評価数は数字で表示されます</string>
@@ -606,7 +603,7 @@ YouTubeの起動時にYouTubeショートの再生を無効にします</string>
     <string name="stats">統計情報</string>
     <string name="stats_loading">読み込み中...</string>
     <string name="stats_saved">"今まで &lt;b&gt;%s&lt;/b&gt; 個のセグメントから人々を守りました。"</string>
-    <string name="stats_saved_sum">"あなたは合計で人々の人生を &lt;b&gt;%s&lt;/b&gt; 回無駄にせずに済みました。クリックしてリーダーボードを確認します。"</string>
+    <string name="stats_saved_sum">"あなたは合計で人々の人生を &lt;b&gt;%s&lt;/b&gt; 無駄にせずに済みました。クリックしてリーダーボードを確認します。"</string>
     <string name="stats_sb_disabled">SponsorBlockは無効です</string>
     <string name="stats_self_saved">"今まで &lt;b&gt;%s&lt;/b&gt; 個のセグメントをスキップしました。"</string>
     <string name="stats_self_saved_sum">"合計 &lt;b&gt;%s&lt;/b&gt; です。"</string>
@@ -626,7 +623,7 @@ YouTubeの起動時にYouTubeショートの再生を無効にします</string>
     <string name="submit_failed_unknown_error" formatted="false">セグメントを送信できません。ステータス: %d %s</string>
     <string name="submit_started">セグメントを送信しています…</string>
     <string name="submit_succeeded">セグメントが正常に送信されました</string>
-    <string name="tap_skip">タップしてスキップ</string>
+    <string name="tap_skip">タップしてスキップする</string>
     <string name="vote_category">カテゴリーを変更する</string>
     <string name="vote_downvote">反対</string>
     <string name="vote_failed_forbidden">"セグメントに投票できません。

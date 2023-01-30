@@ -45,6 +45,7 @@
     <string name="general_uuid_sum">Mã ID này nên được giữ riêng tư. Nó giống như mật khẩu và không nên được chia sẻ với bất kỳ ai. Nếu người khác có nó, họ có thể mạo danh bạn.</string>
     <string name="microg_not_installed_notice">Vui lòng cài đặt MicroG</string>
     <string name="microg_not_installed_warning">MicroG chưa được cài đặt</string>
+    <string name="microg_not_running_warning">MicroG không chạy trong nền</string>
     <string name="microg_notification_settings">Nhận thông báo</string>
     <string name="microg_notification_settings_summary">"1. Cần bật tính năng Đăng ký thiết bị Google và Thông báo đẩy qua đám mây để nhận thông báo.
 2. ReVanced Extended cần được hiển thị như một ứng dụng đã đăng ký trong dịch vụ Thông báo đẩy qua đám mây.
@@ -164,14 +165,6 @@ Bạn đã sẵn sàng gửi đi chưa?"</string>
     <string name="revanced_adremover_web_search_panel_title">Ẩn Kết quả tìm kiếm từ web</string>
     <string name="revanced_custom_seekbar_color_value_summary">Nhập mã màu hex của thanh tiến trình mà bạn muốn thay đổi khi ở chế độ tối</string>
     <string name="revanced_custom_seekbar_color_value_title">Thay đổi màu thanh tiến trình ở chế độ tối</string>
-    <string name="revanced_custom_video_buffer_maximum_summary">Thời lượng tối đa của video mà trình phát sẽ cố gắng lưu vào bộ đệm</string>
-    <string name="revanced_custom_video_buffer_maximum_title">Thời lượng bộ đệm tối đa</string>
-    <string name="revanced_custom_video_buffer_playback_start_summary">Thời lượng của video phải được đệm để bắt đầu phát hoặc tiếp tục phát sau một hành động của người dùng, chẳng hạn như tua video</string>
-    <string name="revanced_custom_video_buffer_playback_start_title">Kích thước bộ đệm để bắt đầu phát video</string>
-    <string name="revanced_custom_video_buffer_rebuffer_summary">Thời lượng của video phải được lưu vào bộ đệm để tiếp tục phát sau một lần đệm lại</string>
-    <string name="revanced_custom_video_buffer_rebuffer_title">Kích thước bộ đệm lại</string>
-    <string name="revanced_custom_video_buffer_summary">Các tuỳ chọn cài đặt liên quan đến kích thước bộ đệm video</string>
-    <string name="revanced_custom_video_buffer_title">Cài đặt Bộ đệm video</string>
     <string name="revanced_default_video_quality_mobile_summary">Chọn độ phân giải mặc định của video khi sử dụng Dữ liệu di động</string>
     <string name="revanced_default_video_quality_mobile_title">Chất lượng video mặc định trên Mạng di động</string>
     <string name="revanced_default_video_quality_wifi_summary">Chọn độ phân giải mặc định của video khi sử dụng Wi-Fi</string>
@@ -256,6 +249,8 @@ Bạn đã sẵn sàng gửi đi chưa?"</string>
     <string name="revanced_enable_wide_searchbar_summary_off">Thanh tìm kiếm rộng đã tắt</string>
     <string name="revanced_enable_wide_searchbar_summary_on">Thanh tìm kiếm rộng đang bật</string>
     <string name="revanced_enable_wide_searchbar_title">Bật Thanh tìm kiếm rộng</string>
+    <string name="revanced_enable_vp9_codec_summary">Giả mạo thông tin thiết bị để bật codec VP9</string>
+    <string name="revanced_enable_vp9_codec_title">Bật codec VP9</string>
     <string name="revanced_experimental_flag">Tính năng thử nghiệm</string>
     <string name="revanced_extended_issue_center_summary">Báo cáo lỗi hoặc để lại góp ý tại đây</string>
     <string name="revanced_extended_issue_center_title">Trung tâm báo lỗi ReVanced Extended</string>
@@ -341,6 +336,9 @@ Bạn đã sẵn sàng gửi đi chưa?"</string>
     <string name="revanced_hide_info_cards_summary_off">Thẻ thông tin được hiển thị</string>
     <string name="revanced_hide_info_cards_summary_on">Thẻ thông tin đã ẩn</string>
     <string name="revanced_hide_info_cards_title">Ẩn Thẻ thông tin</string>
+    <string name="revanced_hide_live_chat_button_summary_off">Nút Trò chuyện trực tiếp được hiển thị</string>
+    <string name="revanced_hide_live_chat_button_summary_on">Nút Trò chuyện trực tiếp đã ẩn</string>
+    <string name="revanced_hide_live_chat_button_title">Ẩn nút Trò chuyện trực tiếp</string>
     <string name="revanced_hide_menu_ambient_mode_summary_off">Menu Chế độ môi trường xung quanh được hiển thị</string>
     <string name="revanced_hide_menu_ambient_mode_summary_on">Menu Chế độ môi trường xung quanh đã ẩn</string>
     <string name="revanced_hide_menu_ambient_mode_title">Ẩn menu Chế độ môi trường xung quanh</string>
@@ -377,9 +375,15 @@ Bạn đã sẵn sàng gửi đi chưa?"</string>
     <string name="revanced_hide_mix_playlists_summary_off">Danh sách kết hợp được hiển thị</string>
     <string name="revanced_hide_mix_playlists_summary_on">Danh sách kết hợp đã ẩn</string>
     <string name="revanced_hide_mix_playlists_title">Ẩn Danh sách kết hợp</string>
+    <string name="revanced_hide_next_button_summary_off">Nút Tiếp theo được hiển thị</string>
+    <string name="revanced_hide_next_button_summary_on">Nút Tiếp theo đã ẩn</string>
+    <string name="revanced_hide_next_button_title">Ẩn nút Tiếp theo</string>
     <string name="revanced_hide_player_overlay_filter_summary_off">Nền tối của lớp phủ trình phát được hiển thị</string>
     <string name="revanced_hide_player_overlay_filter_summary_on">Nền tối của lớp phủ trình phát đã ẩn</string>
     <string name="revanced_hide_player_overlay_filter_title">Ẩn Nền tối của lớp phủ trình phát</string>
+    <string name="revanced_hide_prev_button_summary_off">Nút Trước được hiển thị</string>
+    <string name="revanced_hide_prev_button_summary_on">Nút Trước đã ẩn</string>
+    <string name="revanced_hide_prev_button_title">Ẩn nút Trước</string>
     <string name="revanced_hide_preview_comment_off">Xem trước bình luận hàng đầu được hiển thị</string>
     <string name="revanced_hide_preview_comment_on">Xem trước bình luận hàng đầu đã ẩn</string>
     <string name="revanced_hide_preview_comment_title">Ẩn Xem trước bình luận hàng đầu</string>
@@ -469,6 +473,9 @@ Lưu ý: Nếu bạn bật tuỳ chọn này, các tính năng sau sẽ khả d�
 Lưu ý: Nếu bạn bật tuỳ chọn này, các tính năng sau sẽ không khả dụng:
 - Chế độ môi trường xung quanh.
 - Bài đăng trên thẻ Cộng đồng."</string>
+    <string name="revanced_reboot_warning_vp9">"Giả mạo thông tin thiết bị để kích hoạt codec VP9.
+
+Vì các tuỳ chọn cài đặt này đã khá lỗi thời nên có thể không hợp lệ."</string>
     <string name="revanced_ryd_attribution_summary">Dữ liệu về số lượt không thích được cung cấp bởi API Return YouTube Dislike. Nhấn vào đây để tìm hiểu thêm.</string>
     <string name="revanced_ryd_attribution_title">returnyoutubedislike.com</string>
     <string name="revanced_ryd_dislike_percentage_summary_off">Số lượt không thích được hiển thị dưới dạng số</string>

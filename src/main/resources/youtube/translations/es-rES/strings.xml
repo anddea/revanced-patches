@@ -30,7 +30,7 @@
     <string name="general_adjusting">Ajustar paso de nuevo segmento</string>
     <string name="general_adjusting_sum">Esta es la cantidad de milisegundos que puede moverse cuando usa los botones de ajuste de tiempo mientras añade un nuevo segmento</string>
     <string name="general_api_url">Cambiar la URL de la API</string>
-    <string name="general_api_url_sum">"\"La dirección que utiliza SponsorBlock para hacer llamadas al servidor. &lt;b&gt;No cambie esto a menos que sepa lo que está haciendo.&lt;/b&gt;\""</string>
+    <string name="general_api_url_sum">"La dirección que utiliza SponsorBlock para hacer llamadas al servidor. &lt;b&gt;No cambie esto a menos que sepa lo que está haciendo.&lt;/b&gt;"</string>
     <string name="general_api_mirror_url">Cambiar la URL del Mirror de la API</string>
     <string name="general_api_mirror_url_sum">"Dirección del servidor Mirror para cambiar cuando el servidor de SponsorBlock esté caido. &lt;b&gt;No cambie esto a menos que sepa lo que está haciendo.&lt;/b&gt;"</string>
     <string name="general_min_duration">Duración mínima del segmento</string>
@@ -45,6 +45,7 @@
     <string name="general_uuid_sum">Esto debe mantenerse en privado. Es como una contraseña y no debe compartirse con nadie. Si alguien lo tiene, puede hacerse pasar por ti</string>
     <string name="microg_not_installed_notice">Por favor, instale MicroG</string>
     <string name="microg_not_installed_warning">MicroG no se encuentra</string>
+    <string name="microg_not_running_warning">MicroG no se ejecuta en segundo plano</string>
     <string name="microg_notification_settings">Ajustes de notificaciones</string>
     <string name="microg_notification_settings_summary">"1. El registro de dispositivos de Google y Cloud Messaging deben estar activados para recibir notificaciones.
 2. ReVanced debe mostrarse como registrado en Cloud Messaging.
@@ -164,14 +165,6 @@
     <string name="revanced_adremover_web_search_panel_title">Ocultar paneles de búsqueda web</string>
     <string name="revanced_custom_seekbar_color_value_summary">Escriba el código hexadecimal del color para la barra de progreso para usar en modo oscuro</string>
     <string name="revanced_custom_seekbar_color_value_title">Valor de color personalizado para barra de progreso</string>
-    <string name="revanced_custom_video_buffer_maximum_summary">La duración máxima de los medios que el reproductor intentará almacenar en el búfer</string>
-    <string name="revanced_custom_video_buffer_maximum_title">Tamaño máximo de búfer</string>
-    <string name="revanced_custom_video_buffer_playback_start_summary">La duración de los medios que deben almacenarse en búfer para que la reproducción comience o se reanude después de una acción del usuario, como desplazarse en la barra de progreso</string>
-    <string name="revanced_custom_video_buffer_playback_start_title">Tamaño del búfer de inicio de reproducción</string>
-    <string name="revanced_custom_video_buffer_rebuffer_summary">La duración de los medios que deben almacenarse en búfer para que la reproducción se reanude después de un rebufer</string>
-    <string name="revanced_custom_video_buffer_rebuffer_title">Tamaño del rebufer</string>
-    <string name="revanced_custom_video_buffer_summary">Ajustes relacionados con el tamaño del búfer de vídeo</string>
-    <string name="revanced_custom_video_buffer_title">Ajustes del búfer de vídeo</string>
     <string name="revanced_default_video_quality_mobile_summary">Seleccione la resolución de vídeo predeterminada en la red móvil</string>
     <string name="revanced_default_video_quality_mobile_title">Calidad de vídeo predeterminada en red móvil</string>
     <string name="revanced_default_video_quality_wifi_summary">Seleccione la resolución de vídeo predeterminada en la red Wi-Fi</string>
@@ -256,6 +249,8 @@
     <string name="revanced_enable_wide_searchbar_summary_off">La barra de búsqueda ancha está desactivada</string>
     <string name="revanced_enable_wide_searchbar_summary_on">La barra de búsqueda ancha está activada</string>
     <string name="revanced_enable_wide_searchbar_title">Activar barra de búsqueda ancha</string>
+    <string name="revanced_enable_vp9_codec_summary">Modifica la información del dispositivo para activar el códec VP9</string>
+    <string name="revanced_enable_vp9_codec_title">Activar códec VP9</string>
     <string name="revanced_experimental_flag">Funciones experimentales</string>
     <string name="revanced_extended_issue_center_summary">Informe problemas o deje sugerencias aquí</string>
     <string name="revanced_extended_issue_center_title">Centro de problemas de ReVanced Extended</string>
@@ -463,21 +458,24 @@
     <string name="revanced_patches_information">Información de parches</string>
     <string name="revanced_player_flyout_panel_summary">Ocultar los componentes del panel flotante de los ajustes del reproductor</string>
     <string name="revanced_player_flyout_panel_title">Componentes del panel flotante del reproductor</string>
-    <string name="revanced_reboot_warning_general">"\"Como esta es todavía una característica experimental, puede haber otros problemas desconocidos.
-¿Está seguro de que desea continuar?\""</string>
+    <string name="revanced_reboot_warning_general">"Como esta es todavía una característica experimental, puede haber otros problemas desconocidos.
+¿Está seguro de que desea continuar?"</string>
     <string name="revanced_reboot_warning_oldlayout">"Modifica la versión del cliente de YouTube a v17.28.35 para cargar el diseño antiguo
 
 En los ajustes de la aplicación, la versión de YouTube puede estar marcada como v17.28.35"</string>
-    <string name="revanced_reboot_warning_phone">"\"Modifica los DPI para cambiar algunos diseños a diseños de teléfono.
+    <string name="revanced_reboot_warning_phone">"Modifica los DPI para cambiar algunos diseños a diseños de teléfono.
 
 Si activas este ajuste, las siguientes funciones estarán disponibles:
 - Publicaciones comunitarias
-- Ocultar lista de reproducción Mix\""</string>
-    <string name="revanced_reboot_warning_tablet">"\"Modifica los DPI para cambiar algunos diseños a diseños de tableta.
+- Ocultar lista de reproducción Mix"</string>
+    <string name="revanced_reboot_warning_tablet">"Modifica los DPI para cambiar algunos diseños a diseños de tableta.
 
 Si activas este ajuste, las siguientes características no estarán disponibles:
 - Modo ambiente
-- Publicaciones comunitarias\""</string>
+- Publicaciones comunitarias"</string>
+    <string name="revanced_reboot_warning_vp9">"Modifica la información del dispositivo para activar el códec VP9
+
+Dado que esta configuración está bastante desactualizada, es posible que no sea válida"</string>
     <string name="revanced_ryd_attribution_summary">Los datos de No Me Gusta son proporcionados por la API de Return YouTube Dislike.
 Toque aquí para obtener más información.</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
