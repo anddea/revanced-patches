@@ -279,14 +279,6 @@
         <!-- SETTINGS: ENABLE_MINIMIZED_PLAYBACK
         <SwitchPreference android:title="@string/revanced_enable_minimized_playback_title" android:key="revanced_enable_minimized_playback" android:defaultValue="true" android:summaryOn="@string/revanced_enable_minimized_playback_summary_on" android:summaryOff="@string/revanced_enable_minimized_playback_summary_off" />SETTINGS: ENABLE_MINIMIZED_PLAYBACK -->
 
-        <!-- SETTINGS: CUSTOM_VIDEO_BUFFER
-        <PreferenceScreen android:title="@string/revanced_custom_video_buffer_title" android:key="revanced_custom_video_buffer" android:summary="@string/revanced_custom_video_buffer_summary">
-            <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_custom_video_buffer_title" />
-            <EditTextPreference android:title="@string/revanced_custom_video_buffer_maximum_title" android:key="revanced_custom_video_buffer_maximum" android:summary="@string/revanced_custom_video_buffer_maximum_summary" android:defaultValue="120000" android:inputType="number" />
-            <EditTextPreference android:title="@string/revanced_custom_video_buffer_playback_start_title" android:key="revanced_custom_video_buffer_playback_start" android:summary="@string/revanced_custom_video_buffer_playback_start_summary" android:defaultValue="2500" android:inputType="number" />
-            <EditTextPreference android:title="@string/revanced_custom_video_buffer_rebuffer_title" android:key="revanced_custom_video_buffer_rebuffer" android:summary="@string/revanced_custom_video_buffer_rebuffer_summary" android:defaultValue="5000" android:inputType="number" />
-        </PreferenceScreen>SETTINGS: CUSTOM_VIDEO_BUFFER -->
-
     <!-- PREFERENCE: MISC_SETTINGS
     </PreferenceScreen>PREFERENCE: MISC_SETTINGS -->
 
@@ -416,7 +408,6 @@
             <Preference android:title="enable-external-browser" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="enable-open-links-directly" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="enable-minimized-playback" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
-            <Preference android:title="custom-video-buffer" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
 
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_video_settings_title" />
             <Preference android:title="default-video-quality" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
