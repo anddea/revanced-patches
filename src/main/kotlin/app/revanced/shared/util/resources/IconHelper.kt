@@ -11,45 +11,44 @@ internal object IconHelper {
         context: ResourceContext,
         iconName: String
     ) {
-        val classLoader = this.javaClass.classLoader
-        val resDirectory = context["res"]
-
-        val Appnames = arrayOf(
+        val launchIcon = arrayOf(
             "adaptiveproduct_youtube_background_color_108",
             "adaptiveproduct_youtube_foreground_color_108",
             "ic_launcher",
             "ic_launcher_round"
         )
 
-        val Splashnames = arrayOf(
+        val splashIcon = arrayOf(
             "product_logo_youtube_color_24",
             "product_logo_youtube_color_36",
             "product_logo_youtube_color_144",
             "product_logo_youtube_color_192"
         )
 
-        mapOf(
-            "xxxhdpi" to 192,
-            "xxhdpi" to 144,
-            "xhdpi" to 96,
-            "hdpi" to 72,
-            "mdpi" to 48
-        ).forEach { (iconDirectory, size) ->
-            Appnames.forEach iconLoop@{ name ->
-                Files.copy(
-                    classLoader.getResourceAsStream("youtube/branding/$iconName/launchericon/$size/$name.png")!!,
-                    resDirectory.resolve("mipmap-$iconDirectory").resolve("$name.png").toPath(),
-                    StandardCopyOption.REPLACE_EXISTING
-                )
-            }
-            Splashnames.forEach iconLoop@{ name ->
-                Files.copy(
-                    classLoader.getResourceAsStream("youtube/branding/$iconName/splashicon/$size/$name.png")!!,
-                    resDirectory.resolve("drawable-$iconDirectory").resolve("$name.png").toPath(),
-                    StandardCopyOption.REPLACE_EXISTING
-                )
-            }
-        }
+        copyResources(
+            context,
+            "youtube",
+            iconName,
+            "launchericon",
+            "mipmap",
+            launchIcon
+        )
+
+        copyResources(
+            context,
+            "youtube",
+            iconName,
+            "splashicon",
+            "drawable",
+            splashIcon
+        )
+
+        monochromeIcon(
+            context,
+            "youtube",
+            "adaptive_monochrome_ic_youtube_launcher",
+            iconName
+        )
 
         context.xmlEditor["res/values-v31/styles.xml"].use { editor ->
             with(editor.file) {
@@ -64,19 +63,140 @@ internal object IconHelper {
                 }
             }
         }
+    }
 
-        try {
-            arrayOf("drawable" to arrayOf("adaptive_monochrome_ic_youtube_launcher")).forEach { (path, resourceNames) ->
-                resourceNames.forEach { name ->
-                    val relativePath = "$path/$name.xml"
+    fun customIconMusic(
+        context: ResourceContext,
+        iconName: String
+    ) {
+        val launchIcon = arrayOf(
+            "adaptiveproduct_youtube_music_background_color_108",
+            "adaptiveproduct_youtube_music_foreground_color_108",
+            "ic_launcher_release"
+        )
 
-                     Files.copy(
-                         classLoader.getResourceAsStream("youtube/branding/$iconName/monochromeicon/$relativePath")!!,
-                         context["res"].resolve(relativePath).toPath(),
-                        StandardCopyOption.REPLACE_EXISTING
-                    )
-                }
+        copyResources(
+            context,
+            "music",
+            iconName,
+            "launchericon",
+            "mipmap",
+            launchIcon
+        )
+
+        monochromeIcon(
+            context,
+            "music",
+            "ic_app_icons_themed_youtube_music",
+            iconName
+        )
+    }
+
+    fun customIconMusicAdditional(
+        context: ResourceContext,
+        iconName: String
+    ) {
+        val record = arrayOf(
+            "hdpi",
+            "large-hdpi",
+            "large-mdpi",
+            "large-xhdpi",
+            "mdpi",
+            "xhdpi",
+            "xlarge-hdpi",
+            "xlarge-mdpi",
+            "xxhdpi"
+        )
+
+        val actionbarLogo = arrayOf(
+            "hdpi",
+            "mdpi",
+            "xhdpi",
+            "xxhdpi",
+            "xxxhdpi"
+        )
+
+        val actionbarLogoRelease = arrayOf(
+            "hdpi"
+        )
+
+        copyMusicResources(
+            context,
+            iconName,
+            record,
+            "record"
+        )
+
+        copyMusicResources(
+            context,
+            iconName,
+            actionbarLogo,
+            "action_bar_logo"
+        )
+
+        copyMusicResources(
+            context,
+            iconName,
+            actionbarLogoRelease,
+            "action_bar_logo_release"
+        )
+    }
+
+    private fun copyResources(
+        context: ResourceContext,
+        appName: String,
+        iconName: String,
+        iconPath: String,
+        directory: String,
+        iconArray: Array<String>
+    ){
+        arrayOf(
+            "xxxhdpi",
+            "xxhdpi",
+            "xhdpi",
+            "hdpi",
+            "mdpi"
+        ).forEach { size ->
+            iconArray.forEach iconLoop@{ name ->
+                Files.copy(
+                    this.javaClass.classLoader.getResourceAsStream("$appName/branding/$iconName/$iconPath/$size/$name.png")!!,
+                    context["res"].resolve("$directory-$size").resolve("$name.png").toPath(),
+                    StandardCopyOption.REPLACE_EXISTING
+                )
             }
+        }
+    }
+
+    private fun monochromeIcon(
+        context: ResourceContext,
+        appName: String,
+        monochromeIconName: String,
+        iconName: String
+    ){
+        try {
+            val relativePath = "drawable/$monochromeIconName.xml"
+            Files.copy(
+                this.javaClass.classLoader.getResourceAsStream("$appName/branding/$iconName/monochromeicon/$relativePath")!!,
+                context["res"].resolve(relativePath).toPath(),
+                StandardCopyOption.REPLACE_EXISTING
+            )
         } catch (_: Exception) {}
+    }
+
+    private fun copyMusicResources(
+        context: ResourceContext,
+        iconName: String,
+        iconArray: Array<String>,
+        resourceNames: String
+    ){
+        iconArray.forEach { path ->
+            val relativePath = "drawable-$path/$resourceNames.png"
+
+            Files.copy(
+                this.javaClass.classLoader.getResourceAsStream("music/branding/$iconName/resource/$relativePath")!!,
+                context["res"].resolve(relativePath).toPath(),
+                StandardCopyOption.REPLACE_EXISTING
+            )
+        }
     }
 }
