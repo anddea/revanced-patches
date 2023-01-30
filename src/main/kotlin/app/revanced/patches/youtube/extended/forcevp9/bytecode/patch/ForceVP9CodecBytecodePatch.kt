@@ -28,28 +28,29 @@ import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 class ForceVP9CodecBytecodePatch : BytecodePatch(
     listOf(
         LayoutSwitchFingerprint,
-        Vp9PrimaryFingerprint,
-        Vp9PropsFingerprint,
-        Vp9PropsParentFingerprint,
-        Vp9SecondaryFingerprint
+        Vp9PropsParentFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
 
-        LayoutSwitchFingerprint.result?.let { parentResult ->
+        LayoutSwitchFingerprint.result?.classDef?.let { classDef ->
             arrayOf(
                 Vp9PrimaryFingerprint,
                 Vp9SecondaryFingerprint
-            ).map {
-                it.also { it.resolve(context, parentResult.classDef) }.result?.injectOverride() ?: return it.toErrorResult()
+            ).forEach { fingerprint ->
+                fingerprint.also { it.resolve(context, classDef) }.result?.injectOverride() ?: return fingerprint.toErrorResult()
             }
         } ?: return LayoutSwitchFingerprint.toErrorResult()
 
         Vp9PropsParentFingerprint.result?.let { parentResult ->
             Vp9PropsFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.mutableMethod?.let {
-                it.hookProps("MANUFACTURER", "getManufacturer")
-                it.hookProps("BRAND", "getBrand")
-                it.hookProps("MODEL", "getModel")
+                mapOf(
+                    "MANUFACTURER" to "getManufacturer",
+                    "BRAND" to "getBrand",
+                    "MODEL" to "getModel"
+                ).forEach { (fieldName, descriptor) ->
+                    it.hookProps(fieldName, descriptor)
+                }
             } ?: return Vp9PropsFingerprint.toErrorResult()
         } ?: return Vp9PropsParentFingerprint.toErrorResult()
 
@@ -92,12 +93,12 @@ class ForceVP9CodecBytecodePatch : BytecodePatch(
         }
 
         fun MutableMethod.hookProps(
-            descriptor: String,
-            fieldName: String
+            fieldName: String,
+            descriptor: String
         ) {
             val insertInstructions = implementation!!.instructions
             val targetString = "Landroid/os/Build;->" +
-                    descriptor +
+                    fieldName +
                     ":Ljava/lang/String;"
 
             for ((index, instruction) in insertInstructions.withIndex()) {
@@ -111,7 +112,7 @@ class ForceVP9CodecBytecodePatch : BytecodePatch(
 
                 addInstructions(
                     index + 1, """
-                        invoke-static {v$register}, $INTEGRATIONS_CLASS_DESCRIPTOR->$fieldName(Ljava/lang/String;)Ljava/lang/String;
+                        invoke-static {v$register}, $INTEGRATIONS_CLASS_DESCRIPTOR->$descriptor(Ljava/lang/String;)Ljava/lang/String;
                         move-result-object v$register
                         """
                 )
