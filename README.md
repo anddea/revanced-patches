@@ -15,7 +15,6 @@ The official Patch bundle provided by ReVanced and the community.
 | `custom-branding-icon-revancify` | Changes the YouTube launcher icon (Revancify). | 18.04.35 |
 | `custom-branding-name` | Changes the YouTube launcher name to your choice (defaults to ReVanced Extended). | 18.04.35 |
 | `custom-seekbar-color` | Change seekbar color in dark mode. | 18.04.35 |
-| `custom-video-buffer` | Lets you change the buffers of videos. | 18.04.35 |
 | `custom-video-speed` | Adds more video speed options. | 18.04.35 |
 | `default-video-quality` | Adds ability to set default video quality settings. | 18.04.35 |
 | `default-video-speed` | Adds ability to set default video speed settings. | 18.04.35 |
@@ -84,7 +83,8 @@ The official Patch bundle provided by ReVanced and the community.
 |:--------:|:--------------:|:-----------------:|
 | `background-play` | Enables playing music in the background. | all |
 | `client-spoof-music` | Spoofs the YouTube Music client. | all |
-| `custom-branding-music-red` | Changes the YouTube Music launcher icon to your choice (defaults to ReVanced Red). | all |
+| `custom-branding-music-afn-blue` | Changes the YouTube Music launcher icon (Afn / Blue). | all |
+| `custom-branding-music-afn-red` | Changes the YouTube Music launcher icon (Afn / Red). | all |
 | `custom-branding-music-revancify` | Changes the YouTube Music launcher icon to your choice (Revancify). | all |
 | `enable-black-navbar` | Sets the navigation bar color to black. | all |
 | `enable-color-match-player` | Matches the fullscreen player color with the minimized one. | all |
