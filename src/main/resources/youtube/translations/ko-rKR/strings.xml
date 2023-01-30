@@ -45,6 +45,7 @@
     <string name="general_uuid_sum">이 정보를 다른 분께 공개하지 마세요. 이건 비밀번호와 같으며 누구와도 공유해서는 안 되는 정보입니다. 다른 분이 이 정보를 습득한다면, 나를 사칭할 수도 있습니다.</string>
     <string name="microg_not_installed_notice">MicroG를 설치해 주세요</string>
     <string name="microg_not_installed_warning">MicroG가 설치되지 않았습니다.</string>
+    <string name="microg_not_running_warning">MicroG가 백그라운드에서 실행중이 아닙니다</string>
     <string name="microg_notification_settings">알림 설정</string>
     <string name="microg_notification_settings_summary">"1. 알림을 받으려면 Google 기기 등록 및 클라우드 메시징을 활성화해야 합니다.
 2. ReVanced Extended가 클라우드 메시징에 등록된 앱으로 표시되어야 합니다.
@@ -164,14 +165,6 @@
     <string name="revanced_adremover_web_search_panel_title">웹 검색 패널 숨기기</string>
     <string name="revanced_custom_seekbar_color_value_summary">다크모드에서 사용할 재생바 색상의 헥스코드를 입력하세요.</string>
     <string name="revanced_custom_seekbar_color_value_title">재생바 색상 직접 설정하기</string>
-    <string name="revanced_custom_video_buffer_maximum_summary">플레이어가 버퍼링할 영상의 최대 길이에 영향을 미칩니다.</string>
-    <string name="revanced_custom_video_buffer_maximum_title">최대 버퍼 크기 설정</string>
-    <string name="revanced_custom_video_buffer_playback_start_summary">영상을 일시정지한 후 다시 재생하기 전에 미리 버퍼링할 영상의 길이에 영향을 미칩니다.</string>
-    <string name="revanced_custom_video_buffer_playback_start_title">일시정지후 버퍼링 크기 설정</string>
-    <string name="revanced_custom_video_buffer_rebuffer_summary">영상 재생 중 버퍼링이 필요할 때 미리 가져올 영상의 길이에 영향을 미칩니다.</string>
-    <string name="revanced_custom_video_buffer_rebuffer_title">재버퍼링 크기 설정</string>
-    <string name="revanced_custom_video_buffer_summary">동영상 버퍼 관련 설정입니다.</string>
-    <string name="revanced_custom_video_buffer_title">동영상 버퍼 설정</string>
     <string name="revanced_default_video_quality_mobile_summary">모바일 데이터를 사용 중일 때 선택한 화질로 영상이 플레이됩니다.</string>
     <string name="revanced_default_video_quality_mobile_title">모바일 데이터 기본 영상 화질</string>
     <string name="revanced_default_video_quality_wifi_summary">Wi-Fi를 사용 중일 때 선택한 화질로 영상이 플레이됩니다.</string>
@@ -256,6 +249,8 @@
     <string name="revanced_enable_wide_searchbar_summary_off">넓은 검색 바를 사용하지 않습니다.</string>
     <string name="revanced_enable_wide_searchbar_summary_on">넓은 검색 바를 사용합니다.</string>
     <string name="revanced_enable_wide_searchbar_title">넓은 검색 바 활성화하기</string>
+    <string name="revanced_enable_vp9_codec_summary">장치정보를 속여 VP9 코덱을 활성화</string>
+    <string name="revanced_enable_vp9_codec_title">VP9 코덱 활성화</string>
     <string name="revanced_experimental_flag">실험적 기능</string>
     <string name="revanced_extended_issue_center_summary">버그 신고 또는 기능 제안은 이곳을 방문해주세요.</string>
     <string name="revanced_extended_issue_center_title">ReVanced Extended Report Center</string>
@@ -478,6 +473,9 @@
 이 설정을 활성화하면 다음 기능을 사용할 수 없습니다.
 - 영화 조명
 - 커뮤니티 게시글"</string>
+    <string name="revanced_reboot_warning_vp9">"장치정보를 속여 VP9 코덱을 활성화
+
+이 설정은 상당히 오래되어 유효하지 않을 수 있습니다"</string>
     <string name="revanced_ryd_attribution_summary">싫어요 숫자의 데이터는 Return YoutTuble Dislike API에 의해 제공됩니다. 자세한 내용을 보려면 누르세요.</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_dislike_percentage_summary_off">싫어요 개수를 숫자로 표시합니다.</string>

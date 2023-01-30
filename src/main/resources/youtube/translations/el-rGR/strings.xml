@@ -45,6 +45,7 @@
     <string name="general_uuid_sum">Αυτό θα πρέπει να παραμείνει ιδιωτικό. Αυτό είναι σαν κωδικός πρόσβασης και δεν πρέπει να κοινοποιείται σε κανέναν. Αν κάποιος το έχει αυτό, μπορεί να σας υποδυθεί</string>
     <string name="microg_not_installed_notice">Παρακαλούμε εγκαταστήστε το MicroG</string>
     <string name="microg_not_installed_warning">Το MicroG δεν βρέθηκε</string>
+    <string name="microg_not_running_warning">MicroG does not run in the background</string>
     <string name="microg_notification_settings">Ρυθμίσεις ειδοποιήσεων</string>
     <string name="microg_notification_settings_summary">"1. Η εγγραφή συσκευής Google και το Cloud Messaging πρέπει να είναι ενεργά (on) για να λαμβάνετε ειδοποιήσεις.
 2. Το ReVanced πρέπει να εμφανίζεται ως registered στο Cloud Messaging.
@@ -164,14 +165,6 @@
     <string name="revanced_adremover_web_search_panel_title">Απόκρυψη πάνελ αναζήτησης στο διαδίκτυο</string>
     <string name="revanced_custom_seekbar_color_value_summary">Πληκτρολογήστε τον κωδικό hex του χρώματος της μπάρας χρόνου που θα χρησιμοποιηθεί στη σκοτεινή λειτουργία</string>
     <string name="revanced_custom_seekbar_color_value_title">Προσαρμοσμένη τιμή χρώματος μπάρας χρόνου</string>
-    <string name="revanced_custom_video_buffer_maximum_summary">Η μέγιστη διάρκεια των πολυμέσων που θα προσπαθήσει να αποθηκεύσει η συσκευή αναπαραγωγής</string>
-    <string name="revanced_custom_video_buffer_maximum_title">Μέγιστο μέγεθος buffer</string>
-    <string name="revanced_custom_video_buffer_playback_start_summary">Η διάρκεια των πολυμέσων που πρέπει να αποθηκευτούν για να ξεκινήσει ή να συνεχιστεί η αναπαραγωγή μετά από μια ενέργεια του χρήστη, όπως το σύρσιμο</string>
-    <string name="revanced_custom_video_buffer_playback_start_title">Μέγεθος buffer έναρξης αναπαραγωγής</string>
-    <string name="revanced_custom_video_buffer_rebuffer_summary">Η διάρκεια των πολυμέσων που πρέπει να αποθηκευτούν για να συνεχιστεί η αναπαραγωγή μετά από ένα rebuffer.</string>
-    <string name="revanced_custom_video_buffer_rebuffer_title">Μέγεθος rebuffer</string>
-    <string name="revanced_custom_video_buffer_summary">Ρυθμίσεις σχετικά με το μέγεθος buffer του βίντεο</string>
-    <string name="revanced_custom_video_buffer_title">Ρυθμίσεις buffer βίντεο</string>
     <string name="revanced_default_video_quality_mobile_summary">Επιλέξτε προεπιλεγμένη ανάλυση βίντεο στο δίκτυο Κινητής Τηλεφωνίας</string>
     <string name="revanced_default_video_quality_mobile_title">Προεπιλεγμένη ποιότητα βίντεο με δεδομένα κινητής</string>
     <string name="revanced_default_video_quality_wifi_summary">Επιλέξτε προεπιλεγμένη ανάλυση βίντεο στο δίκτυο Wi-Fi</string>
@@ -256,6 +249,8 @@
     <string name="revanced_enable_wide_searchbar_summary_off">Η ευρεία γραμμή αναζήτησης είναι απενεργοποιημένη</string>
     <string name="revanced_enable_wide_searchbar_summary_on">Η ευρεία γραμμή αναζήτησης είναι ενεργοποιημένη</string>
     <string name="revanced_enable_wide_searchbar_title">Ενεργοποίηση ευρείας γραμμής αναζήτησης</string>
+    <string name="revanced_enable_vp9_codec_summary">Spoof device information to enable VP9 codec</string>
+    <string name="revanced_enable_vp9_codec_title">Enable VP9 codec</string>
     <string name="revanced_experimental_flag">Πειραματικές Λειτουργίες</string>
     <string name="revanced_extended_issue_center_summary">Αναφέρετε θέματα ή αφήστε προτάσεις εδώ</string>
     <string name="revanced_extended_issue_center_title">Κέντρο Προβλημάτων ReVanced Extended</string>
@@ -380,15 +375,15 @@
     <string name="revanced_hide_mix_playlists_summary_off">Η λίστα αναπαραγωγής Mix εμφανίζεται</string>
     <string name="revanced_hide_mix_playlists_summary_on">Η λίστα αναπαραγωγής Mix είναι κρυμμένη</string>
     <string name="revanced_hide_mix_playlists_title">Απόκρυψη λίστας αναπαραγωγής Mix</string>
-    <string name="revanced_hide_next_button_summary_off">Next button is shown</string>
-    <string name="revanced_hide_next_button_summary_on">Next button is hidden</string>
-    <string name="revanced_hide_next_button_title">Hide next button</string>
+    <string name="revanced_hide_next_button_summary_off">Το κουμπί Επόμενο εμφανίζεται</string>
+    <string name="revanced_hide_next_button_summary_on">Το κουμπί Επόμενο είναι κρυμμένο</string>
+    <string name="revanced_hide_next_button_title">Απόκρυψη κουμπιού Επόμενο</string>
     <string name="revanced_hide_player_overlay_filter_summary_off">Το φίλτρο επικάλυψης του video player εμφανίζεται</string>
     <string name="revanced_hide_player_overlay_filter_summary_on">Το φίλτρο επικάλυψης του video player είναι κρυμμένο</string>
     <string name="revanced_hide_player_overlay_filter_title">Απόκρυψη φίλτρου επικάλυψης του player</string>
-    <string name="revanced_hide_prev_button_summary_off">Prev button is shown</string>
-    <string name="revanced_hide_prev_button_summary_on">Prev button is hidden</string>
-    <string name="revanced_hide_prev_button_title">Hide prev button</string>
+    <string name="revanced_hide_prev_button_summary_off">Το κουμπί Προηγούμενο εμφανίζεται</string>
+    <string name="revanced_hide_prev_button_summary_on">Το κουμπί Προηγούμενο είναι κρυμμένο</string>
+    <string name="revanced_hide_prev_button_title">Απόκρυψη κουμπιού Προηγούμενο</string>
     <string name="revanced_hide_preview_comment_off">Η προεπισκόπηση σχολίου εμφανίζεται</string>
     <string name="revanced_hide_preview_comment_on">Η προεπισκόπηση σχολίου είναι κρυμμένη</string>
     <string name="revanced_hide_preview_comment_title">Απόκρυψη προεπισκόπησης σχολίου</string>
@@ -478,6 +473,9 @@
 Εάν ενεργοποιήσετε αυτή τη ρύθμιση, οι ακόλουθες λειτουργίες δεν είναι διαθέσιμες:
 - Λειτουργία περιβάλλοντος
 - Κοινοτικές αναρτήσεις"</string>
+    <string name="revanced_reboot_warning_vp9">"Spoofs device information to enable VP9 codec
+
+Since these setting is quite outdated, it may not be valid"</string>
     <string name="revanced_ryd_attribution_summary">Τα δεδομένα Dislike παρέχονται από το API του Return YouTube Dislike.  Πατήστε εδώ για να μάθετε περισσότερα.</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_dislike_percentage_summary_off">Τα dislike εμφανίζονται ως αριθμός</string>

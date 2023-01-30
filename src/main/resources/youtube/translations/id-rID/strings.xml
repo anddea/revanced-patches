@@ -45,6 +45,7 @@
     <string name="general_uuid_sum">Ini harus dirahasiakan. Ini seperti kata sandi dan tidak boleh dibagikan dengan siapa pun. Jika seseorang memiliki ini, mereka dapat meniru anda</string>
     <string name="microg_not_installed_notice">Silahkan instal MicroG</string>
     <string name="microg_not_installed_warning">MicroG tidak ditemukan</string>
+    <string name="microg_not_running_warning">MicroG tidak berjalan di background</string>
     <string name="microg_notification_settings">Pengaturan notifikasi</string>
     <string name="microg_notification_settings_summary">"1. Pendaftaran perangkat Google dan Cloud Messaging harus diaktifkan untuk pemberitahuan.
 2. ReVanced perlu ditampilkan sebagai terdaftar di bawah Cloud Messaging.
@@ -164,14 +165,6 @@ Apakah sudah siap untuk dikirim?"</string>
     <string name="revanced_adremover_web_search_panel_title">Sembunyikan panel pencarian web</string>
     <string name="revanced_custom_seekbar_color_value_summary">Ketik kode hex warna seekbar untuk digunakan dalam mode gelap</string>
     <string name="revanced_custom_seekbar_color_value_title">Nilai warna seekbar kustom</string>
-    <string name="revanced_custom_video_buffer_maximum_summary">Durasi maksimum media yang pemutar akan coba untuk buffer</string>
-    <string name="revanced_custom_video_buffer_maximum_title">Ukuran buffer maksimum</string>
-    <string name="revanced_custom_video_buffer_playback_start_summary">Durasi media yang harus dibuffer untuk memulai atau melanjutkan pemutaran setelah tindakan user seperti mencari</string>
-    <string name="revanced_custom_video_buffer_playback_start_title">Ukuran buffer awal pemutaran</string>
-    <string name="revanced_custom_video_buffer_rebuffer_summary">Durasi media yang harus dibuffer agar pemutaran dilanjutkan setelah buffering ulang</string>
-    <string name="revanced_custom_video_buffer_rebuffer_title">Ukuran buffer ulang</string>
-    <string name="revanced_custom_video_buffer_summary">Pengaturan terkait ukuran buffer video</string>
-    <string name="revanced_custom_video_buffer_title">Pengaturan buffer video</string>
     <string name="revanced_default_video_quality_mobile_summary">Pilih resolusi video default di jaringan seluler</string>
     <string name="revanced_default_video_quality_mobile_title">Kualitas video default seluler</string>
     <string name="revanced_default_video_quality_wifi_summary">Pilih resolusi video default di jaringan Wi-Fi</string>
@@ -256,6 +249,8 @@ Apakah sudah siap untuk dikirim?"</string>
     <string name="revanced_enable_wide_searchbar_summary_off">Search bar lebar dinonaktifkan</string>
     <string name="revanced_enable_wide_searchbar_summary_on">Search bar lebar diaktifkan</string>
     <string name="revanced_enable_wide_searchbar_title">Aktifkan search bar lebar</string>
+    <string name="revanced_enable_vp9_codec_summary">Memalsukan informasi perangkat untuk mengaktifkan codec VP9</string>
+    <string name="revanced_enable_vp9_codec_title">Aktifkan codec VP9</string>
     <string name="revanced_experimental_flag">Pengaturan eksperimental</string>
     <string name="revanced_extended_issue_center_summary">Laporkan masalah atau tinggalkan saran di sini</string>
     <string name="revanced_extended_issue_center_title">Pusat masalah ReVanced Extended</string>
@@ -478,6 +473,9 @@ Jika anda mengaktifkan pengaturan ini, fitur berikut akan tersedia:
 Jika anda mengaktifkan pengaturan ini, fitur berikut tidak tersedia:
 - Mode ambient
 - Postingan komunitas"</string>
+    <string name="revanced_reboot_warning_vp9">"Memalsukan informasi perangkat untuk mengaktifkan codec VP9
+
+Karena pengaturan ini sudah cukup usang, mungkin tidak valid"</string>
     <string name="revanced_ryd_attribution_summary">Data dislike disediakan oleh API Return YouTube Dislike. Tekan di sini untuk mempelajari lebih lanjut.</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_dislike_percentage_summary_off">Dislike ditampilkan sebagai angka</string>
@@ -549,7 +547,7 @@ Jika anda mengaktifkan pengaturan ini, fitur berikut tidak tersedia:
     <string name="segments_endcards">Endcards/kredit</string>
     <string name="segments_endcards_sum">Kredit atau saat kartu akhir YouTube muncul. Bukan untuk kesimpulan yang diucapkan</string>
     <string name="segments_filler">Filler tangent/lelucon</string>
-    <string name="segments_filler_sum">Adegan tangensial ditambahkan hanya untuk filler atau humor yang tidak diperlukan untuk memahami isi utama video. Ini tidak boleh menyertakan konteks atau detail latar belakang</string>
+    <string name="segments_filler_sum">Adegan tangensial ditambahkan hanya untuk filler atau humor yang tidak diperlukan untuk memahami isi utama video. Ini tidak boleh menyertakan konteks atau detail background</string>
     <string name="segments_intermission">Intermission/animasi intro</string>
     <string name="segments_intermission_sum">Interval tanpa konten sebenarnya. Bisa berupa jeda, static frame, animasi berulang</string>
     <string name="segments_nomusic">Musik: bagian non-musik</string>

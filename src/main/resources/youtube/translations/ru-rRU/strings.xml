@@ -77,8 +77,8 @@
     <string name="revanced_adremover_album_card_in_search_summary_off">Карточки альбомов показаны из результатов поиска</string>
     <string name="revanced_adremover_album_card_in_search_summary_on">Карточки альбомов скрыты из результатов поиска</string>
     <string name="revanced_adremover_album_card_in_search_title">Карточки альбомов</string>
-    <string name="revanced_adremover_breaking_news_shelf_summary_off">Публикации последних новостей показаны</string>
-    <string name="revanced_adremover_breaking_news_shelf_summary_on">Публикации последних новостей скрыты</string>
+    <string name="revanced_adremover_breaking_news_shelf_summary_off">Последние новости показаны</string>
+    <string name="revanced_adremover_breaking_news_shelf_summary_on">Последние новости скрыты</string>
     <string name="revanced_adremover_breaking_news_shelf_title">Последние новости</string>
     <string name="revanced_adremover_button_ads_summary_off">Видеообъявления в ленте показаны</string>
     <string name="revanced_adremover_button_ads_summary_on">Видеообъявления в ленте скрыты</string>
@@ -165,14 +165,6 @@
     <string name="revanced_adremover_web_search_panel_title">Панели веб поиска</string>
     <string name="revanced_custom_seekbar_color_value_summary">Введите HEX код цвета шкалы воспроизведения видео для использования в темном режиме</string>
     <string name="revanced_custom_seekbar_color_value_title">Пользовательское значение цвета</string>
-    <string name="revanced_custom_video_buffer_maximum_summary">Максимальная длительность медиа файла, который плеер попытается буферизовать</string>
-    <string name="revanced_custom_video_buffer_maximum_title">Максимальный размер буфера</string>
-    <string name="revanced_custom_video_buffer_playback_start_summary">Длительность видео, которая должна быть буферизована для начала или продолжения воспроизведения (например, после перемотки)</string>
-    <string name="revanced_custom_video_buffer_playback_start_title">Размер буфера начала воспроизведения</string>
-    <string name="revanced_custom_video_buffer_rebuffer_summary">Длительность медиа файла, который должен быть буферизирован для воспроизведения после повторной буферизации</string>
-    <string name="revanced_custom_video_buffer_rebuffer_title">Размер повторного буфера</string>
-    <string name="revanced_custom_video_buffer_summary">Настройки размера видеобуфера</string>
-    <string name="revanced_custom_video_buffer_title">Видеобуфер</string>
     <string name="revanced_default_video_quality_mobile_summary">Выбор разрешения видео по умолчанию для мобильной сети</string>
     <string name="revanced_default_video_quality_mobile_title">Разрешение видео по умолчанию (мобильная)</string>
     <string name="revanced_default_video_quality_wifi_summary">Выбор разрешения видео по умолчанию для Wi-Fi сети</string>
@@ -257,6 +249,8 @@
     <string name="revanced_enable_wide_searchbar_summary_off">Широкая панель поиска отключена</string>
     <string name="revanced_enable_wide_searchbar_summary_on">Широкая панель поиска включена</string>
     <string name="revanced_enable_wide_searchbar_title">Широкая панель поиска</string>
+    <string name="revanced_enable_vp9_codec_summary">Подмена информации об устройстве для включения кодека VP9</string>
+    <string name="revanced_enable_vp9_codec_title">Кодек VP9</string>
     <string name="revanced_experimental_flag">Экспериментальные опции</string>
     <string name="revanced_extended_issue_center_summary">Сообщите о проблемах или оставьте свои предложения здесь</string>
     <string name="revanced_extended_issue_center_title">Центр помощи ReVanced Extended</string>
@@ -479,6 +473,9 @@
 Если этот параметр включен, следующие функции будут не доступны:
 - Режим окружающей подсветки
 - Сообщения сообщества"</string>
+    <string name="revanced_reboot_warning_vp9">"\"Подменяет информацию об устройстве для включения кодека VP9 
+
+Поскольку эти настройки устарели, они могут быть недействительны"</string>
     <string name="revanced_ryd_attribution_summary">Данные дизлайков предоставляются при помощи Return YouTube Dislike API. Нажмите здесь, чтобы узнать больше</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_dislike_percentage_summary_off">Дизлайки показываются как число</string>
