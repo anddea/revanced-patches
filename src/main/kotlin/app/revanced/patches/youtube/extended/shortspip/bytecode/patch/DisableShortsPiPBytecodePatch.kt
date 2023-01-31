@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.layout.general.bytecode.patch
+package app.revanced.patches.youtube.extended.shortspip.bytecode.patch
 
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
@@ -12,11 +12,11 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.youtube.layout.general.bytecode.fingerprints.DisableShortsPiPFingerprint
+import app.revanced.patches.youtube.extended.shortspip.bytecode.fingerprints.DisableShortsPiPFingerprint
 import app.revanced.patches.youtube.misc.playertype.patch.PlayerTypeHookPatch
 import app.revanced.shared.annotation.YouTubeCompatibility
 import app.revanced.shared.extensions.toErrorResult
-import app.revanced.shared.util.integrations.Constants.GENERAL_LAYOUT
+import app.revanced.shared.util.integrations.Constants.EXTENDED_PATH
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.builder.instruction.BuilderInstruction35c
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
@@ -51,7 +51,7 @@ class DisableShortsPiPBytecodePatch : BytecodePatch(
 
                 method.addInstructions(
                     invokeIndex + 1,"""
-                        invoke-static {}, $GENERAL_LAYOUT->disableShortsPlayerPiP()Z
+                        invoke-static {}, $EXTENDED_PATH/DisableShortsPiPPatch;->disableShortsPlayerPiP()Z
                         move-result v$registerA
                         if-eqz v$registerA, :pip
                         goto :disablepip
