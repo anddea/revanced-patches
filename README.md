@@ -19,6 +19,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `default-video-quality` | Adds ability to set default video quality settings. | 18.04.35 |
 | `default-video-speed` | Adds ability to set default video speed settings. | 18.04.35 |
 | `disable-haptic-feedback` | Disable haptic feedback when swiping. | 18.04.35 |
+| `disable-shorts-player-pip` | Disable PiP mode in YouTube Shorts player. | 18.04.35 |
 | `enable-external-browser` | Use an external browser to open the url. | 18.04.35 |
 | `enable-minimized-playback` | Enables minimized and background playback. | 18.04.35 |
 | `enable-old-layout` | Spoof the YouTube client version to use the old layout. | 18.04.35 |
@@ -135,7 +136,7 @@ Example:
           "17.49.37",
           "18.01.38",
           "18.02.37",
-          "18.03.36",
+          "18.03.42",
           "18.04.35"
         ]
       }
