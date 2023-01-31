@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.layout.general.resource.patch
+package app.revanced.patches.youtube.extended.shortspip.resource.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
@@ -9,7 +9,7 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
-import app.revanced.patches.youtube.layout.general.bytecode.patch.DisableShortsPiPBytecodePatch
+import app.revanced.patches.youtube.extended.shortspip.bytecode.patch.DisableShortsPiPBytecodePatch
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
 import app.revanced.shared.annotation.YouTubeCompatibility
 import app.revanced.shared.util.resources.ResourceHelper
@@ -31,13 +31,11 @@ class DisableShortsPiPPatch : ResourcePatch {
         /*
          add settings
          */
-        ResourceHelper.addSettings4(
+        ResourceHelper.addSettings2(
             context,
-            "PREFERENCE_CATEGORY: REVANCED_SETTINGS",
-            "PREFERENCE: LAYOUT_SETTINGS",
-            "PREFERENCE_HEADER: GENERAL",
-            "SETTINGS: SHORTS_COMPONENT.PARENT",
-            "SETTINGS: SHORTS_COMPONENT_PARENT.B",
+            "PREFERENCE_CATEGORY: REVANCED_EXTENDED_SETTINGS",
+            "PREFERENCE: EXTENDED_SETTINGS",
+            "SETTINGS: EXPERIMENTAL_FLAGS",
             "SETTINGS: DISABLE_SHORTS_PLAYER_PIP"
         )
 
