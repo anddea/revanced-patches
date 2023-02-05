@@ -30,7 +30,7 @@
     <string name="general_adjusting">Điều chỉnh thời gian tua phân đoạn mới</string>
     <string name="general_adjusting_sum">Đây là số mili giây bạn có thể tua đi và tua lại khi sử dụng các nút điều chỉnh thời gian trong lúc tạo phân đoạn mới</string>
     <string name="general_api_url">Thay đổi URL API</string>
-    <string name="general_api_url_sum">"Địa chỉ SponsorBlock được dùng để thực hiện các kết nối đến máy chủ. &lt;b&gt;Không thay đổi địa chỉ này trừ khi bạn biết mình đang làm gì.&lt;/b&gt;"</string>
+    <string name="general_api_url_sum">"URL SponsorBlock được dùng để thực hiện các kết nối đến máy chủ. &lt;b&gt;Không thay đổi địa chỉ này trừ khi bạn biết mình đang làm gì.&lt;/b&gt;"</string>
     <string name="general_api_mirror_url">Thay đổi URL API mirror</string>
     <string name="general_api_mirror_url_sum">"URL máy chủ SponsorBlock mirror để chuyển sang khi máy chủ SponsorBlock chính không khả dụng. &lt;b&gt;Không thay đổi địa chỉ này trừ khi bạn biết mình đang làm gì.&lt;/b&gt;"</string>
     <string name="general_min_duration">Thời lượng tối thiểu của phân đoạn</string>
@@ -104,7 +104,7 @@ Bạn đã sẵn sàng gửi đi chưa?"</string>
     <string name="revanced_adremover_compact_banner_summary_off">Biểu ngữ thu gọn được hiển thị</string>
     <string name="revanced_adremover_compact_banner_summary_on">Biểu ngữ thu gọn đã ẩn</string>
     <string name="revanced_adremover_compact_banner_title">Ẩn Biểu ngữ thu gọn</string>
-    <string name="revanced_adremover_custom_filter_summary">Lọc các thành phần theo tên và được phân tách bằng dấu phẩy</string>
+    <string name="revanced_adremover_custom_filter_summary">Lọc các thành phần theo tên và được phân cách bằng dấu phẩy</string>
     <string name="revanced_adremover_custom_filter_title">Bộ lọc tùy chỉnh</string>
     <string name="revanced_adremover_emergency_box_summary_off">Hộp khẩn cấp được hiển thị</string>
     <string name="revanced_adremover_emergency_box_summary_on">Hộp khẩn cấp đã ẩn</string>
@@ -190,6 +190,9 @@ Bạn đã sẵn sàng gửi đi chưa?"</string>
     <string name="revanced_disable_haptic_feedback_zoom_summary_off">Phản hồi xúc giác khi chụm để thu phóng đang bật</string>
     <string name="revanced_disable_haptic_feedback_zoom_summary_on">Phản hồi xúc giác khi chụm để thu phóng đã tắt</string>
     <string name="revanced_disable_haptic_feedback_zoom_title">Tắt Phản hồi xúc giác khi chụm để thu phóng</string>
+    <string name="revanced_disable_shorts_player_pip_summary_off">Chế độ Hình trong hình trong trình phát Shorts đã bật</string>
+    <string name="revanced_disable_shorts_player_pip_summary_on">Chế độ Hình trong hình trong trình phát Shorts đã tắt</string>
+    <string name="revanced_disable_shorts_player_pip_title">Tắt chế độ Hình trong hình trong trình phát Shorts</string>
     <string name="revanced_copytimestamp_success">Đã sao chép liên kết với dấu thời gian vào bảng nhớ tạm</string>
     <string name="revanced_enable_always_auto_repeat_summary_off">Luôn tự động lặp lại đã tắt</string>
     <string name="revanced_enable_always_auto_repeat_summary_on">Luôn tự động lặp lại đang bật</string>
@@ -330,9 +333,6 @@ Bạn đã sẵn sàng gửi đi chưa?"</string>
     <string name="revanced_hide_filmstrip_overlay_summary_off">Tua chính xác đang bật</string>
     <string name="revanced_hide_filmstrip_overlay_summary_on">Tua chính xác đã tắt</string>
     <string name="revanced_hide_filmstrip_overlay_title">Tắt Tua chính xác</string>
-    <string name="revanced_hide_fullscreen_button_container_summary_off">Vùng chứa các nút chức năng (Thích, Không thích, Chia sẻ,...) trong video toàn màn hình được hiển thị</string>
-    <string name="revanced_hide_fullscreen_button_container_summary_on">Vùng chứa các nút chức năng (Thích, Không thích, Chia sẻ,...) trong video toàn màn hình đã ẩn</string>
-    <string name="revanced_hide_fullscreen_button_container_title">Ẩn Vùng chứa nút trong video toàn màn hình</string>
     <string name="revanced_hide_info_cards_summary_off">Thẻ thông tin được hiển thị</string>
     <string name="revanced_hide_info_cards_summary_on">Thẻ thông tin đã ẩn</string>
     <string name="revanced_hide_info_cards_title">Ẩn Thẻ thông tin</string>
@@ -463,6 +463,9 @@ Bạn có chắc chắn muốn tiếp tục không?"</string>
     <string name="revanced_reboot_warning_oldlayout">"Đánh lừa hệ thống rằng phiên bản ứng dụng hiện tại của YouTube là phiên bản 17.28.35 để sử dụng được giao diện cũ.
 
 Lưu ý: Trong cài đặt ứng dụng, phiên bản YouTube có thể được hiển thị là v17.28.35."</string>
+    <string name="revanced_reboot_warning_pip">"Tắt chế độ Hình trong hình trong trình phát Shorts
+
+Tùy chọn này không hợp lệ trên một số phiên bản Android hoặc hệ điều hành nhất định."</string>
     <string name="revanced_reboot_warning_phone">"Thay đổi chỉ số DPI để sử dụng bố cục điện thoại.
 
 Lưu ý: Nếu bạn bật tuỳ chọn này, các tính năng sau sẽ khả dụng:

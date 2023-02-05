@@ -196,6 +196,9 @@
     <string name="revanced_disable_haptic_feedback_zoom_summary_off">動画をズームする時の触覚(振動)フィードバックは有効です</string>
     <string name="revanced_disable_haptic_feedback_zoom_summary_on">動画をズームする時の触覚(振動)フィードバックは無効です</string>
     <string name="revanced_disable_haptic_feedback_zoom_title">動画をズームする時の触覚(振動)フィードバックを無効にする</string>
+    <string name="revanced_disable_shorts_player_pip_summary_off">YouTubeショートのピクチャーインピクチャーは有効です</string>
+    <string name="revanced_disable_shorts_player_pip_summary_on">YouTubeショートのピクチャーインピクチャーは無効です</string>
+    <string name="revanced_disable_shorts_player_pip_title">YouTubeショートのPiPを無効にする</string>
     <string name="revanced_copytimestamp_success">タイムスタンプをコピーしました</string>
     <string name="revanced_enable_always_auto_repeat_summary_off">常に自動リピートは無効です。
 再生中の動画を常にリピートします</string>
@@ -261,7 +264,7 @@ HDR動画の明るさをシステムのデフォルトに従います</string>
     <string name="revanced_enable_wide_searchbar_summary_on">幅広い検索バーは有効です
 検索アイコンを幅の広い検索バーに置き換えます。(これが有効になっている時にYouTubeのロゴが非表示になります)</string>
     <string name="revanced_enable_wide_searchbar_title">幅広い検索バーを有効にする</string>
-    <string name="revanced_enable_vp9_codec_summary">デバイス情報を偽装してVP9コーデックを有効にします</string>
+    <string name="revanced_enable_vp9_codec_summary">端末情報を偽装してVP9コーデックを有効にします</string>
     <string name="revanced_enable_vp9_codec_title">VP9コーデックを有効にする</string>
     <string name="revanced_experimental_flag">実験的な機能</string>
     <string name="revanced_extended_issue_center_summary">問題を報告するか、提案をここに残してください</string>
@@ -346,9 +349,6 @@ HDR動画の明るさをシステムのデフォルトに従います</string>
     <string name="revanced_hide_filmstrip_overlay_summary_off">動画プレーヤーの映写スライドは表示されます</string>
     <string name="revanced_hide_filmstrip_overlay_summary_on">動画プレーヤーの映写スライドは非表示です</string>
     <string name="revanced_hide_filmstrip_overlay_title">動画プレーヤーの映写スライドを非表示にする</string>
-    <string name="revanced_hide_fullscreen_button_container_summary_off">全画面表示のボタンは表示されます</string>
-    <string name="revanced_hide_fullscreen_button_container_summary_on">全画面表示のボタンは非表示です</string>
-    <string name="revanced_hide_fullscreen_button_container_title">全画面表示のボタンを非表示にする</string>
     <string name="revanced_hide_info_cards_summary_off">情報カードは表示されます</string>
     <string name="revanced_hide_info_cards_summary_on">情報カードは非表示です</string>
     <string name="revanced_hide_info_cards_title">情報カードを非表示にする</string>
@@ -431,7 +431,7 @@ HDR動画の明るさをシステムのデフォルトに従います</string>
 YouTubeの起動時にYouTubeショートの再生を無効にします</string>
     <string name="revanced_hide_startup_shorts_player_summary_on">アプリの起動時にYouTubeショートのプレーヤーは無効になっています
 YouTubeの起動時にYouTubeショートの再生を無効にします</string>
-    <string name="revanced_hide_startup_shorts_player_title">アプリ起動時にYouTubeショートを無効化する</string>
+    <string name="revanced_hide_startup_shorts_player_title">アプリ起動時にYouTubeショートを無効にする</string>
     <string name="revanced_hide_stories_shelf_summary_off">ストーリー欄は表示されます</string>
     <string name="revanced_hide_stories_shelf_summary_on">ストーリー欄は非表示です</string>
     <string name="revanced_hide_stories_shelf_title">ストーリー欄を非表示にする</string>
@@ -483,6 +483,9 @@ YouTubeの起動時にYouTubeショートの再生を無効にします</string>
     <string name="revanced_reboot_warning_oldlayout">"古いレイアウトを有効にするために、YouTubeのバージョンをv17.28.35に偽装します。
 
 アプリの設定では、YouTubeのバージョンはv17.28.35 と表示されます。"</string>
+    <string name="revanced_reboot_warning_pip">"YouTubeショートのピクチャーインピクチャーを無効にします
+
+このオプションは特定のAndroidバージョンまたはOSでは動作しません"</string>
     <string name="revanced_reboot_warning_phone">"一部のレイアウトをスマートフォン用のレイアウトに変更するために dpi を偽装します。
 
 この設定を有効にすると、次の機能は利用できません:
@@ -493,9 +496,9 @@ YouTubeの起動時にYouTubeショートの再生を無効にします</string>
 この設定を有効にすると、次の機能は利用できません:
 - アンビエントモード
 - コミュニティの投稿"</string>
-    <string name="revanced_reboot_warning_vp9">"VP9コーデックを有効にするためにデバイス情報を偽装します
+    <string name="revanced_reboot_warning_vp9">"VP9コーデックを有効にするために端末情報を偽装します
 
-これらの設定は非常に古いので、有効ではないかもしれません"</string>
+これらの設定は非常に古いので、動作しないかもしれません"</string>
     <string name="revanced_ryd_attribution_summary">低評価のデータは、Return YouTube Dislike API によって提供されます。詳細はこちらをタップしてください。</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_dislike_percentage_summary_off">低評価数は数字で表示されます</string>
@@ -503,7 +506,7 @@ YouTubeの起動時にYouTubeショートの再生を無効にします</string>
     <string name="revanced_ryd_dislike_percentage_title">低評価数をパーセントで表示する</string>
     <string name="revanced_ryd_compact_layout_summary_off">最高の外観のためにスタイル化された高評価ボタン</string>
     <string name="revanced_ryd_compact_layout_summary_on">高評価ボタンを最小幅のスタイルにする</string>
-    <string name="revanced_ryd_compact_layout_title">コンパクトな高評価ボタンを有効化</string>
+    <string name="revanced_ryd_compact_layout_title">コンパクトな高評価ボタンを有効にする</string>
     <string name="revanced_ryd_enable_summary_off">低評価数は非表示です</string>
     <string name="revanced_ryd_enable_summary_on">低評価数は表示されます</string>
     <string name="revanced_ryd_enable_title">低評価数を表示する(RYD API)</string>

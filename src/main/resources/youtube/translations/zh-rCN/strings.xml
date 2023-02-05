@@ -190,6 +190,9 @@
     <string name="revanced_disable_haptic_feedback_zoom_summary_off">缩放触感反馈已启用</string>
     <string name="revanced_disable_haptic_feedback_zoom_summary_on">缩放触感反馈已禁用</string>
     <string name="revanced_disable_haptic_feedback_zoom_title">缩放触感反馈</string>
+    <string name="revanced_disable_shorts_player_pip_summary_off">Shorts 短视频画中画模式已启用</string>
+    <string name="revanced_disable_shorts_player_pip_summary_on">Shorts 短视频画中画模式已禁用</string>
+    <string name="revanced_disable_shorts_player_pip_title">禁用 Shorts 短视频画中画模式</string>
     <string name="revanced_copytimestamp_success">时间戳已复制到剪贴板</string>
     <string name="revanced_enable_always_auto_repeat_summary_off">始终自动循环播放已禁用</string>
     <string name="revanced_enable_always_auto_repeat_summary_on">始终自动循环播放已启用</string>
@@ -330,9 +333,6 @@
     <string name="revanced_hide_filmstrip_overlay_summary_off">影片条叠加层已显示</string>
     <string name="revanced_hide_filmstrip_overlay_summary_on">影片条叠加层已隐藏</string>
     <string name="revanced_hide_filmstrip_overlay_title">视频条叠加层</string>
-    <string name="revanced_hide_fullscreen_button_container_summary_off">全屏按钮栏已显示</string>
-    <string name="revanced_hide_fullscreen_button_container_summary_on">全屏按钮栏已隐藏</string>
-    <string name="revanced_hide_fullscreen_button_container_title">全屏按钮栏</string>
     <string name="revanced_hide_info_cards_summary_off">资料卡已显示</string>
     <string name="revanced_hide_info_cards_summary_on">资料卡已隐藏</string>
     <string name="revanced_hide_info_cards_title">资料卡</string>
@@ -411,9 +411,9 @@
     <string name="revanced_hide_snackbar_summary_off">弹出消息已显示</string>
     <string name="revanced_hide_snackbar_summary_on">弹出消息已隐藏</string>
     <string name="revanced_hide_snackbar_title">弹出消息</string>
-    <string name="revanced_hide_startup_shorts_player_summary_off">应用启动时 Shorts 播放器已显示</string>
-    <string name="revanced_hide_startup_shorts_player_summary_on">应用启动时 Shorts 播放器已隐藏</string>
-    <string name="revanced_hide_startup_shorts_player_title">应用启动时的 Shorts 播放器</string>
+    <string name="revanced_hide_startup_shorts_player_summary_off">应用启动时 Shorts 短视频已显示</string>
+    <string name="revanced_hide_startup_shorts_player_summary_on">应用启动时 Shorts 短视频已隐藏</string>
+    <string name="revanced_hide_startup_shorts_player_title">应用启动时的 Shorts 短视频</string>
     <string name="revanced_hide_stories_shelf_summary_off">短片故事部分已显示</string>
     <string name="revanced_hide_stories_shelf_summary_on">短片故事部分已隐藏</string>
     <string name="revanced_hide_stories_shelf_title">短片故事部分</string>
@@ -463,6 +463,9 @@
     <string name="revanced_reboot_warning_oldlayout">"伪装 YouTube 客户端版本为 v17.28.35 以载入旧布局
 
 在应用设置里，YouTube 版本可能会显示为 v17.28.35"</string>
+    <string name="revanced_reboot_warning_pip">"禁用 Shorts 短视频画中画模式
+
+该选项在某些 Android 版本或操作系统中无效"</string>
     <string name="revanced_reboot_warning_phone">"伪装 DPI 将一些布局改为手机样式。
 
 如果启用该设置，可以使用以下功能：
