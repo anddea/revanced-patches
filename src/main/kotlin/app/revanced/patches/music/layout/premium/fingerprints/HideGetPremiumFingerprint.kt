@@ -10,10 +10,13 @@ object HideGetPremiumFingerprint : MethodFingerprint(
     access = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf(),
     opcodes = listOf(
-        Opcode.IF_NEZ,
-        Opcode.CONST_16,
-        Opcode.GOTO,
-        Opcode.NOP,
-        Opcode.INVOKE_VIRTUAL
-    )
+        Opcode.IGET_BOOLEAN,
+        Opcode.CONST_4,
+        Opcode.IF_EQZ,
+        Opcode.IGET_OBJECT,
+        Opcode.INVOKE_VIRTUAL,
+        Opcode.MOVE_RESULT_OBJECT,
+        Opcode.INVOKE_STATIC
+    ),
+    listOf("FEmusic_history")
 )
