@@ -9,9 +9,9 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.youtube.layout.player.autoplaybutton.bytecode.fingerprints.LayoutConstructorFingerprint
 import app.revanced.shared.annotation.YouTubeCompatibility
 import app.revanced.shared.extensions.toErrorResult
+import app.revanced.shared.fingerprints.LayoutConstructorFingerprint
 import app.revanced.shared.patches.mapping.ResourceMappingPatch
 import app.revanced.shared.util.integrations.Constants.PLAYER_LAYOUT
 import org.jf.dexlib2.iface.instruction.Instruction
