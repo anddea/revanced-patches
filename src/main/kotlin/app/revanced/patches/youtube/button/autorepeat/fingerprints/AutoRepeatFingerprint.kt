@@ -5,8 +5,8 @@ import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import org.jf.dexlib2.AccessFlags
 
 object AutoRepeatFingerprint : MethodFingerprint(
-    "V",
-    AccessFlags.PUBLIC or AccessFlags.FINAL,
-    listOf(),
+    returnType = "V",
+    access = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = listOf(),
     customFingerprint = { methodDef -> methodDef.implementation!!.instructions.count() == 3 && methodDef.annotations.isEmpty()}
 )

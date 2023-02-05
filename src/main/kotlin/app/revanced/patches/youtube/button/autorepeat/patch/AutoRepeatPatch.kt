@@ -10,12 +10,12 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.youtube.button.autorepeat.fingerprints.AutoNavInformerFingerprint
-import app.revanced.patches.youtube.button.autorepeat.fingerprints.AutoRepeatFingerprint
-import app.revanced.patches.youtube.button.autorepeat.fingerprints.AutoRepeatParentFingerprint
+import app.revanced.patches.youtube.button.autorepeat.fingerprints.*
 import app.revanced.shared.annotation.YouTubeCompatibility
+import app.revanced.shared.extensions.toErrorResult
 import app.revanced.shared.util.integrations.Constants.UTILS_PATH
 import app.revanced.shared.util.integrations.Constants.VIDEO_PATH
+import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Name("always-autorepeat")
 @YouTubeCompatibility
@@ -27,30 +27,34 @@ class AutoRepeatPatch : BytecodePatch(
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
-        with(AutoRepeatFingerprint.also {
-            it.resolve(context, AutoRepeatParentFingerprint.result!!.classDef)
-        }.result!!.mutableMethod) {
-            addInstructions(
-                0, """
+        AutoRepeatParentFingerprint.result?.classDef?.let { classDef ->
+            AutoRepeatFingerprint.also {
+                it.resolve(context, classDef)
+            }.result?.mutableMethod?.let {
+                it.addInstructions(
+                    0, """
                     invoke-static {}, $VIDEO_PATH/VideoInformation;->videoEnded()Z
                     move-result v0
                     if-eqz v0, :noautorepeat
                     return-void
-                """, listOf(ExternalLabel("noautorepeat", instruction(0)))
-            )
-        }
+                """, listOf(ExternalLabel("noautorepeat", it.instruction(0)))
+                )
+            } ?: return AutoRepeatFingerprint.toErrorResult()
+        } ?: return AutoRepeatParentFingerprint.toErrorResult()
 
-        with(AutoNavInformerFingerprint.result!!.mutableMethod) {
-            addInstructions(
-                0, """
-                    invoke-static {}, $UTILS_PATH/EnableAutoRepeatPatch;->enableAutoRepeat()Z
+        AutoNavInformerFingerprint.result?.mutableMethod?.let {
+            with (it.implementation!!.instructions) {
+                val index = this.size - 1 - 1
+                val register = (this[index] as OneRegisterInstruction).registerA
+                it.addInstructions(
+                    index + 1, """
+                    invoke-static {v$register}, $UTILS_PATH/EnableAutoRepeatPatch;->enableAutoRepeat(Z)Z
                     move-result v0
-                    if-eqz v0, :hidden
-                    const/4 v0, 0x0
-                    return v0
-                """, listOf(ExternalLabel("hidden", instruction(0)))
-            )
-        }
+                """
+                )
+
+            }
+        } ?: return AutoNavInformerFingerprint.toErrorResult()
 
         return PatchResultSuccess()
     }
