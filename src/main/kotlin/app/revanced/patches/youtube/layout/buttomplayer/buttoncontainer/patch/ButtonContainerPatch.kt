@@ -16,7 +16,7 @@ import app.revanced.shared.util.resources.ResourceHelper
 
 @Patch
 @Name("hide-button-container")
-@Description("Adds options to hide action buttons under a video.")
+@Description("Adds the options to hide action buttons under a video.")
 @DependsOn(
     [
         LithoFilterPatch::class,

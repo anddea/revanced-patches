@@ -15,7 +15,7 @@ import app.revanced.shared.util.resources.ResourceHelper
 
 @Patch
 @Name("translations")
-@Description("Add Crowdin Translations")
+@Description("Add Crowdin Translations.")
 @DependsOn([SettingsPatch::class])
 @YouTubeCompatibility
 @Version("0.0.1")
