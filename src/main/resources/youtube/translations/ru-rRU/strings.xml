@@ -221,7 +221,7 @@
     <string name="revanced_enable_press_to_swipe_summary_off">Нажатие для выполнения жеста отключено</string>
     <string name="revanced_enable_press_to_swipe_summary_on">Нажатие для выполнения жеста включено</string>
     <string name="revanced_enable_press_to_swipe_title">Нажатие для жеста</string>
-    <string name="revanced_enable_phone_layout_summary">Подменяет DPI для использования интерфейса некоторых телефонов</string>
+    <string name="revanced_enable_phone_layout_summary">Подмена DPI для использования интерфейса некоторых телефонов</string>
     <string name="revanced_enable_phone_layout_title">Телефонный интерфейс</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">Нажатие на шкалу воспроизведения видео для перемотки отключено</string>
     <string name="revanced_enable_save_video_quality_summary_off">Качество воспроизведения видео не сохраняется при его изменении</string>
@@ -247,7 +247,7 @@
     <string name="revanced_enable_tablet_miniplayer_summary_off">Планшетный миниплеер отключен</string>
     <string name="revanced_enable_tablet_miniplayer_summary_on">Планшетный миниплеер включен</string>
     <string name="revanced_enable_tablet_miniplayer_title">Планшетный миниплеер</string>
-    <string name="revanced_enable_tablet_layout_summary">Подменяет DPI для использования интерфейса некоторых планшетов</string>
+    <string name="revanced_enable_tablet_layout_summary">Подмена DPI для использования интерфейса некоторых планшетов</string>
     <string name="revanced_enable_tablet_layout_title">Планшетный интерфейс</string>
     <string name="revanced_enable_wide_searchbar_summary_off">Широкая панель поиска отключена</string>
     <string name="revanced_enable_wide_searchbar_summary_on">Широкая панель поиска включена</string>
@@ -333,9 +333,6 @@
     <string name="revanced_hide_filmstrip_overlay_summary_off">Покадровая лента в стиле кинопленки для более точного перехода при перемотке показана</string>
     <string name="revanced_hide_filmstrip_overlay_summary_on">Покадровая лента в стиле кинопленки для более точного перехода при перемотке скрыта</string>
     <string name="revanced_hide_filmstrip_overlay_title">Покадровая лента при перемотке</string>
-    <string name="revanced_hide_fullscreen_button_container_summary_off">Нижние кнопки в полноэкранном режиме показаны</string>
-    <string name="revanced_hide_fullscreen_button_container_summary_on">Нижние кнопки в полноэкранном режиме скрыты</string>
-    <string name="revanced_hide_fullscreen_button_container_title">Кнопки в полноэкранном режиме</string>
     <string name="revanced_hide_info_cards_summary_off">Подсказки показаны</string>
     <string name="revanced_hide_info_cards_summary_on">Подсказки скрыты</string>
     <string name="revanced_hide_info_cards_title">Подсказки</string>
@@ -466,6 +463,9 @@
     <string name="revanced_reboot_warning_oldlayout">"Подменяет версию клиента YouTube на v17.28.35 для отображения старого интерфейса
 
 В настройках приложения YouTube версия может быть показана как v17.28.35"</string>
+    <string name="revanced_reboot_warning_pip">"Отключает режим PiP (картинка в картинке) для плеера коротких видео
+
+Эта функция не работает на определенных версиях Android и некоторых прошивках"</string>
     <string name="revanced_reboot_warning_phone">"Подменяет DPI для изменения некоторых элементов интерфейса на телефонный
 
 Если этот параметр включен, следующие функции будут доступны:
@@ -476,7 +476,7 @@
 Если этот параметр включен, следующие функции будут не доступны:
 - Режим окружающей подсветки
 - Сообщения сообщества"</string>
-    <string name="revanced_reboot_warning_vp9">"\"Подменяет информацию об устройстве для включения кодека VP9 
+    <string name="revanced_reboot_warning_vp9">"Подменяет информацию об устройстве для включения кодека VP9 
 
 Поскольку эти настройки устарели, они могут быть недействительны"</string>
     <string name="revanced_ryd_attribution_summary">Данные дизлайков предоставляются при помощи Return YouTube Dislike API. Нажмите здесь, чтобы узнать больше</string>

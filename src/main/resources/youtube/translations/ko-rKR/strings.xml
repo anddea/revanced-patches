@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="about">정보</string>
+    <string name="about">About</string>
     <string name="about_api">이 앱은 SponsorBlock의 API를 사용합니다.</string>
     <string name="about_api_sum">다른 플랫폼에서 다운로드하는 방법은 sponsor.ajay.app에서 확인할 수 있습니다. 자세한 정보를 보려면 누르세요.</string>
     <string name="about_madeby">JakubWeg님이 개발하였습니다.</string>
@@ -190,6 +190,9 @@
     <string name="revanced_disable_haptic_feedback_zoom_summary_off">동영상을 확대할 때 진동 피드백을 활성화합니다.</string>
     <string name="revanced_disable_haptic_feedback_zoom_summary_on">동영상을 확대할 때 진동 피드백을 비활성화합니다.</string>
     <string name="revanced_disable_haptic_feedback_zoom_title">동영상을 확대할 때 진동 피드백 비활성화하기</string>
+    <string name="revanced_disable_shorts_player_pip_summary_off">Shorts 플레이어에서 PIP 모드를 활성화합니다</string>
+    <string name="revanced_disable_shorts_player_pip_summary_on">Shorts 플레이어에서 PIP 모드를 비활성화합니다</string>
+    <string name="revanced_disable_shorts_player_pip_title">Shorts 플레이어에서 PIP 모드 비활성화</string>
     <string name="revanced_copytimestamp_success">타임스탬프가 클립보드에 저장되었습니다.</string>
     <string name="revanced_enable_always_auto_repeat_summary_off">자동 반복 기능이 꺼져 있습니다.</string>
     <string name="revanced_enable_always_auto_repeat_summary_on">자동 반복 기능이 켜져 있습니다.</string>
@@ -330,9 +333,6 @@
     <string name="revanced_hide_filmstrip_overlay_summary_off">필름 스트립 오버레이가 노출됩니다.</string>
     <string name="revanced_hide_filmstrip_overlay_summary_on">필름 스트립 오버레이가 숨겨집니다.</string>
     <string name="revanced_hide_filmstrip_overlay_title">필름 스트립 오버레이 숨기기</string>
-    <string name="revanced_hide_fullscreen_button_container_summary_off">전체화면 버튼 컨테이너가 노출됩니다.</string>
-    <string name="revanced_hide_fullscreen_button_container_summary_on">전체화면 버튼 컨테이너가 숨겨집니다.</string>
-    <string name="revanced_hide_fullscreen_button_container_title">전체화면 버튼 컨테이너 숨기기</string>
     <string name="revanced_hide_info_cards_summary_off">영상 정보 카드가 노출됩니다.</string>
     <string name="revanced_hide_info_cards_summary_on">영상 정보 카드가 숨겨집니다.</string>
     <string name="revanced_hide_info_cards_title">영상 정보 카드 숨기기</string>
@@ -463,6 +463,9 @@
     <string name="revanced_reboot_warning_oldlayout">"이전 레이아웃을 로드하기 위해 YouTube 클라이언트 버전을 v17.28.35로 속입니다.
 
 앱 설정에서 유튜브 버전이 v17.28.35로 표시될 수 있습니다."</string>
+    <string name="revanced_reboot_warning_pip">"Shorts 플레이어에서 PIP 모드를 비활성화하기
+
+이 옵션은 특정 Android 버전 또는 특정 OS에서  유효하지 않습니다"</string>
     <string name="revanced_reboot_warning_phone">"dpi를 속여 일부 레이아웃을 휴대폰 레이아웃으로 변경합니다.
 
 이 설정을 활성화하면 다음 기능을 사용할 수 있습니다.
