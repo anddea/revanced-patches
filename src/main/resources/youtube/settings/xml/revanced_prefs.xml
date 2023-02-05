@@ -185,8 +185,6 @@
     <!-- PREFERENCE_HEADER: FULLSCREEN
         <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_layout_settings_fullscreen" />PREFERENCE_HEADER: FULLSCREEN -->
 
-        <!-- SETTINGS: HIDE_FULLSCREEN_BUTTON_CONTAINER
-        <SwitchPreference android:title="@string/revanced_hide_fullscreen_button_container_title" android:key="revanced_hide_fullscreen_button_container" android:defaultValue="false" android:summaryOn="@string/revanced_hide_fullscreen_button_container_summary_on" android:summaryOff="@string/revanced_hide_fullscreen_button_container_summary_off" />SETTINGS: HIDE_FULLSCREEN_BUTTON_CONTAINER -->
 
         <!-- SETTINGS: HIDE_ENDSCREEN_OVERLAY
         <SwitchPreference android:title="@string/revanced_hide_endscreen_overlay_title" android:key="revanced_hide_endscreen_overlay" android:defaultValue="false" android:summaryOn="@string/revanced_hide_endscreen_overlay_summary_on" android:summaryOff="@string/revanced_hide_endscreen_overlay_summary_off" />SETTINGS: HIDE_ENDSCREEN_OVERLAY -->
@@ -388,7 +386,6 @@
             <Preference android:title="hide-player-overlay-filter" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
 
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_layout_settings_fullscreen" />
-            <Preference android:title="hide-fullscreen-buttoncontainer" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-endscreen-overlay" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-filmstrip-overlay" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="disable-haptic-feedback" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
