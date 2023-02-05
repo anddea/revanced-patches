@@ -20,7 +20,7 @@ import app.revanced.shared.util.resources.ResourceUtils.copyXmlNode
 
 @Patch
 @Name("sponsorblock")
-@Description("Integrate SponsorBlock.")
+@Description("Integrates SponsorBlock which allows skipping video segments such as sponsored content.")
 @DependsOn(
     [
         SettingsPatch::class,
