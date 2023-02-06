@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.layout.general.autocaptions.bytecode.fingerprints
+package app.revanced.shared.fingerprints
 
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
@@ -10,7 +10,7 @@ object StartVideoInformerFingerprint : MethodFingerprint(
     access = AccessFlags.PUBLIC or AccessFlags.FINAL,
     opcodes = listOf(
         Opcode.INVOKE_INTERFACE,
-        Opcode.RETURN_VOID,
+        Opcode.RETURN_VOID
     ),
     strings = listOf("pc")
 )
