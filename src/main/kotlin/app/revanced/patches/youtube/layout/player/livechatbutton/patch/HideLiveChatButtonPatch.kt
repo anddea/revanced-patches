@@ -36,7 +36,7 @@ class HideLiveChatButtonPatch : ResourcePatch {
             "PREFERENCE_CATEGORY: REVANCED_SETTINGS",
             "PREFERENCE: LAYOUT_SETTINGS",
             "PREFERENCE_HEADER: PLAYER",
-            "SETTINGS: HIDE_LIVE_CHAT_BUTTON"
+            "SETTINGS: HIDE_LIVE_CHATS_BUTTON"
         )
 
         ResourceHelper.patchSuccess(
