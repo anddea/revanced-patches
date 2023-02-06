@@ -9,73 +9,73 @@ The official Patch bundle provided by ReVanced and the community.
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
-| `client-spoof` | Spoofs the YouTube client to prevent playback issues. | 18.04.41 |
-| `custom-branding-icon-afn-blue` | Changes the YouTube launcher icon (Afn / Blue). | 18.04.41 |
-| `custom-branding-icon-afn-red` | Changes the YouTube launcher icon (Afn / Red). | 18.04.41 |
-| `custom-branding-icon-revancify` | Changes the YouTube launcher icon (Revancify). | 18.04.41 |
-| `custom-branding-name` | Changes the YouTube launcher name to your choice (defaults to ReVanced Extended). | 18.04.41 |
-| `custom-seekbar-color` | Change seekbar color in dark mode. | 18.04.41 |
-| `custom-video-speed` | Adds more video speed options. | 18.04.41 |
-| `default-video-quality` | Adds ability to set default video quality settings. | 18.04.41 |
-| `default-video-speed` | Adds ability to set default video speed settings. | 18.04.41 |
-| `disable-haptic-feedback` | Disable haptic feedback when swiping. | 18.04.41 |
-| `disable-shorts-player-pip` | Disable PiP mode in YouTube Shorts player. | 18.04.41 |
-| `enable-external-browser` | Use an external browser to open the url. | 18.04.41 |
-| `enable-minimized-playback` | Enables minimized and background playback. | 18.04.41 |
-| `enable-old-layout` | Spoof the YouTube client version to use the old layout. | 18.04.41 |
-| `enable-old-quality-layout` | Enables the original quality flyout menu. | 18.04.41 |
-| `enable-open-links-directly` | Bypass URL redirects (youtube.com/redirect) when opening links in video descriptions. | 18.04.41 |
-| `enable-seekbar-tapping` | Enables tap-to-seek on the seekbar of the video player. | 18.04.41 |
-| `enable-tablet-miniplayer` | Enables the tablet mini player layout. | 18.04.41 |
-| `enable-wide-searchbar` | Replaces the search icon with a wide search bar. This will hide the YouTube logo when active. | 18.04.41 |
-| `force-premium-heading` | Forces premium heading on the home screen. | 18.04.41 |
-| `force-vp9-codec` | Forces the VP9 codec for videos. | 18.04.41 |
-| `header-switch` | Add switch to change header. | 18.04.41 |
-| `hide-auto-captions` | Hide captions from being automatically enabled. | 18.04.41 |
-| `hide-auto-player-popup-panels` | Hide automatic popup panels (playlist or live chat) on video player. | 18.04.41 |
-| `hide-autoplay-button` | Hides the autoplay button in the video player. | 18.04.41 |
-| `hide-button-container` | Adds the options to hide action buttons under a video. | 18.04.41 |
-| `hide-cast-button` | Hides the cast button in the video player. | 18.04.41 |
-| `hide-channel-watermark` | Hides creator's watermarks on videos. | 18.04.41 |
-| `hide-comment-component` | Adds options to hide comment component under a video. | 18.04.41 |
-| `hide-create-button` | Hides the create button in the navigation bar. | 18.04.41 |
-| `hide-crowdfunding-box` | Hides the crowdfunding box between the player and video description. | 18.04.41 |
-| `hide-email-address` | Hides the email address in the account switcher. | 18.04.41 |
-| `hide-endscreen-cards` | Hides the suggested video cards at the end of a video in fullscreen. | 18.04.41 |
-| `hide-endscreen-overlay` | Hide endscreen overlay on swipe controls. | 18.04.41 |
-| `hide-filmstrip-overlay` | Hide flimstrip overlay on swipe controls. | 18.04.41 |
-| `hide-flyout-panel` | Adds options to hide player settings flyout panel. | 18.04.41 |
-| `hide-fullscreen-panels` | Hides video description and comments panel in fullscreen view. | 18.04.41 |
-| `hide-general-ads` | Hooks the method which parses the bytes into a ComponentContext to filter components. | 18.04.41 |
-| `hide-info-cards` | Hides info-cards in videos. | 18.04.41 |
-| `hide-live-chat-button` | Hides the live chat button in the video player. | 18.04.41 |
-| `hide-mix-playlists` | Removes mix playlists from home feed and video player. | 18.04.41 |
-| `hide-next-prev-button` | Hides the next prev button in the player controller. | 18.04.41 |
-| `hide-pip-notification` | Disable pip notification when you first launch pip mode. | 18.04.41 |
-| `hide-player-captions-button` | Hides the captions button in the video player. | 18.04.41 |
-| `hide-player-overlay-filter` | Remove the dark filter layer from the player's background. | 18.04.41 |
-| `hide-shorts-button` | Hides the shorts button in the navigation bar. | 18.04.41 |
-| `hide-shorts-component` | Hides other Shorts components. | 18.04.41 |
-| `hide-snackbar` | Hides the snackbar action popup. | 18.04.41 |
-| `hide-startup-shorts-player` | Disables playing YouTube Shorts when launching YouTube. | 18.04.41 |
-| `hide-stories` | Hides YouTube Stories shelf on the feed. | 18.04.41 |
-| `hide-suggested-actions` | Hide the suggested actions bar inside the player. | 18.04.41 |
-| `hide-time-and-seekbar` | Hides progress bar and time counter on videos. | 18.04.41 |
-| `hide-tooltip-content` | Hides the tooltip box that appears on first install. | 18.04.41 |
-| `hide-video-ads` | Removes ads in the video player. | 18.04.41 |
-| `layout-switch` | Tricks the dpi to use some tablet/phone layouts. | 18.04.41 |
-| `materialyou` | Enables MaterialYou theme for Android 12+ | 18.04.41 |
-| `microg-support` | Allows YouTube ReVanced to run without root and under a different package name with Vanced MicroG. | 18.04.41 |
-| `optimize-resource` | Removes duplicate resources and adds missing translation files from YouTube. | 18.04.41 |
-| `overlay-buttons` | Add overlay buttons for ReVanced Extended. | 18.04.41 |
+| `client-spoof` | Spoofs the YouTube client to prevent playback issues. | 18.05.34 |
+| `custom-branding-icon-afn-blue` | Changes the YouTube launcher icon (Afn / Blue). | 18.05.34 |
+| `custom-branding-icon-afn-red` | Changes the YouTube launcher icon (Afn / Red). | 18.05.34 |
+| `custom-branding-icon-revancify` | Changes the YouTube launcher icon (Revancify). | 18.05.34 |
+| `custom-branding-name` | Changes the YouTube launcher name to your choice (defaults to ReVanced Extended). | 18.05.34 |
+| `custom-seekbar-color` | Change seekbar color in dark mode. | 18.05.34 |
+| `custom-video-speed` | Adds more video speed options. | 18.05.34 |
+| `default-video-quality` | Adds ability to set default video quality settings. | 18.05.34 |
+| `default-video-speed` | Adds ability to set default video speed settings. | 18.05.34 |
+| `disable-haptic-feedback` | Disable haptic feedback when swiping. | 18.05.34 |
+| `disable-shorts-player-pip` | Disable PiP mode in YouTube Shorts player. | 18.05.34 |
+| `enable-external-browser` | Use an external browser to open the url. | 18.05.34 |
+| `enable-minimized-playback` | Enables minimized and background playback. | 18.05.34 |
+| `enable-old-layout` | Spoof the YouTube client version to use the old layout. | 18.05.34 |
+| `enable-old-quality-layout` | Enables the original quality flyout menu. | 18.05.34 |
+| `enable-open-links-directly` | Bypass URL redirects (youtube.com/redirect) when opening links in video descriptions. | 18.05.34 |
+| `enable-seekbar-tapping` | Enables tap-to-seek on the seekbar of the video player. | 18.05.34 |
+| `enable-tablet-miniplayer` | Enables the tablet mini player layout. | 18.05.34 |
+| `enable-wide-searchbar` | Replaces the search icon with a wide search bar. This will hide the YouTube logo when active. | 18.05.34 |
+| `force-premium-heading` | Forces premium heading on the home screen. | 18.05.34 |
+| `force-vp9-codec` | Forces the VP9 codec for videos. | 18.05.34 |
+| `header-switch` | Add switch to change header. | 18.05.34 |
+| `hide-auto-captions` | Hide captions from being automatically enabled. | 18.05.34 |
+| `hide-auto-player-popup-panels` | Hide automatic popup panels (playlist or live chat) on video player. | 18.05.34 |
+| `hide-autoplay-button` | Hides the autoplay button in the video player. | 18.05.34 |
+| `hide-button-container` | Adds the options to hide action buttons under a video. | 18.05.34 |
+| `hide-cast-button` | Hides the cast button in the video player. | 18.05.34 |
+| `hide-channel-watermark` | Hides creator's watermarks on videos. | 18.05.34 |
+| `hide-comment-component` | Adds options to hide comment component under a video. | 18.05.34 |
+| `hide-create-button` | Hides the create button in the navigation bar. | 18.05.34 |
+| `hide-crowdfunding-box` | Hides the crowdfunding box between the player and video description. | 18.05.34 |
+| `hide-email-address` | Hides the email address in the account switcher. | 18.05.34 |
+| `hide-endscreen-cards` | Hides the suggested video cards at the end of a video in fullscreen. | 18.05.34 |
+| `hide-endscreen-overlay` | Hide endscreen overlay on swipe controls. | 18.05.34 |
+| `hide-filmstrip-overlay` | Hide flimstrip overlay on swipe controls. | 18.05.34 |
+| `hide-flyout-panel` | Adds options to hide player settings flyout panel. | 18.05.34 |
+| `hide-fullscreen-panels` | Hides video description and comments panel in fullscreen view. | 18.05.34 |
+| `hide-general-ads` | Hooks the method which parses the bytes into a ComponentContext to filter components. | 18.05.34 |
+| `hide-info-cards` | Hides info-cards in videos. | 18.05.34 |
+| `hide-live-chat-button` | Hides the live chat button in the video player. | 18.05.34 |
+| `hide-mix-playlists` | Removes mix playlists from home feed and video player. | 18.05.34 |
+| `hide-next-prev-button` | Hides the next prev button in the player controller. | 18.05.34 |
+| `hide-pip-notification` | Disable pip notification when you first launch pip mode. | 18.05.34 |
+| `hide-player-captions-button` | Hides the captions button in the video player. | 18.05.34 |
+| `hide-player-overlay-filter` | Remove the dark filter layer from the player's background. | 18.05.34 |
+| `hide-shorts-button` | Hides the shorts button in the navigation bar. | 18.05.34 |
+| `hide-shorts-component` | Hides other Shorts components. | 18.05.34 |
+| `hide-snackbar` | Hides the snackbar action popup. | 18.05.34 |
+| `hide-startup-shorts-player` | Disables playing YouTube Shorts when launching YouTube. | 18.05.34 |
+| `hide-stories` | Hides YouTube Stories shelf on the feed. | 18.05.34 |
+| `hide-suggested-actions` | Hide the suggested actions bar inside the player. | 18.05.34 |
+| `hide-time-and-seekbar` | Hides progress bar and time counter on videos. | 18.05.34 |
+| `hide-tooltip-content` | Hides the tooltip box that appears on first install. | 18.05.34 |
+| `hide-video-ads` | Removes ads in the video player. | 18.05.34 |
+| `layout-switch` | Tricks the dpi to use some tablet/phone layouts. | 18.05.34 |
+| `materialyou` | Enables MaterialYou theme for Android 12+ | 18.05.34 |
+| `microg-support` | Allows YouTube ReVanced to run without root and under a different package name with Vanced MicroG. | 18.05.34 |
+| `optimize-resource` | Removes duplicate resources and adds missing translation files from YouTube. | 18.05.34 |
+| `overlay-buttons` | Add overlay buttons for ReVanced Extended. | 18.05.34 |
 | `patch-options` | Create an options.toml file. | all |
-| `remove-player-button-background` | Removes the background from the video player buttons. | 18.04.41 |
-| `return-youtube-dislike` | Shows the dislike count of videos using the Return YouTube Dislike API. | 18.04.41 |
-| `settings` | Applies mandatory patches to implement ReVanced settings into the application. | 18.04.41 |
-| `sponsorblock` | Integrates SponsorBlock which allows skipping video segments such as sponsored content. | 18.04.41 |
-| `swipe-controls` | Adds volume and brightness swipe controls. | 18.04.41 |
-| `theme` | Applies a custom theme (default: amoled). | 18.04.41 |
-| `translations` | Add Crowdin Translations. | 18.04.41 |
+| `remove-player-button-background` | Removes the background from the video player buttons. | 18.05.34 |
+| `return-youtube-dislike` | Shows the dislike count of videos using the Return YouTube Dislike API. | 18.05.34 |
+| `settings` | Applies mandatory patches to implement ReVanced settings into the application. | 18.05.34 |
+| `sponsorblock` | Integrates SponsorBlock which allows skipping video segments such as sponsored content. | 18.05.34 |
+| `swipe-controls` | Adds volume and brightness swipe controls. | 18.05.34 |
+| `theme` | Applies a custom theme (default: amoled). | 18.05.34 |
+| `translations` | Add Crowdin Translations. | 18.05.34 |
 </details>
 
 ### [📦 `com.google.android.apps.youtube.music`](https://play.google.com/store/apps/details?id=com.google.android.apps.youtube.music)
@@ -138,7 +138,8 @@ Example:
           "18.01.38",
           "18.02.37",
           "18.03.42",
-          "18.04.41"
+          "18.04.41",
+          "18.05.34"
         ]
       }
     ]
