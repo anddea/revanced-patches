@@ -45,6 +45,7 @@
     <string name="general_uuid_sum">এটি গোপন রাখা উচিত। এটি একটি পাসওয়ার্ডের মতো এবং কারও সাথে শেয়ার করা উচিত নয়। যদি কারও কাছে এটি থাকে, তবে তারা আপনার ছদ্মবেশ ধারণ করতে পারে</string>
     <string name="microg_not_installed_notice">অনুগ্রহপূর্বক MicroG ইনস্টল করুন</string>
     <string name="microg_not_installed_warning">MicroG খুঁজে পাওয়া যায় নি</string>
+    <string name="microg_not_running_warning">MicroG ব্যাকগ্রাউন্ডে চলছে না</string>
     <string name="microg_notification_settings">বিজ্ঞপ্তির সেটিংস</string>
     <string name="microg_notification_settings_summary">"1. বিজ্ঞপ্তিগুলির জন্য Google ডিভাইস নিবন্ধন এবং ক্লাউড মেসেজিং সক্রিয় করতে হবে।
 
@@ -191,6 +192,9 @@
     <string name="revanced_disable_haptic_feedback_zoom_summary_off">জুম কম্পন প্রতিক্রিয়া সক্রিয় হয়েছে</string>
     <string name="revanced_disable_haptic_feedback_zoom_summary_on">জুম কম্পন প্রতিক্রিয়া নিষ্ক্রিয় হয়েছে</string>
     <string name="revanced_disable_haptic_feedback_zoom_title">জুম কম্পন প্রতিক্রিয়া নিষ্ক্রিয় করুন</string>
+    <string name="revanced_disable_shorts_player_pip_summary_off">শর্টস প্লেয়ারে PiP মোড সক্রিয় আছে</string>
+    <string name="revanced_disable_shorts_player_pip_summary_on">শর্টস প্লেয়ারে PiP মোড নিষ্ক্রিয় হয়েছে</string>
+    <string name="revanced_disable_shorts_player_pip_title">শর্টস প্লেয়ারে PiP মোড নিষ্ক্রিয় করুন</string>
     <string name="revanced_copytimestamp_success">টাইম স্ট্যাম্প ক্লিপবোর্ডে কপি হয়েছে</string>
     <string name="revanced_enable_always_auto_repeat_summary_off">সর্বদা স্বয়ংক্রিয় পুনরাবৃত্তি নিষ্ক্রিয় আছে</string>
     <string name="revanced_enable_always_auto_repeat_summary_on">সর্বদা স্বয়ংক্রিয় পুনরাবৃত্তি সক্রিয় আছে</string>
@@ -222,6 +226,9 @@
     <string name="revanced_enable_phone_layout_summary">ফোনের কিছু লেআউট ব্যবহার করতে ডিপিআই কৌশল</string>
     <string name="revanced_enable_phone_layout_title">ফোন লেআউট সক্রিয় করুন</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">সিকবারে আলতো চাপ অক্ষম আছে</string>
+    <string name="revanced_enable_save_brightness_summary_off">অ্যাপটি পুনঃচালু করার পরে পূর্ণস্ক্রীনে প্রবেশ করার সময়, সংরক্ষিত উজ্জ্বলতার ভ্যালু ওভাররাইট করা হয় না</string>
+    <string name="revanced_enable_save_brightness_summary_on">অ্যাপটি পুনঃচালু করার পরে পূর্ণস্ক্রীনে প্রবেশ করার সময়, সংরক্ষিত উজ্জ্বলতার ভ্যালু ওভাররাইট করা হয়</string>
+    <string name="revanced_enable_save_brightness_title">উজ্জ্বলতা সংরক্ষণ সক্রিয় করুন</string>
     <string name="revanced_enable_save_video_quality_summary_off">যখনই আপনি ভিডিও কোয়ালিটি পরিবর্তন করবেন তখন ভিডিও কোয়ালিটি সংরক্ষণ করবে না</string>
     <string name="revanced_enable_save_video_quality_summary_on">যখনই আপনি ভিডিও কোয়ালিটি পরিবর্তন করবেন তখন ভিডিও কোয়ালিটি সংরক্ষণ করবে</string>
     <string name="revanced_enable_save_video_quality_title">ভিডিও কোয়ালিটি সংরক্ষণ সক্রিয়</string>
@@ -250,6 +257,8 @@
     <string name="revanced_enable_wide_searchbar_summary_off">প্রশস্ত অনুসন্ধান বার অক্ষম আছে</string>
     <string name="revanced_enable_wide_searchbar_summary_on">প্রশস্ত অনুসন্ধান বার সক্রিয় আছে</string>
     <string name="revanced_enable_wide_searchbar_title">প্রশস্ত অনুসন্ধান বার সক্রিয় করুন</string>
+    <string name="revanced_enable_vp9_codec_summary">VP9 কোডেক সক্রিয় করতে ডিভাইস তথ্য স্পুফ করুন</string>
+    <string name="revanced_enable_vp9_codec_title">VP9 কোডেক সক্রিয় করুন</string>
     <string name="revanced_experimental_flag">পরীক্ষামূলক ফ্ল্যাগ</string>
     <string name="revanced_extended_issue_center_summary">সমস্যা রিপোর্ট করুন অথবা এখানে পরামর্শ দিন</string>
     <string name="revanced_extended_issue_center_title">ReVanced Extended সমস্যা কেন্দ্র</string>
@@ -329,9 +338,15 @@
     <string name="revanced_hide_filmstrip_overlay_summary_off">ফিল্ম স্ট্রিপ ওভারলে দৃশ্যমান আছে</string>
     <string name="revanced_hide_filmstrip_overlay_summary_on">ফিল্ম স্ট্রিপ ওভারলে লুকানো আছে</string>
     <string name="revanced_hide_filmstrip_overlay_title">ফিল্ম স্ট্রিপ ওভারলে লুকান</string>
+    <string name="revanced_hide_fullscreen_panels_summary_off">পূর্ণ স্ক্রীন প্যানেল দৃশ্যমান আছে</string>
+    <string name="revanced_hide_fullscreen_panels_summary_on">পূর্ণ স্ক্রীন প্যানেল লুকানো আছে</string>
+    <string name="revanced_hide_fullscreen_panels_title">পূর্ণ স্ক্রীন প্যানেল লুকান</string>
     <string name="revanced_hide_info_cards_summary_off">তথ্য কার্ড দৃশ্যমান আছে</string>
     <string name="revanced_hide_info_cards_summary_on">তথ্য কার্ড লুকানো আছে</string>
     <string name="revanced_hide_info_cards_title">তথ্য কার্ড লুকান</string>
+    <string name="revanced_hide_live_chat_button_summary_off">লাইভ চ্যাট বাটন দৃশ্যমান আছে</string>
+    <string name="revanced_hide_live_chat_button_summary_on">লাইভ চ্যাট বাটন লুকানো আছে</string>
+    <string name="revanced_hide_live_chat_button_title">লাইভ চ্যাট বাটন লুকান</string>
     <string name="revanced_hide_menu_ambient_mode_summary_off">অ্যাম্বিয়েন্ট মোড মেনু দৃশ্যমান আছে</string>
     <string name="revanced_hide_menu_ambient_mode_summary_on">অ্যাম্বিয়েন্ট মোড মেনু লুকানো আছে</string>
     <string name="revanced_hide_menu_ambient_mode_title">অ্যাম্বিয়েন্ট মোড মেনু লুকান</string>
@@ -368,9 +383,15 @@
     <string name="revanced_hide_mix_playlists_summary_off">মিক্স প্লেলিস্ট দৃশ্যমান আছে</string>
     <string name="revanced_hide_mix_playlists_summary_on">মিক্স প্লেলিস্ট লুকানো আছে</string>
     <string name="revanced_hide_mix_playlists_title">মিক্স প্লেলিস্ট লুকান</string>
+    <string name="revanced_hide_next_button_summary_off">পরবর্তী বাটন দৃশ্যমান আছে</string>
+    <string name="revanced_hide_next_button_summary_on">পরবর্তী বাটন লুকানো আছে</string>
+    <string name="revanced_hide_next_button_title">পরবর্তী বাটন লুকান</string>
     <string name="revanced_hide_player_overlay_filter_summary_off">প্লেয়ার ওভারলে ফিল্টার দৃশ্যমান আছে</string>
     <string name="revanced_hide_player_overlay_filter_summary_on">প্লেয়ার ওভারলে ফিল্টার লুকানো আছে</string>
     <string name="revanced_hide_player_overlay_filter_title">প্লেয়ার ওভারলে ফিল্টার লুকান</string>
+    <string name="revanced_hide_prev_button_summary_off">পূর্ববর্তী বাটন দৃশ্যমান আছে</string>
+    <string name="revanced_hide_prev_button_summary_on">পূর্ববর্তী বাটন লুকানো আছে</string>
+    <string name="revanced_hide_prev_button_title">পূর্ববর্তী বাটন লুকান</string>
     <string name="revanced_hide_preview_comment_off">মন্তব্যের পূর্বরূপ দৃশ্যমান আছে</string>
     <string name="revanced_hide_preview_comment_on">মন্তব্যের পূর্বরূপ লুকানো আছে</string>
     <string name="revanced_hide_preview_comment_title">মন্তব্যের পূর্বরূপ লুকান</string>
@@ -395,6 +416,9 @@
     <string name="revanced_hide_shorts_shelf_summary_off">শর্টস শেলফ দৃশ্যমান আছে</string>
     <string name="revanced_hide_shorts_shelf_summary_on">শর্টস শেলফ লুকানো আছে</string>
     <string name="revanced_hide_shorts_shelf_title">শর্টস শেলফ লুকান</string>
+    <string name="revanced_hide_snackbar_summary_off">স্ন্যাকবার দৃশ্যমান আছে</string>
+    <string name="revanced_hide_snackbar_summary_on">স্ন্যাকবার লুকানো আছে</string>
+    <string name="revanced_hide_snackbar_title">স্ন্যাকবার লুকান</string>
     <string name="revanced_hide_startup_shorts_player_summary_off">অ্যাপের শুরুতে শর্টস প্লেয়ার দৃশ্যমান আছে</string>
     <string name="revanced_hide_startup_shorts_player_summary_on">অ্যাপের শুরুতে শর্টস প্লেয়ার লুকানো আছে</string>
     <string name="revanced_hide_startup_shorts_player_title">অ্যাপের শুরুতে শর্টস প্লেয়ার লুকান</string>
@@ -447,6 +471,9 @@
     <string name="revanced_reboot_warning_oldlayout">"পুরোনো লেআউট লোড করার জন্য YouTube কৌশলে v17.28.35 করবে
 
 অ্যাপ সেটিংসে, YouTube সংস্করণটিকে v17.28.35 হিসেবে চিহ্নিত করা হতে পারে"</string>
+    <string name="revanced_reboot_warning_pip">"PiP মোডে শর্টস প্লেয়ার নিস্ক্রিয় করুন
+
+এই অপশনটি কিছু অ্যান্ড্রয়েড সংস্করণ বা অপারেটি সিস্টেমে কাজ নাও করতে পারে"</string>
     <string name="revanced_reboot_warning_phone">"কিছু লেআউটকে ফোনের লেআউটে পরিবর্তন করতে ডিপিআই কৌশল করা হয়।
 
 আপনি যদি এই সেটিংটি সক্রিয় করেন, এই ফিচারগুলো পাওয়া যাবে:
@@ -457,6 +484,9 @@
 আপনি যদি এই সেটিং সক্রিয় করেন, নিম্নোক্ত ফিচারগুলো পাওয়া যাবে না:
 - অ্যাম্বিয়েন্ট মোড
 - কমিউনিটি পোস্ট"</string>
+    <string name="revanced_reboot_warning_vp9">"VP9 কোডেক সক্রিয় করতে ডিভাইস তথ্য স্পুফ করুন
+
+যেহেতু এই সেটিংটি অনেক পুরোনো, সঠিকভাবে কাজ নাও করতে পারে"</string>
     <string name="revanced_ryd_attribution_summary">অপছন্দের তথ্য প্রদান করা হয় Return YouTube Dislike API দ্বারা। আরও জানতে আলতো চাপুন।</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_dislike_percentage_summary_off">অপছন্দ সংখ্যা অনুযায়ী দৃশ্যমান আছে</string>

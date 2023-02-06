@@ -80,6 +80,9 @@ Est-il prêt à être soumis?"</string>
     <string name="revanced_adremover_breaking_news_shelf_summary_off">Les news des dernière heure sont affichées</string>
     <string name="revanced_adremover_breaking_news_shelf_summary_on">Les news des dernière heure sont cachées</string>
     <string name="revanced_adremover_breaking_news_shelf_title">Cacher l’étagère de news des dernières nouvelles</string>
+    <string name="revanced_adremover_browse_store_button_summary_off">Le bouton \"Parcourir la boutique\" est affiché</string>
+    <string name="revanced_adremover_browse_store_button_summary_on">Le bouton \"Parcourir la boutique\" est caché</string>
+    <string name="revanced_adremover_browse_store_button_title">Cacher le bouton \"Parcourir la boutique\"</string>
     <string name="revanced_adremover_button_ads_summary_off">Les annonces qui peuvent rédiger vers une page web sont cachées</string>
     <string name="revanced_adremover_button_ads_summary_on">Les annonces qui peuvent rédiger vers une page web sont affichées</string>
     <string name="revanced_adremover_button_ads_title">Cacher les pub qui peuvent rediriger vers une page web </string>
@@ -224,6 +227,9 @@ Est-il prêt à être soumis?"</string>
     <string name="revanced_enable_phone_layout_summary">Option pour le dpi pour utiliser certains agencements de téléphone</string>
     <string name="revanced_enable_phone_layout_title">Activer la mise en page téléphone</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">La fonctionnalité glisser la barre de progression est désactivée</string>
+    <string name="revanced_enable_save_brightness_summary_off">Lors de la saisie du plein écran après le redémarrage de l’application, la valeur de luminosité enregistrée n’est pas sauvegardée</string>
+    <string name="revanced_enable_save_brightness_summary_on">Lors de la saisie du plein écran après le redémarrage de l’application, la valeur de luminosité enregistrée est sauvegardée</string>
+    <string name="revanced_enable_save_brightness_title">Activer l’enregistrement de la luminosité</string>
     <string name="revanced_enable_save_video_quality_summary_off">N’enregistre pas les valeurs de qualité vidéo même lorsque la qualité vidéo est modifiée</string>
     <string name="revanced_enable_save_video_quality_summary_on">Enregistre la valeur de qualité vidéo chaque fois que vous modifiez la qualité vidéo</string>
     <string name="revanced_enable_save_video_quality_title">Activer l\'enregistrement de la qualité de la vidéo</string>
@@ -333,6 +339,9 @@ Est-il prêt à être soumis?"</string>
     <string name="revanced_hide_filmstrip_overlay_summary_off">Les superpositions de bandes de film sont affichées</string>
     <string name="revanced_hide_filmstrip_overlay_summary_on">Les superpositions de bandes de film sont cachées </string>
     <string name="revanced_hide_filmstrip_overlay_title">Cacher les superpositions de bandes de film</string>
+    <string name="revanced_hide_fullscreen_panels_summary_off">Les boutons en plein écran sont affichés</string>
+    <string name="revanced_hide_fullscreen_panels_summary_on">Les boutons en plein écran sont cachés</string>
+    <string name="revanced_hide_fullscreen_panels_title">Cacher les boutons en plein écran </string>
     <string name="revanced_hide_info_cards_summary_off">Les cartes d’information sont affichés</string>
     <string name="revanced_hide_info_cards_summary_on">Les cartes d’information sont cachées</string>
     <string name="revanced_hide_info_cards_title">Cacher les infos</string>
@@ -486,8 +495,8 @@ Comme ces paramètres sont abandonnées, ils peuvent ne pas être valides"</stri
     <string name="revanced_ryd_enable_summary_on">Les dislikes sont affichées</string>
     <string name="revanced_ryd_enable_title">Retour YouTube Dislike</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Les dislikes ne sont disponible  (limite de clients d\'API atteinte)</string>
-    <string name="revanced_ryd_settings_summary">Paramètres pour le retour du nombre de gens qui ont mis \"Je n\'aimes pas\"</string>
-    <string name="revanced_ryd_settings_title">Retour YouTube Dislike</string>
+    <string name="revanced_ryd_settings_summary">Paramètres pour afficher combien de personnes on mis un dislikes</string>
+    <string name="revanced_ryd_settings_title">Retour des Dislikes YouTube</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Cacher</string>
     <string name="revanced_save_video_quality_common_error">Impossible de définir la qualité</string>
     <string name="revanced_save_video_quality_internet_error">Pas de connexion internet</string>
@@ -545,7 +554,7 @@ Comme ces paramètres sont abandonnées, ils peuvent ne pas être valides"</stri
     <string name="segments_endcards">Écrans de fin/Crédits</string>
     <string name="segments_endcards_sum">Crédits ou lorsque les cartes de fin YouTube apparaissent. (Pas pour les conclusions orales)</string>
     <string name="segments_filler">Tangente de fillers/blagues</string>
-    <string name="segments_filler_sum">Scènes tangentielles ajoutées uniquement pour les fillers ou l’humour qui ne sont pas nécessaires pour comprendre le contenu principal de la vidéo. Cela ne devrait pas inclure de détails contextuels ou contextuels.</string>
+    <string name="segments_filler_sum">Scènes tangentielles ajoutées uniquement pour les fillers ou l’humour qui ne sont pas nécessaires pour comprendre le contenu principal de la vidéo. Cela ne devrait pas inclure de détails contextuels ou de fond</string>
     <string name="segments_intermission">Animation d’entracte/intro</string>
     <string name="segments_intermission_sum">Un intervalle sans contenu réel. Pourrait être une pause, image statique, animation répétée</string>
     <string name="segments_nomusic">Musique : Section non musicale</string>
