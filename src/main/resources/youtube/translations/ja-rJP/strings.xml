@@ -102,8 +102,10 @@
     <string name="revanced_adremover_community_guidelines_summary_off">コミュニティガイドラインは表示されます</string>
     <string name="revanced_adremover_community_guidelines_summary_on">コミュニティガイドラインは非表示です</string>
     <string name="revanced_adremover_community_guidelines_title">コミュニティガイドラインを非表示にする</string>
-    <string name="revanced_adremover_community_posts_summary_off">コミュニティの投稿は表示されます</string>
-    <string name="revanced_adremover_community_posts_summary_on">コミュニティの投稿は非表示です</string>
+    <string name="revanced_adremover_community_posts_summary_off">コミュニティの投稿は表示されます
+ホームページのコミュニティの投稿を非表示にします(デフォルトでは非表示になっています)</string>
+    <string name="revanced_adremover_community_posts_summary_on">コミュニティの投稿は非表示です
+ホームページのコミュニティの投稿を非表示にします(デフォルトでは非表示になっています)</string>
     <string name="revanced_adremover_community_posts_title">コミュニティの投稿を非表示にする</string>
     <string name="revanced_adremover_compact_banner_summary_off">コンパクトなバナーは表示されます</string>
     <string name="revanced_adremover_compact_banner_summary_on">コンパクトなバナーは非表示です</string>
@@ -232,6 +234,11 @@
     <string name="revanced_enable_phone_layout_summary">一部のスマホ用のレイアウトを使用できるように dpi を偽装します</string>
     <string name="revanced_enable_phone_layout_title">スマートフォン用のレイアウトを有効にする</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">シークバーのタップは無効です</string>
+    <string name="revanced_enable_save_brightness_summary_off">アプリを再起動して全画面表示にすると保存された明るさの値が適応されます
+これは、アプリを再起動して全画面表示にすると明るさが0になるバグを回避します(公式のReVancedのバグ)</string>
+    <string name="revanced_enable_save_brightness_summary_on">アプリを再起動して全画面表示にすると保存された明るさの値が適応されます
+これは、アプリを再起動して全画面表示にすると明るさが0になるバグを回避します(公式のReVancedのバグ)</string>
+    <string name="revanced_enable_save_brightness_title">明るさの保存を有効にする</string>
     <string name="revanced_enable_save_video_quality_summary_off">動画の画質を変更しても画質の値は保存されません</string>
     <string name="revanced_enable_save_video_quality_summary_on">動画の画質を変更するたびに画質の値が保存されます</string>
     <string name="revanced_enable_save_video_quality_title">動画の画質を保存を有効にする</string>
@@ -334,14 +341,20 @@ HDR動画の明るさをシステムのデフォルトに従います</string>
     <string name="revanced_hide_create_button_summary_off">作成ボタンは表示されます</string>
     <string name="revanced_hide_create_button_summary_on">作成ボタンは非表示です</string>
     <string name="revanced_hide_create_button_title">作成ボタンを非表示にする</string>
-    <string name="revanced_hide_crowdfunding_box_summary_off">クラウドファンディング欄は表示されます</string>
-    <string name="revanced_hide_crowdfunding_box_summary_on">クラウドファンディング欄は非表示です</string>
+    <string name="revanced_hide_crowdfunding_box_summary_off">クラウドファンディング欄は表示されます
+プレーヤーと説明欄の間にあるクラウドファンディング欄を非表示にします</string>
+    <string name="revanced_hide_crowdfunding_box_summary_on">クラウドファンディング欄は非表示です
+プレーヤーと説明欄の間にあるクラウドファンディング欄を非表示にします</string>
     <string name="revanced_hide_crowdfunding_box_title">クラウドファンディング欄を非表示にする</string>
-    <string name="revanced_hide_email_address_summary_off">メールアドレスは表示されます</string>
-    <string name="revanced_hide_email_address_summary_on">メールアドレスは非表示です</string>
+    <string name="revanced_hide_email_address_summary_off">メールアドレスは表示されます
+アカウントの変更画面ででメールアドレスを非表示にします</string>
+    <string name="revanced_hide_email_address_summary_on">メールアドレスは非表示です
+アカウントの変更画面ででメールアドレスを非表示にします</string>
     <string name="revanced_hide_email_address_title">メールアドレスを非表示にする</string>
-    <string name="revanced_hide_endscreen_cards_summary_off">終了画面のカード(別動画の表示)は表示されます</string>
-    <string name="revanced_hide_endscreen_cards_summary_on">終了画面のカード(別動画の表示)は非表示です</string>
+    <string name="revanced_hide_endscreen_cards_summary_off">終了画面のカード(別動画の表示)は表示されます
+全画面表示で動画の最後に表示されるおすすめの動画を非表示にします</string>
+    <string name="revanced_hide_endscreen_cards_summary_on">終了画面のカード(別動画の表示)は非表示です
+全画面表示で動画の最後に表示されるおすすめの動画を非表示にします</string>
     <string name="revanced_hide_endscreen_cards_title">終了画面のカードを非表示にする</string>
     <string name="revanced_hide_endscreen_overlay_summary_off">終了画面オーバーレイは表示されます</string>
     <string name="revanced_hide_endscreen_overlay_summary_on">終了画面オーバーレイは非表示です</string>
@@ -349,6 +362,11 @@ HDR動画の明るさをシステムのデフォルトに従います</string>
     <string name="revanced_hide_filmstrip_overlay_summary_off">動画プレーヤーの映写スライドは表示されます</string>
     <string name="revanced_hide_filmstrip_overlay_summary_on">動画プレーヤーの映写スライドは非表示です</string>
     <string name="revanced_hide_filmstrip_overlay_title">動画プレーヤーの映写スライドを非表示にする</string>
+    <string name="revanced_hide_fullscreen_panels_summary_off">全画面表示パネルは表示されます
+全画面表示で右側に表示される説明欄とコメント欄を無効にします</string>
+    <string name="revanced_hide_fullscreen_panels_summary_on">全画面表示パネルは非表示です
+全画面表示で右側に表示される説明欄とコメント欄を無効にします</string>
+    <string name="revanced_hide_fullscreen_panels_title">全画面表示パネルを非表示にする</string>
     <string name="revanced_hide_info_cards_summary_off">情報カードは表示されます</string>
     <string name="revanced_hide_info_cards_summary_on">情報カードは非表示です</string>
     <string name="revanced_hide_info_cards_title">情報カードを非表示にする</string>
@@ -588,7 +606,7 @@ YouTubeの起動時にYouTubeショートの再生を無効にします</string>
     <string name="settings_ie_sum">これはデスクトップ拡張機能で適用される設定全体のJSONです。ユーザーIDが含まれているため、共有には気をつけてください。</string>
     <string name="settings_import_failed">設定のインポートに失敗しました</string>
     <string name="settings_import_successful">設定が正常にインポートされました</string>
-    <string name="skip_automatically">自動的にスキップ</string>
+    <string name="skip_automatically">自動的にスキップする</string>
     <string name="skip_automatically_once">一度だけ自動的にスキップする</string>
     <string name="skip_ignore">"何もしない"</string>
     <string name="skip_showbutton">スキップボタンを表示</string>

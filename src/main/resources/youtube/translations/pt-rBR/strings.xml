@@ -45,6 +45,7 @@
     <string name="general_uuid_sum">Isto deve permanecer privado. É uma espécie de senha e não deve ser compartilhado. Caso alguém a possua, é possível se passar por você</string>
     <string name="microg_not_installed_notice">Por favor, instale o MicroG</string>
     <string name="microg_not_installed_warning">O microG não foi encontrado</string>
+    <string name="microg_not_running_warning">O MicroG não é executado em segundo plano</string>
     <string name="microg_notification_settings">Configurações de notificação</string>
     <string name="microg_notification_settings_summary">"1. O registro do dispositivo do Google e o Cloud Messaging precisam ser ativados para as notificações.
 2. Reforço precisa ser mostrado como registrado na Cloud Messaging.
@@ -78,6 +79,9 @@
     <string name="revanced_adremover_breaking_news_shelf_summary_off">Painéis de notícias de última hora serão mostrados</string>
     <string name="revanced_adremover_breaking_news_shelf_summary_on">Painéis de notícias de última hora serão mostrados</string>
     <string name="revanced_adremover_breaking_news_shelf_title">Ocultar a última estante de notícias</string>
+    <string name="revanced_adremover_browse_store_button_summary_off">Botão da navegação da loja é mostrado</string>
+    <string name="revanced_adremover_browse_store_button_summary_on">Botão da navegação da loja está oculto</string>
+    <string name="revanced_adremover_browse_store_button_title">Ocultar botão da loja de navegação</string>
     <string name="revanced_adremover_button_ads_summary_off">Anúncios na tela inicial serão exibidos</string>
     <string name="revanced_adremover_button_ads_summary_on">Anúncios na tela inicial serão exibidos</string>
     <string name="revanced_adremover_button_ads_title">Ocultar anúncio com botão</string>
@@ -189,6 +193,9 @@ revanced_adremover_channelbar_join_button_summary_off</string>
     <string name="revanced_disable_haptic_feedback_zoom_summary_off">Feedback tátil de zoom está ativado</string>
     <string name="revanced_disable_haptic_feedback_zoom_summary_on">Feedback tátil de zoom está desativado</string>
     <string name="revanced_disable_haptic_feedback_zoom_title">Desativar o feedback tátil de zoom</string>
+    <string name="revanced_disable_shorts_player_pip_summary_off">O modo PiP em reprodutor de shorts está ativado</string>
+    <string name="revanced_disable_shorts_player_pip_summary_on">O modo PiP em reprodutor de shorts está desativado</string>
+    <string name="revanced_disable_shorts_player_pip_title">Desativar o modo pip no reprodutor de shorts</string>
     <string name="revanced_copytimestamp_success">Tempo copiado para a área de transferência</string>
     <string name="revanced_enable_always_auto_repeat_summary_off">Sempre repetir automaticamente está desativada</string>
     <string name="revanced_enable_always_auto_repeat_summary_on">Sempre repetir automaticamente está ativada</string>
@@ -220,6 +227,9 @@ revanced_adremover_channelbar_join_button_summary_off</string>
     <string name="revanced_enable_phone_layout_summary">Engana o DPI para usar alguns layouts de telefone</string>
     <string name="revanced_enable_phone_layout_title">Ativar layout de telefone</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">Toque na barra de busca desativado</string>
+    <string name="revanced_enable_save_brightness_summary_off">Ao entrar em tela cheia após reiniciar o aplicativo, o valor do brilho salvo não é substituído</string>
+    <string name="revanced_enable_save_brightness_summary_on">Ao entrar em tela cheia após reiniciar o aplicativo, o valor do brilho salvo é substituído</string>
+    <string name="revanced_enable_save_brightness_title">Ativar salvar definições de brilho</string>
     <string name="revanced_enable_save_video_quality_summary_off">Não salva valores de qualidade de vídeo, mesmo ao alterar a qualidade de vídeo</string>
     <string name="revanced_enable_save_video_quality_summary_on">Salvar o valor de qualidade de vídeo sempre que alterar a qualidade de vídeo</string>
     <string name="revanced_enable_save_video_quality_title">Ativar salvar qualidade de vídeo</string>
@@ -248,6 +258,8 @@ revanced_adremover_channelbar_join_button_summary_off</string>
     <string name="revanced_enable_wide_searchbar_summary_off">A barra de pesquisa ampla está desativada</string>
     <string name="revanced_enable_wide_searchbar_summary_on">A barra de pesquisa ampla está ativada</string>
     <string name="revanced_enable_wide_searchbar_title">Ativar barra de pesquisa ampla</string>
+    <string name="revanced_enable_vp9_codec_summary">Burla informações do dispositivo para ativar codec VP9</string>
+    <string name="revanced_enable_vp9_codec_title">Ativar codec VP9</string>
     <string name="revanced_experimental_flag">Sinalizadores Experimentais</string>
     <string name="revanced_extended_issue_center_summary">Relatar problemas ou deixar sugestões aqui</string>
     <string name="revanced_extended_issue_center_title">Central de problemas do ReVanced Extended</string>
@@ -327,9 +339,15 @@ revanced_adremover_channelbar_join_button_summary_off</string>
     <string name="revanced_hide_filmstrip_overlay_summary_off">Sobreposição da fita de filme é mostrada</string>
     <string name="revanced_hide_filmstrip_overlay_summary_on">Sobreposição da fita de filme está oculta</string>
     <string name="revanced_hide_filmstrip_overlay_title">Ocultar sobreposição da fita de filme</string>
+    <string name="revanced_hide_fullscreen_panels_summary_off">Painéis de tela cheia são mostrados</string>
+    <string name="revanced_hide_fullscreen_panels_summary_on">Painéis de tela cheia estão ocultos</string>
+    <string name="revanced_hide_fullscreen_panels_title">Ocultar painéis em tela cheia</string>
     <string name="revanced_hide_info_cards_summary_off">Os cards de informações serão exibidos</string>
     <string name="revanced_hide_info_cards_summary_on">Os cards de informações estão ocultos</string>
     <string name="revanced_hide_info_cards_title">Ocultar cards de informações</string>
+    <string name="revanced_hide_live_chat_button_summary_off">O botão de chat ao vivo será exibido</string>
+    <string name="revanced_hide_live_chat_button_summary_on">O botão de chat ao vivo está oculto</string>
+    <string name="revanced_hide_live_chat_button_title">Ocultar botão de chat ao vivo</string>
     <string name="revanced_hide_menu_ambient_mode_summary_off">O menu de modo ambiente será exibido</string>
     <string name="revanced_hide_menu_ambient_mode_summary_on">O menu de modo ambiente está oculto</string>
     <string name="revanced_hide_menu_ambient_mode_title">Ocultar menu de modo ambiente</string>
@@ -366,9 +384,15 @@ revanced_adremover_channelbar_join_button_summary_off</string>
     <string name="revanced_hide_mix_playlists_summary_off">O menu de mix playlist é exibido</string>
     <string name="revanced_hide_mix_playlists_summary_on">O menu de mix playlist está oculto</string>
     <string name="revanced_hide_mix_playlists_title">Ocultar o menu de mix playlist</string>
+    <string name="revanced_hide_next_button_summary_off">O botão \"próximo\" é exibido</string>
+    <string name="revanced_hide_next_button_summary_on">O botão \"próximo\" está oculto</string>
+    <string name="revanced_hide_next_button_title">Ocultar o botão \"próximo\"</string>
     <string name="revanced_hide_player_overlay_filter_summary_off">O filtro de sobreposição do player é exibido</string>
     <string name="revanced_hide_player_overlay_filter_summary_on">O filtro de sobreposição do player está oculto</string>
     <string name="revanced_hide_player_overlay_filter_title">Ocultar o filtro de sobreposição do player</string>
+    <string name="revanced_hide_prev_button_summary_off">O botão \"anterior\" é exibido</string>
+    <string name="revanced_hide_prev_button_summary_on">O botão \"anterior\" está oculto</string>
+    <string name="revanced_hide_prev_button_title">Ocultar botão \"anterior\"</string>
     <string name="revanced_hide_preview_comment_off">O comentário de prévia é exibido</string>
     <string name="revanced_hide_preview_comment_on">O comentário de prévia está oculto</string>
     <string name="revanced_hide_preview_comment_title">Ocultar o comentário de prévia</string>
@@ -393,6 +417,9 @@ revanced_adremover_channelbar_join_button_summary_off</string>
     <string name="revanced_hide_shorts_shelf_summary_off">A prateleira do Shorts são exibidas</string>
     <string name="revanced_hide_shorts_shelf_summary_on">A prateleira do Shorts estão ocultas</string>
     <string name="revanced_hide_shorts_shelf_title">Ocultar a prateleira do Shorts</string>
+    <string name="revanced_hide_snackbar_summary_off">Snackbar é mostrado</string>
+    <string name="revanced_hide_snackbar_summary_on">Snackbar está oculta</string>
+    <string name="revanced_hide_snackbar_title">Ocultar snackbar</string>
     <string name="revanced_hide_startup_shorts_player_summary_off">O Shorts é mostrado na inicialização do aplicativo</string>
     <string name="revanced_hide_startup_shorts_player_summary_on">O Shorts é oculto na inicialização do aplicativo</string>
     <string name="revanced_hide_startup_shorts_player_title">Ocultar shorts na inicialização do aplicativo</string>
@@ -445,6 +472,9 @@ Você tem certeza de que deseja continuar mesmo assim?"</string>
     <string name="revanced_reboot_warning_oldlayout">"Engana a versão do cliente do YouTube para v17.28.35 para carregar o layout antigo
 
 Nas configurações do aplicativo, a versão do YouTube pode estar marcada como v17.28.35"</string>
+    <string name="revanced_reboot_warning_pip">"Desativar o modo pip no reprodutor de shorts 
+
+Esta opção não é válida em certas versões do Android ou em certos sistemas operacionais"</string>
     <string name="revanced_reboot_warning_phone">"Engana o dpi para alterar alguns layouts para layouts de telefone.
 
 Se você habilitar essa configuração, os seguintes recursos estarão disponíveis:
@@ -455,6 +485,9 @@ Se você habilitar essa configuração, os seguintes recursos estarão disponív
 Se você habilitar essa configuração, os seguintes recursos não estarão disponíveis:
 - Modo ambiente
 - Publicações da comunidade"</string>
+    <string name="revanced_reboot_warning_vp9">"Burlar informações do dispositivo para ativar o codec VP9
+
+Como essas configurações estão bastante desatualizadas, podem não ser válidas"</string>
     <string name="revanced_ryd_attribution_summary">Os dados de dislikes são fornecidos pela API Return YouTube Dislike. Toque aqui para obter mais informações.</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_dislike_percentage_summary_off">Dislikes exibidos como número</string>
