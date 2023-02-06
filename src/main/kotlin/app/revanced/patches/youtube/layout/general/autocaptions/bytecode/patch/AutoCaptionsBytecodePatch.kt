@@ -10,10 +10,11 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.youtube.layout.general.autocaptions.bytecode.fingerprints.*
+import app.revanced.patches.youtube.layout.general.autocaptions.bytecode.fingerprints.SubtitleTrackFingerprint
 import app.revanced.shared.annotation.YouTubeCompatibility
 import app.revanced.shared.extensions.toErrorResult
 import app.revanced.shared.fingerprints.SubtitleButtonControllerFingerprint
+import app.revanced.shared.fingerprints.StartVideoInformerFingerprint
 import app.revanced.shared.util.integrations.Constants.GENERAL_LAYOUT
 
 @Name("hide-auto-captions-bytecode-patch")
