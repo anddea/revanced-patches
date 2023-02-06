@@ -32,13 +32,15 @@
           {
             "path": "patches.json"
           }
-        ]
+        ],
+        successComment: false
       }
     ],
     [
       "@saithodev/semantic-release-backmerge",
       {
-        "branches": [{from: "main", to: "dev"}]
+        branches: [{from: "main", to: "dev"}],
+        clearWorkspace: true
       }
     ]
   ]
