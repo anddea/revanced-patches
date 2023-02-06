@@ -3,25 +3,26 @@ package app.revanced.patches.youtube.misc.returnyoutubedislike.bytecode.patch
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.MethodFingerprintExtensions.name
+import app.revanced.patcher.data.toMethodWalker
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
-import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.annotations.DependsOn
+import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.misc.returnyoutubedislike.bytecode.fingerprints.*
-import app.revanced.patches.youtube.misc.playertype.patch.PlayerTypeHookPatch
-import app.revanced.patches.youtube.misc.videoid.legacy.patch.LegacyVideoIdPatch
+import app.revanced.patches.youtube.misc.videoid.mainstream.patch.MainstreamVideoIdPatch
 import app.revanced.shared.annotation.YouTubeCompatibility
+import app.revanced.shared.extensions.toErrorResult
 import app.revanced.shared.util.integrations.Constants.UTILS_PATH
+import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Name("return-youtube-dislike-bytecode-patch")
 @DependsOn(
     [
-        LegacyVideoIdPatch::class,
-        PlayerTypeHookPatch::class
+        MainstreamVideoIdPatch::class
     ]
 )
 @YouTubeCompatibility
@@ -31,6 +32,7 @@ class ReturnYouTubeDislikeBytecodePatch : BytecodePatch(
         DislikeFingerprint,
         LikeFingerprint,
         RemoveLikeFingerprint,
+        ShortsTextComponentParentFingerprint,
         TextComponentSpecFingerprint
     )
 ) {
@@ -40,7 +42,7 @@ class ReturnYouTubeDislikeBytecodePatch : BytecodePatch(
             DislikeFingerprint.toPatch(Vote.DISLIKE),
             RemoveLikeFingerprint.toPatch(Vote.REMOVE_LIKE)
         ).forEach { (fingerprint, vote) ->
-            with(fingerprint.result ?: return PatchResultError("Failed to find ${fingerprint.name} method.")) {
+            with(fingerprint.result ?: return fingerprint.toErrorResult()) {
                 mutableMethod.addInstructions(
                     0,
                     """
@@ -51,7 +53,27 @@ class ReturnYouTubeDislikeBytecodePatch : BytecodePatch(
             }
         }
 
-        LegacyVideoIdPatch.injectCall("$INTEGRATIONS_RYD_CLASS_DESCRIPTOR->newVideoLoaded(Ljava/lang/String;)V")
+        ShortsTextComponentParentFingerprint.result?.let {
+            with(context
+                .toMethodWalker(it.method)
+                .nextMethod(it.scanResult.patternScanResult!!.endIndex, true)
+                .getMethod() as MutableMethod
+            ) {
+                val insertInstructions = this.implementation!!.instructions
+                val insertIndex = insertInstructions.size - 1
+                val insertRegister = (insertInstructions.elementAt(insertIndex) as OneRegisterInstruction).registerA
+
+                addInstructions(
+                    insertIndex, """
+                        invoke-static {v$insertRegister}, ${INTEGRATIONS_RYD_CLASS_DESCRIPTOR}->onShortsComponentCreated(Landroid/text/Spanned;)Landroid/text/Spanned;
+                        move-result-object v$insertRegister
+                    """
+                )
+            }
+
+        } ?: return ShortsTextComponentParentFingerprint.toErrorResult()
+
+        MainstreamVideoIdPatch.injectCall("$INTEGRATIONS_RYD_CLASS_DESCRIPTOR->newVideoLoaded(Ljava/lang/String;)V")
 
         val createComponentResult = TextComponentSpecFingerprint.result ?: return PatchResultError("Failed to find TextComponentSpecFingerprint method.")
         val createComponentMethod = createComponentResult.mutableMethod
