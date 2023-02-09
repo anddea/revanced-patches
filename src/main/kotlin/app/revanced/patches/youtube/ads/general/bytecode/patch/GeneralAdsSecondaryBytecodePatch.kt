@@ -5,10 +5,11 @@ import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.instruction
+import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patcher.patch.annotations.DependsOn
+import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.shared.annotation.YouTubeCompatibility
 import app.revanced.shared.extensions.findMutableMethodOf
 import app.revanced.shared.extensions.injectHideCall
@@ -28,7 +29,8 @@ class GeneralAdsSecondaryBytecodePatch : BytecodePatch() {
         "layout" to "horizontal_card_list",
         "layout" to "album_card",
         "id" to "reel_player_badge",
-        "id" to "reel_player_badge2"
+        "id" to "reel_player_badge2",
+        "id" to "reel_player_info_panel"
     ).map { (type, name) ->
         ResourceMappingPatch
             .resourceMappings
@@ -89,17 +91,24 @@ class GeneralAdsSecondaryBytecodePatch : BytecodePatch() {
                                         val dummyRegister = (instructions.elementAt(index) as Instruction31i).registerA
                                         val viewRegister = (invokeInstruction as Instruction21c).registerA
 
-                                        mutableMethod.addInstructions(
-                                            insertIndex + 1, """
-                                                invoke-static {}, $ADS_PATH/GeneralAdsPatch;->hidePaidContentBanner()Z
-                                                move-result v$dummyRegister
-                                                if-eqz v$dummyRegister, :shown
-                                                const v$viewRegister, 0x0
-                                            """, listOf(ExternalLabel("shown", mutableMethod.instruction(insertIndex + 1)))
-                                        )
+                                        mutableMethod.addInjectCall(insertIndex, dummyRegister, viewRegister, "hidePaidContentBanner")
 
                                         patchSuccessArray[3] = true;
                                         patchSuccessArray[4] = true;
+                                    }
+
+                                    resourceIds[5] -> { // info panel
+                                        val insertIndex = index + 3
+                                        val invokeInstruction = instructions.elementAt(insertIndex)
+                                        if (invokeInstruction.opcode != Opcode.CHECK_CAST) return@forEachIndexed
+
+                                        val mutableMethod = context.proxy(classDef).mutableClass.findMutableMethodOf(method)
+                                        val dummyRegister = (instructions.elementAt(index) as Instruction31i).registerA
+                                        val viewRegister = (invokeInstruction as Instruction21c).registerA
+
+                                        mutableMethod.addInjectCall(insertIndex + 7, dummyRegister, viewRegister, "hideInfoPanel")
+
+                                        patchSuccessArray[5] = true;
                                     }
                                 }
                             }
@@ -110,5 +119,21 @@ class GeneralAdsSecondaryBytecodePatch : BytecodePatch() {
             }
         }
         return toResult(patchSuccessArray.indexOf(false))
+    }
+
+    private fun MutableMethod.addInjectCall(
+	    index: Int,
+	    dummyRegister: Int,
+	    viewRegister: Int,
+	    method: String
+    ) {
+        addInstructions(
+            index + 1, """
+                invoke-static {}, $ADS_PATH/GeneralAdsPatch;->$method()Z
+                move-result v$dummyRegister
+                if-eqz v$dummyRegister, :shown
+                const v$viewRegister, 0x0
+            """, listOf(ExternalLabel("shown", this.instruction(index + 1)))
+        )
     }
 }
