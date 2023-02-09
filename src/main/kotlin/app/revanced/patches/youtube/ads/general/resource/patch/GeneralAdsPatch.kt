@@ -95,6 +95,22 @@ class GeneralAdsPatch : ResourcePatch {
             "SETTINGS: HIDE_GENERAL_ADS"
         )
 
+        ResourceHelper.addSettings2(
+            context,
+            "PREFERENCE_CATEGORY: REVANCED_SETTINGS",
+            "PREFERENCE: LAYOUT_SETTINGS",
+            "PREFERENCE_HEADER: GENERAL",
+            "SETTINGS: HIDE_GENERAL_LAYOUT_ADS"
+        )
+
+        ResourceHelper.addSettings2(
+            context,
+            "PREFERENCE_CATEGORY: REVANCED_SETTINGS",
+            "PREFERENCE: LAYOUT_SETTINGS",
+            "PREFERENCE_HEADER: PLAYER",
+            "SETTINGS: HIDE_VIEW_PRODUCT"
+        )
+
         ResourceHelper.patchSuccess(
             context,
             "hide-general-ads"
