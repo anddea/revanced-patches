@@ -9,7 +9,6 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
-import app.revanced.patches.youtube.misc.manifest.patch.FixLocaleConfigErrorPatch
 import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourcdIdPatch
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsBytecodePatch
 import app.revanced.shared.annotation.YouTubeCompatibility
@@ -25,7 +24,6 @@ import org.w3c.dom.Element
 @Description("Applies mandatory patches to implement ReVanced settings into the application.")
 @DependsOn(
     [
-        FixLocaleConfigErrorPatch::class,
         IntegrationsPatch::class,
         PatchOptions::class,
         SharedResourcdIdPatch::class,
