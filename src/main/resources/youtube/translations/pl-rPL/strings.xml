@@ -45,6 +45,7 @@
     <string name="general_uuid_sum">To działa jak hasło. Jeżeli ktoś ją posiada, może korzystać z SponsorBlock jako ty np. może zgłaszać segmenty</string>
     <string name="microg_not_installed_notice">Proszę zainstalować MicroG</string>
     <string name="microg_not_installed_warning">MicroG nie zostało znalezione</string>
+    <string name="microg_not_running_warning">MicroG nie działa w tle</string>
     <string name="microg_notification_settings">Ustawienia powiadomień</string>
     <string name="microg_notification_settings_summary">"1. Rejestracja urządzenia Google i Cloud Messaging muszą być włączone dla powiadomień.
 2. ReVanced musi być widoczne jako zarejestrowane w Cloud Messaging.
@@ -78,6 +79,9 @@
     <string name="revanced_adremover_breaking_news_shelf_summary_off">Wyświetlane</string>
     <string name="revanced_adremover_breaking_news_shelf_summary_on">Ukryte</string>
     <string name="revanced_adremover_breaking_news_shelf_title">Pułki z bieżącymi wiadomościami</string>
+    <string name="revanced_adremover_browse_store_button_summary_off">Widoczne</string>
+    <string name="revanced_adremover_browse_store_button_summary_on">Ukryte</string>
+    <string name="revanced_adremover_browse_store_button_title">Przyciski do sklepu</string>
     <string name="revanced_adremover_button_ads_summary_off">Wyświetlane</string>
     <string name="revanced_adremover_button_ads_summary_on">Ukryte</string>
     <string name="revanced_adremover_button_ads_title">Reklamy z przyciskami</string>
@@ -188,6 +192,9 @@
     <string name="revanced_disable_haptic_feedback_zoom_summary_off">Włączone</string>
     <string name="revanced_disable_haptic_feedback_zoom_summary_on">Wyłączone</string>
     <string name="revanced_disable_haptic_feedback_zoom_title">Wibracje podczas przybliżania wideo</string>
+    <string name="revanced_disable_shorts_player_pip_summary_off">Włączony</string>
+    <string name="revanced_disable_shorts_player_pip_summary_on">Wyłączony</string>
+    <string name="revanced_disable_shorts_player_pip_title">Tryb PiP podczas shortów</string>
     <string name="revanced_copytimestamp_success">Link wideo z czasem został skopiowany do schowka</string>
     <string name="revanced_enable_always_auto_repeat_summary_off">Nie</string>
     <string name="revanced_enable_always_auto_repeat_summary_on">Tak</string>
@@ -219,6 +226,9 @@
     <string name="revanced_enable_phone_layout_summary">Oszukuje dpi, aby użyć układu telefonu</string>
     <string name="revanced_enable_phone_layout_title">Włącz układ telefonu</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">Wyłączone</string>
+    <string name="revanced_enable_save_brightness_summary_off">Włączone w trybie pełnoekranowym po ponownym uruchomieniu aplikacji</string>
+    <string name="revanced_enable_save_brightness_summary_on">Wyłączone w trybie pełnoekranowym po ponownym uruchomieniu aplikacji</string>
+    <string name="revanced_enable_save_brightness_title">Zapisywanie jasności</string>
     <string name="revanced_enable_save_video_quality_summary_off">Nie zapisuje preferowanej jakości wideo nawet przy zmianie jakości</string>
     <string name="revanced_enable_save_video_quality_summary_on">Zapisuje wybraną jakość wideo jako preferowaną za każdym razem, gdy ją zmienisz</string>
     <string name="revanced_enable_save_video_quality_title">Zapisywanie jakości wideo</string>
@@ -247,6 +257,8 @@
     <string name="revanced_enable_wide_searchbar_summary_off">Wyłączony</string>
     <string name="revanced_enable_wide_searchbar_summary_on">Włączony</string>
     <string name="revanced_enable_wide_searchbar_title">Szeroki pasek wyszukiwania</string>
+    <string name="revanced_enable_vp9_codec_summary">Oszukaj informacje o urządzeniu, by włączyć kodek VP9</string>
+    <string name="revanced_enable_vp9_codec_title">Włącz kodek VP9</string>
     <string name="revanced_experimental_flag">Ustawienia Eksperymentalne</string>
     <string name="revanced_extended_issue_center_summary">Zgłoś problemy lub zostaw sugestie tutaj</string>
     <string name="revanced_extended_issue_center_title">Centrum Problemów ReVanced Extended</string>
@@ -326,9 +338,15 @@
     <string name="revanced_hide_filmstrip_overlay_summary_off">Włączone</string>
     <string name="revanced_hide_filmstrip_overlay_summary_on">Wyłączone</string>
     <string name="revanced_hide_filmstrip_overlay_title">Precyzyjniejsze przesuwanie po pasku wideo</string>
+    <string name="revanced_hide_fullscreen_panels_summary_off">Widoczne</string>
+    <string name="revanced_hide_fullscreen_panels_summary_on">Ukryte</string>
+    <string name="revanced_hide_fullscreen_panels_title">Pełnoekranowe panele</string>
     <string name="revanced_hide_info_cards_summary_off">Wyświetlane</string>
     <string name="revanced_hide_info_cards_summary_on">Ukryte</string>
     <string name="revanced_hide_info_cards_title">Karty z informacjami</string>
+    <string name="revanced_hide_live_chat_button_summary_off">Widoczne</string>
+    <string name="revanced_hide_live_chat_button_summary_on">Ukryte</string>
+    <string name="revanced_hide_live_chat_button_title">Przyciski do czatu na żywo</string>
     <string name="revanced_hide_menu_ambient_mode_summary_off">Wyświetlane</string>
     <string name="revanced_hide_menu_ambient_mode_summary_on">Ukryte</string>
     <string name="revanced_hide_menu_ambient_mode_title">Menu trybu otoczenia</string>
@@ -365,9 +383,15 @@
     <string name="revanced_hide_mix_playlists_summary_off">Widoczne</string>
     <string name="revanced_hide_mix_playlists_summary_on">Ukryte</string>
     <string name="revanced_hide_mix_playlists_title">Playlisty utworzone automatycznie</string>
+    <string name="revanced_hide_next_button_summary_off">Widoczne</string>
+    <string name="revanced_hide_next_button_summary_on">Ukryte</string>
+    <string name="revanced_hide_next_button_title">Przyciski następnego wideo</string>
     <string name="revanced_hide_player_overlay_filter_summary_off">Widoczne</string>
     <string name="revanced_hide_player_overlay_filter_summary_on">Usunięte</string>
     <string name="revanced_hide_player_overlay_filter_title">Przyciemnianie wideo w odtwarzaczu</string>
+    <string name="revanced_hide_prev_button_summary_off">Widoczne</string>
+    <string name="revanced_hide_prev_button_summary_on">Ukryte</string>
+    <string name="revanced_hide_prev_button_title">Przyciski poprzedniego wideo</string>
     <string name="revanced_hide_preview_comment_off">Wyświetlany</string>
     <string name="revanced_hide_preview_comment_on">Ukryty</string>
     <string name="revanced_hide_preview_comment_title">Wyróżnione komentarze</string>
@@ -380,8 +404,8 @@
     <string name="revanced_hide_shorts_player_comments_button_summary_on">Ukryty</string>
     <string name="revanced_hide_shorts_player_comments_button_title">Przycisk do komentarzy w odtwarzaczu shortów</string>
     <string name="revanced_hide_shorts_player_component_title">Ukryj niektóre przyciski w odtwarzaczu shortów</string>
-    <string name="revanced_hide_shorts_player_remix_button_summary_off">Widoczny</string>
-    <string name="revanced_hide_shorts_player_remix_button_summary_on">Ukryty</string>
+    <string name="revanced_hide_shorts_player_remix_button_summary_off">Widoczne</string>
+    <string name="revanced_hide_shorts_player_remix_button_summary_on">Ukryte</string>
     <string name="revanced_hide_shorts_player_remix_button_title">Przyciski do tworzenia bardzo krótkich wideo</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_off">Wyświetlane</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_on">Ukryte</string>
@@ -392,6 +416,9 @@
     <string name="revanced_hide_shorts_shelf_summary_off">Wyświetlane</string>
     <string name="revanced_hide_shorts_shelf_summary_on">Ukryte</string>
     <string name="revanced_hide_shorts_shelf_title">Półki z shortami</string>
+    <string name="revanced_hide_snackbar_summary_off">Pokazywane</string>
+    <string name="revanced_hide_snackbar_summary_on">Ukryte</string>
+    <string name="revanced_hide_snackbar_title">Komunikaty</string>
     <string name="revanced_hide_startup_shorts_player_summary_off">Włączone</string>
     <string name="revanced_hide_startup_shorts_player_summary_on">Wyłączone</string>
     <string name="revanced_hide_startup_shorts_player_title">Shorty przy starcie aplikacji</string>
@@ -444,6 +471,9 @@ Czy na pewno chcesz kontynuować?"</string>
     <string name="revanced_reboot_warning_oldlayout">"Oszukuję YouTube, że używasz wersji v17.28.35, aby używać starego wyglądu
 
 W ustawieniach aplikacji wersja YouTube może być wyświetlana jako v17.28.35"</string>
+    <string name="revanced_reboot_warning_pip">"Wyłącz tryb PiP podczas shortów
+
+To ustawienie nie działa na niektórych wersjach Androida"</string>
     <string name="revanced_reboot_warning_phone">"Oszukuje dpi, aby zmienić niektóre układy na układ telefonu.
 
 Jeśli włączysz to ustawienie, dostępne będą następujące funkcje:
@@ -454,6 +484,9 @@ Jeśli włączysz to ustawienie, dostępne będą następujące funkcje:
 Jeśli włączysz to ustawienie, następujące funkcje nie będą dostępne:
 - Tryb otoczenia
 - Posty"</string>
+    <string name="revanced_reboot_warning_vp9">"Oszukuje informacje o urządzeniu, by włączyć kodek VP9
+
+To ustawienie może nie zadziałać"</string>
     <string name="revanced_ryd_attribution_summary">Dane o łapkach w dół są dostarczane przez API Return YouTube Dislike. Dotknij tutaj by dowiedzieć się więcej.</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_dislike_percentage_summary_off">Liczba</string>
@@ -492,8 +525,8 @@ Jeśli włączysz to ustawienie, następujące funkcje nie będą dostępne:
     <string name="revanced_video_ads_removal_title">Reklamy podczas wideo</string>
     <string name="revanced_video_settings_summary">Ustawienia dotyczące wideo</string>
     <string name="revanced_video_settings_title">Ustawienia wideo</string>
-    <string name="revanced_whitelisting_add_failed" formatted="false">Nie udało się dodać kanału %s do białej listy %s</string>
-    <string name="revanced_whitelisting_added" formatted="false">Kanał %s został dodany do białej listy %s</string>
+    <string name="revanced_whitelisting_add_failed" formatted="false">Nie udało się dodać kanału %s do %s białej listy</string>
+    <string name="revanced_whitelisting_added" formatted="false">Kanał %s został dodany do %s białej listy</string>
     <string name="revanced_whitelisting_ads">Reklamy Wideo</string>
     <string name="revanced_whitelisting_ads_button">Reklamy</string>
     <string name="revanced_whitelisting_channel_name">Nazwa Kanału</string>
@@ -515,7 +548,7 @@ Jeśli włączysz to ustawienie, następujące funkcje nie będą dostępne:
     <string name="sb_guidelines_popup_already_read">Już przeczytane</string>
     <string name="sb_guidelines_popup_content">"Zalecane jest przeczytanie wytycznych SponsorBlock przed wysłaniem jakiegokolwiek segmentu"</string>
     <string name="sb_guidelines_popup_open">Pokaż mi</string>
-    <string name="sb_guidelines_popup_title">Istnieją zasady</string>
+    <string name="sb_guidelines_popup_title">Istnieją wytyczne</string>
     <string name="sb_guidelines_preference_sum">Wytyczne zawierają wskazówki i zasady dotyczące wysyłania segmentów</string>
     <string name="sb_guidelines_preference_title">Wyświetl wytyczne</string>
     <string name="sb_settings">Ustawienia SponsorBlock</string>
