@@ -84,6 +84,11 @@
     <string name="revanced_adremover_breaking_news_shelf_summary_on">ニュース速報欄は非表示です
 ホームタブのニュース速報欄を非表示にします</string>
     <string name="revanced_adremover_breaking_news_shelf_title">ニュース速報欄を非表示にする</string>
+    <string name="revanced_adremover_browse_store_button_summary_off">“商品を見る(Browse store)”ボタンは表示されています
+一部の国では特定のチャンネルにこのボタンが表示されます。それを非表示にします</string>
+    <string name="revanced_adremover_browse_store_button_summary_on">“商品を見る(Browse store)”ボタンは非表示です
+一部の国では特定のチャンネルにこのボタンが表示されます。それを非表示にします</string>
+    <string name="revanced_adremover_browse_store_button_title">“商品を見る”ボタンを非表示にする</string>
     <string name="revanced_adremover_button_ads_summary_off">ホームの広告は表示されます</string>
     <string name="revanced_adremover_button_ads_summary_on">ホームの広告は非表示です</string>
     <string name="revanced_adremover_button_ads_title">ホームの広告を非表示にする</string>
@@ -103,9 +108,9 @@
     <string name="revanced_adremover_community_guidelines_summary_on">コミュニティガイドラインは非表示です</string>
     <string name="revanced_adremover_community_guidelines_title">コミュニティガイドラインを非表示にする</string>
     <string name="revanced_adremover_community_posts_summary_off">コミュニティの投稿は表示されます
-ホームページのコミュニティの投稿を非表示にします(デフォルトでは非表示になっています)</string>
+ホームページのコミュニティの投稿を非表示にします</string>
     <string name="revanced_adremover_community_posts_summary_on">コミュニティの投稿は非表示です
-ホームページのコミュニティの投稿を非表示にします(デフォルトでは非表示になっています)</string>
+ホームページのコミュニティの投稿を非表示にします</string>
     <string name="revanced_adremover_community_posts_title">コミュニティの投稿を非表示にする</string>
     <string name="revanced_adremover_compact_banner_summary_off">コンパクトなバナーは表示されます</string>
     <string name="revanced_adremover_compact_banner_summary_on">コンパクトなバナーは非表示です</string>
@@ -209,10 +214,10 @@
     <string name="revanced_enable_always_auto_repeat_title">常に自動リピートを有効にする</string>
     <string name="revanced_enable_custom_seekbar_color_summary_off">シークバーの色の変更は無効です</string>
     <string name="revanced_enable_custom_seekbar_color_summary_on">シークバーの色の変更は有効です</string>
-    <string name="revanced_enable_custom_seekbar_color_title">シークバーの色を変更する(ダークモードのみ有効)</string>
+    <string name="revanced_enable_custom_seekbar_color_title">シークバーの色の変更を有効にする</string>
     <string name="revanced_enable_custom_video_speed_summary_off">再生速度の変更は無効です</string>
     <string name="revanced_enable_custom_video_speed_summary_on">再生速度の変更は有効です</string>
-    <string name="revanced_enable_custom_video_speed_title">動画の再生速度の変更を有効にする</string>
+    <string name="revanced_enable_custom_video_speed_title">再生速度の変更を有効にする</string>
     <string name="revanced_enable_external_browser_summary_off">外部ブラウザは無効です</string>
     <string name="revanced_enable_external_browser_summary_on">外部ブラウザは有効です</string>
     <string name="revanced_enable_external_browser_title">外部ブラウザを有効にする</string>
@@ -225,7 +230,7 @@
     <string name="revanced_enable_old_quality_layout_summary_off">新しい形式の画質設定を使用します</string>
     <string name="revanced_enable_old_quality_layout_summary_on">古い形式の画質設定を使用します</string>
     <string name="revanced_enable_old_quality_layout_title">古い形式の画質設定画面を有効にする</string>
-    <string name="revanced_enable_open_links_directly_summary_off">URL リダイレクト (youtube.com/redirect) は、動画の概要欄のリンクを開くときに使用されます</string>
+    <string name="revanced_enable_open_links_directly_summary_off">URL リダイレクト (youtube.com/redirect) は、概要欄のリンクを開くときに使用されます</string>
     <string name="revanced_enable_open_links_directly_summary_on">概要欄からリンクを開いたとき、URLリダイレクト(youtube.com/redirect)を回避して、直リンクにします</string>
     <string name="revanced_enable_open_links_directly_title">直リンクを有効にする</string>
     <string name="revanced_enable_press_to_swipe_summary_off">スワイプコントロールは無効です</string>
@@ -239,9 +244,9 @@
     <string name="revanced_enable_save_brightness_summary_on">アプリを再起動して全画面表示にすると保存された明るさの値が適応されます
 これは、アプリを再起動して全画面表示にすると明るさが0になるバグを回避します(公式のReVancedのバグ)</string>
     <string name="revanced_enable_save_brightness_title">明るさの保存を有効にする</string>
-    <string name="revanced_enable_save_video_quality_summary_off">動画の画質を変更しても画質の値は保存されません</string>
-    <string name="revanced_enable_save_video_quality_summary_on">動画の画質を変更するたびに画質の値が保存されます</string>
-    <string name="revanced_enable_save_video_quality_title">動画の画質を保存を有効にする</string>
+    <string name="revanced_enable_save_video_quality_summary_off">画質を変更しても画質の値は保存されません</string>
+    <string name="revanced_enable_save_video_quality_summary_on">画質を変更するたびに画質の値が保存されます</string>
+    <string name="revanced_enable_save_video_quality_title">画質の保存を有効にする</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">シークバーのタップは有効です</string>
     <string name="revanced_enable_seekbar_tapping_title">シークバーのタップを有効にする</string>
     <string name="revanced_enable_swipe_auto_brightness_summary_off">スワイプで明るさが0に設定されていても、自動明るさ調整は働きません</string>
@@ -283,7 +288,7 @@ HDR動画の明るさをシステムのデフォルトに従います</string>
 強制字幕表示が自動的に有効になるのを防ぎます</string>
     <string name="revanced_hide_auto_captions_summary_on">"字幕付きの動画が再生されても強制的に字幕が有効になりません
 強制字幕表示が自動的に有効になるのを防ぎます"</string>
-    <string name="revanced_hide_auto_captions_title">自動で字幕を表示するのを無効にする</string>
+    <string name="revanced_hide_auto_captions_title">自動で字幕が表示されるのを無効にする</string>
     <string name="revanced_hide_auto_player_popup_panels_summary_off">プレーヤーのポップアップパネルは自動的に表示されます
 プレーヤーの自動ポップアップパネル (プレイリストまたはライブチャット)を無効にします。</string>
     <string name="revanced_hide_auto_player_popup_panels_summary_on">プレーヤーのポップアップパネルは自動的に表示されません
@@ -332,7 +337,7 @@ HDR動画の明るさをシステムのデフォルトに従います</string>
     <string name="revanced_hide_cast_button_title">キャストボタンを非表示にする</string>
     <string name="revanced_hide_channel_watermark_summary_off">チャンネルの透かし(ウォーターマーク)は表示されます</string>
     <string name="revanced_hide_channel_watermark_summary_on">チャンネルの透かし(ウォーターマーク)は非表示です</string>
-    <string name="revanced_hide_channel_watermark_title">チャンネルの透かし(ウォーターマーク)を非表示にする</string>
+    <string name="revanced_hide_channel_watermark_title">チャンネルのウォーターマークを非表示にする</string>
     <string name="revanced_hide_comments_component_summary">コメント欄やコンポーネント(高評価ボタン、共有ボタンなど)を非表示にします</string>
     <string name="revanced_hide_comments_component_title">コメントのコンポーネントを非表示にする</string>
     <string name="revanced_hide_comments_section_summary_off">コメント欄は表示されます</string>
@@ -373,9 +378,11 @@ HDR動画の明るさをシステムのデフォルトに従います</string>
     <string name="revanced_hide_live_chat_button_summary_off">ライブのチャットボタンは表示されます</string>
     <string name="revanced_hide_live_chat_button_summary_on">ライブのチャットボタンは非表示です</string>
     <string name="revanced_hide_live_chat_button_title">ライブのチャットボタンを非表示にする</string>
-    <string name="revanced_hide_menu_ambient_mode_summary_off">アンビエントモードのメニューは表示されます</string>
-    <string name="revanced_hide_menu_ambient_mode_summary_on">アンビエントモードのメニューは非表示です</string>
-    <string name="revanced_hide_menu_ambient_mode_title">アンビエントモードのメニュー(動画プレーヤー上の設定内にあります)を非表示にする</string>
+    <string name="revanced_hide_menu_ambient_mode_summary_off">アンビエントモードのメニューは表示されます
+(動画プレーヤー上の設定内にあります)</string>
+    <string name="revanced_hide_menu_ambient_mode_summary_on">アンビエントモードのメニューは非表示です
+(動画プレーヤー上の設定内にあります)</string>
+    <string name="revanced_hide_menu_ambient_mode_title">アンビエントモードのメニューを非表示にする</string>
     <string name="revanced_hide_menu_audio_track_summary_off">オーディオトラックメニューは表示されます</string>
     <string name="revanced_hide_menu_audio_track_summary_on">オーディオトラックメニューは非表示です</string>
     <string name="revanced_hide_menu_audio_track_title">オーディオトラックメニューを非表示にする</string>
@@ -391,9 +398,9 @@ HDR動画の明るさをシステムのデフォルトに従います</string>
     <string name="revanced_hide_menu_listen_with_youtube_music_summary_off">”YouTube Musicで聴く” メニューは表示されます</string>
     <string name="revanced_hide_menu_listen_with_youtube_music_summary_on">”YouTube Musicで聴く” メニューは非表示です</string>
     <string name="revanced_hide_menu_listen_with_youtube_music_title">”YouTube Music で聴く” メニューを非表示にする</string>
-    <string name="revanced_hide_menu_loop_video_summary_off">動画のループ再生メニューは表示されます</string>
-    <string name="revanced_hide_menu_loop_video_summary_on">動画のループ再生メニューは非表示です</string>
-    <string name="revanced_hide_menu_loop_video_title">動画のループ再生メニューを非表示にする</string>
+    <string name="revanced_hide_menu_loop_video_summary_off">ループ再生メニューは表示されます</string>
+    <string name="revanced_hide_menu_loop_video_summary_on">ループ再生メニューは非表示です</string>
+    <string name="revanced_hide_menu_loop_video_title">ループ再生メニューを非表示にする</string>
     <string name="revanced_hide_menu_more_info_summary_off">詳細メニューは表示されます</string>
     <string name="revanced_hide_menu_more_info_summary_on">詳細メニューは非表示です</string>
     <string name="revanced_hide_menu_more_info_title">詳細メニューを非表示にする</string>
@@ -426,18 +433,18 @@ HDR動画の明るさをシステムのデフォルトに従います</string>
     <string name="revanced_hide_shorts_button_title">YouTubeショートのボタンを非表示にする</string>
     <string name="revanced_hide_shorts_component_summary">YouTubeショート自体またはプレーヤーを非表示にします</string>
     <string name="revanced_hide_shorts_component_title">YouTubeショートのコンポーネントを非表示にする</string>
-    <string name="revanced_hide_shorts_player_comments_button_summary_off">YouTubeショートのコメントのボタンは表示されます</string>
-    <string name="revanced_hide_shorts_player_comments_button_summary_on">YouTubeショートのコメントのボタンは非表示です</string>
-    <string name="revanced_hide_shorts_player_comments_button_title">YouTubeショートのコメントのボタンを非表示にする</string>
+    <string name="revanced_hide_shorts_player_comments_button_summary_off">コメントボタンは表示されます</string>
+    <string name="revanced_hide_shorts_player_comments_button_summary_on">コメントボタンは非表示です</string>
+    <string name="revanced_hide_shorts_player_comments_button_title">コメントボタンを非表示にする</string>
     <string name="revanced_hide_shorts_player_component_title">YouTubeショートのプレイヤーのコンポーネント(高評価ボタン、共有ボタンなど)を非表示にする</string>
-    <string name="revanced_hide_shorts_player_remix_button_summary_off">YouTubeショート内のプレーヤーのリミックスボタンは表示されます</string>
-    <string name="revanced_hide_shorts_player_remix_button_summary_on">YouTubeショート内のプレーヤーのリミックスボタンは非表示です</string>
+    <string name="revanced_hide_shorts_player_remix_button_summary_off">リミックスボタンは表示されます</string>
+    <string name="revanced_hide_shorts_player_remix_button_summary_on">リミックスボタンは非表示です</string>
     <string name="revanced_hide_shorts_player_remix_button_title">リミックスボタンを非表示にする</string>
-    <string name="revanced_hide_shorts_player_subscriptions_button_summary_off">YouTubeショートのプレーヤーのサブスクボタンは表示されます</string>
-    <string name="revanced_hide_shorts_player_subscriptions_button_summary_on">YouTubeショートのプレーヤーのサブスクボタンは非表示です</string>
+    <string name="revanced_hide_shorts_player_subscriptions_button_summary_off">サブスクリプションボタンは表示されます</string>
+    <string name="revanced_hide_shorts_player_subscriptions_button_summary_on">サブスクリプションボタンは非表示です</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_title">サブスクリプションボタンを非表示にする</string>
-    <string name="revanced_hide_shorts_player_thanks_button_summary_off">YouTubeショートのプレーヤーのThanksボタンは表示されます</string>
-    <string name="revanced_hide_shorts_player_thanks_button_summary_on">YouTubeショートのプレーヤーのThanksボタンは非表示です</string>
+    <string name="revanced_hide_shorts_player_thanks_button_summary_off">Thanksボタンは表示されます</string>
+    <string name="revanced_hide_shorts_player_thanks_button_summary_on">Thanksボタンは非表示です</string>
     <string name="revanced_hide_shorts_player_thanks_button_title">Thanksボタンを非表示にする</string>
     <string name="revanced_hide_shorts_shelf_summary_off">YouTubeショート欄は表示されます</string>
     <string name="revanced_hide_shorts_shelf_summary_on">YouTubeショート欄は非表示です</string>
@@ -446,9 +453,9 @@ HDR動画の明るさをシステムのデフォルトに従います</string>
     <string name="revanced_hide_snackbar_summary_on">下に表示される白いバーは非表示です</string>
     <string name="revanced_hide_snackbar_title">下に表示される白いバーを非表示にする</string>
     <string name="revanced_hide_startup_shorts_player_summary_off">アプリの起動時にYouTubeショートのプレーヤーは有効になっています
-YouTubeの起動時にYouTubeショートの再生を無効にします</string>
+アプリの起動時にYouTubeショートの再生を無効にします</string>
     <string name="revanced_hide_startup_shorts_player_summary_on">アプリの起動時にYouTubeショートのプレーヤーは無効になっています
-YouTubeの起動時にYouTubeショートの再生を無効にします</string>
+アプリの起動時にYouTubeショートの再生を無効にします</string>
     <string name="revanced_hide_startup_shorts_player_title">アプリ起動時にYouTubeショートを無効にする</string>
     <string name="revanced_hide_stories_shelf_summary_off">ストーリー欄は表示されます</string>
     <string name="revanced_hide_stories_shelf_summary_on">ストーリー欄は非表示です</string>
@@ -483,7 +490,7 @@ YouTubeの起動時にYouTubeショートの再生を無効にします</string>
     <string name="revanced_overlay_button_copy_url_with_timestamp_title">“タイムスタンプ付きのリンクをコピー” ボタン</string>
     <string name="revanced_overlay_button_downloads_summary_off">ダウンロードボタンは非表示です</string>
     <string name="revanced_overlay_button_downloads_summary_on">ダウンロードボタンは表示されます</string>
-    <string name="revanced_overlay_button_downloads_title">動画のダウンロードボタンを表示する</string>
+    <string name="revanced_overlay_button_downloads_title">ダウンロードボタンを表示する</string>
     <string name="revanced_overlay_button_summary">オーバーレイボタンに関する設定</string>
     <string name="revanced_overlay_button_title">オーバーレイボタンの設定</string>
     <string name="revanced_overlay_button_whitelist_summary_off">ホワイトリストのボタンは非表示です</string>
@@ -609,7 +616,7 @@ YouTubeの起動時にYouTubeショートの再生を無効にします</string>
     <string name="skip_automatically">自動的にスキップする</string>
     <string name="skip_automatically_once">一度だけ自動的にスキップする</string>
     <string name="skip_ignore">"何もしない"</string>
-    <string name="skip_showbutton">スキップボタンを表示</string>
+    <string name="skip_showbutton">スキップボタンを表示する</string>
     <string name="skip_sponsor">セグメントをスキップ</string>
     <string name="skipped_endcard">アウトロをスキップしました</string>
     <string name="skipped_filler">つなぎシーンをスキップしました</string>

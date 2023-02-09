@@ -45,7 +45,7 @@
     <string name="general_uuid_sum">Αυτό θα πρέπει να παραμείνει ιδιωτικό. Αυτό είναι σαν κωδικός πρόσβασης και δεν πρέπει να κοινοποιείται σε κανέναν. Αν κάποιος το έχει αυτό, μπορεί να σας υποδυθεί</string>
     <string name="microg_not_installed_notice">Παρακαλούμε εγκαταστήστε το MicroG</string>
     <string name="microg_not_installed_warning">Το MicroG δεν βρέθηκε</string>
-    <string name="microg_not_running_warning">MicroG does not run in the background</string>
+    <string name="microg_not_running_warning">Το MicroG δεν εκτελείται στο παρασκήνιο</string>
     <string name="microg_notification_settings">Ρυθμίσεις ειδοποιήσεων</string>
     <string name="microg_notification_settings_summary">"1. Η εγγραφή συσκευής Google και το Cloud Messaging πρέπει να είναι ενεργά (on) για να λαμβάνετε ειδοποιήσεις.
 2. Το ReVanced πρέπει να εμφανίζεται ως registered στο Cloud Messaging.
@@ -80,6 +80,9 @@
     <string name="revanced_adremover_breaking_news_shelf_summary_off">Η ενότητα έκτακτων ειδήσεων εμφανίζεται</string>
     <string name="revanced_adremover_breaking_news_shelf_summary_on">Η ενότητα των έκτακτων ειδήσεων είναι κρυμμένη</string>
     <string name="revanced_adremover_breaking_news_shelf_title">Απόκρυψη ενότητας έκτακτων ειδήσεων</string>
+    <string name="revanced_adremover_browse_store_button_summary_off">Το κουμπί περιήγησης στο κατάστημα εμφανίζεται</string>
+    <string name="revanced_adremover_browse_store_button_summary_on">Το κουμπί περιήγησης στο κατάστημα είναι κρυμμένο</string>
+    <string name="revanced_adremover_browse_store_button_title">Απόκρυψη κουμπιού περιήγησης στο κατάστημα</string>
     <string name="revanced_adremover_button_ads_summary_off">Οι διαφημίσεις push-button εμφανίζονται</string>
     <string name="revanced_adremover_button_ads_summary_on">Οι διαφημίσεις push-button είναι κρυμμένες</string>
     <string name="revanced_adremover_button_ads_title">Απόκρυψη διαφημίσεων push-button</string>
@@ -190,8 +193,8 @@
     <string name="revanced_disable_haptic_feedback_zoom_summary_off">Η απτική ανάδραση ζουμ είναι ενεργοποιημένη</string>
     <string name="revanced_disable_haptic_feedback_zoom_summary_on">Η απτική ανάδραση ζουμ είναι απενεργοποιημένη</string>
     <string name="revanced_disable_haptic_feedback_zoom_title">Απενεργοποίηση απτικής ανάδρασης ζουμ</string>
-    <string name="revanced_disable_shorts_player_pip_summary_off">Η λειτουργία PiP στο Shorts player είναι ενεργοποιημένη</string>
-    <string name="revanced_disable_shorts_player_pip_summary_on">Η λειτουργία PiP στο Shorts player είναι απενεργοποιημένη</string>
+    <string name="revanced_disable_shorts_player_pip_summary_off">Η λειτουργία Picture-in-Picture στο Shorts player είναι ενεργοποιημένη</string>
+    <string name="revanced_disable_shorts_player_pip_summary_on">Η λειτουργία Picture-in-Picture στο Shorts player είναι απενεργοποιημένη</string>
     <string name="revanced_disable_shorts_player_pip_title">Απενεργοποίηση λειτουργίας PiP στο Shorts player</string>
     <string name="revanced_copytimestamp_success">Η χρονική σφραγίδα αντιγράφηκε στο πρόχειρο</string>
     <string name="revanced_enable_always_auto_repeat_summary_off">Η συνεχής αυτόματη επανάληψη είναι απενεργοποιημένη</string>
@@ -224,6 +227,9 @@
     <string name="revanced_enable_phone_layout_summary">Εξαπατά το dpi για να χρησιμοποιήσει κάποιες διατάξεις κινητού</string>
     <string name="revanced_enable_phone_layout_title">Ενεργοποίηση διάταξης κινητού</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">Το πάτημα της μπάρας χρόνου είναι απενεργοποιημένο</string>
+    <string name="revanced_enable_save_brightness_summary_off">Κατά την είσοδο σε πλήρη οθόνη μετά την επανεκκίνηση της εφαρμογής, η αποθηκευμένη τιμή φωτεινότητας δεν αντικαθίσταται</string>
+    <string name="revanced_enable_save_brightness_summary_on">Κατά την είσοδο σε πλήρη οθόνη μετά την επανεκκίνηση της εφαρμογής, η αποθηκευμένη τιμή φωτεινότητας αντικαθίσταται</string>
+    <string name="revanced_enable_save_brightness_title">Ενεργοποίηση αποθήκευσης φωτεινότητας</string>
     <string name="revanced_enable_save_video_quality_summary_off">Δεν αποθηκεύει τιμές ποιότητας βίντεο ακόμη και όταν αλλάζετε ποιότητα βίντεο</string>
     <string name="revanced_enable_save_video_quality_summary_on">Αποθήκευση της τιμής ποιότητας βίντεο κάθε φορά που αλλάζετε την ποιότητα βίντεο</string>
     <string name="revanced_enable_save_video_quality_title">Ενεργοποίηση αποθήκευσης ποιότητας βίντεο</string>
@@ -315,8 +321,8 @@
     <string name="revanced_hide_comments_section_summary_off">Η περιοχή σχολίων εμφανίζεται</string>
     <string name="revanced_hide_comments_section_summary_on">Η περιοχή σχολίων είναι κρυμμένη</string>
     <string name="revanced_hide_comments_section_title">Απόκρυψη σχολίων</string>
-    <string name="revanced_hide_create_button_summary_off">Το κουμπί Δημιουργία εμφανίζεται</string>
-    <string name="revanced_hide_create_button_summary_on">Το κουμπί Δημιουργία είναι κρυμμένο</string>
+    <string name="revanced_hide_create_button_summary_off">Το κουμπί \"Δημιουργία\" εμφανίζεται</string>
+    <string name="revanced_hide_create_button_summary_on">Το κουμπί \"Δημιουργία\" είναι κρυμμένο</string>
     <string name="revanced_hide_create_button_title">Απόκρυψη κουμπιού \"Δημιουργία\"</string>
     <string name="revanced_hide_crowdfunding_box_summary_off">Το κουτί Crowdfunding εμφανίζεται</string>
     <string name="revanced_hide_crowdfunding_box_summary_on">Το κουτί Crowdfunding είναι κρυμμένο</string>
@@ -333,6 +339,9 @@
     <string name="revanced_hide_filmstrip_overlay_summary_off">Η επικάλυψη ταινίας φιλμ εμφανίζεται</string>
     <string name="revanced_hide_filmstrip_overlay_summary_on">Η επικάλυψη ταινίας φιλμ είναι κρυμμένη</string>
     <string name="revanced_hide_filmstrip_overlay_title">Απόκρυψη επικάλυψης ταινίας φιλμ</string>
+    <string name="revanced_hide_fullscreen_panels_summary_off">Τα πάνελ πλήρους οθόνης εμφανίζονται</string>
+    <string name="revanced_hide_fullscreen_panels_summary_on">Τα πάνελ πλήρους οθόνης είναι κρυμμένα</string>
+    <string name="revanced_hide_fullscreen_panels_title">Απόκρυψη πάνελ πλήρους οθόνης</string>
     <string name="revanced_hide_info_cards_summary_off">Οι κάρτες πληροφοριών εμφανίζονται</string>
     <string name="revanced_hide_info_cards_summary_on">Οι κάρτες πληροφοριών είναι κρυμμένες</string>
     <string name="revanced_hide_info_cards_title">Απόκρυψη καρτών πληροφοριών</string>
@@ -375,15 +384,15 @@
     <string name="revanced_hide_mix_playlists_summary_off">Η λίστα αναπαραγωγής Mix εμφανίζεται</string>
     <string name="revanced_hide_mix_playlists_summary_on">Η λίστα αναπαραγωγής Mix είναι κρυμμένη</string>
     <string name="revanced_hide_mix_playlists_title">Απόκρυψη λίστας αναπαραγωγής Mix</string>
-    <string name="revanced_hide_next_button_summary_off">Το κουμπί Επόμενο στη λειτουργία πλήρης οθόνης εμφανίζεται</string>
-    <string name="revanced_hide_next_button_summary_on">Το κουμπί Επόμενο στη λειτουργία πλήρης οθόνης είναι κρυμμένο</string>
-    <string name="revanced_hide_next_button_title">Απόκρυψη του κουμπιού επόμενου βίντεο</string>
+    <string name="revanced_hide_next_button_summary_off">Το κουμπί Επόμενο εμφανίζεται στο video player</string>
+    <string name="revanced_hide_next_button_summary_on">Το κουμπί Επόμενο δεν εμφανίζεται στο video player</string>
+    <string name="revanced_hide_next_button_title">Απόκρυψη κουμπιού Επόμενο (βίντεο)</string>
     <string name="revanced_hide_player_overlay_filter_summary_off">Το φίλτρο επικάλυψης του video player εμφανίζεται</string>
     <string name="revanced_hide_player_overlay_filter_summary_on">Το φίλτρο επικάλυψης του video player είναι κρυμμένο</string>
     <string name="revanced_hide_player_overlay_filter_title">Απόκρυψη φίλτρου επικάλυψης του player</string>
-    <string name="revanced_hide_prev_button_summary_off">Το κουμπί Προηγούμενο στη λειτουργία πλήρης οθόνης εμφανίζεται</string>
-    <string name="revanced_hide_prev_button_summary_on">Το κουμπί Προηγούμενο στη λειτουργία πλήρης οθόνης είναι κρυμμένο</string>
-    <string name="revanced_hide_prev_button_title">Απόκρυψη του κουμπιού προηγούμενου βίντεο</string>
+    <string name="revanced_hide_prev_button_summary_off">Το κουμπί Προηγούμενο εμφανίζεται στο video player</string>
+    <string name="revanced_hide_prev_button_summary_on">Το κουμπί Προηγούμενο δεν εμφανίζεται στο video player</string>
+    <string name="revanced_hide_prev_button_title">Απόκρυψη κουμπιού Προηγούμενο (βίντεο)</string>
     <string name="revanced_hide_preview_comment_off">Η προεπισκόπηση σχολίου εμφανίζεται</string>
     <string name="revanced_hide_preview_comment_on">Η προεπισκόπηση σχολίου είναι κρυμμένη</string>
     <string name="revanced_hide_preview_comment_title">Απόκρυψη προεπισκόπησης σχολίου</string>
