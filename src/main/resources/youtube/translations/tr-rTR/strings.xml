@@ -45,6 +45,7 @@
     <string name="general_uuid_sum">Bu gizli tutulmalıdır. Bu bir şifre gibidir ve kimseyle paylaşılmamalıdır. Birisi buna sahipse, sizi taklit edebilir</string>
     <string name="microg_not_installed_notice">Lütfen MicroG yükleyin</string>
     <string name="microg_not_installed_warning">MicroG bulunamadı</string>
+    <string name="microg_not_running_warning">MicroG arka planda çalışmıyor</string>
     <string name="microg_notification_settings">Bildirim ayarları</string>
     <string name="microg_notification_settings_summary">"1. Bildirimler için Google cihaz kaydı ve Bulut Mesajlaşma etkinleştirilmelidir.
  2. ReVanced Extended, Bulut Mesajlaşma altında kayıtlı olarak gösterilmelidir.
@@ -79,6 +80,9 @@ Gönderilmeye hazır mı?"</string>
     <string name="revanced_adremover_breaking_news_shelf_summary_off">Son dakika haber paneli gizlenmiyor</string>
     <string name="revanced_adremover_breaking_news_shelf_summary_on">Gizleniyor</string>
     <string name="revanced_adremover_breaking_news_shelf_title">Son dakika panelini gizle</string>
+    <string name="revanced_adremover_browse_store_button_summary_off">Mağazaya gözat düğmesi gösteriliyor</string>
+    <string name="revanced_adremover_browse_store_button_summary_on">Mağazaya gözat düğmesi gizleniyor</string>
+    <string name="revanced_adremover_browse_store_button_title">Mağazaya gözat düğmesini gizle</string>
     <string name="revanced_adremover_button_ads_summary_off">Gizlenmiyor</string>
     <string name="revanced_adremover_button_ads_summary_on">Gizlendi</string>
     <string name="revanced_adremover_button_ads_title">Butonlu reklamları gizle</string>
@@ -220,6 +224,9 @@ Gönderilmeye hazır mı?"</string>
     <string name="revanced_enable_phone_layout_summary">Bazı telefon düzenlerini kullanmak için dpi\'yi kandırır</string>
     <string name="revanced_enable_phone_layout_title">Telefon düzenini Etkinleştir</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">Zaman çubuğuna (video ilerleme çubuğu) dokunma devre dışı</string>
+    <string name="revanced_enable_save_brightness_summary_off">Uygulamayı yeniden başlattıktan sonra tam ekrana geçildiğinde, kaydedilen parlaklık değerinin üzerine yazılmaz</string>
+    <string name="revanced_enable_save_brightness_summary_on">Uygulamayı yeniden başlattıktan sonra tam ekrana geçildiğinde, kaydedilen parlaklık değerinin üzerine yazılır</string>
+    <string name="revanced_enable_save_brightness_title">Parlaklığı kaydetmeyi etkinleştir</string>
     <string name="revanced_enable_save_video_quality_summary_off">Video kalitesini değiştirseniz bile varsayılan değer olarak kaydetmez</string>
     <string name="revanced_enable_save_video_quality_summary_on">Video kalitesini her değiştirdiğinizde varsayılan değer olarak kaydeder</string>
     <string name="revanced_enable_save_video_quality_title">Video kalitesini kaydetmeyi etkinleştir</string>
@@ -248,6 +255,8 @@ Gönderilmeye hazır mı?"</string>
     <string name="revanced_enable_wide_searchbar_summary_off">Kapalı</string>
     <string name="revanced_enable_wide_searchbar_summary_on">Açık</string>
     <string name="revanced_enable_wide_searchbar_title">Geniş arama çubuğunu etkinleştir</string>
+    <string name="revanced_enable_vp9_codec_summary">VP9 codec bileşenini etkinleştirmek için cihaz bilgilerini değiştir</string>
+    <string name="revanced_enable_vp9_codec_title">VP9 kodek bileşenini etkinleştir</string>
     <string name="revanced_experimental_flag">Deneysel parametreler</string>
     <string name="revanced_extended_issue_center_summary">Report issues or leave suggestions here</string>
     <string name="revanced_extended_issue_center_title">ReVanced Extended sorun merkezi</string>
@@ -327,9 +336,15 @@ Gönderilmeye hazır mı?"</string>
     <string name="revanced_hide_filmstrip_overlay_summary_off">Gizlenmiyor</string>
     <string name="revanced_hide_filmstrip_overlay_summary_on">Gizleniyor</string>
     <string name="revanced_hide_filmstrip_overlay_title">Film şeridi yerleşimini gizle</string>
+    <string name="revanced_hide_fullscreen_panels_summary_off">Tam ekran paneller gösteriliyor</string>
+    <string name="revanced_hide_fullscreen_panels_summary_on">Tam ekran paneller gizleniyor</string>
+    <string name="revanced_hide_fullscreen_panels_title">Tam ekran panellerini gizle</string>
     <string name="revanced_hide_info_cards_summary_off">Gizlenmiyor</string>
     <string name="revanced_hide_info_cards_summary_on">Gizlendi</string>
     <string name="revanced_hide_info_cards_title">Hakkında Kartlarını Gizle</string>
+    <string name="revanced_hide_live_chat_button_summary_off">Canlı sohbet düğmesi gösteriliyor</string>
+    <string name="revanced_hide_live_chat_button_summary_on">Canlı sohbet düğmesi gizleniyor</string>
+    <string name="revanced_hide_live_chat_button_title">Canlı sohbet butonunu gizle</string>
     <string name="revanced_hide_menu_ambient_mode_summary_off">\"Ambiyans modu\" menüsü gizleniyor</string>
     <string name="revanced_hide_menu_ambient_mode_summary_on">\"Ambiyans modu\" menüsü gizli</string>
     <string name="revanced_hide_menu_ambient_mode_title">\"Ambiyans modu\" menüsü</string>
@@ -366,9 +381,15 @@ Gönderilmeye hazır mı?"</string>
     <string name="revanced_hide_mix_playlists_summary_off">Gizlenmiyor</string>
     <string name="revanced_hide_mix_playlists_summary_on">Gizlendi</string>
     <string name="revanced_hide_mix_playlists_title">Mix Oynatma Listesini sakla</string>
+    <string name="revanced_hide_next_button_summary_off">\"Sonraki\" düğmesi gösterilir</string>
+    <string name="revanced_hide_next_button_summary_on">\"Sonraki\" düğmesi gizlenir</string>
+    <string name="revanced_hide_next_button_title">\"Sonraki\" düğmesini gizle</string>
     <string name="revanced_hide_player_overlay_filter_summary_off">Oynatıcı bindirme filtresi gösteriliyor</string>
     <string name="revanced_hide_player_overlay_filter_summary_on">Oynatıcı bindirme filtresi gizli</string>
     <string name="revanced_hide_player_overlay_filter_title">Oynatıcı arayüzünü şeffaf yap</string>
+    <string name="revanced_hide_prev_button_summary_off">\"Önceki\" düğmesi gösterilir</string>
+    <string name="revanced_hide_prev_button_summary_on">\"Önceki\" düğmesi gizlenir</string>
+    <string name="revanced_hide_prev_button_title">\"Önceki\" düğmesini gizle</string>
     <string name="revanced_hide_preview_comment_off">Önizleme yorumu gösterilir</string>
     <string name="revanced_hide_preview_comment_on">Önizleme yorumu gizli</string>
     <string name="revanced_hide_preview_comment_title">Önizleme yorumları gizle</string>
@@ -384,6 +405,9 @@ Gönderilmeye hazır mı?"</string>
     <string name="revanced_hide_shorts_player_remix_button_summary_off">Gizlenmiyor</string>
     <string name="revanced_hide_shorts_player_remix_button_summary_on">Gizleniyor</string>
     <string name="revanced_hide_shorts_player_remix_button_title">Shorts oynatıcı remiks seçeneği</string>
+    <string name="revanced_hide_shorts_player_join_button_summary_off">Shorts oynatıcı katıl butonu gösteriliyor</string>
+    <string name="revanced_hide_shorts_player_join_button_summary_on">Shorts oynatıcı katıl butonu gizleniyor</string>
+    <string name="revanced_hide_shorts_player_join_button_title">Shorts oynatıcı katıl butonunu gizle</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_off">Gizlenmiyor</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_on">Gizleniyor</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_title">Shorts oynatıcı abonelikler butonu</string>
@@ -393,6 +417,9 @@ Gönderilmeye hazır mı?"</string>
     <string name="revanced_hide_shorts_shelf_summary_off">Gizlenmiyor</string>
     <string name="revanced_hide_shorts_shelf_summary_on">Gizleniyor</string>
     <string name="revanced_hide_shorts_shelf_title">Kısa videoları gizle</string>
+    <string name="revanced_hide_snackbar_summary_off">Aperatif çubuğu gösteriliyor</string>
+    <string name="revanced_hide_snackbar_summary_on">Aperatif çubuğu gizleniyor</string>
+    <string name="revanced_hide_snackbar_title">Aperatif çubuğunu gizle</string>
     <string name="revanced_hide_startup_shorts_player_summary_off">Shorts oynatıcı, başlangıçta gösteriliyor</string>
     <string name="revanced_hide_startup_shorts_player_summary_on">Shorts oynatıcı, başlangıçta gösterilmiyor</string>
     <string name="revanced_hide_startup_shorts_player_title">Shorts videolarını açılışta oynat</string>
@@ -452,6 +479,9 @@ Gönderilmeye hazır mı?"</string>
 Bu ayarı etkinleştirirseniz aşağıdaki özellikler kullanılamaz:
 - Ortam modu
 - Topluluk Gönderileri"</string>
+    <string name="revanced_reboot_warning_vp9">"VP9 kodek bileşenini etkinleştirmek için cihaz bilgilerini taklit eder
+
+Bu ayar oldukça eski olduğu için geçerli olmayabilir"</string>
     <string name="revanced_ryd_attribution_summary">Beğenmeme verileri True RYD Worker API tarafından sağlanır. Daha fazlasını öğrenmek için buraya dokunun.</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_dislike_percentage_summary_off">Beğenmemeler sayı olarak gösterilir</string>

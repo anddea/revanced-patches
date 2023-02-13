@@ -136,9 +136,9 @@
     <string name="revanced_adremover_official_card_in_search_summary_off">يتم عرض البطاقات الرسمية من نتائج البحث</string>
     <string name="revanced_adremover_official_card_in_search_summary_on">تم إخفاء البطاقات الرسمية من نتائج البحث</string>
     <string name="revanced_adremover_official_card_in_search_title">إخفاء البطاقات الرسمية</string>
-    <string name="revanced_adremover_paid_content_summary_off">يتم عرض علامة الترويج المدفوع</string>
-    <string name="revanced_adremover_paid_content_summary_on">تم إخفاء علامة الترويج المدفوع</string>
-    <string name="revanced_adremover_paid_content_title">إخفاء الترويج المدفوع</string>
+    <string name="revanced_adremover_paid_content_summary_off">يتم عرض علامة إعلان الترويج المدفوع</string>
+    <string name="revanced_adremover_paid_content_summary_on">تم إخفاء علامة إعلان الترويج المدفوع</string>
+    <string name="revanced_adremover_paid_content_title">إخفاء إعلان الترويج المدفوع</string>
     <string name="revanced_adremover_self_sponsor_summary_off">يتم عرض بطاقات الرعاية الذاتية</string>
     <string name="revanced_adremover_self_sponsor_summary_on">تم إخفاء بطاقات الرعاية الذاتية</string>
     <string name="revanced_adremover_self_sponsor_title">إخفاء بطاقات الرعاية الذاتية</string>
@@ -190,9 +190,6 @@
     <string name="revanced_disable_haptic_feedback_zoom_summary_off">تم تمكين الاهتزاز عند التكبير</string>
     <string name="revanced_disable_haptic_feedback_zoom_summary_on">تم تعطيل الاهتزاز عند التكبير</string>
     <string name="revanced_disable_haptic_feedback_zoom_title">تعطيل الاهتزاز عند التكبير</string>
-    <string name="revanced_disable_shorts_player_pip_summary_off">تم تمكين وضع صورة داخل صورة في مشغل مقاطع Shorts</string>
-    <string name="revanced_disable_shorts_player_pip_summary_on">تم تعطيل وضع صورة داخل صورة في مشغل مقاطع Shorts</string>
-    <string name="revanced_disable_shorts_player_pip_title">تعطيل وضع صورة داخل صورة في مشغل مقاطع Shorts</string>
     <string name="revanced_copytimestamp_success">تم نسخ الطابع الزمني إلى الحافظة</string>
     <string name="revanced_enable_always_auto_repeat_summary_off">تم تعطيل التكرار التلقائي بشكل دائم</string>
     <string name="revanced_enable_always_auto_repeat_summary_on">تم تمكين التكرار التلقائي بشكل دائم</string>
@@ -405,6 +402,9 @@
     <string name="revanced_hide_shorts_player_remix_button_summary_off">يتم عرض زر ريمكس في مشغل Shorts</string>
     <string name="revanced_hide_shorts_player_remix_button_summary_on">تم إخفاء زر ريمكس في مشغل Shorts</string>
     <string name="revanced_hide_shorts_player_remix_button_title">إخفاء زر ريمكس في مشغل فيديوهات Shorts</string>
+    <string name="revanced_hide_shorts_player_join_button_summary_off">يتم عرض زر الانتساب في مشغل Shorts</string>
+    <string name="revanced_hide_shorts_player_join_button_summary_on">تم إخفاء زر الانتساب في مشغل Shorts</string>
+    <string name="revanced_hide_shorts_player_join_button_title">إخفاء زر الانتساب في مشغل فيديوهات Shorts</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_off">يتم عرض زر الاشتراكات في فيديوهات Short</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_on">تم إخفاء زر الاشتراكات في فيديوهات Short</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_title">إخفاء زر الاشتراكات في فيديوهات Short</string>
@@ -466,9 +466,6 @@
     <string name="revanced_player_flyout_panel_title">المكون الخاص بلوحة إعدادات المشغل المنبثقة</string>
     <string name="revanced_reboot_warning_general">"نظرًا لأن هذه المِيزة لا تزال تجريبية، فقد تكون هناك مشكلات أخرى غير معروفة.  هل أنت متأكد أنك تريد الاستمرار بالرغم من ذلك؟"</string>
     <string name="revanced_reboot_warning_oldlayout">"يخدع إصدار YouTube إلى الإصدار 17.28.35 لتحميل التصميم القديم  في إعدادات التطبيق، قد يتم تمييز إصدار YouTube كـ v17.28.35"</string>
-    <string name="revanced_reboot_warning_pip">"تعطيل وضع صورة داخل صورة على مشغل مقاطع Shorts
-
-هذا الخيار غير صالح على بعض إصدارات Android أو بعض أنظمة التشغيل"</string>
     <string name="revanced_reboot_warning_phone">"حِيَل نقطة في البوصة لتغيير بعض التصميمات لتصميمات الجوال.
 إذا قمت بتمكين هذا الإعداد، فستتوفر الميزات التالية:
 - مشاركات المجتمع
@@ -569,7 +566,7 @@
     <string name="segments_selfpromo">ترويج شخصي/غير مدفوع الأجر</string>
     <string name="segments_selfpromo_sum">شبيهة بـ \"الراعي\" باستثناء ما يتعلق بالإعلانات غير المدفوعة الأجر أو الذاتية. ويشمل ذلك أقسام عن السلع أو التبرعات أو المعلومات المتعلقة بمن تعاونوا مع ناشر المحتوى</string>
     <string name="segments_sponsor">الراعي</string>
-    <string name="segments_sponsor_sum">الترويج المدفوع الأجر، والإحالات المدفوعة الأجر والإعلانات المباشرة</string>
+    <string name="segments_sponsor_sum">الترويج المدفوع الأجر، والتوصيات المدفوعة الأجر والإعلانات المباشرة</string>
     <string name="segments_subscribe">تذكير بالتفاعل (الاشتراك في القناة)</string>
     <string name="segments_subscribe_sum">عندما يكون هناك تذكير قصير للإعجاب بالمقطع أو الاشتراك بالقناة أو المتابعة أو التفاعل معهم على أي منصة مجانية أو مدفوعة</string>
     <string name="settings_export_failed">فشل تصدير الإعدادات</string>

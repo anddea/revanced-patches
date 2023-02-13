@@ -45,6 +45,7 @@
     <string name="general_uuid_sum">Це потрібно тримати в таємниці. Це як пароль, не варто ним ні з ким ділитися. Якщо хтось матиме це - зможе видати себе за вас</string>
     <string name="microg_not_installed_notice">Будь ласка, встановіть MicroG</string>
     <string name="microg_not_installed_warning">MicroG не знайдено</string>
+    <string name="microg_not_running_warning">MicroG не працює у фоновому режимі</string>
     <string name="microg_notification_settings">Налаштування сповіщень</string>
     <string name="microg_notification_settings_summary">"1. Реєстрація пристроїв Google і Google Cloud Messaging повинні бути увімкненими для сповіщень.\n2. Vanced повинен бути показаний зареєстрованим під GCM.\n3. Поточний стан у GCM повинен не бути Від'єднано.\n4. GCM -&gt; Розширені (три точки справа згори) і змініть інтервал очікування Wi-Fi назад і вперед раз для з'єднання.\n💙💛"</string>
     <string name="microg_settings">Налаштування MicroG</string>
@@ -76,6 +77,9 @@
     <string name="revanced_adremover_breaking_news_shelf_summary_off">Вилучення важливих новин вимкнено</string>
     <string name="revanced_adremover_breaking_news_shelf_summary_on">Вилучення важливих новин увімкнено</string>
     <string name="revanced_adremover_breaking_news_shelf_title">Вилучення важливих новин</string>
+    <string name="revanced_adremover_browse_store_button_summary_off">Відображення кнопки магазину</string>
+    <string name="revanced_adremover_browse_store_button_summary_on">Кнопка магазину прихована</string>
+    <string name="revanced_adremover_browse_store_button_title">Приховати кнопку перегляду магазину</string>
     <string name="revanced_adremover_button_ads_summary_off">Вилучення оголошень з кнопкою вимкнено</string>
     <string name="revanced_adremover_button_ads_summary_on">Вилучення оголошень з кнопкою увімкнено</string>
     <string name="revanced_adremover_button_ads_title">Вилучення оголошень з кнопкою</string>
@@ -217,6 +221,9 @@
     <string name="revanced_enable_phone_layout_summary">Підміняє DPI для використання інтерфейсу деяких телефонів</string>
     <string name="revanced_enable_phone_layout_title">Телефонний інтерфейс</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">Натискання на рядок перемотування відео вимкнено</string>
+    <string name="revanced_enable_save_brightness_summary_off">При вході в повноекранний режим після перезапуску додатку, збережене значення яскравості не перезаписується</string>
+    <string name="revanced_enable_save_brightness_summary_on">При вході в повноекранний режим після перезапуску додатку, збережене значення яскравості перезаписується</string>
+    <string name="revanced_enable_save_brightness_title">Увімкнути збереження яскравості</string>
     <string name="revanced_enable_save_video_quality_summary_off">Збереження типової якості відео вимкнено</string>
     <string name="revanced_enable_save_video_quality_summary_on">Збереження типової якості відео увімкнено</string>
     <string name="revanced_enable_save_video_quality_title">Збереження типової якості відео</string>
@@ -245,6 +252,8 @@
     <string name="revanced_enable_wide_searchbar_summary_off">Широка панель пошуку вимкнено</string>
     <string name="revanced_enable_wide_searchbar_summary_on">Широка панель пошуку увімкнено</string>
     <string name="revanced_enable_wide_searchbar_title">Широка панель пошуку</string>
+    <string name="revanced_enable_vp9_codec_summary">Спуфнути інформацію про пристрій, щоб увімкнути кодек VP9</string>
+    <string name="revanced_enable_vp9_codec_title">Увімкнути кодек VP9</string>
     <string name="revanced_experimental_flag">Експериментальні опції</string>
     <string name="revanced_extended_issue_center_summary">Повідомте про проблеми або залиште свої пропозиції тут</string>
     <string name="revanced_extended_issue_center_title">Центр допомоги ReVanced Extended</string>
@@ -324,9 +333,15 @@
     <string name="revanced_hide_filmstrip_overlay_summary_off">Вилучення Накладення кіноплівки вимкнено</string>
     <string name="revanced_hide_filmstrip_overlay_summary_on">Вилучення Накладення кіноплівки увімкнено</string>
     <string name="revanced_hide_filmstrip_overlay_title">Вилучення Накладення кіноплівки</string>
+    <string name="revanced_hide_fullscreen_panels_summary_off">Повноекранні панелі показано</string>
+    <string name="revanced_hide_fullscreen_panels_summary_on">Повноекранні панелі сховані</string>
+    <string name="revanced_hide_fullscreen_panels_title">Приховати повноекранні панелі</string>
     <string name="revanced_hide_info_cards_summary_off">Інформаційні картки увімкнено</string>
     <string name="revanced_hide_info_cards_summary_on">Інформаційні картки вимкнено</string>
     <string name="revanced_hide_info_cards_title">Інформаційні картки</string>
+    <string name="revanced_hide_live_chat_button_summary_off">Кнопка живого чату показана</string>
+    <string name="revanced_hide_live_chat_button_summary_on">Кнопка живого чату прихована</string>
+    <string name="revanced_hide_live_chat_button_title">Кнопка живого чат</string>
     <string name="revanced_hide_menu_ambient_mode_summary_off">Меню режиму навколишнього підсвічування увімкнено</string>
     <string name="revanced_hide_menu_ambient_mode_summary_on">Меню режиму навколишнього підсвічування вимкнено</string>
     <string name="revanced_hide_menu_ambient_mode_title">Меню режиму навколишнього підсвічування</string>
@@ -363,9 +378,15 @@
     <string name="revanced_hide_mix_playlists_summary_off">Показувати \"Мікс плейлист\"</string>
     <string name="revanced_hide_mix_playlists_summary_on">\"Мікс плейлист\" сховано</string>
     <string name="revanced_hide_mix_playlists_title">Сховати \"Мікс плейлист\"</string>
+    <string name="revanced_hide_next_button_summary_off">Кнопка наступного відео показана</string>
+    <string name="revanced_hide_next_button_summary_on">Кнопка наступного відео схована</string>
+    <string name="revanced_hide_next_button_title">Сховати кнопку наступного відео</string>
     <string name="revanced_hide_player_overlay_filter_summary_off">Відображати фільтр оверлею плеєра</string>
     <string name="revanced_hide_player_overlay_filter_summary_on">Фільтр оверлею плеєра сховано</string>
     <string name="revanced_hide_player_overlay_filter_title">Приховати сітку накладання плеєра</string>
+    <string name="revanced_hide_prev_button_summary_off">Кнопка попереднього відео показана</string>
+    <string name="revanced_hide_prev_button_summary_on">Кнопка попереднього відео схована</string>
+    <string name="revanced_hide_prev_button_title">Сховати кнопку попереднього відео</string>
     <string name="revanced_hide_preview_comment_off">Вилучення спойлерів коментарів вимкнено</string>
     <string name="revanced_hide_preview_comment_on">Вилучення спойлерів коментарів увімкнено</string>
     <string name="revanced_hide_preview_comment_title">Спойлер коментарів</string>
@@ -381,6 +402,9 @@
     <string name="revanced_hide_shorts_player_remix_button_summary_off">Кнопка \"Ремікс\" у плеєрі коротких відео видима</string>
     <string name="revanced_hide_shorts_player_remix_button_summary_on">Кнопка \"Ремікс\" у плеєрі коротких відео схована</string>
     <string name="revanced_hide_shorts_player_remix_button_title">Сховати кнопку \"Ремікс\" у плеєрі коротких відео</string>
+    <string name="revanced_hide_shorts_player_join_button_summary_off">Кнопка приєднання плеєра коротких відео показана</string>
+    <string name="revanced_hide_shorts_player_join_button_summary_on">Кнопку приєднання плеєра коротких відео схована</string>
+    <string name="revanced_hide_shorts_player_join_button_title">Сховати кнопку приєднання плеєра коротких відео</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_off">Кнопка \"Підписатися\" у плеєрі коротких відео видима</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_on">Кнопка \"Підписатися\" у плеєрі коротких відео схована</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_title">Сховати кнопку \"Підписатися\" у плеєрі коротких відео</string>
@@ -390,6 +414,9 @@
     <string name="revanced_hide_shorts_shelf_summary_off">Показати полиці коротких відео</string>
     <string name="revanced_hide_shorts_shelf_summary_on">Полиці коротких відео сховані</string>
     <string name="revanced_hide_shorts_shelf_title">Сховати полиці коротких відео</string>
+    <string name="revanced_hide_snackbar_summary_off">Віджет відображення коротких повідомлень внизу екрану показаний</string>
+    <string name="revanced_hide_snackbar_summary_on">Віджет відображення коротких повідомлень внизу екрану схований</string>
+    <string name="revanced_hide_snackbar_title">Сховати віджет відображення коротких повідомлень внизу екрану</string>
     <string name="revanced_hide_startup_shorts_player_summary_off">Плеєр коротких відео відображається при запуску застосунку </string>
     <string name="revanced_hide_startup_shorts_player_summary_on">Плеєр коротких відео схований при запуску застосунку </string>
     <string name="revanced_hide_startup_shorts_player_title">Сховати плеєр коротких відео при запуску застосунку</string>
@@ -444,6 +471,9 @@
 У налаштуваннях застосунку версія YouTube може бути показана як v17.28.35"</string>
     <string name="revanced_reboot_warning_phone">"Обманює роздільну здатність, щоб змінити деякі елементи на елементи телефону.\n\nЯкщо ввімкнути цей параметр, будуть доступні такі функції:\n - Публікації спільноти\n - Вилучення Мій плейлист"</string>
     <string name="revanced_reboot_warning_tablet">"Обманює роздільну здатність, щоб змінити деякі елементи на елементи планшета.\n\nЯкщо ввімкнути це налаштування, такі функції будуть недоступні:\n - Фонове підсвічування\n - Публікації спільноти"</string>
+    <string name="revanced_reboot_warning_vp9">"Спуфати інформацію про пристрій для активації кодека VP9
+
+Оскільки ці налаштування застаріли, можуть бути некоректними"</string>
     <string name="revanced_ryd_attribution_summary">Ця інтеграція використовує RYD API.\nНатисніть тут, щоб отримати більше інформації.</string>
     <string name="revanced_ryd_attribution_title">Інтеграція YouTube Дислайків</string>
     <string name="revanced_ryd_dislike_percentage_summary_off">Дислайки відображаються числом</string>
