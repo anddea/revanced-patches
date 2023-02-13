@@ -5,8 +5,6 @@ import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import org.jf.dexlib2.AccessFlags
 
 object GooglePlayUtilityFingerprint : MethodFingerprint(
-    "I",
-    AccessFlags.PUBLIC or AccessFlags.STATIC,
-    listOf("L", "L"),
+    access = AccessFlags.PUBLIC or AccessFlags.STATIC,
     strings = listOf("This should never happen.", "MetadataValueReader", "com.google.android.gms")
 )
