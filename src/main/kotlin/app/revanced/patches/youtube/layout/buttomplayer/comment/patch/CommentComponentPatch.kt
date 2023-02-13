@@ -9,10 +9,10 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
+import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.youtube.ads.general.bytecode.patch.GeneralAdsBytecodePatch
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
-import app.revanced.shared.annotation.YouTubeCompatibility
-import app.revanced.shared.util.resources.ResourceHelper
+import app.revanced.util.resources.ResourceHelper
 
 @Patch
 @Name("hide-comment-component")

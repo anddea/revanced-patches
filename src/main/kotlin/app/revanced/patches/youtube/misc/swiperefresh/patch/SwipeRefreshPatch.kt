@@ -10,8 +10,8 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patches.youtube.misc.swiperefresh.fingerprint.SwipeRefreshLayoutFingerprint
-import app.revanced.shared.annotation.YouTubeCompatibility
-import app.revanced.shared.extensions.toErrorResult
+import app.revanced.patches.shared.annotation.YouTubeCompatibility
+import app.revanced.extensions.toErrorResult
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Name("enable-swipe-refresh")

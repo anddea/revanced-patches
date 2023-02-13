@@ -9,16 +9,16 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
+import app.revanced.patches.shared.annotation.YouTubeCompatibility
+import app.revanced.patches.shared.patch.options.PatchOptions
 import app.revanced.patches.youtube.misc.microg.bytecode.patch.MicroGBytecodePatch
 import app.revanced.patches.youtube.misc.microg.shared.Constants.PACKAGE_NAME
 import app.revanced.patches.youtube.misc.microg.shared.Constants.SPOOFED_PACKAGE_NAME
 import app.revanced.patches.youtube.misc.microg.shared.Constants.SPOOFED_PACKAGE_SIGNATURE
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
-import app.revanced.shared.annotation.YouTubeCompatibility
-import app.revanced.shared.patches.options.PatchOptions
-import app.revanced.shared.util.microg.MicroGManifestHelper
-import app.revanced.shared.util.microg.MicroGResourceHelper
-import app.revanced.shared.util.resources.ResourceHelper
+import app.revanced.util.microg.MicroGManifestHelper
+import app.revanced.util.microg.MicroGResourceHelper
+import app.revanced.util.resources.ResourceHelper
 
 @Patch
 @Name("microg-support")

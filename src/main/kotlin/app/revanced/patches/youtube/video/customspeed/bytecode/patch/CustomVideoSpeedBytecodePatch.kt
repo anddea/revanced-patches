@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.video.customspeed.bytecode.patch
 
+import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
@@ -12,11 +13,10 @@ import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.util.smali.ExternalLabel
+import app.revanced.patches.shared.annotation.YouTubeCompatibility
+import app.revanced.patches.shared.patch.options.PatchOptions
 import app.revanced.patches.youtube.video.customspeed.bytecode.fingerprints.*
-import app.revanced.shared.annotation.YouTubeCompatibility
-import app.revanced.shared.extensions.toErrorResult
-import app.revanced.shared.patches.options.PatchOptions
-import app.revanced.shared.util.integrations.Constants.VIDEO_PATH
+import app.revanced.util.integrations.Constants.VIDEO_PATH
 import org.jf.dexlib2.builder.instruction.BuilderArrayPayload
 import org.jf.dexlib2.iface.instruction.NarrowLiteralInstruction
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction

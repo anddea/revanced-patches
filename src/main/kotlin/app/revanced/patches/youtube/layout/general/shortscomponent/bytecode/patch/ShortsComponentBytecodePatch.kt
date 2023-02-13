@@ -1,22 +1,22 @@
 package app.revanced.patches.youtube.layout.general.shortscomponent.bytecode.patch
 
+import app.revanced.extensions.findMutableMethodOf
+import app.revanced.extensions.injectHideCall
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
-import app.revanced.shared.extensions.findMutableMethodOf
-import app.revanced.shared.extensions.injectHideCall
-import app.revanced.shared.patches.mapping.ResourceMappingPatch
-import app.revanced.shared.annotation.YouTubeCompatibility
-import app.revanced.shared.util.bytecode.BytecodeHelper
+import app.revanced.patcher.patch.annotations.DependsOn
+import app.revanced.patches.shared.annotation.YouTubeCompatibility
+import app.revanced.patches.shared.patch.mapping.ResourceMappingPatch
+import app.revanced.util.bytecode.BytecodeHelper
+import org.jf.dexlib2.Opcode
+import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.iface.instruction.formats.Instruction21c
 import org.jf.dexlib2.iface.instruction.formats.Instruction31i
-import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
-import org.jf.dexlib2.Opcode
 
 @Name("hide-shorts-component-bytecode-patch")
 @DependsOn([ResourceMappingPatch::class])

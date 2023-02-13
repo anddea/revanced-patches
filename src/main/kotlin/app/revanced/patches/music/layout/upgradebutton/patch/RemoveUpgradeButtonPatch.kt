@@ -1,22 +1,22 @@
 package app.revanced.patches.music.layout.upgradebutton.patch
 
+import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.smali.toInstructions
 import app.revanced.patches.music.layout.upgradebutton.fingerprints.PivotBarConstructorFingerprint
-import app.revanced.shared.annotation.YouTubeMusicCompatibility
-import app.revanced.shared.extensions.toErrorResult
+import app.revanced.patches.shared.annotation.YouTubeMusicCompatibility
+import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.builder.instruction.BuilderInstruction22t
 import org.jf.dexlib2.iface.instruction.formats.Instruction22c
 import org.jf.dexlib2.iface.instruction.formats.Instruction35c
-import org.jf.dexlib2.Opcode
 
 @Patch
 @Name("hide-upgrade-button")

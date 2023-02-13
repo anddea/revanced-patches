@@ -1,24 +1,25 @@
 package app.revanced.patches.youtube.misc.litho.filter.patch
 
+import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.extensions.instruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.util.smali.ExternalLabel
+import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.youtube.misc.doublebacktoclose.patch.DoubleBackToClosePatch
 import app.revanced.patches.youtube.misc.litho.filter.fingerprints.LithoFingerprint
 import app.revanced.patches.youtube.misc.swiperefresh.patch.SwipeRefreshPatch
-import app.revanced.shared.annotation.YouTubeCompatibility
-import app.revanced.shared.util.integrations.Constants.ADS_PATH
+import app.revanced.util.integrations.Constants.ADS_PATH
+import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.builder.instruction.BuilderInstruction21c
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 import org.jf.dexlib2.iface.reference.FieldReference
 import org.jf.dexlib2.iface.reference.MethodReference
-import org.jf.dexlib2.Opcode
 
 @DependsOn(
     [
@@ -36,45 +37,39 @@ class LithoFilterPatch : BytecodePatch(
 {
     override fun execute(context: BytecodeContext): PatchResult {
 
-        //Litho
-        val lithoMethod = LithoFingerprint.result!!.mutableMethod
-        val lithoMethodThirdParam = lithoMethod.parameters[2]
-        val lithoRegister1 = lithoMethod.implementation!!.registerCount - lithoMethod.parameters.size + 1
-        val lithoRegister2 = lithoRegister1 + 1
-        val lithoInstructions = lithoMethod.implementation!!.instructions
+        LithoFingerprint.result?.mutableMethod?.let {
+            val implementations = it.implementation!!
+            val instructions = implementations.instructions
+            val parameter = it.parameters[2]
+            val stringRegister = implementations.registerCount - it.parameters.size + 1
+            val dummyRegister = stringRegister + 1
 
-        val lithoIndex = lithoInstructions.indexOfFirst {
-            it.opcode == Opcode.CONST_STRING &&
-            (it as BuilderInstruction21c).reference.toString() == "Element missing type extension"
-        } + 2
+            val lithoIndex = instructions.indexOfFirst { instruction->
+                instruction.opcode == Opcode.CONST_STRING &&
+                        (instruction as BuilderInstruction21c).reference.toString() == "Element missing type extension"
+            } + 2
 
-        val FirstReference =
-            lithoMethod.let { method ->
-                (method.implementation!!.instructions.elementAt(lithoIndex) as ReferenceInstruction).reference as MethodReference
-            }
+            val firstReference = (instructions.elementAt(lithoIndex) as ReferenceInstruction).reference as MethodReference
+            val secondReference = (instructions.elementAt(lithoIndex + 2) as ReferenceInstruction).reference as FieldReference
 
-        val SecondReference =
-            lithoMethod.let { method ->
-                (method.implementation!!.instructions.elementAt(lithoIndex + 2) as ReferenceInstruction).reference as FieldReference
-            }
-
-        lithoMethod.addInstructions(
-            0, """
-                move-object/from16 v1, v$lithoRegister1
+            it.addInstructions(
+                0, """
+                move-object/from16 v1, v$stringRegister
                 invoke-virtual {v1}, Ljava/lang/Object;->toString()Ljava/lang/String;
                 move-result-object v1
-                move-object/from16 v2, v$lithoRegister2
-                iget-object v2, v2, $lithoMethodThirdParam->b:Ljava/nio/ByteBuffer;
+                move-object/from16 v2, v$dummyRegister
+                iget-object v2, v2, $parameter->b:Ljava/nio/ByteBuffer;
                 invoke-static {v1, v2}, $ADS_PATH/ExtendedLithoFilterPatch;->InflatedLithoView(Ljava/lang/String;Ljava/nio/ByteBuffer;)Z
                 move-result v3
                 if-eqz v3, :do_not_block
                 move-object/from16 v0, p1
-                invoke-static {v0}, $FirstReference
+                invoke-static {v0}, $firstReference
                 move-result-object v0
-                iget-object v0, v0, ${SecondReference.definingClass}->${SecondReference.name}:${SecondReference.type}
+                iget-object v0, v0, ${secondReference.definingClass}->${secondReference.name}:${secondReference.type}
                 return-object v0
-            """, listOf(ExternalLabel("do_not_block", lithoMethod.instruction(0)))
-        )
+            """, listOf(ExternalLabel("do_not_block", it.instruction(0)))
+            )
+        } ?: return LithoFingerprint.toErrorResult()
 
         return PatchResultSuccess()
     }

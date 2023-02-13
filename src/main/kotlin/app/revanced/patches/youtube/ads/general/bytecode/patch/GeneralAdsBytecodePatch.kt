@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.ads.general.bytecode.patch
 
+import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
@@ -12,12 +13,12 @@ import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.util.smali.ExternalLabel
+import app.revanced.patches.shared.annotation.YouTubeCompatibility
+import app.revanced.patches.shared.patch.mapping.ResourceMappingPatch
 import app.revanced.patches.youtube.ads.general.bytecode.fingerprints.ComponentContextParserFingerprint
 import app.revanced.patches.youtube.ads.general.bytecode.fingerprints.EmptyComponentBuilderFingerprint
-import app.revanced.shared.annotation.YouTubeCompatibility
-import app.revanced.shared.patches.mapping.ResourceMappingPatch
-import app.revanced.shared.util.bytecode.BytecodeHelper
-import app.revanced.shared.util.integrations.Constants.ADS_PATH
+import app.revanced.util.bytecode.BytecodeHelper
+import app.revanced.util.integrations.Constants.ADS_PATH
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.builder.instruction.BuilderInstruction21s
 import org.jf.dexlib2.iface.instruction.Instruction
@@ -38,7 +39,7 @@ class GeneralAdsBytecodePatch : BytecodePatch(
         ComponentContextParserFingerprint.result?.let { result ->
             val builderMethodIndex = EmptyComponentBuilderFingerprint
                 .also { it.resolve(context, result.mutableMethod, result.mutableClass) }
-                .let { it.result!!.scanResult.patternScanResult!!.startIndex }
+                .let { it.result?.scanResult?.patternScanResult?.startIndex?: return EmptyComponentBuilderFingerprint.toErrorResult() }
 
             val emptyComponentFieldIndex = builderMethodIndex + 2
 
@@ -76,7 +77,7 @@ class GeneralAdsBytecodePatch : BytecodePatch(
                     listOf(ExternalLabel("not_an_ad", instruction(insertHookIndex)))
                 )
             }
-        } ?: return PatchResultError("Could not find the method to hook.")
+        } ?: return ComponentContextParserFingerprint.toErrorResult()
 
         BytecodeHelper.patchStatus(context, "GeneralAds")
 

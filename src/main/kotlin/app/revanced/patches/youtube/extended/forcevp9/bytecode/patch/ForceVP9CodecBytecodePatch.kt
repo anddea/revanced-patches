@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.extended.forcevp9.bytecode.patch
 
+import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
@@ -12,11 +13,10 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
+import app.revanced.patches.shared.annotation.YouTubeCompatibility
+import app.revanced.patches.shared.fingerprints.LayoutSwitchFingerprint
 import app.revanced.patches.youtube.extended.forcevp9.bytecode.fingerprints.*
-import app.revanced.shared.annotation.YouTubeCompatibility
-import app.revanced.shared.extensions.toErrorResult
-import app.revanced.shared.fingerprints.LayoutSwitchFingerprint
-import app.revanced.shared.util.integrations.Constants.EXTENDED_PATH
+import app.revanced.util.integrations.Constants.EXTENDED_PATH
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.dexbacked.reference.DexBackedFieldReference
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction

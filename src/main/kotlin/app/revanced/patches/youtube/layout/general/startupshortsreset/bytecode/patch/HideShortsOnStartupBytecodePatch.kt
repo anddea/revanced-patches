@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.layout.general.startupshortsreset.bytecode.patch
 
+import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
@@ -9,10 +10,9 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.util.smali.ExternalLabel
+import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.youtube.layout.general.startupshortsreset.bytecode.fingerprints.UserWasInShortsFingerprint
-import app.revanced.shared.annotation.YouTubeCompatibility
-import app.revanced.shared.extensions.toErrorResult
-import app.revanced.shared.util.integrations.Constants.GENERAL_LAYOUT
+import app.revanced.util.integrations.Constants.GENERAL_LAYOUT
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Name("hide-startup-shorts-player-bytecode-patch")

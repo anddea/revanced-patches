@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.layout.general.tabletminiplayer.bytecode.patch
 
+import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
@@ -11,11 +12,10 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
+import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.youtube.layout.general.tabletminiplayer.bytecode.fingerprints.*
 import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourcdIdPatch
-import app.revanced.shared.annotation.YouTubeCompatibility
-import app.revanced.shared.extensions.toErrorResult
-import app.revanced.shared.util.integrations.Constants.GENERAL_LAYOUT
+import app.revanced.util.integrations.Constants.GENERAL_LAYOUT
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Name("enable-tablet-miniplayer-bytecode-patch")

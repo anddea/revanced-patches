@@ -1,5 +1,7 @@
 package app.revanced.patches.youtube.layout.seekbar.customseekbarcolor.bytecode.patch
 
+import app.revanced.extensions.findMutableMethodOf
+import app.revanced.extensions.toResult
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
@@ -7,11 +9,9 @@ import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.annotations.DependsOn
-import app.revanced.shared.annotation.YouTubeCompatibility
-import app.revanced.shared.extensions.findMutableMethodOf
-import app.revanced.shared.extensions.toResult
-import app.revanced.shared.patches.mapping.ResourceMappingPatch
-import app.revanced.shared.util.integrations.Constants.SEEKBAR_LAYOUT
+import app.revanced.patches.shared.annotation.YouTubeCompatibility
+import app.revanced.patches.shared.patch.mapping.ResourceMappingPatch
+import app.revanced.util.integrations.Constants.SEEKBAR_LAYOUT
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.iface.instruction.formats.Instruction31i

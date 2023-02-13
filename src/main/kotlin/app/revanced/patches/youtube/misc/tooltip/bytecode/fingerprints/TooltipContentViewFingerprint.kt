@@ -12,9 +12,9 @@ object TooltipContentViewFingerprint : MethodFingerprint(
     access = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("L"),
     customFingerprint = { methodDef ->
-        methodDef.implementation?.instructions?.any { instruction ->
-            instruction.opcode.ordinal == Opcode.CONST.ordinal &&
-                    (instruction as? WideLiteralInstruction)?.wideLiteral == SharedResourcdIdPatch.tooltipLabelId
+        methodDef.implementation?.instructions?.any {
+            it.opcode.ordinal == Opcode.CONST.ordinal &&
+                    (it as? WideLiteralInstruction)?.wideLiteral == SharedResourcdIdPatch.tooltipLabelId
         } == true
     }
 )

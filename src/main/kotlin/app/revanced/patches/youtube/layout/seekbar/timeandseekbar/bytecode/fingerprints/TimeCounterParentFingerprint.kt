@@ -11,9 +11,9 @@ object TimeCounterParentFingerprint : MethodFingerprint(
     returnType = "V",
     access = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
     customFingerprint = { methodDef ->
-        methodDef.implementation?.instructions?.any { instruction ->
-            instruction.opcode.ordinal == Opcode.CONST.ordinal &&
-                    (instruction as? WideLiteralInstruction)?.wideLiteral == SharedResourcdIdPatch.timebarColorLabelId
+        methodDef.implementation?.instructions?.any {
+            it.opcode.ordinal == Opcode.CONST.ordinal &&
+                    (it as? WideLiteralInstruction)?.wideLiteral == SharedResourcdIdPatch.timebarColorLabelId
         } == true
     }
 )

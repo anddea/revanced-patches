@@ -1,5 +1,7 @@
 package app.revanced.patches.youtube.layout.general.mixplaylists.bytecode.patch
 
+import app.revanced.extensions.injectHideCall
+import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
@@ -8,10 +10,8 @@ import app.revanced.patcher.fingerprint.method.impl.MethodFingerprintResult
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.youtube.layout.general.mixplaylists.bytecode.fingerprints.*
-import app.revanced.shared.annotation.YouTubeCompatibility
-import app.revanced.shared.extensions.injectHideCall
-import app.revanced.shared.extensions.toErrorResult
 import org.jf.dexlib2.iface.instruction.Instruction
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
@@ -33,10 +33,8 @@ class MixPlaylistsBytecodePatch : BytecodePatch(
         arrayOf(
             CreateMixPlaylistFingerprint,
             SecondCreateMixPlaylistFingerprint
-        ).map {
-            it.result ?: return it.toErrorResult()
-        }.forEach {
-            it.addHook()
+        ).forEach {
+            it.result?.addHook()  ?: return it.toErrorResult()
         }
 
         arrayOf(

@@ -10,9 +10,9 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.music.misc.settings.patch.MusicSettingsPatch
-import app.revanced.shared.annotation.YouTubeMusicCompatibility
-import app.revanced.shared.patches.videoads.GeneralVideoAdsPatch
-import app.revanced.shared.util.integrations.Constants.MUSIC_SETTINGS_PATH
+import app.revanced.patches.shared.annotation.YouTubeMusicCompatibility
+import app.revanced.patches.shared.patch.videoads.GeneralVideoAdsPatch
+import app.revanced.util.integrations.Constants.MUSIC_SETTINGS_PATH
 
 @Patch
 @Name("hide-music-ads")

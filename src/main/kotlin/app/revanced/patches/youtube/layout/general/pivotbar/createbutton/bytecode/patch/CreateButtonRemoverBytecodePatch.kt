@@ -1,20 +1,20 @@
 package app.revanced.patches.youtube.layout.general.pivotbar.createbutton.bytecode.patch
 
+import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
-import app.revanced.patches.youtube.layout.general.pivotbar.createbutton.bytecode.fingerprints.*
+import app.revanced.patches.shared.annotation.YouTubeCompatibility
+import app.revanced.patches.shared.fingerprints.PivotBarCreateButtonViewFingerprint
+import app.revanced.patches.youtube.layout.general.pivotbar.createbutton.bytecode.fingerprints.PivotBarFingerprint
 import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourcdIdPatch
-import app.revanced.shared.annotation.YouTubeCompatibility
-import app.revanced.shared.extensions.toErrorResult
-import app.revanced.shared.util.integrations.Constants.GENERAL_LAYOUT
-import app.revanced.shared.util.pivotbar.InjectionUtils.REGISTER_TEMPLATE_REPLACEMENT
-import app.revanced.shared.util.pivotbar.InjectionUtils.injectHook
+import app.revanced.util.integrations.Constants.GENERAL_LAYOUT
+import app.revanced.util.pivotbar.InjectionUtils.REGISTER_TEMPLATE_REPLACEMENT
+import app.revanced.util.pivotbar.InjectionUtils.injectHook
 import org.jf.dexlib2.dexbacked.reference.DexBackedMethodReference
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 
@@ -47,8 +47,8 @@ class CreateButtonRemoverBytecodePatch : BytecodePatch(
                     val fieldReference = (instruction as? ReferenceInstruction)?.reference as? DexBackedMethodReference
                     fieldReference?.let { it.definingClass == createRef.definingClass && it.name == createRef.name } == true
                 }.forEach { instruction ->
-                    if (!isSeondary) {
-                        isSeondary = true;
+                    if (foundIndex == 0) {
+                        foundIndex++
                         return@forEach
                     }
 
@@ -60,7 +60,7 @@ class CreateButtonRemoverBytecodePatch : BytecodePatch(
 
                     return PatchResultSuccess()
                 }
-                return PatchResultError("Could not find the method to hook.")
+                return PivotBarCreateButtonViewFingerprint.toErrorResult()
             }
         } ?: return PivotBarCreateButtonViewFingerprint.toErrorResult()
     }
@@ -73,6 +73,6 @@ class CreateButtonRemoverBytecodePatch : BytecodePatch(
 
         lateinit var createRef: DexBackedMethodReference
 
-        var isSeondary: Boolean = false
+        var foundIndex: Int = 0
     }
 }

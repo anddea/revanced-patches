@@ -8,15 +8,15 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
+import app.revanced.patches.shared.annotation.YouTubeCompatibility
+import app.revanced.patches.shared.patch.options.PatchOptions
+import app.revanced.patches.shared.patch.settings.AbstractSettingsResourcePatch
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourcdIdPatch
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsBytecodePatch
-import app.revanced.shared.annotation.YouTubeCompatibility
-import app.revanced.shared.patches.options.PatchOptions
-import app.revanced.shared.patches.settings.AbstractSettingsResourcePatch
-import app.revanced.shared.util.resources.ResourceHelper
-import app.revanced.shared.util.resources.ResourceUtils
-import app.revanced.shared.util.resources.ResourceUtils.copyResources
+import app.revanced.util.resources.ResourceHelper
+import app.revanced.util.resources.ResourceUtils
+import app.revanced.util.resources.ResourceUtils.copyResources
 import org.w3c.dom.Element
 
 @Patch

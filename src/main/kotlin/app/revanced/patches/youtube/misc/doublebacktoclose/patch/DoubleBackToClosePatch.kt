@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.misc.doublebacktoclose.patch
 
+import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
@@ -11,14 +12,10 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.youtube.misc.doublebacktoclose.fingerprint.OnBackPressedFingerprint
-import app.revanced.patches.youtube.misc.doublebacktoclose.fingerprint.ScrollPositionFingerprint
-import app.revanced.patches.youtube.misc.doublebacktoclose.fingerprint.ScrollTopFingerprint
-import app.revanced.patches.youtube.misc.doublebacktoclose.fingerprint.ScrollTopParentFingerprint
-import app.revanced.shared.annotation.YouTubeCompatibility
-import app.revanced.shared.extensions.toErrorResult
-import app.revanced.shared.patches.gestures.PredictiveBackGesturePatch
-import app.revanced.shared.util.integrations.Constants.UTILS_PATH
+import app.revanced.patches.shared.annotation.YouTubeCompatibility
+import app.revanced.patches.shared.patch.gestures.PredictiveBackGesturePatch
+import app.revanced.patches.youtube.misc.doublebacktoclose.fingerprint.*
+import app.revanced.util.integrations.Constants.UTILS_PATH
 
 @Name("double-back-to-close")
 @DependsOn([PredictiveBackGesturePatch::class])

@@ -9,10 +9,9 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patches.youtube.misc.optimize.patch.RedundantResourcePatch
+import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
-import app.revanced.shared.annotation.YouTubeCompatibility
-import app.revanced.shared.util.resources.ResourceHelper
+import app.revanced.util.resources.ResourceHelper
 
 @Patch
 @Name("optimize-resource")
@@ -22,7 +21,7 @@ import app.revanced.shared.util.resources.ResourceHelper
         SettingsPatch::class
     ]
 )
-@Description("Removes duplicate resources and adds missing translation files from YouTube.")
+@Description("Removes duplicate resources from YouTube.")
 @YouTubeCompatibility
 @Version("0.0.1")
 class OptimizeResourcePatch : ResourcePatch {

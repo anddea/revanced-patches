@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.layout.seekbar.seekbartapping.bytecode.patch
 
+import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
@@ -10,12 +11,10 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.youtube.layout.seekbar.seekbartapping.bytecode.fingerprints.SeekbarTappingFingerprint
-import app.revanced.patches.youtube.layout.seekbar.seekbartapping.bytecode.fingerprints.SeekbarTappingParentFingerprint
+import app.revanced.patches.shared.annotation.YouTubeCompatibility
+import app.revanced.patches.youtube.layout.seekbar.seekbartapping.bytecode.fingerprints.*
 import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourcdIdPatch
-import app.revanced.shared.annotation.YouTubeCompatibility
-import app.revanced.shared.extensions.toErrorResult
-import app.revanced.shared.util.integrations.Constants.SEEKBAR_LAYOUT
+import app.revanced.util.integrations.Constants.SEEKBAR_LAYOUT
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.iface.Method
 import org.jf.dexlib2.iface.instruction.formats.Instruction11n
@@ -27,7 +26,8 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction35c
 @Version("0.0.1")
 class SeekbarTappingBytecodePatch : BytecodePatch(
     listOf(
-        SeekbarTappingParentFingerprint, SeekbarTappingFingerprint
+        SeekbarTappingParentFingerprint,
+        SeekbarTappingFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {

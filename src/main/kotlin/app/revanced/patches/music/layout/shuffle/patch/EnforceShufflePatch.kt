@@ -1,5 +1,7 @@
 package app.revanced.patches.music.layout.shuffle.patch
 
+import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.transformFields
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
@@ -14,13 +16,13 @@ import app.revanced.patcher.util.TypeUtil.traverseClassHierarchy
 import app.revanced.patcher.util.proxy.mutableTypes.MutableField.Companion.toMutable
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patcher.util.smali.toInstructions
-import app.revanced.patches.music.layout.shuffle.fingerprints.*
+import app.revanced.patches.music.layout.shuffle.fingerprints.MusicPlaybackControlsFingerprint
+import app.revanced.patches.music.layout.shuffle.fingerprints.ShuffleClassFingerprint
+import app.revanced.patches.music.layout.shuffle.fingerprints.ShuffleClassReferenceFingerprint
 import app.revanced.patches.music.misc.resourceid.patch.SharedResourcdIdPatch
 import app.revanced.patches.music.misc.settings.patch.MusicSettingsPatch
-import app.revanced.shared.annotation.YouTubeMusicCompatibility
-import app.revanced.shared.extensions.toErrorResult
-import app.revanced.shared.extensions.transformFields
-import app.revanced.shared.util.integrations.Constants.MUSIC_SETTINGS_PATH
+import app.revanced.patches.shared.annotation.YouTubeMusicCompatibility
+import app.revanced.util.integrations.Constants.MUSIC_SETTINGS_PATH
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.dexbacked.reference.DexBackedMethodReference
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction

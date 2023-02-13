@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.video.speed.bytecode.patch
 
+import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
@@ -13,14 +14,11 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patcher.util.smali.toInstructions
+import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.youtube.misc.videoid.legacy.patch.LegacyVideoIdPatch
-import app.revanced.patches.youtube.video.speed.bytecode.fingerprints.VideoSpeedChangedFingerprint
-import app.revanced.patches.youtube.video.speed.bytecode.fingerprints.VideoSpeedParentFingerprint
-import app.revanced.patches.youtube.video.speed.bytecode.fingerprints.VideoSpeedSetterFingerprint
-import app.revanced.shared.annotation.YouTubeCompatibility
-import app.revanced.shared.extensions.toErrorResult
-import app.revanced.shared.util.bytecode.BytecodeHelper
-import app.revanced.shared.util.integrations.Constants.VIDEO_PATH
+import app.revanced.patches.youtube.video.speed.bytecode.fingerprints.*
+import app.revanced.util.bytecode.BytecodeHelper
+import app.revanced.util.integrations.Constants.VIDEO_PATH
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.dexbacked.reference.DexBackedMethodReference
 import org.jf.dexlib2.iface.instruction.FiveRegisterInstruction
