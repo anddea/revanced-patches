@@ -6,6 +6,7 @@ import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.data.toMethodWalker
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.instruction
+import app.revanced.patcher.fingerprint.method.impl.MethodFingerprintResult
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -13,35 +14,46 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.misc.minimizedplayback.bytecode.fingerprints.*
+import app.revanced.patches.youtube.misc.playertype.patch.PlayerTypeHookPatch
 import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourcdIdPatch
 import app.revanced.shared.annotation.YouTubeCompatibility
+import app.revanced.shared.extensions.toErrorResult
 import app.revanced.shared.util.integrations.Constants.MISC_PATH
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
+import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
 import org.jf.dexlib2.iface.reference.MethodReference
 
 @Name("enable-minimized-playback-bytecode-patch")
-@DependsOn([SharedResourcdIdPatch::class])
+@DependsOn(
+    [
+        PlayerTypeHookPatch::class,
+        SharedResourcdIdPatch::class
+    ]
+)
 @YouTubeCompatibility
 @Version("0.0.1")
 class MinimizedPlaybackBytecodePatch : BytecodePatch(
     listOf(
-        MinimizedPlaybackKidsFingerprint,
+        KidsMinimizedPlaybackPolicyControllerFingerprint,
         MinimizedPlaybackManagerFingerprint,
-        MinimizedPlaybackSettingsFingerprint
+        MinimizedPlaybackSettingsFingerprint,
+        PipControllerFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
         val methods = arrayOf(
-            MinimizedPlaybackKidsFingerprint,
+            KidsMinimizedPlaybackPolicyControllerFingerprint,
             MinimizedPlaybackManagerFingerprint,
             MinimizedPlaybackSettingsFingerprint
         ).map {
-            it.result!!.mutableMethod
+            it.result?.mutableMethod?: return it.toErrorResult()
         }
-        
-        hookPlaybackController(methods[0])
-        hookPlayback(methods[1])
-        walkMutable(context, methods[2])
+
+        methods[0].hookPlaybackController()
+        methods[1].hookPlayback()
+        methods[2].walkMutable(context)
+
+        PipControllerFingerprint.result?.hookShortsPiP()?:return PipControllerFingerprint.toErrorResult()
 
         return PatchResultSuccess()
     }
@@ -50,26 +62,25 @@ class MinimizedPlaybackBytecodePatch : BytecodePatch(
         const val INTEGRATIONS_PLAYBACK_METHOD_REFERENCE =
             "$MISC_PATH/MinimizedPlaybackPatch;->enableMinimizedPlayback()Z"
 
-        fun walkMutable(
-            context: BytecodeContext,
-            insertMethod: MutableMethod
-        ) {
-            val booleanCalls = insertMethod.implementation!!.instructions.withIndex()
+        const val INTEGRATIONS_PIP_METHOD_REFERENCE =
+            "$MISC_PATH/MinimizedPlaybackPatch;->isNotPlayingShorts(Z)Z"
+
+        fun MutableMethod.walkMutable(
+            context: BytecodeContext) {
+            val booleanCalls = implementation!!.instructions.withIndex()
                 .filter { ((it.value as? ReferenceInstruction)?.reference as? MethodReference)?.returnType == "Z" }
 
             val booleanIndex = booleanCalls.elementAt(1).index
             val booleanMethod =
-                context.toMethodWalker(insertMethod)
+                context.toMethodWalker(this)
                 .nextMethod(booleanIndex, true)
                 .getMethod() as MutableMethod
 
-            hookPlayback(booleanMethod)
+            booleanMethod.hookPlayback()
         }
 
-        fun hookPlayback(
-            insertMethod: MutableMethod
-        ) {
-            insertMethod.addInstructions(
+        fun MutableMethod.hookPlayback() {
+            addInstructions(
                 0, """
                     invoke-static {}, $INTEGRATIONS_PLAYBACK_METHOD_REFERENCE
                     move-result v0
@@ -78,17 +89,28 @@ class MinimizedPlaybackBytecodePatch : BytecodePatch(
             )
         }
 
-        fun hookPlaybackController(
-            insertMethod: MutableMethod
-        ) {
-            insertMethod.addInstructions(
+        fun MutableMethod.hookPlaybackController() {
+            addInstructions(
                 0, """
                     invoke-static {}, $INTEGRATIONS_PLAYBACK_METHOD_REFERENCE
                     move-result v0
                     if-eqz v0, :default
                     return-void
-                """, listOf(ExternalLabel("default", insertMethod.instruction(0)))
+                """, listOf(ExternalLabel("default", instruction(0)))
             )
+        }
+
+        fun MethodFingerprintResult.hookShortsPiP() {
+            val endIndex = scanResult.patternScanResult!!.endIndex
+            with (mutableMethod) {
+                val register = (implementation!!.instructions[endIndex] as TwoRegisterInstruction).registerA
+                addInstructions(
+                    endIndex + 1, """
+                        invoke-static {v$register}, $INTEGRATIONS_PIP_METHOD_REFERENCE
+                        move-result v$register
+                    """
+                )
+            }
         }
     }
 }
