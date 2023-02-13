@@ -12,17 +12,17 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.music.layout.minimizedplayer.fingerprints.MinimizedPlayerFingerprint
-import app.revanced.patches.music.misc.integrations.patch.MusicIntegrationsPatch
 import app.revanced.patches.music.misc.settings.patch.MusicSettingsPatch
 import app.revanced.shared.annotation.YouTubeMusicCompatibility
+import app.revanced.shared.extensions.toErrorResult
 import app.revanced.shared.util.integrations.Constants.MUSIC_SETTINGS_PATH
 import org.jf.dexlib2.iface.instruction.Instruction
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
-@DependsOn([MusicIntegrationsPatch::class, MusicSettingsPatch::class])
 @Name("enable-force-minimized-player")
 @Description("Permanently keep player minimized even if another track is played.")
+@DependsOn([MusicSettingsPatch::class])
 @YouTubeMusicCompatibility
 @Version("0.0.1")
 class MinimizedPlayerPatch : BytecodePatch(
@@ -32,19 +32,21 @@ class MinimizedPlayerPatch : BytecodePatch(
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
 
-        val result = MinimizedPlayerFingerprint.result!!
-        val method = result.mutableMethod
-        val index = result.scanResult.patternScanResult!!.endIndex
-        val register = (method.implementation!!.instructions[index - 1] as OneRegisterInstruction).registerA - 1
-        val jumpInstruction = method.implementation!!.instructions[index + 1] as Instruction
+        MinimizedPlayerFingerprint.result?.let {
+            with (it.mutableMethod) {
+                val index = it.scanResult.patternScanResult!!.endIndex
+                val register = (implementation!!.instructions[index - 1] as OneRegisterInstruction).registerA - 1
+                val jumpInstruction = implementation!!.instructions[index + 1] as Instruction
 
-        method.addInstructions(
-            index, """
-            invoke-static {}, $MUSIC_SETTINGS_PATH->enableForceMinimizedPlayer()Z
-            move-result v$register
-            if-nez v$register, :enforce
-        """, listOf(ExternalLabel("enforce", jumpInstruction))
-        )
+                addInstructions(
+                    index, """
+                        invoke-static {}, $MUSIC_SETTINGS_PATH->enableForceMinimizedPlayer()Z
+                        move-result v$register
+                        if-nez v$register, :enforce
+                        """, listOf(ExternalLabel("enforce", jumpInstruction))
+                )
+            }
+        } ?: return MinimizedPlayerFingerprint.toErrorResult()
 
         return PatchResultSuccess()
     }

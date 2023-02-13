@@ -12,6 +12,7 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patches.music.audio.exclusiveaudio.fingerprints.AudioOnlyEnablerFingerprint
 import app.revanced.shared.annotation.YouTubeMusicCompatibility
+import app.revanced.shared.extensions.toErrorResult
 
 @Patch
 @Name("exclusive-audio-playback")
@@ -24,9 +25,11 @@ class ExclusiveAudioPatch : BytecodePatch(
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
-        val method = AudioOnlyEnablerFingerprint.result!!.mutableMethod
-        method.replaceInstruction(method.implementation!!.instructions.count() - 1, "const/4 v0, 0x1")
-        method.addInstruction("return v0")
+
+        AudioOnlyEnablerFingerprint.result?.mutableMethod?.let {
+            it.replaceInstruction(it.implementation!!.instructions.count() - 1, "const/4 v0, 0x1")
+            it.addInstruction("return v0")
+        } ?: return AudioOnlyEnablerFingerprint.toErrorResult()
 
         return PatchResultSuccess()
     }

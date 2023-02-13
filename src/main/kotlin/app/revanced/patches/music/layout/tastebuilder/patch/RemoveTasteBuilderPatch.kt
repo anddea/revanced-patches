@@ -11,6 +11,7 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patches.music.layout.tastebuilder.fingerprints.TasteBuilderConstructorFingerprint
 import app.revanced.shared.annotation.YouTubeMusicCompatibility
+import app.revanced.shared.extensions.toErrorResult
 import org.jf.dexlib2.iface.instruction.formats.Instruction22c
 
 @Patch
@@ -24,17 +25,19 @@ class RemoveTasteBuilderPatch : BytecodePatch(
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
-        val result = TasteBuilderConstructorFingerprint.result!!
-        val method = result.mutableMethod
+        TasteBuilderConstructorFingerprint.result?.let {
+            with (it.mutableMethod) {
+                val insertIndex = it.scanResult.patternScanResult!!.endIndex - 8
+                val register = (implementation!!.instructions[insertIndex] as Instruction22c).registerA
 
-        val insertIndex = result.scanResult.patternScanResult!!.endIndex - 8
-        val register = (method.implementation!!.instructions[insertIndex] as Instruction22c).registerA
-        method.addInstructions(
-            insertIndex, """
-                const/16 v1, 0x8
-                invoke-virtual {v${register}, v1}, Landroid/view/View;->setVisibility(I)V
-            """
-        )
+                addInstructions(
+                    insertIndex, """
+                        const/16 v1, 0x8
+                        invoke-virtual {v${register}, v1}, Landroid/view/View;->setVisibility(I)V
+                        """
+                )
+            }
+        } ?: return TasteBuilderConstructorFingerprint.toErrorResult()
 
         return PatchResultSuccess()
     }

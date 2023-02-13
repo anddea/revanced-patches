@@ -15,7 +15,6 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.music.audio.codecs.fingerprints.*
-import app.revanced.patches.music.misc.integrations.patch.MusicIntegrationsPatch
 import app.revanced.patches.music.misc.settings.patch.MusicSettingsPatch
 import app.revanced.shared.annotation.YouTubeMusicCompatibility
 import app.revanced.shared.extensions.toErrorResult
@@ -24,9 +23,9 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.iface.Method
 
 @Patch
-@DependsOn([MusicIntegrationsPatch::class, MusicSettingsPatch::class])
 @Name("enable-opus-codec")
 @Description("Enable opus codec when playing audio.")
+@DependsOn([MusicSettingsPatch::class])
 @YouTubeMusicCompatibility
 @Version("0.0.1")
 class CodecsUnlockPatch : BytecodePatch(

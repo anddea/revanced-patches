@@ -8,6 +8,8 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
+import app.revanced.patcher.patch.annotations.DependsOn
+import app.revanced.patches.music.misc.integrations.patch.MusicIntegrationsPatch
 import app.revanced.shared.annotation.YouTubeMusicCompatibility
 import app.revanced.shared.util.resources.ResourceUtils.copyXmlNode
 import org.w3c.dom.Element
@@ -15,6 +17,7 @@ import org.w3c.dom.Element
 @Patch
 @Name("music-settings")
 @Description("Adds settings for ReVanced to YouTube Music.")
+@DependsOn([MusicIntegrationsPatch::class])
 @YouTubeMusicCompatibility
 @Version("0.0.1")
 class MusicSettingsPatch : ResourcePatch {

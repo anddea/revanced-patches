@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.misc.translations.patch
+package app.revanced.patches.music.misc.translations.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
@@ -9,15 +9,14 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patches.music.misc.integrations.patch.MusicIntegrationsPatch
 import app.revanced.patches.music.misc.settings.patch.MusicSettingsPatch
 import app.revanced.shared.annotation.YouTubeMusicCompatibility
 import app.revanced.shared.util.resources.ResourceHelper
 
 @Patch
-@DependsOn([MusicIntegrationsPatch::class, MusicSettingsPatch::class])
 @Name("translations-music")
 @Description("Add Crowdin Translations for YouTube Music")
+@DependsOn([MusicSettingsPatch::class])
 @YouTubeMusicCompatibility
 @Version("0.0.1")
 class MusicTranslationsPatch : ResourcePatch {
