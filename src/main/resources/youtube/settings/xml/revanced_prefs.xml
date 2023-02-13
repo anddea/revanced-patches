@@ -349,8 +349,6 @@
         <SwitchPreference android:title="@string/revanced_enable_phone_layout_title" android:key="revanced_enable_phone_layout" android:summary="@string/revanced_enable_phone_layout_summary" android:defaultValue="false" />SETTINGS: LAYOUT_SWITCH -->
         <!-- SETTINGS: ENABLE_VP9_CODEC
         <SwitchPreference android:title="@string/revanced_enable_vp9_codec_title" android:key="revanced_enable_vp9_codec" android:defaultValue="false" android:summary="@string/revanced_enable_vp9_codec_summary" />SETTINGS: ENABLE_VP9_CODEC -->
-        <!-- SETTINGS: DISABLE_SHORTS_PLAYER_PIP
-        <SwitchPreference android:title="@string/revanced_disable_shorts_player_pip_title" android:key="revanced_disable_shorts_player_pip" android:defaultValue="false" android:summaryOn="@string/revanced_disable_shorts_player_pip_summary_on" android:summaryOff="@string/revanced_disable_shorts_player_pip_summary_off" />SETTINGS: DISABLE_SHORTS_PLAYER_PIP -->
 
         <!-- SETTINGS: ABOUT
         <Preference android:title=" " android:selectable="false" android:summary="@string/pref_about_category" />
@@ -430,7 +428,6 @@
             <Preference android:title="enable-old-layout" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="layout-switch" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="force-vp9-codec" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
-            <Preference android:title="disable-shorts-player-pip" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
 
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_others_title" />
             <Preference android:title="return-youtube-dislike" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
