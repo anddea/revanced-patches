@@ -1,5 +1,7 @@
 package app.revanced.patches.music.layout.compactheader.patch
 
+import app.revanced.extensions.findMutableMethodOf
+import app.revanced.extensions.toResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
@@ -10,11 +12,9 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.music.misc.settings.patch.MusicSettingsPatch
-import app.revanced.shared.annotation.YouTubeMusicCompatibility
-import app.revanced.shared.extensions.findMutableMethodOf
-import app.revanced.shared.extensions.toResult
-import app.revanced.shared.patches.mapping.ResourceMappingPatch
-import app.revanced.shared.util.integrations.Constants.MUSIC_SETTINGS_PATH
+import app.revanced.patches.shared.annotation.YouTubeMusicCompatibility
+import app.revanced.patches.shared.patch.mapping.ResourceMappingPatch
+import app.revanced.util.integrations.Constants.MUSIC_SETTINGS_PATH
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.iface.instruction.formats.Instruction21c
 import org.jf.dexlib2.iface.instruction.formats.Instruction31i

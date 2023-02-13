@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.misc.integrations.fingerprints
 
-import app.revanced.shared.patches.integrations.AbstractIntegrationsPatch.IntegrationsFingerprint
+import app.revanced.patches.shared.patch.integrations.AbstractIntegrationsPatch.IntegrationsFingerprint
 
 object StandalonePlayerFingerprint : IntegrationsFingerprint(
     strings = listOf(

@@ -1,5 +1,6 @@
 package app.revanced.patches.music.audio.codecs.patch
 
+import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
@@ -8,19 +9,18 @@ import app.revanced.patcher.data.toMethodWalker
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.instruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
-import app.revanced.patcher.patch.annotations.DependsOn
-import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.annotations.DependsOn
+import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.music.audio.codecs.fingerprints.*
 import app.revanced.patches.music.misc.settings.patch.MusicSettingsPatch
-import app.revanced.shared.annotation.YouTubeMusicCompatibility
-import app.revanced.shared.extensions.toErrorResult
-import app.revanced.shared.util.integrations.Constants.MUSIC_SETTINGS_PATH
-import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
+import app.revanced.patches.shared.annotation.YouTubeMusicCompatibility
+import app.revanced.util.integrations.Constants.MUSIC_SETTINGS_PATH
 import org.jf.dexlib2.iface.Method
+import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
 @Name("enable-opus-codec")

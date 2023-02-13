@@ -7,8 +7,8 @@ import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
-import app.revanced.shared.annotation.YouTubeCompatibility
-import app.revanced.shared.util.integrations.Constants.PLAYER_LAYOUT
+import app.revanced.patches.shared.annotation.YouTubeCompatibility
+import app.revanced.util.integrations.Constants.PLAYER_LAYOUT
 
 @Name("hide-cast-button-bytecode-patch")
 @YouTubeCompatibility

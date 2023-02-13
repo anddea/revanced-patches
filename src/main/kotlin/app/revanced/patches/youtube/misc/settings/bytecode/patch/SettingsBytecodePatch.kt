@@ -1,5 +1,8 @@
 package app.revanced.patches.youtube.misc.settings.bytecode.patch
 
+import app.revanced.extensions.findMutableMethodOf
+import app.revanced.extensions.injectTheme
+import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
@@ -8,15 +11,12 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
+import app.revanced.patches.shared.annotation.YouTubeCompatibility
+import app.revanced.patches.shared.patch.mapping.ResourceMappingPatch
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourcdIdPatch
 import app.revanced.patches.youtube.misc.settings.bytecode.fingerprints.ThemeSetterSystemFingerprint
-import app.revanced.shared.annotation.YouTubeCompatibility
-import app.revanced.shared.extensions.findMutableMethodOf
-import app.revanced.shared.extensions.injectTheme
-import app.revanced.shared.extensions.toErrorResult
-import app.revanced.shared.patches.mapping.ResourceMappingPatch
-import app.revanced.shared.util.integrations.Constants.INTEGRATIONS_PATH
+import app.revanced.util.integrations.Constants.INTEGRATIONS_PATH
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.iface.instruction.formats.Instruction31i
 

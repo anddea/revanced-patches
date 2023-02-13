@@ -7,8 +7,8 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
-import app.revanced.shared.annotation.YouTubeMusicCompatibility
-import app.revanced.shared.patches.mapping.ResourceMappingPatch
+import app.revanced.patches.shared.annotation.YouTubeMusicCompatibility
+import app.revanced.patches.shared.patch.mapping.ResourceMappingPatch
 
 @Name("music-resource-id")
 @DependsOn([ResourceMappingPatch::class])

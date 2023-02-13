@@ -7,14 +7,14 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
+import app.revanced.patches.shared.annotation.YouTubeCompatibility
+import app.revanced.patches.shared.patch.options.PatchOptions
 import app.revanced.patches.youtube.layout.player.castbutton.resource.patch.HideCastButtonPatch
 import app.revanced.patches.youtube.misc.clientspoof.resource.patch.ClientSpoofPatch
 import app.revanced.patches.youtube.misc.microg.bytecode.fingerprints.*
 import app.revanced.patches.youtube.misc.microg.shared.Constants.PACKAGE_NAME
-import app.revanced.shared.annotation.YouTubeCompatibility
-import app.revanced.shared.patches.options.PatchOptions
-import app.revanced.shared.util.bytecode.BytecodeHelper
-import app.revanced.shared.util.microg.MicroGBytecodeHelper
+import app.revanced.util.bytecode.BytecodeHelper
+import app.revanced.util.microg.MicroGBytecodeHelper
 
 @Name("microg-support-bytecode-patch")
 @DependsOn(
@@ -32,7 +32,6 @@ class MicroGBytecodePatch : BytecodePatch(
         CastDynamiteModuleFingerprint,
         CastDynamiteModuleV2Fingerprint,
         GooglePlayUtilityFingerprint,
-        IntegrityCheckFingerprint,
         PrimeFingerprint,
         ServiceCheckFingerprint
     )
@@ -55,7 +54,6 @@ class MicroGBytecodePatch : BytecodePatch(
                 "$packageName"
             ),
             listOf(
-                IntegrityCheckFingerprint,
                 ServiceCheckFingerprint,
                 GooglePlayUtilityFingerprint,
                 CastDynamiteModuleFingerprint,

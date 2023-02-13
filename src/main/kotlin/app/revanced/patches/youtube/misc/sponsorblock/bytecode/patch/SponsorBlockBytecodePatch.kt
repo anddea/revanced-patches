@@ -4,25 +4,25 @@ import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.addInstruction
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprintResult
-import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
+import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.youtube.misc.playercontrols.bytecode.patch.PlayerControlsBytecodePatch
-import app.revanced.patches.youtube.misc.sponsorblock.bytecode.fingerprints.*
-import app.revanced.patches.youtube.misc.videoid.mainstream.patch.MainstreamVideoIdPatch
 import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourcdIdPatch
-import app.revanced.shared.annotation.YouTubeCompatibility
-import app.revanced.shared.patches.timebar.HookTimebarPatch
-import app.revanced.shared.util.bytecode.BytecodeHelper
+import app.revanced.patches.youtube.misc.sponsorblock.bytecode.fingerprints.*
+import app.revanced.patches.youtube.misc.timebar.patch.HookTimebarPatch
+import app.revanced.patches.youtube.misc.videoid.mainstream.patch.MainstreamVideoIdPatch
+import app.revanced.util.bytecode.BytecodeHelper
+import org.jf.dexlib2.Opcode
+import org.jf.dexlib2.builder.BuilderInstruction
 import org.jf.dexlib2.iface.instruction.FiveRegisterInstruction
+import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 import org.jf.dexlib2.iface.instruction.formats.Instruction22c
 import org.jf.dexlib2.iface.instruction.formats.Instruction35c
-import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 import org.jf.dexlib2.iface.reference.MethodReference
-import org.jf.dexlib2.Opcode
 
 @Name("sponsorblock-bytecode-patch")
 @DependsOn(
@@ -37,7 +37,6 @@ import org.jf.dexlib2.Opcode
 class SponsorBlockBytecodePatch : BytecodePatch(
     listOf(
         NextGenWatchLayoutFingerprint,
-        AppendTimeFingerprint,
         PlayerOverlaysLayoutInitFingerprint
     )
 ) {
@@ -51,9 +50,8 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         /*
          Seekbar drawing
          */
-        insertResult = HookTimebarPatch.SetTimbarFingerprintResult
-        insertMethod = insertResult.mutableMethod
-        val insertInstructions = insertMethod.implementation!!.instructions
+        insertMethod = HookTimebarPatch.setTimebarMethod
+        insertInstructions = insertMethod.implementation!!.instructions
 
         /*
          Get the instance of the seekbar rectangle
@@ -117,10 +115,10 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         Voting & Shield button
          */
 
-        arrayOf("ShieldButton", "VotingButton").forEach { button ->
-           PlayerControlsBytecodePatch.initializeSB("$INTEGRATIONS_BUTTON_CLASS_DESCRIPTOR/$button;")
-           PlayerControlsBytecodePatch.injectVisibility("$INTEGRATIONS_BUTTON_CLASS_DESCRIPTOR/$button;")
-           PlayerControlsBytecodePatch.injectVisibilityNegated("$INTEGRATIONS_BUTTON_CLASS_DESCRIPTOR/$button;")
+        arrayOf("ShieldButton", "VotingButton").forEach {
+           PlayerControlsBytecodePatch.initializeSB("$INTEGRATIONS_BUTTON_CLASS_DESCRIPTOR/$it;")
+           PlayerControlsBytecodePatch.injectVisibility("$INTEGRATIONS_BUTTON_CLASS_DESCRIPTOR/$it;")
+           PlayerControlsBytecodePatch.injectVisibilityNegated("$INTEGRATIONS_BUTTON_CLASS_DESCRIPTOR/$it;")
         }
 
         // set SegmentHelperLayout.context to the player layout instance
@@ -143,8 +141,8 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         const val INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR =
             "$INTEGRATIONS_BUTTON_CLASS_DESCRIPTOR/PlayerController;"
 
-        lateinit var insertResult: MethodFingerprintResult
         lateinit var insertMethod: MutableMethod
+        lateinit var insertInstructions: List<BuilderInstruction>
 
         /**
          * Adds an invoke-static instruction, called with the new id when the video changes

@@ -6,8 +6,8 @@ import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.*
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.shared.annotation.YouTubeMusicCompatibility
-import app.revanced.shared.util.resources.IconHelper
+import app.revanced.patches.shared.annotation.YouTubeMusicCompatibility
+import app.revanced.util.resources.IconHelper
 
 @Patch
 @Name("custom-branding-music-afn-red")

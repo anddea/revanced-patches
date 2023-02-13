@@ -6,7 +6,9 @@ import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.iface.instruction.NarrowLiteralInstruction
 
 object LithoFingerprint : MethodFingerprint(
-    "L", AccessFlags.PUBLIC or AccessFlags.FINAL, listOf("L", "L", "L", "L", "L", "I", "Z"),
+    returnType = "L",
+    access = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = listOf("L", "L", "L", "L", "L", "I", "Z"),
     customFingerprint = { methodDef ->
         methodDef.implementation!!.instructions.any {
             ((it as? NarrowLiteralInstruction)?.narrowLiteral == 255496645)

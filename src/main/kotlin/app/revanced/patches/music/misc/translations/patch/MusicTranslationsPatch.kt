@@ -10,8 +10,8 @@ import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.music.misc.settings.patch.MusicSettingsPatch
-import app.revanced.shared.annotation.YouTubeMusicCompatibility
-import app.revanced.shared.util.resources.ResourceHelper
+import app.revanced.patches.shared.annotation.YouTubeMusicCompatibility
+import app.revanced.util.resources.ResourceHelper
 
 @Patch
 @Name("translations-music")

@@ -7,10 +7,10 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
+import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.youtube.misc.playercontrols.bytecode.patch.PlayerControlsBytecodePatch
 import app.revanced.patches.youtube.misc.videoid.mainstream.patch.MainstreamVideoIdPatch
-import app.revanced.shared.annotation.YouTubeCompatibility
-import app.revanced.shared.util.integrations.Constants.BUTTON_PATH
+import app.revanced.util.integrations.Constants.BUTTON_PATH
 
 @Name("overlay-buttons-bytecode-patch")
 @DependsOn(
@@ -23,18 +23,13 @@ import app.revanced.shared.util.integrations.Constants.BUTTON_PATH
 @Version("0.0.1")
 class OverlayButtonsBytecodePatch : BytecodePatch() {
     override fun execute(context: BytecodeContext): PatchResult {
-        val AutoRepeat = "$BUTTON_PATH/AutoRepeat;"
-        val Copy = "$BUTTON_PATH/Copy;"
-        val CopyWithTimeStamp = "$BUTTON_PATH/CopyWithTimeStamp;"
-        val Download = "$BUTTON_PATH/Download;"
-        val Whitelists = "$BUTTON_PATH/Whitelists;"
 
         arrayOf(
-            Download,
-            AutoRepeat,
-            CopyWithTimeStamp,
-            Copy,
-            Whitelists
+            "$BUTTON_PATH/Download;",
+            "$BUTTON_PATH/AutoRepeat;",
+            "$BUTTON_PATH/CopyWithTimeStamp;",
+            "$BUTTON_PATH/Copy;",
+            "$BUTTON_PATH/Whitelists;"
         ).forEach { descriptor ->
             PlayerControlsBytecodePatch.initializeControl(descriptor)
             PlayerControlsBytecodePatch.injectVisibility(descriptor)            

@@ -1,5 +1,7 @@
 package app.revanced.patches.music.layout.premium.patch
 
+import app.revanced.extensions.findMutableMethodOf
+import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
@@ -12,11 +14,9 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.music.layout.premium.fingerprints.HideGetPremiumFingerprint
 import app.revanced.patches.music.misc.integrations.patch.MusicIntegrationsPatch
-import app.revanced.shared.annotation.YouTubeMusicCompatibility
-import app.revanced.shared.extensions.findMutableMethodOf
-import app.revanced.shared.extensions.toErrorResult
-import app.revanced.shared.patches.mapping.ResourceMappingPatch
-import app.revanced.shared.util.integrations.Constants.INTEGRATIONS_PATH
+import app.revanced.patches.shared.annotation.YouTubeMusicCompatibility
+import app.revanced.patches.shared.patch.mapping.ResourceMappingPatch
+import app.revanced.util.integrations.Constants.INTEGRATIONS_PATH
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
 import org.jf.dexlib2.iface.instruction.formats.Instruction22c

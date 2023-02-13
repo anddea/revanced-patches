@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.layout.general.pivotbar.shortsbutton.bytecode.patch
 
+import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
@@ -7,20 +8,22 @@ import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.annotations.DependsOn
+import app.revanced.patches.shared.annotation.YouTubeCompatibility
+import app.revanced.patches.shared.fingerprints.PivotBarCreateButtonViewFingerprint
 import app.revanced.patches.youtube.layout.general.pivotbar.shortsbutton.bytecode.fingerprints.PivotBarEnumFingerprint
 import app.revanced.patches.youtube.layout.general.pivotbar.shortsbutton.bytecode.fingerprints.PivotBarShortsButtonViewFingerprint
-import app.revanced.shared.annotation.YouTubeCompatibility
-import app.revanced.shared.extensions.toErrorResult
-import app.revanced.shared.fingerprints.PivotBarFingerprint
-import app.revanced.shared.util.integrations.Constants.GENERAL_LAYOUT
-import app.revanced.shared.util.pivotbar.InjectionUtils.REGISTER_TEMPLATE_REPLACEMENT
-import app.revanced.shared.util.pivotbar.InjectionUtils.injectHook
+import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourcdIdPatch
+import app.revanced.util.integrations.Constants.GENERAL_LAYOUT
+import app.revanced.util.pivotbar.InjectionUtils.REGISTER_TEMPLATE_REPLACEMENT
+import app.revanced.util.pivotbar.InjectionUtils.injectHook
 
 @Name("hide-shorts-button")
+@DependsOn([SharedResourcdIdPatch::class])
 @YouTubeCompatibility
 @Version("0.0.1")
 class ShortsButtonRemoverBytecodePatch : BytecodePatch(
-    listOf(PivotBarFingerprint)
+    listOf(PivotBarCreateButtonViewFingerprint)
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
 
@@ -28,7 +31,7 @@ class ShortsButtonRemoverBytecodePatch : BytecodePatch(
          * Resolve fingerprints
          */
 
-        PivotBarFingerprint.result?.let { parentResult ->
+        PivotBarCreateButtonViewFingerprint.result?.let { parentResult ->
             with (
                 arrayOf(
                     PivotBarEnumFingerprint,
@@ -57,7 +60,7 @@ class ShortsButtonRemoverBytecodePatch : BytecodePatch(
                 }
             }
 
-        } ?: return PivotBarFingerprint.toErrorResult()
+        } ?: return PivotBarCreateButtonViewFingerprint.toErrorResult()
 
         return PatchResultSuccess()
     }

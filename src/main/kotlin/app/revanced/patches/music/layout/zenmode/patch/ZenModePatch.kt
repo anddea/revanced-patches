@@ -1,5 +1,6 @@
 package app.revanced.patches.music.layout.zenmode.patch
 
+import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
@@ -13,10 +14,9 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.music.layout.zenmode.fingerprints.ZenModeFingerprint
 import app.revanced.patches.music.misc.settings.patch.MusicSettingsPatch
-import app.revanced.shared.annotation.YouTubeMusicCompatibility
-import app.revanced.shared.extensions.toErrorResult
-import app.revanced.shared.fingerprints.MiniplayerColorParentFingerprint
-import app.revanced.shared.util.integrations.Constants.MUSIC_SETTINGS_PATH
+import app.revanced.patches.shared.annotation.YouTubeMusicCompatibility
+import app.revanced.patches.shared.fingerprints.MiniplayerColorParentFingerprint
+import app.revanced.util.integrations.Constants.MUSIC_SETTINGS_PATH
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 import org.jf.dexlib2.iface.reference.FieldReference

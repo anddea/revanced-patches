@@ -1,21 +1,21 @@
 package app.revanced.patches.youtube.ads.general.bytecode.patch
 
+import app.revanced.extensions.findMutableMethodOf
+import app.revanced.extensions.injectHideCall
+import app.revanced.extensions.toResult
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.instruction
-import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.util.smali.ExternalLabel
+import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.shared.annotation.YouTubeCompatibility
-import app.revanced.shared.extensions.findMutableMethodOf
-import app.revanced.shared.extensions.injectHideCall
-import app.revanced.shared.extensions.toResult
-import app.revanced.shared.patches.mapping.ResourceMappingPatch
-import app.revanced.shared.util.integrations.Constants.ADS_PATH
+import app.revanced.patcher.util.smali.ExternalLabel
+import app.revanced.patches.shared.annotation.YouTubeCompatibility
+import app.revanced.patches.shared.patch.mapping.ResourceMappingPatch
+import app.revanced.util.integrations.Constants.ADS_PATH
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.iface.instruction.formats.*
 

@@ -7,14 +7,13 @@ import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
-import app.revanced.shared.annotation.YouTubeCompatibility
-import app.revanced.shared.util.resources.ResourceUtils
-import app.revanced.shared.util.resources.ResourceUtils.copyResources
+import app.revanced.patches.shared.annotation.YouTubeCompatibility
+import app.revanced.util.resources.ResourceUtils
+import app.revanced.util.resources.ResourceUtils.copyResources
 import java.io.File
 import java.nio.file.Files
 import java.nio.file.Path
 import java.nio.file.StandardCopyOption
-import java.util.Comparator
 
 @Name("remove-duplicate-resource-patch")
 @Description("Removes duplicate resources from YouTube.")

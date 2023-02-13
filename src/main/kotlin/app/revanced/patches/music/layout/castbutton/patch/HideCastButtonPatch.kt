@@ -1,5 +1,6 @@
 package app.revanced.patches.music.layout.castbutton.patch
 
+import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
@@ -14,9 +15,8 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.music.layout.castbutton.fingerprints.HideCastButtonFingerprint
 import app.revanced.patches.music.layout.castbutton.fingerprints.HideCastButtonParentFingerprint
 import app.revanced.patches.music.misc.settings.patch.MusicSettingsPatch
-import app.revanced.shared.annotation.YouTubeMusicCompatibility
-import app.revanced.shared.extensions.toErrorResult
-import app.revanced.shared.util.integrations.Constants.MUSIC_SETTINGS_PATH
+import app.revanced.patches.shared.annotation.YouTubeMusicCompatibility
+import app.revanced.util.integrations.Constants.MUSIC_SETTINGS_PATH
 
 @Patch
 @Name("hide-music-cast-button")
