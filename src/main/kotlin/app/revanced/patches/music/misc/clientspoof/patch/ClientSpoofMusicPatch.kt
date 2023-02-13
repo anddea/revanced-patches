@@ -11,7 +11,9 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patches.music.misc.clientspoof.fingerprints.UserAgentHeaderBuilderFingerprint
+import app.revanced.patches.music.misc.microg.shared.Constants.MUSIC_PACKAGE_NAME
 import app.revanced.shared.annotation.YouTubeMusicCompatibility
+import app.revanced.shared.extensions.toErrorResult
 import org.jf.dexlib2.iface.instruction.FiveRegisterInstruction
 
 @Patch
@@ -24,14 +26,13 @@ class ClientSpoofMusicPatch : BytecodePatch(
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
 
-        val result = UserAgentHeaderBuilderFingerprint.result!!
-        val method = result.mutableMethod
-
-        val insertIndex = result.scanResult.patternScanResult!!.endIndex - 1
-        val packageNameRegister = (method.instruction(insertIndex) as FiveRegisterInstruction).registerD
-
-        val originalPackageName = "com.google.android.apps.youtube.music"
-        method.addInstruction(insertIndex, "const-string v$packageNameRegister, \"$originalPackageName\"")
+        UserAgentHeaderBuilderFingerprint.result?.let {
+            with (it.mutableMethod) {
+                val insertIndex = it.scanResult.patternScanResult!!.endIndex - 1
+                val packageNameRegister = (instruction(insertIndex) as FiveRegisterInstruction).registerD
+                addInstruction(insertIndex, "const-string v$packageNameRegister, \"$MUSIC_PACKAGE_NAME\"")
+            }
+        } ?: return UserAgentHeaderBuilderFingerprint.toErrorResult()
 
         return PatchResultSuccess()
     }

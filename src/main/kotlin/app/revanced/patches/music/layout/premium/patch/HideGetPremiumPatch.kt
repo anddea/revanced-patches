@@ -5,11 +5,11 @@ import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.addInstruction
-import app.revanced.patcher.patch.annotations.DependsOn
-import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.annotations.DependsOn
+import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.music.layout.premium.fingerprints.HideGetPremiumFingerprint
 import app.revanced.patches.music.misc.integrations.patch.MusicIntegrationsPatch
 import app.revanced.shared.annotation.YouTubeMusicCompatibility
@@ -18,14 +18,14 @@ import app.revanced.shared.extensions.toErrorResult
 import app.revanced.shared.patches.mapping.ResourceMappingPatch
 import app.revanced.shared.util.integrations.Constants.INTEGRATIONS_PATH
 import org.jf.dexlib2.Opcode
+import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
 import org.jf.dexlib2.iface.instruction.formats.Instruction22c
 import org.jf.dexlib2.iface.instruction.formats.Instruction31i
-import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Patch
-@DependsOn([MusicIntegrationsPatch::class])
 @Name("hide-get-premium")
 @Description("Removes all \"Get Premium\" evidences from the avatar menu.")
+@DependsOn([MusicIntegrationsPatch::class])
 @YouTubeMusicCompatibility
 @Version("0.0.1")
 class HideGetPremiumPatch : BytecodePatch(

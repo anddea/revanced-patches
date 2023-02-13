@@ -14,20 +14,17 @@ import app.revanced.patcher.util.TypeUtil.traverseClassHierarchy
 import app.revanced.patcher.util.proxy.mutableTypes.MutableField.Companion.toMutable
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patcher.util.smali.toInstructions
-import app.revanced.patches.music.layout.shuffle.fingerprints.MusicPlaybackControlsFingerprint
-import app.revanced.patches.music.layout.shuffle.fingerprints.ShuffleClassFingerprint
-import app.revanced.patches.music.layout.shuffle.fingerprints.ShuffleClassReferenceFingerprint
-import app.revanced.patches.music.misc.integrations.patch.MusicIntegrationsPatch
+import app.revanced.patches.music.layout.shuffle.fingerprints.*
 import app.revanced.patches.music.misc.resourceid.patch.SharedResourcdIdPatch
 import app.revanced.patches.music.misc.settings.patch.MusicSettingsPatch
 import app.revanced.shared.annotation.YouTubeMusicCompatibility
+import app.revanced.shared.extensions.toErrorResult
 import app.revanced.shared.extensions.transformFields
 import app.revanced.shared.util.integrations.Constants.MUSIC_SETTINGS_PATH
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.dexbacked.reference.DexBackedMethodReference
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 import org.jf.dexlib2.iface.reference.FieldReference
-import org.jf.dexlib2.iface.reference.MethodReference
 import org.jf.dexlib2.immutable.ImmutableField
 import org.jf.dexlib2.immutable.ImmutableMethod
 import org.jf.dexlib2.immutable.ImmutableMethodImplementation
@@ -36,7 +33,12 @@ import org.jf.dexlib2.immutable.ImmutableMethodParameter
 @Patch
 @Name("enable-force-shuffle")
 @Description("Enable force shuffle even if another track is played.")
-@DependsOn([MusicIntegrationsPatch::class, MusicSettingsPatch::class, SharedResourcdIdPatch::class])
+@DependsOn(
+    [
+        MusicSettingsPatch::class,
+        SharedResourcdIdPatch::class
+    ]
+)
 @YouTubeMusicCompatibility
 @Version("0.0.1")
 class EnforceShufflePatch : BytecodePatch(
@@ -48,33 +50,33 @@ class EnforceShufflePatch : BytecodePatch(
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
 
-        with(ShuffleClassReferenceFingerprint.result!!) {
-            val startIndex = scanResult.patternScanResult!!.startIndex
-            val endIndex = scanResult.patternScanResult!!.endIndex
-            val referenceInstructions = mutableMethod.implementation!!.instructions
+        ShuffleClassReferenceFingerprint.result?.let { result ->
+            val startIndex = result.scanResult.patternScanResult!!.startIndex
+            val endIndex = result.scanResult.patternScanResult!!.endIndex
+            SHUFFLE_CLASS = result.classDef.type
 
-            SHUFFLE_CLASS = classDef.type
-            firstRef = (referenceInstructions.elementAt(startIndex) as ReferenceInstruction).reference as FieldReference
-            secondRef = (referenceInstructions.elementAt(startIndex + 1) as ReferenceInstruction).reference as DexBackedMethodReference
-            thirdRef = (referenceInstructions.elementAt(endIndex) as ReferenceInstruction).reference as FieldReference
+            with (result.mutableMethod.implementation!!.instructions) {
+                firstRef = (elementAt(startIndex) as ReferenceInstruction).reference as FieldReference
+                secondRef = (elementAt(startIndex + 1) as ReferenceInstruction).reference as DexBackedMethodReference
+                thirdRef = (elementAt(endIndex) as ReferenceInstruction).reference as FieldReference
 
-            referenceInstructions.filter { instruction ->
-                val fieldReference = (instruction as? ReferenceInstruction)?.reference as? FieldReference
-                fieldReference?.let { it.type == "Landroid/widget/ImageView;" } == true
-            }.forEach { instruction ->
-                fourthRef = (instruction as ReferenceInstruction).reference as FieldReference
+                this.filter { instruction ->
+                    val fieldReference = (instruction as? ReferenceInstruction)?.reference as? FieldReference
+                    fieldReference?.let { it.type == "Landroid/widget/ImageView;" } == true
+                }.forEach { instruction ->
+                    fourthRef = (instruction as ReferenceInstruction).reference as FieldReference
+                }
             }
-        }
+        } ?: return ShuffleClassReferenceFingerprint.toErrorResult()
 
-        with(ShuffleClassFingerprint.result!!) {
 
-            val insertIndex = scanResult.patternScanResult!!.endIndex
-            mutableMethod.addInstruction(
-                insertIndex,
+        ShuffleClassFingerprint.result?.let {
+            it.mutableMethod.addInstruction(
+                it.scanResult.patternScanResult!!.endIndex,
                 "sput-object p0, $MUSIC_PLAYBACK_CONTROLS_CLASS_DESCRIPTOR->shuffleclass:$SHUFFLE_CLASS"
             )
 
-            context.traverseClassHierarchy(mutableClass) {
+            context.traverseClassHierarchy(it.mutableClass) {
                 accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL
                 transformFields {
                     ImmutableField(
@@ -88,18 +90,18 @@ class EnforceShufflePatch : BytecodePatch(
                     ).toMutable()
                 }
             }
-        }
+        } ?: return ShuffleClassFingerprint.toErrorResult()
 
-        with(MusicPlaybackControlsFingerprint.result!!) {
 
-            val referenceInstructions = mutableMethod.implementation!!.instructions
+        MusicPlaybackControlsFingerprint.result?.let {
+            with (it.mutableMethod.implementation!!.instructions) {
+                fifthRef = (elementAt(0) as ReferenceInstruction).reference as FieldReference
+                sixthRef = (elementAt(1) as ReferenceInstruction).reference as DexBackedMethodReference
+            }
 
-            fifthRef = (referenceInstructions.elementAt(0) as ReferenceInstruction).reference as FieldReference
-            sixthRef = (referenceInstructions.elementAt(1) as ReferenceInstruction).reference as DexBackedMethodReference
-
-            mutableClass.staticFields.add(
+            it.mutableClass.staticFields.add(
                 ImmutableField(
-                    mutableMethod.definingClass,
+                    it.mutableMethod.definingClass,
                     "shuffleclass",
                     SHUFFLE_CLASS,
                     AccessFlags.PUBLIC or AccessFlags.STATIC,
@@ -109,7 +111,7 @@ class EnforceShufflePatch : BytecodePatch(
                 ).toMutable()
             )
 
-            mutableMethod.addInstructions(
+            it.mutableMethod.addInstructions(
                 0,
                 """
                 invoke-virtual {v0, v1}, $MUSIC_PLAYBACK_CONTROLS_CLASS_DESCRIPTOR->buttonHook(Z)V
@@ -117,9 +119,9 @@ class EnforceShufflePatch : BytecodePatch(
             """
             )
 
-            mutableClass.methods.add(
+            it.mutableClass.methods.add(
                 ImmutableMethod(
-                    classDef.type,
+                    it.classDef.type,
                     "buttonHook",
                     listOf(ImmutableMethodParameter("Z", null, null)),
                     "V",
@@ -152,7 +154,7 @@ class EnforceShufflePatch : BytecodePatch(
                     )
                 ).toMutable()
             )
-        }
+        } ?: return MusicPlaybackControlsFingerprint.toErrorResult()
 
         return PatchResultSuccess()
     }

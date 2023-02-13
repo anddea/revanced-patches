@@ -12,6 +12,7 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.util.smali.toInstructions
 import app.revanced.patches.music.layout.upgradebutton.fingerprints.PivotBarConstructorFingerprint
 import app.revanced.shared.annotation.YouTubeMusicCompatibility
+import app.revanced.shared.extensions.toErrorResult
 import org.jf.dexlib2.builder.instruction.BuilderInstruction22t
 import org.jf.dexlib2.iface.instruction.formats.Instruction22c
 import org.jf.dexlib2.iface.instruction.formats.Instruction35c
@@ -28,7 +29,7 @@ class RemoveUpgradeButtonPatch : BytecodePatch(
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
-        val result = PivotBarConstructorFingerprint.result!!
+        val result = PivotBarConstructorFingerprint.result?: return PivotBarConstructorFingerprint.toErrorResult()
         val implementation = result.mutableMethod.implementation!!
 
         val pivotBarElementFieldRef =

@@ -13,7 +13,6 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.music.layout.blacknavbar.fingerprints.TabLayoutFingerprint
-import app.revanced.patches.music.misc.integrations.patch.MusicIntegrationsPatch
 import app.revanced.patches.music.misc.resourceid.patch.SharedResourcdIdPatch
 import app.revanced.patches.music.misc.settings.patch.MusicSettingsPatch
 import app.revanced.shared.annotation.YouTubeMusicCompatibility
@@ -26,7 +25,6 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction31i
 @Description("Sets the navigation bar color to black.")
 @DependsOn(
     [
-        MusicIntegrationsPatch::class,
         MusicSettingsPatch::class,
         SharedResourcdIdPatch::class
     ]

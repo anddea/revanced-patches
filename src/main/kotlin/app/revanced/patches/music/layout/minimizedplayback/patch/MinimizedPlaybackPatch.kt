@@ -11,6 +11,7 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.music.layout.minimizedplayback.fingerprints.MinimizedPlaybackManagerFingerprint
 import app.revanced.shared.annotation.YouTubeMusicCompatibility
+import app.revanced.shared.extensions.toErrorResult
 
 @Patch
 @Name("minimized-playback-music")
@@ -23,9 +24,10 @@ class MinimizedPlaybackPatch : BytecodePatch(
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
-        MinimizedPlaybackManagerFingerprint.result!!.mutableMethod.addInstruction(
+
+        MinimizedPlaybackManagerFingerprint.result?.mutableMethod?.addInstruction(
             0, "return-void"
-        )
+        ) ?: return MinimizedPlaybackManagerFingerprint.toErrorResult()
 
         return PatchResultSuccess()
     }
