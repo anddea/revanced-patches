@@ -17,7 +17,7 @@ import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.shared.patch.mapping.ResourceMappingPatch
 import app.revanced.patches.youtube.ads.general.bytecode.fingerprints.ComponentContextParserFingerprint
 import app.revanced.patches.youtube.ads.general.bytecode.fingerprints.EmptyComponentBuilderFingerprint
-import app.revanced.util.bytecode.BytecodeHelper
+import app.revanced.util.bytecode.BytecodeHelper.updatePatchStatus
 import app.revanced.util.integrations.Constants.ADS_PATH
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.builder.instruction.BuilderInstruction21s
@@ -79,7 +79,7 @@ class GeneralAdsBytecodePatch : BytecodePatch(
             }
         } ?: return ComponentContextParserFingerprint.toErrorResult()
 
-        BytecodeHelper.patchStatus(context, "GeneralAds")
+        context.updatePatchStatus("GeneralAds")
 
         return PatchResultSuccess()
     }

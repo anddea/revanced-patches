@@ -1,20 +1,36 @@
 package app.revanced.util.resources
 
+import app.revanced.extensions.doRecursively
 import app.revanced.patcher.data.ResourceContext
+import org.w3c.dom.Element
+import org.w3c.dom.Node
 import java.nio.file.Files
 import java.nio.file.StandardCopyOption
-import org.w3c.dom.Element
+
+private fun Node.adoptChild(tagName: String, targetNode: Node, block: Element.() -> Unit) {
+    val child = ownerDocument.createElement(tagName)
+    child.block()
+    parentNode.insertBefore(child, targetNode)
+}
+
 
 internal object ResourceHelper {
 
-    fun addEntryValues(
-        context: ResourceContext,
-        speed: String
-    ) {
-        val path = "res/values/arrays.xml"
+    private const val TARGET_ARRAY_PATH = "res/values/arrays.xml"
 
-        context.xmlEditor[path].use { editor ->
-            with(editor.file) {
+    private const val TARGET_PREFERENCE_PATH = "res/xml/revanced_prefs.xml"
+
+    private const val TARGET_SETTINGS_PATH = "res/xml/settings_fragment.xml"
+
+    private var targetPackage = "com.google.android.youtube"
+
+    fun setMicroG (newPackage: String) {
+        targetPackage = newPackage
+    }
+
+    internal fun ResourceContext.addSpeedEntryValues(speedEntryValues: String) {
+        xmlEditor[TARGET_ARRAY_PATH].use {
+            with(it.file) {
                 val resourcesNode = getElementsByTagName("resources").item(0) as Element
 
                 val newElement: Element = createElement("item")
@@ -22,8 +38,8 @@ internal object ResourceHelper {
                 for (i in 0 until resourcesNode.childNodes.length) {
                     val node = resourcesNode.childNodes.item(i) as? Element ?: continue
 
-                    if (node.getAttribute("name") == "revanced_video_speed_entry_values") {
-                        newElement.appendChild(createTextNode(speed))
+                    if (node.getAttribute("name") == "revanced_custom_video_speed_entry_value") {
+                        newElement.appendChild(createTextNode(speedEntryValues))
 
                         node.appendChild(newElement)
                     }
@@ -32,14 +48,9 @@ internal object ResourceHelper {
         }
     }
 
-    fun addEntries(
-        context: ResourceContext,
-        speed: String
-    ) {
-        val path = "res/values/arrays.xml"
-
-        context.xmlEditor[path].use { editor ->
-            with(editor.file) {
+    internal fun ResourceContext.addSpeedEntries(speedEntries: String) {
+        xmlEditor[TARGET_ARRAY_PATH].use {
+            with(it.file) {
                 val resourcesNode = getElementsByTagName("resources").item(0) as Element
 
                 val newElement: Element = createElement("item")
@@ -47,166 +58,113 @@ internal object ResourceHelper {
                 for (i in 0 until resourcesNode.childNodes.length) {
                     val node = resourcesNode.childNodes.item(i) as? Element ?: continue
 
-                    if (node.getAttribute("name") == "revanced_video_speed_entries") {
-                        newElement.appendChild(createTextNode(speed))
+                    if (node.getAttribute("name") == "revanced_custom_video_speed_entry") {
+                        newElement.appendChild(createTextNode(speedEntries))
 
                         node.appendChild(newElement)
                     }
                 }
             }
         }
-        context[path].writeText(
-            context[path].readText().replace("1.0x", "@string/shorts_speed_control_normal_label")
+        this[TARGET_ARRAY_PATH].writeText(
+            this[TARGET_ARRAY_PATH].readText().replace("1.0x", "@string/shorts_speed_control_normal_label")
         )
     }
 
-    fun addSpeed(
-        context: ResourceContext
-    ) {
-        val prefs = context["res/xml/revanced_prefs.xml"]
+    internal fun ResourceContext.replaceCustomSpeed() {
+        val prefs = this[TARGET_PREFERENCE_PATH]
         prefs.writeText(
             prefs.readText()
             .replace(
-                "revanced_default_video_speed\"",
-                "revanced_default_video_speed\" android:entries=\"@array/revanced_video_speed_entries\" android:entryValues=\"@array/revanced_video_speed_entry_values\""
+                "revanced_default_video_speed_entry",
+                "revanced_custom_video_speed_entry"
             )
         )
     }
 
-    fun addSettings(
-        context: ResourceContext,
-        PreferenceCategory: String,
-        Preference: String,
-        Settings: String
-    ) {
-        val prefs = context["res/xml/revanced_prefs.xml"]
-        prefs.writeText(
-            prefs.readText()
-            .replace("<!-- $PreferenceCategory", "")
-            .replace("$PreferenceCategory -->", "")
-            .replace("<!-- $Preference", "")
-            .replace("$Preference -->", "")
-            .replace("<!-- $Settings", "")
-            .replace("$Settings -->", "")
-        )
-    }
+    internal fun ResourceContext.addPreference(settingArray: Array<String>) {
+        val prefs = this[TARGET_PREFERENCE_PATH]
 
-    fun addSettings2(
-        context: ResourceContext,
-        PreferenceCategory: String,
-        Preference: String,
-        Settings: String,
-        Settings2: String
-    ) {
-        val prefs = context["res/xml/revanced_prefs.xml"]
-        prefs.writeText(
-            prefs.readText()
-            .replace("<!-- $PreferenceCategory", "")
-            .replace("$PreferenceCategory -->", "")
-            .replace("<!-- $Preference", "")
-            .replace("$Preference -->", "")
-            .replace("<!-- $Settings", "")
-            .replace("$Settings -->", "")
-            .replace("<!-- $Settings2", "")
-            .replace("$Settings2 -->", "")
-        )
-    }
-
-    fun addSettings3(
-        context: ResourceContext,
-        PreferenceCategory: String,
-        Preference: String,
-        Settings: String,
-        Settings2: String,
-        Settings3: String
-    ) {
-        val prefs = context["res/xml/revanced_prefs.xml"]
-        prefs.writeText(
-            prefs.readText()
-            .replace("<!-- $PreferenceCategory", "")
-            .replace("$PreferenceCategory -->", "")
-            .replace("<!-- $Preference", "")
-            .replace("$Preference -->", "")
-            .replace("<!-- $Settings", "")
-            .replace("$Settings -->", "")
-            .replace("<!-- $Settings2", "")
-            .replace("$Settings2 -->", "")
-            .replace("<!-- $Settings3", "")
-            .replace("$Settings3 -->", "")
-        )
-    }
-
-    fun addSettings4(
-        context: ResourceContext,
-        PreferenceCategory: String,
-        Preference: String,
-        Settings: String,
-        Settings2: String,
-        Settings3: String,
-        Settings4: String
-    ) {
-        val prefs = context["res/xml/revanced_prefs.xml"]
-        prefs.writeText(
-            prefs.readText()
-            .replace("<!-- $PreferenceCategory", "")
-            .replace("$PreferenceCategory -->", "")
-            .replace("<!-- $Preference", "")
-            .replace("$Preference -->", "")
-            .replace("<!-- $Settings", "")
-            .replace("$Settings -->", "")
-            .replace("<!-- $Settings2", "")
-            .replace("$Settings2 -->", "")
-            .replace("<!-- $Settings3", "")
-            .replace("$Settings3 -->", "")
-            .replace("<!-- $Settings4", "")
-            .replace("$Settings4 -->", "")
-        )
-    }
-
-    fun addSettings5(
-        context: ResourceContext,
-        PreferenceCategory: String,
-        Preference: String,
-        Settings: String,
-        Settings2: String,
-        Settings3: String,
-        Settings4: String,
-        Settings5: String
-    ) {
-        val prefs = context["res/xml/revanced_prefs.xml"]
-        prefs.writeText(
-            prefs.readText()
-            .replace("<!-- $PreferenceCategory", "")
-            .replace("$PreferenceCategory -->", "")
-            .replace("<!-- $Preference", "")
-            .replace("$Preference -->", "")
-            .replace("<!-- $Settings", "")
-            .replace("$Settings -->", "")
-            .replace("<!-- $Settings2", "")
-            .replace("$Settings2 -->", "")
-            .replace("<!-- $Settings3", "")
-            .replace("$Settings3 -->", "")
-            .replace("<!-- $Settings4", "")
-            .replace("$Settings4 -->", "")
-            .replace("<!-- $Settings5", "")
-            .replace("$Settings5 -->", "")
-        )
-    }
-
-    fun initReVancedSettings(
-        context: ResourceContext
-    ) {
-        val fragment = context["res/xml/settings_fragment.xml"]
-        fragment.writeText(
-            fragment.readText().replace(
-                "DeveloperPrefsFragment\" app:iconSpaceReserved=\"false\" />",
-                "DeveloperPrefsFragment\" app:iconSpaceReserved=\"false\" /><Preference android:title=\"@string/revanced_settings\" android:summary=\"@string/revanced_extended_settings\"><intent android:targetPackage=\"com.google.android.youtube\" android:data=\"revanced_settings\" android:targetClass=\"com.google.android.apps.youtube.app.settings.videoquality.VideoQualitySettingsActivity\"/></Preference><!-- PREFERENCE: RETURN_YOUTUBE_DISLIKE<Preference android:title=\"@string/revanced_ryd_settings_title\" android:summary=\"@string/revanced_ryd_settings_summary\"><intent android:targetPackage=\"com.google.android.youtube\" android:data=\"ryd_settings\" android:targetClass=\"com.google.android.apps.youtube.app.settings.videoquality.VideoQualitySettingsActivity\" /></Preference>PREFERENCE: RETURN_YOUTUBE_DISLIKE --><!-- PREFERENCE: SPONSOR_BLOCK<Preference android:title=\"@string/sb_settings\" android:summary=\"@string/sb_summary\"><intent android:targetPackage=\"com.google.android.youtube\" android:data=\"sponsorblock_settings\" android:targetClass=\"com.google.android.apps.youtube.app.settings.videoquality.VideoQualitySettingsActivity\" /></Preference>PREFERENCE: SPONSOR_BLOCK -->"
+        settingArray.forEach preferenceLoop@{ preference ->
+            prefs.writeText(
+                prefs.readText()
+                    .replace("<!-- $preference", "")
+                    .replace("$preference -->", "")
             )
-        )
+        }
     }
 
-    fun addTranslations(
-        context: ResourceContext,
+    internal fun ResourceContext.updatePatchStatus(patchTitle: String) {
+        updatePatchStatusSettings(patchTitle, "@string/revanced_patches_included")
+    }
+
+    internal fun ResourceContext.updatePatchStatusLabel(appName: String) {
+        updatePatchStatusSettings("labels", appName)
+    }
+
+    internal fun ResourceContext.updatePatchStatusIcon(iconName: String) {
+        updatePatchStatusSettings("icons", "@string/revanced_icons_$iconName")
+    }
+
+    internal fun ResourceContext.updatePatchStatusTheme(themeName: String) {
+        updatePatchStatusSettings("themes", "@string/revanced_themes_$themeName")
+    }
+
+    private fun ResourceContext.updatePatchStatusSettings(
+        patchTitle: String,
+        updateText: String
+    ) {
+        this.xmlEditor[TARGET_PREFERENCE_PATH].use { editor ->
+            editor.file.doRecursively loop@{
+                if (it !is Element) return@loop
+
+                it.getAttributeNode("android:title")?.let { attribute ->
+                    if (attribute.textContent == patchTitle) {
+                        it.getAttributeNode("android:summary").textContent = updateText
+                    }
+                }
+            }
+        }
+    }
+
+    internal fun ResourceContext.addReVancedPreference(key: String) {
+        val targetClass = "com.google.android.apps.youtube.app.settings.videoquality.VideoQualitySettingsActivity"
+
+        this.xmlEditor[TARGET_SETTINGS_PATH].use { editor ->
+            with (editor.file) {
+                doRecursively loop@{
+                    if (it !is Element) return@loop
+                    it.getAttributeNode("android:key")?.let { attribute ->
+                        if (attribute.textContent == "@string/about_key" && it.getAttributeNode("app:iconSpaceReserved").textContent == "false") {
+                            it.adoptChild("Preference", it) {
+                                setAttribute("android:title", "@string/revanced_" + key + "_title")
+                                setAttribute("android:summary", "@string/revanced_" + key + "_summary")
+                                this.appendChild(ownerDocument.createElement("intent").also { intentNode ->
+                                    intentNode.setAttribute("android:targetPackage", targetPackage)
+                                    intentNode.setAttribute("android:data", key)
+                                    intentNode.setAttribute("android:targetClass", targetClass)
+                                })
+                            }
+                            it.getAttributeNode("app:iconSpaceReserved").textContent = "true"
+                            return@loop
+                        }
+                    }
+                }
+
+                doRecursively loop@{
+                    if (it !is Element) return@loop
+
+                    it.getAttributeNode("app:iconSpaceReserved")?.let { attribute ->
+                        if (attribute.textContent == "true") {
+                            attribute.textContent = "false"
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    internal fun ResourceContext.addTranslations(
         sourceDirectory: String,
         languageArray: Array<String>
     ) {
@@ -214,90 +172,13 @@ internal object ResourceHelper {
             val directory = "values-$language-v21"
             val relativePath = "$language/strings.xml"
 
-            context["res/$directory"].mkdir()
+            this["res/$directory"].mkdir()
 
             Files.copy(
-                this.javaClass.classLoader.getResourceAsStream("$sourceDirectory/translations/$relativePath")!!,
-                context["res"].resolve("$directory/strings.xml").toPath(),
+                ResourceUtils.javaClass.classLoader.getResourceAsStream("$sourceDirectory/translations/$relativePath")!!,
+                this["res"].resolve("$directory/strings.xml").toPath(),
                 StandardCopyOption.REPLACE_EXISTING
             )
         }
     }
-
-    fun addReVancedSettings(
-        context: ResourceContext,
-        Preference: String
-    ) {
-        val fragment = context["res/xml/settings_fragment.xml"]
-        fragment.writeText(
-            fragment.readText()
-            .replace("<!-- $Preference", "")
-            .replace("$Preference -->", "")
-        )
-    }
-
-    fun patchSuccess(
-        context: ResourceContext,
-        name: String
-    ) {
-        val prefs = context["res/xml/revanced_prefs.xml"]
-        prefs.writeText(
-            prefs.readText().replace(
-                "\"$name\" android:summary=\"@string/revanced_patches_excluded",
-                "\"$name\" android:summary=\"@string/revanced_patches_included"
-            )
-        )
-    }
-
-    fun themePatchSuccess(
-        context: ResourceContext,
-        before: String,
-        after: String
-    ) {
-        val prefs = context["res/xml/revanced_prefs.xml"]
-        prefs.writeText(
-            prefs.readText().replace(
-                "@string/revanced_themes_$before",
-                "@string/revanced_themes_$after"
-            )
-        )
-    }
-
-    fun iconPatchSuccess(
-        context: ResourceContext,
-        targeticon: String
-    ) {
-        val prefs = context["res/xml/revanced_prefs.xml"]
-        prefs.writeText(
-            prefs.readText()
-            .replace(
-                "@string/revanced_icons_blue",
-                "@string/revanced_icons_default"
-            ).replace(
-                "@string/revanced_icons_red",
-                "@string/revanced_icons_default"
-            ).replace(
-                "@string/revanced_icons_revancify",
-                "@string/revanced_icons_default"
-            )
-            .replace(
-                "@string/revanced_icons_default",
-                "@string/revanced_icons_$targeticon"
-            )
-        )
-    }
-
-    fun labelPatchSuccess(
-        context: ResourceContext,
-        appName: String
-    ) {
-        val prefs = context["res/xml/revanced_prefs.xml"]
-        prefs.writeText(
-            prefs.readText().replace(
-                "@string/revanced_labels_default",
-                appName
-            )
-        )
-    }
-
 }

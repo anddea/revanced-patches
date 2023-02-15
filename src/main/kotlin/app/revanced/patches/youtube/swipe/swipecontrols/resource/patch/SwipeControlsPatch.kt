@@ -11,9 +11,8 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
-import app.revanced.patches.youtube.swipe.swipebrightnessinhdr.bytecode.patch.SwipeGestureBrightnessInHDRPatch
 import app.revanced.patches.youtube.swipe.swipecontrols.bytecode.patch.SwipeControlsBytecodePatch
-import app.revanced.util.resources.ResourceHelper
+import app.revanced.patches.youtube.swipe.swipecontrolshdr.patch.SwipeControlsHDRPatch
 import app.revanced.util.resources.ResourceUtils
 import app.revanced.util.resources.ResourceUtils.copyResources
 
@@ -24,7 +23,7 @@ import app.revanced.util.resources.ResourceUtils.copyResources
     [
         SettingsPatch::class,
         SwipeControlsBytecodePatch::class,
-        SwipeGestureBrightnessInHDRPatch::class
+        SwipeControlsHDRPatch::class
     ]
 )
 @YouTubeCompatibility
@@ -35,17 +34,14 @@ class SwipeControlsPatch : ResourcePatch {
         /*
          add settings
          */
-        ResourceHelper.addSettings(
-            context,
-            "PREFERENCE_CATEGORY: REVANCED_SETTINGS",
-            "PREFERENCE: SWIPE_SETTINGS",
-            "SETTINGS: SWIPE_CONTROLS"
+        SettingsPatch.addPreference(
+            arrayOf(
+                "PREFERENCE: SWIPE_SETTINGS",
+                "SETTINGS: SWIPE_CONTROLS"
+            )
         )
 
-        ResourceHelper.patchSuccess(
-            context,
-            "swipe-controls"
-        )
+        SettingsPatch.updatePatchStatus("swipe-controls")
 
         context.copyResources(
             "youtube/swipecontrols",

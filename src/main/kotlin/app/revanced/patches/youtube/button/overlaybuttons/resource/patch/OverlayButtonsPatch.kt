@@ -15,7 +15,6 @@ import app.revanced.patches.youtube.button.autorepeat.patch.AutoRepeatPatch
 import app.revanced.patches.youtube.button.overlaybuttons.bytecode.patch.OverlayButtonsBytecodePatch
 import app.revanced.patches.youtube.button.whitelist.patch.WhitelistPatch
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
-import app.revanced.util.resources.ResourceHelper
 import app.revanced.util.resources.ResourceUtils
 import app.revanced.util.resources.ResourceUtils.copyResources
 import app.revanced.util.resources.ResourceUtils.copyXmlNode
@@ -37,7 +36,14 @@ import app.revanced.util.resources.ResourceUtils.copyXmlNode
 class OverlayButtonsResourcePatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
 
-        val icon = PatchOptions.Overlay_Buttons_Icon
+        val icon = PatchOptions.OverlayButtonsIcon!!
+
+        /*
+         * Copy arrays
+         */
+
+        context.copyXmlNode("youtube/overlaybuttons/host", "values/arrays.xml", "resources")
+
 
         /*
          * Copy resources
@@ -105,17 +111,14 @@ class OverlayButtonsResourcePatch : ResourcePatch {
         /*
          add settings
          */
-        ResourceHelper.addSettings(
-            context,
-            "PREFERENCE_CATEGORY: REVANCED_EXTENDED_SETTINGS",
-            "PREFERENCE: OVERLAY_BUTTONS",
-            "SETTINGS: OVERLAY_BUTTONS"
+        SettingsPatch.addPreference(
+            arrayOf(
+                "PREFERENCE: OVERLAY_BUTTONS",
+                "SETTINGS: OVERLAY_BUTTONS"
+            )
         )
 
-        ResourceHelper.patchSuccess(
-            context,
-            "overlay-buttons"
-        )
+        SettingsPatch.updatePatchStatus("overlay-buttons")
 
         return PatchResultSuccess()
     }

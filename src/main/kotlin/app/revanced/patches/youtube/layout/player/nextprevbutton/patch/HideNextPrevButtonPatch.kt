@@ -12,7 +12,6 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.youtube.misc.playerbutton.patch.PlayerButtonPatch
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
-import app.revanced.util.resources.ResourceHelper
 
 @Patch
 @Name("hide-next-prev-button")
@@ -31,19 +30,16 @@ class HideNextPrevButtonPatch : ResourcePatch {
         /*
          add settings
          */
-        ResourceHelper.addSettings3(
-            context,
-            "PREFERENCE_CATEGORY: REVANCED_SETTINGS",
-            "PREFERENCE: LAYOUT_SETTINGS",
-            "PREFERENCE_HEADER: PLAYER",
-            "SETTINGS: HIDE_NEXT_BUTTON",
-            "SETTINGS: HIDE_PREV_BUTTON"
+        SettingsPatch.addPreference(
+            arrayOf(
+                "PREFERENCE: LAYOUT_SETTINGS",
+                "PREFERENCE_HEADER: PLAYER",
+                "SETTINGS: HIDE_NEXT_BUTTON",
+                "SETTINGS: HIDE_PREV_BUTTON"
+            )
         )
 
-        ResourceHelper.patchSuccess(
-            context,
-            "hide-next-prev-button"
-        )
+        SettingsPatch.updatePatchStatus("hide-next-prev-button")
 
         return PatchResultSuccess()
     }

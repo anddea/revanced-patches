@@ -1,0 +1,49 @@
+package app.revanced.patches.youtube.layout.etc.tooltip.patch
+
+import app.revanced.extensions.toErrorResult
+import app.revanced.patcher.annotation.Description
+import app.revanced.patcher.annotation.Name
+import app.revanced.patcher.annotation.Version
+import app.revanced.patcher.data.BytecodeContext
+import app.revanced.patcher.extensions.addInstruction
+import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.annotations.DependsOn
+import app.revanced.patcher.patch.annotations.Patch
+import app.revanced.patches.shared.annotation.YouTubeCompatibility
+import app.revanced.patches.youtube.layout.etc.tooltip.fingerprints.TooltipContentViewFingerprint
+import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourcdIdPatch
+import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
+
+@Patch
+@Name("hide-tooltip-content")
+@Description("Hides the tooltip box that appears on first install.")
+@DependsOn(
+    [
+        SettingsPatch::class,
+        SharedResourcdIdPatch::class
+    ]
+)
+@YouTubeCompatibility
+@Version("0.0.1")
+class TooltipContentViewBytecodePatch : BytecodePatch(
+    listOf(
+        TooltipContentViewFingerprint
+    )
+) {
+    override fun execute(context: BytecodeContext): PatchResult {
+
+        TooltipContentViewFingerprint.result?.mutableMethod?.addInstruction(
+            0,
+            "return-void"
+        ) ?: return TooltipContentViewFingerprint.toErrorResult()
+
+        /*
+        add settings
+        */
+        SettingsPatch.updatePatchStatus("hide-tooltip-content")
+
+        return PatchResultSuccess()
+    }
+}

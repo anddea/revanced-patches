@@ -27,39 +27,36 @@ class PatchOptions : ResourcePatch {
         /*
         * Custom Branding Name
         */
-        internal var YouTube_AppName: String? by option(
+        internal var YouTubeAppName: String? by option(
             PatchOption.StringOption(
-                key = "YouTube_AppName",
+                key = "YouTubeAppName",
                 default = "ReVanced Extended",
                 title = "Application Name of YouTube",
-                description = "The name of the YouTube it will show on your home screen.",
-                required = true
+                description = "The name of the YouTube it will show on your home screen."
             )
         )
 
         /*
         * Custom Package Name (YouTube)
         */
-        internal var YouTube_PackageName: String? by option(
+        internal var YouTubePackageName: String? by option(
             PatchOption.StringOption(
-                key = "YouTube_PackageName",
+                key = "YouTubePackageName",
                 default = "app.rvx.android.youtube",
                 title = "Package Name of YouTube",
-                description = "The package name of the YouTube. (NON-ROOT user only)",
-                required = true
+                description = "The package name of the YouTube. (NON-ROOT user only)"
             )
         )
 
         /*
         * Custom Package Name (YouTube Music)
         */
-        internal var Music_PackageName: String? by option(
+        internal var MusicPackageName: String? by option(
             PatchOption.StringOption(
-                key = "Music_PackageName",
+                key = "MusicPackageName",
                 default = "app.rvx.android.apps.youtube.music",
                 title = "Package Name of YouTube Music",
-                description = "The package name of the YouTube Music. (NON-ROOT user only)",
-                required = true
+                description = "The package name of the YouTube Music. (NON-ROOT user only)"
             )
         )
 
@@ -68,24 +65,22 @@ class PatchOptions : ResourcePatch {
         */
         internal var CustomSpeedArrays: String? by option(
             PatchOption.StringOption(
-                key = "Custom_Speed_Arrays",
+                key = "CustomSpeedArrays",
                 default = "0.25, 0.5, 0.75, 1.0, 1.25, 1.5, 1.75, 2.0, 2.25, 2.5, 3.0, 5.0",
                 title = "Custom Speed Values",
-                description = "A list of custom video speeds. Be sure to separate them with commas (,).",
-                required = true
+                description = "A list of custom video speeds. Be sure to separate them with commas (,)."
             )
         )
 
         /*
         * Overlay Buttons Icon
         */
-        internal var Overlay_Buttons_Icon: String? by option(
+        internal var OverlayButtonsIcon: String? by option(
             PatchOption.StringOption(
-                key = "Overlay_Buttons_Icon",
+                key = "OverlayButtonsIcon",
                 default = "new",
                 title = "Overlay button icon selection",
-                description = "Choose an overlay buttons icon (old/new)",
-                required = true
+                description = "Choose an overlay buttons icon: old/new"
             )
         )
 
@@ -97,8 +92,7 @@ class PatchOptions : ResourcePatch {
                 key = "darkThemeBackgroundColor",
                 default = "@android:color/black",
                 title = "Background color for the dark theme",
-                description = "The background color of the dark theme. Can be a hex color or a resource reference.",
-                required = true
+                description = "The background color of the dark theme. Can be a hex color or a resource reference."
             )
         )
 

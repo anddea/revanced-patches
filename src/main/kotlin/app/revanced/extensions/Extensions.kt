@@ -93,9 +93,9 @@ internal fun String.startsWithAny(vararg prefixes: String): Boolean {
 }
 
 internal fun toResult(errorIndex: Int): PatchResult {
-    if (errorIndex == -1)
-        return PatchResultSuccess()
+    return if (errorIndex == -1)
+        PatchResultSuccess()
     else
-        return PatchResultError("Instruction not found: $errorIndex")
+        PatchResultError("Instruction not found: $errorIndex")
 }
 

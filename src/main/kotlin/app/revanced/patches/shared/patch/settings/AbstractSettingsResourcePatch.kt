@@ -40,7 +40,6 @@ abstract class AbstractSettingsResourcePatch(
         /* initialize ReVanced Settings */
         if (isYouTube == true) {
             context.copyResources(sourceDirectory, ResourceUtils.ResourceGroup("xml", "revanced_prefs.xml"))
-            ResourceHelper.initReVancedSettings(context)
         }
 
         return PatchResultSuccess()

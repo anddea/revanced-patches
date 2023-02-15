@@ -12,7 +12,6 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.youtube.misc.playerbutton.patch.PlayerButtonPatch
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
-import app.revanced.util.resources.ResourceHelper
 
 @Patch
 @Name("hide-live-chat-button")
@@ -31,18 +30,15 @@ class HideLiveChatButtonPatch : ResourcePatch {
         /*
          add settings
          */
-        ResourceHelper.addSettings2(
-            context,
-            "PREFERENCE_CATEGORY: REVANCED_SETTINGS",
-            "PREFERENCE: LAYOUT_SETTINGS",
-            "PREFERENCE_HEADER: PLAYER",
-            "SETTINGS: HIDE_LIVE_CHATS_BUTTON"
+        SettingsPatch.addPreference(
+            arrayOf(
+                "PREFERENCE: LAYOUT_SETTINGS",
+                "PREFERENCE_HEADER: PLAYER",
+                "SETTINGS: HIDE_LIVE_CHATS_BUTTON"
+            )
         )
 
-        ResourceHelper.patchSuccess(
-            context,
-            "hide-live-chat-button"
-        )
+        SettingsPatch.updatePatchStatus("hide-live-chat-button")
 
         return PatchResultSuccess()
     }

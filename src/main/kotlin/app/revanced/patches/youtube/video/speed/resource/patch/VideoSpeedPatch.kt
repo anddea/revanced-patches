@@ -12,7 +12,6 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
 import app.revanced.patches.youtube.video.speed.bytecode.patch.VideoSpeedBytecodePatch
-import app.revanced.util.resources.ResourceHelper
 
 @Patch
 @Name("default-video-speed")
@@ -31,17 +30,14 @@ class VideoSpeedPatch : ResourcePatch {
         /*
          add settings
          */
-        ResourceHelper.addSettings(
-            context,
-            "PREFERENCE_CATEGORY: REVANCED_EXTENDED_SETTINGS",
-            "PREFERENCE: VIDEO_SETTINGS",
-            "SETTINGS: DEFAULT_VIDEO_SPEED"
+        SettingsPatch.addPreference(
+            arrayOf(
+                "PREFERENCE: VIDEO_SETTINGS",
+                "SETTINGS: DEFAULT_VIDEO_SPEED"
+            )
         )
 
-        ResourceHelper.patchSuccess(
-            context,
-            "default-video-speed"
-        )
+        SettingsPatch.updatePatchStatus("default-video-speed")
 
         return PatchResultSuccess()
     }

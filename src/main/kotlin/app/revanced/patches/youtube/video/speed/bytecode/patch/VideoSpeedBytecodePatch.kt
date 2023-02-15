@@ -17,7 +17,7 @@ import app.revanced.patcher.util.smali.toInstructions
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.youtube.misc.videoid.legacy.patch.LegacyVideoIdPatch
 import app.revanced.patches.youtube.video.speed.bytecode.fingerprints.*
-import app.revanced.util.bytecode.BytecodeHelper
+import app.revanced.util.bytecode.BytecodeHelper.updatePatchStatus
 import app.revanced.util.integrations.Constants.VIDEO_PATH
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.dexbacked.reference.DexBackedMethodReference
@@ -114,7 +114,7 @@ class VideoSpeedBytecodePatch : BytecodePatch(
 
         LegacyVideoIdPatch.injectCall("$INTEGRATIONS_VIDEO_SPEED_CLASS_DESCRIPTOR->newVideoStarted(Ljava/lang/String;)V")
 
-        BytecodeHelper.patchStatus(context, "VideoSpeed")
+        context.updatePatchStatus("VideoSpeed")
 
         return PatchResultSuccess()
     }

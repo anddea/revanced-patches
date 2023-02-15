@@ -13,7 +13,6 @@ import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
 import app.revanced.patches.youtube.misc.sponsorblock.bytecode.patch.SponsorBlockBytecodePatch
 import app.revanced.patches.youtube.misc.sponsorblock.bytecode.patch.SponsorBlockSecondaryBytecodePatch
-import app.revanced.util.resources.ResourceHelper
 import app.revanced.util.resources.ResourceUtils
 import app.revanced.util.resources.ResourceUtils.copyResources
 import app.revanced.util.resources.ResourceUtils.copyXmlNode
@@ -98,15 +97,9 @@ class SponsorBlockResourcePatch : ResourcePatch {
         /*
          add ReVanced Settings
          */
-        ResourceHelper.addReVancedSettings(
-            context,
-            "PREFERENCE: SPONSOR_BLOCK"
-        )
+        SettingsPatch.addReVancedPreference("sponsorblock_settings")
 
-        ResourceHelper.patchSuccess(
-            context,
-            "sponsorblock"
-        )
+        SettingsPatch.updatePatchStatus("sponsorblock")
 
         return PatchResultSuccess()
     }

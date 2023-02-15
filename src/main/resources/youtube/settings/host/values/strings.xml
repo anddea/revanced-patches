@@ -44,11 +44,11 @@
     <string name="microg_not_installed_notice">Please install MicroG</string>
     <string name="microg_not_installed_warning">MicroG is not found</string>
     <string name="microg_not_running_warning">MicroG does not run in the background</string>
-    <string name="microg_notification_settings">Notification settings</string>
     <string name="microg_notification_settings_summary">"1. Google device registration and Cloud Messaging need to be enabled for notifications.
 2. ReVanced needs to be shown as registered under Cloud Messaging.
 3. Current State in Cloud Messaging must be Connected."</string>
-    <string name="microg_settings">MicroG settings</string>
+    <string name="microg_notification_settings_title">Notification settings</string>
+    <string name="microg_settings_title">MicroG settings</string>
     <string name="minutes">minutes</string>
     <string name="new_segment_choose_category">Choose the segment category</string>
     <string name="new_segment_confirm_content" formatted="false">"The segment lasts from %02d:%02d to %02d:%02d (%d minutes %02d seconds)
@@ -258,9 +258,8 @@ Is it ready to submit?"</string>
     <string name="revanced_experimental_flag">Experimental Flags</string>
     <string name="revanced_extended_issue_center_summary">Report issues or leave suggestions here</string>
     <string name="revanced_extended_issue_center_title">ReVanced Extended Issue Center</string>
-    <string name="revanced_extended_settings">ReVanced Extended settings</string>
-    <string name="revanced_extended_summary">Extended related settings</string>
-    <string name="revanced_extended_title">Extended settings</string>
+    <string name="revanced_extended_settings_summary">ReVanced Extended specific settings</string>
+    <string name="revanced_extended_settings_title">ReVanced Extended settings</string>
     <string name="revanced_hide_auto_captions_summary_off">Captions are enabled when playing a video with captioning is enforced</string>
     <string name="revanced_hide_auto_captions_summary_on">"Captions aren't enabled when playing a video with captioning is enforced"</string>
     <string name="revanced_hide_auto_captions_title">Hide auto captions</string>
@@ -504,7 +503,8 @@ Since these setting is quite outdated, it may not be valid"</string>
     <string name="revanced_save_video_quality_mobile_error">Failed to change default mobile data quality</string>
     <string name="revanced_save_video_quality_wifi">Changing default Wi-Fi quality to:</string>
     <string name="revanced_save_video_quality_wifi_error">Failed to change default WI-FI quality</string>
-    <string name="revanced_settings">ReVanced settings</string>
+    <string name="revanced_sponsorblock_settings_summary">SponsorBlock related settings</string>
+    <string name="revanced_sponsorblock_settings_title">SponsorBlock settings</string>
     <string name="revanced_swipe_controls_summary">Swipe controls related settings</string>
     <string name="revanced_swipe_controls_title">Swipe controls settings</string>
     <string name="revanced_swipe_magnitude_threshold_summary">The amount of threshold for swipe to occur</string>
@@ -547,8 +547,6 @@ Since these setting is quite outdated, it may not be valid"</string>
     <string name="sb_guidelines_popup_title">There are guidelines</string>
     <string name="sb_guidelines_preference_sum">Guidelines contain tips and rules about submitting segments</string>
     <string name="sb_guidelines_preference_title">View guidelines</string>
-    <string name="sb_settings">SponsorBlock settings</string>
-    <string name="sb_summary">SponsorBlock related settings</string>
     <string name="sb_switching_success">Switched successfully. reload the video</string>
     <string name="sb_switching_to_mirror">Switching mirror API server to main API server..</string>
     <string name="segments_endcards">Endcards/Credits</string>

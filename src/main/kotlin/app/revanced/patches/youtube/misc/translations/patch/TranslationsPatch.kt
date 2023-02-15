@@ -11,23 +11,20 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
-import app.revanced.util.resources.ResourceHelper
+import app.revanced.util.resources.ResourceHelper.addTranslations
 
 @Patch
 @Name("translations")
-@Description("Add Crowdin Translations.")
+@Description("Add Crowdin translations for YouTube.")
 @DependsOn([SettingsPatch::class])
 @YouTubeCompatibility
 @Version("0.0.1")
 class TranslationsPatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
 
-        ResourceHelper.addTranslations(context, "youtube", LANGUAGE_LIST)
+        context.addTranslations("youtube", LANGUAGE_LIST)
 
-        ResourceHelper.patchSuccess(
-            context,
-            "translations"
-        )
+        SettingsPatch.updatePatchStatus("translations")
 
         return PatchResultSuccess()
     }

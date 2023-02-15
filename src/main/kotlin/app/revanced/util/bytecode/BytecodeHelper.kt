@@ -7,35 +7,31 @@ import app.revanced.util.integrations.Constants.UTILS_PATH
 
 internal object BytecodeHelper {
 
-    fun injectInit(
-        context: BytecodeContext,
-        descriptor: String,
-        methods: String
+    internal fun BytecodeContext.injectInit(
+        methods: String,
+        descriptor: String
     ) {
-        context.classes.forEach { classDef ->
+        this.classes.forEach { classDef ->
             classDef.methods.forEach { method ->
                 if (classDef.type.endsWith("WatchWhileActivity;") && method.name == "onCreate") {
                     val hookMethod =
-                        context.proxy(classDef).mutableClass.methods.first { it.name == "onCreate" }
+                        this.proxy(classDef).mutableClass.methods.first { it.name == "onCreate" }
 
                     hookMethod.addInstruction(
                         2,
-                        "invoke-static {}, $UTILS_PATH/$descriptor;->$methods()V"
+                        "invoke-static {}, $UTILS_PATH/$methods;->$descriptor()V"
                     )
                 }
             }
         }
     }
 
-    fun patchStatus(
-        context: BytecodeContext,
-        name: String
-    ) {
-        context.classes.forEach { classDef ->
+    internal fun BytecodeContext.updatePatchStatus(patch: String) {
+        this.classes.forEach { classDef ->
             classDef.methods.forEach { method ->
-                if (classDef.type.endsWith("PatchStatus;") && method.name == name) {
+                if (classDef.type.endsWith("PatchStatus;") && method.name == patch) {
                     val patchStatusMethod =
-                        context.proxy(classDef).mutableClass.methods.first { it.name == name }
+                        this.proxy(classDef).mutableClass.methods.first { it.name == patch }
 
                     patchStatusMethod.replaceInstruction(
                         0,

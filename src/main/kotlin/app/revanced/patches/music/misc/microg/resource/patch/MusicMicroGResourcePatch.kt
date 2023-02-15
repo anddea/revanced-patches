@@ -13,8 +13,8 @@ import app.revanced.patches.music.misc.microg.shared.Constants.SPOOFED_PACKAGE_N
 import app.revanced.patches.music.misc.microg.shared.Constants.SPOOFED_PACKAGE_SIGNATURE
 import app.revanced.patches.shared.annotation.YouTubeMusicCompatibility
 import app.revanced.patches.shared.patch.options.PatchOptions
-import app.revanced.util.microg.MicroGManifestHelper
-import app.revanced.util.microg.MicroGResourceHelper
+import app.revanced.util.microg.MicroGManifestHelper.addSpoofingMetadata
+import app.revanced.util.microg.MicroGResourceHelper.patchManifest
 
 @Name("music-microg-resource-patch")
 @Description("Resource patch to allow YouTube Music ReVanced to run without root and under a different package name.")
@@ -27,18 +27,16 @@ import app.revanced.util.microg.MicroGResourceHelper
 @Version("0.0.2")
 class MusicMicroGResourcePatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
-        val MusicPackageName = PatchOptions.Music_PackageName
+        val packageNameMusic = PatchOptions.MusicPackageName!!
 
         // update manifest
-        MicroGResourceHelper.patchManifest(
-            context,
+        context.patchManifest(
             MUSIC_PACKAGE_NAME,
-            "$MusicPackageName"
+            packageNameMusic
         )
 
         // add metadata to the manifest
-        MicroGManifestHelper.addSpoofingMetadata(
-            context,
+        context.addSpoofingMetadata(
             SPOOFED_PACKAGE_NAME,
             SPOOFED_PACKAGE_SIGNATURE
         )

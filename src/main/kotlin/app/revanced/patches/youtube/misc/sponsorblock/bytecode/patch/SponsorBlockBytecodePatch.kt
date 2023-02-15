@@ -15,7 +15,8 @@ import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourcdIdPatch
 import app.revanced.patches.youtube.misc.sponsorblock.bytecode.fingerprints.*
 import app.revanced.patches.youtube.misc.timebar.patch.HookTimebarPatch
 import app.revanced.patches.youtube.misc.videoid.mainstream.patch.MainstreamVideoIdPatch
-import app.revanced.util.bytecode.BytecodeHelper
+import app.revanced.util.bytecode.BytecodeHelper.injectInit
+import app.revanced.util.bytecode.BytecodeHelper.updatePatchStatus
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.builder.BuilderInstruction
 import org.jf.dexlib2.iface.instruction.FiveRegisterInstruction
@@ -128,8 +129,8 @@ class SponsorBlockBytecodePatch : BytecodePatch(
             "invoke-static/range {p$instanceRegister}, $INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR->addSkipSponsorView15(Landroid/view/View;)V"
         )
 
-        BytecodeHelper.injectInit(context, "FirstRun", "initializationSB")
-        BytecodeHelper.patchStatus(context, "Sponsorblock")
+        context.injectInit("FirstRun", "initializationSB")
+        context.updatePatchStatus("Sponsorblock")
 
         return PatchResultSuccess()
     }
