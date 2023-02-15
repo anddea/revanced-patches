@@ -10,9 +10,8 @@ import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
-import app.revanced.patches.youtube.misc.litho.filter.patch.LithoFilterPatch
+import app.revanced.patches.youtube.misc.litho.patch.LithoFilterPatch
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
-import app.revanced.util.resources.ResourceHelper
 
 @Patch
 @Name("hide-button-container")
@@ -31,18 +30,15 @@ class ButtonContainerPatch : ResourcePatch {
         /*
          add settings
          */
-        ResourceHelper.addSettings2(
-            context,
-            "PREFERENCE_CATEGORY: REVANCED_SETTINGS",
-            "PREFERENCE: LAYOUT_SETTINGS",
-            "PREFERENCE_HEADER: BOTTOM_PLAYER",
-            "SETTINGS: BUTTON_CONTAINER"
+        SettingsPatch.addPreference(
+            arrayOf(
+                "PREFERENCE: LAYOUT_SETTINGS",
+                "PREFERENCE_HEADER: BOTTOM_PLAYER",
+                "SETTINGS: BUTTON_CONTAINER"
+            )
         )
 
-        ResourceHelper.patchSuccess(
-            context,
-            "hide-button-container"
-        )
+        SettingsPatch.updatePatchStatus("hide-button-container")
 
         return PatchResultSuccess()
     }

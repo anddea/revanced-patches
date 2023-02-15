@@ -1,9 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="revanced_video_speed_entry_values">
-        <item>-2.0</item>
-    </string-array>
-    <string-array name="revanced_video_speed_entries">
+    <string-array name="revanced_default_video_speed_entry">
         <item>@string/quality_auto</item>
+        <item>0.25x</item>
+        <item>0.5x</item>
+        <item>0.75x</item>
+        <item>@string/shorts_speed_control_normal_label</item>
+        <item>1.25x</item>
+        <item>1.5x</item>
+        <item>1.75x</item>
+        <item>2.0x</item>
+    </string-array>
+    <string-array name="revanced_default_video_speed_entry_value">
+        <item>-2.0</item>
+        <item>0.25</item>
+        <item>0.5</item>
+        <item>0.75</item>
+        <item>1.0</item>
+        <item>1.25</item>
+        <item>1.5</item>
+        <item>1.75</item>
+        <item>2.0</item>
     </string-array>
 </resources>

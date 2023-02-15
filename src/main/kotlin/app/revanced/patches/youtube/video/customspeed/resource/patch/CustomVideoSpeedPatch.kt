@@ -14,7 +14,9 @@ import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.shared.patch.options.PatchOptions
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
 import app.revanced.patches.youtube.video.customspeed.bytecode.patch.CustomVideoSpeedBytecodePatch
-import app.revanced.util.resources.ResourceHelper
+import app.revanced.util.resources.ResourceHelper.addSpeedEntries
+import app.revanced.util.resources.ResourceHelper.addSpeedEntryValues
+import app.revanced.util.resources.ResourceHelper.replaceCustomSpeed
 import app.revanced.util.resources.ResourceUtils.copyXmlNode
 
 @Patch
@@ -35,7 +37,7 @@ class CustomVideoSpeedPatch : ResourcePatch {
         /*
          * Copy arrays
          */
-        context.copyXmlNode("youtube/speed/host", "values/arrays.xml", "resources")
+        context.copyXmlNode("youtube/customspeed/host", "values/arrays.xml", "resources")
 
         val speed = PatchOptions.CustomSpeedArrays
             ?: return PatchResultError("Invalid video speed array.")
@@ -44,26 +46,23 @@ class CustomVideoSpeedPatch : ResourcePatch {
         if (splits.isEmpty()) throw IllegalArgumentException("Invalid speed elements")
         val speedElements = splits.map { it }
         for (index in 0 until splits.count()) {
-            ResourceHelper.addEntryValues(context, speedElements[index])
-            ResourceHelper.addEntries(context, speedElements[index] + "x")
+            context.addSpeedEntries(speedElements[index] + "x")
+            context.addSpeedEntryValues(speedElements[index])
         }
 
-        ResourceHelper.addSpeed(context)
+        context.replaceCustomSpeed()
 
         /*
          add settings
          */
-        ResourceHelper.addSettings(
-            context,
-            "PREFERENCE_CATEGORY: REVANCED_EXTENDED_SETTINGS",
-            "PREFERENCE: VIDEO_SETTINGS",
-            "SETTINGS: CUSTOM_VIDEO_SPEED"
+        SettingsPatch.addPreference(
+            arrayOf(
+                "PREFERENCE: VIDEO_SETTINGS",
+                "SETTINGS: CUSTOM_VIDEO_SPEED"
+            )
         )
 
-        ResourceHelper.patchSuccess(
-            context,
-            "custom-video-speed"
-        )
+        SettingsPatch.updatePatchStatus("custom-video-speed")
 
         return PatchResultSuccess()
     }

@@ -16,9 +16,9 @@ import app.revanced.patches.youtube.misc.microg.shared.Constants.PACKAGE_NAME
 import app.revanced.patches.youtube.misc.microg.shared.Constants.SPOOFED_PACKAGE_NAME
 import app.revanced.patches.youtube.misc.microg.shared.Constants.SPOOFED_PACKAGE_SIGNATURE
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
-import app.revanced.util.microg.MicroGManifestHelper
-import app.revanced.util.microg.MicroGResourceHelper
-import app.revanced.util.resources.ResourceHelper
+import app.revanced.util.microg.MicroGManifestHelper.addSpoofingMetadata
+import app.revanced.util.microg.MicroGResourceHelper.patchManifest
+import app.revanced.util.resources.ResourceHelper.setMicroG
 
 @Patch
 @Name("microg-support")
@@ -35,22 +35,19 @@ import app.revanced.util.resources.ResourceHelper
 class MicroGPatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
 
-        val packageName = PatchOptions.YouTube_PackageName
+        val packageName = PatchOptions.YouTubePackageName!!
 
         /*
          add settings
          */
-        ResourceHelper.addSettings(
-            context,
-            "PREFERENCE_CATEGORY: MICROG_SETTINGS",
-            "PREFERENCE: MICROG_SETTINGS",
-            "SETTINGS: MICROG_SETTINGS"
+        SettingsPatch.addPreference(
+            arrayOf(
+                "PREFERENCE_CATEGORY: MICROG_SETTINGS",
+                "PREFERENCE: MICROG_SETTINGS",
+                "SETTINGS: MICROG_SETTINGS"
+            )
         )
-
-        ResourceHelper.patchSuccess(
-            context,
-            "microg-support"
-        )
+        SettingsPatch.updatePatchStatus("microg-support")
 
         val settingsFragment = context["res/xml/settings_fragment.xml"]
         settingsFragment.writeText(
@@ -61,18 +58,19 @@ class MicroGPatch : ResourcePatch {
         )
 
         // update manifest
-        MicroGResourceHelper.patchManifest(
-            context,
+        context.patchManifest(
             PACKAGE_NAME,
-            "$packageName"
+            packageName
         )
 
         // add metadata to manifest
-        MicroGManifestHelper.addSpoofingMetadata(
-            context,
+        context.addSpoofingMetadata(
             SPOOFED_PACKAGE_NAME,
             SPOOFED_PACKAGE_SIGNATURE
         )
+
+        setMicroG(packageName)
+
         return PatchResultSuccess()
     }
 }

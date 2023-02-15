@@ -12,7 +12,6 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.youtube.ads.general.bytecode.patch.GeneralAdsBytecodePatch
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
-import app.revanced.util.resources.ResourceHelper
 
 @Patch
 @Name("hide-comment-component")
@@ -31,18 +30,15 @@ class CommentComponentPatch : ResourcePatch {
         /*
          add settings
          */
-        ResourceHelper.addSettings2(
-            context,
-            "PREFERENCE_CATEGORY: REVANCED_SETTINGS",
-            "PREFERENCE: LAYOUT_SETTINGS",
-            "PREFERENCE_HEADER: BOTTOM_PLAYER",
-            "SETTINGS: COMMENT_COMPONENT"
+        SettingsPatch.addPreference(
+            arrayOf(
+                "PREFERENCE: LAYOUT_SETTINGS",
+                "PREFERENCE_HEADER: BOTTOM_PLAYER",
+                "SETTINGS: COMMENT_COMPONENT"
+            )
         )
 
-        ResourceHelper.patchSuccess(
-            context,
-            "hide-comment-component"
-        )
+        SettingsPatch.updatePatchStatus("hide-comment-component")
 
         return PatchResultSuccess()
     }

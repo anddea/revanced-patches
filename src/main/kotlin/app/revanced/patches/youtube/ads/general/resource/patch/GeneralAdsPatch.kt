@@ -14,9 +14,8 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.youtube.ads.general.bytecode.patch.GeneralAdsBytecodePatch
 import app.revanced.patches.youtube.ads.general.bytecode.patch.GeneralAdsSecondaryBytecodePatch
-import app.revanced.patches.youtube.misc.litho.filter.patch.LithoFilterPatch
+import app.revanced.patches.youtube.misc.litho.patch.LithoFilterPatch
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
-import app.revanced.util.resources.ResourceHelper
 import org.w3c.dom.Element
 
 @Patch
@@ -88,33 +87,22 @@ class GeneralAdsPatch : ResourcePatch {
         /*
          add settings
          */
-        ResourceHelper.addSettings(
-            context,
-            "PREFERENCE_CATEGORY: REVANCED_SETTINGS",
-            "PREFERENCE: ADS_SETTINGS",
-            "SETTINGS: HIDE_GENERAL_ADS"
+        SettingsPatch.addPreference(
+            arrayOf(
+                "PREFERENCE: ADS_SETTINGS",
+                "SETTINGS: HIDE_GENERAL_ADS",
+
+                "PREFERENCE: LAYOUT_SETTINGS",
+                "PREFERENCE_HEADER: GENERAL",
+                "SETTINGS: HIDE_GENERAL_LAYOUT_ADS",
+
+                "PREFERENCE: LAYOUT_SETTINGS",
+                "PREFERENCE_HEADER: PLAYER",
+                "SETTINGS: HIDE_VIEW_PRODUCT"
+            )
         )
 
-        ResourceHelper.addSettings2(
-            context,
-            "PREFERENCE_CATEGORY: REVANCED_SETTINGS",
-            "PREFERENCE: LAYOUT_SETTINGS",
-            "PREFERENCE_HEADER: GENERAL",
-            "SETTINGS: HIDE_GENERAL_LAYOUT_ADS"
-        )
-
-        ResourceHelper.addSettings2(
-            context,
-            "PREFERENCE_CATEGORY: REVANCED_SETTINGS",
-            "PREFERENCE: LAYOUT_SETTINGS",
-            "PREFERENCE_HEADER: PLAYER",
-            "SETTINGS: HIDE_VIEW_PRODUCT"
-        )
-
-        ResourceHelper.patchSuccess(
-            context,
-            "hide-general-ads"
-        )
+        SettingsPatch.updatePatchStatus("hide-general-ads")
 
         return PatchResultSuccess()
     }

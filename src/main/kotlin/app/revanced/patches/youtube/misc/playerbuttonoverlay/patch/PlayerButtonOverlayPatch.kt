@@ -43,10 +43,7 @@ class PlayerButtonOverlayPatch : ResourcePatch {
             }
         }
 
-        ResourceHelper.patchSuccess(
-            context,
-            "remove-player-button-background"
-        )
+        SettingsPatch.updatePatchStatus("remove-player-button-background")
 
         return PatchResultSuccess()
     }

@@ -11,18 +11,18 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.music.misc.settings.patch.MusicSettingsPatch
 import app.revanced.patches.shared.annotation.YouTubeMusicCompatibility
-import app.revanced.util.resources.ResourceHelper
+import app.revanced.util.resources.ResourceHelper.addTranslations
 
 @Patch
 @Name("translations-music")
-@Description("Add Crowdin Translations for YouTube Music")
+@Description("Add Crowdin translations for YouTube Music.")
 @DependsOn([MusicSettingsPatch::class])
 @YouTubeMusicCompatibility
 @Version("0.0.1")
 class MusicTranslationsPatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
 
-        ResourceHelper.addTranslations(context, "music", LANGUAGE_LIST)
+        context.addTranslations("music", LANGUAGE_LIST)
 
         return PatchResultSuccess()
     }

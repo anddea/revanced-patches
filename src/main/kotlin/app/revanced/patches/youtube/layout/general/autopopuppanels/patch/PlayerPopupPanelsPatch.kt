@@ -1,0 +1,62 @@
+package app.revanced.patches.youtube.layout.general.autopopuppanels.patch
+
+import app.revanced.extensions.toErrorResult
+import app.revanced.patcher.annotation.Description
+import app.revanced.patcher.annotation.Name
+import app.revanced.patcher.annotation.Version
+import app.revanced.patcher.data.BytecodeContext
+import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.instruction
+import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.annotations.DependsOn
+import app.revanced.patcher.patch.annotations.Patch
+import app.revanced.patcher.util.smali.ExternalLabel
+import app.revanced.patches.shared.annotation.YouTubeCompatibility
+import app.revanced.patches.youtube.layout.general.autopopuppanels.fingerprints.EngagementPanelControllerFingerprint
+import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
+import app.revanced.util.integrations.Constants.GENERAL_LAYOUT
+
+@Patch
+@Name("hide-auto-player-popup-panels")
+@Description("Hide automatic popup panels (playlist or live chat) on video player.")
+@DependsOn([SettingsPatch::class])
+@YouTubeCompatibility
+@Version("0.0.1")
+class PlayerPopupPanelsPatch : BytecodePatch(
+    listOf(
+        EngagementPanelControllerFingerprint
+    )
+) {
+    override fun execute(context: BytecodeContext): PatchResult {
+
+        EngagementPanelControllerFingerprint.result?.mutableMethod?.let {
+            it.addInstructions(
+                0, """
+                    invoke-static {}, $GENERAL_LAYOUT->hideAutoPlayerPopupPanels()Z
+                    move-result v0
+                    if-eqz v0, :player_popup_panels_shown
+                    if-eqz p4, :player_popup_panels_shown
+                    const/4 v0, 0x0
+                    return-object v0
+                """, listOf(ExternalLabel("player_popup_panels_shown", it.instruction(0)))
+            )
+        } ?: return EngagementPanelControllerFingerprint.toErrorResult()
+
+        /*
+        add settings
+        */
+        SettingsPatch.addPreference(
+            arrayOf(
+                "PREFERENCE: LAYOUT_SETTINGS",
+                "PREFERENCE_HEADER: GENERAL",
+                "SETTINGS: HIDE_AUTO_PLAYER_POPUP_PANELS"
+            )
+        )
+
+        SettingsPatch.updatePatchStatus("hide-auto-player-popup-panels")
+
+        return PatchResultSuccess()
+    }
+}

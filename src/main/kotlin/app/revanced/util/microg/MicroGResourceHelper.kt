@@ -9,18 +9,16 @@ internal object MicroGResourceHelper {
     /**
      * Patch the manifest to work with MicroG.
      *
-     * @param context Bytecode context.
      * @param fromPackageName Original package name.
      * @param toPackageName The package name to accept.
      * @param toName The new name of the app.
      */
-    fun patchManifest(
-        context: ResourceContext,
+    fun ResourceContext.patchManifest(
         fromPackageName: String,
         toPackageName: String
     ) {
-        val manifest = context["AndroidManifest.xml"].readText()
-        context["AndroidManifest.xml"].writeText(
+        val manifest = this["AndroidManifest.xml"].readText()
+        this["AndroidManifest.xml"].writeText(
             manifest.replace(
                 "package=\"$fromPackageName",
                 "package=\"$toPackageName"

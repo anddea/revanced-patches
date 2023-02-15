@@ -14,7 +14,9 @@ import app.revanced.patches.shared.patch.settings.AbstractSettingsResourcePatch
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourcdIdPatch
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsBytecodePatch
-import app.revanced.util.resources.ResourceHelper
+import app.revanced.util.resources.ResourceHelper.addPreference
+import app.revanced.util.resources.ResourceHelper.addReVancedPreference
+import app.revanced.util.resources.ResourceHelper.updatePatchStatus
 import app.revanced.util.resources.ResourceUtils
 import app.revanced.util.resources.ResourceUtils.copyResources
 import org.w3c.dom.Element
@@ -39,6 +41,7 @@ class SettingsPatch : AbstractSettingsResourcePatch(
 ) {
     override fun execute(context: ResourceContext): PatchResult {
         super.execute(context)
+        contexts = context
 
         /*
          * create directory for the untranslated language resources
@@ -59,6 +62,11 @@ class SettingsPatch : AbstractSettingsResourcePatch(
         ).forEach { resourceGroup ->
             context.copyResources("youtube/settings", resourceGroup)
         }
+
+        /*
+         * initialize ReVanced Settings
+         */
+        addReVancedPreference("extended_settings")
 
         /*
          * remove revanced settings divider
@@ -84,16 +92,21 @@ class SettingsPatch : AbstractSettingsResourcePatch(
             }
         }
 
-        /*
-         add settings
-         */
-        ResourceHelper.addSettings(
-            context,
-            "PREFERENCE_CATEGORY: REVANCED_EXTENDED_SETTINGS",
-            "PREFERENCE: EXTENDED_SETTINGS",
-            "SETTINGS: ABOUT"
-        )
-
         return PatchResultSuccess()
+    }
+    companion object {
+        private lateinit var contexts: ResourceContext
+
+        internal fun addPreference(settingArray: Array<String>) {
+            contexts.addPreference(settingArray)
+        }
+
+        internal fun updatePatchStatus(patchTitle: String) {
+            contexts.updatePatchStatus(patchTitle)
+        }
+
+        internal fun addReVancedPreference(key: String) {
+            contexts.addReVancedPreference(key)
+        }
     }
 }

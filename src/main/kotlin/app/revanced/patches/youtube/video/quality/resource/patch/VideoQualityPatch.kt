@@ -12,7 +12,6 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
 import app.revanced.patches.youtube.video.quality.bytecode.patch.VideoQualityBytecodePatch
-import app.revanced.util.resources.ResourceHelper
 import app.revanced.util.resources.ResourceUtils.copyXmlNode
 
 @Patch
@@ -39,17 +38,14 @@ class VideoQualityPatch : ResourcePatch {
         /*
          add settings
          */
-        ResourceHelper.addSettings(
-            context,
-            "PREFERENCE_CATEGORY: REVANCED_EXTENDED_SETTINGS",
-            "PREFERENCE: VIDEO_SETTINGS",
-            "SETTINGS: DEFAULT_VIDEO_QUALITY"
+        SettingsPatch.addPreference(
+            arrayOf(
+                "PREFERENCE: VIDEO_SETTINGS",
+                "SETTINGS: DEFAULT_VIDEO_QUALITY"
+            )
         )
 
-        ResourceHelper.patchSuccess(
-            context,
-            "default-video-quality"
-        )
+        SettingsPatch.updatePatchStatus("default-video-quality")
 
         return PatchResultSuccess()
     }

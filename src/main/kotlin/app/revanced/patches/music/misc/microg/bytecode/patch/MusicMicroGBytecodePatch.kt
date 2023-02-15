@@ -48,8 +48,8 @@ class MusicMicroGBytecodePatch : BytecodePatch(
     // - "com.google.android.gms.phenotype.UPDATE",
     // - "com.google.android.gms.phenotype",
     override fun execute(context: BytecodeContext): PatchResult {
-        val YouTubePackageName = PatchOptions.YouTube_PackageName
-        val MusicPackageName = PatchOptions.Music_PackageName
+        val packageNameYouTube = PatchOptions.YouTubePackageName!!
+        val packageNameMusic = PatchOptions.MusicPackageName!!
 
         // apply common microG patch
         MicroGBytecodeHelper.patchBytecode(
@@ -57,13 +57,13 @@ class MusicMicroGBytecodePatch : BytecodePatch(
             arrayOf(
                 MicroGBytecodeHelper.packageNameTransform(
                     YOUTUBE_PACKAGE_NAME,
-                    "$YouTubePackageName"
+                    packageNameYouTube
                 )
             ),
             MicroGBytecodeHelper.PrimeMethodTransformationData(
                 PrimeFingerprint,
                 MUSIC_PACKAGE_NAME,
-                "$MusicPackageName"
+                packageNameMusic
             ),
             listOf(
                 ServiceCheckFingerprint,

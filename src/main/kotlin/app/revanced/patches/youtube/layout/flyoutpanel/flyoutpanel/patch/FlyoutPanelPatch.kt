@@ -10,9 +10,8 @@ import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
-import app.revanced.patches.youtube.misc.litho.filter.patch.LithoFilterPatch
+import app.revanced.patches.youtube.misc.litho.patch.LithoFilterPatch
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
-import app.revanced.util.resources.ResourceHelper
 
 @Patch
 @Name("hide-flyout-panel")
@@ -31,18 +30,15 @@ class FlyoutPanelPatch : ResourcePatch {
         /*
          add settings
          */
-        ResourceHelper.addSettings2(
-            context,
-            "PREFERENCE_CATEGORY: REVANCED_SETTINGS",
-            "PREFERENCE: LAYOUT_SETTINGS",
-            "PREFERENCE_HEADER: FLYOUT_PANEL",
-            "SETTINGS: FLYOUT_PANEL_COMPONENT"
+        SettingsPatch.addPreference(
+            arrayOf(
+                "PREFERENCE: LAYOUT_SETTINGS",
+                "PREFERENCE_HEADER: FLYOUT_PANEL",
+                "SETTINGS: FLYOUT_PANEL_COMPONENT"
+            )
         )
 
-        ResourceHelper.patchSuccess(
-            context,
-            "hide-flyout-panel"
-        )
+        SettingsPatch.updatePatchStatus("hide-flyout-panel")
 
         return PatchResultSuccess()
     }
