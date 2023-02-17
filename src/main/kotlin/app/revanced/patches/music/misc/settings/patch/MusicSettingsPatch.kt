@@ -6,12 +6,15 @@ import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
-import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.music.misc.integrations.patch.MusicIntegrationsPatch
 import app.revanced.patches.shared.annotation.YouTubeMusicCompatibility
-import app.revanced.util.resources.ResourceUtils.copyXmlNode
+import app.revanced.patches.shared.patch.settings.AbstractSettingsResourcePatch
+import app.revanced.util.resources.MusicResourceHelper.addMusicPreference
+import app.revanced.util.resources.MusicResourceHelper.addMusicPreferenceCategory
+import app.revanced.util.resources.MusicResourceHelper.addReVancedMusicPreference
+import app.revanced.util.resources.MusicResourceHelper.sortMusicPreferenceCategory
 import org.w3c.dom.Element
 
 @Patch
@@ -20,14 +23,14 @@ import org.w3c.dom.Element
 @DependsOn([MusicIntegrationsPatch::class])
 @YouTubeMusicCompatibility
 @Version("0.0.1")
-class MusicSettingsPatch : ResourcePatch {
+class MusicSettingsPatch : AbstractSettingsResourcePatch(
+    "music/settings",
+    "music/settings/host",
+    false
+) {
     override fun execute(context: ResourceContext): PatchResult {
-
-        /*
-         * Copy strings
-         */
-
-        context.copyXmlNode("music/settings/host", "values/strings.xml", "resources")
+        super.execute(context)
+        contexts = context
 
         /*
          * Copy colors
@@ -47,19 +50,21 @@ class MusicSettingsPatch : ResourcePatch {
             }
         }
 
-        /*
-         * Copy preference fragments
-         */
-
-        context.copyXmlNode("music/settings/host", "xml/settings_headers.xml", "PreferenceScreen")
-
-        // Removed since YouTube Music v5.38.xx
-
-        try {
-            context.copyXmlNode("music/settings/host", "xml/settings_prefs_compat.xml", "com.google.android.apps.youtube.music.ui.preference.PreferenceCategoryCompat")
-        } catch (_: Exception) {}
+        context.addReVancedMusicPreference()
 
         return PatchResultSuccess()
     }
+    companion object {
+        private lateinit var contexts: ResourceContext
 
+        internal fun addMusicPreference(
+            category: String,
+            key: String,
+            defaultValue: String
+        ) {
+            contexts.addMusicPreferenceCategory(category)
+            contexts.sortMusicPreferenceCategory()
+            contexts.addMusicPreference(category, key, defaultValue)
+        }
+    }
 }

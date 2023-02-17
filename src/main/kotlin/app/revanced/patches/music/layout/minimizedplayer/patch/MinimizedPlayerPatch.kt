@@ -48,6 +48,8 @@ class MinimizedPlayerPatch : BytecodePatch(
             }
         } ?: return MinimizedPlayerFingerprint.toErrorResult()
 
+        MusicSettingsPatch.addMusicPreference("listening", "revanced_enable_force_minimized_player", "true")
+
         return PatchResultSuccess()
     }
 }

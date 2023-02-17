@@ -67,6 +67,8 @@ class ZenModePatch : BytecodePatch(
             } ?: return ZenModeFingerprint.toErrorResult()
         } ?: return MiniplayerColorParentFingerprint.toErrorResult()
 
+        MusicSettingsPatch.addMusicPreference("design", "revanced_enable_zen_mode", "false")
+
         return PatchResultSuccess()
     }
 }

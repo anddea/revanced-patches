@@ -40,6 +40,8 @@ class HideCastButtonPatch : BytecodePatch(
             ) ?: return HideCastButtonFingerprint.toErrorResult()
         } ?: return HideCastButtonParentFingerprint.toErrorResult()
 
+        MusicSettingsPatch.addMusicPreference("navigation", "revanced_hide_cast_button", "true")
+
         return PatchResultSuccess()
     }
 }
