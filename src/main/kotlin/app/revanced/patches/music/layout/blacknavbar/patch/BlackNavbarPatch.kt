@@ -1,5 +1,6 @@
 package app.revanced.patches.music.layout.blacknavbar.patch
 
+import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
@@ -37,24 +38,26 @@ class BlackNavbarPatch : BytecodePatch(
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
-        val result = TabLayoutFingerprint.result!!
-        val method = result.mutableMethod
 
-        val startIndex = result.scanResult.patternScanResult!!.startIndex
-        val endIndex = result.scanResult.patternScanResult!!.endIndex
-        val insertIndex = endIndex + 1
+        TabLayoutFingerprint.result?.let {
+            with (it.mutableMethod) {
+                val startIndex = it.scanResult.patternScanResult!!.startIndex
+                val endIndex = it.scanResult.patternScanResult!!.endIndex
+                val insertIndex = endIndex + 1
 
-        val dummyRegister = (method.instruction(startIndex) as Instruction31i).registerA
-        val targetRegister = (method.instruction(endIndex) as Instruction11x).registerA
+                val dummyRegister = (instruction(startIndex) as Instruction31i).registerA
+                val targetRegister = (instruction(endIndex) as Instruction11x).registerA
 
-        method.addInstructions(
-            insertIndex, """
-                invoke-static {}, $MUSIC_SETTINGS_PATH->enableBlackNavbar()Z
-                move-result v$dummyRegister
-                if-eqz v$dummyRegister, :default
-                const/high16 v$targetRegister, -0x1000000
-            """, listOf(ExternalLabel("default", method.instruction(insertIndex)))
-        )
+                addInstructions(
+                    insertIndex, """
+                        invoke-static {}, $MUSIC_SETTINGS_PATH->enableBlackNavbar()Z
+                        move-result v$dummyRegister
+                        if-eqz v$dummyRegister, :default
+                        const/high16 v$targetRegister, -0x1000000
+                        """, listOf(ExternalLabel("default", instruction(insertIndex)))
+                )
+            }
+        } ?: return TabLayoutFingerprint.toErrorResult()
 
         return PatchResultSuccess()
     }
