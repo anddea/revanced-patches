@@ -24,7 +24,7 @@ import app.revanced.util.integrations.Constants.MUSIC_SETTINGS_PATH
 @DependsOn([MusicSettingsPatch::class])
 @YouTubeMusicCompatibility
 @Version("0.0.1")
-class HideWatermarkPatch : BytecodePatch(
+class HideCastButtonPatch : BytecodePatch(
     listOf(
         HideCastButtonParentFingerprint
     )
