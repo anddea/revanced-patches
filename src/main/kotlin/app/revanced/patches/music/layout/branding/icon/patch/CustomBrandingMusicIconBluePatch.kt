@@ -10,7 +10,7 @@ import app.revanced.patches.shared.annotation.YouTubeMusicCompatibility
 import app.revanced.util.resources.IconHelper.customIconMusic
 import app.revanced.util.resources.IconHelper.customIconMusicAdditional
 
-@Patch
+@Patch(false)
 @Name("custom-branding-music-afn-blue")
 @Description("Changes the YouTube Music launcher icon (Afn / Blue).")
 @YouTubeMusicCompatibility
