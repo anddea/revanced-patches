@@ -7,7 +7,7 @@ import org.w3c.dom.Node
 import java.nio.file.Files
 import java.nio.file.StandardCopyOption
 
-private fun Node.adoptChild(tagName: String, targetNode: Node, block: Element.() -> Unit) {
+private fun Node.insertNode(tagName: String, targetNode: Node, block: Element.() -> Unit) {
     val child = ownerDocument.createElement(tagName)
     child.block()
     parentNode.insertBefore(child, targetNode)
@@ -20,11 +20,11 @@ internal object ResourceHelper {
 
     private const val TARGET_PREFERENCE_PATH = "res/xml/revanced_prefs.xml"
 
-    private const val TARGET_SETTINGS_PATH = "res/xml/settings_fragment.xml"
+    private const val YOUTUBE_SETTINGS_PATH = "res/xml/settings_fragment.xml"
 
     private var targetPackage = "com.google.android.youtube"
 
-    fun setMicroG (newPackage: String) {
+    internal fun setMicroG (newPackage: String) {
         targetPackage = newPackage
     }
 
@@ -68,17 +68,6 @@ internal object ResourceHelper {
         }
         this[TARGET_ARRAY_PATH].writeText(
             this[TARGET_ARRAY_PATH].readText().replace("1.0x", "@string/shorts_speed_control_normal_label")
-        )
-    }
-
-    internal fun ResourceContext.replaceCustomSpeed() {
-        val prefs = this[TARGET_PREFERENCE_PATH]
-        prefs.writeText(
-            prefs.readText()
-            .replace(
-                "revanced_default_video_speed_entry",
-                "revanced_custom_video_speed_entry"
-            )
         )
     }
 
@@ -130,13 +119,13 @@ internal object ResourceHelper {
     internal fun ResourceContext.addReVancedPreference(key: String) {
         val targetClass = "com.google.android.apps.youtube.app.settings.videoquality.VideoQualitySettingsActivity"
 
-        this.xmlEditor[TARGET_SETTINGS_PATH].use { editor ->
+        this.xmlEditor[YOUTUBE_SETTINGS_PATH].use { editor ->
             with (editor.file) {
                 doRecursively loop@{
                     if (it !is Element) return@loop
                     it.getAttributeNode("android:key")?.let { attribute ->
                         if (attribute.textContent == "@string/about_key" && it.getAttributeNode("app:iconSpaceReserved").textContent == "false") {
-                            it.adoptChild("Preference", it) {
+                            it.insertNode("Preference", it) {
                                 setAttribute("android:title", "@string/revanced_" + key + "_title")
                                 setAttribute("android:summary", "@string/revanced_" + key + "_summary")
                                 this.appendChild(ownerDocument.createElement("intent").also { intentNode ->
