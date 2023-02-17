@@ -63,6 +63,8 @@ class CodecsUnlockPatch : BytecodePatch(
             }
         } ?: return CodecsLockFingerprint.toErrorResult()
 
+        MusicSettingsPatch.addMusicPreference("listening", "revanced_enable_opus_codec", "true")
+
         return PatchResultSuccess()
     }
 

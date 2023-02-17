@@ -64,6 +64,8 @@ class CompactHeaderPatch : BytecodePatch() {
                                             "invoke-static { v$register }, $MUSIC_SETTINGS_PATH->hideCompactHeader(Landroid/view/View;)V"
                                         )
 
+                                        MusicSettingsPatch.addMusicPreference("navigation", "revanced_hide_compact_header", "true")
+
                                         patchSuccessArray[0] = true;
                                     }
                                 }

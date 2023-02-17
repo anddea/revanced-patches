@@ -43,6 +43,8 @@ class TabletModePatch : BytecodePatch(
                 )
         } ?: return TabletLayoutFingerprint.toErrorResult()
 
+        MusicSettingsPatch.addMusicPreference("navigation", "revanced_enable_tablet_mode", "true")
+
         return PatchResultSuccess()
     }
 }

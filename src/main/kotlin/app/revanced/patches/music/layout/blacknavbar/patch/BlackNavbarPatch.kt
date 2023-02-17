@@ -59,6 +59,8 @@ class BlackNavbarPatch : BytecodePatch(
             }
         } ?: return TabLayoutFingerprint.toErrorResult()
 
+        MusicSettingsPatch.addMusicPreference("design", "revanced_enable_black_navbar", "true")
+
         return PatchResultSuccess()
     }
 }

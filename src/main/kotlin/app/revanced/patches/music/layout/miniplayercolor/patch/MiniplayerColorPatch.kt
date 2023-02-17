@@ -92,6 +92,8 @@ class MiniplayerColorPatch : BytecodePatch(
             } ?: return MiniplayerColorFingerprint.toErrorResult()
         } ?: return MiniplayerColorParentFingerprint.toErrorResult()
 
+        MusicSettingsPatch.addMusicPreference("design", "revanced_enable_color_match_player", "true")
+
         return PatchResultSuccess()
     }
     private companion object {

@@ -158,6 +158,8 @@ class EnforceShufflePatch : BytecodePatch(
             )
         } ?: return MusicPlaybackControlsFingerprint.toErrorResult()
 
+        MusicSettingsPatch.addMusicPreference("listening", "revanced_enable_force_shuffle", "true")
+
         return PatchResultSuccess()
     }
 

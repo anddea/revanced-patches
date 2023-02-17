@@ -32,6 +32,8 @@ class MusicVideoAdsPatch : BytecodePatch() {
 
         GeneralVideoAdsPatch.injectMainstreamAds(INTEGRATIONS_CLASS_DESCRIPTOR)
 
+        MusicSettingsPatch.addMusicPreference("ads", "revanced_hide_music_ads", "true")
+
         return PatchResultSuccess()
     }
     private companion object {
