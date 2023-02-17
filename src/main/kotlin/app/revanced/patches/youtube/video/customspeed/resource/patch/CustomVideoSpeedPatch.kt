@@ -16,7 +16,6 @@ import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
 import app.revanced.patches.youtube.video.customspeed.bytecode.patch.CustomVideoSpeedBytecodePatch
 import app.revanced.util.resources.ResourceHelper.addSpeedEntries
 import app.revanced.util.resources.ResourceHelper.addSpeedEntryValues
-import app.revanced.util.resources.ResourceHelper.replaceCustomSpeed
 import app.revanced.util.resources.ResourceUtils.copyXmlNode
 
 @Patch
@@ -49,8 +48,6 @@ class CustomVideoSpeedPatch : ResourcePatch {
             context.addSpeedEntries(speedElements[index] + "x")
             context.addSpeedEntryValues(speedElements[index])
         }
-
-        context.replaceCustomSpeed()
 
         /*
          add settings

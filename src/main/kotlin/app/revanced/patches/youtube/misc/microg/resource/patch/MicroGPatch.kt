@@ -18,6 +18,7 @@ import app.revanced.patches.youtube.misc.microg.shared.Constants.SPOOFED_PACKAGE
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
 import app.revanced.util.microg.MicroGManifestHelper.addSpoofingMetadata
 import app.revanced.util.microg.MicroGResourceHelper.patchManifest
+import app.revanced.util.microg.MicroGResourceHelper.patchSetting
 import app.revanced.util.resources.ResourceHelper.setMicroG
 
 @Patch
@@ -49,12 +50,10 @@ class MicroGPatch : ResourcePatch {
         )
         SettingsPatch.updatePatchStatus("microg-support")
 
-        val settingsFragment = context["res/xml/settings_fragment.xml"]
-        settingsFragment.writeText(
-            settingsFragment.readText().replace(
-                "android:targetPackage=\"com.google.android.youtube",
-                "android:targetPackage=\"$packageName"
-            )
+        // update settings fragment
+        context.patchSetting(
+            PACKAGE_NAME,
+            packageName
         )
 
         // update manifest
