@@ -20,7 +20,7 @@ import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.shared.fingerprints.LayoutSwitchFingerprint
 import app.revanced.patches.youtube.misc.forcevp9.fingerprints.*
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
-import app.revanced.util.integrations.Constants.EXTENDED_PATH
+import app.revanced.util.integrations.Constants.MISC_PATH
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.dexbacked.reference.DexBackedFieldReference
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
@@ -78,7 +78,7 @@ class ForceVP9CodecPatch : BytecodePatch(
 
     private companion object {
         const val INTEGRATIONS_CLASS_DESCRIPTOR =
-            "$EXTENDED_PATH/CodecOverridePatch;"
+            "$MISC_PATH/CodecOverridePatch;"
 
         const val INTEGRATIONS_CLASS_METHOD_REFERENCE =
             "$INTEGRATIONS_CLASS_DESCRIPTOR->shouldForceVP9(Z)Z"

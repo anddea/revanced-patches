@@ -14,7 +14,7 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.youtube.misc.oldlayout.fingerprints.OldLayoutFingerprint
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
-import app.revanced.util.integrations.Constants.EXTENDED_PATH
+import app.revanced.util.integrations.Constants.MISC_PATH
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
@@ -37,7 +37,7 @@ class OldLayoutPatch : BytecodePatch(
                 val register = (this.implementation!!.instructions[insertIndex] as OneRegisterInstruction).registerA
                 addInstructions(
                     insertIndex + 1, """
-                        invoke-static {v$register}, $EXTENDED_PATH/VersionOverridePatch;->getVersionOverride(Ljava/lang/String;)Ljava/lang/String;
+                        invoke-static {v$register}, $MISC_PATH/VersionOverridePatch;->getVersionOverride(Ljava/lang/String;)Ljava/lang/String;
                         move-result-object v$register
                     """
                 )
