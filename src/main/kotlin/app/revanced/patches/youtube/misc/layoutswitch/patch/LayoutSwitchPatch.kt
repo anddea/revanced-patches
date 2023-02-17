@@ -14,7 +14,7 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.shared.fingerprints.LayoutSwitchFingerprint
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
-import app.revanced.util.integrations.Constants.EXTENDED_PATH
+import app.revanced.util.integrations.Constants.MISC_PATH
 
 @Patch
 @Name("layout-switch")
@@ -31,7 +31,7 @@ class LayoutSwitchPatch : BytecodePatch(
 
         LayoutSwitchFingerprint.result?.mutableMethod?.addInstructions(
             4, """
-                invoke-static {p0}, $EXTENDED_PATH/LayoutOverridePatch;->getLayoutOverride(I)I
+                invoke-static {p0}, $MISC_PATH/LayoutOverridePatch;->getLayoutOverride(I)I
                 move-result p0
                 """
         ) ?: return LayoutSwitchFingerprint.toErrorResult()
