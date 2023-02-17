@@ -22,23 +22,23 @@ abstract class AbstractSettingsResourcePatch(
 ) : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
         /*
-         * used for self-restart
-         */
-        context.xmlEditor["AndroidManifest.xml"].use { editor ->
-            editor.file.getElementsByTagName("manifest").item(0).also {
-                it.appendChild(it.ownerDocument.createElement("uses-permission").also { element ->
-                    element.setAttribute("android:name", "android.permission.SCHEDULE_EXACT_ALARM")
-                })
-            }
-        }
-
-        /*
          * Copy strings
          */
         context.copyXmlNode(sourcehostDirectory, "values/strings.xml", "resources")
 
         /* initialize ReVanced Settings */
-        if (isYouTube == true) {
+        if (isYouTube) {
+            /*
+             * used for self-restart
+             */
+            context.xmlEditor["AndroidManifest.xml"].use { editor ->
+                editor.file.getElementsByTagName("manifest").item(0).also {
+                    it.appendChild(it.ownerDocument.createElement("uses-permission").also { element ->
+                        element.setAttribute("android:name", "android.permission.SCHEDULE_EXACT_ALARM")
+                    })
+                }
+            }
+
             context.copyResources(sourceDirectory, ResourceUtils.ResourceGroup("xml", "revanced_prefs.xml"))
         }
 
