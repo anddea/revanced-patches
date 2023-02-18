@@ -29,7 +29,8 @@ class OverlayButtonsBytecodePatch : BytecodePatch() {
             "$BUTTON_PATH/AutoRepeat;",
             "$BUTTON_PATH/CopyWithTimeStamp;",
             "$BUTTON_PATH/Copy;",
-            "$BUTTON_PATH/Whitelists;"
+            "$BUTTON_PATH/Whitelists;",
+            "$BUTTON_PATH/Speed;"
         ).forEach { descriptor ->
             PlayerControlsBytecodePatch.initializeControl(descriptor)
             PlayerControlsBytecodePatch.injectVisibility(descriptor)            

@@ -14,6 +14,7 @@ import app.revanced.patches.shared.patch.options.PatchOptions
 import app.revanced.patches.youtube.button.autorepeat.patch.AutoRepeatPatch
 import app.revanced.patches.youtube.button.overlaybuttons.bytecode.patch.OverlayButtonsBytecodePatch
 import app.revanced.patches.youtube.button.whitelist.patch.WhitelistPatch
+import app.revanced.patches.youtube.misc.overridespeed.bytecode.patch.OverrideSpeedHookPatch
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
 import app.revanced.util.resources.ResourceUtils
 import app.revanced.util.resources.ResourceUtils.copyResources
@@ -26,6 +27,7 @@ import app.revanced.util.resources.ResourceUtils.copyXmlNode
     [
         AutoRepeatPatch::class,
         OverlayButtonsBytecodePatch::class,
+        OverrideSpeedHookPatch::class,
         PatchOptions::class,
         SettingsPatch::class,
         WhitelistPatch::class
@@ -71,6 +73,7 @@ class OverlayButtonsResourcePatch : ResourcePatch {
                 "revanced_copy_icon.png",
                 "revanced_copy_icon_with_time.png",
                 "revanced_download_icon.png",
+                "revanced_speed_icon.png",
                 "revanced_whitelist_icon.png",
                 "yt_outline_arrow_repeat_1_white_24.png",
                 "yt_outline_arrow_shuffle_1_white_24.png",
@@ -92,7 +95,7 @@ class OverlayButtonsResourcePatch : ResourcePatch {
             container.readText()
             .replace(
                 "yt:layout_constraintRight_toLeftOf=\"@id/fullscreen_button",
-                "yt:layout_constraintRight_toLeftOf=\"@+id/whitelist_button"
+                "yt:layout_constraintRight_toLeftOf=\"@+id/speed_button"
             ).replace(
                 "60",
                 "48"
