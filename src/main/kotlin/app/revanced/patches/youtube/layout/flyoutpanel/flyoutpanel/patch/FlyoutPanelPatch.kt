@@ -32,7 +32,7 @@ class FlyoutPanelPatch : ResourcePatch {
          */
         SettingsPatch.addPreference(
             arrayOf(
-                "PREFERENCE: LAYOUT_SETTINGS",
+                "PREFERENCE: OTHER_LAYOUT_SETTINGS",
                 "PREFERENCE_HEADER: FLYOUT_PANEL",
                 "SETTINGS: FLYOUT_PANEL_COMPONENT"
             )

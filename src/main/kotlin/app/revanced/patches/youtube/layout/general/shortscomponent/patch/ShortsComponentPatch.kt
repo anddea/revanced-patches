@@ -111,8 +111,7 @@ class ShortsComponentPatch : BytecodePatch() {
              */
             SettingsPatch.addPreference(
                 arrayOf(
-                    "PREFERENCE: LAYOUT_SETTINGS",
-                    "PREFERENCE_HEADER: GENERAL",
+                    "PREFERENCE: GENERAL_LAYOUT_SETTINGS",
                     "SETTINGS: SHORTS_COMPONENT.PARENT",
                     "SETTINGS: SHORTS_COMPONENT_PARENT.A",
                     "SETTINGS: SHORTS_COMPONENT_PARENT.B",

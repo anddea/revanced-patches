@@ -61,7 +61,7 @@ class HideFilmstripOverlayPatch : BytecodePatch(
                      */
                     SettingsPatch.addPreference(
                         arrayOf(
-                            "PREFERENCE: LAYOUT_SETTINGS",
+                            "PREFERENCE: OTHER_LAYOUT_SETTINGS",
                             "PREFERENCE_HEADER: FULLSCREEN",
                             "SETTINGS: HIDE_FILMSTRIP_OVERLAY"
                         )

@@ -92,7 +92,7 @@ class SeekbarTappingPatch : BytecodePatch(
          */
         SettingsPatch.addPreference(
             arrayOf(
-                "PREFERENCE: LAYOUT_SETTINGS",
+                "PREFERENCE: OTHER_LAYOUT_SETTINGS",
                 "PREFERENCE_HEADER: SEEKBAR",
                 "SETTINGS: ENABLE_SEEKBAR_TAPPING"
             )

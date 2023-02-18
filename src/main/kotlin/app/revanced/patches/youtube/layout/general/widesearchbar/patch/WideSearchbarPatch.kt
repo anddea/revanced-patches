@@ -58,8 +58,7 @@ class WideSearchbarPatch : BytecodePatch(
          */
         SettingsPatch.addPreference(
             arrayOf(
-                "PREFERENCE: LAYOUT_SETTINGS",
-                "PREFERENCE_HEADER: GENERAL",
+                "PREFERENCE: GENERAL_LAYOUT_SETTINGS",
                 "SETTINGS: ENABLE_WIDE_SEARCHBAR"
             )
         )

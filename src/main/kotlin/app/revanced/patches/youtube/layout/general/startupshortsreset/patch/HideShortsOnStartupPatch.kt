@@ -53,8 +53,7 @@ class HideShortsOnStartupPatch : BytecodePatch(
          */
         SettingsPatch.addPreference(
             arrayOf(
-                "PREFERENCE: LAYOUT_SETTINGS",
-                "PREFERENCE_HEADER: GENERAL",
+                "PREFERENCE: GENERAL_LAYOUT_SETTINGS",
                 "SETTINGS: SHORTS_COMPONENT.PARENT",
                 "SETTINGS: SHORTS_COMPONENT_PARENT.B",
                 "SETTINGS: HIDE_STARTUP_SHORTS_PLAYER"

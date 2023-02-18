@@ -56,7 +56,7 @@ class HapticFeedBackPatch : BytecodePatch(
          */
         SettingsPatch.addPreference(
             arrayOf(
-                "PREFERENCE: LAYOUT_SETTINGS",
+                "PREFERENCE: OTHER_LAYOUT_SETTINGS",
                 "PREFERENCE_HEADER: FULLSCREEN",
                 "SETTINGS: DISABLE_HAPTIC_FEEDBACK"
             )

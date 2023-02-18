@@ -65,7 +65,7 @@ class HideTimeAndSeekbarPatch : BytecodePatch(
          */
         SettingsPatch.addPreference(
             arrayOf(
-                "PREFERENCE: LAYOUT_SETTINGS",
+                "PREFERENCE: OTHER_LAYOUT_SETTINGS",
                 "PREFERENCE_HEADER: SEEKBAR",
                 "SETTINGS: HIDE_TIME_AND_SEEKBAR"
             )

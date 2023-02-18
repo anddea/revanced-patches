@@ -45,7 +45,7 @@ class HideInfocardsPatch : BytecodePatch(
          */
         SettingsPatch.addPreference(
             arrayOf(
-                "PREFERENCE: LAYOUT_SETTINGS",
+                "PREFERENCE: OTHER_LAYOUT_SETTINGS",
                 "PREFERENCE_HEADER: PLAYER",
                 "SETTINGS: HIDE_INFO_CARDS"
             )
