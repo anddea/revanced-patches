@@ -14,17 +14,21 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
+import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.youtube.misc.playertype.patch.PlayerTypeHookPatch
 import app.revanced.patches.youtube.misc.timebar.patch.HookTimebarPatch
 import app.revanced.patches.youtube.misc.videoid.mainstream.fingerprint.*
+import app.revanced.util.integrations.Constants.UTILS_PATH
 import app.revanced.util.integrations.Constants.VIDEO_PATH
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.builder.MutableMethodImplementation
+import org.jf.dexlib2.builder.instruction.BuilderInstruction35c
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 import org.jf.dexlib2.iface.instruction.formats.Instruction21c
+import org.jf.dexlib2.iface.instruction.formats.Instruction31i
 import org.jf.dexlib2.iface.reference.FieldReference
 import org.jf.dexlib2.iface.reference.MethodReference
 import org.jf.dexlib2.immutable.ImmutableMethod
@@ -57,10 +61,25 @@ class MainstreamVideoIdPatch : BytecodePatch(
     override fun execute(context: BytecodeContext): PatchResult {
 
         RepeatListenerFingerprint.result?.let {
-            val removeIndex = it.scanResult.patternScanResult!!.startIndex
+            val targetIndex = it.scanResult.patternScanResult!!.startIndex - 1
+            val endIndex = it.scanResult.patternScanResult!!.endIndex
                 with (it.mutableMethod) {
-                    // removeInstruction(removeIndex)
-                    removeInstruction(removeIndex - 1)
+                    val targetReference = (instruction(targetIndex) as BuilderInstruction35c).reference.toString()
+
+                    val firstRegister = (instruction(targetIndex) as BuilderInstruction35c).registerC
+                    val secondRegister = (instruction(targetIndex) as BuilderInstruction35c).registerD
+
+                    val dummyRegister = (instruction(endIndex) as Instruction31i).registerA
+
+                    addInstructions(
+                        targetIndex + 1, """
+                            invoke-static {}, $UTILS_PATH/EnableAutoRepeatPatch;->shouldAutoRepeat()Z
+                            move-result v$dummyRegister
+                            if-nez v$dummyRegister, :bypass
+                            invoke-virtual {v$firstRegister, v$secondRegister}, $targetReference
+                            """, listOf(ExternalLabel("bypass", instruction(targetIndex + 1)))
+                    )
+                    removeInstruction(targetIndex)
                 }
         } ?: return RepeatListenerFingerprint.toErrorResult()
 
