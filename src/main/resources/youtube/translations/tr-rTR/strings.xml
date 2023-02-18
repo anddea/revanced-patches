@@ -46,11 +46,9 @@
     <string name="microg_not_installed_notice">Lütfen MicroG yükleyin</string>
     <string name="microg_not_installed_warning">MicroG bulunamadı</string>
     <string name="microg_not_running_warning">MicroG arka planda çalışmıyor</string>
-    <string name="microg_notification_settings">Bildirim ayarları</string>
     <string name="microg_notification_settings_summary">"1. Bildirimler için Google cihaz kaydı ve Bulut Mesajlaşma etkinleştirilmelidir.
  2. ReVanced Extended, Bulut Mesajlaşma altında kayıtlı olarak gösterilmelidir.
  3. Bulut Mesajlaşma'daki Mevcut Durum Bağlı olmalıdır."</string>
-    <string name="microg_settings">MicroG ayarları</string>
     <string name="minutes">dakika</string>
     <string name="new_segment_choose_category">Kategori seçin</string>
     <string name="new_segment_confirm_content" formatted="false">"Bu kısmın başlangıcı %02d.%02d, bitişi %02d.%02d, süresi %d dakika %02d saniye.
@@ -168,11 +166,8 @@ Gönderilmeye hazır mı?"</string>
     <string name="revanced_adremover_web_search_panel_title">Web arama sonuçları</string>
     <string name="revanced_custom_seekbar_color_value_summary">Karalık modda kullanılacak zaman çubuğunun rengi</string>
     <string name="revanced_custom_seekbar_color_value_title">Özel zaman çubuğu renk değeri</string>
-    <string name="revanced_default_video_quality_mobile_summary">Hücresel Ağda tercih edilen video çözünürlüğünü seçin</string>
     <string name="revanced_default_video_quality_mobile_title">Tercih edilen video kalitesi (Hücresel)</string>
-    <string name="revanced_default_video_quality_wifi_summary">Wi-Fi Ağında tercih edilen video çözünürlüğünü seçin</string>
     <string name="revanced_default_video_quality_wifi_title">Tercih edilen video kalitesi (Wi-Fi)</string>
-    <string name="revanced_default_video_speed_summary">Varsayılan video hızını seç</string>
     <string name="revanced_default_video_speed_title">Varsayılan video hızı</string>
     <string name="revanced_downloader_not_installed">kurulmamış. Lütfen önce indiriniz.</string>
     <string name="revanced_downloader_package_name_summary">"NewPipe veya PowerTube gibi bir indirme uygulaması paket adı"</string>
@@ -215,8 +210,6 @@ Gönderilmeye hazır mı?"</string>
     <string name="revanced_enable_old_quality_layout_summary_off">Yeni stil kullanılıyor</string>
     <string name="revanced_enable_old_quality_layout_summary_on">Eski stil kullanılıyor</string>
     <string name="revanced_enable_old_quality_layout_title">Eski stilde kalite arayüzünü etkinleştir</string>
-    <string name="revanced_enable_open_links_directly_summary_off">URL (youtube.com/redirect), video açıklamalarındaki linkleri açarken kullanılır</string>
-    <string name="revanced_enable_open_links_directly_summary_on">Video açıklamalarındaki bağlantıları açarken URL yönlendirmelerini (youtube.com/redirect) atlayın</string>
     <string name="revanced_enable_open_links_directly_title">Bağlantıları direkt açmayı etkinleştir</string>
     <string name="revanced_enable_press_to_swipe_summary_off">Basılı-tut-kaydır devre dışı</string>
     <string name="revanced_enable_press_to_swipe_summary_on">Basılı-tut-kaydır etkin</string>
@@ -230,6 +223,9 @@ Gönderilmeye hazır mı?"</string>
     <string name="revanced_enable_save_video_quality_summary_off">Video kalitesini değiştirseniz bile varsayılan değer olarak kaydetmez</string>
     <string name="revanced_enable_save_video_quality_summary_on">Video kalitesini her değiştirdiğinizde varsayılan değer olarak kaydeder</string>
     <string name="revanced_enable_save_video_quality_title">Video kalitesini kaydetmeyi etkinleştir</string>
+    <string name="revanced_enable_save_video_speed_summary_off">Video hızını değiştirseniz bile varsayılan değer olarak kaydetmez</string>
+    <string name="revanced_enable_save_video_speed_summary_on">Video hızını her değiştirdiğinizde varsayılan değer olarak kaydeder</string>
+    <string name="revanced_enable_save_video_speed_title">Video hızını kaydetmeyi etkinleştir</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">Zaman çubuğuna (video ilerleme çubuğu) dokunma etkin</string>
     <string name="revanced_enable_seekbar_tapping_title">Zaman çubuğuna dokunma</string>
     <string name="revanced_enable_swipe_auto_brightness_summary_off">Parlaklık kaydırılarak 0 olarak ayarlansa bile otomatik parlaklık etkinleştirilmez</string>
@@ -260,9 +256,6 @@ Gönderilmeye hazır mı?"</string>
     <string name="revanced_experimental_flag">Deneysel parametreler</string>
     <string name="revanced_extended_issue_center_summary">Report issues or leave suggestions here</string>
     <string name="revanced_extended_issue_center_title">ReVanced Extended sorun merkezi</string>
-    <string name="revanced_extended_settings">ReVanced Gelişmiş ayarlar</string>
-    <string name="revanced_extended_summary">Gelişmiş ayarlar</string>
-    <string name="revanced_extended_title">Genişletilmiş Ayarlar</string>
     <string name="revanced_hide_auto_captions_summary_off">Altyazılı bir video oynatılırken altyazılar etkinleştirildi</string>
     <string name="revanced_hide_auto_captions_summary_on">"Altyazılı bir video oynatılırken altyazılar etkinleştirilmedi"</string>
     <string name="revanced_hide_auto_captions_title">Otomatik altyazıları gizle</string>
@@ -342,9 +335,6 @@ Gönderilmeye hazır mı?"</string>
     <string name="revanced_hide_info_cards_summary_off">Gizlenmiyor</string>
     <string name="revanced_hide_info_cards_summary_on">Gizlendi</string>
     <string name="revanced_hide_info_cards_title">Hakkında Kartlarını Gizle</string>
-    <string name="revanced_hide_live_chat_button_summary_off">Canlı sohbet düğmesi gösteriliyor</string>
-    <string name="revanced_hide_live_chat_button_summary_on">Canlı sohbet düğmesi gizleniyor</string>
-    <string name="revanced_hide_live_chat_button_title">Canlı sohbet butonunu gizle</string>
     <string name="revanced_hide_menu_ambient_mode_summary_off">\"Ambiyans modu\" menüsü gizleniyor</string>
     <string name="revanced_hide_menu_ambient_mode_summary_on">\"Ambiyans modu\" menüsü gizli</string>
     <string name="revanced_hide_menu_ambient_mode_title">\"Ambiyans modu\" menüsü</string>
@@ -435,11 +425,8 @@ Gönderilmeye hazır mı?"</string>
     <string name="revanced_layout_settings_bottomplayer">Alt oynatıcı düzeni ayarları</string>
     <string name="revanced_layout_settings_flyoutmenu">Açılır menü düzeni ayarları</string>
     <string name="revanced_layout_settings_fullscreen">Tam ekran arayüz ayarları</string>
-    <string name="revanced_layout_settings_general">Genel Arayüz ayarları</string>
     <string name="revanced_layout_settings_player">Oynatıcı arayüz ayarları</string>
     <string name="revanced_layout_settings_seekbar">Zaman çubuğu düzeni ayarları</string>
-    <string name="revanced_layout_settings_summary">Düzenle ilgili ayarlar</string>
-    <string name="revanced_layout_settings_title">Arayüz ayarları</string>
     <string name="revanced_misc_settings_summary">Çeşitli ilgili ayarlar</string>
     <string name="revanced_misc_settings_title">Diğer Seçenekler</string>
     <string name="revanced_others_title">Diğerleri</string>
@@ -457,6 +444,9 @@ Gönderilmeye hazır mı?"</string>
     <string name="revanced_overlay_button_downloads_title">İndirme düğmesini göster</string>
     <string name="revanced_overlay_button_summary">Bindirme butonu ile ilgili ayarlar</string>
     <string name="revanced_overlay_button_title">Bindirme butonu ayarları</string>
+    <string name="revanced_overlay_button_speed_summary_off">\"Hız\" düğmesi gizlenir</string>
+    <string name="revanced_overlay_button_speed_summary_on">\"Hız\" düğmesi gösterilir</string>
+    <string name="revanced_overlay_button_speed_title">\"Hız\" düğmesini göster</string>
     <string name="revanced_overlay_button_whitelist_summary_off">Beyaz Liste butonu gizli</string>
     <string name="revanced_overlay_button_whitelist_summary_on">Beyaz Liste butonu gösteriliyor</string>
     <string name="revanced_overlay_button_whitelist_title">Beyaz Liste düğmesini göster</string>
@@ -503,7 +493,7 @@ Bu ayar oldukça eski olduğu için geçerli olmayabilir"</string>
     <string name="revanced_save_video_quality_mobile_error">Varsayılan mobil veri video kalitesi değiştirilemedi</string>
     <string name="revanced_save_video_quality_wifi">Varsayılan Wİ-Fİ video kalitesi:</string>
     <string name="revanced_save_video_quality_wifi_error">Varsayılan Wİ-Fİ video kalitesi değiştirilemedi</string>
-    <string name="revanced_settings">ReVanced Ayarları</string>
+    <string name="revanced_save_video_speed">Varsayılan hız:</string>
     <string name="revanced_swipe_controls_summary">Kaydırma kontrolleri ilgili ayarlar</string>
     <string name="revanced_swipe_controls_title">Kaydırma Kontrolleri Ayarları</string>
     <string name="revanced_swipe_magnitude_threshold_summary">Kaydırma işleminin gerçekleşmesi için eşik miktarı</string>
@@ -546,8 +536,6 @@ Bu ayar oldukça eski olduğu için geçerli olmayabilir"</string>
     <string name="sb_guidelines_popup_title">Yönergeler var</string>
     <string name="sb_guidelines_preference_sum">Yönergeler, bir kısım göndermeyle ilgili ipuçları içerir</string>
     <string name="sb_guidelines_preference_title">Yönergeleri görüntüle</string>
-    <string name="sb_settings">SponsorBlock ayarları</string>
-    <string name="sb_summary">SponsorBlock ilgili ayarları</string>
     <string name="sb_switching_success">Geçiş Başarılı. Video\'yu yeniden yükle</string>
     <string name="sb_switching_to_mirror">Alternatif API sunucusu ana API sunucusuna geçiriliyor..</string>
     <string name="segments_endcards">Kapanış Sahneleri/Jenerik</string>

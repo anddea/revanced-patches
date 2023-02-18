@@ -46,13 +46,11 @@
     <string name="microg_not_installed_notice">অনুগ্রহপূর্বক MicroG ইনস্টল করুন</string>
     <string name="microg_not_installed_warning">MicroG খুঁজে পাওয়া যায় নি</string>
     <string name="microg_not_running_warning">MicroG ব্যাকগ্রাউন্ডে চলছে না</string>
-    <string name="microg_notification_settings">বিজ্ঞপ্তির সেটিংস</string>
     <string name="microg_notification_settings_summary">"1. বিজ্ঞপ্তিগুলির জন্য Google ডিভাইস নিবন্ধন এবং ক্লাউড মেসেজিং সক্রিয় করতে হবে।
 
 2. ReVanced কে ক্লাউড মেসেজিংয়ের অধীনে নিবন্ধিত হিসাবে দেখাতে হবে।
 
 3. ক্লাউড মেসেজিংয়ের বর্তমান অবস্থা অবশ্যই সংযুক্ত থাকতে হবে।"</string>
-    <string name="microg_settings">MicroG সেটিংস</string>
     <string name="minutes">মিনিট</string>
     <string name="new_segment_choose_category">সেগমেন্ট বিভাগ নির্বাচন করুন</string>
     <string name="new_segment_confirm_content" formatted="false">"সেগমেন্ট %02d:%02d থেকে %02d:%02d পর্যন্ত স্থায়ী হয় (%d মিনিট %02d সেকেন্ড)
@@ -170,11 +168,8 @@
     <string name="revanced_adremover_web_search_panel_title">ওয়েব অনুসন্ধান প্যানেল লুকান</string>
     <string name="revanced_custom_seekbar_color_value_summary">অন্ধকার মোডে সিকবার রং পরিবর্তনের জন্য hex কালার কোড লিখুন</string>
     <string name="revanced_custom_seekbar_color_value_title">কাস্টম সিকবার রং ভ্যালু</string>
-    <string name="revanced_default_video_quality_mobile_summary">সেলুলার নেটওয়ার্কে ডিফল্ট ভিডিও রেজল্যুশন নির্বাচন করুন</string>
     <string name="revanced_default_video_quality_mobile_title">সেলুলারে ডিফল্ট ভিডিও কোয়ালিটি</string>
-    <string name="revanced_default_video_quality_wifi_summary">ওয়াই-ফাই নেটওয়ার্কে ডিফল্ট ভিডিও রেজল্যুশন নির্বাচন করুন</string>
     <string name="revanced_default_video_quality_wifi_title">ওয়াই-ফাই ডিফল্ট ভিডিও কোয়ালিটি</string>
-    <string name="revanced_default_video_speed_summary">ডিফল্ট ভিডিও গতি নির্বাচন করুন</string>
     <string name="revanced_default_video_speed_title">ডিফল্ট ভিডিও গতি</string>
     <string name="revanced_downloader_not_installed">ইনস্টল করা হয়নি। অনুগ্রহপূর্বক এটি ইনস্টল করুন।</string>
     <string name="revanced_downloader_package_name_summary">"NewPipe বা PowerTube এর মতো ডাউনলোডারের প্যাকেজের নাম"</string>
@@ -217,8 +212,6 @@
     <string name="revanced_enable_old_quality_layout_summary_off">নতুন স্টাইলের কোয়ালিটি সেটিং দৃশ্যমান আছে</string>
     <string name="revanced_enable_old_quality_layout_summary_on">পুরোনো স্টাইলের কোয়ালিটি সেটিং দৃশ্যমান আছে</string>
     <string name="revanced_enable_old_quality_layout_title">পুরোনো স্টাইলের কোয়ালিটি সেটিং সক্রিয় করুন</string>
-    <string name="revanced_enable_open_links_directly_summary_off">ভিডিওর বর্ণনায় লিঙ্ক খোলার জন্য URL পুনঃনির্দেশ (youtube.com/redirect) ব্যবহার করা হয়</string>
-    <string name="revanced_enable_open_links_directly_summary_on">ভিডিওর বর্ণনায় লিঙ্ক খোলার সময় URL পুনঃনির্দেশ (youtube.com/redirect) বাইপাস করুন</string>
     <string name="revanced_enable_open_links_directly_title">সরাসরি লিঙ্ক খোলা সক্রিয় করুন</string>
     <string name="revanced_enable_press_to_swipe_summary_off">প্রেস-টু-সোয়াইপ নিষ্ক্রিয়</string>
     <string name="revanced_enable_press_to_swipe_summary_on">প্রেস-টু-সোয়াইপ সক্রিয়</string>
@@ -232,6 +225,9 @@
     <string name="revanced_enable_save_video_quality_summary_off">যখনই আপনি ভিডিও কোয়ালিটি পরিবর্তন করবেন তখন ভিডিও কোয়ালিটি সংরক্ষণ করবে না</string>
     <string name="revanced_enable_save_video_quality_summary_on">যখনই আপনি ভিডিও কোয়ালিটি পরিবর্তন করবেন তখন ভিডিও কোয়ালিটি সংরক্ষণ করবে</string>
     <string name="revanced_enable_save_video_quality_title">ভিডিও কোয়ালিটি সংরক্ষণ সক্রিয়</string>
+    <string name="revanced_enable_save_video_speed_summary_off">ভিডিও গতি পরিবর্তন করার সময়ও ভিডিও গতির মান সংরক্ষণ করে না</string>
+    <string name="revanced_enable_save_video_speed_summary_on">ভিডিও গতি পরিবর্তন করার সময়ও ভিডিও গতির মান সংরক্ষণ করে</string>
+    <string name="revanced_enable_save_video_speed_title">ভিডিও গতি সংরক্ষণ সক্রিয় করুন</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">সিকবারে আলতো চাপ সচল আছে</string>
     <string name="revanced_enable_seekbar_tapping_title">সিকবারে আলতো চাপ সচল করুন</string>
     <string name="revanced_enable_swipe_auto_brightness_summary_off">সোয়াইপ করে উজ্জ্বলতা ০ করা হলেও, স্বয়ংক্রিয় উজ্জ্বলতা সক্রিয় হয় না</string>
@@ -262,9 +258,6 @@
     <string name="revanced_experimental_flag">পরীক্ষামূলক ফ্ল্যাগ</string>
     <string name="revanced_extended_issue_center_summary">সমস্যা রিপোর্ট করুন অথবা এখানে পরামর্শ দিন</string>
     <string name="revanced_extended_issue_center_title">ReVanced Extended সমস্যা কেন্দ্র</string>
-    <string name="revanced_extended_settings">সম্প্রসারিত ReVanced সেটিং</string>
-    <string name="revanced_extended_summary">সম্প্রসারিত সম্পর্কিত সেটিং</string>
-    <string name="revanced_extended_title">সম্প্রসারিত সেটিং</string>
     <string name="revanced_hide_auto_captions_summary_off">ক্যাপশন প্রয়োগ করা হলে ভিডিও চলার সময় ক্যাপশন সক্রিয় করা হয়</string>
     <string name="revanced_hide_auto_captions_summary_on">"ক্যাপশন প্রয়োগ করা হলে ভিডিও চলার সময় ক্যাপশন সক্রিয় করা হয় না"</string>
     <string name="revanced_hide_auto_captions_title">স্বয়ংক্রিয় ক্যাপশন লুকান</string>
@@ -344,9 +337,6 @@
     <string name="revanced_hide_info_cards_summary_off">তথ্য কার্ড দৃশ্যমান আছে</string>
     <string name="revanced_hide_info_cards_summary_on">তথ্য কার্ড লুকানো আছে</string>
     <string name="revanced_hide_info_cards_title">তথ্য কার্ড লুকান</string>
-    <string name="revanced_hide_live_chat_button_summary_off">লাইভ চ্যাট বাটন দৃশ্যমান আছে</string>
-    <string name="revanced_hide_live_chat_button_summary_on">লাইভ চ্যাট বাটন লুকানো আছে</string>
-    <string name="revanced_hide_live_chat_button_title">লাইভ চ্যাট বাটন লুকান</string>
     <string name="revanced_hide_menu_ambient_mode_summary_off">অ্যাম্বিয়েন্ট মোড মেনু দৃশ্যমান আছে</string>
     <string name="revanced_hide_menu_ambient_mode_summary_on">অ্যাম্বিয়েন্ট মোড মেনু লুকানো আছে</string>
     <string name="revanced_hide_menu_ambient_mode_title">অ্যাম্বিয়েন্ট মোড মেনু লুকান</string>
@@ -437,11 +427,8 @@
     <string name="revanced_layout_settings_bottomplayer">প্লেয়ারের নিচের লেআউট সেটিং</string>
     <string name="revanced_layout_settings_flyoutmenu">ফ্লাইআউট মেনু লেআউট সেটিং</string>
     <string name="revanced_layout_settings_fullscreen">ফুলস্ক্রিন লেআউট সেটিং</string>
-    <string name="revanced_layout_settings_general">সাধারণ লেআউট সেটিং</string>
     <string name="revanced_layout_settings_player">প্লেয়ার লেআউট সেটিং</string>
     <string name="revanced_layout_settings_seekbar">সিকবার লেআউট সেটিং</string>
-    <string name="revanced_layout_settings_summary">লেআউট সম্পর্কিত সেটিং</string>
-    <string name="revanced_layout_settings_title">লেআউট সেটিং</string>
     <string name="revanced_misc_settings_summary">বিবিধ সম্পর্কিত সেটিং</string>
     <string name="revanced_misc_settings_title">বিবিধ সেটিং</string>
     <string name="revanced_others_title">অন্যান্য</string>
@@ -459,6 +446,9 @@
     <string name="revanced_overlay_button_downloads_title">ডাউনলোড বাটন দেখান</string>
     <string name="revanced_overlay_button_summary">ওভারলে বাটন সম্পর্কিত সেটিং</string>
     <string name="revanced_overlay_button_title">ওভারলে বাটন সেটিং</string>
+    <string name="revanced_overlay_button_speed_summary_off">গতি বাটন লুকানো আছে</string>
+    <string name="revanced_overlay_button_speed_summary_on">গতি বাটন দৃশ্যমান আছে</string>
+    <string name="revanced_overlay_button_speed_title">গতি বাটন দেখান</string>
     <string name="revanced_overlay_button_whitelist_summary_off">সাদা তালিকা বাটন লুকানো আছে</string>
     <string name="revanced_overlay_button_whitelist_summary_on">সাদা তালিকা বাটন দৃশ্যমান আছে</string>
     <string name="revanced_overlay_button_whitelist_title">সাদা তালিকা বাটন দেখান</string>
@@ -508,7 +498,7 @@
     <string name="revanced_save_video_quality_mobile_error">মোবাইল ডাটার ডিফল্ট কোয়ালিটি পরিবর্তন করতে ব্যর্থ হয়েছে</string>
     <string name="revanced_save_video_quality_wifi">ওয়াই-ফাই এর ডিফল্ট কোয়ালিটি এতে পরিবর্তন হচ্ছে:</string>
     <string name="revanced_save_video_quality_wifi_error">ওয়াই-ফাই এর ডিফল্ট কোয়ালিটি পরিবর্তন করতে ব্যর্থ হয়েছে</string>
-    <string name="revanced_settings">ReVanced সেটিং</string>
+    <string name="revanced_save_video_speed">ডিফল্ট গতি পরিবর্তন হচ্ছে:</string>
     <string name="revanced_swipe_controls_summary">সোয়াইপ কন্ট্রোল সম্পর্কিত সেটিং</string>
     <string name="revanced_swipe_controls_title">সোয়াইপ কন্ট্রোল সেটিং</string>
     <string name="revanced_swipe_magnitude_threshold_summary">সোয়াইপ হওয়ার জন্য থ্রেশহোল্ডের পরিমাণ</string>
@@ -551,8 +541,6 @@
     <string name="sb_guidelines_popup_title">নির্দেশিকা রয়েছে</string>
     <string name="sb_guidelines_preference_sum">নির্দেশিকাতে সেগমেন্ট জমা দেওয়ার বিষয়ে টিপস এবং নিয়ম রয়েছে</string>
     <string name="sb_guidelines_preference_title">নির্দেশিকা দেখুন</string>
-    <string name="sb_settings">SponsorBlock সেটিং</string>
-    <string name="sb_summary">SponsorBlock সম্পর্কিত সেটিং</string>
     <string name="sb_switching_success">সফলভাবে পরিবর্তন করা হয়েছে। ভিডিও পুনঃলোড করুন</string>
     <string name="sb_switching_to_mirror">মিরর API সার্ভার থেকে প্রধান API সার্ভারে পরিবর্তন করা হচ্ছে..</string>
     <string name="segments_endcards">এন্ডকার্ড/কৃতজ্ঞতা</string>

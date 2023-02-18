@@ -46,11 +46,9 @@
     <string name="microg_not_installed_notice">Por favor, instale MicroG</string>
     <string name="microg_not_installed_warning">MicroG no se encuentra</string>
     <string name="microg_not_running_warning">MicroG no se ejecuta en segundo plano</string>
-    <string name="microg_notification_settings">Ajustes de notificaciones</string>
     <string name="microg_notification_settings_summary">"1. El registro de dispositivos de Google y Cloud Messaging deben estar activados para recibir notificaciones.
 2. ReVanced debe mostrarse como registrado en Cloud Messaging.
 3. El estado actual en Cloud Messaging debe ser Conectado."</string>
-    <string name="microg_settings">Ajustes de MicroG</string>
     <string name="minutes">minutos</string>
     <string name="new_segment_choose_category">Elija la categoría del segmento</string>
     <string name="new_segment_confirm_content" formatted="false">"El segmento dura de %02d:%02d a %02d:%02d (%d minutos %02d segundos)
@@ -168,11 +166,8 @@
     <string name="revanced_adremover_web_search_panel_title">Ocultar paneles de búsqueda web</string>
     <string name="revanced_custom_seekbar_color_value_summary">Escriba el código hexadecimal del color para la barra de progreso para usar en modo oscuro</string>
     <string name="revanced_custom_seekbar_color_value_title">Valor de color personalizado para barra de progreso</string>
-    <string name="revanced_default_video_quality_mobile_summary">Seleccione la resolución de vídeo predeterminada en la red móvil</string>
     <string name="revanced_default_video_quality_mobile_title">Calidad de vídeo predeterminada en red móvil</string>
-    <string name="revanced_default_video_quality_wifi_summary">Seleccione la resolución de vídeo predeterminada en la red Wi-Fi</string>
     <string name="revanced_default_video_quality_wifi_title">Calidad de vídeo predeterminada en red Wi-Fi</string>
-    <string name="revanced_default_video_speed_summary">Seleccione la velocidad de vídeo predeterminada</string>
     <string name="revanced_default_video_speed_title">Velocidad de vídeo predeterminada</string>
     <string name="revanced_downloader_not_installed">no está instalado. Por favor, instálelo.</string>
     <string name="revanced_downloader_package_name_summary">"Nombre del paquete de la aplicación de descargas, como NewPipe o PowerTube"</string>
@@ -215,8 +210,6 @@
     <string name="revanced_enable_old_quality_layout_summary_off">El nuevo estilo del ajuste de calidad está visible</string>
     <string name="revanced_enable_old_quality_layout_summary_on">El antiguo estilo del ajuste de calidad está visible</string>
     <string name="revanced_enable_old_quality_layout_title">Activar antiguo estilo del diseño de calidad</string>
-    <string name="revanced_enable_open_links_directly_summary_off">La redirección de URL (youtube.com/redirect) se usa al abrir enlaces en las descripciones de los vídeos</string>
-    <string name="revanced_enable_open_links_directly_summary_on">Omite los redireccionamientos de URL (youtube.com/redirect) al abrir enlaces en las descripciones de los vídeos</string>
     <string name="revanced_enable_open_links_directly_title">Activar apertura de enlaces directamente</string>
     <string name="revanced_enable_press_to_swipe_summary_off">El gesto de presionar para deslizar está desactivado</string>
     <string name="revanced_enable_press_to_swipe_summary_on">El gesto de presionar para deslizar está activado</string>
@@ -230,6 +223,9 @@
     <string name="revanced_enable_save_video_quality_summary_off">No se guardan los valores de calidad del vídeo incluso cuando cambia la calidad del vídeo </string>
     <string name="revanced_enable_save_video_quality_summary_on">Se guarda el valor de la calidad del vídeo cada vez que cambia la calidad del vídeo</string>
     <string name="revanced_enable_save_video_quality_title">Activar guardado de calidad de vídeo</string>
+    <string name="revanced_enable_save_video_speed_summary_off">No se guardan los valores de velocidad de vídeo aunque se cambie la velocidad de vídeo</string>
+    <string name="revanced_enable_save_video_speed_summary_on">Se guarda el valor de la velocidad de vídeo cada vez que cambies la velocidad de vídeo</string>
+    <string name="revanced_enable_save_video_speed_title">Activar guardado de velocidad de vídeo</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">La pulsación en la barra de progreso está activada</string>
     <string name="revanced_enable_seekbar_tapping_title">Activar pulsación en barra de progreso</string>
     <string name="revanced_enable_swipe_auto_brightness_summary_off">Incluso si el brillo se establece en 0 al deslizar, el brillo automático no está activado</string>
@@ -260,9 +256,6 @@
     <string name="revanced_experimental_flag">Funciones experimentales</string>
     <string name="revanced_extended_issue_center_summary">Informe problemas o deje sugerencias aquí</string>
     <string name="revanced_extended_issue_center_title">Centro de problemas de ReVanced Extended</string>
-    <string name="revanced_extended_settings">Ajustes de ReVanced Extended</string>
-    <string name="revanced_extended_summary">Ajustes relacionados con Extended</string>
-    <string name="revanced_extended_title">Ajustes de Extended</string>
     <string name="revanced_hide_auto_captions_summary_off">Los subtítulos se activan cuando la reproducción de un vídeo con subtítulos es obligatoria</string>
     <string name="revanced_hide_auto_captions_summary_on">"Los subtítulos no están activados cuando la reproducción de un vídeo con subtítulos es obligatoria"</string>
     <string name="revanced_hide_auto_captions_title">Ocultar subtítulos automáticos</string>
@@ -342,9 +335,6 @@
     <string name="revanced_hide_info_cards_summary_off">Las tarjetas de información están visibles</string>
     <string name="revanced_hide_info_cards_summary_on">Las tarjetas de información están ocultas</string>
     <string name="revanced_hide_info_cards_title">Ocultar tarjetas de información</string>
-    <string name="revanced_hide_live_chat_button_summary_off">El botón Chat En Directo está visible</string>
-    <string name="revanced_hide_live_chat_button_summary_on">El botón Chat En Directo está oculto</string>
-    <string name="revanced_hide_live_chat_button_title">Ocultar botón Chat En Directo</string>
     <string name="revanced_hide_menu_ambient_mode_summary_off">El menú Modo Ambiente está visible</string>
     <string name="revanced_hide_menu_ambient_mode_summary_on">El menú Modo Ambiente está oculto</string>
     <string name="revanced_hide_menu_ambient_mode_title">Ocultar menú Modo Ambiente</string>
@@ -435,11 +425,8 @@
     <string name="revanced_layout_settings_bottomplayer">Ajustes de diseño del reproductor inferior</string>
     <string name="revanced_layout_settings_flyoutmenu">Ajustes de diseño del menú desplegable</string>
     <string name="revanced_layout_settings_fullscreen">Ajustes de diseño de pantalla completa</string>
-    <string name="revanced_layout_settings_general">Ajustes generales de diseño</string>
     <string name="revanced_layout_settings_player">Ajustes de diseño del reproductor</string>
     <string name="revanced_layout_settings_seekbar">Ajustes de diseño de la barra de progreso</string>
-    <string name="revanced_layout_settings_summary">Ajustes relacionados con el diseño</string>
-    <string name="revanced_layout_settings_title">Ajustes de diseño</string>
     <string name="revanced_misc_settings_summary">Ajustes relacionados con otros</string>
     <string name="revanced_misc_settings_title">Ajustes de otros</string>
     <string name="revanced_others_title">Otros</string>
@@ -457,6 +444,9 @@
     <string name="revanced_overlay_button_downloads_title">Mostrar botón de descarga</string>
     <string name="revanced_overlay_button_summary">Ajustes relacionados con botones de superposiciones</string>
     <string name="revanced_overlay_button_title">Ajustes de botones de superposiciones</string>
+    <string name="revanced_overlay_button_speed_summary_off">El botón de velocidad está oculto</string>
+    <string name="revanced_overlay_button_speed_summary_on">El botón de velocidad está visible</string>
+    <string name="revanced_overlay_button_speed_title">Mostrar botón de velocidad</string>
     <string name="revanced_overlay_button_whitelist_summary_off">El botón de lista blanca está oculto</string>
     <string name="revanced_overlay_button_whitelist_summary_on">El botón de lista blanca está visible</string>
     <string name="revanced_overlay_button_whitelist_title">Mostrar botón de lista blanca</string>
@@ -507,7 +497,7 @@ Toque aquí para obtener más información.</string>
     <string name="revanced_save_video_quality_mobile_error">No se pudo cambiar la calidad predeterminada con datos móviles</string>
     <string name="revanced_save_video_quality_wifi">Cambiando la calidad predeterminada con Wi-Fi a: </string>
     <string name="revanced_save_video_quality_wifi_error">No se pudo cambiar la calidad predeterminada con Wi-Fi</string>
-    <string name="revanced_settings">Ajustes de ReVanced</string>
+    <string name="revanced_save_video_speed">Cambiando la velocidad predeterminada a: </string>
     <string name="revanced_swipe_controls_summary">Ajustes relacionados con los controles de deslizamiento</string>
     <string name="revanced_swipe_controls_title">Ajustes de controles de deslizamiento</string>
     <string name="revanced_swipe_magnitude_threshold_summary">La cantidad de umbral para que ocurra el deslizamiento</string>
@@ -550,8 +540,6 @@ Toque aquí para obtener más información.</string>
     <string name="sb_guidelines_popup_title">Hay normas</string>
     <string name="sb_guidelines_preference_sum">Las normas contienen consejos y reglas sobre el envío de segmentos</string>
     <string name="sb_guidelines_preference_title">Ver normas</string>
-    <string name="sb_settings">Ajustes de SponsorBlock</string>
-    <string name="sb_summary">Ajustes relacionados con SponsorBlock</string>
     <string name="sb_switching_success">Cambiado correctamente. recargar el vídeo</string>
     <string name="sb_switching_to_mirror">Cambio del servidor Mirror de la API al servidor principal de la API.</string>
     <string name="segments_endcards">Tarjetas finales/Créditos</string>

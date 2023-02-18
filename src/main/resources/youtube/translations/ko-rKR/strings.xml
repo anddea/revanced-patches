@@ -46,11 +46,9 @@
     <string name="microg_not_installed_notice">MicroG를 설치해 주세요</string>
     <string name="microg_not_installed_warning">MicroG가 설치되지 않았습니다.</string>
     <string name="microg_not_running_warning">MicroG가 백그라운드에서 실행중이 아닙니다</string>
-    <string name="microg_notification_settings">알림 설정</string>
     <string name="microg_notification_settings_summary">"1. 알림을 받으려면 Google 기기 등록 및 클라우드 메시징을 활성화해야 합니다.
 2. ReVanced Extended가 클라우드 메시징에 등록된 앱으로 표시되어야 합니다.
 3. 클라우드 메시징의 현재 상태가 연결 상태여야 합니다."</string>
-    <string name="microg_settings">MicroG 설정</string>
     <string name="minutes">분</string>
     <string name="new_segment_choose_category">구간 카테고리를 선택해주세요</string>
     <string name="new_segment_confirm_content" formatted="false">"선택된 구간은 %02d:%02d부터 %02d:%02d까지 입니다 (%d분 %02d초)
@@ -168,11 +166,8 @@
     <string name="revanced_adremover_web_search_panel_title">웹 검색 패널 숨기기</string>
     <string name="revanced_custom_seekbar_color_value_summary">다크모드에서 사용할 재생바 색상의 헥스코드를 입력하세요.</string>
     <string name="revanced_custom_seekbar_color_value_title">재생바 색상 직접 설정하기</string>
-    <string name="revanced_default_video_quality_mobile_summary">모바일 데이터를 사용 중일 때 선택한 화질로 영상이 플레이됩니다.</string>
     <string name="revanced_default_video_quality_mobile_title">모바일 데이터 기본 영상 화질</string>
-    <string name="revanced_default_video_quality_wifi_summary">Wi-Fi를 사용 중일 때 선택한 화질로 영상이 플레이됩니다.</string>
     <string name="revanced_default_video_quality_wifi_title">Wi-Fi 연결 시 기본 영상 화질</string>
-    <string name="revanced_default_video_speed_summary">영상의 기본 재생 속도를 설정합니다.</string>
     <string name="revanced_default_video_speed_title">영상 재생 시 기본 속도</string>
     <string name="revanced_downloader_not_installed">가 설치되지 않았습니다. 다운로더를 설치해 주세요.</string>
     <string name="revanced_downloader_package_name_summary">"NewPipe나 PowerTube와 같은 다운로더의 패키지명을 입력하세요."</string>
@@ -215,8 +210,6 @@
     <string name="revanced_enable_old_quality_layout_summary_off">새로운 스타일의 동영상 품질 설정이 노출됩니다.</string>
     <string name="revanced_enable_old_quality_layout_summary_on">이전 스타일의 동영상 품질 설정이 노출됩니다.</string>
     <string name="revanced_enable_old_quality_layout_title">이전 스타일의 동영상 품질 설정 활성화하기</string>
-    <string name="revanced_enable_open_links_directly_summary_off">영상 설명의 URL을 열 때 URL 리다이렉션(youtube.com/redirect)을 사용합니다.</string>
-    <string name="revanced_enable_open_links_directly_summary_on">영상 설명의 URL을 열 때 URL 리다이렉션(youtube.com/redirect)을 거치지 않고 다이렉트로 연결됩니다.</string>
     <string name="revanced_enable_open_links_directly_title">리다이렉션 없이 링크 바로 열기</string>
     <string name="revanced_enable_press_to_swipe_summary_off">눌러서 스와이프 제스처를 활성화 하지 않습니다.</string>
     <string name="revanced_enable_press_to_swipe_summary_on">눌러서 스와이프 제스처를 활성화합니다.</string>
@@ -230,6 +223,9 @@
     <string name="revanced_enable_save_video_quality_summary_off">동영상 화질을 변경할 때마다 영상 화질 값을 저장하지 않습니다.</string>
     <string name="revanced_enable_save_video_quality_summary_on">동영상 화질을 변경할 때마다 영상 화질 값을 저장합니다.</string>
     <string name="revanced_enable_save_video_quality_title">동영상 화질 저장 활성화하기</string>
+    <string name="revanced_enable_save_video_speed_summary_off">동영상 재생 속도를 변경할 때마다 영상 재생 속도 값을 저장하지 않습니다.</string>
+    <string name="revanced_enable_save_video_speed_summary_on">동영상 재생 속도를 변경할 때마다 영상 재생 속도 값을 저장합니다.</string>
+    <string name="revanced_enable_save_video_speed_title">동영상 재생 속도 저장 활성화하기</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">재생바 터치 조작이 활성화 되어있습니다.</string>
     <string name="revanced_enable_seekbar_tapping_title">재생바 터치 조작 활성화하기</string>
     <string name="revanced_enable_swipe_auto_brightness_summary_off">스와이프 조작으로 화면 밝기가 0이 되더라도 자동으로 밝기를 조절하지 않습니다.</string>
@@ -260,9 +256,6 @@
     <string name="revanced_experimental_flag">실험적 기능</string>
     <string name="revanced_extended_issue_center_summary">버그 신고 또는 기능 제안은 이곳을 방문해주세요.</string>
     <string name="revanced_extended_issue_center_title">ReVanced Extended Report Center</string>
-    <string name="revanced_extended_settings">ReVanced Extended 설정</string>
-    <string name="revanced_extended_summary">Extended 관련 설정입니다.</string>
-    <string name="revanced_extended_title">Extended 설정</string>
     <string name="revanced_hide_auto_captions_summary_off">자막 사용이 강제된 동영상에서 자막이 노출됩니다.</string>
     <string name="revanced_hide_auto_captions_summary_on">"자막 사용이 강제된 동영상에서 자막이 숨겨집니다."</string>
     <string name="revanced_hide_auto_captions_title">자동 자막 숨기기</string>
@@ -342,9 +335,6 @@
     <string name="revanced_hide_info_cards_summary_off">영상 정보 카드가 노출됩니다.</string>
     <string name="revanced_hide_info_cards_summary_on">영상 정보 카드가 숨겨집니다.</string>
     <string name="revanced_hide_info_cards_title">영상 정보 카드 숨기기</string>
-    <string name="revanced_hide_live_chat_button_summary_off">실시간 채팅 버튼이 노출됩니다.</string>
-    <string name="revanced_hide_live_chat_button_summary_on">실시간 채팅 버튼이 숨겨집니다.</string>
-    <string name="revanced_hide_live_chat_button_title">실시간 채팅 버튼 숨기기</string>
     <string name="revanced_hide_menu_ambient_mode_summary_off">영화 조명 메뉴가 노출됩니다.</string>
     <string name="revanced_hide_menu_ambient_mode_summary_on">영화 조명 메뉴가 숨겨집니다.</string>
     <string name="revanced_hide_menu_ambient_mode_title">영화 조명 메뉴 숨기기</string>
@@ -435,11 +425,8 @@
     <string name="revanced_layout_settings_bottomplayer">플레이어 하단 레이아웃 설정</string>
     <string name="revanced_layout_settings_flyoutmenu">플레이어 메뉴 레이아웃 설정</string>
     <string name="revanced_layout_settings_fullscreen">전체화면 레이아웃 설정</string>
-    <string name="revanced_layout_settings_general">일반 레이아웃 설정</string>
     <string name="revanced_layout_settings_player">플레이어 레이아웃 설정</string>
     <string name="revanced_layout_settings_seekbar">재생바 레이아웃 설정</string>
-    <string name="revanced_layout_settings_summary">레이아웃 관련 설정입니다.</string>
-    <string name="revanced_layout_settings_title">레이아웃 설정</string>
     <string name="revanced_misc_settings_summary">기타 설정입니다.</string>
     <string name="revanced_misc_settings_title">기타 설정</string>
     <string name="revanced_others_title">기타</string>
@@ -457,6 +444,9 @@
     <string name="revanced_overlay_button_downloads_title">다운로드 버튼 표시</string>
     <string name="revanced_overlay_button_summary">오버레이 버튼 관련 설정입니다.</string>
     <string name="revanced_overlay_button_title">오버레이 버튼 설정</string>
+    <string name="revanced_overlay_button_speed_summary_off">동영상 재생 속도 버튼이 숨겨집니다.</string>
+    <string name="revanced_overlay_button_speed_summary_on">동영상 재생 속도 버튼이 노출됩니다.</string>
+    <string name="revanced_overlay_button_speed_title">재생 속도 버튼 표시</string>
     <string name="revanced_overlay_button_whitelist_summary_off">화이트리스트 버튼이 숨겨집니다.</string>
     <string name="revanced_overlay_button_whitelist_summary_on">화이트리스트 버튼이 노출됩니다.</string>
     <string name="revanced_overlay_button_whitelist_title">화이트리스트 버튼 표시</string>
@@ -506,7 +496,7 @@
     <string name="revanced_save_video_quality_mobile_error">모바일 데이터 연결 시 기본 영상 화질 설정에 실패하였습니다.</string>
     <string name="revanced_save_video_quality_wifi">Wi-Fi 연결 시 기본 영상 화질 설정:</string>
     <string name="revanced_save_video_quality_wifi_error">Wi-Fi 연결 시 기본 영상 화질 설정에 실패하였습니다.</string>
-    <string name="revanced_settings">ReVanced 설정</string>
+    <string name="revanced_save_video_speed">기본 재생 속도 설정:</string>
     <string name="revanced_swipe_controls_summary">볼륨과 밝기 관련 제스처 설정입니다.</string>
     <string name="revanced_swipe_controls_title">스와이프 제스처 설정</string>
     <string name="revanced_swipe_magnitude_threshold_summary">제스처 인식을 위해 얼마나 스와이프를 해야 할지를 설정할 수 있으며, 원하지 않은 제스처 인식을 방지합니다.</string>
@@ -549,8 +539,6 @@
     <string name="sb_guidelines_popup_title">가이드라인</string>
     <string name="sb_guidelines_preference_sum">구간 제출 시의 주의사항에 대한 내용이 포함되어 있습니다.</string>
     <string name="sb_guidelines_preference_title">가이드라인 보기</string>
-    <string name="sb_settings">SponsorBlock 설정</string>
-    <string name="sb_summary">SponsorBlock과 관련된 설정입니다.</string>
     <string name="sb_switching_success">성공적으로 전환되었습니다. 영상을 다시 로드해주세요.</string>
     <string name="sb_switching_to_mirror">Mirror API 서버를 Main API 서버로 전환하는 중입니다..</string>
     <string name="segments_endcards">최종 화면 / 크레딧</string>

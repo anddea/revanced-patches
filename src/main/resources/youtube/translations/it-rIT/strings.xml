@@ -46,11 +46,9 @@
     <string name="microg_not_installed_notice">Per favore installa MicroG</string>
     <string name="microg_not_installed_warning">MicroG non trovato</string>
     <string name="microg_not_running_warning">MicroG non è in esecuzione in secondo piano</string>
-    <string name="microg_notification_settings">Impostazioni notifiche</string>
     <string name="microg_notification_settings_summary">"1. Registrazione del Dispositivo e Messaggistica Cloud devono risultare attivi per poter ricevere le notifiche.
 2. ReVanced Extended deve essere presente nella lista delle app registrate in Messaggistica Cloud.
 3. Lo stato di Messaggistica Cloud deve risultare Connesso."</string>
-    <string name="microg_settings">Impostazioni di MicroG</string>
     <string name="minutes">minuti</string>
     <string name="new_segment_choose_category">Scegli la categoria del segmento</string>
     <string name="new_segment_confirm_content" formatted="false">"Il segmento dura da %02d:%02d a %02d:%02d (%d minuti %02d secondi)
@@ -168,11 +166,8 @@
     <string name="revanced_adremover_web_search_panel_title">Nascondi i pannelli di ricerca web</string>
     <string name="revanced_custom_seekbar_color_value_summary">Digita il colore esadecimale per la barra del minutaggio in modalità scura</string>
     <string name="revanced_custom_seekbar_color_value_title">Colore personalizzato barra del minutaggio scura</string>
-    <string name="revanced_default_video_quality_mobile_summary">Seleziona la risoluzione video predefinita quando utilizzi una connessione Dati Cellulare</string>
     <string name="revanced_default_video_quality_mobile_title">Risoluzione video Dati Cellulare predefinita</string>
-    <string name="revanced_default_video_quality_wifi_summary">Seleziona la risoluzione video predefinita quando utilizzi una connessione Wi-Fi</string>
     <string name="revanced_default_video_quality_wifi_title">Risoluzione video Wi-Fi predefinita</string>
-    <string name="revanced_default_video_speed_summary">Seleziona la velocità video predefinita</string>
     <string name="revanced_default_video_speed_title">Velocità video predefinita</string>
     <string name="revanced_downloader_not_installed">non è installato. Per favore installalo.</string>
     <string name="revanced_downloader_package_name_summary">"Il nome del pacchetto dell'app di gestione download come NewPipe o PowerTube"</string>
@@ -215,8 +210,6 @@
     <string name="revanced_enable_old_quality_layout_summary_off">Mostra le nuove impostazioni qualitative</string>
     <string name="revanced_enable_old_quality_layout_summary_on">Mostra le precedenti impostazioni qualitative</string>
     <string name="revanced_enable_old_quality_layout_title">Attiva la vecchia interfaccia qualitativa</string>
-    <string name="revanced_enable_open_links_directly_summary_off">Il reindirizzamento dell\'URL (youtube.com/redirect) è utilizzato quando viene aperto un link nelle descrizioni dei video</string>
-    <string name="revanced_enable_open_links_directly_summary_on">Impedisce il reindirizzamento dell\'URL (youtube.com/redirect) quando vengono aperti i link nelle descrizioni dei video</string>
     <string name="revanced_enable_open_links_directly_title">Attiva apertura link diretta</string>
     <string name="revanced_enable_press_to_swipe_summary_off">Premi-per-Scorrere è disattivato</string>
     <string name="revanced_enable_press_to_swipe_summary_on">Premi-per-Scorrere è attivo</string>
@@ -230,6 +223,9 @@
     <string name="revanced_enable_save_video_quality_summary_off">Non salvare i valori della qualità video anche quando si modifica la qualità video</string>
     <string name="revanced_enable_save_video_quality_summary_on">Salva i valori della qualità video ogni volta che si modifica la qualità video</string>
     <string name="revanced_enable_save_video_quality_title">Attiva salvataggio qualità video</string>
+    <string name="revanced_enable_save_video_speed_summary_off">Non salvare il valore della qualità video dopo ogni modifica manuale</string>
+    <string name="revanced_enable_save_video_speed_summary_on">Salva il valore della qualità video dopo ogni modifica manuale</string>
+    <string name="revanced_enable_save_video_speed_title">Salva velocità video</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">Il tocco sulla barra del minutaggio è attivo</string>
     <string name="revanced_enable_seekbar_tapping_title">Attiva il tocco sulla barra del minutaggio</string>
     <string name="revanced_enable_swipe_auto_brightness_summary_off">Anche se la luminosità fosse impostata su 0 con gesto di scorrimento, la luminosità automatica non verrebbe attivata</string>
@@ -260,9 +256,6 @@
     <string name="revanced_experimental_flag">Opzioni Sperimentali</string>
     <string name="revanced_extended_issue_center_summary">Segnala problemi o lascia suggerimenti qui</string>
     <string name="revanced_extended_issue_center_title">Centro Problemi ReVanced Extended</string>
-    <string name="revanced_extended_settings">Impostazioni di ReVanced Extended</string>
-    <string name="revanced_extended_summary">Impostazioni relative ad Extended</string>
-    <string name="revanced_extended_title">Impostazioni di Extended</string>
     <string name="revanced_hide_auto_captions_summary_off">I sottotitoli vengono mostrati durante la visualizzazione di un video (con sottotitoli automatici)</string>
     <string name="revanced_hide_auto_captions_summary_on">"I sottotitoli vengono nascosti durante la visualizzazione di un video (con sottotitoli automatici)"</string>
     <string name="revanced_hide_auto_captions_title">Nascondi sottotitoli automatici</string>
@@ -342,9 +335,6 @@
     <string name="revanced_hide_info_cards_summary_off">Le schede informative sono visibili</string>
     <string name="revanced_hide_info_cards_summary_on">Le schede informative sono nascoste</string>
     <string name="revanced_hide_info_cards_title">Nascondi le schede informative</string>
-    <string name="revanced_hide_live_chat_button_summary_off">Il pulsante Chat dal Vivo è visibile</string>
-    <string name="revanced_hide_live_chat_button_summary_on">Il pulsante Chat dal Vivo è nascosto</string>
-    <string name="revanced_hide_live_chat_button_title">Pulsante Chat dal Vivo</string>
     <string name="revanced_hide_menu_ambient_mode_summary_off">Il pulsante della modalità Ambient è visibile</string>
     <string name="revanced_hide_menu_ambient_mode_summary_on">Il pulsante della modalità Ambient è nascosto</string>
     <string name="revanced_hide_menu_ambient_mode_title">Pulsante Ambient</string>
@@ -435,11 +425,8 @@
     <string name="revanced_layout_settings_bottomplayer">Impostazioni interfaccia inferiore del riproduttore</string>
     <string name="revanced_layout_settings_flyoutmenu">Interfaccia del menù contestuale di impostazioni</string>
     <string name="revanced_layout_settings_fullscreen">Impostazioni interfaccia a schermo intero</string>
-    <string name="revanced_layout_settings_general">Impostazioni generali interfaccia</string>
     <string name="revanced_layout_settings_player">Impostazioni interfaccia del riproduttore</string>
     <string name="revanced_layout_settings_seekbar">Impostazioni interfaccia della barra del minutaggio</string>
-    <string name="revanced_layout_settings_summary">Impostazioni relative all\'interfaccia</string>
-    <string name="revanced_layout_settings_title">Impostazioni dell\'interfaccia</string>
     <string name="revanced_misc_settings_summary">Varie impostazioni correlate</string>
     <string name="revanced_misc_settings_title">Impostazioni varie</string>
     <string name="revanced_others_title">Altro</string>
@@ -455,8 +442,11 @@
     <string name="revanced_overlay_button_downloads_summary_off">Il pulsante Scarica è nascosto</string>
     <string name="revanced_overlay_button_downloads_summary_on">Il pulsante Scarica è visibile</string>
     <string name="revanced_overlay_button_downloads_title">Mostra il pulsante Scarica</string>
-    <string name="revanced_overlay_button_summary">Impostazioni relative alla sovrapposizione pulsante</string>
-    <string name="revanced_overlay_button_title">Impostazioni sovrapposizione pulsante</string>
+    <string name="revanced_overlay_button_summary">Impostazioni relative ai pulsanti sovrapposti</string>
+    <string name="revanced_overlay_button_title">Impostazioni pulsanti sovrapposti</string>
+    <string name="revanced_overlay_button_speed_summary_off">Il pulsante della velocità è nascosto</string>
+    <string name="revanced_overlay_button_speed_summary_on">Il pulsante della velocità è visibile</string>
+    <string name="revanced_overlay_button_speed_title">Mostra pulsante velocità</string>
     <string name="revanced_overlay_button_whitelist_summary_off">Il pulsante Lista Bianca è nascosto</string>
     <string name="revanced_overlay_button_whitelist_summary_on">Il pulsante Lista Bianca è visibile</string>
     <string name="revanced_overlay_button_whitelist_title">Mostra il pulsante Lista Bianca</string>
@@ -506,7 +496,7 @@ Dal momento che questa opzione è abbastanza obsoleta, potrebbe risultare non pi
     <string name="revanced_save_video_quality_mobile_error">Impossibile cambiare la qualità predefinita dei Dati Cellulare</string>
     <string name="revanced_save_video_quality_wifi">Cambio della qualità Wi-Fi predefinita in:</string>
     <string name="revanced_save_video_quality_wifi_error">Impossibile modificare la qualità WI-FI predefinita</string>
-    <string name="revanced_settings">Impostazioni di ReVanced</string>
+    <string name="revanced_save_video_speed">Modifica velocità predefinita in:</string>
     <string name="revanced_swipe_controls_summary">Impostazioni relative ai controlli a scorrimento</string>
     <string name="revanced_swipe_controls_title">Impostazioni dei controlli a scorrimento</string>
     <string name="revanced_swipe_magnitude_threshold_summary">La quantità di interazioni prima che lo scorrimento si verifichi</string>
@@ -549,8 +539,6 @@ Dal momento che questa opzione è abbastanza obsoleta, potrebbe risultare non pi
     <string name="sb_guidelines_popup_title">Ci sono linee guida</string>
     <string name="sb_guidelines_preference_sum">Le linee guida contengono suggerimenti e regole per l\'invio dei segmenti</string>
     <string name="sb_guidelines_preference_title">Visualizza linee guida</string>
-    <string name="sb_settings">Impostazioni di SponsorBlock</string>
-    <string name="sb_summary">Impostazioni relative a SponsorBlock</string>
     <string name="sb_switching_success">Modifica correttamente eseguita. Ricarica il video</string>
     <string name="sb_switching_to_mirror">Passaggio del server API di backup al server API principale..</string>
     <string name="segments_endcards">Schede Finali/Crediti</string>
