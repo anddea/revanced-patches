@@ -32,7 +32,7 @@ class HideNextPrevButtonPatch : ResourcePatch {
          */
         SettingsPatch.addPreference(
             arrayOf(
-                "PREFERENCE: LAYOUT_SETTINGS",
+                "PREFERENCE: OTHER_LAYOUT_SETTINGS",
                 "PREFERENCE_HEADER: PLAYER",
                 "SETTINGS: HIDE_NEXT_BUTTON",
                 "SETTINGS: HIDE_PREV_BUTTON"

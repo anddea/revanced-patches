@@ -92,11 +92,10 @@ class GeneralAdsPatch : ResourcePatch {
                 "PREFERENCE: ADS_SETTINGS",
                 "SETTINGS: HIDE_GENERAL_ADS",
 
-                "PREFERENCE: LAYOUT_SETTINGS",
-                "PREFERENCE_HEADER: GENERAL",
+                "PREFERENCE: GENERAL_LAYOUT_SETTINGS",
                 "SETTINGS: HIDE_GENERAL_LAYOUT_ADS",
 
-                "PREFERENCE: LAYOUT_SETTINGS",
+                "PREFERENCE: GENERAL_LAYOUT_SETTINGS",
                 "PREFERENCE_HEADER: PLAYER",
                 "SETTINGS: HIDE_VIEW_PRODUCT"
             )

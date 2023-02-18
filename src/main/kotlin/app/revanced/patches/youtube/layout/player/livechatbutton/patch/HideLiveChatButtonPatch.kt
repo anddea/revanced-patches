@@ -32,7 +32,7 @@ class HideLiveChatButtonPatch : ResourcePatch {
          */
         SettingsPatch.addPreference(
             arrayOf(
-                "PREFERENCE: LAYOUT_SETTINGS",
+                "PREFERENCE: OTHER_LAYOUT_SETTINGS",
                 "PREFERENCE_HEADER: PLAYER",
                 "SETTINGS: HIDE_LIVE_CHATS_BUTTON"
             )

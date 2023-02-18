@@ -45,7 +45,7 @@ class OldQualityLayoutPatch : BytecodePatch(
          */
         SettingsPatch.addPreference(
             arrayOf(
-                "PREFERENCE: LAYOUT_SETTINGS",
+                "PREFERENCE: OTHER_LAYOUT_SETTINGS",
                 "PREFERENCE_HEADER: FLYOUT_PANEL",
                 "SETTINGS: ENABLE_OLD_QUALITY_LAYOUT"
             )

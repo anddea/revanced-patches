@@ -76,11 +76,9 @@
     </PreferenceScreen>PREFERENCE: SWIPE_SETTINGS -->
 
 
-    <!-- PREFERENCE: LAYOUT_SETTINGS
-    <PreferenceScreen android:title="@string/revanced_layout_settings_title" android:key="layout" android:summary="@string/revanced_layout_settings_summary">PREFERENCE: LAYOUT_SETTINGS -->
-
-    <!-- PREFERENCE_HEADER: GENERAL
-        <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_layout_settings_general" />PREFERENCE_HEADER: GENERAL -->
+    <!-- PREFERENCE: GENERAL_LAYOUT_SETTINGS
+    <PreferenceScreen android:title="@string/revanced_general_layout_settings_title" android:key="general_layout" android:summary="@string/revanced_general_layout_settings_summary">
+        <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_general_layout_settings_title" />PREFERENCE: GENERAL_LAYOUT_SETTINGS -->
 
         <!-- SETTINGS: HIDE_STORIES_SHELF
         <SwitchPreference android:title="@string/revanced_hide_stories_shelf_title" android:key="revanced_hide_stories_shelf" android:defaultValue="true" android:summaryOn="@string/revanced_hide_stories_shelf_summary_on" android:summaryOff="@string/revanced_hide_stories_shelf_summary_off" />SETTINGS: HIDE_STORIES_SHELF -->
@@ -168,6 +166,12 @@
 
         <!-- SETTINGS: HEADER_SWITCH
         <SwitchPreference android:title="@string/revanced_override_premium_header_title" android:key="revanced_override_premium_header" android:defaultValue="false" android:summaryOn="@string/revanced_override_premium_header_summary_on" android:summaryOff="@string/revanced_override_premium_header_summary_off" />SETTINGS: HEADER_SWITCH -->
+
+    <!-- PREFERENCE: GENERAL_LAYOUT_SETTINGS
+    </PreferenceScreen>PREFERENCE: GENERAL_LAYOUT_SETTINGS -->
+
+    <!-- PREFERENCE: OTHER_LAYOUT_SETTINGS
+    <PreferenceScreen android:title="@string/revanced_other_layout_settings_title" android:key="other_layout" android:summary="@string/revanced_other_layout_settings_summary">PREFERENCE: OTHER_LAYOUT_SETTINGS -->
 
     <!-- PREFERENCE_HEADER: PLAYER
         <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_layout_settings_player" />PREFERENCE_HEADER: PLAYER -->
@@ -290,8 +294,8 @@
     <!-- SETTINGS: HIDE_TIME_AND_SEEKBAR
         <SwitchPreference android:title="@string/revanced_hide_time_and_seekbar_title" android:key="revanced_hide_time_and_seekbar" android:defaultValue="false" android:summaryOn="@string/revanced_hide_time_and_seekbar_summary_on" android:summaryOff="@string/revanced_hide_time_and_seekbar_summary_off" />SETTINGS: HIDE_TIME_AND_SEEKBAR -->
 
-    <!-- PREFERENCE: LAYOUT_SETTINGS
-    </PreferenceScreen>PREFERENCE: LAYOUT_SETTINGS -->
+    <!-- PREFERENCE: OTHER_LAYOUT_SETTINGS
+    </PreferenceScreen>PREFERENCE: OTHER_LAYOUT_SETTINGS -->
 
 
     <!-- PREFERENCE: OVERLAY_BUTTONS
@@ -353,7 +357,7 @@
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_swipe_controls_title" />
             <Preference android:title="swipe-controls" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
 
-            <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_layout_settings_general" />
+            <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_general_layout_settings_title" />
             <Preference android:title="hide-stories" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-create-button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-shorts-button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
