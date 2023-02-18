@@ -10,7 +10,6 @@ import org.jf.dexlib2.Opcode
 object PivotBarCreateButtonViewFingerprint : MethodFingerprint(
     returnType = "V",
     access = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    parameters = listOf("Z"),
     customFingerprint = { methodDef ->
         methodDef.implementation?.instructions?.any {
             it.opcode.ordinal == Opcode.CONST.ordinal &&

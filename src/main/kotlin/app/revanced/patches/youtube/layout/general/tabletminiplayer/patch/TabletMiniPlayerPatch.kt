@@ -5,6 +5,7 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
+import app.revanced.patcher.data.toMethodWalker
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprintResult
@@ -19,6 +20,7 @@ import app.revanced.patches.youtube.layout.general.tabletminiplayer.fingerprints
 import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourcdIdPatch
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
 import app.revanced.util.integrations.Constants.GENERAL_LAYOUT
+import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
@@ -35,30 +37,32 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 class TabletMiniPlayerPatch : BytecodePatch(
     listOf(
         MiniPlayerDimensionsCalculatorFingerprint,
-        MiniPlayerResponseModelSizeCheckFingerprint
+        MiniPlayerResponseModelSizeCheckFingerprint,
+        MiniPlayerOverrideParentFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
 
         MiniPlayerDimensionsCalculatorFingerprint.result?.let { parentResult ->
-            // first resolve the fingerprints via the parent fingerprint
-            val miniPlayerClass = parentResult.classDef
-
-            arrayOf(
-                MiniPlayerOverrideNoContextFingerprint,
-                MiniPlayerOverrideFingerprint,
-                MiniPlayerResponseModelSizeCheckFingerprint
-            ).map {
-                it to (it.also { it.resolve(context, miniPlayerClass) }.result ?: return it.toErrorResult())
-            }.forEach { (fingerprint, result) ->
-                if (fingerprint == MiniPlayerOverrideNoContextFingerprint) {
-                    val (method, _, parameterRegister) = result.addProxyCall()
-                    method.insertOverride(method.implementation!!.instructions.size - 1, parameterRegister)
-                } else {
-                    val (_, _, _) = result.addProxyCall()
-                }
-            }
+            MiniPlayerOverrideNoContextFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.let { result ->
+                val (method, _, parameterRegister) = result.addProxyCall()
+                method.insertOverride(method.implementation!!.instructions.size - 1, parameterRegister)
+            } ?: return MiniPlayerOverrideNoContextFingerprint.toErrorResult()
         } ?: return MiniPlayerDimensionsCalculatorFingerprint.toErrorResult()
+
+        MiniPlayerOverrideParentFingerprint.result?.let { parentResult ->
+            MiniPlayerOverrideFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.let { result ->
+                (context.toMethodWalker(result.method)
+                        .nextMethod(result.scanResult.patternScanResult!!.startIndex, true)
+                        .getMethod() as MutableMethod)
+                .instructionProxyCall()
+            } ?: return MiniPlayerOverrideFingerprint.toErrorResult()
+
+        } ?: return MiniPlayerOverrideParentFingerprint.toErrorResult()
+
+        MiniPlayerResponseModelSizeCheckFingerprint.result?.let {
+            val (_, _, _) = it.addProxyCall()
+        } ?: return MiniPlayerResponseModelSizeCheckFingerprint.toErrorResult()
 
         /*
          * Add settings
@@ -92,6 +96,17 @@ class TabletMiniPlayerPatch : BytecodePatch(
                     move-result v$overrideRegister
                     """
             )
+        }
+
+        fun MutableMethod.instructionProxyCall() {
+            val insertInstructions = this.implementation!!.instructions
+            for ((index, instruction) in insertInstructions.withIndex()) {
+                if (instruction.opcode != Opcode.RETURN) continue
+                val parameterRegister = (instruction as OneRegisterInstruction).registerA
+                this.insertOverride(index, parameterRegister)
+                this.insertOverride(insertInstructions.size - 1, parameterRegister)
+                break;
+            }
         }
 
         fun MethodFingerprintResult.unwrap(): Triple<MutableMethod, Int, Int> {

@@ -20,7 +20,9 @@ import app.revanced.patches.youtube.layout.fullscreen.fullscreenpanels.fingerpri
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
 import app.revanced.util.integrations.Constants.FULLSCREEN_LAYOUT
 import org.jf.dexlib2.Opcode
+import org.jf.dexlib2.builder.instruction.BuilderInstruction21c
 import org.jf.dexlib2.builder.instruction.BuilderInstruction35c
+import org.jf.dexlib2.iface.instruction.formats.Instruction21c
 import org.jf.dexlib2.iface.instruction.formats.Instruction35c
 
 @Patch
@@ -57,6 +59,29 @@ class HideFullscreenPanelsPatch : BytecodePatch(
             }
         } ?: return FullscreenViewAdderFingerprint.toErrorResult()
 
+        LayoutConstructorFingerprint.result?.mutableMethod?.let { method ->
+            val instructions = method.implementation!!.instructions
+            val registerIndex = instructions.indexOfFirst {
+                it.opcode == Opcode.CONST_STRING &&
+                        (it as BuilderInstruction21c).reference.toString() == "1.0x"
+            }
+            val dummyRegister = (instructions[registerIndex] as Instruction21c).registerA
+
+            val invokeIndex = method.implementation!!.instructions.indexOfFirst {
+                it.opcode.ordinal == Opcode.INVOKE_VIRTUAL.ordinal &&
+                        ((it as? BuilderInstruction35c)?.reference.toString() ==
+                                "Landroid/widget/FrameLayout;->addView(Landroid/view/View;)V")
+            }
+
+            method.addInstructions(
+                invokeIndex, """
+                    invoke-static {}, $FULLSCREEN_LAYOUT->hideFullscreenPanel()Z
+                    move-result v$dummyRegister
+                    if-nez v$dummyRegister, :hidden
+                """, listOf(ExternalLabel("hidden", method.instruction(invokeIndex + 1)))
+            )
+        } ?: return LayoutConstructorFingerprint.toErrorResult()
+
         /*
          * Add settings
          */
@@ -69,22 +94,6 @@ class HideFullscreenPanelsPatch : BytecodePatch(
         )
 
         SettingsPatch.updatePatchStatus("hide-fullscreen-panels")
-
-        LayoutConstructorFingerprint.result?.mutableMethod?.let { method ->
-            val invokeIndex = method.implementation!!.instructions.indexOfFirst {
-                it.opcode.ordinal == Opcode.INVOKE_VIRTUAL.ordinal &&
-                        ((it as? BuilderInstruction35c)?.reference.toString() ==
-                                "Landroid/widget/FrameLayout;->addView(Landroid/view/View;)V")
-            }
-
-            method.addInstructions(
-                invokeIndex, """
-                    invoke-static {}, $FULLSCREEN_LAYOUT->hideFullscreenPanel()Z
-                    move-result v15
-                    if-nez v15, :hidden
-                """, listOf(ExternalLabel("hidden", method.instruction(invokeIndex + 1)))
-            )
-        } ?: return LayoutConstructorFingerprint.toErrorResult()
 
         return PatchResultSuccess()
     }

@@ -17,9 +17,12 @@ import app.revanced.patches.shared.fingerprints.LayoutConstructorFingerprint
 import app.revanced.patches.shared.patch.mapping.ResourceMappingPatch
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
 import app.revanced.util.integrations.Constants.PLAYER_LAYOUT
+import org.jf.dexlib2.Opcode
+import org.jf.dexlib2.builder.instruction.BuilderInstruction21c
 import org.jf.dexlib2.iface.instruction.Instruction
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 import org.jf.dexlib2.iface.instruction.WideLiteralInstruction
+import org.jf.dexlib2.iface.instruction.formats.Instruction21c
 import org.jf.dexlib2.iface.reference.MethodReference
 
 @Patch
@@ -46,6 +49,12 @@ class HideAutoplayButtonPatch : BytecodePatch(
 
         LayoutConstructorFingerprint.result?.mutableMethod?.let { method ->
             with (method.implementation!!.instructions) {
+                val registerIndex = indexOfFirst {
+                    it.opcode == Opcode.CONST_STRING &&
+                            (it as BuilderInstruction21c).reference.toString() == "1.0x"
+                }
+                val dummyRegister = (this[registerIndex] as Instruction21c).registerA
+
                 // where to insert the branch instructions and ...
                 val insertIndex = this.indexOfFirst {
                     (it as? WideLiteralInstruction)?.wideLiteral == autoNavPreviewStubId
@@ -60,8 +69,8 @@ class HideAutoplayButtonPatch : BytecodePatch(
                 method.addInstructions(
                     insertIndex, """
                         invoke-static {}, $PLAYER_LAYOUT->hideAutoPlayButton()Z
-                        move-result v15
-                        if-nez v15, :hidden
+                        move-result v$dummyRegister
+                        if-nez v$dummyRegister, :hidden
                     """, listOf(ExternalLabel("hidden", jumpInstruction))
                 )
             }

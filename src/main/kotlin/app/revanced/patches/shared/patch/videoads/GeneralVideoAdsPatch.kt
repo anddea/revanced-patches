@@ -8,6 +8,7 @@ import app.revanced.patcher.data.toMethodWalker
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.instruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
+import app.revanced.patcher.fingerprint.method.impl.MethodFingerprintResult
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -26,34 +27,30 @@ class GeneralVideoAdsPatch : BytecodePatch(
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
-        val LegacyVideoAdsResult = LegacyVideoAdsFingerprint.result ?: return LegacyVideoAdsFingerprint.toErrorResult()
+        val legacyVideoAdsResult = LegacyVideoAdsFingerprint.result ?: return LegacyVideoAdsFingerprint.toErrorResult()
 
-        LegacyVideoAdsMethod =
-            context.toMethodWalker(LegacyVideoAdsResult.method)
+        legacyVideoAdsMethod =
+            context.toMethodWalker(legacyVideoAdsResult.method)
                 .nextMethod(13, true)
                 .getMethod() as MutableMethod
 
-        MainstreamVideoAdsFingerprint.resolve(context, MainstreamVideoAdsParentFingerprint.result!!.classDef)
-
-        val MainstreamAdsResult = MainstreamVideoAdsFingerprint.result ?: return MainstreamVideoAdsFingerprint.toErrorResult()
-
-        MainstreamVideoAdsMethod = MainstreamAdsResult.mutableMethod
-
-        InsertIndex = MainstreamAdsResult.scanResult.patternScanResult!!.endIndex
+        MainstreamVideoAdsParentFingerprint.result?.let { parentResult ->
+            MainstreamVideoAdsFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.let {
+                mainstreamVideoAdsResult = it
+            } ?: return MainstreamVideoAdsFingerprint.toErrorResult()
+        } ?: return MainstreamVideoAdsParentFingerprint.toErrorResult()
 
         return PatchResultSuccess()
     }
 
     internal companion object {
-        var InsertIndex: Int = 0
-
-        lateinit var LegacyVideoAdsMethod: MutableMethod
-        lateinit var MainstreamVideoAdsMethod: MutableMethod
+        lateinit var legacyVideoAdsMethod: MutableMethod
+        lateinit var mainstreamVideoAdsResult: MethodFingerprintResult
 
         fun injectLegacyAds(
             descriptor: String
         ) {
-            LegacyVideoAdsMethod.addInstructions(
+            legacyVideoAdsMethod.addInstructions(
                 0, """
                     invoke-static {}, $descriptor
                     move-result v1
@@ -64,13 +61,16 @@ class GeneralVideoAdsPatch : BytecodePatch(
         fun injectMainstreamAds(
             descriptor: String
         ) {
-            MainstreamVideoAdsMethod.addInstructions(
-                InsertIndex, """
+            val mainstreamVideoAdsMethod = mainstreamVideoAdsResult.mutableMethod
+            val insertIndex = mainstreamVideoAdsResult.scanResult.patternScanResult!!.endIndex
+
+            mainstreamVideoAdsMethod.addInstructions(
+                insertIndex, """
                     invoke-static {}, $descriptor
                     move-result v1
                     if-nez v1, :show_video_ads
                     return-void
-            """, listOf(ExternalLabel("show_video_ads", MainstreamVideoAdsMethod.instruction(InsertIndex)))
+            """, listOf(ExternalLabel("show_video_ads", mainstreamVideoAdsMethod.instruction(insertIndex)))
             )
         }
 
