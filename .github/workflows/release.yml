@@ -39,7 +39,7 @@ jobs:
         with:
           cache-disabled: false
           sdk-version: '33'
-          build-tools-version: '33.0.1'
+          build-tools-version: '33.0.2'
       - name: Build with Gradle
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
