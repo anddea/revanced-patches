@@ -18,7 +18,6 @@ internal object Constants {
 
     const val BUTTON_PATH = "$PATCHES_PATH/button"
     const val VIDEO_PATH = "$PATCHES_PATH/video"
-    const val EXTENDED_PATH = "$PATCHES_PATH/extended"
 
     const val UTILS_PATH = "$PATCHES_PATH/utils"
 
