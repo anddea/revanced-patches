@@ -8,13 +8,13 @@ import org.jf.dexlib2.Opcode
 object OpenLinksDirectlyFingerprintPrimary : MethodFingerprint(
     returnType = "Ljava/lang/Object",
     access = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    parameters = listOf("L"),
+    parameters = listOf("Ljava/lang/Object"),
     opcodes = listOf(
-        Opcode.CHECK_CAST,
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.RETURN_OBJECT,
         Opcode.CHECK_CAST,
-        Opcode.SGET
+        Opcode.SGET,
+        Opcode.SGET_OBJECT
     )
 )
