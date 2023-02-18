@@ -10,6 +10,13 @@ object ShortsTextComponentParentFingerprint : MethodFingerprint(
     access = AccessFlags.PROTECTED or AccessFlags.FINAL,
     parameters = listOf("L", "L"),
     opcodes = listOf(
+        Opcode.INVOKE_STATIC,
+        Opcode.MOVE_RESULT_OBJECT,
+        Opcode.GOTO,
+        Opcode.INVOKE_STATIC,
+        Opcode.MOVE_RESULT_OBJECT,
+        Opcode.INVOKE_VIRTUAL,
+        Opcode.RETURN_VOID,
         Opcode.IGET_OBJECT,
         Opcode.CHECK_CAST,
         Opcode.IGET_BOOLEAN,

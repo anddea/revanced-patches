@@ -1,90 +1,66 @@
 package app.revanced.patches.youtube.layout.general.crowdfundingbox.patch
 
-import app.revanced.extensions.findMutableMethodOf
-import app.revanced.extensions.injectHideCall
+import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
+import app.revanced.patcher.extensions.addInstruction
+import app.revanced.patcher.extensions.instruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
-import app.revanced.patches.shared.patch.mapping.ResourceMappingPatch
+import app.revanced.patches.youtube.layout.general.crowdfundingbox.fingerprints.CrowdfundingBoxFingerprint
+import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourcdIdPatch
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
-import org.jf.dexlib2.Opcode
-import org.jf.dexlib2.iface.instruction.formats.Instruction22c
-import org.jf.dexlib2.iface.instruction.formats.Instruction31i
+import app.revanced.util.integrations.Constants.GENERAL_LAYOUT
+import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Patch
 @Name("hide-crowdfunding-box")
 @Description("Hides the crowdfunding box between the player and video description.")
 @DependsOn(
     [
-        ResourceMappingPatch::class,
-        SettingsPatch::class
+        SettingsPatch::class,
+        SharedResourcdIdPatch::class
     ]
 )
 @YouTubeCompatibility
 @Version("0.0.1")
-class CrowdfundingBoxPatch : BytecodePatch() {
-
-    // list of resource names to get the id of
-    private val resourceIds = arrayOf(
-        "donation_companion"
-    ).map { name ->
-        ResourceMappingPatch.resourceMappings.single { it.name == name }.id
-    }
-    private var patchSuccessArray = Array(resourceIds.size) {false}
-
+class CrowdfundingBoxPatch : BytecodePatch(
+    listOf(
+        CrowdfundingBoxFingerprint
+    )
+) {
     override fun execute(context: BytecodeContext): PatchResult {
-        context.classes.forEach { classDef ->
-            classDef.methods.forEach { method ->
-                with(method.implementation) {
-                    this?.instructions?.forEachIndexed { index, instruction ->
-                        when (instruction.opcode) {
-                            Opcode.CONST -> {
-                                when ((instruction as Instruction31i).wideLiteral) {
-                                    resourceIds[0] -> { // crowdfunding
-                                        val insertIndex = index + 3
-                                        val iPutInstruction = instructions.elementAt(insertIndex)
-                                        if (iPutInstruction.opcode != Opcode.IPUT_OBJECT) return@forEachIndexed
 
-                                        val mutableMethod = context.proxy(classDef).mutableClass.findMutableMethodOf(method)
+        CrowdfundingBoxFingerprint.result?.let {
+            with (it.mutableMethod) {
+                val insertIndex = it.scanResult.patternScanResult!!.endIndex
+                val register = (instruction(insertIndex) as TwoRegisterInstruction).registerA
 
-                                        val viewRegister = (iPutInstruction as Instruction22c).registerA
-                                        mutableMethod.implementation!!.injectHideCall(insertIndex, viewRegister, "layout/GeneralLayoutPatch", "hideCrowdfundingBox")
-                                        patchSuccessArray[0] = true;
-                                    }
-                                }
-                            }
-                            else -> return@forEachIndexed
-                        }
-                    }
-                }
-            }
-        }
-
-        val errorIndex: Int = patchSuccessArray.indexOf(false)
-
-        if (errorIndex == -1) {
-            /*
-             * Add settings
-             */
-            SettingsPatch.addPreference(
-                arrayOf(
-                    "PREFERENCE: GENERAL_LAYOUT_SETTINGS",
-                    "SETTINGS: HIDE_CROWDFUNDING_BOX"
+                addInstruction(
+                    insertIndex,
+                    "invoke-static {v$register}, $GENERAL_LAYOUT->hideCrowdfundingBox(Landroid/view/View;)V"
                 )
+            }
+        } ?: return CrowdfundingBoxFingerprint.toErrorResult()
+
+        /*
+         * Add settings
+         */
+        SettingsPatch.addPreference(
+            arrayOf(
+                "PREFERENCE: GENERAL_LAYOUT_SETTINGS",
+                "SETTINGS: HIDE_CROWDFUNDING_BOX"
             )
+        )
 
-            SettingsPatch.updatePatchStatus("hide-crowdfunding-box")
+        SettingsPatch.updatePatchStatus("hide-crowdfunding-box")
 
-            return PatchResultSuccess()
-        } else
-            return PatchResultError("Instruction not found: $errorIndex")
+        return PatchResultSuccess()
     }
 }
