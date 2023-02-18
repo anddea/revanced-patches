@@ -52,8 +52,8 @@ class HideChannelWatermarkBytecodePatch : BytecodePatch(
         } ?: return HideWatermarkParentFingerprint.toErrorResult()
 
         /*
-        add settings
-        */
+         * Add settings
+         */
         SettingsPatch.addPreference(
             arrayOf(
                 "PREFERENCE: LAYOUT_SETTINGS",

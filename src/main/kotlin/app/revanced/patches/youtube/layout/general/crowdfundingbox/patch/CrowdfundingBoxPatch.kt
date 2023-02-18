@@ -72,8 +72,8 @@ class CrowdfundingBoxPatch : BytecodePatch() {
 
         if (errorIndex == -1) {
             /*
-            add settings
-            */
+             * Add settings
+             */
             SettingsPatch.addPreference(
                 arrayOf(
                     "PREFERENCE: LAYOUT_SETTINGS",

@@ -62,8 +62,8 @@ class ForceVP9CodecPatch : BytecodePatch(
         } ?: return Vp9PropsParentFingerprint.toErrorResult()
 
         /*
-        add settings
-        */
+         * Add settings
+         */
         SettingsPatch.addPreference(
             arrayOf(
                 "SETTINGS: EXPERIMENTAL_FLAGS",

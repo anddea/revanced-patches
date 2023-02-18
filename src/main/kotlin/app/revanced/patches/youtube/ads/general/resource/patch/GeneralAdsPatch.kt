@@ -85,7 +85,7 @@ class GeneralAdsPatch : ResourcePatch {
         }
 
         /*
-         add settings
+         * Add settings
          */
         SettingsPatch.addPreference(
             arrayOf(

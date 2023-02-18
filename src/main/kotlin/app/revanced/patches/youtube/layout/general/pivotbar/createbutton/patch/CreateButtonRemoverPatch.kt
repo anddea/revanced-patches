@@ -69,8 +69,8 @@ class CreateButtonRemoverPatch : BytecodePatch(
                     injectHook(hook, createButtonInstructions.indexOf(instruction) + 2)
 
                     /*
-                    add settings
-                    */
+                     * Add settings
+                     */
                     SettingsPatch.addPreference(
                         arrayOf(
                             "PREFERENCE: LAYOUT_SETTINGS",

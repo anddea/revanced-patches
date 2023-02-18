@@ -68,8 +68,8 @@ class HideAutoplayButtonPatch : BytecodePatch(
         } ?: return LayoutConstructorFingerprint.toErrorResult()
 
         /*
-        add settings
-        */
+         * Add settings
+         */
         SettingsPatch.addPreference(
             arrayOf(
                 "PREFERENCE: LAYOUT_SETTINGS",

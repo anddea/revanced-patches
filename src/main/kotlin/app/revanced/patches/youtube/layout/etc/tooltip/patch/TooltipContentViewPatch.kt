@@ -40,8 +40,8 @@ class TooltipContentViewBytecodePatch : BytecodePatch(
         ) ?: return TooltipContentViewFingerprint.toErrorResult()
 
         /*
-        add settings
-        */
+         * Add settings
+         */
         SettingsPatch.updatePatchStatus("hide-tooltip-content")
 
         return PatchResultSuccess()

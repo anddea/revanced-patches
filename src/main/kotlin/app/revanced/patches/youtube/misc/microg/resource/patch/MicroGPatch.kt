@@ -39,7 +39,7 @@ class MicroGPatch : ResourcePatch {
         val packageName = PatchOptions.YouTubePackageName!!
 
         /*
-         add settings
+         * Add settings
          */
         SettingsPatch.addPreference(
             arrayOf(

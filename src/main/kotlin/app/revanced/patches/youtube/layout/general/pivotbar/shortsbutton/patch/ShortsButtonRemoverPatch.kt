@@ -73,9 +73,8 @@ class ShortsButtonRemoverPatch : BytecodePatch(
         } ?: return PivotBarCreateButtonViewFingerprint.toErrorResult()
 
         /*
-        add settings
-        */
-
+         * Add settings
+         */
         SettingsPatch.addPreference(
             arrayOf(
                 "PREFERENCE: LAYOUT_SETTINGS",

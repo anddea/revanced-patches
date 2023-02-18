@@ -43,8 +43,8 @@ class HideSnackbarPatch : BytecodePatch(
         } ?: return HideSnackbarFingerprint.toErrorResult()
 
         /*
-        add settings
-        */
+         * Add settings
+         */
         SettingsPatch.addPreference(
             arrayOf(
                 "PREFERENCE: LAYOUT_SETTINGS",

@@ -67,7 +67,7 @@ class MaterialYouPatch : ResourcePatch {
         )
 
         /*
-         add settings
+         * Add settings
          */
         context.updatePatchStatusTheme("materialyou")
 

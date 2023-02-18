@@ -44,8 +44,8 @@ class HideEmailAddressPatch : BytecodePatch(
         } ?: return AccountSwitcherAccessibilityLabelFingerprint.toErrorResult()
 
         /*
-        add settings
-        */
+         * Add settings
+         */
         SettingsPatch.addPreference(
             arrayOf(
                 "PREFERENCE: LAYOUT_SETTINGS",

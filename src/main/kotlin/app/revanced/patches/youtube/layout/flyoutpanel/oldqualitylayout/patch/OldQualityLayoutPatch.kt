@@ -41,7 +41,7 @@ class OldQualityLayoutPatch : BytecodePatch(
         } ?: return QualityMenuViewInflateFingerprint.toErrorResult()
 
         /*
-         add settings
+         * Add settings
          */
         SettingsPatch.addPreference(
             arrayOf(

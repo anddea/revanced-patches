@@ -42,8 +42,8 @@ class OpenLinksDirectlyPatch : BytecodePatch(
         }
 
         /*
-        add settings
-        */
+         * Add settings
+         */
         SettingsPatch.addPreference(
             arrayOf(
                 "SETTINGS: ENABLE_OPEN_LINKS_DIRECTLY"

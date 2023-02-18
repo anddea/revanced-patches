@@ -109,7 +109,7 @@ class OverlayButtonsResourcePatch : ResourcePatch {
         )
 
         /*
-         add settings
+         * Add settings
          */
         SettingsPatch.addPreference(
             arrayOf(
