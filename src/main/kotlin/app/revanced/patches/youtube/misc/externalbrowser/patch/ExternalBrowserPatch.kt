@@ -51,8 +51,8 @@ class ExternalBrowserPatch : BytecodePatch(
         }
 
         /*
-        add settings
-        */
+         * Add settings
+         */
         SettingsPatch.addPreference(
             arrayOf(
                 "SETTINGS: ENABLE_EXTERNAL_BROWSER"

@@ -35,8 +35,8 @@ class VideoAdsPatch : BytecodePatch() {
         context.updatePatchStatus("VideoAds")
 
         /*
-        add settings
-        */
+         * Add settings
+         */
 
         SettingsPatch.addPreference(
             arrayOf(

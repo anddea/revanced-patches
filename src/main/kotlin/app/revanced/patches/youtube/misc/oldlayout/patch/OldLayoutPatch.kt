@@ -45,8 +45,8 @@ class OldLayoutPatch : BytecodePatch(
         } ?: return OldLayoutFingerprint.toErrorResult()
 
         /*
-        add settings
-        */
+         * Add settings
+         */
         SettingsPatch.addPreference(
             arrayOf(
                 "SETTINGS: EXPERIMENTAL_FLAGS",

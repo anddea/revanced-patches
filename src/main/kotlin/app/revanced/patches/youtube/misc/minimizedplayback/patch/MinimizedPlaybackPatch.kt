@@ -62,8 +62,8 @@ class MinimizedPlaybackPatch : BytecodePatch(
         PipControllerFingerprint.result?.hookShortsPiP()?:return PipControllerFingerprint.toErrorResult()
 
         /*
-        add settings
-        */
+         * Add settings
+         */
         SettingsPatch.addPreference(
             arrayOf(
                 "SETTINGS: ENABLE_MINIMIZED_PLAYBACK"

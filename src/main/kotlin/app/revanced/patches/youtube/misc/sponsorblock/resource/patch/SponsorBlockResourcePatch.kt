@@ -95,7 +95,7 @@ class SponsorBlockResourcePatch : ResourcePatch {
         }
 
         /*
-         add ReVanced Settings
+         * Add ReVanced Settings
          */
         SettingsPatch.addReVancedPreference("sponsorblock_settings")
 

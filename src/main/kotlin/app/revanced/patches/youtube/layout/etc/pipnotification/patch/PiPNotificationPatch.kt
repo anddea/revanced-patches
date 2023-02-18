@@ -40,8 +40,8 @@ class PiPNotificationPatch : BytecodePatch(
         }
 
         /*
-        add settings
-        */
+         * Add settings
+         */
         SettingsPatch.updatePatchStatus("hide-pip-notification")
 
         return PatchResultSuccess()

@@ -45,8 +45,8 @@ class PlayerPopupPanelsPatch : BytecodePatch(
         } ?: return EngagementPanelControllerFingerprint.toErrorResult()
 
         /*
-        add settings
-        */
+         * Add settings
+         */
         SettingsPatch.addPreference(
             arrayOf(
                 "PREFERENCE: LAYOUT_SETTINGS",

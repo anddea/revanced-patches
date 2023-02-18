@@ -97,8 +97,8 @@ class ReturnYouTubeDislikePatch : BytecodePatch(
         MainstreamVideoIdPatch.injectCall("$INTEGRATIONS_RYD_CLASS_DESCRIPTOR->newVideoLoaded(Ljava/lang/String;)V")
 
         /*
-        add ReVanced Settings
-        */
+         * Add ReVanced Settings
+         */
         SettingsPatch.addReVancedPreference("ryd_settings")
 
         SettingsPatch.updatePatchStatus("return-youtube-dislike")

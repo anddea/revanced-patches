@@ -37,8 +37,8 @@ class LayoutSwitchPatch : BytecodePatch(
         ) ?: return LayoutSwitchFingerprint.toErrorResult()
 
         /*
-        add settings
-        */
+         * Add settings
+         */
         SettingsPatch.addPreference(
             arrayOf(
                 "SETTINGS: EXPERIMENTAL_FLAGS",

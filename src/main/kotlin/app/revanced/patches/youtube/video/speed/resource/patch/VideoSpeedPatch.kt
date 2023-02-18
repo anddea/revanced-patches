@@ -28,7 +28,7 @@ class VideoSpeedPatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
 
         /*
-         add settings
+         * Add settings
          */
         SettingsPatch.addPreference(
             arrayOf(

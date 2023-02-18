@@ -50,7 +50,7 @@ class CustomVideoSpeedPatch : ResourcePatch {
         }
 
         /*
-         add settings
+         * Add settings
          */
         SettingsPatch.addPreference(
             arrayOf(
