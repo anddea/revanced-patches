@@ -16,6 +16,7 @@ import app.revanced.patches.shared.patch.mapping.ResourceMappingPatch
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourcdIdPatch
 import app.revanced.patches.youtube.misc.settings.bytecode.fingerprints.ThemeSetterSystemFingerprint
+import app.revanced.util.bytecode.BytecodeHelper.injectInit
 import app.revanced.util.integrations.Constants.INTEGRATIONS_PATH
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.iface.instruction.formats.Instruction31i
@@ -94,6 +95,8 @@ class SettingsBytecodePatch : BytecodePatch(
                 )
             }
         } ?: return ThemeSetterSystemFingerprint.toErrorResult()
+
+        context.injectInit("FirstRun", "initializationRVX")
 
         return PatchResultSuccess()
     }
