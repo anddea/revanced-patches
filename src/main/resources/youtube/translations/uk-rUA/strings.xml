@@ -46,9 +46,7 @@
     <string name="microg_not_installed_notice">Будь ласка, встановіть MicroG</string>
     <string name="microg_not_installed_warning">MicroG не знайдено</string>
     <string name="microg_not_running_warning">MicroG не працює у фоновому режимі</string>
-    <string name="microg_notification_settings">Налаштування сповіщень</string>
     <string name="microg_notification_settings_summary">"1. Реєстрація пристроїв Google і Google Cloud Messaging повинні бути увімкненими для сповіщень.\n2. Vanced повинен бути показаний зареєстрованим під GCM.\n3. Поточний стан у GCM повинен не бути Від'єднано.\n4. GCM -&gt; Розширені (три точки справа згори) і змініть інтервал очікування Wi-Fi назад і вперед раз для з'єднання.\n💙💛"</string>
-    <string name="microg_settings">Налаштування MicroG</string>
     <string name="minutes">хв.</string>
     <string name="new_segment_choose_category">Виберіть категорію сегмента</string>
     <string name="new_segment_confirm_content" formatted="false">"Сегмент триває від %02d:%02d до %02d:%02d (%d хвилин(-и) %02d секунд(-и))\n Відправляємо?"</string>
@@ -165,11 +163,8 @@
     <string name="revanced_adremover_web_search_panel_title">Вилучення панелі веб-пошуку</string>
     <string name="revanced_custom_seekbar_color_value_summary">Введіть HEX код кольору панелі пошуку для використання в темному режимі</string>
     <string name="revanced_custom_seekbar_color_value_title">Користувацьке значення кольору панелі пошуку</string>
-    <string name="revanced_default_video_quality_mobile_summary">Типова якість відео для Моб-Мережі</string>
     <string name="revanced_default_video_quality_mobile_title">Типова якість відео для Моб-Мережі</string>
-    <string name="revanced_default_video_quality_wifi_summary">Типова якість відео для Wi-Fi мережі</string>
     <string name="revanced_default_video_quality_wifi_title">Типова якість відео для Wi-Fi мережі</string>
-    <string name="revanced_default_video_speed_summary">Виберіть типову швидкість відео</string>
     <string name="revanced_default_video_speed_title">Типова швидкість відео</string>
     <string name="revanced_downloader_not_installed">не встановлено. Будь ласка, встановіть.</string>
     <string name="revanced_downloader_package_name_summary">"Назва пакета застосунку завантажувача"</string>
@@ -212,8 +207,6 @@
     <string name="revanced_enable_old_quality_layout_summary_off">Використання нового стилю параметрів якості відео</string>
     <string name="revanced_enable_old_quality_layout_summary_on">Використання старого стилю параметрів якості відео</string>
     <string name="revanced_enable_old_quality_layout_title">Стиль параметрів якості</string>
-    <string name="revanced_enable_open_links_directly_summary_off">Перенаправлення посилань через youtube.com/redirect вимкнено\n(Працює лиш в описі відео)</string>
-    <string name="revanced_enable_open_links_directly_summary_on">Перенаправлення посилань через youtube.com/redirect увімкнено\n(Працює лиш в описі відео)</string>
     <string name="revanced_enable_open_links_directly_title">Перенаправлення посилань через youtube.com/redirect</string>
     <string name="revanced_enable_press_to_swipe_summary_off">Керування жестами завжди увімкнено disabled</string>
     <string name="revanced_enable_press_to_swipe_summary_on">Керування жестами вимагає тривалого натискання перед використанням enabled</string>
@@ -257,9 +250,6 @@
     <string name="revanced_experimental_flag">Експериментальні опції</string>
     <string name="revanced_extended_issue_center_summary">Повідомте про проблеми або залиште свої пропозиції тут</string>
     <string name="revanced_extended_issue_center_title">Центр допомоги ReVanced Extended</string>
-    <string name="revanced_extended_settings">Додаткові налаштування ReVanced Extended</string>
-    <string name="revanced_extended_summary">Додаткові налаштування розширеного</string>
-    <string name="revanced_extended_title">Розширенні</string>
     <string name="revanced_hide_auto_captions_summary_off">Автоматично включати відображення субтитрів за їх присутності</string>
     <string name="revanced_hide_auto_captions_summary_on">"Автоматично вимикати відображення субтитрів за їх присутності"</string>
     <string name="revanced_hide_auto_captions_title">Автоматичні субтитри</string>
@@ -339,9 +329,6 @@
     <string name="revanced_hide_info_cards_summary_off">Інформаційні картки увімкнено</string>
     <string name="revanced_hide_info_cards_summary_on">Інформаційні картки вимкнено</string>
     <string name="revanced_hide_info_cards_title">Інформаційні картки</string>
-    <string name="revanced_hide_live_chat_button_summary_off">Кнопка живого чату показана</string>
-    <string name="revanced_hide_live_chat_button_summary_on">Кнопка живого чату прихована</string>
-    <string name="revanced_hide_live_chat_button_title">Кнопка живого чат</string>
     <string name="revanced_hide_menu_ambient_mode_summary_off">Меню режиму навколишнього підсвічування увімкнено</string>
     <string name="revanced_hide_menu_ambient_mode_summary_on">Меню режиму навколишнього підсвічування вимкнено</string>
     <string name="revanced_hide_menu_ambient_mode_title">Меню режиму навколишнього підсвічування</string>
@@ -432,11 +419,8 @@
     <string name="revanced_layout_settings_bottomplayer">Налаштування елементів під плеєром</string>
     <string name="revanced_layout_settings_flyoutmenu">Налаштування інтерфейсу спливаючого меню</string>
     <string name="revanced_layout_settings_fullscreen">Налаштування повноекранного інтерфейсу</string>
-    <string name="revanced_layout_settings_general">Додаткові налаштування вигляду</string>
     <string name="revanced_layout_settings_player">Налаштування інтерфейсу плеєра</string>
     <string name="revanced_layout_settings_seekbar">Параметрів інтерфейсу панелі пошуку</string>
-    <string name="revanced_layout_settings_summary">Додаткові налаштування вигляду</string>
-    <string name="revanced_layout_settings_title">Вигляд</string>
     <string name="revanced_misc_settings_summary">Додаткові налаштування іншого</string>
     <string name="revanced_misc_settings_title">Інше</string>
     <string name="revanced_others_title">Інше</string>
@@ -495,7 +479,6 @@
     <string name="revanced_save_video_quality_mobile_error">Не вдалося змінити якість відео для мобільних мереж за замовчуванням</string>
     <string name="revanced_save_video_quality_wifi">Зміна якості відео для Wi-Fi мереж за замовчуванням на:</string>
     <string name="revanced_save_video_quality_wifi_error">Не вдалося змінити якість відео для WI-FI мереж за замовчуванням</string>
-    <string name="revanced_settings">ReVanced Extended </string>
     <string name="revanced_swipe_controls_summary">Додаткові налаштування керування жестами</string>
     <string name="revanced_swipe_controls_title">Керування жестами </string>
     <string name="revanced_swipe_magnitude_threshold_summary">Мінімальна амплітуда руху, що розпізнається як жест</string>
@@ -538,8 +521,6 @@
     <string name="sb_guidelines_popup_title">Існують рекомендації</string>
     <string name="sb_guidelines_preference_sum">Інструкція містить поради щодо надсилання сегмента</string>
     <string name="sb_guidelines_preference_title">Переглянути інструкцію</string>
-    <string name="sb_settings">SponsorBlock</string>
-    <string name="sb_summary">Додаткові налаштування SponsorBlock</string>
     <string name="sb_switching_success">Перемкнено успішно. Перезавантажте відео</string>
     <string name="sb_switching_to_mirror">Перемикання дзеркалення сервера API на основний API-сервер..</string>
     <string name="segments_endcards">Кінцева заставка/титри</string>

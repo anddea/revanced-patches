@@ -46,11 +46,9 @@
     <string name="microg_not_installed_notice">Пожалуйста, установите MicroG</string>
     <string name="microg_not_installed_warning">MicroG не найден</string>
     <string name="microg_not_running_warning">MicroG не работает в фоновом режиме</string>
-    <string name="microg_notification_settings">Настройки уведомлений</string>
     <string name="microg_notification_settings_summary">"1. Регистрация устройства в Google и Cloud Messanging должны быть включены для отправки уведомлений.
 2. ReVanced должен отображаться как зарегистрированный в Cloud Messaging.
 3. Состояние в Cloud Messanging должно быть показано как подключенное."</string>
-    <string name="microg_settings">Настройки MicroG</string>
     <string name="minutes">минуты</string>
     <string name="new_segment_choose_category">Выберите категорию сегмента</string>
     <string name="new_segment_confirm_content" formatted="false">"Сегмент длится с %02d:%02d до %02d:%02d (%d минут(-ы/-а) %02d секунд(-ы/-а))
@@ -168,11 +166,8 @@
     <string name="revanced_adremover_web_search_panel_title">Панели веб поиска</string>
     <string name="revanced_custom_seekbar_color_value_summary">Введите HEX код цвета шкалы воспроизведения видео для использования в темном режиме</string>
     <string name="revanced_custom_seekbar_color_value_title">Пользовательское значение цвета</string>
-    <string name="revanced_default_video_quality_mobile_summary">Выбор разрешения видео по умолчанию для мобильной сети</string>
     <string name="revanced_default_video_quality_mobile_title">Разрешение видео по умолчанию (мобильная)</string>
-    <string name="revanced_default_video_quality_wifi_summary">Выбор разрешения видео по умолчанию для Wi-Fi сети</string>
     <string name="revanced_default_video_quality_wifi_title">Разрешение видео по умолчанию (Wi-Fi)</string>
-    <string name="revanced_default_video_speed_summary">Выбор скорости воспроизведения видео по умолчанию</string>
     <string name="revanced_default_video_speed_title">Скорость видео по умолчанию</string>
     <string name="revanced_downloader_not_installed">Загрузчик не установлен. Пожалуйста, установите его</string>
     <string name="revanced_downloader_package_name_summary">"Имя пакета приложения для загрузки видео. Например NewPipe или PowerTube"</string>
@@ -215,8 +210,6 @@
     <string name="revanced_enable_old_quality_layout_summary_off">Используется новый стиль отображения выбора качества видео</string>
     <string name="revanced_enable_old_quality_layout_summary_on">Используется старый стиль отображения выбора качества видео</string>
     <string name="revanced_enable_old_quality_layout_title">Стиль выбора качества видео</string>
-    <string name="revanced_enable_open_links_directly_summary_off">Перенаправление адреса (youtube.com/redirect) используется при открытии ссылок в описаниях видео</string>
-    <string name="revanced_enable_open_links_directly_summary_on">Обход перенаправления адреса (youtube.com/redirect) при открытии ссылок в описаниях видео</string>
     <string name="revanced_enable_open_links_directly_title">Открытие ссылок напрямую</string>
     <string name="revanced_enable_press_to_swipe_summary_off">Нажатие для выполнения жеста отключено</string>
     <string name="revanced_enable_press_to_swipe_summary_on">Нажатие для выполнения жеста включено</string>
@@ -230,6 +223,9 @@
     <string name="revanced_enable_save_video_quality_summary_off">Качество воспроизведения видео не сохраняется при его изменении</string>
     <string name="revanced_enable_save_video_quality_summary_on">Качество воспроизведения видео сохраняется при его изменении</string>
     <string name="revanced_enable_save_video_quality_title">Сохранение качества видео</string>
+    <string name="revanced_enable_save_video_speed_summary_off">Скорость воспроизведения видео не сохраняется при ее изменении</string>
+    <string name="revanced_enable_save_video_speed_summary_on">Скорость воспроизведения видео сохраняется при каждом ее изменении</string>
+    <string name="revanced_enable_save_video_speed_title">Сохранение скорости видео</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">Нажатие на шкалу воспроизведения видео для перемотки включено</string>
     <string name="revanced_enable_seekbar_tapping_title">Перемотка видео нажатием</string>
     <string name="revanced_enable_swipe_auto_brightness_summary_off">Автояркость не активируется при яркости, установленной жестом на 0</string>
@@ -260,9 +256,6 @@
     <string name="revanced_experimental_flag">Экспериментальные опции</string>
     <string name="revanced_extended_issue_center_summary">Сообщите о проблемах или оставьте свои предложения здесь</string>
     <string name="revanced_extended_issue_center_title">Центр помощи ReVanced Extended</string>
-    <string name="revanced_extended_settings">Настройки ReVanced Extended</string>
-    <string name="revanced_extended_summary">Расширенные настройки</string>
-    <string name="revanced_extended_title">Дополнительные</string>
     <string name="revanced_hide_auto_captions_summary_off">Автоматически включать отображение субтитров при их присутствии</string>
     <string name="revanced_hide_auto_captions_summary_on">"Автоматически отключать отображение субтитров при их присутствии"</string>
     <string name="revanced_hide_auto_captions_title">Автоматические субтитры</string>
@@ -336,15 +329,12 @@
     <string name="revanced_hide_filmstrip_overlay_summary_off">Покадровая лента в стиле кинопленки для более точного перехода при перемотке показана</string>
     <string name="revanced_hide_filmstrip_overlay_summary_on">Покадровая лента в стиле кинопленки для более точного перехода при перемотке скрыта</string>
     <string name="revanced_hide_filmstrip_overlay_title">Покадровая лента при перемотке</string>
-    <string name="revanced_hide_fullscreen_panels_summary_off">Полноэкранные панели показаны</string>
-    <string name="revanced_hide_fullscreen_panels_summary_on">Полноэкранные панели скрыты</string>
-    <string name="revanced_hide_fullscreen_panels_title">Полноэкранные панели</string>
+    <string name="revanced_hide_fullscreen_panels_summary_off">Нижние кнопки в полноэкранном режиме показаны</string>
+    <string name="revanced_hide_fullscreen_panels_summary_on">Нижние кнопки в полноэкранном режиме скрыты</string>
+    <string name="revanced_hide_fullscreen_panels_title">Кнопки в полноэкранном режиме</string>
     <string name="revanced_hide_info_cards_summary_off">Подсказки показаны</string>
     <string name="revanced_hide_info_cards_summary_on">Подсказки скрыты</string>
     <string name="revanced_hide_info_cards_title">Подсказки</string>
-    <string name="revanced_hide_live_chat_button_summary_off">Кнопка \"Живой чат\" показана</string>
-    <string name="revanced_hide_live_chat_button_summary_on">Кнопка \"Живой чат\" скрыта</string>
-    <string name="revanced_hide_live_chat_button_title">Живой чат</string>
     <string name="revanced_hide_menu_ambient_mode_summary_off">Меню режима окружающей подсветки показано</string>
     <string name="revanced_hide_menu_ambient_mode_summary_on">Меню режима окружающей подсветки скрыто</string>
     <string name="revanced_hide_menu_ambient_mode_title">Режим окружающей подсветки</string>
@@ -435,11 +425,8 @@
     <string name="revanced_layout_settings_bottomplayer">Настройки элементов под плеером</string>
     <string name="revanced_layout_settings_flyoutmenu">Настройки интерфейса всплывающего меню</string>
     <string name="revanced_layout_settings_fullscreen">Настройки интерфейса полноэкранного просмотра</string>
-    <string name="revanced_layout_settings_general">Общие настройки интерфейса</string>
     <string name="revanced_layout_settings_player">Настройки интерфейса плеера</string>
     <string name="revanced_layout_settings_seekbar">Настройки интерфейса шкалы воспроизведения</string>
-    <string name="revanced_layout_settings_summary">Настройки интерфейса</string>
-    <string name="revanced_layout_settings_title">Интерфейс</string>
     <string name="revanced_misc_settings_summary">Настройки прочих параметров</string>
     <string name="revanced_misc_settings_title">Прочие параметры</string>
     <string name="revanced_others_title">Разное</string>
@@ -457,6 +444,9 @@
     <string name="revanced_overlay_button_downloads_title">Скачать</string>
     <string name="revanced_overlay_button_summary">Настройки отображения кнопок</string>
     <string name="revanced_overlay_button_title">Отображение кнопок</string>
+    <string name="revanced_overlay_button_speed_summary_off">Кнопка скорости скрыта</string>
+    <string name="revanced_overlay_button_speed_summary_on">Кнопка скорости показана</string>
+    <string name="revanced_overlay_button_speed_title">Скорость</string>
     <string name="revanced_overlay_button_whitelist_summary_off">Кнопка \"Белый список\" скрыта</string>
     <string name="revanced_overlay_button_whitelist_summary_on">Кнопка \"Белый список\" показана</string>
     <string name="revanced_overlay_button_whitelist_title">Белый список</string>
@@ -506,7 +496,7 @@
     <string name="revanced_save_video_quality_mobile_error">Не удалось изменить качество видео для мобильных сетей по умолчанию</string>
     <string name="revanced_save_video_quality_wifi">Изменение качества видео для Wi-Fi сетей по умолчанию на:</string>
     <string name="revanced_save_video_quality_wifi_error">Не удалось изменить качество видео для WI-FI сетей по умолчанию</string>
-    <string name="revanced_settings">Опции ReVanced</string>
+    <string name="revanced_save_video_speed">Изменение скорости по умолчанию на:</string>
     <string name="revanced_swipe_controls_summary">Настройки управления жестами</string>
     <string name="revanced_swipe_controls_title">Управление жестами</string>
     <string name="revanced_swipe_magnitude_threshold_summary">Минимальная амплитуда распознаваемого как жест движения</string>
@@ -549,8 +539,6 @@
     <string name="sb_guidelines_popup_title">Существуют рекомендации</string>
     <string name="sb_guidelines_preference_sum">Руководство содержит советы по отправке сегментов</string>
     <string name="sb_guidelines_preference_title">Посмотреть руководство</string>
-    <string name="sb_settings">Блокировка спонсорской рекламы</string>
-    <string name="sb_summary">Настройки опции блокировки спонсорской рекламы (SponsorBlock)</string>
     <string name="sb_switching_success">Успешно изменено. Необходима перезагрузка видео</string>
     <string name="sb_switching_to_mirror">Переключение с зеркального сервера API на основной API сервер...</string>
     <string name="segments_endcards">Конечные заставки и титры</string>

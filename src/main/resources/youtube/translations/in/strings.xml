@@ -46,11 +46,9 @@
     <string name="microg_not_installed_notice">Silahkan instal MicroG</string>
     <string name="microg_not_installed_warning">MicroG tidak ditemukan</string>
     <string name="microg_not_running_warning">MicroG tidak berjalan di background</string>
-    <string name="microg_notification_settings">Pengaturan notifikasi</string>
     <string name="microg_notification_settings_summary">"1. Pendaftaran perangkat Google dan Cloud Messaging harus diaktifkan untuk pemberitahuan.
 2. ReVanced perlu ditampilkan sebagai terdaftar di bawah Cloud Messaging.
 3. Status saat ini dalam Cloud Messaging harus terhubung."</string>
-    <string name="microg_settings">Pengaturan MicroG</string>
     <string name="minutes">menit</string>
     <string name="new_segment_choose_category">Pilih kategori segmen</string>
     <string name="new_segment_confirm_content" formatted="false">"Segmen berlangsung dari %02d:%02d hingga %02d:%02d (%d menit %02d detik)
@@ -168,11 +166,8 @@ Apakah sudah siap untuk dikirim?"</string>
     <string name="revanced_adremover_web_search_panel_title">Sembunyikan panel pencarian web</string>
     <string name="revanced_custom_seekbar_color_value_summary">Ketik kode hex warna seekbar untuk digunakan dalam mode gelap</string>
     <string name="revanced_custom_seekbar_color_value_title">Nilai warna seekbar kustom</string>
-    <string name="revanced_default_video_quality_mobile_summary">Pilih resolusi video default di jaringan seluler</string>
     <string name="revanced_default_video_quality_mobile_title">Kualitas video default seluler</string>
-    <string name="revanced_default_video_quality_wifi_summary">Pilih resolusi video default di jaringan Wi-Fi</string>
     <string name="revanced_default_video_quality_wifi_title">Kualitas video default Wi-Fi</string>
-    <string name="revanced_default_video_speed_summary">Pilih kecepatan video default</string>
     <string name="revanced_default_video_speed_title">Kecepatan video default</string>
     <string name="revanced_downloader_not_installed">tidak diinstal. Silakan instal.</string>
     <string name="revanced_downloader_package_name_summary">"Nama paket aplikasi downloader seperti New Pipe atau PowerTube"</string>
@@ -215,8 +210,6 @@ Apakah sudah siap untuk dikirim?"</string>
     <string name="revanced_enable_old_quality_layout_summary_off">Pengaturan kualitas gaya baru ditampilkan</string>
     <string name="revanced_enable_old_quality_layout_summary_on">Pengaturan kualitas gaya lama ditampilkan</string>
     <string name="revanced_enable_old_quality_layout_title">Aktifkan layout kualitas gaya lama</string>
-    <string name="revanced_enable_open_links_directly_summary_off">Pengalihan URL (youtube.com/redirect) digunakan saat membuka link dalam deskripsi video</string>
-    <string name="revanced_enable_open_links_directly_summary_on">Bypass pengalihan URL (youtube.com/redirect) saat membuka link di deskripsi video</string>
     <string name="revanced_enable_open_links_directly_title">Aktifkan link terbuka secara langsung</string>
     <string name="revanced_enable_press_to_swipe_summary_off">Tekan untuk swipe dinonaktifkan</string>
     <string name="revanced_enable_press_to_swipe_summary_on">Tekan untuk swipe diaktifkan</string>
@@ -230,6 +223,9 @@ Apakah sudah siap untuk dikirim?"</string>
     <string name="revanced_enable_save_video_quality_summary_off">Tidak menyimpan nilai kualitas video bahkan saat mengubah kualitas video</string>
     <string name="revanced_enable_save_video_quality_summary_on">Simpan nilai kualitas video setiap kali anda mengubah kualitas video</string>
     <string name="revanced_enable_save_video_quality_title">Aktifkan simpan kualitas video</string>
+    <string name="revanced_enable_save_video_speed_summary_off">Tidak menyimpan nilai kecepatan video bahkan saat mengubah kecepatan video</string>
+    <string name="revanced_enable_save_video_speed_summary_on">Simpan nilai kecepatan video setiap kali anda mengubah kecepatan video</string>
+    <string name="revanced_enable_save_video_speed_title">Aktifkan simpan kecepatan video</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">Tapping seekbar diaktifkan</string>
     <string name="revanced_enable_seekbar_tapping_title">Aktifkan tapping seekbar</string>
     <string name="revanced_enable_swipe_auto_brightness_summary_off">Bahkan jika brightness diatur ke 0 dengan swiping, brightness otomatis dinonaktifkan</string>
@@ -260,9 +256,6 @@ Apakah sudah siap untuk dikirim?"</string>
     <string name="revanced_experimental_flag">Pengaturan eksperimental</string>
     <string name="revanced_extended_issue_center_summary">Laporkan masalah atau tinggalkan saran di sini</string>
     <string name="revanced_extended_issue_center_title">Pusat masalah ReVanced Extended</string>
-    <string name="revanced_extended_settings">Pengaturan ReVanced Extended</string>
-    <string name="revanced_extended_summary">Pengaturan terkait Extended</string>
-    <string name="revanced_extended_title">Pengaturan Extended</string>
     <string name="revanced_hide_auto_captions_summary_off">Captions diaktifkan saat memutar video dengan captions diterapkan</string>
     <string name="revanced_hide_auto_captions_summary_on">"Captions tidak diaktifkan saat memutar video dengan captions diterapkan"</string>
     <string name="revanced_hide_auto_captions_title">Sembunyikan captions otomatis</string>
@@ -342,9 +335,6 @@ Apakah sudah siap untuk dikirim?"</string>
     <string name="revanced_hide_info_cards_summary_off">Kartu info ditampilkan</string>
     <string name="revanced_hide_info_cards_summary_on">Kartu info disembunyikan</string>
     <string name="revanced_hide_info_cards_title">Sembunyikan kartu info</string>
-    <string name="revanced_hide_live_chat_button_summary_off">Tombol live chat ditampilkan</string>
-    <string name="revanced_hide_live_chat_button_summary_on">Tombol live chat disembunyikan</string>
-    <string name="revanced_hide_live_chat_button_title">Sembunyikan tombol live chat</string>
     <string name="revanced_hide_menu_ambient_mode_summary_off">Menu mode ambient ditampilkan</string>
     <string name="revanced_hide_menu_ambient_mode_summary_on">Menu mode ambient disembunyikan</string>
     <string name="revanced_hide_menu_ambient_mode_title">Sembunyikan menu mode ambient</string>
@@ -435,11 +425,8 @@ Apakah sudah siap untuk dikirim?"</string>
     <string name="revanced_layout_settings_bottomplayer">Pengaturan layout bawah pemutar</string>
     <string name="revanced_layout_settings_flyoutmenu">Pengaturan layout menu flyout</string>
     <string name="revanced_layout_settings_fullscreen">Pengaturan layout fullscreen</string>
-    <string name="revanced_layout_settings_general">Pengaturan tata letak umum</string>
     <string name="revanced_layout_settings_player">Pengaturan layout pemutar</string>
     <string name="revanced_layout_settings_seekbar">Pengaturan layout seekbar</string>
-    <string name="revanced_layout_settings_summary">Pengaturan terkait layout</string>
-    <string name="revanced_layout_settings_title">Pengaturan layout</string>
     <string name="revanced_misc_settings_summary">Pengaturan terkait lainnya</string>
     <string name="revanced_misc_settings_title">Pengaturan lain-lain</string>
     <string name="revanced_others_title">Lainnya</string>
@@ -457,6 +444,9 @@ Apakah sudah siap untuk dikirim?"</string>
     <string name="revanced_overlay_button_downloads_title">Tampilkan tombol download</string>
     <string name="revanced_overlay_button_summary">Pengaturan terkait tombol overlay</string>
     <string name="revanced_overlay_button_title">Pengaturan tombol overlay</string>
+    <string name="revanced_overlay_button_speed_summary_off">Tombol kecepatan disembunyikan</string>
+    <string name="revanced_overlay_button_speed_summary_on">Tombol kecepatan ditampilkan</string>
+    <string name="revanced_overlay_button_speed_title">Tampilkan tombol kecepatan</string>
     <string name="revanced_overlay_button_whitelist_summary_off">Tombol whitelist disembunyikan</string>
     <string name="revanced_overlay_button_whitelist_summary_on">Tombol whitelist ditampilkan</string>
     <string name="revanced_overlay_button_whitelist_title">Tampilkan tombol whitelist</string>
@@ -506,7 +496,7 @@ Karena pengaturan ini sudah cukup usang, mungkin tidak valid"</string>
     <string name="revanced_save_video_quality_mobile_error">Gagal mengubah kualitas data seluler default</string>
     <string name="revanced_save_video_quality_wifi">Mengubah kualitas Wi-Fi default menjadi:</string>
     <string name="revanced_save_video_quality_wifi_error">Gagal mengubah kualitas WI-FI default</string>
-    <string name="revanced_settings">Pengaturan ReVanced</string>
+    <string name="revanced_save_video_speed">Mengubah kecepatan default menjadi:</string>
     <string name="revanced_swipe_controls_summary">Pengaturan terkait kontrol swipe</string>
     <string name="revanced_swipe_controls_title">Pengaturan kontrol swipe</string>
     <string name="revanced_swipe_magnitude_threshold_summary">Jumlah ambang batas untuk swipe terjadi</string>
@@ -549,8 +539,6 @@ Karena pengaturan ini sudah cukup usang, mungkin tidak valid"</string>
     <string name="sb_guidelines_popup_title">Ada pedoman</string>
     <string name="sb_guidelines_preference_sum">Pedoman berisi tips dan aturan tentang mengirimkan segmen</string>
     <string name="sb_guidelines_preference_title">Lihat pedoman</string>
-    <string name="sb_settings">Pengaturan SponsorBlock</string>
-    <string name="sb_summary">Pengaturan terkait SponsorBlock</string>
     <string name="sb_switching_success">Berhasil beralih. memuat ulang video</string>
     <string name="sb_switching_to_mirror">Mengalihkan server mirror API ke server API utama..</string>
     <string name="segments_endcards">Endcards/kredit</string>

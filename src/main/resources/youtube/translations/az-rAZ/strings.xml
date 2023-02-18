@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="about">Haqqında</string>
+    <string name="about">Haqqında (Romdeys)</string>
     <string name="about_api">Bu tətbiq SponsorBlock-dan API istifadə edir</string>
     <string name="about_api_sum">Ətraflı öyrənmək üçün toxunun və digər platformalar üçün endirmələrə baxın: sponsor.ajay.app</string>
     <string name="about_madeby">İnteqrasiya JakubWeg tərəfindən hazırlanmışdır</string>
@@ -46,11 +46,9 @@
     <string name="microg_not_installed_notice">Zəhmət olmasa MicroG-ni quraşdırın</string>
     <string name="microg_not_installed_warning">MicroG tapılmadı</string>
     <string name="microg_not_running_warning">MicroG arxa planda işləmir</string>
-    <string name="microg_notification_settings">MicroG bildiriş parametrləri</string>
     <string name="microg_notification_settings_summary">"1. Bildirişlər üçün Google cihazının qeydiyyatı və Bulud Mesajlaşması aktivləşdirilməlidir.
 2. ReVanced Cloud Messaging altında qeydiyyatdan keçdiyi kimi göstərilməlidir.
 3. Bulud Mesajlaşmasında cari vəziyyət qoşulu olmalıdır."</string>
-    <string name="microg_settings">MicroG parametrləri</string>
     <string name="minutes">dəqiqə</string>
     <string name="new_segment_choose_category">Seqment kateqoriyasını seçin</string>
     <string name="new_segment_confirm_content" formatted="false">"Seqment %02d:%02d ilə %02d:%02d arasında davam edir (%d dəqiqə %02d saniyə)
@@ -168,11 +166,8 @@ Təqdim etməyə hazırdır?"</string>
     <string name="revanced_adremover_web_search_panel_title">Veb axtarış panellərini gizlət</string>
     <string name="revanced_custom_seekbar_color_value_summary">Qaranlıq rejimdə istifadə etmək üçün axtarış çubuğu rənginin hex kodunu yazın</string>
     <string name="revanced_custom_seekbar_color_value_title">Xüsusi axtarış çubuğunun rəng dəyəri</string>
-    <string name="revanced_default_video_quality_mobile_summary">Mobil Şəbəkədə üstünlük verilən video rezolyusiyasını seçin</string>
     <string name="revanced_default_video_quality_mobile_title">Defolt video keyfiyyəti Mobil</string>
-    <string name="revanced_default_video_quality_wifi_summary">Wi-Fi şəbəkəsində üstünlük verilən video rezolyusiyasını seçin</string>
     <string name="revanced_default_video_quality_wifi_title">Defolt video keyfiyyəti Wi-Fi</string>
-    <string name="revanced_default_video_speed_summary">Standart video sürətini seçin</string>
     <string name="revanced_default_video_speed_title">Standart video sürəti</string>
     <string name="revanced_downloader_not_installed">quraşdırılmayıb. Zəhmət olmasa quraşdırın.</string>
     <string name="revanced_downloader_package_name_summary">"NewPipe və ya PowerTube kimi yükləyici tətbiqin paket adı"</string>
@@ -215,8 +210,6 @@ Təqdim etməyə hazırdır?"</string>
     <string name="revanced_enable_old_quality_layout_summary_off">Yeni stil keyfiyyət parametrləri göstərilir</string>
     <string name="revanced_enable_old_quality_layout_summary_on">Köhnə stil keyfiyyət parametrləri göstərilir</string>
     <string name="revanced_enable_old_quality_layout_title">Köhnə stil keyfiyyət düzənini aktiv et</string>
-    <string name="revanced_enable_open_links_directly_summary_off">URL yönləndirməsi (youtube.com/redirect) video təsvirlərində keçidləri açarkən istifadə olunur</string>
-    <string name="revanced_enable_open_links_directly_summary_on">Video təsvirlərində keçidləri açarkən URL yönləndirmələrini (youtube.com/redirect) keçin</string>
     <string name="revanced_enable_open_links_directly_title">Açıq bağlantıları birbaşa aktivləşdir</string>
     <string name="revanced_enable_press_to_swipe_summary_off">Sürüşdürmək üçün toxunma deaktivdir</string>
     <string name="revanced_enable_press_to_swipe_summary_on">Sürüşdürmək üçün toxunma deaktivdir</string>
@@ -230,6 +223,9 @@ Təqdim etməyə hazırdır?"</string>
     <string name="revanced_enable_save_video_quality_summary_off">Video keyfiyyətini dəyişdirərkən belə video keyfiyyət dəyərini yadda saxlama</string>
     <string name="revanced_enable_save_video_quality_summary_on">Video keyfiyyətini hər dəfə dəyişdirdiyiniz zaman video keyfiyyət dəyərini yadda saxlayın</string>
     <string name="revanced_enable_save_video_quality_title">Video keyfiyyətinin yadda saxlanılmasını aktiv et</string>
+    <string name="revanced_enable_save_video_speed_summary_off">Video sürətini dəyişdirərkən belə video sürət dəyərlərini saxlama</string>
+    <string name="revanced_enable_save_video_speed_summary_on">Video sürətini hər dəfə dəyişdirdiyiniz zaman video sürət dəyərini yadda saxlayın</string>
+    <string name="revanced_enable_save_video_speed_title">Fərdi video sürətini aktivləşdir</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">Axtarış çubuğuna toxunma (video tərəqqi çubuğu) aktivdir</string>
     <string name="revanced_enable_seekbar_tapping_title">Axtarış çubuğuna toxunma aktivdir</string>
     <string name="revanced_enable_swipe_auto_brightness_summary_off">Sürüşdürməklə parlaqlıq 0-a təyin edilsə belə, avtomatik parlaqlıq aktivləşdirilmir</string>
@@ -260,9 +256,6 @@ Təqdim etməyə hazırdır?"</string>
     <string name="revanced_experimental_flag">Eksperimental Bayraqlar</string>
     <string name="revanced_extended_issue_center_summary">Problemləri bildirin və ya burada təkliflər buraxın</string>
     <string name="revanced_extended_issue_center_title">ReVanced Extended xəta mərkəzi</string>
-    <string name="revanced_extended_settings">ReVanced Extended parametrləri</string>
-    <string name="revanced_extended_summary">Extended ilə əlaqəli parametrlər</string>
-    <string name="revanced_extended_title">Extended parametrləri</string>
     <string name="revanced_hide_auto_captions_summary_off">Altyazılar tətbiq edilən videonu oxuduqda başlıqlar aktiv edilir</string>
     <string name="revanced_hide_auto_captions_summary_on">"Altyazı tətbiq edilən videonu oxuduqda subtitrlər aktiv edilmir"</string>
     <string name="revanced_hide_auto_captions_title">Avtomatik altyazılını gizlət</string>
@@ -342,9 +335,6 @@ Təqdim etməyə hazırdır?"</string>
     <string name="revanced_hide_info_cards_summary_off">Məlumat kartları göstərilir</string>
     <string name="revanced_hide_info_cards_summary_on">Məlumat kartları gizlədilib</string>
     <string name="revanced_hide_info_cards_title">Məlumat panellərini gizlət</string>
-    <string name="revanced_hide_live_chat_button_summary_off">Canlı söhbət düyməsi göstərilir</string>
-    <string name="revanced_hide_live_chat_button_summary_on">Canlı söhbət düyməsi gizlidir</string>
-    <string name="revanced_hide_live_chat_button_title">Canlı söhbət düyməsini gizlət</string>
     <string name="revanced_hide_menu_ambient_mode_summary_off">Mühit rejimi menyusu göstərilir (Ambient mode)</string>
     <string name="revanced_hide_menu_ambient_mode_summary_on">Mühit rejimi menyusu gizlədilib (Ambient mode)</string>
     <string name="revanced_hide_menu_ambient_mode_title">Mühit rejimi menyusunu gizlət</string>
@@ -435,11 +425,8 @@ Təqdim etməyə hazırdır?"</string>
     <string name="revanced_layout_settings_bottomplayer">Aşağı pleyer örtüy parametrləri</string>
     <string name="revanced_layout_settings_flyoutmenu">Uçuş menyusu tərtibatı parametrləri</string>
     <string name="revanced_layout_settings_fullscreen">Tam ekran örtüy parametrləri</string>
-    <string name="revanced_layout_settings_general">Ümumi örtüy parametrləri</string>
     <string name="revanced_layout_settings_player">Pleyer örtüy parametrləri</string>
     <string name="revanced_layout_settings_seekbar">Axtarış çubuğu tərtibat parametrləri</string>
-    <string name="revanced_layout_settings_summary">Tərtibat ilə əlaqəli parametrlər</string>
-    <string name="revanced_layout_settings_title">Tərtibat parametrləri</string>
     <string name="revanced_misc_settings_summary">Müxtəlifnövlü parametrlər</string>
     <string name="revanced_misc_settings_title">Müxtəlifnövlü parametrləri</string>
     <string name="revanced_others_title">Digərləri</string>
@@ -457,6 +444,9 @@ Təqdim etməyə hazırdır?"</string>
     <string name="revanced_overlay_button_downloads_title">Yükləmə düyməsini göstər</string>
     <string name="revanced_overlay_button_summary">Örtüy düyməsi ilə əlaqəli parametrlər</string>
     <string name="revanced_overlay_button_title">Örtüy düyməsi parametrləri</string>
+    <string name="revanced_overlay_button_speed_summary_off">Sürət düyməsi gizlidir</string>
+    <string name="revanced_overlay_button_speed_summary_on">Sürət düyməsi göstərilir</string>
+    <string name="revanced_overlay_button_speed_title">Sürət düyməsini göstərin</string>
     <string name="revanced_overlay_button_whitelist_summary_off">Ağ siyahı düyməsi gizlədilib</string>
     <string name="revanced_overlay_button_whitelist_summary_on">Ağ siyahı düyməsi göstərilir</string>
     <string name="revanced_overlay_button_whitelist_title">Ağ siyahı düyməsini göstər</string>
@@ -506,7 +496,7 @@ Bu parametr olduqca köhnəldiyi üçün etibarlı olmaya bilər"</string>
     <string name="revanced_save_video_quality_mobile_error">Defolt mobil məlumat keyfiyyətini dəyişmək mümkün olmadı</string>
     <string name="revanced_save_video_quality_wifi">Defolt Wi-Fi keyfiyyətinin dəyişdirilməsi:</string>
     <string name="revanced_save_video_quality_wifi_error">Defolt Wi-Fi keyfiyyətini dəyişmək mümkün olmadı</string>
-    <string name="revanced_settings">ReVanced parametrləri</string>
+    <string name="revanced_save_video_speed">Standart sürətin dəyişdirilməsi:</string>
     <string name="revanced_swipe_controls_summary">Sürüşdürmə idarəetmələri ilə əlaqəli parametrlər</string>
     <string name="revanced_swipe_controls_title">Sürüşdürmə idarəetmə parametrləri</string>
     <string name="revanced_swipe_magnitude_threshold_summary">Sürüşmə aşkarlanmamışdan əvvəl minimum böyüklük</string>
@@ -549,8 +539,6 @@ Bu parametr olduqca köhnəldiyi üçün etibarlı olmaya bilər"</string>
     <string name="sb_guidelines_popup_title">Təlimatlar var</string>
     <string name="sb_guidelines_preference_sum">Təlimatlarda seqmentlərin təqdim edilməsi ilə bağlı məsləhətlər və qaydalar var</string>
     <string name="sb_guidelines_preference_title">Təlimatlara baxın</string>
-    <string name="sb_settings">SponsorBlock parametrləri</string>
-    <string name="sb_summary">SponsorBlock ilə əlaqəli parametrlər</string>
     <string name="sb_switching_success">Uğurla dəyişdirildi. videonu yenidən yükləyin</string>
     <string name="sb_switching_to_mirror">Güzgü API serveri əsas API serverinə keçirilir..</string>
     <string name="segments_endcards">Son Kartlar/Kreditlər</string>

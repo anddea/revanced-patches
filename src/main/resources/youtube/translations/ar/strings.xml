@@ -46,9 +46,7 @@
     <string name="microg_not_installed_notice">الرجاء تثبيت MicroG</string>
     <string name="microg_not_installed_warning">لم يتم العثور على MicroG</string>
     <string name="microg_not_running_warning">لا يعمل MicroG في الخلفية</string>
-    <string name="microg_notification_settings">إعدادات الإشعارات</string>
     <string name="microg_notification_settings_summary">"1. يحتاج تسجيل جهاز Google و Google Cloud Messaging إلى تمكينهما للحصول على للإشعارات.  2. يحتاج ReVanced إلى أن يظهر كمسجل تحت المراسلة السحابية.  3. يجب عدم قطع الإتصال في المراسلة السحابية."</string>
-    <string name="microg_settings">إعدادات MicroG</string>
     <string name="minutes">m</string>
     <string name="new_segment_choose_category">اختيار فئة المقطع</string>
     <string name="new_segment_confirm_content" formatted="false">"المقطع يستمر من %02d:%02d إلى %02d:%02d (%d دقيقة %02d ثانية) هل هو جاهز للإرسال؟"</string>
@@ -165,11 +163,8 @@
     <string name="revanced_adremover_web_search_panel_title">إخفاء لوحات بحث الويب</string>
     <string name="revanced_custom_seekbar_color_value_summary">اكتب رمز لون شريط تقدم الفيديو لاستخدامه في المظهر الداكن</string>
     <string name="revanced_custom_seekbar_color_value_title">قيمة لون شريط تقدم الفيديو المخصصة</string>
-    <string name="revanced_default_video_quality_mobile_summary">تحديد جودة الفيديو الافتراضية على شبكة الجوّال</string>
     <string name="revanced_default_video_quality_mobile_title">جودة الفيديو الافتراضية على شبكة الجوَّال</string>
-    <string name="revanced_default_video_quality_wifi_summary">تحديد جودة الفيديو الافتراضية على شبكة Wi-Fi</string>
     <string name="revanced_default_video_quality_wifi_title">جودة الفيديو الافتراضية على شبكة Wi-Fi</string>
-    <string name="revanced_default_video_speed_summary">تحديد سرعة الفيديو الافتراضية</string>
     <string name="revanced_default_video_speed_title">سرعة الفيديو الافتراضية</string>
     <string name="revanced_downloader_not_installed">غير مثبت. الرجاء تثبيته.</string>
     <string name="revanced_downloader_package_name_summary">"اسم حُزْمَة تطبيق التنزيل مثل NewPipe's أو PowerTube's"</string>
@@ -212,8 +207,6 @@
     <string name="revanced_enable_old_quality_layout_summary_off">يتم عرض المظهر الجديد لإعدادات جودة الفيديو</string>
     <string name="revanced_enable_old_quality_layout_summary_on">يتم عرض المظهر القديم لإعدادات جودة الفيديو</string>
     <string name="revanced_enable_old_quality_layout_title">تمكين المظهر القديم لإعدادات جودة الفيديو</string>
-    <string name="revanced_enable_open_links_directly_summary_off">تُستخدم إعادة توجيه عنوان URL (youtube.com/redirect) عند فتح الروابط في أوصاف الفيديو</string>
-    <string name="revanced_enable_open_links_directly_summary_on">تجاوز إعادة توجيه عناوين URL (youtube.com/redirect) عند فتح الروابط في أوصاف الفيديو</string>
     <string name="revanced_enable_open_links_directly_title">تمكين فتح الروابط بشكل مباشر</string>
     <string name="revanced_enable_press_to_swipe_summary_off">تنشيط عناصر التحكم عن طريق السحب عند الضغط مباشرة</string>
     <string name="revanced_enable_press_to_swipe_summary_on">يتم تنشيط عناصر التحكم عن طريق السحب فقط بضغطة طويلة</string>
@@ -227,6 +220,9 @@
     <string name="revanced_enable_save_video_quality_summary_off">لا يحتفظ بقيمة جودة الفيديو حتى عند تغيير جودة الفيديو</string>
     <string name="revanced_enable_save_video_quality_summary_on">الاحتفاظ بقيمة جودة الفيديو كلما قمت بتغيير جودة الفيديو</string>
     <string name="revanced_enable_save_video_quality_title">تمكين حفظ جودة الفيديو</string>
+    <string name="revanced_enable_save_video_speed_summary_off">لا يحفظ قيم سرعة الفيديو حتى عند تغيير سرعة الفيديو</string>
+    <string name="revanced_enable_save_video_speed_summary_on">حفظ قيمة سرعة الفيديو كلما قمت بتغيير سرعة الفيديو</string>
+    <string name="revanced_enable_save_video_speed_title">تمكين حفظ سرعة الفيديو</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">تم تمكين النقر على شريط الوقت (شريط تقدم الفيديو)</string>
     <string name="revanced_enable_seekbar_tapping_title">تمكين النقر على شريط الوقت</string>
     <string name="revanced_enable_swipe_auto_brightness_summary_off">حتى إذا تم ضبط السطوع على 0 عن طريق السحب، فلن يتم تنشيط السطوع التلقائي</string>
@@ -257,9 +253,6 @@
     <string name="revanced_experimental_flag">تعديلات تجريبية</string>
     <string name="revanced_extended_issue_center_summary">الإبلاغ عن المشاكل أو ترك الاقتراحات هنا</string>
     <string name="revanced_extended_issue_center_title">مركز مشاكل ReVanced Extended</string>
-    <string name="revanced_extended_settings">إعدادات ReVanced Extended</string>
-    <string name="revanced_extended_summary">الإعدادات المتعلقة بــ Extended</string>
-    <string name="revanced_extended_title">إعدادات Extended</string>
     <string name="revanced_hide_auto_captions_summary_off">تم تمكين التَّرْجَمَة عند فرض تشغيل مقطع فيديو مع التَّرْجَمَة</string>
     <string name="revanced_hide_auto_captions_summary_on">"تم تعطيل التَّرْجَمَة عند فرض تشغيل مقطع فيديو مع التَّرْجَمَة"</string>
     <string name="revanced_hide_auto_captions_title">إخفاء التَّرْجَمَة التلقائية</string>
@@ -339,9 +332,6 @@
     <string name="revanced_hide_info_cards_summary_off">يتم عرض بطاقات المعلومات</string>
     <string name="revanced_hide_info_cards_summary_on">تم إخفاء بطاقات المعلومات</string>
     <string name="revanced_hide_info_cards_title">إخفاء بطاقات المعلومات</string>
-    <string name="revanced_hide_live_chat_button_summary_off">يتم عرض زر المحادثات المباشرة</string>
-    <string name="revanced_hide_live_chat_button_summary_on">تم إخفاء زر المحادثات المباشرة</string>
-    <string name="revanced_hide_live_chat_button_title">إخفاء زر المحادثات المباشرة</string>
     <string name="revanced_hide_menu_ambient_mode_summary_off">يتم عرض قائمة الإضاءة السينمائية</string>
     <string name="revanced_hide_menu_ambient_mode_summary_on">تم إخفاء قائمة الإضاءة السينمائية</string>
     <string name="revanced_hide_menu_ambient_mode_title">إخفاء قائمة الإضاءة السينمائية</string>
@@ -432,11 +422,8 @@
     <string name="revanced_layout_settings_bottomplayer">إعدادات تصميم المشغل السفلي</string>
     <string name="revanced_layout_settings_flyoutmenu">إعدادات تصميم القائمة المنبثقة</string>
     <string name="revanced_layout_settings_fullscreen">إعدادات تصميم ملء الشاشة</string>
-    <string name="revanced_layout_settings_general">إعدادات التصميم العامة</string>
     <string name="revanced_layout_settings_player">إعدادات تصميم المشغل</string>
     <string name="revanced_layout_settings_seekbar">إعدادات تصميم شريط تقدم الفيديو</string>
-    <string name="revanced_layout_settings_summary">الإعدادات المتعلقة بالتصميم</string>
-    <string name="revanced_layout_settings_title">إعدادات التصميم</string>
     <string name="revanced_misc_settings_summary">إعدادات متنوعة ذات صلة</string>
     <string name="revanced_misc_settings_title">إعدادات متنوعة</string>
     <string name="revanced_others_title">أخرى</string>
@@ -454,6 +441,9 @@
     <string name="revanced_overlay_button_downloads_title">عرض زر التنزيل</string>
     <string name="revanced_overlay_button_summary">الإعدادات المتعلقة بزر مشغل الفيديو</string>
     <string name="revanced_overlay_button_title">إعدادت زر المشغل</string>
+    <string name="revanced_overlay_button_speed_summary_off">تم إخفاء زر السرعة</string>
+    <string name="revanced_overlay_button_speed_summary_on">يتم عرض زر السرعة</string>
+    <string name="revanced_overlay_button_speed_title">عرض زر السرعة</string>
     <string name="revanced_overlay_button_whitelist_summary_off">تم إخفاء زر القائمة البيضاء</string>
     <string name="revanced_overlay_button_whitelist_summary_on">يتم عرض زر القائمة البيضاء</string>
     <string name="revanced_overlay_button_whitelist_title">عرض زر القائمة البيضاء</string>
@@ -498,7 +488,7 @@
     <string name="revanced_save_video_quality_mobile_error">فشل في تغيير جودة بيانات الجوّال الافتراضية</string>
     <string name="revanced_save_video_quality_wifi">تغيير جودة Wi-Fi الافتراضية إلى:</string>
     <string name="revanced_save_video_quality_wifi_error">فشل في تغيير جودة Wi-FI الافتراضية</string>
-    <string name="revanced_settings">(ReVanced) إعدادات</string>
+    <string name="revanced_save_video_speed">تغيير السرعة الافتراضية إلى:</string>
     <string name="revanced_swipe_controls_summary">الإعدادات المتعلقة بالتفاعلات</string>
     <string name="revanced_swipe_controls_title">إعدادات التفاعل</string>
     <string name="revanced_swipe_magnitude_threshold_summary">مقدار الحد الأدنى للتمرير قبل اكتشاف السحب 
@@ -549,8 +539,6 @@
     <string name="sb_guidelines_popup_title">توجد إرشادات</string>
     <string name="sb_guidelines_preference_sum">الإرشادات تحتوي على نصائح حول تقديم المقاطع</string>
     <string name="sb_guidelines_preference_title">عرض الإرشادات</string>
-    <string name="sb_settings">SponsorBlock إعدادات مانِع الرُعَاة</string>
-    <string name="sb_summary">SponsorBlock الإعدادات المتعلقة بــ</string>
     <string name="sb_switching_success">تم التبديل بنجاح. أعد تحميل الفيديو</string>
     <string name="sb_switching_to_mirror">تبديل خادم API البديل إلى خادم API الرئيسي..</string>
     <string name="segments_endcards">الخاتمة/تترات النهاية</string>

@@ -46,11 +46,9 @@
     <string name="microg_not_installed_notice">MicroGをインストールしてください</string>
     <string name="microg_not_installed_warning">MicroGが見つかりません</string>
     <string name="microg_not_running_warning">MicroGはバックグラウンドで動作しません</string>
-    <string name="microg_notification_settings">通知設定</string>
     <string name="microg_notification_settings_summary">"1. 通知のために、Google デバイスの登録とCloud Messaging を有効にする必要があります。
 2. ReVanced は Cloud Messaging に登録済みとして表示される必要があります。
 3. Cloud Messaging の現在の状態は接続済みである必要があります。"</string>
-    <string name="microg_settings">MicroGの設定</string>
     <string name="minutes">分</string>
     <string name="new_segment_choose_category">セグメントのカテゴリを選択してください</string>
     <string name="new_segment_confirm_content" formatted="false">"このセグメントは %02d:%02d から %02d:%02d (%d 分 %02d 秒間)です。
@@ -105,10 +103,8 @@
     <string name="revanced_adremover_community_guidelines_summary_off">コミュニティガイドラインを非表示にします</string>
     <string name="revanced_adremover_community_guidelines_summary_on">コミュニティガイドラインを非表示にします</string>
     <string name="revanced_adremover_community_guidelines_title">コミュニティガイドラインを非表示にする</string>
-    <string name="revanced_adremover_community_posts_summary_off">コミュニティの投稿を非表示にします
-ホームページのコミュニティの投稿を非表示にします</string>
-    <string name="revanced_adremover_community_posts_summary_on">コミュニティの投稿を非表示にします
-ホームページのコミュニティの投稿を非表示にします</string>
+    <string name="revanced_adremover_community_posts_summary_off">ホームページのコミュニティの投稿を非表示にします</string>
+    <string name="revanced_adremover_community_posts_summary_on">ホームページのコミュニティの投稿を非表示にします</string>
     <string name="revanced_adremover_community_posts_title">コミュニティの投稿を非表示にする</string>
     <string name="revanced_adremover_compact_banner_summary_off">コンパクトなバナーを非表示にします</string>
     <string name="revanced_adremover_compact_banner_summary_on">コンパクトなバナーを非表示にします</string>
@@ -151,11 +147,9 @@
     <string name="revanced_adremover_self_sponsor_summary_off">自己スポンサーカードを非表示にします</string>
     <string name="revanced_adremover_self_sponsor_summary_on">自己スポンサーカードを非表示にします</string>
     <string name="revanced_adremover_self_sponsor_title">自己スポンサーカードを非表示にする</string>
-    <string name="revanced_adremover_separator_summary_off">灰色の区切りを非表示にします
-(この設定の詳細は不明です。公式のRevancedによって追加されたものです)</string>
-    <string name="revanced_adremover_separator_summary_on">灰色の区切りを非表示にします
-(この設定の詳細は不明です。公式のRevancedによって追加されたものです)</string>
-    <string name="revanced_adremover_separator_title">灰色の区切り(？)を非表示にする</string>
+    <string name="revanced_adremover_separator_summary_off">ホームの動画下に表示される“○○(チャンネル名)の視聴者はこのチャンネルも見ています”の表示を無効にします</string>
+    <string name="revanced_adremover_separator_summary_on">ホームの動画下に表示される“○○(チャンネル名)の視聴者はこのチャンネルも見ています”の表示を無効にします</string>
+    <string name="revanced_adremover_separator_title">“…の視聴者はこのチャンネルも見ています”の表示を無効にする</string>
     <string name="revanced_adremover_subscribers_community_guidelines_summary_off">チャンネル登録のコミュニティガイドラインを非表示にします</string>
     <string name="revanced_adremover_subscribers_community_guidelines_summary_on">チャンネル登録のコミュニティガイドラインを非表示にします</string>
     <string name="revanced_adremover_subscribers_community_guidelines_title">チャンネル登録のコミュニティガイドラインを非表示にする</string>
@@ -176,11 +170,8 @@
     <string name="revanced_adremover_web_search_panel_title">ウェブ検索パネルを非表示にする</string>
     <string name="revanced_custom_seekbar_color_value_summary">カラーコードを入力してシークバーの色を変更します</string>
     <string name="revanced_custom_seekbar_color_value_title">シークバーの色を変更する</string>
-    <string name="revanced_default_video_quality_mobile_summary">モバイルデータ通信でのデフォルト画質を選択</string>
     <string name="revanced_default_video_quality_mobile_title">モバイルデータ通信でのデフォルト画質</string>
-    <string name="revanced_default_video_quality_wifi_summary">Wi-Fi でのデフォルト画質を選択</string>
     <string name="revanced_default_video_quality_wifi_title">Wi-Fi でのデフォルト画質</string>
-    <string name="revanced_default_video_speed_summary">デフォルトの動画再生速度を選択</string>
     <string name="revanced_default_video_speed_title">デフォルトの再生速度</string>
     <string name="revanced_downloader_not_installed">はインストールされていません。インストールしてください。</string>
     <string name="revanced_downloader_package_name_summary">"NewPipeやPowerTubeなどのダウンローダーアプリのパッケージ名"</string>
@@ -223,8 +214,6 @@
     <string name="revanced_enable_old_quality_layout_summary_off">古い形式の画質設定を使用します</string>
     <string name="revanced_enable_old_quality_layout_summary_on">古い形式の画質設定を使用します</string>
     <string name="revanced_enable_old_quality_layout_title">古い形式の画質設定画面を有効にする</string>
-    <string name="revanced_enable_open_links_directly_summary_off">概要欄からリンクを開いた時、リダイレクト(youtube.com/redirect)を回避して直リンクで開きます</string>
-    <string name="revanced_enable_open_links_directly_summary_on">概要欄からリンクを開いた時、リダイレクト(youtube.com/redirect)を回避して直リンクで開きます</string>
     <string name="revanced_enable_open_links_directly_title">直リンクを有効にする</string>
     <string name="revanced_enable_press_to_swipe_summary_off">スワイプコントロールを有効にします</string>
     <string name="revanced_enable_press_to_swipe_summary_on">スワイプコントロールを有効にします</string>
@@ -238,6 +227,9 @@
     <string name="revanced_enable_save_video_quality_summary_off">画質を変更するたびに画質の値が保存されます</string>
     <string name="revanced_enable_save_video_quality_summary_on">画質を変更するたびに画質の値が保存されます</string>
     <string name="revanced_enable_save_video_quality_title">画質の保存を有効にする</string>
+    <string name="revanced_enable_save_video_speed_summary_off">再生速度を変更するたびに速度の設定が保存されます</string>
+    <string name="revanced_enable_save_video_speed_summary_on">再生速度を変更するたびに速度の設定が保存されます</string>
+    <string name="revanced_enable_save_video_speed_title">再生速度を保存する</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">シークバーのタップを有効にします</string>
     <string name="revanced_enable_seekbar_tapping_title">シークバーのタップを有効にする</string>
     <string name="revanced_enable_swipe_auto_brightness_summary_off">スワイプして明るさが0になると自動明るさ調整が働きます</string>
@@ -260,17 +252,14 @@
     <string name="revanced_enable_tablet_miniplayer_title">タブレットのミニプレーヤーを有効にする</string>
     <string name="revanced_enable_tablet_layout_summary">一部のタブレット用のレイアウトを使用できるように dpi を偽装します</string>
     <string name="revanced_enable_tablet_layout_title">タブレット用のレイアウトを有効にする</string>
-    <string name="revanced_enable_wide_searchbar_summary_off">検索アイコンを幅の広い検索バーに置き換えます。(これが有効になっているとYouTubeのロゴが非表示になります)</string>
-    <string name="revanced_enable_wide_searchbar_summary_on">検索アイコンを幅の広い検索バーに置き換えます。(これが有効になっているとYouTubeのロゴが非表示になります)</string>
+    <string name="revanced_enable_wide_searchbar_summary_off">検索アイコンを幅の広い検索バーに置き換えます(これが有効になっているとYouTubeのロゴが非表示になります)</string>
+    <string name="revanced_enable_wide_searchbar_summary_on">検索アイコンを幅の広い検索バーに置き換えます(これが有効になっているとYouTubeのロゴが非表示になります)</string>
     <string name="revanced_enable_wide_searchbar_title">幅広い検索バーを有効にする</string>
     <string name="revanced_enable_vp9_codec_summary">端末情報を偽装してVP9コーデックを有効にします</string>
     <string name="revanced_enable_vp9_codec_title">VP9コーデックを有効にする</string>
     <string name="revanced_experimental_flag">実験的な機能</string>
     <string name="revanced_extended_issue_center_summary">問題を報告するか、提案をここに残してください</string>
     <string name="revanced_extended_issue_center_title">ReVanced Extended問題センター</string>
-    <string name="revanced_extended_settings">ReVanced Extendedの設定</string>
-    <string name="revanced_extended_summary">Extended関連の設定</string>
-    <string name="revanced_extended_title">Extendedの設定</string>
     <string name="revanced_hide_auto_captions_summary_off">強制字幕表示が自動的に有効になるのを防ぎます</string>
     <string name="revanced_hide_auto_captions_summary_on">"強制字幕表示が自動的に有効になるのを防ぎます"</string>
     <string name="revanced_hide_auto_captions_title">自動で字幕が表示されるのを無効にする</string>
@@ -329,10 +318,8 @@
     <string name="revanced_hide_create_button_summary_off">作成ボタンを非表示にします</string>
     <string name="revanced_hide_create_button_summary_on">作成ボタンを非表示にします</string>
     <string name="revanced_hide_create_button_title">作成ボタンを非表示にする</string>
-    <string name="revanced_hide_crowdfunding_box_summary_off">クラウドファンディング欄を非表示にします
-プレーヤーと説明欄の間にあるクラウドファンディング欄を非表示にします</string>
-    <string name="revanced_hide_crowdfunding_box_summary_on">クラウドファンディング欄を非表示にします
-プレーヤーと説明欄の間にあるクラウドファンディング欄を非表示にします</string>
+    <string name="revanced_hide_crowdfunding_box_summary_off">プレーヤーと説明欄の間にあるクラウドファンディング欄を非表示にします</string>
+    <string name="revanced_hide_crowdfunding_box_summary_on">プレーヤーと説明欄の間にあるクラウドファンディング欄を非表示にします</string>
     <string name="revanced_hide_crowdfunding_box_title">クラウドファンディング欄を非表示にする</string>
     <string name="revanced_hide_email_address_summary_off">アカウントの切り替え画面でメールアドレスを非表示にします</string>
     <string name="revanced_hide_email_address_summary_on">アカウントの切り替え画面でメールアドレスを非表示にします</string>
@@ -352,9 +339,6 @@
     <string name="revanced_hide_info_cards_summary_off">プレーヤーの右上に表示される情報カード(ｉ⃝)を非表示にします</string>
     <string name="revanced_hide_info_cards_summary_on">プレーヤーの右上に表示される情報カード(ｉ⃝)を非表示にします</string>
     <string name="revanced_hide_info_cards_title">情報カードを非表示にする</string>
-    <string name="revanced_hide_live_chat_button_summary_off">ライブのチャットボタンを非表示にします</string>
-    <string name="revanced_hide_live_chat_button_summary_on">ライブのチャットボタンを非表示にします</string>
-    <string name="revanced_hide_live_chat_button_title">ライブのチャットボタンを非表示にする</string>
     <string name="revanced_hide_menu_ambient_mode_summary_off">アンビエントモードのメニューを非表示にします
 (動画プレーヤー上の設定内にあります)</string>
     <string name="revanced_hide_menu_ambient_mode_summary_on">アンビエントモードのメニューを非表示にします
@@ -447,11 +431,8 @@
     <string name="revanced_layout_settings_bottomplayer">プレイヤーの下のレイアウト設定</string>
     <string name="revanced_layout_settings_flyoutmenu">動画プレーヤー上の設定メニューのレイアウト設定</string>
     <string name="revanced_layout_settings_fullscreen">全画面表示のレイアウトの設定</string>
-    <string name="revanced_layout_settings_general">一般的なレイアウトの設定</string>
     <string name="revanced_layout_settings_player">動画プレーヤーのレイアウト設定</string>
     <string name="revanced_layout_settings_seekbar">シークバー(動画進捗バー)のレイアウト設定</string>
-    <string name="revanced_layout_settings_summary">レイアウト関連の設定</string>
-    <string name="revanced_layout_settings_title">レイアウトの設定</string>
     <string name="revanced_misc_settings_summary">その他の関連設定</string>
     <string name="revanced_misc_settings_title">その他の設定</string>
     <string name="revanced_others_title">その他</string>
@@ -469,6 +450,9 @@
     <string name="revanced_overlay_button_downloads_title">ダウンロードボタンを表示する</string>
     <string name="revanced_overlay_button_summary">オーバーレイボタンに関する設定</string>
     <string name="revanced_overlay_button_title">オーバーレイボタンの設定</string>
+    <string name="revanced_overlay_button_speed_summary_off">再生速度のボタンを表示します</string>
+    <string name="revanced_overlay_button_speed_summary_on">再生速度のボタンを表示します</string>
+    <string name="revanced_overlay_button_speed_title">再生速度のボタンを表示する</string>
     <string name="revanced_overlay_button_whitelist_summary_off">ホワイトリストのボタンを表示します</string>
     <string name="revanced_overlay_button_whitelist_summary_on">ホワイトリストのボタンを表示します</string>
     <string name="revanced_overlay_button_whitelist_title">ホワイトリストのボタンを表示する</string>
@@ -518,7 +502,7 @@
     <string name="revanced_save_video_quality_mobile_error">モバイルデータ通信でのデフォルト画質を変更できませんでした</string>
     <string name="revanced_save_video_quality_wifi">Wi-Fi でのデフォルト画質:</string>
     <string name="revanced_save_video_quality_wifi_error">Wi-Fi でのデフォルト画質を変更できませんでした</string>
-    <string name="revanced_settings">Revancedの設定</string>
+    <string name="revanced_save_video_speed">デフォルトの再生速度を変更:</string>
     <string name="revanced_swipe_controls_summary">スワイプコントロール関連の設定</string>
     <string name="revanced_swipe_controls_title">スワイプコントロールの設定</string>
     <string name="revanced_swipe_magnitude_threshold_summary">スワイプのしきい値を設定します</string>
@@ -561,8 +545,6 @@
     <string name="sb_guidelines_popup_title">ガイドラインがあります</string>
     <string name="sb_guidelines_preference_sum">ガイドラインには、セグメントの送信に関するヒントとルールが含まれています</string>
     <string name="sb_guidelines_preference_title">ガイドラインを表示</string>
-    <string name="sb_settings">SponsorBlockの設定</string>
-    <string name="sb_summary">SponsorBlock 関連の設定</string>
     <string name="sb_switching_success">切り替えに成功しました。動画を再読み込みしてください</string>
     <string name="sb_switching_to_mirror">ミラー API サーバーをメイン API サーバーに切り替えます。</string>
     <string name="segments_endcards">エンドカード/クレジット</string>
