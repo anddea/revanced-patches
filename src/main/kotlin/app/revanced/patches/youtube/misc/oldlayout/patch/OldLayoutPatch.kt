@@ -49,7 +49,6 @@ class OldLayoutPatch : BytecodePatch(
          */
         SettingsPatch.addPreference(
             arrayOf(
-                "SETTINGS: EXPERIMENTAL_FLAGS",
                 "SETTINGS: ENABLE_OLD_LAYOUT"
             )
         )

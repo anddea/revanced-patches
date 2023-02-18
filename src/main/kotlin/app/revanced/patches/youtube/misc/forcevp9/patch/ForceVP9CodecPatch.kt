@@ -66,7 +66,6 @@ class ForceVP9CodecPatch : BytecodePatch(
          */
         SettingsPatch.addPreference(
             arrayOf(
-                "SETTINGS: EXPERIMENTAL_FLAGS",
                 "SETTINGS: ENABLE_VP9_CODEC"
             )
         )
