@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.layout.fullscreen.fullscreenpanels.patch
+package app.revanced.patches.youtube.layout.fullscreen.fullscreenbuttoncontainer.bytecode.patch
 
 import app.revanced.extensions.findMutableMethodOf
 import app.revanced.extensions.injectHideCall
@@ -15,11 +15,11 @@ import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.iface.instruction.formats.Instruction21c
 import org.jf.dexlib2.iface.instruction.formats.Instruction31i
 
-@Name("hide-fullscreen-buttoncontainer")
+@Name("hide-fullscreen-buttoncontainer-bytecode-patch")
 @DependsOn([ResourceMappingPatch::class])
 @YouTubeCompatibility
 @Version("0.0.1")
-class HideFullscreenButtonContainerPatch : BytecodePatch() {
+class HideFullscreenButtonContainerBytecodePatch : BytecodePatch() {
     private val resourceIds = arrayOf(
         "quick_actions_element_container"
     ).map { name ->
@@ -43,7 +43,7 @@ class HideFullscreenButtonContainerPatch : BytecodePatch() {
                                         val mutableMethod = context.proxy(classDef).mutableClass.findMutableMethodOf(method)
 
                                         val viewRegister = (invokeInstruction as Instruction21c).registerA
-                                        mutableMethod.implementation!!.injectHideCall(insertIndex, viewRegister, "layout/FullscreenLayoutPatch", "hideFullscreenPanels")
+                                        mutableMethod.implementation!!.injectHideCall(insertIndex, viewRegister, "layout/FullscreenLayoutPatch", "hideFullscreenButtonContainer")
 
                                         patchSuccessArray[0] = true;
                                     }
