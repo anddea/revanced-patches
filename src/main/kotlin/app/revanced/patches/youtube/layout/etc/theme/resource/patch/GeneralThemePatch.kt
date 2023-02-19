@@ -5,12 +5,15 @@ import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.ResourcePatch
+import app.revanced.patches.youtube.layout.etc.theme.bytecode.patch.GeneralThemeBytecodePatch
 import org.w3c.dom.Element
 
 @Name("general-theme-resource-patch")
+@DependsOn([GeneralThemeBytecodePatch::class])
 @Version("0.0.1")
-class GeneralThemeResourcePatch : ResourcePatch {
+class GeneralThemePatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
 
         // edit the resource files to change the splash screen color
