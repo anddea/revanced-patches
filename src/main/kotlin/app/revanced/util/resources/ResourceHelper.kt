@@ -127,7 +127,6 @@ internal object ResourceHelper {
                         if (attribute.textContent == "@string/about_key" && it.getAttributeNode("app:iconSpaceReserved").textContent == "false") {
                             it.insertNode("Preference", it) {
                                 setAttribute("android:title", "@string/revanced_" + key + "_title")
-                                setAttribute("android:summary", "@string/revanced_" + key + "_summary")
                                 this.appendChild(ownerDocument.createElement("intent").also { intentNode ->
                                     intentNode.setAttribute("android:targetPackage", targetPackage)
                                     intentNode.setAttribute("android:data", key)
