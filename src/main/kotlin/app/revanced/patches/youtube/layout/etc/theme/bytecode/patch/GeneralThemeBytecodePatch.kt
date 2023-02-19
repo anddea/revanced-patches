@@ -8,18 +8,15 @@ import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
-import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.youtube.layout.etc.theme.bytecode.fingerprints.LithoThemeFingerprint
-import app.revanced.patches.youtube.layout.etc.theme.resource.patch.GeneralThemeResourcePatch
 import app.revanced.util.integrations.Constants.UTILS_PATH
 import org.jf.dexlib2.iface.instruction.formats.Instruction35c
 
 @Name("general-theme")
-@DependsOn([GeneralThemeResourcePatch::class])
 @YouTubeCompatibility
 @Version("0.0.1")
-class GeneralThemePatch : BytecodePatch(
+class GeneralThemeBytecodePatch : BytecodePatch(
     listOf(
         LithoThemeFingerprint
     )
