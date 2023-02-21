@@ -44,15 +44,18 @@ internal object IconHelper {
             iconName
         )
 
-        this.xmlEditor["res/values-v31/styles.xml"].use { editor ->
-            with(editor.file) {
-                val resourcesNode = getElementsByTagName("resources").item(0) as Element
+        this.xmlEditor["res/values-v31/styles.xml"].use { dom ->
+            val applicationNode = dom
+                .file
+                .getElementsByTagName("resources")
+                .item(0) as Element
 
-                for (i in 0 until resourcesNode.childNodes.length) {
-                    val node = resourcesNode.childNodes.item(i) as? Element ?: continue
-
-                    if (node.getAttribute("name") == "Base.Theme.YouTube.Launcher") {
-                        node.removeChild(node.childNodes.item(0))
+            applicationNode.getElementsByTagName("style").also {  list ->
+                for (i in 0 until list.length) {
+                    val element = list.item(i) as? Element ?: continue
+                    if (element.getAttribute("name") == "Base.Theme.YouTube.Launcher") {
+                        element.removeChild(element.firstChild)
+                        break
                     }
                 }
             }
