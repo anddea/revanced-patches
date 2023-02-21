@@ -58,13 +58,7 @@ class MaterialYouPatch : ResourcePatch {
             }
         }
 
-         val sourcePath = this.javaClass.classLoader.getResourceAsStream("youtube/materialyou/host/values-v31/colors.xml")!!
-         val relativePath = context.xmlEditor["res/values-v31/colors.xml"]
-
-        "resources".copyXmlNode(
-            context.xmlEditor[sourcePath],
-            relativePath
-        )
+        context.copyXmlNode("youtube/materialyou/host", "values-v31/colors.xml", "resources")
 
         /*
          * Add settings
