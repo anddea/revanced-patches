@@ -87,7 +87,6 @@ internal object MusicResourceHelper {
                 .forEach {
                     it.adoptChild(YOUTUBE_MUSIC_PREFERENCE_TAG_NAME) {
                         setAttribute("android:title", "@string/$key" + "_title")
-                        setAttribute("android:summary", "@string/$key" + "_summary")
                         setAttribute("android:key", key)
                         setAttribute("android:defaultValue", defaultValue)
                     }
