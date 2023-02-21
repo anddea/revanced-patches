@@ -43,6 +43,7 @@
     <string name="general_time_without_sb_sum">此时长会显示在当前时长旁边的括号中。这表示视频总时长减去所有片段时长。</string>
     <string name="general_uuid">您的私人用户 ID</string>
     <string name="general_uuid_sum">这应该保密。就像密码一样，不应该泄露给任何人。如果他人获得了这个 ID，他们可以冒充您</string>
+    <string name="hours">小时</string>
     <string name="microg_not_installed_notice">请安装 MicroG</string>
     <string name="microg_not_installed_warning">未找到 MicroG</string>
     <string name="microg_not_running_warning">MicroG 未在后台运行</string>
@@ -71,7 +72,6 @@
     <string name="new_segment_title">新的 SponsorBlock 片段</string>
     <string name="reset">重置</string>
     <string name="revanced_ads_settings_summary">广告相关设置</string>
-    <string name="revanced_ads_settings_title">广告设置</string>
     <string name="revanced_adremover_album_card_in_search_summary_off">搜索结果中的专辑卡片已显示</string>
     <string name="revanced_adremover_album_card_in_search_summary_on">搜索结果中的专辑卡片已隐藏</string>
     <string name="revanced_adremover_album_card_in_search_title">专辑卡片</string>
@@ -164,6 +164,7 @@
     <string name="revanced_adremover_web_search_panel_summary_off">网页搜索面板已显示</string>
     <string name="revanced_adremover_web_search_panel_summary_on">网页搜索面板已隐藏</string>
     <string name="revanced_adremover_web_search_panel_title">网页搜索面板</string>
+    <string name="revanced_backup_settings_summary">导入/导出 ReVanced 配置文件</string>
     <string name="revanced_custom_seekbar_color_value_summary">输入颜色代码以更改在暗色模式下的进度条颜色</string>
     <string name="revanced_custom_seekbar_color_value_title">自定义进度条颜色</string>
     <string name="revanced_default_video_quality_mobile_title">移动网络上的默认视频画质</string>
@@ -210,6 +211,8 @@
     <string name="revanced_enable_old_quality_layout_summary_off">新版画质设置已显示</string>
     <string name="revanced_enable_old_quality_layout_summary_on">旧版画质设置已显示</string>
     <string name="revanced_enable_old_quality_layout_title">旧版画质布局</string>
+    <string name="revanced_enable_open_links_directly_summary_off">遵循默认重定向策略</string>
+    <string name="revanced_enable_open_links_directly_summary_on">绕过链接重定向</string>
     <string name="revanced_enable_open_links_directly_title">直接打开链接</string>
     <string name="revanced_enable_press_to_swipe_summary_off">长按以滑动已禁用</string>
     <string name="revanced_enable_press_to_swipe_summary_on">长按以滑动已启用</string>
@@ -254,8 +257,11 @@
     <string name="revanced_enable_vp9_codec_summary">伪装机型信息以启用 VP9 编码</string>
     <string name="revanced_enable_vp9_codec_title">VP9 编码</string>
     <string name="revanced_experimental_flag">实验性功能</string>
+    <string name="revanced_export_settings_summary">保存 ReVanced 配置文件</string>
+    <string name="revanced_export_settings_title">导出配置</string>
     <string name="revanced_extended_issue_center_summary">在此报告问题或留下建议</string>
     <string name="revanced_extended_issue_center_title">ReVanced Extended 问题中心</string>
+    <string name="revanced_general_layout_settings_summary">一般布局相关设置</string>
     <string name="revanced_hide_auto_captions_summary_off">强制播放有字幕的视频时启用字幕</string>
     <string name="revanced_hide_auto_captions_summary_on">"强制播放有字幕的视频时禁用字幕"</string>
     <string name="revanced_hide_auto_captions_title">自动字幕</string>
@@ -329,6 +335,12 @@
     <string name="revanced_hide_filmstrip_overlay_summary_off">影片条叠加层已显示</string>
     <string name="revanced_hide_filmstrip_overlay_summary_on">影片条叠加层已隐藏</string>
     <string name="revanced_hide_filmstrip_overlay_title">视频条叠加层</string>
+    <string name="revanced_hide_floating_microphone_summary_off">弹出麦克风按钮已显示</string>
+    <string name="revanced_hide_floating_microphone_summary_on">弹出麦克风按钮已隐藏</string>
+    <string name="revanced_hide_floating_microphone_title">弹出麦克风按钮</string>
+    <string name="revanced_hide_fullscreen_button_container_summary_off">全屏按钮栏已显示</string>
+    <string name="revanced_hide_fullscreen_button_container_summary_on">全屏按钮栏已隐藏</string>
+    <string name="revanced_hide_fullscreen_button_container_title">全屏按钮栏</string>
     <string name="revanced_hide_fullscreen_panels_summary_off">全屏面板已显示</string>
     <string name="revanced_hide_fullscreen_panels_summary_on">全屏面板已隐藏</string>
     <string name="revanced_hide_fullscreen_panels_title">全屏面板</string>
@@ -374,6 +386,9 @@
     <string name="revanced_hide_next_button_summary_off">下一个（视频）按钮已显示</string>
     <string name="revanced_hide_next_button_summary_on">下一个（视频）按钮已隐藏</string>
     <string name="revanced_hide_next_button_title">下一个按钮</string>
+    <string name="revanced_hide_player_button_background_summary_off">播放器按钮背景已显示</string>
+    <string name="revanced_hide_player_button_background_summary_on">播放器按钮背景已隐藏</string>
+    <string name="revanced_hide_player_button_background_title">播放器按钮背景</string>
     <string name="revanced_hide_player_overlay_filter_summary_off">播放器叠加层过滤器已显示</string>
     <string name="revanced_hide_player_overlay_filter_summary_on">播放器叠加层过滤器已隐藏</string>
     <string name="revanced_hide_player_overlay_filter_title">播放器叠加层过滤器</string>
@@ -422,14 +437,11 @@
     <string name="revanced_hide_time_and_seekbar_summary_off">时长和进度条已显示</string>
     <string name="revanced_hide_time_and_seekbar_summary_on">时长和进度条已隐藏</string>
     <string name="revanced_hide_time_and_seekbar_title">时长和进度条</string>
-    <string name="revanced_layout_settings_bottomplayer">播放器下方布局设置</string>
-    <string name="revanced_layout_settings_flyoutmenu">弹出菜单布局设置</string>
-    <string name="revanced_layout_settings_fullscreen">全屏布局设置</string>
-    <string name="revanced_layout_settings_player">播放器布局设置</string>
-    <string name="revanced_layout_settings_seekbar">进度条布局设置</string>
+    <string name="revanced_import_settings_summary">从保存的文件恢复 ReVanced 配置</string>
+    <string name="revanced_import_settings_title">导入配置</string>
     <string name="revanced_misc_settings_summary">其他相关设置</string>
-    <string name="revanced_misc_settings_title">其他设置</string>
     <string name="revanced_others_title">其他</string>
+    <string name="revanced_other_layout_settings_summary">其他布局相关设置</string>
     <string name="revanced_overlay_button_auto_repeat_summary_off">自动循环播放按钮已隐藏</string>
     <string name="revanced_overlay_button_auto_repeat_summary_on">自动循环播放按钮已显示</string>
     <string name="revanced_overlay_button_auto_repeat_title">自动循环播放按钮</string>
@@ -443,7 +455,7 @@
     <string name="revanced_overlay_button_downloads_summary_on">下载按钮已显示</string>
     <string name="revanced_overlay_button_downloads_title">下载按钮</string>
     <string name="revanced_overlay_button_summary">叠加层按钮相关设置</string>
-    <string name="revanced_overlay_button_title">叠加层按钮设置</string>
+    <string name="revanced_overlay_button_speed_reset">重置视频倍速（1.0x）</string>
     <string name="revanced_overlay_button_speed_summary_off">倍速按钮已隐藏</string>
     <string name="revanced_overlay_button_speed_summary_on">倍速按钮已显示</string>
     <string name="revanced_overlay_button_speed_title">倍速按钮</string>
@@ -476,7 +488,6 @@
 
 由于这些设置已经过时，可能无法生效"</string>
     <string name="revanced_ryd_attribution_summary">点踩数据由 Return YouTube Dislike API 提供。点击了解更多信息。</string>
-    <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_dislike_percentage_summary_off">点踩显示为数字</string>
     <string name="revanced_ryd_dislike_percentage_summary_on">点踩显示为百分比</string>
     <string name="revanced_ryd_dislike_percentage_title">点踩百分比</string>
@@ -485,10 +496,7 @@
     <string name="revanced_ryd_compact_layout_title">紧凑点赞按钮</string>
     <string name="revanced_ryd_enable_summary_off">点踩数已隐藏</string>
     <string name="revanced_ryd_enable_summary_on">点踩数已显示</string>
-    <string name="revanced_ryd_enable_title">恢复 YouTube 点踩</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">点踩数不可用（已达到客户端 API 限制）</string>
-    <string name="revanced_ryd_settings_summary">恢复 YouTube 点踩设置</string>
-    <string name="revanced_ryd_settings_title">恢复 YouTube 点踩</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">隐藏</string>
     <string name="revanced_save_video_quality_common_error">设置画质失败</string>
     <string name="revanced_save_video_quality_internet_error">无网络连接</string>
@@ -497,8 +505,8 @@
     <string name="revanced_save_video_quality_wifi">更改 WiFi 默认画质为：</string>
     <string name="revanced_save_video_quality_wifi_error">无法更改 WiFi 默认画质</string>
     <string name="revanced_save_video_speed">更改默认倍速为：</string>
+    <string name="revanced_sponsorblock_settings_summary">SponsorBlock 相关设置</string>
     <string name="revanced_swipe_controls_summary">滑动控制相关设置</string>
-    <string name="revanced_swipe_controls_title">滑动控制设置</string>
     <string name="revanced_swipe_magnitude_threshold_summary">防误触的滑动幅度阈值</string>
     <string name="revanced_swipe_magnitude_threshold_title">滑动幅度阈值</string>
     <string name="revanced_swipe_overlay_background_alpha_summary">滑动叠加层背景透明度</string>
@@ -512,7 +520,6 @@
     <string name="revanced_video_ads_removal_summary_on">视频广告已隐藏</string>
     <string name="revanced_video_ads_removal_title">视频广告</string>
     <string name="revanced_video_settings_summary">视频相关设置</string>
-    <string name="revanced_video_settings_title">视频设置</string>
     <string name="revanced_whitelisting_add_failed" formatted="false">无法将频道 %s 添加到 %s 白名单</string>
     <string name="revanced_whitelisting_added" formatted="false">频道 %s 已添加到 %s 白名单</string>
     <string name="revanced_whitelisting_ads">视频广告</string>
@@ -541,6 +548,7 @@
     <string name="sb_guidelines_preference_title">查看指南</string>
     <string name="sb_switching_success">已成功切换，重新加载视频</string>
     <string name="sb_switching_to_mirror">正在切换镜像 API 服务器为主 API 服务器…</string>
+    <string name="seconds">秒</string>
     <string name="segments_endcards">结束画面/演职员表</string>
     <string name="segments_endcards_sum">当演职员表或出现 YouTube 结束画面时。不适用于语音结尾</string>
     <string name="segments_filler">灌水内容/笑话</string>
@@ -558,6 +566,7 @@
     <string name="segments_subscribe">交互提醒（订阅）</string>
     <string name="segments_subscribe_sum">当在任何免费或付费平台上出现点赞、订阅、关注或与他们交互的简短提醒时</string>
     <string name="settings_export_failed">导出设置失败</string>
+    <string name="settings_export_successful">导出配置成功</string>
     <string name="settings_ie">导入/导出设置</string>
     <string name="settings_ie_sum">这是存有您完整配置并适用于桌面扩展的 JSON。 其中包括您的私人用户 ID，因此请务必谨慎分享。</string>
     <string name="settings_import_failed">导入设置失败</string>

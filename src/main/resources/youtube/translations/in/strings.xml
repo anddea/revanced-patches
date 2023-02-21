@@ -43,12 +43,14 @@
     <string name="general_time_without_sb_sum">Waktu ini muncul dalam tanda kurung di sebelah waktu saat ini. Ini menunjukkan total durasi video dikurangi segmen apa pun.</string>
     <string name="general_uuid">ID pengguna pribadi anda</string>
     <string name="general_uuid_sum">Ini harus dirahasiakan. Ini seperti kata sandi dan tidak boleh dibagikan dengan siapa pun. Jika seseorang memiliki ini, mereka dapat meniru anda</string>
+    <string name="hours">jam</string>
     <string name="microg_not_installed_notice">Silahkan instal MicroG</string>
     <string name="microg_not_installed_warning">MicroG tidak ditemukan</string>
     <string name="microg_not_running_warning">MicroG tidak berjalan di background</string>
     <string name="microg_notification_settings_summary">"1. Pendaftaran perangkat Google dan Cloud Messaging harus diaktifkan untuk pemberitahuan.
 2. ReVanced perlu ditampilkan sebagai terdaftar di bawah Cloud Messaging.
 3. Status saat ini dalam Cloud Messaging harus terhubung."</string>
+    <string name="microg_notification_settings_title">Notifikasi</string>
     <string name="minutes">menit</string>
     <string name="new_segment_choose_category">Pilih kategori segmen</string>
     <string name="new_segment_confirm_content" formatted="false">"Segmen berlangsung dari %02d:%02d hingga %02d:%02d (%d menit %02d detik)
@@ -71,7 +73,7 @@ Apakah sudah siap untuk dikirim?"</string>
     <string name="new_segment_title">Segmen SponsorBlock baru</string>
     <string name="reset">Atur ulang</string>
     <string name="revanced_ads_settings_summary">Pengaturan terkait iklan</string>
-    <string name="revanced_ads_settings_title">Pengaturan iklan</string>
+    <string name="revanced_ads_settings_title">Iklan</string>
     <string name="revanced_adremover_album_card_in_search_summary_off">Kartu album ditampilkan dari hasil pencarian</string>
     <string name="revanced_adremover_album_card_in_search_summary_on">Kartu album disembunyikan dari hasil pencarian</string>
     <string name="revanced_adremover_album_card_in_search_title">Sembunyikan kartu album</string>
@@ -164,6 +166,7 @@ Apakah sudah siap untuk dikirim?"</string>
     <string name="revanced_adremover_web_search_panel_summary_off">Panel pencarian web ditampilkan</string>
     <string name="revanced_adremover_web_search_panel_summary_on">Panel pencarian web disembunyikan</string>
     <string name="revanced_adremover_web_search_panel_title">Sembunyikan panel pencarian web</string>
+    <string name="revanced_backup_settings_summary">Impor pengaturan ReVanced dari file atau ekspor pengaturan ReVanced ke file</string>
     <string name="revanced_custom_seekbar_color_value_summary">Ketik kode hex warna seekbar untuk digunakan dalam mode gelap</string>
     <string name="revanced_custom_seekbar_color_value_title">Nilai warna seekbar kustom</string>
     <string name="revanced_default_video_quality_mobile_title">Kualitas video default seluler</string>
@@ -210,6 +213,8 @@ Apakah sudah siap untuk dikirim?"</string>
     <string name="revanced_enable_old_quality_layout_summary_off">Pengaturan kualitas gaya baru ditampilkan</string>
     <string name="revanced_enable_old_quality_layout_summary_on">Pengaturan kualitas gaya lama ditampilkan</string>
     <string name="revanced_enable_old_quality_layout_title">Aktifkan layout kualitas gaya lama</string>
+    <string name="revanced_enable_open_links_directly_summary_off">Mengikuti kebijakan pengalihan default</string>
+    <string name="revanced_enable_open_links_directly_summary_on">Bypass pengalihan URL</string>
     <string name="revanced_enable_open_links_directly_title">Aktifkan link terbuka secara langsung</string>
     <string name="revanced_enable_press_to_swipe_summary_off">Tekan untuk swipe dinonaktifkan</string>
     <string name="revanced_enable_press_to_swipe_summary_on">Tekan untuk swipe diaktifkan</string>
@@ -254,8 +259,12 @@ Apakah sudah siap untuk dikirim?"</string>
     <string name="revanced_enable_vp9_codec_summary">Memalsukan informasi perangkat untuk mengaktifkan codec VP9</string>
     <string name="revanced_enable_vp9_codec_title">Aktifkan codec VP9</string>
     <string name="revanced_experimental_flag">Pengaturan eksperimental</string>
+    <string name="revanced_export_settings_summary">Simpan pengaturan ReVanced anda ke file</string>
+    <string name="revanced_export_settings_title">Pengaturan ekspor</string>
     <string name="revanced_extended_issue_center_summary">Laporkan masalah atau tinggalkan saran di sini</string>
     <string name="revanced_extended_issue_center_title">Pusat masalah ReVanced Extended</string>
+    <string name="revanced_general_layout_settings_summary">Pengaturan terkait layout umum</string>
+    <string name="revanced_general_layout_settings_title">Layout umum</string>
     <string name="revanced_hide_auto_captions_summary_off">Captions diaktifkan saat memutar video dengan captions diterapkan</string>
     <string name="revanced_hide_auto_captions_summary_on">"Captions tidak diaktifkan saat memutar video dengan captions diterapkan"</string>
     <string name="revanced_hide_auto_captions_title">Sembunyikan captions otomatis</string>
@@ -329,6 +338,12 @@ Apakah sudah siap untuk dikirim?"</string>
     <string name="revanced_hide_filmstrip_overlay_summary_off">Overlay strip film ditampilkan</string>
     <string name="revanced_hide_filmstrip_overlay_summary_on">Overlay strip film disembunyikan</string>
     <string name="revanced_hide_filmstrip_overlay_title">Sembunyikan overlay strip film</string>
+    <string name="revanced_hide_floating_microphone_summary_off">Tombol floating mikrofon ditampilkan</string>
+    <string name="revanced_hide_floating_microphone_summary_on">Tombol floating mikrofon disembunyikan</string>
+    <string name="revanced_hide_floating_microphone_title">Sembunyikan tombol floating mikrofon</string>
+    <string name="revanced_hide_fullscreen_button_container_summary_off">Wadah tombol fullscreen ditampilkan</string>
+    <string name="revanced_hide_fullscreen_button_container_summary_on">Wadah tombol fullscreen disembunyikan</string>
+    <string name="revanced_hide_fullscreen_button_container_title">Sembunyikan wadah tombol fullscreen</string>
     <string name="revanced_hide_fullscreen_panels_summary_off">Panel fullscreen ditampilkan</string>
     <string name="revanced_hide_fullscreen_panels_summary_on">Panel fullscreen disembunyikan</string>
     <string name="revanced_hide_fullscreen_panels_title">Sembunyikan panel fullscreen</string>
@@ -374,6 +389,9 @@ Apakah sudah siap untuk dikirim?"</string>
     <string name="revanced_hide_next_button_summary_off">Tombol next ditampilkan</string>
     <string name="revanced_hide_next_button_summary_on">Tombol next disembunyikan</string>
     <string name="revanced_hide_next_button_title">Sembunyikan tombol next</string>
+    <string name="revanced_hide_player_button_background_summary_off">Background tombol pemutar ditampilkan</string>
+    <string name="revanced_hide_player_button_background_summary_on">Background tombol pemutar disembunyikan</string>
+    <string name="revanced_hide_player_button_background_title">Sembunyikan background tombol pemutar</string>
     <string name="revanced_hide_player_overlay_filter_summary_off">Filter overlay pemutar ditampilkan</string>
     <string name="revanced_hide_player_overlay_filter_summary_on">Filter overlay pemutar disembunyikan</string>
     <string name="revanced_hide_player_overlay_filter_title">Sembunyikan filter overlay pemutar</string>
@@ -422,14 +440,19 @@ Apakah sudah siap untuk dikirim?"</string>
     <string name="revanced_hide_time_and_seekbar_summary_off">Waktu dan seekbar ditampilkan</string>
     <string name="revanced_hide_time_and_seekbar_summary_on">Waktu dan seekbar disembunyikan</string>
     <string name="revanced_hide_time_and_seekbar_title">Sembunyikan waktu dan seekbar</string>
-    <string name="revanced_layout_settings_bottomplayer">Pengaturan layout bawah pemutar</string>
-    <string name="revanced_layout_settings_flyoutmenu">Pengaturan layout menu flyout</string>
-    <string name="revanced_layout_settings_fullscreen">Pengaturan layout fullscreen</string>
-    <string name="revanced_layout_settings_player">Pengaturan layout pemutar</string>
-    <string name="revanced_layout_settings_seekbar">Pengaturan layout seekbar</string>
+    <string name="revanced_import_settings_summary">Ambil pengaturan ReVanced dari file yang disimpan</string>
+    <string name="revanced_import_settings_title">Pengaturan impor</string>
+    <string name="revanced_initial_spoof">Trik versi YouTube untuk memperbaiki masalah yang ada di YouTube official. Trik ini hanya berfungsi jika anda melakukan instalasi bersih.</string>
+    <string name="revanced_layout_settings_bottomplayer">Layout pemutar bawah</string>
+    <string name="revanced_layout_settings_flyoutmenu">Layout menu flyout</string>
+    <string name="revanced_layout_settings_fullscreen">Layout fullscreen</string>
+    <string name="revanced_layout_settings_player">Layout pemutar</string>
+    <string name="revanced_layout_settings_seekbar">Layout seekbar</string>
     <string name="revanced_misc_settings_summary">Pengaturan terkait lainnya</string>
-    <string name="revanced_misc_settings_title">Pengaturan lain-lain</string>
+    <string name="revanced_misc_settings_title">Lainnya</string>
     <string name="revanced_others_title">Lainnya</string>
+    <string name="revanced_other_layout_settings_summary">Pengaturan terkait layout lainnya</string>
+    <string name="revanced_other_layout_settings_title">Layout lainnya</string>
     <string name="revanced_overlay_button_auto_repeat_summary_off">Tombol auto repeat disembunyikan</string>
     <string name="revanced_overlay_button_auto_repeat_summary_on">Tombol auto repeat ditampilkan</string>
     <string name="revanced_overlay_button_auto_repeat_title">Tampilkan tombol auto repeat</string>
@@ -443,7 +466,8 @@ Apakah sudah siap untuk dikirim?"</string>
     <string name="revanced_overlay_button_downloads_summary_on">Tombol download ditampilkan</string>
     <string name="revanced_overlay_button_downloads_title">Tampilkan tombol download</string>
     <string name="revanced_overlay_button_summary">Pengaturan terkait tombol overlay</string>
-    <string name="revanced_overlay_button_title">Pengaturan tombol overlay</string>
+    <string name="revanced_overlay_button_title">Tombol overlay</string>
+    <string name="revanced_overlay_button_speed_reset">Kecepatan video diatur ulang (1,0x)</string>
     <string name="revanced_overlay_button_speed_summary_off">Tombol kecepatan disembunyikan</string>
     <string name="revanced_overlay_button_speed_summary_on">Tombol kecepatan ditampilkan</string>
     <string name="revanced_overlay_button_speed_title">Tampilkan tombol kecepatan</string>
@@ -476,7 +500,6 @@ Jika anda mengaktifkan pengaturan ini, fitur berikut tidak tersedia:
 
 Karena pengaturan ini sudah cukup usang, mungkin tidak valid"</string>
     <string name="revanced_ryd_attribution_summary">Data dislike disediakan oleh API Return YouTube Dislike. Tekan di sini untuk mempelajari lebih lanjut.</string>
-    <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_dislike_percentage_summary_off">Dislike ditampilkan sebagai angka</string>
     <string name="revanced_ryd_dislike_percentage_summary_on">Dislike ditampilkan sebagai persentase</string>
     <string name="revanced_ryd_dislike_percentage_title">Dislike sebagai persentase</string>
@@ -485,10 +508,8 @@ Karena pengaturan ini sudah cukup usang, mungkin tidak valid"</string>
     <string name="revanced_ryd_compact_layout_title">Tombol like compact</string>
     <string name="revanced_ryd_enable_summary_off">Dislike tidak ditampilkan</string>
     <string name="revanced_ryd_enable_summary_on">Dislike ditampilkan</string>
-    <string name="revanced_ryd_enable_title">Return YouTube Dislike</string>
+    <string name="revanced_ryd_enable_title">Aktifkan Return YouTube Dislike</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Dislikes tidak tersedia (batas API client tercapai)</string>
-    <string name="revanced_ryd_settings_summary">Pengaturan terkait Return YouTube Dislike</string>
-    <string name="revanced_ryd_settings_title">Return YouTube Dislike</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Hidden</string>
     <string name="revanced_save_video_quality_common_error">Gagal mengatur kualitas</string>
     <string name="revanced_save_video_quality_internet_error">Tidak ada koneksi internet</string>
@@ -497,8 +518,9 @@ Karena pengaturan ini sudah cukup usang, mungkin tidak valid"</string>
     <string name="revanced_save_video_quality_wifi">Mengubah kualitas Wi-Fi default menjadi:</string>
     <string name="revanced_save_video_quality_wifi_error">Gagal mengubah kualitas WI-FI default</string>
     <string name="revanced_save_video_speed">Mengubah kecepatan default menjadi:</string>
+    <string name="revanced_sponsorblock_settings_summary">Pengaturan terkait SponsorBlock</string>
     <string name="revanced_swipe_controls_summary">Pengaturan terkait kontrol swipe</string>
-    <string name="revanced_swipe_controls_title">Pengaturan kontrol swipe</string>
+    <string name="revanced_swipe_controls_title">Kontrol swipe</string>
     <string name="revanced_swipe_magnitude_threshold_summary">Jumlah ambang batas untuk swipe terjadi</string>
     <string name="revanced_swipe_magnitude_threshold_title">Ambang besar swipe</string>
     <string name="revanced_swipe_overlay_background_alpha_summary">Visibilitas background overlay swipe</string>
@@ -512,7 +534,7 @@ Karena pengaturan ini sudah cukup usang, mungkin tidak valid"</string>
     <string name="revanced_video_ads_removal_summary_on">Iklan video disembunyikan</string>
     <string name="revanced_video_ads_removal_title">Sembunyikan iklan video</string>
     <string name="revanced_video_settings_summary">Pengaturan terkait video</string>
-    <string name="revanced_video_settings_title">Pengaturan video</string>
+    <string name="revanced_video_settings_title">Video</string>
     <string name="revanced_whitelisting_add_failed" formatted="false">Gagal menambahkan channel %s ke %s whitelist</string>
     <string name="revanced_whitelisting_added" formatted="false">Channel %s telah ditambahkan ke %s whitelist</string>
     <string name="revanced_whitelisting_ads">Iklan video</string>
@@ -541,6 +563,7 @@ Karena pengaturan ini sudah cukup usang, mungkin tidak valid"</string>
     <string name="sb_guidelines_preference_title">Lihat pedoman</string>
     <string name="sb_switching_success">Berhasil beralih. memuat ulang video</string>
     <string name="sb_switching_to_mirror">Mengalihkan server mirror API ke server API utama..</string>
+    <string name="seconds">detik</string>
     <string name="segments_endcards">Endcards/kredit</string>
     <string name="segments_endcards_sum">Kredit atau saat kartu akhir YouTube muncul. Bukan untuk kesimpulan yang diucapkan</string>
     <string name="segments_filler">Filler tangent/lelucon</string>
@@ -558,6 +581,7 @@ Karena pengaturan ini sudah cukup usang, mungkin tidak valid"</string>
     <string name="segments_subscribe">Pengingat interaksi (subscribe)</string>
     <string name="segments_subscribe_sum">Ketika ada pengingat singkat untuk like, subscribe, follow, atau berinteraksi dengan mereka di platform gratis atau berbayar apa pun</string>
     <string name="settings_export_failed">Gagal mengekspor pengaturan</string>
+    <string name="settings_export_successful">Pengaturan berhasil diekspor</string>
     <string name="settings_ie">Pengaturan impor/ekspor</string>
     <string name="settings_ie_sum">Ini adalah seluruh konfigurasi anda yang berlaku di ekstensi desktop di JSON. Ini termasuk userID pribadi anda, jadi pastikan untuk membagikannya dengan bijak.</string>
     <string name="settings_import_failed">Gagal mengimpor pengaturan</string>
