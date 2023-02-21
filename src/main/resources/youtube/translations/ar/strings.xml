@@ -43,11 +43,13 @@
     <string name="general_time_without_sb_sum">هذا الوقت يظهر بين القوسين بجوار الوقت الحالي. وهذا يعرض مجموع وقت الفيديو بدون المقاطع التي تم تخطيها.</string>
     <string name="general_uuid">معرف المستخدم الفريد الخاص بك</string>
     <string name="general_uuid_sum">يجب أن يبقى هذا خاصًا. انه مثل كلمة المرور ولا ينبغي مشاركته مع أي شخص. إذا كان شخص ما يملك هذا، فيمكنه انتحال شخصيتك</string>
+    <string name="hours">ساعة</string>
     <string name="microg_not_installed_notice">الرجاء تثبيت MicroG</string>
     <string name="microg_not_installed_warning">لم يتم العثور على MicroG</string>
     <string name="microg_not_running_warning">لا يعمل MicroG في الخلفية</string>
     <string name="microg_notification_settings_summary">"1. يحتاج تسجيل جهاز Google و Google Cloud Messaging إلى تمكينهما للحصول على للإشعارات.  2. يحتاج ReVanced إلى أن يظهر كمسجل تحت المراسلة السحابية.  3. يجب عدم قطع الإتصال في المراسلة السحابية."</string>
-    <string name="minutes">m</string>
+    <string name="microg_notification_settings_title">إشعار</string>
+    <string name="minutes">دقيقة</string>
     <string name="new_segment_choose_category">اختيار فئة المقطع</string>
     <string name="new_segment_confirm_content" formatted="false">"المقطع يستمر من %02d:%02d إلى %02d:%02d (%d دقيقة %02d ثانية) هل هو جاهز للإرسال؟"</string>
     <string name="new_segment_confirm_title">هل الأوقات صحيحة؟</string>
@@ -68,7 +70,7 @@
     <string name="new_segment_title">مقطع مانِع رُعَاة جديد</string>
     <string name="reset">إعادة تعيين</string>
     <string name="revanced_ads_settings_summary">الإعدادات المتعلقة بالإعلانات</string>
-    <string name="revanced_ads_settings_title">إعدادات الإعلانات</string>
+    <string name="revanced_ads_settings_title">الإعلانات</string>
     <string name="revanced_adremover_album_card_in_search_summary_off">يتم عرض بطاقات الألبوم من نتائج البحث</string>
     <string name="revanced_adremover_album_card_in_search_summary_on">تم إخفاء بطاقات الألبوم من نتائج البحث</string>
     <string name="revanced_adremover_album_card_in_search_title">إخفاء بطاقات الألبوم</string>
@@ -161,6 +163,7 @@
     <string name="revanced_adremover_web_search_panel_summary_off">يتم عرض لوحات البحث على الويب</string>
     <string name="revanced_adremover_web_search_panel_summary_on">تم إخفاء لوحات البحث على الويب</string>
     <string name="revanced_adremover_web_search_panel_title">إخفاء لوحات بحث الويب</string>
+    <string name="revanced_backup_settings_summary">استيراد إعدادات ReVanced من مِلَفّ، أو تصديرها إلى مِلَفّ</string>
     <string name="revanced_custom_seekbar_color_value_summary">اكتب رمز لون شريط تقدم الفيديو لاستخدامه في المظهر الداكن</string>
     <string name="revanced_custom_seekbar_color_value_title">قيمة لون شريط تقدم الفيديو المخصصة</string>
     <string name="revanced_default_video_quality_mobile_title">جودة الفيديو الافتراضية على شبكة الجوَّال</string>
@@ -207,6 +210,8 @@
     <string name="revanced_enable_old_quality_layout_summary_off">يتم عرض المظهر الجديد لإعدادات جودة الفيديو</string>
     <string name="revanced_enable_old_quality_layout_summary_on">يتم عرض المظهر القديم لإعدادات جودة الفيديو</string>
     <string name="revanced_enable_old_quality_layout_title">تمكين المظهر القديم لإعدادات جودة الفيديو</string>
+    <string name="revanced_enable_open_links_directly_summary_off">يتبع سياسة إعادة التوجيه الافتراضية</string>
+    <string name="revanced_enable_open_links_directly_summary_on">تجاوز عمليات إعادة توجيه URL</string>
     <string name="revanced_enable_open_links_directly_title">تمكين فتح الروابط بشكل مباشر</string>
     <string name="revanced_enable_press_to_swipe_summary_off">تنشيط عناصر التحكم عن طريق السحب عند الضغط مباشرة</string>
     <string name="revanced_enable_press_to_swipe_summary_on">يتم تنشيط عناصر التحكم عن طريق السحب فقط بضغطة طويلة</string>
@@ -251,8 +256,12 @@
     <string name="revanced_enable_vp9_codec_summary">خداع معلومات الجهاز لتمكين ترميز VP9</string>
     <string name="revanced_enable_vp9_codec_title">تمكين ترميز VP9</string>
     <string name="revanced_experimental_flag">تعديلات تجريبية</string>
+    <string name="revanced_export_settings_summary">حفظ إعدادات ReVanced الخاصة بك في مِلَفّ</string>
+    <string name="revanced_export_settings_title">تصدير الإعدادات</string>
     <string name="revanced_extended_issue_center_summary">الإبلاغ عن المشاكل أو ترك الاقتراحات هنا</string>
     <string name="revanced_extended_issue_center_title">مركز مشاكل ReVanced Extended</string>
+    <string name="revanced_general_layout_settings_summary">الإعدادات المتعلقة بالتصميم</string>
+    <string name="revanced_general_layout_settings_title">التصميم العام</string>
     <string name="revanced_hide_auto_captions_summary_off">تم تمكين التَّرْجَمَة عند فرض تشغيل مقطع فيديو مع التَّرْجَمَة</string>
     <string name="revanced_hide_auto_captions_summary_on">"تم تعطيل التَّرْجَمَة عند فرض تشغيل مقطع فيديو مع التَّرْجَمَة"</string>
     <string name="revanced_hide_auto_captions_title">إخفاء التَّرْجَمَة التلقائية</string>
@@ -326,6 +335,12 @@
     <string name="revanced_hide_filmstrip_overlay_summary_off">يتم عرض واجهة شريط الفيلم</string>
     <string name="revanced_hide_filmstrip_overlay_summary_on">تم إخفاء واجهة شريط الفيلم</string>
     <string name="revanced_hide_filmstrip_overlay_title">إخفاء واجهة شريط الفيلم</string>
+    <string name="revanced_hide_floating_microphone_summary_off">يتم عرض زر الميكروفون العائم أثناء البحث</string>
+    <string name="revanced_hide_floating_microphone_summary_on">تم إخفاء زر الميكروفون العائم أثناء البحث</string>
+    <string name="revanced_hide_floating_microphone_title">إخفاء زر الميكروفون العائم</string>
+    <string name="revanced_hide_fullscreen_button_container_summary_off">يتم عرض حاوية زر ملء الشاشة</string>
+    <string name="revanced_hide_fullscreen_button_container_summary_on">تم إخفاء حاوية زر ملء الشاشة</string>
+    <string name="revanced_hide_fullscreen_button_container_title">إخفاء حاوية زر ملء الشاشة</string>
     <string name="revanced_hide_fullscreen_panels_summary_off">يتم عرض لوحات ملء الشاشة</string>
     <string name="revanced_hide_fullscreen_panels_summary_on">تم إخفاء لوحات ملء الشاشة</string>
     <string name="revanced_hide_fullscreen_panels_title">إخفاء لوحات ملء الشاشة</string>
@@ -371,6 +386,9 @@
     <string name="revanced_hide_next_button_summary_off">يتم عرض زر التالي</string>
     <string name="revanced_hide_next_button_summary_on">تم إخفاء زر التالي</string>
     <string name="revanced_hide_next_button_title">إخفاء زر التالي</string>
+    <string name="revanced_hide_player_button_background_summary_off">يتم عرض خلفية زر المشغل</string>
+    <string name="revanced_hide_player_button_background_summary_on">تم إخفاء خلفية زر المشغل</string>
+    <string name="revanced_hide_player_button_background_title">إخفاء خلفية زر المشغل</string>
     <string name="revanced_hide_player_overlay_filter_summary_off">يتم عرض فلتر خلفية واجهة المشغل</string>
     <string name="revanced_hide_player_overlay_filter_summary_on">تم إخفاء فلتر خلفية واجهة المشغل</string>
     <string name="revanced_hide_player_overlay_filter_title">إخفاء فلتر خلفية واجهة المشغل</string>
@@ -419,14 +437,19 @@
     <string name="revanced_hide_time_and_seekbar_summary_off">يتم عرض الوقت وشريط تقدم الفيديو</string>
     <string name="revanced_hide_time_and_seekbar_summary_on">تم إخفاء الوقت وشريط تقدم الفيديو</string>
     <string name="revanced_hide_time_and_seekbar_title">إخفاء الوقت وشريط تقدم الفيديو</string>
-    <string name="revanced_layout_settings_bottomplayer">إعدادات تصميم المشغل السفلي</string>
-    <string name="revanced_layout_settings_flyoutmenu">إعدادات تصميم القائمة المنبثقة</string>
-    <string name="revanced_layout_settings_fullscreen">إعدادات تصميم ملء الشاشة</string>
-    <string name="revanced_layout_settings_player">إعدادات تصميم المشغل</string>
-    <string name="revanced_layout_settings_seekbar">إعدادات تصميم شريط تقدم الفيديو</string>
+    <string name="revanced_import_settings_summary">جلب إعدادات ReVanced من المِلَفّ المحفوظ</string>
+    <string name="revanced_import_settings_title">استيراد الإعدادات</string>
+    <string name="revanced_initial_spoof">يخدع إصدار YouTube لإصلاح مشكلة موجودة على تطبيق YouTube الرسمي. تعمل هذه الحيلة فقط إذا أجريت تثبيتًا نظيفًا.</string>
+    <string name="revanced_layout_settings_bottomplayer">تصميم المشغل السفلي</string>
+    <string name="revanced_layout_settings_flyoutmenu">تصميم القائمة المنبثقة</string>
+    <string name="revanced_layout_settings_fullscreen">تصميم ملء الشاشة</string>
+    <string name="revanced_layout_settings_player">تصميم المشغل</string>
+    <string name="revanced_layout_settings_seekbar">تصميم شريط تقدم الفيديو</string>
     <string name="revanced_misc_settings_summary">إعدادات متنوعة ذات صلة</string>
-    <string name="revanced_misc_settings_title">إعدادات متنوعة</string>
+    <string name="revanced_misc_settings_title">إعدادات إضافية</string>
     <string name="revanced_others_title">أخرى</string>
+    <string name="revanced_other_layout_settings_summary">إعدادات أخرى متعلقة بالتصميم</string>
+    <string name="revanced_other_layout_settings_title">تصميمات آخرى</string>
     <string name="revanced_overlay_button_auto_repeat_summary_off">تم إخفاء زر التكرار التلقائي</string>
     <string name="revanced_overlay_button_auto_repeat_summary_on">يتم عرض زر التكرار التلقائي</string>
     <string name="revanced_overlay_button_auto_repeat_title">عرض زر التكرار التلقائي</string>
@@ -440,7 +463,8 @@
     <string name="revanced_overlay_button_downloads_summary_on">يتم عرض زر التنزيل</string>
     <string name="revanced_overlay_button_downloads_title">عرض زر التنزيل</string>
     <string name="revanced_overlay_button_summary">الإعدادات المتعلقة بزر مشغل الفيديو</string>
-    <string name="revanced_overlay_button_title">إعدادت زر المشغل</string>
+    <string name="revanced_overlay_button_title">زر الواجهة</string>
+    <string name="revanced_overlay_button_speed_reset">إعادة تعيين سرعة الفيديو (1.0x)</string>
     <string name="revanced_overlay_button_speed_summary_off">تم إخفاء زر السرعة</string>
     <string name="revanced_overlay_button_speed_summary_on">يتم عرض زر السرعة</string>
     <string name="revanced_overlay_button_speed_title">عرض زر السرعة</string>
@@ -468,7 +492,6 @@
 
 نظرًا لأن هذا الإعداد قديم تمامًا، فقد لا يكون صالحًا"</string>
     <string name="revanced_ryd_attribution_summary">يتم توفير بيانات عدم الإعجاب بمقاطع يوتيوب بواسطة the Return YouTube Dislike API. اضغط هنا لمعرفة المزيد.</string>
-    <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_dislike_percentage_summary_off">يظهر عدد لم يعجبني كـ رَقَم</string>
     <string name="revanced_ryd_dislike_percentage_summary_on">يظهر عدد لم يعجبني كـ نسبة مئوية</string>
     <string name="revanced_ryd_dislike_percentage_title">لم يعجبني كــ نسبة مئوية</string>
@@ -477,10 +500,8 @@
     <string name="revanced_ryd_compact_layout_title">زر الإعجاب المدمج</string>
     <string name="revanced_ryd_enable_summary_off">لا يتم عرض لم يعجبني</string>
     <string name="revanced_ryd_enable_summary_on">يتم عرض لم يعجبني</string>
-    <string name="revanced_ryd_enable_title">إرجاع YouTube Dislike</string>
+    <string name="revanced_ryd_enable_title">تمكين Return YouTube Dislike</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">لم يعجبني غير متاح (تم الوصول إلى حد API العميل)</string>
-    <string name="revanced_ryd_settings_summary">الإعدادات المتعلقة بإرجاع عدد لم يعجبني</string>
-    <string name="revanced_ryd_settings_title">إرجاع YouTube Dislike</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">مخفي</string>
     <string name="revanced_save_video_quality_common_error">فشل في تعيين الجودة</string>
     <string name="revanced_save_video_quality_internet_error">لا يوجد اتصال بالإنترنت</string>
@@ -489,8 +510,9 @@
     <string name="revanced_save_video_quality_wifi">تغيير جودة Wi-Fi الافتراضية إلى:</string>
     <string name="revanced_save_video_quality_wifi_error">فشل في تغيير جودة Wi-FI الافتراضية</string>
     <string name="revanced_save_video_speed">تغيير السرعة الافتراضية إلى:</string>
+    <string name="revanced_sponsorblock_settings_summary">الإعدادات المتعلقة بــ SponsorBlock</string>
     <string name="revanced_swipe_controls_summary">الإعدادات المتعلقة بالتفاعلات</string>
-    <string name="revanced_swipe_controls_title">إعدادات التفاعل</string>
+    <string name="revanced_swipe_controls_title">التحكم عن طريق السحب</string>
     <string name="revanced_swipe_magnitude_threshold_summary">مقدار الحد الأدنى للتمرير قبل اكتشاف السحب 
 
 الإفتراضي:0</string>
@@ -512,7 +534,7 @@
     <string name="revanced_video_ads_removal_summary_on">تم إخفاء إعلانات الفيديو</string>
     <string name="revanced_video_ads_removal_title">إخفاء إعلانات الفيديو</string>
     <string name="revanced_video_settings_summary">الإعدادات المتعلقة بالفيديو</string>
-    <string name="revanced_video_settings_title">إعدادات الفيديو</string>
+    <string name="revanced_video_settings_title">فيديو</string>
     <string name="revanced_whitelisting_add_failed" formatted="false">فشل إضافة القناة %s إلى القائمة البيضاء %s</string>
     <string name="revanced_whitelisting_added" formatted="false">تمت إضافة القناة %s إلى القائمة البيضاء %s</string>
     <string name="revanced_whitelisting_ads">إعلانات الفيديو</string>
@@ -541,6 +563,7 @@
     <string name="sb_guidelines_preference_title">عرض الإرشادات</string>
     <string name="sb_switching_success">تم التبديل بنجاح. أعد تحميل الفيديو</string>
     <string name="sb_switching_to_mirror">تبديل خادم API البديل إلى خادم API الرئيسي..</string>
+    <string name="seconds">ثانية</string>
     <string name="segments_endcards">الخاتمة/تترات النهاية</string>
     <string name="segments_endcards_sum">تتر النهاية أو عندما تظهر بطاقات النهاية، نهايات غير منطوقة</string>
     <string name="segments_filler">خارج الموضوع/النكات</string>
@@ -558,6 +581,7 @@
     <string name="segments_subscribe">تذكير بالتفاعل (الاشتراك في القناة)</string>
     <string name="segments_subscribe_sum">عندما يكون هناك تذكير قصير للإعجاب بالمقطع أو الاشتراك بالقناة أو المتابعة أو التفاعل معهم على أي منصة مجانية أو مدفوعة</string>
     <string name="settings_export_failed">فشل تصدير الإعدادات</string>
+    <string name="settings_export_successful">تم تصدير الإعدادات بنجاح</string>
     <string name="settings_ie">إستيراد/تصدير الإعدادات</string>
     <string name="settings_ie_sum">يتم تخزين جميع إعداداتك بتنسيق JSON المتوافق مع المكون الإضافي لسطح المكتب. يتضمن هذا معرف المستخدم الفريد الخاص بك، لِذا فكر مرتين قبل مشاركته.</string>
     <string name="settings_import_failed">فشل استيراد الإعدادات</string>

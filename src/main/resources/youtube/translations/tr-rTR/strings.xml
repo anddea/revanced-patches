@@ -43,12 +43,14 @@
     <string name="general_time_without_sb_sum">Bu süre, videodaki mevcut zamanın yanına yay ayraç (parantez) içinde gösterilir. Videodaki kısımlar kesildikten sonra kalan zamanı gösterir.</string>
     <string name="general_uuid">Benzersiz kullanıcı kimliğiniz</string>
     <string name="general_uuid_sum">Bu gizli tutulmalıdır. Bu bir şifre gibidir ve kimseyle paylaşılmamalıdır. Birisi buna sahipse, sizi taklit edebilir</string>
+    <string name="hours">saattir</string>
     <string name="microg_not_installed_notice">Lütfen MicroG yükleyin</string>
     <string name="microg_not_installed_warning">MicroG bulunamadı</string>
     <string name="microg_not_running_warning">MicroG arka planda çalışmıyor</string>
     <string name="microg_notification_settings_summary">"1. Bildirimler için Google cihaz kaydı ve Bulut Mesajlaşma etkinleştirilmelidir.
  2. ReVanced Extended, Bulut Mesajlaşma altında kayıtlı olarak gösterilmelidir.
  3. Bulut Mesajlaşma'daki Mevcut Durum Bağlı olmalıdır."</string>
+    <string name="microg_notification_settings_title">Bildirim</string>
     <string name="minutes">dakika</string>
     <string name="new_segment_choose_category">Kategori seçin</string>
     <string name="new_segment_confirm_content" formatted="false">"Bu kısmın başlangıcı %02d.%02d, bitişi %02d.%02d, süresi %d dakika %02d saniye.
@@ -71,7 +73,7 @@ Gönderilmeye hazır mı?"</string>
     <string name="new_segment_title">Yeni SponsorBlock kısmı</string>
     <string name="reset">Sıfırla</string>
     <string name="revanced_ads_settings_summary">Reklamla ilgili ayarlar</string>
-    <string name="revanced_ads_settings_title">Reklam ayarları</string>
+    <string name="revanced_ads_settings_title">Reklamlar</string>
     <string name="revanced_adremover_album_card_in_search_summary_off">Gizlenmiyor</string>
     <string name="revanced_adremover_album_card_in_search_summary_on">Gizleniyor</string>
     <string name="revanced_adremover_album_card_in_search_title">Albüm kartlarını gizle</string>
@@ -164,6 +166,7 @@ Gönderilmeye hazır mı?"</string>
     <string name="revanced_adremover_web_search_panel_summary_off">Gizlenmiyor</string>
     <string name="revanced_adremover_web_search_panel_summary_on">Gizleniyor</string>
     <string name="revanced_adremover_web_search_panel_title">Web arama sonuçları</string>
+    <string name="revanced_backup_settings_summary">ReVanced ayarlarını dosyadan içe aktarın veya ReVanced ayarlarını dosyaya aktarın</string>
     <string name="revanced_custom_seekbar_color_value_summary">Karalık modda kullanılacak zaman çubuğunun rengi</string>
     <string name="revanced_custom_seekbar_color_value_title">Özel zaman çubuğu renk değeri</string>
     <string name="revanced_default_video_quality_mobile_title">Tercih edilen video kalitesi (Hücresel)</string>
@@ -210,6 +213,8 @@ Gönderilmeye hazır mı?"</string>
     <string name="revanced_enable_old_quality_layout_summary_off">Yeni stil kullanılıyor</string>
     <string name="revanced_enable_old_quality_layout_summary_on">Eski stil kullanılıyor</string>
     <string name="revanced_enable_old_quality_layout_title">Eski stilde kalite arayüzünü etkinleştir</string>
+    <string name="revanced_enable_open_links_directly_summary_off">Varsayılan yönlendirme politikası takip ediliyor</string>
+    <string name="revanced_enable_open_links_directly_summary_on">URL yönlendirmelerini atla</string>
     <string name="revanced_enable_open_links_directly_title">Bağlantıları direkt açmayı etkinleştir</string>
     <string name="revanced_enable_press_to_swipe_summary_off">Basılı-tut-kaydır devre dışı</string>
     <string name="revanced_enable_press_to_swipe_summary_on">Basılı-tut-kaydır etkin</string>
@@ -254,8 +259,12 @@ Gönderilmeye hazır mı?"</string>
     <string name="revanced_enable_vp9_codec_summary">VP9 codec bileşenini etkinleştirmek için cihaz bilgilerini değiştir</string>
     <string name="revanced_enable_vp9_codec_title">VP9 kodek bileşenini etkinleştir</string>
     <string name="revanced_experimental_flag">Deneysel parametreler</string>
+    <string name="revanced_export_settings_summary">ReVanced ayarlarınızı dosyaya kaydedin</string>
+    <string name="revanced_export_settings_title">Dışa aktarım ayarları</string>
     <string name="revanced_extended_issue_center_summary">Report issues or leave suggestions here</string>
     <string name="revanced_extended_issue_center_title">ReVanced Extended sorun merkezi</string>
+    <string name="revanced_general_layout_settings_summary">Genel düzenle ilgili ayarlar</string>
+    <string name="revanced_general_layout_settings_title">Genel düzen</string>
     <string name="revanced_hide_auto_captions_summary_off">Altyazılı bir video oynatılırken altyazılar etkinleştirildi</string>
     <string name="revanced_hide_auto_captions_summary_on">"Altyazılı bir video oynatılırken altyazılar etkinleştirilmedi"</string>
     <string name="revanced_hide_auto_captions_title">Otomatik altyazıları gizle</string>
@@ -329,6 +338,12 @@ Gönderilmeye hazır mı?"</string>
     <string name="revanced_hide_filmstrip_overlay_summary_off">Gizlenmiyor</string>
     <string name="revanced_hide_filmstrip_overlay_summary_on">Gizleniyor</string>
     <string name="revanced_hide_filmstrip_overlay_title">Film şeridi yerleşimini gizle</string>
+    <string name="revanced_hide_floating_microphone_summary_off">Gizlenmiyor</string>
+    <string name="revanced_hide_floating_microphone_summary_on">Gizleniyor</string>
+    <string name="revanced_hide_floating_microphone_title">Kayan mikrofon düğmesini gizle</string>
+    <string name="revanced_hide_fullscreen_button_container_summary_off">Gizlenmiyor</string>
+    <string name="revanced_hide_fullscreen_button_container_summary_on">Gizleniyor</string>
+    <string name="revanced_hide_fullscreen_button_container_title">Tam ekran buton kapsayıcısı</string>
     <string name="revanced_hide_fullscreen_panels_summary_off">Tam ekran paneller gösteriliyor</string>
     <string name="revanced_hide_fullscreen_panels_summary_on">Tam ekran paneller gizleniyor</string>
     <string name="revanced_hide_fullscreen_panels_title">Tam ekran panellerini gizle</string>
@@ -374,6 +389,9 @@ Gönderilmeye hazır mı?"</string>
     <string name="revanced_hide_next_button_summary_off">\"Sonraki\" düğmesi gösterilir</string>
     <string name="revanced_hide_next_button_summary_on">\"Sonraki\" düğmesi gizlenir</string>
     <string name="revanced_hide_next_button_title">\"Sonraki\" düğmesini gizle</string>
+    <string name="revanced_hide_player_button_background_summary_off">Gizlenmiyor</string>
+    <string name="revanced_hide_player_button_background_summary_on">Gizleniyor</string>
+    <string name="revanced_hide_player_button_background_title">Oynatıcı düğme arkaplanını gizle</string>
     <string name="revanced_hide_player_overlay_filter_summary_off">Oynatıcı bindirme filtresi gösteriliyor</string>
     <string name="revanced_hide_player_overlay_filter_summary_on">Oynatıcı bindirme filtresi gizli</string>
     <string name="revanced_hide_player_overlay_filter_title">Oynatıcı arayüzünü şeffaf yap</string>
@@ -422,14 +440,18 @@ Gönderilmeye hazır mı?"</string>
     <string name="revanced_hide_time_and_seekbar_summary_off">Gizlenmiyor</string>
     <string name="revanced_hide_time_and_seekbar_summary_on">Gizlendi</string>
     <string name="revanced_hide_time_and_seekbar_title">Zaman ve arama çubuğu</string>
-    <string name="revanced_layout_settings_bottomplayer">Alt oynatıcı düzeni ayarları</string>
-    <string name="revanced_layout_settings_flyoutmenu">Açılır menü düzeni ayarları</string>
-    <string name="revanced_layout_settings_fullscreen">Tam ekran arayüz ayarları</string>
-    <string name="revanced_layout_settings_player">Oynatıcı arayüz ayarları</string>
-    <string name="revanced_layout_settings_seekbar">Zaman çubuğu düzeni ayarları</string>
+    <string name="revanced_import_settings_summary">Kayıtlı dosyadan ReVanced ayarlarını getir</string>
+    <string name="revanced_import_settings_title">İçe aktarma ayarları</string>
+    <string name="revanced_layout_settings_bottomplayer">Alt oynatıcı düzeni</string>
+    <string name="revanced_layout_settings_flyoutmenu">Açılır menü düzeni</string>
+    <string name="revanced_layout_settings_fullscreen">Tam ekran Düzeni</string>
+    <string name="revanced_layout_settings_player">Oynatıcı Düzeni</string>
+    <string name="revanced_layout_settings_seekbar">Zaman çubuğu düzeni</string>
     <string name="revanced_misc_settings_summary">Çeşitli ilgili ayarlar</string>
-    <string name="revanced_misc_settings_title">Diğer Seçenekler</string>
+    <string name="revanced_misc_settings_title">Diğer Ayarlar</string>
     <string name="revanced_others_title">Diğerleri</string>
+    <string name="revanced_other_layout_settings_summary">Diğer düzenle ilgili ayarlar</string>
+    <string name="revanced_other_layout_settings_title">Diğer düzen</string>
     <string name="revanced_overlay_button_auto_repeat_summary_off">Kapalı</string>
     <string name="revanced_overlay_button_auto_repeat_summary_on">Açık</string>
     <string name="revanced_overlay_button_auto_repeat_title">Otomatik tekrarlama butonu</string>
@@ -443,7 +465,8 @@ Gönderilmeye hazır mı?"</string>
     <string name="revanced_overlay_button_downloads_summary_on">İndirme butonu gösterilir</string>
     <string name="revanced_overlay_button_downloads_title">İndirme düğmesini göster</string>
     <string name="revanced_overlay_button_summary">Bindirme butonu ile ilgili ayarlar</string>
-    <string name="revanced_overlay_button_title">Bindirme butonu ayarları</string>
+    <string name="revanced_overlay_button_title">Bindirme düğmesi</string>
+    <string name="revanced_overlay_button_speed_reset">Vıdeo hızı sıfırlandı (1.0x)</string>
     <string name="revanced_overlay_button_speed_summary_off">\"Hız\" düğmesi gizlenir</string>
     <string name="revanced_overlay_button_speed_summary_on">\"Hız\" düğmesi gösterilir</string>
     <string name="revanced_overlay_button_speed_title">\"Hız\" düğmesini göster</string>
@@ -473,7 +496,6 @@ Bu ayarı etkinleştirirseniz aşağıdaki özellikler kullanılamaz:
 
 Bu ayar oldukça eski olduğu için geçerli olmayabilir"</string>
     <string name="revanced_ryd_attribution_summary">Beğenmeme verileri True RYD Worker API tarafından sağlanır. Daha fazlasını öğrenmek için buraya dokunun.</string>
-    <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_dislike_percentage_summary_off">Beğenmemeler sayı olarak gösterilir</string>
     <string name="revanced_ryd_dislike_percentage_summary_on">Beğenmemeler yüzde olarak gösterilir</string>
     <string name="revanced_ryd_dislike_percentage_title">Beğenmemeleri yüzde olarak gösterir</string>
@@ -482,10 +504,8 @@ Bu ayar oldukça eski olduğu için geçerli olmayabilir"</string>
     <string name="revanced_ryd_compact_layout_title">Compact like button</string>
     <string name="revanced_ryd_enable_summary_off">Beğenmemeler gösterilmiyor</string>
     <string name="revanced_ryd_enable_summary_on">Açık</string>
-    <string name="revanced_ryd_enable_title">YouTube Dislike ayarları</string>
+    <string name="revanced_ryd_enable_title">RYD\'yi etkinleştir</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Beğenmeme sayısı mevcut değil (istemci API sınırına ulaşıldı)</string>
-    <string name="revanced_ryd_settings_summary">Return YouTube Dislike ayarları</string>
-    <string name="revanced_ryd_settings_title">Return YouTube Dislike</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Gizlendi</string>
     <string name="revanced_save_video_quality_common_error">Kalite ayarlanamadı</string>
     <string name="revanced_save_video_quality_internet_error">İnternet bağlantısı yok</string>
@@ -494,8 +514,9 @@ Bu ayar oldukça eski olduğu için geçerli olmayabilir"</string>
     <string name="revanced_save_video_quality_wifi">Varsayılan Wİ-Fİ video kalitesi:</string>
     <string name="revanced_save_video_quality_wifi_error">Varsayılan Wİ-Fİ video kalitesi değiştirilemedi</string>
     <string name="revanced_save_video_speed">Varsayılan hız:</string>
+    <string name="revanced_sponsorblock_settings_summary">SponsorBlock ilgili ayarları</string>
     <string name="revanced_swipe_controls_summary">Kaydırma kontrolleri ilgili ayarlar</string>
-    <string name="revanced_swipe_controls_title">Kaydırma Kontrolleri Ayarları</string>
+    <string name="revanced_swipe_controls_title">Kaydırma kontrolleri</string>
     <string name="revanced_swipe_magnitude_threshold_summary">Kaydırma işleminin gerçekleşmesi için eşik miktarı</string>
     <string name="revanced_swipe_magnitude_threshold_title">Kaydırma büyüklük eşiği</string>
     <string name="revanced_swipe_overlay_background_alpha_summary">Kaydırma arka planının şeffaflık değeri</string>
@@ -509,7 +530,7 @@ Bu ayar oldukça eski olduğu için geçerli olmayabilir"</string>
     <string name="revanced_video_ads_removal_summary_on">Gizlendi</string>
     <string name="revanced_video_ads_removal_title">Video reklamlarını gizle</string>
     <string name="revanced_video_settings_summary">Videoyla ilgili ayarlar</string>
-    <string name="revanced_video_settings_title">Video ayarları</string>
+    <string name="revanced_video_settings_title">Video</string>
     <string name="revanced_whitelisting_add_failed" formatted="false">Kanal %s, %s beyaz listeye eklenemedi</string>
     <string name="revanced_whitelisting_added" formatted="false">Kanal %s, %s beyaz listeye eklendi</string>
     <string name="revanced_whitelisting_ads">Video reklamları</string>
@@ -538,6 +559,7 @@ Bu ayar oldukça eski olduğu için geçerli olmayabilir"</string>
     <string name="sb_guidelines_preference_title">Yönergeleri görüntüle</string>
     <string name="sb_switching_success">Geçiş Başarılı. Video\'yu yeniden yükle</string>
     <string name="sb_switching_to_mirror">Alternatif API sunucusu ana API sunucusuna geçiriliyor..</string>
+    <string name="seconds">saniye</string>
     <string name="segments_endcards">Kapanış Sahneleri/Jenerik</string>
     <string name="segments_endcards_sum">Videoda emeği geçenlerin veya video sonunda çıkan kartların gösterildiği kısımlar. Bu kısımlarda konuşma yoktur</string>
     <string name="segments_filler">Konuyla Alakasız/Şaka</string>
@@ -555,6 +577,7 @@ Bu ayar oldukça eski olduğu için geçerli olmayabilir"</string>
     <string name="segments_subscribe">Etkileşim Anımsatıcısı (Abonelik)</string>
     <string name="segments_subscribe_sum">Video içerisinde \"beğenin, yorum yapın, takip edin\" şeklindeki kısımlar</string>
     <string name="settings_export_failed">Ayarlar dışarı aktarılamadı</string>
+    <string name="settings_export_successful">Ayarların içe aktarılması tamamlandı</string>
     <string name="settings_ie">Ayarları içe - dışa aktar</string>
     <string name="settings_ie_sum">Tüm ayarlarınız, JSON biçiminde ve masaüstü eklentisiyle uyumlu şekilde saklanır. Bu sizin kullanıcı kimliğinizi de içerir, bu yüzden bunu paylaşırken iki kez düşünün.</string>
     <string name="settings_import_failed">Ayarlar içeri aktarılamadı</string>

@@ -43,12 +43,14 @@
     <string name="general_time_without_sb_sum">Este tiempo aparece entre paréntesis junto al tiempo actual. Muestra la duración total del vídeo sin ningún segmento.</string>
     <string name="general_uuid">Su ID de usuario privado</string>
     <string name="general_uuid_sum">Esto debe mantenerse en privado. Es como una contraseña y no debe compartirse con nadie. Si alguien lo tiene, puede hacerse pasar por ti</string>
+    <string name="hours">horas</string>
     <string name="microg_not_installed_notice">Por favor, instale MicroG</string>
     <string name="microg_not_installed_warning">MicroG no se encuentra</string>
     <string name="microg_not_running_warning">MicroG no se ejecuta en segundo plano</string>
     <string name="microg_notification_settings_summary">"1. El registro de dispositivos de Google y Cloud Messaging deben estar activados para recibir notificaciones.
 2. ReVanced debe mostrarse como registrado en Cloud Messaging.
 3. El estado actual en Cloud Messaging debe ser Conectado."</string>
+    <string name="microg_notification_settings_title">Notificación</string>
     <string name="minutes">minutos</string>
     <string name="new_segment_choose_category">Elija la categoría del segmento</string>
     <string name="new_segment_confirm_content" formatted="false">"El segmento dura de %02d:%02d a %02d:%02d (%d minutos %02d segundos)
@@ -71,7 +73,7 @@
     <string name="new_segment_title">Nuevo segmento de SponsorBlock</string>
     <string name="reset">Reiniciar</string>
     <string name="revanced_ads_settings_summary">Ajustes relacionados con anuncios</string>
-    <string name="revanced_ads_settings_title">Ajustes de anuncios</string>
+    <string name="revanced_ads_settings_title">Anuncios</string>
     <string name="revanced_adremover_album_card_in_search_summary_off">Las tarjetas de álbum están visibles en los resultados de búsqueda</string>
     <string name="revanced_adremover_album_card_in_search_summary_on">Las tarjetas de álbum están ocultas en los resultados de búsqueda</string>
     <string name="revanced_adremover_album_card_in_search_title">Ocultar tarjetas de álbum</string>
@@ -164,6 +166,7 @@
     <string name="revanced_adremover_web_search_panel_summary_off">Los paneles de búsqueda web están visibles</string>
     <string name="revanced_adremover_web_search_panel_summary_on">Los paneles de búsqueda web están ocultos</string>
     <string name="revanced_adremover_web_search_panel_title">Ocultar paneles de búsqueda web</string>
+    <string name="revanced_backup_settings_summary">Importar ajustes de ReVanced desde un archivo o exportar ajustes de ReVanced a un archivo</string>
     <string name="revanced_custom_seekbar_color_value_summary">Escriba el código hexadecimal del color para la barra de progreso para usar en modo oscuro</string>
     <string name="revanced_custom_seekbar_color_value_title">Valor de color personalizado para barra de progreso</string>
     <string name="revanced_default_video_quality_mobile_title">Calidad de vídeo predeterminada en red móvil</string>
@@ -210,6 +213,8 @@
     <string name="revanced_enable_old_quality_layout_summary_off">El nuevo estilo del ajuste de calidad está visible</string>
     <string name="revanced_enable_old_quality_layout_summary_on">El antiguo estilo del ajuste de calidad está visible</string>
     <string name="revanced_enable_old_quality_layout_title">Activar antiguo estilo del diseño de calidad</string>
+    <string name="revanced_enable_open_links_directly_summary_off">Siguiendo la política de redireccionamiento predeterminada</string>
+    <string name="revanced_enable_open_links_directly_summary_on">Omitiendo los redireccionamientos de URL</string>
     <string name="revanced_enable_open_links_directly_title">Activar apertura de enlaces directamente</string>
     <string name="revanced_enable_press_to_swipe_summary_off">El gesto de presionar para deslizar está desactivado</string>
     <string name="revanced_enable_press_to_swipe_summary_on">El gesto de presionar para deslizar está activado</string>
@@ -254,8 +259,12 @@
     <string name="revanced_enable_vp9_codec_summary">Modifica la información del dispositivo para activar el códec VP9</string>
     <string name="revanced_enable_vp9_codec_title">Activar códec VP9</string>
     <string name="revanced_experimental_flag">Funciones experimentales</string>
+    <string name="revanced_export_settings_summary">Guarda tus ajustes de ReVanced en un archivo</string>
+    <string name="revanced_export_settings_title">Exportar ajustes</string>
     <string name="revanced_extended_issue_center_summary">Informe problemas o deje sugerencias aquí</string>
     <string name="revanced_extended_issue_center_title">Centro de problemas de ReVanced Extended</string>
+    <string name="revanced_general_layout_settings_summary">Ajustes generales relacionados con el diseño</string>
+    <string name="revanced_general_layout_settings_title">Diseño general</string>
     <string name="revanced_hide_auto_captions_summary_off">Los subtítulos se activan cuando la reproducción de un vídeo con subtítulos es obligatoria</string>
     <string name="revanced_hide_auto_captions_summary_on">"Los subtítulos no están activados cuando la reproducción de un vídeo con subtítulos es obligatoria"</string>
     <string name="revanced_hide_auto_captions_title">Ocultar subtítulos automáticos</string>
@@ -329,6 +338,12 @@
     <string name="revanced_hide_filmstrip_overlay_summary_off">La superposición de la tira de película está visible</string>
     <string name="revanced_hide_filmstrip_overlay_summary_on">La superposición de la tira de película está oculta</string>
     <string name="revanced_hide_filmstrip_overlay_title">Ocultar superposición de tira de película</string>
+    <string name="revanced_hide_floating_microphone_summary_off">El botón flotante del micrófono está visible</string>
+    <string name="revanced_hide_floating_microphone_summary_on">El botón flotante del micrófono está oculto</string>
+    <string name="revanced_hide_floating_microphone_title">Ocultar botón flotante del micrófono</string>
+    <string name="revanced_hide_fullscreen_button_container_summary_off">El contenedor de botones en pantalla completa está visible</string>
+    <string name="revanced_hide_fullscreen_button_container_summary_on">El contenedor de botones en pantalla completa está oculto</string>
+    <string name="revanced_hide_fullscreen_button_container_title">Ocultar contenedor de botones en pantalla completa</string>
     <string name="revanced_hide_fullscreen_panels_summary_off">Los paneles en pantalla completa están visibles</string>
     <string name="revanced_hide_fullscreen_panels_summary_on">Los paneles en pantalla completa están ocultos</string>
     <string name="revanced_hide_fullscreen_panels_title">Ocultar paneles en pantalla completa</string>
@@ -374,6 +389,9 @@
     <string name="revanced_hide_next_button_summary_off">El botón Siguiente está visible</string>
     <string name="revanced_hide_next_button_summary_on">El botón Siguiente está oculto</string>
     <string name="revanced_hide_next_button_title">Ocultar botón Siguiente</string>
+    <string name="revanced_hide_player_button_background_summary_off">El fondo del botón del reproductor está visible</string>
+    <string name="revanced_hide_player_button_background_summary_on">El fondo del botón del reproductor está oculto</string>
+    <string name="revanced_hide_player_button_background_title">Ocultar fondo del botón del reproductor</string>
     <string name="revanced_hide_player_overlay_filter_summary_off">El filtro de superposición del reproductor está visible</string>
     <string name="revanced_hide_player_overlay_filter_summary_on">El filtro de superposición del reproductor está oculto</string>
     <string name="revanced_hide_player_overlay_filter_title">Ocultar filtro de superposición del reproductor</string>
@@ -422,14 +440,19 @@
     <string name="revanced_hide_time_and_seekbar_summary_off">El tiempo y la barra de progreso están visibles</string>
     <string name="revanced_hide_time_and_seekbar_summary_on">El tiempo y la barra de progreso están ocultos</string>
     <string name="revanced_hide_time_and_seekbar_title">Ocultar tiempo y barra de progreso</string>
-    <string name="revanced_layout_settings_bottomplayer">Ajustes de diseño del reproductor inferior</string>
-    <string name="revanced_layout_settings_flyoutmenu">Ajustes de diseño del menú desplegable</string>
-    <string name="revanced_layout_settings_fullscreen">Ajustes de diseño de pantalla completa</string>
-    <string name="revanced_layout_settings_player">Ajustes de diseño del reproductor</string>
-    <string name="revanced_layout_settings_seekbar">Ajustes de diseño de la barra de progreso</string>
+    <string name="revanced_import_settings_summary">Obtiene los ajustes de ReVanced desde un archivo guardado</string>
+    <string name="revanced_import_settings_title">Importar ajustes</string>
+    <string name="revanced_initial_spoof">Modifica la versión de YouTube para solucionar un problema que existe en el YouTube oficial. Este truco solo funciona si haces una instalación limpia.</string>
+    <string name="revanced_layout_settings_bottomplayer">Diseño del reproductor inferior</string>
+    <string name="revanced_layout_settings_flyoutmenu">Diseño del menú desplegable</string>
+    <string name="revanced_layout_settings_fullscreen">Diseño en pantalla completa</string>
+    <string name="revanced_layout_settings_player">Diseño del reproductor</string>
+    <string name="revanced_layout_settings_seekbar">Diseño de barra de progreso</string>
     <string name="revanced_misc_settings_summary">Ajustes relacionados con otros</string>
-    <string name="revanced_misc_settings_title">Ajustes de otros</string>
+    <string name="revanced_misc_settings_title">Otros</string>
     <string name="revanced_others_title">Otros</string>
+    <string name="revanced_other_layout_settings_summary">Otros ajustes relacionados con el diseño</string>
+    <string name="revanced_other_layout_settings_title">Otros diseños</string>
     <string name="revanced_overlay_button_auto_repeat_summary_off">El botón de repetición automática está oculto</string>
     <string name="revanced_overlay_button_auto_repeat_summary_on">El botón de repetición automática está visible</string>
     <string name="revanced_overlay_button_auto_repeat_title">Mostrar botón de repetición automática</string>
@@ -443,7 +466,8 @@
     <string name="revanced_overlay_button_downloads_summary_on">El botón de descarga está visible</string>
     <string name="revanced_overlay_button_downloads_title">Mostrar botón de descarga</string>
     <string name="revanced_overlay_button_summary">Ajustes relacionados con botones de superposiciones</string>
-    <string name="revanced_overlay_button_title">Ajustes de botones de superposiciones</string>
+    <string name="revanced_overlay_button_title">Botón superpuesto</string>
+    <string name="revanced_overlay_button_speed_reset">Velocidad de vídeo restablecida (1.0x)</string>
     <string name="revanced_overlay_button_speed_summary_off">El botón de velocidad está oculto</string>
     <string name="revanced_overlay_button_speed_summary_on">El botón de velocidad está visible</string>
     <string name="revanced_overlay_button_speed_title">Mostrar botón de velocidad</string>
@@ -477,7 +501,6 @@ Si activas este ajuste, las siguientes características no estarán disponibles:
 Dado que esta configuración está bastante desactualizada, es posible que no sea válida"</string>
     <string name="revanced_ryd_attribution_summary">Los datos de No Me Gusta son proporcionados por la API de Return YouTube Dislike.
 Toque aquí para obtener más información.</string>
-    <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_dislike_percentage_summary_off">Los No Me Gusta se muestran como número</string>
     <string name="revanced_ryd_dislike_percentage_summary_on">Los No Me Gusta se muestran como porcentaje</string>
     <string name="revanced_ryd_dislike_percentage_title">Porcentaje de No Me Gusta</string>
@@ -486,10 +509,8 @@ Toque aquí para obtener más información.</string>
     <string name="revanced_ryd_compact_layout_title">Botón Me Gusta compacto</string>
     <string name="revanced_ryd_enable_summary_off">Los No Me Gusta están ocultos</string>
     <string name="revanced_ryd_enable_summary_on">Los No Me Gusta están visibles</string>
-    <string name="revanced_ryd_enable_title">Return YouTube Dislike</string>
+    <string name="revanced_ryd_enable_title">Activar Return YouTube Dislike</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Los No Me Gusta no están disponibles (se alcanzó el límite de la API del cliente)</string>
-    <string name="revanced_ryd_settings_summary">Ajustes para Return YouTube Dislike</string>
-    <string name="revanced_ryd_settings_title">Return YouTube Dislike</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Oculto</string>
     <string name="revanced_save_video_quality_common_error">Error al establecer la calidad</string>
     <string name="revanced_save_video_quality_internet_error">Sin conexión a Internet</string>
@@ -498,8 +519,9 @@ Toque aquí para obtener más información.</string>
     <string name="revanced_save_video_quality_wifi">Cambiando la calidad predeterminada con Wi-Fi a: </string>
     <string name="revanced_save_video_quality_wifi_error">No se pudo cambiar la calidad predeterminada con Wi-Fi</string>
     <string name="revanced_save_video_speed">Cambiando la velocidad predeterminada a: </string>
+    <string name="revanced_sponsorblock_settings_summary">Ajustes relacionados con SponsorBlock</string>
     <string name="revanced_swipe_controls_summary">Ajustes relacionados con los controles de deslizamiento</string>
-    <string name="revanced_swipe_controls_title">Ajustes de controles de deslizamiento</string>
+    <string name="revanced_swipe_controls_title">Controles deslizantes</string>
     <string name="revanced_swipe_magnitude_threshold_summary">La cantidad de umbral para que ocurra el deslizamiento</string>
     <string name="revanced_swipe_magnitude_threshold_title">Umbral de magnitud de deslizamiento</string>
     <string name="revanced_swipe_overlay_background_alpha_summary">La visibilidad del fondo de superposición de deslizamiento</string>
@@ -513,7 +535,7 @@ Toque aquí para obtener más información.</string>
     <string name="revanced_video_ads_removal_summary_on">Los anuncios de vídeo están ocultos</string>
     <string name="revanced_video_ads_removal_title">Ocultar anuncios de vídeo</string>
     <string name="revanced_video_settings_summary">Ajustes relacionadas con vídeo</string>
-    <string name="revanced_video_settings_title">Ajustes de vídeo</string>
+    <string name="revanced_video_settings_title">Vídeo</string>
     <string name="revanced_whitelisting_add_failed" formatted="false">Error al añadir el canal %s a la lista blanca %s</string>
     <string name="revanced_whitelisting_added" formatted="false">El canal %s fue añadido a la lista blanca %s</string>
     <string name="revanced_whitelisting_ads">Anuncios de vídeo</string>
@@ -542,6 +564,7 @@ Toque aquí para obtener más información.</string>
     <string name="sb_guidelines_preference_title">Ver normas</string>
     <string name="sb_switching_success">Cambiado correctamente. recargar el vídeo</string>
     <string name="sb_switching_to_mirror">Cambio del servidor Mirror de la API al servidor principal de la API.</string>
+    <string name="seconds">segundos</string>
     <string name="segments_endcards">Tarjetas finales/Créditos</string>
     <string name="segments_endcards_sum">Créditos o cuando aparecen las tarjetas finales de YouTube. No es para las conclusiones habladas</string>
     <string name="segments_filler">Tangente de relleno/Chistes</string>
@@ -559,6 +582,7 @@ Toque aquí para obtener más información.</string>
     <string name="segments_subscribe">Recordatorio de interacción (suscripción)</string>
     <string name="segments_subscribe_sum">Cuando hay un pequeño recordatorio para darle me gusta, suscribirse, seguirlos o interactuar con ellos en cualquier plataforma gratuita o de pago</string>
     <string name="settings_export_failed">No se pudo exportar la configuración</string>
+    <string name="settings_export_successful">Los ajustes se han exportado correctamente</string>
     <string name="settings_ie">Importar/exportar configuración</string>
     <string name="settings_ie_sum">Esta es su configuración completa que es aplicable en la extensión de escritorio en JSON. Esto incluye su ID de usuario privado, así que asegúrese de compartirla sabiamente.</string>
     <string name="settings_import_failed">No se pudo importar la configuración</string>

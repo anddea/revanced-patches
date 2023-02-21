@@ -43,10 +43,12 @@
     <string name="general_time_without_sb_sum">Цей час з\'являється в дужках поруч з поточним часом, та показує загальну тривалість відео без сегментів.</string>
     <string name="general_uuid">Ваш приватний id користувача</string>
     <string name="general_uuid_sum">Це потрібно тримати в таємниці. Це як пароль, не варто ним ні з ким ділитися. Якщо хтось матиме це - зможе видати себе за вас</string>
+    <string name="hours">годин</string>
     <string name="microg_not_installed_notice">Будь ласка, встановіть MicroG</string>
     <string name="microg_not_installed_warning">MicroG не знайдено</string>
     <string name="microg_not_running_warning">MicroG не працює у фоновому режимі</string>
     <string name="microg_notification_settings_summary">"1. Реєстрація пристроїв Google і Google Cloud Messaging повинні бути увімкненими для сповіщень.\n2. Vanced повинен бути показаний зареєстрованим під GCM.\n3. Поточний стан у GCM повинен не бути Від'єднано.\n4. GCM -&gt; Розширені (три точки справа згори) і змініть інтервал очікування Wi-Fi назад і вперед раз для з'єднання.\n💙💛"</string>
+    <string name="microg_notification_settings_title">Повідомлення</string>
     <string name="minutes">хв.</string>
     <string name="new_segment_choose_category">Виберіть категорію сегмента</string>
     <string name="new_segment_confirm_content" formatted="false">"Сегмент триває від %02d:%02d до %02d:%02d (%d хвилин(-и) %02d секунд(-и))\n Відправляємо?"</string>
@@ -68,7 +70,7 @@
     <string name="new_segment_title">Новий SponsorBlock сегмент</string>
     <string name="reset">Скинути</string>
     <string name="revanced_ads_settings_summary">Додаткові налаштування оголошень </string>
-    <string name="revanced_ads_settings_title">Оголошення</string>
+    <string name="revanced_ads_settings_title">Реклама</string>
     <string name="revanced_adremover_album_card_in_search_summary_off">Вилучення карти альбомів у результатах пошуку вимкнено</string>
     <string name="revanced_adremover_album_card_in_search_summary_on">Вилучення карти альбомів у результатах пошуку увімкнемо</string>
     <string name="revanced_adremover_album_card_in_search_title">Вилучення картки альбома</string>
@@ -161,6 +163,7 @@
     <string name="revanced_adremover_web_search_panel_summary_off">Вилучення панелі веб-пошуку вимкнено</string>
     <string name="revanced_adremover_web_search_panel_summary_on">Вилучення панелі веб-пошуку увімкнено</string>
     <string name="revanced_adremover_web_search_panel_title">Вилучення панелі веб-пошуку</string>
+    <string name="revanced_backup_settings_summary">Імпортувати налаштування ReVanced з файлу або експорту налаштування ReVanced в файл</string>
     <string name="revanced_custom_seekbar_color_value_summary">Введіть HEX код кольору панелі пошуку для використання в темному режимі</string>
     <string name="revanced_custom_seekbar_color_value_title">Користувацьке значення кольору панелі пошуку</string>
     <string name="revanced_default_video_quality_mobile_title">Типова якість відео для Моб-Мережі</string>
@@ -207,6 +210,8 @@
     <string name="revanced_enable_old_quality_layout_summary_off">Використання нового стилю параметрів якості відео</string>
     <string name="revanced_enable_old_quality_layout_summary_on">Використання старого стилю параметрів якості відео</string>
     <string name="revanced_enable_old_quality_layout_title">Стиль параметрів якості</string>
+    <string name="revanced_enable_open_links_directly_summary_off">Наступна типова політика переадресації</string>
+    <string name="revanced_enable_open_links_directly_summary_on">Обхід URL переадресацій</string>
     <string name="revanced_enable_open_links_directly_title">Перенаправлення посилань через youtube.com/redirect</string>
     <string name="revanced_enable_press_to_swipe_summary_off">Керування жестами завжди увімкнено disabled</string>
     <string name="revanced_enable_press_to_swipe_summary_on">Керування жестами вимагає тривалого натискання перед використанням enabled</string>
@@ -220,6 +225,9 @@
     <string name="revanced_enable_save_video_quality_summary_off">Збереження типової якості відео вимкнено</string>
     <string name="revanced_enable_save_video_quality_summary_on">Збереження типової якості відео увімкнено</string>
     <string name="revanced_enable_save_video_quality_title">Збереження типової якості відео</string>
+    <string name="revanced_enable_save_video_speed_summary_off">Не зберігати значення швидкості відео навіть при зміні швидкості відео</string>
+    <string name="revanced_enable_save_video_speed_summary_on">Зберегти значення швидкості відео щоразу, коли ви змінюєте швидкість відео</string>
+    <string name="revanced_enable_save_video_speed_title">Увімкнути збереження швидкості відео</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">Натискання на рядок перемотування відео увімкнено</string>
     <string name="revanced_enable_seekbar_tapping_title">Натискання на рядок перемотування відео</string>
     <string name="revanced_enable_swipe_auto_brightness_summary_off">Автояркість не активується при яскравості, встановленій жестом на 0</string>
@@ -248,8 +256,12 @@
     <string name="revanced_enable_vp9_codec_summary">Спуфнути інформацію про пристрій, щоб увімкнути кодек VP9</string>
     <string name="revanced_enable_vp9_codec_title">Увімкнути кодек VP9</string>
     <string name="revanced_experimental_flag">Експериментальні опції</string>
+    <string name="revanced_export_settings_summary">Зберегти ваші налаштування ReVanced у файл</string>
+    <string name="revanced_export_settings_title">Експорт налаштувань</string>
     <string name="revanced_extended_issue_center_summary">Повідомте про проблеми або залиште свої пропозиції тут</string>
     <string name="revanced_extended_issue_center_title">Центр допомоги ReVanced Extended</string>
+    <string name="revanced_general_layout_settings_summary">Додаткові налаштування вигляду</string>
+    <string name="revanced_general_layout_settings_title">Загальний вигляд</string>
     <string name="revanced_hide_auto_captions_summary_off">Автоматично включати відображення субтитрів за їх присутності</string>
     <string name="revanced_hide_auto_captions_summary_on">"Автоматично вимикати відображення субтитрів за їх присутності"</string>
     <string name="revanced_hide_auto_captions_title">Автоматичні субтитри</string>
@@ -323,6 +335,12 @@
     <string name="revanced_hide_filmstrip_overlay_summary_off">Вилучення Накладення кіноплівки вимкнено</string>
     <string name="revanced_hide_filmstrip_overlay_summary_on">Вилучення Накладення кіноплівки увімкнено</string>
     <string name="revanced_hide_filmstrip_overlay_title">Вилучення Накладення кіноплівки</string>
+    <string name="revanced_hide_floating_microphone_summary_off">Плаваюча кнопка мікрофона відображається</string>
+    <string name="revanced_hide_floating_microphone_summary_on">Плаваюча кнопка мікрофона прихована</string>
+    <string name="revanced_hide_floating_microphone_title">Приховати кнопку плаваючего мікрофоном</string>
+    <string name="revanced_hide_fullscreen_button_container_summary_off">Контейнер кнопки повноекранного режиму показано</string>
+    <string name="revanced_hide_fullscreen_button_container_summary_on">Контейнер кнопки повноекранного режиму сховано</string>
+    <string name="revanced_hide_fullscreen_button_container_title">Контейнер кнопки повноекранного режиму</string>
     <string name="revanced_hide_fullscreen_panels_summary_off">Повноекранні панелі показано</string>
     <string name="revanced_hide_fullscreen_panels_summary_on">Повноекранні панелі сховані</string>
     <string name="revanced_hide_fullscreen_panels_title">Приховати повноекранні панелі</string>
@@ -368,6 +386,9 @@
     <string name="revanced_hide_next_button_summary_off">Кнопка наступного відео показана</string>
     <string name="revanced_hide_next_button_summary_on">Кнопка наступного відео схована</string>
     <string name="revanced_hide_next_button_title">Сховати кнопку наступного відео</string>
+    <string name="revanced_hide_player_button_background_summary_off">Фон кнопки плеєра показується</string>
+    <string name="revanced_hide_player_button_background_summary_on">Фон кнопки плеєра прихований</string>
+    <string name="revanced_hide_player_button_background_title">Сховати фон кнопки плеєра</string>
     <string name="revanced_hide_player_overlay_filter_summary_off">Відображати фільтр оверлею плеєра</string>
     <string name="revanced_hide_player_overlay_filter_summary_on">Фільтр оверлею плеєра сховано</string>
     <string name="revanced_hide_player_overlay_filter_title">Приховати сітку накладання плеєра</string>
@@ -416,14 +437,18 @@
     <string name="revanced_hide_time_and_seekbar_summary_off">Смугу для перемотування та час перегляду вимкнено</string>
     <string name="revanced_hide_time_and_seekbar_summary_on">Смугу для перемотування та час перегляду увімкнено</string>
     <string name="revanced_hide_time_and_seekbar_title">Смуга та час перегляду</string>
-    <string name="revanced_layout_settings_bottomplayer">Налаштування елементів під плеєром</string>
-    <string name="revanced_layout_settings_flyoutmenu">Налаштування інтерфейсу спливаючого меню</string>
-    <string name="revanced_layout_settings_fullscreen">Налаштування повноекранного інтерфейсу</string>
-    <string name="revanced_layout_settings_player">Налаштування інтерфейсу плеєра</string>
-    <string name="revanced_layout_settings_seekbar">Параметрів інтерфейсу панелі пошуку</string>
+    <string name="revanced_import_settings_summary">Отримати налаштування ReVanced зі збереженого файлу</string>
+    <string name="revanced_import_settings_title">Імпортувати налаштування</string>
+    <string name="revanced_layout_settings_bottomplayer">Стиль нижнього плеєра</string>
+    <string name="revanced_layout_settings_flyoutmenu">Розмітка флайаут меню</string>
+    <string name="revanced_layout_settings_fullscreen">Розмітка повноекранного режиму</string>
+    <string name="revanced_layout_settings_player">Розмітка плеєра</string>
+    <string name="revanced_layout_settings_seekbar">Розмітка панелі пошуку</string>
     <string name="revanced_misc_settings_summary">Додаткові налаштування іншого</string>
-    <string name="revanced_misc_settings_title">Інше</string>
+    <string name="revanced_misc_settings_title">Різне</string>
     <string name="revanced_others_title">Інше</string>
+    <string name="revanced_other_layout_settings_summary">Додаткові налаштування вигляду</string>
+    <string name="revanced_other_layout_settings_title">Інша розмітка</string>
     <string name="revanced_overlay_button_auto_repeat_summary_off">Кнопка Автоповтору прихована</string>
     <string name="revanced_overlay_button_auto_repeat_summary_on">Кнопка Автоповтору показана</string>
     <string name="revanced_overlay_button_auto_repeat_title">Кнопка Автоповтору</string>
@@ -437,7 +462,11 @@
     <string name="revanced_overlay_button_downloads_summary_on">Кнопка завантажити показана</string>
     <string name="revanced_overlay_button_downloads_title">Кнопка завантажити</string>
     <string name="revanced_overlay_button_summary">Додаткові налаштування кнопок в інтерфейсі плеєра</string>
-    <string name="revanced_overlay_button_title">Кнопки в інтерфейсі плеєра</string>
+    <string name="revanced_overlay_button_title">Кнопка оверлею</string>
+    <string name="revanced_overlay_button_speed_reset">Швидкість відео скинута (1.0x)</string>
+    <string name="revanced_overlay_button_speed_summary_off">Кнопка швидкості прихована</string>
+    <string name="revanced_overlay_button_speed_summary_on">Кнопка швидкості показана</string>
+    <string name="revanced_overlay_button_speed_title">Показувати кнопку швидкості</string>
     <string name="revanced_overlay_button_whitelist_summary_off">Кнопка Білого списку прихована</string>
     <string name="revanced_overlay_button_whitelist_summary_on">Кнопка Білого списку показана</string>
     <string name="revanced_overlay_button_whitelist_title">Кнопка Білого списку</string>
@@ -459,7 +488,6 @@
 
 Оскільки ці налаштування застаріли, можуть бути некоректними"</string>
     <string name="revanced_ryd_attribution_summary">Ця інтеграція використовує RYD API.\nНатисніть тут, щоб отримати більше інформації.</string>
-    <string name="revanced_ryd_attribution_title">Інтеграція YouTube Дислайків</string>
     <string name="revanced_ryd_dislike_percentage_summary_off">Дислайки відображаються числом</string>
     <string name="revanced_ryd_dislike_percentage_summary_on">Дислайки відображаються у відсотках</string>
     <string name="revanced_ryd_dislike_percentage_title">Відображення дислайків у відсотках або цифрами</string>
@@ -468,10 +496,8 @@
     <string name="revanced_ryd_compact_layout_title">Компактна кнопка \"Лайк\"</string>
     <string name="revanced_ryd_enable_summary_off">Відображення дислайків вимкнено</string>
     <string name="revanced_ryd_enable_summary_on">Відображення дислайків увімкнено</string>
-    <string name="revanced_ryd_enable_title">Увімкніть, щоб знову бачити дислайки</string>
+    <string name="revanced_ryd_enable_title">Увімкнути Return YouTube Dislike</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Дизлайки недоступні (досягнутий ліміт клієнта API)</string>
-    <string name="revanced_ryd_settings_summary">Додаткові налаштування для повернення YouTube Дизлайків</string>
-    <string name="revanced_ryd_settings_title">Повернення YouTube Дислайків</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Приховано</string>
     <string name="revanced_save_video_quality_common_error">Помилка встановлення якості відео</string>
     <string name="revanced_save_video_quality_internet_error">Відсутнє з\'єднання Інтернет</string>
@@ -479,8 +505,10 @@
     <string name="revanced_save_video_quality_mobile_error">Не вдалося змінити якість відео для мобільних мереж за замовчуванням</string>
     <string name="revanced_save_video_quality_wifi">Зміна якості відео для Wi-Fi мереж за замовчуванням на:</string>
     <string name="revanced_save_video_quality_wifi_error">Не вдалося змінити якість відео для WI-FI мереж за замовчуванням</string>
+    <string name="revanced_save_video_speed">Зміна швидкості відео за замовчуванням на:</string>
+    <string name="revanced_sponsorblock_settings_summary">Додаткові налаштування SponsorBlock</string>
     <string name="revanced_swipe_controls_summary">Додаткові налаштування керування жестами</string>
-    <string name="revanced_swipe_controls_title">Керування жестами </string>
+    <string name="revanced_swipe_controls_title">Керування жестами</string>
     <string name="revanced_swipe_magnitude_threshold_summary">Мінімальна амплітуда руху, що розпізнається як жест</string>
     <string name="revanced_swipe_magnitude_threshold_title">Поріг величини жесту</string>
     <string name="revanced_swipe_overlay_background_alpha_summary">Видимість фону накладення при свайпе</string>
@@ -523,6 +551,7 @@
     <string name="sb_guidelines_preference_title">Переглянути інструкцію</string>
     <string name="sb_switching_success">Перемкнено успішно. Перезавантажте відео</string>
     <string name="sb_switching_to_mirror">Перемикання дзеркалення сервера API на основний API-сервер..</string>
+    <string name="seconds">секунд</string>
     <string name="segments_endcards">Кінцева заставка/титри</string>
     <string name="segments_endcards_sum">Титри або час появи кінцевих заставок YouTube. Не для підбивання підсумків сказаного у відео.</string>
     <string name="segments_filler">Жарти без контекста</string>
@@ -540,6 +569,7 @@
     <string name="segments_subscribe">Нагадування про взаємодію (підписка)</string>
     <string name="segments_subscribe_sum">Коли в середині контенту є нагадування поставити лайк, чи підписатися.</string>
     <string name="settings_export_failed">Не вдалося експортувати налаштування</string>
+    <string name="settings_export_successful">Налаштування було вдало експортовано</string>
     <string name="settings_ie">Імпорт/Експорт налаштувань</string>
     <string name="settings_ie_sum">Це вся конфігурація, яка застосовується в настільному розширенні в JSON. Включаючи ваш userID, так що не забудьте користуватися цим розумно.</string>
     <string name="settings_import_failed">Не вдалося імпортувати дані</string>

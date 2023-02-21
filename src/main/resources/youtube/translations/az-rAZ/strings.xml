@@ -43,6 +43,7 @@
     <string name="general_time_without_sb_sum">Bu vaxt cari vaxtın yanında mötərizədə göstərilir. Bu, hər hansı bir seqment çıxılmaqla ümumi video müddətini göstərir.</string>
     <string name="general_uuid">Şəxsi istifadəçi identifikatorunuz</string>
     <string name="general_uuid_sum">Bu gizli saxlanılmalıdır. Bu parol kimidir və heç kimlə paylaşılmamalıdır. Əgər kimsə buna sahibdirsə, o, sizi təqlid edə bilər</string>
+    <string name="hours">saat</string>
     <string name="microg_not_installed_notice">Zəhmət olmasa MicroG-ni quraşdırın</string>
     <string name="microg_not_installed_warning">MicroG tapılmadı</string>
     <string name="microg_not_running_warning">MicroG arxa planda işləmir</string>
@@ -71,7 +72,6 @@ Təqdim etməyə hazırdır?"</string>
     <string name="new_segment_title">Yeni SponsorBlock seqmenti</string>
     <string name="reset">Sıfırla</string>
     <string name="revanced_ads_settings_summary">Reklamla bağlı parametrlər</string>
-    <string name="revanced_ads_settings_title">Reklam parametrləri</string>
     <string name="revanced_adremover_album_card_in_search_summary_off">Albom kartları axtarış nəticələrində göstərilir</string>
     <string name="revanced_adremover_album_card_in_search_summary_on">Albom kartları axtariş nəticələrində göstərilmir</string>
     <string name="revanced_adremover_album_card_in_search_title">Albom kartlarını gizlət</string>
@@ -164,6 +164,7 @@ Təqdim etməyə hazırdır?"</string>
     <string name="revanced_adremover_web_search_panel_summary_off">Veb axtarış panelləri göstərilir</string>
     <string name="revanced_adremover_web_search_panel_summary_on">Veb axtarış panelləri gizlədilib</string>
     <string name="revanced_adremover_web_search_panel_title">Veb axtarış panellərini gizlət</string>
+    <string name="revanced_backup_settings_summary">ReVanced parametrlərini fayldan idxal edin və ya ReVanced parametrlərini fayla ixrac edin</string>
     <string name="revanced_custom_seekbar_color_value_summary">Qaranlıq rejimdə istifadə etmək üçün axtarış çubuğu rənginin hex kodunu yazın</string>
     <string name="revanced_custom_seekbar_color_value_title">Xüsusi axtarış çubuğunun rəng dəyəri</string>
     <string name="revanced_default_video_quality_mobile_title">Defolt video keyfiyyəti Mobil</string>
@@ -210,6 +211,8 @@ Təqdim etməyə hazırdır?"</string>
     <string name="revanced_enable_old_quality_layout_summary_off">Yeni stil keyfiyyət parametrləri göstərilir</string>
     <string name="revanced_enable_old_quality_layout_summary_on">Köhnə stil keyfiyyət parametrləri göstərilir</string>
     <string name="revanced_enable_old_quality_layout_title">Köhnə stil keyfiyyət düzənini aktiv et</string>
+    <string name="revanced_enable_open_links_directly_summary_off">Defolt yönləndirmə siyasətinə əməl edin</string>
+    <string name="revanced_enable_open_links_directly_summary_on">URL yönləndirmələrini keçmək</string>
     <string name="revanced_enable_open_links_directly_title">Açıq bağlantıları birbaşa aktivləşdir</string>
     <string name="revanced_enable_press_to_swipe_summary_off">Sürüşdürmək üçün toxunma deaktivdir</string>
     <string name="revanced_enable_press_to_swipe_summary_on">Sürüşdürmək üçün toxunma deaktivdir</string>
@@ -254,8 +257,11 @@ Təqdim etməyə hazırdır?"</string>
     <string name="revanced_enable_vp9_codec_summary">VP9 kodekini aktivləşdirmək üçün cihaz məlumatını saxtalaşdırın</string>
     <string name="revanced_enable_vp9_codec_title">VP9 kodekini aktivləşdirin</string>
     <string name="revanced_experimental_flag">Eksperimental Bayraqlar</string>
+    <string name="revanced_export_settings_summary">ReVanced parametrlərinizi faylda saxlayın</string>
+    <string name="revanced_export_settings_title">Ixrac parametrləri</string>
     <string name="revanced_extended_issue_center_summary">Problemləri bildirin və ya burada təkliflər buraxın</string>
     <string name="revanced_extended_issue_center_title">ReVanced Extended xəta mərkəzi</string>
+    <string name="revanced_general_layout_settings_summary">Ümumi örtüy ilə bağlı parametrlər</string>
     <string name="revanced_hide_auto_captions_summary_off">Altyazılar tətbiq edilən videonu oxuduqda başlıqlar aktiv edilir</string>
     <string name="revanced_hide_auto_captions_summary_on">"Altyazı tətbiq edilən videonu oxuduqda subtitrlər aktiv edilmir"</string>
     <string name="revanced_hide_auto_captions_title">Avtomatik altyazılını gizlət</string>
@@ -329,6 +335,12 @@ Təqdim etməyə hazırdır?"</string>
     <string name="revanced_hide_filmstrip_overlay_summary_off">Film zolağı örtüyü göstərilir</string>
     <string name="revanced_hide_filmstrip_overlay_summary_on">Film zolağı örtüyü gizlədilib</string>
     <string name="revanced_hide_filmstrip_overlay_title">Film zolağı örtüyünü gizlət</string>
+    <string name="revanced_hide_floating_microphone_summary_off">Üzən mikrofon düyməsi göstərilir</string>
+    <string name="revanced_hide_floating_microphone_summary_on">Üzən mikrofon düyməsi gizlidir</string>
+    <string name="revanced_hide_floating_microphone_title">Üzən mikrofon düyməsini gizlədin</string>
+    <string name="revanced_hide_fullscreen_button_container_summary_off">Tam ekran düymə konteyneri göstərilir</string>
+    <string name="revanced_hide_fullscreen_button_container_summary_on">Tam ekran düyməsi konteyneri gizlədilib</string>
+    <string name="revanced_hide_fullscreen_button_container_title">Tam ekran düymə konteynerini gizlət</string>
     <string name="revanced_hide_fullscreen_panels_summary_off">Tam ekran panelləri göstərilir</string>
     <string name="revanced_hide_fullscreen_panels_summary_on">Tam ekran panelləri gizlidir</string>
     <string name="revanced_hide_fullscreen_panels_title">Tam ekran panellərini gizlədin</string>
@@ -374,6 +386,9 @@ Təqdim etməyə hazırdır?"</string>
     <string name="revanced_hide_next_button_summary_off">Növbəti düyməsi göstərilir</string>
     <string name="revanced_hide_next_button_summary_on">Növbəti düyməsi gizlidir</string>
     <string name="revanced_hide_next_button_title">Növbəti düyməsini gizlədin</string>
+    <string name="revanced_hide_player_button_background_summary_off">Pleyer düyməsinin fonu göstərilir</string>
+    <string name="revanced_hide_player_button_background_summary_on">Pleyer düyməsinin fonu gizlidir</string>
+    <string name="revanced_hide_player_button_background_title">Pleyer düyməsinin fonunu gizlədin</string>
     <string name="revanced_hide_player_overlay_filter_summary_off">Pleyer örtüy filtri göstərilir</string>
     <string name="revanced_hide_player_overlay_filter_summary_on">Pleyer örtüy filtri gizlədilib</string>
     <string name="revanced_hide_player_overlay_filter_title">Pleyer örtüy filtrini gizlət</string>
@@ -422,14 +437,11 @@ Təqdim etməyə hazırdır?"</string>
     <string name="revanced_hide_time_and_seekbar_summary_off">Vaxt və axtarış çubuğu göstərilir</string>
     <string name="revanced_hide_time_and_seekbar_summary_on">Vaxt və axtarış çubuğu gizlədilib</string>
     <string name="revanced_hide_time_and_seekbar_title">Vaxt və axtarış çubuğunu gizlət</string>
-    <string name="revanced_layout_settings_bottomplayer">Aşağı pleyer örtüy parametrləri</string>
-    <string name="revanced_layout_settings_flyoutmenu">Uçuş menyusu tərtibatı parametrləri</string>
-    <string name="revanced_layout_settings_fullscreen">Tam ekran örtüy parametrləri</string>
-    <string name="revanced_layout_settings_player">Pleyer örtüy parametrləri</string>
-    <string name="revanced_layout_settings_seekbar">Axtarış çubuğu tərtibat parametrləri</string>
+    <string name="revanced_import_settings_summary">Saxlanmış fayldan ReVanced parametrlərini əldə edin</string>
+    <string name="revanced_import_settings_title">İdxal parametrləri</string>
     <string name="revanced_misc_settings_summary">Müxtəlifnövlü parametrlər</string>
-    <string name="revanced_misc_settings_title">Müxtəlifnövlü parametrləri</string>
     <string name="revanced_others_title">Digərləri</string>
+    <string name="revanced_other_layout_settings_summary">Örtüy ilə əlaqəli digər parametrlər</string>
     <string name="revanced_overlay_button_auto_repeat_summary_off">Avtomatik təkrar düyməsi gizlədilib</string>
     <string name="revanced_overlay_button_auto_repeat_summary_on">Avtomatik təkrar düyməsi göstərilir</string>
     <string name="revanced_overlay_button_auto_repeat_title">Avto-təkrarlama düyməsini göstər</string>
@@ -443,7 +455,7 @@ Təqdim etməyə hazırdır?"</string>
     <string name="revanced_overlay_button_downloads_summary_on">Yükləmə düyməsi göstərilir</string>
     <string name="revanced_overlay_button_downloads_title">Yükləmə düyməsini göstər</string>
     <string name="revanced_overlay_button_summary">Örtüy düyməsi ilə əlaqəli parametrlər</string>
-    <string name="revanced_overlay_button_title">Örtüy düyməsi parametrləri</string>
+    <string name="revanced_overlay_button_speed_reset">Video sürəti sıfırlandı (1.0x)</string>
     <string name="revanced_overlay_button_speed_summary_off">Sürət düyməsi gizlidir</string>
     <string name="revanced_overlay_button_speed_summary_on">Sürət düyməsi göstərilir</string>
     <string name="revanced_overlay_button_speed_title">Sürət düyməsini göstərin</string>
@@ -476,7 +488,6 @@ Bu ayarı aktiv etsəniz, aşağıdakı funksiyalar mövcud olmayacaq:
 
 Bu parametr olduqca köhnəldiyi üçün etibarlı olmaya bilər"</string>
     <string name="revanced_ryd_attribution_summary">Bəyənməmə datası Return YouTube Dislike API tərəfindən təmin edilir. Ətraflı öyrənmək üçün bura toxunun.</string>
-    <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_dislike_percentage_summary_off">Bəyənməmələr rəqəm kimi göstərilir</string>
     <string name="revanced_ryd_dislike_percentage_summary_on">Bəyənməmələr faiz olaraq göstərilir</string>
     <string name="revanced_ryd_dislike_percentage_title">Bəyənməmələr faiz olaraq</string>
@@ -485,10 +496,7 @@ Bu parametr olduqca köhnəldiyi üçün etibarlı olmaya bilər"</string>
     <string name="revanced_ryd_compact_layout_title">Kompakt bəyənmə düyməsi</string>
     <string name="revanced_ryd_enable_summary_off">Bəyənməmələr göstərilmir</string>
     <string name="revanced_ryd_enable_summary_on">Bəyənməmələr göstərilir</string>
-    <string name="revanced_ryd_enable_title">YouTube bəyənməmələrini geri qaytar</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Bəyənməmələr mövcud deyil (müştəri API limitinə çatdı)</string>
-    <string name="revanced_ryd_settings_summary">RYD üçün parametrlər</string>
-    <string name="revanced_ryd_settings_title">YouTube Bəyənməməsini qaytarın</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Gizlədilmiş</string>
     <string name="revanced_save_video_quality_common_error">Keyfiyyəti təyin etmək mümkün olmadı</string>
     <string name="revanced_save_video_quality_internet_error">İnternet bağlantısı yoxdur</string>
@@ -497,8 +505,8 @@ Bu parametr olduqca köhnəldiyi üçün etibarlı olmaya bilər"</string>
     <string name="revanced_save_video_quality_wifi">Defolt Wi-Fi keyfiyyətinin dəyişdirilməsi:</string>
     <string name="revanced_save_video_quality_wifi_error">Defolt Wi-Fi keyfiyyətini dəyişmək mümkün olmadı</string>
     <string name="revanced_save_video_speed">Standart sürətin dəyişdirilməsi:</string>
+    <string name="revanced_sponsorblock_settings_summary">SponsorBlock ilə əlaqəli parametrlər</string>
     <string name="revanced_swipe_controls_summary">Sürüşdürmə idarəetmələri ilə əlaqəli parametrlər</string>
-    <string name="revanced_swipe_controls_title">Sürüşdürmə idarəetmə parametrləri</string>
     <string name="revanced_swipe_magnitude_threshold_summary">Sürüşmə aşkarlanmamışdan əvvəl minimum böyüklük</string>
     <string name="revanced_swipe_magnitude_threshold_title">Böyüklük həddini sürüşdürün</string>
     <string name="revanced_swipe_overlay_background_alpha_summary">Sürüşdürmə fonunun görünməsi</string>
@@ -512,7 +520,6 @@ Bu parametr olduqca köhnəldiyi üçün etibarlı olmaya bilər"</string>
     <string name="revanced_video_ads_removal_summary_on">Video reklamları gizlədilib</string>
     <string name="revanced_video_ads_removal_title">Video reklamlarını gizlət</string>
     <string name="revanced_video_settings_summary">Video ilə əlaqəli parametrlər</string>
-    <string name="revanced_video_settings_title">Video parametrləri</string>
     <string name="revanced_whitelisting_add_failed" formatted="false">%s kanalını %s ağ siyahıya əlavə etmək mümkün olmadı</string>
     <string name="revanced_whitelisting_added" formatted="false">%s kanalı %s ağ siyahıya əlavə edildi</string>
     <string name="revanced_whitelisting_ads">Video reklamı</string>
@@ -541,6 +548,7 @@ Bu parametr olduqca köhnəldiyi üçün etibarlı olmaya bilər"</string>
     <string name="sb_guidelines_preference_title">Təlimatlara baxın</string>
     <string name="sb_switching_success">Uğurla dəyişdirildi. videonu yenidən yükləyin</string>
     <string name="sb_switching_to_mirror">Güzgü API serveri əsas API serverinə keçirilir..</string>
+    <string name="seconds">saniyə</string>
     <string name="segments_endcards">Son Kartlar/Kreditlər</string>
     <string name="segments_endcards_sum">Kreditlər və ya YouTube son kartları göründüyü zaman. Danışıqlı nəticələr üçün deyil</string>
     <string name="segments_filler">Doldurucu toxunan/Zarafatlar</string>
@@ -558,6 +566,7 @@ Bu parametr olduqca köhnəldiyi üçün etibarlı olmaya bilər"</string>
     <string name="segments_subscribe">Qarşılıqlı əlaqə xatırlatma (Abunə ol)</string>
     <string name="segments_subscribe_sum">İstənilən pulsuz və ya ödənişli platformada onları bəyənmək, abunə olmaq, izləmək və ya onlarla ünsiyyət qurmaq üçün qısa xatırlatma olduqda</string>
     <string name="settings_export_failed">Parametrləri ixrac etmək mümkün olmadı</string>
+    <string name="settings_export_successful">Parametrlər uğurla eksport edildi</string>
     <string name="settings_ie">İdxal/İxrac parametrləri</string>
     <string name="settings_ie_sum">Bu, JSON-da iş masası genişləndirməsində tətbiq olunan bütün konfiqurasiyanızdır. Buraya Şəxsi istifadəçi ID-niz daxildir, ona görə də bunu ağıllı şəkildə paylaşdığınızdan əmin olun.</string>
     <string name="settings_import_failed">Parametrləri idxal etmək mümkün olmadı</string>
