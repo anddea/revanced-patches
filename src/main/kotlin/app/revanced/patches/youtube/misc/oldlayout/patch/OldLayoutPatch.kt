@@ -9,18 +9,13 @@ import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
-import app.revanced.patcher.patch.annotations.DependsOn
-import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.youtube.misc.oldlayout.fingerprints.OldLayoutFingerprint
-import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
 import app.revanced.util.integrations.Constants.MISC_PATH
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
-@Patch
 @Name("enable-old-layout")
 @Description("Spoof the YouTube client version to use the old layout.")
-@DependsOn([SettingsPatch::class])
 @YouTubeCompatibility
 @Version("0.0.1")
 class OldLayoutPatch : BytecodePatch(
@@ -43,17 +38,6 @@ class OldLayoutPatch : BytecodePatch(
                 )
             }
         } ?: return OldLayoutFingerprint.toErrorResult()
-
-        /*
-         * Add settings
-         */
-        SettingsPatch.addPreference(
-            arrayOf(
-                "SETTINGS: ENABLE_OLD_LAYOUT"
-            )
-        )
-
-        SettingsPatch.updatePatchStatus("enable-old-layout")
 
         return PatchResultSuccess()
     }
