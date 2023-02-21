@@ -87,6 +87,7 @@ internal object MusicResourceHelper {
                 .forEach {
                     it.adoptChild(YOUTUBE_MUSIC_PREFERENCE_TAG_NAME) {
                         setAttribute("android:title", "@string/$key" + "_title")
+                        setAttribute("android:summary", "@string/$key" + "_summary")
                         setAttribute("android:key", key)
                         setAttribute("android:defaultValue", defaultValue)
                     }
@@ -103,7 +104,6 @@ internal object MusicResourceHelper {
                         if (attribute.textContent == "settings_header_about_youtube_music" && it.getAttributeNode("app:allowDividerBelow").textContent == "false") {
                             it.insertNode("PreferenceScreen", it) {
                                 setAttribute("android:title", "@string/" + YOUTUBE_MUSIC_SETTINGS_KEY + "_title")
-                                setAttribute("android:summary", "@string/" + YOUTUBE_MUSIC_SETTINGS_KEY + "_summary")
                                 setAttribute("android:key", YOUTUBE_MUSIC_SETTINGS_KEY)
                             }
                             it.getAttributeNode("app:allowDividerBelow").textContent = "true"
