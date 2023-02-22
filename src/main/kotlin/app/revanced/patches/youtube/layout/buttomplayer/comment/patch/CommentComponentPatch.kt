@@ -34,7 +34,8 @@ class CommentComponentPatch : ResourcePatch {
             arrayOf(
                 "PREFERENCE: OTHER_LAYOUT_SETTINGS",
                 "PREFERENCE_HEADER: BOTTOM_PLAYER",
-                "SETTINGS: COMMENT_COMPONENT"
+                "SETTINGS: COMMENT_COMPONENT_PARENT",
+                "SETTINGS: COMMENT_COMPONENTS"
             )
         )
 
