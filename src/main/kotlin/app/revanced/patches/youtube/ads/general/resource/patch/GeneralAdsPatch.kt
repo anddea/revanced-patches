@@ -97,7 +97,11 @@ class GeneralAdsPatch : ResourcePatch {
 
                 "PREFERENCE: GENERAL_LAYOUT_SETTINGS",
                 "PREFERENCE_HEADER: PLAYER",
-                "SETTINGS: HIDE_VIEW_PRODUCT"
+                "SETTINGS: HIDE_VIEW_PRODUCT",
+
+                "PREFERENCE: OTHER_LAYOUT_SETTINGS",
+                "PREFERENCE_HEADER: BOTTOM_PLAYER",
+                "SETTINGS: COMMENT_COMPONENT_PARENT"
             )
         )
 

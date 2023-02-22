@@ -129,13 +129,11 @@
         <SwitchPreference android:title="@string/revanced_adremover_in_feed_survey_title" android:key="revanced_adremover_feed_survey" android:defaultValue="true" android:summaryOn="@string/revanced_adremover_in_feed_survey_summary_on" android:summaryOff="@string/revanced_adremover_in_feed_survey_summary_off" />
         <SwitchPreference android:title="@string/revanced_adremover_image_shelf_title" android:key="revanced_adremover_image_shelf" android:defaultValue="true" android:summaryOn="@string/revanced_adremover_image_shelf_summary_on" android:summaryOff="@string/revanced_adremover_image_shelf_summary_off" />
         <SwitchPreference android:title="@string/revanced_adremover_community_guidelines_title" android:key="revanced_adremover_community_guidelines" android:defaultValue="true" android:summaryOn="@string/revanced_adremover_community_guidelines_summary_on" android:summaryOff="@string/revanced_adremover_community_guidelines_summary_off" />
-        <SwitchPreference android:title="@string/revanced_adremover_subscribers_community_guidelines_title" android:key="revanced_adremover_subscribers_community_guidelines" android:defaultValue="true" android:summaryOn="@string/revanced_adremover_subscribers_community_guidelines_summary_on" android:summaryOff="@string/revanced_adremover_subscribers_community_guidelines_summary_off" />
         <SwitchPreference android:title="@string/revanced_adremover_emergency_box_title" android:key="revanced_adremover_emergency_box" android:defaultValue="true" android:summaryOn="@string/revanced_adremover_emergency_box_summary_on" android:summaryOff="@string/revanced_adremover_emergency_box_summary_off" />
         <SwitchPreference android:title="@string/revanced_adremover_info_panel_title" android:key="revanced_adremover_info_panel" android:defaultValue="true" android:summaryOn="@string/revanced_adremover_info_panel_summary_on" android:summaryOff="@string/revanced_adremover_info_panel_summary_off" />
         <SwitchPreference android:title="@string/revanced_adremover_medical_panel_title" android:key="revanced_adremover_medical_panel" android:defaultValue="true" android:summaryOn="@string/revanced_adremover_medical_panel_summary_on" android:summaryOff="@string/revanced_adremover_medical_panel_summary_off" />
         <SwitchPreference android:title="@string/revanced_adremover_suggestions_title" android:key="revanced_adremover_suggestions" android:defaultValue="false" android:summaryOn="@string/revanced_adremover_suggestions_summary_on" android:summaryOff="@string/revanced_adremover_suggestions_summary_off" />
         <SwitchPreference android:title="@string/revanced_adremover_latest_posts_title" android:key="revanced_adremover_latest_posts" android:defaultValue="true" android:summaryOn="@string/revanced_adremover_latest_posts_summary_on" android:summaryOff="@string/revanced_adremover_latest_posts_summary_off" />
-        <SwitchPreference android:title="@string/revanced_adremover_channel_guidelines_title" android:key="revanced_adremover_channel_guidelines" android:defaultValue="true" android:summaryOn="@string/revanced_adremover_channel_guidelines_summary_on" android:summaryOff="@string/revanced_adremover_channel_guidelines_summary_off" />
         <SwitchPreference android:title="@string/revanced_adremover_channel_member_shelf_title" android:key="revanced_adremover_channel_member_shelf" android:defaultValue="true" android:summaryOn="@string/revanced_adremover_channel_member_shelf_summary_on" android:summaryOff="@string/revanced_adremover_channel_member_shelf_summary_off" />
         <SwitchPreference android:title="@string/revanced_adremover_channelbar_join_button_title" android:key="revanced_adremover_channelbar_join_button" android:defaultValue="true" android:summaryOn="@string/revanced_adremover_channelbar_join_button_summary_on" android:summaryOff="@string/revanced_adremover_channelbar_join_button_summary_off" />
         <SwitchPreference android:title="@string/revanced_adremover_chapter_teaser_title" android:key="revanced_adremover_chapter_teaser" android:defaultValue="true" android:summaryOn="@string/revanced_adremover_chapter_teaser_summary_on" android:summaryOff="@string/revanced_adremover_chapter_teaser_summary_off" />
@@ -240,12 +238,19 @@
             <SwitchPreference android:title="@string/revanced_hide_button_playlist_title" android:key="revanced_hide_button_playlist" android:defaultValue="false" android:summaryOn="@string/revanced_hide_button_playlist_summary_on" android:summaryOff="@string/revanced_hide_button_playlist_summary_off" />
         </PreferenceScreen>SETTINGS: BUTTON_CONTAINER -->
 
-        <!-- SETTINGS: COMMENT_COMPONENT
+        <!-- SETTINGS: COMMENT_COMPONENT_PARENT
         <PreferenceScreen android:title="@string/revanced_hide_comments_component_title" android:key="revanced_hide_comments_component" android:summary="@string/revanced_hide_comments_component_summary">
-            <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_hide_comments_component_title" />
+            <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_hide_comments_component_title" />SETTINGS: COMMENT_COMPONENT_PARENT -->
+
+            <!-- SETTINGS: COMMENT_COMPONENTS
             <SwitchPreference android:title="@string/revanced_hide_comments_section_title" android:key="revanced_hide_comments_section" android:defaultValue="false" android:summaryOn="@string/revanced_hide_comments_section_summary_on" android:summaryOff="@string/revanced_hide_comments_section_summary_off" />
-            <SwitchPreference android:title="@string/revanced_hide_preview_comment_title" android:key="revanced_hide_preview_comment" android:defaultValue="false" android:summaryOn="@string/revanced_hide_preview_comment_on" android:summaryOff="@string/revanced_hide_preview_comment_off" />
-        </PreferenceScreen>SETTINGS: COMMENT_COMPONENT -->
+            <SwitchPreference android:title="@string/revanced_hide_preview_comment_title" android:key="revanced_hide_preview_comment" android:defaultValue="false" android:summaryOn="@string/revanced_hide_preview_comment_on" android:summaryOff="@string/revanced_hide_preview_comment_off" />SETTINGS: COMMENT_COMPONENTS -->
+
+            <!-- SETTINGS: HIDE_GENERAL_LAYOUT_ADS
+            <SwitchPreference android:title="@string/revanced_adremover_subscribers_community_guidelines_title" android:key="revanced_adremover_subscribers_community_guidelines" android:defaultValue="true" android:summaryOn="@string/revanced_adremover_subscribers_community_guidelines_summary_on" android:summaryOff="@string/revanced_adremover_subscribers_community_guidelines_summary_off" />
+            <SwitchPreference android:title="@string/revanced_adremover_channel_guidelines_title" android:key="revanced_adremover_channel_guidelines" android:defaultValue="true" android:summaryOn="@string/revanced_adremover_channel_guidelines_summary_on" android:summaryOff="@string/revanced_adremover_channel_guidelines_summary_off" />SETTINGS: HIDE_GENERAL_LAYOUT_ADS -->
+        <!-- SETTINGS: COMMENT_COMPONENT_PARENT
+        </PreferenceScreen>SETTINGS: COMMENT_COMPONENT_PARENT -->
 
     <!-- PREFERENCE_HEADER: FLYOUT_PANEL
         <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_layout_settings_flyoutmenu" />PREFERENCE_HEADER: FLYOUT_PANEL -->
