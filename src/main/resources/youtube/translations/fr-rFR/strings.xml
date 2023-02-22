@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="about">A propos</string>
     <string name="about_api">Cette application utilise l\'API de SponsorBlock</string>
     <string name="about_api_sum">Cliquez pour en savoir plus, pour voir les téléchargements sur d\'autres plateformes sur: sponsor.ajay.app</string>
     <string name="about_madeby">Intégration faite par JakubWeg</string>
@@ -274,8 +273,8 @@ Est-il prêt à être soumis?"</string>
     <string name="revanced_hide_autoplay_button_summary_off">Le bouton de Lecture automatique est affiché</string>
     <string name="revanced_hide_autoplay_button_summary_on">Le bouton de Lecture automatique est caché</string>
     <string name="revanced_hide_autoplay_button_title">Cacher le bouton de Lecture automatique</string>
-    <string name="revanced_hide_button_container_summary">Cache le composant du conteneur de boutons</string>
-    <string name="revanced_hide_button_container_title">Cacher le composant conteneur de bouton</string>
+    <string name="revanced_hide_button_container_summary">Cache les boutons en bas des vidéos</string>
+    <string name="revanced_hide_button_container_title">Boutons en bas des vidéos </string>
     <string name="revanced_hide_button_create_clip_summary_off">Le bouton Extrait est affiché</string>
     <string name="revanced_hide_button_create_clip_summary_on">Le bouton Extrait est caché</string>
     <string name="revanced_hide_button_create_clip_title">Cacher le bouton Extrait</string>
@@ -315,8 +314,11 @@ Est-il prêt à être soumis?"</string>
     <string name="revanced_hide_channel_watermark_summary_off">Le filigrane vidéo est affiché</string>
     <string name="revanced_hide_channel_watermark_summary_on">Le filigrane vidéo est caché</string>
     <string name="revanced_hide_channel_watermark_title">Cacher le filigrane de la chaîne</string>
+    <string name="revanced_hide_collapse_button_summary_off">Le bouton Réduire est affiché</string>
+    <string name="revanced_hide_collapse_button_summary_on">Le bouton Réduire est caché </string>
+    <string name="revanced_hide_collapse_button_title">Cacher le bouton Reduire</string>
     <string name="revanced_hide_comments_component_summary">Cache la section des commentaires ou le composant</string>
-    <string name="revanced_hide_comments_component_title">Cacher le composant de commentaire</string>
+    <string name="revanced_hide_comments_component_title">Section commentaires</string>
     <string name="revanced_hide_comments_section_summary_off">La section commentaires est est affiché</string>
     <string name="revanced_hide_comments_section_summary_on">La section commentaires est caché</string>
     <string name="revanced_hide_comments_section_title">Cacher la section des commentaires</string>
@@ -331,7 +333,7 @@ Est-il prêt à être soumis?"</string>
     <string name="revanced_hide_email_address_title">Cacher l\'adresse e-mail</string>
     <string name="revanced_hide_endscreen_cards_summary_off">Les cartes de l’écran de fin sont affichées</string>
     <string name="revanced_hide_endscreen_cards_summary_on">Les cartes de l’écran de fin sont cachées</string>
-    <string name="revanced_hide_endscreen_cards_title">Cacher les superpositions d’écran de fin</string>
+    <string name="revanced_hide_endscreen_cards_title">Cacher les cartes de l\'écran de fin</string>
     <string name="revanced_hide_endscreen_overlay_summary_off">Les superpositions d’écran de fin son affichés</string>
     <string name="revanced_hide_endscreen_overlay_summary_on">Les superpositions d’écran de fin sont cachées </string>
     <string name="revanced_hide_endscreen_overlay_title">Cacher les superpositions d’écran de fin </string>
@@ -341,12 +343,12 @@ Est-il prêt à être soumis?"</string>
     <string name="revanced_hide_floating_microphone_summary_off">Le bouton de microphone flottant est affiché</string>
     <string name="revanced_hide_floating_microphone_summary_on">Le bouton de microphone flottant est caché</string>
     <string name="revanced_hide_floating_microphone_title">Cacher le bouton de microphone flottant</string>
-    <string name="revanced_hide_fullscreen_button_container_summary_off">Le conteneur de bouton plein écran est affiché</string>
-    <string name="revanced_hide_fullscreen_button_container_summary_on">Le conteneur de bouton plein écran est caché</string>
-    <string name="revanced_hide_fullscreen_button_container_title">Cacher le conteneur du bouton plein écran</string>
-    <string name="revanced_hide_fullscreen_panels_summary_off">Les boutons en plein écran sont affichés</string>
-    <string name="revanced_hide_fullscreen_panels_summary_on">Les boutons en plein écran sont cachés</string>
-    <string name="revanced_hide_fullscreen_panels_title">Cacher les boutons en plein écran </string>
+    <string name="revanced_hide_fullscreen_button_container_summary_off">Les boutons situés en bas de la vidéo en mode plein écran sont affichés</string>
+    <string name="revanced_hide_fullscreen_button_container_summary_on">Les boutons situés en bas de la vidéo en mode plein écran sont affichés</string>
+    <string name="revanced_hide_fullscreen_button_container_title">Cacher les boutons situé en bas en mode plein écran</string>
+    <string name="revanced_hide_fullscreen_panels_summary_off">Les boutons situés en bas de la vidéo ainsi que les superposition d\'écran de fin en mode plein écran sont affichés</string>
+    <string name="revanced_hide_fullscreen_panels_summary_on">Les boutons situés en bas de la vidéo ainsi que les superposition d\'écran de fin en mode plein écran sont cachés</string>
+    <string name="revanced_hide_fullscreen_panels_title">Cacher tout les boutons en plein écran </string>
     <string name="revanced_hide_info_cards_summary_off">Les cartes d’information sont affichés</string>
     <string name="revanced_hide_info_cards_summary_on">Les cartes d’information sont cachées</string>
     <string name="revanced_hide_info_cards_title">Cacher les infos</string>
@@ -377,6 +379,9 @@ Est-il prêt à être soumis?"</string>
     <string name="revanced_hide_menu_report_summary_off">La Page de Signalement est affichée</string>
     <string name="revanced_hide_menu_report_summary_on">La Page de Signalement est cachée</string>
     <string name="revanced_hide_menu_report_title">Cacher la Page de Signalement</string>
+    <string name="revanced_hide_menu_speed_summary_off">Le Menu vitesse de lecture est affiché</string>
+    <string name="revanced_hide_menu_speed_summary_on">Le Menu vitesse de lecture est caché</string>
+    <string name="revanced_hide_menu_speed_title">Cacher le menu de vitesse de lecture</string>
     <string name="revanced_hide_menu_stats_for_nerds_summary_off">Le Menu des statistiques pour les \"nerds\" est affiché</string>
     <string name="revanced_hide_menu_stats_for_nerds_summary_on">Le Menu des statistiques pour les \"nerds\" est caché</string>
     <string name="revanced_hide_menu_stats_for_nerds_title">Cacher le Menu de statistique pour les \"nerds\"</string>
@@ -405,7 +410,7 @@ Est-il prêt à être soumis?"</string>
     <string name="revanced_hide_shorts_button_summary_on">Le bouton Shorts est caché</string>
     <string name="revanced_hide_shorts_button_title">Cacher le bouton Shorts</string>
     <string name="revanced_hide_shorts_component_summary">Cache la section Shorts ou le composant des Shorts</string>
-    <string name="revanced_hide_shorts_component_title">Cacher le composant de Shorts</string>
+    <string name="revanced_hide_shorts_component_title">Boutons des Shorts</string>
     <string name="revanced_hide_shorts_player_comments_button_summary_off">La section des commentaires des Shorts est affiché</string>
     <string name="revanced_hide_shorts_player_comments_button_summary_on">La section des commentaires des Shorts est caché</string>
     <string name="revanced_hide_shorts_player_comments_button_title">Cacher les commentaires des Shorts</string>
@@ -437,12 +442,9 @@ Est-il prêt à être soumis?"</string>
     <string name="revanced_hide_suggested_actions_summary_off">Les actions suggérées sont affichées</string>
     <string name="revanced_hide_suggested_actions_summary_on">Les actions suggérées sont cachées</string>
     <string name="revanced_hide_suggested_actions_title">Cacher les actions suggérées</string>
-    <string name="revanced_hide_time_and_seekbar_summary_off">Le temps et la barre de progression sont affichés</string>
-    <string name="revanced_hide_time_and_seekbar_summary_on">Le temps et la barre de progression sont cachés</string>
-    <string name="revanced_hide_time_and_seekbar_title">Le temps et la barre de progression</string>
     <string name="revanced_import_settings_summary">Récupérer les paramètres ReVanced à partir du fichier enregistré</string>
     <string name="revanced_import_settings_title">Paramétrages d’importation</string>
-    <string name="revanced_layout_settings_bottomplayer">Paramètres de mise en page du lecteur en bas</string>
+    <string name="revanced_layout_settings_bottomplayer">Paramètres de mise en page en bas de la vidéo</string>
     <string name="revanced_layout_settings_flyoutmenu">Paramètres de mise en page du menu contextuel</string>
     <string name="revanced_layout_settings_fullscreen">Paramètres de mise en page plein écran</string>
     <string name="revanced_layout_settings_player">Paramètres de mise en page du lecteur</string>
@@ -478,8 +480,8 @@ Est-il prêt à être soumis?"</string>
     <string name="revanced_override_premium_header_title">Icône YT Premium</string>
     <string name="revanced_patches_information_summary">Informations sur les correctifs appliqués</string>
     <string name="revanced_patches_information">Informations sur les correctifs</string>
-    <string name="revanced_player_flyout_panel_summary">Cache le composant des paramètres du lecteur du panneau de vol</string>
-    <string name="revanced_player_flyout_panel_title">Composant du panneau de survol du lecteur</string>
+    <string name="revanced_player_flyout_panel_summary">Cache le composant du menu paramètres de la vidéo</string>
+    <string name="revanced_player_flyout_panel_title">Boutons du menu paramètres de la vidéo</string>
     <string name="revanced_reboot_warning_general">"Comme il s’agit toujours d’un élément expérimental, il peut y avoir d’autres questions inconnues. Êtes-vous sûr de vouloir continuer?"</string>
     <string name="revanced_reboot_warning_oldlayout">"Change la version YouTube en v17.28.35 pour charger l'ancienne mise en page"</string>
     <string name="revanced_reboot_warning_phone">"Aide le dpi à modifier certaines dispositions de téléphone. Si vous activez ce paramètre, les fonctionnalités suivantes sont disponibles:
@@ -528,7 +530,6 @@ Comme ces paramètres sont abandonnées, ils peuvent ne pas être valides"</stri
     <string name="revanced_video_ads_removal_summary_on">Les annonces vidéo sont cachées</string>
     <string name="revanced_video_ads_removal_title">Cacher les annonces vidéo</string>
     <string name="revanced_video_settings_summary">Paramètres liés à la vidéo</string>
-    <string name="revanced_video_settings_title">Paramètres vidéo </string>
     <string name="revanced_whitelisting_add_failed" formatted="false">Échec d’ajout de chaîne %s à la liste blanche %s</string>
     <string name="revanced_whitelisting_added" formatted="false">La chaîne %s a été ajoutée à la liste blanche %s</string>
     <string name="revanced_whitelisting_ads">Annonces vidéo</string>
@@ -545,7 +546,6 @@ Comme ces paramètres sont abandonnées, ils peuvent ne pas être valides"</stri
     <string name="revanced_whitelisting_settings_summary">Vérifier ou supprimer la liste des chaînes ajoutés à la liste blanche</string>
     <string name="revanced_whitelisting_settings_title">Paramètres de la liste blanche</string>
     <string name="revanced_whitelisting_speed">Vitesse de la vidéo</string>
-    <string name="revanced_whitelisting_speed_button">Vitesse</string>
     <string name="revanced_whitelisting_sponsorblock">SponsorBlock</string>
     <string name="revanced_whitelisting_sponsorblock_button">SB</string>
     <string name="sb_connection_failed">Le serveur Sponsorblock ne répond pas!</string>
@@ -596,7 +596,6 @@ Comme ces paramètres sont abandonnées, ils peuvent ne pas être valides"</stri
     <string name="skipped_subscribe">Le moment ennuyeux a été ignoré </string>
     <string name="skipped_unsubmitted">Le moment non désirée a été ignoré </string>
     <string name="stats">Statistiques</string>
-    <string name="stats_loading">Chargement..</string>
     <string name="stats_saved">"\"Vous avez sauvé des gens de &lt;b&gt;%s&lt;/b&gt; moments."</string>
     <string name="stats_saved_sum">"Cela représente &lt;b&gt;%s&lt;/b&gt; de leur vie. Cliquez pour voir le tableau des leaders."</string>
     <string name="stats_sb_disabled">SponsorBlock est désactivé</string>

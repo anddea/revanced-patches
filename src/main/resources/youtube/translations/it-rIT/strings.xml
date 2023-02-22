@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="about">Informazioni</string>
     <string name="about_api">Quest\'app utilizza le API di SponsorBlock</string>
     <string name="about_api_sum">Tocca per saperne di più e visualizzare le opzioni di download per altre piattaforme su: https://sponsor.ajay.app</string>
     <string name="about_madeby">Integrazione a cura di JakubWeg</string>
@@ -315,6 +314,9 @@
     <string name="revanced_hide_channel_watermark_summary_off">Il watermark nei video è visibile</string>
     <string name="revanced_hide_channel_watermark_summary_on">Il watermark nei video è nascosto</string>
     <string name="revanced_hide_channel_watermark_title">Nascondi il watermark nei video</string>
+    <string name="revanced_hide_collapse_button_summary_off">Il pulsante Comprimi è visibile</string>
+    <string name="revanced_hide_collapse_button_summary_on">Il pulsante Comprimi è nascosto</string>
+    <string name="revanced_hide_collapse_button_title">Nascondi il pulsante Comprimi</string>
     <string name="revanced_hide_comments_component_summary">Nasconde una componente o l\'intera sezione commenti</string>
     <string name="revanced_hide_comments_component_title">Nascondi i componenti dei commenti</string>
     <string name="revanced_hide_comments_section_summary_off">La sezione dei commenti è visibile</string>
@@ -377,6 +379,9 @@
     <string name="revanced_hide_menu_report_summary_off">Il pulsante Segnala è visibile</string>
     <string name="revanced_hide_menu_report_summary_on">Il pulsante Segnala è nascosto</string>
     <string name="revanced_hide_menu_report_title">Pulsante Segnala</string>
+    <string name="revanced_hide_menu_speed_summary_off">Il pulsante della velocità di riproduzione è visibile</string>
+    <string name="revanced_hide_menu_speed_summary_on">Il pulsante della velocità di riproduzione è nascosto</string>
+    <string name="revanced_hide_menu_speed_title">Nascondi pulsante della velocità di riproduzione</string>
     <string name="revanced_hide_menu_stats_for_nerds_summary_off">Il pulsante Statistiche per Nerd è visibile</string>
     <string name="revanced_hide_menu_stats_for_nerds_summary_on">Il pulsante Statistiche per Nerd è nascosto</string>
     <string name="revanced_hide_menu_stats_for_nerds_title">Pulsante Statistiche per Nerd</string>
@@ -437,9 +442,6 @@
     <string name="revanced_hide_suggested_actions_summary_off">Le azioni consigliate sono visibili</string>
     <string name="revanced_hide_suggested_actions_summary_on">Le azioni consigliate sono nascoste</string>
     <string name="revanced_hide_suggested_actions_title">Nascondi le azioni consigliate</string>
-    <string name="revanced_hide_time_and_seekbar_summary_off">Il tempo e la barra del minutaggio sono visibili</string>
-    <string name="revanced_hide_time_and_seekbar_summary_on">Il tempo e la barra del minutaggio sono nascosti</string>
-    <string name="revanced_hide_time_and_seekbar_title">Nascondi il tempo e la barra del minutaggio</string>
     <string name="revanced_import_settings_summary">Carica le impostazioni di ReVanced da un file salvato</string>
     <string name="revanced_import_settings_title">Importa impostazioni</string>
     <string name="revanced_layout_settings_bottomplayer">Interfaccia inferiore del riproduttore</string>
@@ -533,7 +535,6 @@ Dal momento che questa opzione è abbastanza obsoleta, potrebbe risultare non pi
     <string name="revanced_video_ads_removal_summary_on">Gli annunci video sono nascosti</string>
     <string name="revanced_video_ads_removal_title">Nascondi annunci video</string>
     <string name="revanced_video_settings_summary">Impostazioni relative al video</string>
-    <string name="revanced_video_settings_title">Video</string>
     <string name="revanced_whitelisting_add_failed" formatted="false">Impossibile aggiungere il canale %s alla Lista Bianca %s</string>
     <string name="revanced_whitelisting_added" formatted="false">Il canale %s è stato aggiunto alla Lista Bianca %s</string>
     <string name="revanced_whitelisting_ads">Annunci video</string>
@@ -550,7 +551,6 @@ Dal momento che questa opzione è abbastanza obsoleta, potrebbe risultare non pi
     <string name="revanced_whitelisting_settings_summary">Verifica o rimuovi l\'elenco dei canali aggiunti alla Lista Bianca</string>
     <string name="revanced_whitelisting_settings_title">Impostazioni Lista Bianca</string>
     <string name="revanced_whitelisting_speed">Velocità Video</string>
-    <string name="revanced_whitelisting_speed_button">Velocità</string>
     <string name="revanced_whitelisting_sponsorblock">SponsorBlock</string>
     <string name="revanced_whitelisting_sponsorblock_button">SB</string>
     <string name="sb_connection_failed">Il server di SponsorBlock non risponde!</string>
@@ -601,7 +601,6 @@ Dal momento che questa opzione è abbastanza obsoleta, potrebbe risultare non pi
     <string name="skipped_subscribe">Promemoria fastidioso saltato</string>
     <string name="skipped_unsubmitted">Segmento non inviato saltato</string>
     <string name="stats">Statistiche</string>
-    <string name="stats_loading">Caricamento..</string>
     <string name="stats_saved">"Hai salvato le persone da &lt;b&gt;%s&lt;/b&gt; segmenti."</string>
     <string name="stats_saved_sum">"Per un totale di &lt;b&gt;%s&lt;/b&gt; della loro vita. Clicca per visualizzare la classifica"</string>
     <string name="stats_sb_disabled">SponsorBlock è disattivato</string>

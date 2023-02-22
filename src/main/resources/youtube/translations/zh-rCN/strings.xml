@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="about">关于</string>
     <string name="about_api">此应用使用来自 SponsorBlock 的 API</string>
     <string name="about_api_sum">点击了解更多信息，并查看其他平台的下载：sponsor.ajay.app</string>
     <string name="about_madeby">由 JakubWeg 进行合并</string>
@@ -50,6 +49,7 @@
     <string name="microg_notification_settings_summary">"1. Google 设备注册和云端推送（GCM）需要被打开以接收通知。
 2. ReVanced 需要在 GCM 下显示已注册。
 3. GCM 的目前状态应为已连接。"</string>
+    <string name="microg_notification_settings_title">通知</string>
     <string name="minutes">分</string>
     <string name="new_segment_choose_category">选择片段类别</string>
     <string name="new_segment_confirm_content" formatted="false">"片段从 %02d:%02d 到 %02d:%02d（%d 分 %02d 秒）
@@ -72,6 +72,7 @@
     <string name="new_segment_title">新的 SponsorBlock 片段</string>
     <string name="reset">重置</string>
     <string name="revanced_ads_settings_summary">广告相关设置</string>
+    <string name="revanced_ads_settings_title">广告</string>
     <string name="revanced_adremover_album_card_in_search_summary_off">搜索结果中的专辑卡片已显示</string>
     <string name="revanced_adremover_album_card_in_search_summary_on">搜索结果中的专辑卡片已隐藏</string>
     <string name="revanced_adremover_album_card_in_search_title">专辑卡片</string>
@@ -262,6 +263,7 @@
     <string name="revanced_extended_issue_center_summary">在此报告问题或留下建议</string>
     <string name="revanced_extended_issue_center_title">ReVanced Extended 问题中心</string>
     <string name="revanced_general_layout_settings_summary">一般布局相关设置</string>
+    <string name="revanced_general_layout_settings_title">一般布局</string>
     <string name="revanced_hide_auto_captions_summary_off">强制播放有字幕的视频时启用字幕</string>
     <string name="revanced_hide_auto_captions_summary_on">"强制播放有字幕的视频时禁用字幕"</string>
     <string name="revanced_hide_auto_captions_title">自动字幕</string>
@@ -374,6 +376,9 @@
     <string name="revanced_hide_menu_report_summary_off">“举报”已显示</string>
     <string name="revanced_hide_menu_report_summary_on">“举报”已隐藏</string>
     <string name="revanced_hide_menu_report_title">举报</string>
+    <string name="revanced_hide_menu_speed_summary_off">“播放速度”已显示</string>
+    <string name="revanced_hide_menu_speed_summary_on">“播放速度”已隐藏</string>
+    <string name="revanced_hide_menu_speed_title">播放速度</string>
     <string name="revanced_hide_menu_stats_for_nerds_summary_off">“详细统计信息”已显示</string>
     <string name="revanced_hide_menu_stats_for_nerds_summary_on">“详细统计信息”已隐藏</string>
     <string name="revanced_hide_menu_stats_for_nerds_title">详细统计信息</string>
@@ -434,14 +439,18 @@
     <string name="revanced_hide_suggested_actions_summary_off">操作建议已显示</string>
     <string name="revanced_hide_suggested_actions_summary_on">操作建议已隐藏</string>
     <string name="revanced_hide_suggested_actions_title">操作建议</string>
-    <string name="revanced_hide_time_and_seekbar_summary_off">时长和进度条已显示</string>
-    <string name="revanced_hide_time_and_seekbar_summary_on">时长和进度条已隐藏</string>
-    <string name="revanced_hide_time_and_seekbar_title">时长和进度条</string>
     <string name="revanced_import_settings_summary">从保存的文件恢复 ReVanced 配置</string>
     <string name="revanced_import_settings_title">导入配置</string>
+    <string name="revanced_layout_settings_bottomplayer">播放器下方布局</string>
+    <string name="revanced_layout_settings_flyoutmenu">弹出菜单布局</string>
+    <string name="revanced_layout_settings_fullscreen">全屏布局</string>
+    <string name="revanced_layout_settings_player">播放器布局</string>
+    <string name="revanced_layout_settings_seekbar">进度条布局</string>
     <string name="revanced_misc_settings_summary">其他相关设置</string>
+    <string name="revanced_misc_settings_title">杂项</string>
     <string name="revanced_others_title">其他</string>
     <string name="revanced_other_layout_settings_summary">其他布局相关设置</string>
+    <string name="revanced_other_layout_settings_title">其他布局</string>
     <string name="revanced_overlay_button_auto_repeat_summary_off">自动循环播放按钮已隐藏</string>
     <string name="revanced_overlay_button_auto_repeat_summary_on">自动循环播放按钮已显示</string>
     <string name="revanced_overlay_button_auto_repeat_title">自动循环播放按钮</string>
@@ -455,6 +464,7 @@
     <string name="revanced_overlay_button_downloads_summary_on">下载按钮已显示</string>
     <string name="revanced_overlay_button_downloads_title">下载按钮</string>
     <string name="revanced_overlay_button_summary">叠加层按钮相关设置</string>
+    <string name="revanced_overlay_button_title">叠加层按钮</string>
     <string name="revanced_overlay_button_speed_reset">重置视频倍速（1.0x）</string>
     <string name="revanced_overlay_button_speed_summary_off">倍速按钮已隐藏</string>
     <string name="revanced_overlay_button_speed_summary_on">倍速按钮已显示</string>
@@ -496,6 +506,7 @@
     <string name="revanced_ryd_compact_layout_title">紧凑点赞按钮</string>
     <string name="revanced_ryd_enable_summary_off">点踩数已隐藏</string>
     <string name="revanced_ryd_enable_summary_on">点踩数已显示</string>
+    <string name="revanced_ryd_enable_title">恢复 YouTube 点踩</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">点踩数不可用（已达到客户端 API 限制）</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">隐藏</string>
     <string name="revanced_save_video_quality_common_error">设置画质失败</string>
@@ -507,6 +518,7 @@
     <string name="revanced_save_video_speed">更改默认倍速为：</string>
     <string name="revanced_sponsorblock_settings_summary">SponsorBlock 相关设置</string>
     <string name="revanced_swipe_controls_summary">滑动控制相关设置</string>
+    <string name="revanced_swipe_controls_title">滑动控制</string>
     <string name="revanced_swipe_magnitude_threshold_summary">防误触的滑动幅度阈值</string>
     <string name="revanced_swipe_magnitude_threshold_title">滑动幅度阈值</string>
     <string name="revanced_swipe_overlay_background_alpha_summary">滑动叠加层背景透明度</string>
@@ -536,7 +548,6 @@
     <string name="revanced_whitelisting_settings_summary">检查或移除已添加到白名单的频道列表</string>
     <string name="revanced_whitelisting_settings_title">白名单设置</string>
     <string name="revanced_whitelisting_speed">播放速度</string>
-    <string name="revanced_whitelisting_speed_button">速度</string>
     <string name="revanced_whitelisting_sponsorblock">SponsorBlock</string>
     <string name="revanced_whitelisting_sponsorblock_button">SB</string>
     <string name="sb_connection_failed">SponsorBlock 服务器没有响应！</string>
@@ -565,12 +576,12 @@
     <string name="segments_sponsor_sum">付费宣传、付费推荐和广告</string>
     <string name="segments_subscribe">交互提醒（订阅）</string>
     <string name="segments_subscribe_sum">当在任何免费或付费平台上出现点赞、订阅、关注或与他们交互的简短提醒时</string>
-    <string name="settings_export_failed">导出设置失败</string>
+    <string name="settings_export_failed">导出配置失败</string>
     <string name="settings_export_successful">导出配置成功</string>
-    <string name="settings_ie">导入/导出设置</string>
+    <string name="settings_ie">导入/导出配置</string>
     <string name="settings_ie_sum">这是存有您完整配置并适用于桌面扩展的 JSON。 其中包括您的私人用户 ID，因此请务必谨慎分享。</string>
-    <string name="settings_import_failed">导入设置失败</string>
-    <string name="settings_import_successful">导入设置成功</string>
+    <string name="settings_import_failed">导入配置失败</string>
+    <string name="settings_import_successful">导入配置成功</string>
     <string name="skip_automatically">自动跳过</string>
     <string name="skip_automatically_once">自动跳过一次</string>
     <string name="skip_ignore">"忽略"</string>
@@ -587,7 +598,6 @@
     <string name="skipped_subscribe">已跳过烦人提醒</string>
     <string name="skipped_unsubmitted">已跳过未提交片段</string>
     <string name="stats">统计</string>
-    <string name="stats_loading">加载中...</string>
     <string name="stats_saved">"您帮人们保存了 &lt;b&gt;%s&lt;/b&gt; 个片段。"</string>
     <string name="stats_saved_sum">"那是他们生命中的 &lt;b&gt;%s&lt;/b&gt; 。点击查看排行榜"</string>
     <string name="stats_sb_disabled">SponsorBlock 已禁用</string>

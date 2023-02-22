@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="about">О нас</string>
     <string name="about_api">Приложение использует API от SponsorBlock</string>
     <string name="about_api_sum">Нажмите, чтобы узнать больше и посмотреть загрузки для других платформ: sponsor.ajay.app</string>
     <string name="about_madeby">Автор интеграции - JakubWeg</string>
@@ -313,6 +312,9 @@
     <string name="revanced_hide_channel_watermark_summary_off">Логотип канала отображен</string>
     <string name="revanced_hide_channel_watermark_summary_on">Логотип канала скрыт</string>
     <string name="revanced_hide_channel_watermark_title">Логотип канала</string>
+    <string name="revanced_hide_collapse_button_summary_off">Кнопка \"Свернуть\" отображена</string>
+    <string name="revanced_hide_collapse_button_summary_on">Кнопка \"Свернуть\" скрыта</string>
+    <string name="revanced_hide_collapse_button_title">Свернуть</string>
     <string name="revanced_hide_comments_component_summary">Настройки раздела \"Комментарии\" и его элементов</string>
     <string name="revanced_hide_comments_component_title">Комментарии</string>
     <string name="revanced_hide_comments_section_summary_off">Раздел \"Комментарии\" отображен</string>
@@ -375,6 +377,9 @@
     <string name="revanced_hide_menu_report_summary_off">Пункт \"Жалоба\" отображен</string>
     <string name="revanced_hide_menu_report_summary_on">Пункт  \"Жалоба\" скрыт</string>
     <string name="revanced_hide_menu_report_title">Жалоба</string>
+    <string name="revanced_hide_menu_speed_summary_off">Меню скорости воспроизведения отображено</string>
+    <string name="revanced_hide_menu_speed_summary_on">Меню скорости воспроизведения скрыто</string>
+    <string name="revanced_hide_menu_speed_title">Меню скорости воспроизведения</string>
     <string name="revanced_hide_menu_stats_for_nerds_summary_off">Пункт \"Статистика для сисадминов\" отображен</string>
     <string name="revanced_hide_menu_stats_for_nerds_summary_on">Пункт \"Статистика для сисадминов\" скрыт</string>
     <string name="revanced_hide_menu_stats_for_nerds_title">Статистика для сисадминов</string>
@@ -435,9 +440,6 @@
     <string name="revanced_hide_suggested_actions_summary_off">Предлагаемые действия отображены</string>
     <string name="revanced_hide_suggested_actions_summary_on">Предлагаемые действия скрыты</string>
     <string name="revanced_hide_suggested_actions_title">Предлагаемые действия</string>
-    <string name="revanced_hide_time_and_seekbar_summary_off">Время и прогресс воспроизведения видео отображены</string>
-    <string name="revanced_hide_time_and_seekbar_summary_on">Время и прогресс воспроизведения видео скрыты</string>
-    <string name="revanced_hide_time_and_seekbar_title">Время и прогресс воспроизведения</string>
     <string name="revanced_import_settings_summary">Восстанавливает настройки ReVanced из файла</string>
     <string name="revanced_import_settings_title">Восстановить настройки</string>
     <string name="revanced_layout_settings_bottomplayer">Настройки элементов под плеером</string>
@@ -520,7 +522,6 @@
     <string name="revanced_video_ads_removal_summary_on">Реклама в видео скрыта</string>
     <string name="revanced_video_ads_removal_title">Реклама в видео</string>
     <string name="revanced_video_settings_summary">Настройки видео</string>
-    <string name="revanced_video_settings_title">Видео</string>
     <string name="revanced_whitelisting_add_failed" formatted="false">Не удалось добавить канал %s в \"Белый список\" %s</string>
     <string name="revanced_whitelisting_added" formatted="false">Канал %s был добавлен в \"Белый список\" %s</string>
     <string name="revanced_whitelisting_ads">Реклама в видео</string>
@@ -537,7 +538,6 @@
     <string name="revanced_whitelisting_settings_summary">Настроить или удалить список каналов, добавленных в \"Белый список\"</string>
     <string name="revanced_whitelisting_settings_title">Настройки \"Белого списка\"</string>
     <string name="revanced_whitelisting_speed">Скорость видео</string>
-    <string name="revanced_whitelisting_speed_button">Скорость</string>
     <string name="revanced_whitelisting_sponsorblock">SponsorBlock</string>
     <string name="revanced_whitelisting_sponsorblock_button">SB</string>
     <string name="sb_connection_failed">Сервер Sponsorblock не отвечает!</string>
@@ -588,7 +588,6 @@
     <string name="skipped_subscribe">Пропущено назойливое напоминание</string>
     <string name="skipped_unsubmitted">Пропущен неотправленный сегмент</string>
     <string name="stats">Статистика</string>
-    <string name="stats_loading">Загрузка...</string>
     <string name="stats_saved">"Вы избавили людей от &lt;b&gt;%s&lt;/b&gt; сегментов"</string>
     <string name="stats_saved_sum">"Это &lt;b&gt;%s&lt;/b&gt; их жизни. Нажмите, чтобы увидеть таблицу лидеров"</string>
     <string name="stats_sb_disabled">Блокировка спонсорской рекламы отключена</string>

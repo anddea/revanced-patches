@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="about">Tentang Aplikasi</string>
     <string name="about_api">Aplikasi ini menggunakan API dari SponsorBlock</string>
     <string name="about_api_sum">Tekan untuk mempelajari lebih lanjut, dan lihat unduhan untuk platform lain di: sponsor.ajay.app</string>
     <string name="about_madeby">Integrasi dibuat oleh JakubWeg</string>
@@ -377,6 +376,9 @@ Apakah sudah siap untuk dikirim?"</string>
     <string name="revanced_hide_menu_report_summary_off">Menu report ditampilkan</string>
     <string name="revanced_hide_menu_report_summary_on">Menu report disembunyikan</string>
     <string name="revanced_hide_menu_report_title">Sembunyikan menu report</string>
+    <string name="revanced_hide_menu_speed_summary_off">Menu kecepatan pemutar video ditampilkan</string>
+    <string name="revanced_hide_menu_speed_summary_on">Menu kecepatan pemutar video disembunyikan</string>
+    <string name="revanced_hide_menu_speed_title">Sembunyikan menu kecepatan pemutar video</string>
     <string name="revanced_hide_menu_stats_for_nerds_summary_off">Statistik untuk menu nerds ditampilkan</string>
     <string name="revanced_hide_menu_stats_for_nerds_summary_on">Statistik untuk menu nerds disembunyikan</string>
     <string name="revanced_hide_menu_stats_for_nerds_title">Sembunyikan statistik untuk menu nerds</string>
@@ -437,12 +439,8 @@ Apakah sudah siap untuk dikirim?"</string>
     <string name="revanced_hide_suggested_actions_summary_off">Suggested actions ditampilkan</string>
     <string name="revanced_hide_suggested_actions_summary_on">Suggested actions disembunyikan</string>
     <string name="revanced_hide_suggested_actions_title">Sembunyikan suggested actions</string>
-    <string name="revanced_hide_time_and_seekbar_summary_off">Waktu dan seekbar ditampilkan</string>
-    <string name="revanced_hide_time_and_seekbar_summary_on">Waktu dan seekbar disembunyikan</string>
-    <string name="revanced_hide_time_and_seekbar_title">Sembunyikan waktu dan seekbar</string>
     <string name="revanced_import_settings_summary">Ambil pengaturan ReVanced dari file yang disimpan</string>
     <string name="revanced_import_settings_title">Pengaturan impor</string>
-    <string name="revanced_initial_spoof">Trik versi YouTube untuk memperbaiki masalah yang ada di YouTube official. Trik ini hanya berfungsi jika anda melakukan instalasi bersih.</string>
     <string name="revanced_layout_settings_bottomplayer">Layout pemutar bawah</string>
     <string name="revanced_layout_settings_flyoutmenu">Layout menu flyout</string>
     <string name="revanced_layout_settings_fullscreen">Layout fullscreen</string>
@@ -534,7 +532,6 @@ Karena pengaturan ini sudah cukup usang, mungkin tidak valid"</string>
     <string name="revanced_video_ads_removal_summary_on">Iklan video disembunyikan</string>
     <string name="revanced_video_ads_removal_title">Sembunyikan iklan video</string>
     <string name="revanced_video_settings_summary">Pengaturan terkait video</string>
-    <string name="revanced_video_settings_title">Video</string>
     <string name="revanced_whitelisting_add_failed" formatted="false">Gagal menambahkan channel %s ke %s whitelist</string>
     <string name="revanced_whitelisting_added" formatted="false">Channel %s telah ditambahkan ke %s whitelist</string>
     <string name="revanced_whitelisting_ads">Iklan video</string>
@@ -551,7 +548,6 @@ Karena pengaturan ini sudah cukup usang, mungkin tidak valid"</string>
     <string name="revanced_whitelisting_settings_summary">Periksa atau hapus channel yang ditambahkan ke whitelist</string>
     <string name="revanced_whitelisting_settings_title">Pengaturan whitelist</string>
     <string name="revanced_whitelisting_speed">Kecepatan video</string>
-    <string name="revanced_whitelisting_speed_button">Kecepatan</string>
     <string name="revanced_whitelisting_sponsorblock">SponsorBlock</string>
     <string name="revanced_whitelisting_sponsorblock_button">SB</string>
     <string name="sb_connection_failed">Server Sponsorblock tidak merespons!</string>
@@ -602,7 +598,6 @@ Karena pengaturan ini sudah cukup usang, mungkin tidak valid"</string>
     <string name="skipped_subscribe">Pengingat yang mengganggu dilewati</string>
     <string name="skipped_unsubmitted">Melewati segmen yang belum dikirim</string>
     <string name="stats">Statistik</string>
-    <string name="stats_loading">Loading..</string>
     <string name="stats_saved">"Anda telah menyelamatkan orang-orang dari &lt;b&gt;%s&lt;/b&gt; segmen."</string>
     <string name="stats_saved_sum">"Itu &lt;b&gt;%s&lt;/b&gt; hidup mereka. Tekan untuk melihat leaderboard"</string>
     <string name="stats_sb_disabled">SponsorBlock dinonaktifkan</string>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="about">Información</string>
     <string name="about_api">Esta aplicación utiliza la API de SponsorBlock</string>
     <string name="about_api_sum">Toque para aprender más y ver descargas para otras plataformas en: sponsor.ajay.app</string>
     <string name="about_madeby">Integración hecha por JakubWeg</string>
@@ -315,6 +314,9 @@
     <string name="revanced_hide_channel_watermark_summary_off">La marca de agua del canal está visible</string>
     <string name="revanced_hide_channel_watermark_summary_on">La marca de agua del canal está oculta</string>
     <string name="revanced_hide_channel_watermark_title">Ocultar marca de agua del canal</string>
+    <string name="revanced_hide_collapse_button_summary_off">El botón Contraer está visible</string>
+    <string name="revanced_hide_collapse_button_summary_on">El botón Contraer está oculto</string>
+    <string name="revanced_hide_collapse_button_title">Ocultar botón Contraer</string>
     <string name="revanced_hide_comments_component_summary">Ocultar las secciones de comentarios o los componentes</string>
     <string name="revanced_hide_comments_component_title">Ocultar componentes de comentarios</string>
     <string name="revanced_hide_comments_section_summary_off">La sección de comentarios está visible</string>
@@ -360,7 +362,7 @@
     <string name="revanced_hide_menu_captions_summary_on">El menú Subtítulos está oculto</string>
     <string name="revanced_hide_menu_captions_title">Ocultar menú Subtítulos</string>
     <string name="revanced_hide_menu_help_summary_off">El menú Ayuda y Comentarios está visible</string>
-    <string name="revanced_hide_menu_help_summary_on">El menú Ayuda y Comentarios está visible</string>
+    <string name="revanced_hide_menu_help_summary_on">El menú Ayuda y Comentarios está oculto</string>
     <string name="revanced_hide_menu_help_title">Ocultar menú Ayuda y Comentarios</string>
     <string name="revanced_hide_menu_listening_controls_summary_off">El menú Controles Auditivos está visible</string>
     <string name="revanced_hide_menu_listening_controls_summary_on">El menú Controles Auditivos está oculto</string>
@@ -377,6 +379,9 @@
     <string name="revanced_hide_menu_report_summary_off">El menú Denunciar está visible</string>
     <string name="revanced_hide_menu_report_summary_on">El menú Denunciar está oculto</string>
     <string name="revanced_hide_menu_report_title">Ocultar menú Denunciar</string>
+    <string name="revanced_hide_menu_speed_summary_off">El menú Velocidad De Reproducción está visible</string>
+    <string name="revanced_hide_menu_speed_summary_on">El menú Velocidad De Reproducción está oculto</string>
+    <string name="revanced_hide_menu_speed_title">Ocultar menú Velocidad De Reproducción</string>
     <string name="revanced_hide_menu_stats_for_nerds_summary_off">El menú Estadísticas Para Nerds está visible</string>
     <string name="revanced_hide_menu_stats_for_nerds_summary_on">El menú Estadísticas Para Nerds está oculto</string>
     <string name="revanced_hide_menu_stats_for_nerds_title">Ocultar menú Estadísticas Para Nerds</string>
@@ -437,12 +442,8 @@
     <string name="revanced_hide_suggested_actions_summary_off">Las acciones sugeridas están visibles</string>
     <string name="revanced_hide_suggested_actions_summary_on">Las acciones sugeridas están ocultas</string>
     <string name="revanced_hide_suggested_actions_title">Ocultar acciones sugeridas</string>
-    <string name="revanced_hide_time_and_seekbar_summary_off">El tiempo y la barra de progreso están visibles</string>
-    <string name="revanced_hide_time_and_seekbar_summary_on">El tiempo y la barra de progreso están ocultos</string>
-    <string name="revanced_hide_time_and_seekbar_title">Ocultar tiempo y barra de progreso</string>
     <string name="revanced_import_settings_summary">Obtiene los ajustes de ReVanced desde un archivo guardado</string>
     <string name="revanced_import_settings_title">Importar ajustes</string>
-    <string name="revanced_initial_spoof">Modifica la versión de YouTube para solucionar un problema que existe en el YouTube oficial. Este truco solo funciona si haces una instalación limpia.</string>
     <string name="revanced_layout_settings_bottomplayer">Diseño del reproductor inferior</string>
     <string name="revanced_layout_settings_flyoutmenu">Diseño del menú desplegable</string>
     <string name="revanced_layout_settings_fullscreen">Diseño en pantalla completa</string>
@@ -535,7 +536,6 @@ Toque aquí para obtener más información.</string>
     <string name="revanced_video_ads_removal_summary_on">Los anuncios de vídeo están ocultos</string>
     <string name="revanced_video_ads_removal_title">Ocultar anuncios de vídeo</string>
     <string name="revanced_video_settings_summary">Ajustes relacionadas con vídeo</string>
-    <string name="revanced_video_settings_title">Vídeo</string>
     <string name="revanced_whitelisting_add_failed" formatted="false">Error al añadir el canal %s a la lista blanca %s</string>
     <string name="revanced_whitelisting_added" formatted="false">El canal %s fue añadido a la lista blanca %s</string>
     <string name="revanced_whitelisting_ads">Anuncios de vídeo</string>
@@ -552,9 +552,8 @@ Toque aquí para obtener más información.</string>
     <string name="revanced_whitelisting_settings_summary">Ajustes relacionados con la lista blanca de canales</string>
     <string name="revanced_whitelisting_settings_title">Ajustes de la lista blanca</string>
     <string name="revanced_whitelisting_speed">Velocidad de vídeo</string>
-    <string name="revanced_whitelisting_speed_button">Velocidad</string>
     <string name="revanced_whitelisting_sponsorblock">SponsorBlock</string>
-    <string name="revanced_whitelisting_sponsorblock_button">SponsorBlock</string>
+    <string name="revanced_whitelisting_sponsorblock_button">SB</string>
     <string name="sb_connection_failed">¡El servidor de Sponsorblock no responde!</string>
     <string name="sb_guidelines_popup_already_read">Ya leído</string>
     <string name="sb_guidelines_popup_content">"Se recomienda leer las normas de SponsorBlock antes de enviar cualquier segmento"</string>
@@ -603,7 +602,6 @@ Toque aquí para obtener más información.</string>
     <string name="skipped_subscribe">Recordatorio molesto omitido</string>
     <string name="skipped_unsubmitted">Segmento no enviado omitido</string>
     <string name="stats">Estadísticas</string>
-    <string name="stats_loading">Cargando...</string>
     <string name="stats_saved">"Has salvado personas de &lt;b&gt;%s&lt;/b&gt; segmentos."</string>
     <string name="stats_saved_sum">"Eso es &lt;b&gt;%s&lt;/b&gt; de sus vidas. Pulse para ver la clasificación"</string>
     <string name="stats_sb_disabled">SponsorBlock está desactivado</string>
