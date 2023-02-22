@@ -98,6 +98,7 @@ class GeneralAdsPatch : ResourcePatch {
                 "PREFERENCE: GENERAL_LAYOUT_SETTINGS",
                 "PREFERENCE_HEADER: PLAYER",
                 "SETTINGS: HIDE_VIEW_PRODUCT",
+                "SETTINGS: DOUBLE_BACK_TIMEOUT",
 
                 "PREFERENCE: OTHER_LAYOUT_SETTINGS",
                 "PREFERENCE_HEADER: BOTTOM_PLAYER",
