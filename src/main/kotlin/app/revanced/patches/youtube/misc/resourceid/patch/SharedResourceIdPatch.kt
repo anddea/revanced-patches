@@ -35,7 +35,6 @@ class SharedResourcdIdPatch : ResourcePatch {
         var layoutVideo: Long = -1
         var liveChatButtonId: Long = -1
         var scrubbingLabelId: Long = -1
-        var timebarColorLabelId: Long = -1
         var tooltipLabelId: Long = -1
         var videoqualityfragmentLabelId: Long = -1
     }
@@ -65,7 +64,6 @@ class SharedResourcdIdPatch : ResourcePatch {
         layoutVideo = findSharedResourceId("layout", "endscreen_element_layout_video")
         liveChatButtonId = findSharedResourceId("id", "live_chat_overlay_button")
         scrubbingLabelId = findSharedResourceId("dimen", "vertical_touch_offset_to_enter_fine_scrubbing")
-        timebarColorLabelId = findSharedResourceId("color", "inline_time_bar_progress_color")
         tooltipLabelId = findSharedResourceId("layout", "tooltip_content_view")
         videoqualityfragmentLabelId = findSharedResourceId("layout", "video_quality_bottom_sheet_list_fragment_title")
 
