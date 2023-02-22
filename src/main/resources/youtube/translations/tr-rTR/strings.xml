@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="about">Hakkında</string>
     <string name="about_api">Bu uygulama SponsorBlock API\'si kullanır</string>
     <string name="about_api_sum">Daha fazla bilgi edinmek ve diğer platformlarda kullanmak için şu adrese dokunun: sponsor.ajay.app</string>
     <string name="about_madeby">Entegrasyonu yapan: JakubWeg</string>
@@ -377,6 +376,9 @@ Gönderilmeye hazır mı?"</string>
     <string name="revanced_hide_menu_report_summary_off">Rapor Menüsü Gösteriliyor</string>
     <string name="revanced_hide_menu_report_summary_on">Raport Menüsü Saklı</string>
     <string name="revanced_hide_menu_report_title">Rapor Menüsünü Sakla</string>
+    <string name="revanced_hide_menu_speed_summary_off">Gizlenmiyor</string>
+    <string name="revanced_hide_menu_speed_summary_on">Gizleniyor</string>
+    <string name="revanced_hide_menu_speed_title">Oynatma hızın menüsünü gizle</string>
     <string name="revanced_hide_menu_stats_for_nerds_summary_off">\"Meraklısı için istatikler\" menüsü gösteriliyor</string>
     <string name="revanced_hide_menu_stats_for_nerds_summary_on">\"Meraklısı için istatikler\" menüsü gizli</string>
     <string name="revanced_hide_menu_stats_for_nerds_title">\"Meraklısı için istatikler\" menüsü</string>
@@ -437,9 +439,6 @@ Gönderilmeye hazır mı?"</string>
     <string name="revanced_hide_suggested_actions_summary_off">Gizlenmiyor</string>
     <string name="revanced_hide_suggested_actions_summary_on">Gizleniyor</string>
     <string name="revanced_hide_suggested_actions_title">Tam ekrandaki \"Diğer videolar\"</string>
-    <string name="revanced_hide_time_and_seekbar_summary_off">Gizlenmiyor</string>
-    <string name="revanced_hide_time_and_seekbar_summary_on">Gizlendi</string>
-    <string name="revanced_hide_time_and_seekbar_title">Zaman ve arama çubuğu</string>
     <string name="revanced_import_settings_summary">Kayıtlı dosyadan ReVanced ayarlarını getir</string>
     <string name="revanced_import_settings_title">İçe aktarma ayarları</string>
     <string name="revanced_layout_settings_bottomplayer">Alt oynatıcı düzeni</string>
@@ -530,7 +529,6 @@ Bu ayar oldukça eski olduğu için geçerli olmayabilir"</string>
     <string name="revanced_video_ads_removal_summary_on">Gizlendi</string>
     <string name="revanced_video_ads_removal_title">Video reklamlarını gizle</string>
     <string name="revanced_video_settings_summary">Videoyla ilgili ayarlar</string>
-    <string name="revanced_video_settings_title">Video</string>
     <string name="revanced_whitelisting_add_failed" formatted="false">Kanal %s, %s beyaz listeye eklenemedi</string>
     <string name="revanced_whitelisting_added" formatted="false">Kanal %s, %s beyaz listeye eklendi</string>
     <string name="revanced_whitelisting_ads">Video reklamları</string>
@@ -547,7 +545,6 @@ Bu ayar oldukça eski olduğu için geçerli olmayabilir"</string>
     <string name="revanced_whitelisting_settings_summary">Beyaz listeye alınan kanalları kontrol et veya kaldır</string>
     <string name="revanced_whitelisting_settings_title">Beyaz liste ayarları</string>
     <string name="revanced_whitelisting_speed">Video Hızı</string>
-    <string name="revanced_whitelisting_speed_button">Hız</string>
     <string name="revanced_whitelisting_sponsorblock">SponsorBlock</string>
     <string name="revanced_whitelisting_sponsorblock_button">SB</string>
     <string name="sb_connection_failed">Sponsorblock sunucusu yanıt vermiyor!</string>
@@ -598,7 +595,6 @@ Bu ayar oldukça eski olduğu için geçerli olmayabilir"</string>
     <string name="skipped_subscribe">Etkileşim anımsatıcısı atlandı</string>
     <string name="skipped_unsubmitted">Gönderilmemiş kısım atlandı</string>
     <string name="stats">İstatistikler</string>
-    <string name="stats_loading">Yükleniyor..</string>
     <string name="stats_saved">"İnsanları &lt;b&gt;%s&lt;/b&gt; kısımdan kurtardın."</string>
     <string name="stats_saved_sum">"Bu da toplamda &lt;b&gt;%s&lt;/b&gt; süre demek. Liderlik tablosunu görmek için tıkla"</string>
     <string name="stats_sb_disabled">SponsorBlock devre dışı</string>

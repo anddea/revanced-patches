@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="about">Thông tin</string>
     <string name="about_api">Ứng dụng này sử dụng API từ SponsorBlock</string>
     <string name="about_api_sum">Nhấn vào đây để tìm hiểu thêm</string>
     <string name="about_madeby">Tiện ích này được thực hiện bởi JakubWeg</string>
@@ -172,6 +171,8 @@ Bạn đã sẵn sàng gửi đi chưa?"</string>
     <string name="revanced_default_video_quality_mobile_title">Chất lượng video mặc định trên mạng di động</string>
     <string name="revanced_default_video_quality_wifi_title">Chất lượng video mặc định trên mạng Wi-Fi</string>
     <string name="revanced_default_video_speed_title">Tốc độ phát video mặc định</string>
+    <string name="revanced_double_back_timeout_summary">Số giây để thực hiện thao tác nhấn Quay lại 2 lần để thoát</string>
+    <string name="revanced_double_back_timeout_title">Thời gian chờ nhấn Quay lại 2 lần để thoát (giây)</string>
     <string name="revanced_downloader_not_installed">chưa được cài đặt. Hãy cài đặt và thử lại.</string>
     <string name="revanced_downloader_package_name_summary">"Tên gói của ứng dụng Trình tải xuống, chẳng hạn như NewPipe hoặc PowerTube"</string>
     <string name="revanced_downloader_package_name_title">Tên gói của ứng dụng Trình tải xuống</string>
@@ -315,6 +316,9 @@ Bạn đã sẵn sàng gửi đi chưa?"</string>
     <string name="revanced_hide_channel_watermark_summary_off">Hình mờ cho video được hiển thị</string>
     <string name="revanced_hide_channel_watermark_summary_on">Hình mờ cho video đã ẩn</string>
     <string name="revanced_hide_channel_watermark_title">Ẩn hình mờ cho video</string>
+    <string name="revanced_hide_collapse_button_summary_off">Nút Trình phát thu nhỏ được hiển thị</string>
+    <string name="revanced_hide_collapse_button_summary_on">Nút Trình phát thu nhỏ đã ẩn</string>
+    <string name="revanced_hide_collapse_button_title">Ẩn nút Trình phát thu nhỏ</string>
     <string name="revanced_hide_comments_component_summary">Ẩn hộp Bình luận và các thành phần liên quan đến tính năng Bình luận</string>
     <string name="revanced_hide_comments_component_title">Ẩn hộp Bình luận và các thành phần liên quan</string>
     <string name="revanced_hide_comments_section_summary_off">Hộp Bình luận được hiển thị</string>
@@ -377,6 +381,9 @@ Bạn đã sẵn sàng gửi đi chưa?"</string>
     <string name="revanced_hide_menu_report_summary_off">Menu Báo vi phạm được hiển thị</string>
     <string name="revanced_hide_menu_report_summary_on">Menu Báo vi phạm đã ẩn</string>
     <string name="revanced_hide_menu_report_title">Ẩn menu Báo vi phạm</string>
+    <string name="revanced_hide_menu_speed_summary_off">Menu Tốc độ phát được hiển thị</string>
+    <string name="revanced_hide_menu_speed_summary_on">Menu Tốc độ phát đã ẩn</string>
+    <string name="revanced_hide_menu_speed_title">Ẩn menu Tốc độ phát</string>
     <string name="revanced_hide_menu_stats_for_nerds_summary_off">Menu Thống kê chi tiết được hiển thị</string>
     <string name="revanced_hide_menu_stats_for_nerds_summary_on">Menu Thống kê chi tiết đã ẩn</string>
     <string name="revanced_hide_menu_stats_for_nerds_title">Ẩn menu Thống kê chi tiết</string>
@@ -401,6 +408,9 @@ Bạn đã sẵn sàng gửi đi chưa?"</string>
     <string name="revanced_hide_preview_comment_off">Phần Xem trước bình luận được hiển thị</string>
     <string name="revanced_hide_preview_comment_on">Phần Xem trước bình luận đã ẩn</string>
     <string name="revanced_hide_preview_comment_title">Ẩn phần Xem trước bình luận</string>
+    <string name="revanced_hide_seekbar_summary_off">Thanh tiến trình video được hiển thị</string>
+    <string name="revanced_hide_seekbar_summary_on">Thanh tiến trình video đã ẩn</string>
+    <string name="revanced_hide_seekbar_title">Ẩn thanh tiến trình video</string>
     <string name="revanced_hide_shorts_button_summary_off">Nút Shorts được hiển thị</string>
     <string name="revanced_hide_shorts_button_summary_on">Nút Shorts đã ẩn</string>
     <string name="revanced_hide_shorts_button_title">Ẩn nút Shorts</string>
@@ -437,14 +447,11 @@ Bạn đã sẵn sàng gửi đi chưa?"</string>
     <string name="revanced_hide_suggested_actions_summary_off">Hành động đề xuất được hiển thị</string>
     <string name="revanced_hide_suggested_actions_summary_on">Hành động đề xuất đã ẩn</string>
     <string name="revanced_hide_suggested_actions_title">Ẩn hành động đề xuất</string>
-    <string name="revanced_hide_time_and_seekbar_summary_off">Thanh tiến trình và thời gian được hiển thị</string>
-    <string name="revanced_hide_time_and_seekbar_summary_on">Thanh tiến trình và thời gian đã ẩn</string>
-    <string name="revanced_hide_time_and_seekbar_title">Ẩn thanh tiến trình và thời gian</string>
+    <string name="revanced_hide_time_stamp_summary_off">Thời gian trên video được hiển thị</string>
+    <string name="revanced_hide_time_stamp_summary_on">Thời gian trên video đã ẩn</string>
+    <string name="revanced_hide_time_stamp_title">Ẩn thời gian trên video</string>
     <string name="revanced_import_settings_summary">Nhập các thiết đặt ReVanced Extended của bạn từ tệp đã lưu</string>
     <string name="revanced_import_settings_title">Nhập cài đặt</string>
-    <string name="revanced_initial_spoof">Đánh lừa hệ thống rằng phiên bản ứng dụng hiện tại của YouTube là phiên bản cũ để khắc phục sự cố thiếu các tuỳ chọn trong phần Cài đặt của YouTube chính thức. 
-
-Lưu ý: Tính năng này chỉ hoạt động khi bạn cài đặt sạch.</string>
     <string name="revanced_layout_settings_bottomplayer">Bố cục bên dưới trình phát</string>
     <string name="revanced_layout_settings_flyoutmenu">Bố cục menu Cài đặt trong trình phát</string>
     <string name="revanced_layout_settings_fullscreen">Bố cục toàn màn hình</string>
@@ -530,13 +537,12 @@ Vì tuỳ chọn cài đặt này đã khá lỗi thời nên có thể không h
     <string name="revanced_swipe_overlay_text_size_summary">Kích thước văn bản trên lớp phủ vuốt</string>
     <string name="revanced_swipe_overlay_text_size_title">Kích thước văn bản lớp phủ vuốt</string>
     <string name="revanced_swipe_overlay_timeout_summary">Số mili giây mà lớp phủ vuốt được hiển thị</string>
-    <string name="revanced_swipe_overlay_timeout_title">Thời gian chờ lớp phủ vuốt</string>
+    <string name="revanced_swipe_overlay_timeout_title">Thời gian hiển thị lớp phủ vuốt (mili giây)</string>
     <string name="revanced_tool_used">Công cụ sử dụng</string>
     <string name="revanced_video_ads_removal_summary_off">Quảng cáo trên video được hiển thị</string>
     <string name="revanced_video_ads_removal_summary_on">Quảng cáo trên video đã ẩn</string>
     <string name="revanced_video_ads_removal_title">Ẩn quảng cáo trên video</string>
     <string name="revanced_video_settings_summary">Các tuỳ chọn cài đặt video</string>
-    <string name="revanced_video_settings_title">Video</string>
     <string name="revanced_whitelisting_add_failed" formatted="false">Không thể thêm kênh %s vào danh sách bỏ chặn %s</string>
     <string name="revanced_whitelisting_added" formatted="false">Kênh %s đã được thêm vào danh sách bỏ chặn %s</string>
     <string name="revanced_whitelisting_ads">Quảng cáo</string>
@@ -553,7 +559,6 @@ Vì tuỳ chọn cài đặt này đã khá lỗi thời nên có thể không h
     <string name="revanced_whitelisting_settings_summary">Kiểm tra hoặc xóa danh sách các kênh đã thêm vào danh sách bỏ chặn</string>
     <string name="revanced_whitelisting_settings_title">Danh sách bỏ chặn</string>
     <string name="revanced_whitelisting_speed">Tốc độ phát video</string>
-    <string name="revanced_whitelisting_speed_button">Tốc độ phát</string>
     <string name="revanced_whitelisting_sponsorblock">SponsorBlock</string>
     <string name="revanced_whitelisting_sponsorblock_button">SB</string>
     <string name="sb_connection_failed">Máy chủ SponsorBlock không phản hồi!</string>
@@ -604,7 +609,6 @@ Vì tuỳ chọn cài đặt này đã khá lỗi thời nên có thể không h
     <string name="skipped_subscribe">Đã bỏ qua nhắc nhở tương tác</string>
     <string name="skipped_unsubmitted">Đã bỏ qua phân đoạn chưa gửi</string>
     <string name="stats">Thống kê</string>
-    <string name="stats_loading">Đang tải..</string>
     <string name="stats_saved">"Bạn đã giúp mọi người bỏ qua &lt;b&gt;%s&lt;/b&gt; phân đoạn."</string>
     <string name="stats_saved_sum">"Tương đương với &lt;b&gt;%s&lt;/b&gt; trong cuộc đời họ. Nhấn để xem bảng xếp hạng"</string>
     <string name="stats_sb_disabled">SponsorBlock đã tắt</string>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="about">概要</string>
     <string name="about_api">SponsorBlockについて</string>
     <string name="about_api_sum">このアプリは SponsorBlock の API を使用しています。詳細についてはこちらをタップしてください。</string>
     <string name="about_madeby">JakubWeg による統合</string>
@@ -261,7 +260,7 @@
     <string name="revanced_enable_vp9_codec_summary">端末情報を偽装してVP9コーデックを有効にします</string>
     <string name="revanced_enable_vp9_codec_title">VP9コーデックを有効にする</string>
     <string name="revanced_experimental_flag">実験的な機能</string>
-    <string name="revanced_export_settings_summary">ReVancedの設定を内部ストレージに保存する</string>
+    <string name="revanced_export_settings_summary">ReVancedの設定を内部ストレージに保存します</string>
     <string name="revanced_export_settings_title">設定を書き出す</string>
     <string name="revanced_extended_issue_center_summary">問題を報告するか、提案をここに残してください</string>
     <string name="revanced_extended_issue_center_title">ReVanced Extended問題センター</string>
@@ -317,6 +316,9 @@
     <string name="revanced_hide_channel_watermark_summary_off">チャンネルの透かし(ウォーターマーク)を非表示にします</string>
     <string name="revanced_hide_channel_watermark_summary_on">チャンネルの透かし(ウォーターマーク)を非表示にします</string>
     <string name="revanced_hide_channel_watermark_title">チャンネルの透かしを非表示にする</string>
+    <string name="revanced_hide_collapse_button_summary_off">全画面表示で左上に表示される最小化ボタン(▽)を非表示にします</string>
+    <string name="revanced_hide_collapse_button_summary_on">全画面表示で左上に表示される最小化ボタン(▽)を非表示にします</string>
+    <string name="revanced_hide_collapse_button_title">最小化ボタンを非表示にする</string>
     <string name="revanced_hide_comments_component_summary">コメント欄に関連するコンポーネントを非表示にします</string>
     <string name="revanced_hide_comments_component_title">コメント欄に関する設定</string>
     <string name="revanced_hide_comments_section_summary_off">コメント欄を非表示にします</string>
@@ -381,6 +383,9 @@
     <string name="revanced_hide_menu_report_summary_off">報告メニューを非表示にします</string>
     <string name="revanced_hide_menu_report_summary_on">報告メニューを非表示にします</string>
     <string name="revanced_hide_menu_report_title">報告メニューを非表示にする</string>
+    <string name="revanced_hide_menu_speed_summary_off">動画プレーヤー上の設定内にある再生速度メニューを非表示にします</string>
+    <string name="revanced_hide_menu_speed_summary_on">動画プレーヤー上の設定内にある再生速度メニューを非表示にします</string>
+    <string name="revanced_hide_menu_speed_title">再生速度メニューを非表示にする</string>
     <string name="revanced_hide_menu_stats_for_nerds_summary_off">プレーヤー上の設定メニューを非表示にします</string>
     <string name="revanced_hide_menu_stats_for_nerds_summary_on">プレーヤー上の設定メニューを非表示にします</string>
     <string name="revanced_hide_menu_stats_for_nerds_title">プレーヤー上の設定メニューを非表示にする</string>
@@ -441,12 +446,8 @@
     <string name="revanced_hide_suggested_actions_summary_off">提案されたアクションを非表示にします</string>
     <string name="revanced_hide_suggested_actions_summary_on">提案されたアクションを非表示にします</string>
     <string name="revanced_hide_suggested_actions_title">提案されたアクションを非表示にする</string>
-    <string name="revanced_hide_time_and_seekbar_summary_off">時間とシークバーを非表示にします</string>
-    <string name="revanced_hide_time_and_seekbar_summary_on">時間とシークバーを非表示にします</string>
-    <string name="revanced_hide_time_and_seekbar_title">時間とシークバーを非表示にする</string>
     <string name="revanced_import_settings_summary">ReVancedの設定を内部ストレージから読み込みます</string>
     <string name="revanced_import_settings_title">設定を読み込む</string>
-    <string name="revanced_initial_spoof">公式のYouTubeに存在する問題を修正するためにYouTubeのバージョンを偽装します。このバージョンの偽装は再インストールを行う場合にのみ動作します。</string>
     <string name="revanced_layout_settings_bottomplayer">プレーヤーの下のレイアウト</string>
     <string name="revanced_layout_settings_flyoutmenu">動画プレーヤー上の設定メニューのレイアウト</string>
     <string name="revanced_layout_settings_fullscreen">全画面表示のレイアウト</string>
@@ -538,7 +539,6 @@
     <string name="revanced_video_ads_removal_summary_on">動画の広告を非表示にします</string>
     <string name="revanced_video_ads_removal_title">動画の広告を非表示にする</string>
     <string name="revanced_video_settings_summary">動画関連の設定</string>
-    <string name="revanced_video_settings_title">動画</string>
     <string name="revanced_whitelisting_add_failed" formatted="false">チャンネル %s を %s ホワイトリストに追加できませんでした</string>
     <string name="revanced_whitelisting_added" formatted="false">チャンネル %s は %s ホワイトリストに追加されました</string>
     <string name="revanced_whitelisting_ads">動画の広告</string>
@@ -555,7 +555,6 @@
     <string name="revanced_whitelisting_settings_summary">ホワイトリストに追加されたチャンネルのリストを確認または削除する</string>
     <string name="revanced_whitelisting_settings_title">ホワイトリストの設定</string>
     <string name="revanced_whitelisting_speed">動画の再生速度</string>
-    <string name="revanced_whitelisting_speed_button">再生速度</string>
     <string name="revanced_whitelisting_sponsorblock">SponsorBlock</string>
     <string name="revanced_whitelisting_sponsorblock_button">Sponsor Block</string>
     <string name="sb_connection_failed">Sponsorblock サーバーは応答していません！</string>
@@ -585,11 +584,11 @@
     <string name="segments_subscribe">インタラクションリマインダー </string>
     <string name="segments_subscribe_sum">動画の途中に高評価、チャンネル登録、フォローの短いリマインダーがある場合</string>
     <string name="settings_export_failed">設定の書き出しに失敗しました</string>
-    <string name="settings_export_successful">設定は正常に書き出しされました</string>
+    <string name="settings_export_successful">設定は正常に書き出されました</string>
     <string name="settings_ie">設定の読み込み/書き出し</string>
     <string name="settings_ie_sum">これはデスクトップ拡張機能で適用される設定全体のJSONです。ユーザーIDが含まれているため、共有には気をつけてください。</string>
     <string name="settings_import_failed">設定の読み込みに失敗しました</string>
-    <string name="settings_import_successful">設定が正常に読み込まれました</string>
+    <string name="settings_import_successful">設定は正常に読み込まれました</string>
     <string name="skip_automatically">自動的にスキップする</string>
     <string name="skip_automatically_once">一度だけ自動的にスキップする</string>
     <string name="skip_ignore">"何もしない"</string>
@@ -606,7 +605,6 @@
     <string name="skipped_subscribe">迷惑なリマインダーをスキップしました</string>
     <string name="skipped_unsubmitted">未送信のセグメントをスキップしました</string>
     <string name="stats">統計情報</string>
-    <string name="stats_loading">読み込み中...</string>
     <string name="stats_saved">"今まで &lt;b&gt;%s&lt;/b&gt; 個のセグメントから人々を守りました。"</string>
     <string name="stats_saved_sum">"あなたは合計で人々の人生を &lt;b&gt;%s&lt;/b&gt; 無駄にせずに済みました。クリックしてリーダーボードを確認します。"</string>
     <string name="stats_sb_disabled">SponsorBlockは無効です</string>
