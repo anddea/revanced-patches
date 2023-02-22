@@ -4,6 +4,7 @@ import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
+import app.revanced.patcher.data.toMethodWalker
 import app.revanced.patcher.extensions.*
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprintResult
@@ -12,11 +13,13 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.util.proxy.mutableTypes.MutableField.Companion.toMutable
+import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patcher.util.smali.toInstructions
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.youtube.misc.overridespeed.bytecode.fingerprints.*
 import app.revanced.patches.youtube.misc.overridespeed.resource.patch.OverrideSpeedHookResourcePatch
+import app.revanced.util.integrations.Constants.INTEGRATIONS_PATH
 import app.revanced.util.integrations.Constants.VIDEO_PATH
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.dexbacked.reference.DexBackedMethodReference
@@ -90,6 +93,17 @@ class OverrideSpeedHookPatch : BytecodePatch(
                     )
                 }
 
+                with(context
+                    .toMethodWalker(it.method)
+                    .nextMethod(endIndex, true)
+                    .getMethod() as MutableMethod
+                ) {
+                    addInstruction(
+                        this.implementation!!.instructions.size - 1,
+                        "sput p1, $INTEGRATIONS_VIDEO_HELPER_CLASS_DESCRIPTOR->currentSpeed:F"
+                    )
+                }
+
             } ?: return VideoSpeedChangedFingerprint.toErrorResult()
         } ?: return VideoSpeedParentFingerprint.toErrorResult()
 
@@ -141,6 +155,9 @@ class OverrideSpeedHookPatch : BytecodePatch(
     internal companion object {
         const val INTEGRATIONS_VIDEO_SPEED_CLASS_DESCRIPTOR =
             "$VIDEO_PATH/VideoSpeedPatch;"
+
+        const val INTEGRATIONS_VIDEO_HELPER_CLASS_DESCRIPTOR =
+            "$INTEGRATIONS_PATH/utils/VideoHelpers;"
 
         lateinit var videoSpeedChangedResult: MethodFingerprintResult
 
