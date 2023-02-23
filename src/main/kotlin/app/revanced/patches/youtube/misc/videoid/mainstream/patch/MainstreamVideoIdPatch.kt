@@ -25,9 +25,9 @@ import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.builder.MutableMethodImplementation
 import org.jf.dexlib2.builder.instruction.BuilderInstruction35c
+import org.jf.dexlib2.dexbacked.reference.DexBackedMethodReference
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
-import org.jf.dexlib2.iface.instruction.formats.Instruction21c
 import org.jf.dexlib2.iface.instruction.formats.Instruction31i
 import org.jf.dexlib2.iface.reference.FieldReference
 import org.jf.dexlib2.iface.reference.MethodReference
@@ -145,29 +145,27 @@ class MainstreamVideoIdPatch : BytecodePatch(
 
 
         with (HookTimebarPatch.emptyColorMethod) {
-            val timebarResult = TimebarFingerprint.result ?: return TimebarFingerprint.toErrorResult()
-            val timebarInstructions = timebarResult.method.implementation!!.instructions
-            val methodReference =
-                (timebarInstructions.elementAt(2) as ReferenceInstruction).reference as MethodReference
+            val timeBarResult = TimebarFingerprint.result ?: return TimebarFingerprint.toErrorResult()
+            val timeBarInstructions = timeBarResult.method.implementation!!.instructions
+            val timeBarReference =
+                (timeBarInstructions.elementAt(2) as ReferenceInstruction).reference as MethodReference
 
             val instructions = implementation!!.instructions
 
             reactReference =
                 ((instructions.elementAt(instructions.count() - 3) as ReferenceInstruction).reference as FieldReference).name
 
-
             for ((index, instruction) in instructions.withIndex()) {
-                if (instruction.opcode != Opcode.CHECK_CAST) continue
-                val primaryRegister = (instruction as Instruction21c).registerA + 1
-                val secondaryRegister = primaryRegister + 1
-                addInstructions(
-                    index, """
-                        invoke-virtual {p0}, $methodReference
-                        move-result-wide v$primaryRegister
-                        invoke-static {v$primaryRegister, v$secondaryRegister}, $VideoInformation->setCurrentVideoLength(J)V
-                    """
-                )
-                break
+                val fieldReference = (instruction as? ReferenceInstruction)?.reference as? DexBackedMethodReference
+                if (fieldReference?.let { it.name == timeBarReference.name } == true) {
+                    val primaryRegister = (instructions.elementAt(index + 1) as OneRegisterInstruction).registerA
+                    val secondaryRegister = primaryRegister + 1
+                    addInstruction(
+                        index + 3,
+                        "invoke-static {v$primaryRegister, v$secondaryRegister}, $VideoInformation->setCurrentVideoLength(J)V"
+                    )
+                    break
+                }
             }
         }
 
