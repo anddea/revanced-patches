@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.misc.sponsorblock.bytecode.patch
 
+import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
@@ -21,7 +22,6 @@ import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.builder.BuilderInstruction
 import org.jf.dexlib2.iface.instruction.FiveRegisterInstruction
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
-import org.jf.dexlib2.iface.instruction.formats.Instruction22c
 import org.jf.dexlib2.iface.instruction.formats.Instruction35c
 import org.jf.dexlib2.iface.reference.MethodReference
 
@@ -58,11 +58,10 @@ class SponsorBlockBytecodePatch : BytecodePatch(
          Get the instance of the seekbar rectangle
          */
         for ((index, instruction) in insertInstructions.withIndex()) {
-            if (instruction.opcode != Opcode.IGET_OBJECT) continue
-            val seekbarRegister = (instruction as Instruction22c).registerB
+            if (instruction.opcode != Opcode.INVOKE_DIRECT_RANGE) continue
             insertMethod.addInstruction(
-                index - 1,
-                "invoke-static {v$seekbarRegister}, $INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR->setSponsorBarRect(Ljava/lang/Object;)V"
+                index,
+                "invoke-static/range {p0 .. p0}, $INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR->setSponsorBarRect(Ljava/lang/Object;)V"
             )
             break
         }
@@ -124,10 +123,10 @@ class SponsorBlockBytecodePatch : BytecodePatch(
 
         // set SegmentHelperLayout.context to the player layout instance
         val instanceRegister = 0
-        NextGenWatchLayoutFingerprint.result!!.mutableMethod.addInstruction(
-            3, // after super call
+        NextGenWatchLayoutFingerprint.result?.mutableMethod?.addInstruction(
+            3,
             "invoke-static/range {p$instanceRegister}, $INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR->addSkipSponsorView15(Landroid/view/View;)V"
-        )
+        ) ?: return NextGenWatchLayoutFingerprint.toErrorResult()
 
         context.injectInit("FirstRun", "initializationSB")
         context.updatePatchStatus("Sponsorblock")
