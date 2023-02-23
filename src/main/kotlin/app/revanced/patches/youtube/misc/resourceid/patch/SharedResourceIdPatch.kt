@@ -16,12 +16,10 @@ import app.revanced.patches.shared.patch.mapping.ResourceMappingPatch
 @Version("0.0.1")
 class SharedResourcdIdPatch : ResourcePatch {
     internal companion object {
-        var abclistmenuitemLabelId: Long = -1
         var accessibilityProgressTimeLabelId: Long = -1
         var accountSwitcherAccessibilityLabelId: Long = -1
         var appearanceStringId: Long = -1
         var backgroundCategoryLabelId: Long = -1
-        var bottompaneloverlaytextLabelId: Long = -1
         var bottomUiContainerResourceId: Long = -1
         var controlsLayoutStubResourceId: Long = -1
         var donationCompanionResourceId: Long = -1
@@ -47,12 +45,10 @@ class SharedResourcdIdPatch : ResourcePatch {
             .resourceMappings
             .single { it.type == type && it.name == name }.id
 
-        abclistmenuitemLabelId = findSharedResourceId("layout", "abc_list_menu_item_layout")
         accessibilityProgressTimeLabelId = findSharedResourceId("string", "accessibility_player_progress_time")
         accountSwitcherAccessibilityLabelId = findSharedResourceId("string", "account_switcher_accessibility_label")
         appearanceStringId = findSharedResourceId("string", "app_theme_appearance_dark")
         backgroundCategoryLabelId = findSharedResourceId("string", "pref_background_and_offline_category")
-        bottompaneloverlaytextLabelId = findSharedResourceId("id", "bottom_panel_overlay_text")
         bottomUiContainerResourceId = findSharedResourceId("id", "bottom_ui_container_stub")
         controlsLayoutStubResourceId = findSharedResourceId("id", "controls_layout_stub")
         donationCompanionResourceId = findSharedResourceId("layout", "donation_companion")
