@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="about_api">Ta aplikacja używa API od SponsorBlock</string>
-    <string name="about_api_sum">Dotknij, aby dowiedzieć się więcej i zobacz jak pobrać na inne platformy na stronie: sponsor.ajay.app</string>
+    <string name="about_api_sum">Stuknij, aby dowiedzieć się więcej i zobacz jak pobrać na inne platformy na stronie: sponsor.ajay.app</string>
     <string name="about_madeby">Integracja wykonana przez JakubWeg</string>
     <string name="accessibility_settings_edu_opt_in_text">Włączyć gesty dostępności dla odtwarzacza wideo?</string>
     <string name="accessibility_settings_edu_opt_out_text">Twoje ustawienia są zmienione, ponieważ serwis ułatwień dostępu jest włączony.</string>
@@ -170,6 +170,8 @@
     <string name="revanced_default_video_quality_mobile_title">Domyślna jakość wideo dla Sieci Mobilnej</string>
     <string name="revanced_default_video_quality_wifi_title">Domyślna jakość wideo dla Wi-Fi</string>
     <string name="revanced_default_video_speed_title">Domyślna prędkość wideo</string>
+    <string name="revanced_double_back_timeout_summary">Liczba sekund na stuknięcie przycisku do powrotu 2 razy, by wyjść z aplikacji</string>
+    <string name="revanced_double_back_timeout_title">Limit czasu na stuknięcie przycisku do powrotu 2 razy</string>
     <string name="revanced_downloader_not_installed">nie jest zainstalowany. Zainstaluj go.</string>
     <string name="revanced_downloader_package_name_summary">"Nazwa pakietu aplikacji do pobierania, np. NewPipe lub PowerTube"</string>
     <string name="revanced_downloader_package_name_title">Nazwa pakietu aplikacji do pobierania</string>
@@ -230,7 +232,7 @@
     <string name="revanced_enable_save_video_speed_summary_on">Zapisuje wybraną prędkość za każdym razem, gdy ją zmienisz</string>
     <string name="revanced_enable_save_video_speed_title">Zapisywanie prędkości wideo</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">Włączone</string>
-    <string name="revanced_enable_seekbar_tapping_title">Klikanie w pasek wideo</string>
+    <string name="revanced_enable_seekbar_tapping_title">Stukanie w pasek wideo</string>
     <string name="revanced_enable_swipe_auto_brightness_summary_off">Jest wyłączona, nawet jeśli jasność jest ustawiona na 0</string>
     <string name="revanced_enable_swipe_auto_brightness_summary_on">Jest włączona, kiedy jasność jest ustawiona na 0</string>
     <string name="revanced_enable_swipe_auto_brightness_title">Automatyczna jasność przesuwając</string>
@@ -313,6 +315,9 @@
     <string name="revanced_hide_channel_watermark_summary_off">Widoczne</string>
     <string name="revanced_hide_channel_watermark_summary_on">Ukryte</string>
     <string name="revanced_hide_channel_watermark_title">Znaki wodne kanałów</string>
+    <string name="revanced_hide_collapse_button_summary_off">Widoczny</string>
+    <string name="revanced_hide_collapse_button_summary_on">Ukryty</string>
+    <string name="revanced_hide_collapse_button_title">Przycisk od minimalizowania wideo</string>
     <string name="revanced_hide_comments_component_summary">Ukrywa sekcje komentarzy</string>
     <string name="revanced_hide_comments_component_title">Ukryj komentarze</string>
     <string name="revanced_hide_comments_section_summary_off">Widoczna</string>
@@ -375,6 +380,9 @@
     <string name="revanced_hide_menu_report_summary_off">Widoczne</string>
     <string name="revanced_hide_menu_report_summary_on">Ukryte</string>
     <string name="revanced_hide_menu_report_title">Menu od zgłaszania</string>
+    <string name="revanced_hide_menu_speed_summary_off">Widoczne</string>
+    <string name="revanced_hide_menu_speed_summary_on">Ukryte</string>
+    <string name="revanced_hide_menu_speed_title">Menu od prędkości</string>
     <string name="revanced_hide_menu_stats_for_nerds_summary_off">Widoczne</string>
     <string name="revanced_hide_menu_stats_for_nerds_summary_on">Ukryte</string>
     <string name="revanced_hide_menu_stats_for_nerds_title">Menu od statystyk dla nerdów</string>
@@ -399,6 +407,9 @@
     <string name="revanced_hide_preview_comment_off">Widoczny</string>
     <string name="revanced_hide_preview_comment_on">Ukryty</string>
     <string name="revanced_hide_preview_comment_title">Wyróżniony komentarz</string>
+    <string name="revanced_hide_seekbar_summary_off">Widoczny</string>
+    <string name="revanced_hide_seekbar_summary_on">Ukryty</string>
+    <string name="revanced_hide_seekbar_title">Pasek wideo</string>
     <string name="revanced_hide_shorts_button_summary_off">Widoczny</string>
     <string name="revanced_hide_shorts_button_summary_on">Ukryty</string>
     <string name="revanced_hide_shorts_button_title">Przycisk od shortów</string>
@@ -435,6 +446,9 @@
     <string name="revanced_hide_suggested_actions_summary_off">Widoczne</string>
     <string name="revanced_hide_suggested_actions_summary_on">Ukryte</string>
     <string name="revanced_hide_suggested_actions_title">Sugerowane działania</string>
+    <string name="revanced_hide_time_stamp_summary_off">Widoczny</string>
+    <string name="revanced_hide_time_stamp_summary_on">Ukryty</string>
+    <string name="revanced_hide_time_stamp_title">Czas wideo</string>
     <string name="revanced_import_settings_summary">Zaimportuj ustawienia ReVanced z zapisanego pliku</string>
     <string name="revanced_import_settings_title">Zaimportuj ustawienia</string>
     <string name="revanced_layout_settings_bottomplayer">Przyciski pod odtwarzaczem</string>
@@ -493,7 +507,7 @@ Jeśli włączysz to ustawienie, następujące funkcje nie będą dostępne:
     <string name="revanced_reboot_warning_vp9">"Oszukuje informacje o urządzeniu, by włączyć kodek VP9
 
 To ustawienie może nie zadziałać"</string>
-    <string name="revanced_ryd_attribution_summary">Dane o łapkach w dół są dostarczane przez API Return YouTube Dislike. Dotknij tutaj by dowiedzieć się więcej.</string>
+    <string name="revanced_ryd_attribution_summary">Dane o łapkach w dół są dostarczane przez API Return YouTube Dislike. Stuknij tutaj by dowiedzieć się więcej.</string>
     <string name="revanced_ryd_dislike_percentage_summary_off">Liczba</string>
     <string name="revanced_ryd_dislike_percentage_summary_on">Tak</string>
     <string name="revanced_ryd_dislike_percentage_title">Łapki w dół wyświetlane jako procent</string>
@@ -528,6 +542,7 @@ To ustawienie może nie zadziałać"</string>
     <string name="revanced_video_ads_removal_summary_on">Ukryte</string>
     <string name="revanced_video_ads_removal_title">Reklamy podczas wideo</string>
     <string name="revanced_video_settings_summary">Ustawienia dotyczące wideo</string>
+    <string name="revanced_video_settings_title">Wideo</string>
     <string name="revanced_whitelisting_add_failed" formatted="false">Nie udało się dodać kanału %s do białej listy</string>
     <string name="revanced_whitelisting_added" formatted="false">Kanał %s został dodany do białej listy</string>
     <string name="revanced_whitelisting_ads">Reklamy Wideo</string>
@@ -543,7 +558,7 @@ To ustawienie może nie zadziałać"</string>
     <string name="revanced_whitelisting_removed" formatted="false">Kanał %s został usunięty z białej listy</string>
     <string name="revanced_whitelisting_settings_summary">Sprawdź lub usuń kanały z białej listy</string>
     <string name="revanced_whitelisting_settings_title">Białe listy</string>
-    <string name="revanced_whitelisting_speed">Szybkość Wideo</string>
+    <string name="revanced_whitelisting_speed">Prędkość Wideo</string>
     <string name="revanced_whitelisting_sponsorblock">SponsorBlock</string>
     <string name="revanced_whitelisting_sponsorblock_button">SB</string>
     <string name="sb_connection_failed">Serwer SponsorBlock nie odpowiada!</string>
@@ -613,7 +628,7 @@ To ustawienie może nie zadziałać"</string>
     <string name="submit_failed_unknown_error" formatted="false">Nie można przesłać segmentów: Status: %d %s</string>
     <string name="submit_started">Trwa wysyłanie segmentu…</string>
     <string name="submit_succeeded">Segment został wysłany pomyślnie</string>
-    <string name="tap_skip">Kliknij, aby pominąć</string>
+    <string name="tap_skip">Stuknij, aby pominąć</string>
     <string name="vote_category">Zmień kategorię</string>
     <string name="vote_downvote">Głos przeciw</string>
     <string name="vote_failed_forbidden">"Nie można zagłosować na segment.

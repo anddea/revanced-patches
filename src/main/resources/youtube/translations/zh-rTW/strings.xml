@@ -42,12 +42,14 @@
     <string name="general_time_without_sb_sum">此時間顯示在目前時間旁邊的括號中。顯示總影片時長減去片段後的時間。</string>
     <string name="general_uuid">你的私人使用者 id</string>
     <string name="general_uuid_sum">這應該保密。就像密碼一樣不應該與任何人共享。如果任何人取得這個ID，他們可以冒充你</string>
+    <string name="hours">小時</string>
     <string name="microg_not_installed_notice">請安裝 MicroG</string>
     <string name="microg_not_installed_warning">未找到 MicroG</string>
     <string name="microg_not_running_warning">MicroG 未在背景執行</string>
     <string name="microg_notification_settings_summary">"1. 需要開啟 Google 裝置註冊 和 連網通知推播 才能顯示通知。
 2. ReVanced 需要在 連網通知推播 下顯示為 已註冊。
 3. 連網通知推播 中的 當前狀態 必須顯示為 已連接。"</string>
+    <string name="microg_notification_settings_title">通知</string>
     <string name="minutes">分鐘</string>
     <string name="new_segment_choose_category">選擇分段類別</string>
     <string name="new_segment_confirm_content" formatted="false">"該段從 %02d:%02d 持續到 %02d:%02d (%d 分 %02d 秒)
@@ -70,12 +72,16 @@
     <string name="new_segment_title">新 SponsorBlock 片段</string>
     <string name="reset">重置</string>
     <string name="revanced_ads_settings_summary">廣告相關設定</string>
+    <string name="revanced_ads_settings_title">廣告</string>
     <string name="revanced_adremover_album_card_in_search_summary_off">搜尋頁面的歌手專輯欄已顯示</string>
     <string name="revanced_adremover_album_card_in_search_summary_on">搜尋頁面的歌手專輯欄已隱藏</string>
     <string name="revanced_adremover_album_card_in_search_title">隱藏搜尋頁面的歌手專輯欄</string>
     <string name="revanced_adremover_breaking_news_shelf_summary_off">頭條新聞面板已顯示</string>
     <string name="revanced_adremover_breaking_news_shelf_summary_on">頭條新聞面板已隱藏</string>
     <string name="revanced_adremover_breaking_news_shelf_title">隱藏頭條新聞面板</string>
+    <string name="revanced_adremover_browse_store_button_summary_off">瀏覽商店 (Store) 按鈕已顯示</string>
+    <string name="revanced_adremover_browse_store_button_summary_on">瀏覽商店 (Store) 按鈕已隱藏</string>
+    <string name="revanced_adremover_browse_store_button_title">隱藏瀏覽商店 (Store) 按鈕</string>
     <string name="revanced_adremover_button_ads_summary_off">按鈕廣告已顯示</string>
     <string name="revanced_adremover_button_ads_summary_on">按鈕廣告已隱藏</string>
     <string name="revanced_adremover_button_ads_title">隱藏按鈕廣告</string>
@@ -159,11 +165,14 @@
     <string name="revanced_adremover_web_search_panel_summary_off">網頁搜索面板已顯示</string>
     <string name="revanced_adremover_web_search_panel_summary_on">網頁搜索面板已隱藏</string>
     <string name="revanced_adremover_web_search_panel_title">隱藏網頁搜索面板</string>
+    <string name="revanced_backup_settings_summary">自檔案匯入 ReVanced 設定，或匯出 ReVanced 設定至檔案</string>
     <string name="revanced_custom_seekbar_color_value_summary">輸入Hex碼來自訂在深色模式時的搜索欄顏色</string>
     <string name="revanced_custom_seekbar_color_value_title">自訂搜索欄顏色</string>
     <string name="revanced_default_video_quality_mobile_title">預設行動網路影片品質</string>
     <string name="revanced_default_video_quality_wifi_title">預設 Wi-Fi 影片品質</string>
     <string name="revanced_default_video_speed_title">默認播放速度</string>
+    <string name="revanced_double_back_timeout_summary">雙擊返回退出的時間（秒）</string>
+    <string name="revanced_double_back_timeout_title">雙擊分辨時間</string>
     <string name="revanced_downloader_not_installed">尚未安裝。請先安裝</string>
     <string name="revanced_downloader_package_name_summary">"下載器的名稱，例如 NewPipe 或 PowerTube"</string>
     <string name="revanced_downloader_package_name_title">下載器的名稱</string>
@@ -205,6 +214,8 @@
     <string name="revanced_enable_old_quality_layout_summary_off">顯示新版品質設定</string>
     <string name="revanced_enable_old_quality_layout_summary_on">顯示舊版品質設定</string>
     <string name="revanced_enable_old_quality_layout_title">使用舊版畫質設定</string>
+    <string name="revanced_enable_open_links_directly_summary_off">使用預設的重新導向行為</string>
+    <string name="revanced_enable_open_links_directly_summary_on">跳過 URL重新導向</string>
     <string name="revanced_enable_open_links_directly_title">啟用直接開啟連結</string>
     <string name="revanced_enable_press_to_swipe_summary_off">長按以滑動已停用</string>
     <string name="revanced_enable_press_to_swipe_summary_on">長按以滑動已啟用</string>
@@ -212,9 +223,15 @@
     <string name="revanced_enable_phone_layout_summary">欺騙Dpi以使用一些手機佈局</string>
     <string name="revanced_enable_phone_layout_title">啟用手機佈局</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">進度條點擊已停用</string>
+    <string name="revanced_enable_save_brightness_summary_off">重新啟動此應用程式後，進入全螢幕時所保存的亮度值不會被覆蓋</string>
+    <string name="revanced_enable_save_brightness_summary_on">重新啟動此應用程式後，進入全螢幕時所保存的亮度值將會被覆蓋</string>
+    <string name="revanced_enable_save_brightness_title">啟動亮度記憶</string>
     <string name="revanced_enable_save_video_quality_summary_off">即使更改影片品質也不記憶影片品質設定</string>
     <string name="revanced_enable_save_video_quality_summary_on">更改影片品質時記憶影片品質設定</string>
     <string name="revanced_enable_save_video_quality_title">記憶影片畫質</string>
+    <string name="revanced_enable_save_video_speed_summary_off">即使更改影片速度也不記憶影片速度設定</string>
+    <string name="revanced_enable_save_video_speed_summary_on">更改影片速度時記憶影片速度設定</string>
+    <string name="revanced_enable_save_video_speed_title">啟用播放速度記憶</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">進度條點擊已啟用</string>
     <string name="revanced_enable_seekbar_tapping_title">啟用進度條點擊</string>
     <string name="revanced_enable_swipe_auto_brightness_summary_off">當亮度手勢設為 0 時\"不啟用\"自動調整亮度</string>
@@ -243,8 +260,12 @@
     <string name="revanced_enable_vp9_codec_summary">修改裝置訊息以啟用 VP9 解碼器</string>
     <string name="revanced_enable_vp9_codec_title">啟用 VP9 解碼器</string>
     <string name="revanced_experimental_flag">實驗性功能</string>
+    <string name="revanced_export_settings_summary">將您的 ReVanced 設定匯出至檔案</string>
+    <string name="revanced_export_settings_title">匯出設定</string>
     <string name="revanced_extended_issue_center_summary">點擊此處回報問題或留下建議</string>
     <string name="revanced_extended_issue_center_title">ReVanced Extended 問題回報</string>
+    <string name="revanced_general_layout_settings_summary">常規佈局相關設定</string>
+    <string name="revanced_general_layout_settings_title">常規布局</string>
     <string name="revanced_hide_auto_captions_summary_off">允許字幕自動啟動</string>
     <string name="revanced_hide_auto_captions_summary_on">"禁止字幕自動啟動"</string>
     <string name="revanced_hide_auto_captions_title">自動啟動的字幕</string>

@@ -42,8 +42,10 @@
     <string name="general_time_without_sb_sum">Ez az idő zárójelben jelenik meg az aktuális idő mellett. Ez a videó teljes időtartamát mutatja, levonva a szegmenseket.</string>
     <string name="general_uuid">Az ön privát felhasználói azonosítója</string>
     <string name="general_uuid_sum">Ezt bizalmasan kell kezelni. Ez olyan, mint egy jelszó, és nem szabad megosztani senkivel. Ha valakinek megvan, akkor megszemélyesítheti Önt.</string>
+    <string name="hours">óra</string>
     <string name="microg_not_installed_notice">Kérjük telepítse a MicroG-t</string>
     <string name="microg_not_installed_warning">A MicoG nem található</string>
+    <string name="microg_not_running_warning">A MicroG nem fut a háttérben</string>
     <string name="microg_notification_settings_summary">"1. A Google eszközregisztrációt és a Google Cloud Messaging-et engedélyezni kell az értesítésekhez.
 2. A ReVancednek regisztráltnak kell lennie a Cloud Messaging-ben.
 3. A Cloud Messaging-ben a Státusz nem lehet Szétkapcsolva állapotban."</string>
@@ -69,6 +71,7 @@ Készen áll a beküldésre?"</string>
     <string name="new_segment_title">Új SponsorBlock szakasz</string>
     <string name="reset">Visszaállítás</string>
     <string name="revanced_ads_settings_summary">Hírdetésekhez kapcsolódó beállítások</string>
+    <string name="revanced_ads_settings_title">Reklám beállítások</string>
     <string name="revanced_adremover_album_card_in_search_summary_off">Az Album kártyák láthatóak a keresési eredményekben</string>
     <string name="revanced_adremover_album_card_in_search_summary_on">Az Album kártyák el vannak jelenítve a keresési eredményekből</string>
     <string name="revanced_adremover_album_card_in_search_title">Album kártyák elrejtése</string>
@@ -140,6 +143,9 @@ Készen áll a beküldésre?"</string>
     <string name="revanced_adremover_web_search_panel_summary_off">A Web keresőpanelek láthatóak</string>
     <string name="revanced_adremover_web_search_panel_summary_on">A Web keresőpanelek el vannak rejtve</string>
     <string name="revanced_adremover_web_search_panel_title">Web kereső panelek elrejtése</string>
+    <string name="revanced_backup_settings_summary">Beállítás importálása a ReVanced Extended beállítás fájlból vagy a ReVanced Extended beállítások exportálása beállítás fájlba</string>
+    <string name="revanced_custom_seekbar_color_value_summary">Írja ide a hex (színkód) kódot amelyiket használni szeretné sötét módban</string>
+    <string name="revanced_custom_seekbar_color_value_title">Egyéni lejátszó csík szín érték</string>
     <string name="revanced_default_video_quality_mobile_title">Alapértelmezett videó minőségi beállítás mobilhálozaton</string>
     <string name="revanced_default_video_quality_wifi_title">Alapértelmezett videó minőségi beállítás Wi-Fi hálózaton</string>
     <string name="revanced_default_video_speed_title">Alapértelmezett videó sebesség</string>
@@ -148,12 +154,24 @@ Készen áll a beküldésre?"</string>
     <string name="revanced_downloader_package_name_title">Letöltő csomag neve</string>
     <string name="revanced_downloader_settings_summary">Alapértelmezett Letöltőhöz kapcsolódó beállítások</string>
     <string name="revanced_downloader_settings_title">Letöltő beállítások</string>
+    <string name="revanced_disable_haptic_feedback_seek_summary_off">A lejátszó csík haptikus visszajelzése engedélyezve van</string>
+    <string name="revanced_disable_haptic_feedback_seek_summary_on">A lejátszó csík haptikus visszajelzése ki van kapcsolva</string>
+    <string name="revanced_disable_haptic_feedback_seek_title">A lejátszó csík haptikus visszajelzése kikapcsolása</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">A Fejezetek haptikus jelzése engedélyezve van</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">A Fejezetek haptikus jelzése el van rejtve</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">Fejezetek haptikus jelzésének kikapcsolása</string>
+    <string name="revanced_disable_haptic_feedback_summary">A hosszan lenyomásnál lévő Haptikus visszajelzés kikapcsolása</string>
+    <string name="revanced_disable_haptic_feedback_title">Haptikus visszajelzés kikapcsolása</string>
+    <string name="revanced_disable_haptic_feedback_zoom_summary_off">A Nagyítási haptikus visszajelzés engedélyezve van</string>
+    <string name="revanced_disable_haptic_feedback_zoom_summary_on">A Nagyítási haptikus visszajelzés ki van kapcsolva</string>
+    <string name="revanced_disable_haptic_feedback_zoom_title">Nagyítási haptikus visszajelzés kikapcsolása</string>
+    <string name="revanced_copytimestamp_success">Az Időtartam másolva lett a vágólapra</string>
     <string name="revanced_enable_always_auto_repeat_summary_off">Az Automatikus ismétlés ki van kapcsolva</string>
     <string name="revanced_enable_always_auto_repeat_summary_on">Az Automatikus ismétlés be van kapcsolva</string>
     <string name="revanced_enable_always_auto_repeat_title">Automatikus ismétlés</string>
+    <string name="revanced_enable_custom_seekbar_color_summary_off">Az Egyéni lejátszó csík szín ki van kapcsolva</string>
+    <string name="revanced_enable_custom_seekbar_color_summary_on">Az Egyéni lejátszó csík szín engedélyezve van</string>
+    <string name="revanced_enable_custom_seekbar_color_title">Egyéni lejátszó csík szín engedélyezése sötét módban</string>
     <string name="revanced_enable_custom_video_speed_summary_off">Az Egyéni Videó Lejátszási Sebesség ki van kapcsolva</string>
     <string name="revanced_enable_custom_video_speed_summary_on">Az Egyéni Videó Lejátszási Sebesség be van kapcsolva</string>
     <string name="revanced_enable_custom_video_speed_title">Egyéni Videó lejátszási sebesség engedélyezése</string>
@@ -163,7 +181,12 @@ Készen áll a beküldésre?"</string>
     <string name="revanced_enable_minimized_playback_summary_off">A Lejátszás a háttérben ki van kapcsolva</string>
     <string name="revanced_enable_minimized_playback_summary_on">A Lejátszás a háttérben be van kapcsolva</string>
     <string name="revanced_enable_minimized_playback_title">Lejátszás a háttérben funkció engedélyezése</string>
+    <string name="revanced_enable_old_layout_summary_off">A YouTube felülete követni fogja a Google-fiókja státuszát</string>
+    <string name="revanced_enable_old_layout_summary_on">Youtube verzió trükközése hogy rákényszerítse a régi felületet</string>
     <string name="revanced_enable_old_layout_title">A Régi felület engedélyezése</string>
+    <string name="revanced_enable_old_quality_layout_summary_off">Az új stílusú minőség beállítások látható</string>
+    <string name="revanced_enable_old_quality_layout_summary_on">A régi stílusú minőség beállítások látható</string>
+    <string name="revanced_enable_old_quality_layout_title">Régi stílusú minőség beállítások engedélyezése</string>
     <string name="revanced_enable_open_links_directly_title">Közvetlen link megnyitások engedélyezése</string>
     <string name="revanced_enable_phone_layout_title">A telefonos felület engedélyezése</string>
     <string name="revanced_enable_save_video_quality_title">A Videó minőség elmentésének engedélyezése</string>
@@ -172,9 +195,13 @@ Készen áll a beküldésre?"</string>
     <string name="revanced_enable_tablet_miniplayer_title">Tablet mini-lejátszó engedélyezése</string>
     <string name="revanced_enable_tablet_layout_summary">Becsapja a dpi-t egyes táblagép-elrendezések használatához</string>
     <string name="revanced_enable_wide_searchbar_title">Széles keresősáv engedélyezése</string>
+    <string name="revanced_enable_vp9_codec_title">VP9 kodek engedélyezése</string>
     <string name="revanced_experimental_flag">Kísérleti flag funkciók</string>
+    <string name="revanced_export_settings_summary">Az ön ReVanced Extended beállításai mentése beállítási fájlként</string>
+    <string name="revanced_export_settings_title">Beállítások exportálása</string>
     <string name="revanced_extended_issue_center_summary">Probléma jelentése vagy hagyjon javaslatokat itt</string>
     <string name="revanced_extended_issue_center_title">ReVanced Extended Probléma Központ</string>
+    <string name="revanced_hide_auto_captions_title">Automatikus Feliratok kikapcsolása</string>
     <string name="revanced_hide_autoplay_button_summary_off">Az Automatikus lejátszás gomb látható</string>
     <string name="revanced_hide_autoplay_button_summary_on">Az Automatikus lejátszás gomb el van rejtve</string>
     <string name="revanced_hide_autoplay_button_title">Az Automatikus lejátszás gomb elrejtése</string>
