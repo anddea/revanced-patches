@@ -97,20 +97,11 @@
     <string name="revanced_adremover_chapter_teaser_summary_off">影片下方的章節選單已顯示</string>
     <string name="revanced_adremover_chapter_teaser_summary_on">影片下方的章節選單已隱藏</string>
     <string name="revanced_adremover_chapter_teaser_title">隱藏影片下方的章節選單</string>
-    <string name="revanced_adremover_community_guidelines_summary_off">社群準則已顯示</string>
-    <string name="revanced_adremover_community_guidelines_summary_on">社群準則已隱藏</string>
-    <string name="revanced_adremover_community_guidelines_title">隱藏社群準則</string>
     <string name="revanced_adremover_community_posts_summary_off">社群貼文已顯示</string>
     <string name="revanced_adremover_community_posts_summary_on">社群貼文已隱藏</string>
     <string name="revanced_adremover_community_posts_title">隱藏社群貼文</string>
-    <string name="revanced_adremover_compact_banner_summary_off">主頁面的主題分類欄已顯示</string>
-    <string name="revanced_adremover_compact_banner_summary_on">主頁面的主題分類欄已隱藏</string>
-    <string name="revanced_adremover_compact_banner_title">隱藏主題分類欄</string>
     <string name="revanced_adremover_custom_filter_summary">按其名稱過濾並用半角逗號隔開</string>
     <string name="revanced_adremover_custom_filter_title">自訂篩選器</string>
-    <string name="revanced_adremover_emergency_box_summary_off">影片警告(自殺或自傷的主題)提醒已顯示</string>
-    <string name="revanced_adremover_emergency_box_summary_on">影片警告(自殺或自傷的主題)提醒已隱藏</string>
-    <string name="revanced_adremover_emergency_box_title">隱藏影片警告提醒</string>
     <string name="revanced_adremover_general_ads_summary_off">一般廣告已顯示</string>
     <string name="revanced_adremover_general_ads_summary_on">一般廣告已隱藏</string>
     <string name="revanced_adremover_general_ads_title">隱藏一般廣告</string>
@@ -147,9 +138,6 @@
     <string name="revanced_adremover_separator_summary_off">灰色分隔符已顯示</string>
     <string name="revanced_adremover_separator_summary_on">灰色分隔符已隱藏</string>
     <string name="revanced_adremover_separator_title">隱藏灰色分隔符</string>
-    <string name="revanced_adremover_subscribers_community_guidelines_summary_off">訂閱者社群指南已顯示</string>
-    <string name="revanced_adremover_subscribers_community_guidelines_summary_on">訂閱者社群指南已隱藏</string>
-    <string name="revanced_adremover_subscribers_community_guidelines_title">訂閱者社群指南</string>
     <string name="revanced_adremover_suggestions_summary_off">建議已顯示</string>
     <string name="revanced_adremover_suggestions_summary_on">建議已隱藏</string>
     <string name="revanced_adremover_suggestions_title">隱藏建議</string>
@@ -172,7 +160,7 @@
     <string name="revanced_default_video_quality_wifi_title">預設 Wi-Fi 影片品質</string>
     <string name="revanced_default_video_speed_title">默認播放速度</string>
     <string name="revanced_double_back_timeout_summary">雙擊返回退出的時間（秒）</string>
-    <string name="revanced_double_back_timeout_title">雙擊分辨時間</string>
+    <string name="revanced_double_back_timeout_title">雙擊間隔時間判別</string>
     <string name="revanced_downloader_not_installed">尚未安裝。請先安裝</string>
     <string name="revanced_downloader_package_name_summary">"下載器的名稱，例如 NewPipe 或 PowerTube"</string>
     <string name="revanced_downloader_package_name_title">下載器的名稱</string>
@@ -231,7 +219,7 @@
     <string name="revanced_enable_save_video_quality_title">記憶影片畫質</string>
     <string name="revanced_enable_save_video_speed_summary_off">即使更改影片速度也不記憶影片速度設定</string>
     <string name="revanced_enable_save_video_speed_summary_on">更改影片速度時記憶影片速度設定</string>
-    <string name="revanced_enable_save_video_speed_title">啟用播放速度記憶</string>
+    <string name="revanced_enable_save_video_speed_title">記憶播放速度</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">進度條點擊已啟用</string>
     <string name="revanced_enable_seekbar_tapping_title">啟用進度條點擊</string>
     <string name="revanced_enable_swipe_auto_brightness_summary_off">當亮度手勢設為 0 時\"不啟用\"自動調整亮度</string>
@@ -316,6 +304,9 @@
     <string name="revanced_hide_channel_watermark_summary_off">頻道浮水印已顯示</string>
     <string name="revanced_hide_channel_watermark_summary_on">頻道浮水印已隱藏</string>
     <string name="revanced_hide_channel_watermark_title">頻道浮水印</string>
+    <string name="revanced_hide_collapse_button_summary_off">最小化按鈕已顯示</string>
+    <string name="revanced_hide_collapse_button_summary_on">最小化按鈕已隱藏</string>
+    <string name="revanced_hide_collapse_button_title">隱藏最小化按鈕</string>
     <string name="revanced_hide_comments_component_summary">設置留言區為顯示或隱藏</string>
     <string name="revanced_hide_comments_component_title">留言區設置</string>
     <string name="revanced_hide_comments_section_summary_off">留言區已顯示</string>
@@ -339,6 +330,15 @@
     <string name="revanced_hide_filmstrip_overlay_summary_off">影片條疊加層已顯示</string>
     <string name="revanced_hide_filmstrip_overlay_summary_on">影片條疊加層已隱藏</string>
     <string name="revanced_hide_filmstrip_overlay_title">隱藏影片條疊加層</string>
+    <string name="revanced_hide_floating_microphone_summary_off">語音辨識按鈕已顯示</string>
+    <string name="revanced_hide_floating_microphone_summary_on">語音辨識按鈕已隱藏</string>
+    <string name="revanced_hide_floating_microphone_title">隱藏語音辨識按鈕</string>
+    <string name="revanced_hide_fullscreen_button_container_summary_off">全螢幕時的功能列已顯示</string>
+    <string name="revanced_hide_fullscreen_button_container_summary_on">全螢幕時的功能列已隱藏</string>
+    <string name="revanced_hide_fullscreen_button_container_title">隱藏全螢幕時的功能列</string>
+    <string name="revanced_hide_fullscreen_panels_summary_off">全螢幕面板已顯示</string>
+    <string name="revanced_hide_fullscreen_panels_summary_on">全螢幕面板已隱藏</string>
+    <string name="revanced_hide_fullscreen_panels_title">隱藏全螢幕面板</string>
     <string name="revanced_hide_info_cards_summary_off">資訊卡已顯示</string>
     <string name="revanced_hide_info_cards_summary_on">資訊卡已隱藏</string>
     <string name="revanced_hide_info_cards_title">資訊卡</string>
@@ -369,6 +369,9 @@
     <string name="revanced_hide_menu_report_summary_off">\"檢舉\"已顯示</string>
     <string name="revanced_hide_menu_report_summary_on">\"檢舉\"已隱藏</string>
     <string name="revanced_hide_menu_report_title">檢舉</string>
+    <string name="revanced_hide_menu_speed_summary_off">\"播放速度\" 已顯示</string>
+    <string name="revanced_hide_menu_speed_summary_on">\"播放速度\" 已隱藏</string>
+    <string name="revanced_hide_menu_speed_title">播放速度</string>
     <string name="revanced_hide_menu_stats_for_nerds_summary_off">\"詳細統計資訊\"已顯示</string>
     <string name="revanced_hide_menu_stats_for_nerds_summary_on">\"詳細統計資訊\"已隱藏</string>
     <string name="revanced_hide_menu_stats_for_nerds_title">詳細統計資訊</string>
@@ -381,6 +384,9 @@
     <string name="revanced_hide_next_button_summary_off">下一集按鈕已顯示</string>
     <string name="revanced_hide_next_button_summary_on">下一集按鈕已隱藏</string>
     <string name="revanced_hide_next_button_title">隱藏下一集按鈕</string>
+    <string name="revanced_hide_player_button_background_summary_off">播放器按鈕背景已顯示</string>
+    <string name="revanced_hide_player_button_background_summary_on">播放器按鈕背景已隱藏</string>
+    <string name="revanced_hide_player_button_background_title">隱藏播放器按鈕背景</string>
     <string name="revanced_hide_player_overlay_filter_summary_off">播放器疊加層底色已顯示</string>
     <string name="revanced_hide_player_overlay_filter_summary_on">播放器疊加層底色已隱藏</string>
     <string name="revanced_hide_player_overlay_filter_title">播放器疊加層底色</string>
@@ -390,6 +396,9 @@
     <string name="revanced_hide_preview_comment_off">留言區預覽已顯示</string>
     <string name="revanced_hide_preview_comment_on">留言區預覽已隱藏</string>
     <string name="revanced_hide_preview_comment_title">隱藏留言區預覽</string>
+    <string name="revanced_hide_seekbar_summary_off">播放進度條已顯示</string>
+    <string name="revanced_hide_seekbar_summary_on">播放進度條已隱藏</string>
+    <string name="revanced_hide_seekbar_title">隱藏播放進度條</string>
     <string name="revanced_hide_shorts_button_summary_off">Shorts 按鈕已顯示</string>
     <string name="revanced_hide_shorts_button_summary_on">Shorts 按鈕已隱藏</string>
     <string name="revanced_hide_shorts_button_title">隱藏 Shorts 按鈕</string>
@@ -402,6 +411,9 @@
     <string name="revanced_hide_shorts_player_remix_button_summary_off">Shorts 播放器中的 remix 按鈕已顯示</string>
     <string name="revanced_hide_shorts_player_remix_button_summary_on">Shorts 播放器中的 remix 按鈕已隱藏</string>
     <string name="revanced_hide_shorts_player_remix_button_title">Shorts 播放器中的 remix 按鈕</string>
+    <string name="revanced_hide_shorts_player_join_button_summary_off">Shorts 播放器中的加入按鈕已顯示</string>
+    <string name="revanced_hide_shorts_player_join_button_summary_on">Shorts 播放器中的加入按鈕已隱藏</string>
+    <string name="revanced_hide_shorts_player_join_button_title">Shorts 播放器中的加入按鈕</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_off">Shorts 播放器中的訂閱按鈕已顯示</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_on">Shorts 播放器中的訂閱按鈕已隱藏</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_title">Shorts 播放器中的訂閱按鈕</string>
@@ -423,8 +435,21 @@
     <string name="revanced_hide_suggested_actions_summary_off">操作建議已顯示</string>
     <string name="revanced_hide_suggested_actions_summary_on">操作建議已隱藏</string>
     <string name="revanced_hide_suggested_actions_title">操作建議</string>
+    <string name="revanced_hide_time_stamp_summary_off">時間戳已顯示</string>
+    <string name="revanced_hide_time_stamp_summary_on">時間戳已隱藏</string>
+    <string name="revanced_hide_time_stamp_title">隱藏時間戳</string>
+    <string name="revanced_import_settings_summary">從已保存的檔案中恢復 ReVanced 設置</string>
+    <string name="revanced_import_settings_title">導入設置</string>
+    <string name="revanced_layout_settings_bottomplayer">迷你播放器設置</string>
+    <string name="revanced_layout_settings_flyoutmenu">彈出選單設置</string>
+    <string name="revanced_layout_settings_fullscreen">全螢幕佈局設置</string>
+    <string name="revanced_layout_settings_player">播放器佈局設置</string>
+    <string name="revanced_layout_settings_seekbar">搜尋欄佈局設置</string>
     <string name="revanced_misc_settings_summary">其他相關設定</string>
+    <string name="revanced_misc_settings_title">其他設置</string>
     <string name="revanced_others_title">其他</string>
+    <string name="revanced_other_layout_settings_summary">其他佈局相關設置</string>
+    <string name="revanced_other_layout_settings_title">其他佈局設置</string>
     <string name="revanced_overlay_button_auto_repeat_summary_off">自動重複按鈕已隱藏</string>
     <string name="revanced_overlay_button_auto_repeat_summary_on">自動重複按鈕已顯示</string>
     <string name="revanced_overlay_button_auto_repeat_title">顯示自動重播按鈕</string>
@@ -438,6 +463,11 @@
     <string name="revanced_overlay_button_downloads_summary_on">下載按鈕已顯示</string>
     <string name="revanced_overlay_button_downloads_title">下載按鈕</string>
     <string name="revanced_overlay_button_summary">播放器按鈕相關設置</string>
+    <string name="revanced_overlay_button_title">畫面疊加按鈕</string>
+    <string name="revanced_overlay_button_speed_reset">影片播放速度重設 (1.0x)</string>
+    <string name="revanced_overlay_button_speed_summary_off">倍速按鈕已隱藏</string>
+    <string name="revanced_overlay_button_speed_summary_on">倍速按鈕已顯示</string>
+    <string name="revanced_overlay_button_speed_title">顯示倍速按鈕</string>
     <string name="revanced_overlay_button_whitelist_summary_off">白名單按鈕已隱藏</string>
     <string name="revanced_overlay_button_whitelist_summary_on">白名單按鈕已顯示</string>
     <string name="revanced_overlay_button_whitelist_title">白名單按鈕</string>
@@ -476,6 +506,7 @@
     <string name="revanced_ryd_compact_layout_title">喜歡按鈕的呈現方式</string>
     <string name="revanced_ryd_enable_summary_off">倒讚未顯示</string>
     <string name="revanced_ryd_enable_summary_on">倒讚已顯示</string>
+    <string name="revanced_ryd_enable_title">啟用 Return YouTube Dislike</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">未支援倒讚（已達到客戶端 API 限制）</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">隱藏</string>
     <string name="revanced_save_video_quality_common_error">設定品質失敗</string>
@@ -484,7 +515,10 @@
     <string name="revanced_save_video_quality_mobile_error">更改預設行動網路品質失敗</string>
     <string name="revanced_save_video_quality_wifi">將預設 Wi-Fi 品質更改為：</string>
     <string name="revanced_save_video_quality_wifi_error">更改預設 WI-FI 品質失敗</string>
+    <string name="revanced_save_video_speed">將預設播放速度更改為：</string>
+    <string name="revanced_sponsorblock_settings_summary">SponsorBlock 相關設定</string>
     <string name="revanced_swipe_controls_summary">滑動控制相關設定</string>
+    <string name="revanced_swipe_controls_title">滑動控制</string>
     <string name="revanced_swipe_magnitude_threshold_summary">滑動時調整的數值量</string>
     <string name="revanced_swipe_magnitude_threshold_title">滑動幅度調整</string>
     <string name="revanced_swipe_overlay_background_alpha_summary">設定畫面中 文字底色 的透明程度</string>
@@ -498,6 +532,7 @@
     <string name="revanced_video_ads_removal_summary_on">影片廣告已隱藏</string>
     <string name="revanced_video_ads_removal_title">隱藏影片廣告</string>
     <string name="revanced_video_settings_summary">影片畫質設定</string>
+    <string name="revanced_video_settings_title">影片</string>
     <string name="revanced_whitelisting_add_failed" formatted="false">將 %s 頻道加入 %s 白名單失敗</string>
     <string name="revanced_whitelisting_added" formatted="false">頻道 %s 已新增到 %s 白名單</string>
     <string name="revanced_whitelisting_ads">影片廣告</string>
@@ -525,6 +560,7 @@
     <string name="sb_guidelines_preference_title">閱讀指引</string>
     <string name="sb_switching_success">切換成功。 重新載入影片</string>
     <string name="sb_switching_to_mirror">正在切換鏡像 API 伺服器為主 API 伺服器…</string>
+    <string name="seconds">秒</string>
     <string name="segments_endcards">結束畫面/鳴謝</string>
     <string name="segments_endcards_sum">鳴謝或當YouTube 結束畫面出現。沒有語音的結尾</string>
     <string name="segments_filler">贅詞/笑話</string>
@@ -542,6 +578,7 @@
     <string name="segments_subscribe">互動提醒 (訂閱)</string>
     <string name="segments_subscribe_sum">當在任何免費或付費平台上出現按讚、訂閱、關注或與他們互動的簡短提醒時</string>
     <string name="settings_export_failed">匯出設定失敗</string>
+    <string name="settings_export_successful">設置已成功匯出</string>
     <string name="settings_ie">匯入/匯出設定</string>
     <string name="settings_ie_sum">這是你所有的設定值，可用於桌面擴充套件的JSON，並包含你的使用者ID，請謹慎分享此檔案</string>
     <string name="settings_import_failed">匯入設定失敗</string>
