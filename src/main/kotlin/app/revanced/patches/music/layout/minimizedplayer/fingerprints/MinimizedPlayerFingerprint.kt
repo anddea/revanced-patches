@@ -10,15 +10,10 @@ object MinimizedPlayerFingerprint : MethodFingerprint(
     access = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("L", "L"),
     opcodes = listOf(
-        Opcode.IGET_OBJECT,
-        Opcode.IGET_OBJECT,
-        Opcode.SGET_OBJECT,
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT,
-        Opcode.CONST_4,
         Opcode.IF_NEZ,
-        Opcode.SGET_OBJECT,
-        Opcode.INVOKE_VIRTUAL
+        Opcode.IF_EQZ
     ),
     strings = listOf("w_st")
 )
