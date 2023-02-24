@@ -140,7 +140,7 @@ class OverrideSpeedHookPatch : BytecodePatch(
                 )
 
                 addInstructions(
-                    1, """
+                    0, """
                         sget-object v0, $INTEGRATIONS_VIDEO_SPEED_CLASS_DESCRIPTOR->speedClass:$SPEED_CLASS
                         invoke-virtual {v0, p0}, $SPEED_CLASS->overrideSpeed(F)V
                     """
