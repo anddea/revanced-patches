@@ -3,7 +3,7 @@
     <string name="about_api">SponsorBlockについて</string>
     <string name="about_api_sum">このアプリは SponsorBlock の API を使用しています。詳細についてはこちらをタップしてください。</string>
     <string name="about_madeby">JakubWeg による統合</string>
-    <string name="accessibility_settings_edu_opt_in_text">動画プレーヤーのアクセシビリティコントロールをオンにしますか？</string>
+    <string name="accessibility_settings_edu_opt_in_text">プレーヤーのアクセシビリティコントロールをオンにしますか？</string>
     <string name="accessibility_settings_edu_opt_out_text">アクセシビリティサービスが有効になっているためコントロールは変更されます。</string>
     <string name="api_url_changed">API の URL を変更しました</string>
     <string name="api_url_invalid">指定された API の URL が無効です</string>
@@ -99,6 +99,12 @@
     <string name="revanced_adremover_chapter_teaser_summary_off">動画の下にあるチャプターティーザーを非表示にします</string>
     <string name="revanced_adremover_chapter_teaser_summary_on">動画の下にあるチャプターティーザーを非表示にします</string>
     <string name="revanced_adremover_chapter_teaser_title">チャプターを非表示にする</string>
+    <string name="revanced_adremover_community_posts_subscriptions_summary_off">チャンネル登録タブからコミュニティ投稿を非表示にします</string>
+    <string name="revanced_adremover_community_posts_subscriptions_summary_on">チャンネル登録タブからコミュニティ投稿を非表示にします</string>
+    <string name="revanced_adremover_community_posts_subscriptions_title">チャンネル登録タブからコミュニティ投稿を非表示にする</string>
+    <string name="revanced_adremover_community_posts_home_summary_off">ホームタブからコミュニティ投稿を非表示にします</string>
+    <string name="revanced_adremover_community_posts_home_summary_on">ホームタブからコミュニティ投稿を非表示にします</string>
+    <string name="revanced_adremover_community_posts_home_title">ホームタブからコミュニティ投稿を非表示にする</string>
     <string name="revanced_adremover_custom_filter_summary">コンマで区切られた名前でコンポーネントをフィルタリングします</string>
     <string name="revanced_adremover_custom_filter_title">カスタムフィルター</string>
     <string name="revanced_adremover_general_ads_summary_off">全般的な広告を削除します</string>
@@ -326,9 +332,9 @@
     <string name="revanced_hide_endscreen_overlay_summary_off">終了画面オーバーレイを非表示にします</string>
     <string name="revanced_hide_endscreen_overlay_summary_on">終了画面オーバーレイを非表示にします</string>
     <string name="revanced_hide_endscreen_overlay_title">終了画面オーバーレイを非表示にする</string>
-    <string name="revanced_hide_filmstrip_overlay_summary_off">動画プレーヤーの映写スライドを非表示にします</string>
-    <string name="revanced_hide_filmstrip_overlay_summary_on">動画プレーヤーの映写スライドを非表示にします</string>
-    <string name="revanced_hide_filmstrip_overlay_title">動画プレーヤーの映写スライドを非表示にする</string>
+    <string name="revanced_hide_filmstrip_overlay_summary_off">再生バー(進捗バー)長押しで表示される映写スライドを非表示にします</string>
+    <string name="revanced_hide_filmstrip_overlay_summary_on">再生バー(進捗バー)長押しで表示される映写スライドを非表示にします</string>
+    <string name="revanced_hide_filmstrip_overlay_title">プレーヤーの映写スライドを非表示にする</string>
     <string name="revanced_hide_floating_microphone_summary_off">動画を検索する時、右下に表示される音声入力ボタンを非表示にします</string>
     <string name="revanced_hide_floating_microphone_summary_on">動画を検索する時、右下に表示される音声入力ボタンを非表示にします</string>
     <string name="revanced_hide_floating_microphone_title">音声入力ボタンを非表示にする</string>
@@ -341,11 +347,9 @@
     <string name="revanced_hide_info_cards_summary_off">プレーヤーの右上に表示される情報カード(ｉ⃝)を非表示にします</string>
     <string name="revanced_hide_info_cards_summary_on">プレーヤーの右上に表示される情報カード(ｉ⃝)を非表示にします</string>
     <string name="revanced_hide_info_cards_title">情報カードを非表示にする</string>
-    <string name="revanced_hide_menu_ambient_mode_summary_off">アンビエントモードのメニューを非表示にします
-(動画プレーヤー上の設定内にあります)</string>
-    <string name="revanced_hide_menu_ambient_mode_summary_on">アンビエントモードのメニューを非表示にします
-(動画プレーヤー上の設定内にあります)</string>
-    <string name="revanced_hide_menu_ambient_mode_title">アンビエントモードのメニューを非表示にする</string>
+    <string name="revanced_hide_menu_ambient_mode_summary_off">アンビエントモードメニューを非表示にします</string>
+    <string name="revanced_hide_menu_ambient_mode_summary_on">アンビエントモードメニューを非表示にします</string>
+    <string name="revanced_hide_menu_ambient_mode_title">アンビエントモードメニューを非表示にする</string>
     <string name="revanced_hide_menu_audio_track_summary_off">オーディオトラックメニューを非表示にします</string>
     <string name="revanced_hide_menu_audio_track_summary_on">オーディオトラックメニューを非表示にします</string>
     <string name="revanced_hide_menu_audio_track_title">オーディオトラックメニューを非表示にする</string>
@@ -370,8 +374,8 @@
     <string name="revanced_hide_menu_report_summary_off">報告メニューを非表示にします</string>
     <string name="revanced_hide_menu_report_summary_on">報告メニューを非表示にします</string>
     <string name="revanced_hide_menu_report_title">報告メニューを非表示にする</string>
-    <string name="revanced_hide_menu_speed_summary_off">動画プレーヤー上の設定内にある再生速度メニューを非表示にします</string>
-    <string name="revanced_hide_menu_speed_summary_on">動画プレーヤー上の設定内にある再生速度メニューを非表示にします</string>
+    <string name="revanced_hide_menu_speed_summary_off">再生速度メニューを非表示にします</string>
+    <string name="revanced_hide_menu_speed_summary_on">再生速度メニューを非表示にします</string>
     <string name="revanced_hide_menu_speed_title">再生速度メニューを非表示にする</string>
     <string name="revanced_hide_menu_stats_for_nerds_summary_off">プレーヤー上の設定メニューを非表示にします</string>
     <string name="revanced_hide_menu_stats_for_nerds_summary_on">プレーヤー上の設定メニューを非表示にします</string>
@@ -404,11 +408,11 @@
     <string name="revanced_hide_shorts_button_summary_on">YouTubeショートのボタンを非表示にします</string>
     <string name="revanced_hide_shorts_button_title">YouTubeショートのボタンを非表示にする</string>
     <string name="revanced_hide_shorts_component_summary">YouTubeショート自体またはプレーヤーを非表示にします</string>
-    <string name="revanced_hide_shorts_component_title">YouTubeショートのコンポーネントを非表示にする</string>
+    <string name="revanced_hide_shorts_component_title">YouTubeショートのコンポーネント</string>
     <string name="revanced_hide_shorts_player_comments_button_summary_off">YouTubeショートのコメントボタンを非表示にします</string>
     <string name="revanced_hide_shorts_player_comments_button_summary_on">YouTubeショートのコメントボタンを非表示にします</string>
     <string name="revanced_hide_shorts_player_comments_button_title">コメントボタンを非表示にする</string>
-    <string name="revanced_hide_shorts_player_component_title">YouTubeショートのプレイヤーのコンポーネント(高評価ボタン、共有ボタンなど)を非表示にする</string>
+    <string name="revanced_hide_shorts_player_component_title">YouTubeショートプレーヤーのコンポーネント</string>
     <string name="revanced_hide_shorts_player_remix_button_summary_off">YouTubeショートのリミックスボタンを非表示にします</string>
     <string name="revanced_hide_shorts_player_remix_button_summary_on">YouTubeショートのリミックスボタンを非表示にします</string>
     <string name="revanced_hide_shorts_player_remix_button_title">リミックスボタンを非表示にする</string>
@@ -424,8 +428,8 @@
     <string name="revanced_hide_shorts_shelf_summary_off">YouTubeショート欄を非表示にします</string>
     <string name="revanced_hide_shorts_shelf_summary_on">YouTubeショート欄を非表示にします</string>
     <string name="revanced_hide_shorts_shelf_title">YouTubeショート欄を非表示にする</string>
-    <string name="revanced_hide_snackbar_summary_off">下に表示される白いバーを非表示にします</string>
-    <string name="revanced_hide_snackbar_summary_on">下に表示される白いバーを非表示にします</string>
+    <string name="revanced_hide_snackbar_summary_off">プレーヤー上の設定メニューで何か変更した際に、下に表示される文章(白いバー)を非表示にします</string>
+    <string name="revanced_hide_snackbar_summary_on">プレーヤー上の設定メニューで何か変更した際に、下に表示される文章(白いバー)を非表示にします</string>
     <string name="revanced_hide_snackbar_title">下に表示される白いバーを非表示にする</string>
     <string name="revanced_hide_startup_shorts_player_summary_off">アプリの起動時にYouTubeショートの再生を無効にします</string>
     <string name="revanced_hide_startup_shorts_player_summary_on">アプリの起動時にYouTubeショートの再生を無効にします</string>
@@ -442,7 +446,7 @@
     <string name="revanced_import_settings_summary">ReVancedの設定を内部ストレージから読み込みます</string>
     <string name="revanced_import_settings_title">設定を読み込む</string>
     <string name="revanced_layout_settings_bottomplayer">プレーヤーの下のレイアウト</string>
-    <string name="revanced_layout_settings_flyoutmenu">動画プレーヤー上の設定メニューのレイアウト</string>
+    <string name="revanced_layout_settings_flyoutmenu">プレーヤー上の設定メニューのレイアウト</string>
     <string name="revanced_layout_settings_fullscreen">全画面表示のレイアウト</string>
     <string name="revanced_layout_settings_player">プレーヤーのレイアウト</string>
     <string name="revanced_layout_settings_seekbar">再生バーのレイアウト</string>
@@ -477,8 +481,8 @@
     <string name="revanced_override_premium_header_title">YouTubeプレミアムヘッダーを有効にする</string>
     <string name="revanced_patches_information_summary">適用されたパッチに関する情報</string>
     <string name="revanced_patches_information">パッチの情報</string>
-    <string name="revanced_player_flyout_panel_summary">動画プレーヤー上の設定メニューのコンポーネントを非表示にします</string>
-    <string name="revanced_player_flyout_panel_title">動画プレーヤー上の設定メニューのコンポーネント</string>
+    <string name="revanced_player_flyout_panel_summary">プレーヤー上の設定メニューのコンポーネントを非表示にします</string>
+    <string name="revanced_player_flyout_panel_title">プレーヤー上の設定メニューのコンポーネント</string>
     <string name="revanced_reboot_warning_general">"これはまだ実験的な機能なので、他にも未知のバグがあるかもしれません。
 続行してもよろしいですか？"</string>
     <string name="revanced_reboot_warning_oldlayout">"古いレイアウトを有効にするために、YouTubeのバージョンをv17.28.35に偽装します。
@@ -488,12 +492,12 @@
 
 この設定を有効にすると、次の機能は利用できません:
 - アンビエントモード
-- コミュニティの投稿"</string>
+- コミュニティ投稿"</string>
     <string name="revanced_reboot_warning_tablet">"一部のレイアウトをタブレット用のレイアウトに変更するために dpi を偽装します。
 
 この設定を有効にすると、次の機能は利用できません:
 - アンビエントモード
-- コミュニティの投稿"</string>
+- コミュニティ投稿"</string>
     <string name="revanced_reboot_warning_vp9">"VP9コーデックを有効にするために端末情報を偽装します
 
 これらの設定は非常に古いので、動作しないかもしれません"</string>
