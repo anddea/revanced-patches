@@ -14,7 +14,7 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.youtube.layout.flyoutpanel.oldqualitylayout.fingerprints.QualityMenuViewInflateFingerprint
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
-import app.revanced.util.integrations.Constants.FLYOUTPANEL_LAYOUT
+import app.revanced.util.integrations.Constants.FLYOUT_PANEL_LAYOUT
 import org.jf.dexlib2.iface.instruction.FiveRegisterInstruction
 
 @Patch
@@ -35,7 +35,7 @@ class OldQualityLayoutPatch : BytecodePatch(
 
                 it.addInstructions(
                     insertIndex, // insert the integrations instructions right before the listener
-                    "invoke-static { v$register }, $FLYOUTPANEL_LAYOUT->enableOldQualityMenu(Landroid/widget/ListView;)V"
+                    "invoke-static { v$register }, $FLYOUT_PANEL_LAYOUT->enableOldQualityMenu(Landroid/widget/ListView;)V"
                 )
             }
         } ?: return QualityMenuViewInflateFingerprint.toErrorResult()
