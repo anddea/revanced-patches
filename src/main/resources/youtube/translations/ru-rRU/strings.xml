@@ -95,6 +95,12 @@
     <string name="revanced_adremover_chapter_teaser_summary_off">Тизер главы под видео отображен</string>
     <string name="revanced_adremover_chapter_teaser_summary_on">Тизер главы под видео скрыт</string>
     <string name="revanced_adremover_chapter_teaser_title">Тизер главы</string>
+    <string name="revanced_adremover_community_posts_subscriptions_summary_off">Публикации сообщества в ленте страницы \"Подписок\" отображены</string>
+    <string name="revanced_adremover_community_posts_subscriptions_summary_on">Публикации сообщества в ленте страницы \"Подписок\" скрыты</string>
+    <string name="revanced_adremover_community_posts_subscriptions_title">Публикации сообщества в \"Подписках\"</string>
+    <string name="revanced_adremover_community_posts_home_summary_off">Публикации сообщества в ленте \"Главной\" страницы отображены</string>
+    <string name="revanced_adremover_community_posts_home_summary_on">Публикации сообщества в ленте \"Главной\" страницы скрыты</string>
+    <string name="revanced_adremover_community_posts_home_title">Публикации сообщества на \"Главной\"</string>
     <string name="revanced_adremover_custom_filter_summary">Позволяет фильтровать элементы по имени, разделяя их запятыми</string>
     <string name="revanced_adremover_custom_filter_title">Персональный фильтр</string>
     <string name="revanced_adremover_general_ads_summary_off">Реклама общего формата отображена</string>
@@ -148,14 +154,14 @@
     <string name="revanced_adremover_web_search_panel_summary_off">Панели веб-поиска отображены</string>
     <string name="revanced_adremover_web_search_panel_summary_on">Панели веб-поиска скрыты</string>
     <string name="revanced_adremover_web_search_panel_title">Веб-поиск</string>
-    <string name="revanced_backup_settings_summary">Сохранение/Восстановление настроек ReVanced</string>
+    <string name="revanced_backup_settings_summary">Сохранение / Восстановление настроек ReVanced</string>
     <string name="revanced_custom_seekbar_color_value_summary">Введите HEX код цвета прогресса воспроизведения для использования в темном режиме</string>
     <string name="revanced_custom_seekbar_color_value_title">Персональное значение цвета</string>
     <string name="revanced_default_video_quality_mobile_title">Качество видео для мобильной сети</string>
     <string name="revanced_default_video_quality_wifi_title">Качество видео для Wi-Fi сети</string>
     <string name="revanced_default_video_speed_title">Скорость воспроизведения</string>
-    <string name="revanced_double_back_timeout_summary">Количество секунд для срабатывания двойного нажатия \"Назад\" для выхода</string>
-    <string name="revanced_double_back_timeout_title">Время двойного нажатия \"Назад\"</string>
+    <string name="revanced_double_back_timeout_summary">Количество секунд для выхода при двойном нажатии \"Назад\"</string>
+    <string name="revanced_double_back_timeout_title">Таймаут выхода из приложения</string>
     <string name="revanced_downloader_not_installed">Загрузчик не установлен. Пожалуйста, установите его</string>
     <string name="revanced_downloader_package_name_summary">"Имя пакета приложения для загрузки видео. Например NewPipe или PowerTube"</string>
     <string name="revanced_downloader_package_name_title">Имя пакета загрузчика</string>
@@ -246,7 +252,7 @@
     <string name="revanced_export_settings_summary">Сохраняет настройки ReVanced в файл</string>
     <string name="revanced_export_settings_title">Сохранить настройки</string>
     <string name="revanced_extended_issue_center_summary">Сообщите о проблемах или оставьте свои предложения здесь</string>
-    <string name="revanced_extended_issue_center_title">Центр помощи ReVanced Extended</string>
+    <string name="revanced_extended_issue_center_title">Центр поддержки ReVanced Extended</string>
     <string name="revanced_general_layout_settings_summary">Основные настройки интерфейса</string>
     <string name="revanced_general_layout_settings_title">Основные</string>
     <string name="revanced_hide_auto_captions_summary_off">Автоматические субтитры включены</string>
@@ -364,9 +370,9 @@
     <string name="revanced_hide_menu_report_summary_off">Пункт \"Жалоба\" отображен</string>
     <string name="revanced_hide_menu_report_summary_on">Пункт  \"Жалоба\" скрыт</string>
     <string name="revanced_hide_menu_report_title">Жалоба</string>
-    <string name="revanced_hide_menu_speed_summary_off">Меню скорости воспроизведения отображено</string>
-    <string name="revanced_hide_menu_speed_summary_on">Меню скорости воспроизведения скрыто</string>
-    <string name="revanced_hide_menu_speed_title">Меню скорости воспроизведения</string>
+    <string name="revanced_hide_menu_speed_summary_off">Пункт \"Скорость воспроизведения\" отображен</string>
+    <string name="revanced_hide_menu_speed_summary_on">Пункт \"Скорость воспроизведения\" скрыт</string>
+    <string name="revanced_hide_menu_speed_title">Скорость воспроизведения</string>
     <string name="revanced_hide_menu_stats_for_nerds_summary_off">Пункт \"Статистика для сисадминов\" отображен</string>
     <string name="revanced_hide_menu_stats_for_nerds_summary_on">Пункт \"Статистика для сисадминов\" скрыт</string>
     <string name="revanced_hide_menu_stats_for_nerds_title">Статистика для сисадминов</string>
@@ -474,11 +480,11 @@
     <string name="revanced_player_flyout_panel_summary">Настройки элементов всплывающего меню \"Настройки\" в плеере</string>
     <string name="revanced_player_flyout_panel_title">Меню \"Настройки\" в плеере</string>
     <string name="revanced_reboot_warning_general">"Это экспериментальная функция, возможны проблемы при ее использовании.\nПродолжить?"</string>
-    <string name="revanced_reboot_warning_oldlayout">"Подменяет версию клиента YouTube на v17.28.35 для использования \"старого интерфейса\".\nВ настройках приложения, версия YouTube может отображаться как v17.28.35"</string>
+    <string name="revanced_reboot_warning_oldlayout">"Подменяет версию клиента YouTube на v17.28.35 для использования \"старого интерфейса\".\nВ настройках приложения версия YouTube может отображаться как v17.28.35"</string>
     <string name="revanced_reboot_warning_phone">"Подменяет DPI для изменения некоторых элементов интерфейса на \"Телефонный\".\n
 Если этот параметр включен, следующие функции будут недоступны:\n• \"Сообщения сообщества\"\n• Скрытие плейлиста \"Джем\""</string>
     <string name="revanced_reboot_warning_tablet">"Подменяет DPI для изменения некоторых элементов интерфейса на \"Планшетный\".\nЕсли этот параметр включен, следующие функции будут недоступны:\n• \"Фоновая подстветка\"\n• \"Сообщения сообщества\""</string>
-    <string name="revanced_reboot_warning_vp9">"\"Подменяет информацию об устройстве для включения кодека VP9\nЭто экспериментальная функция, возможны проблемы при использовании\""</string>
+    <string name="revanced_reboot_warning_vp9">"Подменяет информацию об устройстве для включения кодека VP9\nПоскольку эти настройки устарели, они могут быть недействительны"</string>
     <string name="revanced_ryd_attribution_summary">Данные дизлайков предоставляются при помощи Return YouTube Dislike API. Нажмите здесь, чтобы узнать больше</string>
     <string name="revanced_ryd_dislike_percentage_summary_off">\"Дизлайки\" отображаются как число</string>
     <string name="revanced_ryd_dislike_percentage_summary_on">\"Дизлайки\" отображаются как проценты</string>
