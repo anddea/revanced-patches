@@ -1,4 +1,4 @@
-package app.revanced.patches.music.ad.video.patch
+package app.revanced.patches.music.ads.video.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
@@ -9,6 +9,7 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
+import app.revanced.patches.music.misc.litho.patch.MusicLithoFilterPatch
 import app.revanced.patches.music.misc.settings.patch.MusicSettingsPatch
 import app.revanced.patches.shared.annotation.YouTubeMusicCompatibility
 import app.revanced.patches.shared.patch.videoads.GeneralVideoAdsPatch
@@ -20,6 +21,7 @@ import app.revanced.util.integrations.Constants.MUSIC_SETTINGS_PATH
 @DependsOn(
     [
         GeneralVideoAdsPatch::class,
+        MusicLithoFilterPatch::class,
         MusicSettingsPatch::class
     ]
 )
