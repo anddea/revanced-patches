@@ -20,7 +20,7 @@ import app.revanced.util.integrations.Constants.MUSIC_SETTINGS_PATH
 
 @Patch
 @Name("hide-music-cast-button")
-@Description("Hides the cast button in the video player and header")
+@Description("Hides the cast button in the video player and header.")
 @DependsOn([MusicSettingsPatch::class])
 @YouTubeMusicCompatibility
 @Version("0.0.1")

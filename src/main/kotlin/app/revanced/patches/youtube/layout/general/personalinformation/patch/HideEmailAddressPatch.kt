@@ -1,6 +1,7 @@
 package app.revanced.patches.youtube.layout.general.personalinformation.patch
 
 import app.revanced.extensions.toErrorResult
+import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
@@ -19,6 +20,7 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
 @Name("hide-email-address")
+@Description("Hides the email address in the account switcher.")
 @DependsOn([SettingsPatch::class])
 @YouTubeCompatibility
 @Version("0.0.1")

@@ -20,7 +20,7 @@ import org.w3c.dom.Element
 
 @Patch
 @Name("hide-general-ads")
-@Description("Hooks the method which parses the bytes into a ComponentContext to filter components.")
+@Description("Removes general ads.")
 @DependsOn(
     [
         GeneralAdsBytecodePatch::class,
