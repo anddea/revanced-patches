@@ -31,10 +31,6 @@ abstract class AbstractLithoFilterPatch(
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
 
-        /*
-         * Compatible with both YouTube and YouTube Music
-         * But not yet implemented in Music integrations
-         */
         LithoObjectFingerprint.result?.let {
             val endIndex = it.scanResult.patternScanResult!!.endIndex
             objectRegister = (it.mutableMethod.instruction(endIndex) as BuilderInstruction35c).registerC
