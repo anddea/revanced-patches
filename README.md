@@ -103,7 +103,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `hide-get-premium` | Removes all "Get Premium" evidences from the avatar menu. | all |
 | `hide-music-ads` | Removes ads in the music player. | all |
 | `hide-music-cast-button` | Hides the cast button in the video player and header. | all |
-| `hide-playlist-card` | Hides the recommend playlist card from homepage. | all |
+| `hide-playlist-card` | Hides the playlist card from homepage. | all |
 | `hide-taste-builder` | Removes the "Tell us which artists you like" card from the home screen. | all |
 | `hide-upgrade-button` | Removes the upgrade tab from the pivot bar. | all |
 | `minimized-playback-music` | Enables minimized playback on Kids music. | all |
@@ -140,7 +140,6 @@ Example:
         "versions": [
           "18.06.41",
           "18.07.35",
-          "18.08.36",
           "18.08.37"
         ]
       }
