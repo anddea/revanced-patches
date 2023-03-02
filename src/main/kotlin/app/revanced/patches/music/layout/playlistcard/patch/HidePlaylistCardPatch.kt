@@ -15,7 +15,7 @@ import app.revanced.patches.shared.annotation.YouTubeMusicCompatibility
 
 @Patch
 @Name("hide-playlist-card")
-@Description("Hides the recommend playlist card from homepage.")
+@Description("Hides the playlist card from homepage.")
 @DependsOn(
     [
         MusicLithoFilterPatch::class,
