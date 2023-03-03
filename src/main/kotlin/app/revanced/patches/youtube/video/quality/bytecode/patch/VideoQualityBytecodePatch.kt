@@ -58,8 +58,10 @@ class VideoQualityBytecodePatch : BytecodePatch(
                         const-string v2, "$qIndexMethodName"
                         invoke-static {p1, p2, v1, v2}, $INTEGRATIONS_VIDEO_QUALITY_CLASS_DESCRIPTOR->setVideoQuality([Ljava/lang/Object;ILjava/lang/Object;Ljava/lang/String;)I
                         move-result p2
-                    """
+                     """
             )
+
+            LegacyVideoIdPatch.qualityOffSet = 5
         } ?: return VideoQualitySettingsParentFingerprint.toErrorResult()
 
         LegacyVideoIdPatch.injectCall("$INTEGRATIONS_VIDEO_QUALITY_CLASS_DESCRIPTOR->newVideoStarted(Ljava/lang/String;)V")
