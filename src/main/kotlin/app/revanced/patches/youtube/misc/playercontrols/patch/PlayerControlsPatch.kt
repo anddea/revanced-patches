@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.misc.playercontrols.bytecode.patch
+package app.revanced.patches.youtube.misc.playercontrols.patch
 
 import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
@@ -7,7 +7,6 @@ import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.instruction
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprintResult
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
@@ -23,12 +22,11 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 @Description("Manages the code for the player controls of the YouTube player.")
 @YouTubeCompatibility
 @Version("0.0.1")
-class PlayerControlsBytecodePatch : BytecodePatch(
+class PlayerControlsPatch : BytecodePatch(
     listOf(
         BottomControlsInflateFingerprint,
         ControlsLayoutInflateFingerprint,
-        PlayerControlsVisibilityFingerprint,
-        VisibilityNegatedParentFingerprint
+        PlayerControlsVisibilityFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
@@ -45,12 +43,6 @@ class PlayerControlsBytecodePatch : BytecodePatch(
             inflateResult = it
         } ?: return BottomControlsInflateFingerprint.toErrorResult()
 
-        VisibilityNegatedParentFingerprint.result?.let { parentResult ->
-            VisibilityNegatedFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.let {
-                visibilityNegatedResult = it
-            } ?: return VisibilityNegatedFingerprint.toErrorResult()
-        } ?: return VisibilityNegatedParentFingerprint.toErrorResult()
-
         return PatchResultSuccess()
     }
 
@@ -58,7 +50,6 @@ class PlayerControlsBytecodePatch : BytecodePatch(
         lateinit var showPlayerControlsResult: MethodFingerprintResult
         lateinit var controlsLayoutInflateResult: MethodFingerprintResult
         lateinit var inflateResult: MethodFingerprintResult
-        lateinit var visibilityNegatedResult: MethodFingerprintResult
 
         fun MethodFingerprintResult.injectVisibilityCall(
             descriptor: String,
@@ -85,10 +76,6 @@ class PlayerControlsBytecodePatch : BytecodePatch(
 
         fun injectVisibility(descriptor: String) {
             showPlayerControlsResult.injectVisibilityCall(descriptor, "changeVisibility")
-        }
-
-        fun injectVisibilityNegated(descriptor: String) {
-            visibilityNegatedResult.injectVisibilityCall(descriptor, "changeVisibilityNegatedImmediate")
         }
 
         fun initializeSB(descriptor: String) {

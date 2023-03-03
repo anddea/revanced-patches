@@ -5,13 +5,14 @@ import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.addInstruction
+import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
-import app.revanced.patches.youtube.misc.playercontrols.bytecode.patch.PlayerControlsBytecodePatch
+import app.revanced.patches.youtube.misc.playercontrols.patch.PlayerControlsPatch
 import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourcdIdPatch
 import app.revanced.patches.youtube.misc.sponsorblock.bytecode.fingerprints.*
 import app.revanced.patches.youtube.misc.timebar.patch.HookTimebarPatch
@@ -21,6 +22,7 @@ import app.revanced.util.bytecode.BytecodeHelper.updatePatchStatus
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.builder.BuilderInstruction
 import org.jf.dexlib2.iface.instruction.FiveRegisterInstruction
+import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 import org.jf.dexlib2.iface.instruction.formats.Instruction35c
 import org.jf.dexlib2.iface.reference.MethodReference
@@ -29,7 +31,7 @@ import org.jf.dexlib2.iface.reference.MethodReference
 @DependsOn(
     [
         MainstreamVideoIdPatch::class,
-        PlayerControlsBytecodePatch::class,
+        PlayerControlsPatch::class,
         SharedResourcdIdPatch::class
     ]
 )
@@ -38,24 +40,40 @@ import org.jf.dexlib2.iface.reference.MethodReference
 class SponsorBlockBytecodePatch : BytecodePatch(
     listOf(
         NextGenWatchLayoutFingerprint,
-        PlayerOverlaysLayoutInitFingerprint
+        PlayerControllerFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
 
         /*
-         inject MainstreamVideoIdPatch
+         * Hook the video time methods
+         */
+        with(MainstreamVideoIdPatch) {
+            videoTimeHook(
+                INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR,
+                "setVideoTime"
+            )
+            highPrecisionTimeHook(
+                INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR,
+                "setHighPrecisionVideoTime"
+            )
+        }
+
+        /*
+         * Inject MainstreamVideoIdPatch
          */
         MainstreamVideoIdPatch.injectCall("$INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR->setCurrentVideoId(Ljava/lang/String;)V")
 
+
         /*
-         Seekbar drawing
+         * Seekbar drawing
          */
         insertMethod = HookTimebarPatch.setTimebarMethod
         insertInstructions = insertMethod.implementation!!.instructions
 
+
         /*
-         Get the instance of the seekbar rectangle
+         * Get the instance of the seekbar rectangle
          */
         for ((index, instruction) in insertInstructions.withIndex()) {
             if (instruction.opcode != Opcode.INVOKE_DIRECT_RANGE) continue
@@ -74,7 +92,6 @@ class SponsorBlockBytecodePatch : BytecodePatch(
 
             val insertIndex = index + 2
 
-            // set the thickness of the segment
             insertMethod.addInstruction(
                 insertIndex,
                 "invoke-static {v${invokeInstruction.registerC}}, $INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR->setSponsorBarThickness(I)V"
@@ -83,8 +100,8 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         }
 
         /*
-        Set rectangle absolute left and right positions
-        */
+         * Set rectangle absolute left and right positions
+         */
         val drawRectangleInstructions = insertInstructions.filter {
             it is ReferenceInstruction && (it.reference as? MethodReference)?.name == "drawRect" && it is FiveRegisterInstruction
         }.map { // TODO: improve code
@@ -100,8 +117,8 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         }
 
         /*
-        Draw segment
-        */
+         * Draw segment
+         */
         val drawSegmentInstructionInsertIndex = (insertInstructions.size - 1 - 2)
         val (canvasInstance, centerY) = (insertInstructions[drawSegmentInstructionInsertIndex] as FiveRegisterInstruction).let {
             it.registerC to it.registerE
@@ -112,13 +129,12 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         )
 
         /*
-        Voting & Shield button
+         * Voting & Shield button
          */
 
         arrayOf("ShieldButton", "VotingButton").forEach {
-           PlayerControlsBytecodePatch.initializeSB("$INTEGRATIONS_BUTTON_CLASS_DESCRIPTOR/$it;")
-           PlayerControlsBytecodePatch.injectVisibility("$INTEGRATIONS_BUTTON_CLASS_DESCRIPTOR/$it;")
-           PlayerControlsBytecodePatch.injectVisibilityNegated("$INTEGRATIONS_BUTTON_CLASS_DESCRIPTOR/$it;")
+           PlayerControlsPatch.initializeSB("$INTEGRATIONS_BUTTON_CLASS_DESCRIPTOR/$it;")
+           PlayerControlsPatch.injectVisibility("$INTEGRATIONS_BUTTON_CLASS_DESCRIPTOR/$it;")
         }
 
         // set SegmentHelperLayout.context to the player layout instance
@@ -127,6 +143,24 @@ class SponsorBlockBytecodePatch : BytecodePatch(
             3,
             "invoke-static/range {p$instanceRegister}, $INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR->addSkipSponsorView15(Landroid/view/View;)V"
         ) ?: return NextGenWatchLayoutFingerprint.toErrorResult()
+
+
+        /*
+         * Replace strings
+         */
+        PlayerControllerFingerprint.result?.mutableMethod?.let {
+            val instructions = it.implementation!!.instructions
+
+            for ((index, instruction) in instructions.withIndex()) {
+                if (instruction.opcode != Opcode.CONST_STRING) continue
+                val register = (instruction as OneRegisterInstruction).registerA
+                it.replaceInstruction(
+                    index,
+                    "const-string v$register, \"${MainstreamVideoIdPatch.reactReference}\""
+                )
+                break
+            }
+        } ?: return PlayerControllerFingerprint.toErrorResult()
 
         context.injectInit("FirstRun", "initializationSB")
         context.updatePatchStatus("Sponsorblock")
