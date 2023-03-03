@@ -14,21 +14,18 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
-import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
+import app.revanced.patches.shared.fingerprints.VideoEndFingerprint
+import app.revanced.patches.shared.fingerprints.VideoEndParentFingerprint
 import app.revanced.patches.youtube.misc.playertype.patch.PlayerTypeHookPatch
 import app.revanced.patches.youtube.misc.timebar.patch.HookTimebarPatch
 import app.revanced.patches.youtube.misc.videoid.mainstream.fingerprint.*
-import app.revanced.util.integrations.Constants.UTILS_PATH
 import app.revanced.util.integrations.Constants.VIDEO_PATH
 import org.jf.dexlib2.AccessFlags
-import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.builder.MutableMethodImplementation
-import org.jf.dexlib2.builder.instruction.BuilderInstruction35c
 import org.jf.dexlib2.dexbacked.reference.DexBackedMethodReference
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
-import org.jf.dexlib2.iface.instruction.formats.Instruction31i
 import org.jf.dexlib2.iface.reference.FieldReference
 import org.jf.dexlib2.iface.reference.MethodReference
 import org.jf.dexlib2.immutable.ImmutableMethod
@@ -48,44 +45,33 @@ import org.jf.dexlib2.util.MethodUtil
 class MainstreamVideoIdPatch : BytecodePatch(
     listOf(
         MainstreamVideoIdFingerprint,
-        PlayerControllerFingerprint,
         PlayerControllerSetTimeReferenceFingerprint,
         PlayerInitFingerprint,
-        RepeatListenerFingerprint,
         SeekFingerprint,
         TimebarFingerprint,
-        VideoTimeFingerprint,
-        VideoTimeParentFingerprint
+        VideoEndParentFingerprint,
+        VideoTimeHighPrecisionFingerprint,
+        VideoTimeHighPrecisionParentFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
 
-        RepeatListenerFingerprint.result?.let {
-            val targetIndex = it.scanResult.patternScanResult!!.startIndex - 1
-            val endIndex = it.scanResult.patternScanResult!!.endIndex
-                with (it.mutableMethod) {
-                    val targetReference = (instruction(targetIndex) as BuilderInstruction35c).reference.toString()
-
-                    val firstRegister = (instruction(targetIndex) as BuilderInstruction35c).registerC
-                    val secondRegister = (instruction(targetIndex) as BuilderInstruction35c).registerD
-
-                    val dummyRegister = (instruction(endIndex) as Instruction31i).registerA
-
-                    addInstructions(
-                        targetIndex + 1, """
-                            invoke-static {}, $UTILS_PATH/EnableAutoRepeatPatch;->shouldAutoRepeat()Z
-                            move-result v$dummyRegister
-                            if-nez v$dummyRegister, :bypass
-                            invoke-virtual {v$firstRegister, v$secondRegister}, $targetReference
-                            """, listOf(ExternalLabel("bypass", instruction(targetIndex + 1)))
-                    )
-                    removeInstruction(targetIndex)
-                }
-        } ?: return RepeatListenerFingerprint.toErrorResult()
-
+        VideoEndParentFingerprint.result?.classDef?.let { classDef ->
+            VideoEndFingerprint.also {
+                it.resolve(context, classDef)
+            }.result?.mutableMethod?.let { method ->
+                method.addInstruction(
+                    method.implementation!!.instructions.size - 1,
+                    "invoke-static {}, $VIDEO_PATH/VideoInformation;->videoEnd()V"
+                )
+            } ?: return VideoEndFingerprint.toErrorResult()
+        } ?: return VideoEndParentFingerprint.toErrorResult()
 
         PlayerInitFingerprint.result?.let { parentResult ->
             playerInitMethod = parentResult.mutableClass.methods.first { MethodUtil.isConstructor(it) }
+
+            // hook the player controller for use through integrations
+            onCreateHook(INTEGRATIONS_CLASS_DESCRIPTOR, "playerController_onCreateHook")
 
             SeekFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.let {
                 val resultMethod = it.method
@@ -118,29 +104,27 @@ class MainstreamVideoIdPatch : BytecodePatch(
             } ?: return SeekFingerprint.toErrorResult()
         } ?: return PlayerInitFingerprint.toErrorResult()
 
-
-        VideoTimeParentFingerprint.result?.let { parentResult ->
-            VideoTimeFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.mutableMethod?.addInstruction(
-                0,
-                "invoke-static {p1, p2}, $VideoInformation->setCurrentVideoTimeHighPrecision(J)V"
-            ) ?: return VideoTimeFingerprint.toErrorResult()
-        } ?: return VideoTimeParentFingerprint.toErrorResult()
-
+        /*
+         * Set the high precision video time method
+         */
+        VideoTimeHighPrecisionParentFingerprint.result?.let { parentResult ->
+            VideoTimeHighPrecisionFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.mutableMethod?.let { method ->
+                highPrecisionTimeMethod = method
+            } ?: return VideoTimeHighPrecisionFingerprint.toErrorResult()
+        } ?: return VideoTimeHighPrecisionParentFingerprint.toErrorResult()
 
         /*
-        Set current video time
-        */
+         * Hook the methods which set the time
+         */
+        highPrecisionTimeHook(INTEGRATIONS_CLASS_DESCRIPTOR, "setVideoTime")
+
+        /*
+         * Set current video time
+         */
         PlayerControllerSetTimeReferenceFingerprint.result?.let {
-            with(context
-                .toMethodWalker(it.method)
+            timeMethod = context.toMethodWalker(it.method)
                 .nextMethod(it.scanResult.patternScanResult!!.startIndex, true)
                 .getMethod() as MutableMethod
-            ) {
-                addInstruction(
-                    2,
-                    "invoke-static {p1, p2}, $VideoInformation->setCurrentVideoTime(J)V"
-                )
-            }
         } ?: return PlayerControllerSetTimeReferenceFingerprint.toErrorResult()
 
 
@@ -162,28 +146,12 @@ class MainstreamVideoIdPatch : BytecodePatch(
                     val secondaryRegister = primaryRegister + 1
                     addInstruction(
                         index + 3,
-                        "invoke-static {v$primaryRegister, v$secondaryRegister}, $VideoInformation->setCurrentVideoLength(J)V"
+                        "invoke-static {v$primaryRegister, v$secondaryRegister}, $INTEGRATIONS_CLASS_DESCRIPTOR->setVideoLength(J)V"
                     )
                     break
                 }
             }
         }
-
-
-        PlayerControllerFingerprint.result?.mutableMethod?.let {
-            val instructions = it.implementation!!.instructions
-
-            for ((index, instruction) in instructions.withIndex()) {
-                if (instruction.opcode != Opcode.CONST_STRING) continue
-                val register = (instruction as OneRegisterInstruction).registerA
-                it.replaceInstruction(
-                    index,
-                    "const-string v$register, \"$reactReference\""
-                )
-                break
-            }
-
-        } ?: return PlayerControllerFingerprint.toErrorResult()
 
 
         MainstreamVideoIdFingerprint.result?.let {
@@ -193,25 +161,27 @@ class MainstreamVideoIdPatch : BytecodePatch(
                 insertMethod = this
                 videoIdRegister = (implementation!!.instructions[insertIndex] as OneRegisterInstruction).registerA
             }
-            offset++ // offset so setCurrentVideoId is called before any injected call
+            offset++ // offset so setVideoId is called before any injected call
         } ?: return MainstreamVideoIdFingerprint.toErrorResult()
 
         
-        injectCall("$VideoInformation->setCurrentVideoId(Ljava/lang/String;)V")
-        injectCallonCreate(VideoInformation, "onCreate")
+        injectCall("$INTEGRATIONS_CLASS_DESCRIPTOR->setVideoId(Ljava/lang/String;)V")
 
         return PatchResultSuccess()
     }
 
     companion object {
-        const val VideoInformation = "$VIDEO_PATH/VideoInformation;"
+        const val INTEGRATIONS_CLASS_DESCRIPTOR = "$VIDEO_PATH/VideoInformation;"
+        internal var reactReference: String? = null
+
         private var offset = 0
 
         private var insertIndex: Int = 0
-        private var reactReference: String? = null
         private var videoIdRegister: Int = 0
         private lateinit var insertMethod: MutableMethod
         private lateinit var playerInitMethod: MutableMethod
+        private lateinit var timeMethod: MutableMethod
+        private lateinit var highPrecisionTimeMethod: MutableMethod
 
         /**
          * Adds an invoke-static instruction, called with the new id when the video changes
@@ -226,11 +196,57 @@ class MainstreamVideoIdPatch : BytecodePatch(
             )
         }
 
-        fun injectCallonCreate(MethodClass: String, MethodName: String) =
-            playerInitMethod.addInstruction(
-                4,
-                "invoke-static {v0}, $MethodClass->$MethodName(Ljava/lang/Object;)V"
+        private fun MutableMethod.insert(insert: InsertIndex, register: String, descriptor: String) =
+            addInstruction(insert.index, "invoke-static { $register }, $descriptor")
+
+        private fun MutableMethod.insertTimeHook(insert: InsertIndex, descriptor: String) =
+            insert(insert, "p1, p2", descriptor)
+
+        /**
+         * Hook the player controller.
+         *
+         * @param targetMethodClass The descriptor for the class to invoke when the player controller is created.
+         * @param targetMethodName The name of the static method to invoke when the player controller is created.
+         */
+        internal fun onCreateHook(targetMethodClass: String, targetMethodName: String) =
+            playerInitMethod.insert(
+                InsertIndex.CREATE,
+                "v0",
+                "$targetMethodClass->$targetMethodName(Ljava/lang/Object;)V"
             )
+
+        /**
+         * Hook the video time.
+         * The hook is usually called once per second.
+         *
+         * @param targetMethodClass The descriptor for the static method to invoke when the player controller is created.
+         * @param targetMethodName The name of the static method to invoke when the player controller is created.
+         */
+        internal fun videoTimeHook(targetMethodClass: String, targetMethodName: String) =
+            timeMethod.insertTimeHook(
+                InsertIndex.TIME,
+                "$targetMethodClass->$targetMethodName(J)V"
+            )
+
+        /**
+         * Hook the high precision video time.
+         * The hooks is called extremely often (10 to 15 times a seconds), so use with caution.
+         * Note: the hook is usually called _off_ the main thread
+         *
+         * @param targetMethodClass The descriptor for the static method to invoke when the player controller is created.
+         * @param targetMethodName The name of the static method to invoke when the player controller is created.
+         */
+        internal fun highPrecisionTimeHook(targetMethodClass: String, targetMethodName: String) =
+            highPrecisionTimeMethod.insertTimeHook(
+                InsertIndex.HIGH_PRECISION_TIME,
+                "$targetMethodClass->$targetMethodName(J)V"
+            )
+
+        enum class InsertIndex(internal val index: Int) {
+            CREATE(4),
+            TIME(2),
+            HIGH_PRECISION_TIME(0),
+        }
     }
 }
 
