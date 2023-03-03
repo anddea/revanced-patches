@@ -145,6 +145,10 @@
         <!-- SETTINGS: HEADER_SWITCH
         <SwitchPreference android:title="@string/revanced_override_premium_header_title" android:key="revanced_override_premium_header" android:defaultValue="false" android:summaryOn="@string/revanced_override_premium_header_summary_on" android:summaryOff="@string/revanced_override_premium_header_summary_off" />SETTINGS: HEADER_SWITCH -->
 
+        <!-- SETTINGS: SWITCH_CREATE_NOTIFICATION
+        <Preference android:title=" " android:selectable="false" android:key="revanced_experimental_flag" android:summary="@string/revanced_experimental_flag" />
+        <SwitchPreference android:title="@string/revanced_switching_create_notification_title" android:key="revanced_switching_create_notification" android:defaultValue="false" android:summaryOn="@string/revanced_switching_create_notification_summary_on" android:summaryOff="@string/revanced_switching_create_notification_summary_off" />SETTINGS: SWITCH_CREATE_NOTIFICATION -->
+
     <!-- PREFERENCE: GENERAL_LAYOUT_SETTINGS
     </PreferenceScreen>PREFERENCE: GENERAL_LAYOUT_SETTINGS -->
 
@@ -395,6 +399,7 @@
             <Preference android:title="hide-snackbar" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-floating-microphone" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="header-switch" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="switch-create-notification" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
 
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_layout_settings_player" />
             <Preference android:title="hide-cast-button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
