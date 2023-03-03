@@ -15,16 +15,16 @@ import app.revanced.util.resources.IconHelper.customIcon
 import app.revanced.util.resources.ResourceHelper.updatePatchStatusIcon
 
 @Patch(false)
-@Name("custom-branding-icon-mmtred")
-@Description("Changes the YouTube launcher icon (MMT Red).")
+@Name("custom-branding-icon-mmt")
+@Description("Changes the YouTube launcher icon (MMT).")
 @DependsOn([SettingsPatch::class])
 @YouTubeCompatibility
 @Version("0.0.1")
-class CustomBrandingIconMMTredPatch : ResourcePatch {
+class CustomBrandingIconMMTPatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
 
-        context.customIcon("mmtred")
-        context.updatePatchStatusIcon("mmtred")
+        context.customIcon("mmt")
+        context.updatePatchStatusIcon("mmt")
 
         return PatchResultSuccess()
     }
