@@ -8,14 +8,14 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
-import app.revanced.patches.youtube.misc.playercontrols.bytecode.patch.PlayerControlsBytecodePatch
+import app.revanced.patches.youtube.misc.playercontrols.patch.PlayerControlsPatch
 import app.revanced.patches.youtube.misc.videoid.mainstream.patch.MainstreamVideoIdPatch
 import app.revanced.util.integrations.Constants.BUTTON_PATH
 
 @Name("overlay-buttons-bytecode-patch")
 @DependsOn(
     dependencies = [
-        PlayerControlsBytecodePatch::class,
+        PlayerControlsPatch::class,
         MainstreamVideoIdPatch::class
     ]
 )
@@ -32,8 +32,8 @@ class OverlayButtonsBytecodePatch : BytecodePatch() {
             "$BUTTON_PATH/Whitelists;",
             "$BUTTON_PATH/Speed;"
         ).forEach { descriptor ->
-            PlayerControlsBytecodePatch.initializeControl(descriptor)
-            PlayerControlsBytecodePatch.injectVisibility(descriptor)            
+            PlayerControlsPatch.initializeControl(descriptor)
+            PlayerControlsPatch.injectVisibility(descriptor)
         }
 
         return PatchResultSuccess()

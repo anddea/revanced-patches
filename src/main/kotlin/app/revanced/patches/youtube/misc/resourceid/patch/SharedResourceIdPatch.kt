@@ -23,7 +23,6 @@ class SharedResourcdIdPatch : ResourcePatch {
         var bottomUiContainerResourceId: Long = -1
         var controlsLayoutStubResourceId: Long = -1
         var donationCompanionResourceId: Long = -1
-        var educationTextViewResourceId: Long = -1
         var emptycolorLabelId: Long = -1
         var fabLabelId: Long = -1
         var floatybarQueueLabelId: Long = -1
@@ -52,7 +51,6 @@ class SharedResourcdIdPatch : ResourcePatch {
         bottomUiContainerResourceId = findSharedResourceId("id", "bottom_ui_container_stub")
         controlsLayoutStubResourceId = findSharedResourceId("id", "controls_layout_stub")
         donationCompanionResourceId = findSharedResourceId("layout", "donation_companion")
-        educationTextViewResourceId = findSharedResourceId("id", "user_education_text_view")
         emptycolorLabelId = findSharedResourceId("color", "inline_time_bar_colorized_bar_empty_color_dark")
         fabLabelId = findSharedResourceId("id", "fab")
         floatybarQueueLabelId = findSharedResourceId("string", "floaty_bar_queue_status")
