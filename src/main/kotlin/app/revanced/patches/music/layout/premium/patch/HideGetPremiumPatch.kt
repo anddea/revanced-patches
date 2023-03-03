@@ -25,7 +25,12 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction31i
 @Patch
 @Name("hide-get-premium")
 @Description("Removes all \"Get Premium\" evidences from the avatar menu.")
-@DependsOn([MusicIntegrationsPatch::class])
+@DependsOn(
+    [
+        ResourceMappingPatch::class,
+        MusicIntegrationsPatch::class
+    ]
+)
 @YouTubeMusicCompatibility
 @Version("0.0.1")
 class HideGetPremiumPatch : BytecodePatch(
