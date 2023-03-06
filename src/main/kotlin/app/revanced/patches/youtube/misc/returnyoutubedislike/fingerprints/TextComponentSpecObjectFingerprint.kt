@@ -5,14 +5,13 @@ import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 
-object TextComponentSpecFingerprint : MethodFingerprint(
+object TextComponentSpecObjectFingerprint : MethodFingerprint(
     returnType = "V",
     access = AccessFlags.PROTECTED or AccessFlags.FINAL,
-    parameters = listOf("L", "L"),
+    parameters = listOf("L"),
     opcodes = listOf(
-        Opcode.CHECK_CAST,
-        Opcode.CHECK_CAST,
-        Opcode.IGET_OBJECT,
-        Opcode.IPUT_OBJECT
+        Opcode.INVOKE_STATIC_RANGE,
+        Opcode.MOVE_RESULT_OBJECT,
+        Opcode.INVOKE_DIRECT
     )
 )
