@@ -43,9 +43,7 @@ class MicroGPatch : ResourcePatch {
          */
         SettingsPatch.addPreference(
             arrayOf(
-                "PREFERENCE_CATEGORY: MICROG_SETTINGS",
-                "PREFERENCE: MICROG_SETTINGS",
-                "SETTINGS: MICROG_SETTINGS"
+                "PREFERENCE: MICROG_SETTINGS"
             )
         )
         SettingsPatch.updatePatchStatus("microg-support")

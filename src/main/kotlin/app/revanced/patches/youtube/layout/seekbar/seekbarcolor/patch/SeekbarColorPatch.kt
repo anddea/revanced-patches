@@ -82,8 +82,7 @@ class SeekbarColorPatch : BytecodePatch() {
              */
             SettingsPatch.addPreference(
                 arrayOf(
-                    "PREFERENCE: OTHER_LAYOUT_SETTINGS",
-                    "PREFERENCE_HEADER: SEEKBAR",
+                    "PREFERENCE: SEEKBAR_LAYOUT_SETTINGS",
                     "SETTINGS: CUSTOM_SEEKBAR_COLOR"
                 )
             )
