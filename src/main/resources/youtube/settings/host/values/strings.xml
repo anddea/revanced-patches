@@ -44,10 +44,8 @@
     <string name="microg_not_installed_notice">Please install MicroG</string>
     <string name="microg_not_installed_warning">MicroG is not found</string>
     <string name="microg_not_running_warning">MicroG does not run in the background</string>
-    <string name="microg_notification_settings_summary">"1. Google device registration and Cloud Messaging need to be enabled for notifications.
-2. ReVanced needs to be shown as registered under Cloud Messaging.
-3. Current State in Cloud Messaging must be Connected."</string>
-    <string name="microg_notification_settings_title">Notification</string>
+    <string name="microg_settings_summary">Enable cloud messaging settings to receive notifications</string>
+    <string name="microg_settings_title">Open MicroG</string>
     <string name="minutes">min</string>
     <string name="new_segment_choose_category">Choose the segment category</string>
     <string name="new_segment_confirm_content" formatted="false">"The segment lasts from %02d:%02d to %02d:%02d (%d minutes %02d seconds)
@@ -69,8 +67,7 @@ Is it ready to submit?"</string>
     <string name="new_segment_time_start_set">Beginning of segment set</string>
     <string name="new_segment_title">New SponsorBlock segment</string>
     <string name="reset">Reset</string>
-    <string name="revanced_ads_settings_summary">Ads related settings</string>
-    <string name="revanced_ads_settings_title">Ads</string>
+    <string name="revanced_ads">Ads</string>
     <string name="revanced_adremover_album_card_in_search_summary_off">Album cards are shown from search results</string>
     <string name="revanced_adremover_album_card_in_search_summary_on">Album cards are hidden from search results</string>
     <string name="revanced_adremover_album_card_in_search_title">Hide album cards</string>
@@ -154,7 +151,11 @@ Is it ready to submit?"</string>
     <string name="revanced_adremover_web_search_panel_summary_off">Web search panels are shown</string>
     <string name="revanced_adremover_web_search_panel_summary_on">Web search panels are hidden</string>
     <string name="revanced_adremover_web_search_panel_title">Hide web search panels</string>
-    <string name="revanced_backup_settings_summary">Import ReVanced settings from file or export ReVanced settings to file</string>
+    <string name="revanced_backup_summary">Import ReVanced settings from file or export ReVanced settings to file</string>
+    <string name="revanced_bottom_player_layout">Bottom player layout</string>
+    <string name="revanced_button_container_title">Button container</string>
+    <string name="revanced_comments_title">Comments</string>
+    <string name="revanced_copytimestamp_success">Time Stamp copied to clipboard</string>
     <string name="revanced_custom_seekbar_color_value_summary">Type the hex code of the seekbar color to use in dark mode</string>
     <string name="revanced_custom_seekbar_color_value_title">Custom seekbar color value</string>
     <string name="revanced_default_video_quality_mobile_title">Default video quality Cellular</string>
@@ -176,12 +177,10 @@ Is it ready to submit?"</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">Chapters haptic feedback is enabled</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">Chapters haptic feedback is disabled</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">Disable chapters haptic feedback</string>
-    <string name="revanced_disable_haptic_feedback_summary">Disable haptic feedback on long press</string>
-    <string name="revanced_disable_haptic_feedback_title">Disable haptic feedback</string>
+    <string name="revanced_haptic_feedback_title">Haptic feedback</string>
     <string name="revanced_disable_haptic_feedback_zoom_summary_off">Zoom haptic feedback is enabled</string>
     <string name="revanced_disable_haptic_feedback_zoom_summary_on">Zoom haptic feedback is disabled</string>
     <string name="revanced_disable_haptic_feedback_zoom_title">Disable zoom haptic feedback</string>
-    <string name="revanced_copytimestamp_success">Time Stamp copied to clipboard</string>
     <string name="revanced_enable_always_auto_repeat_summary_off">Always auto repeat is disabled</string>
     <string name="revanced_enable_always_auto_repeat_summary_on">Always auto repeat is enabled</string>
     <string name="revanced_enable_always_auto_repeat_title">Always auto repeat</string>
@@ -253,8 +252,9 @@ Is it ready to submit?"</string>
     <string name="revanced_export_settings_title">Export settings</string>
     <string name="revanced_extended_support_center_summary">Report issues or leave suggestions here</string>
     <string name="revanced_extended_support_center_title">Support Center</string>
-    <string name="revanced_general_layout_settings_summary">General layout related settings</string>
-    <string name="revanced_general_layout_settings_title">General layout</string>
+    <string name="revanced_flyout_menu_layout">Flyout menu layout</string>
+    <string name="revanced_fullscreen_layout">Fullscreen layout</string>
+    <string name="revanced_general_layout">General layout</string>
     <string name="revanced_hide_auto_captions_summary_off">Captions are enabled when playing a video with captioning is enforced</string>
     <string name="revanced_hide_auto_captions_summary_on">"Captions aren't enabled when playing a video with captioning is enforced"</string>
     <string name="revanced_hide_auto_captions_title">Hide auto captions</string>
@@ -264,8 +264,6 @@ Is it ready to submit?"</string>
     <string name="revanced_hide_autoplay_button_summary_off">Autoplay button is shown</string>
     <string name="revanced_hide_autoplay_button_summary_on">Autoplay button is hidden</string>
     <string name="revanced_hide_autoplay_button_title">Hide autoplay button</string>
-    <string name="revanced_hide_button_container_summary">Hides the component of the button container</string>
-    <string name="revanced_hide_button_container_title">Hide button container component</string>
     <string name="revanced_hide_button_create_clip_summary_off">Clip button is shown</string>
     <string name="revanced_hide_button_create_clip_summary_on">Clip button is hidden</string>
     <string name="revanced_hide_button_create_clip_title">Hide clip button</string>
@@ -308,8 +306,6 @@ Is it ready to submit?"</string>
     <string name="revanced_hide_collapse_button_summary_off">Collapse button is shown</string>
     <string name="revanced_hide_collapse_button_summary_on">Collapse button is hidden</string>
     <string name="revanced_hide_collapse_button_title">Hide collapse button</string>
-    <string name="revanced_hide_comments_component_summary">Hides the comments section or component</string>
-    <string name="revanced_hide_comments_component_title">Hide comments component</string>
     <string name="revanced_hide_comments_section_summary_off">Comment section is shown</string>
     <string name="revanced_hide_comments_section_summary_on">Comment section is hidden</string>
     <string name="revanced_hide_comments_section_title">Hide comments section</string>
@@ -441,16 +437,8 @@ Is it ready to submit?"</string>
     <string name="revanced_hide_time_stamp_title">Hide time stamp</string>
     <string name="revanced_import_settings_summary">Fetch ReVanced settings from saved file</string>
     <string name="revanced_import_settings_title">Import settings</string>
-    <string name="revanced_layout_settings_bottomplayer">Bottom player layout</string>
-    <string name="revanced_layout_settings_flyoutmenu">Flyout menu layout</string>
-    <string name="revanced_layout_settings_fullscreen">Fullscreen layout</string>
-    <string name="revanced_layout_settings_player">Player layout</string>
-    <string name="revanced_layout_settings_seekbar">Seekbar layout</string>
-    <string name="revanced_misc_settings_summary">Miscellaneous related settings</string>
-    <string name="revanced_misc_settings_title">Miscellaneous</string>
-    <string name="revanced_others_title">Others</string>
-    <string name="revanced_other_layout_settings_summary">Other layout related settings</string>
-    <string name="revanced_other_layout_settings_title">Other layout</string>
+    <string name="revanced_misc">Miscellaneous</string>
+    <string name="revanced_others">Others</string>
     <string name="revanced_overlay_button_auto_repeat_summary_off">Auto repeat button is hidden</string>
     <string name="revanced_overlay_button_auto_repeat_summary_on">Auto repeat button is shown</string>
     <string name="revanced_overlay_button_auto_repeat_title">Show auto repeat button</string>
@@ -463,8 +451,7 @@ Is it ready to submit?"</string>
     <string name="revanced_overlay_button_downloads_summary_off">Download button is hidden</string>
     <string name="revanced_overlay_button_downloads_summary_on">Download button is shown</string>
     <string name="revanced_overlay_button_downloads_title">Show download button</string>
-    <string name="revanced_overlay_button_summary">Overlay button related settings</string>
-    <string name="revanced_overlay_button_title">Overlay button</string>
+    <string name="revanced_overlay_button">Overlay button</string>
     <string name="revanced_overlay_button_speed_reset">Video speed reseted (1.0x)</string>
     <string name="revanced_overlay_button_speed_summary_off">Speed button is hidden</string>
     <string name="revanced_overlay_button_speed_summary_on">Speed button is shown</string>
@@ -477,8 +464,8 @@ Is it ready to submit?"</string>
     <string name="revanced_override_premium_header_title">Premium Header</string>
     <string name="revanced_patches_information_summary">Information about applied patches</string>
     <string name="revanced_patches_information">Patches Information</string>
-    <string name="revanced_player_flyout_panel_summary">Hides the component of the player settings flyout panel</string>
-    <string name="revanced_player_flyout_panel_title">Player flyout panel component</string>
+    <string name="revanced_player_flyout_panel_title">Player flyout panel</string>
+    <string name="revanced_player_layout">Player layout</string>
     <string name="revanced_reboot_warning_general">"As this is still an experimental feature, there may be other unknown issues.
 Are you sure you want to continue though?"</string>
     <string name="revanced_reboot_warning_oldlayout">"Tricks the YouTube client version to v17.28.35 to load the old layout
@@ -518,9 +505,9 @@ Since these setting is quite outdated, it may not be valid"</string>
     <string name="revanced_save_video_quality_wifi">Changing default Wi-Fi quality to:</string>
     <string name="revanced_save_video_quality_wifi_error">Failed to change default WI-FI quality</string>
     <string name="revanced_save_video_speed">Changing default speed to:</string>
+    <string name="revanced_seekbar_layout">Seekbar layout</string>
     <string name="revanced_sponsorblock_settings_summary">SponsorBlock related settings</string>
-    <string name="revanced_swipe_controls_summary">Swipe controls related settings</string>
-    <string name="revanced_swipe_controls_title">Swipe controls</string>
+    <string name="revanced_swipe_controls">Swipe controls</string>
     <string name="revanced_swipe_magnitude_threshold_summary">The amount of threshold for swipe to occur</string>
     <string name="revanced_swipe_magnitude_threshold_title">Swipe magnitude threshold</string>
     <string name="revanced_swipe_overlay_background_alpha_summary">The visibility of swipe overlay background</string>
@@ -536,8 +523,7 @@ Since these setting is quite outdated, it may not be valid"</string>
     <string name="revanced_video_ads_removal_summary_off">Video ads are shown</string>
     <string name="revanced_video_ads_removal_summary_on">Video ads are hidden</string>
     <string name="revanced_video_ads_removal_title">Hide video ads</string>
-    <string name="revanced_video_settings_summary">Video related settings</string>
-    <string name="revanced_video_settings_title">Video</string>
+    <string name="revanced_video">Video</string>
     <string name="revanced_whitelisting_add_failed" formatted="false">Failed to add channel %s to the %s whitelist</string>
     <string name="revanced_whitelisting_added" formatted="false">Channel %s was added to the %s whitelist</string>
     <string name="revanced_whitelisting_ads">Video Ads</string>
