@@ -10,8 +10,8 @@ object VideoQualitySettingsParentFingerprint : MethodFingerprint(
     access = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("[L", "I", "Z"),
     opcodes = listOf(
-        Opcode.IF_EQZ,
-        Opcode.IF_EQ,
+        Opcode.IF_NE,
+        Opcode.IGET,
         Opcode.IF_EQ
     ),
     strings = listOf("menu_item_video_quality")

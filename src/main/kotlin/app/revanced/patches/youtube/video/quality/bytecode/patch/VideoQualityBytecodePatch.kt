@@ -6,6 +6,7 @@ import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.removeInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
@@ -51,6 +52,7 @@ class VideoQualityBytecodePatch : BytecodePatch(
                 relayFieldReference = (it.implementation!!.instructions.elementAt(0) as ReferenceInstruction).reference as FieldReference
             } ?: return VideoQualitySettingsFingerprint.toErrorResult()
 
+            parentResult.mutableMethod.removeInstruction(parentResult.scanResult.patternScanResult!!.endIndex)
             parentResult.mutableMethod.addInstructions(
                 0, """
                         iget-object v0, p0, ${parentResult.classDef.type}->${relayFieldReference.name}:${relayFieldReference.type}
@@ -61,7 +63,7 @@ class VideoQualityBytecodePatch : BytecodePatch(
                      """
             )
 
-            LegacyVideoIdPatch.qualityOffSet = 5
+            LegacyVideoIdPatch.qualityOffSet = 4
         } ?: return VideoQualitySettingsParentFingerprint.toErrorResult()
 
         LegacyVideoIdPatch.injectCall("$INTEGRATIONS_VIDEO_QUALITY_CLASS_DESCRIPTOR->newVideoStarted(Ljava/lang/String;)V")
