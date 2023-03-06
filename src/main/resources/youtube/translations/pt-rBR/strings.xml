@@ -46,10 +46,6 @@
     <string name="microg_not_installed_notice">Por favor, instale o MicroG</string>
     <string name="microg_not_installed_warning">MicroG não foi encontrado</string>
     <string name="microg_not_running_warning">MicroG não é executado em segundo plano</string>
-    <string name="microg_notification_settings_summary">"1. O registro de dispositivo do Google e Cloud Messaging precisam estar ativados para receber notificações.
-2. ReVanced precisa ser mostrado como registrado no Cloud Messaging.
-3. O estado atual no Cloud Messaging deve estar como conectado."</string>
-    <string name="microg_notification_settings_title">Notificação</string>
     <string name="minutes">minutos</string>
     <string name="new_segment_choose_category">Escolha a categoria do segmento</string>
     <string name="new_segment_confirm_content" formatted="false">"O segmento dura de %02d:%02d até %02d:%02d (%d minutos %02d segundos)
@@ -71,8 +67,6 @@ Ele está pronto para enviar?"</string>
     <string name="new_segment_time_start_set">Início do segmento definido</string>
     <string name="new_segment_title">Novo segmento SponsorBlock</string>
     <string name="reset">Redefinir</string>
-    <string name="revanced_ads_settings_summary">Configurações relacionadas a anúncios</string>
-    <string name="revanced_ads_settings_title">Anúncios</string>
     <string name="revanced_adremover_album_card_in_search_summary_off">Cards de álbum serão mostrados nos resultados de pesquisa</string>
     <string name="revanced_adremover_album_card_in_search_summary_on">Cards de álbum estão ocultos nos resultados de pesquisa</string>
     <string name="revanced_adremover_album_card_in_search_title">Ocultar cards de álbuns</string>
@@ -156,7 +150,7 @@ Ele está pronto para enviar?"</string>
     <string name="revanced_adremover_web_search_panel_summary_off">Painéis de pesquisa da web serão mostrados</string>
     <string name="revanced_adremover_web_search_panel_summary_on">Painéis de pesquisa da web estão ocultos</string>
     <string name="revanced_adremover_web_search_panel_title">Ocultar painéis de pesquisa da web</string>
-    <string name="revanced_backup_settings_summary">Importar configurações do ReVanced de um arquivo ou exportar configurações do ReVanced para um arquivo</string>
+    <string name="revanced_copytimestamp_success">Tempo copiado para a área de transferência</string>
     <string name="revanced_custom_seekbar_color_value_summary">Digite o código hexadecimal da cor da barra de progresso para usar no modo escuro</string>
     <string name="revanced_custom_seekbar_color_value_title">Valor de cor personalizado da barra de progresso</string>
     <string name="revanced_default_video_quality_mobile_title">Qualidade de vídeo padrão nos dados móveis</string>
@@ -178,12 +172,9 @@ Ele está pronto para enviar?"</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">O feedback tátil de capítulos está ativado</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">O feedback tátil de capítulos está desativado</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">Desativar feedback tátil de capítulos</string>
-    <string name="revanced_disable_haptic_feedback_summary">Desativar feedback tátil ao pressionar</string>
-    <string name="revanced_disable_haptic_feedback_title">Desativar feedback tátil</string>
     <string name="revanced_disable_haptic_feedback_zoom_summary_off">O feedback tátil de zoom está ativado</string>
     <string name="revanced_disable_haptic_feedback_zoom_summary_on">O feedback tátil de zoom está desativado</string>
     <string name="revanced_disable_haptic_feedback_zoom_title">Desativar feedback tátil de zoom</string>
-    <string name="revanced_copytimestamp_success">Tempo copiado para a área de transferência</string>
     <string name="revanced_enable_always_auto_repeat_summary_off">Sempre repetir automaticamente está desativado</string>
     <string name="revanced_enable_always_auto_repeat_summary_on">Sempre repetir automaticamente está ativado</string>
     <string name="revanced_enable_always_auto_repeat_title">Sempre repetir automaticamente</string>
@@ -254,9 +245,7 @@ Ele está pronto para enviar?"</string>
     <string name="revanced_export_settings_summary">Salve suas configurações ReVanced em um arquivo</string>
     <string name="revanced_export_settings_title">Exportar configurações</string>
     <string name="revanced_extended_support_center_summary">Relate problemas ou deixe sugestões aqui</string>
-    <string name="revanced_extended_support_center_title">Central de Ajuda</string>
-    <string name="revanced_general_layout_settings_summary">Configurações relacionadas ao layout geral</string>
-    <string name="revanced_general_layout_settings_title">Layout geral</string>
+    <string name="revanced_extended_support_center_title">Central de ajuda</string>
     <string name="revanced_hide_auto_captions_summary_off">As legendas são ativadas quando um vídeo com legendas é reproduzido</string>
     <string name="revanced_hide_auto_captions_summary_on">"As legendas não são ativadas quando um vídeo com legendas é reproduzido"</string>
     <string name="revanced_hide_auto_captions_title">Ocultar legendas automáticas</string>
@@ -266,8 +255,6 @@ Ele está pronto para enviar?"</string>
     <string name="revanced_hide_autoplay_button_summary_off">O botão de reprodução automática será mostrado</string>
     <string name="revanced_hide_autoplay_button_summary_on">O botão de reprodução automática está oculto</string>
     <string name="revanced_hide_autoplay_button_title">Ocultar botão de reprodução automática</string>
-    <string name="revanced_hide_button_container_summary">Oculta o componente do contêiner de botão</string>
-    <string name="revanced_hide_button_container_title">Ocultar componentes do contêiner de botão</string>
     <string name="revanced_hide_button_create_clip_summary_off">O botão de clipe será mostrado</string>
     <string name="revanced_hide_button_create_clip_summary_on">O botão de clipe está oculto</string>
     <string name="revanced_hide_button_create_clip_title">Ocultar botão de clipe</string>
@@ -310,8 +297,6 @@ Ele está pronto para enviar?"</string>
     <string name="revanced_hide_collapse_button_summary_off">O botão minimizar será exibido</string>
     <string name="revanced_hide_collapse_button_summary_on">O botão minimizar está oculto</string>
     <string name="revanced_hide_collapse_button_title">Ocultar botão minimizar</string>
-    <string name="revanced_hide_comments_component_summary">Oculta a seção ou componente de comentários</string>
-    <string name="revanced_hide_comments_component_title">Ocultar componente de comentários</string>
     <string name="revanced_hide_comments_section_summary_off">A seção de comentários será mostrada</string>
     <string name="revanced_hide_comments_section_summary_on">A seção de comentários está oculta</string>
     <string name="revanced_hide_comments_section_title">Ocultar seção de comentários</string>
@@ -443,16 +428,6 @@ Ele está pronto para enviar?"</string>
     <string name="revanced_hide_time_stamp_title">Ocultar marcação de tempo</string>
     <string name="revanced_import_settings_summary">Obter configurações ReVanced de um arquivo salvo</string>
     <string name="revanced_import_settings_title">Importar configurações</string>
-    <string name="revanced_layout_settings_bottomplayer">Layout do reprodutor inferior</string>
-    <string name="revanced_layout_settings_flyoutmenu">Layout do menu suspenso</string>
-    <string name="revanced_layout_settings_fullscreen">Layout de tela cheia</string>
-    <string name="revanced_layout_settings_player">Layout do reprodutor</string>
-    <string name="revanced_layout_settings_seekbar">Layout da barra de progresso</string>
-    <string name="revanced_misc_settings_summary">Configurações diversas</string>
-    <string name="revanced_misc_settings_title">Diversos</string>
-    <string name="revanced_others_title">Outros</string>
-    <string name="revanced_other_layout_settings_summary">Outras configurações relacionadas ao layout</string>
-    <string name="revanced_other_layout_settings_title">Outros layouts</string>
     <string name="revanced_overlay_button_auto_repeat_summary_off">O botão de repetição automática está oculto</string>
     <string name="revanced_overlay_button_auto_repeat_summary_on">O botão de repetição automática será mostrado</string>
     <string name="revanced_overlay_button_auto_repeat_title">Exibir botão de repetição automática</string>
@@ -465,8 +440,6 @@ Ele está pronto para enviar?"</string>
     <string name="revanced_overlay_button_downloads_summary_off">O botão de download está oculto</string>
     <string name="revanced_overlay_button_downloads_summary_on">O botão de download será mostrado</string>
     <string name="revanced_overlay_button_downloads_title">Exibir botão de download</string>
-    <string name="revanced_overlay_button_summary">Configurações relacionadas ao botão de sobreposição</string>
-    <string name="revanced_overlay_button_title">Botão de sobreposição</string>
     <string name="revanced_overlay_button_speed_reset">Velocidade do vídeo redefinida (1.0x)</string>
     <string name="revanced_overlay_button_speed_summary_off">O botão de velocidade está oculto</string>
     <string name="revanced_overlay_button_speed_summary_on">O botão de velocidade será mostrado</string>
@@ -479,8 +452,6 @@ Ele está pronto para enviar?"</string>
     <string name="revanced_override_premium_header_title">Cabeçalho Premium</string>
     <string name="revanced_patches_information_summary">Informações sobre as modificações aplicadas</string>
     <string name="revanced_patches_information">Informações sobre as modificações</string>
-    <string name="revanced_player_flyout_panel_summary">Oculta o componente do painel suspenso de configurações do reprodutor</string>
-    <string name="revanced_player_flyout_panel_title">Componente do painel suspenso do reprodutor</string>
     <string name="revanced_reboot_warning_general">"Como essa é uma funcionalidade ainda experimental, pode haver outros problemas desconhecidos.
 Você tem certeza de que deseja continuar mesmo assim?"</string>
     <string name="revanced_reboot_warning_oldlayout">"Engana a versão do cliente do YouTube para v17.28.35 para carregar o layout antigo
@@ -491,6 +462,8 @@ Nas configurações do aplicativo, a versão do YouTube pode estar marcada como 
 Se você habilitar essa configuração, os seguintes recursos estarão disponíveis:
 - Publicações da comunidade
 - Ocultar playlist mix"</string>
+    <string name="revanced_reboot_warning_switch">"Se você ativar esta configuração, os seguintes recursos não estarão disponíveis:
+- Modo ambiente"</string>
     <string name="revanced_reboot_warning_tablet">"Engana o dpi para alterar alguns layouts para layouts de tablet.
 
 Se você habilitar essa configuração, os seguintes recursos não estarão disponíveis:
@@ -519,8 +492,6 @@ Como essas configurações estão bastante desatualizadas, podem não ser válid
     <string name="revanced_save_video_quality_wifi_error">Falha ao alterar a qualidade WI-FI padrão</string>
     <string name="revanced_save_video_speed">Alterada a velocidade padrão para:</string>
     <string name="revanced_sponsorblock_settings_summary">Configurações relacionadas ao SponsorBlock</string>
-    <string name="revanced_swipe_controls_summary">Configurações relacionadas aos controles por gestos</string>
-    <string name="revanced_swipe_controls_title">Controles por gestos</string>
     <string name="revanced_swipe_magnitude_threshold_summary">A distância a ser percorrida pelo gesto de deslizar</string>
     <string name="revanced_swipe_magnitude_threshold_title">Aderência do gesto de deslizar</string>
     <string name="revanced_swipe_overlay_background_alpha_summary">A visibilidade do fundo da sobreposição de gestos</string>
@@ -529,12 +500,13 @@ Como essas configurações estão bastante desatualizadas, podem não ser válid
     <string name="revanced_swipe_overlay_text_size_title">Tamanho do texto da sobreposição de gestos</string>
     <string name="revanced_swipe_overlay_timeout_summary">A quantidade de milissegundos em que a sobreposição é visível</string>
     <string name="revanced_swipe_overlay_timeout_title">Tempo limite da sobreposição de gestos</string>
+    <string name="revanced_switching_create_notification_summary_off">O botão de criar e o botão de notificação não serão alternados</string>
+    <string name="revanced_switching_create_notification_summary_on">O botão de criar e o botão de notificação estão alternados</string>
+    <string name="revanced_switching_create_notification_title">Mudar o botão de criar e o botão de notificação</string>
     <string name="revanced_tool_used">ferramenta usada</string>
     <string name="revanced_video_ads_removal_summary_off">Anúncios de vídeo serão mostrados</string>
     <string name="revanced_video_ads_removal_summary_on">Anúncios de vídeo estão ocultos</string>
     <string name="revanced_video_ads_removal_title">Ocultar anúncios de vídeo</string>
-    <string name="revanced_video_settings_summary">Configurações relacionadas a vídeo</string>
-    <string name="revanced_video_settings_title">Vídeo</string>
     <string name="revanced_whitelisting_add_failed" formatted="false">Falha ao adicionar o canal %s na %s lista branca</string>
     <string name="revanced_whitelisting_added" formatted="false">O canal %s foi adicionado na %s lista branca</string>
     <string name="revanced_whitelisting_ads">Anúncios de vídeo</string>

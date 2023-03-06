@@ -46,10 +46,6 @@
     <string name="microg_not_installed_notice">请安装 MicroG</string>
     <string name="microg_not_installed_warning">未找到 MicroG</string>
     <string name="microg_not_running_warning">MicroG 未在后台运行</string>
-    <string name="microg_notification_settings_summary">"1. Google 设备注册和云端推送（GCM）需要被打开以接收通知。
-2. ReVanced 需要在 GCM 下显示已注册。
-3. GCM 的目前状态应为已连接。"</string>
-    <string name="microg_notification_settings_title">通知</string>
     <string name="minutes">分</string>
     <string name="new_segment_choose_category">选择片段类别</string>
     <string name="new_segment_confirm_content" formatted="false">"片段从 %02d:%02d 到 %02d:%02d（%d 分 %02d 秒）
@@ -71,8 +67,6 @@
     <string name="new_segment_time_start_set">设定片段的开始</string>
     <string name="new_segment_title">新的 SponsorBlock 片段</string>
     <string name="reset">重置</string>
-    <string name="revanced_ads_settings_summary">广告相关设置</string>
-    <string name="revanced_ads_settings_title">广告</string>
     <string name="revanced_adremover_album_card_in_search_summary_off">搜索结果中的专辑卡片已显示</string>
     <string name="revanced_adremover_album_card_in_search_summary_on">搜索结果中的专辑卡片已隐藏</string>
     <string name="revanced_adremover_album_card_in_search_title">专辑卡片</string>
@@ -156,7 +150,7 @@
     <string name="revanced_adremover_web_search_panel_summary_off">网页搜索面板已显示</string>
     <string name="revanced_adremover_web_search_panel_summary_on">网页搜索面板已隐藏</string>
     <string name="revanced_adremover_web_search_panel_title">网页搜索面板</string>
-    <string name="revanced_backup_settings_summary">导入/导出 ReVanced 配置文件</string>
+    <string name="revanced_copytimestamp_success">时间戳已复制到剪贴板</string>
     <string name="revanced_custom_seekbar_color_value_summary">输入颜色代码以更改在暗色模式下的进度条颜色</string>
     <string name="revanced_custom_seekbar_color_value_title">自定义进度条颜色</string>
     <string name="revanced_default_video_quality_mobile_title">移动网络上的默认视频画质</string>
@@ -178,12 +172,9 @@
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">章节触感反馈已启用</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">章节触感反馈已禁用</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">章节触感反馈</string>
-    <string name="revanced_disable_haptic_feedback_summary">禁用长按触感反馈</string>
-    <string name="revanced_disable_haptic_feedback_title">触感反馈</string>
     <string name="revanced_disable_haptic_feedback_zoom_summary_off">缩放触感反馈已启用</string>
     <string name="revanced_disable_haptic_feedback_zoom_summary_on">缩放触感反馈已禁用</string>
     <string name="revanced_disable_haptic_feedback_zoom_title">缩放触感反馈</string>
-    <string name="revanced_copytimestamp_success">时间戳已复制到剪贴板</string>
     <string name="revanced_enable_always_auto_repeat_summary_off">始终自动循环播放已禁用</string>
     <string name="revanced_enable_always_auto_repeat_summary_on">始终自动循环播放已启用</string>
     <string name="revanced_enable_always_auto_repeat_title">始终自动循环播放</string>
@@ -253,9 +244,8 @@
     <string name="revanced_experimental_flag">实验性功能</string>
     <string name="revanced_export_settings_summary">保存 ReVanced 配置文件</string>
     <string name="revanced_export_settings_title">导出配置</string>
+    <string name="revanced_extended_support_center_summary">反馈问题或留下建议</string>
     <string name="revanced_extended_support_center_title">帮助中心</string>
-    <string name="revanced_general_layout_settings_summary">一般布局相关设置</string>
-    <string name="revanced_general_layout_settings_title">一般布局</string>
     <string name="revanced_hide_auto_captions_summary_off">强制播放有字幕的视频时启用字幕</string>
     <string name="revanced_hide_auto_captions_summary_on">"强制播放有字幕的视频时禁用字幕"</string>
     <string name="revanced_hide_auto_captions_title">自动字幕</string>
@@ -265,8 +255,6 @@
     <string name="revanced_hide_autoplay_button_summary_off">自动播放按钮已显示</string>
     <string name="revanced_hide_autoplay_button_summary_on">自动播放按钮已隐藏</string>
     <string name="revanced_hide_autoplay_button_title">自动播放按钮</string>
-    <string name="revanced_hide_button_container_summary">隐藏按钮栏的组件</string>
-    <string name="revanced_hide_button_container_title">按钮栏组件</string>
     <string name="revanced_hide_button_create_clip_summary_off">剪辑按钮已显示</string>
     <string name="revanced_hide_button_create_clip_summary_on">剪辑按钮已隐藏</string>
     <string name="revanced_hide_button_create_clip_title">剪辑按钮</string>
@@ -309,8 +297,6 @@
     <string name="revanced_hide_collapse_button_summary_off">最小化按钮已显示</string>
     <string name="revanced_hide_collapse_button_summary_on">最小化按钮已隐藏</string>
     <string name="revanced_hide_collapse_button_title">最小化按钮</string>
-    <string name="revanced_hide_comments_component_summary">隐藏评论部分或组件</string>
-    <string name="revanced_hide_comments_component_title">评论组件</string>
     <string name="revanced_hide_comments_section_summary_off">评论部分已显示</string>
     <string name="revanced_hide_comments_section_summary_on">评论部分已隐藏</string>
     <string name="revanced_hide_comments_section_title">评论部分</string>
@@ -442,16 +428,6 @@
     <string name="revanced_hide_time_stamp_title">时间戳</string>
     <string name="revanced_import_settings_summary">从保存的文件恢复 ReVanced 配置</string>
     <string name="revanced_import_settings_title">导入配置</string>
-    <string name="revanced_layout_settings_bottomplayer">播放器下方布局</string>
-    <string name="revanced_layout_settings_flyoutmenu">弹出菜单布局</string>
-    <string name="revanced_layout_settings_fullscreen">全屏布局</string>
-    <string name="revanced_layout_settings_player">播放器布局</string>
-    <string name="revanced_layout_settings_seekbar">进度条布局</string>
-    <string name="revanced_misc_settings_summary">其他相关设置</string>
-    <string name="revanced_misc_settings_title">杂项</string>
-    <string name="revanced_others_title">其他</string>
-    <string name="revanced_other_layout_settings_summary">其他布局相关设置</string>
-    <string name="revanced_other_layout_settings_title">其他布局</string>
     <string name="revanced_overlay_button_auto_repeat_summary_off">自动循环播放按钮已隐藏</string>
     <string name="revanced_overlay_button_auto_repeat_summary_on">自动循环播放按钮已显示</string>
     <string name="revanced_overlay_button_auto_repeat_title">自动循环播放按钮</string>
@@ -464,8 +440,6 @@
     <string name="revanced_overlay_button_downloads_summary_off">下载按钮已隐藏</string>
     <string name="revanced_overlay_button_downloads_summary_on">下载按钮已显示</string>
     <string name="revanced_overlay_button_downloads_title">下载按钮</string>
-    <string name="revanced_overlay_button_summary">叠加层按钮相关设置</string>
-    <string name="revanced_overlay_button_title">叠加层按钮</string>
     <string name="revanced_overlay_button_speed_reset">重置视频倍速（1.0x）</string>
     <string name="revanced_overlay_button_speed_summary_off">倍速按钮已隐藏</string>
     <string name="revanced_overlay_button_speed_summary_on">倍速按钮已显示</string>
@@ -478,8 +452,6 @@
     <string name="revanced_override_premium_header_title">Premium 标志</string>
     <string name="revanced_patches_information_summary">已应用补丁信息</string>
     <string name="revanced_patches_information">补丁信息</string>
-    <string name="revanced_player_flyout_panel_summary">隐藏播放器弹出设置面板的项目</string>
-    <string name="revanced_player_flyout_panel_title">播放器弹出设置面板项目</string>
     <string name="revanced_reboot_warning_general">"由于这仍然是一个实验性功能，可能还有其他未知问题。
 您确定要继续吗？"</string>
     <string name="revanced_reboot_warning_oldlayout">"伪装 YouTube 客户端版本为 v17.28.35 以载入旧布局
@@ -490,6 +462,8 @@
 如果启用该设置，可以使用以下功能：
 - 社区帖子
 - 隐藏合辑播放列表"</string>
+    <string name="revanced_reboot_warning_switch">"如果启用该项，以下功能不可用：
+- 氛围模式"</string>
     <string name="revanced_reboot_warning_tablet">"伪装 DPI 将一些布局改为平板样式。
 
 如果启用该设置，以下功能不可用：
@@ -518,8 +492,6 @@
     <string name="revanced_save_video_quality_wifi_error">无法更改 WiFi 默认画质</string>
     <string name="revanced_save_video_speed">更改默认倍速为：</string>
     <string name="revanced_sponsorblock_settings_summary">SponsorBlock 相关设置</string>
-    <string name="revanced_swipe_controls_summary">滑动控制相关设置</string>
-    <string name="revanced_swipe_controls_title">滑动控制</string>
     <string name="revanced_swipe_magnitude_threshold_summary">防误触的滑动幅度阈值</string>
     <string name="revanced_swipe_magnitude_threshold_title">滑动幅度阈值</string>
     <string name="revanced_swipe_overlay_background_alpha_summary">滑动叠加层背景透明度</string>
@@ -528,12 +500,13 @@
     <string name="revanced_swipe_overlay_text_size_title">滑动叠加层上的文本大小</string>
     <string name="revanced_swipe_overlay_timeout_summary">滑动叠加层显示的时长（毫秒）</string>
     <string name="revanced_swipe_overlay_timeout_title">滑动叠加层时长</string>
+    <string name="revanced_switching_create_notification_summary_off">创建按钮和通知按钮未切换</string>
+    <string name="revanced_switching_create_notification_summary_on">创建按钮和通知按钮已切换</string>
+    <string name="revanced_switching_create_notification_title">切换创建按钮和通知按钮</string>
     <string name="revanced_tool_used">使用的工具</string>
     <string name="revanced_video_ads_removal_summary_off">视频广告已显示</string>
     <string name="revanced_video_ads_removal_summary_on">视频广告已隐藏</string>
     <string name="revanced_video_ads_removal_title">视频广告</string>
-    <string name="revanced_video_settings_summary">视频相关设置</string>
-    <string name="revanced_video_settings_title">视频</string>
     <string name="revanced_whitelisting_add_failed" formatted="false">无法将频道 %s 添加到 %s 白名单</string>
     <string name="revanced_whitelisting_added" formatted="false">频道 %s 已添加到 %s 白名单</string>
     <string name="revanced_whitelisting_ads">视频广告</string>

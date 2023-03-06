@@ -46,9 +46,6 @@
     <string name="microg_not_installed_notice">Bitte MicroG installieren</string>
     <string name="microg_not_installed_warning">MicroG wurde nicht gefunden</string>
     <string name="microg_not_running_warning">MicroG läuft nicht im Hintergrund</string>
-    <string name="microg_notification_settings_summary">"1. Registrierung von Google-Geräten und Google Cloud Messaging müssen aktiviert sein, damit Benachrichtigungen funktionieren.
-2. ReVanced muss unter Cloud Messaging als registriert angezeigt werden.
-3. Der aktuelle Google Cloud Messaging-Status darf nicht getrennt sein."</string>
     <string name="minutes">Minuten</string>
     <string name="new_segment_choose_category">Wähle eine Segment-Kategorie aus</string>
     <string name="new_segment_confirm_content" formatted="false">"Der Abschnitt dauert von %02d:%02d bis %02d:%02d (%d Minuten und %02d Sekunden).
@@ -70,7 +67,6 @@ Ist es fertig zum Einreichen?"</string>
     <string name="new_segment_time_start_set">Beginn des Abschnitts gesetzt</string>
     <string name="new_segment_title">Neuer SponsorBlock-Abschnitt</string>
     <string name="reset">Zurücksetzen</string>
-    <string name="revanced_ads_settings_summary">Werbebezogene Einstellungen</string>
     <string name="revanced_adremover_album_card_in_search_summary_off">Albumkarten werden aus den Suchergebnissen angezeigt</string>
     <string name="revanced_adremover_album_card_in_search_summary_on">Albumkarten werden nicht aus den Suchergebnissen gezeigt</string>
     <string name="revanced_adremover_album_card_in_search_title">Verstecke Albumkarten</string>
@@ -92,6 +88,12 @@ Ist es fertig zum Einreichen?"</string>
     <string name="revanced_adremover_channelbar_join_button_summary_off">Channelbar Join-Schaltfläche wird angezeigt</string>
     <string name="revanced_adremover_channelbar_join_button_summary_on">Channelbar-Beitrittsschaltfläche ist ausgeblendet</string>
     <string name="revanced_adremover_channelbar_join_button_title">Channelbar-Beitrittsschaltfläche ausblenden</string>
+    <string name="revanced_adremover_community_posts_subscriptions_summary_off">Community-Beiträge im Abonnement-Feed werden angezeigt</string>
+    <string name="revanced_adremover_community_posts_subscriptions_summary_on">Community-Beiträge im Abonnement-Feed ausblenden</string>
+    <string name="revanced_adremover_community_posts_subscriptions_title">Community-Beiträge im Abonnement-Feed ausblenden</string>
+    <string name="revanced_adremover_community_posts_home_summary_off">Community-Beiträge im Home Feed werden angezeigt</string>
+    <string name="revanced_adremover_community_posts_home_summary_on">Community-Beiträge im Home-Feed ausblenden</string>
+    <string name="revanced_adremover_community_posts_home_title">Community-Beiträge im Home Feed ausblenden</string>
     <string name="revanced_adremover_custom_filter_summary">Filtere Komponenten nach ihrem Namen getrennt durch Komma</string>
     <string name="revanced_adremover_custom_filter_title">Individuelle Filter</string>
     <string name="revanced_adremover_general_ads_summary_off">Allgemeine Werbung wird angezeigt</string>
@@ -133,6 +135,9 @@ Ist es fertig zum Einreichen?"</string>
     <string name="revanced_adremover_suggestions_summary_off">Vorschläge werden angezeigt</string>
     <string name="revanced_adremover_suggestions_summary_on">Vorschläge sind versteckt</string>
     <string name="revanced_adremover_suggestions_title">Entferne allgemeine Vorschläge</string>
+    <string name="revanced_adremover_teaser_summary_off">Teaser werden angezeigt</string>
+    <string name="revanced_adremover_teaser_summary_on">Teaser sind ausgeblendet</string>
+    <string name="revanced_adremover_teaser_title">Teaser unter Videos ausblenden</string>
     <string name="revanced_adremover_timed_reactions_summary_off">Zeitgesteuerte Reaktionen werden angezeigt</string>
     <string name="revanced_adremover_timed_reactions_summary_on">Zeitgesteuerte Reaktionen sind versteckt</string>
     <string name="revanced_adremover_timed_reactions_title">Reaktionen verbergen</string>
@@ -141,14 +146,18 @@ Ist es fertig zum Einreichen?"</string>
     <string name="revanced_adremover_user_filter_title">Bildschirmfilter aktivieren</string>
     <string name="revanced_adremover_view_products_summary_off">Produkt-Banner anzeigen</string>
     <string name="revanced_adremover_view_products_summary_on">Produkt-Banner anzeigen ist ausgeblendet</string>
+    <string name="revanced_adremover_view_products_title">Werbebanner ausblenden (im Player)</string>
     <string name="revanced_adremover_web_search_panel_summary_off">Websuchfenster werden angezeigt</string>
     <string name="revanced_adremover_web_search_panel_summary_on">Websuche-Panels sind versteckt</string>
     <string name="revanced_adremover_web_search_panel_title">Web-Suchfenster ausblenden</string>
+    <string name="revanced_copytimestamp_success">Zeitstempel in Zwischenablage kopiert</string>
     <string name="revanced_custom_seekbar_color_value_summary">Gebe den Hex-Code der Suchleistenfarbe ein, die im Dunkelmodus verwendet werden soll</string>
     <string name="revanced_custom_seekbar_color_value_title">Benutzerdefinierter Farbwert für die Suchleiste</string>
     <string name="revanced_default_video_quality_mobile_title">Standard Videoqualität im Mobilfunk</string>
     <string name="revanced_default_video_quality_wifi_title">Standard-Videoqualität im Wlan</string>
     <string name="revanced_default_video_speed_title">Standard-Videogeschwindigkeit</string>
+    <string name="revanced_double_back_timeout_summary">Die Anzahl an Sekunden, in der doppelt gedrückt werden muss, um zu beenden</string>
+    <string name="revanced_double_back_timeout_title">Zeitbegrenzung für \'Doppelt Antippen\'</string>
     <string name="revanced_downloader_not_installed">ist nicht installiert. Bitte installieren.</string>
     <string name="revanced_downloader_package_name_summary">"Paketname der Downloader-App wie NewPipe's oder PowerTube's"</string>
     <string name="revanced_downloader_package_name_title">Paketname des Downloaders</string>
@@ -163,12 +172,9 @@ Ist es fertig zum Einreichen?"</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">Haptisches Kapitel-Feedback ist aktiviert</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">Haptisches Kapitel-Feedback ist deaktiviert</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">Deaktiviere Haptisches Feedback bei Kapiteln</string>
-    <string name="revanced_disable_haptic_feedback_summary">Haptisches Feedback beim langen Drücken deaktivieren</string>
-    <string name="revanced_disable_haptic_feedback_title">Deaktiviere haptisches Feedback</string>
     <string name="revanced_disable_haptic_feedback_zoom_summary_off">Haptisches Feedback beim Zoomen ist aktiviert</string>
     <string name="revanced_disable_haptic_feedback_zoom_summary_on">Haptisches Feedback beim Zoomen ist deaktiviert</string>
     <string name="revanced_disable_haptic_feedback_zoom_title">Deaktiviere Haptisches Feedback beim Zoomen</string>
-    <string name="revanced_copytimestamp_success">Zeitstempel in Zwischenablage kopiert</string>
     <string name="revanced_enable_always_auto_repeat_summary_off">Stätige automatische Wiederholung ist deaktiviert</string>
     <string name="revanced_enable_always_auto_repeat_summary_on">Stätige automatische Wiederholung ist aktiviert</string>
     <string name="revanced_enable_always_auto_repeat_title">Stätige Auto-Wiederholung</string>
@@ -190,6 +196,8 @@ Ist es fertig zum Einreichen?"</string>
     <string name="revanced_enable_old_quality_layout_summary_off">Neue Stilqualitätseinstellungen werden angezeigt</string>
     <string name="revanced_enable_old_quality_layout_summary_on">Alter Stil für Qualitätseinstellungen wird angezeigt</string>
     <string name="revanced_enable_old_quality_layout_title">Aktiviere alten Stil der Qualitätseinstellungen</string>
+    <string name="revanced_enable_open_links_directly_summary_off">Standard-Umleitungsrichtlinie folgen</string>
+    <string name="revanced_enable_open_links_directly_summary_on">Umgehung von URL-Umleitungen</string>
     <string name="revanced_enable_open_links_directly_title">Links direkt öffnen</string>
     <string name="revanced_enable_press_to_swipe_summary_off">Drücken zum Wischen ist deaktiviert</string>
     <string name="revanced_enable_press_to_swipe_summary_on">Drücken zum Wischen ist aktiviert</string>
@@ -203,6 +211,9 @@ Ist es fertig zum Einreichen?"</string>
     <string name="revanced_enable_save_video_quality_summary_off">Speichert die Werte für die Videoqualität nicht, selbst wenn die Videoqualität geändert wird</string>
     <string name="revanced_enable_save_video_quality_summary_on">Speichere den Wert der Videoqualität, wenn du die Videoqualität änderst</string>
     <string name="revanced_enable_save_video_quality_title">Aktiviere Videoqualität speichern</string>
+    <string name="revanced_enable_save_video_speed_summary_off">Speichert keine Videogeschwindigkeit, selbst wenn die Videogeschwindigkeit geändert wird</string>
+    <string name="revanced_enable_save_video_speed_summary_on">Videogeschwindigkeit speichern, wenn Sie die Videogeschwindigkeit ändern</string>
+    <string name="revanced_enable_save_video_speed_title">Aktivieren von \"Videogeschwindigkeit speichern\"</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">Tippen der Suchleiste ist aktiviert</string>
     <string name="revanced_enable_seekbar_tapping_title">Aktiviere Suchleisten-Tippen (Video Fortschrittsbalken)</string>
     <string name="revanced_enable_swipe_auto_brightness_summary_off">Auch wenn die Helligkeit durch Wischen auf 0 gesetzt wird, ist die automatische Helligkeit nicht aktiviert</string>
@@ -231,6 +242,10 @@ Ist es fertig zum Einreichen?"</string>
     <string name="revanced_enable_vp9_codec_summary">Spoof-Geräteinformationen zum Aktivieren des VP9-Codecs</string>
     <string name="revanced_enable_vp9_codec_title">Aktiviere VP9 Codec</string>
     <string name="revanced_experimental_flag">Experimentelle Fahnen</string>
+    <string name="revanced_export_settings_summary">Speichern Sie Ihre ReVanced Einstellungen in eine Datei</string>
+    <string name="revanced_export_settings_title">Einstellungen exportieren</string>
+    <string name="revanced_extended_support_center_summary">Probleme melden oder hier Vorschläge hinterlassen</string>
+    <string name="revanced_extended_support_center_title">Hilfecenter</string>
     <string name="revanced_hide_auto_captions_summary_off">Untertitel werden aktiviert, wenn die Wiedergabe eines Videos mit Untertiteln erzwungen wird</string>
     <string name="revanced_hide_auto_captions_summary_on">"Untertitel werden nicht aktiviert, wenn die Wiedergabe eines Videos mit Untertiteln erzwungen wird"</string>
     <string name="revanced_hide_auto_captions_title">Verstecke automatische Untertitel</string>
@@ -240,8 +255,6 @@ Ist es fertig zum Einreichen?"</string>
     <string name="revanced_hide_autoplay_button_summary_off">Autoplay-Schaltfläche wird angezeigt</string>
     <string name="revanced_hide_autoplay_button_summary_on">Autoplay-Schaltfläche ist versteckt</string>
     <string name="revanced_hide_autoplay_button_title">Verstecke Autoplay-Schaltfläche</string>
-    <string name="revanced_hide_button_container_summary">Verbirgt Elemente des Button-Containers</string>
-    <string name="revanced_hide_button_container_title">Verstecke Schaltfläche der Unteren Menüs im Vollbild</string>
     <string name="revanced_hide_button_create_clip_summary_off">Der Clip-Button wird angezeigt</string>
     <string name="revanced_hide_button_create_clip_summary_on">Der Clip-Button ist versteckt</string>
     <string name="revanced_hide_button_create_clip_title">Verstecke Clip-Taste</string>
@@ -281,8 +294,9 @@ Ist es fertig zum Einreichen?"</string>
     <string name="revanced_hide_channel_watermark_summary_off">Kanal-Wasserzeichen werden angezeigt</string>
     <string name="revanced_hide_channel_watermark_summary_on">Kanal-Wasserzeichen sind versteckt</string>
     <string name="revanced_hide_channel_watermark_title">Verstecke Kanal-Wasserzeichen</string>
-    <string name="revanced_hide_comments_component_summary">Versteckt den Kommentarbereich oder die Elemente</string>
-    <string name="revanced_hide_comments_component_title">Verstecke die Kommentar Elemente</string>
+    <string name="revanced_hide_collapse_button_summary_off">Die Schaltfläche „Reduzieren“ wird angezeigt</string>
+    <string name="revanced_hide_collapse_button_summary_on">Die Schaltfläche „Reduzieren“ ist ausgeblendet</string>
+    <string name="revanced_hide_collapse_button_title">Die Schaltfläche „Reduzieren“ ausblenden</string>
     <string name="revanced_hide_comments_section_summary_off">Kommentarbereich wird angezeigt</string>
     <string name="revanced_hide_comments_section_summary_on">Kommentar-Bereich ist versteckt</string>
     <string name="revanced_hide_comments_section_title">Verstecke den Kommentarbereich</string>
@@ -304,6 +318,12 @@ Ist es fertig zum Einreichen?"</string>
     <string name="revanced_hide_filmstrip_overlay_summary_off">Filmstreifen-Overlay wird angezeigt</string>
     <string name="revanced_hide_filmstrip_overlay_summary_on">Filmstreifen-Overlay ist versteckt</string>
     <string name="revanced_hide_filmstrip_overlay_title">Verstecke Filmstreifen-Overlay</string>
+    <string name="revanced_hide_floating_microphone_summary_off">Die schwebende Schaltfläche „Mikrofon“ wird angezeigt</string>
+    <string name="revanced_hide_floating_microphone_summary_on">Die schwebende Schaltfläche „Mikrofon“ ist ausgeblendet</string>
+    <string name="revanced_hide_floating_microphone_title">Die schwebende Schaltfläche „Mikrofon“ ausblenden</string>
+    <string name="revanced_hide_fullscreen_button_container_summary_off">Die Schaltfläche \"Vollbild\" wird angezeigt</string>
+    <string name="revanced_hide_fullscreen_button_container_summary_on">Die Schaltfläche \"Vollbild\" wird ausgeblendet</string>
+    <string name="revanced_hide_fullscreen_button_container_title">Die Schaltfläche \"Vollbild\" ausblenden</string>
     <string name="revanced_hide_fullscreen_panels_summary_off">Vollbild-Panels werden angezeigt</string>
     <string name="revanced_hide_fullscreen_panels_summary_on">Vollbildfenster sind ausgeblendet</string>
     <string name="revanced_hide_fullscreen_panels_title">Vollbild-Panels ausblenden</string>
@@ -337,6 +357,9 @@ Ist es fertig zum Einreichen?"</string>
     <string name="revanced_hide_menu_report_summary_off">Schaltfläche \"Bericht\" wird angezeigt</string>
     <string name="revanced_hide_menu_report_summary_on">Schaltfläche \"Bericht\" ist versteckt</string>
     <string name="revanced_hide_menu_report_title">Verstecke Berichte</string>
+    <string name="revanced_hide_menu_speed_summary_off">Das Menü \"Wiedergabegeschwindigkeit\" wird angezeigt</string>
+    <string name="revanced_hide_menu_speed_summary_on">Das Menü \"Wiedergabegeschwindigkeit\" ist ausgeblendet</string>
+    <string name="revanced_hide_menu_speed_title">Das Menü \"Wiedergabegeschwindigkeit\" ausblenden</string>
     <string name="revanced_hide_menu_stats_for_nerds_summary_off">Statistiken für Nerds werden angezeigt</string>
     <string name="revanced_hide_menu_stats_for_nerds_summary_on">Statistiken für Nerds sind versteckt</string>
     <string name="revanced_hide_menu_stats_for_nerds_title">Verstecke Statistiken Nerds</string>
@@ -349,6 +372,9 @@ Ist es fertig zum Einreichen?"</string>
     <string name="revanced_hide_next_button_summary_off">Nächste Schaltfläche wird angezeigt</string>
     <string name="revanced_hide_next_button_summary_on">Nächste Schaltfläche ist ausgeblendet</string>
     <string name="revanced_hide_next_button_title">Nächste Schaltfläche ausblenden</string>
+    <string name="revanced_hide_player_button_background_summary_off">Die Schaltfläche \"Hintergrund\" wird angezeigt</string>
+    <string name="revanced_hide_player_button_background_summary_on">Die Schaltfläche \"Hintergrund\" ist ausgeblendet</string>
+    <string name="revanced_hide_player_button_background_title">Die Schaltfläche \"Hintergrund\" ausblenden</string>
     <string name="revanced_hide_player_overlay_filter_summary_off">Player Overlay Filter wird angezeigt</string>
     <string name="revanced_hide_player_overlay_filter_summary_on">Player Overlay Filter ist versteckt</string>
     <string name="revanced_hide_player_overlay_filter_title">Verstecke Player-Overlay-Filter</string>
@@ -358,6 +384,9 @@ Ist es fertig zum Einreichen?"</string>
     <string name="revanced_hide_preview_comment_off">Vorschau-Kommentar wird angezeigt</string>
     <string name="revanced_hide_preview_comment_on">Vorschau-Kommentar ist versteckt</string>
     <string name="revanced_hide_preview_comment_title">Verstecke Vorschau-Kommentar</string>
+    <string name="revanced_hide_seekbar_summary_off">Suchleiste wird angezeigt</string>
+    <string name="revanced_hide_seekbar_summary_on">Die Suchleiste ist ausgeblendet</string>
+    <string name="revanced_hide_seekbar_title">Die Suchleiste ausblenden</string>
     <string name="revanced_hide_shorts_button_summary_off">Shorts Schaltfläche wird angezeigt</string>
     <string name="revanced_hide_shorts_button_summary_on">Shorts Schaltfläche ist versteckt</string>
     <string name="revanced_hide_shorts_button_title">Verstecke Shorts Schaltfläche</string>
@@ -394,8 +423,11 @@ Ist es fertig zum Einreichen?"</string>
     <string name="revanced_hide_suggested_actions_summary_off">Empfohlene Aktionen werden angezeigt</string>
     <string name="revanced_hide_suggested_actions_summary_on">Vorgeschlagene Aktionen sind versteckt</string>
     <string name="revanced_hide_suggested_actions_title">Verstecke empfohlene Vorschläge</string>
-    <string name="revanced_misc_settings_summary">Verschiedene verwandte Einstellungen</string>
-    <string name="revanced_others_title">Andere</string>
+    <string name="revanced_hide_time_stamp_summary_off">Der Zeitstempel wird angezeigt</string>
+    <string name="revanced_hide_time_stamp_summary_on">Der Zeitstempel ist ausgeblendet</string>
+    <string name="revanced_hide_time_stamp_title">Den Zeitstempel ausblenden</string>
+    <string name="revanced_import_settings_summary">Empfohlene Einstellungen aus gespeicherter Datei abrufen</string>
+    <string name="revanced_import_settings_title">Einstellungen importieren</string>
     <string name="revanced_overlay_button_auto_repeat_summary_off">Auto-Wiederholen Schaltfläche ist ausgeblendet</string>
     <string name="revanced_overlay_button_auto_repeat_summary_on">Auto-Wiederholen Schaltfläche wird angezeigt</string>
     <string name="revanced_overlay_button_auto_repeat_title">Zeige Auto-Wiederholen Schaltfläche</string>
@@ -408,7 +440,6 @@ Ist es fertig zum Einreichen?"</string>
     <string name="revanced_overlay_button_downloads_summary_off">Download-Button ist versteckt</string>
     <string name="revanced_overlay_button_downloads_summary_on">Download-Button wird angezeigt</string>
     <string name="revanced_overlay_button_downloads_title">Zeige Download-Button</string>
-    <string name="revanced_overlay_button_summary">Schaltflächenbezogene Overlay-Einstellungen</string>
     <string name="revanced_overlay_button_whitelist_summary_off">Whitelist-Button ist versteckt</string>
     <string name="revanced_overlay_button_whitelist_summary_on">Whitelist-Button wird angezeigt</string>
     <string name="revanced_overlay_button_whitelist_title">Zeige Whitelist-Button</string>
@@ -417,8 +448,6 @@ Ist es fertig zum Einreichen?"</string>
     <string name="revanced_override_premium_header_title">Premium-Header</string>
     <string name="revanced_patches_information_summary">Informationen über angewandte Patches</string>
     <string name="revanced_patches_information">Patch-Informationen</string>
-    <string name="revanced_player_flyout_panel_summary">Versteckt die Komponenten der Player-Einstellungen Flyout-Leiste</string>
-    <string name="revanced_player_flyout_panel_title">Player Flyout Panel-Komponente</string>
     <string name="revanced_reboot_warning_general">"Da dies noch ein experimentelles Feature ist, könnte es weitere unbekannte Probleme geben.
 Bist du sicher, dass du fortfahren möchtest?"</string>
     <string name="revanced_reboot_warning_oldlayout">"Umgehe die YouTube-Client-Version auf v17.28.35 um das alte Layout zu laden
@@ -434,9 +463,9 @@ Wenn du diese Einstellung aktivierst, sind folgende Funktionen verfügbar:
 Wenn diese Einstellung aktiviert wird, sind folgende Funktionen nicht verfügbar:
 - Ambient-Modus
 - Communitybeiträge"</string>
-    <string name="revanced_reboot_warning_vp9">"Spoofs Geräteinformationen, um VP9 Codec
+    <string name="revanced_reboot_warning_vp9">"Spoofs Geräteinformationen, um den VP9-Codec zu aktivieren
 
-Zu aktivieren, da diese Einstellung ziemlich veraltet ist, ist sie möglicherweise nicht gültig"</string>
+Da diese Einstellung veraltet ist, ist sie möglicherweise nicht gültig"</string>
     <string name="revanced_ryd_attribution_summary">Dislikes Daten werden von der True RYD Worker API zur Verfügung gestellt. Tippe hier, um mehr zu erfahren.</string>
     <string name="revanced_ryd_dislike_percentage_summary_off">Dislikes als Nummer angezeigt</string>
     <string name="revanced_ryd_dislike_percentage_summary_on">Dislikes als Prozentsatz angezeigt</string>
@@ -454,7 +483,6 @@ Zu aktivieren, da diese Einstellung ziemlich veraltet ist, ist sie möglicherwei
     <string name="revanced_save_video_quality_mobile_error">Standardqualität für mobile Daten konnte nicht geändert werden</string>
     <string name="revanced_save_video_quality_wifi">Ändern der Standard-WLAN-Qualität in:</string>
     <string name="revanced_save_video_quality_wifi_error">Standard-WLAN-Qualität konnte nicht geändert werden</string>
-    <string name="revanced_swipe_controls_summary">Wischgesten bezogene Einstellungen</string>
     <string name="revanced_swipe_magnitude_threshold_summary">Der Schwellenwert für das Wischen</string>
     <string name="revanced_swipe_magnitude_threshold_title">Wischgrößen-Schwellenwert</string>
     <string name="revanced_swipe_overlay_background_alpha_summary">Die Sichtbarkeit des Wischen Overlay-Hintergrunds</string>
@@ -467,7 +495,6 @@ Zu aktivieren, da diese Einstellung ziemlich veraltet ist, ist sie möglicherwei
     <string name="revanced_video_ads_removal_summary_off">Videowerbung wird angezeigt</string>
     <string name="revanced_video_ads_removal_summary_on">Videowerbung ist versteckt</string>
     <string name="revanced_video_ads_removal_title">Verstecke Videowerbung</string>
-    <string name="revanced_video_settings_summary">Videobezogene Einstellungen</string>
     <string name="revanced_whitelisting_add_failed" formatted="false">Kanal %s konnte nicht zur %s Whitelist hinzugefügt werden</string>
     <string name="revanced_whitelisting_added" formatted="false">Kanal %s wurde zur %s Whitelist hinzugefügt</string>
     <string name="revanced_whitelisting_ads">Videowerbung</string>

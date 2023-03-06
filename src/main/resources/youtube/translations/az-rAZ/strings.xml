@@ -46,9 +46,6 @@
     <string name="microg_not_installed_notice">Zəhmət olmasa MicroG-ni quraşdırın</string>
     <string name="microg_not_installed_warning">MicroG tapılmadı</string>
     <string name="microg_not_running_warning">MicroG arxa planda işləmir</string>
-    <string name="microg_notification_settings_summary">"1. Bildirişlər üçün Google cihazının qeydiyyatı və Bulud Mesajlaşması aktivləşdirilməlidir.
-2. ReVanced Cloud Messaging altında qeydiyyatdan keçdiyi kimi göstərilməlidir.
-3. Bulud Mesajlaşmasında cari vəziyyət qoşulu olmalıdır."</string>
     <string name="minutes">dəqiqə</string>
     <string name="new_segment_choose_category">Seqment kateqoriyasını seçin</string>
     <string name="new_segment_confirm_content" formatted="false">"Seqment %02d:%02d ilə %02d:%02d arasında davam edir (%d dəqiqə %02d saniyə)
@@ -70,7 +67,6 @@ Təqdim etməyə hazırdır?"</string>
     <string name="new_segment_time_start_set">Seqment dəstinin başlanğıcı</string>
     <string name="new_segment_title">Yeni SponsorBlock seqmenti</string>
     <string name="reset">Sıfırla</string>
-    <string name="revanced_ads_settings_summary">Reklamla bağlı parametrlər</string>
     <string name="revanced_adremover_album_card_in_search_summary_off">Albom kartları axtarış nəticələrində göstərilir</string>
     <string name="revanced_adremover_album_card_in_search_summary_on">Albom kartları axtariş nəticələrində göstərilmir</string>
     <string name="revanced_adremover_album_card_in_search_title">Albom kartlarını gizlət</string>
@@ -144,7 +140,7 @@ Təqdim etməyə hazırdır?"</string>
     <string name="revanced_adremover_web_search_panel_summary_off">Veb axtarış panelləri göstərilir</string>
     <string name="revanced_adremover_web_search_panel_summary_on">Veb axtarış panelləri gizlədilib</string>
     <string name="revanced_adremover_web_search_panel_title">Veb axtarış panellərini gizlət</string>
-    <string name="revanced_backup_settings_summary">ReVanced parametrlərini fayldan idxal edin və ya ReVanced parametrlərini fayla ixrac edin</string>
+    <string name="revanced_copytimestamp_success">Vaxt möhürü mübadilə buferinə kopyalandı</string>
     <string name="revanced_custom_seekbar_color_value_summary">Qaranlıq rejimdə istifadə etmək üçün axtarış çubuğu rənginin hex kodunu yazın</string>
     <string name="revanced_custom_seekbar_color_value_title">Xüsusi axtarış çubuğunun rəng dəyəri</string>
     <string name="revanced_default_video_quality_mobile_title">Defolt video keyfiyyəti Mobil</string>
@@ -164,12 +160,9 @@ Təqdim etməyə hazırdır?"</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">Bölmələrə haptik toxunma rəyi aktivdir</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">Bölmələrə haptik toxunma rəyi deaktivdir</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">Bölmələrə haptik toxunma rəyini deaktiv et</string>
-    <string name="revanced_disable_haptic_feedback_summary">Uzun basışda haptik rəyi deaktiv et</string>
-    <string name="revanced_disable_haptic_feedback_title">Haptik rəyi deaktiv et</string>
     <string name="revanced_disable_haptic_feedback_zoom_summary_off">Yaxınlaşdırma zamanı haptik rəyi aktiv et</string>
     <string name="revanced_disable_haptic_feedback_zoom_summary_on">Yaxınlaşdırma zamanı haptik rəyi bağla</string>
     <string name="revanced_disable_haptic_feedback_zoom_title">Yaxınlaşdırma zamanı haptik rəyi deaktiv et</string>
-    <string name="revanced_copytimestamp_success">Vaxt möhürü mübadilə buferinə kopyalandı</string>
     <string name="revanced_enable_always_auto_repeat_summary_off">Həmişə avtomatik təkrarlama deaktivdir</string>
     <string name="revanced_enable_always_auto_repeat_summary_on">Həmişə avtomatik təkrarlama aktivdir</string>
     <string name="revanced_enable_always_auto_repeat_title">Həmişə avtomatik təkrarla</string>
@@ -239,7 +232,6 @@ Təqdim etməyə hazırdır?"</string>
     <string name="revanced_experimental_flag">Eksperimental Bayraqlar</string>
     <string name="revanced_export_settings_summary">ReVanced parametrlərinizi faylda saxlayın</string>
     <string name="revanced_export_settings_title">Ixrac parametrləri</string>
-    <string name="revanced_general_layout_settings_summary">Ümumi örtüy ilə bağlı parametrlər</string>
     <string name="revanced_hide_auto_captions_summary_off">Altyazılar tətbiq edilən videonu oxuduqda başlıqlar aktiv edilir</string>
     <string name="revanced_hide_auto_captions_summary_on">"Altyazı tətbiq edilən videonu oxuduqda subtitrlər aktiv edilmir"</string>
     <string name="revanced_hide_auto_captions_title">Avtomatik altyazılını gizlət</string>
@@ -249,8 +241,6 @@ Təqdim etməyə hazırdır?"</string>
     <string name="revanced_hide_autoplay_button_summary_off">Avtomatik oynatma düyməsi göstərilir</string>
     <string name="revanced_hide_autoplay_button_summary_on">Avtomatik təkrar düyməsi gizlədilib</string>
     <string name="revanced_hide_autoplay_button_title">Avtomatik oynatma düyməsini gizlət</string>
-    <string name="revanced_hide_button_container_summary">Düymə konteynerinin komponentini gizlədir</string>
-    <string name="revanced_hide_button_container_title">Düymə konteyner komponentini gizlət</string>
     <string name="revanced_hide_button_create_clip_summary_off">Klip düyməsi göstərilir</string>
     <string name="revanced_hide_button_create_clip_summary_on">Klip düyməsi gizlədilib</string>
     <string name="revanced_hide_button_create_clip_title">Klip düyməsini gizlət</string>
@@ -290,8 +280,6 @@ Təqdim etməyə hazırdır?"</string>
     <string name="revanced_hide_channel_watermark_summary_off">Video filigranı göstərilir</string>
     <string name="revanced_hide_channel_watermark_summary_on">Video filigranı gizlədilib</string>
     <string name="revanced_hide_channel_watermark_title">Video filigranını gizlət</string>
-    <string name="revanced_hide_comments_component_summary">Şərh bölməsini və ya komponentini gizlət</string>
-    <string name="revanced_hide_comments_component_title">Şərh komponentini gizlət</string>
     <string name="revanced_hide_comments_section_summary_off">Şərh bölməsi göstərilir</string>
     <string name="revanced_hide_comments_section_summary_on">Şərh bölməsi gizlədilib</string>
     <string name="revanced_hide_comments_section_title">Şərh bölməsini gizlət</string>
@@ -414,9 +402,6 @@ Təqdim etməyə hazırdır?"</string>
     <string name="revanced_hide_suggested_actions_title">Təklifləri gizlət</string>
     <string name="revanced_import_settings_summary">Saxlanmış fayldan ReVanced parametrlərini əldə edin</string>
     <string name="revanced_import_settings_title">İdxal parametrləri</string>
-    <string name="revanced_misc_settings_summary">Müxtəlifnövlü parametrlər</string>
-    <string name="revanced_others_title">Digərləri</string>
-    <string name="revanced_other_layout_settings_summary">Örtüy ilə əlaqəli digər parametrlər</string>
     <string name="revanced_overlay_button_auto_repeat_summary_off">Avtomatik təkrar düyməsi gizlədilib</string>
     <string name="revanced_overlay_button_auto_repeat_summary_on">Avtomatik təkrar düyməsi göstərilir</string>
     <string name="revanced_overlay_button_auto_repeat_title">Avto-təkrarlama düyməsini göstər</string>
@@ -429,7 +414,6 @@ Təqdim etməyə hazırdır?"</string>
     <string name="revanced_overlay_button_downloads_summary_off">Yükləmə düyməsi gizlədilib</string>
     <string name="revanced_overlay_button_downloads_summary_on">Yükləmə düyməsi göstərilir</string>
     <string name="revanced_overlay_button_downloads_title">Yükləmə düyməsini göstər</string>
-    <string name="revanced_overlay_button_summary">Örtüy düyməsi ilə əlaqəli parametrlər</string>
     <string name="revanced_overlay_button_speed_reset">Video sürəti sıfırlandı (1.0x)</string>
     <string name="revanced_overlay_button_speed_summary_off">Sürət düyməsi gizlidir</string>
     <string name="revanced_overlay_button_speed_summary_on">Sürət düyməsi göstərilir</string>
@@ -442,8 +426,6 @@ Təqdim etməyə hazırdır?"</string>
     <string name="revanced_override_premium_header_title">Premium başlıq</string>
     <string name="revanced_patches_information_summary">Tətbiq edilmiş yamalar haqqında məlumat</string>
     <string name="revanced_patches_information">Yamalar haqqında informasiya</string>
-    <string name="revanced_player_flyout_panel_summary">Pleyer parametrləri uçan panelinin komponentini gizlədir</string>
-    <string name="revanced_player_flyout_panel_title">Pleyer uçan panel komponenti</string>
     <string name="revanced_reboot_warning_general">"Bu hələ eksperimental xüsusiyyət olduğundan başqa bilinməyən problemlər də ola bilər.
 Davam etmək istədiyinizə əminsiniz?"</string>
     <string name="revanced_reboot_warning_oldlayout">"Köhnə tərtibatı yükləmək üçün YouTube müştəri versiyasını v17.28.35 kimi göstərir
@@ -481,7 +463,6 @@ Bu parametr olduqca köhnəldiyi üçün etibarlı olmaya bilər"</string>
     <string name="revanced_save_video_quality_wifi_error">Defolt Wi-Fi keyfiyyətini dəyişmək mümkün olmadı</string>
     <string name="revanced_save_video_speed">Standart sürətin dəyişdirilməsi:</string>
     <string name="revanced_sponsorblock_settings_summary">SponsorBlock ilə əlaqəli parametrlər</string>
-    <string name="revanced_swipe_controls_summary">Sürüşdürmə idarəetmələri ilə əlaqəli parametrlər</string>
     <string name="revanced_swipe_magnitude_threshold_summary">Sürüşmə aşkarlanmamışdan əvvəl minimum böyüklük</string>
     <string name="revanced_swipe_magnitude_threshold_title">Böyüklük həddini sürüşdürün</string>
     <string name="revanced_swipe_overlay_background_alpha_summary">Sürüşdürmə fonunun görünməsi</string>
@@ -494,7 +475,6 @@ Bu parametr olduqca köhnəldiyi üçün etibarlı olmaya bilər"</string>
     <string name="revanced_video_ads_removal_summary_off">Video reklamları göstərilir</string>
     <string name="revanced_video_ads_removal_summary_on">Video reklamları gizlədilib</string>
     <string name="revanced_video_ads_removal_title">Video reklamlarını gizlət</string>
-    <string name="revanced_video_settings_summary">Video ilə əlaqəli parametrlər</string>
     <string name="revanced_whitelisting_add_failed" formatted="false">%s kanalını %s ağ siyahıya əlavə etmək mümkün olmadı</string>
     <string name="revanced_whitelisting_added" formatted="false">%s kanalı %s ağ siyahıya əlavə edildi</string>
     <string name="revanced_whitelisting_ads">Video reklamı</string>

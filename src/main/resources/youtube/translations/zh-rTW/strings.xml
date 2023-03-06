@@ -46,10 +46,6 @@
     <string name="microg_not_installed_notice">請安裝 MicroG</string>
     <string name="microg_not_installed_warning">未找到 MicroG</string>
     <string name="microg_not_running_warning">MicroG 未在背景執行</string>
-    <string name="microg_notification_settings_summary">"1. 需要開啟 Google 裝置註冊 和 連網通知推播 才能顯示通知。
-2. ReVanced 需要在 連網通知推播 下顯示為 已註冊。
-3. 連網通知推播 中的 當前狀態 必須顯示為 已連接。"</string>
-    <string name="microg_notification_settings_title">通知</string>
     <string name="minutes">分鐘</string>
     <string name="new_segment_choose_category">選擇分段類別</string>
     <string name="new_segment_confirm_content" formatted="false">"該段從 %02d:%02d 持續到 %02d:%02d (%d 分 %02d 秒)
@@ -71,8 +67,6 @@
     <string name="new_segment_time_start_set">已設定片段開始</string>
     <string name="new_segment_title">新 SponsorBlock 片段</string>
     <string name="reset">重置</string>
-    <string name="revanced_ads_settings_summary">廣告相關設定</string>
-    <string name="revanced_ads_settings_title">廣告</string>
     <string name="revanced_adremover_album_card_in_search_summary_off">搜尋頁面的歌手專輯欄已顯示</string>
     <string name="revanced_adremover_album_card_in_search_summary_on">搜尋頁面的歌手專輯欄已隱藏</string>
     <string name="revanced_adremover_album_card_in_search_title">隱藏搜尋頁面的歌手專輯欄</string>
@@ -152,7 +146,7 @@
     <string name="revanced_adremover_web_search_panel_summary_off">網頁搜索面板已顯示</string>
     <string name="revanced_adremover_web_search_panel_summary_on">網頁搜索面板已隱藏</string>
     <string name="revanced_adremover_web_search_panel_title">隱藏網頁搜索面板</string>
-    <string name="revanced_backup_settings_summary">自檔案匯入 ReVanced 設定，或匯出 ReVanced 設定至檔案</string>
+    <string name="revanced_copytimestamp_success">時間戳已復製到剪貼簿</string>
     <string name="revanced_custom_seekbar_color_value_summary">輸入Hex碼來自訂在深色模式時的搜索欄顏色</string>
     <string name="revanced_custom_seekbar_color_value_title">自訂搜索欄顏色</string>
     <string name="revanced_default_video_quality_mobile_title">預設行動網路影片品質</string>
@@ -174,12 +168,9 @@
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">章節(震動)反饋已啟用</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">章節(震動)反饋已禁用</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">禁用章節(震動)反饋</string>
-    <string name="revanced_disable_haptic_feedback_summary">長按關閉(震動)反饋</string>
-    <string name="revanced_disable_haptic_feedback_title">關閉(震動)反饋</string>
     <string name="revanced_disable_haptic_feedback_zoom_summary_off">縮放(震動)反饋已啟用</string>
     <string name="revanced_disable_haptic_feedback_zoom_summary_on">縮放(震動)反饋已禁用</string>
     <string name="revanced_disable_haptic_feedback_zoom_title">禁用縮放(震動)反饋</string>
-    <string name="revanced_copytimestamp_success">時間戳已復製到剪貼簿</string>
     <string name="revanced_enable_always_auto_repeat_summary_off">始終自動循環播放已禁用</string>
     <string name="revanced_enable_always_auto_repeat_summary_on">始終自動循環播放已啟用</string>
     <string name="revanced_enable_always_auto_repeat_title">始終自動循環播放</string>
@@ -249,8 +240,6 @@
     <string name="revanced_experimental_flag">實驗性功能</string>
     <string name="revanced_export_settings_summary">將您的 ReVanced 設定匯出至檔案</string>
     <string name="revanced_export_settings_title">匯出設定</string>
-    <string name="revanced_general_layout_settings_summary">常規佈局相關設定</string>
-    <string name="revanced_general_layout_settings_title">常規布局</string>
     <string name="revanced_hide_auto_captions_summary_off">允許字幕自動啟動</string>
     <string name="revanced_hide_auto_captions_summary_on">"禁止字幕自動啟動"</string>
     <string name="revanced_hide_auto_captions_title">自動啟動的字幕</string>
@@ -260,8 +249,6 @@
     <string name="revanced_hide_autoplay_button_summary_off">自動播放按鈕已顯示</string>
     <string name="revanced_hide_autoplay_button_summary_on">自動播放按鈕已隱藏</string>
     <string name="revanced_hide_autoplay_button_title">自動播放按鈕</string>
-    <string name="revanced_hide_button_container_summary">設置功能列的 Youtube 元件</string>
-    <string name="revanced_hide_button_container_title">功能列按鈕設置</string>
     <string name="revanced_hide_button_create_clip_summary_off">剪輯片段按鈕已顯示</string>
     <string name="revanced_hide_button_create_clip_summary_on">剪輯片段按鈕已隱藏</string>
     <string name="revanced_hide_button_create_clip_title">隱藏剪輯片段按鈕</string>
@@ -304,8 +291,6 @@
     <string name="revanced_hide_collapse_button_summary_off">最小化按鈕已顯示</string>
     <string name="revanced_hide_collapse_button_summary_on">最小化按鈕已隱藏</string>
     <string name="revanced_hide_collapse_button_title">隱藏最小化按鈕</string>
-    <string name="revanced_hide_comments_component_summary">設置留言區為顯示或隱藏</string>
-    <string name="revanced_hide_comments_component_title">留言區設置</string>
     <string name="revanced_hide_comments_section_summary_off">留言區已顯示</string>
     <string name="revanced_hide_comments_section_summary_on">留言區已隱藏</string>
     <string name="revanced_hide_comments_section_title">隱藏留言區</string>
@@ -437,16 +422,6 @@
     <string name="revanced_hide_time_stamp_title">隱藏時間戳</string>
     <string name="revanced_import_settings_summary">從已保存的檔案中恢復 ReVanced 設置</string>
     <string name="revanced_import_settings_title">導入設置</string>
-    <string name="revanced_layout_settings_bottomplayer">迷你播放器設置</string>
-    <string name="revanced_layout_settings_flyoutmenu">彈出選單設置</string>
-    <string name="revanced_layout_settings_fullscreen">全螢幕佈局設置</string>
-    <string name="revanced_layout_settings_player">播放器佈局設置</string>
-    <string name="revanced_layout_settings_seekbar">搜尋欄佈局設置</string>
-    <string name="revanced_misc_settings_summary">其他相關設定</string>
-    <string name="revanced_misc_settings_title">其他設置</string>
-    <string name="revanced_others_title">其他</string>
-    <string name="revanced_other_layout_settings_summary">其他佈局相關設置</string>
-    <string name="revanced_other_layout_settings_title">其他佈局設置</string>
     <string name="revanced_overlay_button_auto_repeat_summary_off">自動重複按鈕已隱藏</string>
     <string name="revanced_overlay_button_auto_repeat_summary_on">自動重複按鈕已顯示</string>
     <string name="revanced_overlay_button_auto_repeat_title">顯示自動重播按鈕</string>
@@ -459,8 +434,6 @@
     <string name="revanced_overlay_button_downloads_summary_off">下載按鈕已隱藏</string>
     <string name="revanced_overlay_button_downloads_summary_on">下載按鈕已顯示</string>
     <string name="revanced_overlay_button_downloads_title">下載按鈕</string>
-    <string name="revanced_overlay_button_summary">播放器按鈕相關設置</string>
-    <string name="revanced_overlay_button_title">畫面疊加按鈕</string>
     <string name="revanced_overlay_button_speed_reset">影片播放速度重設 (1.0x)</string>
     <string name="revanced_overlay_button_speed_summary_off">倍速按鈕已隱藏</string>
     <string name="revanced_overlay_button_speed_summary_on">倍速按鈕已顯示</string>
@@ -473,8 +446,6 @@
     <string name="revanced_override_premium_header_title">Premium 標誌</string>
     <string name="revanced_patches_information_summary">已應用補丁資訊</string>
     <string name="revanced_patches_information">補丁資訊 --唐懂翻譯</string>
-    <string name="revanced_player_flyout_panel_summary">隱藏播放器彈出設定介面的選項</string>
-    <string name="revanced_player_flyout_panel_title">播放器彈出設定介面之選項</string>
     <string name="revanced_reboot_warning_general">"由於這仍是一項實驗性功能，因此可能存在其他未知問題。
 你確定要繼續嗎？"</string>
     <string name="revanced_reboot_warning_oldlayout">"模擬 Youtube 版本 v17.28.35 以應用舊版配置
@@ -514,8 +485,6 @@
     <string name="revanced_save_video_quality_wifi_error">更改預設 WI-FI 品質失敗</string>
     <string name="revanced_save_video_speed">將預設播放速度更改為：</string>
     <string name="revanced_sponsorblock_settings_summary">SponsorBlock 相關設定</string>
-    <string name="revanced_swipe_controls_summary">滑動控制相關設定</string>
-    <string name="revanced_swipe_controls_title">滑動控制</string>
     <string name="revanced_swipe_magnitude_threshold_summary">滑動時調整的數值量</string>
     <string name="revanced_swipe_magnitude_threshold_title">滑動幅度調整</string>
     <string name="revanced_swipe_overlay_background_alpha_summary">設定畫面中 文字底色 的透明程度</string>
@@ -528,8 +497,6 @@
     <string name="revanced_video_ads_removal_summary_off">影片廣告已顯示</string>
     <string name="revanced_video_ads_removal_summary_on">影片廣告已隱藏</string>
     <string name="revanced_video_ads_removal_title">隱藏影片廣告</string>
-    <string name="revanced_video_settings_summary">影片畫質設定</string>
-    <string name="revanced_video_settings_title">影片</string>
     <string name="revanced_whitelisting_add_failed" formatted="false">將 %s 頻道加入 %s 白名單失敗</string>
     <string name="revanced_whitelisting_added" formatted="false">頻道 %s 已新增到 %s 白名單</string>
     <string name="revanced_whitelisting_ads">影片廣告</string>
