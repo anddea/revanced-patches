@@ -46,9 +46,6 @@
     <string name="microg_not_installed_notice">Kérjük telepítse a MicroG-t</string>
     <string name="microg_not_installed_warning">A MicoG nem található</string>
     <string name="microg_not_running_warning">A MicroG nem fut a háttérben</string>
-    <string name="microg_notification_settings_summary">"1. A Google eszközregisztrációt és a Google Cloud Messaging-et engedélyezni kell az értesítésekhez.
-2. A ReVancednek regisztráltnak kell lennie a Cloud Messaging-ben.
-3. A Cloud Messaging-ben a Státusz nem lehet Szétkapcsolva állapotban."</string>
     <string name="minutes">perc</string>
     <string name="new_segment_choose_category">Válassza ki a szegmens kategóriáját</string>
     <string name="new_segment_confirm_content" formatted="false">"A szegmens %02d:%02d -től %02d:%02d -ig tart (%d perc %02d másodperc)
@@ -70,8 +67,6 @@ Készen áll a beküldésre?"</string>
     <string name="new_segment_time_start_set">A szegmens kezdete beállítva</string>
     <string name="new_segment_title">Új SponsorBlock szakasz</string>
     <string name="reset">Visszaállítás</string>
-    <string name="revanced_ads_settings_summary">Hírdetésekhez kapcsolódó beállítások</string>
-    <string name="revanced_ads_settings_title">Reklám beállítások</string>
     <string name="revanced_adremover_album_card_in_search_summary_off">Az Album kártyák láthatóak a keresési eredményekben</string>
     <string name="revanced_adremover_album_card_in_search_summary_on">Az Album kártyák el vannak jelenítve a keresési eredményekből</string>
     <string name="revanced_adremover_album_card_in_search_title">Album kártyák elrejtése</string>
@@ -131,7 +126,7 @@ Készen áll a beküldésre?"</string>
     <string name="revanced_adremover_web_search_panel_summary_off">A Web keresőpanelek láthatóak</string>
     <string name="revanced_adremover_web_search_panel_summary_on">A Web keresőpanelek el vannak rejtve</string>
     <string name="revanced_adremover_web_search_panel_title">Web kereső panelek elrejtése</string>
-    <string name="revanced_backup_settings_summary">Beállítás importálása a ReVanced Extended beállítás fájlból vagy a ReVanced Extended beállítások exportálása beállítás fájlba</string>
+    <string name="revanced_copytimestamp_success">Az Időtartam másolva lett a vágólapra</string>
     <string name="revanced_custom_seekbar_color_value_summary">Írja ide a hex (színkód) kódot amelyiket használni szeretné sötét módban</string>
     <string name="revanced_custom_seekbar_color_value_title">Egyéni lejátszó csík szín érték</string>
     <string name="revanced_default_video_quality_mobile_title">Alapértelmezett videó minőségi beállítás mobilhálozaton</string>
@@ -148,12 +143,9 @@ Készen áll a beküldésre?"</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">A Fejezetek haptikus jelzése engedélyezve van</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">A Fejezetek haptikus jelzése el van rejtve</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">Fejezetek haptikus jelzésének kikapcsolása</string>
-    <string name="revanced_disable_haptic_feedback_summary">A hosszan lenyomásnál lévő Haptikus visszajelzés kikapcsolása</string>
-    <string name="revanced_disable_haptic_feedback_title">Haptikus visszajelzés kikapcsolása</string>
     <string name="revanced_disable_haptic_feedback_zoom_summary_off">A Nagyítási haptikus visszajelzés engedélyezve van</string>
     <string name="revanced_disable_haptic_feedback_zoom_summary_on">A Nagyítási haptikus visszajelzés ki van kapcsolva</string>
     <string name="revanced_disable_haptic_feedback_zoom_title">Nagyítási haptikus visszajelzés kikapcsolása</string>
-    <string name="revanced_copytimestamp_success">Az Időtartam másolva lett a vágólapra</string>
     <string name="revanced_enable_always_auto_repeat_summary_off">Az Automatikus ismétlés ki van kapcsolva</string>
     <string name="revanced_enable_always_auto_repeat_summary_on">Az Automatikus ismétlés be van kapcsolva</string>
     <string name="revanced_enable_always_auto_repeat_title">Automatikus ismétlés</string>
@@ -230,8 +222,6 @@ Készen áll a beküldésre?"</string>
     <string name="revanced_hide_channel_watermark_summary_off">A Csatorna vízjel látható</string>
     <string name="revanced_hide_channel_watermark_summary_on">A Csatorna vízjel el van rejtve</string>
     <string name="revanced_hide_channel_watermark_title">A csatorna vízjel elrejtése</string>
-    <string name="revanced_hide_comments_component_summary">Elrejti a Komment szekciókat vagy a komponenseket</string>
-    <string name="revanced_hide_comments_component_title">A Hozzászólások komponensének elrejtése</string>
     <string name="revanced_hide_comments_section_summary_off">A Komment szekció látható</string>
     <string name="revanced_hide_comments_section_summary_on">A Komment szekció el van rejtve</string>
     <string name="revanced_hide_comments_section_title">A komment szekció elrejtése</string>
@@ -269,8 +259,6 @@ Készen áll a beküldésre?"</string>
     <string name="revanced_hide_shorts_button_summary_on">A Shorts gomb el van rejtve</string>
     <string name="revanced_hide_shorts_button_title">Shorts gomb elrejtése</string>
     <string name="revanced_hide_shorts_player_component_title">A Shorts lejátszó komponensek elrejtése</string>
-    <string name="revanced_misc_settings_summary">Egyéb kapcsolódó beállítások</string>
-    <string name="revanced_others_title">Egyebek</string>
     <string name="revanced_overlay_button_copy_url_summary_off">A Link másola gomb el van rejtve a lejátszóból</string>
     <string name="revanced_overlay_button_copy_url_summary_on">A Link másolása gomb látható a lejátszóban</string>
     <string name="revanced_overlay_button_copy_url_title">A Link Másolása gomb megjelenítése a lejátszóban</string>
@@ -309,11 +297,9 @@ Ha engedélyezi ezt a beállítást, a következő funkciók nem állnak rendelk
     <string name="revanced_ryd_enable_summary_off">A nemtetszések \"Dislike\" nem jelennek meg</string>
     <string name="revanced_ryd_enable_summary_on">A nemtetszések \"Dislike\" láthatóak</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">A Dislike számláló jelenleg nem érhető el (Kliens API limit elérve)</string>
-    <string name="revanced_swipe_controls_summary">Lejátszó vezérlőkhöz kapcsolódó beállítások</string>
     <string name="revanced_video_ads_removal_summary_off">A Videó reklámok láthatóak</string>
     <string name="revanced_video_ads_removal_summary_on">A Videó reklámok el vannak rejtve</string>
     <string name="revanced_video_ads_removal_title">Videó reklámok elrejtése</string>
-    <string name="revanced_video_settings_summary">Videókhoz kapcsolódó beállítások</string>
     <string name="revanced_whitelisting_ads">Videó reklámok</string>
     <string name="revanced_whitelisting_ads_button">Reklámok</string>
     <string name="revanced_whitelisting_channel_name">Csatorna neve</string>

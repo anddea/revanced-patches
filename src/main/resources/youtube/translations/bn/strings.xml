@@ -46,12 +46,6 @@
     <string name="microg_not_installed_notice">অনুগ্রহপূর্বক MicroG ইনস্টল করুন</string>
     <string name="microg_not_installed_warning">MicroG খুঁজে পাওয়া যায় নি</string>
     <string name="microg_not_running_warning">MicroG ব্যাকগ্রাউন্ডে চলছে না</string>
-    <string name="microg_notification_settings_summary">"1. বিজ্ঞপ্তিগুলির জন্য Google ডিভাইস নিবন্ধন এবং ক্লাউড মেসেজিং সক্রিয় করতে হবে।
-
-2. ReVanced কে ক্লাউড মেসেজিংয়ের অধীনে নিবন্ধিত হিসাবে দেখাতে হবে।
-
-3. ক্লাউড মেসেজিংয়ের বর্তমান অবস্থা অবশ্যই সংযুক্ত থাকতে হবে।"</string>
-    <string name="microg_notification_settings_title">বিজ্ঞপ্তি</string>
     <string name="minutes">মিনিট</string>
     <string name="new_segment_choose_category">সেগমেন্ট বিভাগ নির্বাচন করুন</string>
     <string name="new_segment_confirm_content" formatted="false">"সেগমেন্ট %02d:%02d থেকে %02d:%02d পর্যন্ত স্থায়ী হয় (%d মিনিট %02d সেকেন্ড)
@@ -73,8 +67,6 @@
     <string name="new_segment_time_start_set">সেগমেন্ট এর শুরু নির্ধারণ করুন</string>
     <string name="new_segment_title">নতুন SponsorBlock সেগমেন্ট</string>
     <string name="reset">পুনঃসেট</string>
-    <string name="revanced_ads_settings_summary">বিজ্ঞাপন সম্পর্কিত সেটিং</string>
-    <string name="revanced_ads_settings_title">বিজ্ঞাপন</string>
     <string name="revanced_adremover_album_card_in_search_summary_off">সার্চ ফলাফলে অ্যালবাম কার্ড দেখানো হয়েছে</string>
     <string name="revanced_adremover_album_card_in_search_summary_on">সার্চ ফলাফলে অ্যালবাম কার্ড লুকানো আছে</string>
     <string name="revanced_adremover_album_card_in_search_title">অ্যালবাম কার্ড লুকান</string>
@@ -154,7 +146,7 @@
     <string name="revanced_adremover_web_search_panel_summary_off">ওয়েব অনুসন্ধান প্যানেল দৃশ্যমান আছে</string>
     <string name="revanced_adremover_web_search_panel_summary_on">ওয়েব অনুসন্ধান প্যানেল লুকানো আছে</string>
     <string name="revanced_adremover_web_search_panel_title">ওয়েব অনুসন্ধান প্যানেল লুকান</string>
-    <string name="revanced_backup_settings_summary">ফাইল থেকে ReVanced সেটিং আমদানী করুন অথবা ReVanced সেটিংস ফাইলে রপ্তানি করুন</string>
+    <string name="revanced_copytimestamp_success">টাইম স্ট্যাম্প ক্লিপবোর্ডে কপি হয়েছে</string>
     <string name="revanced_custom_seekbar_color_value_summary">অন্ধকার মোডে সিকবার রং পরিবর্তনের জন্য hex কালার কোড লিখুন</string>
     <string name="revanced_custom_seekbar_color_value_title">কাস্টম সিকবার রং ভ্যালু</string>
     <string name="revanced_default_video_quality_mobile_title">সেলুলারে ডিফল্ট ভিডিও কোয়ালিটি</string>
@@ -176,12 +168,9 @@
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">চ্যাপ্টার কম্পন প্রতিক্রিয়া সক্রিয় হয়েছে</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">চ্যাপ্টার কম্পন প্রতিক্রিয়া নিষ্ক্রিয় হয়েছে</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">চ্যাপ্টার কম্পন প্রতিক্রিয়া নিষ্ক্রিয় করুন</string>
-    <string name="revanced_disable_haptic_feedback_summary">দীর্ঘ প্রেসে কম্পন প্রতিক্রিয়া নিষ্ক্রিয় করুন</string>
-    <string name="revanced_disable_haptic_feedback_title">কম্পন প্রতিক্রিয়া নিস্ক্রিয় করুন</string>
     <string name="revanced_disable_haptic_feedback_zoom_summary_off">জুম কম্পন প্রতিক্রিয়া সক্রিয় হয়েছে</string>
     <string name="revanced_disable_haptic_feedback_zoom_summary_on">জুম কম্পন প্রতিক্রিয়া নিষ্ক্রিয় হয়েছে</string>
     <string name="revanced_disable_haptic_feedback_zoom_title">জুম কম্পন প্রতিক্রিয়া নিষ্ক্রিয় করুন</string>
-    <string name="revanced_copytimestamp_success">টাইম স্ট্যাম্প ক্লিপবোর্ডে কপি হয়েছে</string>
     <string name="revanced_enable_always_auto_repeat_summary_off">সর্বদা স্বয়ংক্রিয় পুনরাবৃত্তি নিষ্ক্রিয় আছে</string>
     <string name="revanced_enable_always_auto_repeat_summary_on">সর্বদা স্বয়ংক্রিয় পুনরাবৃত্তি সক্রিয় আছে</string>
     <string name="revanced_enable_always_auto_repeat_title">সর্বদা স্বয়ংক্রিয় পুনরাবৃত্তি</string>
@@ -251,8 +240,6 @@
     <string name="revanced_experimental_flag">পরীক্ষামূলক ফ্ল্যাগ</string>
     <string name="revanced_export_settings_summary">আপনার ReVanced সেটিং ফাইলে সংরক্ষণ করুন</string>
     <string name="revanced_export_settings_title">সেটিং রপ্তানি করুন</string>
-    <string name="revanced_general_layout_settings_summary">সাধারণ লে-আউট সম্পর্কিত সেটিং</string>
-    <string name="revanced_general_layout_settings_title">সাধারণ লে-আউট</string>
     <string name="revanced_hide_auto_captions_summary_off">ক্যাপশন প্রয়োগ করা হলে ভিডিও চলার সময় ক্যাপশন সক্রিয় করা হয়</string>
     <string name="revanced_hide_auto_captions_summary_on">"ক্যাপশন প্রয়োগ করা হলে ভিডিও চলার সময় ক্যাপশন সক্রিয় করা হয় না"</string>
     <string name="revanced_hide_auto_captions_title">স্বয়ংক্রিয় ক্যাপশন লুকান</string>
@@ -262,8 +249,6 @@
     <string name="revanced_hide_autoplay_button_summary_off">অটোপ্লে বাটন দৃশ্যমান আছে</string>
     <string name="revanced_hide_autoplay_button_summary_on">অটোপ্লে বাটন লুকানো আছে</string>
     <string name="revanced_hide_autoplay_button_title">অটোপ্লে বাটন লুকান</string>
-    <string name="revanced_hide_button_container_summary">বাটন কন্টেইনারের উপাদান লুকিয়ে রাখে</string>
-    <string name="revanced_hide_button_container_title">বাটন কন্টেইনারের উপাদান লুকান</string>
     <string name="revanced_hide_button_create_clip_summary_off">ক্লিপ বাটন দৃশ্যমান আছে</string>
     <string name="revanced_hide_button_create_clip_summary_on">ক্লিপ বাটন লুকানো আছে</string>
     <string name="revanced_hide_button_create_clip_title">ক্লিপ বাটন লুকান</string>
@@ -306,8 +291,6 @@
     <string name="revanced_hide_collapse_button_summary_off">সঙ্কুচিত বাটন দৃশ্যমান আছে</string>
     <string name="revanced_hide_collapse_button_summary_on">সঙ্কুচিত বাটন লুকানো আছে</string>
     <string name="revanced_hide_collapse_button_title">সঙ্কুচিত বাটন লুকান</string>
-    <string name="revanced_hide_comments_component_summary">মন্তব্য বিভাগ বা এর বিষয়বস্তু লুকিয়ে রাখে</string>
-    <string name="revanced_hide_comments_component_title">মন্তব্যের বিষয়বস্তু লুকান</string>
     <string name="revanced_hide_comments_section_summary_off">মন্তব্য বিভাগ দৃশ্যমান আছে</string>
     <string name="revanced_hide_comments_section_summary_on">মন্তব্য বিভাগ লুকানো আছে</string>
     <string name="revanced_hide_comments_section_title">মন্তব্য বিভাগ লুকান</string>
@@ -439,16 +422,6 @@
     <string name="revanced_hide_time_stamp_title">টাইম স্ট্যাম্প লুকান</string>
     <string name="revanced_import_settings_summary">সংরক্ষিত ফাইল থেকে ReVanced সেটিং আনুন</string>
     <string name="revanced_import_settings_title">সেটিং আমদানি করুন</string>
-    <string name="revanced_layout_settings_bottomplayer">প্লেয়ারের নিচের লে-আউট</string>
-    <string name="revanced_layout_settings_flyoutmenu">ফ্লাইআউট মেনু লেআউট</string>
-    <string name="revanced_layout_settings_fullscreen">ফুলস্ক্রিন লে-আউট</string>
-    <string name="revanced_layout_settings_player">প্লেয়ার লে-আউট</string>
-    <string name="revanced_layout_settings_seekbar">সিকবার লেআউট</string>
-    <string name="revanced_misc_settings_summary">বিবিধ সম্পর্কিত সেটিং</string>
-    <string name="revanced_misc_settings_title">বিবিধ</string>
-    <string name="revanced_others_title">অন্যান্য</string>
-    <string name="revanced_other_layout_settings_summary">অন্যান্য লে-আউট সম্পর্কিত সেটিং</string>
-    <string name="revanced_other_layout_settings_title">অন্যান্য লে-আউট</string>
     <string name="revanced_overlay_button_auto_repeat_summary_off">স্বয়ংক্রিয় পুনরাবৃত্তি বাটন লুকানো আছে</string>
     <string name="revanced_overlay_button_auto_repeat_summary_on">স্বয়ংক্রিয় পুনরাবৃত্তি বাটন দৃশমান আছে</string>
     <string name="revanced_overlay_button_auto_repeat_title">স্বয়ংক্রিয় পুনরাবৃত্তি বাটন দেখান</string>
@@ -461,8 +434,6 @@
     <string name="revanced_overlay_button_downloads_summary_off">ডাউনলোড বাটন লুকানো আছে</string>
     <string name="revanced_overlay_button_downloads_summary_on">ডাউনলোড বাটন দৃশ্যমান আছে</string>
     <string name="revanced_overlay_button_downloads_title">ডাউনলোড বাটন দেখান</string>
-    <string name="revanced_overlay_button_summary">ওভারলে বাটন সম্পর্কিত সেটিং</string>
-    <string name="revanced_overlay_button_title">ওভারলে বাটন</string>
     <string name="revanced_overlay_button_speed_reset">ভিডিও স্পিড পুনঃসেট হয়েছে (1.0x)</string>
     <string name="revanced_overlay_button_speed_summary_off">গতি বাটন লুকানো আছে</string>
     <string name="revanced_overlay_button_speed_summary_on">গতি বাটন দৃশ্যমান আছে</string>
@@ -475,8 +446,6 @@
     <string name="revanced_override_premium_header_title">প্রিমিয়াম হেডার</string>
     <string name="revanced_patches_information_summary">প্রয়োগকৃত প্যাচ সম্পর্কে তথ্য</string>
     <string name="revanced_patches_information">প্যাচ তথ্য</string>
-    <string name="revanced_player_flyout_panel_summary">প্লেয়ার সেটিংস ফ্লাইআউট প্যানেলের উপাদান লুকিয়ে রাখে</string>
-    <string name="revanced_player_flyout_panel_title">প্লেয়ার ফ্লাইআউট প্যানেলের উপাদান</string>
     <string name="revanced_reboot_warning_general">"যেহেতু এটি এখনো পরীক্ষামূলক ফিচার, এখানে অন্যান্য অজানা সমস্যা থাকতে পারে।
 আপনি কি নিশ্চিতভাবে চালিয়ে যেতে চান?"</string>
     <string name="revanced_reboot_warning_oldlayout">"পুরোনো লেআউট লোড করার জন্য YouTube কৌশলে v17.28.35 করবে
@@ -515,8 +484,6 @@
     <string name="revanced_save_video_quality_wifi_error">ওয়াই-ফাই এর ডিফল্ট কোয়ালিটি পরিবর্তন করতে ব্যর্থ হয়েছে</string>
     <string name="revanced_save_video_speed">ডিফল্ট গতি পরিবর্তন হচ্ছে:</string>
     <string name="revanced_sponsorblock_settings_summary">SponsorBlock সম্পর্কিত সেটিং</string>
-    <string name="revanced_swipe_controls_summary">সোয়াইপ কন্ট্রোল সম্পর্কিত সেটিং</string>
-    <string name="revanced_swipe_controls_title">সোয়াইপ কন্ট্রোল</string>
     <string name="revanced_swipe_magnitude_threshold_summary">সোয়াইপ হওয়ার জন্য থ্রেশহোল্ডের পরিমাণ</string>
     <string name="revanced_swipe_magnitude_threshold_title">সোয়াইপ থ্রেশহোল্ড এর মাত্রা</string>
     <string name="revanced_swipe_overlay_background_alpha_summary">সোয়াইপ ওভারলে ব্যাকগ্রাউন্ডের দৃশ্যমানতা</string>
@@ -529,8 +496,6 @@
     <string name="revanced_video_ads_removal_summary_off">ভিডিও বিজ্ঞাপন দৃশ্যমান আছে</string>
     <string name="revanced_video_ads_removal_summary_on">ভিডিও বিজ্ঞাপন লুকানো আছে</string>
     <string name="revanced_video_ads_removal_title">ভিডিও বিজ্ঞাপন লুকান</string>
-    <string name="revanced_video_settings_summary">ভিডিও সম্পর্কিত সেটিং</string>
-    <string name="revanced_video_settings_title">ভিডিও</string>
     <string name="revanced_whitelisting_add_failed" formatted="false">%s চ্যানেল %s সাদা তালিকায় যুক্ত করতে ব্যর্থ</string>
     <string name="revanced_whitelisting_added" formatted="false">%s চ্যানেল %s সাদা তালিকায় যুক্ত করা হয়েছে</string>
     <string name="revanced_whitelisting_ads">ভিডিও বিজ্ঞাপন</string>

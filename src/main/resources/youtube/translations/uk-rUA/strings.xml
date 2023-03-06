@@ -46,8 +46,6 @@
     <string name="microg_not_installed_notice">Будь ласка, встановіть MicroG</string>
     <string name="microg_not_installed_warning">MicroG не знайдено</string>
     <string name="microg_not_running_warning">MicroG не працює у фоновому режимі</string>
-    <string name="microg_notification_settings_summary">"1. Реєстрація пристроїв Google і Google Cloud Messaging повинні бути увімкненими для сповіщень.\n2. Vanced повинен бути показаний зареєстрованим під GCM.\n3. Поточний стан у GCM повинен не бути Від'єднано.\n4. GCM -&gt; Розширені (три точки справа згори) і змініть інтервал очікування Wi-Fi назад і вперед раз для з'єднання.\n💙💛"</string>
-    <string name="microg_notification_settings_title">Повідомлення</string>
     <string name="minutes">хв.</string>
     <string name="new_segment_choose_category">Виберіть категорію сегмента</string>
     <string name="new_segment_confirm_content" formatted="false">"Сегмент триває від %02d:%02d до %02d:%02d (%d хвилин(-и) %02d секунд(-и))\n Відправляємо?"</string>
@@ -68,8 +66,6 @@
     <string name="new_segment_time_start_set">Початок задання сегмента</string>
     <string name="new_segment_title">Новий SponsorBlock сегмент</string>
     <string name="reset">Скинути</string>
-    <string name="revanced_ads_settings_summary">Додаткові налаштування оголошень </string>
-    <string name="revanced_ads_settings_title">Реклама</string>
     <string name="revanced_adremover_album_card_in_search_summary_off">Вилучення карти альбомів у результатах пошуку вимкнено</string>
     <string name="revanced_adremover_album_card_in_search_summary_on">Вилучення карти альбомів у результатах пошуку увімкнемо</string>
     <string name="revanced_adremover_album_card_in_search_title">Вилучення картки альбома</string>
@@ -143,7 +139,7 @@
     <string name="revanced_adremover_web_search_panel_summary_off">Вилучення панелі веб-пошуку вимкнено</string>
     <string name="revanced_adremover_web_search_panel_summary_on">Вилучення панелі веб-пошуку увімкнено</string>
     <string name="revanced_adremover_web_search_panel_title">Вилучення панелі веб-пошуку</string>
-    <string name="revanced_backup_settings_summary">Імпортувати налаштування ReVanced з файлу або експорту налаштування ReVanced в файл</string>
+    <string name="revanced_copytimestamp_success">Мітку часу скопійовано в буфер обміну</string>
     <string name="revanced_custom_seekbar_color_value_summary">Введіть HEX код кольору панелі пошуку для використання в темному режимі</string>
     <string name="revanced_custom_seekbar_color_value_title">Користувацьке значення кольору панелі пошуку</string>
     <string name="revanced_default_video_quality_mobile_title">Типова якість відео для Моб-Мережі</string>
@@ -165,12 +161,9 @@
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">Вібровідгук при зміні глави увімкнено</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">Вібровідгук при зміні глави вимкнено</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">Вимкнути Вібровідгук при зміні глави</string>
-    <string name="revanced_disable_haptic_feedback_summary">Вимкнення вібровідгуку при тривалому натисканні</string>
-    <string name="revanced_disable_haptic_feedback_title">Вимкнення вібровідгуку</string>
     <string name="revanced_disable_haptic_feedback_zoom_summary_off">Вібровідгук при збільшенні для заповнення екрана увімкнено</string>
     <string name="revanced_disable_haptic_feedback_zoom_summary_on">Вібровідгук при збільшенні для заповнення екрана вимкнено</string>
     <string name="revanced_disable_haptic_feedback_zoom_title">Вимкнення Вібровідгуку при збільшенні для заповнення екрана</string>
-    <string name="revanced_copytimestamp_success">Мітку часу скопійовано в буфер обміну</string>
     <string name="revanced_enable_always_auto_repeat_summary_off">Автовідтворення вимкнено</string>
     <string name="revanced_enable_always_auto_repeat_summary_on">Автовідтворення увімкнено</string>
     <string name="revanced_enable_always_auto_repeat_title">Автовідтворення</string>
@@ -240,8 +233,6 @@
     <string name="revanced_experimental_flag">Експериментальні опції</string>
     <string name="revanced_export_settings_summary">Зберегти ваші налаштування ReVanced у файл</string>
     <string name="revanced_export_settings_title">Експорт налаштувань</string>
-    <string name="revanced_general_layout_settings_summary">Додаткові налаштування вигляду</string>
-    <string name="revanced_general_layout_settings_title">Загальний вигляд</string>
     <string name="revanced_hide_auto_captions_summary_off">Автоматично включати відображення субтитрів за їх присутності</string>
     <string name="revanced_hide_auto_captions_summary_on">"Автоматично вимикати відображення субтитрів за їх присутності"</string>
     <string name="revanced_hide_auto_captions_title">Автоматичні субтитри</string>
@@ -251,8 +242,6 @@
     <string name="revanced_hide_autoplay_button_summary_off">Кнопку автовідтворення увімкнено</string>
     <string name="revanced_hide_autoplay_button_summary_on">Кнопку автовідтворення вимкнено</string>
     <string name="revanced_hide_autoplay_button_title">Вилучення кнопки автовідтворення</string>
-    <string name="revanced_hide_button_container_summary">Додаткові налаштування приховувань кнопок</string>
-    <string name="revanced_hide_button_container_title">Приховування кнопок</string>
     <string name="revanced_hide_button_create_clip_summary_off">Кнопка створити кліп показана</string>
     <string name="revanced_hide_button_create_clip_summary_on">Кнопка створити кліп прихована</string>
     <string name="revanced_hide_button_create_clip_title">Кнопка створити кліп</string>
@@ -295,8 +284,6 @@
     <string name="revanced_hide_collapse_button_summary_off">Кнопка згортування показано</string>
     <string name="revanced_hide_collapse_button_summary_on">Кнопка згортування прихована</string>
     <string name="revanced_hide_collapse_button_title">Сховати кнопку згортування</string>
-    <string name="revanced_hide_comments_component_summary">Налаштування приховування розділу коментарів або його частин</string>
-    <string name="revanced_hide_comments_component_title">Приховування частин інтерфейсу розділу коментарів</string>
     <string name="revanced_hide_comments_section_summary_off">Вилучення розділу коментарів вимкнено</string>
     <string name="revanced_hide_comments_section_summary_on">Вилучення розділу коментарів увімкнено</string>
     <string name="revanced_hide_comments_section_title">Розділ коментарів</string>
@@ -428,16 +415,6 @@
     <string name="revanced_hide_time_stamp_title">Сховати штамп часу</string>
     <string name="revanced_import_settings_summary">Отримати налаштування ReVanced зі збереженого файлу</string>
     <string name="revanced_import_settings_title">Імпортувати налаштування</string>
-    <string name="revanced_layout_settings_bottomplayer">Стиль нижнього плеєра</string>
-    <string name="revanced_layout_settings_flyoutmenu">Розмітка флайаут меню</string>
-    <string name="revanced_layout_settings_fullscreen">Розмітка повноекранного режиму</string>
-    <string name="revanced_layout_settings_player">Розмітка плеєра</string>
-    <string name="revanced_layout_settings_seekbar">Розмітка панелі пошуку</string>
-    <string name="revanced_misc_settings_summary">Додаткові налаштування іншого</string>
-    <string name="revanced_misc_settings_title">Різне</string>
-    <string name="revanced_others_title">Інше</string>
-    <string name="revanced_other_layout_settings_summary">Додаткові налаштування вигляду</string>
-    <string name="revanced_other_layout_settings_title">Інша розмітка</string>
     <string name="revanced_overlay_button_auto_repeat_summary_off">Кнопка Автоповтору прихована</string>
     <string name="revanced_overlay_button_auto_repeat_summary_on">Кнопка Автоповтору показана</string>
     <string name="revanced_overlay_button_auto_repeat_title">Кнопка Автоповтору</string>
@@ -450,8 +427,6 @@
     <string name="revanced_overlay_button_downloads_summary_off">Кнопка завантажити прихована</string>
     <string name="revanced_overlay_button_downloads_summary_on">Кнопка завантажити показана</string>
     <string name="revanced_overlay_button_downloads_title">Кнопка завантажити</string>
-    <string name="revanced_overlay_button_summary">Додаткові налаштування кнопок в інтерфейсі плеєра</string>
-    <string name="revanced_overlay_button_title">Кнопка оверлею</string>
     <string name="revanced_overlay_button_speed_reset">Швидкість відео скинута (1.0x)</string>
     <string name="revanced_overlay_button_speed_summary_off">Кнопка швидкості прихована</string>
     <string name="revanced_overlay_button_speed_summary_on">Кнопка швидкості показана</string>
@@ -464,8 +439,6 @@
     <string name="revanced_override_premium_header_title">Premium заголовок на головній сторінці</string>
     <string name="revanced_patches_information_summary">Інформація про застосовані патчі</string>
     <string name="revanced_patches_information">Патчі</string>
-    <string name="revanced_player_flyout_panel_summary">Параметрі приховування компонентів опції спливаючей панелі плеєра</string>
-    <string name="revanced_player_flyout_panel_title">Компонент спливаючей панелі плеєра</string>
     <string name="revanced_reboot_warning_general">"Оскільки це експериментальна функція, можуть бути невідомі проблеми.
 Ви впевнені, що хочете продовжити?"</string>
     <string name="revanced_reboot_warning_oldlayout">"Підміняє версію клієнта YouTube на v17.28.35 для відображення старого інтерфейсу
@@ -496,8 +469,6 @@
     <string name="revanced_save_video_quality_wifi_error">Не вдалося змінити якість відео для WI-FI мереж за замовчуванням</string>
     <string name="revanced_save_video_speed">Зміна швидкості відео за замовчуванням на:</string>
     <string name="revanced_sponsorblock_settings_summary">Додаткові налаштування SponsorBlock</string>
-    <string name="revanced_swipe_controls_summary">Додаткові налаштування керування жестами</string>
-    <string name="revanced_swipe_controls_title">Керування жестами</string>
     <string name="revanced_swipe_magnitude_threshold_summary">Мінімальна амплітуда руху, що розпізнається як жест</string>
     <string name="revanced_swipe_magnitude_threshold_title">Поріг величини жесту</string>
     <string name="revanced_swipe_overlay_background_alpha_summary">Видимість фону накладення при свайпе</string>
@@ -510,8 +481,6 @@
     <string name="revanced_video_ads_removal_summary_off">Вилучення оголошень у відео вимкнено</string>
     <string name="revanced_video_ads_removal_summary_on">Вилучення оголошень у відео увімкнено</string>
     <string name="revanced_video_ads_removal_title">Вилучення оголошень у відео</string>
-    <string name="revanced_video_settings_summary">Додаткові налаштування відео</string>
-    <string name="revanced_video_settings_title">Відео</string>
     <string name="revanced_whitelisting_add_failed" formatted="false">Не вдалося додати канал %s до білого списку %s</string>
     <string name="revanced_whitelisting_added" formatted="false">Канал %s був доданий до білого списку %s</string>
     <string name="revanced_whitelisting_ads">Реклама</string>

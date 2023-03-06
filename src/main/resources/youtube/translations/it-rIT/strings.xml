@@ -46,10 +46,6 @@
     <string name="microg_not_installed_notice">Per favore installa MicroG</string>
     <string name="microg_not_installed_warning">MicroG non trovato</string>
     <string name="microg_not_running_warning">MicroG non è in esecuzione in secondo piano</string>
-    <string name="microg_notification_settings_summary">"1. Registrazione del Dispositivo e Messaggistica Cloud devono risultare attivi per poter ricevere le notifiche.
-2. ReVanced Extended deve essere presente nella lista delle app registrate in Messaggistica Cloud.
-3. Lo stato di Messaggistica Cloud deve risultare Connesso."</string>
-    <string name="microg_notification_settings_title">Notifica</string>
     <string name="minutes">minuti</string>
     <string name="new_segment_choose_category">Scegli la categoria del segmento</string>
     <string name="new_segment_confirm_content" formatted="false">"Il segmento dura da %02d:%02d a %02d:%02d (%d minuti %02d secondi)
@@ -71,8 +67,6 @@
     <string name="new_segment_time_start_set">Inizio del segmento impostato</string>
     <string name="new_segment_title">Nuovo segmento di SponsorBlock</string>
     <string name="reset">Reimposta</string>
-    <string name="revanced_ads_settings_summary">Impostazioni relative agli annunci</string>
-    <string name="revanced_ads_settings_title">Annunci</string>
     <string name="revanced_adremover_album_card_in_search_summary_off">Le schede degli album sono visibili nei risultati di ricerca</string>
     <string name="revanced_adremover_album_card_in_search_summary_on">Le schede degli album sono nascoste nei risultati della ricerca</string>
     <string name="revanced_adremover_album_card_in_search_title">Nascondi le schede degli album</string>
@@ -156,7 +150,7 @@
     <string name="revanced_adremover_web_search_panel_summary_off">I pannelli di ricerca web sono visibili</string>
     <string name="revanced_adremover_web_search_panel_summary_on">I pannelli di ricerca web sono nascosti</string>
     <string name="revanced_adremover_web_search_panel_title">Nascondi i pannelli di ricerca web</string>
-    <string name="revanced_backup_settings_summary">Importa o esporta le impostazioni di ReVanced mediante file</string>
+    <string name="revanced_copytimestamp_success">Marcatore Temporale copiato negli appunti</string>
     <string name="revanced_custom_seekbar_color_value_summary">Digita il colore esadecimale per la barra del minutaggio in modalità scura</string>
     <string name="revanced_custom_seekbar_color_value_title">Colore personalizzato barra del minutaggio scura</string>
     <string name="revanced_default_video_quality_mobile_title">Risoluzione video Dati Cellulare predefinita</string>
@@ -178,12 +172,9 @@
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">Il feedback tattile dei capitoli è attivo</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">Il feedback tattile dei capitoli video è disattivato</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">Capitoli video</string>
-    <string name="revanced_disable_haptic_feedback_summary">Disattiva il feedback tattile durante la pressione prolungata</string>
-    <string name="revanced_disable_haptic_feedback_title">Disattivazione feedback tattile</string>
     <string name="revanced_disable_haptic_feedback_zoom_summary_off">Il feedback tattile dello zoom è attivo</string>
     <string name="revanced_disable_haptic_feedback_zoom_summary_on">Il feedback tattile dello zoom video è disattivato</string>
     <string name="revanced_disable_haptic_feedback_zoom_title">Zoom video</string>
-    <string name="revanced_copytimestamp_success">Marcatore Temporale copiato negli appunti</string>
     <string name="revanced_enable_always_auto_repeat_summary_off">Ripeti sempre automaticamente è disattivato</string>
     <string name="revanced_enable_always_auto_repeat_summary_on">Ripeti sempre automaticamente è attivo</string>
     <string name="revanced_enable_always_auto_repeat_title">Ripeti sempre automaticamente</string>
@@ -253,8 +244,8 @@
     <string name="revanced_experimental_flag">Opzioni Sperimentali</string>
     <string name="revanced_export_settings_summary">Salva le tue impostazioni di ReVanced su un file</string>
     <string name="revanced_export_settings_title">Esporta impostazioni</string>
-    <string name="revanced_general_layout_settings_summary">Impostazioni generali relative all\'interfaccia</string>
-    <string name="revanced_general_layout_settings_title">Interfaccia generale</string>
+    <string name="revanced_extended_support_center_summary">Segnala problemi o lascia qui suggerimenti</string>
+    <string name="revanced_extended_support_center_title">Centro Di Supporto</string>
     <string name="revanced_hide_auto_captions_summary_off">I sottotitoli vengono mostrati durante la visualizzazione di un video (con sottotitoli automatici)</string>
     <string name="revanced_hide_auto_captions_summary_on">"I sottotitoli vengono nascosti durante la visualizzazione di un video (con sottotitoli automatici)"</string>
     <string name="revanced_hide_auto_captions_title">Nascondi sottotitoli automatici</string>
@@ -264,8 +255,6 @@
     <string name="revanced_hide_autoplay_button_summary_off">Il pulsante di riproduzione automatica è visibile</string>
     <string name="revanced_hide_autoplay_button_summary_on">Il pulsante di riproduzione automatica è nascosto</string>
     <string name="revanced_hide_autoplay_button_title">Nascondi il pulsante di riproduzione automatica</string>
-    <string name="revanced_hide_button_container_summary">Nasconde una componente dal contenitore dei pulsanti</string>
-    <string name="revanced_hide_button_container_title">Nascondi componente pulsante</string>
     <string name="revanced_hide_button_create_clip_summary_off">Il pulsante Clip è visibile</string>
     <string name="revanced_hide_button_create_clip_summary_on">Il pulsante Clip è nascosto</string>
     <string name="revanced_hide_button_create_clip_title">Pulsante Clip</string>
@@ -308,8 +297,6 @@
     <string name="revanced_hide_collapse_button_summary_off">Il pulsante Comprimi è visibile</string>
     <string name="revanced_hide_collapse_button_summary_on">Il pulsante Comprimi è nascosto</string>
     <string name="revanced_hide_collapse_button_title">Nascondi il pulsante Comprimi</string>
-    <string name="revanced_hide_comments_component_summary">Nasconde una componente o l\'intera sezione commenti</string>
-    <string name="revanced_hide_comments_component_title">Nascondi i componenti dei commenti</string>
     <string name="revanced_hide_comments_section_summary_off">La sezione dei commenti è visibile</string>
     <string name="revanced_hide_comments_section_summary_on">La sezione dei commenti è nascosta</string>
     <string name="revanced_hide_comments_section_title">Sezione commenti</string>
@@ -441,16 +428,6 @@
     <string name="revanced_hide_time_stamp_title">Nascondi marca temporale</string>
     <string name="revanced_import_settings_summary">Carica le impostazioni di ReVanced da un file salvato</string>
     <string name="revanced_import_settings_title">Importa impostazioni</string>
-    <string name="revanced_layout_settings_bottomplayer">Interfaccia inferiore del riproduttore</string>
-    <string name="revanced_layout_settings_flyoutmenu">Interfaccia del menù contestuale</string>
-    <string name="revanced_layout_settings_fullscreen">Interfaccia a schermo intero</string>
-    <string name="revanced_layout_settings_player">Interfaccia del riproduttore</string>
-    <string name="revanced_layout_settings_seekbar">Interfaccia della barra di minutaggio</string>
-    <string name="revanced_misc_settings_summary">Varie impostazioni correlate</string>
-    <string name="revanced_misc_settings_title">Varie</string>
-    <string name="revanced_others_title">Altro</string>
-    <string name="revanced_other_layout_settings_summary">Altre impostazioni relative all\'interfaccia</string>
-    <string name="revanced_other_layout_settings_title">Altre opzioni interfaccia</string>
     <string name="revanced_overlay_button_auto_repeat_summary_off">Il pulsante di ripetizione automatica è nascosto</string>
     <string name="revanced_overlay_button_auto_repeat_summary_on">Il pulsante di ripetizione automatica è visibile</string>
     <string name="revanced_overlay_button_auto_repeat_title">Mostra il pulsante di ripetizione automatica</string>
@@ -463,8 +440,6 @@
     <string name="revanced_overlay_button_downloads_summary_off">Il pulsante Scarica è nascosto</string>
     <string name="revanced_overlay_button_downloads_summary_on">Il pulsante Scarica è visibile</string>
     <string name="revanced_overlay_button_downloads_title">Mostra il pulsante Scarica</string>
-    <string name="revanced_overlay_button_summary">Impostazioni relative ai pulsanti sovrapposti</string>
-    <string name="revanced_overlay_button_title">Pulsante in sovrapposizione</string>
     <string name="revanced_overlay_button_speed_reset">Velocità video reimpostata (1.0x)</string>
     <string name="revanced_overlay_button_speed_summary_off">Il pulsante della velocità è nascosto</string>
     <string name="revanced_overlay_button_speed_summary_on">Il pulsante della velocità è visibile</string>
@@ -477,8 +452,6 @@
     <string name="revanced_override_premium_header_title">Intestazione Premium</string>
     <string name="revanced_patches_information_summary">Informazioni sulle patch applicate</string>
     <string name="revanced_patches_information">Informazioni Patch</string>
-    <string name="revanced_player_flyout_panel_summary">Nasconde una componente del menù contestuale di impostazioni del riproduttore</string>
-    <string name="revanced_player_flyout_panel_title">Componente del menù contestuale del riproduttore</string>
     <string name="revanced_reboot_warning_general">"Poiché questa è ancora una funzionalità sperimentale, potrebbero verificarsi problemi sconosciuti.
 Sei sicuro di voler procedere?"</string>
     <string name="revanced_reboot_warning_oldlayout">"Simula la versione v17.28.35 dell'app per riottenere la precedente interfaccia
@@ -489,6 +462,8 @@ Nelle impostazioni dell'app, la versione di YouTube potrebbe essere contrassegna
 Attivando questa opzione, saranno disponibili le seguenti funzionalità: 
 - Post della Community
 - Nascondi Mix Playlist"</string>
+    <string name="revanced_reboot_warning_switch">"Se attiverai questa impostazione, non risulteranno disponibili le seguenti funzionalità:
+- Modalità Ambient"</string>
     <string name="revanced_reboot_warning_tablet">"Simula il valore DPI per sostituire alcune parti dell'interfaccia con la relativa controparte per tablet.
 
 Attivando questa opzione, saranno disponibili le seguenti funzionalità:
@@ -517,8 +492,6 @@ Dal momento che questa opzione è abbastanza obsoleta, potrebbe risultare non pi
     <string name="revanced_save_video_quality_wifi_error">Impossibile modificare la qualità WI-FI predefinita</string>
     <string name="revanced_save_video_speed">Modifica velocità predefinita in:</string>
     <string name="revanced_sponsorblock_settings_summary">Impostazioni relative a SponsorBlock</string>
-    <string name="revanced_swipe_controls_summary">Impostazioni relative ai controlli a scorrimento</string>
-    <string name="revanced_swipe_controls_title">Controlli a scorrimento</string>
     <string name="revanced_swipe_magnitude_threshold_summary">La quantità di interazioni prima che lo scorrimento si verifichi</string>
     <string name="revanced_swipe_magnitude_threshold_title">Ampiezza soglia di scorrimento</string>
     <string name="revanced_swipe_overlay_background_alpha_summary">La visibilità dello sfondo in sovrapposizione durante lo scorrimento</string>
@@ -527,12 +500,13 @@ Dal momento che questa opzione è abbastanza obsoleta, potrebbe risultare non pi
     <string name="revanced_swipe_overlay_text_size_title">Dimensione testo sovrapposto con scorrimento</string>
     <string name="revanced_swipe_overlay_timeout_summary">Visibilità in millisecondi della sovrapposizione</string>
     <string name="revanced_swipe_overlay_timeout_title">Fine sovrapposizione con scorrimento</string>
+    <string name="revanced_switching_create_notification_summary_off">Il pulsante Crea ed il pulsante di notifica non sono invertiti</string>
+    <string name="revanced_switching_create_notification_summary_on">Il pulsante Crea e il pulsante di notifica sono invertiti</string>
+    <string name="revanced_switching_create_notification_title">Cambia il pulsante Crea e il pulsante di notifica</string>
     <string name="revanced_tool_used">strumento utilizzato</string>
     <string name="revanced_video_ads_removal_summary_off">Gli annunci video sono visibili</string>
     <string name="revanced_video_ads_removal_summary_on">Gli annunci video sono nascosti</string>
     <string name="revanced_video_ads_removal_title">Nascondi annunci video</string>
-    <string name="revanced_video_settings_summary">Impostazioni relative al video</string>
-    <string name="revanced_video_settings_title">Video</string>
     <string name="revanced_whitelisting_add_failed" formatted="false">Impossibile aggiungere il canale %s alla Lista Bianca %s</string>
     <string name="revanced_whitelisting_added" formatted="false">Il canale %s è stato aggiunto alla Lista Bianca %s</string>
     <string name="revanced_whitelisting_ads">Annunci video</string>
