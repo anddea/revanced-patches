@@ -19,7 +19,7 @@ class CustomBrandingMusicIconMMTPatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
 
         context.customIconMusic("mmt")
-		context.customIconMusicAdditional("mmt")
+        context.customIconMusicAdditional("mmt")
 
         return PatchResultSuccess()
     }
