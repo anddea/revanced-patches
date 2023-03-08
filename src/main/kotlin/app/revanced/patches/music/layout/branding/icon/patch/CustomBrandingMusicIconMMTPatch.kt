@@ -8,6 +8,7 @@ import app.revanced.patcher.patch.*
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.shared.annotation.YouTubeMusicCompatibility
 import app.revanced.util.resources.IconHelper.customIconMusic
+import app.revanced.util.resources.IconHelper.customIconMusicAdditional
 
 @Patch(false)
 @Name("custom-branding-music-mmt")
@@ -18,6 +19,7 @@ class CustomBrandingMusicIconMMTPatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
 
         context.customIconMusic("mmt")
+		context.customIconMusicAdditional("mmt")
 
         return PatchResultSuccess()
     }
