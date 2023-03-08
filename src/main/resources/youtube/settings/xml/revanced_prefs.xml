@@ -145,20 +145,20 @@
     <PreferenceScreen android:title="@string/revanced_player_layout" android:key="player_layout">
         <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_player_layout" />PREFERENCE: PLAYER_LAYOUT_SETTINGS -->
 
-        <!-- SETTINGS: HIDE_CAST_BUTTON
-        <SwitchPreference android:title="@string/revanced_hide_cast_button_title" android:key="revanced_hide_cast_button" android:defaultValue="true" android:summaryOn="@string/revanced_hide_cast_button_summary_on" android:summaryOff="@string/revanced_hide_cast_button_summary_off" />SETTINGS: HIDE_CAST_BUTTON -->
+        <!-- SETTINGS: HIDE_COLLAPSE_BUTTON
+        <SwitchPreference android:title="@string/revanced_hide_collapse_button_title" android:key="revanced_hide_collapse_button" android:defaultValue="false" android:summaryOn="@string/revanced_hide_collapse_button_summary_on" android:summaryOff="@string/revanced_hide_collapse_button_summary_off" />SETTINGS: HIDE_COLLAPSE_BUTTON -->
 
         <!-- SETTINGS: HIDE_AUTOPLAY_BUTTON
         <SwitchPreference android:title="@string/revanced_hide_autoplay_button_title" android:key="revanced_hide_autoplay_button" android:defaultValue="true" android:summaryOn="@string/revanced_hide_autoplay_button_summary_on" android:summaryOff="@string/revanced_hide_autoplay_button_summary_off" />SETTINGS: HIDE_AUTOPLAY_BUTTON -->
 
-        <!-- SETTINGS: HIDE_CAPTIONS_BUTTON
-        <SwitchPreference android:title="@string/revanced_hide_captions_button_title" android:key="revanced_hide_captions_button" android:defaultValue="false" android:summaryOn="@string/revanced_hide_captions_button_summary_on" android:summaryOff="@string/revanced_hide_captions_button_summary_off" />SETTINGS: HIDE_CAPTIONS_BUTTON -->
+        <!-- SETTINGS: HIDE_CAST_BUTTON
+        <SwitchPreference android:title="@string/revanced_hide_cast_button_title" android:key="revanced_hide_cast_button" android:defaultValue="true" android:summaryOn="@string/revanced_hide_cast_button_summary_on" android:summaryOff="@string/revanced_hide_cast_button_summary_off" />SETTINGS: HIDE_CAST_BUTTON -->
 
         <!-- SETTINGS: HIDE_LIVE_CHATS_BUTTON
         <SwitchPreference android:title="@string/revanced_hide_live_chat_button_title" android:key="revanced_hide_live_chat_button" android:defaultValue="false" android:summaryOn="@string/revanced_hide_live_chat_button_summary_on" android:summaryOff="@string/revanced_hide_live_chat_button_summary_off" />SETTINGS: HIDE_LIVE_CHATS_BUTTON -->
 
-        <!-- SETTINGS: HIDE_COLLAPSE_BUTTON
-        <SwitchPreference android:title="@string/revanced_hide_collapse_button_title" android:key="revanced_hide_collapse_button" android:defaultValue="false" android:summaryOn="@string/revanced_hide_collapse_button_summary_on" android:summaryOff="@string/revanced_hide_collapse_button_summary_off" />SETTINGS: HIDE_COLLAPSE_BUTTON -->
+        <!-- SETTINGS: HIDE_CAPTIONS_BUTTON
+        <SwitchPreference android:title="@string/revanced_hide_captions_button_title" android:key="revanced_hide_captions_button" android:defaultValue="false" android:summaryOn="@string/revanced_hide_captions_button_summary_on" android:summaryOff="@string/revanced_hide_captions_button_summary_off" />SETTINGS: HIDE_CAPTIONS_BUTTON -->
 
         <!-- SETTINGS: HIDE_NEXT_BUTTON
         <SwitchPreference android:title="@string/revanced_hide_next_button_title" android:key="revanced_hide_next_button" android:defaultValue="false" android:summaryOn="@string/revanced_hide_next_button_summary_on" android:summaryOff="@string/revanced_hide_next_button_summary_off" />SETTINGS: HIDE_NEXT_BUTTON -->
@@ -402,10 +402,11 @@
             <Preference android:title="switch-create-notification" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
 
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_player_layout" />
-            <Preference android:title="hide-cast-button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="hide-collapse-button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-autoplay-button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
-            <Preference android:title="hide-captions-button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="hide-cast-button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-live-chat-button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="hide-captions-button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-next-prev-button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-player-button-background" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-endscreen-cards" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
