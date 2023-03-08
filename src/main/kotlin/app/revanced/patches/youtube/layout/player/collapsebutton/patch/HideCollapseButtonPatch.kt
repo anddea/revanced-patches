@@ -37,7 +37,7 @@ class HideCollapseButtonPatch : ResourcePatch {
             )
         )
 
-        SettingsPatch.updatePatchStatus("hide-live-chat-button")
+        SettingsPatch.updatePatchStatus("hide-collapse-button")
 
         return PatchResultSuccess()
     }
