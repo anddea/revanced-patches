@@ -46,6 +46,8 @@
     <string name="microg_not_installed_notice">Kérjük telepítse a MicroG-t</string>
     <string name="microg_not_installed_warning">A MicoG nem található</string>
     <string name="microg_not_running_warning">A MicroG nem fut a háttérben</string>
+    <string name="microg_settings_summary">Értesítések fogadásához engedélyezze a „Cloud messaging” beállításokat</string>
+    <string name="microg_settings_title">MicroG megnyitása</string>
     <string name="minutes">perc</string>
     <string name="new_segment_choose_category">Válassza ki a szegmens kategóriáját</string>
     <string name="new_segment_confirm_content" formatted="false">"A szegmens %02d:%02d -től %02d:%02d -ig tart (%d perc %02d másodperc)
@@ -82,6 +84,12 @@ Készen áll a beküldésre?"</string>
     <string name="revanced_adremover_channelbar_join_button_summary_off">A Csatorna tagság „Csatlakozás” gomb látható</string>
     <string name="revanced_adremover_channelbar_join_button_summary_on">A Csatorna tagság „Csatlakozás” gomb el van rejtve</string>
     <string name="revanced_adremover_channelbar_join_button_title">Csatorna tagság „Csatlakozás” gomb elrejtése</string>
+    <string name="revanced_adremover_community_posts_subscriptions_summary_off">A Közösségi posztok a „Feliratkozások” fülön meg vannak jelenítve</string>
+    <string name="revanced_adremover_community_posts_subscriptions_summary_on">A Közösségi posztok a „Feliratkozások” fülön el vannak rejtve</string>
+    <string name="revanced_adremover_community_posts_subscriptions_title">Közösségi posztok a „Feliratkozások” fülön elrejtése</string>
+    <string name="revanced_adremover_community_posts_home_summary_off">A Közösségi posztok a kezdőlap fülön meg vannak jelenítve</string>
+    <string name="revanced_adremover_community_posts_home_summary_on">A Közösségi posztok a kezdőlap fülön el vannak rejtve</string>
+    <string name="revanced_adremover_community_posts_home_title">Közösségi posztok a kezdőlap fülön elrejtése</string>
     <string name="revanced_adremover_custom_filter_summary">Szűrje a komponenseket a nevük alapján, vesszővel elválasztva</string>
     <string name="revanced_adremover_custom_filter_title">Egyéni szűrö</string>
     <string name="revanced_adremover_general_ads_summary_off">Az Általános reklámok láthatóak</string>
@@ -126,6 +134,8 @@ Készen áll a beküldésre?"</string>
     <string name="revanced_adremover_web_search_panel_summary_off">A Web keresőpanelek láthatóak</string>
     <string name="revanced_adremover_web_search_panel_summary_on">A Web keresőpanelek el vannak rejtve</string>
     <string name="revanced_adremover_web_search_panel_title">Web kereső panelek elrejtése</string>
+    <string name="revanced_backup_summary">Beállítás importálása a ReVanced Extended beállítás fájlból vagy a ReVanced Extended beállítások exportálása beállítás fájlba</string>
+    <string name="revanced_comments_title">Hozzászólások</string>
     <string name="revanced_copytimestamp_success">Az Időtartam másolva lett a vágólapra</string>
     <string name="revanced_custom_seekbar_color_value_summary">Írja ide a hex (színkód) kódot amelyiket használni szeretné sötét módban</string>
     <string name="revanced_custom_seekbar_color_value_title">Egyéni lejátszó csík szín érték</string>
@@ -143,6 +153,7 @@ Készen áll a beküldésre?"</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">A Fejezetek haptikus jelzése engedélyezve van</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">A Fejezetek haptikus jelzése el van rejtve</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">Fejezetek haptikus jelzésének kikapcsolása</string>
+    <string name="revanced_haptic_feedback_title">Haptikus visszajelzés</string>
     <string name="revanced_disable_haptic_feedback_zoom_summary_off">A Nagyítási haptikus visszajelzés engedélyezve van</string>
     <string name="revanced_disable_haptic_feedback_zoom_summary_on">A Nagyítási haptikus visszajelzés ki van kapcsolva</string>
     <string name="revanced_disable_haptic_feedback_zoom_title">Nagyítási haptikus visszajelzés kikapcsolása</string>
@@ -167,8 +178,13 @@ Készen áll a beküldésre?"</string>
     <string name="revanced_enable_old_quality_layout_summary_off">Az új stílusú minőség beállítások látható</string>
     <string name="revanced_enable_old_quality_layout_summary_on">A régi stílusú minőség beállítások látható</string>
     <string name="revanced_enable_old_quality_layout_title">Régi stílusú minőség beállítások engedélyezése</string>
+    <string name="revanced_enable_open_links_directly_summary_off">Az alapértelmezett YouTube átirányítási politika követése</string>
+    <string name="revanced_enable_open_links_directly_summary_on">URL átirányítások kikerülése</string>
     <string name="revanced_enable_open_links_directly_title">Közvetlen link megnyitások engedélyezése</string>
+    <string name="revanced_enable_phone_layout_summary">Becsapja a dpi-t egyes telefon-elrendezések használatához</string>
     <string name="revanced_enable_phone_layout_title">A telefonos felület engedélyezése</string>
+    <string name="revanced_enable_seekbar_tapping_summary_off">A csúszkán (videó idősávon) történő érintés ki van kapcsolva</string>
+    <string name="revanced_enable_save_brightness_title">Fényerő elmentésének engedélyezése</string>
     <string name="revanced_enable_save_video_quality_title">A Videó minőség elmentésének engedélyezése</string>
     <string name="revanced_enable_tablet_miniplayer_summary_off">A Tablet mini-lejátszó ki van kapcsolva</string>
     <string name="revanced_enable_tablet_miniplayer_summary_on">A Tablet mini-lejátszó engedélyezve van</string>

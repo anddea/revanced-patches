@@ -46,6 +46,8 @@
     <string name="microg_not_installed_notice">MicroGをインストールしてください</string>
     <string name="microg_not_installed_warning">MicroGが見つかりません</string>
     <string name="microg_not_running_warning">MicroGはバックグラウンドで動作しません</string>
+    <string name="microg_settings_summary">通知を受信するためにクラウドメッセージの設定を有効にします</string>
+    <string name="microg_settings_title">MicroGを開く</string>
     <string name="minutes">分</string>
     <string name="new_segment_choose_category">セグメントのカテゴリを選択してください</string>
     <string name="new_segment_confirm_content" formatted="false">"このセグメントは %02d:%02d から %02d:%02d (%d 分 %02d 秒間)です。
@@ -67,6 +69,7 @@
     <string name="new_segment_time_start_set">セグメント設定の開始</string>
     <string name="new_segment_title">新しい SponsorBlock セグメント</string>
     <string name="reset">リセット</string>
+    <string name="revanced_ads">広告</string>
     <string name="revanced_adremover_album_card_in_search_summary_off">アルバムカードは検索結果に表示されます
 アーティストの説明の下にあるアルバムカードを非表示にします</string>
     <string name="revanced_adremover_album_card_in_search_summary_on">アルバムカードは検索結果に表示されません
@@ -152,6 +155,10 @@
     <string name="revanced_adremover_web_search_panel_summary_off">ウェブ検索パネルを非表示にします</string>
     <string name="revanced_adremover_web_search_panel_summary_on">ウェブ検索パネルを非表示にします</string>
     <string name="revanced_adremover_web_search_panel_title">ウェブ検索パネルを非表示にする</string>
+    <string name="revanced_backup_summary">ReVancedの設定を読み込むか、書き出します</string>
+    <string name="revanced_bottom_player_layout">プレーヤーの下のレイアウト</string>
+    <string name="revanced_button_container_title">プレーヤーの下のボタン</string>
+    <string name="revanced_comments_title">コメント</string>
     <string name="revanced_copytimestamp_success">タイムスタンプをコピーしました</string>
     <string name="revanced_custom_seekbar_color_value_summary">カラーコードを入力して再生バー(進捗バー)の色を変更します(ダークモード時のみ有効)</string>
     <string name="revanced_custom_seekbar_color_value_title">再生バーの色を変更する</string>
@@ -174,6 +181,7 @@
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">チャプターの振動フィードバックを無効にします</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">チャプターの振動フィードバックを無効にします</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">チャプターの振動フィードバックを無効にする</string>
+    <string name="revanced_haptic_feedback_title">振動フィードバック</string>
     <string name="revanced_disable_haptic_feedback_zoom_summary_off">動画をズームする時の振動フィードバックを無効にします</string>
     <string name="revanced_disable_haptic_feedback_zoom_summary_on">動画をズームする時の振動フィードバックを無効にします</string>
     <string name="revanced_disable_haptic_feedback_zoom_title">動画をズームする時の振動フィードバックを無効にする</string>
@@ -248,6 +256,9 @@
     <string name="revanced_export_settings_title">設定を書き出す</string>
     <string name="revanced_extended_support_center_summary">問題を報告するか、提案を残してください</string>
     <string name="revanced_extended_support_center_title">サポートセンター</string>
+    <string name="revanced_flyout_menu_layout">プレーヤー上の設定メニューのレイアウト</string>
+    <string name="revanced_fullscreen_layout">全画面表示のレイアウト</string>
+    <string name="revanced_general_layout">全般的なレイアウト</string>
     <string name="revanced_hide_auto_captions_summary_off">強制字幕表示が自動的に有効になるのを防ぎます</string>
     <string name="revanced_hide_auto_captions_summary_on">"強制字幕表示が自動的に有効になるのを防ぎます"</string>
     <string name="revanced_hide_auto_captions_title">自動で字幕が表示されるのを無効にする</string>
@@ -404,6 +415,9 @@
     <string name="revanced_hide_shorts_player_join_button_summary_off">YouTubeショートの参加ボタンを非表示にします</string>
     <string name="revanced_hide_shorts_player_join_button_summary_on">YouTubeショートの参加ボタンを非表示にします</string>
     <string name="revanced_hide_shorts_player_join_button_title">参加ボタンを非表示にする</string>
+    <string name="revanced_hide_shorts_player_pivot_bar_summary_off">YouTubeショートで下のタブバーを非表示にします</string>
+    <string name="revanced_hide_shorts_player_pivot_bar_summary_on">YouTubeショートで下のタブバーを非表示にします</string>
+    <string name="revanced_hide_shorts_player_pivot_bar_title">YouTubeショートでタブバーを非表示にする</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_off">YouTubeショートのサブスクリプションボタンを非表示にします</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_on">YouTubeショートのサブスクリプションボタンを非表示にします</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_title">サブスクリプションボタンを非表示にする</string>
@@ -428,8 +442,13 @@
     <string name="revanced_hide_time_stamp_summary_off">プレーヤーの左下に表示される経過時間を非表示にします</string>
     <string name="revanced_hide_time_stamp_summary_on">プレーヤーの左下に表示される経過時間を非表示にします</string>
     <string name="revanced_hide_time_stamp_title">経過時間を非表示にする</string>
+    <string name="revanced_hide_youtube_music_button_summary_off">プレーヤーに表示される “YouTube Music” ボタンを非表示にする</string>
+    <string name="revanced_hide_youtube_music_button_summary_on">プレーヤーに表示される “YouTube Music” ボタンを非表示にする</string>
+    <string name="revanced_hide_youtube_music_button_title">プレーヤー上の “YouTube Music” ボタンを非表示にする</string>
     <string name="revanced_import_settings_summary">ReVancedの設定を内部ストレージから読み込みます</string>
     <string name="revanced_import_settings_title">設定を読み込む</string>
+    <string name="revanced_misc">その他</string>
+    <string name="revanced_others">その他</string>
     <string name="revanced_overlay_button_auto_repeat_summary_off">自動リピートボタンを表示します</string>
     <string name="revanced_overlay_button_auto_repeat_summary_on">自動リピートボタンを表示します</string>
     <string name="revanced_overlay_button_auto_repeat_title">自動リピートボタンを表示する</string>
@@ -442,6 +461,7 @@
     <string name="revanced_overlay_button_downloads_summary_off">プレーヤーにダウンロードボタンを表示します</string>
     <string name="revanced_overlay_button_downloads_summary_on">プレーヤーにダウンロードボタンを表示します</string>
     <string name="revanced_overlay_button_downloads_title">ダウンロードボタンを表示する</string>
+    <string name="revanced_overlay_button">オーバーレイボタン</string>
     <string name="revanced_overlay_button_speed_reset">動画速度をリセットしました(1.0倍速)</string>
     <string name="revanced_overlay_button_speed_summary_off">再生速度のボタンを表示します</string>
     <string name="revanced_overlay_button_speed_summary_on">再生速度のボタンを表示します</string>
@@ -454,6 +474,8 @@
     <string name="revanced_override_premium_header_title">YouTubeプレミアムヘッダーを有効にする</string>
     <string name="revanced_patches_information_summary">適用されたパッチに関する情報</string>
     <string name="revanced_patches_information">パッチの情報</string>
+    <string name="revanced_player_flyout_panel_title">プレーヤー上の設定メニュー</string>
+    <string name="revanced_player_layout">プレーヤーのレイアウト</string>
     <string name="revanced_reboot_warning_general">"これはまだ実験的な機能なので、他にも未知のバグがあるかもしれません。
 続行してもよろしいですか？"</string>
     <string name="revanced_reboot_warning_oldlayout">"古いレイアウトを有効にするために、YouTubeのバージョンをv17.28.35に偽装します。
@@ -486,14 +508,13 @@
     <string name="revanced_ryd_enable_title">低評価数を表示する</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">低評価数は利用できません (クライアント API の制限に達しました)</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">非表示</string>
-    <string name="revanced_save_video_quality_common_error">画質を設定できませんでした</string>
-    <string name="revanced_save_video_quality_internet_error">インターネットに接続できません</string>
     <string name="revanced_save_video_quality_mobile">モバイルデータ通信でのデフォルト画質:</string>
-    <string name="revanced_save_video_quality_mobile_error">モバイルデータ通信でのデフォルト画質を変更できませんでした</string>
+    <string name="revanced_save_video_quality_none">画質の設定に失敗しました</string>
     <string name="revanced_save_video_quality_wifi">Wi-Fi でのデフォルト画質:</string>
-    <string name="revanced_save_video_quality_wifi_error">Wi-Fi でのデフォルト画質を変更できませんでした</string>
     <string name="revanced_save_video_speed">デフォルトの再生速度を変更:</string>
+    <string name="revanced_seekbar_layout">再生バーのレイアウト</string>
     <string name="revanced_sponsorblock_settings_summary">SponsorBlock関連の設定</string>
+    <string name="revanced_swipe_controls">スワイプコントロール</string>
     <string name="revanced_swipe_magnitude_threshold_summary">スワイプのしきい値を設定します</string>
     <string name="revanced_swipe_magnitude_threshold_title">スワイプのしきい値</string>
     <string name="revanced_swipe_overlay_background_alpha_summary">オーバーレイの背景の透明度 (0–255)</string>
@@ -502,13 +523,14 @@
     <string name="revanced_swipe_overlay_text_size_title">オーバーレイのテキストサイズ</string>
     <string name="revanced_swipe_overlay_timeout_summary">変更後にオーバーレイが表示される時間 (単位: ミリ秒)</string>
     <string name="revanced_swipe_overlay_timeout_title">オーバーレイのタイムアウト</string>
-    <string name="revanced_switching_create_notification_summary_off">下のタブ切り替えで、作成ボタンを通知ボタンに置き換えます</string>
-    <string name="revanced_switching_create_notification_summary_on">下のタブ切り替えで、作成ボタンを通知ボタンに置き換えます</string>
+    <string name="revanced_switching_create_notification_summary_off">下のタブバーで、作成ボタンを通知ボタンに置き換えます</string>
+    <string name="revanced_switching_create_notification_summary_on">下のタブバーで、作成ボタンを通知ボタンに置き換えます</string>
     <string name="revanced_switching_create_notification_title">作成ボタンを通知ボタンに置き換える</string>
     <string name="revanced_tool_used">使用されたツール</string>
     <string name="revanced_video_ads_removal_summary_off">動画の広告を非表示にします</string>
     <string name="revanced_video_ads_removal_summary_on">動画の広告を非表示にします</string>
     <string name="revanced_video_ads_removal_title">動画の広告を非表示にする</string>
+    <string name="revanced_video">動画</string>
     <string name="revanced_whitelisting_add_failed" formatted="false">チャンネル %s を %s ホワイトリストに追加できませんでした</string>
     <string name="revanced_whitelisting_added" formatted="false">チャンネル %s は %s ホワイトリストに追加されました</string>
     <string name="revanced_whitelisting_ads">動画の広告</string>

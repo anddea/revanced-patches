@@ -46,6 +46,8 @@
     <string name="microg_not_installed_notice">Proszę zainstalować MicroG</string>
     <string name="microg_not_installed_warning">MicroG nie zostało znalezione</string>
     <string name="microg_not_running_warning">MicroG nie działa w tle</string>
+    <string name="microg_settings_summary">Włącz claud messaging w ustawieniach, by otrzymywać powiadomienia</string>
+    <string name="microg_settings_title">Otwórz MicroG</string>
     <string name="minutes">minuty</string>
     <string name="new_segment_choose_category">Wybierz kategorię segmentu</string>
     <string name="new_segment_confirm_content" formatted="false">"Segment trwa od %02d:%02d do %02d:%02d (%d minut %02d sekund) Czy jest on gotowy do wysłania?"</string>
@@ -66,6 +68,7 @@
     <string name="new_segment_time_start_set">Początek segmentu</string>
     <string name="new_segment_title">Nowy segment SponsorBlock</string>
     <string name="reset">Zresetuj</string>
+    <string name="revanced_ads">Reklamy</string>
     <string name="revanced_adremover_album_card_in_search_summary_off">Widoczne w wyszukiwaniach</string>
     <string name="revanced_adremover_album_card_in_search_summary_on">Ukryte w wyszukiwaniach</string>
     <string name="revanced_adremover_album_card_in_search_title">Karty albumów</string>
@@ -149,6 +152,10 @@
     <string name="revanced_adremover_web_search_panel_summary_off">Widoczne</string>
     <string name="revanced_adremover_web_search_panel_summary_on">Ukryte</string>
     <string name="revanced_adremover_web_search_panel_title">Etykiety w wyszukiwaniach</string>
+    <string name="revanced_backup_summary">Zaimportuj ustawienia ReVanced z pliku lub wyeksportuj ustawienia ReVanced do pliku</string>
+    <string name="revanced_bottom_player_layout">Przyciski pod odtwarzaczem</string>
+    <string name="revanced_button_container_title">Przyciski pod odtwarzaczem</string>
+    <string name="revanced_comments_title">Komentarze</string>
     <string name="revanced_copytimestamp_success">Link Wideo Z Czasem został skopiowany do schowka</string>
     <string name="revanced_custom_seekbar_color_value_summary">Wpisz kod hex koloru paska wideo w ciemnym trybie</string>
     <string name="revanced_custom_seekbar_color_value_title">Niestandardowy kolor paska wideo</string>
@@ -171,6 +178,7 @@
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">Włączone</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">Wyłączone</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">Wibracje podczas zmieniania rozdziału</string>
+    <string name="revanced_haptic_feedback_title">Wibracje</string>
     <string name="revanced_disable_haptic_feedback_zoom_summary_off">Włączone</string>
     <string name="revanced_disable_haptic_feedback_zoom_summary_on">Wyłączone</string>
     <string name="revanced_disable_haptic_feedback_zoom_title">Wibracje podczas przybliżania wideo</string>
@@ -245,6 +253,9 @@
     <string name="revanced_export_settings_title">Wyeksportuj ustawienia</string>
     <string name="revanced_extended_support_center_summary">Zgłoś problemy lub zostaw sugestie tutaj</string>
     <string name="revanced_extended_support_center_title">Centrum Wsparcia</string>
+    <string name="revanced_flyout_menu_layout">Menu ustawień wideo</string>
+    <string name="revanced_fullscreen_layout">Pełnoekranowy układ</string>
+    <string name="revanced_general_layout">Ogólny układ</string>
     <string name="revanced_hide_auto_captions_summary_off">W wideo z wymuszonymi napisami</string>
     <string name="revanced_hide_auto_captions_summary_on">"Nigdy"</string>
     <string name="revanced_hide_auto_captions_title">Wymuszone napisy</string>
@@ -401,6 +412,9 @@
     <string name="revanced_hide_shorts_player_join_button_summary_off">Widoczny</string>
     <string name="revanced_hide_shorts_player_join_button_summary_on">Ukryty</string>
     <string name="revanced_hide_shorts_player_join_button_title">Przycisk od sponsorowania podczas shortów</string>
+    <string name="revanced_hide_shorts_player_pivot_bar_summary_off">Widoczny</string>
+    <string name="revanced_hide_shorts_player_pivot_bar_summary_on">Ukryty</string>
+    <string name="revanced_hide_shorts_player_pivot_bar_title">Pasek postępu podczas shortów</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_off">Widoczny</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_on">Ukryty</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_title">Przycisk od subskrybowania podczas shortów</string>
@@ -425,8 +439,13 @@
     <string name="revanced_hide_time_stamp_summary_off">Widoczny</string>
     <string name="revanced_hide_time_stamp_summary_on">Ukryty</string>
     <string name="revanced_hide_time_stamp_title">Czas wideo</string>
+    <string name="revanced_hide_youtube_music_button_summary_off">Widoczny</string>
+    <string name="revanced_hide_youtube_music_button_summary_on">Ukryty</string>
+    <string name="revanced_hide_youtube_music_button_title">Przycisk od odtwarzania w youtube music</string>
     <string name="revanced_import_settings_summary">Zaimportuj ustawienia ReVanced z zapisanego pliku</string>
     <string name="revanced_import_settings_title">Zaimportuj ustawienia</string>
+    <string name="revanced_misc">Pozostałe</string>
+    <string name="revanced_others">Inne</string>
     <string name="revanced_overlay_button_auto_repeat_summary_off">Ukryty</string>
     <string name="revanced_overlay_button_auto_repeat_summary_on">Widoczny</string>
     <string name="revanced_overlay_button_auto_repeat_title">Przycisk od pętli</string>
@@ -439,6 +458,7 @@
     <string name="revanced_overlay_button_downloads_summary_off">Ukryty</string>
     <string name="revanced_overlay_button_downloads_summary_on">Widoczny</string>
     <string name="revanced_overlay_button_downloads_title">Przycisk od pobierania</string>
+    <string name="revanced_overlay_button">Przyciski w odtwarzaczu</string>
     <string name="revanced_overlay_button_speed_reset">Szybkość wideo została zresetowana (1.0x)</string>
     <string name="revanced_overlay_button_speed_summary_off">Ukryty</string>
     <string name="revanced_overlay_button_speed_summary_on">Widoczny</string>
@@ -451,6 +471,8 @@
     <string name="revanced_override_premium_header_title">Logo Premium</string>
     <string name="revanced_patches_information_summary">Lista zastosowanych łatek</string>
     <string name="revanced_patches_information">Lista Łatek</string>
+    <string name="revanced_player_flyout_panel_title">Przycisk od menu ustawień wideo</string>
+    <string name="revanced_player_layout">Układ odtwarzacza</string>
     <string name="revanced_reboot_warning_general">"Ponieważ jest to funkcja eksperymentalna, mogą pojawić się inne problemy.
 Czy na pewno chcesz kontynuować?"</string>
     <string name="revanced_reboot_warning_oldlayout">"Oszukuję YouTube, że używasz wersji v17.28.35, aby używać starego wyglądu
@@ -461,6 +483,8 @@ W ustawieniach aplikacji wersja YouTube może być wyświetlana jako v17.28.35"<
 Jeśli włączysz to ustawienie, dostępne będą następujące funkcje:
 - Posty
 - Ukrywanie automatycznie stworzonych playlist"</string>
+    <string name="revanced_reboot_warning_switch">"Jeśli włączysz to ustawienie, następująca funkcja nie będzie dostępna:
+-Tryb otoczenia"</string>
     <string name="revanced_reboot_warning_tablet">"Oszukuje dpi, aby zmienić niektóre układy na układ tabletu.
 
 Jeśli włączysz to ustawienie, następujące funkcje nie będą dostępne:
@@ -481,14 +505,13 @@ To ustawienie może nie zadziałać"</string>
     <string name="revanced_ryd_enable_title">Włącz Return YouTube Dislike</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Łapki w dół nie są dostępne (limit API użytkownika został osiągnięty)</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Ukryte</string>
-    <string name="revanced_save_video_quality_common_error">Jakość nie została ustawiona</string>
-    <string name="revanced_save_video_quality_internet_error">Brak połączenia z internetem</string>
     <string name="revanced_save_video_quality_mobile">Zmienianie domyślnej jakości podczas używania danych mobilnych na:</string>
-    <string name="revanced_save_video_quality_mobile_error">Zmiana domyślnej jakości podczas używania danych mobilnych się nie powiodła</string>
+    <string name="revanced_save_video_quality_none">Jakość nie została ustawiona</string>
     <string name="revanced_save_video_quality_wifi">Zmienianie domyślnej jakości podczas używania Wi-Fi na:</string>
-    <string name="revanced_save_video_quality_wifi_error">Zmiana domyślnej jakości podczas używania Wi-Fi się nie powiodła</string>
     <string name="revanced_save_video_speed">Zmienianie domyślnej prędkości na:</string>
+    <string name="revanced_seekbar_layout">Wygląd paska wideo</string>
     <string name="revanced_sponsorblock_settings_summary">Ustawienia związane ze SponsorBlock</string>
+    <string name="revanced_swipe_controls">Sterowanie przesuwaniem</string>
     <string name="revanced_swipe_magnitude_threshold_summary">Wysokość na której ma działać gest przeciągnięcia</string>
     <string name="revanced_swipe_magnitude_threshold_title">Próg gestu przeciągnięcia</string>
     <string name="revanced_swipe_overlay_background_alpha_summary">Widoczność tła nakładki przesuwania</string>
@@ -497,10 +520,14 @@ To ustawienie może nie zadziałać"</string>
     <string name="revanced_swipe_overlay_text_size_title">Rozmiar tekstu nakładki</string>
     <string name="revanced_swipe_overlay_timeout_summary">Ilość milisekund, przez które nakładka jest widoczna</string>
     <string name="revanced_swipe_overlay_timeout_title">Limit czasu widoku nakładki gestu</string>
+    <string name="revanced_switching_create_notification_summary_off">Tak</string>
+    <string name="revanced_switching_create_notification_summary_on">Nie</string>
+    <string name="revanced_switching_create_notification_title">Zmień miejscami przyciski od przesyłania i powiadomień</string>
     <string name="revanced_tool_used">użyte narzędzie</string>
     <string name="revanced_video_ads_removal_summary_off">Widoczne</string>
     <string name="revanced_video_ads_removal_summary_on">Ukryte</string>
     <string name="revanced_video_ads_removal_title">Reklamy podczas wideo</string>
+    <string name="revanced_video">Wideo</string>
     <string name="revanced_whitelisting_add_failed" formatted="false">Nie udało się dodać kanału %s do białej listy</string>
     <string name="revanced_whitelisting_added" formatted="false">Kanał %s został dodany do białej listy</string>
     <string name="revanced_whitelisting_ads">Reklamy Wideo</string>
