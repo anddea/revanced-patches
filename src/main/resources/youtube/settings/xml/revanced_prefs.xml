@@ -148,6 +148,9 @@
         <!-- SETTINGS: HIDE_COLLAPSE_BUTTON
         <SwitchPreference android:title="@string/revanced_hide_collapse_button_title" android:key="revanced_hide_collapse_button" android:defaultValue="false" android:summaryOn="@string/revanced_hide_collapse_button_summary_on" android:summaryOff="@string/revanced_hide_collapse_button_summary_off" />SETTINGS: HIDE_COLLAPSE_BUTTON -->
 
+        <!-- SETTINGS: HIDE_YOUTUBE_MUSIC_BUTTON
+        <SwitchPreference android:title="@string/revanced_hide_youtube_music_button_title" android:key="revanced_hide_youtube_music_button" android:defaultValue="false" android:summaryOn="@string/revanced_hide_youtube_music_button_summary_on" android:summaryOff="@string/revanced_hide_youtube_music_button_summary_off" />SETTINGS: HIDE_YOUTUBE_MUSIC_BUTTON -->
+
         <!-- SETTINGS: HIDE_AUTOPLAY_BUTTON
         <SwitchPreference android:title="@string/revanced_hide_autoplay_button_title" android:key="revanced_hide_autoplay_button" android:defaultValue="true" android:summaryOn="@string/revanced_hide_autoplay_button_summary_on" android:summaryOff="@string/revanced_hide_autoplay_button_summary_off" />SETTINGS: HIDE_AUTOPLAY_BUTTON -->
 
@@ -404,6 +407,7 @@
 
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_player_layout" />
             <Preference android:title="hide-collapse-button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="hide-music-button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-autoplay-button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-cast-button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-live-chat-button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
