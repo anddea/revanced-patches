@@ -3,7 +3,7 @@
     <string name="about_api">Cette application utilise l\'API de SponsorBlock</string>
     <string name="about_api_sum">Cliquez pour en savoir plus, pour voir les téléchargements sur d\'autres plateformes sur: sponsor.ajay.app</string>
     <string name="about_madeby">Intégration faite par JakubWeg</string>
-    <string name="accessibility_settings_edu_opt_in_text">Activer les contrôles d\'accessibilités pour le lecteur vidéo?</string>
+    <string name="accessibility_settings_edu_opt_in_text">Activer les s d\'accessibilités pour le lecteur vidéo?</string>
     <string name="accessibility_settings_edu_opt_out_text">Vos contrôles sont modifiés car un service d\'accessibilité est activé.</string>
     <string name="api_url_changed">L\'URL de l\'API a été modifiée</string>
     <string name="api_url_invalid">L\'URL de l\'API fournie n\'est pas valide</string>
@@ -46,6 +46,8 @@
     <string name="microg_not_installed_notice">Veuillez installer MicroG</string>
     <string name="microg_not_installed_warning">MicroG n’est pas trouvé</string>
     <string name="microg_not_running_warning">MicroG ne fonctionne pas en arrière-plan</string>
+    <string name="microg_settings_summary">Les paramètres de messagerie cloud pour recevoir des notifications</string>
+    <string name="microg_settings_title">Ouvrir MicroG</string>
     <string name="minutes">minutes</string>
     <string name="new_segment_choose_category">Choisir la catégorie de moment</string>
     <string name="new_segment_confirm_content" formatted="false">"Le moment dure de %02d:%02d à %02d:%02d (%d minutes %02d secondes)
@@ -67,6 +69,7 @@ Est-il prêt à être soumis?"</string>
     <string name="new_segment_time_start_set">Début de l\'ensemble du moment</string>
     <string name="new_segment_title">Nouveau moment SponsorBlock</string>
     <string name="reset">Réinitialiser</string>
+    <string name="revanced_ads">Paramètres des publicités</string>
     <string name="revanced_adremover_album_card_in_search_summary_off">Les albums des chanteurs sont affichées dans les résultats de recherche</string>
     <string name="revanced_adremover_album_card_in_search_summary_on">Les albums des chanteurs sont cachées dans les résultats de recherche</string>
     <string name="revanced_adremover_album_card_in_search_title">Les albums dans les résultats de recherche</string>
@@ -150,6 +153,10 @@ Est-il prêt à être soumis?"</string>
     <string name="revanced_adremover_web_search_panel_summary_off">Les panneaux de recherche Web sont affichés</string>
     <string name="revanced_adremover_web_search_panel_summary_on">Les panneaux de recherche Web sont cachés</string>
     <string name="revanced_adremover_web_search_panel_title">Les panneaux de recherche web</string>
+    <string name="revanced_backup_summary">Importer les paramètres ReVanced à partir d\'un fichier ou exporter les paramètres ReVanced vers un fichier</string>
+    <string name="revanced_bottom_player_layout">Paramètres de mise en page en bas de la vidéo</string>
+    <string name="revanced_button_container_title">Conteneur de bouton</string>
+    <string name="revanced_comments_title">Paramètres des commentaires</string>
     <string name="revanced_copytimestamp_success">Le texte horodateur a été copié dans le presse-papiers</string>
     <string name="revanced_custom_seekbar_color_value_summary">Saisissez le code couleur HTML pour la barre de progression à utiliser en mode sombre Par défaut : #ff0000</string>
     <string name="revanced_custom_seekbar_color_value_title">Valeur de couleur de la barre de progression personnalisée (HTML)</string>
@@ -172,6 +179,7 @@ Est-il prêt à être soumis?"</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">Le chapitre de retour haptique est activée</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">Le chapitre de retour haptique est désactivée</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">Le chapitre de retour haptique</string>
+    <string name="revanced_haptic_feedback_title">Retour haptique</string>
     <string name="revanced_disable_haptic_feedback_zoom_summary_off">Le retour haptique de zoom est activée</string>
     <string name="revanced_disable_haptic_feedback_zoom_summary_on">Le retour haptique de zoom est désactivée</string>
     <string name="revanced_disable_haptic_feedback_zoom_title">Le retour haptique du zoom</string>
@@ -246,6 +254,9 @@ Est-il prêt à être soumis?"</string>
     <string name="revanced_export_settings_title">Paramètres d\'exportation</string>
     <string name="revanced_extended_support_center_summary">Signaler des problèmes ou laisser des suggestions ici</string>
     <string name="revanced_extended_support_center_title">Centre d\'aide</string>
+    <string name="revanced_flyout_menu_layout">Paramètres de mise en page du menu déroulant</string>
+    <string name="revanced_fullscreen_layout">Paramètres de mise en page plein écran</string>
+    <string name="revanced_general_layout">Paramètres généraux de mise en page</string>
     <string name="revanced_hide_auto_captions_summary_off">Les sous-titres sont activés lors de la lecture d’une vidéo avec le sous-titrage</string>
     <string name="revanced_hide_auto_captions_summary_on">"Les sous-titres sont désactivés lors de la lecture d’une vidéo avec le sous-titrage"</string>
     <string name="revanced_hide_auto_captions_title">Les sous-titres automatiques</string>
@@ -342,12 +353,12 @@ Est-il prêt à être soumis?"</string>
     <string name="revanced_hide_menu_help_summary_off">Le Menu \"D\'aide &amp; commentaires\" est affiché</string>
     <string name="revanced_hide_menu_help_summary_on">Le Menu \"D\'aide &amp; commentaires\" est caché</string>
     <string name="revanced_hide_menu_help_title">Le Menu \"D\'aide &amp; commentaires\"</string>
-    <string name="revanced_hide_menu_listening_controls_summary_off">Le Menu des \"Contrôles d\'écoute\" est affiché</string>
-    <string name="revanced_hide_menu_listening_controls_summary_on">Le Menu des \"Contrôles d\'écoute\" est caché</string>
-    <string name="revanced_hide_menu_listening_controls_title">Le Menu de \"Contrôle d\'écoute\"</string>
-    <string name="revanced_hide_menu_listen_with_youtube_music_summary_off">L\'option \"Écouter avec le Menu YouTube Music\" est affiché</string>
-    <string name="revanced_hide_menu_listen_with_youtube_music_summary_on">L\'option \"Écouter avec le Menu YouTube Music\" est caché</string>
-    <string name="revanced_hide_menu_listen_with_youtube_music_title">L\'option \"Écouter avec le Menu YouTube Music\"</string>
+    <string name="revanced_hide_menu_listening_controls_summary_off">Le Menu des \"Commandes d\'écoute\" est affiché</string>
+    <string name="revanced_hide_menu_listening_controls_summary_on">Le Menu des \"Commandes d\'écoute\" est caché</string>
+    <string name="revanced_hide_menu_listening_controls_title">Le Menu de \"Commandes d\'écoute\"</string>
+    <string name="revanced_hide_menu_listen_with_youtube_music_summary_off">Le Menu \"Écouter avec YouTube Music\" est affiché</string>
+    <string name="revanced_hide_menu_listen_with_youtube_music_summary_on">Le Menu \"Écouter avec YouTube Music\" est caché</string>
+    <string name="revanced_hide_menu_listen_with_youtube_music_title">Le Menu \"Écouter avec YouTube Music\"</string>
     <string name="revanced_hide_menu_loop_video_summary_off">Le Menu \"Lecture en boucle\" est affiché</string>
     <string name="revanced_hide_menu_loop_video_summary_on">Le Menu \"Lecture en boucle\" est caché</string>
     <string name="revanced_hide_menu_loop_video_title">Le Menu \"Lecture en boucle\"</string>
@@ -402,6 +413,9 @@ Est-il prêt à être soumis?"</string>
     <string name="revanced_hide_shorts_player_join_button_summary_off">Le bouton \"Rejoindre\" sur les Shorts sont affichés</string>
     <string name="revanced_hide_shorts_player_join_button_summary_on">Le bouton \"Rejoindre\" sur les Shorts sont cachés</string>
     <string name="revanced_hide_shorts_player_join_button_title">Le bouton de \"Rejoindre\" sur les Shorts</string>
+    <string name="revanced_hide_shorts_player_pivot_bar_summary_off">La barre pivotante sur les Shorts est affichée</string>
+    <string name="revanced_hide_shorts_player_pivot_bar_summary_on">La barre pivotante sur les Shorts est cachée</string>
+    <string name="revanced_hide_shorts_player_pivot_bar_title">La barre pivotante sur les Shorts</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_off">Le bouton \"D\'abonnement\" sur les Shorts est affiché</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_on">Le bouton \"D\'abonnement\"sur les Shorts est caché</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_title">Le bouton \"D\'abonnement\" sur les Shorts</string>
@@ -426,8 +440,13 @@ Est-il prêt à être soumis?"</string>
     <string name="revanced_hide_time_stamp_summary_off">La durée de la vidéo est affiché</string>
     <string name="revanced_hide_time_stamp_summary_on">La durée de la vidéo est caché</string>
     <string name="revanced_hide_time_stamp_title">La durée de la vidéo</string>
+    <string name="revanced_hide_youtube_music_button_summary_off">Le bouton \"YouTube Music\" est affiché</string>
+    <string name="revanced_hide_youtube_music_button_summary_on">Le bouton \"YouTube Music\" est caché </string>
+    <string name="revanced_hide_youtube_music_button_title">Le bouton \"YouTube Music\"</string>
     <string name="revanced_import_settings_summary">Récupérer les paramètres ReVanced à partir du fichier enregistré</string>
     <string name="revanced_import_settings_title">Paramétrages d’importation</string>
+    <string name="revanced_misc">Autres paramètres</string>
+    <string name="revanced_others">Autres</string>
     <string name="revanced_overlay_button_auto_repeat_summary_off">Le bouton de \"Répétition automatique\" est caché</string>
     <string name="revanced_overlay_button_auto_repeat_summary_on">Le bouton de \"Repétition automatique\" est affiché</string>
     <string name="revanced_overlay_button_auto_repeat_title">Le bouton de \"Répétition automatique\"</string>
@@ -440,6 +459,7 @@ Est-il prêt à être soumis?"</string>
     <string name="revanced_overlay_button_downloads_summary_off">Le bouton de \"Téléchargement\" est caché</string>
     <string name="revanced_overlay_button_downloads_summary_on">Le bouton de \"Téléchargement\" est affiché</string>
     <string name="revanced_overlay_button_downloads_title">Le bouton de \"Téléchargement\"</string>
+    <string name="revanced_overlay_button">Paramètres des boutons rapides</string>
     <string name="revanced_overlay_button_speed_reset">Vitesse vidéo réinitialisée (1.0x)</string>
     <string name="revanced_overlay_button_speed_summary_off">Le bouton de \"Vitesse\" est caché</string>
     <string name="revanced_overlay_button_speed_summary_on">Le bouton de \"Vitesse\" est affiché</string>
@@ -452,6 +472,8 @@ Est-il prêt à être soumis?"</string>
     <string name="revanced_override_premium_header_title">Icône YT Premium</string>
     <string name="revanced_patches_information_summary">Informations sur les correctifs appliqués</string>
     <string name="revanced_patches_information">Informations sur les correctifs</string>
+    <string name="revanced_player_flyout_panel_title">Paramètres des boutons du menu \"paramètres\" des vidéos</string>
+    <string name="revanced_player_layout">Paramètres des boutons du lecteur vidéo</string>
     <string name="revanced_reboot_warning_general">"Comme il s’agit toujours d’un élément expérimental, il peut y avoir d’autres questions inconnues. Êtes-vous sûr de vouloir continuer?"</string>
     <string name="revanced_reboot_warning_oldlayout">"Change la version YouTube en v17.28.35 pour charger l'ancienne mise en page"</string>
     <string name="revanced_reboot_warning_phone">"Aide le dpi à modifier certaines dispositions de téléphone. Si vous activez ce paramètre, les fonctionnalités suivantes sont disponibles:
@@ -479,14 +501,13 @@ Comme ces paramètres sont abandonnées, ils peuvent ne pas être valides"</stri
     <string name="revanced_ryd_enable_title">Paramètres Retour YouTube Dislike</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Les dislikes ne sont disponible  (limite de clients d\'API atteinte)</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Cacher</string>
-    <string name="revanced_save_video_quality_common_error">Impossible de définir la qualité</string>
-    <string name="revanced_save_video_quality_internet_error">Pas de connexion internet</string>
     <string name="revanced_save_video_quality_mobile">Changer la qualité des données mobiles par défaut en :</string>
-    <string name="revanced_save_video_quality_mobile_error">Impossible de modifier la qualité des données mobiles par défaut</string>
+    <string name="revanced_save_video_quality_none">Échec de la définition de qualité</string>
     <string name="revanced_save_video_quality_wifi">Changer la qualité Wi-Fi par défaut en :</string>
-    <string name="revanced_save_video_quality_wifi_error">Impossible de modifier la qualité WI-FI par défaut</string>
     <string name="revanced_save_video_speed">Changer la vitesse par défaut en :</string>
+    <string name="revanced_seekbar_layout">Paramètres de mise en page de la barre de progression et de la durée de la vidéo</string>
     <string name="revanced_sponsorblock_settings_summary">Paramètres liés a SponsorBlock</string>
+    <string name="revanced_swipe_controls">Paramètres des s de balayage</string>
     <string name="revanced_swipe_magnitude_threshold_summary">L\'intensité de balayage correspond à la mesure de glissement utilisée pour ajuster le niveau sonore ou de luminosité</string>
     <string name="revanced_swipe_magnitude_threshold_title">L\'intensité de balayage</string>
     <string name="revanced_swipe_overlay_background_alpha_summary">La visibilité de l’arrière-plan de superposition par balayage</string>
@@ -502,6 +523,7 @@ Comme ces paramètres sont abandonnées, ils peuvent ne pas être valides"</stri
     <string name="revanced_video_ads_removal_summary_off">Les publicités vidéo sont affichées</string>
     <string name="revanced_video_ads_removal_summary_on">Les publicités vidéo sont cachées</string>
     <string name="revanced_video_ads_removal_title">Les publicités vidéo</string>
+    <string name="revanced_video">Paramètres vidéo </string>
     <string name="revanced_whitelisting_add_failed" formatted="false">Échec d’ajout de chaîne %s à la liste blanche %s</string>
     <string name="revanced_whitelisting_added" formatted="false">La chaîne %s a été ajoutée à la liste blanche %s</string>
     <string name="revanced_whitelisting_ads">Annonces vidéo</string>

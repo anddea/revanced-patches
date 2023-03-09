@@ -21,9 +21,9 @@
     <string name="enable_sb_sum">SponsorBlock é um sistema de colaboração coletiva para pular partes irritantes em vídeos do YouTube</string>
     <string name="enable_sb_mirror">Ativar SponsorBlock espelhado</string>
     <string name="enable_sb_mirror_sum">Quando o servidor API do SponsorBlock for derrubado, mude o servidor para API espelhada de servidor API padrão</string>
-    <string name="enable_segmadding">Habilitar envio de novos segmentos</string>
+    <string name="enable_segmadding">Ativar envio de novos segmentos</string>
     <string name="enable_segmadding_sum">Ative isto para habilitar o envio experimental de segmento (tem problemas de visibilidade do botão)</string>
-    <string name="enable_voting">Habilitar votação</string>
+    <string name="enable_voting">Ativar votação</string>
     <string name="enable_voting_sum">Ative isto para habilitar a votação.</string>
     <string name="general">Geral</string>
     <string name="general_adjusting">Ajustando novo passo do segmento</string>
@@ -46,12 +46,14 @@
     <string name="microg_not_installed_notice">Por favor, instale o MicroG</string>
     <string name="microg_not_installed_warning">MicroG não foi encontrado</string>
     <string name="microg_not_running_warning">MicroG não é executado em segundo plano</string>
+    <string name="microg_settings_summary">Ative as configurações do cloud messaging para receber notificações</string>
+    <string name="microg_settings_title">Abrir o MicroG</string>
     <string name="minutes">minutos</string>
     <string name="new_segment_choose_category">Escolha a categoria do segmento</string>
     <string name="new_segment_confirm_content" formatted="false">"O segmento dura de %02d:%02d até %02d:%02d (%d minutos %02d segundos)
 Ele está pronto para enviar?"</string>
     <string name="new_segment_confirm_title">Os tempos estão corretos?</string>
-    <string name="new_segment_disabled_category">"Você desativou esta categoria nas configurações, habilite-a para poder enviar"</string>
+    <string name="new_segment_disabled_category">"Você desativou esta categoria nas configurações, ative para poder enviar"</string>
     <string name="new_segment_edit_by_hand_content">Você deseja editar o tempo para o início ou o fim do segmento?</string>
     <string name="new_segment_edit_by_hand_parse_error">Tempo inserido inválido</string>
     <string name="new_segment_edit_by_hand_saved">Concluído</string>
@@ -67,6 +69,7 @@ Ele está pronto para enviar?"</string>
     <string name="new_segment_time_start_set">Início do segmento definido</string>
     <string name="new_segment_title">Novo segmento SponsorBlock</string>
     <string name="reset">Redefinir</string>
+    <string name="revanced_ads">Anúncios</string>
     <string name="revanced_adremover_album_card_in_search_summary_off">Cards de álbum serão mostrados nos resultados de pesquisa</string>
     <string name="revanced_adremover_album_card_in_search_summary_on">Cards de álbum estão ocultos nos resultados de pesquisa</string>
     <string name="revanced_adremover_album_card_in_search_title">Ocultar cards de álbuns</string>
@@ -142,7 +145,7 @@ Ele está pronto para enviar?"</string>
     <string name="revanced_adremover_timed_reactions_summary_on">Reações temporizadas estão ocultas</string>
     <string name="revanced_adremover_timed_reactions_title">Ocultar reações temporizadas</string>
     <string name="revanced_adremover_user_filter_summary_off">Filtro do usuário está desativado</string>
-    <string name="revanced_adremover_user_filter_summary_on">Filtro do usuário está habilitado</string>
+    <string name="revanced_adremover_user_filter_summary_on">O filtro do usuário está ativado</string>
     <string name="revanced_adremover_user_filter_title">Ativar filtro do usuário</string>
     <string name="revanced_adremover_view_products_summary_off">O banner de produtos será mostrado</string>
     <string name="revanced_adremover_view_products_summary_on">O banner de produtos está oculto</string>
@@ -150,6 +153,10 @@ Ele está pronto para enviar?"</string>
     <string name="revanced_adremover_web_search_panel_summary_off">Painéis de pesquisa da web serão mostrados</string>
     <string name="revanced_adremover_web_search_panel_summary_on">Painéis de pesquisa da web estão ocultos</string>
     <string name="revanced_adremover_web_search_panel_title">Ocultar painéis de pesquisa da web</string>
+    <string name="revanced_backup_summary">Importar configurações do ReVanced de um arquivo ou exportar configurações do ReVanced para um arquivo</string>
+    <string name="revanced_bottom_player_layout">Layout inferior do reprodutor</string>
+    <string name="revanced_button_container_title">Container de botões</string>
+    <string name="revanced_comments_title">Comentários</string>
     <string name="revanced_copytimestamp_success">Tempo copiado para a área de transferência</string>
     <string name="revanced_custom_seekbar_color_value_summary">Digite o código hexadecimal da cor da barra de progresso para usar no modo escuro</string>
     <string name="revanced_custom_seekbar_color_value_title">Valor de cor personalizado da barra de progresso</string>
@@ -163,29 +170,30 @@ Ele está pronto para enviar?"</string>
     <string name="revanced_downloader_package_name_title">Nome do pacote do aplicativo de download</string>
     <string name="revanced_downloader_settings_summary">Configurações padrão relacionadas ao aplicativo de download</string>
     <string name="revanced_downloader_settings_title">Configurações do aplicativo de download</string>
-    <string name="revanced_disable_haptic_feedback_scrubbing_summary_off">O feedback tátil está ativado</string>
-    <string name="revanced_disable_haptic_feedback_scrubbing_summary_on">O feedback tátil está desativado</string>
-    <string name="revanced_disable_haptic_feedback_scrubbing_title">Desativar feedback tátil</string>
-    <string name="revanced_disable_haptic_feedback_seek_summary_off">O feedback tátil de busca está ativado</string>
-    <string name="revanced_disable_haptic_feedback_seek_summary_on">O feedback tátil de busca está desativado</string>
-    <string name="revanced_disable_haptic_feedback_seek_title">Desativar feedback tátil de busca</string>
-    <string name="revanced_disable_haptic_feedback_chapters_summary_off">O feedback tátil de capítulos está ativado</string>
-    <string name="revanced_disable_haptic_feedback_chapters_summary_on">O feedback tátil de capítulos está desativado</string>
-    <string name="revanced_disable_haptic_feedback_chapters_title">Desativar feedback tátil de capítulos</string>
-    <string name="revanced_disable_haptic_feedback_zoom_summary_off">O feedback tátil de zoom está ativado</string>
-    <string name="revanced_disable_haptic_feedback_zoom_summary_on">O feedback tátil de zoom está desativado</string>
-    <string name="revanced_disable_haptic_feedback_zoom_title">Desativar feedback tátil de zoom</string>
+    <string name="revanced_disable_haptic_feedback_scrubbing_summary_off">O retorno tátil ao deslizar está ativado</string>
+    <string name="revanced_disable_haptic_feedback_scrubbing_summary_on">O retorno tátil ao deslizar está desativado</string>
+    <string name="revanced_disable_haptic_feedback_scrubbing_title">Desativar retorno tátil ao deslizar</string>
+    <string name="revanced_disable_haptic_feedback_seek_summary_off">O retorno tátil de busca está ativado</string>
+    <string name="revanced_disable_haptic_feedback_seek_summary_on">O retorno tátil de busca está desativado</string>
+    <string name="revanced_disable_haptic_feedback_seek_title">Desativar retorno tátil de busca</string>
+    <string name="revanced_disable_haptic_feedback_chapters_summary_off">O retorno tátil de capítulos está ativado</string>
+    <string name="revanced_disable_haptic_feedback_chapters_summary_on">O retorno tátil de capítulos está desativado</string>
+    <string name="revanced_disable_haptic_feedback_chapters_title">Desativar retorno tátil de capítulos</string>
+    <string name="revanced_haptic_feedback_title">Retorno tátil</string>
+    <string name="revanced_disable_haptic_feedback_zoom_summary_off">O retorno tátil de zoom está ativado</string>
+    <string name="revanced_disable_haptic_feedback_zoom_summary_on">O retorno tátil de zoom está desativado</string>
+    <string name="revanced_disable_haptic_feedback_zoom_title">Desativar retorno tátil de zoom</string>
     <string name="revanced_enable_always_auto_repeat_summary_off">Sempre repetir automaticamente está desativado</string>
     <string name="revanced_enable_always_auto_repeat_summary_on">Sempre repetir automaticamente está ativado</string>
     <string name="revanced_enable_always_auto_repeat_title">Sempre repetir automaticamente</string>
     <string name="revanced_enable_custom_seekbar_color_summary_off">Cor personalizada da barra de progresso está desativada</string>
-    <string name="revanced_enable_custom_seekbar_color_summary_on">Cor personalizada da barra de progresso está ativada</string>
+    <string name="revanced_enable_custom_seekbar_color_summary_on">A cor personalizada da barra de progresso está ativada</string>
     <string name="revanced_enable_custom_seekbar_color_title">Ativar cor personalizada da barra de progresso no modo escuro</string>
     <string name="revanced_enable_custom_video_speed_summary_off">Velocidade de vídeo personalizada está desativada</string>
-    <string name="revanced_enable_custom_video_speed_summary_on">Velocidade de vídeo personalizada está ativada</string>
+    <string name="revanced_enable_custom_video_speed_summary_on">A velocidade de vídeo personalizada está ativada</string>
     <string name="revanced_enable_custom_video_speed_title">Ativar velocidade de vídeo personalizada</string>
     <string name="revanced_enable_external_browser_summary_off">Navegador externo está desativado</string>
-    <string name="revanced_enable_external_browser_summary_on">Navegador externo está ativado</string>
+    <string name="revanced_enable_external_browser_summary_on">O navegador externo está ativado</string>
     <string name="revanced_enable_external_browser_title">Ativar navegador externo</string>
     <string name="revanced_enable_minimized_playback_summary_off">A reprodução minimizada está desativada</string>
     <string name="revanced_enable_minimized_playback_summary_on">A reprodução minimizada está ativada</string>
@@ -201,7 +209,7 @@ Ele está pronto para enviar?"</string>
     <string name="revanced_enable_open_links_directly_title">Ativar abrir links diretamente</string>
     <string name="revanced_enable_press_to_swipe_summary_off">Pressionar para deslizar desativado</string>
     <string name="revanced_enable_press_to_swipe_summary_on">Pressionar para deslizar ativado</string>
-    <string name="revanced_enable_press_to_swipe_title">Ativar gesto pressionar para deslizar</string>
+    <string name="revanced_enable_press_to_swipe_title">Ativar gesto de pressionar para deslizar</string>
     <string name="revanced_enable_phone_layout_summary">Engana o dpi para usar alguns layouts de telefone</string>
     <string name="revanced_enable_phone_layout_title">Ativar layout de telefone</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">O toque na barra de progresso desativado</string>
@@ -225,9 +233,9 @@ Ele está pronto para enviar?"</string>
     <string name="revanced_enable_swipe_brightness_in_hdr_summary_off">Ao reproduzir vídeos HDR, os valores de brilho especificados pelo YouTube são aplicados</string>
     <string name="revanced_enable_swipe_brightness_in_hdr_summary_on">Ao reproduzir um vídeo HDR, os valores de brilho do gesto de deslizar são aplicados</string>
     <string name="revanced_enable_swipe_brightness_in_hdr_title">Ativar valores de brilho do gesto de deslizar em vídeo HDR</string>
-    <string name="revanced_enable_swipe_haptic_feedback_summary_off">O feedback tátil ao pressionar para deslizar está desativado</string>
-    <string name="revanced_enable_swipe_haptic_feedback_summary_on">O feedback tátil ao pressionar para deslizar está ativado</string>
-    <string name="revanced_enable_swipe_haptic_feedback_title">Ativar feedback tátil ao pressionar para deslizar</string>
+    <string name="revanced_enable_swipe_haptic_feedback_summary_off">O retorno tátil ao pressionar para deslizar está desativado</string>
+    <string name="revanced_enable_swipe_haptic_feedback_summary_on">O retorno tátil ao pressionar para deslizar está ativado</string>
+    <string name="revanced_enable_swipe_haptic_feedback_title">Ativar retorno tátil ao pressionar para deslizar</string>
     <string name="revanced_enable_swipe_volume_summary_off">O gesto de volume está desativado</string>
     <string name="revanced_enable_swipe_volume_summary_on">O gesto de volume está ativado</string>
     <string name="revanced_enable_swipe_volume_title">Ativar gesto de volume</string>
@@ -235,7 +243,7 @@ Ele está pronto para enviar?"</string>
     <string name="revanced_enable_tablet_miniplayer_summary_on">O mini-reprodutor para tablet está ativado</string>
     <string name="revanced_enable_tablet_miniplayer_title">Ativar mini-reprodutor para tablet</string>
     <string name="revanced_enable_tablet_layout_summary">Engana o dpi para usar alguns layouts para tablets</string>
-    <string name="revanced_enable_tablet_layout_title">Ativar layout para tablets</string>
+    <string name="revanced_enable_tablet_layout_title">Ativar layout para tablet</string>
     <string name="revanced_enable_wide_searchbar_summary_off">A barra de pesquisa ampla está desativada</string>
     <string name="revanced_enable_wide_searchbar_summary_on">A barra de pesquisa ampla está ativada</string>
     <string name="revanced_enable_wide_searchbar_title">Ativar barra de pesquisa ampla</string>
@@ -246,6 +254,9 @@ Ele está pronto para enviar?"</string>
     <string name="revanced_export_settings_title">Exportar configurações</string>
     <string name="revanced_extended_support_center_summary">Relate problemas ou deixe sugestões aqui</string>
     <string name="revanced_extended_support_center_title">Central de ajuda</string>
+    <string name="revanced_flyout_menu_layout">Layout do menu suspenso</string>
+    <string name="revanced_fullscreen_layout">Layout de tela cheia</string>
+    <string name="revanced_general_layout">Layout geral</string>
     <string name="revanced_hide_auto_captions_summary_off">As legendas são ativadas quando um vídeo com legendas é reproduzido</string>
     <string name="revanced_hide_auto_captions_summary_on">"As legendas não são ativadas quando um vídeo com legendas é reproduzido"</string>
     <string name="revanced_hide_auto_captions_title">Ocultar legendas automáticas</string>
@@ -426,8 +437,13 @@ Ele está pronto para enviar?"</string>
     <string name="revanced_hide_time_stamp_summary_off">A marcação de tempo será mostrada</string>
     <string name="revanced_hide_time_stamp_summary_on">A marcação de tempo está oculta</string>
     <string name="revanced_hide_time_stamp_title">Ocultar marcação de tempo</string>
+    <string name="revanced_hide_youtube_music_button_summary_off">O botão do YouTube Music será mostrado</string>
+    <string name="revanced_hide_youtube_music_button_summary_on">O botão do YouTube Music está oculto</string>
+    <string name="revanced_hide_youtube_music_button_title">Ocultar botão do YouTube Music</string>
     <string name="revanced_import_settings_summary">Obter configurações ReVanced de um arquivo salvo</string>
     <string name="revanced_import_settings_title">Importar configurações</string>
+    <string name="revanced_misc">Diversos</string>
+    <string name="revanced_others">Outros</string>
     <string name="revanced_overlay_button_auto_repeat_summary_off">O botão de repetição automática está oculto</string>
     <string name="revanced_overlay_button_auto_repeat_summary_on">O botão de repetição automática será mostrado</string>
     <string name="revanced_overlay_button_auto_repeat_title">Exibir botão de repetição automática</string>
@@ -440,6 +456,7 @@ Ele está pronto para enviar?"</string>
     <string name="revanced_overlay_button_downloads_summary_off">O botão de download está oculto</string>
     <string name="revanced_overlay_button_downloads_summary_on">O botão de download será mostrado</string>
     <string name="revanced_overlay_button_downloads_title">Exibir botão de download</string>
+    <string name="revanced_overlay_button">Botão de sobreposição</string>
     <string name="revanced_overlay_button_speed_reset">Velocidade do vídeo redefinida (1.0x)</string>
     <string name="revanced_overlay_button_speed_summary_off">O botão de velocidade está oculto</string>
     <string name="revanced_overlay_button_speed_summary_on">O botão de velocidade será mostrado</string>
@@ -452,6 +469,8 @@ Ele está pronto para enviar?"</string>
     <string name="revanced_override_premium_header_title">Cabeçalho Premium</string>
     <string name="revanced_patches_information_summary">Informações sobre as modificações aplicadas</string>
     <string name="revanced_patches_information">Informações sobre as modificações</string>
+    <string name="revanced_player_flyout_panel_title">Painel suspenso do reprodutor</string>
+    <string name="revanced_player_layout">Layout do reprodutor</string>
     <string name="revanced_reboot_warning_general">"Como essa é uma funcionalidade ainda experimental, pode haver outros problemas desconhecidos.
 Você tem certeza de que deseja continuar mesmo assim?"</string>
     <string name="revanced_reboot_warning_oldlayout">"Engana a versão do cliente do YouTube para v17.28.35 para carregar o layout antigo
@@ -459,20 +478,20 @@ Você tem certeza de que deseja continuar mesmo assim?"</string>
 Nas configurações do aplicativo, a versão do YouTube pode estar marcada como v17.28.35"</string>
     <string name="revanced_reboot_warning_phone">"Engana o dpi para alterar alguns layouts para layouts de telefone.
 
-Se você habilitar essa configuração, os seguintes recursos estarão disponíveis:
+Se você ativar essa configuração, os seguintes recursos estarão disponíveis:
 - Publicações da comunidade
 - Ocultar playlist mix"</string>
     <string name="revanced_reboot_warning_switch">"Se você ativar esta configuração, os seguintes recursos não estarão disponíveis:
 - Modo ambiente"</string>
     <string name="revanced_reboot_warning_tablet">"Engana o dpi para alterar alguns layouts para layouts de tablet.
 
-Se você habilitar essa configuração, os seguintes recursos não estarão disponíveis:
+Se você ativar essa configuração, os seguintes recursos não estarão disponíveis:
 - Modo ambiente
 - Publicações da comunidade"</string>
     <string name="revanced_reboot_warning_vp9">"Esconda informações do dispositivo para ativar o codec VP9
 
 Como essas configurações estão bastante desatualizadas, podem não ser válidas"</string>
-    <string name="revanced_ryd_attribution_summary">Os dados de dislikes são fornecidos pela API Return YouTube Dislike. Toque aqui para obter mais informações.</string>
+    <string name="revanced_ryd_attribution_summary">Os dados de dislikes são fornecidos pela API do Return YouTube Dislike. Toque aqui para obter mais informações.</string>
     <string name="revanced_ryd_dislike_percentage_summary_off">Dislikes mostrados como número</string>
     <string name="revanced_ryd_dislike_percentage_summary_on">Dislikes mostrados como porcentagem</string>
     <string name="revanced_ryd_dislike_percentage_title">Dislikes como porcentagem</string>
@@ -481,17 +500,16 @@ Como essas configurações estão bastante desatualizadas, podem não ser válid
     <string name="revanced_ryd_compact_layout_title">Botão de curtir compacto</string>
     <string name="revanced_ryd_enable_summary_off">Dislikes não serão mostrados</string>
     <string name="revanced_ryd_enable_summary_on">Dislikes serão mostrados</string>
-    <string name="revanced_ryd_enable_title">Habilitar Return YouTube Dislike</string>
+    <string name="revanced_ryd_enable_title">Ativar Return YouTube Dislike</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Dislikes não disponíveis (limite de API do cliente atingido)</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Oculto</string>
-    <string name="revanced_save_video_quality_common_error">Falha ao definir qualidade</string>
-    <string name="revanced_save_video_quality_internet_error">Sem conexão à internet</string>
     <string name="revanced_save_video_quality_mobile">Alterada a qualidade padrão dos dados móveis para:</string>
-    <string name="revanced_save_video_quality_mobile_error">Falha ao alterar a qualidade padrão dos dados móveis</string>
+    <string name="revanced_save_video_quality_none">Falha ao definir a qualidade</string>
     <string name="revanced_save_video_quality_wifi">Alterada a qualidade padrão do Wi-Fi para:</string>
-    <string name="revanced_save_video_quality_wifi_error">Falha ao alterar a qualidade WI-FI padrão</string>
     <string name="revanced_save_video_speed">Alterada a velocidade padrão para:</string>
+    <string name="revanced_seekbar_layout">Layout da barra de progresso</string>
     <string name="revanced_sponsorblock_settings_summary">Configurações relacionadas ao SponsorBlock</string>
+    <string name="revanced_swipe_controls">Controles por gestos</string>
     <string name="revanced_swipe_magnitude_threshold_summary">A distância a ser percorrida pelo gesto de deslizar</string>
     <string name="revanced_swipe_magnitude_threshold_title">Aderência do gesto de deslizar</string>
     <string name="revanced_swipe_overlay_background_alpha_summary">A visibilidade do fundo da sobreposição de gestos</string>
@@ -507,6 +525,7 @@ Como essas configurações estão bastante desatualizadas, podem não ser válid
     <string name="revanced_video_ads_removal_summary_off">Anúncios de vídeo serão mostrados</string>
     <string name="revanced_video_ads_removal_summary_on">Anúncios de vídeo estão ocultos</string>
     <string name="revanced_video_ads_removal_title">Ocultar anúncios de vídeo</string>
+    <string name="revanced_video">Vídeo</string>
     <string name="revanced_whitelisting_add_failed" formatted="false">Falha ao adicionar o canal %s na %s lista branca</string>
     <string name="revanced_whitelisting_added" formatted="false">O canal %s foi adicionado na %s lista branca</string>
     <string name="revanced_whitelisting_ads">Anúncios de vídeo</string>
