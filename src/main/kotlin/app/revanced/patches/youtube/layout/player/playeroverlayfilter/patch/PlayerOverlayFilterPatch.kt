@@ -72,8 +72,8 @@ class PlayerOverlayFilterPatch : BytecodePatch() {
                                             """, listOf(ExternalLabel("currentcolor", mutableMethod.instruction(insertIndex + 1)))
                                         )
 
-                                        patchSuccessArray[0] = true;
-                                        patchSuccessArray[1] = true;
+                                        patchSuccessArray[0] = true
+                                        patchSuccessArray[1] = true
                                     }
                                 }
                             }

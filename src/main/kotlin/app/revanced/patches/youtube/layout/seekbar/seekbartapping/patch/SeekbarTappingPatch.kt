@@ -16,7 +16,7 @@ import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.youtube.layout.seekbar.seekbartapping.fingerprints.SeekbarTappingFingerprint
 import app.revanced.patches.youtube.layout.seekbar.seekbartapping.fingerprints.SeekbarTappingParentFingerprint
-import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourcdIdPatch
+import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
 import app.revanced.util.integrations.Constants.SEEKBAR_LAYOUT
 import org.jf.dexlib2.Opcode
@@ -30,7 +30,7 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction35c
 @DependsOn(
     [
         SettingsPatch::class,
-        SharedResourcdIdPatch::class
+        SharedResourceIdPatch::class
     ]
 )
 @YouTubeCompatibility

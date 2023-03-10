@@ -12,7 +12,7 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.music.layout.tabletmode.fingerprints.TabletLayoutFingerprint
-import app.revanced.patches.music.misc.resourceid.patch.SharedResourcdIdPatch
+import app.revanced.patches.music.misc.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.music.misc.settings.patch.MusicSettingsPatch
 import app.revanced.patches.shared.annotation.YouTubeMusicCompatibility
 import app.revanced.util.integrations.Constants.MUSIC_SETTINGS_PATH
@@ -23,7 +23,7 @@ import app.revanced.util.integrations.Constants.MUSIC_SETTINGS_PATH
 @DependsOn(
     [
         MusicSettingsPatch::class,
-        SharedResourcdIdPatch::class
+        SharedResourceIdPatch::class
     ]
 )
 @YouTubeMusicCompatibility

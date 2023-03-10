@@ -56,7 +56,7 @@ class GeneralAdsBytecodePatch : BytecodePatch() {
 
                                         val viewRegister = (invokeInstruction as Instruction35c).registerC
                                         mutableMethod.implementation!!.injectHideCall(insertIndex, viewRegister, "ads/GeneralAdsPatch", "hideAdAttributionView")
-                                        patchSuccessArray[0] = true;
+                                        patchSuccessArray[0] = true
                                     }
 
                                     resourceIds[1] -> { // breaking news
@@ -68,7 +68,7 @@ class GeneralAdsBytecodePatch : BytecodePatch() {
 
                                         val viewRegister = (invokeInstruction as Instruction21c).registerA
                                         mutableMethod.implementation!!.injectHideCall(insertIndex, viewRegister, "ads/GeneralAdsPatch", "hideBreakingNewsShelf")
-                                        patchSuccessArray[1] = true;
+                                        patchSuccessArray[1] = true
                                     }
 
                                     resourceIds[2] -> { // album cards
@@ -80,7 +80,7 @@ class GeneralAdsBytecodePatch : BytecodePatch() {
 
                                         val viewRegister = (invokeInstruction as Instruction21c).registerA
                                         mutableMethod.implementation!!.injectHideCall(insertIndex, viewRegister, "ads/GeneralAdsPatch", "hideAlbumCards")
-                                        patchSuccessArray[2] = true;
+                                        patchSuccessArray[2] = true
                                     }
 
                                     resourceIds[3], resourceIds[4] -> { // paid content banner
@@ -94,8 +94,8 @@ class GeneralAdsBytecodePatch : BytecodePatch() {
 
                                         mutableMethod.addInjectCall(insertIndex, dummyRegister, viewRegister, "hidePaidContentBanner")
 
-                                        patchSuccessArray[3] = true;
-                                        patchSuccessArray[4] = true;
+                                        patchSuccessArray[3] = true
+                                        patchSuccessArray[4] = true
                                     }
 
                                     resourceIds[5] -> { // info panel
@@ -109,7 +109,7 @@ class GeneralAdsBytecodePatch : BytecodePatch() {
 
                                         mutableMethod.addInjectCall(insertIndex + 7, dummyRegister, viewRegister, "hideInfoPanel")
 
-                                        patchSuccessArray[5] = true;
+                                        patchSuccessArray[5] = true
                                     }
                                 }
                             }

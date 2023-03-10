@@ -59,8 +59,8 @@ class HideStoriesPatch : BytecodePatch() {
                                         val viewRegister = (iPutInstruction as Instruction22c).registerA
                                         mutableMethod.implementation!!.injectHideCall(insertIndex, viewRegister, "layout/GeneralLayoutPatch", "hideStoriesShelf")
 
-                                        patchSuccessArray[0] = true;
-                                        patchSuccessArray[1] = true;
+                                        patchSuccessArray[0] = true
+                                        patchSuccessArray[1] = true
                                     }
                                 }
                             }

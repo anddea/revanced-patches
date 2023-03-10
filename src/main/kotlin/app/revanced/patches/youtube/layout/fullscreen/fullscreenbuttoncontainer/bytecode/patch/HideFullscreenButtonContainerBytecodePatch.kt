@@ -45,7 +45,7 @@ class HideFullscreenButtonContainerBytecodePatch : BytecodePatch() {
                                         val viewRegister = (invokeInstruction as Instruction21c).registerA
                                         mutableMethod.implementation!!.injectHideCall(insertIndex, viewRegister, "layout/FullscreenLayoutPatch", "hideFullscreenButtonContainer")
 
-                                        patchSuccessArray[0] = true;
+                                        patchSuccessArray[0] = true
                                     }
                                 }
                             }

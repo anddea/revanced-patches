@@ -66,7 +66,7 @@ class CompactHeaderPatch : BytecodePatch() {
 
                                         MusicSettingsPatch.addMusicPreference("navigation", "revanced_hide_compact_header", "true")
 
-                                        patchSuccessArray[0] = true;
+                                        patchSuccessArray[0] = true
                                     }
                                 }
                             }

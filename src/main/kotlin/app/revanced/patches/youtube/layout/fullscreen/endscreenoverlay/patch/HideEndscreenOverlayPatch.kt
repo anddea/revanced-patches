@@ -66,7 +66,7 @@ class HideEndscreenOverlayPatch : BytecodePatch() {
                                             """, listOf(ExternalLabel("on", mutableMethod.instruction(insertIndex)))
                                         )
 
-                                        patchSuccessArray[0] = true;
+                                        patchSuccessArray[0] = true
                                     }
                                 }
                             }

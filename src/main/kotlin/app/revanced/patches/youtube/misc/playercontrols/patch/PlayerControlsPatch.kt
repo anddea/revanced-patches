@@ -14,11 +14,11 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.youtube.misc.playercontrols.fingerprints.*
-import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourcdIdPatch
+import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Name("player-controls-bytecode-patch")
-@DependsOn([SharedResourcdIdPatch::class])
+@DependsOn([SharedResourceIdPatch::class])
 @Description("Manages the code for the player controls of the YouTube player.")
 @YouTubeCompatibility
 @Version("0.0.1")

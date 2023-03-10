@@ -64,7 +64,7 @@ class ShortsComponentPatch : BytecodePatch() {
                                         val viewRegister = (instructions.elementAt(index + 3) as OneRegisterInstruction).registerA
                                         mutableMethod.implementation!!.injectHideCall(index + 4, viewRegister, "layout/GeneralLayoutPatch", "hideShortsPlayerCommentsButton")
 
-                                        patchSuccessArray[0] = true;
+                                        patchSuccessArray[0] = true
                                     }
 
                                     resourceIds[1] -> { // shorts player remix
@@ -77,7 +77,7 @@ class ShortsComponentPatch : BytecodePatch() {
                                         val viewRegister = (invokeInstruction as Instruction21c).registerA
                                         mutableMethod.implementation!!.injectHideCall(index - 1, viewRegister, "layout/GeneralLayoutPatch", "hideShortsPlayerRemixButton")
 
-                                        patchSuccessArray[1] = true;
+                                        patchSuccessArray[1] = true
                                     }
 
                                     resourceIds[2] -> { // shorts player subscriptions banner
@@ -90,7 +90,7 @@ class ShortsComponentPatch : BytecodePatch() {
                                         val viewRegister = (invokeInstruction as Instruction21c).registerA
                                         mutableMethod.implementation!!.injectHideCall(insertIndex, viewRegister, "layout/GeneralLayoutPatch", "hideShortsPlayerSubscriptionsButton")
 
-                                        patchSuccessArray[2] = true;
+                                        patchSuccessArray[2] = true
                                     }
                                 }
                             }
