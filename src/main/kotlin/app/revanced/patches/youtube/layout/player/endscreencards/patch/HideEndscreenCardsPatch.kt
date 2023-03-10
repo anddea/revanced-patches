@@ -15,7 +15,7 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.youtube.layout.player.endscreencards.fingerprints.*
-import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourcdIdPatch
+import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
 import org.jf.dexlib2.iface.instruction.formats.Instruction21c
 
@@ -25,7 +25,7 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction21c
 @DependsOn(
     [
         SettingsPatch::class,
-        SharedResourcdIdPatch::class
+        SharedResourceIdPatch::class
     ]
 )
 @YouTubeCompatibility

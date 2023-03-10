@@ -12,7 +12,7 @@ import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.shared.patch.options.PatchOptions
 import app.revanced.patches.shared.patch.settings.AbstractSettingsResourcePatch
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
-import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourcdIdPatch
+import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsBytecodePatch
 import app.revanced.util.resources.ResourceHelper.addPreference
 import app.revanced.util.resources.ResourceHelper.addReVancedPreference
@@ -28,7 +28,7 @@ import org.w3c.dom.Element
     [
         IntegrationsPatch::class,
         PatchOptions::class,
-        SharedResourcdIdPatch::class,
+        SharedResourceIdPatch::class,
         SettingsBytecodePatch::class
     ]
 )

@@ -63,7 +63,7 @@ class SeekbarColorPatch : BytecodePatch() {
                                             """
                                         )
 
-                                        patchSuccessArray[0] = true;
+                                        patchSuccessArray[0] = true
                                     }
                                 }
                             }

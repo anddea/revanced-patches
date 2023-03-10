@@ -13,6 +13,7 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.shared.patch.mapping.ResourceMappingPatch
 import org.jf.dexlib2.Opcode
+import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.iface.instruction.formats.Instruction31i
 
 @Name("sponsorblock-secondary-bytecode-patch")
@@ -41,20 +42,19 @@ class SponsorBlockSecondaryBytecodePatch : BytecodePatch() {
                             Opcode.CONST -> {
                                 when ((instruction as Instruction31i).wideLiteral) {
                                     resourceIds[0] -> { // total time
-                                        val insertIndex = index + 3
-                                        val invokeInstruction = instructions.elementAt(insertIndex)
-                                        if (invokeInstruction.opcode != Opcode.IGET_OBJECT) return@forEachIndexed
-
+                                        val targetIndex = index + 2
+                                        val targetInstruction = instructions.elementAt(targetIndex)
+                                        val targetRegister = (targetInstruction as OneRegisterInstruction).registerA
                                         val mutableMethod = context.proxy(classDef).mutableClass.findMutableMethodOf(method)
 
                                         mutableMethod.addInstructions(
-                                            insertIndex, """
-                                                invoke-static {p1}, Lapp/revanced/integrations/sponsorblock/SponsorBlockUtils;->appendTimeWithoutSegments(Ljava/lang/String;)Ljava/lang/String;
-                                                move-result-object p1
+                                            targetIndex + 1, """
+                                                invoke-static {v$targetRegister}, Lapp/revanced/integrations/sponsorblock/SponsorBlockUtils;->appendTimeWithoutSegments(Ljava/lang/String;)Ljava/lang/String;
+                                                move-result-object v$targetRegister
                                             """
                                         )
 
-                                        patchSuccessArray[0] = true;
+                                        patchSuccessArray[0] = true
                                     }
 
                                     resourceIds[1] -> { // player overlay
@@ -69,7 +69,7 @@ class SponsorBlockSecondaryBytecodePatch : BytecodePatch() {
                                                 "invoke-static {p0}, Lapp/revanced/integrations/sponsorblock/player/ui/SponsorBlockView;->initialize(Ljava/lang/Object;)V"
                                         )
 
-                                        patchSuccessArray[1] = true;
+                                        patchSuccessArray[1] = true
                                     }
                                 }
                             }

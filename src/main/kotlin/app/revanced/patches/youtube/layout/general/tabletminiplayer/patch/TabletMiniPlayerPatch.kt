@@ -17,7 +17,7 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.youtube.layout.general.tabletminiplayer.fingerprints.*
-import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourcdIdPatch
+import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
 import app.revanced.util.integrations.Constants.GENERAL_LAYOUT
 import org.jf.dexlib2.Opcode
@@ -29,7 +29,7 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 @DependsOn(
     [
         SettingsPatch::class,
-        SharedResourcdIdPatch::class
+        SharedResourceIdPatch::class
     ]
 )
 @YouTubeCompatibility
@@ -105,7 +105,7 @@ class TabletMiniPlayerPatch : BytecodePatch(
                 val parameterRegister = (instruction as OneRegisterInstruction).registerA
                 this.insertOverride(index, parameterRegister)
                 this.insertOverride(insertInstructions.size - 1, parameterRegister)
-                break;
+                break
             }
         }
 

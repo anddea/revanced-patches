@@ -15,7 +15,7 @@ import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.shared.fingerprints.PivotBarCreateButtonViewFingerprint
 import app.revanced.patches.youtube.layout.general.pivotbar.shortsbutton.fingerprints.PivotBarEnumFingerprint
 import app.revanced.patches.youtube.layout.general.pivotbar.shortsbutton.fingerprints.PivotBarShortsButtonViewFingerprint
-import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourcdIdPatch
+import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
 import app.revanced.util.integrations.Constants.GENERAL_LAYOUT
 import app.revanced.util.pivotbar.InjectionUtils.REGISTER_TEMPLATE_REPLACEMENT
@@ -27,7 +27,7 @@ import app.revanced.util.pivotbar.InjectionUtils.injectHook
 @DependsOn(
     [
         SettingsPatch::class,
-        SharedResourcdIdPatch::class
+        SharedResourceIdPatch::class
     ]
 )
 @YouTubeCompatibility

@@ -14,7 +14,7 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.music.layout.blacknavbar.fingerprints.TabLayoutFingerprint
-import app.revanced.patches.music.misc.resourceid.patch.SharedResourcdIdPatch
+import app.revanced.patches.music.misc.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.music.misc.settings.patch.MusicSettingsPatch
 import app.revanced.patches.shared.annotation.YouTubeMusicCompatibility
 import app.revanced.util.integrations.Constants.MUSIC_SETTINGS_PATH
@@ -27,7 +27,7 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction31i
 @DependsOn(
     [
         MusicSettingsPatch::class,
-        SharedResourcdIdPatch::class
+        SharedResourceIdPatch::class
     ]
 )
 @YouTubeMusicCompatibility

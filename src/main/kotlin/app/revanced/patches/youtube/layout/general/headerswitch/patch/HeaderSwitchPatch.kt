@@ -61,7 +61,7 @@ class HeaderSwitchPatch : BytecodePatch() {
                                             """
                                         )
 
-                                        patchSuccessArray[0] = true;
+                                        patchSuccessArray[0] = true
                                     }
                                 }
                             }

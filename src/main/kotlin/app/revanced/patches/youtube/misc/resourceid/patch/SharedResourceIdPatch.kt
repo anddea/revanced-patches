@@ -14,18 +14,19 @@ import app.revanced.patches.shared.patch.mapping.ResourceMappingPatch
 @DependsOn([ResourceMappingPatch::class])
 @YouTubeCompatibility
 @Version("0.0.1")
-class SharedResourcdIdPatch : ResourcePatch {
+class SharedResourceIdPatch : ResourcePatch {
     internal companion object {
         var accessibilityProgressTimeLabelId: Long = -1
         var accountSwitcherAccessibilityLabelId: Long = -1
         var appearanceStringId: Long = -1
         var backgroundCategoryLabelId: Long = -1
         var bottomUiContainerResourceId: Long = -1
+        var chapterRepeatOnResourceId: Long = -1
         var controlsLayoutStubResourceId: Long = -1
         var donationCompanionResourceId: Long = -1
-        var emptycolorLabelId: Long = -1
+        var emptyColorLabelId: Long = -1
         var fabLabelId: Long = -1
-        var floatybarQueueLabelId: Long = -1
+        var floatyBarQueueLabelId: Long = -1
         var imageOnlyTabId: Long = -1
         var imageWithTextTabId: Long = -1
         var layoutCircle: Long = -1
@@ -35,7 +36,7 @@ class SharedResourcdIdPatch : ResourcePatch {
         var scrubbingLabelId: Long = -1
         var timeStampsContainerLabelId: Long = -1
         var tooltipLabelId: Long = -1
-        var videoqualityfragmentLabelId: Long = -1
+        var videoQualityFragmentLabelId: Long = -1
     }
 
     override fun execute(context: ResourceContext): PatchResult {
@@ -49,11 +50,12 @@ class SharedResourcdIdPatch : ResourcePatch {
         appearanceStringId = findSharedResourceId("string", "app_theme_appearance_dark")
         backgroundCategoryLabelId = findSharedResourceId("string", "pref_background_and_offline_category")
         bottomUiContainerResourceId = findSharedResourceId("id", "bottom_ui_container_stub")
+        chapterRepeatOnResourceId = findSharedResourceId("string", "chapter_repeat_on")
         controlsLayoutStubResourceId = findSharedResourceId("id", "controls_layout_stub")
         donationCompanionResourceId = findSharedResourceId("layout", "donation_companion")
-        emptycolorLabelId = findSharedResourceId("color", "inline_time_bar_colorized_bar_empty_color_dark")
+        emptyColorLabelId = findSharedResourceId("color", "inline_time_bar_colorized_bar_empty_color_dark")
         fabLabelId = findSharedResourceId("id", "fab")
-        floatybarQueueLabelId = findSharedResourceId("string", "floaty_bar_queue_status")
+        floatyBarQueueLabelId = findSharedResourceId("string", "floaty_bar_queue_status")
         imageOnlyTabId = findSharedResourceId("layout", "image_only_tab")
         imageWithTextTabId = findSharedResourceId("layout", "image_with_text_tab")
         layoutCircle = findSharedResourceId("layout", "endscreen_element_layout_circle")
@@ -63,7 +65,7 @@ class SharedResourcdIdPatch : ResourcePatch {
         scrubbingLabelId = findSharedResourceId("dimen", "vertical_touch_offset_to_enter_fine_scrubbing")
         timeStampsContainerLabelId = findSharedResourceId("id", "timestamps_container")
         tooltipLabelId = findSharedResourceId("layout", "tooltip_content_view")
-        videoqualityfragmentLabelId = findSharedResourceId("layout", "video_quality_bottom_sheet_list_fragment_title")
+        videoQualityFragmentLabelId = findSharedResourceId("layout", "video_quality_bottom_sheet_list_fragment_title")
 
         return PatchResultSuccess()
     }

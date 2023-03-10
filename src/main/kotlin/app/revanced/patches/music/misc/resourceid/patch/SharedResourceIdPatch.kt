@@ -14,7 +14,7 @@ import app.revanced.patches.shared.patch.mapping.ResourceMappingPatch
 @DependsOn([ResourceMappingPatch::class])
 @YouTubeMusicCompatibility
 @Version("0.0.1")
-class SharedResourcdIdPatch : ResourcePatch {
+class SharedResourceIdPatch : ResourcePatch {
     internal companion object {
         var colorGreyLabelId: Long = -1
         var disabledIconLabelId: Long = -1

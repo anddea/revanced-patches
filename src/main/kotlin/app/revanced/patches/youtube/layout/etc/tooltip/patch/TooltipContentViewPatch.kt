@@ -13,7 +13,7 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.youtube.layout.etc.tooltip.fingerprints.TooltipContentViewFingerprint
-import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourcdIdPatch
+import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
 
 @Patch
@@ -22,7 +22,7 @@ import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
 @DependsOn(
     [
         SettingsPatch::class,
-        SharedResourcdIdPatch::class
+        SharedResourceIdPatch::class
     ]
 )
 @YouTubeCompatibility
