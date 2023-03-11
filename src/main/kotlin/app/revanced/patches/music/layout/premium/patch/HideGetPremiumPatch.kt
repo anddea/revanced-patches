@@ -6,31 +6,28 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
+import app.revanced.patcher.data.toMethodWalker
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
+import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.music.layout.premium.fingerprints.HideGetPremiumFingerprint
-import app.revanced.patches.music.misc.integrations.patch.MusicIntegrationsPatch
 import app.revanced.patches.shared.annotation.YouTubeMusicCompatibility
 import app.revanced.patches.shared.patch.mapping.ResourceMappingPatch
-import app.revanced.util.integrations.Constants.INTEGRATIONS_PATH
 import org.jf.dexlib2.Opcode
+import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
+import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
-import org.jf.dexlib2.iface.instruction.formats.Instruction22c
 import org.jf.dexlib2.iface.instruction.formats.Instruction31i
+import org.jf.dexlib2.iface.reference.FieldReference
 
 @Patch
 @Name("hide-get-premium")
 @Description("Removes all \"Get Premium\" evidences from the avatar menu.")
-@DependsOn(
-    [
-        ResourceMappingPatch::class,
-        MusicIntegrationsPatch::class
-    ]
-)
+@DependsOn([ResourceMappingPatch::class])
 @YouTubeMusicCompatibility
 @Version("0.0.1")
 class HideGetPremiumPatch : BytecodePatch(
@@ -40,9 +37,11 @@ class HideGetPremiumPatch : BytecodePatch(
 ) {
     // list of resource names to get the id of
     private val resourceIds = arrayOf(
-        "unlimited_panel"
-    ).map { name ->
-        ResourceMappingPatch.resourceMappings.single { it.name == name }.id
+        "id" to "privacy_tos_footer"
+    ).map { (type, name) ->
+        ResourceMappingPatch
+            .resourceMappings
+            .single { it.type == type && it.name == name }.id
     }
 
     override fun execute(context: BytecodeContext): PatchResult {
@@ -67,18 +66,36 @@ class HideGetPremiumPatch : BytecodePatch(
                             Opcode.CONST -> {
                                 when ((instruction as Instruction31i).wideLiteral) {
                                     resourceIds[0] -> {
-                                        val insertIndex = index + 3
-                                        val iPutInstruction = instructions.elementAt(insertIndex)
-                                        if (iPutInstruction.opcode != Opcode.IPUT_OBJECT) return@forEachIndexed
+                                        val viewIndex = index + 5
+                                        val viewInstruction = instructions.elementAt(viewIndex)
+                                        if (viewInstruction.opcode != Opcode.IGET_OBJECT) return@forEachIndexed
 
                                         val mutableMethod = context.proxy(classDef).mutableClass.findMutableMethodOf(method)
 
-                                        val viewRegister = (iPutInstruction as Instruction22c).registerA
+                                        val viewReference = (viewInstruction as? ReferenceInstruction)?.reference as? FieldReference
 
-                                        mutableMethod.addInstruction(
-                                            insertIndex,
-                                            "invoke-static {v$viewRegister}, $INTEGRATIONS_PATH/adremover/AdRemoverAPI;->HideViewWithLayout1dp(Landroid/view/View;)V"
-                                        )
+                                        with (context
+                                            .toMethodWalker(mutableMethod)
+                                            .nextMethod(viewIndex - 1, true)
+                                            .getMethod() as MutableMethod
+                                        ) {
+                                            val viewInstructions = implementation!!.instructions
+
+                                            for ((targetIndex, targetInstruction) in viewInstructions.withIndex()) {
+                                                if (targetInstruction.opcode != Opcode.IGET_OBJECT) continue
+
+                                                val indexReference = (targetInstruction as ReferenceInstruction).reference as FieldReference
+
+                                                if (indexReference == viewReference) {
+                                                    val targetRegister = (viewInstructions.elementAt(targetIndex + 2) as OneRegisterInstruction).registerA
+                                                    addInstruction(
+                                                        targetIndex,
+                                                        "const/16 v$targetRegister, 0x8"
+                                                    )
+                                                    break
+                                                }
+                                            }
+                                        }
                                     }
                                 }
                             }
