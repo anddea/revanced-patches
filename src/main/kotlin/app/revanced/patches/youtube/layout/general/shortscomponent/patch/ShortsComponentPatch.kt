@@ -2,10 +2,13 @@ package app.revanced.patches.youtube.layout.general.shortscomponent.patch
 
 import app.revanced.extensions.findMutableMethodOf
 import app.revanced.extensions.injectHideCall
+import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
+import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultError
@@ -14,13 +17,21 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.shared.patch.mapping.ResourceMappingPatch
+import app.revanced.patches.youtube.layout.general.shortscomponent.fingerprints.*
 import app.revanced.patches.youtube.misc.litho.patch.LithoFilterPatch
+import app.revanced.patches.youtube.misc.playertype.patch.PlayerTypeHookPatch
+import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
 import app.revanced.util.bytecode.BytecodeHelper.updatePatchStatus
+import app.revanced.util.integrations.Constants.GENERAL_LAYOUT
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
+import org.jf.dexlib2.iface.instruction.ReferenceInstruction
+import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
+import org.jf.dexlib2.iface.instruction.WideLiteralInstruction
 import org.jf.dexlib2.iface.instruction.formats.Instruction21c
 import org.jf.dexlib2.iface.instruction.formats.Instruction31i
+import org.jf.dexlib2.iface.reference.FieldReference
 
 @Patch
 @Name("hide-shorts-component")
@@ -28,13 +39,17 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction31i
 @DependsOn(
     [
         LithoFilterPatch::class,
+        PlayerTypeHookPatch::class,
         ResourceMappingPatch::class,
-        SettingsPatch::class
+        SettingsPatch::class,
+        SharedResourceIdPatch::class
     ]
 )
 @YouTubeCompatibility
 @Version("0.0.1")
-class ShortsComponentPatch : BytecodePatch() {
+class ShortsComponentPatch : BytecodePatch(
+    listOf(SubscriptionsButtonTabletParentFingerprint)
+) {
 
     // list of resource names to get the id of
     private val resourceIds = arrayOf(
@@ -101,6 +116,34 @@ class ShortsComponentPatch : BytecodePatch() {
             }
         }
 
+        SubscriptionsButtonTabletParentFingerprint.result?.let { parentResult ->
+            with (parentResult.mutableMethod.implementation!!.instructions) {
+                val targetIndex = this.indexOfFirst {
+                    (it as? WideLiteralInstruction)?.wideLiteral == SharedResourceIdPatch.reelPlayerFooterLabelId
+                } - 1
+                if (elementAt(targetIndex).opcode.ordinal != Opcode.IPUT.ordinal) return SubscriptionsButtonTabletFingerprint.toErrorResult()
+                subscriptionFieldReference = (elementAt(targetIndex) as ReferenceInstruction).reference as FieldReference
+            }
+            SubscriptionsButtonTabletFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.mutableMethod?.let {
+                with (it.implementation!!.instructions) {
+                    filter { instruction ->
+                        val fieldReference = (instruction as? ReferenceInstruction)?.reference as? FieldReference
+                        instruction.opcode.ordinal == Opcode.IGET.ordinal && fieldReference == subscriptionFieldReference
+                    }.forEach { instruction ->
+                        val insertIndex = indexOf(instruction) + 1
+                        val register = (instruction as TwoRegisterInstruction).registerA
+
+                        it.addInstructions(
+                            insertIndex,"""
+                                invoke-static {v$register}, $GENERAL_LAYOUT->hideShortsPlayerSubscriptionsButton(I)I
+                                move-result v$register
+                                """
+                        )
+                    }
+                }
+            } ?: return SubscriptionsButtonTabletFingerprint.toErrorResult()
+        } ?: return SubscriptionsButtonTabletParentFingerprint.toErrorResult()
+
         val errorIndex: Int = patchSuccessArray.indexOf(false)
 
         if (errorIndex == -1) {
@@ -125,5 +168,8 @@ class ShortsComponentPatch : BytecodePatch() {
             return PatchResultSuccess()
         } else
             return PatchResultError("Instruction not found: $errorIndex")
+    }
+    private companion object {
+        private lateinit var subscriptionFieldReference: FieldReference
     }
 }
