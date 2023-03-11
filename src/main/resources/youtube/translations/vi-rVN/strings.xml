@@ -156,7 +156,7 @@ Bạn đã sẵn sàng gửi đi chưa?"</string>
     <string name="revanced_backup_summary">Nhập cấu hình ReVanced Extended từ tệp đã lưu hoặc xuất cấu hình của bạn sang tệp JSON</string>
     <string name="revanced_bottom_player_layout">Bố cục bên dưới trình phát</string>
     <string name="revanced_button_container_title">Khu vực chứa nút</string>
-    <string name="revanced_comments_title">Bình luận</string>
+    <string name="revanced_comments_title">Hộp Bình luận</string>
     <string name="revanced_copytimestamp_success">Đã sao chép liên kết với dấu thời gian vào bảng nhớ tạm</string>
     <string name="revanced_custom_seekbar_color_value_summary">Nhập mã màu hex của thanh tiến trình mà bạn muốn thay đổi khi ở chế độ tối</string>
     <string name="revanced_custom_seekbar_color_value_title">Chọn màu thanh tiến trình ở chế độ tối</string>
@@ -207,9 +207,9 @@ Bạn đã sẵn sàng gửi đi chưa?"</string>
     <string name="revanced_enable_open_links_directly_summary_off">Chuyển hướng URL được sử dụng khi mở các liên kết xuất hiện trên YouTube</string>
     <string name="revanced_enable_open_links_directly_summary_on">Bỏ qua chuyển hướng URL khi mở các liên kết xuất hiện trên YouTube</string>
     <string name="revanced_enable_open_links_directly_title">Mở liên kết trực tiếp</string>
-    <string name="revanced_enable_press_to_swipe_summary_off">Nhấn để vuốt đã tắt</string>
-    <string name="revanced_enable_press_to_swipe_summary_on">Nhấn để vuốt đang bật</string>
-    <string name="revanced_enable_press_to_swipe_title">Nhấn để vuốt</string>
+    <string name="revanced_enable_press_to_swipe_summary_off">Cử chỉ nhấn và giữ để vuốt đã tắt</string>
+    <string name="revanced_enable_press_to_swipe_summary_on">Cử chỉ nhấn và giữ để vuốt đang bật</string>
+    <string name="revanced_enable_press_to_swipe_title">Nhấn và giữ để vuốt</string>
     <string name="revanced_enable_phone_layout_summary">Thay đổi DPI để sử dụng một số bố cục điện thoại</string>
     <string name="revanced_enable_phone_layout_title">Bố cục điện thoại</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">Chạm thanh tiến trình để tua video đã tắt</string>
@@ -233,9 +233,9 @@ Bạn đã sẵn sàng gửi đi chưa?"</string>
     <string name="revanced_enable_swipe_brightness_in_hdr_summary_off">Sử dụng độ sáng mặc định của YouTube khi phát video HDR</string>
     <string name="revanced_enable_swipe_brightness_in_hdr_summary_on">Sử dụng cử chỉ vuốt để thay đổi độ sáng khi phát video HDR</string>
     <string name="revanced_enable_swipe_brightness_in_hdr_title">Vuốt Độ sáng trong video HDR</string>
-    <string name="revanced_enable_swipe_haptic_feedback_summary_off">Phản hồi xúc giác khi nhấn để vuốt đã tắt</string>
-    <string name="revanced_enable_swipe_haptic_feedback_summary_on">Phản hồi xúc giác khi nhấn để vuốt đang bật</string>
-    <string name="revanced_enable_swipe_haptic_feedback_title">Phản hồi xúc giác khi nhấn để vuốt</string>
+    <string name="revanced_enable_swipe_haptic_feedback_summary_off">Phản hồi xúc giác khi nhấn và giữ để vuốt đã tắt</string>
+    <string name="revanced_enable_swipe_haptic_feedback_summary_on">Phản hồi xúc giác khi nhấn và giữ để vuốt đang bật</string>
+    <string name="revanced_enable_swipe_haptic_feedback_title">Phản hồi xúc giác khi nhấn và giữ để vuốt</string>
     <string name="revanced_enable_swipe_volume_summary_off">Cử chỉ vuốt Âm lượng đã tắt</string>
     <string name="revanced_enable_swipe_volume_summary_on">Cử chỉ vuốt Âm lượng đang bật</string>
     <string name="revanced_enable_swipe_volume_title">Vuốt Âm lượng</string>
@@ -244,6 +244,9 @@ Bạn đã sẵn sàng gửi đi chưa?"</string>
     <string name="revanced_enable_tablet_miniplayer_title">Trình phát thu nhỏ của máy tính bảng</string>
     <string name="revanced_enable_tablet_layout_summary">Thay đổi DPI để sử dụng một số bố cục máy tính bảng</string>
     <string name="revanced_enable_tablet_layout_title">Bố cục máy tính bảng</string>
+    <string name="revanced_enable_time_stamp_speed_summary_off">Đang sử dụng dấu thời gian khi thay đổi tốc độ phát mặc định của YouTube</string>
+    <string name="revanced_enable_time_stamp_speed_summary_on">Đang nối thêm dấu thời gian khi thay đổi tốc độ phát vào thời gian của video</string>
+    <string name="revanced_enable_time_stamp_speed_title">Tốc độ phát bên cạnh thời gian video</string>
     <string name="revanced_enable_wide_searchbar_summary_off">Đang sử dụng thanh tìm kiếm mặc định của YouTube</string>
     <string name="revanced_enable_wide_searchbar_summary_on">Đang sử dụng thanh tìm kiếm rộng</string>
     <string name="revanced_enable_wide_searchbar_title">Thanh tìm kiếm rộng</string>
@@ -517,8 +520,8 @@ Vì tuỳ chọn cài đặt này đã khá lỗi thời nên có thể không h
     <string name="revanced_swipe_magnitude_threshold_title">Độ rộng ngưỡng vuốt</string>
     <string name="revanced_swipe_overlay_background_alpha_summary">Độ trong suốt của nền lớp phủ vuốt</string>
     <string name="revanced_swipe_overlay_background_alpha_title">Hiển thị nền lớp phủ vuốt</string>
-    <string name="revanced_swipe_overlay_text_size_summary">Kích thước văn bản trên lớp phủ vuốt</string>
-    <string name="revanced_swipe_overlay_text_size_title">Kích thước văn bản lớp phủ vuốt</string>
+    <string name="revanced_swipe_overlay_text_size_summary">Độ to nhỏ của văn bản được hiển thị trên lớp phủ vuốt</string>
+    <string name="revanced_swipe_overlay_text_size_title">Kích thước văn bản trên lớp phủ vuốt</string>
     <string name="revanced_swipe_overlay_timeout_summary">Số mili giây mà lớp phủ vuốt được hiển thị</string>
     <string name="revanced_swipe_overlay_timeout_title">Thời gian hiển thị lớp phủ vuốt (mili giây)</string>
     <string name="revanced_switching_create_notification_summary_off">Không chuyển vị trí giữa nút Tạo và nút Thông báo</string>

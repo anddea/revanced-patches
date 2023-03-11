@@ -46,6 +46,8 @@
     <string name="microg_not_installed_notice">Будь ласка, встановіть MicroG</string>
     <string name="microg_not_installed_warning">MicroG не знайдено</string>
     <string name="microg_not_running_warning">MicroG не працює у фоновому режимі</string>
+    <string name="microg_settings_summary">Увімкніть налаштування спливаючих повідомлень, щоб отримувати сповіщення</string>
+    <string name="microg_settings_title">Відкрити мікроG</string>
     <string name="minutes">хв.</string>
     <string name="new_segment_choose_category">Виберіть категорію сегмента</string>
     <string name="new_segment_confirm_content" formatted="false">"Сегмент триває від %02d:%02d до %02d:%02d (%d хвилин(-и) %02d секунд(-и))\n Відправляємо?"</string>
@@ -66,6 +68,7 @@
     <string name="new_segment_time_start_set">Початок задання сегмента</string>
     <string name="new_segment_title">Новий SponsorBlock сегмент</string>
     <string name="reset">Скинути</string>
+    <string name="revanced_ads">Реклама</string>
     <string name="revanced_adremover_album_card_in_search_summary_off">Вилучення карти альбомів у результатах пошуку вимкнено</string>
     <string name="revanced_adremover_album_card_in_search_summary_on">Вилучення карти альбомів у результатах пошуку увімкнемо</string>
     <string name="revanced_adremover_album_card_in_search_title">Вилучення картки альбома</string>
@@ -87,6 +90,12 @@
     <string name="revanced_adremover_channelbar_join_button_summary_off">Вилучення кнопки спонсорування каналу вимкнено</string>
     <string name="revanced_adremover_channelbar_join_button_summary_on">Вилучення кнопки спонсорування каналу увімкнено</string>
     <string name="revanced_adremover_channelbar_join_button_title">Вилучення кнопки спонсорування каналу</string>
+    <string name="revanced_adremover_community_posts_subscriptions_summary_off">Повідомлення спільноти у стрічці підписки показано</string>
+    <string name="revanced_adremover_community_posts_subscriptions_summary_on">Повідомлення спільноти у стрічці підписки приховано</string>
+    <string name="revanced_adremover_community_posts_subscriptions_title">Приховати повідомлення спільноти у стрічці підписок</string>
+    <string name="revanced_adremover_community_posts_home_summary_off">Повідомлення спільноти у домашній стрічці показано</string>
+    <string name="revanced_adremover_community_posts_home_summary_on">Матеріали спільноти у домашній стрічці приховано</string>
+    <string name="revanced_adremover_community_posts_home_title">Приховати повідомлення спільноти на домашній стрічці</string>
     <string name="revanced_adremover_custom_filter_summary">Фільтруйте компоненти за їх назвами, розділеними комою</string>
     <string name="revanced_adremover_custom_filter_title">Настроюваний фільтр</string>
     <string name="revanced_adremover_general_ads_summary_off">Вилучення оголошень на головній сторінці вимкнено</string>
@@ -128,6 +137,9 @@
     <string name="revanced_adremover_suggestions_summary_off">Вилучення Пропозицій вимкнено</string>
     <string name="revanced_adremover_suggestions_summary_on">Вилучення Пропозицій увімкнено</string>
     <string name="revanced_adremover_suggestions_title">Вилучення Пропозицій</string>
+    <string name="revanced_adremover_teaser_summary_off">Рекламу показано</string>
+    <string name="revanced_adremover_teaser_summary_on">Рекламу приховано</string>
+    <string name="revanced_adremover_teaser_title">Приховати рекламу під відео</string>
     <string name="revanced_adremover_timed_reactions_summary_off">Вилучення тимчасових реакцій вимкнено</string>
     <string name="revanced_adremover_timed_reactions_summary_on">Вилучення тимчасових реакцій увімкнено</string>
     <string name="revanced_adremover_timed_reactions_title">Вилучення тимчасових реакцій</string>
@@ -136,9 +148,14 @@
     <string name="revanced_adremover_user_filter_title">Увімкнути Фільтр користувача</string>
     <string name="revanced_adremover_view_products_summary_off">Вилучення банера перегляду товарів вимкнено</string>
     <string name="revanced_adremover_view_products_summary_on">Вилучення банера перегляду товарів увімкнено</string>
+    <string name="revanced_adremover_view_products_title">Приховати банер перегляду товарів (у плеєрі)</string>
     <string name="revanced_adremover_web_search_panel_summary_off">Вилучення панелі веб-пошуку вимкнено</string>
     <string name="revanced_adremover_web_search_panel_summary_on">Вилучення панелі веб-пошуку увімкнено</string>
     <string name="revanced_adremover_web_search_panel_title">Вилучення панелі веб-пошуку</string>
+    <string name="revanced_backup_summary">Імпортувати налаштування ReVanced з файлу або експортувати налаштування ReVanced до файлу</string>
+    <string name="revanced_bottom_player_layout">Стиль нижнього плеєра</string>
+    <string name="revanced_button_container_title">Контейнер кнопок</string>
+    <string name="revanced_comments_title">Коментарі</string>
     <string name="revanced_copytimestamp_success">Мітку часу скопійовано в буфер обміну</string>
     <string name="revanced_custom_seekbar_color_value_summary">Введіть HEX код кольору панелі пошуку для використання в темному режимі</string>
     <string name="revanced_custom_seekbar_color_value_title">Користувацьке значення кольору панелі пошуку</string>
@@ -161,6 +178,7 @@
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">Вібровідгук при зміні глави увімкнено</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">Вібровідгук при зміні глави вимкнено</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">Вимкнути Вібровідгук при зміні глави</string>
+    <string name="revanced_haptic_feedback_title">Вібровідгук</string>
     <string name="revanced_disable_haptic_feedback_zoom_summary_off">Вібровідгук при збільшенні для заповнення екрана увімкнено</string>
     <string name="revanced_disable_haptic_feedback_zoom_summary_on">Вібровідгук при збільшенні для заповнення екрана вимкнено</string>
     <string name="revanced_disable_haptic_feedback_zoom_title">Вимкнення Вібровідгуку при збільшенні для заповнення екрана</string>
@@ -233,6 +251,11 @@
     <string name="revanced_experimental_flag">Експериментальні опції</string>
     <string name="revanced_export_settings_summary">Зберегти ваші налаштування ReVanced у файл</string>
     <string name="revanced_export_settings_title">Експорт налаштувань</string>
+    <string name="revanced_extended_support_center_summary">Повідомте про проблеми або залиште свої пропозиції тут</string>
+    <string name="revanced_extended_support_center_title">Центр підтримки</string>
+    <string name="revanced_flyout_menu_layout">Компонування спливаючого меню</string>
+    <string name="revanced_fullscreen_layout">Розмітка повноекранного режиму</string>
+    <string name="revanced_general_layout">Загальний вигляд</string>
     <string name="revanced_hide_auto_captions_summary_off">Автоматично включати відображення субтитрів за їх присутності</string>
     <string name="revanced_hide_auto_captions_summary_on">"Автоматично вимикати відображення субтитрів за їх присутності"</string>
     <string name="revanced_hide_auto_captions_title">Автоматичні субтитри</string>
@@ -389,6 +412,9 @@
     <string name="revanced_hide_shorts_player_join_button_summary_off">Кнопка приєднання плеєра коротких відео показана</string>
     <string name="revanced_hide_shorts_player_join_button_summary_on">Кнопку приєднання плеєра коротких відео схована</string>
     <string name="revanced_hide_shorts_player_join_button_title">Сховати кнопку приєднання плеєра коротких відео</string>
+    <string name="revanced_hide_shorts_player_pivot_bar_summary_off">Нижня панель в shots відображається</string>
+    <string name="revanced_hide_shorts_player_pivot_bar_summary_on">Нижня панель в shots прихована</string>
+    <string name="revanced_hide_shorts_player_pivot_bar_title">Приховати нижню панель в shots</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_off">Кнопка \"Підписатися\" у плеєрі коротких відео видима</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_on">Кнопка \"Підписатися\" у плеєрі коротких відео схована</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_title">Сховати кнопку \"Підписатися\" у плеєрі коротких відео</string>
@@ -413,8 +439,13 @@
     <string name="revanced_hide_time_stamp_summary_off">Штамп часу показано</string>
     <string name="revanced_hide_time_stamp_summary_on">Штамп часу сховано</string>
     <string name="revanced_hide_time_stamp_title">Сховати штамп часу</string>
+    <string name="revanced_hide_youtube_music_button_summary_off">Кнопку YouTube Music показано</string>
+    <string name="revanced_hide_youtube_music_button_summary_on">Кнопку YouTube Music приховано</string>
+    <string name="revanced_hide_youtube_music_button_title">Приховати кнопку Youtube Music</string>
     <string name="revanced_import_settings_summary">Отримати налаштування ReVanced зі збереженого файлу</string>
     <string name="revanced_import_settings_title">Імпортувати налаштування</string>
+    <string name="revanced_misc">Різне</string>
+    <string name="revanced_others">Інше</string>
     <string name="revanced_overlay_button_auto_repeat_summary_off">Кнопка Автоповтору прихована</string>
     <string name="revanced_overlay_button_auto_repeat_summary_on">Кнопка Автоповтору показана</string>
     <string name="revanced_overlay_button_auto_repeat_title">Кнопка Автоповтору</string>
@@ -427,6 +458,7 @@
     <string name="revanced_overlay_button_downloads_summary_off">Кнопка завантажити прихована</string>
     <string name="revanced_overlay_button_downloads_summary_on">Кнопка завантажити показана</string>
     <string name="revanced_overlay_button_downloads_title">Кнопка завантажити</string>
+    <string name="revanced_overlay_button">Кнопка оверлею</string>
     <string name="revanced_overlay_button_speed_reset">Швидкість відео скинута (1.0x)</string>
     <string name="revanced_overlay_button_speed_summary_off">Кнопка швидкості прихована</string>
     <string name="revanced_overlay_button_speed_summary_on">Кнопка швидкості показана</string>
@@ -439,12 +471,16 @@
     <string name="revanced_override_premium_header_title">Premium заголовок на головній сторінці</string>
     <string name="revanced_patches_information_summary">Інформація про застосовані патчі</string>
     <string name="revanced_patches_information">Патчі</string>
+    <string name="revanced_player_flyout_panel_title">Спливаюча панель плеєра</string>
+    <string name="revanced_player_layout">Розмітка плеєра</string>
     <string name="revanced_reboot_warning_general">"Оскільки це експериментальна функція, можуть бути невідомі проблеми.
 Ви впевнені, що хочете продовжити?"</string>
     <string name="revanced_reboot_warning_oldlayout">"Підміняє версію клієнта YouTube на v17.28.35 для відображення старого інтерфейсу
 
 У налаштуваннях застосунку версія YouTube може бути показана як v17.28.35"</string>
     <string name="revanced_reboot_warning_phone">"Обманює роздільну здатність, щоб змінити деякі елементи на елементи телефону.\n\nЯкщо ввімкнути цей параметр, будуть доступні такі функції:\n - Публікації спільноти\n - Вилучення Мій плейлист"</string>
+    <string name="revanced_reboot_warning_switch">"Якщо увімкнути це налаштування, наступні функції недоступні:
+- Розширений режим"</string>
     <string name="revanced_reboot_warning_tablet">"Обманює роздільну здатність, щоб змінити деякі елементи на елементи планшета.\n\nЯкщо ввімкнути це налаштування, такі функції будуть недоступні:\n - Фонове підсвічування\n - Публікації спільноти"</string>
     <string name="revanced_reboot_warning_vp9">"Спуфати інформацію про пристрій для активації кодека VP9
 
@@ -462,9 +498,12 @@
     <string name="revanced_ryd_failure_client_rate_limit_requested">Дизлайки недоступні (досягнутий ліміт клієнта API)</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Приховано</string>
     <string name="revanced_save_video_quality_mobile">Зміна стандартної якості відео при мобільному з\'єднанні на:</string>
+    <string name="revanced_save_video_quality_none">Не вдалося встановити якість</string>
     <string name="revanced_save_video_quality_wifi">Зміна якості відео для Wi-Fi мереж за замовчуванням на:</string>
     <string name="revanced_save_video_speed">Зміна швидкості відео за замовчуванням на:</string>
+    <string name="revanced_seekbar_layout">Розмітка панелі пошуку</string>
     <string name="revanced_sponsorblock_settings_summary">Додаткові налаштування SponsorBlock</string>
+    <string name="revanced_swipe_controls">Керування жестами</string>
     <string name="revanced_swipe_magnitude_threshold_summary">Мінімальна амплітуда руху, що розпізнається як жест</string>
     <string name="revanced_swipe_magnitude_threshold_title">Поріг величини жесту</string>
     <string name="revanced_swipe_overlay_background_alpha_summary">Видимість фону накладення при свайпе</string>
@@ -473,10 +512,14 @@
     <string name="revanced_swipe_overlay_text_size_title">Розмір шрифту оверлея</string>
     <string name="revanced_swipe_overlay_timeout_summary">Як довго оверлей відображатиметься після зміни</string>
     <string name="revanced_swipe_overlay_timeout_title">Тривалість оверлею</string>
+    <string name="revanced_switching_create_notification_summary_off">Кнопка створення та кнопка сповіщень не міняються місцями</string>
+    <string name="revanced_switching_create_notification_summary_on">Кнопка створення та кнопка сповіщень помінялися місцями</string>
+    <string name="revanced_switching_create_notification_title">Поміняти місцями кнопку створення та кнопку сповіщення</string>
     <string name="revanced_tool_used">Патч збірки:</string>
     <string name="revanced_video_ads_removal_summary_off">Вилучення оголошень у відео вимкнено</string>
     <string name="revanced_video_ads_removal_summary_on">Вилучення оголошень у відео увімкнено</string>
     <string name="revanced_video_ads_removal_title">Вилучення оголошень у відео</string>
+    <string name="revanced_video">Відео</string>
     <string name="revanced_whitelisting_add_failed" formatted="false">Не вдалося додати канал %s до білого списку %s</string>
     <string name="revanced_whitelisting_added" formatted="false">Канал %s був доданий до білого списку %s</string>
     <string name="revanced_whitelisting_ads">Реклама</string>
