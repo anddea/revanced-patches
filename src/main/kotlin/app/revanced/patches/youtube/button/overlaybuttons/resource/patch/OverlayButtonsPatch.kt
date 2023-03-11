@@ -98,10 +98,10 @@ class OverlayButtonsResourcePatch : ResourcePatch {
                 "yt:layout_constraintRight_toLeftOf=\"@+id/speed_button"
             ).replace(
                 "60",
-                "48"
+                "42"
             ).replace(
                 "paddingBottom=\"16",
-                "paddingBottom=\"28"
+                "paddingBottom=\"34"
             ).replace(
                 "paddingLeft=\"12",
                 "paddingLeft=\"0"
