@@ -285,15 +285,15 @@
     <PreferenceScreen android:title="@string/revanced_seekbar_layout" android:key="seekbar">
         <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_seekbar_layout" />PREFERENCE: SEEKBAR_LAYOUT_SETTINGS -->
 
-    <!-- SETTINGS: CUSTOM_SEEKBAR_COLOR
-        <SwitchPreference android:title="@string/revanced_enable_custom_seekbar_color_title" android:key="revanced_enable_custom_seekbar_color" android:defaultValue="true" android:summaryOn="@string/revanced_enable_custom_seekbar_color_summary_on" android:summaryOff="@string/revanced_enable_custom_seekbar_color_summary_off" />
-        <EditTextPreference android:title="@string/revanced_custom_seekbar_color_value_title" android:key="revanced_custom_seekbar_color_value" android:summary="@string/revanced_custom_seekbar_color_value_summary" android:defaultValue="#ff0000" android:hint="#ff0000" android:inputType="text" android:dependency="revanced_enable_custom_seekbar_color" />SETTINGS: CUSTOM_SEEKBAR_COLOR -->
+    <!-- SETTINGS: HIDE_SEEKBAR
+        <SwitchPreference android:title="@string/revanced_hide_seekbar_title" android:key="revanced_hide_seekbar" android:defaultValue="false" android:summaryOn="@string/revanced_hide_seekbar_summary_on" android:summaryOff="@string/revanced_hide_seekbar_summary_off" />SETTINGS: HIDE_SEEKBAR -->
 
     <!-- SETTINGS: ENABLE_SEEKBAR_TAPPING
         <SwitchPreference android:title="@string/revanced_enable_seekbar_tapping_title" android:key="revanced_enable_seekbar_tapping" android:defaultValue="true" android:summaryOn="@string/revanced_enable_seekbar_tapping_summary_on" android:summaryOff="@string/revanced_enable_seekbar_tapping_summary_off" />SETTINGS: ENABLE_SEEKBAR_TAPPING -->
 
-    <!-- SETTINGS: HIDE_SEEKBAR
-        <SwitchPreference android:title="@string/revanced_hide_seekbar_title" android:key="revanced_hide_seekbar" android:defaultValue="false" android:summaryOn="@string/revanced_hide_seekbar_summary_on" android:summaryOff="@string/revanced_hide_seekbar_summary_off" />SETTINGS: HIDE_SEEKBAR -->
+    <!-- SETTINGS: CUSTOM_SEEKBAR_COLOR
+        <SwitchPreference android:title="@string/revanced_enable_custom_seekbar_color_title" android:key="revanced_enable_custom_seekbar_color" android:defaultValue="true" android:summaryOn="@string/revanced_enable_custom_seekbar_color_summary_on" android:summaryOff="@string/revanced_enable_custom_seekbar_color_summary_off" />
+        <EditTextPreference android:title="@string/revanced_custom_seekbar_color_value_title" android:key="revanced_custom_seekbar_color_value" android:summary="@string/revanced_custom_seekbar_color_value_summary" android:defaultValue="#ff0000" android:hint="#ff0000" android:inputType="text" android:dependency="revanced_enable_custom_seekbar_color" />SETTINGS: CUSTOM_SEEKBAR_COLOR -->
 
     <!-- SETTINGS: HIDE_TIME_STAMP
         <SwitchPreference android:title="@string/revanced_hide_time_stamp_title" android:key="revanced_hide_time_stamp" android:defaultValue="false" android:summaryOn="@string/revanced_hide_time_stamp_summary_on" android:summaryOff="@string/revanced_hide_time_stamp_summary_off" />SETTINGS: HIDE_TIME_STAMP -->
@@ -444,9 +444,9 @@
             <Preference android:title="hide-flyout-panel" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
 
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_seekbar_layout" />
-            <Preference android:title="custom-seekbar-color" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
-            <Preference android:title="enable-seekbar-tapping" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-seekbar" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="enable-seekbar-tapping" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="custom-seekbar-color" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-time-stamp" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
 
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_overlay_button" />
