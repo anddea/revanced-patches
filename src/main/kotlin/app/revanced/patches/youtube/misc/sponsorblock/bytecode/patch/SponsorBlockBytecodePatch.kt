@@ -165,7 +165,7 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         } ?: return PlayerControllerFingerprint.toErrorResult()
 
         context.injectInit("FirstRun", "initializationSB")
-        context.updatePatchStatus("Sponsorblock")
+        context.updatePatchStatus("SponsorBlock")
 
         return PatchResultSuccess()
     }
