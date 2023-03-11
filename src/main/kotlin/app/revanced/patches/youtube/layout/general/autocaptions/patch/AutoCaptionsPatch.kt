@@ -16,8 +16,8 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.shared.fingerprints.SubtitleButtonControllerFingerprint
+import app.revanced.patches.shared.fingerprints.SubtitleTrackFingerprint
 import app.revanced.patches.youtube.layout.general.autocaptions.fingerprints.StartVideoInformerFingerprint
-import app.revanced.patches.youtube.layout.general.autocaptions.fingerprints.SubtitleTrackFingerprint
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
 import app.revanced.util.integrations.Constants.GENERAL_LAYOUT
 
