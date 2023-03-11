@@ -8,7 +8,7 @@
     <string name="api_url_changed">L\'URL de l\'API a été modifiée</string>
     <string name="api_url_invalid">L\'URL de l\'API fournie n\'est pas valide</string>
     <string name="api_url_reset">Réinitialiser l\'URL de l\'API</string>
-    <string name="api_mirror_url_changed">L\'URL de l\'API MIRROIR a été modifiée</string>
+    <string name="api_mirror_url_changed">L\'URL de l\'API MIRROR a été modifiée</string>
     <string name="api_mirror_url_invalid">L’URL de l\'API MIRROR fournie n’est pas valide</string>
     <string name="api_mirror_url_reset">API MIRROR URL réinitialiser</string>
     <string name="color_change">Vous cherchez à changer les couleurs ?</string>
@@ -17,13 +17,13 @@
     <string name="color_invalid">Code couleur non valide</string>
     <string name="color_reset">Couleur réinitialiser</string>
     <string name="diff_segments">Que faire avec les différents moments ?</string>
-    <string name="enable_sb">Activer SponsorBlock</string>
+    <string name="enable_sb">SponsorBlock</string>
     <string name="enable_sb_sum">SponsorBlock est un système reposant sur la communauté qui permet de sauter les passages ennuyeux des vidéos YouTube.</string>
-    <string name="enable_sb_mirror">Activer le Miroir SponsorBlock</string>
+    <string name="enable_sb_mirror">SponsorBlock Mirror</string>
     <string name="enable_sb_mirror_sum">Lorsque le serveur d\'API SponsorBlock est indisponible, utiliser le serveur d\'API miroir à la place du serveur d\'API par défaut.</string>
-    <string name="enable_segmadding">Activer l\'ajout de nouveaux moments</string>
+    <string name="enable_segmadding">L\'ajout de nouveaux moments</string>
     <string name="enable_segmadding_sum">Activer cette option pour permettre l\'ajout d\'un moment expérimental (problèmes de visibilité des boutons).</string>
-    <string name="enable_voting">Activer le vote</string>
+    <string name="enable_voting">Le vote</string>
     <string name="enable_voting_sum">Activer cette option pour utiliser la fonction de vote.</string>
     <string name="general">Général</string>
     <string name="general_adjusting">Ajustement d\'une nouvelle étape de moment</string>
@@ -36,7 +36,7 @@
     <string name="general_min_duration_sum">Les moments plus courts que la valeur définie (en secondes) ne seront pas sautés ou affichés dans le lecteur.</string>
     <string name="general_skipcount">Suivi des sauts de compte (nombre de fois où le moment a été sauté)</string>
     <string name="general_skipcount_sum">Cela permet au système de classement SponsorBlock de savoir combien de temps les gens ont économisé. L\'extension envoie un message au serveur chaque fois que vous sautez un moment.</string>
-    <string name="general_skiptoast">Afficher un message lorsque vous sautez un segment automatiquement</string>
+    <string name="general_skiptoast">Afficher un message lorsque vous sautez un moment automatiquement</string>
     <string name="general_skiptoast_sum">Cliquez ici pour voir un exemple de message.</string>
     <string name="general_time_without_sb">Temps d\'affichage sans moments à sauter</string>
     <string name="general_time_without_sb_sum">Cette durée apparaît entre parenthèses à côté de l\'heure actuelle. Elle indique la durée totale de la vidéo avec les moments que vous devrez sauter.</string>
@@ -46,7 +46,7 @@
     <string name="microg_not_installed_notice">Veuillez installer MicroG</string>
     <string name="microg_not_installed_warning">MicroG n’est pas trouvé</string>
     <string name="microg_not_running_warning">MicroG ne fonctionne pas en arrière-plan</string>
-    <string name="microg_settings_summary">Les paramètres de messagerie cloud pour recevoir des notifications</string>
+    <string name="microg_settings_summary">MicroG est requis pour se connecter au compte Google</string>
     <string name="microg_settings_title">Ouvrir MicroG</string>
     <string name="minutes">minutes</string>
     <string name="new_segment_choose_category">Choisir la catégorie de moment</string>
@@ -254,7 +254,7 @@ Est-il prêt à être soumis?"</string>
     <string name="revanced_export_settings_title">Paramètres d\'exportation</string>
     <string name="revanced_extended_support_center_summary">Signaler des problèmes ou laisser des suggestions ici</string>
     <string name="revanced_extended_support_center_title">Centre d\'aide</string>
-    <string name="revanced_flyout_menu_layout">Paramètres de mise en page du menu déroulant</string>
+    <string name="revanced_flyout_menu_layout">Paramètres de mise en page de l\'affichage de qualité vidéo et des boutons du menu \"paramètre\" des vidéos</string>
     <string name="revanced_fullscreen_layout">Paramètres de mise en page plein écran</string>
     <string name="revanced_general_layout">Paramètres généraux de mise en page</string>
     <string name="revanced_hide_auto_captions_summary_off">Les sous-titres sont activés lors de la lecture d’une vidéo avec le sous-titrage</string>
@@ -413,9 +413,9 @@ Est-il prêt à être soumis?"</string>
     <string name="revanced_hide_shorts_player_join_button_summary_off">Le bouton \"Rejoindre\" sur les Shorts sont affichés</string>
     <string name="revanced_hide_shorts_player_join_button_summary_on">Le bouton \"Rejoindre\" sur les Shorts sont cachés</string>
     <string name="revanced_hide_shorts_player_join_button_title">Le bouton de \"Rejoindre\" sur les Shorts</string>
-    <string name="revanced_hide_shorts_player_pivot_bar_summary_off">La barre pivotante sur les Shorts est affichée</string>
-    <string name="revanced_hide_shorts_player_pivot_bar_summary_on">La barre pivotante sur les Shorts est cachée</string>
-    <string name="revanced_hide_shorts_player_pivot_bar_title">La barre pivotante sur les Shorts</string>
+    <string name="revanced_hide_shorts_player_pivot_bar_summary_off">Les boutons en bas des vidéos Shorts est affichée</string>
+    <string name="revanced_hide_shorts_player_pivot_bar_summary_on">Les boutons en bas des vidéos Shorts est cachée</string>
+    <string name="revanced_hide_shorts_player_pivot_bar_title">Les boutons en bas des vidéos Shorts</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_off">Le bouton \"D\'abonnement\" sur les Shorts est affiché</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_on">Le bouton \"D\'abonnement\"sur les Shorts est caché</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_title">Le bouton \"D\'abonnement\" sur les Shorts</string>
@@ -472,7 +472,7 @@ Est-il prêt à être soumis?"</string>
     <string name="revanced_override_premium_header_title">Icône YT Premium</string>
     <string name="revanced_patches_information_summary">Informations sur les correctifs appliqués</string>
     <string name="revanced_patches_information">Informations sur les correctifs</string>
-    <string name="revanced_player_flyout_panel_title">Paramètres des boutons du menu \"paramètres\" des vidéos</string>
+    <string name="revanced_player_flyout_panel_title"> ︎ ︎</string>
     <string name="revanced_player_layout">Paramètres des boutons du lecteur vidéo</string>
     <string name="revanced_reboot_warning_general">"Comme il s’agit toujours d’un élément expérimental, il peut y avoir d’autres questions inconnues. Êtes-vous sûr de vouloir continuer?"</string>
     <string name="revanced_reboot_warning_oldlayout">"Change la version YouTube en v17.28.35 pour charger l'ancienne mise en page"</string>
@@ -498,7 +498,7 @@ Comme ces paramètres sont abandonnées, ils peuvent ne pas être valides"</stri
     <string name="revanced_ryd_compact_layout_title">Design du bouton \"J\'aime\" </string>
     <string name="revanced_ryd_enable_summary_off">Les dislikes ne sont pas affichés</string>
     <string name="revanced_ryd_enable_summary_on">Les dislikes sont affichées</string>
-    <string name="revanced_ryd_enable_title">Paramètres Retour YouTube Dislike</string>
+    <string name="revanced_ryd_enable_title">Retour des dislikes YouTube</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Les dislikes ne sont disponible  (limite de clients d\'API atteinte)</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Cacher</string>
     <string name="revanced_save_video_quality_mobile">Changer la qualité des données mobiles par défaut en :</string>
@@ -507,7 +507,7 @@ Comme ces paramètres sont abandonnées, ils peuvent ne pas être valides"</stri
     <string name="revanced_save_video_speed">Changer la vitesse par défaut en :</string>
     <string name="revanced_seekbar_layout">Paramètres de mise en page de la barre de progression et de la durée de la vidéo</string>
     <string name="revanced_sponsorblock_settings_summary">Paramètres liés a SponsorBlock</string>
-    <string name="revanced_swipe_controls">Paramètres des s de balayage</string>
+    <string name="revanced_swipe_controls">Paramètres des commandes de balayage</string>
     <string name="revanced_swipe_magnitude_threshold_summary">L\'intensité de balayage correspond à la mesure de glissement utilisée pour ajuster le niveau sonore ou de luminosité</string>
     <string name="revanced_swipe_magnitude_threshold_title">L\'intensité de balayage</string>
     <string name="revanced_swipe_overlay_background_alpha_summary">La visibilité de l’arrière-plan de superposition par balayage</string>
