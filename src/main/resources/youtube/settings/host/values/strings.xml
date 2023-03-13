@@ -3,22 +3,22 @@
     <string name="about_api">This app uses the API from SponsorBlock</string>
     <string name="about_api_sum">Tap to learn more, and see downloads for other platforms at: sponsor.ajay.app</string>
     <string name="about_madeby">Integration made by JakubWeg</string>
-    <string name="api_url_changed">API URL changed</string>
-    <string name="api_url_invalid">Provided API URL is invalid</string>
-    <string name="api_url_reset">API URL reset</string>
     <string name="api_mirror_url_changed">API MIRROR URL changed</string>
     <string name="api_mirror_url_invalid">Provided API MIRROR URL is invalid</string>
     <string name="api_mirror_url_reset">API MIRROR URL reset</string>
+    <string name="api_url_changed">API URL changed</string>
+    <string name="api_url_invalid">Provided API URL is invalid</string>
+    <string name="api_url_reset">API URL reset</string>
     <string name="color_change">Are you looking for changing colors?</string>
-    <string name="color_change_sum">"You can now change a category's color by clicking on it above."</string>
     <string name="color_changed">Color changed</string>
+    <string name="color_change_sum">"You can now change a category's color by clicking on it above."</string>
     <string name="color_invalid">Invalid hex code</string>
     <string name="color_reset">Color reset</string>
     <string name="diff_segments">What to do with different segments</string>
     <string name="enable_sb">Enable SponsorBlock</string>
-    <string name="enable_sb_sum">SponsorBlock is a crowd-sourced system for skipping annoying parts in YouTube videos</string>
     <string name="enable_sb_mirror">Enable SponsorBlock Mirror</string>
     <string name="enable_sb_mirror_sum">When SponsorBlock API server is taken down, switch mirror API server to default API server</string>
+    <string name="enable_sb_sum">SponsorBlock is a crowd-sourced system for skipping annoying parts in YouTube videos</string>
     <string name="enable_segmadding">Enable new segment adding</string>
     <string name="enable_segmadding_sum">Switch this on to enable experimental segment adding (has button visibility issues)</string>
     <string name="enable_voting">Enable voting</string>
@@ -26,10 +26,10 @@
     <string name="general">General</string>
     <string name="general_adjusting">Adjusting new segment step</string>
     <string name="general_adjusting_sum">This is the number of milliseconds you can move when you use the time adjustment buttons while adding new segment</string>
-    <string name="general_api_url">Change API URL</string>
-    <string name="general_api_url_sum">"The address SponsorBlock uses to make calls to the server. &lt;b>Don't change this unless you know what you're doing.&lt;/b>"</string>
     <string name="general_api_mirror_url">Change API Mirror URL</string>
     <string name="general_api_mirror_url_sum">"Mirror server address to switch to when SponsorBlock server is taken down. &lt;b>Don't change this unless you know what you're doing.&lt;/b>"</string>
+    <string name="general_api_url">Change API URL</string>
+    <string name="general_api_url_sum">"The address SponsorBlock uses to make calls to the server. &lt;b>Don't change this unless you know what you're doing.&lt;/b>"</string>
     <string name="general_min_duration">Minimum segment duration</string>
     <string name="general_min_duration_sum">Segments shorter than the set value (in seconds) will not be skipped or shown in the player</string>
     <string name="general_skipcount">Skip count tracking</string>
@@ -67,7 +67,6 @@ Is it ready to submit?"</string>
     <string name="new_segment_time_start_set">Beginning of segment set</string>
     <string name="new_segment_title">New SponsorBlock segment</string>
     <string name="reset">Reset</string>
-    <string name="revanced_ads">Ads</string>
     <string name="revanced_adremover_album_card_in_search_summary_off">Album cards are shown from search results</string>
     <string name="revanced_adremover_album_card_in_search_summary_on">Album cards are hidden from search results</string>
     <string name="revanced_adremover_album_card_in_search_title">Hide album cards</string>
@@ -80,21 +79,21 @@ Is it ready to submit?"</string>
     <string name="revanced_adremover_button_ads_summary_off">Buttoned ads are shown</string>
     <string name="revanced_adremover_button_ads_summary_on">Buttoned ads are hidden</string>
     <string name="revanced_adremover_button_ads_title">Hide buttoned ad</string>
+    <string name="revanced_adremover_channelbar_join_button_summary_off">Channelbar join button is shown</string>
+    <string name="revanced_adremover_channelbar_join_button_summary_on">Channelbar join button is hidden</string>
+    <string name="revanced_adremover_channelbar_join_button_title">Hide channelbar join button</string>
     <string name="revanced_adremover_channel_guidelines_summary_off">Channel guidelines are shown</string>
     <string name="revanced_adremover_channel_guidelines_summary_on">Channel guidelines are hidden</string>
     <string name="revanced_adremover_channel_guidelines_title">Hide channel guidelines</string>
     <string name="revanced_adremover_channel_member_shelf_summary_off">Channel member shelf is shown</string>
     <string name="revanced_adremover_channel_member_shelf_summary_on">Channel member shelf is hidden</string>
     <string name="revanced_adremover_channel_member_shelf_title">Hide channel member shelf</string>
-    <string name="revanced_adremover_channelbar_join_button_summary_off">Channelbar join button is shown</string>
-    <string name="revanced_adremover_channelbar_join_button_summary_on">Channelbar join button is hidden</string>
-    <string name="revanced_adremover_channelbar_join_button_title">Hide channelbar join button</string>
-    <string name="revanced_adremover_community_posts_subscriptions_summary_off">Community posts in subscriptions feed are shown</string>
-    <string name="revanced_adremover_community_posts_subscriptions_summary_on">Community posts in subscriptions feed are hidden</string>
-    <string name="revanced_adremover_community_posts_subscriptions_title">Hide community posts in subscriptions feed</string>
     <string name="revanced_adremover_community_posts_home_summary_off">Community posts in home feed are shown</string>
     <string name="revanced_adremover_community_posts_home_summary_on">Community posts in home feed are hidden</string>
     <string name="revanced_adremover_community_posts_home_title">Hide community posts in home feed</string>
+    <string name="revanced_adremover_community_posts_subscriptions_summary_off">Community posts in subscriptions feed are shown</string>
+    <string name="revanced_adremover_community_posts_subscriptions_summary_on">Community posts in subscriptions feed are hidden</string>
+    <string name="revanced_adremover_community_posts_subscriptions_title">Hide community posts in subscriptions feed</string>
     <string name="revanced_adremover_custom_filter_summary">Filter components by their name separated by a comma</string>
     <string name="revanced_adremover_custom_filter_title">Custom filter</string>
     <string name="revanced_adremover_general_ads_summary_off">General ads are shown</string>
@@ -151,6 +150,7 @@ Is it ready to submit?"</string>
     <string name="revanced_adremover_web_search_panel_summary_off">Web search panels are shown</string>
     <string name="revanced_adremover_web_search_panel_summary_on">Web search panels are hidden</string>
     <string name="revanced_adremover_web_search_panel_title">Hide web search panels</string>
+    <string name="revanced_ads">Ads</string>
     <string name="revanced_backup_summary">Import ReVanced settings from file or export ReVanced settings to file</string>
     <string name="revanced_bottom_player_layout">Bottom player layout</string>
     <string name="revanced_button_container_title">Button container</string>
@@ -161,6 +161,18 @@ Is it ready to submit?"</string>
     <string name="revanced_default_video_quality_mobile_title">Default video quality Cellular</string>
     <string name="revanced_default_video_quality_wifi_title">Default video quality Wi-Fi</string>
     <string name="revanced_default_video_speed_title">Default video speed</string>
+    <string name="revanced_disable_haptic_feedback_chapters_summary_off">Chapters haptic feedback is enabled</string>
+    <string name="revanced_disable_haptic_feedback_chapters_summary_on">Chapters haptic feedback is disabled</string>
+    <string name="revanced_disable_haptic_feedback_chapters_title">Disable chapters haptic feedback</string>
+    <string name="revanced_disable_haptic_feedback_scrubbing_summary_off">Scrubbing haptic feedback is enabled</string>
+    <string name="revanced_disable_haptic_feedback_scrubbing_summary_on">Scrubbing haptic feedback is disabled</string>
+    <string name="revanced_disable_haptic_feedback_scrubbing_title">Disable scrubbing haptic feedback</string>
+    <string name="revanced_disable_haptic_feedback_seek_summary_off">Seek haptic feedback is enabled</string>
+    <string name="revanced_disable_haptic_feedback_seek_summary_on">Seek haptic feedback is disabled</string>
+    <string name="revanced_disable_haptic_feedback_seek_title">Disable seek haptic feedback</string>
+    <string name="revanced_disable_haptic_feedback_zoom_summary_off">Zoom haptic feedback is enabled</string>
+    <string name="revanced_disable_haptic_feedback_zoom_summary_on">Zoom haptic feedback is disabled</string>
+    <string name="revanced_disable_haptic_feedback_zoom_title">Disable zoom haptic feedback</string>
     <string name="revanced_double_back_timeout_summary">The amount of seconds the double press back to exit</string>
     <string name="revanced_double_back_timeout_title">Double back timeout</string>
     <string name="revanced_downloader_not_installed">is not installed. Please install it.</string>
@@ -168,19 +180,6 @@ Is it ready to submit?"</string>
     <string name="revanced_downloader_package_name_title">Downloader package name</string>
     <string name="revanced_downloader_settings_summary">Default downloader related settings</string>
     <string name="revanced_downloader_settings_title">Downloader settings</string>
-    <string name="revanced_disable_haptic_feedback_scrubbing_summary_off">Scrubbing haptic feedback is enabled</string>
-    <string name="revanced_disable_haptic_feedback_scrubbing_summary_on">Scrubbing haptic feedback is disabled</string>
-    <string name="revanced_disable_haptic_feedback_scrubbing_title">Disable scrubbing haptic feedback</string>
-    <string name="revanced_disable_haptic_feedback_seek_summary_off">Seek haptic feedback is enabled</string>
-    <string name="revanced_disable_haptic_feedback_seek_summary_on">Seek haptic feedback is disabled</string>
-    <string name="revanced_disable_haptic_feedback_seek_title">Disable seek haptic feedback</string>
-    <string name="revanced_disable_haptic_feedback_chapters_summary_off">Chapters haptic feedback is enabled</string>
-    <string name="revanced_disable_haptic_feedback_chapters_summary_on">Chapters haptic feedback is disabled</string>
-    <string name="revanced_disable_haptic_feedback_chapters_title">Disable chapters haptic feedback</string>
-    <string name="revanced_haptic_feedback_title">Haptic feedback</string>
-    <string name="revanced_disable_haptic_feedback_zoom_summary_off">Zoom haptic feedback is enabled</string>
-    <string name="revanced_disable_haptic_feedback_zoom_summary_on">Zoom haptic feedback is disabled</string>
-    <string name="revanced_disable_haptic_feedback_zoom_title">Disable zoom haptic feedback</string>
     <string name="revanced_enable_always_auto_repeat_summary_off">Always auto repeat is disabled</string>
     <string name="revanced_enable_always_auto_repeat_summary_on">Always auto repeat is enabled</string>
     <string name="revanced_enable_always_auto_repeat_title">Always auto repeat</string>
@@ -205,12 +204,11 @@ Is it ready to submit?"</string>
     <string name="revanced_enable_open_links_directly_summary_off">Following default redirect policy</string>
     <string name="revanced_enable_open_links_directly_summary_on">Bypassing URL redirects</string>
     <string name="revanced_enable_open_links_directly_title">Enable open links directly</string>
+    <string name="revanced_enable_phone_layout_summary">Tricks the dpi to use some phone layouts</string>
+    <string name="revanced_enable_phone_layout_title">Enable phone layout</string>
     <string name="revanced_enable_press_to_swipe_summary_off">Press-to-swipe is disabled</string>
     <string name="revanced_enable_press_to_swipe_summary_on">Press-to-swipe is enabled</string>
     <string name="revanced_enable_press_to_swipe_title">Enable press-to-swipe gesture</string>
-    <string name="revanced_enable_phone_layout_summary">Tricks the dpi to use some phone layouts</string>
-    <string name="revanced_enable_phone_layout_title">Enable phone layout</string>
-    <string name="revanced_enable_seekbar_tapping_summary_off">Seekbar tapping is disabled</string>
     <string name="revanced_enable_save_brightness_summary_off">When entering fullscreen after restarting the app, the saved brightness value is not overwritten</string>
     <string name="revanced_enable_save_brightness_summary_on">When entering fullscreen after restarting the app, the saved brightness value is overwritten</string>
     <string name="revanced_enable_save_brightness_title">Enable save brightness</string>
@@ -220,36 +218,37 @@ Is it ready to submit?"</string>
     <string name="revanced_enable_save_video_speed_summary_off">Does not save video speed values even when changing video speed</string>
     <string name="revanced_enable_save_video_speed_summary_on">Save the video speed value whenever you change the video speed</string>
     <string name="revanced_enable_save_video_speed_title">Enable save video speed</string>
+    <string name="revanced_enable_seekbar_tapping_summary_off">Seekbar tapping is disabled</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">Seekbar tapping is enabled</string>
     <string name="revanced_enable_seekbar_tapping_title">Enable seekbar tapping</string>
     <string name="revanced_enable_swipe_auto_brightness_summary_off">Even if the brightness is set to 0 by swiping, auto brightness is not activated</string>
     <string name="revanced_enable_swipe_auto_brightness_summary_on">When brightness reaches 0 by swiping, auto brightness is activated</string>
     <string name="revanced_enable_swipe_auto_brightness_title">Enable auto-brightness by swiping</string>
-    <string name="revanced_enable_swipe_brightness_summary_off">Brightness swipe is disabled</string>
-    <string name="revanced_enable_swipe_brightness_summary_on">Brightness swipe is enabled</string>
-    <string name="revanced_enable_swipe_brightness_title">Enable brightness gesture</string>
     <string name="revanced_enable_swipe_brightness_in_hdr_summary_off">When playing HDR videos, brightness values specified by YouTube are applied</string>
     <string name="revanced_enable_swipe_brightness_in_hdr_summary_on">When playing HDR video, swipe gesture brightness values are applied</string>
     <string name="revanced_enable_swipe_brightness_in_hdr_title">Enable swipe gesture brightness values in HDR video</string>
+    <string name="revanced_enable_swipe_brightness_summary_off">Brightness swipe is disabled</string>
+    <string name="revanced_enable_swipe_brightness_summary_on">Brightness swipe is enabled</string>
+    <string name="revanced_enable_swipe_brightness_title">Enable brightness gesture</string>
     <string name="revanced_enable_swipe_haptic_feedback_summary_off">Press-to-swipe haptic feedback is disabled</string>
     <string name="revanced_enable_swipe_haptic_feedback_summary_on">Press-to-swipe haptic feedback is enabled</string>
     <string name="revanced_enable_swipe_haptic_feedback_title">Enable press-to-swipe haptic feedback</string>
     <string name="revanced_enable_swipe_volume_summary_off">Volume swipe is disabled</string>
     <string name="revanced_enable_swipe_volume_summary_on">Volume swipe is enabled</string>
     <string name="revanced_enable_swipe_volume_title">Enable volume gesture</string>
+    <string name="revanced_enable_tablet_layout_summary">Tricks the dpi to use some tablet layouts</string>
+    <string name="revanced_enable_tablet_layout_title">Enable tablet layout</string>
     <string name="revanced_enable_tablet_miniplayer_summary_off">Tablet mini player is disabled</string>
     <string name="revanced_enable_tablet_miniplayer_summary_on">Tablet mini player is enabled</string>
     <string name="revanced_enable_tablet_miniplayer_title">Enable tablet mini player</string>
-    <string name="revanced_enable_tablet_layout_summary">Tricks the dpi to use some tablet layouts</string>
-    <string name="revanced_enable_tablet_layout_title">Enable tablet layout</string>
     <string name="revanced_enable_time_stamp_speed_summary_off">Append time stamp speed is disabled</string>
     <string name="revanced_enable_time_stamp_speed_summary_on">Append time stamp speed is enabled</string>
     <string name="revanced_enable_time_stamp_speed_title">Enable time stamp speed</string>
+    <string name="revanced_enable_vp9_codec_summary">Spoof device information to enable VP9 codec</string>
+    <string name="revanced_enable_vp9_codec_title">Enable VP9 codec</string>
     <string name="revanced_enable_wide_searchbar_summary_off">Wide search bar is disabled</string>
     <string name="revanced_enable_wide_searchbar_summary_on">Wide search bar is enabled</string>
     <string name="revanced_enable_wide_searchbar_title">Enable wide search bar</string>
-    <string name="revanced_enable_vp9_codec_summary">Spoof device information to enable VP9 codec</string>
-    <string name="revanced_enable_vp9_codec_title">Enable VP9 codec</string>
     <string name="revanced_experimental_flag">Experimental Flags</string>
     <string name="revanced_export_settings_summary">Save your ReVanced settings to file</string>
     <string name="revanced_export_settings_title">Export settings</string>
@@ -258,15 +257,16 @@ Is it ready to submit?"</string>
     <string name="revanced_flyout_menu_layout">Flyout menu layout</string>
     <string name="revanced_fullscreen_layout">Fullscreen layout</string>
     <string name="revanced_general_layout">General layout</string>
+    <string name="revanced_haptic_feedback_title">Haptic feedback</string>
+    <string name="revanced_hide_autoplay_button_summary_off">Autoplay button is shown</string>
+    <string name="revanced_hide_autoplay_button_summary_on">Autoplay button is hidden</string>
+    <string name="revanced_hide_autoplay_button_title">Hide autoplay button</string>
     <string name="revanced_hide_auto_captions_summary_off">Captions are enabled when playing a video with captioning is enforced</string>
     <string name="revanced_hide_auto_captions_summary_on">"Captions aren't enabled when playing a video with captioning is enforced"</string>
     <string name="revanced_hide_auto_captions_title">Hide auto captions</string>
     <string name="revanced_hide_auto_player_popup_panels_summary_off">Auto player popup panels are shown</string>
     <string name="revanced_hide_auto_player_popup_panels_summary_on">Auto player popup panels are hidden</string>
     <string name="revanced_hide_auto_player_popup_panels_title">Hide auto player popup panels</string>
-    <string name="revanced_hide_autoplay_button_summary_off">Autoplay button is shown</string>
-    <string name="revanced_hide_autoplay_button_summary_on">Autoplay button is hidden</string>
-    <string name="revanced_hide_autoplay_button_title">Hide autoplay button</string>
     <string name="revanced_hide_button_create_clip_summary_off">Clip button is shown</string>
     <string name="revanced_hide_button_create_clip_summary_on">Clip button is hidden</string>
     <string name="revanced_hide_button_create_clip_title">Hide clip button</string>
@@ -390,12 +390,12 @@ Is it ready to submit?"</string>
     <string name="revanced_hide_player_overlay_filter_summary_off">Player overlay filter is shown</string>
     <string name="revanced_hide_player_overlay_filter_summary_on">Player overlay filter is hidden</string>
     <string name="revanced_hide_player_overlay_filter_title">Hide player overlay filter</string>
-    <string name="revanced_hide_prev_button_summary_off">Prev button is shown</string>
-    <string name="revanced_hide_prev_button_summary_on">Prev button is hidden</string>
-    <string name="revanced_hide_prev_button_title">Hide prev button</string>
     <string name="revanced_hide_preview_comment_off">Preview comment is shown</string>
     <string name="revanced_hide_preview_comment_on">Preview comment is hidden</string>
     <string name="revanced_hide_preview_comment_title">Hide preview comment</string>
+    <string name="revanced_hide_prev_button_summary_off">Prev button is shown</string>
+    <string name="revanced_hide_prev_button_summary_on">Prev button is hidden</string>
+    <string name="revanced_hide_prev_button_title">Hide prev button</string>
     <string name="revanced_hide_seekbar_summary_off">Seekbar is shown</string>
     <string name="revanced_hide_seekbar_summary_on">Seekbar is hidden</string>
     <string name="revanced_hide_seekbar_title">Hide seekbar</string>
@@ -408,15 +408,15 @@ Is it ready to submit?"</string>
     <string name="revanced_hide_shorts_player_comments_button_summary_on">Shorts player comments button is hidden</string>
     <string name="revanced_hide_shorts_player_comments_button_title">Hide shorts player comments button</string>
     <string name="revanced_hide_shorts_player_component_title">Hide shorts player component</string>
-    <string name="revanced_hide_shorts_player_remix_button_summary_off">Shorts player remix button is shown</string>
-    <string name="revanced_hide_shorts_player_remix_button_summary_on">Shorts player remix button is hidden</string>
-    <string name="revanced_hide_shorts_player_remix_button_title">Hide shorts player remix button</string>
     <string name="revanced_hide_shorts_player_join_button_summary_off">Shorts player join button is shown</string>
     <string name="revanced_hide_shorts_player_join_button_summary_on">Shorts player join button is hidden</string>
     <string name="revanced_hide_shorts_player_join_button_title">Hide shorts player join button</string>
     <string name="revanced_hide_shorts_player_pivot_bar_summary_off">Shorts player pivotbar is shown</string>
     <string name="revanced_hide_shorts_player_pivot_bar_summary_on">Shorts player pivotbar is hidden</string>
     <string name="revanced_hide_shorts_player_pivot_bar_title">Hide shorts player pivotbar</string>
+    <string name="revanced_hide_shorts_player_remix_button_summary_off">Shorts player remix button is shown</string>
+    <string name="revanced_hide_shorts_player_remix_button_summary_on">Shorts player remix button is hidden</string>
+    <string name="revanced_hide_shorts_player_remix_button_title">Hide shorts player remix button</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_off">Shorts player subscriptions button is shown</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_on">Shorts player subscriptions button is hidden</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_title">Hide shorts player subscriptions button</string>
@@ -448,6 +448,7 @@ Is it ready to submit?"</string>
     <string name="revanced_import_settings_title">Import settings</string>
     <string name="revanced_misc">Miscellaneous</string>
     <string name="revanced_others">Others</string>
+    <string name="revanced_overlay_button">Overlay button</string>
     <string name="revanced_overlay_button_auto_repeat_summary_off">Auto repeat button is hidden</string>
     <string name="revanced_overlay_button_auto_repeat_summary_on">Auto repeat button is shown</string>
     <string name="revanced_overlay_button_auto_repeat_title">Show auto repeat button</string>
@@ -460,7 +461,6 @@ Is it ready to submit?"</string>
     <string name="revanced_overlay_button_downloads_summary_off">Download button is hidden</string>
     <string name="revanced_overlay_button_downloads_summary_on">Download button is shown</string>
     <string name="revanced_overlay_button_downloads_title">Show download button</string>
-    <string name="revanced_overlay_button">Overlay button</string>
     <string name="revanced_overlay_button_speed_reset">Video speed reseted (1.0x)</string>
     <string name="revanced_overlay_button_speed_summary_off">Speed button is hidden</string>
     <string name="revanced_overlay_button_speed_summary_on">Speed button is shown</string>
@@ -471,8 +471,8 @@ Is it ready to submit?"</string>
     <string name="revanced_override_premium_header_summary_off">Current Header: Default Header</string>
     <string name="revanced_override_premium_header_summary_on">Current Header: Premium Header</string>
     <string name="revanced_override_premium_header_title">Premium Header</string>
-    <string name="revanced_patches_information_summary">Information about applied patches</string>
     <string name="revanced_patches_information">Patches Information</string>
+    <string name="revanced_patches_information_summary">Information about applied patches</string>
     <string name="revanced_player_flyout_panel_title">Player flyout panel</string>
     <string name="revanced_player_layout">Player layout</string>
     <string name="revanced_reboot_warning_general">"As this is still an experimental feature, there may be other unknown issues.
@@ -496,12 +496,12 @@ If you enable this setting, the following features are not available:
 
 Since these setting is quite outdated, it may not be valid"</string>
     <string name="revanced_ryd_attribution_summary">Dislike data is provided by the Return YouTube Dislike API.  Tap here to learn more.</string>
-    <string name="revanced_ryd_dislike_percentage_summary_off">Dislikes shown as number</string>
-    <string name="revanced_ryd_dislike_percentage_summary_on">Dislikes shown as percentage</string>
-    <string name="revanced_ryd_dislike_percentage_title">Dislikes as percentage</string>
     <string name="revanced_ryd_compact_layout_summary_off">Like button styled for best appearance</string>
     <string name="revanced_ryd_compact_layout_summary_on">Like button styled for minimum width</string>
     <string name="revanced_ryd_compact_layout_title">Compact like button</string>
+    <string name="revanced_ryd_dislike_percentage_summary_off">Dislikes shown as number</string>
+    <string name="revanced_ryd_dislike_percentage_summary_on">Dislikes shown as percentage</string>
+    <string name="revanced_ryd_dislike_percentage_title">Dislikes as percentage</string>
     <string name="revanced_ryd_enable_summary_off">Dislikes are not shown</string>
     <string name="revanced_ryd_enable_summary_on">Dislikes are shown</string>
     <string name="revanced_ryd_enable_title">Enable Return YouTube Dislike</string>
@@ -526,28 +526,28 @@ Since these setting is quite outdated, it may not be valid"</string>
     <string name="revanced_switching_create_notification_summary_on">Create button and notification button are switched</string>
     <string name="revanced_switching_create_notification_title">Switching the create button and notification button</string>
     <string name="revanced_tool_used">Tool used</string>
+    <string name="revanced_video">Video</string>
     <string name="revanced_video_ads_removal_summary_off">Video ads are shown</string>
     <string name="revanced_video_ads_removal_summary_on">Video ads are hidden</string>
     <string name="revanced_video_ads_removal_title">Hide video ads</string>
-    <string name="revanced_video">Video</string>
-    <string name="revanced_whitelisting_add_failed" formatted="false">Failed to add channel %s to the %s whitelist</string>
     <string name="revanced_whitelisting_added" formatted="false">Channel %s was added to the %s whitelist</string>
+    <string name="revanced_whitelisting_add_failed" formatted="false">Failed to add channel %s to the %s whitelist</string>
     <string name="revanced_whitelisting_ads">Video Ads</string>
     <string name="revanced_whitelisting_ads_button">Ads</string>
     <string name="revanced_whitelisting_channel_name">Channel Name</string>
     <string name="revanced_whitelisting_empty">There are no whitelisted channels</string>
     <string name="revanced_whitelisting_excluded">Not added to whitelist</string>
-    <string name="revanced_whitelisting_included">Added to whitelist</string>
-    <string name="revanced_whitelisting_title">Channel Whitelist</string>
     <string name="revanced_whitelisting_fetch_failed">Failed to retrieve channel details, received code %d</string>
+    <string name="revanced_whitelisting_included">Added to whitelist</string>
     <string name="revanced_whitelisting_reboot">Reboot to apply channel whitelist settings</string>
-    <string name="revanced_whitelisting_remove_failed" formatted="false">Failed to remove channel %s from the %s whitelist</string>
     <string name="revanced_whitelisting_removed" formatted="false">Channel %s was removed from the %s whitelist</string>
+    <string name="revanced_whitelisting_remove_failed" formatted="false">Failed to remove channel %s from the %s whitelist</string>
     <string name="revanced_whitelisting_settings_summary">Check or remove the list of channels added to the whitelist</string>
     <string name="revanced_whitelisting_settings_title">Whitelist settings</string>
     <string name="revanced_whitelisting_speed">Video Speed</string>
     <string name="revanced_whitelisting_sponsorblock">SponsorBlock</string>
     <string name="revanced_whitelisting_sponsorblock_button">SB</string>
+    <string name="revanced_whitelisting_title">Channel Whitelist</string>
     <string name="sb_connection_failed">Sponsorblock server is not responding!</string>
     <string name="sb_guidelines_popup_already_read">Already read</string>
     <string name="sb_guidelines_popup_content">"It's recommended to read the SponsorBlock guidelines before submitting any segment"</string>
@@ -580,11 +580,6 @@ Since these setting is quite outdated, it may not be valid"</string>
     <string name="settings_ie_sum">This is your entire configuration that is applicable in the desktop extension in JSON. This includes your Private userID, so be sure to share this wisely.</string>
     <string name="settings_import_failed">Failed to import settings</string>
     <string name="settings_import_successful">Settings were successfully imported</string>
-    <string name="skip_automatically">Skip automatically</string>
-    <string name="skip_automatically_once">Skip automatically once</string>
-    <string name="skip_ignore">"Don't do anything"</string>
-    <string name="skip_showbutton">Show a skip button</string>
-    <string name="skip_sponsor">Skip segment</string>
     <string name="skipped_endcard">Skipped outro</string>
     <string name="skipped_filler">Skipped filler</string>
     <string name="skipped_intermission">Skipped intro</string>
@@ -595,6 +590,11 @@ Since these setting is quite outdated, it may not be valid"</string>
     <string name="skipped_sponsor">Skipped sponsor</string>
     <string name="skipped_subscribe">Skipped annoying reminder</string>
     <string name="skipped_unsubmitted">Skipped unsubmitted segment</string>
+    <string name="skip_automatically">Skip automatically</string>
+    <string name="skip_automatically_once">Skip automatically once</string>
+    <string name="skip_ignore">"Don't do anything"</string>
+    <string name="skip_showbutton">Show a skip button</string>
+    <string name="skip_sponsor">Skip segment</string>
     <string name="stats">Stats</string>
     <string name="stats_saved">"You've saved people from &lt;b>%s&lt;/b> segments."</string>
     <string name="stats_saved_sum">"That's &lt;b>%s&lt;/b> of their lives. Click to see the leaderboard"</string>
@@ -604,16 +604,17 @@ Since these setting is quite outdated, it may not be valid"</string>
     <string name="stats_submissions">Submissions: &lt;b>%s&lt;/b></string>
     <string name="stats_username">Your username: &lt;b>%s&lt;/b></string>
     <string name="stats_username_change">Click to change your username</string>
-    <string name="stats_username_change_unknown_error" formatted="false">Unable to change username: Status: %d %s</string>
     <string name="stats_username_changed">Username successfully changed</string>
+    <string name="stats_username_change_unknown_error" formatted="false">Unable to change username: Status: %d %s</string>
     <string name="submit_failed_duplicate">"Can't submit the segment.
 Already exists"</string>
     <string name="submit_failed_forbidden">"Can't submit the segment.
 
 %s"</string>
+
+    <string name="submit_failed_invalid">Can\'t submit the segment: %s</string>
     <string name="submit_failed_rate_limit">"Can't submit the segment.
 Rate Limited (Too many from the same user or IP)"</string>
-    <string name="submit_failed_invalid">Can\'t submit the segment: %s</string>
     <string name="submit_failed_unknown_error" formatted="false">Unable to submit segments: Status: %d %s</string>
     <string name="submit_started">Submitting segment…</string>
     <string name="submit_succeeded">Segment submitted successfully</string>
