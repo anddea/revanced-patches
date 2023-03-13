@@ -17,6 +17,7 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.shared.patch.mapping.ResourceMappingPatch
+import app.revanced.patches.youtube.ads.general.bytecode.patch.GeneralAdsBytecodePatch
 import app.revanced.patches.youtube.layout.general.shortscomponent.fingerprints.*
 import app.revanced.patches.youtube.misc.litho.patch.LithoFilterPatch
 import app.revanced.patches.youtube.misc.playertype.patch.PlayerTypeHookPatch
@@ -38,6 +39,7 @@ import org.jf.dexlib2.iface.reference.FieldReference
 @Description("Hides other Shorts components.")
 @DependsOn(
     [
+        GeneralAdsBytecodePatch::class,
         LithoFilterPatch::class,
         PlayerTypeHookPatch::class,
         ResourceMappingPatch::class,
