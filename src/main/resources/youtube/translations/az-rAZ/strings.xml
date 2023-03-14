@@ -5,22 +5,22 @@
     <string name="about_madeby">İnteqrasiya JakubWeg tərəfindən hazırlanmışdır</string>
     <string name="accessibility_settings_edu_opt_in_text">Video pleyer üçün əlçatanlıq nəzarətləri aktiv edilsin?</string>
     <string name="accessibility_settings_edu_opt_out_text">Əlçatımlılıq xidməti aktiv olduğu üçün nəzarətləriniz dəyişdirilib.</string>
-    <string name="api_url_changed">API URL dəyişdirildi</string>
-    <string name="api_url_invalid">Təqdim olunan API URL-i etibarsızdır</string>
-    <string name="api_url_reset">API URL sıfırlaması</string>
     <string name="api_mirror_url_changed">API MIRROR URL dəyişdirildi</string>
     <string name="api_mirror_url_invalid">Təqdim olunan API MIRROR URL etibarsızdır</string>
     <string name="api_mirror_url_reset">API MIRROR URL sıfırlaması</string>
+    <string name="api_url_changed">API URL dəyişdirildi</string>
+    <string name="api_url_invalid">Təqdim olunan API URL-i etibarsızdır</string>
+    <string name="api_url_reset">API URL sıfırlaması</string>
     <string name="color_change">Dəyişən rənglər axtarırsınız?</string>
-    <string name="color_change_sum">"İndi yuxarıdakı üzərinə klikləməklə kateqoriyanın rəngini dəyişə bilərsiniz."</string>
     <string name="color_changed">Rəng dəyişdi</string>
+    <string name="color_change_sum">"İndi yuxarıdakı üzərinə klikləməklə kateqoriyanın rəngini dəyişə bilərsiniz."</string>
     <string name="color_invalid">Yanlış hex kodu</string>
     <string name="color_reset">Rəng sıfırlaması</string>
     <string name="diff_segments">Fərqli seqmentlərlə nə etmək lazımdır</string>
     <string name="enable_sb">SponsorBlock-u aktivləşdirin</string>
-    <string name="enable_sb_sum">SponsorBlock, YouTube videolarında zəhlətökən hissələri atlamaq üçün izdihamlı bir sistemdir</string>
     <string name="enable_sb_mirror">SponsorBlock Mirror-u aktivləşdirin</string>
     <string name="enable_sb_mirror_sum">SponsorBlock API serveri ləğv edildikdə, güzgü API serverini defolt API serverinə keçirin</string>
+    <string name="enable_sb_sum">SponsorBlock, YouTube videolarında zəhlətökən hissələri atlamaq üçün izdihamlı bir sistemdir</string>
     <string name="enable_segmadding">Yeni seqment əlavəsini aktivləşdirin</string>
     <string name="enable_segmadding_sum">Eksperimental seqment əlavəsini aktiv etmək üçün bunu aktiv edin (düymənin görünmə problemi var)</string>
     <string name="enable_voting">Səsverməyə icazə verin</string>
@@ -28,10 +28,10 @@
     <string name="general">Ümumi</string>
     <string name="general_adjusting">Yeni seqment addımının tənzimlənməsi</string>
     <string name="general_adjusting_sum">Bu, yeni seqment əlavə edərkən vaxt tənzimləmə düymələrindən istifadə edərkən hərəkət edə biləcəyiniz millisaniyələrin sayıdır</string>
-    <string name="general_api_url">API URL-ni dəyişdirin</string>
-    <string name="general_api_url_sum">"SponsorBlock serverə zəng etmək üçün istifadə etdiyi ünvan. <b> Nə etdiyinizi bilmədən bunu dəyişməyin. </b>"</string>
     <string name="general_api_mirror_url">API Güzgü URL-ni dəyişdirin</string>
     <string name="general_api_mirror_url_sum">"SponsorBlock serveri ləğv edildikdə keçid üçün güzgü server ünvanı. <b>Nə etdiyinizi bilmədən bunu dəyişməyin.</b>"</string>
+    <string name="general_api_url">API URL-ni dəyişdirin</string>
+    <string name="general_api_url_sum">"SponsorBlock serverə zəng etmək üçün istifadə etdiyi ünvan. <b> Nə etdiyinizi bilmədən bunu dəyişməyin. </b>"</string>
     <string name="general_min_duration">Minimum seqment müddəti</string>
     <string name="general_min_duration_sum">Təyin edilmiş dəyərdən (saniyələrlə) qısa olan seqmentlər qaçırılmayacaq və ya pleyerdə göstərilməyəcək</string>
     <string name="general_skipcount">Sayı izləməni keçin</string>
@@ -79,15 +79,15 @@ Təqdim etməyə hazırdır?"</string>
     <string name="revanced_adremover_button_ads_summary_off">Basılan (düymə) reklamlar aktivdir</string>
     <string name="revanced_adremover_button_ads_summary_on">Basılan reklamlar deaktivdir</string>
     <string name="revanced_adremover_button_ads_title">Basılan reklamları gizlət</string>
+    <string name="revanced_adremover_channelbar_join_button_summary_off">Kanal çubuğuna qoşulma düyməsi göstərilir</string>
+    <string name="revanced_adremover_channelbar_join_button_summary_on">Kanal çubuğuna qoşulma düyməsi gizlədilib</string>
+    <string name="revanced_adremover_channelbar_join_button_title">Kanal çubuğuna qoşulma düyməsini deaktiv et</string>
     <string name="revanced_adremover_channel_guidelines_summary_off">Kanal təlimatları aktivdir</string>
     <string name="revanced_adremover_channel_guidelines_summary_on">Kanal təlimatları deaktivdir</string>
     <string name="revanced_adremover_channel_guidelines_title">Kanal təlimatlarını gizlət</string>
     <string name="revanced_adremover_channel_member_shelf_summary_off">Kanal üzvü rəfi göstərilir</string>
     <string name="revanced_adremover_channel_member_shelf_summary_on">Kanal üzvü rəfi gizlədilib</string>
     <string name="revanced_adremover_channel_member_shelf_title">Kanal rəfi üzvünü deaktiv et</string>
-    <string name="revanced_adremover_channelbar_join_button_summary_off">Kanal çubuğuna qoşulma düyməsi göstərilir</string>
-    <string name="revanced_adremover_channelbar_join_button_summary_on">Kanal çubuğuna qoşulma düyməsi gizlədilib</string>
-    <string name="revanced_adremover_channelbar_join_button_title">Kanal çubuğuna qoşulma düyməsini deaktiv et</string>
     <string name="revanced_adremover_custom_filter_summary">Komponentləri vergüllə ayrılmış adlarına görə filtrələ</string>
     <string name="revanced_adremover_custom_filter_title">Özəl filtr</string>
     <string name="revanced_adremover_general_ads_summary_off">Ümumi reklamın gizlədilməsi aktivdir</string>
@@ -146,23 +146,23 @@ Təqdim etməyə hazırdır?"</string>
     <string name="revanced_default_video_quality_mobile_title">Defolt video keyfiyyəti Mobil</string>
     <string name="revanced_default_video_quality_wifi_title">Defolt video keyfiyyəti Wi-Fi</string>
     <string name="revanced_default_video_speed_title">Standart video sürəti</string>
-    <string name="revanced_downloader_not_installed">quraşdırılmayıb. Zəhmət olmasa quraşdırın.</string>
-    <string name="revanced_downloader_package_name_summary">"NewPipe və ya PowerTube kimi yükləyici tətbiqin paket adı"</string>
-    <string name="revanced_downloader_package_name_title">Yükləyici paketinin adı</string>
-    <string name="revanced_downloader_settings_summary">Defolt yükləyici ilə əlaqəli parametrlər</string>
-    <string name="revanced_downloader_settings_title">Yükləyici parametrləri</string>
+    <string name="revanced_disable_haptic_feedback_chapters_summary_off">Bölmələrə haptik toxunma rəyi aktivdir</string>
+    <string name="revanced_disable_haptic_feedback_chapters_summary_on">Bölmələrə haptik toxunma rəyi deaktivdir</string>
+    <string name="revanced_disable_haptic_feedback_chapters_title">Bölmələrə haptik toxunma rəyini deaktiv et</string>
     <string name="revanced_disable_haptic_feedback_scrubbing_summary_off">Haptik rəyin təmizlənməsi aktivləşdirilib</string>
     <string name="revanced_disable_haptic_feedback_scrubbing_summary_on">Haptik rəyin təmizlənməsi deaktivdir</string>
     <string name="revanced_disable_haptic_feedback_scrubbing_title">Haptik rəyin təmizlənməsini deaktiv et</string>
     <string name="revanced_disable_haptic_feedback_seek_summary_off">Taptik rəyi axtar funksiyası aktivdir</string>
     <string name="revanced_disable_haptic_feedback_seek_summary_on">Taptik rəyi axtar funksiyası deaktivdir</string>
     <string name="revanced_disable_haptic_feedback_seek_title">Taptik rəyi axtar funksiyasını deaktiv et</string>
-    <string name="revanced_disable_haptic_feedback_chapters_summary_off">Bölmələrə haptik toxunma rəyi aktivdir</string>
-    <string name="revanced_disable_haptic_feedback_chapters_summary_on">Bölmələrə haptik toxunma rəyi deaktivdir</string>
-    <string name="revanced_disable_haptic_feedback_chapters_title">Bölmələrə haptik toxunma rəyini deaktiv et</string>
     <string name="revanced_disable_haptic_feedback_zoom_summary_off">Yaxınlaşdırma zamanı haptik rəyi aktiv et</string>
     <string name="revanced_disable_haptic_feedback_zoom_summary_on">Yaxınlaşdırma zamanı haptik rəyi bağla</string>
     <string name="revanced_disable_haptic_feedback_zoom_title">Yaxınlaşdırma zamanı haptik rəyi deaktiv et</string>
+    <string name="revanced_downloader_not_installed">quraşdırılmayıb. Zəhmət olmasa quraşdırın.</string>
+    <string name="revanced_downloader_package_name_summary">"NewPipe və ya PowerTube kimi yükləyici tətbiqin paket adı"</string>
+    <string name="revanced_downloader_package_name_title">Yükləyici paketinin adı</string>
+    <string name="revanced_downloader_settings_summary">Defolt yükləyici ilə əlaqəli parametrlər</string>
+    <string name="revanced_downloader_settings_title">Yükləyici parametrləri</string>
     <string name="revanced_enable_always_auto_repeat_summary_off">Həmişə avtomatik təkrarlama deaktivdir</string>
     <string name="revanced_enable_always_auto_repeat_summary_on">Həmişə avtomatik təkrarlama aktivdir</string>
     <string name="revanced_enable_always_auto_repeat_title">Həmişə avtomatik təkrarla</string>
@@ -187,12 +187,11 @@ Təqdim etməyə hazırdır?"</string>
     <string name="revanced_enable_open_links_directly_summary_off">Defolt yönləndirmə siyasətinə əməl edin</string>
     <string name="revanced_enable_open_links_directly_summary_on">URL yönləndirmələrini keçmək</string>
     <string name="revanced_enable_open_links_directly_title">Açıq bağlantıları birbaşa aktivləşdir</string>
+    <string name="revanced_enable_phone_layout_summary">Bəzi telefon örtüklərini istifadə etmək üçün dpi-ni aldat</string>
+    <string name="revanced_enable_phone_layout_title">Telefon örtüyünü aktiv et</string>
     <string name="revanced_enable_press_to_swipe_summary_off">Sürüşdürmək üçün toxunma deaktivdir</string>
     <string name="revanced_enable_press_to_swipe_summary_on">Sürüşdürmək üçün toxunma deaktivdir</string>
     <string name="revanced_enable_press_to_swipe_title">Sürüşdürmək üçün toxunmanı aktiv et</string>
-    <string name="revanced_enable_phone_layout_summary">Bəzi telefon örtüklərini istifadə etmək üçün dpi-ni aldat</string>
-    <string name="revanced_enable_phone_layout_title">Telefon örtüyünü aktiv et</string>
-    <string name="revanced_enable_seekbar_tapping_summary_off">Axtarış çubuğuna toxunma (video tərəqqi paneli) deaktiv edilib</string>
     <string name="revanced_enable_save_brightness_summary_off">Tətbiqi yenidən başlatdıqdan sonra tam ekrana daxil olduqda, saxlanmış parlaqlıq dəyərinin üzərinə yazılmır</string>
     <string name="revanced_enable_save_brightness_summary_on">Proqramı yenidən başlatdıqdan sonra tam ekrana daxil olduqda, saxlanmış parlaqlıq dəyərinin üzərinə yazılır</string>
     <string name="revanced_enable_save_brightness_title">Parlaqlığı xatırlamanı aktivləşdir</string>
@@ -202,45 +201,46 @@ Təqdim etməyə hazırdır?"</string>
     <string name="revanced_enable_save_video_speed_summary_off">Video sürətini dəyişdirərkən belə video sürət dəyərlərini saxlama</string>
     <string name="revanced_enable_save_video_speed_summary_on">Video sürətini hər dəfə dəyişdirdiyiniz zaman video sürət dəyərini yadda saxlayın</string>
     <string name="revanced_enable_save_video_speed_title">Fərdi video sürətini aktivləşdir</string>
+    <string name="revanced_enable_seekbar_tapping_summary_off">Axtarış çubuğuna toxunma (video tərəqqi paneli) deaktiv edilib</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">Axtarış çubuğuna toxunma (video tərəqqi çubuğu) aktivdir</string>
     <string name="revanced_enable_seekbar_tapping_title">Axtarış çubuğuna toxunma aktivdir</string>
     <string name="revanced_enable_swipe_auto_brightness_summary_off">Sürüşdürməklə parlaqlıq 0-a təyin edilsə belə, avtomatik parlaqlıq aktivləşdirilmir</string>
     <string name="revanced_enable_swipe_auto_brightness_summary_on">Parlaqlıq sürüşdürməklə 0-a çatdıqda, avtomatik parlaqlıq aktivləşdirilib</string>
     <string name="revanced_enable_swipe_auto_brightness_title">Sürüşdürməklə avtomatik parlaqlığı aktiv et</string>
-    <string name="revanced_enable_swipe_brightness_summary_off">Parlaqlıq üçün sürüşdürmə idarəetmələri deaktiv edilib</string>
-    <string name="revanced_enable_swipe_brightness_summary_on">Parlaqlıq üçün sürüşdürmə idarəetmələri aktivləşdirilib</string>
-    <string name="revanced_enable_swipe_brightness_title">Parlaqlıq üçün sürüşdürmə jestlərini aktiv et</string>
     <string name="revanced_enable_swipe_brightness_in_hdr_summary_off">HDR videolar oynadıldığında YouTube tərəfindən müəyyən edilmiş parlaqlıq dəyərləri tətbiq edilir</string>
     <string name="revanced_enable_swipe_brightness_in_hdr_summary_on">HDR videonu oynadarkən sürüşdürmə jesti parlaqlıq dəyərləri tətbiq edilir</string>
     <string name="revanced_enable_swipe_brightness_in_hdr_title">HDR videoda sürüşdürmə jesti parlaqlıq dəyərlərini aktiv et</string>
+    <string name="revanced_enable_swipe_brightness_summary_off">Parlaqlıq üçün sürüşdürmə idarəetmələri deaktiv edilib</string>
+    <string name="revanced_enable_swipe_brightness_summary_on">Parlaqlıq üçün sürüşdürmə idarəetmələri aktivləşdirilib</string>
+    <string name="revanced_enable_swipe_brightness_title">Parlaqlıq üçün sürüşdürmə jestlərini aktiv et</string>
     <string name="revanced_enable_swipe_haptic_feedback_summary_off">Bölmələrə haptik toxunma rəyi deaktivdir</string>
     <string name="revanced_enable_swipe_haptic_feedback_summary_on">Bölmələrə haptik toxunma rəyi aktivdir</string>
     <string name="revanced_enable_swipe_haptic_feedback_title">Basaraq sürüşdürmə haptik rəyini aktivləşdir</string>
     <string name="revanced_enable_swipe_volume_summary_off">Səs səviyyəsi üçün sürüşdürmə idarəetmələri deaktivdir</string>
     <string name="revanced_enable_swipe_volume_summary_on">Səs səviyyəsi üçün sürüşdürmə idarəetmələri aktivləşdirilib</string>
     <string name="revanced_enable_swipe_volume_title">Səs jestlərini aktiv et</string>
+    <string name="revanced_enable_tablet_layout_summary">Bəzi planşet tərtibatlarından istifadə etmək üçün dpi-ni aldat</string>
+    <string name="revanced_enable_tablet_layout_title">Planşet tərtibatını aktiv et</string>
     <string name="revanced_enable_tablet_miniplayer_summary_off">Planşet mini-pleyeri deaktivdir</string>
     <string name="revanced_enable_tablet_miniplayer_summary_on">Planşet mini-pleyeri aktivdir</string>
     <string name="revanced_enable_tablet_miniplayer_title">Planşet mini-pleyerini aktiv et</string>
-    <string name="revanced_enable_tablet_layout_summary">Bəzi planşet tərtibatlarından istifadə etmək üçün dpi-ni aldat</string>
-    <string name="revanced_enable_tablet_layout_title">Planşet tərtibatını aktiv et</string>
+    <string name="revanced_enable_vp9_codec_summary">VP9 kodekini aktivləşdirmək üçün cihaz məlumatını saxtalaşdırın</string>
+    <string name="revanced_enable_vp9_codec_title">VP9 kodekini aktivləşdirin</string>
     <string name="revanced_enable_wide_searchbar_summary_off">Geniş axtarış çubuğu deaktivdir</string>
     <string name="revanced_enable_wide_searchbar_summary_on">Geniş axtarış çubuğunu aktivdir</string>
     <string name="revanced_enable_wide_searchbar_title">Geniş axtarış çubuğunu aktiv et</string>
-    <string name="revanced_enable_vp9_codec_summary">VP9 kodekini aktivləşdirmək üçün cihaz məlumatını saxtalaşdırın</string>
-    <string name="revanced_enable_vp9_codec_title">VP9 kodekini aktivləşdirin</string>
     <string name="revanced_experimental_flag">Eksperimental Bayraqlar</string>
     <string name="revanced_export_settings_summary">ReVanced parametrlərinizi faylda saxlayın</string>
     <string name="revanced_export_settings_title">Ixrac parametrləri</string>
+    <string name="revanced_hide_autoplay_button_summary_off">Avtomatik oynatma düyməsi göstərilir</string>
+    <string name="revanced_hide_autoplay_button_summary_on">Avtomatik təkrar düyməsi gizlədilib</string>
+    <string name="revanced_hide_autoplay_button_title">Avtomatik oynatma düyməsini gizlət</string>
     <string name="revanced_hide_auto_captions_summary_off">Altyazılar tətbiq edilən videonu oxuduqda başlıqlar aktiv edilir</string>
     <string name="revanced_hide_auto_captions_summary_on">"Altyazı tətbiq edilən videonu oxuduqda subtitrlər aktiv edilmir"</string>
     <string name="revanced_hide_auto_captions_title">Avtomatik altyazılını gizlət</string>
     <string name="revanced_hide_auto_player_popup_panels_summary_off">Avtomatik pleyer pop-up panelləri göstərilir</string>
     <string name="revanced_hide_auto_player_popup_panels_summary_on">Avtomatik pleyer pop-up panelləri gizlədilib</string>
     <string name="revanced_hide_auto_player_popup_panels_title">Avtomatik pleyer pop-up panelləri gizlət</string>
-    <string name="revanced_hide_autoplay_button_summary_off">Avtomatik oynatma düyməsi göstərilir</string>
-    <string name="revanced_hide_autoplay_button_summary_on">Avtomatik təkrar düyməsi gizlədilib</string>
-    <string name="revanced_hide_autoplay_button_title">Avtomatik oynatma düyməsini gizlət</string>
     <string name="revanced_hide_button_create_clip_summary_off">Klip düyməsi göstərilir</string>
     <string name="revanced_hide_button_create_clip_summary_on">Klip düyməsi gizlədilib</string>
     <string name="revanced_hide_button_create_clip_title">Klip düyməsini gizlət</string>
@@ -358,12 +358,12 @@ Təqdim etməyə hazırdır?"</string>
     <string name="revanced_hide_player_overlay_filter_summary_off">Pleyer örtüy filtri göstərilir</string>
     <string name="revanced_hide_player_overlay_filter_summary_on">Pleyer örtüy filtri gizlədilib</string>
     <string name="revanced_hide_player_overlay_filter_title">Pleyer örtüy filtrini gizlət</string>
-    <string name="revanced_hide_prev_button_summary_off">Əvvəlki düyməsi göstərilir</string>
-    <string name="revanced_hide_prev_button_summary_on">Əvvəlki düyməsi gizlidir</string>
-    <string name="revanced_hide_prev_button_title">Əvvəlki düyməsini gizlədin</string>
     <string name="revanced_hide_preview_comment_off">Ön baxış şərhi göstərilir</string>
     <string name="revanced_hide_preview_comment_on">Ön baxış şərhi gizlədilib</string>
     <string name="revanced_hide_preview_comment_title">Önbaxış şərhini gizlət</string>
+    <string name="revanced_hide_prev_button_summary_off">Əvvəlki düyməsi göstərilir</string>
+    <string name="revanced_hide_prev_button_summary_on">Əvvəlki düyməsi gizlidir</string>
+    <string name="revanced_hide_prev_button_title">Əvvəlki düyməsini gizlədin</string>
     <string name="revanced_hide_shorts_button_summary_off">Şort düyməsi göstərilir</string>
     <string name="revanced_hide_shorts_button_summary_on">Şort düyməsi gizlədilib</string>
     <string name="revanced_hide_shorts_button_title">Şort düyməsini gizlət</string>
@@ -373,12 +373,12 @@ Təqdim etməyə hazırdır?"</string>
     <string name="revanced_hide_shorts_player_comments_button_summary_on">Şort pleyer rəy düyməsi gizlədilib</string>
     <string name="revanced_hide_shorts_player_comments_button_title">Şort pleyer rəy düyməsini gizlət</string>
     <string name="revanced_hide_shorts_player_component_title">Şort pleyer komponentini gizlət</string>
-    <string name="revanced_hide_shorts_player_remix_button_summary_off">Şort pleyer remiks düyməsi göstərilir</string>
-    <string name="revanced_hide_shorts_player_remix_button_summary_on">Şort pleyer remiks düyməsi gizlədilib</string>
-    <string name="revanced_hide_shorts_player_remix_button_title">Şort pleyer remiks düyməsini gizlət</string>
     <string name="revanced_hide_shorts_player_join_button_summary_off">Şort pleyeri qoşulma düyməsi göstərilir</string>
     <string name="revanced_hide_shorts_player_join_button_summary_on">Şort pleyeri qoşulma düyməsi gizlidir</string>
     <string name="revanced_hide_shorts_player_join_button_title">Şort pleyeri qoşulma düyməsini gizlədin</string>
+    <string name="revanced_hide_shorts_player_remix_button_summary_off">Şort pleyer remiks düyməsi göstərilir</string>
+    <string name="revanced_hide_shorts_player_remix_button_summary_on">Şort pleyer remiks düyməsi gizlədilib</string>
+    <string name="revanced_hide_shorts_player_remix_button_title">Şort pleyer remiks düyməsini gizlət</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_off">Şort pleyer abunələri düyməsi göstərilir</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_on">Şort pleyer abunələri düyməsi gizlədilib</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_title">Şort pleyer abunəliklər düyməsini gizlət</string>
@@ -424,8 +424,8 @@ Təqdim etməyə hazırdır?"</string>
     <string name="revanced_override_premium_header_summary_off">Cari haşlıq: Defolt başlıq</string>
     <string name="revanced_override_premium_header_summary_on">Cari başlıq: Premium başlıq</string>
     <string name="revanced_override_premium_header_title">Premium başlıq</string>
-    <string name="revanced_patches_information_summary">Tətbiq edilmiş yamalar haqqında məlumat</string>
     <string name="revanced_patches_information">Yamalar haqqında informasiya</string>
+    <string name="revanced_patches_information_summary">Tətbiq edilmiş yamalar haqqında məlumat</string>
     <string name="revanced_reboot_warning_general">"Bu hələ eksperimental xüsusiyyət olduğundan başqa bilinməyən problemlər də ola bilər.
 Davam etmək istədiyinizə əminsiniz?"</string>
     <string name="revanced_reboot_warning_oldlayout">"Köhnə tərtibatı yükləmək üçün YouTube müştəri versiyasını v17.28.35 kimi göstərir
@@ -445,12 +445,12 @@ Bu ayarı aktiv etsəniz, aşağıdakı funksiyalar mövcud olmayacaq:
 
 Bu parametr olduqca köhnəldiyi üçün etibarlı olmaya bilər"</string>
     <string name="revanced_ryd_attribution_summary">Bəyənməmə datası Return YouTube Dislike API tərəfindən təmin edilir. Ətraflı öyrənmək üçün bura toxunun.</string>
-    <string name="revanced_ryd_dislike_percentage_summary_off">Bəyənməmələr rəqəm kimi göstərilir</string>
-    <string name="revanced_ryd_dislike_percentage_summary_on">Bəyənməmələr faiz olaraq göstərilir</string>
-    <string name="revanced_ryd_dislike_percentage_title">Bəyənməmələr faiz olaraq</string>
     <string name="revanced_ryd_compact_layout_summary_off">Bəyənmə düyməsi ən yaxşı görünüş üçün tərtib edilmişdir</string>
     <string name="revanced_ryd_compact_layout_summary_on">Bəyənmə düyməsi minimum eni üçün tərtib edilmişdir</string>
     <string name="revanced_ryd_compact_layout_title">Kompakt bəyənmə düyməsi</string>
+    <string name="revanced_ryd_dislike_percentage_summary_off">Bəyənməmələr rəqəm kimi göstərilir</string>
+    <string name="revanced_ryd_dislike_percentage_summary_on">Bəyənməmələr faiz olaraq göstərilir</string>
+    <string name="revanced_ryd_dislike_percentage_title">Bəyənməmələr faiz olaraq</string>
     <string name="revanced_ryd_enable_summary_off">Bəyənməmələr göstərilmir</string>
     <string name="revanced_ryd_enable_summary_on">Bəyənməmələr göstərilir</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Bəyənməmələr mövcud deyil (müştəri API limitinə çatdı)</string>
@@ -471,24 +471,24 @@ Bu parametr olduqca köhnəldiyi üçün etibarlı olmaya bilər"</string>
     <string name="revanced_video_ads_removal_summary_off">Video reklamları göstərilir</string>
     <string name="revanced_video_ads_removal_summary_on">Video reklamları gizlədilib</string>
     <string name="revanced_video_ads_removal_title">Video reklamlarını gizlət</string>
-    <string name="revanced_whitelisting_add_failed" formatted="false">%s kanalını %s ağ siyahıya əlavə etmək mümkün olmadı</string>
     <string name="revanced_whitelisting_added" formatted="false">%s kanalı %s ağ siyahıya əlavə edildi</string>
+    <string name="revanced_whitelisting_add_failed" formatted="false">%s kanalını %s ağ siyahıya əlavə etmək mümkün olmadı</string>
     <string name="revanced_whitelisting_ads">Video reklamı</string>
     <string name="revanced_whitelisting_ads_button">Reklamlar</string>
     <string name="revanced_whitelisting_channel_name">Kanalın adı</string>
     <string name="revanced_whitelisting_empty">Ağ siyahıya alınmış kanal yoxdur</string>
     <string name="revanced_whitelisting_excluded">Ağ siyahıya əlavə olunmayıb</string>
-    <string name="revanced_whitelisting_included">Ağ siyahıya əlavə edildi</string>
-    <string name="revanced_whitelisting_title">Kanal ağ siyahısı</string>
     <string name="revanced_whitelisting_fetch_failed">Kanal təfərrüatlarını əldə etmək mümkün olmadı, %d kodu qəbul edildi</string>
+    <string name="revanced_whitelisting_included">Ağ siyahıya əlavə edildi</string>
     <string name="revanced_whitelisting_reboot">Kanal ağ siyahı parametrlərini tətbiq etmək üçün yenidən başladın</string>
-    <string name="revanced_whitelisting_remove_failed" formatted="false">%s kanalını %s ağ siyahısından silmək mümkün olmadı</string>
     <string name="revanced_whitelisting_removed" formatted="false">%s kanalı %s ağ siyahısından silindi</string>
+    <string name="revanced_whitelisting_remove_failed" formatted="false">%s kanalını %s ağ siyahısından silmək mümkün olmadı</string>
     <string name="revanced_whitelisting_settings_summary">Ağ siyahıya əlavə edilmiş kanalların siyahısını yoxlayın və ya silin</string>
     <string name="revanced_whitelisting_settings_title">Ağ siyahı parametrləri</string>
     <string name="revanced_whitelisting_speed">Video sürəti</string>
     <string name="revanced_whitelisting_sponsorblock">SponsorBlock</string>
     <string name="revanced_whitelisting_sponsorblock_button">SB</string>
+    <string name="revanced_whitelisting_title">Kanal ağ siyahısı</string>
     <string name="sb_connection_failed">Sponsorblok serveri cavab vermir!</string>
     <string name="sb_guidelines_popup_already_read">Artıq oxudum</string>
     <string name="sb_guidelines_popup_content">"Hər hansı bir seqment təqdim etməzdən əvvəl SponsorBlock təlimatlarını oxumaq tövsiyə olunur"</string>
@@ -521,11 +521,6 @@ Bu parametr olduqca köhnəldiyi üçün etibarlı olmaya bilər"</string>
     <string name="settings_ie_sum">Bu, JSON-da iş masası genişləndirməsində tətbiq olunan bütün konfiqurasiyanızdır. Buraya Şəxsi istifadəçi ID-niz daxildir, ona görə də bunu ağıllı şəkildə paylaşdığınızdan əmin olun.</string>
     <string name="settings_import_failed">Parametrləri idxal etmək mümkün olmadı</string>
     <string name="settings_import_successful">Parametrlər uğurla idxal edildi</string>
-    <string name="skip_automatically">Avtomatik keçmək</string>
-    <string name="skip_automatically_once">Bir dəfə avtomatik keçmək</string>
-    <string name="skip_ignore">"Heç nə etmə"</string>
-    <string name="skip_showbutton">Keçid düyməsini göstər</string>
-    <string name="skip_sponsor">Seqmenti keçin</string>
     <string name="skipped_endcard">Çıxış keçildi</string>
     <string name="skipped_filler">Doldurucu keçildi</string>
     <string name="skipped_intermission">Giriş keçildi</string>
@@ -536,6 +531,11 @@ Bu parametr olduqca köhnəldiyi üçün etibarlı olmaya bilər"</string>
     <string name="skipped_sponsor">Sponsor keçildi</string>
     <string name="skipped_subscribe">Cansıxıcı xatırladıcı keçildi</string>
     <string name="skipped_unsubmitted">Göndərilməmiş seqment keçildi</string>
+    <string name="skip_automatically">Avtomatik keçmək</string>
+    <string name="skip_automatically_once">Bir dəfə avtomatik keçmək</string>
+    <string name="skip_ignore">"Heç nə etmə"</string>
+    <string name="skip_showbutton">Keçid düyməsini göstər</string>
+    <string name="skip_sponsor">Seqmenti keçin</string>
     <string name="stats">Statistikalar</string>
     <string name="stats_saved">"Siz insanları &lt;b&gt;%s&lt;/b&gt; seqmentən xilas etdiniz."</string>
     <string name="stats_saved_sum">"Bu, həyatlarının &lt;b&gt;%s&lt;/b&gt; qədəridir. Liderlik cədvəlinə baxmaq üçün toxunun"</string>
@@ -545,16 +545,16 @@ Bu parametr olduqca köhnəldiyi üçün etibarlı olmaya bilər"</string>
     <string name="stats_submissions">Göndərişlər: &lt;b&gt;%s&lt;/b&gt;</string>
     <string name="stats_username">İstifadəçi adınız: &lt;b&gt;%s&lt;/b&gt;</string>
     <string name="stats_username_change">İstifadəçi adınızı dəyişdirmək üçün toxunun</string>
-    <string name="stats_username_change_unknown_error" formatted="false">İstifadəçi adını dəyişmək mümkün deyil: Vəziyyət: %d %s</string>
     <string name="stats_username_changed">İstifadəçi adı uğurla dəyişdirildi</string>
+    <string name="stats_username_change_unknown_error" formatted="false">İstifadəçi adını dəyişmək mümkün deyil: Vəziyyət: %d %s</string>
     <string name="submit_failed_duplicate">"Seqment göndərilə bilmir
 Artıq mövcuddur"</string>
     <string name="submit_failed_forbidden">"Seqment göndərilə bilmir.
 
 %s"</string>
+    <string name="submit_failed_invalid">Seqmenti göndərmək mümkün deyil: %s</string>
     <string name="submit_failed_rate_limit">"Seqmenti göndərmək mümkün deyil.
 Limitə çatılıb (Eyni istifadəçidən və ya IP-dən)"</string>
-    <string name="submit_failed_invalid">Seqmenti göndərmək mümkün deyil: %s</string>
     <string name="submit_failed_unknown_error" formatted="false">Seqmentləri göndərmək mümkün deyil: Vəziyyət: %d %s</string>
     <string name="submit_started">Seqment göndərilir…</string>
     <string name="submit_succeeded">Seqment uğurla göndərildi</string>
