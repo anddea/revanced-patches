@@ -33,6 +33,13 @@ class ProtobufSpoofPatch : BytecodePatch(
                 .nextMethod(it.scanResult.patternScanResult!!.startIndex, true)
                 .getMethod() as MutableMethod
             ) {
+                // Issue with sound always playing when spoofing protobuf in feed
+                // https://github.com/inotia00/ReVanced_Extended/issues/471
+                // To fix this issue, protobuf spoof should only be done at video player
+
+                // The length of protobuf in video player is between 12 and 14
+                // The length of protobuf in the feed is between 16 and 18
+                // Therefore, protobuf spoof should only be done when protobuf length is less than 16
                 val protobufParam = 3
                 val protobufParameter = "CgIQBg%3D%3D" /* Protobuf Parameter of X-Goog-Visitor-Id */
 
