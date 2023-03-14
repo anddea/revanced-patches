@@ -20,6 +20,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `default-video-quality` | Adds ability to set default video quality settings. | 18.09.39 |
 | `default-video-speed` | Adds ability to set default video speed settings. | 18.09.39 |
 | `disable-haptic-feedback` | Disable haptic feedback when swiping. | 18.09.39 |
+| `disable-quic-protocol` | Disable CronetEngine's QUIC protocol. | 18.09.39 |
 | `enable-external-browser` | Open url outside the app in an external browser. | 18.09.39 |
 | `enable-minimized-playback` | Enables minimized and background playback. | 18.09.39 |
 | `enable-old-layout` | Spoof the YouTube client version to use the old layout. | 18.09.39 |
@@ -72,11 +73,13 @@ The official Patch bundle provided by ReVanced and the community.
 | `hide-tooltip-content` | Hides the tooltip box that appears on first install. | 18.09.39 |
 | `hide-video-ads` | Removes ads in the video player. | 18.09.39 |
 | `layout-switch` | Tricks the dpi to use some tablet/phone layouts. | 18.09.39 |
+| `lift-vertical-video-restriction` | Lift 4K resolution restrictions on vertical video. | 18.09.39 |
 | `materialyou` | Enables MaterialYou theme for Android 12+ | 18.09.39 |
 | `microg-support` | Allows YouTube ReVanced to run without root and under a different package name with Vanced MicroG. | 18.09.39 |
 | `optimize-resource` | Removes duplicate resources from YouTube. | 18.09.39 |
 | `overlay-buttons` | Add overlay buttons for ReVanced Extended. | 18.09.39 |
 | `patch-options` | Create an options.toml file. | all |
+| `protobuf-spoof` | Spoofs the protobuf to prevent playback issues. | 18.09.39 |
 | `return-youtube-dislike` | Shows the dislike count of videos using the Return YouTube Dislike API. | 18.09.39 |
 | `settings` | Applies mandatory patches to implement ReVanced settings into the application. | 18.09.39 |
 | `sponsorblock` | Integrates SponsorBlock which allows skipping video segments such as sponsored content. | 18.09.39 |
@@ -148,7 +151,6 @@ Example:
           "18.06.41",
           "18.07.35",
           "18.08.39",
-          "18.09.37",
           "18.09.39"
         ]
       }
