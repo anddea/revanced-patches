@@ -377,6 +377,8 @@
         <SwitchPreference android:title="@string/revanced_enable_phone_layout_title" android:key="revanced_enable_phone_layout" android:summary="@string/revanced_enable_phone_layout_summary" android:defaultValue="false" />SETTINGS: LAYOUT_SWITCH -->
         <!-- SETTINGS: ENABLE_VP9_CODEC
         <SwitchPreference android:title="@string/revanced_enable_vp9_codec_title" android:key="revanced_enable_vp9_codec" android:defaultValue="false" android:summary="@string/revanced_enable_vp9_codec_summary" />SETTINGS: ENABLE_VP9_CODEC -->
+        <!-- SETTINGS: DISABLE_QUIC_PROTOCOL
+        <SwitchPreference android:title="@string/revanced_disable_quic_protocol_title" android:key="revanced_disable_quic_protocol" android:defaultValue="false" android:summary="@string/revanced_disable_quic_protocol_summary" />SETTINGS: DISABLE_QUIC_PROTOCOL -->
         <PreferenceScreen android:title="@string/revanced_backup_title" android:key="backup" android:summary="@string/revanced_backup_summary">
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_backup_title" />
         </PreferenceScreen>
@@ -465,6 +467,7 @@
             <Preference android:title="enable-old-layout" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="layout-switch" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="force-vp9-codec" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="disable-quic-protocol" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
 
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_others" />
             <Preference android:title="return-youtube-dislike" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
