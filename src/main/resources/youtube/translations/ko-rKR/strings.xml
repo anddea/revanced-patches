@@ -5,22 +5,22 @@
     <string name="about_madeby">JakubWeg님이 개발하였습니다.</string>
     <string name="accessibility_settings_edu_opt_in_text">플레이어에서 접근성 컨트롤을 표시하겠습니까?</string>
     <string name="accessibility_settings_edu_opt_out_text">접근성 서비스가 켜져있기 때문에 플레이어 컨트롤이 변경되었습니다.</string>
-    <string name="api_url_changed">API URL이 변경되었습니다.</string>
-    <string name="api_url_invalid">입력한 API URL이 잘못되었습니다.</string>
-    <string name="api_url_reset">API URL 초기화</string>
     <string name="api_mirror_url_changed">API MIRROR URL이 변경되었습니다.</string>
     <string name="api_mirror_url_invalid">입력한 API MIRROR URL이 잘못되었습니다.</string>
     <string name="api_mirror_url_reset">API MIRROR URL 초기화</string>
+    <string name="api_url_changed">API URL이 변경되었습니다.</string>
+    <string name="api_url_invalid">입력한 API URL이 잘못되었습니다.</string>
+    <string name="api_url_reset">API URL 초기화</string>
     <string name="color_change">색상 변경 기능을 찾고 있으신가요?</string>
-    <string name="color_change_sum">"이제 위의 카테고리를 클릭하여 카테고리의 색상을 변경할 수 있습니다."</string>
     <string name="color_changed">색상이 변경되었습니다.</string>
+    <string name="color_change_sum">"이제 위의 카테고리를 클릭하여 카테고리의 색상을 변경할 수 있습니다."</string>
     <string name="color_invalid">잘못된 헥스코드입니다.</string>
     <string name="color_reset">색상 초기화</string>
     <string name="diff_segments">각 구간에 설정할 동작</string>
     <string name="enable_sb">SponsorBlock 활성화</string>
-    <string name="enable_sb_sum">SponsorBlock은 YouTube 동영상 내 성가신 구간을 건너뛰게 해주는 크라우드소싱 시스템입니다.</string>
     <string name="enable_sb_mirror">SponsorBlock Mirror 활성화</string>
     <string name="enable_sb_mirror_sum">SponsorBlock API 서버가 중단되면 Mirror API 서버가 기본 API 서버로 전환됩니다.</string>
+    <string name="enable_sb_sum">SponsorBlock은 YouTube 동영상 내 성가신 구간을 건너뛰게 해주는 크라우드소싱 시스템입니다.</string>
     <string name="enable_segmadding">새로운 구간 추가 버튼 활성화</string>
     <string name="enable_segmadding_sum">플레이어에 새로운 구간 추가 버튼을 추가합니다. (버튼이 잘 안 보일 수도 있습니다.)</string>
     <string name="enable_voting">투표 버튼 활성화</string>
@@ -28,10 +28,10 @@
     <string name="general">일반 설정</string>
     <string name="general_adjusting">구간 추가 시 슬라이더 단위 조정</string>
     <string name="general_adjusting_sum">새로운 구간 추가 시에 시간 빨리감기 또는 되감기 버튼을 눌렀을 때 이동할 수 있는 시간으로, 단위는 밀리초입니다.</string>
-    <string name="general_api_url">API URL 변경</string>
-    <string name="general_api_url_sum">"SponsorBlock이 요청을 보낼 서버 주소입니다. &lt;b&gt;이것이 무슨 역할을 하는지 알고 있는 경우에만 이 주소를 변경하십시오.&lt;/b&gt;"</string>
     <string name="general_api_mirror_url">API Mirror URL 변경</string>
     <string name="general_api_mirror_url_sum">"SponsorBlock 서버가 중단될 때 전환할 Mirror 서버 주소입니다. &lt;b&gt;이것이 무슨 역할을 하는지 알고 있는 경우에만 이 주소를 변경하십시오.&lt;/b&gt;"</string>
+    <string name="general_api_url">API URL 변경</string>
+    <string name="general_api_url_sum">"SponsorBlock이 요청을 보낼 서버 주소입니다. &lt;b&gt;이것이 무슨 역할을 하는지 알고 있는 경우에만 이 주소를 변경하십시오.&lt;/b&gt;"</string>
     <string name="general_min_duration">최소 구간 길이</string>
     <string name="general_min_duration_sum">설정한 값(초)보다 작은 구간은 건너뛰지 않으며, 재생바에 표시되지 않습니다.</string>
     <string name="general_skipcount">건너뛴 횟수 추적</string>
@@ -69,7 +69,6 @@
     <string name="new_segment_time_start_set">구간의 시점이 설정되었습니다.</string>
     <string name="new_segment_title">새 SponsorBlock 구간</string>
     <string name="reset">초기화</string>
-    <string name="revanced_ads">광고</string>
     <string name="revanced_adremover_album_card_in_search_summary_off">검색 결과에서 앨범 카드가 노출됩니다.</string>
     <string name="revanced_adremover_album_card_in_search_summary_on">검색 결과에서 앨범 카드가 숩겨집니다.</string>
     <string name="revanced_adremover_album_card_in_search_title">앨범 카드 숨기기</string>
@@ -82,21 +81,21 @@
     <string name="revanced_adremover_button_ads_summary_off">홈 화면 광고가 노출됩니다.</string>
     <string name="revanced_adremover_button_ads_summary_on">홈 화면 광고가 숨겨집니다.</string>
     <string name="revanced_adremover_button_ads_title">홈 화면 광고 숨기기</string>
+    <string name="revanced_adremover_channelbar_join_button_summary_off">채널바에 있는 가입 버튼이 노출됩니다.</string>
+    <string name="revanced_adremover_channelbar_join_button_summary_on">채널바에 있는 가입 버튼이 숨겨집니다.</string>
+    <string name="revanced_adremover_channelbar_join_button_title">채널바 가입 버튼 숨기기</string>
     <string name="revanced_adremover_channel_guidelines_summary_off">채널 가이드라인이 노출됩니다.</string>
     <string name="revanced_adremover_channel_guidelines_summary_on">채널 가이드라인이 숨겨집니다.</string>
     <string name="revanced_adremover_channel_guidelines_title">채널 가이드라인 숨기기</string>
     <string name="revanced_adremover_channel_member_shelf_summary_off">채널 회원 선반이 노출됩니다.</string>
     <string name="revanced_adremover_channel_member_shelf_summary_on">채널 회원 선반이 숨겨집니다.</string>
     <string name="revanced_adremover_channel_member_shelf_title">채널 회원 선반 숨기기</string>
-    <string name="revanced_adremover_channelbar_join_button_summary_off">채널바에 있는 가입 버튼이 노출됩니다.</string>
-    <string name="revanced_adremover_channelbar_join_button_summary_on">채널바에 있는 가입 버튼이 숨겨집니다.</string>
-    <string name="revanced_adremover_channelbar_join_button_title">채널바 가입 버튼 숨기기</string>
-    <string name="revanced_adremover_community_posts_subscriptions_summary_off">구독 피드에서 커뮤니티 게시물이 노출됩니다.</string>
-    <string name="revanced_adremover_community_posts_subscriptions_summary_on">구독 피드에서 커뮤니티 게시물이 숨겨집니다.</string>
-    <string name="revanced_adremover_community_posts_subscriptions_title">구독 피드에서 커뮤니티 게시물 숨기기</string>
     <string name="revanced_adremover_community_posts_home_summary_off">홈 피드에서 커뮤니티 게시물이 노출됩니다.</string>
     <string name="revanced_adremover_community_posts_home_summary_on">홈 피드에서 커뮤니티 게시물이 숨겨집니다.</string>
     <string name="revanced_adremover_community_posts_home_title">홈 피드에서 커뮤니티 게시물 숨기기</string>
+    <string name="revanced_adremover_community_posts_subscriptions_summary_off">구독 피드에서 커뮤니티 게시물이 노출됩니다.</string>
+    <string name="revanced_adremover_community_posts_subscriptions_summary_on">구독 피드에서 커뮤니티 게시물이 숨겨집니다.</string>
+    <string name="revanced_adremover_community_posts_subscriptions_title">구독 피드에서 커뮤니티 게시물 숨기기</string>
     <string name="revanced_adremover_custom_filter_summary">구성요소의 이름을 쉼표로 구분하여 필터링합니다.</string>
     <string name="revanced_adremover_custom_filter_title">직접 필터링 하기</string>
     <string name="revanced_adremover_general_ads_summary_off">일반 레이아웃 광고가 노출됩니다.</string>
@@ -153,6 +152,7 @@
     <string name="revanced_adremover_web_search_panel_summary_off">웹 검색 패널이 노출됩니다.</string>
     <string name="revanced_adremover_web_search_panel_summary_on">웹 검색 패널이 숨겨집니다.</string>
     <string name="revanced_adremover_web_search_panel_title">웹 검색 패널 숨기기</string>
+    <string name="revanced_ads">광고</string>
     <string name="revanced_backup_summary">파일에서 ReVanced 설정을 가져오거나 ReVanced 설정을 파일로 내보냅니다.</string>
     <string name="revanced_bottom_player_layout">플레이어 하단 레이아웃</string>
     <string name="revanced_button_container_title">버튼 컨테이너</string>
@@ -163,6 +163,20 @@
     <string name="revanced_default_video_quality_mobile_title">모바일 데이터 기본 영상 화질</string>
     <string name="revanced_default_video_quality_wifi_title">Wi-Fi 연결 시 기본 영상 화질</string>
     <string name="revanced_default_video_speed_title">영상 재생 시 기본 영상 속도</string>
+    <string name="revanced_disable_haptic_feedback_chapters_summary_off">챕터를 탐색할 때 진동 피드백을 활성화합니다.</string>
+    <string name="revanced_disable_haptic_feedback_chapters_summary_on">챕터를 탐색할 때 진동 피드백을 비활성화합니다.</string>
+    <string name="revanced_disable_haptic_feedback_chapters_title">챕터를 탐색할 때 진동 피드백 비활성화하기</string>
+    <string name="revanced_disable_haptic_feedback_scrubbing_summary_off">위로 스와이프할 때 진동 피드백을 활성화합니다.</string>
+    <string name="revanced_disable_haptic_feedback_scrubbing_summary_on">위로 스와이프할 때 진동 피드백을 비활성화합니다.</string>
+    <string name="revanced_disable_haptic_feedback_scrubbing_title">위로 스와이프할 때 진동 피드백 비활성화하기</string>
+    <string name="revanced_disable_haptic_feedback_seek_summary_off">탐색할 때 진동 피드백을 활성화합니다.</string>
+    <string name="revanced_disable_haptic_feedback_seek_summary_on">탐색할 때 진동 피드백을 비활성화합니다.</string>
+    <string name="revanced_disable_haptic_feedback_seek_title">탐색할 때 진동 피드백 비활성화하기</string>
+    <string name="revanced_disable_haptic_feedback_zoom_summary_off">동영상을 확대할 때 진동 피드백을 활성화합니다.</string>
+    <string name="revanced_disable_haptic_feedback_zoom_summary_on">동영상을 확대할 때 진동 피드백을 비활성화합니다.</string>
+    <string name="revanced_disable_haptic_feedback_zoom_title">동영상을 확대할 때 진동 피드백 비활성화하기</string>
+    <string name="revanced_disable_quic_protocol_summary">"Cronet 엔진의 QUIC 프로토콜을 비활성화합니다."</string>
+    <string name="revanced_disable_quic_protocol_title">QUIC 프로토콜 비활성화하기</string>
     <string name="revanced_double_back_timeout_summary">뒤로가기 두 번 눌러 종료하는 데 걸리는 시간입니다.</string>
     <string name="revanced_double_back_timeout_title">뒤로가기 두 번 누르기 제한 시간</string>
     <string name="revanced_downloader_not_installed">가 설치되지 않았습니다. 다운로더를 설치해 주세요.</string>
@@ -170,19 +184,6 @@
     <string name="revanced_downloader_package_name_title">다운로더 패키지명</string>
     <string name="revanced_downloader_settings_summary">다운로더를 설정합니다.</string>
     <string name="revanced_downloader_settings_title">다운로더 설정</string>
-    <string name="revanced_disable_haptic_feedback_scrubbing_summary_off">위로 스와이프할 때 진동 피드백을 활성화합니다.</string>
-    <string name="revanced_disable_haptic_feedback_scrubbing_summary_on">위로 스와이프할 때 진동 피드백을 비활성화합니다.</string>
-    <string name="revanced_disable_haptic_feedback_scrubbing_title">위로 스와이프할 때 진동 피드백 비활성화하기</string>
-    <string name="revanced_disable_haptic_feedback_seek_summary_off">탐색할 때 진동 피드백을 활성화합니다.</string>
-    <string name="revanced_disable_haptic_feedback_seek_summary_on">탐색할 때 진동 피드백을 비활성화합니다.</string>
-    <string name="revanced_disable_haptic_feedback_seek_title">탐색할 때 진동 피드백 비활성화하기</string>
-    <string name="revanced_disable_haptic_feedback_chapters_summary_off">챕터를 탐색할 때 진동 피드백을 활성화합니다.</string>
-    <string name="revanced_disable_haptic_feedback_chapters_summary_on">챕터를 탐색할 때 진동 피드백을 비활성화합니다.</string>
-    <string name="revanced_disable_haptic_feedback_chapters_title">챕터를 탐색할 때 진동 피드백 비활성화하기</string>
-    <string name="revanced_haptic_feedback_title">진동 피드백</string>
-    <string name="revanced_disable_haptic_feedback_zoom_summary_off">동영상을 확대할 때 진동 피드백을 활성화합니다.</string>
-    <string name="revanced_disable_haptic_feedback_zoom_summary_on">동영상을 확대할 때 진동 피드백을 비활성화합니다.</string>
-    <string name="revanced_disable_haptic_feedback_zoom_title">동영상을 확대할 때 진동 피드백 비활성화하기</string>
     <string name="revanced_enable_always_auto_repeat_summary_off">자동 반복 기능이 꺼져 있습니다.</string>
     <string name="revanced_enable_always_auto_repeat_summary_on">자동 반복 기능이 켜져 있습니다.</string>
     <string name="revanced_enable_always_auto_repeat_title">영상 자동 반복 사용하기</string>
@@ -207,12 +208,11 @@
     <string name="revanced_enable_open_links_directly_summary_off">기본 리다이렉션 정책을 따릅니다.</string>
     <string name="revanced_enable_open_links_directly_summary_on">URL 리다이렉션을 무시합니다.</string>
     <string name="revanced_enable_open_links_directly_title">리다이렉션 없이 링크 바로 열기</string>
+    <string name="revanced_enable_phone_layout_summary">dpi를 속여 일부 레이아웃을 휴대폰 레이아웃으로 변경합니다.</string>
+    <string name="revanced_enable_phone_layout_title">휴대폰 레이아웃 활성화하기</string>
     <string name="revanced_enable_press_to_swipe_summary_off">눌러서 스와이프 제스처를 활성화 하지 않습니다.</string>
     <string name="revanced_enable_press_to_swipe_summary_on">눌러서 스와이프 제스처를 활성화합니다.</string>
     <string name="revanced_enable_press_to_swipe_title">눌러서 스와이프 제스처 활성화하기</string>
-    <string name="revanced_enable_phone_layout_summary">dpi를 속여 일부 레이아웃을 휴대폰 레이아웃으로 변경합니다.</string>
-    <string name="revanced_enable_phone_layout_title">휴대폰 레이아웃 활성화하기</string>
-    <string name="revanced_enable_seekbar_tapping_summary_off">재생바 터치 조작이 활성화 하지 않습니다.</string>
     <string name="revanced_enable_save_brightness_summary_off">앱 재시작 후 전체화면 진입 시 저장된 밝기 값으로 덮어쓰지않습니다.</string>
     <string name="revanced_enable_save_brightness_summary_on">앱 재시작 후 전체화면 진입 시 저장된 밝기 값으로 덮어씁니다.</string>
     <string name="revanced_enable_save_brightness_title">밝기 값 저장 활성화하기</string>
@@ -222,36 +222,37 @@
     <string name="revanced_enable_save_video_speed_summary_off">동영상 재생 속도를 변경할 때마다 영상 재생 속도 값을 저장하지 않습니다.</string>
     <string name="revanced_enable_save_video_speed_summary_on">동영상 재생 속도를 변경할 때마다 영상 재생 속도 값을 저장합니다.</string>
     <string name="revanced_enable_save_video_speed_title">동영상 재생 속도 저장 활성화하기</string>
+    <string name="revanced_enable_seekbar_tapping_summary_off">재생바 터치 조작이 활성화 하지 않습니다.</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">재생바 터치 조작이 활성화합니다.</string>
     <string name="revanced_enable_seekbar_tapping_title">재생바 터치 조작 활성화하기</string>
     <string name="revanced_enable_swipe_auto_brightness_summary_off">스와이프 조작으로 화면 밝기가 0이 되더라도 자동으로 밝기를 조절하지 않습니다.</string>
     <string name="revanced_enable_swipe_auto_brightness_summary_on">스와이프 조작으로 화면 밝기가 0이 되면 자동으로 밝기를 조절합니다.</string>
     <string name="revanced_enable_swipe_auto_brightness_title">스와이프 조작 중 자동 밝기 활성화하기</string>
-    <string name="revanced_enable_swipe_brightness_summary_off">스와이프 제스처로 밝기 조절을 활성화 하지 않습니다.</string>
-    <string name="revanced_enable_swipe_brightness_summary_on">스와이프 제스처로 밝기 조절을 활성화합니다.</string>
-    <string name="revanced_enable_swipe_brightness_title">스와이프 제스처로 밝기 조절 활성화하기</string>
     <string name="revanced_enable_swipe_brightness_in_hdr_summary_off">HDR 동영상 재생할 때 YouTube에서 지정하는 밝기 값을 적용합니다.</string>
     <string name="revanced_enable_swipe_brightness_in_hdr_summary_on">HDR 동영상을 재생할 때 스와이프 제스처 밝기 값을 적용합니다.</string>
     <string name="revanced_enable_swipe_brightness_in_hdr_title">HDR 비디오에서 스와이프 제스처 밝기 값 적용 활성화하기</string>
+    <string name="revanced_enable_swipe_brightness_summary_off">스와이프 제스처로 밝기 조절을 활성화 하지 않습니다.</string>
+    <string name="revanced_enable_swipe_brightness_summary_on">스와이프 제스처로 밝기 조절을 활성화합니다.</string>
+    <string name="revanced_enable_swipe_brightness_title">스와이프 제스처로 밝기 조절 활성화하기</string>
     <string name="revanced_enable_swipe_haptic_feedback_summary_off">눌러서 스와이프시 진동 피드백을 활성화 하지 않습니다.</string>
     <string name="revanced_enable_swipe_haptic_feedback_summary_on">눌러서 스와이프시 진동 피드백을 활성화합니다.</string>
     <string name="revanced_enable_swipe_haptic_feedback_title">눌러서 스와이프시 진동 피드백 활성화하기</string>
     <string name="revanced_enable_swipe_volume_summary_off">스와이프 제스처로 볼륨 조절을 활성화 하지 않습니다.</string>
     <string name="revanced_enable_swipe_volume_summary_on">스와이프 제스처로 볼륨 조절을 활성화합니다.</string>
     <string name="revanced_enable_swipe_volume_title">스와이프 제스처로 볼륨 조절 활성화하기</string>
+    <string name="revanced_enable_tablet_layout_summary">dpi를 속여 일부 레이아웃을 태블릿 레이아웃으로 변경합니다.</string>
+    <string name="revanced_enable_tablet_layout_title">태블릿 레이아웃 활성화하기</string>
     <string name="revanced_enable_tablet_miniplayer_summary_off">태블릿용 미니 플레이어를 사용하지 않습니다.</string>
     <string name="revanced_enable_tablet_miniplayer_summary_on">태블릿용 미니 플레이어를 사용합니다.</string>
     <string name="revanced_enable_tablet_miniplayer_title">태블릿용 미니 플레이어 활성화하기</string>
-    <string name="revanced_enable_tablet_layout_summary">dpi를 속여 일부 레이아웃을 태블릿 레이아웃으로 변경합니다.</string>
-    <string name="revanced_enable_tablet_layout_title">태블릿 레이아웃 활성화하기</string>
     <string name="revanced_enable_time_stamp_speed_summary_off">타임스탬프에 속도 첨부를 활성화 하지 않습니다.</string>
     <string name="revanced_enable_time_stamp_speed_summary_on">타임스탬프에 속도 첨부를 활성화합니다.</string>
     <string name="revanced_enable_time_stamp_speed_title">타임스탬프 속도 활성화하기</string>
+    <string name="revanced_enable_vp9_codec_summary">장치정보를 속여 VP9 코덱을 활성화합니다.</string>
+    <string name="revanced_enable_vp9_codec_title">VP9 코덱 활성화하기</string>
     <string name="revanced_enable_wide_searchbar_summary_off">넓은 검색 바를 사용하지 않습니다.</string>
     <string name="revanced_enable_wide_searchbar_summary_on">넓은 검색 바를 사용합니다.</string>
     <string name="revanced_enable_wide_searchbar_title">넓은 검색 바 활성화하기</string>
-    <string name="revanced_enable_vp9_codec_summary">장치정보를 속여 VP9 코덱을 활성화합니다.</string>
-    <string name="revanced_enable_vp9_codec_title">VP9 코덱 활성화하기</string>
     <string name="revanced_experimental_flag">실험적 기능</string>
     <string name="revanced_export_settings_summary">ReVanced 설정을 파일에 저장합니다.</string>
     <string name="revanced_export_settings_title">설정 내보내기</string>
@@ -260,15 +261,16 @@
     <string name="revanced_flyout_menu_layout">메뉴 구성요소 레이아웃</string>
     <string name="revanced_fullscreen_layout">전체화면 레이아웃</string>
     <string name="revanced_general_layout">일반 레이아웃</string>
+    <string name="revanced_haptic_feedback_title">진동 피드백</string>
+    <string name="revanced_hide_autoplay_button_summary_off">자동 재생 버튼이 노출됩니다.</string>
+    <string name="revanced_hide_autoplay_button_summary_on">자동 재생 버튼이 숨겨집니다.</string>
+    <string name="revanced_hide_autoplay_button_title">자동 재생 버튼 숨기기</string>
     <string name="revanced_hide_auto_captions_summary_off">자막 사용이 강제된 동영상에서 자막이 노출됩니다.</string>
     <string name="revanced_hide_auto_captions_summary_on">"자막 사용이 강제된 동영상에서 자막이 숨겨집니다."</string>
     <string name="revanced_hide_auto_captions_title">자동 자막 숨기기</string>
     <string name="revanced_hide_auto_player_popup_panels_summary_off">플레이어 팝업 패널이 노출됩니다.</string>
     <string name="revanced_hide_auto_player_popup_panels_summary_on">플레이어 팝업 패널이 숨겨집니다.</string>
     <string name="revanced_hide_auto_player_popup_panels_title">플레이어 팝업 패널 숨기기</string>
-    <string name="revanced_hide_autoplay_button_summary_off">자동 재생 버튼이 노출됩니다.</string>
-    <string name="revanced_hide_autoplay_button_summary_on">자동 재생 버튼이 숨겨집니다.</string>
-    <string name="revanced_hide_autoplay_button_title">자동 재생 버튼 숨기기</string>
     <string name="revanced_hide_button_create_clip_summary_off">클립 버튼이 노출됩니다.</string>
     <string name="revanced_hide_button_create_clip_summary_on">클립 버튼이 숨겨집니다.</string>
     <string name="revanced_hide_button_create_clip_title">클립 버튼 숨기기</string>
@@ -392,12 +394,12 @@
     <string name="revanced_hide_player_overlay_filter_summary_off">플레이어 오버레이 필터가 노출됩니다.</string>
     <string name="revanced_hide_player_overlay_filter_summary_on">플레이어 오버레이 필터가 숨겨집니다.</string>
     <string name="revanced_hide_player_overlay_filter_title">플레이어 오버레이 필터 숨기기</string>
-    <string name="revanced_hide_prev_button_summary_off">이전 동영상 버튼이 노출됩니다.</string>
-    <string name="revanced_hide_prev_button_summary_on">이전 동영상 버튼이 숨겨집니다.</string>
-    <string name="revanced_hide_prev_button_title">이전 동영상 버튼 숨기기</string>
     <string name="revanced_hide_preview_comment_off">미리보기 댓글이 노출됩니다.</string>
     <string name="revanced_hide_preview_comment_on">미리보기 댓글이 숨겨집니다.</string>
     <string name="revanced_hide_preview_comment_title">미리보기 댓글 숨기기</string>
+    <string name="revanced_hide_prev_button_summary_off">이전 동영상 버튼이 노출됩니다.</string>
+    <string name="revanced_hide_prev_button_summary_on">이전 동영상 버튼이 숨겨집니다.</string>
+    <string name="revanced_hide_prev_button_title">이전 동영상 버튼 숨기기</string>
     <string name="revanced_hide_seekbar_summary_off">재생바가 노출됩니다.</string>
     <string name="revanced_hide_seekbar_summary_on">재생바가 숨겨집니다.</string>
     <string name="revanced_hide_seekbar_title">재생바 숨기기</string>
@@ -410,15 +412,15 @@
     <string name="revanced_hide_shorts_player_comments_button_summary_on">Shorts 플레이어에서 댓글 버튼이 숨겨집니다.</string>
     <string name="revanced_hide_shorts_player_comments_button_title">Shorts 플레이어 댓글 버튼 숨기기</string>
     <string name="revanced_hide_shorts_player_component_title">Shorts 플레이어 숨기기</string>
-    <string name="revanced_hide_shorts_player_remix_button_summary_off">Shorts 플레이어에서 리믹스 버튼이 노출됩니다.</string>
-    <string name="revanced_hide_shorts_player_remix_button_summary_on">Shorts 플레이어에서 리믹스 버튼이 숨겨집니다.</string>
-    <string name="revanced_hide_shorts_player_remix_button_title">Shorts 플레이어 리믹스 버튼 숨기기</string>
     <string name="revanced_hide_shorts_player_join_button_summary_off">Shorts 플레이어에서 가입 버튼이 노출됩니다.</string>
     <string name="revanced_hide_shorts_player_join_button_summary_on">Shorts 플레이어에서 가입 버튼이 숨겨집니다.</string>
     <string name="revanced_hide_shorts_player_join_button_title">Shorts 플레이어 가입 버튼 숨기기</string>
-    <string name="revanced_hide_shorts_player_pivot_bar_summary_off">Shorts 플레이어에서 피벗바(하단바)가 노출됩니다.</string>
-    <string name="revanced_hide_shorts_player_pivot_bar_summary_on">Shorts 플레이어에서 피벗바(하단바)가 숨겨집니다.</string>
-    <string name="revanced_hide_shorts_player_pivot_bar_title">Shorts 플레이어 피벗바(하단바) 숨기기</string>
+    <string name="revanced_hide_shorts_player_pivot_bar_summary_off">Shorts 플레이어에서 하단바가 노출됩니다.</string>
+    <string name="revanced_hide_shorts_player_pivot_bar_summary_on">Shorts 플레이어에서 하단바가 숨겨집니다.</string>
+    <string name="revanced_hide_shorts_player_pivot_bar_title">Shorts 플레이어 하단바 숨기기</string>
+    <string name="revanced_hide_shorts_player_remix_button_summary_off">Shorts 플레이어에서 리믹스 버튼이 노출됩니다.</string>
+    <string name="revanced_hide_shorts_player_remix_button_summary_on">Shorts 플레이어에서 리믹스 버튼이 숨겨집니다.</string>
+    <string name="revanced_hide_shorts_player_remix_button_title">Shorts 플레이어 리믹스 버튼 숨기기</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_off">Shorts 플레이어에서 구독 버튼이 노출됩니다.</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_on">Shorts 플레이어에서 구독 버튼이 숨겨집니다.</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_title">Shorts 플레이어 구독 버튼 숨기기</string>
@@ -450,6 +452,7 @@
     <string name="revanced_import_settings_title">설정 가져오기</string>
     <string name="revanced_misc">기타</string>
     <string name="revanced_others">그 외</string>
+    <string name="revanced_overlay_button">오버레이 버튼</string>
     <string name="revanced_overlay_button_auto_repeat_summary_off">자동 반복 버튼이 플레이어에서 숨겨집니다.</string>
     <string name="revanced_overlay_button_auto_repeat_summary_on">자동 반복 버튼이 플레이어에서 노출됩니다.</string>
     <string name="revanced_overlay_button_auto_repeat_title">자동 반복 버튼 표시</string>
@@ -462,7 +465,6 @@
     <string name="revanced_overlay_button_downloads_summary_off">다운로드 버튼이 플레이어에서 숨겨집니다.</string>
     <string name="revanced_overlay_button_downloads_summary_on">다운로드 버튼을 플레이어에서 노출됩니다.</string>
     <string name="revanced_overlay_button_downloads_title">다운로드 버튼 표시</string>
-    <string name="revanced_overlay_button">오버레이 버튼</string>
     <string name="revanced_overlay_button_speed_reset">비디오 속도 재설정(1.0배)</string>
     <string name="revanced_overlay_button_speed_summary_off">동영상 재생 속도 버튼이 숨겨집니다.</string>
     <string name="revanced_overlay_button_speed_summary_on">동영상 재생 속도 버튼이 노출됩니다.</string>
@@ -473,8 +475,8 @@
     <string name="revanced_override_premium_header_summary_off">현재 헤더: 기본 헤더</string>
     <string name="revanced_override_premium_header_summary_on">현재 헤더: 프리미엄 헤더</string>
     <string name="revanced_override_premium_header_title">프리미엄 헤더 강제하기</string>
-    <string name="revanced_patches_information_summary">적용된 패치에 대한 정보입니다.</string>
     <string name="revanced_patches_information">패치 정보</string>
+    <string name="revanced_patches_information_summary">적용된 패치에 대한 정보입니다.</string>
     <string name="revanced_player_flyout_panel_title">플레이어 구성요소 패널</string>
     <string name="revanced_player_layout">플레이어 레이아웃</string>
     <string name="revanced_reboot_warning_general">"이것은 여전히 실험적인 기능이기 때문에, 알려지지 않은 다른 문제가 있을 수 있습니다.
@@ -488,6 +490,7 @@
 이 설정을 활성화하면 다음 기능을 사용할 수 있습니다.
 - 영화 조명
 - 커뮤니티 게시글"</string>
+    <string name="revanced_reboot_warning_quic">인터넷 속도가 충분히 빠르지 않으면 사용하지 않는 것을 권장합니다.</string>
     <string name="revanced_reboot_warning_switch">"이 설정을 활성화하면 다음 기능을 사용할 수 없습니다.
 - 영화 조명"</string>
     <string name="revanced_reboot_warning_tablet">"dpi를 속여 일부 레이아웃을 태블릿 레이아웃으로 변경합니다.
@@ -499,12 +502,12 @@
 
 이 설정은 상당히 오래되어 유효하지 않을 수 있습니다."</string>
     <string name="revanced_ryd_attribution_summary">싫어요 숫자의 데이터는 Return YoutTuble Dislike API에 의해 제공됩니다. 자세한 내용을 보려면 누르세요.</string>
-    <string name="revanced_ryd_dislike_percentage_summary_off">싫어요 개수를 숫자로 표시합니다.</string>
-    <string name="revanced_ryd_dislike_percentage_summary_on">싫어요 개수를 퍼센트로 표시합니다.</string>
-    <string name="revanced_ryd_dislike_percentage_title">싫어요 개수를 퍼센트로 표시</string>
     <string name="revanced_ryd_compact_layout_summary_off">싫어요 버튼 왼쪽에 구분선을 표시합니다.</string>
     <string name="revanced_ryd_compact_layout_summary_on">싫어요 버튼 왼쪽에 구분선을 표시하지 않습니다.</string>
     <string name="revanced_ryd_compact_layout_title">싫어요 버튼 왼쪽에 구분선 숨기기</string>
+    <string name="revanced_ryd_dislike_percentage_summary_off">싫어요 개수를 숫자로 표시합니다.</string>
+    <string name="revanced_ryd_dislike_percentage_summary_on">싫어요 개수를 퍼센트로 표시합니다.</string>
+    <string name="revanced_ryd_dislike_percentage_title">싫어요 개수를 퍼센트로 표시</string>
     <string name="revanced_ryd_enable_summary_off">싫어요 개수가 숨겨집니다.</string>
     <string name="revanced_ryd_enable_summary_on">싫어요 개수가 노출됩니다.</string>
     <string name="revanced_ryd_enable_title">Return YouTube Dislike 활성화</string>
@@ -529,28 +532,30 @@
     <string name="revanced_switching_create_notification_summary_on">만들기 버튼과 알림 버튼을 전환합니다.</string>
     <string name="revanced_switching_create_notification_title">만들기 버튼과 알림 버튼 전환하기</string>
     <string name="revanced_tool_used">사용되어진 도구</string>
+    <string name="revanced_vertical_video_restrictions_summary">세로 동영상 화질 제한 해제를 위해 장치정보를 속입니다.</string>
+    <string name="revanced_vertical_video_restrictions_title">세로 동영상 화질 제한 해제하기</string>
+    <string name="revanced_video">영상</string>
     <string name="revanced_video_ads_removal_summary_off">동영상 광고가 노출됩니다.</string>
     <string name="revanced_video_ads_removal_summary_on">동영상 광고가 숨겨집니다.</string>
     <string name="revanced_video_ads_removal_title">동영상 광고 숨기기</string>
-    <string name="revanced_video">영상</string>
-    <string name="revanced_whitelisting_add_failed" formatted="false">%s 채널을 %s 화이트리스트에 추가하지 못했습니다.</string>
     <string name="revanced_whitelisting_added" formatted="false">%s 채널을 %s 화이트리스트에 추가했습니다.</string>
+    <string name="revanced_whitelisting_add_failed" formatted="false">%s 채널을 %s 화이트리스트에 추가하지 못했습니다.</string>
     <string name="revanced_whitelisting_ads">비디오 광고</string>
     <string name="revanced_whitelisting_ads_button">광고</string>
     <string name="revanced_whitelisting_channel_name">채널 이름</string>
     <string name="revanced_whitelisting_empty">화이트리스트 채널이 없습니다.</string>
     <string name="revanced_whitelisting_excluded">화이트리스트에 추가하지 않았습니다.</string>
-    <string name="revanced_whitelisting_included">화이트리스트에 추가했습니다.</string>
-    <string name="revanced_whitelisting_title">채널 화이트리스트</string>
     <string name="revanced_whitelisting_fetch_failed">채널 세부 정보를 탐색할 수 없습니다. 에러 코드: %d</string>
+    <string name="revanced_whitelisting_included">화이트리스트에 추가했습니다.</string>
     <string name="revanced_whitelisting_reboot">채널 화이트리스트 설정을 적용하려면 재시작하세요</string>
-    <string name="revanced_whitelisting_remove_failed" formatted="false">%s 채널을 %s 화이트리스트에서 삭제하지 못했습니다.</string>
     <string name="revanced_whitelisting_removed" formatted="false">%s 채널을 %s 화이트리스트에서 삭제했습니다.</string>
+    <string name="revanced_whitelisting_remove_failed" formatted="false">%s 채널을 %s 화이트리스트에서 삭제하지 못했습니다.</string>
     <string name="revanced_whitelisting_settings_summary">화이트리스트에 추가된 채널 목록을 확인 또는 숨길 수 있습니다.</string>
     <string name="revanced_whitelisting_settings_title">화이트리스트 설정</string>
     <string name="revanced_whitelisting_speed">영상 속도</string>
     <string name="revanced_whitelisting_sponsorblock">SponsorBlock</string>
     <string name="revanced_whitelisting_sponsorblock_button">SB</string>
+    <string name="revanced_whitelisting_title">채널 화이트리스트</string>
     <string name="sb_connection_failed">Sponsorblock 서버가 응답하지 않습니다!</string>
     <string name="sb_guidelines_popup_already_read">이미 읽음</string>
     <string name="sb_guidelines_popup_content">"광고 구간을 제출하기 전에 SponsorBlock 가이드라인을 읽어보시는 것을 추천합니다."</string>
@@ -583,11 +588,6 @@
     <string name="settings_ie_sum">데스크톱 확장 프로그램에서 불러올 수 있는 JSON의 전체 구성 파일입니다. 비공개 사용자ID가 포함되므로 주의하세요.</string>
     <string name="settings_import_failed">설정을 가져오는 데 실패했습니다.</string>
     <string name="settings_import_successful">설정을 성공적으로 가져왔습니다.</string>
-    <string name="skip_automatically">자동으로 스킵하기</string>
-    <string name="skip_automatically_once">한 번만 자동으로 건너뛰기</string>
-    <string name="skip_ignore">"아무것도 하지 않기"</string>
-    <string name="skip_showbutton">건너뛰기 버튼 표시하기</string>
-    <string name="skip_sponsor">구간 건너뛰기</string>
     <string name="skipped_endcard">아웃트로 영상을 건너뛰었습니다.</string>
     <string name="skipped_filler">잡담 부분을 건너뛰었습니다.</string>
     <string name="skipped_intermission">인트로 영상을 건너뛰었습니다.</string>
@@ -598,6 +598,11 @@
     <string name="skipped_sponsor">광고 구간을 건너뛰었습니다.</string>
     <string name="skipped_subscribe">짜증나는 구독 요청 구간을 건너뛰었습니다.</string>
     <string name="skipped_unsubmitted">미제출한 구간을 건너뛰었습니다.</string>
+    <string name="skip_automatically">자동으로 스킵하기</string>
+    <string name="skip_automatically_once">한 번만 자동으로 건너뛰기</string>
+    <string name="skip_ignore">"아무것도 하지 않기"</string>
+    <string name="skip_showbutton">건너뛰기 버튼 표시하기</string>
+    <string name="skip_sponsor">구간 건너뛰기</string>
     <string name="stats">통계</string>
     <string name="stats_saved">"다른 분이 &lt;b&gt;%s&lt;/b&gt;개의 구간을 건너뛸 수 있게 해주셨습니다."</string>
     <string name="stats_saved_sum">"이는 &lt;b&gt;%s&lt;/b&gt;에 해당합니다. 리더보드를 보려면 클릭하세요."</string>
@@ -607,16 +612,16 @@
     <string name="stats_submissions">제출 횟수: &lt;b&gt;%s&lt;/b&gt;</string>
     <string name="stats_username">사용자 이름: &lt;b&gt;%s&lt;/b&gt;</string>
     <string name="stats_username_change">눌러서 사용자 이름 변경</string>
-    <string name="stats_username_change_unknown_error" formatted="false">사용자 이름을 변경하는 데 실패했습니다: 오류 내용: %d %s</string>
     <string name="stats_username_changed">사용자 이름이 성공적으로 변경되었습니다.</string>
+    <string name="stats_username_change_unknown_error" formatted="false">사용자 이름을 변경하는 데 실패했습니다: 오류 내용: %d %s</string>
     <string name="submit_failed_duplicate">"구간을 제출할 수 없습니다.
 이미 존재하는 구간입니다"</string>
     <string name="submit_failed_forbidden">"구간을 제출할 수 없습니다.
 
 %s"</string>
+    <string name="submit_failed_invalid">구간을 제출할 수 없습니다: %s</string>
     <string name="submit_failed_rate_limit">"구간을 제출할 수 없습니다.
 요청 속도가 제한되었습니다. (같은 사용자 또는 IP에서 너무 많이 요청했습니다)"</string>
-    <string name="submit_failed_invalid">구간을 제출할 수 없습니다: %s</string>
     <string name="submit_failed_unknown_error" formatted="false">구간 제출에 실패하였습니다: 오류 내용: %d %s</string>
     <string name="submit_started">구간 제출 중입니다...</string>
     <string name="submit_succeeded">구간이 성공적으로 제출되었습니다.</string>
