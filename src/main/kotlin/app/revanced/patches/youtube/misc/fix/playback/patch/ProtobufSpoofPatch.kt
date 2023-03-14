@@ -6,12 +6,14 @@ import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.data.toMethodWalker
-import app.revanced.patcher.extensions.addInstruction
+import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.instruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
+import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.youtube.misc.fix.playback.fingerprints.ProtobufParameterBuilderFingerprint
 
@@ -34,9 +36,16 @@ class ProtobufSpoofPatch : BytecodePatch(
                 val protobufParam = 3
                 val protobufParameter = "CgIQBg%3D%3D" /* Protobuf Parameter of X-Goog-Visitor-Id */
 
-                addInstruction(
+                addInstructions(
                     0,
-                    "const-string p$protobufParam, \"$protobufParameter\""
+                    """
+                        invoke-virtual { p$protobufParam }, Ljava/lang/String;->length()I
+                        move-result v0
+                        const/16 v1, 0x10
+                        if-ge v0, v1, :not_spoof
+                        const-string p$protobufParam, "$protobufParameter"
+                    """,
+                    listOf(ExternalLabel("not_spoof", instruction(0)))
                 )
             }
         } ?: return ProtobufParameterBuilderFingerprint.toErrorResult()
