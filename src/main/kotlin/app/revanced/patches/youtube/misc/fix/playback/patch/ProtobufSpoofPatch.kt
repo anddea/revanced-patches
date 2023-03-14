@@ -32,7 +32,7 @@ class ProtobufSpoofPatch : BytecodePatch(
                 .getMethod() as MutableMethod
             ) {
                 val protobufParam = 3
-                val protobufParameter = "8AEByAMTuAQP" /* Protobuf Parameter of shorts */
+                val protobufParameter = "CgIQBg%3D%3D" /* Protobuf Parameter of X-Goog-Visitor-Id */
 
                 addInstruction(
                     0,
