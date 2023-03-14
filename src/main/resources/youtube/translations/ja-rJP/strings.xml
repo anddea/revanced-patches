@@ -177,7 +177,10 @@
     <string name="revanced_disable_haptic_feedback_zoom_summary_off">動画をズームする時の振動フィードバックを無効にします</string>
     <string name="revanced_disable_haptic_feedback_zoom_summary_on">動画をズームする時の振動フィードバックを無効にします</string>
     <string name="revanced_disable_haptic_feedback_zoom_title">動画をズームする時の振動フィードバックを無効にする</string>
-    <string name="revanced_disable_quic_protocol_summary">"CronetEngineのQUICプロトコルを無効にします"</string>
+    <string name="revanced_disable_quic_protocol_summary">"QUICプロトコルとは Google によって開発された次世代プロトコルです。
+メリットは動画を読み込む時に動画が圧縮されて送信されるため、使用するデータ量を節約できます。
+デメリットは動画を読み込む時に圧縮された動画が解凍され、この過程で多少のラグが発生します。これが、YouTube の使用時にわずかなラグが発生する理由です。
+QUICプロトコルを無効にすることでラグをなくし、動画の読み込みを多少速くします。"</string>
     <string name="revanced_disable_quic_protocol_title">QUICプロトコルを無効にする</string>
     <string name="revanced_double_back_timeout_summary">ナビゲーションバーの戻るボタン(&lt;)を1回タップしてもう一度タップするまでの間隔を変更します。デフォルトでは1回戻るボタンを押してから1秒以内にもう一度戻るボタンを押すと、アプリが閉じます。</string>
     <string name="revanced_double_back_timeout_title">“戻る”を1回タップしてもう一度タップするまでの間隔</string>
@@ -481,7 +484,7 @@
     <string name="revanced_patches_information_summary">適用されたパッチに関する情報</string>
     <string name="revanced_player_flyout_panel_title">プレーヤー上の設定メニュー</string>
     <string name="revanced_player_layout">プレーヤーのレイアウト</string>
-    <string name="revanced_reboot_warning_general">"これはまだ実験的な機能なので、他にも未知のバグがあるかもしれません。
+    <string name="revanced_reboot_warning_general">"これはまだ実験的な機能であるため、他にも未知のバグがあるかもしれません。
 続行してもよろしいですか？"</string>
     <string name="revanced_reboot_warning_oldlayout">"古いレイアウトを有効にするために、YouTubeのバージョンをv17.28.35に偽装します。
 
@@ -491,7 +494,7 @@
 この設定を有効にすると、次の機能は利用できません:
 - アンビエントモード
 - コミュニティ投稿"</string>
-    <string name="revanced_reboot_warning_quic">インターネットの速度があまり速くない場合は使用しないことをおすすめします</string>
+    <string name="revanced_reboot_warning_quic">インターネットの速度があまり速くない場合は無効にしないことをおすすめします</string>
     <string name="revanced_reboot_warning_switch">"この設定を有効にすると、次の機能は使用できません:
 - アンビエントモード"</string>
     <string name="revanced_reboot_warning_tablet">"一部のレイアウトをタブレット用のレイアウトに変更するために dpi を偽装します。
