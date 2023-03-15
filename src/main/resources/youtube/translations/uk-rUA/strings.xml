@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="about_api">Цей застосунок використовує API з SponsorBlock</string>
+    <string name="about_api">Цей додаток використовує API з SponsorBlock</string>
     <string name="about_api_sum">Натисніть, щоб дізнатися більше, і побачити завантаження для інших платформ на: sponsor.ajay.app</string>
     <string name="about_madeby">Автор інтеграції - JakubWeg</string>
     <string name="accessibility_settings_edu_opt_in_text">Увімкнути спеціальні можливості для відеоплеєра?</string>
@@ -153,7 +153,7 @@
     <string name="revanced_adremover_web_search_panel_title">Вилучення панелі веб-пошуку</string>
     <string name="revanced_ads">Реклама</string>
     <string name="revanced_backup_summary">Імпортувати налаштування ReVanced з файлу або експортувати налаштування ReVanced до файлу</string>
-    <string name="revanced_bottom_player_layout">Стиль нижнього плеєра</string>
+    <string name="revanced_bottom_player_layout">Кнопки внизу плеєра</string>
     <string name="revanced_button_container_title">Контейнер кнопок</string>
     <string name="revanced_comments_title">Коментарі</string>
     <string name="revanced_copytimestamp_success">Мітку часу скопійовано в буфер обміну</string>
@@ -209,6 +209,8 @@
     <string name="revanced_enable_open_links_directly_title">Перенаправлення посилань через youtube.com/redirect</string>
     <string name="revanced_enable_phone_layout_summary">Підміняє DPI для використання інтерфейсу деяких телефонів</string>
     <string name="revanced_enable_phone_layout_title">Телефонний інтерфейс</string>
+    <string name="revanced_enable_protobuf_spoof_summary">Підмінити protobuf для запобігання проблем відтворення</string>
+    <string name="revanced_enable_protobuf_spoof_title">Увімкнути підміну protobuf</string>
     <string name="revanced_enable_press_to_swipe_summary_off">Керування жестами завжди увімкнено disabled</string>
     <string name="revanced_enable_press_to_swipe_summary_on">Керування жестами вимагає тривалого натискання перед використанням enabled</string>
     <string name="revanced_enable_press_to_swipe_title">Press-to-Swipe(Дотик для жесту)</string>
@@ -247,7 +249,7 @@
     <string name="revanced_enable_time_stamp_speed_summary_off">Додавання часових міток швидкості вимкнено</string>
     <string name="revanced_enable_time_stamp_speed_summary_on">Додавання часових міток швидкості ввімкнено</string>
     <string name="revanced_enable_time_stamp_speed_title">Увімкнути часові мітки швидкості</string>
-    <string name="revanced_enable_vp9_codec_summary">Спуфнути інформацію про пристрій, щоб увімкнути кодек VP9</string>
+    <string name="revanced_enable_vp9_codec_summary">Підробити інформацію про пристрій, щоб увімкнути кодек VP9</string>
     <string name="revanced_enable_vp9_codec_title">Увімкнути кодек VP9</string>
     <string name="revanced_enable_wide_searchbar_summary_off">Широка панель пошуку вимкнено</string>
     <string name="revanced_enable_wide_searchbar_summary_on">Широка панель пошуку увімкнено</string>
@@ -488,7 +490,7 @@
     <string name="revanced_reboot_warning_switch">"Якщо увімкнути це налаштування, наступні функції недоступні:
 - Розширений режим"</string>
     <string name="revanced_reboot_warning_tablet">"Обманює роздільну здатність, щоб змінити деякі елементи на елементи планшета.\n\nЯкщо ввімкнути це налаштування, такі функції будуть недоступні:\n - Фонове підсвічування\n - Публікації спільноти"</string>
-    <string name="revanced_reboot_warning_vp9">"Спуфати інформацію про пристрій для активації кодека VP9
+    <string name="revanced_reboot_warning_vp9">"Підробити інформацію про пристрій для активації кодека VP9
 
 Оскільки ці налаштування застаріли, можуть бути некоректними"</string>
     <string name="revanced_ryd_attribution_summary">Ця інтеграція використовує RYD API.\nНатисніть тут, щоб отримати більше інформації.</string>
@@ -508,6 +510,9 @@
     <string name="revanced_save_video_quality_wifi">Зміна якості відео для Wi-Fi мереж за замовчуванням на:</string>
     <string name="revanced_save_video_speed">Зміна швидкості відео за замовчуванням на:</string>
     <string name="revanced_seekbar_layout">Розмітка панелі прогресу</string>
+    <string name="revanced_spoofing_type_general">Підміна для загальних відео</string>
+    <string name="revanced_spoofing_type_shorts">Підміна для коротких відео</string>
+    <string name="revanced_spoofing_type_title">Вибрати protobuf для підміни</string>
     <string name="revanced_sponsorblock_settings_summary">Додаткові налаштування SponsorBlock</string>
     <string name="revanced_swipe_controls">Керування жестами</string>
     <string name="revanced_swipe_magnitude_threshold_summary">Мінімальна амплітуда руху, що розпізнається як жест</string>
