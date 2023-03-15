@@ -373,6 +373,10 @@
         <!-- SETTINGS: DOUBLE_BACK_TIMEOUT
         <ListPreference android:title="@string/revanced_double_back_timeout_title" android:summary="@string/revanced_double_back_timeout_summary" android:key="revanced_double_back_timeout" android:defaultValue="2" />SETTINGS: DOUBLE_BACK_TIMEOUT -->
 
+        <!-- SETTINGS: ENABLE_PROTOBUF_SPOOF
+        <SwitchPreference android:title="@string/revanced_enable_protobuf_spoof_title" android:key="revanced_enable_protobuf_spoof" android:defaultValue="false" android:summary="@string/revanced_enable_protobuf_spoof_summary" />
+        <SwitchPreference android:title="@string/revanced_spoofing_type_title" android:key="revanced_spoofing_type" android:defaultValue="false" android:summaryOn="@string/revanced_spoofing_type_shorts" android:summaryOff="@string/revanced_spoofing_type_general" android:dependency="revanced_enable_protobuf_spoof" />SETTINGS: ENABLE_PROTOBUF_SPOOF -->
+
         <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_experimental_flag" />
         <!-- SETTINGS: ENABLE_OLD_LAYOUT
         <SwitchPreference android:title="@string/revanced_enable_old_layout_title" android:key="revanced_enable_old_layout" android:defaultValue="false" android:summaryOn="@string/revanced_enable_old_layout_summary_on" android:summaryOff="@string/revanced_enable_old_layout_summary_off" />SETTINGS: ENABLE_OLD_LAYOUT -->
@@ -469,6 +473,7 @@
             <Preference android:title="enable-external-browser" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="enable-open-links-directly" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="enable-minimized-playback" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="protobuf-spoof" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="enable-old-layout" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="layout-switch" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="force-vp9-codec" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
