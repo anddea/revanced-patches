@@ -209,6 +209,9 @@
         <!-- SETTINGS: HIDE_FULLSCREEN_BUTTON_CONTAINER
         <SwitchPreference android:title="@string/revanced_hide_fullscreen_button_container_title" android:key="revanced_hide_fullscreen_button_container" android:defaultValue="false" android:summaryOn="@string/revanced_hide_fullscreen_button_container_summary_on" android:summaryOff="@string/revanced_hide_fullscreen_button_container_summary_off" />SETTINGS: HIDE_FULLSCREEN_BUTTON_CONTAINER -->
 
+        <!-- SETTINGS: HIDE_AUTOPLAY_PREVIEW
+        <SwitchPreference android:title="@string/revanced_hide_autoplay_preview_title" android:key="revanced_hide_autoplay_preview" android:defaultValue="false" android:summaryOn="@string/revanced_hide_autoplay_preview_summary_on" android:summaryOff="@string/revanced_hide_autoplay_preview_summary_off" />SETTINGS: HIDE_AUTOPLAY_PREVIEW -->
+
         <!-- SETTINGS: HIDE_ENDSCREEN_OVERLAY
         <SwitchPreference android:title="@string/revanced_hide_endscreen_overlay_title" android:key="revanced_hide_endscreen_overlay" android:defaultValue="false" android:summaryOn="@string/revanced_hide_endscreen_overlay_summary_on" android:summaryOff="@string/revanced_hide_endscreen_overlay_summary_off" />SETTINGS: HIDE_ENDSCREEN_OVERLAY -->
 
@@ -441,6 +444,7 @@
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_fullscreen_layout" />
             <Preference android:title="hide-fullscreen-panels" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-fullscreen-buttoncontainer" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="hide-autoplay-preview" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-endscreen-overlay" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-filmstrip-overlay" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="disable-haptic-feedback" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
