@@ -212,6 +212,8 @@
     <string name="revanced_enable_open_links_directly_title">直リンクを有効にする</string>
     <string name="revanced_enable_phone_layout_summary">一部のスマホ用のレイアウトを使用できるように dpi を偽装します</string>
     <string name="revanced_enable_phone_layout_title">スマートフォン用のレイアウトを有効にする</string>
+    <string name="revanced_enable_protobuf_spoof_summary">MicroGユーザー(非Rootユーザー)において、動画再生中にバッファリングして視聴出来なくなる問題を修正します(ベータ版、副作用あり)</string>
+    <string name="revanced_enable_protobuf_spoof_title">バッファリングの問題を回避する(β版)</string>
     <string name="revanced_enable_press_to_swipe_summary_off">スワイプコントロールを有効にします</string>
     <string name="revanced_enable_press_to_swipe_summary_on">スワイプコントロールを有効にします</string>
     <string name="revanced_enable_press_to_swipe_title">スワイプコントロールを有効にする</string>
@@ -519,6 +521,9 @@
     <string name="revanced_save_video_quality_wifi">Wi-Fi でのデフォルト画質:</string>
     <string name="revanced_save_video_speed">デフォルトの再生速度を変更:</string>
     <string name="revanced_seekbar_layout">再生バーのレイアウト</string>
+    <string name="revanced_spoofing_type_general">YouTubeショートを除く全ての動画</string>
+    <string name="revanced_spoofing_type_shorts">YouTubeショートの動画</string>
+    <string name="revanced_spoofing_type_title">バッファリングの問題を回避する動画を選択</string>
     <string name="revanced_sponsorblock_settings_summary">SponsorBlock関連の設定</string>
     <string name="revanced_swipe_controls">スワイプコントロール</string>
     <string name="revanced_swipe_magnitude_threshold_summary">スワイプのしきい値を設定します</string>
@@ -527,7 +532,7 @@
     <string name="revanced_swipe_overlay_background_alpha_title">オーバーレイの背景の透明度</string>
     <string name="revanced_swipe_overlay_text_size_summary">オーバーレイ上のテキストサイズを変更します</string>
     <string name="revanced_swipe_overlay_text_size_title">オーバーレイのテキストサイズ</string>
-    <string name="revanced_swipe_overlay_timeout_summary">変更後にオーバーレイが表示される時間 (単位: ミリ秒)</string>
+    <string name="revanced_swipe_overlay_timeout_summary">オーバーレイが表示される時間 (単位: ミリ秒)</string>
     <string name="revanced_swipe_overlay_timeout_title">オーバーレイのタイムアウト</string>
     <string name="revanced_switching_create_notification_summary_off">下のタブバーで、作成ボタンを通知ボタンに置き換えます</string>
     <string name="revanced_switching_create_notification_summary_on">下のタブバーで、作成ボタンを通知ボタンに置き換えます</string>
