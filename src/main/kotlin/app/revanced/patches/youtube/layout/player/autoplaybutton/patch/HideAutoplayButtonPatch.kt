@@ -38,13 +38,13 @@ import org.jf.dexlib2.iface.reference.MethodReference
 @Version("0.0.1")
 class HideAutoplayButtonPatch : BytecodePatch(
     listOf(
-            LayoutConstructorFingerprint
+        LayoutConstructorFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
         // resolve the offsets such as ...
-        val autoNavPreviewStubId = ResourceMappingPatch.resourceMappings.single {
-            it.name == "autonav_preview_stub"
+        val autoNavToggleId = ResourceMappingPatch.resourceMappings.single {
+            it.type == "id" && it.name == "autonav_toggle"
         }.id
 
         LayoutConstructorFingerprint.result?.mutableMethod?.let { method ->
@@ -57,7 +57,7 @@ class HideAutoplayButtonPatch : BytecodePatch(
 
                 // where to insert the branch instructions and ...
                 val insertIndex = this.indexOfFirst {
-                    (it as? WideLiteralInstruction)?.wideLiteral == autoNavPreviewStubId
+                    (it as? WideLiteralInstruction)?.wideLiteral == autoNavToggleId
                 }
                 // where to branch away
                 val branchIndex = this.subList(insertIndex + 1, this.size - 1).indexOfFirst {
