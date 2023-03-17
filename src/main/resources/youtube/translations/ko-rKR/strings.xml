@@ -210,7 +210,7 @@
     <string name="revanced_enable_open_links_directly_title">리다이렉션 없이 링크 바로 열기</string>
     <string name="revanced_enable_phone_layout_summary">dpi를 속여 일부 레이아웃을 휴대폰 레이아웃으로 변경합니다.</string>
     <string name="revanced_enable_phone_layout_title">휴대폰 레이아웃 활성화하기</string>
-    <string name="revanced_enable_protobuf_spoof_summary">프로토콜 버퍼를 속여 재생 문제 방지합니다.</string>
+    <string name="revanced_enable_protobuf_spoof_summary">프로토콜 버퍼를 속여 재생 문제를 방지합니다.</string>
     <string name="revanced_enable_protobuf_spoof_title">프로토콜 버퍼 속이기 활성화하기</string>
     <string name="revanced_enable_press_to_swipe_summary_off">눌러서 스와이프 제스처를 활성화 하지 않습니다.</string>
     <string name="revanced_enable_press_to_swipe_summary_on">눌러서 스와이프 제스처를 활성화합니다.</string>
@@ -492,6 +492,15 @@
 이 설정을 활성화하면 다음 기능을 사용할 수 있습니다.
 - 영화 조명
 - 커뮤니티 게시글"</string>
+    <string name="revanced_reboot_warning_protobuf">"프로토콜 버퍼를 속여 재생 문제를 방지합니다.
+
+이 설정을 활성화하면 다음 기능을 사용할 수 없습니다.
+
+일반 동영상으로 속일 경우
+- 재생바를 누를 때 썸네일 표시가 안 됩니다.
+
+쇼츠 동영상으로 속일 경우
+- 자막이 플레이어 위쪽에 위치합니다."</string>
     <string name="revanced_reboot_warning_quic">인터넷 속도가 충분히 빠르지 않으면 사용하지 않는 것을 권장합니다.</string>
     <string name="revanced_reboot_warning_switch">"이 설정을 활성화하면 다음 기능을 사용할 수 없습니다.
 - 영화 조명"</string>
@@ -520,9 +529,9 @@
     <string name="revanced_save_video_quality_wifi">Wi-Fi 연결 시 기본 영상 화질 설정:</string>
     <string name="revanced_save_video_speed">기본 재생 속도 설정:</string>
     <string name="revanced_seekbar_layout">재생바 레이아웃</string>
-    <string name="revanced_spoofing_type_general">일반 동영상으로 속이기</string>
-    <string name="revanced_spoofing_type_shorts">쇼츠 동영상으로 속이기</string>
-    <string name="revanced_spoofing_type_title">속이기 위한 프로토콜 버퍼 선택하기</string>
+    <string name="revanced_spoofing_type_general">일반 동영상으로 속입니다.</string>
+    <string name="revanced_spoofing_type_shorts">쇼츠 동영상으로 속입니다.</string>
+    <string name="revanced_spoofing_type_title">속이기 할 프로토콜 버퍼 선택하기</string>
     <string name="revanced_sponsorblock_settings_summary">SponsorBlock 관련 설정입니다.</string>
     <string name="revanced_swipe_controls">스와이프 제스처</string>
     <string name="revanced_swipe_magnitude_threshold_summary">제스처 인식을 위해 얼마나 스와이프를 해야 할지를 설정할 수 있으며, 원하지 않은 제스처 인식을 방지합니다.</string>

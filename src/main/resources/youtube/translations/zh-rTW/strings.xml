@@ -154,7 +154,7 @@
     <string name="revanced_adremover_web_search_panel_title">隱藏網頁搜索面板</string>
     <string name="revanced_ads">廣告</string>
     <string name="revanced_backup_summary">自檔案匯入 ReVanced 設定，或匯出 ReVanced 設定至檔案</string>
-    <string name="revanced_bottom_player_layout">迷你播放器設置</string>
+    <string name="revanced_bottom_player_layout">預覽播放器設置</string>
     <string name="revanced_button_container_title">功能按鈕欄</string>
     <string name="revanced_comments_title">留言</string>
     <string name="revanced_copytimestamp_success">時間戳已復製到剪貼簿</string>
@@ -175,6 +175,8 @@
     <string name="revanced_disable_haptic_feedback_zoom_summary_off">縮放(震動)反饋已啟用</string>
     <string name="revanced_disable_haptic_feedback_zoom_summary_on">縮放(震動)反饋已禁用</string>
     <string name="revanced_disable_haptic_feedback_zoom_title">禁用縮放(震動)反饋</string>
+    <string name="revanced_disable_quic_protocol_summary">"禁用 CronetEngine 的 QUIC 協議"</string>
+    <string name="revanced_disable_quic_protocol_title">禁用 QUIC 協議</string>
     <string name="revanced_double_back_timeout_summary">雙擊返回退出的時間（秒）</string>
     <string name="revanced_double_back_timeout_title">雙擊間隔時間判別</string>
     <string name="revanced_downloader_not_installed">尚未安裝。請先安裝</string>
@@ -208,6 +210,10 @@
     <string name="revanced_enable_open_links_directly_title">啟用直接開啟連結</string>
     <string name="revanced_enable_phone_layout_summary">欺騙Dpi以使用一些手機佈局</string>
     <string name="revanced_enable_phone_layout_title">啟用手機佈局</string>
+    <string name="revanced_enable_protobuf_spoof_summary">取消 protobuf 以防止播放問題
+註:當你觀看影片時遇到無限緩衝問題,再開啟此設定
+否則請保持此設定關閉</string>
+    <string name="revanced_enable_protobuf_spoof_title">啟用取消 protobuf</string>
     <string name="revanced_enable_press_to_swipe_summary_off">長按以滑動已停用</string>
     <string name="revanced_enable_press_to_swipe_summary_on">長按以滑動已啟用</string>
     <string name="revanced_enable_press_to_swipe_title">長按以滑動</string>
@@ -243,6 +249,9 @@
     <string name="revanced_enable_tablet_miniplayer_summary_off">平板迷你播放器已停用</string>
     <string name="revanced_enable_tablet_miniplayer_summary_on">平板迷你播放器已啟用</string>
     <string name="revanced_enable_tablet_miniplayer_title">平板迷你播放器</string>
+    <string name="revanced_enable_time_stamp_speed_summary_off">時間軸右側的倍速顯示已禁用</string>
+    <string name="revanced_enable_time_stamp_speed_summary_on">時間軸右側的倍速顯示已啟用</string>
+    <string name="revanced_enable_time_stamp_speed_title">啟用時間軸右側的倍速顯示</string>
     <string name="revanced_enable_vp9_codec_summary">修改裝置訊息以啟用 VP9 解碼器</string>
     <string name="revanced_enable_vp9_codec_title">啟用 VP9 解碼器</string>
     <string name="revanced_enable_wide_searchbar_summary_off">寬搜尋欄已停用</string>
@@ -484,6 +493,7 @@
 如果啟用此設置，則以下功能可用：
 - 社群貼文
 - 隱藏我的合輯"</string>
+    <string name="revanced_reboot_warning_quic">建議在網速夠快的情況下再開啟此設置</string>
     <string name="revanced_reboot_warning_switch">"若你啟用此設定, 以下功能將失去作用:
 - 微光模式"</string>
     <string name="revanced_reboot_warning_tablet">"欺騙Dpi讓一些佈局更改為平板模式的佈局
@@ -512,6 +522,9 @@
     <string name="revanced_save_video_quality_wifi">將預設 Wi-Fi 品質更改為：</string>
     <string name="revanced_save_video_speed">將預設播放速度更改為：</string>
     <string name="revanced_seekbar_layout">搜尋欄佈局設置</string>
+    <string name="revanced_spoofing_type_general">一般影片</string>
+    <string name="revanced_spoofing_type_shorts">Shorts 影片</string>
+    <string name="revanced_spoofing_type_title">選擇欲 protobuf 的影片類型</string>
     <string name="revanced_sponsorblock_settings_summary">SponsorBlock 相關設定</string>
     <string name="revanced_swipe_controls">滑動控制</string>
     <string name="revanced_swipe_magnitude_threshold_summary">滑動時調整的數值量</string>
@@ -522,7 +535,12 @@
     <string name="revanced_swipe_overlay_text_size_title">設定畫面的文字大小</string>
     <string name="revanced_swipe_overlay_timeout_summary">設定畫面的顯示時間(毫秒)</string>
     <string name="revanced_swipe_overlay_timeout_title">設定畫面的顯示時間</string>
+    <string name="revanced_switching_create_notification_summary_off">創建按鈕和通知按鈕未切換</string>
+    <string name="revanced_switching_create_notification_summary_on">創建按鈕和通知按鈕已切換</string>
+    <string name="revanced_switching_create_notification_title">切換創建按鈕和通知按鈕</string>
     <string name="revanced_tool_used">使用的工具</string>
+    <string name="revanced_vertical_video_restrictions_summary">偽裝設備信息以解除垂直影片的解析度限制</string>
+    <string name="revanced_vertical_video_restrictions_title">解除垂直影片的解析度限制</string>
     <string name="revanced_video">影片</string>
     <string name="revanced_video_ads_removal_summary_off">影片廣告已顯示</string>
     <string name="revanced_video_ads_removal_summary_on">影片廣告已隱藏</string>
