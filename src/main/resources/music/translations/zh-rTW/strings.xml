@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="revanced_category_ads">廣告</string>
-    <string name="revanced_category_design">版面</string>
+    <string name="revanced_category_ads">廣告設置</string>
+    <string name="revanced_category_design">播放器介面</string>
     <string name="revanced_category_listening">音樂</string>
-    <string name="revanced_category_navigation">導覽列</string>
+    <string name="revanced_category_navigation">主頁面</string>
+    <string name="revanced_disable_auto_captions_summary">禁用在播放器中被強制啟用的字幕</string>
+    <string name="revanced_disable_auto_captions_title">停用自動字幕</string>
     <string name="revanced_enable_black_navbar_summary">將導航欄設成黑色</string>
     <string name="revanced_enable_black_navbar_title">啟用黑色導航欄</string>
     <string name="revanced_enable_color_match_player_summary">讓播放列顏色和全螢幕播放器一致</string>
-    <string name="revanced_enable_color_match_player_title">與播放器顏色一致</string>
+    <string name="revanced_enable_color_match_player_title">播放列顏色</string>
     <string name="revanced_enable_force_minimized_player_summary">切歌時維持迷你播放器狀態</string>
-    <string name="revanced_enable_force_minimized_player_title">切歌時最小化播放器</string>
+    <string name="revanced_enable_force_minimized_player_title">切歌時維持迷你播放器</string>
     <string name="revanced_enable_force_shuffle_summary">"即使播放另一首曲目，也啟用強制隨機播放。
-（在加拿大不可用）"</string>
+(在加拿大不可用)"</string>
     <string name="revanced_enable_force_shuffle_title">強制隨機播放</string>
-    <string name="revanced_enable_opus_codec_summary">"永久保留 250/251 opus 編解碼器
+    <string name="revanced_enable_opus_codec_summary">"使用 250/251 opus 編解碼器播放音樂
  (需要重新啟動程式)"</string>
     <string name="revanced_enable_opus_codec_title">解碼器覆寫</string>
     <string name="revanced_enable_tablet_mode_summary">"啟用橫向模式
@@ -26,7 +28,10 @@
     <string name="revanced_hide_compact_header_summary">"隱藏位於主畫面上方的音樂主題分類欄
 (需要重新啟動程式)"</string>
     <string name="revanced_hide_compact_header_title">音樂主題分類欄</string>
-    <string name="revanced_hide_music_ads_summary">"隱藏在歌曲播放前的廣告
+    <string name="revanced_hide_music_ads_summary">"隱藏歌曲播放前的廣告
  (需要重新啟動程式)"</string>
-    <string name="revanced_hide_music_ads_title">隱藏廣告</string>
+    <string name="revanced_hide_music_ads_title">隱藏廣告 --唐懂翻譯</string>
+    <string name="revanced_hide_playlist_card_summary">"隱藏在主頁面的推薦播放清單
+(需要重新啟動應用)"</string>
+    <string name="revanced_hide_playlist_card_title">隱藏播放清單</string>
 </resources>
