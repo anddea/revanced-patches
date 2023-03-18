@@ -154,7 +154,7 @@ Est-il prêt à être soumis?"</string>
     <string name="revanced_adremover_web_search_panel_title">Les panneaux de recherche web</string>
     <string name="revanced_ads">Les publicités</string>
     <string name="revanced_backup_summary">Importer les paramètres ReVanced à partir d\'un fichier ou exporter les paramètres ReVanced vers un fichier</string>
-    <string name="revanced_bottom_player_layout">Mise en page en bas de la vidéo</string>
+    <string name="revanced_bottom_player_layout">Les boutons en bas de la vidéo</string>
     <string name="revanced_button_container_title">Conteneur de bouton</string>
     <string name="revanced_comments_title">Les commentaires</string>
     <string name="revanced_copytimestamp_success">Le texte horodateur a été copié dans le presse-papiers</string>
@@ -260,13 +260,16 @@ Est-il prêt à être soumis?"</string>
     <string name="revanced_export_settings_title">Paramètres d\'exportation</string>
     <string name="revanced_extended_support_center_summary">Signaler des problèmes ou laisser des suggestions ici</string>
     <string name="revanced_extended_support_center_title">Centre d\'aide</string>
-    <string name="revanced_flyout_menu_layout">Mise en page du menu \"paramètre\" des vidéos</string>
-    <string name="revanced_fullscreen_layout">Mise en page plein écran</string>
+    <string name="revanced_flyout_menu_layout">Menu \"paramètre\" des vidéos</string>
+    <string name="revanced_fullscreen_layout">Les boutons en plein écran</string>
     <string name="revanced_general_layout">Mise en page générale</string>
     <string name="revanced_haptic_feedback_title">Retour haptique</string>
     <string name="revanced_hide_autoplay_button_summary_off">Le bouton de \"Lecture automatique\" est affiché</string>
     <string name="revanced_hide_autoplay_button_summary_on">Le bouton de \"Lecture automatique\" est caché</string>
     <string name="revanced_hide_autoplay_button_title">Le bouton de \"Lecture automatique\"</string>
+    <string name="revanced_hide_autoplay_preview_summary_off">Le conteneur de prévisualisation de la lecture automatique est affiché</string>
+    <string name="revanced_hide_autoplay_preview_summary_on">Le conteneur de prévisualisation de la lecture automatique est caché</string>
+    <string name="revanced_hide_autoplay_preview_title">Le conteneur de prévisualisation de la lecture automatique</string>
     <string name="revanced_hide_auto_captions_summary_off">Les sous-titres sont activés lors de la lecture d’une vidéo avec le sous-titrage</string>
     <string name="revanced_hide_auto_captions_summary_on">"Les sous-titres sont désactivés lors de la lecture d’une vidéo avec le sous-titrage"</string>
     <string name="revanced_hide_auto_captions_title">Les sous-titres automatiques</string>
@@ -327,6 +330,9 @@ Est-il prêt à être soumis?"</string>
     <string name="revanced_hide_email_address_summary_off">L\'adresse e-mail est affichée</string>
     <string name="revanced_hide_email_address_summary_on">L\'adresse e-mail est cachée</string>
     <string name="revanced_hide_email_address_title">L\'adresse e-mail</string>
+    <string name="revanced_hide_emoji_picker_summary_off">Le sélecteur d\'émoji est affiché</string>
+    <string name="revanced_hide_emoji_picker_summary_on">Le sélecteur d\'émoji est caché</string>
+    <string name="revanced_hide_emoji_picker_title">Sélecteur d\'emoji</string>
     <string name="revanced_hide_endscreen_cards_summary_off">Les vidéos suggérées à la fin d\'une vidéo sont affichés</string>
     <string name="revanced_hide_endscreen_cards_summary_on">Les vidéos suggérées à la fin d\'une vidéo sont cachées</string>
     <string name="revanced_hide_endscreen_cards_title">Les vidéos suggérés à la fin d\'une vidéo</string>
@@ -454,7 +460,7 @@ Est-il prêt à être soumis?"</string>
     <string name="revanced_import_settings_title">Paramétrages d’importation</string>
     <string name="revanced_misc">Autres paramètres</string>
     <string name="revanced_others">Autres</string>
-    <string name="revanced_overlay_button">Paramètres des boutons rapides</string>
+    <string name="revanced_overlay_button">Les boutons rapides</string>
     <string name="revanced_overlay_button_auto_repeat_summary_off">Le bouton de \"Répétition automatique\" est caché</string>
     <string name="revanced_overlay_button_auto_repeat_summary_on">Le bouton de \"Repétition automatique\" est affiché</string>
     <string name="revanced_overlay_button_auto_repeat_title">Le bouton de \"Répétition automatique\"</string>
@@ -480,13 +486,24 @@ Est-il prêt à être soumis?"</string>
     <string name="revanced_patches_information">Informations sur les correctifs</string>
     <string name="revanced_patches_information_summary">Informations sur les correctifs appliqués</string>
     <string name="revanced_player_flyout_panel_title">Les boutons du menu \"paramètre\" des vidéos</string>
-    <string name="revanced_player_layout">Boutons du lecteur vidéo</string>
+    <string name="revanced_player_layout">Les boutons du lecteur vidéo</string>
     <string name="revanced_reboot_warning_general">"Comme il s’agit toujours d’un élément expérimental, il peut y avoir d’autres questions inconnues. Êtes-vous sûr de vouloir continuer?"</string>
     <string name="revanced_reboot_warning_oldlayout">"Change la version YouTube en v17.28.35 pour charger l'ancienne mise en page"</string>
     <string name="revanced_reboot_warning_phone">"Aide le dpi à modifier certaines dispositions de téléphone. Si vous activez ce paramètre, les fonctionnalités suivantes sont disponibles:
 
  - Publications communautaires 
  - Masquer la liste de lecture Mix"</string>
+    <string name="revanced_reboot_warning_protobuf">"Modifier le Protocol Buffers pour contourner les problèmes de lecture
+
+Si vous activez ce paramètre, les fonctionnalités suivantes ne sont pas disponibles :
+
+Lors de la modification d'une vidéo
+
+N'affiche pas les vignettes lors de l'appui sur la barre de recherche
+
+Lors de la modification des Shorts
+
+Les sous-titres sont positionnés au-dessus du lecteur"</string>
     <string name="revanced_reboot_warning_quic">Il est recommandé de ne pas l\'utiliser si votre vitesse Internet n\'est pas assez rapide (Désactiver le protocole QUIC peut aider a résoudre des problème de qualité vidéo, mais peut aussi ralentir le temps de réaction de l\'appli et la vitesse de chargement de celle-ci)</string>
     <string name="revanced_reboot_warning_switch">"Si vous activez ce paramètre, les fonctionnalités suivantes ne sont pas disponibles :
 - Mode Ambient"</string>
@@ -513,7 +530,9 @@ Comme ces paramètres sont abandonnées, ils peuvent ne pas être valides"</stri
     <string name="revanced_save_video_quality_none">Échec de la définition de qualité</string>
     <string name="revanced_save_video_quality_wifi">Changer la qualité Wi-Fi par défaut en :</string>
     <string name="revanced_save_video_speed">Changer la vitesse par défaut en :</string>
-    <string name="revanced_seekbar_layout">Mise en page de la barre de progression et la durée de la vidéo</string>
+    <string name="revanced_seekbar_layout">Barre de progression et durée de la vidéo</string>
+    <string name="revanced_show_fullscreen_title_summary">Problème connu : le titre disparaît lorsqu\'on clique dessus</string>
+    <string name="revanced_show_fullscreen_title_title">Le titre en plein écran</string>
     <string name="revanced_spoofing_type_general">Le Protocol Buffers modifie les vidéos pour résoudre les problèmes de lecture</string>
     <string name="revanced_spoofing_type_shorts">Le Protocol Buffers modifie les Shorts pour résoudre les problèmes de lecture</string>
     <string name="revanced_spoofing_type_title">Ce que doit modifier le Protocol Buffers</string>
@@ -532,7 +551,7 @@ Comme ces paramètres sont abandonnées, ils peuvent ne pas être valides"</stri
     <string name="revanced_switching_create_notification_title">Inversion des boutons \"Créer\" et \"Notification\"</string>
     <string name="revanced_tool_used">Outil utilisé</string>
     <string name="revanced_vertical_video_restrictions_summary">La simulation des informations de l\'appareil pour contourner les restrictions de résolution pour les vidéos en verticales</string>
-    <string name="revanced_vertical_video_restrictions_title">Restrictions de résolution sur les vidéos en verticales</string>
+    <string name="revanced_vertical_video_restrictions_title">Restrictions de résolution sur les vidéos</string>
     <string name="revanced_video">Vidéo </string>
     <string name="revanced_video_ads_removal_summary_off">Les publicités vidéo sont affichées</string>
     <string name="revanced_video_ads_removal_summary_on">Les publicités vidéo sont cachées</string>

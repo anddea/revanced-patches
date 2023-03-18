@@ -269,6 +269,9 @@
     <string name="revanced_hide_autoplay_button_summary_off">自動再生ボタンを非表示にします</string>
     <string name="revanced_hide_autoplay_button_summary_on">自動再生ボタンを非表示にします</string>
     <string name="revanced_hide_autoplay_button_title">自動再生ボタンを非表示にする</string>
+    <string name="revanced_hide_autoplay_preview_summary_off">全画面表示で動画の最後に左上に表示される次の動画を非表示にします</string>
+    <string name="revanced_hide_autoplay_preview_summary_on">全画面表示で動画の最後に左上に表示される次の動画を非表示にします</string>
+    <string name="revanced_hide_autoplay_preview_title">自動再生プレビューを非表示にする</string>
     <string name="revanced_hide_auto_captions_summary_off">強制字幕表示が自動的に有効になるのを防ぎます</string>
     <string name="revanced_hide_auto_captions_summary_on">"強制字幕表示が自動的に有効になるのを防ぎます"</string>
     <string name="revanced_hide_auto_captions_title">自動で字幕が表示されるのを無効にする</string>
@@ -329,6 +332,9 @@
     <string name="revanced_hide_email_address_summary_off">アカウントの切り替え画面でメールアドレスを非表示にします</string>
     <string name="revanced_hide_email_address_summary_on">アカウントの切り替え画面でメールアドレスを非表示にします</string>
     <string name="revanced_hide_email_address_title">メールアドレスを非表示にする</string>
+    <string name="revanced_hide_emoji_picker_summary_off">コメントを書く際にキーボードの上部に表示される絵文字バーを非表示にします</string>
+    <string name="revanced_hide_emoji_picker_summary_on">コメントを書く際にキーボードの上部に表示される絵文字バーを非表示にします</string>
+    <string name="revanced_hide_emoji_picker_title">絵文字バーを非表示にする</string>
     <string name="revanced_hide_endscreen_cards_summary_off">全画面表示で動画の最後に表示されるおすすめの動画を非表示にします</string>
     <string name="revanced_hide_endscreen_cards_summary_on">全画面表示で動画の最後に表示されるおすすめの動画を非表示にします</string>
     <string name="revanced_hide_endscreen_cards_title">終了画面のカードを非表示にする</string>
@@ -493,6 +499,14 @@
 この設定を有効にすると、次の機能は利用できません:
 - アンビエントモード
 - コミュニティ投稿"</string>
+    <string name="revanced_reboot_warning_protobuf">"動画再生中に発生するバッファリングの問題を修正します
+この設定を有効にすると、以下のバグが発生します
+
+YouTubeショート以外の動画
+- 再生バー(進捗バー)をタップしても映写スライドは表示されません
+
+YouTubeショート
+- 字幕が動画の上部に表示されます"</string>
     <string name="revanced_reboot_warning_quic">インターネットの速度があまり速くない場合は無効にしないことをおすすめします</string>
     <string name="revanced_reboot_warning_switch">"この設定を有効にすると、次の機能は使用できません:
 - アンビエントモード"</string>
@@ -521,6 +535,9 @@
     <string name="revanced_save_video_quality_wifi">Wi-Fi でのデフォルト画質:</string>
     <string name="revanced_save_video_speed">デフォルトの再生速度を変更:</string>
     <string name="revanced_seekbar_layout">再生バーのレイアウト</string>
+    <string name="revanced_show_fullscreen_title_summary">全画面表示で左上に動画のタイトルを表示します
+(既知の問題: タイトルをタップしてもなにも起こりません)</string>
+    <string name="revanced_show_fullscreen_title_title">全画面表示で動画のタイトルを表示する</string>
     <string name="revanced_spoofing_type_general">YouTubeショートを除く全ての動画</string>
     <string name="revanced_spoofing_type_shorts">YouTubeショートの動画</string>
     <string name="revanced_spoofing_type_title">バッファリングの問題を回避する動画を選択</string>

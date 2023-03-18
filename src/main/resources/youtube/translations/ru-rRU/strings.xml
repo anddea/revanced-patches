@@ -267,6 +267,9 @@
     <string name="revanced_hide_autoplay_button_summary_off">Кнопка \"Автовоспроизведение\" отображена</string>
     <string name="revanced_hide_autoplay_button_summary_on">Кнопка \"Автовоспроизведение\" скрыта</string>
     <string name="revanced_hide_autoplay_button_title">Автовоспроизведение</string>
+    <string name="revanced_hide_autoplay_preview_summary_off">Автовоспроизведение просмотра включено</string>
+    <string name="revanced_hide_autoplay_preview_summary_on">Автовоспроизведение просмотра отключено</string>
+    <string name="revanced_hide_autoplay_preview_title">Автовоспроизведение просмотра</string>
     <string name="revanced_hide_auto_captions_summary_off">Автоматические субтитры включены</string>
     <string name="revanced_hide_auto_captions_summary_on">"Автоматические субтитры отключены"</string>
     <string name="revanced_hide_auto_captions_title">Автоматические субтитры</string>
@@ -485,6 +488,13 @@
     <string name="revanced_reboot_warning_oldlayout">"Подменяет версию клиента YouTube на v17.28.35 для использования \"старого интерфейса\".\nВ настройках приложения версия YouTube может отображаться как v17.28.35."</string>
     <string name="revanced_reboot_warning_phone">"Подменяет DPI для изменения некоторых элементов интерфейса на \"Телефонный\".\n
 Если этот параметр включен, следующие функции будут недоступны:\n• \"Сообщения сообщества\"\n• Скрытие плейлиста \"Джем\""</string>
+    <string name="revanced_reboot_warning_protobuf">"Опция предназначена для обхода проблем с воспроизведением
+
+При использовании данной опции следующие функции будут недоступны:
+
+При подмене буфера протокола для общего видео:\n• Миниатюры при перемотке нажатием\n• Покадровая лента при перемотке нажатием
+
+При подмене буфера протокола для \"Shorts\":\n• Надписи располагаются над плеером"</string>
     <string name="revanced_reboot_warning_quic">Не рекомендуется использовать, если скорость Вашего интернета недостаточно высока</string>
     <string name="revanced_reboot_warning_switch">"Если этот параметр включен, следующие функции будут недоступны:\n• \"Фоновая подстветка\""</string>
     <string name="revanced_reboot_warning_tablet">"Подменяет DPI для изменения некоторых элементов интерфейса на \"Планшетный\".\nЕсли этот параметр включен, следующие функции будут недоступны:\n• \"Фоновая подстветка\"\n• \"Сообщения сообщества\""</string>
@@ -506,9 +516,11 @@
     <string name="revanced_save_video_quality_wifi">Изменение качества видео для Wi-Fi сетей на:</string>
     <string name="revanced_save_video_speed">Измененить скорость воспроизведения на:</string>
     <string name="revanced_seekbar_layout">Прогресс воспроизведения</string>
-    <string name="revanced_spoofing_type_general">Подмена на обычное видео</string>
-    <string name="revanced_spoofing_type_shorts">Подмена на видео \"Shorts\"</string>
-    <string name="revanced_spoofing_type_title">Выберите протобуф для подмены</string>
+    <string name="revanced_show_fullscreen_title_summary">Известная проблема: заголовок исчезает при нажатии</string>
+    <string name="revanced_show_fullscreen_title_title">Полноэкранный заголовок</string>
+    <string name="revanced_spoofing_type_general">Подмена буфера протокола для обычных видео</string>
+    <string name="revanced_spoofing_type_shorts">Подмена буфера протокола для \"Shorts\" видео</string>
+    <string name="revanced_spoofing_type_title">Тип подмены буфера протокола</string>
     <string name="revanced_sponsorblock_settings_summary">Настройки опции блокировки спонсорской рекламы (SponsorBlock)</string>
     <string name="revanced_swipe_controls">Жесты</string>
     <string name="revanced_swipe_magnitude_threshold_summary">Минимальная амплитуда движения, распознаваемого как жест</string>
