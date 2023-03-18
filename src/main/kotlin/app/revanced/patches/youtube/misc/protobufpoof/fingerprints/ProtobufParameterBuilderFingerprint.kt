@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.misc.fix.playback.fingerprints
+package app.revanced.patches.youtube.misc.protobufpoof.fingerprints
 
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import org.jf.dexlib2.Opcode

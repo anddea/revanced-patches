@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.misc.fix.playback.patch
+package app.revanced.patches.youtube.misc.protobufpoof.patch
 
 import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
@@ -14,7 +14,7 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
-import app.revanced.patches.youtube.misc.fix.playback.fingerprints.ProtobufParameterBuilderFingerprint
+import app.revanced.patches.youtube.misc.protobufpoof.fingerprints.ProtobufParameterBuilderFingerprint
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
 import app.revanced.util.integrations.Constants.MISC_PATH
 
