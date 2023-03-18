@@ -175,6 +175,8 @@ Gönderilmeye hazır mı?"</string>
     <string name="revanced_disable_haptic_feedback_zoom_summary_off">Dokunsal yakınlaştırma geri bildirimi etkinleştirildi</string>
     <string name="revanced_disable_haptic_feedback_zoom_summary_on">Dokunsal yakınlaştırma geri bildirimi devre dışı</string>
     <string name="revanced_disable_haptic_feedback_zoom_title">Dokunsal yakınlaştırma geri bildirimi</string>
+    <string name="revanced_disable_quic_protocol_summary">"CronetEngine'in QUIC protokolünü devre dışı bırakın"</string>
+    <string name="revanced_disable_quic_protocol_title">QUIC protokolünü devre dışı bırakın</string>
     <string name="revanced_double_back_timeout_summary">Çıkmak için geriye çift basmanın saniye miktarı</string>
     <string name="revanced_double_back_timeout_title">Çift geri basma zaman aşımı</string>
     <string name="revanced_downloader_not_installed">kurulmamış. Lütfen önce indiriniz.</string>
@@ -208,6 +210,8 @@ Gönderilmeye hazır mı?"</string>
     <string name="revanced_enable_open_links_directly_title">Bağlantıları direkt açmayı etkinleştir</string>
     <string name="revanced_enable_phone_layout_summary">Bazı telefon düzenlerini kullanmak için dpi\'yi kandırır</string>
     <string name="revanced_enable_phone_layout_title">Telefon düzenini Etkinleştir</string>
+    <string name="revanced_enable_protobuf_spoof_summary">Oynatma sorunlarını önlemek için protobuf\'u taklit eder</string>
+    <string name="revanced_enable_protobuf_spoof_title">Etkinleştir</string>
     <string name="revanced_enable_press_to_swipe_summary_off">Basılı-tut-kaydır devre dışı</string>
     <string name="revanced_enable_press_to_swipe_summary_on">Basılı-tut-kaydır etkin</string>
     <string name="revanced_enable_press_to_swipe_title">Basılı tut ve kaydır</string>
@@ -263,6 +267,9 @@ Gönderilmeye hazır mı?"</string>
     <string name="revanced_hide_autoplay_button_summary_off">Gizlenmiyor</string>
     <string name="revanced_hide_autoplay_button_summary_on">Gizlendi</string>
     <string name="revanced_hide_autoplay_button_title">\"Otomatik oynat\" butonunu gizle</string>
+    <string name="revanced_hide_autoplay_preview_summary_off">Gizlenmiyor</string>
+    <string name="revanced_hide_autoplay_preview_summary_on">Gizleniyor</string>
+    <string name="revanced_hide_autoplay_preview_title">Otomatik oynatma düğme kapsayıcısını gizle</string>
     <string name="revanced_hide_auto_captions_summary_off">Altyazılı bir video oynatılırken altyazılar etkinleştirildi</string>
     <string name="revanced_hide_auto_captions_summary_on">"Altyazılı bir video oynatılırken altyazılar etkinleştirilmedi"</string>
     <string name="revanced_hide_auto_captions_title">Otomatik altyazıları gizle</string>
@@ -323,6 +330,9 @@ Gönderilmeye hazır mı?"</string>
     <string name="revanced_hide_email_address_summary_off">Gizlenmiyor</string>
     <string name="revanced_hide_email_address_summary_on">Gizleniyor</string>
     <string name="revanced_hide_email_address_title">Email adresini sakla</string>
+    <string name="revanced_hide_emoji_picker_summary_off">Gizlenmiyor</string>
+    <string name="revanced_hide_emoji_picker_summary_on">Gizleniyor</string>
+    <string name="revanced_hide_emoji_picker_title">Emoji seçiciyi gizle</string>
     <string name="revanced_hide_endscreen_cards_summary_off">Gizlenmiyor</string>
     <string name="revanced_hide_endscreen_cards_summary_on">Gizleniyor</string>
     <string name="revanced_hide_endscreen_cards_title">Bitiş ekranı kartları</string>
@@ -484,6 +494,16 @@ Gönderilmeye hazır mı?"</string>
  Bu ayarı etkinleştirirseniz, aşağıdaki özellikler kullanılabilir:
  - Topluluk Gönderileri
 - Mix oynatma listesini gizle"</string>
+    <string name="revanced_reboot_warning_protobuf">"Oynatma sorunlarını atlamak için sahte protobuf
+
+Bu ayarı etkinleştirirseniz aşağıdaki özellikler kullanılamaz:
+
+Genel videoyu taklit ederken
+- Arama çubuğuna bastığınızda küçük resimleri gösterme
+
+Şort videoları taklit ederken
+- Altyazılar oynatıcının üzerinde konumlandırılmıştır"</string>
+    <string name="revanced_reboot_warning_quic">İnternet hızınız yeterince hızlı değilse kullanmamanız tavsiye edilir</string>
     <string name="revanced_reboot_warning_switch">"Bu ayarı etkinleştirirseniz, aşağıdaki özellikler kullanılamaz:
 - Ortam modu"</string>
     <string name="revanced_reboot_warning_tablet">"Bazı düzenleri tablet düzenlerine dönüştürmek için dpi'yi kandırır.
@@ -511,6 +531,11 @@ Bu ayar oldukça eski olduğu için geçerli olmayabilir"</string>
     <string name="revanced_save_video_quality_wifi">Varsayılan Wİ-Fİ video kalitesi:</string>
     <string name="revanced_save_video_speed">Varsayılan hız:</string>
     <string name="revanced_seekbar_layout">Zaman çubuğu düzeni</string>
+    <string name="revanced_show_fullscreen_title_summary">Bilinen sorun: Tıklandığında başlık kayboluyor</string>
+    <string name="revanced_show_fullscreen_title_title">Tam ekran başlığını göster</string>
+    <string name="revanced_spoofing_type_general">Genel videoda sahtecilik</string>
+    <string name="revanced_spoofing_type_shorts">Shorts videoda sahtecilik</string>
+    <string name="revanced_spoofing_type_title">Taklit etmek için protobuf\'u seçin</string>
     <string name="revanced_sponsorblock_settings_summary">SponsorBlock ilgili ayarları</string>
     <string name="revanced_swipe_controls">Kaydırma kontrolleri</string>
     <string name="revanced_swipe_magnitude_threshold_summary">Kaydırma işleminin gerçekleşmesi için eşik miktarı</string>

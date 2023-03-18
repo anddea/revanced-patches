@@ -5,12 +5,12 @@
     <string name="about_madeby">Tiện ích này được thực hiện bởi JakubWeg</string>
     <string name="accessibility_settings_edu_opt_in_text">Bật các điều khiển trợ năng cho trình phát video?</string>
     <string name="accessibility_settings_edu_opt_out_text">Các điều khiển của bạn đã được sửa đổi vì dịch vụ trợ năng đang bật</string>
-    <string name="api_mirror_url_changed">Đã thay đổi URL API mirror</string>
-    <string name="api_mirror_url_invalid">URL API mirror đã nhập không hợp lệ</string>
-    <string name="api_mirror_url_reset">Đã đặt lại URL API mirror</string>
-    <string name="api_url_changed">Đã thay đổi URL API</string>
-    <string name="api_url_invalid">URL API đã nhập không hợp lệ</string>
-    <string name="api_url_reset">Đã đặt lại URL API</string>
+    <string name="api_mirror_url_changed">Đã thay đổi URL API SponsorBlock mirror</string>
+    <string name="api_mirror_url_invalid">URL API SponsorBlock mirror đã nhập không hợp lệ</string>
+    <string name="api_mirror_url_reset">Đã đặt lại URL API SponsorBlock mirror</string>
+    <string name="api_url_changed">Đã thay đổi URL API SponsorBlock</string>
+    <string name="api_url_invalid">URL API SponsorBlock đã nhập không hợp lệ</string>
+    <string name="api_url_reset">Đã đặt lại URL API SponsorBlock</string>
     <string name="color_change">Bạn muốn thay đổi màu sắc phân đoạn?</string>
     <string name="color_changed">Đã thay đổi màu sắc</string>
     <string name="color_change_sum">"Giờ đây bạn đã có thể thay đổi màu sắc danh mục của phân đoạn bằng cách nhấn vào chúng ở bên trên"</string>
@@ -18,8 +18,8 @@
     <string name="color_reset">Đã đặt lại màu mặc định</string>
     <string name="diff_segments">Làm gì với các loại phân đoạn khác nhau?</string>
     <string name="enable_sb">Bật SponsorBlock</string>
-    <string name="enable_sb_mirror">Bật SponsorBlock Mirror</string>
-    <string name="enable_sb_mirror_sum">Khi máy chủ API của SponsorBlock không khả dụng, hệ thống sẽ tự động chuyển sang máy chủ API mirror</string>
+    <string name="enable_sb_mirror">Bật SponsorBlock mirror</string>
+    <string name="enable_sb_mirror_sum">Khi máy chủ API SponsorBlock không khả dụng, hệ thống sẽ tự động chuyển sang máy chủ API SponsorBlock mirror</string>
     <string name="enable_sb_sum">SponsorBlock là một tiện tích được đóng góp bởi cộng đồng nhằm bỏ qua các phân đoạn gây khó chịu trong video trên YouTube</string>
     <string name="enable_segmadding">Tạo phân đoạn mới</string>
     <string name="enable_segmadding_sum">Bật tuỳ chọn này để kích hoạt tính năng Tạo phân đoạn mới (các nút có thể gặp một số vấn đề về hiển thị)</string>
@@ -28,10 +28,10 @@
     <string name="general">Chung</string>
     <string name="general_adjusting">Điều chỉnh thời gian tua phân đoạn mới</string>
     <string name="general_adjusting_sum">Đây là số mili giây bạn có thể tua đi và tua lại khi sử dụng các nút điều chỉnh thời gian trong lúc tạo phân đoạn mới</string>
-    <string name="general_api_mirror_url">Thay đổi URL API mirror</string>
-    <string name="general_api_mirror_url_sum">"URL máy chủ SponsorBlock mirror để chuyển sang khi máy chủ SponsorBlock không khả dụng. &lt;b&gt;Không thay đổi địa chỉ này trừ khi bạn biết mình đang làm gì.&lt;/b&gt;"</string>
-    <string name="general_api_url">Thay đổi URL API</string>
-    <string name="general_api_url_sum">"URL SponsorBlock được dùng để thực hiện các kết nối đến máy chủ. &lt;b&gt;Không thay đổi địa chỉ này trừ khi bạn biết mình đang làm gì.&lt;/b&gt;"</string>
+    <string name="general_api_mirror_url">Thay đổi URL API SponsorBlock mirror</string>
+    <string name="general_api_mirror_url_sum">"URL máy chủ API SponsorBlock mirror để chuyển sang khi máy chủ API SponsorBlock không khả dụng. &lt;b&gt;Không thay đổi địa chỉ này trừ khi bạn biết mình đang làm gì.&lt;/b&gt;"</string>
+    <string name="general_api_url">Thay đổi URL API SponsorBlock</string>
+    <string name="general_api_url_sum">"URL API SponsorBlock được dùng để thực hiện các kết nối đến máy chủ. &lt;b&gt;Không thay đổi địa chỉ này trừ khi bạn biết mình đang làm gì.&lt;/b&gt;"</string>
     <string name="general_min_duration">Thời lượng tối thiểu của phân đoạn</string>
     <string name="general_min_duration_sum">Các phân đoạn có thời lượng ngắn hơn giá trị đã đặt (tính bằng giây) sẽ không bị bỏ qua hoặc hiển thị trong trình phát</string>
     <string name="general_skipcount">Theo dõi số lượng phân đoạn đã bỏ qua</string>
@@ -180,29 +180,29 @@ Bạn đã sẵn sàng gửi đi chưa?"</string>
     <string name="revanced_double_back_timeout_summary">Số giây để thực hiện thao tác nhấn Quay lại 2 lần để thoát</string>
     <string name="revanced_double_back_timeout_title">Thời gian chờ nhấn Quay lại 2 lần để thoát (giây)</string>
     <string name="revanced_downloader_not_installed">chưa được cài đặt. Hãy cài đặt và thử lại.</string>
-    <string name="revanced_downloader_package_name_summary">"Tên gói của ứng dụng Trình tải xuống, chẳng hạn như NewPipe hoặc PowerTube"</string>
-    <string name="revanced_downloader_package_name_title">Tên gói của ứng dụng Trình tải xuống</string>
-    <string name="revanced_downloader_settings_summary">Các tuỳ chọn cài đặt trình tải xuống mặc định</string>
-    <string name="revanced_downloader_settings_title">Cài đặt Trình tải xuống</string>
+    <string name="revanced_downloader_package_name_summary">"Nhập tên gói ứng dụng trình tải xuống yêu thích của bạn"</string>
+    <string name="revanced_downloader_package_name_title">Tên gói ứng dụng trình tải xuống</string>
+    <string name="revanced_downloader_settings_summary">Chọn ứng dụng trình tải xuống yêu thích của bạn</string>
+    <string name="revanced_downloader_settings_title">Trình tải xuống</string>
     <string name="revanced_enable_always_auto_repeat_summary_off">Luôn tự động lặp lại đã tắt</string>
     <string name="revanced_enable_always_auto_repeat_summary_on">Luôn tự động lặp lại đang bật</string>
     <string name="revanced_enable_always_auto_repeat_title">Luôn tự động lặp lại</string>
-    <string name="revanced_enable_custom_seekbar_color_summary_off">Đang sử dụng màu thanh tiến trình video ở chế độ tối mặc định của YouTube</string>
+    <string name="revanced_enable_custom_seekbar_color_summary_off">Đang sử dụng màu thanh tiến trình video ở chế độ tối mặc định</string>
     <string name="revanced_enable_custom_seekbar_color_summary_on">Đang sử dụng màu thanh tiến trình video ở chế độ tối tuỳ chỉnh</string>
     <string name="revanced_enable_custom_seekbar_color_title">Thay đổi màu thanh tiến trình ở chế độ tối</string>
-    <string name="revanced_enable_custom_video_speed_summary_off">Đang sử dụng tốc độ phát video mặc định của YouTube</string>
+    <string name="revanced_enable_custom_video_speed_summary_off">Đang sử dụng tốc độ phát video mặc định</string>
     <string name="revanced_enable_custom_video_speed_summary_on">Đang sử dụng tốc độ phát video tuỳ chỉnh</string>
     <string name="revanced_enable_custom_video_speed_title">Tốc độ phát video tuỳ chỉnh</string>
-    <string name="revanced_enable_external_browser_summary_off">Đang sử dụng trình duyệt được tích hợp mặc định của YouTube</string>
+    <string name="revanced_enable_external_browser_summary_off">Đang sử dụng trình duyệt được tích hợp mặc định</string>
     <string name="revanced_enable_external_browser_summary_on">Đang sử dụng trình duyệt bên ngoài YouTube</string>
     <string name="revanced_enable_external_browser_title">Trình duyệt bên ngoài YouTube</string>
     <string name="revanced_enable_minimized_playback_summary_off">Phát trong nền đã tắt</string>
     <string name="revanced_enable_minimized_playback_summary_on">Phát trong nền đang bật</string>
     <string name="revanced_enable_minimized_playback_title">Phát trong nền</string>
-    <string name="revanced_enable_old_layout_summary_off">Đang sử dụng giao diện mặc định của YouTube</string>
+    <string name="revanced_enable_old_layout_summary_off">Đang sử dụng giao diện YouTube mặc định</string>
     <string name="revanced_enable_old_layout_summary_on">Đánh lừa hệ thống rằng bạn đang sử dụng phiên bản cũ của YouTube để bật giao diện cũ</string>
-    <string name="revanced_enable_old_layout_title">Giao diện cũ của YouTube</string>
-    <string name="revanced_enable_old_quality_layout_summary_off">Đang sử dụng bố cục Chất lượng video đang xem mặc định của YouTube</string>
+    <string name="revanced_enable_old_layout_title">Giao diện YouTube cũ</string>
+    <string name="revanced_enable_old_quality_layout_summary_off">Đang sử dụng bố cục Chất lượng video đang xem mặc định</string>
     <string name="revanced_enable_old_quality_layout_summary_on">Đang sử dụng bố cục Chất lượng video đang xem kiểu cũ</string>
     <string name="revanced_enable_old_quality_layout_title">Bố cục Chất lượng video kiểu cũ</string>
     <string name="revanced_enable_open_links_directly_summary_off">Chuyển hướng URL được sử dụng khi mở các liên kết xuất hiện trên YouTube</string>
@@ -244,7 +244,7 @@ Bạn đã sẵn sàng gửi đi chưa?"</string>
     <string name="revanced_enable_swipe_volume_title">Vuốt Âm lượng</string>
     <string name="revanced_enable_tablet_layout_summary">Thay đổi DPI để sử dụng một số bố cục máy tính bảng</string>
     <string name="revanced_enable_tablet_layout_title">Bố cục máy tính bảng</string>
-    <string name="revanced_enable_tablet_miniplayer_summary_off">Đang sử dụng trình phát thu nhỏ mặc định của YouTube</string>
+    <string name="revanced_enable_tablet_miniplayer_summary_off">Đang sử dụng trình phát thu nhỏ mặc định</string>
     <string name="revanced_enable_tablet_miniplayer_summary_on">Đang sử dụng trình phát thu nhỏ của máy tính bảng</string>
     <string name="revanced_enable_tablet_miniplayer_title">Trình phát thu nhỏ của máy tính bảng</string>
     <string name="revanced_enable_time_stamp_speed_summary_off">Không hiển thị tốc độ phát bên cạnh thời gian video</string>
@@ -252,7 +252,7 @@ Bạn đã sẵn sàng gửi đi chưa?"</string>
     <string name="revanced_enable_time_stamp_speed_title">Hiển thị tốc độ phát bên cạnh thời gian video</string>
     <string name="revanced_enable_vp9_codec_summary">Giả mạo thông tin thiết bị để bật codec VP9</string>
     <string name="revanced_enable_vp9_codec_title">Codec VP9</string>
-    <string name="revanced_enable_wide_searchbar_summary_off">Đang sử dụng thanh tìm kiếm mặc định của YouTube</string>
+    <string name="revanced_enable_wide_searchbar_summary_off">Đang sử dụng thanh tìm kiếm mặc định</string>
     <string name="revanced_enable_wide_searchbar_summary_on">Đang sử dụng thanh tìm kiếm rộng</string>
     <string name="revanced_enable_wide_searchbar_title">Thanh tìm kiếm rộng</string>
     <string name="revanced_experimental_flag">Tính năng thử nghiệm</string>
@@ -267,6 +267,9 @@ Bạn đã sẵn sàng gửi đi chưa?"</string>
     <string name="revanced_hide_autoplay_button_summary_off">Nút Tự động phát được hiển thị</string>
     <string name="revanced_hide_autoplay_button_summary_on">Nút Tự động phát đã ẩn</string>
     <string name="revanced_hide_autoplay_button_title">Ẩn nút Tự động phát</string>
+    <string name="revanced_hide_autoplay_preview_summary_off">Bảng video tiếp theo ở màn hình kết thúc được hiển thị khi bật tính năng Tự động phát</string>
+    <string name="revanced_hide_autoplay_preview_summary_on">Bảng video tiếp theo ở màn hình kết thúc đã ẩn khi bật tính năng Tự động phát</string>
+    <string name="revanced_hide_autoplay_preview_title">Ẩn bảng video tiếp theo</string>
     <string name="revanced_hide_auto_captions_summary_off">Tự động hiển thị phụ đề khi phát video có phụ đề</string>
     <string name="revanced_hide_auto_captions_summary_on">"Không tự động hiển trị phụ đề khi phát video có phụ đề"</string>
     <string name="revanced_hide_auto_captions_title">Ẩn phụ đề tự động</string>
@@ -327,12 +330,15 @@ Bạn đã sẵn sàng gửi đi chưa?"</string>
     <string name="revanced_hide_email_address_summary_off">Tên người dùng được hiển thị</string>
     <string name="revanced_hide_email_address_summary_on">Tên người dùng đã ẩn</string>
     <string name="revanced_hide_email_address_title">Ẩn tên người dùng</string>
+    <string name="revanced_hide_emoji_picker_summary_off">Bộ chọn biểu tượng cảm xúc được hiển thị khi viết bình luận</string>
+    <string name="revanced_hide_emoji_picker_summary_on">Bộ chọn biểu tượng cảm xúc đã ẩn khi viết bình luận</string>
+    <string name="revanced_hide_emoji_picker_title">Ẩn bộ chọn biểu tượng cảm xúc</string>
     <string name="revanced_hide_endscreen_cards_summary_off">Màn hình kết thúc được hiển thị</string>
     <string name="revanced_hide_endscreen_cards_summary_on">Màn hình kết thúc đã ẩn</string>
     <string name="revanced_hide_endscreen_cards_title">Ẩn màn hình kết thúc</string>
-    <string name="revanced_hide_endscreen_overlay_summary_off">Lớp phủ màn hình kết thúc khi tắt tự động phát được hiển thị</string>
-    <string name="revanced_hide_endscreen_overlay_summary_on">Lớp phủ màn hình kết thúc khi tắt tự động phát đã ẩn</string>
-    <string name="revanced_hide_endscreen_overlay_title">Ẩn lớp phủ màn hình kết thúc khi tắt tự động phát</string>
+    <string name="revanced_hide_endscreen_overlay_summary_off">Lớp phủ màn hình kết thúc được hiển thị khi tắt tính năng Tự động phát</string>
+    <string name="revanced_hide_endscreen_overlay_summary_on">Lớp phủ màn hình kết thúc đã ẩn khi tắt tính năng Tự động phát</string>
+    <string name="revanced_hide_endscreen_overlay_title">Ẩn lớp phủ màn hình kết thúc</string>
     <string name="revanced_hide_filmstrip_overlay_summary_off">Tua chính xác đang bật</string>
     <string name="revanced_hide_filmstrip_overlay_summary_on">Tua chính xác đã tắt</string>
     <string name="revanced_hide_filmstrip_overlay_title">Tắt tua chính xác</string>
@@ -342,7 +348,7 @@ Bạn đã sẵn sàng gửi đi chưa?"</string>
     <string name="revanced_hide_fullscreen_button_container_summary_off">Khu vực chứa các nút chức năng (Thích, Không thích, Chia sẻ,...) trong video toàn màn hình được hiển thị</string>
     <string name="revanced_hide_fullscreen_button_container_summary_on">Khu vực chứa các nút chức năng (Thích, Không thích, Chia sẻ,...) trong video toàn màn hình đã ẩn</string>
     <string name="revanced_hide_fullscreen_button_container_title">Ẩn khu vực chứa nút trong video toàn màn hình</string>
-    <string name="revanced_hide_fullscreen_panels_summary_off">Đang xem video ở chế độ toàn màn hình mặc định của YouTube</string>
+    <string name="revanced_hide_fullscreen_panels_summary_off">Đang xem video ở chế độ toàn màn hình mặc định</string>
     <string name="revanced_hide_fullscreen_panels_summary_on">Đang xem video ở chế độ toàn màn hình đã lược bỏ đi các mục không cần thiết để giảm thiểu cảm giác lộn xộn</string>
     <string name="revanced_hide_fullscreen_panels_title">Xem ở chế độ toàn màn hình tối giản</string>
     <string name="revanced_hide_info_cards_summary_off">Thẻ thông tin được hiển thị</string>
@@ -417,7 +423,7 @@ Bạn đã sẵn sàng gửi đi chưa?"</string>
     <string name="revanced_hide_shorts_player_join_button_summary_off">Nút Tham gia trong trình phát Shorts được hiển thị</string>
     <string name="revanced_hide_shorts_player_join_button_summary_on">Nút Tham gia trong trình phát Shorts đã ẩn</string>
     <string name="revanced_hide_shorts_player_join_button_title">Ẩn nút Tham gia</string>
-    <string name="revanced_hide_shorts_player_pivot_bar_summary_off">Đang xem YouTube Shorts bằng bố cục mặc định của YouTube</string>
+    <string name="revanced_hide_shorts_player_pivot_bar_summary_off">Đang xem YouTube Shorts bằng bố cục mặc định</string>
     <string name="revanced_hide_shorts_player_pivot_bar_summary_on">Đang xem YouTube Shorts ở chế độ toàn màn hình bằng cách ẩn đi thanh trình đơn phía dưới cùng</string>
     <string name="revanced_hide_shorts_player_pivot_bar_title">Xem Shorts ở chế độ toàn màn hình</string>
     <string name="revanced_hide_shorts_player_remix_button_summary_off">Nút Phối lại trong trình phát Shorts được hiển thị</string>
@@ -470,7 +476,7 @@ Bạn đã sẵn sàng gửi đi chưa?"</string>
     <string name="revanced_overlay_button_speed_reset">Đã đặt lại tốc độ phát video (1.0x)</string>
     <string name="revanced_overlay_button_speed_summary_off">Nút Tốc độ phát video đã ẩn</string>
     <string name="revanced_overlay_button_speed_summary_on">Nút Tốc độ phát video được hiển thị</string>
-    <string name="revanced_overlay_button_speed_title">Nút Tốc độ phát video</string>
+    <string name="revanced_overlay_button_speed_title">Nút Tốc độ phát</string>
     <string name="revanced_overlay_button_whitelist_summary_off">Nút Bỏ chặn đã ẩn</string>
     <string name="revanced_overlay_button_whitelist_summary_on">Nút Bỏ chặn được hiển thị</string>
     <string name="revanced_overlay_button_whitelist_title">Nút Bỏ chặn</string>
@@ -478,7 +484,7 @@ Bạn đã sẵn sàng gửi đi chưa?"</string>
     <string name="revanced_override_premium_header_summary_on">Tiêu đề hiện tại: Tiêu đề Premium</string>
     <string name="revanced_override_premium_header_title">Tiêu đề Premium</string>
     <string name="revanced_patches_information">Thông tin bản vá</string>
-    <string name="revanced_patches_information_summary">Thông tin về các bản vá được sử dụng trong ứng dụng</string>
+    <string name="revanced_patches_information_summary">Thông tin về các bản vá được áp dụng trong ứng dụng</string>
     <string name="revanced_player_flyout_panel_title">Hộp Cài đặt</string>
     <string name="revanced_player_layout">Bố cục trình phát</string>
     <string name="revanced_reboot_warning_general">"Vì đây vẫn là tính năng thử nghiệm nên có thể xuất hiện các lỗi chưa xác định khác.
@@ -491,6 +497,15 @@ Trong phần Giới thiệu, phiên bản ứng dụng có thể được hiển
 Nếu bạn bật tuỳ chọn này, các tính năng sau sẽ khả dụng:
 - Bài đăng trên thẻ Cộng đồng.
 - Ẩn Danh sách kết hợp."</string>
+    <string name="revanced_reboot_warning_protobuf">"Giả mạo protobuf để bỏ qua các sự cố khi phát video.
+
+Nếu bạn bật tuỳ chọn này, các tính năng sau sẽ không khả dụng:
+
+Khi giả mạo protobuf đối với video thông thường:
+- Không hiển thị hình thu nhỏ khi trượt thanh tiến trình để tua video.
+
+Khi giả mạo protobuf đối với video Shorts:
+- Phụ đề được hiển thị ở trên cùng của video."</string>
     <string name="revanced_reboot_warning_quic">Chỉ nên bật tuỳ chọn này nếu tốc độ internet của bạn đủ nhanh</string>
     <string name="revanced_reboot_warning_switch">"Nếu bạn bật tuỳ chọn này, các tính năng sau sẽ không khả dụng:
 - Chế độ môi trường xung quanh."</string>
@@ -519,6 +534,8 @@ Vì tuỳ chọn cài đặt này đã khá lỗi thời nên có thể không h
     <string name="revanced_save_video_quality_wifi">Đã lưu chất lượng video trên mạng Wi-Fi thành:</string>
     <string name="revanced_save_video_speed">Đã lưu tốc độ phát video mặc định thành:</string>
     <string name="revanced_seekbar_layout">Bố cục thanh tiến trình</string>
+    <string name="revanced_show_fullscreen_title_summary">Sự cố đã biết: Tiêu đề video đột ngột biến mất khi nhấn vào</string>
+    <string name="revanced_show_fullscreen_title_title">Hiển thị tiêu đề ở chế độ toàn màn hình tối giản</string>
     <string name="revanced_spoofing_type_general">Video thông thường</string>
     <string name="revanced_spoofing_type_shorts">Video Shorts</string>
     <string name="revanced_spoofing_type_title">Chọn loại video để giả mạo protobuf</string>
@@ -554,7 +571,7 @@ Vì tuỳ chọn cài đặt này đã khá lỗi thời nên có thể không h
     <string name="revanced_whitelisting_reboot">Khởi động lại để áp dụng cài đặt danh sách kênh bỏ chặn</string>
     <string name="revanced_whitelisting_removed" formatted="false">Đã xóa kênh %s khỏi danh sách bỏ chặn %s</string>
     <string name="revanced_whitelisting_remove_failed" formatted="false">Xoá kênh %s khỏi danh sách bỏ chặn %s thất bại</string>
-    <string name="revanced_whitelisting_settings_summary">Kiểm tra hoặc xóa danh sách các kênh đã thêm vào danh sách bỏ chặn</string>
+    <string name="revanced_whitelisting_settings_summary">Kiểm tra hoặc xóa các kênh đã thêm vào danh sách bỏ chặn</string>
     <string name="revanced_whitelisting_settings_title">Danh sách bỏ chặn</string>
     <string name="revanced_whitelisting_speed">Tốc độ phát video</string>
     <string name="revanced_whitelisting_sponsorblock">SponsorBlock</string>
@@ -567,8 +584,8 @@ Vì tuỳ chọn cài đặt này đã khá lỗi thời nên có thể không h
     <string name="sb_guidelines_popup_title">Hãy xem hướng dẫn</string>
     <string name="sb_guidelines_preference_sum">Hướng dẫn bao gồm các mẹo và quy tắc về cách gửi phân đoạn</string>
     <string name="sb_guidelines_preference_title">Xem hướng dẫn</string>
-    <string name="sb_switching_success">Đã chuyển đổi thành công. Hãy tải lại video!</string>
-    <string name="sb_switching_to_mirror">Đang chuyển sang máy chủ API mirror..</string>
+    <string name="sb_switching_success">Đã chuyển thành công. Hãy tải lại video!</string>
+    <string name="sb_switching_to_mirror">Đang chuyển sang máy chủ API SponsorBlock mirror...</string>
     <string name="seconds">giây</string>
     <string name="segments_endcards">Màn hình kết thúc/Danh đề</string>
     <string name="segments_endcards_sum">Danh đề hoặc khi màn hình kết thúc của YouTube xuất hiện. Không dành cho đoạn kết bằng lời nói.</string>

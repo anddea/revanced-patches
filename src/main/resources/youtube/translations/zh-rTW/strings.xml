@@ -210,9 +210,7 @@
     <string name="revanced_enable_open_links_directly_title">啟用直接開啟連結</string>
     <string name="revanced_enable_phone_layout_summary">欺騙Dpi以使用一些手機佈局</string>
     <string name="revanced_enable_phone_layout_title">啟用手機佈局</string>
-    <string name="revanced_enable_protobuf_spoof_summary">取消 protobuf 以防止播放問題
-註:當你觀看影片時遇到無限緩衝問題,再開啟此設定
-否則請保持此設定關閉</string>
+    <string name="revanced_enable_protobuf_spoof_summary">取消 protobuf 以防止播放問題</string>
     <string name="revanced_enable_protobuf_spoof_title">啟用取消 protobuf</string>
     <string name="revanced_enable_press_to_swipe_summary_off">長按以滑動已停用</string>
     <string name="revanced_enable_press_to_swipe_summary_on">長按以滑動已啟用</string>
@@ -269,6 +267,9 @@
     <string name="revanced_hide_autoplay_button_summary_off">自動播放按鈕已顯示</string>
     <string name="revanced_hide_autoplay_button_summary_on">自動播放按鈕已隱藏</string>
     <string name="revanced_hide_autoplay_button_title">自動播放按鈕</string>
+    <string name="revanced_hide_autoplay_preview_summary_off">自動播放預覽視窗已顯示</string>
+    <string name="revanced_hide_autoplay_preview_summary_on">自動播放預覽視窗已隱藏</string>
+    <string name="revanced_hide_autoplay_preview_title">隱藏自動播放預覽視窗</string>
     <string name="revanced_hide_auto_captions_summary_off">允許字幕自動啟動</string>
     <string name="revanced_hide_auto_captions_summary_on">"禁止字幕自動啟動"</string>
     <string name="revanced_hide_auto_captions_title">自動啟動的字幕</string>
@@ -493,6 +494,15 @@
 如果啟用此設置，則以下功能可用：
 - 社群貼文
 - 隱藏我的合輯"</string>
+    <string name="revanced_reboot_warning_protobuf">"欺騙 protobuf 以繞過播放問題
+
+如果啟用此設置，則以下功能不可用：
+
+套用於一般影片時
+- 按下搜索欄時不會顯示縮圖
+
+套用於 shorts 影片時
+- 字幕會在播放器上方"</string>
     <string name="revanced_reboot_warning_quic">建議在網速夠快的情況下再開啟此設置</string>
     <string name="revanced_reboot_warning_switch">"若你啟用此設定, 以下功能將失去作用:
 - 微光模式"</string>
@@ -522,6 +532,8 @@
     <string name="revanced_save_video_quality_wifi">將預設 Wi-Fi 品質更改為：</string>
     <string name="revanced_save_video_speed">將預設播放速度更改為：</string>
     <string name="revanced_seekbar_layout">搜尋欄佈局設置</string>
+    <string name="revanced_show_fullscreen_title_summary">已知問題 : 標題被點擊時會消失</string>
+    <string name="revanced_show_fullscreen_title_title">顯示全螢幕標題</string>
     <string name="revanced_spoofing_type_general">一般影片</string>
     <string name="revanced_spoofing_type_shorts">Shorts 影片</string>
     <string name="revanced_spoofing_type_title">選擇欲 protobuf 的影片類型</string>
