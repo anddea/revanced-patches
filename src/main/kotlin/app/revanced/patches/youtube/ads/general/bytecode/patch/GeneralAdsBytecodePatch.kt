@@ -6,17 +6,12 @@ import app.revanced.extensions.toResult
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.instruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.annotations.DependsOn
-import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.shared.patch.mapping.ResourceMappingPatch
 import app.revanced.util.bytecode.BytecodeHelper.updatePatchStatus
-import app.revanced.util.integrations.Constants.ADS_PATH
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.iface.instruction.formats.*
 
@@ -28,10 +23,7 @@ class GeneralAdsBytecodePatch : BytecodePatch() {
     private val resourceIds = arrayOf(
         "id" to "ad_attribution",
         "layout" to "horizontal_card_list",
-        "layout" to "album_card",
-        "id" to "reel_player_badge",
-        "id" to "reel_player_badge2",
-        "id" to "reel_player_info_panel"
+        "layout" to "album_card"
     ).map { (type, name) ->
         ResourceMappingPatch
             .resourceMappings
@@ -82,35 +74,6 @@ class GeneralAdsBytecodePatch : BytecodePatch() {
                                         mutableMethod.implementation!!.injectHideCall(insertIndex, viewRegister, "ads/GeneralAdsPatch", "hideAlbumCards")
                                         patchSuccessArray[2] = true
                                     }
-
-                                    resourceIds[3], resourceIds[4] -> { // paid content banner
-                                        val insertIndex = index + 3
-                                        val invokeInstruction = instructions.elementAt(insertIndex)
-                                        if (invokeInstruction.opcode != Opcode.CHECK_CAST) return@forEachIndexed
-
-                                        val mutableMethod = context.proxy(classDef).mutableClass.findMutableMethodOf(method)
-                                        val dummyRegister = (instructions.elementAt(index) as Instruction31i).registerA
-                                        val viewRegister = (invokeInstruction as Instruction21c).registerA
-
-                                        mutableMethod.addInjectCall(insertIndex, dummyRegister, viewRegister, "hidePaidContentBanner")
-
-                                        patchSuccessArray[3] = true
-                                        patchSuccessArray[4] = true
-                                    }
-
-                                    resourceIds[5] -> { // info panel
-                                        val insertIndex = index + 3
-                                        val invokeInstruction = instructions.elementAt(insertIndex)
-                                        if (invokeInstruction.opcode != Opcode.CHECK_CAST) return@forEachIndexed
-
-                                        val mutableMethod = context.proxy(classDef).mutableClass.findMutableMethodOf(method)
-                                        val dummyRegister = (instructions.elementAt(index) as Instruction31i).registerA
-                                        val viewRegister = (invokeInstruction as Instruction21c).registerA
-
-                                        mutableMethod.addInjectCall(insertIndex + 7, dummyRegister, viewRegister, "hideInfoPanel")
-
-                                        patchSuccessArray[5] = true
-                                    }
                                 }
                             }
                             else -> return@forEachIndexed
@@ -122,21 +85,5 @@ class GeneralAdsBytecodePatch : BytecodePatch() {
         context.updatePatchStatus("GeneralAds")
 
         return toResult(patchSuccessArray.indexOf(false))
-    }
-
-    private fun MutableMethod.addInjectCall(
-	    index: Int,
-	    dummyRegister: Int,
-	    viewRegister: Int,
-	    method: String
-    ) {
-        addInstructions(
-            index + 1, """
-                invoke-static {}, $ADS_PATH/GeneralAdsPatch;->$method()Z
-                move-result v$dummyRegister
-                if-eqz v$dummyRegister, :shown
-                const v$viewRegister, 0x0
-            """, listOf(ExternalLabel("shown", this.instruction(index + 1)))
-        )
     }
 }
