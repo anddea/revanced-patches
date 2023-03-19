@@ -18,13 +18,19 @@ import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.shared.fingerprints.SubtitleButtonControllerFingerprint
 import app.revanced.patches.shared.fingerprints.SubtitleTrackFingerprint
 import app.revanced.patches.youtube.layout.general.autocaptions.fingerprints.StartVideoInformerFingerprint
+import app.revanced.patches.youtube.misc.playertype.patch.PlayerTypeHookPatch
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
 import app.revanced.util.integrations.Constants.GENERAL_LAYOUT
 
 @Patch
 @Name("hide-auto-captions")
 @Description("Hide captions from being automatically enabled.")
-@DependsOn([SettingsPatch::class])
+@DependsOn(
+    [
+        PlayerTypeHookPatch::class,
+        SettingsPatch::class
+    ]
+)
 @YouTubeCompatibility
 @Version("0.0.1")
 class AutoCaptionsPatch : BytecodePatch(
