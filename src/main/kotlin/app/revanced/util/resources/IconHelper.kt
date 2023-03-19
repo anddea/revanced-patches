@@ -1,7 +1,6 @@
 package app.revanced.util.resources
 
 import app.revanced.patcher.data.ResourceContext
-import org.w3c.dom.Element
 import java.nio.file.Files
 import java.nio.file.StandardCopyOption
 
@@ -44,22 +43,9 @@ internal object IconHelper {
             iconName
         )
 
-        this.xmlEditor["res/values-v31/styles.xml"].use { dom ->
-            val applicationNode = dom
-                .file
-                .getElementsByTagName("resources")
-                .item(0) as Element
-
-            applicationNode.getElementsByTagName("style").also {  list ->
-                for (i in 0 until list.length) {
-                    val element = list.item(i) as? Element ?: continue
-                    if (element.getAttribute("name") == "Base.Theme.YouTube.Launcher") {
-                        element.removeChild(element.firstChild)
-                        break
-                    }
-                }
-            }
-        }
+        this["res/values-v31/styles.xml"].writeText(
+            this["res/values-v31/styles.xml"].readText().replace("<item name=\"android:windowSplashScreenAnimatedIcon\">@drawable/avd_anim</item>", "")
+        )
     }
 
     internal fun ResourceContext.customIconMusic(iconName: String) {
