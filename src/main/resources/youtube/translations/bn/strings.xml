@@ -175,6 +175,8 @@
     <string name="revanced_disable_haptic_feedback_zoom_summary_off">জুম কম্পন প্রতিক্রিয়া সক্রিয় হয়েছে</string>
     <string name="revanced_disable_haptic_feedback_zoom_summary_on">জুম কম্পন প্রতিক্রিয়া নিষ্ক্রিয় হয়েছে</string>
     <string name="revanced_disable_haptic_feedback_zoom_title">জুম কম্পন প্রতিক্রিয়া নিষ্ক্রিয় করুন</string>
+    <string name="revanced_disable_quic_protocol_summary">"ক্রোনেটইঞ্জিনের QUIC প্রোটোকল নিষ্ক্রিয় করুন"</string>
+    <string name="revanced_disable_quic_protocol_title">QUIC প্রোটোকল নিষ্ক্রিয় করুন</string>
     <string name="revanced_double_back_timeout_summary">ডাবল প্রেস ব্যাক করে বের হতে কত সেকেন্ড সময় নিবে</string>
     <string name="revanced_double_back_timeout_title">ডাবল ব্যাক টাইমআউট</string>
     <string name="revanced_downloader_not_installed">ইনস্টল করা হয়নি। অনুগ্রহপূর্বক এটি ইনস্টল করুন।</string>
@@ -208,6 +210,8 @@
     <string name="revanced_enable_open_links_directly_title">সরাসরি লিঙ্ক খোলা সক্রিয় করুন</string>
     <string name="revanced_enable_phone_layout_summary">ফোনের কিছু লেআউট ব্যবহার করতে ডিপিআই কৌশল</string>
     <string name="revanced_enable_phone_layout_title">ফোন লেআউট সক্রিয় করুন</string>
+    <string name="revanced_enable_protobuf_spoof_summary">প্রটোবাফ নকল করে প্লেব্যাক সমস্যা প্রতিরোধ করুন</string>
+    <string name="revanced_enable_protobuf_spoof_title">প্রটোবাফ নকল সক্রিয় করুন</string>
     <string name="revanced_enable_press_to_swipe_summary_off">প্রেস-টু-সোয়াইপ নিষ্ক্রিয়</string>
     <string name="revanced_enable_press_to_swipe_summary_on">প্রেস-টু-সোয়াইপ সক্রিয়</string>
     <string name="revanced_enable_press_to_swipe_title">প্রেস-টু-সোয়াইপ সংকেত সক্রিয় করুন</string>
@@ -263,18 +267,15 @@
     <string name="revanced_hide_autoplay_button_summary_off">অটোপ্লে বাটন দৃশ্যমান আছে</string>
     <string name="revanced_hide_autoplay_button_summary_on">অটোপ্লে বাটন লুকানো আছে</string>
     <string name="revanced_hide_autoplay_button_title">অটোপ্লে বাটন লুকান</string>
+    <string name="revanced_hide_autoplay_preview_summary_off">অটোপ্লে প্রিভিউ কনটেইনার দৃশ্যমান আছে</string>
+    <string name="revanced_hide_autoplay_preview_summary_on">অটোপ্লে প্রিভিউ কনটেইনার লুকানো আছে</string>
+    <string name="revanced_hide_autoplay_preview_title">অটোপ্লে প্রিভিউ কনটেইনার লুকান</string>
     <string name="revanced_hide_auto_captions_summary_off">ক্যাপশন প্রয়োগ করা হলে ভিডিও চলার সময় ক্যাপশন সক্রিয় করা হয়</string>
     <string name="revanced_hide_auto_captions_summary_on">"ক্যাপশন প্রয়োগ করা হলে ভিডিও চলার সময় ক্যাপশন সক্রিয় করা হয় না"</string>
     <string name="revanced_hide_auto_captions_title">স্বয়ংক্রিয় ক্যাপশন লুকান</string>
     <string name="revanced_hide_auto_player_popup_panels_summary_off">স্বয়ংক্রিয় প্লেয়ার পপআপ প্যানেল দৃশ্যমান আছে</string>
     <string name="revanced_hide_auto_player_popup_panels_summary_on">স্বয়ংক্রিয় প্লেয়ার পপআপ প্যানেল লুকানো আছে</string>
     <string name="revanced_hide_auto_player_popup_panels_title">স্বয়ংক্রিয় প্লেয়ার পপআপ প্যানেল লুকান</string>
-    <string name="revanced_hide_button_create_clip_summary_off">ক্লিপ বাটন দৃশ্যমান আছে</string>
-    <string name="revanced_hide_button_create_clip_summary_on">ক্লিপ বাটন লুকানো আছে</string>
-    <string name="revanced_hide_button_create_clip_title">ক্লিপ বাটন লুকান</string>
-    <string name="revanced_hide_button_create_short_summary_off">শর্ট তৈরি বাটন দৃশ্যমান আছে</string>
-    <string name="revanced_hide_button_create_short_summary_on">শর্ট তৈরি বাটন লুকানো আছে</string>
-    <string name="revanced_hide_button_create_short_title">শর্ট তৈরি বাটন লুকান</string>
     <string name="revanced_hide_button_dislike_summary_off">অপছন্দ বাটন দৃশ্যমান আছে</string>
     <string name="revanced_hide_button_dislike_summary_on">অপছন্দ বাটন লুকানো আছে</string>
     <string name="revanced_hide_button_dislike_title">অপছন্দ বাটন লুকান</string>
@@ -284,21 +285,12 @@
     <string name="revanced_hide_button_like_summary_off">পছন্দ বাটন দৃশ্যমান আছে</string>
     <string name="revanced_hide_button_like_summary_on">পছন্দ বাটন লুকানো আছে</string>
     <string name="revanced_hide_button_like_title">পছন্দ বাটন লুকান</string>
-    <string name="revanced_hide_button_live_chat_summary_off">লাইভ আড্ডা বাটন দৃশ্যমান আছে</string>
-    <string name="revanced_hide_button_live_chat_summary_on">লাইভ আড্ডা বাটন লুকানো আছে</string>
-    <string name="revanced_hide_button_live_chat_title">লাইভ আড্ডা বাটন লুকান</string>
     <string name="revanced_hide_button_playlist_summary_off">প্লেলিস্ট বাটন দৃশ্যমান আছে</string>
     <string name="revanced_hide_button_playlist_summary_on">প্লেলিস্ট বাটন লুকানো আছে</string>
     <string name="revanced_hide_button_playlist_title">প্লেলিস্ট বাটন লুকান</string>
-    <string name="revanced_hide_button_report_summary_off">রিপোর্ট বাটন দৃশ্যমান আছে</string>
-    <string name="revanced_hide_button_report_summary_on">রিপোর্ট বাটন লুকানো আছে</string>
-    <string name="revanced_hide_button_report_title">রিপোর্ট বাটন লুকান</string>
     <string name="revanced_hide_button_share_summary_off">শেয়ার বাটন দৃশ্যমান আছে</string>
     <string name="revanced_hide_button_share_summary_on">শেয়ার বাটন লুকানো আছে</string>
     <string name="revanced_hide_button_share_title">শেয়ার বাটন লুকান</string>
-    <string name="revanced_hide_button_thanks_summary_off">ধন্যবাদ বাটন দৃশ্যমান আছে</string>
-    <string name="revanced_hide_button_thanks_summary_on">ধন্যবাদ বাটন লুকানো আছে</string>
-    <string name="revanced_hide_button_thanks_title">ধন্যবাদ বাটন লুকান</string>
     <string name="revanced_hide_captions_button_summary_off">ক্যাপশন বাটন দৃশ্যমান আছে</string>
     <string name="revanced_hide_captions_button_summary_on">ক্যাপশন বাটন লুকানো আছে</string>
     <string name="revanced_hide_captions_button_title">ক্যাপশন বাটন লুকান</string>
@@ -323,6 +315,9 @@
     <string name="revanced_hide_email_address_summary_off">ই-মেইল ঠিকানা দৃশ্যমান আছে</string>
     <string name="revanced_hide_email_address_summary_on">ই-মেইল ঠিকানা লুকানো আছে</string>
     <string name="revanced_hide_email_address_title">ই-মেইল ঠিকানা লুকান</string>
+    <string name="revanced_hide_emoji_picker_summary_off">ইমোজি পিকার দৃশ্যমান আছে</string>
+    <string name="revanced_hide_emoji_picker_summary_on">ইমোজি পিকার লুকানো আছে</string>
+    <string name="revanced_hide_emoji_picker_title">ইমোজি পিকার লুকান</string>
     <string name="revanced_hide_endscreen_cards_summary_off">শেষ স্ক্রীন কার্ড দৃশ্যমান আছে</string>
     <string name="revanced_hide_endscreen_cards_summary_on">শেষ স্ক্রীন কার্ড লুকানো আছে</string>
     <string name="revanced_hide_endscreen_cards_title">শেষ স্ক্রীন কার্ড লুকান</string>
@@ -487,6 +482,16 @@
 আপনি যদি এই সেটিংটি সক্রিয় করেন, এই ফিচারগুলো পাওয়া যাবে:
 - কমিউনিটি পোস্ট
 - মিক্স প্লেলিস্ট লুকান"</string>
+    <string name="revanced_reboot_warning_protobuf">"প্রটোবাফ নকল করে প্লেব্যাক সমস্যা প্রতিরোধ করে
+
+আপনি যদি এই সেটিংটি সক্রিয় করেন, নিম্নোক্ত ফিচার পাওয়া যাবে না:
+
+যখন সাধারণ ভিডিওতে নকল করবে
+- সীকবারে প্রেস করার সময় থাম্বনেইল দেখাবে না
+
+যখন শর্টস বিডিওতে নকল করবে
+- ভিডিও ক্যাপশন প্লেয়ারের উপরিভাগে দেখাবে"</string>
+    <string name="revanced_reboot_warning_quic">যদি আপনার ইন্টারনেট স্পীড যথাযথ না হয় তবে এটি ব্যবহার করা না করতে সুপারিশ করা হয়।</string>
     <string name="revanced_reboot_warning_switch">"আপনি যদি এই সেটিংটি সক্রিয় করেন, নিম্নোক্ত ফিচার পাওয়া যাবে না:
 - অ্যাম্বিয়েন্ট মোড"</string>
     <string name="revanced_reboot_warning_tablet">"কিছু লেআউটকে ট্যাবলেট লেআউটে পরিবর্তন করতে ডিপিআই কৌশল করা হয়।
@@ -514,6 +519,11 @@
     <string name="revanced_save_video_quality_wifi">ওয়াই-ফাই এর ডিফল্ট কোয়ালিটি এতে পরিবর্তন হচ্ছে:</string>
     <string name="revanced_save_video_speed">ডিফল্ট গতি পরিবর্তন হচ্ছে:</string>
     <string name="revanced_seekbar_layout">সিকবার লে-আউট</string>
+    <string name="revanced_show_fullscreen_title_summary">জানা সমস্যা: ক্লিক করলে টাইটেল অদৃশ্য হয়ে যায়</string>
+    <string name="revanced_show_fullscreen_title_title">ফুলস্ক্রিণ টাইটেল দেখান</string>
+    <string name="revanced_spoofing_type_general">সাধারণ ভিডিওতে নকল করা</string>
+    <string name="revanced_spoofing_type_shorts">শর্টস ভিডিওতে নকল করা</string>
+    <string name="revanced_spoofing_type_title">প্রটোবাফ নকল নির্বাচন করুন</string>
     <string name="revanced_sponsorblock_settings_summary">SponsorBlock সম্পর্কিত সেটিং</string>
     <string name="revanced_swipe_controls">সোয়াইপ কন্ট্রোল</string>
     <string name="revanced_swipe_magnitude_threshold_summary">সোয়াইপ হওয়ার জন্য থ্রেশহোল্ডের পরিমাণ</string>
@@ -528,6 +538,8 @@
     <string name="revanced_switching_create_notification_summary_on">ক্রিয়েট বাটন ও বিজ্ঞপ্তি বাটন স্থানান্তরিত হয়েছে</string>
     <string name="revanced_switching_create_notification_title">ক্রিয়েট বাটন ও বিজ্ঞপ্তি বাটন স্থানান্তর করুন</string>
     <string name="revanced_tool_used">ব্যবহৃত টুল</string>
+    <string name="revanced_vertical_video_restrictions_summary">লম্বালম্বি ভিডিও রেজলিউশন সীমা সরানোর জন্য ডিভাইস তথ্য নকল করা হয়</string>
+    <string name="revanced_vertical_video_restrictions_title">লম্বালম্বি ভিডিওতে রেজলিউশন সীমা সরান</string>
     <string name="revanced_video">ভিডিও</string>
     <string name="revanced_video_ads_removal_summary_off">ভিডিও বিজ্ঞাপন দৃশ্যমান আছে</string>
     <string name="revanced_video_ads_removal_summary_on">ভিডিও বিজ্ঞাপন লুকানো আছে</string>
