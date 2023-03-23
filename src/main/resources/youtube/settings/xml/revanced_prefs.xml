@@ -235,8 +235,7 @@
         <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_button_container_title" />
         <SwitchPreference android:title="@string/revanced_hide_button_like_title" android:key="revanced_hide_button_like" android:defaultValue="false" android:summaryOn="@string/revanced_hide_button_like_summary_on" android:summaryOff="@string/revanced_hide_button_like_summary_off" />
         <SwitchPreference android:title="@string/revanced_hide_button_dislike_title" android:key="revanced_hide_button_dislike" android:defaultValue="false" android:summaryOn="@string/revanced_hide_button_dislike_summary_on" android:summaryOff="@string/revanced_hide_button_dislike_summary_off" />
-        <SwitchPreference android:title="@string/revanced_hide_button_share_title" android:key="revanced_hide_button_share" android:defaultValue="false" android:summaryOn="@string/revanced_hide_button_share_summary_on" android:summaryOff="@string/revanced_hide_button_share_summary_off" />
-        <SwitchPreference android:title="@string/revanced_hide_action_button_title" android:key="revanced_hide_action_button" android:defaultValue="false" android:summaryOn="@string/revanced_hide_action_button_summary_on" android:summaryOff="@string/revanced_hide_action_button_summary_off" />
+        <SwitchPreference android:title="@string/revanced_hide_action_buttons_title" android:key="revanced_hide_action_buttons" android:defaultValue="false" android:summaryOn="@string/revanced_hide_action_buttons_summary_on" android:summaryOff="@string/revanced_hide_action_buttons_summary_off" />
         <SwitchPreference android:title="@string/revanced_hide_button_download_title" android:key="revanced_hide_button_download" android:defaultValue="false" android:summaryOn="@string/revanced_hide_button_download_summary_on" android:summaryOff="@string/revanced_hide_button_download_summary_off" />
         <SwitchPreference android:title="@string/revanced_hide_button_playlist_title" android:key="revanced_hide_button_playlist" android:defaultValue="false" android:summaryOn="@string/revanced_hide_button_playlist_summary_on" android:summaryOff="@string/revanced_hide_button_playlist_summary_off" />SETTINGS: BUTTON_CONTAINER -->
 
@@ -406,6 +405,7 @@
 
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_general_layout" />
             <Preference android:title="hide-stories" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="switch-create-notification" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-create-button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-shorts-button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-shorts-component" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
@@ -421,7 +421,6 @@
             <Preference android:title="hide-snackbar" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-floating-microphone" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="header-switch" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
-            <Preference android:title="switch-create-notification" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
 
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_player_layout" />
             <Preference android:title="hide-collapse-button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
