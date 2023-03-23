@@ -138,6 +138,10 @@
         <SwitchPreference android:title="@string/revanced_adremover_web_search_panel_title" android:key="revanced_adremover_web_search_panel" android:defaultValue="true" android:summaryOn="@string/revanced_adremover_web_search_panel_summary_on" android:summaryOff="@string/revanced_adremover_web_search_panel_summary_off" />
         <SwitchPreference android:title="@string/revanced_adremover_timed_reactions_title" android:key="revanced_adremover_timed_reactions" android:defaultValue="true" android:summaryOn="@string/revanced_adremover_timed_reactions_summary_on" android:summaryOff="@string/revanced_adremover_timed_reactions_summary_off" />SETTINGS: HIDE_GENERAL_LAYOUT_ADS -->
 
+        <!-- SETTINGS: HIDE_ACCOUNT_MENU
+        <SwitchPreference android:title="@string/revanced_hide_account_menu_title" android:key="revanced_hide_account_menu" android:defaultValue="false" android:summaryOn="@string/revanced_hide_account_menu_summary_on" android:summaryOff="@string/revanced_hide_account_menu_summary_off" />
+        <EditTextPreference android:title="@string/revanced_account_menu_custom_filter_title" android:key="revanced_account_menu_custom_filter" android:summary="@string/revanced_account_menu_custom_filter_summary" android:defaultValue="YouTube Music,YouTube Kids" android:inputType="text" android:dependency="revanced_hide_account_menu" />SETTINGS: HIDE_ACCOUNT_MENU -->
+
         <!-- SETTINGS: HEADER_SWITCH
         <SwitchPreference android:title="@string/revanced_override_premium_header_title" android:key="revanced_override_premium_header" android:defaultValue="false" android:summaryOn="@string/revanced_override_premium_header_summary_on" android:summaryOff="@string/revanced_override_premium_header_summary_off" />SETTINGS: HEADER_SWITCH -->
 
@@ -420,6 +424,7 @@
             <Preference android:title="hide-email-address" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-snackbar" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-floating-microphone" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="hide-account-menu" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="header-switch" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
 
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_player_layout" />
