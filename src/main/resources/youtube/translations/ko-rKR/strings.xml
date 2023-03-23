@@ -264,9 +264,12 @@
     <string name="revanced_fullscreen_layout">전체화면 레이아웃</string>
     <string name="revanced_general_layout">일반 레이아웃</string>
     <string name="revanced_haptic_feedback_title">진동 피드백</string>
-    <string name="revanced_hide_action_button_summary_off">버튼들이 노출됩니다.</string>
-    <string name="revanced_hide_action_button_summary_on">버튼들이 숨겨집니다.</string>
-    <string name="revanced_hide_action_button_title">리믹스, 클립 그리고 Thanks 버튼 숨기기</string>
+    <string name="revanced_hide_account_menu_summary_off">계정 관련 메뉴들이 노출됩니다.</string>
+    <string name="revanced_hide_account_menu_summary_on">계정 관련 메뉴들이 숨겨집니다.</string>
+    <string name="revanced_hide_account_menu_title">계정 관련 메뉴 숨기기</string>
+    <string name="revanced_hide_action_buttons_summary_off">액션 버튼들(리믹스, 클립, Thanks, 실시간 채팅, 신고)이 노출됩니다.</string>
+    <string name="revanced_hide_action_buttons_summary_on">액션 버튼들(리믹스, 클립, Thanks, 실시간 채팅, 신고)이 숨겨집니다.</string>
+    <string name="revanced_hide_action_buttons_title">액션 버튼들 숨기기</string>
     <string name="revanced_hide_autoplay_button_summary_off">자동 재생 버튼이 노출됩니다.</string>
     <string name="revanced_hide_autoplay_button_summary_on">자동 재생 버튼이 숨겨집니다.</string>
     <string name="revanced_hide_autoplay_button_title">자동 재생 버튼 숨기기</string>
@@ -291,9 +294,6 @@
     <string name="revanced_hide_button_playlist_summary_off">저장(플레이리스트) 버튼이 노출됩니다.</string>
     <string name="revanced_hide_button_playlist_summary_on">저장(플레이리스트) 버튼이 숨겨집니다.</string>
     <string name="revanced_hide_button_playlist_title">저장(플레이리스트) 버튼 숨기기</string>
-    <string name="revanced_hide_button_share_summary_off">공유 버튼이 노출됩니다.</string>
-    <string name="revanced_hide_button_share_summary_on">공유 버튼이 숨겨집니다.</string>
-    <string name="revanced_hide_button_share_title">공유 버튼 숨기기</string>
     <string name="revanced_hide_captions_button_summary_off">자막 버튼이 노출됩니다.</string>
     <string name="revanced_hide_captions_button_summary_on">자막 버튼이 숨겨집니다.</string>
     <string name="revanced_hide_captions_button_title">자막 버튼 숨기기</string>
@@ -490,6 +490,7 @@
     <string name="revanced_reboot_warning_phone">"dpi를 속여 일부 레이아웃을 휴대폰 레이아웃으로 변경합니다.
 
 이 설정을 활성화하면 다음 기능을 사용할 수 있습니다.
+- 영화 조명
 - 커뮤니티 게시글"</string>
     <string name="revanced_reboot_warning_protobuf">"프로토콜 버퍼를 속여 재생 문제를 방지합니다.
 
