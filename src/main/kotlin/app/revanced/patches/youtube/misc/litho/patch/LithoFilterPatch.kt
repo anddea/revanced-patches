@@ -11,6 +11,7 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
+import app.revanced.patches.shared.fingerprints.LithoBufferFingerprint
 import app.revanced.patches.shared.fingerprints.LithoFingerprint
 import app.revanced.patches.shared.fingerprints.LithoObjectFingerprint
 import app.revanced.patches.youtube.ads.doublebacktoclose.patch.DoubleBackToClosePatch
@@ -23,6 +24,7 @@ import org.jf.dexlib2.builder.instruction.BuilderInstruction35c
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
+import org.jf.dexlib2.iface.instruction.formats.Instruction31i
 import org.jf.dexlib2.iface.reference.FieldReference
 import org.jf.dexlib2.iface.reference.MethodReference
 
@@ -37,10 +39,22 @@ import org.jf.dexlib2.iface.reference.MethodReference
 class LithoFilterPatch : BytecodePatch(
     listOf(
         LithoFingerprint,
+        LithoBufferFingerprint,
         LithoObjectFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
+
+        try {
+            with (LithoBufferFingerprint.result!!) {
+                val startIndex = this.scanResult.patternScanResult!!.startIndex
+                bufferReference = (this.mutableMethod.instruction(startIndex) as BuilderInstruction21c).reference.toString()
+            }
+            bufferFingerprintResolved = true
+        } catch (_: Exception) {
+            bufferFingerprintResolved = false
+        }
+
         LithoObjectFingerprint.result?.let {
             val endIndex = it.scanResult.patternScanResult!!.endIndex
             objectRegister = (it.mutableMethod.instruction(endIndex) as BuilderInstruction35c).registerC
@@ -51,42 +65,69 @@ class LithoFilterPatch : BytecodePatch(
             val method = result.mutableMethod
 
             with (method.implementation!!.instructions) {
+                // 18.06.41+
+                val bufferIndex = indexOfFirst {
+                    it.opcode == Opcode.CONST &&
+                            (it as Instruction31i).narrowLiteral == 168777401
+                }
+                val bufferRegister = (method.instruction(bufferIndex) as Instruction31i).registerA
+
+                // 18.06.41+
                 val targetIndex = indexOfFirst {
                     it.opcode == Opcode.CONST_STRING &&
                             (it as BuilderInstruction21c).reference.toString() == "Element missing type extension"
                 } + 2
-
                 val builderMethodDescriptor = (elementAt(targetIndex) as ReferenceInstruction).reference as MethodReference
                 val emptyComponentFieldDescriptor = (elementAt(targetIndex + 2) as ReferenceInstruction).reference as FieldReference
 
                 val identifierRegister = (method.instruction(endIndex) as OneRegisterInstruction).registerA
-                val bytebufferRegister = method.implementation!!.registerCount - method.parameters.size + 2
-                val secondParameter = method.parameters[2]
 
                 filter { instruction ->
                     val fieldReference = (instruction as? ReferenceInstruction)?.reference as? FieldReference
                     fieldReference?.let { it.type == "Ljava/lang/StringBuilder;" } == true
                 }.forEach { instruction ->
-                    val insertIndex = indexOf(instruction) + 1
+                    val insertIndex = indexOf(instruction)
+                    val stringBuilderRegister = (method.instruction(insertIndex) as TwoRegisterInstruction).registerA
 
-                    val stringBuilderRegister = (method.instruction(insertIndex) as OneRegisterInstruction).registerA
-                    val clobberedRegister = (method.instruction(insertIndex + 1) as TwoRegisterInstruction).registerA
-
-                    method.addInstructions(
-                        insertIndex, // right after setting the component.pathBuilder field,
+                    val instructionList =
                         """
-                        move-object/from16 v$clobberedRegister, v$bytebufferRegister
-                        iget-object v$clobberedRegister, v$clobberedRegister, $secondParameter->b:Ljava/nio/ByteBuffer;
-                        invoke-static {v$stringBuilderRegister, v$identifierRegister, v$objectRegister, v$clobberedRegister}, $ADS_PATH/LithoFilterPatch;->filter(Ljava/lang/StringBuilder;Ljava/lang/String;Ljava/lang/Object;Ljava/nio/ByteBuffer;)Z
-                        move-result v$clobberedRegister
-                        if-eqz v$clobberedRegister, :not_an_ad
-                        move-object/from16 v$identifierRegister, p1
-                        invoke-static {v$identifierRegister}, $builderMethodDescriptor
-                        move-result-object v0
-                        iget-object v0, v0, $emptyComponentFieldDescriptor
-                        return-object v0
-                    """,listOf(ExternalLabel("not_an_ad", method.instruction(insertIndex)))
-                    )
+                            invoke-static {v$stringBuilderRegister, v$identifierRegister, v$objectRegister, v$bufferRegister}, $ADS_PATH/LithoFilterPatch;->filter(Ljava/lang/StringBuilder;Ljava/lang/String;Ljava/lang/Object;Ljava/nio/ByteBuffer;)Z
+                            move-result v$bufferRegister
+                            if-eqz v$bufferRegister, :not_an_ad
+                            move-object/from16 v$identifierRegister, p1
+                            invoke-static {v$identifierRegister}, $builderMethodDescriptor
+                            move-result-object v0
+                            iget-object v0, v0, $emptyComponentFieldDescriptor
+                            return-object v0
+                        """
+
+                    if (bufferFingerprintResolved) {
+                        // 18.11.35+
+                        val objectIndex = indexOfFirst {
+                            it.opcode == Opcode.CONST_STRING &&
+                                    (it as BuilderInstruction21c).reference.toString() == ""
+                        } - 2
+                        val objectReference = (elementAt(objectIndex) as ReferenceInstruction).reference as FieldReference
+                        method.addInstructions(
+                            insertIndex + 1,
+                            """
+                                move-object/from16 v$bufferRegister, p3
+                                iget-object v$bufferRegister, v$bufferRegister, ${objectReference.definingClass}->${objectReference.name}:${objectReference.type}
+                                if-eqz v$bufferRegister, :not_an_ad
+                                check-cast v$bufferRegister, $bufferReference
+                                iget-object v$bufferRegister, v$bufferRegister, $bufferReference->b:Ljava/nio/ByteBuffer;
+                            """ + instructionList,listOf(ExternalLabel("not_an_ad", method.instruction(insertIndex + 1)))
+                        )
+                    } else {
+                        val secondParameter = method.parameters[2]
+                        method.addInstructions(
+                            insertIndex + 1,
+                            """
+                                move-object/from16 v$bufferRegister, p3
+                                iget-object v$bufferRegister, v$bufferRegister, $secondParameter->b:Ljava/nio/ByteBuffer;
+                            """ + instructionList,listOf(ExternalLabel("not_an_ad", method.instruction(insertIndex + 1)))
+                        )
+                    }
                 }
             }
         } ?: return LithoFingerprint.toErrorResult()
@@ -97,5 +138,8 @@ class LithoFilterPatch : BytecodePatch(
     }
     private companion object {
         private var objectRegister: Int = 3
+        private var bufferFingerprintResolved: Boolean = false
+
+        private lateinit var bufferReference: String
     }
 }
