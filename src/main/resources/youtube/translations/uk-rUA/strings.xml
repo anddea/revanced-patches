@@ -9,7 +9,7 @@
     <string name="api_mirror_url_invalid">Надана URL-адреса API Дзеркала недійсна</string>
     <string name="api_mirror_url_reset">API URL-адресу Дзеркального Сервера скинуто</string>
     <string name="api_url_changed">API URL змінено</string>
-    <string name="api_url_invalid">Вказана API URL-адреса непрацездатна</string>
+    <string name="api_url_invalid">Вказана URL-адреса API недійсна</string>
     <string name="api_url_reset">Скинути URL-адресу для API</string>
     <string name="color_change">Хочете змінити колірну схему?</string>
     <string name="color_changed">Колір змінено</string>
@@ -20,7 +20,7 @@
     <string name="enable_sb">Увімкнути SponsorBlock</string>
     <string name="enable_sb_mirror">Увімкнути SponsorBlock Дзеркального Сервера</string>
     <string name="enable_sb_mirror_sum">Коли API-сервер SponsorBlock вимкнено, перемкніть дзеркальний API-сервер на стандартний API-сервер</string>
-    <string name="enable_sb_sum">SponsorBlock - це спонсорована система для пропуску дратівливих частин у відео на YouTube</string>
+    <string name="enable_sb_sum">SponsorBlock - це краудсорсингова система для пропуску дратівливих частин у відео на YouTube</string>
     <string name="enable_segmadding">Увімкнути додавання нового сегмента</string>
     <string name="enable_segmadding_sum">Увімкніть це для активації експериментального додавання сегмента (наявні проблеми з видимістю кнопки)</string>
     <string name="enable_voting">Увімкнути голосування</string>
@@ -28,7 +28,7 @@
     <string name="general">Загальні</string>
     <string name="general_adjusting">Коректування нового кроку сегменту</string>
     <string name="general_adjusting_sum">Кількість мілісекунд, на які буде переміщено час при використанні кнопок перемотки часу при додаванні нового сегменту</string>
-    <string name="general_api_mirror_url">Змінити API URL-адресу для дзеркального Сервера</string>
+    <string name="general_api_mirror_url">Змінити API URL-адресу для Дзеркального Сервера</string>
     <string name="general_api_mirror_url_sum">"Адреса дзеркального сервера, коли основний сервер SponsorBlock вимкнено. &lt;b&gt;Змінюйте, тільки якщо розумієте, що робите.&lt;/b&gt;"</string>
     <string name="general_api_url">Змінити URL-адресу API</string>
     <string name="general_api_url_sum">"Адреса SponsorBlock сервера. &lt;b&gt;Змінюйте, тільки якщо розумієте, що робите.&lt;/b&gt;"</string>
@@ -46,9 +46,9 @@
     <string name="microg_not_installed_notice">Будь ласка, встановіть MicroG</string>
     <string name="microg_not_installed_warning">MicroG не знайдено</string>
     <string name="microg_not_running_warning">MicroG не працює у фоновому режимі</string>
-    <string name="microg_settings_summary">Увімкніть налаштування спливаючих повідомлень, щоб отримувати сповіщення</string>
-    <string name="microg_settings_title">Відкрити мікроG</string>
-    <string name="minutes">хв.</string>
+    <string name="microg_settings_summary">Увімкніть налаштування хмарних повідомлень, щоб отримувати сповіщення</string>
+    <string name="microg_settings_title">Відкрити MicroG</string>
+    <string name="minutes">хв</string>
     <string name="new_segment_choose_category">Виберіть категорію сегмента</string>
     <string name="new_segment_confirm_content" formatted="false">"Сегмент триває від %02d:%02d до %02d:%02d (%d хвилин(-и) %02d секунд(-и))\n Відправляємо?"</string>
     <string name="new_segment_confirm_title">Час початку і кінця сегмента правильні?</string>
@@ -263,6 +263,12 @@
     <string name="revanced_fullscreen_layout">Повноекранний режим</string>
     <string name="revanced_general_layout">Загальний вигляд</string>
     <string name="revanced_haptic_feedback_title">Вібрація при натисканні</string>
+    <string name="revanced_hide_account_menu_summary_off">Меню облікового запису показуються</string>
+    <string name="revanced_hide_account_menu_summary_on">Меню облікового запису приховані</string>
+    <string name="revanced_hide_account_menu_title">Сховати меню акаунту</string>
+    <string name="revanced_hide_action_buttons_summary_off">Кнопки дії показуються</string>
+    <string name="revanced_hide_action_buttons_summary_on">Кнопки дії приховано</string>
+    <string name="revanced_hide_action_buttons_title">Сховати кнопки дії</string>
     <string name="revanced_hide_autoplay_button_summary_off">Кнопку автовідтворення увімкнено</string>
     <string name="revanced_hide_autoplay_button_summary_on">Кнопку автовідтворення вимкнено</string>
     <string name="revanced_hide_autoplay_button_title">Вилучення кнопки автовідтворення</string>
