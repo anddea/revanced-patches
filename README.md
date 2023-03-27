@@ -30,6 +30,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `enable-tablet-miniplayer` | Enables the tablet mini player layout. | 18.11.36 |
 | `enable-timestamps-speed` | Add the current video speed in brackets next to the current time. | 18.11.36 |
 | `enable-wide-searchbar` | Replaces the search icon with a wide search bar. This will hide the YouTube logo when active. | 18.11.36 |
+| `force-player-button-background` | Force removes the background from the video player buttons. | 18.11.36 |
 | `force-premium-heading` | Forces premium heading on the home screen. | 18.11.36 |
 | `force-vp9-codec` | Forces the VP9 codec for videos. | 18.11.36 |
 | `header-switch` | Add switch to change header. | 18.11.36 |
@@ -41,6 +42,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `hide-button-container` | Adds the options to hide action buttons under a video. | 18.11.36 |
 | `hide-captions-button` | Hides the captions button in the video player. | 18.11.36 |
 | `hide-cast-button` | Hides the cast button in the video player. | 18.11.36 |
+| `hide-category-bar` | Hide the category bar at the top of the feed and at the top of related videos. | 18.11.36 |
 | `hide-channel-watermark` | Hides creator's watermarks on videos. | 18.11.36 |
 | `hide-collapse-button` | Hides the collapse button in the video player. | 18.11.36 |
 | `hide-comment-component` | Adds options to hide comment component under a video. | 18.11.36 |
