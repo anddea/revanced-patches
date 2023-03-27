@@ -27,6 +27,7 @@ class SharedResourceIdPatch : ResourcePatch {
         var donationCompanionResourceId: Long = -1
         var emptyColorLabelId: Long = -1
         var fabLabelId: Long = -1
+        var filterBarHeightLabelId: Long = -1
         var floatyBarQueueLabelId: Long = -1
         var imageOnlyTabId: Long = -1
         var imageWithTextTabId: Long = -1
@@ -35,6 +36,7 @@ class SharedResourceIdPatch : ResourcePatch {
         var layoutVideo: Long = -1
         var liveChatButtonId: Long = -1
         var reelPlayerFooterLabelId: Long = -1
+        var relatedChipCloudMarginLabelId: Long = -1
         var scrubbingLabelId: Long = -1
         var timeStampsContainerLabelId: Long = -1
         var tooltipLabelId: Long = -1
@@ -58,6 +60,7 @@ class SharedResourceIdPatch : ResourcePatch {
         donationCompanionResourceId = findSharedResourceId("layout", "donation_companion")
         emptyColorLabelId = findSharedResourceId("color", "inline_time_bar_colorized_bar_empty_color_dark")
         fabLabelId = findSharedResourceId("id", "fab")
+        filterBarHeightLabelId = findSharedResourceId("dimen", "filter_bar_height")
         floatyBarQueueLabelId = findSharedResourceId("string", "floaty_bar_queue_status")
         imageOnlyTabId = findSharedResourceId("layout", "image_only_tab")
         imageWithTextTabId = findSharedResourceId("layout", "image_with_text_tab")
@@ -66,6 +69,7 @@ class SharedResourceIdPatch : ResourcePatch {
         layoutVideo = findSharedResourceId("layout", "endscreen_element_layout_video")
         liveChatButtonId = findSharedResourceId("id", "live_chat_overlay_button")
         reelPlayerFooterLabelId = findSharedResourceId("layout", "reel_player_dyn_footer_vert_stories3")
+        relatedChipCloudMarginLabelId = findSharedResourceId("layout", "related_chip_cloud_reduced_margins")
         scrubbingLabelId = findSharedResourceId("dimen", "vertical_touch_offset_to_enter_fine_scrubbing")
         timeStampsContainerLabelId = findSharedResourceId("id", "timestamps_container")
         tooltipLabelId = findSharedResourceId("layout", "tooltip_content_view")
