@@ -24,9 +24,9 @@ class PatchOptions : ResourcePatch {
 
     companion object : OptionsContainer() {
 
-        /*
-        * Custom Branding Name
-        */
+        /**
+         * Custom Branding Name
+         */
         internal var YouTubeAppName: String? by option(
             PatchOption.StringOption(
                 key = "YouTubeAppName",
@@ -36,9 +36,9 @@ class PatchOptions : ResourcePatch {
             )
         )
 
-        /*
-        * Custom Package Name (YouTube)
-        */
+        /**
+         * Custom Package Name (YouTube)
+         */
         internal var YouTubePackageName: String? by option(
             PatchOption.StringOption(
                 key = "YouTubePackageName",
@@ -48,9 +48,9 @@ class PatchOptions : ResourcePatch {
             )
         )
 
-        /*
-        * Custom Package Name (YouTube Music)
-        */
+        /**
+         * Custom Package Name (YouTube Music)
+         */
         internal var MusicPackageName: String? by option(
             PatchOption.StringOption(
                 key = "MusicPackageName",
@@ -60,9 +60,9 @@ class PatchOptions : ResourcePatch {
             )
         )
 
-        /*
-        * Custom Speed Values
-        */
+        /**
+         * Custom Speed Values
+         */
         internal var CustomSpeedArrays: String? by option(
             PatchOption.StringOption(
                 key = "CustomSpeedArrays",
@@ -72,9 +72,9 @@ class PatchOptions : ResourcePatch {
             )
         )
 
-        /*
-        * Overlay Buttons Icon
-        */
+        /**
+         * Overlay Buttons Icon
+         */
         internal var OverlayButtonsIcon: String? by option(
             PatchOption.StringOption(
                 key = "OverlayButtonsIcon",
@@ -84,9 +84,9 @@ class PatchOptions : ResourcePatch {
             )
         )
 
-        /*
-        * Theme
-        */
+        /**
+         * Theme
+         */
         internal var darkThemeBackgroundColor: String? by option(
             PatchOption.StringOption(
                 key = "darkThemeBackgroundColor",
@@ -96,5 +96,16 @@ class PatchOptions : ResourcePatch {
             )
         )
 
+        /**
+         * Client Spoofing Version
+         */
+        internal var clientSpoofVersion: String? by option(
+            PatchOption.StringOption(
+                key = "clientSpoofVersion",
+                default = "17.28.35",
+                title = "Old YouTube version to override",
+                description = "Type the client version to spoof when Old Layout is enabled"
+            )
+        )
     }
 }
