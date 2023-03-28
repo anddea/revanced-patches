@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="about_api">Aplikasi ini menggunakan API dari SponsorBlock</string>
-    <string name="about_api_sum">Tekan untuk mempelajari lebih lanjut, dan lihat unduhan untuk platform lain di: sponsor.ajay.app</string>
+    <string name="about_api_sum">Tekan untuk mempelajari lebih lanjut, dan lihat download untuk platform lain di: sponsor.ajay.app</string>
     <string name="about_madeby">Integrasi dibuat oleh JakubWeg</string>
     <string name="accessibility_settings_edu_opt_in_text">Aktifkan kontrol aksesibilitas untuk pemutar video?</string>
     <string name="accessibility_settings_edu_opt_out_text">Kontrol anda diubah karena layanan aksesibilitas aktif.</string>
@@ -270,6 +270,8 @@ Apakah sudah siap untuk dikirim?"</string>
     <string name="revanced_hide_action_buttons_summary_off">Tombol action ditampilkan</string>
     <string name="revanced_hide_action_buttons_summary_on">Tombol action disembunyikan</string>
     <string name="revanced_hide_action_buttons_title">Sembunyikan tombol action</string>
+    <string name="revanced_hide_action_buttons_warning">"Fitur-fitur ini sudah usang. Jadi, meskipun ada masalah, tidak ada rencana untuk memperbaikinya.
+Harap jangan laporkan masalah apa pun yang anda temui saat menggunakan fitur ini."</string>
     <string name="revanced_hide_autoplay_button_summary_off">Tombol autoplay ditampilkan</string>
     <string name="revanced_hide_autoplay_button_summary_on">Tombol autoplay disembunyikan</string>
     <string name="revanced_hide_autoplay_button_title">Sembunyikan tombol autoplay</string>
@@ -282,6 +284,9 @@ Apakah sudah siap untuk dikirim?"</string>
     <string name="revanced_hide_auto_player_popup_panels_summary_off">Panel popup auto pemutar ditampilkan</string>
     <string name="revanced_hide_auto_player_popup_panels_summary_on">Panel popup auto pemutar disembunyikan</string>
     <string name="revanced_hide_auto_player_popup_panels_title">Sembunyikan panel popup auto pemutar</string>
+    <string name="revanced_hide_button_create_clip_summary_off">Tombol klip ditampilkan</string>
+    <string name="revanced_hide_button_create_clip_summary_on">Tombol klip disembunyikan</string>
+    <string name="revanced_hide_button_create_clip_title">Sembunyikan tombol klip</string>
     <string name="revanced_hide_button_dislike_summary_off">Tombol dislike ditampilkan</string>
     <string name="revanced_hide_button_dislike_summary_on">Tombol dislike disembunyikan</string>
     <string name="revanced_hide_button_dislike_title">Sembunyikan tombol dislike</string>
@@ -291,15 +296,35 @@ Apakah sudah siap untuk dikirim?"</string>
     <string name="revanced_hide_button_like_summary_off">Tombol like ditampilkan</string>
     <string name="revanced_hide_button_like_summary_on">Tombol like disembunyikan</string>
     <string name="revanced_hide_button_like_title">Sembunyikan tombol like</string>
+    <string name="revanced_hide_button_live_chat_summary_off">Tombol live chat ditampilkan</string>
+    <string name="revanced_hide_button_live_chat_summary_on">Tombol live chat disembunyikan</string>
+    <string name="revanced_hide_button_live_chat_title">Sembunyikan tombol live chat</string>
     <string name="revanced_hide_button_playlist_summary_off">Tombol playlist ditampilkan</string>
     <string name="revanced_hide_button_playlist_summary_on">Tombol playlist disembunyikan</string>
     <string name="revanced_hide_button_playlist_title">Sembunyikan tombol playlist</string>
+    <string name="revanced_hide_button_remix_summary_off">Tombol remix ditampilkan</string>
+    <string name="revanced_hide_button_remix_summary_on">Tombol remix disembunyikan</string>
+    <string name="revanced_hide_button_remix_title">Sembunyikan tombol remix</string>
+    <string name="revanced_hide_button_report_summary_off">Tombol laporkan ditampilkan</string>
+    <string name="revanced_hide_button_report_summary_on">Tombol laporkan disembunyikan</string>
+    <string name="revanced_hide_button_report_title">Sembunyikan tombol laporkan</string>
+    <string name="revanced_hide_button_share_summary_off">Tombol bagikan ditampilkan</string>
+    <string name="revanced_hide_button_share_summary_on">Tombol bagikan disembunyikan</string>
+    <string name="revanced_hide_button_share_title">Sembunyikan tombol bagikan</string>
+    <string name="revanced_hide_button_thanks_summary_off">Tombol thanks ditampilkan</string>
+    <string name="revanced_hide_button_thanks_summary_on">Tombol thanks disembunyikan</string>
+    <string name="revanced_hide_button_thanks_title">Sembunyikan tombol thanks</string>
     <string name="revanced_hide_captions_button_summary_off">Tombol captions ditampilkan</string>
     <string name="revanced_hide_captions_button_summary_on">Tombol captions disembunyikan</string>
     <string name="revanced_hide_captions_button_title">Sembunyikan tombol captions</string>
     <string name="revanced_hide_cast_button_summary_off">Tombol cast ditampilkan</string>
     <string name="revanced_hide_cast_button_summary_on">Tombol cast disembunyikan</string>
     <string name="revanced_hide_cast_button_title">Sembunyikan tombol cast</string>
+    <string name="revanced_hide_category_bar_in_feed_title">Sembunyikan bar kategori di feed</string>
+    <string name="revanced_hide_category_bar_in_related_video_title">Sembunyikan bar kategori di video yang terkait</string>
+    <string name="revanced_hide_category_bar_in_search_results_title">Sembunyikan bar kategori di hasil pencarian</string>
+    <string name="revanced_hide_category_bar_summary_off">Bar kategori ditampilkan</string>
+    <string name="revanced_hide_category_bar_summary_on">Bar kategori disembunyikan</string>
     <string name="revanced_hide_channel_watermark_summary_off">Watermark channel ditampilkan</string>
     <string name="revanced_hide_channel_watermark_summary_on">Watermark channel disembunyikan</string>
     <string name="revanced_hide_channel_watermark_title">Sembunyikan watermark channel</string>
@@ -372,9 +397,9 @@ Apakah sudah siap untuk dikirim?"</string>
     <string name="revanced_hide_menu_more_info_summary_off">Menu informasi lainnya ditampilkan</string>
     <string name="revanced_hide_menu_more_info_summary_on">Menu informasi lainnya disembunyikan</string>
     <string name="revanced_hide_menu_more_info_title">Sembunyikan menu informasi lainnya</string>
-    <string name="revanced_hide_menu_report_summary_off">Menu report ditampilkan</string>
-    <string name="revanced_hide_menu_report_summary_on">Menu report disembunyikan</string>
-    <string name="revanced_hide_menu_report_title">Sembunyikan menu report</string>
+    <string name="revanced_hide_menu_report_summary_off">Menu laporkan ditampilkan</string>
+    <string name="revanced_hide_menu_report_summary_on">Menu laporkan disembunyikan</string>
+    <string name="revanced_hide_menu_report_title">Sembunyikan menu laporkan</string>
     <string name="revanced_hide_menu_speed_summary_off">Menu kecepatan pemutar video ditampilkan</string>
     <string name="revanced_hide_menu_speed_summary_on">Menu kecepatan pemutar video disembunyikan</string>
     <string name="revanced_hide_menu_speed_title">Sembunyikan menu kecepatan pemutar video</string>
@@ -483,9 +508,6 @@ Apakah sudah siap untuk dikirim?"</string>
     <string name="revanced_player_layout">Layout pemutar</string>
     <string name="revanced_reboot_warning_general">"Karena ini masih merupakan fitur percobaan, mungkin ada masalah lain yang tidak diketahui.
 Apakah anda yakin ingin melanjutkan?"</string>
-    <string name="revanced_reboot_warning_oldlayout">"Trik versi klien YouTube ke v17.28.35 untuk memuat layout lama
-
-Di pengaturan aplikasi, versi YouTube mungkin ditandai sebagai v17.28.35"</string>
     <string name="revanced_reboot_warning_phone">"Trik dpi untuk mengubah beberapa layout menjadi layout ponsel.
 
 Jika anda mengaktifkan pengaturan ini, fitur berikut akan tersedia:

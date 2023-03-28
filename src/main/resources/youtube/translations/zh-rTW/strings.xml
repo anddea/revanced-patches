@@ -19,14 +19,14 @@
     <string name="diff_segments">對不同類別片段的操作</string>
     <string name="enable_sb">啟用 SponsorBlock</string>
     <string name="enable_sb_mirror">啟用 SponsorBlock 鏡像</string>
-    <string name="enable_sb_mirror_sum">當 SponsorBlock API 伺服器宕機時，切換鏡像 API 伺服器為默認 API 伺服器</string>
+    <string name="enable_sb_mirror_sum">當 SponsorBlock API 伺服器宕機時，切換鏡像 API 伺服器為預設 API 伺服器</string>
     <string name="enable_sb_sum">SponsorBlock 是透過使用者新增來跳過 YouTube 擾人的片段</string>
     <string name="enable_segmadding">啟用新增新片段</string>
-    <string name="enable_segmadding_sum">開啟此選項以啟用實驗性質的片段新增功能 (按鈕有可見性問題)</string>
+    <string name="enable_segmadding_sum">開啟此選項以啟用實驗性質的片段新增功能 (按鈕有顯示問題)</string>
     <string name="enable_voting">啟用投票</string>
-    <string name="enable_voting_sum">開啟此項以啟用投票</string>
+    <string name="enable_voting_sum">開啟此選項以啟用投票</string>
     <string name="general">一般</string>
-    <string name="general_adjusting">調整新片段步進</string>
+    <string name="general_adjusting">調整新片段快轉</string>
     <string name="general_adjusting_sum">這是按下時間調整按鈕加入新片段時可以移動的毫秒數</string>
     <string name="general_api_mirror_url">更改 API 鏡像網址</string>
     <string name="general_api_mirror_url_sum">"鏡像伺服器網址用於當 SponsorBlock 服務器宕機的切換。 &lt;b&gt;除非您知道自己在做什麼，否則不要改變這個網址。 &lt;/b&gt;"</string>
@@ -300,6 +300,10 @@
     <string name="revanced_hide_cast_button_summary_off">鏡射按鈕已顯示</string>
     <string name="revanced_hide_cast_button_summary_on">鏡射按鈕已隱藏</string>
     <string name="revanced_hide_cast_button_title">螢幕鏡射按鈕</string>
+    <string name="revanced_hide_category_bar_in_feed_title">隱藏探索內的分類欄</string>
+    <string name="revanced_hide_category_bar_in_related_video_title">隱藏相關影片中的分類欄</string>
+    <string name="revanced_hide_category_bar_summary_off">主題分類欄已顯示</string>
+    <string name="revanced_hide_category_bar_summary_on">主題分類欄已隱藏</string>
     <string name="revanced_hide_channel_watermark_summary_off">頻道浮水印已顯示</string>
     <string name="revanced_hide_channel_watermark_summary_on">頻道浮水印已隱藏</string>
     <string name="revanced_hide_channel_watermark_title">頻道浮水印</string>
@@ -483,9 +487,6 @@
     <string name="revanced_player_layout">播放器介面設定</string>
     <string name="revanced_reboot_warning_general">"由於這仍是一項實驗性功能，因此可能存在其他未知問題。
 你確定要繼續嗎？"</string>
-    <string name="revanced_reboot_warning_oldlayout">"模擬 Youtube 版本 v17.28.35 以應用舊版配置
-
-在設定 \"關於\" 選項中Youtube版本可能會顯示為 v17.28.35"</string>
     <string name="revanced_reboot_warning_phone">"欺騙Dpi讓一些介面更改為手機模式的介面
 
 如果啟用此設定，將可以使用以下功能：
