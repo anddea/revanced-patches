@@ -99,6 +99,7 @@ The official Patch bundle provided by ReVanced and the community.
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
 | `background-play` | Enables playing music in the background. | all |
+| `certificate-spoof` | Spoofs the YouTube Music certificate for Android Auto. | all |
 | `client-spoof-music` | Spoofs the YouTube Music client. | all |
 | `custom-branding-music-afn-blue` | Changes the YouTube Music launcher icon (Afn / Blue). | all |
 | `custom-branding-music-afn-red` | Changes the YouTube Music launcher icon (Afn / Red). | all |
@@ -125,6 +126,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `music-settings` | Adds settings for ReVanced to YouTube Music. | all |
 | `optimize-resource-music` | Remove unnecessary resources. | all |
 | `patch-options` | Create an options.toml file. | all |
+| `spoof-version` | Spoof the YouTube Music client version. | all |
 | `translations-music` | Add Crowdin translations for YouTube Music. | all |
 </details>
 
