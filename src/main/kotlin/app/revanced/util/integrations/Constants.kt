@@ -11,6 +11,7 @@ internal object Constants {
     const val GENERAL_LAYOUT = "$PATCHES_PATH/layout/GeneralLayoutPatch;"
     const val PLAYER_LAYOUT = "$PATCHES_PATH/layout/PlayerLayoutPatch;"
     const val FULLSCREEN_LAYOUT = "$PATCHES_PATH/layout/FullscreenLayoutPatch;"
+    const val BOTTOM_LAYOUT = "$PATCHES_PATH/layout/BottomLayoutPatch;"
     const val FLYOUT_PANEL_LAYOUT = "$PATCHES_PATH/layout/FlyoutPanelLayoutPatch;"
     const val SEEKBAR_LAYOUT = "$PATCHES_PATH/layout/SeekbarLayoutPatch;"
 

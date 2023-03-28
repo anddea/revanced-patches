@@ -9,6 +9,7 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
+import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.shared.fingerprints.LithoBufferFingerprint
@@ -27,6 +28,7 @@ import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
 import org.jf.dexlib2.iface.instruction.formats.Instruction31i
 import org.jf.dexlib2.iface.reference.FieldReference
 import org.jf.dexlib2.iface.reference.MethodReference
+import kotlin.properties.Delegates
 
 @DependsOn(
     [
@@ -62,32 +64,32 @@ class LithoFilterPatch : BytecodePatch(
 
         LithoFingerprint.result?.let { result ->
             val endIndex = result.scanResult.patternScanResult!!.endIndex
-            val method = result.mutableMethod
+            lithoMethod = result.mutableMethod
 
-            with (method.implementation!!.instructions) {
+            with (lithoMethod.implementation!!.instructions) {
                 // 18.06.41+
                 val bufferIndex = indexOfFirst {
                     it.opcode == Opcode.CONST &&
                             (it as Instruction31i).narrowLiteral == 168777401
                 }
-                val bufferRegister = (method.instruction(bufferIndex) as Instruction31i).registerA
+                val bufferRegister = (lithoMethod.instruction(bufferIndex) as Instruction31i).registerA
 
                 // 18.06.41+
                 val targetIndex = indexOfFirst {
                     it.opcode == Opcode.CONST_STRING &&
                             (it as BuilderInstruction21c).reference.toString() == "Element missing type extension"
                 } + 2
-                val builderMethodDescriptor = (elementAt(targetIndex) as ReferenceInstruction).reference as MethodReference
-                val emptyComponentFieldDescriptor = (elementAt(targetIndex + 2) as ReferenceInstruction).reference as FieldReference
+                builderMethodDescriptor = (elementAt(targetIndex) as ReferenceInstruction).reference as MethodReference
+                emptyComponentFieldDescriptor = (elementAt(targetIndex + 2) as ReferenceInstruction).reference as FieldReference
 
-                val identifierRegister = (method.instruction(endIndex) as OneRegisterInstruction).registerA
+                val identifierRegister = (lithoMethod.instruction(endIndex) as OneRegisterInstruction).registerA
 
                 filter { instruction ->
                     val fieldReference = (instruction as? ReferenceInstruction)?.reference as? FieldReference
                     fieldReference?.let { it.type == "Ljava/lang/StringBuilder;" } == true
                 }.forEach { instruction ->
                     val insertIndex = indexOf(instruction)
-                    val stringBuilderRegister = (method.instruction(insertIndex) as TwoRegisterInstruction).registerA
+                    val stringBuilderRegister = (lithoMethod.instruction(insertIndex) as TwoRegisterInstruction).registerA
 
                     val instructionList =
                         """
@@ -107,8 +109,8 @@ class LithoFilterPatch : BytecodePatch(
                             it.opcode == Opcode.CONST_STRING &&
                                     (it as BuilderInstruction21c).reference.toString() == ""
                         } - 2
-                        val objectReference = (elementAt(objectIndex) as ReferenceInstruction).reference as FieldReference
-                        method.addInstructions(
+                        objectReference = (elementAt(objectIndex) as ReferenceInstruction).reference as FieldReference
+                        lithoMethod.addInstructions(
                             insertIndex + 1,
                             """
                                 move-object/from16 v$bufferRegister, p3
@@ -116,16 +118,16 @@ class LithoFilterPatch : BytecodePatch(
                                 if-eqz v$bufferRegister, :not_an_ad
                                 check-cast v$bufferRegister, $bufferReference
                                 iget-object v$bufferRegister, v$bufferRegister, $bufferReference->b:Ljava/nio/ByteBuffer;
-                            """ + instructionList,listOf(ExternalLabel("not_an_ad", method.instruction(insertIndex + 1)))
+                            """ + instructionList,listOf(ExternalLabel("not_an_ad", lithoMethod.instruction(insertIndex + 1)))
                         )
                     } else {
-                        val secondParameter = method.parameters[2]
-                        method.addInstructions(
+                        val secondParameter = lithoMethod.parameters[2]
+                        lithoMethod.addInstructions(
                             insertIndex + 1,
                             """
                                 move-object/from16 v$bufferRegister, p3
                                 iget-object v$bufferRegister, v$bufferRegister, $secondParameter->b:Ljava/nio/ByteBuffer;
-                            """ + instructionList,listOf(ExternalLabel("not_an_ad", method.instruction(insertIndex + 1)))
+                            """ + instructionList,listOf(ExternalLabel("not_an_ad", lithoMethod.instruction(insertIndex + 1)))
                         )
                     }
                 }
@@ -136,10 +138,14 @@ class LithoFilterPatch : BytecodePatch(
 
         return PatchResultSuccess()
     }
-    private companion object {
-        private var objectRegister: Int = 3
-        private var bufferFingerprintResolved: Boolean = false
+    internal companion object {
+        var objectRegister by Delegates.notNull<Int>()
+        var bufferFingerprintResolved by Delegates.notNull<Boolean>()
 
-        private lateinit var bufferReference: String
+        lateinit var lithoMethod: MutableMethod
+        lateinit var bufferReference: String
+        lateinit var builderMethodDescriptor: MethodReference
+        lateinit var emptyComponentFieldDescriptor: FieldReference
+        lateinit var objectReference: FieldReference
     }
 }
