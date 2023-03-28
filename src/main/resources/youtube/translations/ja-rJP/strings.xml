@@ -274,6 +274,8 @@
     <string name="revanced_hide_action_buttons_summary_on">“リミックス”ボタン、“クリップ”ボタン、“Thanks”ボタン、“チャット”ボタン、“共有”ボタンを非表示にします
 高評価、低評価、ダウンロード、“保存(プレイリストに追加)”ボタンは非表示になりません</string>
     <string name="revanced_hide_action_buttons_title">動画下のボタンを非表示にする</string>
+    <string name="revanced_hide_action_buttons_warning">"これらの機能は古いので、何かバグがあったとしても修正する予定は今の所ありません。
+これらの機能を使用した際に発生したバグを報告しないでください。"</string>
     <string name="revanced_hide_autoplay_button_summary_off">自動再生ボタンを非表示にします</string>
     <string name="revanced_hide_autoplay_button_summary_on">自動再生ボタンを非表示にします</string>
     <string name="revanced_hide_autoplay_button_title">自動再生ボタンを非表示にする</string>
@@ -286,6 +288,9 @@
     <string name="revanced_hide_auto_player_popup_panels_summary_off">プレーヤーの自動ポップアップパネル (プレイリストまたはライブチャット)を無効にします</string>
     <string name="revanced_hide_auto_player_popup_panels_summary_on">プレーヤーの自動ポップアップパネル (プレイリストまたはライブチャット)を無効にします</string>
     <string name="revanced_hide_auto_player_popup_panels_title">プレーヤーのポップアップパネルを非表示にする</string>
+    <string name="revanced_hide_button_create_clip_summary_off">クリップボタンを非表示にします</string>
+    <string name="revanced_hide_button_create_clip_summary_on">クリップボタンを非表示にします</string>
+    <string name="revanced_hide_button_create_clip_title">クリップボタンを非表示にする</string>
     <string name="revanced_hide_button_dislike_summary_off">低評価ボタンを非表示にします</string>
     <string name="revanced_hide_button_dislike_summary_on">低評価ボタンを非表示にします</string>
     <string name="revanced_hide_button_dislike_title">低評価ボタンを非表示にする</string>
@@ -295,15 +300,35 @@
     <string name="revanced_hide_button_like_summary_off">高評価ボタンを非表示にします</string>
     <string name="revanced_hide_button_like_summary_on">高評価ボタンを非表示にします</string>
     <string name="revanced_hide_button_like_title">高評価ボタンを非表示にする</string>
+    <string name="revanced_hide_button_live_chat_summary_off">ライブのチャットボタンを非表示にします</string>
+    <string name="revanced_hide_button_live_chat_summary_on">ライブのチャットボタンを非表示にします</string>
+    <string name="revanced_hide_button_live_chat_title">ライブのチャットボタンを非表示にする</string>
     <string name="revanced_hide_button_playlist_summary_off">プレイリストボタンを非表示にします</string>
     <string name="revanced_hide_button_playlist_summary_on">“保存(プレイリストに追加)”ボタンを非表示にする</string>
     <string name="revanced_hide_button_playlist_title">“保存(プレイリストに追加)”ボタンを非表示にする</string>
+    <string name="revanced_hide_button_remix_summary_off">作成(リミックス)ボタンは非表示です</string>
+    <string name="revanced_hide_button_remix_summary_on">作成(リミックス)ボタンは非表示です</string>
+    <string name="revanced_hide_button_remix_title">作成(リミックス)ボタンを非表示にする</string>
+    <string name="revanced_hide_button_report_summary_off">報告ボタンを非表示にします</string>
+    <string name="revanced_hide_button_report_summary_on">報告ボタンを非表示にします</string>
+    <string name="revanced_hide_button_report_title">報告ボタンを非表示にする</string>
+    <string name="revanced_hide_button_share_summary_off">共有ボタンを非表示にします</string>
+    <string name="revanced_hide_button_share_summary_on">共有ボタンを非表示にします</string>
+    <string name="revanced_hide_button_share_title">共有ボタンを非表示にする</string>
+    <string name="revanced_hide_button_thanks_summary_off">Thanksボタンを非表示にします</string>
+    <string name="revanced_hide_button_thanks_summary_on">Thanksボタンを非表示にします</string>
+    <string name="revanced_hide_button_thanks_title">Thanksボタンを非表示にする</string>
     <string name="revanced_hide_captions_button_summary_off">字幕ボタンを非表示にします</string>
     <string name="revanced_hide_captions_button_summary_on">字幕ボタンを非表示にします</string>
     <string name="revanced_hide_captions_button_title">字幕ボタンを非表示にする</string>
     <string name="revanced_hide_cast_button_summary_off">キャストボタンを非表示にします</string>
     <string name="revanced_hide_cast_button_summary_on">キャストボタンを非表示にします</string>
     <string name="revanced_hide_cast_button_title">キャストボタンを非表示にする</string>
+    <string name="revanced_hide_category_bar_in_feed_title">ホームタブのカテゴリバーを非表示にする</string>
+    <string name="revanced_hide_category_bar_in_related_video_title">関連動画欄のカテゴリバーを非表示にする</string>
+    <string name="revanced_hide_category_bar_in_search_results_title">検索結果のカテゴリバーを非表示にする</string>
+    <string name="revanced_hide_category_bar_summary_off">ホームタブや関連動画欄、検索結果に表示されるカテゴリバー(“すべて”、“ゲーム”、“音楽”などのカテゴリ)を非表示にします</string>
+    <string name="revanced_hide_category_bar_summary_on">ホームタブや関連動画欄、検索結果に表示されるカテゴリバー(“すべて”、“ゲーム”、“音楽”などのカテゴリ)を非表示にします</string>
     <string name="revanced_hide_channel_watermark_summary_off">チャンネルの透かし(ウォーターマーク)を非表示にします</string>
     <string name="revanced_hide_channel_watermark_summary_on">チャンネルの透かし(ウォーターマーク)を非表示にします</string>
     <string name="revanced_hide_channel_watermark_title">チャンネルの透かしを非表示にする</string>
@@ -487,9 +512,6 @@
     <string name="revanced_player_layout">プレーヤーのレイアウト</string>
     <string name="revanced_reboot_warning_general">"これはまだ実験的な機能であるため、他にも未知のバグがあるかもしれません。
 続行してもよろしいですか？"</string>
-    <string name="revanced_reboot_warning_oldlayout">"古いレイアウトを有効にするために、YouTubeのバージョンをv17.28.35に偽装します。
-
-アプリの設定では、YouTubeのバージョンはv17.28.35 と表示されます。"</string>
     <string name="revanced_reboot_warning_phone">"一部のレイアウトをスマートフォン用のレイアウトに変更するために dpi を偽装します。
 
 この設定を有効にすると、次の機能は利用できません:
