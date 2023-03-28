@@ -46,12 +46,6 @@ class PlayerButtonBackgroundPatch : ResourcePatch {
         prefs.writeText(
             prefs.readText()
                 .replace(
-                    "HIDE_NEXT_BUTTON",
-                    "FORCE_BUTTON_BACKGROUND"
-                ).replace(
-                    "HIDE_PREV_BUTTON",
-                    "FORCE_BUTTON_BACKGROUND"
-                ).replace(
                     "HIDE_PLAYER_BUTTON_BACKGROUND",
                     "FORCE_BUTTON_BACKGROUND"
                 )
