@@ -20,6 +20,7 @@ class SharedResourceIdPatch : ResourcePatch {
         var accountSwitcherAccessibilityLabelId: Long = -1
         var appearanceStringId: Long = -1
         var backgroundCategoryLabelId: Long = -1
+        var barContainerHeightLabelId: Long = -1
         var bottomUiContainerResourceId: Long = -1
         var chapterRepeatOnResourceId: Long = -1
         var compactLinkLabelId: Long = -1
@@ -54,6 +55,7 @@ class SharedResourceIdPatch : ResourcePatch {
         accountSwitcherAccessibilityLabelId = findSharedResourceId("string", "account_switcher_accessibility_label")
         appearanceStringId = findSharedResourceId("string", "app_theme_appearance_dark")
         backgroundCategoryLabelId = findSharedResourceId("string", "pref_background_and_offline_category")
+        barContainerHeightLabelId = findSharedResourceId("dimen", "bar_container_height")
         bottomUiContainerResourceId = findSharedResourceId("id", "bottom_ui_container_stub")
         chapterRepeatOnResourceId = findSharedResourceId("string", "chapter_repeat_on")
         compactLinkLabelId = findSharedResourceId("layout", "compact_link")
