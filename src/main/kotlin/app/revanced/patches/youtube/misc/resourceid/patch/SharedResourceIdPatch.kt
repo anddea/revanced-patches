@@ -24,7 +24,6 @@ class SharedResourceIdPatch : ResourcePatch {
         var bottomUiContainerResourceId: Long = -1
         var chapterRepeatOnResourceId: Long = -1
         var compactLinkLabelId: Long = -1
-        var compactListLabelId: Long = -1
         var controlsLayoutStubResourceId: Long = -1
         var donationCompanionResourceId: Long = -1
         var emptyColorLabelId: Long = -1
@@ -59,7 +58,6 @@ class SharedResourceIdPatch : ResourcePatch {
         bottomUiContainerResourceId = findSharedResourceId("id", "bottom_ui_container_stub")
         chapterRepeatOnResourceId = findSharedResourceId("string", "chapter_repeat_on")
         compactLinkLabelId = findSharedResourceId("layout", "compact_link")
-        compactListLabelId = findSharedResourceId("layout", "compact_list_item")
         controlsLayoutStubResourceId = findSharedResourceId("id", "controls_layout_stub")
         donationCompanionResourceId = findSharedResourceId("layout", "donation_companion")
         emptyColorLabelId = findSharedResourceId("color", "inline_time_bar_colorized_bar_empty_color_dark")
