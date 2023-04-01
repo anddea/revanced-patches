@@ -121,6 +121,9 @@
         <SwitchPreference android:title="@string/revanced_hide_category_bar_in_related_video_title" android:key="revanced_hide_category_bar_in_related_video" android:defaultValue="false" android:summaryOn="@string/revanced_hide_category_bar_summary_on" android:summaryOff="@string/revanced_hide_category_bar_summary_off" />
         <SwitchPreference android:title="@string/revanced_hide_category_bar_in_search_results_title" android:key="revanced_hide_category_bar_in_search_results" android:defaultValue="false" android:summaryOn="@string/revanced_hide_category_bar_summary_on" android:summaryOff="@string/revanced_hide_category_bar_summary_off" />SETTINGS: HIDE_CATEGORY_BAR -->
 
+        <!-- SETTINGS: HIDE_CHANNEL_LIST_SUBMENU
+        <SwitchPreference android:title="@string/revanced_hide_channel_list_submenu_title" android:key="revanced_hide_channel_list_submenu" android:defaultValue="true" android:summaryOn="@string/revanced_hide_channel_list_submenu_summary_on" android:summaryOff="@string/revanced_hide_channel_list_submenu_summary_off" />SETTINGS: HIDE_CHANNEL_LIST_SUBMENU -->
+
         <!-- SETTINGS: HIDE_GENERAL_LAYOUT_ADS
         <SwitchPreference android:title="@string/revanced_adremover_merchandise_title" android:key="revanced_adremover_merchandise" android:defaultValue="true" android:summaryOn="@string/revanced_adremover_merchandise_summary_on" android:summaryOff="@string/revanced_adremover_merchandise_summary_off" />
         <SwitchPreference android:title="@string/revanced_adremover_browse_store_button_title" android:key="revanced_adremover_browse_store_button" android:defaultValue="true" android:summaryOn="@string/revanced_adremover_browse_store_button_summary_on" android:summaryOff="@string/revanced_adremover_browse_store_button_summary_off" />
@@ -439,6 +442,7 @@
             <Preference android:title="hide-snackbar" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-floating-microphone" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-category-bar" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="hide-channel-avatar-section" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-account-menu" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="header-switch" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
 
