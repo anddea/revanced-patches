@@ -17,6 +17,7 @@ import app.revanced.patches.youtube.misc.playertype.patch.PlayerTypeHookPatch
 import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.misc.sponsorblock.bytecode.fingerprints.*
 import app.revanced.patches.youtube.misc.timebar.patch.HookTimebarPatch
+import app.revanced.patches.youtube.misc.videoid.legacy.patch.LegacyVideoIdPatch
 import app.revanced.patches.youtube.misc.videoid.mainstream.patch.MainstreamVideoIdPatch
 import app.revanced.util.bytecode.BytecodeHelper.injectInit
 import app.revanced.util.bytecode.BytecodeHelper.updatePatchStatus
@@ -31,6 +32,7 @@ import org.jf.dexlib2.iface.reference.MethodReference
 @Name("sponsorblock-bytecode-patch")
 @DependsOn(
     [
+        LegacyVideoIdPatch::class,
         MainstreamVideoIdPatch::class,
         PlayerControlsPatch::class,
         PlayerTypeHookPatch::class,
@@ -62,8 +64,9 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         }
 
         /*
-         * Inject MainstreamVideoIdPatch
+         * Inject VideoIdPatch
          */
+        LegacyVideoIdPatch.injectCall("$INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR->setCurrentVideoId(Ljava/lang/String;)V")
         MainstreamVideoIdPatch.injectCall("$INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR->setCurrentVideoId(Ljava/lang/String;)V")
 
 
