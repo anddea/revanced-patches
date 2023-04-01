@@ -22,6 +22,7 @@ class SharedResourceIdPatch : ResourcePatch {
         var backgroundCategoryLabelId: Long = -1
         var barContainerHeightLabelId: Long = -1
         var bottomUiContainerResourceId: Long = -1
+        var channelListSubMenuLabelId: Long = -1
         var chapterRepeatOnResourceId: Long = -1
         var compactLinkLabelId: Long = -1
         var controlsLayoutStubResourceId: Long = -1
@@ -56,6 +57,7 @@ class SharedResourceIdPatch : ResourcePatch {
         backgroundCategoryLabelId = findSharedResourceId("string", "pref_background_and_offline_category")
         barContainerHeightLabelId = findSharedResourceId("dimen", "bar_container_height")
         bottomUiContainerResourceId = findSharedResourceId("id", "bottom_ui_container_stub")
+        channelListSubMenuLabelId = findSharedResourceId("layout", "channel_list_sub_menu")
         chapterRepeatOnResourceId = findSharedResourceId("string", "chapter_repeat_on")
         compactLinkLabelId = findSharedResourceId("layout", "compact_link")
         controlsLayoutStubResourceId = findSharedResourceId("id", "controls_layout_stub")
