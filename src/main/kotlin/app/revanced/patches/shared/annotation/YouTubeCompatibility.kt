@@ -11,7 +11,8 @@ import app.revanced.patcher.annotation.Package
             "18.08.39",
             "18.09.39",
             "18.10.37",
-            "18.11.36"
+            "18.11.36",
+            "18.12.35"
         )
     )]
 )
