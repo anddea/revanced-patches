@@ -26,38 +26,42 @@ class PlayerControlsPatch : BytecodePatch(
     listOf(
         BottomControlsInflateFingerprint,
         ControlsLayoutInflateFingerprint,
-        PlayerControlsVisibilityFingerprint
+        PlayerControlsVisibilityFingerprint,
+        PlayerControlsVisibilityModelFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
 
-        PlayerControlsVisibilityFingerprint.result?.let {
-            showPlayerControlsResult = it
-        } ?: return PlayerControlsVisibilityFingerprint.toErrorResult()
-
-        ControlsLayoutInflateFingerprint.result?.let {
-            controlsLayoutInflateResult = it
-        } ?: return ControlsLayoutInflateFingerprint.toErrorResult()
-
-        BottomControlsInflateFingerprint.result?.let {
-            inflateResult = it
-        } ?: return BottomControlsInflateFingerprint.toErrorResult()
+        playerControlsVisibilityResult = PlayerControlsVisibilityFingerprint.result?: return PlayerControlsVisibilityFingerprint.toErrorResult()
+        playerControlsVisibilityModelResult = PlayerControlsVisibilityModelFingerprint.result?: return PlayerControlsVisibilityModelFingerprint.toErrorResult()
+        controlsLayoutInflateResult = ControlsLayoutInflateFingerprint.result?: return ControlsLayoutInflateFingerprint.toErrorResult()
+        inflateResult = BottomControlsInflateFingerprint.result?: return BottomControlsInflateFingerprint.toErrorResult()
 
         return PatchResultSuccess()
     }
 
     internal companion object {
-        lateinit var showPlayerControlsResult: MethodFingerprintResult
+        lateinit var playerControlsVisibilityResult: MethodFingerprintResult
+        lateinit var playerControlsVisibilityModelResult: MethodFingerprintResult
         lateinit var controlsLayoutInflateResult: MethodFingerprintResult
         lateinit var inflateResult: MethodFingerprintResult
 
-        fun MethodFingerprintResult.injectVisibilityCall(
+        private fun MethodFingerprintResult.injectVisibilityCall(
             descriptor: String,
-            fieldname: String
+            fieldName: String
         ) {
             mutableMethod.addInstruction(
                 0,
-                "invoke-static {p1}, $descriptor->$fieldname(Z)V"
+                "invoke-static {p1}, $descriptor->$fieldName(Z)V"
+            )
+        }
+
+        private fun MethodFingerprintResult.injectVisibilityNegatedCall(
+            descriptor: String
+        ) {
+            mutableMethod.addInstruction(
+                scanResult.patternScanResult!!.startIndex,
+                "invoke-static {}, $descriptor->changeVisibilityNegatedImmediate()V"
             )
         }
 
@@ -75,7 +79,8 @@ class PlayerControlsPatch : BytecodePatch(
         }
 
         fun injectVisibility(descriptor: String) {
-            showPlayerControlsResult.injectVisibilityCall(descriptor, "changeVisibility")
+            playerControlsVisibilityResult.injectVisibilityCall(descriptor, "changeVisibility")
+            playerControlsVisibilityModelResult.injectVisibilityNegatedCall(descriptor)
         }
 
         fun initializeSB(descriptor: String) {
