@@ -14,7 +14,7 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.youtube.misc.playerbutton.fingerprints.LiveChatFingerprint
 import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch
-import app.revanced.util.integrations.Constants.PLAYER_LAYOUT
+import app.revanced.util.integrations.Constants.PLAYER
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.builder.instruction.BuilderInstruction21c
 import org.jf.dexlib2.builder.instruction.BuilderInstruction35c
@@ -58,7 +58,7 @@ class PlayerButtonPatch : BytecodePatch(
 
                                 addInstructions(
                                     index, """
-                                        invoke-static {v$firstRegister, v$secondRegister}, $PLAYER_LAYOUT->hidePlayerButton(Landroid/view/View;I)I
+                                        invoke-static {v$firstRegister, v$secondRegister}, $PLAYER->hidePlayerButton(Landroid/view/View;I)I
                                         move-result v$secondRegister
                                         """
                                 )

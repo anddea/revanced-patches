@@ -17,7 +17,7 @@ import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.shared.patch.mapping.ResourceMappingPatch
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
-import app.revanced.util.integrations.Constants.FULLSCREEN_LAYOUT
+import app.revanced.util.integrations.Constants.FULLSCREEN
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.iface.instruction.formats.Instruction31i
 
@@ -59,7 +59,7 @@ class HideEndScreenOverlayPatch : BytecodePatch() {
                                         val dummyRegister = (instructions.elementAt(index) as Instruction31i).registerA
                                         mutableMethod.addInstructions(
                                             insertIndex, """
-                                                invoke-static {}, $FULLSCREEN_LAYOUT->hideEndScreenOverlay()Z
+                                                invoke-static {}, $FULLSCREEN->hideEndScreenOverlay()Z
                                                 move-result v$dummyRegister
                                                 if-eqz v$dummyRegister, :on
                                                 return-void
@@ -85,7 +85,7 @@ class HideEndScreenOverlayPatch : BytecodePatch() {
              */
             SettingsPatch.addPreference(
                 arrayOf(
-                    "PREFERENCE: FULLSCREEN_LAYOUT_SETTINGS",
+                    "PREFERENCE: FULLSCREEN_SETTINGS",
                     "SETTINGS: HIDE_ENDSCREEN_OVERLAY"
                 )
             )

@@ -24,7 +24,7 @@ import app.revanced.patches.youtube.misc.playertype.patch.PlayerTypeHookPatch
 import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
 import app.revanced.util.bytecode.BytecodeHelper.updatePatchStatus
-import app.revanced.util.integrations.Constants.GENERAL_LAYOUT
+import app.revanced.util.integrations.Constants.GENERAL
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
@@ -79,7 +79,7 @@ class ShortsComponentPatch : BytecodePatch(
                                         val mutableMethod = context.proxy(classDef).mutableClass.findMutableMethodOf(method)
 
                                         val viewRegister = (instructions.elementAt(index + 3) as OneRegisterInstruction).registerA
-                                        mutableMethod.implementation!!.injectHideCall(index + 4, viewRegister, "layout/GeneralLayoutPatch", "hideShortsPlayerCommentsButton")
+                                        mutableMethod.implementation!!.injectHideCall(index + 4, viewRegister, "layout/GeneralPatch", "hideShortsPlayerCommentsButton")
 
                                         patchSuccessArray[0] = true
                                     }
@@ -92,7 +92,7 @@ class ShortsComponentPatch : BytecodePatch(
                                         val mutableMethod = context.proxy(classDef).mutableClass.findMutableMethodOf(method)
 
                                         val viewRegister = (invokeInstruction as Instruction21c).registerA
-                                        mutableMethod.implementation!!.injectHideCall(index - 1, viewRegister, "layout/GeneralLayoutPatch", "hideShortsPlayerRemixButton")
+                                        mutableMethod.implementation!!.injectHideCall(index - 1, viewRegister, "layout/GeneralPatch", "hideShortsPlayerRemixButton")
 
                                         patchSuccessArray[1] = true
                                     }
@@ -105,7 +105,7 @@ class ShortsComponentPatch : BytecodePatch(
                                         val mutableMethod = context.proxy(classDef).mutableClass.findMutableMethodOf(method)
 
                                         val viewRegister = (invokeInstruction as Instruction21c).registerA
-                                        mutableMethod.implementation!!.injectHideCall(insertIndex, viewRegister, "layout/GeneralLayoutPatch", "hideShortsPlayerSubscriptionsButton")
+                                        mutableMethod.implementation!!.injectHideCall(insertIndex, viewRegister, "layout/GeneralPatch", "hideShortsPlayerSubscriptionsButton")
 
                                         patchSuccessArray[2] = true
                                     }
@@ -137,7 +137,7 @@ class ShortsComponentPatch : BytecodePatch(
 
                         it.addInstructions(
                             insertIndex,"""
-                                invoke-static {v$register}, $GENERAL_LAYOUT->hideShortsPlayerSubscriptionsButton(I)I
+                                invoke-static {v$register}, $GENERAL->hideShortsPlayerSubscriptionsButton(I)I
                                 move-result v$register
                                 """
                         )
@@ -156,7 +156,7 @@ class ShortsComponentPatch : BytecodePatch(
              */
             SettingsPatch.addPreference(
                 arrayOf(
-                    "PREFERENCE: GENERAL_LAYOUT_SETTINGS",
+                    "PREFERENCE: GENERAL_SETTINGS",
                     "SETTINGS: SHORTS_COMPONENT.PARENT",
                     "SETTINGS: SHORTS_COMPONENT_PARENT.A",
                     "SETTINGS: SHORTS_COMPONENT_PARENT.B",

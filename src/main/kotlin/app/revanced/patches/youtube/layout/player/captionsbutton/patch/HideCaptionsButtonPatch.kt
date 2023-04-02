@@ -14,7 +14,7 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.shared.fingerprints.SubtitleButtonControllerFingerprint
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
-import app.revanced.util.integrations.Constants.PLAYER_LAYOUT
+import app.revanced.util.integrations.Constants.PLAYER
 import org.jf.dexlib2.Opcode
 
 @Patch
@@ -37,7 +37,7 @@ class HideCaptionsButtonBytecodePatch : BytecodePatch(
 
                     it.addInstruction(
                         index + 1,
-                        "invoke-static {v0}, $PLAYER_LAYOUT->hideCaptionsButton(Landroid/widget/ImageView;)V"
+                        "invoke-static {v0}, $PLAYER->hideCaptionsButton(Landroid/widget/ImageView;)V"
                     )
 
                     break
@@ -50,7 +50,7 @@ class HideCaptionsButtonBytecodePatch : BytecodePatch(
          */
         SettingsPatch.addPreference(
             arrayOf(
-                "PREFERENCE: PLAYER_LAYOUT_SETTINGS",
+                "PREFERENCE: PLAYER_SETTINGS",
                 "SETTINGS: HIDE_CAPTIONS_BUTTON"
             )
         )

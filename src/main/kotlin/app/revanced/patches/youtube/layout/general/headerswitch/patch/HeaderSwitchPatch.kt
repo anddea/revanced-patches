@@ -15,6 +15,7 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.shared.patch.mapping.ResourceMappingPatch
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
+import app.revanced.util.integrations.Constants.GENERAL
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.iface.instruction.formats.Instruction31i
 
@@ -56,7 +57,7 @@ class HeaderSwitchPatch : BytecodePatch() {
 
                                         mutableMethod.addInstructions(
                                             insertIndex, """
-                                                invoke-static {v$viewRegister}, Lapp/revanced/integrations/patches/layout/GeneralLayoutPatch;->enablePremiumHeader(I)I
+                                                invoke-static {v$viewRegister}, $GENERAL->enablePremiumHeader(I)I
                                                 move-result v$viewRegister
                                             """
                                         )
@@ -80,7 +81,7 @@ class HeaderSwitchPatch : BytecodePatch() {
              */
             SettingsPatch.addPreference(
                 arrayOf(
-                    "PREFERENCE: GENERAL_LAYOUT_SETTINGS",
+                    "PREFERENCE: GENERAL_SETTINGS",
                     "SETTINGS: HEADER_SWITCH"
                 )
             )

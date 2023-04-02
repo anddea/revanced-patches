@@ -32,7 +32,7 @@ class CommentComponentPatch : ResourcePatch {
          */
         SettingsPatch.addPreference(
             arrayOf(
-                "PREFERENCE: BOTTOM_PLAYER_LAYOUT_SETTINGS",
+                "PREFERENCE: BOTTOM_PLAYER_SETTINGS",
                 "SETTINGS: COMMENT_COMPONENT_PARENT",
                 "SETTINGS: COMMENT_COMPONENTS"
             )

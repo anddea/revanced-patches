@@ -16,7 +16,7 @@ import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.youtube.layout.general.snackbar.fingerprints.HideSnackbarFingerprint
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
-import app.revanced.util.integrations.Constants.GENERAL_LAYOUT
+import app.revanced.util.integrations.Constants.GENERAL
 
 @Patch
 @Name("hide-snackbar")
@@ -34,7 +34,7 @@ class HideSnackbarPatch : BytecodePatch(
         HideSnackbarFingerprint.result?.mutableMethod?.let {
             it.addInstructions(
                 0, """
-                    invoke-static {}, $GENERAL_LAYOUT->hideSnackbar()Z
+                    invoke-static {}, $GENERAL->hideSnackbar()Z
                     move-result v0
                     if-eqz v0, :default
                     return-void
@@ -47,7 +47,7 @@ class HideSnackbarPatch : BytecodePatch(
          */
         SettingsPatch.addPreference(
             arrayOf(
-                "PREFERENCE: GENERAL_LAYOUT_SETTINGS",
+                "PREFERENCE: GENERAL_SETTINGS",
                 "SETTINGS: HIDE_SNACKBAR"
             )
         )

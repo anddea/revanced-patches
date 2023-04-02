@@ -18,7 +18,7 @@ import app.revanced.patches.youtube.layout.flyoutpanel.oldqualitylayout.fingerpr
 import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
 import app.revanced.patches.youtube.misc.videoid.legacy.patch.LegacyVideoIdPatch
-import app.revanced.util.integrations.Constants.FLYOUT_PANEL_LAYOUT
+import app.revanced.util.integrations.Constants.FLYOUT_PANEL
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
@@ -47,7 +47,7 @@ class OldQualityLayoutPatch : BytecodePatch(
                 val register = (instruction(endIndex) as OneRegisterInstruction).registerA
                 addInstruction(
                     endIndex + 1,
-                    "invoke-static { v$register }, $FLYOUT_PANEL_LAYOUT->enableOldQualityMenu(Landroid/widget/ListView;)V"
+                    "invoke-static { v$register }, $FLYOUT_PANEL->enableOldQualityMenu(Landroid/widget/ListView;)V"
                 )
             }
         } ?: return QualityMenuViewInflateFingerprint.toErrorResult()
@@ -58,7 +58,7 @@ class OldQualityLayoutPatch : BytecodePatch(
                 val register = (this.implementation!!.instructions[insertIndex] as OneRegisterInstruction).registerA
                 addInstructions(
                     insertIndex, """
-                       invoke-static { v$register }, $FLYOUT_PANEL_LAYOUT->enableOldQualityLayout(I)I
+                       invoke-static { v$register }, $FLYOUT_PANEL->enableOldQualityLayout(I)I
                        move-result v$register
                     """
                 )
@@ -70,7 +70,7 @@ class OldQualityLayoutPatch : BytecodePatch(
          */
         SettingsPatch.addPreference(
             arrayOf(
-                "PREFERENCE: FLYOUT_PANEL_LAYOUT_SETTINGS",
+                "PREFERENCE: FLYOUT_PANEL_SETTINGS",
                 "SETTINGS: ENABLE_OLD_QUALITY_LAYOUT"
             )
         )

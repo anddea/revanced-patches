@@ -61,7 +61,7 @@ class SuggestedActionsPatch : BytecodePatch() {
                                         val mutableMethod = context.proxy(classDef).mutableClass.findMutableMethodOf(method)
 
                                         val viewRegister = (iPutInstruction as Instruction22c).registerA
-                                        mutableMethod.implementation!!.injectHideCall(insertIndex, viewRegister, "layout/PlayerLayoutPatch", "hideSuggestedActions")
+                                        mutableMethod.implementation!!.injectHideCall(insertIndex, viewRegister, "layout/PlayerPatch", "hideSuggestedActions")
 
                                         patchSuccessArray[0] = true
                                     }
@@ -84,7 +84,7 @@ class SuggestedActionsPatch : BytecodePatch() {
              */
             SettingsPatch.addPreference(
                 arrayOf(
-                    "PREFERENCE: PLAYER_LAYOUT_SETTINGS",
+                    "PREFERENCE: PLAYER_SETTINGS",
                     "SETTINGS: HIDE_SUGGESTED_ACTION"
                 )
             )

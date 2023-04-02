@@ -16,7 +16,7 @@ import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.youtube.layout.general.crowdfundingbox.fingerprints.CrowdfundingBoxFingerprint
 import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
-import app.revanced.util.integrations.Constants.GENERAL_LAYOUT
+import app.revanced.util.integrations.Constants.GENERAL
 import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Patch
@@ -44,7 +44,7 @@ class CrowdfundingBoxPatch : BytecodePatch(
 
                 addInstruction(
                     insertIndex,
-                    "invoke-static {v$register}, $GENERAL_LAYOUT->hideCrowdfundingBox(Landroid/view/View;)V"
+                    "invoke-static {v$register}, $GENERAL->hideCrowdfundingBox(Landroid/view/View;)V"
                 )
             }
         } ?: return CrowdfundingBoxFingerprint.toErrorResult()
@@ -54,7 +54,7 @@ class CrowdfundingBoxPatch : BytecodePatch(
          */
         SettingsPatch.addPreference(
             arrayOf(
-                "PREFERENCE: GENERAL_LAYOUT_SETTINGS",
+                "PREFERENCE: GENERAL_SETTINGS",
                 "SETTINGS: HIDE_CROWDFUNDING_BOX"
             )
         )

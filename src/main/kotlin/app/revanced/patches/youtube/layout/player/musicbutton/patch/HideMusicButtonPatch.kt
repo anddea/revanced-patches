@@ -15,7 +15,7 @@ import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.youtube.layout.player.musicbutton.fingerprints.MusicAppDeeplinkButtonFingerprint
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
-import app.revanced.util.integrations.Constants.PLAYER_LAYOUT
+import app.revanced.util.integrations.Constants.PLAYER
 import org.jf.dexlib2.iface.instruction.Instruction
 
 @Patch
@@ -34,7 +34,7 @@ class HideMusicButtonPatch : BytecodePatch(
                 val jumpInstruction = this[size - 1] as Instruction
                 it.addInstructions(
                     0, """
-                    invoke-static {}, $PLAYER_LAYOUT->hideMusicButton()Z
+                    invoke-static {}, $PLAYER->hideMusicButton()Z
                     move-result v0
                     if-nez v0, :hidden
                     """, listOf(ExternalLabel("hidden", jumpInstruction))
@@ -47,7 +47,7 @@ class HideMusicButtonPatch : BytecodePatch(
          */
         SettingsPatch.addPreference(
             arrayOf(
-                "PREFERENCE: PLAYER_LAYOUT_SETTINGS",
+                "PREFERENCE: PLAYER_SETTINGS",
                 "SETTINGS: HIDE_YOUTUBE_MUSIC_BUTTON"
             )
         )

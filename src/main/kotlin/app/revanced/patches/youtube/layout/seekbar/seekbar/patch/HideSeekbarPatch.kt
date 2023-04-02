@@ -15,7 +15,7 @@ import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
 import app.revanced.patches.youtube.misc.timebar.patch.HookTimebarPatch
-import app.revanced.util.integrations.Constants.SEEKBAR_LAYOUT
+import app.revanced.util.integrations.Constants.SEEKBAR
 
 @Patch
 @Name("hide-seekbar")
@@ -35,7 +35,7 @@ class HideSeekbarPatch : BytecodePatch() {
 
         insertMethod.addInstructions(
             0, """
-                invoke-static {}, $SEEKBAR_LAYOUT->hideSeekbar()Z
+                invoke-static {}, $SEEKBAR->hideSeekbar()Z
                 move-result v0
                 if-eqz v0, :show_seekbar
                 return-void
@@ -47,7 +47,7 @@ class HideSeekbarPatch : BytecodePatch() {
          */
         SettingsPatch.addPreference(
             arrayOf(
-                "PREFERENCE: SEEKBAR_LAYOUT_SETTINGS",
+                "PREFERENCE: SEEKBAR_SETTINGS",
                 "SETTINGS: HIDE_SEEKBAR"
             )
         )

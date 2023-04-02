@@ -15,7 +15,7 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.shared.patch.mapping.ResourceMappingPatch
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
-import app.revanced.util.integrations.Constants.SEEKBAR_LAYOUT
+import app.revanced.util.integrations.Constants.SEEKBAR
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.iface.instruction.formats.Instruction31i
@@ -58,7 +58,7 @@ class SeekbarColorPatch : BytecodePatch() {
 
                                         mutableMethod.addInstructions(
                                             registerIndex + 1, """
-                                                invoke-static {v$viewRegister}, $SEEKBAR_LAYOUT->enableCustomSeekbarColor(I)I
+                                                invoke-static {v$viewRegister}, $SEEKBAR->enableCustomSeekbarColor(I)I
                                                 move-result v$viewRegister
                                             """
                                         )
@@ -82,7 +82,7 @@ class SeekbarColorPatch : BytecodePatch() {
              */
             SettingsPatch.addPreference(
                 arrayOf(
-                    "PREFERENCE: SEEKBAR_LAYOUT_SETTINGS",
+                    "PREFERENCE: SEEKBAR_SETTINGS",
                     "SETTINGS: CUSTOM_SEEKBAR_COLOR"
                 )
             )

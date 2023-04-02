@@ -16,7 +16,7 @@ import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.youtube.layout.general.autopopuppanels.fingerprints.EngagementPanelControllerFingerprint
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
-import app.revanced.util.integrations.Constants.GENERAL_LAYOUT
+import app.revanced.util.integrations.Constants.GENERAL
 
 @Patch
 @Name("hide-auto-player-popup-panels")
@@ -34,7 +34,7 @@ class PlayerPopupPanelsPatch : BytecodePatch(
         EngagementPanelControllerFingerprint.result?.mutableMethod?.let {
             it.addInstructions(
                 0, """
-                    invoke-static {}, $GENERAL_LAYOUT->hideAutoPlayerPopupPanels()Z
+                    invoke-static {}, $GENERAL->hideAutoPlayerPopupPanels()Z
                     move-result v0
                     if-eqz v0, :player_popup_panels_shown
                     if-eqz p4, :player_popup_panels_shown
@@ -49,7 +49,7 @@ class PlayerPopupPanelsPatch : BytecodePatch(
          */
         SettingsPatch.addPreference(
             arrayOf(
-                "PREFERENCE: GENERAL_LAYOUT_SETTINGS",
+                "PREFERENCE: GENERAL_SETTINGS",
                 "SETTINGS: HIDE_AUTO_PLAYER_POPUP_PANELS"
             )
         )

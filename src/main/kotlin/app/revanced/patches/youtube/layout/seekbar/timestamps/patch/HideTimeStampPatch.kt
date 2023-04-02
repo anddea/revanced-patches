@@ -17,7 +17,7 @@ import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.youtube.layout.seekbar.timestamps.fingerprints.TimeStampsContainerFingerprint
 import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
-import app.revanced.util.integrations.Constants.SEEKBAR_LAYOUT
+import app.revanced.util.integrations.Constants.SEEKBAR
 
 @Patch
 @Name("hide-time-stamp")
@@ -40,7 +40,7 @@ class HideTimeStampPatch : BytecodePatch(
         TimeStampsContainerFingerprint.result?.mutableMethod?.let {
             it.addInstructions(
                 0, """
-                    invoke-static {}, $SEEKBAR_LAYOUT->hideTimeStamp()Z
+                    invoke-static {}, $SEEKBAR->hideTimeStamp()Z
                     move-result v0
                     if-eqz v0, :show_time_stamp
                     return-void
@@ -53,7 +53,7 @@ class HideTimeStampPatch : BytecodePatch(
          */
         SettingsPatch.addPreference(
             arrayOf(
-                "PREFERENCE: SEEKBAR_LAYOUT_SETTINGS",
+                "PREFERENCE: SEEKBAR_SETTINGS",
                 "SETTINGS: HIDE_TIME_STAMP"
             )
         )

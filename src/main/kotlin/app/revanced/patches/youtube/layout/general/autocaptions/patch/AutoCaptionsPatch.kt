@@ -20,7 +20,7 @@ import app.revanced.patches.shared.fingerprints.SubtitleTrackFingerprint
 import app.revanced.patches.youtube.layout.general.autocaptions.fingerprints.StartVideoInformerFingerprint
 import app.revanced.patches.youtube.misc.playertype.patch.PlayerTypeHookPatch
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
-import app.revanced.util.integrations.Constants.GENERAL_LAYOUT
+import app.revanced.util.integrations.Constants.GENERAL
 
 @Patch
 @Name("hide-auto-captions")
@@ -50,7 +50,7 @@ class AutoCaptionsPatch : BytecodePatch(
                     0,
                     """
                     const/4 v0, ${status.value}
-                    sput-boolean v0, $GENERAL_LAYOUT->captionsButtonStatus:Z
+                    sput-boolean v0, $GENERAL->captionsButtonStatus:Z
                     """
                 )
             }
@@ -59,10 +59,10 @@ class AutoCaptionsPatch : BytecodePatch(
         SubtitleTrackFingerprint.result?.mutableMethod?.let {
             it.addInstructions(
                 0, """
-                    invoke-static {}, $GENERAL_LAYOUT->hideAutoCaptions()Z
+                    invoke-static {}, $GENERAL->hideAutoCaptions()Z
                     move-result v0
                     if-eqz v0, :auto_captions_shown
-                    sget-boolean v0, $GENERAL_LAYOUT->captionsButtonStatus:Z
+                    sget-boolean v0, $GENERAL->captionsButtonStatus:Z
                     if-nez v0, :auto_captions_shown
                     const/4 v0, 0x1
                     return v0
@@ -75,7 +75,7 @@ class AutoCaptionsPatch : BytecodePatch(
          */
         SettingsPatch.addPreference(
             arrayOf(
-                "PREFERENCE: GENERAL_LAYOUT_SETTINGS",
+                "PREFERENCE: GENERAL_SETTINGS",
                 "SETTINGS: HIDE_AUTO_CAPTIONS"
             )
         )

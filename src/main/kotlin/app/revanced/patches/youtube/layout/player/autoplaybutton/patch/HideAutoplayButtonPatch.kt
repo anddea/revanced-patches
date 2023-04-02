@@ -16,7 +16,7 @@ import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.shared.fingerprints.LayoutConstructorFingerprint
 import app.revanced.patches.shared.patch.mapping.ResourceMappingPatch
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
-import app.revanced.util.integrations.Constants.PLAYER_LAYOUT
+import app.revanced.util.integrations.Constants.PLAYER
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.builder.instruction.BuilderInstruction21c
 import org.jf.dexlib2.iface.instruction.Instruction
@@ -68,7 +68,7 @@ class HideAutoplayButtonPatch : BytecodePatch(
 
                 method.addInstructions(
                     insertIndex, """
-                        invoke-static {}, $PLAYER_LAYOUT->hideAutoPlayButton()Z
+                        invoke-static {}, $PLAYER->hideAutoPlayButton()Z
                         move-result v$dummyRegister
                         if-nez v$dummyRegister, :hidden
                     """, listOf(ExternalLabel("hidden", jumpInstruction))
@@ -81,7 +81,7 @@ class HideAutoplayButtonPatch : BytecodePatch(
          */
         SettingsPatch.addPreference(
             arrayOf(
-                "PREFERENCE: PLAYER_LAYOUT_SETTINGS",
+                "PREFERENCE: PLAYER_SETTINGS",
                 "SETTINGS: HIDE_AUTOPLAY_BUTTON"
             )
         )

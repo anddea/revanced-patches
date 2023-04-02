@@ -19,7 +19,7 @@ import app.revanced.patches.shared.fingerprints.LayoutConstructorFingerprint
 import app.revanced.patches.youtube.layout.fullscreen.fullscreenbuttoncontainer.bytecode.patch.HideFullscreenButtonContainerBytecodePatch
 import app.revanced.patches.youtube.layout.fullscreen.fullscreenpanels.fingerprints.FullscreenViewAdderFingerprint
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
-import app.revanced.util.integrations.Constants.FULLSCREEN_LAYOUT
+import app.revanced.util.integrations.Constants.FULLSCREEN
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.builder.instruction.BuilderInstruction21c
 import org.jf.dexlib2.builder.instruction.BuilderInstruction35c
@@ -53,7 +53,7 @@ class HideFullscreenPanelsPatch : BytecodePatch(
 
                 addInstructions(
                     endIndex - 3, """
-                        invoke-static {}, $FULLSCREEN_LAYOUT->hideFullscreenPanels()I
+                        invoke-static {}, $FULLSCREEN->hideFullscreenPanels()I
                         move-result v$register
                     """
                 )
@@ -76,7 +76,7 @@ class HideFullscreenPanelsPatch : BytecodePatch(
 
             method.addInstructions(
                 invokeIndex, """
-                    invoke-static {}, $FULLSCREEN_LAYOUT->showFullscreenTitle()Z
+                    invoke-static {}, $FULLSCREEN->showFullscreenTitle()Z
                     move-result v$dummyRegister
                     if-eqz v$dummyRegister, :hidden
                 """, listOf(ExternalLabel("hidden", method.instruction(invokeIndex + 1)))
@@ -88,7 +88,7 @@ class HideFullscreenPanelsPatch : BytecodePatch(
          */
         SettingsPatch.addPreference(
             arrayOf(
-                "PREFERENCE: FULLSCREEN_LAYOUT_SETTINGS",
+                "PREFERENCE: FULLSCREEN_SETTINGS",
                 "SETTINGS: HIDE_FULLSCREEN_PANELS"
             )
         )

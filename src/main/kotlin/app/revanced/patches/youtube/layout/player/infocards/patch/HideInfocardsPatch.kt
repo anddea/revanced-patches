@@ -16,7 +16,7 @@ import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.youtube.layout.player.infocards.fingerprints.InfocardsIncognitoFingerprint
 import app.revanced.patches.youtube.layout.player.infocards.fingerprints.InfocardsIncognitoParentFingerprint
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
-import app.revanced.util.integrations.Constants.PLAYER_LAYOUT
+import app.revanced.util.integrations.Constants.PLAYER
 
 @Patch
 @Name("hide-info-cards")
@@ -34,7 +34,7 @@ class HideInfocardsPatch : BytecodePatch(
             }.result?.mutableMethod?.
             addInstructions(
                 1, """
-                    invoke-static {v0}, $PLAYER_LAYOUT->hideInfoCard(Z)Z
+                    invoke-static {v0}, $PLAYER->hideInfoCard(Z)Z
                     move-result v0
                     """
             ) ?: return InfocardsIncognitoFingerprint.toErrorResult()
@@ -45,7 +45,7 @@ class HideInfocardsPatch : BytecodePatch(
          */
         SettingsPatch.addPreference(
             arrayOf(
-                "PREFERENCE: PLAYER_LAYOUT_SETTINGS",
+                "PREFERENCE: PLAYER_SETTINGS",
                 "SETTINGS: HIDE_INFO_CARDS"
             )
         )

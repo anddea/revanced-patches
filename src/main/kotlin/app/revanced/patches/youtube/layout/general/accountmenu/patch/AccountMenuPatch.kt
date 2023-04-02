@@ -18,7 +18,7 @@ import app.revanced.patches.youtube.layout.general.accountmenu.fingerprints.Acco
 import app.revanced.patches.youtube.layout.general.accountmenu.fingerprints.AccountMenuParentFingerprint
 import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
-import app.revanced.util.integrations.Constants.GENERAL_LAYOUT
+import app.revanced.util.integrations.Constants.GENERAL
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
@@ -47,7 +47,7 @@ class AccountMenuPatch : BytecodePatch(
 
                     addInstruction(
                         targetIndex + 1,
-                        "invoke-static {v$register}, $GENERAL_LAYOUT->hideAccountMenu(Landroid/text/Spanned;)V"
+                        "invoke-static {v$register}, $GENERAL->hideAccountMenu(Landroid/text/Spanned;)V"
                     )
                 }
             } ?: return AccountMenuFingerprint.toErrorResult()
@@ -58,7 +58,7 @@ class AccountMenuPatch : BytecodePatch(
 
                 addInstruction(
                     endIndex + 1,
-                    "sput-object v$register, $GENERAL_LAYOUT->compactLink:Landroid/view/View;"
+                    "sput-object v$register, $GENERAL->compactLink:Landroid/view/View;"
                 )
             }
         } ?: return AccountMenuParentFingerprint.toErrorResult()
@@ -68,7 +68,7 @@ class AccountMenuPatch : BytecodePatch(
          */
         SettingsPatch.addPreference(
             arrayOf(
-                "PREFERENCE: GENERAL_LAYOUT_SETTINGS",
+                "PREFERENCE: GENERAL_SETTINGS",
                 "SETTINGS: HIDE_ACCOUNT_MENU"
             )
         )
