@@ -154,7 +154,6 @@ Gönderilmeye hazır mı?"</string>
     <string name="revanced_adremover_web_search_panel_title">Web arama sonuçları</string>
     <string name="revanced_ads">Reklamlar</string>
     <string name="revanced_backup_summary">ReVanced ayarlarını dosyadan içe aktarın veya ReVanced ayarlarını dosyaya aktarın</string>
-    <string name="revanced_bottom_player_layout">Alt oynatıcı düzeni</string>
     <string name="revanced_button_container_title">Buton kapsayıcısı</string>
     <string name="revanced_comments_title">Yorumlar</string>
     <string name="revanced_copytimestamp_success">Zaman Damgası panoya kopyalandı</string>
@@ -260,9 +259,6 @@ Gönderilmeye hazır mı?"</string>
     <string name="revanced_export_settings_title">Dışa aktarım ayarları</string>
     <string name="revanced_extended_support_center_summary">Sorunları bildirin veya önerileri buraya bırakın</string>
     <string name="revanced_extended_support_center_title">Destek Merkezi</string>
-    <string name="revanced_flyout_menu_layout">Açılır menü düzeni</string>
-    <string name="revanced_fullscreen_layout">Tam ekran Düzeni</string>
-    <string name="revanced_general_layout">Genel düzen</string>
     <string name="revanced_haptic_feedback_title">Dokunmatik geri bildirim</string>
     <string name="revanced_hide_account_menu_summary_off">Gizlenmiyor</string>
     <string name="revanced_hide_account_menu_summary_on">Gizleniyor</string>
@@ -343,9 +339,6 @@ Lütfen bu özelliği kullanırken karşılaştığınız sorunları bildirmeyin
     <string name="revanced_hide_crowdfunding_box_summary_off">Gizlenmiyor</string>
     <string name="revanced_hide_crowdfunding_box_summary_on">Gizlendi</string>
     <string name="revanced_hide_crowdfunding_box_title">Kitle fonlaması kutusu</string>
-    <string name="revanced_hide_email_address_summary_off">Gizlenmiyor</string>
-    <string name="revanced_hide_email_address_summary_on">Gizleniyor</string>
-    <string name="revanced_hide_email_address_title">Email adresini sakla</string>
     <string name="revanced_hide_emoji_picker_summary_off">Gizlenmiyor</string>
     <string name="revanced_hide_emoji_picker_summary_on">Gizleniyor</string>
     <string name="revanced_hide_emoji_picker_title">Emoji seçiciyi gizle</string>
@@ -442,9 +435,6 @@ Lütfen bu özelliği kullanırken karşılaştığınız sorunları bildirmeyin
     <string name="revanced_hide_shorts_player_join_button_summary_off">Shorts oynatıcı katıl butonu gösteriliyor</string>
     <string name="revanced_hide_shorts_player_join_button_summary_on">Shorts oynatıcı katıl butonu gizleniyor</string>
     <string name="revanced_hide_shorts_player_join_button_title">Shorts oynatıcı katıl butonunu gizle</string>
-    <string name="revanced_hide_shorts_player_pivot_bar_summary_off">Gizlenmiyor</string>
-    <string name="revanced_hide_shorts_player_pivot_bar_summary_on">Gizleniyor</string>
-    <string name="revanced_hide_shorts_player_pivot_bar_title">Shorts oynatıcı eksen çubuğunu gizle</string>
     <string name="revanced_hide_shorts_player_remix_button_summary_off">Gizlenmiyor</string>
     <string name="revanced_hide_shorts_player_remix_button_summary_on">Gizleniyor</string>
     <string name="revanced_hide_shorts_player_remix_button_title">Shorts oynatıcı remiks seçeneği</string>
@@ -505,22 +495,12 @@ Lütfen bu özelliği kullanırken karşılaştığınız sorunları bildirmeyin
     <string name="revanced_patches_information">Yama Bilgileri</string>
     <string name="revanced_patches_information_summary">Uygulanmış Yamalar Hakkında Bilgi</string>
     <string name="revanced_player_flyout_panel_title">Oynatıcı açılır pencere paneli</string>
-    <string name="revanced_player_layout">Oynatıcı Düzeni</string>
     <string name="revanced_reboot_warning_general">"Bu henüz deneysel bir özellik olduğundan, bilinmeyen başka sorunlar olabilir. Yine de devam etmek istediğinizden emin misiniz?"</string>
     <string name="revanced_reboot_warning_phone">"Bazı düzenleri telefon düzenlerine çevirmek için dpi'yi kandırır.
 
  Bu ayarı etkinleştirirseniz, aşağıdaki özellikler kullanılabilir:
  - Topluluk Gönderileri
 - Mix oynatma listesini gizle"</string>
-    <string name="revanced_reboot_warning_protobuf">"Oynatma sorunlarını atlamak için sahte protobuf
-
-Bu ayarı etkinleştirirseniz aşağıdaki özellikler kullanılamaz:
-
-Genel videoyu taklit ederken
-- Arama çubuğuna bastığınızda küçük resimleri gösterme
-
-Şort videoları taklit ederken
-- Altyazılar oynatıcının üzerinde konumlandırılmıştır"</string>
     <string name="revanced_reboot_warning_quic">İnternet hızınız yeterince hızlı değilse kullanmamanız tavsiye edilir</string>
     <string name="revanced_reboot_warning_switch">"Bu ayarı etkinleştirirseniz, aşağıdaki özellikler kullanılamaz:
 - Ortam modu"</string>
@@ -548,12 +528,8 @@ Bu ayar oldukça eski olduğu için geçerli olmayabilir"</string>
     <string name="revanced_save_video_quality_none">Kalite ayarlanamadı</string>
     <string name="revanced_save_video_quality_wifi">Varsayılan Wİ-Fİ video kalitesi:</string>
     <string name="revanced_save_video_speed">Varsayılan hız:</string>
-    <string name="revanced_seekbar_layout">Zaman çubuğu düzeni</string>
     <string name="revanced_show_fullscreen_title_summary">Bilinen sorun: Tıklandığında başlık kayboluyor</string>
     <string name="revanced_show_fullscreen_title_title">Tam ekran başlığını göster</string>
-    <string name="revanced_spoofing_type_general">Genel videoda sahtecilik</string>
-    <string name="revanced_spoofing_type_shorts">Shorts videoda sahtecilik</string>
-    <string name="revanced_spoofing_type_title">Taklit etmek için protobuf\'u seçin</string>
     <string name="revanced_sponsorblock_settings_summary">SponsorBlock ilgili ayarları</string>
     <string name="revanced_swipe_controls">Kaydırma kontrolleri</string>
     <string name="revanced_swipe_magnitude_threshold_summary">Kaydırma işleminin gerçekleşmesi için eşik miktarı</string>

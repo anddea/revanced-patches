@@ -154,7 +154,6 @@
     <string name="revanced_adremover_web_search_panel_title">网页搜索面板</string>
     <string name="revanced_ads">广告</string>
     <string name="revanced_backup_summary">导入/导出 ReVanced 配置文件</string>
-    <string name="revanced_bottom_player_layout">播放器下方布局</string>
     <string name="revanced_button_container_title">按钮栏</string>
     <string name="revanced_comments_title">评论</string>
     <string name="revanced_copytimestamp_success">时间戳已复制到剪贴板</string>
@@ -260,9 +259,6 @@
     <string name="revanced_export_settings_title">导出配置</string>
     <string name="revanced_extended_support_center_summary">反馈问题或留下建议</string>
     <string name="revanced_extended_support_center_title">帮助中心</string>
-    <string name="revanced_flyout_menu_layout">弹出菜单布局</string>
-    <string name="revanced_fullscreen_layout">全屏布局</string>
-    <string name="revanced_general_layout">总体布局</string>
     <string name="revanced_haptic_feedback_title">触控反馈</string>
     <string name="revanced_hide_account_menu_summary_off">账号菜单已显示</string>
     <string name="revanced_hide_account_menu_summary_on">账号菜单已隐藏</string>
@@ -270,6 +266,8 @@
     <string name="revanced_hide_action_buttons_summary_off">视频下方按钮已显示</string>
     <string name="revanced_hide_action_buttons_summary_on">视频下方按钮已隐藏</string>
     <string name="revanced_hide_action_buttons_title">视频下方按钮</string>
+    <string name="revanced_hide_action_buttons_warning">"这些功能已过时。所以，即使存在问题也没有计划去修复。
+请不要回报在使用这些功能过程中遇到的任何问题。"</string>
     <string name="revanced_hide_autoplay_button_summary_off">自动播放按钮已显示</string>
     <string name="revanced_hide_autoplay_button_summary_on">自动播放按钮已隐藏</string>
     <string name="revanced_hide_autoplay_button_title">自动播放按钮</string>
@@ -282,6 +280,9 @@
     <string name="revanced_hide_auto_player_popup_panels_summary_off">播放器自动弹出面板（如播放列表、实时聊天）已显示</string>
     <string name="revanced_hide_auto_player_popup_panels_summary_on">播放器自动弹出面板（如播放列表、实时聊天）已隐藏</string>
     <string name="revanced_hide_auto_player_popup_panels_title">播放器自动弹出面板</string>
+    <string name="revanced_hide_button_create_clip_summary_off">剪辑按钮已显示</string>
+    <string name="revanced_hide_button_create_clip_summary_on">剪辑按钮已隐藏</string>
+    <string name="revanced_hide_button_create_clip_title">剪辑按钮</string>
     <string name="revanced_hide_button_dislike_summary_off">点踩按钮已显示</string>
     <string name="revanced_hide_button_dislike_summary_on">点踩按钮已隐藏</string>
     <string name="revanced_hide_button_dislike_title">点踩按钮</string>
@@ -291,15 +292,35 @@
     <string name="revanced_hide_button_like_summary_off">点赞按钮已显示</string>
     <string name="revanced_hide_button_like_summary_on">点赞按钮已隐藏</string>
     <string name="revanced_hide_button_like_title">点赞按钮</string>
+    <string name="revanced_hide_button_live_chat_summary_off">实时聊天按钮已显示</string>
+    <string name="revanced_hide_button_live_chat_summary_on">实时聊天按钮已隐藏</string>
+    <string name="revanced_hide_button_live_chat_title">实时聊天按钮</string>
     <string name="revanced_hide_button_playlist_summary_off">保存（到播放列表）按钮已显示</string>
     <string name="revanced_hide_button_playlist_summary_on">保存（到播放列表）按钮已隐藏</string>
     <string name="revanced_hide_button_playlist_title">保存按钮</string>
+    <string name="revanced_hide_button_remix_summary_off">混剪按钮已显示</string>
+    <string name="revanced_hide_button_remix_summary_on">混剪按钮已隐藏</string>
+    <string name="revanced_hide_button_remix_title">混剪按钮</string>
+    <string name="revanced_hide_button_report_summary_off">举报按钮已显示</string>
+    <string name="revanced_hide_button_report_summary_on">举报按钮已隐藏</string>
+    <string name="revanced_hide_button_report_title">举报按钮</string>
+    <string name="revanced_hide_button_share_summary_off">分享按钮已显示</string>
+    <string name="revanced_hide_button_share_summary_on">分享按钮已隐藏</string>
+    <string name="revanced_hide_button_share_title">分享按钮</string>
+    <string name="revanced_hide_button_thanks_summary_off">感谢按钮已显示</string>
+    <string name="revanced_hide_button_thanks_summary_on">感谢按钮已隐藏</string>
+    <string name="revanced_hide_button_thanks_title">感谢按钮</string>
     <string name="revanced_hide_captions_button_summary_off">字幕按钮已显示</string>
     <string name="revanced_hide_captions_button_summary_on">字幕按钮已隐藏</string>
     <string name="revanced_hide_captions_button_title">字幕按钮</string>
     <string name="revanced_hide_cast_button_summary_off">投屏按钮已显示</string>
     <string name="revanced_hide_cast_button_summary_on">投屏按钮已隐藏</string>
     <string name="revanced_hide_cast_button_title">投屏按钮</string>
+    <string name="revanced_hide_category_bar_in_feed_title">新闻源中的类别栏</string>
+    <string name="revanced_hide_category_bar_in_related_video_title">相关视频中的类别栏</string>
+    <string name="revanced_hide_category_bar_in_search_results_title">搜索结果中的类别栏</string>
+    <string name="revanced_hide_category_bar_summary_off">类别栏已显示</string>
+    <string name="revanced_hide_category_bar_summary_on">类别栏已隐藏</string>
     <string name="revanced_hide_channel_watermark_summary_off">频道水印已显示</string>
     <string name="revanced_hide_channel_watermark_summary_on">频道水印已隐藏</string>
     <string name="revanced_hide_channel_watermark_title">频道水印</string>
@@ -318,9 +339,6 @@
     <string name="revanced_hide_crowdfunding_box_summary_off">众筹箱已显示</string>
     <string name="revanced_hide_crowdfunding_box_summary_on">众筹箱已隐藏</string>
     <string name="revanced_hide_crowdfunding_box_title">众筹箱</string>
-    <string name="revanced_hide_email_address_summary_off">邮件地址已显示</string>
-    <string name="revanced_hide_email_address_summary_on">邮件地址已隐藏</string>
-    <string name="revanced_hide_email_address_title">邮件地址</string>
     <string name="revanced_hide_emoji_picker_summary_off">Emoji 列表已显示</string>
     <string name="revanced_hide_emoji_picker_summary_on">Emoji 列表已隐藏</string>
     <string name="revanced_hide_emoji_picker_title">Emoji 列表</string>
@@ -417,9 +435,6 @@
     <string name="revanced_hide_shorts_player_join_button_summary_off">加入按钮已显示</string>
     <string name="revanced_hide_shorts_player_join_button_summary_on">加入按钮已隐藏</string>
     <string name="revanced_hide_shorts_player_join_button_title">加入按钮</string>
-    <string name="revanced_hide_shorts_player_pivot_bar_summary_off">按钮栏已显示</string>
-    <string name="revanced_hide_shorts_player_pivot_bar_summary_on">按钮栏已隐藏</string>
-    <string name="revanced_hide_shorts_player_pivot_bar_title">按钮栏</string>
     <string name="revanced_hide_shorts_player_remix_button_summary_off">混剪按钮已显示</string>
     <string name="revanced_hide_shorts_player_remix_button_summary_on">混剪按钮已隐藏</string>
     <string name="revanced_hide_shorts_player_remix_button_title">混剪按钮</string>
@@ -480,7 +495,6 @@
     <string name="revanced_patches_information">补丁信息</string>
     <string name="revanced_patches_information_summary">已应用补丁信息</string>
     <string name="revanced_player_flyout_panel_title">播放器弹出面板</string>
-    <string name="revanced_player_layout">播放器布局</string>
     <string name="revanced_reboot_warning_general">"由于这仍然是一个实验性功能，可能还有其他未知问题。
 您确定要继续吗？"</string>
     <string name="revanced_reboot_warning_phone">"伪装 DPI 将一些布局改为手机样式。
@@ -488,15 +502,6 @@
 如果启用该设置，可以使用以下功能：
 - 社区帖子
 - 隐藏合辑播放列表"</string>
-    <string name="revanced_reboot_warning_protobuf">"转换视频类型以绕过播放问题
-
-如果启用该设置，以下功能不可用：
-
-当转换为普通视频
-- 点击进度条时不显示缩略图
-
-当转换为短视频
-- 字幕位置显示在视频上方"</string>
     <string name="revanced_reboot_warning_quic">如果网速不够快，不推荐使用该设置</string>
     <string name="revanced_reboot_warning_switch">"如果启用该项，以下功能不可用：
 - 氛围模式"</string>
@@ -524,12 +529,8 @@
     <string name="revanced_save_video_quality_none">设置画质失败</string>
     <string name="revanced_save_video_quality_wifi">更改 WiFi 默认画质为：</string>
     <string name="revanced_save_video_speed">更改默认倍速为：</string>
-    <string name="revanced_seekbar_layout">进度条布局</string>
     <string name="revanced_show_fullscreen_title_summary">已知问题：点击时不显示标题</string>
     <string name="revanced_show_fullscreen_title_title">显示全屏标题</string>
-    <string name="revanced_spoofing_type_general">转换为普通视频</string>
-    <string name="revanced_spoofing_type_shorts">转换为短视频</string>
-    <string name="revanced_spoofing_type_title">选择要转换的视频类别</string>
     <string name="revanced_sponsorblock_settings_summary">SponsorBlock 相关设置</string>
     <string name="revanced_swipe_controls">滑动控制</string>
     <string name="revanced_swipe_magnitude_threshold_summary">防误触的滑动幅度阈值</string>

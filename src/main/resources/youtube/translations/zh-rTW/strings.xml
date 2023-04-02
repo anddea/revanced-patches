@@ -154,7 +154,6 @@
     <string name="revanced_adremover_web_search_panel_title">隱藏網頁搜索面板</string>
     <string name="revanced_ads">廣告</string>
     <string name="revanced_backup_summary">自檔案匯入 ReVanced 設定，或匯出 ReVanced 設定至檔案</string>
-    <string name="revanced_bottom_player_layout">預覽播放器設定</string>
     <string name="revanced_button_container_title">功能按鈕欄</string>
     <string name="revanced_comments_title">留言</string>
     <string name="revanced_copytimestamp_success">時間戳已復製到剪貼簿</string>
@@ -260,9 +259,6 @@
     <string name="revanced_export_settings_title">匯出設定</string>
     <string name="revanced_extended_support_center_summary">點擊此處回報問題或留下建議</string>
     <string name="revanced_extended_support_center_title">問題回報中心</string>
-    <string name="revanced_flyout_menu_layout">彈出選單設定</string>
-    <string name="revanced_fullscreen_layout">全螢幕介面設定</string>
-    <string name="revanced_general_layout">一般介面</string>
     <string name="revanced_haptic_feedback_title">震動回饋</string>
     <string name="revanced_hide_account_menu_summary_off">帳戶選單已顯示</string>
     <string name="revanced_hide_account_menu_summary_on">帳戶選單已隱藏</string>
@@ -343,9 +339,6 @@
     <string name="revanced_hide_crowdfunding_box_summary_off">群眾募資已顯示</string>
     <string name="revanced_hide_crowdfunding_box_summary_on">群眾募資已隱藏</string>
     <string name="revanced_hide_crowdfunding_box_title">群眾募資</string>
-    <string name="revanced_hide_email_address_summary_off">Email 帳號已顯示</string>
-    <string name="revanced_hide_email_address_summary_on">Email 帳號已隱藏</string>
-    <string name="revanced_hide_email_address_title">Email 帳號</string>
     <string name="revanced_hide_emoji_picker_summary_off">表情符號選擇器已顯示</string>
     <string name="revanced_hide_emoji_picker_summary_on">表情符號選擇器已隱藏</string>
     <string name="revanced_hide_emoji_picker_title">隱藏表情符號選擇器</string>
@@ -442,9 +435,6 @@
     <string name="revanced_hide_shorts_player_join_button_summary_off">Shorts 播放器中的加入按鈕已顯示</string>
     <string name="revanced_hide_shorts_player_join_button_summary_on">Shorts 播放器中的加入按鈕已隱藏</string>
     <string name="revanced_hide_shorts_player_join_button_title">Shorts 播放器中的加入按鈕</string>
-    <string name="revanced_hide_shorts_player_pivot_bar_summary_off">Shorts 播放器中的側邊按鈕欄已顯示</string>
-    <string name="revanced_hide_shorts_player_pivot_bar_summary_on">Shorts 播放器中的側邊按鈕欄已隱藏</string>
-    <string name="revanced_hide_shorts_player_pivot_bar_title">隱藏 Shorts 播放器中的側邊按鈕欄</string>
     <string name="revanced_hide_shorts_player_remix_button_summary_off">Shorts 播放器中的 remix 按鈕已顯示</string>
     <string name="revanced_hide_shorts_player_remix_button_summary_on">Shorts 播放器中的 remix 按鈕已隱藏</string>
     <string name="revanced_hide_shorts_player_remix_button_title">Shorts 播放器中的 remix 按鈕</string>
@@ -505,7 +495,6 @@
     <string name="revanced_patches_information">補丁資訊 --唐懂翻譯</string>
     <string name="revanced_patches_information_summary">已應用補丁資訊</string>
     <string name="revanced_player_flyout_panel_title">播放器彈出面板</string>
-    <string name="revanced_player_layout">播放器介面設定</string>
     <string name="revanced_reboot_warning_general">"由於這仍是一項實驗性功能，因此可能存在其他未知問題。
 你確定要繼續嗎？"</string>
     <string name="revanced_reboot_warning_phone">"欺騙Dpi讓一些介面更改為手機模式的介面
@@ -513,15 +502,6 @@
 如果啟用此設定，將可以使用以下功能：
 - 社群貼文
 - 隱藏我的合輯"</string>
-    <string name="revanced_reboot_warning_protobuf">"欺騙 protobuf 以繞過播放問題
-
-如果啟用此設定，則以下功能不可用：
-
-套用於一般影片時
-- 按下搜索欄時不會顯示縮圖
-
-套用於 shorts 影片時
-- 字幕會在播放器上方"</string>
     <string name="revanced_reboot_warning_quic">建議在網速夠快的情況下再開啟此設定</string>
     <string name="revanced_reboot_warning_switch">"若你啟用此設定, 以下功能將失去作用:
 - 微光模式"</string>
@@ -550,12 +530,8 @@
     <string name="revanced_save_video_quality_none">設定畫質失敗</string>
     <string name="revanced_save_video_quality_wifi">將預設 Wi-Fi 畫質更改為：</string>
     <string name="revanced_save_video_speed">將預設播放速度更改為：</string>
-    <string name="revanced_seekbar_layout">搜尋欄介面設定</string>
     <string name="revanced_show_fullscreen_title_summary">已知問題 : 標題被點擊時會消失</string>
     <string name="revanced_show_fullscreen_title_title">顯示全螢幕標題</string>
-    <string name="revanced_spoofing_type_general">一般影片</string>
-    <string name="revanced_spoofing_type_shorts">Shorts 影片</string>
-    <string name="revanced_spoofing_type_title">選擇欲 protobuf 的影片類型</string>
     <string name="revanced_sponsorblock_settings_summary">SponsorBlock 相關設定</string>
     <string name="revanced_swipe_controls">滑動控制</string>
     <string name="revanced_swipe_magnitude_threshold_summary">滑動時調整的數值量</string>
