@@ -16,7 +16,7 @@ import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.youtube.layout.general.startupshortsreset.fingerprints.UserWasInShortsFingerprint
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
-import app.revanced.util.integrations.Constants.GENERAL_LAYOUT
+import app.revanced.util.integrations.Constants.GENERAL
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
@@ -39,7 +39,7 @@ class HideShortsOnStartupPatch : BytecodePatch(
                 val register = (instruction(insertIndex - 1) as OneRegisterInstruction).registerA + 2
                 addInstructions(
                     insertIndex, """
-                        invoke-static { }, $GENERAL_LAYOUT->hideStartupShortsPlayer()Z
+                        invoke-static { }, $GENERAL->hideStartupShortsPlayer()Z
                         move-result v$register
                         if-eqz v$register, :show_startup_shorts_player
                         return-void
@@ -53,7 +53,7 @@ class HideShortsOnStartupPatch : BytecodePatch(
          */
         SettingsPatch.addPreference(
             arrayOf(
-                "PREFERENCE: GENERAL_LAYOUT_SETTINGS",
+                "PREFERENCE: GENERAL_SETTINGS",
                 "SETTINGS: SHORTS_COMPONENT.PARENT",
                 "SETTINGS: SHORTS_COMPONENT_PARENT.B",
                 "SETTINGS: HIDE_STARTUP_SHORTS_PLAYER"

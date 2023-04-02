@@ -44,7 +44,7 @@ class HidePlayerButtonBackgroundPatch : BytecodePatch(
          */
         SettingsPatch.addPreference(
             arrayOf(
-                "PREFERENCE: PLAYER_LAYOUT_SETTINGS",
+                "PREFERENCE: PLAYER_SETTINGS",
                 "SETTINGS: HIDE_PLAYER_BUTTON_BACKGROUND"
             )
         )

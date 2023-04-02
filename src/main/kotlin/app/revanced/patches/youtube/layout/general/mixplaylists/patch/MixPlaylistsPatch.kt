@@ -32,7 +32,7 @@ class MixPlaylistsPatch : BytecodePatch() {
          */
         SettingsPatch.addPreference(
             arrayOf(
-                "PREFERENCE: GENERAL_LAYOUT_SETTINGS",
+                "PREFERENCE: GENERAL_SETTINGS",
                 "SETTINGS: HIDE_MIX_PLAYLISTS"
             )
         )

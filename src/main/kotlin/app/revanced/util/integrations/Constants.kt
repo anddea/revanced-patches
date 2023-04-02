@@ -8,12 +8,13 @@ internal object Constants {
 
     const val SWIPE_PATH = "$PATCHES_PATH/swipe"
 
-    const val GENERAL_LAYOUT = "$PATCHES_PATH/layout/GeneralLayoutPatch;"
-    const val PLAYER_LAYOUT = "$PATCHES_PATH/layout/PlayerLayoutPatch;"
-    const val FULLSCREEN_LAYOUT = "$PATCHES_PATH/layout/FullscreenLayoutPatch;"
-    const val BOTTOM_LAYOUT = "$PATCHES_PATH/layout/BottomLayoutPatch;"
-    const val FLYOUT_PANEL_LAYOUT = "$PATCHES_PATH/layout/FlyoutPanelLayoutPatch;"
-    const val SEEKBAR_LAYOUT = "$PATCHES_PATH/layout/SeekbarLayoutPatch;"
+    const val BOTTOM_PLAYER = "$PATCHES_PATH/layout/BottomPlayerPatch;"
+    const val FLYOUT_PANEL = "$PATCHES_PATH/layout/FlyoutPanelPatch;"
+    const val FULLSCREEN = "$PATCHES_PATH/layout/FullscreenPatch;"
+    const val GENERAL = "$PATCHES_PATH/layout/GeneralPatch;"
+    const val NAVIGATION = "$PATCHES_PATH/layout/NavigationPatch;"
+    const val PLAYER = "$PATCHES_PATH/layout/PlayerPatch;"
+    const val SEEKBAR = "$PATCHES_PATH/layout/SeekBarPatch;"
 
     const val MISC_PATH = "$PATCHES_PATH/misc"
 

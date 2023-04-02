@@ -43,7 +43,7 @@ class HideEndscreenCardsPatch : BytecodePatch(
             val index = this.scanResult.patternScanResult!!.endIndex
             with (this.mutableMethod) {
                 val register = (this.instruction(index) as Instruction21c).registerA
-                this.implementation!!.injectHideCall(index + 1, register, "layout/PlayerLayoutPatch", "hideEndscreen")
+                this.implementation!!.injectHideCall(index + 1, register, "layout/PlayerPatch", "hideEndscreen")
             }
         }
         
@@ -60,7 +60,7 @@ class HideEndscreenCardsPatch : BytecodePatch(
          */
         SettingsPatch.addPreference(
             arrayOf(
-                "PREFERENCE: PLAYER_LAYOUT_SETTINGS",
+                "PREFERENCE: PLAYER_SETTINGS",
                 "SETTINGS: HIDE_ENDSCREEN_CARDS"
             )
         )

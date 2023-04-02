@@ -33,7 +33,7 @@ class HideFullscreenButtonContainerPatch : ResourcePatch {
          */
         SettingsPatch.addPreference(
             arrayOf(
-                "PREFERENCE: FULLSCREEN_LAYOUT_SETTINGS",
+                "PREFERENCE: FULLSCREEN_SETTINGS",
                 "SETTINGS: HIDE_FULLSCREEN_BUTTON_CONTAINER"
             )
         )

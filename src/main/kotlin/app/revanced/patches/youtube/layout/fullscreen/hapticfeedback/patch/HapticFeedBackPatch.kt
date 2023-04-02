@@ -18,7 +18,7 @@ import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.youtube.layout.fullscreen.hapticfeedback.fingerprints.*
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
-import app.revanced.util.integrations.Constants.FULLSCREEN_LAYOUT
+import app.revanced.util.integrations.Constants.FULLSCREEN
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
@@ -56,7 +56,7 @@ class HapticFeedBackPatch : BytecodePatch(
          */
         SettingsPatch.addPreference(
             arrayOf(
-                "PREFERENCE: FULLSCREEN_LAYOUT_SETTINGS",
+                "PREFERENCE: FULLSCREEN_SETTINGS",
                 "SETTINGS: DISABLE_HAPTIC_FEEDBACK"
             )
         )
@@ -79,7 +79,7 @@ class HapticFeedBackPatch : BytecodePatch(
 
                 addInstructions(
                     insertIndex, """
-                     invoke-static {}, $FULLSCREEN_LAYOUT->$targetMethodName()Z
+                     invoke-static {}, $FULLSCREEN->$targetMethodName()Z
                      move-result v$dummyRegister
                      if-eqz v$dummyRegister, :vibrate
                      const-wide/16 v$targetRegister, 0x0
@@ -91,7 +91,7 @@ class HapticFeedBackPatch : BytecodePatch(
 
                 addInstructions(
                     startIndex, """
-                     invoke-static {}, $FULLSCREEN_LAYOUT->$targetMethodName()Z
+                     invoke-static {}, $FULLSCREEN->$targetMethodName()Z
                      move-result v$dummyRegister
                      if-eqz v$dummyRegister, :vibrate
                      return-void
@@ -103,7 +103,7 @@ class HapticFeedBackPatch : BytecodePatch(
         fun MethodFingerprintResult.voidHaptics(targetMethodName: String) {
              mutableMethod.addInstructions(
                  0, """
-                     invoke-static {}, $FULLSCREEN_LAYOUT->$targetMethodName()Z
+                     invoke-static {}, $FULLSCREEN->$targetMethodName()Z
                      move-result v0
                      if-eqz v0, :vibrate
                      return-void

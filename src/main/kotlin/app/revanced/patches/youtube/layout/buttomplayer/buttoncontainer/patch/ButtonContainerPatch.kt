@@ -15,7 +15,7 @@ import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.youtube.misc.litho.patch.LithoFilterPatch
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
-import app.revanced.util.integrations.Constants.BOTTOM_LAYOUT
+import app.revanced.util.integrations.Constants.BOTTOM_PLAYER
 
 @Patch
 @Name("hide-button-container")
@@ -34,7 +34,7 @@ class ButtonContainerPatch : ResourcePatch {
         val instructionList =
             """
                 move-object/from16 v3, p2
-                invoke-static {v3, v10}, $BOTTOM_LAYOUT->hideActionButtons(Ljava/lang/Object;Ljava/nio/ByteBuffer;)Z
+                invoke-static {v3, v10}, $BOTTOM_PLAYER->hideActionButtons(Ljava/lang/Object;Ljava/nio/ByteBuffer;)Z
                 move-result v10
                 if-eqz v10, :do_not_block
                 move-object/from16 v15, p1
@@ -72,7 +72,7 @@ class ButtonContainerPatch : ResourcePatch {
          */
         SettingsPatch.addPreference(
             arrayOf(
-                "PREFERENCE: BOTTOM_PLAYER_LAYOUT_SETTINGS",
+                "PREFERENCE: BOTTOM_PLAYER_SETTINGS",
                 "SETTINGS: BUTTON_CONTAINER"
             )
         )

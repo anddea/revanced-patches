@@ -12,7 +12,7 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
-import app.revanced.util.integrations.Constants.PLAYER_LAYOUT
+import app.revanced.util.integrations.Constants.PLAYER
 
 @Patch
 @Name("hide-cast-button")
@@ -30,7 +30,7 @@ class HideCastButtonPatch : BytecodePatch() {
 
                     setVisibilityMethod.addInstructions(
                         0, """
-                            invoke-static {p1}, $PLAYER_LAYOUT->hideCastButton(I)I
+                            invoke-static {p1}, $PLAYER->hideCastButton(I)I
                             move-result p1
                         """
                     )
@@ -43,7 +43,7 @@ class HideCastButtonPatch : BytecodePatch() {
          */
         SettingsPatch.addPreference(
             arrayOf(
-                "PREFERENCE: PLAYER_LAYOUT_SETTINGS",
+                "PREFERENCE: PLAYER_SETTINGS",
                 "SETTINGS: HIDE_CAST_BUTTON"
             )
         )

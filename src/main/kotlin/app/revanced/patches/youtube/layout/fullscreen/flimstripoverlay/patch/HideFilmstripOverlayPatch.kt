@@ -16,7 +16,7 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.youtube.layout.fullscreen.flimstripoverlay.fingerprints.ScrubbingLabelFingerprint
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
-import app.revanced.util.integrations.Constants.FULLSCREEN_LAYOUT
+import app.revanced.util.integrations.Constants.FULLSCREEN
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
@@ -45,7 +45,7 @@ class HideFilmstripOverlayPatch : BytecodePatch(
 
                     it.addInstructions(
                         index + 1, """
-                            invoke-static {}, $FULLSCREEN_LAYOUT->hideFilmstripOverlay()Z
+                            invoke-static {}, $FULLSCREEN->hideFilmstripOverlay()Z
                             move-result v$dummyRegister
                             if-eqz v$dummyRegister, :show
                             const/4 v$primaryRegister, 0x0
@@ -61,7 +61,7 @@ class HideFilmstripOverlayPatch : BytecodePatch(
                      */
                     SettingsPatch.addPreference(
                         arrayOf(
-                            "PREFERENCE: FULLSCREEN_LAYOUT_SETTINGS",
+                            "PREFERENCE: FULLSCREEN_SETTINGS",
                             "SETTINGS: HIDE_FILMSTRIP_OVERLAY"
                         )
                     )

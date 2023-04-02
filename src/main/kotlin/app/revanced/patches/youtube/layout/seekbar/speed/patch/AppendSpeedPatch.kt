@@ -16,7 +16,7 @@ import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.shared.patch.mapping.ResourceMappingPatch
 import app.revanced.patches.youtube.misc.overridespeed.bytecode.patch.OverrideSpeedHookPatch
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
-import app.revanced.util.integrations.Constants.SEEKBAR_LAYOUT
+import app.revanced.util.integrations.Constants.SEEKBAR
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.dexbacked.instruction.DexBackedInstruction35c
 import org.jf.dexlib2.iface.instruction.formats.Instruction31i
@@ -66,7 +66,7 @@ class AppendSpeedPatch : BytecodePatch() {
                                                 val insertRegister = (instructions.elementAt(insertIndex) as Instruction35c).registerC
                                                 mutableMethod.addInstructions(
                                                     insertIndex, """
-                                                        invoke-static {v$insertRegister}, $SEEKBAR_LAYOUT->enableTimeStampSpeed(Ljava/lang/String;)Ljava/lang/String;
+                                                        invoke-static {v$insertRegister}, $SEEKBAR->enableTimeStampSpeed(Ljava/lang/String;)Ljava/lang/String;
                                                         move-result-object v$insertRegister
                                                         """
                                                 )
@@ -91,7 +91,7 @@ class AppendSpeedPatch : BytecodePatch() {
              */
             SettingsPatch.addPreference(
                 arrayOf(
-                    "PREFERENCE: SEEKBAR_LAYOUT_SETTINGS",
+                    "PREFERENCE: SEEKBAR_SETTINGS",
                     "SETTINGS: ENABLE_TIME_STAMP_SPEED"
                 )
             )

@@ -19,7 +19,7 @@ import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.youtube.layout.general.tabletminiplayer.fingerprints.*
 import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
-import app.revanced.util.integrations.Constants.GENERAL_LAYOUT
+import app.revanced.util.integrations.Constants.GENERAL
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
@@ -69,7 +69,7 @@ class TabletMiniPlayerPatch : BytecodePatch(
          */
         SettingsPatch.addPreference(
             arrayOf(
-                "PREFERENCE: GENERAL_LAYOUT_SETTINGS",
+                "PREFERENCE: GENERAL_SETTINGS",
                 "SETTINGS: ENABLE_TABLET_MINIPLAYER"
             )
         )
@@ -92,7 +92,7 @@ class TabletMiniPlayerPatch : BytecodePatch(
             this.addInstructions(
                 index,
                 """
-                    invoke-static {v$overrideRegister}, $GENERAL_LAYOUT->enableTabletMiniPlayer(Z)Z
+                    invoke-static {v$overrideRegister}, $GENERAL->enableTabletMiniPlayer(Z)Z
                     move-result v$overrideRegister
                     """
             )

@@ -19,7 +19,7 @@ import app.revanced.patches.youtube.layout.general.categorybar.fingerprints.Rela
 import app.revanced.patches.youtube.layout.general.categorybar.fingerprints.SearchResultsChipBarFingerprint
 import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
-import app.revanced.util.integrations.Constants.GENERAL_LAYOUT
+import app.revanced.util.integrations.Constants.GENERAL
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
 
@@ -54,7 +54,7 @@ class CategoryBarPatch : BytecodePatch(
 
                 addInstructions(
                     insertIndex, """
-                        invoke-static {v$register}, $GENERAL_LAYOUT->hideCategoryBarInFeed(I)I
+                        invoke-static {v$register}, $GENERAL->hideCategoryBarInFeed(I)I
                         move-result v$register
                         """
                 )
@@ -71,7 +71,7 @@ class CategoryBarPatch : BytecodePatch(
 
                 addInstruction(
                     insertIndex + 1,
-                    "invoke-static {v$register}, $GENERAL_LAYOUT->hideCategoryBarInRelatedVideo(Landroid/view/View;)V"
+                    "invoke-static {v$register}, $GENERAL->hideCategoryBarInRelatedVideo(Landroid/view/View;)V"
                 )
             }
         } ?: return RelatedChipCloudFingerprint.toErrorResult()
@@ -86,7 +86,7 @@ class CategoryBarPatch : BytecodePatch(
 
                 addInstructions(
                     targetIndex + 1, """
-                        invoke-static {v$register}, $GENERAL_LAYOUT->hideCategoryBarInSearchResults(I)I
+                        invoke-static {v$register}, $GENERAL->hideCategoryBarInSearchResults(I)I
                         move-result v$register
                         """
                 )
@@ -98,7 +98,7 @@ class CategoryBarPatch : BytecodePatch(
          */
         SettingsPatch.addPreference(
             arrayOf(
-                "PREFERENCE: GENERAL_LAYOUT_SETTINGS",
+                "PREFERENCE: GENERAL_SETTINGS",
                 "SETTINGS: HIDE_CATEGORY_BAR"
             )
         )

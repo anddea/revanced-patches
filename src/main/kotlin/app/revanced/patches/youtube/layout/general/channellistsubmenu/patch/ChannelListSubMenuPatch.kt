@@ -16,7 +16,7 @@ import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.youtube.layout.general.channellistsubmenu.fingerprints.ChannelListSubMenuFingerprint
 import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
-import app.revanced.util.integrations.Constants.GENERAL_LAYOUT
+import app.revanced.util.integrations.Constants.GENERAL
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
@@ -44,7 +44,7 @@ class ChannelListSubMenuPatch : BytecodePatch(
 
                 addInstruction(
                     endIndex + 1,
-                        "invoke-static {v$register}, $GENERAL_LAYOUT->hideChannelListSubMenu(Landroid/view/View;)V"
+                        "invoke-static {v$register}, $GENERAL->hideChannelListSubMenu(Landroid/view/View;)V"
                 )
             }
         } ?: return ChannelListSubMenuFingerprint.toErrorResult()
@@ -54,7 +54,7 @@ class ChannelListSubMenuPatch : BytecodePatch(
          */
         SettingsPatch.addPreference(
             arrayOf(
-                "PREFERENCE: GENERAL_LAYOUT_SETTINGS",
+                "PREFERENCE: GENERAL_SETTINGS",
                 "SETTINGS: HIDE_CHANNEL_LIST_SUBMENU"
             )
         )

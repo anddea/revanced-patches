@@ -18,7 +18,7 @@ import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.youtube.layout.player.watermark.fingerprints.HideWatermarkFingerprint
 import app.revanced.patches.youtube.layout.player.watermark.fingerprints.HideWatermarkParentFingerprint
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
-import app.revanced.util.integrations.Constants.PLAYER_LAYOUT
+import app.revanced.util.integrations.Constants.PLAYER
 import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Patch
@@ -43,7 +43,7 @@ class HideChannelWatermarkBytecodePatch : BytecodePatch(
                     removeInstruction(insertIndex)
                     addInstructions(
                         insertIndex, """
-                            invoke-static {}, $PLAYER_LAYOUT->hideChannelWatermark()Z
+                            invoke-static {}, $PLAYER->hideChannelWatermark()Z
                             move-result v$register
                         """
                     )
@@ -56,7 +56,7 @@ class HideChannelWatermarkBytecodePatch : BytecodePatch(
          */
         SettingsPatch.addPreference(
             arrayOf(
-                "PREFERENCE: PLAYER_LAYOUT_SETTINGS",
+                "PREFERENCE: PLAYER_SETTINGS",
                 "SETTINGS: HIDE_CHANNEL_WATERMARK"
             )
         )

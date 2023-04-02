@@ -17,6 +17,7 @@ import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.shared.patch.mapping.ResourceMappingPatch
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
+import app.revanced.util.integrations.Constants.PLAYER
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.iface.instruction.formats.Instruction21c
 import org.jf.dexlib2.iface.instruction.formats.Instruction31i
@@ -64,7 +65,7 @@ class PlayerOverlayFilterPatch : BytecodePatch() {
 
                                         mutableMethod.addInstructions(
                                             insertIndex + 1, """
-                                                invoke-static {}, Lapp/revanced/integrations/patches/layout/PlayerLayoutPatch;->hidePlayerOverlayFilter()Z
+                                                invoke-static {}, $PLAYER->hidePlayerOverlayFilter()Z
                                                 move-result v$dummyRegister
                                                 if-eqz v$dummyRegister, :currentcolor
                                                 const v$dummyRegister, $transparent
@@ -92,7 +93,7 @@ class PlayerOverlayFilterPatch : BytecodePatch() {
              */
             SettingsPatch.addPreference(
                 arrayOf(
-                    "PREFERENCE: PLAYER_LAYOUT_SETTINGS",
+                    "PREFERENCE: PLAYER_SETTINGS",
                     "SETTINGS: HIDE_PLAYER_OVERLAY_FILTER"
                 )
             )

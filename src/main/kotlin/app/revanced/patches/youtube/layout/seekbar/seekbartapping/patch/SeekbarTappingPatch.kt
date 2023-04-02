@@ -18,7 +18,7 @@ import app.revanced.patches.youtube.layout.seekbar.seekbartapping.fingerprints.S
 import app.revanced.patches.youtube.layout.seekbar.seekbartapping.fingerprints.SeekbarTappingParentFingerprint
 import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
-import app.revanced.util.integrations.Constants.SEEKBAR_LAYOUT
+import app.revanced.util.integrations.Constants.SEEKBAR
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.iface.Method
 import org.jf.dexlib2.iface.instruction.formats.Instruction11n
@@ -77,7 +77,7 @@ class SeekbarTappingPatch : BytecodePatch(
 
                 addInstructions(
                     insertIndex, """
-                        invoke-static {}, $SEEKBAR_LAYOUT->enableSeekbarTapping()Z
+                        invoke-static {}, $SEEKBAR->enableSeekbarTapping()Z
                         move-result v0
                         if-eqz v0, :off
                         invoke-virtual { v$register, v2 }, ${oMethod.definingClass}->${oMethod.name}(I)V
@@ -92,7 +92,7 @@ class SeekbarTappingPatch : BytecodePatch(
          */
         SettingsPatch.addPreference(
             arrayOf(
-                "PREFERENCE: SEEKBAR_LAYOUT_SETTINGS",
+                "PREFERENCE: SEEKBAR_SETTINGS",
                 "SETTINGS: ENABLE_SEEKBAR_TAPPING"
             )
         )

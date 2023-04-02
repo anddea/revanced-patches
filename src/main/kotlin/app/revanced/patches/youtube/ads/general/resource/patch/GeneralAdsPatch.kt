@@ -90,15 +90,15 @@ class GeneralAdsPatch : ResourcePatch {
                 "PREFERENCE: ADS_SETTINGS",
                 "SETTINGS: HIDE_GENERAL_ADS",
 
-                "PREFERENCE: GENERAL_LAYOUT_SETTINGS",
-                "SETTINGS: HIDE_GENERAL_LAYOUT_ADS",
+                "PREFERENCE: GENERAL_SETTINGS",
+                "SETTINGS: HIDE_GENERAL_ADS",
 
-                "PREFERENCE: GENERAL_LAYOUT_SETTINGS",
+                "PREFERENCE: GENERAL_SETTINGS",
                 "PREFERENCE_HEADER: PLAYER",
                 "SETTINGS: HIDE_VIEW_PRODUCT",
                 "SETTINGS: DOUBLE_BACK_TIMEOUT",
 
-                "PREFERENCE: BOTTOM_PLAYER_LAYOUT_SETTINGS",
+                "PREFERENCE: BOTTOM_PLAYER_SETTINGS",
                 "SETTINGS: COMMENT_COMPONENT_PARENT"
             )
         )

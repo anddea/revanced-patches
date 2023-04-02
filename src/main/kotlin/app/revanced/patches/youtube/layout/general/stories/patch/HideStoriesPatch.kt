@@ -57,7 +57,7 @@ class HideStoriesPatch : BytecodePatch() {
                                         val mutableMethod = context.proxy(classDef).mutableClass.findMutableMethodOf(method)
 
                                         val viewRegister = (iPutInstruction as Instruction22c).registerA
-                                        mutableMethod.implementation!!.injectHideCall(insertIndex, viewRegister, "layout/GeneralLayoutPatch", "hideStoriesShelf")
+                                        mutableMethod.implementation!!.injectHideCall(insertIndex, viewRegister, "layout/GeneralPatch", "hideStoriesShelf")
 
                                         patchSuccessArray[0] = true
                                         patchSuccessArray[1] = true
@@ -79,7 +79,7 @@ class HideStoriesPatch : BytecodePatch() {
              */
             SettingsPatch.addPreference(
                 arrayOf(
-                    "PREFERENCE: GENERAL_LAYOUT_SETTINGS",
+                    "PREFERENCE: GENERAL_SETTINGS",
                     "SETTINGS: HIDE_STORIES_SHELF"
                 )
             )
