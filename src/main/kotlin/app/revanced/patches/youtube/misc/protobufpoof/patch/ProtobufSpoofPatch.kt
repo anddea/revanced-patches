@@ -34,7 +34,8 @@ import app.revanced.util.integrations.Constants.MISC_PATH
 class ProtobufSpoofPatch : BytecodePatch(
     listOf(
         BadResponseFingerprint,
-        ProtobufParameterBuilderFingerprint
+        ProtobufParameterBuilderFingerprint,
+        SubtitleWindowFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
@@ -51,7 +52,7 @@ class ProtobufSpoofPatch : BytecodePatch(
                 addInstructions(
                     0,
                     """
-                        invoke-static {p$protobufParam}, $MISC_PATH/ProtobufSpoofPatch;->getProtobufOverride(Ljava/lang/String;)Ljava/lang/String;
+                        invoke-static {p$protobufParam}, $MISC_PATH/ProtobufSpoofPatch;->overrideProtobufParameter(Ljava/lang/String;)Ljava/lang/String;
                         move-result-object p$protobufParam
                     """
                 )
@@ -63,6 +64,16 @@ class ProtobufSpoofPatch : BytecodePatch(
             0,
             "invoke-static {}, $MISC_PATH/ProtobufSpoofPatch;->switchProtobufSpoof()V"
         ) ?: return BadResponseFingerprint.toErrorResult()
+
+        // fix protobuf spoof side issue
+        SubtitleWindowFingerprint.result?.mutableMethod?.addInstructions(
+            1, """
+                invoke-static {p1, p2, p3}, $MISC_PATH/ProtobufSpoofPatch;->overrideAnchorPosition(III)I
+                move-result p1
+                invoke-static {p2, p3}, $MISC_PATH/ProtobufSpoofPatch;->overrideAnchorVerticalPosition(II)I
+                move-result p3
+            """
+        ) ?: return SubtitleWindowFingerprint.toErrorResult()
 
         /*
          * Add settings

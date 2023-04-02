@@ -413,8 +413,7 @@
         <!-- SETTINGS: DISABLE_QUIC_PROTOCOL
         <SwitchPreference android:title="@string/revanced_disable_quic_protocol_title" android:key="revanced_disable_quic_protocol" android:defaultValue="false" android:summary="@string/revanced_disable_quic_protocol_summary" />SETTINGS: DISABLE_QUIC_PROTOCOL -->
         <!-- SETTINGS: ENABLE_PROTOBUF_SPOOF
-        <SwitchPreference android:title="@string/revanced_enable_protobuf_spoof_title" android:key="revanced_enable_protobuf_spoof" android:defaultValue="false" android:summary="@string/revanced_enable_protobuf_spoof_summary" />
-        <SwitchPreference android:title="@string/revanced_spoofing_type_title" android:key="revanced_spoofing_type" android:defaultValue="false" android:summaryOn="@string/revanced_spoofing_type_shorts" android:summaryOff="@string/revanced_spoofing_type_general" android:dependency="revanced_enable_protobuf_spoof" />SETTINGS: ENABLE_PROTOBUF_SPOOF -->
+        <SwitchPreference android:title="@string/revanced_enable_protobuf_spoof_title" android:key="revanced_enable_protobuf_spoof" android:defaultValue="false" android:summary="@string/revanced_enable_protobuf_spoof_summary" />SETTINGS: ENABLE_PROTOBUF_SPOOF -->
         <PreferenceScreen android:title="@string/revanced_backup_title" android:key="backup" android:summary="@string/revanced_backup_summary">
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_backup_title" />
         </PreferenceScreen>
