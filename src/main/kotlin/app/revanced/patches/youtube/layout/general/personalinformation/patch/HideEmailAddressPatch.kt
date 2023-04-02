@@ -20,7 +20,7 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
 @Name("hide-email-address")
-@Description("Hides the email address in the account switcher.")
+@Description("Hides the email address(handle) in the account switcher.")
 @DependsOn([SettingsPatch::class])
 @YouTubeCompatibility
 @Version("0.0.1")
