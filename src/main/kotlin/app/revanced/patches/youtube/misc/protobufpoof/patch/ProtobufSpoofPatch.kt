@@ -6,6 +6,7 @@ import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.data.toMethodWalker
+import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
@@ -14,21 +15,31 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
-import app.revanced.patches.youtube.misc.protobufpoof.fingerprints.ProtobufParameterBuilderFingerprint
+import app.revanced.patches.youtube.misc.playertype.patch.PlayerTypeHookPatch
+import app.revanced.patches.youtube.misc.protobufpoof.fingerprints.*
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
 import app.revanced.util.integrations.Constants.MISC_PATH
 
 @Patch
 @Name("protobuf-spoof")
 @Description("Spoofs the protobuf to prevent playback issues.")
-@DependsOn([SettingsPatch::class])
+@DependsOn(
+    [
+        PlayerTypeHookPatch::class,
+        SettingsPatch::class
+    ]
+)
 @YouTubeCompatibility
 @Version("0.0.1")
 class ProtobufSpoofPatch : BytecodePatch(
-    listOf(ProtobufParameterBuilderFingerprint)
+    listOf(
+        BadResponseFingerprint,
+        ProtobufParameterBuilderFingerprint
+    )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
 
+        // hook parameter
         ProtobufParameterBuilderFingerprint.result?.let {
             with (context
                 .toMethodWalker(it.method)
@@ -46,6 +57,12 @@ class ProtobufSpoofPatch : BytecodePatch(
                 )
             }
         } ?: return ProtobufParameterBuilderFingerprint.toErrorResult()
+
+        // hook video playback result
+        BadResponseFingerprint.result?.mutableMethod?.addInstruction(
+            0,
+            "invoke-static {}, $MISC_PATH/ProtobufSpoofPatch;->switchProtobufSpoof()V"
+        ) ?: return BadResponseFingerprint.toErrorResult()
 
         /*
          * Add settings
