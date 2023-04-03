@@ -7,6 +7,8 @@ import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.instruction
+import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprintResult
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
@@ -32,8 +34,19 @@ class PlayerControlsPatch : BytecodePatch(
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
 
+        val playerControlsVisibilityModelClassDef = PlayerControlsVisibilityModelFingerprint.result?.classDef?: return PlayerControlsVisibilityModelFingerprint.toErrorResult()
+
+        val seekEDUVisibleFingerprint =
+            object : MethodFingerprint(returnType = "V", parameters = listOf("Z"), customFingerprint = { it.name == "l" }) {}
+        seekEDUVisibleFingerprint.resolve(context, playerControlsVisibilityModelClassDef)
+        seekEDUVisibleResult = seekEDUVisibleFingerprint.result?: return seekEDUVisibleFingerprint.toErrorResult()
+
+        val userScrubbingFingerprint =
+            object : MethodFingerprint(returnType = "V", parameters = listOf("Z"), customFingerprint = { it.name == "o" }) {}
+        userScrubbingFingerprint.resolve(context, playerControlsVisibilityModelClassDef)
+        userScrubbingResult = userScrubbingFingerprint.result?: return userScrubbingFingerprint.toErrorResult()
+
         playerControlsVisibilityResult = PlayerControlsVisibilityFingerprint.result?: return PlayerControlsVisibilityFingerprint.toErrorResult()
-        playerControlsVisibilityModelResult = PlayerControlsVisibilityModelFingerprint.result?: return PlayerControlsVisibilityModelFingerprint.toErrorResult()
         controlsLayoutInflateResult = ControlsLayoutInflateFingerprint.result?: return ControlsLayoutInflateFingerprint.toErrorResult()
         inflateResult = BottomControlsInflateFingerprint.result?: return BottomControlsInflateFingerprint.toErrorResult()
 
@@ -41,10 +54,11 @@ class PlayerControlsPatch : BytecodePatch(
     }
 
     internal companion object {
-        lateinit var playerControlsVisibilityResult: MethodFingerprintResult
-        lateinit var playerControlsVisibilityModelResult: MethodFingerprintResult
         lateinit var controlsLayoutInflateResult: MethodFingerprintResult
         lateinit var inflateResult: MethodFingerprintResult
+        lateinit var playerControlsVisibilityResult: MethodFingerprintResult
+        lateinit var seekEDUVisibleResult: MethodFingerprintResult
+        lateinit var userScrubbingResult: MethodFingerprintResult
 
         private fun MethodFingerprintResult.injectVisibilityCall(
             descriptor: String,
@@ -53,15 +67,6 @@ class PlayerControlsPatch : BytecodePatch(
             mutableMethod.addInstruction(
                 0,
                 "invoke-static {p1}, $descriptor->$fieldName(Z)V"
-            )
-        }
-
-        private fun MethodFingerprintResult.injectVisibilityNegatedCall(
-            descriptor: String
-        ) {
-            mutableMethod.addInstruction(
-                scanResult.patternScanResult!!.startIndex,
-                "invoke-static {}, $descriptor->changeVisibilityNegatedImmediate()V"
             )
         }
 
@@ -80,7 +85,8 @@ class PlayerControlsPatch : BytecodePatch(
 
         fun injectVisibility(descriptor: String) {
             playerControlsVisibilityResult.injectVisibilityCall(descriptor, "changeVisibility")
-            playerControlsVisibilityModelResult.injectVisibilityNegatedCall(descriptor)
+            seekEDUVisibleResult.injectVisibilityCall(descriptor, "changeVisibilityNegatedImmediate")
+            userScrubbingResult.injectVisibilityCall(descriptor, "changeVisibilityNegatedImmediate")
         }
 
         fun initializeSB(descriptor: String) {
