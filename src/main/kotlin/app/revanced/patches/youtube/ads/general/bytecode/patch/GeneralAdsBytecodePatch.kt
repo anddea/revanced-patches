@@ -22,8 +22,7 @@ import org.jf.dexlib2.iface.instruction.formats.*
 class GeneralAdsBytecodePatch : BytecodePatch() {
     private val resourceIds = arrayOf(
         "id" to "ad_attribution",
-        "layout" to "horizontal_card_list",
-        "layout" to "album_card"
+        "layout" to "horizontal_card_list"
     ).map { (type, name) ->
         ResourceMappingPatch
             .resourceMappings
@@ -61,18 +60,6 @@ class GeneralAdsBytecodePatch : BytecodePatch() {
                                         val viewRegister = (invokeInstruction as Instruction21c).registerA
                                         mutableMethod.implementation!!.injectHideCall(insertIndex, viewRegister, "ads/GeneralAdsPatch", "hideBreakingNewsShelf")
                                         patchSuccessArray[1] = true
-                                    }
-
-                                    resourceIds[2] -> { // album cards
-                                        val insertIndex = index + 4
-                                        val invokeInstruction = instructions.elementAt(insertIndex)
-                                        if (invokeInstruction.opcode != Opcode.CHECK_CAST) return@forEachIndexed
-
-                                        val mutableMethod = context.proxy(classDef).mutableClass.findMutableMethodOf(method)
-
-                                        val viewRegister = (invokeInstruction as Instruction21c).registerA
-                                        mutableMethod.implementation!!.injectHideCall(insertIndex, viewRegister, "ads/GeneralAdsPatch", "hideAlbumCards")
-                                        patchSuccessArray[2] = true
                                     }
                                 }
                             }
