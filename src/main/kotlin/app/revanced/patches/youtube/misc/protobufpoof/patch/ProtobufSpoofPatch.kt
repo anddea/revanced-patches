@@ -67,11 +67,16 @@ class ProtobufSpoofPatch : BytecodePatch(
 
         // fix protobuf spoof side issue
         SubtitleWindowFingerprint.result?.mutableMethod?.addInstructions(
-            1, """
-                invoke-static {p1, p2, p3}, $MISC_PATH/ProtobufSpoofPatch;->overrideAnchorPosition(III)I
-                move-result p1
-                invoke-static {p2, p3}, $MISC_PATH/ProtobufSpoofPatch;->overrideAnchorVerticalPosition(II)I
-                move-result p3
+            0,
+            """
+                invoke-static {p1, p2, p3, p4, p5}, $MISC_PATH/ProtobufSpoofPatch;->getSubtitleWindowSettingsOverride(IIIZZ)[I
+                move-result-object v0
+                const/4 v1, 0x0
+                aget p1, v0, v1     # ap, anchor configuration
+                const/4 v1, 0x1
+                aget p2, v0, v1     # ah, horizontal anchor
+                const/4 v1, 0x2
+                aget p3, v0, v1     # av, vertical anchor
             """
         ) ?: return SubtitleWindowFingerprint.toErrorResult()
 
