@@ -106,7 +106,7 @@
     <string name="revanced_adremover_image_shelf_title">Изображения</string>
     <string name="revanced_adremover_info_panel_summary_off">Информационные панели отображены</string>
     <string name="revanced_adremover_info_panel_summary_on">Информационные панели скрыты</string>
-    <string name="revanced_adremover_info_panel_title">Информационные панели</string>
+    <string name="revanced_adremover_info_panel_title">Информация</string>
     <string name="revanced_adremover_in_feed_survey_summary_off">Опросы в ленте отображены</string>
     <string name="revanced_adremover_in_feed_survey_summary_on">Опросы в ленте скрыты</string>
     <string name="revanced_adremover_in_feed_survey_title">Опросы</string>
@@ -156,6 +156,9 @@
     <string name="revanced_backup_summary">Сохранение / Восстановление настроек ReVanced</string>
     <string name="revanced_bottom_player">Нижняя часть плеера</string>
     <string name="revanced_button_container_title">Кнопки под плеером</string>
+    <string name="revanced_bypass_ambient_mode_restrictions_summary_off">Фоновая подсветка отключена в режиме экономии заряда батареи</string>
+    <string name="revanced_bypass_ambient_mode_restrictions_summary_on">Фоновая подсветка включена в режиме экономии заряда батареи</string>
+    <string name="revanced_bypass_ambient_mode_restrictions_title">Обход ограничений фоновой подсветки</string>
     <string name="revanced_comments_title">Комментарии</string>
     <string name="revanced_copytimestamp_success">Таймкод скопирован в буфер обмена</string>
     <string name="revanced_custom_seekbar_color_value_summary">Введите HEX код цвета прогресса воспроизведения для использования в темном режиме</string>
@@ -175,8 +178,8 @@
     <string name="revanced_disable_haptic_feedback_zoom_summary_off">Виброотклик при жесте \"Увеличение экрана\" включен</string>
     <string name="revanced_disable_haptic_feedback_zoom_summary_on">Виброотклик при жесте \"Увеличение экрана\" отключен</string>
     <string name="revanced_disable_haptic_feedback_zoom_title">Жест \"Увеличение экрана\"</string>
-    <string name="revanced_disable_quic_protocol_summary">"Отключить протокол QUIC CronetEngine"</string>
-    <string name="revanced_disable_quic_protocol_title">Отключить протокол QUIC</string>
+    <string name="revanced_disable_quic_protocol_summary">"Отключает протокол QUIC CronetEngine"</string>
+    <string name="revanced_disable_quic_protocol_title">Протокол QUIC</string>
     <string name="revanced_double_back_timeout_summary">Количество секунд для выхода при двойном нажатии \"Назад\"</string>
     <string name="revanced_double_back_timeout_title">Таймаут выхода из приложения</string>
     <string name="revanced_downloader_not_installed">Загрузчик не установлен. Пожалуйста, установите его</string>
@@ -187,8 +190,8 @@
     <string name="revanced_enable_always_auto_repeat_summary_off">Постоянный автоповтор отключен</string>
     <string name="revanced_enable_always_auto_repeat_summary_on">Постоянный автоповтор включен</string>
     <string name="revanced_enable_always_auto_repeat_title">Постоянный автоповтор</string>
-    <string name="revanced_enable_custom_seekbar_color_summary_off">Персональный цвет прогресса воспроизведения видео в темном режиме отключен</string>
-    <string name="revanced_enable_custom_seekbar_color_summary_on">Персональный цвет прогресса воспроизведения видео в темном режиме включен</string>
+    <string name="revanced_enable_custom_seekbar_color_summary_off">Персональный цвет прогресса воспроизведения в темном режиме отключен</string>
+    <string name="revanced_enable_custom_seekbar_color_summary_on">Персональный цвет прогресса воспроизведения в темном режиме включен</string>
     <string name="revanced_enable_custom_seekbar_color_title">Персональный цвет</string>
     <string name="revanced_enable_custom_video_speed_summary_off">Персональная скорость воспроизведения видео отключена</string>
     <string name="revanced_enable_custom_video_speed_summary_on">Персональная скорость воспроизведения видео включена</string>
@@ -211,7 +214,7 @@
     <string name="revanced_enable_phone_layout_summary">Подменяет DPI для использования \"Телефонного\" интерфейса</string>
     <string name="revanced_enable_phone_layout_title">Телефонный интерфейс</string>
     <string name="revanced_enable_protobuf_spoof_summary">Подменяет протокол буфера для предотвращения проблем с воспроизведением видео</string>
-    <string name="revanced_enable_protobuf_spoof_title">Подмена протокола буфера</string>
+    <string name="revanced_enable_protobuf_spoof_title">Протокол буфера</string>
     <string name="revanced_enable_press_to_swipe_summary_off">Нажатие для выполнения жеста отключено</string>
     <string name="revanced_enable_press_to_swipe_summary_on">Нажатие для выполнения жеста включено</string>
     <string name="revanced_enable_press_to_swipe_title">Нажатие для жеста</string>
@@ -272,10 +275,8 @@
     <string name="revanced_hide_account_menu_title">Меню аккаунта</string>
     <string name="revanced_hide_action_buttons_summary_off">Кнопки действий отображены</string>
     <string name="revanced_hide_action_buttons_summary_on">Кнопки действий скрыты</string>
-    <string name="revanced_hide_action_buttons_title">Кнопки действий</string>
-    <string name="revanced_hide_action_buttons_warning">"Эти функции устарели. Таким образом, даже если эти функции имеют проблемы, нет никаких планов по их устранению
-
-Пожалуйста, не сообщайте о каких-либо проблемах, с которыми вы столкнулись при использовании данных функций"</string>
+    <string name="revanced_hide_action_buttons_title">Действия</string>
+    <string name="revanced_hide_action_buttons_warning">"Данные функции являются устаревшими и возможные проблемы при их использовании не будут исправлены, жалобы не рассматриваются"</string>
     <string name="revanced_hide_autoplay_button_summary_off">Кнопка \"Автовоспроизведение\" отображена</string>
     <string name="revanced_hide_autoplay_button_summary_on">Кнопка \"Автовоспроизведение\" скрыта</string>
     <string name="revanced_hide_autoplay_button_title">Автовоспроизведение</string>
@@ -332,9 +333,9 @@
     <string name="revanced_hide_category_bar_in_search_results_title">Панель категорий в результатах поиска</string>
     <string name="revanced_hide_category_bar_summary_off">Панель категорий отображена</string>
     <string name="revanced_hide_category_bar_summary_on">Панель категорий скрыта</string>
-    <string name="revanced_hide_channel_list_submenu_summary_off">Секция аватара канала в ленте страницы \"Подписок\" отображена</string>
-    <string name="revanced_hide_channel_list_submenu_summary_on">Секция аватара канала в ленте страницы \"Подписок\" скрыта</string>
-    <string name="revanced_hide_channel_list_submenu_title">Секция аватара канала</string>
+    <string name="revanced_hide_channel_list_submenu_summary_off">Список каналов с подпиской отображен в верхней части ленты страницы \"Подписок\"</string>
+    <string name="revanced_hide_channel_list_submenu_summary_on">Список каналов с подпиской скрыт в верхней части ленты страницы \"Подписок\"</string>
+    <string name="revanced_hide_channel_list_submenu_title">Список каналов в \"Подписках\"</string>
     <string name="revanced_hide_channel_watermark_summary_off">Логотип канала отображен</string>
     <string name="revanced_hide_channel_watermark_summary_on">Логотип канала скрыт</string>
     <string name="revanced_hide_channel_watermark_title">Логотип канала</string>
@@ -353,8 +354,8 @@
     <string name="revanced_hide_crowdfunding_box_summary_off">Колонка \"Коллективный сбор\" отображена</string>
     <string name="revanced_hide_crowdfunding_box_summary_on">Колонка \"Коллективный сбор\" скрыта</string>
     <string name="revanced_hide_crowdfunding_box_title">Коллективный сбор</string>
-    <string name="revanced_hide_email_address_summary_off">Адрес электронной почты отображен</string>
-    <string name="revanced_hide_email_address_summary_on">Адрес электронной почты скрыт</string>
+    <string name="revanced_hide_email_address_summary_off">Адрес электронной почты / дескриптор отображен</string>
+    <string name="revanced_hide_email_address_summary_on">Адрес электронной почты / дескриптор скрыт</string>
     <string name="revanced_hide_email_address_title">Адрес электронной почты</string>
     <string name="revanced_hide_emoji_picker_summary_off">Панель с эмодзи отображена</string>
     <string name="revanced_hide_emoji_picker_summary_on">Панель с эмодзи скрыта</string>
@@ -484,7 +485,7 @@
     <string name="revanced_hide_time_stamp_title">Время воспроизведения</string>
     <string name="revanced_hide_youtube_music_button_summary_off">Кнопка \"YouTube Music\" отображена</string>
     <string name="revanced_hide_youtube_music_button_summary_on">Кнопка \"YouTube Music\" скрыта</string>
-    <string name="revanced_hide_youtube_music_button_title">Кнопка \"YouTube Music\"</string>
+    <string name="revanced_hide_youtube_music_button_title">YouTube Music</string>
     <string name="revanced_import_settings_summary">Восстанавливает настройки ReVanced из файла</string>
     <string name="revanced_import_settings_title">Восстановить настройки</string>
     <string name="revanced_misc">Дополнительные</string>
@@ -513,8 +514,8 @@
     <string name="revanced_override_premium_header_summary_off">Текущий заголовок - \"YouTube\"</string>
     <string name="revanced_override_premium_header_summary_on">Текущий заголовок - \"Premium\"</string>
     <string name="revanced_override_premium_header_title">Заголовок</string>
-    <string name="revanced_patches_information">Патчи</string>
-    <string name="revanced_patches_information_summary">Версия патчей:</string>
+    <string name="revanced_patches_information">Информация о патчах</string>
+    <string name="revanced_patches_information_summary">Примененные в сборке патчи</string>
     <string name="revanced_player_flyout_panel_title">Всплывающая панель плеера</string>
     <string name="revanced_player">Плеер</string>
     <string name="revanced_protobuf_spoof_notice">Подменяет протокол буфера для предотвращения проблем с воспроизведением видео</string>
@@ -556,7 +557,7 @@
     <string name="revanced_swipe_overlay_timeout_title">Таймаут наложения при жесте</string>
     <string name="revanced_switching_create_notification_summary_off">Замена местами кнопок \"Уведомления\" и \"Создать\" отключена</string>
     <string name="revanced_switching_create_notification_summary_on">Замена местами кнопок \"Уведомления\" и \"Создать\" включена</string>
-    <string name="revanced_switching_create_notification_title">Кнопки \"Уведомления\" и \"Создать\"</string>
+    <string name="revanced_switching_create_notification_title">Замена кнопок</string>
     <string name="revanced_tool_used">Использованные инструменты:</string>
     <string name="revanced_vertical_video_restrictions_summary">Подмена информации об устройстве для снятия ограничений по разрешению вертикальных видео</string>
     <string name="revanced_vertical_video_restrictions_title">Разрешение вертикальных видео</string>
@@ -577,7 +578,7 @@
     <string name="revanced_whitelisting_removed" formatted="false">Канал %s был удален из \"Белого списка\" %s</string>
     <string name="revanced_whitelisting_remove_failed" formatted="false">Не удалось удалить канал %s из \"Белого списка\" %s</string>
     <string name="revanced_whitelisting_settings_summary">Настроить или удалить список каналов, добавленных в \"Белый список\"</string>
-    <string name="revanced_whitelisting_settings_title">Настройки \"Белого списка\"</string>
+    <string name="revanced_whitelisting_settings_title">Настройки Белого списка</string>
     <string name="revanced_whitelisting_speed">Скорость видео</string>
     <string name="revanced_whitelisting_sponsorblock">SponsorBlock</string>
     <string name="revanced_whitelisting_sponsorblock_button">SB</string>
