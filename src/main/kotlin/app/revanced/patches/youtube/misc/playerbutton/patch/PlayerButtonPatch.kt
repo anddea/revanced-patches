@@ -32,10 +32,10 @@ class PlayerButtonPatch : BytecodePatch(
 
         LiveChatFingerprint.result?.let {
             val endIndex = it.scanResult.patternScanResult!!.endIndex
-            val instuctions = it.mutableMethod.instruction(endIndex)
+            val instructions = it.mutableMethod.instruction(endIndex)
             val imageButtonClass =
                 context
-                .findClass((instuctions as BuilderInstruction21c)
+                .findClass((instructions as BuilderInstruction21c)
                 .reference.toString())!!
                 .mutableClass
 
@@ -43,9 +43,9 @@ class PlayerButtonPatch : BytecodePatch(
                 with (imageButtonClass.findMutableMethodOf(method)) {
                     var jumpInstruction = true
 
-                    implementation!!.instructions.forEachIndexed { index, instuctions ->
-                        if (instuctions.opcode.ordinal == Opcode.INVOKE_VIRTUAL.ordinal) {
-                            val definedInstruction = (instuctions as? BuilderInstruction35c)
+                    implementation!!.instructions.forEachIndexed { index, instructions ->
+                        if (instructions.opcode.ordinal == Opcode.INVOKE_VIRTUAL.ordinal) {
+                            val definedInstruction = (instructions as? BuilderInstruction35c)
 
                             if (definedInstruction?.reference.toString() ==
                                 "Landroid/view/View;->setVisibility(I)V") {
