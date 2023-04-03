@@ -4,16 +4,22 @@ import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
-import org.jf.dexlib2.iface.instruction.NarrowLiteralInstruction
 
 object PowerSaveModeFingerprint : MethodFingerprint(
     returnType = "V",
     access = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("L"),
-    opcodes = listOf(Opcode.SUB_INT_2ADDR),
-    customFingerprint = { methodDef ->
-        methodDef.implementation!!.instructions.any {
-            ((it as? NarrowLiteralInstruction)?.narrowLiteral == 107243)
-        }
-    }
+    opcodes = listOf(
+        Opcode.IGET_OBJECT,
+        Opcode.CHECK_CAST,
+        Opcode.CHECK_CAST,
+        Opcode.IGET_OBJECT,
+        Opcode.INVOKE_VIRTUAL,
+        Opcode.MOVE_RESULT,
+        Opcode.INVOKE_STATIC,
+        Opcode.MOVE_RESULT_OBJECT,
+        Opcode.INVOKE_VIRTUAL,
+        Opcode.RETURN_VOID
+    ),
+    customFingerprint = { it.name == "accept" }
 )
