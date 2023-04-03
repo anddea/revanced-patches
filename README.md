@@ -9,6 +9,7 @@ The official Patch bundle provided by ReVanced and the community.
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
+| `bypass-ambient-mode-restrictions` | Bypass ambient mode restrictions in battery saver mode. | 18.12.35 |
 | `client-spoof` | Spoofs the YouTube client to prevent playback issues. | 18.12.35 |
 | `custom-branding-icon-afn-blue` | Changes the YouTube launcher icon (Afn / Blue). | 18.12.35 |
 | `custom-branding-icon-afn-red` | Changes the YouTube launcher icon (Afn / Red). | 18.12.35 |
