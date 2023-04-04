@@ -12,8 +12,8 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
+import app.revanced.patches.youtube.misc.overridespeed.bytecode.patch.OverrideSpeedHookPatch
 import app.revanced.patches.youtube.misc.playercontrols.patch.PlayerControlsPatch
-import app.revanced.patches.youtube.misc.playertype.patch.PlayerTypeHookPatch
 import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.misc.sponsorblock.bytecode.fingerprints.*
 import app.revanced.patches.youtube.misc.timebar.patch.HookTimebarPatch
@@ -34,8 +34,8 @@ import org.jf.dexlib2.iface.reference.MethodReference
     [
         LegacyVideoIdPatch::class,
         MainstreamVideoIdPatch::class,
+        OverrideSpeedHookPatch::class,
         PlayerControlsPatch::class,
-        PlayerTypeHookPatch::class,
         SharedResourceIdPatch::class
     ]
 )
