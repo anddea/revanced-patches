@@ -20,7 +20,6 @@ import app.revanced.patches.shared.patch.mapping.ResourceMappingPatch
 import app.revanced.patches.youtube.ads.general.bytecode.patch.GeneralAdsBytecodePatch
 import app.revanced.patches.youtube.layout.general.shortscomponent.fingerprints.*
 import app.revanced.patches.youtube.misc.litho.patch.LithoFilterPatch
-import app.revanced.patches.youtube.misc.playertype.patch.PlayerTypeHookPatch
 import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
 import app.revanced.util.bytecode.BytecodeHelper.updatePatchStatus
@@ -41,7 +40,6 @@ import org.jf.dexlib2.iface.reference.FieldReference
     [
         GeneralAdsBytecodePatch::class,
         LithoFilterPatch::class,
-        PlayerTypeHookPatch::class,
         ResourceMappingPatch::class,
         SettingsPatch::class,
         SharedResourceIdPatch::class
