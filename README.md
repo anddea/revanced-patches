@@ -20,7 +20,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `custom-video-speed` | Adds more video speed options. | 18.12.35 |
 | `default-video-quality` | Adds ability to set default video quality settings. | 18.12.35 |
 | `default-video-speed` | Adds ability to set default video speed settings. | 18.12.35 |
-| `diable-landscape-mode` | Disable landscape mode when entering fullscreen. | 18.12.35 |
+| `disable-landscape-mode` | Disable landscape mode when entering fullscreen. | 18.12.35 |
 | `disable-haptic-feedback` | Disable haptic feedback when swiping. | 18.12.35 |
 | `disable-quic-protocol` | Disable CronetEngine's QUIC protocol. | 18.12.35 |
 | `enable-external-browser` | Open url outside the app in an external browser. | 18.12.35 |
