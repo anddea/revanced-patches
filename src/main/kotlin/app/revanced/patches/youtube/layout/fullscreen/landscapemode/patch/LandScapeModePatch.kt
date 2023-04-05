@@ -51,7 +51,7 @@ class LandScapeModePatch : BytecodePatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("diable-landscape-mode")
+        SettingsPatch.updatePatchStatus("disable-landscape-mode")
 
         return PatchResultSuccess()
     }
