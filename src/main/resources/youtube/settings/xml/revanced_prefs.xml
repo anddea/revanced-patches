@@ -216,6 +216,10 @@
         <!-- SETTINGS: HIDE_FILMSTRIP_OVERLAY
         <SwitchPreference android:title="@string/revanced_hide_filmstrip_overlay_title" android:key="revanced_hide_filmstrip_overlay" android:defaultValue="false" android:summaryOn="@string/revanced_hide_filmstrip_overlay_summary_on" android:summaryOff="@string/revanced_hide_filmstrip_overlay_summary_off" />SETTINGS: HIDE_FILMSTRIP_OVERLAY -->
 
+        <!-- SETTINGS: DISABLE_LANDSCAPE_MODE
+        <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_experimental_flag" />
+        <SwitchPreference android:title="@string/revanced_disable_landscape_mode_title" android:key="revanced_disable_landscape_mode" android:defaultValue="false" android:summaryOn="@string/revanced_disable_landscape_mode_summary_on" android:summaryOff="@string/revanced_disable_landscape_mode_summary_off" />SETTINGS: DISABLE_LANDSCAPE_MODE -->
+
         <!-- SETTINGS: DISABLE_HAPTIC_FEEDBACK
         <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_haptic_feedback_title" />
         <SwitchPreference android:title="@string/revanced_disable_haptic_feedback_seek_title" android:key="revanced_disable_haptic_feedback_seek" android:defaultValue="false" android:summaryOn="@string/revanced_disable_haptic_feedback_seek_summary_on" android:summaryOff="@string/revanced_disable_haptic_feedback_seek_summary_off" />
@@ -475,6 +479,7 @@
             <Preference android:title="hide-autoplay-preview" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-endscreen-overlay" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-filmstrip-overlay" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="diable-landscape-mode" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="disable-haptic-feedback" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
 
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_bottom_player" />
