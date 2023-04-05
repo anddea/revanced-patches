@@ -154,7 +154,11 @@ Ele está pronto para enviar?"</string>
     <string name="revanced_adremover_web_search_panel_title">Ocultar painéis de pesquisa da web</string>
     <string name="revanced_ads">Anúncios</string>
     <string name="revanced_backup_summary">Importar configurações do ReVanced de um arquivo ou exportar configurações do ReVanced para um arquivo</string>
+    <string name="revanced_bottom_player">Player inferior</string>
     <string name="revanced_button_container_title">Container de botões</string>
+    <string name="revanced_bypass_ambient_mode_restrictions_summary_off">O modo ambiente está desativado no modo de economia de bateria</string>
+    <string name="revanced_bypass_ambient_mode_restrictions_summary_on">O modo ambiente está ativado no modo de economia de bateria</string>
+    <string name="revanced_bypass_ambient_mode_restrictions_title">Ignorar restrições do modo ambiente</string>
     <string name="revanced_comments_title">Comentários</string>
     <string name="revanced_copytimestamp_success">Tempo copiado para a área de transferência</string>
     <string name="revanced_custom_seekbar_color_value_summary">Digite o código hexadecimal da cor da barra de progresso para usar no modo escuro</string>
@@ -209,6 +213,8 @@ Ele está pronto para enviar?"</string>
     <string name="revanced_enable_open_links_directly_title">Ativar abrir links diretamente</string>
     <string name="revanced_enable_phone_layout_summary">Engana o dpi para usar alguns layouts de telefone</string>
     <string name="revanced_enable_phone_layout_title">Ativar layout de telefone</string>
+    <string name="revanced_enable_protobuf_spoof_summary">Falsifica o protobuf para evitar problemas de reprodução</string>
+    <string name="revanced_enable_protobuf_spoof_title">Ativar a falsificação do protobuf</string>
     <string name="revanced_enable_press_to_swipe_summary_off">Pressionar para deslizar desativado</string>
     <string name="revanced_enable_press_to_swipe_summary_on">Pressionar para deslizar ativado</string>
     <string name="revanced_enable_press_to_swipe_title">Ativar gesto de pressionar para deslizar</string>
@@ -244,6 +250,12 @@ Ele está pronto para enviar?"</string>
     <string name="revanced_enable_tablet_miniplayer_summary_off">O mini-reprodutor para tablet está desativado</string>
     <string name="revanced_enable_tablet_miniplayer_summary_on">O mini-reprodutor para tablet está ativado</string>
     <string name="revanced_enable_tablet_miniplayer_title">Ativar mini-reprodutor para tablet</string>
+    <string name="revanced_enable_tablet_navigation_bar_summary_off">Barra de navegação do tablet está desativada</string>
+    <string name="revanced_enable_tablet_navigation_bar_summary_on">Barra de navegação do tablet está ativada</string>
+    <string name="revanced_enable_tablet_navigation_bar_title">Ativar barra de navegação do tablet</string>
+    <string name="revanced_enable_time_stamp_speed_summary_off">A velocidade na marcação de tempo está desativada</string>
+    <string name="revanced_enable_time_stamp_speed_summary_on">A velocidade na marcação de tempo está ativada</string>
+    <string name="revanced_enable_time_stamp_speed_title">Ativar velocidade na marcação de tempo</string>
     <string name="revanced_enable_vp9_codec_summary">Esconda informações do dispositivo para ativar o codec VP9</string>
     <string name="revanced_enable_vp9_codec_title">Ativar codec VP9</string>
     <string name="revanced_enable_wide_searchbar_summary_off">A barra de pesquisa ampla está desativada</string>
@@ -254,6 +266,7 @@ Ele está pronto para enviar?"</string>
     <string name="revanced_export_settings_title">Exportar configurações</string>
     <string name="revanced_extended_support_center_summary">Relate problemas ou deixe sugestões aqui</string>
     <string name="revanced_extended_support_center_title">Central de ajuda</string>
+    <string name="revanced_flyout_menu">Menu suspenso</string>
     <string name="revanced_fullscreen">Tela cheia</string>
     <string name="revanced_general">Geral</string>
     <string name="revanced_haptic_feedback_title">Retorno tátil</string>
@@ -265,7 +278,7 @@ Ele está pronto para enviar?"</string>
     <string name="revanced_hide_action_buttons_title">Ocultar botões de ação</string>
     <string name="revanced_hide_action_buttons_warning">"Esses recursos estão desatualizados. Portanto, mesmo que exista um problema, não há planos para corrigi-lo.
 
-Por favor, não relate quaisquer problemas que encontrar ao usar este recurso."</string>
+Por favor, não relate nenhum problema que encontrar ao usar este recurso."</string>
     <string name="revanced_hide_autoplay_button_summary_off">O botão de reprodução automática será mostrado</string>
     <string name="revanced_hide_autoplay_button_summary_on">O botão de reprodução automática está oculto</string>
     <string name="revanced_hide_autoplay_button_title">Ocultar botão de reprodução automática</string>
@@ -322,6 +335,9 @@ Por favor, não relate quaisquer problemas que encontrar ao usar este recurso."<
     <string name="revanced_hide_category_bar_in_search_results_title">Ocultar barra de categorias nos resultados da pesquisa</string>
     <string name="revanced_hide_category_bar_summary_off">Barra de categorias é mostrada</string>
     <string name="revanced_hide_category_bar_summary_on">Barra de categorias está oculta</string>
+    <string name="revanced_hide_channel_list_submenu_summary_off">Seção de avatar do canal do feed das assinaturas é mostrado</string>
+    <string name="revanced_hide_channel_list_submenu_summary_on">Seção de avatar do canal do feed das assinaturas está oculto</string>
+    <string name="revanced_hide_channel_list_submenu_title">Ocultar seção de avatar do canal</string>
     <string name="revanced_hide_channel_watermark_summary_off">A marca d\'água do canal será mostrada</string>
     <string name="revanced_hide_channel_watermark_summary_on">A marca d\'água do canal está oculta</string>
     <string name="revanced_hide_channel_watermark_title">Ocultar marca d\'água do canal</string>
@@ -331,12 +347,21 @@ Por favor, não relate quaisquer problemas que encontrar ao usar este recurso."<
     <string name="revanced_hide_comments_section_summary_off">A seção de comentários será mostrada</string>
     <string name="revanced_hide_comments_section_summary_on">A seção de comentários está oculta</string>
     <string name="revanced_hide_comments_section_title">Ocultar seção de comentários</string>
+    <string name="revanced_hide_comments_thanks_button_summary_off">O botão de agradecimento é exibido</string>
+    <string name="revanced_hide_comments_thanks_button_summary_on">O botão de agradecimento é oculto</string>
+    <string name="revanced_hide_comments_thanks_button_title">Ocultar botão de agradecimento</string>
     <string name="revanced_hide_create_button_summary_off">O botão de criação será mostrado</string>
     <string name="revanced_hide_create_button_summary_on">O botão de criação está oculto</string>
     <string name="revanced_hide_create_button_title">Ocultar botão de criação</string>
     <string name="revanced_hide_crowdfunding_box_summary_off">A caixa de financiamento coletivo será mostrada</string>
     <string name="revanced_hide_crowdfunding_box_summary_on">A caixa de financiamento coletivo está oculta</string>
     <string name="revanced_hide_crowdfunding_box_title">Ocultar caixa de financiamento coletivo</string>
+    <string name="revanced_hide_email_address_summary_off">O endereço de email é exibido</string>
+    <string name="revanced_hide_email_address_summary_on">O endereço de email é oculto</string>
+    <string name="revanced_hide_email_address_title">Ocultar endereço de e-mail</string>
+    <string name="revanced_hide_emoji_picker_summary_off">Seletor de emojis é mostrado</string>
+    <string name="revanced_hide_emoji_picker_summary_on">Seletor de emoji está oculto</string>
+    <string name="revanced_hide_emoji_picker_title">Ocultar seletor de emojis</string>
     <string name="revanced_hide_endscreen_cards_summary_off">Cards da tela final serão mostrados</string>
     <string name="revanced_hide_endscreen_cards_summary_on">Cards da tela final estão ocultos</string>
     <string name="revanced_hide_endscreen_cards_title">Ocultar cards da tela final</string>
@@ -358,6 +383,9 @@ Por favor, não relate quaisquer problemas que encontrar ao usar este recurso."<
     <string name="revanced_hide_info_cards_summary_off">Cards de informações serão mostrados</string>
     <string name="revanced_hide_info_cards_summary_on">Cards de informações estão ocultos</string>
     <string name="revanced_hide_info_cards_title">Ocultar cards de informações</string>
+    <string name="revanced_hide_live_chat_button_summary_off">Botão de Chat ao vivo é exibido</string>
+    <string name="revanced_hide_live_chat_button_summary_on">O botão de Chat ao vivo será oculto</string>
+    <string name="revanced_hide_live_chat_button_title">Ocultar botão de chat ao vivo</string>
     <string name="revanced_hide_menu_ambient_mode_summary_off">O menu do modo ambiente será mostrado</string>
     <string name="revanced_hide_menu_ambient_mode_summary_on">O menu do modo ambiente está oculto</string>
     <string name="revanced_hide_menu_ambient_mode_title">Ocultar menu do modo ambiente</string>
@@ -420,6 +448,9 @@ Por favor, não relate quaisquer problemas que encontrar ao usar este recurso."<
     <string name="revanced_hide_shorts_button_title">Ocultar botão do shorts</string>
     <string name="revanced_hide_shorts_component_summary">Oculta a seção Shorts ou o componente do reprodutor do Shorts</string>
     <string name="revanced_hide_shorts_component_title">Ocultar componentes do Shorts</string>
+    <string name="revanced_hide_shorts_navigation_bar_summary_off">A barra de navegação é mostrada</string>
+    <string name="revanced_hide_shorts_navigation_bar_summary_on">A barra de navegação está oculta</string>
+    <string name="revanced_hide_shorts_navigation_bar_title">Ocultar barra de navegação em shorts</string>
     <string name="revanced_hide_shorts_player_comments_button_summary_off">O botão de comentários no reprodutor do Shorts será mostrado</string>
     <string name="revanced_hide_shorts_player_comments_button_summary_on">O botão de comentários no reprodutor do Shorts está oculto</string>
     <string name="revanced_hide_shorts_player_comments_button_title">Ocultar botão de comentários no reprodutor do Shorts</string>
@@ -460,6 +491,7 @@ Por favor, não relate quaisquer problemas que encontrar ao usar este recurso."<
     <string name="revanced_import_settings_summary">Obter configurações ReVanced de um arquivo salvo</string>
     <string name="revanced_import_settings_title">Importar configurações</string>
     <string name="revanced_misc">Diversos</string>
+    <string name="revanced_navigation">Navegação</string>
     <string name="revanced_others">Outros</string>
     <string name="revanced_overlay_button">Botão de sobreposição</string>
     <string name="revanced_overlay_button_auto_repeat_summary_off">O botão de repetição automática está oculto</string>
@@ -487,6 +519,8 @@ Por favor, não relate quaisquer problemas que encontrar ao usar este recurso."<
     <string name="revanced_patches_information">Informações sobre as modificações</string>
     <string name="revanced_patches_information_summary">Informações sobre as modificações aplicadas</string>
     <string name="revanced_player_flyout_panel_title">Painel suspenso do reprodutor</string>
+    <string name="revanced_player">Reprodutor</string>
+    <string name="revanced_protobuf_spoof_notice">Falsificação de protobuf para evitar problemas de reprodução</string>
     <string name="revanced_reboot_warning_general">"Como essa é uma funcionalidade ainda experimental, pode haver outros problemas desconhecidos.
 Você tem certeza de que deseja continuar mesmo assim?"</string>
     <string name="revanced_reboot_warning_phone">"Engana o dpi para alterar alguns layouts para layouts de telefone.
@@ -494,6 +528,7 @@ Você tem certeza de que deseja continuar mesmo assim?"</string>
 Se você ativar essa configuração, os seguintes recursos estarão disponíveis:
 - Publicações da comunidade
 - Ocultar playlist mix"</string>
+    <string name="revanced_reboot_warning_quic">Recomenda-se não usá-lo se a velocidade da sua Net não for rápida o suficiente</string>
     <string name="revanced_reboot_warning_switch">"Se você ativar esta configuração, os seguintes recursos não estarão disponíveis:
 - Modo ambiente"</string>
     <string name="revanced_reboot_warning_tablet">"Engana o dpi para alterar alguns layouts para layouts de tablet.
@@ -520,6 +555,9 @@ Como essas configurações estão bastante desatualizadas, podem não ser válid
     <string name="revanced_save_video_quality_none">Falha ao definir a qualidade</string>
     <string name="revanced_save_video_quality_wifi">Alterada a qualidade padrão do Wi-Fi para:</string>
     <string name="revanced_save_video_speed">Alterada a velocidade padrão para:</string>
+    <string name="revanced_seekbar">Barra de busca</string>
+    <string name="revanced_show_fullscreen_title_summary">Problema conhecido: o título desaparece quando clicado</string>
+    <string name="revanced_show_fullscreen_title_title">Mostrar título em tela cheia</string>
     <string name="revanced_sponsorblock_settings_summary">Configurações relacionadas ao SponsorBlock</string>
     <string name="revanced_swipe_controls">Controles por gestos</string>
     <string name="revanced_swipe_magnitude_threshold_summary">A distância a ser percorrida pelo gesto de deslizar</string>
@@ -534,6 +572,8 @@ Como essas configurações estão bastante desatualizadas, podem não ser válid
     <string name="revanced_switching_create_notification_summary_on">O botão de criar e o botão de notificação estão alternados</string>
     <string name="revanced_switching_create_notification_title">Mudar o botão de criar e o botão de notificação</string>
     <string name="revanced_tool_used">ferramenta usada</string>
+    <string name="revanced_vertical_video_restrictions_summary">Falsificação de informações do dispositivo para eliminar as restrições de resolução para vídeo vertical</string>
+    <string name="revanced_vertical_video_restrictions_title">Retirar restrições de resolução de vídeo vertical</string>
     <string name="revanced_video">Vídeo</string>
     <string name="revanced_video_ads_removal_summary_off">Anúncios de vídeo serão mostrados</string>
     <string name="revanced_video_ads_removal_summary_on">Anúncios de vídeo estão ocultos</string>
