@@ -20,8 +20,8 @@ The official Patch bundle provided by ReVanced and the community.
 | `custom-video-speed` | Adds more video speed options. | 18.12.35 |
 | `default-video-quality` | Adds ability to set default video quality settings. | 18.12.35 |
 | `default-video-speed` | Adds ability to set default video speed settings. | 18.12.35 |
-| `disable-landscape-mode` | Disable landscape mode when entering fullscreen. | 18.12.35 |
 | `disable-haptic-feedback` | Disable haptic feedback when swiping. | 18.12.35 |
+| `disable-landscape-mode` | Disable landscape mode when entering fullscreen. | 18.12.35 |
 | `disable-quic-protocol` | Disable CronetEngine's QUIC protocol. | 18.12.35 |
 | `enable-external-browser` | Open url outside the app in an external browser. | 18.12.35 |
 | `enable-minimized-playback` | Enables minimized and background playback. | 18.12.35 |
@@ -112,6 +112,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `disable-auto-captions` | Disable forced captions from automatically enabling in video player. | all |
 | `enable-black-navbar` | Sets the navigation bar color to black. | all |
 | `enable-color-match-player` | Matches the fullscreen player color with the minimized one. | all |
+| `enable-compact-dialog` | Enable compact dialog on phone. | all |
 | `enable-force-minimized-player` | Permanently keep player minimized even if another track is played. | all |
 | `enable-force-shuffle` | Enable force shuffle even if another track is played. | all |
 | `enable-opus-codec` | Enable opus codec when playing audio. | all |
@@ -122,6 +123,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `hide-get-premium` | Removes all "Get Premium" evidences from the avatar menu. | all |
 | `hide-music-ads` | Removes ads in the music player. | all |
 | `hide-music-cast-button` | Hides the cast button in the video player and header. | all |
+| `hide-new-playlist` | Hide the New Playlist button in the Library tab. | all |
 | `hide-playlist-card` | Hides the playlist card from homepage. | all |
 | `hide-taste-builder` | Removes the "Tell us which artists you like" card from the home screen. | all |
 | `hide-upgrade-button` | Removes the upgrade tab from the pivot bar. | all |
