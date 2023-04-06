@@ -17,6 +17,7 @@ import app.revanced.patches.shared.patch.mapping.ResourceMappingPatch
 class SharedResourceIdPatch : ResourcePatch {
     internal companion object {
         var colorGreyLabelId: Long = -1
+        var dialogSolidLabelId: Long = -1
         var disabledIconLabelId: Long = -1
         var isTabletLabelId: Long = -1
     }
@@ -28,6 +29,7 @@ class SharedResourceIdPatch : ResourcePatch {
             .single { it.type == type && it.name == name }.id
 
         colorGreyLabelId = findSharedResourceId("color", "ytm_color_grey_12")
+        dialogSolidLabelId = findSharedResourceId("style", "Theme.YouTubeMusic.Dialog.Solid")
         disabledIconLabelId = findSharedResourceId("dimen", "disabled_icon_alpha")
         isTabletLabelId = findSharedResourceId("bool", "is_tablet")
 
