@@ -47,6 +47,7 @@ class ReturnYouTubeDislikePatch : BytecodePatch(
         LikeFingerprint,
         RemoveLikeFingerprint,
         ShortsTextComponentParentFingerprint,
+        TextComponentSpecExtensionFingerprint,
         TextComponentSpecParentFingerprint
     )
 ) {
@@ -108,6 +109,7 @@ class ReturnYouTubeDislikePatch : BytecodePatch(
                 }
             } ?: return TextComponentSpecObjectFingerprint.toErrorResult()
 
+
             TextComponentSpecFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.let {
                 with (it.mutableMethod) {
                     val insertIndex = it.scanResult.patternScanResult!!.endIndex
@@ -122,6 +124,25 @@ class ReturnYouTubeDislikePatch : BytecodePatch(
                 }
             } ?: return TextComponentSpecFingerprint.toErrorResult()
         } ?: return TextComponentSpecParentFingerprint.toErrorResult()
+
+
+        TextComponentSpecExtensionFingerprint.result?.let {
+            with (it.mutableMethod) {
+                val targetIndex = it.scanResult.patternScanResult!!.startIndex + 1
+                val targetRegister =
+                    (instruction(targetIndex) as OneRegisterInstruction).registerA
+                val dummyRegister =
+                    (instruction(targetIndex + 1) as OneRegisterInstruction).registerA
+
+                addInstructions(
+                    targetIndex + 1, """
+                        move-object/from16 v$dummyRegister, p0
+                        invoke-static {v$dummyRegister, v$targetRegister}, $INTEGRATIONS_RYD_CLASS_DESCRIPTOR->overrideLikeDislikeSpan(Ljava/lang/Object;Landroid/text/SpannableString;)Landroid/text/SpannableString;
+                        move-result-object v$targetRegister
+                        """
+                )
+            }
+        } ?: return TextComponentSpecExtensionFingerprint.toErrorResult()
 
 
         ShortsTextComponentParentFingerprint.result?.let {
