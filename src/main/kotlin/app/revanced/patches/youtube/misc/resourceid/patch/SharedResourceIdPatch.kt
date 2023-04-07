@@ -48,6 +48,7 @@ class SharedResourceIdPatch : ResourcePatch {
         var relatedChipCloudMarginLabelId: Long = -1
         var rightCommentLabelId: Long = -1
         var scrubbingLabelId: Long = -1
+        var timeBarPlayedDarkLabelId: Long = -1
         var timeStampsContainerLabelId: Long = -1
         var tooltipLabelId: Long = -1
         var videoQualityFragmentLabelId: Long = -1
@@ -89,6 +90,7 @@ class SharedResourceIdPatch : ResourcePatch {
         relatedChipCloudMarginLabelId = find(LAYOUT, "related_chip_cloud_reduced_margins")
         rightCommentLabelId = find(DRAWABLE, "ic_right_comment_32c")
         scrubbingLabelId = find(DIMEN, "vertical_touch_offset_to_enter_fine_scrubbing")
+        timeBarPlayedDarkLabelId = find(COLOR, "inline_time_bar_colorized_bar_played_color_dark")
         timeStampsContainerLabelId = find(ID, "timestamps_container")
         tooltipLabelId = find(LAYOUT, "tooltip_content_view")
         videoQualityFragmentLabelId = find(LAYOUT, "video_quality_bottom_sheet_list_fragment_title")
