@@ -1,10 +1,9 @@
-package app.revanced.patches.youtube.layout.general.shortscomponent.patch
+package app.revanced.patches.youtube.layout.shorts.shortscomponent.patch
 
 import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.instruction
 import app.revanced.patcher.patch.BytecodePatch
@@ -13,10 +12,9 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
-import app.revanced.patches.youtube.layout.general.shortscomponent.fingerprints.ShortsPaidContentFingerprint
+import app.revanced.patches.youtube.layout.shorts.shortscomponent.fingerprints.ShortsPaidContentFingerprint
 import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch
-import app.revanced.util.integrations.Constants
-import app.revanced.util.integrations.Constants.GENERAL
+import app.revanced.util.integrations.Constants.SHORTS
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.iface.instruction.WideLiteralInstruction
 
@@ -55,7 +53,7 @@ class ShortsPaidContentBannerPatch : BytecodePatch(
             val insertRegister = (instruction(insertIndex) as OneRegisterInstruction).registerA
             addInstructions(
                 insertIndex + 1, """
-                    invoke-static {v$insertRegister}, $GENERAL->hideShortsPlayerPaidContent(Landroid/view/ViewStub;)Landroid/view/ViewStub;
+                    invoke-static {v$insertRegister}, $SHORTS->hideShortsPlayerPaidContent(Landroid/view/ViewStub;)Landroid/view/ViewStub;
                     move-result-object v$insertRegister
                 """
             )

@@ -44,39 +44,38 @@
     </PreferenceScreen>PREFERENCE: SWIPE_SETTINGS -->
 
 
+    <!-- PREFERENCE: SHORTS_SETTINGS
+    <PreferenceScreen android:title="@string/revanced_shorts" android:key="shorts">PREFERENCE: SHORTS_SETTINGS -->
+
+        <!-- SETTINGS: HIDE_SHORTS_SHELF
+        <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_shorts" />
+        <SwitchPreference android:title="@string/revanced_hide_shorts_shelf_title" android:key="revanced_hide_shorts_shelf" android:defaultValue="true" android:summaryOn="@string/revanced_hide_shorts_shelf_summary_on" android:summaryOff="@string/revanced_hide_shorts_shelf_summary_off" />SETTINGS: HIDE_SHORTS_SHELF -->
+
+        <!-- SETTINGS: SHORTS_PLAYER_PARENT
+        <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_shorts_player_title" />SETTINGS: SHORTS_PLAYER_PARENT -->
+
+        <!-- SETTINGS: DISABLE_STARTUP_SHORTS_PLAYER
+        <SwitchPreference android:title="@string/revanced_disable_startup_shorts_player_title" android:key="revanced_disable_startup_shorts_player" android:defaultValue="true" android:summaryOn="@string/revanced_disable_startup_shorts_player_summary_on" android:summaryOff="@string/revanced_disable_startup_shorts_player_summary_off" />SETTINGS: DISABLE_STARTUP_SHORTS_PLAYER -->
+
+        <!-- SETTINGS: HIDE_SHORTS_COMPONENTS
+        <SwitchPreference android:title="@string/revanced_hide_shorts_player_comments_button_title" android:key="revanced_hide_shorts_player_comments_button" android:defaultValue="false" android:summaryOn="@string/revanced_hide_shorts_player_comments_button_summary_on" android:summaryOff="@string/revanced_hide_shorts_player_comments_button_summary_off" />
+        <SwitchPreference android:title="@string/revanced_hide_shorts_player_remix_button_title" android:key="revanced_hide_shorts_player_remix_button" android:defaultValue="true" android:summaryOn="@string/revanced_hide_shorts_player_remix_button_summary_on" android:summaryOff="@string/revanced_hide_shorts_player_remix_button_summary_off" />
+        <SwitchPreference android:title="@string/revanced_hide_shorts_player_thanks_button_title" android:key="revanced_hide_shorts_player_thanks_button" android:defaultValue="true" android:summaryOn="@string/revanced_hide_shorts_player_thanks_button_summary_on" android:summaryOff="@string/revanced_hide_shorts_player_thanks_button_summary_off" />
+        <SwitchPreference android:title="@string/revanced_hide_shorts_player_subscriptions_button_title" android:key="revanced_hide_shorts_player_subscriptions_button" android:defaultValue="true" android:summaryOn="@string/revanced_hide_shorts_player_subscriptions_button_summary_on" android:summaryOff="@string/revanced_hide_shorts_player_subscriptions_button_summary_off" />
+        <SwitchPreference android:title="@string/revanced_hide_shorts_player_join_button_title" android:key="revanced_hide_shorts_player_join_button" android:defaultValue="true" android:summaryOn="@string/revanced_hide_shorts_player_join_button_summary_on" android:summaryOff="@string/revanced_hide_shorts_player_join_button_summary_off" />
+        <SwitchPreference android:title="@string/revanced_hide_shorts_player_info_panel_title" android:key="revanced_hide_shorts_player_info_panel" android:defaultValue="true" android:summaryOn="@string/revanced_hide_shorts_player_info_panel_summary_on" android:summaryOff="@string/revanced_hide_shorts_player_info_panel_summary_off" />
+        <SwitchPreference android:title="@string/revanced_hide_shorts_player_paid_content_title" android:key="revanced_hide_shorts_player_paid_content" android:defaultValue="true" android:summaryOn="@string/revanced_hide_shorts_player_paid_content_summary_on" android:summaryOff="@string/revanced_hide_shorts_player_paid_content_summary_off" />SETTINGS: HIDE_SHORTS_COMPONENTS -->
+
+    <!-- PREFERENCE: SHORTS_SETTINGS
+    </PreferenceScreen>PREFERENCE: SHORTS_SETTINGS -->
+
+
     <!-- PREFERENCE: GENERAL_SETTINGS
     <PreferenceScreen android:title="@string/revanced_general" android:key="general">
         <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_general" />PREFERENCE: GENERAL_SETTINGS -->
 
         <!-- SETTINGS: HIDE_STORIES_SHELF
         <SwitchPreference android:title="@string/revanced_hide_stories_shelf_title" android:key="revanced_hide_stories_shelf" android:defaultValue="true" android:summaryOn="@string/revanced_hide_stories_shelf_summary_on" android:summaryOff="@string/revanced_hide_stories_shelf_summary_off" />SETTINGS: HIDE_STORIES_SHELF -->
-
-        <!-- SETTINGS: SHORTS_COMPONENT.PARENT
-        <PreferenceScreen android:title="@string/revanced_hide_shorts_component_title" android:key="revanced_hide_shorts_component" android:summary="@string/revanced_hide_shorts_component_summary">SETTINGS: SHORTS_COMPONENT.PARENT -->
-
-            <!-- SETTINGS: SHORTS_COMPONENT_PARENT.A
-            <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_hide_shorts_component_title" />SETTINGS: SHORTS_COMPONENT_PARENT.A -->
-
-            <!-- SETTINGS: HIDE_SHORTS_SHELF
-            <SwitchPreference android:title="@string/revanced_hide_shorts_shelf_title" android:key="revanced_hide_shorts_shelf" android:defaultValue="true" android:summaryOn="@string/revanced_hide_shorts_shelf_summary_on" android:summaryOff="@string/revanced_hide_shorts_shelf_summary_off" />SETTINGS: HIDE_SHORTS_SHELF -->
-
-            <!-- SETTINGS: SHORTS_COMPONENT_PARENT.B
-            <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_hide_shorts_player_component_title" />SETTINGS: SHORTS_COMPONENT_PARENT.B -->
-
-            <!-- SETTINGS: HIDE_STARTUP_SHORTS_PLAYER
-            <SwitchPreference android:title="@string/revanced_hide_startup_shorts_player_title" android:key="revanced_hide_startup_shorts_player" android:defaultValue="true" android:summaryOn="@string/revanced_hide_startup_shorts_player_summary_on" android:summaryOff="@string/revanced_hide_startup_shorts_player_summary_off" />SETTINGS: HIDE_STARTUP_SHORTS_PLAYER -->
-
-            <!-- SETTINGS: HIDE_SHORTS_COMPONENTS
-            <SwitchPreference android:title="@string/revanced_hide_shorts_player_comments_button_title" android:key="revanced_hide_shorts_player_comments_button" android:defaultValue="false" android:summaryOn="@string/revanced_hide_shorts_player_comments_button_summary_on" android:summaryOff="@string/revanced_hide_shorts_player_comments_button_summary_off" />
-            <SwitchPreference android:title="@string/revanced_hide_shorts_player_remix_button_title" android:key="revanced_hide_shorts_player_remix_button" android:defaultValue="true" android:summaryOn="@string/revanced_hide_shorts_player_remix_button_summary_on" android:summaryOff="@string/revanced_hide_shorts_player_remix_button_summary_off" />
-            <SwitchPreference android:title="@string/revanced_hide_shorts_player_thanks_button_title" android:key="revanced_hide_shorts_player_thanks_button" android:defaultValue="true" android:summaryOn="@string/revanced_hide_shorts_player_thanks_button_summary_on" android:summaryOff="@string/revanced_hide_shorts_player_thanks_button_summary_off" />
-            <SwitchPreference android:title="@string/revanced_hide_shorts_player_subscriptions_button_title" android:key="revanced_hide_shorts_player_subscriptions_button" android:defaultValue="true" android:summaryOn="@string/revanced_hide_shorts_player_subscriptions_button_summary_on" android:summaryOff="@string/revanced_hide_shorts_player_subscriptions_button_summary_off" />
-            <SwitchPreference android:title="@string/revanced_hide_shorts_player_join_button_title" android:key="revanced_hide_shorts_player_join_button" android:defaultValue="true" android:summaryOn="@string/revanced_hide_shorts_player_join_button_summary_on" android:summaryOff="@string/revanced_hide_shorts_player_join_button_summary_off" />
-            <SwitchPreference android:title="@string/revanced_hide_shorts_player_info_panel_title" android:key="revanced_hide_shorts_player_info_panel" android:defaultValue="true" android:summaryOn="@string/revanced_hide_shorts_player_info_panel_summary_on" android:summaryOff="@string/revanced_hide_shorts_player_info_panel_summary_off" />
-            <SwitchPreference android:title="@string/revanced_hide_shorts_player_paid_content_title" android:key="revanced_hide_shorts_player_paid_content" android:defaultValue="true" android:summaryOn="@string/revanced_hide_shorts_player_paid_content_summary_on" android:summaryOff="@string/revanced_hide_shorts_player_paid_content_summary_off" />SETTINGS: HIDE_SHORTS_COMPONENTS -->
-
-        <!-- SETTINGS: SHORTS_COMPONENT.PARENT
-        </PreferenceScreen>SETTINGS: SHORTS_COMPONENT.PARENT -->
 
         <!-- SETTINGS: ENABLE_WIDE_SEARCHBAR
         <SwitchPreference android:title="@string/revanced_enable_wide_searchbar_title" android:key="revanced_enable_wide_searchbar" android:defaultValue="false" android:summaryOn="@string/revanced_enable_wide_searchbar_summary_on" android:summaryOff="@string/revanced_enable_wide_searchbar_summary_off" />SETTINGS: ENABLE_WIDE_SEARCHBAR -->
@@ -443,10 +442,12 @@
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_swipe_controls" />
             <Preference android:title="swipe-controls" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
 
+            <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_shorts" />
+            <Preference android:title="hide-shorts-component" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="disable-startup-shorts-player" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_general" />
             <Preference android:title="hide-stories" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
-            <Preference android:title="hide-shorts-component" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
-            <Preference android:title="hide-startup-shorts-player" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="enable-wide-searchbar" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="enable-tablet-miniplayer" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-auto-captions" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>

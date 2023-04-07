@@ -15,6 +15,7 @@ internal object Constants {
     const val NAVIGATION = "$PATCHES_PATH/layout/NavigationPatch;"
     const val PLAYER = "$PATCHES_PATH/layout/PlayerPatch;"
     const val SEEKBAR = "$PATCHES_PATH/layout/SeekBarPatch;"
+    const val SHORTS = "$PATCHES_PATH/layout/ShortsPatch;"
 
     const val MISC_PATH = "$PATCHES_PATH/misc"
 

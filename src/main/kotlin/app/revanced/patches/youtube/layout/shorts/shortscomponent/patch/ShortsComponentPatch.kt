@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.layout.general.shortscomponent.patch
+package app.revanced.patches.youtube.layout.shorts.shortscomponent.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
@@ -46,12 +46,10 @@ class ShortsComponentPatch : BytecodePatch() {
          */
         SettingsPatch.addPreference(
             arrayOf(
-                "PREFERENCE: GENERAL_SETTINGS",
-                "SETTINGS: SHORTS_COMPONENT.PARENT",
-                "SETTINGS: SHORTS_COMPONENT_PARENT.A",
-                "SETTINGS: SHORTS_COMPONENT_PARENT.B",
-                "SETTINGS: HIDE_SHORTS_COMPONENTS",
-                "SETTINGS: HIDE_SHORTS_SHELF"
+                "PREFERENCE: SHORTS_SETTINGS",
+                "SETTINGS: HIDE_SHORTS_SHELF",
+                "SETTINGS: SHORTS_PLAYER_PARENT",
+                "SETTINGS: HIDE_SHORTS_COMPONENTS"
             )
         )
 
