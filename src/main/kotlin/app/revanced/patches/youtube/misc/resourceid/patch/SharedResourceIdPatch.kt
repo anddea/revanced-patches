@@ -40,6 +40,7 @@ class SharedResourceIdPatch : ResourcePatch {
         var layoutVideo: Long = -1
         var liveChatButtonId: Long = -1
         var reelPlayerFooterLabelId: Long = -1
+        var reelPlayerInfoPanelLabelId: Long = -1
         var reelPlayerPausedLabelId: Long = -1
         var reelRemixLabelId: Long = -1
         var relatedChipCloudMarginLabelId: Long = -1
@@ -78,6 +79,7 @@ class SharedResourceIdPatch : ResourcePatch {
         layoutVideo = find(LAYOUT, "endscreen_element_layout_video")
         liveChatButtonId = find(ID, "live_chat_overlay_button")
         reelPlayerFooterLabelId = find(LAYOUT, "reel_player_dyn_footer_vert_stories3")
+        reelPlayerInfoPanelLabelId = find(ID, "reel_player_info_panel")
         reelPlayerPausedLabelId = find(ID, "reel_player_paused_state_buttons")
         reelRemixLabelId = find(ID, "reel_dyn_remix")
         relatedChipCloudMarginLabelId = find(LAYOUT, "related_chip_cloud_reduced_margins")

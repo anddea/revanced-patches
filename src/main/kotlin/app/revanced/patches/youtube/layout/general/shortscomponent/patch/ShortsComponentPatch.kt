@@ -28,6 +28,7 @@ import app.revanced.util.bytecode.BytecodeHelper.updatePatchStatus
         SettingsPatch::class,
         SharedResourceIdPatch::class,
         ShortsCommentButtonPatch::class,
+        ShortsInfoPanelPatch::class,
         ShortsRemixButtonPatch::class,
         ShortsSubscriptionsButtonPatch::class
     ]
