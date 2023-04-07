@@ -13,39 +13,39 @@
     <string name="api_url_reset">URL API reimpostato</string>
     <string name="color_change">Stai cercando di cambiare i colori?</string>
     <string name="color_changed">Colore modificato</string>
-    <string name="color_change_sum">"Ora puoi cambiare il colore di una categoria cliccandoci sopra."</string>
+    <string name="color_change_sum">"Ora puoi cambiare il colore di una categoria cliccandoci sopra"</string>
     <string name="color_invalid">Codice esadecimale non valido</string>
     <string name="color_reset">Ripristina colore</string>
     <string name="diff_segments">Cosa puoi fare con i diversi segmenti</string>
     <string name="enable_sb">Attiva SponsorBlock</string>
     <string name="enable_sb_mirror">Attiva SponsorBlock Mirror</string>
     <string name="enable_sb_mirror_sum">Quando il server API di SponsorBlock non risponde, questa opzione esegue il passaggio al server API mirror</string>
-    <string name="enable_sb_sum">SponsorBlock è un sistema collaborativo creato per saltare le parti fastidiose sui video di YouTube</string>
+    <string name="enable_sb_sum">SponsorBlock è un sistema collaborativo creato per saltare le parti fastidiose nei video di YouTube</string>
     <string name="enable_segmadding">Attiva l\'aggiunta di un nuovo segmento</string>
     <string name="enable_segmadding_sum">Attiva questa opzione per poter aggiungere segmenti sperimentali (il pulsante ha problemi di visibilità)</string>
     <string name="enable_voting">Attiva votazione</string>
-    <string name="enable_voting_sum">Attiva questa opzione per poter effettuare la votazione.</string>
+    <string name="enable_voting_sum">Attiva questa opzione per poter effettuare la votazione</string>
     <string name="general">Generale</string>
     <string name="general_adjusting">Regola il nuovo passo del segmento</string>
-    <string name="general_adjusting_sum">Questo è il valore in millisecondi che puoi modificare con i pulsanti di regolazione temporale, durante l\'aggiunta di un nuovo segmento</string>
+    <string name="general_adjusting_sum">Questo è il valore in millisecondi che puoi modificare con i pulsanti di regolazione temporale durante l\'aggiunta di un nuovo segmento</string>
     <string name="general_api_mirror_url">Modifica l\'URL Mirror delle API</string>
-    <string name="general_api_mirror_url_sum">"Modifica l'indirizzo del server quando quello predefinito di SponsorBlock non risponde. &lt;b&gt; Non cambiare questo valore a meno che tu non sappia cosa stai facendo.&lt;/b&gt;"</string>
+    <string name="general_api_mirror_url_sum">"Modifica l'indirizzo del server quando quello predefinito di SponsorBlock non risponde. &lt;b&gt; Non cambiarlo a meno che tu non sappia cosa stai facendo&lt;/b&gt;"</string>
     <string name="general_api_url">Modifica URL API</string>
     <string name="general_api_url_sum">"L'indirizzo che SponsorBlock utilizza per contattare il server. &lt;b&gt; Non cambiarlo a meno che tu non sappia cosa stai facendo&lt;/b&gt;"</string>
     <string name="general_min_duration">Durata minima del segmento</string>
     <string name="general_min_duration_sum">I segmenti più brevi del valore impostato (in secondi) non verranno saltati o visualizzati dal riproduttore</string>
-    <string name="general_skipcount">Controllo del conteggio salti</string>
-    <string name="general_skipcount_sum">Questo permette a SponsorBlock di sapere quanto tempo le persone hanno risparmiato. L’estensione invia un messaggio al server ogni volta che salti un segmento</string>
+    <string name="general_skipcount">Invia il conteggio dei salti</string>
+    <string name="general_skipcount_sum">Questo permette al sistema di classifica di SponsorBlock di sapere quanto tempo le persone hanno risparmiato. L’estensione invia un messaggio al server ogni volta che salti un segmento</string>
     <string name="general_skiptoast">Mostra una notifica per un segmento saltato automaticamente</string>
     <string name="general_skiptoast_sum">Clicca per vedere un esempio di notifica</string>
-    <string name="general_time_without_sb">Mostra tempo senza segmenti</string>
-    <string name="general_time_without_sb_sum">Questo tempo appare tra parentesi accanto al minutaggio in corso. Esso mostra la durata totale del video senza contare i segmenti.</string>
+    <string name="general_time_without_sb">Mostra il tempo senza i segmenti</string>
+    <string name="general_time_without_sb_sum">Questo tempo appare tra parentesi accanto al minutaggio in corso. Esso mostra la durata totale del video meno eventuali segmenti</string>
     <string name="general_uuid">Il tuo ID utente univoco</string>
     <string name="general_uuid_sum">Questo dovrebbe essere tenuto al sicuro. È come una password e non dovrebbe essere condiviso con nessuno. Se qualcuno dovesse ottenerlo, potrebbe impersonarti</string>
     <string name="hours">ore</string>
     <string name="microg_not_installed_notice">Per favore installa MicroG</string>
     <string name="microg_not_installed_warning">MicroG non trovato</string>
-    <string name="microg_not_running_warning">MicroG non è in esecuzione in secondo piano</string>
+    <string name="microg_not_running_warning">MicroG non è in esecuzione in background</string>
     <string name="microg_settings_summary">Attiva le impostazioni di messaggistica cloud per ricevere le notifiche</string>
     <string name="microg_settings_title">Apri MicroG</string>
     <string name="minutes">minuti</string>
@@ -53,7 +53,7 @@
     <string name="new_segment_confirm_content" formatted="false">"Il segmento dura da %02d:%02d a %02d:%02d (%d minuti %02d secondi)
 È pronto per l'invio?"</string>
     <string name="new_segment_confirm_title">I valori temporali sono corretti?</string>
-    <string name="new_segment_disabled_category">"Hai disattivato questa categoria dalle impostazioni, attivala per essere in grado di effettuare l'invio"</string>
+    <string name="new_segment_disabled_category">"Hai disattivato questa categoria nelle impostazioni, attivala per essere in grado di effettuare l'invio"</string>
     <string name="new_segment_edit_by_hand_content">Vuoi modificare l\'intervallo temporale di inizio o fine segmento?</string>
     <string name="new_segment_edit_by_hand_parse_error">Il periodo temporale fornito non è valido</string>
     <string name="new_segment_edit_by_hand_saved">Fatto</string>
@@ -93,9 +93,11 @@
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">La modalità Ambient è disattivata in modalità Risparmio batteria</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">La modalità Ambient è attivata in modalità Risparmio batteria</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">Aggira restrizioni modalità Ambient</string>
+    <string name="revanced_change_homepage_summary_off">Pagina iniziale attuale: Home</string>
+    <string name="revanced_change_homepage_summary_on">Pagina iniziale attuale: Iscrizioni</string>
+    <string name="revanced_change_homepage_title">Cambia la Pagina iniziale da Home a Iscrizioni</string>
     <string name="revanced_comments_title">Commenti</string>
     <string name="revanced_copytimestamp_success">Marcatore Temporale copiato negli appunti</string>
-    <string name="revanced_custom_seekbar_color_value_summary">Digita il colore esadecimale per la barra del minutaggio in modalità scura</string>
     <string name="revanced_custom_seekbar_color_value_title">Colore personalizzato barra del minutaggio scura</string>
     <string name="revanced_default_video_quality_mobile_title">Risoluzione video Dati Cellulare predefinita</string>
     <string name="revanced_default_video_quality_wifi_title">Risoluzione video Wi-Fi predefinita</string>
@@ -117,7 +119,7 @@
     <string name="revanced_disable_landscape_mode_title">Modalità orizzontale a schermo intero</string>
     <string name="revanced_disable_quic_protocol_summary">"Disattiva il protocollo QUIC di CronetEngine"</string>
     <string name="revanced_disable_quic_protocol_title">Disattiva il protocollo QUIC</string>
-    <string name="revanced_double_back_timeout_summary">La quantità di secondi per effettuare una doppia pressione del pulsante indietro e uscire dall\'app</string>
+    <string name="revanced_double_back_timeout_summary">Il numero di secondi per premere due volte il pulsante Indietro per uscire dall\'app</string>
     <string name="revanced_double_back_timeout_title">Durata doppio tocco</string>
     <string name="revanced_downloader_not_installed">non è installato. Per favore installalo.</string>
     <string name="revanced_downloader_package_name_summary">"Il nome del pacchetto dell'app di gestione download come NewPipe o PowerTube"</string>
@@ -129,10 +131,9 @@
     <string name="revanced_enable_always_auto_repeat_title">Ripeti sempre automaticamente</string>
     <string name="revanced_enable_custom_seekbar_color_summary_off">Il colore personalizzato della barra del minutaggio scura è disattivato</string>
     <string name="revanced_enable_custom_seekbar_color_summary_on">Il colore personalizzato della barra del minutaggio scura è attivo</string>
-    <string name="revanced_enable_custom_seekbar_color_title">Colori personalizzati in modalità notte</string>
     <string name="revanced_enable_custom_video_speed_summary_off">La velocità video personalizzata è disattivata</string>
     <string name="revanced_enable_custom_video_speed_summary_on">La velocità video personalizzata è attiva</string>
-    <string name="revanced_enable_custom_video_speed_title">Velocità video personalizzata</string>
+    <string name="revanced_enable_custom_video_speed_title">Attiva velocità video personalizzata</string>
     <string name="revanced_enable_external_browser_summary_off">Il browser esterno è disattivato</string>
     <string name="revanced_enable_external_browser_summary_on">Il browser esterno è attivo</string>
     <string name="revanced_enable_external_browser_title">Utilizza browser esterno</string>
@@ -140,7 +141,7 @@
     <string name="revanced_enable_minimized_playback_summary_on">La riproduzione minimizzata è attiva</string>
     <string name="revanced_enable_minimized_playback_title">Attiva la riproduzione minimizzata</string>
     <string name="revanced_enable_old_layout_summary_off">L\'interfaccia di YouTube seguirà lo stato del tuo account Google</string>
-    <string name="revanced_enable_old_layout_summary_on">Simula una differente versione di YouTube per forzare la visualizzazione della precedente interfaccia</string>
+    <string name="revanced_enable_old_layout_summary_on">Simula una versione differente di YouTube per forzare l\'abilitazione dell\'interfaccia precedente</string>
     <string name="revanced_enable_old_layout_title">Attiva l\'interfaccia precedente</string>
     <string name="revanced_enable_old_quality_layout_summary_off">Mostra le nuove impostazioni qualitative</string>
     <string name="revanced_enable_old_quality_layout_summary_on">Mostra le precedenti impostazioni qualitative</string>
@@ -148,10 +149,10 @@
     <string name="revanced_enable_open_links_directly_summary_off">Segui la regola predefinita di reindirizzamento</string>
     <string name="revanced_enable_open_links_directly_summary_on">Bypassa reindirizzamento URL</string>
     <string name="revanced_enable_open_links_directly_title">Attiva apertura link diretta</string>
-    <string name="revanced_enable_phone_layout_summary">Simula un diverso valore DPI per utilizzare alcune interfacce smartphone</string>
-    <string name="revanced_enable_phone_layout_title">Forza l\'interfaccia da telefono</string>
-    <string name="revanced_enable_protobuf_spoof_summary">Simula la richiesta protobuf per impedire il rallentamento della riproduzione video</string>
-    <string name="revanced_enable_protobuf_spoof_title">Simulazione protobuf</string>
+    <string name="revanced_enable_phone_layout_summary">Simula un diverso valore DPI per utilizzare alcune parti dell\'interfaccia da telefono</string>
+    <string name="revanced_enable_phone_layout_title">Attiva l\'interfaccia da telefono</string>
+    <string name="revanced_enable_protobuf_spoof_summary">Simula protobuf per evitare problemi di riproduzione</string>
+    <string name="revanced_enable_protobuf_spoof_title">Attiva simulazione protobuf</string>
     <string name="revanced_enable_press_to_swipe_summary_off">Premi-per-Scorrere è disattivato</string>
     <string name="revanced_enable_press_to_swipe_summary_on">Premi-per-Scorrere è attivo</string>
     <string name="revanced_enable_press_to_swipe_title">Gesto Premi-per-Scorrere</string>
@@ -163,7 +164,7 @@
     <string name="revanced_enable_save_video_quality_title">Attiva salvataggio qualità video</string>
     <string name="revanced_enable_save_video_speed_summary_off">Non salvare il valore della qualità video dopo ogni modifica manuale</string>
     <string name="revanced_enable_save_video_speed_summary_on">Salva il valore della qualità video dopo ogni modifica manuale</string>
-    <string name="revanced_enable_save_video_speed_title">Salva velocità video</string>
+    <string name="revanced_enable_save_video_speed_title">Attiva salvataggio velocità video</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">Il tocco della barra del minutaggio è disattivato</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">Il tocco della barra del minutaggio è attivo</string>
     <string name="revanced_enable_seekbar_tapping_title">Attiva il tocco della barra del minutaggio</string>
@@ -182,16 +183,16 @@
     <string name="revanced_enable_swipe_volume_summary_off">La modifica del volume con gesto di scorrimento è disattivata</string>
     <string name="revanced_enable_swipe_volume_summary_on">La modifica del volume con gesto di scorrimento è attiva</string>
     <string name="revanced_enable_swipe_volume_title">Gesti per modifica volume</string>
-    <string name="revanced_enable_tablet_layout_summary">Simula un diverso valore DPI per utilizzare alcune interfacce tablet</string>
-    <string name="revanced_enable_tablet_layout_title">Forza l\'interfaccia da tablet</string>
+    <string name="revanced_enable_tablet_layout_summary">Simula un diverso valore DPI per utilizzare alcune parti dell\'interfaccia da tablet</string>
+    <string name="revanced_enable_tablet_layout_title">Attiva l\'interfaccia da tablet</string>
     <string name="revanced_enable_tablet_miniplayer_summary_off">Il riproduttore miniaturizzato da tablet è disattivato</string>
     <string name="revanced_enable_tablet_miniplayer_summary_on">Il riproduttore miniaturizzato da tablet è attivo</string>
     <string name="revanced_enable_tablet_miniplayer_title">Attiva il riproduttore miniaturizzato da tablet</string>
-    <string name="revanced_enable_tablet_navigation_bar_summary_off">La barra di navigazione in modalità Tablet è disattivata</string>
-    <string name="revanced_enable_tablet_navigation_bar_summary_on">La barra di navigazione in modalità Tablet è attiva</string>
+    <string name="revanced_enable_tablet_navigation_bar_summary_off">La barra di navigazione in modalità Tablet è nascosta</string>
+    <string name="revanced_enable_tablet_navigation_bar_summary_on">La barra di navigazione in modalità Tablet è visibile</string>
     <string name="revanced_enable_tablet_navigation_bar_title">Barra di navigazione Tablet</string>
-    <string name="revanced_enable_time_stamp_speed_summary_off">La visualizzazione della velocità di riproduzione è disattiva</string>
-    <string name="revanced_enable_time_stamp_speed_summary_on">La visualizzazione della velocità di riproduzione è attiva</string>
+    <string name="revanced_enable_time_stamp_speed_summary_off">La visualizzazione della velocità di riproduzione è nascosta</string>
+    <string name="revanced_enable_time_stamp_speed_summary_on">La visualizzazione della velocità di riproduzione è visibile</string>
     <string name="revanced_enable_time_stamp_speed_title">Visualizza la velocità di riproduzione</string>
     <string name="revanced_enable_vp9_codec_summary">Simula le informazioni del dispositivo per attivare il codec VP9</string>
     <string name="revanced_enable_vp9_codec_title">Attiva codec VP9</string>
@@ -201,7 +202,7 @@
     <string name="revanced_experimental_flag">Opzioni sperimentali</string>
     <string name="revanced_export_settings_summary">Salva le tue impostazioni di ReVanced su un file</string>
     <string name="revanced_export_settings_title">Esporta impostazioni</string>
-    <string name="revanced_extended_support_center_summary">Segnala problemi o lascia qui suggerimenti</string>
+    <string name="revanced_extended_support_center_summary">Segnala problemi o lascia suggerimenti qui</string>
     <string name="revanced_extended_support_center_title">Centro di supporto</string>
     <string name="revanced_flyout_menu">Menù contestuale</string>
     <string name="revanced_fullscreen">Schermo intero</string>
@@ -218,12 +219,12 @@ Si prega di non segnalare eventuali problemi riscontrati durante l'utilizzo di q
     <string name="revanced_hide_album_card_summary_off">Le schede degli album sono visibili</string>
     <string name="revanced_hide_album_card_summary_on">Le schede degli album sono nascoste</string>
     <string name="revanced_hide_album_card_title">Nascondi le schede degli album</string>
-    <string name="revanced_hide_autoplay_button_summary_off">Il pulsante di riproduzione automatica è visibile</string>
-    <string name="revanced_hide_autoplay_button_summary_on">Il pulsante di riproduzione automatica è nascosto</string>
+    <string name="revanced_hide_autoplay_button_summary_off">Il pulsante Riproduzione Automatica è visibile</string>
+    <string name="revanced_hide_autoplay_button_summary_on">Il pulsante Riproduzione Automatica è nascosto</string>
     <string name="revanced_hide_autoplay_button_title">Nascondi il pulsante Riproduzione Automatica</string>
-    <string name="revanced_hide_autoplay_preview_summary_off">Il contenitore di anteprima del pulsante autoplay è visibile</string>
-    <string name="revanced_hide_autoplay_preview_summary_on">Il contenitore di anteprima del pulsante autoplay è nascosto</string>
-    <string name="revanced_hide_autoplay_preview_title">Nascondi l\'anteprima dell\'autoplay</string>
+    <string name="revanced_hide_autoplay_preview_summary_off">Il contenitore di anteprima della riproduzione automatica è visibile</string>
+    <string name="revanced_hide_autoplay_preview_summary_on">Il contenitore di anteprima della riproduzione automatica è nascosto</string>
+    <string name="revanced_hide_autoplay_preview_title">Nascondi l\'anteprima della riproduzione automatica</string>
     <string name="revanced_hide_auto_captions_summary_off">I sottotitoli vengono mostrati durante la visualizzazione di un video (con sottotitoli automatici)</string>
     <string name="revanced_hide_auto_captions_summary_on">"I sottotitoli vengono nascosti durante la visualizzazione di un video (con sottotitoli automatici)"</string>
     <string name="revanced_hide_auto_captions_title">Nascondi i sottotitoli automatici</string>
@@ -301,9 +302,6 @@ Si prega di non segnalare eventuali problemi riscontrati durante l'utilizzo di q
     <string name="revanced_hide_comments_section_summary_off">La sezione dei commenti è visibile</string>
     <string name="revanced_hide_comments_section_summary_on">La sezione dei commenti è nascosta</string>
     <string name="revanced_hide_comments_section_title">Nascondi la sezione dei commenti</string>
-    <string name="revanced_hide_comments_thanks_button_summary_off">Il pulsante Grazie è visibile</string>
-    <string name="revanced_hide_comments_thanks_button_summary_on">Il pulsante Grazie è nascosto</string>
-    <string name="revanced_hide_comments_thanks_button_title">Nascondi il pulsante Grazie</string>
     <string name="revanced_hide_community_posts_home_summary_off">I post della community nel feed della home sono visibili</string>
     <string name="revanced_hide_community_posts_home_summary_on">I post della community nel feed della home sono nascosti</string>
     <string name="revanced_hide_community_posts_home_title">Nascondi i post della community nel feed della home</string>
@@ -406,10 +404,7 @@ Si prega di non segnalare eventuali problemi riscontrati durante l'utilizzo di q
     <string name="revanced_hide_movie_shelf_summary_off">Lo scaffale dei film è visibile</string>
     <string name="revanced_hide_movie_shelf_summary_on">Lo scaffale dei film è nascosto</string>
     <string name="revanced_hide_movie_shelf_title">Nascondi lo scaffale dei film</string>
-    <string name="revanced_hide_next_button_summary_off">Il pulsante Prossimo del riproduttore è visibile</string>
-    <string name="revanced_hide_next_button_summary_on">Il pulsante Prossimo del riproduttore è nascosto</string>
-    <string name="revanced_hide_next_button_title">Nascondi il pulsante Prossimo</string>
-    <string name="revanced_hide_official_header_summary_off">L\'intestazione ufficiale è visualizzata</string>
+    <string name="revanced_hide_official_header_summary_off">L\'intestazione ufficiale è visibile</string>
     <string name="revanced_hide_official_header_summary_on">L\'intestazione ufficiale è nascosta</string>
     <string name="revanced_hide_official_header_title">Nascondi l\'intestazione ufficiale</string>
     <string name="revanced_hide_player_button_background_summary_off">Lo sfondo dei pulsanti del riproduttore è visibile</string>
@@ -421,9 +416,6 @@ Si prega di non segnalare eventuali problemi riscontrati durante l'utilizzo di q
     <string name="revanced_hide_preview_comment_off">Il commento di anteprima è visibile</string>
     <string name="revanced_hide_preview_comment_on">Il commento di anteprima è nascosto</string>
     <string name="revanced_hide_preview_comment_title">Nascondi il commento di anteprima</string>
-    <string name="revanced_hide_prev_button_summary_off">Il pulsante Precedente del riproduttore è visibile</string>
-    <string name="revanced_hide_prev_button_summary_on">Il pulsante Precedente del riproduttore è nascosto</string>
-    <string name="revanced_hide_prev_button_title">Nascondi il pulsante Precedente</string>
     <string name="revanced_hide_seekbar_summary_off">La barra del minutaggio è visibile</string>
     <string name="revanced_hide_seekbar_summary_on">La barra del minutaggio è nascosta</string>
     <string name="revanced_hide_seekbar_title">Nascondi la barra del minutaggio</string>
@@ -434,35 +426,16 @@ Si prega di non segnalare eventuali problemi riscontrati durante l'utilizzo di q
     <string name="revanced_hide_shorts_button_summary_on">Il pulsante Shorts è nascosto</string>
     <string name="revanced_hide_shorts_button_title">Nascondi il pulsante Shorts</string>
     <string name="revanced_hide_shorts_component_summary">Nascondi la sezione Shorts o il componente del riproduttore Shorts</string>
-    <string name="revanced_hide_shorts_component_title">Nascondi il componente Shorts</string>
+    <string name="revanced_hide_shorts_component_title">Nascondi componenti Shorts</string>
     <string name="revanced_hide_shorts_navigation_bar_summary_off">La barra di navigazione è visibile</string>
     <string name="revanced_hide_shorts_navigation_bar_summary_on">La barra di navigazione è nascosta</string>
     <string name="revanced_hide_shorts_navigation_bar_title">Nascondi la barra di navigazione degli Shorts</string>
-    <string name="revanced_hide_shorts_player_comments_button_summary_off">Il pulsante Commenti del riproduttore Shorts è visibile</string>
-    <string name="revanced_hide_shorts_player_comments_button_summary_on">Il pulsante Commenti del riproduttore Shorts è nascosto</string>
-    <string name="revanced_hide_shorts_player_comments_button_title">Nascondi il pulsante Commenti del riproduttore Shorts</string>
-    <string name="revanced_hide_shorts_player_component_title">Nascondi i componenti del riproduttore Shorts</string>
-    <string name="revanced_hide_shorts_player_join_button_summary_off">Il pulsante Abbonati del riproduttore Shorts è visibile</string>
-    <string name="revanced_hide_shorts_player_join_button_summary_on">Il pulsante Abbonati del riproduttore Shorts è nascosto</string>
-    <string name="revanced_hide_shorts_player_join_button_title">Nascondi il pulsante Abbonati del riproduttore Shorts</string>
-    <string name="revanced_hide_shorts_player_remix_button_summary_off">Il pulsante Remix del riproduttore Shorts è visibile</string>
-    <string name="revanced_hide_shorts_player_remix_button_summary_on">Il pulsante Remix del riproduttore Shorts è nascosto</string>
-    <string name="revanced_hide_shorts_player_remix_button_title">Nascondi il pulsante Remix del riproduttore Shorts</string>
-    <string name="revanced_hide_shorts_player_subscriptions_button_summary_off">Il pulsante Abbonamenti del riproduttore Shorts è visibile</string>
-    <string name="revanced_hide_shorts_player_subscriptions_button_summary_on">Il pulsante Abbonamenti del riproduttore Shorts è nascosto</string>
-    <string name="revanced_hide_shorts_player_subscriptions_button_title">Nascondi il pulsante Abbonamenti del riproduttore Shorts</string>
-    <string name="revanced_hide_shorts_player_thanks_button_summary_off">Il pulsante Grazie del riproduttore Shorts è visibile</string>
-    <string name="revanced_hide_shorts_player_thanks_button_summary_on">Il pulsante Grazie del riproduttore Shorts è nascosto</string>
-    <string name="revanced_hide_shorts_player_thanks_button_title">Nascondi il pulsante Grazie del riproduttore Shorts</string>
     <string name="revanced_hide_shorts_shelf_summary_off">Lo scaffale degli Shorts è visibile</string>
     <string name="revanced_hide_shorts_shelf_summary_on">Lo scaffale degli Shorts è nascosto</string>
     <string name="revanced_hide_shorts_shelf_title">Nascondi lo scaffale degli Shorts</string>
     <string name="revanced_hide_snackbar_summary_off">L\'avviso di interazione (snackbar) è visibile</string>
     <string name="revanced_hide_snackbar_summary_on">L\'avviso di interazione (snackbar) è nascosto</string>
     <string name="revanced_hide_snackbar_title">Nascondi l\'avviso di interazione (snackbar)</string>
-    <string name="revanced_hide_startup_shorts_player_summary_off">Il riproduttore Shorts verrà mostrato all\'avvio dell\'app</string>
-    <string name="revanced_hide_startup_shorts_player_summary_on">Il riproduttore Shorts verrà nascosto all\'avvio dell\'app</string>
-    <string name="revanced_hide_startup_shorts_player_title">Nascondi il riproduttore Shorts all\'avvio</string>
     <string name="revanced_hide_stories_shelf_summary_off">Lo scaffale delle Storie è visibile</string>
     <string name="revanced_hide_stories_shelf_summary_on">Lo scaffale delle Storie è nascosto</string>
     <string name="revanced_hide_stories_shelf_title">Nascondi lo scaffale delle Storie</string>
@@ -496,8 +469,8 @@ Si prega di non segnalare eventuali problemi riscontrati durante l'utilizzo di q
     <string name="revanced_navigation">Barra di navigazione</string>
     <string name="revanced_others">Altro</string>
     <string name="revanced_overlay_button">Pulsanti in sovrapposizione</string>
-    <string name="revanced_overlay_button_auto_repeat_summary_off">Il pulsante di ripetizione automatica è nascosto</string>
-    <string name="revanced_overlay_button_auto_repeat_summary_on">Il pulsante di ripetizione automatica è visibile</string>
+    <string name="revanced_overlay_button_auto_repeat_summary_off">Il pulsante Ripetizione Automatica è nascosto</string>
+    <string name="revanced_overlay_button_auto_repeat_summary_on">Il pulsante Ripetizione Automatica è visibile</string>
     <string name="revanced_overlay_button_auto_repeat_title">Mostra il pulsante Ripetizione Automatica</string>
     <string name="revanced_overlay_button_copy_url_summary_off">Il pulsante Copia Link è nascosto</string>
     <string name="revanced_overlay_button_copy_url_summary_on">Il pulsante Copia Link è visibile</string>
@@ -509,9 +482,9 @@ Si prega di non segnalare eventuali problemi riscontrati durante l'utilizzo di q
     <string name="revanced_overlay_button_downloads_summary_on">Il pulsante Scarica è visibile</string>
     <string name="revanced_overlay_button_downloads_title">Mostra il pulsante Scarica</string>
     <string name="revanced_overlay_button_speed_reset">Velocità video reimpostata (1.0x)</string>
-    <string name="revanced_overlay_button_speed_summary_off">Il pulsante della velocità è nascosto</string>
-    <string name="revanced_overlay_button_speed_summary_on">Il pulsante della velocità è visibile</string>
-    <string name="revanced_overlay_button_speed_title">Mostra pulsante Velocità</string>
+    <string name="revanced_overlay_button_speed_summary_off">Il pulsante Velocità è nascosto</string>
+    <string name="revanced_overlay_button_speed_summary_on">Il pulsante Velocità è visibile</string>
+    <string name="revanced_overlay_button_speed_title">Mostra il pulsante Velocità</string>
     <string name="revanced_overlay_button_whitelist_summary_off">Il pulsante Lista Bianca è nascosto</string>
     <string name="revanced_overlay_button_whitelist_summary_on">Il pulsante Lista Bianca è visibile</string>
     <string name="revanced_overlay_button_whitelist_title">Mostra il pulsante Lista Bianca</string>
@@ -522,10 +495,10 @@ Si prega di non segnalare eventuali problemi riscontrati durante l'utilizzo di q
     <string name="revanced_patches_information_summary">Informazioni sulle patch applicate</string>
     <string name="revanced_player_flyout_panel_title">Pannello del riproduttore in sovrapposizione</string>
     <string name="revanced_player">Riproduttore</string>
-    <string name="revanced_protobuf_spoof_notice">Simula protobuf per evitare problemi di riproduzione</string>
+    <string name="revanced_protobuf_spoof_notice">Simulando protobuf per evitare problemi di riproduzione</string>
     <string name="revanced_reboot_warning_general">"Poiché questa è ancora una funzionalità sperimentale, potrebbero verificarsi problemi sconosciuti.
 Sei sicuro di voler procedere?"</string>
-    <string name="revanced_reboot_warning_phone">"Simula il valore DPI per sostituire alcune parti dell'interfaccia con la relativa controparte per smartphone.
+    <string name="revanced_reboot_warning_phone">"Simula un diverso valore DPI per sostituire alcune parti dell'interfaccia con la controparte per telefono.
 
 Attivando questa opzione, saranno disponibili le seguenti funzionalità: 
 - I post della community
@@ -533,7 +506,7 @@ Attivando questa opzione, saranno disponibili le seguenti funzionalità:
     <string name="revanced_reboot_warning_quic">Se ne sconsiglia l\'utilizzo con connessione internet lenta</string>
     <string name="revanced_reboot_warning_switch">"Se attiverai questa impostazione, non risulteranno disponibili le seguenti funzionalità:
 - Modalità Ambient"</string>
-    <string name="revanced_reboot_warning_tablet">"Simula il valore DPI per sostituire alcune parti dell'interfaccia con la relativa controparte per tablet.
+    <string name="revanced_reboot_warning_tablet">"Simula un diverso valore DPI per sostituire alcune parti dell'interfaccia con la controparte per tablet.
 
 Attivando questa opzione, non saranno disponibili le seguenti funzionalità:
 - Modalità Ambient
@@ -544,7 +517,7 @@ Dal momento che questa opzione è abbastanza obsoleta, potrebbe risultare non pi
     <string name="revanced_ryd_attribution_summary">I dati relativi ai Non Mi Piace sono forniti dall\'API: Return YouTube Dislike. Tocca qui per saperne di più.</string>
     <string name="revanced_ryd_compact_layout_summary_off">Migliora l\'aspetto del pulsante Mi Piace</string>
     <string name="revanced_ryd_compact_layout_summary_on">Pulsante Mi Piace riadattato per una larghezza minima</string>
-    <string name="revanced_ryd_compact_layout_title">Pulsante Mi Piace ridotto</string>
+    <string name="revanced_ryd_compact_layout_title">Pulsante Mi Piace compatto</string>
     <string name="revanced_ryd_dislike_percentage_summary_off">I Non Mi Piace sono mostrati come numero</string>
     <string name="revanced_ryd_dislike_percentage_summary_on">I Non Mi Piace sono mostrati come percentuale</string>
     <string name="revanced_ryd_dislike_percentage_title">I Non Mi piace in percentuale</string>
@@ -558,8 +531,8 @@ Dal momento che questa opzione è abbastanza obsoleta, potrebbe risultare non pi
     <string name="revanced_save_video_quality_wifi">Cambio della qualità Wi-Fi predefinita in:</string>
     <string name="revanced_save_video_speed">Modifica velocità predefinita in:</string>
     <string name="revanced_seekbar">Barra del minutaggio</string>
-    <string name="revanced_show_fullscreen_title_summary">Problema noto: il titolo del video scompare dopo essere stato cliccato</string>
-    <string name="revanced_show_fullscreen_title_title">Mostra titolo a schermo intero</string>
+    <string name="revanced_show_fullscreen_title_summary">Problema noto: il titolo scompare quando viene cliccato</string>
+    <string name="revanced_show_fullscreen_title_title">Mostra il titolo a schermo intero</string>
     <string name="revanced_sponsorblock_settings_summary">Impostazioni relative a SponsorBlock</string>
     <string name="revanced_swipe_controls">Controlli a scorrimento</string>
     <string name="revanced_swipe_magnitude_threshold_summary">La quantità di interazioni prima che lo scorrimento si verifichi</string>
@@ -570,9 +543,9 @@ Dal momento che questa opzione è abbastanza obsoleta, potrebbe risultare non pi
     <string name="revanced_swipe_overlay_text_size_title">Dimensione testo sovrapposto con scorrimento</string>
     <string name="revanced_swipe_overlay_timeout_summary">Visibilità in millisecondi della sovrapposizione</string>
     <string name="revanced_swipe_overlay_timeout_title">Durata sovrapposizione scorrimento</string>
-    <string name="revanced_switching_create_notification_summary_off">Il pulsante Crea ed il pulsante di notifica non sono invertiti</string>
-    <string name="revanced_switching_create_notification_summary_on">Il pulsante Crea e il pulsante di notifica sono invertiti</string>
-    <string name="revanced_switching_create_notification_title">Scambia il pulsante Crea e il pulsante di notifica</string>
+    <string name="revanced_switching_create_notification_summary_off">Il pulsante Crea e il pulsante Notifica non sono invertiti</string>
+    <string name="revanced_switching_create_notification_summary_on">Il pulsante Crea e il pulsante Notifica sono invertiti</string>
+    <string name="revanced_switching_create_notification_title">Scambia il pulsante Crea e il pulsante Notifica</string>
     <string name="revanced_tool_used">Strumento utilizzato</string>
     <string name="revanced_vertical_video_restrictions_summary">Simula le informazioni del dispositivo per rimuovere le restrizioni di risoluzione per i video verticali</string>
     <string name="revanced_vertical_video_restrictions_title">Rimuovi le restrizioni di risoluzione sui video verticali</string>
@@ -592,7 +565,7 @@ Dal momento che questa opzione è abbastanza obsoleta, potrebbe risultare non pi
     <string name="revanced_whitelisting_reboot">Riavvia per applicare le impostazioni della Lista Bianca del canale</string>
     <string name="revanced_whitelisting_removed" formatted="false">Il canale %s è stato rimosso dalla Lista Bianca %s</string>
     <string name="revanced_whitelisting_remove_failed" formatted="false">Impossibile rimuovere il canale %s dalla Lista Bianca %s</string>
-    <string name="revanced_whitelisting_settings_summary">Verifica o rimuovi l\'elenco dei canali aggiunti alla Lista Bianca</string>
+    <string name="revanced_whitelisting_settings_summary">Controlla o rimuovi l\'elenco dei canali aggiunti alla Lista Bianca</string>
     <string name="revanced_whitelisting_settings_title">Impostazioni Lista Bianca</string>
     <string name="revanced_whitelisting_speed">Velocità Video</string>
     <string name="revanced_whitelisting_sponsorblock">SponsorBlock</string>
@@ -603,8 +576,8 @@ Dal momento che questa opzione è abbastanza obsoleta, potrebbe risultare non pi
     <string name="sb_guidelines_popup_content">"Si consiglia di leggere le linee guida di SponsorBlock prima di inviare qualsiasi segmento"</string>
     <string name="sb_guidelines_popup_open">Mostrami</string>
     <string name="sb_guidelines_popup_title">Ci sono linee guida</string>
-    <string name="sb_guidelines_preference_sum">Le linee guida contengono suggerimenti e regole per l\'invio dei segmenti</string>
-    <string name="sb_guidelines_preference_title">Visualizza linee guida</string>
+    <string name="sb_guidelines_preference_sum">Le linee guida contengono suggerimenti e regole sull\'\'invio dei segmenti</string>
+    <string name="sb_guidelines_preference_title">Visualizza le linee guida</string>
     <string name="sb_switching_success">Modifica correttamente eseguita. Ricarica il video</string>
     <string name="sb_switching_to_mirror">Passaggio del server API di backup al server API principale..</string>
     <string name="seconds">secondi</string>
@@ -617,7 +590,7 @@ Dal momento che questa opzione è abbastanza obsoleta, potrebbe risultare non pi
     <string name="segments_nomusic">Musica: Sezione Non Musicale</string>
     <string name="segments_nomusic_sum">Utilizzo limitato ai soli video musicali. Salta le parti di video non presenti nei mix ufficiali</string>
     <string name="segments_preview">Anteprima/Riepilogo</string>
-    <string name="segments_preview_sum">"Un riepilogo degli episodi precedenti o un'anteprima di ciò che accadrà più tardi nel video attuale o nei video futuri della stessa serie. Le clip non devono fornire informazioni aggiuntive."</string>
+    <string name="segments_preview_sum">"Un riepilogo degli episodi precedenti o un'anteprima di ciò che accadrà più tardi nel video attuale o nei video futuri della stessa serie. Le clip non devono fornire informazioni aggiuntive"</string>
     <string name="segments_selfpromo">Promozione Gratuita/Autopromozione</string>
     <string name="segments_selfpromo_sum">Quando viene visualizzata una promozione non pagata o un\'autopromozione. Ciò include sezioni specifiche su merce, donazioni o informazioni su collaboratori</string>
     <string name="segments_sponsor">Sponsor</string>
@@ -627,7 +600,7 @@ Dal momento che questa opzione è abbastanza obsoleta, potrebbe risultare non pi
     <string name="settings_export_failed">Impossibile esportare le impostazioni</string>
     <string name="settings_export_successful">Impostazioni correttamente importate</string>
     <string name="settings_ie">Importa/Esporta impostazioni</string>
-    <string name="settings_ie_sum">Questa è la tua intera configurazione JSON, applicabile all\'estensione desktop. Include il tuo ID privato, quindi assicurati di custodirlo con attenzione.</string>
+    <string name="settings_ie_sum">Questa è la tua intera configurazione in JSON che è applicabile nell\'estensione desktop. Esso include il tuo ID utente univoco, quindi assicurati di custodirlo con attenzione</string>
     <string name="settings_import_failed">Impossibile importare le impostazioni</string>
     <string name="settings_import_successful">Impostazioni correttamente importate</string>
     <string name="skipped_endcard">Conclusioni finali saltate</string>
@@ -665,7 +638,7 @@ Dal momento che questa opzione è abbastanza obsoleta, potrebbe risultare non pi
     <string name="submit_failed_rate_limit">"Impossibile inviare il segmento.
 Soglia raggiunta (troppe richieste provenienti dallo stesso utente o IP)"</string>
     <string name="submit_failed_unknown_error" formatted="false">Impossibile inviare i segmenti: Stato: %d %s</string>
-    <string name="submit_started">Invio segmento…</string>
+    <string name="submit_started">Invio del segmento…</string>
     <string name="submit_succeeded">Segmento correttamente inviato</string>
     <string name="tap_skip">Tocca per saltare</string>
     <string name="vote_category">Cambia categoria</string>
@@ -676,8 +649,8 @@ Soglia raggiunta (troppe richieste provenienti dallo stesso utente o IP)"</strin
     <string name="vote_failed_rate_limit">"Impossibile votare per il segmento.
 Soglia raggiunta (troppe richieste provenienti dallo stesso utente o IP)"</string>
     <string name="vote_failed_unknown_error" formatted="false">Impossibile votare per il segmento: Stato: %d %s</string>
-    <string name="vote_no_segments">Non ci sono segmenti per cui votare</string>
-    <string name="vote_started">Votazione per il segmento…</string>
+    <string name="vote_no_segments">Non ci sono segmenti da votare</string>
+    <string name="vote_started">Votando per il segmento…</string>
     <string name="vote_succeeded">Votazione riuscita</string>
     <string name="vote_upvote">Voto positivo</string>
 </resources>
