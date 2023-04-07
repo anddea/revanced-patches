@@ -298,6 +298,9 @@
     <PreferenceScreen android:title="@string/revanced_navigation" android:key="navigation">
         <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_navigation" />PREFERENCE: NAVIGATION_SETTINGS -->
 
+        <!-- SETTINGS: CHANGE_HOMEPAGE_TO_SUBSCRIPTION
+        <SwitchPreference android:title="@string/revanced_change_homepage_title" android:key="revanced_change_homepage" android:defaultValue="false" android:summaryOn="@string/revanced_change_homepage_summary_on" android:summaryOff="@string/revanced_change_homepage_summary_off" />SETTINGS: CHANGE_HOMEPAGE_TO_SUBSCRIPTION -->
+
         <!-- SETTINGS: ENABLE_TABLET_NAVIGATION_BAR
         <SwitchPreference android:title="@string/revanced_enable_tablet_navigation_bar_title" android:key="revanced_enable_tablet_navigation_bar" android:defaultValue="false" android:summaryOn="@string/revanced_enable_tablet_navigation_bar_summary_on" android:summaryOff="@string/revanced_enable_tablet_navigation_bar_summary_off" />SETTINGS: ENABLE_TABLET_NAVIGATION_BAR -->
 
@@ -495,6 +498,7 @@
             <Preference android:title="hide-flyout-panel" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
 
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_navigation" />
+            <Preference android:title="change-homepage" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="enable-tablet-navigation-bar" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="switch-create-notification" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-create-button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
