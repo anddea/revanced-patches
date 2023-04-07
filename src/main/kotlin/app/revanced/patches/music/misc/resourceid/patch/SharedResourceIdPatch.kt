@@ -9,6 +9,8 @@ import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.shared.annotation.YouTubeMusicCompatibility
 import app.revanced.patches.shared.patch.mapping.ResourceMappingPatch
+import app.revanced.util.enum.ResourceType
+import app.revanced.util.enum.ResourceType.*
 
 @Name("music-resource-id")
 @DependsOn([ResourceMappingPatch::class])
@@ -25,15 +27,15 @@ class SharedResourceIdPatch : ResourcePatch {
 
     override fun execute(context: ResourceContext): PatchResult {
 
-        fun findSharedResourceId(type: String, name: String) = ResourceMappingPatch
+        fun find(type: ResourceType, name: String) = ResourceMappingPatch
             .resourceMappings
-            .single { it.type == type && it.name == name }.id
+            .single { it.type == type.value && it.name == name }.id
 
-        colorGreyLabelId = findSharedResourceId("color", "ytm_color_grey_12")
-        dialogSolidLabelId = findSharedResourceId("style", "Theme.YouTubeMusic.Dialog.Solid")
-        disabledIconLabelId = findSharedResourceId("dimen", "disabled_icon_alpha")
-        floatingActionButtonLabelId = findSharedResourceId("id", "floating_action_button")
-        isTabletLabelId = findSharedResourceId("bool", "is_tablet")
+        colorGreyLabelId = find(COLOR, "ytm_color_grey_12")
+        dialogSolidLabelId = find(STYLE, "Theme.YouTubeMusic.Dialog.Solid")
+        disabledIconLabelId = find(DIMEN, "disabled_icon_alpha")
+        floatingActionButtonLabelId = find(ID, "floating_action_button")
+        isTabletLabelId = find(BOOL, "is_tablet")
 
         return PatchResultSuccess()
     }
