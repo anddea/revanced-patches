@@ -1,96 +1,86 @@
 package app.revanced.patches.youtube.layout.seekbar.seekbarcolor.patch
 
-import app.revanced.extensions.findMutableMethodOf
+import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
-import app.revanced.patches.shared.patch.mapping.ResourceMappingPatch
+import app.revanced.patches.shared.fingerprints.ControlsOverlayStyleFingerprint
+import app.revanced.patches.youtube.layout.seekbar.seekbarcolor.fingerprints.SeekbarColorFingerprint
+import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
 import app.revanced.util.integrations.Constants.SEEKBAR
-import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
-import org.jf.dexlib2.iface.instruction.formats.Instruction31i
+import org.jf.dexlib2.iface.instruction.WideLiteralInstruction
 
 @Patch
 @Name("custom-seekbar-color")
-@Description("Change seekbar color in dark mode.")
+@Description("Change seekbar color.")
 @DependsOn(
     [
-        ResourceMappingPatch::class,
-        SettingsPatch::class
+        SettingsPatch::class,
+        SharedResourceIdPatch::class
     ]
 )
 @YouTubeCompatibility
 @Version("0.0.1")
-class SeekbarColorPatch : BytecodePatch() {
-
-    // list of resource names to get the id of
-    private val resourceIds = arrayOf(
-        "inline_time_bar_colorized_bar_played_color_dark"
-    ).map { name ->
-        ResourceMappingPatch.resourceMappings.single { it.name == name }.id
-    }
-    private var patchSuccessArray = Array(resourceIds.size) {false}
-
+class SeekbarColorPatch : BytecodePatch(
+    listOf(
+        ControlsOverlayStyleFingerprint,
+        SeekbarColorFingerprint
+    )
+) {
     override fun execute(context: BytecodeContext): PatchResult {
-        context.classes.forEach { classDef ->
-            classDef.methods.forEach { method ->
-                with(method.implementation) {
-                    this?.instructions?.forEachIndexed { index, instruction ->
-                        when (instruction.opcode) {
-                            Opcode.CONST -> {
-                                when ((instruction as Instruction31i).wideLiteral) {
-                                    resourceIds[0] -> { // seekbar color
-                                        val registerIndex = index + 2
+        SeekbarColorFingerprint.result?.mutableMethod?.let { method ->
+            with (method.implementation!!.instructions) {
+                val insertIndex = this.indexOfFirst {
+                    (it as? WideLiteralInstruction)?.wideLiteral == SharedResourceIdPatch.timeBarPlayedDarkLabelId
+                } + 2
 
-                                        val mutableMethod = context.proxy(classDef).mutableClass.findMutableMethodOf(method)
+                val insertRegister = (elementAt(insertIndex) as OneRegisterInstruction).registerA
 
-                                        val viewRegister = (instructions.elementAt(registerIndex) as OneRegisterInstruction).registerA
-
-                                        mutableMethod.addInstructions(
-                                            registerIndex + 1, """
-                                                invoke-static {v$viewRegister}, $SEEKBAR->enableCustomSeekbarColor(I)I
-                                                move-result v$viewRegister
-                                            """
-                                        )
-
-                                        patchSuccessArray[0] = true
-                                    }
-                                }
-                            }
-                            else -> return@forEachIndexed
-                        }
-                    }
-                }
-            }
-        }
-
-        val errorIndex: Int = patchSuccessArray.indexOf(false)
-
-        if (errorIndex == -1) {
-            /*
-             * Add settings
-             */
-            SettingsPatch.addPreference(
-                arrayOf(
-                    "PREFERENCE: SEEKBAR_SETTINGS",
-                    "SETTINGS: CUSTOM_SEEKBAR_COLOR"
+                method.addInstructions(
+                    insertIndex + 1, """
+                        invoke-static {v$insertRegister}, $SEEKBAR->enableCustomSeekbarColorDarkMode(I)I
+                        move-result v$insertRegister
+                        """
                 )
+            }
+        } ?: return SeekbarColorFingerprint.toErrorResult()
+
+        val controlsOverlayStyleClassDef = ControlsOverlayStyleFingerprint.result?.classDef?: return ControlsOverlayStyleFingerprint.toErrorResult()
+
+        val progressColorFingerprint =
+            object : MethodFingerprint(returnType = "V", parameters = listOf("I"), customFingerprint = { it.name == "e" }) {}
+        progressColorFingerprint.resolve(context, controlsOverlayStyleClassDef)
+        progressColorFingerprint.result?.mutableMethod?.addInstructions(
+            0, """
+                invoke-static {p1}, $SEEKBAR->enableCustomSeekbarColor(I)I
+                move-result p1
+            """
+        )?: return progressColorFingerprint.toErrorResult()
+
+        /*
+         * Add settings
+         */
+        SettingsPatch.addPreference(
+            arrayOf(
+                "PREFERENCE: SEEKBAR_SETTINGS",
+                "SETTINGS: CUSTOM_SEEKBAR_COLOR"
             )
+        )
 
-            SettingsPatch.updatePatchStatus("custom-seekbar-color")
+        SettingsPatch.updatePatchStatus("custom-seekbar-color")
 
-            return PatchResultSuccess()
-        } else
-            return PatchResultError("Instruction not found: $errorIndex")
+        return PatchResultSuccess()
     }
 }
