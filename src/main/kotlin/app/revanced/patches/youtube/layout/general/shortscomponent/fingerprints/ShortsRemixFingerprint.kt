@@ -5,11 +5,11 @@ import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.iface.instruction.WideLiteralInstruction
 
-object SubscriptionsButtonTabletParentFingerprint : MethodFingerprint(
+object ShortsRemixFingerprint : MethodFingerprint(
     customFingerprint = { methodDef ->
         methodDef.implementation?.instructions?.any {
             it.opcode.ordinal == Opcode.CONST.ordinal &&
-            (it as? WideLiteralInstruction)?.wideLiteral == SharedResourceIdPatch.reelPlayerFooterLabelId
+            (it as? WideLiteralInstruction)?.wideLiteral == SharedResourceIdPatch.reelRemixLabelId
         } == true
     }
 )

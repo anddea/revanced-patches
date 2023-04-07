@@ -40,7 +40,10 @@ class SharedResourceIdPatch : ResourcePatch {
         var layoutVideo: Long = -1
         var liveChatButtonId: Long = -1
         var reelPlayerFooterLabelId: Long = -1
+        var reelPlayerPausedLabelId: Long = -1
+        var reelRemixLabelId: Long = -1
         var relatedChipCloudMarginLabelId: Long = -1
+        var rightCommentLabelId: Long = -1
         var scrubbingLabelId: Long = -1
         var timeStampsContainerLabelId: Long = -1
         var tooltipLabelId: Long = -1
@@ -75,7 +78,10 @@ class SharedResourceIdPatch : ResourcePatch {
         layoutVideo = find(LAYOUT, "endscreen_element_layout_video")
         liveChatButtonId = find(ID, "live_chat_overlay_button")
         reelPlayerFooterLabelId = find(LAYOUT, "reel_player_dyn_footer_vert_stories3")
+        reelPlayerPausedLabelId = find(ID, "reel_player_paused_state_buttons")
+        reelRemixLabelId = find(ID, "reel_dyn_remix")
         relatedChipCloudMarginLabelId = find(LAYOUT, "related_chip_cloud_reduced_margins")
+        rightCommentLabelId = find(DRAWABLE, "ic_right_comment_32c")
         scrubbingLabelId = find(DIMEN, "vertical_touch_offset_to_enter_fine_scrubbing")
         timeStampsContainerLabelId = find(ID, "timestamps_container")
         tooltipLabelId = find(LAYOUT, "tooltip_content_view")
