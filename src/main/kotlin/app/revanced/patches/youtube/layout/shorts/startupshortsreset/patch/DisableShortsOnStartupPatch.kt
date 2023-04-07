@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.layout.general.startupshortsreset.patch
+package app.revanced.patches.youtube.layout.shorts.startupshortsreset.patch
 
 import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
@@ -14,18 +14,18 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
-import app.revanced.patches.youtube.layout.general.startupshortsreset.fingerprints.UserWasInShortsFingerprint
+import app.revanced.patches.youtube.layout.shorts.startupshortsreset.fingerprints.UserWasInShortsFingerprint
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
-import app.revanced.util.integrations.Constants.GENERAL
+import app.revanced.util.integrations.Constants.SHORTS
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
-@Name("hide-startup-shorts-player")
+@Name("disable-startup-shorts-player")
 @Description("Disables playing YouTube Shorts when launching YouTube.")
 @DependsOn([SettingsPatch::class])
 @YouTubeCompatibility
 @Version("0.0.1")
-class HideShortsOnStartupPatch : BytecodePatch(
+class DisableShortsOnStartupPatch : BytecodePatch(
     listOf(
         UserWasInShortsFingerprint
     )
@@ -39,7 +39,7 @@ class HideShortsOnStartupPatch : BytecodePatch(
                 val register = (instruction(insertIndex - 1) as OneRegisterInstruction).registerA + 2
                 addInstructions(
                     insertIndex, """
-                        invoke-static { }, $GENERAL->hideStartupShortsPlayer()Z
+                        invoke-static { }, $SHORTS->disableStartupShortsPlayer()Z
                         move-result v$register
                         if-eqz v$register, :show_startup_shorts_player
                         return-void
@@ -53,14 +53,13 @@ class HideShortsOnStartupPatch : BytecodePatch(
          */
         SettingsPatch.addPreference(
             arrayOf(
-                "PREFERENCE: GENERAL_SETTINGS",
-                "SETTINGS: SHORTS_COMPONENT.PARENT",
-                "SETTINGS: SHORTS_COMPONENT_PARENT.B",
-                "SETTINGS: HIDE_STARTUP_SHORTS_PLAYER"
+                "PREFERENCE: SHORTS_SETTINGS",
+                "SETTINGS: SHORTS_PLAYER_PARENT",
+                "SETTINGS: DISABLE_STARTUP_SHORTS_PLAYER"
             )
         )
 
-        SettingsPatch.updatePatchStatus("hide-startup-shorts-player")
+        SettingsPatch.updatePatchStatus("disable-startup-shorts-player")
 
         return PatchResultSuccess()
     }

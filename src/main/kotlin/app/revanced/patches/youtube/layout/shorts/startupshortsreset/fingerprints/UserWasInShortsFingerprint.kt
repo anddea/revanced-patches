@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.layout.general.startupshortsreset.fingerprints
+package app.revanced.patches.youtube.layout.shorts.startupshortsreset.fingerprints
 
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
