@@ -39,6 +39,8 @@ class SharedResourceIdPatch : ResourcePatch {
         var layoutIcon: Long = -1
         var layoutVideo: Long = -1
         var liveChatButtonId: Long = -1
+        var reelPlayerBadgeLabelId: Long = -1
+        var reelPlayerBadge2LabelId: Long = -1
         var reelPlayerFooterLabelId: Long = -1
         var reelPlayerInfoPanelLabelId: Long = -1
         var reelPlayerPausedLabelId: Long = -1
@@ -78,6 +80,8 @@ class SharedResourceIdPatch : ResourcePatch {
         layoutIcon = find(LAYOUT, "endscreen_element_layout_icon")
         layoutVideo = find(LAYOUT, "endscreen_element_layout_video")
         liveChatButtonId = find(ID, "live_chat_overlay_button")
+        reelPlayerBadgeLabelId = find(ID, "reel_player_badge")
+        reelPlayerBadge2LabelId = find(ID, "reel_player_badge2")
         reelPlayerFooterLabelId = find(LAYOUT, "reel_player_dyn_footer_vert_stories3")
         reelPlayerInfoPanelLabelId = find(ID, "reel_player_info_panel")
         reelPlayerPausedLabelId = find(ID, "reel_player_paused_state_buttons")
