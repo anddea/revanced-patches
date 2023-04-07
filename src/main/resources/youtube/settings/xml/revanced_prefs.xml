@@ -169,8 +169,8 @@
         <!-- SETTINGS: HIDE_NEXT_BUTTON
         <SwitchPreference android:title="@string/revanced_hide_next_button_title" android:key="revanced_hide_next_button" android:defaultValue="false" android:summaryOn="@string/revanced_hide_next_button_summary_on" android:summaryOff="@string/revanced_hide_next_button_summary_off" />SETTINGS: HIDE_NEXT_BUTTON -->
 
-        <!-- SETTINGS: HIDE_PREV_BUTTON
-        <SwitchPreference android:title="@string/revanced_hide_prev_button_title" android:key="revanced_hide_prev_button" android:defaultValue="false" android:summaryOn="@string/revanced_hide_prev_button_summary_on" android:summaryOff="@string/revanced_hide_prev_button_summary_off" />SETTINGS: HIDE_PREV_BUTTON -->
+        <!-- SETTINGS: HIDE_PREVIOUS_NEXT_BUTTON
+        <SwitchPreference android:title="@string/revanced_hide_previous_next_button_title" android:key="revanced_hide_previous_next_button" android:defaultValue="false" android:summaryOn="@string/revanced_hide_previous_next_button_summary_on" android:summaryOff="@string/revanced_hide_previous_next_button_summary_off" />SETTINGS: HIDE_PREVIOUS_NEXT_BUTTON -->
 
         <!-- SETTINGS: HIDE_PLAYER_BUTTON_BACKGROUND
         <SwitchPreference android:title="@string/revanced_hide_player_button_background_title" android:key="revanced_hide_player_button_background" android:defaultValue="false" android:summaryOn="@string/revanced_hide_player_button_background_summary_on" android:summaryOff="@string/revanced_hide_player_button_background_summary_off" />SETTINGS: HIDE_PLAYER_BUTTON_BACKGROUND -->
@@ -466,7 +466,7 @@
             <Preference android:title="hide-cast-button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-live-chat-button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-captions-button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
-            <Preference android:title="hide-next-prev-button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="hide-previous-next-button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-player-button-background" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-endscreen-cards" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-info-cards" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
