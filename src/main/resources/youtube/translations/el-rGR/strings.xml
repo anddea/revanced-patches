@@ -193,13 +193,13 @@
     <string name="revanced_enable_tablet_miniplayer_summary_off">Η ελαχιστοποιημένη οθόνη αναπαραγωγής τάμπλετ είναι απενεργοποιημένη</string>
     <string name="revanced_enable_tablet_miniplayer_summary_on">Η ελαχιστοποιημένη οθόνη αναπαραγωγής τάμπλετ είναι ενεργοποιημένη</string>
     <string name="revanced_enable_tablet_miniplayer_title">Ελαχιστοποιημένη οθόνη αναπαραγωγής τάμπλετ</string>
-    <string name="revanced_enable_tablet_navigation_bar_summary_off">Η γραμμή πλοήγησης τάμπλετ είναι απενεργοποιημένη</string>
-    <string name="revanced_enable_tablet_navigation_bar_summary_on">Η γραμμή πλοήγησης τάμπλετ είναι ενεργοποιημένη</string>
-    <string name="revanced_enable_tablet_navigation_bar_title">Γραμμή πλοήγησης τάμπλετ</string>
+    <string name="revanced_enable_tablet_navigation_bar_summary_off">Η μπάρα πλοήγησης τάμπλετ είναι απενεργοποιημένη</string>
+    <string name="revanced_enable_tablet_navigation_bar_summary_on">Η μπάρα πλοήγησης τάμπλετ είναι ενεργοποιημένη</string>
+    <string name="revanced_enable_tablet_navigation_bar_title">Μπάρα πλοήγησης τάμπλετ</string>
     <string name="revanced_enable_time_stamp_speed_summary_off">Η ταχύτητα βίντεο δεν εμφανίζεται στην χρονοσφραγίδα</string>
     <string name="revanced_enable_time_stamp_speed_summary_on">Η ταχύτητα βίντεο εμφανίζεται στην χρονοσφραγίδα</string>
     <string name="revanced_enable_time_stamp_speed_title">Εμφάνιση ταχύτητας στην χρονοσφραγίδα</string>
-    <string name="revanced_enable_vp9_codec_summary">Γίνεται πλαστογράφηση πληροφοριών συσκευής ώστε να ενεργοποιηθεί ο κωδικοποιητής VP9</string>
+    <string name="revanced_enable_vp9_codec_summary">Αυτή η λειτουργία παραποιεί τις πληροφορίες συσκευής ώστε να ενεργοποιηθεί ο κωδικοποιητής VP9</string>
     <string name="revanced_enable_vp9_codec_title">Ενεργοποίηση κωδικοποιητή VP9</string>
     <string name="revanced_enable_wide_searchbar_summary_off">Η ευρεία μπάρα αναζήτησης είναι απενεργοποιημένη</string>
     <string name="revanced_enable_wide_searchbar_summary_on">Η ευρεία μπάρα αναζήτησης είναι ενεργοποιημένη</string>
@@ -435,9 +435,9 @@
     <string name="revanced_hide_shorts_button_title">Απόκρυψη κουμπιού Shorts</string>
     <string name="revanced_hide_shorts_component_summary">Αποκρύπτει την ενότητα Shorts ή τα στοιχεία του αναπαραγωγέα Shorts</string>
     <string name="revanced_hide_shorts_component_title">Απόκρυψη στοιχείου Shorts</string>
-    <string name="revanced_hide_shorts_navigation_bar_summary_off">Η γραμμή πλοήγησης εμφανίζεται</string>
-    <string name="revanced_hide_shorts_navigation_bar_summary_on">Η γραμμή πλοήγησης είναι κρυμμένη</string>
-    <string name="revanced_hide_shorts_navigation_bar_title">Απόκρυψη γραμμής πλοήγησης στα Shorts</string>
+    <string name="revanced_hide_shorts_navigation_bar_summary_off">Η μπάρα πλοήγησης εμφανίζεται κατά την αναπαραγωγή Shorts</string>
+    <string name="revanced_hide_shorts_navigation_bar_summary_on">Η μπάρα πλοήγησης είναι κρυμμένη κατά την αναπαραγωγή Shorts</string>
+    <string name="revanced_hide_shorts_navigation_bar_title">Απόκρυψη μπάρας πλοήγησης στα Shorts</string>
     <string name="revanced_hide_shorts_player_comments_button_summary_off">Το κουμπί σχολίων εμφανίζεται</string>
     <string name="revanced_hide_shorts_player_comments_button_summary_on">Το κουμπί σχολίων είναι κρυμμένο</string>
     <string name="revanced_hide_shorts_player_comments_button_title">Απόκρυψη κουμπιού σχολίων</string>
@@ -485,7 +485,7 @@
     <string name="revanced_import_settings_summary">Ανάκτηση ρυθμίσεων ReVanced από αποθηκευμένο αρχείο</string>
     <string name="revanced_import_settings_title">Εισαγωγή ρυθμίσεων</string>
     <string name="revanced_misc">Διάφορα</string>
-    <string name="revanced_navigation">Γραμμή πλοήγησης</string>
+    <string name="revanced_navigation">Μπάρα πλοήγησης</string>
     <string name="revanced_others">Άλλα</string>
     <string name="revanced_overlay_button">Κουμπιά του αναπαραγωγέα βίντεο</string>
     <string name="revanced_overlay_button_auto_repeat_summary_off">Το κουμπί αυτόματης επανάληψης είναι κρυμμένο</string>
@@ -530,7 +530,7 @@
 Εάν ενεργοποιήσετε αυτή τη ρύθμιση, οι ακόλουθες λειτουργίες δεν είναι διαθέσιμες:
 - Λειτουργία περιβάλλοντος
 - Κοινοτικές αναρτήσεις"</string>
-    <string name="revanced_reboot_warning_vp9">"Γίνεται πλαστογράφηση πληροφοριών συσκευής ώστε να ενεργοποιηθεί ο κωδικοποιητής VP9
+    <string name="revanced_reboot_warning_vp9">"Γίνεται παραποίηση πληροφοριών συσκευής ώστε να ενεργοποιηθεί ο κωδικοποιητής VP9
 
 Δεδομένου ότι αυτή η ρύθμιση είναι αρκετά ξεπερασμένη, ενδέχεται να μην ισχύει"</string>
     <string name="revanced_ryd_attribution_summary">Τα δεδομένα Dislike παρέχονται από το API του Return YouTube Dislike.  Πατήστε εδώ για να μάθετε περισσότερα.</string>
@@ -566,7 +566,7 @@
     <string name="revanced_switching_create_notification_summary_on">Το κουμπί δημιουργίας και το κουμπί ειδοποίησης εναλλάσσονται</string>
     <string name="revanced_switching_create_notification_title">Εναλλαγή κουμπιού δημιουργίας και κουμπιού ειδοποίησης</string>
     <string name="revanced_tool_used">χρησιμοποιούμενο εργαλείο</string>
-    <string name="revanced_vertical_video_restrictions_summary">Γίνεται πλαστογράφηση πληροφοριών συσκευής για την άρση των περιορισμών ανάλυσης για κάθετο βίντεο</string>
+    <string name="revanced_vertical_video_restrictions_summary">Αυτή η λειτουργία παραποιεί τις πληροφορίες συσκευής για την άρση των περιορισμών ανάλυσης για κάθετα βίντεο</string>
     <string name="revanced_vertical_video_restrictions_title">Άρση περιορισμών ανάλυσης σε κάθετο βίντεο</string>
     <string name="revanced_video">Βίντεο</string>
     <string name="revanced_video_ads_removal_summary_off">Οι διαφημίσεις βίντεο εμφανίζονται</string>
