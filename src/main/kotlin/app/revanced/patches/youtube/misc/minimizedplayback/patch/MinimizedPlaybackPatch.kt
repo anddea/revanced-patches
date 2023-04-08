@@ -102,8 +102,9 @@ class MinimizedPlaybackPatch : BytecodePatch(
                 0, """
                     invoke-static {}, $INTEGRATIONS_PLAYBACK_METHOD_REFERENCE
                     move-result v0
+                    if-eqz v0, :default
                     return v0
-                """
+                """, listOf(ExternalLabel("default", instruction(0)))
             )
         }
 
