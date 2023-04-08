@@ -98,6 +98,7 @@
     <string name="revanced_change_homepage_title">Начальный экран</string>
     <string name="revanced_comments_title">Комментарии</string>
     <string name="revanced_copytimestamp_success">Таймкод скопирован в буфер обмена</string>
+    <string name="revanced_custom_seekbar_color_value_summary">Введите HEX код цвета прогресса воспроизведения</string>
     <string name="revanced_custom_seekbar_color_value_title">Персональное значение цвета</string>
     <string name="revanced_default_video_quality_mobile_title">Качество видео для мобильной сети</string>
     <string name="revanced_default_video_quality_wifi_title">Качество видео для Wi-Fi сети</string>
@@ -117,6 +118,9 @@
     <string name="revanced_disable_landscape_mode_summary_off">Ландшафтный режим включен при входе в полноэкранный режим</string>
     <string name="revanced_disable_landscape_mode_summary_on">Ландшафтный режим отключен при входе в полноэкранный режим</string>
     <string name="revanced_disable_landscape_mode_title">Ландшафтный режим</string>
+    <string name="revanced_disable_startup_shorts_player_summary_off">Плеер \"Shorts\" отображен при запуске приложения</string>
+    <string name="revanced_disable_startup_shorts_player_summary_on">Плеер \"Shorts\" скрыт при запуске приложения</string>
+    <string name="revanced_disable_startup_shorts_player_title">Автозапуск плеера \"Shorts\"</string>
     <string name="revanced_disable_quic_protocol_summary">"Отключает протокол QUIC CronetEngine"</string>
     <string name="revanced_disable_quic_protocol_title">Протокол QUIC</string>
     <string name="revanced_double_back_timeout_summary">Количество секунд для выхода при двойном нажатии \"Назад\"</string>
@@ -131,6 +135,7 @@
     <string name="revanced_enable_always_auto_repeat_title">Постоянный автоповтор</string>
     <string name="revanced_enable_custom_seekbar_color_summary_off">Персональный цвет прогресса воспроизведения в темном режиме отключен</string>
     <string name="revanced_enable_custom_seekbar_color_summary_on">Персональный цвет прогресса воспроизведения в темном режиме включен</string>
+    <string name="revanced_enable_custom_seekbar_color_title">Персональный цвет</string>
     <string name="revanced_enable_custom_video_speed_summary_off">Персональная скорость воспроизведения видео отключена</string>
     <string name="revanced_enable_custom_video_speed_summary_on">Персональная скорость воспроизведения видео включена</string>
     <string name="revanced_enable_custom_video_speed_title"> Персональная скорость воспроизведения</string>
@@ -415,6 +420,9 @@
     <string name="revanced_hide_preview_comment_off">Предпросмотр комментария отображен</string>
     <string name="revanced_hide_preview_comment_on">Предпросмотр комментария скрыт</string>
     <string name="revanced_hide_preview_comment_title">Предпросмотр комментария</string>
+    <string name="revanced_hide_previous_next_button_summary_off">Кнопки отображены</string>
+    <string name="revanced_hide_previous_next_button_summary_on">Кнопки скрыты</string>
+    <string name="revanced_hide_previous_next_button_title">Предыдущее и следующее видео</string>
     <string name="revanced_hide_seekbar_summary_off">Прогресс воспроизведения отображен</string>
     <string name="revanced_hide_seekbar_summary_on">Прогресс воспроизведения скрыт</string>
     <string name="revanced_hide_seekbar_title">Прогресс воспроизведения</string>
@@ -429,9 +437,20 @@
     <string name="revanced_hide_shorts_navigation_bar_summary_off">Панель навигации отображена</string>
     <string name="revanced_hide_shorts_navigation_bar_summary_on">Панель навигации скрыта</string>
     <string name="revanced_hide_shorts_navigation_bar_title">Панель навигации в \"Shorts\"</string>
+    <string name="revanced_hide_shorts_player_comments_button_summary_off">Кнопка \"Комментарии\" отображена</string>
+    <string name="revanced_hide_shorts_player_comments_button_summary_on">Кнопка \"Комментарии\" скрыта</string>
+    <string name="revanced_hide_shorts_player_comments_button_title">Комментарии</string>
+    <string name="revanced_hide_shorts_player_join_button_summary_off">Кнопка \"Присоединиться\" отображена</string>
+    <string name="revanced_hide_shorts_player_join_button_summary_on">Кнопка \"Присоединиться\" скрыта</string>
+    <string name="revanced_hide_shorts_player_join_button_title">Присоединиться</string>
+    <string name="revanced_hide_shorts_player_subscriptions_button_summary_off">Кнопка \"Подписаться\" отображена</string>
+    <string name="revanced_hide_shorts_player_subscriptions_button_summary_on">Кнопка \"Подписаться\" скрыта</string>
+    <string name="revanced_hide_shorts_player_subscriptions_button_title">Подписаться</string>
     <string name="revanced_hide_shorts_shelf_summary_off">Публикации \"Shorts\" отображены</string>
     <string name="revanced_hide_shorts_shelf_summary_on">Публикации \"Shorts\" скрыты</string>
     <string name="revanced_hide_shorts_shelf_title">Публикации \"Shorts\"</string>
+    <string name="revanced_shorts">\"Shorts\"</string>
+    <string name="revanced_shorts_player_title">Плеер \"Shorts\"</string>
     <string name="revanced_hide_snackbar_summary_off">Всплывающие сообщения отображены</string>
     <string name="revanced_hide_snackbar_summary_on">Всплывающие сообщения скрыты</string>
     <string name="revanced_hide_snackbar_title">Всплывающие сообщения</string>

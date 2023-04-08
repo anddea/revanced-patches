@@ -98,6 +98,7 @@
     <string name="revanced_change_homepage_title">デフォルトのタブを“登録チャンネル”に変更する</string>
     <string name="revanced_comments_title">コメント</string>
     <string name="revanced_copytimestamp_success">タイムスタンプをコピーしました</string>
+    <string name="revanced_custom_seekbar_color_value_summary">カラーコードを入力してシークバーの色を変更できます</string>
     <string name="revanced_custom_seekbar_color_value_title">再生バーの色を変更する</string>
     <string name="revanced_default_video_quality_mobile_title">モバイルデータ通信でのデフォルト画質</string>
     <string name="revanced_default_video_quality_wifi_title">Wi-Fi でのデフォルト画質</string>
@@ -117,6 +118,9 @@
     <string name="revanced_disable_landscape_mode_summary_off">全画面表示にした時、動画の向きを縦に固定します</string>
     <string name="revanced_disable_landscape_mode_summary_on">全画面表示にした時、動画の向きを縦に固定します</string>
     <string name="revanced_disable_landscape_mode_title">全画面表示で動画の向きを縦にする</string>
+    <string name="revanced_disable_startup_shorts_player_summary_off">アプリの起動時のYouTubeショートを無効にします</string>
+    <string name="revanced_disable_startup_shorts_player_summary_on">アプリの起動時のYouTubeショートを無効にします</string>
+    <string name="revanced_disable_startup_shorts_player_title">アプリ起動時にYouTubeショートを無効にする</string>
     <string name="revanced_disable_quic_protocol_summary">"QUICプロトコルは動画を読み込む時に動画が圧縮されて送信されるため、使用するデータ量を節約できます。デメリットは動画を読み込む時に圧縮された動画が解凍され、この過程で多少のラグが発生します。これが、YouTube の使用時にわずかなラグが発生する理由です。QUICプロトコルを無効にすることでラグをなくし、動画の読み込みを多少速くします。"</string>
     <string name="revanced_disable_quic_protocol_title">QUICプロトコルを無効にする</string>
     <string name="revanced_double_back_timeout_summary">ナビゲーションバーの戻るボタン(&lt;)を1回タップしてもう一度タップするまでの間隔を変更します。デフォルトでは1回戻るボタンを押してから1秒以内にもう一度戻るボタンを押すと、アプリが閉じます。</string>
@@ -131,6 +135,7 @@
     <string name="revanced_enable_always_auto_repeat_title">常に自動リピートを有効にする</string>
     <string name="revanced_enable_custom_seekbar_color_summary_off">再生バー(シークバー)の色を変更します</string>
     <string name="revanced_enable_custom_seekbar_color_summary_on">再生バー(シークバー)の色を変更します</string>
+    <string name="revanced_enable_custom_seekbar_color_title">再生バー(シークバー)の色を変更する</string>
     <string name="revanced_enable_custom_video_speed_summary_off">再生速度を変更します</string>
     <string name="revanced_enable_custom_video_speed_summary_on">再生速度を変更します</string>
     <string name="revanced_enable_custom_video_speed_title">再生速度の変更を有効にする</string>
@@ -418,6 +423,9 @@
     <string name="revanced_hide_preview_comment_off">コメントのプレビューを非表示にします</string>
     <string name="revanced_hide_preview_comment_on">コメントのプレビューを非表示にします</string>
     <string name="revanced_hide_preview_comment_title">コメントのプレビューを非表示にする</string>
+    <string name="revanced_hide_previous_next_button_summary_off">“前の動画に戻る” “次の動画に進む”ボタンを非表示にします</string>
+    <string name="revanced_hide_previous_next_button_summary_on">“前の動画に戻る” “次の動画に進む”ボタンを非表示にします</string>
+    <string name="revanced_hide_previous_next_button_title">“前の動画に戻る” “次の動画に進む”ボタンを非表示にする</string>
     <string name="revanced_hide_seekbar_summary_off">再生バー(シークバー)を非表示にします</string>
     <string name="revanced_hide_seekbar_summary_on">再生バー(シークバー)を非表示にします</string>
     <string name="revanced_hide_seekbar_title">再生バーを非表示にする</string>
@@ -432,9 +440,20 @@
     <string name="revanced_hide_shorts_navigation_bar_summary_off">YouTubeショートでナビゲーションバーを非表示にします</string>
     <string name="revanced_hide_shorts_navigation_bar_summary_on">YouTubeショートでナビゲーションバーを非表示にします</string>
     <string name="revanced_hide_shorts_navigation_bar_title">YouTubeショートでナビゲーションバーを非表示にする</string>
+    <string name="revanced_hide_shorts_player_comments_button_summary_off">YouTubeショートの“コメント”ボタンを非表示にします</string>
+    <string name="revanced_hide_shorts_player_comments_button_summary_on">YouTubeショートの“コメント”ボタンを非表示にします</string>
+    <string name="revanced_hide_shorts_player_comments_button_title">“コメント”ボタンを非表示にする</string>
+    <string name="revanced_hide_shorts_player_join_button_summary_off">YouTubeショートの“参加”ボタンを非表示にします</string>
+    <string name="revanced_hide_shorts_player_join_button_summary_on">YouTubeショートの“参加”ボタンを非表示にします</string>
+    <string name="revanced_hide_shorts_player_join_button_title">“参加”ボタンを非表示にする</string>
+    <string name="revanced_hide_shorts_player_subscriptions_button_summary_off">タブ切り替えで“登録チャンネル”ボタンを非表示にします</string>
+    <string name="revanced_hide_shorts_player_subscriptions_button_summary_on">タブ切り替えで“登録チャンネル”ボタンを非表示にします</string>
+    <string name="revanced_hide_shorts_player_subscriptions_button_title">“登録チャンネル”ボタンを非表示にする</string>
     <string name="revanced_hide_shorts_shelf_summary_off">YouTubeショート欄を非表示にします</string>
     <string name="revanced_hide_shorts_shelf_summary_on">YouTubeショート欄を非表示にします</string>
     <string name="revanced_hide_shorts_shelf_title">YouTubeショート欄を非表示にする</string>
+    <string name="revanced_shorts">YouTubeショート</string>
+    <string name="revanced_shorts_player_title">YouTubeショートのプレーヤー</string>
     <string name="revanced_hide_snackbar_summary_off">プレーヤー上の設定メニューで何か変更した際に、下に表示される文章(白いバー)を非表示にします</string>
     <string name="revanced_hide_snackbar_summary_on">プレーヤー上の設定メニューで何か変更した際に、下に表示される文章(白いバー)を非表示にします</string>
     <string name="revanced_hide_snackbar_title">下に表示される白いバーを非表示にする</string>

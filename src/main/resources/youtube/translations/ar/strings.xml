@@ -97,6 +97,7 @@
     <string name="revanced_change_homepage_title">تغيير الصفحة الرئيسية إلى موجز الاشتراكات</string>
     <string name="revanced_comments_title">التعليقات</string>
     <string name="revanced_copytimestamp_success">تم نسخ الطابع الزمني إلى الحافظة</string>
+    <string name="revanced_custom_seekbar_color_value_summary">اكتب رمز اللون للون شريط تقدم الفيديو</string>
     <string name="revanced_custom_seekbar_color_value_title">قيمة لون شريط تقدم الفيديو المخصصة</string>
     <string name="revanced_default_video_quality_mobile_title">جودة الفيديو الافتراضية على شبكة الجوَّال</string>
     <string name="revanced_default_video_quality_wifi_title">جودة الفيديو الافتراضية على شبكة Wi-Fi</string>
@@ -116,6 +117,9 @@
     <string name="revanced_disable_landscape_mode_summary_off">تم تمكين الوضع الأفقي عند الدخول إلى ملء الشاشة</string>
     <string name="revanced_disable_landscape_mode_summary_on">تم تعطيل الوضع الأفقي عند الدخول إلى ملء الشاشة</string>
     <string name="revanced_disable_landscape_mode_title">تعطيل الوضع الأفقي</string>
+    <string name="revanced_disable_startup_shorts_player_summary_off">تم تمكين مشغل Shorts عند بَدْء تشغيل التطبيق</string>
+    <string name="revanced_disable_startup_shorts_player_summary_on">تم تعطيل مشغل Shorts عند بَدْء تشغيل التطبيق</string>
+    <string name="revanced_disable_startup_shorts_player_title">تعطيل مشغل Shorts عند بَدْء تشغيل التطبيق</string>
     <string name="revanced_disable_quic_protocol_summary">"تعطيل بروتوكول QUIC الخاص بـ CronetEngine"</string>
     <string name="revanced_disable_quic_protocol_title">تعطيل بروتوكول QUIC</string>
     <string name="revanced_double_back_timeout_summary">عدد الثواني التي يتم الضغط عليها مرتين للعودة للخروج (بالثواني)</string>
@@ -130,6 +134,7 @@
     <string name="revanced_enable_always_auto_repeat_title">التكرار التلقائي دائمًا</string>
     <string name="revanced_enable_custom_seekbar_color_summary_off">تم تعطيل لون شريط تقدم الفيديو المخصص</string>
     <string name="revanced_enable_custom_seekbar_color_summary_on">تم تمكين لون شريط تقدم الفيديو المخصص</string>
+    <string name="revanced_enable_custom_seekbar_color_title">تمكين لون شريط تقدم الفيديو المخصص</string>
     <string name="revanced_enable_custom_video_speed_summary_off">تم تعطيل سرعة التشغيل المخصصة</string>
     <string name="revanced_enable_custom_video_speed_summary_on">تم تمكين سرعة التشغيل المخصصة</string>
     <string name="revanced_enable_custom_video_speed_title">تمكين سرعة الفيديو المخصصة</string>
@@ -415,6 +420,9 @@
     <string name="revanced_hide_preview_comment_off">يتم عرض تعليق المعاينة</string>
     <string name="revanced_hide_preview_comment_on">تم إخفاء تعليق المعاينة</string>
     <string name="revanced_hide_preview_comment_title">إخفاء تعليق المعاينة</string>
+    <string name="revanced_hide_previous_next_button_summary_off">يتم عرض الأزرار</string>
+    <string name="revanced_hide_previous_next_button_summary_on">تم إخفاء الأزرار</string>
+    <string name="revanced_hide_previous_next_button_title">إخفاء زر السابق &amp; التالي</string>
     <string name="revanced_hide_seekbar_summary_off">يتم عرض شريط تقدم الفيديو</string>
     <string name="revanced_hide_seekbar_summary_on">تم إخفاء شريط تقدم الفيديو</string>
     <string name="revanced_hide_seekbar_title">إخفاء شريط تقدم الفيديو</string>
@@ -429,9 +437,20 @@
     <string name="revanced_hide_shorts_navigation_bar_summary_off">يتم عرض شريط التنقل</string>
     <string name="revanced_hide_shorts_navigation_bar_summary_on">تم إخفاء شريط التنقل</string>
     <string name="revanced_hide_shorts_navigation_bar_title">إخفاء شريط التنقل في Shorts</string>
+    <string name="revanced_hide_shorts_player_comments_button_summary_off">يتم عرض زر التعليقات</string>
+    <string name="revanced_hide_shorts_player_comments_button_summary_on">تم إخفاء زر التعليقات</string>
+    <string name="revanced_hide_shorts_player_comments_button_title">إخفاء زر التعليقات</string>
+    <string name="revanced_hide_shorts_player_join_button_summary_off">يتم عرض زر الانتساب</string>
+    <string name="revanced_hide_shorts_player_join_button_summary_on">تم إخفاء زر الانتساب</string>
+    <string name="revanced_hide_shorts_player_join_button_title">إخفاء زر الانتساب</string>
+    <string name="revanced_hide_shorts_player_subscriptions_button_summary_off">يتم عرض زر الاشتراكات</string>
+    <string name="revanced_hide_shorts_player_subscriptions_button_summary_on">تم إخفاء زر الاشتراكات</string>
+    <string name="revanced_hide_shorts_player_subscriptions_button_title">إخفاء زر الاشتراكات</string>
     <string name="revanced_hide_shorts_shelf_summary_off">يتم عرض رفوف الفيديوهات القصيرة (Shorts)</string>
     <string name="revanced_hide_shorts_shelf_summary_on">تم إخفاء رفوف الفيديوهات القصيرة (Shorts)</string>
     <string name="revanced_hide_shorts_shelf_title">إخفاء رف الفيديوهات القصيرة (Shorts)</string>
+    <string name="revanced_shorts">Shorts</string>
+    <string name="revanced_shorts_player_title">مُشَغِل Shorts</string>
     <string name="revanced_hide_snackbar_summary_off">يتم عرض Snackbar</string>
     <string name="revanced_hide_snackbar_summary_on">تم إخفاء Snackbar</string>
     <string name="revanced_hide_snackbar_title">إخفاء Snackbar</string>

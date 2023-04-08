@@ -97,6 +97,7 @@
     <string name="revanced_change_homepage_title">Zmień stronę główną na stronę subskrypcji</string>
     <string name="revanced_comments_title">Komentarze</string>
     <string name="revanced_copytimestamp_success">Link Wideo Z Czasem został skopiowany do schowka</string>
+    <string name="revanced_custom_seekbar_color_value_summary">Wpisz kod hex koloru paska wideo</string>
     <string name="revanced_custom_seekbar_color_value_title">Niestandardowy kolor paska wideo</string>
     <string name="revanced_default_video_quality_mobile_title">Domyślna jakość wideo dla Sieci Mobilnej</string>
     <string name="revanced_default_video_quality_wifi_title">Domyślna jakość wideo dla Wi-Fi</string>
@@ -116,6 +117,9 @@
     <string name="revanced_disable_landscape_mode_summary_off">Włączony przy wchodzeniu w tryb pełnoekranowy</string>
     <string name="revanced_disable_landscape_mode_summary_on">Wyłączony przy wchodzeniu w tryb pełnoekranowy</string>
     <string name="revanced_disable_landscape_mode_title">Tryb poziomy</string>
+    <string name="revanced_disable_startup_shorts_player_summary_off">Widoczne</string>
+    <string name="revanced_disable_startup_shorts_player_summary_on">Ukryte</string>
+    <string name="revanced_disable_startup_shorts_player_title">Shorty przy starcie aplikacji</string>
     <string name="revanced_disable_quic_protocol_summary">"Wyłącz protokół QUIC w CronetEngine"</string>
     <string name="revanced_disable_quic_protocol_title">Wyłącz protokół QUIC</string>
     <string name="revanced_double_back_timeout_summary">Liczba sekund na stuknięcie przycisku do powrotu 2 razy, by wyjść z aplikacji</string>
@@ -130,6 +134,7 @@
     <string name="revanced_enable_always_auto_repeat_title">Zawsze odtwarzaj ponownie</string>
     <string name="revanced_enable_custom_seekbar_color_summary_off">Niewidoczny</string>
     <string name="revanced_enable_custom_seekbar_color_summary_on">Widoczny</string>
+    <string name="revanced_enable_custom_seekbar_color_title">Włącz niestandardowy kolor paska wideo</string>
     <string name="revanced_enable_custom_video_speed_summary_off">Wyłączona</string>
     <string name="revanced_enable_custom_video_speed_summary_on">Włączona</string>
     <string name="revanced_enable_custom_video_speed_title">Niestandardowa prędkość wideo</string>
@@ -415,6 +420,9 @@ Proszę nie zgłaszać żadnych problemów napotkanych podczas korzystania z tej
     <string name="revanced_hide_preview_comment_off">Widoczny</string>
     <string name="revanced_hide_preview_comment_on">Ukryty</string>
     <string name="revanced_hide_preview_comment_title">Wyróżniony komentarz</string>
+    <string name="revanced_hide_previous_next_button_summary_off">Widoczne</string>
+    <string name="revanced_hide_previous_next_button_summary_on">Ukryte</string>
+    <string name="revanced_hide_previous_next_button_title">Przyciski poprzedniego i następnego wideo</string>
     <string name="revanced_hide_seekbar_summary_off">Widoczny</string>
     <string name="revanced_hide_seekbar_summary_on">Ukryty</string>
     <string name="revanced_hide_seekbar_title">Pasek wideo</string>
@@ -429,9 +437,20 @@ Proszę nie zgłaszać żadnych problemów napotkanych podczas korzystania z tej
     <string name="revanced_hide_shorts_navigation_bar_summary_off">Widoczny</string>
     <string name="revanced_hide_shorts_navigation_bar_summary_on">Ukryty</string>
     <string name="revanced_hide_shorts_navigation_bar_title">Pasek nawigacji podczas shortów</string>
+    <string name="revanced_hide_shorts_player_comments_button_summary_off">Widoczny</string>
+    <string name="revanced_hide_shorts_player_comments_button_summary_on">Ukryty</string>
+    <string name="revanced_hide_shorts_player_comments_button_title">Przycisk od komentarzy</string>
+    <string name="revanced_hide_shorts_player_join_button_summary_off">Widoczny</string>
+    <string name="revanced_hide_shorts_player_join_button_summary_on">Ukryty</string>
+    <string name="revanced_hide_shorts_player_join_button_title">Przycisk od sponsorowania</string>
+    <string name="revanced_hide_shorts_player_subscriptions_button_summary_off">Widoczny</string>
+    <string name="revanced_hide_shorts_player_subscriptions_button_summary_on">Ukryty</string>
+    <string name="revanced_hide_shorts_player_subscriptions_button_title">Przycisk od subskrybowania</string>
     <string name="revanced_hide_shorts_shelf_summary_off">Widoczne</string>
     <string name="revanced_hide_shorts_shelf_summary_on">Ukryte</string>
     <string name="revanced_hide_shorts_shelf_title">Półki z shortami</string>
+    <string name="revanced_shorts">Shorty</string>
+    <string name="revanced_shorts_player_title">Odtwarzacz shortów</string>
     <string name="revanced_hide_snackbar_summary_off">Widoczne</string>
     <string name="revanced_hide_snackbar_summary_on">Ukryte</string>
     <string name="revanced_hide_snackbar_title">Komunikaty</string>
