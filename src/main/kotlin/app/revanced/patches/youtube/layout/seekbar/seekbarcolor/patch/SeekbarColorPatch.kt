@@ -6,7 +6,6 @@ import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
@@ -15,6 +14,7 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.shared.fingerprints.ControlsOverlayStyleFingerprint
+import app.revanced.patches.youtube.layout.seekbar.seekbarcolor.fingerprints.ProgressColorFingerprint
 import app.revanced.patches.youtube.layout.seekbar.seekbarcolor.fingerprints.SeekbarColorFingerprint
 import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
@@ -57,17 +57,14 @@ class SeekbarColorPatch : BytecodePatch(
             }
         } ?: return SeekbarColorFingerprint.toErrorResult()
 
-        val controlsOverlayStyleClassDef = ControlsOverlayStyleFingerprint.result?.classDef?: return ControlsOverlayStyleFingerprint.toErrorResult()
-
-        val progressColorFingerprint =
-            object : MethodFingerprint(returnType = "V", parameters = listOf("I"), customFingerprint = { it.name == "e" }) {}
-        progressColorFingerprint.resolve(context, controlsOverlayStyleClassDef)
-        progressColorFingerprint.result?.mutableMethod?.addInstructions(
-            0, """
-                invoke-static {p1}, $SEEKBAR->enableCustomSeekbarColor(I)I
-                move-result p1
-            """
-        )?: return progressColorFingerprint.toErrorResult()
+        ControlsOverlayStyleFingerprint.result?.let { parentResult ->
+            ProgressColorFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.mutableMethod?.addInstructions(
+                0, """
+                    invoke-static {p1}, $SEEKBAR->enableCustomSeekbarColor(I)I
+                    move-result p1
+                    """
+            ) ?: return ProgressColorFingerprint.toErrorResult()
+        } ?: return ControlsOverlayStyleFingerprint.toErrorResult()
 
         /*
          * Add settings

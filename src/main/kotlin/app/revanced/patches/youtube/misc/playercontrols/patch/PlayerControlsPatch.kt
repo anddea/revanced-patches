@@ -36,15 +36,11 @@ class PlayerControlsPatch : BytecodePatch(
 
         val playerControlsVisibilityModelClassDef = PlayerControlsVisibilityModelFingerprint.result?.classDef?: return PlayerControlsVisibilityModelFingerprint.toErrorResult()
 
-        val seekEDUVisibleFingerprint =
-            object : MethodFingerprint(returnType = "V", parameters = listOf("Z"), customFingerprint = { it.name == "l" }) {}
-        seekEDUVisibleFingerprint.resolve(context, playerControlsVisibilityModelClassDef)
-        seekEDUVisibleResult = seekEDUVisibleFingerprint.result?: return seekEDUVisibleFingerprint.toErrorResult()
+        SeekEDUVisibleFingerprint.resolve(context, playerControlsVisibilityModelClassDef)
+        seekEDUVisibleResult = SeekEDUVisibleFingerprint.result?: return SeekEDUVisibleFingerprint.toErrorResult()
 
-        val userScrubbingFingerprint =
-            object : MethodFingerprint(returnType = "V", parameters = listOf("Z"), customFingerprint = { it.name == "o" }) {}
-        userScrubbingFingerprint.resolve(context, playerControlsVisibilityModelClassDef)
-        userScrubbingResult = userScrubbingFingerprint.result?: return userScrubbingFingerprint.toErrorResult()
+        UserScrubbingFingerprint.resolve(context, playerControlsVisibilityModelClassDef)
+        userScrubbingResult = UserScrubbingFingerprint.result?: return UserScrubbingFingerprint.toErrorResult()
 
         playerControlsVisibilityResult = PlayerControlsVisibilityFingerprint.result?: return PlayerControlsVisibilityFingerprint.toErrorResult()
         controlsLayoutInflateResult = ControlsLayoutInflateFingerprint.result?: return ControlsLayoutInflateFingerprint.toErrorResult()
