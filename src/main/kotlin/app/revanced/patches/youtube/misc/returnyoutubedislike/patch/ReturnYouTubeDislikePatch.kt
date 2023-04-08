@@ -20,7 +20,7 @@ import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.youtube.misc.returnyoutubedislike.fingerprints.*
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
 import app.revanced.patches.youtube.misc.videoid.mainstream.patch.MainstreamVideoIdPatch
-import app.revanced.util.integrations.Constants.UTILS_PATH
+import app.revanced.util.integrations.Constants.INTEGRATIONS_PATH
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.builder.instruction.BuilderInstruction3rc
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
@@ -181,7 +181,7 @@ class ReturnYouTubeDislikePatch : BytecodePatch(
     }
     private companion object {
         const val INTEGRATIONS_RYD_CLASS_DESCRIPTOR =
-            "$UTILS_PATH/ReturnYouTubeDislikePatch;"
+            "$INTEGRATIONS_PATH/returnyoutubedislike/ReturnYouTubeDislike;"
 
         private lateinit var objectReference: FieldReference
         var objectIndex: Int = 0
