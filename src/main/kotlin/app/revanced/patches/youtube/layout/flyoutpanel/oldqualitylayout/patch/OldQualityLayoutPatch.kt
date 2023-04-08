@@ -6,7 +6,6 @@ import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.addInstruction
-import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.instruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
@@ -14,7 +13,7 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
-import app.revanced.patches.youtube.layout.flyoutpanel.oldqualitylayout.fingerprints.*
+import app.revanced.patches.youtube.layout.flyoutpanel.oldqualitylayout.fingerprints.QualityMenuViewInflateFingerprint
 import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
 import app.revanced.patches.youtube.misc.videoid.legacy.patch.LegacyVideoIdPatch
@@ -35,8 +34,7 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 @Version("0.0.1")
 class OldQualityLayoutPatch : BytecodePatch(
     listOf(
-        QualityMenuViewInflateFingerprint,
-        VideoQualitySettingsFingerprint
+        QualityMenuViewInflateFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
@@ -51,19 +49,6 @@ class OldQualityLayoutPatch : BytecodePatch(
                 )
             }
         } ?: return QualityMenuViewInflateFingerprint.toErrorResult()
-
-        VideoQualitySettingsFingerprint.result?.let {
-            with (it.mutableMethod) {
-                val insertIndex = it.scanResult.patternScanResult!!.startIndex + LegacyVideoIdPatch.qualityOffSet
-                val register = (this.implementation!!.instructions[insertIndex] as OneRegisterInstruction).registerA
-                addInstructions(
-                    insertIndex, """
-                       invoke-static { v$register }, $FLYOUT_PANEL->enableOldQualityLayout(I)I
-                       move-result v$register
-                    """
-                )
-            }
-        } ?: return VideoQualitySettingsFingerprint.toErrorResult()
 
         /*
          * Add settings
