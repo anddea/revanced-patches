@@ -5,6 +5,7 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
+import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
@@ -14,10 +15,10 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.shared.fingerprints.ControlsOverlayStyleFingerprint
-import app.revanced.patches.youtube.layout.seekbar.seekbarcolor.fingerprints.ProgressColorFingerprint
-import app.revanced.patches.youtube.layout.seekbar.seekbarcolor.fingerprints.SeekbarColorFingerprint
+import app.revanced.patches.youtube.layout.seekbar.seekbarcolor.fingerprints.*
 import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
+import app.revanced.util.integrations.Constants.INTEGRATIONS_PATH
 import app.revanced.util.integrations.Constants.SEEKBAR
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.iface.instruction.WideLiteralInstruction
@@ -35,6 +36,7 @@ import org.jf.dexlib2.iface.instruction.WideLiteralInstruction
 @Version("0.0.1")
 class SeekbarColorPatch : BytecodePatch(
     listOf(
+        ControlsOverlayParentFingerprint,
         ControlsOverlayStyleFingerprint,
         SeekbarColorFingerprint
     )
@@ -65,6 +67,13 @@ class SeekbarColorPatch : BytecodePatch(
                     """
             ) ?: return ProgressColorFingerprint.toErrorResult()
         } ?: return ControlsOverlayStyleFingerprint.toErrorResult()
+
+        ControlsOverlayParentFingerprint.result?.let { parentResult ->
+            ControlsOverlayFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.mutableMethod?.addInstruction(
+                0,
+                "sput-object p1, $INTEGRATIONS_PATH/utils/ReVancedUtils;->context:Landroid/content/Context;"
+            ) ?: return ControlsOverlayFingerprint.toErrorResult()
+        } ?: return ControlsOverlayParentFingerprint.toErrorResult()
 
         /*
          * Add settings
