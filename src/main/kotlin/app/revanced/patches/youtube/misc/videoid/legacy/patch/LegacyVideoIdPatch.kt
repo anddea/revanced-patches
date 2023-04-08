@@ -41,8 +41,6 @@ class LegacyVideoIdPatch : BytecodePatch(
     companion object {
         private var offset = 2
 
-        internal var qualityOffSet: Int = 0
-
         private var insertIndex: Int = 0
         private var videoIdRegister: Int = 0
         private lateinit var insertMethod: MutableMethod
