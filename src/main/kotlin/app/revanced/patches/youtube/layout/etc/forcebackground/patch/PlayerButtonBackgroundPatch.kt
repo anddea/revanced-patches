@@ -15,7 +15,7 @@ import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
 import org.w3c.dom.Element
 
 @Patch(false)
-@Name("force-player-button-background")
+@Name("force-hide-player-button-background")
 @Description("Force removes the background from the video player buttons.")
 @DependsOn([SettingsPatch::class])
 @YouTubeCompatibility
