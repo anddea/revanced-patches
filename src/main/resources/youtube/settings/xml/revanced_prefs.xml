@@ -101,6 +101,9 @@
         <!-- SETTINGS: HIDE_SNACKBAR
         <SwitchPreference android:title="@string/revanced_hide_snackbar_title" android:key="revanced_hide_snackbar" android:defaultValue="false" android:summaryOn="@string/revanced_hide_snackbar_summary_on" android:summaryOff="@string/revanced_hide_snackbar_summary_off" />SETTINGS: HIDE_SNACKBAR -->
 
+        <!-- SETTINGS: HIDE_SEARCH_TERMS
+        <SwitchPreference android:title="@string/revanced_hide_search_terms_title" android:key="revanced_hide_search_terms" android:defaultValue="false" android:summaryOn="@string/revanced_hide_search_terms_summary_on" android:summaryOff="@string/revanced_hide_search_terms_summary_off" />SETTINGS: HIDE_SEARCH_TERMS -->
+
         <!-- SETTINGS: HIDE_FLOATING_MICROPHONE
         <SwitchPreference android:title="@string/revanced_hide_floating_microphone_title" android:key="revanced_hide_floating_microphone" android:defaultValue="true" android:summaryOn="@string/revanced_hide_floating_microphone_summary_on" android:summaryOff="@string/revanced_hide_floating_microphone_summary_off" />SETTINGS: HIDE_FLOATING_MICROPHONE -->
 
@@ -459,6 +462,7 @@
             <Preference android:title="hide-crowdfunding-box" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-email-address" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-snackbar" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="hide-search-terms" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-floating-microphone" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-category-bar" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-channel-avatar-section" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>

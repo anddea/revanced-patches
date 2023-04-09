@@ -47,6 +47,7 @@ class SharedResourceIdPatch : ResourcePatch {
         var reelRemixLabelId: Long = -1
         var relatedChipCloudMarginLabelId: Long = -1
         var rightCommentLabelId: Long = -1
+        var searchSuggestionEntryLabelId: Long = -1
         var scrubbingLabelId: Long = -1
         var timeBarPlayedDarkLabelId: Long = -1
         var timeStampsContainerLabelId: Long = -1
@@ -89,6 +90,7 @@ class SharedResourceIdPatch : ResourcePatch {
         reelRemixLabelId = find(ID, "reel_dyn_remix")
         relatedChipCloudMarginLabelId = find(LAYOUT, "related_chip_cloud_reduced_margins")
         rightCommentLabelId = find(DRAWABLE, "ic_right_comment_32c")
+        searchSuggestionEntryLabelId = find(LAYOUT, "search_suggestion_entry")
         scrubbingLabelId = find(DIMEN, "vertical_touch_offset_to_enter_fine_scrubbing")
         timeBarPlayedDarkLabelId = find(COLOR, "inline_time_bar_colorized_bar_played_color_dark")
         timeStampsContainerLabelId = find(ID, "timestamps_container")
