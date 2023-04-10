@@ -35,7 +35,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `enable-tablet-navigation-bar` | Enables the tablet navigation bar. | 18.13.38 |
 | `enable-timestamps-speed` | Add the current video speed in brackets next to the current time. | 18.13.38 |
 | `enable-wide-searchbar` | Replaces the search icon with a wide search bar. This will hide the YouTube logo when active. | 18.13.38 |
-| `force-player-button-background` | Force removes the background from the video player buttons. | 18.13.38 |
+| `force-hide-player-button-background` | Force removes the background from the video player buttons. | 18.13.38 |
 | `force-premium-heading` | Forces premium heading on the home screen. | 18.13.38 |
 | `force-vp9-codec` | Forces the VP9 codec for videos. | 18.13.38 |
 | `header-switch` | Add switch to change header. | 18.13.38 |
@@ -54,6 +54,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `hide-comment-component` | Adds options to hide comment component under a video. | 18.13.38 |
 | `hide-create-button` | Hides the create button in the navigation bar. | 18.13.38 |
 | `hide-crowdfunding-box` | Hides the crowdfunding box between the player and video description. | 18.13.38 |
+| `hide-double-tap-overlay-filter` | Remove the double tap dark filter layer. | 18.13.38 |
 | `hide-email-address` | Hides the email address(handle) in the account switcher. | 18.13.38 |
 | `hide-endscreen-cards` | Hides the suggested video cards at the end of a video in fullscreen. | 18.13.38 |
 | `hide-endscreen-overlay` | Hide endscreen overlay on swipe controls. | 18.13.38 |
@@ -71,6 +72,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `hide-player-button-background` | Hide player button background. | 18.13.38 |
 | `hide-player-overlay-filter` | Remove the dark filter layer from the player's background. | 18.13.38 |
 | `hide-previous-next-button` | Hides the previous and next button in the player controller. | 18.13.38 |
+| `hide-search-terms` | Hide trending searches and search history in the search bar. | 18.13.38 |
 | `hide-seekbar` | Hides the seekbar. | 18.13.38 |
 | `hide-shorts-button` | Hides the shorts button in the navigation bar. | 18.13.38 |
 | `hide-shorts-component` | Hides other Shorts components. | 18.13.38 |
