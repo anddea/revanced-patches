@@ -9,7 +9,6 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
 import app.revanced.patcher.util.proxy.mutableTypes.MutableField
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.smali.toInstruction
-import app.revanced.util.integrations.Constants.INTEGRATIONS_PATH
 import app.revanced.util.integrations.Constants.PATCHES_PATH
 import org.jf.dexlib2.builder.MutableMethodImplementation
 import org.jf.dexlib2.iface.Method
@@ -25,17 +24,6 @@ internal fun MutableMethodImplementation.injectHideCall(
     this.addInstruction(
         index,
         "invoke-static { v$register }, $PATCHES_PATH/$patches;->$method(Landroid/view/View;)V".toInstruction()
-    )
-}
-
-internal fun MutableMethodImplementation.injectTheme(
-    index: Int,
-    register: Int,
-    method: String
-) {
-    this.addInstruction(
-        index,
-        "invoke-static { v$register }, $INTEGRATIONS_PATH/utils/ThemeHelper;->$method(I)V".toInstruction()
     )
 }
 
