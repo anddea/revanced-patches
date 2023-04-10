@@ -1,74 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="about_api">Aplikasi ini menggunakan API dari SponsorBlock</string>
-    <string name="about_api_sum">Tekan untuk mempelajari lebih lanjut, dan lihat download untuk platform lain di: sponsor.ajay.app</string>
-    <string name="about_madeby">Integrasi dibuat oleh JakubWeg</string>
     <string name="accessibility_settings_edu_opt_in_text">Aktifkan kontrol aksesibilitas untuk pemutar video?</string>
     <string name="accessibility_settings_edu_opt_out_text">Kontrol anda diubah karena layanan aksesibilitas aktif.</string>
-    <string name="api_mirror_url_changed">URL API MIRROR diubah</string>
-    <string name="api_mirror_url_invalid">URL API MIRROR tersebut tidak valid</string>
-    <string name="api_mirror_url_reset">URL API MIRROR diatur ulang</string>
-    <string name="api_url_changed">URL API diubah</string>
-    <string name="api_url_invalid">URL API yang disediakan tidak valid</string>
-    <string name="api_url_reset">URL API diatur ulang</string>
-    <string name="color_change">Apakah anda ingin mengubah warnanya?</string>
-    <string name="color_changed">Warna diubah</string>
-    <string name="color_change_sum">"Anda sekarang dapat mengubah kategori warnanya dengan menekan diatas ini."</string>
-    <string name="color_invalid">Kode hex tidak valid</string>
-    <string name="color_reset">Atur ulang warna</string>
-    <string name="diff_segments">Apa yang harus dilakukan dengan segmen yang berbeda</string>
-    <string name="enable_sb">Aktifkan SponsorBlock</string>
-    <string name="enable_sb_mirror">Aktifkan SponsorBlock Mirror</string>
-    <string name="enable_sb_mirror_sum">Saat server API SponsorBlock sedang down, alihkan server API mirror ke server API default</string>
-    <string name="enable_sb_sum">SponsorBlock adalah sistem crowd-source untuk melewatkan bagian yang mengganggu di video YouTube</string>
-    <string name="enable_segmadding">Aktifkan penambahan segmen baru</string>
-    <string name="enable_segmadding_sum">Aktifkan ini untuk mengaktifkan penambahan segmen eksperimental (memiliki masalah visibilitas tombol)</string>
-    <string name="enable_voting">Aktifkan voting</string>
-    <string name="enable_voting_sum">Aktifkan ini untuk mengaktifkan voting.</string>
-    <string name="general">Umum</string>
-    <string name="general_adjusting">Menyesuaikan langkah segmen baru</string>
-    <string name="general_adjusting_sum">Ini adalah jumlah milidetik yang dapat anda pindahkan saat anda menggunakan tombol penyesuaian waktu sambil menambahkan segmen baru</string>
-    <string name="general_api_mirror_url">Ubah URL API Mirror</string>
-    <string name="general_api_mirror_url_sum">"URL server mirror untuk beralih ketika server SponsorBlock sedang down. &lt;b&gt;Jangan ubah ini kecuali anda tahu apa yang anda lakukan.&lt;/b&gt;"</string>
-    <string name="general_api_url">Ubah URL API</string>
-    <string name="general_api_url_sum">"URL yang digunakan SponsorBlock untuk melakukan panggilan ke server. &lt;b&gt;Jangan ubah ini kecuali anda tahu apa yang anda lakukan.&lt;/b&gt;"</string>
-    <string name="general_min_duration">Durasi segmen minimum</string>
-    <string name="general_min_duration_sum">Segmen yang lebih pendek dari nilai yang ditetapkan (dalam detik) tidak akan dilewati atau ditampilkan di pemutar</string>
-    <string name="general_skipcount">Lewati pelacakan hitungan</string>
-    <string name="general_skipcount_sum">Hal ini memungkinkan sistem leaderboard SponsorBlock tahu berapa banyak waktu orang telah disimpan. Ekstensi mengirim pesan ke server setiap kali anda melewatkan segmen</string>
-    <string name="general_skiptoast">Tampilkan notifikasi ketika melewatkan segmen otomatis</string>
-    <string name="general_skiptoast_sum">Tekan untuk melihat contoh notifikasi</string>
-    <string name="general_time_without_sb">Tampilkan waktu tanpa segmen</string>
-    <string name="general_time_without_sb_sum">Waktu ini muncul dalam tanda kurung di sebelah waktu saat ini. Ini menunjukkan total durasi video dikurangi segmen apa pun.</string>
-    <string name="general_uuid">ID pengguna pribadi anda</string>
-    <string name="general_uuid_sum">Ini harus dirahasiakan. Ini seperti kata sandi dan tidak boleh dibagikan dengan siapa pun. Jika seseorang memiliki ini, mereka dapat meniru anda</string>
-    <string name="hours">jam</string>
     <string name="microg_not_installed_notice">Silahkan instal MicroG</string>
     <string name="microg_not_installed_warning">MicroG tidak ditemukan</string>
     <string name="microg_not_running_warning">MicroG tidak berjalan di background</string>
     <string name="microg_settings_summary">Aktifkan pengaturan cloud messaging untuk menerima notifikasi</string>
     <string name="microg_settings_title">Buka MicroG</string>
-    <string name="minutes">menit</string>
-    <string name="new_segment_choose_category">Pilih kategori segmen</string>
-    <string name="new_segment_confirm_content" formatted="false">"Segmen berlangsung dari %02d:%02d hingga %02d:%02d (%d menit %02d detik)
-Apakah sudah siap untuk dikirim?"</string>
-    <string name="new_segment_confirm_title">Apakah waktunya sudah benar?</string>
-    <string name="new_segment_disabled_category">"Anda telah menonaktifkan kategori ini dalam pengaturan, aktifkan untuk dapat mengirimkan"</string>
-    <string name="new_segment_edit_by_hand_content">Apakah anda ingin mengedit waktu untuk awal atau akhir segmen?</string>
-    <string name="new_segment_edit_by_hand_parse_error">Waktu tidak valid diberikan</string>
-    <string name="new_segment_edit_by_hand_saved">Selesai</string>
-    <string name="new_segment_edit_by_hand_title">Edit waktu segmen secara manual</string>
-    <string name="new_segment_mark_end">akhir</string>
-    <string name="new_segment_mark_locations_first">Tandai dua lokasi di bilah waktu terlebih dahulu</string>
-    <string name="new_segment_mark_start">mulai</string>
-    <string name="new_segment_mark_time_as_question" formatted="false">Atur %02d:%02d:%04d sebagai awal atau akhir segmen baru?</string>
-    <string name="new_segment_now">sekarang</string>
-    <string name="new_segment_time_end">Waktu segmen berakhir pada</string>
-    <string name="new_segment_time_end_set">Akhir set segmen</string>
-    <string name="new_segment_time_start">Waktu segmen dimulai pada</string>
-    <string name="new_segment_time_start_set">Awal set segmen</string>
-    <string name="new_segment_title">Segmen SponsorBlock baru</string>
-    <string name="reset">Atur ulang</string>
     <string name="revanced_adremover_button_ads_summary_off">Iklan tombol ditampilkan</string>
     <string name="revanced_adremover_button_ads_summary_on">Iklan tombol disembunyikan</string>
     <string name="revanced_adremover_button_ads_title">Sembunyikan iklan tombol</string>
@@ -590,86 +528,16 @@ Karena pengaturan ini sudah cukup usang, mungkin tidak valid"</string>
     <string name="revanced_whitelisting_sponsorblock">SponsorBlock</string>
     <string name="revanced_whitelisting_sponsorblock_button">SB</string>
     <string name="revanced_whitelisting_title">Whitelist channel</string>
-    <string name="sb_connection_failed">Server Sponsorblock tidak merespons!</string>
-    <string name="sb_guidelines_popup_already_read">Sudah dibaca</string>
-    <string name="sb_guidelines_popup_content">"Disarankan untuk membaca pedoman SponsorBlock sebelum mengirimkan segmen apa pun"</string>
-    <string name="sb_guidelines_popup_open">Tunjukkan padaku</string>
-    <string name="sb_guidelines_popup_title">Ada pedoman</string>
-    <string name="sb_guidelines_preference_sum">Pedoman berisi tips dan aturan tentang mengirimkan segmen</string>
     <string name="sb_guidelines_preference_title">Lihat pedoman</string>
-    <string name="sb_switching_success">Berhasil beralih. memuat ulang video</string>
-    <string name="sb_switching_to_mirror">Mengalihkan server mirror API ke server API utama..</string>
+    <string name="sb_guidelines_preference_sum">Pedoman berisi tips dan aturan tentang mengirimkan segmen</string>
+    <string name="sb_guidelines_popup_title">Ada pedoman</string>
+    <string name="sb_guidelines_popup_content">Disarankan untuk membaca pedoman SponsorBlock sebelum mengirimkan segmen apa pun</string>
+    <string name="sb_guidelines_popup_already_read">Sudah dibaca</string>
+    <string name="sb_guidelines_popup_open">Tunjukkan padaku</string>
     <string name="seconds">detik</string>
-    <string name="segments_endcards">Endcards/kredit</string>
-    <string name="segments_endcards_sum">Kredit atau saat kartu akhir YouTube muncul. Bukan untuk kesimpulan yang diucapkan</string>
-    <string name="segments_filler">Filler tangent/lelucon</string>
-    <string name="segments_filler_sum">Adegan tangensial ditambahkan hanya untuk filler atau humor yang tidak diperlukan untuk memahami isi utama video. Ini tidak boleh menyertakan konteks atau detail background</string>
-    <string name="segments_intermission">Intermission/animasi intro</string>
-    <string name="segments_intermission_sum">Interval tanpa konten sebenarnya. Bisa berupa jeda, static frame, animasi berulang</string>
-    <string name="segments_nomusic">Musik: bagian non-musik</string>
-    <string name="segments_nomusic_sum">Hanya untuk digunakan dalam video musik. Lewati bagian video yang tidak ada dalam official mixes</string>
-    <string name="segments_preview">Preview/rekap</string>
-    <string name="segments_preview_sum">"Rekap episode sebelumnya, atau preview tentang apa yang akan muncul nanti di video saat ini atau video mendatang dalam serial yang sama. Klip tidak boleh memberikan informasi tambahan."</string>
-    <string name="segments_selfpromo">Promosi tidak dibayar/diri sendiri</string>
-    <string name="segments_selfpromo_sum">Ketika ada promosi yang tidak dibayar atau promosi diri sendiri. Ini termasuk bagian khusus tentang merchandise, donasi, atau informasi tentang dengan siapa mereka bekerja sama</string>
-    <string name="segments_sponsor">Sponsor</string>
-    <string name="segments_sponsor_sum">Promosi berbayar, referensi berbayar, dan iklan langsung</string>
-    <string name="segments_subscribe">Pengingat interaksi (subscribe)</string>
-    <string name="segments_subscribe_sum">Ketika ada pengingat singkat untuk like, subscribe, follow, atau berinteraksi dengan mereka di platform gratis atau berbayar apa pun</string>
     <string name="settings_export_failed">Gagal mengekspor pengaturan</string>
     <string name="settings_export_successful">Pengaturan berhasil diekspor</string>
     <string name="settings_ie">Pengaturan impor/ekspor</string>
-    <string name="settings_ie_sum">Ini adalah seluruh konfigurasi anda yang berlaku di ekstensi desktop di JSON. Ini termasuk userID pribadi anda, jadi pastikan untuk membagikannya dengan bijak.</string>
     <string name="settings_import_failed">Gagal mengimpor pengaturan</string>
     <string name="settings_import_successful">Pengaturan berhasil diimpor</string>
-    <string name="skipped_endcard">Outro dilewati</string>
-    <string name="skipped_filler">Filler dilewati</string>
-    <string name="skipped_intermission">Intro dilewati</string>
-    <string name="skipped_nomusic">Melewatkan bagian non-musik</string>
-    <string name="skipped_preview">Preview dilewati</string>
-    <string name="skipped_segment">Melewatkan segmen sponsor</string>
-    <string name="skipped_selfpromo">Melewatkan promosi diri</string>
-    <string name="skipped_sponsor">Sponsor dilewati</string>
-    <string name="skipped_subscribe">Pengingat yang mengganggu dilewati</string>
-    <string name="skipped_unsubmitted">Melewati segmen yang belum dikirim</string>
-    <string name="skip_automatically">Lewati secara otomatis</string>
-    <string name="skip_automatically_once">Lewati secara otomatis sekali</string>
-    <string name="skip_ignore">"Jangan lakukan apapun"</string>
-    <string name="skip_showbutton">Tampilkan tombol lewati</string>
-    <string name="skip_sponsor">Segmen dilewati</string>
-    <string name="stats">Statistik</string>
-    <string name="stats_saved">"Anda telah menyelamatkan orang-orang dari &lt;b&gt;%s&lt;/b&gt; segmen."</string>
-    <string name="stats_saved_sum">"Itu &lt;b&gt;%s&lt;/b&gt; hidup mereka. Tekan untuk melihat leaderboard"</string>
-    <string name="stats_sb_disabled">SponsorBlock dinonaktifkan</string>
-    <string name="stats_self_saved">"Anda telah melewatkan &lt;b&gt;%s&lt;/b&gt; segmen."</string>
-    <string name="stats_self_saved_sum">"Itu &lt;b&gt;%s&lt;/b&gt;."</string>
-    <string name="stats_submissions">Submissions: &lt;b&gt;%s&lt;/b&gt;</string>
-    <string name="stats_username">Username anda: &lt;b&gt;%s&lt;/b&gt;</string>
-    <string name="stats_username_change">Tekan untuk mengubah username anda</string>
-    <string name="stats_username_changed">Username berhasil diubah</string>
-    <string name="stats_username_change_unknown_error" formatted="false">Tidak dapat mengubah username: Status: %d %s</string>
-    <string name="submit_failed_duplicate">"Tidak dapat mengirimkan segmen.
-Sudah ada"</string>
-    <string name="submit_failed_forbidden">"Tidak dapat mengirimkan segmen.
-
-%s"</string>
-    <string name="submit_failed_invalid">Tidak dapat mengirimkan segmen: %s</string>
-    <string name="submit_failed_rate_limit">"Tidak dapat mengirimkan segmen.
-Rate Limited (Terlalu banyak dari user atau IP yang sama)"</string>
-    <string name="submit_failed_unknown_error" formatted="false">Tidak dapat memilih segmen: Status: %d %s</string>
-    <string name="submit_started">Mengirimkan segmen…</string>
-    <string name="submit_succeeded">Segmen berhasil dikirim</string>
-    <string name="tap_skip">Tekan untuk melewati</string>
-    <string name="vote_category">Ubah kategori</string>
-    <string name="vote_downvote">Downvote</string>
-    <string name="vote_failed_forbidden">"Tidak dapat memilih segmen.
-
-%s"</string>
-    <string name="vote_failed_rate_limit">"Tidak dapat memilih segmen.
-Rate Limited (Terlalu banyak dari user atau IP yang sama)"</string>
-    <string name="vote_failed_unknown_error" formatted="false">Tidak dapat memilih segmen: Status: %d %s</string>
-    <string name="vote_no_segments">Tidak ada segmen untuk dipilih</string>
-    <string name="vote_started">Voting untuk segmen…</string>
-    <string name="vote_succeeded">Vote berhasil</string>
-    <string name="vote_upvote">Upvote</string>
 </resources>

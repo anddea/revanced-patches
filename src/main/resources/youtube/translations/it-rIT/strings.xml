@@ -1,74 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="about_api">Quest\'app utilizza le API di SponsorBlock</string>
-    <string name="about_api_sum">Tocca per saperne di più e visualizzare le opzioni di download per altre piattaforme su: https://sponsor.ajay.app</string>
-    <string name="about_madeby">Integrazione a cura di JakubWeg</string>
     <string name="accessibility_settings_edu_opt_in_text">Vuoi attivare i controlli di accessibilità per il riproduttore video?</string>
     <string name="accessibility_settings_edu_opt_out_text">I tuoi controlli sono stati modificati poiché un servizio di accessibilità è attivo.</string>
-    <string name="api_mirror_url_changed">URL MIRROR API modificato</string>
-    <string name="api_mirror_url_invalid">L\'URL API MIRROR fornito non è valido</string>
-    <string name="api_mirror_url_reset">URL MIRROR API reimpostato</string>
-    <string name="api_url_changed">URL API modificato</string>
-    <string name="api_url_invalid">L\'URL API fornito non è valido</string>
-    <string name="api_url_reset">URL API reimpostato</string>
-    <string name="color_change">Stai cercando di cambiare i colori?</string>
-    <string name="color_changed">Colore modificato</string>
-    <string name="color_change_sum">"Ora puoi cambiare il colore di una categoria cliccandoci sopra"</string>
-    <string name="color_invalid">Codice esadecimale non valido</string>
-    <string name="color_reset">Ripristina colore</string>
-    <string name="diff_segments">Cosa puoi fare con i diversi segmenti</string>
-    <string name="enable_sb">Attiva SponsorBlock</string>
-    <string name="enable_sb_mirror">Attiva SponsorBlock Mirror</string>
-    <string name="enable_sb_mirror_sum">Quando il server API di SponsorBlock non risponde, questa opzione esegue il passaggio al server API mirror</string>
-    <string name="enable_sb_sum">SponsorBlock è un sistema collaborativo creato per saltare le parti fastidiose nei video di YouTube</string>
-    <string name="enable_segmadding">Attiva l\'aggiunta di un nuovo segmento</string>
-    <string name="enable_segmadding_sum">Attiva questa opzione per poter aggiungere segmenti sperimentali (il pulsante ha problemi di visibilità)</string>
-    <string name="enable_voting">Attiva votazione</string>
-    <string name="enable_voting_sum">Attiva questa opzione per poter effettuare la votazione</string>
-    <string name="general">Generale</string>
-    <string name="general_adjusting">Regola il nuovo passo del segmento</string>
-    <string name="general_adjusting_sum">Questo è il valore in millisecondi che puoi modificare con i pulsanti di regolazione temporale durante l\'aggiunta di un nuovo segmento</string>
-    <string name="general_api_mirror_url">Modifica l\'URL Mirror delle API</string>
-    <string name="general_api_mirror_url_sum">"Modifica l'indirizzo del server quando quello predefinito di SponsorBlock non risponde. &lt;b&gt; Non cambiarlo a meno che tu non sappia cosa stai facendo&lt;/b&gt;"</string>
-    <string name="general_api_url">Modifica URL API</string>
-    <string name="general_api_url_sum">"L'indirizzo che SponsorBlock utilizza per contattare il server. &lt;b&gt; Non cambiarlo a meno che tu non sappia cosa stai facendo&lt;/b&gt;"</string>
-    <string name="general_min_duration">Durata minima del segmento</string>
-    <string name="general_min_duration_sum">I segmenti più brevi del valore impostato (in secondi) non verranno saltati o visualizzati dal riproduttore</string>
-    <string name="general_skipcount">Invia il conteggio dei salti</string>
-    <string name="general_skipcount_sum">Questo permette al sistema di classifica di SponsorBlock di sapere quanto tempo le persone hanno risparmiato. L’estensione invia un messaggio al server ogni volta che salti un segmento</string>
-    <string name="general_skiptoast">Mostra una notifica per un segmento saltato automaticamente</string>
-    <string name="general_skiptoast_sum">Clicca per vedere un esempio di notifica</string>
-    <string name="general_time_without_sb">Mostra il tempo senza i segmenti</string>
-    <string name="general_time_without_sb_sum">Questo tempo appare tra parentesi accanto al minutaggio in corso. Esso mostra la durata totale del video meno eventuali segmenti</string>
-    <string name="general_uuid">Il tuo ID utente univoco</string>
-    <string name="general_uuid_sum">Questo dovrebbe essere tenuto al sicuro. È come una password e non dovrebbe essere condiviso con nessuno. Se qualcuno dovesse ottenerlo, potrebbe impersonarti</string>
-    <string name="hours">ore</string>
     <string name="microg_not_installed_notice">Per favore installa MicroG</string>
     <string name="microg_not_installed_warning">MicroG non trovato</string>
     <string name="microg_not_running_warning">MicroG non è in esecuzione in background</string>
     <string name="microg_settings_summary">Attiva le impostazioni di messaggistica cloud per ricevere le notifiche</string>
     <string name="microg_settings_title">Apri MicroG</string>
-    <string name="minutes">minuti</string>
-    <string name="new_segment_choose_category">Scegli la categoria del segmento</string>
-    <string name="new_segment_confirm_content" formatted="false">"Il segmento dura da %02d:%02d a %02d:%02d (%d minuti %02d secondi)
-È pronto per l'invio?"</string>
-    <string name="new_segment_confirm_title">I valori temporali sono corretti?</string>
-    <string name="new_segment_disabled_category">"Hai disattivato questa categoria nelle impostazioni, attivala per essere in grado di effettuare l'invio"</string>
-    <string name="new_segment_edit_by_hand_content">Vuoi modificare l\'intervallo temporale di inizio o fine segmento?</string>
-    <string name="new_segment_edit_by_hand_parse_error">Il periodo temporale fornito non è valido</string>
-    <string name="new_segment_edit_by_hand_saved">Fatto</string>
-    <string name="new_segment_edit_by_hand_title">Modifica manualmente il periodo temporale del segmento</string>
-    <string name="new_segment_mark_end">fine</string>
-    <string name="new_segment_mark_locations_first">Segna prima due posizioni sulla barra del tempo</string>
-    <string name="new_segment_mark_start">inizio</string>
-    <string name="new_segment_mark_time_as_question" formatted="false">Impostare %02d:%02d:%04d come inizio o fine di un nuovo segmento?</string>
-    <string name="new_segment_now">ora</string>
-    <string name="new_segment_time_end">Il segmento termina a</string>
-    <string name="new_segment_time_end_set">Fine del segmento impostata</string>
-    <string name="new_segment_time_start">Il segmento inizia a</string>
-    <string name="new_segment_time_start_set">Inizio del segmento impostato</string>
-    <string name="new_segment_title">Nuovo segmento di SponsorBlock</string>
-    <string name="reset">Reimposta</string>
     <string name="revanced_adremover_button_ads_summary_off">Gli annunci pulsante sono visibili</string>
     <string name="revanced_adremover_button_ads_summary_on">Gli annunci pulsante sono nascosti</string>
     <string name="revanced_adremover_button_ads_title">Nascondi gli annunci pulsante</string>
@@ -103,6 +41,9 @@
     <string name="revanced_default_video_quality_mobile_title">Risoluzione video Dati Cellulare predefinita</string>
     <string name="revanced_default_video_quality_wifi_title">Risoluzione video Wi-Fi predefinita</string>
     <string name="revanced_default_video_speed_title">Velocità video predefinita</string>
+    <string name="revanced_disable_default_video_speed_live_summary_off">La velocità predefinita è attiva nei video dal vivo</string>
+    <string name="revanced_disable_default_video_speed_live_summary_on">La velocità predefinita è disattivata nei video dal vivo</string>
+    <string name="revanced_disable_default_video_speed_live_title">Disattiva la velocità predefinita nei video dal vivo</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">La vibrazione in fase di cambio dei capitoli video è attiva</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">La vibrazione in fase di cambio dei capitoli video è disattivata</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">Capitoli video</string>
@@ -133,8 +74,8 @@
     <string name="revanced_enable_always_auto_repeat_summary_off">Ripeti sempre automaticamente è disattivato</string>
     <string name="revanced_enable_always_auto_repeat_summary_on">Ripeti sempre automaticamente è attivo</string>
     <string name="revanced_enable_always_auto_repeat_title">Ripeti sempre automaticamente</string>
-    <string name="revanced_enable_custom_seekbar_color_summary_off">Il colore personalizzato della barra del minutaggio scura è disattivato</string>
-    <string name="revanced_enable_custom_seekbar_color_summary_on">Il colore personalizzato della barra del minutaggio scura è attivo</string>
+    <string name="revanced_enable_custom_seekbar_color_summary_off">Il colore personalizzato della barra del minutaggio è disattivato</string>
+    <string name="revanced_enable_custom_seekbar_color_summary_on">Il colore personalizzato della barra del minutaggio è attivo</string>
     <string name="revanced_enable_custom_seekbar_color_title">Attiva il colore personalizzato della barra del minutaggio</string>
     <string name="revanced_enable_custom_video_speed_summary_off">La velocità video personalizzata è disattivata</string>
     <string name="revanced_enable_custom_video_speed_summary_on">La velocità video personalizzata è attiva</string>
@@ -373,9 +314,9 @@ Si prega di non segnalare eventuali problemi riscontrati durante l'utilizzo di q
     <string name="revanced_hide_menu_captions_summary_off">Il menù Sottotitoli è visibile</string>
     <string name="revanced_hide_menu_captions_summary_on">Il menù Sottotitoli è nascosto</string>
     <string name="revanced_hide_menu_captions_title">Nascondi il menù Sottotitoli</string>
-    <string name="revanced_hide_menu_help_summary_off">Il menù Aiuto &amp; Feedback è visibile</string>
-    <string name="revanced_hide_menu_help_summary_on">Il menù Aiuto &amp; Feedback è nascosto</string>
-    <string name="revanced_hide_menu_help_title">Nascondi il menù Aiuto &amp; Feedback</string>
+    <string name="revanced_hide_menu_help_summary_off">Il menù Guida e Feedback è visibile</string>
+    <string name="revanced_hide_menu_help_summary_on">Il menù Guida e Feedback è nascosto</string>
+    <string name="revanced_hide_menu_help_title">Nascondi il menù Guida e Feedback</string>
     <string name="revanced_hide_menu_listening_controls_summary_off">Il menù Controlli di Ascolto è visibile</string>
     <string name="revanced_hide_menu_listening_controls_summary_on">Il menù Controlli di Ascolto è nascosto</string>
     <string name="revanced_hide_menu_listening_controls_title">Nascondi il menù Controlli di Ascolto</string>
@@ -385,9 +326,9 @@ Si prega di non segnalare eventuali problemi riscontrati durante l'utilizzo di q
     <string name="revanced_hide_menu_loop_video_summary_off">Il menù Loop del Video è visibile</string>
     <string name="revanced_hide_menu_loop_video_summary_on">Il menù Loop del Video è nascosto</string>
     <string name="revanced_hide_menu_loop_video_title">Nascondi il menù Loop del Video</string>
-    <string name="revanced_hide_menu_more_info_summary_off">Il menù Altro da... è visibile</string>
-    <string name="revanced_hide_menu_more_info_summary_on">Il menù Altro da... è nascosto</string>
-    <string name="revanced_hide_menu_more_info_title">Nascondi il menù Altro da...</string>
+    <string name="revanced_hide_menu_more_info_summary_off">Il menù Altro da ... è visibile</string>
+    <string name="revanced_hide_menu_more_info_summary_on">Il menù Altro da ... è nascosto</string>
+    <string name="revanced_hide_menu_more_info_title">Nascondi il menù Altro da ...</string>
     <string name="revanced_hide_menu_report_summary_off">Il menù Segnala è visibile</string>
     <string name="revanced_hide_menu_report_summary_on">Il menù Segnala è nascosto</string>
     <string name="revanced_hide_menu_report_title">Nascondi il menù Segnala</string>
@@ -473,6 +414,9 @@ Si prega di non segnalare eventuali problemi riscontrati durante l'utilizzo di q
     <string name="revanced_hide_time_stamp_summary_off">La marca temporale è visibile</string>
     <string name="revanced_hide_time_stamp_summary_on">La marca temporale è nascosta</string>
     <string name="revanced_hide_time_stamp_title">Nascondi la marca temporale</string>
+    <string name="revanced_hide_search_terms_summary_off">I suggerimenti della cronologia delle ricerche sono visibili</string>
+    <string name="revanced_hide_search_terms_summary_on">I suggerimenti della cronologia delle ricerche sono nascoste</string>
+    <string name="revanced_hide_search_terms_title">Nascondi i suggerimenti della cronologia delle ricerche</string>
     <string name="revanced_hide_view_products_summary_off">Il banner dei prodotti è visibile</string>
     <string name="revanced_hide_view_products_summary_on">Il banner dei prodotti è nascosto</string>
     <string name="revanced_hide_view_products_title">Nascondi i banner dei prodotti del riproduttore</string>
@@ -590,86 +534,16 @@ Dal momento che questa opzione è abbastanza obsoleta, potrebbe risultare non pi
     <string name="revanced_whitelisting_sponsorblock">SponsorBlock</string>
     <string name="revanced_whitelisting_sponsorblock_button">SB</string>
     <string name="revanced_whitelisting_title">Canale nella Lista Bianca</string>
-    <string name="sb_connection_failed">Il server di SponsorBlock non risponde!</string>
-    <string name="sb_guidelines_popup_already_read">Già letto</string>
-    <string name="sb_guidelines_popup_content">"Si consiglia di leggere le linee guida di SponsorBlock prima di inviare qualsiasi segmento"</string>
-    <string name="sb_guidelines_popup_open">Mostrami</string>
-    <string name="sb_guidelines_popup_title">Ci sono linee guida</string>
-    <string name="sb_guidelines_preference_sum">Le linee guida contengono suggerimenti e regole sull\'\'invio dei segmenti</string>
     <string name="sb_guidelines_preference_title">Visualizza le linee guida</string>
-    <string name="sb_switching_success">Modifica correttamente eseguita. Ricarica il video</string>
-    <string name="sb_switching_to_mirror">Passaggio del server API di backup al server API principale..</string>
+    <string name="sb_guidelines_preference_sum">Le linee guida contengono suggerimenti e regole sull\'\'invio dei segmenti</string>
+    <string name="sb_guidelines_popup_title">Ci sono linee guida</string>
+    <string name="sb_guidelines_popup_content">Si consiglia di leggere le linee guida di SponsorBlock prima di inviare qualsiasi segmento</string>
+    <string name="sb_guidelines_popup_already_read">Già letto</string>
+    <string name="sb_guidelines_popup_open">Mostrami</string>
     <string name="seconds">secondi</string>
-    <string name="segments_endcards">Schede Finali/Crediti</string>
-    <string name="segments_endcards_sum">Riconoscimenti o quando vengono mostrate le schede finali di YouTube. Non per le conclusioni parlate</string>
-    <string name="segments_filler">Tangenti Riempitive/Battute</string>
-    <string name="segments_filler_sum">Scene tangenti aggiunte al solo scopo riempitivo o umoristico, non fondamentali per la comprensione del contenuto principale del video. Ciò non dovrebbe includere dettagli sul contesto o sullo sfondo</string>
-    <string name="segments_intermission">Animazione Intervallo/Introduzione</string>
-    <string name="segments_intermission_sum">Un intervallo senza contenuto effettivo. Potrebbe essere una pausa, cornice statica o animazione ripetuta</string>
-    <string name="segments_nomusic">Musica: Sezione Non Musicale</string>
-    <string name="segments_nomusic_sum">Utilizzo limitato ai soli video musicali. Salta le parti di video non presenti nei mix ufficiali</string>
-    <string name="segments_preview">Anteprima/Riepilogo</string>
-    <string name="segments_preview_sum">"Un riepilogo degli episodi precedenti o un'anteprima di ciò che accadrà più tardi nel video attuale o nei video futuri della stessa serie. Le clip non devono fornire informazioni aggiuntive"</string>
-    <string name="segments_selfpromo">Promozione Gratuita/Autopromozione</string>
-    <string name="segments_selfpromo_sum">Quando viene visualizzata una promozione non pagata o un\'autopromozione. Ciò include sezioni specifiche su merce, donazioni o informazioni su collaboratori</string>
-    <string name="segments_sponsor">Sponsor</string>
-    <string name="segments_sponsor_sum">Promozione a pagamento, riferimenti a pagamento e pubblicità diretta</string>
-    <string name="segments_subscribe">Promemoria Interazione (Iscrizione)</string>
-    <string name="segments_subscribe_sum">Quando viene visualizzato una breve promemoria per cliccare mi piace, iscriversi, seguire o interagire con i creatori su qualsiasi piattaforma gratuita o a pagamento</string>
     <string name="settings_export_failed">Impossibile esportare le impostazioni</string>
     <string name="settings_export_successful">Impostazioni correttamente importate</string>
     <string name="settings_ie">Importa/Esporta impostazioni</string>
-    <string name="settings_ie_sum">Questa è la tua intera configurazione in JSON che è applicabile nell\'estensione desktop. Esso include il tuo ID utente univoco, quindi assicurati di custodirlo con attenzione</string>
     <string name="settings_import_failed">Impossibile importare le impostazioni</string>
     <string name="settings_import_successful">Impostazioni correttamente importate</string>
-    <string name="skipped_endcard">Conclusioni finali saltate</string>
-    <string name="skipped_filler">Riempitivo saltato</string>
-    <string name="skipped_intermission">Introduzione saltata</string>
-    <string name="skipped_nomusic">Sezione non musicale saltata</string>
-    <string name="skipped_preview">Anteprima saltata</string>
-    <string name="skipped_segment">Segmento sponsor saltato</string>
-    <string name="skipped_selfpromo">Autopromozione saltata</string>
-    <string name="skipped_sponsor">Sponsor saltato</string>
-    <string name="skipped_subscribe">Promemoria fastidioso saltato</string>
-    <string name="skipped_unsubmitted">Segmento non inviato saltato</string>
-    <string name="skip_automatically">Salta automaticamente</string>
-    <string name="skip_automatically_once">Salta automaticamente una sola volta</string>
-    <string name="skip_ignore">"Non fare nulla"</string>
-    <string name="skip_showbutton">Mostra il pulsante salta</string>
-    <string name="skip_sponsor">Salta segmento</string>
-    <string name="stats">Statistiche</string>
-    <string name="stats_saved">"Hai salvato le persone da &lt;b&gt;%s&lt;/b&gt; segmenti."</string>
-    <string name="stats_saved_sum">"Per un totale di &lt;b&gt;%s&lt;/b&gt; della loro vita. Clicca per visualizzare la classifica"</string>
-    <string name="stats_sb_disabled">SponsorBlock è disattivato</string>
-    <string name="stats_self_saved">"Hai saltato &lt;b&gt;%s&lt;/b&gt; segmenti."</string>
-    <string name="stats_self_saved_sum">"Per un totale di &lt;b&gt;%s&lt;/b&gt;."</string>
-    <string name="stats_submissions">Inviati: &lt;b&gt;%s&lt;/b&gt;</string>
-    <string name="stats_username">Il tuo nome utente: &lt;b&gt;%s&lt;/b&gt;</string>
-    <string name="stats_username_change">Clicca per cambiare il tuo nome utente</string>
-    <string name="stats_username_changed">Nome utente correttamente modificato</string>
-    <string name="stats_username_change_unknown_error" formatted="false">Impossibile modificare il nome utente: Stato: %d %s</string>
-    <string name="submit_failed_duplicate">"Impossibile inviare il segmento.
-È già presente un duplicato"</string>
-    <string name="submit_failed_forbidden">"Impossibile inviare il segmento.
-
-%s"</string>
-    <string name="submit_failed_invalid">Impossibile inviare il segmento: %s</string>
-    <string name="submit_failed_rate_limit">"Impossibile inviare il segmento.
-Soglia raggiunta (troppe richieste provenienti dallo stesso utente o IP)"</string>
-    <string name="submit_failed_unknown_error" formatted="false">Impossibile inviare i segmenti: Stato: %d %s</string>
-    <string name="submit_started">Invio del segmento…</string>
-    <string name="submit_succeeded">Segmento correttamente inviato</string>
-    <string name="tap_skip">Tocca per saltare</string>
-    <string name="vote_category">Cambia categoria</string>
-    <string name="vote_downvote">Voto negativo</string>
-    <string name="vote_failed_forbidden">"Impossibile votare il segmento.
-
-%s"</string>
-    <string name="vote_failed_rate_limit">"Impossibile votare per il segmento.
-Soglia raggiunta (troppe richieste provenienti dallo stesso utente o IP)"</string>
-    <string name="vote_failed_unknown_error" formatted="false">Impossibile votare per il segmento: Stato: %d %s</string>
-    <string name="vote_no_segments">Non ci sono segmenti da votare</string>
-    <string name="vote_started">Votando per il segmento…</string>
-    <string name="vote_succeeded">Votazione riuscita</string>
-    <string name="vote_upvote">Voto positivo</string>
 </resources>

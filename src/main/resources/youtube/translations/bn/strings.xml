@@ -1,74 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="about_api">এই অ্যাপ্লিকেশনটি SponsorBlock API ব্যবহার করে</string>
-    <string name="about_api_sum">আরও জানতে আলতো চাপুন, এবং অন্যান্য প্ল্যাটফর্মের জন্য ডাউনলোড দেখুন: sponsor.ajay.app</string>
-    <string name="about_madeby">জ্যাকুবওয়েগ দ্বারা তৈরি ইন্টিগ্রেশন</string>
     <string name="accessibility_settings_edu_opt_in_text">ভিডিও প্লেয়ারের জন্য Accessibility নিয়ন্ত্রণ চালু করবেন?</string>
     <string name="accessibility_settings_edu_opt_out_text">আপনার নিয়ন্ত্রণ পরিবর্তন করা হয়েছে কারণ একটি Accessibility পরিষেবা চালু আছে।</string>
-    <string name="api_mirror_url_changed">মিরর API URL পরিবর্তন হয়েছে</string>
-    <string name="api_mirror_url_invalid">প্রদত্ত মিরর API URL ভুল</string>
-    <string name="api_mirror_url_reset">মিরর API URL পুনঃসেট হয়েছে</string>
-    <string name="api_url_changed">API URL পরিবর্তন হয়েছে</string>
-    <string name="api_url_invalid">প্রদত্ত API URL ভুল</string>
-    <string name="api_url_reset">API URL পুনঃসেট</string>
-    <string name="color_change">আপনি কি রং পরিবর্তন করতে চাচ্ছেন?</string>
-    <string name="color_changed">রং পরিবর্তন হয়েছে</string>
-    <string name="color_change_sum">"এটির উপর ক্লিক করে এখন আপনি চাইলে একটি বিভাগের রং পরিবর্তন করতে পারেন।"</string>
-    <string name="color_invalid">ভুল hex কোড</string>
-    <string name="color_reset">রং পুনঃসেট</string>
-    <string name="diff_segments">বিভিন্ন সেগমেন্ট নিয়ে কী করবেন</string>
-    <string name="enable_sb">SponsorBlock সক্রিয় করুন</string>
-    <string name="enable_sb_mirror">মিরর SponsorBlock সক্রিয় করুন</string>
-    <string name="enable_sb_mirror_sum">যখন SponsorBlock API সার্ভার অকার্যকর থাকে, মিরর API সার্ভারকে ডিফল্ট সার্ভারে পরিবর্তন করে</string>
-    <string name="enable_sb_sum">SponsorBlock হল ইউটিউব ভিডিওতে বিরক্তিকর অংশ গুলো এড়িয়ে যাওয়ার জন্য একটি ক্রাউড-সোর্স পদ্ধতি</string>
-    <string name="enable_segmadding">নতুন সেগমেন্ট যুক্ত করার পদ্ধতি সক্ষম করুন</string>
-    <string name="enable_segmadding_sum">পরীক্ষামূলক সেগমেন্ট যোগ করার জন্য এই বাটন টি চালু করুন (বাটন প্রদর্শনে সমস্যা রয়েছে)</string>
-    <string name="enable_voting">ভোটিং চালু করুন</string>
-    <string name="enable_voting_sum">এই বাটন চেপে ভোটিং চালু করুন।</string>
-    <string name="general">সাধারণ</string>
-    <string name="general_adjusting">নতুন সেগমেন্টের পদক্ষেপ সামঞ্জস্য করা</string>
-    <string name="general_adjusting_sum">নতুন সেগমেন্ট যোগ করার সময় সমন্বয় করার বাটনগুলো ব্যবহার করলে এত মিলিসেকেন্ড পর্যন্ত সময়কাল স্থানান্তর করতে পারবেন</string>
-    <string name="general_api_mirror_url">মিরর API URL পরিবর্তন</string>
-    <string name="general_api_mirror_url_sum">"মিরর সার্ভার ঠিকানা SponsorBlock সার্ভার অকার্যকর থাকলে নিজেকে রূপান্তর করে। &lt;b&gt;আপনি কি করছেন তা না জানলে এটি পরিবর্তন করবেন না৷&lt;/b&gt;"</string>
-    <string name="general_api_url">API URL পরিবর্তন করুন</string>
-    <string name="general_api_url_sum">"এ ঠিকানা SponsorBlock সার্ভারের সাথে যোগাযোগ করতে ব্যবহার করে। &lt;b&gt;আপনি কি করছেন তা না জানলে এটি পরিবর্তন করবেন না৷&lt;/b&gt;"</string>
-    <string name="general_min_duration">সেগমেন্ট এর সর্বনিম্ন সময়</string>
-    <string name="general_min_duration_sum">ধার্য করা মান (সেকেন্ডে) থেকে ছোট সেগমেন্টগুলি প্লেয়ারে এড়িয়ে যাওয়া বা দেখানো হবে না</string>
-    <string name="general_skipcount">গণনা ট্র্যাকিং এড়িয়ে যান</string>
-    <string name="general_skipcount_sum">এটি SponsorBlock লিডারবোর্ড সিস্টেমকে জানতে দেয় যে লোকেরা কতটা সময় বাঁচিয়েছে। আপনি যখনই একটি সেগমেন্ট এড়িয়ে যান তখন এক্সটেনশনটি সার্ভারে একটি বার্তা পাঠায়</string>
-    <string name="general_skiptoast">কোনো স্বয়ংক্রিয়ভাবে সেগমেন্ট এড়িয়ে যাওয়ার সময় একটি টোস্ট দেখান</string>
-    <string name="general_skiptoast_sum">নমুনা টোস্ট দেখতে আলতো চাপুন</string>
-    <string name="general_time_without_sb">সেগমেন্ট ছাড়া সময় দেখুন</string>
-    <string name="general_time_without_sb_sum">এই সময়টি বর্তমান সময়ের পাশে বন্ধনীতে দেখানো হয়। এটি সেগমেন্ট এর সময়গুলোকে বাদ দিয়ে ভিডিওর বাকি সময়কাল দেখায়।</string>
-    <string name="general_uuid">আপনার ব্যক্তিগত ব্যবহারকারী আইডি</string>
-    <string name="general_uuid_sum">এটি গোপন রাখা উচিত। এটি একটি পাসওয়ার্ডের মতো এবং কারও সাথে শেয়ার করা উচিত নয়। যদি কারও কাছে এটি থাকে, তবে তারা আপনার ছদ্মবেশ ধারণ করতে পারে</string>
-    <string name="hours">ঘণ্টা</string>
     <string name="microg_not_installed_notice">অনুগ্রহপূর্বক MicroG ইনস্টল করুন</string>
     <string name="microg_not_installed_warning">MicroG খুঁজে পাওয়া যায় নি</string>
     <string name="microg_not_running_warning">MicroG ব্যাকগ্রাউন্ডে চলছে না</string>
     <string name="microg_settings_summary">বিজ্ঞপ্তি পাওয়ার জন্য ক্লাউড ম্যাসেজিং সেটিং সক্রিয় করুন</string>
     <string name="microg_settings_title">MicroG খুলুন</string>
-    <string name="minutes">মিনিট</string>
-    <string name="new_segment_choose_category">সেগমেন্ট বিভাগ নির্বাচন করুন</string>
-    <string name="new_segment_confirm_content" formatted="false">"সেগমেন্ট %02d:%02d থেকে %02d:%02d পর্যন্ত স্থায়ী হয় (%d মিনিট %02d সেকেন্ড)
-এটি জমা দেওয়ার জন্য প্রস্তুত?"</string>
-    <string name="new_segment_confirm_title">সময়কাল কি সঠিক?</string>
-    <string name="new_segment_disabled_category">"আপনি সেটিংসে এই বিভাগটি বন্ধ করেছেন, সেগমেন্ট জমা দিতে এটি চালু করুন"</string>
-    <string name="new_segment_edit_by_hand_content">আপনি কি সেগমেন্টের শুরু বা শেষের সময় সম্পাদনা করতে চান?</string>
-    <string name="new_segment_edit_by_hand_parse_error">অবৈধ সময় দেওয়া হয়েছে</string>
-    <string name="new_segment_edit_by_hand_saved">সম্পন্ন হয়েছে</string>
-    <string name="new_segment_edit_by_hand_title">সেগমেন্টের সময় ম্যানুয়ালি সম্পাদনা করুন</string>
-    <string name="new_segment_mark_end">শেষ</string>
-    <string name="new_segment_mark_locations_first">প্রথমে টাইম বারে দুটি অবস্থান চিহ্নিত করুন</string>
-    <string name="new_segment_mark_start">শুরু</string>
-    <string name="new_segment_mark_time_as_question" formatted="false">একটি নতুন সেগমেন্টের শুরু বা শেষ হিসাবে %02d:%02d:%04d সেট করবেন?</string>
-    <string name="new_segment_now">এখন</string>
-    <string name="new_segment_time_end">সেগমেন্ট শেষ হওয়ার সময়</string>
-    <string name="new_segment_time_end_set">সেগমেন্ট এর শেষ সেট করুন</string>
-    <string name="new_segment_time_start">সেগমেন্ট শুরু হওয়ার সময়</string>
-    <string name="new_segment_time_start_set">সেগমেন্ট এর শুরু নির্ধারণ করুন</string>
-    <string name="new_segment_title">নতুন SponsorBlock সেগমেন্ট</string>
-    <string name="reset">পুনঃসেট</string>
     <string name="revanced_adremover_button_ads_summary_off">বাটনযুক্ত বিজ্ঞাপন প্রদর্শিত হয়েছে</string>
     <string name="revanced_adremover_button_ads_summary_on">বাটনযুক্ত বিজ্ঞাপন লুকিয়ে রয়েছে</string>
     <string name="revanced_adremover_button_ads_title">বাটনযুক্ত বিজ্ঞাপন লুকান</string>
@@ -479,86 +417,16 @@
     <string name="revanced_whitelisting_sponsorblock">SponsorBlock</string>
     <string name="revanced_whitelisting_sponsorblock_button">SB</string>
     <string name="revanced_whitelisting_title">চ্যানেল সাদা তালিকাভুক্তকরণ</string>
-    <string name="sb_connection_failed">SponsorBlock সার্ভার সাড়া দিচ্ছে না!</string>
-    <string name="sb_guidelines_popup_already_read">ইতোমধ্যে পড়া হয়েছে</string>
-    <string name="sb_guidelines_popup_content">"কোন সেগমেন্ট জমা দেয়ার আগে SponsorBlock নির্দেশিকা পড়ার পরামর্শ দেয়া হয়"</string>
-    <string name="sb_guidelines_popup_open">আমাকে দেখান</string>
-    <string name="sb_guidelines_popup_title">নির্দেশিকা রয়েছে</string>
-    <string name="sb_guidelines_preference_sum">নির্দেশিকাতে সেগমেন্ট জমা দেওয়ার বিষয়ে টিপস এবং নিয়ম রয়েছে</string>
     <string name="sb_guidelines_preference_title">নির্দেশিকা দেখুন</string>
-    <string name="sb_switching_success">সফলভাবে পরিবর্তন করা হয়েছে। ভিডিও পুনঃলোড করুন</string>
-    <string name="sb_switching_to_mirror">মিরর API সার্ভার থেকে প্রধান API সার্ভারে পরিবর্তন করা হচ্ছে..</string>
+    <string name="sb_guidelines_preference_sum">নির্দেশিকাতে সেগমেন্ট জমা দেওয়ার বিষয়ে টিপস এবং নিয়ম রয়েছে</string>
+    <string name="sb_guidelines_popup_title">নির্দেশিকা রয়েছে</string>
+    <string name="sb_guidelines_popup_content">কোন সেগমেন্ট জমা দেয়ার আগে SponsorBlock নির্দেশিকা পড়ার পরামর্শ দেয়া হয়</string>
+    <string name="sb_guidelines_popup_already_read">ইতোমধ্যে পড়া হয়েছে</string>
+    <string name="sb_guidelines_popup_open">আমাকে দেখান</string>
     <string name="seconds">সেকেন্ড</string>
-    <string name="segments_endcards">এন্ডকার্ড/কৃতজ্ঞতা</string>
-    <string name="segments_endcards_sum">কৃতজ্ঞতা বা যখন YouTube এন্ডকার্ড প্রদর্শিত হয়। মৌখিক উপসংহারের জন্য নয়</string>
-    <string name="segments_filler">স্পর্শক/কৌতুক ফিল্টার করুন</string>
-    <string name="segments_filler_sum">স্পর্শকাতর দৃশ্যগুলি শুধুমাত্র ফিলার বা হাস্যরসের জন্য যোগ করা হয়েছে যা ভিডিওর মূল বিষয়বস্তু বুঝতে প্রয়োজন হয় না। এর মধ্যে প্রসঙ্গ বা ব্যাকগ্রাউন্ডের বিশদ বিবরণ প্রদানকারী বিষয়গুলি অন্তর্ভুক্ত করা উচিত নয়</string>
-    <string name="segments_intermission">বিরতি/সূচনা অ্যানিমেশন</string>
-    <string name="segments_intermission_sum">প্রকৃত বিষয়বস্তু ছাড়া একটি বিরতি। একটি বিরতি, স্থির ফ্রেম, অ্যানিমেশন পুনরাবৃত্তি হতে পারে</string>
-    <string name="segments_nomusic">সঙ্গীত: সঙ্গীতবিহীন অংশ</string>
-    <string name="segments_nomusic_sum">শুধুমাত্র সঙ্গীত ভিডিওতে ব্যবহারের জন্য। অফিসিয়াল মিক্সে না থাকা ভিডিওর অংশগুলি এড়িয়ে যায়</string>
-    <string name="segments_preview">পূর্বরূপ/সংক্ষিপ্তবৃত্তি</string>
-    <string name="segments_preview_sum">"পূর্ববর্তী ভিডিও সংক্ষিপ্ত বিবরণ অথবা বর্তমান ভিডিওতে একটু পরে বা ভবিষ্যতে একই শ্রেণির ভিডিওতে যা আসছে তার পূর্বরূপ। ক্লিপে অতিরিক্ত তথ্য দেয়া উচিত নয়।"</string>
-    <string name="segments_selfpromo">বিনা অর্থপ্রাপ্ত/স্ব-প্রচার</string>
-    <string name="segments_selfpromo_sum">যখন বিনা অর্থপ্রাপ্ত বা স্ব-প্রচার থাকে। এতে পণ্যদ্রব্য, দান, বা তারা কার সাথে সহযোগিতা করেছে সে সম্পর্কে তথ্য সম্পর্কে নির্দিষ্ট বিভাগগুলি অন্তর্ভুক্ত করে</string>
-    <string name="segments_sponsor">স্পন্সর</string>
-    <string name="segments_sponsor_sum">অর্থপ্রদত্ত প্রচার, অর্থ প্রদানের রেফারেল এবং সরাসরি বিজ্ঞাপন</string>
-    <string name="segments_subscribe">ইন্টারঅ্যাকশন রিমাইন্ডার (সাবস্ক্রাইব)</string>
-    <string name="segments_subscribe_sum">যখন একটি ছোট রিমাইন্ডার থাকে লাইক, সাবস্ক্রাইব, ফলো বা যেকোনো ফ্রি বা পেইড প্ল্যাটফর্মে তাদের সাথে ইন্টারঅ্যাক্ট করার জন্য</string>
     <string name="settings_export_failed">সেটিং রপ্তানি করতে ব্যর্থ হয়েছে</string>
     <string name="settings_export_successful">সেটিং সফলভাবে রপ্তানি করা হয়েছে</string>
     <string name="settings_ie">সেটিং আমদানী/রপ্তানি</string>
-    <string name="settings_ie_sum">এটি আপনার সম্পূর্ণ কনফিগারেশন যা JSON-এর ডেস্কটপ এক্সটেনশনে প্রযোজ্য। এতে আপনার ব্যক্তিগত ব্যবহারকারী আইডি অন্তর্ভুক্ত রয়েছে, তাই এটি বুদ্ধমত্তার সহিত শেয়ার করতে ভুলবেন না।</string>
     <string name="settings_import_failed">সেটিং আমদানি করতে ব্যর্থ</string>
     <string name="settings_import_successful">সেটিং সফলভাবে আমদানি করা হয়েছে</string>
-    <string name="skipped_endcard">শেষ অংশ এড়িয়ে গেছে</string>
-    <string name="skipped_filler">ফিল্টার এড়িয়ে গেছে</string>
-    <string name="skipped_intermission">সূচনা এড়িয়ে গেছে</string>
-    <string name="skipped_nomusic">একটি সঙ্গীতবিহীন অংশ এড়িয়ে গেছে</string>
-    <string name="skipped_preview">প্রিভিউ এড়িয়ে গেছে</string>
-    <string name="skipped_segment">একটি স্পন্সর সেগমেন্ট এড়িয়ে গেছে</string>
-    <string name="skipped_selfpromo">স্ব-প্রচার এড়িয়ে গেছে</string>
-    <string name="skipped_sponsor">স্পন্সর এড়িয়ে গেছে</string>
-    <string name="skipped_subscribe">বিরক্তিকর রিমাইন্ডার এড়িয়ে গেছে</string>
-    <string name="skipped_unsubmitted">জমা না হওয়া সেগমেন্ট এড়িয়ে গেছে</string>
-    <string name="skip_automatically">স্বয়ংক্রিয়ভাবে এড়িয়ে যান</string>
-    <string name="skip_automatically_once">একবার স্বয়ংক্রিয়ভাবে এড়িয়ে যান</string>
-    <string name="skip_ignore">"কিছুই করবেন না"</string>
-    <string name="skip_showbutton">এড়িয়ে যান বাটন দেখান</string>
-    <string name="skip_sponsor">সেগমেন্ট এড়িয়ে যান</string>
-    <string name="stats">পরিসংখ্যান</string>
-    <string name="stats_saved">"আপনি মানুষকে &lt;b&gt;%s&lt;/b&gt; সেগমেন্ট থেকে বাঁচিয়েছেন।"</string>
-    <string name="stats_saved_sum">"এটি তাদের জীবনের &lt;b&gt;%s&lt;/b&gt; সময়। লিডারবোর্ড দেখতে আলতো চাপুন"</string>
-    <string name="stats_sb_disabled">SponsorBlock নিস্ক্রিয় হয়েছে</string>
-    <string name="stats_self_saved">"আপনি &lt;b&gt;%s&lt;/b&gt; সেগমেন্ট এড়িয়ে গেছেন।"</string>
-    <string name="stats_self_saved_sum">"তাহলো &lt;b&gt;%s&lt;/b&gt;।"</string>
-    <string name="stats_submissions">জমা: &lt;b&gt;%s&lt;/b&gt;</string>
-    <string name="stats_username">আপনার ব্যবহারকারী নাম: &lt;b&gt;%s&lt;/b&gt;</string>
-    <string name="stats_username_change">আপনার ব্যবহাকারী নাম পরিবর্তন করতে আলতো চাপুন</string>
-    <string name="stats_username_changed">ব্যবহারকারী নাম সফলভাবে পরিবর্তন হয়েছে</string>
-    <string name="stats_username_change_unknown_error" formatted="false">ব্যবহারকারী নাম পরিবর্তন করতে সফল হয়নি: অবস্থা: %d %s</string>
-    <string name="submit_failed_duplicate">"সেগমেন্ট জমা দেয়া সম্ভব নয়।
-ইতোমধ্যে রয়েছে"</string>
-    <string name="submit_failed_forbidden">"সেগমেন্ট জমা দেয়া সম্ভব নয়
-
-%s"</string>
-    <string name="submit_failed_invalid">সেগমেন্ট জমা দেয়া সম্ভব নয়: %s</string>
-    <string name="submit_failed_rate_limit">"সেগমেন্ট জমা দেয়া সম্ভব নয়।
-রেট সীমাবদ্ধ (একই ব্যবহারকারী বা IP থেকে অনেক বেশি)"</string>
-    <string name="submit_failed_unknown_error" formatted="false">সেগমেন্ট জমা দেয়া সম্ভব নয়: অবস্থা: %d %s</string>
-    <string name="submit_started">সেগমেন্ট জমা হচ্ছে…</string>
-    <string name="submit_succeeded">সেগমেন্ট সফলভাবে জমা হয়েছে</string>
-    <string name="tap_skip">এড়িয়ে যেতে আলতো চাপুন</string>
-    <string name="vote_category">বিভাগ পরিবর্তন করুন</string>
-    <string name="vote_downvote">ডাউনভোট</string>
-    <string name="vote_failed_forbidden">"সেগমেন্টের জন্য ভোট দেয়া যাচ্ছে না
-
-%s"</string>
-    <string name="vote_failed_rate_limit">"সেগমেন্ট এর জন্য ভোট করা যাচ্ছে না। 
-রেট সীমাবদ্ধ (একই ব্যবহারকারী বা IP থেকে অনেক বেশি)"</string>
-    <string name="vote_failed_unknown_error" formatted="false">সেগমেন্টর জন্য ভোট দেয়া সম্ভব নয়: অবস্থা: %d %s</string>
-    <string name="vote_no_segments">ভোট দেয়ার জন্য আর কোন সেগমেন্ট নেই</string>
-    <string name="vote_started">সেগমেন্টের জন্য ভোট হচ্ছে…</string>
-    <string name="vote_succeeded">সফলভাবে ভোট দেয়া হয়ঞেছে</string>
-    <string name="vote_upvote">আপ ভোট</string>
 </resources>
