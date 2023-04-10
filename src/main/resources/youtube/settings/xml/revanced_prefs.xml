@@ -388,6 +388,9 @@
         <!-- SETTINGS: CUSTOM_VIDEO_SPEED
         <SwitchPreference android:title="@string/revanced_enable_custom_video_speed_title" android:key="revanced_enable_custom_video_speed" android:defaultValue="false" android:summaryOn="@string/revanced_enable_custom_video_speed_summary_on" android:summaryOff="@string/revanced_enable_custom_video_speed_summary_off" />SETTINGS: CUSTOM_VIDEO_SPEED -->
 
+        <!-- SETTINGS: DEFAULT_VIDEO_SPEED
+        <SwitchPreference android:title="@string/revanced_disable_default_video_speed_live_title" android:key="revanced_disable_default_video_speed_live" android:defaultValue="true" android:summaryOn="@string/revanced_disable_default_video_speed_live_summary_on" android:summaryOff="@string/revanced_disable_default_video_speed_live_summary_off" />SETTINGS: DEFAULT_VIDEO_SPEED -->
+
         <!-- SETTINGS: VERTICAL_VIDEO_RESTRICTIONS
         <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_experimental_flag" />
         <SwitchPreference android:title="@string/revanced_vertical_video_restrictions_title" android:key="revanced_vertical_video_restrictions" android:defaultValue="false" android:summary="@string/revanced_vertical_video_restrictions_summary" />SETTINGS: VERTICAL_VIDEO_RESTRICTIONS -->

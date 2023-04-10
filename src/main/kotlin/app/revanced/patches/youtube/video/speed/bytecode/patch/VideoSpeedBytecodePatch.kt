@@ -14,6 +14,7 @@ import app.revanced.patches.youtube.misc.overridespeed.bytecode.fingerprints.Vid
 import app.revanced.patches.youtube.misc.overridespeed.bytecode.patch.OverrideSpeedHookPatch
 import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.misc.videoid.legacy.patch.LegacyVideoIdPatch
+import app.revanced.patches.youtube.video.livestream.patch.LiveStreamPatch
 import app.revanced.patches.youtube.video.speed.bytecode.fingerprints.*
 import app.revanced.util.bytecode.BytecodeHelper.updatePatchStatus
 import app.revanced.util.integrations.Constants.VIDEO_PATH
@@ -23,6 +24,7 @@ import org.jf.dexlib2.iface.instruction.FiveRegisterInstruction
 @DependsOn(
     [
         LegacyVideoIdPatch::class,
+        LiveStreamPatch::class,
         OverrideSpeedHookPatch::class,
         SharedResourceIdPatch::class
     ]
@@ -64,6 +66,5 @@ class VideoSpeedBytecodePatch : BytecodePatch(
     private companion object {
         const val INTEGRATIONS_VIDEO_SPEED_CLASS_DESCRIPTOR =
             "$VIDEO_PATH/VideoSpeedPatch;"
-        var insertIndex: Int = 0
     }
 }
