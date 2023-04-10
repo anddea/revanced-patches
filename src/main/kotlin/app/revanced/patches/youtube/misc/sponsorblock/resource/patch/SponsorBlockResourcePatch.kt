@@ -84,9 +84,9 @@ class SponsorBlockResourcePatch : ResourcePatch {
                         if (!(view.hasAttributes() && view.attributes.getNamedItem("android:id").nodeValue.endsWith("player_video_heading"))) continue
 
                         // voting button id from the voting button view from the youtube_controls_layout.xml host file
-                        val SBButtonId = "@+id/sponsorblock_button"
+                        val votingButtonId = "@+id/sb_voting_button"
 
-                        view.attributes.getNamedItem("android:layout_toStartOf").nodeValue = SBButtonId
+                        view.attributes.getNamedItem("android:layout_toStartOf").nodeValue = votingButtonId
 
                         break
                     }

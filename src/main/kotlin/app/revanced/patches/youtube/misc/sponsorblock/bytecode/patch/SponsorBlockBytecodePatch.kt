@@ -43,7 +43,6 @@ import org.jf.dexlib2.iface.reference.MethodReference
 @Version("0.0.1")
 class SponsorBlockBytecodePatch : BytecodePatch(
     listOf(
-        NextGenWatchLayoutFingerprint,
         PlayerControllerFingerprint
     )
 ) {
@@ -57,16 +56,11 @@ class SponsorBlockBytecodePatch : BytecodePatch(
                 INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR,
                 "setVideoTime"
             )
-            highPrecisionTimeHook(
-                INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR,
-                "setHighPrecisionVideoTime"
-            )
         }
 
         /*
          * Inject VideoIdPatch
          */
-        LegacyVideoIdPatch.injectCall("$INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR->setCurrentVideoId(Ljava/lang/String;)V")
         MainstreamVideoIdPatch.injectCall("$INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR->setCurrentVideoId(Ljava/lang/String;)V")
 
 
@@ -137,17 +131,10 @@ class SponsorBlockBytecodePatch : BytecodePatch(
          * Voting & Shield button
          */
 
-        arrayOf("ShieldButton", "VotingButton").forEach {
-           PlayerControlsPatch.initializeSB("$INTEGRATIONS_BUTTON_CLASS_DESCRIPTOR/$it;")
-           PlayerControlsPatch.injectVisibility("$INTEGRATIONS_BUTTON_CLASS_DESCRIPTOR/$it;")
+        arrayOf("CreateSegmentButtonController", "VotingButtonController").forEach {
+           PlayerControlsPatch.initializeSB("$INTEGRATIONS_BUTTON_CLASS_DESCRIPTOR/ui/$it;")
+           PlayerControlsPatch.injectVisibility("$INTEGRATIONS_BUTTON_CLASS_DESCRIPTOR/ui/$it;")
         }
-
-        // set SegmentHelperLayout.context to the player layout instance
-        val instanceRegister = 0
-        NextGenWatchLayoutFingerprint.result?.mutableMethod?.addInstruction(
-            3,
-            "invoke-static/range {p$instanceRegister}, $INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR->addSkipSponsorView15(Landroid/view/View;)V"
-        ) ?: return NextGenWatchLayoutFingerprint.toErrorResult()
 
 
         /*
@@ -178,7 +165,7 @@ class SponsorBlockBytecodePatch : BytecodePatch(
             "Lapp/revanced/integrations/sponsorblock"
 
         const val INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR =
-            "$INTEGRATIONS_BUTTON_CLASS_DESCRIPTOR/PlayerController;"
+            "$INTEGRATIONS_BUTTON_CLASS_DESCRIPTOR/SegmentPlaybackController;"
 
         lateinit var insertMethod: MutableMethod
         lateinit var insertInstructions: List<BuilderInstruction>
