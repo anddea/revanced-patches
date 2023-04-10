@@ -49,7 +49,7 @@ class SponsorBlockSecondaryBytecodePatch : BytecodePatch() {
 
                                         mutableMethod.addInstructions(
                                             targetIndex + 1, """
-                                                invoke-static {v$targetRegister}, Lapp/revanced/integrations/sponsorblock/SponsorBlockUtils;->appendTimeWithoutSegments(Ljava/lang/String;)Ljava/lang/String;
+                                                invoke-static {v$targetRegister}, Lapp/revanced/integrations/sponsorblock/SegmentPlaybackController;->appendTimeWithoutSegments(Ljava/lang/String;)Ljava/lang/String;
                                                 move-result-object v$targetRegister
                                             """
                                         )
@@ -66,7 +66,7 @@ class SponsorBlockSecondaryBytecodePatch : BytecodePatch() {
 
                                         mutableMethod.addInstruction(
                                             insertIndex,
-                                                "invoke-static {p0}, Lapp/revanced/integrations/sponsorblock/player/ui/SponsorBlockView;->initialize(Ljava/lang/Object;)V"
+                                                "invoke-static {p0}, Lapp/revanced/integrations/sponsorblock/ui/SponsorBlockViewController;->initialize(Ljava/lang/Object;)V"
                                         )
 
                                         patchSuccessArray[1] = true
