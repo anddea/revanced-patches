@@ -1,74 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="about_api">SponsorBlockについて</string>
-    <string name="about_api_sum">このアプリは SponsorBlock の API を使用しています。詳細についてはこちらをタップしてください。</string>
-    <string name="about_madeby">JakubWeg による統合</string>
     <string name="accessibility_settings_edu_opt_in_text">プレーヤーのアクセシビリティコントロールをオンにしますか？</string>
     <string name="accessibility_settings_edu_opt_out_text">アクセシビリティサービスが有効になっているためコントロールは変更されます。</string>
-    <string name="api_mirror_url_changed">API ミラー URL が変更されました</string>
-    <string name="api_mirror_url_invalid">指定されたAPI ミラー URLが無効です</string>
-    <string name="api_mirror_url_reset">API ミラー URL がリセットされました</string>
-    <string name="api_url_changed">API の URL を変更しました</string>
-    <string name="api_url_invalid">指定された API の URL が無効です</string>
-    <string name="api_url_reset">API の URL をリセットしました</string>
-    <string name="color_change">色の変更をお探しですか?</string>
-    <string name="color_changed">色を変更しました</string>
-    <string name="color_change_sum">"上記のカテゴリをクリックすることで、カテゴリの色を変更できます。"</string>
-    <string name="color_invalid">無効なカラーコードです</string>
-    <string name="color_reset">色をリセット</string>
-    <string name="diff_segments">セグメントの設定</string>
-    <string name="enable_sb">SponsorBlockを有効にする</string>
-    <string name="enable_sb_mirror">SponsorBlockミラーサーバーを有効にする</string>
-    <string name="enable_sb_mirror_sum">SponsorBlock APIサーバーがダウンした場合、ミラーAPIサーバーをYouTubeのデフォルトAPIサーバーに切り替えます</string>
-    <string name="enable_sb_sum">SponsorBlock は、YouTubeの動画の迷惑/無駄な部分をスキップするためのクラウドソースシステムです</string>
-    <string name="enable_segmadding">新しいセグメントの追加を有効にする</string>
-    <string name="enable_segmadding_sum">セグメントを追加するにはこれを有効にします(実験的、ボタンの表示に問題があります)</string>
-    <string name="enable_voting">投票機能を有効にする</string>
-    <string name="enable_voting_sum">投票機能を使用するにはこれを有効にしてください</string>
-    <string name="general">全般設定</string>
-    <string name="general_adjusting">新しいセグメントのステップを調整する</string>
-    <string name="general_adjusting_sum">これは、新しいセグメントを追加する際に時間調整ボタンを使用したときに移動できるミリ秒数です。</string>
-    <string name="general_api_mirror_url">API ミラー URL を変更</string>
-    <string name="general_api_mirror_url_sum">"SponsorBlock サーバーがダウンしたときに切り替えるミラー サーバー アドレスです。 &lt;b&gt;何をしているか分からない場合は変更しないでください。&lt;/b&gt;"</string>
-    <string name="general_api_url">API の URL を変更</string>
-    <string name="general_api_url_sum">"SponsorBlock がサーバーの呼び出しに使用するアドレスです。 &lt;b&gt;意味が分からない場合は変更しないでください。&lt;/b&gt;"</string>
-    <string name="general_min_duration">最小のセグメントの長さ</string>
-    <string name="general_min_duration_sum">設定値 (単位: 秒) より短いセグメントはスキップされず、プレーヤーにも表示されません</string>
-    <string name="general_skipcount">スキップ回数の追跡</string>
-    <string name="general_skipcount_sum">SponsorBlock のリーダーボードシステムはユーザーがどれくらい時間を節約したかを知ることができます。 拡張機能はセグメントをスキップするたびにサーバーにメッセージを送信します</string>
-    <string name="general_skiptoast">セグメントを自動的にスキップする時にトーストを表示する</string>
-    <string name="general_skiptoast_sum">タップしてサンプルトースト表示を見る</string>
-    <string name="general_time_without_sb">セグメントを除いた時間を表示</string>
-    <string name="general_time_without_sb_sum">この時間は、プレーヤー内左下の経過時間の横に表示される( )内に表示されます。これは、動画の合計再生時間からセグメントを差し引いたものです。</string>
-    <string name="general_uuid">あなたのプライベート ユーザー ID</string>
-    <string name="general_uuid_sum">これは非公開にする必要があります。パスワードのようなもので誰とも共有するべきではありません。誰かがこれを持っている場合、あなたになりすますことができます。</string>
-    <string name="hours">時間</string>
     <string name="microg_not_installed_notice">MicroGをインストールしてください</string>
     <string name="microg_not_installed_warning">MicroGが見つかりません</string>
     <string name="microg_not_running_warning">MicroGはバックグラウンドで動作しません</string>
     <string name="microg_settings_summary">通知を受信するためにクラウドメッセージの設定を有効にします</string>
     <string name="microg_settings_title">MicroGを開く</string>
-    <string name="minutes">分</string>
-    <string name="new_segment_choose_category">セグメントのカテゴリを選択してください</string>
-    <string name="new_segment_confirm_content" formatted="false">"このセグメントは %02d:%02d から %02d:%02d (%d 分 %02d 秒間)です。
-送信してよろしいですか？"</string>
-    <string name="new_segment_confirm_title">時間は正しいですか？</string>
-    <string name="new_segment_disabled_category">"設定でこのカテゴリを無効にしました。送信できるように有効にしてください。"</string>
-    <string name="new_segment_edit_by_hand_content">セグメントの開始または終了のタイミングを編集しますか？</string>
-    <string name="new_segment_edit_by_hand_parse_error">無効な時間の値です</string>
-    <string name="new_segment_edit_by_hand_saved">完了</string>
-    <string name="new_segment_edit_by_hand_title">セグメントのタイミングを手動で編集</string>
-    <string name="new_segment_mark_end">終了</string>
-    <string name="new_segment_mark_locations_first">最初にタイムバーに 2 つの場所をマークしてください</string>
-    <string name="new_segment_mark_start">開始</string>
-    <string name="new_segment_mark_time_as_question" formatted="false">%02d:%02d:%04d を新しいセグメントの開始または終了として設定しますか？</string>
-    <string name="new_segment_now">現在</string>
-    <string name="new_segment_time_end">セグメントの終了時刻</string>
-    <string name="new_segment_time_end_set">セグメント設定の終了</string>
-    <string name="new_segment_time_start">セグメントの開始時刻</string>
-    <string name="new_segment_time_start_set">セグメント設定の開始</string>
-    <string name="new_segment_title">新しい SponsorBlock セグメント</string>
-    <string name="reset">リセット</string>
     <string name="revanced_adremover_button_ads_summary_off">ホームタブの広告を非表示にします</string>
     <string name="revanced_adremover_button_ads_summary_on">ホームタブの広告を非表示にします</string>
     <string name="revanced_adremover_button_ads_title">ホームタブの広告を非表示にする</string>
@@ -98,7 +36,7 @@
     <string name="revanced_change_homepage_title">デフォルトのタブを“登録チャンネル”に変更する</string>
     <string name="revanced_comments_title">コメント</string>
     <string name="revanced_copytimestamp_success">タイムスタンプをコピーしました</string>
-    <string name="revanced_custom_seekbar_color_value_summary">カラーコードを入力してシークバーの色を変更できます</string>
+    <string name="revanced_custom_seekbar_color_value_summary">カラーコードを入力して再生バー(シークバー)の色を変更できます</string>
     <string name="revanced_custom_seekbar_color_value_title">再生バーの色を変更する</string>
     <string name="revanced_default_video_quality_mobile_title">モバイルデータ通信でのデフォルト画質</string>
     <string name="revanced_default_video_quality_wifi_title">Wi-Fi でのデフォルト画質</string>
@@ -118,7 +56,7 @@
     <string name="revanced_disable_landscape_mode_summary_off">全画面表示にした時、動画の向きを縦に固定します</string>
     <string name="revanced_disable_landscape_mode_summary_on">全画面表示にした時、動画の向きを縦に固定します</string>
     <string name="revanced_disable_landscape_mode_title">全画面表示で動画の向きを縦にする</string>
-    <string name="revanced_disable_startup_shorts_player_summary_off">アプリの起動時のYouTubeショートを無効にします</string>
+    <string name="revanced_disable_startup_shorts_player_summary_off">アプリの起動時にYouTubeショートを無効にします</string>
     <string name="revanced_disable_startup_shorts_player_summary_on">アプリの起動時のYouTubeショートを無効にします</string>
     <string name="revanced_disable_startup_shorts_player_title">アプリ起動時にYouTubeショートを無効にする</string>
     <string name="revanced_disable_quic_protocol_summary">"QUICプロトコルは動画を読み込む時に動画が圧縮されて送信されるため、使用するデータ量を節約できます。デメリットは動画を読み込む時に圧縮された動画が解凍され、この過程で多少のラグが発生します。これが、YouTube の使用時にわずかなラグが発生する理由です。QUICプロトコルを無効にすることでラグをなくし、動画の読み込みを多少速くします。"</string>
@@ -271,9 +209,9 @@
     <string name="revanced_hide_button_share_summary_off">共有ボタンを非表示にします</string>
     <string name="revanced_hide_button_share_summary_on">共有ボタンを非表示にします</string>
     <string name="revanced_hide_button_share_title">共有ボタンを非表示にする</string>
-    <string name="revanced_hide_button_shop_summary_off">“ショップ”ボタンを非表示にします</string>
-    <string name="revanced_hide_button_shop_summary_on">“ショップ”ボタンを非表示にします</string>
-    <string name="revanced_hide_button_shop_title">“ショップ”ボタンを非表示にする</string>
+    <string name="revanced_hide_button_shop_summary_off">ショッピングボタン(恐らく日本は表示されない？)を非表示にします</string>
+    <string name="revanced_hide_button_shop_summary_on">ショッピングボタン(恐らく日本は表示されない？)を非表示にします</string>
+    <string name="revanced_hide_button_shop_title">ショッピングボタンを非表示にする</string>
     <string name="revanced_hide_button_thanks_summary_off">Thanksボタンを非表示にします</string>
     <string name="revanced_hide_button_thanks_summary_on">Thanksボタンを非表示にします</string>
     <string name="revanced_hide_button_thanks_title">Thanksボタンを非表示にする</string>
@@ -423,9 +361,9 @@
     <string name="revanced_hide_preview_comment_off">コメントのプレビューを非表示にします</string>
     <string name="revanced_hide_preview_comment_on">コメントのプレビューを非表示にします</string>
     <string name="revanced_hide_preview_comment_title">コメントのプレビューを非表示にする</string>
-    <string name="revanced_hide_previous_next_button_summary_off">“前の動画に戻る” “次の動画に進む”ボタンを非表示にします</string>
-    <string name="revanced_hide_previous_next_button_summary_on">“前の動画に戻る” “次の動画に進む”ボタンを非表示にします</string>
-    <string name="revanced_hide_previous_next_button_title">“前の動画に戻る” “次の動画に進む”ボタンを非表示にする</string>
+    <string name="revanced_hide_previous_next_button_summary_off">前の動画に戻る/次の動画に進むボタンを非表示にします</string>
+    <string name="revanced_hide_previous_next_button_summary_on">前の動画に戻る/次の動画に進むボタンを非表示にします</string>
+    <string name="revanced_hide_previous_next_button_title">前の動画に戻る/次の動画に進むボタンを非表示にする</string>
     <string name="revanced_hide_seekbar_summary_off">再生バー(シークバー)を非表示にします</string>
     <string name="revanced_hide_seekbar_summary_on">再生バー(シークバー)を非表示にします</string>
     <string name="revanced_hide_seekbar_title">再生バーを非表示にする</string>
@@ -440,15 +378,15 @@
     <string name="revanced_hide_shorts_navigation_bar_summary_off">YouTubeショートでナビゲーションバーを非表示にします</string>
     <string name="revanced_hide_shorts_navigation_bar_summary_on">YouTubeショートでナビゲーションバーを非表示にします</string>
     <string name="revanced_hide_shorts_navigation_bar_title">YouTubeショートでナビゲーションバーを非表示にする</string>
-    <string name="revanced_hide_shorts_player_comments_button_summary_off">YouTubeショートの“コメント”ボタンを非表示にします</string>
-    <string name="revanced_hide_shorts_player_comments_button_summary_on">YouTubeショートの“コメント”ボタンを非表示にします</string>
-    <string name="revanced_hide_shorts_player_comments_button_title">“コメント”ボタンを非表示にする</string>
-    <string name="revanced_hide_shorts_player_join_button_summary_off">YouTubeショートの“参加”ボタンを非表示にします</string>
-    <string name="revanced_hide_shorts_player_join_button_summary_on">YouTubeショートの“参加”ボタンを非表示にします</string>
-    <string name="revanced_hide_shorts_player_join_button_title">“参加”ボタンを非表示にする</string>
-    <string name="revanced_hide_shorts_player_subscriptions_button_summary_off">タブ切り替えで“登録チャンネル”ボタンを非表示にします</string>
-    <string name="revanced_hide_shorts_player_subscriptions_button_summary_on">タブ切り替えで“登録チャンネル”ボタンを非表示にします</string>
-    <string name="revanced_hide_shorts_player_subscriptions_button_title">“登録チャンネル”ボタンを非表示にする</string>
+    <string name="revanced_hide_shorts_player_comments_button_summary_off">YouTubeショートのコメントボタンを非表示にします</string>
+    <string name="revanced_hide_shorts_player_comments_button_summary_on">YouTubeショートのコメントボタンを非表示にします</string>
+    <string name="revanced_hide_shorts_player_comments_button_title">コメントボタンを非表示にする</string>
+    <string name="revanced_hide_shorts_player_join_button_summary_off">YouTubeショートの参加ボタンを非表示にします</string>
+    <string name="revanced_hide_shorts_player_join_button_summary_on">YouTubeショートの参加ボタンを非表示にします</string>
+    <string name="revanced_hide_shorts_player_join_button_title">参加ボタンを非表示にする</string>
+    <string name="revanced_hide_shorts_player_subscriptions_button_summary_off">YouTubeショートのチャンネル登録ボタンを非表示にします</string>
+    <string name="revanced_hide_shorts_player_subscriptions_button_summary_on">YouTubeショートのチャンネル登録ボタンを非表示にします</string>
+    <string name="revanced_hide_shorts_player_subscriptions_button_title">チャンネル登録ボタンを非表示にする</string>
     <string name="revanced_hide_shorts_shelf_summary_off">YouTubeショート欄を非表示にします</string>
     <string name="revanced_hide_shorts_shelf_summary_on">YouTubeショート欄を非表示にします</string>
     <string name="revanced_hide_shorts_shelf_title">YouTubeショート欄を非表示にする</string>
@@ -475,6 +413,9 @@
     <string name="revanced_hide_time_stamp_summary_off">プレーヤーの左下に表示される経過時間を非表示にします</string>
     <string name="revanced_hide_time_stamp_summary_on">プレーヤーの左下に表示される経過時間を非表示にします</string>
     <string name="revanced_hide_time_stamp_title">経過時間を非表示にする</string>
+    <string name="revanced_hide_search_terms_summary_off">検索欄でサジェスト機能と検索履歴を無効にします</string>
+    <string name="revanced_hide_search_terms_summary_on">検索欄でサジェスト機能と検索履歴を無効にします</string>
+    <string name="revanced_hide_search_terms_title">“YouTube を検索”のサジェスト機能を無効にする</string>
     <string name="revanced_hide_view_products_summary_off">プレーヤー内の商品バナーを非表示にします</string>
     <string name="revanced_hide_view_products_summary_on">プレーヤー内の商品バナーを非表示にします</string>
     <string name="revanced_hide_view_products_title">プレーヤー内の商品バナーを非表示にする</string>
@@ -593,86 +534,16 @@
     <string name="revanced_whitelisting_sponsorblock">SponsorBlock</string>
     <string name="revanced_whitelisting_sponsorblock_button">Sponsor Block</string>
     <string name="revanced_whitelisting_title">チャンネルのホワイトリスト</string>
-    <string name="sb_connection_failed">Sponsorblock サーバーは応答していません！</string>
-    <string name="sb_guidelines_popup_already_read">既に読んでいます</string>
-    <string name="sb_guidelines_popup_content">"セグメントを提出する前に、スポンサーブロックガイドラインを読むことをお勧めします"</string>
-    <string name="sb_guidelines_popup_open">表示する</string>
-    <string name="sb_guidelines_popup_title">ガイドラインがあります</string>
-    <string name="sb_guidelines_preference_sum">ガイドラインには、セグメントの送信に関するヒントとルールが含まれています</string>
     <string name="sb_guidelines_preference_title">ガイドラインを表示</string>
-    <string name="sb_switching_success">切り替えに成功しました。動画を再読み込みしてください</string>
-    <string name="sb_switching_to_mirror">ミラー API サーバーをメイン API サーバーに切り替えます。</string>
+    <string name="sb_guidelines_preference_sum">ガイドラインには、セグメントの送信に関するヒントとルールが含まれています</string>
+    <string name="sb_guidelines_popup_title">ガイドラインがあります</string>
+    <string name="sb_guidelines_popup_content">セグメントを提出する前に、スポンサーブロックガイドラインを読むことをお勧めします</string>
+    <string name="sb_guidelines_popup_already_read">既に読んでいます</string>
+    <string name="sb_guidelines_popup_open">表示する</string>
     <string name="seconds">秒</string>
-    <string name="segments_endcards">エンドカード/クレジット</string>
-    <string name="segments_endcards_sum">提供表示やYouTubeの終了画面が表示されている場面。動画の終わりの場面には使用しないで下さい。</string>
-    <string name="segments_filler">繋ぎの話(無駄話など)/冗談</string>
-    <string name="segments_filler_sum">脱線したシーンには、動画の主な内容を理解するのに必要がない穴埋めやユーモアのみを追加してください。これには、文脈や背景の詳細を提供するセグメントを含めないでください。</string>
-    <string name="segments_intermission">休憩/イントロアニメーション</string>
-    <string name="segments_intermission_sum">内容のない間。一時停止、静的フレーム、繰り返しのアニメーションなど</string>
-    <string name="segments_nomusic">音楽ではない区間</string>
-    <string name="segments_nomusic_sum">ミュージックビデオでのみ使用できます。公式ミックスに含まれていない動画の部分をスキップします</string>
-    <string name="segments_preview">予告/あらすじ</string>
-    <string name="segments_preview_sum">"前回の動画のあらすじや動画後半の内容の予告。ただ話しているものではなく、映像が編集されているものを指します。"</string>
-    <string name="segments_selfpromo">無報酬/セルフプロモーション</string>
-    <string name="segments_selfpromo_sum">無報酬またはセルフプロモーションを除いてスポンサーと同様です。商品、寄付、または誰とコラボしたかに関するセクションが含まれます</string>
-    <string name="segments_sponsor">スポンサー広告</string>
-    <string name="segments_sponsor_sum">有料プロモーション、有料紹介、ダイレクト広告</string>
-    <string name="segments_subscribe">インタラクションリマインダー </string>
-    <string name="segments_subscribe_sum">動画の途中に高評価、チャンネル登録、フォローの短いリマインダーがある場合</string>
     <string name="settings_export_failed">設定の書き出しに失敗しました</string>
     <string name="settings_export_successful">設定は正常に書き出されました</string>
     <string name="settings_ie">設定の読み込み/書き出し</string>
-    <string name="settings_ie_sum">これはデスクトップ拡張機能で適用される設定全体のJSONです。ユーザーIDが含まれているため、共有には気をつけてください。</string>
     <string name="settings_import_failed">設定の読み込みに失敗しました</string>
     <string name="settings_import_successful">設定は正常に読み込まれました</string>
-    <string name="skipped_endcard">アウトロをスキップしました</string>
-    <string name="skipped_filler">つなぎシーンをスキップしました</string>
-    <string name="skipped_intermission">イントロをスキップしました</string>
-    <string name="skipped_nomusic">音楽以外の部分をスキップしました</string>
-    <string name="skipped_preview">プレビューをスキップしました</string>
-    <string name="skipped_segment">スポンサーセグメントをスキップしました</string>
-    <string name="skipped_selfpromo">セルフプロモーションをスキップしました</string>
-    <string name="skipped_sponsor">スポンサー広告をスキップしました</string>
-    <string name="skipped_subscribe">迷惑なリマインダーをスキップしました</string>
-    <string name="skipped_unsubmitted">未送信のセグメントをスキップしました</string>
-    <string name="skip_automatically">自動的にスキップする</string>
-    <string name="skip_automatically_once">一度だけ自動的にスキップする</string>
-    <string name="skip_ignore">"何もしない"</string>
-    <string name="skip_showbutton">スキップボタンを表示する</string>
-    <string name="skip_sponsor">セグメントをスキップ</string>
-    <string name="stats">統計情報</string>
-    <string name="stats_saved">"今まで &lt;b&gt;%s&lt;/b&gt; 個のセグメントから人々を守りました。"</string>
-    <string name="stats_saved_sum">"あなたは合計で人々の人生を &lt;b&gt;%s&lt;/b&gt; 無駄にせずに済みました。クリックしてリーダーボードを確認します。"</string>
-    <string name="stats_sb_disabled">SponsorBlockは無効です</string>
-    <string name="stats_self_saved">"今まで &lt;b&gt;%s&lt;/b&gt; 個のセグメントをスキップしました。"</string>
-    <string name="stats_self_saved_sum">"合計 &lt;b&gt;%s&lt;/b&gt; です。"</string>
-    <string name="stats_submissions">投稿したセグメントの数: &lt;b&gt;%s&lt;/b&gt;</string>
-    <string name="stats_username">あなたのユーザー名: &lt;b&gt;%s&lt;/b&gt;</string>
-    <string name="stats_username_change">タップしてユーザー名を変更する</string>
-    <string name="stats_username_changed">ユーザー名は正常に変更されました</string>
-    <string name="stats_username_change_unknown_error" formatted="false">ユーザー名を変更できませんでした。ステータス: %d %s</string>
-    <string name="submit_failed_duplicate">"セグメントを送信できません
-既に存在します"</string>
-    <string name="submit_failed_forbidden">"セグメントを送信できません。
-
-%s"</string>
-    <string name="submit_failed_invalid">セグメントを送信できません: %s</string>
-    <string name="submit_failed_rate_limit">"セグメントを送信できません。
-レート制限 (同じユーザーやIPからの送信が多すぎます)"</string>
-    <string name="submit_failed_unknown_error" formatted="false">セグメントを送信できません。ステータス: %d %s</string>
-    <string name="submit_started">セグメントを送信しています…</string>
-    <string name="submit_succeeded">セグメントが正常に送信されました</string>
-    <string name="tap_skip">タップしてスキップする</string>
-    <string name="vote_category">カテゴリーを変更する</string>
-    <string name="vote_downvote">反対</string>
-    <string name="vote_failed_forbidden">"セグメントに投票できません。
-
-%s"</string>
-    <string name="vote_failed_rate_limit">"セグメントに投票できません。
-レート制限 (同じユーザーやIPからの送信が多すぎます)"</string>
-    <string name="vote_failed_unknown_error" formatted="false">セグメントへの投票に失敗しました。ステータス: %d %s</string>
-    <string name="vote_no_segments">投票できるセグメントがありません</string>
-    <string name="vote_started">セグメントへ投票しています…</string>
-    <string name="vote_succeeded">投票しました</string>
-    <string name="vote_upvote">賛成</string>
 </resources>

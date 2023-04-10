@@ -1,74 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="about_api">Bu tətbiq SponsorBlock-dan API işlədir</string>
-    <string name="about_api_sum">Daha çox öyrənmək üçün toxun və digər layihələr üçün endirmələri gör: sponsor.ajay.app</string>
-    <string name="about_madeby">İnteqrasiya JakubWeg tərəfindən edilib</string>
     <string name="accessibility_settings_edu_opt_in_text">Video oynadıcı üçün əlçatanlıq nəzarətləri açılsın?</string>
     <string name="accessibility_settings_edu_opt_out_text">Əlçatımlılıq xidməti açıq olduğu üçün nəzarətləriniz dəyişdirilib.</string>
-    <string name="api_mirror_url_changed">API MIRROR URL dəyişdirildi</string>
-    <string name="api_mirror_url_invalid">Təchiz edilən API MIRROR URL etibarsızdır</string>
-    <string name="api_mirror_url_reset">API MIRROR URL sıfırla</string>
-    <string name="api_url_changed">API URL dəyişdirildi</string>
-    <string name="api_url_invalid">Təchiz edilən API URL etibarsızdır</string>
-    <string name="api_url_reset">API URL sıfırla</string>
-    <string name="color_change">Rəng dəyişdirməni axtarırsınız?</string>
-    <string name="color_changed">Rəng dəyişdi</string>
-    <string name="color_change_sum">"Kateqoriya rəngin yuxarıda, üzərinə klikləməklə dəyişə bilərsiniz."</string>
-    <string name="color_invalid">Yanlış hex kodu</string>
-    <string name="color_reset">Rəng sıfırla</string>
-    <string name="diff_segments">Fərqli seqmentlərlə nə etməli</string>
-    <string name="enable_sb">SponsorBlock-u aktivləşdir</string>
-    <string name="enable_sb_mirror">SponsorBlock Mirror-u aktivləşdir</string>
-    <string name="enable_sb_mirror_sum">SponsorBlock API serveri ləğv edildikdə, güzgü API serverini defolt API serverinə keçirin</string>
-    <string name="enable_sb_sum">SponsorBlock, YouTube videolarında zəhlətökən hissələri atlamaq üçün izdihamlı bir sistemdir</string>
-    <string name="enable_segmadding">Yeni seqment əlavəsini aktivləşdirin</string>
-    <string name="enable_segmadding_sum">Eksperimental seqment əlavəsini aktiv etmək üçün bunu aktiv edin (düymənin görünmə problemi var)</string>
-    <string name="enable_voting">Səsverməyə icazə verin</string>
-    <string name="enable_voting_sum">Səsverməni aktivləşdirmək üçün bunu yandırın.</string>
-    <string name="general">Ümumi</string>
-    <string name="general_adjusting">Yeni seqment addımının tənzimlənməsi</string>
-    <string name="general_adjusting_sum">Bu, yeni seqment əlavə edərkən vaxt tənzimləmə düymələrindən istifadə edərkən hərəkət edə biləcəyiniz millisaniyələrin sayıdır</string>
-    <string name="general_api_mirror_url">API Güzgü URL-ni dəyişdirin</string>
-    <string name="general_api_mirror_url_sum">"SponsorBlock serveri ləğv edildikdə keçid üçün güzgü server ünvanı. <b>Nə etdiyinizi bilmədən bunu dəyişməyin.</b>"</string>
-    <string name="general_api_url">API URL-ni dəyişdirin</string>
-    <string name="general_api_url_sum">"SponsorBlock serverə zəng etmək üçün istifadə etdiyi ünvan. <b> Nə etdiyinizi bilmədən bunu dəyişməyin. </b>"</string>
-    <string name="general_min_duration">Minimum seqment müddəti</string>
-    <string name="general_min_duration_sum">Təyin edilmiş dəyərdən (saniyələrlə) qısa olan seqmentlər qaçırılmayacaq və ya pleyerdə göstərilməyəcək</string>
-    <string name="general_skipcount">Sayı izləməni keçin</string>
-    <string name="general_skipcount_sum">Bu, SponsorBlock liderlər lövhəsi sisteminə insanların nə qədər vaxta qənaət etdiyini bilmək imkanı verir. Seqmenti hər dəfə atladığınız zaman artırma serverə mesaj göndərir</string>
-    <string name="general_skiptoast">Seqmenti avtomatik keçərkən tost göstərin</string>
-    <string name="general_skiptoast_sum">Tost nümunəsinə baxmaq üçün klikləyin</string>
-    <string name="general_time_without_sb">Seqmentlər olmadan vaxtı göstərin</string>
-    <string name="general_time_without_sb_sum">Bu vaxt cari vaxtın yanında mötərizədə göstərilir. Bu, hər hansı bir seqment çıxılmaqla ümumi video müddətini göstərir.</string>
-    <string name="general_uuid">Şəxsi istifadəçi identifikatorunuz</string>
-    <string name="general_uuid_sum">Bu gizli saxlanılmalıdır. Bu parol kimidir və heç kimlə paylaşılmamalıdır. Əgər kimsə buna sahibdirsə, o, sizi təqlid edə bilər</string>
-    <string name="hours">saat</string>
     <string name="microg_not_installed_notice">Zəhmət olmasa MicroG-ni quraşdırın</string>
     <string name="microg_not_installed_warning">MicroG tapılmadı</string>
     <string name="microg_not_running_warning">MicroG arxa planda işləmir</string>
     <string name="microg_settings_summary">Bildirişləri qəbul etmək üçün bulud mesajlaşma parametrlərini aktiv edin</string>
     <string name="microg_settings_title">MicroG-ni aç</string>
-    <string name="minutes">dəqiqə</string>
-    <string name="new_segment_choose_category">Seqment kateqoriyasını seçin</string>
-    <string name="new_segment_confirm_content" formatted="false">"Seqment %02d:%02d ilə %02d:%02d arasında davam edir (%d dəqiqə %02d saniyə)
-Təqdim etməyə hazırdır?"</string>
-    <string name="new_segment_confirm_title">Vaxtlar düzgündür?</string>
-    <string name="new_segment_disabled_category">"Siz parametrlərdə bu kateqoriyanı deaktiv etmisiniz, onu təqdim etmək üçün aktivləşdirin"</string>
-    <string name="new_segment_edit_by_hand_content">Seqmentin başlanğıcı və ya sonu üçün vaxtı redaktə etmək istəyirsiniz?</string>
-    <string name="new_segment_edit_by_hand_parse_error">Yanlış vaxt verilmişdir</string>
-    <string name="new_segment_edit_by_hand_saved">Bitdi</string>
-    <string name="new_segment_edit_by_hand_title">Seqmentin vaxtını əl ilə redaktə edin</string>
-    <string name="new_segment_mark_end">son</string>
-    <string name="new_segment_mark_locations_first">Əvvəlcə vaxt çubuğunda iki yeri qeyd edin</string>
-    <string name="new_segment_mark_start">başlanğıc</string>
-    <string name="new_segment_mark_time_as_question" formatted="false">%02d:%02d:%04d yeni seqmentin başlanğıcı və ya sonu kimi təyin edilsin?</string>
-    <string name="new_segment_now">indi</string>
-    <string name="new_segment_time_end">Seqmentin bitmə vaxtı</string>
-    <string name="new_segment_time_end_set">Seqment setinin sonu</string>
-    <string name="new_segment_time_start">Seqmentin başladığı vaxt</string>
-    <string name="new_segment_time_start_set">Seqment dəstinin başlanğıcı</string>
-    <string name="new_segment_title">Yeni SponsorBlock seqmenti</string>
-    <string name="reset">Sıfırla</string>
     <string name="revanced_adremover_button_ads_summary_off">Basılan (düymə) reklamlar aktivdir</string>
     <string name="revanced_adremover_button_ads_summary_on">Basılan reklamlar deaktivdir</string>
     <string name="revanced_adremover_button_ads_title">Basılan reklamları gizlət</string>
@@ -415,86 +353,16 @@ Bu parametr olduqca köhnəldiyi üçün etibarlı olmaya bilər"</string>
     <string name="revanced_whitelisting_sponsorblock">SponsorBlock</string>
     <string name="revanced_whitelisting_sponsorblock_button">SB</string>
     <string name="revanced_whitelisting_title">Kanal ağ siyahısı</string>
-    <string name="sb_connection_failed">Sponsorblok serveri cavab vermir!</string>
-    <string name="sb_guidelines_popup_already_read">Artıq oxudum</string>
-    <string name="sb_guidelines_popup_content">"Hər hansı bir seqment təqdim etməzdən əvvəl SponsorBlock təlimatlarını oxumaq tövsiyə olunur"</string>
-    <string name="sb_guidelines_popup_open">Mənə göstər</string>
-    <string name="sb_guidelines_popup_title">Təlimatlar var</string>
-    <string name="sb_guidelines_preference_sum">Təlimatlarda seqmentlərin təqdim edilməsi ilə bağlı məsləhətlər və qaydalar var</string>
     <string name="sb_guidelines_preference_title">Təlimatlara baxın</string>
-    <string name="sb_switching_success">Uğurla dəyişdirildi. videonu yenidən yükləyin</string>
-    <string name="sb_switching_to_mirror">Güzgü API serveri əsas API serverinə keçirilir..</string>
+    <string name="sb_guidelines_preference_sum">Təlimatlarda seqmentlərin təqdim edilməsi ilə bağlı məsləhətlər və qaydalar var</string>
+    <string name="sb_guidelines_popup_title">Təlimatlar var</string>
+    <string name="sb_guidelines_popup_content">Hər hansı bir seqment təqdim etməzdən əvvəl SponsorBlock təlimatlarını oxumaq tövsiyə olunur</string>
+    <string name="sb_guidelines_popup_already_read">Artıq oxudum</string>
+    <string name="sb_guidelines_popup_open">Mənə göstər</string>
     <string name="seconds">saniyə</string>
-    <string name="segments_endcards">Son Kartlar/Kreditlər</string>
-    <string name="segments_endcards_sum">Kreditlər və ya YouTube son kartları göründüyü zaman. Danışıqlı nəticələr üçün deyil</string>
-    <string name="segments_filler">Doldurucu toxunan/Zarafatlar</string>
-    <string name="segments_filler_sum">Videonun əsas məzmununu başa düşmək üçün tələb olunmayan yalnız doldurucu və ya yumor üçün əlavə edilmiş tangensial səhnələr. Bura kontekst və ya fon təfərrüatları daxil olmamalıdır</string>
-    <string name="segments_intermission">Fasilə/Giriş Animasiyası</string>
-    <string name="segments_intermission_sum">Həqiqi məzmunu olmayan interval. Fasilə, statik çərçivə, təkrarlanan animasiya ola bilər</string>
-    <string name="segments_nomusic">Musiqi: Qeyri-Musiqi bölməsi</string>
-    <string name="segments_nomusic_sum">Yalnız musiqi videolarında istifadə üçün. Videonun rəsmi mikslərdə olmayan hissələrini ötür</string>
-    <string name="segments_preview">Önizləmə/Xülasə</string>
-    <string name="segments_preview_sum">"Əvvəlki epizodların xülasəsi və ya eyni seriyada cari videoda və ya gələcək videolarda daha sonra gələnlərə ön baxış. Kliplər əlavə məlumat verməməlidir."</string>
-    <string name="segments_selfpromo">Ödənişsiz/Özünü tanıtmaq</string>
-    <string name="segments_selfpromo_sum">Ödənişsiz və ya özünü tanıtma olduqda. Buraya mallar, ianələr və ya onların kiminlə əməkdaşlıq etdiyi barədə məlumatlar haqqında xüsusi bölmələr daxildir</string>
-    <string name="segments_sponsor">Sponsor</string>
-    <string name="segments_sponsor_sum">Ödənişli təşviqat, ödənişli tövsiyələr və birbaşa reklamlar</string>
-    <string name="segments_subscribe">Qarşılıqlı əlaqə xatırlatma (Abunə ol)</string>
-    <string name="segments_subscribe_sum">İstənilən pulsuz və ya ödənişli platformada onları bəyənmək, abunə olmaq, izləmək və ya onlarla ünsiyyət qurmaq üçün qısa xatırlatma olduqda</string>
     <string name="settings_export_failed">Parametrləri ixrac etmək mümkün olmadı</string>
     <string name="settings_export_successful">Parametrlər uğurla eksport edildi</string>
     <string name="settings_ie">İdxal/İxrac parametrləri</string>
-    <string name="settings_ie_sum">Bu, JSON-da iş masası genişləndirməsində tətbiq olunan bütün konfiqurasiyanızdır. Buraya Şəxsi istifadəçi ID-niz daxildir, ona görə də bunu ağıllı şəkildə paylaşdığınızdan əmin olun.</string>
     <string name="settings_import_failed">Parametrləri idxal etmək mümkün olmadı</string>
     <string name="settings_import_successful">Parametrlər uğurla idxal edildi</string>
-    <string name="skipped_endcard">Çıxış keçildi</string>
-    <string name="skipped_filler">Doldurucu keçildi</string>
-    <string name="skipped_intermission">Giriş keçildi</string>
-    <string name="skipped_nomusic">Musiqi olmayan hissə keçildi</string>
-    <string name="skipped_preview">Önbaxış keçildi</string>
-    <string name="skipped_segment">Sponsor hissəsi keçildi</string>
-    <string name="skipped_selfpromo">Özünü reklam keçildi</string>
-    <string name="skipped_sponsor">Sponsor keçildi</string>
-    <string name="skipped_subscribe">Cansıxıcı xatırladıcı keçildi</string>
-    <string name="skipped_unsubmitted">Göndərilməmiş seqment keçildi</string>
-    <string name="skip_automatically">Avtomatik keçmək</string>
-    <string name="skip_automatically_once">Bir dəfə avtomatik keçmək</string>
-    <string name="skip_ignore">"Heç nə etmə"</string>
-    <string name="skip_showbutton">Keçid düyməsini göstər</string>
-    <string name="skip_sponsor">Seqmenti keçin</string>
-    <string name="stats">Statistikalar</string>
-    <string name="stats_saved">"Siz insanları &lt;b&gt;%s&lt;/b&gt; seqmentən xilas etdiniz."</string>
-    <string name="stats_saved_sum">"Bu, həyatlarının &lt;b&gt;%s&lt;/b&gt; qədəridir. Liderlik cədvəlinə baxmaq üçün toxunun"</string>
-    <string name="stats_sb_disabled">SponsorBlock deaktivdir</string>
-    <string name="stats_self_saved">"Siz &lt;b&gt;%s&lt;/b&gt; segmentləri keçmisiniz."</string>
-    <string name="stats_self_saved_sum">"Bu, &lt;b&gt;%s&lt;/b&gt; qədər deməkdir."</string>
-    <string name="stats_submissions">Göndərişlər: &lt;b&gt;%s&lt;/b&gt;</string>
-    <string name="stats_username">İstifadəçi adınız: &lt;b&gt;%s&lt;/b&gt;</string>
-    <string name="stats_username_change">İstifadəçi adınızı dəyişdirmək üçün toxunun</string>
-    <string name="stats_username_changed">İstifadəçi adı uğurla dəyişdirildi</string>
-    <string name="stats_username_change_unknown_error" formatted="false">İstifadəçi adını dəyişmək mümkün deyil: Vəziyyət: %d %s</string>
-    <string name="submit_failed_duplicate">"Seqment göndərilə bilmir
-Artıq mövcuddur"</string>
-    <string name="submit_failed_forbidden">"Seqment göndərilə bilmir.
-
-%s"</string>
-    <string name="submit_failed_invalid">Seqmenti göndərmək mümkün deyil: %s</string>
-    <string name="submit_failed_rate_limit">"Seqmenti göndərmək mümkün deyil.
-Limitə çatılıb (Eyni istifadəçidən və ya IP-dən)"</string>
-    <string name="submit_failed_unknown_error" formatted="false">Seqmentləri göndərmək mümkün deyil: Vəziyyət: %d %s</string>
-    <string name="submit_started">Seqment göndərilir…</string>
-    <string name="submit_succeeded">Seqment uğurla göndərildi</string>
-    <string name="tap_skip">Keçmək üçün toxun</string>
-    <string name="vote_category">Kateqoriya dəyişdir</string>
-    <string name="vote_downvote">Mənfi səs</string>
-    <string name="vote_failed_forbidden">"Seqmentə səs vermək mümkün deyil.
-
-%s"</string>
-    <string name="vote_failed_rate_limit">"Seqmentə səs vermək mümkün deyil.
-Limitə çatılıb (eyni istifadəçi və ya IP-dən)"</string>
-    <string name="vote_failed_unknown_error" formatted="false">Seqmentə səs vermək mümkün deyil: Vəziyyət: %d %s</string>
-    <string name="vote_no_segments">Səs vermək üçün heç bir seqment yoxdur</string>
-    <string name="vote_started">Seqmentə səs verilir…</string>
-    <string name="vote_succeeded">Uğurla səs verdi</string>
-    <string name="vote_upvote">Müsbət səs verin</string>
 </resources>
