@@ -49,6 +49,7 @@ class MusicTranslationsPatch : ResourcePatch {
             "th-rTH",
             "tr-rTR",
             "uk-rUA",
+            "vi-rVN",
             "zh-rCN",
             "zh-rTW"
         )
