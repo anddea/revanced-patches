@@ -299,9 +299,6 @@ Veuillez ne pas signaler de problème lors de l'utilisation de cette fonctionnal
     <string name="revanced_hide_latest_posts_summary_off">Les dernières publications sont affichées</string>
     <string name="revanced_hide_latest_posts_summary_on">Les dernières publications sont cachées</string>
     <string name="revanced_hide_latest_posts_title">Les dernières publications</string>
-    <string name="revanced_hide_live_chat_button_summary_off">Le bouton \"Chat en direct\" est affiché </string>
-    <string name="revanced_hide_live_chat_button_summary_on">Le bouton \"Chat en direct\" est caché </string>
-    <string name="revanced_hide_live_chat_button_title">Le bouton \"Chat en direct\"</string>
     <string name="revanced_hide_medical_panel_summary_off">Les panneaux d\'infos médical sont affichés</string>
     <string name="revanced_hide_medical_panel_summary_on">Les panneaux d\'info médical sont cachés</string>
     <string name="revanced_hide_medical_panel_title">Les panneaux d\'infos médical</string>
@@ -408,6 +405,9 @@ Veuillez ne pas signaler de problème lors de l'utilisation de cette fonctionnal
     <string name="revanced_hide_teaser_summary_off">Les teasers sont affichés</string>
     <string name="revanced_hide_teaser_summary_on">Les teasers sont cachés</string>
     <string name="revanced_hide_teaser_title">Les teasers sous la vidéo</string>
+    <string name="revanced_hide_ticket_shelf_summary_off">Les tickets sont affichés</string>
+    <string name="revanced_hide_ticket_shelf_summary_on">Les tickets sont cachés</string>
+    <string name="revanced_hide_ticket_shelf_title">Les tickets concert</string>
     <string name="revanced_hide_timed_reactions_summary_off">Les réactions chronométrées sont affichées</string>
     <string name="revanced_hide_timed_reactions_summary_on">Les réactions chronométrées sont cachées</string>
     <string name="revanced_hide_timed_reactions_title">Les réactions chronométrés</string>
@@ -531,12 +531,146 @@ Comme ces paramètres sont abandonnées, ils peuvent ne pas être valides"</stri
     <string name="revanced_whitelisting_sponsorblock">SponsorBlock</string>
     <string name="revanced_whitelisting_sponsorblock_button">SB</string>
     <string name="revanced_whitelisting_title">Liste blanche des chaînes</string>
+    <string name="sb_enable_sb">SponsorBlock</string>
+    <string name="sb_enable_sb_sum">SponsorBlock est un système reposant sur la communauté qui permet de sauter les passages ennuyeux des vidéos YouTube</string>
+    <string name="sb_enable_voting">Le bouton \"Vote\"</string>
+    <string name="sb_enable_voting_sum_on">Le bouton de vote pour passer le moment est affiché</string>
+    <string name="sb_enable_voting_sum_off">Le bouton de vote pour passer le moment n\'est pas affiché </string>
+    <string name="sb_enable_create_segment">L\'ajout d\'un nouveau moment à passée</string>
+    <string name="sb_enable_create_segment_sum_on">Le bouton pour pouvoir ajouter un nouveau moment à passé est affiché</string>
+    <string name="sb_enable_create_segment_sum_off">Le bouton pour pouvoir ajouter un nouveau moment à passé n\'est pas affiché</string>
+    <string name="sb_enable_compact_skip_button">Utilise un bouton pour passer un moment</string>
+    <string name="sb_enable_compact_skip_button_sum_on">Le bouton de vote est minimisée au maximum pour pouvoir bien voir la vidéo</string>
+    <string name="sb_enable_compact_skip_button_sum_off">Meilleure apparence pour le bouton de vote</string>
+    <string name="sb_diff_segments">Que faire avec les différents moments ?</string>
+    <string name="sb_general">Générale </string>
+    <string name="sb_general_skiptoast">Affiche un message lorsque un moment est passé</string>
+    <string name="sb_general_skiptoast_sum_on">Le message est activé. Exemple quand vous cliquez sur l\'option</string>
+    <string name="sb_general_skiptoast_sum_off">Le message n\'est pas activé. Exemple quand vous cliquez sur l\'option</string>
+    <string name="sb_general_skipcount">Nombre de fois où un moment est passé</string>
+    <string name="sb_general_skipcount_sum_on">Affiche le temps que vous auriez perdu si vous n\'aviez pas passé les moments</string>
+    <string name="sb_general_skipcount_sum_off">Le suivi nombre de fois où un moment est passé n\'est pas activée</string>
+    <string name="sb_general_time_without">Temps d\'affichage sans compter les sponsors ou autre</string>
+    <string name="sb_general_time_without_sum_on">Le temps de la vidéo est affiché sans compris les sponsors ou autre</string>
+    <string name="sb_general_time_without_sum_off">Le temps de la vidéo est affiché normalement</string>
+    <string name="sb_general_adjusting">Ajuster le nouveau moment</string>
+    <string name="sb_general_adjusting_sum">Nombre de millisecondes de déplacement des boutons de réglage du temps lors de la création de nouveaux moments</string>
+    <string name="sb_general_adjusting_invalid">La valeur doit être un nombre pair</string>
+    <string name="sb_general_min_duration">Durée minimale du moment</string>
+    <string name="sb_general_min_duration_sum">Les moments plus courts que cette valeur (en secondes) ne seront pas affichés ou passées</string>
+    <string name="sb_general_uuid">Votre identifiant d\'utilisateur personnel</string>
+    <string name="sb_general_uuid_sum">Cela doit rester privé. C’est comme un mot de passe et ne doit pas être partagé avec quiconque. Si quelqu’un a cela, il peut usurpée votre identité !</string>
+    <string name="sb_general_uuid_invalid">Le nom d\'utilisateur ne peut pas être vide</string>
+    <string name="sb_settings_ie_sum">Votre configuration JSON SponsorBlock qui peut être importée/exportée vers ReVanced et d\'autres plateformes SponsorBlock. Cela inclut votre identifiant utilisateur privé. Assurez-vous de le partager avec prudence</string>
+    <string name="sb_general_api_url">Modifier l\'URL de l\'API</string>
+    <string name="sb_general_api_url_sum">L\'adresse que SponsorBlock utilise pour effectuer des appels au serveur. &lt;b&gt;Ne modifiez pas cela à moins de savoir ce que vous faites&lt;/b&gt;</string>
+    <string name="sb_segments_sponsor">SponsorBlock</string>
+    <string name="sb_segments_sponsor_sum">Promotion payée, parrainage payé et publicités directes. Non destiné à l\'auto-promotion ou aux mentions gratuites pour des causes/créateurs/sites web/produits qu\'ils apprécient</string>
+    <string name="sb_segments_selfpromo">Non rémunéré/auto-promotion</string>
+    <string name="sb_segments_selfpromo_sum">Similaire à \'Sponsor\', sauf pour la promotion non rémunérée ou l\'auto-promotion. Comprend des sections sur les marchandises, les dons ou des informations sur les personnes avec qui ils ont collaboré</string>
+    <string name="sb_segments_interaction">Rappel d\'interaction (S\'abonner)</string>
+    <string name="sb_segments_interaction_sum">Un rappel bref pour aimer, s\'abonner ou les suivre au milieu du contenu. S\'il est long ou concerne quelque chose de spécifique, il devrait plutôt être considéré comme de l\'auto-promotion</string>
+    <string name="sb_segments_intro">Animation d’entracte/intro</string>
+    <string name="sb_segments_intro_sum">Un intervalle sans contenu réel. Il peut s\'agir d\'une pause, d\'une image fixe ou d\'une animation répétitive. N\'inclut pas les transitions contenant des informations</string>
+    <string name="sb_segments_outro">Écrans de fin/Crédits</string>
+    <string name="sb_segments_outro_sum">Générique de fin ou lorsque les cartes de fin de vidéo de YouTube apparaissent. Non destiné aux conclusions contenant des informations</string>
+    <string name="sb_segments_preview">Aperçu/Récapitulatif</string>
+    <string name="sb_segments_preview_sum">Collection de clips montrant ce qui est à venir ou ce qui s\'est passé dans la vidéo ou dans d\'autres vidéos d\'une série, où toutes les informations sont répétées ailleurs</string>
+    <string name="sb_segments_filler">Digression ou blague sans réelle valeur ajoutée dans le contenu</string>
+    <string name="sb_segments_filler_sum">Scènes tangentes ajoutées uniquement pour combler ou pour l\'humour qui ne sont pas nécessaires pour comprendre le contenu principal de la vidéo. N\'inclut pas les moments fournissant du contexte ou des détails de fond</string>
+    <string name="sb_segments_nomusic">Musique : Section non musicale</string>
+    <string name="sb_segments_nomusic_sum">Uniquement destiné aux vidéos musicales. Sections de vidéos musicales sans musique, qui ne sont pas déjà couvertes par une autre catégorie</string>
+    <string name="sb_skip_button_compact">Passer</string>
+    <string name="sb_skip_button_sponsor">Passé le sponsor</string>
+    <string name="sb_skip_button_selfpromo">Passé la promo</string>
+    <string name="sb_skip_button_interaction">Passé l\'interaction</string>
+    <string name="sb_skip_button_intro_beginning">Passé l\'intro de début</string>
+    <string name="sb_skip_button_outro">Passé l\'outro</string>
+    <string name="sb_skip_button_preview_beginning">Passé l\'aperçu de début</string>
+    <string name="sb_skip_button_filler">Passé le filler</string>
+    <string name="sb_skip_button_nomusic">Passé le moment non musical</string>
+    <string name="sb_skip_button_unsubmitted">Passé le moment</string>
+    <string name="sb_skipped_sponsor">Le sponsor a été passé</string>
+    <string name="sb_skipped_selfpromo">L\'auto-promo a été passée</string>
+    <string name="sb_skipped_interaction">Le moment ennuyeux a été passé</string>
+    <string name="sb_skipped_intro_beginning">L\'intro a été passée</string>
+    <string name="sb_skipped_outro">L\'outo a été passée</string>
+    <string name="sb_skipped_preview_beginning">L\'aperçu de début a été passé</string>
+    <string name="sb_skipped_filler">Le filler a été passé</string>
+    <string name="sb_skipped_nomusic">Le moment non musical a été passé</string>
+    <string name="sb_skipped_unsubmitted">Le moment non désirée a été passé</string>
+    <string name="sb_skipped_multiple_segments">Plusieurs moments ont été passés</string>
+    <string name="sb_skip_automatically">Passer automatiquement</string>
+    <string name="sb_skip_automatically_once">Passer automatiquement qu\'une fois</string>
+    <string name="sb_skip_showbutton">Afficher un bouton \"Passer\"</string>
+    <string name="sb_skip_seekbaronly">Afficher dans la barre de progression</string>
+    <string name="sb_skip_ignore">Désactiver</string>
+    <string name="sb_about_api_sum">Les données sont fournies par l\'API SponsorBlock. Appuyez ici pour en savoir plus et voir les téléchargements pour d\'autres plates-formes</string>
+    <string name="sb_about_made_by">Intégration faite par JakubWeg</string>
+    <string name="sb_submit_failed_invalid" formatted="false">Impossible de soumettre le moment : %s</string>
+    <string name="sb_submit_failed_timeout">Impossible de soumettre les moments (API expirée)</string>
+    <string name="sb_submit_failed_unknown_error" formatted="false">Impossible de soumettre les moments (erreur): État: %d %s</string>
+    <string name="sb_submit_failed_rate_limit">Impossible d\'envoyer le segment.\nLimite de requêtes atteinte (trop du même utilisateur ou IP)</string>
+    <string name="sb_submit_failed_forbidden" formatted="false">Impossible de soumettre le moment : %s</string>
+    <string name="sb_submit_failed_duplicate">Impossible de soumettre le segment.\nÉxiste déjà</string>
+    <string name="sb_submit_succeeded">Moment soumis avec succès</string>
+    <string name="sb_vote_failed_unknown_error" formatted="false">Impossible de voter pour le moment : État: %d %s</string>
+    <string name="sb_vote_failed_forbidden" formatted="false">Impossible de voter pour le moment : État: %s</string>
+    <string name="sb_vote_upvote">Voter pour</string>
+    <string name="sb_vote_downvote">Voter contre</string>
+    <string name="sb_vote_category">Changement de catégorie</string>
+    <string name="sb_vote_no_segments">Il n\'y a pas de moments pour lesquels voter</string>
+    <string name="sb_new_segment_choose_category">Choisissez la catégorie du segment</string>
+    <string name="sb_new_segment_disabled_category">La catégorie est désactivée dans les paramètres. Activez la catégorie pour soumettre</string>
+    <string name="sb_new_segment_title">Nouveau moment SponsorBlock</string>
+    <string name="sb_new_segment_mark_time_as_question" formatted="false">Définir %02d:%02d:%04d comme début ou fin d\'un nouveau moment ?</string>
+    <string name="sb_new_segment_mark_start">Début</string>
+    <string name="sb_new_segment_mark_end">Fin</string>
+    <string name="sb_new_segment_now">Maintenant</string>
+    <string name="sb_new_segment_time_start">Définir le début du moment à</string>
+    <string name="sb_new_segment_time_end">Définir la fin du moment à</string>
+    <string name="sb_new_segment_confirm_title">Les temps sont-ils corrects ?</string>
+    <string name="sb_new_segment_confirm_content" formatted="false">Le moment dure de %02d:%02d à %02d:%02d (%d minutes %02d secondes)
+Est-il prêt à être soumis?</string>
+    <string name="sb_new_segment_mark_locations_first">Tout d\'abord marquer deux emplacements sur la barre de progression</string>
+    <string name="sb_new_segment_preview_segment_first">Prévisualisez le segment et assurez-vous qu\'il passe sans problème</string>
+    <string name="sb_new_segment_edit_by_hand_title">Editer le temps du moment manuellement</string>
+    <string name="sb_new_segment_edit_by_hand_content">Voulez-vous modifier le moment de début ou de fin du segment ?</string>
+    <string name="sb_new_segment_edit_by_hand_parse_error">Temps non valide</string>
     <string name="sb_guidelines_preference_title">Afficher les directives</string>
     <string name="sb_guidelines_preference_sum">Les directives contiennent des conseils et des règles sur la soumission de moments</string>
     <string name="sb_guidelines_popup_title">Il existe des lignes directrices</string>
     <string name="sb_guidelines_popup_content">Il est recommandé de lire les directives SponsorBlock avant de soumettre un moment</string>
     <string name="sb_guidelines_popup_already_read">Déjà lu</string>
     <string name="sb_guidelines_popup_open">Me montrer</string>
+    <string name="sb_stats">Statistiques</string>
+    <string name="sb_stats_connection_failure">Les statistiques sont temporairement indisponibles (API obsolète)</string>
+    <string name="sb_stats_sb_disabled">SponsorBlock est désactivée</string>
+    <string name="sb_stats_username" formatted="false">Ton nom d\'utilisateur : &lt;b&gt;%s&lt;/b&gt;</string>
+    <string name="sb_stats_username_change">Clique pour changer ton nom d\'utilisateur</string>
+    <string name="sb_stats_username_change_unknown_error" formatted="false">Impossible de changer le nom d\'utilisateur : Statut %d %s</string>
+    <string name="sb_stats_username_changed">Nom d\'utilisateur changer avec succès</string>
+    <string name="sb_stats_reputation" formatted="false">Votre réputation est de &lt;b&gt;%.2f&lt;/b&gt;</string>
+    <string name="sb_stats_submissions" formatted="false">Vous avez créé &lt;b&gt;%s&lt;/b&gt; moments</string>
+    <string name="sb_stats_saved_zero">Classement de SponsorBlock</string>
+    <string name="sb_stats_saved" formatted="false">Les gens ont économisé &lt;b&gt;%s&lt;/b&gt; grâce à vous</string>
+    <string name="sb_stats_saved_sum_zero">Appuyez ici pour voir les statistiques globales et les meilleurs contributeurs</string>
+    <string name="sb_stats_saved_sum" formatted="false">Cela représente &lt;b&gt;%s&lt;/b&gt; de leur temps qu\'ils ont économisé Cliquez pour voir le classement</string>
+    <string name="sb_stats_self_saved" formatted="false">Vous avez ignoré &lt;b&gt;%s&lt;/b&gt; moments</string>
+    <string name="sb_stats_self_saved_sum" formatted="false">Cela représente &lt;b&gt;%s&lt;/b&gt;</string>
+    <string name="sb_stats_self_saved_reset_title">Réinitialiser le compteur de moments ignorés ?</string>
+    <string name="sb_stats_saved_hour_format" formatted="false">%d heures %d minutes</string>
+    <string name="sb_stats_saved_minute_format" formatted="false">%d minutes  %d secondes</string>
+    <string name="sb_stats_saved_second_format" formatted="false">%d secondes</string>
+    <string name="sb_color_dot_label">Couleur:</string>
+    <string name="sb_color_changed">Couleur modifiée</string>
+    <string name="sb_color_reset">Couleur réinitialiser</string>
+    <string name="sb_color_invalid">Code de couleur invalide</string>
+    <string name="sb_reset_color">Réinitialiser la couleur</string>
+    <string name="sb_reset">Réinitialiser</string>
+    <string name="sb_api_url_reset">Réinitialiser l\'URL de l\'API</string>
+    <string name="sb_api_url_invalid">L\'URL de l\'API est invalide</string>
+    <string name="sb_api_url_changed">L\'URL de l\'API a été modifiée</string>
     <string name="seconds">secondes</string>
     <string name="settings_export_failed">Échec de l\'exportation des paramètres</string>
     <string name="settings_export_successful">Les paramètres ont été exportés avec succès</string>

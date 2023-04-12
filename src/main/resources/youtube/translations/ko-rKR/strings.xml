@@ -2,9 +2,9 @@
 <resources>
     <string name="accessibility_settings_edu_opt_in_text">플레이어에서 접근성 컨트롤을 표시하겠습니까?</string>
     <string name="accessibility_settings_edu_opt_out_text">접근성 서비스가 켜져있기 때문에 플레이어 컨트롤이 변경되었습니다.</string>
-    <string name="microg_not_installed_notice">MicroG를 설치해 주세요</string>
+    <string name="microg_not_installed_notice">MicroG를 설치해 주세요.</string>
     <string name="microg_not_installed_warning">MicroG가 설치되지 않았습니다.</string>
-    <string name="microg_not_running_warning">MicroG가 백그라운드에서 실행중이 아닙니다</string>
+    <string name="microg_not_running_warning">MicroG가 백그라운드에서 실행중이 아닙니다.</string>
     <string name="microg_settings_summary">알림 수신을 위한 클라우드 메시징(GCM) 설정을 할 수 있습니다.</string>
     <string name="microg_settings_title">MicroG 열기</string>
     <string name="revanced_adremover_button_ads_summary_off">홈 화면 광고가 노출됩니다.</string>
@@ -36,14 +36,14 @@
     <string name="revanced_change_homepage_title">앱 시작 시 첫 화면 변경하기</string>
     <string name="revanced_comments_title">댓글</string>
     <string name="revanced_copytimestamp_success">타임스탬프가 클립보드에 저장되었습니다.</string>
-    <string name="revanced_custom_seekbar_color_value_summary">재생바 색상의 헥스 코드를 입력하세요.</string>
+    <string name="revanced_custom_seekbar_color_value_summary">재생바 색상의 헥스코드를 입력하세요.</string>
     <string name="revanced_custom_seekbar_color_value_title">사용자 지정 재생바 색상 설정</string>
     <string name="revanced_default_video_quality_mobile_title">모바일 데이터 기본 영상 화질</string>
     <string name="revanced_default_video_quality_wifi_title">Wi-Fi 연결 시 기본 영상 화질</string>
     <string name="revanced_default_video_speed_title">기본 영상 재생 속도</string>
-    <string name="revanced_disable_default_video_speed_live_summary_off">실시간 스트림 또는 Premieres 동영상 시청 시\n기본 영상 재생 속도를 활성화합니다.</string>
-    <string name="revanced_disable_default_video_speed_live_summary_on">실시간 스트림 또는 Premieres 동영상 시청 시\n기본 영상 재생 속도를 비활성화합니다.</string>
-    <string name="revanced_disable_default_video_speed_live_title">실시간 스트림 시청 시 기본 영상 재생 속도</string>
+    <string name="revanced_disable_default_video_speed_live_summary_off">실시간 스트림 시청 시 기본 영상 재생 속도를 활성화합니다.</string>
+    <string name="revanced_disable_default_video_speed_live_summary_on">실시간 스트림 시청 시 기본 영상 재생 속도를 비활성화합니다.</string>
+    <string name="revanced_disable_default_video_speed_live_title">실시간 스트림 시청 시 기본 영상 재생 속도 비활성화하기</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">챕터를 탐색할 때 진동 피드백을 활성화합니다.</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">챕터를 탐색할 때 진동 피드백을 비활성화합니다.</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">챕터를 탐색할 때 진동 피드백 비활성화하기</string>
@@ -301,9 +301,6 @@
     <string name="revanced_hide_latest_posts_summary_off">최신 게시물이 노출됩니다.</string>
     <string name="revanced_hide_latest_posts_summary_on">최신 게시물이 숨겨집니다.</string>
     <string name="revanced_hide_latest_posts_title">최신 게시물 숨기기</string>
-    <string name="revanced_hide_live_chat_button_summary_off">실시간 채팅 버튼이 노출됩니다.</string>
-    <string name="revanced_hide_live_chat_button_summary_on">실시간 채팅 버튼이 숨겨집니다.</string>
-    <string name="revanced_hide_live_chat_button_title">실시간 채팅 버튼 숨기기</string>
     <string name="revanced_hide_medical_panel_summary_off">의학 정보 패널이 노출됩니다.</string>
     <string name="revanced_hide_medical_panel_summary_on">의학 정보 패널이 숨겨집니다.</string>
     <string name="revanced_hide_medical_panel_title">의학 정보 패널 숨기기</string>
@@ -410,8 +407,8 @@
     <string name="revanced_hide_teaser_summary_off">썸네일 하단에 표시되는 티저(설명 또는 챕터)가 노출됩니다.</string>
     <string name="revanced_hide_teaser_summary_on">썸네일 하단에 표시되는 티저(설명 또는 챕터)가 숨겨집니다.</string>
     <string name="revanced_hide_teaser_title">썸네일 하단 티저 숨기기</string>
-    <string name="revanced_hide_ticket_shelf_summary_off">티켓 선반이 노출됩니다.</string>
-    <string name="revanced_hide_ticket_shelf_summary_on">티켓 선반이 숨겨집니다.</string>
+    <string name="revanced_hide_ticket_shelf_summary_off">티켓 선반이 노출됩니다.\n(호주, 캐나다, 아일랜드, 뉴질랜드, 영국, 미국에만 해당.)</string>
+    <string name="revanced_hide_ticket_shelf_summary_on">티켓 선반이 숨겨집니다.\n(호주, 캐나다, 아일랜드, 뉴질랜드, 영국, 미국에만 해당.)</string>
     <string name="revanced_hide_ticket_shelf_title">티켓 선반 숨기기</string>
     <string name="revanced_hide_timed_reactions_summary_off">실시간 이모티콘 리액션이 노출됩니다.</string>
     <string name="revanced_hide_timed_reactions_summary_on">실시간 이모티콘 리액션이 숨겨집니다.</string>
@@ -540,12 +537,145 @@
     <string name="revanced_whitelisting_sponsorblock">SponsorBlock</string>
     <string name="revanced_whitelisting_sponsorblock_button">SB</string>
     <string name="revanced_whitelisting_title">채널 화이트리스트</string>
+    <string name="sb_enable_sb">SponsorBlock 활성화</string>
+    <string name="sb_enable_sb_sum">SponsorBlock은 YouTube 동영상 내 성가신 구간을 건너뛰게 해주는 크라우드소싱 시스템입니다.</string>
+    <string name="sb_enable_voting">투표 버튼 표시하기</string>
+    <string name="sb_enable_voting_sum_on">플레이어에서 투표 버튼이 노출됩니다.</string>
+    <string name="sb_enable_voting_sum_off">플레이어에서 투표 버튼이 숨겨집니다.</string>
+    <string name="sb_enable_create_segment">구간 추가 버튼 표시하기</string>
+    <string name="sb_enable_create_segment_sum_on">플레이어에서 구간 추가 버튼이 노출됩니다.</string>
+    <string name="sb_enable_create_segment_sum_off">플레이어에서 구간 추가 버튼이 숨겨집니다.</string>
+    <string name="sb_enable_compact_skip_button">소형 건너뛰기 버튼 활성화</string>
+    <string name="sb_enable_compact_skip_button_sum_on">소형 건너뛰기 버튼이 사용됩니다.</string>
+    <string name="sb_enable_compact_skip_button_sum_off">일반적인 건너뛰기 버튼이 사용됩니다.</string>
+    <string name="sb_diff_segments">각 구간에 설정할 동작</string>
+    <string name="sb_general">일반</string>
+    <string name="sb_general_skiptoast">자동으로 구간을 건너뛸 때 하단 팝업 메시지 표시</string>
+    <string name="sb_general_skiptoast_sum_on">자동으로 구간을 건너뛸 때 하단 팝업 메시지를 표시합니다. 클릭해서 예시를 볼 수 있습니다.</string>
+    <string name="sb_general_skiptoast_sum_off">자동으로 구간을 건너뛸 때 하단 팝업 메시지를 표시하지 않습니다. 클릭해서 예시를 볼 수 있습니다.</string>
+    <string name="sb_general_skipcount">건너뛴 횟수 기록 활성화</string>
+    <string name="sb_general_skipcount_sum_on">구간 건너뛰기를 통해 절약한 시간을 SponsorBlock의 리더보드 시스템에 알려줍니다. 건너뛴 구간에 대한 정보가 서버에 전송됩니다.</string>
+    <string name="sb_general_skipcount_sum_off">건너뛴 횟수 기록을 비활성화합니다.</string>
+    <string name="sb_general_time_without">건너뛸 구간을 제외한 시간 표시</string>
+    <string name="sb_general_time_without_sum_on">건너뛸 구간을 제외한 전체 동영상 길이가 타임스탬프에 표시됩니다.</string>
+    <string name="sb_general_time_without_sum_off">건너뛸 구간을 제외한 전체 동영상 길이가 타임스탬프에 표시되지 않습니다.</string>
+    <string name="sb_general_adjusting">구간 추가 시 최소 슬라이더 단위 설정</string>
+    <string name="sb_general_adjusting_sum">새로운 구간 추가 시에 시간 앞으로 버튼 또는 뒤로 버튼을 눌렀을 때 이동하는 최소 시간으로, 단위는 밀리초입니다.</string>
+    <string name="sb_general_adjusting_invalid">유효하지 않은 값입니다.</string>
+    <string name="sb_general_min_duration">건너뛸 최소 구간 길이</string>
+    <string name="sb_general_min_duration_sum">설정한 값(초)보다 작은 구간은 건너뛰지 않으며, 재생바에도 표시되지 않습니다.</string>
+    <string name="sb_general_uuid">비공개 사용자 ID</string>
+    <string name="sb_general_uuid_sum">비공개 사용자 ID는 SponsorBlock 서버에서 구간을 제출하거나 건너뛴 구간 정보를 기록하는데 사용되는 고유 ID 입니다. 절대 다른 이에게 공개하지 마세요.</string>
+    <string name="sb_general_uuid_invalid">유효하지 않은 값입니다.</string>
+    <string name="sb_settings_ie_sum">다른 SponsorBlock 플랫폼으로 내보내거나 불러올 수 있는 JSON의 전체 구성 파일입니다. 비공개 사용자ID가 포함되어 있으므로 주의하세요</string>
+    <string name="sb_general_api_url">SponsorBlock 서버 주소 변경</string>
+    <string name="sb_general_api_url_sum">SponsorBlock이 요청을 보낼 서버 주소입니다.\n&lt;b&gt;이것이 무슨 역할을 하는지 알고 있는 경우에만 이 주소를 변경하세요&lt;/b&gt;</string>
+    <string name="sb_segments_sponsor">스폰서 광고</string>
+    <string name="sb_segments_sponsor_sum">유료 광고, 협찬과 같은 직/간접적인 광고 구간입니다.</string>
+    <string name="sb_segments_selfpromo">자체 홍보 구간</string>
+    <string name="sb_segments_selfpromo_sum">\'스폰서 광고\' 구간과 비슷하지만, 자발적으로 홍보하는 내용을 포함하는 구간입니다. 채널 굿즈 광고, 기부 광고와 영상에 참여한 사람들을 홍보하는 광고가 해당됩니다.</string>
+    <string name="sb_segments_interaction">상호 작용 요청</string>
+    <string name="sb_segments_interaction_sum">좋아요, 구독, 알림 설정을 요청하는 내용에 관한 구간입니다.</string>
+    <string name="sb_segments_intro">무음 구간 / 인트로</string>
+    <string name="sb_segments_intro_sum">아무 내용도 없는 구간입니다. 애니메이션이나 정적 프레임과 같은 내용이 포함되어 있습니다.</string>
+    <string name="sb_segments_outro">최종 화면 / 크레딧</string>
+    <string name="sb_segments_outro_sum">엔딩 크레딧이나 최종 화면이 나타나는 구간입니다.</string>
+    <string name="sb_segments_preview">미리보기 / 요약</string>
+    <string name="sb_segments_preview_sum">이전 에피소드를 간략히 요약하거나 현재 동영상의 하이라이트를 미리 보여줍니다.</string>
+    <string name="sb_segments_filler">주제와 관련 없는 구간</string>
+    <string name="sb_segments_filler_sum">전반적인 동영상의 주제를 이해하는 데 필요 없는 내용이 포함됩니다.</string>
+    <string name="sb_segments_nomusic">음악이 아닌 구간</string>
+    <string name="sb_segments_nomusic_sum">뮤직 비디오에서 음악이 아닌 구간에 해당합니다.</string>
+    <string name="sb_skip_button_compact">건너뛰기</string>
+    <string name="sb_skip_button_sponsor">스폰서 광고 건너뛰기</string>
+    <string name="sb_skip_button_selfpromo">자체 홍보 구간 건너뛰기</string>
+    <string name="sb_skip_button_interaction">상호 작용 요청 건너뛰기</string>
+    <string name="sb_skip_button_intro_beginning">인트로 건너뛰기</string>
+    <string name="sb_skip_button_outro">엔딩 크레딧 건너뛰기</string>
+    <string name="sb_skip_button_preview_beginning">미리보기 건너뛰기</string>
+    <string name="sb_skip_button_filler">주제와 관련 없는 구간 건너뛰기</string>
+    <string name="sb_skip_button_nomusic">음악이 아닌 구간 건너뛰기</string>
+    <string name="sb_skip_button_unsubmitted">구간 건너뛰기</string>
+    <string name="sb_skipped_sponsor">스폰서 광고를 건너뛰었습니다.</string>
+    <string name="sb_skipped_selfpromo">자체 홍보 구간을 건너뛰었습니다.</string>
+    <string name="sb_skipped_interaction">상호 작용 요청을 건너뛰었습니다</string>
+    <string name="sb_skipped_intro_beginning">인트로를 건너뛰었습니다.</string>
+    <string name="sb_skipped_outro">엔딩 크레딧을 건너뛰었습니다.</string>
+    <string name="sb_skipped_preview_beginning">미리보기를 건너뛰었습니다.</string>
+    <string name="sb_skipped_filler">주제와 관련 없는 구간을 건너뛰었습니다.</string>
+    <string name="sb_skipped_nomusic">무음 구간을 건너뛰었습니다.</string>
+    <string name="sb_skipped_unsubmitted">미제출한 구간을 건너뛰었습니다.</string>
+    <string name="sb_skipped_multiple_segments">여러 구간을 건너뛰었습니다.</string>
+    <string name="sb_skip_automatically">자동으로 건너뛰기</string>
+    <string name="sb_skip_automatically_once">한 번만 건너뛰기</string>
+    <string name="sb_skip_showbutton">건너뛰기 버튼 표시하기</string>
+    <string name="sb_skip_seekbaronly">재생바에만 표시</string>
+    <string name="sb_skip_ignore">아무것도 하지 않기</string>
+    <string name="sb_about_api_sum">건너뛸 구간의 데이터는 SponsorBlock API에 의해 제공됩니다. 자세한 내용을 보려면 누르세요.</string>
+    <string name="sb_about_made_by">JakubWeg님이 개발하였습니다.</string>
+    <string name="sb_submit_failed_invalid" formatted="false">구간을 제출할 수 없습니다: %s</string>
+    <string name="sb_submit_failed_timeout">구간을 제출할수 없습니다. (응답 시간 초과)</string>
+    <string name="sb_submit_failed_unknown_error" formatted="false">구간 제출에 실패하였습니다: 오류 내용: %d %s</string>
+    <string name="sb_submit_failed_rate_limit">구간을 제출할 수 없습니다.\n동일 사용자 또는 동일 IP로 부터 제출된 요청이 너무 많습니다.</string>
+    <string name="sb_submit_failed_forbidden" formatted="false">구간을 제출할 수 없습니다: %s</string>
+    <string name="sb_submit_failed_duplicate">구간을 제출할 수 없습니다.\n이미 존재하는 구간입니다</string>
+    <string name="sb_submit_succeeded">구간이 성공적으로 제출되었습니다.</string>
+    <string name="sb_vote_failed_unknown_error" formatted="false">구간 투표에 실패하였습니다. (오류 내용: %d %s)</string>
+    <string name="sb_vote_failed_forbidden" formatted="false">구간 투표에 실패하였습니다: %s</string>
+    <string name="sb_vote_upvote">좋아요</string>
+    <string name="sb_vote_downvote">싫어요</string>
+    <string name="sb_vote_category">카테고리 변경</string>
+    <string name="sb_vote_no_segments">투표할 구간이 없습니다.</string>
+    <string name="sb_new_segment_choose_category">구간 카테고리를 선택해주세요.</string>
+    <string name="sb_new_segment_disabled_category">이 카테고리는 비활성화되어 있습니다.\n제출하려면 설정에서 활성화 해야합니다.</string>
+    <string name="sb_new_segment_title">새 SponsorBlock 구간</string>
+    <string name="sb_new_segment_mark_time_as_question" formatted="false">%02d:%02d:%04d을 구간의 시작 또는 끝으로 설정할까요?</string>
+    <string name="sb_new_segment_mark_start">시작</string>
+    <string name="sb_new_segment_mark_end">끝</string>
+    <string name="sb_new_segment_now">현재</string>
+    <string name="sb_new_segment_time_start">구간의 시작</string>
+    <string name="sb_new_segment_time_end">구간의 끝</string>
+    <string name="sb_new_segment_confirm_title">설정된 구간이 정확합니까?</string>
+    <string name="sb_new_segment_confirm_content" formatted="false">선택된 구간은 %02d:%02d부터 %02d:%02d까지 입니다. (%d분 %02d초)\n이대로 제출하시겠습니까?</string>
+    <string name="sb_new_segment_mark_locations_first">먼저 재생바에서 시작 지점과 끝 지점을 표시해주세요.</string>
+    <string name="sb_new_segment_preview_segment_first">새로 설정된 구간 미리 보기를 통해 정상적으로 스킵되는지 확인합니다.</string>
+    <string name="sb_new_segment_edit_by_hand_title">직접 시간 구간 편집하기</string>
+    <string name="sb_new_segment_edit_by_hand_content">구간의 시작이나 끝을 편집하시겠습니까?</string>
+    <string name="sb_new_segment_edit_by_hand_parse_error">잘못된 시간 형식입니다.</string>
     <string name="sb_guidelines_preference_title">가이드라인 보기</string>
     <string name="sb_guidelines_preference_sum">구간 제출 시의 주의사항에 대한 내용이 포함되어 있습니다.</string>
     <string name="sb_guidelines_popup_title">가이드라인</string>
     <string name="sb_guidelines_popup_content">광고 구간을 제출하기 전에 SponsorBlock 가이드라인을 읽어보시는 것을 추천합니다.</string>
     <string name="sb_guidelines_popup_already_read">이미 읽음</string>
     <string name="sb_guidelines_popup_open">보러가기</string>
+    <string name="sb_stats">기록</string>
+    <string name="sb_stats_connection_failure">기록을 일시적으로 가져올 수 없습니다. (응답 시간 초과)</string>
+    <string name="sb_stats_sb_disabled">SponsorBlock이 비활성화되었습니다.</string>
+    <string name="sb_stats_username" formatted="false">사용자 이름: &lt;b&gt;%s&lt;/b&gt;</string>
+    <string name="sb_stats_username_change">사용자 이름을 변경하려면 여기를 누르세요.</string>
+    <string name="sb_stats_username_change_unknown_error" formatted="false">사용자 이름을 변경하는 데 실패하였습니다: 오류 내용: %d %s</string>
+    <string name="sb_stats_username_changed">사용자 이름이 성공적으로 변경되었습니다.</string>
+    <string name="sb_stats_reputation" formatted="false">사용자의 평판: &lt;b&gt;%.2f&lt;/b&gt;</string>
+    <string name="sb_stats_submissions" formatted="false">제출 횟수: &lt;b&gt;%s&lt;/b&gt;</string>
+    <string name="sb_stats_saved_zero">SponsorBlock 리더보드</string>
+    <string name="sb_stats_saved" formatted="false">다른 분이 &lt;b&gt;%s&lt;/b&gt;개의 구간을 건너뛸 수 있게 해주셨습니다.</string>
+    <string name="sb_stats_saved_sum_zero">글로벌 기록 또는 상위 기여자를 확인하려면 여기를 누르세요.</string>
+    <string name="sb_stats_saved_sum" formatted="false">이는 &lt;b&gt;%s&lt;/b&gt;에 해당합니다.\n리더보드를 보려면 클릭하세요.</string>
+    <string name="sb_stats_self_saved" formatted="false">구간 &lt;b&gt;%s&lt;/b&gt;개를 건너뛰었습니다.</string>
+    <string name="sb_stats_self_saved_sum" formatted="false">이는 &lt;b&gt;%s&lt;/b&gt;에 해당합니다.</string>
+    <string name="sb_stats_self_saved_reset_title">건너뛴 횟수 기록을 초기화하겠습니까?</string>
+    <string name="sb_stats_saved_hour_format" formatted="false">%d 시간 %d 분</string>
+    <string name="sb_stats_saved_minute_format" formatted="false">%d 분 %d 초</string>
+    <string name="sb_stats_saved_second_format" formatted="false">%d 초</string>
+    <string name="sb_color_dot_label">색상:</string>
+    <string name="sb_color_changed">설정한 색상이 적용되었습니다.</string>
+    <string name="sb_color_reset">색상이 초기화되었습니다.</string>
+    <string name="sb_color_invalid">잘못된 헥스코드입니다.</string>
+    <string name="sb_reset_color">색상 초기화</string>
+    <string name="sb_reset">초기화</string>
+    <string name="sb_api_url_reset">SponsorBlock 서버 주소 초기화</string>
+    <string name="sb_api_url_invalid">잘못된 주소입니다.</string>
+    <string name="sb_api_url_changed">SponsorBlock 서버 주소가 변경되었습니다.</string>
     <string name="seconds">초</string>
     <string name="settings_export_failed">설정을 내보내는 데 실패했습니다.</string>
     <string name="settings_export_successful">설정을 성공적으로 내보냈습니다.</string>

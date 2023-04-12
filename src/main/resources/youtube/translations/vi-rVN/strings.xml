@@ -41,9 +41,9 @@
     <string name="revanced_default_video_quality_mobile_title">Chất lượng video mặc định trên mạng di động</string>
     <string name="revanced_default_video_quality_wifi_title">Chất lượng video mặc định trên mạng Wi-Fi</string>
     <string name="revanced_default_video_speed_title">Tốc độ phát video mặc định</string>
-    <string name="revanced_disable_default_video_speed_live_summary_off">Tốc độ phát video mặc định đang bật trong sự kiện trực tiếp và buổi công chiếu</string>
-    <string name="revanced_disable_default_video_speed_live_summary_on">Tốc độ phát video mặc định đã tắt trong sự kiện trực tiếp và buổi công chiếu</string>
-    <string name="revanced_disable_default_video_speed_live_title">Tắt tốc độ phát mặc định trong sự kiện trực tiếp</string>
+    <string name="revanced_disable_default_video_speed_live_summary_off">Đang sử dụng tốc độ phát video chuẩn (1.0) khi xem sự kiện trực tiếp và buổi công chiếu</string>
+    <string name="revanced_disable_default_video_speed_live_summary_on">Đang sử dụng tốc độ phát video tuỳ chỉnh khi xem sự kiện trực tiếp và buổi công chiếu</string>
+    <string name="revanced_disable_default_video_speed_live_title">Tốc độ phát chuẩn (1.0) khi xem trực tiếp</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">Phản hồi xúc giác khi vuốt các phân cảnh trong video đang bật</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">Phản hồi xúc giác khi vuốt các phân cảnh trong video đã tắt</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">Tắt phản hồi xúc giác khi vuốt phân cảnh trong video</string>
@@ -62,7 +62,7 @@
     <string name="revanced_disable_startup_shorts_player_summary_off">Đang phát video Shorts khi khởi động nếu bạn thoát khỏi ứng dụng trong lúc xem một video Shorts trước đó</string>
     <string name="revanced_disable_startup_shorts_player_summary_on">Không phát video Shorts khi khởi động ứng dụng</string>
     <string name="revanced_disable_startup_shorts_player_title">Tắt phát video Shorts khi khởi động ứng dụng</string>
-    <string name="revanced_disable_quic_protocol_summary">"Tắt giao thức QUIC của công cụ Cronet"</string>
+    <string name="revanced_disable_quic_protocol_summary">"Tắt giao thức QUIC của công cụ Cronet để giảm độ trễ và tình trạng treo video trong khi phát"</string>
     <string name="revanced_disable_quic_protocol_title">Tắt giao thức QUIC</string>
     <string name="revanced_double_back_timeout_summary">Số giây để thực hiện thao tác nhấn Quay lại 2 lần để thoát</string>
     <string name="revanced_double_back_timeout_title">Thời gian chờ nhấn Quay lại 2 lần để thoát (giây)</string>
@@ -174,9 +174,9 @@ Vui lòng không báo cáo bất kỳ sự cố nào bạn gặp phải khi sử
     <string name="revanced_hide_auto_captions_summary_off">Đang tự động hiển thị phụ đề khi phát video có phụ đề</string>
     <string name="revanced_hide_auto_captions_summary_on">"Không tự động hiển trị phụ đề khi phát video có phụ đề"</string>
     <string name="revanced_hide_auto_captions_title">Ẩn phụ đề tự động</string>
-    <string name="revanced_hide_auto_player_popup_panels_summary_off">Hộp chức năng tự động bật lên khi phát video được hiển thị</string>
-    <string name="revanced_hide_auto_player_popup_panels_summary_on">Hộp chức năng tự động bật lên khi phát video đã ẩn</string>
-    <string name="revanced_hide_auto_player_popup_panels_title">Ẩn hộp chức năng tự động bật lên khi phát video</string>
+    <string name="revanced_hide_auto_player_popup_panels_summary_off">Hộp chức năng tự động bật lên khi phát video (Danh sách phát, Trò chuyện trực tiếp,...) được hiển thị</string>
+    <string name="revanced_hide_auto_player_popup_panels_summary_on">Hộp chức năng tự động bật lên khi phát video (Danh sách phát, Trò chuyện trực tiếp,...) đã ẩn</string>
+    <string name="revanced_hide_auto_player_popup_panels_title">Ẩn hộp chức năng tự động bật lên khi phát</string>
     <string name="revanced_hide_breaking_news_shelf_summary_off">Kệ Tin nổi bật được hiển thị</string>
     <string name="revanced_hide_breaking_news_shelf_summary_on">Kệ Tin nổi bật đã ẩn</string>
     <string name="revanced_hide_breaking_news_shelf_title">Ẩn kệ Tin nổi bật</string>
@@ -299,9 +299,6 @@ Vui lòng không báo cáo bất kỳ sự cố nào bạn gặp phải khi sử
     <string name="revanced_hide_latest_posts_summary_off">Bài đăng mới nhất được hiển thị</string>
     <string name="revanced_hide_latest_posts_summary_on">Bài đăng mới nhất đã ẩn</string>
     <string name="revanced_hide_latest_posts_title">Ẩn bài đăng mới nhất</string>
-    <string name="revanced_hide_live_chat_button_summary_off">Nút Trò chuyện trực tiếp được hiển thị</string>
-    <string name="revanced_hide_live_chat_button_summary_on">Nút Trò chuyện trực tiếp đã ẩn</string>
-    <string name="revanced_hide_live_chat_button_title">Ẩn nút Trò chuyện trực tiếp</string>
     <string name="revanced_hide_medical_panel_summary_off">Bảng thông tin y tế được hiển thị</string>
     <string name="revanced_hide_medical_panel_summary_on">Bảng thông tin y tế đã ẩn</string>
     <string name="revanced_hide_medical_panel_title">Ẩn bảng thông tin y tế</string>
@@ -408,6 +405,9 @@ Vui lòng không báo cáo bất kỳ sự cố nào bạn gặp phải khi sử
     <string name="revanced_hide_teaser_summary_off">Bảng giới thiệu bên dưới video được hiển thị</string>
     <string name="revanced_hide_teaser_summary_on">Bảng giới thiệu bên dưới video đã ẩn</string>
     <string name="revanced_hide_teaser_title">Ẩn bảng giới thiệu bên dưới video</string>
+    <string name="revanced_hide_ticket_shelf_summary_off">Kệ Sự kiện sắp tới được hiển thị</string>
+    <string name="revanced_hide_ticket_shelf_summary_on">Kệ Sự kiện sắp tới đã ẩn</string>
+    <string name="revanced_hide_ticket_shelf_title">Ẩn kệ Sự kiện sắp tới</string>
     <string name="revanced_hide_timed_reactions_summary_off">Phản ứng theo thời gian được hiển thị</string>
     <string name="revanced_hide_timed_reactions_summary_on">Phản ứng theo thời gian đã ẩn</string>
     <string name="revanced_hide_timed_reactions_title">Ẩn phản ứng theo thời gian</string>
@@ -466,7 +466,7 @@ Bạn có chắc chắn muốn tiếp tục không?"</string>
 Nếu bạn bật tuỳ chọn này, các tính năng sau sẽ khả dụng:
 - Bài đăng trên thẻ Cộng đồng.
 - Ẩn Danh sách kết hợp."</string>
-    <string name="revanced_reboot_warning_quic">Chỉ nên bật tuỳ chọn này nếu tốc độ internet của bạn đủ nhanh</string>
+    <string name="revanced_reboot_warning_quic">Tắt giao thức QUIC của công cụ Cronet.\n\nGiao thức QUIC sử dụng kỹ thuật nén dữ liệu trước khi truyền để giảm thiểu lượng dữ liệu cần truyền tải, từ đó giúp tăng tốc độ tải video và tiết kiệm mức sử dụng dữ liệu cho người dùng. Tuy nhiên, việc nén dữ liệu có thể gây ra độ trễ vì video cần phải được giải nén trước khi phát. Nếu tắt giao thức QUIC, độ trễ và tình trạng treo video có thể được cải thiện, nhưng điều này cũng đồng nghĩa với việc tăng mức sử dụng dữ liệu. Do đó, chỉ nên bật tuỳ chọn này nếu tốc độ mạng của bạn đủ nhanh để không gây ảnh hưởng đến trải nghiệm xem video.</string>
     <string name="revanced_reboot_warning_switch">"Nếu bạn bật tuỳ chọn này, các tính năng sau sẽ không khả dụng:
 - Chế độ môi trường xung quanh."</string>
     <string name="revanced_reboot_warning_tablet">"Thay đổi chỉ số DPI để sử dụng bố cục máy tính bảng.
@@ -476,10 +476,10 @@ Nếu bạn bật tuỳ chọn này, các tính năng sau sẽ không khả dụ
 - Bài đăng trên thẻ Cộng đồng."</string>
     <string name="revanced_reboot_warning_vp9">"Giả mạo thông tin thiết bị để bật codec VP9.
 
-Tuỳ chọn này có thể không hợp lệ vì đã khá lỗi thời."</string>
+Hầu hết các thiết bị bây giờ đều hỗ trợ codec VP9 nên bạn không cần bật tuỳ chọn này. Tuy nhiên, nếu thiết bị của bạn đã rất cũ (khoảng từ năm 2016 trở về trước) hoặc thông số kỹ thuật phần cứng không đủ tốt, tuỳ chọn này có thể giúp cải thiện chất lượng video đối với trải nghiệm xem của bạn."</string>
     <string name="revanced_ryd_attribution_summary">Dữ liệu về số lượt không thích được cung cấp bởi API Return YouTube Dislike. Nhấn vào đây để tìm hiểu thêm.</string>
     <string name="revanced_ryd_compact_layout_summary_off">Nút Thích được thiết kế để đồng bộ khả năng hiển thị với nút Không thích</string>
-    <string name="revanced_ryd_compact_layout_summary_on">Nút Thích được thiết kế để tối ưu kích thước hiển thị theo chiều ngang</string>
+    <string name="revanced_ryd_compact_layout_summary_on">Nút Thích được thiết kế để tối ưu kích thước hiển thị</string>
     <string name="revanced_ryd_compact_layout_title">Nút Thích thu gọn</string>
     <string name="revanced_ryd_dislike_percentage_summary_off">Số lượt không thích được hiển thị dưới dạng số</string>
     <string name="revanced_ryd_dislike_percentage_summary_on">Số lượt không thích được hiển thị dưới dạng phần trăm</string>
@@ -534,12 +534,145 @@ Tuỳ chọn này có thể không hợp lệ vì đã khá lỗi thời."</stri
     <string name="revanced_whitelisting_sponsorblock">SponsorBlock</string>
     <string name="revanced_whitelisting_sponsorblock_button">SB</string>
     <string name="revanced_whitelisting_title">Danh sách trắng</string>
+    <string name="sb_enable_sb">SponsorBlock</string>
+    <string name="sb_enable_sb_sum">SponsorBlock là một tiện tích được đóng góp bởi cộng đồng nhằm bỏ qua các phân đoạn gây khó chịu trong video trên YouTube</string>
+    <string name="sb_enable_voting">Nút Bình chọn phân đoạn</string>
+    <string name="sb_enable_voting_sum_on">Nút Bình chọn phân đoạn được hiển thị</string>
+    <string name="sb_enable_voting_sum_off">Nút Bình chọn phân đoạn đã ẩn</string>
+    <string name="sb_enable_create_segment">Nút Tạo phân đoạn mới</string>
+    <string name="sb_enable_create_segment_sum_on">Nút Tạo phân đoạn mới được hiển thị</string>
+    <string name="sb_enable_create_segment_sum_off">Nút Tạo phân đoạn mới đã ẩn</string>
+    <string name="sb_enable_compact_skip_button">Nút Bỏ qua phân đoạn thu gọn</string>
+    <string name="sb_enable_compact_skip_button_sum_on">Nút Bỏ qua phân đoạn được thiết kế để tối ưu kích thước hiển thị</string>
+    <string name="sb_enable_compact_skip_button_sum_off">Nút Bỏ qua phân đoạn được thiết kế để hiển thị được toàn bộ nội dung danh mục của phân đoạn</string>
+    <string name="sb_diff_segments">Cài đặt phân đoạn</string>
+    <string name="sb_general">Chung</string>
+    <string name="sb_general_skiptoast">Thông báo ngắn khi tự động bỏ qua</string>
+    <string name="sb_general_skiptoast_sum_on">Hiển thị thông báo ngắn mỗi khi tự động bỏ qua phân đoạn. Nhấn vào đây để xem ví dụ về một thông báo ngắn.</string>
+    <string name="sb_general_skiptoast_sum_off">Không hiển thị thông báo ngắn mỗi khi tự động bỏ qua phân đoạn. Nhấn vào đây để xem ví dụ về một thông báo ngắn.</string>
+    <string name="sb_general_skipcount">Theo dõi số lượng phân đoạn đã bỏ qua</string>
+    <string name="sb_general_skipcount_sum_on">Tuỳ chọn này cho phép hệ thống xếp hạng của SponsorBlock biết mọi người đã tiết kiệm được bao nhiêu thời gian. Tiện ích sẽ gửi thông tin đến máy chủ mỗi khi bạn bỏ qua một phân đoạn.</string>
+    <string name="sb_general_skipcount_sum_off">Theo dõi số lượng phân đoạn đã bỏ qua đã tắt</string>
+    <string name="sb_general_time_without">Hiển thị thời lượng video không có phân đoạn</string>
+    <string name="sb_general_time_without_sum_on">Thời lượng video không có phân đoạn được hiển thị trong dấu ngoặc đơn bên cạnh thời gian video, cho biết tổng độ dài của video trừ đi tất cả các phân đoạn</string>
+    <string name="sb_general_time_without_sum_off">Thời lượng video không có phân đoạn đã ẩn</string>
+    <string name="sb_general_adjusting">Thời gian tua phân đoạn mới (mili giây)</string>
+    <string name="sb_general_adjusting_sum">Số mili giây bạn có thể tua đi và tua lại khi sử dụng các nút điều chỉnh thời gian trong lúc tạo phân đoạn mới</string>
+    <string name="sb_general_adjusting_invalid">Giá trị nhập vào phải là một số dương</string>
+    <string name="sb_general_min_duration">Thời lượng tối thiểu của phân đoạn</string>
+    <string name="sb_general_min_duration_sum">Các phân đoạn ngắn hơn giá trị đã đặt (giây) sẽ không bị bỏ qua hoặc hiển thị trong trình phát</string>
+    <string name="sb_general_uuid">ID người dùng riêng tư của bạn</string>
+    <string name="sb_general_uuid_sum">Mã ID này cũng giống như mật khẩu của bạn, nên được giữ riêng tư và không chia sẻ với bất kỳ ai. Nếu ai đó có được nó, họ có thể mạo danh bạn.</string>
+    <string name="sb_general_uuid_invalid">ID người dùng riêng tư không được để trống</string>
+    <string name="sb_settings_ie_sum">Đây là toàn bộ cấu hình SponsorBlock của bạn (có thể nhập/xuất sang ReVanced và các nền tảng SponsorBlock khác) dưới dạng chuỗi JSON. Chuỗi này bao gồm cả ID người dùng riêng tư của bạn, vì vậy hãy thận trọng khi chia sẻ nó.</string>
+    <string name="sb_general_api_url">Thay đổi URL API SponsorBlock</string>
+    <string name="sb_general_api_url_sum">URL API SponsorBlock được dùng để thực hiện các kết nối đến máy chủ. &lt;b&gt;Không thay đổi địa chỉ này trừ khi bạn biết mình đang làm gì.&lt;/b&gt;</string>
+    <string name="sb_segments_sponsor">Nhà tài trợ</string>
+    <string name="sb_segments_sponsor_sum">Quảng cáo/Giới thiệu được trả tiền và quảng cáo trực tiếp. Không phải tự quảng cáo hoặc lời cảm ơn được gửi đến người xem, nhà sáng tạo, trang web hay sản phẩm họ yêu thích.</string>
+    <string name="sb_segments_selfpromo">Quảng cáo không được trả tiền/Tự quảng cáo</string>
+    <string name="sb_segments_selfpromo_sum">Tương tự như \"Nhà tài trợ\" ngoại trừ việc không được trả tiền quảng cáo hoặc tự quảng cáo. Phân đoạn này cũng bao gồm các sản phẩm hàng hoá được rao bán, khoản quyên góp hoặc thông tin về những người họ đã cộng tác.</string>
+    <string name="sb_segments_interaction">Nhắc nhở tương tác (Đăng ký)</string>
+    <string name="sb_segments_interaction_sum">Một lời nhắc ngắn hãy thích, đăng ký hoặc theo dõi họ ở giữa nội dung video. Nếu lời nhắc này dài hoặc liên quan đến một điều gì cụ thể, nó nên được phân loại vào danh mục \"Quảng cáo không được trả tiền/Tự quảng cáo\". </string>
+    <string name="sb_segments_intro">Hoạt ảnh tạm dừng/Phần giới thiệu</string>
+    <string name="sb_segments_intro_sum">Khoảng thời gian không có nội dung thực tế, có thể là sự tạm dừng, khung hình tĩnh hoặc hoạt ảnh lặp lại. Phân đoạn này không bao gồm các phần chuyển tiếp chứa thông tin.</string>
+    <string name="sb_segments_outro">Danh đề/Phần kết thúc</string>
+    <string name="sb_segments_outro_sum">Danh đề hoặc khi phần kết thúc của video/màn hình kết thúc của YouTube xuất hiện. Phân đoạn này không bao gồm kết thúc bằng lời nói.</string>
+    <string name="sb_segments_preview">Đoạn xem trước/tóm tắt</string>
+    <string name="sb_segments_preview_sum">Xem trước/Tóm tắt những gì sẽ xảy ra/đã xảy ra trong video hiện tại hoặc các video tiếp theo/trước đó trong cùng một loạt video. Phân đoạn này không bao gồm các clip từ video được tóm tắt lại dựa trên video gốc.</string>
+    <string name="sb_segments_filler">Cảnh phụ/Nội dung lạc đề - hài hước</string>
+    <string name="sb_segments_filler_sum">Các cảnh phụ được thêm vào chỉ để gây cười hoặc dông dài làm tăng thời lượng video mà không bắt buộc để hiểu nội dung chính của video. Phân đoạn này không bao gồm bối cảnh hoặc hoặc các chi tiết nền video.</string>
+    <string name="sb_segments_nomusic">Âm nhạc: Phần không phải âm nhạc</string>
+    <string name="sb_segments_nomusic_sum">Phân đoạn này chỉ dành cho video âm nhạc và nằm tách biệt với các loại phân đoạn khác, bao gồm những phần video không có trong bài hát chính thức</string>
+    <string name="sb_skip_button_compact">Bỏ qua</string>
+    <string name="sb_skip_button_sponsor">Bỏ qua nhà tài trợ</string>
+    <string name="sb_skip_button_selfpromo">Bỏ qua tự quảng cáo</string>
+    <string name="sb_skip_button_interaction">Bỏ qua nhắc nhở tương tác</string>
+    <string name="sb_skip_button_intro_beginning">Bỏ qua phần giới thiệu</string>
+    <string name="sb_skip_button_outro">Bỏ qua phần kết thúc</string>
+    <string name="sb_skip_button_preview_beginning">Bỏ qua đoạn xem trước</string>
+    <string name="sb_skip_button_filler">Bỏ qua cảnh phụ</string>
+    <string name="sb_skip_button_nomusic">Bỏ qua phần không nhạc</string>
+    <string name="sb_skip_button_unsubmitted">Bỏ qua phân đoạn</string>
+    <string name="sb_skipped_sponsor">Đã bỏ qua nhà tài trợ</string>
+    <string name="sb_skipped_selfpromo">Đã bỏ qua tự quảng cáo</string>
+    <string name="sb_skipped_interaction">Đã bỏ qua nhắc nhở tương tác</string>
+    <string name="sb_skipped_intro_beginning">Đã bỏ qua phần giới thiệu</string>
+    <string name="sb_skipped_outro">Đã bỏ qua phần kết thúc</string>
+    <string name="sb_skipped_preview_beginning">Đã bỏ qua đoạn xem trước</string>
+    <string name="sb_skipped_filler">Đã bỏ qua cảnh phụ/nội dung lạc đề - hài hước</string>
+    <string name="sb_skipped_nomusic">Đã bỏ qua phần không phải âm nhạc</string>
+    <string name="sb_skipped_unsubmitted">Đã bỏ qua phân đoạn chưa gửi</string>
+    <string name="sb_skipped_multiple_segments">Đã bỏ qua nhiều phân đoạn</string>
+    <string name="sb_skip_automatically">Tự động bỏ qua</string>
+    <string name="sb_skip_automatically_once">Tự động bỏ qua một lần</string>
+    <string name="sb_skip_showbutton">Hiển thị nút Bỏ qua phân đoạn</string>
+    <string name="sb_skip_seekbaronly">Hiển thị trên thanh tiến trình</string>
+    <string name="sb_skip_ignore">Tắt</string>
+    <string name="sb_about_api_sum">Dữ liệu được cung cấp bởi API SponsorBlock. Nhấn vào đây để tìm hiểu thêm.</string>
+    <string name="sb_about_made_by">Tiện ích này được thực hiện bởi JakubWeg</string>
+    <string name="sb_submit_failed_invalid" formatted="false">Không thể gửi phân đoạn: %s</string>
+    <string name="sb_submit_failed_timeout">Không thể gửi phân đoạn (API đã hết thời gian chờ)</string>
+    <string name="sb_submit_failed_unknown_error" formatted="false">Không thể gửi phân đoạn (trạng thái: %d %s)</string>
+    <string name="sb_submit_failed_rate_limit">Không thể gửi phân đoạn.\nGiới hạn truy cập (Quá nhiều truy cập từ cùng một người dùng hoặc IP).</string>
+    <string name="sb_submit_failed_forbidden" formatted="false">Không thể gửi phân đoạn: %s</string>
+    <string name="sb_submit_failed_duplicate">Không thể gửi phân đoạn.\nĐã tồn tại.</string>
+    <string name="sb_submit_succeeded">Đã gửi phân đoạn thành công</string>
+    <string name="sb_vote_failed_unknown_error" formatted="false">Không thể bình chọn cho phân đoạn (trạng thái: %d%s)</string>
+    <string name="sb_vote_failed_forbidden" formatted="false">Không thể bình chọn cho phân đoạn: %s</string>
+    <string name="sb_vote_upvote">Ủng hộ</string>
+    <string name="sb_vote_downvote">Phản đối</string>
+    <string name="sb_vote_category">Thay đổi danh mục</string>
+    <string name="sb_vote_no_segments">Không có phân đoạn nào để bình chọn</string>
+    <string name="sb_new_segment_choose_category">Chọn danh mục phân đoạn</string>
+    <string name="sb_new_segment_disabled_category">Danh mục đã tắt trong cài đặt, hãy bật lại để có thể gửi đi</string>
+    <string name="sb_new_segment_title">Tạo phân đoạn SponsorBlock mới</string>
+    <string name="sb_new_segment_mark_time_as_question" formatted="false">Đặt %02d:%02d:%04d làm điểm bắt đầu hay kết thúc của phân đoạn mới?</string>
+    <string name="sb_new_segment_mark_start">bắt đầu</string>
+    <string name="sb_new_segment_mark_end">kết thúc</string>
+    <string name="sb_new_segment_now">ngay lúc này</string>
+    <string name="sb_new_segment_time_start">Phân đoạn bắt đầu lúc</string>
+    <string name="sb_new_segment_time_end">Phân đoạn kết thúc lúc</string>
+    <string name="sb_new_segment_confirm_title">Thời lượng phân đoạn đã chính xác chưa?</string>
+    <string name="sb_new_segment_confirm_content" formatted="false">Phân đoạn kéo dài từ %02d:%02d đến %02d:%02d (%d phút %02d giây).\nBạn có chắc chắn muốn gửi đi không?</string>
+    <string name="sb_new_segment_mark_locations_first">Đánh dấu hai điểm bắt đầu và kết thúc phân đoạn trên thanh tiến trình trước</string>
+    <string name="sb_new_segment_preview_segment_first">Xem trước phân đoạn để đảm bảo rằng nó bỏ qua suôn sẻ</string>
+    <string name="sb_new_segment_edit_by_hand_title">Chỉnh sửa thời lượng phân đoạn thủ công</string>
+    <string name="sb_new_segment_edit_by_hand_content">Bạn muốn thay đổi thời gian bắt đầu hay kết thúc của phân đoạn?</string>
+    <string name="sb_new_segment_edit_by_hand_parse_error">Thời gian đã đặt không hợp lệ</string>
     <string name="sb_guidelines_preference_title">Xem hướng dẫn</string>
     <string name="sb_guidelines_preference_sum">Hướng dẫn bao gồm các mẹo và quy tắc về cách gửi phân đoạn</string>
     <string name="sb_guidelines_popup_title">Hãy xem hướng dẫn</string>
     <string name="sb_guidelines_popup_content">Bạn nên xem các hướng dẫn từ SponsorBlock trước khi gửi đi bất kì phân đoạn nào</string>
     <string name="sb_guidelines_popup_already_read">Đã xem</string>
     <string name="sb_guidelines_popup_open">Xem ngay</string>
+    <string name="sb_stats">Thống kê</string>
+    <string name="sb_stats_connection_failure">Số liệu thống kê tạm thời không khả dụng (API ngừng hoạt động)</string>
+    <string name="sb_stats_sb_disabled">SponsorBlock đã tắt</string>
+    <string name="sb_stats_username" formatted="false">Tên người dùng của bạn: &lt;b&gt;%s&lt;/b&gt;</string>
+    <string name="sb_stats_username_change">Nhấn vào đây để thay đổi tên người dùng của bạn</string>
+    <string name="sb_stats_username_change_unknown_error" formatted="false">Không thể thay đổi tên người dùng (trạng thái: %d %s)</string>
+    <string name="sb_stats_username_changed">Tên người dùng đã được thay đổi thành công</string>
+    <string name="sb_stats_reputation" formatted="false">Danh tiếng của bạn là &lt;b&gt;%.2f&lt;/b&gt;</string>
+    <string name="sb_stats_submissions" formatted="false">Bạn đã tạo &lt;b&gt;%s&lt;/b&gt; phân đoạn</string>
+    <string name="sb_stats_saved_zero">Bảng xếp hạng SponsorBlock</string>
+    <string name="sb_stats_saved" formatted="false">Bạn đã giúp mọi người bỏ qua &lt;b&gt;%s&lt;/b&gt; phân đoạn</string>
+    <string name="sb_stats_saved_sum_zero">Nhấn vào đây để xem số liệu thống kê toàn cầu và những người đóng góp hàng đầu</string>
+    <string name="sb_stats_saved_sum" formatted="false">Tương đương với &lt;b&gt;%s&lt;/b&gt; trong cuộc đời họ.&lt;br&gt;Nhấn vào đây để xem bảng xếp hạng.</string>
+    <string name="sb_stats_self_saved" formatted="false">Bạn đã bỏ qua &lt;b&gt;%s&lt;/b&gt; phân đoạn</string>
+    <string name="sb_stats_self_saved_sum" formatted="false">Tổng thời gian là &lt;b&gt;%s&lt;/b&gt;</string>
+    <string name="sb_stats_self_saved_reset_title">Bạn có chắc chắn muốn đặt lại bộ đếm phân đoạn bị bỏ qua không?</string>
+    <string name="sb_stats_saved_hour_format" formatted="false">%d giờ %d phút</string>
+    <string name="sb_stats_saved_minute_format" formatted="false">%d phút %d giây</string>
+    <string name="sb_stats_saved_second_format" formatted="false">%d giây</string>
+    <string name="sb_color_dot_label">Màu:</string>
+    <string name="sb_color_changed">Đã thay đổi màu sắc</string>
+    <string name="sb_color_reset">Đã đặt lại màu mặc định</string>
+    <string name="sb_color_invalid">Mã màu hex không hợp lệ</string>
+    <string name="sb_reset_color">Đặt lại màu</string>
+    <string name="sb_reset">Đặt lại</string>
+    <string name="sb_api_url_reset">Đã đặt lại URL API SponsorBlock</string>
+    <string name="sb_api_url_invalid">URL API SponsorBlock không hợp lệ</string>
+    <string name="sb_api_url_changed">Đã thay đổi URL API SponsorBlock</string>
     <string name="seconds">giây</string>
     <string name="settings_export_failed">Xuất cài đặt thất bại</string>
     <string name="settings_export_successful">Cài đặt đã được xuất thành công</string>

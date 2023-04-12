@@ -41,6 +41,9 @@
     <string name="revanced_default_video_quality_mobile_title">جودة الفيديو الافتراضية على شبكة الجوَّال</string>
     <string name="revanced_default_video_quality_wifi_title">جودة الفيديو الافتراضية على شبكة Wi-Fi</string>
     <string name="revanced_default_video_speed_title">سرعة الفيديو الافتراضية</string>
+    <string name="revanced_disable_default_video_speed_live_summary_off">تم تمكين سرعة الفيديو الافتراضية في البث المباشر</string>
+    <string name="revanced_disable_default_video_speed_live_summary_on">تم تعطيل سرعة الفيديو الافتراضية في البث المباشر</string>
+    <string name="revanced_disable_default_video_speed_live_title">تعطيل سرعة الفيديو في البث المباشر</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">تم تمكين الاهتزاز عند الضغط على الفصول</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">تم تعطيل الاهتزاز عند الضغط على الفصول</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">تعطيل الاهتزاز عند الضغط على الفصول</string>
@@ -296,9 +299,6 @@
     <string name="revanced_hide_latest_posts_summary_off">يتم عرض أحدث المشاركات</string>
     <string name="revanced_hide_latest_posts_summary_on">تم إخفاء أحدث المشاركات</string>
     <string name="revanced_hide_latest_posts_title">إخفاء آخر المشاركات</string>
-    <string name="revanced_hide_live_chat_button_summary_off">يتم عرض زر المحادثات المباشرة</string>
-    <string name="revanced_hide_live_chat_button_summary_on">تم إخفاء زر المحادثات المباشرة</string>
-    <string name="revanced_hide_live_chat_button_title">إخفاء زر المحادثات المباشرة</string>
     <string name="revanced_hide_medical_panel_summary_off">يتم عرض اللوحات الطبية</string>
     <string name="revanced_hide_medical_panel_summary_on">تم إخفاء اللوحات الطبية</string>
     <string name="revanced_hide_medical_panel_title">إخفاء اللوحات الطبية</string>
@@ -405,6 +405,9 @@
     <string name="revanced_hide_teaser_summary_off">يتم عرض النشرات الإعلانية</string>
     <string name="revanced_hide_teaser_summary_on">تم إخفاء النشرات الإعلانية</string>
     <string name="revanced_hide_teaser_title">إخفاء النشرات الإعلانية تحت مقاطع الفيديو</string>
+    <string name="revanced_hide_ticket_shelf_summary_off">يتم عرض أرفف التذاكر</string>
+    <string name="revanced_hide_ticket_shelf_summary_on">تم إخفاء أرفف التذاكر</string>
+    <string name="revanced_hide_ticket_shelf_title">إخفاء رف التذاكر</string>
     <string name="revanced_hide_timed_reactions_summary_off">يتم عرض ردود الفعل المؤقتة</string>
     <string name="revanced_hide_timed_reactions_summary_on">تم إخفاء ردود الفعل المؤقتة</string>
     <string name="revanced_hide_timed_reactions_title">إخفاء ردود الفعل المؤقتة</string>
@@ -536,12 +539,145 @@
     <string name="revanced_whitelisting_sponsorblock">SponsorBlock-مانِع الرُعَاة</string>
     <string name="revanced_whitelisting_sponsorblock_button">SB</string>
     <string name="revanced_whitelisting_title">قائمة القنوات البيضاء</string>
+    <string name="sb_enable_sb">تمكين مانِع الرُعَاة \"SponsorBlock\"</string>
+    <string name="sb_enable_sb_sum">مانِع الرُعَاة هو نظام جماعي لتخطي الأجزاء المُمِلَّة في مقاطع اليوتيوب</string>
+    <string name="sb_enable_voting">عرض زر التصويت</string>
+    <string name="sb_enable_voting_sum_on">يتم عرض زر التصويت على المقطع</string>
+    <string name="sb_enable_voting_sum_off">لا يتم عرض زر التصويت على المقطع</string>
+    <string name="sb_enable_create_segment">عرض زر إنشاء مقطع جديد</string>
+    <string name="sb_enable_create_segment_sum_on">يتم عرض زر إنشاء مقطع جديد</string>
+    <string name="sb_enable_create_segment_sum_off">لا يتم عرض زر إنشاء مقطع جديد</string>
+    <string name="sb_enable_compact_skip_button">استخدام زر التخطي المدمج</string>
+    <string name="sb_enable_compact_skip_button_sum_on">زر التخطي مصمم لأدنى عرض</string>
+    <string name="sb_enable_compact_skip_button_sum_off">زر التخطي مصمم لأفضل مظهر</string>
+    <string name="sb_diff_segments">ما يجب القيام به مع المقاطع المختلفة</string>
+    <string name="sb_general">عام</string>
+    <string name="sb_general_skiptoast">عرض إشعار عند تخطي المقطع تلقائيًا</string>
+    <string name="sb_general_skiptoast_sum_on">تظهر الملاحظة عند تخطي مقطع تلقائيًا. اضغط هنا لمشاهدة مثال</string>
+    <string name="sb_general_skiptoast_sum_off">لا تظهر الملاحظة. اضغط هنا لمشاهدة مثال</string>
+    <string name="sb_general_skipcount">تمكين تتبع مرات التخطي</string>
+    <string name="sb_general_skipcount_sum_on">يُتيح لـ SponsorBlock Leaderboard معرفة مقدار الوقت الذي وفره المشاهدين، يتم إعلام الخادم في كل مرة تتخطى فيها مقطعًا</string>
+    <string name="sb_general_skipcount_sum_off">تم تعطيل تتبع مرات التخطي</string>
+    <string name="sb_general_time_without">عرض مدة الفيديو بدون المقاطع</string>
+    <string name="sb_general_time_without_sum_on">يعرض مدة الفيديو ناقصًا منه جميع المقاطع بين قوسين بجوار مدة الفيديو الكاملة</string>
+    <string name="sb_general_time_without_sum_off">يتم عرض مدة الفيديو كاملةً</string>
+    <string name="sb_general_adjusting">تعديل تقديم او تأخير المقطع الجديد</string>
+    <string name="sb_general_adjusting_sum">أجزاء الثانية التي تتحرك فيها أزرار ضبط الوقت عند إنشاء مقاطع جديدة</string>
+    <string name="sb_general_adjusting_invalid">يجب أن تكون القيمة رقمًا موجبًا</string>
+    <string name="sb_general_min_duration">الحد الأدنى لمدة المقطع</string>
+    <string name="sb_general_min_duration_sum">لن يتم عرض المقاطع الأقصر من هذه القيمة (بالثواني) أو تخطيها</string>
+    <string name="sb_general_uuid">معرف المستخدم الفريد الخاص بك</string>
+    <string name="sb_general_uuid_sum">يجب أن يبقى هذا خاصًا. انه مثل كلمة المرور ولا ينبغي مشاركته مع أي شخص. إذا كان شخص ما يملك هذا، فيمكنه انتحال شخصيتك</string>
+    <string name="sb_general_uuid_invalid">معرف المستخدم لا يمكن أن يكون فارغًا</string>
+    <string name="sb_settings_ie_sum">تكوين SponsorBlock الخاص بك كتنسيق JSON الذي يمكن استيراده / تصديره إلى ReVanced وغيره من منصات SponsorBlock الأخرى. يتضمن هذا معرف المستخدم الفريد الخاص بك. تأكد من مشاركته بحكمة</string>
+    <string name="sb_general_api_url">تغيير عنوان API</string>
+    <string name="sb_general_api_url_sum">العنوان الذي يستخدمه مانِع الرُعَاة لإجراء الاتصالات إلى الخادم. &lt;b&gt;لا تقم بتغيير هذا الخيار إلا إذا كنت تعرف ماذا تفعل.&lt;/b&gt;</string>
+    <string name="sb_segments_sponsor">الراعي</string>
+    <string name="sb_segments_sponsor_sum">الترويج المدفوع الأجر والتوصيات المدفوعة الأجر والإعلانات المباشرة. ليس للترويج الشخصي أو التصريحات المجانية للأسباب/ المبدعين/مواقع الويب/المنتجات التي يحبونها</string>
+    <string name="sb_segments_selfpromo">ترويج شخصي/غير مدفوع الأجر</string>
+    <string name="sb_segments_selfpromo_sum">شبيهة بـ \"الراعي\" باستثناء ما يتعلق بالإعلانات غير المدفوعة الأجر أو الذاتية. ويشمل ذلك أقسام عن السلع أو التبرعات أو المعلومات المتعلقة بمن تعاونوا مع ناشر المحتوى</string>
+    <string name="sb_segments_interaction">تذكير بالتفاعل (الاشتراك في القناة)</string>
+    <string name="sb_segments_interaction_sum">تذكير قصير للإعجاب أو الاشتراك أو المتابعة في منتصف المحتوى. إذا كانت طويلة أو تتعلق بشيء محدد، فيجب أن تكون خاضعة للترويج الشخصي بدلاً من ذلك</string>
+    <string name="sb_segments_intro">المقدمة/فاصل</string>
+    <string name="sb_segments_intro_sum">فاصل زمني بدون محتوى فعلي. يمكن أن يكون توقفًا مؤقتًا أو إطارًا ثابتًا أو تكرار الرسوم المتحركة. لا يتضمن انتقالات تحتوي على معلومات</string>
+    <string name="sb_segments_outro">الخاتمة/تترات النهاية</string>
+    <string name="sb_segments_outro_sum">تتر النهاية أو عندما تظهر بطاقات نهاية YouTube، نهايات غير منطوقة. ليس للاستنتاجات مع المعلومات</string>
+    <string name="sb_segments_preview">معاينة/موجز</string>
+    <string name="sb_segments_preview_sum">مجموعة من المقاطع التي توضح ما هو قادم أو ما حدث في الفيديو أو في مقاطع فيديو أخرى من السلسلة، حيث تتكرر جميع المعلومات في مكان آخر</string>
+    <string name="sb_segments_filler">خارج الموضوع/النكات</string>
+    <string name="sb_segments_filler_sum">تم إضافة مشاهد ملتقطة خارج الموضوع أو الفكاهة التي ليست مطلوبة لفهم المحتوى الرئيسي للفيديو. لا تتضمن مقاطع توفر تَعبِير أو تفاصيل الخلفية</string>
+    <string name="sb_segments_nomusic">الموسيقى: مقطع بدون موسيقى</string>
+    <string name="sb_segments_nomusic_sum">فقط للاستخدام في مقاطع الفيديو الموسيقية. أقسام مقاطع الفيديو الموسيقية بدون موسيقى، والتي لم يتم تغطيتها بالفعل من قبل فئة أخرى</string>
+    <string name="sb_skip_button_compact">تخطي</string>
+    <string name="sb_skip_button_sponsor">تخطي الراعي</string>
+    <string name="sb_skip_button_selfpromo">تخطي العرض الترويجي</string>
+    <string name="sb_skip_button_interaction">تخطي التفاعل</string>
+    <string name="sb_skip_button_intro_beginning">تخطي المقدمة</string>
+    <string name="sb_skip_button_outro">تخطي الخاتمة</string>
+    <string name="sb_skip_button_preview_beginning">تخطي النظرة العامة</string>
+    <string name="sb_skip_button_filler">تخطي مقطع غير ذي صلة</string>
+    <string name="sb_skip_button_nomusic">تخطي غير الموسيقى</string>
+    <string name="sb_skip_button_unsubmitted">تخطي المقطع</string>
+    <string name="sb_skipped_sponsor">تم تخطي الراعي</string>
+    <string name="sb_skipped_selfpromo">تم تخطي الترويج الشخصي</string>
+    <string name="sb_skipped_interaction">تم تخطي التذكير بالتفاعل</string>
+    <string name="sb_skipped_intro_beginning">تم تخطي المقدمة</string>
+    <string name="sb_skipped_outro">تم تخطي الخاتمة</string>
+    <string name="sb_skipped_preview_beginning">تم تخطي النظرة العامة</string>
+    <string name="sb_skipped_filler">تم تخطي مقطع غير ذي صلة</string>
+    <string name="sb_skipped_nomusic">تم تخطي جزء غير موسيقي</string>
+    <string name="sb_skipped_unsubmitted">تم تخطي المقطع الغير المرسل</string>
+    <string name="sb_skipped_multiple_segments">تم تخطي عدة مقاطع</string>
+    <string name="sb_skip_automatically">التخطي تلقائيًا</string>
+    <string name="sb_skip_automatically_once">التخطي تلقائيًا مرة واحدة</string>
+    <string name="sb_skip_showbutton">عرض زر التخطي</string>
+    <string name="sb_skip_seekbaronly">عرض في شريط تقدم الفيديو</string>
+    <string name="sb_skip_ignore">تعطيل</string>
+    <string name="sb_about_api_sum">يتم توفير البيانات بواسطة SponsorBlock API. اضغط هنا لمعرفة المزيد والتنزيل لمنصات أخرى</string>
+    <string name="sb_about_made_by">دُمِج بواسطة JakubWeg</string>
+    <string name="sb_submit_failed_invalid" formatted="false">لا يمكن إرسال المقطع: %s</string>
+    <string name="sb_submit_failed_timeout">تعذر إرسال المقاطع (انتهت مهلة API)</string>
+    <string name="sb_submit_failed_unknown_error" formatted="false">غير قادر على إرسال المقاطع (الحالة: %d %s)</string>
+    <string name="sb_submit_failed_rate_limit">لا يمكن إرسال المقطع.\n جارٍ الحد من معدل إرسالك (عدد كبير جدا من نفس المستخدم أو IP)</string>
+    <string name="sb_submit_failed_forbidden" formatted="false">لا يمكن إرسال المقطع: %s</string>
+    <string name="sb_submit_failed_duplicate">لا يمكن إرسال هذا المقطع.\nموجود بالفعل</string>
+    <string name="sb_submit_succeeded">تم إرسال المقطع بنجاح</string>
+    <string name="sb_vote_failed_unknown_error" formatted="false">غير قادر على التصويت للمقطع (الحالة: %d %s)</string>
+    <string name="sb_vote_failed_forbidden" formatted="false">غير قادر على التصويت للمقطع: %s</string>
+    <string name="sb_vote_upvote">تأييد</string>
+    <string name="sb_vote_downvote">اعتراض</string>
+    <string name="sb_vote_category">تغيير التصنيف</string>
+    <string name="sb_vote_no_segments">لا توجد مقاطع للتصويت عليها</string>
+    <string name="sb_new_segment_choose_category">اختيار فئة المقطع</string>
+    <string name="sb_new_segment_disabled_category">الفئة معطلة في الإعدادات. تمكين الفئة للإرسال.</string>
+    <string name="sb_new_segment_title">مقطع مانِع رُعَاة جديد</string>
+    <string name="sb_new_segment_mark_time_as_question" formatted="false">تعيين %02d:%02d:%04d كبداية أم نهاية لمقطع جديد؟</string>
+    <string name="sb_new_segment_mark_start">البداية</string>
+    <string name="sb_new_segment_mark_end">النهاية</string>
+    <string name="sb_new_segment_now">الآن</string>
+    <string name="sb_new_segment_time_start">الوقت الذي يبدأ عنده المقطع</string>
+    <string name="sb_new_segment_time_end">الوقت الذي ينتهي عنده المقطع</string>
+    <string name="sb_new_segment_confirm_title">هل الأوقات صحيحة؟</string>
+    <string name="sb_new_segment_confirm_content" formatted="false">المقطع يستمر من %02d:%02d إلى %02d:%02d (%d دقيقة %02d ثانية)\n هل هو جاهز للإرسال؟</string>
+    <string name="sb_new_segment_mark_locations_first">ضع علامة على موقعين في شريط الوقت أولًا</string>
+    <string name="sb_new_segment_preview_segment_first">معاينة المقطع، والتأكد من تخطيه بسلاسة</string>
+    <string name="sb_new_segment_edit_by_hand_title">تعديل توقيت المقطع يدويًا</string>
+    <string name="sb_new_segment_edit_by_hand_content">هل تود تعديل التوقيت لبداية أو نهاية المقطع؟</string>
+    <string name="sb_new_segment_edit_by_hand_parse_error">الوقت المحدد غير صحيح</string>
     <string name="sb_guidelines_preference_title">عرض الإرشادات</string>
     <string name="sb_guidelines_preference_sum">الإرشادات تحتوي على نصائح حول تقديم المقاطع</string>
     <string name="sb_guidelines_popup_title">توجد إرشادات</string>
     <string name="sb_guidelines_popup_content">من المستحسن قراءة الإرشادات لمانع الرعاة قبل تقديم أي مقطع</string>
     <string name="sb_guidelines_popup_already_read">تمت قراءتها</string>
     <string name="sb_guidelines_popup_open">اعرضها لي</string>
+    <string name="sb_stats">إحصائيات</string>
+    <string name="sb_stats_connection_failure">الإحصائيات غير متوفرة مؤقتاً (API معطل)</string>
+    <string name="sb_stats_sb_disabled">تم تعطيل SponsorBlock</string>
+    <string name="sb_stats_username" formatted="false">اسم المستخدم الخاص بك: &lt;b&gt;%s&lt;/b&gt;</string>
+    <string name="sb_stats_username_change">انقر هنا لتغيير إسم المستخدم الخاص بك</string>
+    <string name="sb_stats_username_change_unknown_error" formatted="false">غير قادر على تغيير اسم المستخدم: الحالة: %d %s</string>
+    <string name="sb_stats_username_changed">تم تغيير اسم المستخدم بنجاح</string>
+    <string name="sb_stats_reputation" formatted="false">سمعتك هي &lt;b&gt;%.2f&lt;/b&gt;</string>
+    <string name="sb_stats_submissions" formatted="false">لقد أنشأت &lt;b&gt;%s&lt;/b&gt; مقطع</string>
+    <string name="sb_stats_saved_zero">متصدرين SponsorBlock</string>
+    <string name="sb_stats_saved" formatted="false">لقد قمت بحفظ الناس من &lt;b&gt;%s&lt;/b&gt; مقطع</string>
+    <string name="sb_stats_saved_sum_zero">انقر هنا لرؤية الإحصائيات العالمية وأبرز المساهمين</string>
+    <string name="sb_stats_saved_sum" formatted="false">هذا يساوي &lt;b&gt;%s&lt;/b&gt; من حياتهم.&lt;br&gt;اضغط هنا لرؤية لوحة المتصدرين</string>
+    <string name="sb_stats_self_saved" formatted="false">لقد قمت بتخطي &lt;b&gt;%s&lt;/b&gt; مقطع</string>
+    <string name="sb_stats_self_saved_sum" formatted="false">هذا يساوي &lt;b&gt;%s&lt;/b&gt;</string>
+    <string name="sb_stats_self_saved_reset_title">إعادة تعيين عداد المقاطع التي تم تخطيها؟</string>
+    <string name="sb_stats_saved_hour_format" formatted="false">%d ساعة %d دقيقة</string>
+    <string name="sb_stats_saved_minute_format" formatted="false">%d دقيقة %d ثانية</string>
+    <string name="sb_stats_saved_second_format" formatted="false">%d ثانية</string>
+    <string name="sb_color_dot_label">اللون:</string>
+    <string name="sb_color_changed">تم تغيير اللون</string>
+    <string name="sb_color_reset">إعادة ضبط اللون</string>
+    <string name="sb_color_invalid">رمز اللون غير صالح</string>
+    <string name="sb_reset_color">إعادة تعيين اللون</string>
+    <string name="sb_reset">إعادة تعيين</string>
+    <string name="sb_api_url_reset">إعادة تعيين رابط API</string>
+    <string name="sb_api_url_invalid">رابط API غير صالح</string>
+    <string name="sb_api_url_changed">تم تغيير رابط API</string>
     <string name="seconds">ثانية</string>
     <string name="settings_export_failed">فشل تصدير الإعدادات</string>
     <string name="settings_export_successful">تم تصدير الإعدادات بنجاح</string>

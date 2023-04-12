@@ -43,7 +43,7 @@
     <string name="revanced_default_video_speed_title">Προεπιλεγμένη ταχύτητα βίντεο</string>
     <string name="revanced_disable_default_video_speed_live_summary_off">Η προεπιλεγμένη ταχύτητα βίντεο είναι ενεργοποιημένη σε ζωντανή μετάδοση</string>
     <string name="revanced_disable_default_video_speed_live_summary_on">Η προεπιλεγμένη ταχύτητα βίντεο είναι απενεργοποιημένη σε ζωντανή μετάδοση</string>
-    <string name="revanced_disable_default_video_speed_live_title">Απενεργοποίηση προεπιλεγμένης ταχύτητας βίντεο στη ζωντανή μετάδοση</string>
+    <string name="revanced_disable_default_video_speed_live_title">Απενεργοποίηση ταχύτητας βίντεο σε ζωντανή μετάδοση</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">Η απτική ανάδραση κεφαλαίων είναι ενεργοποιημένη</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">Η απτική ανάδραση κεφαλαίων είναι απενεργοποιημένη</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">Απενεργοποίηση απτικής ανάδρασης κεφαλαίων</string>
@@ -299,9 +299,6 @@
     <string name="revanced_hide_latest_posts_summary_off">Οι τελευταίες αναρτήσεις εμφανίζονται</string>
     <string name="revanced_hide_latest_posts_summary_on">Οι τελευταίες αναρτήσεις είναι κρυμμένες</string>
     <string name="revanced_hide_latest_posts_title">Απόκρυψη των τελευταίων αναρτήσεων</string>
-    <string name="revanced_hide_live_chat_button_summary_off">Το κουμπί \"Ζωντανή συζήτηση\" εμφανίζεται</string>
-    <string name="revanced_hide_live_chat_button_summary_on">Το κουμπί \"Ζωντανή συζήτηση\" είναι κρυμμένο</string>
-    <string name="revanced_hide_live_chat_button_title">Απόκρυψη κουμπιού \"Ζωντανή συζήτηση\"</string>
     <string name="revanced_hide_medical_panel_summary_off">Τα ιατρικά πάνελ εμφανίζονται</string>
     <string name="revanced_hide_medical_panel_summary_on">Τα ιατρικά πάνελ είναι κρυμμένα</string>
     <string name="revanced_hide_medical_panel_title">Απόκρυψη ιατρικών πάνελ</string>
@@ -408,6 +405,9 @@
     <string name="revanced_hide_teaser_summary_off">Τα teaser κάτω από τα βίντεο εμφανίζονται</string>
     <string name="revanced_hide_teaser_summary_on">Τα teaser κάτω από τα βίντεο είναι κρυμμένα</string>
     <string name="revanced_hide_teaser_title">Απόκρυψη teaser κάτω από τα βίντεο</string>
+    <string name="revanced_hide_ticket_shelf_summary_off">Τα ράφια εισιτηρίων εμφανίζονται</string>
+    <string name="revanced_hide_ticket_shelf_summary_on">Τα ράφια εισιτηρίων είναι κρυμμένα</string>
+    <string name="revanced_hide_ticket_shelf_title">Απόκρυψη ραφιού εισιτηρίων</string>
     <string name="revanced_hide_timed_reactions_summary_off">Οι χρονισμένες αντιδράσεις εμφανίζονται</string>
     <string name="revanced_hide_timed_reactions_summary_on">Οι χρονισμένες αντιδράσεις είναι κρυμμένες</string>
     <string name="revanced_hide_timed_reactions_title">Απόκρυψη χρονισμένων αντιδράσεων</string>
@@ -534,12 +534,145 @@
     <string name="revanced_whitelisting_sponsorblock">SponsorBlock</string>
     <string name="revanced_whitelisting_sponsorblock_button">SB</string>
     <string name="revanced_whitelisting_title">Λίστα επιτρεπόμενων καναλιών</string>
+    <string name="sb_enable_sb">Ενεργοποίηση του SponsorBlock</string>
+    <string name="sb_enable_sb_sum">Το SponsorBlock είναι ένα σύστημα που προέρχεται από το κοινό για παράβλεψη ενοχλητικών τμημάτων σε βίντεο YouTube</string>
+    <string name="sb_enable_voting">Εμφάνιση κουμπιού ψηφοφορίας τμήματος</string>
+    <string name="sb_enable_voting_sum_on">Το κουμπί ψηφοφορίας τμήματος εμφανίζεται</string>
+    <string name="sb_enable_voting_sum_off">Το κουμπί ψηφοφορίας τμήματος δεν εμφανίζεται</string>
+    <string name="sb_enable_create_segment">Εμφάνιση κουμπιού δημιουργίας νέου τμήματος</string>
+    <string name="sb_enable_create_segment_sum_on">Το κουμπί δημιουργίας νέου τμήματος εμφανίζεται</string>
+    <string name="sb_enable_create_segment_sum_off">Το κουμπί δημιουργίας νέου τμήματος δεν εμφανίζεται</string>
+    <string name="sb_enable_compact_skip_button">Χρήση συμπαγούς κουμπιού παράλειψης</string>
+    <string name="sb_enable_compact_skip_button_sum_on">Κουμπί παράλειψης διαμορφωμένο για ελάχιστο πλάτος</string>
+    <string name="sb_enable_compact_skip_button_sum_off">Κουμπί παράλειψης διαμορφωμένο για καλύτερη εμφάνιση</string>
+    <string name="sb_diff_segments">Τι να κάνετε με διάφορα τμήματα</string>
+    <string name="sb_general">Γενικά</string>
+    <string name="sb_general_skiptoast">Εμφάνιση μηνύματος κατά την αυτόματη παράλειψη τμήματος</string>
+    <string name="sb_general_skiptoast_sum_on">Εμφανίζεται όταν ένα τμήμα παραλείπεται αυτόματα. Πατήστε εδώ για να δείτε ένα παράδειγμα</string>
+    <string name="sb_general_skiptoast_sum_off">Το μήνυμα αυτόματης παράλειψης δεν εμφανίζεται. Πατήστε εδώ για να δείτε ένα παράδειγμα</string>
+    <string name="sb_general_skipcount">Ενεργοποίηση του μετρητή παραλείψεων</string>
+    <string name="sb_general_skipcount_sum_on">Επιτρέπει στον πίνακα κατάταξης SponsorBlock να γνωρίζει πόσος χρόνος εξοικονομήθηκε. Ένα μήνυμα αποστέλλεται στον πίνακα κατάταξης κάθε φορά που παραλείπεται ένα τμήμα</string>
+    <string name="sb_general_skipcount_sum_off">Ο μετρητής παραλείψεων δεν είναι ενεργός</string>
+    <string name="sb_general_time_without">Εμφάνιση μήκους βίντεο χωρίς τα τμήματα</string>
+    <string name="sb_general_time_without_sum_on">Εμφανίζεται το μήκος βίντεο μείον όλα τα τμήματα, σε παρένθεση δίπλα στο πλήρες μήκος βίντεο</string>
+    <string name="sb_general_time_without_sum_off">Εμφανίζεται το πλήρες μήκος του βίντεο</string>
+    <string name="sb_general_adjusting">Ρύθμιση βήματος νέου τμήματος</string>
+    <string name="sb_general_adjusting_sum">Αριθμός χιλιοστών του δευτερολέπτου που μετακινούνται τα κουμπιά ρύθμισης χρόνου κατά τη δημιουργία νέων τμημάτων</string>
+    <string name="sb_general_adjusting_invalid">Η τιμή πρέπει να είναι θετικός αριθμός</string>
+    <string name="sb_general_min_duration">Ελάχιστη διάρκεια τμήματος</string>
+    <string name="sb_general_min_duration_sum">Τμήματα μικρότερα από την καθορισμένη τιμή (σε δευτερόλεπτα) δεν θα παραβλεφθούν ούτε θα εμφανίζονται στο πρόγραμμα αναπαραγωγής</string>
+    <string name="sb_general_uuid">Το ιδιωτικό σας αναγνωριστικό χρήστη</string>
+    <string name="sb_general_uuid_sum">Αυτό θα πρέπει να μείνει μυστικό. Είναι σαν έναν κωδικό πρόσβασης που δεν πρέπει να μοιραστείτε με κανέναν. Εάν κάποιος αποκτήσει αυτόν τον κωδικό, μπορεί να σας υποδυθεί</string>
+    <string name="sb_general_uuid_invalid">Το αναγνωριστικό χρήστη δεν μπορεί να είναι κενό</string>
+    <string name="sb_settings_ie_sum">Οι ρυθμίσεις JSON του SponsorBlock σας που μπορούν να εισαχθούν/εξαχθούν στο ReVanced και σε άλλες πλατφόρμες SponsorBlock. Αυτό περιλαμβάνει το προσωπικό σας αναγνωριστικό χρήστη. Φροντίστε να το μοιραστείτε με σύνεση</string>
+    <string name="sb_general_api_url">Αλλαγή διεύθυνσης URL του API</string>
+    <string name="sb_general_api_url_sum">Η διεύθυνση που χρησιμοποιείται για επικοινωνία με τον διακομιστή του SponsorBlock. &lt;b&gt;Μην το αλλάξετε αυτό αν δεν ξέρετε τι κάνετε.&lt;/b&gt;</string>
+    <string name="sb_segments_sponsor">Χορηγός</string>
+    <string name="sb_segments_sponsor_sum">Προώθηση επί πληρωμή, παραπομπές επί πληρωμή και άμεσες διαφημίσεις. Όχι, για προσωπική προώθηση ή δωρεάν αναφορές σε δημιουργούς/ιστοσελίδες/προϊόντα που τους αρέσουν</string>
+    <string name="sb_segments_selfpromo">Μη αμειβόμενη/Αυτοπροώθηση</string>
+    <string name="sb_segments_selfpromo_sum">Παρόμοιο με τη «Χορηγία» αλλά για μη κερδοσκοπικό σκοπό ή για προσωπική προώθηση. Αυτό συμπεριλαμβάνει τμήματα από εμπορεύματα, δωρεές, ή πληροφορίες σχετικές με το ποιους συνεργάστηκαν</string>
+    <string name="sb_segments_interaction">Υπενθύμιση αλληλεπίδρασης (Εγγραφή)</string>
+    <string name="sb_segments_interaction_sum">Μια σύντομη υπενθύμιση στη μέση του περιεχομένου για να κάνετε like, να εγγραφείτε ή να τους ακολουθήσετε. Αν είναι μακροσκελές ή αφορά κάτι συγκεκριμένο, θα πρέπει να είναι στο πλαίσιο της αυτοπροβολής</string>
+    <string name="sb_segments_intro">Διάλειμμα/Εισαγωγή</string>
+    <string name="sb_segments_intro_sum">Ένα διάστημα χωρίς πραγματικό περιεχόμενο. Θα μπορούσε να είναι μια παύση, ένα στατικό καρέ ή μια επαναλαμβανόμενη κίνηση. Δεν περιλαμβάνει μεταβάσεις που περιέχουν πληροφορίες</string>
+    <string name="sb_segments_outro">Τελική Οθόνη/Συντελεστές</string>
+    <string name="sb_segments_outro_sum">Όταν εμφανίζονται οι συντελεστές ή τα προτεινόμενα βίντεο των καναλιών. Όχι για επίλογους που περιέχουν πληροφορίες</string>
+    <string name="sb_segments_preview">Προεπισκόπηση/Ανακεφαλαίωση</string>
+    <string name="sb_segments_preview_sum">Συλλογή από κλιπ που δείχνουν τι έρχεται ή τι συνέβη στο βίντεο ή σε άλλα βίντεο μιας σειράς, όπου όλες οι πληροφορίες επαναλαμβάνονται αλλού</string>
+    <string name="sb_segments_filler">Εφαπτομενικές Σκηνές/Αστεία</string>
+    <string name="sb_segments_filler_sum">Παρεμβατικές σκηνές που προστίθενται μόνο για γέμισμα ή χιούμορ και δεν είναι απαραίτητες για την κατανόηση του κύριου περιεχομένου του βίντεο. Δεν περιλαμβάνει τμήματα που παρέχουν πλαίσιο ή λεπτομέρειες υποβάθρου</string>
+    <string name="sb_segments_nomusic">Μουσική: Μη Μουσικό Τμήμα</string>
+    <string name="sb_segments_nomusic_sum">Μόνο για χρήση σε μουσικά βίντεο. Τμήματα μουσικών βίντεο χωρίς μουσική, που δεν καλύπτονται ήδη από άλλη κατηγορία</string>
+    <string name="sb_skip_button_compact">Παράλειψη</string>
+    <string name="sb_skip_button_sponsor">Παράλειψη χορηγού</string>
+    <string name="sb_skip_button_selfpromo">Παράλειψη προώθησης</string>
+    <string name="sb_skip_button_interaction">Παράλειψη αλληλεπίδρασης</string>
+    <string name="sb_skip_button_intro_beginning">Παράλειψη εισαγωγής</string>
+    <string name="sb_skip_button_outro">Παράλειψη επιλόγου</string>
+    <string name="sb_skip_button_preview_beginning">Παράλειψη προεπισκόπησης</string>
+    <string name="sb_skip_button_filler">Παράλειψη πληρωτικού</string>
+    <string name="sb_skip_button_nomusic">Παράλειψη μη-μουσικού</string>
+    <string name="sb_skip_button_unsubmitted">Παράλειψη τμήματος</string>
+    <string name="sb_skipped_sponsor">Παραλείφθηκε χορηγός</string>
+    <string name="sb_skipped_selfpromo">Παραλείφθηκε αυτοπροώθηση</string>
+    <string name="sb_skipped_interaction">Παραλείφθηκε ενοχλητική υπενθύμιση</string>
+    <string name="sb_skipped_intro_beginning">Παραλείφθηκε η εισαγωγή</string>
+    <string name="sb_skipped_outro">Παραλείφθηκε ο επίλογος</string>
+    <string name="sb_skipped_preview_beginning">Παραλείφθηκε η προεπισκόπηση</string>
+    <string name="sb_skipped_filler">Παραλείφθηκε το πληρωτικό</string>
+    <string name="sb_skipped_nomusic">Παραλείφθηκε ένα μη μουσικό τμήμα</string>
+    <string name="sb_skipped_unsubmitted">Παραλείφθηκε μη υποβληθέν τμήμα</string>
+    <string name="sb_skipped_multiple_segments">Παραλείφθηκαν πολλαπλά τμήματα</string>
+    <string name="sb_skip_automatically">Αυτόματη παράλειψη</string>
+    <string name="sb_skip_automatically_once">Αυτόματη παράλειψη μία φορά</string>
+    <string name="sb_skip_showbutton">Εμφάνιση κουμπιού παράλειψης</string>
+    <string name="sb_skip_seekbaronly">Εμφάνιση στην μπάρα χρόνου</string>
+    <string name="sb_skip_ignore">Απενεργοποίηση</string>
+    <string name="sb_about_api_sum">Τα δεδομένα παρέχονται από το API του SponsorBlock. Πατήστε εδώ για να μάθετε περισσότερα και να δείτε λήψεις για άλλες πλατφόρμες</string>
+    <string name="sb_about_made_by">Η ενσωμάτωση έγινε από τον JakubWeg</string>
+    <string name="sb_submit_failed_invalid" formatted="false">Δεν μπορείτε να υποβάλλετε το τμήμα: %s</string>
+    <string name="sb_submit_failed_timeout">Τα τμήματα δεν μπορούν να υποβληθούν (το χρονικό όριο του API έληξε)</string>
+    <string name="sb_submit_failed_unknown_error" formatted="false">Αδυναμία υποβολής τμημάτων (κατάσταση: %d %s)</string>
+    <string name="sb_submit_failed_rate_limit">Δεν ήταν δυνατή η υποβολή του τμήματος.\nΌριο συχνότητας (Πάρα πολλά από τον ίδιο χρήστη ή την ίδια IP)</string>
+    <string name="sb_submit_failed_forbidden" formatted="false">Δεν μπορείτε να υποβάλλετε το τμήμα: %s</string>
+    <string name="sb_submit_failed_duplicate">Αποτυχία υποβολής τμήματος.\nΥπάρχει ήδη</string>
+    <string name="sb_submit_succeeded">Το τμήμα υποβλήθηκε επιτυχώς</string>
+    <string name="sb_vote_failed_unknown_error" formatted="false">Δεν μπορείτε να ψηφίσετε για το τμήμα (κατάσταση: %d %s)</string>
+    <string name="sb_vote_failed_forbidden" formatted="false">Δεν μπορείτε να ψηφίσετε για το τμήμα: %s</string>
+    <string name="sb_vote_upvote">Υπερψήφιση</string>
+    <string name="sb_vote_downvote">Καταψήφιση</string>
+    <string name="sb_vote_category">Αλλαγή κατηγορίας</string>
+    <string name="sb_vote_no_segments">Δεν υπάρχουν τμήματα προς ψήφιση</string>
+    <string name="sb_new_segment_choose_category">Επιλέξτε την κατηγορία τμήματος</string>
+    <string name="sb_new_segment_disabled_category">Η κατηγορία είναι απενεργοποιημένη στις ρυθμίσεις. Ενεργοποιήστε την κατηγορία για υποβολή.</string>
+    <string name="sb_new_segment_title">Νέο τμήμα SponsorBlock</string>
+    <string name="sb_new_segment_mark_time_as_question" formatted="false">Ορισμός %02d:%02d:%04d ως αρχή ή τέλος ενός νέου τμήματος;</string>
+    <string name="sb_new_segment_mark_start">έναρξη</string>
+    <string name="sb_new_segment_mark_end">τέλος</string>
+    <string name="sb_new_segment_now">τώρα</string>
+    <string name="sb_new_segment_time_start">Χρόνος έναρξης του τμήματος</string>
+    <string name="sb_new_segment_time_end">Χρόνος λήξης του τμήματος</string>
+    <string name="sb_new_segment_confirm_title">Είναι σωστοί οι χρόνοι;</string>
+    <string name="sb_new_segment_confirm_content" formatted="false">Το τμήμα έχει διάρκεια από %02d:%02d έως %02d:%02d (%d λεπτά %02d δευτερόλεπτα)\nΕίναι έτοιμο για υποβολή;</string>
+    <string name="sb_new_segment_mark_locations_first">Πρώτα σημειώστε δύο σημεία στην μπάρα χρόνου</string>
+    <string name="sb_new_segment_preview_segment_first">Κάντε προεπισκόπηση του τμήματος και σιγουρευτείτε ότι παραλείπεται σωστά</string>
+    <string name="sb_new_segment_edit_by_hand_title">Χειροκίνητη ρύθμιση του χρονισμού του τμήματος</string>
+    <string name="sb_new_segment_edit_by_hand_content">Θέλετε να επεξεργαστείτε το χρόνο έναρξης ή λήξης του τμήματος;</string>
+    <string name="sb_new_segment_edit_by_hand_parse_error">Δόθηκε μη έγκυρος χρόνος</string>
     <string name="sb_guidelines_preference_title">Προβολή οδηγιών</string>
-    <string name="sb_guidelines_preference_sum">Οι οδηγίες περιέχουν συμβουλές και κανόνες σχετικά με την υποβολή τμημάτων</string>
-    <string name="sb_guidelines_popup_title">Υπάρχουν οδηγίες</string>
+    <string name="sb_guidelines_preference_sum">Οι οδηγίες περιέχουν κανόνες και συμβουλές σχετικά με την υποβολή τμημάτων</string>
+    <string name="sb_guidelines_popup_title">Ακολουθήστε τις οδηγίες</string>
     <string name="sb_guidelines_popup_content">Συνιστάται να διαβάσετε τις οδηγίες του SponsorBlock πριν υποβάλετε οποιοδήποτε τμήμα</string>
     <string name="sb_guidelines_popup_already_read">Το διάβασα ήδη</string>
     <string name="sb_guidelines_popup_open">Δείξε μου</string>
+    <string name="sb_stats">Στατιστικά</string>
+    <string name="sb_stats_connection_failure">Τα στατιστικά είναι προσωρινά μή διαθέσιμα (το API είναι εκτός λειτουργίας)</string>
+    <string name="sb_stats_sb_disabled">Το SponsorBlock είναι απενεργοποιημένο</string>
+    <string name="sb_stats_username" formatted="false">Το όνομα χρήστη σας: &lt;b&gt;%s&lt;/b&gt;</string>
+    <string name="sb_stats_username_change">Πατήστε εδώ για να αλλάξετε το όνομα χρήστη σας</string>
+    <string name="sb_stats_username_change_unknown_error" formatted="false">Αδυναμία αλλαγής ονόματος χρήστη: Κατάσταση: %d %s</string>
+    <string name="sb_stats_username_changed">Το όνομα χρήστη άλλαξε επιτυχώς</string>
+    <string name="sb_stats_reputation" formatted="false">Η φήμη σας είναι &lt;b&gt;%.2f&lt;/b&gt;</string>
+    <string name="sb_stats_submissions" formatted="false">Δημιουργήσατε &lt;b&gt;%s&lt;/b&gt; τμήματα</string>
+    <string name="sb_stats_saved_zero">Πίνακας κατάταξης SponsorBlock</string>
+    <string name="sb_stats_saved" formatted="false">Έχετε σώσει ανθρώπους από &lt;b&gt;%s&lt;/b&gt; τμήματα</string>
+    <string name="sb_stats_saved_sum_zero">Πατήστε εδώ για να δείτε τα παγκόσμια στατιστικά και τους κορυφαίους συνεισφέροντες</string>
+    <string name="sb_stats_saved_sum" formatted="false">Αυτό είναι &lt;b&gt;%s&lt;/b&gt; από τις ζωές τους.&lt;br&gt;Κάντε κλικ για να δείτε τον πίνακα κατάταξης</string>
+    <string name="sb_stats_self_saved" formatted="false">Έχετε παραλείψει &lt;b&gt;%s&lt;/b&gt; τμήματα</string>
+    <string name="sb_stats_self_saved_sum" formatted="false">Αυτό είναι &lt;b&gt;%s&lt;/b&gt;</string>
+    <string name="sb_stats_self_saved_reset_title">Επαναφορά μετρητή τμημάτων που παραλείφθηκαν;</string>
+    <string name="sb_stats_saved_hour_format" formatted="false">%d ώρες %d λεπτά</string>
+    <string name="sb_stats_saved_minute_format" formatted="false">%d λεπτά %d δευτερόλεπτα</string>
+    <string name="sb_stats_saved_second_format" formatted="false">%d δευτερόλεπτα</string>
+    <string name="sb_color_dot_label">Χρώμα:</string>
+    <string name="sb_color_changed">Το χρώμα άλλαξε</string>
+    <string name="sb_color_reset">Έγινε επαναφορά χρώματος</string>
+    <string name="sb_color_invalid">Μη έγκυρος κωδικός χρώματος</string>
+    <string name="sb_reset_color">Επαναφορά χρώματος</string>
+    <string name="sb_reset">Επαναφορά</string>
+    <string name="sb_api_url_reset">Έγινε επαναφορά διεύθυνσης URL του API</string>
+    <string name="sb_api_url_invalid">Η διεύθυνση URL του API δεν είναι έγκυρη</string>
+    <string name="sb_api_url_changed">Η διεύθυνση URL του API άλλαξε</string>
     <string name="seconds">δευτερόλεπτα</string>
     <string name="settings_export_failed">Αποτυχία εξαγωγής ρυθμίσεων</string>
     <string name="settings_export_successful">Οι ρυθμίσεις εξήχθησαν με επιτυχία</string>
