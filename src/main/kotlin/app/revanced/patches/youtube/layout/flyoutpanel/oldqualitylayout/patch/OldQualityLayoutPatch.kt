@@ -16,7 +16,6 @@ import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.youtube.layout.flyoutpanel.oldqualitylayout.fingerprints.QualityMenuViewInflateFingerprint
 import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
-import app.revanced.patches.youtube.misc.videoid.legacy.patch.LegacyVideoIdPatch
 import app.revanced.util.integrations.Constants.FLYOUT_PANEL
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
@@ -25,7 +24,6 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 @Description("Enables the original quality flyout menu.")
 @DependsOn(
     [
-        LegacyVideoIdPatch::class,
         SettingsPatch::class,
         SharedResourceIdPatch::class
     ]

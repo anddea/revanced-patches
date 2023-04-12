@@ -1,11 +1,11 @@
-package app.revanced.patches.youtube.misc.videoid.mainstream.fingerprint
+package app.revanced.patches.youtube.misc.videoid.fingerprint
 
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 
-object MainstreamVideoIdFingerprint : MethodFingerprint(
+object VideoIdFingerprint : MethodFingerprint(
     returnType = "V",
     access = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("L"),
