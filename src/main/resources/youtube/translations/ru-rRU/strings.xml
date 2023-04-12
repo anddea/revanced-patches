@@ -18,9 +18,9 @@
     <string name="revanced_adremover_paid_content_summary_off">Ярлык \"Промоакции\" отображен</string>
     <string name="revanced_adremover_paid_content_summary_on">Ярлык \"Промоакции\" скрыт</string>
     <string name="revanced_adremover_paid_content_title">Промоакции</string>
-    <string name="revanced_adremover_self_sponsor_summary_off">Заставки самостоятельного спонсорства отображены</string>
-    <string name="revanced_adremover_self_sponsor_summary_on">Заставки самостоятельного спонсорства скрыты</string>
-    <string name="revanced_adremover_self_sponsor_title">Самостоятельное спонсорство</string>
+    <string name="revanced_adremover_self_sponsor_summary_off">Заставки саморекламы отображены</string>
+    <string name="revanced_adremover_self_sponsor_summary_on">Заставки саморекламы скрыты</string>
+    <string name="revanced_adremover_self_sponsor_title">Самореклама</string>
     <string name="revanced_adremover_user_filter_summary_off">Персональный фильтр отключен</string>
     <string name="revanced_adremover_user_filter_summary_on">Персональный фильтр включен</string>
     <string name="revanced_adremover_user_filter_title">Персональный фильтр</string>
@@ -41,6 +41,9 @@
     <string name="revanced_default_video_quality_mobile_title">Качество видео для мобильной сети</string>
     <string name="revanced_default_video_quality_wifi_title">Качество видео для Wi-Fi сети</string>
     <string name="revanced_default_video_speed_title">Скорость воспроизведения</string>
+    <string name="revanced_disable_default_video_speed_live_summary_off">Значение скорости воспроизведения по умолчанию в стримах включено</string>
+    <string name="revanced_disable_default_video_speed_live_summary_on">Значение скорости воспроизведения по умолчанию в стримах отключено</string>
+    <string name="revanced_disable_default_video_speed_live_title">Скорость воспроизведения в стримах</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">Виброотклик при смене главы видео включен</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">Виброотклик при смене главы видео отключен</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">Смена главы видео</string>
@@ -64,7 +67,7 @@
     <string name="revanced_double_back_timeout_summary">Количество секунд для выхода при двойном нажатии \"Назад\"</string>
     <string name="revanced_double_back_timeout_title">Таймаут выхода из приложения</string>
     <string name="revanced_downloader_not_installed">Загрузчик не установлен. Пожалуйста, установите его</string>
-    <string name="revanced_downloader_package_name_summary">"Имя пакета приложения для загрузки видео. Например NewPipe или PowerTube"</string>
+    <string name="revanced_downloader_package_name_summary">"Имя пакета приложения для загрузки видео, например NewPipe или PowerTube"</string>
     <string name="revanced_downloader_package_name_title">Имя пакета загрузчика</string>
     <string name="revanced_downloader_settings_summary">Настройки загрузчика видео по умолчанию</string>
     <string name="revanced_downloader_settings_title">Загрузчик видео</string>
@@ -295,9 +298,6 @@
     <string name="revanced_hide_latest_posts_summary_off">Последние публикации отображены</string>
     <string name="revanced_hide_latest_posts_summary_on">Последние публикации скрыты</string>
     <string name="revanced_hide_latest_posts_title">Последние публикации</string>
-    <string name="revanced_hide_live_chat_button_summary_off">Кнопка \"Живой чат\" отображена</string>
-    <string name="revanced_hide_live_chat_button_summary_on">Кнопка \"Живой чат\" скрыта</string>
-    <string name="revanced_hide_live_chat_button_title">Живой чат</string>
     <string name="revanced_hide_medical_panel_summary_off">Медицинские панели отображены</string>
     <string name="revanced_hide_medical_panel_summary_on">Медицинские панели скрыты</string>
     <string name="revanced_hide_medical_panel_title">Медицина</string>
@@ -404,6 +404,9 @@
     <string name="revanced_hide_teaser_summary_off">Тизеры под видео отображены</string>
     <string name="revanced_hide_teaser_summary_on">Тизеры под видео скрыты</string>
     <string name="revanced_hide_teaser_title">Тизеры</string>
+    <string name="revanced_hide_ticket_shelf_summary_off">Предложения билетов отображены</string>
+    <string name="revanced_hide_ticket_shelf_summary_on">Предложения билетов скрыты</string>
+    <string name="revanced_hide_ticket_shelf_title">Билеты</string>
     <string name="revanced_hide_timed_reactions_summary_off">Временные реакции отображены</string>
     <string name="revanced_hide_timed_reactions_summary_on">Временные реакции скрыты</string>
     <string name="revanced_hide_timed_reactions_title">Временные реакции</string>
@@ -529,12 +532,145 @@
     <string name="revanced_whitelisting_sponsorblock">SponsorBlock</string>
     <string name="revanced_whitelisting_sponsorblock_button">SB</string>
     <string name="revanced_whitelisting_title">\"Белый список\" каналов</string>
+    <string name="sb_enable_sb">SponsorBlock</string>
+    <string name="sb_enable_sb_sum">SponsorBlock - коллективная система для пропуска раздражающих частей в видео YouTube</string>
+    <string name="sb_enable_voting">Голосование</string>
+    <string name="sb_enable_voting_sum_on">Кнопка голосования за сегмент отображена</string>
+    <string name="sb_enable_voting_sum_off">Кнопка голосования за сегмент скрыта</string>
+    <string name="sb_enable_create_segment">Создание нового сегмента</string>
+    <string name="sb_enable_create_segment_sum_on">Кнопка создания нового сегмента отображена</string>
+    <string name="sb_enable_create_segment_sum_off">Кнопка создания нового сегмента скрыта</string>
+    <string name="sb_enable_compact_skip_button">Использовать компактную кнопку пропуска</string>
+    <string name="sb_enable_compact_skip_button_sum_on">Кнопка пропуска стилизована под минимальную ширину</string>
+    <string name="sb_enable_compact_skip_button_sum_off">Кнопка пропуска стилизована для лучшего внешнего вида</string>
+    <string name="sb_diff_segments">Действия с различными сегментами</string>
+    <string name="sb_general">Основные</string>
+    <string name="sb_general_skiptoast">Показывать всплывающее уведомление при автоматическом пропуске сегмента</string>
+    <string name="sb_general_skiptoast_sum_on">Всплывающее уведомление отображено при автоматическом пропуске сегмента. Нажмите здесь, чтобы увидеть пример</string>
+    <string name="sb_general_skiptoast_sum_off">Всплывающее уведомление скрыто при автоматическом пропуске сегмента. Нажмите здесь, чтобы увидеть пример</string>
+    <string name="sb_general_skipcount">Подсчет количества пропусков</string>
+    <string name="sb_general_skipcount_sum_on">Это позволяет системе лидеров SponsorBlock знать, сколько времени было сэкономлено. Сообщение отправляется на сервер каждый раз при пропуске сегмента</string>
+    <string name="sb_general_skipcount_sum_off">Подсчет количества пропусков отключен</string>
+    <string name="sb_general_time_without">Отображать продолжительность видео без сегментов</string>
+    <string name="sb_general_time_without_sum_on">Продолжительность видео за исключением всех сегментов отображена в скобках рядом с полной продолжительностью видео</string>
+    <string name="sb_general_time_without_sum_off">Полная продолжительность видео отображена</string>
+    <string name="sb_general_adjusting">Настройка шага нового сегмента</string>
+    <string name="sb_general_adjusting_sum">Количество миллисекунд при перемещении кнопок регулировки времени при создании новых сегментов</string>
+    <string name="sb_general_adjusting_invalid">Значение должно быть положительным числом</string>
+    <string name="sb_general_min_duration">Минимальная продолжительность сегмента</string>
+    <string name="sb_general_min_duration_sum">Сегменты короче данного значения (в секундах), не будут показаны или пропущены</string>
+    <string name="sb_general_uuid">Ваш уникальный ID пользователя</string>
+    <string name="sb_general_uuid_sum">Это нужно держать в секрете, как пароль. Не стоит им ни с кем делиться. Если он у кого-то есть, он сможет выдать себя за Вас</string>
+    <string name="sb_general_uuid_invalid">ID пользователя не должно быть пустым</string>
+    <string name="sb_settings_ie_sum">Ваша конфигурация JSON SponsorBlock может быть импортирована или экспортирована в ReVanced и другие платформы SponsorBlock. Она включает в себя Ваш личный ID пользователя, делитесь ею с умом</string>
+    <string name="sb_general_api_url">Изменить API адреса сервера</string>
+    <string name="sb_general_api_url_sum">Адрес, используемый SponsorBlock для связи с сервером. &lt;b&gt;Не изменяйте его, если не знаете, что делаете&lt;/b&gt;</string>
+    <string name="sb_segments_sponsor">Спонсорская реклама</string>
+    <string name="sb_segments_sponsor_sum">Платные промоакции, платные рефералы и прямая реклама. Не для саморекламы или бесплатных отзывов о делах/создателях/веб-сайтах/продуктах, которые им нравятся</string>
+    <string name="sb_segments_selfpromo">Бесплатная реклама или самореклама</string>
+    <string name="sb_segments_selfpromo_sum">Похоже на спонсорскую рекламу, за исключением бесплатной рекламы или саморекламы. Включает разделы о товарах, пожертвованиях или информации о том, с кем они сотрудничали</string>
+    <string name="sb_segments_interaction">Напоминание о взаимодействии (подписка)</string>
+    <string name="sb_segments_interaction_sum">Короткое напоминание поставить лайк, подписаться на канал или соцсети в видеоролике. Если эта вставка длительная или о чем-то конкретном, она должна классифицироваться как самореклама</string>
+    <string name="sb_segments_intro">Пауза / Интро</string>
+    <string name="sb_segments_intro_sum">Интервал без фактического содержания. Это может быть пауза, статический кадр или повторяющаяся анимация. Не включает переходы, содержащие информацию</string>
+    <string name="sb_segments_outro">Конечные заставки / Титры</string>
+    <string name="sb_segments_outro_sum">Титры или время появления конечных заставок YouTube. Не для подведения итогов сказанного в видео</string>
+    <string name="sb_segments_preview">Предпросмотр / Краткое содержание</string>
+    <string name="sb_segments_preview_sum">Краткое содержание предыдущих эпизодов или предварительный просмотр того, что будет в данном видео</string>
+    <string name="sb_segments_filler">Отвлеченные темы / Шутки</string>
+    <string name="sb_segments_filler_sum">Сегменты, которые увеличивают длительность видео за счет отвлеченных тем или шуток, но не требуются для понимания основного содержания. Не включает сегменты, объясняющие контекст или предысторию</string>
+    <string name="sb_segments_nomusic">Музыка: сегмент без музыки</string>
+    <string name="sb_segments_nomusic_sum">Только для использования в музыкальных видеороликах. Разделы музыкальных видео без музыки, которые еще не охвачены другой категорией</string>
+    <string name="sb_skip_button_compact">Пропустить</string>
+    <string name="sb_skip_button_sponsor">Пропустить спонсорскую рекламу</string>
+    <string name="sb_skip_button_selfpromo">Пропустить промо</string>
+    <string name="sb_skip_button_interaction">Пропустить взаимодействие</string>
+    <string name="sb_skip_button_intro_beginning">Пропустить интро</string>
+    <string name="sb_skip_button_outro">Пропустить концовку</string>
+    <string name="sb_skip_button_preview_beginning">Пропустить предпросмотр</string>
+    <string name="sb_skip_button_filler">Пропустить наполнитель</string>
+    <string name="sb_skip_button_nomusic">Пропустить немузыкальный сегмент</string>
+    <string name="sb_skip_button_unsubmitted">Пропустить сегмент</string>
+    <string name="sb_skipped_sponsor">Пропущена спонсорская реклама</string>
+    <string name="sb_skipped_selfpromo">Пропущена самореклама</string>
+    <string name="sb_skipped_interaction">Пропущено назойливое напоминание</string>
+    <string name="sb_skipped_intro_beginning">Пропущено интро</string>
+    <string name="sb_skipped_outro">Пропущена концовка</string>
+    <string name="sb_skipped_preview_beginning">Пропущен предпросмотр</string>
+    <string name="sb_skipped_filler">Пропущен наполнитель</string>
+    <string name="sb_skipped_nomusic">Пропущен немузыкальный сегмент</string>
+    <string name="sb_skipped_unsubmitted">Пропущен неотправленный сегмент</string>
+    <string name="sb_skipped_multiple_segments">Пропущено несколько сегментов</string>
+    <string name="sb_skip_automatically">Автоматически пропускать</string>
+    <string name="sb_skip_automatically_once">Автоматически пропускать единожды</string>
+    <string name="sb_skip_showbutton">Отображать кнопку пропуска</string>
+    <string name="sb_skip_seekbaronly">Показывать в прогрессе воспроизведения</string>
+    <string name="sb_skip_ignore">Отключить</string>
+    <string name="sb_about_api_sum">Данные предоставлены API SponsorBlock. Нажмите здесь, чтобы узнать больше и увидеть загрузки для других платформ</string>
+    <string name="sb_about_made_by">Автор интеграции - JakubWeg</string>
+    <string name="sb_submit_failed_invalid" formatted="false">Не удается отправить сегмент: %s</string>
+    <string name="sb_submit_failed_timeout">Невозможно отправить сегменты (время API истекло)</string>
+    <string name="sb_submit_failed_unknown_error" formatted="false">Невозможно отправить сегменты (статус: %d %s)</string>
+    <string name="sb_submit_failed_rate_limit">Не удается отправить сегмент.\nЛимит запросов (слишком много от одного пользователя или IP)</string>
+    <string name="sb_submit_failed_forbidden" formatted="false">Не удается отправить сегмент: %s</string>
+    <string name="sb_submit_failed_duplicate">Не удается отправить сегмент.\nУже существует</string>
+    <string name="sb_submit_succeeded">Сегмент успешно отправлен</string>
+    <string name="sb_vote_failed_unknown_error" formatted="false">Невозможно проголосовать за сегмент (статус: %d %s)</string>
+    <string name="sb_vote_failed_forbidden" formatted="false">Невозможно проголосовать за сегмент: %s</string>
+    <string name="sb_vote_upvote">Голосовать за</string>
+    <string name="sb_vote_downvote">Голосовать против</string>
+    <string name="sb_vote_category">Изменить категорию</string>
+    <string name="sb_vote_no_segments">Нет сегментов для голосования</string>
+    <string name="sb_new_segment_choose_category">Выберите категорию сегмента</string>
+    <string name="sb_new_segment_disabled_category">Категория отключена в настройках. Включите категорию для отправки</string>
+    <string name="sb_new_segment_title">Новый сегмент SponsorBlock</string>
+    <string name="sb_new_segment_mark_time_as_question" formatted="false">Установить %02d:%02d:%04d как начало или конец нового сегмента?</string>
+    <string name="sb_new_segment_mark_start">начало</string>
+    <string name="sb_new_segment_mark_end">конец</string>
+    <string name="sb_new_segment_now">cейчас</string>
+    <string name="sb_new_segment_time_start">Время начала сегмента:</string>
+    <string name="sb_new_segment_time_end">Время окончания сегмента:</string>
+    <string name="sb_new_segment_confirm_title">Верно ли выбрано время?</string>
+    <string name="sb_new_segment_confirm_content" formatted="false">Сегмент длится с %02d:%02d до %02d:%02d (%d минут %02d секунд)\nГотово для отправки?</string>
+    <string name="sb_new_segment_mark_locations_first">Сначала отметьте два места на шкале времени</string>
+    <string name="sb_new_segment_preview_segment_first">Предпросмотр сегмента и обеспечение его плавного пропускания</string>
+    <string name="sb_new_segment_edit_by_hand_title">Изменить время сегмента вручную</string>
+    <string name="sb_new_segment_edit_by_hand_content">Вы хотите изменить время начала или окончания сегмента?</string>
+    <string name="sb_new_segment_edit_by_hand_parse_error">Указано неверное время</string>
     <string name="sb_guidelines_preference_title">Посмотреть руководство</string>
-    <string name="sb_guidelines_preference_sum">Руководство содержит советы по отправке сегментов</string>
-    <string name="sb_guidelines_popup_title">Существуют рекомендации</string>
-    <string name="sb_guidelines_popup_content">Перед отправкой любого сегмента желательно прочитать рекомендации от SponsorBlock</string>
+    <string name="sb_guidelines_preference_sum">Рекомендации содержат правила и советы по созданию новых сегментов</string>
+    <string name="sb_guidelines_popup_title">Следуйте рекомендациям</string>
+    <string name="sb_guidelines_popup_content">Перед созданием новых сегментов желательно прочитать рекомендации SponsorBlock</string>
     <string name="sb_guidelines_popup_already_read">Уже прочитан</string>
     <string name="sb_guidelines_popup_open">Показать</string>
+    <string name="sb_stats">Статистика</string>
+    <string name="sb_stats_connection_failure">Статистика временно недоступна (API отключен)</string>
+    <string name="sb_stats_sb_disabled">SponsorBlock отключен</string>
+    <string name="sb_stats_username" formatted="false">Ваше имя пользователя: &lt;b&gt;%s&lt;/b&gt;</string>
+    <string name="sb_stats_username_change">Нажмите, чтобы изменить Ваше имя пользователя</string>
+    <string name="sb_stats_username_change_unknown_error" formatted="false">Невозможно изменить имя пользователя: Статус: %d %s</string>
+    <string name="sb_stats_username_changed">Имя пользователя успешно изменено</string>
+    <string name="sb_stats_reputation" formatted="false">Ваша репутация &lt;b&gt;%.2f&lt;/b&gt;</string>
+    <string name="sb_stats_submissions" formatted="false">Вы создали &lt;b&gt;%s&lt;/b&gt; сегментов</string>
+    <string name="sb_stats_saved_zero">Таблица лидеров SponsorBlock</string>
+    <string name="sb_stats_saved" formatted="false">Вы избавили людей от &lt;b&gt;%s&lt;/b&gt; сегментов</string>
+    <string name="sb_stats_saved_sum_zero">Нажмите здесь, чтобы увидеть глобальную статистику и топ участников</string>
+    <string name="sb_stats_saved_sum" formatted="false">Это &lt;b&gt;%s&lt;/b&gt; их жизни.&lt;br&gt;Нажмите здесь, чтобы увидеть таблицу лидеров</string>
+    <string name="sb_stats_self_saved" formatted="false">Вы пропустили &lt;b&gt;%s&lt;/b&gt; сегментов</string>
+    <string name="sb_stats_self_saved_sum" formatted="false">Это &lt;b&gt;%s&lt;/b&gt;</string>
+    <string name="sb_stats_self_saved_reset_title">Сбросить счетчик пропущенных сегментов?</string>
+    <string name="sb_stats_saved_hour_format" formatted="false">%d часов %d минут</string>
+    <string name="sb_stats_saved_minute_format" formatted="false">%d минут %d секунд</string>
+    <string name="sb_stats_saved_second_format" formatted="false">%d секунд</string>
+    <string name="sb_color_dot_label">Цвет:</string>
+    <string name="sb_color_changed">Цвет изменен</string>
+    <string name="sb_color_reset">Цвет сброшен</string>
+    <string name="sb_color_invalid">Неверный код цвета</string>
+    <string name="sb_reset_color">Сбросить цвет</string>
+    <string name="sb_reset">Сброс</string>
+    <string name="sb_api_url_reset">Адрес сервера API сброшен</string>
+    <string name="sb_api_url_invalid">Адрес сервера API недействителен</string>
+    <string name="sb_api_url_changed">Адрес сервера API изменен</string>
     <string name="seconds">секунд</string>
     <string name="settings_export_failed">Не удалось сохранить настройки</string>
     <string name="settings_export_successful">Настройки успешно сохранены</string>

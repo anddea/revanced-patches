@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="accessibility_settings_edu_opt_in_text">Video oynatıcı için erişilebilirlik kontrollerini açın?</string>
+    <string name="accessibility_settings_edu_opt_in_text">Video oynatıcı için erişilebilirlik kontrolleri açılsın mı?</string>
     <string name="accessibility_settings_edu_opt_out_text">Bir erişilebilirlik hizmeti açık olduğu için kontrolleriniz değiştirildi.</string>
     <string name="microg_not_installed_notice">Lütfen MicroG yükleyin</string>
     <string name="microg_not_installed_warning">MicroG bulunamadı</string>
@@ -41,6 +41,8 @@
     <string name="revanced_default_video_quality_mobile_title">Tercih edilen video kalitesi (Hücresel)</string>
     <string name="revanced_default_video_quality_wifi_title">Tercih edilen video kalitesi (Wi-Fi)</string>
     <string name="revanced_default_video_speed_title">Varsayılan video hızı</string>
+    <string name="revanced_disable_default_video_speed_live_summary_off">Açık</string>
+    <string name="revanced_disable_default_video_speed_live_summary_on">Kapalı</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">Bölümler arasında geçiş yaparken titreşimli geri bildirim etkinleştirildi</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">Bölümler arasında geçiş yaparken titreşimli geri bildirim kapalı</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">Bölümler arasında geçiş yaparken titreşimli geri bildirim</string>
@@ -296,9 +298,6 @@ Lütfen bu özelliği kullanırken karşılaştığınız sorunları bildirmeyin
     <string name="revanced_hide_latest_posts_summary_off">Gizlenmiyor</string>
     <string name="revanced_hide_latest_posts_summary_on">Gizleniyor</string>
     <string name="revanced_hide_latest_posts_title">Son gönderileri gizle</string>
-    <string name="revanced_hide_live_chat_button_summary_off">Gizlenmiyor</string>
-    <string name="revanced_hide_live_chat_button_summary_on">Gizleniyor</string>
-    <string name="revanced_hide_live_chat_button_title">Canlı sohbet butonunu gizle</string>
     <string name="revanced_hide_medical_panel_summary_off">Gizlenmiyor</string>
     <string name="revanced_hide_medical_panel_summary_on">Gizleniyor</string>
     <string name="revanced_hide_medical_panel_title">Tıbbi paneli gizle</string>
@@ -405,12 +404,18 @@ Lütfen bu özelliği kullanırken karşılaştığınız sorunları bildirmeyin
     <string name="revanced_hide_teaser_summary_off">Gizlenmiyor</string>
     <string name="revanced_hide_teaser_summary_on">Gizleniyor</string>
     <string name="revanced_hide_teaser_title">Videoların altındaki fragmanı gizle</string>
+    <string name="revanced_hide_ticket_shelf_summary_off">Gizlenmiyor</string>
+    <string name="revanced_hide_ticket_shelf_summary_on">Gizleniyor</string>
+    <string name="revanced_hide_ticket_shelf_title">Bilet rafını gizle</string>
     <string name="revanced_hide_timed_reactions_summary_off">Gizlenmiyor</string>
     <string name="revanced_hide_timed_reactions_summary_on">Gizleniyor</string>
     <string name="revanced_hide_timed_reactions_title">Zamanlı tepkileri gizle</string>
     <string name="revanced_hide_time_stamp_summary_off">Gizlenmiyor</string>
     <string name="revanced_hide_time_stamp_summary_on">Gizleniyor</string>
     <string name="revanced_hide_time_stamp_title">Zaman damgalarını gizle</string>
+    <string name="revanced_hide_search_terms_summary_off">Gizlenmiyor</string>
+    <string name="revanced_hide_search_terms_summary_on">Gizleniyor</string>
+    <string name="revanced_hide_search_terms_title">Arama terimlerini önerilerden gizle</string>
     <string name="revanced_hide_view_products_summary_off">Gizlenmiyor</string>
     <string name="revanced_hide_view_products_summary_on">Gizleniyor</string>
     <string name="revanced_hide_view_products_title">Ürünleri görüntüle başlığını gizle (oynatıcıda)</string>
@@ -527,12 +532,146 @@ Bu ayar oldukça eski olduğu için geçerli olmayabilir"</string>
     <string name="revanced_whitelisting_sponsorblock">SponsorBlock</string>
     <string name="revanced_whitelisting_sponsorblock_button">SB</string>
     <string name="revanced_whitelisting_title">Kanal beyaz listesi</string>
+    <string name="sb_enable_sb">SponsorBlock\'u etkinleştir</string>
+    <string name="sb_enable_sb_sum">SponsorBlock, YouTube videolarındaki sıkıcı kısımları atlamaya yarayan kitle kaynaklı bir sistemdir</string>
+    <string name="sb_enable_voting">Oylama Düğmesini Göster</string>
+    <string name="sb_enable_voting_sum_on">Gizlenmiyor</string>
+    <string name="sb_enable_voting_sum_off">Gizleniyor</string>
+    <string name="sb_enable_create_segment">Yeni segment oluştur düğmesini göster</string>
+    <string name="sb_enable_create_segment_sum_on">Gizlenmiyor</string>
+    <string name="sb_enable_create_segment_sum_off">Gizleniyor</string>
+    <string name="sb_enable_compact_skip_button">Kompakt atlama düğmesini kullanın</string>
+    <string name="sb_enable_compact_skip_button_sum_on">Minimum genişlik için tasarlanmış atlama düğmesi</string>
+    <string name="sb_enable_compact_skip_button_sum_off">En iyi görünüm için tasarlanmış atla düğmesi</string>
+    <string name="sb_diff_segments">Bu kısımlar ne anlama geliyor</string>
+    <string name="sb_general">Genel</string>
+    <string name="sb_general_skiptoast">Bir kısım otomatikman atlanırken uyarı ver</string>
+    <string name="sb_general_skiptoast_sum_on">Tost, bir bölüm otomatik olarak atlandığında gösterilir.
+Bir örnek görmek için buraya dokunun</string>
+    <string name="sb_general_skiptoast_sum_off">Tost gizleniyor. Bir örnek görmek için buraya dokunun</string>
+    <string name="sb_general_skipcount">Atlama sayısı izlemeyi etkinleştir</string>
+    <string name="sb_general_skipcount_sum_on">SponsorBlock liderlik tablosunun ne kadar zaman kazanıldığını bilmesini sağlar. Bir segment her atlandığında skor tablosuna bir mesaj gönderilir</string>
+    <string name="sb_general_skipcount_sum_off">Kapalı</string>
+    <string name="sb_general_time_without">Video uzunluğunu bölümler olmadan göster</string>
+    <string name="sb_general_time_without_sum_on">Video uzunluğu eksi tüm segmentler, tam video uzunluğunun yanında parantez içinde gösterilir</string>
+    <string name="sb_general_time_without_sum_off">Gizlenmiyor</string>
+    <string name="sb_general_adjusting">Yeni kısım adımını ayarla</string>
+    <string name="sb_general_adjusting_sum">Yeni segmentler oluşturulurken zaman ayarlama düğmelerinin hareket ettiği milisaniye sayısı</string>
+    <string name="sb_general_adjusting_invalid">Değer pozitif bir sayı olmalıdır</string>
+    <string name="sb_general_min_duration">En az bölüm süresi</string>
+    <string name="sb_general_min_duration_sum">Bu değerden (saniye olarak) daha kısa bölümler gösterilmeyecek veya atlanmayacaktır</string>
+    <string name="sb_general_uuid">Benzersiz kullanıcı kimliğiniz</string>
+    <string name="sb_general_uuid_sum">Bu gizli tutulmalıdır. Bu bir şifre gibidir ve kimseyle paylaşılmamalıdır. Birisi buna sahipse, sizi taklit edebilir</string>
+    <string name="sb_general_uuid_invalid">Kullanıcı kimliği boş olamaz</string>
+    <string name="sb_settings_ie_sum">ReVanced ve diğer SponsorBlock platformlarına içe/dışa aktarılabilen SponsorBlock JSON yapılandırmanız. Bu, özel kullanıcı kimliğinizi içerir. Bunu akıllıca paylaştığınızdan emin olun</string>
+    <string name="sb_general_api_url">API URL\'sini Değiştir</string>
+    <string name="sb_general_api_url_sum">SponsorBlock\'un sunucuya çağrı yapmak için kullandığı adres. &lt;b&gt;Ne yaptığınızı bilmiyorsanız bunu değiştirmeyin&lt;/b&gt;</string>
+    <string name="sb_segments_sponsor">Sponsor</string>
+    <string name="sb_segments_sponsor_sum">Ücretli tanıtım, ücretli yönlendirmeler ve doğrudan reklamlar. Kendini pazarlayan veya beğendiği içerik üreticilerine/sitelere/ürünlere atıfta bulunanlar için değil</string>
+    <string name="sb_segments_selfpromo">Karşılıksız/Kendi Reklamı</string>
+    <string name="sb_segments_selfpromo_sum">\"Sponsor\" seçeneğinden farkı para karşılığı olmaması veya kendi reklamını yapmasıdır. Buna kendi markalı ürünlerini satmak, bağış toplamak ve videoda işbirliği yaptığı kimselerden bahsetmek dahildir</string>
+    <string name="sb_segments_interaction">Etkileşim Anımsatıcısı (Abonelik)</string>
+    <string name="sb_segments_interaction_sum">Videonun ortasında beğenmek, abone olmak veya takip etmek için kısa bir hatırlatma olan kısımdır. Eğer süresi uzunsa veya belirli bir şey hakkındaysa, kendi reklamını yapan kategorisi seçilmelidir</string>
+    <string name="sb_segments_intro">Aralık/Giriş Animasyonu</string>
+    <string name="sb_segments_intro_sum">Gerçek içeriği olmayan bir aralık. Bir duraklama, statik çerçeve veya yinelenen animasyon olabilir. Bilgi içeren geçişleri içermez</string>
+    <string name="sb_segments_outro">Kapanış Sahneleri/Jenerik</string>
+    <string name="sb_segments_outro_sum">Videoda emeği geçenlerin veya video sonunda çıkan kartların gösterildiği kısımlar. Bilgilendirici sona sahip videolar için değil</string>
+    <string name="sb_segments_preview">Ön İzleme/Özet</string>
+    <string name="sb_segments_preview_sum">Videoda veya bir dizinin diğer videolarında neler olduğunu veya neler olduğunu gösteren, tüm bilgilerin başka bir yerde tekrarlandığı klip koleksiyonu</string>
+    <string name="sb_segments_filler">Konuyla Alakasız/Şaka</string>
+    <string name="sb_segments_filler_sum">Sadece videoyu doldurmak ya da mizah için eklenmiş, videonun ana içeriğini anlamak için gerekli olmayan alakasız sahneler. Bu, içerik veya arka plan detayları hakkında bilgi veren kısımları içermemelidir</string>
+    <string name="sb_segments_nomusic">Müzik: Müzik Olmayan Bölüm</string>
+    <string name="sb_segments_nomusic_sum">Yalnızca müzik videolarında kullanım içindir. Henüz başka bir kategoride yer almayan müzik videolarının müziksiz bölümleri</string>
+    <string name="sb_skip_button_compact">Atla</string>
+    <string name="sb_skip_button_sponsor">Sponsoru atla</string>
+    <string name="sb_skip_button_selfpromo">Promosyonu atla</string>
+    <string name="sb_skip_button_interaction">Etkileşimi atla</string>
+    <string name="sb_skip_button_intro_beginning">Tanıtımı geç</string>
+    <string name="sb_skip_button_outro">Kapanış ekranını atla</string>
+    <string name="sb_skip_button_preview_beginning">Önizlemeyi atla</string>
+    <string name="sb_skip_button_filler">Dolguyu atla</string>
+    <string name="sb_skip_button_nomusic">Müzik olmayan kısımları geç</string>
+    <string name="sb_skip_button_unsubmitted">Kısımları atla</string>
+    <string name="sb_skipped_sponsor">Sponsor atlandı</string>
+    <string name="sb_skipped_selfpromo">Kendi reklamı atlandı</string>
+    <string name="sb_skipped_interaction">Etkileşim anımsatıcısı atlandı</string>
+    <string name="sb_skipped_intro_beginning">Giriş ekranı atlandı</string>
+    <string name="sb_skipped_outro">Kapanış ekranı atlandı</string>
+    <string name="sb_skipped_preview_beginning">Önizleme atlandı</string>
+    <string name="sb_skipped_filler">Alakasız konu atlandı</string>
+    <string name="sb_skipped_nomusic">Müzik olmayan kısım atlandı</string>
+    <string name="sb_skipped_unsubmitted">Gönderilmemiş kısım atlandı</string>
+    <string name="sb_skipped_multiple_segments">Birden çok segment atlandı</string>
+    <string name="sb_skip_automatically">Otomatik atla</string>
+    <string name="sb_skip_automatically_once">Bir kez otomatik atla</string>
+    <string name="sb_skip_showbutton">Atlamak için buton göster</string>
+    <string name="sb_skip_seekbaronly">Zaman çubuğunda Göster</string>
+    <string name="sb_skip_ignore">Kapalı</string>
+    <string name="sb_about_api_sum">Veriler, SponsorBlock API tarafından sağlanmaktadır. Daha fazla bilgi edinmek ve diğer platformlar için indirmeleri görmek için buraya dokunun</string>
+    <string name="sb_about_made_by">Entegrasyonu yapan: JakubWeg</string>
+    <string name="sb_submit_failed_invalid" formatted="false">Kısım gönderilemiyor: %s</string>
+    <string name="sb_submit_failed_timeout">Kısımlar gönderilemedi (API zamqn aşımına uğradı)</string>
+    <string name="sb_submit_failed_unknown_error" formatted="false">Kısımlar gönderilemedi (durum: %d %s)</string>
+    <string name="sb_submit_failed_rate_limit">Kısım gönderilemedi.\nOylama Sınırlandı (Aynı kullanıcıdan veya IP\'den çok fazla düzenleme)</string>
+    <string name="sb_submit_failed_forbidden" formatted="false">Kısım gönderilemiyor: %s</string>
+    <string name="sb_submit_failed_duplicate">Kısım gönderilemedi.\nAynısı mevcut</string>
+    <string name="sb_submit_succeeded">Düzenlenen kısım gönderimi tamamlandı</string>
+    <string name="sb_vote_failed_unknown_error" formatted="false">Kısım oylanamadı (durum: %d %s)</string>
+    <string name="sb_vote_failed_forbidden" formatted="false">Kısım oylanamadı: %s</string>
+    <string name="sb_vote_upvote">Olumlu Oy Ver</string>
+    <string name="sb_vote_downvote">Olumsuz oy ver</string>
+    <string name="sb_vote_category">Kategoriyi değiştir</string>
+    <string name="sb_vote_no_segments">Oylanabilecek bir kısım yok</string>
+    <string name="sb_new_segment_choose_category">Kategori seçin</string>
+    <string name="sb_new_segment_disabled_category">Ayarlarda kategori devre dışı bırakıldı. Göndermek için kategoriyi etkinleştir.</string>
+    <string name="sb_new_segment_title">Yeni SponsorBlock kısmı</string>
+    <string name="sb_new_segment_mark_time_as_question" formatted="false">%02d:%02d:%04d bu kısmın başlangıcı mı, bitişi mi olarak ayarlansın?</string>
+    <string name="sb_new_segment_mark_start">başlangıç</string>
+    <string name="sb_new_segment_mark_end">bitiş</string>
+    <string name="sb_new_segment_now">şimdi</string>
+    <string name="sb_new_segment_time_start">Kısmın başlangıcı</string>
+    <string name="sb_new_segment_time_end">Kısmın bitişi</string>
+    <string name="sb_new_segment_confirm_title">Zaman aralığı doğru mu?</string>
+    <string name="sb_new_segment_confirm_content" formatted="false">Bu kısmın başlangıcı %02d.%02d, bitişi %02d.%02d, süresi %d dakika %02d saniye.\nGönderilmeye hazır mı?</string>
+    <string name="sb_new_segment_mark_locations_first">Öncelikle zaman çizgisinde iki konum işaretleyin</string>
+    <string name="sb_new_segment_preview_segment_first">Segmenti önizleyin ve sorunsuz bir şekilde atladığından emin olun</string>
+    <string name="sb_new_segment_edit_by_hand_title">Kısmın süresini elle düzenleyin</string>
+    <string name="sb_new_segment_edit_by_hand_content">Bu kısmın başlangıcını mı, bitişini mi düzenlemek istiyorsunuz?</string>
+    <string name="sb_new_segment_edit_by_hand_parse_error">Girilen süre geçersiz</string>
     <string name="sb_guidelines_preference_title">Yönergeleri görüntüle</string>
-    <string name="sb_guidelines_preference_sum">Yönergeler, bir kısım göndermeyle ilgili ipuçları içerir</string>
-    <string name="sb_guidelines_popup_title">Yönergeler var</string>
+    <string name="sb_guidelines_preference_sum">Yönergeler, yeni segmentler oluşturmak için kurallar ve ipuçları içerir</string>
+    <string name="sb_guidelines_popup_title">Yönergeleri takip et</string>
     <string name="sb_guidelines_popup_content">Herhangi bir kısmı göndermeden önce SponsorBlock kurallarını okumanız tavsiye edilir</string>
     <string name="sb_guidelines_popup_already_read">Zaten okundu</string>
     <string name="sb_guidelines_popup_open">Göster bana</string>
+    <string name="sb_stats">İstatistikler</string>
+    <string name="sb_stats_connection_failure">İstatikler geçici olarak kullanılamıyor (API zaman aşımına uğradı)</string>
+    <string name="sb_stats_sb_disabled">SponsorBlock devre dışı</string>
+    <string name="sb_stats_username" formatted="false">Kullanıcı adın: &lt;b&gt;%s&lt;/b&gt;</string>
+    <string name="sb_stats_username_change">Kullanıcı adını değiştirmek için buraya dokun</string>
+    <string name="sb_stats_username_change_unknown_error" formatted="false">Kullanıcı adı değiştirilemiyor: Durum: %d %s</string>
+    <string name="sb_stats_username_changed">Kullanıcı adı başarıyla değiştirildi</string>
+    <string name="sb_stats_reputation" formatted="false">İtibarınız &lt;b&gt;%.2f&lt;/b&gt;</string>
+    <string name="sb_stats_submissions" formatted="false">&lt;b&gt;%s&lt;/b&gt; kısmı oluşturdun</string>
+    <string name="sb_stats_saved_zero">SponsorBlock liderlik tablosu</string>
+    <string name="sb_stats_saved" formatted="false">İnsanları &lt;b&gt;%s&lt;/b&gt; kısımdan kurtardın</string>
+    <string name="sb_stats_saved_sum_zero">Küresel istatistikleri ve en çok katkıda bulunanları görmek için buraya dokunun</string>
+    <string name="sb_stats_saved_sum" formatted="false">Hayatlarının &lt;b&gt;%s&lt;/b&gt; kadarı.&lt;br&gt;Skor tablosunu görmek için buraya dokunun</string>
+    <string name="sb_stats_self_saved" formatted="false">&lt;b&gt;%s&lt;/b&gt; kısmı atladın</string>
+    <string name="sb_stats_self_saved_sum" formatted="false">Bu da &lt;b&gt;%s&lt;/b&gt; demek</string>
+    <string name="sb_stats_self_saved_reset_title">Atlanan segment sayacı sıfırlansın mı?</string>
+    <string name="sb_stats_saved_hour_format" formatted="false">%d saatler %d dakikalar</string>
+    <string name="sb_stats_saved_minute_format" formatted="false">%d dakikalar ve %d saniyeler</string>
+    <string name="sb_stats_saved_second_format" formatted="false">%d saniyeler</string>
+    <string name="sb_color_dot_label">Renk:</string>
+    <string name="sb_color_changed">Renk değiştirildi</string>
+    <string name="sb_color_reset">Renk sıfırlandı</string>
+    <string name="sb_color_invalid">Renk kodu geçersiz</string>
+    <string name="sb_reset_color">Rengi sıfırla</string>
+    <string name="sb_reset">Sıfırla</string>
+    <string name="sb_api_url_reset">API URL\'si sıfırlandı</string>
+    <string name="sb_api_url_invalid">API bağlantısı geçersiz</string>
+    <string name="sb_api_url_changed">API URL\'si değiştirildi</string>
     <string name="seconds">saniye</string>
     <string name="settings_export_failed">Ayarlar dışarı aktarılamadı</string>
     <string name="settings_export_successful">Ayarların içe aktarılması tamamlandı</string>

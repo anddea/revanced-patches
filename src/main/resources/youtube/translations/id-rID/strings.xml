@@ -41,6 +41,8 @@
     <string name="revanced_default_video_quality_mobile_title">Kualitas video default seluler</string>
     <string name="revanced_default_video_quality_wifi_title">Kualitas video default Wi-Fi</string>
     <string name="revanced_default_video_speed_title">Kecepatan video default</string>
+    <string name="revanced_disable_default_video_speed_live_summary_off">Kecepatan video default diaktifkan di live stream</string>
+    <string name="revanced_disable_default_video_speed_live_summary_on">Kecepatan video default dinonaktifkan di live stream</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">Feedback haptic chapter diaktifkan</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">Feedback haptic chapter dinonaktifkan</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">Nonaktifkan feedback haptic chapter</string>
@@ -296,9 +298,6 @@ Harap jangan laporkan masalah apa pun yang anda temui saat menggunakan fitur ini
     <string name="revanced_hide_latest_posts_summary_off">Postingan terbaru ditampilkan</string>
     <string name="revanced_hide_latest_posts_summary_on">Postingan terbaru disembunyikan</string>
     <string name="revanced_hide_latest_posts_title">Sembunyikan postingan terbaru</string>
-    <string name="revanced_hide_live_chat_button_summary_off">Tombol live chat ditampilkan</string>
-    <string name="revanced_hide_live_chat_button_summary_on">Tombol live chat disembunyikan</string>
-    <string name="revanced_hide_live_chat_button_title">Sembunyikan tombol live chat</string>
     <string name="revanced_hide_medical_panel_summary_off">Panel medis ditampilkan</string>
     <string name="revanced_hide_medical_panel_summary_on">Panel medis disembunyikan</string>
     <string name="revanced_hide_medical_panel_title">Sembunyikan panel medis</string>
@@ -405,12 +404,18 @@ Harap jangan laporkan masalah apa pun yang anda temui saat menggunakan fitur ini
     <string name="revanced_hide_teaser_summary_off">Teasers ditampilkan</string>
     <string name="revanced_hide_teaser_summary_on">Teasers disembunyikan</string>
     <string name="revanced_hide_teaser_title">Sembunyikan teaser di bawah video</string>
+    <string name="revanced_hide_ticket_shelf_summary_off">Rak tiket ditampilkan</string>
+    <string name="revanced_hide_ticket_shelf_summary_on">Rak tiket disembunyikan</string>
+    <string name="revanced_hide_ticket_shelf_title">Sembunyikan rak tiket</string>
     <string name="revanced_hide_timed_reactions_summary_off">Timed reactions ditampilkan</string>
     <string name="revanced_hide_timed_reactions_summary_on">Timed reactions disembunyikan</string>
     <string name="revanced_hide_timed_reactions_title">Sembunyikan timed reactions</string>
     <string name="revanced_hide_time_stamp_summary_off">Time stamp ditampilkan</string>
     <string name="revanced_hide_time_stamp_summary_on">Time stamp disembunyikan</string>
     <string name="revanced_hide_time_stamp_title">Sembunyikan time stamp</string>
+    <string name="revanced_hide_search_terms_summary_off">Penelusuran trending &amp; riwayat pencarian ditampilkan</string>
+    <string name="revanced_hide_search_terms_summary_on">Penelusuran trending &amp; riwayat pencarian disembunyikan</string>
+    <string name="revanced_hide_search_terms_title">Sembunyikan saran istilah penelusuran</string>
     <string name="revanced_hide_view_products_summary_off">Lihat banner produk ditampilkan</string>
     <string name="revanced_hide_view_products_summary_on">Lihat banner produk disembunyikan</string>
     <string name="revanced_hide_view_products_title">Sembunyikan banner tampilan produk (dalam pemutar)</string>
@@ -528,12 +533,145 @@ Karena pengaturan ini sudah cukup usang, mungkin tidak valid"</string>
     <string name="revanced_whitelisting_sponsorblock">SponsorBlock</string>
     <string name="revanced_whitelisting_sponsorblock_button">SB</string>
     <string name="revanced_whitelisting_title">Whitelist channel</string>
+    <string name="sb_enable_sb">Aktifkan SponsorBlock</string>
+    <string name="sb_enable_sb_sum">SponsorBlock adalah sistem crowd-source untuk melewatkan bagian yang mengganggu di video YouTube</string>
+    <string name="sb_enable_voting">Tampilkan tombol voting</string>
+    <string name="sb_enable_voting_sum_on">Tombol segmen voting ditampilkan</string>
+    <string name="sb_enable_voting_sum_off">Tombol segmen voting tidak ditampilkan</string>
+    <string name="sb_enable_create_segment">Tampilkan tombol buat segmen baru</string>
+    <string name="sb_enable_create_segment_sum_on">Tombol buat segmen baru ditampilkan</string>
+    <string name="sb_enable_create_segment_sum_off">Tombol buat segmen baru tidak ditampilkan</string>
+    <string name="sb_enable_compact_skip_button">Gunakan tombol lewati compact</string>
+    <string name="sb_enable_compact_skip_button_sum_on">Tombol gaya lewati untuk lebar minimum</string>
+    <string name="sb_enable_compact_skip_button_sum_off">Tombol gaya lewati untuk penampilan terbaik</string>
+    <string name="sb_diff_segments">Apa yang harus dilakukan dengan segmen yang berbeda</string>
+    <string name="sb_general">Umum</string>
+    <string name="sb_general_skiptoast">Tampilkan notifikasi ketika melewatkan segmen otomatis</string>
+    <string name="sb_general_skiptoast_sum_on">Notifikasi ditampilkan saat segmen dilewati secara otomatis. Tekan di sini untuk melihat contohnya</string>
+    <string name="sb_general_skiptoast_sum_off">Notifikasi tidak ditampilkan. Tekan di sini untuk melihat contohnya</string>
+    <string name="sb_general_skipcount">Aktifkan pelacakan jumlah lewati</string>
+    <string name="sb_general_skipcount_sum_on">Beri tahu leaderboard SponsorBlock berapa banyak waktu yang dihemat. Pesan dikirim ke leaderboard setiap kali segmen dilewati</string>
+    <string name="sb_general_skipcount_sum_off">Abaikan pelacakan hitungan tidak diaktifkan</string>
+    <string name="sb_general_time_without">Tampilkan durasi video tanpa segmen</string>
+    <string name="sb_general_time_without_sum_on">Durasi video dikurangi semua segmen, ditampilkan dalam tanda kurung di samping durasi video penuh</string>
+    <string name="sb_general_time_without_sum_off">Durasi video penuh ditampilkan</string>
+    <string name="sb_general_adjusting">Menyesuaikan langkah segmen baru</string>
+    <string name="sb_general_adjusting_sum">Jumlah milidetik tombol penyesuaian waktu bergerak saat membuat segmen baru</string>
+    <string name="sb_general_adjusting_invalid">Nilai harus berupa angka positif</string>
+    <string name="sb_general_min_duration">Durasi segmen minimum</string>
+    <string name="sb_general_min_duration_sum">Segmen yang lebih pendek dari nilai ini (dalam detik) tidak akan ditampilkan atau dilewati</string>
+    <string name="sb_general_uuid">ID pengguna pribadi anda</string>
+    <string name="sb_general_uuid_sum">Ini harus dirahasiakan. Ini seperti kata sandi dan tidak boleh dibagikan dengan siapa pun. Jika seseorang memiliki ini, mereka dapat meniru anda</string>
+    <string name="sb_general_uuid_invalid">ID pengguna tidak boleh kosong</string>
+    <string name="sb_settings_ie_sum">Konfigurasi JSON SponsorBlock anda yang dapat diimpor/diekspor ke ReVanced dan platform SponsorBlock lainnya. Ini termasuk ID pengguna pribadi anda. Pastikan untuk membagikan ini dengan bijak</string>
+    <string name="sb_general_api_url">Ubah URL API</string>
+    <string name="sb_general_api_url_sum">URL yang digunakan SponsorBlock untuk melakukan panggilan ke server. &lt;b&gt;Jangan ubah ini kecuali anda tahu apa yang anda lakukan.&lt;/b&gt;</string>
+    <string name="sb_segments_sponsor">Sponsor</string>
+    <string name="sb_segments_sponsor_sum">Promosi dibayar, tautan dibayar dan iklan langsung. Tidak untuk promosi diri sendiri atau dukungan gratis untuk gerakan/kreator/website/produk yang mereka suka.</string>
+    <string name="sb_segments_selfpromo">Promosi tidak dibayar/diri sendiri</string>
+    <string name="sb_segments_selfpromo_sum">Serupa dengan \"sponsor\" kecuali tidak dibayar atau promosi diri sendiri. Ini termasuk merchandise, donasi, atau informasi tentang siapa yang berkolaborasi dengan mereka</string>
+    <string name="sb_segments_interaction">Pengingat interaksi (subscribe)</string>
+    <string name="sb_segments_interaction_sum">Pengingat singkat untuk like, subscribe atau mengikuti mereka di tengah konten. Jika panjang atau tentang sesuatu yang spesifik, sebaiknya pakai kategori promosi diri sendiri.</string>
+    <string name="sb_segments_intro">Intermission/animasi intro</string>
+    <string name="sb_segments_intro_sum">Interval tanpa konten sebenarnya. Bisa berupa jeda, frame static, atau animasi berulang. Tidak termasuk transisi yang mengandung informasi</string>
+    <string name="sb_segments_outro">Endcards/kredit</string>
+    <string name="sb_segments_outro_sum">Kredit atau saat kartu akhir YouTube muncul. Tidak untuk kesimpulan dengan informasi</string>
+    <string name="sb_segments_preview">Preview/rekap</string>
+    <string name="sb_segments_preview_sum">Kumpulan klip yang menunjukkan apa yang akan terjadi atau apa yang terjadi di video atau di video lain dari suatu rangkaian, di mana semua informasi diulang di tempat lain</string>
+    <string name="sb_segments_filler">Filler tangent/lelucon</string>
+    <string name="sb_segments_filler_sum">Adegan tangensial ditambahkan hanya untuk filler atau humor yang tidak diperlukan untuk memahami isi utama video. Tidak menyertakan segmen yang menyediakan detail konteks atau latar belakang</string>
+    <string name="sb_segments_nomusic">Musik: bagian non-musik</string>
+    <string name="sb_segments_nomusic_sum">Hanya untuk digunakan dalam video musik. Bagian video musik tanpa musik, yang belum tercakup dalam kategori lain</string>
+    <string name="sb_skip_button_compact">Lewati</string>
+    <string name="sb_skip_button_sponsor">Lewati sponsor</string>
+    <string name="sb_skip_button_selfpromo">Lewati promo</string>
+    <string name="sb_skip_button_interaction">Lewati interaksi</string>
+    <string name="sb_skip_button_intro_beginning">Lewati intro</string>
+    <string name="sb_skip_button_outro">Lewati outro</string>
+    <string name="sb_skip_button_preview_beginning">Lewati preview</string>
+    <string name="sb_skip_button_filler">Lewati filler</string>
+    <string name="sb_skip_button_nomusic">Lewati non-musik</string>
+    <string name="sb_skip_button_unsubmitted">Lewati segmen</string>
+    <string name="sb_skipped_sponsor">Sponsor dilewati</string>
+    <string name="sb_skipped_selfpromo">Melewatkan promosi diri</string>
+    <string name="sb_skipped_interaction">Pengingat yang mengganggu dilewati</string>
+    <string name="sb_skipped_intro_beginning">Intro dilewati</string>
+    <string name="sb_skipped_outro">Outro dilewati</string>
+    <string name="sb_skipped_preview_beginning">Preview dilewati</string>
+    <string name="sb_skipped_filler">Filler dilewati</string>
+    <string name="sb_skipped_nomusic">Bagian non-musik dilewati</string>
+    <string name="sb_skipped_unsubmitted">Segmen yang belum dikirim dilewati</string>
+    <string name="sb_skipped_multiple_segments">Beberapa segmen dilewati</string>
+    <string name="sb_skip_automatically">Lewati otomatis</string>
+    <string name="sb_skip_automatically_once">Lewati otomatis sekali</string>
+    <string name="sb_skip_showbutton">Tampilkan tombol lewati</string>
+    <string name="sb_skip_seekbaronly">Tampilkan di seekbar</string>
+    <string name="sb_skip_ignore">Dinonaktifkan</string>
+    <string name="sb_about_api_sum">Data disediakan oleh API SponsorBlock. Tekan di sini untuk mempelajari lebih lanjut dan melihat unduhan untuk platform lain</string>
+    <string name="sb_about_made_by">Integrasi dibuat oleh JakubWeg</string>
+    <string name="sb_submit_failed_invalid" formatted="false">Tidak dapat mengirimkan segmen: %s</string>
+    <string name="sb_submit_failed_timeout">Tidak dapat mengirimkan segmen (waktu API habis)</string>
+    <string name="sb_submit_failed_unknown_error" formatted="false">Tidak dapat memilih segmen: (status: %d %s)</string>
+    <string name="sb_submit_failed_rate_limit">Tidak dapat mengirimkan segmen.\nKuota dibatasi (terlalu banyak dari pengguna atau IP yang sama)</string>
+    <string name="sb_submit_failed_forbidden" formatted="false">Tidak dapat mengirimkan segmen: %s</string>
+    <string name="sb_submit_failed_duplicate">Tidak dapat mengirimkan segmen.\nSudah ada</string>
+    <string name="sb_submit_succeeded">Segmen berhasil dikirim</string>
+    <string name="sb_vote_failed_unknown_error" formatted="false">Tidak dapat melakukan vote segmen: (status: %d %s)</string>
+    <string name="sb_vote_failed_forbidden" formatted="false">Tidak dapat melakukan vote segmen: %s</string>
+    <string name="sb_vote_upvote">Upvote</string>
+    <string name="sb_vote_downvote">Downvote</string>
+    <string name="sb_vote_category">Ubah kategori</string>
+    <string name="sb_vote_no_segments">Tidak ada segmen untuk divote</string>
+    <string name="sb_new_segment_choose_category">Pilih kategori segmen</string>
+    <string name="sb_new_segment_disabled_category">Kategori dinonaktifkan di pengaturan. Aktifkan kategori untuk dikirim.</string>
+    <string name="sb_new_segment_title">Segmen SponsorBlock baru</string>
+    <string name="sb_new_segment_mark_time_as_question" formatted="false">Atur %02d:%02d:%04d sebagai awal atau akhir segmen baru?</string>
+    <string name="sb_new_segment_mark_start">awal</string>
+    <string name="sb_new_segment_mark_end">akhir</string>
+    <string name="sb_new_segment_now">sekarang</string>
+    <string name="sb_new_segment_time_start">Waktu segmen dimulai pada</string>
+    <string name="sb_new_segment_time_end">Waktu segmen berakhir pada</string>
+    <string name="sb_new_segment_confirm_title">Apakah waktunya sudah benar?</string>
+    <string name="sb_new_segment_confirm_content" formatted="false">Segmen berlangsung dari %02d:%02d hingga %02d:%02d (%d menit %02d detik)\nApakah sudah siap untuk dikirim?</string>
+    <string name="sb_new_segment_mark_locations_first">Tandai dua lokasi di time bar terlebih dahulu</string>
+    <string name="sb_new_segment_preview_segment_first">Preview segmen, dan pastikan segmen tersebut dilewati dengan lancar</string>
+    <string name="sb_new_segment_edit_by_hand_title">Edit manual waktu segmen</string>
+    <string name="sb_new_segment_edit_by_hand_content">Apakah anda ingin mengedit waktu untuk awal atau akhir segmen?</string>
+    <string name="sb_new_segment_edit_by_hand_parse_error">Waktu tidak valid diberikan</string>
     <string name="sb_guidelines_preference_title">Lihat pedoman</string>
     <string name="sb_guidelines_preference_sum">Pedoman berisi tips dan aturan tentang mengirimkan segmen</string>
-    <string name="sb_guidelines_popup_title">Ada pedoman</string>
+    <string name="sb_guidelines_popup_title">Ikuti pedoman</string>
     <string name="sb_guidelines_popup_content">Disarankan untuk membaca pedoman SponsorBlock sebelum mengirimkan segmen apa pun</string>
     <string name="sb_guidelines_popup_already_read">Sudah dibaca</string>
     <string name="sb_guidelines_popup_open">Tunjukkan padaku</string>
+    <string name="sb_stats">Statistik</string>
+    <string name="sb_stats_connection_failure">Dislikes untuk sementara tidak tersedia (waktu API down)</string>
+    <string name="sb_stats_sb_disabled">SponsorBlock dinonaktifkan</string>
+    <string name="sb_stats_username" formatted="false">Username anda: &lt;b&gt;%s&lt;/b&gt;</string>
+    <string name="sb_stats_username_change">Tekan untuk mengubah username anda</string>
+    <string name="sb_stats_username_change_unknown_error" formatted="false">Tidak dapat mengubah username: status: %d %s</string>
+    <string name="sb_stats_username_changed">Username berhasil diubah</string>
+    <string name="sb_stats_reputation" formatted="false">Reputasi anda &lt;b&gt;%.2f&lt;/b&gt;</string>
+    <string name="sb_stats_submissions" formatted="false">Anda telah membuat &lt;b&gt;%s&lt;/b&gt; segmen</string>
+    <string name="sb_stats_saved_zero">Leaderboard SponsorBlock</string>
+    <string name="sb_stats_saved" formatted="false">Anda telah menyelamatkan orang dari &lt;b&gt;%s&lt;/b&gt; segmen</string>
+    <string name="sb_stats_saved_sum_zero">Tekan di sini untuk melihat statistik global dan kontributor teratas</string>
+    <string name="sb_stats_saved_sum" formatted="false">Itu &lt;b&gt;%s&lt;/b&gt; dari hidup mereka.&lt;br&gt;Tekan di sini untuk melihat leaderboard</string>
+    <string name="sb_stats_self_saved" formatted="false">Anda telah melewatkan &lt;b&gt;%s&lt;/b&gt; segmen</string>
+    <string name="sb_stats_self_saved_sum" formatted="false">Itu &lt;b&gt;%s&lt;/b&gt;</string>
+    <string name="sb_stats_self_saved_reset_title">Atur ulang penghitung segmen yang dilewati?</string>
+    <string name="sb_stats_saved_hour_format" formatted="false">%d jam %d menit</string>
+    <string name="sb_stats_saved_minute_format" formatted="false">%d menit %d detik</string>
+    <string name="sb_stats_saved_second_format" formatted="false">%d detik</string>
+    <string name="sb_color_dot_label">Warna:</string>
+    <string name="sb_color_changed">Warna diubah</string>
+    <string name="sb_color_reset">Atur ulang warna</string>
+    <string name="sb_color_invalid">Kode warna tidak valid</string>
+    <string name="sb_reset_color">Atur ulang warna</string>
+    <string name="sb_reset">Atur ulang</string>
+    <string name="sb_api_url_reset">URL API diatur ulang</string>
+    <string name="sb_api_url_invalid">URL API tidak valid</string>
+    <string name="sb_api_url_changed">URL API diubah</string>
     <string name="seconds">detik</string>
     <string name="settings_export_failed">Gagal mengekspor pengaturan</string>
     <string name="settings_export_successful">Pengaturan berhasil diekspor</string>
