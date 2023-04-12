@@ -141,6 +141,7 @@ The official Patch bundle provided by ReVanced and the community.
 
 
 
+
 ## 📝 JSON Format
 
 This section explains the JSON format for the [patches.json](patches.json) file.
