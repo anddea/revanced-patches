@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.misc.videoid.mainstream.patch
+package app.revanced.patches.youtube.misc.videoid.patch
 
 import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
@@ -19,7 +19,7 @@ import app.revanced.patches.shared.fingerprints.VideoEndFingerprint
 import app.revanced.patches.shared.fingerprints.VideoEndParentFingerprint
 import app.revanced.patches.youtube.misc.playertype.patch.PlayerTypeHookPatch
 import app.revanced.patches.youtube.misc.timebar.patch.HookTimebarPatch
-import app.revanced.patches.youtube.misc.videoid.mainstream.fingerprint.*
+import app.revanced.patches.youtube.misc.videoid.fingerprint.*
 import app.revanced.util.integrations.Constants.VIDEO_PATH
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.builder.MutableMethodImplementation
@@ -32,8 +32,8 @@ import org.jf.dexlib2.immutable.ImmutableMethod
 import org.jf.dexlib2.immutable.ImmutableMethodParameter
 import org.jf.dexlib2.util.MethodUtil
 
-@Name("video-id-hook-mainstream")
-@Description("Hook to detect when the video id changes (mainstream)")
+@Name("video-id-hook")
+@Description("Hook to detect when the video id changes")
 @YouTubeCompatibility
 @Version("0.0.1")
 @DependsOn(
@@ -42,14 +42,14 @@ import org.jf.dexlib2.util.MethodUtil
         PlayerTypeHookPatch::class
     ]
 )
-class MainstreamVideoIdPatch : BytecodePatch(
+class VideoIdPatch : BytecodePatch(
     listOf(
-        MainstreamVideoIdFingerprint,
         PlayerControllerSetTimeReferenceFingerprint,
         PlayerInitFingerprint,
         SeekFingerprint,
         TimebarFingerprint,
         VideoEndParentFingerprint,
+        VideoIdFingerprint,
         VideoTimeHighPrecisionFingerprint,
         VideoTimeHighPrecisionParentFingerprint
     )
@@ -154,7 +154,7 @@ class MainstreamVideoIdPatch : BytecodePatch(
         }
 
 
-        MainstreamVideoIdFingerprint.result?.let {
+        VideoIdFingerprint.result?.let {
             insertIndex = it.scanResult.patternScanResult!!.endIndex
 
             with (it.mutableMethod) {
@@ -162,7 +162,7 @@ class MainstreamVideoIdPatch : BytecodePatch(
                 videoIdRegister = (implementation!!.instructions[insertIndex] as OneRegisterInstruction).registerA
             }
             offset++ // offset so setVideoId is called before any injected call
-        } ?: return MainstreamVideoIdFingerprint.toErrorResult()
+        } ?: return VideoIdFingerprint.toErrorResult()
 
         
         injectCall("$INTEGRATIONS_CLASS_DESCRIPTOR->setVideoId(Ljava/lang/String;)V")
