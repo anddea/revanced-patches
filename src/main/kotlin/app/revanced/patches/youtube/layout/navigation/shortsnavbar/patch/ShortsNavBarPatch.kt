@@ -7,6 +7,8 @@ import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.data.toMethodWalker
 import app.revanced.patcher.extensions.addInstruction
+import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.instruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
@@ -22,6 +24,7 @@ import app.revanced.util.integrations.Constants.NAVIGATION
 import org.jf.dexlib2.dexbacked.reference.DexBackedTypeReference
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
+import org.jf.dexlib2.iface.reference.FieldReference
 
 @Patch
 @Name("hide-shorts-navbar")
@@ -31,6 +34,7 @@ import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 @Version("0.0.1")
 class ShortsNavBarPatch : BytecodePatch(
     listOf(
+        NavigationEndpointFingerprint,
         PivotBarCreateButtonViewFingerprint,
         ReelWatchBundleFingerprint,
         ReelWatchEndpointParentFingerprint
@@ -75,6 +79,31 @@ class ShortsNavBarPatch : BytecodePatch(
                 "sput-object p1, $NAVIGATION->shortsContext:Landroid/content/Context;"
             ) ?: return ReelWatchEndpointFingerprint.toErrorResult()
         } ?: return ReelWatchEndpointParentFingerprint.toErrorResult()
+
+        NavigationEndpointFingerprint.result?.let { result ->
+            val navigationEndpointMethod = result.mutableMethod
+
+            with (navigationEndpointMethod.implementation!!.instructions) {
+                filter { instruction ->
+                    val fieldReference =
+                        (instruction as? ReferenceInstruction)?.reference as? FieldReference
+                    fieldReference?.let { it.type == "Lcom/google/android/apps/youtube/app/extensions/reel/watch/player/ReelObscuredPlaybackSuspender;" } == true
+                }.forEach { instruction ->
+                    val insertIndex = indexOf(instruction) + 4
+                    val targetRegister =
+                        (navigationEndpointMethod.instruction(insertIndex) as OneRegisterInstruction).registerA
+
+                    navigationEndpointMethod.addInstructions(
+                        insertIndex,
+                        """
+                            invoke-static {v$targetRegister}, $NAVIGATION->hideShortsPlayerNavBar(Landroid/view/View;)Landroid/view/View;
+                            move-result-object v$targetRegister
+                        """
+                    )
+                }
+            }
+
+        } ?: return NavigationEndpointFingerprint.toErrorResult()
 
         /*
          * Add settings
