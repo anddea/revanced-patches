@@ -17,7 +17,7 @@ import app.revanced.patches.youtube.misc.playercontrols.patch.PlayerControlsPatc
 import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.misc.sponsorblock.bytecode.fingerprints.*
 import app.revanced.patches.youtube.misc.timebar.patch.HookTimebarPatch
-import app.revanced.patches.youtube.misc.videoid.patch.VideoIdPatch
+import app.revanced.patches.youtube.misc.videoid.mainstream.patch.MainstreamVideoIdPatch
 import app.revanced.util.bytecode.BytecodeHelper.injectInit
 import app.revanced.util.bytecode.BytecodeHelper.updatePatchStatus
 import org.jf.dexlib2.Opcode
@@ -31,10 +31,10 @@ import org.jf.dexlib2.iface.reference.MethodReference
 @Name("sponsorblock-bytecode-patch")
 @DependsOn(
     [
+        MainstreamVideoIdPatch::class,
         OverrideSpeedHookPatch::class,
         PlayerControlsPatch::class,
-        SharedResourceIdPatch::class,
-        VideoIdPatch::class
+        SharedResourceIdPatch::class
     ]
 )
 @YouTubeCompatibility
@@ -49,7 +49,7 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         /*
          * Hook the video time methods
          */
-        with(VideoIdPatch) {
+        with(MainstreamVideoIdPatch) {
             videoTimeHook(
                 INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR,
                 "setVideoTime"
@@ -59,7 +59,7 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         /*
          * Inject VideoIdPatch
          */
-        VideoIdPatch.injectCall("$INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR->setCurrentVideoId(Ljava/lang/String;)V")
+        MainstreamVideoIdPatch.injectCall("$INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR->setCurrentVideoId(Ljava/lang/String;)V")
 
 
         /*
@@ -146,7 +146,7 @@ class SponsorBlockBytecodePatch : BytecodePatch(
                 val register = (instruction as OneRegisterInstruction).registerA
                 it.replaceInstruction(
                     index,
-                    "const-string v$register, \"${VideoIdPatch.reactReference}\""
+                    "const-string v$register, \"${MainstreamVideoIdPatch.reactReference}\""
                 )
                 break
             }
