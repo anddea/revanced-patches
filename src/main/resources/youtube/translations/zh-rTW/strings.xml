@@ -41,6 +41,9 @@
     <string name="revanced_default_video_quality_mobile_title">預設行動數據影片畫質</string>
     <string name="revanced_default_video_quality_wifi_title">預設 Wi-Fi 影片畫質</string>
     <string name="revanced_default_video_speed_title">默認播放速度</string>
+    <string name="revanced_disable_default_video_speed_live_summary_off">默認直播播放速度已啟用</string>
+    <string name="revanced_disable_default_video_speed_live_summary_on">默認直播播放速度已停用</string>
+    <string name="revanced_disable_default_video_speed_live_title">停用默認直播播放速度</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">章節（震動）反饋已啟用</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">章節（震動）反饋已停用</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">停用章節（震動）反饋</string>
@@ -402,12 +405,18 @@
     <string name="revanced_hide_teaser_summary_off">資訊欄已顯示</string>
     <string name="revanced_hide_teaser_summary_on">資訊欄已隱藏</string>
     <string name="revanced_hide_teaser_title">隱藏影片底下的資訊欄</string>
+    <string name="revanced_hide_ticket_shelf_summary_off">購票庫已顯示</string>
+    <string name="revanced_hide_ticket_shelf_summary_on">購票庫已隱藏</string>
+    <string name="revanced_hide_ticket_shelf_title">隱藏購票庫</string>
     <string name="revanced_hide_timed_reactions_summary_off">即時互動已顯示</string>
     <string name="revanced_hide_timed_reactions_summary_on">即時互動已隱藏</string>
     <string name="revanced_hide_timed_reactions_title">隱藏即時互動</string>
     <string name="revanced_hide_time_stamp_summary_off">時間戳已顯示</string>
     <string name="revanced_hide_time_stamp_summary_on">時間戳已隱藏</string>
     <string name="revanced_hide_time_stamp_title">隱藏時間戳</string>
+    <string name="revanced_hide_search_terms_summary_off">熱門搜索 &amp; 搜索歷史 已顯示</string>
+    <string name="revanced_hide_search_terms_summary_on">熱門搜索 &amp; 搜索歷史 已隱藏</string>
+    <string name="revanced_hide_search_terms_title">隱藏搜索推薦</string>
     <string name="revanced_hide_view_products_summary_off">觀看商品橫幅已顯示</string>
     <string name="revanced_hide_view_products_summary_on">觀看商品橫幅已隱藏</string>
     <string name="revanced_hide_view_products_title">隱藏在播放器中的商品介紹橫幅（播放器內）</string>
@@ -526,12 +535,145 @@
     <string name="revanced_whitelisting_sponsorblock">SponsorBlock</string>
     <string name="revanced_whitelisting_sponsorblock_button">SB</string>
     <string name="revanced_whitelisting_title">頻道白名單</string>
+    <string name="sb_enable_sb">啟用 SponsorBlock</string>
+    <string name="sb_enable_sb_sum">SponsorBlock 是透過使用者共同編輯新增片段來跳過 YouTube 的擾人片段</string>
+    <string name="sb_enable_voting">顯示投票按鈕</string>
+    <string name="sb_enable_voting_sum_on">影片片段投票按鈕已顯示</string>
+    <string name="sb_enable_voting_sum_off">影片片段投票按鈕未顯示</string>
+    <string name="sb_enable_create_segment">顯示新增影片片段投票按鈕</string>
+    <string name="sb_enable_create_segment_sum_on">新增影片片段投票按鈕已顯示</string>
+    <string name="sb_enable_create_segment_sum_off">新增影片片段投票按鈕未顯示</string>
+    <string name="sb_enable_compact_skip_button">使用袖珍型跳過按鈕</string>
+    <string name="sb_enable_compact_skip_button_sum_on">以袖珍的形式呈現跳過按鈕</string>
+    <string name="sb_enable_compact_skip_button_sum_off">以最佳的形式呈現跳過按鈕</string>
+    <string name="sb_diff_segments">對不同類別片段的操作</string>
+    <string name="sb_general">一般設定</string>
+    <string name="sb_general_skiptoast">自動跳過片段時顯示提示</string>
+    <string name="sb_general_skiptoast_sum_on">提示將於片段被自動跳過時顯示, 點擊此處來查看範例</string>
+    <string name="sb_general_skiptoast_sum_off">提示將不會顯示, 點擊此處來查看範例</string>
+    <string name="sb_general_skipcount">累計跳過片段計數器已啟用</string>
+    <string name="sb_general_skipcount_sum_on">讓 SponsorBlock 排行榜紀錄你節省了多少時間。每跳過一個片段時，都會向排行榜發送一條消息</string>
+    <string name="sb_general_skipcount_sum_off">累計跳過片段計數器未啟用</string>
+    <string name="sb_general_time_without">顯示不包含被略過片段的時間戳</string>
+    <string name="sb_general_time_without_sum_on">將被略過片段減去的時間戳括號後, 顯示於完整時間戳旁邊</string>
+    <string name="sb_general_time_without_sum_off">只顯示完整的時間戳</string>
+    <string name="sb_general_adjusting">調整新略過片段的時間長度</string>
+    <string name="sb_general_adjusting_sum">創建新片段之時間調整按鈕移動的毫秒數</string>
+    <string name="sb_general_adjusting_invalid">值必須為正數</string>
+    <string name="sb_general_min_duration">最短片段持續時間</string>
+    <string name="sb_general_min_duration_sum">小於設定值（以秒為單位）的片段不會被跳過或在播放器中顯示</string>
+    <string name="sb_general_uuid">你的私人使用者 id</string>
+    <string name="sb_general_uuid_sum">這應該保密。就像密碼一樣不應該與任何人共享。如果任何人取得這個ID，他們可以冒充你</string>
+    <string name="sb_general_uuid_invalid">使用者名稱不能為空白</string>
+    <string name="sb_settings_ie_sum">你的 SponsorBlock 設定檔 可以被 匯入/匯出 至 ReVanced 或其他 SponsorBlock 平台上. 這個設定檔內將包含你個人的用戶ID. 請小心使用.</string>
+    <string name="sb_general_api_url">更改 API 網址</string>
+    <string name="sb_general_api_url_sum">SponsorBlock 用於調用伺服器的地址。&lt;b&gt;除非您知道自己在做什麼，否則請勿更改此網址。&lt;/b&gt;</string>
+    <string name="sb_segments_sponsor">贊助商廣告</string>
+    <string name="sb_segments_sponsor_sum">有收錢的工商廣告和直接廣告。不是為了自我推銷或為了其他創作的免費推銷</string>
+    <string name="sb_segments_selfpromo">非付費/自我推廣</string>
+    <string name="sb_segments_selfpromo_sum">類似 “贊助商廣告” ，但是非付費或自我推廣。這包括有關商品、捐贈或與他人合作的資訊。</string>
+    <string name="sb_segments_interaction">互動提醒 (訂閱)</string>
+    <string name="sb_segments_interaction_sum">這裡就是指\"按讚訂閱加分享\"。如果該片段很長或是針對某事，請將其歸類為非付費/自我推廣。</string>
+    <string name="sb_segments_intro">中場休息/開頭動畫</string>
+    <string name="sb_segments_intro_sum">沒有實際內容的片段。可以是靜止畫面, 重複的動畫 片段內未含有任何資訊.</string>
+    <string name="sb_segments_outro">結束畫面/鳴謝</string>
+    <string name="sb_segments_outro_sum">鳴謝或當 YouTube 結尾資訊卡出現時。不是含有資訊的總結</string>
+    <string name="sb_segments_preview">預覽/回顧</string>
+    <string name="sb_segments_preview_sum">展示即將播放的影片或整系列內容的短片集錦，所有內容都會在後面影片中重複</string>
+    <string name="sb_segments_filler">離題閒聊/玩笑</string>
+    <string name="sb_segments_filler_sum">與影片主要內容無關的填充詞或笑話，但不應包含與前後或背景有關者</string>
+    <string name="sb_segments_nomusic">音樂：非音樂部分</string>
+    <string name="sb_segments_nomusic_sum">此功能僅供音樂影片使用。本功能僅應該用於音樂錄影帶中並未包含其他類別的段落。</string>
+    <string name="sb_skip_button_compact">跳過</string>
+    <string name="sb_skip_button_sponsor">跳過贊助商廣告</string>
+    <string name="sb_skip_button_selfpromo">跳過推廣</string>
+    <string name="sb_skip_button_interaction">跳過互動提醒 (訂閱)</string>
+    <string name="sb_skip_button_intro_beginning">跳過片頭</string>
+    <string name="sb_skip_button_outro">跳過片尾</string>
+    <string name="sb_skip_button_preview_beginning">跳過預覽</string>
+    <string name="sb_skip_button_filler">跳過閒聊</string>
+    <string name="sb_skip_button_nomusic">跳過無音樂片段</string>
+    <string name="sb_skip_button_unsubmitted">跳過片段</string>
+    <string name="sb_skipped_sponsor">已跳過贊助商廣告</string>
+    <string name="sb_skipped_selfpromo">已跳過自我推廣</string>
+    <string name="sb_skipped_interaction">已跳過煩人的提醒</string>
+    <string name="sb_skipped_intro_beginning">跳過了開頭</string>
+    <string name="sb_skipped_outro">跳過了結尾</string>
+    <string name="sb_skipped_preview_beginning">已跳過預覽</string>
+    <string name="sb_skipped_filler">已跳過閒聊</string>
+    <string name="sb_skipped_nomusic">已跳過無音樂片段</string>
+    <string name="sb_skipped_unsubmitted">跳過了未提交的片段</string>
+    <string name="sb_skipped_multiple_segments">跳過了多個片段</string>
+    <string name="sb_skip_automatically">自動跳過</string>
+    <string name="sb_skip_automatically_once">自動跳過一次</string>
+    <string name="sb_skip_showbutton">顯示跳過按鈕</string>
+    <string name="sb_skip_seekbaronly">在時間條顯示</string>
+    <string name="sb_skip_ignore">停用</string>
+    <string name="sb_about_api_sum">資料由 SponsorBlock API 提供. 點擊此處來了解更多.</string>
+    <string name="sb_about_made_by">由 JakubWeg 整合</string>
+    <string name="sb_submit_failed_invalid" formatted="false">無法送出分段：%s</string>
+    <string name="sb_submit_failed_timeout">無法送出片段：API 回應超時</string>
+    <string name="sb_submit_failed_unknown_error" formatted="false">無法送出片段：狀態 -- %d %s</string>
+    <string name="sb_submit_failed_rate_limit">無法送出片段。\n頻率受限（來自同一個使用者或 IP 的次數過多）</string>
+    <string name="sb_submit_failed_forbidden" formatted="false">無法送出分段：%s</string>
+    <string name="sb_submit_failed_duplicate">無法提交片段。 \n片段已經存在</string>
+    <string name="sb_submit_succeeded">成功提交新片段</string>
+    <string name="sb_vote_failed_unknown_error" formatted="false">無法為此片段投票：狀態：%d %s</string>
+    <string name="sb_vote_failed_forbidden" formatted="false">無法為片段投票：狀態：%s</string>
+    <string name="sb_vote_upvote">讚</string>
+    <string name="sb_vote_downvote">倒讚</string>
+    <string name="sb_vote_category">變更類別</string>
+    <string name="sb_vote_no_segments">沒有可供投票的片段</string>
+    <string name="sb_new_segment_choose_category">選擇片段的類別</string>
+    <string name="sb_new_segment_disabled_category">類別已於設置中禁用. 啟用類別以提交.</string>
+    <string name="sb_new_segment_title">新增 SponsorBlock 片段</string>
+    <string name="sb_new_segment_mark_time_as_question" formatted="false">設定 %02d:%02d:%04d 為新片段的開頭或結尾？</string>
+    <string name="sb_new_segment_mark_start">開始</string>
+    <string name="sb_new_segment_mark_end">结束</string>
+    <string name="sb_new_segment_now">現在</string>
+    <string name="sb_new_segment_time_start">片段開始的時間</string>
+    <string name="sb_new_segment_time_end">片段結束的時間</string>
+    <string name="sb_new_segment_confirm_title">時間是否正確？</string>
+    <string name="sb_new_segment_confirm_content" formatted="false">該片段從 %02d:%02d 持續到 %02d:%02d (%d 分 %02d 秒)\n準備好提交了嗎？</string>
+    <string name="sb_new_segment_mark_locations_first">先在時間軸上標記兩個位置</string>
+    <string name="sb_new_segment_preview_segment_first">預覽片段，確保能順利跳過</string>
+    <string name="sb_new_segment_edit_by_hand_title">手動編輯片段的時間</string>
+    <string name="sb_new_segment_edit_by_hand_content">您要編輯片段開頭或結尾的時間嗎？</string>
+    <string name="sb_new_segment_edit_by_hand_parse_error">給定的時間無效</string>
     <string name="sb_guidelines_preference_title">閱讀指引</string>
     <string name="sb_guidelines_preference_sum">指南包含有關送出片段的提示和規則</string>
-    <string name="sb_guidelines_popup_title">有指南</string>
-    <string name="sb_guidelines_popup_content">建議在送出任何片段前閱讀 SponsorBlock 指南</string>
+    <string name="sb_guidelines_popup_title">跟隨指南</string>
+    <string name="sb_guidelines_popup_content">建議在送出任何片段前先閱讀 SponsorBlock 指南</string>
     <string name="sb_guidelines_popup_already_read">已閱讀</string>
     <string name="sb_guidelines_popup_open">給我看看</string>
+    <string name="sb_stats">統計數據</string>
+    <string name="sb_stats_connection_failure">統計暫時不可用 (API 離線)</string>
+    <string name="sb_stats_sb_disabled">SponsorBlock 已停用</string>
+    <string name="sb_stats_username" formatted="false">您的使用者名稱：&lt;b&gt;%s&lt;/b&gt;</string>
+    <string name="sb_stats_username_change">點擊以更改您的使用者名稱</string>
+    <string name="sb_stats_username_change_unknown_error" formatted="false">無法更改使用者名稱：狀態：%d %s</string>
+    <string name="sb_stats_username_changed">使用者名稱已成功更改</string>
+    <string name="sb_stats_reputation" formatted="false">你的評價是 &lt;b&gt;%.2f&lt;/b&gt;</string>
+    <string name="sb_stats_submissions" formatted="false">您已創建 &lt;b&gt;%s&lt;/b&gt; 個片段。</string>
+    <string name="sb_stats_saved_zero">SponsorBlock 計分板</string>
+    <string name="sb_stats_saved" formatted="false">您已為人們省下了觀看 &lt;b&gt;%s&lt;/b&gt; 個片段的時間。</string>
+    <string name="sb_stats_saved_sum_zero">點擊此處查看全球統計數據和最佳貢獻者</string>
+    <string name="sb_stats_saved_sum" formatted="false">那可是他們生命中寶貴的 &lt;b&gt;%s&lt;/b&gt;。&lt;br&gt;點選檢視排行榜</string>
+    <string name="sb_stats_self_saved" formatted="false">您已跳過 &lt;b&gt;%s&lt;/b&gt; 個片段。</string>
+    <string name="sb_stats_self_saved_sum" formatted="false">總共 &lt;b&gt;%s&lt;/b&gt;</string>
+    <string name="sb_stats_self_saved_reset_title">重置略過片段的計數器?</string>
+    <string name="sb_stats_saved_hour_format" formatted="false">%d 小時 和 %d 分鐘</string>
+    <string name="sb_stats_saved_minute_format" formatted="false">%d分 %d秒</string>
+    <string name="sb_stats_saved_second_format" formatted="false">%d 秒鐘</string>
+    <string name="sb_color_dot_label">顏色：</string>
+    <string name="sb_color_changed">已變更顏色</string>
+    <string name="sb_color_reset">顏色已重置</string>
+    <string name="sb_color_invalid">無效的顏色代碼</string>
+    <string name="sb_reset_color">重置顏色</string>
+    <string name="sb_reset">重置</string>
+    <string name="sb_api_url_reset">重置 API 網址</string>
+    <string name="sb_api_url_invalid">API 網址無效</string>
+    <string name="sb_api_url_changed">API 網址已更換</string>
     <string name="seconds">秒</string>
     <string name="settings_export_failed">匯出設定失敗</string>
     <string name="settings_export_successful">設置已成功匯出</string>

@@ -41,8 +41,9 @@
     <string name="revanced_default_video_quality_mobile_title">モバイルデータ通信でのデフォルト画質</string>
     <string name="revanced_default_video_quality_wifi_title">Wi-Fi でのデフォルト画質</string>
     <string name="revanced_default_video_speed_title">デフォルトの再生速度</string>
-    <string name="revanced_disable_default_video_speed_live_summary_off">ライブのデフォルトの動画速度を設定します</string>
-    <string name="revanced_disable_default_video_speed_live_summary_on">ライブのデフォルトの動画速度を設定します</string>
+    <string name="revanced_disable_default_video_speed_live_summary_off">ライブでデフォルトの再生速度を無効にします</string>
+    <string name="revanced_disable_default_video_speed_live_summary_on">ライブでデフォルトの再生速度を無効にします</string>
+    <string name="revanced_disable_default_video_speed_live_title">ライブでデフォルトの再生速度を無効にする</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">チャプターの振動フィードバックを無効にします</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">チャプターの振動フィードバックを無効にします</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">チャプターの振動フィードバックを無効にする</string>
@@ -76,9 +77,9 @@
     <string name="revanced_enable_custom_seekbar_color_summary_off">再生バー(シークバー)の色を変更します</string>
     <string name="revanced_enable_custom_seekbar_color_summary_on">再生バー(シークバー)の色を変更します</string>
     <string name="revanced_enable_custom_seekbar_color_title">再生バー(シークバー)の色を変更する</string>
-    <string name="revanced_enable_custom_video_speed_summary_off">再生速度を変更します</string>
-    <string name="revanced_enable_custom_video_speed_summary_on">再生速度を変更します</string>
-    <string name="revanced_enable_custom_video_speed_title">再生速度の変更を有効にする</string>
+    <string name="revanced_enable_custom_video_speed_summary_off">再生速度のカスタマイズを有効にします</string>
+    <string name="revanced_enable_custom_video_speed_summary_on">再生速度のカスタマイズを有効にします</string>
+    <string name="revanced_enable_custom_video_speed_title">再生速度のカスタマイズを有効にする</string>
     <string name="revanced_enable_external_browser_summary_off">外部ブラウザを有効にします</string>
     <string name="revanced_enable_external_browser_summary_on">外部ブラウザを有効にします</string>
     <string name="revanced_enable_external_browser_title">外部ブラウザを有効にする</string>
@@ -538,9 +539,9 @@
     <string name="revanced_whitelisting_title">チャンネルのホワイトリスト</string>
     <string name="sb_enable_sb">SponsorBlockを有効にする</string>
     <string name="sb_enable_sb_sum">SponsorBlock は、YouTubeの動画の迷惑/無駄な部分をスキップするためのクラウドソースシステムです</string>
-    <string name="sb_enable_voting">セグメントの投票ボタンを表示する</string>
-    <string name="sb_enable_voting_sum_on">セグメントの投票ボタンを表示します</string>
-    <string name="sb_enable_voting_sum_off">セグメントの投票ボタンを表示します</string>
+    <string name="sb_enable_voting">投票ボタンを表示する</string>
+    <string name="sb_enable_voting_sum_on">投票ボタンを表示します</string>
+    <string name="sb_enable_voting_sum_off">投票ボタンを表示します</string>
     <string name="sb_enable_create_segment">新しいセグメントを作成するボタンを表示する</string>
     <string name="sb_enable_create_segment_sum_on">新しいセグメントを作成するボタンを表示します</string>
     <string name="sb_enable_create_segment_sum_off">新しいセグメントを作成するボタンを表示します</string>
@@ -549,7 +550,7 @@
     <string name="sb_enable_compact_skip_button_sum_off">スキップボタンをコンパクトなサイズにします</string>
     <string name="sb_diff_segments">セグメントの設定</string>
     <string name="sb_general">全般</string>
-    <string name="sb_general_skiptoast">セグメントを自動的にスキップする時にトーストを表示する</string>
+    <string name="sb_general_skiptoast">セグメントが自動的にスキップされた時にトースト通知を表示する</string>
     <string name="sb_general_skiptoast_sum_on">セグメントが自動的にスキップされたときにトースト通知を表示します。サンプルトースト通知を見るにはここをタップしてください。</string>
     <string name="sb_general_skiptoast_sum_off">セグメントが自動的にスキップされたときにトースト通知を表示します。サンプルトースト通知を見るにはここをタップしてください。</string>
     <string name="sb_general_skipcount">スキップの集計を有効にする</string>
@@ -574,7 +575,7 @@
     <string name="sb_segments_selfpromo">無報酬/セルフプロモーション</string>
     <string name="sb_segments_selfpromo_sum">無報酬での宣伝あるいは自己販促であるという点を除いては「広告」と同様です。商品、寄付、コラボ情報に関する内容を含みます。</string>
     <string name="sb_segments_interaction">インタラクション リマインダー (チャンネル登録)</string>
-    <string name="sb_segments_interaction_sum">動画の途中に挿入される、高評価・チャンネル登録・通知オンなどを促す短いシーン。長かったり、具体的な商品についてのシーンは、セルフプロモーションに分類すべきです。</string>
+    <string name="sb_segments_interaction_sum">動画の途中に挿入される高評価、チャンネル登録、通知をオンにすることなどを促す短いシーン。長かったり、具体的な商品についてのシーンはセルフプロモーションに分類すべきです。</string>
     <string name="sb_segments_intro">休憩/イントロアニメーション</string>
     <string name="sb_segments_intro_sum">本編ではない動画の合間部分。一時停止、静止画面、繰り返しのアニメーションなどが相当します。本編の情報を含んだ場面転換に対しては使用しないでください。</string>
     <string name="sb_segments_outro">エンドカード/クレジット</string>
@@ -583,7 +584,7 @@
     <string name="sb_segments_preview_sum">この動画や他の動画でこのあと起きる内容など、今後再び登場する場面を連続的にまとめたクリップ。</string>
     <string name="sb_segments_filler">繋ぎの話(無駄話など)/冗談</string>
     <string name="sb_segments_filler_sum">脱線した部分には、動画の主な内容を理解するのに必要がない穴埋めやユーモアのみを追加してください。これには、文脈や背景の詳細を提供するセグメントを含めないでください。</string>
-    <string name="sb_segments_nomusic">音楽: 音楽以外の部分</string>
+    <string name="sb_segments_nomusic">音楽以外の部分</string>
     <string name="sb_segments_nomusic_sum">ミュージックビデオでの使用に限ります。他のカテゴリーに含まれていないミュージックビデオのセクションにのみ使用してください。</string>
     <string name="sb_skip_button_compact">スキップする</string>
     <string name="sb_skip_button_sponsor">スポンサー広告をスキップする</string>
@@ -608,7 +609,7 @@
     <string name="sb_skip_automatically">自動的にスキップする</string>
     <string name="sb_skip_automatically_once">一度だけ自動的にスキップする</string>
     <string name="sb_skip_showbutton">スキップボタンを表示する</string>
-    <string name="sb_skip_seekbaronly">シークバーに表示</string>
+    <string name="sb_skip_seekbaronly">シークバーに表示する</string>
     <string name="sb_skip_ignore">無効</string>
     <string name="sb_about_api_sum">データはSponsorBlock APIによって提供されます。詳細はこちらをタップしてください。</string>
     <string name="sb_about_made_by">JakubWeg による統合</string>
