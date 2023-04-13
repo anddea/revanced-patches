@@ -21,6 +21,7 @@ import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
 import app.revanced.util.integrations.Constants.GENERAL
 import org.jf.dexlib2.Opcode
+import org.jf.dexlib2.builder.instruction.BuilderInstruction21c
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
@@ -38,7 +39,7 @@ class TabletMiniPlayerPatch : BytecodePatch(
     listOf(
         MiniPlayerDimensionsCalculatorFingerprint,
         MiniPlayerResponseModelSizeCheckFingerprint,
-        MiniPlayerOverrideParentFingerprint
+        MiniPlayerOverrideFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
@@ -50,15 +51,16 @@ class TabletMiniPlayerPatch : BytecodePatch(
             } ?: return MiniPlayerOverrideNoContextFingerprint.toErrorResult()
         } ?: return MiniPlayerDimensionsCalculatorFingerprint.toErrorResult()
 
-        MiniPlayerOverrideParentFingerprint.result?.let { parentResult ->
-            MiniPlayerOverrideFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.let { result ->
-                (context.toMethodWalker(result.method)
-                        .nextMethod(result.scanResult.patternScanResult!!.startIndex, true)
-                        .getMethod() as MutableMethod)
+        MiniPlayerOverrideFingerprint.result?.let {
+            val targetIndex = it.mutableMethod.implementation!!.instructions.indexOfFirst { instruction ->
+                instruction.opcode == Opcode.CONST_STRING &&
+                        (instruction as BuilderInstruction21c).reference.toString() == "appName"
+            } + 2
+            (context.toMethodWalker(it.method)
+                    .nextMethod(targetIndex, true)
+                    .getMethod() as MutableMethod)
                 .instructionProxyCall()
-            } ?: return MiniPlayerOverrideFingerprint.toErrorResult()
-
-        } ?: return MiniPlayerOverrideParentFingerprint.toErrorResult()
+        } ?: return MiniPlayerOverrideFingerprint.toErrorResult()
 
         MiniPlayerResponseModelSizeCheckFingerprint.result?.let {
             val (_, _, _) = it.addProxyCall()
