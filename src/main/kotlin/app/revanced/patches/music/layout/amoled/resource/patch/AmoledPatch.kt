@@ -10,13 +10,19 @@ import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.music.layout.amoled.bytecode.patch.AmoledBytecodePatch
+import app.revanced.patches.music.misc.integrations.patch.MusicIntegrationsPatch
 import app.revanced.patches.shared.annotation.YouTubeMusicCompatibility
 import org.w3c.dom.Element
 
 @Patch
 @Name("amoled")
 @Description("Applies pure black theme in flyout panels.")
-@DependsOn([AmoledBytecodePatch::class])
+@DependsOn(
+    [
+        AmoledBytecodePatch::class,
+        MusicIntegrationsPatch::class
+    ]
+)
 @YouTubeMusicCompatibility
 @Version("0.0.1")
 class AmoledPatch : ResourcePatch {
