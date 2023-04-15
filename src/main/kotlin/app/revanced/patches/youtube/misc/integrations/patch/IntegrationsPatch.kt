@@ -10,6 +10,5 @@ import app.revanced.patches.youtube.misc.integrations.fingerprints.*
 @YouTubeCompatibility
 @RequiresIntegrations
 class IntegrationsPatch : AbstractIntegrationsPatch(
-    "Lapp/revanced/integrations/utils/ReVancedUtils;",
     listOf(InitFingerprint, StandalonePlayerFingerprint, ServiceFingerprint),
 )

@@ -10,12 +10,12 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.extensions.toErrorResult
+import app.revanced.util.integrations.Constants.INTEGRATIONS_PATH
 import org.jf.dexlib2.iface.Method
 
 @Description("Applies mandatory patches to implement the ReVanced integrations into the application.")
 @Version("0.0.1")
 abstract class AbstractIntegrationsPatch(
-    private val integrationsDescriptor: String,
     private val hooks: Iterable<IntegrationsFingerprint>
 ) : BytecodePatch(hooks) {
     /**
@@ -29,14 +29,14 @@ abstract class AbstractIntegrationsPatch(
         customFingerprint: ((methodDef: Method) -> Boolean)? = null,
         private val contextRegisterResolver: (Method) -> Int = object : RegisterResolver {}
     ) : MethodFingerprint(strings = strings, customFingerprint = customFingerprint) {
-        fun invoke(integrationsDescriptor: String): PatchResult {
+        fun invoke(): PatchResult {
             result?.mutableMethod?.let { method ->
                 val contextRegister = contextRegisterResolver(method)
 
                 method.addInstruction(
                     0,
                     "sput-object v$contextRegister, " +
-                            "$integrationsDescriptor->context:Landroid/content/Context;"
+                            "$INTEGRATIONS_CLASS_DESCRIPTOR->context:Landroid/content/Context;"
                 )
             } ?: return toErrorResult()
             return PatchResultSuccess()
@@ -48,9 +48,9 @@ abstract class AbstractIntegrationsPatch(
     }
 
     override fun execute(context: BytecodeContext): PatchResult {
-        if (context.findClass(integrationsDescriptor) == null) return MISSING_INTEGRATIONS
+        if (context.findClass(INTEGRATIONS_CLASS_DESCRIPTOR) == null) return MISSING_INTEGRATIONS
 
-        for (hook in hooks) hook.invoke(integrationsDescriptor).let {
+        for (hook in hooks) hook.invoke().let {
             if (it is PatchResultError) return it
         }
 
@@ -58,6 +58,8 @@ abstract class AbstractIntegrationsPatch(
     }
 
     private companion object {
+        const val INTEGRATIONS_CLASS_DESCRIPTOR =
+            "$INTEGRATIONS_PATH/utils/ReVancedUtils;"
         val MISSING_INTEGRATIONS = PatchResultError(
             "Integrations have not been merged yet. " +
                     "This patch can not succeed without merging the integrations."
