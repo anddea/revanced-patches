@@ -35,7 +35,7 @@ import app.revanced.util.resources.ResourceUtils.copyXmlNode
 )
 @YouTubeCompatibility
 @Version("0.0.1")
-class OverlayButtonsResourcePatch : ResourcePatch {
+class OverlayButtonsPatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
 
         val icon = PatchOptions.OverlayButtonsIcon!!

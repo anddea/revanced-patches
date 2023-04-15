@@ -27,7 +27,7 @@ import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
 )
 @YouTubeCompatibility
 @Version("0.0.1")
-class TooltipContentViewBytecodePatch : BytecodePatch(
+class TooltipContentViewPatch : BytecodePatch(
     listOf(
         TooltipContentViewFingerprint
     )
