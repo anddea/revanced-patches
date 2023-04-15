@@ -22,8 +22,17 @@ class DoubleTapOverlayBackgroundPatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
         context.xmlEditor[RESOURCE_FILE_PATH].use {
             it.file.getElementsByTagName("merge").item(0).childNodes.apply {
+                val attributes = arrayOf("height", "width")
                 for (i in 1 until length) {
                     val view = item(i)
+                    if (
+                        view.hasAttributes() &&
+                        view.attributes.getNamedItem("android:id").nodeValue.endsWith("tap_bloom_view")
+                    ) {
+                        attributes.forEach { attribute ->
+                            view.attributes.getNamedItem("android:layout_$attribute").nodeValue = "0.0dip"
+                        }
+                    }
                     if (
                         view.hasAttributes() &&
                         view.attributes.getNamedItem("android:id").nodeValue.endsWith("dark_background")
