@@ -7,7 +7,6 @@ import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
-import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.shared.patch.options.PatchOptions
 import app.revanced.patches.shared.patch.settings.AbstractSettingsResourcePatch
@@ -21,7 +20,6 @@ import app.revanced.util.resources.ResourceUtils
 import app.revanced.util.resources.ResourceUtils.copyResources
 import org.w3c.dom.Element
 
-@Patch
 @Name("settings")
 @Description("Applies mandatory patches to implement ReVanced settings into the application.")
 @DependsOn(
