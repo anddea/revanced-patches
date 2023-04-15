@@ -442,7 +442,7 @@
         <Preference android:title=" " android:selectable="false" android:summary="@string/pref_about_category" />
         <PreferenceScreen android:title="@string/revanced_patches_information"  android:summary="@string/revanced_patches_information_summary" >
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_tool_used" />
-            <Preference android:title="revanced-patches" android:selectable="false" android:summary="2.168.36" />
+            <Preference android:title="revanced-patches" android:selectable="false" android:summary="2.168.38" />
             <Preference android:title="revanced-integrations" android:key="revanced-integrations" android:selectable="false"/>
 
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_ads" />
@@ -545,9 +545,9 @@
             <Preference android:title="sponsorblock" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="microg-support" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="client-spoof" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="hide-double-tap-overlay-filter" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-pip-notification" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-tooltip-content" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
-            <Preference android:title="hide-double-tap-overlay-filter" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="optimize-resource" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="translations" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="labels" android:summary="@string/revanced_labels_default" android:selectable="false"/>
