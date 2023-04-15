@@ -43,7 +43,7 @@
     <string name="revanced_default_video_speed_title">Tốc độ phát video mặc định</string>
     <string name="revanced_disable_default_video_speed_live_summary_off">Đang sử dụng tốc độ phát video mặc định (bạn đã đặt) khi xem sự kiện trực tiếp và buổi công chiếu</string>
     <string name="revanced_disable_default_video_speed_live_summary_on">Đang sử dụng tốc độ phát video chuẩn (1.0x) khi xem sự kiện trực tiếp và buổi công chiếu</string>
-    <string name="revanced_disable_default_video_speed_live_title">Tốc độ phát chuẩn (1.0x) khi xem trực tiếp</string>
+    <string name="revanced_disable_default_video_speed_live_title">Tốc độ phát chuẩn khi xem trực tiếp</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">Phản hồi xúc giác khi vuốt các phân cảnh trong video đang bật</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">Phản hồi xúc giác khi vuốt các phân cảnh trong video đã tắt</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">Tắt phản hồi xúc giác khi vuốt phân cảnh trong video</string>
@@ -62,7 +62,7 @@
     <string name="revanced_disable_startup_shorts_player_summary_off">Đang phát video Shorts khi khởi động nếu bạn thoát khỏi ứng dụng trong lúc xem một video Shorts trước đó</string>
     <string name="revanced_disable_startup_shorts_player_summary_on">Không phát video Shorts khi khởi động ứng dụng</string>
     <string name="revanced_disable_startup_shorts_player_title">Tắt phát video Shorts khi khởi động ứng dụng</string>
-    <string name="revanced_disable_quic_protocol_summary">"Tắt giao thức QUIC của công cụ Cronet để giảm độ trễ và tình trạng treo video"</string>
+    <string name="revanced_disable_quic_protocol_summary">"Tắt giao thức QUIC của công cụ Cronet để giảm độ trễ khi phát video"</string>
     <string name="revanced_disable_quic_protocol_title">Tắt giao thức QUIC</string>
     <string name="revanced_double_back_timeout_summary">Số giây để thực hiện thao tác nhấn Quay lại 2 lần để thoát</string>
     <string name="revanced_double_back_timeout_title">Thời gian chờ nhấn Quay lại 2 lần để thoát (giây)</string>
@@ -87,7 +87,7 @@
     <string name="revanced_enable_minimized_playback_summary_on">Phát trong nền đang bật</string>
     <string name="revanced_enable_minimized_playback_title">Phát trong nền</string>
     <string name="revanced_enable_old_layout_summary_off">Đang sử dụng giao diện YouTube mặc định</string>
-    <string name="revanced_enable_old_layout_summary_on">Đánh lừa hệ thống rằng bạn đang sử dụng phiên bản cũ của YouTube để bật giao diện cũ</string>
+    <string name="revanced_enable_old_layout_summary_on">Đánh lừa hệ thống rằng bạn đang sử dụng YouTube phiên bản cũ của để bật giao diện cũ</string>
     <string name="revanced_enable_old_layout_title">Giao diện YouTube cũ</string>
     <string name="revanced_enable_old_quality_layout_summary_off">Đang sử dụng bố cục Chất lượng video đang xem mặc định</string>
     <string name="revanced_enable_old_quality_layout_summary_on">Đang sử dụng bố cục Chất lượng video đang xem kiểu cũ</string>
@@ -97,7 +97,7 @@
     <string name="revanced_enable_open_links_directly_title">Mở liên kết trực tiếp</string>
     <string name="revanced_enable_phone_layout_summary">Thay đổi DPI để sử dụng một số bố cục điện thoại</string>
     <string name="revanced_enable_phone_layout_title">Bố cục điện thoại</string>
-    <string name="revanced_enable_protobuf_spoof_summary">Giả mạo protobuf để ngăn các sự cố khi phát video</string>
+    <string name="revanced_enable_protobuf_spoof_summary">Giả mạo protobuf để ngăn vấn đề giật hình và sự cố treo khi phát video</string>
     <string name="revanced_enable_protobuf_spoof_title">Giả mạo protobuf</string>
     <string name="revanced_enable_press_to_swipe_summary_off">Cử chỉ nhấn và giữ để vuốt đã tắt</string>
     <string name="revanced_enable_press_to_swipe_summary_on">Cử chỉ nhấn và giữ để vuốt đang bật</string>
@@ -172,8 +172,8 @@ Vui lòng không báo cáo bất kỳ sự cố nào bạn gặp phải khi sử
     <string name="revanced_hide_autoplay_preview_summary_on">Bảng video tiếp theo đã ẩn khỏi màn hình kết thúc khi bật tính năng Tự động phát</string>
     <string name="revanced_hide_autoplay_preview_title">Ẩn bảng video tiếp theo</string>
     <string name="revanced_hide_auto_captions_summary_off">Đang tự động hiển thị phụ đề khi phát video có phụ đề</string>
-    <string name="revanced_hide_auto_captions_summary_on">"Không tự động hiển trị phụ đề khi phát video có phụ đề"</string>
-    <string name="revanced_hide_auto_captions_title">Ẩn phụ đề tự động</string>
+    <string name="revanced_hide_auto_captions_summary_on">"Không tự động hiển thị phụ đề khi phát video có phụ đề"</string>
+    <string name="revanced_hide_auto_captions_title">Tắt phụ đề tự động</string>
     <string name="revanced_hide_auto_player_popup_panels_summary_off">Hộp chức năng tự động bật lên khi phát video (Danh sách phát, Trò chuyện trực tiếp,...) được hiển thị</string>
     <string name="revanced_hide_auto_player_popup_panels_summary_on">Hộp chức năng tự động bật lên khi phát video (Danh sách phát, Trò chuyện trực tiếp,...) đã ẩn</string>
     <string name="revanced_hide_auto_player_popup_panels_title">Ẩn hộp chức năng tự động bật lên khi phát</string>
@@ -222,11 +222,11 @@ Vui lòng không báo cáo bất kỳ sự cố nào bạn gặp phải khi sử
     <string name="revanced_hide_cast_button_summary_off">Nút Truyền được hiển thị</string>
     <string name="revanced_hide_cast_button_summary_on">Nút Truyền đã ẩn</string>
     <string name="revanced_hide_cast_button_title">Ẩn nút Truyền</string>
-    <string name="revanced_hide_category_bar_in_feed_title">Ẩn thanh đề xuất trên các trang danh sách video</string>
-    <string name="revanced_hide_category_bar_in_related_video_title">Ẩn thanh đề xuất trên trang Xem video tiếp theo</string>
-    <string name="revanced_hide_category_bar_in_search_results_title">Ẩn thanh đề xuất khỏi kết quả tìm kiếm</string>
+    <string name="revanced_hide_category_bar_in_feed_title">Ẩn thanh danh mục trên các trang danh sách video</string>
+    <string name="revanced_hide_category_bar_in_related_video_title">Ẩn thanh danh mục trên trang Xem video tiếp theo</string>
+    <string name="revanced_hide_category_bar_in_search_results_title">Ẩn thanh danh mục khỏi kết quả tìm kiếm</string>
     <string name="revanced_hide_category_bar_summary_off">Thanh đề xuất được hiển thị</string>
-    <string name="revanced_hide_category_bar_summary_on">Thanh đề xuất đã ẩn</string>
+    <string name="revanced_hide_category_bar_summary_on">Thanh danh mục đã ẩn</string>
     <string name="revanced_hide_channelbar_join_button_summary_off">Nút Tham Gia được hiển thị</string>
     <string name="revanced_hide_channelbar_join_button_summary_on">Nút Tham Gia đã ẩn</string>
     <string name="revanced_hide_channelbar_join_button_title">Ẩn nút Tham Gia</string>
@@ -458,7 +458,7 @@ Vui lòng không báo cáo bất kỳ sự cố nào bạn gặp phải khi sử
     <string name="revanced_patches_information_summary">Thông tin về các bản vá được áp dụng trong ứng dụng</string>
     <string name="revanced_player_flyout_panel_title">Hộp Cài đặt</string>
     <string name="revanced_player">Trình phát</string>
-    <string name="revanced_protobuf_spoof_notice">Giả mạo protobuf để ngăn các sự cố khi phát video</string>
+    <string name="revanced_protobuf_spoof_notice">Đã tự động bật giả mạo protobuf</string>
     <string name="revanced_reboot_warning_general">"Vì đây vẫn là tính năng thử nghiệm nên có thể xuất hiện các sự cố chưa xác định khác.
 Bạn có chắc chắn muốn tiếp tục không?"</string>
     <string name="revanced_reboot_warning_phone">"Thay đổi chỉ số DPI để sử dụng bố cục điện thoại.
@@ -466,7 +466,9 @@ Bạn có chắc chắn muốn tiếp tục không?"</string>
 Nếu bạn bật tuỳ chọn này, các tính năng sau sẽ khả dụng:
 - Bài đăng trên thẻ Cộng đồng.
 - Ẩn Danh sách kết hợp."</string>
-    <string name="revanced_reboot_warning_quic">Tắt giao thức QUIC của công cụ Cronet.\n\nGiao thức QUIC sử dụng kỹ thuật nén dữ liệu trước khi truyền để giảm thiểu lượng dữ liệu cần truyền tải, từ đó giúp tăng tốc độ tải video và tiết kiệm mức sử dụng dữ liệu cho người dùng. Tuy nhiên, việc nén dữ liệu có thể gây ra độ trễ vì video cần phải được giải nén trước khi phát. Nếu tắt giao thức QUIC, độ trễ và tình trạng treo video có thể được cải thiện, nhưng điều này cũng đồng nghĩa với việc tăng mức sử dụng dữ liệu. Do đó, chỉ nên bật tuỳ chọn này nếu tốc độ mạng của bạn đủ nhanh để không gây ảnh hưởng đến trải nghiệm xem video.</string>
+    <string name="revanced_reboot_warning_quic">Tắt giao thức QUIC của công cụ Cronet.
+
+Giao thức QUIC sử dụng kỹ thuật nén dữ liệu trước khi truyền để giảm thiểu lượng dữ liệu cần truyền tải, từ đó giúp tăng tốc độ tải video và tiết kiệm mức sử dụng dữ liệu cho người dùng. Tuy nhiên, việc nén dữ liệu có thể gây ra độ trễ vì video cần phải được giải nén trước khi phát. Nếu tắt giao thức QUIC, độ trễ và vấn đề giật hình có thể được cải thiện, nhưng điều này cũng đồng nghĩa với việc tăng mức sử dụng dữ liệu. Do đó, chỉ nên bật tuỳ chọn này nếu tốc độ mạng của bạn đủ nhanh để không gây ảnh hưởng đến trải nghiệm xem video.</string>
     <string name="revanced_reboot_warning_switch">"Nếu bạn bật tuỳ chọn này, các tính năng sau sẽ không khả dụng:
 - Chế độ môi trường xung quanh."</string>
     <string name="revanced_reboot_warning_tablet">"Thay đổi chỉ số DPI để sử dụng bố cục máy tính bảng.
@@ -568,7 +570,7 @@ Hầu hết các thiết bị bây giờ đều hỗ trợ codec VP9 nên bạn 
     <string name="sb_general_api_url">Thay đổi URL API SponsorBlock</string>
     <string name="sb_general_api_url_sum">URL API SponsorBlock được dùng để thực hiện các kết nối đến máy chủ. &lt;b&gt;Không thay đổi địa chỉ này trừ khi bạn biết mình đang làm gì.&lt;/b&gt;</string>
     <string name="sb_segments_sponsor">Nhà tài trợ</string>
-    <string name="sb_segments_sponsor_sum">Quảng cáo/Giới thiệu được trả tiền và quảng cáo trực tiếp. Không phải tự quảng cáo hoặc lời cảm ơn được gửi đến người xem, nhà sáng tạo, trang web hay sản phẩm họ yêu thích.</string>
+    <string name="sb_segments_sponsor_sum">Quảng cáo/Giới thiệu được trả tiền và quảng cáo trực tiếp. Không phải tự quảng cáo hoặc lời cảm ơn miễn phí được gửi đến người xem, nhà sáng tạo, trang web hay sản phẩm họ yêu thích.</string>
     <string name="sb_segments_selfpromo">Quảng cáo không được trả tiền/Tự quảng cáo</string>
     <string name="sb_segments_selfpromo_sum">Tương tự như \"Nhà tài trợ\" ngoại trừ việc không được trả tiền quảng cáo hoặc tự quảng cáo. Phân đoạn này cũng bao gồm các sản phẩm hàng hoá được rao bán, khoản quyên góp hoặc thông tin về những người họ đã cộng tác.</string>
     <string name="sb_segments_interaction">Nhắc nhở tương tác (Đăng ký)</string>
@@ -587,9 +589,9 @@ Hầu hết các thiết bị bây giờ đều hỗ trợ codec VP9 nên bạn 
     <string name="sb_skip_button_sponsor">Bỏ qua nhà tài trợ</string>
     <string name="sb_skip_button_selfpromo">Bỏ qua tự quảng cáo</string>
     <string name="sb_skip_button_interaction">Bỏ qua nhắc nhở tương tác</string>
-    <string name="sb_skip_button_intro_beginning">Bỏ qua phần giới thiệu</string>
-    <string name="sb_skip_button_outro">Bỏ qua phần kết thúc</string>
-    <string name="sb_skip_button_preview_beginning">Bỏ qua đoạn xem trước</string>
+    <string name="sb_skip_button_intro_beginning">Bỏ qua giới thiệu</string>
+    <string name="sb_skip_button_outro">Bỏ qua kết thúc</string>
+    <string name="sb_skip_button_preview_beginning">Bỏ qua xem trước</string>
     <string name="sb_skip_button_filler">Bỏ qua cảnh phụ</string>
     <string name="sb_skip_button_nomusic">Bỏ qua phần không nhạc</string>
     <string name="sb_skip_button_unsubmitted">Bỏ qua phân đoạn</string>

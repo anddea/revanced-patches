@@ -41,8 +41,8 @@
     <string name="revanced_default_video_quality_mobile_title">Risoluzione video Dati Cellulare predefinita</string>
     <string name="revanced_default_video_quality_wifi_title">Risoluzione video Wi-Fi predefinita</string>
     <string name="revanced_default_video_speed_title">Velocità video predefinita</string>
-    <string name="revanced_disable_default_video_speed_live_summary_off">La velocità predefinita è attiva nei video dal vivo</string>
-    <string name="revanced_disable_default_video_speed_live_summary_on">La velocità predefinita è disattivata nei video dal vivo</string>
+    <string name="revanced_disable_default_video_speed_live_summary_off">La velocità predefinita nei video dal vivo è attiva</string>
+    <string name="revanced_disable_default_video_speed_live_summary_on">La velocità predefinita nei video dal vivo è disattivata</string>
     <string name="revanced_disable_default_video_speed_live_title">Disattiva la velocità predefinita nei video dal vivo</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">La vibrazione in fase di cambio dei capitoli video è attiva</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">La vibrazione in fase di cambio dei capitoli video è disattivata</string>
@@ -92,7 +92,7 @@
     <string name="revanced_enable_old_quality_layout_summary_off">Mostra le nuove impostazioni qualitative</string>
     <string name="revanced_enable_old_quality_layout_summary_on">Mostra le precedenti impostazioni qualitative</string>
     <string name="revanced_enable_old_quality_layout_title">Attiva la vecchia interfaccia qualitativa</string>
-    <string name="revanced_enable_open_links_directly_summary_off">Segui la regola predefinita di reindirizzamento</string>
+    <string name="revanced_enable_open_links_directly_summary_off">Seguendo la regola predefinita di reindirizzamento</string>
     <string name="revanced_enable_open_links_directly_summary_on">Bypassa reindirizzamento URL</string>
     <string name="revanced_enable_open_links_directly_title">Attiva apertura link diretta</string>
     <string name="revanced_enable_phone_layout_summary">Simula un diverso valore DPI per utilizzare alcune parti dell\'interfaccia da telefono</string>
@@ -137,9 +137,9 @@
     <string name="revanced_enable_tablet_navigation_bar_summary_off">La barra di navigazione in modalità Tablet è nascosta</string>
     <string name="revanced_enable_tablet_navigation_bar_summary_on">La barra di navigazione in modalità Tablet è visibile</string>
     <string name="revanced_enable_tablet_navigation_bar_title">Barra di navigazione Tablet</string>
-    <string name="revanced_enable_time_stamp_speed_summary_off">La visualizzazione della velocità di riproduzione è nascosta</string>
-    <string name="revanced_enable_time_stamp_speed_summary_on">La visualizzazione della velocità di riproduzione è visibile</string>
-    <string name="revanced_enable_time_stamp_speed_title">Visualizza la velocità di riproduzione</string>
+    <string name="revanced_enable_time_stamp_speed_summary_off">La velocità di riproduzione è nascosta</string>
+    <string name="revanced_enable_time_stamp_speed_summary_on">La velocità di riproduzione è visibile</string>
+    <string name="revanced_enable_time_stamp_speed_title">Mostra la velocità di riproduzione</string>
     <string name="revanced_enable_vp9_codec_summary">Simula le informazioni del dispositivo per attivare il codec VP9</string>
     <string name="revanced_enable_vp9_codec_title">Attiva codec VP9</string>
     <string name="revanced_enable_wide_searchbar_summary_off">La barra di ricerca estesa è disattivata</string>
@@ -171,8 +171,8 @@ Si prega di non segnalare eventuali problemi riscontrati durante l'utilizzo di q
     <string name="revanced_hide_autoplay_preview_summary_off">Il contenitore di anteprima della riproduzione automatica è visibile</string>
     <string name="revanced_hide_autoplay_preview_summary_on">Il contenitore di anteprima della riproduzione automatica è nascosto</string>
     <string name="revanced_hide_autoplay_preview_title">Nascondi l\'anteprima della riproduzione automatica</string>
-    <string name="revanced_hide_auto_captions_summary_off">I sottotitoli vengono mostrati durante la visualizzazione di un video (con sottotitoli automatici)</string>
-    <string name="revanced_hide_auto_captions_summary_on">"I sottotitoli vengono nascosti durante la visualizzazione di un video (con sottotitoli automatici)"</string>
+    <string name="revanced_hide_auto_captions_summary_off">I sottotitoli sono visibili durante la riproduzione di un video con sottotitoli forzati</string>
+    <string name="revanced_hide_auto_captions_summary_on">"I sottotitoli sono nascosti durante la riproduzione di un video con sottotitoli forzati"</string>
     <string name="revanced_hide_auto_captions_title">Nascondi i sottotitoli automatici</string>
     <string name="revanced_hide_auto_player_popup_panels_summary_off">I pannelli popup automatici del riproduttore sono visibili</string>
     <string name="revanced_hide_auto_player_popup_panels_summary_on">I pannelli popup automatici del riproduttore sono nascosti</string>
@@ -280,7 +280,7 @@ Si prega di non segnalare eventuali problemi riscontrati durante l'utilizzo di q
     <string name="revanced_hide_floating_microphone_title">Nascondi il pulsante del microfono fluttuante</string>
     <string name="revanced_hide_fullscreen_button_container_summary_off">Il contenitore dei pulsanti a schermo intero è visibile</string>
     <string name="revanced_hide_fullscreen_button_container_summary_on">Il contenitore dei pulsanti a schermo intero è nascosto</string>
-    <string name="revanced_hide_fullscreen_button_container_title">Nascondi i pulsanti a schermo intero</string>
+    <string name="revanced_hide_fullscreen_button_container_title">Nascondi il contenitore dei pulsanti a schermo intero</string>
     <string name="revanced_hide_fullscreen_panels_summary_off">I pannelli a schermo intero sono visibili</string>
     <string name="revanced_hide_fullscreen_panels_summary_on">I pannelli a schermo intero sono nascosti</string>
     <string name="revanced_hide_fullscreen_panels_title">Nascondi i pannelli a schermo intero</string>
@@ -489,12 +489,12 @@ Dal momento che questa opzione è abbastanza obsoleta, potrebbe risultare non pi
     <string name="revanced_ryd_enable_title">Attiva Return YouTube Dislike</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">I Non Mi Piace non sono disponibili (il limite API è stato raggiunto)</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Nascosto</string>
-    <string name="revanced_save_video_quality_mobile">Cambio della qualità Dati Cellulare predefinita in:</string>
+    <string name="revanced_save_video_quality_mobile">Cambiando la qualità Dati Cellulare predefinita in:</string>
     <string name="revanced_save_video_quality_none">Cambio qualità non riuscito</string>
-    <string name="revanced_save_video_quality_wifi">Cambio della qualità Wi-Fi predefinita in:</string>
-    <string name="revanced_save_video_speed">Modifica velocità predefinita in:</string>
+    <string name="revanced_save_video_quality_wifi">Cambiando la qualità Wi-Fi predefinita in:</string>
+    <string name="revanced_save_video_speed">Cambiando la velocità predefinita in:</string>
     <string name="revanced_seekbar">Barra del minutaggio</string>
-    <string name="revanced_show_fullscreen_title_summary">Problema noto: il titolo scompare quando viene cliccato</string>
+    <string name="revanced_show_fullscreen_title_summary">Problema noto: il titolo scompare quando viene toccato</string>
     <string name="revanced_show_fullscreen_title_title">Mostra il titolo a schermo intero</string>
     <string name="revanced_sponsorblock_settings_summary">Impostazioni relative a SponsorBlock</string>
     <string name="revanced_swipe_controls">Controlli a scorrimento</string>
@@ -560,7 +560,7 @@ Dal momento che questa opzione è abbastanza obsoleta, potrebbe risultare non pi
     <string name="sb_general_adjusting_sum">Questo è il tempo in millisecondi che puoi modificare quando utilizzi i pulsanti di regolazione durante l\'aggiunta di nuovi segmenti</string>
     <string name="sb_general_adjusting_invalid">Il valore deve essere un numero positivo</string>
     <string name="sb_general_min_duration">Durata minima del segmento</string>
-    <string name="sb_general_min_duration_sum">I segmenti più brevi di questo valore (in secondi) non verranno visualizzati o saltati</string>
+    <string name="sb_general_min_duration_sum">I segmenti più brevi di questo valore (in secondi) non verranno mostrati o saltati</string>
     <string name="sb_general_uuid">Il tuo ID utente univoco</string>
     <string name="sb_general_uuid_sum">Questo dovrebbe essere tenuto al sicuro. È come una password e non dovrebbe essere condiviso con nessuno. Se qualcuno dovesse ottenerlo, potrebbe impersonarti</string>
     <string name="sb_general_uuid_invalid">Il campo ID utente non può essere vuoto</string>
@@ -660,7 +660,7 @@ Soglia raggiunta (troppe richieste provenienti dallo stesso utente o IP)</string
     <string name="sb_stats_saved_zero">Classifica di SponsorBlock</string>
     <string name="sb_stats_saved" formatted="false">Hai salvato le persone da &lt;b&gt;%s&lt;/b&gt; segmenti</string>
     <string name="sb_stats_saved_sum_zero">Tocca qui per vedere le statistiche globali e i migliori contributori</string>
-    <string name="sb_stats_saved_sum" formatted="false">Per un totale di &lt;b&gt;%s&lt;/b&gt; della loro vita. Tocca qui per visualizzare la classifica</string>
+    <string name="sb_stats_saved_sum" formatted="false">Per un totale di &lt;b&gt;%s&lt;/b&gt; della loro vita. Tocca qui per vedere la classifica</string>
     <string name="sb_stats_self_saved" formatted="false">Hai saltato &lt;b&gt;%s&lt;/b&gt; segmenti</string>
     <string name="sb_stats_self_saved_sum" formatted="false">Per un totale di &lt;b&gt;%s&lt;/b&gt;</string>
     <string name="sb_stats_self_saved_reset_title">Ripristinare il contatore dei segmenti saltati?</string>

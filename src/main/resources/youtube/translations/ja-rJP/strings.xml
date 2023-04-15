@@ -41,8 +41,8 @@
     <string name="revanced_default_video_quality_mobile_title">モバイルデータ通信でのデフォルト画質</string>
     <string name="revanced_default_video_quality_wifi_title">Wi-Fi でのデフォルト画質</string>
     <string name="revanced_default_video_speed_title">デフォルトの再生速度</string>
-    <string name="revanced_disable_default_video_speed_live_summary_off">ライブでデフォルトの再生速度を無効にします</string>
-    <string name="revanced_disable_default_video_speed_live_summary_on">ライブでデフォルトの再生速度を無効にします</string>
+    <string name="revanced_disable_default_video_speed_live_summary_off">ライブではデフォルトで設定されている再生速度を無効にします</string>
+    <string name="revanced_disable_default_video_speed_live_summary_on">ライブではデフォルトで設定されている再生速度を無効にします</string>
     <string name="revanced_disable_default_video_speed_live_title">ライブでデフォルトの再生速度を無効にする</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">チャプターの振動フィードバックを無効にします</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">チャプターの振動フィードバックを無効にします</string>
@@ -479,7 +479,7 @@
     <string name="revanced_reboot_warning_vp9">"VP9コーデックを有効にするために端末情報を偽装します
 
 これらの設定は非常に古いので、動作しないかもしれません"</string>
-    <string name="revanced_ryd_attribution_summary">低評価のデータは、Return YouTube Dislike API によって提供されます。詳細はこちらをタップしてください。</string>
+    <string name="revanced_ryd_attribution_summary">低評価のデータは、Return YouTube Dislike API によって提供されます。詳細はここをタップしてください。</string>
     <string name="revanced_ryd_compact_layout_summary_off">高評価ボタンをコンパクトなサイズにします</string>
     <string name="revanced_ryd_compact_layout_summary_on">高評価ボタンをコンパクトなサイズにします</string>
     <string name="revanced_ryd_compact_layout_title">コンパクトな高評価ボタンを有効にする</string>
@@ -611,7 +611,7 @@
     <string name="sb_skip_showbutton">スキップボタンを表示する</string>
     <string name="sb_skip_seekbaronly">シークバーに表示する</string>
     <string name="sb_skip_ignore">無効</string>
-    <string name="sb_about_api_sum">データはSponsorBlock APIによって提供されます。詳細はこちらをタップしてください。</string>
+    <string name="sb_about_api_sum">データはSponsorBlock APIによって提供されます。詳細はここをタップしてください。</string>
     <string name="sb_about_made_by">JakubWeg による統合</string>
     <string name="sb_submit_failed_invalid" formatted="false">セグメントを送信できません: %s</string>
     <string name="sb_submit_failed_timeout">セグメントを送信できませんでした(APIがタイムアウトしました)</string>
@@ -642,7 +642,7 @@
     <string name="sb_new_segment_edit_by_hand_title">セグメントのタイミングを手動で編集する</string>
     <string name="sb_new_segment_edit_by_hand_content">セグメントの開始または終了のタイミングを編集しますか？</string>
     <string name="sb_new_segment_edit_by_hand_parse_error">無効な時間の値です</string>
-    <string name="sb_guidelines_preference_title">ガイドラインを表示</string>
+    <string name="sb_guidelines_preference_title">ガイドラインを表示する</string>
     <string name="sb_guidelines_preference_sum">ガイドラインには、セグメントの送信に関するヒントとルールが含まれています</string>
     <string name="sb_guidelines_popup_title">ガイドラインを遵守する</string>
     <string name="sb_guidelines_popup_content">セグメントを作成する前に、SponsorBlockガイドラインを読んでください</string>
@@ -663,7 +663,7 @@
     <string name="sb_stats_saved_sum" formatted="false">あなたは合計で人々の人生を &lt;b&gt;%s&lt;/b&gt; 無駄にせず済みました。&lt;br&gt; タップしてリーダーボードを確認します。</string>
     <string name="sb_stats_self_saved" formatted="false">今まで &lt;b&gt;%s&lt;/b&gt; 個のセグメントをスキップしました。</string>
     <string name="sb_stats_self_saved_sum" formatted="false">合計 &lt;b&gt;%s&lt;/b&gt; です。</string>
-    <string name="sb_stats_self_saved_reset_title">スキップしたセグメントのカウンターをリセットしますか？</string>
+    <string name="sb_stats_self_saved_reset_title">スキップされたセグメントのカウンターをリセットしますか？</string>
     <string name="sb_stats_saved_hour_format" formatted="false">%d 時間 %d 分</string>
     <string name="sb_stats_saved_minute_format" formatted="false">%d 分 %d 秒</string>
     <string name="sb_stats_saved_second_format" formatted="false">%d 秒</string>
