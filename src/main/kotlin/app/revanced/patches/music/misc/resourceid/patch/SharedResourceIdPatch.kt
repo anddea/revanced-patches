@@ -22,6 +22,7 @@ class SharedResourceIdPatch : ResourcePatch {
         var dialogSolidLabelId: Long = -1
         var disabledIconLabelId: Long = -1
         var isTabletLabelId: Long = -1
+        var notifierShelfLabelId: Long = -1
     }
 
     override fun execute(context: ResourceContext): PatchResult {
@@ -34,6 +35,7 @@ class SharedResourceIdPatch : ResourcePatch {
         dialogSolidLabelId = find(STYLE, "Theme.YouTubeMusic.Dialog.Solid")
         disabledIconLabelId = find(DIMEN, "disabled_icon_alpha")
         isTabletLabelId = find(BOOL, "is_tablet")
+        notifierShelfLabelId = find(LAYOUT, "music_notifier_shelf")
 
         return PatchResultSuccess()
     }
