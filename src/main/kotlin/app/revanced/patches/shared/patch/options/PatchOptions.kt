@@ -61,6 +61,18 @@ class PatchOptions : ResourcePatch {
         )
 
         /**
+         * Downloader Package Name (YouTube Music)
+         */
+        internal var MusicDownloaderPackageName: String? by option(
+            PatchOption.StringOption(
+                key = "MusicDownloaderPackageName",
+                default = "ussr.razar.youtube_dl",
+                title = "Downloader Package Name for YouTube Music",
+                description = "Downloader package name of the YouTube Music. (default: PowerTube)"
+            )
+        )
+
+        /**
          * Custom Speed Values
          */
         internal var CustomSpeedArrays: String? by option(
