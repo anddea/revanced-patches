@@ -21,7 +21,6 @@ class SharedResourceIdPatch : ResourcePatch {
         var colorGreyLabelId: Long = -1
         var dialogSolidLabelId: Long = -1
         var disabledIconLabelId: Long = -1
-        var floatingActionButtonLabelId: Long = -1
         var isTabletLabelId: Long = -1
     }
 
@@ -34,7 +33,6 @@ class SharedResourceIdPatch : ResourcePatch {
         colorGreyLabelId = find(COLOR, "ytm_color_grey_12")
         dialogSolidLabelId = find(STYLE, "Theme.YouTubeMusic.Dialog.Solid")
         disabledIconLabelId = find(DIMEN, "disabled_icon_alpha")
-        floatingActionButtonLabelId = find(ID, "floating_action_button")
         isTabletLabelId = find(BOOL, "is_tablet")
 
         return PatchResultSuccess()
