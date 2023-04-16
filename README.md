@@ -129,11 +129,12 @@ The official Patch bundle provided by ReVanced and the community.
 | `hide-new-playlist` | Hide the New Playlist button in the Library tab. | all |
 | `hide-playlist-card` | Hides the playlist card from homepage. | all |
 | `hide-taste-builder` | Removes the "Tell us which artists you like" card from the home screen. | all |
-| `hide-upgrade-button` | Removes the upgrade tab from the pivot bar. | all |
+| `hide-upgrade-button` | Remove upgrade tab from pivot bar, hide upgrade banner from homepage. | all |
 | `minimized-playback-music` | Enables minimized playback on Kids music. | all |
 | `music-microg-support` | Allows YouTube Music ReVanced to run without root and under a different package name. | all |
 | `optimize-resource-music` | Remove unnecessary resources. | all |
 | `patch-options` | Create an options.toml file. | all |
+| `share-button-hook` | Replace share button with external download button. | all |
 | `spoof-version` | Spoof the YouTube Music client version. | all |
 | `translations-music` | Add Crowdin translations for YouTube Music. | all |
 </details>
