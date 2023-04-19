@@ -50,7 +50,6 @@ class SharedResourceIdPatch : ResourcePatch {
         var searchSuggestionEntryLabelId: Long = -1
         var scrubbingLabelId: Long = -1
         var timeBarPlayedDarkLabelId: Long = -1
-        var timeStampsContainerLabelId: Long = -1
         var tooltipLabelId: Long = -1
         var videoQualityFragmentLabelId: Long = -1
     }
@@ -93,7 +92,6 @@ class SharedResourceIdPatch : ResourcePatch {
         searchSuggestionEntryLabelId = find(LAYOUT, "search_suggestion_entry")
         scrubbingLabelId = find(DIMEN, "vertical_touch_offset_to_enter_fine_scrubbing")
         timeBarPlayedDarkLabelId = find(COLOR, "inline_time_bar_colorized_bar_played_color_dark")
-        timeStampsContainerLabelId = find(ID, "timestamps_container")
         tooltipLabelId = find(LAYOUT, "tooltip_content_view")
         videoQualityFragmentLabelId = find(LAYOUT, "video_quality_bottom_sheet_list_fragment_title")
 

@@ -14,30 +14,24 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
-import app.revanced.patches.youtube.layout.seekbar.timestamps.fingerprints.TimeStampsContainerFingerprint
-import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch
+import app.revanced.patches.youtube.layout.seekbar.timestamps.fingerprints.TimeCounterFingerprint
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
 import app.revanced.util.integrations.Constants.SEEKBAR
 
 @Patch
 @Name("hide-time-stamp")
-@Description("Hides the time counter above the seekbar.")
-@DependsOn(
-    [
-        SettingsPatch::class,
-        SharedResourceIdPatch::class
-    ]
-)
+@Description("Hides timestamp in video player.")
+@DependsOn([SettingsPatch::class])
 @YouTubeCompatibility
 @Version("0.0.1")
 class HideTimeStampPatch : BytecodePatch(
     listOf(
-        TimeStampsContainerFingerprint
+        TimeCounterFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
 
-        TimeStampsContainerFingerprint.result?.mutableMethod?.let {
+        TimeCounterFingerprint.result?.mutableMethod?.let {
             it.addInstructions(
                 0, """
                     invoke-static {}, $SEEKBAR->hideTimeStamp()Z
@@ -46,7 +40,7 @@ class HideTimeStampPatch : BytecodePatch(
                     return-void
                     """, listOf(ExternalLabel("show_time_stamp", it.instruction(0)))
             )
-        } ?: return TimeStampsContainerFingerprint.toErrorResult()
+        } ?: return TimeCounterFingerprint.toErrorResult()
 
         /*
          * Add settings
