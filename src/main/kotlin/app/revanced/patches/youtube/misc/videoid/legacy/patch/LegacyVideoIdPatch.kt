@@ -12,6 +12,7 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.youtube.misc.videoid.legacy.fingerprint.LegacyVideoIdFingerprint
+import app.revanced.util.integrations.Constants.VIDEO_PATH
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Name("video-id-hook-legacy")
@@ -35,10 +36,13 @@ class LegacyVideoIdPatch : BytecodePatch(
             offset++ // offset so setCurrentVideoId is called before any injected call
         } ?: return LegacyVideoIdFingerprint.toErrorResult()
 
+        injectCall("$INTEGRATIONS_CLASS_DESCRIPTOR->setVideoId(Ljava/lang/String;)V")
+
         return PatchResultSuccess()
     }
 
     companion object {
+        const val INTEGRATIONS_CLASS_DESCRIPTOR = "$VIDEO_PATH/VideoInformation;"
         private var offset = 2
 
         private var insertIndex: Int = 0

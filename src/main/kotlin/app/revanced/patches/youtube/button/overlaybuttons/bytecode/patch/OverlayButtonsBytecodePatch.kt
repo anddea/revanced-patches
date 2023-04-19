@@ -9,14 +9,14 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.youtube.misc.playercontrols.patch.PlayerControlsPatch
-import app.revanced.patches.youtube.misc.videoid.mainstream.patch.MainstreamVideoIdPatch
+import app.revanced.patches.youtube.misc.videoid.legacy.patch.LegacyVideoIdPatch
 import app.revanced.util.integrations.Constants.BUTTON_PATH
 
 @Name("overlay-buttons-bytecode-patch")
 @DependsOn(
     dependencies = [
         PlayerControlsPatch::class,
-        MainstreamVideoIdPatch::class
+        LegacyVideoIdPatch::class
     ]
 )
 @YouTubeCompatibility
