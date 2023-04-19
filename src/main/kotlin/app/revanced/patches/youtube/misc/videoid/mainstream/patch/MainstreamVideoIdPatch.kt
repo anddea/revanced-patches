@@ -164,9 +164,6 @@ class MainstreamVideoIdPatch : BytecodePatch(
             offset++ // offset so setVideoId is called before any injected call
         } ?: return MainstreamVideoIdFingerprint.toErrorResult()
 
-        
-        injectCall("$INTEGRATIONS_CLASS_DESCRIPTOR->setVideoId(Ljava/lang/String;)V")
-
         return PatchResultSuccess()
     }
 
