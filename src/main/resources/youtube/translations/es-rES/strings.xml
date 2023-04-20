@@ -574,6 +574,8 @@ Toque aquí para obtener más información.</string>
     <string name="sb_segments_selfpromo_sum">Similar a \"Patrocinador\", excepto en el caso de la autopromoción o no pagada. Incluye secciones sobre mercancía, donaciones o información sobre con quién han colaborado</string>
     <string name="sb_segments_interaction">Recordatorio de interacción (suscripción)</string>
     <string name="sb_segments_interaction_sum">Un breve recordatorio para que den me gusta, se suscriban o les sigan en medio del contenido. Si es largo o trata sobre algo específico, debería ir en la sección de autopromoción</string>
+    <string name="sb_segments_highlight">Destacado</string>
+    <string name="sb_segments_highlight_sum">La parte del vídeo que la mayoría de la gente busca</string>
     <string name="sb_segments_intro">Animación de introducción/Intermisión</string>
     <string name="sb_segments_intro_sum">Un intervalo sin contenido real. Puede ser una pausa, un fotograma estático o una animación que se repite. No incluye transiciones que contengan información</string>
     <string name="sb_segments_outro">Tarjetas finales/Créditos</string>
@@ -585,9 +587,11 @@ Toque aquí para obtener más información.</string>
     <string name="sb_segments_nomusic">Música: Sección sin música</string>
     <string name="sb_segments_nomusic_sum">Solo para usar en vídeos musicales. Secciones de vídeos musicales sin música, que no estén ya cubiertas por otra categoría</string>
     <string name="sb_skip_button_compact">Omitir</string>
+    <string name="sb_skip_button_compact_highlight">Destacado</string>
     <string name="sb_skip_button_sponsor">Omitir patrocinador</string>
     <string name="sb_skip_button_selfpromo">Omitir promoción</string>
     <string name="sb_skip_button_interaction">Omitir interacción</string>
+    <string name="sb_skip_button_highlight">Ir a destacado</string>
     <string name="sb_skip_button_intro_beginning">Omitir introducción</string>
     <string name="sb_skip_button_outro">Omitir créditos</string>
     <string name="sb_skip_button_preview_beginning">Omitir resumen</string>
@@ -597,6 +601,7 @@ Toque aquí para obtener más información.</string>
     <string name="sb_skipped_sponsor">Patrocinador omitido</string>
     <string name="sb_skipped_selfpromo">Autopromoción omitida</string>
     <string name="sb_skipped_interaction">Recordatorio molesto omitido</string>
+    <string name="sb_skipped_highlight">Saltado a destacado</string>
     <string name="sb_skipped_intro_beginning">Introducción omitida</string>
     <string name="sb_skipped_outro">Créditos omitidos</string>
     <string name="sb_skipped_preview_beginning">Resumen omitido</string>
@@ -635,6 +640,7 @@ Toque aquí para obtener más información.</string>
     <string name="sb_new_segment_time_end">Tiempo en que finaliza el segmento</string>
     <string name="sb_new_segment_confirm_title">¿Son correctos los tiempos?</string>
     <string name="sb_new_segment_confirm_content" formatted="false">El segmento dura de %02d:%02d hasta %02d:%02d (%d minutos %02d segundos)\n¿Está listo para enviarlo?</string>
+    <string name="sb_new_segment_start_is_before_end">El inicio debe ser antes del final</string>
     <string name="sb_new_segment_mark_locations_first">Primero marque dos ubicaciones en la barra de tiempo</string>
     <string name="sb_new_segment_preview_segment_first">Previsualice el segmento y asegúrese de que salta sin problemas</string>
     <string name="sb_new_segment_edit_by_hand_title">Editar tiempo del segmento manualmente</string>

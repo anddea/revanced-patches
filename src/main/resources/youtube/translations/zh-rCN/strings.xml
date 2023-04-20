@@ -573,6 +573,8 @@
     <string name="sb_segments_selfpromo_sum">类似于“赞助”，非付费或自我推广除外。这包括有关商品、捐赠或与他人合作的信息</string>
     <string name="sb_segments_interaction">交互提醒（订阅）</string>
     <string name="sb_segments_interaction_sum">视频中间简短提醒观众来点赞、订阅或关注。 如果片段较长，或是关于某个具体事物，则应分类为自我推广</string>
+    <string name="sb_segments_highlight">突出显示</string>
+    <string name="sb_segments_highlight_sum">大家都在搜的视频</string>
     <string name="sb_segments_intro">过场/开场动画</string>
     <string name="sb_segments_intro_sum">没有实际内容的间隔片段。可以是暂停、静态帧或重复动画。不包括信息的过渡</string>
     <string name="sb_segments_outro">结束画面/演职员表</string>
@@ -584,9 +586,11 @@
     <string name="sb_segments_nomusic">音乐：非音乐部分</string>
     <string name="sb_segments_nomusic_sum">仅用于音乐视频。音乐视频的非音乐部分，尚未包含在另一个类别中</string>
     <string name="sb_skip_button_compact">略过</string>
+    <string name="sb_skip_button_compact_highlight">突出显示</string>
     <string name="sb_skip_button_sponsor">跳过赞助推广</string>
     <string name="sb_skip_button_selfpromo">跳过促销活动</string>
     <string name="sb_skip_button_interaction">跳过交互提醒</string>
+    <string name="sb_skip_button_highlight">跳转到突出显示</string>
     <string name="sb_skip_button_intro_beginning">跳过片头</string>
     <string name="sb_skip_button_outro">跳过片尾</string>
     <string name="sb_skip_button_preview_beginning">跳过预告</string>
@@ -596,6 +600,7 @@
     <string name="sb_skipped_sponsor">已跳过赞助推广</string>
     <string name="sb_skipped_selfpromo">已跳过自我推广</string>
     <string name="sb_skipped_interaction">已跳过烦人提醒</string>
+    <string name="sb_skipped_highlight">已跳转到突出显示位置</string>
     <string name="sb_skipped_intro_beginning">已跳过片头</string>
     <string name="sb_skipped_outro">已跳过片尾</string>
     <string name="sb_skipped_preview_beginning">已跳过预告</string>
@@ -634,6 +639,7 @@
     <string name="sb_new_segment_time_end">片段结束时间</string>
     <string name="sb_new_segment_confirm_title">时间是否正确？</string>
     <string name="sb_new_segment_confirm_content" formatted="false">片段从 %02d:%02d 到 %02d:%02d（%d 分 %02d 秒）\n是否确认提交？</string>
+    <string name="sb_new_segment_start_is_before_end">起始位置须在结束位置前</string>
     <string name="sb_new_segment_mark_locations_first">先在进度条标记两个位置</string>
     <string name="sb_new_segment_preview_segment_first">预览片段，确保能顺利跳过</string>
     <string name="sb_new_segment_edit_by_hand_title">手动编辑片段时间</string>

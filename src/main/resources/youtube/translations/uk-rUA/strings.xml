@@ -565,6 +565,8 @@
     <string name="sb_segments_selfpromo_sum">Подібно до \"Спонсор\", за винятком неоплачуваної або самореклами. Включає розділи про товари, пожертви або інформацію про те, з ким вони співпрацювали</string>
     <string name="sb_segments_interaction">Нагадування про взаємодію (Підписка)</string>
     <string name="sb_segments_interaction_sum">Коротке нагадування про вподобання, підписку або підписку посеред контенту. Якщо воно довге або про щось конкретне, його слід розмістити в розділі самореклами</string>
+    <string name="sb_segments_highlight">Основний момент</string>
+    <string name="sb_segments_highlight_sum">Частина відео, яку шукає більшість людей</string>
     <string name="sb_segments_intro">Перерва/Вступна Анімація</string>
     <string name="sb_segments_intro_sum">Інтервал без фактичного контенту. Може бути паузою, статичним кадром або повторюваною анімацією. Не включає переходи, що містять інформацію</string>
     <string name="sb_segments_outro">Кінцева заставка/Титри</string>
@@ -576,9 +578,11 @@
     <string name="sb_segments_nomusic">Музика: Немузичний розділ</string>
     <string name="sb_segments_nomusic_sum">Тільки для використання в музичних відео. Секції музичних відео без музики, які не підпадають під іншу категорію</string>
     <string name="sb_skip_button_compact">Пропустити</string>
+    <string name="sb_skip_button_compact_highlight">Основний момент</string>
     <string name="sb_skip_button_sponsor">Пропустити спонсорську вставку</string>
     <string name="sb_skip_button_selfpromo">Пропустити промо-ролик</string>
     <string name="sb_skip_button_interaction">Пропустити взаємодію</string>
+    <string name="sb_skip_button_highlight">Пропустити Основний момент</string>
     <string name="sb_skip_button_intro_beginning">Пропустити вступ</string>
     <string name="sb_skip_button_outro">Пропустити закінчення</string>
     <string name="sb_skip_button_preview_beginning">Пропустити попередній перегляд</string>
@@ -588,6 +592,7 @@
     <string name="sb_skipped_sponsor">Пропущено спонсорську вставку</string>
     <string name="sb_skipped_selfpromo">Пропущено саморекламу</string>
     <string name="sb_skipped_interaction">Пропущено дратівливе нагадування</string>
+    <string name="sb_skipped_highlight">Основний момент пропущено</string>
     <string name="sb_skipped_intro_beginning">Пропущено вступ</string>
     <string name="sb_skipped_outro">Пропущено закінчення</string>
     <string name="sb_skipped_preview_beginning">Пропущено перед перегляд</string>
@@ -626,6 +631,7 @@
     <string name="sb_new_segment_time_end">Час сегменту закінчується на</string>
     <string name="sb_new_segment_confirm_title">Час правильний?</string>
     <string name="sb_new_segment_confirm_content" formatted="false">Сегмент триває від %02d:%02d до %02d:%02d (%d хвилин(-и) %02d секунд(-и))\n Відправити?</string>
+    <string name="sb_new_segment_start_is_before_end">Початок має бути перед кінцем</string>
     <string name="sb_new_segment_mark_locations_first">Спочатку позначте дві позиції на панелі часу</string>
     <string name="sb_new_segment_preview_segment_first">Попередній перегляд сегменту для забезпечення плавного пропуску</string>
     <string name="sb_new_segment_edit_by_hand_title">Редагувати час сегмента вручну</string>

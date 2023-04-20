@@ -578,6 +578,8 @@
     <string name="sb_segments_selfpromo_sum">شبيهة بـ \"الراعي\" باستثناء ما يتعلق بالإعلانات غير المدفوعة الأجر أو الذاتية. ويشمل ذلك أقسام عن السلع أو التبرعات أو المعلومات المتعلقة بمن تعاونوا مع ناشر المحتوى</string>
     <string name="sb_segments_interaction">تذكير بالتفاعل (الاشتراك في القناة)</string>
     <string name="sb_segments_interaction_sum">تذكير قصير للإعجاب أو الاشتراك أو المتابعة في منتصف المحتوى. إذا كانت طويلة أو تتعلق بشيء محدد، فيجب أن تكون خاضعة للترويج الشخصي بدلاً من ذلك</string>
+    <string name="sb_segments_highlight">الأبرز</string>
+    <string name="sb_segments_highlight_sum">جزء الفيديو الذي يبحث عنه معظم الأشخاص</string>
     <string name="sb_segments_intro">المقدمة/فاصل</string>
     <string name="sb_segments_intro_sum">فاصل زمني بدون محتوى فعلي. يمكن أن يكون توقفًا مؤقتًا أو إطارًا ثابتًا أو تكرار الرسوم المتحركة. لا يتضمن انتقالات تحتوي على معلومات</string>
     <string name="sb_segments_outro">الخاتمة/تترات النهاية</string>
@@ -589,9 +591,11 @@
     <string name="sb_segments_nomusic">الموسيقى: مقطع بدون موسيقى</string>
     <string name="sb_segments_nomusic_sum">فقط للاستخدام في مقاطع الفيديو الموسيقية. أقسام مقاطع الفيديو الموسيقية بدون موسيقى، والتي لم يتم تغطيتها بالفعل من قبل فئة أخرى</string>
     <string name="sb_skip_button_compact">تخطي</string>
+    <string name="sb_skip_button_compact_highlight">الأميز</string>
     <string name="sb_skip_button_sponsor">تخطي الراعي</string>
     <string name="sb_skip_button_selfpromo">تخطي العرض الترويجي</string>
     <string name="sb_skip_button_interaction">تخطي التفاعل</string>
+    <string name="sb_skip_button_highlight">التخطي لأبرز المشاهد</string>
     <string name="sb_skip_button_intro_beginning">تخطي المقدمة</string>
     <string name="sb_skip_button_outro">تخطي الخاتمة</string>
     <string name="sb_skip_button_preview_beginning">تخطي النظرة العامة</string>
@@ -601,6 +605,7 @@
     <string name="sb_skipped_sponsor">تم تخطي الراعي</string>
     <string name="sb_skipped_selfpromo">تم تخطي الترويج الشخصي</string>
     <string name="sb_skipped_interaction">تم تخطي التذكير بالتفاعل</string>
+    <string name="sb_skipped_highlight">تم التخطي لأبرز المشاهد</string>
     <string name="sb_skipped_intro_beginning">تم تخطي المقدمة</string>
     <string name="sb_skipped_outro">تم تخطي الخاتمة</string>
     <string name="sb_skipped_preview_beginning">تم تخطي النظرة العامة</string>
@@ -631,7 +636,7 @@
     <string name="sb_new_segment_choose_category">اختيار فئة المقطع</string>
     <string name="sb_new_segment_disabled_category">الفئة معطلة في الإعدادات. تمكين الفئة للإرسال.</string>
     <string name="sb_new_segment_title">مقطع مانِع رُعَاة جديد</string>
-    <string name="sb_new_segment_mark_time_as_question" formatted="false">تعيين %02d:%02d:%04d كبداية أم نهاية لمقطع جديد؟</string>
+    <string name="sb_new_segment_mark_time_as_question" formatted="false">تعيين %02d:%02d:%03d كبداية أم نهاية لمقطع جديد؟</string>
     <string name="sb_new_segment_mark_start">البداية</string>
     <string name="sb_new_segment_mark_end">النهاية</string>
     <string name="sb_new_segment_now">الآن</string>
@@ -639,6 +644,7 @@
     <string name="sb_new_segment_time_end">الوقت الذي ينتهي عنده المقطع</string>
     <string name="sb_new_segment_confirm_title">هل الأوقات صحيحة؟</string>
     <string name="sb_new_segment_confirm_content" formatted="false">المقطع يستمر من %02d:%02d إلى %02d:%02d (%d دقيقة %02d ثانية)\n هل هو جاهز للإرسال؟</string>
+    <string name="sb_new_segment_start_is_before_end">يجب أن تكون البداية قبل النهاية</string>
     <string name="sb_new_segment_mark_locations_first">ضع علامة على موقعين في شريط الوقت أولًا</string>
     <string name="sb_new_segment_preview_segment_first">معاينة المقطع، والتأكد من تخطيه بسلاسة</string>
     <string name="sb_new_segment_edit_by_hand_title">تعديل توقيت المقطع يدويًا</string>

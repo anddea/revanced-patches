@@ -28,9 +28,9 @@
     <string name="revanced_backup_summary">自檔案匯入 ReVanced 設定，或匯出 ReVanced 設定至檔案</string>
     <string name="revanced_bottom_player">播放器按鈕</string>
     <string name="revanced_button_container_title">功能按鈕欄</string>
-    <string name="revanced_bypass_ambient_mode_restrictions_summary_off">省電模式下電影燈光效果已停用</string>
-    <string name="revanced_bypass_ambient_mode_restrictions_summary_on">省電模式下電影燈光效果已啟用</string>
-    <string name="revanced_bypass_ambient_mode_restrictions_title">解除電影燈光效果限制</string>
+    <string name="revanced_bypass_ambient_mode_restrictions_summary_off">省電模式下微光效果已停用</string>
+    <string name="revanced_bypass_ambient_mode_restrictions_summary_on">省電模式下微光效果已啟用</string>
+    <string name="revanced_bypass_ambient_mode_restrictions_title">解除微光效果限制</string>
     <string name="revanced_change_homepage_summary_off">目前主畫面：首頁</string>
     <string name="revanced_change_homepage_summary_on">目前主畫面：訂閱內容</string>
     <string name="revanced_change_homepage_title">設定主畫面為訂閱內容</string>
@@ -59,9 +59,9 @@
     <string name="revanced_disable_landscape_mode_summary_off">進入全螢幕時橫向模式已啟用</string>
     <string name="revanced_disable_landscape_mode_summary_on">進入全螢幕時橫向模式已停用</string>
     <string name="revanced_disable_landscape_mode_title">停用橫向模式</string>
-    <string name="revanced_disable_startup_shorts_player_summary_off">在啟動應用程式時自動開啟Short已啟用</string>
-    <string name="revanced_disable_startup_shorts_player_summary_on">在啟動應用程式時自動開啟Short已停用</string>
-    <string name="revanced_disable_startup_shorts_player_title">在應用程式啟動時停用自動開啟Short</string>
+    <string name="revanced_disable_startup_shorts_player_summary_off">在啟動應用程式時自動開啟 Shorts 已啟用</string>
+    <string name="revanced_disable_startup_shorts_player_summary_on">在啟動應用程式時自動開啟 Shorts 已停用</string>
+    <string name="revanced_disable_startup_shorts_player_title">在應用程式啟動時停用自動開啟 Shorts</string>
     <string name="revanced_disable_quic_protocol_summary">"禁用 CronetEngine 的 QUIC 協議"</string>
     <string name="revanced_disable_quic_protocol_title">禁用 QUIC 協議</string>
     <string name="revanced_double_back_timeout_summary">雙擊返回退出的時間（秒）</string>
@@ -73,7 +73,7 @@
     <string name="revanced_downloader_settings_title">下載器設定</string>
     <string name="revanced_enable_always_auto_repeat_summary_off">保持自動重複播放已停用</string>
     <string name="revanced_enable_always_auto_repeat_summary_on">保持自動重複播放已啟用</string>
-    <string name="revanced_enable_always_auto_repeat_title">始終自動循環播放</string>
+    <string name="revanced_enable_always_auto_repeat_title">保持自動循環播放</string>
     <string name="revanced_enable_custom_seekbar_color_summary_off">自訂搜尋欄顏色已停用</string>
     <string name="revanced_enable_custom_seekbar_color_summary_on">自訂搜尋欄顏色已啟用</string>
     <string name="revanced_enable_custom_seekbar_color_title">啟用自動搜尋欄顏色</string>
@@ -86,19 +86,21 @@
     <string name="revanced_enable_minimized_playback_summary_off">最小化播放已停用</string>
     <string name="revanced_enable_minimized_playback_summary_on">最小化播放已啟用</string>
     <string name="revanced_enable_minimized_playback_title">啟用最小化播放</string>
-    <string name="revanced_enable_old_layout_summary_off">YouTube介面會根據你的 Google 帳戶狀態而啟用</string>
+    <string name="revanced_enable_old_layout_summary_off">YouTube介面會跟隨你的 Google 帳戶設定</string>
     <string name="revanced_enable_old_layout_summary_on">偽裝 YouTube 版本以強制啟用舊版介面</string>
     <string name="revanced_enable_old_layout_title">啟用舊版介面</string>
     <string name="revanced_enable_old_quality_layout_summary_off">顯示新版畫質設定</string>
     <string name="revanced_enable_old_quality_layout_summary_on">顯示舊版畫質設定</string>
     <string name="revanced_enable_old_quality_layout_title">使用舊版畫質設定</string>
-    <string name="revanced_enable_open_links_directly_summary_off">使用預設的重新載入行為</string>
-    <string name="revanced_enable_open_links_directly_summary_on">跳過 URL 重新載入</string>
-    <string name="revanced_enable_open_links_directly_title">啟用直接開啟連結</string>
-    <string name="revanced_enable_phone_layout_summary">欺騙Dpi以使用一些手機介面</string>
-    <string name="revanced_enable_phone_layout_title">啟用手機介面</string>
-    <string name="revanced_enable_protobuf_spoof_summary">取消 protobuf 以防止播放問題</string>
-    <string name="revanced_enable_protobuf_spoof_title">啟用取消 protobuf</string>
+    <string name="revanced_enable_open_links_directly_summary_off">使用預設的 URL 重新導向行為</string>
+    <string name="revanced_enable_open_links_directly_summary_on">跳過 URL 重新導向</string>
+    <string name="revanced_enable_open_links_directly_title">直接開啟連結</string>
+    <string name="revanced_enable_phone_layout_summary">欺騙Dpi以使用一些手機版介面</string>
+    <string name="revanced_enable_phone_layout_title">啟用手機版介面</string>
+    <string name="revanced_enable_protobuf_spoof_summary">欺騙 protobuf 以防止播放問題
+註:當觀看影片時遇到無限緩衝問題,再開啟此設定
+否則請保持此設定關閉</string>
+    <string name="revanced_enable_protobuf_spoof_title">欺騙 protobuf (Protocol Buffers)</string>
     <string name="revanced_enable_press_to_swipe_summary_off">長按以滑動已停用</string>
     <string name="revanced_enable_press_to_swipe_summary_on">長按以滑動已啟用</string>
     <string name="revanced_enable_press_to_swipe_title">長按以滑動</string>
@@ -302,9 +304,9 @@
     <string name="revanced_hide_medical_panel_summary_off">醫療資訊已顯示</string>
     <string name="revanced_hide_medical_panel_summary_on">醫療資訊已隱藏</string>
     <string name="revanced_hide_medical_panel_title">隱藏醫療資訊</string>
-    <string name="revanced_hide_menu_ambient_mode_summary_off">\"電影燈光效果\"已顯示</string>
-    <string name="revanced_hide_menu_ambient_mode_summary_on">\"電影燈光效果\"已隱藏</string>
-    <string name="revanced_hide_menu_ambient_mode_title">電影燈光效果</string>
+    <string name="revanced_hide_menu_ambient_mode_summary_off">\"微光效果\"已顯示</string>
+    <string name="revanced_hide_menu_ambient_mode_summary_on">\"微光效果\"已隱藏</string>
+    <string name="revanced_hide_menu_ambient_mode_title">微光效果</string>
     <string name="revanced_hide_menu_audio_track_summary_off">\"音軌\"已顯示</string>
     <string name="revanced_hide_menu_audio_track_summary_on">\"音軌\"已隱藏</string>
     <string name="revanced_hide_menu_audio_track_title">音軌</string>
@@ -375,7 +377,7 @@
     <string name="revanced_hide_shorts_component_title">Shorts 模塊設定</string>
     <string name="revanced_hide_shorts_navigation_bar_summary_off">導覽列已顯示</string>
     <string name="revanced_hide_shorts_navigation_bar_summary_on">導覽列已隱藏</string>
-    <string name="revanced_hide_shorts_navigation_bar_title">在Short裡隱藏導覽列</string>
+    <string name="revanced_hide_shorts_navigation_bar_title">在 Shorts 裡隱藏導覽列</string>
     <string name="revanced_hide_shorts_player_comments_button_summary_off">留言按鈕已顯示</string>
     <string name="revanced_hide_shorts_player_comments_button_summary_on">留言按鈕已隱藏</string>
     <string name="revanced_hide_shorts_player_comments_button_title">隱藏留言按鈕</string>
@@ -388,7 +390,7 @@
     <string name="revanced_hide_shorts_shelf_summary_off">Shorts 功能列已顯示</string>
     <string name="revanced_hide_shorts_shelf_summary_on">Shorts 功能列已隱藏</string>
     <string name="revanced_hide_shorts_shelf_title">Shorts 功能列</string>
-    <string name="revanced_shorts">Short</string>
+    <string name="revanced_shorts">Shorts</string>
     <string name="revanced_shorts_player_title">Shorts 播放器</string>
     <string name="revanced_hide_snackbar_summary_off">簡短回饋 (snackbar) 已顯示</string>
     <string name="revanced_hide_snackbar_summary_on">簡短回饋 (snackbar) 已隱藏</string>
@@ -468,12 +470,12 @@
 - 隱藏我的合輯"</string>
     <string name="revanced_reboot_warning_quic">建議在網速夠快的情況下再開啟此設定</string>
     <string name="revanced_reboot_warning_switch">"若你啟用此設定, 以下功能將失去作用:
-- 電影燈光效果"</string>
-    <string name="revanced_reboot_warning_tablet">"欺騙Dpi讓一些介面更改為平板模式的介面
+- 微光效果"</string>
+    <string name="revanced_reboot_warning_tablet">"欺騙Dpi讓一些佈局更改為平板模式的佈局
 
 如果啟用此設定，以下功能將無法使用：
 
-- 電影燈光效果
+- 微光效果
 - 社群貼文"</string>
     <string name="revanced_reboot_warning_vp9">"修改裝置資訊以啟用 VP9 解碼器
 
@@ -510,7 +512,7 @@
     <string name="revanced_switching_create_notification_summary_off">創建按鈕和通知按鈕未切換</string>
     <string name="revanced_switching_create_notification_summary_on">創建按鈕和通知按鈕已切換</string>
     <string name="revanced_switching_create_notification_title">切換創建按鈕和通知按鈕</string>
-    <string name="revanced_tool_used">使用的工具</string>
+    <string name="revanced_tool_used">使用的工具 --唐懂翻譯</string>
     <string name="revanced_vertical_video_restrictions_summary">偽裝裝置資訊以解除垂直影片的解析度限制</string>
     <string name="revanced_vertical_video_restrictions_title">解除垂直影片的解析度限制</string>
     <string name="revanced_video">影片</string>
@@ -574,6 +576,8 @@
     <string name="sb_segments_selfpromo_sum">類似 “贊助商廣告” ，但是非付費或自我推廣。這包括有關商品、捐贈或與他人合作的資訊。</string>
     <string name="sb_segments_interaction">互動提醒 (訂閱)</string>
     <string name="sb_segments_interaction_sum">這裡就是指\"按讚訂閱加分享\"。如果該片段很長或是針對某事，請將其歸類為非付費/自我推廣。</string>
+    <string name="sb_segments_highlight">重點提示</string>
+    <string name="sb_segments_highlight_sum">影片中較多人觀看的主要部分</string>
     <string name="sb_segments_intro">中場休息/開頭動畫</string>
     <string name="sb_segments_intro_sum">沒有實際內容的片段。可以是靜止畫面, 重複的動畫 片段內未含有任何資訊.</string>
     <string name="sb_segments_outro">結束畫面/鳴謝</string>
@@ -585,9 +589,11 @@
     <string name="sb_segments_nomusic">音樂：非音樂部分</string>
     <string name="sb_segments_nomusic_sum">此功能僅供音樂影片使用。本功能僅應該用於音樂錄影帶中並未包含其他類別的段落。</string>
     <string name="sb_skip_button_compact">跳過</string>
+    <string name="sb_skip_button_compact_highlight">重點提示</string>
     <string name="sb_skip_button_sponsor">跳過贊助商廣告</string>
     <string name="sb_skip_button_selfpromo">跳過推廣</string>
     <string name="sb_skip_button_interaction">跳過互動提醒 (訂閱)</string>
+    <string name="sb_skip_button_highlight">跳轉至重點部分</string>
     <string name="sb_skip_button_intro_beginning">跳過片頭</string>
     <string name="sb_skip_button_outro">跳過片尾</string>
     <string name="sb_skip_button_preview_beginning">跳過預覽</string>
@@ -597,6 +603,7 @@
     <string name="sb_skipped_sponsor">已跳過贊助商廣告</string>
     <string name="sb_skipped_selfpromo">已跳過自我推廣</string>
     <string name="sb_skipped_interaction">已跳過煩人的提醒</string>
+    <string name="sb_skipped_highlight">已跳轉至重點部分</string>
     <string name="sb_skipped_intro_beginning">跳過了開頭</string>
     <string name="sb_skipped_outro">跳過了結尾</string>
     <string name="sb_skipped_preview_beginning">已跳過預覽</string>
@@ -627,7 +634,7 @@
     <string name="sb_new_segment_choose_category">選擇片段的類別</string>
     <string name="sb_new_segment_disabled_category">類別已於設置中禁用. 啟用類別以提交.</string>
     <string name="sb_new_segment_title">新增 SponsorBlock 片段</string>
-    <string name="sb_new_segment_mark_time_as_question" formatted="false">設定 %02d:%02d:%04d 為新片段的開頭或結尾？</string>
+    <string name="sb_new_segment_mark_time_as_question" formatted="false">設定 %02d:%02d:%03d為新片段的開頭或結尾？</string>
     <string name="sb_new_segment_mark_start">開始</string>
     <string name="sb_new_segment_mark_end">结束</string>
     <string name="sb_new_segment_now">現在</string>
@@ -635,6 +642,7 @@
     <string name="sb_new_segment_time_end">片段結束的時間</string>
     <string name="sb_new_segment_confirm_title">時間是否正確？</string>
     <string name="sb_new_segment_confirm_content" formatted="false">該片段從 %02d:%02d 持續到 %02d:%02d (%d 分 %02d 秒)\n準備好提交了嗎？</string>
+    <string name="sb_new_segment_start_is_before_end">起始點必須在終點之前</string>
     <string name="sb_new_segment_mark_locations_first">先在時間軸上標記兩個位置</string>
     <string name="sb_new_segment_preview_segment_first">預覽片段，確保能順利跳過</string>
     <string name="sb_new_segment_edit_by_hand_title">手動編輯片段的時間</string>
@@ -676,7 +684,7 @@
     <string name="sb_api_url_changed">API 網址已更換</string>
     <string name="seconds">秒</string>
     <string name="settings_export_failed">匯出設定失敗</string>
-    <string name="settings_export_successful">設置已成功匯出</string>
+    <string name="settings_export_successful">設定已成功匯出</string>
     <string name="settings_ie">匯入/匯出設定</string>
     <string name="settings_import_failed">匯入設定失敗</string>
     <string name="settings_import_successful">成功匯入設定</string>

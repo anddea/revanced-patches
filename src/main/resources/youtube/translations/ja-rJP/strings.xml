@@ -576,6 +576,8 @@
     <string name="sb_segments_selfpromo_sum">無報酬での宣伝あるいは自己販促であるという点を除いては「広告」と同様です。商品、寄付、コラボ情報に関する内容を含みます。</string>
     <string name="sb_segments_interaction">インタラクション リマインダー (チャンネル登録)</string>
     <string name="sb_segments_interaction_sum">動画の途中に挿入される高評価、チャンネル登録、通知をオンにすることなどを促す短いシーン。長かったり、具体的な商品についてのシーンはセルフプロモーションに分類すべきです。</string>
+    <string name="sb_segments_highlight">ハイライト</string>
+    <string name="sb_segments_highlight_sum">動画の要点/最も重要な部分にジャンプします</string>
     <string name="sb_segments_intro">休憩/イントロアニメーション</string>
     <string name="sb_segments_intro_sum">本編ではない動画の合間部分。一時停止、静止画面、繰り返しのアニメーションなどが相当します。本編の情報を含んだ場面転換に対しては使用しないでください。</string>
     <string name="sb_segments_outro">エンドカード/クレジット</string>
@@ -587,9 +589,11 @@
     <string name="sb_segments_nomusic">音楽以外の部分</string>
     <string name="sb_segments_nomusic_sum">ミュージックビデオでの使用に限ります。他のカテゴリーに含まれていないミュージックビデオのセクションにのみ使用してください。</string>
     <string name="sb_skip_button_compact">スキップする</string>
+    <string name="sb_skip_button_compact_highlight">ハイライト部分へ</string>
     <string name="sb_skip_button_sponsor">スポンサー広告をスキップする</string>
     <string name="sb_skip_button_selfpromo">プロモーションをスキップする</string>
     <string name="sb_skip_button_interaction">対話部分をスキップする</string>
+    <string name="sb_skip_button_highlight">ハイライト部分にジャンプする</string>
     <string name="sb_skip_button_intro_beginning">イントロをスキップする</string>
     <string name="sb_skip_button_outro">アウトロをスキップする</string>
     <string name="sb_skip_button_preview_beginning">プレビューをスキップする</string>
@@ -599,6 +603,7 @@
     <string name="sb_skipped_sponsor">スポンサー広告をスキップしました</string>
     <string name="sb_skipped_selfpromo">セルフプロモーションをスキップしました</string>
     <string name="sb_skipped_interaction">迷惑なリマインダーをスキップしました</string>
+    <string name="sb_skipped_highlight">ハイライト部分にジャンプしました</string>
     <string name="sb_skipped_intro_beginning">イントロをスキップしました</string>
     <string name="sb_skipped_outro">アウトロをスキップしました</string>
     <string name="sb_skipped_preview_beginning">プレビューをスキップしました</string>
@@ -629,7 +634,7 @@
     <string name="sb_new_segment_choose_category">セグメントのカテゴリを選択してください</string>
     <string name="sb_new_segment_disabled_category">カテゴリは設定で無効になっています。提出するにはカテゴリを有効にしてください。</string>
     <string name="sb_new_segment_title">新しい SponsorBlock セグメント</string>
-    <string name="sb_new_segment_mark_time_as_question" formatted="false">%02d:%02d:%04d を新しいセグメントの開始または終了として設定しますか？</string>
+    <string name="sb_new_segment_mark_time_as_question" formatted="false">%02d:%02d:%03d を新しいセグメントの開始または終了として設定しますか？</string>
     <string name="sb_new_segment_mark_start">開始</string>
     <string name="sb_new_segment_mark_end">終了</string>
     <string name="sb_new_segment_now">現在</string>
@@ -637,6 +642,7 @@
     <string name="sb_new_segment_time_end">セグメントの終了時刻</string>
     <string name="sb_new_segment_confirm_title">時間は正しいですか？</string>
     <string name="sb_new_segment_confirm_content" formatted="false">このセグメントは %02d:%02d から %02d:%02d (%d 分 %02d 秒間)です。\n送信してよろしいですか？</string>
+    <string name="sb_new_segment_start_is_before_end">開始時刻は終了時刻の前である必要があります</string>
     <string name="sb_new_segment_mark_locations_first">最初にタイムバーに 2 つの場所をマークしてください</string>
     <string name="sb_new_segment_preview_segment_first">セグメントをプレビューし、スムーズにスキップできるようにします</string>
     <string name="sb_new_segment_edit_by_hand_title">セグメントのタイミングを手動で編集する</string>
