@@ -38,8 +38,8 @@
     <string name="revanced_copytimestamp_success">Timestamp dicopy ke clipboard</string>
     <string name="revanced_custom_seekbar_color_value_summary">Ketik kode hex warna seekbar</string>
     <string name="revanced_custom_seekbar_color_value_title">Nilai warna seekbar kustom</string>
-    <string name="revanced_default_video_quality_mobile_title">Kualitas video default seluler</string>
-    <string name="revanced_default_video_quality_wifi_title">Kualitas video default Wi-Fi</string>
+    <string name="revanced_default_video_quality_mobile_title">Kualitas video default di jaringan seluler</string>
+    <string name="revanced_default_video_quality_wifi_title">Kualitas video default di jaringan Wi-Fi</string>
     <string name="revanced_default_video_speed_title">Kecepatan video default</string>
     <string name="revanced_disable_default_video_speed_live_summary_off">Kecepatan video default diaktifkan di live stream</string>
     <string name="revanced_disable_default_video_speed_live_summary_on">Kecepatan video default dinonaktifkan di live stream</string>
@@ -573,6 +573,8 @@ Karena pengaturan ini sudah cukup usang, mungkin tidak valid"</string>
     <string name="sb_segments_selfpromo_sum">Serupa dengan \"sponsor\" kecuali tidak dibayar atau promosi diri sendiri. Ini termasuk merchandise, donasi, atau informasi tentang siapa yang berkolaborasi dengan mereka</string>
     <string name="sb_segments_interaction">Pengingat interaksi (subscribe)</string>
     <string name="sb_segments_interaction_sum">Pengingat singkat untuk like, subscribe atau mengikuti mereka di tengah konten. Jika panjang atau tentang sesuatu yang spesifik, sebaiknya pakai kategori promosi diri sendiri.</string>
+    <string name="sb_segments_highlight">Highlight</string>
+    <string name="sb_segments_highlight_sum">Bagian dari video yang paling dicari orang</string>
     <string name="sb_segments_intro">Intermission/animasi intro</string>
     <string name="sb_segments_intro_sum">Interval tanpa konten sebenarnya. Bisa berupa jeda, frame static, atau animasi berulang. Tidak termasuk transisi yang mengandung informasi</string>
     <string name="sb_segments_outro">Endcards/kredit</string>
@@ -584,9 +586,11 @@ Karena pengaturan ini sudah cukup usang, mungkin tidak valid"</string>
     <string name="sb_segments_nomusic">Musik: bagian non-musik</string>
     <string name="sb_segments_nomusic_sum">Hanya untuk digunakan dalam video musik. Bagian video musik tanpa musik, yang belum tercakup dalam kategori lain</string>
     <string name="sb_skip_button_compact">Lewati</string>
+    <string name="sb_skip_button_compact_highlight">Highlight</string>
     <string name="sb_skip_button_sponsor">Lewati sponsor</string>
     <string name="sb_skip_button_selfpromo">Lewati promo</string>
     <string name="sb_skip_button_interaction">Lewati interaksi</string>
+    <string name="sb_skip_button_highlight">Lewati ke highlight</string>
     <string name="sb_skip_button_intro_beginning">Lewati intro</string>
     <string name="sb_skip_button_outro">Lewati outro</string>
     <string name="sb_skip_button_preview_beginning">Lewati preview</string>
@@ -596,6 +600,7 @@ Karena pengaturan ini sudah cukup usang, mungkin tidak valid"</string>
     <string name="sb_skipped_sponsor">Sponsor dilewati</string>
     <string name="sb_skipped_selfpromo">Melewatkan promosi diri</string>
     <string name="sb_skipped_interaction">Pengingat yang mengganggu dilewati</string>
+    <string name="sb_skipped_highlight">Dilewati ke highlight</string>
     <string name="sb_skipped_intro_beginning">Intro dilewati</string>
     <string name="sb_skipped_outro">Outro dilewati</string>
     <string name="sb_skipped_preview_beginning">Preview dilewati</string>
@@ -626,7 +631,7 @@ Karena pengaturan ini sudah cukup usang, mungkin tidak valid"</string>
     <string name="sb_new_segment_choose_category">Pilih kategori segmen</string>
     <string name="sb_new_segment_disabled_category">Kategori dinonaktifkan di pengaturan. Aktifkan kategori untuk dikirim.</string>
     <string name="sb_new_segment_title">Segmen SponsorBlock baru</string>
-    <string name="sb_new_segment_mark_time_as_question" formatted="false">Atur %02d:%02d:%04d sebagai awal atau akhir segmen baru?</string>
+    <string name="sb_new_segment_mark_time_as_question" formatted="false">Atur %02d:%02d:%03d sebagai awal atau akhir segmen baru?</string>
     <string name="sb_new_segment_mark_start">awal</string>
     <string name="sb_new_segment_mark_end">akhir</string>
     <string name="sb_new_segment_now">sekarang</string>
@@ -634,6 +639,7 @@ Karena pengaturan ini sudah cukup usang, mungkin tidak valid"</string>
     <string name="sb_new_segment_time_end">Waktu segmen berakhir pada</string>
     <string name="sb_new_segment_confirm_title">Apakah waktunya sudah benar?</string>
     <string name="sb_new_segment_confirm_content" formatted="false">Segmen berlangsung dari %02d:%02d hingga %02d:%02d (%d menit %02d detik)\nApakah sudah siap untuk dikirim?</string>
+    <string name="sb_new_segment_start_is_before_end">Awal harus sebelum akhir</string>
     <string name="sb_new_segment_mark_locations_first">Tandai dua lokasi di time bar terlebih dahulu</string>
     <string name="sb_new_segment_preview_segment_first">Preview segmen, dan pastikan segmen tersebut dilewati dengan lancar</string>
     <string name="sb_new_segment_edit_by_hand_title">Edit manual waktu segmen</string>

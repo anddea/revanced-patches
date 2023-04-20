@@ -38,8 +38,8 @@
     <string name="revanced_copytimestamp_success">Zaman Damgası panoya kopyalandı</string>
     <string name="revanced_custom_seekbar_color_value_summary">Karalık modda kullanılacak zaman çubuğunun rengi</string>
     <string name="revanced_custom_seekbar_color_value_title">Özel zaman çubuğu renk değeri</string>
-    <string name="revanced_default_video_quality_mobile_title">Tercih edilen video kalitesi (Hücresel)</string>
-    <string name="revanced_default_video_quality_wifi_title">Tercih edilen video kalitesi (Wi-Fi)</string>
+    <string name="revanced_default_video_quality_mobile_title">Hücresel ağda tercih edilen video kalitesi</string>
+    <string name="revanced_default_video_quality_wifi_title">Wi̇-Fİ ağında tercih edilen video kalitesi</string>
     <string name="revanced_default_video_speed_title">Varsayılan video hızı</string>
     <string name="revanced_disable_default_video_speed_live_summary_off">Açık</string>
     <string name="revanced_disable_default_video_speed_live_summary_on">Kapalı</string>
@@ -140,7 +140,7 @@
     <string name="revanced_enable_time_stamp_speed_summary_off">Devre dışı</string>
     <string name="revanced_enable_time_stamp_speed_summary_on">Etkin</string>
     <string name="revanced_enable_time_stamp_speed_title">Zaman damgası hızı ekleyin</string>
-    <string name="revanced_enable_vp9_codec_summary">VP9 codec bileşenini etkinleştirmek için cihaz bilgilerini değiştir</string>
+    <string name="revanced_enable_vp9_codec_summary">VP9 kodek bileşenini etkinleştirmek için cihaz bilgilerini değiştir</string>
     <string name="revanced_enable_vp9_codec_title">VP9 kodek bileşenini etkinleştir</string>
     <string name="revanced_enable_wide_searchbar_summary_off">Kapalı</string>
     <string name="revanced_enable_wide_searchbar_summary_on">Açık</string>
@@ -573,6 +573,8 @@ Bir örnek görmek için buraya dokunun</string>
     <string name="sb_segments_selfpromo_sum">\"Sponsor\" seçeneğinden farkı para karşılığı olmaması veya kendi reklamını yapmasıdır. Buna kendi markalı ürünlerini satmak, bağış toplamak ve videoda işbirliği yaptığı kimselerden bahsetmek dahildir</string>
     <string name="sb_segments_interaction">Etkileşim Anımsatıcısı (Abonelik)</string>
     <string name="sb_segments_interaction_sum">Videonun ortasında beğenmek, abone olmak veya takip etmek için kısa bir hatırlatma olan kısımdır. Eğer süresi uzunsa veya belirli bir şey hakkındaysa, kendi reklamını yapan kategorisi seçilmelidir</string>
+    <string name="sb_segments_highlight">Vurgula</string>
+    <string name="sb_segments_highlight_sum">Videonun çoğu kişinin aradığı bölümü</string>
     <string name="sb_segments_intro">Aralık/Giriş Animasyonu</string>
     <string name="sb_segments_intro_sum">Gerçek içeriği olmayan bir aralık. Bir duraklama, statik çerçeve veya yinelenen animasyon olabilir. Bilgi içeren geçişleri içermez</string>
     <string name="sb_segments_outro">Kapanış Sahneleri/Jenerik</string>
@@ -584,9 +586,11 @@ Bir örnek görmek için buraya dokunun</string>
     <string name="sb_segments_nomusic">Müzik: Müzik Olmayan Bölüm</string>
     <string name="sb_segments_nomusic_sum">Yalnızca müzik videolarında kullanım içindir. Henüz başka bir kategoride yer almayan müzik videolarının müziksiz bölümleri</string>
     <string name="sb_skip_button_compact">Atla</string>
+    <string name="sb_skip_button_compact_highlight">Vurgula</string>
     <string name="sb_skip_button_sponsor">Sponsoru atla</string>
     <string name="sb_skip_button_selfpromo">Promosyonu atla</string>
     <string name="sb_skip_button_interaction">Etkileşimi atla</string>
+    <string name="sb_skip_button_highlight">Vurguya atla</string>
     <string name="sb_skip_button_intro_beginning">Tanıtımı geç</string>
     <string name="sb_skip_button_outro">Kapanış ekranını atla</string>
     <string name="sb_skip_button_preview_beginning">Önizlemeyi atla</string>
@@ -596,6 +600,7 @@ Bir örnek görmek için buraya dokunun</string>
     <string name="sb_skipped_sponsor">Sponsor atlandı</string>
     <string name="sb_skipped_selfpromo">Kendi reklamı atlandı</string>
     <string name="sb_skipped_interaction">Etkileşim anımsatıcısı atlandı</string>
+    <string name="sb_skipped_highlight">Vurguya atlandı</string>
     <string name="sb_skipped_intro_beginning">Giriş ekranı atlandı</string>
     <string name="sb_skipped_outro">Kapanış ekranı atlandı</string>
     <string name="sb_skipped_preview_beginning">Önizleme atlandı</string>
@@ -626,7 +631,7 @@ Bir örnek görmek için buraya dokunun</string>
     <string name="sb_new_segment_choose_category">Kategori seçin</string>
     <string name="sb_new_segment_disabled_category">Ayarlarda kategori devre dışı bırakıldı. Göndermek için kategoriyi etkinleştir.</string>
     <string name="sb_new_segment_title">Yeni SponsorBlock kısmı</string>
-    <string name="sb_new_segment_mark_time_as_question" formatted="false">%02d:%02d:%04d bu kısmın başlangıcı mı, bitişi mi olarak ayarlansın?</string>
+    <string name="sb_new_segment_mark_time_as_question" formatted="false">%02d:%02d:%03d bu kısmın başlangıcı mı, bitişi mi olarak ayarlansın?</string>
     <string name="sb_new_segment_mark_start">başlangıç</string>
     <string name="sb_new_segment_mark_end">bitiş</string>
     <string name="sb_new_segment_now">şimdi</string>
@@ -634,6 +639,7 @@ Bir örnek görmek için buraya dokunun</string>
     <string name="sb_new_segment_time_end">Kısmın bitişi</string>
     <string name="sb_new_segment_confirm_title">Zaman aralığı doğru mu?</string>
     <string name="sb_new_segment_confirm_content" formatted="false">Bu kısmın başlangıcı %02d.%02d, bitişi %02d.%02d, süresi %d dakika %02d saniye.\nGönderilmeye hazır mı?</string>
+    <string name="sb_new_segment_start_is_before_end">Başlangıç, bitişten önce olmalıdır</string>
     <string name="sb_new_segment_mark_locations_first">Öncelikle zaman çizgisinde iki konum işaretleyin</string>
     <string name="sb_new_segment_preview_segment_first">Segmenti önizleyin ve sorunsuz bir şekilde atladığından emin olun</string>
     <string name="sb_new_segment_edit_by_hand_title">Kısmın süresini elle düzenleyin</string>

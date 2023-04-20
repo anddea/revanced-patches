@@ -570,11 +570,13 @@ Hầu hết các thiết bị bây giờ đều hỗ trợ codec VP9 nên bạn 
     <string name="sb_general_api_url">Thay đổi URL API SponsorBlock</string>
     <string name="sb_general_api_url_sum">URL API SponsorBlock được dùng để thực hiện các kết nối đến máy chủ. &lt;b&gt;Không thay đổi địa chỉ này trừ khi bạn biết mình đang làm gì.&lt;/b&gt;</string>
     <string name="sb_segments_sponsor">Nhà tài trợ</string>
-    <string name="sb_segments_sponsor_sum">Quảng cáo/Giới thiệu được trả tiền và quảng cáo trực tiếp. Không phải tự quảng cáo hoặc lời cảm ơn miễn phí được gửi đến người xem, nhà sáng tạo, trang web hay sản phẩm họ yêu thích.</string>
+    <string name="sb_segments_sponsor_sum">Quảng cáo/Giới thiệu được trả tiền và quảng cáo trực tiếp. Không phải tự nhà sáng tạo quảng cáo hoặc lời cảm ơn miễn phí được gửi đến người xem, trang web, sản phẩm hay các lý do khiến họ yêu thích.</string>
     <string name="sb_segments_selfpromo">Quảng cáo không được trả tiền/Tự quảng cáo</string>
-    <string name="sb_segments_selfpromo_sum">Tương tự như \"Nhà tài trợ\" ngoại trừ việc không được trả tiền quảng cáo hoặc tự quảng cáo. Phân đoạn này cũng bao gồm các sản phẩm hàng hoá được rao bán, khoản quyên góp hoặc thông tin về những người họ đã cộng tác.</string>
+    <string name="sb_segments_selfpromo_sum">Tương tự như \"Nhà tài trợ\" ngoại trừ việc nhà sáng tạo không được trả tiền quảng cáo hoặc tự họ quảng cáo. Phân đoạn này cũng bao gồm các sản phẩm hàng hoá được rao bán, khoản quyên góp hoặc thông tin về những người họ đã cộng tác.</string>
     <string name="sb_segments_interaction">Nhắc nhở tương tác (Đăng ký)</string>
-    <string name="sb_segments_interaction_sum">Lời nhắc ngắn hãy thích, đăng ký hoặc theo dõi họ ở giữa nội dung video. Nếu lời nhắc này dài hoặc liên quan đến một điều gì cụ thể, nó nên được phân loại vào danh mục \"Quảng cáo không được trả tiền/Tự quảng cáo\". </string>
+    <string name="sb_segments_interaction_sum">Lời nhắc ngắn từ nhà sáng tạo rằng hãy thích, đăng ký hoặc theo dõi họ ở giữa nội dung video. Nếu lời nhắc này dài hoặc liên quan đến một điều gì cụ thể, nó nên được phân loại vào danh mục \"Quảng cáo không được trả tiền/Tự quảng cáo\". </string>
+    <string name="sb_segments_highlight">Khoảnh khắc quan trọng/Điểm nổi bật</string>
+    <string name="sb_segments_highlight_sum">Phần video mà hầu hết mọi người đang tìm kiếm, khoảnh khắc quan trọng hoặc một thời điểm trong video trông có vẻ hay nhất</string>
     <string name="sb_segments_intro">Hoạt ảnh tạm dừng/Phần giới thiệu</string>
     <string name="sb_segments_intro_sum">Khoảng thời gian không có nội dung thực tế, có thể là sự tạm dừng, khung hình tĩnh hoặc hoạt ảnh lặp lại. Phân đoạn này không bao gồm các phần chuyển tiếp chứa thông tin.</string>
     <string name="sb_segments_outro">Danh đề/Phần kết thúc</string>
@@ -582,13 +584,15 @@ Hầu hết các thiết bị bây giờ đều hỗ trợ codec VP9 nên bạn 
     <string name="sb_segments_preview">Đoạn xem trước/tóm tắt</string>
     <string name="sb_segments_preview_sum">Xem trước/Tóm tắt những gì sẽ xảy ra/đã xảy ra trong video hiện tại hoặc các video tiếp theo/trước đó trong cùng một loạt video. Phân đoạn này không bao gồm các clip từ video được tóm tắt lại dựa trên video gốc.</string>
     <string name="sb_segments_filler">Cảnh phụ/Nội dung lạc đề - hài hước</string>
-    <string name="sb_segments_filler_sum">Các cảnh phụ được thêm vào chỉ để gây cười hoặc dông dài làm tăng thời lượng video mà không bắt buộc để hiểu nội dung chính của video. Phân đoạn này không bao gồm bối cảnh hoặc hoặc các chi tiết nền.</string>
+    <string name="sb_segments_filler_sum">Các cảnh phụ được thêm vào chỉ để gây cười hoặc dông dài làm tăng thời lượng video mà không bắt buộc để hiểu nội dung chính của video. Phân đoạn này không bao gồm bối cảnh hoặc các chi tiết nền.</string>
     <string name="sb_segments_nomusic">Âm nhạc: Phần không phải âm nhạc</string>
     <string name="sb_segments_nomusic_sum">Phân đoạn này chỉ dành cho video âm nhạc và nằm tách biệt với các loại phân đoạn khác, bao gồm những phần video không có trong bài hát chính thức</string>
     <string name="sb_skip_button_compact">Bỏ qua</string>
+    <string name="sb_skip_button_compact_highlight">Khoảnh khắc quan trọng</string>
     <string name="sb_skip_button_sponsor">Bỏ qua nhà tài trợ</string>
     <string name="sb_skip_button_selfpromo">Bỏ qua tự quảng cáo</string>
     <string name="sb_skip_button_interaction">Bỏ qua nhắc nhở tương tác</string>
+    <string name="sb_skip_button_highlight">Bỏ qua đến khoảnh khắc quan trọng</string>
     <string name="sb_skip_button_intro_beginning">Bỏ qua giới thiệu</string>
     <string name="sb_skip_button_outro">Bỏ qua kết thúc</string>
     <string name="sb_skip_button_preview_beginning">Bỏ qua xem trước</string>
@@ -598,6 +602,7 @@ Hầu hết các thiết bị bây giờ đều hỗ trợ codec VP9 nên bạn 
     <string name="sb_skipped_sponsor">Đã bỏ qua nhà tài trợ</string>
     <string name="sb_skipped_selfpromo">Đã bỏ qua tự quảng cáo</string>
     <string name="sb_skipped_interaction">Đã bỏ qua nhắc nhở tương tác</string>
+    <string name="sb_skipped_highlight">Đã bỏ qua đến khoảnh khắc quan trọng/điểm nổi bật</string>
     <string name="sb_skipped_intro_beginning">Đã bỏ qua phần giới thiệu</string>
     <string name="sb_skipped_outro">Đã bỏ qua phần kết thúc</string>
     <string name="sb_skipped_preview_beginning">Đã bỏ qua đoạn xem trước</string>
@@ -626,9 +631,9 @@ Hầu hết các thiết bị bây giờ đều hỗ trợ codec VP9 nên bạn 
     <string name="sb_vote_category">Thay đổi danh mục</string>
     <string name="sb_vote_no_segments">Không có phân đoạn nào để bình chọn</string>
     <string name="sb_new_segment_choose_category">Chọn danh mục phân đoạn</string>
-    <string name="sb_new_segment_disabled_category">Danh mục đã tắt trong cài đặt, hãy bật lại để có thể gửi đi</string>
+    <string name="sb_new_segment_disabled_category">Danh mục này đã tắt trong cài đặt, hãy bật lại để có thể gửi đi.</string>
     <string name="sb_new_segment_title">Tạo phân đoạn SponsorBlock mới</string>
-    <string name="sb_new_segment_mark_time_as_question" formatted="false">Đặt %02d:%02d:%04d làm điểm bắt đầu hay kết thúc của phân đoạn mới?</string>
+    <string name="sb_new_segment_mark_time_as_question" formatted="false">Đặt %02d:%02d:%03d làm điểm bắt đầu hay kết thúc của phân đoạn mới?</string>
     <string name="sb_new_segment_mark_start">bắt đầu</string>
     <string name="sb_new_segment_mark_end">kết thúc</string>
     <string name="sb_new_segment_now">ngay lúc này</string>
@@ -636,15 +641,16 @@ Hầu hết các thiết bị bây giờ đều hỗ trợ codec VP9 nên bạn 
     <string name="sb_new_segment_time_end">Phân đoạn kết thúc lúc</string>
     <string name="sb_new_segment_confirm_title">Thời lượng phân đoạn đã chính xác chưa?</string>
     <string name="sb_new_segment_confirm_content" formatted="false">Phân đoạn kéo dài từ %02d:%02d đến %02d:%02d (%d phút %02d giây).\nBạn có chắc chắn muốn gửi đi không?</string>
+    <string name="sb_new_segment_start_is_before_end">Thời gian bắt đầu phải trước thời gian kết thúc</string>
     <string name="sb_new_segment_mark_locations_first">Đánh dấu hai điểm bắt đầu và kết thúc phân đoạn trên thanh tiến trình trước</string>
-    <string name="sb_new_segment_preview_segment_first">Xem trước phân đoạn để đảm bảo rằng nó bỏ qua suôn sẻ</string>
+    <string name="sb_new_segment_preview_segment_first">Hãy xem trước phân đoạn để đảm bảo rằng nó bỏ qua suôn sẻ</string>
     <string name="sb_new_segment_edit_by_hand_title">Chỉnh sửa thời lượng phân đoạn thủ công</string>
     <string name="sb_new_segment_edit_by_hand_content">Bạn muốn thay đổi thời gian bắt đầu hay kết thúc của phân đoạn?</string>
     <string name="sb_new_segment_edit_by_hand_parse_error">Thời gian đã đặt không hợp lệ</string>
     <string name="sb_guidelines_preference_title">Xem hướng dẫn</string>
     <string name="sb_guidelines_preference_sum">Hướng dẫn bao gồm các mẹo và quy tắc về cách gửi phân đoạn</string>
     <string name="sb_guidelines_popup_title">Hãy xem hướng dẫn</string>
-    <string name="sb_guidelines_popup_content">Bạn nên xem các hướng dẫn từ SponsorBlock trước khi gửi đi bất kì phân đoạn nào</string>
+    <string name="sb_guidelines_popup_content">Bạn nên xem các hướng dẫn từ Wiki SponsorBlock trước khi tạo và gửi đi bất kỳ phân đoạn nào</string>
     <string name="sb_guidelines_popup_already_read">Đã xem</string>
     <string name="sb_guidelines_popup_open">Xem ngay</string>
     <string name="sb_stats">Thống kê</string>

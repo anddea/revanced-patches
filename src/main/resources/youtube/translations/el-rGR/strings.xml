@@ -38,7 +38,7 @@
     <string name="revanced_copytimestamp_success">Η χρονική σφραγίδα αντιγράφηκε στο πρόχειρο</string>
     <string name="revanced_custom_seekbar_color_value_summary">Εισάγετε τον κωδικό hex του χρώματος της μπάρας χρόνου</string>
     <string name="revanced_custom_seekbar_color_value_title">Προσαρμοσμένη τιμή χρώματος μπάρας χρόνου</string>
-    <string name="revanced_default_video_quality_mobile_title">Προεπιλεγμένη ποιότητα βίντεο με δεδομένα κινητής</string>
+    <string name="revanced_default_video_quality_mobile_title">Προεπιλεγμένη ποιότητα βίντεο με δεδομένα κινητής τηλεφωνίας</string>
     <string name="revanced_default_video_quality_wifi_title">Προεπιλεγμένη ποιότητα βίντεο με Wi-Fi</string>
     <string name="revanced_default_video_speed_title">Προεπιλεγμένη ταχύτητα βίντεο</string>
     <string name="revanced_disable_default_video_speed_live_summary_off">Η προεπιλεγμένη ταχύτητα βίντεο είναι ενεργοποιημένη σε ζωντανή μετάδοση</string>
@@ -478,8 +478,8 @@
 
 Δεδομένου ότι αυτή η ρύθμιση είναι αρκετά ξεπερασμένη, ενδέχεται να μην ισχύει"</string>
     <string name="revanced_ryd_attribution_summary">Τα δεδομένα Dislike παρέχονται από το API του Return YouTube Dislike.  Πατήστε εδώ για να μάθετε περισσότερα.</string>
-    <string name="revanced_ryd_compact_layout_summary_off">Κουμπί \"Μου αρέσει\" διαμορφωμένο για καλύτερη εμφάνιση</string>
-    <string name="revanced_ryd_compact_layout_summary_on">Κουμπί \"Μου αρέσει\" διαμορφωμένο για ελάχιστο πλάτος</string>
+    <string name="revanced_ryd_compact_layout_summary_off">Εμφανίζεται κουμπί \"Μου αρέσει\" διαμορφωμένο για καλύτερη εμφάνιση</string>
+    <string name="revanced_ryd_compact_layout_summary_on">Εμφανίζεται κουμπί \"Μου αρέσει\" διαμορφωμένο για ελάχιστο πλάτος</string>
     <string name="revanced_ryd_compact_layout_title">Συμπαγές κουμπί \"Μου αρέσει\"</string>
     <string name="revanced_ryd_dislike_percentage_summary_off">Τα dislike εμφανίζονται ως αριθμός</string>
     <string name="revanced_ryd_dislike_percentage_summary_on">Τα dislike εμφανίζονται ως ποσοστό</string>
@@ -573,6 +573,8 @@
     <string name="sb_segments_selfpromo_sum">Παρόμοιο με τη «Χορηγία» αλλά για μη κερδοσκοπικό σκοπό ή για προσωπική προώθηση. Αυτό συμπεριλαμβάνει τμήματα από εμπορεύματα, δωρεές, ή πληροφορίες σχετικές με το ποιους συνεργάστηκαν</string>
     <string name="sb_segments_interaction">Υπενθύμιση αλληλεπίδρασης (Εγγραφή)</string>
     <string name="sb_segments_interaction_sum">Μια σύντομη υπενθύμιση στη μέση του περιεχομένου για να κάνετε like, να εγγραφείτε ή να τους ακολουθήσετε. Αν είναι μακροσκελές ή αφορά κάτι συγκεκριμένο, θα πρέπει να είναι στο πλαίσιο της αυτοπροβολής</string>
+    <string name="sb_segments_highlight">Αποκορύφωμα</string>
+    <string name="sb_segments_highlight_sum">Το μέρος του βίντεο που ψάχνουν οι περισσότεροι άνθρωποι</string>
     <string name="sb_segments_intro">Διάλειμμα/Εισαγωγή</string>
     <string name="sb_segments_intro_sum">Ένα διάστημα χωρίς πραγματικό περιεχόμενο. Θα μπορούσε να είναι μια παύση, ένα στατικό καρέ ή μια επαναλαμβανόμενη κίνηση. Δεν περιλαμβάνει μεταβάσεις που περιέχουν πληροφορίες</string>
     <string name="sb_segments_outro">Τελική Οθόνη/Συντελεστές</string>
@@ -584,9 +586,11 @@
     <string name="sb_segments_nomusic">Μουσική: Μη Μουσικό Τμήμα</string>
     <string name="sb_segments_nomusic_sum">Μόνο για χρήση σε μουσικά βίντεο. Τμήματα μουσικών βίντεο χωρίς μουσική, που δεν καλύπτονται ήδη από άλλη κατηγορία</string>
     <string name="sb_skip_button_compact">Παράλειψη</string>
+    <string name="sb_skip_button_compact_highlight">Αποκορύφωμα</string>
     <string name="sb_skip_button_sponsor">Παράλειψη χορηγού</string>
     <string name="sb_skip_button_selfpromo">Παράλειψη προώθησης</string>
     <string name="sb_skip_button_interaction">Παράλειψη αλληλεπίδρασης</string>
+    <string name="sb_skip_button_highlight">Παράλειψη προς το αποκορύφωμα</string>
     <string name="sb_skip_button_intro_beginning">Παράλειψη εισαγωγής</string>
     <string name="sb_skip_button_outro">Παράλειψη επιλόγου</string>
     <string name="sb_skip_button_preview_beginning">Παράλειψη προεπισκόπησης</string>
@@ -596,6 +600,7 @@
     <string name="sb_skipped_sponsor">Παραλείφθηκε χορηγός</string>
     <string name="sb_skipped_selfpromo">Παραλείφθηκε αυτοπροώθηση</string>
     <string name="sb_skipped_interaction">Παραλείφθηκε ενοχλητική υπενθύμιση</string>
+    <string name="sb_skipped_highlight">Έγινε παράλειψη προς το αποκορύφωμα</string>
     <string name="sb_skipped_intro_beginning">Παραλείφθηκε η εισαγωγή</string>
     <string name="sb_skipped_outro">Παραλείφθηκε ο επίλογος</string>
     <string name="sb_skipped_preview_beginning">Παραλείφθηκε η προεπισκόπηση</string>
@@ -634,6 +639,7 @@
     <string name="sb_new_segment_time_end">Χρόνος λήξης του τμήματος</string>
     <string name="sb_new_segment_confirm_title">Είναι σωστοί οι χρόνοι;</string>
     <string name="sb_new_segment_confirm_content" formatted="false">Το τμήμα έχει διάρκεια από %02d:%02d έως %02d:%02d (%d λεπτά %02d δευτερόλεπτα)\nΕίναι έτοιμο για υποβολή;</string>
+    <string name="sb_new_segment_start_is_before_end">Η έναρξη πρέπει να είναι πριν το τέλος</string>
     <string name="sb_new_segment_mark_locations_first">Πρώτα σημειώστε δύο σημεία στην μπάρα χρόνου</string>
     <string name="sb_new_segment_preview_segment_first">Κάντε προεπισκόπηση του τμήματος και σιγουρευτείτε ότι παραλείπεται σωστά</string>
     <string name="sb_new_segment_edit_by_hand_title">Χειροκίνητη ρύθμιση του χρονισμού του τμήματος</string>

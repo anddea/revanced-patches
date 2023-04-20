@@ -12,9 +12,9 @@
     <string name="revanced_adremover_button_ads_title">Nascondi gli annunci pulsante</string>
     <string name="revanced_adremover_custom_filter_summary">Filtra le componenti per nome separato da una virgola</string>
     <string name="revanced_adremover_custom_filter_title">Filtro personalizzato</string>
-    <string name="revanced_adremover_general_ads_summary_off">Gli annunci generici sono visibili</string>
-    <string name="revanced_adremover_general_ads_summary_on">Gli annunci generici sono nascosti</string>
-    <string name="revanced_adremover_general_ads_title">Nascondi gli annunci generici</string>
+    <string name="revanced_adremover_general_ads_summary_off">Gli annunci generali sono visibili</string>
+    <string name="revanced_adremover_general_ads_summary_on">Gli annunci generali sono nascosti</string>
+    <string name="revanced_adremover_general_ads_title">Nascondi gli annunci generali</string>
     <string name="revanced_adremover_paid_content_summary_off">L\'etichetta promozionale a pagamento è visibile</string>
     <string name="revanced_adremover_paid_content_summary_on">L\'etichetta promozionale a pagamento è nascosta</string>
     <string name="revanced_adremover_paid_content_title">Nascondi l\'etichetta promozionale a pagamento</string>
@@ -38,8 +38,8 @@
     <string name="revanced_copytimestamp_success">Marcatore Temporale copiato negli appunti</string>
     <string name="revanced_custom_seekbar_color_value_summary">Digita il codice esadecimale del colore della barra del minutaggio</string>
     <string name="revanced_custom_seekbar_color_value_title">Valore del colore personalizzato della barra del minutaggio</string>
-    <string name="revanced_default_video_quality_mobile_title">Risoluzione video Dati Cellulare predefinita</string>
-    <string name="revanced_default_video_quality_wifi_title">Risoluzione video Wi-Fi predefinita</string>
+    <string name="revanced_default_video_quality_mobile_title">Qualità predefinita del video sulla rete mobile</string>
+    <string name="revanced_default_video_quality_wifi_title">Qualità predefinita del video sulla rete Wi-Fi</string>
     <string name="revanced_default_video_speed_title">Velocità video predefinita</string>
     <string name="revanced_disable_default_video_speed_live_summary_off">La velocità predefinita nei video dal vivo è attiva</string>
     <string name="revanced_disable_default_video_speed_live_summary_on">La velocità predefinita nei video dal vivo è disattivata</string>
@@ -568,11 +568,13 @@ Dal momento che questa opzione è abbastanza obsoleta, potrebbe risultare non pi
     <string name="sb_general_api_url">Modifica URL API</string>
     <string name="sb_general_api_url_sum">L\'indirizzo che SponsorBlock utilizza per contattare il server. &lt;b&gt;Non cambiarlo a meno che tu non sappia cosa stai facendo&lt;/b&gt;</string>
     <string name="sb_segments_sponsor">Sponsor</string>
-    <string name="sb_segments_sponsor_sum">Sono promozioni a pagamento, referral a pagamento e pubblicità diretta. Questo non dovrebbe includere autopromozione o ringraziamenti gratuiti a cause, creatori, siti web o prodotti di loro gradimento</string>
+    <string name="sb_segments_sponsor_sum">Promozioni a pagamento, referral a pagamento e pubblicità diretta. Questo non dovrebbe includere autopromozione o ringraziamenti gratuiti a cause, creatori, siti web o prodotti di loro gradimento</string>
     <string name="sb_segments_selfpromo">Promozione Gratuita/Autopromozione</string>
     <string name="sb_segments_selfpromo_sum">Simili agli Sponsor, ma sono promozioni non pagate o autopromozioni. Questo include segmenti sul merchandising, donazioni o informazioni dei collaboratori del video</string>
     <string name="sb_segments_interaction">Promemoria Interazione (Iscrizione)</string>
     <string name="sb_segments_interaction_sum">Un breve promemoria per mettere Mi Piace, iscriversi o seguirli su altre piattaforme durante la visione di un video. Se è lungo o riguarda qualcosa di specifico, dovrebbe essere considerato Autopromozione</string>
+    <string name="sb_segments_highlight">Momento saliente</string>
+    <string name="sb_segments_highlight_sum">La parte del video che la maggior parte delle persone sta cercando</string>
     <string name="sb_segments_intro">Intervallo/Animazione Introduttiva</string>
     <string name="sb_segments_intro_sum">Un intervallo senza contenuto effettivo. Potrebbe essere una pausa, un fotogramma statico o un\'animazione ripetuta. Questo non dovrebbe includere transizioni contenenti informazioni</string>
     <string name="sb_segments_outro">Schede Finali/Crediti</string>
@@ -580,13 +582,15 @@ Dal momento che questa opzione è abbastanza obsoleta, potrebbe risultare non pi
     <string name="sb_segments_preview">Anteprima/Riepilogo</string>
     <string name="sb_segments_preview_sum">Una breve raccolta di anteprime (clips) che mostrano ciò che è in programma o ciò che è successo nel video attuale o in altri video di una serie, dove tutte le informazioni sono ripetute altrove</string>
     <string name="sb_segments_filler">Riempitivi Irrilevanti/Battute</string>
-    <string name="sb_segments_filler_sum">Sono scene riempitive aggiunte solo a scopo riempitivo o per umorismo, non necessarie per comprendere il contenuto principale del video. Questo non dovrebbe includere segmenti che forniscono contesto o dettagli di sfondo</string>
+    <string name="sb_segments_filler_sum">Scene riempitive aggiunte solo a scopo riempitivo o per umorismo, non necessarie per comprendere il contenuto principale del video. Questo non dovrebbe includere segmenti che forniscono contesto o dettagli di sfondo</string>
     <string name="sb_segments_nomusic">Musica: Sezione Non-Musicale</string>
     <string name="sb_segments_nomusic_sum">Solo per video musicali. Dovrebbe essere usata solo per le sezioni di video musicali senza musica che non sono già incluse in un\'altra categoria</string>
     <string name="sb_skip_button_compact">Salta</string>
+    <string name="sb_skip_button_compact_highlight">Momento saliente</string>
     <string name="sb_skip_button_sponsor">Salta sponsor</string>
     <string name="sb_skip_button_selfpromo">Salta promozione</string>
     <string name="sb_skip_button_interaction">Salta interazione</string>
+    <string name="sb_skip_button_highlight">Passa al momento saliente</string>
     <string name="sb_skip_button_intro_beginning">Salta introduzione</string>
     <string name="sb_skip_button_outro">Salta conclusioni finali</string>
     <string name="sb_skip_button_preview_beginning">Salta anteprima inizio</string>
@@ -596,6 +600,7 @@ Dal momento che questa opzione è abbastanza obsoleta, potrebbe risultare non pi
     <string name="sb_skipped_sponsor">Sponsor saltato</string>
     <string name="sb_skipped_selfpromo">Autopromozione saltata</string>
     <string name="sb_skipped_interaction">Promemoria fastidioso saltato</string>
+    <string name="sb_skipped_highlight">Passato al momento saliente</string>
     <string name="sb_skipped_intro_beginning">Introduzione saltata</string>
     <string name="sb_skipped_outro">Conclusioni finali saltate</string>
     <string name="sb_skipped_preview_beginning">Anteprima iniziale saltata</string>
@@ -628,7 +633,7 @@ Soglia raggiunta (troppe richieste provenienti dallo stesso utente o IP)</string
     <string name="sb_new_segment_choose_category">Scegli la categoria del segmento</string>
     <string name="sb_new_segment_disabled_category">La categoria è disattivata nelle impostazioni. Attiva la categoria da inviare</string>
     <string name="sb_new_segment_title">Nuovo segmento SponsorBlock</string>
-    <string name="sb_new_segment_mark_time_as_question" formatted="false">Impostare %02d:%02d:%04d come inizio o fine di un nuovo segmento?</string>
+    <string name="sb_new_segment_mark_time_as_question" formatted="false">Impostare %02d:%02d:%03d come inizio o fine di un nuovo segmento?</string>
     <string name="sb_new_segment_mark_start">inizio</string>
     <string name="sb_new_segment_mark_end">fine</string>
     <string name="sb_new_segment_now">ora</string>
@@ -637,6 +642,7 @@ Soglia raggiunta (troppe richieste provenienti dallo stesso utente o IP)</string
     <string name="sb_new_segment_confirm_title">I valori temporali sono corretti?</string>
     <string name="sb_new_segment_confirm_content" formatted="false">Il segmento dura da %02d:%02d a %02d:%02d (%d minuti %02d secondi)
 È pronto per l\'invio?</string>
+    <string name="sb_new_segment_start_is_before_end">L\'inizio deve essere antecedente alla fine</string>
     <string name="sb_new_segment_mark_locations_first">Segna prima due posizioni sulla barra del minutaggio</string>
     <string name="sb_new_segment_preview_segment_first">Visualizzare in anteprima il segmento e assicurarsi che lo salti senza problemi</string>
     <string name="sb_new_segment_edit_by_hand_title">Modifica manualmente il periodo temporale del segmento</string>

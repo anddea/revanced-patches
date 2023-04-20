@@ -571,6 +571,8 @@
     <string name="sb_segments_selfpromo_sum">Похоже на спонсорскую рекламу, за исключением бесплатной рекламы или саморекламы. Включает разделы о товарах, пожертвованиях или информации о том, с кем они сотрудничали</string>
     <string name="sb_segments_interaction">Напоминание о взаимодействии (подписка)</string>
     <string name="sb_segments_interaction_sum">Короткое напоминание поставить лайк, подписаться на канал или соцсети в видеоролике. Если эта вставка длительная или о чем-то конкретном, она должна классифицироваться как самореклама</string>
+    <string name="sb_segments_highlight">Основные моменты</string>
+    <string name="sb_segments_highlight_sum">Части видео, которые интересны большинству людей</string>
     <string name="sb_segments_intro">Пауза / Интро</string>
     <string name="sb_segments_intro_sum">Интервал без фактического содержания. Это может быть пауза, статический кадр или повторяющаяся анимация. Не включает переходы, содержащие информацию</string>
     <string name="sb_segments_outro">Конечные заставки / Титры</string>
@@ -582,9 +584,11 @@
     <string name="sb_segments_nomusic">Музыка: сегмент без музыки</string>
     <string name="sb_segments_nomusic_sum">Только для использования в музыкальных видеороликах. Разделы музыкальных видео без музыки, которые еще не охвачены другой категорией</string>
     <string name="sb_skip_button_compact">Пропустить</string>
+    <string name="sb_skip_button_compact_highlight">Основные моменты</string>
     <string name="sb_skip_button_sponsor">Пропустить спонсорскую рекламу</string>
     <string name="sb_skip_button_selfpromo">Пропустить промо</string>
     <string name="sb_skip_button_interaction">Пропустить взаимодействие</string>
+    <string name="sb_skip_button_highlight">Пропустить основные моменты</string>
     <string name="sb_skip_button_intro_beginning">Пропустить интро</string>
     <string name="sb_skip_button_outro">Пропустить концовку</string>
     <string name="sb_skip_button_preview_beginning">Пропустить предпросмотр</string>
@@ -594,6 +598,7 @@
     <string name="sb_skipped_sponsor">Пропущена спонсорская реклама</string>
     <string name="sb_skipped_selfpromo">Пропущена самореклама</string>
     <string name="sb_skipped_interaction">Пропущено назойливое напоминание</string>
+    <string name="sb_skipped_highlight">Пропущены основные моменты</string>
     <string name="sb_skipped_intro_beginning">Пропущено интро</string>
     <string name="sb_skipped_outro">Пропущена концовка</string>
     <string name="sb_skipped_preview_beginning">Пропущен предпросмотр</string>
@@ -624,7 +629,7 @@
     <string name="sb_new_segment_choose_category">Выберите категорию сегмента</string>
     <string name="sb_new_segment_disabled_category">Категория отключена в настройках. Включите категорию для отправки</string>
     <string name="sb_new_segment_title">Новый сегмент SponsorBlock</string>
-    <string name="sb_new_segment_mark_time_as_question" formatted="false">Установить %02d:%02d:%04d как начало или конец нового сегмента?</string>
+    <string name="sb_new_segment_mark_time_as_question" formatted="false">Установить %02d:%02d:%03d как начало или конец нового сегмента?</string>
     <string name="sb_new_segment_mark_start">начало</string>
     <string name="sb_new_segment_mark_end">конец</string>
     <string name="sb_new_segment_now">cейчас</string>
@@ -632,6 +637,7 @@
     <string name="sb_new_segment_time_end">Время окончания сегмента:</string>
     <string name="sb_new_segment_confirm_title">Верно ли выбрано время?</string>
     <string name="sb_new_segment_confirm_content" formatted="false">Сегмент длится с %02d:%02d до %02d:%02d (%d минут %02d секунд)\nГотово для отправки?</string>
+    <string name="sb_new_segment_start_is_before_end">Начало должно быть перед окончанием</string>
     <string name="sb_new_segment_mark_locations_first">Сначала отметьте два места на шкале времени</string>
     <string name="sb_new_segment_preview_segment_first">Предпросмотр сегмента и обеспечение его плавного пропускания</string>
     <string name="sb_new_segment_edit_by_hand_title">Изменить время сегмента вручную</string>
