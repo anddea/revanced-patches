@@ -66,11 +66,11 @@
     <string name="revanced_disable_quic_protocol_title">QUIC 프로토콜 비활성화하기</string>
     <string name="revanced_double_back_timeout_summary">앱을 종료하기 위해 내비게이션 바의 뒤로가기 버튼을 한 번 누르고 한 번 더 다시 누를 때까지의 제한 시간을 설정합니다. 0초로 설정 시 뒤로가기 버튼을 한 번 누르면 즉시 종료할 수 있습니다.</string>
     <string name="revanced_double_back_timeout_title">뒤로가기 두 번 누르기 제한 시간</string>
-    <string name="revanced_downloader_not_installed">가 설치되지 않았습니다. 다운로더를 설치해 주세요.</string>
-    <string name="revanced_downloader_package_name_summary">"NewPipe나 PowerTube와 같은 다운로더의 패키지명을 입력하세요."</string>
-    <string name="revanced_downloader_package_name_title">다운로더 패키지명</string>
-    <string name="revanced_downloader_settings_summary">다운로더를 설정합니다.</string>
-    <string name="revanced_downloader_settings_title">다운로더 설정</string>
+    <string name="revanced_downloader_not_installed">가 설치되지 않았습니다. 설치해 주세요.</string>
+    <string name="revanced_downloader_package_name_summary">"PowerTube 또는 NewPipe 또는 Seal와\n같은 외부 다운로더의 패키지명을 입력하세요."</string>
+    <string name="revanced_downloader_package_name_title">외부 다운로더 패키지명</string>
+    <string name="revanced_downloader_settings_summary">외부 다운로더를 설정합니다.</string>
+    <string name="revanced_downloader_settings_title">외부 다운로더 설정</string>
     <string name="revanced_enable_always_auto_repeat_summary_off">동영상 자동 반복을 비활성화합니다.</string>
     <string name="revanced_enable_always_auto_repeat_summary_on">동영상 자동 반복을 활성화합니다.</string>
     <string name="revanced_enable_always_auto_repeat_title">동영상 자동 반복 활성화하기</string>
@@ -102,8 +102,8 @@
     <string name="revanced_enable_press_to_swipe_summary_off">눌러서 스와이프 제스처를 비활성화합니다.</string>
     <string name="revanced_enable_press_to_swipe_summary_on">눌러서 스와이프 제스처를 활성화합니다.</string>
     <string name="revanced_enable_press_to_swipe_title">눌러서 스와이프 제스처 활성화하기</string>
-    <string name="revanced_enable_save_brightness_summary_off">앱 재시작 후 전체화면 진입 시 저장된 밝기 값으로 덮어쓰지 않습니다.</string>
-    <string name="revanced_enable_save_brightness_summary_on">앱 재시작 후 전체화면 진입 시 저장된 밝기 값으로 덮어씁니다.</string>
+    <string name="revanced_enable_save_brightness_summary_off">앱 재시작 후 전체화면 진입 시 저장된 밝기 값을 적용하지 않습니다.</string>
+    <string name="revanced_enable_save_brightness_summary_on">앱 재시작 후 전체화면 진입 시 저장된 밝기 값을 적용합니다.</string>
     <string name="revanced_enable_save_brightness_title">밝기 값 저장 활성화하기</string>
     <string name="revanced_enable_save_video_quality_summary_off">동영상 화질을 변경할 때마다 동영상 화질 값을 저장하지 않습니다.</string>
     <string name="revanced_enable_save_video_quality_summary_on">동영상 화질을 변경할 때마다 동영상 화질 값을 저장합니다.</string>
@@ -443,9 +443,9 @@
     <string name="revanced_overlay_button_copy_url_with_timestamp_summary_off">시간을 표기한 링크를 복사하는 버튼이 플레이어에서 숨겨집니다.</string>
     <string name="revanced_overlay_button_copy_url_with_timestamp_summary_on">시간을 표기한 링크를 복사하는 버튼이 플레이어에서 노출됩니다.</string>
     <string name="revanced_overlay_button_copy_url_with_timestamp_title">링크 복사 버튼(시간 표기 포함) 표시하기</string>
-    <string name="revanced_overlay_button_downloads_summary_off">다운로드 버튼이 플레이어에서 숨겨집니다.</string>
-    <string name="revanced_overlay_button_downloads_summary_on">다운로드 버튼이 플레이어에서 노출됩니다.</string>
-    <string name="revanced_overlay_button_downloads_title">다운로드 버튼 표시하기</string>
+    <string name="revanced_overlay_button_downloads_summary_off">외부 다운로드 버튼이 플레이어에서 숨겨집니다.</string>
+    <string name="revanced_overlay_button_downloads_summary_on">외부 다운로드 버튼이 플레이어에서 노출됩니다.</string>
+    <string name="revanced_overlay_button_downloads_title">외부 다운로드 버튼 표시하기</string>
     <string name="revanced_overlay_button_speed_reset">동영상 속도 재설정 (1.0배속)</string>
     <string name="revanced_overlay_button_speed_summary_off">동영상 재생 속도 버튼이 숨겨집니다.</string>
     <string name="revanced_overlay_button_speed_summary_on">동영상 재생 속도 버튼이 노출됩니다.</string>
@@ -455,7 +455,7 @@
     <string name="revanced_overlay_button_whitelist_title">화이트리스트 버튼 표시하기</string>
     <string name="revanced_override_premium_header_summary_off">현재 헤더: 기본 헤더</string>
     <string name="revanced_override_premium_header_summary_on">현재 헤더: 프리미엄 헤더</string>
-    <string name="revanced_override_premium_header_title">프리미엄 헤더 변경하기</string>
+    <string name="revanced_override_premium_header_title">프리미엄 헤더로 변경하기</string>
     <string name="revanced_patches_information">패치 정보</string>
     <string name="revanced_patches_information_summary">적용된 패치에 대한 정보입니다.</string>
     <string name="revanced_player_flyout_panel_title">플레이어 구성요소 패널</string>
@@ -491,6 +491,8 @@
     <string name="revanced_ryd_enable_summary_on">싫어요 개수가 노출됩니다.</string>
     <string name="revanced_ryd_enable_title">Return YouTube Dislike 활성화하기</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">ReturnYouTubeDislike 에러: 싫어요 개수를 표시할 수 없습니다. (클라이언트 API 제한 도달)</string>
+    <string name="revanced_ryd_failure_user_voted">ReturnYouTubeDislike를 사용하여 
+투표하려면 동영상을 다시 로드하세요.</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">숨겨짐</string>
     <string name="revanced_save_video_quality_mobile">모바일 네트워크 이용 시 기본 동영상 화질 설정:</string>
     <string name="revanced_save_video_quality_none">동영상 화질 설정에 실패하였습니다.</string>
@@ -587,7 +589,7 @@
     <string name="sb_segments_filler">주제와 관련 없는 구간</string>
     <string name="sb_segments_filler_sum">전반적인 동영상의 주제를 이해하는 데 필요 없는 내용을 포함합니다.</string>
     <string name="sb_segments_nomusic">음악이 아닌 구간</string>
-    <string name="sb_segments_nomusic_sum">뮤직 비디오에서 음악이 아닌 구간에 해당합니다.</string>
+    <string name="sb_segments_nomusic_sum">뮤직 비디오에서 음악이 아닌 구간이 해당합니다.</string>
     <string name="sb_skip_button_compact">건너뛰기</string>
     <string name="sb_skip_button_compact_highlight">하이라이트</string>
     <string name="sb_skip_button_sponsor">스폰서 광고 건너뛰기</string>
