@@ -23,6 +23,7 @@ import app.revanced.util.bytecode.BytecodeHelper.injectInit
 import app.revanced.util.bytecode.BytecodeHelper.updatePatchStatus
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.builder.BuilderInstruction
+import org.jf.dexlib2.builder.instruction.BuilderInstruction3rc
 import org.jf.dexlib2.iface.instruction.FiveRegisterInstruction
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
@@ -122,19 +123,27 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         /*
          * Draw segment
          */
-        val drawSegmentInstructionInsertIndex = (insertInstructions.size - 1 - 2)
-        val (canvasInstance, centerY) = (insertInstructions[drawSegmentInstructionInsertIndex] as FiveRegisterInstruction).let {
-            it.registerC to it.registerE
+        for ((index, instruction) in insertInstructions.withIndex()) {
+            if (instruction.opcode != Opcode.INVOKE_VIRTUAL_RANGE) continue
+
+            val invokeInstruction = instruction as BuilderInstruction3rc
+            if ((invokeInstruction.reference as MethodReference).name != "restore") continue
+
+            val drawSegmentInstructionInsertIndex = index - 1
+
+            val (canvasInstance, centerY) = (insertInstructions[drawSegmentInstructionInsertIndex] as FiveRegisterInstruction).let {
+                it.registerC to it.registerE
+            }
+            insertMethod.addInstruction(
+                drawSegmentInstructionInsertIndex,
+                "invoke-static {v$canvasInstance, v$centerY}, $INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR->drawSponsorTimeBars(Landroid/graphics/Canvas;F)V"
+            )
+            break
         }
-        insertMethod.addInstruction(
-            drawSegmentInstructionInsertIndex,
-            "invoke-static {v$canvasInstance, v$centerY}, $INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR->drawSponsorTimeBars(Landroid/graphics/Canvas;F)V"
-        )
 
         /*
          * Voting & Shield button
          */
-
         arrayOf("CreateSegmentButtonController", "VotingButtonController").forEach {
            PlayerControlsPatch.initializeSB("$INTEGRATIONS_BUTTON_CLASS_DESCRIPTOR/ui/$it;")
            PlayerControlsPatch.injectVisibility("$INTEGRATIONS_BUTTON_CLASS_DESCRIPTOR/ui/$it;")
