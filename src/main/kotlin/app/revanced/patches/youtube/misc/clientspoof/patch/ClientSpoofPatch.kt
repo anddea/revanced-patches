@@ -20,7 +20,7 @@ import org.jf.dexlib2.iface.instruction.FiveRegisterInstruction
 
 @Patch
 @Name("client-spoof")
-@Description("Spoofs the YouTube client to prevent playback issues.")
+@Description("Spoofs a patched client to allow playback.")
 @DependsOn([SettingsPatch::class])
 @YouTubeCompatibility
 @Version("0.0.1")
