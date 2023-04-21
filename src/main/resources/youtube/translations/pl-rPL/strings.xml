@@ -38,8 +38,8 @@
     <string name="revanced_copytimestamp_success">Link Wideo Z Czasem został skopiowany do schowka</string>
     <string name="revanced_custom_seekbar_color_value_summary">Wpisz kod hex koloru paska wideo</string>
     <string name="revanced_custom_seekbar_color_value_title">Niestandardowy kolor paska wideo</string>
-    <string name="revanced_default_video_quality_mobile_title">Domyślna jakość wideo dla Sieci Mobilnej</string>
-    <string name="revanced_default_video_quality_wifi_title">Domyślna jakość wideo dla Wi-Fi</string>
+    <string name="revanced_default_video_quality_mobile_title">Domyślna jakość wideo podczas używania sieci Mobilnej</string>
+    <string name="revanced_default_video_quality_wifi_title">Domyślna jakość wideo podczas używania Wi-Fi</string>
     <string name="revanced_default_video_speed_title">Domyślna prędkość wideo</string>
     <string name="revanced_disable_default_video_speed_live_summary_off">Włączona</string>
     <string name="revanced_disable_default_video_speed_live_summary_on">Wyłączona</string>
@@ -488,6 +488,7 @@ To ustawienie może nie zadziałać"</string>
     <string name="revanced_ryd_enable_summary_on">Łapki w dół są pokazywane</string>
     <string name="revanced_ryd_enable_title">Włącz Return YouTube Dislike</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Łapki w dół nie są dostępne (limit API użytkownika został osiągnięty)</string>
+    <string name="revanced_ryd_failure_user_voted">Przeładuj wideo, aby głosować przy użyciu ReturnYouTubeDislike</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Ukryte</string>
     <string name="revanced_save_video_quality_mobile">Zmienianie domyślnej jakości podczas używania danych mobilnych na:</string>
     <string name="revanced_save_video_quality_none">Jakość nie została ustawiona</string>
@@ -573,6 +574,8 @@ To ustawienie może nie zadziałać"</string>
     <string name="sb_segments_selfpromo_sum">Podobne do kategorii treści sponsorowanych z wyjątkiem nieodpłatnych lub własnych promocji. Obejmuje to sekcje o własnych produktach, dofinansowaniach czy informacjach o tym, z kim współpracowali</string>
     <string name="sb_segments_interaction">Przypomnienie O Interakcji (Zasubskrybuj)</string>
     <string name="sb_segments_interaction_sum">Krótkie przypomnienie o polubieniu, subskrypcji lub obserwowaniu. Jeśli trwa długo lub dotyczy czegoś konkretnego, powinno być oznaczone jako autopromocja</string>
+    <string name="sb_segments_highlight">Najważniejsze informacje</string>
+    <string name="sb_segments_highlight_sum">Część wideo, której szuka większość osób</string>
     <string name="sb_segments_intro">Przerywnik/Animowane Intro</string>
     <string name="sb_segments_intro_sum">Fragment bez faktycznej treści. Może to być pauza, statyczna klatka lub powtarzająca się animacja. Nie dotyczy przejść zawierających informacje</string>
     <string name="sb_segments_outro">Karty Końcowe/Napisy</string>
@@ -584,9 +587,11 @@ To ustawienie może nie zadziałać"</string>
     <string name="sb_segments_nomusic">Muzyka: Sekcja Niemuzyczna</string>
     <string name="sb_segments_nomusic_sum">Do użytku jedynie w filmach muzycznych. Sekcje filmów muzycznych, które nie są uwzględnione w innej kategorii</string>
     <string name="sb_skip_button_compact">Pomiń</string>
+    <string name="sb_skip_button_compact_highlight">Najważniejsze informacje</string>
     <string name="sb_skip_button_sponsor">Pomiń treści sponsorowane</string>
     <string name="sb_skip_button_selfpromo">Pomiń autopromocję</string>
     <string name="sb_skip_button_interaction">Pomiń przypomnienie o interakcji</string>
+    <string name="sb_skip_button_highlight">Przejdź do najważniejszych informacji</string>
     <string name="sb_skip_button_intro_beginning">Pomiń wstęp</string>
     <string name="sb_skip_button_outro">Pomiń zakończenie</string>
     <string name="sb_skip_button_preview_beginning">Pomiń zapowiedź</string>
@@ -596,6 +601,7 @@ To ustawienie może nie zadziałać"</string>
     <string name="sb_skipped_sponsor">Pominięto treści sponsorowane</string>
     <string name="sb_skipped_selfpromo">Pominięto autopromocję</string>
     <string name="sb_skipped_interaction">Pominięto irytujące przypomnienie</string>
+    <string name="sb_skipped_highlight">Pominięto do najważniejszych informacji</string>
     <string name="sb_skipped_intro_beginning">Pominięto wstęp</string>
     <string name="sb_skipped_outro">Pominięto zakończenie</string>
     <string name="sb_skipped_preview_beginning">Pominięto zapowiedź</string>
@@ -636,6 +642,7 @@ Już istnieje</string>
     <string name="sb_new_segment_confirm_title">Czy te czasy są poprawne?</string>
     <string name="sb_new_segment_confirm_content" formatted="false">Segment trwa od %02d:%02d do %02d:%02d (%d minut i %02d sekund)
 Czy jest gotowy do przesłania?</string>
+    <string name="sb_new_segment_start_is_before_end">Początek musi być przed końcem</string>
     <string name="sb_new_segment_mark_locations_first">Najpierw zaznacz dwa miejsca na pasku wideo</string>
     <string name="sb_new_segment_preview_segment_first">Zobacz i dopilnuj, aby segment pomijał się płynnie</string>
     <string name="sb_new_segment_edit_by_hand_title">Edytuj ręcznie czas segmentu</string>
