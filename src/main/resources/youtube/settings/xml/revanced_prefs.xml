@@ -219,6 +219,18 @@
         <!-- SETTINGS: HIDE_FILMSTRIP_OVERLAY
         <SwitchPreference android:title="@string/revanced_hide_filmstrip_overlay_title" android:key="revanced_hide_filmstrip_overlay" android:defaultValue="false" android:summaryOn="@string/revanced_hide_filmstrip_overlay_summary_on" android:summaryOff="@string/revanced_hide_filmstrip_overlay_summary_off" />SETTINGS: HIDE_FILMSTRIP_OVERLAY -->
 
+        <!-- SETTINGS: HIDE_QUICK_ACTIONS
+        <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_quick_actions_components_title" />
+        <SwitchPreference android:title="@string/revanced_hide_quick_actions_title" android:key="revanced_hide_quick_actions" android:defaultValue="false" android:summaryOn="@string/revanced_hide_quick_actions_summary_on" android:summaryOff="@string/revanced_hide_quick_actions_summary_off" />
+        <SwitchPreference android:title="@string/revanced_hide_quick_actions_like_title" android:key="revanced_hide_quick_actions_like" android:defaultValue="false" android:summaryOn="@string/revanced_hide_quick_actions_like_summary_on" android:summaryOff="@string/revanced_hide_quick_actions_like_summary_off" />
+        <SwitchPreference android:title="@string/revanced_hide_quick_actions_dislike_title" android:key="revanced_hide_quick_actions_dislike" android:defaultValue="false" android:summaryOn="@string/revanced_hide_quick_actions_dislike_summary_on" android:summaryOff="@string/revanced_hide_quick_actions_dislike_summary_off" />
+        <SwitchPreference android:title="@string/revanced_hide_quick_actions_comment_title" android:key="revanced_hide_quick_actions_comment" android:defaultValue="false" android:summaryOn="@string/revanced_hide_quick_actions_comment_summary_on" android:summaryOff="@string/revanced_hide_quick_actions_comment_summary_off" />
+        <SwitchPreference android:title="@string/revanced_hide_quick_actions_live_chat_title" android:key="revanced_hide_quick_actions_live_chat" android:defaultValue="false" android:summaryOn="@string/revanced_hide_quick_actions_live_chat_summary_on" android:summaryOff="@string/revanced_hide_quick_actions_live_chat_summary_off" />
+        <SwitchPreference android:title="@string/revanced_hide_quick_actions_playlist_title" android:key="revanced_hide_quick_actions_playlist" android:defaultValue="false" android:summaryOn="@string/revanced_hide_quick_actions_playlist_summary_on" android:summaryOff="@string/revanced_hide_quick_actions_playlist_summary_off" />
+        <SwitchPreference android:title="@string/revanced_hide_quick_actions_share_title" android:key="revanced_hide_quick_actions_share" android:defaultValue="false" android:summaryOn="@string/revanced_hide_quick_actions_share_summary_on" android:summaryOff="@string/revanced_hide_quick_actions_share_summary_off" />
+        <SwitchPreference android:title="@string/revanced_hide_quick_actions_more_title" android:key="revanced_hide_quick_actions_more" android:defaultValue="false" android:summaryOn="@string/revanced_hide_quick_actions_more_summary_on" android:summaryOff="@string/revanced_hide_quick_actions_more_summary_off" />
+        <SwitchPreference android:title="@string/revanced_hide_quick_actions_related_videos_title" android:key="revanced_hide_quick_actions_related_videos" android:defaultValue="false" android:summaryOn="@string/revanced_hide_quick_actions_related_videos_summary_on" android:summaryOff="@string/revanced_hide_quick_actions_related_videos_summary_off" />SETTINGS: HIDE_QUICK_ACTIONS -->
+
         <!-- SETTINGS: DISABLE_LANDSCAPE_MODE
         <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_experimental_flag" />
         <SwitchPreference android:title="@string/revanced_disable_landscape_mode_title" android:key="revanced_disable_landscape_mode" android:defaultValue="false" android:summaryOn="@string/revanced_disable_landscape_mode_summary_on" android:summaryOff="@string/revanced_disable_landscape_mode_summary_off" />SETTINGS: DISABLE_LANDSCAPE_MODE -->
@@ -490,6 +502,7 @@
             <Preference android:title="hide-autoplay-preview" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-endscreen-overlay" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-filmstrip-overlay" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="hide-quick-actions" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="disable-landscape-mode" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="disable-haptic-feedback" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
 
