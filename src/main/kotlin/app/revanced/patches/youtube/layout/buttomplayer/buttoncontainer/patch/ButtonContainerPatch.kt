@@ -46,7 +46,7 @@ class ButtonContainerPatch : ResourcePatch {
 
         with(LithoFilterPatch.lithoMethod) {
             if (LithoFilterPatch.bufferFingerprintResolved) {
-                // 18.11.35+
+                // 18.11.36+
                 addInstructions(
                     0, """
                         move-object/from16 v10, p3

@@ -104,7 +104,7 @@ class LithoFilterPatch : BytecodePatch(
                         """
 
                     if (bufferFingerprintResolved) {
-                        // 18.11.35+
+                        // 18.11.36+
                         val objectIndex = indexOfFirst {
                             it.opcode == Opcode.CONST_STRING &&
                                     (it as BuilderInstruction21c).reference.toString() == ""
