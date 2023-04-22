@@ -278,9 +278,6 @@ Si prega di non segnalare eventuali problemi riscontrati durante l'utilizzo di q
     <string name="revanced_hide_floating_microphone_summary_off">Il pulsante fluttuante del microfono è visibile</string>
     <string name="revanced_hide_floating_microphone_summary_on">Il pulsante fluttuante del microfono è nascosta</string>
     <string name="revanced_hide_floating_microphone_title">Nascondi il pulsante del microfono fluttuante</string>
-    <string name="revanced_hide_fullscreen_button_container_summary_off">Il contenitore dei pulsanti a schermo intero è visibile</string>
-    <string name="revanced_hide_fullscreen_button_container_summary_on">Il contenitore dei pulsanti a schermo intero è nascosto</string>
-    <string name="revanced_hide_fullscreen_button_container_title">Nascondi il contenitore dei pulsanti a schermo intero</string>
     <string name="revanced_hide_fullscreen_panels_summary_off">I pannelli a schermo intero sono visibili</string>
     <string name="revanced_hide_fullscreen_panels_summary_on">I pannelli a schermo intero sono nascosti</string>
     <string name="revanced_hide_fullscreen_panels_title">Nascondi i pannelli a schermo intero</string>
@@ -362,6 +359,18 @@ Si prega di non segnalare eventuali problemi riscontrati durante l'utilizzo di q
     <string name="revanced_hide_previous_next_button_summary_off">I pulsanti sono visibili</string>
     <string name="revanced_hide_previous_next_button_summary_on">I pulsanti sono nascosti</string>
     <string name="revanced_hide_previous_next_button_title">Nascondi i pulsanti Precedente e Successivo</string>
+    <string name="revanced_hide_quick_actions_summary_off">Il contenitore delle azioni rapide è visibile</string>
+    <string name="revanced_hide_quick_actions_summary_on">Il contenitore delle azioni rapide è nascosto</string>
+    <string name="revanced_hide_quick_actions_title">Nascondi il contenitore delle azioni rapide</string>
+    <string name="revanced_hide_quick_actions_comment_summary_off">Il pulsante Commenti è visibile</string>
+    <string name="revanced_hide_quick_actions_comment_summary_on">Il pulsante Commenti è nascosto</string>
+    <string name="revanced_hide_quick_actions_comment_title">Nascondi il pulsante Commenti</string>
+    <string name="revanced_hide_quick_actions_more_summary_off">Il pulsante Altro è visibile</string>
+    <string name="revanced_hide_quick_actions_more_summary_on">Il pulsante Altro è nascosto</string>
+    <string name="revanced_hide_quick_actions_more_title">Nascondi il pulsante Altro</string>
+    <string name="revanced_hide_quick_actions_related_videos_summary_off">I video correlati sono visibili</string>
+    <string name="revanced_hide_quick_actions_related_videos_summary_on">I video correlati sono nascosti</string>
+    <string name="revanced_hide_quick_actions_related_videos_title">Nascondi i video correlati nelle azioni rapide</string>
     <string name="revanced_hide_seekbar_summary_off">La barra del minutaggio è visibile</string>
     <string name="revanced_hide_seekbar_summary_on">La barra del minutaggio è nascosta</string>
     <string name="revanced_hide_seekbar_title">Nascondi la barra del minutaggio</string>
@@ -459,20 +468,18 @@ Si prega di non segnalare eventuali problemi riscontrati durante l'utilizzo di q
     <string name="revanced_player_flyout_panel_title">Pannello del riproduttore in sovrapposizione</string>
     <string name="revanced_player">Riproduttore</string>
     <string name="revanced_protobuf_spoof_notice">Simulando protobuf per evitare problemi di riproduzione</string>
+    <string name="revanced_quick_actions_components_title">Componenti azioni rapide (Sperimentale)</string>
     <string name="revanced_reboot_warning_general">"Poiché questa è ancora una funzionalità sperimentale, potrebbero verificarsi problemi sconosciuti.
 Sei sicuro di voler procedere?"</string>
     <string name="revanced_reboot_warning_phone">"Simula un diverso valore DPI per sostituire alcune parti dell'interfaccia con la controparte per telefono.
 
-Attivando questa opzione, saranno disponibili le seguenti funzionalità: 
+Attivando questa opzione, le seguenti funzionalità saranno disponibili:
 - I post della community
 - Nascondi le Mix Playlist"</string>
     <string name="revanced_reboot_warning_quic">Se ne sconsiglia l\'utilizzo con connessione internet lenta</string>
-    <string name="revanced_reboot_warning_switch">"Se attiverai questa impostazione, non risulteranno disponibili le seguenti funzionalità:
-- Modalità Ambient"</string>
     <string name="revanced_reboot_warning_tablet">"Simula un diverso valore DPI per sostituire alcune parti dell'interfaccia con la controparte per tablet.
 
-Attivando questa opzione, non saranno disponibili le seguenti funzionalità:
-- Modalità Ambient
+Attivando questa opzione, la seguente funzionalità non sarà più disponibile:
 - I post della community"</string>
     <string name="revanced_reboot_warning_vp9">"Simula le informazioni del dispositivo per attivare il codec VP9
 

@@ -278,12 +278,12 @@ Vui lòng không báo cáo bất kỳ sự cố nào bạn gặp phải khi sử
     <string name="revanced_hide_floating_microphone_summary_off">Nút Micrô nổi khi tìm kiếm được hiển thị</string>
     <string name="revanced_hide_floating_microphone_summary_on">Nút Micrô nổi khi tìm kiếm đã ẩn</string>
     <string name="revanced_hide_floating_microphone_title">Ẩn nút Micrô nổi khi tìm kiếm</string>
-    <string name="revanced_hide_fullscreen_button_container_summary_off">Khu vực chứa các nút chức năng (Thích, Không thích, Chia sẻ,...) được hiển thị trong chế độ toàn màn hình</string>
-    <string name="revanced_hide_fullscreen_button_container_summary_on">Khu vực chứa các nút chức năng (Thích, Không thích, Chia sẻ,...) đã ẩn trong chế độ toàn màn hình</string>
-    <string name="revanced_hide_fullscreen_button_container_title">Ẩn khu vực chứa nút</string>
     <string name="revanced_hide_fullscreen_panels_summary_off">Đang xem video ở chế độ toàn màn hình mặc định</string>
     <string name="revanced_hide_fullscreen_panels_summary_on">Đang xem video ở chế độ toàn màn hình đã lược bỏ đi các mục không cần thiết để giảm thiểu cảm giác lộn xộn</string>
     <string name="revanced_hide_fullscreen_panels_title">Xem ở chế độ toàn màn hình tối giản</string>
+    <string name="revanced_hide_home_button_summary_off">Thẻ Trang chủ được hiển thị</string>
+    <string name="revanced_hide_home_button_summary_on">Thẻ Trang chủ đã ẩn</string>
+    <string name="revanced_hide_home_button_title">Ẩn thẻ Trang chủ</string>
     <string name="revanced_hide_image_shelf_summary_off">Kệ Hình ảnh từ web được hiển thị trong kết quả tìm kiếm</string>
     <string name="revanced_hide_image_shelf_summary_on">Kệ Hình ảnh từ web đã ẩn khỏi kết quả tìm kiếm</string>
     <string name="revanced_hide_image_shelf_title">Ẩn kệ Hình ảnh từ web</string>
@@ -362,6 +362,18 @@ Vui lòng không báo cáo bất kỳ sự cố nào bạn gặp phải khi sử
     <string name="revanced_hide_previous_next_button_summary_off">Các nút Chuyển về video trước và Chuyển đến video tiếp theo được hiển thị</string>
     <string name="revanced_hide_previous_next_button_summary_on">Các nút Chuyển về video trước và Chuyển đến video tiếp theo đã ẩn</string>
     <string name="revanced_hide_previous_next_button_title">Ẩn các nút Chuyển đến video trước/tiếp theo</string>
+    <string name="revanced_hide_quick_actions_summary_off">Khu vực chứa tác vụ nhanh được hiển thị</string>
+    <string name="revanced_hide_quick_actions_summary_on">Khu vực chứa tác vụ nhanh đã ẩn</string>
+    <string name="revanced_hide_quick_actions_title">Ẩn khu vực chứa tác vụ nhanh</string>
+    <string name="revanced_hide_quick_actions_comment_summary_off">Nút Bình luận được hiển thị</string>
+    <string name="revanced_hide_quick_actions_comment_summary_on">Nút Bình luận đã ẩn</string>
+    <string name="revanced_hide_quick_actions_comment_title">Ẩn nút Bình luận</string>
+    <string name="revanced_hide_quick_actions_more_summary_off">Các nút chức năng khác được hiển thị</string>
+    <string name="revanced_hide_quick_actions_more_summary_on">Các nút chức năng khác đã ẩn</string>
+    <string name="revanced_hide_quick_actions_more_title">Ẩn các nút chức năng khác</string>
+    <string name="revanced_hide_quick_actions_related_videos_summary_off">Video liên quan được hiển thị</string>
+    <string name="revanced_hide_quick_actions_related_videos_summary_on">Video liên quan đã ẩn</string>
+    <string name="revanced_hide_quick_actions_related_videos_title">Ẩn video liên quan trong tác vụ nhanh</string>
     <string name="revanced_hide_seekbar_summary_off">Thanh tiến trình video được hiển thị</string>
     <string name="revanced_hide_seekbar_summary_on">Thanh tiến trình video đã ẩn</string>
     <string name="revanced_hide_seekbar_title">Ẩn thanh tiến trình</string>
@@ -459,6 +471,7 @@ Vui lòng không báo cáo bất kỳ sự cố nào bạn gặp phải khi sử
     <string name="revanced_player_flyout_panel_title">Hộp Cài đặt</string>
     <string name="revanced_player">Trình phát</string>
     <string name="revanced_protobuf_spoof_notice">Đã tự động bật giả mạo protobuf</string>
+    <string name="revanced_quick_actions_components_title">Thành phần tác vụ nhanh (Thử nghiệm)</string>
     <string name="revanced_reboot_warning_general">"Vì đây vẫn là tính năng thử nghiệm nên có thể xuất hiện các sự cố chưa xác định khác.
 Bạn có chắc chắn muốn tiếp tục không?"</string>
     <string name="revanced_reboot_warning_phone">"Thay đổi chỉ số DPI để sử dụng bố cục điện thoại.
@@ -467,12 +480,9 @@ Nếu bạn bật tuỳ chọn này, các tính năng sau sẽ khả dụng:
 - Bài đăng trên thẻ Cộng đồng.
 - Ẩn Danh sách kết hợp."</string>
     <string name="revanced_reboot_warning_quic">Tắt giao thức QUIC của công cụ Cronet.\n\nGiao thức QUIC sử dụng kỹ thuật nén dữ liệu trước khi truyền để giảm thiểu lượng dữ liệu cần truyền tải, từ đó giúp tăng tốc độ tải video và tiết kiệm mức sử dụng dữ liệu cho người dùng. Tuy nhiên, việc nén dữ liệu có thể gây ra độ trễ vì video cần phải được giải nén trước khi phát. Nếu tắt giao thức QUIC, độ trễ và vấn đề giật hình có thể được cải thiện, nhưng điều này cũng đồng nghĩa với việc tăng mức sử dụng dữ liệu. Do đó, chỉ nên bật tuỳ chọn này nếu tốc độ mạng của bạn đủ nhanh để không gây ảnh hưởng đến trải nghiệm xem video.</string>
-    <string name="revanced_reboot_warning_switch">"Nếu bạn bật tuỳ chọn này, các tính năng sau sẽ không khả dụng:
-- Chế độ môi trường xung quanh."</string>
     <string name="revanced_reboot_warning_tablet">"Thay đổi chỉ số DPI để sử dụng bố cục máy tính bảng.
 
 Nếu bạn bật tuỳ chọn này, các tính năng sau sẽ không khả dụng:
-- Chế độ môi trường xung quanh.
 - Bài đăng trên thẻ Cộng đồng."</string>
     <string name="revanced_reboot_warning_vp9">"Giả mạo thông tin thiết bị để bật codec VP9.
 
@@ -574,8 +584,8 @@ Hầu hết các thiết bị bây giờ đều hỗ trợ codec VP9 nên bạn 
     <string name="sb_segments_selfpromo_sum">Tương tự như \"Nhà tài trợ\" ngoại trừ việc nhà sáng tạo không được trả tiền quảng cáo hoặc tự họ quảng cáo. Phân đoạn này cũng bao gồm các sản phẩm hàng hoá được rao bán, khoản quyên góp hoặc thông tin về những người họ đã cộng tác.</string>
     <string name="sb_segments_interaction">Nhắc nhở tương tác (Đăng ký)</string>
     <string name="sb_segments_interaction_sum">Lời nhắc ngắn từ nhà sáng tạo rằng hãy thích, đăng ký hoặc theo dõi họ ở giữa nội dung video. Nếu lời nhắc này dài hoặc liên quan đến một điều gì cụ thể, nó nên được phân loại vào danh mục \"Quảng cáo không được trả tiền/Tự quảng cáo\". </string>
-    <string name="sb_segments_highlight">Khoảnh khắc quan trọng/Điểm nổi bật</string>
-    <string name="sb_segments_highlight_sum">Phần video mà hầu hết mọi người đang tìm kiếm, khoảnh khắc quan trọng hoặc một thời điểm trong video trông có vẻ hay nhất</string>
+    <string name="sb_segments_highlight">Khoảnh khắc nổi bật</string>
+    <string name="sb_segments_highlight_sum">Phần video mà hầu hết mọi người đang tìm kiếm hoặc một thời điểm trong video trông có vẻ hay nhất</string>
     <string name="sb_segments_intro">Hoạt ảnh tạm dừng/Phần giới thiệu</string>
     <string name="sb_segments_intro_sum">Khoảng thời gian không có nội dung thực tế, có thể là sự tạm dừng, khung hình tĩnh hoặc hoạt ảnh lặp lại. Phân đoạn này không bao gồm các phần chuyển tiếp chứa thông tin.</string>
     <string name="sb_segments_outro">Danh đề/Phần kết thúc</string>
@@ -587,11 +597,11 @@ Hầu hết các thiết bị bây giờ đều hỗ trợ codec VP9 nên bạn 
     <string name="sb_segments_nomusic">Âm nhạc: Phần không phải âm nhạc</string>
     <string name="sb_segments_nomusic_sum">Phân đoạn này chỉ dành cho video âm nhạc và nằm tách biệt với các loại phân đoạn khác, bao gồm những phần video không có trong bài hát chính thức</string>
     <string name="sb_skip_button_compact">Bỏ qua</string>
-    <string name="sb_skip_button_compact_highlight">Khoảnh khắc quan trọng</string>
+    <string name="sb_skip_button_compact_highlight">Khoảnh khắc nổi bật</string>
     <string name="sb_skip_button_sponsor">Bỏ qua nhà tài trợ</string>
     <string name="sb_skip_button_selfpromo">Bỏ qua tự quảng cáo</string>
     <string name="sb_skip_button_interaction">Bỏ qua nhắc nhở tương tác</string>
-    <string name="sb_skip_button_highlight">Bỏ qua đến khoảnh khắc quan trọng</string>
+    <string name="sb_skip_button_highlight">Bỏ qua đến khoảnh khắc nổi bật</string>
     <string name="sb_skip_button_intro_beginning">Bỏ qua giới thiệu</string>
     <string name="sb_skip_button_outro">Bỏ qua kết thúc</string>
     <string name="sb_skip_button_preview_beginning">Bỏ qua xem trước</string>
@@ -601,7 +611,7 @@ Hầu hết các thiết bị bây giờ đều hỗ trợ codec VP9 nên bạn 
     <string name="sb_skipped_sponsor">Đã bỏ qua nhà tài trợ</string>
     <string name="sb_skipped_selfpromo">Đã bỏ qua tự quảng cáo</string>
     <string name="sb_skipped_interaction">Đã bỏ qua nhắc nhở tương tác</string>
-    <string name="sb_skipped_highlight">Đã bỏ qua đến khoảnh khắc quan trọng/điểm nổi bật</string>
+    <string name="sb_skipped_highlight">Đã bỏ qua đến khoảnh khắc nổi bật</string>
     <string name="sb_skipped_intro_beginning">Đã bỏ qua phần giới thiệu</string>
     <string name="sb_skipped_outro">Đã bỏ qua phần kết thúc</string>
     <string name="sb_skipped_preview_beginning">Đã bỏ qua đoạn xem trước</string>
