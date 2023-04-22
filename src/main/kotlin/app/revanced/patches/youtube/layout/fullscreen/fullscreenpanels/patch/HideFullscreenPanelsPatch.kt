@@ -16,8 +16,8 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.shared.fingerprints.LayoutConstructorFingerprint
-import app.revanced.patches.youtube.layout.fullscreen.fullscreenbuttoncontainer.bytecode.patch.HideFullscreenButtonContainerBytecodePatch
 import app.revanced.patches.youtube.layout.fullscreen.fullscreenpanels.fingerprints.FullscreenViewAdderFingerprint
+import app.revanced.patches.youtube.layout.fullscreen.quickactions.patch.QuickActionsPatch
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
 import app.revanced.util.integrations.Constants.FULLSCREEN
 import org.jf.dexlib2.Opcode
@@ -31,7 +31,7 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction35c
 @Description("Hides video description and comments panel in fullscreen view.")
 @DependsOn(
     [
-        HideFullscreenButtonContainerBytecodePatch::class,
+        QuickActionsPatch::class,
         SettingsPatch::class
     ]
 )
