@@ -14,6 +14,7 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.youtube.misc.litho.patch.LithoFilterPatch
+import app.revanced.patches.youtube.misc.playertype.patch.PlayerTypeHookPatch
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
 import app.revanced.util.integrations.Constants.BOTTOM_PLAYER
 
@@ -23,6 +24,7 @@ import app.revanced.util.integrations.Constants.BOTTOM_PLAYER
 @DependsOn(
     [
         LithoFilterPatch::class,
+        PlayerTypeHookPatch::class,
         SettingsPatch::class
     ]
 )
