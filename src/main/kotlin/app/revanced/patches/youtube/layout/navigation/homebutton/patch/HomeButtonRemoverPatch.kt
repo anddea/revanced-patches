@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.layout.navigation.shortsbutton.patch
+package app.revanced.patches.youtube.layout.navigation.homebutton.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
@@ -14,8 +14,8 @@ import app.revanced.patches.youtube.misc.lastpivottab.patch.LastPivotTabHookPatc
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
 
 @Patch
-@Name("hide-shorts-button")
-@Description("Hides the shorts button in the navigation bar.")
+@Name("hide-home-button")
+@Description("Hides the home button in the navigation bar.")
 @DependsOn(
     [
         SettingsPatch::class,
@@ -24,7 +24,7 @@ import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
 )
 @YouTubeCompatibility
 @Version("0.0.1")
-class ShortsButtonRemoverPatch : BytecodePatch() {
+class HomeButtonRemoverPatch : BytecodePatch() {
     override fun execute(context: BytecodeContext): PatchResult {
 
         /*
@@ -33,11 +33,11 @@ class ShortsButtonRemoverPatch : BytecodePatch() {
         SettingsPatch.addPreference(
             arrayOf(
                 "PREFERENCE: NAVIGATION_SETTINGS",
-                "SETTINGS: HIDE_SHORTS_BUTTON"
+                "SETTINGS: HIDE_HOME_BUTTON"
             )
         )
 
-        SettingsPatch.updatePatchStatus("hide-shorts-button")
+        SettingsPatch.updatePatchStatus("hide-home-button")
 
         return PatchResultSuccess()
     }
