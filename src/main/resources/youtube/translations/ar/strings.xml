@@ -83,9 +83,6 @@
     <string name="revanced_enable_external_browser_summary_off">تم تعطيل المتصفح الخارجي</string>
     <string name="revanced_enable_external_browser_summary_on">تم تمكين المتصفح الخارجي</string>
     <string name="revanced_enable_external_browser_title">تمكين المتصفح الخارجي</string>
-    <string name="revanced_enable_minimized_playback_summary_off">تم تعطيل التشغيل في الخلفية</string>
-    <string name="revanced_enable_minimized_playback_summary_on">تم تمكين التشغيل في الخلفية</string>
-    <string name="revanced_enable_minimized_playback_title">تمكين التشغيل في الخلفية</string>
     <string name="revanced_enable_old_layout_summary_off">سيتبع تصميم YouTube حالة حسابك في Google</string>
     <string name="revanced_enable_old_layout_summary_on">خداع إصدار YouTube لفرض تفعيل التصميم القديم</string>
     <string name="revanced_enable_old_layout_title">تمكين التصميم القديم</string>
@@ -281,6 +278,9 @@
     <string name="revanced_hide_fullscreen_panels_summary_off">يتم عرض لوحات ملء الشاشة</string>
     <string name="revanced_hide_fullscreen_panels_summary_on">تم إخفاء لوحات ملء الشاشة</string>
     <string name="revanced_hide_fullscreen_panels_title">إخفاء لوحات ملء الشاشة</string>
+    <string name="revanced_hide_home_button_summary_off">يتم عرض زر الصفحة الرئيسية</string>
+    <string name="revanced_hide_home_button_summary_on">تم إخفاء زر الصفحة الرئيسية</string>
+    <string name="revanced_hide_home_button_title">إخفاء زر الصفحة الرئيسية</string>
     <string name="revanced_hide_image_shelf_summary_off">يتم عرض رفوف الصور</string>
     <string name="revanced_hide_image_shelf_summary_on">تم إخفاء رفوف الصور</string>
     <string name="revanced_hide_image_shelf_title">إخفاء رف الصورة</string>
@@ -359,6 +359,18 @@
     <string name="revanced_hide_previous_next_button_summary_off">يتم عرض الأزرار</string>
     <string name="revanced_hide_previous_next_button_summary_on">تم إخفاء الأزرار</string>
     <string name="revanced_hide_previous_next_button_title">إخفاء زر السابق &amp; التالي</string>
+    <string name="revanced_hide_quick_actions_summary_off">يتم عرض حاوية الإجراءات السريعة</string>
+    <string name="revanced_hide_quick_actions_summary_on">تم إخفاء حاوية الإجراءات السريعة</string>
+    <string name="revanced_hide_quick_actions_title">إخفاء حاوية الإجراءات السريعة</string>
+    <string name="revanced_hide_quick_actions_comment_summary_off">يتم عرض زر التعليق</string>
+    <string name="revanced_hide_quick_actions_comment_summary_on">تم إخفاء زر التعليق</string>
+    <string name="revanced_hide_quick_actions_comment_title">إخفاء زر التعليق</string>
+    <string name="revanced_hide_quick_actions_more_summary_off">يتم عرض زر المزيد</string>
+    <string name="revanced_hide_quick_actions_more_summary_on">تم إخفاء زر المزيد</string>
+    <string name="revanced_hide_quick_actions_more_title">إخفاء زر المزيد</string>
+    <string name="revanced_hide_quick_actions_related_videos_summary_off">يتم عرض مقاطع الفيديو ذات الصلة</string>
+    <string name="revanced_hide_quick_actions_related_videos_summary_on">تم إخفاء مقاطع الفيديو ذات الصلة</string>
+    <string name="revanced_hide_quick_actions_related_videos_title">إخفاء الفيديوهات ذات الصلة في الإجراءات السريعة</string>
     <string name="revanced_hide_seekbar_summary_off">يتم عرض شريط تقدم الفيديو</string>
     <string name="revanced_hide_seekbar_summary_on">تم إخفاء شريط تقدم الفيديو</string>
     <string name="revanced_hide_seekbar_title">إخفاء شريط تقدم الفيديو</string>
@@ -456,6 +468,7 @@
     <string name="revanced_player_flyout_panel_title">لوحة القائمة المنبثقة للمشغل</string>
     <string name="revanced_player">المشغل</string>
     <string name="revanced_protobuf_spoof_notice">Spoofs Protobuf لمنع مشاكل التشغيل</string>
+    <string name="revanced_quick_actions_components_title">مكون الإجراءات السريعة (تجريبي)</string>
     <string name="revanced_reboot_warning_general">"نظرًا لأن هذه المِيزة لا تزال تجريبية، فقد تكون هناك مشكلات أخرى غير معروفة.  هل أنت متأكد أنك تريد الاستمرار بالرغم من ذلك؟"</string>
     <string name="revanced_reboot_warning_phone">"حِيَل نقطة في البوصة لتغيير بعض التصميمات لتصميمات الجوال.
 إذا قمت بتمكين هذا الإعداد، فستتوفر الميزات التالية:
@@ -464,7 +477,6 @@
     <string name="revanced_reboot_warning_quic">من المستحسن عدم استخدامه إذا كانت سرعة الإنترنت الخاصة بك ليست سريعة بما فيه الكفاية</string>
     <string name="revanced_reboot_warning_tablet">"حِيَل نقطة في البوصة لتغيير بعض التصميمات لتصميمات الجهاز اللوحي.
 إذا قمت بتمكين هذا الإعداد، فلن ستتوفر الميزات التالية:
-- الإضاءة السينمائية
 - مشاركات المجتمع"</string>
     <string name="revanced_reboot_warning_vp9">"خداع معلومات الجهاز لتمكين ترميز VP9
 
@@ -511,8 +523,6 @@
     <string name="revanced_switching_create_notification_summary_on">يتم التبديل بين زر الإنشاء وزر الإشعارات</string>
     <string name="revanced_switching_create_notification_title">التبديل بين زر الإنشاء وزر الإشعارات</string>
     <string name="revanced_tool_used">الأداة المستخدمة</string>
-    <string name="revanced_vertical_video_restrictions_summary">خداع معلومات الجهاز لرفع قيود الدقة للفيديو العمودي</string>
-    <string name="revanced_vertical_video_restrictions_title">رفع قيود الدقة على الفيديو العمودي</string>
     <string name="revanced_video">الفيديو</string>
     <string name="revanced_video_ads_removal_summary_off">يتم عرض إعلانات الفيديو</string>
     <string name="revanced_video_ads_removal_summary_on">تم إخفاء إعلانات الفيديو</string>
@@ -537,37 +547,51 @@
     <string name="revanced_whitelisting_title">قائمة القنوات البيضاء</string>
     <string name="sb_enable_sb">تمكين مانِع الرُعَاة \"SponsorBlock\"</string>
     <string name="sb_enable_sb_sum">مانِع الرُعَاة هو نظام جماعي لتخطي الأجزاء المُمِلَّة في مقاطع اليوتيوب</string>
+    <string name="sb_appearance_category">المظهر</string>
     <string name="sb_enable_voting">عرض زر التصويت</string>
     <string name="sb_enable_voting_sum_on">يتم عرض زر التصويت على المقطع</string>
     <string name="sb_enable_voting_sum_off">لا يتم عرض زر التصويت على المقطع</string>
-    <string name="sb_enable_create_segment">عرض زر إنشاء مقطع جديد</string>
-    <string name="sb_enable_create_segment_sum_on">يتم عرض زر إنشاء مقطع جديد</string>
-    <string name="sb_enable_create_segment_sum_off">لا يتم عرض زر إنشاء مقطع جديد</string>
     <string name="sb_enable_compact_skip_button">استخدام زر التخطي المدمج</string>
     <string name="sb_enable_compact_skip_button_sum_on">زر التخطي مصمم لأدنى عرض</string>
     <string name="sb_enable_compact_skip_button_sum_off">زر التخطي مصمم لأفضل مظهر</string>
-    <string name="sb_diff_segments">ما يجب القيام به مع المقاطع المختلفة</string>
-    <string name="sb_general">عام</string>
+    <string name="sb_enable_auto_hide_skip_segment_button">إخفاء زر التخطي تلقائيًا</string>
+    <string name="sb_enable_auto_hide_skip_segment_button_sum_on">إخفاء زر التخطي بعد بضع ثوانٍ</string>
+    <string name="sb_enable_auto_hide_skip_segment_button_sum_off">يتم عرض زر \"التخطي\" للمقطع بأكمله</string>
     <string name="sb_general_skiptoast">عرض إشعار عند تخطي المقطع تلقائيًا</string>
     <string name="sb_general_skiptoast_sum_on">تظهر الملاحظة عند تخطي مقطع تلقائيًا. اضغط هنا لمشاهدة مثال</string>
     <string name="sb_general_skiptoast_sum_off">لا تظهر الملاحظة. اضغط هنا لمشاهدة مثال</string>
-    <string name="sb_general_skipcount">تمكين تتبع مرات التخطي</string>
-    <string name="sb_general_skipcount_sum_on">يُتيح لـ SponsorBlock Leaderboard معرفة مقدار الوقت الذي وفره المشاهدين، يتم إعلام الخادم في كل مرة تتخطى فيها مقطعًا</string>
-    <string name="sb_general_skipcount_sum_off">تم تعطيل تتبع مرات التخطي</string>
     <string name="sb_general_time_without">عرض مدة الفيديو بدون المقاطع</string>
     <string name="sb_general_time_without_sum_on">يعرض مدة الفيديو ناقصًا منه جميع المقاطع بين قوسين بجوار مدة الفيديو الكاملة</string>
     <string name="sb_general_time_without_sum_off">يتم عرض مدة الفيديو كاملةً</string>
+    <string name="sb_create_segment_category">إنشاء مقاطع جديدة</string>
+    <string name="sb_enable_create_segment">عرض زر إنشاء مقطع جديد</string>
+    <string name="sb_enable_create_segment_sum_on">يتم عرض زر إنشاء مقطع جديد</string>
+    <string name="sb_enable_create_segment_sum_off">لا يتم عرض زر إنشاء مقطع جديد</string>
     <string name="sb_general_adjusting">تعديل تقديم او تأخير المقطع الجديد</string>
     <string name="sb_general_adjusting_sum">أجزاء الثانية التي تتحرك فيها أزرار ضبط الوقت عند إنشاء مقاطع جديدة</string>
     <string name="sb_general_adjusting_invalid">يجب أن تكون القيمة رقمًا موجبًا</string>
+    <string name="sb_guidelines_preference_title">عرض الإرشادات</string>
+    <string name="sb_guidelines_preference_sum">الإرشادات تحتوي على نصائح حول تقديم المقاطع</string>
+    <string name="sb_guidelines_popup_title">توجد إرشادات</string>
+    <string name="sb_guidelines_popup_content">من المستحسن قراءة الإرشادات لمانع الرعاة قبل تقديم أي مقطع</string>
+    <string name="sb_guidelines_popup_already_read">تمت قراءتها</string>
+    <string name="sb_guidelines_popup_open">اعرضها لي</string>
+    <string name="sb_general">عام</string>
+    <string name="sb_general_skipcount">تمكين تتبع مرات التخطي</string>
+    <string name="sb_general_skipcount_sum_on">يُتيح لـ SponsorBlock Leaderboard معرفة مقدار الوقت الذي وفره المشاهدين، يتم إعلام الخادم في كل مرة تتخطى فيها مقطعًا</string>
+    <string name="sb_general_skipcount_sum_off">تم تعطيل تتبع مرات التخطي</string>
     <string name="sb_general_min_duration">الحد الأدنى لمدة المقطع</string>
     <string name="sb_general_min_duration_sum">لن يتم عرض المقاطع الأقصر من هذه القيمة (بالثواني) أو تخطيها</string>
     <string name="sb_general_uuid">معرف المستخدم الفريد الخاص بك</string>
     <string name="sb_general_uuid_sum">يجب أن يبقى هذا خاصًا. انه مثل كلمة المرور ولا ينبغي مشاركته مع أي شخص. إذا كان شخص ما يملك هذا، فيمكنه انتحال شخصيتك</string>
     <string name="sb_general_uuid_invalid">معرف المستخدم لا يمكن أن يكون فارغًا</string>
-    <string name="sb_settings_ie_sum">تكوين SponsorBlock الخاص بك كتنسيق JSON الذي يمكن استيراده / تصديره إلى ReVanced وغيره من منصات SponsorBlock الأخرى. يتضمن هذا معرف المستخدم الفريد الخاص بك. تأكد من مشاركته بحكمة</string>
     <string name="sb_general_api_url">تغيير عنوان API</string>
-    <string name="sb_general_api_url_sum">العنوان الذي يستخدمه مانِع الرُعَاة لإجراء الاتصالات إلى الخادم. &lt;b&gt;لا تقم بتغيير هذا الخيار إلا إذا كنت تعرف ماذا تفعل.&lt;/b&gt;</string>
+    <string name="sb_general_api_url_sum">العنوان الذي يستخدمه مانِع الرُعَاة لإجراء الاتصالات إلى الخادم، لا تقم بتغيير هذا الخيار إلا إذا كنت تعرف ماذا تفعل</string>
+    <string name="sb_api_url_reset">إعادة تعيين رابط API</string>
+    <string name="sb_api_url_invalid">رابط API غير صالح</string>
+    <string name="sb_api_url_changed">تم تغيير رابط API</string>
+    <string name="sb_settings_ie_sum">تكوين SponsorBlock الخاص بك كتنسيق JSON الذي يمكن استيراده / تصديره إلى ReVanced وغيره من منصات SponsorBlock الأخرى. يتضمن هذا معرف المستخدم الفريد الخاص بك. تأكد من مشاركته بحكمة</string>
+    <string name="sb_diff_segments">تغيير سلوك المقطع</string>
     <string name="sb_segments_sponsor">الراعي</string>
     <string name="sb_segments_sponsor_sum">الترويج المدفوع الأجر والتوصيات المدفوعة الأجر والإعلانات المباشرة. ليس للترويج الشخصي أو التصريحات المجانية للأسباب/ المبدعين/مواقع الويب/المنتجات التي يحبونها</string>
     <string name="sb_segments_selfpromo">ترويج شخصي/غير مدفوع الأجر</string>
@@ -614,8 +638,6 @@
     <string name="sb_skip_showbutton">عرض زر التخطي</string>
     <string name="sb_skip_seekbaronly">عرض في شريط تقدم الفيديو</string>
     <string name="sb_skip_ignore">تعطيل</string>
-    <string name="sb_about_api_sum">يتم توفير البيانات بواسطة SponsorBlock API. اضغط هنا لمعرفة المزيد والتنزيل لمنصات أخرى</string>
-    <string name="sb_about_made_by">دُمِج بواسطة JakubWeg</string>
     <string name="sb_submit_failed_invalid" formatted="false">لا يمكن إرسال المقطع: %s</string>
     <string name="sb_submit_failed_timeout">تعذر إرسال المقاطع (انتهت مهلة API)</string>
     <string name="sb_submit_failed_unknown_error" formatted="false">غير قادر على إرسال المقاطع (الحالة: %d %s)</string>
@@ -646,12 +668,6 @@
     <string name="sb_new_segment_edit_by_hand_title">تعديل توقيت المقطع يدويًا</string>
     <string name="sb_new_segment_edit_by_hand_content">هل تود تعديل التوقيت لبداية أو نهاية المقطع؟</string>
     <string name="sb_new_segment_edit_by_hand_parse_error">الوقت المحدد غير صحيح</string>
-    <string name="sb_guidelines_preference_title">عرض الإرشادات</string>
-    <string name="sb_guidelines_preference_sum">الإرشادات تحتوي على نصائح حول تقديم المقاطع</string>
-    <string name="sb_guidelines_popup_title">توجد إرشادات</string>
-    <string name="sb_guidelines_popup_content">من المستحسن قراءة الإرشادات لمانع الرعاة قبل تقديم أي مقطع</string>
-    <string name="sb_guidelines_popup_already_read">تمت قراءتها</string>
-    <string name="sb_guidelines_popup_open">اعرضها لي</string>
     <string name="sb_stats">إحصائيات</string>
     <string name="sb_stats_connection_failure">الإحصائيات غير متوفرة مؤقتاً (API معطل)</string>
     <string name="sb_stats_sb_disabled">تم تعطيل SponsorBlock</string>
@@ -659,7 +675,7 @@
     <string name="sb_stats_username_change">انقر هنا لتغيير إسم المستخدم الخاص بك</string>
     <string name="sb_stats_username_change_unknown_error" formatted="false">غير قادر على تغيير اسم المستخدم: الحالة: %d %s</string>
     <string name="sb_stats_username_changed">تم تغيير اسم المستخدم بنجاح</string>
-    <string name="sb_stats_reputation" formatted="false">سمعتك هي &lt;b&gt;%.2f&lt;/b&gt;</string>
+    <string name="sb_stats_reputation" formatted="false">سمعتك &lt;b&gt;%.2f&lt;/b&gt;</string>
     <string name="sb_stats_submissions" formatted="false">لقد أنشأت &lt;b&gt;%s&lt;/b&gt; مقطع</string>
     <string name="sb_stats_saved_zero">متصدرين SponsorBlock</string>
     <string name="sb_stats_saved" formatted="false">لقد قمت بحفظ الناس من &lt;b&gt;%s&lt;/b&gt; مقطع</string>
@@ -677,9 +693,8 @@
     <string name="sb_color_invalid">رمز اللون غير صالح</string>
     <string name="sb_reset_color">إعادة تعيين اللون</string>
     <string name="sb_reset">إعادة تعيين</string>
-    <string name="sb_api_url_reset">إعادة تعيين رابط API</string>
-    <string name="sb_api_url_invalid">رابط API غير صالح</string>
-    <string name="sb_api_url_changed">تم تغيير رابط API</string>
+    <string name="sb_about_api_sum">يتم توفير البيانات بواسطة SponsorBlock API. اضغط هنا لمعرفة المزيد والتنزيل لمنصات أخرى</string>
+    <string name="sb_about_made_by">دُمِج بواسطة JakubWeg</string>
     <string name="seconds">ثانية</string>
     <string name="settings_export_failed">فشل تصدير الإعدادات</string>
     <string name="settings_export_successful">تم تصدير الإعدادات بنجاح</string>

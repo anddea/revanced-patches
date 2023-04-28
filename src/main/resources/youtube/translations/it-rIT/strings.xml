@@ -82,10 +82,7 @@
     <string name="revanced_enable_custom_video_speed_title">Attiva velocità video personalizzata</string>
     <string name="revanced_enable_external_browser_summary_off">Il browser esterno è disattivato</string>
     <string name="revanced_enable_external_browser_summary_on">Il browser esterno è attivo</string>
-    <string name="revanced_enable_external_browser_title">Utilizza browser esterno</string>
-    <string name="revanced_enable_minimized_playback_summary_off">La riproduzione minimizzata è disattivata</string>
-    <string name="revanced_enable_minimized_playback_summary_on">La riproduzione minimizzata è attiva</string>
-    <string name="revanced_enable_minimized_playback_title">Attiva la riproduzione minimizzata</string>
+    <string name="revanced_enable_external_browser_title">Attiva il browser esterno</string>
     <string name="revanced_enable_old_layout_summary_off">L\'interfaccia di YouTube seguirà lo stato del tuo account Google</string>
     <string name="revanced_enable_old_layout_summary_on">Simula una versione differente di YouTube per forzare l\'attivazione dell\'interfaccia precedente</string>
     <string name="revanced_enable_old_layout_title">Attiva l\'interfaccia precedente</string>
@@ -95,7 +92,7 @@
     <string name="revanced_enable_open_links_directly_summary_off">Seguendo la regola predefinita di reindirizzamento</string>
     <string name="revanced_enable_open_links_directly_summary_on">Bypassa reindirizzamento URL</string>
     <string name="revanced_enable_open_links_directly_title">Attiva apertura link diretta</string>
-    <string name="revanced_enable_phone_layout_summary">Simula un diverso valore DPI per utilizzare alcune parti dell\'interfaccia da telefono</string>
+    <string name="revanced_enable_phone_layout_summary">Simula un diverso valore DPI per usare alcune parti dell\'interfaccia da telefono</string>
     <string name="revanced_enable_phone_layout_title">Attiva l\'interfaccia da telefono</string>
     <string name="revanced_enable_protobuf_spoof_summary">Simula protobuf per evitare problemi di riproduzione</string>
     <string name="revanced_enable_protobuf_spoof_title">Attiva simulazione protobuf</string>
@@ -129,7 +126,7 @@
     <string name="revanced_enable_swipe_volume_summary_off">La modifica del volume con gesto di scorrimento è disattivata</string>
     <string name="revanced_enable_swipe_volume_summary_on">La modifica del volume con gesto di scorrimento è attiva</string>
     <string name="revanced_enable_swipe_volume_title">Gesti per modifica volume</string>
-    <string name="revanced_enable_tablet_layout_summary">Simula un diverso valore DPI per utilizzare alcune parti dell\'interfaccia da tablet</string>
+    <string name="revanced_enable_tablet_layout_summary">Simula un diverso valore DPI per usare alcune parti dell\'interfaccia da tablet</string>
     <string name="revanced_enable_tablet_layout_title">Attiva l\'interfaccia da tablet</string>
     <string name="revanced_enable_tablet_miniplayer_summary_off">Il riproduttore miniaturizzato da tablet è disattivato</string>
     <string name="revanced_enable_tablet_miniplayer_summary_on">Il riproduttore miniaturizzato da tablet è attivo</string>
@@ -161,7 +158,7 @@
     <string name="revanced_hide_action_buttons_summary_on">I pulsanti di azione sono nascosti</string>
     <string name="revanced_hide_action_buttons_title">Nascondi i pulsanti di azione</string>
     <string name="revanced_hide_action_buttons_warning">"Queste funzionalità sono obsolete. Quindi, se si verificasse un problema, non verrebbe risolto.
-Si prega di non segnalare eventuali problemi riscontrati durante l'utilizzo di questa funzionalità."</string>
+Si prega di non segnalare eventuali problemi riscontrati durante l'uso di queste funzionalità."</string>
     <string name="revanced_hide_album_card_summary_off">Le schede degli album sono visibili</string>
     <string name="revanced_hide_album_card_summary_on">Le schede degli album sono nascoste</string>
     <string name="revanced_hide_album_card_title">Nascondi le schede degli album</string>
@@ -281,6 +278,9 @@ Si prega di non segnalare eventuali problemi riscontrati durante l'utilizzo di q
     <string name="revanced_hide_fullscreen_panels_summary_off">I pannelli a schermo intero sono visibili</string>
     <string name="revanced_hide_fullscreen_panels_summary_on">I pannelli a schermo intero sono nascosti</string>
     <string name="revanced_hide_fullscreen_panels_title">Nascondi i pannelli a schermo intero</string>
+    <string name="revanced_hide_home_button_summary_off">Il pulsante Home è visibile</string>
+    <string name="revanced_hide_home_button_summary_on">Il pulsante Home è nascosto</string>
+    <string name="revanced_hide_home_button_title">Nascondi il pulsante Home</string>
     <string name="revanced_hide_image_shelf_summary_off">Lo scaffale delle immagini è visibile</string>
     <string name="revanced_hide_image_shelf_summary_on">Lo scaffale delle immagini è nascosto</string>
     <string name="revanced_hide_image_shelf_title">Nascondi lo scaffale delle immagini</string>
@@ -399,9 +399,9 @@ Si prega di non segnalare eventuali problemi riscontrati durante l'utilizzo di q
     <string name="revanced_hide_shorts_shelf_title">Nascondi lo scaffale degli Shorts</string>
     <string name="revanced_shorts">Shorts</string>
     <string name="revanced_shorts_player_title">Riproduttore Shorts</string>
-    <string name="revanced_hide_snackbar_summary_off">L\'avviso di interazione (snackbar) è visibile</string>
-    <string name="revanced_hide_snackbar_summary_on">L\'avviso di interazione (snackbar) è nascosto</string>
-    <string name="revanced_hide_snackbar_title">Nascondi l\'avviso di interazione (snackbar)</string>
+    <string name="revanced_hide_snackbar_summary_off">La notifica snackbar è visibile</string>
+    <string name="revanced_hide_snackbar_summary_on">La notifica snackbar è nascosta</string>
+    <string name="revanced_hide_snackbar_title">Nascondi la notifica snackbar</string>
     <string name="revanced_hide_stories_shelf_summary_off">Lo scaffale delle Storie è visibile</string>
     <string name="revanced_hide_stories_shelf_summary_on">Lo scaffale delle Storie è nascosto</string>
     <string name="revanced_hide_stories_shelf_title">Nascondi lo scaffale delle Storie</string>
@@ -476,7 +476,7 @@ Sei sicuro di voler procedere?"</string>
 Attivando questa opzione, le seguenti funzionalità saranno disponibili:
 - I post della community
 - Nascondi le Mix Playlist"</string>
-    <string name="revanced_reboot_warning_quic">Se ne sconsiglia l\'utilizzo con connessione internet lenta</string>
+    <string name="revanced_reboot_warning_quic">Si consiglia di non usarlo se la velocità di Internet non è abbastanza veloce</string>
     <string name="revanced_reboot_warning_tablet">"Simula un diverso valore DPI per sostituire alcune parti dell'interfaccia con la controparte per tablet.
 
 Attivando questa opzione, la seguente funzionalità non sarà più disponibile:
@@ -487,7 +487,7 @@ Dal momento che questa opzione è abbastanza obsoleta, potrebbe risultare non pi
     <string name="revanced_ryd_attribution_summary">I dati relativi ai Non Mi Piace sono forniti dall\'API di Return YouTube Dislike. Tocca qui per saperne di più</string>
     <string name="revanced_ryd_compact_layout_summary_off">Pulsante Mi Piace riadattato per la migliore visualizzazione</string>
     <string name="revanced_ryd_compact_layout_summary_on">Pulsante Mi Piace riadattato per una larghezza minima</string>
-    <string name="revanced_ryd_compact_layout_title">Utilizza il pulsante Mi Piace compatto</string>
+    <string name="revanced_ryd_compact_layout_title">Usa il pulsante Mi Piace compatto</string>
     <string name="revanced_ryd_dislike_percentage_summary_off">I Non Mi Piace sono mostrati come numero</string>
     <string name="revanced_ryd_dislike_percentage_summary_on">I Non Mi Piace sono mostrati come percentuale</string>
     <string name="revanced_ryd_dislike_percentage_title">I Non Mi piace in percentuale</string>
@@ -495,7 +495,7 @@ Dal momento che questa opzione è abbastanza obsoleta, potrebbe risultare non pi
     <string name="revanced_ryd_enable_summary_on">I Non Mi Piace sono visibili</string>
     <string name="revanced_ryd_enable_title">Attiva Return YouTube Dislike</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">I Non Mi Piace non sono disponibili (il limite del client API è stato raggiunto)</string>
-    <string name="revanced_ryd_failure_user_voted">Ricarica il video per votare utilizzando Return YouTube Dislike</string>
+    <string name="revanced_ryd_failure_user_voted">Ricarica il video per votare usando Return YouTube Dislike</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Nascosto</string>
     <string name="revanced_save_video_quality_mobile">Cambiando la qualità Dati Cellulare predefinita in:</string>
     <string name="revanced_save_video_quality_none">Cambio qualità non riuscito</string>
@@ -518,8 +518,6 @@ Dal momento che questa opzione è abbastanza obsoleta, potrebbe risultare non pi
     <string name="revanced_switching_create_notification_summary_on">Il pulsante Crea e il pulsante Notifica sono invertiti</string>
     <string name="revanced_switching_create_notification_title">Scambia il pulsante Crea e il pulsante Notifica</string>
     <string name="revanced_tool_used">Strumento utilizzato</string>
-    <string name="revanced_vertical_video_restrictions_summary">Simula le informazioni del dispositivo per rimuovere le restrizioni di risoluzione per i video verticali</string>
-    <string name="revanced_vertical_video_restrictions_title">Rimuovi le restrizioni di risoluzione sui video verticali</string>
     <string name="revanced_video">Video</string>
     <string name="revanced_video_ads_removal_summary_off">Gli annunci video sono visibili</string>
     <string name="revanced_video_ads_removal_summary_on">Gli annunci video sono nascosti</string>
@@ -547,34 +545,43 @@ Dal momento che questa opzione è abbastanza obsoleta, potrebbe risultare non pi
     <string name="sb_enable_voting">Mostra il pulsante Voto</string>
     <string name="sb_enable_voting_sum_on">Il pulsante Voto è visibile</string>
     <string name="sb_enable_voting_sum_off">Il pulsante Voto è nascosto</string>
-    <string name="sb_enable_create_segment">Mostra il pulsante Crea Nuovo Segmento</string>
-    <string name="sb_enable_create_segment_sum_on">Il pulsante Crea Nuovo Segmento è visibile</string>
-    <string name="sb_enable_create_segment_sum_off">Il pulsante Crea Nuovo Segmento è nascosto</string>
-    <string name="sb_enable_compact_skip_button">Utilizza il pulsante Salta compatto</string>
+    <string name="sb_enable_compact_skip_button">Usa il pulsante Salta compatto</string>
     <string name="sb_enable_compact_skip_button_sum_on">Pulsante Salta riadattato per una dimensione minima</string>
     <string name="sb_enable_compact_skip_button_sum_off">Pulsante Salta riadattato per la migliore visualizzazione</string>
-    <string name="sb_diff_segments">Cosa vuoi fare con i diversi segmenti</string>
-    <string name="sb_general">Generali</string>
-    <string name="sb_general_skiptoast">Mostra una notifica quando salti automaticamente un segmento</string>
-    <string name="sb_general_skiptoast_sum_on">Notifica visibile. Tocca qui per vedere un esempio</string>
-    <string name="sb_general_skiptoast_sum_off">Notifica nascosta. Tocca qui per vedere un esempio</string>
-    <string name="sb_general_skipcount">Attiva l\'invio del conteggio dei salti</string>
-    <string name="sb_general_skipcount_sum_on">Quanto permette al sistema di classifica di SponsorBlock di sapere quanto tempo le persone hanno risparmiato. Viene inviato un messaggio al server ogni volta che salti un segmento</string>
-    <string name="sb_general_skipcount_sum_off">L\'invio del conteggio dei salti è disattivato</string>
+    <string name="sb_general_skiptoast">Mostra una notifica toast quando salti automaticamente un segmento</string>
+    <string name="sb_general_skiptoast_sum_on">Notifica toast visibile. Tocca qui per vedere un esempio</string>
+    <string name="sb_general_skiptoast_sum_off">Notifica toast nascosta. Tocca qui per vedere un esempio</string>
     <string name="sb_general_time_without">Mostra il tempo senza i segmenti</string>
     <string name="sb_general_time_without_sum_on">Durata del video meno tutti gli eventuali segmenti. Questo tempo è visibile tra parentesi accanto alla durata del video completo</string>
     <string name="sb_general_time_without_sum_off">La durata totale del video è visibile</string>
+    <string name="sb_enable_create_segment">Mostra il pulsante Crea Nuovo Segmento</string>
+    <string name="sb_enable_create_segment_sum_on">Il pulsante Crea Nuovo Segmento è visibile</string>
+    <string name="sb_enable_create_segment_sum_off">Il pulsante Crea Nuovo Segmento è nascosto</string>
     <string name="sb_general_adjusting">Regola il nuovo passo del segmento</string>
-    <string name="sb_general_adjusting_sum">Questo è il tempo in millisecondi che puoi modificare quando utilizzi i pulsanti di regolazione durante l\'aggiunta di nuovi segmenti</string>
+    <string name="sb_general_adjusting_sum">Questo è il tempo in millisecondi che puoi modificare quando usi i pulsanti di regolazione durante l\'aggiunta di nuovi segmenti</string>
     <string name="sb_general_adjusting_invalid">Il valore deve essere un numero positivo</string>
+    <string name="sb_guidelines_preference_title">Visualizza le linee guida</string>
+    <string name="sb_guidelines_preference_sum">Le linee guida contengono suggerimenti e regole sull\'\'invio dei segmenti</string>
+    <string name="sb_guidelines_popup_title">Segui le linee guida</string>
+    <string name="sb_guidelines_popup_content">Leggi le linee guida di SponsorBlock prima di creare nuovi segmenti</string>
+    <string name="sb_guidelines_popup_already_read">Già letto</string>
+    <string name="sb_guidelines_popup_open">Mostrami</string>
+    <string name="sb_general">Generali</string>
+    <string name="sb_general_skipcount">Attiva l\'invio del conteggio dei salti</string>
+    <string name="sb_general_skipcount_sum_on">Quanto permette al sistema di classifica di SponsorBlock di sapere quanto tempo le persone hanno risparmiato. Viene inviato un messaggio al server ogni volta che salti un segmento</string>
+    <string name="sb_general_skipcount_sum_off">L\'invio del conteggio dei salti è disattivato</string>
     <string name="sb_general_min_duration">Durata minima del segmento</string>
     <string name="sb_general_min_duration_sum">I segmenti più brevi di questo valore (in secondi) non verranno mostrati o saltati</string>
     <string name="sb_general_uuid">Il tuo ID utente univoco</string>
     <string name="sb_general_uuid_sum">Questo dovrebbe essere tenuto al sicuro. È come una password e non dovrebbe essere condiviso con nessuno. Se qualcuno dovesse ottenerlo, potrebbe impersonarti</string>
     <string name="sb_general_uuid_invalid">Il campo ID utente non può essere vuoto</string>
-    <string name="sb_settings_ie_sum">La tua configurazione di SponsorBlock in JSON che può essere importata o esportata su ReVanced e su altre piattaforme SponsorBlock. Questo include il tuo ID utente univoco, quindi assicurati di condividerlo con saggezza</string>
     <string name="sb_general_api_url">Modifica URL API</string>
-    <string name="sb_general_api_url_sum">L\'indirizzo che SponsorBlock utilizza per contattare il server. &lt;b&gt;Non cambiarlo a meno che tu non sappia cosa stai facendo&lt;/b&gt;</string>
+    <string name="sb_general_api_url_sum">L\'indirizzo che SponsorBlock usa per contattare il server. &lt;b&gt;Non cambiarlo a meno che tu non sappia cosa stai facendo&lt;/b&gt;</string>
+    <string name="sb_api_url_reset">URL API ripristinato</string>
+    <string name="sb_api_url_invalid">URL API non valido</string>
+    <string name="sb_api_url_changed">URL API modificato</string>
+    <string name="sb_settings_ie_sum">La tua configurazione di SponsorBlock in JSON che può essere importata o esportata su ReVanced e su altre piattaforme SponsorBlock. Questo include il tuo ID utente univoco, quindi assicurati di condividerlo con saggezza</string>
+    <string name="sb_diff_segments">Cosa vuoi fare con i diversi segmenti</string>
     <string name="sb_segments_sponsor">Sponsor</string>
     <string name="sb_segments_sponsor_sum">Promozioni a pagamento, referral a pagamento e pubblicità diretta. Questo non dovrebbe includere autopromozione o ringraziamenti gratuiti a cause, creatori, siti web o prodotti di loro gradimento</string>
     <string name="sb_segments_selfpromo">Promozione Gratuita/Autopromozione</string>
@@ -621,8 +628,6 @@ Dal momento che questa opzione è abbastanza obsoleta, potrebbe risultare non pi
     <string name="sb_skip_showbutton">Mostra il pulsante Salta</string>
     <string name="sb_skip_seekbaronly">Mostralo nella barra del minutaggio</string>
     <string name="sb_skip_ignore">Disattiva</string>
-    <string name="sb_about_api_sum">I dati sono forniti dall\'API di SponsorBlock. Tocca qui per saperne di più e vedere i download per altre piattaforme</string>
-    <string name="sb_about_made_by">Integrazione a cura di JakubWeg</string>
     <string name="sb_submit_failed_invalid" formatted="false">Impossibile inviare il segmento: %s</string>
     <string name="sb_submit_failed_timeout">Impossibile inviare i segmenti (API scaduta)</string>
     <string name="sb_submit_failed_unknown_error" formatted="false">Impossibile inviare i segmenti (stato: %d %s)</string>
@@ -656,12 +661,6 @@ Soglia raggiunta (troppe richieste provenienti dallo stesso utente o IP)</string
     <string name="sb_new_segment_edit_by_hand_title">Modifica manualmente il periodo temporale del segmento</string>
     <string name="sb_new_segment_edit_by_hand_content">Vuoi modificare l\'intervallo temporale di inizio o fine segmento?</string>
     <string name="sb_new_segment_edit_by_hand_parse_error">Il periodo temporale fornito non è valido</string>
-    <string name="sb_guidelines_preference_title">Visualizza le linee guida</string>
-    <string name="sb_guidelines_preference_sum">Le linee guida contengono suggerimenti e regole sull\'\'invio dei segmenti</string>
-    <string name="sb_guidelines_popup_title">Segui le linee guida</string>
-    <string name="sb_guidelines_popup_content">Leggi le linee guida di SponsorBlock prima di creare nuovi segmenti</string>
-    <string name="sb_guidelines_popup_already_read">Già letto</string>
-    <string name="sb_guidelines_popup_open">Mostrami</string>
     <string name="sb_stats">Statistiche</string>
     <string name="sb_stats_connection_failure">Statistiche temporaneamente non disponibili (API è disconnessa)</string>
     <string name="sb_stats_sb_disabled">SponsorBlock è disattivato</string>
@@ -687,9 +686,8 @@ Soglia raggiunta (troppe richieste provenienti dallo stesso utente o IP)</string
     <string name="sb_color_invalid">Codice colore non valido</string>
     <string name="sb_reset_color">Ripristina colore</string>
     <string name="sb_reset">Ripristina</string>
-    <string name="sb_api_url_reset">URL API ripristinato</string>
-    <string name="sb_api_url_invalid">URL API non valido</string>
-    <string name="sb_api_url_changed">URL API modificato</string>
+    <string name="sb_about_api_sum">I dati sono forniti dall\'API di SponsorBlock. Tocca qui per saperne di più e vedere i download per altre piattaforme</string>
+    <string name="sb_about_made_by">Integrazione a cura di JakubWeg</string>
     <string name="seconds">secondi</string>
     <string name="settings_export_failed">Impossibile esportare le impostazioni</string>
     <string name="settings_export_successful">Impostazioni esportate correttamente</string>

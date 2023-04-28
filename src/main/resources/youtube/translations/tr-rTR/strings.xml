@@ -83,9 +83,6 @@
     <string name="revanced_enable_external_browser_summary_off">Harici tarayıcı devre dışı</string>
     <string name="revanced_enable_external_browser_summary_on">Harici tarayıcı etkin</string>
     <string name="revanced_enable_external_browser_title">Harici tarayıcı</string>
-    <string name="revanced_enable_minimized_playback_summary_off">Arka planda mini oynatıcı devre dışı</string>
-    <string name="revanced_enable_minimized_playback_summary_on">Arka planda mini oynatıcı etkin</string>
-    <string name="revanced_enable_minimized_playback_title">Küçültülmüş oynatmayı etkinleştir</string>
     <string name="revanced_enable_old_layout_summary_off">YouTube Düzeni, Google Hesabı durumunuzu takip edecek</string>
     <string name="revanced_enable_old_layout_summary_on">Eski düzeni etkinleştirmeye zorlamak için YouTube görünümü değiştirin</string>
     <string name="revanced_enable_old_layout_title">Eski düzeni Etkinleştir</string>
@@ -281,6 +278,9 @@ Lütfen bu özelliği kullanırken karşılaştığınız sorunları bildirmeyin
     <string name="revanced_hide_fullscreen_panels_summary_off">Tam ekran paneller gösteriliyor</string>
     <string name="revanced_hide_fullscreen_panels_summary_on">Tam ekran paneller gizleniyor</string>
     <string name="revanced_hide_fullscreen_panels_title">Tam ekran panellerini gizle</string>
+    <string name="revanced_hide_home_button_summary_off">Gizlenmiyor</string>
+    <string name="revanced_hide_home_button_summary_on">Gizleniyor</string>
+    <string name="revanced_hide_home_button_title">Ana sayfa düğmesini gizle</string>
     <string name="revanced_hide_image_shelf_summary_off">Gizlenmiyor</string>
     <string name="revanced_hide_image_shelf_summary_on">Gizleniyor</string>
     <string name="revanced_hide_image_shelf_title">Görüntü rafını gizle</string>
@@ -359,6 +359,18 @@ Lütfen bu özelliği kullanırken karşılaştığınız sorunları bildirmeyin
     <string name="revanced_hide_previous_next_button_summary_off">Gizlenmiyor</string>
     <string name="revanced_hide_previous_next_button_summary_on">Gizleniyor</string>
     <string name="revanced_hide_previous_next_button_title">Önceki &amp; sonraki düğmelerini gizle</string>
+    <string name="revanced_hide_quick_actions_summary_off">Gizlenmiyor</string>
+    <string name="revanced_hide_quick_actions_summary_on">Gizleniyor</string>
+    <string name="revanced_hide_quick_actions_title">Hızlı aksiyonlar barını gizle</string>
+    <string name="revanced_hide_quick_actions_comment_summary_off">Gizlenmiyor</string>
+    <string name="revanced_hide_quick_actions_comment_summary_on">Gizleniyor</string>
+    <string name="revanced_hide_quick_actions_comment_title">Yorum düğmesini gizle</string>
+    <string name="revanced_hide_quick_actions_more_summary_off">Gizlenmiyor</string>
+    <string name="revanced_hide_quick_actions_more_summary_on">Gizleniyor</string>
+    <string name="revanced_hide_quick_actions_more_title">Daha fazla düğmesini gizle</string>
+    <string name="revanced_hide_quick_actions_related_videos_summary_off">Gizlenmiyor</string>
+    <string name="revanced_hide_quick_actions_related_videos_summary_on">Gizleniyor</string>
+    <string name="revanced_hide_quick_actions_related_videos_title">Hızlı aksiyonlarda önerilen videoları gizle</string>
     <string name="revanced_hide_seekbar_summary_off">Gizlenmiyor</string>
     <string name="revanced_hide_seekbar_summary_on">Gizleniyor</string>
     <string name="revanced_hide_seekbar_title">Zaman çubuğunu gizle</string>
@@ -456,6 +468,7 @@ Lütfen bu özelliği kullanırken karşılaştığınız sorunları bildirmeyin
     <string name="revanced_player_flyout_panel_title">Oynatıcı açılır pencere paneli</string>
     <string name="revanced_player">Oynatıcı</string>
     <string name="revanced_protobuf_spoof_notice">Oynatma sorunlarını önlemek için sahte protobuf</string>
+    <string name="revanced_quick_actions_components_title">Hızlı aksiyonlar barı (Deneysel)</string>
     <string name="revanced_reboot_warning_general">"Bu henüz deneysel bir özellik olduğundan, bilinmeyen başka sorunlar olabilir. Yine de devam etmek istediğinizden emin misiniz?"</string>
     <string name="revanced_reboot_warning_phone">"Bazı düzenleri telefon düzenlerine çevirmek için dpi'yi kandırır.
 
@@ -466,7 +479,6 @@ Lütfen bu özelliği kullanırken karşılaştığınız sorunları bildirmeyin
     <string name="revanced_reboot_warning_tablet">"Bazı düzenleri tablet düzenlerine dönüştürmek için dpi'yi kandırır.
 
 Bu ayarı etkinleştirirseniz aşağıdaki özellikler kullanılamaz:
-- Ortam modu
 - Topluluk Gönderileri"</string>
     <string name="revanced_reboot_warning_vp9">"VP9 kodek bileşenini etkinleştirmek için cihaz bilgilerini taklit eder
 
@@ -505,8 +517,6 @@ Bu ayar oldukça eski olduğu için geçerli olmayabilir"</string>
     <string name="revanced_switching_create_notification_summary_on">Değiştiriliyor</string>
     <string name="revanced_switching_create_notification_title">Oluştur düğmesini ve bildirim düğmesini değiştirme</string>
     <string name="revanced_tool_used">araç kullanıldı</string>
-    <string name="revanced_vertical_video_restrictions_summary">Dikey video için çözünürlük kısıtlamalarını kaldırmak için cihaz bilgilerini sızdırma</string>
-    <string name="revanced_vertical_video_restrictions_title">Dikey videoda çözünürlük kısıtlamalarını kaldırın</string>
     <string name="revanced_video">Video</string>
     <string name="revanced_video_ads_removal_summary_off">Gizlenmiyor</string>
     <string name="revanced_video_ads_removal_summary_on">Gizlendi</string>
@@ -534,35 +544,44 @@ Bu ayar oldukça eski olduğu için geçerli olmayabilir"</string>
     <string name="sb_enable_voting">Oylama Düğmesini Göster</string>
     <string name="sb_enable_voting_sum_on">Gizlenmiyor</string>
     <string name="sb_enable_voting_sum_off">Gizleniyor</string>
-    <string name="sb_enable_create_segment">Yeni segment oluştur düğmesini göster</string>
-    <string name="sb_enable_create_segment_sum_on">Gizlenmiyor</string>
-    <string name="sb_enable_create_segment_sum_off">Gizleniyor</string>
     <string name="sb_enable_compact_skip_button">Kompakt atlama düğmesini kullanın</string>
     <string name="sb_enable_compact_skip_button_sum_on">Minimum genişlik için tasarlanmış atlama düğmesi</string>
     <string name="sb_enable_compact_skip_button_sum_off">En iyi görünüm için tasarlanmış atla düğmesi</string>
-    <string name="sb_diff_segments">Bu kısımlar ne anlama geliyor</string>
-    <string name="sb_general">Genel</string>
     <string name="sb_general_skiptoast">Bir kısım otomatikman atlanırken uyarı ver</string>
     <string name="sb_general_skiptoast_sum_on">Tost, bir bölüm otomatik olarak atlandığında gösterilir.
 Bir örnek görmek için buraya dokunun</string>
     <string name="sb_general_skiptoast_sum_off">Tost gizleniyor. Bir örnek görmek için buraya dokunun</string>
-    <string name="sb_general_skipcount">Atlama sayısı izlemeyi etkinleştir</string>
-    <string name="sb_general_skipcount_sum_on">SponsorBlock liderlik tablosunun ne kadar zaman kazanıldığını bilmesini sağlar. Bir segment her atlandığında skor tablosuna bir mesaj gönderilir</string>
-    <string name="sb_general_skipcount_sum_off">Kapalı</string>
     <string name="sb_general_time_without">Video uzunluğunu bölümler olmadan göster</string>
     <string name="sb_general_time_without_sum_on">Video uzunluğu eksi tüm segmentler, tam video uzunluğunun yanında parantez içinde gösterilir</string>
     <string name="sb_general_time_without_sum_off">Gizlenmiyor</string>
+    <string name="sb_enable_create_segment">Yeni segment oluştur düğmesini göster</string>
+    <string name="sb_enable_create_segment_sum_on">Gizlenmiyor</string>
+    <string name="sb_enable_create_segment_sum_off">Gizleniyor</string>
     <string name="sb_general_adjusting">Yeni kısım adımını ayarla</string>
     <string name="sb_general_adjusting_sum">Yeni segmentler oluşturulurken zaman ayarlama düğmelerinin hareket ettiği milisaniye sayısı</string>
     <string name="sb_general_adjusting_invalid">Değer pozitif bir sayı olmalıdır</string>
+    <string name="sb_guidelines_preference_title">Yönergeleri görüntüle</string>
+    <string name="sb_guidelines_preference_sum">Yönergeler, yeni segmentler oluşturmak için kurallar ve ipuçları içerir</string>
+    <string name="sb_guidelines_popup_title">Yönergeleri takip et</string>
+    <string name="sb_guidelines_popup_content">Herhangi bir kısmı göndermeden önce SponsorBlock kurallarını okumanız tavsiye edilir</string>
+    <string name="sb_guidelines_popup_already_read">Zaten okundu</string>
+    <string name="sb_guidelines_popup_open">Göster bana</string>
+    <string name="sb_general">Genel</string>
+    <string name="sb_general_skipcount">Atlama sayısı izlemeyi etkinleştir</string>
+    <string name="sb_general_skipcount_sum_on">SponsorBlock liderlik tablosunun ne kadar zaman kazanıldığını bilmesini sağlar. Bir segment her atlandığında skor tablosuna bir mesaj gönderilir</string>
+    <string name="sb_general_skipcount_sum_off">Kapalı</string>
     <string name="sb_general_min_duration">En az bölüm süresi</string>
     <string name="sb_general_min_duration_sum">Bu değerden (saniye olarak) daha kısa bölümler gösterilmeyecek veya atlanmayacaktır</string>
     <string name="sb_general_uuid">Benzersiz kullanıcı kimliğiniz</string>
     <string name="sb_general_uuid_sum">Bu gizli tutulmalıdır. Bu bir şifre gibidir ve kimseyle paylaşılmamalıdır. Birisi buna sahipse, sizi taklit edebilir</string>
     <string name="sb_general_uuid_invalid">Kullanıcı kimliği boş olamaz</string>
-    <string name="sb_settings_ie_sum">ReVanced ve diğer SponsorBlock platformlarına içe/dışa aktarılabilen SponsorBlock JSON yapılandırmanız. Bu, özel kullanıcı kimliğinizi içerir. Bunu akıllıca paylaştığınızdan emin olun</string>
     <string name="sb_general_api_url">API URL\'sini Değiştir</string>
     <string name="sb_general_api_url_sum">SponsorBlock\'un sunucuya çağrı yapmak için kullandığı adres. &lt;b&gt;Ne yaptığınızı bilmiyorsanız bunu değiştirmeyin&lt;/b&gt;</string>
+    <string name="sb_api_url_reset">API URL\'si sıfırlandı</string>
+    <string name="sb_api_url_invalid">API bağlantısı geçersiz</string>
+    <string name="sb_api_url_changed">API URL\'si değiştirildi</string>
+    <string name="sb_settings_ie_sum">ReVanced ve diğer SponsorBlock platformlarına içe/dışa aktarılabilen SponsorBlock JSON yapılandırmanız. Bu, özel kullanıcı kimliğinizi içerir. Bunu akıllıca paylaştığınızdan emin olun</string>
+    <string name="sb_diff_segments">Bu kısımlar ne anlama geliyor</string>
     <string name="sb_segments_sponsor">Sponsor</string>
     <string name="sb_segments_sponsor_sum">Ücretli tanıtım, ücretli yönlendirmeler ve doğrudan reklamlar. Kendini pazarlayan veya beğendiği içerik üreticilerine/sitelere/ürünlere atıfta bulunanlar için değil</string>
     <string name="sb_segments_selfpromo">Karşılıksız/Kendi Reklamı</string>
@@ -609,8 +628,6 @@ Bir örnek görmek için buraya dokunun</string>
     <string name="sb_skip_showbutton">Atlamak için buton göster</string>
     <string name="sb_skip_seekbaronly">Zaman çubuğunda Göster</string>
     <string name="sb_skip_ignore">Kapalı</string>
-    <string name="sb_about_api_sum">Veriler, SponsorBlock API tarafından sağlanmaktadır. Daha fazla bilgi edinmek ve diğer platformlar için indirmeleri görmek için buraya dokunun</string>
-    <string name="sb_about_made_by">Entegrasyonu yapan: JakubWeg</string>
     <string name="sb_submit_failed_invalid" formatted="false">Kısım gönderilemiyor: %s</string>
     <string name="sb_submit_failed_timeout">Kısımlar gönderilemedi (API zamqn aşımına uğradı)</string>
     <string name="sb_submit_failed_unknown_error" formatted="false">Kısımlar gönderilemedi (durum: %d %s)</string>
@@ -641,12 +658,6 @@ Bir örnek görmek için buraya dokunun</string>
     <string name="sb_new_segment_edit_by_hand_title">Kısmın süresini elle düzenleyin</string>
     <string name="sb_new_segment_edit_by_hand_content">Bu kısmın başlangıcını mı, bitişini mi düzenlemek istiyorsunuz?</string>
     <string name="sb_new_segment_edit_by_hand_parse_error">Girilen süre geçersiz</string>
-    <string name="sb_guidelines_preference_title">Yönergeleri görüntüle</string>
-    <string name="sb_guidelines_preference_sum">Yönergeler, yeni segmentler oluşturmak için kurallar ve ipuçları içerir</string>
-    <string name="sb_guidelines_popup_title">Yönergeleri takip et</string>
-    <string name="sb_guidelines_popup_content">Herhangi bir kısmı göndermeden önce SponsorBlock kurallarını okumanız tavsiye edilir</string>
-    <string name="sb_guidelines_popup_already_read">Zaten okundu</string>
-    <string name="sb_guidelines_popup_open">Göster bana</string>
     <string name="sb_stats">İstatistikler</string>
     <string name="sb_stats_connection_failure">İstatikler geçici olarak kullanılamıyor (API zaman aşımına uğradı)</string>
     <string name="sb_stats_sb_disabled">SponsorBlock devre dışı</string>
@@ -672,9 +683,8 @@ Bir örnek görmek için buraya dokunun</string>
     <string name="sb_color_invalid">Renk kodu geçersiz</string>
     <string name="sb_reset_color">Rengi sıfırla</string>
     <string name="sb_reset">Sıfırla</string>
-    <string name="sb_api_url_reset">API URL\'si sıfırlandı</string>
-    <string name="sb_api_url_invalid">API bağlantısı geçersiz</string>
-    <string name="sb_api_url_changed">API URL\'si değiştirildi</string>
+    <string name="sb_about_api_sum">Veriler, SponsorBlock API tarafından sağlanmaktadır. Daha fazla bilgi edinmek ve diğer platformlar için indirmeleri görmek için buraya dokunun</string>
+    <string name="sb_about_made_by">Entegrasyonu yapan: JakubWeg</string>
     <string name="seconds">saniye</string>
     <string name="settings_export_failed">Ayarlar dışarı aktarılamadı</string>
     <string name="settings_export_successful">Ayarların içe aktarılması tamamlandı</string>
