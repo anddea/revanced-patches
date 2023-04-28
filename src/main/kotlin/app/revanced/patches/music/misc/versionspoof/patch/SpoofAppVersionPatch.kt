@@ -9,10 +9,11 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patches.music.misc.settings.patch.MusicSettingsPatch
+import app.revanced.patches.music.misc.settings.resource.patch.MusicSettingsPatch
 import app.revanced.patches.shared.annotation.YouTubeMusicCompatibility
 import app.revanced.patches.shared.patch.versionspoof.GeneralVersionSpoofPatch
-import app.revanced.util.integrations.Constants.MUSIC_SETTINGS_PATH
+import app.revanced.util.enum.CategoryType
+import app.revanced.util.integrations.Constants.MUSIC_MISC_PATH
 
 @Patch
 @Name("spoof-version")
@@ -28,9 +29,9 @@ import app.revanced.util.integrations.Constants.MUSIC_SETTINGS_PATH
 class SpoofAppVersionPatch : BytecodePatch() {
     override fun execute(context: BytecodeContext): PatchResult {
 
-        GeneralVersionSpoofPatch.injectSpoof("$MUSIC_SETTINGS_PATH->spoofVersion(Ljava/lang/String;)Ljava/lang/String;")
+        GeneralVersionSpoofPatch.injectSpoof("$MUSIC_MISC_PATH/SpoofAppVersionPatch;->getVersionOverride(Ljava/lang/String;)Ljava/lang/String;")
 
-        MusicSettingsPatch.addMusicPreference("navigation", "revanced_enable_spoof_version", "false")
+        MusicSettingsPatch.addMusicPreference(CategoryType.MISC, "revanced_spoof_app_version", "false")
 
         return PatchResultSuccess()
     }

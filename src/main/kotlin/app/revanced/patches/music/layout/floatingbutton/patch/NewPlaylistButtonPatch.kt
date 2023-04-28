@@ -16,9 +16,10 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.music.layout.floatingbutton.fingerprints.*
 import app.revanced.patches.music.misc.resourceid.patch.SharedResourceIdPatch
-import app.revanced.patches.music.misc.settings.patch.MusicSettingsPatch
+import app.revanced.patches.music.misc.settings.resource.patch.MusicSettingsPatch
 import app.revanced.patches.shared.annotation.YouTubeMusicCompatibility
-import app.revanced.util.integrations.Constants.MUSIC_SETTINGS_PATH
+import app.revanced.util.enum.CategoryType
+import app.revanced.util.integrations.Constants.MUSIC_LAYOUT
 
 @Patch
 @Name("hide-new-playlist")
@@ -42,7 +43,7 @@ class NewPlaylistButtonPatch : BytecodePatch(
             FloatingButtonFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.mutableMethod?.let {
                 it.addInstructions(
                     1, """
-                        invoke-static {}, $MUSIC_SETTINGS_PATH->hideNewPlaylistButton()Z
+                        invoke-static {}, $MUSIC_LAYOUT->hideNewPlaylistButton()Z
                         move-result v0
                         if-eqz v0, :show
                         return-void
@@ -51,7 +52,7 @@ class NewPlaylistButtonPatch : BytecodePatch(
             } ?: return FloatingButtonFingerprint.toErrorResult()
         } ?: return FloatingButtonParentFingerprint.toErrorResult()
 
-        MusicSettingsPatch.addMusicPreference("navigation", "revanced_hide_new_playlist_button", "false")
+        MusicSettingsPatch.addMusicPreference(CategoryType.LAYOUT, "revanced_hide_new_playlist_button", "false")
 
         return PatchResultSuccess()
     }
