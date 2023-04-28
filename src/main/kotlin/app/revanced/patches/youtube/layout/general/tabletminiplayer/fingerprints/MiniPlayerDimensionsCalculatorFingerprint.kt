@@ -13,7 +13,7 @@ object MiniPlayerDimensionsCalculatorFingerprint : MethodFingerprint(
     customFingerprint = { methodDef ->
         methodDef.implementation?.instructions?.any {
             it.opcode.ordinal == Opcode.CONST.ordinal &&
-                    (it as? WideLiteralInstruction)?.wideLiteral == SharedResourceIdPatch.floatyBarQueueLabelId
+                    (it as? WideLiteralInstruction)?.wideLiteral == SharedResourceIdPatch.floatyBarTopMarginLabelId
         } == true
     }
 )
