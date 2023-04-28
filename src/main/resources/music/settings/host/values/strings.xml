@@ -1,48 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="revanced_category_ads">ADS</string>
-    <string name="revanced_category_design">Design</string>
-    <string name="revanced_category_listening">Listening</string>
-    <string name="revanced_category_navigation">Navigation</string>
+    <string name="revanced_category_ads">Ads</string>
+    <string name="revanced_category_layout">Layout</string>
+    <string name="revanced_category_misc">Miscellaneous</string>
+    <string name="revanced_default_downloader_summary">Package name of the downloader app such as NewPipe\'s or PowerTube\'s.</string>
+    <string name="revanced_default_downloader_title">Package name of downloader</string>
     <string name="revanced_disable_auto_captions_summary">Disable forced captions from automatically enabling in video player.</string>
     <string name="revanced_disable_auto_captions_title">Disable auto captions</string>
     <string name="revanced_downloader_not_installed" formatted="false">%s is not installed. Please install it.</string>
     <string name="revanced_enable_black_navbar_summary">Sets the navigation bar color to black.</string>
     <string name="revanced_enable_black_navbar_title">Enable black navbar</string>
     <string name="revanced_enable_color_match_player_summary">Matches the fullscreen player color with the minimized one.</string>
-    <string name="revanced_enable_color_match_player_title">Enable color match Players</string>
+    <string name="revanced_enable_color_match_player_title">Enable color match player</string>
     <string name="revanced_enable_compact_dialog_summary">Enable compact dialog on phone.</string>
     <string name="revanced_enable_compact_dialog_title">Enable compact dialog</string>
     <string name="revanced_enable_force_minimized_player_summary">Keep player permanently minimized even if another track is played.</string>
     <string name="revanced_enable_force_minimized_player_title">Enable force minimized player</string>
     <string name="revanced_enable_force_shuffle_summary">Enable force shuffle even if another track is played.</string>
     <string name="revanced_enable_force_shuffle_title">Enable force shuffle</string>
-    <string name="revanced_enable_opus_codec_summary">"Enable 250/251 opus codec when playing audio.
-(requires an app restart)"</string>
+    <string name="revanced_enable_landscape_mode_summary">Enables entry into landscape mode by screen rotation on the phone.</string>
+    <string name="revanced_enable_landscape_mode_title">Enable landscape mode</string>
+    <string name="revanced_enable_opus_codec_summary">Enable 250/251 opus codec when playing audio.</string>
     <string name="revanced_enable_opus_codec_title">Enable opus codec</string>
-    <string name="revanced_enable_spoof_version_summary">"Trick the YouTube Music version to v4.27.53 for Canadian users.
-(requires an app restart)"</string>
-    <string name="revanced_enable_spoof_version_title">Enable version spoof</string>
-    <string name="revanced_enable_tablet_mode_summary">"Enable landscape mode on phone.
-(requires an app restart)"</string>
-    <string name="revanced_enable_tablet_mode_title">Enable tablet mode</string>
+    <string name="revanced_enable_save_video_quality_summary">Save the video quality value whenever you change the video quality</string>
+    <string name="revanced_enable_save_video_quality_title">Enable save video quality</string>
     <string name="revanced_enable_zen_mode_summary">Adds a grey tint to the video player to reduce eye strain.</string>
     <string name="revanced_enable_zen_mode_title">Enable zen mode</string>
     <string name="revanced_extended_settings_title">ReVanced Extended</string>
+    <string name="revanced_hide_button_shelf_summary">Hides the button shelf from homepage and explorer.</string>
+    <string name="revanced_hide_button_shelf_title">Hide button shelf</string>
+    <string name="revanced_hide_carousel_shelf_summary">Hides the carousel shelf from homepage and explorer.</string>
+    <string name="revanced_hide_carousel_shelf_title">Hide carousel shelf</string>
     <string name="revanced_hide_cast_button_summary">Hides the cast button at the top of the homepage and at the top of the player.</string>
     <string name="revanced_hide_cast_button_title">Hide cast button</string>
-    <string name="revanced_hide_compact_header_summary">"Hides the music category bar at the top of the homepage.
-(requires an app restart)"</string>
-    <string name="revanced_hide_compact_header_title">Hide compact header</string>
-    <string name="revanced_hide_music_ads_summary">"Hide ads before playing a track.
-(requires an app restart)"</string>
+    <string name="revanced_hide_category_bar_summary">Hides the music category bar at the top of the homepage.</string>
+    <string name="revanced_hide_category_bar_title">Hide category bar</string>
+    <string name="revanced_hide_music_ads_summary">Hide ads before playing a track.</string>
     <string name="revanced_hide_music_ads_title">Hide music ads</string>
     <string name="revanced_hide_new_playlist_button_summary">Hide the New Playlist button in the Library tab.</string>
     <string name="revanced_hide_new_playlist_button_title">Hide new playlist button</string>
-    <string name="revanced_hide_playlist_card_summary">"Hides the playlist card from homepage.
-(requires an app restart)"</string>
+    <string name="revanced_hide_playlist_card_summary">Hides the playlist card from homepage.</string>
     <string name="revanced_hide_playlist_card_title">Hide playlist card</string>
-    <string name="revanced_hook_share_button_summary">"Replace share button with external download button.
-(Experimental Flags)"</string>
-    <string name="revanced_hook_share_button_title">Hook share button</string>
+    <string name="revanced_hook_share_button_summary">Replace share button with external download button.</string>
+    <string name="revanced_hook_share_button_title">Hook share button (Experimental Flags)</string>
+    <string name="revanced_hook_type_summary_off">Open external downloader.</string>
+    <string name="revanced_hook_type_summary_on">Open sleep timer dialog.</string>
+    <string name="revanced_hook_type_title">Hook type</string>
+    <string name="revanced_reboot_message">Refresh and restart</string>
+    <string name="revanced_save_video_quality_mobile">Changing default mobile data quality to:</string>
+    <string name="revanced_save_video_quality_none">Failed to set quality</string>
+    <string name="revanced_save_video_quality_wifi">Changing default Wi-Fi quality to:</string>
+    <string name="revanced_spoof_app_version_summary">Trick the YouTube Music version to v4.27.53 for Canadian users.</string>
+    <string name="revanced_spoof_app_version_title">Spoof app version</string>
 </resources>
