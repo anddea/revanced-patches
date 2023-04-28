@@ -1,4 +1,4 @@
-package app.revanced.patches.music.layout.sharebuttonhook.fingerprints
+package app.revanced.patches.music.misc.sharebuttonhook.fingerprints
 
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import org.jf.dexlib2.Opcode
