@@ -16,7 +16,7 @@ import app.revanced.util.enum.CategoryType
 import app.revanced.util.integrations.Constants.MUSIC_MISC_PATH
 
 @Patch
-@Name("spoof-version")
+@Name("spoof-app-version")
 @Description("Spoof the YouTube Music client version.")
 @DependsOn(
     [
