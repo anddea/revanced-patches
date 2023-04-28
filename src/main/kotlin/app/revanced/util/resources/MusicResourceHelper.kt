@@ -87,7 +87,7 @@ internal object MusicResourceHelper {
 
     private fun ResourceContext.replacePackageName(){
         this[YOUTUBE_MUSIC_SETTINGS_PATH].writeText(
-            this[YOUTUBE_MUSIC_SETTINGS_PATH].readText().replace("\"com.google.android.apps.youtube.music", "\"" + targetPackage)
+            this[YOUTUBE_MUSIC_SETTINGS_PATH].readText().replace("\"com.google.android.apps.youtube.music\"", "\"" + targetPackage + "\"")
         )
     }
 
