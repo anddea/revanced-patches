@@ -65,11 +65,6 @@ class SponsorBlockBytecodePatch : BytecodePatch(
             )
         }
 
-        /*
-         * Inject VideoIdPatch
-         */
-        LegacyVideoIdPatch.injectCall("$INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR->setCurrentVideoId(Ljava/lang/String;)V")
-
 
         /*
          * Seekbar drawing
@@ -171,6 +166,11 @@ class SponsorBlockBytecodePatch : BytecodePatch(
                 break
             }
         } ?: return PlayerControllerFingerprint.toErrorResult()
+
+        /*
+         * Inject VideoIdPatch
+         */
+        LegacyVideoIdPatch.injectCall("$INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR->setCurrentVideoId(Ljava/lang/String;)V")
 
         context.injectInit("FirstRun", "initializationSB")
         context.updatePatchStatus("SponsorBlock")
