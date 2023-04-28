@@ -136,7 +136,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `music-microg-support` | Allows ReVanced Music to run without root and under a different package name with MicroG. | all |
 | `optimize-resource-music` | Remove unnecessary resources. | all |
 | `patch-options` | Create an options.toml file. | all |
-| `remember-video-quality` | null | all |
+| `remember-video-quality` | Save the video quality value whenever you change the video quality. | all |
 | `share-button-hook` | Replace share button with external download button or sleep timer dialog. | all |
 | `spoof-app-version` | Spoof the YouTube Music client version. | all |
 | `translations-music` | Add Crowdin translations for YouTube Music. | all |
@@ -175,7 +175,8 @@ Example:
           "18.12.35",
           "18.13.38",
           "18.14.41",
-          "18.15.40"
+          "18.15.40",
+          "18.16.37"
         ]
       }
     ]
