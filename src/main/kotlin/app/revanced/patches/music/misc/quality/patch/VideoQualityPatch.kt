@@ -2,6 +2,7 @@ package app.revanced.patches.music.misc.quality.patch
 
 import app.revanced.extensions.findMutableMethodOf
 import app.revanced.extensions.toErrorResult
+import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
@@ -27,6 +28,7 @@ import org.jf.dexlib2.iface.reference.FieldReference
 
 @Patch
 @Name("remember-video-quality")
+@Description("Save the video quality value whenever you change the video quality.")
 @DependsOn(
     [
         MusicSettingsPatch::class,
