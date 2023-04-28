@@ -6,7 +6,6 @@ import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.data.toMethodWalker
-import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.instruction
 import app.revanced.patcher.extensions.replaceInstructions
@@ -23,12 +22,11 @@ import app.revanced.patches.youtube.misc.returnyoutubedislike.fingerprints.*
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
 import app.revanced.patches.youtube.misc.videoid.mainstream.patch.MainstreamVideoIdPatch
 import app.revanced.util.integrations.Constants.UTILS_PATH
-import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.iface.instruction.FiveRegisterInstruction
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
-import org.jf.dexlib2.iface.reference.FieldReference
+import org.jf.dexlib2.iface.reference.Reference
 
 @Patch
 @Name("return-youtube-dislike")
@@ -47,8 +45,7 @@ class ReturnYouTubeDislikePatch : BytecodePatch(
         LikeFingerprint,
         RemoveLikeFingerprint,
         ShortsTextComponentParentFingerprint,
-        TextComponentConstructorFingerprint,
-        TextComponentSpecFingerprint
+        TextComponentConstructorFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
@@ -70,54 +67,49 @@ class ReturnYouTubeDislikePatch : BytecodePatch(
 
 
         TextComponentConstructorFingerprint.result?.let { parentResult ->
+
             TextComponentContextFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.let {
                 with (it.mutableMethod) {
                     val conversionContextIndex = it.scanResult.patternScanResult!!.startIndex
-                    val conversionContextRegister =
-                        (instruction(conversionContextIndex) as TwoRegisterInstruction).registerA
-
-                    val instructions = implementation!!.instructions
-                    val targetName = "a"
-                    val targetType = "Ljava/util/concurrent/atomic/AtomicReference;"
-
-                    for ((index, instruction) in instructions.withIndex()) {
-                        if (instruction.opcode != Opcode.IGET_OBJECT) continue
-
-                        val indexReference = (instruction as ReferenceInstruction).reference as FieldReference
-                        if (indexReference.name != targetName || indexReference.type != targetType) continue
-                        atomicReferenceRegister = (instruction(index) as TwoRegisterInstruction).registerA
-                        insertIndex = index + 1
-                        break
-                    }
-
-                    if (insertIndex == 0) return TextComponentContextFingerprint.toErrorResult()
-
-                    addInstruction(
-                        insertIndex,
-                        "invoke-static {v$conversionContextRegister, v$atomicReferenceRegister}, $INTEGRATIONS_RYD_CLASS_DESCRIPTOR->onComponentCreated(Ljava/lang/Object;Ljava/util/concurrent/atomic/AtomicReference;)V"
-                    )
+                    conversionContextFieldReference =
+                        (instruction(conversionContextIndex) as ReferenceInstruction).reference
                 }
             } ?: return TextComponentContextFingerprint.toErrorResult()
-        } ?: return TextComponentConstructorFingerprint.toErrorResult()
+
+            TextComponentTmpFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.let {
+                with (it.mutableMethod) {
+                    val startIndex = it.scanResult.patternScanResult!!.startIndex
+                    tmpRegister =
+                        (instruction(startIndex) as FiveRegisterInstruction).registerE
+
+                }
+            } ?: return TextComponentTmpFingerprint.toErrorResult()
 
 
-        TextComponentSpecFingerprint.result?.let {
-            with(it.mutableMethod) {
-                val startIndex = it.scanResult.patternScanResult!!.startIndex
-                val endIndex = it.scanResult.patternScanResult!!.endIndex
-                val charSequenceRegister = (instruction(endIndex) as OneRegisterInstruction).registerA
-                val contextTempRegister = (instruction(startIndex) as FiveRegisterInstruction).registerD
+            TextComponentAtomicReferenceFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.let {
+                with (it.mutableMethod) {
+                    val atomicReferenceStartIndex = it.scanResult.patternScanResult!!.startIndex
+                    val insertIndex = it.scanResult.patternScanResult!!.endIndex
+                    val moveCharSequenceInstruction = instruction(insertIndex) as TwoRegisterInstruction
 
-                replaceInstructions(endIndex, "move-object/from16 v$contextTempRegister, p0")
-                addInstructions(
-                    endIndex + 1, """
-                        invoke-static {v$contextTempRegister, v$charSequenceRegister}, $INTEGRATIONS_RYD_CLASS_DESCRIPTOR->onComponentCreated(Ljava/lang/Object;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
-                        move-result-object v$charSequenceRegister
-                        return-object v$charSequenceRegister
+                    val atomicReferenceRegister =
+                        (instruction(atomicReferenceStartIndex) as FiveRegisterInstruction).registerC
+
+                    val charSequenceRegister =
+                        moveCharSequenceInstruction.registerB
+
+                    replaceInstructions(insertIndex, "move-object/from16 v$tmpRegister, p0")
+                    addInstructions(
+                        insertIndex + 1, """
+                            iget-object v$tmpRegister, v$tmpRegister, $conversionContextFieldReference
+                            invoke-static {v$tmpRegister, v$atomicReferenceRegister, v$charSequenceRegister}, $INTEGRATIONS_RYD_CLASS_DESCRIPTOR->onLithoTextLoaded(Ljava/lang/Object;Ljava/util/concurrent/atomic/AtomicReference;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
+                            move-result-object v$charSequenceRegister
+                            move-object v${moveCharSequenceInstruction.registerA}, v${charSequenceRegister}
                     """
-                )
-            }
-        } ?: return TextComponentSpecFingerprint.toErrorResult()
+                    )
+                }
+            } ?: return TextComponentAtomicReferenceFingerprint.toErrorResult()
+        } ?: return TextComponentConstructorFingerprint.toErrorResult()
 
         ShortsTextComponentParentFingerprint.result?.let {
             with (context
@@ -157,8 +149,8 @@ class ReturnYouTubeDislikePatch : BytecodePatch(
         const val INTEGRATIONS_RYD_CLASS_DESCRIPTOR =
             "$UTILS_PATH/ReturnYouTubeDislikePatch;"
 
-        var atomicReferenceRegister: Int = 0
-        var insertIndex: Int = 0
+        lateinit var conversionContextFieldReference: Reference
+        var tmpRegister: Int = 12
     }
 
     private fun MethodFingerprint.toPatch(voteKind: Vote) = VotePatch(this, voteKind)
