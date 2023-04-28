@@ -47,14 +47,11 @@ class ShortsNavBarPatch : BytecodePatch(
                 with (it.mutableMethod) {
                     val startIndex = it.scanResult.patternScanResult!!.startIndex
                     val instructions = implementation!!.instructions
-
-                    val indexReference = ((instructions[startIndex] as ReferenceInstruction).reference as DexBackedTypeReference).toString()
-                    if (indexReference != targetReference) return SetPivotBarFingerprint.toErrorResult()
                     val register = (instructions[startIndex] as OneRegisterInstruction).registerA
 
                     addInstruction(
                         startIndex + 1,
-                        "sput-object v$register, $NAVIGATION->pivotbar:$targetReference"
+                        "sput-object v$register, $NAVIGATION->pivotBar:Ljava/lang/Object;"
                     )
                 }
             } ?: return SetPivotBarFingerprint.toErrorResult()
@@ -118,10 +115,5 @@ class ShortsNavBarPatch : BytecodePatch(
         SettingsPatch.updatePatchStatus("hide-shorts-navbar")
 
         return PatchResultSuccess()
-    }
-
-    private companion object {
-        const val targetReference =
-            "Lcom/google/android/apps/youtube/app/ui/pivotbar/PivotBar;"
     }
 }
