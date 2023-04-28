@@ -9,6 +9,7 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
+import app.revanced.patches.music.misc.clientspoof.patch.ClientSpoofMusicPatch
 import app.revanced.patches.music.misc.microg.bytecode.fingerprints.*
 import app.revanced.patches.music.misc.microg.resource.patch.MusicMicroGResourcePatch
 import app.revanced.patches.music.misc.microg.shared.Constants.MUSIC_PACKAGE_NAME
@@ -20,6 +21,7 @@ import app.revanced.util.microg.MicroGBytecodeHelper
 @Patch
 @DependsOn(
     [
+        ClientSpoofMusicPatch::class,
         MusicMicroGResourcePatch::class,
         PatchOptions::class
     ]
