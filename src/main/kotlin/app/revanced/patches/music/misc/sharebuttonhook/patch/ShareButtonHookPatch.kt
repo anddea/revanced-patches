@@ -1,4 +1,4 @@
-package app.revanced.patches.music.layout.sharebuttonhook.patch
+package app.revanced.patches.music.misc.sharebuttonhook.patch
 
 import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
@@ -8,29 +8,27 @@ import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.instruction
-import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.music.layout.sharebuttonhook.fingerprints.*
-import app.revanced.patches.music.misc.settings.patch.MusicSettingsPatch
+import app.revanced.patches.music.misc.settings.resource.patch.MusicSettingsPatch
+import app.revanced.patches.music.misc.sharebuttonhook.fingerprints.*
 import app.revanced.patches.music.misc.videoid.patch.MusicVideoIdPatch
 import app.revanced.patches.shared.annotation.YouTubeMusicCompatibility
-import app.revanced.patches.shared.patch.options.PatchOptions
-import app.revanced.patches.shared.patch.options.PatchOptions.Companion.MusicDownloaderPackageName
-import app.revanced.util.integrations.Constants.MUSIC_PATH
+import app.revanced.util.enum.CategoryType
+import app.revanced.util.integrations.Constants.MUSIC_INTEGRATIONS_PATH
+import app.revanced.util.integrations.Constants.MUSIC_MISC_PATH
 
 @Patch
 @Name("share-button-hook")
-@Description("Replace share button with external download button.")
+@Description("Replace share button with external download button or sleep timer dialog.")
 @DependsOn(
     [
         MusicSettingsPatch::class,
-        MusicVideoIdPatch::class,
-        PatchOptions::class
+        MusicVideoIdPatch::class
     ]
 )
 @YouTubeMusicCompatibility
@@ -38,7 +36,7 @@ import app.revanced.util.integrations.Constants.MUSIC_PATH
 class ShareButtonHookPatch : BytecodePatch(
     listOf(
         ConnectionTrackerFingerprint,
-        MusicSettingsFingerprint,
+        FullStackTraceActivityFingerprint,
         SharePanelFingerprint,
         ShowToastFingerprint
     )
@@ -50,7 +48,7 @@ class ShareButtonHookPatch : BytecodePatch(
 
                 addInstructions(
                     targetIndex,"""
-                        invoke-static {}, $MUSIC_PATH/HookShareButtonPatch;->overrideSharePanel()Z
+                        invoke-static {}, $INTEGRATIONS_CLASS_DESCRIPTOR->overrideSharePanel()Z
                         move-result p1
                         if-eqz p1, :default
                         return-void
@@ -61,23 +59,30 @@ class ShareButtonHookPatch : BytecodePatch(
 
         ConnectionTrackerFingerprint.result?.mutableMethod?.addInstruction(
             0,
-            "sput-object p1, $MUSIC_PATH/HookShareButtonPatch;->context:Landroid/content/Context;"
+            "sput-object p1, $INTEGRATIONS_CLASS_DESCRIPTOR->context:Landroid/content/Context;"
         ) ?: return ConnectionTrackerFingerprint.toErrorResult()
 
         ShowToastFingerprint.result?.mutableMethod?.addInstructions(
             0,"""
-                invoke-static {p0}, $MUSIC_PATH/HookShareButtonPatch;->dismissContext(Landroid/content/Context;)Landroid/content/Context;
+                invoke-static {p0}, $INTEGRATIONS_CLASS_DESCRIPTOR->dismissContext(Landroid/content/Context;)Landroid/content/Context;
                 move-result-object p0
             """
         ) ?: return ShowToastFingerprint.toErrorResult()
 
-        MusicSettingsFingerprint.result?.mutableMethod?.replaceInstruction(
-            0,
-            "const-string v0, \"$MusicDownloaderPackageName\""
-        )?: return MusicSettingsFingerprint.toErrorResult()
+        FullStackTraceActivityFingerprint.result?.mutableMethod?.addInstructions(
+            1,"""
+                invoke-static {p0}, $MUSIC_INTEGRATIONS_PATH/settingsmenu/SharedPreferenceChangeListener;->initializeSettings(Landroid/app/Activity;)V
+                return-void
+            """
+        ) ?: return FullStackTraceActivityFingerprint.toErrorResult()
 
-        MusicSettingsPatch.addMusicPreference("navigation", "revanced_hook_share_button", "false")
+        MusicSettingsPatch.addMusicPreference(CategoryType.MISC, "revanced_hook_share_button", "false")
+        MusicSettingsPatch.addMusicPreferenceAlt(CategoryType.MISC, "revanced_hook_type", "false", "revanced_hook_share_button")
+        MusicSettingsPatch.addMusicPreferenceWithIntent(CategoryType.MISC, "revanced_default_downloader", "revanced_hook_share_button")
 
         return PatchResultSuccess()
+    }
+    private companion object {
+        const val INTEGRATIONS_CLASS_DESCRIPTOR = "$MUSIC_MISC_PATH/HookShareButtonPatch;"
     }
 }
