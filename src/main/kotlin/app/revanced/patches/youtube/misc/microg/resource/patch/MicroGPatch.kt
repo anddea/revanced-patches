@@ -23,7 +23,7 @@ import app.revanced.util.resources.ResourceHelper.setMicroG
 
 @Patch
 @Name("microg-support")
-@Description("Allows YouTube ReVanced to run without root and under a different package name with Vanced MicroG.")
+@Description("Allows ReVanced to run without root and under a different package name with MicroG.")
 @DependsOn(
     [
         SettingsPatch::class,
