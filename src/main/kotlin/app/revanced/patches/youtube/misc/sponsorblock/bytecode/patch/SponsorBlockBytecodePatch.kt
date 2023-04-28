@@ -8,6 +8,7 @@ import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
@@ -33,6 +34,7 @@ import org.jf.dexlib2.iface.reference.MethodReference
 @Name("sponsorblock-bytecode-patch")
 @DependsOn(
     [
+        HookTimebarPatch::class,
         LegacyVideoIdPatch::class,
         MainstreamVideoIdPatch::class,
         OverrideSpeedHookPatch::class,
@@ -111,6 +113,9 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         }.map { // TODO: improve code
             insertInstructions.indexOf(it) to (it as FiveRegisterInstruction).registerD
         }
+
+        if (drawRectangleInstructions.size < 4)
+            return PatchResultError("Couldn't find drawRect reference")
 
         mapOf(
             "setSponsorBarAbsoluteLeft" to 3,

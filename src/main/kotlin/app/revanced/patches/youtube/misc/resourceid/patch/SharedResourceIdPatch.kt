@@ -29,7 +29,6 @@ class SharedResourceIdPatch : ResourcePatch {
         var compactLinkLabelId: Long = -1
         var controlsLayoutStubResourceId: Long = -1
         var donationCompanionResourceId: Long = -1
-        var emptyColorLabelId: Long = -1
         var fabLabelId: Long = -1
         var filterBarHeightLabelId: Long = -1
         var floatyBarQueueLabelId: Long = -1
@@ -71,7 +70,6 @@ class SharedResourceIdPatch : ResourcePatch {
         compactLinkLabelId = find(LAYOUT, "compact_link")
         controlsLayoutStubResourceId = find(ID, "controls_layout_stub")
         donationCompanionResourceId = find(LAYOUT, "donation_companion")
-        emptyColorLabelId = find(COLOR, "inline_time_bar_colorized_bar_empty_color_dark")
         fabLabelId = find(ID, "fab")
         filterBarHeightLabelId = find(DIMEN, "filter_bar_height")
         floatyBarQueueLabelId = find(STRING, "floaty_bar_queue_status")
