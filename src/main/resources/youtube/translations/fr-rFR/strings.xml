@@ -36,7 +36,7 @@
     <string name="revanced_change_homepage_title">Changer la page d\'accueil pour la page d\'abonnements</string>
     <string name="revanced_comments_title">Les commentaires</string>
     <string name="revanced_copytimestamp_success">Le texte horodateur a été copié dans le presse-papiers</string>
-    <string name="revanced_custom_seekbar_color_value_summary">Tapez le code couleur hex de la barre de recherche par défaut :ff0000</string>
+    <string name="revanced_custom_seekbar_color_value_summary">Tapez le code couleur hex de la barre de recherche</string>
     <string name="revanced_custom_seekbar_color_value_title">Couleur de la barre de progression personnalisée (hex)</string>
     <string name="revanced_default_video_quality_mobile_title">Qualité vidéo par défaut données mobiles</string>
     <string name="revanced_default_video_quality_wifi_title">Qualité vidéo par défaut Wi-Fi</string>
@@ -540,18 +540,23 @@ Ce paramètre étant obsolètes, il se peut qu'ils ne soient plus valables"</str
     <string name="revanced_whitelisting_title">Liste blanche des chaînes</string>
     <string name="sb_enable_sb">SponsorBlock</string>
     <string name="sb_enable_sb_sum">SponsorBlock est un système reposant sur la communauté qui permet de sauter les passages ennuyeux des vidéos YouTube</string>
-    <string name="sb_enable_voting">Le bouton \"Vote\"</string>
+    <string name="sb_appearance_category">Apparence</string>
+    <string name="sb_enable_voting">Le bouton \"Passer\"</string>
     <string name="sb_enable_voting_sum_on">Le bouton de vote pour passer le moment est affiché</string>
     <string name="sb_enable_voting_sum_off">Le bouton de vote pour passer le moment n\'est pas affiché</string>
     <string name="sb_enable_compact_skip_button">Utilise un bouton pour passer un moment</string>
     <string name="sb_enable_compact_skip_button_sum_on">La taille du bouton \"Passer\" est réduit</string>
     <string name="sb_enable_compact_skip_button_sum_off">Meilleure apparence pour le bouton \"Passer\"</string>
+    <string name="sb_enable_auto_hide_skip_segment_button">Cache automatiquement le bouton \"Passer\"</string>
+    <string name="sb_enable_auto_hide_skip_segment_button_sum_on">Le bouton \"Passer\" se cache après quelques secondes</string>
+    <string name="sb_enable_auto_hide_skip_segment_button_sum_off">Le bouton \"Passer\" est affichée tout le long du moment</string>
     <string name="sb_general_skiptoast">Afficher un message lorsqu\'un moment est passé automatiquement</string>
     <string name="sb_general_skiptoast_sum_on">Un message sera affiché lorsqu\'un moment est automatiquement passé. Appuyez ici pour voir un exemple</string>
     <string name="sb_general_skiptoast_sum_off">Un message ne s\'affichera pas lorsqu\'un moment est automatiquement passé. Appuyez ici pour voir un exemple</string>
     <string name="sb_general_time_without">Temps d\'affichage sans compter les sponsors ou autre</string>
     <string name="sb_general_time_without_sum_on">Durée de la vidéo sans compter les moments (à côté de la durée totale de la vidéo)</string>
     <string name="sb_general_time_without_sum_off">Le temps de la vidéo est affiché normalement</string>
+    <string name="sb_create_segment_category">Crée un nouveau moment</string>
     <string name="sb_enable_create_segment">L\'ajout d\'un nouveau moment à passée</string>
     <string name="sb_enable_create_segment_sum_on">Le bouton pour pouvoir ajouter un nouveau moment à passé est affiché</string>
     <string name="sb_enable_create_segment_sum_off">Le bouton pour pouvoir ajouter un nouveau moment à passé n\'est pas affiché</string>
@@ -579,7 +584,7 @@ Ce paramètre étant obsolètes, il se peut qu'ils ne soient plus valables"</str
     <string name="sb_api_url_invalid">L\'URL de l\'API est invalide</string>
     <string name="sb_api_url_changed">L\'URL de l\'API a été modifiée</string>
     <string name="sb_settings_ie_sum">Votre configuration SponsorBlock au format JSON peut être importé/exporté vers ReVanced ou sur d\'autres plateformes. Cela inclut votre identifiant personnel. Partagez-le avec prudence</string>
-    <string name="sb_diff_segments">Que doivent faire les différents segments</string>
+    <string name="sb_diff_segments">Que faire avec les différents moments ?</string>
     <string name="sb_segments_sponsor">Sponsor</string>
     <string name="sb_segments_sponsor_sum">Promotion payée, parrainage payé et publicités directes. Non destiné à l\'auto-promotion ou aux mentions gratuites pour des causes/créateurs/sites web/produits qu\'ils apprécient</string>
     <string name="sb_segments_selfpromo">Auto-promotion/Non Rémunérée</string>
@@ -660,14 +665,14 @@ Existe déjà</string>
     <string name="sb_stats">Statistiques</string>
     <string name="sb_stats_connection_failure">Les statistiques sont temporairement indisponibles (API obsolète)</string>
     <string name="sb_stats_sb_disabled">SponsorBlock est désactivée</string>
-    <string name="sb_stats_username" formatted="false">Votre nom d\'utilisateur : &lt;b&gt;%s&lt;/b&gt;</string>
+    <string name="sb_stats_username" formatted="false">Ton nom d\'utilisateur : &lt;b&gt;%s&lt;/b&gt;</string>
     <string name="sb_stats_username_change">Clique pour changer ton nom d\'utilisateur</string>
     <string name="sb_stats_username_change_unknown_error" formatted="false">Impossible de changer le nom d\'utilisateur : Statut %d %s</string>
     <string name="sb_stats_username_changed">Nom d\'utilisateur changer avec succès</string>
     <string name="sb_stats_reputation" formatted="false">Votre réputation est de &lt;b&gt;%.2f&lt;/b&gt;</string>
     <string name="sb_stats_submissions" formatted="false">Vous avez créé &lt;b&gt;%s&lt;/b&gt; moments</string>
     <string name="sb_stats_saved_zero">Classement de SponsorBlock</string>
-    <string name="sb_stats_saved" formatted="false">Les gens ont passé &lt;b&gt;%s&lt;/b&gt; moment grâce à vous</string>
+    <string name="sb_stats_saved" formatted="false">Les gens ont économisé &lt;b&gt;%s&lt;/b&gt; grâce à vous</string>
     <string name="sb_stats_saved_sum_zero">Appuyez ici pour voir les statistiques globales et les meilleurs contributeurs</string>
     <string name="sb_stats_saved_sum" formatted="false">Cela représente &lt;b&gt;%s&lt;/b&gt; de leur temps qu\'ils ont économisé Cliquez pour voir le classement</string>
     <string name="sb_stats_self_saved" formatted="false">Vous avez ignoré &lt;b&gt;%s&lt;/b&gt; moments</string>

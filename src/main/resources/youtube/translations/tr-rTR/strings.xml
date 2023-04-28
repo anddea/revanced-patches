@@ -541,12 +541,16 @@ Bu ayar oldukça eski olduğu için geçerli olmayabilir"</string>
     <string name="revanced_whitelisting_title">Kanal beyaz listesi</string>
     <string name="sb_enable_sb">SponsorBlock\'u etkinleştir</string>
     <string name="sb_enable_sb_sum">SponsorBlock, YouTube videolarındaki sıkıcı kısımları atlamaya yarayan kitle kaynaklı bir sistemdir</string>
+    <string name="sb_appearance_category">Görünüm</string>
     <string name="sb_enable_voting">Oylama Düğmesini Göster</string>
     <string name="sb_enable_voting_sum_on">Gizlenmiyor</string>
     <string name="sb_enable_voting_sum_off">Gizleniyor</string>
     <string name="sb_enable_compact_skip_button">Kompakt atlama düğmesini kullanın</string>
     <string name="sb_enable_compact_skip_button_sum_on">Minimum genişlik için tasarlanmış atlama düğmesi</string>
     <string name="sb_enable_compact_skip_button_sum_off">En iyi görünüm için tasarlanmış atla düğmesi</string>
+    <string name="sb_enable_auto_hide_skip_segment_button">Atla düğmesini otomatik olarak gizle</string>
+    <string name="sb_enable_auto_hide_skip_segment_button_sum_on">Atla düğmesi birkaç saniye sonra gizlenir</string>
+    <string name="sb_enable_auto_hide_skip_segment_button_sum_off">Atlama düğmesi tüm segmentler için görüntülenir</string>
     <string name="sb_general_skiptoast">Bir kısım otomatikman atlanırken uyarı ver</string>
     <string name="sb_general_skiptoast_sum_on">Tost, bir bölüm otomatik olarak atlandığında gösterilir.
 Bir örnek görmek için buraya dokunun</string>
@@ -554,6 +558,7 @@ Bir örnek görmek için buraya dokunun</string>
     <string name="sb_general_time_without">Video uzunluğunu bölümler olmadan göster</string>
     <string name="sb_general_time_without_sum_on">Video uzunluğu eksi tüm segmentler, tam video uzunluğunun yanında parantez içinde gösterilir</string>
     <string name="sb_general_time_without_sum_off">Gizlenmiyor</string>
+    <string name="sb_create_segment_category">Yeni segmentler oluşturma</string>
     <string name="sb_enable_create_segment">Yeni segment oluştur düğmesini göster</string>
     <string name="sb_enable_create_segment_sum_on">Gizlenmiyor</string>
     <string name="sb_enable_create_segment_sum_off">Gizleniyor</string>
@@ -576,12 +581,12 @@ Bir örnek görmek için buraya dokunun</string>
     <string name="sb_general_uuid_sum">Bu gizli tutulmalıdır. Bu bir şifre gibidir ve kimseyle paylaşılmamalıdır. Birisi buna sahipse, sizi taklit edebilir</string>
     <string name="sb_general_uuid_invalid">Kullanıcı kimliği boş olamaz</string>
     <string name="sb_general_api_url">API URL\'sini Değiştir</string>
-    <string name="sb_general_api_url_sum">SponsorBlock\'un sunucuya çağrı yapmak için kullandığı adres. &lt;b&gt;Ne yaptığınızı bilmiyorsanız bunu değiştirmeyin&lt;/b&gt;</string>
+    <string name="sb_general_api_url_sum">SponsorBlock\'un sunucuya çağrı yapmak için kullandığı adres. Ne yaptığınızı bilmiyorsanız bunu değiştirmeyin</string>
     <string name="sb_api_url_reset">API URL\'si sıfırlandı</string>
     <string name="sb_api_url_invalid">API bağlantısı geçersiz</string>
     <string name="sb_api_url_changed">API URL\'si değiştirildi</string>
     <string name="sb_settings_ie_sum">ReVanced ve diğer SponsorBlock platformlarına içe/dışa aktarılabilen SponsorBlock JSON yapılandırmanız. Bu, özel kullanıcı kimliğinizi içerir. Bunu akıllıca paylaştığınızdan emin olun</string>
-    <string name="sb_diff_segments">Bu kısımlar ne anlama geliyor</string>
+    <string name="sb_diff_segments">Segment davranışını değiştir</string>
     <string name="sb_segments_sponsor">Sponsor</string>
     <string name="sb_segments_sponsor_sum">Ücretli tanıtım, ücretli yönlendirmeler ve doğrudan reklamlar. Kendini pazarlayan veya beğendiği içerik üreticilerine/sitelere/ürünlere atıfta bulunanlar için değil</string>
     <string name="sb_segments_selfpromo">Karşılıksız/Kendi Reklamı</string>
