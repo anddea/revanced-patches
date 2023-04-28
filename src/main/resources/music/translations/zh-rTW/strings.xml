@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="revanced_category_ads">廣告設定</string>
+    <string name="revanced_category_layout">介面</string>
+    <string name="revanced_category_misc">其他</string>
+    <string name="revanced_default_downloader_summary">下載器應用程式的包裝名稱，例如 NewPipe 或 PowerTube。</string>
+    <string name="revanced_default_downloader_title">下載器的包裝名稱</string>
     <string name="revanced_disable_auto_captions_summary">停用在播放器中被強制啟用的字幕</string>
     <string name="revanced_disable_auto_captions_title">停用自動字幕</string>
     <string name="revanced_downloader_not_installed" formatted="false">%s 尚未安裝. 請先安裝.</string>
@@ -14,13 +18,37 @@
     <string name="revanced_enable_force_minimized_player_title">切換歌曲時保持迷你播放器</string>
     <string name="revanced_enable_force_shuffle_summary">即使播放另一首歌曲，也強制啟用隨機播放。</string>
     <string name="revanced_enable_force_shuffle_title">啟用強制隨機播放</string>
+    <string name="revanced_enable_landscape_mode_summary">允許透過手機螢幕旋轉進入橫向模式。</string>
+    <string name="revanced_enable_landscape_mode_title">啟用橫向模式</string>
+    <string name="revanced_enable_opus_codec_summary">播放音樂時啟用 250/251 opus 解碼器。</string>
     <string name="revanced_enable_opus_codec_title">啟用解碼器覆寫</string>
+    <string name="revanced_enable_save_video_quality_summary">每當您變更影片畫質時記憶影片畫質設定</string>
+    <string name="revanced_enable_save_video_quality_title">啟用記憶影片畫質</string>
     <string name="revanced_enable_zen_mode_summary">在影片播放器上增加灰色陰影以減少眼睛疲勞</string>
     <string name="revanced_enable_zen_mode_title">護眼模式</string>
-    <string name="revanced_hide_cast_button_summary">在首頁和播放器頁面中隱藏 Cast（投放）按鈕</string>
-    <string name="revanced_hide_cast_button_title">隱藏 Cast（投放）按鈕</string>
+    <string name="revanced_hide_button_shelf_summary">從首頁和檔案管理隱藏按鈕。</string>
+    <string name="revanced_hide_button_shelf_title">隱藏按鈕</string>
+    <string name="revanced_hide_carousel_shelf_summary">從首頁和檔案管理隱藏輪播列表。</string>
+    <string name="revanced_hide_carousel_shelf_title">隱藏播放清單</string>
+    <string name="revanced_hide_cast_button_summary">在首頁和播放器介面中隱藏投放按鈕</string>
+    <string name="revanced_hide_cast_button_title">隱藏投放按鈕</string>
+    <string name="revanced_hide_category_bar_summary">隱藏首頁頂部的音樂分類列表。</string>
+    <string name="revanced_hide_category_bar_title">隱藏分類列表</string>
+    <string name="revanced_hide_music_ads_summary">在播放歌曲之前隱藏廣告。</string>
     <string name="revanced_hide_music_ads_title">隱藏音樂廣告</string>
     <string name="revanced_hide_new_playlist_button_summary">隱藏位於資料庫標籤的新的播放清單按鈕</string>
     <string name="revanced_hide_new_playlist_button_title">隱藏新的播放清單按鈕</string>
+    <string name="revanced_hide_playlist_card_summary">從首頁隱藏播放清單</string>
     <string name="revanced_hide_playlist_card_title">隱藏播放清單</string>
+    <string name="revanced_hook_share_button_summary">用外部下載按鈕替換分享按鈕。</string>
+    <string name="revanced_hook_share_button_title">掛鉤分享按鈕（實驗性功能）</string>
+    <string name="revanced_hook_type_summary_off">開啟外部下載器。</string>
+    <string name="revanced_hook_type_summary_on">開啟睡眠定時器彈出視窗。</string>
+    <string name="revanced_hook_type_title">掛勾類型</string>
+    <string name="revanced_reboot_message">更新並重新啟動</string>
+    <string name="revanced_save_video_quality_mobile">將預設行動數據畫質顯示為：</string>
+    <string name="revanced_save_video_quality_none">畫質設定失敗</string>
+    <string name="revanced_save_video_quality_wifi">將預設無線網路畫質更改為：</string>
+    <string name="revanced_spoof_app_version_summary">將加拿大用戶的 YouTube Music 版本設定為 v4.27.53。</string>
+    <string name="revanced_spoof_app_version_title">偽裝應用程式版本</string>
 </resources>
