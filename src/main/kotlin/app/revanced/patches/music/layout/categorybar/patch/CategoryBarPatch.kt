@@ -1,4 +1,4 @@
-package app.revanced.patches.music.layout.compactheader.patch
+package app.revanced.patches.music.layout.categorybar.patch
 
 import app.revanced.extensions.findMutableMethodOf
 import app.revanced.extensions.toResult
@@ -11,16 +11,17 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patches.music.misc.settings.patch.MusicSettingsPatch
+import app.revanced.patches.music.misc.settings.resource.patch.MusicSettingsPatch
 import app.revanced.patches.shared.annotation.YouTubeMusicCompatibility
 import app.revanced.patches.shared.patch.mapping.ResourceMappingPatch
-import app.revanced.util.integrations.Constants.MUSIC_SETTINGS_PATH
+import app.revanced.util.enum.CategoryType
+import app.revanced.util.integrations.Constants.MUSIC_LAYOUT
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.iface.instruction.formats.Instruction21c
 import org.jf.dexlib2.iface.instruction.formats.Instruction31i
 
 @Patch
-@Name("hide-compact-header")
+@Name("hide-category-bar")
 @Description("Hides the music category bar at the top of the homepage.")
 @DependsOn(
     [
@@ -30,7 +31,7 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction31i
 )
 @YouTubeMusicCompatibility
 @Version("0.0.1")
-class CompactHeaderPatch : BytecodePatch() {
+class CategoryBarPatch : BytecodePatch() {
 
     // list of resource names to get the id of
     private val resourceIds = arrayOf(
@@ -61,10 +62,10 @@ class CompactHeaderPatch : BytecodePatch() {
 
                                         mutableMethod.addInstruction(
                                             insertIndex,
-                                            "invoke-static { v$register }, $MUSIC_SETTINGS_PATH->hideCompactHeader(Landroid/view/View;)V"
+                                            "invoke-static { v$register }, $MUSIC_LAYOUT->hideCategoryBar(Landroid/view/View;)V"
                                         )
 
-                                        MusicSettingsPatch.addMusicPreference("navigation", "revanced_hide_compact_header", "true")
+                                        MusicSettingsPatch.addMusicPreference(CategoryType.LAYOUT, "revanced_hide_category_bar", "true")
 
                                         patchSuccessArray[0] = true
                                     }
