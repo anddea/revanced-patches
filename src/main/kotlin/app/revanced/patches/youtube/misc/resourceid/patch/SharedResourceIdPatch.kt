@@ -31,9 +31,8 @@ class SharedResourceIdPatch : ResourcePatch {
         var donationCompanionResourceId: Long = -1
         var fabLabelId: Long = -1
         var filterBarHeightLabelId: Long = -1
-        var floatyBarQueueLabelId: Long = -1
+        var floatyBarTopMarginLabelId: Long = -1
         var imageOnlyTabId: Long = -1
-        var imageWithTextTabId: Long = -1
         var layoutCircle: Long = -1
         var layoutIcon: Long = -1
         var layoutVideo: Long = -1
@@ -72,9 +71,8 @@ class SharedResourceIdPatch : ResourcePatch {
         donationCompanionResourceId = find(LAYOUT, "donation_companion")
         fabLabelId = find(ID, "fab")
         filterBarHeightLabelId = find(DIMEN, "filter_bar_height")
-        floatyBarQueueLabelId = find(STRING, "floaty_bar_queue_status")
+        floatyBarTopMarginLabelId = find(DIMEN, "floaty_bar_button_top_margin")
         imageOnlyTabId = find(LAYOUT, "image_only_tab")
-        imageWithTextTabId = find(LAYOUT, "image_with_text_tab")
         layoutCircle = find(LAYOUT, "endscreen_element_layout_circle")
         layoutIcon = find(LAYOUT, "endscreen_element_layout_icon")
         layoutVideo = find(LAYOUT, "endscreen_element_layout_video")

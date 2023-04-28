@@ -9,6 +9,6 @@ object PivotBarChangedFingerprint : MethodFingerprint(
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT
     ),
-    customFingerprint = { it.definingClass == "Lcom/google/android/apps/youtube/app/ui/pivotbar/PivotBar;"
+    customFingerprint = { it.definingClass.endsWith("PivotBar;")
             && it.name == "onConfigurationChanged" }
 )

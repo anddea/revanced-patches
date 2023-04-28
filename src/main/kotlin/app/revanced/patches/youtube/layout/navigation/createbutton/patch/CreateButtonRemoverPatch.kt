@@ -12,14 +12,12 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.shared.fingerprints.PivotBarCreateButtonViewFingerprint
-import app.revanced.patches.youtube.layout.navigation.createbutton.fingerprints.PivotBarFingerprint
 import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
 import app.revanced.util.integrations.Constants.NAVIGATION
 import app.revanced.util.pivotbar.InjectionUtils.REGISTER_TEMPLATE_REPLACEMENT
 import app.revanced.util.pivotbar.InjectionUtils.injectHook
-import org.jf.dexlib2.dexbacked.reference.DexBackedMethodReference
-import org.jf.dexlib2.iface.instruction.ReferenceInstruction
+import org.jf.dexlib2.Opcode
 
 @Patch
 @Name("hide-create-button")
@@ -34,57 +32,37 @@ import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 @Version("0.0.1")
 class CreateButtonRemoverPatch : BytecodePatch(
     listOf(
-        PivotBarCreateButtonViewFingerprint,
-        PivotBarFingerprint
+        PivotBarCreateButtonViewFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
 
-        /*
-         * Resolve fingerprints
-         */
-
-        PivotBarFingerprint.result?.let {
-            val startIndex = it.scanResult.patternScanResult!!.startIndex
-            val pivotBarInstructions = it.mutableMethod.implementation!!.instructions
-            createRef = (pivotBarInstructions.elementAt(startIndex) as ReferenceInstruction).reference as DexBackedMethodReference
-        } ?: return PivotBarFingerprint.toErrorResult()
-
         PivotBarCreateButtonViewFingerprint.result?.let { result ->
-            with (result.mutableMethod){
-                val createButtonInstructions = implementation!!.instructions
-                createButtonInstructions.filter { instruction ->
-                    val fieldReference = (instruction as? ReferenceInstruction)?.reference as? DexBackedMethodReference
-                    fieldReference?.let { it.definingClass == createRef.definingClass && it.name == createRef.name } == true
-                }.forEach { instruction ->
-                    if (foundIndex == 0) {
-                        foundIndex++
-                        return@forEach
+            with (result.mutableMethod) {
+                val insertIndex = implementation!!.instructions.let {
+                    val scanStart = result.scanResult.patternScanResult!!.endIndex
+
+                    scanStart + it.subList(scanStart, it.size - 1).indexOfFirst { instruction ->
+                        instruction.opcode == Opcode.INVOKE_STATIC
                     }
-
-                    /*
-                    * Inject hooks
-                    */
-
-                    injectHook(hook, createButtonInstructions.indexOf(instruction) + 2)
-
-                    /*
-                     * Add settings
-                     */
-                    SettingsPatch.addPreference(
-                        arrayOf(
-                            "PREFERENCE: NAVIGATION_SETTINGS",
-                            "SETTINGS: HIDE_CREATE_BUTTON"
-                        )
-                    )
-
-                    SettingsPatch.updatePatchStatus("hide-create-button")
-
-                    return PatchResultSuccess()
                 }
-                return PivotBarCreateButtonViewFingerprint.toErrorResult()
+                injectHook(hook, insertIndex)
             }
         } ?: return PivotBarCreateButtonViewFingerprint.toErrorResult()
+
+        /*
+         * Add settings
+         */
+        SettingsPatch.addPreference(
+            arrayOf(
+                "PREFERENCE: NAVIGATION_SETTINGS",
+                "SETTINGS: HIDE_CREATE_BUTTON"
+            )
+        )
+
+        SettingsPatch.updatePatchStatus("hide-create-button")
+
+        return PatchResultSuccess()
     }
 
     private companion object {
@@ -92,9 +70,5 @@ class CreateButtonRemoverPatch : BytecodePatch(
             "invoke-static { v$REGISTER_TEMPLATE_REPLACEMENT }, $NAVIGATION" +
             "->" +
             "hideCreateButton(Landroid/view/View;)V"
-
-        lateinit var createRef: DexBackedMethodReference
-
-        var foundIndex: Int = 0
     }
 }
