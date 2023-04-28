@@ -23,6 +23,8 @@ class SharedResourceIdPatch : ResourcePatch {
         var disabledIconLabelId: Long = -1
         var isTabletLabelId: Long = -1
         var notifierShelfLabelId: Long = -1
+        var qualityAutoLabelId: Long = -1
+        var qualityTitleLabelId: Long = -1
     }
 
     override fun execute(context: ResourceContext): PatchResult {
@@ -36,6 +38,8 @@ class SharedResourceIdPatch : ResourcePatch {
         disabledIconLabelId = find(DIMEN, "disabled_icon_alpha")
         isTabletLabelId = find(BOOL, "is_tablet")
         notifierShelfLabelId = find(LAYOUT, "music_notifier_shelf")
+        qualityAutoLabelId = find(STRING, "quality_auto")
+        qualityTitleLabelId = find(STRING, "quality_title")
 
         return PatchResultSuccess()
     }
