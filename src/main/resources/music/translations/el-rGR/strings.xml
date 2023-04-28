@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="revanced_category_ads">Διαφημίσεις</string>
+    <string name="revanced_category_layout">Διάταξη</string>
+    <string name="revanced_category_misc">Διάφορα</string>
+    <string name="revanced_default_downloader_summary">Όνομα πακέτου της εφαρμογής λήψης, όπως του NewPipe ή του PowerTube.</string>
+    <string name="revanced_default_downloader_title">Όνομα πακέτου της εφαρμογής λήψης</string>
     <string name="revanced_disable_auto_captions_summary">Απενεργοποιήστε την αυτόματη ενεργοποίηση των αναγκαστικών υπότιτλων στο πρόγραμμα αναπαραγωγής βίντεο.</string>
     <string name="revanced_disable_auto_captions_title">Απόκρυψη αυτόματων υπότιτλων</string>
     <string name="revanced_downloader_not_installed" formatted="false">%s δεν έχει εγκατασταθεί. Παρακαλούμε εγκαταστήστε το.</string>
@@ -14,13 +18,37 @@
     <string name="revanced_enable_force_minimized_player_title">Ενεργοποίηση εξαναγκαστικής ελαχιστοποίησης προγράμματος αναπαραγωγής</string>
     <string name="revanced_enable_force_shuffle_summary">Ενεργοποίηση εξαναγκαστικού ανακατέματος ακόμη και αν αναπαράγεται άλλο κομμάτι.</string>
     <string name="revanced_enable_force_shuffle_title">Ενεργοποίηση εξαναγκαστικού ανακατέματος</string>
+    <string name="revanced_enable_landscape_mode_summary">Ενεργοποιεί την είσοδο σε οριζόντια λειτουργία με την περιστροφή της οθόνης στο τηλέφωνο.</string>
+    <string name="revanced_enable_landscape_mode_title">Ενεργοποίηση οριζόντιας λειτουργίας</string>
+    <string name="revanced_enable_opus_codec_summary">Ενεργοποίηση του κωδικοποιητή opus 250/251 κατά την αναπαραγωγή ήχου.</string>
     <string name="revanced_enable_opus_codec_title">Ενεργοποίηση κωδικοποιητή opus</string>
+    <string name="revanced_enable_save_video_quality_summary">Αποθήκευση της τιμής ποιότητας βίντεο κάθε φορά που αλλάζετε την ποιότητα βίντεο</string>
+    <string name="revanced_enable_save_video_quality_title">Ενεργοποίηση αποθήκευσης ποιότητας βίντεο</string>
     <string name="revanced_enable_zen_mode_summary">Προσθέτει μια γκρι απόχρωση στο πρόγραμμα αναπαραγωγής βίντεο για να μειώσει την καταπόνηση των ματιών.</string>
     <string name="revanced_enable_zen_mode_title">Ενεργοποίηση λειτουργίας zen</string>
+    <string name="revanced_hide_button_shelf_summary">Κρύβει το ράφι με τα κουμπιά στην αρχική σελίδα και στον εξερευνητή.</string>
+    <string name="revanced_hide_button_shelf_title">Απόκρυψη ραφιού κουμπιών</string>
+    <string name="revanced_hide_carousel_shelf_summary">Αποκρύπτει το αναπτυσσόμενο μενού της αρχικής σελίδας και του εξερευνητή.</string>
+    <string name="revanced_hide_carousel_shelf_title">Απόκρυψη ραφιού καρουζέλ</string>
     <string name="revanced_hide_cast_button_summary">Αποκρύπτει το κουμπί μετάδοσης στο επάνω μέρος της αρχικής σελίδας και στο επάνω μέρος του προγράμματος αναπαραγωγής.</string>
     <string name="revanced_hide_cast_button_title">Απόκρυψη κουμπιού μετάδοσης</string>
+    <string name="revanced_hide_category_bar_summary">Κρύβει τη γραμμή κατηγοριών μουσικής στο πάνω μέρος της αρχικής σελίδας.</string>
+    <string name="revanced_hide_category_bar_title">Απόκρυψη μπάρας κατηγοριών</string>
+    <string name="revanced_hide_music_ads_summary">Απόκρυψη διαφημίσεων πριν την αναπαραγωγή κομματιού.</string>
     <string name="revanced_hide_music_ads_title">Απόκρυψη διαφημίσεων μουσικής</string>
     <string name="revanced_hide_new_playlist_button_summary">Απόκρυψη του κουμπιού νέου playlist στην καρτέλα Βιβλιοθήκη.</string>
     <string name="revanced_hide_new_playlist_button_title">Απόκρυψη κουμπιού νέας λίστας αναπαραγωγής</string>
+    <string name="revanced_hide_playlist_card_summary">Απόκρυψη της κάρτας λίστας αναπαραγωγής από την αρχική σελίδα.</string>
     <string name="revanced_hide_playlist_card_title">Απόκρυψη της κάρτας προτεινόμενης λίστας αναπαραγωγής</string>
+    <string name="revanced_hook_share_button_summary">Αντικατάσταση της λειτουργικότητας του κουμπιού κοινοποίησης με κουμπί λήψης σε εξωτερική εφαρμογή ή με παράθυρο του χρονοδιακόπτη.</string>
+    <string name="revanced_hook_share_button_title">Αλλαγή συμπεριφοράς κουμπιού κοινοποίησης (Πειραματική Λειτουργία)</string>
+    <string name="revanced_hook_type_summary_off">Άνοιγμα εξωτερικής εφαρμογής λήψης.</string>
+    <string name="revanced_hook_type_summary_on">Ανοίξτε το παράθυρο του χρονοδιακόπτη.</string>
+    <string name="revanced_hook_type_title">Τύπος λειτουργικότητας</string>
+    <string name="revanced_reboot_message">Ανανέωση και επανεκκίνηση</string>
+    <string name="revanced_save_video_quality_mobile">Αλλαγή της προεπιλεγμένης ποιότητας δεδομένων κινητής τηλεφωνίας σε:</string>
+    <string name="revanced_save_video_quality_none">Αποτυχία ρύθμισης της ποιότητας</string>
+    <string name="revanced_save_video_quality_wifi">Αλλαγή της προεπιλεγμένης ποιότητας Wi-Fi σε:</string>
+    <string name="revanced_spoof_app_version_summary">Παραποιεί την έκδοση YouTube Music σε v4.27.53 για Καναδούς χρήστες.</string>
+    <string name="revanced_spoof_app_version_title">Παραποίηση έκδοσης εφαρμογής</string>
 </resources>
