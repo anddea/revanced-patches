@@ -18,7 +18,7 @@ import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.youtube.misc.playertype.patch.PlayerTypeHookPatch
 import app.revanced.patches.youtube.misc.protobufpoof.fingerprints.*
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
-import app.revanced.patches.youtube.misc.videoid.legacy.patch.LegacyVideoIdPatch
+import app.revanced.patches.youtube.misc.videoid.mainstream.patch.MainstreamVideoIdPatch
 import app.revanced.util.integrations.Constants.MISC_PATH
 
 @Patch
@@ -26,7 +26,7 @@ import app.revanced.util.integrations.Constants.MISC_PATH
 @Description("Spoofs the protobuf to prevent playback issues.")
 @DependsOn(
     [
-        LegacyVideoIdPatch::class,
+        MainstreamVideoIdPatch::class,
         PlayerTypeHookPatch::class,
         SettingsPatch::class
     ]
@@ -83,7 +83,7 @@ class ProtobufSpoofPatch : BytecodePatch(
         ) ?: return SubtitleWindowFingerprint.toErrorResult()
 
         // Hook video id, required for subtitle fix.
-        LegacyVideoIdPatch.injectCall("$MISC_PATH/ProtobufSpoofPatch;->setCurrentVideoId(Ljava/lang/String;)V")
+        MainstreamVideoIdPatch.injectCall("$MISC_PATH/ProtobufSpoofPatch;->setCurrentVideoId(Ljava/lang/String;)V")
 
         /*
          * Add settings
