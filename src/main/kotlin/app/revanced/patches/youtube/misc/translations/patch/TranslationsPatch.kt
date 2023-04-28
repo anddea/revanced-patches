@@ -40,7 +40,6 @@ class TranslationsPatch : ResourcePatch {
             "es-rES",
             "fi-rFI",
             "fr-rFR",
-            "hi-rIN",
             "hu-rHU",
             "id-rID",
             "in",

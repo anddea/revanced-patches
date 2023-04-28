@@ -94,6 +94,7 @@
     <string name="revanced_enable_open_links_directly_title">Links direkt öffnen</string>
     <string name="revanced_enable_phone_layout_summary">Umgehe die DPI, um einige Telefon-Layouts zu verwenden</string>
     <string name="revanced_enable_phone_layout_title">Telefonlayout aktivieren</string>
+    <string name="revanced_enable_protobuf_spoof_summary">Spoofing des Protobufs zur Vermeidung von Wiedergabeproblemen</string>
     <string name="revanced_enable_protobuf_spoof_title">Protobuf-Spoof aktivieren</string>
     <string name="revanced_enable_press_to_swipe_summary_off">Drücken zum Wischen ist deaktiviert</string>
     <string name="revanced_enable_press_to_swipe_summary_on">Drücken zum Wischen ist aktiviert</string>
@@ -133,6 +134,9 @@
     <string name="revanced_enable_tablet_navigation_bar_summary_off">Tablet-Navigationsleiste ist deaktiviert</string>
     <string name="revanced_enable_tablet_navigation_bar_summary_on">Tablet-Navigationsleiste ist aktiviert</string>
     <string name="revanced_enable_tablet_navigation_bar_title">Tablet-Navigationsleiste aktivieren</string>
+    <string name="revanced_enable_time_stamp_speed_summary_off">Geschwindigkeit des Zeitstempels anhängen ist deaktiviert</string>
+    <string name="revanced_enable_time_stamp_speed_summary_on">Geschwindigkeit des Zeitstempels anhängen ist aktiviert</string>
+    <string name="revanced_enable_time_stamp_speed_title">Geschwindigkeit des Zeitstempels einschalten</string>
     <string name="revanced_enable_vp9_codec_summary">Spoof-Geräteinformationen zum Aktivieren des VP9-Codecs</string>
     <string name="revanced_enable_vp9_codec_title">Aktiviere VP9 Codec</string>
     <string name="revanced_enable_wide_searchbar_summary_off">Breite Suchleiste ist deaktiviert</string>
@@ -143,6 +147,7 @@
     <string name="revanced_export_settings_title">Einstellungen exportieren</string>
     <string name="revanced_extended_support_center_summary">Probleme melden oder hier Vorschläge hinterlassen</string>
     <string name="revanced_extended_support_center_title">Hilfecenter</string>
+    <string name="revanced_flyout_menu">Flyout-Menü</string>
     <string name="revanced_fullscreen">Vollbildmodus</string>
     <string name="revanced_general">Allgemein</string>
     <string name="revanced_haptic_feedback_title">Haptisches Feedback</string>
@@ -151,15 +156,29 @@
     <string name="revanced_hide_account_menu_title">Account Menü verstecken</string>
     <string name="revanced_hide_action_buttons_summary_off">Aktionstasten werden angezeigt</string>
     <string name="revanced_hide_action_buttons_summary_on">Aktionstasten sind ausgeblendet</string>
+    <string name="revanced_hide_action_buttons_title">Aktionsschaltflächen ausblenden</string>
+    <string name="revanced_hide_action_buttons_warning">"Diese Funktionen sind veraltet. Selbst wenn ein Problem besteht, ist nicht geplant, es zu beheben.
+Bitte melden Sie keine Probleme, auf die Sie bei der Nutzung dieser Funktion stoßen."</string>
+    <string name="revanced_hide_album_card_summary_off">Albumkarten werden gezeigt</string>
+    <string name="revanced_hide_album_card_summary_on">Albumkarten werden ausgeblendet</string>
+    <string name="revanced_hide_album_card_title">Albumkarten ausblenden</string>
     <string name="revanced_hide_autoplay_button_summary_off">Autoplay-Schaltfläche wird angezeigt</string>
     <string name="revanced_hide_autoplay_button_summary_on">Autoplay-Schaltfläche ist versteckt</string>
     <string name="revanced_hide_autoplay_button_title">Verstecke Autoplay-Schaltfläche</string>
+    <string name="revanced_hide_autoplay_preview_summary_off">Autoplay-Vorschau-Container wird angezeigt</string>
+    <string name="revanced_hide_autoplay_preview_summary_on">Autoplay-Vorschau-Container wird ausgeblendet</string>
+    <string name="revanced_hide_autoplay_preview_title">Autoplay-Vorschau-Container ausblenden</string>
     <string name="revanced_hide_auto_captions_summary_off">Untertitel werden aktiviert, wenn die Wiedergabe eines Videos mit Untertiteln erzwungen wird</string>
     <string name="revanced_hide_auto_captions_summary_on">"Untertitel werden nicht aktiviert, wenn die Wiedergabe eines Videos mit Untertiteln erzwungen wird"</string>
     <string name="revanced_hide_auto_captions_title">Verstecke automatische Untertitel</string>
     <string name="revanced_hide_auto_player_popup_panels_summary_off">Auto-Player Popup Fenster werden angezeigt</string>
     <string name="revanced_hide_auto_player_popup_panels_summary_on">Auto-Player Popup Fenster sind versteckt</string>
     <string name="revanced_hide_auto_player_popup_panels_title">Verstecke Auto-Player Popup Fenster</string>
+    <string name="revanced_hide_breaking_news_shelf_summary_off">Eilmeldungen werden angezeigt</string>
+    <string name="revanced_hide_breaking_news_shelf_summary_on">Eilmeldungen werden ausgeblendet</string>
+    <string name="revanced_hide_breaking_news_shelf_title">Eilmeldungen ausblenden</string>
+    <string name="revanced_hide_browse_store_button_summary_off">Die Schaltfläche Store durchsuchen wird angezeigt</string>
+    <string name="revanced_hide_browse_store_button_summary_on">Die Schaltfläche Store durchsuchen wird ausgeblendet</string>
     <string name="revanced_hide_button_dislike_summary_off">Der Dislike-Button wird angezeigt</string>
     <string name="revanced_hide_button_dislike_summary_on">Der Dislike-Button ist versteckt</string>
     <string name="revanced_hide_button_dislike_title">Verstecke den Dislike-Button</string>

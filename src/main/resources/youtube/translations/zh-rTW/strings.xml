@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="accessibility_settings_edu_opt_in_text">啟用播放器的輔助功能？</string>
+    <string name="accessibility_settings_edu_opt_in_text">啟用播放器的無障礙功能？</string>
     <string name="accessibility_settings_edu_opt_out_text">因為無障礙服務已啟用，您的介面已經更改。</string>
     <string name="microg_not_installed_notice">請安裝 MicroG</string>
-    <string name="microg_not_installed_warning">未找到 MicroG</string>
+    <string name="microg_not_installed_warning">找不到 MicroG</string>
     <string name="microg_not_running_warning">MicroG 未在背景執行</string>
-    <string name="microg_settings_summary">啟用連網通知推播以接收YT影片通知</string>
+    <string name="microg_settings_summary">啟用線上通知推播以接收影片通知</string>
     <string name="microg_settings_title">開啟 MicroG</string>
     <string name="revanced_adremover_button_ads_summary_off">按鈕廣告已顯示</string>
     <string name="revanced_adremover_button_ads_summary_on">按鈕廣告已隱藏</string>
@@ -546,12 +546,15 @@
     <string name="revanced_whitelisting_title">頻道白名單</string>
     <string name="sb_enable_sb">啟用 SponsorBlock</string>
     <string name="sb_enable_sb_sum">SponsorBlock 是透過使用者共同編輯新增片段來跳過 YouTube 的擾人片段</string>
+    <string name="sb_appearance_category">應用程式外觀</string>
     <string name="sb_enable_voting">顯示投票按鈕</string>
     <string name="sb_enable_voting_sum_on">影片片段投票按鈕已顯示</string>
     <string name="sb_enable_voting_sum_off">影片片段投票按鈕未顯示</string>
     <string name="sb_enable_compact_skip_button">使用袖珍型跳過按鈕</string>
     <string name="sb_enable_compact_skip_button_sum_on">以袖珍的形式呈現跳過按鈕</string>
     <string name="sb_enable_compact_skip_button_sum_off">以最佳的形式呈現跳過按鈕</string>
+    <string name="sb_enable_auto_hide_skip_segment_button">自動隱藏跳過按鈕</string>
+    <string name="sb_enable_auto_hide_skip_segment_button_sum_off">為整個片段顯示跳過按鈕</string>
     <string name="sb_general_skiptoast">自動跳過片段時顯示提示</string>
     <string name="sb_general_skiptoast_sum_on">提示將於片段被自動跳過時顯示, 點擊此處來查看範例</string>
     <string name="sb_general_skiptoast_sum_off">提示將不會顯示, 點擊此處來查看範例</string>
@@ -580,7 +583,7 @@
     <string name="sb_general_uuid_sum">這應該保密。就像密碼一樣不應該與任何人共享。如果任何人取得這個ID，他們可以冒充你</string>
     <string name="sb_general_uuid_invalid">使用者名稱不能為空白</string>
     <string name="sb_general_api_url">更改 API 網址</string>
-    <string name="sb_general_api_url_sum">SponsorBlock 用於調用伺服器的地址。&lt;b&gt;除非您知道自己在做什麼，否則請勿更改此網址。&lt;/b&gt;</string>
+    <string name="sb_general_api_url_sum">SponsorBlock 用於調用伺服器位置。如果您知道自己在做什麼，否則請不要更改此設定。</string>
     <string name="sb_api_url_reset">重置 API 網址</string>
     <string name="sb_api_url_invalid">API 網址無效</string>
     <string name="sb_api_url_changed">API 網址已更換</string>
