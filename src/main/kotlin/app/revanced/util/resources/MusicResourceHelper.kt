@@ -34,7 +34,16 @@ internal object MusicResourceHelper {
 
     private const val YOUTUBE_MUSIC_PREFERENCE_TAG_NAME = "com.google.android.apps.youtube.music.ui.preference.SwitchCompatPreference"
 
+    private const val YOUTUBE_MUSIC_PREFERENCE_TARGET_CLASS = "com.google.android.libraries.strictmode.penalties.notification.FullStackTraceActivity"
+
     private var currentMusicPreferenceCategory = emptyArray<String>()
+
+    private var targetPackage = "com.google.android.apps.youtube.music"
+
+    internal fun ResourceContext.setMicroG (newPackage: String) {
+        targetPackage = newPackage
+        replacePackageName()
+    }
 
     private fun setMusicPreferenceCategory (newCategory: String) {
         currentMusicPreferenceCategory += listOf(newCategory)
@@ -59,20 +68,27 @@ internal object MusicResourceHelper {
         }
     }
 
-    internal fun ResourceContext.sortMusicPreferenceCategory() {
+    internal fun ResourceContext.sortMusicPreferenceCategory(
+        category: String
+    ) {
         this.xmlEditor[YOUTUBE_MUSIC_SETTINGS_PATH].use { editor ->
             editor.file.doRecursively loop@{
                 if (it !is Element) return@loop
 
-                currentMusicPreferenceCategory.forEach { category ->
-                    it.getAttributeNode("android:key")?.let { attribute ->
-                        if (attribute.textContent == "revanced_settings_$category") {
-                            it.cloneNodes(it.parentNode)
-                        }
+                it.getAttributeNode("android:key")?.let { attribute ->
+                    if (attribute.textContent == "revanced_settings_$category") {
+                        it.cloneNodes(it.parentNode)
                     }
                 }
             }
         }
+        replacePackageName()
+    }
+
+    private fun ResourceContext.replacePackageName(){
+        this[YOUTUBE_MUSIC_SETTINGS_PATH].writeText(
+            this[YOUTUBE_MUSIC_SETTINGS_PATH].readText().replace("\"com.google.android.apps.youtube.music", "\"" + targetPackage)
+        )
     }
 
     internal fun ResourceContext.addMusicPreference(
@@ -90,6 +106,54 @@ internal object MusicResourceHelper {
                         setAttribute("android:summary", "@string/$key" + "_summary")
                         setAttribute("android:key", key)
                         setAttribute("android:defaultValue", defaultValue)
+                    }
+                }
+        }
+    }
+
+    internal fun ResourceContext.addMusicPreferenceAlt(
+        category: String,
+        key: String,
+        defaultValue: String,
+        dependencyKey: String
+    ) {
+        this.xmlEditor[YOUTUBE_MUSIC_SETTINGS_PATH].use { editor ->
+            val tags = editor.file.getElementsByTagName(YOUTUBE_MUSIC_CATEGORY_TAG_NAME)
+            List(tags.length) { tags.item(it) as Element }
+                .filter { it.getAttribute("android:key").contains("revanced_settings_$category") }
+                .forEach {
+                    it.adoptChild(YOUTUBE_MUSIC_PREFERENCE_TAG_NAME) {
+                        setAttribute("android:title", "@string/$key" + "_title")
+                        setAttribute("android:summaryOn", "@string/$key" + "_summary_on")
+                        setAttribute("android:summaryOff", "@string/$key" + "_summary_off")
+                        setAttribute("android:key", key)
+                        setAttribute("android:defaultValue", defaultValue)
+                        setAttribute("android:dependency", dependencyKey)
+                    }
+                }
+        }
+    }
+
+    internal fun ResourceContext.addMusicPreferenceWithIntent(
+        category: String,
+        key: String,
+        dependencyKey: String
+    ) {
+        this.xmlEditor[YOUTUBE_MUSIC_SETTINGS_PATH].use { editor ->
+            val tags = editor.file.getElementsByTagName(YOUTUBE_MUSIC_CATEGORY_TAG_NAME)
+            List(tags.length) { tags.item(it) as Element }
+                .filter { it.getAttribute("android:key").contains("revanced_settings_$category") }
+                .forEach {
+                    it.adoptChild("Preference") {
+                        setAttribute("android:title", "@string/$key" + "_title")
+                        setAttribute("android:summary", "@string/$key" + "_summary")
+                        setAttribute("android:key", key)
+                        setAttribute("android:dependency", dependencyKey)
+                        this.adoptChild("intent") {
+                            setAttribute("android:targetPackage", targetPackage)
+                            setAttribute("android:data", key)
+                            setAttribute("android:targetClass", YOUTUBE_MUSIC_PREFERENCE_TARGET_CLASS)
+                        }
                     }
                 }
         }

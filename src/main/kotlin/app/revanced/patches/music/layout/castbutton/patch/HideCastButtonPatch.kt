@@ -14,10 +14,10 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.music.layout.castbutton.fingerprints.HideCastButtonFingerprint
 import app.revanced.patches.music.layout.castbutton.fingerprints.HideCastButtonParentFingerprint
-import app.revanced.patches.music.misc.settings.patch.MusicSettingsPatch
+import app.revanced.patches.music.misc.settings.resource.patch.MusicSettingsPatch
 import app.revanced.patches.shared.annotation.YouTubeMusicCompatibility
-import app.revanced.util.integrations.Constants.MUSIC_SETTINGS_PATH
-
+import app.revanced.util.enum.CategoryType
+import app.revanced.util.integrations.Constants.MUSIC_LAYOUT
 @Patch
 @Name("hide-music-cast-button")
 @Description("Hides the cast button in the video player and header.")
@@ -34,13 +34,13 @@ class HideCastButtonPatch : BytecodePatch(
         HideCastButtonParentFingerprint.result?.let { parentResult ->
             HideCastButtonFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.mutableMethod?.addInstructions(
                 0, """
-                    invoke-static {p1}, $MUSIC_SETTINGS_PATH->hideCastButton(I)I
+                    invoke-static {p1}, $MUSIC_LAYOUT->hideCastButton(I)I
                     move-result p1
                 """
             ) ?: return HideCastButtonFingerprint.toErrorResult()
         } ?: return HideCastButtonParentFingerprint.toErrorResult()
 
-        MusicSettingsPatch.addMusicPreference("navigation", "revanced_hide_cast_button", "true")
+        MusicSettingsPatch.addMusicPreference(CategoryType.LAYOUT, "revanced_hide_cast_button", "true")
 
         return PatchResultSuccess()
     }

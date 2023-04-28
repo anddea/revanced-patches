@@ -12,7 +12,7 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.music.misc.videoid.fingerprint.MusicVideoIdFingerprint
 import app.revanced.patches.shared.annotation.YouTubeMusicCompatibility
-import app.revanced.util.integrations.Constants.VIDEO_PATH
+import app.revanced.util.integrations.Constants.MUSIC_UTILS_PATH
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Name("music-video-id-hook")
@@ -42,7 +42,7 @@ class MusicVideoIdPatch : BytecodePatch(
     }
 
     companion object {
-        const val INTEGRATIONS_CLASS_DESCRIPTOR = "$VIDEO_PATH/VideoInformation;"
+        const val INTEGRATIONS_CLASS_DESCRIPTOR = "$MUSIC_UTILS_PATH/VideoInformation;"
 
         private var offset = 0
 

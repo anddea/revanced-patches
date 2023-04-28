@@ -11,7 +11,7 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.annotation.YouTubeMusicCompatibility
 import app.revanced.patches.shared.fingerprints.LithoFingerprint
-import app.revanced.util.integrations.Constants.ADS_PATH
+import app.revanced.util.integrations.Constants.MUSIC_ADS_PATH
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.builder.instruction.BuilderInstruction21c
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
@@ -60,7 +60,7 @@ class MusicLithoFilterPatch : BytecodePatch(
                     method.addInstructions(
                         insertIndex, // right after setting the component.pathBuilder field,
                         """
-                        invoke-static {v$stringBuilderRegister, v$identifierRegister}, $ADS_PATH/MusicLithoFilterPatch;->filter(Ljava/lang/StringBuilder;Ljava/lang/String;)Z
+                        invoke-static {v$stringBuilderRegister, v$identifierRegister}, $MUSIC_ADS_PATH/MusicLithoFilterPatch;->filter(Ljava/lang/StringBuilder;Ljava/lang/String;)Z
                         move-result v$bufferRegister
                         if-eqz v$bufferRegister, :not_an_ad
                         move-object/from16 v$identifierRegister, p1

@@ -13,10 +13,11 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.music.layout.zenmode.fingerprints.ZenModeFingerprint
-import app.revanced.patches.music.misc.settings.patch.MusicSettingsPatch
+import app.revanced.patches.music.misc.settings.resource.patch.MusicSettingsPatch
 import app.revanced.patches.shared.annotation.YouTubeMusicCompatibility
 import app.revanced.patches.shared.fingerprints.MiniplayerColorParentFingerprint
-import app.revanced.util.integrations.Constants.MUSIC_SETTINGS_PATH
+import app.revanced.util.enum.CategoryType
+import app.revanced.util.integrations.Constants.MUSIC_LAYOUT
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 import org.jf.dexlib2.iface.reference.FieldReference
@@ -51,7 +52,7 @@ class ZenModePatch : BytecodePatch(
 
                     addInstructions(
                         insertIndex, """
-                            invoke-static {}, $MUSIC_SETTINGS_PATH->enableZenMode()Z
+                            invoke-static {}, $MUSIC_LAYOUT->enableZenMode()Z
                             move-result v$dummyRegister
                             if-eqz v$dummyRegister, :off
                             const v$dummyRegister, -0xfcfcfd
@@ -67,7 +68,7 @@ class ZenModePatch : BytecodePatch(
             } ?: return ZenModeFingerprint.toErrorResult()
         } ?: return MiniplayerColorParentFingerprint.toErrorResult()
 
-        MusicSettingsPatch.addMusicPreference("design", "revanced_enable_zen_mode", "false")
+        MusicSettingsPatch.addMusicPreference(CategoryType.LAYOUT, "revanced_enable_zen_mode", "false")
 
         return PatchResultSuccess()
     }

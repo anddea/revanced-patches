@@ -15,9 +15,10 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.music.layout.compactdialog.fingerprints.DialogSolidFingerprint
 import app.revanced.patches.music.misc.resourceid.patch.SharedResourceIdPatch
-import app.revanced.patches.music.misc.settings.patch.MusicSettingsPatch
+import app.revanced.patches.music.misc.settings.resource.patch.MusicSettingsPatch
 import app.revanced.patches.shared.annotation.YouTubeMusicCompatibility
-import app.revanced.util.integrations.Constants.MUSIC_SETTINGS_PATH
+import app.revanced.util.enum.CategoryType
+import app.revanced.util.integrations.Constants.MUSIC_LAYOUT
 
 @Patch
 @Name("enable-compact-dialog")
@@ -44,14 +45,14 @@ class CompactDialogPatch : BytecodePatch(
             ) {
                 addInstructions(
                     2, """
-                        invoke-static {p0}, $MUSIC_SETTINGS_PATH->enableCompactDialog(I)I
+                        invoke-static {p0}, $MUSIC_LAYOUT->enableCompactDialog(I)I
                         move-result p0
                         """
                 )
             }
         } ?: return DialogSolidFingerprint.toErrorResult()
 
-        MusicSettingsPatch.addMusicPreference("navigation", "revanced_enable_compact_dialog", "true")
+        MusicSettingsPatch.addMusicPreference(CategoryType.LAYOUT, "revanced_enable_compact_dialog", "true")
 
         return PatchResultSuccess()
     }

@@ -12,9 +12,10 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.music.layout.minimizedplayer.fingerprints.MinimizedPlayerFingerprint
-import app.revanced.patches.music.misc.settings.patch.MusicSettingsPatch
+import app.revanced.patches.music.misc.settings.resource.patch.MusicSettingsPatch
 import app.revanced.patches.shared.annotation.YouTubeMusicCompatibility
-import app.revanced.util.integrations.Constants.MUSIC_SETTINGS_PATH
+import app.revanced.util.enum.CategoryType
+import app.revanced.util.integrations.Constants.MUSIC_LAYOUT
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
@@ -37,14 +38,14 @@ class MinimizedPlayerPatch : BytecodePatch(
 
                 addInstructions(
                     index, """
-                        invoke-static {v$register}, $MUSIC_SETTINGS_PATH->enableForceMinimizedPlayer(Z)Z
+                        invoke-static {v$register}, $MUSIC_LAYOUT->enableForceMinimizedPlayer(Z)Z
                         move-result v$register
                         """
                 )
             }
         } ?: return MinimizedPlayerFingerprint.toErrorResult()
 
-        MusicSettingsPatch.addMusicPreference("listening", "revanced_enable_force_minimized_player", "true")
+        MusicSettingsPatch.addMusicPreference(CategoryType.LAYOUT, "revanced_enable_force_minimized_player", "true")
 
         return PatchResultSuccess()
     }

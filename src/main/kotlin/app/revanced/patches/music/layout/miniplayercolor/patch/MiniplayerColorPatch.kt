@@ -15,10 +15,11 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.music.layout.miniplayercolor.fingerprints.MiniplayerColorFingerprint
-import app.revanced.patches.music.misc.settings.patch.MusicSettingsPatch
+import app.revanced.patches.music.misc.settings.resource.patch.MusicSettingsPatch
 import app.revanced.patches.shared.annotation.YouTubeMusicCompatibility
 import app.revanced.patches.shared.fingerprints.MiniplayerColorParentFingerprint
-import app.revanced.util.integrations.Constants.MUSIC_SETTINGS_PATH
+import app.revanced.util.enum.CategoryType
+import app.revanced.util.integrations.Constants.MUSIC_LAYOUT
 import org.jf.dexlib2.iface.instruction.Instruction
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 import org.jf.dexlib2.iface.reference.FieldReference
@@ -68,7 +69,7 @@ class MiniplayerColorPatch : BytecodePatch(
 
                     addInstructions(
                         insertIndex, """
-                            invoke-static {}, $MUSIC_SETTINGS_PATH->enableColorMatchPlayer()Z
+                            invoke-static {}, $MUSIC_LAYOUT->enableColorMatchPlayer()Z
                             move-result v2
                             if-eqz v2, :off
                             iget v0, p0, ${type}->${firstReference.name}:${firstReference.type}
@@ -92,7 +93,7 @@ class MiniplayerColorPatch : BytecodePatch(
             } ?: return MiniplayerColorFingerprint.toErrorResult()
         } ?: return MiniplayerColorParentFingerprint.toErrorResult()
 
-        MusicSettingsPatch.addMusicPreference("design", "revanced_enable_color_match_player", "true")
+        MusicSettingsPatch.addMusicPreference(CategoryType.LAYOUT, "revanced_enable_color_match_player", "true")
 
         return PatchResultSuccess()
     }
