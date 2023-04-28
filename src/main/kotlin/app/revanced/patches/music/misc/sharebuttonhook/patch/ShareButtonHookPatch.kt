@@ -16,6 +16,7 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.music.misc.settings.resource.patch.MusicSettingsPatch
 import app.revanced.patches.music.misc.sharebuttonhook.fingerprints.*
+import app.revanced.patches.music.misc.sleeptimerhook.patch.SleepTimerHookPatch
 import app.revanced.patches.music.misc.videoid.patch.MusicVideoIdPatch
 import app.revanced.patches.shared.annotation.YouTubeMusicCompatibility
 import app.revanced.util.enum.CategoryType
@@ -28,7 +29,8 @@ import app.revanced.util.integrations.Constants.MUSIC_MISC_PATH
 @DependsOn(
     [
         MusicSettingsPatch::class,
-        MusicVideoIdPatch::class
+        MusicVideoIdPatch::class,
+        SleepTimerHookPatch::class
     ]
 )
 @YouTubeMusicCompatibility
