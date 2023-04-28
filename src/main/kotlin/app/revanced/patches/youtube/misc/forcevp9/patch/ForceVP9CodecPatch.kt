@@ -35,6 +35,7 @@ import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 class ForceVP9CodecPatch : BytecodePatch(
     listOf(
         LayoutSwitchFingerprint,
+        VideoCapabilitiesParentFingerprint,
         Vp9PropsParentFingerprint
     )
 ) {
@@ -60,6 +61,26 @@ class ForceVP9CodecPatch : BytecodePatch(
                 }
             } ?: return Vp9PropsFingerprint.toErrorResult()
         } ?: return Vp9PropsParentFingerprint.toErrorResult()
+
+        VideoCapabilitiesParentFingerprint.result?.let { parentResult ->
+            VideoCapabilitiesFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.let {
+                with (it.mutableMethod) {
+                    val insertIndex = it.scanResult.patternScanResult!!.startIndex
+                    addInstructions(
+                        insertIndex, """
+                            invoke-static {p1}, $INTEGRATIONS_CLASS_DESCRIPTOR->overrideMinHeight(I)I
+                            move-result p1
+                            invoke-static {p2}, $INTEGRATIONS_CLASS_DESCRIPTOR->overrideMaxHeight(I)I
+                            move-result p2
+                            invoke-static {p3}, $INTEGRATIONS_CLASS_DESCRIPTOR->overrideMinWidth(I)I
+                            move-result p3
+                            invoke-static {p4}, $INTEGRATIONS_CLASS_DESCRIPTOR->overrideMaxWidth(I)I
+                            move-result p4
+                            """
+                    )
+                }
+            } ?: return VideoCapabilitiesFingerprint.toErrorResult()
+        } ?: return VideoCapabilitiesParentFingerprint.toErrorResult()
 
         /*
          * Add settings
