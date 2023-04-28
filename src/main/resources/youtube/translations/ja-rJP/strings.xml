@@ -83,9 +83,6 @@
     <string name="revanced_enable_external_browser_summary_off">外部ブラウザを有効にします</string>
     <string name="revanced_enable_external_browser_summary_on">外部ブラウザを有効にします</string>
     <string name="revanced_enable_external_browser_title">外部ブラウザを有効にする</string>
-    <string name="revanced_enable_minimized_playback_summary_off">最小化再生を有効にします</string>
-    <string name="revanced_enable_minimized_playback_summary_on">最小化再生を有効にします</string>
-    <string name="revanced_enable_minimized_playback_title">最小化再生を有効にする</string>
     <string name="revanced_enable_old_layout_summary_off">強制的に古いレイアウトを有効にするために、YouTubeのバージョンを偽装します</string>
     <string name="revanced_enable_old_layout_summary_on">強制的に古いレイアウトを有効にするために、YouTubeのバージョンを偽装します</string>
     <string name="revanced_enable_old_layout_title">古いレイアウトを有効にする</string>
@@ -283,6 +280,9 @@
     <string name="revanced_hide_fullscreen_panels_summary_off">全画面表示で右側に表示される説明欄とコメント欄を無効にします</string>
     <string name="revanced_hide_fullscreen_panels_summary_on">全画面表示で右側に表示される説明欄とコメント欄を無効にします</string>
     <string name="revanced_hide_fullscreen_panels_title">全画面表示パネルを非表示にする</string>
+    <string name="revanced_hide_home_button_summary_off">下のタブ切り替えで、“ホーム”ボタンを非表示にします</string>
+    <string name="revanced_hide_home_button_summary_on">下のタブ切り替えで、“ホーム”ボタンを非表示にします</string>
+    <string name="revanced_hide_home_button_title">“ホーム”ボタンを非表示にする</string>
     <string name="revanced_hide_image_shelf_summary_off">画像欄を非表示にします</string>
     <string name="revanced_hide_image_shelf_summary_on">画像欄を非表示にします</string>
     <string name="revanced_hide_image_shelf_title">画像欄を非表示にする</string>
@@ -361,6 +361,18 @@
     <string name="revanced_hide_previous_next_button_summary_off">前の動画に戻る/次の動画に進むボタンを非表示にします</string>
     <string name="revanced_hide_previous_next_button_summary_on">前の動画に戻る/次の動画に進むボタンを非表示にします</string>
     <string name="revanced_hide_previous_next_button_title">前の動画に戻る/次の動画に進むボタンを非表示にする</string>
+    <string name="revanced_hide_quick_actions_summary_off">クイックアクションボタン(新プレーヤーの下に表示されるボタン)を非表示にします</string>
+    <string name="revanced_hide_quick_actions_summary_on">クイックアクションボタン(新プレーヤーの下に表示されるボタン)を非表示にします</string>
+    <string name="revanced_hide_quick_actions_title">クイックアクションボタンを非表示にする</string>
+    <string name="revanced_hide_quick_actions_comment_summary_off">クイックアクションでコメントボタンを非表示にします</string>
+    <string name="revanced_hide_quick_actions_comment_summary_on">クイックアクションでコメントボタンを非表示にします</string>
+    <string name="revanced_hide_quick_actions_comment_title">コメントボタンを非表示にする</string>
+    <string name="revanced_hide_quick_actions_more_summary_off">クイックアクションで“さらに表示(･･･)”ボタンを非表示にします</string>
+    <string name="revanced_hide_quick_actions_more_summary_on">クイックアクションで“さらに表示(･･･)”ボタンを非表示にします</string>
+    <string name="revanced_hide_quick_actions_more_title">“さらに表示(･･･)”ボタンを非表示にする</string>
+    <string name="revanced_hide_quick_actions_related_videos_summary_off">クイックアクションで関連動画を非表示にします</string>
+    <string name="revanced_hide_quick_actions_related_videos_summary_on">クイックアクションで関連動画を非表示にします</string>
+    <string name="revanced_hide_quick_actions_related_videos_title">関連動画を非表示にする</string>
     <string name="revanced_hide_seekbar_summary_off">再生バー(シークバー)を非表示にします</string>
     <string name="revanced_hide_seekbar_summary_on">再生バー(シークバー)を非表示にします</string>
     <string name="revanced_hide_seekbar_title">再生バーを非表示にする</string>
@@ -458,6 +470,7 @@
     <string name="revanced_player_flyout_panel_title">プレーヤー上の設定メニュー</string>
     <string name="revanced_player">プレーヤー</string>
     <string name="revanced_protobuf_spoof_notice">MicroGユーザー(非Rootユーザー)において、動画再生中にバッファリングして視聴できなくなる問題を修正します(ベータ版、副作用あり)</string>
+    <string name="revanced_quick_actions_components_title">[実験的機能] クイックアクションボタン(新プレーヤーの下のボタン)</string>
     <string name="revanced_reboot_warning_general">"これはまだ実験的な機能であるため、他にも未知のバグがあるかもしれません。
 続行してもよろしいですか？"</string>
     <string name="revanced_reboot_warning_phone">"一部のレイアウトをスマートフォン用のレイアウトに変更するために dpi を偽装します。
@@ -470,7 +483,7 @@
 
 この設定を有効にすると、次の機能は利用できません:
 - アンビエントモード
-- コミュニティ投稿"</string>
+- コミュニティの投稿"</string>
     <string name="revanced_reboot_warning_vp9">"VP9コーデックを有効にするために端末情報を偽装します
 
 これらの設定は非常に古いので、動作しないかもしれません"</string>
@@ -505,12 +518,10 @@
     <string name="revanced_swipe_overlay_text_size_title">オーバーレイのテキストサイズ</string>
     <string name="revanced_swipe_overlay_timeout_summary">オーバーレイが表示される時間 (単位: ミリ秒)</string>
     <string name="revanced_swipe_overlay_timeout_title">オーバーレイのタイムアウト</string>
-    <string name="revanced_switching_create_notification_summary_off">下のタブバーで、作成ボタンを通知ボタンに置き換えます</string>
-    <string name="revanced_switching_create_notification_summary_on">下のタブバーで、作成ボタンを通知ボタンに置き換えます</string>
+    <string name="revanced_switching_create_notification_summary_off">下のタブ切り替えで、作成ボタンを通知ボタンに置き換えます</string>
+    <string name="revanced_switching_create_notification_summary_on">下のタブ切り替えで、作成ボタンを通知ボタンに置き換えます</string>
     <string name="revanced_switching_create_notification_title">作成ボタンを通知ボタンに置き換える</string>
     <string name="revanced_tool_used">使用されたツール</string>
-    <string name="revanced_vertical_video_restrictions_summary">横動画は4Kを選択可能ですが、縦動画の場合は端末の解像度によって選択できる画質に制限があります。その解像度の制限を無効にするために端末情報を偽装します</string>
-    <string name="revanced_vertical_video_restrictions_title">縦動画の解像度制限を無効にする</string>
     <string name="revanced_video">動画</string>
     <string name="revanced_video_ads_removal_summary_off">動画の広告を非表示にします</string>
     <string name="revanced_video_ads_removal_summary_on">動画の広告を非表示にします</string>
@@ -538,34 +549,43 @@
     <string name="sb_enable_voting">投票ボタンを表示する</string>
     <string name="sb_enable_voting_sum_on">投票ボタンを表示します</string>
     <string name="sb_enable_voting_sum_off">投票ボタンを表示します</string>
-    <string name="sb_enable_create_segment">新しいセグメントを作成するボタンを表示する</string>
-    <string name="sb_enable_create_segment_sum_on">新しいセグメントを作成するボタンを表示します</string>
-    <string name="sb_enable_create_segment_sum_off">新しいセグメントを作成するボタンを表示します</string>
     <string name="sb_enable_compact_skip_button">コンパクトなスキップボタンを有効にする</string>
     <string name="sb_enable_compact_skip_button_sum_on">スキップボタンをコンパクトなサイズにします</string>
     <string name="sb_enable_compact_skip_button_sum_off">スキップボタンをコンパクトなサイズにします</string>
-    <string name="sb_diff_segments">セグメントの設定</string>
-    <string name="sb_general">全般</string>
     <string name="sb_general_skiptoast">セグメントが自動的にスキップされた時にトースト通知を表示する</string>
     <string name="sb_general_skiptoast_sum_on">セグメントが自動的にスキップされたときにトースト通知を表示します。サンプルトースト通知を見るにはここをタップしてください。</string>
     <string name="sb_general_skiptoast_sum_off">セグメントが自動的にスキップされたときにトースト通知を表示します。サンプルトースト通知を見るにはここをタップしてください。</string>
-    <string name="sb_general_skipcount">スキップの集計を有効にする</string>
-    <string name="sb_general_skipcount_sum_on">SponsorBlockリーダーボードは、どれだけの時間が節約されたかを知ることができます。セグメントがスキップされるたびにメッセージがリーダーボードに送信されます。</string>
-    <string name="sb_general_skipcount_sum_off">SponsorBlockリーダーボードは、どれだけの時間が節約されたかを知ることができます。セグメントがスキップされるたびにメッセージがリーダーボードに送信されます。</string>
     <string name="sb_general_time_without">セグメントを除いた時間を表示する</string>
     <string name="sb_general_time_without_sum_on">動画から全てのセグメントを除いた時間を、経過時間の横の“( )”内に表示します</string>
     <string name="sb_general_time_without_sum_off">動画から全てのセグメントを除いた時間を、経過時間の横の“( )”内に表示します</string>
+    <string name="sb_enable_create_segment">新しいセグメントを作成するボタンを表示する</string>
+    <string name="sb_enable_create_segment_sum_on">新しいセグメントを作成するボタンを表示します</string>
+    <string name="sb_enable_create_segment_sum_off">新しいセグメントを作成するボタンを表示します</string>
     <string name="sb_general_adjusting">新しいセグメントのステップを調整する</string>
     <string name="sb_general_adjusting_sum">新しいセグメントを作成する際の時間調整ボタンの移動時間 (単位: ミリ秒)</string>
     <string name="sb_general_adjusting_invalid">値は正の数でなければなりません</string>
+    <string name="sb_guidelines_preference_title">ガイドラインを表示する</string>
+    <string name="sb_guidelines_preference_sum">ガイドラインには、セグメントの送信に関するヒントとルールが含まれています</string>
+    <string name="sb_guidelines_popup_title">ガイドラインを遵守する</string>
+    <string name="sb_guidelines_popup_content">セグメントを作成する前に、SponsorBlockガイドラインを読んでください</string>
+    <string name="sb_guidelines_popup_already_read">既に読んでいます</string>
+    <string name="sb_guidelines_popup_open">表示する</string>
+    <string name="sb_general">全般</string>
+    <string name="sb_general_skipcount">スキップの集計を有効にする</string>
+    <string name="sb_general_skipcount_sum_on">SponsorBlockリーダーボードは、どれだけの時間が節約されたかを知ることができます。セグメントがスキップされるたびにメッセージがリーダーボードに送信されます。</string>
+    <string name="sb_general_skipcount_sum_off">SponsorBlockリーダーボードは、どれだけの時間が節約されたかを知ることができます。セグメントがスキップされるたびにメッセージがリーダーボードに送信されます。</string>
     <string name="sb_general_min_duration">最小のセグメントの長さ</string>
     <string name="sb_general_min_duration_sum">設定値 (単位: 秒) より短いセグメントはスキップされず、プレーヤーにも表示されません</string>
     <string name="sb_general_uuid">あなたのプライベートユーザー ID</string>
     <string name="sb_general_uuid_sum">これは非公開にする必要があります。パスワードのようなもので誰とも共有するべきではありません。誰かがこれを持っている場合、あなたになりすますことができます。</string>
     <string name="sb_general_uuid_invalid">ユーザー名は空白にはできません</string>
-    <string name="sb_settings_ie_sum">ReVancedや他のSponsorBlockプラットフォームに読み込み/書き出しできるSponsorBlockのJSON設定です。 これにはプライベートユーザーIDが含まれています。共有する時には十分気をつけてください。</string>
     <string name="sb_general_api_url">API の URL を変更する</string>
     <string name="sb_general_api_url_sum">SponsorBlock がサーバーの呼び出しに使用するアドレスです。 &lt;b&gt;意味が分からない場合は変更しないでください。&lt;/b&gt;</string>
+    <string name="sb_api_url_reset">API の URL をリセットしました</string>
+    <string name="sb_api_url_invalid">API の URL が無効です</string>
+    <string name="sb_api_url_changed">API の URL を変更しました</string>
+    <string name="sb_settings_ie_sum">ReVancedや他のSponsorBlockプラットフォームに読み込み/書き出しできるSponsorBlockのJSON設定です。 これにはプライベートユーザーIDが含まれています。共有する時には十分気をつけてください。</string>
+    <string name="sb_diff_segments">セグメントの設定</string>
     <string name="sb_segments_sponsor">スポンサー広告</string>
     <string name="sb_segments_sponsor_sum">報酬のある販売促進、製品紹介、および直接広告です。自己販促や好きな運動、製作者、Webサイト、製品に対する無報酬での宣伝とは異なります。</string>
     <string name="sb_segments_selfpromo">無報酬/セルフプロモーション</string>
@@ -612,8 +632,6 @@
     <string name="sb_skip_showbutton">スキップボタンを表示する</string>
     <string name="sb_skip_seekbaronly">シークバーに表示する</string>
     <string name="sb_skip_ignore">無効</string>
-    <string name="sb_about_api_sum">データはSponsorBlock APIによって提供されます。詳細はここをタップしてください。</string>
-    <string name="sb_about_made_by">JakubWeg による統合</string>
     <string name="sb_submit_failed_invalid" formatted="false">セグメントを送信できません: %s</string>
     <string name="sb_submit_failed_timeout">セグメントを送信できませんでした(APIがタイムアウトしました)</string>
     <string name="sb_submit_failed_unknown_error" formatted="false">セグメントを送信できません。ステータス: %d %s)</string>
@@ -644,12 +662,6 @@
     <string name="sb_new_segment_edit_by_hand_title">セグメントのタイミングを手動で編集する</string>
     <string name="sb_new_segment_edit_by_hand_content">セグメントの開始または終了のタイミングを編集しますか？</string>
     <string name="sb_new_segment_edit_by_hand_parse_error">無効な時間の値です</string>
-    <string name="sb_guidelines_preference_title">ガイドラインを表示する</string>
-    <string name="sb_guidelines_preference_sum">ガイドラインには、セグメントの送信に関するヒントとルールが含まれています</string>
-    <string name="sb_guidelines_popup_title">ガイドラインを遵守する</string>
-    <string name="sb_guidelines_popup_content">セグメントを作成する前に、SponsorBlockガイドラインを読んでください</string>
-    <string name="sb_guidelines_popup_already_read">既に読んでいます</string>
-    <string name="sb_guidelines_popup_open">表示する</string>
     <string name="sb_stats">統計</string>
     <string name="sb_stats_connection_failure">統計は一時的に利用できません(API がダウンしています)</string>
     <string name="sb_stats_sb_disabled">SponsorBlockは無効です</string>
@@ -675,9 +687,8 @@
     <string name="sb_color_invalid">カラーコードが無効です</string>
     <string name="sb_reset_color">色をリセットする</string>
     <string name="sb_reset">リセット</string>
-    <string name="sb_api_url_reset">API の URL をリセットしました</string>
-    <string name="sb_api_url_invalid">API の URL が無効です</string>
-    <string name="sb_api_url_changed">API の URL を変更しました</string>
+    <string name="sb_about_api_sum">データはSponsorBlock APIによって提供されます。詳細はここをタップしてください。</string>
+    <string name="sb_about_made_by">JakubWeg による統合</string>
     <string name="seconds">秒</string>
     <string name="settings_export_failed">設定の書き出しに失敗しました</string>
     <string name="settings_export_successful">設定は正常に書き出されました</string>
