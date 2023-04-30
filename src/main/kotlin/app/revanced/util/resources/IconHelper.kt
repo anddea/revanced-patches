@@ -1,18 +1,73 @@
 package app.revanced.util.resources
 
 import app.revanced.patcher.data.ResourceContext
+import java.io.File
 import java.nio.file.Files
+import java.nio.file.Paths
 import java.nio.file.StandardCopyOption
 
 internal object IconHelper {
-
-    internal fun ResourceContext.customIcon(iconName: String) {
-        val launchIcon = arrayOf(
+    internal var YOUTUBE_LAUNCHER_ICON_ARRAY =
+        arrayOf(
             "adaptiveproduct_youtube_background_color_108",
             "adaptiveproduct_youtube_foreground_color_108",
             "ic_launcher",
             "ic_launcher_round"
         )
+
+    internal var YOUTUBE_MUSIC_LAUNCHER_ICON_ARRAY =
+        arrayOf(
+            "adaptiveproduct_youtube_music_background_color_108",
+            "adaptiveproduct_youtube_music_foreground_color_108",
+            "ic_launcher_release"
+        )
+
+    internal fun ResourceContext.copyFiles(
+        resourceGroups: List<ResourceUtils.ResourceGroup>,
+        path: String
+    ) {
+        val iconPath = File(Paths.get("").toAbsolutePath().toString()).resolve(path)
+        val resourceDirectory = this["res"]
+
+        resourceGroups.forEach { group ->
+            val fromDirectory = iconPath.resolve(group.resourceDirectoryName)
+            val toDirectory = resourceDirectory.resolve(group.resourceDirectoryName)
+
+            group.resources.forEach { iconFileName ->
+                Files.write(
+                    toDirectory.resolve(iconFileName).toPath(),
+                    fromDirectory.resolve(iconFileName).readBytes()
+                )
+            }
+        }
+    }
+
+    internal fun ResourceContext.makeDirectoryAndCopyFiles(
+        resourceGroups: List<ResourceUtils.ResourceGroup>,
+        path: String
+    ) {
+        val newDirectory = Paths.get("").toAbsolutePath().toString() + "/$path"
+        this[newDirectory].mkdir()
+
+        val iconPath = File(Paths.get("").toAbsolutePath().toString()).resolve(path)
+        val resourceDirectory = this["res"]
+
+        resourceGroups.forEach { group ->
+            this[newDirectory + "/${group.resourceDirectoryName}"].mkdir()
+            val fromDirectory = iconPath.resolve(group.resourceDirectoryName)
+            val toDirectory = resourceDirectory.resolve(group.resourceDirectoryName)
+
+            group.resources.forEach { iconFileName ->
+                Files.write(
+                    fromDirectory.resolve(iconFileName).toPath(),
+                    toDirectory.resolve(iconFileName).readBytes()
+                )
+            }
+        }
+    }
+
+    internal fun ResourceContext.customIcon(iconName: String) {
+        val launchIcon = YOUTUBE_LAUNCHER_ICON_ARRAY
 
         val splashIcon = arrayOf(
             "product_logo_youtube_color_24",
@@ -49,11 +104,7 @@ internal object IconHelper {
     }
 
     internal fun ResourceContext.customIconMusic(iconName: String) {
-        val launchIcon = arrayOf(
-            "adaptiveproduct_youtube_music_background_color_108",
-            "adaptiveproduct_youtube_music_foreground_color_108",
-            "ic_launcher_release"
-        )
+        val launchIcon = YOUTUBE_MUSIC_LAUNCHER_ICON_ARRAY
 
         copyResources(
             "music",
