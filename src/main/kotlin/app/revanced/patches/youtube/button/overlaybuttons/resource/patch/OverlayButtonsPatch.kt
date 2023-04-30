@@ -66,6 +66,7 @@ class OverlayButtonsPatch : ResourcePatch {
                 "revanced_download_icon.png",
                 "revanced_speed_icon.png",
                 "revanced_whitelist_icon.png",
+                "yt_fill_arrow_repeat_white_24.png",
                 "yt_outline_arrow_repeat_1_white_24.png",
                 "yt_outline_arrow_shuffle_1_white_24.png",
                 "yt_outline_screen_full_exit_white_24.png",
