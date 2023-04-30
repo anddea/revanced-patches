@@ -73,18 +73,6 @@ class PatchOptions : ResourcePatch {
         )
 
         /**
-         * Overlay Buttons Icon
-         */
-        internal var OverlayButtonsIcon: String? by option(
-            PatchOption.StringOption(
-                key = "OverlayButtonsIcon",
-                default = "new",
-                title = "Overlay button icon selection",
-                description = "Choose an overlay buttons icon: old/new"
-            )
-        )
-
-        /**
          * Theme
          */
         internal var darkThemeBackgroundColor: String? by option(

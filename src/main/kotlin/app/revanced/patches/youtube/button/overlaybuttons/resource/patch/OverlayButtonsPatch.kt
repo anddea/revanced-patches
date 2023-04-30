@@ -10,7 +10,6 @@ import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
-import app.revanced.patches.shared.patch.options.PatchOptions
 import app.revanced.patches.youtube.button.autorepeat.patch.AutoRepeatPatch
 import app.revanced.patches.youtube.button.overlaybuttons.bytecode.patch.OverlayButtonsBytecodePatch
 import app.revanced.patches.youtube.button.whitelist.patch.WhitelistPatch
@@ -28,7 +27,6 @@ import app.revanced.util.resources.ResourceUtils.copyXmlNode
         AutoRepeatPatch::class,
         OverlayButtonsBytecodePatch::class,
         OverrideSpeedHookPatch::class,
-        PatchOptions::class,
         SettingsPatch::class,
         WhitelistPatch::class
     ]
@@ -38,16 +36,14 @@ import app.revanced.util.resources.ResourceUtils.copyXmlNode
 class OverlayButtonsPatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
 
-        val icon = PatchOptions.OverlayButtonsIcon!!
-
-        /*
+        /**
          * Copy arrays
          */
 
         context.copyXmlNode("youtube/overlaybuttons/host", "values/arrays.xml", "resources")
 
 
-        /*
+        /**
          * Copy resources
          */
         arrayOf(
@@ -56,12 +52,7 @@ class OverlayButtonsPatch : ResourcePatch {
                 "playlist_repeat_button.xml",
                 "playlist_shuffle_button.xml",
                 "revanced_repeat_icon.xml"
-            )
-        ).forEach { resourceGroup ->
-            context.copyResources("youtube/overlaybuttons", resourceGroup)
-        }
-
-        arrayOf(
+            ),
             ResourceUtils.ResourceGroup(
                 "drawable-xxhdpi",
                 "ic_fullscreen_vertical_button.png",
@@ -81,10 +72,10 @@ class OverlayButtonsPatch : ResourcePatch {
                 "yt_outline_screen_full_white_24.png"
             )
         ).forEach { resourceGroup ->
-            context.copyResources("youtube/overlaybuttons/$icon", resourceGroup)
+            context.copyResources("youtube/overlaybuttons", resourceGroup)
         }
 
-        /*
+        /**
          * Copy preference fragments
          */
 
@@ -111,7 +102,7 @@ class OverlayButtonsPatch : ResourcePatch {
             )
         )
 
-        /*
+        /**
          * Add settings
          */
         SettingsPatch.addPreference(
