@@ -95,6 +95,7 @@ class GeneralAdsPatch : ResourcePatch {
 
                 "PREFERENCE: GENERAL_SETTINGS",
                 "PREFERENCE_HEADER: PLAYER",
+                "SETTINGS: HIDE_AUDIO_TRACK_BUTTON",
                 "SETTINGS: HIDE_VIEW_PRODUCT",
                 "SETTINGS: DOUBLE_BACK_TIMEOUT",
 
