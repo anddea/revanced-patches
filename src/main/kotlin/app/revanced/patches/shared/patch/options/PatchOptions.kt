@@ -61,6 +61,18 @@ class PatchOptions : ResourcePatch {
         )
 
         /**
+         * Custom Double-tap to seek Values
+         */
+        internal var CustomDoubleTapLengthArrays: String? by option(
+            PatchOption.StringOption(
+                key = "CustomDoubleTapLengthArrays",
+                default = "3, 5, 10, 15, 20, 30, 60, 120, 180",
+                title = "Double-tap to seek Values",
+                description = "A list of custom double-tap to seek lengths. Be sure to separate them with commas (,)."
+            )
+        )
+
+        /**
          * Custom Speed Values
          */
         internal var CustomSpeedArrays: String? by option(
