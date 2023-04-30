@@ -33,7 +33,6 @@
     <string name="revanced_enable_external_browser_summary_off">Ulkoinen selain on poistettu käytöstä</string>
     <string name="revanced_enable_external_browser_summary_on">Ulkoinen selain on otettu käyttöön</string>
     <string name="revanced_enable_external_browser_title">Ota ulkoinen selain käyttöön</string>
-    <string name="revanced_enable_old_layout_title">Käytä vanhaa asettelua</string>
     <string name="revanced_enable_phone_layout_title">Käytä puhelimen asettelua</string>
     <string name="revanced_enable_protobuf_spoof_title">Ota protobuf-huijaus käyttöön</string>
     <string name="revanced_enable_save_brightness_title">Salli tallentaa kirkkaus</string>
@@ -49,6 +48,10 @@
     <string name="revanced_extended_support_center_title">Tukikeskus</string>
     <string name="revanced_fullscreen">Kokonäyttö</string>
     <string name="revanced_general">Yleiset</string>
+    <string name="revanced_hide_account_menu_title">Piilota tili-valikko</string>
+    <string name="revanced_hide_action_buttons_summary_off">Toimintapainikkeet näytetään</string>
+    <string name="revanced_hide_action_buttons_summary_on">Toimintopainikkeet on piilotettu</string>
+    <string name="revanced_hide_action_buttons_title">Piilota toimintopainikkeet</string>
     <string name="revanced_hide_autoplay_button_summary_off">Automaattinen toisto -painike näytetään</string>
     <string name="revanced_hide_autoplay_button_summary_on">Automaattinen toisto -painike on piilotettu</string>
     <string name="revanced_hide_autoplay_button_title">Piilota automaattinen toisto -painike</string>
@@ -82,9 +85,15 @@
     <string name="revanced_hide_create_button_summary_off">Luo-painike näytetään</string>
     <string name="revanced_hide_create_button_summary_on">Luo-painike on piilotettu</string>
     <string name="revanced_hide_create_button_title">Piilota luo-painike</string>
+    <string name="revanced_hide_endscreen_cards_summary_off">Loppukortit näytetään</string>
+    <string name="revanced_hide_endscreen_cards_summary_on">Loppukortit on piilotettu</string>
+    <string name="revanced_hide_endscreen_cards_title">Piilota loppukortit</string>
     <string name="revanced_hide_home_button_summary_off">Koti-painike näytetään</string>
     <string name="revanced_hide_home_button_summary_on">Koti-painike on piilotettu</string>
     <string name="revanced_hide_home_button_title">Piilota koti-painike</string>
+    <string name="revanced_hide_info_cards_summary_off">Tietokortit näytetään</string>
+    <string name="revanced_hide_info_cards_summary_on">Tietokortit on piilotettu</string>
+    <string name="revanced_hide_info_cards_title">Piilota tietokortit</string>
     <string name="revanced_hide_latest_posts_summary_off">Viimeisimmät viestit näytetään</string>
     <string name="revanced_hide_latest_posts_summary_on">Viimeisimmät viestit on piilotettu</string>
     <string name="revanced_hide_latest_posts_title">Piilota viimeisimmät viestit</string>
@@ -167,6 +176,7 @@
     <string name="sb_general_uuid">Yksityinen käyttäjätunnuksesi</string>
     <string name="sb_general_uuid_invalid">Käyttäjätunnus ei voi olla tyhjä</string>
     <string name="sb_general_api_url">Muuta API-osoite</string>
+    <string name="sb_api_url_reset">Palauta API-osoite</string>
     <string name="sb_api_url_invalid">API-osoite virheellinen</string>
     <string name="sb_api_url_changed">API-osoite muuttunut</string>
     <string name="sb_segments_sponsor">Sponsori</string>

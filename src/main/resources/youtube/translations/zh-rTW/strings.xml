@@ -28,9 +28,9 @@
     <string name="revanced_backup_summary">自檔案匯入 ReVanced 設定，或匯出 ReVanced 設定至檔案</string>
     <string name="revanced_bottom_player">播放器按鈕</string>
     <string name="revanced_button_container_title">功能按鈕欄</string>
-    <string name="revanced_bypass_ambient_mode_restrictions_summary_off">省電模式下電影燈光效果已停用</string>
-    <string name="revanced_bypass_ambient_mode_restrictions_summary_on">省電模式下電影燈光效果已啟用</string>
-    <string name="revanced_bypass_ambient_mode_restrictions_title">解除電影燈光效果限制</string>
+    <string name="revanced_bypass_ambient_mode_restrictions_summary_off">省電模式下微光效果已停用</string>
+    <string name="revanced_bypass_ambient_mode_restrictions_summary_on">省電模式下微光效果已啟用</string>
+    <string name="revanced_bypass_ambient_mode_restrictions_title">解除微光效果限制</string>
     <string name="revanced_change_homepage_summary_off">目前主畫面：首頁</string>
     <string name="revanced_change_homepage_summary_on">目前主畫面：訂閱內容</string>
     <string name="revanced_change_homepage_title">設定主畫面為訂閱內容</string>
@@ -83,9 +83,6 @@
     <string name="revanced_enable_external_browser_summary_off">外部瀏覽器已停用</string>
     <string name="revanced_enable_external_browser_summary_on">外部瀏覽器已啟用</string>
     <string name="revanced_enable_external_browser_title">啟用外部瀏覽器</string>
-    <string name="revanced_enable_old_layout_summary_off">YouTube介面會依照你的 Google 帳戶狀態而啟用</string>
-    <string name="revanced_enable_old_layout_summary_on">偽裝 YouTube 版本以強制啟用舊版介面</string>
-    <string name="revanced_enable_old_layout_title">啟用舊版介面</string>
     <string name="revanced_enable_old_quality_layout_summary_off">顯示新版畫質設定</string>
     <string name="revanced_enable_old_quality_layout_summary_on">顯示舊版畫質設定</string>
     <string name="revanced_enable_old_quality_layout_title">使用舊版畫質設定</string>
@@ -94,9 +91,6 @@
     <string name="revanced_enable_open_links_directly_title">直接開啟連結</string>
     <string name="revanced_enable_phone_layout_summary">偽裝DPI以使用一些手機版介面</string>
     <string name="revanced_enable_phone_layout_title">啟用手機版介面</string>
-    <string name="revanced_enable_protobuf_spoof_summary">偽裝 protobuf 以防止播放問題
-註:當觀看影片時遇到無限載入問題,再開啟此設定
-否則請保持此設定關閉</string>
     <string name="revanced_enable_protobuf_spoof_title">啟用 protobuf 偽裝</string>
     <string name="revanced_enable_press_to_swipe_summary_off">長按以滑動已停用</string>
     <string name="revanced_enable_press_to_swipe_summary_on">長按以滑動已啟用</string>
@@ -301,9 +295,9 @@
     <string name="revanced_hide_medical_panel_summary_off">醫療資訊已顯示</string>
     <string name="revanced_hide_medical_panel_summary_on">醫療資訊已隱藏</string>
     <string name="revanced_hide_medical_panel_title">隱藏醫療資訊</string>
-    <string name="revanced_hide_menu_ambient_mode_summary_off">\"電影燈光效果\"已顯示</string>
-    <string name="revanced_hide_menu_ambient_mode_summary_on">\"電影燈光效果\"已隱藏</string>
-    <string name="revanced_hide_menu_ambient_mode_title">電影燈光效果</string>
+    <string name="revanced_hide_menu_ambient_mode_summary_off">\"微光效果\"已顯示</string>
+    <string name="revanced_hide_menu_ambient_mode_summary_on">\"微光效果\"已隱藏</string>
+    <string name="revanced_hide_menu_ambient_mode_title">微光效果</string>
     <string name="revanced_hide_menu_audio_track_summary_off">\"音軌\"已顯示</string>
     <string name="revanced_hide_menu_audio_track_summary_on">\"音軌\"已隱藏</string>
     <string name="revanced_hide_menu_audio_track_title">音軌</string>
@@ -483,7 +477,7 @@
 
 如果啟用此設定，以下功能將無法使用：
 
-- 電影燈光效果
+- 微光效果
 - 社群貼文"</string>
     <string name="revanced_reboot_warning_vp9">"修改裝置資訊以啟用 VP9 解碼器
 
@@ -554,6 +548,7 @@
     <string name="sb_enable_compact_skip_button_sum_on">以袖珍的形式呈現跳過按鈕</string>
     <string name="sb_enable_compact_skip_button_sum_off">以最佳的形式呈現跳過按鈕</string>
     <string name="sb_enable_auto_hide_skip_segment_button">自動隱藏跳過按鈕</string>
+    <string name="sb_enable_auto_hide_skip_segment_button_sum_on">在幾秒過後隱藏跳過按鈕</string>
     <string name="sb_enable_auto_hide_skip_segment_button_sum_off">為整個片段顯示跳過按鈕</string>
     <string name="sb_general_skiptoast">自動跳過片段時顯示提示</string>
     <string name="sb_general_skiptoast_sum_on">提示將於片段被自動跳過時顯示, 點擊此處來查看範例</string>
@@ -561,6 +556,7 @@
     <string name="sb_general_time_without">顯示不包含被略過片段的時間戳</string>
     <string name="sb_general_time_without_sum_on">將被略過片段減去的時間戳括號後, 顯示於完整時間戳旁邊</string>
     <string name="sb_general_time_without_sum_off">只顯示完整的時間戳</string>
+    <string name="sb_create_segment_category">建立新片段</string>
     <string name="sb_enable_create_segment">顯示新增影片片段投票按鈕</string>
     <string name="sb_enable_create_segment_sum_on">新增影片片段投票按鈕已顯示</string>
     <string name="sb_enable_create_segment_sum_off">新增影片片段投票按鈕未顯示</string>
@@ -588,7 +584,7 @@
     <string name="sb_api_url_invalid">API 網址無效</string>
     <string name="sb_api_url_changed">API 網址已更換</string>
     <string name="sb_settings_ie_sum">你的 SponsorBlock 設定檔 可以被 匯入/匯出 至 ReVanced 或其他 SponsorBlock 平台上. 這個設定檔內將包含你個人的用戶ID. 請小心使用.</string>
-    <string name="sb_diff_segments">對不同類別片段的操作</string>
+    <string name="sb_diff_segments">更改片段的操作</string>
     <string name="sb_segments_sponsor">贊助商廣告</string>
     <string name="sb_segments_sponsor_sum">有收錢的工商廣告和直接廣告。不是為了自我推銷或為了其他創作的免費推銷</string>
     <string name="sb_segments_selfpromo">非付費/自我推廣</string>

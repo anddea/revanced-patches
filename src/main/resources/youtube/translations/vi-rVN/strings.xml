@@ -83,9 +83,16 @@
     <string name="revanced_enable_external_browser_summary_off">Đang mở các liên kết xuất hiện trên YouTube trong ứng dụng</string>
     <string name="revanced_enable_external_browser_summary_on">Đang mở các liên kết xuất hiện trên YouTube bằng trình duyệt bên ngoài</string>
     <string name="revanced_enable_external_browser_title">Mở liên kết bằng trình duyệt bên ngoài</string>
-    <string name="revanced_enable_old_layout_summary_off">Đang sử dụng giao diện YouTube mặc định</string>
-    <string name="revanced_enable_old_layout_summary_on">Đánh lừa hệ thống rằng bạn đang sử dụng YouTube phiên bản cũ của để bật giao diện cũ</string>
-    <string name="revanced_enable_old_layout_title">Giao diện YouTube cũ</string>
+    <string name="revanced_spoof_app_version_summary">"Giả mạo phiên bản YouTube hiện tại thành phiên bản cũ.
+
+Tính năng này sẽ thay đổi giao diện của ứng dụng, tuy nhiên có thể xảy ra các sự cố chưa xác định khác.
+Nếu tắt tính năng này sau đó, giao diện cũ có thể vẫn tồn tại cho đến khi bạn xoá dữ liệu ứng dụng."</string>
+    <string name="revanced_spoof_app_version_title">Giả mạo phiên bản ứng dụng</string>
+    <string name="revanced_spoof_app_version_target_entry_1">17.41.37 - Khôi phục giao diện kệ Danh sách phát trong thẻ Thư viện cũ</string>
+    <string name="revanced_spoof_app_version_target_entry_2">Phiên bản 17.30.34 - Khôi phục giao diện YouTube cũ</string>
+    <string name="revanced_spoof_app_version_target_entry_3">17.41.37 - Khôi phục tính năng sắp xếp video theo ngày thêm cũ nhất</string>
+    <string name="revanced_spoof_app_version_target_entry_4">Phiên bản 16.08.35 - Khôi phục thẻ Khám phá</string>
+    <string name="revanced_spoof_app_version_target_title">Phiên bản giả mạo</string>
     <string name="revanced_enable_old_quality_layout_summary_off">Đang sử dụng bố cục Chất lượng video đang xem mặc định</string>
     <string name="revanced_enable_old_quality_layout_summary_on">Đang sử dụng bố cục Chất lượng video đang xem kiểu cũ</string>
     <string name="revanced_enable_old_quality_layout_title">Bố cục Chất lượng video kiểu cũ</string>
@@ -94,7 +101,10 @@
     <string name="revanced_enable_open_links_directly_title">Mở liên kết trực tiếp</string>
     <string name="revanced_enable_phone_layout_summary">Thay đổi DPI để sử dụng một số bố cục điện thoại</string>
     <string name="revanced_enable_phone_layout_title">Bố cục điện thoại</string>
-    <string name="revanced_enable_protobuf_spoof_summary">Giả mạo protobuf để ngăn vấn đề giật hình và sự cố treo khi phát video</string>
+    <string name="revanced_enable_protobuf_spoof_summary">"Giả mạo protobuf để ngăn vấn đề giật hình và sự cố treo khi phát video.
+Sự cố đã biết:
+- Màn hình kết thúc luôn ẩn.
+- Tải video xuống để xem khi không có mạng có thể không hoạt động (người dùng YouTube Premium)."</string>
     <string name="revanced_enable_protobuf_spoof_title">Giả mạo protobuf</string>
     <string name="revanced_enable_press_to_swipe_summary_off">Cử chỉ nhấn và giữ để vuốt đã tắt</string>
     <string name="revanced_enable_press_to_swipe_summary_on">Cử chỉ nhấn và giữ để vuốt đang bật</string>
@@ -162,6 +172,9 @@ Vui lòng không báo cáo bất kỳ sự cố nào bạn gặp phải khi sử
     <string name="revanced_hide_album_card_summary_off">Thẻ Đĩa nhạc được hiển thị trong kết quả tìm kiếm</string>
     <string name="revanced_hide_album_card_summary_on">Thẻ Đĩa nhạc đã ẩn khỏi kết quả tìm kiếm</string>
     <string name="revanced_hide_album_card_title">Ẩn thẻ Đĩa nhạc</string>
+    <string name="revanced_hide_audio_track_button_summary_off">Nút Bản âm thanh được hiển thị</string>
+    <string name="revanced_hide_audio_track_button_summary_on">Nút Bản âm thanh đã ẩn</string>
+    <string name="revanced_hide_audio_track_button_title">Ẩn nút Bản âm thanh</string>
     <string name="revanced_hide_autoplay_button_summary_off">Nút Tự động phát được hiển thị</string>
     <string name="revanced_hide_autoplay_button_summary_on">Nút Tự động phát đã ẩn</string>
     <string name="revanced_hide_autoplay_button_title">Ẩn nút Tự động phát</string>
@@ -278,6 +291,9 @@ Vui lòng không báo cáo bất kỳ sự cố nào bạn gặp phải khi sử
     <string name="revanced_hide_fullscreen_panels_summary_off">Đang xem video ở chế độ toàn màn hình mặc định</string>
     <string name="revanced_hide_fullscreen_panels_summary_on">Đang xem video ở chế độ toàn màn hình đã lược bỏ đi các mục không cần thiết để giảm thiểu cảm giác lộn xộn</string>
     <string name="revanced_hide_fullscreen_panels_title">Xem ở chế độ toàn màn hình tối giản</string>
+    <string name="revanced_hide_get_premium_summary_off">Quảng cáo YouTube Premium được hiển thị</string>
+    <string name="revanced_hide_get_premium_summary_on">Quảng cáo YouTube Premium đã ẩn</string>
+    <string name="revanced_hide_get_premium_title">Ẩn quảng cáo YouTube Premium</string>
     <string name="revanced_hide_home_button_summary_off">Thẻ Trang chủ được hiển thị</string>
     <string name="revanced_hide_home_button_summary_on">Thẻ Trang chủ đã ẩn</string>
     <string name="revanced_hide_home_button_title">Ẩn thẻ Trang chủ</string>

@@ -43,6 +43,7 @@
     <string name="revanced_default_video_speed_title">Alapértelmezett videó sebesség</string>
     <string name="revanced_disable_default_video_speed_live_summary_off">Alapértelmezett videó sebesség engedélyezve élő adásban</string>
     <string name="revanced_disable_default_video_speed_live_summary_on">Alapértelmezett videó sebesség kikapcsolva élő adásban</string>
+    <string name="revanced_disable_default_video_speed_live_title">Videósebesség letiltása élő közvetítésben</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">A Fejezetek haptikus jelzése engedélyezve van</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">A Fejezetek haptikus jelzése kikapcsolva</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">Fejezetek haptikus jelzésének kikapcsolása</string>
@@ -82,9 +83,6 @@
     <string name="revanced_enable_external_browser_summary_off">A külső böngésző ki van kapcsolva</string>
     <string name="revanced_enable_external_browser_summary_on">A külső böngésző engedélyezve van</string>
     <string name="revanced_enable_external_browser_title">Külső böngésző engedélyezése</string>
-    <string name="revanced_enable_old_layout_summary_off">A YouTube felülete követni fogja a Google-fiókja státuszát</string>
-    <string name="revanced_enable_old_layout_summary_on">Youtube verzió trükközése hogy rákényszerítse a régi felületet</string>
-    <string name="revanced_enable_old_layout_title">A Régi felület engedélyezése</string>
     <string name="revanced_enable_old_quality_layout_summary_off">Az új stílusú minőség beállítások látható</string>
     <string name="revanced_enable_old_quality_layout_summary_on">A régi stílusú minőség beállítások látható</string>
     <string name="revanced_enable_old_quality_layout_title">Régi stílusú minőség beállítások engedélyezése</string>
@@ -93,7 +91,6 @@
     <string name="revanced_enable_open_links_directly_title">Közvetlen link megnyitások engedélyezése</string>
     <string name="revanced_enable_phone_layout_summary">Becsapja a dpi-t egyes telefon felületek használatához</string>
     <string name="revanced_enable_phone_layout_title">A telefonos felület engedélyezése</string>
-    <string name="revanced_enable_protobuf_spoof_summary">Meghamisítja a protobufot a lejátszási problémák elkerülése érdekében</string>
     <string name="revanced_enable_protobuf_spoof_title">Protobuf spoof engedélyezése</string>
     <string name="revanced_enable_press_to_swipe_summary_off">A nyomva húzás le van tiltva</string>
     <string name="revanced_enable_press_to_swipe_summary_on">A nyomva húzás engedélyezve van</string>
@@ -277,6 +274,9 @@ Kérjük, ne jelezzen semmilyen problémát, amely e funkció használata során
     <string name="revanced_hide_fullscreen_panels_summary_off">Teljes képernyős panelek megjelenítve</string>
     <string name="revanced_hide_fullscreen_panels_summary_on">Teljes képernyős panelek elrejtve</string>
     <string name="revanced_hide_fullscreen_panels_title">Teljes képernyős panelek elrejtése</string>
+    <string name="revanced_hide_home_button_summary_off">Kezdőlap gomb megjelenik</string>
+    <string name="revanced_hide_home_button_summary_on">A Kezdőlap gomb elrejtve</string>
+    <string name="revanced_hide_home_button_title">Kezdőlap gomb elrejtése</string>
     <string name="revanced_hide_image_shelf_summary_off">Kép-polcok megjelenítve</string>
     <string name="revanced_hide_image_shelf_summary_on">Kép-polcok elrejtve</string>
     <string name="revanced_hide_image_shelf_title">Kép-polc elrejtése</string>
@@ -355,6 +355,18 @@ Kérjük, ne jelezzen semmilyen problémát, amely e funkció használata során
     <string name="revanced_hide_previous_next_button_summary_off">Gombok megjelenítése</string>
     <string name="revanced_hide_previous_next_button_summary_on">Gombok elrejtve</string>
     <string name="revanced_hide_previous_next_button_title">Előző &amp; következő gomb elrejtése</string>
+    <string name="revanced_hide_quick_actions_summary_off">Gyors műveletek konténer megjelenik</string>
+    <string name="revanced_hide_quick_actions_summary_on">Gyorsműveletek konténer elrejtve</string>
+    <string name="revanced_hide_quick_actions_title">Gyorsműveletek konténer elrejtése</string>
+    <string name="revanced_hide_quick_actions_comment_summary_off">Megjegyzés gomb megjelenik</string>
+    <string name="revanced_hide_quick_actions_comment_summary_on">Megjegyzés gomb el van rejtve</string>
+    <string name="revanced_hide_quick_actions_comment_title">Megjegyzés gomb elrejtése</string>
+    <string name="revanced_hide_quick_actions_more_summary_off">Bővebben gomb látható</string>
+    <string name="revanced_hide_quick_actions_more_summary_on">Bővebben gomb rejtett</string>
+    <string name="revanced_hide_quick_actions_more_title">Bővebben gomb elrejtése</string>
+    <string name="revanced_hide_quick_actions_related_videos_summary_off">Kapcsolódó videók láthatók</string>
+    <string name="revanced_hide_quick_actions_related_videos_summary_on">Kapcsolódó videók elrejtve</string>
+    <string name="revanced_hide_quick_actions_related_videos_title">Kapcsolódó videók elrejtése a gyorsműveletekben</string>
     <string name="revanced_hide_seekbar_summary_off">Lejátszó csík megjelenítve</string>
     <string name="revanced_hide_seekbar_summary_on">Lejátszó csík elrejtve</string>
     <string name="revanced_hide_seekbar_title">Lejátszó csík elrejtése</string>
@@ -395,6 +407,8 @@ Kérjük, ne jelezzen semmilyen problémát, amely e funkció használata során
     <string name="revanced_hide_suggestions_summary_off">Javaslatok megjelenítve</string>
     <string name="revanced_hide_suggestions_summary_on">Javaslatok elrejtve</string>
     <string name="revanced_hide_suggestions_title">Javaslatok elrejtése</string>
+    <string name="revanced_hide_teaser_summary_off">A teaserek láthatók</string>
+    <string name="revanced_hide_teaser_summary_on">A teaserek elrejtve</string>
     <string name="revanced_hide_teaser_title">Bevezető elrejtése a videók alatt</string>
     <string name="revanced_hide_ticket_shelf_summary_off">A jegy fülek megjelenítve</string>
     <string name="revanced_hide_ticket_shelf_summary_on">A jegy fülek elrejtve</string>
@@ -450,6 +464,7 @@ Kérjük, ne jelezzen semmilyen problémát, amely e funkció használata során
     <string name="revanced_player_flyout_panel_title">Lejátszó kiugró panel</string>
     <string name="revanced_player">Lejátszó</string>
     <string name="revanced_protobuf_spoof_notice">Protobuf hamisítása a lejátszási problémák elkerülése érdekében</string>
+    <string name="revanced_quick_actions_components_title">Gyorsműveletek összetevői (Kísérleti)</string>
     <string name="revanced_reboot_warning_general">"Mivel ez egyelőre kísérleti funkció, további ismeretlen problémák merülhetnek fel.
 Biztos, hogy folytatni szeretné?"</string>
     <string name="revanced_reboot_warning_phone">"Trükkök a dpi-vel, hogy egyes elrendezéseket telefonos elrendezésekre változtasson.
@@ -475,6 +490,7 @@ Ha engedélyezi ezt a beállítást, a következő funkciók nem állnak rendelk
     <string name="revanced_ryd_enable_summary_on">A nemtetszések \"Dislike\" láthatóak</string>
     <string name="revanced_ryd_enable_title">Engedélyezze a YouTube Dislike visszatérését</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">A Dislike számláló jelenleg nem érhető el (Kliens API limit elérve)</string>
+    <string name="revanced_ryd_failure_user_voted">A videó újratöltése a szavazáshoz a ReturnYouTubeDislike használatával</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Elrejtve</string>
     <string name="revanced_save_video_quality_mobile">Az alapértelmezett mobiladat-minőség módosítása a következőre:</string>
     <string name="revanced_save_video_quality_none">Nem sikerült beállítani a minőséget</string>
@@ -521,18 +537,23 @@ Ha engedélyezi ezt a beállítást, a következő funkciók nem állnak rendelk
     <string name="revanced_whitelisting_title">Csatorna Fehérlista</string>
     <string name="sb_enable_sb">SponsorBlock engedélyezése</string>
     <string name="sb_enable_sb_sum">A SponsorBlock egy közönségi rendszer a zavaró részek átugrására a YouTube videókon</string>
+    <string name="sb_appearance_category">Megjelenés</string>
     <string name="sb_enable_voting">Szavazás gomb megjelenítése</string>
     <string name="sb_enable_voting_sum_on">Szegmens szavazás gomb megjelenítve</string>
     <string name="sb_enable_voting_sum_off">Szegmens szavazás gomb elrejtve</string>
     <string name="sb_enable_compact_skip_button">Kompakt átugrás gomb használata</string>
     <string name="sb_enable_compact_skip_button_sum_on">Az átugrás gomb minimális szélességre formázva</string>
     <string name="sb_enable_compact_skip_button_sum_off">Az átugrás gomb a legjobb megjelenésre formázva</string>
+    <string name="sb_enable_auto_hide_skip_segment_button">Automatikusan elrejti a kihagyás gombot</string>
+    <string name="sb_enable_auto_hide_skip_segment_button_sum_on">A kihagyás gomb néhány másodperc után eltűnik</string>
+    <string name="sb_enable_auto_hide_skip_segment_button_sum_off">A teljes szakaszra megjelenített kihagyás gomb</string>
     <string name="sb_general_skiptoast">Toast üzenet megjelenítése az automatikusan kihagyott szegmensekhez</string>
     <string name="sb_general_skiptoast_sum_on">Toast üzenet megjelenítése az automatikusan átugrott szegmensekhez. Koppintson egy példa toast üzenet megtekintéséhez</string>
     <string name="sb_general_skiptoast_sum_off">Toast elrejtve. Koppintson egy példa megtekintéséhez</string>
     <string name="sb_general_time_without">A videó hossz mutatása szegmensek nélkül</string>
     <string name="sb_general_time_without_sum_on">A videó hossza mínusz az összes szegmens, zárójelben a videó teljes hossza mellett</string>
     <string name="sb_general_time_without_sum_off">A videó teljes hossza látható</string>
+    <string name="sb_create_segment_category">Új szegmensek létrehozása</string>
     <string name="sb_enable_create_segment">Új szegmens készítése gomb mutatása</string>
     <string name="sb_enable_create_segment_sum_on">Új szegmens készítése gomb megjelenítve</string>
     <string name="sb_enable_create_segment_sum_off">Új szegmens készítése gomb elrejtve</string>
@@ -567,6 +588,8 @@ Ha engedélyezi ezt a beállítást, a következő funkciók nem állnak rendelk
     <string name="sb_segments_selfpromo_sum">Hasonló a \"szponzorhoz\", csak ez nem fizetett, vagy saját promóció. Beletartoznak a saját árucikkek, adományok, illetve információk azokról, akikkel együttműködtek</string>
     <string name="sb_segments_interaction">Interakció emlékeztető (Feliratkozás, lájk stb.)</string>
     <string name="sb_segments_interaction_sum">Egy rövid emlékeztető arról, hogy likeoljunk, iratkozzunk fel, vagy kövessük a tartalom közben. Ha hosszabb szakasz, vagy egy adott témáról van, inkább az önpromóció alá tartozik</string>
+    <string name="sb_segments_highlight">Kiemelés</string>
+    <string name="sb_segments_highlight_sum">A videónak az a része, amit a legtöbben keresnek</string>
     <string name="sb_segments_intro">Szünet/Intro animáció</string>
     <string name="sb_segments_intro_sum">Egy részlet tartalom nélkül. Lehet szünet, álló képkocka, vagy ismétlődő animáció. Nem használandó információt tartalmazó átmeneteknél</string>
     <string name="sb_segments_outro">Zárókártyák/Kreditek</string>
@@ -578,9 +601,11 @@ Ha engedélyezi ezt a beállítást, a következő funkciók nem állnak rendelk
     <string name="sb_segments_nomusic">Zene: Nem-zenei rész</string>
     <string name="sb_segments_nomusic_sum">Csak videóklipekhez. Ezt csak videóklipek olyan részeihez szabad használni, amiket nem fed le a többi kategória</string>
     <string name="sb_skip_button_compact">Kihagyás</string>
+    <string name="sb_skip_button_compact_highlight">Kiemelés</string>
     <string name="sb_skip_button_sponsor">Szponzor átugorva</string>
     <string name="sb_skip_button_selfpromo">Promóció átugrása</string>
     <string name="sb_skip_button_interaction">Interakció átugrása</string>
+    <string name="sb_skip_button_highlight">Ugrás a kiemeléshez</string>
     <string name="sb_skip_button_intro_beginning">Intró átugrása</string>
     <string name="sb_skip_button_outro">Outro átugorva</string>
     <string name="sb_skip_button_preview_beginning">Előnézet átugorva</string>
@@ -590,6 +615,7 @@ Ha engedélyezi ezt a beállítást, a következő funkciók nem állnak rendelk
     <string name="sb_skipped_sponsor">Szponzor átugorva</string>
     <string name="sb_skipped_selfpromo">Önpromóció átugorva</string>
     <string name="sb_skipped_interaction">Idegesítő emlékeztető átugorva</string>
+    <string name="sb_skipped_highlight">Átugorva a kiemeléshez</string>
     <string name="sb_skipped_intro_beginning">Intro átugorva</string>
     <string name="sb_skipped_outro">Outro átugorva</string>
     <string name="sb_skipped_preview_beginning">Előnézet átugorva</string>
@@ -626,6 +652,7 @@ Ha engedélyezi ezt a beállítást, a következő funkciók nem állnak rendelk
     <string name="sb_new_segment_time_end">A szegmens végének ideje</string>
     <string name="sb_new_segment_confirm_title">Helyesek az időzítések?</string>
     <string name="sb_new_segment_confirm_content" formatted="false">A rész %02d:%02d -től %02d:%02d -ig tart (%d perc %02d másodperc)\nKészen áll a beküldésre?</string>
+    <string name="sb_new_segment_start_is_before_end">A kezdetnek a vége előtt kell lennie</string>
     <string name="sb_new_segment_mark_locations_first">Jelöljön ki először két pontot az idősávon</string>
     <string name="sb_new_segment_preview_segment_first">Tekintse meg a szegmens előnézetét, és gondoskodjon a zökkenőmentes átugrásról</string>
     <string name="sb_new_segment_edit_by_hand_title">A szegmens időzítésének kézi beállítása</string>

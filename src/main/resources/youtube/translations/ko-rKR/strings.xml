@@ -88,9 +88,17 @@
     <string name="revanced_enable_external_browser_summary_off">외부 브라우저를 비활성화합니다.</string>
     <string name="revanced_enable_external_browser_summary_on">외부 브라우저를 활성화합니다.</string>
     <string name="revanced_enable_external_browser_title">외부 브라우저 활성화하기</string>
-    <string name="revanced_enable_old_layout_summary_off">YouTube 레이아웃을 Google 계정 상태에 따라 활성화합니다.</string>
-    <string name="revanced_enable_old_layout_summary_on">YouTube 버전을 속여 이전 레이아웃을 강제로 활성화합니다.</string>
-    <string name="revanced_enable_old_layout_title">이전 레이아웃 활성화하기</string>
+    <string name="revanced_spoof_app_version_summary">"YouTube 버전을 이전 버전으로 변경합니다.
+
+이 설정을 활성화하면 이전 버전으로 변경되지만 알려지지 않은 다른 문제가 있을 수 있습니다.
+
+나중에 비활성화하면 앱 데이터를 지우기 전까지 이전 UI가 유지될 수 있습니다."</string>
+    <string name="revanced_spoof_app_version_title">앱 버전 속이기 활성화하기</string>
+    <string name="revanced_spoof_app_version_target_entry_1">17.41.37 - 보관함 탭에서 이전 레이아웃의 재생목록 선반을 사용합니다.</string>
+    <string name="revanced_spoof_app_version_target_entry_2">17.30.34 - 이전 UI 레이아웃으로 복원합니다.</string>
+    <string name="revanced_spoof_app_version_target_entry_3">17.06.35 - 가장 오래된 순서로 동영상 정렬이 가능합니다.</string>
+    <string name="revanced_spoof_app_version_target_entry_4">16.08.35 - 탐색 탭을 복원합니다.</string>
+    <string name="revanced_spoof_app_version_target_title">속이기에 사용할 앱 버전 설정</string>
     <string name="revanced_enable_old_quality_layout_summary_off">새로운 스타일의 동영상 품질 설정이 노출됩니다.</string>
     <string name="revanced_enable_old_quality_layout_summary_on">이전 스타일의 동영상 품질 설정이 노출됩니다.</string>
     <string name="revanced_enable_old_quality_layout_title">이전 스타일의 동영상 품질 설정 활성화하기</string>
@@ -99,7 +107,11 @@
     <string name="revanced_enable_open_links_directly_title">리다이렉션 없이 링크 바로 열기</string>
     <string name="revanced_enable_phone_layout_summary">dpi를 속여 일부 레이아웃을 휴대폰 레이아웃으로 변경합니다.</string>
     <string name="revanced_enable_phone_layout_title">휴대폰 레이아웃 활성화하기</string>
-    <string name="revanced_enable_protobuf_spoof_summary">프로토콜 버퍼를 속여 MicroG 사용자(Non Root 사용자)가 동영상 재생 중 버퍼링으로 인해 시청할 수 없는 문제를 방지합니다.</string>
+    <string name="revanced_enable_protobuf_spoof_summary">"프로토콜 버퍼를 속여 MicroG 사용자(Non Root 사용자)가 동영상 재생 중 버퍼링으로 인해 시청할 수 없는 문제를 방지합니다.
+
+알려진 문제점
+- 최종 화면 카드가 항상 숨겨집니다.
+- 오프라인 저장이 작동하지 않을 수 있습니다. (YouTube Premium 사용자)"</string>
     <string name="revanced_enable_protobuf_spoof_title">프로토콜 버퍼 속이기 활성화하기</string>
     <string name="revanced_enable_press_to_swipe_summary_off">눌러서 스와이프 제스처를 비활성화합니다.</string>
     <string name="revanced_enable_press_to_swipe_summary_on">눌러서 스와이프 제스처를 활성화합니다.</string>
@@ -169,6 +181,9 @@
     <string name="revanced_hide_album_card_summary_off">아티스트 이름을 검색한 결과에서\n상단에 표시되는 음악 앨범 카드가 노출됩니다.</string>
     <string name="revanced_hide_album_card_summary_on">아티스트 이름을 검색한 결과에서\n상단에 표시되는 음악 앨범 카드가 숨겨집니다.</string>
     <string name="revanced_hide_album_card_title">음악 앨범 카드 숨기기</string>
+    <string name="revanced_hide_audio_track_button_summary_off">오디오 트랙 버튼이 노출됩니다.</string>
+    <string name="revanced_hide_audio_track_button_summary_on">오디오 트랙 버튼이 숨겨집니다.</string>
+    <string name="revanced_hide_audio_track_button_title">오디오 트랙 버튼 숨기기</string>
     <string name="revanced_hide_autoplay_button_summary_off">자동 재생 버튼이 노출됩니다.</string>
     <string name="revanced_hide_autoplay_button_summary_on">자동 재생 버튼이 숨겨집니다.</string>
     <string name="revanced_hide_autoplay_button_title">자동 재생 버튼 숨기기</string>
@@ -285,6 +300,9 @@
     <string name="revanced_hide_fullscreen_panels_summary_off">전체화면 패널이 노출됩니다.</string>
     <string name="revanced_hide_fullscreen_panels_summary_on">전체화면 패널이 숨겨집니다.</string>
     <string name="revanced_hide_fullscreen_panels_title">전체화면 패널 숨기기</string>
+    <string name="revanced_hide_get_premium_summary_off">YouTube Premium 프로모션 팝업이 노출됩니다.</string>
+    <string name="revanced_hide_get_premium_summary_on">YouTube Premium 프로모션 팝업이 숨겨집니다.</string>
+    <string name="revanced_hide_get_premium_title">YouTube Premium 프로모션 팝업 숨기기</string>
     <string name="revanced_hide_home_button_summary_off">홈 버튼이 노출됩니다.</string>
     <string name="revanced_hide_home_button_summary_on">홈 버튼이 숨겨집니다.</string>
     <string name="revanced_hide_home_button_title">홈 버튼 숨기기</string>
@@ -560,14 +578,14 @@
     <string name="sb_enable_compact_skip_button_sum_off">일반적인 건너뛰기 버튼이 노출됩니다.</string>
     <string name="sb_enable_auto_hide_skip_segment_button">자동으로 건너뛰기 버튼 숨기기</string>
     <string name="sb_enable_auto_hide_skip_segment_button_sum_on">건너뛰기 버튼이 몇 초 후에 숨겨집니다.</string>
-    <string name="sb_enable_auto_hide_skip_segment_button_sum_off">건너뛰기 버튼이 전체 구간에 표시됩니다.</string>
+    <string name="sb_enable_auto_hide_skip_segment_button_sum_off">건너뛰기 버튼이 해당 구간이 끝날 때까지 노출됩니다.</string>
     <string name="sb_general_skiptoast">자동으로 구간을 건너뛸 때 팝업 메시지 표시하기</string>
     <string name="sb_general_skiptoast_sum_on">자동으로 구간을 건너뛸 때 팝업 메시지를 표시합니다. 클릭해서 예시를 볼 수 있습니다.</string>
     <string name="sb_general_skiptoast_sum_off">자동으로 구간을 건너뛸 때 팝업 메시지를 표시하지 않습니다. 클릭해서 예시를 볼 수 있습니다.</string>
     <string name="sb_general_time_without">건너뛸 구간을 제외한 시간 표시하기</string>
     <string name="sb_general_time_without_sum_on">건너뛸 구간을 제외한 전체 동영상 길이를 타임스탬프에 표시합니다.</string>
     <string name="sb_general_time_without_sum_off">건너뛸 구간을 포함한 전체 동영상 길이를 타임스탬프에 표시합니다.</string>
-    <string name="sb_create_segment_category">새로운 구간 만들기</string>
+    <string name="sb_create_segment_category">새로운 구간 추가하기</string>
     <string name="sb_enable_create_segment">구간 추가 버튼 표시하기</string>
     <string name="sb_enable_create_segment_sum_on">구간 추가 버튼이 플레이어에서 노출됩니다.</string>
     <string name="sb_enable_create_segment_sum_off">구간 추가 버튼이 플레이어에서 숨겨집니다.</string>
@@ -590,7 +608,7 @@
     <string name="sb_general_uuid_sum">비공개 사용자 ID는 SponsorBlock 서버에서 구간을 제출하거나 건너뛴 구간 정보를 기록하는데 사용되는 고유 ID 입니다. 절대 다른 이에게 공개하지 마세요.</string>
     <string name="sb_general_uuid_invalid">유효하지 않은 값입니다.</string>
     <string name="sb_general_api_url">SponsorBlock 서버 주소 변경하기</string>
-    <string name="sb_general_api_url_sum">SponsorBlock이 요청을 보낼 서버 주소입니다.\n&lt;b&gt;이것이 무슨 역할을 하는지 알고 있는 경우에만 이 주소를 변경하세요.&lt;/b&gt;</string>
+    <string name="sb_general_api_url_sum">SponsorBlock이 요청을 보낼 서버 주소입니다. 이것이 무슨 역할을 하는지 알고 있는 경우에만 이 주소를 변경하세요.</string>
     <string name="sb_api_url_reset">SponsorBlock 서버 주소 초기화</string>
     <string name="sb_api_url_invalid">잘못된 주소입니다.</string>
     <string name="sb_api_url_changed">SponsorBlock 서버 주소가 변경되었습니다.</string>

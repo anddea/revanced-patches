@@ -83,9 +83,16 @@
     <string name="revanced_enable_external_browser_summary_off">El navegador externo está desactivado</string>
     <string name="revanced_enable_external_browser_summary_on">El navegador externo está activado</string>
     <string name="revanced_enable_external_browser_title">Activar navegador externo</string>
-    <string name="revanced_enable_old_layout_summary_off">El diseño de YouTube seguirá el estado de su cuenta de Google</string>
-    <string name="revanced_enable_old_layout_summary_on">Modifica la versión de YouTube para forzar la desactivación del nuevo diseño</string>
-    <string name="revanced_enable_old_layout_title">Activar diseño antiguo</string>
+    <string name="revanced_spoof_app_version_summary">"Modificación de la versión del cliente a la versión antigua
+
+Esto cambiará la apariencia de la aplicación, pero pueden producirse efectos secundarios desconocidos
+Si más tarde se desactiva, la antigua interfaz de usuario puede permanecer hasta que se borren los datos de la aplicación"</string>
+    <string name="revanced_spoof_app_version_title">Modificar versión de aplicación</string>
+    <string name="revanced_spoof_app_version_target_entry_1">17.41.37 - El estante de las listas de reproducción en la pestaña de biblioteca sigue el diseño antiguo</string>
+    <string name="revanced_spoof_app_version_target_entry_2">17.30.34 - Restaurar el antiguo diseño de la interfaz de usuario</string>
+    <string name="revanced_spoof_app_version_target_entry_3">17.06.35 - Activar la ordenación de vídeos por los más antiguos</string>
+    <string name="revanced_spoof_app_version_target_entry_4">16.08.35 - Restaurar la pestaña de exploración</string>
+    <string name="revanced_spoof_app_version_target_title">Versión a usar de la aplicación</string>
     <string name="revanced_enable_old_quality_layout_summary_off">El nuevo estilo del ajuste de calidad está visible</string>
     <string name="revanced_enable_old_quality_layout_summary_on">El antiguo estilo del ajuste de calidad está visible</string>
     <string name="revanced_enable_old_quality_layout_title">Activar antiguo estilo del diseño de calidad</string>
@@ -94,7 +101,10 @@
     <string name="revanced_enable_open_links_directly_title">Activar apertura de enlaces directamente</string>
     <string name="revanced_enable_phone_layout_summary">Modifica los DPI para utilizar algunos diseños de teléfono</string>
     <string name="revanced_enable_phone_layout_title">Activar diseño de teléfono</string>
-    <string name="revanced_enable_protobuf_spoof_summary">Modifica el protobuf para evitar problemas de reproducción</string>
+    <string name="revanced_enable_protobuf_spoof_summary">"Modifica el protobuf para evitar problemas de reproducción
+Problemas conocidos
+- Las tarjetas de pantalla final siempre están ocultas
+- Es posible que las descargas sin conexión no funcionen (usuarios de YouTube Premium)"</string>
     <string name="revanced_enable_protobuf_spoof_title">Activar modificación del protobuf</string>
     <string name="revanced_enable_press_to_swipe_summary_off">El gesto de presionar para deslizar está desactivado</string>
     <string name="revanced_enable_press_to_swipe_summary_on">El gesto de presionar para deslizar está activado</string>
@@ -162,6 +172,9 @@ Por favor, no reporte ningún problema que encuentre al usar esta función."</st
     <string name="revanced_hide_album_card_summary_off">Las tarjetas del álbum están visibles</string>
     <string name="revanced_hide_album_card_summary_on">Las tarjetas del álbum están ocultas</string>
     <string name="revanced_hide_album_card_title">Ocultar tarjetas del álbum</string>
+    <string name="revanced_hide_audio_track_button_summary_off">El botón de la pista de audio está visible</string>
+    <string name="revanced_hide_audio_track_button_summary_on">El botón de la pista de audio está oculto</string>
+    <string name="revanced_hide_audio_track_button_title">Ocultar botón de pista de audio</string>
     <string name="revanced_hide_autoplay_button_summary_off">El botón de reproducción automática está visible</string>
     <string name="revanced_hide_autoplay_button_summary_on">El botón de reproducción automática está oculto</string>
     <string name="revanced_hide_autoplay_button_title">Ocultar botón de reproducción automática</string>
@@ -278,6 +291,9 @@ Por favor, no reporte ningún problema que encuentre al usar esta función."</st
     <string name="revanced_hide_fullscreen_panels_summary_off">Los paneles en pantalla completa están visibles</string>
     <string name="revanced_hide_fullscreen_panels_summary_on">Los paneles en pantalla completa están ocultos</string>
     <string name="revanced_hide_fullscreen_panels_title">Ocultar paneles en pantalla completa</string>
+    <string name="revanced_hide_get_premium_summary_off">Las promociones de YouTube Premium están visibles</string>
+    <string name="revanced_hide_get_premium_summary_on">Las promociones de YouTube Premium están ocultas</string>
+    <string name="revanced_hide_get_premium_title">Ocultar promociones de YouTube Premium</string>
     <string name="revanced_hide_home_button_summary_off">El botón \"home\" está visible</string>
     <string name="revanced_hide_home_button_summary_on">El botón \"home\" está oculto</string>
     <string name="revanced_hide_home_button_title">Ocultar el botón \"home\"</string>
