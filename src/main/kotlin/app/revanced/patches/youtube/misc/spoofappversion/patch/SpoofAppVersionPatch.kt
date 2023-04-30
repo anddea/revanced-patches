@@ -32,6 +32,11 @@ class SpoofAppVersionPatch : ResourcePatch {
         GeneralVersionSpoofPatch.injectSpoof("$MISC_PATH/VersionOverridePatch;->getVersionOverride(Ljava/lang/String;)Ljava/lang/String;")
 
         /**
+         * Copy arrays
+         */
+        context.copyXmlNode("youtube/spoofappversion/host", "values/arrays.xml", "resources")
+
+        /**
          * Add settings
          */
         SettingsPatch.addPreference(

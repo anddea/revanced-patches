@@ -83,17 +83,5 @@ class PatchOptions : ResourcePatch {
                 description = "The background color of the dark theme. Can be a hex color or a resource reference."
             )
         )
-
-        /**
-         * Client Spoofing Version
-         */
-        internal var clientSpoofVersion: String? by option(
-            PatchOption.StringOption(
-                key = "clientSpoofVersion",
-                default = "17.28.35",
-                title = "Old YouTube version to override",
-                description = "Type the client version to spoof when Old Layout is enabled"
-            )
-        )
     }
 }
