@@ -21,7 +21,7 @@ import app.revanced.util.resources.ResourceUtils
 
 @Patch(false)
 @Name("custom-branding-icon-manual")
-@Description("Changes the YouTube Music launcher icon specified in the 'branding' directory.")
+@Description("Changes the YouTube launcher icon specified in the 'branding' directory.")
 @DependsOn([SettingsPatch::class])
 @YouTubeCompatibility
 @Version("0.0.1")
