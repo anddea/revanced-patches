@@ -45,8 +45,8 @@ class CustomVideoSpeedPatch : ResourcePatch {
         if (splits.isEmpty()) throw IllegalArgumentException("Invalid speed elements")
         val speedElements = splits.map { it }
         for (index in 0 until splits.count()) {
-            context.addEntries(TARGET_ARRAY_PATH, speedElements[index] + "x", TARGET_ENTRY_VALUE_NAME)
-            context.addEntryValues(TARGET_ARRAY_PATH, speedElements[index], TARGET_ENTRIES_NAME)
+            context.addEntries(TARGET_ARRAY_PATH, speedElements[index] + "x", TARGET_ENTRIES_NAME)
+            context.addEntryValues(TARGET_ARRAY_PATH, speedElements[index], TARGET_ENTRY_VALUE_NAME)
         }
 
         /*
