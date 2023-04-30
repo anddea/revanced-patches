@@ -28,9 +28,9 @@
     <string name="revanced_backup_summary">自檔案匯入 ReVanced 設定，或匯出 ReVanced 設定至檔案</string>
     <string name="revanced_bottom_player">播放器按鈕</string>
     <string name="revanced_button_container_title">功能按鈕欄</string>
-    <string name="revanced_bypass_ambient_mode_restrictions_summary_off">省電模式下微光效果已停用</string>
-    <string name="revanced_bypass_ambient_mode_restrictions_summary_on">省電模式下微光效果已啟用</string>
-    <string name="revanced_bypass_ambient_mode_restrictions_title">解除微光效果限制</string>
+    <string name="revanced_bypass_ambient_mode_restrictions_summary_off">省電模式下微光模式已停用</string>
+    <string name="revanced_bypass_ambient_mode_restrictions_summary_on">省電模式下微光模式已啟用</string>
+    <string name="revanced_bypass_ambient_mode_restrictions_title">解除微光模式限制</string>
     <string name="revanced_change_homepage_summary_off">目前主畫面：首頁</string>
     <string name="revanced_change_homepage_summary_on">目前主畫面：訂閱內容</string>
     <string name="revanced_change_homepage_title">設定主畫面為訂閱內容</string>
@@ -83,6 +83,16 @@
     <string name="revanced_enable_external_browser_summary_off">外部瀏覽器已停用</string>
     <string name="revanced_enable_external_browser_summary_on">外部瀏覽器已啟用</string>
     <string name="revanced_enable_external_browser_title">啟用外部瀏覽器</string>
+    <string name="revanced_spoof_app_version_summary">"將客戶端版本偽裝成舊版本
+
+ 這將改變應用程式的外觀，但可能會出現未知的反效果
+ 如果需要關閉，舊版介面可能會保留，直到清除應用程式資料"</string>
+    <string name="revanced_spoof_app_version_title">偽裝應用程式版本</string>
+    <string name="revanced_spoof_app_version_target_entry_1">17.41.37 - 選單中的播放列表欄維持舊介面</string>
+    <string name="revanced_spoof_app_version_target_entry_2">17.30.34 - 恢復舊版介面</string>
+    <string name="revanced_spoof_app_version_target_entry_3">17.06.35 - 啟用按照最舊排列影片</string>
+    <string name="revanced_spoof_app_version_target_entry_4">16.08.35 - 還原瀏覽選項卡</string>
+    <string name="revanced_spoof_app_version_target_title">偽裝應用程式版本目標</string>
     <string name="revanced_enable_old_quality_layout_summary_off">顯示新版畫質設定</string>
     <string name="revanced_enable_old_quality_layout_summary_on">顯示舊版畫質設定</string>
     <string name="revanced_enable_old_quality_layout_title">使用舊版畫質設定</string>
@@ -91,6 +101,10 @@
     <string name="revanced_enable_open_links_directly_title">直接開啟連結</string>
     <string name="revanced_enable_phone_layout_summary">偽裝DPI以使用一些手機版介面</string>
     <string name="revanced_enable_phone_layout_title">啟用手機版介面</string>
+    <string name="revanced_enable_protobuf_spoof_summary">"偽裝 protobuf 以防止播放問題
+ 已知問題
+ - 結束全螢幕卡總是隱藏
+ - 離線下載可能無法正常執行（YouTube Premium 使用者）"</string>
     <string name="revanced_enable_protobuf_spoof_title">啟用 protobuf 偽裝</string>
     <string name="revanced_enable_press_to_swipe_summary_off">長按以滑動已停用</string>
     <string name="revanced_enable_press_to_swipe_summary_on">長按以滑動已啟用</string>
@@ -158,6 +172,9 @@
     <string name="revanced_hide_album_card_summary_off">專輯卡已顯示</string>
     <string name="revanced_hide_album_card_summary_on">專輯卡已隱藏</string>
     <string name="revanced_hide_album_card_title">隱藏專輯卡</string>
+    <string name="revanced_hide_audio_track_button_summary_off">音軌按鈕已顯示</string>
+    <string name="revanced_hide_audio_track_button_summary_on">音軌按鈕已隱藏</string>
+    <string name="revanced_hide_audio_track_button_title">隱藏音軌按鈕</string>
     <string name="revanced_hide_autoplay_button_summary_off">自動播放按鈕已顯示</string>
     <string name="revanced_hide_autoplay_button_summary_on">自動播放按鈕已隱藏</string>
     <string name="revanced_hide_autoplay_button_title">自動播放按鈕</string>
@@ -274,6 +291,9 @@
     <string name="revanced_hide_fullscreen_panels_summary_off">全螢幕面板已顯示</string>
     <string name="revanced_hide_fullscreen_panels_summary_on">全螢幕面板已隱藏</string>
     <string name="revanced_hide_fullscreen_panels_title">隱藏全螢幕面板</string>
+    <string name="revanced_hide_get_premium_summary_off">Youtube Premium 促銷活動已顯示</string>
+    <string name="revanced_hide_get_premium_summary_on">Youtube Premium 促銷活動已隱藏</string>
+    <string name="revanced_hide_get_premium_title">隱藏 Youtube Premium 促銷活動</string>
     <string name="revanced_hide_home_button_summary_off">\"首頁\"按鈕已顯示</string>
     <string name="revanced_hide_home_button_summary_on">\"首頁\"按鈕已隱藏</string>
     <string name="revanced_hide_home_button_title">隱藏\"首頁\"按鈕</string>
@@ -295,41 +315,41 @@
     <string name="revanced_hide_medical_panel_summary_off">醫療資訊已顯示</string>
     <string name="revanced_hide_medical_panel_summary_on">醫療資訊已隱藏</string>
     <string name="revanced_hide_medical_panel_title">隱藏醫療資訊</string>
-    <string name="revanced_hide_menu_ambient_mode_summary_off">\"微光效果\"已顯示</string>
-    <string name="revanced_hide_menu_ambient_mode_summary_on">\"微光效果\"已隱藏</string>
-    <string name="revanced_hide_menu_ambient_mode_title">微光效果</string>
-    <string name="revanced_hide_menu_audio_track_summary_off">\"音軌\"已顯示</string>
+    <string name="revanced_hide_menu_ambient_mode_summary_off">\"微光模式\"已顯示</string>
+    <string name="revanced_hide_menu_ambient_mode_summary_on">微光模式選項已隱藏</string>
+    <string name="revanced_hide_menu_ambient_mode_title">微光模式</string>
+    <string name="revanced_hide_menu_audio_track_summary_off">音軌選單已顯示</string>
     <string name="revanced_hide_menu_audio_track_summary_on">\"音軌\"已隱藏</string>
     <string name="revanced_hide_menu_audio_track_title">音軌</string>
-    <string name="revanced_hide_menu_captions_summary_off">\"字幕\"已顯示</string>
-    <string name="revanced_hide_menu_captions_summary_on">\"字幕\"已隱藏</string>
+    <string name="revanced_hide_menu_captions_summary_off">字幕選單已顯示</string>
+    <string name="revanced_hide_menu_captions_summary_on">字幕選項已隱藏</string>
     <string name="revanced_hide_menu_captions_title">字幕</string>
-    <string name="revanced_hide_menu_help_summary_off">\"幫助和反饋\"已顯示</string>
-    <string name="revanced_hide_menu_help_summary_on">\"幫助和反饋\"已隱藏</string>
+    <string name="revanced_hide_menu_help_summary_off">協助&amp; 回報選項已顯示</string>
+    <string name="revanced_hide_menu_help_summary_on">協助&amp; 回報已隱藏</string>
     <string name="revanced_hide_menu_help_title">幫助和反饋</string>
-    <string name="revanced_hide_menu_listening_controls_summary_off">\"聆聽控制元件\"已顯示</string>
-    <string name="revanced_hide_menu_listening_controls_summary_on">\"聆聽控制元件\"已隱藏</string>
+    <string name="revanced_hide_menu_listening_controls_summary_off">聆聽控制選項已顯示</string>
+    <string name="revanced_hide_menu_listening_controls_summary_on">聆聽控制選項已隱藏</string>
     <string name="revanced_hide_menu_listening_controls_title">聆聽控制元件</string>
-    <string name="revanced_hide_menu_listen_with_youtube_music_summary_off">“在 YouTube Music 上欣賞音樂”已顯示</string>
-    <string name="revanced_hide_menu_listen_with_youtube_music_summary_on">“在 YouTube Music 上欣賞音樂”已隱藏</string>
+    <string name="revanced_hide_menu_listen_with_youtube_music_summary_off">在 YouTube Music 上欣賞音樂選單已顯示</string>
+    <string name="revanced_hide_menu_listen_with_youtube_music_summary_on">在 YouTube Music 上欣賞音樂選項已隱藏</string>
     <string name="revanced_hide_menu_listen_with_youtube_music_title">在 YouTube Music 上欣賞音樂</string>
-    <string name="revanced_hide_menu_loop_video_summary_off">\"循環播放\"已顯示</string>
-    <string name="revanced_hide_menu_loop_video_summary_on">\"循環播放\"已隱藏</string>
+    <string name="revanced_hide_menu_loop_video_summary_off">循環播放選單已顯示</string>
+    <string name="revanced_hide_menu_loop_video_summary_on">循環播放選項已隱藏</string>
     <string name="revanced_hide_menu_loop_video_title">循環播放</string>
-    <string name="revanced_hide_menu_more_info_summary_off">\"更多資訊\"已顯示</string>
-    <string name="revanced_hide_menu_more_info_summary_on">\"更多資訊\"已隱藏</string>
+    <string name="revanced_hide_menu_more_info_summary_off">更多資訊選單已顯示</string>
+    <string name="revanced_hide_menu_more_info_summary_on">更多資訊選單已隱藏</string>
     <string name="revanced_hide_menu_more_info_title">更多資訊</string>
-    <string name="revanced_hide_menu_report_summary_off">\"檢舉\"已顯示</string>
-    <string name="revanced_hide_menu_report_summary_on">\"檢舉\"已隱藏</string>
+    <string name="revanced_hide_menu_report_summary_off">檢舉選項已顯示</string>
+    <string name="revanced_hide_menu_report_summary_on">檢舉選項已隱藏</string>
     <string name="revanced_hide_menu_report_title">檢舉</string>
-    <string name="revanced_hide_menu_speed_summary_off">\"播放速度\" 已顯示</string>
-    <string name="revanced_hide_menu_speed_summary_on">\"播放速度\" 已隱藏</string>
+    <string name="revanced_hide_menu_speed_summary_off">播放速度選單已顯示</string>
+    <string name="revanced_hide_menu_speed_summary_on">播放速度選單已隱藏</string>
     <string name="revanced_hide_menu_speed_title">播放速度</string>
-    <string name="revanced_hide_menu_stats_for_nerds_summary_off">\"詳細統計資訊\"已顯示</string>
-    <string name="revanced_hide_menu_stats_for_nerds_summary_on">\"詳細統計資訊\"已隱藏</string>
+    <string name="revanced_hide_menu_stats_for_nerds_summary_off">詳細統計資訊選項已顯示</string>
+    <string name="revanced_hide_menu_stats_for_nerds_summary_on">詳細統計資訊選項已隱藏</string>
     <string name="revanced_hide_menu_stats_for_nerds_title">詳細統計資訊</string>
-    <string name="revanced_hide_menu_watch_in_vr_summary_off">\"使用VR觀看\"已顯示</string>
-    <string name="revanced_hide_menu_watch_in_vr_summary_on">\"使用VR觀看\"已隱藏</string>
+    <string name="revanced_hide_menu_watch_in_vr_summary_off">使用VR觀看選項已顯示</string>
+    <string name="revanced_hide_menu_watch_in_vr_summary_on">使用VR觀看選項已隱藏</string>
     <string name="revanced_hide_menu_watch_in_vr_title">使用VR觀看</string>
     <string name="revanced_hide_merchandise_summary_off">商品橫幅已顯示</string>
     <string name="revanced_hide_merchandise_summary_on">商品橫幅已隱藏</string>
@@ -419,7 +439,7 @@
     <string name="revanced_hide_time_stamp_summary_off">時間戳已顯示</string>
     <string name="revanced_hide_time_stamp_summary_on">時間戳已隱藏</string>
     <string name="revanced_hide_time_stamp_title">隱藏時間戳</string>
-    <string name="revanced_hide_search_terms_summary_off">熱門搜索 &amp; 搜索歷史 已顯示</string>
+    <string name="revanced_hide_search_terms_summary_off">熱門搜尋 &amp; 搜尋歷史 已顯示</string>
     <string name="revanced_hide_search_terms_summary_on">熱門搜索 &amp; 搜索歷史 已隱藏</string>
     <string name="revanced_hide_search_terms_title">隱藏搜索推薦</string>
     <string name="revanced_hide_view_products_summary_off">觀看商品橫幅已顯示</string>
@@ -473,11 +493,10 @@
 - 社群貼文
 - 隱藏我的合輯"</string>
     <string name="revanced_reboot_warning_quic">建議在網速夠快的情況下再開啟此設定</string>
-    <string name="revanced_reboot_warning_tablet">"欺騙Dpi讓一些介面更改為平板模式的介面
+    <string name="revanced_reboot_warning_tablet">"偽裝DPI讓一些介面更改為平板模式的介面
 
 如果啟用此設定，以下功能將無法使用：
 
-- 微光效果
 - 社群貼文"</string>
     <string name="revanced_reboot_warning_vp9">"修改裝置資訊以啟用 VP9 解碼器
 
