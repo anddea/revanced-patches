@@ -83,9 +83,16 @@
     <string name="revanced_enable_external_browser_summary_off">تم تعطيل المتصفح الخارجي</string>
     <string name="revanced_enable_external_browser_summary_on">تم تمكين المتصفح الخارجي</string>
     <string name="revanced_enable_external_browser_title">تمكين المتصفح الخارجي</string>
-    <string name="revanced_enable_old_layout_summary_off">سيتبع تصميم YouTube حالة حسابك في Google</string>
-    <string name="revanced_enable_old_layout_summary_on">خداع إصدار YouTube لفرض تفعيل التصميم القديم</string>
-    <string name="revanced_enable_old_layout_title">تمكين التصميم القديم</string>
+    <string name="revanced_spoof_app_version_summary">"خداع نسخة التطبيق الحالية إلى النسخة القديمة
+
+سيؤدي هذا إلى تغيير مظهر التطبيق، ولكن قد تحدث آثار جانبية غير معروفة
+إذا تم إيقاف تشغيلها لاحقًا، فقد تظل واجهة المستخدم القديمة قائمة حتى يتم مسح بيانات التطبيق"</string>
+    <string name="revanced_spoof_app_version_title">خِداع إصدار التطبيق</string>
+    <string name="revanced_spoof_app_version_target_entry_1">17.41.37 - يتبع رف قوائم التشغيل في تبويب المكتبة التصميم القديم</string>
+    <string name="revanced_spoof_app_version_target_entry_2">17.30.34 - استعادة تصميم واجهة المستخدم القديم</string>
+    <string name="revanced_spoof_app_version_target_entry_3">17.06.35 - تمكين فرز مقاطع الفيديو حسب الأقدم</string>
+    <string name="revanced_spoof_app_version_target_entry_4">16.08.35 - استعادة تبويب استكشاف</string>
+    <string name="revanced_spoof_app_version_target_title">الهدف من خِداع إصدار التطبيق</string>
     <string name="revanced_enable_old_quality_layout_summary_off">يتم عرض المظهر الجديد لإعدادات جودة الفيديو</string>
     <string name="revanced_enable_old_quality_layout_summary_on">يتم عرض المظهر القديم لإعدادات جودة الفيديو</string>
     <string name="revanced_enable_old_quality_layout_title">تمكين المظهر القديم لإعدادات جودة الفيديو</string>
@@ -94,7 +101,10 @@
     <string name="revanced_enable_open_links_directly_title">تمكين فتح الروابط بشكل مباشر</string>
     <string name="revanced_enable_phone_layout_summary">حِيَل نقاط لكل انش لاستخدام بعض تصميمات الجوال</string>
     <string name="revanced_enable_phone_layout_title">تمكين تصميم الجوَّال</string>
-    <string name="revanced_enable_protobuf_spoof_summary">Spoofs The Protobuf لمنع مشاكل التشغيل</string>
+    <string name="revanced_enable_protobuf_spoof_summary">"Spoofs The Protobuf لمنع مشاكل تشغيل الفيديوهات
+مشاكل معروفة
+- بطاقات شاشة النهاية مخفية دائمًا
+- قد لا تعمل التنزيلات في وضع عدم الاتصال (مستخدمو YouTube Premium)"</string>
     <string name="revanced_enable_protobuf_spoof_title">تمكين Protobuf Spoof</string>
     <string name="revanced_enable_press_to_swipe_summary_off">تنشيط عناصر التحكم عن طريق السحب عند الضغط مباشرة</string>
     <string name="revanced_enable_press_to_swipe_summary_on">يتم تنشيط عناصر التحكم عن طريق السحب فقط بضغطة طويلة</string>
@@ -162,6 +172,9 @@
     <string name="revanced_hide_album_card_summary_off">يتم عرض بطاقات الألبوم</string>
     <string name="revanced_hide_album_card_summary_on">تم إخفاء بطاقات الألبوم</string>
     <string name="revanced_hide_album_card_title">إخفاء بطاقات الألبوم</string>
+    <string name="revanced_hide_audio_track_button_summary_off">يتم عرض زر المقطع الصوتي</string>
+    <string name="revanced_hide_audio_track_button_summary_on">تم إخفاء زر المقطع الصوتي</string>
+    <string name="revanced_hide_audio_track_button_title">إخفاء زر المقطع الصوتي</string>
     <string name="revanced_hide_autoplay_button_summary_off">يتم عرض زر التشغيل التلقائي</string>
     <string name="revanced_hide_autoplay_button_summary_on">تم إخفاء زر التشغيل التلقائي</string>
     <string name="revanced_hide_autoplay_button_title">إخفاء زر التشغيل التلقائي</string>
@@ -224,9 +237,9 @@
     <string name="revanced_hide_category_bar_in_search_results_title">إخفاء شريط الفئات في نتائج البحث</string>
     <string name="revanced_hide_category_bar_summary_off">يتم عرض شريط التصنيف</string>
     <string name="revanced_hide_category_bar_summary_on">تم إخفاء شريط التصنيف</string>
-    <string name="revanced_hide_channelbar_join_button_summary_off">يتم عرض زر الانتساب للقناة</string>
-    <string name="revanced_hide_channelbar_join_button_summary_on">تم إخفاء زر الانتساب للقناة</string>
-    <string name="revanced_hide_channelbar_join_button_title">إخفاء زر الانتساب للقناة</string>
+    <string name="revanced_hide_channelbar_join_button_summary_off">يتم عرض زر الانضمام للقناة</string>
+    <string name="revanced_hide_channelbar_join_button_summary_on">تم إخفاء زر الانضمام للقناة</string>
+    <string name="revanced_hide_channelbar_join_button_title">إخفاء زر الانضمام للقناة</string>
     <string name="revanced_hide_channel_guidelines_summary_off">يتم عرض إرشادات القناة</string>
     <string name="revanced_hide_channel_guidelines_summary_on">تم إخفاء إرشادات القناة</string>
     <string name="revanced_hide_channel_guidelines_title">إخفاء إرشادات القناة</string>
@@ -278,6 +291,9 @@
     <string name="revanced_hide_fullscreen_panels_summary_off">يتم عرض لوحات ملء الشاشة</string>
     <string name="revanced_hide_fullscreen_panels_summary_on">تم إخفاء لوحات ملء الشاشة</string>
     <string name="revanced_hide_fullscreen_panels_title">إخفاء لوحات ملء الشاشة</string>
+    <string name="revanced_hide_get_premium_summary_off">يتم عرض ترقية YouTube Premium</string>
+    <string name="revanced_hide_get_premium_summary_on">تم إخفاء ترقية YouTube Premium</string>
+    <string name="revanced_hide_get_premium_title">إخفاء ترقية YouTube Premium</string>
     <string name="revanced_hide_home_button_summary_off">يتم عرض زر الصفحة الرئيسية</string>
     <string name="revanced_hide_home_button_summary_on">تم إخفاء زر الصفحة الرئيسية</string>
     <string name="revanced_hide_home_button_title">إخفاء زر الصفحة الرئيسية</string>
@@ -388,9 +404,9 @@
     <string name="revanced_hide_shorts_player_comments_button_summary_off">يتم عرض زر التعليقات</string>
     <string name="revanced_hide_shorts_player_comments_button_summary_on">تم إخفاء زر التعليقات</string>
     <string name="revanced_hide_shorts_player_comments_button_title">إخفاء زر التعليقات</string>
-    <string name="revanced_hide_shorts_player_join_button_summary_off">يتم عرض زر الانتساب</string>
-    <string name="revanced_hide_shorts_player_join_button_summary_on">تم إخفاء زر الانتساب</string>
-    <string name="revanced_hide_shorts_player_join_button_title">إخفاء زر الانتساب</string>
+    <string name="revanced_hide_shorts_player_join_button_summary_off">يتم عرض زر الانضمام</string>
+    <string name="revanced_hide_shorts_player_join_button_summary_on">تم إخفاء زر الانضمام</string>
+    <string name="revanced_hide_shorts_player_join_button_title">إخفاء زر الانضمام</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_off">يتم عرض زر الاشتراكات</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_on">تم إخفاء زر الاشتراكات</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_title">إخفاء زر الاشتراكات</string>

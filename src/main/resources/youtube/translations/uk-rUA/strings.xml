@@ -83,9 +83,16 @@
     <string name="revanced_enable_external_browser_summary_off">Відкриття посилань через \nзовнішній браузер(Android WebView)\n(Натисніть, щоб змінити параметр)</string>
     <string name="revanced_enable_external_browser_summary_on">Відкривайте посилання не в браузері, а через додатки\n(Натисніть, щоб змінити параметр)</string>
     <string name="revanced_enable_external_browser_title">Внутрішній браузер(Android WebView)</string>
-    <string name="revanced_enable_old_layout_summary_off">Інтерфейс YouTube буде відповідати статусу вашого облікового запису Google</string>
-    <string name="revanced_enable_old_layout_summary_on">Підмінити версію YouTube для увімкнення старого інтерфейсу</string>
-    <string name="revanced_enable_old_layout_title">Старий інтерфейс</string>
+    <string name="revanced_spoof_app_version_summary">"Підміна версії клієнта на стару версію
+
+Це змінить зовнішній вигляд програми, але можуть виникнути невідомі побічні ефекти
+Якщо пізніше вимкнути, старий інтерфейс може залишитися, доки не буде очищено дані програми"</string>
+    <string name="revanced_spoof_app_version_title">Підробити версію програми</string>
+    <string name="revanced_spoof_app_version_target_entry_1">17.41.37 - Полиця зі списками відтворення у вкладці бібліотека матиме старий вигляд</string>
+    <string name="revanced_spoof_app_version_target_entry_2">17.30.34 - Відновлення старого інтерфейсу</string>
+    <string name="revanced_spoof_app_version_target_entry_3">17.06.35 - Включає сортування відео від старіших</string>
+    <string name="revanced_spoof_app_version_target_entry_4">16.08.35 - Відновлення вкладки тренди</string>
+    <string name="revanced_spoof_app_version_target_title">Підробити цільову версію програми</string>
     <string name="revanced_enable_old_quality_layout_summary_off">Використання нового стилю параметрів якості відео</string>
     <string name="revanced_enable_old_quality_layout_summary_on">Використання старого стилю параметрів якості відео</string>
     <string name="revanced_enable_old_quality_layout_title">Стиль параметрів якості</string>
@@ -94,7 +101,10 @@
     <string name="revanced_enable_open_links_directly_title">Перенаправлення посилань через youtube.com/redirect</string>
     <string name="revanced_enable_phone_layout_summary">Підміняє DPI для використання інтерфейсу деяких телефонів</string>
     <string name="revanced_enable_phone_layout_title">Телефонний інтерфейс</string>
-    <string name="revanced_enable_protobuf_spoof_summary">Підмінити protobuf для запобігання проблем відтворення</string>
+    <string name="revanced_enable_protobuf_spoof_summary">"Підміняє протобуф, щоб запобігти проблемам з відтворенням
+Відомі проблеми
+- Картки кінцевого екрана завжди приховані
+- Офлайн-завантаження може не працювати (користувачі YouTube Premium)"</string>
     <string name="revanced_enable_protobuf_spoof_title">Увімкнути підміну protobuf</string>
     <string name="revanced_enable_press_to_swipe_summary_off">Натискання для жесту вимкнено</string>
     <string name="revanced_enable_press_to_swipe_summary_on">Натискання для жесту увімкнено</string>
@@ -162,6 +172,9 @@
     <string name="revanced_hide_album_card_summary_off">Картки альбому показуються</string>
     <string name="revanced_hide_album_card_summary_on">Картки альбомів приховано</string>
     <string name="revanced_hide_album_card_title">Приховати картки альбому</string>
+    <string name="revanced_hide_audio_track_button_summary_off">Кнопка аудіодоріжки показується</string>
+    <string name="revanced_hide_audio_track_button_summary_on">Кнопка аудіодоріжки прихована</string>
+    <string name="revanced_hide_audio_track_button_title">Приховати кнопку аудіодоріжки</string>
     <string name="revanced_hide_autoplay_button_summary_off">Кнопку автовідтворення увімкнено</string>
     <string name="revanced_hide_autoplay_button_summary_on">Кнопку автовідтворення вимкнено</string>
     <string name="revanced_hide_autoplay_button_title">Вилучення кнопки автовідтворення</string>
@@ -278,6 +291,9 @@
     <string name="revanced_hide_fullscreen_panels_summary_off">Повноекранні панелі показано</string>
     <string name="revanced_hide_fullscreen_panels_summary_on">Повноекранні панелі сховані</string>
     <string name="revanced_hide_fullscreen_panels_title">Приховати повноекранні панелі</string>
+    <string name="revanced_hide_get_premium_summary_off">Реклама YouTube Premium показується</string>
+    <string name="revanced_hide_get_premium_summary_on">Рекламу YouTube Premium приховано</string>
+    <string name="revanced_hide_get_premium_title">Приховати рекламу YouTube Premium</string>
     <string name="revanced_hide_home_button_summary_off">Кнопка Головна показується</string>
     <string name="revanced_hide_home_button_summary_on">Кнопка Головна прихована</string>
     <string name="revanced_hide_home_button_title">Приховати кнопку Головна</string>

@@ -33,7 +33,7 @@
     <string name="revanced_bypass_ambient_mode_restrictions_title">Aggira restrizioni modalità Ambient</string>
     <string name="revanced_change_homepage_summary_off">Pagina iniziale attuale: Home</string>
     <string name="revanced_change_homepage_summary_on">Pagina iniziale attuale: Iscrizioni</string>
-    <string name="revanced_change_homepage_title">Cambia la pagina iniziale da Home a Iscrizioni</string>
+    <string name="revanced_change_homepage_title">Cambia la pagina iniziale</string>
     <string name="revanced_comments_title">Commenti</string>
     <string name="revanced_copytimestamp_success">Marcatore Temporale copiato negli appunti</string>
     <string name="revanced_custom_seekbar_color_value_summary">Digita il codice esadecimale del colore della barra del minutaggio</string>
@@ -83,9 +83,16 @@
     <string name="revanced_enable_external_browser_summary_off">Il browser esterno è disattivato</string>
     <string name="revanced_enable_external_browser_summary_on">Il browser esterno è attivo</string>
     <string name="revanced_enable_external_browser_title">Attiva il browser esterno</string>
-    <string name="revanced_enable_old_layout_summary_off">L\'interfaccia di YouTube seguirà lo stato del tuo account Google</string>
-    <string name="revanced_enable_old_layout_summary_on">Simula una versione differente di YouTube per forzare l\'attivazione dell\'interfaccia precedente</string>
-    <string name="revanced_enable_old_layout_title">Attiva l\'interfaccia precedente</string>
+    <string name="revanced_spoof_app_version_summary">"Simulando la versione del client alla vecchia versione.
+
+Questo cambierà l'aspetto dell'app, ma potrebbero verificarsi effetti collaterali sconosciuti.
+Se verrà disattivato in seguito, la vecchia interfaccia potrebbe rimanere fino a quando non vengono cancellati i dati dell'app"</string>
+    <string name="revanced_spoof_app_version_title">Simula la versione dell\'app</string>
+    <string name="revanced_spoof_app_version_target_entry_1">17.41.37 - Lo scaffale delle playlist nella scheda Raccolta segue la vecchia interfaccia</string>
+    <string name="revanced_spoof_app_version_target_entry_2">17.30.34 - Ripristina la vecchia interfaccia</string>
+    <string name="revanced_spoof_app_version_target_entry_3">17.06.35 - Attiva l\'ordinamento dei video per meno recenti</string>
+    <string name="revanced_spoof_app_version_target_entry_4">16.08.35 - Ripristina la scheda Esplora</string>
+    <string name="revanced_spoof_app_version_target_title">Simula il target della versione dell\'app</string>
     <string name="revanced_enable_old_quality_layout_summary_off">Mostra le nuove impostazioni qualitative</string>
     <string name="revanced_enable_old_quality_layout_summary_on">Mostra le precedenti impostazioni qualitative</string>
     <string name="revanced_enable_old_quality_layout_title">Attiva la vecchia interfaccia qualitativa</string>
@@ -94,7 +101,11 @@
     <string name="revanced_enable_open_links_directly_title">Attiva apertura link diretta</string>
     <string name="revanced_enable_phone_layout_summary">Simula un diverso valore DPI per usare alcune parti dell\'interfaccia da telefono</string>
     <string name="revanced_enable_phone_layout_title">Attiva l\'interfaccia da telefono</string>
-    <string name="revanced_enable_protobuf_spoof_summary">Simula protobuf per evitare problemi di riproduzione</string>
+    <string name="revanced_enable_protobuf_spoof_summary">"Simula protobuf per prevenire problemi di riproduzione.
+
+Problemi noti:
+- Le schede finali sono sempre nascoste
+- I download offline potrebbero non funzionare per gli utenti di YouTube Premium"</string>
     <string name="revanced_enable_protobuf_spoof_title">Attiva simulazione protobuf</string>
     <string name="revanced_enable_press_to_swipe_summary_off">Premi-per-Scorrere è disattivato</string>
     <string name="revanced_enable_press_to_swipe_summary_on">Premi-per-Scorrere è attivo</string>
@@ -162,6 +173,9 @@ Si prega di non segnalare eventuali problemi riscontrati durante l'uso di queste
     <string name="revanced_hide_album_card_summary_off">Le schede degli album sono visibili</string>
     <string name="revanced_hide_album_card_summary_on">Le schede degli album sono nascoste</string>
     <string name="revanced_hide_album_card_title">Nascondi le schede degli album</string>
+    <string name="revanced_hide_audio_track_button_summary_off">Il pulsante Traccia Audio è visibile</string>
+    <string name="revanced_hide_audio_track_button_summary_on">Il pulsante Traccia Audio è nascosto</string>
+    <string name="revanced_hide_audio_track_button_title">Nascondi il pulsante Traccia Audio</string>
     <string name="revanced_hide_autoplay_button_summary_off">Il pulsante Riproduzione Automatica è visibile</string>
     <string name="revanced_hide_autoplay_button_summary_on">Il pulsante Riproduzione Automatica è nascosto</string>
     <string name="revanced_hide_autoplay_button_title">Nascondi il pulsante Riproduzione Automatica</string>
@@ -257,9 +271,9 @@ Si prega di non segnalare eventuali problemi riscontrati durante l'uso di queste
     <string name="revanced_hide_crowdfunding_box_summary_off">Il riquadro della raccolta fondi è visibile</string>
     <string name="revanced_hide_crowdfunding_box_summary_on">Il riquadro della raccolta fondi è nascosto</string>
     <string name="revanced_hide_crowdfunding_box_title">Nascondi Il riquadro della raccolta fondi</string>
-    <string name="revanced_hide_email_address_summary_off">L\'indirizzo e-mail (handle) è visibile</string>
-    <string name="revanced_hide_email_address_summary_on">L\'indirizzo e-mail (handle) è nascosto</string>
-    <string name="revanced_hide_email_address_title">Nascondi l\'indirizzo e-mail (handle)</string>
+    <string name="revanced_hide_email_address_summary_off">L\'indirizzo e-mail o l\'handle è visibile</string>
+    <string name="revanced_hide_email_address_summary_on">L\'indirizzo e-mail o l\'handle è nascosto</string>
+    <string name="revanced_hide_email_address_title">Nascondi l\'indirizzo e-mail o l\'handle</string>
     <string name="revanced_hide_emoji_picker_summary_off">Il selettore degli emoji sottostante alla barra dei commenti è visibile</string>
     <string name="revanced_hide_emoji_picker_summary_on">Il selettore degli emoji sottostante alla barra dei commenti è nascosto</string>
     <string name="revanced_hide_emoji_picker_title">Nascondi il selettore degli emoji</string>
@@ -278,9 +292,12 @@ Si prega di non segnalare eventuali problemi riscontrati durante l'uso di queste
     <string name="revanced_hide_fullscreen_panels_summary_off">I pannelli a schermo intero sono visibili</string>
     <string name="revanced_hide_fullscreen_panels_summary_on">I pannelli a schermo intero sono nascosti</string>
     <string name="revanced_hide_fullscreen_panels_title">Nascondi i pannelli a schermo intero</string>
-    <string name="revanced_hide_home_button_summary_off">Il pulsante Home è visibile</string>
-    <string name="revanced_hide_home_button_summary_on">Il pulsante Home è nascosto</string>
-    <string name="revanced_hide_home_button_title">Nascondi il pulsante Home</string>
+    <string name="revanced_hide_get_premium_summary_off">La promozione di YouTube Premium è visibile</string>
+    <string name="revanced_hide_get_premium_summary_on">La promozione di YouTube Premium è nascosta</string>
+    <string name="revanced_hide_get_premium_title">Nascondi la promozione di YouTube Premium</string>
+    <string name="revanced_hide_home_button_summary_off">La scheda Home è visibile</string>
+    <string name="revanced_hide_home_button_summary_on">La scheda Home è nascosta</string>
+    <string name="revanced_hide_home_button_title">Nascondi la scheda Home</string>
     <string name="revanced_hide_image_shelf_summary_off">Lo scaffale delle immagini è visibile</string>
     <string name="revanced_hide_image_shelf_summary_on">Lo scaffale delle immagini è nascosto</string>
     <string name="revanced_hide_image_shelf_title">Nascondi lo scaffale delle immagini</string>
@@ -467,7 +484,7 @@ Si prega di non segnalare eventuali problemi riscontrati durante l'uso di queste
     <string name="revanced_patches_information_summary">Informazioni sulle patch applicate</string>
     <string name="revanced_player_flyout_panel_title">Pannello del riproduttore in sovrapposizione</string>
     <string name="revanced_player">Riproduttore</string>
-    <string name="revanced_protobuf_spoof_notice">Simulando protobuf per evitare problemi di riproduzione</string>
+    <string name="revanced_protobuf_spoof_notice">Simulando protobuf per prevenire problemi di riproduzione</string>
     <string name="revanced_quick_actions_components_title">Componenti azioni rapide (Sperimentale)</string>
     <string name="revanced_reboot_warning_general">"Poiché questa è ancora una funzionalità sperimentale, potrebbero verificarsi problemi sconosciuti.
 Sei sicuro di voler procedere?"</string>
@@ -517,7 +534,7 @@ Dal momento che questa opzione è abbastanza obsoleta, potrebbe risultare non pi
     <string name="revanced_switching_create_notification_summary_off">Il pulsante Crea e il pulsante Notifica non sono invertiti</string>
     <string name="revanced_switching_create_notification_summary_on">Il pulsante Crea e il pulsante Notifica sono invertiti</string>
     <string name="revanced_switching_create_notification_title">Scambia il pulsante Crea e il pulsante Notifica</string>
-    <string name="revanced_tool_used">Strumento utilizzato</string>
+    <string name="revanced_tool_used">Tool utilizzati</string>
     <string name="revanced_video">Video</string>
     <string name="revanced_video_ads_removal_summary_off">Gli annunci video sono visibili</string>
     <string name="revanced_video_ads_removal_summary_on">Gli annunci video sono nascosti</string>
@@ -542,7 +559,7 @@ Dal momento che questa opzione è abbastanza obsoleta, potrebbe risultare non pi
     <string name="revanced_whitelisting_title">Canale nella Lista Bianca</string>
     <string name="sb_enable_sb">Attiva SponsorBlock</string>
     <string name="sb_enable_sb_sum">SponsorBlock è un sistema collaborativo creato per saltare le parti fastidiose nei video di YouTube</string>
-    <string name="sb_appearance_category">Interfaccia</string>
+    <string name="sb_appearance_category">Aspetto</string>
     <string name="sb_enable_voting">Mostra il pulsante Voto</string>
     <string name="sb_enable_voting_sum_on">Il pulsante Voto è visibile</string>
     <string name="sb_enable_voting_sum_off">Il pulsante Voto è nascosto</string>
