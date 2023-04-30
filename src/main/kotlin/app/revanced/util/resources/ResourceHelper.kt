@@ -16,8 +16,6 @@ private fun Node.insertNode(tagName: String, targetNode: Node, block: Element.()
 
 internal object ResourceHelper {
 
-    private const val TARGET_ARRAY_PATH = "res/values/arrays.xml"
-
     private const val TARGET_PREFERENCE_PATH = "res/xml/revanced_prefs.xml"
 
     private const val YOUTUBE_SETTINGS_PATH = "res/xml/settings_fragment.xml"
@@ -28,8 +26,12 @@ internal object ResourceHelper {
         targetPackage = newPackage
     }
 
-    internal fun ResourceContext.addSpeedEntryValues(speedEntryValues: String) {
-        xmlEditor[TARGET_ARRAY_PATH].use {
+    internal fun ResourceContext.addEntryValues(
+        path: String,
+        speedEntryValues: String,
+        attributeName: String
+    ) {
+        xmlEditor[path].use {
             with(it.file) {
                 val resourcesNode = getElementsByTagName("resources").item(0) as Element
 
@@ -38,7 +40,7 @@ internal object ResourceHelper {
                 for (i in 0 until resourcesNode.childNodes.length) {
                     val node = resourcesNode.childNodes.item(i) as? Element ?: continue
 
-                    if (node.getAttribute("name") == "revanced_custom_video_speed_entry_value") {
+                    if (node.getAttribute("name") == attributeName) {
                         newElement.appendChild(createTextNode(speedEntryValues))
 
                         node.appendChild(newElement)
@@ -48,8 +50,12 @@ internal object ResourceHelper {
         }
     }
 
-    internal fun ResourceContext.addSpeedEntries(speedEntries: String) {
-        xmlEditor[TARGET_ARRAY_PATH].use {
+    internal fun ResourceContext.addEntries(
+        path: String,
+        speedEntries: String,
+        attributeName: String
+    ) {
+        xmlEditor[path].use {
             with(it.file) {
                 val resourcesNode = getElementsByTagName("resources").item(0) as Element
 
@@ -58,7 +64,7 @@ internal object ResourceHelper {
                 for (i in 0 until resourcesNode.childNodes.length) {
                     val node = resourcesNode.childNodes.item(i) as? Element ?: continue
 
-                    if (node.getAttribute("name") == "revanced_custom_video_speed_entry") {
+                    if (node.getAttribute("name") == attributeName) {
                         newElement.appendChild(createTextNode(speedEntries))
 
                         node.appendChild(newElement)
@@ -66,8 +72,8 @@ internal object ResourceHelper {
                 }
             }
         }
-        this[TARGET_ARRAY_PATH].writeText(
-            this[TARGET_ARRAY_PATH].readText().replace("1.0x", "@string/shorts_speed_control_normal_label")
+        this[path].writeText(
+            this[path].readText().replace("1.0x", "@string/shorts_speed_control_normal_label")
         )
     }
 

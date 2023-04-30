@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.video.customspeed.resource.patch
+package app.revanced.patches.youtube.layout.etc.doubletaplength.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
@@ -13,59 +13,55 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.shared.patch.options.PatchOptions
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
-import app.revanced.patches.youtube.video.customspeed.bytecode.patch.CustomVideoSpeedBytecodePatch
-import app.revanced.util.resources.ResourceHelper.addEntries
 import app.revanced.util.resources.ResourceHelper.addEntryValues
+import app.revanced.util.resources.ResourceUtils
+import app.revanced.util.resources.ResourceUtils.copyResources
 import app.revanced.util.resources.ResourceUtils.copyXmlNode
 
 @Patch
-@Name("custom-video-speed")
-@Description("Adds more video speed options.")
+@Name("custom-double-tap-length")
+@Description("Add 'double-tap to seek' value.")
 @DependsOn(
     [
-        CustomVideoSpeedBytecodePatch::class,
         PatchOptions::class,
         SettingsPatch::class
     ]
 )
 @YouTubeCompatibility
 @Version("0.0.1")
-class CustomVideoSpeedPatch : ResourcePatch {
+class DoubleTapLengthPatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
 
-        /*
+        /**
          * Copy arrays
          */
-        context.copyXmlNode("youtube/customspeed/host", "values/arrays.xml", "resources")
+        context.copyResources(
+            "youtube/doubletap",
+            ResourceUtils.ResourceGroup(
+                "values-v21",
+                "arrays.xml"
+            )
+        )
 
-        val speed = PatchOptions.CustomSpeedArrays
-            ?: return PatchResultError("Invalid video speed array.")
+        val speed = PatchOptions.CustomDoubleTapLengthArrays
+            ?: return PatchResultError("Invalid double-tap length array.")
 
         val splits = speed.replace(" ","").split(",")
         if (splits.isEmpty()) throw IllegalArgumentException("Invalid speed elements")
         val speedElements = splits.map { it }
         for (index in 0 until splits.count()) {
-            context.addEntries(TARGET_ARRAY_PATH, speedElements[index] + "x", TARGET_ENTRY_VALUE_NAME)
+            context.addEntryValues(TARGET_ARRAY_PATH, speedElements[index], TARGET_ENTRY_VALUE_NAME)
             context.addEntryValues(TARGET_ARRAY_PATH, speedElements[index], TARGET_ENTRIES_NAME)
         }
 
-        /*
-         * Add settings
-         */
-        SettingsPatch.addPreference(
-            arrayOf(
-                "PREFERENCE: VIDEO_SETTINGS",
-                "SETTINGS: CUSTOM_VIDEO_SPEED"
-            )
-        )
-
-        SettingsPatch.updatePatchStatus("custom-video-speed")
+        SettingsPatch.updatePatchStatus("custom-double-tap-length")
 
         return PatchResultSuccess()
     }
+
     private companion object {
-        private const val TARGET_ARRAY_PATH = "res/values/arrays.xml"
-        private const val TARGET_ENTRIES_NAME = "revanced_custom_video_speed_entry"
-        private const val TARGET_ENTRY_VALUE_NAME = "revanced_custom_video_speed_entry_value"
+        private const val TARGET_ARRAY_PATH = "res/values-v21/arrays.xml"
+        private const val TARGET_ENTRIES_NAME = "double_tap_length_entries"
+        private const val TARGET_ENTRY_VALUE_NAME = "double_tap_length_values"
     }
 }
