@@ -95,6 +95,9 @@
         <!-- SETTINGS: HIDE_CROWDFUNDING_BOX
         <SwitchPreference android:title="@string/revanced_hide_crowdfunding_box_title" android:key="revanced_hide_crowdfunding_box" android:defaultValue="true" android:summaryOn="@string/revanced_hide_crowdfunding_box_summary_on" android:summaryOff="@string/revanced_hide_crowdfunding_box_summary_off" />SETTINGS: HIDE_CROWDFUNDING_BOX -->
 
+        <!-- SETTINGS: HIDE_GET_PREMIUM
+        <SwitchPreference android:title="@string/revanced_hide_get_premium_title" android:key="revanced_hide_get_premium" android:defaultValue="true" android:summaryOn="@string/revanced_hide_get_premium_summary_on" android:summaryOff="@string/revanced_hide_get_premium_summary_off" />SETTINGS: HIDE_GET_PREMIUM -->
+
         <!-- SETTINGS: HIDE_EMAIL_ADDRESS
         <SwitchPreference android:title="@string/revanced_hide_email_address_title" android:key="revanced_hide_email_address" android:defaultValue="true" android:summaryOn="@string/revanced_hide_email_address_summary_on" android:summaryOff="@string/revanced_hide_email_address_summary_off" />SETTINGS: HIDE_EMAIL_ADDRESS -->
 
@@ -471,6 +474,7 @@
             <Preference android:title="hide-auto-player-popup-panels" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-mix-playlists" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-crowdfunding-box" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="hide-get-premium" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-email-address" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-snackbar" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-search-terms" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
