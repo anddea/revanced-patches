@@ -12,7 +12,6 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.youtube.button.autorepeat.patch.AutoRepeatPatch
 import app.revanced.patches.youtube.button.overlaybuttons.bytecode.patch.OverlayButtonsBytecodePatch
-import app.revanced.patches.youtube.button.whitelist.patch.WhitelistPatch
 import app.revanced.patches.youtube.misc.overridespeed.bytecode.patch.OverrideSpeedHookPatch
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
 import app.revanced.util.resources.ResourceUtils
@@ -27,8 +26,7 @@ import app.revanced.util.resources.ResourceUtils.copyXmlNode
         AutoRepeatPatch::class,
         OverlayButtonsBytecodePatch::class,
         OverrideSpeedHookPatch::class,
-        SettingsPatch::class,
-        WhitelistPatch::class
+        SettingsPatch::class
     ]
 )
 @YouTubeCompatibility
@@ -65,7 +63,6 @@ class OverlayButtonsPatch : ResourcePatch {
                 "revanced_copy_icon_with_time.png",
                 "revanced_download_icon.png",
                 "revanced_speed_icon.png",
-                "revanced_whitelist_icon.png",
                 "yt_fill_arrow_repeat_white_24.png",
                 "yt_outline_arrow_repeat_1_white_24.png",
                 "yt_outline_arrow_shuffle_1_white_24.png",

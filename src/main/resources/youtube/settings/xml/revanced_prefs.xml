@@ -371,7 +371,6 @@
     <PreferenceScreen android:title="@string/revanced_overlay_button" android:key="overlay_button">
         <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_overlay_button" />
         <SwitchPreference android:title="@string/revanced_overlay_button_speed_title" android:key="revanced_overlay_button_speed" android:defaultValue="true" android:summaryOn="@string/revanced_overlay_button_speed_summary_on" android:summaryOff="@string/revanced_overlay_button_speed_summary_off" />
-        <SwitchPreference android:title="@string/revanced_overlay_button_whitelist_title" android:key="revanced_overlay_button_whitelist" android:defaultValue="false" android:summaryOn="@string/revanced_overlay_button_whitelist_summary_on" android:summaryOff="@string/revanced_overlay_button_whitelist_summary_off" />
         <SwitchPreference android:title="@string/revanced_overlay_button_copy_url_title" android:key="revanced_overlay_button_copy_url" android:defaultValue="false" android:summaryOn="@string/revanced_overlay_button_copy_url_summary_on" android:summaryOff="@string/revanced_overlay_button_copy_url_summary_off" />
         <SwitchPreference android:title="@string/revanced_overlay_button_copy_url_with_timestamp_title" android:key="revanced_overlay_button_copy_url_with_timestamp" android:defaultValue="false" android:summaryOn="@string/revanced_overlay_button_copy_url_with_timestamp_summary_on" android:summaryOff="@string/revanced_overlay_button_copy_url_with_timestamp_summary_off" />
         <SwitchPreference android:title="@string/revanced_overlay_button_auto_repeat_title" android:key="revanced_overlay_button_auto_repeat" android:defaultValue="false" android:summaryOn="@string/revanced_overlay_button_auto_repeat_summary_on" android:summaryOff="@string/revanced_overlay_button_auto_repeat_summary_off" />
@@ -380,9 +379,6 @@
         <PreferenceScreen android:title="@string/revanced_downloader_settings_title" android:key="downloader" android:summary="@string/revanced_downloader_settings_summary">
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_downloader_settings_title" />
             <EditTextPreference android:hint="ussr.razar.youtube_dl" android:title="@string/revanced_downloader_package_name_title" android:key="revanced_downloader_package_name" android:summary="@string/revanced_downloader_package_name_summary" android:inputType="text" />
-        </PreferenceScreen>
-        <PreferenceScreen android:title="@string/revanced_whitelisting_settings_title" android:key="whitelisting" android:summary="@string/revanced_whitelisting_settings_summary">
-            <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_whitelisting_settings_title" />
         </PreferenceScreen>
     </PreferenceScreen>PREFERENCE: OVERLAY_BUTTONS -->
 
