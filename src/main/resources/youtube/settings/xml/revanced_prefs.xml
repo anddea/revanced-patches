@@ -168,6 +168,9 @@
         <!-- SETTINGS: HIDE_CAST_BUTTON
         <SwitchPreference android:title="@string/revanced_hide_cast_button_title" android:key="revanced_hide_cast_button" android:defaultValue="true" android:summaryOn="@string/revanced_hide_cast_button_summary_on" android:summaryOff="@string/revanced_hide_cast_button_summary_off" />SETTINGS: HIDE_CAST_BUTTON -->
 
+        <!-- SETTINGS: HIDE_LIVE_CHATS_BUTTON
+        <SwitchPreference android:title="@string/revanced_hide_live_chat_button_title" android:key="revanced_hide_live_chat_button" android:defaultValue="false" android:summaryOn="@string/revanced_hide_live_chat_button_summary_on" android:summaryOff="@string/revanced_hide_live_chat_button_summary_off" />SETTINGS: HIDE_LIVE_CHATS_BUTTON -->
+
         <!-- SETTINGS: HIDE_CAPTIONS_BUTTON
         <SwitchPreference android:title="@string/revanced_hide_captions_button_title" android:key="revanced_hide_captions_button" android:defaultValue="false" android:summaryOn="@string/revanced_hide_captions_button_summary_on" android:summaryOff="@string/revanced_hide_captions_button_summary_off" />SETTINGS: HIDE_CAPTIONS_BUTTON -->
 
@@ -480,6 +483,7 @@
             <Preference android:title="hide-music-button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-autoplay-button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-cast-button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="hide-live-chat-button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-captions-button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-previous-next-button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-player-button-background" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
