@@ -12,7 +12,7 @@ import app.revanced.util.resources.IconHelper.customIconMusicAdditional
 
 @Patch(false)
 @Name("custom-branding-music-mmt")
-@Description("Changes the YouTube Music launcher icon to your choice (MMT).")
+@Description("Changes the YouTube Music launcher icon to MMT.")
 @YouTubeMusicCompatibility
 @Version("0.0.1")
 class CustomBrandingMusicIconMMTPatch : ResourcePatch {
