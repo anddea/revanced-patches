@@ -54,7 +54,7 @@ class PatchOptions : ResourcePatch {
         internal var MusicAppNameFull: String? by option(
             PatchOption.StringOption(
                 key = "MusicAppNameFull",
-                default = "ReVanced Extended Music",
+                default = "ReVanced Music Extended",
                 title = "Application Name of YouTube Music",
                 description = "The name of the YouTube Music it will show on your notification panel."
             )
@@ -66,7 +66,7 @@ class PatchOptions : ResourcePatch {
         internal var MusicAppNameShort: String? by option(
             PatchOption.StringOption(
                 key = "MusicAppNameShort",
-                default = "RVX Music",
+                default = "YTM Extended",
                 title = "Application Name of YouTube Music",
                 description = "The name of the YouTube Music it will show on your home screen."
             )
