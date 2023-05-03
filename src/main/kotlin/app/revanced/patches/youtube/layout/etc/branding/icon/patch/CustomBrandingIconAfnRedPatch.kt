@@ -16,15 +16,15 @@ import app.revanced.util.resources.ResourceHelper.updatePatchStatusIcon
 
 @Patch
 @Name("custom-branding-icon-afn-red")
-@Description("Changes the YouTube launcher icon (Afn / Red).")
+@Description("Changes the YouTube launcher icon to Afn Red.")
 @DependsOn([SettingsPatch::class])
 @YouTubeCompatibility
 @Version("0.0.1")
 class CustomBrandingIconRedPatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
 
-        context.customIcon("red")
-        context.updatePatchStatusIcon("red")
+        context.customIcon("afn-red")
+        context.updatePatchStatusIcon("afn_red")
 
         return PatchResultSuccess()
     }
