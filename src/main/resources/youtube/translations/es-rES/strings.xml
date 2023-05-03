@@ -312,6 +312,9 @@ Por favor, no reporte ningún problema que encuentre al usar esta función."</st
     <string name="revanced_hide_latest_posts_summary_off">Las últimas publicaciones están visibles</string>
     <string name="revanced_hide_latest_posts_summary_on">Las últimas publicaciones están ocultas</string>
     <string name="revanced_hide_latest_posts_title">Ocultar últimas publicaciones</string>
+    <string name="revanced_hide_navigation_label_summary_off">La etiqueta de navegación está visible</string>
+    <string name="revanced_hide_navigation_label_summary_on">La etiqueta de navegación está oculta</string>
+    <string name="revanced_hide_navigation_label_title">Ocultar etiqueta de navegación</string>
     <string name="revanced_hide_medical_panel_summary_off">Los paneles médicos están visibles</string>
     <string name="revanced_hide_medical_panel_summary_on">Los paneles médicos están ocultos</string>
     <string name="revanced_hide_medical_panel_title">Ocultar paneles médicos</string>
@@ -413,14 +416,15 @@ Por favor, no reporte ningún problema que encuentre al usar esta función."</st
     <string name="revanced_hide_shorts_shelf_summary_off">Los estantes de Shorts están visibles</string>
     <string name="revanced_hide_shorts_shelf_summary_on">Los estantes de Shorts están ocultos</string>
     <string name="revanced_hide_shorts_shelf_title">Ocultar estante de Shorts</string>
-    <string name="revanced_shorts">Shorts</string>
-    <string name="revanced_shorts_player_title">Reproductor de Shorts</string>
     <string name="revanced_hide_snackbar_summary_off">La barra de snack está visible</string>
     <string name="revanced_hide_snackbar_summary_on">La barra de snack está oculta</string>
     <string name="revanced_hide_snackbar_title">Ocultar barra de snack</string>
     <string name="revanced_hide_stories_shelf_summary_off">Los estantes de las historias están visibles</string>
     <string name="revanced_hide_stories_shelf_summary_on">Los estantes de las historias están ocultos</string>
     <string name="revanced_hide_stories_shelf_title">Ocultar estantes de historias</string>
+    <string name="revanced_hide_subscriptions_button_summary_off">El botón de suscripciones está visible</string>
+    <string name="revanced_hide_subscriptions_button_summary_on">El botón de suscripciones está oculto</string>
+    <string name="revanced_hide_subscriptions_button_title">Ocultar botón de suscripciones</string>
     <string name="revanced_hide_suggested_actions_summary_off">Las acciones sugeridas están visibles</string>
     <string name="revanced_hide_suggested_actions_summary_on">Las acciones sugeridas están ocultas</string>
     <string name="revanced_hide_suggested_actions_title">Ocultar acciones sugeridas</string>
@@ -473,9 +477,6 @@ Por favor, no reporte ningún problema que encuentre al usar esta función."</st
     <string name="revanced_overlay_button_speed_summary_off">El botón de velocidad está oculto</string>
     <string name="revanced_overlay_button_speed_summary_on">El botón de velocidad está visible</string>
     <string name="revanced_overlay_button_speed_title">Mostrar botón de velocidad</string>
-    <string name="revanced_overlay_button_whitelist_summary_off">El botón de lista blanca está oculto</string>
-    <string name="revanced_overlay_button_whitelist_summary_on">El botón de lista blanca está visible</string>
-    <string name="revanced_overlay_button_whitelist_title">Mostrar botón de lista blanca</string>
     <string name="revanced_override_premium_header_summary_off">Encabezado actual: encabezado predeterminado</string>
     <string name="revanced_override_premium_header_summary_on">Encabezado actual: Encabezado Premium</string>
     <string name="revanced_override_premium_header_title">Encabezado Premium</string>
@@ -520,6 +521,8 @@ Toque aquí para obtener más información.</string>
     <string name="revanced_save_video_quality_wifi">Cambiando la calidad predeterminada con Wi-Fi a: </string>
     <string name="revanced_save_video_speed">Cambiando la velocidad predeterminada a: </string>
     <string name="revanced_seekbar">Barra de progreso</string>
+    <string name="revanced_shorts">Shorts</string>
+    <string name="revanced_shorts_player_title">Reproductor de Shorts</string>
     <string name="revanced_show_fullscreen_title_summary">Problema conocido: El título desaparece al pulsarlo</string>
     <string name="revanced_show_fullscreen_title_title">Mostrar título en pantalla completa</string>
     <string name="revanced_sponsorblock_settings_summary">Ajustes relacionados con SponsorBlock</string>
@@ -540,24 +543,6 @@ Toque aquí para obtener más información.</string>
     <string name="revanced_video_ads_removal_summary_off">Los anuncios de vídeo están visibles</string>
     <string name="revanced_video_ads_removal_summary_on">Los anuncios de vídeo están ocultos</string>
     <string name="revanced_video_ads_removal_title">Ocultar anuncios de vídeo</string>
-    <string name="revanced_whitelisting_added" formatted="false">El canal %s fue añadido a la lista blanca %s</string>
-    <string name="revanced_whitelisting_add_failed" formatted="false">Error al añadir el canal %s a la lista blanca %s</string>
-    <string name="revanced_whitelisting_ads">Anuncios de vídeo</string>
-    <string name="revanced_whitelisting_ads_button">Ads</string>
-    <string name="revanced_whitelisting_channel_name">Nombre del canal</string>
-    <string name="revanced_whitelisting_empty">No hay canales en la lista blanca</string>
-    <string name="revanced_whitelisting_excluded">No añadido a la lista blanca</string>
-    <string name="revanced_whitelisting_fetch_failed">Error al recuperar los detalles del canal, código recibido %d</string>
-    <string name="revanced_whitelisting_included">Añadido a la lista blanca</string>
-    <string name="revanced_whitelisting_reboot">Reiniciar para aplicar los ajustes de la lista blanca de canales</string>
-    <string name="revanced_whitelisting_removed" formatted="false">El canal %s fue eliminado de la lista blanca %s</string>
-    <string name="revanced_whitelisting_remove_failed" formatted="false">No se pudo eliminar el canal %s de la lista blanca %s</string>
-    <string name="revanced_whitelisting_settings_summary">Ajustes relacionados con la lista blanca de canales</string>
-    <string name="revanced_whitelisting_settings_title">Ajustes de la lista blanca</string>
-    <string name="revanced_whitelisting_speed">Velocidad de vídeo</string>
-    <string name="revanced_whitelisting_sponsorblock">SponsorBlock</string>
-    <string name="revanced_whitelisting_sponsorblock_button">SB</string>
-    <string name="revanced_whitelisting_title">Lista blanca de canales</string>
     <string name="sb_enable_sb">Activar SponsorBlock</string>
     <string name="sb_enable_sb_sum">SponsorBlock es un sistema colaborativo para omitir partes molestas en vídeos de YouTube</string>
     <string name="sb_appearance_category">Apariencia</string>

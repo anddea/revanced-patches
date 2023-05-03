@@ -83,6 +83,16 @@
     <string name="revanced_enable_external_browser_summary_off">Външния браузър е изключен</string>
     <string name="revanced_enable_external_browser_summary_on">Външния браузър е включен</string>
     <string name="revanced_enable_external_browser_title">Включване на външен браузър</string>
+    <string name="revanced_spoof_app_version_summary">"Подлъгване на клиента с остаряла версия
+
+Това ще промени външния вид на приложението но могат да възникнат непознати странични ефекти
+Ако бъде изключено стария външен вид се запази до като не бъдат изтрити данните на приложението"</string>
+    <string name="revanced_spoof_app_version_title">Подлъгване за версията на приложението</string>
+    <string name="revanced_spoof_app_version_target_entry_1">17.41.37 - Рафта с плейлисти в библиотеката е със стария изгед</string>
+    <string name="revanced_spoof_app_version_target_entry_2">17.30.34 - Възстановява стария изглед</string>
+    <string name="revanced_spoof_app_version_target_entry_3">17.06.35 - Вкл. сортиране на клиповете от най-стария</string>
+    <string name="revanced_spoof_app_version_target_entry_4">16.08.35 - Възстановява раздела за преглед</string>
+    <string name="revanced_spoof_app_version_target_title">Подлъгване за исканата версията на приложението</string>
     <string name="revanced_enable_old_quality_layout_summary_off">Новите настройки за качество се показват</string>
     <string name="revanced_enable_old_quality_layout_summary_on">Старите настройки за качество се показват</string>
     <string name="revanced_enable_old_quality_layout_title">Вкл. на старите настройки за качество</string>
@@ -91,6 +101,10 @@
     <string name="revanced_enable_open_links_directly_title">Отваряне на връзки директно</string>
     <string name="revanced_enable_phone_layout_summary">Подлъгване на dpi за оформление като на телефон</string>
     <string name="revanced_enable_phone_layout_title">Вкл. на оформление като на телефон</string>
+    <string name="revanced_enable_protobuf_spoof_summary">"Подлъгване на буфера за избягване на проблеми с възпроизвеждането.
+Може да предизвика следните проблеми
+- Картите в края не се показват винаги
+- Клиповете изтеглени за по-късно може да не работят (за потребители на YouTube Premium)"</string>
     <string name="revanced_enable_protobuf_spoof_title">Вкл. на подлъгване на буфера</string>
     <string name="revanced_enable_press_to_swipe_summary_off">Натискането при плъзгане е изключено</string>
     <string name="revanced_enable_press_to_swipe_summary_on">Натискането при плъзгане е включено</string>
@@ -158,6 +172,9 @@
     <string name="revanced_hide_album_card_summary_off">Албумните карти се показват</string>
     <string name="revanced_hide_album_card_summary_on">Албумните карти са скрити</string>
     <string name="revanced_hide_album_card_title">Скр. на албумни карти</string>
+    <string name="revanced_hide_audio_track_button_summary_off">Бутона за аудио запис се показва</string>
+    <string name="revanced_hide_audio_track_button_summary_on">Бутона за аудио запис е скрит</string>
+    <string name="revanced_hide_audio_track_button_title">Скр. на бутона за аудио запис</string>
     <string name="revanced_hide_autoplay_button_summary_off">Бутона за авт. изпълнение се показва</string>
     <string name="revanced_hide_autoplay_button_summary_on">Бутона за авт. изпълнение е скрит</string>
     <string name="revanced_hide_autoplay_button_title">Скриване на бутона за авт. изпълнение</string>
@@ -274,6 +291,9 @@
     <string name="revanced_hide_fullscreen_panels_summary_off">Панелите на цял екран се показват</string>
     <string name="revanced_hide_fullscreen_panels_summary_on">Панелите на цял екран са скрити</string>
     <string name="revanced_hide_fullscreen_panels_title">Панели на цял екран</string>
+    <string name="revanced_hide_get_premium_summary_off">YouTube Premium промоциите се показват</string>
+    <string name="revanced_hide_get_premium_summary_on">YouTube Premium промоциите са скрити</string>
+    <string name="revanced_hide_get_premium_title">Скр. на YouTube Premium промоциите</string>
     <string name="revanced_hide_home_button_summary_off">Бутона за начало се показва</string>
     <string name="revanced_hide_home_button_summary_on">Бутона за начало е скрит</string>
     <string name="revanced_hide_home_button_title">Скр. бутон за начало</string>
@@ -393,8 +413,6 @@
     <string name="revanced_hide_shorts_shelf_summary_off">Рафтовете с кратки клипове се показват</string>
     <string name="revanced_hide_shorts_shelf_summary_on">Рафтовете с кратки клипове са скрити</string>
     <string name="revanced_hide_shorts_shelf_title">Скр. рафтове с кратки клипове</string>
-    <string name="revanced_shorts">Кратки клипове</string>
-    <string name="revanced_shorts_player_title">Плейър за кратки клипове</string>
     <string name="revanced_hide_snackbar_summary_off">Лентата на състоянието се показва</string>
     <string name="revanced_hide_snackbar_summary_on">Лентата на състоянието е скрита</string>
     <string name="revanced_hide_snackbar_title">Скр. лентата на съст.</string>
@@ -453,9 +471,6 @@
     <string name="revanced_overlay_button_speed_summary_off">Бутона за скорост е скрит</string>
     <string name="revanced_overlay_button_speed_summary_on">Бутона за скорост се показва</string>
     <string name="revanced_overlay_button_speed_title">Пок. бутон за скорост</string>
-    <string name="revanced_overlay_button_whitelist_summary_off">Бутона за бял лист е скрит</string>
-    <string name="revanced_overlay_button_whitelist_summary_on">Бутона за бял лист се показва</string>
-    <string name="revanced_overlay_button_whitelist_title">Пок. бутон за бял лист</string>
     <string name="revanced_override_premium_header_summary_off">Текущ надпис: Обикновен</string>
     <string name="revanced_override_premium_header_summary_on">Текущ надпис: Premium</string>
     <string name="revanced_override_premium_header_title">Premium надпис</string>
@@ -499,6 +514,8 @@
     <string name="revanced_save_video_quality_wifi">Смяна на качеството при Wi-Fi на:</string>
     <string name="revanced_save_video_speed">Смяна на скоростта на видеото на:</string>
     <string name="revanced_seekbar">Лента за време</string>
+    <string name="revanced_shorts">Кратки клипове</string>
+    <string name="revanced_shorts_player_title">Плейър за кратки клипове</string>
     <string name="revanced_show_fullscreen_title_summary">Известен проблем: Заглавието изчезва при докосване</string>
     <string name="revanced_show_fullscreen_title_title">Показване на заглавието при цял екран</string>
     <string name="revanced_sponsorblock_settings_summary">Настройки относно SponsorBlock</string>
@@ -519,24 +536,6 @@
     <string name="revanced_video_ads_removal_summary_off">Видео рекламите се показват</string>
     <string name="revanced_video_ads_removal_summary_on">Видео рекламите са скрити</string>
     <string name="revanced_video_ads_removal_title">Скр. видео рекламите</string>
-    <string name="revanced_whitelisting_added" formatted="false">Каналът %s е добавен в белия списък %s</string>
-    <string name="revanced_whitelisting_add_failed" formatted="false">Неусп. добавяне на канала %s към белия списък %s</string>
-    <string name="revanced_whitelisting_ads">Видео реклама</string>
-    <string name="revanced_whitelisting_ads_button">Реклами</string>
-    <string name="revanced_whitelisting_channel_name">Име на канал</string>
-    <string name="revanced_whitelisting_empty">Няма канали в белия списък</string>
-    <string name="revanced_whitelisting_excluded">Не е добавен в белия списък</string>
-    <string name="revanced_whitelisting_fetch_failed">Неусп. получаване на инф. за канала, приет код %d</string>
-    <string name="revanced_whitelisting_included">Добавен към белия списък</string>
-    <string name="revanced_whitelisting_reboot">Рестарт за прилагане на настр. на белия списък</string>
-    <string name="revanced_whitelisting_removed" formatted="false">Каналът %s е премахнат от белия списък %s</string>
-    <string name="revanced_whitelisting_remove_failed" formatted="false">Неуспешно премахване на канала %s от белия списък %s</string>
-    <string name="revanced_whitelisting_settings_summary">Проверка или премахване на листа с канали доб. в белия списък</string>
-    <string name="revanced_whitelisting_settings_title">Настройки на белия списък</string>
-    <string name="revanced_whitelisting_speed">Видео скорост</string>
-    <string name="revanced_whitelisting_sponsorblock">SponsorBlock</string>
-    <string name="revanced_whitelisting_sponsorblock_button">SB</string>
-    <string name="revanced_whitelisting_title">Канал към белия списък</string>
     <string name="sb_enable_sb">Включване на SponsorBlock</string>
     <string name="sb_enable_sb_sum">SponsorBlock е система за прескачане на досадни части от видеоклиповете в YouTube</string>
     <string name="sb_appearance_category">Изглед</string>
@@ -546,12 +545,16 @@
     <string name="sb_enable_compact_skip_button">Компактен бутон за пропускане</string>
     <string name="sb_enable_compact_skip_button_sum_on">Мин. ширина на бутона за пропускане</string>
     <string name="sb_enable_compact_skip_button_sum_off">Най-добър изглед на бутона за пропускане</string>
+    <string name="sb_enable_auto_hide_skip_segment_button">Авт. скриване на бутона за пропускане</string>
+    <string name="sb_enable_auto_hide_skip_segment_button_sum_on">Бутона за пропускане се скрива след няколко секунди</string>
+    <string name="sb_enable_auto_hide_skip_segment_button_sum_off">Бутона за пропускане се показва за цялата част</string>
     <string name="sb_general_skiptoast">Показв. известие при автом. пропуск. част</string>
     <string name="sb_general_skiptoast_sum_on">Показване на известие при автоматично пропусната част. Докоснете тук за пример</string>
     <string name="sb_general_skiptoast_sum_off">Известието не се показва. Докоснете тук за пример</string>
     <string name="sb_general_time_without">Показване на дължината без частите</string>
     <string name="sb_general_time_without_sum_on">Дължината на видеото без всички части показана в скоби до цялата дължина</string>
     <string name="sb_general_time_without_sum_off">Цялата дължина на видето се показва</string>
+    <string name="sb_create_segment_category">Създаване на нови части</string>
     <string name="sb_enable_create_segment">Показване на бутона за нова част</string>
     <string name="sb_enable_create_segment_sum_on">Бутона създаване за нова част се показва</string>
     <string name="sb_enable_create_segment_sum_off">Бутона създаване за нова част не се показва</string>
