@@ -25,7 +25,7 @@ class PatchOptions : ResourcePatch {
     companion object : OptionsContainer() {
 
         /**
-         * Custom Branding Name
+         * Custom Branding Name (YouTube)
          */
         internal var YouTubeAppName: String? by option(
             PatchOption.StringOption(
@@ -45,6 +45,30 @@ class PatchOptions : ResourcePatch {
                 default = "app.rvx.android.youtube",
                 title = "Package Name of YouTube",
                 description = "The package name of the YouTube. (NON-ROOT user only)"
+            )
+        )
+
+        /**
+         * Custom Branding Full Name (YouTube Music)
+         */
+        internal var MusicAppNameFull: String? by option(
+            PatchOption.StringOption(
+                key = "MusicAppNameFull",
+                default = "ReVanced Extended Music",
+                title = "Application Name of YouTube Music",
+                description = "The name of the YouTube Music it will show on your notification panel."
+            )
+        )
+
+        /**
+         * Custom Branding Short Name (YouTube Music)
+         */
+        internal var MusicAppNameShort: String? by option(
+            PatchOption.StringOption(
+                key = "MusicAppNameShort",
+                default = "RVX Music",
+                title = "Application Name of YouTube Music",
+                description = "The name of the YouTube Music it will show on your home screen."
             )
         )
 
