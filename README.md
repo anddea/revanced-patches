@@ -11,11 +11,11 @@ The official Patch bundle provided by ReVanced and the community.
 |:--------:|:--------------:|:-----------------:|
 | `bypass-ambient-mode-restrictions` | Bypass ambient mode restrictions in battery saver mode. | 18.16.39 |
 | `change-homepage` | Change home page to subscription feed. | 18.16.39 |
-| `custom-branding-icon-afn-blue` | Changes the YouTube launcher icon (Afn / Blue). | 18.16.39 |
-| `custom-branding-icon-afn-red` | Changes the YouTube launcher icon (Afn / Red). | 18.16.39 |
-| `custom-branding-icon-manual` | Changes the YouTube launcher icon specified in the 'branding' directory. | 18.16.39 |
-| `custom-branding-icon-mmt` | Changes the YouTube launcher icon (MMT). | 18.16.39 |
-| `custom-branding-icon-revancify` | Changes the YouTube launcher icon (Revancify). | 18.16.39 |
+| `custom-branding-icon-afn-blue` | Changes the YouTube launcher icon to Afn Blue. | 18.16.39 |
+| `custom-branding-icon-afn-red` | Changes the YouTube launcher icon to Afn Red. | 18.16.39 |
+| `custom-branding-icon-mmt` | Changes the YouTube launcher icon to MMT. | 18.16.39 |
+| `custom-branding-icon-revancify-blue` | Changes the YouTube launcher icon to Revancify Blue. | 18.16.39 |
+| `custom-branding-icon-revancify-red` | Changes the YouTube launcher icon to Revancify Red. | 18.16.39 |
 | `custom-branding-name` | Changes the YouTube launcher name to your choice (defaults to ReVanced Extended). | 18.16.39 |
 | `custom-double-tap-length` | Add 'double-tap to seek' value. | 18.16.39 |
 | `custom-seekbar-color` | Change seekbar color. | 18.16.39 |
@@ -52,7 +52,6 @@ The official Patch bundle provided by ReVanced and the community.
 | `hide-channel-watermark` | Hides creator's watermarks on videos. | 18.16.39 |
 | `hide-collapse-button` | Hides the collapse button in the video player. | 18.16.39 |
 | `hide-comment-component` | Adds options to hide comment component under a video. | 18.16.39 |
-| `hide-create-button` | Hides the create button in the navigation bar. | 18.16.39 |
 | `hide-crowdfunding-box` | Hides the crowdfunding box between the player and video description. | 18.16.39 |
 | `hide-double-tap-overlay-filter` | Remove the double tap dark filter layer. | 18.16.39 |
 | `hide-email-address` | Hides the email address(handle) in the account switcher. | 18.16.39 |
@@ -64,10 +63,12 @@ The official Patch bundle provided by ReVanced and the community.
 | `hide-fullscreen-panels` | Hides video description and comments panel in fullscreen view. | 18.16.39 |
 | `hide-general-ads` | Removes general ads. | 18.16.39 |
 | `hide-get-premium` | Hides the YouTube Premium promotion banner between the player and video description. | 18.16.39 |
-| `hide-home-button` | Hides the home button in the navigation bar. | 18.16.39 |
 | `hide-info-cards` | Hides info-cards in videos. | 18.16.39 |
+| `hide-live-chat-button` | Hides the live chat button in the video player (for old layout). | 18.16.39 |
 | `hide-mix-playlists` | Removes mix playlists from home feed and video player. | 18.16.39 |
 | `hide-music-button` | Hides the YouTube Music button in the video player. | 18.16.39 |
+| `hide-navigation-buttons` | Adds options to hide or change navigation buttons. | 18.16.39 |
+| `hide-navigation-label` | Hide navigation bar labels. | 18.16.39 |
 | `hide-pip-notification` | Disable pip notification when you first launch pip mode. | 18.16.39 |
 | `hide-player-button-background` | Hide player button background. | 18.16.39 |
 | `hide-player-overlay-filter` | Remove the dark filter layer from the player's background. | 18.16.39 |
@@ -75,12 +76,10 @@ The official Patch bundle provided by ReVanced and the community.
 | `hide-quick-actions` | Adds the options to hide quick actions components in the fullscreen. | 18.16.39 |
 | `hide-search-terms` | Hide trending searches and search history in the search bar. | 18.16.39 |
 | `hide-seekbar` | Hides the seekbar. | 18.16.39 |
-| `hide-shorts-button` | Hides the shorts button in the navigation bar. | 18.16.39 |
 | `hide-shorts-component` | Hides other Shorts components. | 18.16.39 |
 | `hide-shorts-navbar` | Hide navigation bar when playing shorts. | 18.16.39 |
 | `hide-snackbar` | Hides the snackbar action popup. | 18.16.39 |
 | `hide-stories` | Hides YouTube Stories shelf on the feed. | 18.16.39 |
-| `hide-subscriptions-button` | Hides the subscriptions button in the navigation bar. | 18.16.39 |
 | `hide-suggested-actions` | Hide the suggested actions bar inside the player. | 18.16.39 |
 | `hide-time-stamp` | Hides timestamp in video player. | 18.16.39 |
 | `hide-tooltip-content` | Hides the tooltip box that appears on first install. | 18.16.39 |
@@ -96,7 +95,6 @@ The official Patch bundle provided by ReVanced and the community.
 | `sponsorblock` | Integrates SponsorBlock which allows skipping video segments such as sponsored content. | 18.16.39 |
 | `spoof-app-version` | Tricks YouTube into thinking, you are running an older version of the app. One of the side effects also includes restoring the old UI. | 18.16.39 |
 | `swipe-controls` | Adds volume and brightness swipe controls. | 18.16.39 |
-| `switch-create-notification` | Switching the create button and notification button. | 18.16.39 |
 | `theme` | Applies a custom theme (default: amoled). | 18.16.39 |
 | `translations` | Add Crowdin translations for YouTube. | 18.16.39 |
 </details>
@@ -110,11 +108,12 @@ The official Patch bundle provided by ReVanced and the community.
 | `background-play` | Enables playing music in the background. | all |
 | `bitrate-default-value` | Set the audio quality to 'Always High' when you first install the app. | all |
 | `certificate-spoof` | Spoofs the YouTube Music certificate for Android Auto. | all |
-| `custom-branding-music-afn-blue` | Changes the YouTube Music launcher icon (Afn / Blue). | all |
-| `custom-branding-music-afn-red` | Changes the YouTube Music launcher icon (Afn / Red). | all |
-| `custom-branding-music-manual` | Changes the YouTube Music launcher icon specified in the 'branding-music' directory. | all |
-| `custom-branding-music-mmt` | Changes the YouTube Music launcher icon to your choice (MMT). | all |
-| `custom-branding-music-revancify` | Changes the YouTube Music launcher icon to your choice (Revancify). | all |
+| `custom-branding-music-afn-blue` | Changes the YouTube Music launcher icon to Afn Blue. | all |
+| `custom-branding-music-afn-red` | Changes the YouTube Music launcher icon to Afn Red. | all |
+| `custom-branding-music-mmt` | Changes the YouTube Music launcher icon to MMT. | all |
+| `custom-branding-music-name` | Changes the Music launcher name to your choice (defaults to YTM Extended, ReVanced Music Extended). | all |
+| `custom-branding-music-revancify-blue` | Changes the YouTube Music launcher icon to Revancify Blue. | all |
+| `custom-branding-music-revancify-red` | Changes the YouTube Music launcher icon to Revancify Red. | all |
 | `disable-auto-captions` | Disable forced captions from automatically enabling in video player. | all |
 | `enable-black-navbar` | Sets the navigation bar color to black. | all |
 | `enable-color-match-player` | Matches the fullscreen player color with the minimized one. | all |
@@ -169,17 +168,10 @@ Example:
       {
         "name": "com.google.android.youtube",
         "versions": [
-          "18.06.41",
-          "18.07.35",
-          "18.08.39",
-          "18.09.39",
-          "18.10.37",
-          "18.11.36",
           "18.12.35",
           "18.13.38",
           "18.14.41",
           "18.15.40",
-          "18.16.37",
           "18.16.39"
         ]
       }
