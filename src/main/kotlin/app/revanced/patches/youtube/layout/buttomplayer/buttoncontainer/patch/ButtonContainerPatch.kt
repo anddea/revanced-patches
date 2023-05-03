@@ -47,26 +47,15 @@ class ButtonContainerPatch : ResourcePatch {
                 """
 
         with(LithoFilterPatch.lithoMethod) {
-            if (LithoFilterPatch.bufferFingerprintResolved) {
-                // 18.11.36+
-                addInstructions(
-                    0, """
+            addInstructions(
+                0, """
                         move-object/from16 v10, p3
                         iget-object v10, v10, ${LithoFilterPatch.objectReference.definingClass}->${LithoFilterPatch.objectReference.name}:${LithoFilterPatch.objectReference.type}
                         if-eqz v10, :do_not_block
                         check-cast v10, ${LithoFilterPatch.bufferReference}
                         iget-object v10, v10, ${LithoFilterPatch.bufferReference}->b:Ljava/nio/ByteBuffer;
                         """ + instructionList,listOf(ExternalLabel("do_not_block", LithoFilterPatch.lithoMethod.instruction(0)))
-                )
-            } else {
-                val secondParameter = LithoFilterPatch.lithoMethod.parameters[2]
-                LithoFilterPatch.lithoMethod.addInstructions(
-                    0, """
-                        move-object/from16 v10, p3
-                        iget-object v10, v10, $secondParameter->b:Ljava/nio/ByteBuffer;
-                        """ + instructionList,listOf(ExternalLabel("do_not_block", LithoFilterPatch.lithoMethod.instruction(0)))
-                )
-            }
+            )
         }
 
         /*
