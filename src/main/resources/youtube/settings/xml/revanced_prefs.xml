@@ -320,20 +320,12 @@
         <!-- SETTINGS: ENABLE_TABLET_NAVIGATION_BAR
         <SwitchPreference android:title="@string/revanced_enable_tablet_navigation_bar_title" android:key="revanced_enable_tablet_navigation_bar" android:defaultValue="false" android:summaryOn="@string/revanced_enable_tablet_navigation_bar_summary_on" android:summaryOff="@string/revanced_enable_tablet_navigation_bar_summary_off" />SETTINGS: ENABLE_TABLET_NAVIGATION_BAR -->
 
-        <!-- SETTINGS: SWITCH_CREATE_NOTIFICATION
-        <SwitchPreference android:title="@string/revanced_switching_create_notification_title" android:key="revanced_switching_create_notification" android:defaultValue="false" android:summaryOn="@string/revanced_switching_create_notification_summary_on" android:summaryOff="@string/revanced_switching_create_notification_summary_off" />SETTINGS: SWITCH_CREATE_NOTIFICATION -->
-
-        <!-- SETTINGS: HIDE_CREATE_BUTTON
-        <SwitchPreference android:title="@string/revanced_hide_create_button_title" android:key="revanced_hide_create_button" android:defaultValue="true" android:summaryOn="@string/revanced_hide_create_button_summary_on" android:summaryOff="@string/revanced_hide_create_button_summary_off" />SETTINGS: HIDE_CREATE_BUTTON -->
-
-        <!-- SETTINGS: HIDE_HOME_BUTTON
-        <SwitchPreference android:title="@string/revanced_hide_home_button_title" android:key="revanced_hide_home_button" android:defaultValue="false" android:summaryOn="@string/revanced_hide_home_button_summary_on" android:summaryOff="@string/revanced_hide_home_button_summary_off" />SETTINGS: HIDE_HOME_BUTTON -->
-
-        <!-- SETTINGS: HIDE_SHORTS_BUTTON
-        <SwitchPreference android:title="@string/revanced_hide_shorts_button_title" android:key="revanced_hide_shorts_button" android:defaultValue="true" android:summaryOn="@string/revanced_hide_shorts_button_summary_on" android:summaryOff="@string/revanced_hide_shorts_button_summary_off" />SETTINGS: HIDE_SHORTS_BUTTON -->
-
-        <!-- SETTINGS: HIDE_SUBSCRIPTIONS_BUTTON
-        <SwitchPreference android:title="@string/revanced_hide_subscriptions_button_title" android:key="revanced_hide_subscriptions_button" android:defaultValue="false" android:summaryOn="@string/revanced_hide_subscriptions_button_summary_on" android:summaryOff="@string/revanced_hide_subscriptions_button_summary_off" />SETTINGS: HIDE_SUBSCRIPTIONS_BUTTON -->
+        <!-- SETTINGS: HIDE_NAVIGATION_BUTTONS
+        <SwitchPreference android:title="@string/revanced_switching_create_notification_title" android:key="revanced_switching_create_notification" android:defaultValue="true" android:summaryOn="@string/revanced_switching_create_notification_summary_on" android:summaryOff="@string/revanced_switching_create_notification_summary_off" />
+        <SwitchPreference android:title="@string/revanced_hide_create_button_title" android:key="revanced_hide_create_button" android:defaultValue="true" android:summaryOn="@string/revanced_hide_create_button_summary_on" android:summaryOff="@string/revanced_hide_create_button_summary_off" />
+        <SwitchPreference android:title="@string/revanced_hide_home_button_title" android:key="revanced_hide_home_button" android:defaultValue="false" android:summaryOn="@string/revanced_hide_home_button_summary_on" android:summaryOff="@string/revanced_hide_home_button_summary_off" />
+        <SwitchPreference android:title="@string/revanced_hide_shorts_button_title" android:key="revanced_hide_shorts_button" android:defaultValue="false" android:summaryOn="@string/revanced_hide_shorts_button_summary_on" android:summaryOff="@string/revanced_hide_shorts_button_summary_off" />
+        <SwitchPreference android:title="@string/revanced_hide_subscriptions_button_title" android:key="revanced_hide_subscriptions_button" android:defaultValue="false" android:summaryOn="@string/revanced_hide_subscriptions_button_summary_on" android:summaryOff="@string/revanced_hide_subscriptions_button_summary_off" />SETTINGS: HIDE_NAVIGATION_BUTTONS -->
 
         <!-- SETTINGS: HIDE_SHORTS_NAVIGATION_BAR
         <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_experimental_flag" />
@@ -517,11 +509,7 @@
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_navigation" />
             <Preference android:title="change-homepage" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="enable-tablet-navigation-bar" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
-            <Preference android:title="switch-create-notification" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
-            <Preference android:title="hide-create-button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
-            <Preference android:title="hide-home-button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
-            <Preference android:title="hide-shorts-button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
-            <Preference android:title="hide-subscriptions-button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="hide-navigation-buttons" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-shorts-navbar" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
 
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_seekbar" />

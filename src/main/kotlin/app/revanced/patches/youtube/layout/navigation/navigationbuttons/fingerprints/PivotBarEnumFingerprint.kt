@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.misc.lastpivottab.fingerprints
+package app.revanced.patches.youtube.layout.navigation.navigationbuttons.fingerprints
 
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import org.jf.dexlib2.Opcode
