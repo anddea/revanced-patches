@@ -25,7 +25,7 @@ class SponsorBlockSecondaryBytecodePatch : BytecodePatch() {
     // list of resource names to get the id of
     private val resourceIds = arrayOf(
         "string" to "total_time",
-        "layout" to "player_overlays"
+        "id" to "inset_overlay_view_layout"
     ).map { (type, name) ->
         ResourceMappingPatch
             .resourceMappings
@@ -58,15 +58,16 @@ class SponsorBlockSecondaryBytecodePatch : BytecodePatch() {
                                     }
 
                                     resourceIds[1] -> { // player overlay
-                                        val insertIndex = index + 4
+                                        val insertIndex = index + 3
                                         val invokeInstruction = instructions.elementAt(insertIndex)
                                         if (invokeInstruction.opcode != Opcode.CHECK_CAST) return@forEachIndexed
+                                        val targetRegister = (invokeInstruction as OneRegisterInstruction).registerA
 
                                         val mutableMethod = context.proxy(classDef).mutableClass.findMutableMethodOf(method)
 
                                         mutableMethod.addInstruction(
-                                            insertIndex,
-                                                "invoke-static {p0}, Lapp/revanced/integrations/sponsorblock/ui/SponsorBlockViewController;->initialize(Ljava/lang/Object;)V"
+                                            insertIndex + 1,
+                                                "invoke-static {v$targetRegister}, Lapp/revanced/integrations/sponsorblock/ui/SponsorBlockViewController;->initialize(Landroid/view/ViewGroup;)V"
                                         )
 
                                         patchSuccessArray[1] = true
