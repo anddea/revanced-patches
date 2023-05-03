@@ -83,16 +83,16 @@
     <string name="revanced_enable_external_browser_summary_off">Wyłączona</string>
     <string name="revanced_enable_external_browser_summary_on">Włączona</string>
     <string name="revanced_enable_external_browser_title">Zewnętrzna przeglądarka</string>
-    <string name="revanced_spoof_app_version_summary">"Oszukuje wersję klienta do starej wersji
+    <string name="revanced_spoof_app_version_summary">"Oszukuje wersję aplikacji do starszej wersji
 
 Zmieni to wygląd aplikacji, lecz mogą wystąpić nieznane efekty uboczne
-Jeśli poźniej opcja ta zostanie wyłączona, stare UI może pozostać do czasu wyczyszczenia danych aplikacji"</string>
+Jeśli później opcja ta zostanie wyłączona, stare UI może pozostać do czasu usunięcia danych aplikacji"</string>
     <string name="revanced_spoof_app_version_title">Oszukaj wersję aplikacji</string>
-    <string name="revanced_spoof_app_version_target_entry_1">17.41.37 - Playlisty w zakładce biblioteki mają stary układ</string>
-    <string name="revanced_spoof_app_version_target_entry_2">17.30.34 - Przywraca stary wygląd UI</string>
-    <string name="revanced_spoof_app_version_target_entry_3">17.06.35 - Włącza sortowanie filmów według najstarszych</string>
-    <string name="revanced_spoof_app_version_target_entry_4">16.08.35 - Przywraca zakładkę odkrywania</string>
-    <string name="revanced_spoof_app_version_target_title">Docelowa wersja oszukania aplikacji</string>
+    <string name="revanced_spoof_app_version_target_entry_1">17.41.37 - Półki z playlistami w zakładce do biblioteki mają stary układ</string>
+    <string name="revanced_spoof_app_version_target_entry_2">17.30.34 - Przywróć stary wygląd UI</string>
+    <string name="revanced_spoof_app_version_target_entry_3">17.06.35 - Włącza sortowanie wideo od najstarszych</string>
+    <string name="revanced_spoof_app_version_target_entry_4">16.08.35 - Przywraca przycisk od odkrywania</string>
+    <string name="revanced_spoof_app_version_target_title">Oszukana wersja aplikacji</string>
     <string name="revanced_enable_old_quality_layout_summary_off">Ukryty</string>
     <string name="revanced_enable_old_quality_layout_summary_on">Widoczny</string>
     <string name="revanced_enable_old_quality_layout_title">Stary wygląd zmieniania jakości</string>
@@ -104,7 +104,7 @@ Jeśli poźniej opcja ta zostanie wyłączona, stare UI może pozostać do czasu
     <string name="revanced_enable_protobuf_spoof_summary">"Oszukuje protobuf, aby uniknąć problemów z odtwarzaniem
 Znane problemy
 - Karty na końcach wideo są zawsze ukryte
-- Pobrane materiały w trybie offline mogą nie działać (użytkownicy YouTube Premium)"</string>
+- Pobrane wideo mogą nie działać (użytkownicy YouTube Premium)"</string>
     <string name="revanced_enable_protobuf_spoof_title">Oszukiwanie protobuf</string>
     <string name="revanced_enable_press_to_swipe_summary_off">Wyłączone</string>
     <string name="revanced_enable_press_to_swipe_summary_on">Włączone</string>
@@ -174,7 +174,7 @@ Proszę nie zgłaszać żadnych problemów napotkanych podczas korzystania z tej
     <string name="revanced_hide_album_card_title">Karty albumów</string>
     <string name="revanced_hide_audio_track_button_summary_off">Widoczny</string>
     <string name="revanced_hide_audio_track_button_summary_on">Ukryty</string>
-    <string name="revanced_hide_audio_track_button_title">Przycisk ścieżki audio</string>
+    <string name="revanced_hide_audio_track_button_title">Przycisk od ścieżki audio</string>
     <string name="revanced_hide_autoplay_button_summary_off">Widoczny</string>
     <string name="revanced_hide_autoplay_button_summary_on">Ukryty</string>
     <string name="revanced_hide_autoplay_button_title">Przycisk od automatycznego odtwarzania</string>
@@ -413,8 +413,6 @@ Proszę nie zgłaszać żadnych problemów napotkanych podczas korzystania z tej
     <string name="revanced_hide_shorts_shelf_summary_off">Widoczne</string>
     <string name="revanced_hide_shorts_shelf_summary_on">Ukryte</string>
     <string name="revanced_hide_shorts_shelf_title">Półki z shortami</string>
-    <string name="revanced_shorts">Shorty</string>
-    <string name="revanced_shorts_player_title">Odtwarzacz shortów</string>
     <string name="revanced_hide_snackbar_summary_off">Widoczne</string>
     <string name="revanced_hide_snackbar_summary_on">Ukryte</string>
     <string name="revanced_hide_snackbar_title">Komunikaty</string>
@@ -473,9 +471,6 @@ Proszę nie zgłaszać żadnych problemów napotkanych podczas korzystania z tej
     <string name="revanced_overlay_button_speed_summary_off">Ukryty</string>
     <string name="revanced_overlay_button_speed_summary_on">Widoczny</string>
     <string name="revanced_overlay_button_speed_title">Przycisk od prędkości</string>
-    <string name="revanced_overlay_button_whitelist_summary_off">Ukryty</string>
-    <string name="revanced_overlay_button_whitelist_summary_on">Widoczny</string>
-    <string name="revanced_overlay_button_whitelist_title">Przycisk od dodawania do białej listy</string>
     <string name="revanced_override_premium_header_summary_off">Obecne Logo: Domyślne</string>
     <string name="revanced_override_premium_header_summary_on">Obecne Logo: Premium</string>
     <string name="revanced_override_premium_header_title">Logo Premium</string>
@@ -518,6 +513,8 @@ To ustawienie może nie zadziałać"</string>
     <string name="revanced_save_video_quality_wifi">Zmienianie domyślnej jakości podczas używania Wi-Fi na:</string>
     <string name="revanced_save_video_speed">Zmienianie domyślnej prędkości na:</string>
     <string name="revanced_seekbar">Pasek wideo</string>
+    <string name="revanced_shorts">Shorty</string>
+    <string name="revanced_shorts_player_title">Odtwarzacz shortów</string>
     <string name="revanced_show_fullscreen_title_summary">Znany problem: Tytuły znikają po stuknięciu</string>
     <string name="revanced_show_fullscreen_title_title">Pokazuj tytuły w trybie pełnoekranowym</string>
     <string name="revanced_sponsorblock_settings_summary">Ustawienia związane ze SponsorBlock</string>
@@ -538,24 +535,6 @@ To ustawienie może nie zadziałać"</string>
     <string name="revanced_video_ads_removal_summary_off">Widoczne</string>
     <string name="revanced_video_ads_removal_summary_on">Ukryte</string>
     <string name="revanced_video_ads_removal_title">Reklamy podczas wideo</string>
-    <string name="revanced_whitelisting_added" formatted="false">Kanał %s został dodany do białej listy</string>
-    <string name="revanced_whitelisting_add_failed" formatted="false">Nie udało się dodać kanału %s do białej listy</string>
-    <string name="revanced_whitelisting_ads">Reklamy Wideo</string>
-    <string name="revanced_whitelisting_ads_button">Reklamy</string>
-    <string name="revanced_whitelisting_channel_name">Nazwa Kanału</string>
-    <string name="revanced_whitelisting_empty">Nie ma żadnego kanału na tej białej liście</string>
-    <string name="revanced_whitelisting_excluded">Nie dodano do białej listy</string>
-    <string name="revanced_whitelisting_fetch_failed">Nie udało się dodać kanału do białej listy</string>
-    <string name="revanced_whitelisting_included">Dodano do białej listy</string>
-    <string name="revanced_whitelisting_reboot">Uruchom ponownie, aby zastosować ustawienia białej listy kanałów</string>
-    <string name="revanced_whitelisting_removed" formatted="false">Kanał %s został usunięty z białej listy</string>
-    <string name="revanced_whitelisting_remove_failed" formatted="false">Nie udało się usunąć kanału %s z białej listy</string>
-    <string name="revanced_whitelisting_settings_summary">Sprawdź lub usuń kanały z białej listy</string>
-    <string name="revanced_whitelisting_settings_title">Białe listy</string>
-    <string name="revanced_whitelisting_speed">Prędkość Wideo</string>
-    <string name="revanced_whitelisting_sponsorblock">SponsorBlock</string>
-    <string name="revanced_whitelisting_sponsorblock_button">SB</string>
-    <string name="revanced_whitelisting_title">Biała Lista Kanałów</string>
     <string name="sb_enable_sb">SponsorBlock</string>
     <string name="sb_enable_sb_sum">SponsorBlock to system pomijania denerwujących fragmentów w wideo na YouTube</string>
     <string name="sb_appearance_category">Wygląd</string>

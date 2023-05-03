@@ -44,8 +44,8 @@
     <string name="revanced_disable_default_video_speed_live_summary_off">Açık</string>
     <string name="revanced_disable_default_video_speed_live_summary_on">Kapalı</string>
     <string name="revanced_disable_default_video_speed_live_title">Canlı yayında varsayılan video hızını devre dışı bırak</string>
-    <string name="revanced_disable_haptic_feedback_chapters_summary_off">Bölümler arasında geçiş yaparken titreşimli geri bildirim etkinleştirildi</string>
-    <string name="revanced_disable_haptic_feedback_chapters_summary_on">Bölümler arasında geçiş yaparken titreşimli geri bildirim kapalı</string>
+    <string name="revanced_disable_haptic_feedback_chapters_summary_off">Açık</string>
+    <string name="revanced_disable_haptic_feedback_chapters_summary_on">Kapalı</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">Bölümler arasında geçiş yaparken titreşimli geri bildirim</string>
     <string name="revanced_disable_haptic_feedback_scrubbing_summary_off">Dokunsal geri bildirim temizleme etkinleştirildi</string>
     <string name="revanced_disable_haptic_feedback_scrubbing_summary_on">Dokunsal geri bildirim temizleme devre dışı</string>
@@ -83,6 +83,15 @@
     <string name="revanced_enable_external_browser_summary_off">Harici tarayıcı devre dışı</string>
     <string name="revanced_enable_external_browser_summary_on">Harici tarayıcı etkin</string>
     <string name="revanced_enable_external_browser_title">Harici tarayıcı</string>
+    <string name="revanced_spoof_app_version_summary">"İstemci sürümünü eski sürüme uydurma
+
+Bu, uygulamanın görünümünü değiştirir, ancak bilinmeyen yan etkiler ortaya çıkabilir Daha sonra kapatılırsa, uygulama verileri temizlenene kadar eski kullanıcı arayüzü kalabilir"</string>
+    <string name="revanced_spoof_app_version_title">Uygulama Versiyonunu taklit et</string>
+    <string name="revanced_spoof_app_version_target_entry_1">17.41.37 - Kitaplık sekmesindeki oynatma listeleri rafı eski düzeni takip ediyor</string>
+    <string name="revanced_spoof_app_version_target_entry_2">17.30.34 - Eski kullanıcı arayüzü düzenini geri yükle</string>
+    <string name="revanced_spoof_app_version_target_entry_3">17.06.35 - Videoları en eskiye göre sıralamayı etkinleştir</string>
+    <string name="revanced_spoof_app_version_target_entry_4">16.08.35 - Keşfet sekmesini geri yükle</string>
+    <string name="revanced_spoof_app_version_target_title">Sahte uygulama sürümü hedefi</string>
     <string name="revanced_enable_old_quality_layout_summary_off">Yeni stil kullanılıyor</string>
     <string name="revanced_enable_old_quality_layout_summary_on">Eski stil kullanılıyor</string>
     <string name="revanced_enable_old_quality_layout_title">Eski stilde kalite arayüzünü etkinleştir</string>
@@ -91,6 +100,9 @@
     <string name="revanced_enable_open_links_directly_title">Bağlantıları direkt açmayı etkinleştir</string>
     <string name="revanced_enable_phone_layout_summary">Bazı telefon düzenlerini kullanmak için dpi\'yi kandırır</string>
     <string name="revanced_enable_phone_layout_title">Telefon düzenini Etkinleştir</string>
+    <string name="revanced_enable_protobuf_spoof_summary">"Oynatma sorunlarını önlemek için protobuf'u taklit eder Bilinen sorunlar 
+- Bitiş ekranı kartları her zaman gizlidir
+- Çevrimdışı indirmeler çalışmayabilir (YouTube Premium kullanıcıları için)"</string>
     <string name="revanced_enable_protobuf_spoof_title">Protobuf\'u taklit etmeyi etkinleştir</string>
     <string name="revanced_enable_press_to_swipe_summary_off">Basılı-tut-kaydır devre dışı</string>
     <string name="revanced_enable_press_to_swipe_summary_on">Basılı-tut-kaydır etkin</string>
@@ -158,6 +170,9 @@ Lütfen bu özelliği kullanırken karşılaştığınız sorunları bildirmeyin
     <string name="revanced_hide_album_card_summary_off">Gizlenmiyor</string>
     <string name="revanced_hide_album_card_summary_on">Gizleniyor</string>
     <string name="revanced_hide_album_card_title">Albüm kartlarını gizle</string>
+    <string name="revanced_hide_audio_track_button_summary_off">Gizlenmiyor</string>
+    <string name="revanced_hide_audio_track_button_summary_on">Gizleniyor</string>
+    <string name="revanced_hide_audio_track_button_title">\"Ses parçası\" düğmesini gizle</string>
     <string name="revanced_hide_autoplay_button_summary_off">Gizlenmiyor</string>
     <string name="revanced_hide_autoplay_button_summary_on">Gizlendi</string>
     <string name="revanced_hide_autoplay_button_title">\"Otomatik oynat\" butonunu gizle</string>
@@ -274,6 +289,9 @@ Lütfen bu özelliği kullanırken karşılaştığınız sorunları bildirmeyin
     <string name="revanced_hide_fullscreen_panels_summary_off">Tam ekran paneller gösteriliyor</string>
     <string name="revanced_hide_fullscreen_panels_summary_on">Tam ekran paneller gizleniyor</string>
     <string name="revanced_hide_fullscreen_panels_title">Tam ekran panellerini gizle</string>
+    <string name="revanced_hide_get_premium_summary_off">Gizlenmiyor</string>
+    <string name="revanced_hide_get_premium_summary_on">Gizleniyor</string>
+    <string name="revanced_hide_get_premium_title">YouTube Premium promosyonunu gizle</string>
     <string name="revanced_hide_home_button_summary_off">Gizlenmiyor</string>
     <string name="revanced_hide_home_button_summary_on">Gizleniyor</string>
     <string name="revanced_hide_home_button_title">Ana sayfa düğmesini gizle</string>
@@ -292,6 +310,9 @@ Lütfen bu özelliği kullanırken karşılaştığınız sorunları bildirmeyin
     <string name="revanced_hide_latest_posts_summary_off">Gizlenmiyor</string>
     <string name="revanced_hide_latest_posts_summary_on">Gizleniyor</string>
     <string name="revanced_hide_latest_posts_title">Son gönderileri gizle</string>
+    <string name="revanced_hide_navigation_label_summary_off">Gizlenmiyor</string>
+    <string name="revanced_hide_navigation_label_summary_on">Gizleniyor</string>
+    <string name="revanced_hide_navigation_label_title">Navigasyon panelini gizle</string>
     <string name="revanced_hide_medical_panel_summary_off">Gizlenmiyor</string>
     <string name="revanced_hide_medical_panel_summary_on">Gizleniyor</string>
     <string name="revanced_hide_medical_panel_title">Tıbbi paneli gizle</string>
@@ -393,14 +414,15 @@ Lütfen bu özelliği kullanırken karşılaştığınız sorunları bildirmeyin
     <string name="revanced_hide_shorts_shelf_summary_off">Gizlenmiyor</string>
     <string name="revanced_hide_shorts_shelf_summary_on">Gizleniyor</string>
     <string name="revanced_hide_shorts_shelf_title">Kısa videoları gizle</string>
-    <string name="revanced_shorts">Shorts</string>
-    <string name="revanced_shorts_player_title">Shorts oynatıcı</string>
     <string name="revanced_hide_snackbar_summary_off">Aperatif çubuğu gösteriliyor</string>
     <string name="revanced_hide_snackbar_summary_on">Aperatif çubuğu gizleniyor</string>
     <string name="revanced_hide_snackbar_title">Aperatif çubuğunu gizle</string>
     <string name="revanced_hide_stories_shelf_summary_off">Gizlenmiyor</string>
     <string name="revanced_hide_stories_shelf_summary_on">Gizleniyor</string>
     <string name="revanced_hide_stories_shelf_title">Hikayeleri gizle</string>
+    <string name="revanced_hide_subscriptions_button_summary_off">Gizlenmiyor</string>
+    <string name="revanced_hide_subscriptions_button_summary_on">Gizleniyor</string>
+    <string name="revanced_hide_subscriptions_button_title">Abonelikler butonunu gizle</string>
     <string name="revanced_hide_suggested_actions_summary_off">Gizlenmiyor</string>
     <string name="revanced_hide_suggested_actions_summary_on">Gizleniyor</string>
     <string name="revanced_hide_suggested_actions_title">Tam ekrandaki \"Diğer videolar\"</string>
@@ -453,9 +475,6 @@ Lütfen bu özelliği kullanırken karşılaştığınız sorunları bildirmeyin
     <string name="revanced_overlay_button_speed_summary_off">\"Hız\" düğmesi gizlenir</string>
     <string name="revanced_overlay_button_speed_summary_on">\"Hız\" düğmesi gösterilir</string>
     <string name="revanced_overlay_button_speed_title">\"Hız\" düğmesini göster</string>
-    <string name="revanced_overlay_button_whitelist_summary_off">Beyaz Liste butonu gizli</string>
-    <string name="revanced_overlay_button_whitelist_summary_on">Beyaz Liste butonu gösteriliyor</string>
-    <string name="revanced_overlay_button_whitelist_title">Beyaz Liste düğmesini göster</string>
     <string name="revanced_override_premium_header_summary_off">Geçerli Başlık: Varsayılan Başlık</string>
     <string name="revanced_override_premium_header_summary_on">Geçerli Başlık: Premium Başlık</string>
     <string name="revanced_override_premium_header_title">Premium Başlık</string>
@@ -480,9 +499,9 @@ Bu ayarı etkinleştirirseniz aşağıdaki özellikler kullanılamaz:
 
 Bu ayar oldukça eski olduğu için geçerli olmayabilir"</string>
     <string name="revanced_ryd_attribution_summary">Beğenmeme verileri True RYD Worker API tarafından sağlanır. Daha fazlasını öğrenmek için buraya dokunun.</string>
-    <string name="revanced_ryd_compact_layout_summary_off">Like button styled for best appearance</string>
-    <string name="revanced_ryd_compact_layout_summary_on">Like button styled for minimum width</string>
-    <string name="revanced_ryd_compact_layout_title">Compact like button</string>
+    <string name="revanced_ryd_compact_layout_summary_off">Beğen düğmesi en iyi görünüm için tasarlandı</string>
+    <string name="revanced_ryd_compact_layout_summary_on">Beğen düğmesi Minimum genişlik için tasarlandı</string>
+    <string name="revanced_ryd_compact_layout_title">Kompakt beğenme düğmesi</string>
     <string name="revanced_ryd_dislike_percentage_summary_off">Beğenmemeler sayı olarak gösterilir</string>
     <string name="revanced_ryd_dislike_percentage_summary_on">Beğenmemeler yüzde olarak gösterilir</string>
     <string name="revanced_ryd_dislike_percentage_title">Beğenmemeleri yüzde olarak gösterir</string>
@@ -497,6 +516,8 @@ Bu ayar oldukça eski olduğu için geçerli olmayabilir"</string>
     <string name="revanced_save_video_quality_wifi">Varsayılan Wİ-Fİ video kalitesi:</string>
     <string name="revanced_save_video_speed">Varsayılan hız:</string>
     <string name="revanced_seekbar">Zaman çubuğu</string>
+    <string name="revanced_shorts">Shorts</string>
+    <string name="revanced_shorts_player_title">Shorts oynatıcı</string>
     <string name="revanced_show_fullscreen_title_summary">Bilinen sorun: Tıklandığında başlık kayboluyor</string>
     <string name="revanced_show_fullscreen_title_title">Tam ekran başlığını göster</string>
     <string name="revanced_sponsorblock_settings_summary">SponsorBlock ilgili ayarları</string>
@@ -517,24 +538,6 @@ Bu ayar oldukça eski olduğu için geçerli olmayabilir"</string>
     <string name="revanced_video_ads_removal_summary_off">Gizlenmiyor</string>
     <string name="revanced_video_ads_removal_summary_on">Gizlendi</string>
     <string name="revanced_video_ads_removal_title">Video reklamlarını gizle</string>
-    <string name="revanced_whitelisting_added" formatted="false">Kanal %s, %s beyaz listeye eklendi</string>
-    <string name="revanced_whitelisting_add_failed" formatted="false">Kanal %s, %s beyaz listeye eklenemedi</string>
-    <string name="revanced_whitelisting_ads">Video reklamları</string>
-    <string name="revanced_whitelisting_ads_button">Reklamlar</string>
-    <string name="revanced_whitelisting_channel_name">Kanal Adı</string>
-    <string name="revanced_whitelisting_empty">Beyaz listeye alınmış kanal yok</string>
-    <string name="revanced_whitelisting_excluded">BeyazListeye eklenmedi</string>
-    <string name="revanced_whitelisting_fetch_failed">Kanal detayları alınamadı, %d kodu alındı</string>
-    <string name="revanced_whitelisting_included">BeyazListeye Eklendi</string>
-    <string name="revanced_whitelisting_reboot">Kanal beyaz listesi ayarlarını uygulamak için yeniden başlatın</string>
-    <string name="revanced_whitelisting_removed" formatted="false">Kanal %s, %s beyaz listesinden kaldırıldı</string>
-    <string name="revanced_whitelisting_remove_failed" formatted="false">Kanal %s, %s beyaz listesinden kaldırılamadı</string>
-    <string name="revanced_whitelisting_settings_summary">Beyaz listeye alınan kanalları kontrol et veya kaldır</string>
-    <string name="revanced_whitelisting_settings_title">Beyaz liste ayarları</string>
-    <string name="revanced_whitelisting_speed">Video Hızı</string>
-    <string name="revanced_whitelisting_sponsorblock">SponsorBlock</string>
-    <string name="revanced_whitelisting_sponsorblock_button">SB</string>
-    <string name="revanced_whitelisting_title">Kanal beyaz listesi</string>
     <string name="sb_enable_sb">SponsorBlock\'u etkinleştir</string>
     <string name="sb_enable_sb_sum">SponsorBlock, YouTube videolarındaki sıkıcı kısımları atlamaya yarayan kitle kaynaklı bir sistemdir</string>
     <string name="sb_appearance_category">Görünüm</string>

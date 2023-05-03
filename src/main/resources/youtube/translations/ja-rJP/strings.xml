@@ -102,7 +102,7 @@
     <string name="revanced_enable_phone_layout_title">スマートフォン用のレイアウトを有効にする</string>
     <string name="revanced_enable_protobuf_spoof_summary">"“バッファリングの問題を修正”には副作用があります
 既知のバグ
-- 動画終了画面カードは常に非表示になります
+- エンドスクリーンカードは常に表示されません
 - オフラインダウンロードが動作しない可能性があります(YouTube Premium 利用者)"</string>
     <string name="revanced_enable_protobuf_spoof_title">バッファリングの問題を回避する(β版)</string>
     <string name="revanced_enable_press_to_swipe_summary_off">スワイプコントロールを有効にします</string>
@@ -414,8 +414,6 @@
     <string name="revanced_hide_shorts_shelf_summary_off">YouTubeショート欄を非表示にします</string>
     <string name="revanced_hide_shorts_shelf_summary_on">YouTubeショート欄を非表示にします</string>
     <string name="revanced_hide_shorts_shelf_title">YouTubeショート欄を非表示にする</string>
-    <string name="revanced_shorts">YouTubeショート</string>
-    <string name="revanced_shorts_player_title">YouTubeショートのプレーヤー</string>
     <string name="revanced_hide_snackbar_summary_off">プレーヤー上の設定メニューで何か変更した際に、下に表示される文章(白いバー)を非表示にします</string>
     <string name="revanced_hide_snackbar_summary_on">プレーヤー上の設定メニューで何か変更した際に、下に表示される文章(白いバー)を非表示にします</string>
     <string name="revanced_hide_snackbar_title">下に表示される白いバーを非表示にする</string>
@@ -474,9 +472,6 @@
     <string name="revanced_overlay_button_speed_summary_off">再生速度のボタンを表示します</string>
     <string name="revanced_overlay_button_speed_summary_on">再生速度のボタンを表示します</string>
     <string name="revanced_overlay_button_speed_title">再生速度のボタンを表示する</string>
-    <string name="revanced_overlay_button_whitelist_summary_off">ホワイトリストのボタンを表示します</string>
-    <string name="revanced_overlay_button_whitelist_summary_on">ホワイトリストのボタンを表示します</string>
-    <string name="revanced_overlay_button_whitelist_title">ホワイトリストのボタンを表示する</string>
     <string name="revanced_override_premium_header_summary_off">現在のヘッダー: デフォルトのヘッダー</string>
     <string name="revanced_override_premium_header_summary_on">現在のヘッダー: YouTubeプレミアムヘッダー</string>
     <string name="revanced_override_premium_header_title">YouTubeプレミアムヘッダーを有効にする</string>
@@ -520,6 +515,8 @@
     <string name="revanced_save_video_quality_wifi">Wi-Fi でのデフォルト画質:</string>
     <string name="revanced_save_video_speed">デフォルトの再生速度を変更:</string>
     <string name="revanced_seekbar">再生バー(シークバー)</string>
+    <string name="revanced_shorts">YouTubeショート</string>
+    <string name="revanced_shorts_player_title">YouTubeショートのプレーヤー</string>
     <string name="revanced_show_fullscreen_title_summary">全画面表示で左上に動画のタイトルを表示します
 (既知の問題: タイトルをタップしてもなにも起こりません)</string>
     <string name="revanced_show_fullscreen_title_title">全画面表示で動画のタイトルを表示する</string>
@@ -541,24 +538,6 @@
     <string name="revanced_video_ads_removal_summary_off">動画の広告を非表示にします</string>
     <string name="revanced_video_ads_removal_summary_on">動画の広告を非表示にします</string>
     <string name="revanced_video_ads_removal_title">動画の広告を非表示にする</string>
-    <string name="revanced_whitelisting_added" formatted="false">チャンネル %s は %s ホワイトリストに追加されました</string>
-    <string name="revanced_whitelisting_add_failed" formatted="false">チャンネル %s を %s ホワイトリストに追加できませんでした</string>
-    <string name="revanced_whitelisting_ads">動画の広告</string>
-    <string name="revanced_whitelisting_ads_button">広告</string>
-    <string name="revanced_whitelisting_channel_name">チャンネル名</string>
-    <string name="revanced_whitelisting_empty">ホワイトリストに登録されたチャンネルはありません</string>
-    <string name="revanced_whitelisting_excluded">ホワイトリストに追加されていません</string>
-    <string name="revanced_whitelisting_fetch_failed">チャンネル詳細の取得に失敗しました。受信したコード : %d</string>
-    <string name="revanced_whitelisting_included">ホワイトリストに追加しました</string>
-    <string name="revanced_whitelisting_reboot">チャンネルホワイトリスト設定を適用するには再起動してください</string>
-    <string name="revanced_whitelisting_removed" formatted="false">チャンネル %s は %s ホワイトリストから削除されました</string>
-    <string name="revanced_whitelisting_remove_failed" formatted="false">チャンネル %s を %s ホワイトリストから削除できませんでした</string>
-    <string name="revanced_whitelisting_settings_summary">ホワイトリストに追加されたチャンネルのリストを確認または削除する</string>
-    <string name="revanced_whitelisting_settings_title">ホワイトリストの設定</string>
-    <string name="revanced_whitelisting_speed">動画の再生速度</string>
-    <string name="revanced_whitelisting_sponsorblock">SponsorBlock</string>
-    <string name="revanced_whitelisting_sponsorblock_button">Sponsor Block</string>
-    <string name="revanced_whitelisting_title">チャンネルのホワイトリスト</string>
     <string name="sb_enable_sb">SponsorBlockを有効にする</string>
     <string name="sb_enable_sb_sum">SponsorBlock は、YouTubeの動画の迷惑/無駄な部分をスキップするためのクラウドソースシステムです</string>
     <string name="sb_appearance_category">表示設定</string>

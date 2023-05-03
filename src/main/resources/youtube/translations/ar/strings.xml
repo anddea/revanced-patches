@@ -312,6 +312,9 @@
     <string name="revanced_hide_latest_posts_summary_off">يتم عرض أحدث المشاركات</string>
     <string name="revanced_hide_latest_posts_summary_on">تم إخفاء أحدث المشاركات</string>
     <string name="revanced_hide_latest_posts_title">إخفاء آخر المشاركات</string>
+    <string name="revanced_hide_navigation_label_summary_off">يتم عرض تسمية شريط التنقل</string>
+    <string name="revanced_hide_navigation_label_summary_on">تم إخفاء تسمية شريط التنقل</string>
+    <string name="revanced_hide_navigation_label_title">إخفاء تسمية شريط التنقل</string>
     <string name="revanced_hide_medical_panel_summary_off">يتم عرض اللوحات الطبية</string>
     <string name="revanced_hide_medical_panel_summary_on">تم إخفاء اللوحات الطبية</string>
     <string name="revanced_hide_medical_panel_title">إخفاء اللوحات الطبية</string>
@@ -413,14 +416,15 @@
     <string name="revanced_hide_shorts_shelf_summary_off">يتم عرض رفوف الفيديوهات القصيرة (Shorts)</string>
     <string name="revanced_hide_shorts_shelf_summary_on">تم إخفاء رفوف الفيديوهات القصيرة (Shorts)</string>
     <string name="revanced_hide_shorts_shelf_title">إخفاء رف الفيديوهات القصيرة (Shorts)</string>
-    <string name="revanced_shorts">Shorts</string>
-    <string name="revanced_shorts_player_title">مُشَغِل Shorts</string>
     <string name="revanced_hide_snackbar_summary_off">يتم عرض Snackbar</string>
     <string name="revanced_hide_snackbar_summary_on">تم إخفاء Snackbar</string>
     <string name="revanced_hide_snackbar_title">إخفاء Snackbar</string>
     <string name="revanced_hide_stories_shelf_summary_off">يتم عرض رفوف القصص</string>
     <string name="revanced_hide_stories_shelf_summary_on">تم إخفاء رفوف القصص</string>
     <string name="revanced_hide_stories_shelf_title">إخفاء رف القصص</string>
+    <string name="revanced_hide_subscriptions_button_summary_off">يتم عرض زر الاشتراكات</string>
+    <string name="revanced_hide_subscriptions_button_summary_on">تم إخفاء زر الاشتراكات</string>
+    <string name="revanced_hide_subscriptions_button_title">إخفاء زر الاشتراكات</string>
     <string name="revanced_hide_suggested_actions_summary_off">يتم عرض الإجراءات المقترحة</string>
     <string name="revanced_hide_suggested_actions_summary_on">تم إخفاء الإجراءات المقترحة</string>
     <string name="revanced_hide_suggested_actions_title">إخفاء الإجراءات المقترحة</string>
@@ -473,9 +477,6 @@
     <string name="revanced_overlay_button_speed_summary_off">تم إخفاء زر السرعة</string>
     <string name="revanced_overlay_button_speed_summary_on">يتم عرض زر السرعة</string>
     <string name="revanced_overlay_button_speed_title">عرض زر السرعة</string>
-    <string name="revanced_overlay_button_whitelist_summary_off">تم إخفاء زر القائمة البيضاء</string>
-    <string name="revanced_overlay_button_whitelist_summary_on">يتم عرض زر القائمة البيضاء</string>
-    <string name="revanced_overlay_button_whitelist_title">عرض زر القائمة البيضاء</string>
     <string name="revanced_override_premium_header_summary_off">العنوان الحالي: الافتراضي</string>
     <string name="revanced_override_premium_header_summary_on">العنوان الحالي: Premium Header</string>
     <string name="revanced_override_premium_header_title">Premium Header</string>
@@ -515,6 +516,8 @@
     <string name="revanced_save_video_quality_wifi">تغيير جودة Wi-Fi الافتراضية إلى:</string>
     <string name="revanced_save_video_speed">تغيير السرعة الافتراضية إلى:</string>
     <string name="revanced_seekbar">شريط تقدم الفيديو</string>
+    <string name="revanced_shorts">Shorts</string>
+    <string name="revanced_shorts_player_title">مُشَغِل Shorts</string>
     <string name="revanced_show_fullscreen_title_summary">المشكلة المعروفة: يختفي العنوان عند النقر عليه</string>
     <string name="revanced_show_fullscreen_title_title">عرض العنوان بملء الشاشة</string>
     <string name="revanced_sponsorblock_settings_summary">الإعدادات المتعلقة بــ SponsorBlock</string>
@@ -543,24 +546,6 @@
     <string name="revanced_video_ads_removal_summary_off">يتم عرض إعلانات الفيديو</string>
     <string name="revanced_video_ads_removal_summary_on">تم إخفاء إعلانات الفيديو</string>
     <string name="revanced_video_ads_removal_title">إخفاء إعلانات الفيديو</string>
-    <string name="revanced_whitelisting_added" formatted="false">تمت إضافة القناة %s إلى القائمة البيضاء %s</string>
-    <string name="revanced_whitelisting_add_failed" formatted="false">فشل إضافة القناة %s إلى القائمة البيضاء %s</string>
-    <string name="revanced_whitelisting_ads">إعلانات الفيديو</string>
-    <string name="revanced_whitelisting_ads_button">الإعلانات</string>
-    <string name="revanced_whitelisting_channel_name">اسم القناة</string>
-    <string name="revanced_whitelisting_empty">لا توجد قنوات مدرجة في القائمة البيضاء</string>
-    <string name="revanced_whitelisting_excluded">لم يتم إضافتها إلى القائمة البيضاء</string>
-    <string name="revanced_whitelisting_fetch_failed">فشل في استرجاع تفاصيل القناة، الرمز المتلقى%d</string>
-    <string name="revanced_whitelisting_included">تمت الإضافة إلى القائمة البيضاء</string>
-    <string name="revanced_whitelisting_reboot">إعادة التشغيل لتطبيق إعدادات قائمة القناة البيضاء</string>
-    <string name="revanced_whitelisting_removed" formatted="false">تمت إزالة القناة %s من القائمة البيضاء %s</string>
-    <string name="revanced_whitelisting_remove_failed" formatted="false">فشل إزالة القناة %s من القائمة البيضاء %s</string>
-    <string name="revanced_whitelisting_settings_summary">التحقق أو إزالة قائمة القنوات المضافة إلى القائمة البيضاء</string>
-    <string name="revanced_whitelisting_settings_title">إعدادات القائمة البيضاء</string>
-    <string name="revanced_whitelisting_speed">سرعة الفيديو</string>
-    <string name="revanced_whitelisting_sponsorblock">SponsorBlock-مانِع الرُعَاة</string>
-    <string name="revanced_whitelisting_sponsorblock_button">SB</string>
-    <string name="revanced_whitelisting_title">قائمة القنوات البيضاء</string>
     <string name="sb_enable_sb">تمكين مانِع الرُعَاة \"SponsorBlock\"</string>
     <string name="sb_enable_sb_sum">مانِع الرُعَاة هو نظام جماعي لتخطي الأجزاء المُمِلَّة في مقاطع اليوتيوب</string>
     <string name="sb_appearance_category">المظهر</string>
