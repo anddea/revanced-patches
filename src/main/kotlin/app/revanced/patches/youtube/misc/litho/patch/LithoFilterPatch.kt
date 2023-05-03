@@ -47,14 +47,9 @@ class LithoFilterPatch : BytecodePatch(
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
 
-        try {
-            with (LithoBufferFingerprint.result!!) {
-                val startIndex = this.scanResult.patternScanResult!!.startIndex
-                bufferReference = (this.mutableMethod.instruction(startIndex) as BuilderInstruction21c).reference.toString()
-            }
-            bufferFingerprintResolved = true
-        } catch (_: Exception) {
-            bufferFingerprintResolved = false
+        with (LithoBufferFingerprint.result!!) {
+            val startIndex = this.scanResult.patternScanResult!!.startIndex
+            bufferReference = (this.mutableMethod.instruction(startIndex) as BuilderInstruction21c).reference.toString()
         }
 
         LithoObjectFingerprint.result?.let {
@@ -67,14 +62,12 @@ class LithoFilterPatch : BytecodePatch(
             lithoMethod = result.mutableMethod
 
             with (lithoMethod.implementation!!.instructions) {
-                // 18.06.41+
                 val bufferIndex = indexOfFirst {
                     it.opcode == Opcode.CONST &&
                             (it as Instruction31i).narrowLiteral == 168777401
                 }
                 val bufferRegister = (lithoMethod.instruction(bufferIndex) as Instruction31i).registerA
 
-                // 18.06.41+
                 val targetIndex = indexOfFirst {
                     it.opcode == Opcode.CONST_STRING &&
                             (it as BuilderInstruction21c).reference.toString() == "Element missing type extension"
@@ -103,33 +96,21 @@ class LithoFilterPatch : BytecodePatch(
                             return-object v0
                         """
 
-                    if (bufferFingerprintResolved) {
-                        // 18.11.36+
-                        val objectIndex = indexOfFirst {
-                            it.opcode == Opcode.CONST_STRING &&
-                                    (it as BuilderInstruction21c).reference.toString() == ""
-                        } - 2
-                        objectReference = (elementAt(objectIndex) as ReferenceInstruction).reference as FieldReference
-                        lithoMethod.addInstructions(
-                            insertIndex + 1,
-                            """
+                    val objectIndex = indexOfFirst {
+                        it.opcode == Opcode.CONST_STRING &&
+                                (it as BuilderInstruction21c).reference.toString() == ""
+                    } - 2
+                    objectReference = (elementAt(objectIndex) as ReferenceInstruction).reference as FieldReference
+                    lithoMethod.addInstructions(
+                        insertIndex + 1,
+                        """
                                 move-object/from16 v$bufferRegister, p3
                                 iget-object v$bufferRegister, v$bufferRegister, ${objectReference.definingClass}->${objectReference.name}:${objectReference.type}
                                 if-eqz v$bufferRegister, :not_an_ad
                                 check-cast v$bufferRegister, $bufferReference
                                 iget-object v$bufferRegister, v$bufferRegister, $bufferReference->b:Ljava/nio/ByteBuffer;
                             """ + instructionList,listOf(ExternalLabel("not_an_ad", lithoMethod.instruction(insertIndex + 1)))
-                        )
-                    } else {
-                        val secondParameter = lithoMethod.parameters[2]
-                        lithoMethod.addInstructions(
-                            insertIndex + 1,
-                            """
-                                move-object/from16 v$bufferRegister, p3
-                                iget-object v$bufferRegister, v$bufferRegister, $secondParameter->b:Ljava/nio/ByteBuffer;
-                            """ + instructionList,listOf(ExternalLabel("not_an_ad", lithoMethod.instruction(insertIndex + 1)))
-                        )
-                    }
+                    )
                 }
             }
         } ?: return LithoFingerprint.toErrorResult()
@@ -140,7 +121,6 @@ class LithoFilterPatch : BytecodePatch(
     }
     internal companion object {
         var objectRegister by Delegates.notNull<Int>()
-        var bufferFingerprintResolved by Delegates.notNull<Boolean>()
 
         lateinit var lithoMethod: MutableMethod
         lateinit var bufferReference: String
