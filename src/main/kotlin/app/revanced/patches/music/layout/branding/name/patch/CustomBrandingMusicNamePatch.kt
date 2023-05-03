@@ -17,7 +17,7 @@ import org.w3c.dom.Element
 @Patch(false)
 @Name("custom-branding-music-name")
 @DependsOn([PatchOptions::class])
-@Description("Changes the Music launcher name to your choice (defaults to RVX Music, ReVanced Extended Music).")
+@Description("Changes the Music launcher name to your choice (defaults to YTM Extended, ReVanced Music Extended).")
 @YouTubeMusicCompatibility
 @Version("0.0.1")
 class CustomBrandingMusicNamePatch : ResourcePatch {
