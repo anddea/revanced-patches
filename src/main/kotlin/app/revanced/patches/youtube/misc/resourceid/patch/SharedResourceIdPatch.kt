@@ -28,6 +28,7 @@ class SharedResourceIdPatch : ResourcePatch {
         var chapterRepeatOnResourceId: Long = -1
         var compactLinkLabelId: Long = -1
         var controlsLayoutStubResourceId: Long = -1
+        var dislikeButtonLabelId: Long = -1
         var donationCompanionResourceId: Long = -1
         var fabLabelId: Long = -1
         var filterBarHeightLabelId: Long = -1
@@ -36,6 +37,7 @@ class SharedResourceIdPatch : ResourcePatch {
         var layoutCircle: Long = -1
         var layoutIcon: Long = -1
         var layoutVideo: Long = -1
+        var likeButtonLabelId: Long = -1
         var liveChatButtonId: Long = -1
         var reelPlayerBadgeLabelId: Long = -1
         var reelPlayerBadge2LabelId: Long = -1
@@ -47,6 +49,7 @@ class SharedResourceIdPatch : ResourcePatch {
         var rightCommentLabelId: Long = -1
         var searchSuggestionEntryLabelId: Long = -1
         var scrubbingLabelId: Long = -1
+        var slimMetadataToggleButtonLabelId: Long = -1
         var timeBarPlayedDarkLabelId: Long = -1
         var tooltipLabelId: Long = -1
         var videoQualityFragmentLabelId: Long = -1
@@ -68,6 +71,7 @@ class SharedResourceIdPatch : ResourcePatch {
         chapterRepeatOnResourceId = find(STRING, "chapter_repeat_on")
         compactLinkLabelId = find(LAYOUT, "compact_link")
         controlsLayoutStubResourceId = find(ID, "controls_layout_stub")
+        dislikeButtonLabelId = find(ID, "dislike_button")
         donationCompanionResourceId = find(LAYOUT, "donation_companion")
         fabLabelId = find(ID, "fab")
         filterBarHeightLabelId = find(DIMEN, "filter_bar_height")
@@ -76,6 +80,7 @@ class SharedResourceIdPatch : ResourcePatch {
         layoutCircle = find(LAYOUT, "endscreen_element_layout_circle")
         layoutIcon = find(LAYOUT, "endscreen_element_layout_icon")
         layoutVideo = find(LAYOUT, "endscreen_element_layout_video")
+        likeButtonLabelId = find(ID, "like_button")
         liveChatButtonId = find(ID, "live_chat_overlay_button")
         reelPlayerBadgeLabelId = find(ID, "reel_player_badge")
         reelPlayerBadge2LabelId = find(ID, "reel_player_badge2")
@@ -87,6 +92,7 @@ class SharedResourceIdPatch : ResourcePatch {
         rightCommentLabelId = find(DRAWABLE, "ic_right_comment_32c")
         searchSuggestionEntryLabelId = find(LAYOUT, "search_suggestion_entry")
         scrubbingLabelId = find(DIMEN, "vertical_touch_offset_to_enter_fine_scrubbing")
+        slimMetadataToggleButtonLabelId = find(COLOR, "slim_metadata_toggle_button")
         timeBarPlayedDarkLabelId = find(COLOR, "inline_time_bar_colorized_bar_played_color_dark")
         tooltipLabelId = find(LAYOUT, "tooltip_content_view")
         videoQualityFragmentLabelId = find(LAYOUT, "video_quality_bottom_sheet_list_fragment_title")
