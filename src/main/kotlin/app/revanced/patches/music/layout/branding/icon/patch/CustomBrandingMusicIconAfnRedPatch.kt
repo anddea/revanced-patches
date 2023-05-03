@@ -12,14 +12,14 @@ import app.revanced.util.resources.IconHelper.customIconMusicAdditional
 
 @Patch
 @Name("custom-branding-music-afn-red")
-@Description("Changes the YouTube Music launcher icon (Afn / Red).")
+@Description("Changes the YouTube Music launcher icon to Afn Red.")
 @YouTubeMusicCompatibility
 @Version("0.0.1")
-class CustomBrandingMusicIconRedPatch : ResourcePatch {
+class CustomBrandingMusicIconAfnRedPatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
 
-        context.customIconMusic("red")
-        context.customIconMusicAdditional("red")
+        context.customIconMusic("afn-red")
+        context.customIconMusicAdditional("afn-red")
 
         return PatchResultSuccess()
     }
