@@ -330,6 +330,9 @@
         <SwitchPreference android:title="@string/revanced_hide_shorts_button_title" android:key="revanced_hide_shorts_button" android:defaultValue="false" android:summaryOn="@string/revanced_hide_shorts_button_summary_on" android:summaryOff="@string/revanced_hide_shorts_button_summary_off" />
         <SwitchPreference android:title="@string/revanced_hide_subscriptions_button_title" android:key="revanced_hide_subscriptions_button" android:defaultValue="false" android:summaryOn="@string/revanced_hide_subscriptions_button_summary_on" android:summaryOff="@string/revanced_hide_subscriptions_button_summary_off" />SETTINGS: HIDE_NAVIGATION_BUTTONS -->
 
+        <!-- SETTINGS: HIDE_NAVIGATION_LABEL
+        <SwitchPreference android:title="@string/revanced_hide_navigation_label_title" android:key="revanced_hide_navigation_label" android:defaultValue="false" android:summaryOn="@string/revanced_hide_navigation_label_summary_on" android:summaryOff="@string/revanced_hide_navigation_label_summary_off" />SETTINGS: HIDE_NAVIGATION_LABEL -->
+
         <!-- SETTINGS: HIDE_SHORTS_NAVIGATION_BAR
         <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_experimental_flag" />
         <SwitchPreference android:title="@string/revanced_hide_shorts_navigation_bar_title" android:key="revanced_hide_shorts_navigation_bar" android:defaultValue="false" android:summaryOn="@string/revanced_hide_shorts_navigation_bar_summary_on" android:summaryOff="@string/revanced_hide_shorts_navigation_bar_summary_off" />SETTINGS: HIDE_SHORTS_NAVIGATION_BAR -->
@@ -514,6 +517,7 @@
             <Preference android:title="change-homepage" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="enable-tablet-navigation-bar" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-navigation-buttons" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="hide-navigation-label" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-shorts-navbar" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
 
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_seekbar" />
