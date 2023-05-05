@@ -14,12 +14,17 @@ import app.revanced.patches.shared.patch.settings.AbstractSettingsResourcePatch
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsBytecodePatch
+import app.revanced.util.resources.IconHelper.YOUTUBE_LAUNCHER_ICON_ARRAY
+import app.revanced.util.resources.IconHelper.copyFiles
+import app.revanced.util.resources.IconHelper.makeDirectoryAndCopyFiles
 import app.revanced.util.resources.ResourceHelper.addPreference
 import app.revanced.util.resources.ResourceHelper.addReVancedPreference
 import app.revanced.util.resources.ResourceHelper.updatePatchStatus
 import app.revanced.util.resources.ResourceUtils
 import app.revanced.util.resources.ResourceUtils.copyResources
 import org.w3c.dom.Element
+import java.io.File
+import java.nio.file.Paths
 
 @Patch
 @Name("settings")
@@ -90,6 +95,33 @@ class SettingsPatch : AbstractSettingsResourcePatch(
                         }
                 }
             }
+        }
+
+        /**
+         * If a custom branding icon path exists, merge it
+         */
+        val iconPath = "branding"
+        val targetDirectory = Paths.get("").toAbsolutePath().toString() + "/$iconPath"
+
+        if (File(targetDirectory).exists()) {
+            fun copyResources(resourceGroups: List<ResourceUtils.ResourceGroup>) {
+                try { context.copyFiles(resourceGroups, iconPath) }
+                catch (_: Exception) { context.makeDirectoryAndCopyFiles(resourceGroups, iconPath) }
+            }
+
+            val iconResourceFileNames =
+                YOUTUBE_LAUNCHER_ICON_ARRAY
+                    .map { "$it.png" }
+                    .toTypedArray()
+
+            fun createGroup(directory: String) = ResourceUtils.ResourceGroup(
+                directory, *iconResourceFileNames
+            )
+
+            arrayOf("xxxhdpi", "xxhdpi", "xhdpi", "hdpi", "mdpi")
+                .map { "mipmap-$it" }
+                .map(::createGroup)
+                .let(::copyResources)
         }
 
         return PatchResultSuccess()
