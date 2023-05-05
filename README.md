@@ -18,11 +18,12 @@ The official Patch bundle provided by ReVanced and the community.
 | `custom-branding-icon-revancify-red` | Changes the YouTube launcher icon to Revancify Red. | 18.16.39 |
 | `custom-branding-name` | Changes the YouTube launcher name to your choice (defaults to ReVanced Extended). | 18.16.39 |
 | `custom-double-tap-length` | Add 'double-tap to seek' value. | 18.16.39 |
-| `custom-seekbar-color` | Change seekbar color. | 18.16.39 |
+| `custom-seekbar-color` | Change seekbar color and progressbar color. | 18.16.39 |
 | `custom-video-speed` | Adds more video speed options. | 18.16.39 |
 | `default-video-quality` | Adds ability to set default video quality settings. | 18.16.39 |
 | `default-video-speed` | Adds ability to set default video speed settings. | 18.16.39 |
 | `disable-haptic-feedback` | Disable haptic feedback when swiping. | 18.16.39 |
+| `disable-hdr-video` | Disable HDR video. | 18.16.39 |
 | `disable-landscape-mode` | Disable landscape mode when entering fullscreen. | 18.16.39 |
 | `disable-quic-protocol` | Disable CronetEngine's QUIC protocol. | 18.16.39 |
 | `disable-startup-shorts-player` | Disables playing YouTube Shorts when launching YouTube. | 18.16.39 |
@@ -92,6 +93,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `patch-options` | Create an options.toml file. | all |
 | `protobuf-spoof` | Spoofs the protobuf to prevent playback issues. | 18.16.39 |
 | `return-youtube-dislike` | Shows the dislike count of videos using the Return YouTube Dislike API. | 18.16.39 |
+| `settings` | Applies mandatory patches to implement ReVanced settings into the application. | 18.16.39 |
 | `sponsorblock` | Integrates SponsorBlock which allows skipping video segments such as sponsored content. | 18.16.39 |
 | `spoof-app-version` | Tricks YouTube into thinking, you are running an older version of the app. One of the side effects also includes restoring the old UI. | 18.16.39 |
 | `swipe-controls` | Adds volume and brightness swipe controls. | 18.16.39 |
@@ -136,12 +138,24 @@ The official Patch bundle provided by ReVanced and the community.
 | `hide-upgrade-button` | Remove upgrade tab from pivot bar, hide upgrade banner from homepage. | all |
 | `minimized-playback-music` | Enables minimized playback on Kids music. | all |
 | `music-microg-support` | Allows ReVanced Music to run without root and under a different package name with MicroG. | all |
+| `music-settings` | Adds settings for ReVanced to YouTube Music. | all |
 | `optimize-resource-music` | Remove unnecessary resources. | all |
 | `patch-options` | Create an options.toml file. | all |
 | `remember-video-quality` | Save the video quality value whenever you change the video quality. | all |
 | `share-button-hook` | Replace share button with external download button or sleep timer dialog. | all |
 | `spoof-app-version` | Spoof the YouTube Music client version. | all |
 | `translations-music` | Add Crowdin translations for YouTube Music. | all |
+</details>
+
+### [📦 `com.mgoogle.android.gms`](https://play.google.com/store/apps/details?id=com.mgoogle.android.gms)
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `custom-branding-microg-name` | Changes the MicroG launcher name to your choice (defaults to MicroG). | all |
+| `custom-branding-microg-revancify-blue` | Changes the MicroG launcher icon to Revancify Blue. | all |
+| `custom-branding-microg-revancify-red` | Changes the MicroG launcher icon to Revancify Red. | all |
+| `hide-icon-from-launcher` | Hide MicroG icon from launcher. | all |
 </details>
 
 
