@@ -405,6 +405,9 @@
         <!-- SETTINGS: DEFAULT_VIDEO_SPEED
         <SwitchPreference android:title="@string/revanced_disable_default_video_speed_live_title" android:key="revanced_disable_default_video_speed_live" android:defaultValue="true" android:summaryOn="@string/revanced_disable_default_video_speed_live_summary_on" android:summaryOff="@string/revanced_disable_default_video_speed_live_summary_off" />SETTINGS: DEFAULT_VIDEO_SPEED -->
 
+        <!-- SETTINGS: DISABLE_HDR_VIDEO
+        <SwitchPreference android:title="@string/revanced_disable_hdr_video_title" android:key="revanced_disable_hdr_video" android:defaultValue="false" android:summaryOn="@string/revanced_disable_hdr_video_summary_on" android:summaryOff="@string/revanced_disable_hdr_video_summary_off" />SETTINGS: DISABLE_HDR_VIDEO -->
+
     <!-- PREFERENCE: VIDEO_SETTINGS
     </PreferenceScreen>PREFERENCE: VIDEO_SETTINGS -->
 
@@ -535,6 +538,7 @@
             <Preference android:title="default-video-quality" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="default-video-speed" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="custom-video-speed" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="disable-hdr-video" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
 
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_misc" />
             <Preference android:title="enable-external-browser" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
