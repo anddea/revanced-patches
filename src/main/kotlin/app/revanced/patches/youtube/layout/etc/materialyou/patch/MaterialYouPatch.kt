@@ -10,8 +10,8 @@ import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
-import app.revanced.patches.youtube.layout.etc.theme.bytecode.patch.GeneralThemeBytecodePatch.Companion.isMonetPatchIncluded
-import app.revanced.patches.youtube.layout.etc.theme.resource.patch.GeneralThemePatch
+import app.revanced.patches.youtube.layout.etc.theme.patch.GeneralThemePatch
+import app.revanced.patches.youtube.layout.etc.theme.patch.GeneralThemePatch.Companion.isMonetPatchIncluded
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
 import app.revanced.util.resources.ResourceHelper.updatePatchStatusTheme
 import app.revanced.util.resources.ResourceUtils.copyXmlNode

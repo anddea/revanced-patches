@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.layout.etc.theme.resource.patch
+package app.revanced.patches.youtube.layout.etc.theme.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
@@ -11,7 +11,7 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.shared.patch.options.PatchOptions
-import app.revanced.patches.youtube.layout.etc.theme.bytecode.patch.GeneralThemeBytecodePatch.Companion.isMonetPatchIncluded
+import app.revanced.patches.youtube.layout.etc.theme.patch.GeneralThemePatch.Companion.isMonetPatchIncluded
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
 import app.revanced.util.resources.ResourceHelper.updatePatchStatusTheme
 import org.w3c.dom.Element

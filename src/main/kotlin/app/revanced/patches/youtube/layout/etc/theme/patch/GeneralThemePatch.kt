@@ -1,20 +1,23 @@
-package app.revanced.patches.youtube.layout.etc.theme.resource.patch
+package app.revanced.patches.youtube.layout.etc.theme.patch
 
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
-import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.ResourcePatch
-import app.revanced.patches.youtube.layout.etc.theme.bytecode.patch.GeneralThemeBytecodePatch
+import app.revanced.patcher.patch.annotations.DependsOn
+import app.revanced.patches.youtube.misc.litho.patch.LithoThemePatch
+import app.revanced.util.integrations.Constants
 import org.w3c.dom.Element
 
-@Name("general-theme-resource-patch")
-@DependsOn([GeneralThemeBytecodePatch::class])
+@Name("general-theme-patch")
+@DependsOn([LithoThemePatch::class])
 @Version("0.0.1")
 class GeneralThemePatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
+
+        LithoThemePatch.injectCall("${Constants.UTILS_PATH}/LithoThemePatch;->applyLithoTheme(I)I")
 
         // edit the resource files to change the splash screen color
         val attrsPath = "res/values/attrs.xml"
@@ -87,5 +90,8 @@ class GeneralThemePatch : ResourcePatch {
         }
 
         return PatchResultSuccess()
+    }
+    internal companion object {
+        var isMonetPatchIncluded: Boolean = false
     }
 }

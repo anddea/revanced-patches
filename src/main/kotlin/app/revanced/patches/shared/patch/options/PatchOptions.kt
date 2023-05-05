@@ -119,5 +119,17 @@ class PatchOptions : ResourcePatch {
                 description = "The background color of the dark theme. Can be a hex color or a resource reference."
             )
         )
+
+        /**
+         * Resumed progressbar color in playlists and history
+         */
+        internal var resumedProgressBarColor: String? by option(
+            PatchOption.StringOption(
+                key = "resumedProgressBarColor",
+                default = "#ffff0000",
+                title = "Resumed progressbar color",
+                description = "Resumed progressbar color in playlists and history. Can be a hex color or a resource reference."
+            )
+        )
     }
 }
