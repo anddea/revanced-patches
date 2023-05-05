@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.layout.etc.theme.bytecode.fingerprints
+package app.revanced.patches.youtube.misc.litho.fingerprints
 
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
@@ -12,7 +12,7 @@ object LithoThemeFingerprint : MethodFingerprint(
     opcodes = listOf(
         Opcode.IF_NEZ,
         Opcode.IGET_OBJECT,
-        Opcode.INVOKE_VIRTUAL,
+        Opcode.INVOKE_VIRTUAL, // Paint.setColor: inject point
         Opcode.RETURN_VOID
     ),
     customFingerprint = { it.name == "onBoundsChange" }
