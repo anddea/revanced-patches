@@ -14,7 +14,7 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
-import app.revanced.patches.youtube.misc.timebar.patch.HookTimebarPatch
+import app.revanced.patches.youtube.misc.timebar.patch.HookTimeBarPatch
 import app.revanced.util.integrations.Constants.SEEKBAR
 
 @Patch
@@ -22,7 +22,7 @@ import app.revanced.util.integrations.Constants.SEEKBAR
 @Description("Hides the seekbar.")
 @DependsOn(
     [
-        HookTimebarPatch::class,
+        HookTimeBarPatch::class,
         SettingsPatch::class
     ]
 )
@@ -31,7 +31,7 @@ import app.revanced.util.integrations.Constants.SEEKBAR
 class HideSeekbarPatch : BytecodePatch() {
     override fun execute(context: BytecodeContext): PatchResult {
 
-        val insertMethod = HookTimebarPatch.setTimebarMethod
+        val insertMethod = HookTimeBarPatch.setTimeBarMethod
 
         insertMethod.addInstructions(
             0, """

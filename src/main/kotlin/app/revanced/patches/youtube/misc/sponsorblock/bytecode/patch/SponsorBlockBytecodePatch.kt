@@ -17,7 +17,7 @@ import app.revanced.patches.youtube.misc.overridespeed.bytecode.patch.OverrideSp
 import app.revanced.patches.youtube.misc.playercontrols.patch.PlayerControlsPatch
 import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.misc.sponsorblock.bytecode.fingerprints.*
-import app.revanced.patches.youtube.misc.timebar.patch.HookTimebarPatch
+import app.revanced.patches.youtube.misc.timebar.patch.HookTimeBarPatch
 import app.revanced.patches.youtube.misc.videoid.legacy.patch.LegacyVideoIdPatch
 import app.revanced.patches.youtube.misc.videoid.mainstream.patch.MainstreamVideoIdPatch
 import app.revanced.util.bytecode.BytecodeHelper.injectInit
@@ -34,7 +34,7 @@ import org.jf.dexlib2.iface.reference.MethodReference
 @Name("sponsorblock-bytecode-patch")
 @DependsOn(
     [
-        HookTimebarPatch::class,
+        HookTimeBarPatch::class,
         LegacyVideoIdPatch::class,
         MainstreamVideoIdPatch::class,
         OverrideSpeedHookPatch::class,
@@ -69,7 +69,7 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         /*
          * Seekbar drawing
          */
-        insertMethod = HookTimebarPatch.setTimebarMethod
+        insertMethod = HookTimeBarPatch.setTimeBarMethod
         insertInstructions = insertMethod.implementation!!.instructions
 
 

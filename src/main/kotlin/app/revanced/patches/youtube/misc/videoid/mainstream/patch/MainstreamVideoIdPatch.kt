@@ -18,7 +18,7 @@ import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.shared.fingerprints.VideoEndFingerprint
 import app.revanced.patches.shared.fingerprints.VideoEndParentFingerprint
 import app.revanced.patches.youtube.misc.playertype.patch.PlayerTypeHookPatch
-import app.revanced.patches.youtube.misc.timebar.patch.HookTimebarPatch
+import app.revanced.patches.youtube.misc.timebar.patch.HookTimeBarPatch
 import app.revanced.patches.youtube.misc.videoid.mainstream.fingerprint.*
 import app.revanced.util.integrations.Constants.VIDEO_PATH
 import org.jf.dexlib2.AccessFlags
@@ -38,7 +38,7 @@ import org.jf.dexlib2.util.MethodUtil
 @Version("0.0.1")
 @DependsOn(
     [
-        HookTimebarPatch::class,
+        HookTimeBarPatch::class,
         PlayerTypeHookPatch::class
     ]
 )
@@ -128,7 +128,7 @@ class MainstreamVideoIdPatch : BytecodePatch(
         } ?: return PlayerControllerSetTimeReferenceFingerprint.toErrorResult()
 
 
-        with (HookTimebarPatch.emptyColorMethod) {
+        with (HookTimeBarPatch.emptyColorMethod) {
             val timeBarResult = TimebarFingerprint.result ?: return TimebarFingerprint.toErrorResult()
             val timeBarInstructions = timeBarResult.method.implementation!!.instructions
             val timeBarReference =
