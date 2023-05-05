@@ -46,16 +46,16 @@
     <string name="revanced_disable_default_video_speed_live_title">Изкл. на скоростта при поточно предаване</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">Хаптичната обратна връзка при главите е включена</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">Хаптичната обратна връзка при главите е изключена</string>
-    <string name="revanced_disable_haptic_feedback_chapters_title">Изключване на хаптичната обратна връзка при главите</string>
+    <string name="revanced_disable_haptic_feedback_chapters_title">Изкл. хаптичната обратна връзка при главите</string>
     <string name="revanced_disable_haptic_feedback_scrubbing_summary_off">Плъзгащата хаптична обратна връзка е включена</string>
     <string name="revanced_disable_haptic_feedback_scrubbing_summary_on">Плъзгащата хаптична обратна връзка е изключена</string>
-    <string name="revanced_disable_haptic_feedback_scrubbing_title">Изключване на плъзгащата хаптичната обратна връзка</string>
-    <string name="revanced_disable_haptic_feedback_seek_summary_off">Хаптичната обратна връзка при превъртане е включена</string>
+    <string name="revanced_disable_haptic_feedback_scrubbing_title">Изкл. плъзгащата хаптична обратна връзка</string>
+    <string name="revanced_disable_haptic_feedback_seek_summary_off">Хаптичната обратна връзка при време е включена</string>
     <string name="revanced_disable_haptic_feedback_seek_summary_on">Хаптичната обратна връзка при превъртане е изключена</string>
-    <string name="revanced_disable_haptic_feedback_seek_title">Изключване на хаптичната обратна връзка при превъртане</string>
+    <string name="revanced_disable_haptic_feedback_seek_title">Изкл. хаптична обратна връзка при превъртане</string>
     <string name="revanced_disable_haptic_feedback_zoom_summary_off">Хаптичната обратна връзка при приближаване е включена</string>
     <string name="revanced_disable_haptic_feedback_zoom_summary_on">Хаптичната обратна връзка при приближаване е изключена</string>
-    <string name="revanced_disable_haptic_feedback_zoom_title">Изключване на хаптичната обратна връзка при приближение</string>
+    <string name="revanced_disable_haptic_feedback_zoom_title">Изкл. хаптична обратна връзка при приближение</string>
     <string name="revanced_disable_landscape_mode_summary_off">Пейзажния режим при отиване на цял екран е включен</string>
     <string name="revanced_disable_landscape_mode_summary_on">Пейзажния режим при отиване на цял екран е изключен</string>
     <string name="revanced_disable_landscape_mode_title">Пейзажен режим при отиване на цял екран</string>
@@ -113,10 +113,10 @@
     <string name="revanced_enable_save_brightness_summary_on">При отиване на цял екран след рестартиране на приложението запазената яркост ще се промени</string>
     <string name="revanced_enable_save_brightness_title">Вкл. на запазване на яркостта</string>
     <string name="revanced_enable_save_video_quality_summary_off">Не се запазва качеството на видеото при промяна</string>
-    <string name="revanced_enable_save_video_quality_summary_on">Запазване на качеството на видеото при промяна</string>
+    <string name="revanced_enable_save_video_quality_summary_on">Зап. на качеството на видеото при промяна</string>
     <string name="revanced_enable_save_video_quality_title">Вкл. на запазване на качеството на видеото</string>
     <string name="revanced_enable_save_video_speed_summary_off">Не се запазва скоростта на видеото при промяна</string>
-    <string name="revanced_enable_save_video_speed_summary_on">Запазване на скоростта на видеото при промяна</string>
+    <string name="revanced_enable_save_video_speed_summary_on">Зап. на скоростта на видеото при промяна</string>
     <string name="revanced_enable_save_video_speed_title">Вкл. на запазване на скоростта на видеото</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">Докосването на лентата за време е включено</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">Докосването на лентата за време е включено</string>
@@ -167,8 +167,8 @@
     <string name="revanced_hide_action_buttons_summary_off">Бутоните за действие се показват</string>
     <string name="revanced_hide_action_buttons_summary_on">Бутоните за действие са скрити</string>
     <string name="revanced_hide_action_buttons_title">Скриване на бутоните за действие</string>
-    <string name="revanced_hide_action_buttons_warning">"Тези функции са остарели. За това ако срещнете проблеми с тях те няма да бъдат отстранени.
-Моля не докладвайте за проблрми с тези функции."</string>
+    <string name="revanced_hide_action_buttons_warning">"Тези функции са остарели. За това ако срещнете проблеми с тях то те няма да бъдат отстранени.
+Моля не докладвайте за проблеми с тези функции."</string>
     <string name="revanced_hide_album_card_summary_off">Албумните карти се показват</string>
     <string name="revanced_hide_album_card_summary_on">Албумните карти са скрити</string>
     <string name="revanced_hide_album_card_title">Скр. на албумни карти</string>
@@ -312,6 +312,9 @@
     <string name="revanced_hide_latest_posts_summary_off">Последните постове се показват</string>
     <string name="revanced_hide_latest_posts_summary_on">Последните постове са скрити</string>
     <string name="revanced_hide_latest_posts_title">Скр. последните постове</string>
+    <string name="revanced_hide_navigation_label_summary_off">Навигационния панел се показва</string>
+    <string name="revanced_hide_navigation_label_summary_on">Навигационния панел е скрит</string>
+    <string name="revanced_hide_navigation_label_title">Скр. навигационен панел</string>
     <string name="revanced_hide_medical_panel_summary_off">Медицинските панели се показват</string>
     <string name="revanced_hide_medical_panel_summary_on">Медицинските панели са скрити</string>
     <string name="revanced_hide_medical_panel_title">Скр. на мед. панели</string>
@@ -419,6 +422,9 @@
     <string name="revanced_hide_stories_shelf_summary_off">Рафтовете с истории се показват</string>
     <string name="revanced_hide_stories_shelf_summary_on">Рафтовете с истории са скрити</string>
     <string name="revanced_hide_stories_shelf_title">Скр. рафтове с истории</string>
+    <string name="revanced_hide_subscriptions_button_summary_off">Бутона за абонаменти се показва</string>
+    <string name="revanced_hide_subscriptions_button_summary_on">Бутона за абонаменти е скрит</string>
+    <string name="revanced_hide_subscriptions_button_title">Скр. бутона за абонаменти</string>
     <string name="revanced_hide_suggested_actions_summary_off">Предложенията за действе се показват</string>
     <string name="revanced_hide_suggested_actions_summary_on">Предложенията за действе са скрити</string>
     <string name="revanced_hide_suggested_actions_title">Скр. предл. за действие</string>
@@ -526,7 +532,7 @@
     <string name="revanced_swipe_overlay_background_alpha_title">Видимост на фона на плъзгащите контроли</string>
     <string name="revanced_swipe_overlay_text_size_summary">Размера на текста на плъзгащите контроли</string>
     <string name="revanced_swipe_overlay_text_size_title">Размер на текста при плъзгане</string>
-    <string name="revanced_swipe_overlay_timeout_summary">Време за което плъзгаюата контрола е видима</string>
+    <string name="revanced_swipe_overlay_timeout_summary">Време за което плъзгащата контрола е видима</string>
     <string name="revanced_swipe_overlay_timeout_title">Задръжка на плъзг. контрола</string>
     <string name="revanced_switching_create_notification_summary_off">Бутоните за създаване и известия не са превключени</string>
     <string name="revanced_switching_create_notification_summary_on">Бутоните за създаване и известия са превключени</string>
