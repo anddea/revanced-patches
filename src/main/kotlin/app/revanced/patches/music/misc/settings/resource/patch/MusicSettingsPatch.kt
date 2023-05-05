@@ -7,6 +7,7 @@ import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
+import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.music.misc.settings.bytecode.patch.MusicSettingsBytecodePatch
 import app.revanced.patches.shared.annotation.YouTubeMusicCompatibility
 import app.revanced.patches.shared.patch.settings.AbstractSettingsResourcePatch
@@ -20,6 +21,7 @@ import app.revanced.util.resources.MusicResourceHelper.addReVancedMusicPreferenc
 import app.revanced.util.resources.MusicResourceHelper.sortMusicPreferenceCategory
 import org.w3c.dom.Element
 
+@Patch
 @Name("music-settings")
 @Description("Adds settings for ReVanced to YouTube Music.")
 @DependsOn([MusicSettingsBytecodePatch::class])
@@ -34,7 +36,7 @@ class MusicSettingsPatch : AbstractSettingsResourcePatch(
         super.execute(context)
         contexts = context
 
-        /*
+        /**
          * Copy colors
          */
 
