@@ -5,25 +5,17 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
-import app.revanced.patcher.patch.ResourcePatch
+import app.revanced.patcher.patch.*
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
-import app.revanced.patches.shared.patch.options.PatchOptions
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
 import app.revanced.util.resources.ResourceHelper.updatePatchStatusLabel
 import org.w3c.dom.Element
 
 @Patch
 @Name("custom-branding-name")
-@DependsOn(
-    [
-        PatchOptions::class,
-        SettingsPatch::class
-    ]
-)
+@DependsOn([SettingsPatch::class])
 @Description("Changes the YouTube launcher name to your choice (defaults to ReVanced Extended).")
 @YouTubeCompatibility
 @Version("0.0.1")
@@ -32,7 +24,7 @@ class CustomBrandingNamePatch : ResourcePatch {
 
         // App name
         val resourceFileNames = arrayOf("strings.xml")
-        val appName = PatchOptions.YouTubeAppName
+        val appName = YouTubeAppName
 
         context.forEach {
             if (!it.name.startsWithAny(*resourceFileNames)) return@forEach
@@ -57,5 +49,15 @@ class CustomBrandingNamePatch : ResourcePatch {
         context.updatePatchStatusLabel("$appName")
 
         return PatchResultSuccess()
+    }
+    companion object : OptionsContainer() {
+        var YouTubeAppName: String? by option(
+            PatchOption.StringOption(
+                key = "YouTubeAppName",
+                default = "ReVanced Extended",
+                title = "Application Name of YouTube",
+                description = "The name of the YouTube it will show on your home screen."
+            )
+        )
     }
 }
