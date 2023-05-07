@@ -6,11 +6,13 @@ import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.instruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
+import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.shared.fingerprints.ControlsOverlayStyleFingerprint
 import app.revanced.patches.youtube.layout.seekbar.seekbarcolor.bytecode.fingerprints.*
@@ -40,30 +42,36 @@ class SeekbarColorBytecodePatch : BytecodePatch(
     override fun execute(context: BytecodeContext): PatchResult {
         SeekbarColorFingerprint.result?.mutableMethod?.let { method ->
             with (method.implementation!!.instructions) {
-                val insertIndex = this.indexOfFirst {
-                    (it as? WideLiteralInstruction)?.wideLiteral == SharedResourceIdPatch.timeBarPlayedDarkLabelId
-                } + 2
+                val insertIndex = arrayOf(
+                    SharedResourceIdPatch.inlineTimeBarColorizedBarPlayedColorDarkId,
+                    SharedResourceIdPatch.inlineTimeBarPlayedNotHighlightedColorId
+                ).map { id ->
+                    this.indexOfFirst {
+                        (it as? WideLiteralInstruction)?.wideLiteral == id
+                    } + 2
+                }
 
-                val insertRegister = (elementAt(insertIndex) as OneRegisterInstruction).registerA
-
-                method.addInstructions(
-                    insertIndex + 1, """
-                        invoke-static {v$insertRegister}, $SEEKBAR->enableCustomSeekbarColorDarkMode(I)I
-                        move-result v$insertRegister
-                        """
-                )
+                method.hook(insertIndex[0])
+                method.hook(insertIndex[1])
             }
         } ?: return SeekbarColorFingerprint.toErrorResult()
 
         ControlsOverlayStyleFingerprint.result?.let { parentResult ->
             ProgressColorFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.mutableMethod?.addInstructions(
                 0, """
-                    invoke-static {p1}, $SEEKBAR->enableCustomSeekbarColor(I)I
+                    invoke-static {p1}, $SEEKBAR->getSeekbarClickedColorValue(I)I
                     move-result p1
                     """
             ) ?: return ProgressColorFingerprint.toErrorResult()
         } ?: return ControlsOverlayStyleFingerprint.toErrorResult()
 
+
+        /**
+         * Context called when playing a video in the PlayStore
+         * If this context is not overridden, Exception occurs when reading a value from SharedPreference (ROOT Build)
+         *
+         * TODO: merging into abstract integrations patch
+         */
         ControlsOverlayParentFingerprint.result?.let { parentResult ->
             ControlsOverlayFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.mutableMethod?.addInstruction(
                 0,
@@ -74,5 +82,18 @@ class SeekbarColorBytecodePatch : BytecodePatch(
         LithoThemePatch.injectCall("$SEEKBAR->resumedProgressBarColor(I)I")
 
         return PatchResultSuccess()
+    }
+
+    private companion object {
+        fun MutableMethod.hook(insertIndex: Int) {
+            val insertRegister = (instruction(insertIndex) as OneRegisterInstruction).registerA
+
+            addInstructions(
+                insertIndex + 1, """
+                    invoke-static {v$insertRegister}, $SEEKBAR->overrideSeekbarColor(I)I
+                    move-result v$insertRegister
+                    """
+            )
+        }
     }
 }

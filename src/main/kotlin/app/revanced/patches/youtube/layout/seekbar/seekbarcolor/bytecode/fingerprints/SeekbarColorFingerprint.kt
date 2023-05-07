@@ -9,7 +9,7 @@ object SeekbarColorFingerprint : MethodFingerprint(
     customFingerprint = { methodDef ->
         methodDef.implementation?.instructions?.any {
             it.opcode.ordinal == Opcode.CONST.ordinal &&
-            (it as? WideLiteralInstruction)?.wideLiteral == SharedResourceIdPatch.timeBarPlayedDarkLabelId
+            (it as? WideLiteralInstruction)?.wideLiteral == SharedResourceIdPatch.inlineTimeBarColorizedBarPlayedColorDarkId
         } == true
     }
 )

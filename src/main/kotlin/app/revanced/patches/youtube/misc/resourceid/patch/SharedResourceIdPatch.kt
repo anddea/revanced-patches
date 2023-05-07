@@ -34,6 +34,8 @@ class SharedResourceIdPatch : ResourcePatch {
         var filterBarHeightLabelId: Long = -1
         var floatyBarTopMarginLabelId: Long = -1
         var imageOnlyTabId: Long = -1
+        var inlineTimeBarColorizedBarPlayedColorDarkId: Long = -1
+        var inlineTimeBarPlayedNotHighlightedColorId: Long = -1
         var layoutCircle: Long = -1
         var layoutIcon: Long = -1
         var layoutVideo: Long = -1
@@ -50,7 +52,6 @@ class SharedResourceIdPatch : ResourcePatch {
         var searchSuggestionEntryLabelId: Long = -1
         var scrubbingLabelId: Long = -1
         var slimMetadataToggleButtonLabelId: Long = -1
-        var timeBarPlayedDarkLabelId: Long = -1
         var tooltipLabelId: Long = -1
         var videoQualityFragmentLabelId: Long = -1
     }
@@ -77,6 +78,8 @@ class SharedResourceIdPatch : ResourcePatch {
         filterBarHeightLabelId = find(DIMEN, "filter_bar_height")
         floatyBarTopMarginLabelId = find(DIMEN, "floaty_bar_button_top_margin")
         imageOnlyTabId = find(LAYOUT, "image_only_tab")
+        inlineTimeBarColorizedBarPlayedColorDarkId = find(COLOR, "inline_time_bar_colorized_bar_played_color_dark")
+        inlineTimeBarPlayedNotHighlightedColorId = find(COLOR, "inline_time_bar_played_not_highlighted_color")
         layoutCircle = find(LAYOUT, "endscreen_element_layout_circle")
         layoutIcon = find(LAYOUT, "endscreen_element_layout_icon")
         layoutVideo = find(LAYOUT, "endscreen_element_layout_video")
@@ -93,7 +96,6 @@ class SharedResourceIdPatch : ResourcePatch {
         searchSuggestionEntryLabelId = find(LAYOUT, "search_suggestion_entry")
         scrubbingLabelId = find(DIMEN, "vertical_touch_offset_to_enter_fine_scrubbing")
         slimMetadataToggleButtonLabelId = find(COLOR, "slim_metadata_toggle_button")
-        timeBarPlayedDarkLabelId = find(COLOR, "inline_time_bar_colorized_bar_played_color_dark")
         tooltipLabelId = find(LAYOUT, "tooltip_content_view")
         videoQualityFragmentLabelId = find(LAYOUT, "video_quality_bottom_sheet_list_fragment_title")
 
