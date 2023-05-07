@@ -72,7 +72,7 @@ class TabletMiniPlayerPatch : BytecodePatch(
         SettingsPatch.addPreference(
             arrayOf(
                 "PREFERENCE: GENERAL_SETTINGS",
-                "SETTINGS: ENABLE_TABLET_MINIPLAYER"
+                "SETTINGS: ENABLE_TABLET_MINI_PLAYER"
             )
         )
 

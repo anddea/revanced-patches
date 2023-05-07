@@ -86,7 +86,7 @@ class HideEndScreenOverlayPatch : BytecodePatch() {
             SettingsPatch.addPreference(
                 arrayOf(
                     "PREFERENCE: FULLSCREEN_SETTINGS",
-                    "SETTINGS: HIDE_ENDSCREEN_OVERLAY"
+                    "SETTINGS: HIDE_END_SCREEN_OVERLAY"
                 )
             )
 
