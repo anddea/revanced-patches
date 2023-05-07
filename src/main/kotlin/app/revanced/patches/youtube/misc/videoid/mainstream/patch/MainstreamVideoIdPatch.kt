@@ -15,8 +15,6 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
-import app.revanced.patches.shared.fingerprints.VideoEndFingerprint
-import app.revanced.patches.shared.fingerprints.VideoEndParentFingerprint
 import app.revanced.patches.youtube.misc.playertype.patch.PlayerTypeHookPatch
 import app.revanced.patches.youtube.misc.timebar.patch.HookTimeBarPatch
 import app.revanced.patches.youtube.misc.videoid.mainstream.fingerprint.*
@@ -49,23 +47,11 @@ class MainstreamVideoIdPatch : BytecodePatch(
         PlayerInitFingerprint,
         SeekFingerprint,
         TimebarFingerprint,
-        VideoEndParentFingerprint,
         VideoTimeHighPrecisionFingerprint,
         VideoTimeHighPrecisionParentFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
-
-        VideoEndParentFingerprint.result?.classDef?.let { classDef ->
-            VideoEndFingerprint.also {
-                it.resolve(context, classDef)
-            }.result?.mutableMethod?.let { method ->
-                method.addInstruction(
-                    method.implementation!!.instructions.size - 1,
-                    "invoke-static {}, $VIDEO_PATH/VideoInformation;->videoEnd()V"
-                )
-            } ?: return VideoEndFingerprint.toErrorResult()
-        } ?: return VideoEndParentFingerprint.toErrorResult()
 
         PlayerInitFingerprint.result?.let { parentResult ->
             playerInitMethod = parentResult.mutableClass.methods.first { MethodUtil.isConstructor(it) }
