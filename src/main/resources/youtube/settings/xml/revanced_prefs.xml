@@ -135,9 +135,11 @@
         <SwitchPreference android:title="@string/revanced_hide_separator_title" android:key="revanced_hide_separator" android:defaultValue="true" android:summaryOn="@string/revanced_hide_separator_summary_on" android:summaryOff="@string/revanced_hide_separator_summary_off" />
         <SwitchPreference android:title="@string/revanced_hide_official_header_title" android:key="revanced_hide_official_header" android:defaultValue="false" android:summaryOn="@string/revanced_hide_official_header_summary_on" android:summaryOff="@string/revanced_hide_official_header_summary_off" />
         <SwitchPreference android:title="@string/revanced_hide_album_card_title" android:key="revanced_hide_album_card" android:defaultValue="true" android:summaryOn="@string/revanced_hide_album_card_summary_on" android:summaryOff="@string/revanced_hide_album_card_summary_off" />
-        <SwitchPreference android:title="@string/revanced_hide_breaking_news_shelf_title" android:key="revanced_hide_breaking_news_shelf" android:defaultValue="false" android:summaryOn="@string/revanced_hide_breaking_news_shelf_summary_on" android:summaryOff="@string/revanced_hide_breaking_news_shelf_summary_off" />
         <SwitchPreference android:title="@string/revanced_hide_web_search_panel_title" android:key="revanced_hide_web_search_panel" android:defaultValue="true" android:summaryOn="@string/revanced_hide_web_search_panel_summary_on" android:summaryOff="@string/revanced_hide_web_search_panel_summary_off" />
         <SwitchPreference android:title="@string/revanced_hide_timed_reactions_title" android:key="revanced_hide_timed_reactions" android:defaultValue="true" android:summaryOn="@string/revanced_hide_timed_reactions_summary_on" android:summaryOff="@string/revanced_hide_timed_reactions_summary_off" />SETTINGS: HIDE_GENERAL_ADS -->
+
+        <!-- SETTINGS: HIDE_BREAKING_NEWS_SHELF
+        <SwitchPreference android:title="@string/revanced_hide_breaking_news_shelf_title" android:key="revanced_hide_breaking_news_shelf" android:defaultValue="false" android:summaryOn="@string/revanced_hide_breaking_news_shelf_summary_on" android:summaryOff="@string/revanced_hide_breaking_news_shelf_summary_off" />SETTINGS: HIDE_BREAKING_NEWS_SHELF -->
 
         <!-- SETTINGS: HIDE_ACCOUNT_MENU
         <SwitchPreference android:title="@string/revanced_hide_account_menu_title" android:key="revanced_hide_account_menu" android:defaultValue="false" android:summaryOn="@string/revanced_hide_account_menu_summary_on" android:summaryOff="@string/revanced_hide_account_menu_summary_off" />
@@ -479,6 +481,7 @@
             <Preference android:title="hide-floating-microphone" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-category-bar" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-channel-avatar-section" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="hide-breaking-news-shelf" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-account-menu" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="header-switch" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
 
