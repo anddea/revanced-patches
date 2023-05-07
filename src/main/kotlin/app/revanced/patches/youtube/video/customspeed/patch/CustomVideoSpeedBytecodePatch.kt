@@ -1,22 +1,25 @@
-package app.revanced.patches.youtube.video.customspeed.bytecode.patch
+package app.revanced.patches.youtube.video.customspeed.patch
 
 import app.revanced.extensions.toErrorResult
+import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.instruction
 import app.revanced.patcher.extensions.replaceInstruction
-import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultError
-import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.*
 import app.revanced.patcher.patch.annotations.DependsOn
+import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
-import app.revanced.patches.shared.patch.options.PatchOptions
-import app.revanced.patches.youtube.video.customspeed.bytecode.fingerprints.*
+import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
+import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch.Companion.contexts
+import app.revanced.patches.youtube.video.customspeed.fingerprints.*
 import app.revanced.util.integrations.Constants.VIDEO_PATH
+import app.revanced.util.resources.ResourceHelper.addEntries
+import app.revanced.util.resources.ResourceHelper.addEntryValues
+import app.revanced.util.resources.ResourceUtils.copyXmlNode
 import org.jf.dexlib2.builder.instruction.BuilderArrayPayload
 import org.jf.dexlib2.iface.instruction.NarrowLiteralInstruction
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
@@ -24,11 +27,13 @@ import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 import org.jf.dexlib2.iface.reference.FieldReference
 import org.jf.dexlib2.iface.reference.MethodReference
 
-@Name("custom-speed-bytecode-patch")
-@DependsOn([PatchOptions::class])
+@Patch
+@Name("custom-video-speed")
+@Description("Adds more video speed options.")
+@DependsOn([SettingsPatch::class])
 @YouTubeCompatibility
 @Version("0.0.1")
-class CustomVideoSpeedBytecodePatch : BytecodePatch(
+class CustomVideoSpeedPatch : BytecodePatch(
     listOf(
         SpeedArrayGeneratorFingerprint,
         SpeedLimiterFingerprint,
@@ -36,10 +41,27 @@ class CustomVideoSpeedBytecodePatch : BytecodePatch(
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
-        val speed = PatchOptions.CustomSpeedArrays
+        val arrayPath = "res/values/arrays.xml"
+        val entriesName = "revanced_custom_video_speed_entry"
+        val entryValueName = "revanced_custom_video_speed_entry_value"
+
+        val speed = CustomSpeedArrays
             ?: return PatchResultError("Invalid video speed array.")
         val splits = speed.replace(" ","").split(",")
         if (splits.isEmpty()) throw IllegalArgumentException("Invalid speed elements")
+
+        val speedElements = splits.map { it }
+        for (index in 0 until splits.count()) {
+            contexts.addEntries(
+                arrayPath, speedElements[index] + "x",
+                entriesName
+            )
+            contexts.addEntryValues(
+                arrayPath, speedElements[index],
+                entryValueName
+            )
+        }
+
         val videoSpeedsArray = splits.map { it.toFloat().toRawBits() }
 
         SpeedArrayGeneratorFingerprint.result?.let { result ->
@@ -55,7 +77,7 @@ class CustomVideoSpeedBytecodePatch : BytecodePatch(
                 addInstructions(
                     sizeCallIndex + 2,
                     """
-                        invoke-static {}, $INTEGRATIONS_VIDEO_SPEED_CLASS_DESCRIPTOR->isCustomVideoSpeedEnabled()Z
+                        invoke-static {}, $VIDEO_PATH/VideoSpeedPatch;->isCustomVideoSpeedEnabled()Z
                         move-result v9
                         if-eqz v9, :defaultspeed
                         const/4 v$sizeCallResultRegister, 0x0
@@ -67,7 +89,7 @@ class CustomVideoSpeedBytecodePatch : BytecodePatch(
 
                 val arrayLengthConstDestination = (arrayLengthConst as OneRegisterInstruction).registerA
 
-                val videoSpeedsArrayType = "$INTEGRATIONS_VIDEO_SPEED_ENTRIES_CLASS_DESCRIPTOR->videoSpeed:[F"
+                val videoSpeedsArrayType = "$VIDEO_PATH/VideoSpeedEntries;->videoSpeed:[F"
 
                 addInstructions(
                     arrayLengthConstIndex + 1,
@@ -111,11 +133,11 @@ class CustomVideoSpeedBytecodePatch : BytecodePatch(
 
                 replaceInstruction(
                     limiterMinConstIndex,
-                    "const/high16 v$limiterMinConstDestination, ${hexFloat(speedLimitMin)}"
+                    "const/high16 v$limiterMinConstDestination, ${hexFloat(0.0f)}"
                 )
                 replaceInstruction(
                     limiterMaxConstIndex,
-                    "const/high16 v$limiterMaxConstDestination, ${hexFloat(speedLimitMax)}"
+                    "const/high16 v$limiterMaxConstDestination, ${hexFloat(100.0f)}"
                 )
             }
         } ?: return SpeedLimiterFingerprint.toErrorResult()
@@ -139,16 +161,36 @@ class CustomVideoSpeedBytecodePatch : BytecodePatch(
             }
         } ?: return VideoSpeedEntriesFingerprint.toErrorResult()
 
+
+        /**
+         * Copy arrays
+         */
+        contexts.copyXmlNode("youtube/customspeed/host", "values/arrays.xml", "resources")
+
+
+        /**
+         * Add settings
+         */
+        SettingsPatch.addPreference(
+            arrayOf(
+                "PREFERENCE: VIDEO_SETTINGS",
+                "SETTINGS: CUSTOM_VIDEO_SPEED"
+            )
+        )
+
+        SettingsPatch.updatePatchStatus("custom-video-speed")
+
         return PatchResultSuccess()
     }
-    companion object {
-        const val INTEGRATIONS_VIDEO_SPEED_CLASS_DESCRIPTOR =
-            "$VIDEO_PATH/VideoSpeedPatch;"
 
-        const val INTEGRATIONS_VIDEO_SPEED_ENTRIES_CLASS_DESCRIPTOR =
-            "$VIDEO_PATH/VideoSpeedEntries;"
-
-        const val speedLimitMin = 0.0f
-        const val speedLimitMax = 100f
+    companion object : OptionsContainer() {
+        var CustomSpeedArrays: String? by option(
+            PatchOption.StringOption(
+                key = "CustomSpeedArrays",
+                default = "0.25, 0.5, 0.75, 1.0, 1.25, 1.5, 1.75, 2.0, 2.25, 2.5, 3.0, 5.0",
+                title = "Custom Speed Values",
+                description = "A list of custom video speeds. Be sure to separate them with commas (,)."
+            )
+        )
     }
 }

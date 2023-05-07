@@ -4,33 +4,27 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultError
-import app.revanced.patcher.patch.PatchResultSuccess
-import app.revanced.patcher.patch.ResourcePatch
+import app.revanced.patcher.patch.OptionsContainer
+import app.revanced.patcher.patch.*
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
-import app.revanced.patches.shared.patch.options.PatchOptions
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
 import app.revanced.util.resources.ResourceHelper.addEntryValues
 import app.revanced.util.resources.ResourceUtils
 import app.revanced.util.resources.ResourceUtils.copyResources
-import app.revanced.util.resources.ResourceUtils.copyXmlNode
 
 @Patch
 @Name("custom-double-tap-length")
 @Description("Add 'double-tap to seek' value.")
-@DependsOn(
-    [
-        PatchOptions::class,
-        SettingsPatch::class
-    ]
-)
+@DependsOn([SettingsPatch::class])
 @YouTubeCompatibility
 @Version("0.0.1")
 class DoubleTapLengthPatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
+        val arrayPath = "res/values-v21/arrays.xml"
+        val entriesName = "double_tap_length_entries"
+        val entryValueName = "double_tap_length_values"
 
         /**
          * Copy arrays
@@ -43,15 +37,15 @@ class DoubleTapLengthPatch : ResourcePatch {
             )
         )
 
-        val speed = PatchOptions.CustomDoubleTapLengthArrays
+        val length = DoubleTapLengthArrays
             ?: return PatchResultError("Invalid double-tap length array.")
 
-        val splits = speed.replace(" ","").split(",")
-        if (splits.isEmpty()) throw IllegalArgumentException("Invalid speed elements")
-        val speedElements = splits.map { it }
+        val splits = length.replace(" ","").split(",")
+        if (splits.isEmpty()) throw IllegalArgumentException("Invalid double-tap length elements")
+        val lengthElements = splits.map { it }
         for (index in 0 until splits.count()) {
-            context.addEntryValues(TARGET_ARRAY_PATH, speedElements[index], TARGET_ENTRY_VALUE_NAME)
-            context.addEntryValues(TARGET_ARRAY_PATH, speedElements[index], TARGET_ENTRIES_NAME)
+            context.addEntryValues(arrayPath, lengthElements[index], entryValueName)
+            context.addEntryValues(arrayPath, lengthElements[index], entriesName)
         }
 
         SettingsPatch.updatePatchStatus("custom-double-tap-length")
@@ -59,9 +53,14 @@ class DoubleTapLengthPatch : ResourcePatch {
         return PatchResultSuccess()
     }
 
-    private companion object {
-        private const val TARGET_ARRAY_PATH = "res/values-v21/arrays.xml"
-        private const val TARGET_ENTRIES_NAME = "double_tap_length_entries"
-        private const val TARGET_ENTRY_VALUE_NAME = "double_tap_length_values"
+    companion object : OptionsContainer() {
+        var DoubleTapLengthArrays: String? by option(
+            PatchOption.StringOption(
+                key = "DoubleTapLengthArrays",
+                default = "3, 5, 10, 15, 20, 30, 60, 120, 180",
+                title = "Double-tap to seek Values",
+                description = "A list of custom double-tap to seek lengths. Be sure to separate them with commas (,)."
+            )
+        )
     }
 }
