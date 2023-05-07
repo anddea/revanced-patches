@@ -20,6 +20,7 @@ class SharedResourceIdPatch : ResourcePatch {
     internal companion object {
         var accessibilityProgressTimeLabelId: Long = -1
         var accountSwitcherAccessibilityLabelId: Long = -1
+        var adAttributionLabelId: Long = -1
         var appearanceStringId: Long = -1
         var backgroundCategoryLabelId: Long = -1
         var barContainerHeightLabelId: Long = -1
@@ -33,6 +34,7 @@ class SharedResourceIdPatch : ResourcePatch {
         var fabLabelId: Long = -1
         var filterBarHeightLabelId: Long = -1
         var floatyBarTopMarginLabelId: Long = -1
+        var horizontalCardListId: Long = -1
         var imageOnlyTabId: Long = -1
         var inlineTimeBarColorizedBarPlayedColorDarkId: Long = -1
         var inlineTimeBarPlayedNotHighlightedColorId: Long = -1
@@ -64,6 +66,7 @@ class SharedResourceIdPatch : ResourcePatch {
 
         accessibilityProgressTimeLabelId = find(STRING, "accessibility_player_progress_time")
         accountSwitcherAccessibilityLabelId = find(STRING, "account_switcher_accessibility_label")
+        adAttributionLabelId = find(ID, "ad_attribution")
         appearanceStringId = find(STRING, "app_theme_appearance_dark")
         backgroundCategoryLabelId = find(STRING, "pref_background_and_offline_category")
         barContainerHeightLabelId = find(DIMEN, "bar_container_height")
@@ -77,6 +80,7 @@ class SharedResourceIdPatch : ResourcePatch {
         fabLabelId = find(ID, "fab")
         filterBarHeightLabelId = find(DIMEN, "filter_bar_height")
         floatyBarTopMarginLabelId = find(DIMEN, "floaty_bar_button_top_margin")
+        horizontalCardListId = find(LAYOUT, "horizontal_card_list")
         imageOnlyTabId = find(LAYOUT, "image_only_tab")
         inlineTimeBarColorizedBarPlayedColorDarkId = find(COLOR, "inline_time_bar_colorized_bar_played_color_dark")
         inlineTimeBarPlayedNotHighlightedColorId = find(COLOR, "inline_time_bar_played_not_highlighted_color")
