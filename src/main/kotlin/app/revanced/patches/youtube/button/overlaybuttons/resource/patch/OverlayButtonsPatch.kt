@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.button.overlaybuttons.resource.patch
 
+import app.revanced.extensions.doRecursively
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
@@ -17,10 +18,11 @@ import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
 import app.revanced.util.resources.ResourceUtils
 import app.revanced.util.resources.ResourceUtils.copyResources
 import app.revanced.util.resources.ResourceUtils.copyXmlNode
+import org.w3c.dom.Element
 
 @Patch
 @Name("overlay-buttons")
-@Description("Add overlay buttons for ReVanced Extended.")
+@Description("Add overlay buttons to the player such as copy video link, auto-repeat, download and speed control.")
 @DependsOn(
     [
         AutoRepeatPatch::class,
@@ -37,7 +39,6 @@ class OverlayButtonsPatch : ResourcePatch {
         /**
          * Copy arrays
          */
-
         context.copyXmlNode("youtube/overlaybuttons/host", "values/arrays.xml", "resources")
 
 
@@ -74,31 +75,47 @@ class OverlayButtonsPatch : ResourcePatch {
         }
 
         /**
-         * Copy preference fragments
+         * Merge xml nodes from the host to their real xml files
          */
-
         context.copyXmlNode("youtube/overlaybuttons/host", "layout/youtube_controls_bottom_ui_container.xml", "android.support.constraint.ConstraintLayout")
 
-        val container = context["res/layout/youtube_controls_bottom_ui_container.xml"]
-        container.writeText(
-            container.readText()
-            .replace(
-                "yt:layout_constraintRight_toLeftOf=\"@id/fullscreen_button",
-                "yt:layout_constraintRight_toLeftOf=\"@+id/speed_button"
-            ).replace(
-                "60",
-                "42"
-            ).replace(
-                "paddingBottom=\"16",
-                "paddingBottom=\"34"
-            ).replace(
-                "paddingLeft=\"12",
-                "paddingLeft=\"0"
-            ).replace(
-                "paddingRight=\"12",
-                "paddingRight=\"0"
-            )
-        )
+        context.xmlEditor["res/layout/youtube_controls_bottom_ui_container.xml"].use { editor ->
+            editor.file.doRecursively loop@{
+                if (it !is Element) return@loop
+
+                // Change the relationship between buttons
+                it.getAttributeNode("yt:layout_constraintRight_toLeftOf")?.let { attribute ->
+                    if (attribute.textContent == "@id/fullscreen_button") {
+                        attribute.textContent = "@+id/speed_button"
+                    }
+                }
+
+                // Adjust Fullscreen Button size and padding
+                val paddingH = "0.0dip" to arrayOf("paddingLeft", "paddingRight")
+                val paddingV = "22.0dip" to arrayOf("paddingTop", "paddingBottom")
+                val size = "45.0dip" to arrayOf("layout_width", "layout_height")
+                it.getAttributeNode("android:id")?.let { attribute ->
+                    if (attribute.textContent == "@id/fullscreen_button") {
+                        arrayOf(paddingH, paddingV, size).forEach { (replace, attributes) ->
+                            attributes.forEach { name ->
+                                it.getAttributeNode("android:$name").textContent = replace
+                            }
+                        }
+                    }
+                }
+
+                // Adjust TimeBar and Chapter bottom padding
+                val timeBarChapter = "@id/time_bar_chapter_title" to "14.0dip"
+                val timeStampContainer = "@id/timestamps_container" to "12.0dip"
+                arrayOf(timeBarChapter, timeStampContainer).forEach { (id, replace) ->
+                    it.getAttributeNode("android:id")?.let { attribute ->
+                        if (attribute.textContent == id) {
+                            it.getAttributeNode("android:paddingBottom").textContent = replace
+                        }
+                    }
+                }
+            }
+        }
 
         /**
          * Add settings
