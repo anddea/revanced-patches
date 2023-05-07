@@ -5,18 +5,13 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
-import app.revanced.patcher.patch.ResourcePatch
-import app.revanced.patcher.patch.annotations.DependsOn
+import app.revanced.patcher.patch.*
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.shared.annotation.YouTubeMusicCompatibility
-import app.revanced.patches.shared.patch.options.PatchOptions
 import org.w3c.dom.Element
 
 @Patch(false)
 @Name("custom-branding-music-name")
-@DependsOn([PatchOptions::class])
 @Description("Changes the Music launcher name to your choice (defaults to YTM Extended, ReVanced Music Extended).")
 @YouTubeMusicCompatibility
 @Version("0.0.1")
@@ -25,8 +20,8 @@ class CustomBrandingMusicNamePatch : ResourcePatch {
 
         // App name
         val resourceFileNames = arrayOf("strings.xml")
-        val fullName = PatchOptions.MusicAppNameFull
-        val shortName = PatchOptions.MusicAppNameShort
+        val longName = MusicLongName
+        val shortName = MusicShortName
 
         context.forEach {
             if (!it.name.startsWithAny(*resourceFileNames)) return@forEach
@@ -40,7 +35,7 @@ class CustomBrandingMusicNamePatch : ResourcePatch {
 
                     val element = resourcesNode.childNodes.item(i) as Element
                     element.textContent = when (element.getAttribute("name")) {
-                        "app_name" -> "$fullName"
+                        "app_name" -> "$longName"
                         "app_launcher_name" -> "$shortName"
                         else -> continue
                     }
@@ -49,5 +44,23 @@ class CustomBrandingMusicNamePatch : ResourcePatch {
         }
 
         return PatchResultSuccess()
+    }
+    companion object : OptionsContainer() {
+        var MusicLongName: String? by option(
+            PatchOption.StringOption(
+                key = "MusicLongName",
+                default = "ReVanced Music Extended",
+                title = "Application Name of YouTube Music",
+                description = "The name of the YouTube Music it will show on your notification panel."
+            )
+        )
+        var MusicShortName: String? by option(
+            PatchOption.StringOption(
+                key = "MusicShortName",
+                default = "YTM Extended",
+                title = "Application Name of YouTube Music",
+                description = "The name of the YouTube Music it will show on your home screen."
+            )
+        )
     }
 }
