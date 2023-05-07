@@ -61,7 +61,7 @@ class HideEndscreenCardsPatch : BytecodePatch(
         SettingsPatch.addPreference(
             arrayOf(
                 "PREFERENCE: PLAYER_SETTINGS",
-                "SETTINGS: HIDE_ENDSCREEN_CARDS"
+                "SETTINGS: HIDE_END_SCREEN_CARDS"
             )
         )
 

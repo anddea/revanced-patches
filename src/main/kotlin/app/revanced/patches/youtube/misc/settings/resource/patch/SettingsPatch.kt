@@ -9,7 +9,6 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
-import app.revanced.patches.shared.patch.options.PatchOptions
 import app.revanced.patches.shared.patch.settings.AbstractSettingsResourcePatch
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch
@@ -32,7 +31,6 @@ import java.nio.file.Paths
 @DependsOn(
     [
         IntegrationsPatch::class,
-        PatchOptions::class,
         SharedResourceIdPatch::class,
         SettingsBytecodePatch::class
     ]
