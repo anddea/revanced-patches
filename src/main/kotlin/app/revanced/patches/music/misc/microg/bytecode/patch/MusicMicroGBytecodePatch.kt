@@ -15,7 +15,7 @@ import app.revanced.patches.music.misc.microg.resource.patch.MusicMicroGResource
 import app.revanced.patches.music.misc.microg.shared.Constants.MUSIC_PACKAGE_NAME
 import app.revanced.patches.music.misc.microg.shared.Constants.YOUTUBE_PACKAGE_NAME
 import app.revanced.patches.shared.annotation.YouTubeMusicCompatibility
-import app.revanced.patches.shared.patch.options.PatchOptions
+import app.revanced.patches.shared.patch.packagename.PackageNamePatch
 import app.revanced.util.microg.MicroGBytecodeHelper
 
 @Patch
@@ -23,7 +23,7 @@ import app.revanced.util.microg.MicroGBytecodeHelper
     [
         ClientSpoofMusicPatch::class,
         MusicMicroGResourcePatch::class,
-        PatchOptions::class
+        PackageNamePatch::class
     ]
 )
 @Name("music-microg-support")
@@ -48,8 +48,8 @@ class MusicMicroGBytecodePatch : BytecodePatch(
     // - "com.google.android.gms.phenotype.UPDATE",
     // - "com.google.android.gms.phenotype",
     override fun execute(context: BytecodeContext): PatchResult {
-        val packageNameYouTube = PatchOptions.YouTubePackageName!!
-        val packageNameMusic = PatchOptions.MusicPackageName!!
+        val packageNameYouTube = PackageNamePatch.YouTubePackageName!!
+        val packageNameMusic = PackageNamePatch.MusicPackageName!!
 
         // apply common microG patch
         MicroGBytecodeHelper.patchBytecode(
