@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.layout.general.getpremium.fingerprints
+package app.revanced.patches.youtube.ads.getpremium.fingerprints
 
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import org.jf.dexlib2.Opcode
