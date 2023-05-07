@@ -46,12 +46,13 @@ import org.jf.dexlib2.iface.reference.MethodReference
 @Version("0.0.1")
 class SponsorBlockBytecodePatch : BytecodePatch(
     listOf(
+        EndScreenEngagementPanelsFingerprint,
         PlayerControllerFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
 
-        /*
+        /**
          * Hook the video time methods
          */
         with(MainstreamVideoIdPatch) {
@@ -66,14 +67,14 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         }
 
 
-        /*
+        /**
          * Seekbar drawing
          */
         insertMethod = HookTimeBarPatch.setTimeBarMethod
         insertInstructions = insertMethod.implementation!!.instructions
 
 
-        /*
+        /**
          * Get the instance of the seekbar rectangle
          */
         for ((index, instruction) in insertInstructions.withIndex()) {
@@ -100,7 +101,7 @@ class SponsorBlockBytecodePatch : BytecodePatch(
             break
         }
 
-        /*
+        /**
          * Set rectangle absolute left and right positions
          */
         val drawRectangleInstructions = insertInstructions.filter {
@@ -120,7 +121,7 @@ class SponsorBlockBytecodePatch : BytecodePatch(
             injectCallRectangle(index, register, string)
         }
 
-        /*
+        /**
          * Draw segment
          */
         for ((index, instruction) in insertInstructions.withIndex()) {
@@ -141,7 +142,7 @@ class SponsorBlockBytecodePatch : BytecodePatch(
             break
         }
 
-        /*
+        /**
          * Voting & Shield button
          */
         arrayOf("CreateSegmentButtonController", "VotingButtonController").forEach {
@@ -149,8 +150,15 @@ class SponsorBlockBytecodePatch : BytecodePatch(
            PlayerControlsPatch.injectVisibility("$INTEGRATIONS_BUTTON_CLASS_DESCRIPTOR/ui/$it;")
         }
 
+        EndScreenEngagementPanelsFingerprint.result?.mutableMethod?.let {
+            it.addInstruction(
+                it.implementation!!.instructions.size - 1,
+                "invoke-static {}, $INTEGRATIONS_BUTTON_CLASS_DESCRIPTOR/ui/SponsorBlockViewController;->endOfVideoReached()V"
+            )
+        }
 
-        /*
+
+        /**
          * Replace strings
          */
         PlayerControllerFingerprint.result?.mutableMethod?.let {
@@ -167,7 +175,7 @@ class SponsorBlockBytecodePatch : BytecodePatch(
             }
         } ?: return PlayerControllerFingerprint.toErrorResult()
 
-        /*
+        /**
          * Inject VideoIdPatch
          */
         LegacyVideoIdPatch.injectCall("$INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR->setCurrentVideoId(Ljava/lang/String;)V")
