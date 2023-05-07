@@ -50,18 +50,6 @@ class CustomVideoSpeedPatch : BytecodePatch(
         val splits = speed.replace(" ","").split(",")
         if (splits.isEmpty()) throw IllegalArgumentException("Invalid speed elements")
 
-        val speedElements = splits.map { it }
-        for (index in 0 until splits.count()) {
-            contexts.addEntries(
-                arrayPath, speedElements[index] + "x",
-                entriesName
-            )
-            contexts.addEntryValues(
-                arrayPath, speedElements[index],
-                entryValueName
-            )
-        }
-
         val videoSpeedsArray = splits.map { it.toFloat().toRawBits() }
 
         SpeedArrayGeneratorFingerprint.result?.let { result ->
@@ -167,6 +155,17 @@ class CustomVideoSpeedPatch : BytecodePatch(
          */
         contexts.copyXmlNode("youtube/customspeed/host", "values/arrays.xml", "resources")
 
+        val speedElements = splits.map { it }
+        for (index in 0 until splits.count()) {
+            contexts.addEntries(
+                arrayPath, speedElements[index] + "x",
+                entriesName
+            )
+            contexts.addEntryValues(
+                arrayPath, speedElements[index],
+                entryValueName
+            )
+        }
 
         /**
          * Add settings
