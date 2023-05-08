@@ -37,7 +37,7 @@ class ChangeHomePagePatch : BytecodePatch(
             it.addInstructions(
                 it.implementation!!.instructions.size - 1, """
                     move-object/from16 v0, p1
-                    invoke-static {v0}, $NAVIGATION->changeHomePage(Lcom/google/android/apps/youtube/app/watchwhile/WatchWhileActivity;)V
+                    invoke-static {v0}, $NAVIGATION->changeHomePage(Landroid/app/Activity;)V
                 """
             )
         } ?: return LauncherActivityFingerprint.toErrorResult()
