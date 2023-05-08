@@ -7,24 +7,27 @@
     <string name="microg_not_running_warning">MicroG nie działa w tle</string>
     <string name="microg_settings_summary">Włącz cloud messaging w ustawieniach, by otrzymywać powiadomienia</string>
     <string name="microg_settings_title">Otwórz MicroG</string>
-    <string name="revanced_adremover_button_ads_summary_off">Widoczne</string>
-    <string name="revanced_adremover_button_ads_summary_on">Ukryte</string>
-    <string name="revanced_adremover_button_ads_title">Reklamy z przyciskami</string>
-    <string name="revanced_adremover_custom_filter_summary">Filtruj komponenty według ich nazw oddzielonych przecinkiem</string>
-    <string name="revanced_adremover_custom_filter_title">Własny filtr</string>
-    <string name="revanced_adremover_general_ads_summary_off">Widoczne</string>
-    <string name="revanced_adremover_general_ads_summary_on">Ukryte</string>
-    <string name="revanced_adremover_general_ads_title">Ogólne reklamy</string>
-    <string name="revanced_adremover_paid_content_summary_off">Widoczne</string>
-    <string name="revanced_adremover_paid_content_summary_on">Ukryte</string>
-    <string name="revanced_adremover_paid_content_title">Znaki płatnej promocji</string>
-    <string name="revanced_adremover_self_sponsor_summary_off">Widoczne</string>
-    <string name="revanced_adremover_self_sponsor_summary_on">Ukryte</string>
-    <string name="revanced_adremover_self_sponsor_title">Karty z autopromocją</string>
-    <string name="revanced_adremover_user_filter_summary_off">Wyłączony</string>
-    <string name="revanced_adremover_user_filter_summary_on">Włączony</string>
-    <string name="revanced_adremover_user_filter_title">Własny filtr</string>
     <string name="revanced_ads">Reklamy</string>
+    <string name="revanced_ad_remover_button_ads_summary_off">Widoczne</string>
+    <string name="revanced_ad_remover_button_ads_summary_on">Ukryte</string>
+    <string name="revanced_ad_remover_button_ads_title">Reklamy z przyciskami</string>
+    <string name="revanced_ad_remover_custom_filter_summary">Filtruj komponenty według ich nazw oddzielonych przecinkiem</string>
+    <string name="revanced_ad_remover_custom_filter_title">Własny filtr</string>
+    <string name="revanced_ad_remover_general_ads_summary_off">Widoczne</string>
+    <string name="revanced_ad_remover_general_ads_summary_on">Ukryte</string>
+    <string name="revanced_ad_remover_general_ads_title">Ogólne reklamy</string>
+    <string name="revanced_ad_remover_get_premium_summary_off">Widoczne</string>
+    <string name="revanced_ad_remover_get_premium_summary_on">Ukryte</string>
+    <string name="revanced_ad_remover_get_premium_title">Promocje YouTube Premium</string>
+    <string name="revanced_ad_remover_paid_content_summary_off">Widoczne</string>
+    <string name="revanced_ad_remover_paid_content_summary_on">Ukryte</string>
+    <string name="revanced_ad_remover_paid_content_title">Znaki płatnej promocji</string>
+    <string name="revanced_ad_remover_self_sponsor_summary_off">Widoczne</string>
+    <string name="revanced_ad_remover_self_sponsor_summary_on">Ukryte</string>
+    <string name="revanced_ad_remover_self_sponsor_title">Karty z autopromocją</string>
+    <string name="revanced_ad_remover_user_filter_summary_off">Wyłączony</string>
+    <string name="revanced_ad_remover_user_filter_summary_on">Włączony</string>
+    <string name="revanced_ad_remover_user_filter_title">Własny filtr</string>
     <string name="revanced_backup_summary">Zaimportuj ustawienia ReVanced z pliku lub wyeksportuj ustawienia ReVanced do pliku</string>
     <string name="revanced_bottom_player">Pod odtwarzaczem</string>
     <string name="revanced_button_container_title">Przyciski pod odtwarzaczem</string>
@@ -56,6 +59,9 @@
     <string name="revanced_disable_haptic_feedback_zoom_summary_off">Włączone</string>
     <string name="revanced_disable_haptic_feedback_zoom_summary_on">Wyłączone</string>
     <string name="revanced_disable_haptic_feedback_zoom_title">Wibracje podczas przybliżania wideo</string>
+    <string name="revanced_disable_hdr_video_summary_off">Włączone</string>
+    <string name="revanced_disable_hdr_video_summary_on">Wyłączone</string>
+    <string name="revanced_disable_hdr_video_title">Wideo z HDR</string>
     <string name="revanced_disable_landscape_mode_summary_off">Włączony przy wchodzeniu w tryb pełnoekranowy</string>
     <string name="revanced_disable_landscape_mode_summary_on">Wyłączony przy wchodzeniu w tryb pełnoekranowy</string>
     <string name="revanced_disable_landscape_mode_title">Tryb poziomy</string>
@@ -102,6 +108,7 @@ Jeśli później opcja ta zostanie wyłączona, stare UI może pozostać do czas
     <string name="revanced_enable_phone_layout_summary">Oszukuje dpi, aby używać układu telefonu</string>
     <string name="revanced_enable_phone_layout_title">Układ telefonu</string>
     <string name="revanced_enable_protobuf_spoof_summary">"Oszukuje protobuf, aby uniknąć problemów z odtwarzaniem
+
 Znane problemy
 - Karty na końcach wideo są zawsze ukryte
 - Pobrane wideo mogą nie działać (użytkownicy YouTube Premium)"</string>
@@ -138,9 +145,9 @@ Znane problemy
     <string name="revanced_enable_swipe_volume_title">Zmienianie głośności przesuwaniem</string>
     <string name="revanced_enable_tablet_layout_summary">Oszukuje dpi, aby używać układu tabletu</string>
     <string name="revanced_enable_tablet_layout_title">Układ tabletu</string>
-    <string name="revanced_enable_tablet_miniplayer_summary_off">Wyłączony</string>
-    <string name="revanced_enable_tablet_miniplayer_summary_on">Włączony</string>
-    <string name="revanced_enable_tablet_miniplayer_title">Miniodtwarzacz tabletowy</string>
+    <string name="revanced_enable_tablet_mini_player_summary_off">Wyłączony</string>
+    <string name="revanced_enable_tablet_mini_player_summary_on">Włączony</string>
+    <string name="revanced_enable_tablet_mini_player_title">Miniodtwarzacz tabletowy</string>
     <string name="revanced_enable_tablet_navigation_bar_summary_off">Ukryty</string>
     <string name="revanced_enable_tablet_navigation_bar_summary_on">Widoczny</string>
     <string name="revanced_enable_tablet_navigation_bar_title">Pasek nawigacji tabletu</string>
@@ -276,12 +283,12 @@ Proszę nie zgłaszać żadnych problemów napotkanych podczas korzystania z tej
     <string name="revanced_hide_emoji_picker_summary_off">Widoczne</string>
     <string name="revanced_hide_emoji_picker_summary_on">Ukryte</string>
     <string name="revanced_hide_emoji_picker_title">Sugestie emotikon</string>
-    <string name="revanced_hide_endscreen_cards_summary_off">Widoczne</string>
-    <string name="revanced_hide_endscreen_cards_summary_on">Ukryte</string>
-    <string name="revanced_hide_endscreen_cards_title">Karty na końcach wideo</string>
-    <string name="revanced_hide_endscreen_overlay_summary_off">Widoczne</string>
-    <string name="revanced_hide_endscreen_overlay_summary_on">Ukryte</string>
-    <string name="revanced_hide_endscreen_overlay_title">Rekomendacje YouTube na końcach wideo</string>
+    <string name="revanced_hide_end_screen_cards_summary_off">Widoczne</string>
+    <string name="revanced_hide_end_screen_cards_summary_on">Ukryte</string>
+    <string name="revanced_hide_end_screen_cards_title">Karty na końcach wideo</string>
+    <string name="revanced_hide_end_screen_overlay_summary_off">Widoczne</string>
+    <string name="revanced_hide_end_screen_overlay_summary_on">Ukryte</string>
+    <string name="revanced_hide_end_screen_overlay_title">Rekomendacje YouTube na końcach wideo</string>
     <string name="revanced_hide_filmstrip_overlay_summary_off">Włączone</string>
     <string name="revanced_hide_filmstrip_overlay_summary_on">Wyłączone</string>
     <string name="revanced_hide_filmstrip_overlay_title">Precyzyjniejsze przesuwanie po pasku</string>
@@ -291,9 +298,6 @@ Proszę nie zgłaszać żadnych problemów napotkanych podczas korzystania z tej
     <string name="revanced_hide_fullscreen_panels_summary_off">Widoczne</string>
     <string name="revanced_hide_fullscreen_panels_summary_on">Ukryte</string>
     <string name="revanced_hide_fullscreen_panels_title">Pełnoekranowe panele</string>
-    <string name="revanced_hide_get_premium_summary_off">Widoczne</string>
-    <string name="revanced_hide_get_premium_summary_on">Ukryte</string>
-    <string name="revanced_hide_get_premium_title">Promocje YouTube Premium</string>
     <string name="revanced_hide_home_button_summary_off">Widoczny</string>
     <string name="revanced_hide_home_button_summary_on">Ukryty</string>
     <string name="revanced_hide_home_button_title">Przycisk od strony głównej</string>
@@ -312,6 +316,11 @@ Proszę nie zgłaszać żadnych problemów napotkanych podczas korzystania z tej
     <string name="revanced_hide_latest_posts_summary_off">Widoczne</string>
     <string name="revanced_hide_latest_posts_summary_on">Ukryte</string>
     <string name="revanced_hide_latest_posts_title">Najnowsze posty</string>
+    <string name="revanced_hide_library_button_summary_off">Widoczny</string>
+    <string name="revanced_hide_library_button_summary_on">Ukryty</string>
+    <string name="revanced_hide_library_button_title">Przycisk od biblioteki</string>
+    <string name="revanced_hide_load_more_button_summary_off">Widoczny</string>
+    <string name="revanced_hide_load_more_button_summary_on">Ukryty</string>
     <string name="revanced_hide_navigation_label_summary_off">Widoczne</string>
     <string name="revanced_hide_navigation_label_summary_on">Ukryte</string>
     <string name="revanced_hide_navigation_label_title">Nazwy w pasku nawigacji</string>
@@ -386,7 +395,7 @@ Proszę nie zgłaszać żadnych problemów napotkanych podczas korzystania z tej
     <string name="revanced_hide_quick_actions_comment_title">Przycisk od komentarzy</string>
     <string name="revanced_hide_quick_actions_more_summary_off">Widoczny</string>
     <string name="revanced_hide_quick_actions_more_summary_on">Ukryty</string>
-    <string name="revanced_hide_quick_actions_more_title">Przycisk więcej</string>
+    <string name="revanced_hide_quick_actions_more_title">Przycisk od reszty przycisków</string>
     <string name="revanced_hide_quick_actions_related_videos_summary_off">Widoczne</string>
     <string name="revanced_hide_quick_actions_related_videos_summary_on">Ukryte</string>
     <string name="revanced_hide_quick_actions_related_videos_title">Rekomendowane wideo na dole odtwarzacza</string>
@@ -416,9 +425,9 @@ Proszę nie zgłaszać żadnych problemów napotkanych podczas korzystania z tej
     <string name="revanced_hide_shorts_shelf_summary_off">Widoczne</string>
     <string name="revanced_hide_shorts_shelf_summary_on">Ukryte</string>
     <string name="revanced_hide_shorts_shelf_title">Półki z shortami</string>
-    <string name="revanced_hide_snackbar_summary_off">Widoczne</string>
-    <string name="revanced_hide_snackbar_summary_on">Ukryte</string>
-    <string name="revanced_hide_snackbar_title">Komunikaty</string>
+    <string name="revanced_hide_snack_bar_summary_off">Widoczne</string>
+    <string name="revanced_hide_snack_bar_summary_on">Ukryte</string>
+    <string name="revanced_hide_snack_bar_title">Komunikaty</string>
     <string name="revanced_hide_stories_shelf_summary_off">Widoczne</string>
     <string name="revanced_hide_stories_shelf_summary_on">Ukryte</string>
     <string name="revanced_hide_stories_shelf_title">Półki z relacjami</string>
@@ -486,6 +495,7 @@ Proszę nie zgłaszać żadnych problemów napotkanych podczas korzystania z tej
     <string name="revanced_player">Odtwarzacz</string>
     <string name="revanced_protobuf_spoof_notice">Oszukiwanie protobuf, by wyeliminować problemy z odtwarzaniem</string>
     <string name="revanced_quick_actions_components_title">Przyciski na dole odtwarzacza (Eksperymentalne)</string>
+    <string name="revanced_reboot_first_run">Uruchom ponownie, aby wczytać układ</string>
     <string name="revanced_reboot_warning_general">"Ponieważ jest to funkcja eksperymentalna, mogą pojawić się inne problemy.
 Czy na pewno chcesz kontynuować?"</string>
     <string name="revanced_reboot_warning_phone">"Oszukuje dpi, aby zmienić niektóre układy na układ telefonu.
