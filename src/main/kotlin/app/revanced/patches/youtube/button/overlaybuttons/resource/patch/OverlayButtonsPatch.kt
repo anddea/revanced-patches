@@ -91,12 +91,11 @@ class OverlayButtonsPatch : ResourcePatch {
                 }
 
                 // Adjust Fullscreen Button size and padding
-                val paddingH = "0.0dip" to arrayOf("paddingLeft", "paddingRight")
-                val paddingV = "22.0dip" to arrayOf("paddingTop", "paddingBottom")
+                val padding = "0.0dip" to arrayOf("paddingLeft", "paddingRight", "paddingTop", "paddingBottom")
                 val size = "45.0dip" to arrayOf("layout_width", "layout_height")
                 it.getAttributeNode("android:id")?.let { attribute ->
                     if (attribute.textContent == "@id/fullscreen_button") {
-                        arrayOf(paddingH, paddingV, size).forEach { (replace, attributes) ->
+                        arrayOf(padding, size).forEach { (replace, attributes) ->
                             attributes.forEach { name ->
                                 it.getAttributeNode("android:$name").textContent = replace
                             }
