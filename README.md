@@ -18,6 +18,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `custom-branding-icon-revancify-red` | Changes the YouTube launcher icon to Revancify Red. | 18.16.39 |
 | `custom-branding-name` | Changes the YouTube launcher name to your choice (defaults to ReVanced Extended). | 18.16.39 |
 | `custom-double-tap-length` | Add 'double-tap to seek' value. | 18.16.39 |
+| `custom-package-name` | Specifies the package name for YouTube and YT Music in the MicroG build. | all |
 | `custom-seekbar-color` | Change seekbar color and progressbar color. | 18.16.39 |
 | `custom-video-speed` | Adds more video speed options. | 18.16.39 |
 | `default-video-quality` | Adds ability to set default video quality settings. | 18.16.39 |
@@ -45,6 +46,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `hide-auto-player-popup-panels` | Hide automatic popup panels (playlist or live chat) on video player. | 18.16.39 |
 | `hide-autoplay-button` | Hides the autoplay button in the video player. | 18.16.39 |
 | `hide-autoplay-preview` | Hides the autoplay preview container in the fullscreen. | 18.16.39 |
+| `hide-breaking-news-shelf` | Hides the breaking news shelf on the homepage tab. | 18.16.39 |
 | `hide-button-container` | Adds the options to hide action buttons under a video. | 18.16.39 |
 | `hide-captions-button` | Hides the captions button in the video player. | 18.16.39 |
 | `hide-cast-button` | Hides the cast button in the video player. | 18.16.39 |
@@ -63,9 +65,9 @@ The official Patch bundle provided by ReVanced and the community.
 | `hide-flyout-panel` | Adds options to hide player settings flyout panel. | 18.16.39 |
 | `hide-fullscreen-panels` | Hides video description and comments panel in fullscreen view. | 18.16.39 |
 | `hide-general-ads` | Removes general ads. | 18.16.39 |
-| `hide-get-premium` | Hides the YouTube Premium promotion banner between the player and video description. | 18.16.39 |
 | `hide-info-cards` | Hides info-cards in videos. | 18.16.39 |
 | `hide-live-chat-button` | Hides the live chat button in the video player (for old layout). | 18.16.39 |
+| `hide-load-more-button` | Hides the button under videos that loads similar videos. | 18.16.39 |
 | `hide-mix-playlists` | Removes mix playlists from home feed and video player. | 18.16.39 |
 | `hide-music-button` | Hides the YouTube Music button in the video player. | 18.16.39 |
 | `hide-navigation-buttons` | Adds options to hide or change navigation buttons. | 18.16.39 |
@@ -76,10 +78,11 @@ The official Patch bundle provided by ReVanced and the community.
 | `hide-previous-next-button` | Hides the previous and next button in the player controller. | 18.16.39 |
 | `hide-quick-actions` | Adds the options to hide quick actions components in the fullscreen. | 18.16.39 |
 | `hide-search-terms` | Hide trending searches and search history in the search bar. | 18.16.39 |
+| `hide-seek-message` | Hides the 'Slide left or right to seek' message container. | 18.16.39 |
 | `hide-seekbar` | Hides the seekbar. | 18.16.39 |
 | `hide-shorts-component` | Hides other Shorts components. | 18.16.39 |
 | `hide-shorts-navbar` | Hide navigation bar when playing shorts. | 18.16.39 |
-| `hide-snackbar` | Hides the snackbar action popup. | 18.16.39 |
+| `hide-snack-bar` | Hides the snack bar action popup. | 18.16.39 |
 | `hide-stories` | Hides YouTube Stories shelf on the feed. | 18.16.39 |
 | `hide-suggested-actions` | Hide the suggested actions bar inside the player. | 18.16.39 |
 | `hide-time-stamp` | Hides timestamp in video player. | 18.16.39 |
@@ -89,8 +92,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `materialyou` | Enables MaterialYou theme for Android 12+ | 18.16.39 |
 | `microg-support` | Allows ReVanced to run without root and under a different package name with MicroG. | 18.16.39 |
 | `optimize-resource` | Removes duplicate resources from YouTube. | 18.16.39 |
-| `overlay-buttons` | Add overlay buttons for ReVanced Extended. | 18.16.39 |
-| `patch-options` | Create an options.toml file. | all |
+| `overlay-buttons` | Add overlay buttons to the player such as copy video link, auto-repeat, download and speed control. | 18.16.39 |
 | `protobuf-spoof` | Spoofs the protobuf to prevent playback issues. | 18.16.39 |
 | `return-youtube-dislike` | Shows the dislike count of videos using the Return YouTube Dislike API. | 18.16.39 |
 | `settings` | Applies mandatory patches to implement ReVanced settings into the application. | 18.16.39 |
@@ -116,6 +118,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `custom-branding-music-name` | Changes the Music launcher name to your choice (defaults to YTM Extended, ReVanced Music Extended). | all |
 | `custom-branding-music-revancify-blue` | Changes the YouTube Music launcher icon to Revancify Blue. | all |
 | `custom-branding-music-revancify-red` | Changes the YouTube Music launcher icon to Revancify Red. | all |
+| `custom-package-name` | Specifies the package name for YouTube and YT Music in the MicroG build. | all |
 | `disable-auto-captions` | Disable forced captions from automatically enabling in video player. | all |
 | `enable-black-navbar` | Sets the navigation bar color to black. | all |
 | `enable-color-match-player` | Matches the fullscreen player color with the minimized one. | all |
@@ -140,7 +143,6 @@ The official Patch bundle provided by ReVanced and the community.
 | `music-microg-support` | Allows ReVanced Music to run without root and under a different package name with MicroG. | all |
 | `music-settings` | Adds settings for ReVanced to YouTube Music. | all |
 | `optimize-resource-music` | Remove unnecessary resources. | all |
-| `patch-options` | Create an options.toml file. | all |
 | `remember-video-quality` | Save the video quality value whenever you change the video quality. | all |
 | `share-button-hook` | Replace share button with external download button or sleep timer dialog. | all |
 | `spoof-app-version` | Spoof the YouTube Music client version. | all |
