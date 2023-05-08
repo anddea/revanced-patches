@@ -1,19 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="revanced_category_ads">広告</string>
+    <string name="revanced_category_layout">レイアウト</string>
+    <string name="revanced_category_misc">その他</string>
+    <string name="revanced_default_downloader_summary">NewPipeやPowerTubeなどのダウンローダーアプリのパッケージ名</string>
+    <string name="revanced_default_downloader_title">パッケージのダウンローダー名</string>
+    <string name="revanced_disable_auto_captions_summary">強制字幕を無効にすると、動画プレーヤーで自動的に有効になります</string>
     <string name="revanced_disable_auto_captions_title">自動字幕を無効にする</string>
+    <string name="revanced_downloader_not_installed" formatted="false">%s はインストールされていません。インストールしてください</string>
     <string name="revanced_enable_black_navbar_summary">ナビゲーションバーの色を黒に設定します.</string>
     <string name="revanced_enable_black_navbar_title">ナビゲーションバーを黒くする</string>
     <string name="revanced_enable_color_match_player_summary">全画面のプレイヤーとアプリ内のミニプレイヤーの色を同じにします.</string>
     <string name="revanced_enable_color_match_player_title">カラーマッチプレイヤーを有効化</string>
+    <string name="revanced_enable_compact_dialog_summary">端末でコンパクトなダイアログを有効にします</string>
+    <string name="revanced_enable_compact_dialog_title">コンパクトダイアログを有効化</string>
     <string name="revanced_enable_force_minimized_player_summary">他のトラックが再生されていても、プレーヤーは永久に最小化されたままにします。</string>
     <string name="revanced_enable_force_minimized_player_title">最小化されたプレイヤーを有効にする</string>
+    <string name="revanced_enable_force_shuffle_summary">別のトラックが再生されていても強制シャッフルを有効にします</string>
     <string name="revanced_enable_force_shuffle_title">強制シャッフルを有効化</string>
+    <string name="revanced_enable_landscape_mode_summary">端末の画面回転でランドスケープモードに入るようにします</string>
+    <string name="revanced_enable_landscape_mode_title">ランドスケープモードを有効化</string>
+    <string name="revanced_enable_opus_codec_summary">オーディオ再生時に250/251 opus コーデックを有効にします</string>
     <string name="revanced_enable_opus_codec_title">Opus コーデックを有効にする</string>
+    <string name="revanced_enable_save_video_quality_summary">ビデオの品質を変更するたびにビデオ品質の値を保存します</string>
+    <string name="revanced_enable_save_video_quality_title">動画の画質を保存する</string>
     <string name="revanced_enable_zen_mode_summary">ビデオプレーヤーに灰色の色合いを追加し、目の疲れを軽減します</string>
     <string name="revanced_enable_zen_mode_title">Zen モードを有効にする</string>
+    <string name="revanced_hide_button_shelf_summary">ホームページやエクスプローラからボタン欄を隠します。</string>
+    <string name="revanced_hide_button_shelf_title">ボタン欄を非表示</string>
+    <string name="revanced_hide_carousel_shelf_summary">ホームページやエクスプローラからボタン欄を隠します</string>
+    <string name="revanced_hide_carousel_shelf_title">カルーセル欄を非表示</string>
     <string name="revanced_hide_cast_button_summary">ホームページ上部とプレイヤー上部のキャストボタンを非表示にします。</string>
     <string name="revanced_hide_cast_button_title">キャストボタンを非表示</string>
+    <string name="revanced_hide_category_bar_summary">ホームページの上部にある音楽カテゴリバーを非表示にします</string>
+    <string name="revanced_hide_category_bar_title">カテゴリバーを非表示</string>
+    <string name="revanced_hide_music_ads_summary">トラックを再生する前に広告を非表示にする</string>
     <string name="revanced_hide_music_ads_title">音楽の広告を非表示</string>
+    <string name="revanced_hide_new_playlist_button_summary">ライブラリタブの新しいプレイリストボタンを非表示にします</string>
+    <string name="revanced_hide_new_playlist_button_title">新しいプレイリストボタンを非表示</string>
+    <string name="revanced_hide_playlist_card_summary">ホームページからプレイリストカードを非表示にします</string>
     <string name="revanced_hide_playlist_card_title">プレイリストのカードを隠す</string>
+    <string name="revanced_hook_share_button_summary">共有ボタンを外部ダウンロードボタンまたはスリープタイマーダイアログに置き換えます</string>
+    <string name="revanced_hook_share_button_title">フック共有ボタン (実験的フラグ)</string>
+    <string name="revanced_hook_type_summary_off">外部ダウンローダーを開く</string>
+    <string name="revanced_hook_type_summary_on">スリープタイマーダイアログを開く</string>
+    <string name="revanced_hook_type_title">フック種別</string>
+    <string name="revanced_reboot_message">更新して再起動</string>
+    <string name="revanced_save_video_quality_mobile">既定のモバイルデータ品質の変更:</string>
+    <string name="revanced_save_video_quality_none">画質の設定に失敗しました</string>
+    <string name="revanced_save_video_quality_wifi">Wi-Fiの品質を変更:</string>
+    <string name="revanced_spoof_app_version_summary">カナダのユーザーのためのv4.27.53にYouTubeの音楽のバージョンを偽装</string>
+    <string name="revanced_spoof_app_version_title">アプリのバージョンを偽装する</string>
 </resources>
