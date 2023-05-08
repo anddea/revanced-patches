@@ -141,6 +141,9 @@
         <!-- SETTINGS: HIDE_BREAKING_NEWS_SHELF
         <SwitchPreference android:title="@string/revanced_hide_breaking_news_shelf_title" android:key="revanced_hide_breaking_news_shelf" android:defaultValue="false" android:summaryOn="@string/revanced_hide_breaking_news_shelf_summary_on" android:summaryOff="@string/revanced_hide_breaking_news_shelf_summary_off" />SETTINGS: HIDE_BREAKING_NEWS_SHELF -->
 
+        <!-- SETTINGS: HIDE_LOAD_MORE_BUTTON
+        <SwitchPreference android:title="@string/revanced_hide_load_more_button_title" android:key="revanced_hide_load_more_button" android:defaultValue="true" android:summaryOn="@string/revanced_hide_load_more_button_summary_on" android:summaryOff="@string/revanced_hide_load_more_button_summary_off" />SETTINGS: HIDE_LOAD_MORE_BUTTON -->
+
         <!-- SETTINGS: HIDE_ACCOUNT_MENU
         <SwitchPreference android:title="@string/revanced_hide_account_menu_title" android:key="revanced_hide_account_menu" android:defaultValue="false" android:summaryOn="@string/revanced_hide_account_menu_summary_on" android:summaryOff="@string/revanced_hide_account_menu_summary_off" />
         <EditTextPreference android:title="@string/revanced_account_menu_custom_filter_title" android:key="revanced_account_menu_custom_filter" android:summary="@string/revanced_account_menu_custom_filter_summary" android:defaultValue="YouTube Music,YouTube Kids" android:inputType="text" android:dependency="revanced_hide_account_menu" />SETTINGS: HIDE_ACCOUNT_MENU -->
@@ -482,6 +485,7 @@
             <Preference android:title="hide-category-bar" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-channel-avatar-section" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-breaking-news-shelf" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="hide-load-more-button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-account-menu" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="header-switch" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
 
