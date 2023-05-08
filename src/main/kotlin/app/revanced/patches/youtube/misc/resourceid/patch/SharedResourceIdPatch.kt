@@ -31,6 +31,8 @@ class SharedResourceIdPatch : ResourcePatch {
         var controlsLayoutStubResourceId: Long = -1
         var dislikeButtonLabelId: Long = -1
         var donationCompanionResourceId: Long = -1
+        var easySeekEduContainerId: Long = -1
+        var expandButtonId: Long = -1
         var fabLabelId: Long = -1
         var filterBarHeightLabelId: Long = -1
         var floatyBarTopMarginLabelId: Long = -1
@@ -77,6 +79,8 @@ class SharedResourceIdPatch : ResourcePatch {
         controlsLayoutStubResourceId = find(ID, "controls_layout_stub")
         dislikeButtonLabelId = find(ID, "dislike_button")
         donationCompanionResourceId = find(LAYOUT, "donation_companion")
+        easySeekEduContainerId = find(ID, "easy_seek_edu_container")
+        expandButtonId = find(LAYOUT, "expand_button_down")
         fabLabelId = find(ID, "fab")
         filterBarHeightLabelId = find(DIMEN, "filter_bar_height")
         floatyBarTopMarginLabelId = find(DIMEN, "floaty_bar_button_top_margin")
