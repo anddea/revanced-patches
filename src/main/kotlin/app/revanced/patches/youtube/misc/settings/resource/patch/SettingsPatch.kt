@@ -125,7 +125,7 @@ class SettingsPatch : AbstractSettingsResourcePatch(
         return PatchResultSuccess()
     }
     companion object {
-        private lateinit var contexts: ResourceContext
+        internal lateinit var contexts: ResourceContext
 
         internal fun addPreference(settingArray: Array<String>) {
             contexts.addPreference(settingArray)
