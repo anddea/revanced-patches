@@ -41,7 +41,7 @@ class DoubleBackToClosePatch : BytecodePatch(
                     insertIndex,
                     "invoke-static {p0}, $INTEGRATIONS_CLASS_DESCRIPTOR" +
                     "->" +
-                    "closeActivityOnBackPressed(Lcom/google/android/apps/youtube/app/watchwhile/WatchWhileActivity;)V"
+                    "closeActivityOnBackPressed(Landroid/app/Activity;)V"
                 )
             }
         } ?: return OnBackPressedFingerprint.toErrorResult()
