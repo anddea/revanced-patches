@@ -2,8 +2,8 @@ package app.revanced.patches.shared.fingerprints
 
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
-import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch
-import org.jf.dexlib2.iface.instruction.WideLiteralInstruction
+import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch.Companion.imageOnlyTabId
+import app.revanced.util.bytecode.isWideLiteralExists
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 
@@ -14,10 +14,5 @@ object PivotBarCreateButtonViewFingerprint : MethodFingerprint(
         Opcode.MOVE_OBJECT,
         Opcode.INVOKE_DIRECT_RANGE, // unique instruction anchor
     ),
-    customFingerprint = { methodDef ->
-        methodDef.implementation?.instructions?.any {
-            it.opcode.ordinal == Opcode.CONST.ordinal &&
-            (it as? WideLiteralInstruction)?.wideLiteral == SharedResourceIdPatch.imageOnlyTabId
-        } == true
-    }
+    customFingerprint = { it.isWideLiteralExists(imageOnlyTabId) }
 )

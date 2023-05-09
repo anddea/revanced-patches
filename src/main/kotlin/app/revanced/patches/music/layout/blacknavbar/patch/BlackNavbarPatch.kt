@@ -18,7 +18,7 @@ import app.revanced.patches.music.misc.settings.resource.patch.MusicSettingsPatc
 import app.revanced.patches.shared.annotation.YouTubeMusicCompatibility
 import app.revanced.util.enum.CategoryType
 import app.revanced.util.integrations.Constants.MUSIC_LAYOUT
-import org.jf.dexlib2.iface.instruction.formats.Instruction11x
+import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
 @Name("enable-black-navbar")
@@ -32,21 +32,17 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction11x
 @YouTubeMusicCompatibility
 @Version("0.0.1")
 class BlackNavbarPatch : BytecodePatch(
-    listOf(
-        TabLayoutFingerprint
-    )
+    listOf(TabLayoutFingerprint)
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
 
         TabLayoutFingerprint.result?.let {
-            with (it.mutableMethod) {
-                val endIndex = it.scanResult.patternScanResult!!.endIndex
-                val insertIndex = endIndex + 1
-
-                val targetRegister = (instruction(endIndex) as Instruction11x).registerA
+            it.mutableMethod.apply {
+                val targetIndex = it.scanResult.patternScanResult!!.endIndex
+                val targetRegister = instruction<OneRegisterInstruction>(targetIndex).registerA
 
                 addInstructions(
-                    insertIndex, """
+                    targetIndex + 1, """
                         invoke-static {}, $MUSIC_LAYOUT->enableBlackNavbar()I
                         move-result v$targetRegister
                         """

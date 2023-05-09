@@ -25,10 +25,14 @@ class ClientSpoofMusicPatch : BytecodePatch(
     override fun execute(context: BytecodeContext): PatchResult {
 
         UserAgentHeaderBuilderFingerprint.result?.let {
-            with (it.mutableMethod) {
+            it.mutableMethod.apply {
                 val insertIndex = it.scanResult.patternScanResult!!.endIndex - 1
-                val packageNameRegister = (instruction(insertIndex) as FiveRegisterInstruction).registerD
-                addInstruction(insertIndex, "const-string v$packageNameRegister, \"$MUSIC_PACKAGE_NAME\"")
+                val packageNameRegister = instruction<FiveRegisterInstruction>(insertIndex).registerD
+
+                addInstruction(
+                    insertIndex,
+                    "const-string v$packageNameRegister, \"$MUSIC_PACKAGE_NAME\""
+                )
             }
         } ?: return UserAgentHeaderBuilderFingerprint.toErrorResult()
 

@@ -30,18 +30,16 @@ import app.revanced.util.integrations.Constants.MUSIC_LAYOUT
 @YouTubeMusicCompatibility
 @Version("0.0.1")
 class LandScapeModePatch : BytecodePatch(
-    listOf(
-        TabletIdentifierFingerprint
-    )
+    listOf(TabletIdentifierFingerprint)
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
         TabletIdentifierFingerprint.result?.let {
             it.mutableMethod.addInstructions(
                 it.scanResult.patternScanResult!!.endIndex + 1, """
-                invoke-static {p0}, $MUSIC_LAYOUT->enableLandScapeMode(Z)Z
-                move-result p0
-            """
-                )
+                    invoke-static {p0}, $MUSIC_LAYOUT->enableLandScapeMode(Z)Z
+                    move-result p0
+                    """
+            )
         } ?: return TabletIdentifierFingerprint.toErrorResult()
 
         MusicSettingsPatch.addMusicPreference(CategoryType.LAYOUT, "revanced_enable_landscape_mode", "true")

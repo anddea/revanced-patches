@@ -1,11 +1,11 @@
-package app.revanced.patches.music.layout.miniplayercolor.fingerprints
+package app.revanced.patches.music.layout.colormatchplayer.fingerprints
 
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 
-object MiniplayerColorFingerprint : MethodFingerprint(
+object ColorMatchPlayerFingerprint : MethodFingerprint(
     returnType = "V",
     access = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("L", "J"),

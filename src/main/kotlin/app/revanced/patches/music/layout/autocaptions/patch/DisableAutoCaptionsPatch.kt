@@ -5,7 +5,7 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.*
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -25,23 +25,19 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 @YouTubeMusicCompatibility
 @Version("0.0.1")
 class DisableAutoCaptionsPatch : BytecodePatch(
-    listOf(
-        SubtitleTrackFingerprint
-    )
+    listOf(SubtitleTrackFingerprint)
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
 
         SubtitleTrackFingerprint.result?.mutableMethod?.let {
-            with (it.implementation!!.instructions) {
-                val index = size - 1
-                val register = (elementAt(index) as OneRegisterInstruction).registerA
-                it.addInstructions(
-                    index, """
+            val index = it.implementation!!.instructions.size - 1
+            val register = it.instruction<OneRegisterInstruction>(index).registerA
+            it.addInstructions(
+                index, """
                     invoke-static {v$register}, $MUSIC_LAYOUT->disableAutoCaptions(Z)Z
                     move-result v$register
                 """
-                )
-            }
+            )
         } ?: return SubtitleTrackFingerprint.toErrorResult()
 
         MusicSettingsPatch.addMusicPreference(CategoryType.LAYOUT, "revanced_disable_auto_captions", "false")

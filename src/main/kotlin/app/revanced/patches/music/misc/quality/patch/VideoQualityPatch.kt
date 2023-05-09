@@ -25,6 +25,7 @@ import app.revanced.util.integrations.Constants.MUSIC_MISC_PATH
 import org.jf.dexlib2.builder.instruction.BuilderInstruction21c
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 import org.jf.dexlib2.iface.reference.FieldReference
+import org.jf.dexlib2.iface.reference.Reference
 
 @Patch
 @Name("remember-video-quality")
@@ -48,46 +49,48 @@ class VideoQualityPatch : BytecodePatch(
     override fun execute(context: BytecodeContext): PatchResult {
 
         MusicVideoQualitySetterParentFingerprint.result?.let { parentResult ->
-            MusicVideoQualitySetterFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.let { result ->
-                val endIndex = result.scanResult.patternScanResult!!.endIndex
-                val instructions = result.method.implementation!!.instructions
+            MusicVideoQualitySetterFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.let {
+                it.mutableMethod.apply {
+                    val endIndex = it.scanResult.patternScanResult!!.endIndex
 
-                qualityFieldReference =
-                    (instructions.elementAt(endIndex) as ReferenceInstruction).reference as FieldReference
+                    qualityReference = instruction<ReferenceInstruction>(endIndex).reference
+                    qualityFieldReference = qualityReference as FieldReference
 
-                qIndexMethodName =
-                    context.classes.single { it.type == qualityFieldReference.type }.methods.single { it.parameterTypes.first() == "I" }.name
+                    qIndexMethodName = context
+                        .classes.single { classDef -> classDef.type == qualityFieldReference.type }
+                        .methods.single { method -> method.parameterTypes.first() == "I" }.name
+                }
             } ?: return MusicVideoQualitySetterFingerprint.toErrorResult()
         } ?: return MusicVideoQualitySetterParentFingerprint.toErrorResult()
 
         MusicVideoQualitySettingsParentFingerprint.result?.let { parentResult ->
-            MusicVideoQualitySettingsFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.let {
-                it.mutableMethod.addInstructions(
-                    0, """
-                        const-string v0, "$qIndexMethodName"
-                        sput-object v0, $INTEGRATIONS_VIDEO_QUALITY_CLASS_DESCRIPTOR->qIndexMethod:Ljava/lang/String;
-                        iget-object v0, p0, ${it.classDef.type}->${qualityFieldReference.name}:${qualityFieldReference.type}
-                        invoke-static {p1, p2, v0}, $INTEGRATIONS_VIDEO_QUALITY_CLASS_DESCRIPTOR->setVideoQuality([Ljava/lang/Object;ILjava/lang/Object;)I
-                        move-result p2
-                     """
-                )
-            } ?: return MusicVideoQualitySettingsFingerprint.toErrorResult()
+            MusicVideoQualitySettingsFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.mutableMethod?.addInstructions(
+                0, """
+                    const-string v0, "$qIndexMethodName"
+                    sput-object v0, $INTEGRATIONS_VIDEO_QUALITY_CLASS_DESCRIPTOR->qIndexMethod:Ljava/lang/String;
+                    iget-object v0, p0, $qualityReference
+                    invoke-static {p1, p2, v0}, $INTEGRATIONS_VIDEO_QUALITY_CLASS_DESCRIPTOR->setVideoQuality([Ljava/lang/Object;ILjava/lang/Object;)I
+                    move-result p2
+                    """
+            ) ?: return MusicVideoQualitySettingsFingerprint.toErrorResult()
         } ?: return MusicVideoQualitySettingsParentFingerprint.toErrorResult()
 
         UserQualityChangeFingerprint.result?.let {
-            val endIndex = it.scanResult.patternScanResult!!.endIndex
-            val qualityChangedClass =
-                context.findClass((it.mutableMethod.instruction(endIndex) as BuilderInstruction21c)
-                    .reference.toString())!!
-                    .mutableClass
+            it.mutableMethod.apply {
+                val endIndex = it.scanResult.patternScanResult!!.endIndex
+                val qualityChangedClass =
+                    context.findClass((instruction<BuilderInstruction21c>(endIndex))
+                        .reference.toString())!!
+                        .mutableClass
 
-            for (method in qualityChangedClass.methods) {
-                with (qualityChangedClass.findMutableMethodOf(method)) {
-                    if (this.name == "onItemClick") {
-                        addInstruction(
-                            0,
-                            "invoke-static {p3}, $INTEGRATIONS_VIDEO_QUALITY_CLASS_DESCRIPTOR->userChangedQuality(I)V"
-                        )
+                for (method in qualityChangedClass.methods) {
+                    with (qualityChangedClass.findMutableMethodOf(method)) {
+                        if (this.name == "onItemClick") {
+                            addInstruction(
+                                0,
+                                "invoke-static {p3}, $INTEGRATIONS_VIDEO_QUALITY_CLASS_DESCRIPTOR->userChangedQuality(I)V"
+                            )
+                        }
                     }
                 }
             }
@@ -104,6 +107,6 @@ class VideoQualityPatch : BytecodePatch(
 
         private lateinit var qIndexMethodName: String
         private lateinit var qualityFieldReference: FieldReference
-
+        private lateinit var qualityReference: Reference
     }
 }

@@ -20,6 +20,7 @@ import app.revanced.patches.shared.annotation.YouTubeMusicCompatibility
 import app.revanced.util.enum.CategoryType
 import app.revanced.util.integrations.Constants.MUSIC_LAYOUT
 
+
 @Patch
 @Name("enable-compact-dialog")
 @Description("Enable compact dialog on phone.")
@@ -32,9 +33,7 @@ import app.revanced.util.integrations.Constants.MUSIC_LAYOUT
 @YouTubeMusicCompatibility
 @Version("0.0.1")
 class CompactDialogPatch : BytecodePatch(
-    listOf(
-        DialogSolidFingerprint
-    )
+    listOf(DialogSolidFingerprint)
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
         DialogSolidFingerprint.result?.let {

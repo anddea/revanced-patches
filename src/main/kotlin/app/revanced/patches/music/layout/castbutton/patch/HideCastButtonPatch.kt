@@ -25,9 +25,7 @@ import app.revanced.util.integrations.Constants.MUSIC_LAYOUT
 @YouTubeMusicCompatibility
 @Version("0.0.1")
 class HideCastButtonPatch : BytecodePatch(
-    listOf(
-        HideCastButtonParentFingerprint
-    )
+    listOf(HideCastButtonParentFingerprint)
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
 

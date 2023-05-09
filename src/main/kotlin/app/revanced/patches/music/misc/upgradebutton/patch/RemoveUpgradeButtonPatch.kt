@@ -22,7 +22,6 @@ import app.revanced.util.integrations.Constants.INTEGRATIONS_PATH
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
-import org.jf.dexlib2.iface.reference.FieldReference
 
 @Patch
 @Name("hide-upgrade-button")
@@ -43,20 +42,12 @@ class RemoveUpgradeButtonPatch : BytecodePatch(
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
         PivotBarConstructorFingerprint.result?.let {
-            with (it.mutableMethod) {
+            it.mutableMethod.apply {
                 val targetIndex = it.scanResult.patternScanResult!!.startIndex
+                val targetRegisterA = instruction<TwoRegisterInstruction>(targetIndex).registerA
+                val targetRegisterB = instruction<TwoRegisterInstruction>(targetIndex).registerB
 
-                val targetRegisterA = (instruction(targetIndex) as TwoRegisterInstruction).registerA
-                val targetRegisterB = (instruction(targetIndex) as TwoRegisterInstruction).registerB
-
-                val replaceReference =
-                    (instruction(targetIndex) as ReferenceInstruction).reference as FieldReference
-
-                val replaceReferenceToCall = replaceReference.definingClass +
-                        "->" +
-                        replaceReference.name +
-                        ":" +
-                        replaceReference.type
+                val replaceReference = instruction<ReferenceInstruction>(targetIndex).reference.toString()
 
                 replaceInstruction(
                     targetIndex,
@@ -69,16 +60,16 @@ class RemoveUpgradeButtonPatch : BytecodePatch(
                         if-le v1, v2, :dismiss
                         invoke-interface {v$targetRegisterA, v2}, Ljava/util/List;->remove(I)Ljava/lang/Object;
                         :dismiss
-                        iput-object v$targetRegisterA, v$targetRegisterB, $replaceReferenceToCall
+                        iput-object v$targetRegisterA, v$targetRegisterB, $replaceReference
                         """
                 )
             }
         } ?: return PivotBarConstructorFingerprint.toErrorResult()
 
         NotifierShelfFingerprint.result?.let {
-            with (it.mutableMethod) {
+            it.mutableMethod.apply {
                 val targetIndex = it.scanResult.patternScanResult!!.endIndex
-                val targetRegister = (instruction(targetIndex) as OneRegisterInstruction).registerA
+                val targetRegister = instruction<OneRegisterInstruction>(targetIndex).registerA
                 addInstruction(
                     targetIndex + 1,
                     "invoke-static {v$targetRegister}, $INTEGRATIONS_PATH/adremover/AdRemoverAPI;->HideViewWithLayout1dp(Landroid/view/View;)V"

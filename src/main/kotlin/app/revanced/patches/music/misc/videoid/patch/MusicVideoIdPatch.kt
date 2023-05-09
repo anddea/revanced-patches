@@ -20,18 +20,15 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 @YouTubeMusicCompatibility
 @Version("0.0.1")
 class MusicVideoIdPatch : BytecodePatch(
-    listOf(
-        MusicVideoIdFingerprint
-    )
+    listOf(MusicVideoIdFingerprint)
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
 
         MusicVideoIdFingerprint.result?.let {
-            insertIndex = it.scanResult.patternScanResult!!.endIndex
-
-            with (it.mutableMethod) {
+            it.mutableMethod.apply {
+                insertIndex = it.scanResult.patternScanResult!!.endIndex
                 insertMethod = this
-                videoIdRegister = (implementation!!.instructions[insertIndex] as OneRegisterInstruction).registerA
+                videoIdRegister = instruction<OneRegisterInstruction>(insertIndex).registerA
             }
             offset++ // offset so setVideoId is called before any injected call
         } ?: return MusicVideoIdFingerprint.toErrorResult()

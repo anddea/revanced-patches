@@ -44,7 +44,6 @@ class MusicSettingsPatch : AbstractSettingsResourcePatch(
         /**
          * Copy colors
          */
-
         context.xmlEditor["res/values/colors.xml"].use { editor ->
             val resourcesNode = editor.file.getElementsByTagName("resources").item(0) as Element
 
