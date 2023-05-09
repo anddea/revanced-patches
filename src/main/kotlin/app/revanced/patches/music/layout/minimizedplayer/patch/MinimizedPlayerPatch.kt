@@ -25,9 +25,7 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 @YouTubeMusicCompatibility
 @Version("0.0.1")
 class MinimizedPlayerPatch : BytecodePatch(
-    listOf(
-        MinimizedPlayerFingerprint
-    )
+    listOf(MinimizedPlayerFingerprint)
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
 

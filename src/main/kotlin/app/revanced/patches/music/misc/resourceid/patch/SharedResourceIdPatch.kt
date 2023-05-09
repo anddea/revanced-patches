@@ -18,13 +18,15 @@ import app.revanced.util.enum.ResourceType.*
 @Version("0.0.1")
 class SharedResourceIdPatch : ResourcePatch {
     internal companion object {
-        var colorGreyLabelId: Long = -1
-        var dialogSolidLabelId: Long = -1
-        var disabledIconLabelId: Long = -1
-        var isTabletLabelId: Long = -1
-        var notifierShelfLabelId: Long = -1
-        var qualityAutoLabelId: Long = -1
-        var qualityTitleLabelId: Long = -1
+        var chipCloudId: Long = -1
+        var colorGreyId: Long = -1
+        var dialogSolidId: Long = -1
+        var disabledIconId: Long = -1
+        var isTabletId: Long = -1
+        var notifierShelfId: Long = -1
+        var privacyTosFooterId: Long = -1
+        var qualityAutoId: Long = -1
+        var qualityTitleId: Long = -1
     }
 
     override fun execute(context: ResourceContext): PatchResult {
@@ -33,13 +35,15 @@ class SharedResourceIdPatch : ResourcePatch {
             .resourceMappings
             .single { it.type == type.value && it.name == name }.id
 
-        colorGreyLabelId = find(COLOR, "ytm_color_grey_12")
-        dialogSolidLabelId = find(STYLE, "Theme.YouTubeMusic.Dialog.Solid")
-        disabledIconLabelId = find(DIMEN, "disabled_icon_alpha")
-        isTabletLabelId = find(BOOL, "is_tablet")
-        notifierShelfLabelId = find(LAYOUT, "music_notifier_shelf")
-        qualityAutoLabelId = find(STRING, "quality_auto")
-        qualityTitleLabelId = find(STRING, "quality_title")
+        chipCloudId = find(LAYOUT, "chip_cloud")
+        colorGreyId = find(COLOR, "ytm_color_grey_12")
+        dialogSolidId = find(STYLE, "Theme.YouTubeMusic.Dialog.Solid")
+        disabledIconId = find(DIMEN, "disabled_icon_alpha")
+        isTabletId = find(BOOL, "is_tablet")
+        notifierShelfId = find(LAYOUT, "music_notifier_shelf")
+        privacyTosFooterId = find(ID, "privacy_tos_footer")
+        qualityAutoId = find(STRING, "quality_auto")
+        qualityTitleId = find(STRING, "quality_title")
 
         return PatchResultSuccess()
     }

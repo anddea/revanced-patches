@@ -30,9 +30,10 @@ class MusicSettingsBytecodePatch : BytecodePatch(
     override fun execute(context: BytecodeContext): PatchResult {
 
         SettingsHeadersFragmentFingerprint.result?.let {
-            with(it.mutableMethod) {
+            it.mutableMethod.apply {
                 val targetIndex = it.scanResult.patternScanResult!!.endIndex
-                val targetRegister = (instruction(targetIndex) as OneRegisterInstruction).registerA
+                val targetRegister = instruction<OneRegisterInstruction>(targetIndex).registerA
+
                 addInstruction(
                     targetIndex + 1,
                     "invoke-static {v$targetRegister}, $INTEGRATIONS_CLASS_DESCRIPTOR->setActivity(Ljava/lang/Object;)V"
@@ -41,10 +42,11 @@ class MusicSettingsBytecodePatch : BytecodePatch(
         } ?: return SettingsHeadersFragmentFingerprint.toErrorResult()
 
         PreferenceFingerprint.result?.let {
-            with(it.mutableMethod) {
+            it.mutableMethod.apply {
                 val targetIndex = it.scanResult.patternScanResult!!.endIndex
-                val keyRegister = (instruction(targetIndex) as FiveRegisterInstruction).registerD
-                val valueRegister = (instruction(targetIndex) as FiveRegisterInstruction).registerE
+                val keyRegister = instruction<FiveRegisterInstruction>(targetIndex).registerD
+                val valueRegister = instruction<FiveRegisterInstruction>(targetIndex).registerE
+
                 addInstruction(
                     targetIndex,
                     "invoke-static {v$keyRegister, v$valueRegister}, $INTEGRATIONS_CLASS_DESCRIPTOR->onPreferenceChanged(Ljava/lang/String;Z)V"

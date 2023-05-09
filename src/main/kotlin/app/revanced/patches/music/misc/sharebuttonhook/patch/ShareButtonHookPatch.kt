@@ -45,7 +45,7 @@ class ShareButtonHookPatch : BytecodePatch(
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
         SharePanelFingerprint.result?.let {
-            with (it.mutableMethod) {
+            it.mutableMethod.apply {
                 val targetIndex = it.scanResult.patternScanResult!!.startIndex
 
                 addInstructions(

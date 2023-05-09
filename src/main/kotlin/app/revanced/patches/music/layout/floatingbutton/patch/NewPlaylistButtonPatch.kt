@@ -33,9 +33,7 @@ import app.revanced.util.integrations.Constants.MUSIC_LAYOUT
 @YouTubeMusicCompatibility
 @Version("0.0.1")
 class NewPlaylistButtonPatch : BytecodePatch(
-    listOf(
-        FloatingButtonParentFingerprint
-    )
+    listOf(FloatingButtonParentFingerprint)
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
 

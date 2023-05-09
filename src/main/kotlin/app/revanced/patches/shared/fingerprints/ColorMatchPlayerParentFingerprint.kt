@@ -5,7 +5,7 @@ import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 
-object MiniplayerColorParentFingerprint : MethodFingerprint(
+object ColorMatchPlayerParentFingerprint : MethodFingerprint(
     returnType = "V",
     access = AccessFlags.PRIVATE or AccessFlags.FINAL,
     opcodes = listOf(

@@ -19,9 +19,7 @@ import app.revanced.patches.shared.annotation.YouTubeMusicCompatibility
 @YouTubeMusicCompatibility
 @Version("0.0.1")
 class MinimizedPlaybackPatch : BytecodePatch(
-    listOf(
-        MinimizedPlaybackManagerFingerprint
-    )
+    listOf(MinimizedPlaybackManagerFingerprint)
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
 

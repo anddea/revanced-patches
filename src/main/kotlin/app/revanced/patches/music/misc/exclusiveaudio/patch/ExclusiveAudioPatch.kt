@@ -20,9 +20,7 @@ import app.revanced.patches.shared.annotation.YouTubeMusicCompatibility
 @YouTubeMusicCompatibility
 @Version("0.0.1")
 class ExclusiveAudioPatch : BytecodePatch(
-    listOf(
-        AudioOnlyEnablerFingerprint
-    )
+    listOf(AudioOnlyEnablerFingerprint)
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
 

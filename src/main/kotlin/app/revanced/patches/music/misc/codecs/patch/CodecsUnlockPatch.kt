@@ -38,28 +38,26 @@ class CodecsUnlockPatch : BytecodePatch(
     override fun execute(context: BytecodeContext): PatchResult {
 
         AllCodecsParentFingerprint.result?.let { parentResult ->
-            AllCodecsFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.let { result ->
-                allCodecsMethod =
-                context.toMethodWalker(result.method)
-                    .nextMethod(result.scanResult.patternScanResult!!.endIndex)
+            AllCodecsFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.let {
+                allCodecsMethod = context.toMethodWalker(it.method)
+                    .nextMethod(it.scanResult.patternScanResult!!.endIndex)
                     .getMethod()
 
             } ?: return AllCodecsFingerprint.toErrorResult()
         } ?: return AllCodecsParentFingerprint.toErrorResult()
 
-        CodecsLockFingerprint.result?.let { result ->
-            val endIndex = result.scanResult.patternScanResult!!.endIndex
-
-            with(result.mutableMethod) {
-                val register = (instruction(endIndex) as OneRegisterInstruction).registerA
+        CodecsLockFingerprint.result?.let {
+            it.mutableMethod.apply {
+                val targetIndex = it.scanResult.patternScanResult!!.endIndex
+                val targetRegister = instruction<OneRegisterInstruction>(targetIndex).registerA
                 addInstructions(
-                    endIndex + 1, """
+                    targetIndex + 1, """
                         invoke-static {}, $MUSIC_MISC_PATH/OpusCodecPatch;->enableOpusCodec()Z
                         move-result v7
                         if-eqz v7, :mp4a
                         invoke-static {}, ${allCodecsMethod.definingClass}->${allCodecsMethod.name}()Ljava/util/Set;
-                        move-result-object v$register
-                    """, listOf(ExternalLabel("mp4a", instruction(endIndex + 1)))
+                        move-result-object v$targetRegister
+                    """, listOf(ExternalLabel("mp4a", instruction(targetIndex + 1)))
                 )
             }
         } ?: return CodecsLockFingerprint.toErrorResult()
