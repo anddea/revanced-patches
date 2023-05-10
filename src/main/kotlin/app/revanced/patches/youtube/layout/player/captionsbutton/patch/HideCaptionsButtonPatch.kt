@@ -24,14 +24,12 @@ import org.jf.dexlib2.Opcode
 @YouTubeCompatibility
 @Version("0.0.1")
 class HideCaptionsButtonBytecodePatch : BytecodePatch(
-    listOf(
-        SubtitleButtonControllerFingerprint
-    )
+    listOf(SubtitleButtonControllerFingerprint)
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
 
         SubtitleButtonControllerFingerprint.result?.mutableMethod?.let {
-            with (it.implementation!!.instructions) {
+            it.implementation!!.instructions.apply {
                 for ((index, instruction) in this.withIndex()) {
                     if (instruction.opcode != Opcode.IGET_BOOLEAN) continue
 
@@ -45,7 +43,7 @@ class HideCaptionsButtonBytecodePatch : BytecodePatch(
             }
         } ?: return SubtitleButtonControllerFingerprint.toErrorResult()
 
-        /*
+        /**
          * Add settings
          */
         SettingsPatch.addPreference(

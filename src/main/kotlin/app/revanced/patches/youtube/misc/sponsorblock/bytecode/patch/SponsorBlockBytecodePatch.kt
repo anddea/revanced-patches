@@ -5,6 +5,7 @@ import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.addInstruction
+import app.revanced.patcher.extensions.instruction
 import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
@@ -55,7 +56,7 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         /**
          * Hook the video time methods
          */
-        with(MainstreamVideoIdPatch) {
+        MainstreamVideoIdPatch.apply {
             videoTimeHook(
                 INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR,
                 "setVideoTime"
@@ -89,7 +90,7 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         for ((index, instruction) in insertInstructions.withIndex()) {
             if (instruction.opcode != Opcode.INVOKE_STATIC) continue
 
-            val invokeInstruction = instruction as Instruction35c
+            val invokeInstruction = insertMethod.instruction<Instruction35c>(index)
             if ((invokeInstruction.reference as MethodReference).name != "round") continue
 
             val insertIndex = index + 2
@@ -132,9 +133,9 @@ class SponsorBlockBytecodePatch : BytecodePatch(
 
             val drawSegmentInstructionInsertIndex = index - 1
 
-            val (canvasInstance, centerY) = (insertInstructions[drawSegmentInstructionInsertIndex] as FiveRegisterInstruction).let {
-                it.registerC to it.registerE
-            }
+            val (canvasInstance, centerY) =
+                insertMethod.instruction<FiveRegisterInstruction>(drawSegmentInstructionInsertIndex).let { it.registerC to it.registerE }
+
             insertMethod.addInstruction(
                 drawSegmentInstructionInsertIndex,
                 "invoke-static {v$canvasInstance, v$centerY}, $INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR->drawSponsorTimeBars(Landroid/graphics/Canvas;F)V"
@@ -166,7 +167,7 @@ class SponsorBlockBytecodePatch : BytecodePatch(
 
             for ((index, instruction) in instructions.withIndex()) {
                 if (instruction.opcode != Opcode.CONST_STRING) continue
-                val register = (instruction as OneRegisterInstruction).registerA
+                val register = it.instruction<OneRegisterInstruction>(index).registerA
                 it.replaceInstruction(
                     index,
                     "const-string v$register, \"${MainstreamVideoIdPatch.reactReference}\""

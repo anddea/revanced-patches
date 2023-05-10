@@ -76,7 +76,7 @@ class HeaderSwitchPatch : BytecodePatch() {
         val errorIndex: Int = patchSuccessArray.indexOf(false)
 
         if (errorIndex == -1) {
-            /*
+            /**
              * Add settings
              */
             SettingsPatch.addPreference(

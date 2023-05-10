@@ -9,40 +9,32 @@ import app.revanced.patcher.extensions.instruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
-import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.youtube.layout.shorts.shortscomponent.fingerprints.ShortsPaidContentFingerprint
-import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch
+import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch.Companion.reelPlayerBadge2Id
+import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch.Companion.reelPlayerBadgeId
+import app.revanced.util.bytecode.getWideLiteralIndex
 import app.revanced.util.integrations.Constants.SHORTS
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
-import org.jf.dexlib2.iface.instruction.WideLiteralInstruction
 
 @Name("hide-shorts-paid-content")
-@DependsOn([SharedResourceIdPatch::class])
 @YouTubeCompatibility
 @Version("0.0.1")
 class ShortsPaidContentBannerPatch : BytecodePatch(
     listOf(ShortsPaidContentFingerprint)
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
-        ShortsPaidContentFingerprint.result?.mutableMethod?.let { method ->
-            with (method.implementation!!.instructions) {
-                val primaryIndex = this.indexOfFirst {
-                    (it as? WideLiteralInstruction)?.wideLiteral == SharedResourceIdPatch.reelPlayerBadgeLabelId
-                } + 3
+        ShortsPaidContentFingerprint.result?.mutableMethod?.let {
+            val primaryIndex = it.getWideLiteralIndex(reelPlayerBadgeId) + 3
+            val secondaryIndex = it.getWideLiteralIndex(reelPlayerBadge2Id) + 3
 
-                val secondaryIndex = this.indexOfFirst {
-                    (it as? WideLiteralInstruction)?.wideLiteral == SharedResourceIdPatch.reelPlayerBadge2LabelId
-                } + 3
-
-                if (primaryIndex > secondaryIndex) {
-                    method.insertHook(primaryIndex)
-                    method.insertHook(secondaryIndex)
-                } else {
-                    method.insertHook(secondaryIndex)
-                    method.insertHook(primaryIndex)
-                }
+            if (primaryIndex > secondaryIndex) {
+                it.insertHook(primaryIndex)
+                it.insertHook(secondaryIndex)
+            } else {
+                it.insertHook(secondaryIndex)
+                it.insertHook(primaryIndex)
             }
         } ?: return ShortsPaidContentFingerprint.toErrorResult()
 
@@ -50,12 +42,13 @@ class ShortsPaidContentBannerPatch : BytecodePatch(
     }
     private companion object {
         fun MutableMethod.insertHook(insertIndex: Int) {
-            val insertRegister = (instruction(insertIndex) as OneRegisterInstruction).registerA
+            val insertRegister = instruction<OneRegisterInstruction>(insertIndex).registerA
+
             addInstructions(
                 insertIndex + 1, """
                     invoke-static {v$insertRegister}, $SHORTS->hideShortsPlayerPaidContent(Landroid/view/ViewStub;)Landroid/view/ViewStub;
                     move-result-object v$insertRegister
-                """
+                    """
             )
         }
     }

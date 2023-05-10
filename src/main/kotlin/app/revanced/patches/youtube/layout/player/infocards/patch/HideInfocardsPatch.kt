@@ -40,7 +40,7 @@ class HideInfocardsPatch : BytecodePatch(
             ) ?: return InfocardsIncognitoFingerprint.toErrorResult()
         } ?: return InfocardsIncognitoParentFingerprint.toErrorResult()
 
-        /*
+        /**
          * Add settings
          */
         SettingsPatch.addPreference(

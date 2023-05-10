@@ -9,8 +9,6 @@ object SpeedClassFingerprint : MethodFingerprint(
     returnType = "L",
     access = AccessFlags.PUBLIC or AccessFlags.STATIC,
     parameters = listOf("L"),
-    opcodes = listOf(
-      Opcode.RETURN_OBJECT
-    ),
+    opcodes = listOf(Opcode.RETURN_OBJECT),
     strings = listOf("PLAYBACK_RATE_MENU_BOTTOM_SHEET_FRAGMENT")
 )

@@ -5,6 +5,7 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
+import app.revanced.patcher.extensions.instruction
 import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
@@ -12,8 +13,7 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
-import app.revanced.patches.youtube.misc.openlinksdirectly.fingerprints.OpenLinksDirectlyFingerprintPrimary
-import app.revanced.patches.youtube.misc.openlinksdirectly.fingerprints.OpenLinksDirectlyFingerprintSecondary
+import app.revanced.patches.youtube.misc.openlinksdirectly.fingerprints.*
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
 import app.revanced.util.integrations.Constants.MISC_PATH
 import org.jf.dexlib2.iface.instruction.formats.Instruction35c
@@ -38,8 +38,8 @@ class OpenLinksDirectlyPatch : BytecodePatch(
         ).forEach {
             val result = it.result?: return it.toErrorResult()
             val insertIndex = result.scanResult.patternScanResult!!.startIndex
-            with (result.mutableMethod) {
-                val register = (implementation!!.instructions[insertIndex] as Instruction35c).registerC
+            result.mutableMethod.apply {
+                val register = instruction<Instruction35c>(insertIndex).registerC
                 replaceInstruction(
                     insertIndex,
                         "invoke-static {v$register}, $MISC_PATH/OpenLinksDirectlyPatch;->enableBypassRedirect(Ljava/lang/String;)Landroid/net/Uri;"
@@ -47,7 +47,7 @@ class OpenLinksDirectlyPatch : BytecodePatch(
             }
         }
 
-        /*
+        /**
          * Add settings
          */
         SettingsPatch.addPreference(

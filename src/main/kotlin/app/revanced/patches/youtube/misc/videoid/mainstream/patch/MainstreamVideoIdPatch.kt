@@ -139,7 +139,6 @@ class MainstreamVideoIdPatch : BytecodePatch(
             }
         }
 
-
         MainstreamVideoIdFingerprint.result?.let {
             insertIndex = it.scanResult.patternScanResult!!.endIndex
 

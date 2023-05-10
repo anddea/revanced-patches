@@ -72,16 +72,15 @@ class ReturnYouTubeDislikePatch : BytecodePatch(
                 with (it.mutableMethod) {
                     val conversionContextIndex = it.scanResult.patternScanResult!!.startIndex
                     conversionContextFieldReference =
-                        (instruction(conversionContextIndex) as ReferenceInstruction).reference
+                        instruction<ReferenceInstruction>(conversionContextIndex).reference
                 }
             } ?: return TextComponentContextFingerprint.toErrorResult()
 
             TextComponentTmpFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.let {
-                with (it.mutableMethod) {
+                it.mutableMethod.apply {
                     val startIndex = it.scanResult.patternScanResult!!.startIndex
                     tmpRegister =
-                        (instruction(startIndex) as FiveRegisterInstruction).registerE
-
+                        instruction<FiveRegisterInstruction>(startIndex).registerE
                 }
             } ?: return TextComponentTmpFingerprint.toErrorResult()
 
@@ -90,10 +89,10 @@ class ReturnYouTubeDislikePatch : BytecodePatch(
                 with (it.mutableMethod) {
                     val atomicReferenceStartIndex = it.scanResult.patternScanResult!!.startIndex
                     val insertIndex = it.scanResult.patternScanResult!!.endIndex
-                    val moveCharSequenceInstruction = instruction(insertIndex) as TwoRegisterInstruction
+                    val moveCharSequenceInstruction = instruction<TwoRegisterInstruction>(insertIndex)
 
                     val atomicReferenceRegister =
-                        (instruction(atomicReferenceStartIndex) as FiveRegisterInstruction).registerC
+                        instruction<FiveRegisterInstruction>(atomicReferenceStartIndex).registerC
 
                     val charSequenceRegister =
                         moveCharSequenceInstruction.registerB
@@ -114,7 +113,7 @@ class ReturnYouTubeDislikePatch : BytecodePatch(
 
         MainstreamVideoIdPatch.injectCall("$INTEGRATIONS_RYD_CLASS_DESCRIPTOR->newVideoLoaded(Ljava/lang/String;)V")
 
-        /*
+        /**
          * Add ReVanced Settings
          */
         SettingsPatch.addReVancedPreference("ryd_settings")

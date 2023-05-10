@@ -25,9 +25,7 @@ import app.revanced.util.integrations.Constants.GENERAL
 @YouTubeCompatibility
 @Version("0.0.1")
 class HideSnackBarPatch : BytecodePatch(
-    listOf(
-        HideSnackBarFingerprint
-    )
+    listOf(HideSnackBarFingerprint)
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
 
@@ -42,7 +40,7 @@ class HideSnackBarPatch : BytecodePatch(
             )
         } ?: return HideSnackBarFingerprint.toErrorResult()
 
-        /*
+        /**
          * Add settings
          */
         SettingsPatch.addPreference(

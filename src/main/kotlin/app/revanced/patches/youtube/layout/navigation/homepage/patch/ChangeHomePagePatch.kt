@@ -43,8 +43,9 @@ class ChangeHomePagePatch : BytecodePatch(
         } ?: return LauncherActivityFingerprint.toErrorResult()
 
         IntentExceptionFingerprint.result?.let {
-            with (it.mutableMethod) {
+            it.mutableMethod.apply {
                 val index = it.scanResult.patternScanResult!!.endIndex + 1
+
                 addInstructions(
                     index, """
                     invoke-static {}, $NAVIGATION->changeHomePage()Z
@@ -56,7 +57,7 @@ class ChangeHomePagePatch : BytecodePatch(
             }
         } ?: return IntentExceptionFingerprint.toErrorResult()
 
-        /*
+        /**
          * Add settings
          */
         SettingsPatch.addPreference(

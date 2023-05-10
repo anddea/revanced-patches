@@ -31,15 +31,13 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 @YouTubeCompatibility
 @Version("0.0.1")
 class LoadMoreButtonPatch : BytecodePatch(
-    listOf(
-        LoadMoreButtonFingerprint,
-    )
+    listOf(LoadMoreButtonFingerprint,)
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
         LoadMoreButtonFingerprint.result?.let {
             it.mutableMethod.apply {
                 val targetIndex = it.scanResult.patternScanResult!!.endIndex
-                val targetRegister = (instruction(targetIndex) as OneRegisterInstruction).registerA
+                val targetRegister = instruction<OneRegisterInstruction>(targetIndex).registerA
                 addInstruction(
                     targetIndex + 1,
                     "invoke-static {v$targetRegister}, $GENERAL->hideLoadMoreButton(Landroid/view/View;)V"

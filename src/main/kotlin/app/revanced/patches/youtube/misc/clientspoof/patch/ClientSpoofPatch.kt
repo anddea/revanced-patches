@@ -26,10 +26,9 @@ class ClientSpoofPatch : BytecodePatch(
     override fun execute(context: BytecodeContext): PatchResult {
 
         UserAgentHeaderBuilderFingerprint.result?.let {
-            val insertIndex = it.scanResult.patternScanResult!!.endIndex
-
-            with (it.mutableMethod) {
-                val packageNameRegister = (instruction(insertIndex) as FiveRegisterInstruction).registerD
+            it.mutableMethod.apply {
+                val insertIndex = it.scanResult.patternScanResult!!.endIndex
+                val packageNameRegister = instruction<FiveRegisterInstruction>(insertIndex).registerD
                 addInstruction(insertIndex, "const-string v$packageNameRegister, \"$PACKAGE_NAME\"")
             }
         } ?: return UserAgentHeaderBuilderFingerprint.toErrorResult()

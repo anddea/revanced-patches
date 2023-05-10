@@ -18,9 +18,7 @@ import app.revanced.util.integrations.Constants.UTILS_PATH
 @YouTubeCompatibility
 @Version("0.0.1")
 class PlayerOverlaysHookPatch : BytecodePatch(
-    listOf(
-        PlayerOverlaysOnFinishInflateFingerprint
-    )
+    listOf(PlayerOverlaysOnFinishInflateFingerprint)
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
         // hook YouTubePlayerOverlaysLayout.onFinishInflate()

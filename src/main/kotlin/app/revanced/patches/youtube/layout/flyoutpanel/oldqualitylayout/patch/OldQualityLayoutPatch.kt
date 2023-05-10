@@ -38,9 +38,10 @@ class OldQualityLayoutPatch : BytecodePatch(
     override fun execute(context: BytecodeContext): PatchResult {
 
         QualityMenuViewInflateFingerprint.result?.let {
-            with (it.mutableMethod) {
+            it.mutableMethod.apply {
                 val endIndex = it.scanResult.patternScanResult!!.endIndex
-                val register = (instruction(endIndex) as OneRegisterInstruction).registerA
+                val register = instruction<OneRegisterInstruction>(endIndex).registerA
+
                 addInstruction(
                     endIndex + 1,
                     "invoke-static { v$register }, $FLYOUT_PANEL->enableOldQualityMenu(Landroid/widget/ListView;)V"
@@ -48,7 +49,7 @@ class OldQualityLayoutPatch : BytecodePatch(
             }
         } ?: return QualityMenuViewInflateFingerprint.toErrorResult()
 
-        /*
+        /**
          * Add settings
          */
         SettingsPatch.addPreference(

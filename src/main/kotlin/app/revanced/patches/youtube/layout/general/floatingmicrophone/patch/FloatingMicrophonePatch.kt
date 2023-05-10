@@ -31,16 +31,14 @@ import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
 @YouTubeCompatibility
 @Version("0.0.1")
 class FloatingMicrophonePatch : BytecodePatch(
-    listOf(
-        FloatingMicrophoneFingerprint
-    )
+    listOf(FloatingMicrophoneFingerprint)
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
 
         FloatingMicrophoneFingerprint.result?.let {
-            with (it.mutableMethod) {
+            it.mutableMethod.apply {
                 val insertIndex = it.scanResult.patternScanResult!!.startIndex
-                val register = (instruction(insertIndex) as TwoRegisterInstruction).registerA
+                val register = instruction<TwoRegisterInstruction>(insertIndex).registerA
 
                 addInstructions(
                     insertIndex + 1, """

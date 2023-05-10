@@ -15,6 +15,7 @@ import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.youtube.layout.player.playerbuttonbg.fingerprints.HidePlayerButtonFingerprint
 import app.revanced.patches.youtube.misc.playerbutton.patch.PlayerButtonPatch
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
+import app.revanced.util.integrations.Constants.INTEGRATIONS_PATH
 
 @Patch
 @Name("hide-player-button-background")
@@ -28,18 +29,16 @@ import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
 @YouTubeCompatibility
 @Version("0.0.1")
 class HidePlayerButtonBackgroundPatch : BytecodePatch(
-    listOf(
-        HidePlayerButtonFingerprint
-    )
+    listOf(HidePlayerButtonFingerprint)
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
 
         HidePlayerButtonFingerprint.result?.mutableMethod?.addInstruction(
             0,
-            "invoke-static { p0 }, Lapp/revanced/integrations/utils/ResourceHelper;->hidePlayerButtonBackground(Landroid/view/View;)V"
+            "invoke-static { p0 }, $INTEGRATIONS_PATH/utils/ResourceHelper;->hidePlayerButtonBackground(Landroid/view/View;)V"
         ) ?: return HidePlayerButtonFingerprint.toErrorResult()
 
-        /*
+        /**
          * Add settings
          */
         SettingsPatch.addPreference(

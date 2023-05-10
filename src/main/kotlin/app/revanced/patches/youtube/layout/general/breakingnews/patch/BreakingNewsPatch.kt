@@ -39,7 +39,7 @@ class BreakingNewsPatch : BytecodePatch(
         BreakingNewsFingerprint.result?.let {
             it.mutableMethod.apply {
                 val targetIndex = it.scanResult.patternScanResult!!.endIndex
-                val targetRegister = (instruction(targetIndex) as OneRegisterInstruction).registerA
+                val targetRegister = instruction<OneRegisterInstruction>(targetIndex).registerA
                 addInstruction(
                     targetIndex + 1,
                     "invoke-static {v$targetRegister}, $GENERAL->hideBreakingNewsShelf(Landroid/view/View;)V"

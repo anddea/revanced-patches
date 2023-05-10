@@ -15,7 +15,5 @@ object RepeatListenerFingerprint : MethodFingerprint(
         Opcode.CHECK_CAST,
         Opcode.CONST_WIDE_32
     ),
-    strings = listOf(
-        "ppoobsa"
-    )
+    strings = listOf("ppoobsa")
 )

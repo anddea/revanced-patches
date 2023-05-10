@@ -40,7 +40,7 @@ class TabletNavigationBarPatch : BytecodePatch(
             it.result?.insertHook() ?: return it.toErrorResult()
         }
         
-        /*
+        /**
          * Add settings
          */
         SettingsPatch.addPreference(
@@ -57,7 +57,7 @@ class TabletNavigationBarPatch : BytecodePatch(
     companion object {
         private fun MethodFingerprintResult.insertHook() {
             val targetIndex = this.scanResult.patternScanResult!!.startIndex + 1
-            val register = (mutableMethod.instruction(targetIndex) as OneRegisterInstruction).registerA
+            val register = mutableMethod.instruction<OneRegisterInstruction>(targetIndex).registerA
 
             mutableMethod.addInstructions(
                 targetIndex + 1, """

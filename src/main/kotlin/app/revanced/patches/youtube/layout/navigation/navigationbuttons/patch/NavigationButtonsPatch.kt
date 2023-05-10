@@ -92,13 +92,13 @@ class NavigationButtonsPatch : BytecodePatch(
 
         } ?: return PivotBarCreateButtonViewFingerprint.toErrorResult()
 
-        /*
+        /**
          * Switch create button with notifications button
          */
         AutoMotiveFingerprint.result?.let {
-            with (it.mutableMethod) {
+            it.mutableMethod.apply {
                 val insertIndex = it.scanResult.patternScanResult!!.endIndex
-                val register = (instruction(insertIndex) as OneRegisterInstruction).registerA
+                val register = instruction<OneRegisterInstruction>(insertIndex).registerA
 
                 addInstructions(
                     insertIndex, """

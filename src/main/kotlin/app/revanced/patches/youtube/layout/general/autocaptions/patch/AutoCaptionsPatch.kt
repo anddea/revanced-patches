@@ -49,9 +49,9 @@ class AutoCaptionsPatch : BytecodePatch(
                 addInstructions(
                     0,
                     """
-                    const/4 v0, ${status.value}
-                    sput-boolean v0, $GENERAL->captionsButtonStatus:Z
-                    """
+                        const/4 v0, ${status.value}
+                        sput-boolean v0, $GENERAL->captionsButtonStatus:Z
+                        """
                 )
             }
         }
@@ -66,11 +66,11 @@ class AutoCaptionsPatch : BytecodePatch(
                     if-nez v0, :auto_captions_shown
                     const/4 v0, 0x1
                     return v0
-                """, listOf(ExternalLabel("auto_captions_shown", it.instruction(0)))
+                    """, listOf(ExternalLabel("auto_captions_shown", it.instruction(0)))
             )
         } ?: return SubtitleTrackFingerprint.toErrorResult()
 
-        /*
+        /**
          * Add settings
          */
         SettingsPatch.addPreference(

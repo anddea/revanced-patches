@@ -30,25 +30,25 @@ class DoubleBackToClosePatch : BytecodePatch(
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
 
-        /*
-        Hook onBackPressed method inside WatchWhileActivity
+        /**
+         * Hook onBackPressed method inside WatchWhileActivity
          */
         OnBackPressedFingerprint.result?.let {
-            val insertIndex = it.scanResult.patternScanResult!!.endIndex
+            it.mutableMethod.apply {
+                val insertIndex = it.scanResult.patternScanResult!!.endIndex
 
-            with(it.mutableMethod) {
                 addInstruction(
                     insertIndex,
                     "invoke-static {p0}, $INTEGRATIONS_CLASS_DESCRIPTOR" +
-                    "->" +
-                    "closeActivityOnBackPressed(Landroid/app/Activity;)V"
+                            "->" +
+                            "closeActivityOnBackPressed(Landroid/app/Activity;)V"
                 )
             }
         } ?: return OnBackPressedFingerprint.toErrorResult()
 
 
-        /*
-        Inject the methods which start of ScrollView
+        /**
+         * Inject the methods which start of ScrollView
          */
         ScrollPositionFingerprint.result?.let {
             val insertMethod = context.toMethodWalker(it.method)
@@ -57,19 +57,18 @@ class DoubleBackToClosePatch : BytecodePatch(
 
             val insertIndex = insertMethod.implementation!!.instructions.size - 1 - 1
 
-            injectScrollView(insertMethod, insertIndex, "onStartScrollView")
+            insertMethod.injectScrollView(insertIndex, "onStartScrollView")
         } ?: return ScrollPositionFingerprint.toErrorResult()
 
 
-        /*
-        Inject the methods which stop of ScrollView
+        /**Inject the methods which stop of ScrollView
          */
         ScrollTopParentFingerprint.result?.let { parentResult ->
             ScrollTopFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.let {
                 val insertMethod = it.mutableMethod
                 val insertIndex = it.scanResult.patternScanResult!!.endIndex
 
-                injectScrollView(insertMethod, insertIndex, "onStopScrollView")
+                insertMethod.injectScrollView(insertIndex, "onStopScrollView")
             } ?: return ScrollTopFingerprint.toErrorResult()
         } ?: return ScrollTopParentFingerprint.toErrorResult()
 
@@ -80,12 +79,11 @@ class DoubleBackToClosePatch : BytecodePatch(
         const val INTEGRATIONS_CLASS_DESCRIPTOR =
             "$UTILS_PATH/DoubleBackToClosePatch;"
 
-        fun injectScrollView(
-            method: MutableMethod,
+        fun MutableMethod.injectScrollView(
             index: Int,
             descriptor: String
         ) {
-            method.addInstruction(
+            addInstruction(
                 index,
                 "invoke-static {}, $INTEGRATIONS_CLASS_DESCRIPTOR->$descriptor()V"
             )

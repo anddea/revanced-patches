@@ -48,9 +48,9 @@ class CategoryBarPatch : BytecodePatch(
          * Home feed and subscriptions feed
          */
         FilterBarHeightFingerprint.result?.let {
-            with (it.mutableMethod) {
+            it.mutableMethod.apply {
                 val insertIndex = it.scanResult.patternScanResult!!.endIndex
-                val register = (instruction(insertIndex) as TwoRegisterInstruction).registerA
+                val register = instruction<TwoRegisterInstruction>(insertIndex).registerA
 
                 addInstructions(
                     insertIndex, """
@@ -65,9 +65,9 @@ class CategoryBarPatch : BytecodePatch(
          * Category Bar in related video
          */
         RelatedChipCloudFingerprint.result?.let {
-            with (it.mutableMethod) {
+            it.mutableMethod.apply {
                 val insertIndex = it.scanResult.patternScanResult!!.endIndex
-                val register = (instruction(insertIndex) as OneRegisterInstruction).registerA
+                val register = instruction<OneRegisterInstruction>(insertIndex).registerA
 
                 addInstruction(
                     insertIndex + 1,
@@ -80,9 +80,9 @@ class CategoryBarPatch : BytecodePatch(
          * Category Bar in search results
          */
         SearchResultsChipBarFingerprint.result?.let {
-            with (it.mutableMethod) {
+            it.mutableMethod.apply {
                 val targetIndex = it.scanResult.patternScanResult!!.endIndex - 2
-                val register = (instruction(targetIndex) as OneRegisterInstruction).registerA
+                val register = instruction<OneRegisterInstruction>(targetIndex).registerA
 
                 addInstructions(
                     targetIndex + 1, """
@@ -93,7 +93,7 @@ class CategoryBarPatch : BytecodePatch(
             }
         } ?: return SearchResultsChipBarFingerprint.toErrorResult()
 
-        /*
+        /**
          * Add settings
          */
         SettingsPatch.addPreference(

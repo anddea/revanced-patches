@@ -26,19 +26,17 @@ import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 @YouTubeCompatibility
 @Version("0.0.1")
 class NavigationLabelPatch : BytecodePatch(
-    listOf(
-        PivotBarSetTextFingerprint
-    )
+    listOf(PivotBarSetTextFingerprint)
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
 
         PivotBarSetTextFingerprint.result?.let {
-            with (it.mutableMethod) {
+            it.mutableMethod.apply {
                 val targetIndex = it.scanResult.patternScanResult!!.endIndex - 2
-                val targetReference = (instruction(targetIndex) as ReferenceInstruction).reference.toString()
+                val targetReference = instruction<ReferenceInstruction>(targetIndex).reference.toString()
                 if (targetReference != "Landroid/widget/TextView;")
                     return PivotBarSetTextFingerprint.toErrorResult()
-                val targetRegister = (instruction(targetIndex) as OneRegisterInstruction).registerA
+                val targetRegister = instruction<OneRegisterInstruction>(targetIndex).registerA
                 addInstruction(
                     targetIndex + 1,
                     "invoke-static {v$targetRegister}, $NAVIGATION->hideNavigationLabel(Landroid/widget/TextView;)V"

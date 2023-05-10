@@ -14,6 +14,7 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.youtube.ads.general.bytecode.patch.GeneralAdsBytecodePatch
 import app.revanced.patches.youtube.ads.getpremium.patch.HideGetPremiumPatch
+import app.revanced.patches.youtube.misc.litho.patch.ByteBufferFilterPatch
 import app.revanced.patches.youtube.misc.litho.patch.LithoFilterPatch
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
 import org.w3c.dom.Element
@@ -23,9 +24,9 @@ import org.w3c.dom.Element
 @Description("Removes general ads.")
 @DependsOn(
     [
-        HideGetPremiumPatch::class,
+        ByteBufferFilterPatch::class,
         GeneralAdsBytecodePatch::class,
-        LithoFilterPatch::class,
+        HideGetPremiumPatch::class,
         SettingsPatch::class
     ]
 )

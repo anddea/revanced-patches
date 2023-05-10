@@ -6,26 +6,24 @@ import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.instruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
-import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
-import app.revanced.patches.youtube.layout.shorts.shortscomponent.fingerprints.ShortsSubscriptionsFingerprint
-import app.revanced.patches.youtube.layout.shorts.shortscomponent.fingerprints.ShortsSubscriptionsTabletFingerprint
-import app.revanced.patches.youtube.layout.shorts.shortscomponent.fingerprints.ShortsSubscriptionsTabletParentFingerprint
-import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch
+import app.revanced.patches.youtube.layout.shorts.shortscomponent.fingerprints.*
+import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch.Companion.reelPlayerFooterId
+import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch.Companion.reelPlayerPausedId
+import app.revanced.util.bytecode.getWideLiteralIndex
 import app.revanced.util.integrations.Constants.SHORTS
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
-import org.jf.dexlib2.iface.instruction.WideLiteralInstruction
 import org.jf.dexlib2.iface.reference.FieldReference
 
 @Name("hide-shorts-subscriptions")
-@DependsOn([SharedResourceIdPatch::class])
 @YouTubeCompatibility
 @Version("0.0.1")
 class ShortsSubscriptionsButtonPatch : BytecodePatch(
@@ -35,34 +33,28 @@ class ShortsSubscriptionsButtonPatch : BytecodePatch(
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
-        ShortsSubscriptionsFingerprint.result?.mutableMethod?.let { method ->
-            with (method.implementation!!.instructions) {
-                val insertIndex = this.indexOfFirst {
-                    (it as? WideLiteralInstruction)?.wideLiteral == SharedResourceIdPatch.reelPlayerPausedLabelId
-                } + 2
+        ShortsSubscriptionsFingerprint.result?.mutableMethod?.let {
+            val insertIndex = it.getWideLiteralIndex(reelPlayerPausedId) + 2
+            val insertRegister = it.instruction<OneRegisterInstruction>(insertIndex).registerA
 
-                val insertRegister = (elementAt(insertIndex) as OneRegisterInstruction).registerA
-
-                method.addInstruction(
-                    insertIndex + 1,
-                    "invoke-static {v$insertRegister}, $SHORTS->hideShortsPlayerSubscriptionsButton(Landroid/view/View;)V"
-                )
-            }
+            it.addInstruction(
+                insertIndex + 1,
+                "invoke-static {v$insertRegister}, $SHORTS->hideShortsPlayerSubscriptionsButton(Landroid/view/View;)V"
+            )
         } ?: return ShortsSubscriptionsFingerprint.toErrorResult()
 
         ShortsSubscriptionsTabletParentFingerprint.result?.let { parentResult ->
-            with (parentResult.mutableMethod.implementation!!.instructions) {
-                val targetIndex = this.indexOfFirst {
-                    (it as? WideLiteralInstruction)?.wideLiteral == SharedResourceIdPatch.reelPlayerFooterLabelId
-                } - 1
-                if (elementAt(targetIndex).opcode.ordinal != Opcode.IPUT.ordinal) return ShortsSubscriptionsTabletFingerprint.toErrorResult()
-                subscriptionFieldReference = (elementAt(targetIndex) as ReferenceInstruction).reference as FieldReference
+            parentResult.mutableMethod.apply {
+                val targetIndex = getWideLiteralIndex(reelPlayerFooterId) - 1
+                if (instruction(targetIndex).opcode != Opcode.IPUT) return ShortsSubscriptionsTabletFingerprint.toErrorResult()
+                subscriptionFieldReference = (instruction<ReferenceInstruction>(targetIndex)).reference as FieldReference
             }
+
             ShortsSubscriptionsTabletFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.mutableMethod?.let {
                 with (it.implementation!!.instructions) {
                     filter { instruction ->
                         val fieldReference = (instruction as? ReferenceInstruction)?.reference as? FieldReference
-                        instruction.opcode.ordinal == Opcode.IGET.ordinal && fieldReference == subscriptionFieldReference
+                        instruction.opcode == Opcode.IGET && fieldReference == subscriptionFieldReference
                     }.forEach { instruction ->
                         val insertIndex = indexOf(instruction) + 1
                         val register = (instruction as TwoRegisterInstruction).registerA

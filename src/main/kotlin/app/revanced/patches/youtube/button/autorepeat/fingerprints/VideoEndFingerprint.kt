@@ -8,5 +8,5 @@ object VideoEndFingerprint : MethodFingerprint(
     returnType = "V",
     access = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf(),
-    customFingerprint = { methodDef -> methodDef.implementation!!.instructions.count() == 3 && methodDef.annotations.isEmpty()}
+    customFingerprint = { it.implementation!!.instructions.count() == 3 && it.annotations.isEmpty()}
 )

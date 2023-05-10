@@ -25,16 +25,14 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 @YouTubeCompatibility
 @Version("0.0.1")
 class HideEmailAddressPatch : BytecodePatch(
-    listOf(
-        AccountSwitcherAccessibilityLabelFingerprint
-    )
+    listOf(AccountSwitcherAccessibilityLabelFingerprint)
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
 
         AccountSwitcherAccessibilityLabelFingerprint.result?.let {
-            with (it.mutableMethod) {
+            it.mutableMethod.apply {
                 val insertIndex = it.scanResult.patternScanResult!!.endIndex
-                val register = (instruction(insertIndex - 2) as OneRegisterInstruction).registerA
+                val register = instruction<OneRegisterInstruction>(insertIndex - 2).registerA
 
                 addInstructions(
                     insertIndex, """
@@ -45,7 +43,7 @@ class HideEmailAddressPatch : BytecodePatch(
             }
         } ?: return AccountSwitcherAccessibilityLabelFingerprint.toErrorResult()
 
-        /*
+        /**
          * Add settings
          */
         SettingsPatch.addPreference(

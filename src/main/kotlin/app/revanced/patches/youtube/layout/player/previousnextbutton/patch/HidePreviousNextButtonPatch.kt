@@ -38,7 +38,7 @@ class HidePreviousNextButtonPatch : BytecodePatch(
             ) ?: return SupportsNextPreviousFingerprint.toErrorResult()
         } ?: return ControlsOverlayStyleFingerprint.toErrorResult()
 
-        /*
+        /**
          * Add settings
          */
         SettingsPatch.addPreference(

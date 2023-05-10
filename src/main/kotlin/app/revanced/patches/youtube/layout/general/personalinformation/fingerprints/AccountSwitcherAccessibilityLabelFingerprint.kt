@@ -1,9 +1,9 @@
 package app.revanced.patches.youtube.layout.general.personalinformation.fingerprints
 
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
-import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch
+import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch.Companion.accountSwitcherAccessibilityId
+import app.revanced.util.bytecode.isWideLiteralExists
 import org.jf.dexlib2.Opcode
-import org.jf.dexlib2.iface.instruction.WideLiteralInstruction
 
 object AccountSwitcherAccessibilityLabelFingerprint : MethodFingerprint(
     opcodes = listOf(
@@ -15,10 +15,5 @@ object AccountSwitcherAccessibilityLabelFingerprint : MethodFingerprint(
         Opcode.APUT_OBJECT,
         Opcode.CONST
     ),
-    customFingerprint = { methodDef ->
-        methodDef.implementation?.instructions?.any { it ->
-            it.opcode.ordinal == Opcode.CONST.ordinal &&
-            (it as? WideLiteralInstruction)?.wideLiteral == SharedResourceIdPatch.accountSwitcherAccessibilityLabelId
-        } == true
-    }
+    customFingerprint = { it.isWideLiteralExists(accountSwitcherAccessibilityId) }
 )

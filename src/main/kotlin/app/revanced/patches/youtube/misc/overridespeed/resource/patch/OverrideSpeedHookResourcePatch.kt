@@ -15,7 +15,7 @@ import app.revanced.util.resources.ResourceUtils.copyXmlNode
 class OverrideSpeedHookResourcePatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
 
-        /*
+        /**
          * Copy arrays
          */
         context.copyXmlNode("youtube/speed/host", "values/arrays.xml", "resources")

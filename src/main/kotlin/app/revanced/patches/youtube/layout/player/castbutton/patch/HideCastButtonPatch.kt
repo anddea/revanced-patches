@@ -38,7 +38,7 @@ class HideCastButtonPatch : BytecodePatch() {
             }
         }
 
-        /*
+        /**
          * Add settings
          */
         SettingsPatch.addPreference(

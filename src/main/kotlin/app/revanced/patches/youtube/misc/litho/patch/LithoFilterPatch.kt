@@ -18,16 +18,15 @@ import app.revanced.patches.shared.fingerprints.LithoObjectFingerprint
 import app.revanced.patches.youtube.ads.doublebacktoclose.patch.DoubleBackToClosePatch
 import app.revanced.patches.youtube.ads.swiperefresh.patch.SwipeRefreshPatch
 import app.revanced.util.bytecode.BytecodeHelper.updatePatchStatus
+import app.revanced.util.bytecode.getNarrowLiteralIndex
+import app.revanced.util.bytecode.getStringIndex
 import app.revanced.util.integrations.Constants.ADS_PATH
-import org.jf.dexlib2.Opcode
-import org.jf.dexlib2.builder.instruction.BuilderInstruction21c
 import org.jf.dexlib2.builder.instruction.BuilderInstruction35c
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
-import org.jf.dexlib2.iface.instruction.formats.Instruction31i
 import org.jf.dexlib2.iface.reference.FieldReference
-import org.jf.dexlib2.iface.reference.MethodReference
+import org.jf.dexlib2.iface.reference.Reference
 import kotlin.properties.Delegates
 
 @DependsOn(
@@ -47,70 +46,56 @@ class LithoFilterPatch : BytecodePatch(
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
 
-        with (LithoBufferFingerprint.result!!) {
-            val startIndex = this.scanResult.patternScanResult!!.startIndex
-            bufferReference = (this.mutableMethod.instruction(startIndex) as BuilderInstruction21c).reference.toString()
-        }
+        LithoBufferFingerprint.result?.let {
+            val startIndex = it.scanResult.patternScanResult!!.startIndex
+            bufferReference = it.mutableMethod.instruction<ReferenceInstruction>(startIndex).reference
+        } ?: return LithoBufferFingerprint.toErrorResult()
 
         LithoObjectFingerprint.result?.let {
             val endIndex = it.scanResult.patternScanResult!!.endIndex
-            objectRegister = (it.mutableMethod.instruction(endIndex) as BuilderInstruction35c).registerC
+            objectRegister = it.mutableMethod.instruction<BuilderInstruction35c>(endIndex).registerC
         } ?: return LithoObjectFingerprint.toErrorResult()
 
         LithoFingerprint.result?.let { result ->
             val endIndex = result.scanResult.patternScanResult!!.endIndex
             lithoMethod = result.mutableMethod
 
-            with (lithoMethod.implementation!!.instructions) {
-                val bufferIndex = indexOfFirst {
-                    it.opcode == Opcode.CONST &&
-                            (it as Instruction31i).narrowLiteral == 168777401
-                }
-                val bufferRegister = (lithoMethod.instruction(bufferIndex) as Instruction31i).registerA
+            lithoMethod.apply {
+                val bufferIndex = getNarrowLiteralIndex(168777401)
+                val bufferRegister = instruction<OneRegisterInstruction>(bufferIndex).registerA
+                val targetIndex = getStringIndex("Element missing type extension") + 2
+                val identifierRegister = instruction<OneRegisterInstruction>(endIndex).registerA
 
-                val targetIndex = indexOfFirst {
-                    it.opcode == Opcode.CONST_STRING &&
-                            (it as BuilderInstruction21c).reference.toString() == "Element missing type extension"
-                } + 2
-                builderMethodDescriptor = (elementAt(targetIndex) as ReferenceInstruction).reference as MethodReference
-                emptyComponentFieldDescriptor = (elementAt(targetIndex + 2) as ReferenceInstruction).reference as FieldReference
+                builderMethodDescriptor = instruction<ReferenceInstruction>(targetIndex).reference
+                emptyComponentFieldDescriptor = instruction<ReferenceInstruction>(targetIndex + 2).reference
+                implementation!!.instructions.apply {
+                    filter { instruction ->
+                        val fieldReference = (instruction as? ReferenceInstruction)?.reference as? FieldReference
+                        fieldReference?.let { it.type == "Ljava/lang/StringBuilder;" } == true
+                    }.forEach { instruction ->
+                        val insertIndex = indexOf(instruction)
+                        val stringBuilderRegister = lithoMethod.instruction<TwoRegisterInstruction>(insertIndex).registerA
 
-                val identifierRegister = (lithoMethod.instruction(endIndex) as OneRegisterInstruction).registerA
-
-                filter { instruction ->
-                    val fieldReference = (instruction as? ReferenceInstruction)?.reference as? FieldReference
-                    fieldReference?.let { it.type == "Ljava/lang/StringBuilder;" } == true
-                }.forEach { instruction ->
-                    val insertIndex = indexOf(instruction)
-                    val stringBuilderRegister = (lithoMethod.instruction(insertIndex) as TwoRegisterInstruction).registerA
-
-                    val instructionList =
-                        """
-                            invoke-static {v$stringBuilderRegister, v$identifierRegister, v$objectRegister, v$bufferRegister}, $ADS_PATH/LithoFilterPatch;->filter(Ljava/lang/StringBuilder;Ljava/lang/String;Ljava/lang/Object;Ljava/nio/ByteBuffer;)Z
-                            move-result v$bufferRegister
-                            if-eqz v$bufferRegister, :not_an_ad
-                            move-object/from16 v$identifierRegister, p1
-                            invoke-static {v$identifierRegister}, $builderMethodDescriptor
-                            move-result-object v0
-                            iget-object v0, v0, $emptyComponentFieldDescriptor
-                            return-object v0
-                        """
-
-                    val objectIndex = indexOfFirst {
-                        it.opcode == Opcode.CONST_STRING &&
-                                (it as BuilderInstruction21c).reference.toString() == ""
-                    } - 2
-                    objectReference = (elementAt(objectIndex) as ReferenceInstruction).reference as FieldReference
-                    lithoMethod.addInstructions(
-                        insertIndex + 1,
-                        """
+                        val objectIndex = lithoMethod.getStringIndex("") - 2
+                        objectReference = lithoMethod.instruction<ReferenceInstruction>(objectIndex).reference
+                        lithoMethod.addInstructions(
+                            insertIndex + 1, """
                                 move-object/from16 v$bufferRegister, p3
-                                iget-object v$bufferRegister, v$bufferRegister, ${objectReference.definingClass}->${objectReference.name}:${objectReference.type}
+                                iget-object v$bufferRegister, v$bufferRegister, $objectReference
                                 if-eqz v$bufferRegister, :not_an_ad
                                 check-cast v$bufferRegister, $bufferReference
                                 iget-object v$bufferRegister, v$bufferRegister, $bufferReference->b:Ljava/nio/ByteBuffer;
-                            """ + instructionList,listOf(ExternalLabel("not_an_ad", lithoMethod.instruction(insertIndex + 1)))
-                    )
+                                invoke-static {v$stringBuilderRegister, v$identifierRegister, v$objectRegister, v$bufferRegister}, $ADS_PATH/LithoFilterPatch;->filters(Ljava/lang/StringBuilder;Ljava/lang/String;Ljava/lang/Object;Ljava/nio/ByteBuffer;)Z
+                                move-result v$bufferRegister
+                                if-eqz v$bufferRegister, :not_an_ad
+                                move-object/from16 v$identifierRegister, p1
+                                invoke-static {v$identifierRegister}, $builderMethodDescriptor
+                                move-result-object v0
+                                iget-object v0, v0, $emptyComponentFieldDescriptor
+                                return-object v0
+                                """, listOf(ExternalLabel("not_an_ad", lithoMethod.instruction(insertIndex + 1)))
+                        )
+                    }
                 }
             }
         } ?: return LithoFingerprint.toErrorResult()
@@ -123,9 +108,9 @@ class LithoFilterPatch : BytecodePatch(
         var objectRegister by Delegates.notNull<Int>()
 
         lateinit var lithoMethod: MutableMethod
-        lateinit var bufferReference: String
-        lateinit var builderMethodDescriptor: MethodReference
-        lateinit var emptyComponentFieldDescriptor: FieldReference
-        lateinit var objectReference: FieldReference
+        lateinit var bufferReference: Reference
+        lateinit var builderMethodDescriptor: Reference
+        lateinit var emptyComponentFieldDescriptor: Reference
+        lateinit var objectReference: Reference
     }
 }

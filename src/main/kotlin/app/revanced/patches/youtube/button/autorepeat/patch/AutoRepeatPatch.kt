@@ -16,6 +16,7 @@ import app.revanced.util.integrations.Constants.UTILS_PATH
 import app.revanced.util.integrations.Constants.VIDEO_PATH
 import org.jf.dexlib2.builder.instruction.BuilderInstruction35c
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
+import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 import org.jf.dexlib2.iface.instruction.formats.Instruction31i
 
 @Name("always-autorepeat")
@@ -45,40 +46,39 @@ class AutoRepeatPatch : BytecodePatch(
         } ?: return VideoEndParentFingerprint.toErrorResult()
 
         RepeatListenerFingerprint.result?.let {
-            val targetIndex = it.scanResult.patternScanResult!!.startIndex - 1
-            val endIndex = it.scanResult.patternScanResult!!.endIndex
-                with (it.mutableMethod) {
-                    val targetReference = (instruction(targetIndex) as BuilderInstruction35c).reference.toString()
+            it.mutableMethod.apply {
+                val targetIndex = it.scanResult.patternScanResult!!.startIndex - 1
+                val endIndex = it.scanResult.patternScanResult!!.endIndex
 
-                    val firstRegister = (instruction(targetIndex) as BuilderInstruction35c).registerC
-                    val secondRegister = (instruction(targetIndex) as BuilderInstruction35c).registerD
+                val registerC = instruction<BuilderInstruction35c>(targetIndex).registerC
+                val registerD = instruction<BuilderInstruction35c>(targetIndex).registerD
 
-                    val dummyRegister = (instruction(endIndex) as Instruction31i).registerA
+                val dummyRegister = (instruction(endIndex) as Instruction31i).registerA
 
-                    addInstructions(
-                        targetIndex + 1, """
+                val targetReference = instruction<ReferenceInstruction>(targetIndex).reference
+
+                addInstructions(
+                    targetIndex + 1, """
                             invoke-static {}, $UTILS_PATH/EnableAutoRepeatPatch;->shouldAutoRepeat()Z
                             move-result v$dummyRegister
                             if-nez v$dummyRegister, :bypass
-                            invoke-virtual {v$firstRegister, v$secondRegister}, $targetReference
+                            invoke-virtual {v$registerC, v$registerD}, $targetReference
                             """, listOf(ExternalLabel("bypass", instruction(targetIndex + 1)))
-                    )
-                    removeInstruction(targetIndex)
-                }
+                )
+                removeInstruction(targetIndex)
+            }
         } ?: return RepeatListenerFingerprint.toErrorResult()
 
         AutoNavInformerFingerprint.result?.mutableMethod?.let {
-            with (it.implementation!!.instructions) {
-                val index = this.size - 1 - 1
-                val register = (this[index] as OneRegisterInstruction).registerA
-                it.addInstructions(
-                    index + 1, """
+            val index = it.implementation!!.instructions.size - 1 - 1
+            val register = it.instruction<OneRegisterInstruction>(index).registerA
+
+            it.addInstructions(
+                index + 1, """
                     invoke-static {v$register}, $UTILS_PATH/EnableAutoRepeatPatch;->enableAutoRepeat(Z)Z
                     move-result v0
                 """
-                )
-
-            }
+            )
         } ?: return AutoNavInformerFingerprint.toErrorResult()
 
         return PatchResultSuccess()

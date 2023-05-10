@@ -25,9 +25,7 @@ import app.revanced.util.integrations.Constants.GENERAL
 @YouTubeCompatibility
 @Version("0.0.1")
 class PlayerPopupPanelsPatch : BytecodePatch(
-    listOf(
-        EngagementPanelControllerFingerprint
-    )
+    listOf(EngagementPanelControllerFingerprint)
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
 
@@ -44,7 +42,7 @@ class PlayerPopupPanelsPatch : BytecodePatch(
             )
         } ?: return EngagementPanelControllerFingerprint.toErrorResult()
 
-        /*
+        /**
          * Add settings
          */
         SettingsPatch.addPreference(

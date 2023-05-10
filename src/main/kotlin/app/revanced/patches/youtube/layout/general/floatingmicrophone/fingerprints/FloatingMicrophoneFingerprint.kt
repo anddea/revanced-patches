@@ -1,9 +1,9 @@
 package app.revanced.patches.youtube.layout.general.floatingmicrophone.fingerprints
 
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
-import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch
+import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch.Companion.fabId
+import app.revanced.util.bytecode.isWideLiteralExists
 import org.jf.dexlib2.Opcode
-import org.jf.dexlib2.iface.instruction.WideLiteralInstruction
 
 object FloatingMicrophoneFingerprint : MethodFingerprint(
     opcodes = listOf(
@@ -11,10 +11,5 @@ object FloatingMicrophoneFingerprint : MethodFingerprint(
         Opcode.IF_EQZ,
         Opcode.RETURN_VOID
     ),
-    customFingerprint = { methodDef ->
-        methodDef.implementation?.instructions?.any {
-            it.opcode.ordinal == Opcode.CONST.ordinal &&
-            (it as? WideLiteralInstruction)?.wideLiteral == SharedResourceIdPatch.fabLabelId
-        } == true
-    }
+    customFingerprint = { it.isWideLiteralExists(fabId) }
 )

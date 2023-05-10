@@ -31,16 +31,14 @@ import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
 @YouTubeCompatibility
 @Version("0.0.1")
 class CrowdfundingBoxPatch : BytecodePatch(
-    listOf(
-        CrowdfundingBoxFingerprint
-    )
+    listOf(CrowdfundingBoxFingerprint)
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
 
         CrowdfundingBoxFingerprint.result?.let {
-            with (it.mutableMethod) {
+            it.mutableMethod.apply {
                 val insertIndex = it.scanResult.patternScanResult!!.endIndex
-                val register = (instruction(insertIndex) as TwoRegisterInstruction).registerA
+                val register = instruction<TwoRegisterInstruction>(insertIndex).registerA
 
                 addInstruction(
                     insertIndex,
@@ -49,7 +47,7 @@ class CrowdfundingBoxPatch : BytecodePatch(
             }
         } ?: return CrowdfundingBoxFingerprint.toErrorResult()
 
-        /*
+        /**
          * Add settings
          */
         SettingsPatch.addPreference(

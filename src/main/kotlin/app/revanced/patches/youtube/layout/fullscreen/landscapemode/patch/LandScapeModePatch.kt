@@ -27,21 +27,19 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 @YouTubeCompatibility
 @Version("0.0.1")
 class LandScapeModePatch : BytecodePatch(
-    listOf(
-        OrientationParentFingerprint
-    )
+    listOf(OrientationParentFingerprint)
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
         OrientationParentFingerprint.result?.classDef?.let { classDef ->
             arrayOf(
                 OrientationPrimaryFingerprint,
                 OrientationSecondaryFingerprint
-            ).forEach { fingerprint ->
-                fingerprint.also { it.resolve(context, classDef) }.result?.injectOverride() ?: return fingerprint.toErrorResult()
+            ).forEach {
+                it.also { it.resolve(context, classDef) }.result?.injectOverride() ?: return it.toErrorResult()
             }
         } ?: return OrientationParentFingerprint.toErrorResult()
 
-        /*
+        /**
          * Add settings
          */
         SettingsPatch.addPreference(
@@ -61,15 +59,15 @@ class LandScapeModePatch : BytecodePatch(
             "$FULLSCREEN->disableLandScapeMode(Z)Z"
 
         fun MethodFingerprintResult.injectOverride() {
-            with (mutableMethod) {
+            mutableMethod.apply {
                 val index = scanResult.patternScanResult!!.endIndex
-                val register = (instruction(index) as OneRegisterInstruction).registerA
+                val register = instruction<OneRegisterInstruction>(index).registerA
 
                 addInstructions(
                     index +1, """
                         invoke-static {v$register}, $INTEGRATIONS_CLASS_DESCRIPTOR
                         move-result v$register
-                    """
+                        """
                 )
             }
         }

@@ -56,7 +56,7 @@ class PowerSaveModePatch : BytecodePatch(
             if (powerManagerIndex == -1) return PatchResultError("Couldn't find PowerManager reference")
         } ?: return PowerSaveModeFingerprint.toErrorResult()
 
-        /*
+        /**
          * Add settings
          */
         SettingsPatch.addPreference(

@@ -30,7 +30,7 @@ class HideMusicButtonPatch : BytecodePatch(
     override fun execute(context: BytecodeContext): PatchResult {
 
         MusicAppDeeplinkButtonFingerprint.result?.mutableMethod?.let {
-            with (it.implementation!!.instructions) {
+            it.implementation!!.instructions.apply {
                 val jumpInstruction = this[size - 1] as Instruction
                 it.addInstructions(
                     0, """
@@ -42,7 +42,7 @@ class HideMusicButtonPatch : BytecodePatch(
             }
         } ?: return MusicAppDeeplinkButtonFingerprint.toErrorResult()
 
-        /*
+        /**
          * Add settings
          */
         SettingsPatch.addPreference(

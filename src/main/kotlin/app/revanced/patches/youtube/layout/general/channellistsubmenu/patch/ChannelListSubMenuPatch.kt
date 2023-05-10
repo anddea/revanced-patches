@@ -31,16 +31,14 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 @YouTubeCompatibility
 @Version("0.0.1")
 class ChannelListSubMenuPatch : BytecodePatch(
-    listOf(
-        ChannelListSubMenuFingerprint
-    )
+    listOf(ChannelListSubMenuFingerprint)
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
 
         ChannelListSubMenuFingerprint.result?.let {
-            with (it.mutableMethod) {
+            it.mutableMethod.apply {
                 val endIndex = it.scanResult.patternScanResult!!.endIndex
-                val register = (instruction(endIndex) as OneRegisterInstruction).registerA
+                val register = instruction<OneRegisterInstruction>(endIndex).registerA
 
                 addInstruction(
                     endIndex + 1,
@@ -49,7 +47,7 @@ class ChannelListSubMenuPatch : BytecodePatch(
             }
         } ?: return ChannelListSubMenuFingerprint.toErrorResult()
 
-        /*
+        /**
          * Add settings
          */
         SettingsPatch.addPreference(

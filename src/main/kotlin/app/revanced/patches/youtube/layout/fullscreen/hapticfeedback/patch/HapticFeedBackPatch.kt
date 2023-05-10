@@ -51,7 +51,7 @@ class HapticFeedBackPatch : BytecodePatch(
             } ?: return fingerprint.toErrorResult()
         }
 
-        /*
+        /**
          * Add settings
          */
         SettingsPatch.addPreference(
@@ -68,34 +68,34 @@ class HapticFeedBackPatch : BytecodePatch(
 
     private companion object {
         fun MethodFingerprintResult.disableHaptics(targetMethodName: String) {
-            val startIndex = scanResult.patternScanResult!!.startIndex
-            val endIndex = scanResult.patternScanResult!!.endIndex
-            val insertIndex = endIndex + 4
-            val targetRegister = (method.implementation!!.instructions.elementAt(insertIndex) as OneRegisterInstruction).registerA
-            val dummyRegister = targetRegister + 1
+            mutableMethod.apply {
+                val startIndex = scanResult.patternScanResult!!.startIndex
+                val endIndex = scanResult.patternScanResult!!.endIndex
+                val insertIndex = endIndex + 4
+                val targetRegister = instruction<OneRegisterInstruction>(insertIndex).registerA
+                val dummyRegister = targetRegister + 1
 
-            with (mutableMethod) {
                 removeInstruction(insertIndex)
 
                 addInstructions(
                     insertIndex, """
-                     invoke-static {}, $FULLSCREEN->$targetMethodName()Z
-                     move-result v$dummyRegister
-                     if-eqz v$dummyRegister, :vibrate
-                     const-wide/16 v$targetRegister, 0x0
-                     goto :exit
-                     :vibrate
-                     const-wide/16 v$targetRegister, 0x19
-                """, listOf(ExternalLabel("exit", mutableMethod.instruction(insertIndex)))
+                        invoke-static {}, $FULLSCREEN->$targetMethodName()Z
+                        move-result v$dummyRegister
+                        if-eqz v$dummyRegister, :vibrate
+                        const-wide/16 v$targetRegister, 0x0
+                        goto :exit
+                        :vibrate
+                        const-wide/16 v$targetRegister, 0x19
+                        """, listOf(ExternalLabel("exit", instruction(insertIndex)))
                 )
 
                 addInstructions(
                     startIndex, """
-                     invoke-static {}, $FULLSCREEN->$targetMethodName()Z
-                     move-result v$dummyRegister
-                     if-eqz v$dummyRegister, :vibrate
-                     return-void
-                """, listOf(ExternalLabel("vibrate", mutableMethod.instruction(startIndex)))
+                        invoke-static {}, $FULLSCREEN->$targetMethodName()Z
+                        move-result v$dummyRegister
+                        if-eqz v$dummyRegister, :vibrate
+                        return-void
+                        """, listOf(ExternalLabel("vibrate", instruction(startIndex)))
                 )
             }
         }
@@ -107,7 +107,7 @@ class HapticFeedBackPatch : BytecodePatch(
                      move-result v0
                      if-eqz v0, :vibrate
                      return-void
-                 """, listOf(ExternalLabel("vibrate", mutableMethod.instruction(0)))
+                     """, listOf(ExternalLabel("vibrate", mutableMethod.instruction(0)))
              )
         }
     }

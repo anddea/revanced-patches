@@ -68,9 +68,8 @@ class SeekbarTappingPatch : BytecodePatch(
         SeekbarTappingFingerprint.result?.let {
             val insertIndex = it.scanResult.patternScanResult!!.endIndex
 
-            with (it.mutableMethod) {
-                val instructions = implementation!!.instructions
-                val register = (instructions[insertIndex - 1] as Instruction35c).registerC
+            it.mutableMethod.apply {
+                val register = instruction<Instruction35c>(insertIndex - 1).registerC
 
                 val pMethod = tapSeekMethods["P"]!!
                 val oMethod = tapSeekMethods["O"]!!
@@ -87,7 +86,7 @@ class SeekbarTappingPatch : BytecodePatch(
             }
         } ?: return SeekbarTappingFingerprint.toErrorResult()
 
-        /*
+        /**
          * Add settings
          */
         SettingsPatch.addPreference(

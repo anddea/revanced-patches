@@ -36,7 +36,7 @@ class LayoutSwitchPatch : BytecodePatch(
 
         ClientFormFactorParentFingerprint.result?.let { parentResult ->
             ClientFormFactorFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.let {
-                with (it.mutableMethod) {
+                it.mutableMethod.apply {
                     val jumpIndex = it.scanResult.patternScanResult!!.startIndex + 1
                     addInstructions(
                         1, """
@@ -56,7 +56,7 @@ class LayoutSwitchPatch : BytecodePatch(
                 """
         ) ?: return LayoutSwitchFingerprint.toErrorResult()
 
-        /*
+        /*(
          * Add settings
          */
         SettingsPatch.addPreference(
