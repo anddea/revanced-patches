@@ -2,9 +2,9 @@ package app.revanced.patches.youtube.layout.seekbar.seekbartapping.fingerprints
 
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.util.bytecode.isNarrowLiteralExists
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
-import org.jf.dexlib2.iface.instruction.NarrowLiteralInstruction
 
 object SeekbarTappingFingerprint : MethodFingerprint(
     returnType = "Z",
@@ -17,10 +17,5 @@ object SeekbarTappingFingerprint : MethodFingerprint(
         Opcode.INVOKE_VIRTUAL,
         Opcode.RETURN
     ),
-    customFingerprint = { methodDef ->
-        methodDef.name == "onTouchEvent"
-        && methodDef.implementation!!.instructions.any {
-            ((it as? NarrowLiteralInstruction)?.narrowLiteral == 2147483647)
-        }
-    }
+    customFingerprint = { it.name == "onTouchEvent" && it.isNarrowLiteralExists(2147483647) }
 )

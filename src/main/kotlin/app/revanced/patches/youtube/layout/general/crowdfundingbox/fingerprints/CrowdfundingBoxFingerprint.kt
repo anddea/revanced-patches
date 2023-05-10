@@ -1,9 +1,9 @@
 package app.revanced.patches.youtube.layout.general.crowdfundingbox.fingerprints
 
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
-import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch
+import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch.Companion.donationCompanionResourceId
+import app.revanced.util.bytecode.isWideLiteralExists
 import org.jf.dexlib2.Opcode
-import org.jf.dexlib2.iface.instruction.WideLiteralInstruction
 
 object CrowdfundingBoxFingerprint : MethodFingerprint(
     opcodes = listOf(
@@ -11,10 +11,5 @@ object CrowdfundingBoxFingerprint : MethodFingerprint(
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.IPUT_OBJECT
     ),
-    customFingerprint = { methodDef ->
-        methodDef.implementation?.instructions?.any {
-            it.opcode.ordinal == Opcode.CONST.ordinal &&
-            (it as? WideLiteralInstruction)?.wideLiteral == SharedResourceIdPatch.donationCompanionResourceId
-        } == true
-    }
+    customFingerprint = { it.isWideLiteralExists(donationCompanionResourceId) }
 )

@@ -25,9 +25,7 @@ import app.revanced.util.integrations.Constants.SEEKBAR
 @YouTubeCompatibility
 @Version("0.0.1")
 class HideTimeStampPatch : BytecodePatch(
-    listOf(
-        TimeCounterFingerprint
-    )
+    listOf(TimeCounterFingerprint)
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
 
@@ -42,7 +40,7 @@ class HideTimeStampPatch : BytecodePatch(
             )
         } ?: return TimeCounterFingerprint.toErrorResult()
 
-        /*
+        /**
          * Add settings
          */
         SettingsPatch.addPreference(

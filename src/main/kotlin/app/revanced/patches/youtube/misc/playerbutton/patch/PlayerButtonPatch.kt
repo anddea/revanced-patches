@@ -24,9 +24,7 @@ import org.jf.dexlib2.builder.instruction.BuilderInstruction35c
 @YouTubeCompatibility
 @Version("0.0.1")
 class PlayerButtonPatch : BytecodePatch(
-    listOf(
-        LiveChatFingerprint
-    )
+    listOf(LiveChatFingerprint)
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
 

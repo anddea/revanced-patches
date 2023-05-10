@@ -44,10 +44,9 @@ class ShortsNavBarPatch : BytecodePatch(
 
         PivotBarCreateButtonViewFingerprint.result?.let { parentResult ->
             SetPivotBarFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.let {
-                with (it.mutableMethod) {
+                it.mutableMethod.apply {
                     val startIndex = it.scanResult.patternScanResult!!.startIndex
-                    val instructions = implementation!!.instructions
-                    val register = (instructions[startIndex] as OneRegisterInstruction).registerA
+                    val register = instruction<OneRegisterInstruction>(startIndex).registerA
 
                     addInstruction(
                         startIndex + 1,
@@ -58,11 +57,11 @@ class ShortsNavBarPatch : BytecodePatch(
         } ?: return PivotBarCreateButtonViewFingerprint.toErrorResult()
 
         ReelWatchBundleFingerprint.result?.let {
-            with (context
+            (context
                 .toMethodWalker(it.method)
                 .nextMethod(it.scanResult.patternScanResult!!.endIndex, true)
                 .getMethod() as MutableMethod
-            ) {
+            ).apply {
                 addInstruction(
                     0,
                     "invoke-static {}, $NAVIGATION->hideShortsPlayerNavBar()V"
@@ -88,7 +87,7 @@ class ShortsNavBarPatch : BytecodePatch(
                 }.forEach { instruction ->
                     val insertIndex = indexOf(instruction) + 4
                     val targetRegister =
-                        (navigationEndpointMethod.instruction(insertIndex) as OneRegisterInstruction).registerA
+                        navigationEndpointMethod.instruction<OneRegisterInstruction>(insertIndex).registerA
 
                     navigationEndpointMethod.addInstructions(
                         insertIndex,
@@ -102,7 +101,7 @@ class ShortsNavBarPatch : BytecodePatch(
 
         } ?: return NavigationEndpointFingerprint.toErrorResult()
 
-        /*
+        /**
          * Add settings
          */
         SettingsPatch.addPreference(

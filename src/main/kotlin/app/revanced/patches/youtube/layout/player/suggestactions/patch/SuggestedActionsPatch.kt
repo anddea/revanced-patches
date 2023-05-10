@@ -14,7 +14,7 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.shared.patch.mapping.ResourceMappingPatch
-import app.revanced.patches.youtube.misc.litho.patch.LithoFilterPatch
+import app.revanced.patches.youtube.misc.litho.patch.ByteBufferFilterPatch
 import app.revanced.patches.youtube.misc.playertype.patch.PlayerTypeHookPatch
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
 import app.revanced.util.bytecode.BytecodeHelper.updatePatchStatus
@@ -27,7 +27,7 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction31i
 @Description("Hide the suggested actions bar inside the player.")
 @DependsOn(
     [
-        LithoFilterPatch::class,
+        ByteBufferFilterPatch::class,
         PlayerTypeHookPatch::class,
         ResourceMappingPatch::class,
         SettingsPatch::class

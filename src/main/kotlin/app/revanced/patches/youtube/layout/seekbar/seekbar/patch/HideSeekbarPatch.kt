@@ -42,7 +42,7 @@ class HideSeekbarPatch : BytecodePatch() {
                 """, listOf(ExternalLabel("show_seekbar", insertMethod.instruction(0)))
         )
 
-        /*
+        /**
          * Add settings
          */
         SettingsPatch.addPreference(

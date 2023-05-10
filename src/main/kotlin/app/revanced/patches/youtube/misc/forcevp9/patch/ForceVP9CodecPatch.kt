@@ -64,8 +64,9 @@ class ForceVP9CodecPatch : BytecodePatch(
 
         VideoCapabilitiesParentFingerprint.result?.let { parentResult ->
             VideoCapabilitiesFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.let {
-                with (it.mutableMethod) {
+                it.mutableMethod.apply {
                     val insertIndex = it.scanResult.patternScanResult!!.startIndex
+
                     addInstructions(
                         insertIndex, """
                             invoke-static {p1}, $INTEGRATIONS_CLASS_DESCRIPTOR->overrideMinHeight(I)I
@@ -82,7 +83,7 @@ class ForceVP9CodecPatch : BytecodePatch(
             } ?: return VideoCapabilitiesFingerprint.toErrorResult()
         } ?: return VideoCapabilitiesParentFingerprint.toErrorResult()
 
-        /*
+        /**
          * Add settings
          */
         SettingsPatch.addPreference(
@@ -104,12 +105,12 @@ class ForceVP9CodecPatch : BytecodePatch(
             "$INTEGRATIONS_CLASS_DESCRIPTOR->shouldForceVP9(Z)Z"
 
         fun MethodFingerprintResult.injectOverride() {
-            with (mutableMethod) {
+            mutableMethod.apply {
                 val startIndex = scanResult.patternScanResult!!.startIndex
                 val endIndex = scanResult.patternScanResult!!.endIndex
 
-                val startRegister = (instruction(startIndex) as OneRegisterInstruction).registerA
-                val endRegister = (instruction(endIndex) as OneRegisterInstruction).registerA
+                val startRegister = instruction<OneRegisterInstruction>(startIndex).registerA
+                val endRegister = instruction<OneRegisterInstruction>(endIndex).registerA
 
                 hookOverride(endIndex + 1, endRegister)
                 removeInstruction(endIndex)
@@ -147,7 +148,7 @@ class ForceVP9CodecPatch : BytecodePatch(
 
                 if (indexString != targetString) continue
 
-                val register = (instruction as OneRegisterInstruction).registerA
+                val register = instruction<OneRegisterInstruction>(index).registerA
 
                 addInstructions(
                     index + 1, """

@@ -20,16 +20,14 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 @YouTubeCompatibility
 @Version("0.0.1")
 class LegacyVideoIdPatch : BytecodePatch(
-    listOf(
-        LegacyVideoIdFingerprint
-    )
+    listOf(LegacyVideoIdFingerprint)
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
 
         LegacyVideoIdFingerprint.result?.let {
             insertIndex = it.scanResult.patternScanResult!!.endIndex
 
-            with (it.mutableMethod) {
+            it.mutableMethod.apply {
                 insertMethod = this
                 videoIdRegister = (implementation!!.instructions[insertIndex + 1] as OneRegisterInstruction).registerA
             }

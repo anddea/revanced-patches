@@ -14,9 +14,9 @@ import app.revanced.patches.youtube.layout.etc.theme.patch.GeneralThemePatch
 import app.revanced.patches.youtube.layout.etc.theme.patch.GeneralThemePatch.Companion.isMonetPatchIncluded
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
 import app.revanced.util.resources.ResourceHelper.updatePatchStatusTheme
+import app.revanced.util.resources.ResourceUtils
+import app.revanced.util.resources.ResourceUtils.copyResources
 import app.revanced.util.resources.ResourceUtils.copyXmlNode
-import java.nio.file.Files
-import java.nio.file.StandardCopyOption
 
 @Patch(false)
 @Name("materialyou")
@@ -32,35 +32,28 @@ import java.nio.file.StandardCopyOption
 class MaterialYouPatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
 
-        val drawables1 = "drawable-night-v31" to arrayOf(
-            "new_content_dot_background.xml"
-        )
-
-        val drawables2 = "drawable-v31" to arrayOf(
-            "new_content_count_background.xml",
-            "new_content_dot_background.xml"
-        )
-
-        val layout1 = "layout-v31" to arrayOf(
-            "new_content_count.xml"
-        )
-
-        arrayOf(drawables1, drawables2, layout1).forEach { (path, resourceNames) ->
-            Files.createDirectory(context["res"].resolve(path).toPath())
-            resourceNames.forEach { name ->
-                val monetPath = "$path/$name"
-
-                Files.copy(
-                    this.javaClass.classLoader.getResourceAsStream("youtube/materialyou/$monetPath")!!,
-                    context["res"].resolve(monetPath).toPath(),
-                    StandardCopyOption.REPLACE_EXISTING
-                )
-            }
+        arrayOf(
+            ResourceUtils.ResourceGroup(
+                "drawable-night-v31",
+                "new_content_dot_background.xml"
+            ),
+            ResourceUtils.ResourceGroup(
+                "drawable-v31",
+                "new_content_count_background.xml",
+                "new_content_dot_background.xml"
+            ),
+            ResourceUtils.ResourceGroup(
+                "layout-v31",
+                "new_content_count.xml"
+            )
+        ).forEach {
+            context["res/${it.resourceDirectoryName}"].mkdirs()
+            context.copyResources("youtube/materialyou", it)
         }
 
         context.copyXmlNode("youtube/materialyou/host", "values-v31/colors.xml", "resources")
 
-        /*
+        /**
          * Add settings
          */
         context.updatePatchStatusTheme("materialyou")

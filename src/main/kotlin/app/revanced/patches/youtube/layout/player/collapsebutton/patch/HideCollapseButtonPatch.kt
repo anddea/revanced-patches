@@ -27,7 +27,7 @@ import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
 class HideCollapseButtonPatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
 
-        /*
+        /**
          * Add settings
          */
         SettingsPatch.addPreference(

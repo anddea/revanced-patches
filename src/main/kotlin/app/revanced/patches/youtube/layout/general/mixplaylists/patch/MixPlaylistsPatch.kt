@@ -10,7 +10,7 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
-import app.revanced.patches.youtube.misc.litho.patch.LithoFilterPatch
+import app.revanced.patches.youtube.misc.litho.patch.ByteBufferFilterPatch
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
 
 @Patch
@@ -18,7 +18,7 @@ import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
 @Description("Removes mix playlists from home feed and video player.")
 @DependsOn(
     [
-        LithoFilterPatch::class,
+        ByteBufferFilterPatch::class,
         SettingsPatch::class
     ]
 )
@@ -27,7 +27,7 @@ import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
 class MixPlaylistsPatch : BytecodePatch() {
     override fun execute(context: BytecodeContext): PatchResult {
 
-        /*
+        /**
          * Add settings
          */
         SettingsPatch.addPreference(

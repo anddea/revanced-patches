@@ -22,15 +22,10 @@ import app.revanced.patches.youtube.misc.overridespeed.resource.patch.OverrideSp
 import app.revanced.util.integrations.Constants.INTEGRATIONS_PATH
 import app.revanced.util.integrations.Constants.VIDEO_PATH
 import org.jf.dexlib2.AccessFlags
-import org.jf.dexlib2.dexbacked.reference.DexBackedMethodReference
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 import org.jf.dexlib2.iface.reference.FieldReference
-import org.jf.dexlib2.immutable.ImmutableField
-import org.jf.dexlib2.immutable.ImmutableMethod
-import org.jf.dexlib2.immutable.ImmutableMethodImplementation
-import org.jf.dexlib2.immutable.ImmutableMethodParameter
-
+import org.jf.dexlib2.immutable.*
 
 @Name("override-speed-hook")
 @DependsOn([OverrideSpeedHookResourcePatch::class])
@@ -49,21 +44,15 @@ class OverrideSpeedHookPatch : BytecodePatch(
             val parentClassDef = parentResult.classDef
 
             VideoSpeedChangedFingerprint.also { it.resolve(context, parentClassDef) }.result?.let {
-                videoSpeedChangedResult = it
+                it.mutableMethod.apply {
+                    videoSpeedChangedResult = it
+                    val startIndex = it.scanResult.patternScanResult!!.startIndex
+                    val endIndex = it.scanResult.patternScanResult!!.endIndex
 
-                val startIndex = it.scanResult.patternScanResult!!.startIndex
-                val endIndex = it.scanResult.patternScanResult!!.endIndex
-
-                with (it.method.implementation!!.instructions) {
-
-                    val firstReference =
-                        (elementAt(startIndex) as ReferenceInstruction).reference as FieldReference
-
-                    val secondReference =
-                        (elementAt(endIndex - 1) as ReferenceInstruction).reference as FieldReference
-
-                    val thirdReference =
-                        (elementAt(endIndex) as ReferenceInstruction).reference as DexBackedMethodReference
+                    val reference1 = instruction<ReferenceInstruction>(startIndex).reference
+                    val reference2 = instruction<ReferenceInstruction>(endIndex - 1).reference
+                    val reference3 = instruction<ReferenceInstruction>(endIndex).reference
+                    val fieldReference = reference2 as FieldReference
 
                     val parentMutableClass = parentResult.mutableClass
 
@@ -78,30 +67,30 @@ class OverrideSpeedHookPatch : BytecodePatch(
                             null,
                             ImmutableMethodImplementation(
                                 4, """
-                            const/4 v0, 0x0
-                            cmpg-float v0, v3, v0
-                            if-lez v0, :cond_0
-                            iget-object v0, v2, ${parentClassDef.type}->${firstReference.name}:${firstReference.type}
-                            check-cast v0, ${secondReference.definingClass}
-                            iget-object v1, v0, ${secondReference.definingClass}->${secondReference.name}:${secondReference.type}
-                            invoke-virtual {v1, v3}, $thirdReference
-                            :cond_0
-                            return-void
-                        """.toInstructions(), null, null
+                                    const/4 v0, 0x0
+                                    cmpg-float v0, v3, v0
+                                    if-lez v0, :cond_0
+                                    iget-object v0, v2, $reference1
+                                    check-cast v0, ${fieldReference.definingClass}
+                                    iget-object v1, v0, $reference2
+                                    invoke-virtual {v1, v3}, $reference3
+                                    :cond_0
+                                    return-void
+                                    """.toInstructions(), null, null
                             )
                         ).toMutable()
                     )
-                }
 
-                with(context
-                    .toMethodWalker(it.method)
-                    .nextMethod(endIndex, true)
-                    .getMethod() as MutableMethod
-                ) {
-                    addInstruction(
-                        this.implementation!!.instructions.size - 1,
-                        "sput p1, $INTEGRATIONS_VIDEO_HELPER_CLASS_DESCRIPTOR->currentSpeed:F"
-                    )
+                    with(context
+                        .toMethodWalker(this)
+                        .nextMethod(endIndex, true)
+                        .getMethod() as MutableMethod
+                    ) {
+                        addInstruction(
+                            this.implementation!!.instructions.size - 1,
+                            "sput p1, $INTEGRATIONS_VIDEO_HELPER_CLASS_DESCRIPTOR->currentSpeed:F"
+                        )
+                    }
                 }
 
             } ?: return VideoSpeedChangedFingerprint.toErrorResult()
@@ -109,9 +98,9 @@ class OverrideSpeedHookPatch : BytecodePatch(
 
 
         SpeedClassFingerprint.result?.let {
-            with (it.mutableMethod) {
+            it.mutableMethod.apply {
                 val index = it.scanResult.patternScanResult!!.endIndex
-                val register = (implementation!!.instructions[index] as OneRegisterInstruction).registerA
+                val register = instruction<OneRegisterInstruction>(index).registerA
                 SPEED_CLASS = this.returnType
                 replaceInstruction(
                     index,
@@ -126,7 +115,7 @@ class OverrideSpeedHookPatch : BytecodePatch(
         } ?: return SpeedClassFingerprint.toErrorResult()
 
         VideoSpeedPatchFingerprint.result?.let {
-            with (it.mutableMethod) {
+            it.mutableMethod.apply {
                 it.mutableClass.staticFields.add(
                     ImmutableField(
                         definingClass,

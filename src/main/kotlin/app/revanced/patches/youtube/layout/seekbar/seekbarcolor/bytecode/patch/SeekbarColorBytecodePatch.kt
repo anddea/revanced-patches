@@ -18,10 +18,12 @@ import app.revanced.patches.shared.fingerprints.ControlsOverlayStyleFingerprint
 import app.revanced.patches.youtube.layout.seekbar.seekbarcolor.bytecode.fingerprints.*
 import app.revanced.patches.youtube.misc.litho.patch.LithoThemePatch
 import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch
+import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch.Companion.inlineTimeBarColorizedBarPlayedColorDarkId
+import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch.Companion.inlineTimeBarPlayedNotHighlightedColorId
+import app.revanced.util.bytecode.getWideLiteralIndex
 import app.revanced.util.integrations.Constants.INTEGRATIONS_PATH
 import app.revanced.util.integrations.Constants.SEEKBAR
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
-import org.jf.dexlib2.iface.instruction.WideLiteralInstruction
 
 @Name("custom-seekbar-color-bytecode-patch")
 @DependsOn(
@@ -40,20 +42,9 @@ class SeekbarColorBytecodePatch : BytecodePatch(
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
-        SeekbarColorFingerprint.result?.mutableMethod?.let { method ->
-            with (method.implementation!!.instructions) {
-                val insertIndex = arrayOf(
-                    SharedResourceIdPatch.inlineTimeBarColorizedBarPlayedColorDarkId,
-                    SharedResourceIdPatch.inlineTimeBarPlayedNotHighlightedColorId
-                ).map { id ->
-                    this.indexOfFirst {
-                        (it as? WideLiteralInstruction)?.wideLiteral == id
-                    } + 2
-                }
-
-                method.hook(insertIndex[0])
-                method.hook(insertIndex[1])
-            }
+        SeekbarColorFingerprint.result?.mutableMethod?.let {
+            it.hook(it.getWideLiteralIndex(inlineTimeBarColorizedBarPlayedColorDarkId) + 2)
+            it.hook(it.getWideLiteralIndex(inlineTimeBarPlayedNotHighlightedColorId) + 2)
         } ?: return SeekbarColorFingerprint.toErrorResult()
 
         ControlsOverlayStyleFingerprint.result?.let { parentResult ->
@@ -86,7 +77,7 @@ class SeekbarColorBytecodePatch : BytecodePatch(
 
     private companion object {
         fun MutableMethod.hook(insertIndex: Int) {
-            val insertRegister = (instruction(insertIndex) as OneRegisterInstruction).registerA
+            val insertRegister = instruction<OneRegisterInstruction>(insertIndex).registerA
 
             addInstructions(
                 insertIndex + 1, """

@@ -29,7 +29,7 @@ class RedundantResourcePatch : ResourcePatch {
             WHITELIST_XHDPI,
             WHITELIST_XXXHDPI
         ).forEach { (path, array) ->
-            val tmpDirectory = path + "-v21"
+            val tmpDirectory = "$path-v21"
             Files.createDirectory(context["res"].resolve(tmpDirectory).toPath())
 
             (WHITELIST_GENERAL + array).forEach { name ->

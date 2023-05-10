@@ -17,17 +17,15 @@ import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
 @Name("hide-get-premium")
 @Version("0.0.1")
 class HideGetPremiumPatch : BytecodePatch(
-    listOf(
-        CompactYpcOfferModuleViewFingerprint
-    )
+    listOf(CompactYpcOfferModuleViewFingerprint)
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
 
         CompactYpcOfferModuleViewFingerprint.result?.let {
-            with (it.mutableMethod) {
+            it.mutableMethod.apply {
                 val startIndex = it.scanResult.patternScanResult!!.startIndex
-                val measuredWidthRegister = (instruction(startIndex) as TwoRegisterInstruction).registerA
-                val measuredHeightInstruction = instruction(startIndex + 1) as TwoRegisterInstruction
+                val measuredWidthRegister = instruction<TwoRegisterInstruction>(startIndex).registerA
+                val measuredHeightInstruction = instruction<TwoRegisterInstruction>(startIndex + 1)
                 val measuredHeightRegister = measuredHeightInstruction.registerA
                 val tempRegister = measuredHeightInstruction.registerB
 

@@ -19,11 +19,11 @@ import app.revanced.patches.shared.fingerprints.LayoutConstructorFingerprint
 import app.revanced.patches.youtube.layout.fullscreen.fullscreenpanels.fingerprints.FullscreenViewAdderFingerprint
 import app.revanced.patches.youtube.layout.fullscreen.quickactions.patch.QuickActionsPatch
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
+import app.revanced.util.bytecode.getStringIndex
 import app.revanced.util.integrations.Constants.FULLSCREEN
 import org.jf.dexlib2.Opcode
-import org.jf.dexlib2.builder.instruction.BuilderInstruction21c
-import org.jf.dexlib2.builder.instruction.BuilderInstruction35c
-import org.jf.dexlib2.iface.instruction.formats.Instruction21c
+import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
+import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 import org.jf.dexlib2.iface.instruction.formats.Instruction35c
 
 @Patch
@@ -45,9 +45,9 @@ class HideFullscreenPanelsPatch : BytecodePatch(
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
         FullscreenViewAdderFingerprint.result?.let {
-            with (it.mutableMethod) {
+            it.mutableMethod.apply {
                 val endIndex = it.scanResult.patternScanResult!!.endIndex
-                val register = (implementation!!.instructions[endIndex] as Instruction35c).registerD
+                val register = instruction<Instruction35c>(endIndex).registerD
 
                 for (i in 1..3) removeInstruction(endIndex - i)
 
@@ -60,30 +60,26 @@ class HideFullscreenPanelsPatch : BytecodePatch(
             }
         } ?: return FullscreenViewAdderFingerprint.toErrorResult()
 
-        LayoutConstructorFingerprint.result?.mutableMethod?.let { method ->
-            val instructions = method.implementation!!.instructions
-            val registerIndex = instructions.indexOfFirst {
-                it.opcode == Opcode.CONST_STRING &&
-                        (it as BuilderInstruction21c).reference.toString() == "1.0x"
-            }
-            val dummyRegister = (instructions[registerIndex] as Instruction21c).registerA
+        LayoutConstructorFingerprint.result?.mutableMethod?.let {
+            val instructions = it.implementation!!.instructions
+            val dummyRegister = it.instruction<OneRegisterInstruction>(it.getStringIndex("1.0x")).registerA
 
-            val invokeIndex = method.implementation!!.instructions.indexOfFirst {
-                it.opcode.ordinal == Opcode.INVOKE_VIRTUAL.ordinal &&
-                        ((it as? BuilderInstruction35c)?.reference.toString() ==
+            val invokeIndex = instructions.indexOfFirst { instruction ->
+                instruction.opcode == Opcode.INVOKE_VIRTUAL &&
+                        ((instruction as ReferenceInstruction).reference.toString() ==
                                 "Landroid/widget/FrameLayout;->addView(Landroid/view/View;)V")
             }
 
-            method.addInstructions(
+            it.addInstructions(
                 invokeIndex, """
                     invoke-static {}, $FULLSCREEN->showFullscreenTitle()Z
                     move-result v$dummyRegister
                     if-eqz v$dummyRegister, :hidden
-                """, listOf(ExternalLabel("hidden", method.instruction(invokeIndex + 1)))
+                """, listOf(ExternalLabel("hidden", it.instruction(invokeIndex + 1)))
             )
         } ?: return LayoutConstructorFingerprint.toErrorResult()
 
-        /*
+        /**
          * Add settings
          */
         SettingsPatch.addPreference(

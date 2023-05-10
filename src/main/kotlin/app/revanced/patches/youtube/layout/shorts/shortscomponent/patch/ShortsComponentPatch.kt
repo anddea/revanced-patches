@@ -11,8 +11,7 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.shared.patch.mapping.ResourceMappingPatch
-import app.revanced.patches.youtube.ads.general.bytecode.patch.GeneralAdsBytecodePatch
-import app.revanced.patches.youtube.misc.litho.patch.LithoFilterPatch
+import app.revanced.patches.youtube.ads.general.resource.patch.GeneralAdsPatch
 import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
 import app.revanced.util.bytecode.BytecodeHelper.updatePatchStatus
@@ -22,8 +21,7 @@ import app.revanced.util.bytecode.BytecodeHelper.updatePatchStatus
 @Description("Hides other Shorts components.")
 @DependsOn(
     [
-        GeneralAdsBytecodePatch::class,
-        LithoFilterPatch::class,
+        GeneralAdsPatch::class,
         ResourceMappingPatch::class,
         SettingsPatch::class,
         SharedResourceIdPatch::class,
@@ -41,7 +39,7 @@ class ShortsComponentPatch : BytecodePatch() {
 
         context.updatePatchStatus("ShortsComponent")
 
-        /*
+        /**
          * Add settings
          */
         SettingsPatch.addPreference(

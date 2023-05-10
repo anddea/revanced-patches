@@ -26,17 +26,14 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 @YouTubeCompatibility
 @Version("0.0.1")
 class DisableShortsOnStartupPatch : BytecodePatch(
-    listOf(
-        UserWasInShortsFingerprint
-    )
+    listOf(UserWasInShortsFingerprint)
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
 
         UserWasInShortsFingerprint.result?.let {
-            val insertIndex = it.scanResult.patternScanResult!!.endIndex + 1
-
-            with (it.mutableMethod) {
-                val register = (instruction(insertIndex - 1) as OneRegisterInstruction).registerA + 2
+            it.mutableMethod.apply {
+                val insertIndex = it.scanResult.patternScanResult!!.endIndex + 1
+                val register = instruction<OneRegisterInstruction>(insertIndex - 1).registerA + 2
                 addInstructions(
                     insertIndex, """
                         invoke-static { }, $SHORTS->disableStartupShortsPlayer()Z
@@ -48,7 +45,7 @@ class DisableShortsOnStartupPatch : BytecodePatch(
             }
         } ?: return UserWasInShortsFingerprint.toErrorResult()
 
-        /*
+        /**
          * Add settings
          */
         SettingsPatch.addPreference(

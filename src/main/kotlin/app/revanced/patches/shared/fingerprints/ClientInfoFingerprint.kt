@@ -9,7 +9,5 @@ object ClientInfoFingerprint : MethodFingerprint(
     returnType = "L",
     access = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf(),
-    opcodes = listOf(
-        Opcode.OR_INT_LIT16
-    )
+    opcodes = listOf(Opcode.OR_INT_LIT16)
 )

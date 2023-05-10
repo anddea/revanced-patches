@@ -25,14 +25,14 @@ class OverlayButtonsBytecodePatch : BytecodePatch() {
     override fun execute(context: BytecodeContext): PatchResult {
 
         arrayOf(
-            "$BUTTON_PATH/Download;",
-            "$BUTTON_PATH/AutoRepeat;",
-            "$BUTTON_PATH/CopyWithTimeStamp;",
-            "$BUTTON_PATH/Copy;",
-            "$BUTTON_PATH/Speed;"
-        ).forEach { descriptor ->
-            PlayerControlsPatch.initializeControl(descriptor)
-            PlayerControlsPatch.injectVisibility(descriptor)
+            "Download",
+            "AutoRepeat",
+            "CopyWithTimeStamp",
+            "Copy",
+            "Speed"
+        ).forEach {
+            PlayerControlsPatch.initializeControl("$BUTTON_PATH/$it;")
+            PlayerControlsPatch.injectVisibility("$BUTTON_PATH/$it;")
         }
 
         return PatchResultSuccess()

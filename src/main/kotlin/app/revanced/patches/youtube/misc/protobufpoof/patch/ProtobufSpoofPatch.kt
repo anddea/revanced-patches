@@ -44,11 +44,11 @@ class ProtobufSpoofPatch : BytecodePatch(
 
         // hook parameter
         ProtobufParameterBuilderFingerprint.result?.let {
-            with (context
+            (context
                 .toMethodWalker(it.method)
                 .nextMethod(it.scanResult.patternScanResult!!.startIndex, true)
                 .getMethod() as MutableMethod
-            ) {
+            ).apply {
                 val protobufParam = 3
 
                 addInstructions(
@@ -85,7 +85,7 @@ class ProtobufSpoofPatch : BytecodePatch(
         // Hook video id, required for subtitle fix.
         MainstreamVideoIdPatch.injectCall("$MISC_PATH/ProtobufSpoofPatch;->setCurrentVideoId(Ljava/lang/String;)V")
 
-        /*
+        /**
          * Add settings
          */
         SettingsPatch.addPreference(

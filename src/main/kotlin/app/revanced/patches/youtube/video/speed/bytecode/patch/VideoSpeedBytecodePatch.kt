@@ -16,7 +16,6 @@ import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.misc.videoid.legacy.patch.LegacyVideoIdPatch
 import app.revanced.patches.youtube.video.livestream.patch.LiveStreamPatch
 import app.revanced.patches.youtube.video.speed.bytecode.fingerprints.*
-import app.revanced.util.bytecode.BytecodeHelper.updatePatchStatus
 import app.revanced.util.integrations.Constants.VIDEO_PATH
 import org.jf.dexlib2.iface.instruction.FiveRegisterInstruction
 
@@ -57,8 +56,6 @@ class VideoSpeedBytecodePatch : BytecodePatch(
         ) ?: return VideoSpeedSettingsFingerprint.toErrorResult()
 
         LegacyVideoIdPatch.injectCall("$INTEGRATIONS_VIDEO_SPEED_CLASS_DESCRIPTOR->newVideoStarted(Ljava/lang/String;)V")
-
-        context.updatePatchStatus("VideoSpeed")
 
         return PatchResultSuccess()
     }

@@ -32,8 +32,8 @@ import app.revanced.util.resources.ResourceUtils.copyXmlNode
 class SponsorBlockResourcePatch : ResourcePatch {
 
     override fun execute(context: ResourceContext): PatchResult {
-        /*
-         merge SponsorBlock drawables to main drawables
+        /**
+         * merge SponsorBlock drawables to main drawables
          */
 
         arrayOf(
@@ -57,8 +57,8 @@ class SponsorBlockResourcePatch : ResourcePatch {
             context.copyResources("youtube/sponsorblock", resourceGroup)
         }
 
-        /*
-        merge xml nodes from the host to their real xml files
+        /**
+         * merge xml nodes from the host to their real xml files
          */
 
         // collect all host resources
@@ -94,12 +94,10 @@ class SponsorBlockResourcePatch : ResourcePatch {
             }
         }
 
-        /*
+        /**
          * Add ReVanced Settings
          */
         SettingsPatch.addReVancedPreference("sponsorblock_settings")
-
-        SettingsPatch.updatePatchStatus("sponsorblock")
 
         return PatchResultSuccess()
     }

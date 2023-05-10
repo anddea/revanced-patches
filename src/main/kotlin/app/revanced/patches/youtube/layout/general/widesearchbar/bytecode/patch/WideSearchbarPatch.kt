@@ -54,12 +54,12 @@ class WideSearchbarPatch : BytecodePatch(
                         .nextMethod(index, true)
                         .getMethod() as MutableMethod
 
-                    injectSearchBarHook(targetMethod)
+                    targetMethod.injectSearchBarHook()
                 } ?: return fingerprint.toErrorResult()
             } ?: return parentFingerprint.toErrorResult()
         }
 
-        /*
+        /**
          * Add settings
          */
         SettingsPatch.addPreference(
@@ -74,13 +74,12 @@ class WideSearchbarPatch : BytecodePatch(
         return PatchResultSuccess()
     }
 
-    private fun injectSearchBarHook(method: MutableMethod) {
-        val index = method.implementation!!.instructions.size - 1
-        method.addInstructions(
-            index, """
-            invoke-static {}, $GENERAL->enableWideSearchbar()Z
-            move-result p0
-        """
+    private fun MutableMethod.injectSearchBarHook() {
+        addInstructions(
+            implementation!!.instructions.size - 1, """
+                invoke-static {}, $GENERAL->enableWideSearchbar()Z
+                move-result p0
+                """
         )
     }
 }

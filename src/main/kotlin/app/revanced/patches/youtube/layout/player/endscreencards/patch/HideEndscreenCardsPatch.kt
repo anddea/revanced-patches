@@ -17,7 +17,7 @@ import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.youtube.layout.player.endscreencards.fingerprints.*
 import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
-import org.jf.dexlib2.iface.instruction.formats.Instruction21c
+import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
 @Name("hide-endscreen-cards")
@@ -41,8 +41,8 @@ class HideEndscreenCardsPatch : BytecodePatch(
 
         fun MethodFingerprintResult.injectHideCalls() {
             val index = this.scanResult.patternScanResult!!.endIndex
-            with (this.mutableMethod) {
-                val register = (this.instruction(index) as Instruction21c).registerA
+            this.mutableMethod.apply {
+                val register = this.instruction<OneRegisterInstruction>(index).registerA
                 this.implementation!!.injectHideCall(index + 1, register, "layout/PlayerPatch", "hideEndscreen")
             }
         }
@@ -55,7 +55,7 @@ class HideEndscreenCardsPatch : BytecodePatch(
             it.result?.injectHideCalls() ?: return it.toErrorResult()
         }
 
-        /*
+        /**
          * Add settings
          */
         SettingsPatch.addPreference(

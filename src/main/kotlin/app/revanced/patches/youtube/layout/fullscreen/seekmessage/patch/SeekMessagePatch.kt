@@ -30,9 +30,7 @@ import app.revanced.util.integrations.Constants.FULLSCREEN
 @YouTubeCompatibility
 @Version("0.0.1")
 class SeekMessagePatch : BytecodePatch(
-    listOf(
-        SeekEduContainerFingerprint
-    )
+    listOf(SeekEduContainerFingerprint)
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
 

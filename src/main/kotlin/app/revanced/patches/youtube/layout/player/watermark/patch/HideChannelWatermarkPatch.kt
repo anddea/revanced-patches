@@ -28,30 +28,28 @@ import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
 @YouTubeCompatibility
 @Version("0.0.1")
 class HideChannelWatermarkBytecodePatch : BytecodePatch(
-    listOf(
-        HideWatermarkParentFingerprint
-    )
+    listOf(HideWatermarkParentFingerprint)
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
 
         HideWatermarkParentFingerprint.result?.let { parentResult ->
             HideWatermarkFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.let {
-                val insertIndex = it.scanResult.patternScanResult!!.endIndex
+                it.mutableMethod.apply {
+                    val insertIndex = it.scanResult.patternScanResult!!.endIndex
+                    val register = instruction<TwoRegisterInstruction>(insertIndex).registerA
 
-                with (it.mutableMethod) {
-                    val register = (instruction(insertIndex) as TwoRegisterInstruction).registerA
                     removeInstruction(insertIndex)
                     addInstructions(
                         insertIndex, """
                             invoke-static {}, $PLAYER->hideChannelWatermark()Z
                             move-result v$register
-                        """
+                            """
                     )
                 }
             } ?: return HideWatermarkFingerprint.toErrorResult()
         } ?: return HideWatermarkParentFingerprint.toErrorResult()
 
-        /*
+        /**
          * Add settings
          */
         SettingsPatch.addPreference(

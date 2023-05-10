@@ -5,38 +5,32 @@ import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.addInstruction
+import app.revanced.patcher.extensions.instruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
-import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.youtube.layout.shorts.shortscomponent.fingerprints.ShortsCommentFingerprint
-import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch
+import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch.Companion.rightCommentId
+import app.revanced.util.bytecode.getWideLiteralIndex
 import app.revanced.util.integrations.Constants.SHORTS
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
-import org.jf.dexlib2.iface.instruction.WideLiteralInstruction
 
 @Name("hide-shorts-comment")
-@DependsOn([SharedResourceIdPatch::class])
 @YouTubeCompatibility
 @Version("0.0.1")
 class ShortsCommentButtonPatch : BytecodePatch(
     listOf(ShortsCommentFingerprint)
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
-        ShortsCommentFingerprint.result?.mutableMethod?.let { method ->
-            with (method.implementation!!.instructions) {
-                val insertIndex = this.indexOfFirst {
-                    (it as? WideLiteralInstruction)?.wideLiteral == SharedResourceIdPatch.rightCommentLabelId
-                } + 3
+        ShortsCommentFingerprint.result?.mutableMethod?.let {
+            val insertIndex = it.getWideLiteralIndex(rightCommentId) + 3
+            val insertRegister = it.instruction<OneRegisterInstruction>(insertIndex).registerA
 
-                val insertRegister = (elementAt(insertIndex) as OneRegisterInstruction).registerA
-
-                method.addInstruction(
-                    insertIndex + 1,
-                    "invoke-static {v$insertRegister}, $SHORTS->hideShortsPlayerCommentsButton(Landroid/view/View;)V"
-                )
-            }
+            it.addInstruction(
+                insertIndex + 1,
+                "invoke-static {v$insertRegister}, $SHORTS->hideShortsPlayerCommentsButton(Landroid/view/View;)V"
+            )
         } ?: return ShortsCommentFingerprint.toErrorResult()
 
         return PatchResultSuccess()

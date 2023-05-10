@@ -34,7 +34,7 @@ class SettingsBytecodePatch : BytecodePatch(
     override fun execute(context: BytecodeContext): PatchResult {
         // apply the current theme of the settings page
         ThemeSetterSystemFingerprint.result?.let {
-            with(it.mutableMethod) {
+            it.mutableMethod.apply {
                 val targetIndex = it.scanResult.patternScanResult!!.startIndex
                 replaceInstruction(
                     targetIndex,

@@ -10,7 +10,7 @@ import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
-import app.revanced.patches.youtube.misc.litho.patch.LithoFilterPatch
+import app.revanced.patches.youtube.ads.general.resource.patch.GeneralAdsPatch
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
 
 @Patch
@@ -18,7 +18,7 @@ import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
 @Description("Adds options to hide player settings flyout panel.")
 @DependsOn(
     [
-        LithoFilterPatch::class,
+        GeneralAdsPatch::class,
         SettingsPatch::class
     ]
 )
@@ -27,7 +27,7 @@ import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
 class FlyoutPanelPatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
 
-        /*
+        /**
          * Add settings
          */
         SettingsPatch.addPreference(

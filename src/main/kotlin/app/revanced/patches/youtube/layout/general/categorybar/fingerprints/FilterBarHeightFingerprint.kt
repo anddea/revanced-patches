@@ -1,9 +1,9 @@
 package app.revanced.patches.youtube.layout.general.categorybar.fingerprints
 
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
-import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch
+import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch.Companion.filterBarHeightId
+import app.revanced.util.bytecode.isWideLiteralExists
 import org.jf.dexlib2.Opcode
-import org.jf.dexlib2.iface.instruction.WideLiteralInstruction
 
 object FilterBarHeightFingerprint : MethodFingerprint(
     opcodes = listOf(
@@ -12,10 +12,5 @@ object FilterBarHeightFingerprint : MethodFingerprint(
         Opcode.MOVE_RESULT,
         Opcode.IPUT
     ),
-    customFingerprint = { methodDef ->
-        methodDef.implementation?.instructions?.any {
-            it.opcode.ordinal == Opcode.CONST.ordinal &&
-            (it as? WideLiteralInstruction)?.wideLiteral == SharedResourceIdPatch.filterBarHeightLabelId
-        } == true
-    }
+    customFingerprint = { it.isWideLiteralExists(filterBarHeightId) }
 )

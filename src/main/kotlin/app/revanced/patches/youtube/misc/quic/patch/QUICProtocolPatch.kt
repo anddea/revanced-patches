@@ -42,7 +42,7 @@ class QUICProtocolPatch : BytecodePatch(
             )?: return it.toErrorResult()
         }
 
-        /*
+        /**
          * Add settings
          */
         SettingsPatch.addPreference(

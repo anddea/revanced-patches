@@ -19,16 +19,14 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 @YouTubeCompatibility
 @Version("0.0.1")
 class SwipeRefreshPatch : BytecodePatch(
-    listOf(
-        SwipeRefreshLayoutFingerprint
-    )
+    listOf(SwipeRefreshLayoutFingerprint)
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
 
         SwipeRefreshLayoutFingerprint.result?.let {
-            with (it.mutableMethod) {
+            it.mutableMethod.apply {
                 val insertIndex = it.scanResult.patternScanResult!!.endIndex
-                val register = (instruction(insertIndex) as OneRegisterInstruction).registerA
+                val register = instruction<OneRegisterInstruction>(insertIndex).registerA
 
                 addInstruction(
                     insertIndex,

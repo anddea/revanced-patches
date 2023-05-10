@@ -6,6 +6,7 @@ import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.data.toMethodWalker
 import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.instruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -19,28 +20,24 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 @YouTubeCompatibility
 @Version("0.0.1")
 class ReturnYouTubeDislikeShortsPatch : BytecodePatch(
-    listOf(
-        ShortsTextComponentParentFingerprint
-    )
+    listOf(ShortsTextComponentParentFingerprint)
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
         ShortsTextComponentParentFingerprint.result?.let {
-            with (context
+            (context
                 .toMethodWalker(it.method)
                 .nextMethod(it.scanResult.patternScanResult!!.endIndex, true)
                 .getMethod() as MutableMethod
-            ) {
-                val insertInstructions = this.implementation!!.instructions
-                val insertIndex = insertInstructions.size - 1
-                val insertRegister = (insertInstructions.elementAt(insertIndex) as OneRegisterInstruction).registerA
+            ).apply {
+                val insertIndex = implementation!!.instructions.size - 1
+                val insertRegister = instruction<OneRegisterInstruction>(insertIndex).registerA
 
                 this.insertShorts(insertIndex, insertRegister)
             }
 
-            with (it.mutableMethod) {
-                val insertInstructions = this.implementation!!.instructions
+            it.mutableMethod.apply {
                 val insertIndex = it.scanResult.patternScanResult!!.startIndex + 2
-                val insertRegister = (insertInstructions.elementAt(insertIndex - 1) as OneRegisterInstruction).registerA
+                val insertRegister = instruction<OneRegisterInstruction>(insertIndex - 1).registerA
 
                 this.insertShorts(insertIndex, insertRegister)
             }
