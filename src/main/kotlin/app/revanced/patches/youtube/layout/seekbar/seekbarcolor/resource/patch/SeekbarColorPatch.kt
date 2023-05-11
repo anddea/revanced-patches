@@ -26,7 +26,7 @@ import org.w3c.dom.Element
 )
 @YouTubeCompatibility
 @Version("0.0.1")
-class ThemePatch : ResourcePatch {
+class SeekbarColorPatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
 
         context.xmlEditor["res/drawable/resume_playback_progressbar_drawable.xml"].use {
