@@ -31,7 +31,7 @@ class HideGetPremiumPatch : BytecodePatch(
 
                 addInstructions(
                     startIndex + 2, """
-                        invoke-static {}, $PATCHES_PATH/ads/GeneralAdsPatch;->hideGetPremium()Z
+                        invoke-static {}, $PATCHES_PATH/ads/AdsFilter;->hideGetPremium()Z
                         move-result v$tempRegister
                         if-eqz v$tempRegister, :show
                         const/4 v$measuredWidthRegister, 0x0
