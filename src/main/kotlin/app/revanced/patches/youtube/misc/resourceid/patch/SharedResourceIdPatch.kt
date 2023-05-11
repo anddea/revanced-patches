@@ -19,10 +19,10 @@ import app.revanced.util.enum.ResourceType.*
 class SharedResourceIdPatch : ResourcePatch {
     internal companion object {
         var accessibilityProgressTimeId: Long = -1
-        var accessibilityVideoTimeId: Long = -1
         var accountSwitcherAccessibilityId: Long = -1
         var adAttributionId: Long = -1
         var appearanceStringId: Long = -1
+        var appRelatedEndScreenResultsId: Long = -1
         var autoNavPreviewId: Long = -1
         var backgroundCategoryId: Long = -1
         var barContainerHeightId: Long = -1
@@ -42,6 +42,7 @@ class SharedResourceIdPatch : ResourcePatch {
         var imageOnlyTabId: Long = -1
         var inlineTimeBarColorizedBarPlayedColorDarkId: Long = -1
         var inlineTimeBarPlayedNotHighlightedColorId: Long = -1
+        var insetOverlayViewLayoutId: Long = -1
         var layoutCircleId: Long = -1
         var layoutIconId: Long = -1
         var layoutVideoId: Long = -1
@@ -55,9 +56,12 @@ class SharedResourceIdPatch : ResourcePatch {
         var reelRemixId: Long = -1
         var relatedChipCloudMarginId: Long = -1
         var rightCommentId: Long = -1
+        var scrimOverlayId: Long = -1
         var searchSuggestionEntryId: Long = -1
         var scrubbingId: Long = -1
         var slimMetadataToggleButtonId: Long = -1
+        var suggestedActionId: Long = -1
+        var totalTimeId: Long = -1
         var toolTipId: Long = -1
         var videoQualityFragmentId: Long = -1
     }
@@ -69,10 +73,10 @@ class SharedResourceIdPatch : ResourcePatch {
             .single { it.type == type.value && it.name == name }.id
 
         accessibilityProgressTimeId = find(STRING, "accessibility_player_progress_time")
-        accessibilityVideoTimeId = find(STRING, "accessibility_video_time")
         accountSwitcherAccessibilityId = find(STRING, "account_switcher_accessibility_label")
         adAttributionId = find(ID, "ad_attribution")
         appearanceStringId = find(STRING, "app_theme_appearance_dark")
+        appRelatedEndScreenResultsId = find(LAYOUT, "app_related_endscreen_results")
         autoNavPreviewId = find(ID, "autonav_preview_stub")
         backgroundCategoryId = find(STRING, "pref_background_and_offline_category")
         barContainerHeightId = find(DIMEN, "bar_container_height")
@@ -92,6 +96,7 @@ class SharedResourceIdPatch : ResourcePatch {
         imageOnlyTabId = find(LAYOUT, "image_only_tab")
         inlineTimeBarColorizedBarPlayedColorDarkId = find(COLOR, "inline_time_bar_colorized_bar_played_color_dark")
         inlineTimeBarPlayedNotHighlightedColorId = find(COLOR, "inline_time_bar_played_not_highlighted_color")
+        insetOverlayViewLayoutId = find(ID, "inset_overlay_view_layout")
         layoutCircleId = find(LAYOUT, "endscreen_element_layout_circle")
         layoutIconId = find(LAYOUT, "endscreen_element_layout_icon")
         layoutVideoId = find(LAYOUT, "endscreen_element_layout_video")
@@ -105,9 +110,12 @@ class SharedResourceIdPatch : ResourcePatch {
         reelRemixId = find(ID, "reel_dyn_remix")
         relatedChipCloudMarginId = find(LAYOUT, "related_chip_cloud_reduced_margins")
         rightCommentId = find(DRAWABLE, "ic_right_comment_32c")
+        scrimOverlayId = find(ID, "scrim_overlay")
         searchSuggestionEntryId = find(LAYOUT, "search_suggestion_entry")
         scrubbingId = find(DIMEN, "vertical_touch_offset_to_enter_fine_scrubbing")
         slimMetadataToggleButtonId = find(COLOR, "slim_metadata_toggle_button")
+        suggestedActionId = find(LAYOUT, "suggested_action")
+        totalTimeId = find(STRING, "total_time")
         toolTipId = find(LAYOUT, "tooltip_content_view")
         videoQualityFragmentId = find(LAYOUT, "video_quality_bottom_sheet_list_fragment_title")
 

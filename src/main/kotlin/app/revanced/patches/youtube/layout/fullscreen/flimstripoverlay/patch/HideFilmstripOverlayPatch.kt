@@ -15,7 +15,6 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
-import app.revanced.patches.youtube.layout.fullscreen.flimstripoverlay.fingerprints.ScrubbingLabelAlternativeFingerprint
 import app.revanced.patches.youtube.layout.fullscreen.flimstripoverlay.fingerprints.ScrubbingLabelFingerprint
 import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
@@ -35,19 +34,11 @@ import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
 @YouTubeCompatibility
 @Version("0.0.1")
 class HideFilmstripOverlayPatch : BytecodePatch(
-    listOf(
-        ScrubbingLabelFingerprint,
-        ScrubbingLabelAlternativeFingerprint
-    )
+    listOf(ScrubbingLabelFingerprint)
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
 
-        val result = try {
-            ScrubbingLabelFingerprint.result!!
-        } catch (_: Exception) {
-            ScrubbingLabelAlternativeFingerprint.result
-                ?: return ScrubbingLabelAlternativeFingerprint.toErrorResult()
-        }
+        val result = ScrubbingLabelFingerprint.result?: return ScrubbingLabelFingerprint.toErrorResult()
 
         result.mutableMethod.hook(result.scanResult.patternScanResult!!.endIndex - 1)
 

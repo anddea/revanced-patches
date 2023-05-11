@@ -1,26 +1,23 @@
 package app.revanced.patches.youtube.layout.player.suggestactions.patch
 
-import app.revanced.extensions.findMutableMethodOf
 import app.revanced.extensions.injectHideCall
+import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
+import app.revanced.patcher.extensions.instruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
-import app.revanced.patches.shared.patch.mapping.ResourceMappingPatch
+import app.revanced.patches.youtube.layout.player.suggestactions.fingerprints.SuggestedActionsFingerprint
 import app.revanced.patches.youtube.misc.litho.patch.ByteBufferFilterPatch
-import app.revanced.patches.youtube.misc.playertype.patch.PlayerTypeHookPatch
+import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
-import app.revanced.util.bytecode.BytecodeHelper.updatePatchStatus
-import org.jf.dexlib2.Opcode
-import org.jf.dexlib2.iface.instruction.formats.Instruction22c
-import org.jf.dexlib2.iface.instruction.formats.Instruction31i
+import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
 @Name("hide-suggested-actions")
@@ -28,71 +25,37 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction31i
 @DependsOn(
     [
         ByteBufferFilterPatch::class,
-        PlayerTypeHookPatch::class,
-        ResourceMappingPatch::class,
-        SettingsPatch::class
+        SettingsPatch::class,
+        SharedResourceIdPatch::class
     ]
 )
 @YouTubeCompatibility
 @Version("0.0.1")
-class SuggestedActionsPatch : BytecodePatch() {
-
-    // list of resource names to get the id of
-    private val resourceIds = arrayOf(
-        "suggested_action"
-    ).map { name ->
-        ResourceMappingPatch.resourceMappings.single { it.name == name }.id
-    }
-    private var patchSuccessArray = Array(resourceIds.size) {false}
-
+class SuggestedActionsPatch : BytecodePatch(
+    listOf(SuggestedActionsFingerprint)
+) {
     override fun execute(context: BytecodeContext): PatchResult {
-        context.classes.forEach { classDef ->
-            classDef.methods.forEach { method ->
-                with(method.implementation) {
-                    this?.instructions?.forEachIndexed { index, instruction ->
-                        when (instruction.opcode) {
-                            Opcode.CONST -> {
-                                when ((instruction as Instruction31i).wideLiteral) {
-                                    resourceIds[0] -> { // suggested_action
-                                        val insertIndex = index + 4
-                                        val iPutInstruction = instructions.elementAt(insertIndex)
-                                        if (iPutInstruction.opcode != Opcode.IPUT_OBJECT) return@forEachIndexed
+        SuggestedActionsFingerprint.result?.let{
+            it.mutableMethod.apply {
+                val targetIndex = it.scanResult.patternScanResult!!.endIndex
+                val targetRegister = instruction<OneRegisterInstruction>(targetIndex).registerA
 
-                                        val mutableMethod = context.proxy(classDef).mutableClass.findMutableMethodOf(method)
-
-                                        val viewRegister = (iPutInstruction as Instruction22c).registerA
-                                        mutableMethod.implementation!!.injectHideCall(insertIndex, viewRegister, "layout/PlayerPatch", "hideSuggestedActions")
-
-                                        patchSuccessArray[0] = true
-                                    }
-                                }
-                            }
-                            else -> return@forEachIndexed
-                        }
-                    }
-                }
+                implementation!!.injectHideCall(targetIndex + 1, targetRegister, "layout/PlayerPatch", "hideSuggestedActions")
             }
-        }
+        } ?: return SuggestedActionsFingerprint.toErrorResult()
 
-        val errorIndex: Int = patchSuccessArray.indexOf(false)
-
-        if (errorIndex == -1) {
-            context.updatePatchStatus("SuggestedActions")
-
-            /*
-             * Add settings
-             */
-            SettingsPatch.addPreference(
-                arrayOf(
-                    "PREFERENCE: PLAYER_SETTINGS",
-                    "SETTINGS: HIDE_SUGGESTED_ACTION"
-                )
+        /**
+         * Add settings
+         */
+        SettingsPatch.addPreference(
+            arrayOf(
+                "PREFERENCE: PLAYER_SETTINGS",
+                "SETTINGS: HIDE_SUGGESTED_ACTION"
             )
+        )
 
-            SettingsPatch.updatePatchStatus("hide-suggested-actions")
+        SettingsPatch.updatePatchStatus("hide-suggested-actions")
 
-            return PatchResultSuccess()
-        } else
-            return PatchResultError("Instruction not found: $errorIndex")
+        return PatchResultSuccess()
     }
 }

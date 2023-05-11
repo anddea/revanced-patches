@@ -12,7 +12,6 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
 import app.revanced.patches.youtube.misc.sponsorblock.bytecode.patch.SponsorBlockBytecodePatch
-import app.revanced.patches.youtube.misc.sponsorblock.bytecode.patch.SponsorBlockSecondaryBytecodePatch
 import app.revanced.util.resources.ResourceUtils
 import app.revanced.util.resources.ResourceUtils.copyResources
 import app.revanced.util.resources.ResourceUtils.copyXmlNode
@@ -23,8 +22,7 @@ import app.revanced.util.resources.ResourceUtils.copyXmlNode
 @DependsOn(
     [
         SettingsPatch::class,
-        SponsorBlockBytecodePatch::class,
-        SponsorBlockSecondaryBytecodePatch::class
+        SponsorBlockBytecodePatch::class
     ]
 )
 @YouTubeCompatibility

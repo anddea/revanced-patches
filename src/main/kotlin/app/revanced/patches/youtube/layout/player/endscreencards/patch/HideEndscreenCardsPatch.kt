@@ -43,7 +43,7 @@ class HideEndscreenCardsPatch : BytecodePatch(
             val index = this.scanResult.patternScanResult!!.endIndex
             this.mutableMethod.apply {
                 val register = this.instruction<OneRegisterInstruction>(index).registerA
-                this.implementation!!.injectHideCall(index + 1, register, "layout/PlayerPatch", "hideEndscreen")
+                this.implementation!!.injectHideCall(index + 1, register, "layout/PlayerPatch", "hideEndScreen")
             }
         }
         
