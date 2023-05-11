@@ -8,6 +8,23 @@
     <string name="microg_settings_summary">啟用線上通知推播以接收影片通知</string>
     <string name="microg_settings_title">開啟 MicroG</string>
     <string name="revanced_ads">廣告</string>
+    <string name="revanced_ad_remover_custom_filter_summary">按其名稱過濾並用半角逗號隔開</string>
+    <string name="revanced_ad_remover_custom_filter_title">自訂篩選器</string>
+    <string name="revanced_ad_remover_general_ads_summary_off">一般廣告已顯示</string>
+    <string name="revanced_ad_remover_general_ads_summary_on">一般廣告已隱藏</string>
+    <string name="revanced_ad_remover_general_ads_title">隱藏一般廣告</string>
+    <string name="revanced_ad_remover_get_premium_summary_off">Youtube Premium 促銷活動已顯示</string>
+    <string name="revanced_ad_remover_get_premium_summary_on">Youtube Premium 促銷活動已隱藏</string>
+    <string name="revanced_ad_remover_get_premium_title">隱藏 Youtube Premium 促銷活動</string>
+    <string name="revanced_ad_remover_paid_content_summary_off">付費宣傳標籤已顯示</string>
+    <string name="revanced_ad_remover_paid_content_summary_on">付費宣傳標籤已隱藏</string>
+    <string name="revanced_ad_remover_paid_content_title">隱藏付費宣傳標籤</string>
+    <string name="revanced_ad_remover_self_sponsor_summary_off">自我推銷卡已顯示</string>
+    <string name="revanced_ad_remover_self_sponsor_summary_on">自我推銷卡已隱藏</string>
+    <string name="revanced_ad_remover_self_sponsor_title">隱藏自我推銷卡</string>
+    <string name="revanced_ad_remover_user_filter_summary_off">使用者過濾器已停用</string>
+    <string name="revanced_ad_remover_user_filter_summary_on">使用者過濾器已啟用</string>
+    <string name="revanced_ad_remover_user_filter_title">啟用使用者過濾器</string>
     <string name="revanced_backup_summary">自檔案匯入 ReVanced 設定，或匯出 ReVanced 設定至檔案</string>
     <string name="revanced_bottom_player">播放器按鈕</string>
     <string name="revanced_button_container_title">功能按鈕欄</string>
@@ -21,6 +38,8 @@
     <string name="revanced_copytimestamp_success">時間戳已複製到剪貼簿</string>
     <string name="revanced_custom_seekbar_color_value_summary">輸入搜尋欄十六進制代碼</string>
     <string name="revanced_custom_seekbar_color_value_title">自訂搜尋欄顏色</string>
+    <string name="revanced_default_app_settings_summary">如過要讓RVX開啟Youtube的網址的話,請到手機設定>RVX應用程式資訊>設為預設>前往支援的網址,將設定改為\"經此應用程式\"</string>
+    <string name="revanced_default_app_settings_title">開啟預設應用程式設定</string>
     <string name="revanced_default_video_quality_mobile_title">預設行動數據影片畫質</string>
     <string name="revanced_default_video_quality_wifi_title">預設 Wi-Fi 影片畫質</string>
     <string name="revanced_default_video_speed_title">預設播放速度</string>
@@ -39,6 +58,9 @@
     <string name="revanced_disable_haptic_feedback_zoom_summary_off">縮放（震動）回饋已啟用</string>
     <string name="revanced_disable_haptic_feedback_zoom_summary_on">縮放（震動）回饋已停用</string>
     <string name="revanced_disable_haptic_feedback_zoom_title">停用縮放（震動）回饋</string>
+    <string name="revanced_disable_hdr_video_summary_off">高動態範圍(HDR)影片已啟用</string>
+    <string name="revanced_disable_hdr_video_summary_on">高動態範圍(HDR)影片已停用</string>
+    <string name="revanced_disable_hdr_video_title">停用高動態範圍(HDR)影片</string>
     <string name="revanced_disable_landscape_mode_summary_off">進入全螢幕時橫向模式已啟用</string>
     <string name="revanced_disable_landscape_mode_summary_on">進入全螢幕時橫向模式已停用</string>
     <string name="revanced_disable_landscape_mode_title">停用橫向模式</string>
@@ -86,8 +108,8 @@
     <string name="revanced_enable_phone_layout_title">啟用手機版介面</string>
     <string name="revanced_enable_protobuf_spoof_summary">"偽裝 protobuf 以防止播放問題
  已知問題
- - 結束全螢幕卡總是隱藏
- - 離線下載可能無法正常執行（YouTube Premium 使用者）"</string>
+ - 片尾資訊卡無法顯示
+ - 離線下載可能將無法正常使用（YouTube Premium 使用者）"</string>
     <string name="revanced_enable_protobuf_spoof_title">啟用 protobuf 偽裝</string>
     <string name="revanced_enable_press_to_swipe_summary_off">長按以滑動已停用</string>
     <string name="revanced_enable_press_to_swipe_summary_on">長按以滑動已啟用</string>
@@ -121,6 +143,9 @@
     <string name="revanced_enable_swipe_volume_title">啟用音量控制手勢</string>
     <string name="revanced_enable_tablet_layout_summary">偽裝DPI以使用一些平板介面</string>
     <string name="revanced_enable_tablet_layout_title">啟用平板介面</string>
+    <string name="revanced_enable_tablet_mini_player_summary_off">平板迷你播放器已停用</string>
+    <string name="revanced_enable_tablet_mini_player_summary_on">平板迷你播放器已啟用</string>
+    <string name="revanced_enable_tablet_mini_player_title">平板迷你播放器</string>
     <string name="revanced_enable_tablet_navigation_bar_summary_off">平板導覽列已停用</string>
     <string name="revanced_enable_tablet_navigation_bar_summary_on">平板導覽列已啟用</string>
     <string name="revanced_enable_tablet_navigation_bar_title">啟用導覽列</string>
@@ -256,6 +281,12 @@
     <string name="revanced_hide_emoji_picker_summary_off">表情符號選擇器已顯示</string>
     <string name="revanced_hide_emoji_picker_summary_on">表情符號選擇器已隱藏</string>
     <string name="revanced_hide_emoji_picker_title">隱藏表情符號選擇器</string>
+    <string name="revanced_hide_end_screen_cards_summary_off">片尾資訊卡已顯示</string>
+    <string name="revanced_hide_end_screen_cards_summary_on">片尾資訊卡已隱藏</string>
+    <string name="revanced_hide_end_screen_cards_title">片尾資訊卡(頻道推薦) </string>
+    <string name="revanced_hide_end_screen_overlay_summary_off">播放結束後的推薦影片已顯示</string>
+    <string name="revanced_hide_end_screen_overlay_summary_on">播放結束後的推薦影片已隱藏</string>
+    <string name="revanced_hide_end_screen_overlay_title">隱藏播放結束後的推薦影片</string>
     <string name="revanced_hide_filmstrip_overlay_summary_off">影片條疊加層已顯示</string>
     <string name="revanced_hide_filmstrip_overlay_summary_on">影片條疊加層已隱藏</string>
     <string name="revanced_hide_filmstrip_overlay_title">隱藏影片條疊加層</string>
@@ -283,6 +314,12 @@
     <string name="revanced_hide_latest_posts_summary_off">最新貼文已顯示</string>
     <string name="revanced_hide_latest_posts_summary_on">最新貼文已隱藏</string>
     <string name="revanced_hide_latest_posts_title">隱藏最新貼文</string>
+    <string name="revanced_hide_library_button_summary_off">資料庫按鈕已顯示</string>
+    <string name="revanced_hide_library_button_summary_on">資料庫按鈕已隱藏</string>
+    <string name="revanced_hide_library_button_title">隱藏資料庫按鈕</string>
+    <string name="revanced_hide_load_more_button_summary_off">更多資訊按鈕已顯示</string>
+    <string name="revanced_hide_load_more_button_summary_on">更多資訊按鈕已隱藏</string>
+    <string name="revanced_hide_load_more_button_title">隱藏更多資訊按鈕</string>
     <string name="revanced_hide_navigation_label_summary_off">導覽列已顯示</string>
     <string name="revanced_hide_navigation_label_summary_on">導覽列已隱藏</string>
     <string name="revanced_hide_navigation_label_title">隱藏導覽列</string>
@@ -364,6 +401,9 @@
     <string name="revanced_hide_seekbar_summary_off">播放進度條已顯示</string>
     <string name="revanced_hide_seekbar_summary_on">播放進度條已隱藏</string>
     <string name="revanced_hide_seekbar_title">隱藏播放進度條</string>
+    <string name="revanced_hide_seek_message_summary_off">搜尋訊息已顯示</string>
+    <string name="revanced_hide_seek_message_summary_on">搜尋訊息已隱藏</string>
+    <string name="revanced_hide_seek_message_title">隱藏搜尋訊息</string>
     <string name="revanced_hide_separator_summary_off">灰色分隔符已顯示</string>
     <string name="revanced_hide_separator_summary_on">灰色分隔符已隱藏</string>
     <string name="revanced_hide_separator_title">隱藏灰色分隔符</string>
@@ -387,6 +427,9 @@
     <string name="revanced_hide_shorts_shelf_summary_off">Shorts 功能列已顯示</string>
     <string name="revanced_hide_shorts_shelf_summary_on">Shorts 功能列已隱藏</string>
     <string name="revanced_hide_shorts_shelf_title">Shorts 功能列</string>
+    <string name="revanced_hide_snack_bar_summary_off">簡短回饋 (snackbar) 已顯示</string>
+    <string name="revanced_hide_snack_bar_summary_on">簡短回饋 (snackbar) 已隱藏</string>
+    <string name="revanced_hide_snack_bar_title">隱藏簡短回饋 (snackbar)</string>
     <string name="revanced_hide_stories_shelf_summary_off">短片故事已顯示</string>
     <string name="revanced_hide_stories_shelf_summary_on">短片故事已隱藏</string>
     <string name="revanced_hide_stories_shelf_title">短片故事</string>
@@ -427,6 +470,9 @@
     <string name="revanced_import_settings_title">導入設定</string>
     <string name="revanced_misc">其他設定</string>
     <string name="revanced_navigation">導覽列</string>
+    <string name="revanced_open_library_startup_summary_off">資料庫已於應用程式開啟時啟動</string>
+    <string name="revanced_open_library_startup_summary_on">資料庫未於應用程式開啟時啟動</string>
+    <string name="revanced_open_library_startup_title">在應用程式開啟時啟動資料庫</string>
     <string name="revanced_others">其他</string>
     <string name="revanced_overlay_button">畫面疊加按鈕</string>
     <string name="revanced_overlay_button_auto_repeat_summary_off">自動重複按鈕已隱藏</string>
@@ -454,6 +500,7 @@
     <string name="revanced_player">播放</string>
     <string name="revanced_protobuf_spoof_notice">偽裝 protobuf 以防止播放問題</string>
     <string name="revanced_quick_actions_components_title">快捷功能列設定 (實驗性功能)</string>
+    <string name="revanced_reboot_first_run">重新啟動以套用一般介面</string>
     <string name="revanced_reboot_warning_general">"由於這仍是一項實驗性功能，因此可能存在其他未知問題。
 你確定要繼續嗎？"</string>
     <string name="revanced_reboot_warning_phone">"欺騙Dpi讓一些介面更改為手機模式的介面
@@ -481,7 +528,6 @@
     <string name="revanced_ryd_enable_summary_on">倒讚已顯示</string>
     <string name="revanced_ryd_enable_title">啟用 Return YouTube Dislike</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">未支援倒讚（已達到客戶端 API 限制）</string>
-    <string name="revanced_ryd_failure_user_voted">重新載入影片以使用 ReturnYouTubeDislike 進行投票</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">隱藏</string>
     <string name="revanced_save_video_quality_mobile">將預設行動數據畫質更改為：</string>
     <string name="revanced_save_video_quality_none">設定畫質失敗</string>

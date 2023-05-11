@@ -8,6 +8,23 @@
     <string name="microg_settings_summary">通知を受信するためにクラウドメッセージの設定を有効にします</string>
     <string name="microg_settings_title">MicroGを開く</string>
     <string name="revanced_ads">広告</string>
+    <string name="revanced_ad_remover_custom_filter_summary">コンマで区切られた名前でコンポーネントをフィルタリングします</string>
+    <string name="revanced_ad_remover_custom_filter_title">カスタムフィルター</string>
+    <string name="revanced_ad_remover_general_ads_summary_off">全般的な広告を非表示にします</string>
+    <string name="revanced_ad_remover_general_ads_summary_on">全般的な広告を非表示にします</string>
+    <string name="revanced_ad_remover_general_ads_title">全般的な広告を非表示にする</string>
+    <string name="revanced_ad_remover_get_premium_summary_off">プレーヤーの下に表示されるYouTube Premium の広告を非表示にします</string>
+    <string name="revanced_ad_remover_get_premium_summary_on">プレーヤーの下に表示されるYouTube Premium の広告を非表示にします</string>
+    <string name="revanced_ad_remover_get_premium_title">YouTube Premiumの広告を非表示にする</string>
+    <string name="revanced_ad_remover_paid_content_summary_off">有料プロモーションラベルを非表示にします</string>
+    <string name="revanced_ad_remover_paid_content_summary_on">有料プロモーションラベルを非表示にします</string>
+    <string name="revanced_ad_remover_paid_content_title">有料プロモーションを非表示にする</string>
+    <string name="revanced_ad_remover_self_sponsor_summary_off">自己スポンサーカードを非表示にします</string>
+    <string name="revanced_ad_remover_self_sponsor_summary_on">自己スポンサーカードを非表示にします</string>
+    <string name="revanced_ad_remover_self_sponsor_title">自己スポンサーカードを非表示にする</string>
+    <string name="revanced_ad_remover_user_filter_summary_off">ユーザーフィルターを有効にします</string>
+    <string name="revanced_ad_remover_user_filter_summary_on">ユーザーフィルターを有効にします</string>
+    <string name="revanced_ad_remover_user_filter_title">ユーザーフィルターを有効にする</string>
     <string name="revanced_backup_summary">ReVancedの設定を読み込むか、書き出します</string>
     <string name="revanced_bottom_player">プレーヤー下のボタン</string>
     <string name="revanced_button_container_title">プレーヤーの下のボタン</string>
@@ -21,6 +38,8 @@
     <string name="revanced_copytimestamp_success">タイムスタンプをコピーしました</string>
     <string name="revanced_custom_seekbar_color_value_summary">カラーコードを入力して再生バー(シークバー)の色を変更できます</string>
     <string name="revanced_custom_seekbar_color_value_title">再生バーの色を変更する</string>
+    <string name="revanced_default_app_settings_summary">外部ブラウザのYouTubeから Revanced Extended を開くには“対応リンクを開く”で、“このアプリで開く”を有効にします</string>
+    <string name="revanced_default_app_settings_title">“デフォルトで開く”の設定画面に移動する</string>
     <string name="revanced_default_video_quality_mobile_title">モバイルデータ通信でのデフォルト画質</string>
     <string name="revanced_default_video_quality_wifi_title">Wi-Fi でのデフォルト画質</string>
     <string name="revanced_default_video_speed_title">デフォルトの再生速度</string>
@@ -91,8 +110,8 @@
 - エンドスクリーンカードは常に表示されません
 - オフラインダウンロードが動作しない可能性があります(YouTube Premium 利用者)"</string>
     <string name="revanced_enable_protobuf_spoof_title">バッファリングの問題を回避する(β版)</string>
-    <string name="revanced_enable_press_to_swipe_summary_off">スワイプコントロールを有効にします</string>
-    <string name="revanced_enable_press_to_swipe_summary_on">スワイプコントロールを有効にします</string>
+    <string name="revanced_enable_press_to_swipe_summary_off">スワイプコントロール(長押し時のみ)を有効にします</string>
+    <string name="revanced_enable_press_to_swipe_summary_on">スワイプコントロール(長押し時のみ)を有効にします</string>
     <string name="revanced_enable_press_to_swipe_title">スワイプコントロールを有効にする</string>
     <string name="revanced_enable_save_brightness_summary_off">アプリを再起動して全画面表示にすると明るさが0になってしまうバグを回避します(公式のReVancedのバグ)</string>
     <string name="revanced_enable_save_brightness_summary_on">アプリを再起動して全画面表示にすると明るさが0になってしまうバグを回避します(公式のReVancedのバグ)</string>
@@ -123,6 +142,9 @@
     <string name="revanced_enable_swipe_volume_title">音量のスワイプコントロールを有効にする</string>
     <string name="revanced_enable_tablet_layout_summary">一部のタブレット用のレイアウトを使用できるように dpi を偽装します</string>
     <string name="revanced_enable_tablet_layout_title">タブレット用のレイアウトを有効にする</string>
+    <string name="revanced_enable_tablet_mini_player_summary_off">タブレットのミニプレーヤーを有効にします</string>
+    <string name="revanced_enable_tablet_mini_player_summary_on">タブレットのミニプレーヤーを有効にします</string>
+    <string name="revanced_enable_tablet_mini_player_title">タブレットのミニプレーヤーを有効にする</string>
     <string name="revanced_enable_tablet_navigation_bar_summary_off">タブレットのタブ切り替えレイアウト(タブ切り替えボタンを中央揃えにする)を有効にします</string>
     <string name="revanced_enable_tablet_navigation_bar_summary_on">タブレットのタブ切り替えレイアウト(タブ切り替えボタンを中央揃えにする)を有効にします</string>
     <string name="revanced_enable_tablet_navigation_bar_title">タブレットのタブ切り替えレイアウトを有効にする</string>
@@ -156,8 +178,8 @@
     <string name="revanced_hide_album_card_summary_off">アーティストの説明の下にあるアルバムカードを非表示にします</string>
     <string name="revanced_hide_album_card_summary_on">アーティストの説明の下にあるアルバムカードを非表示にします</string>
     <string name="revanced_hide_album_card_title">アルバムカードを非表示にする</string>
-    <string name="revanced_hide_audio_track_button_summary_off">プレーヤーに表示される“オーディオトラック”ボタンを非表示にします</string>
-    <string name="revanced_hide_audio_track_button_summary_on">プレーヤーに表示される“オーディオトラック”ボタンを非表示にします</string>
+    <string name="revanced_hide_audio_track_button_summary_off">“オーディオトラック”ボタンを非表示にします</string>
+    <string name="revanced_hide_audio_track_button_summary_on">“オーディオトラック”ボタンを非表示にします</string>
     <string name="revanced_hide_audio_track_button_title">オーディオトラックボタンを非表示にする</string>
     <string name="revanced_hide_autoplay_button_summary_off">自動再生ボタンを非表示にします</string>
     <string name="revanced_hide_autoplay_button_summary_on">自動再生ボタンを非表示にします</string>
@@ -260,6 +282,12 @@
     <string name="revanced_hide_emoji_picker_summary_off">コメントを書く際にキーボードの上部に表示される絵文字欄を非表示にします</string>
     <string name="revanced_hide_emoji_picker_summary_on">コメントを書く際にキーボードの上部に表示される絵文字欄を非表示にします</string>
     <string name="revanced_hide_emoji_picker_title">絵文字欄を非表示にする</string>
+    <string name="revanced_hide_end_screen_cards_summary_off">全画面表示で動画の最後に表示されるおすすめの動画を非表示にします</string>
+    <string name="revanced_hide_end_screen_cards_summary_on">全画面表示で動画の最後に表示されるおすすめの動画を非表示にします</string>
+    <string name="revanced_hide_end_screen_cards_title">終了画面のカードを非表示にする</string>
+    <string name="revanced_hide_end_screen_overlay_summary_off">終了画面オーバーレイを非表示にします</string>
+    <string name="revanced_hide_end_screen_overlay_summary_on">終了画面オーバーレイを非表示にします</string>
+    <string name="revanced_hide_end_screen_overlay_title">終了画面オーバーレイを非表示にする</string>
     <string name="revanced_hide_filmstrip_overlay_summary_off">再生バー(シークバー)長押しで表示される映写スライドを非表示にします</string>
     <string name="revanced_hide_filmstrip_overlay_summary_on">再生バー(シークバー)長押しで表示される映写スライドを非表示にします</string>
     <string name="revanced_hide_filmstrip_overlay_title">プレーヤーの映写スライドを非表示にする</string>
@@ -290,6 +318,9 @@
     <string name="revanced_hide_library_button_summary_off">下のタブ切り替えの“ライブラリ”ボタンを非表示にします</string>
     <string name="revanced_hide_library_button_summary_on">下のタブ切り替えの“ライブラリ”ボタンを非表示にします</string>
     <string name="revanced_hide_library_button_title">“ライブラリ”ボタンを非表示にする</string>
+    <string name="revanced_hide_load_more_button_summary_off">検索した際に、検索結果の動画の下に表示される“もっと表示”のボタンを非表示にします</string>
+    <string name="revanced_hide_load_more_button_summary_on">検索した際に、検索結果の動画の下に表示される“もっと表示”のボタンを非表示にします</string>
+    <string name="revanced_hide_load_more_button_title">“もっと表示”を非表示にする</string>
     <string name="revanced_hide_navigation_label_summary_off">下のタブ切り替えの名称(ホーム、ショート、登録チャンネルなど)を非表示にします</string>
     <string name="revanced_hide_navigation_label_summary_on">下のタブ切り替えの名称(ホーム、ショート、登録チャンネルなど)を非表示にします</string>
     <string name="revanced_hide_navigation_label_title">下のタブ切り替えの名称を非表示にする</string>
@@ -371,6 +402,9 @@
     <string name="revanced_hide_seekbar_summary_off">再生バー(シークバー)を非表示にします</string>
     <string name="revanced_hide_seekbar_summary_on">再生バー(シークバー)を非表示にします</string>
     <string name="revanced_hide_seekbar_title">再生バーを非表示にする</string>
+    <string name="revanced_hide_seek_message_summary_off">動画を長押しした際に表示される“移動するには左右にスライドします”の文章を非表示にします</string>
+    <string name="revanced_hide_seek_message_summary_on">動画を長押しした際に表示される“移動するには左右にスライドします”の文章を非表示にします</string>
+    <string name="revanced_hide_seek_message_title">シークバーのメッセージを非表示にする</string>
     <string name="revanced_hide_separator_summary_off">ホームタブでサムネイルの下に表示される“○○(チャンネル名)の視聴者はこのチャンネルも見ています”の表示を無効にします</string>
     <string name="revanced_hide_separator_summary_on">ホームタブでサムネイルの下に表示される“○○(チャンネル名)の視聴者はこのチャンネルも見ています”の表示を無効にします</string>
     <string name="revanced_hide_separator_title">“…の視聴者はこのチャンネルも見ています”の表示を無効にする</string>
@@ -394,6 +428,9 @@
     <string name="revanced_hide_shorts_shelf_summary_off">YouTubeショート欄を非表示にします</string>
     <string name="revanced_hide_shorts_shelf_summary_on">YouTubeショート欄を非表示にします</string>
     <string name="revanced_hide_shorts_shelf_title">YouTubeショート欄を非表示にする</string>
+    <string name="revanced_hide_snack_bar_summary_off">プレーヤー上の設定メニューで何か変更した際に、下に表示される文章(白いバー)を非表示にします</string>
+    <string name="revanced_hide_snack_bar_summary_on">プレーヤー上の設定メニューで何か変更した際に、下に表示される文章(白いバー)を非表示にします</string>
+    <string name="revanced_hide_snack_bar_title">下に表示される白いバーを非表示にする</string>
     <string name="revanced_hide_stories_shelf_summary_off">ストーリー欄を非表示にします</string>
     <string name="revanced_hide_stories_shelf_summary_on">ストーリー欄を非表示にします</string>
     <string name="revanced_hide_stories_shelf_title">ストーリー欄を非表示にする</string>
@@ -421,19 +458,22 @@
     <string name="revanced_hide_search_terms_summary_off">検索欄でサジェスト機能と検索履歴を無効にします</string>
     <string name="revanced_hide_search_terms_summary_on">検索欄でサジェスト機能と検索履歴を無効にします</string>
     <string name="revanced_hide_search_terms_title">“YouTube を検索”のサジェスト機能を無効にする</string>
-    <string name="revanced_hide_view_products_summary_off">プレーヤー内の商品バナーを非表示にします</string>
-    <string name="revanced_hide_view_products_summary_on">プレーヤー内の商品バナーを非表示にします</string>
-    <string name="revanced_hide_view_products_title">プレーヤー内の商品バナーを非表示にする</string>
+    <string name="revanced_hide_view_products_summary_off">商品バナーを非表示にします</string>
+    <string name="revanced_hide_view_products_summary_on">商品バナーを非表示にします</string>
+    <string name="revanced_hide_view_products_title">商品バナーを非表示にする(プレーヤー内)</string>
     <string name="revanced_hide_web_search_panel_summary_off">ウェブ検索パネルを非表示にします</string>
     <string name="revanced_hide_web_search_panel_summary_on">ウェブ検索パネルを非表示にします</string>
     <string name="revanced_hide_web_search_panel_title">ウェブ検索パネルを非表示にする</string>
-    <string name="revanced_hide_youtube_music_button_summary_off">プレーヤーに表示される “YouTube Music” ボタンを非表示にします</string>
-    <string name="revanced_hide_youtube_music_button_summary_on">プレーヤーに表示される “YouTube Music” ボタンを非表示にします</string>
-    <string name="revanced_hide_youtube_music_button_title">プレーヤー上の “YouTube Music” ボタンを非表示にする</string>
+    <string name="revanced_hide_youtube_music_button_summary_off">“YouTube Music” ボタンを非表示にします</string>
+    <string name="revanced_hide_youtube_music_button_summary_on">“YouTube Music” ボタンを非表示にします</string>
+    <string name="revanced_hide_youtube_music_button_title">“YouTube Music” ボタンを非表示にする</string>
     <string name="revanced_import_settings_summary">ReVancedの設定を内部ストレージから読み込みます</string>
     <string name="revanced_import_settings_title">設定を読み込む</string>
     <string name="revanced_misc">その他</string>
     <string name="revanced_navigation">下のタブ切り替えボタン</string>
+    <string name="revanced_open_library_startup_summary_off">アプリ起動時に“ライブラリ”タブを表示します</string>
+    <string name="revanced_open_library_startup_summary_on">アプリ起動時に“ライブラリ”タブを表示します</string>
+    <string name="revanced_open_library_startup_title">アプリ起動時にライブラリを表示する</string>
     <string name="revanced_others">その他</string>
     <string name="revanced_overlay_button">オーバーレイボタン</string>
     <string name="revanced_overlay_button_auto_repeat_summary_off">自動リピートボタンを表示します</string>
@@ -461,6 +501,7 @@
     <string name="revanced_player">プレーヤー</string>
     <string name="revanced_protobuf_spoof_notice">MicroGユーザー(非Rootユーザー)において、動画再生中にバッファリングして視聴できなくなる問題を修正します(ベータ版、副作用あり)</string>
     <string name="revanced_quick_actions_components_title">[実験的機能] クイックアクションボタン(新プレーヤーの下のボタン)</string>
+    <string name="revanced_reboot_first_run">再起動してYouTubeのレイアウトを正常に読みます</string>
     <string name="revanced_reboot_warning_general">"これはまだ実験的な機能であるため、他にも未知のバグがあるかもしれません。
 続行してもよろしいですか？"</string>
     <string name="revanced_reboot_warning_phone">"一部のレイアウトをスマートフォン用のレイアウトに変更するために dpi を偽装します。
@@ -488,7 +529,6 @@
     <string name="revanced_ryd_enable_summary_on">低評価数を表示します</string>
     <string name="revanced_ryd_enable_title">低評価数を表示する</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">低評価数は利用できません (クライアント API の制限に達しました)</string>
-    <string name="revanced_ryd_failure_user_voted">投票するためにReturnYouTubeDislikeを使用する為、動画を再読み込みします</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">非表示</string>
     <string name="revanced_save_video_quality_mobile">モバイルデータ通信でのデフォルト画質:</string>
     <string name="revanced_save_video_quality_none">画質の設定に失敗しました</string>

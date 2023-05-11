@@ -8,9 +8,6 @@
     <string name="microg_settings_summary">MicroG est requis pour se connecter au compte Google</string>
     <string name="microg_settings_title">Ouvrir MicroG</string>
     <string name="revanced_ads">Publicités</string>
-    <string name="revanced_ad_remover_button_ads_summary_off">Les publicités qui redirigent vers une page web sont affichées</string>
-    <string name="revanced_ad_remover_button_ads_summary_on">Les publicités qui redirigent vers une page web sont cachées</string>
-    <string name="revanced_ad_remover_button_ads_title">Les publicités qui redirigent vers une page web</string>
     <string name="revanced_ad_remover_custom_filter_summary">Filtre les éléments par leur nom séparé par une virgule</string>
     <string name="revanced_ad_remover_custom_filter_title">Filtre personnalisé</string>
     <string name="revanced_ad_remover_general_ads_summary_off">Les publicités en général sont affichées</string>
@@ -41,6 +38,8 @@
     <string name="revanced_copytimestamp_success">Le texte horodateur a été copié dans le presse-papiers</string>
     <string name="revanced_custom_seekbar_color_value_summary">Tapez le code couleur hex de la barre de recherche</string>
     <string name="revanced_custom_seekbar_color_value_title">Couleur de la barre (hex)</string>
+    <string name="revanced_default_app_settings_summary">Pour ouvrir Extended depuis votre navigateur, activez l\'option \"Ouverture liens pris en charge\" et activez les Adresses Web prises en charge</string>
+    <string name="revanced_default_app_settings_title">Ouvrir les paramètres par défaut de l\'application</string>
     <string name="revanced_default_video_quality_mobile_title">Qualité vidéo par défaut données mobiles</string>
     <string name="revanced_default_video_quality_wifi_title">Qualité vidéo par défaut Wi-Fi</string>
     <string name="revanced_default_video_speed_title">Vitesse par défaut des vidéos</string>
@@ -282,9 +281,9 @@ Veuillez ne pas signaler de problème lors de l'utilisation de cette fonctionnal
     <string name="revanced_hide_end_screen_cards_summary_off">Les vidéos suggérées à la fin d\'une vidéo sont affichées</string>
     <string name="revanced_hide_end_screen_cards_summary_on">Les vidéos suggérées à la fin d\'une vidéo sont cachées</string>
     <string name="revanced_hide_end_screen_cards_title">Les vidéos suggérées à la fin d\'une vidéo</string>
-    <string name="revanced_hide_end_screen_overlay_summary_off">Le toucher du bouton \"Plus de vidéos\" est accessible</string>
-    <string name="revanced_hide_end_screen_overlay_summary_on">Le toucher du bouton \"Plus de vidéos\" est inaccessible</string>
-    <string name="revanced_hide_end_screen_overlay_title">Le bouton \"Charger plus\"</string>
+    <string name="revanced_hide_end_screen_overlay_summary_off">Le voile noir en fin de vidéo est affiché</string>
+    <string name="revanced_hide_end_screen_overlay_summary_on">Le voile noir en fin de vidéo est caché</string>
+    <string name="revanced_hide_end_screen_overlay_title">Le voile noir en fin de vidéo</string>
     <string name="revanced_hide_filmstrip_overlay_summary_off">Les superpositions de bandes de film sont affichées</string>
     <string name="revanced_hide_filmstrip_overlay_summary_on">Les superpositions de bandes de film sont cachées</string>
     <string name="revanced_hide_filmstrip_overlay_title">Les superpositions de bandes de film</string>
@@ -399,6 +398,9 @@ Veuillez ne pas signaler de problème lors de l'utilisation de cette fonctionnal
     <string name="revanced_hide_seekbar_summary_off">La barre de progression est affiché</string>
     <string name="revanced_hide_seekbar_summary_on">La barre de progression est caché</string>
     <string name="revanced_hide_seekbar_title">La barre de progression</string>
+    <string name="revanced_hide_seek_message_summary_off">Les boîtes de messages discrets sont affichés</string>
+    <string name="revanced_hide_seek_message_summary_on">Les boîtes de messages discrets sont cachés</string>
+    <string name="revanced_hide_seek_message_title">Les boîtes de messages discrets</string>
     <string name="revanced_hide_separator_summary_off">Les séparateurs gris sont affichés</string>
     <string name="revanced_hide_separator_summary_on">Les séparateurs gris sont cachés</string>
     <string name="revanced_hide_separator_title">Les séparateurs gris</string>
@@ -465,6 +467,9 @@ Veuillez ne pas signaler de problème lors de l'utilisation de cette fonctionnal
     <string name="revanced_import_settings_title">Paramètres d’importation</string>
     <string name="revanced_misc">Autres paramètres</string>
     <string name="revanced_navigation">Mise en page de navigation</string>
+    <string name="revanced_open_library_startup_summary_off">Page d\'accueil actuelle : Accueil</string>
+    <string name="revanced_open_library_startup_summary_on">Page d\'accueil actuelle : Bibliothèque</string>
+    <string name="revanced_open_library_startup_title">Change la page d\'accueil pour la page bibliothèque</string>
     <string name="revanced_others">Autres</string>
     <string name="revanced_overlay_button">Ajouts de boutons sur la vidéo</string>
     <string name="revanced_overlay_button_auto_repeat_summary_off">Le bouton de \"Répétition automatique\" est caché</string>
@@ -517,7 +522,6 @@ Ce paramètre étant obsolètes, il se peut qu'ils ne soient plus valables"</str
     <string name="revanced_ryd_enable_summary_on">Les dislikes sont affichées</string>
     <string name="revanced_ryd_enable_title">Retour des dislikes YouTube</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Les dislikes ne sont disponible (limite de clients d\'API atteinte)</string>
-    <string name="revanced_ryd_failure_user_voted">Recharger la vidéo pour voter en utilisant ReturnYouTubeDislike</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Caché</string>
     <string name="revanced_save_video_quality_mobile">Changer la qualité des données mobiles par défaut en :</string>
     <string name="revanced_save_video_quality_none">Échec de la définition de qualité</string>

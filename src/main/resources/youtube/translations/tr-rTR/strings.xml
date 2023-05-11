@@ -8,6 +8,23 @@
     <string name="microg_settings_summary">Bildirim almak için bulut mesajlaşma ayarlarını etkinleştirin</string>
     <string name="microg_settings_title">MicroG\'yi aç</string>
     <string name="revanced_ads">Reklamlar</string>
+    <string name="revanced_ad_remover_custom_filter_summary">Bileşenleri virgülle ayrılmış adlarına göre filtreleyin</string>
+    <string name="revanced_ad_remover_custom_filter_title">Özel filtre</string>
+    <string name="revanced_ad_remover_general_ads_summary_off">Gizlenmiyor</string>
+    <string name="revanced_ad_remover_general_ads_summary_on">Gizleniyor</string>
+    <string name="revanced_ad_remover_general_ads_title">Genel reklamları gizle</string>
+    <string name="revanced_ad_remover_get_premium_summary_off">Gizlenmiyor</string>
+    <string name="revanced_ad_remover_get_premium_summary_on">Gizleniyor</string>
+    <string name="revanced_ad_remover_get_premium_title">YouTube Premium promosyonunu gizle</string>
+    <string name="revanced_ad_remover_paid_content_summary_off">Gizlenmiyor</string>
+    <string name="revanced_ad_remover_paid_content_summary_on">Gizleniyor</string>
+    <string name="revanced_ad_remover_paid_content_title">Ücretli promosyonları gizle</string>
+    <string name="revanced_ad_remover_self_sponsor_summary_off">Gizlenmiyor</string>
+    <string name="revanced_ad_remover_self_sponsor_summary_on">Gizleniyor</string>
+    <string name="revanced_ad_remover_self_sponsor_title">Kendinden sponsorlu kartlar</string>
+    <string name="revanced_ad_remover_user_filter_summary_off">Kullanıcı filtresi devre dışı</string>
+    <string name="revanced_ad_remover_user_filter_summary_on">Kullanıcı filtresi etkinleştirildi</string>
+    <string name="revanced_ad_remover_user_filter_title">Kullanıcı filtresini etkinleştir</string>
     <string name="revanced_backup_summary">ReVanced ayarlarını dosyadan içe aktarın veya ReVanced ayarlarını dosyaya aktarın</string>
     <string name="revanced_bottom_player">Alt oynatıcı</string>
     <string name="revanced_button_container_title">Buton kapsayıcısı</string>
@@ -21,6 +38,8 @@
     <string name="revanced_copytimestamp_success">Zaman Damgası panoya kopyalandı</string>
     <string name="revanced_custom_seekbar_color_value_summary">Karalık modda kullanılacak zaman çubuğunun rengi</string>
     <string name="revanced_custom_seekbar_color_value_title">Özel zaman çubuğu renk değeri</string>
+    <string name="revanced_default_app_settings_summary">RVX\'i harici bir tarayıcıda açmak için \"Desteklenen bağlantıları aç\"ı açın ve desteklenen web adreslerini etkinleştirin</string>
+    <string name="revanced_default_app_settings_title">Varsayılan uygulama ayarlarını aç</string>
     <string name="revanced_default_video_quality_mobile_title">Hücresel ağda tercih edilen video kalitesi</string>
     <string name="revanced_default_video_quality_wifi_title">Wi̇-Fİ ağında tercih edilen video kalitesi</string>
     <string name="revanced_default_video_speed_title">Varsayılan video hızı</string>
@@ -86,7 +105,9 @@ Bu, uygulamanın görünümünü değiştirir, ancak bilinmeyen yan etkiler orta
     <string name="revanced_enable_open_links_directly_title">Bağlantıları direkt açmayı etkinleştir</string>
     <string name="revanced_enable_phone_layout_summary">Bazı telefon düzenlerini kullanmak için dpi\'yi kandırır</string>
     <string name="revanced_enable_phone_layout_title">Telefon düzenini Etkinleştir</string>
-    <string name="revanced_enable_protobuf_spoof_summary">"Oynatma sorunlarını önlemek için protobuf'u taklit eder Bilinen sorunlar 
+    <string name="revanced_enable_protobuf_spoof_summary">"Oynatma sorunlarını önlemek için protobuf'u taklit eder
+
+Bilinen sorunlar 
 - Bitiş ekranı kartları her zaman gizlidir
 - Çevrimdışı indirmeler çalışmayabilir (YouTube Premium kullanıcıları için)"</string>
     <string name="revanced_enable_protobuf_spoof_title">Protobuf\'u taklit etmeyi etkinleştir</string>
@@ -122,6 +143,9 @@ Bu, uygulamanın görünümünü değiştirir, ancak bilinmeyen yan etkiler orta
     <string name="revanced_enable_swipe_volume_title">Ses hareketlerini etkinleştir</string>
     <string name="revanced_enable_tablet_layout_summary">Bazı tablet düzenlerini kullanmak için dpi\'yi kandırır</string>
     <string name="revanced_enable_tablet_layout_title">Tablet düzenini Etkinleştir</string>
+    <string name="revanced_enable_tablet_mini_player_summary_off">Kapalı</string>
+    <string name="revanced_enable_tablet_mini_player_summary_on">Açık</string>
+    <string name="revanced_enable_tablet_mini_player_title">Tablet mini oynatıcısını etkinleştir</string>
     <string name="revanced_enable_tablet_navigation_bar_summary_off">Kapalı</string>
     <string name="revanced_enable_tablet_navigation_bar_summary_on">Açık</string>
     <string name="revanced_enable_tablet_navigation_bar_title">Tablet navigasyon çubuğunu etkinleştir</string>
@@ -257,6 +281,12 @@ Lütfen bu özelliği kullanırken karşılaştığınız sorunları bildirmeyin
     <string name="revanced_hide_emoji_picker_summary_off">Gizlenmiyor</string>
     <string name="revanced_hide_emoji_picker_summary_on">Gizleniyor</string>
     <string name="revanced_hide_emoji_picker_title">Emoji seçiciyi gizle</string>
+    <string name="revanced_hide_end_screen_cards_summary_off">Gizlenmiyor</string>
+    <string name="revanced_hide_end_screen_cards_summary_on">Gizleniyor</string>
+    <string name="revanced_hide_end_screen_cards_title">Bitiş ekranı kartları</string>
+    <string name="revanced_hide_end_screen_overlay_summary_off">Gizlenmiyor</string>
+    <string name="revanced_hide_end_screen_overlay_summary_on">Gizleniyor</string>
+    <string name="revanced_hide_end_screen_overlay_title">Bitiş ekranı arayüzü</string>
     <string name="revanced_hide_filmstrip_overlay_summary_off">Gizlenmiyor</string>
     <string name="revanced_hide_filmstrip_overlay_summary_on">Gizleniyor</string>
     <string name="revanced_hide_filmstrip_overlay_title">Film şeridi yerleşimini gizle</string>
@@ -287,6 +317,9 @@ Lütfen bu özelliği kullanırken karşılaştığınız sorunları bildirmeyin
     <string name="revanced_hide_library_button_summary_off">Gizlenmiyor</string>
     <string name="revanced_hide_library_button_summary_on">Gizleniyor</string>
     <string name="revanced_hide_library_button_title">Kitaplık düğmesini gizle</string>
+    <string name="revanced_hide_load_more_button_summary_off">Gizlenmiyor</string>
+    <string name="revanced_hide_load_more_button_summary_on">Gizlenmiyor</string>
+    <string name="revanced_hide_load_more_button_title">Daha fazla yükle düğmesini gizle</string>
     <string name="revanced_hide_navigation_label_summary_off">Gizlenmiyor</string>
     <string name="revanced_hide_navigation_label_summary_on">Gizleniyor</string>
     <string name="revanced_hide_navigation_label_title">Navigasyon paneli altyazılarını gizle</string>
@@ -368,6 +401,9 @@ Lütfen bu özelliği kullanırken karşılaştığınız sorunları bildirmeyin
     <string name="revanced_hide_seekbar_summary_off">Gizlenmiyor</string>
     <string name="revanced_hide_seekbar_summary_on">Gizleniyor</string>
     <string name="revanced_hide_seekbar_title">Zaman çubuğunu gizle</string>
+    <string name="revanced_hide_seek_message_summary_off">Gizlenmiyor</string>
+    <string name="revanced_hide_seek_message_summary_on">Gizlenmiyor</string>
+    <string name="revanced_hide_seek_message_title">Zaman mesajını gizle</string>
     <string name="revanced_hide_separator_summary_off">Gizlenmiyor</string>
     <string name="revanced_hide_separator_summary_on">Gizleniyor</string>
     <string name="revanced_hide_separator_title">Gri ayırıcıları gizle</string>
@@ -391,6 +427,9 @@ Lütfen bu özelliği kullanırken karşılaştığınız sorunları bildirmeyin
     <string name="revanced_hide_shorts_shelf_summary_off">Gizlenmiyor</string>
     <string name="revanced_hide_shorts_shelf_summary_on">Gizleniyor</string>
     <string name="revanced_hide_shorts_shelf_title">Kısa videoları gizle</string>
+    <string name="revanced_hide_snack_bar_summary_off">Gizlenmiyor</string>
+    <string name="revanced_hide_snack_bar_summary_on">Gizleniyor</string>
+    <string name="revanced_hide_snack_bar_title">Aperatif çubuğunu gizle</string>
     <string name="revanced_hide_stories_shelf_summary_off">Gizlenmiyor</string>
     <string name="revanced_hide_stories_shelf_summary_on">Gizleniyor</string>
     <string name="revanced_hide_stories_shelf_title">Hikayeleri gizle</string>
@@ -431,6 +470,9 @@ Lütfen bu özelliği kullanırken karşılaştığınız sorunları bildirmeyin
     <string name="revanced_import_settings_title">İçe aktarma ayarları</string>
     <string name="revanced_misc">Diğer Ayarlar</string>
     <string name="revanced_navigation">Navigasyon</string>
+    <string name="revanced_open_library_startup_summary_off">Kapalı</string>
+    <string name="revanced_open_library_startup_summary_on">Açık</string>
+    <string name="revanced_open_library_startup_title">Uygulama başlangıcında kitaplığı aç</string>
     <string name="revanced_others">Diğerleri</string>
     <string name="revanced_overlay_button">Bindirme düğmesi</string>
     <string name="revanced_overlay_button_auto_repeat_summary_off">Kapalı</string>
@@ -458,6 +500,7 @@ Lütfen bu özelliği kullanırken karşılaştığınız sorunları bildirmeyin
     <string name="revanced_player">Oynatıcı</string>
     <string name="revanced_protobuf_spoof_notice">Oynatma sorunlarını önlemek için sahte protobuf</string>
     <string name="revanced_quick_actions_components_title">Hızlı aksiyonlar barı (Deneysel)</string>
+    <string name="revanced_reboot_first_run">Düzeni normal şekilde yüklemek için yeniden başlatın</string>
     <string name="revanced_reboot_warning_general">"Bu henüz deneysel bir özellik olduğundan, bilinmeyen başka sorunlar olabilir. Yine de devam etmek istediğinizden emin misiniz?"</string>
     <string name="revanced_reboot_warning_phone">"Bazı düzenleri telefon düzenlerine çevirmek için dpi'yi kandırır.
 
@@ -483,7 +526,6 @@ Bu ayar oldukça eski olduğu için geçerli olmayabilir"</string>
     <string name="revanced_ryd_enable_summary_on">Açık</string>
     <string name="revanced_ryd_enable_title">RYD\'yi etkinleştir</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Beğenmeme sayısı mevcut değil (istemci API sınırına ulaşıldı)</string>
-    <string name="revanced_ryd_failure_user_voted">ReturnYouTubeDislike\'ı kullanarak oy vermek için videoyu yeniden yükleyin</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Gizlendi</string>
     <string name="revanced_save_video_quality_mobile">Varsayılan mobil veri video kalitesi:</string>
     <string name="revanced_save_video_quality_none">Kalite ayarlanamadı</string>
