@@ -10,7 +10,6 @@ import app.revanced.patcher.extensions.instruction
 import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
@@ -118,15 +117,18 @@ class SponsorBlockBytecodePatch : BytecodePatch(
             insertInstructions.indexOf(it) to (it as FiveRegisterInstruction).registerD
         }
 
-        if (drawRectangleInstructions.size < 4)
-            return PatchResultError("Couldn't find drawRect reference")
-
-        mapOf(
-            "setSponsorBarAbsoluteLeft" to 3,
-            "setSponsorBarAbsoluteRight" to 0
-        ).forEach { (string, int) ->
-            val (index, register) = drawRectangleInstructions[int]
-            injectCallRectangle(index, register, string)
+        /**
+         * Deprecated in YouTube v18.17.43+.
+         * TODO: remove code from integrations
+         */
+        if (drawRectangleInstructions.size > 3) {
+            mapOf(
+                "setSponsorBarAbsoluteLeft" to 3,
+                "setSponsorBarAbsoluteRight" to 0
+            ).forEach { (string, int) ->
+                val (index, register) = drawRectangleInstructions[int]
+                injectCallRectangle(index, register, string)
+            }
         }
 
         /**
