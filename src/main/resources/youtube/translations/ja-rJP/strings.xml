@@ -10,8 +10,8 @@
     <string name="revanced_ads">広告</string>
     <string name="revanced_ad_remover_custom_filter_summary">コンマで区切られた名前でコンポーネントをフィルタリングします</string>
     <string name="revanced_ad_remover_custom_filter_title">カスタムフィルター</string>
-    <string name="revanced_ad_remover_general_ads_summary_off">全般的な広告を非表示にします</string>
-    <string name="revanced_ad_remover_general_ads_summary_on">全般的な広告を非表示にします</string>
+    <string name="revanced_ad_remover_general_ads_summary_off">全般的な広告(動画広告以外の全ての広告)を非表示にします</string>
+    <string name="revanced_ad_remover_general_ads_summary_on">全般的な広告(動画広告以外の全ての広告)を非表示にします</string>
     <string name="revanced_ad_remover_general_ads_title">全般的な広告を非表示にする</string>
     <string name="revanced_ad_remover_get_premium_summary_off">プレーヤーの下に表示されるYouTube Premium の広告を非表示にします</string>
     <string name="revanced_ad_remover_get_premium_summary_on">プレーヤーの下に表示されるYouTube Premium の広告を非表示にします</string>
@@ -107,8 +107,8 @@
     <string name="revanced_enable_phone_layout_title">スマートフォン用のレイアウトを有効にする</string>
     <string name="revanced_enable_protobuf_spoof_summary">"“バッファリングの問題を修正”には副作用があります
 既知のバグ
-- エンドスクリーンカードは常に表示されません
-- オフラインダウンロードが動作しない可能性があります(YouTube Premium 利用者)"</string>
+- 動画の最後に表示されるおすすめの動画は常に表示されません
+- オフラインダウンロードが動作しない可能性があります(YouTube Premium ユーザー)"</string>
     <string name="revanced_enable_protobuf_spoof_title">バッファリングの問題を回避する(β版)</string>
     <string name="revanced_enable_press_to_swipe_summary_off">スワイプコントロール(長押し時のみ)を有効にします</string>
     <string name="revanced_enable_press_to_swipe_summary_on">スワイプコントロール(長押し時のみ)を有効にします</string>
@@ -392,7 +392,7 @@
     <string name="revanced_hide_quick_actions_title">クイックアクションボタンを非表示にする</string>
     <string name="revanced_hide_quick_actions_comment_summary_off">クイックアクションでコメントボタンを非表示にします</string>
     <string name="revanced_hide_quick_actions_comment_summary_on">クイックアクションでコメントボタンを非表示にします</string>
-    <string name="revanced_hide_quick_actions_comment_title">コメントボタンを非表示にする</string>
+    <string name="revanced_hide_quick_actions_comment_title">コメントのボタンを非表示にする</string>
     <string name="revanced_hide_quick_actions_more_summary_off">クイックアクションで“さらに表示(･･･)”ボタンを非表示にします</string>
     <string name="revanced_hide_quick_actions_more_summary_on">クイックアクションで“さらに表示(･･･)”ボタンを非表示にします</string>
     <string name="revanced_hide_quick_actions_more_title">“さらに表示(･･･)”ボタンを非表示にする</string>
@@ -418,10 +418,10 @@
     <string name="revanced_hide_shorts_navigation_bar_title">YouTubeショートでナビゲーションバーを非表示にする</string>
     <string name="revanced_hide_shorts_player_comments_button_summary_off">YouTubeショートのコメントボタンを非表示にします</string>
     <string name="revanced_hide_shorts_player_comments_button_summary_on">YouTubeショートのコメントボタンを非表示にします</string>
-    <string name="revanced_hide_shorts_player_comments_button_title">コメントボタンを非表示にする</string>
-    <string name="revanced_hide_shorts_player_join_button_summary_off">YouTubeショートの参加ボタンを非表示にします</string>
-    <string name="revanced_hide_shorts_player_join_button_summary_on">YouTubeショートの参加ボタンを非表示にします</string>
-    <string name="revanced_hide_shorts_player_join_button_title">参加ボタンを非表示にする</string>
+    <string name="revanced_hide_shorts_player_comments_button_title">コメントのボタンを非表示にする</string>
+    <string name="revanced_hide_shorts_player_join_button_summary_off">YouTubeショートの“参加”ボタンを非表示にします</string>
+    <string name="revanced_hide_shorts_player_join_button_summary_on">YouTubeショートの“参加”ボタンを非表示にします</string>
+    <string name="revanced_hide_shorts_player_join_button_title">“参加”ボタンを非表示にする</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_off">YouTubeショートのチャンネル登録ボタンを非表示にします</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_on">YouTubeショートのチャンネル登録ボタンを非表示にします</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_title">チャンネル登録ボタンを非表示にする</string>
@@ -436,7 +436,7 @@
     <string name="revanced_hide_stories_shelf_title">ストーリー欄を非表示にする</string>
     <string name="revanced_hide_subscriptions_button_summary_off">下のタブ切り替えの“登録チャンネル”ボタンを非表示にします</string>
     <string name="revanced_hide_subscriptions_button_summary_on">下のタブ切り替えの“登録チャンネル”ボタンを非表示にします</string>
-    <string name="revanced_hide_subscriptions_button_title">登録チャンネルボタンを非表示にする</string>
+    <string name="revanced_hide_subscriptions_button_title">“登録チャンネル”ボタンを非表示にする</string>
     <string name="revanced_hide_suggested_actions_summary_off">提案されたアクションを非表示にします</string>
     <string name="revanced_hide_suggested_actions_summary_on">提案されたアクションを非表示にします</string>
     <string name="revanced_hide_suggested_actions_title">提案されたアクションを非表示にする</string>
