@@ -5,9 +5,22 @@
     <string name="microg_not_installed_notice">Bitte MicroG installieren</string>
     <string name="microg_not_installed_warning">MicroG wurde nicht gefunden</string>
     <string name="microg_not_running_warning">MicroG läuft nicht im Hintergrund</string>
-    <string name="microg_settings_summary">Cloud-Nachrichteneinstellungen aktivieren um Benachrichtigungen zu erhalten</string>
+    <string name="microg_settings_summary">Cloud-Nachrichteneinstellungen aktivieren, um Benachrichtigungen zu erhalten</string>
     <string name="microg_settings_title">MicroG öffnen</string>
     <string name="revanced_ads">Werbung</string>
+    <string name="revanced_ad_remover_custom_filter_title">Benutzerdefinierter Filter</string>
+    <string name="revanced_ad_remover_general_ads_summary_off">Allgemeine Werbung wird angezeigt</string>
+    <string name="revanced_ad_remover_general_ads_summary_on">Allgemeine Werbung ist versteckt</string>
+    <string name="revanced_ad_remover_general_ads_title">Allgemeine Werbung ausblenden</string>
+    <string name="revanced_ad_remover_get_premium_summary_off">YouTube Premium Werbung wird angezeigt</string>
+    <string name="revanced_ad_remover_get_premium_summary_on">YouTube Premium Werbung ist versteckt</string>
+    <string name="revanced_ad_remover_get_premium_title">YouTube Premium Werbung verbergen</string>
+    <string name="revanced_ad_remover_paid_content_summary_off">Bezahltes Werbelabel wird angezeigt</string>
+    <string name="revanced_ad_remover_paid_content_summary_on">Bezahltes Werbelabel ist versteckt</string>
+    <string name="revanced_ad_remover_paid_content_title">Verstecke bezahlte Werbung</string>
+    <string name="revanced_ad_remover_self_sponsor_summary_off">Selbstgesponserte Karten werden angezeigt</string>
+    <string name="revanced_ad_remover_self_sponsor_summary_on">Selbstgesponserte Karten sind versteckt</string>
+    <string name="revanced_ad_remover_self_sponsor_title">Verstecke selbstgesponserte Karten</string>
     <string name="revanced_backup_summary">ReVanced Einstellungen aus Datei importieren oder ReVanced Einstellungen in Datei exportieren</string>
     <string name="revanced_bottom_player">Unter Player</string>
     <string name="revanced_button_container_title">Button Container</string>
@@ -180,6 +193,7 @@ Bitte melden Sie keine Probleme, auf die Sie bei der Nutzung dieser Funktion sto
     <string name="revanced_hide_button_playlist_title">Verstecke Playlist Schaltfläche</string>
     <string name="revanced_hide_button_share_summary_off">Teilen-Schaltfläche wird angezeigt</string>
     <string name="revanced_hide_button_share_summary_on">Teilen-Schaltfläche ist versteckt</string>
+    <string name="revanced_hide_button_share_title">Verstecke \"Teilen\" Schaltfläche</string>
     <string name="revanced_hide_button_thanks_summary_on">Danke-Schaltfläche ist versteckt</string>
     <string name="revanced_hide_button_thanks_title">Verstecke \"Danke\" Schaltfläche</string>
     <string name="revanced_hide_captions_button_summary_off">Schaltfläche \"Untertitel\" wird angezeigt</string>
@@ -217,6 +231,9 @@ Bitte melden Sie keine Probleme, auf die Sie bei der Nutzung dieser Funktion sto
     <string name="revanced_hide_emoji_picker_summary_off">Emoji-Auswahl wird angezeigt</string>
     <string name="revanced_hide_emoji_picker_summary_on">Emoji-Auswahl ist versteckt</string>
     <string name="revanced_hide_emoji_picker_title">Emoji-Auswahl ausblenden</string>
+    <string name="revanced_hide_end_screen_overlay_summary_off">Endbildschirm-Overlay wird angezeigt</string>
+    <string name="revanced_hide_end_screen_overlay_summary_on">Endbildschirm-Overlay sind ausgeblendet</string>
+    <string name="revanced_hide_end_screen_overlay_title">Verstecke Endbildschirm-Overlay</string>
     <string name="revanced_hide_filmstrip_overlay_summary_off">Filmstreifen-Overlay wird angezeigt</string>
     <string name="revanced_hide_filmstrip_overlay_summary_on">Filmstreifen-Overlay ist versteckt</string>
     <string name="revanced_hide_filmstrip_overlay_title">Verstecke Filmstreifen-Overlay</string>
@@ -229,10 +246,17 @@ Bitte melden Sie keine Probleme, auf die Sie bei der Nutzung dieser Funktion sto
     <string name="revanced_hide_info_cards_summary_off">Infokarten werden angezeigt</string>
     <string name="revanced_hide_info_cards_summary_on">Infokarten sind versteckt</string>
     <string name="revanced_hide_info_cards_title">Verstecke Infokarten</string>
+    <string name="revanced_hide_info_panel_summary_off">Infokarten werden angezeigt</string>
+    <string name="revanced_hide_info_panel_summary_on">Infokarten werden ausgeblendet</string>
     <string name="revanced_hide_info_panel_title">Info-Panels ausblenden</string>
+    <string name="revanced_hide_in_feed_survey_summary_off">Feed-Umfragen werden angezeigt</string>
+    <string name="revanced_hide_in_feed_survey_summary_on">Feed-Umfragen sind versteckt</string>
     <string name="revanced_hide_latest_posts_summary_off">Neueste Beiträge werden angezeigt</string>
     <string name="revanced_hide_latest_posts_summary_on">Neueste Beiträge sind versteckt</string>
     <string name="revanced_hide_latest_posts_title">Neueste Beiträge ausblenden</string>
+    <string name="revanced_hide_navigation_label_summary_off">Navigationslabel wird angezeigt</string>
+    <string name="revanced_hide_navigation_label_summary_on">Navigationslabel ist versteckt</string>
+    <string name="revanced_hide_navigation_label_title">Navigationslabel ausblenden</string>
     <string name="revanced_hide_menu_ambient_mode_summary_off">Ambient-Modus-Menü wird angezeigt</string>
     <string name="revanced_hide_menu_ambient_mode_summary_on">Ambient Modus Menü ist versteckt</string>
     <string name="revanced_hide_menu_ambient_mode_title">Verstecke Ambient-Modus</string>
@@ -272,6 +296,9 @@ Bitte melden Sie keine Probleme, auf die Sie bei der Nutzung dieser Funktion sto
     <string name="revanced_hide_mix_playlists_summary_off">Mix-Playlist wird angezeigt</string>
     <string name="revanced_hide_mix_playlists_summary_on">Mix-Playlist ist ausgeblendet</string>
     <string name="revanced_hide_mix_playlists_title">Verstecke Mix-Playlist</string>
+    <string name="revanced_hide_movie_shelf_summary_off">Filmabschnitte werden angezeigt</string>
+    <string name="revanced_hide_movie_shelf_summary_on">Filmabschnitte werden versteckt</string>
+    <string name="revanced_hide_movie_shelf_title">Verstecke Filmabschnitt</string>
     <string name="revanced_hide_player_button_background_summary_off">Die Schaltfläche \"Hintergrund\" wird angezeigt</string>
     <string name="revanced_hide_player_button_background_summary_on">Die Schaltfläche \"Hintergrund\" ist ausgeblendet</string>
     <string name="revanced_hide_player_button_background_title">Die Schaltfläche \"Hintergrund\" ausblenden</string>
@@ -303,15 +330,17 @@ Bitte melden Sie keine Probleme, auf die Sie bei der Nutzung dieser Funktion sto
     <string name="revanced_hide_suggested_actions_summary_on">Vorgeschlagene Aktionen sind versteckt</string>
     <string name="revanced_hide_suggested_actions_title">Verstecke empfohlene Vorschläge</string>
     <string name="revanced_hide_suggestions_summary_off">Vorschläge werden angezeigt</string>
+    <string name="revanced_hide_suggestions_summary_on">Vorschläge sind versteckt</string>
+    <string name="revanced_hide_suggestions_title">Vorschläge verstecken</string>
     <string name="revanced_hide_teaser_summary_off">Teaser werden angezeigt</string>
     <string name="revanced_hide_teaser_summary_on">Teaser sind ausgeblendet</string>
     <string name="revanced_hide_teaser_title">Teaser unter Videos ausblenden</string>
     <string name="revanced_hide_time_stamp_summary_off">Der Zeitstempel wird angezeigt</string>
     <string name="revanced_hide_time_stamp_summary_on">Der Zeitstempel ist ausgeblendet</string>
-    <string name="revanced_hide_time_stamp_title">Den Zeitstempel ausblenden</string>
+    <string name="revanced_hide_time_stamp_title">Zeitstempel ausblenden</string>
     <string name="revanced_hide_youtube_music_button_summary_off">YouTube Musik-Button wird angezeigt</string>
     <string name="revanced_hide_youtube_music_button_summary_on">YouTube Musik-Button ist ausgeblendet</string>
-    <string name="revanced_hide_youtube_music_button_title">Youtube Musik Button ausblenden</string>
+    <string name="revanced_hide_youtube_music_button_title">YouTube Musik-Button ausblenden</string>
     <string name="revanced_import_settings_summary">Empfohlene Einstellungen aus gespeicherter Datei abrufen</string>
     <string name="revanced_import_settings_title">Einstellungen importieren</string>
     <string name="revanced_misc">Sonstiges</string>
@@ -396,10 +425,11 @@ Da diese Einstellung veraltet ist, ist sie möglicherweise nicht gültig"</strin
     <string name="revanced_video_ads_removal_title">Verstecke Videowerbung</string>
     <string name="sb_enable_sb">SponsorBlock aktivieren</string>
     <string name="sb_appearance_category">Erscheinungsbild</string>
+    <string name="sb_create_segment_category">Neue Segmente erstellen</string>
     <string name="sb_general_adjusting_invalid">Wert muss eine positive Zahl sein</string>
     <string name="sb_guidelines_preference_title">Richtlinien anzeigen</string>
     <string name="sb_guidelines_preference_sum">Richtlinien enthalten Tipps und Regeln zum Einreichen von Segmenten</string>
-    <string name="sb_guidelines_popup_title">Es gibt Richtlinien</string>
+    <string name="sb_guidelines_popup_title">Befolgen Sie die Richtlinien</string>
     <string name="sb_guidelines_popup_content">Es wird empfohlen, die SponsorBlock Richtlinien zu lesen, bevor ein Segment gesendet wird</string>
     <string name="sb_guidelines_popup_already_read">Bereits gelesen</string>
     <string name="sb_guidelines_popup_open">Zeig es mir</string>
@@ -412,7 +442,11 @@ Da diese Einstellung veraltet ist, ist sie möglicherweise nicht gültig"</strin
     <string name="sb_api_url_invalid">API-URL ist ungültig</string>
     <string name="sb_api_url_changed">API-URL wurde geändert</string>
     <string name="sb_segments_sponsor">Sponsor</string>
+    <string name="sb_segments_highlight">Highlight</string>
+    <string name="sb_segments_intro">Unterbrechung/Introanimation</string>
     <string name="sb_segments_outro">Endkarten/Credits</string>
+    <string name="sb_segments_preview">Vorschau/Zusammenfassung</string>
+    <string name="sb_segments_nomusic">Musik: Nicht-Musik-Bereich</string>
     <string name="sb_skip_button_compact">Überspringen</string>
     <string name="sb_skip_button_compact_highlight">Highlight</string>
     <string name="sb_skip_button_sponsor">Sponsor überspringen</string>
@@ -441,9 +475,25 @@ Da diese Einstellung veraltet ist, ist sie möglicherweise nicht gültig"</strin
     <string name="sb_skip_showbutton">Überspringen Schaltfläche anzeigen</string>
     <string name="sb_skip_seekbaronly">In der Suchleiste anzeigen</string>
     <string name="sb_skip_ignore">Deaktivieren</string>
+    <string name="sb_submit_failed_timeout">Segmente können nicht übermittelt werden (API Timeout)</string>
+    <string name="sb_submit_failed_unknown_error" formatted="false">Segmente können nicht übermittelt werden (status: %d %s)</string>
+    <string name="sb_submit_failed_forbidden" formatted="false">Das Segment kann nicht gesendet werden: %s</string>
+    <string name="sb_submit_failed_duplicate">Das Segment kann nicht abgesendet werden. \nBereits vorhanden</string>
+    <string name="sb_submit_succeeded">Segment erfolgreich gesendet</string>
+    <string name="sb_vote_failed_unknown_error" formatted="false">Kann nicht für Segment abstimmen (status: %d %s)</string>
+    <string name="sb_vote_failed_forbidden" formatted="false">Kann nicht für Segment abstimmen: %s</string>
     <string name="sb_vote_upvote">Positiv bewerten</string>
     <string name="sb_vote_downvote">Negativ bewerten</string>
     <string name="sb_vote_category">Kategorie ändern</string>
+    <string name="sb_vote_no_segments">Es gibt keine Segmente zur Abstimmung</string>
+    <string name="sb_new_segment_choose_category">Wähle eine Segmentkategorie aus</string>
+    <string name="sb_new_segment_title">Neues SponsorBlock Segment</string>
+    <string name="sb_new_segment_mark_start">Start</string>
+    <string name="sb_new_segment_mark_end">Ende</string>
+    <string name="sb_new_segment_now">Jetzt</string>
+    <string name="sb_new_segment_confirm_title">Sind die Zeiten korrekt?</string>
+    <string name="sb_new_segment_edit_by_hand_content">Willst du die Start- oder Endzeiten für den Abschnitt bearbeiten?</string>
+    <string name="sb_new_segment_edit_by_hand_parse_error">Ungültige Zeit angegeben</string>
     <string name="sb_stats">Statistiken</string>
     <string name="sb_stats_connection_failure">Statistiken vorübergehend nicht verfügbar (API ist nicht verfügbar)</string>
     <string name="sb_stats_sb_disabled">SponsorBlock ist deaktiviert</string>
@@ -451,7 +501,14 @@ Da diese Einstellung veraltet ist, ist sie möglicherweise nicht gültig"</strin
     <string name="sb_stats_username_change">Hier tippen, um deinen Benutzernamen zu ändern</string>
     <string name="sb_stats_username_change_unknown_error" formatted="false">Benutzername konnte nicht geändert werden: Status: %d %s</string>
     <string name="sb_stats_username_changed">Benutzername wurde erfolgreich geändert</string>
+    <string name="sb_stats_reputation" formatted="false">Dein Ruf ist &lt;b&gt;%.2f&lt;/b&gt;</string>
+    <string name="sb_stats_submissions" formatted="false">Du hast &lt;b&gt;%s&lt;/b&gt; Segmente erstellt</string>
     <string name="sb_stats_saved_zero">SponsorBlock Rangliste</string>
+    <string name="sb_stats_saved_sum_zero">Hier tippen, um die globalen Statistiken und Top-Mitwirkende zu sehen</string>
+    <string name="sb_stats_saved_sum" formatted="false">Das ist &lt;b&gt;%s&lt;/b&gt; ihres Lebens.&lt;br&gt;Tippen Sie hier, um die Rangliste zu sehen</string>
+    <string name="sb_stats_self_saved" formatted="false">Du hast bereits &lt;b&gt;%s&lt;/b&gt; Segmente übersprungen</string>
+    <string name="sb_stats_self_saved_sum" formatted="false">Das entspricht &lt;b&gt;%s&lt;/b&gt;</string>
+    <string name="sb_stats_self_saved_reset_title">Zähler für übersprungene Segmente zurücksetzen?</string>
     <string name="sb_stats_saved_hour_format" formatted="false">%d Stunden %d Minuten</string>
     <string name="sb_stats_saved_minute_format" formatted="false">%d Minuten %d Sekunden</string>
     <string name="sb_stats_saved_second_format" formatted="false">%d Sekunden</string>
@@ -461,6 +518,7 @@ Da diese Einstellung veraltet ist, ist sie möglicherweise nicht gültig"</strin
     <string name="sb_color_invalid">Ungültiger Farbcode</string>
     <string name="sb_reset_color">Farbe zurücksetzen</string>
     <string name="sb_reset">Zurücksetzen</string>
+    <string name="sb_about_api_sum">Die Daten werden von der SponsorBlock API bereitgestellt. Tippen Sie hier, um mehr zu erfahren und Downloads für andere Plattformen zu sehen</string>
     <string name="sb_about_made_by">Integration erstellt von JakubWeg</string>
     <string name="seconds">Sekunden</string>
     <string name="settings_export_failed">Fehler beim exportieren der Einstellungen</string>
