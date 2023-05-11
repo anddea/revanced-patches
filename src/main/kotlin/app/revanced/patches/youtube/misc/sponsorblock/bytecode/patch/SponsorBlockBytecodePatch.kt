@@ -5,6 +5,7 @@ import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.addInstruction
+import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.instruction
 import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.patch.BytecodePatch
@@ -14,15 +15,19 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
+import app.revanced.patches.shared.fingerprints.TotalTimeFingerprint
 import app.revanced.patches.youtube.misc.overridespeed.bytecode.patch.OverrideSpeedHookPatch
 import app.revanced.patches.youtube.misc.playercontrols.patch.PlayerControlsPatch
 import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch
+import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch.Companion.insetOverlayViewLayoutId
+import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch.Companion.totalTimeId
 import app.revanced.patches.youtube.misc.sponsorblock.bytecode.fingerprints.*
 import app.revanced.patches.youtube.misc.timebar.patch.HookTimeBarPatch
 import app.revanced.patches.youtube.misc.videoid.legacy.patch.LegacyVideoIdPatch
 import app.revanced.patches.youtube.misc.videoid.mainstream.patch.MainstreamVideoIdPatch
 import app.revanced.util.bytecode.BytecodeHelper.injectInit
 import app.revanced.util.bytecode.BytecodeHelper.updatePatchStatus
+import app.revanced.util.bytecode.getWideLiteralIndex
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.builder.BuilderInstruction
 import org.jf.dexlib2.builder.instruction.BuilderInstruction3rc
@@ -48,7 +53,9 @@ import org.jf.dexlib2.iface.reference.MethodReference
 class SponsorBlockBytecodePatch : BytecodePatch(
     listOf(
         EndScreenEngagementPanelsFingerprint,
-        PlayerControllerFingerprint
+        OverlayViewLayoutFingerprint,
+        PlayerControllerFingerprint,
+        TotalTimeFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
@@ -158,6 +165,37 @@ class SponsorBlockBytecodePatch : BytecodePatch(
             )
         }
 
+        /**
+         * Append the new time to the player layout
+         */
+        TotalTimeFingerprint.result?.mutableMethod?.let {
+            it.apply {
+                val targetIndex = getWideLiteralIndex(totalTimeId) + 2
+                val targetRegister = instruction<OneRegisterInstruction>(targetIndex).registerA
+
+                addInstructions(
+                    targetIndex + 1, """
+                        invoke-static {v$targetRegister}, $INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR->appendTimeWithoutSegments(Ljava/lang/String;)Ljava/lang/String;
+                        move-result-object v$targetRegister
+                        """
+                )
+            }
+        } ?: return TotalTimeFingerprint.toErrorResult()
+
+        /**
+         * Initialize the SponsorBlock view
+         */
+        OverlayViewLayoutFingerprint.result?.mutableMethod?.let{
+            it.apply{
+                val targetIndex = getWideLiteralIndex(insetOverlayViewLayoutId) + 3
+                val targetRegister = instruction<OneRegisterInstruction>(targetIndex).registerA
+
+                addInstruction(
+                    targetIndex + 1,
+                    "invoke-static {v$targetRegister}, $INTEGRATIONS_BUTTON_CLASS_DESCRIPTOR/ui/SponsorBlockViewController;->initialize(Landroid/view/ViewGroup;)V"
+                )
+            }
+        } ?: return OverlayViewLayoutFingerprint.toErrorResult()
 
         /**
          * Replace strings
