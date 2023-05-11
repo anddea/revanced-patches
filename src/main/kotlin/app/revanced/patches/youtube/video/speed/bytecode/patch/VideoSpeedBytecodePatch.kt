@@ -13,17 +13,16 @@ import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.youtube.misc.overridespeed.bytecode.fingerprints.VideoSpeedSettingsFingerprint
 import app.revanced.patches.youtube.misc.overridespeed.bytecode.patch.OverrideSpeedHookPatch
 import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch
-import app.revanced.patches.youtube.misc.videoid.legacy.patch.LegacyVideoIdPatch
+import app.revanced.patches.youtube.misc.videoid.mainstream.patch.MainstreamVideoIdPatch
 import app.revanced.patches.youtube.video.livestream.patch.LiveStreamPatch
-import app.revanced.patches.youtube.video.speed.bytecode.fingerprints.*
 import app.revanced.util.integrations.Constants.VIDEO_PATH
 import org.jf.dexlib2.iface.instruction.FiveRegisterInstruction
 
 @Name("default-video-speed-bytecode-patch")
 @DependsOn(
     [
-        LegacyVideoIdPatch::class,
         LiveStreamPatch::class,
+        MainstreamVideoIdPatch::class,
         OverrideSpeedHookPatch::class,
         SharedResourceIdPatch::class
     ]
@@ -55,7 +54,7 @@ class VideoSpeedBytecodePatch : BytecodePatch(
             "invoke-static {}, $INTEGRATIONS_VIDEO_SPEED_CLASS_DESCRIPTOR->setDefaultSpeed()V"
         ) ?: return VideoSpeedSettingsFingerprint.toErrorResult()
 
-        LegacyVideoIdPatch.injectCall("$INTEGRATIONS_VIDEO_SPEED_CLASS_DESCRIPTOR->newVideoStarted(Ljava/lang/String;)V")
+        MainstreamVideoIdPatch.onCreateHook(INTEGRATIONS_VIDEO_SPEED_CLASS_DESCRIPTOR, "newVideoStarted")
 
         return PatchResultSuccess()
     }
