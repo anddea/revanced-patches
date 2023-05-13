@@ -79,7 +79,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `hide-quick-actions` | Adds the options to hide quick actions components in the fullscreen. | 18.17.43 |
 | `hide-search-terms` | Hide trending searches and search history in the search bar. | 18.17.43 |
 | `hide-seek-message` | Hides the 'Slide left or right to seek' message container. | 18.17.43 |
-| `hide-seekbar` | Hides the seekbar. | 18.17.43 |
+| `hide-seekbar` | Hides the seekbar and progressbar. | 18.17.43 |
 | `hide-shorts-component` | Hides other Shorts components. | 18.17.43 |
 | `hide-shorts-navbar` | Hide navigation bar when playing shorts. | 18.17.43 |
 | `hide-snack-bar` | Hides the snack bar action popup. | 18.17.43 |
@@ -135,7 +135,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `hide-get-premium` | Removes all "Get Premium" evidences from the avatar menu. | all |
 | `hide-music-ads` | Removes ads in the music player. | all |
 | `hide-music-cast-button` | Hides the cast button in the video player and header. | all |
-| `hide-new-playlist` | Hide the New Playlist button in the Library tab. | all |
+| `hide-new-playlist-button` | Hide the New Playlist button in the Library tab. | all |
 | `hide-playlist-card` | Hides the playlist card from homepage. | all |
 | `hide-taste-builder` | Removes the "Tell us which artists you like" card from the home screen. | all |
 | `hide-upgrade-button` | Remove upgrade tab from pivot bar, hide upgrade banner from homepage. | all |
