@@ -8,6 +8,23 @@
     <string name="microg_settings_summary">启用 GCM 设置以接收通知</string>
     <string name="microg_settings_title">打开 MicroG</string>
     <string name="revanced_ads">广告</string>
+    <string name="revanced_ad_remover_custom_filter_summary">用半角逗号隔开按其名称过滤</string>
+    <string name="revanced_ad_remover_custom_filter_title">自定义过滤</string>
+    <string name="revanced_ad_remover_general_ads_summary_off">一般广告已显示</string>
+    <string name="revanced_ad_remover_general_ads_summary_on">一般广告已隐藏</string>
+    <string name="revanced_ad_remover_general_ads_title">一般广告</string>
+    <string name="revanced_ad_remover_get_premium_summary_off">YouTube Premium 推广已显示</string>
+    <string name="revanced_ad_remover_get_premium_summary_on">YouTube Premium 推广已隐藏</string>
+    <string name="revanced_ad_remover_get_premium_title">YouTube Premium 推广</string>
+    <string name="revanced_ad_remover_paid_content_summary_off">付费推广标签已显示</string>
+    <string name="revanced_ad_remover_paid_content_summary_on">付费推广标签已隐藏</string>
+    <string name="revanced_ad_remover_paid_content_title">付费推广</string>
+    <string name="revanced_ad_remover_self_sponsor_summary_off">自我推广卡片已显示</string>
+    <string name="revanced_ad_remover_self_sponsor_summary_on">自我推广卡片已隐藏</string>
+    <string name="revanced_ad_remover_self_sponsor_title">自我推广卡片</string>
+    <string name="revanced_ad_remover_user_filter_summary_off">用户过滤已禁用</string>
+    <string name="revanced_ad_remover_user_filter_summary_on">用户过滤已启用</string>
+    <string name="revanced_ad_remover_user_filter_title">用户过滤</string>
     <string name="revanced_backup_summary">导入/导出 ReVanced 配置文件</string>
     <string name="revanced_bottom_player">播放器下方按钮</string>
     <string name="revanced_button_container_title">按钮栏</string>
@@ -21,6 +38,8 @@
     <string name="revanced_copytimestamp_success">时间戳已复制到剪贴板</string>
     <string name="revanced_custom_seekbar_color_value_summary">输入进度条颜色16进制代码</string>
     <string name="revanced_custom_seekbar_color_value_title">自定义进度条颜色</string>
+    <string name="revanced_default_app_settings_summary">要从外部浏览器中打开 Revanced Extended，请在“系统应用设置 - 默认打开 - 要在此应用中打开链接”中添加支持的网页链接</string>
+    <string name="revanced_default_app_settings_title">打开默认应用设置</string>
     <string name="revanced_default_video_quality_mobile_title">移动网络上的默认视频画质</string>
     <string name="revanced_default_video_quality_wifi_title">WiFi 网络上的默认视频画质</string>
     <string name="revanced_default_video_speed_title">默认播放速度</string>
@@ -39,6 +58,9 @@
     <string name="revanced_disable_haptic_feedback_zoom_summary_off">缩放触感反馈已启用</string>
     <string name="revanced_disable_haptic_feedback_zoom_summary_on">缩放触感反馈已禁用</string>
     <string name="revanced_disable_haptic_feedback_zoom_title">缩放触感反馈</string>
+    <string name="revanced_disable_hdr_video_summary_off">HDR 视频已启用</string>
+    <string name="revanced_disable_hdr_video_summary_on">HDR 视频已禁用</string>
+    <string name="revanced_disable_hdr_video_title">HDR 视频</string>
     <string name="revanced_disable_landscape_mode_summary_off">全屏时的横屏模式已启用</string>
     <string name="revanced_disable_landscape_mode_summary_on">全屏时的横屏模式已禁用</string>
     <string name="revanced_disable_landscape_mode_title">禁用横屏模式</string>
@@ -84,6 +106,11 @@
     <string name="revanced_enable_open_links_directly_title">直接打开链接</string>
     <string name="revanced_enable_phone_layout_summary">伪装 DPI 以使用一些手机布局</string>
     <string name="revanced_enable_phone_layout_title">启用手机布局</string>
+    <string name="revanced_enable_protobuf_spoof_summary">"伪装版本以回避播放问题
+
+已知问题
+- 结束界面卡片总是隐藏
+- 离线下载可能不工作（YouTube Premium 用户）"</string>
     <string name="revanced_enable_protobuf_spoof_title">转换视频类型</string>
     <string name="revanced_enable_press_to_swipe_summary_off">长按以滑动已禁用</string>
     <string name="revanced_enable_press_to_swipe_summary_on">长按以滑动已启用</string>
@@ -117,6 +144,9 @@
     <string name="revanced_enable_swipe_volume_title">音量手势</string>
     <string name="revanced_enable_tablet_layout_summary">伪装 DPI 以使用一些平板布局</string>
     <string name="revanced_enable_tablet_layout_title">启用平板布局</string>
+    <string name="revanced_enable_tablet_mini_player_summary_off">平板迷你播放器已禁用</string>
+    <string name="revanced_enable_tablet_mini_player_summary_on">平板迷你播放器已启用</string>
+    <string name="revanced_enable_tablet_mini_player_title">平板迷你播放器</string>
     <string name="revanced_enable_tablet_navigation_bar_summary_off">平板导航栏已禁用</string>
     <string name="revanced_enable_tablet_navigation_bar_summary_on">平板导航栏已启用</string>
     <string name="revanced_enable_tablet_navigation_bar_title">平板导航栏</string>
@@ -252,6 +282,12 @@
     <string name="revanced_hide_emoji_picker_summary_off">Emoji 列表已显示</string>
     <string name="revanced_hide_emoji_picker_summary_on">Emoji 列表已隐藏</string>
     <string name="revanced_hide_emoji_picker_title">Emoji 列表</string>
+    <string name="revanced_hide_end_screen_cards_summary_off">结束界面卡片已显示</string>
+    <string name="revanced_hide_end_screen_cards_summary_on">结束界面卡片已隐藏</string>
+    <string name="revanced_hide_end_screen_cards_title">结束界面卡片</string>
+    <string name="revanced_hide_end_screen_overlay_summary_off">结束界面叠加层已显示</string>
+    <string name="revanced_hide_end_screen_overlay_summary_on">结束界面叠加层已隐藏</string>
+    <string name="revanced_hide_end_screen_overlay_title">结束界面叠加层</string>
     <string name="revanced_hide_filmstrip_overlay_summary_off">影片条叠加层已显示</string>
     <string name="revanced_hide_filmstrip_overlay_summary_on">影片条叠加层已隐藏</string>
     <string name="revanced_hide_filmstrip_overlay_title">视频条叠加层</string>
@@ -279,6 +315,15 @@
     <string name="revanced_hide_latest_posts_summary_off">最新投稿已显示</string>
     <string name="revanced_hide_latest_posts_summary_on">最新投稿已隐藏</string>
     <string name="revanced_hide_latest_posts_title">最新投稿</string>
+    <string name="revanced_hide_library_button_summary_off">媒体库按钮已显示</string>
+    <string name="revanced_hide_library_button_summary_on">媒体库按钮已隐藏</string>
+    <string name="revanced_hide_library_button_title">媒体库按钮</string>
+    <string name="revanced_hide_load_more_button_summary_off">显示更多按钮已显示</string>
+    <string name="revanced_hide_load_more_button_summary_on">显示更多按钮已隐藏</string>
+    <string name="revanced_hide_load_more_button_title">显示更多按钮</string>
+    <string name="revanced_hide_navigation_label_summary_off">导航栏已显示</string>
+    <string name="revanced_hide_navigation_label_summary_on">导航栏已隐藏</string>
+    <string name="revanced_hide_navigation_label_title">导航栏</string>
     <string name="revanced_hide_medical_panel_summary_off">医疗面板已显示</string>
     <string name="revanced_hide_medical_panel_summary_on">医疗面板已隐藏</string>
     <string name="revanced_hide_medical_panel_title">医疗面板</string>
@@ -357,6 +402,9 @@
     <string name="revanced_hide_seekbar_summary_off">进度条已显示</string>
     <string name="revanced_hide_seekbar_summary_on">进度条已隐藏</string>
     <string name="revanced_hide_seekbar_title">进度条</string>
+    <string name="revanced_hide_seek_message_summary_off">进度条信息已显示</string>
+    <string name="revanced_hide_seek_message_summary_on">进度条信息已隐藏</string>
+    <string name="revanced_hide_seek_message_title">进度条信息</string>
     <string name="revanced_hide_separator_summary_off">灰色分隔符已显示</string>
     <string name="revanced_hide_separator_summary_on">灰色分隔符已隐藏</string>
     <string name="revanced_hide_separator_title">灰色分隔符</string>
@@ -380,9 +428,15 @@
     <string name="revanced_hide_shorts_shelf_summary_off">Shorts 功能架已显示</string>
     <string name="revanced_hide_shorts_shelf_summary_on">Shorts 功能架已隐藏</string>
     <string name="revanced_hide_shorts_shelf_title">Shorts 功能架</string>
+    <string name="revanced_hide_snack_bar_summary_off">弹出消息已显示</string>
+    <string name="revanced_hide_snack_bar_summary_on">弹出消息已隐藏</string>
+    <string name="revanced_hide_snack_bar_title">弹出消息</string>
     <string name="revanced_hide_stories_shelf_summary_off">短片故事部分已显示</string>
     <string name="revanced_hide_stories_shelf_summary_on">短片故事部分已隐藏</string>
     <string name="revanced_hide_stories_shelf_title">短片故事部分</string>
+    <string name="revanced_hide_subscriptions_button_summary_off">订阅按钮已显示</string>
+    <string name="revanced_hide_subscriptions_button_summary_on">订阅按钮已隐藏</string>
+    <string name="revanced_hide_subscriptions_button_title">订阅按钮</string>
     <string name="revanced_hide_suggested_actions_summary_off">操作建议已显示</string>
     <string name="revanced_hide_suggested_actions_summary_on">操作建议已隐藏</string>
     <string name="revanced_hide_suggested_actions_title">操作建议</string>
@@ -417,6 +471,9 @@
     <string name="revanced_import_settings_title">导入配置</string>
     <string name="revanced_misc">杂项</string>
     <string name="revanced_navigation">导航栏</string>
+    <string name="revanced_open_library_startup_summary_off">应用启动未默认打开媒体库</string>
+    <string name="revanced_open_library_startup_summary_on">应用启动默认打开媒体库</string>
+    <string name="revanced_open_library_startup_title">应用启动时打开媒体库</string>
     <string name="revanced_others">其他</string>
     <string name="revanced_overlay_button">叠加层按钮</string>
     <string name="revanced_overlay_button_auto_repeat_summary_off">自动循环播放按钮已隐藏</string>
@@ -444,6 +501,7 @@
     <string name="revanced_player">播放器</string>
     <string name="revanced_protobuf_spoof_notice">转换视频类型以回避播放问题</string>
     <string name="revanced_quick_actions_components_title">快速操作面板组件（实验性）</string>
+    <string name="revanced_reboot_first_run">重启应用以正常加载界面布局</string>
     <string name="revanced_reboot_warning_general">"由于这仍然是一个实验性功能，可能还有其他未知问题。
 您确定要继续吗？"</string>
     <string name="revanced_reboot_warning_phone">"伪装 DPI 将一些布局改为手机样式。
