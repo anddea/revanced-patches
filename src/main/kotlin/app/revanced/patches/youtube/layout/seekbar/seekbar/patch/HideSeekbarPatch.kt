@@ -19,7 +19,7 @@ import app.revanced.util.integrations.Constants.SEEKBAR
 
 @Patch
 @Name("hide-seekbar")
-@Description("Hides the seekbar.")
+@Description("Hides the seekbar and progressbar.")
 @DependsOn(
     [
         HookTimeBarPatch::class,
