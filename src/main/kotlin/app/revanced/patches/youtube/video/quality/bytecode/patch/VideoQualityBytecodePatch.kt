@@ -12,14 +12,14 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
-import app.revanced.patches.youtube.misc.videoid.mainstream.patch.MainstreamVideoIdPatch
+import app.revanced.patches.youtube.misc.videoid.legacy.patch.LegacyVideoIdPatch
 import app.revanced.patches.youtube.video.quality.bytecode.fingerprints.*
 import app.revanced.util.integrations.Constants.VIDEO_PATH
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 import org.jf.dexlib2.iface.reference.FieldReference
 
 @Name("default-video-quality-bytecode-patch")
-@DependsOn([MainstreamVideoIdPatch::class])
+@DependsOn([LegacyVideoIdPatch::class])
 @YouTubeCompatibility
 @Version("0.0.1")
 class VideoQualityBytecodePatch : BytecodePatch(
@@ -41,8 +41,8 @@ class VideoQualityBytecodePatch : BytecodePatch(
             } ?: return VideoQualityReferenceFingerprint.toErrorResult()
 
             VideoUserQualityChangeFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.mutableMethod?.addInstruction(
-                    0,
-                    "invoke-static {p3}, $INTEGRATIONS_VIDEO_QUALITY_CLASS_DESCRIPTOR->userChangedQuality(I)V"
+                0,
+                "invoke-static {p3}, $INTEGRATIONS_VIDEO_QUALITY_CLASS_DESCRIPTOR->userChangedQuality(I)V"
             ) ?: return VideoUserQualityChangeFingerprint.toErrorResult()
         } ?: return VideoQualitySetterFingerprint.toErrorResult()
 
@@ -62,7 +62,7 @@ class VideoQualityBytecodePatch : BytecodePatch(
             )
         } ?: return VideoQualitySettingsParentFingerprint.toErrorResult()
 
-        MainstreamVideoIdPatch.onCreateHook(INTEGRATIONS_VIDEO_QUALITY_CLASS_DESCRIPTOR, "newVideoStarted")
+        LegacyVideoIdPatch.injectCall("$INTEGRATIONS_VIDEO_QUALITY_CLASS_DESCRIPTOR->newVideoStarted(Ljava/lang/String;)V")
 
         return PatchResultSuccess()
     }
