@@ -97,6 +97,8 @@ class SponsorBlockResourcePatch : ResourcePatch {
          */
         SettingsPatch.addReVancedPreference("sponsorblock_settings")
 
+        SettingsPatch.updatePatchStatus("sponsorblock")
+
         return PatchResultSuccess()
     }
 }
