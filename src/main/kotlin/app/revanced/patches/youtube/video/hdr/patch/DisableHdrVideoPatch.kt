@@ -16,7 +16,7 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
-import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
+import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.patches.youtube.video.hdr.fingerprints.HdrCapabilitiesFingerprint
 import app.revanced.util.integrations.Constants.VIDEO_PATH
 
@@ -27,9 +27,7 @@ import app.revanced.util.integrations.Constants.VIDEO_PATH
 @YouTubeCompatibility
 @Version("0.0.1")
 class DisableHdrVideoPatch : BytecodePatch(
-    listOf(
-        HdrCapabilitiesFingerprint
-    )
+    listOf(HdrCapabilitiesFingerprint)
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
 
@@ -40,20 +38,19 @@ class DisableHdrVideoPatch : BytecodePatch(
                 .getMethod() as MutableMethod
             ) {
                 addInstructionsWithLabels(
-                    0,
-                    """
+                    0, """
                         invoke-static {}, $VIDEO_PATH/HDRVideoPatch;->disableHDRVideo()Z
                         move-result v0
                         if-nez v0, :default
                         return v0
-                    """, ExternalLabel("default", getInstruction(0))
+                        """, ExternalLabel("default", getInstruction(0))
                 )
             }
         } ?: return HdrCapabilitiesFingerprint.toErrorResult()
 
-        /*
- * Add settings
- */
+        /**
+         * Add settings
+         */
         SettingsPatch.addPreference(
             arrayOf(
                 "PREFERENCE: VIDEO_SETTINGS",

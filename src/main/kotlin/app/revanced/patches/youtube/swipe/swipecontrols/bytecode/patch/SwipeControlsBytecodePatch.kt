@@ -12,7 +12,7 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.util.TypeUtil.traverseClassHierarchy
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
-import app.revanced.patches.youtube.misc.playertype.patch.PlayerTypeHookPatch
+import app.revanced.patches.youtube.utils.playertype.patch.PlayerTypeHookPatch
 import app.revanced.patches.youtube.swipe.swipecontrols.bytecode.fingerprints.SwipeControlsHostActivityFingerprint
 import app.revanced.patches.youtube.swipe.swipecontrols.bytecode.fingerprints.WatchWhileActivityFingerprint
 import org.jf.dexlib2.AccessFlags
@@ -21,11 +21,7 @@ import org.jf.dexlib2.immutable.ImmutableMethod
 @Name("swipe-controls-bytecode-patch")
 @YouTubeCompatibility
 @Version("0.0.3")
-@DependsOn(
-    [
-        PlayerTypeHookPatch::class
-    ]
-)
+@DependsOn([PlayerTypeHookPatch::class])
 class SwipeControlsBytecodePatch : BytecodePatch(
     listOf(
         SwipeControlsHostActivityFingerprint,

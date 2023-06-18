@@ -1,7 +1,7 @@
 package app.revanced.patches.music.layout.categorybar.fingerprints
 
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
-import app.revanced.patches.music.misc.resourceid.patch.SharedResourceIdPatch.Companion.chipCloudId
+import app.revanced.patches.music.utils.resourceid.patch.SharedResourceIdPatch.Companion.ChipCloud
 import app.revanced.util.bytecode.isWideLiteralExists
 import org.jf.dexlib2.Opcode
 
@@ -13,6 +13,6 @@ object ChipCloudFingerprint : MethodFingerprint(
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT_OBJECT
     ),
-    customFingerprint = { it, _ -> it.isWideLiteralExists(chipCloudId) }
+    customFingerprint = { it, _ -> it.isWideLiteralExists(ChipCloud) }
 )
 

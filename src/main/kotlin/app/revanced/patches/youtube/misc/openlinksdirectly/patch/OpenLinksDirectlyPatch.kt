@@ -14,7 +14,7 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.youtube.misc.openlinksdirectly.fingerprints.*
-import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
+import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.integrations.Constants.MISC_PATH
 import org.jf.dexlib2.iface.instruction.formats.Instruction35c
 
@@ -35,16 +35,18 @@ class OpenLinksDirectlyPatch : BytecodePatch(
         arrayOf(
             OpenLinksDirectlyFingerprintPrimary,
             OpenLinksDirectlyFingerprintSecondary
-        ).forEach {
-            val result = it.result?: return it.toErrorResult()
-            val insertIndex = result.scanResult.patternScanResult!!.startIndex
-            result.mutableMethod.apply {
-                val register = getInstruction<Instruction35c>(insertIndex).registerC
-                replaceInstruction(
-                    insertIndex,
+        ).forEach { fingerprint ->
+            fingerprint.result?.let {
+                it.mutableMethod.apply {
+                    val insertIndex = it.scanResult.patternScanResult!!.startIndex
+                    val register = getInstruction<Instruction35c>(insertIndex).registerC
+
+                    replaceInstruction(
+                        insertIndex,
                         "invoke-static {v$register}, $MISC_PATH/OpenLinksDirectlyPatch;->enableBypassRedirect(Ljava/lang/String;)Landroid/net/Uri;"
-                )
-            }
+                    )
+                }
+            } ?: return fingerprint.toErrorResult()
         }
 
         /**

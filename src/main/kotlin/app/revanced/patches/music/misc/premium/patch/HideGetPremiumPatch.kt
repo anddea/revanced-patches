@@ -16,8 +16,8 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.music.misc.premium.fingerprints.AccountMenuFooterFingerprint
 import app.revanced.patches.music.misc.premium.fingerprints.HideGetPremiumFingerprint
-import app.revanced.patches.music.misc.resourceid.patch.SharedResourceIdPatch
-import app.revanced.patches.music.misc.resourceid.patch.SharedResourceIdPatch.Companion.privacyTosFooterId
+import app.revanced.patches.music.utils.resourceid.patch.SharedResourceIdPatch
+import app.revanced.patches.music.utils.resourceid.patch.SharedResourceIdPatch.Companion.PrivacyTosFooter
 import app.revanced.patches.shared.annotation.YouTubeMusicCompatibility
 import app.revanced.util.bytecode.getWideLiteralIndex
 import org.jf.dexlib2.Opcode
@@ -55,7 +55,7 @@ class HideGetPremiumPatch : BytecodePatch(
 
         AccountMenuFooterFingerprint.result?.let {
             it.mutableMethod.apply {
-                val targetIndex = getWideLiteralIndex(privacyTosFooterId) + 4
+                val targetIndex = getWideLiteralIndex(PrivacyTosFooter) + 4
                 targetReference = getInstruction<ReferenceInstruction>(targetIndex + 1).reference
 
                 with (context

@@ -19,7 +19,7 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.shared.fingerprints.LayoutSwitchFingerprint
 import app.revanced.patches.youtube.misc.forcevp9.fingerprints.*
-import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
+import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.integrations.Constants.MISC_PATH
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.dexbacked.reference.DexBackedFieldReference
@@ -128,7 +128,7 @@ class ForceVP9CodecPatch : BytecodePatch(
                     invoke-static {v$register}, $INTEGRATIONS_CLASS_METHOD_REFERENCE
                     move-result v$register
                     return v$register
-                """
+                    """
             )
         }
 
@@ -136,12 +136,11 @@ class ForceVP9CodecPatch : BytecodePatch(
             fieldName: String,
             descriptor: String
         ) {
-            val insertInstructions = implementation!!.instructions
             val targetString = "Landroid/os/Build;->" +
                     fieldName +
                     ":Ljava/lang/String;"
 
-            for ((index, instruction) in insertInstructions.withIndex()) {
+            for ((index, instruction) in implementation!!.instructions.withIndex()) {
                 if (instruction.opcode != Opcode.SGET_OBJECT) continue
 
                 val indexString = ((instruction as? ReferenceInstruction)?.reference as? DexBackedFieldReference).toString()

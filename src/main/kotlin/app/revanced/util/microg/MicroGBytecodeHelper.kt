@@ -1,5 +1,6 @@
 package app.revanced.util.microg
 
+import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
@@ -53,23 +54,26 @@ internal object MicroGBytecodeHelper {
          * Patch the prime method to accept the new package name.
          */
         fun transformPrimeMethodPackageName() {
-            val primeMethod = primeMethodFingerprint.result!!.mutableMethod
-            val implementation = primeMethod.implementation!!
+            primeMethodFingerprint.result?.let {
+                var targetRegister = 2
 
-            var register = 2
-            val index = implementation.instructions.indexOfFirst {
-                if (it.opcode != Opcode.CONST_STRING) return@indexOfFirst false
+                it.mutableMethod.apply {
+                    val targetIndex = implementation!!.instructions.indexOfFirst { instructions ->
+                        if (instructions.opcode != Opcode.CONST_STRING) return@indexOfFirst false
 
-                val instructionString = ((it as Instruction21c).reference as StringReference).string
-                if (instructionString != fromPackageName) return@indexOfFirst false
+                        val instructionString = ((instructions as Instruction21c).reference as StringReference).string
+                        if (instructionString != fromPackageName) return@indexOfFirst false
 
-                register = it.registerA
-                return@indexOfFirst true
-            }
+                        targetRegister = instructions.registerA
+                        return@indexOfFirst true
+                    }
 
-            primeMethod.replaceInstruction(
-                index, "const-string v$register, \"$toPackageName\""
-            )
+                    replaceInstruction(
+                        targetIndex,
+                        "const-string v$targetRegister, \"$toPackageName\""
+                    )
+                }
+            } ?: throw primeMethodFingerprint.toErrorResult()
         }
     }
 
@@ -206,24 +210,27 @@ internal object MicroGBytecodeHelper {
      */
     private fun List<MethodFingerprint>.returnEarly() {
         this.forEach { fingerprint ->
-            val result = fingerprint.result!!
-            val stringInstructions = when (result.method.returnType.first()) {
-                'L' -> """
+            fingerprint.result?.let {
+                it.mutableMethod.apply {
+                    val stringInstructions = when (it.method.returnType.first()) {
+                        'L' -> """
                         const/4 v0, 0x0
                         return-object v0
                         """
 
-                'V' -> "return-void"
-                'I' -> """
+                        'V' -> "return-void"
+                        'I' -> """
                         const/4 v0, 0x0
                         return v0
                         """
 
-                else -> throw Exception("This case should never happen.")
-            }
-            result.mutableMethod.addInstructions(
-                0, stringInstructions
-            )
+                        else -> throw Exception("This case should never happen.")
+                    }
+                    addInstructions(
+                        0, stringInstructions
+                    )
+                }
+            } ?: throw fingerprint.toErrorResult()
         }
     }
 }

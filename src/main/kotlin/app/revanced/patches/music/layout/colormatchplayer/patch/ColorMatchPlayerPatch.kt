@@ -17,7 +17,7 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.music.layout.colormatchplayer.fingerprints.ColorMatchPlayerFingerprint
-import app.revanced.patches.music.misc.settings.resource.patch.MusicSettingsPatch
+import app.revanced.patches.music.utils.settings.resource.patch.MusicSettingsPatch
 import app.revanced.patches.shared.annotation.YouTubeMusicCompatibility
 import app.revanced.patches.shared.fingerprints.ColorMatchPlayerParentFingerprint
 import app.revanced.util.enum.CategoryType

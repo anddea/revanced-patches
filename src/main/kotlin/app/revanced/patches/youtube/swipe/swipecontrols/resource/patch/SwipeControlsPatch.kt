@@ -10,9 +10,9 @@ import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
-import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
+import app.revanced.patches.youtube.swipe.hdrbrightness.patch.HDRBrightnessPatch
 import app.revanced.patches.youtube.swipe.swipecontrols.bytecode.patch.SwipeControlsBytecodePatch
-import app.revanced.patches.youtube.swipe.swipecontrolshdr.patch.SwipeControlsHDRPatch
+import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.resources.ResourceUtils
 import app.revanced.util.resources.ResourceUtils.copyResources
 
@@ -21,9 +21,9 @@ import app.revanced.util.resources.ResourceUtils.copyResources
 @Description("Adds volume and brightness swipe controls.")
 @DependsOn(
     [
+        HDRBrightnessPatch::class,
         SettingsPatch::class,
-        SwipeControlsBytecodePatch::class,
-        SwipeControlsHDRPatch::class
+        SwipeControlsBytecodePatch::class
     ]
 )
 @YouTubeCompatibility
@@ -31,7 +31,7 @@ import app.revanced.util.resources.ResourceUtils.copyResources
 class SwipeControlsPatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
 
-        /*
+        /**
          * Add settings
          */
         SettingsPatch.addPreference(

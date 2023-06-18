@@ -2,7 +2,7 @@ package app.revanced.patches.youtube.misc.minimizedplayback.fingerprints
 
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
-import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch.Companion.backgroundCategoryId
+import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch.Companion.BackgroundCategory
 import app.revanced.util.bytecode.isWideLiteralExists
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
@@ -19,5 +19,5 @@ object MinimizedPlaybackSettingsFingerprint : MethodFingerprint(
         Opcode.IF_NEZ,
         Opcode.GOTO
     ),
-    customFingerprint = { it, _ -> it.isWideLiteralExists(backgroundCategoryId) }
+    customFingerprint = { it, _ -> it.isWideLiteralExists(BackgroundCategory) }
 )

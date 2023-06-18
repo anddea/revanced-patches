@@ -15,16 +15,20 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patches.music.misc.quality.fingerprints.*
-import app.revanced.patches.music.misc.resourceid.patch.SharedResourceIdPatch
-import app.revanced.patches.music.misc.settings.resource.patch.MusicSettingsPatch
-import app.revanced.patches.music.misc.videoid.patch.MusicVideoIdPatch
+import app.revanced.patches.music.misc.quality.fingerprints.MusicVideoQualitySettingsFingerprint
+import app.revanced.patches.music.misc.quality.fingerprints.MusicVideoQualitySettingsParentFingerprint
+import app.revanced.patches.music.misc.quality.fingerprints.UserQualityChangeFingerprint
+import app.revanced.patches.music.utils.resourceid.patch.SharedResourceIdPatch
+import app.revanced.patches.music.utils.settings.resource.patch.MusicSettingsPatch
+import app.revanced.patches.music.utils.videoid.patch.MusicVideoIdPatch
 import app.revanced.patches.shared.annotation.YouTubeMusicCompatibility
 import app.revanced.util.enum.CategoryType
 import app.revanced.util.integrations.Constants.MUSIC_MISC_PATH
+import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.builder.instruction.BuilderInstruction21c
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
-import org.jf.dexlib2.iface.reference.FieldReference
+import org.jf.dexlib2.iface.instruction.formats.Instruction35c
+import org.jf.dexlib2.iface.reference.MethodReference
 import org.jf.dexlib2.iface.reference.Reference
 
 @Patch
@@ -41,27 +45,40 @@ import org.jf.dexlib2.iface.reference.Reference
 @Version("0.0.1")
 class VideoQualityPatch : BytecodePatch(
     listOf(
-        MusicVideoQualitySetterParentFingerprint,
         MusicVideoQualitySettingsParentFingerprint,
         UserQualityChangeFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
 
-        MusicVideoQualitySetterParentFingerprint.result?.let { parentResult ->
-            MusicVideoQualitySetterFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.let {
-                it.mutableMethod.apply {
-                    val endIndex = it.scanResult.patternScanResult!!.endIndex
+        UserQualityChangeFingerprint.result?.let {
+            it.mutableMethod.apply {
+                val endIndex = it.scanResult.patternScanResult!!.endIndex
+                val qualityChangedClass =
+                    context.findClass((getInstruction<BuilderInstruction21c>(endIndex))
+                        .reference.toString())!!
+                        .mutableClass
 
-                    qualityReference = getInstruction<ReferenceInstruction>(endIndex).reference
-                    qualityFieldReference = qualityReference as FieldReference
+                for (method in qualityChangedClass.methods) {
+                    qualityChangedClass.findMutableMethodOf(method).apply {
+                        if (this.name == "onItemClick") {
+                            for ((index, instruction) in implementation!!.instructions.withIndex()) {
+                                if (instruction.opcode != Opcode.INVOKE_INTERFACE) continue
 
-                    qIndexMethodName = context
-                        .classes.single { classDef -> classDef.type == qualityFieldReference.type }
-                        .methods.single { method -> method.parameterTypes.first() == "I" }.name
+                                qualityReference = getInstruction<ReferenceInstruction>(index - 1).reference
+                                qIndexMethodName = ((getInstruction<Instruction35c>(index).reference) as MethodReference).name
+
+                                addInstruction(
+                                    0,
+                                    "invoke-static {p3}, $INTEGRATIONS_VIDEO_QUALITY_CLASS_DESCRIPTOR->userChangedQuality(I)V"
+                                )
+                                break
+                            }
+                        }
+                    }
                 }
-            } ?: return MusicVideoQualitySetterFingerprint.toErrorResult()
-        } ?: return MusicVideoQualitySetterParentFingerprint.toErrorResult()
+            }
+        } ?: return UserQualityChangeFingerprint.toErrorResult()
 
         MusicVideoQualitySettingsParentFingerprint.result?.let { parentResult ->
             MusicVideoQualitySettingsFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.mutableMethod?.addInstructions(
@@ -75,27 +92,6 @@ class VideoQualityPatch : BytecodePatch(
             ) ?: return MusicVideoQualitySettingsFingerprint.toErrorResult()
         } ?: return MusicVideoQualitySettingsParentFingerprint.toErrorResult()
 
-        UserQualityChangeFingerprint.result?.let {
-            it.mutableMethod.apply {
-                val endIndex = it.scanResult.patternScanResult!!.endIndex
-                val qualityChangedClass =
-                    context.findClass((getInstruction<BuilderInstruction21c>(endIndex))
-                        .reference.toString())!!
-                        .mutableClass
-
-                for (method in qualityChangedClass.methods) {
-                    with (qualityChangedClass.findMutableMethodOf(method)) {
-                        if (this.name == "onItemClick") {
-                            addInstruction(
-                                0,
-                                "invoke-static {p3}, $INTEGRATIONS_VIDEO_QUALITY_CLASS_DESCRIPTOR->userChangedQuality(I)V"
-                            )
-                        }
-                    }
-                }
-            }
-        } ?: return UserQualityChangeFingerprint.toErrorResult()
-
         MusicVideoIdPatch.injectCall("$INTEGRATIONS_VIDEO_QUALITY_CLASS_DESCRIPTOR->newVideoStarted(Ljava/lang/String;)V")
         MusicSettingsPatch.addMusicPreference(CategoryType.MISC, "revanced_enable_save_video_quality", "true")
 
@@ -106,7 +102,6 @@ class VideoQualityPatch : BytecodePatch(
             "$MUSIC_MISC_PATH/MusicVideoQualityPatch;"
 
         private lateinit var qIndexMethodName: String
-        private lateinit var qualityFieldReference: FieldReference
         private lateinit var qualityReference: Reference
     }
 }

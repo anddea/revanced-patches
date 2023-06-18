@@ -19,8 +19,8 @@ import app.revanced.patcher.util.TypeUtil.traverseClassHierarchy
 import app.revanced.patcher.util.proxy.mutableTypes.MutableField.Companion.toMutable
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patcher.util.smali.toInstructions
-import app.revanced.patches.music.misc.resourceid.patch.SharedResourceIdPatch
-import app.revanced.patches.music.misc.settings.resource.patch.MusicSettingsPatch
+import app.revanced.patches.music.utils.resourceid.patch.SharedResourceIdPatch
+import app.revanced.patches.music.utils.settings.resource.patch.MusicSettingsPatch
 import app.revanced.patches.music.misc.shuffle.fingerprints.*
 import app.revanced.patches.shared.annotation.YouTubeMusicCompatibility
 import app.revanced.util.enum.CategoryType
@@ -156,7 +156,7 @@ class EnforceShufflePatch : BytecodePatch(
                             iput-boolean v4, v3, $shuffleReference5
                             invoke-virtual {v3}, $shuffleReference6
                             return-void
-                        """.toInstructions(), null, null
+                            """.toInstructions(), null, null
                         )
                     ).toMutable()
                 )

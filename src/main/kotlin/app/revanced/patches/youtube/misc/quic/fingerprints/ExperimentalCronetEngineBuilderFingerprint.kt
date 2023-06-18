@@ -7,5 +7,5 @@ object ExperimentalCronetEngineBuilderFingerprint : MethodFingerprint(
     returnType = "L",
     accessFlags = AccessFlags.PUBLIC.value,
     parameters = listOf("Z"),
-    customFingerprint = { it, _ -> it.definingClass == "Lorg/chromium/net/ExperimentalCronetEngine\$Builder;" && it.name == "enableQuic" }
+    customFingerprint = { it, _ -> it.definingClass.endsWith("ExperimentalCronetEngine\$Builder;") && it.name == "enableQuic" }
 )

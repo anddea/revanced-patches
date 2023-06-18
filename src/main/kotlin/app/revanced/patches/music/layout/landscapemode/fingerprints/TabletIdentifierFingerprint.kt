@@ -2,7 +2,7 @@ package app.revanced.patches.music.layout.landscapemode.fingerprints
 
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
-import app.revanced.patches.music.misc.resourceid.patch.SharedResourceIdPatch.Companion.isTabletId
+import app.revanced.patches.music.utils.resourceid.patch.SharedResourceIdPatch.Companion.IsTablet
 import app.revanced.util.bytecode.isWideLiteralExists
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
@@ -16,6 +16,6 @@ object TabletIdentifierFingerprint : MethodFingerprint(
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT
     ),
-    customFingerprint = { it, _ -> it.isWideLiteralExists(isTabletId) }
+    customFingerprint = { it, _ -> it.isWideLiteralExists(IsTablet) }
 )
 
