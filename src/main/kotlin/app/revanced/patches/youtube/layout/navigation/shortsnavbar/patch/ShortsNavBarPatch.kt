@@ -6,9 +6,9 @@ import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.data.toMethodWalker
-import app.revanced.patcher.extensions.addInstruction
-import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.instruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
@@ -46,7 +46,7 @@ class ShortsNavBarPatch : BytecodePatch(
             SetPivotBarFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.let {
                 it.mutableMethod.apply {
                     val startIndex = it.scanResult.patternScanResult!!.startIndex
-                    val register = instruction<OneRegisterInstruction>(startIndex).registerA
+                    val register = getInstruction<OneRegisterInstruction>(startIndex).registerA
 
                     addInstruction(
                         startIndex + 1,
@@ -87,7 +87,7 @@ class ShortsNavBarPatch : BytecodePatch(
                 }.forEach { instruction ->
                     val insertIndex = indexOf(instruction) + 4
                     val targetRegister =
-                        navigationEndpointMethod.instruction<OneRegisterInstruction>(insertIndex).registerA
+                        navigationEndpointMethod.getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
                     navigationEndpointMethod.addInstructions(
                         insertIndex,

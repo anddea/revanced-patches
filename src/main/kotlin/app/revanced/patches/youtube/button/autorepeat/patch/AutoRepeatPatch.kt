@@ -4,7 +4,10 @@ import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.*
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
@@ -34,13 +37,13 @@ class AutoRepeatPatch : BytecodePatch(
             VideoEndFingerprint.also {
                 it.resolve(context, classDef)
             }.result?.mutableMethod?.let {
-                it.addInstructions(
+                it.addInstructionsWithLabels(
                     0, """
                     invoke-static {}, $VIDEO_PATH/VideoInformation;->shouldAutoRepeat()Z
                     move-result v0
                     if-eqz v0, :notrepeat
                     return-void
-                """, listOf(ExternalLabel("notrepeat", it.instruction(0)))
+                """, ExternalLabel("notrepeat", it.getInstruction(0))
                 )
             } ?: return VideoEndFingerprint.toErrorResult()
         } ?: return VideoEndParentFingerprint.toErrorResult()
@@ -50,20 +53,20 @@ class AutoRepeatPatch : BytecodePatch(
                 val targetIndex = it.scanResult.patternScanResult!!.startIndex - 1
                 val endIndex = it.scanResult.patternScanResult!!.endIndex
 
-                val registerC = instruction<BuilderInstruction35c>(targetIndex).registerC
-                val registerD = instruction<BuilderInstruction35c>(targetIndex).registerD
+                val registerC = getInstruction<BuilderInstruction35c>(targetIndex).registerC
+                val registerD = getInstruction<BuilderInstruction35c>(targetIndex).registerD
 
-                val dummyRegister = (instruction(endIndex) as Instruction31i).registerA
+                val dummyRegister = (getInstruction(endIndex) as Instruction31i).registerA
 
-                val targetReference = instruction<ReferenceInstruction>(targetIndex).reference
+                val targetReference = getInstruction<ReferenceInstruction>(targetIndex).reference
 
-                addInstructions(
+                addInstructionsWithLabels(
                     targetIndex + 1, """
                             invoke-static {}, $UTILS_PATH/EnableAutoRepeatPatch;->shouldAutoRepeat()Z
                             move-result v$dummyRegister
                             if-nez v$dummyRegister, :bypass
                             invoke-virtual {v$registerC, v$registerD}, $targetReference
-                            """, listOf(ExternalLabel("bypass", instruction(targetIndex + 1)))
+                            """, ExternalLabel("bypass", getInstruction(targetIndex + 1))
                 )
                 removeInstruction(targetIndex)
             }
@@ -71,13 +74,13 @@ class AutoRepeatPatch : BytecodePatch(
 
         AutoNavInformerFingerprint.result?.mutableMethod?.let {
             val index = it.implementation!!.instructions.size - 1 - 1
-            val register = it.instruction<OneRegisterInstruction>(index).registerA
+            val register = it.getInstruction<OneRegisterInstruction>(index).registerA
 
             it.addInstructions(
                 index + 1, """
                     invoke-static {v$register}, $UTILS_PATH/EnableAutoRepeatPatch;->enableAutoRepeat(Z)Z
                     move-result v0
-                """
+                    """
             )
         } ?: return AutoNavInformerFingerprint.toErrorResult()
 

@@ -13,5 +13,5 @@ object SearchResultsChipBarFingerprint : MethodFingerprint(
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT_OBJECT
     ),
-    customFingerprint = { it.isWideLiteralExists(barContainerHeightId) }
+    customFingerprint = { it, _ -> it.isWideLiteralExists(barContainerHeightId) }
 )

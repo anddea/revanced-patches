@@ -7,7 +7,7 @@ import org.jf.dexlib2.Opcode
 
 object OpenLinksDirectlyFingerprintPrimary : MethodFingerprint(
     returnType = "Ljava/lang/Object",
-    access = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("Ljava/lang/Object"),
     opcodes = listOf(
         Opcode.INVOKE_STATIC,

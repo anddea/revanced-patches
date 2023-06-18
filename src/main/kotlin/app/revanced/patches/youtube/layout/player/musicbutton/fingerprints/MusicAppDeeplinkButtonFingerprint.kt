@@ -5,5 +5,5 @@ import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 object MusicAppDeeplinkButtonFingerprint : MethodFingerprint(
     returnType = "V",
     parameters = listOf("Z", "Z"),
-    customFingerprint = { it.definingClass.endsWith("MusicAppDeeplinkButtonController;") }
+    customFingerprint = { it, _ -> it.definingClass.endsWith("MusicAppDeeplinkButtonController;") }
 )

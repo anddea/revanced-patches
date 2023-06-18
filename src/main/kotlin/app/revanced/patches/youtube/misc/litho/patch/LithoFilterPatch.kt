@@ -3,8 +3,8 @@ package app.revanced.patches.youtube.misc.litho.patch
 import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.instruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -48,12 +48,12 @@ class LithoFilterPatch : BytecodePatch(
 
         LithoBufferFingerprint.result?.let {
             val startIndex = it.scanResult.patternScanResult!!.startIndex
-            bufferReference = it.mutableMethod.instruction<ReferenceInstruction>(startIndex).reference
+            bufferReference = it.mutableMethod.getInstruction<ReferenceInstruction>(startIndex).reference
         } ?: return LithoBufferFingerprint.toErrorResult()
 
         LithoObjectFingerprint.result?.let {
             val endIndex = it.scanResult.patternScanResult!!.endIndex
-            objectRegister = it.mutableMethod.instruction<BuilderInstruction35c>(endIndex).registerC
+            objectRegister = it.mutableMethod.getInstruction<BuilderInstruction35c>(endIndex).registerC
         } ?: return LithoObjectFingerprint.toErrorResult()
 
         LithoFingerprint.result?.let { result ->
@@ -62,23 +62,23 @@ class LithoFilterPatch : BytecodePatch(
 
             lithoMethod.apply {
                 val bufferIndex = getNarrowLiteralIndex(168777401)
-                val bufferRegister = instruction<OneRegisterInstruction>(bufferIndex).registerA
+                val bufferRegister = getInstruction<OneRegisterInstruction>(bufferIndex).registerA
                 val targetIndex = getStringIndex("Element missing type extension") + 2
-                val identifierRegister = instruction<OneRegisterInstruction>(endIndex).registerA
+                val identifierRegister = getInstruction<OneRegisterInstruction>(endIndex).registerA
 
-                builderMethodDescriptor = instruction<ReferenceInstruction>(targetIndex).reference
-                emptyComponentFieldDescriptor = instruction<ReferenceInstruction>(targetIndex + 2).reference
+                builderMethodDescriptor = getInstruction<ReferenceInstruction>(targetIndex).reference
+                emptyComponentFieldDescriptor = getInstruction<ReferenceInstruction>(targetIndex + 2).reference
                 implementation!!.instructions.apply {
                     filter { instruction ->
                         val fieldReference = (instruction as? ReferenceInstruction)?.reference as? FieldReference
                         fieldReference?.let { it.type == "Ljava/lang/StringBuilder;" } == true
                     }.forEach { instruction ->
                         val insertIndex = indexOf(instruction)
-                        val stringBuilderRegister = lithoMethod.instruction<TwoRegisterInstruction>(insertIndex).registerA
+                        val stringBuilderRegister = lithoMethod.getInstruction<TwoRegisterInstruction>(insertIndex).registerA
 
                         val objectIndex = lithoMethod.getStringIndex("") - 2
-                        objectReference = lithoMethod.instruction<ReferenceInstruction>(objectIndex).reference
-                        lithoMethod.addInstructions(
+                        objectReference = lithoMethod.getInstruction<ReferenceInstruction>(objectIndex).reference
+                        lithoMethod.addInstructionsWithLabels(
                             insertIndex + 1, """
                                 move-object/from16 v$bufferRegister, p3
                                 iget-object v$bufferRegister, v$bufferRegister, $objectReference
@@ -93,7 +93,7 @@ class LithoFilterPatch : BytecodePatch(
                                 move-result-object v0
                                 iget-object v0, v0, $emptyComponentFieldDescriptor
                                 return-object v0
-                                """, listOf(ExternalLabel("not_an_ad", lithoMethod.instruction(insertIndex + 1)))
+                                """, ExternalLabel("not_an_ad", lithoMethod.getInstruction(insertIndex + 1))
                         )
                     }
                 }

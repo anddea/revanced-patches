@@ -7,7 +7,7 @@ import org.jf.dexlib2.Opcode
 
 object MinimizedPlaybackManagerFingerprint : MethodFingerprint(
     returnType = "V",
-    access = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("I", "L", "Z"),
     opcodes = listOf(
         Opcode.IGET,

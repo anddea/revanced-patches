@@ -4,8 +4,8 @@ import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.instruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
@@ -42,14 +42,14 @@ class ReturnYouTubeDislikeOldLayoutPatch : BytecodePatch(
                 it.mutableMethod.apply {
                     val startIndex = it.scanResult.patternScanResult!!.startIndex
                     slimMetadataButtonViewFieldReference =
-                        instruction<ReferenceInstruction>(startIndex).reference
+                        getInstruction<ReferenceInstruction>(startIndex).reference
                 }
             } ?: return SlimMetadataButtonViewFingerprint.toErrorResult()
 
             SlimMetadataButtonTextFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.let {
                 it.mutableMethod.apply {
                     val insertIndex = it.scanResult.patternScanResult!!.startIndex
-                    val setTextInstruction = instruction<FiveRegisterInstruction>(insertIndex)
+                    val setTextInstruction = getInstruction<FiveRegisterInstruction>(insertIndex)
 
                     val tempRegister =
                         setTextInstruction.registerC + 1
@@ -75,14 +75,14 @@ class ReturnYouTubeDislikeOldLayoutPatch : BytecodePatch(
                 it.mutableMethod.apply {
                     val startIndex = it.scanResult.patternScanResult!!.startIndex
                     getActiveBooleanFieldReference =
-                        instruction<ReferenceInstruction>(startIndex).reference
+                        getInstruction<ReferenceInstruction>(startIndex).reference
                 }
             } ?: return ButtonTagOnClickFingerprint.toErrorResult()
 
             parentResult.mutableMethod.apply {
                 val dislikeButtonIndex = getWideLiteralIndex(dislikeButtonId)
-                val dislikeButtonRegister = instruction<OneRegisterInstruction>(dislikeButtonIndex).registerA
-                val dislikeButtonInstruction = instruction<TwoRegisterInstruction>(dislikeButtonIndex - 1)
+                val dislikeButtonRegister = getInstruction<OneRegisterInstruction>(dislikeButtonIndex).registerA
+                val dislikeButtonInstruction = getInstruction<TwoRegisterInstruction>(dislikeButtonIndex - 1)
 
                 addInstructions(
                     dislikeButtonIndex, """
@@ -93,8 +93,8 @@ class ReturnYouTubeDislikeOldLayoutPatch : BytecodePatch(
                 )
 
                 val likeButtonIndex = getWideLiteralIndex(likeButtonId)
-                val likeButtonRegister = instruction<OneRegisterInstruction>(likeButtonIndex).registerA
-                val likeButtonInstruction = instruction<TwoRegisterInstruction>(likeButtonIndex - 1)
+                val likeButtonRegister = getInstruction<OneRegisterInstruction>(likeButtonIndex).registerA
+                val likeButtonInstruction = getInstruction<TwoRegisterInstruction>(likeButtonIndex - 1)
 
                 addInstructions(
                     likeButtonIndex, """

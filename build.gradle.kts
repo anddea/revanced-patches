@@ -1,5 +1,5 @@
 plugins {
-    kotlin("jvm") version "1.8.20"
+    kotlin("jvm") version "1.8.22"
 }
 
 group = "app.revanced"
@@ -20,7 +20,7 @@ repositories {
 }
 
 dependencies {
-    implementation("app.revanced:revanced-patcher:7.1.1")
+    implementation("app.revanced:revanced-patcher:11.0.1")
     implementation("app.revanced:multidexlib2:2.5.3-a3836654")
     // Required for meta
     implementation("com.google.code.gson:gson:2.10.1")
@@ -33,7 +33,7 @@ tasks {
 
         doLast {
             val androidHome = System.getenv("ANDROID_HOME") ?: throw GradleException("ANDROID_HOME not found")
-            val d8 = "${androidHome}/build-tools/33.0.2/d8"
+            val d8 = "${androidHome}/build-tools/34.0.0/d8"
             val input = configurations.archives.get().allArtifacts.files.files.first().absolutePath
             val work = File("${buildDir}/libs")
 

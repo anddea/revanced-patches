@@ -5,9 +5,9 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.instruction
-import app.revanced.patcher.extensions.removeInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
@@ -42,11 +42,11 @@ class ColorMatchPlayerPatch : BytecodePatch(
                     targetMethod = parentResult.mutableMethod
 
                     val insertIndex = it.scanResult.patternScanResult!!.startIndex + 1
-                    val jumpInstruction = instruction<Instruction>(insertIndex)
+                    val jumpInstruction = getInstruction<Instruction>(insertIndex)
 
                     val type = it.classDef.type
 
-                    addInstructions(
+                    addInstructionsWithLabels(
                         insertIndex, """
                             invoke-static {}, $MUSIC_LAYOUT->enableColorMatchPlayer()Z
                             move-result v2
@@ -65,7 +65,7 @@ class ColorMatchPlayerPatch : BytecodePatch(
                             goto :exit
                             :off
                             invoke-direct {p0}, ${type}->${parentResult.mutableMethod.name}()V
-                            """, listOf(ExternalLabel("exit", jumpInstruction))
+                            """, ExternalLabel("exit", jumpInstruction)
                     )
                     removeInstruction(insertIndex - 1)
                 }
@@ -79,8 +79,8 @@ class ColorMatchPlayerPatch : BytecodePatch(
     private companion object {
         private lateinit var targetMethod: MutableMethod
 
-        fun descriptor(index: Int):String {
-            return (targetMethod.instruction(index) as ReferenceInstruction).reference.toString()
+        fun descriptor(index: Int): String {
+            return targetMethod.getInstruction<ReferenceInstruction>(index).reference.toString()
         }
     }
 }

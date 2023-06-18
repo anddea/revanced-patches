@@ -6,6 +6,6 @@ import org.jf.dexlib2.AccessFlags
 
 object SpeedArrayGeneratorFingerprint : MethodFingerprint(
     returnType = "[L",
-    access = AccessFlags.PUBLIC or AccessFlags.STATIC,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
     strings = listOf("0.0#")
 )

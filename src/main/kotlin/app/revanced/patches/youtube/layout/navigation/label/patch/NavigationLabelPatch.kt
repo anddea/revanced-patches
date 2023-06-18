@@ -5,8 +5,8 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstruction
-import app.revanced.patcher.extensions.instruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -33,10 +33,10 @@ class NavigationLabelPatch : BytecodePatch(
         PivotBarSetTextFingerprint.result?.let {
             it.mutableMethod.apply {
                 val targetIndex = it.scanResult.patternScanResult!!.endIndex - 2
-                val targetReference = instruction<ReferenceInstruction>(targetIndex).reference.toString()
+                val targetReference = getInstruction<ReferenceInstruction>(targetIndex).reference.toString()
                 if (targetReference != "Landroid/widget/TextView;")
                     return PivotBarSetTextFingerprint.toErrorResult()
-                val targetRegister = instruction<OneRegisterInstruction>(targetIndex).registerA
+                val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
                 addInstruction(
                     targetIndex + 1,
                     "invoke-static {v$targetRegister}, $NAVIGATION->hideNavigationLabel(Landroid/widget/TextView;)V"

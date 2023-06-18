@@ -7,7 +7,7 @@ import org.jf.dexlib2.Opcode
 
 object WideSearchbarTwoFingerprint : MethodFingerprint(
     returnType = "L",
-    access = AccessFlags.PUBLIC or AccessFlags.STATIC,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
     opcodes = listOf(
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT,

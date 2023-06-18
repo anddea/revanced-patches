@@ -6,7 +6,7 @@ import org.jf.dexlib2.AccessFlags
 
 object SearchEndpointParentFingerprint : MethodFingerprint(
     returnType = "V",
-    access = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf(),
     strings = listOf("voz-target-id")
 )

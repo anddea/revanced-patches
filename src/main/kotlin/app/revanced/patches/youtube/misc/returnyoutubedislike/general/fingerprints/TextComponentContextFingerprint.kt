@@ -7,7 +7,7 @@ import org.jf.dexlib2.Opcode
 
 object TextComponentContextFingerprint : MethodFingerprint(
     returnType = "L",
-    access = AccessFlags.PROTECTED or AccessFlags.FINAL,
+    accessFlags = AccessFlags.PROTECTED or AccessFlags.FINAL,
     parameters = listOf("L"),
     opcodes = listOf(
         Opcode.IGET_OBJECT, // conversion context

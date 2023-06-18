@@ -7,7 +7,7 @@ import org.jf.dexlib2.Opcode
 
 object PrimaryPiPFingerprint : MethodFingerprint(
     returnType = "V",
-    access = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("L"),
     opcodes = listOf(
         Opcode.IGET_OBJECT,

@@ -5,7 +5,7 @@ import org.jf.dexlib2.AccessFlags
 
 object CronetEngineBuilderFingerprint : MethodFingerprint(
     returnType = "L",
-    access = AccessFlags.PUBLIC.value,
+    accessFlags = AccessFlags.PUBLIC.value,
     parameters = listOf("Z"),
-    customFingerprint = { it.definingClass == "Lorg/chromium/net/CronetEngine\$Builder;" && it.name == "enableQuic" }
+    customFingerprint = { it, _ -> it.definingClass == "Lorg/chromium/net/CronetEngine\$Builder;" && it.name == "enableQuic" }
 )

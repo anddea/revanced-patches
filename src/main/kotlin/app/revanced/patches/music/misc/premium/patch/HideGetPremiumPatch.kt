@@ -6,8 +6,8 @@ import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.data.toMethodWalker
-import app.revanced.patcher.extensions.addInstruction
-import app.revanced.patcher.extensions.instruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -43,7 +43,7 @@ class HideGetPremiumPatch : BytecodePatch(
         HideGetPremiumFingerprint.result?.let {
             it.mutableMethod.apply {
                 val insertIndex = it.scanResult.patternScanResult!!.startIndex
-                val register = instruction<TwoRegisterInstruction>(insertIndex).registerA
+                val register = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
 
                 addInstruction(
                     insertIndex + 1,
@@ -56,7 +56,7 @@ class HideGetPremiumPatch : BytecodePatch(
         AccountMenuFooterFingerprint.result?.let {
             it.mutableMethod.apply {
                 val targetIndex = getWideLiteralIndex(privacyTosFooterId) + 4
-                targetReference = instruction<ReferenceInstruction>(targetIndex + 1).reference
+                targetReference = getInstruction<ReferenceInstruction>(targetIndex + 1).reference
 
                 with (context
                     .toMethodWalker(this)
@@ -67,8 +67,8 @@ class HideGetPremiumPatch : BytecodePatch(
                         for ((index, instruction) in withIndex()) {
                             if (instruction.opcode != Opcode.IGET_OBJECT) continue
 
-                            if (instruction<ReferenceInstruction>(index).reference == targetReference) {
-                                val targetRegister = instruction<OneRegisterInstruction>(index + 2).registerA
+                            if (getInstruction<ReferenceInstruction>(index).reference == targetReference) {
+                                val targetRegister = getInstruction<OneRegisterInstruction>(index + 2).registerA
 
                                 addInstruction(
                                     index,

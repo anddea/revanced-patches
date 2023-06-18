@@ -6,9 +6,9 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstruction
-import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.instruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
@@ -53,7 +53,7 @@ class VideoQualityPatch : BytecodePatch(
                 it.mutableMethod.apply {
                     val endIndex = it.scanResult.patternScanResult!!.endIndex
 
-                    qualityReference = instruction<ReferenceInstruction>(endIndex).reference
+                    qualityReference = getInstruction<ReferenceInstruction>(endIndex).reference
                     qualityFieldReference = qualityReference as FieldReference
 
                     qIndexMethodName = context
@@ -79,7 +79,7 @@ class VideoQualityPatch : BytecodePatch(
             it.mutableMethod.apply {
                 val endIndex = it.scanResult.patternScanResult!!.endIndex
                 val qualityChangedClass =
-                    context.findClass((instruction<BuilderInstruction21c>(endIndex))
+                    context.findClass((getInstruction<BuilderInstruction21c>(endIndex))
                         .reference.toString())!!
                         .mutableClass
 

@@ -5,8 +5,8 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.instruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
@@ -38,15 +38,17 @@ class NewPlaylistButtonPatch : BytecodePatch(
     override fun execute(context: BytecodeContext): PatchResult {
 
         FloatingButtonParentFingerprint.result?.let { parentResult ->
-            FloatingButtonFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.mutableMethod?.let {
-                it.addInstructions(
-                    1, """
-                        invoke-static {}, $MUSIC_LAYOUT->hideNewPlaylistButton()Z
-                        move-result v0
-                        if-eqz v0, :show
-                        return-void
-                        """, listOf(ExternalLabel("show", it.instruction(1)))
-                )
+            FloatingButtonFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.let {
+                it.mutableMethod.apply {
+                    addInstructionsWithLabels(
+                        1, """
+                            invoke-static {}, $MUSIC_LAYOUT->hideNewPlaylistButton()Z
+                            move-result v0
+                            if-eqz v0, :show
+                            return-void
+                            """, ExternalLabel("show", getInstruction(1))
+                    )
+                }
             } ?: return FloatingButtonFingerprint.toErrorResult()
         } ?: return FloatingButtonParentFingerprint.toErrorResult()
 

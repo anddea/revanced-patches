@@ -5,7 +5,7 @@ import org.jf.dexlib2.Opcode
 
 object VideoSpeedEntriesFingerprint : MethodFingerprint(
     opcodes = listOf(Opcode.FILL_ARRAY_DATA),
-    customFingerprint = {
+    customFingerprint = { it, _ ->
         it.definingClass.endsWith("VideoSpeedEntries;") && it.name == "<clinit>"
     }
 )

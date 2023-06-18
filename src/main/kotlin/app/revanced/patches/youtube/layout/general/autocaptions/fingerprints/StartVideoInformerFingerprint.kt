@@ -7,7 +7,7 @@ import org.jf.dexlib2.Opcode
 
 object StartVideoInformerFingerprint : MethodFingerprint(
     returnType = "V",
-    access = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     opcodes = listOf(
         Opcode.INVOKE_INTERFACE,
         Opcode.RETURN_VOID

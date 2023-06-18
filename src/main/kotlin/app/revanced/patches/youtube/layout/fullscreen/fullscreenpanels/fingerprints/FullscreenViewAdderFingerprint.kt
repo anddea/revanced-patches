@@ -12,5 +12,5 @@ object FullscreenViewAdderFingerprint : MethodFingerprint(
         Opcode.CONST_4,
         Opcode.INVOKE_VIRTUAL
     ),
-    customFingerprint = { it.definingClass.endsWith("FullscreenEngagementPanelOverlay;") }
+    customFingerprint = { it, _ -> it.definingClass.endsWith("FullscreenEngagementPanelOverlay;") }
 )

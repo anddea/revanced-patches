@@ -7,7 +7,7 @@ import org.jf.dexlib2.Opcode
 
 object BackgroundPlaybackParentFingerprint : MethodFingerprint(
     returnType = "V",
-    access = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf(),
     opcodes = listOf(
         Opcode.INVOKE_STATIC,
@@ -17,5 +17,5 @@ object BackgroundPlaybackParentFingerprint : MethodFingerprint(
         Opcode.GOTO,
         Opcode.NOP
     ),
-    customFingerprint = { it.definingClass.endsWith("/WatchFragment;") }
+    customFingerprint = { it, _ -> it.definingClass.endsWith("/WatchFragment;") }
 )

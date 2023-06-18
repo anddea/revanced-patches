@@ -6,7 +6,7 @@ import org.jf.dexlib2.AccessFlags
 
 object VideoSpeedSettingsFingerprint : MethodFingerprint(
     returnType = "V",
-    access = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("[L", "I"),
     strings = listOf("menu_item_playback_speed")
 )

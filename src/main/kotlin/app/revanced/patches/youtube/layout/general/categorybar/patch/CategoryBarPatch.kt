@@ -5,9 +5,9 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstruction
-import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.instruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -50,7 +50,7 @@ class CategoryBarPatch : BytecodePatch(
         FilterBarHeightFingerprint.result?.let {
             it.mutableMethod.apply {
                 val insertIndex = it.scanResult.patternScanResult!!.endIndex
-                val register = instruction<TwoRegisterInstruction>(insertIndex).registerA
+                val register = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
 
                 addInstructions(
                     insertIndex, """
@@ -67,7 +67,7 @@ class CategoryBarPatch : BytecodePatch(
         RelatedChipCloudFingerprint.result?.let {
             it.mutableMethod.apply {
                 val insertIndex = it.scanResult.patternScanResult!!.endIndex
-                val register = instruction<OneRegisterInstruction>(insertIndex).registerA
+                val register = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
                 addInstruction(
                     insertIndex + 1,
@@ -82,7 +82,7 @@ class CategoryBarPatch : BytecodePatch(
         SearchResultsChipBarFingerprint.result?.let {
             it.mutableMethod.apply {
                 val targetIndex = it.scanResult.patternScanResult!!.endIndex - 2
-                val register = instruction<OneRegisterInstruction>(targetIndex).registerA
+                val register = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                 addInstructions(
                     targetIndex + 1, """

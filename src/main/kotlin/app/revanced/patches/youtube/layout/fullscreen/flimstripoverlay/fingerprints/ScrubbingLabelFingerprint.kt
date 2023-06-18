@@ -10,5 +10,5 @@ object ScrubbingLabelFingerprint : MethodFingerprint(
         Opcode.IPUT_BOOLEAN,
         Opcode.CONST_WIDE_32
     ),
-    customFingerprint = { it.isWideLiteralExists(scrubbingId) }
+    customFingerprint = { it, _ -> it.isWideLiteralExists(scrubbingId) }
 )

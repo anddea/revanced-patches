@@ -5,8 +5,8 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.instruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -30,7 +30,7 @@ class PlayerPopupPanelsPatch : BytecodePatch(
     override fun execute(context: BytecodeContext): PatchResult {
 
         EngagementPanelControllerFingerprint.result?.mutableMethod?.let {
-            it.addInstructions(
+            it.addInstructionsWithLabels(
                 0, """
                     invoke-static {}, $GENERAL->hideAutoPlayerPopupPanels()Z
                     move-result v0
@@ -38,7 +38,7 @@ class PlayerPopupPanelsPatch : BytecodePatch(
                     if-eqz p4, :player_popup_panels_shown
                     const/4 v0, 0x0
                     return-object v0
-                """, listOf(ExternalLabel("player_popup_panels_shown", it.instruction(0)))
+                """, ExternalLabel("player_popup_panels_shown", it.getInstruction(0))
             )
         } ?: return EngagementPanelControllerFingerprint.toErrorResult()
 

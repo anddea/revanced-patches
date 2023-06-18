@@ -5,8 +5,8 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstruction
-import app.revanced.patcher.extensions.instruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprintResult
@@ -71,7 +71,7 @@ class PlayerControlsPatch : BytecodePatch(
         ) {
             val endIndex = scanResult.patternScanResult!!.endIndex
             with (mutableMethod) {
-                val viewRegister = (instruction(endIndex) as OneRegisterInstruction).registerA
+                val viewRegister = (getInstruction(endIndex) as OneRegisterInstruction).registerA
                 addInstruction(
                     endIndex + 1,
                     "invoke-static {v$viewRegister}, $descriptor->initialize(Ljava/lang/Object;)V"

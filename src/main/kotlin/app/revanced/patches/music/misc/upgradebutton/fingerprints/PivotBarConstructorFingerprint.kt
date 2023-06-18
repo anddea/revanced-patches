@@ -8,10 +8,10 @@ import org.jf.dexlib2.Opcode
 
 object PivotBarConstructorFingerprint : MethodFingerprint(
     returnType = "V",
-    access = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
     opcodes = listOf(
         Opcode.IPUT_OBJECT,
         Opcode.RETURN_VOID
     ),
-    customFingerprint = { it.name == "<init>" && it.isNarrowLiteralExists(117501096) }
+    customFingerprint = { it, _ -> it.name == "<init>" && it.isNarrowLiteralExists(117501096) }
 )

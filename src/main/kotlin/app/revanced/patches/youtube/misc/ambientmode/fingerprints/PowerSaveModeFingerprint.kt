@@ -7,7 +7,7 @@ import org.jf.dexlib2.Opcode
 
 object PowerSaveModeFingerprint : MethodFingerprint(
     returnType = "V",
-    access = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("L"),
     opcodes = listOf(
         Opcode.IGET_OBJECT,
@@ -21,5 +21,5 @@ object PowerSaveModeFingerprint : MethodFingerprint(
         Opcode.INVOKE_VIRTUAL,
         Opcode.RETURN_VOID
     ),
-    customFingerprint = { it.name == "accept" }
+    customFingerprint = { it, _ -> it.name == "accept" }
 )

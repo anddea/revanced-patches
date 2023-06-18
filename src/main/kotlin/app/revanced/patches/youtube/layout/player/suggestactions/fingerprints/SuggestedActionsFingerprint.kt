@@ -13,5 +13,5 @@ object SuggestedActionsFingerprint : MethodFingerprint(
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT_OBJECT
     ),
-    customFingerprint = { it.isWideLiteralExists(suggestedActionId) }
+    customFingerprint = { it, _ -> it.isWideLiteralExists(suggestedActionId) }
 )

@@ -12,5 +12,5 @@ object FilterBarHeightFingerprint : MethodFingerprint(
         Opcode.MOVE_RESULT,
         Opcode.IPUT
     ),
-    customFingerprint = { it.isWideLiteralExists(filterBarHeightId) }
+    customFingerprint = { it, _ -> it.isWideLiteralExists(filterBarHeightId) }
 )

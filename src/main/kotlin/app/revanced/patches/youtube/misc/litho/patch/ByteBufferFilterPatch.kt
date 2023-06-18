@@ -2,8 +2,8 @@ package app.revanced.patches.youtube.misc.litho.patch
 
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.instruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
@@ -11,7 +11,6 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.youtube.misc.playertype.patch.PlayerTypeHookPatch
-import app.revanced.util.integrations.Constants.ADS_PATH
 
 @DependsOn(
     [
@@ -28,7 +27,7 @@ class ByteBufferFilterPatch : ResourcePatch {
 
     companion object{
         fun inject(descriptor: String){
-            LithoFilterPatch.lithoMethod.addInstructions(
+            LithoFilterPatch.lithoMethod.addInstructionsWithLabels(
                 0, """
                     move-object/from16 v10, p3
                     iget-object v10, v10, ${LithoFilterPatch.objectReference}
@@ -44,7 +43,7 @@ class ByteBufferFilterPatch : ResourcePatch {
                     move-result-object v0
                     iget-object v0, v0, ${LithoFilterPatch.emptyComponentFieldDescriptor}
                     return-object v0
-                    """, listOf(ExternalLabel("do_not_block", LithoFilterPatch.lithoMethod.instruction(0)))
+                    """, ExternalLabel("do_not_block", LithoFilterPatch.lithoMethod.getInstruction(0))
             )
         }
     }

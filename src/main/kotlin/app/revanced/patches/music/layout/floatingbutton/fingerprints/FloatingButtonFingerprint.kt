@@ -7,7 +7,7 @@ import org.jf.dexlib2.Opcode
 
 object FloatingButtonFingerprint : MethodFingerprint(
     returnType = "V",
-    access = AccessFlags.PRIVATE or AccessFlags.FINAL,
+    accessFlags = AccessFlags.PRIVATE or AccessFlags.FINAL,
     parameters = listOf("L"),
     opcodes = listOf(Opcode.AND_INT_LIT16)
 )

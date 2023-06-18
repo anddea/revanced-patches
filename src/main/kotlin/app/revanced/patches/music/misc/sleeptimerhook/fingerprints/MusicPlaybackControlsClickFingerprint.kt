@@ -9,5 +9,5 @@ object MusicPlaybackControlsClickFingerprint : MethodFingerprint(
         Opcode.INVOKE_VIRTUAL,
         Opcode.RETURN_VOID
     ),
-    customFingerprint = { it.definingClass.endsWith("/MusicPlaybackControls;") && it.name == "onClick" }
+    customFingerprint = { it, _ -> it.definingClass.endsWith("/MusicPlaybackControls;") && it.name == "onClick" }
 )

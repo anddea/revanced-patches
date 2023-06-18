@@ -5,8 +5,8 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.instruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprintResult
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
@@ -57,7 +57,7 @@ class TabletNavigationBarPatch : BytecodePatch(
     companion object {
         private fun MethodFingerprintResult.insertHook() {
             val targetIndex = this.scanResult.patternScanResult!!.startIndex + 1
-            val register = mutableMethod.instruction<OneRegisterInstruction>(targetIndex).registerA
+            val register = mutableMethod.getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
             mutableMethod.addInstructions(
                 targetIndex + 1, """

@@ -22,5 +22,5 @@ object QualityMenuViewInflateFingerprint : MethodFingerprint(
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.CHECK_CAST
     ),
-    customFingerprint = { it.isWideLiteralExists(videoQualityFragmentId) }
+    customFingerprint = { it, _ -> it.isWideLiteralExists(videoQualityFragmentId) }
 )

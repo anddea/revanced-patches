@@ -9,5 +9,5 @@ object PivotBarChangedFingerprint : MethodFingerprint(
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT
     ),
-    customFingerprint = { it.definingClass.endsWith("PivotBar;") && it.name == "onConfigurationChanged" }
+    customFingerprint = { it, _ -> it.definingClass.endsWith("PivotBar;") && it.name == "onConfigurationChanged" }
 )

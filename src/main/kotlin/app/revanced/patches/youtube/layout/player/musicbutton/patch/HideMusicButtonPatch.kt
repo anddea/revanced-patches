@@ -5,7 +5,8 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -32,12 +33,12 @@ class HideMusicButtonPatch : BytecodePatch(
         MusicAppDeeplinkButtonFingerprint.result?.mutableMethod?.let {
             it.implementation!!.instructions.apply {
                 val jumpInstruction = this[size - 1] as Instruction
-                it.addInstructions(
+                it.addInstructionsWithLabels(
                     0, """
                     invoke-static {}, $PLAYER->hideMusicButton()Z
                     move-result v0
                     if-nez v0, :hidden
-                    """, listOf(ExternalLabel("hidden", jumpInstruction))
+                    """, ExternalLabel("hidden", jumpInstruction)
                 )
             }
         } ?: return MusicAppDeeplinkButtonFingerprint.toErrorResult()

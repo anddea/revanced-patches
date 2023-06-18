@@ -7,7 +7,7 @@ import org.jf.dexlib2.Opcode
 
 object OpenLinksDirectlyFingerprintSecondary : MethodFingerprint(
     returnType = "Landroid/net/Uri",
-    access = AccessFlags.PUBLIC or AccessFlags.STATIC,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
     parameters = listOf("Ljava/lang/String"),
     opcodes = listOf(
         Opcode.INVOKE_STATIC,

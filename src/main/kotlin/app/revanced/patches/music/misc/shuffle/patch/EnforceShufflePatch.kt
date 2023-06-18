@@ -6,9 +6,9 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstruction
-import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.instruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
@@ -65,10 +65,10 @@ class EnforceShufflePatch : BytecodePatch(
 
                 SHUFFLE_CLASS = it.classDef.type
 
-                shuffleReference1 = instruction(startIndex).descriptor
-                shuffleReference2 = instruction(startIndex + 1).descriptor
-                shuffleReference3 = instruction(endIndex).descriptor
-                shuffleReference4 = instruction(imageViewIndex).descriptor
+                shuffleReference1 = getInstruction(startIndex).descriptor
+                shuffleReference2 = getInstruction(startIndex + 1).descriptor
+                shuffleReference3 = getInstruction(endIndex).descriptor
+                shuffleReference4 = getInstruction(imageViewIndex).descriptor
             }
         } ?: return ShuffleClassReferenceFingerprint.toErrorResult()
 
@@ -99,8 +99,8 @@ class EnforceShufflePatch : BytecodePatch(
 
         MusicPlaybackControlsFingerprint.result?.let {
             it.mutableMethod.apply {
-                shuffleReference5 = instruction(0).descriptor
-                shuffleReference6 = instruction(1).descriptor
+                shuffleReference5 = getInstruction(0).descriptor
+                shuffleReference6 = getInstruction(1).descriptor
 
                 addInstructions(
                     0, """

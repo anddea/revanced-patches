@@ -12,5 +12,5 @@ object BreakingNewsFingerprint : MethodFingerprint(
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT_OBJECT
     ),
-    customFingerprint = { it.isWideLiteralExists(horizontalCardListId) }
+    customFingerprint = { it, _ -> it.isWideLiteralExists(horizontalCardListId) }
 )

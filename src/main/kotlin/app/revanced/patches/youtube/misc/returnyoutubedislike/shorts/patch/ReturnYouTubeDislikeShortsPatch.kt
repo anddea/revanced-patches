@@ -5,8 +5,8 @@ import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.data.toMethodWalker
-import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.instruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -30,14 +30,14 @@ class ReturnYouTubeDislikeShortsPatch : BytecodePatch(
                 .getMethod() as MutableMethod
             ).apply {
                 val insertIndex = implementation!!.instructions.size - 1
-                val insertRegister = instruction<OneRegisterInstruction>(insertIndex).registerA
+                val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
                 this.insertShorts(insertIndex, insertRegister)
             }
 
             it.mutableMethod.apply {
                 val insertIndex = it.scanResult.patternScanResult!!.startIndex + 2
-                val insertRegister = instruction<OneRegisterInstruction>(insertIndex - 1).registerA
+                val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA
 
                 this.insertShorts(insertIndex, insertRegister)
             }

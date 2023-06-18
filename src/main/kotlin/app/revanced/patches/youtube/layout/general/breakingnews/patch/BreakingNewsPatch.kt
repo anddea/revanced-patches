@@ -5,8 +5,8 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstruction
-import app.revanced.patcher.extensions.instruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -39,7 +39,7 @@ class BreakingNewsPatch : BytecodePatch(
         BreakingNewsFingerprint.result?.let {
             it.mutableMethod.apply {
                 val targetIndex = it.scanResult.patternScanResult!!.endIndex
-                val targetRegister = instruction<OneRegisterInstruction>(targetIndex).registerA
+                val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
                 addInstruction(
                     targetIndex + 1,
                     "invoke-static {v$targetRegister}, $GENERAL->hideBreakingNewsShelf(Landroid/view/View;)V"

@@ -11,5 +11,5 @@ object FloatingMicrophoneFingerprint : MethodFingerprint(
         Opcode.IF_EQZ,
         Opcode.RETURN_VOID
     ),
-    customFingerprint = { it.isWideLiteralExists(fabId) }
+    customFingerprint = { it, _ -> it.isWideLiteralExists(fabId) }
 )

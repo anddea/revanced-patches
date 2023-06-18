@@ -5,8 +5,8 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.instruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -38,7 +38,7 @@ class FloatingMicrophonePatch : BytecodePatch(
         FloatingMicrophoneFingerprint.result?.let {
             it.mutableMethod.apply {
                 val insertIndex = it.scanResult.patternScanResult!!.startIndex
-                val register = instruction<TwoRegisterInstruction>(insertIndex).registerA
+                val register = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
 
                 addInstructions(
                     insertIndex + 1, """

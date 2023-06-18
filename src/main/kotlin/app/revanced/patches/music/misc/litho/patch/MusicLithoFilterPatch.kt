@@ -3,8 +3,8 @@ package app.revanced.patches.music.misc.litho.patch
 import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.instruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -33,24 +33,24 @@ class MusicLithoFilterPatch : BytecodePatch(
 
                 val endIndex = it.scanResult.patternScanResult!!.endIndex
                 val bufferIndex = getNarrowLiteralIndex(168777401)
-                val bufferRegister = instruction<OneRegisterInstruction>(bufferIndex).registerA
+                val bufferRegister = getInstruction<OneRegisterInstruction>(bufferIndex).registerA
                 val targetIndex = targetInstruction.indexOfFirst { instruction ->
                     instruction.opcode == Opcode.CONST_STRING &&
                             (instruction as BuilderInstruction21c).reference.toString() == "Element missing type extension"
                 } + 2
 
-                val builderMethodDescriptor = (instruction(targetIndex) as ReferenceInstruction).reference as MethodReference
-                val emptyComponentFieldDescriptor = (instruction(targetIndex + 2) as ReferenceInstruction).reference as FieldReference
-                val identifierRegister = instruction<OneRegisterInstruction>(endIndex).registerA
+                val builderMethodDescriptor = (getInstruction(targetIndex) as ReferenceInstruction).reference as MethodReference
+                val emptyComponentFieldDescriptor = (getInstruction(targetIndex + 2) as ReferenceInstruction).reference as FieldReference
+                val identifierRegister = getInstruction<OneRegisterInstruction>(endIndex).registerA
 
                 targetInstruction.filter { instruction ->
                     val fieldReference = (instruction as? ReferenceInstruction)?.reference as? FieldReference
                     fieldReference?.let { reference -> reference.type == "Ljava/lang/StringBuilder;" } == true
                 }.forEach { instruction ->
                     val insertIndex = targetInstruction.indexOf(instruction)
-                    val stringBuilderRegister = instruction<TwoRegisterInstruction>(insertIndex).registerA
+                    val stringBuilderRegister = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
 
-                    addInstructions(
+                    addInstructionsWithLabels(
                         insertIndex, """
                             invoke-static {v$stringBuilderRegister, v$identifierRegister}, $MUSIC_ADS_PATH/MusicLithoFilterPatch;->filter(Ljava/lang/StringBuilder;Ljava/lang/String;)Z
                             move-result v$bufferRegister
@@ -60,7 +60,7 @@ class MusicLithoFilterPatch : BytecodePatch(
                             move-result-object v0
                             iget-object v0, v0, $emptyComponentFieldDescriptor
                             return-object v0
-                            """, listOf(ExternalLabel("not_an_ad", instruction(insertIndex)))
+                            """, ExternalLabel("not_an_ad", getInstruction(insertIndex))
                     )
                 }
             }

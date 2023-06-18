@@ -6,6 +6,6 @@ import org.jf.dexlib2.AccessFlags
 
 object SubtitleTrackFingerprint : MethodFingerprint(
     returnType = "Z",
-    access = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     strings = listOf("DISABLE_CAPTIONS_OPTION")
 )

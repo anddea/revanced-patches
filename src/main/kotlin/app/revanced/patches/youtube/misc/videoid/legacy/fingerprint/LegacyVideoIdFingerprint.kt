@@ -7,10 +7,10 @@ import org.jf.dexlib2.Opcode
 
 object LegacyVideoIdFingerprint : MethodFingerprint(
     returnType = "V",
-    access = AccessFlags.DECLARED_SYNCHRONIZED or AccessFlags.FINAL or AccessFlags.PUBLIC,
+    accessFlags = AccessFlags.DECLARED_SYNCHRONIZED or AccessFlags.FINAL or AccessFlags.PUBLIC,
     parameters = listOf("L"),
     opcodes = listOf(Opcode.INVOKE_INTERFACE),
-    customFingerprint = {
+    customFingerprint = { it, _ ->
         it.definingClass.endsWith("PlaybackLifecycleMonitor;")
     }
 )

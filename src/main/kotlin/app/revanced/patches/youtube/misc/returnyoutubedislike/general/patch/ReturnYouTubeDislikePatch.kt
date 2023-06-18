@@ -5,9 +5,9 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.instruction
-import app.revanced.patcher.extensions.replaceInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.replaceInstructions
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
@@ -72,7 +72,7 @@ class ReturnYouTubeDislikePatch : BytecodePatch(
                 with (it.mutableMethod) {
                     val conversionContextIndex = it.scanResult.patternScanResult!!.startIndex
                     conversionContextFieldReference =
-                        instruction<ReferenceInstruction>(conversionContextIndex).reference
+                        getInstruction<ReferenceInstruction>(conversionContextIndex).reference
                 }
             } ?: return TextComponentContextFingerprint.toErrorResult()
 
@@ -80,7 +80,7 @@ class ReturnYouTubeDislikePatch : BytecodePatch(
                 it.mutableMethod.apply {
                     val startIndex = it.scanResult.patternScanResult!!.startIndex
                     tmpRegister =
-                        instruction<FiveRegisterInstruction>(startIndex).registerE
+                        getInstruction<FiveRegisterInstruction>(startIndex).registerE
                 }
             } ?: return TextComponentTmpFingerprint.toErrorResult()
 
@@ -89,10 +89,10 @@ class ReturnYouTubeDislikePatch : BytecodePatch(
                 with (it.mutableMethod) {
                     val atomicReferenceStartIndex = it.scanResult.patternScanResult!!.startIndex
                     val insertIndex = it.scanResult.patternScanResult!!.endIndex
-                    val moveCharSequenceInstruction = instruction<TwoRegisterInstruction>(insertIndex)
+                    val moveCharSequenceInstruction = getInstruction<TwoRegisterInstruction>(insertIndex)
 
                     val atomicReferenceRegister =
-                        instruction<FiveRegisterInstruction>(atomicReferenceStartIndex).registerC
+                        getInstruction<FiveRegisterInstruction>(atomicReferenceStartIndex).registerC
 
                     val charSequenceRegister =
                         moveCharSequenceInstruction.registerB

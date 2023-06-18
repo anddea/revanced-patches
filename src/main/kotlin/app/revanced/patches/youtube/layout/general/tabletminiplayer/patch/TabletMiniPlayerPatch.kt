@@ -6,8 +6,8 @@ import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.data.toMethodWalker
-import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.instruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprintResult
 import app.revanced.patcher.patch.BytecodePatch
@@ -101,7 +101,7 @@ class TabletMiniPlayerPatch : BytecodePatch(
             val insertInstructions = this.implementation!!.instructions
             for ((index, instruction) in insertInstructions.withIndex()) {
                 if (instruction.opcode != Opcode.RETURN) continue
-                val parameterRegister = this.instruction<OneRegisterInstruction>(index).registerA
+                val parameterRegister = getInstruction<OneRegisterInstruction>(index).registerA
                 this.insertOverride(index, parameterRegister)
                 this.insertOverride(insertInstructions.size - 1, parameterRegister)
                 break
@@ -111,7 +111,7 @@ class TabletMiniPlayerPatch : BytecodePatch(
         fun MethodFingerprintResult.unwrap(): Triple<MutableMethod, Int, Int> {
             val scanIndex = this.scanResult.patternScanResult!!.endIndex
             val method = this.mutableMethod
-            val parameterRegister = method.instruction<OneRegisterInstruction>(scanIndex).registerA
+            val parameterRegister = method.getInstruction<OneRegisterInstruction>(scanIndex).registerA
 
             return Triple(method, scanIndex, parameterRegister)
         }

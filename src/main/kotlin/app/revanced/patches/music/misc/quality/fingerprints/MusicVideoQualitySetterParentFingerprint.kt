@@ -7,5 +7,5 @@ import app.revanced.util.bytecode.isWideLiteralExists
 object MusicVideoQualitySetterParentFingerprint : MethodFingerprint(
     returnType = "V",
     parameters = listOf("L"),
-    customFingerprint = { it.isWideLiteralExists(qualityAutoId)}
+    customFingerprint = { it, _ -> it.isWideLiteralExists(qualityAutoId)}
 )

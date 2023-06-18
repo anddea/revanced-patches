@@ -6,6 +6,6 @@ import org.jf.dexlib2.AccessFlags
 
 object InfocardsIncognitoFingerprint : MethodFingerprint(
     returnType = "L",
-    access = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     strings = listOf("vibrator")
 )

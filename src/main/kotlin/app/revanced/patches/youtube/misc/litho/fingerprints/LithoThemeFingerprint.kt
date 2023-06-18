@@ -7,7 +7,7 @@ import org.jf.dexlib2.Opcode
 
 object LithoThemeFingerprint : MethodFingerprint(
     returnType = "V",
-    access = AccessFlags.PROTECTED or AccessFlags.FINAL,
+    accessFlags = AccessFlags.PROTECTED or AccessFlags.FINAL,
     parameters = listOf("L"),
     opcodes = listOf(
         Opcode.IF_NEZ,
@@ -15,5 +15,5 @@ object LithoThemeFingerprint : MethodFingerprint(
         Opcode.INVOKE_VIRTUAL, // Paint.setColor: inject point
         Opcode.RETURN_VOID
     ),
-    customFingerprint = { it.name == "onBoundsChange" }
+    customFingerprint = { it, _ -> it.name == "onBoundsChange" }
 )

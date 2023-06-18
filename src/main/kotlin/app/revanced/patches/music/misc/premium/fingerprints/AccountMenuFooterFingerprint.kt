@@ -9,7 +9,7 @@ import org.jf.dexlib2.Opcode
 
 object AccountMenuFooterFingerprint : MethodFingerprint(
     returnType = "L",
-    access = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     opcodes = listOf(
         Opcode.CONST,
         Opcode.INVOKE_VIRTUAL,
@@ -18,5 +18,5 @@ object AccountMenuFooterFingerprint : MethodFingerprint(
         Opcode.INVOKE_VIRTUAL,
         Opcode.IGET_OBJECT
     ),
-    customFingerprint = { it.isWideLiteralExists(privacyTosFooterId) }
+    customFingerprint = { it, _ -> it.isWideLiteralExists(privacyTosFooterId) }
 )

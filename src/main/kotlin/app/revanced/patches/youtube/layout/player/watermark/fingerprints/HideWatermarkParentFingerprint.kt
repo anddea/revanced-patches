@@ -6,6 +6,6 @@ import org.jf.dexlib2.AccessFlags
 
 object HideWatermarkParentFingerprint : MethodFingerprint (
     returnType = "L",
-    access = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     strings = listOf("player_overlay_in_video_programming")
 )

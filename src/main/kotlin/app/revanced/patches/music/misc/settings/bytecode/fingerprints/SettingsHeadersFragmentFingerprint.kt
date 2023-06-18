@@ -12,5 +12,5 @@ object SettingsHeadersFragmentFingerprint : MethodFingerprint(
         Opcode.MOVE_RESULT_OBJECT
 
     ),
-    customFingerprint = { it.definingClass.endsWith("/SettingsHeadersFragment;") && it.name == "onCreate" }
+    customFingerprint = { it, _ -> it.definingClass.endsWith("/SettingsHeadersFragment;") && it.name == "onCreate" }
 )

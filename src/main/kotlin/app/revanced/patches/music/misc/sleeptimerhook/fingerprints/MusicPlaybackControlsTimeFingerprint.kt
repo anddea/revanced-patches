@@ -7,7 +7,7 @@ import org.jf.dexlib2.Opcode
 
 object MusicPlaybackControlsTimeFingerprint : MethodFingerprint(
     returnType = "V",
-    access = AccessFlags.PUBLIC or AccessFlags.FINAL or AccessFlags.SYNTHETIC,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL or AccessFlags.SYNTHETIC,
     parameters = listOf("J","J","J","J"),
     opcodes = listOf(Opcode.RETURN_VOID),
 )

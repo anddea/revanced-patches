@@ -7,7 +7,7 @@ import org.jf.dexlib2.Opcode
 
 object SpeedLimiterFingerprint : MethodFingerprint(
     returnType = "V",
-    access = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("F"),
     opcodes = listOf(
         Opcode.INVOKE_STATIC,

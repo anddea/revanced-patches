@@ -5,8 +5,8 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.instruction
-import app.revanced.patcher.extensions.replaceInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -39,7 +39,7 @@ class OpenLinksDirectlyPatch : BytecodePatch(
             val result = it.result?: return it.toErrorResult()
             val insertIndex = result.scanResult.patternScanResult!!.startIndex
             result.mutableMethod.apply {
-                val register = instruction<Instruction35c>(insertIndex).registerC
+                val register = getInstruction<Instruction35c>(insertIndex).registerC
                 replaceInstruction(
                     insertIndex,
                         "invoke-static {v$register}, $MISC_PATH/OpenLinksDirectlyPatch;->enableBypassRedirect(Ljava/lang/String;)Landroid/net/Uri;"

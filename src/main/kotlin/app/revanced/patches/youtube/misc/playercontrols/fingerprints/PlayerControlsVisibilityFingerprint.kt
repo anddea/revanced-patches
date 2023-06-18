@@ -5,5 +5,5 @@ import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 object PlayerControlsVisibilityFingerprint : MethodFingerprint(
     returnType = "V",
     parameters = listOf("Z", "Z"),
-    customFingerprint = { it.definingClass.endsWith("YouTubeControlsOverlay;") }
+    customFingerprint = { it, _ -> it.definingClass.endsWith("YouTubeControlsOverlay;") }
 )

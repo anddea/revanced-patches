@@ -9,10 +9,10 @@ import org.jf.dexlib2.Opcode
 
 object PivotBarCreateButtonViewFingerprint : MethodFingerprint(
     returnType = "V",
-    access = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     opcodes = listOf(
         Opcode.MOVE_OBJECT,
         Opcode.INVOKE_DIRECT_RANGE, // unique instruction anchor
     ),
-    customFingerprint = { it.isWideLiteralExists(imageOnlyTabId) }
+    customFingerprint = { it, _ -> it.isWideLiteralExists(imageOnlyTabId) }
 )

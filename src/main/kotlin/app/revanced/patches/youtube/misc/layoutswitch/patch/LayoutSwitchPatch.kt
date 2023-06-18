@@ -5,8 +5,9 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.instruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
@@ -38,12 +39,12 @@ class LayoutSwitchPatch : BytecodePatch(
             ClientFormFactorFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.let {
                 it.mutableMethod.apply {
                     val jumpIndex = it.scanResult.patternScanResult!!.startIndex + 1
-                    addInstructions(
+                    addInstructionsWithLabels(
                         1, """
                             invoke-static {}, $MISC_PATH/LayoutOverridePatch;->enableTabletLayout()Z
                             move-result v2
                             if-nez v2, :tablet_layout
-                            """, listOf(ExternalLabel("tablet_layout", instruction(jumpIndex)))
+                            """, ExternalLabel("tablet_layout", getInstruction(jumpIndex))
                     )
                 }
             } ?: return ClientFormFactorFingerprint.toErrorResult()

@@ -5,7 +5,7 @@ import app.revanced.extensions.injectHideCall
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.instruction
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -33,10 +33,10 @@ class GeneralAdsBytecodePatch : BytecodePatch() {
                     .findMutableMethodOf(method)
                     .apply {
                         val insertIndex = method.getWideLiteralIndex(adAttributionId) + 1
-                        if (instruction(insertIndex).opcode != org.jf.dexlib2.Opcode.INVOKE_VIRTUAL)
+                        if (getInstruction(insertIndex).opcode != org.jf.dexlib2.Opcode.INVOKE_VIRTUAL)
                             return@forEach
 
-                        val viewRegister = instruction<Instruction35c>(insertIndex).registerC
+                        val viewRegister = getInstruction<Instruction35c>(insertIndex).registerC
 
                         this.implementation!!.injectHideCall(insertIndex, viewRegister, "ads/AdsFilter", "hideAdAttributionView")
                     }

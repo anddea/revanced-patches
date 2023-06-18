@@ -6,7 +6,7 @@ import org.jf.dexlib2.AccessFlags
 
 object WideSearchbarTwoParentFingerprint : MethodFingerprint(
     returnType = "L",
-    access = AccessFlags.PUBLIC or AccessFlags.STATIC,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
     strings = listOf(
         "Callback already registered.",
         "Failed to create SpotlightModeController."

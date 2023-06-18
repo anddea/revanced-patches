@@ -5,8 +5,8 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.instruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -33,14 +33,14 @@ class DisableShortsOnStartupPatch : BytecodePatch(
         UserWasInShortsFingerprint.result?.let {
             it.mutableMethod.apply {
                 val insertIndex = it.scanResult.patternScanResult!!.endIndex + 1
-                val register = instruction<OneRegisterInstruction>(insertIndex - 1).registerA + 2
-                addInstructions(
+                val register = getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA + 2
+                addInstructionsWithLabels(
                     insertIndex, """
                         invoke-static { }, $SHORTS->disableStartupShortsPlayer()Z
                         move-result v$register
                         if-eqz v$register, :show_startup_shorts_player
                         return-void
-                    """, listOf(ExternalLabel("show_startup_shorts_player", instruction(insertIndex)))
+                    """, ExternalLabel("show_startup_shorts_player", getInstruction(insertIndex))
                 )
             }
         } ?: return UserWasInShortsFingerprint.toErrorResult()

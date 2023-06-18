@@ -8,7 +8,7 @@ object SupportsNextPreviousFingerprint : MethodFingerprint(
     returnType = "V",
     parameters = listOf("Z"),
     opcodes = listOf(Opcode.OR_INT_LIT8),
-    customFingerprint = { methodDef ->
+    customFingerprint = { methodDef, _ ->
         methodDef.implementation!!.instructions.any {
             ((it as? NarrowLiteralInstruction)?.narrowLiteral == 64)
         }

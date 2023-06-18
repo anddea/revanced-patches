@@ -9,7 +9,7 @@ import org.jf.dexlib2.Opcode
 @FuzzyPatternScanMethod(3)
 object TimeCounterFingerprint : MethodFingerprint(
     returnType = "V",
-    access = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf(),
     opcodes = listOf(
         Opcode.IGET_OBJECT,

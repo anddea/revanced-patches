@@ -6,7 +6,7 @@ import org.jf.dexlib2.AccessFlags
 
 object AutoNavInformerFingerprint : MethodFingerprint(
     returnType = "Z",
-    access = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf(),
-    customFingerprint = { it.definingClass.endsWith("WillAutonavInformer;") }
+    customFingerprint = { it, _ -> it.definingClass.endsWith("WillAutonavInformer;") }
 )

@@ -7,7 +7,7 @@ import org.jf.dexlib2.Opcode
 
 object ColorMatchPlayerFingerprint : MethodFingerprint(
     returnType = "V",
-    access = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("L", "J"),
     opcodes = listOf(
         Opcode.INVOKE_DIRECT,
