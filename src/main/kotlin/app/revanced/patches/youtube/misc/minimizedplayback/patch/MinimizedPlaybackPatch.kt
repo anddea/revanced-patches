@@ -15,10 +15,10 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
-import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.minimizedplayback.fingerprints.*
-import app.revanced.patches.youtube.misc.playertype.patch.PlayerTypeHookPatch
-import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch
+import app.revanced.patches.youtube.utils.integrations.patch.IntegrationsPatch
+import app.revanced.patches.youtube.utils.playertype.patch.PlayerTypeHookPatch
+import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.util.integrations.Constants.MISC_PATH
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 import org.jf.dexlib2.iface.reference.MethodReference
@@ -75,7 +75,7 @@ class MinimizedPlaybackPatch : BytecodePatch(
                     invoke-static {}, $INTEGRATIONS_METHOD_REFERENCE
                     move-result v0
                     return v0
-                """
+                    """
             )
         }
 

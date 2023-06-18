@@ -10,8 +10,8 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
-import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch
-import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch.Companion.adAttributionId
+import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
+import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch.Companion.AdAttribution
 import app.revanced.util.bytecode.BytecodeHelper.updatePatchStatus
 import app.revanced.util.bytecode.getWideLiteralIndex
 import app.revanced.util.bytecode.isWideLiteralExists
@@ -25,14 +25,14 @@ class GeneralAdsBytecodePatch : BytecodePatch() {
     override fun execute(context: BytecodeContext): PatchResult {
         context.classes.forEach { classDef ->
             classDef.methods.forEach { method ->
-                if (!method.isWideLiteralExists(adAttributionId))
+                if (!method.isWideLiteralExists(AdAttribution))
                     return@forEach
 
                 context.proxy(classDef)
                     .mutableClass
                     .findMutableMethodOf(method)
                     .apply {
-                        val insertIndex = method.getWideLiteralIndex(adAttributionId) + 1
+                        val insertIndex = method.getWideLiteralIndex(AdAttribution) + 1
                         if (getInstruction(insertIndex).opcode != org.jf.dexlib2.Opcode.INVOKE_VIRTUAL)
                             return@forEach
 

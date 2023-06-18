@@ -14,10 +14,9 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patches.music.misc.integrations.patch.MusicIntegrationsPatch
-import app.revanced.patches.music.misc.resourceid.patch.SharedResourceIdPatch
-import app.revanced.patches.music.misc.upgradebutton.fingerprints.NotifierShelfFingerprint
-import app.revanced.patches.music.misc.upgradebutton.fingerprints.PivotBarConstructorFingerprint
+import app.revanced.patches.music.utils.integrations.patch.MusicIntegrationsPatch
+import app.revanced.patches.music.utils.resourceid.patch.SharedResourceIdPatch
+import app.revanced.patches.music.misc.upgradebutton.fingerprints.*
 import app.revanced.patches.shared.annotation.YouTubeMusicCompatibility
 import app.revanced.util.integrations.Constants.INTEGRATIONS_PATH
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
@@ -73,7 +72,7 @@ class RemoveUpgradeButtonPatch : BytecodePatch(
                 val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
                 addInstruction(
                     targetIndex + 1,
-                    "invoke-static {v$targetRegister}, $INTEGRATIONS_PATH/adremover/AdRemoverAPI;->HideViewWithLayout1dp(Landroid/view/View;)V"
+                    "invoke-static {v$targetRegister}, Lapp/revanced/music/utils/ReVancedUtils;->hideViewByLayoutParams(Landroid/view/View;)V"
                 )
             }
         } ?: return NotifierShelfFingerprint.toErrorResult()

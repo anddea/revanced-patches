@@ -18,7 +18,7 @@ import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.shared.fingerprints.LayoutSwitchFingerprint
 import app.revanced.patches.youtube.misc.layoutswitch.fingerprints.*
-import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
+import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.integrations.Constants.MISC_PATH
 
 @Patch

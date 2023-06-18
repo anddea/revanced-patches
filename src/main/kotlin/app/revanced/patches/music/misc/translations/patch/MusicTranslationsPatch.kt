@@ -9,7 +9,7 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patches.music.misc.settings.resource.patch.MusicSettingsPatch
+import app.revanced.patches.music.utils.settings.resource.patch.MusicSettingsPatch
 import app.revanced.patches.shared.annotation.YouTubeMusicCompatibility
 import app.revanced.util.resources.ResourceHelper.addTranslations
 

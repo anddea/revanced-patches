@@ -14,6 +14,10 @@ fun Method.isWideLiteralExists(value: Long): Boolean {
     return getWideLiteralIndex(value) != -1
 }
 
+fun Method.isWide32LiteralExists(value: Long): Boolean {
+    return getWide32LiteralIndex(value) != -1
+}
+
 fun Method.getNarrowLiteralIndex(value: Int): Int {
     return implementation?.let {
         it.instructions.indexOfFirst { instruction ->
@@ -36,6 +40,15 @@ fun Method.getWideLiteralIndex(value: Long): Int {
     return implementation?.let {
         it.instructions.indexOfFirst { instruction ->
             instruction.opcode == Opcode.CONST
+                    && (instruction as WideLiteralInstruction).wideLiteral == value
+        }
+    } ?: -1
+}
+
+fun Method.getWide32LiteralIndex(value: Long): Int {
+    return implementation?.let {
+        it.instructions.indexOfFirst { instruction ->
+            instruction.opcode == Opcode.CONST_WIDE_32
                     && (instruction as WideLiteralInstruction).wideLiteral == value
         }
     } ?: -1

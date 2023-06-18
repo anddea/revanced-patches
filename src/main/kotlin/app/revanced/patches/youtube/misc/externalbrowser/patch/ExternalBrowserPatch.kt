@@ -14,7 +14,7 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.youtube.misc.externalbrowser.fingerprints.*
-import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
+import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.integrations.Constants.MISC_PATH
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
@@ -37,18 +37,20 @@ class ExternalBrowserPatch : BytecodePatch(
             ExternalBrowserPrimaryFingerprint,
             ExternalBrowserSecondaryFingerprint,
             ExternalBrowserTertiaryFingerprint
-        ).forEach {
-            val result = it.result?: return it.toErrorResult()
-            it.result?.mutableMethod?.apply {
-                val endIndex = result.scanResult.patternScanResult!!.endIndex
-                val register = getInstruction<OneRegisterInstruction>(endIndex).registerA
-                addInstructions(
-                    endIndex + 1, """
-                        invoke-static {v$register}, $MISC_PATH/ExternalBrowserPatch;->enableExternalBrowser(Ljava/lang/String;)Ljava/lang/String;
-                        move-result-object v$register
-                        """
-                )
-            }
+        ).forEach { fingerprint ->
+            fingerprint.result?.let {
+                it.mutableMethod.apply {
+                    val endIndex = it.scanResult.patternScanResult!!.endIndex
+                    val register = getInstruction<OneRegisterInstruction>(endIndex).registerA
+
+                    addInstructions(
+                        endIndex + 1, """
+                            invoke-static {v$register}, $MISC_PATH/ExternalBrowserPatch;->enableExternalBrowser(Ljava/lang/String;)Ljava/lang/String;
+                            move-result-object v$register
+                            """
+                    )
+                }
+            } ?: return fingerprint.toErrorResult()
         }
 
         /**

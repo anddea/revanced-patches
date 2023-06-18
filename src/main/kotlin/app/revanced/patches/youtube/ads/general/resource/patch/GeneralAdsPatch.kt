@@ -15,8 +15,7 @@ import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.youtube.ads.general.bytecode.patch.GeneralAdsBytecodePatch
 import app.revanced.patches.youtube.ads.getpremium.patch.HideGetPremiumPatch
 import app.revanced.patches.youtube.misc.litho.patch.ByteBufferFilterPatch
-import app.revanced.patches.youtube.misc.litho.patch.LithoFilterPatch
-import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
+import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import org.w3c.dom.Element
 
 @Patch

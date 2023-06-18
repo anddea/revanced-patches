@@ -1,6 +1,7 @@
 package app.revanced.util.resources
 
 import app.revanced.patcher.data.ResourceContext
+import org.w3c.dom.Element
 import java.io.File
 import java.nio.file.Files
 import java.nio.file.Paths
@@ -98,9 +99,7 @@ internal object IconHelper {
             iconName
         )
 
-        this["res/values-v31/styles.xml"].writeText(
-            this["res/values-v31/styles.xml"].readText().replace("<item name=\"android:windowSplashScreenAnimatedIcon\">@drawable/avd_anim</item>", "")
-        )
+        this.disableSplashAnimation()
     }
 
     internal fun ResourceContext.customIconMusic(iconName: String) {
@@ -217,6 +216,17 @@ internal object IconHelper {
                 this["res"].resolve(relativePath).toPath(),
                 StandardCopyOption.REPLACE_EXISTING
             )
+        }
+    }
+
+    private fun ResourceContext.disableSplashAnimation() {
+        val targetPath = "res/values-v31/styles.xml"
+
+        xmlEditor[targetPath].use { editor ->
+            val tags = editor.file.getElementsByTagName("item")
+            List(tags.length) { tags.item(it) as Element }
+                .filter { it.getAttribute("name").contains("android:windowSplashScreenAnimatedIcon") }
+                .forEach { it.parentNode.removeChild(it) }
         }
     }
 }

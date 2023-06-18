@@ -18,7 +18,7 @@ import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.music.misc.codecs.fingerprints.AllCodecsFingerprint
 import app.revanced.patches.music.misc.codecs.fingerprints.AllCodecsParentFingerprint
 import app.revanced.patches.music.misc.codecs.fingerprints.CodecsLockFingerprint
-import app.revanced.patches.music.misc.settings.resource.patch.MusicSettingsPatch
+import app.revanced.patches.music.utils.settings.resource.patch.MusicSettingsPatch
 import app.revanced.patches.shared.annotation.YouTubeMusicCompatibility
 import app.revanced.util.enum.CategoryType
 import app.revanced.util.integrations.Constants.MUSIC_MISC_PATH
