@@ -6,6 +6,6 @@ import org.jf.dexlib2.AccessFlags
 
 object ControlsOverlayParentFingerprint : MethodFingerprint(
     returnType = "V",
-    access = AccessFlags.PRIVATE or AccessFlags.STATIC or AccessFlags.FINAL,
+    accessFlags = AccessFlags.PRIVATE or AccessFlags.STATIC or AccessFlags.FINAL,
     strings = listOf("Error screen presenter should be present")
 )

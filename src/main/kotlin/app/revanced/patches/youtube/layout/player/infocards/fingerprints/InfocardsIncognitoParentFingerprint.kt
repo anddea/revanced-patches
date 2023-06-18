@@ -6,6 +6,6 @@ import org.jf.dexlib2.AccessFlags
 
 object InfocardsIncognitoParentFingerprint : MethodFingerprint(
     returnType = "L",
-    access = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     strings = listOf("player_overlay_info_card_teaser"),
 )

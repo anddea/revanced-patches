@@ -19,5 +19,5 @@ object PreferenceFingerprint : MethodFingerprint(
         Opcode.IGET_OBJECT,
         Opcode.INVOKE_INTERFACE
     ),
-    customFingerprint = { it.definingClass == "Landroidx/preference/Preference;" }
+    customFingerprint = { it, _ -> it.definingClass == "Landroidx/preference/Preference;" }
 )

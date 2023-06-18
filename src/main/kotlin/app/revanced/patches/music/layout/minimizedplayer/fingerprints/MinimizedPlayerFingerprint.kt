@@ -7,7 +7,7 @@ import org.jf.dexlib2.Opcode
 
 object MinimizedPlayerFingerprint : MethodFingerprint(
     returnType = "V",
-    access = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("L", "L"),
     opcodes = listOf(
         Opcode.INVOKE_VIRTUAL,

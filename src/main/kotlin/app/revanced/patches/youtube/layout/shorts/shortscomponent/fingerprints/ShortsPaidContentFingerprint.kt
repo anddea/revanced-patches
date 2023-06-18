@@ -5,5 +5,5 @@ import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch.
 import app.revanced.util.bytecode.isWideLiteralExists
 
 object ShortsPaidContentFingerprint : MethodFingerprint(
-    customFingerprint = { it.isWideLiteralExists(reelPlayerBadgeId) }
+    customFingerprint = { it, _ -> it.isWideLiteralExists(reelPlayerBadgeId) }
 )

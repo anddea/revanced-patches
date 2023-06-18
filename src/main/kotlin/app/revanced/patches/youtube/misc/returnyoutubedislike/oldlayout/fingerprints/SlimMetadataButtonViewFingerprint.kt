@@ -7,7 +7,7 @@ import org.jf.dexlib2.Opcode
 
 object SlimMetadataButtonViewFingerprint : MethodFingerprint(
     returnType = "L",
-    access = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf(),
     opcodes = listOf(
         Opcode.IGET_OBJECT,

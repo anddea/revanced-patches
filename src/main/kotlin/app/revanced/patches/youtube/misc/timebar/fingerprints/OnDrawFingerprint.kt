@@ -7,11 +7,11 @@ import org.jf.dexlib2.Opcode
 
 object OnDrawFingerprint : MethodFingerprint (
     returnType = "V",
-    access = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("L"),
     opcodes = listOf(
         Opcode.MOVE_OBJECT_FROM16,
         Opcode.MOVE_OBJECT_FROM16
     ),
-    customFingerprint = {it.name == "onDraw"}
+    customFingerprint = { it, _ -> it.name == "onDraw"}
 )

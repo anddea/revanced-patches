@@ -10,5 +10,5 @@ object ButtonTagOnClickFingerprint : MethodFingerprint(
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT
     ),
-    customFingerprint = { it.name == "onClick" }
+    customFingerprint = { it, _ -> it.name == "onClick" }
 )

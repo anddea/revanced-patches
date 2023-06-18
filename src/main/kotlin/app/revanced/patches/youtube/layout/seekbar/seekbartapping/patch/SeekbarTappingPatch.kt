@@ -5,8 +5,8 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.instruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -69,19 +69,19 @@ class SeekbarTappingPatch : BytecodePatch(
             val insertIndex = it.scanResult.patternScanResult!!.endIndex
 
             it.mutableMethod.apply {
-                val register = instruction<Instruction35c>(insertIndex - 1).registerC
+                val register = getInstruction<Instruction35c>(insertIndex - 1).registerC
 
                 val pMethod = tapSeekMethods["P"]!!
                 val oMethod = tapSeekMethods["O"]!!
 
-                addInstructions(
+                addInstructionsWithLabels(
                     insertIndex, """
                         invoke-static {}, $SEEKBAR->enableSeekbarTapping()Z
                         move-result v0
                         if-eqz v0, :off
                         invoke-virtual { v$register, v2 }, ${oMethod.definingClass}->${oMethod.name}(I)V
                         invoke-virtual { v$register, v2 }, ${pMethod.definingClass}->${pMethod.name}(I)V
-                        """, listOf(ExternalLabel("off", instruction(insertIndex)))
+                        """, ExternalLabel("off", getInstruction(insertIndex))
                 )
             }
         } ?: return SeekbarTappingFingerprint.toErrorResult()

@@ -7,6 +7,6 @@ import org.jf.dexlib2.Opcode
 
 object MiniPlayerOverrideNoContextFingerprint : MethodFingerprint(
     returnType = "Z",
-    access = AccessFlags.PRIVATE or AccessFlags.FINAL,
+    accessFlags = AccessFlags.PRIVATE or AccessFlags.FINAL,
     opcodes = listOf(Opcode.RETURN), // anchor to insert the instruction
 )

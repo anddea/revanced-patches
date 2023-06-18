@@ -5,8 +5,8 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstruction
-import app.revanced.patcher.extensions.instruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
@@ -41,7 +41,7 @@ class AccountMenuPatch : BytecodePatch(
             AccountMenuFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.let {
                 it.mutableMethod.apply {
                     val targetIndex = it.scanResult.patternScanResult!!.startIndex + 1
-                    val register = instruction<OneRegisterInstruction>(targetIndex).registerA
+                    val register = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                     addInstruction(
                         targetIndex + 1,
@@ -52,7 +52,7 @@ class AccountMenuPatch : BytecodePatch(
 
             parentResult.mutableMethod.apply {
                 val endIndex = parentResult.scanResult.patternScanResult!!.endIndex
-                val register = instruction<OneRegisterInstruction>(endIndex).registerA
+                val register = getInstruction<OneRegisterInstruction>(endIndex).registerA
 
                 addInstruction(
                     endIndex + 1,

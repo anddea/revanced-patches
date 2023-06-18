@@ -4,9 +4,9 @@ import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstruction
-import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.instruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
@@ -35,7 +35,7 @@ class ShortsSubscriptionsButtonPatch : BytecodePatch(
     override fun execute(context: BytecodeContext): PatchResult {
         ShortsSubscriptionsFingerprint.result?.mutableMethod?.let {
             val insertIndex = it.getWideLiteralIndex(reelPlayerPausedId) + 2
-            val insertRegister = it.instruction<OneRegisterInstruction>(insertIndex).registerA
+            val insertRegister = it.getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
             it.addInstruction(
                 insertIndex + 1,
@@ -46,8 +46,8 @@ class ShortsSubscriptionsButtonPatch : BytecodePatch(
         ShortsSubscriptionsTabletParentFingerprint.result?.let { parentResult ->
             parentResult.mutableMethod.apply {
                 val targetIndex = getWideLiteralIndex(reelPlayerFooterId) - 1
-                if (instruction(targetIndex).opcode != Opcode.IPUT) return ShortsSubscriptionsTabletFingerprint.toErrorResult()
-                subscriptionFieldReference = (instruction<ReferenceInstruction>(targetIndex)).reference as FieldReference
+                if (getInstruction(targetIndex).opcode != Opcode.IPUT) return ShortsSubscriptionsTabletFingerprint.toErrorResult()
+                subscriptionFieldReference = (getInstruction<ReferenceInstruction>(targetIndex)).reference as FieldReference
             }
 
             ShortsSubscriptionsTabletFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.mutableMethod?.let {

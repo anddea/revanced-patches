@@ -5,8 +5,8 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.instruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -30,13 +30,13 @@ class HideTimeStampPatch : BytecodePatch(
     override fun execute(context: BytecodeContext): PatchResult {
 
         TimeCounterFingerprint.result?.mutableMethod?.let {
-            it.addInstructions(
+            it.addInstructionsWithLabels(
                 0, """
                     invoke-static {}, $SEEKBAR->hideTimeStamp()Z
                     move-result v0
                     if-eqz v0, :show_time_stamp
                     return-void
-                    """, listOf(ExternalLabel("show_time_stamp", it.instruction(0)))
+                    """, ExternalLabel("show_time_stamp", it.getInstruction(0))
             )
         } ?: return TimeCounterFingerprint.toErrorResult()
 

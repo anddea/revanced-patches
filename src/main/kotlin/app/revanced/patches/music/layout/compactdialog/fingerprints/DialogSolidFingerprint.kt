@@ -9,13 +9,13 @@ import org.jf.dexlib2.Opcode
 
 object DialogSolidFingerprint : MethodFingerprint(
     returnType = "V",
-    access = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("L"),
     opcodes = listOf(
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.INVOKE_STATIC
     ),
-    customFingerprint = { it.isWideLiteralExists(dialogSolidId) }
+    customFingerprint = { it, _ -> it.isWideLiteralExists(dialogSolidId) }
 )
 

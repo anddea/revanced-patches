@@ -9,13 +9,13 @@ import org.jf.dexlib2.Opcode
 
 object TabLayoutFingerprint : MethodFingerprint(
     returnType = "V",
-    access = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf(),
     opcodes = listOf(
         Opcode.CONST,
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT
     ),
-    customFingerprint = { it.isWideLiteralExists(colorGreyId) }
+    customFingerprint = { it, _ -> it.isWideLiteralExists(colorGreyId) }
 )
 

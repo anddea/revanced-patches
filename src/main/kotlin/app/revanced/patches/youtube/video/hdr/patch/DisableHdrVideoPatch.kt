@@ -6,8 +6,8 @@ import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.data.toMethodWalker
-import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.instruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -39,14 +39,14 @@ class DisableHdrVideoPatch : BytecodePatch(
                 .nextMethod(it.scanResult.patternScanResult!!.endIndex, true)
                 .getMethod() as MutableMethod
             ) {
-                addInstructions(
+                addInstructionsWithLabels(
                     0,
                     """
                         invoke-static {}, $VIDEO_PATH/HDRVideoPatch;->disableHDRVideo()Z
                         move-result v0
                         if-nez v0, :default
                         return v0
-                    """, listOf(ExternalLabel("default", instruction(0)))
+                    """, ExternalLabel("default", getInstruction(0))
                 )
             }
         } ?: return HdrCapabilitiesFingerprint.toErrorResult()

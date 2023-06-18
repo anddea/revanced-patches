@@ -9,5 +9,5 @@ object MusicVideoQualitySetterFingerprint : MethodFingerprint(
         Opcode.CHECK_CAST,
         Opcode.IPUT_OBJECT
     ),
-    customFingerprint = { it.name == "<init>" }
+    customFingerprint = { it, _ -> it.name == "<init>" }
 )

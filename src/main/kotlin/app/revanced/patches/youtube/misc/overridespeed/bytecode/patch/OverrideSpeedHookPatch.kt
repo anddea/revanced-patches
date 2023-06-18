@@ -5,7 +5,11 @@ import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.data.toMethodWalker
-import app.revanced.patcher.extensions.*
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprintResult
 import app.revanced.patcher.patch.BytecodePatch
@@ -49,9 +53,9 @@ class OverrideSpeedHookPatch : BytecodePatch(
                     val startIndex = it.scanResult.patternScanResult!!.startIndex
                     val endIndex = it.scanResult.patternScanResult!!.endIndex
 
-                    val reference1 = instruction<ReferenceInstruction>(startIndex).reference
-                    val reference2 = instruction<ReferenceInstruction>(endIndex - 1).reference
-                    val reference3 = instruction<ReferenceInstruction>(endIndex).reference
+                    val reference1 = getInstruction<ReferenceInstruction>(startIndex).reference
+                    val reference2 = getInstruction<ReferenceInstruction>(endIndex - 1).reference
+                    val reference3 = getInstruction<ReferenceInstruction>(endIndex).reference
                     val fieldReference = reference2 as FieldReference
 
                     val parentMutableClass = parentResult.mutableClass
@@ -100,7 +104,7 @@ class OverrideSpeedHookPatch : BytecodePatch(
         SpeedClassFingerprint.result?.let {
             it.mutableMethod.apply {
                 val index = it.scanResult.patternScanResult!!.endIndex
-                val register = instruction<OneRegisterInstruction>(index).registerA
+                val register = getInstruction<OneRegisterInstruction>(index).registerA
                 SPEED_CLASS = this.returnType
                 replaceInstruction(
                     index,

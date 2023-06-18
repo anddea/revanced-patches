@@ -5,10 +5,10 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstruction
-import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.instruction
-import app.revanced.patcher.extensions.replaceInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -16,7 +16,8 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.music.misc.integrations.patch.MusicIntegrationsPatch
 import app.revanced.patches.music.misc.resourceid.patch.SharedResourceIdPatch
-import app.revanced.patches.music.misc.upgradebutton.fingerprints.*
+import app.revanced.patches.music.misc.upgradebutton.fingerprints.NotifierShelfFingerprint
+import app.revanced.patches.music.misc.upgradebutton.fingerprints.PivotBarConstructorFingerprint
 import app.revanced.patches.shared.annotation.YouTubeMusicCompatibility
 import app.revanced.util.integrations.Constants.INTEGRATIONS_PATH
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
@@ -44,16 +45,16 @@ class RemoveUpgradeButtonPatch : BytecodePatch(
         PivotBarConstructorFingerprint.result?.let {
             it.mutableMethod.apply {
                 val targetIndex = it.scanResult.patternScanResult!!.startIndex
-                val targetRegisterA = instruction<TwoRegisterInstruction>(targetIndex).registerA
-                val targetRegisterB = instruction<TwoRegisterInstruction>(targetIndex).registerB
+                val targetRegisterA = getInstruction<TwoRegisterInstruction>(targetIndex).registerA
+                val targetRegisterB = getInstruction<TwoRegisterInstruction>(targetIndex).registerB
 
-                val replaceReference = instruction<ReferenceInstruction>(targetIndex).reference.toString()
+                val replaceReference = getInstruction<ReferenceInstruction>(targetIndex).reference.toString()
 
                 replaceInstruction(
                     targetIndex,
                     "invoke-interface {v$targetRegisterA}, Ljava/util/List;->size()I"
                 )
-                addInstructions(
+                addInstructionsWithLabels(
                     targetIndex + 1,"""
                         move-result v1
                         const/4 v2, 0x3
@@ -69,7 +70,7 @@ class RemoveUpgradeButtonPatch : BytecodePatch(
         NotifierShelfFingerprint.result?.let {
             it.mutableMethod.apply {
                 val targetIndex = it.scanResult.patternScanResult!!.endIndex
-                val targetRegister = instruction<OneRegisterInstruction>(targetIndex).registerA
+                val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
                 addInstruction(
                     targetIndex + 1,
                     "invoke-static {v$targetRegister}, $INTEGRATIONS_PATH/adremover/AdRemoverAPI;->HideViewWithLayout1dp(Landroid/view/View;)V"

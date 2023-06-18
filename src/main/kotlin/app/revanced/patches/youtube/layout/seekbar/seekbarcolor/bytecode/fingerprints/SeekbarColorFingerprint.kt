@@ -5,5 +5,5 @@ import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch.
 import app.revanced.util.bytecode.isWideLiteralExists
 
 object SeekbarColorFingerprint : MethodFingerprint(
-    customFingerprint = { it.isWideLiteralExists(inlineTimeBarColorizedBarPlayedColorDarkId) }
+    customFingerprint = { it, _ -> it.isWideLiteralExists(inlineTimeBarColorizedBarPlayedColorDarkId) }
 )

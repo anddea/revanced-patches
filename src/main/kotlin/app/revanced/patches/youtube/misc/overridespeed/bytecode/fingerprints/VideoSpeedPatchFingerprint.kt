@@ -6,7 +6,7 @@ import org.jf.dexlib2.AccessFlags
 
 object VideoSpeedPatchFingerprint : MethodFingerprint(
     returnType = "V",
-    access = AccessFlags.PUBLIC or AccessFlags.STATIC,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
     parameters = listOf("F"),
-    customFingerprint = { it.definingClass.endsWith("/VideoSpeedPatch;")  && it.name == "overrideSpeed"}
+    customFingerprint = { it, _ -> it.definingClass.endsWith("/VideoSpeedPatch;")  && it.name == "overrideSpeed"}
 )

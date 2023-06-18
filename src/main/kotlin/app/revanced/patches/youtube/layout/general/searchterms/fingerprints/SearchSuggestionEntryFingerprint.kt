@@ -5,5 +5,5 @@ import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch.
 import app.revanced.util.bytecode.isWideLiteralExists
 
 object SearchSuggestionEntryFingerprint : MethodFingerprint(
-    customFingerprint = { it.isWideLiteralExists(searchSuggestionEntryId) }
+    customFingerprint = { it, _ -> it.isWideLiteralExists(searchSuggestionEntryId) }
 )

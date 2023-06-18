@@ -5,8 +5,8 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.instruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultError
@@ -46,10 +46,10 @@ class AppendSpeedPatch : BytecodePatch(
                 for ((targetIndex, targetInstruction) in withIndex()) {
                     if (targetInstruction.opcode != Opcode.INVOKE_VIRTUAL) continue
 
-                    if (it.instruction<ReferenceInstruction>(targetIndex).reference.toString() ==
+                    if (it.getInstruction<ReferenceInstruction>(targetIndex).reference.toString() ==
                         "Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;") {
                         insertIndex = targetIndex + 2
-                        val insertRegister = it.instruction<Instruction35c>(insertIndex).registerC
+                        val insertRegister = it.getInstruction<Instruction35c>(insertIndex).registerC
 
                         it.addInstructions(
                             insertIndex, """

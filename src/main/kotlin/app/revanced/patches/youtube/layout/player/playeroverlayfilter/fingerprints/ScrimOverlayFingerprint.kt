@@ -5,5 +5,5 @@ import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourceIdPatch.
 import app.revanced.util.bytecode.isWideLiteralExists
 
 object ScrimOverlayFingerprint : MethodFingerprint(
-    customFingerprint = { it.definingClass.endsWith("YouTubeControlsOverlay;") && it.isWideLiteralExists(scrimOverlayId) }
+    customFingerprint = { it, _ -> it.definingClass.endsWith("YouTubeControlsOverlay;") && it.isWideLiteralExists(scrimOverlayId) }
 )

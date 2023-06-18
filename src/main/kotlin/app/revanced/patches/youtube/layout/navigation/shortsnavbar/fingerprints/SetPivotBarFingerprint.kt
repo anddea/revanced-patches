@@ -7,7 +7,7 @@ import org.jf.dexlib2.Opcode
 
 object SetPivotBarFingerprint : MethodFingerprint(
     returnType = "V",
-    access = AccessFlags.PRIVATE or AccessFlags.FINAL,
+    accessFlags = AccessFlags.PRIVATE or AccessFlags.FINAL,
     parameters = listOf("Z"),
     opcodes = listOf(
         Opcode.CHECK_CAST,

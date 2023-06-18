@@ -6,6 +6,6 @@ import org.jf.dexlib2.AccessFlags
 
 object HideCastButtonFingerprint : MethodFingerprint (
     returnType = "V",
-    access = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("I")
 )

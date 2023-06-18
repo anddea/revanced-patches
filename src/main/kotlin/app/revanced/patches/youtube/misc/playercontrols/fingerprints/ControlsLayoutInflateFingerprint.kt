@@ -13,5 +13,5 @@ object ControlsLayoutInflateFingerprint : MethodFingerprint(
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT_OBJECT
     ),
-    customFingerprint = { it.isWideLiteralExists(controlsLayoutStubResourceId) }
+    customFingerprint = { it, _ -> it.isWideLiteralExists(controlsLayoutStubResourceId) }
 )

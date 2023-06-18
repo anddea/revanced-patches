@@ -5,9 +5,9 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.instruction
-import app.revanced.patcher.extensions.removeInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
@@ -39,16 +39,16 @@ class ZenModePatch : BytecodePatch(
                 it.mutableMethod.apply {
                     val startIndex = it.scanResult.patternScanResult!!.startIndex
 
-                    val firstRegister = instruction<OneRegisterInstruction>(startIndex).registerA
-                    val secondRegister = instruction<OneRegisterInstruction>(startIndex + 2).registerA
+                    val firstRegister = getInstruction<OneRegisterInstruction>(startIndex).registerA
+                    val secondRegister = getInstruction<OneRegisterInstruction>(startIndex + 2).registerA
                     val dummyRegister = secondRegister + 1
 
                     val referenceIndex = it.scanResult.patternScanResult!!.endIndex + 1
-                    val targetReference = (instruction(referenceIndex) as ReferenceInstruction).reference.toString()
+                    val targetReference = getInstruction<ReferenceInstruction>(referenceIndex).reference.toString()
 
                     val insertIndex = referenceIndex + 1
 
-                    addInstructions(
+                    addInstructionsWithLabels(
                         insertIndex, """
                             invoke-static {}, $MUSIC_LAYOUT->enableZenMode()Z
                             move-result v$dummyRegister

@@ -5,9 +5,10 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.instruction
-import app.revanced.patcher.extensions.removeInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -47,7 +48,7 @@ class HideFullscreenPanelsPatch : BytecodePatch(
         FullscreenViewAdderFingerprint.result?.let {
             it.mutableMethod.apply {
                 val endIndex = it.scanResult.patternScanResult!!.endIndex
-                val register = instruction<Instruction35c>(endIndex).registerD
+                val register = getInstruction<Instruction35c>(endIndex).registerD
 
                 for (i in 1..3) removeInstruction(endIndex - i)
 
@@ -62,7 +63,7 @@ class HideFullscreenPanelsPatch : BytecodePatch(
 
         LayoutConstructorFingerprint.result?.mutableMethod?.let {
             val instructions = it.implementation!!.instructions
-            val dummyRegister = it.instruction<OneRegisterInstruction>(it.getStringIndex("1.0x")).registerA
+            val dummyRegister = it.getInstruction<OneRegisterInstruction>(it.getStringIndex("1.0x")).registerA
 
             val invokeIndex = instructions.indexOfFirst { instruction ->
                 instruction.opcode == Opcode.INVOKE_VIRTUAL &&
@@ -70,12 +71,12 @@ class HideFullscreenPanelsPatch : BytecodePatch(
                                 "Landroid/widget/FrameLayout;->addView(Landroid/view/View;)V")
             }
 
-            it.addInstructions(
+            it.addInstructionsWithLabels(
                 invokeIndex, """
                     invoke-static {}, $FULLSCREEN->showFullscreenTitle()Z
                     move-result v$dummyRegister
                     if-eqz v$dummyRegister, :hidden
-                """, listOf(ExternalLabel("hidden", it.instruction(invokeIndex + 1)))
+                """, ExternalLabel("hidden", it.getInstruction(invokeIndex + 1))
             )
         } ?: return LayoutConstructorFingerprint.toErrorResult()
 

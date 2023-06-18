@@ -5,9 +5,9 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.instruction
-import app.revanced.patcher.extensions.removeInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprintResult
 import app.revanced.patcher.patch.BytecodePatch
@@ -109,8 +109,8 @@ class ForceVP9CodecPatch : BytecodePatch(
                 val startIndex = scanResult.patternScanResult!!.startIndex
                 val endIndex = scanResult.patternScanResult!!.endIndex
 
-                val startRegister = instruction<OneRegisterInstruction>(startIndex).registerA
-                val endRegister = instruction<OneRegisterInstruction>(endIndex).registerA
+                val startRegister = getInstruction<OneRegisterInstruction>(startIndex).registerA
+                val endRegister = getInstruction<OneRegisterInstruction>(endIndex).registerA
 
                 hookOverride(endIndex + 1, endRegister)
                 removeInstruction(endIndex)
@@ -148,7 +148,7 @@ class ForceVP9CodecPatch : BytecodePatch(
 
                 if (indexString != targetString) continue
 
-                val register = instruction<OneRegisterInstruction>(index).registerA
+                val register = getInstruction<OneRegisterInstruction>(index).registerA
 
                 addInstructions(
                     index + 1, """

@@ -6,7 +6,7 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.instruction
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprintResult
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
@@ -42,7 +42,7 @@ class HideEndscreenCardsPatch : BytecodePatch(
         fun MethodFingerprintResult.injectHideCalls() {
             val index = this.scanResult.patternScanResult!!.endIndex
             this.mutableMethod.apply {
-                val register = this.instruction<OneRegisterInstruction>(index).registerA
+                val register = getInstruction<OneRegisterInstruction>(index).registerA
                 this.implementation!!.injectHideCall(index + 1, register, "layout/PlayerPatch", "hideEndScreen")
             }
         }

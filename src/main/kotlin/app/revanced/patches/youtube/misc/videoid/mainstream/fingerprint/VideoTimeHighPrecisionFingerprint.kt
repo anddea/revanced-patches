@@ -7,7 +7,7 @@ import org.jf.dexlib2.Opcode
 
 object VideoTimeHighPrecisionFingerprint : MethodFingerprint (
     returnType = "V",
-    access = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
     parameters = listOf("J", "J", "J", "J", "I", "L"),
     opcodes = listOf(
         Opcode.INVOKE_DIRECT,

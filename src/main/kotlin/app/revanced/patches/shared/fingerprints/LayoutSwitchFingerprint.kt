@@ -7,7 +7,7 @@ import org.jf.dexlib2.Opcode
 
 object LayoutSwitchFingerprint : MethodFingerprint(
     returnType = "I",
-    access = AccessFlags.PUBLIC or AccessFlags.STATIC,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
     parameters = listOf("L"),
     opcodes = listOf(
         Opcode.INVOKE_VIRTUAL,

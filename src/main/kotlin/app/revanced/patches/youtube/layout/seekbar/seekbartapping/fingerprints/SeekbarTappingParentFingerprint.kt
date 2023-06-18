@@ -8,6 +8,6 @@ import org.jf.dexlib2.AccessFlags
 
 object SeekbarTappingParentFingerprint : MethodFingerprint(
     returnType = "L",
-    access = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    customFingerprint = { it.isWideLiteralExists(accessibilityProgressTimeId)}
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    customFingerprint = { it, _ -> it.isWideLiteralExists(accessibilityProgressTimeId)}
 )

@@ -6,6 +6,6 @@ import org.jf.dexlib2.AccessFlags
 
 object HideCastButtonParentFingerprint : MethodFingerprint (
     returnType = "Z",
-    access = AccessFlags.PRIVATE or AccessFlags.FINAL,
+    accessFlags = AccessFlags.PRIVATE or AccessFlags.FINAL,
     strings = listOf("MediaRouteButton")
 )

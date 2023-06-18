@@ -9,7 +9,7 @@ import org.jf.dexlib2.Opcode
 
 object ShuffleClassFingerprint : MethodFingerprint(
     returnType = "V",
-    access = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
     opcodes = listOf(
         Opcode.INVOKE_VIRTUAL,
         Opcode.INVOKE_VIRTUAL,
@@ -18,6 +18,6 @@ object ShuffleClassFingerprint : MethodFingerprint(
         Opcode.INVOKE_VIRTUAL,
         Opcode.RETURN_VOID
     ),
-    customFingerprint = { it.name == "<init>" && it.isWideLiteralExists(disabledIconId) }
+    customFingerprint = { it, _ -> it.name == "<init>" && it.isWideLiteralExists(disabledIconId) }
 )
 

@@ -6,7 +6,7 @@ import org.jf.dexlib2.AccessFlags
 
 object VideoEndParentFingerprint : MethodFingerprint(
     returnType = "V",
-    access = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     strings = listOf(
         "play() called when the player wasn't loaded.",
         "play() blocked because Background Playability failed"

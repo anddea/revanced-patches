@@ -4,8 +4,8 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.instruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -33,13 +33,13 @@ class HideSeekbarPatch : BytecodePatch() {
 
         val insertMethod = HookTimeBarPatch.setTimeBarMethod
 
-        insertMethod.addInstructions(
+        insertMethod.addInstructionsWithLabels(
             0, """
                 invoke-static {}, $SEEKBAR->hideSeekbar()Z
                 move-result v0
                 if-eqz v0, :show_seekbar
                 return-void
-                """, listOf(ExternalLabel("show_seekbar", insertMethod.instruction(0)))
+                """, ExternalLabel("show_seekbar", insertMethod.getInstruction(0))
         )
 
         /**

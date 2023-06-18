@@ -13,5 +13,5 @@ object LayoutIconFingerprint : MethodFingerprint(
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.CHECK_CAST,
     ),
-    customFingerprint = { it.isWideLiteralExists(layoutIconId) }
+    customFingerprint = { it, _ -> it.isWideLiteralExists(layoutIconId) }
 )

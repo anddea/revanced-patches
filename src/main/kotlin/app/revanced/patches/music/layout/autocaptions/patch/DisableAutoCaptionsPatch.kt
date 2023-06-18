@@ -5,7 +5,8 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.*
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -29,15 +30,18 @@ class DisableAutoCaptionsPatch : BytecodePatch(
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
 
-        SubtitleTrackFingerprint.result?.mutableMethod?.let {
-            val index = it.implementation!!.instructions.size - 1
-            val register = it.instruction<OneRegisterInstruction>(index).registerA
-            it.addInstructions(
-                index, """
-                    invoke-static {v$register}, $MUSIC_LAYOUT->disableAutoCaptions(Z)Z
-                    move-result v$register
-                """
-            )
+        SubtitleTrackFingerprint.result?.let {
+            it.mutableMethod.apply {
+                val index = implementation!!.instructions.size - 1
+                val register = getInstruction<OneRegisterInstruction>(index).registerA
+
+                addInstructions(
+                    index, """
+                        invoke-static {v$register}, $MUSIC_LAYOUT->disableAutoCaptions(Z)Z
+                        move-result v$register
+                        """
+                )
+            }
         } ?: return SubtitleTrackFingerprint.toErrorResult()
 
         MusicSettingsPatch.addMusicPreference(CategoryType.LAYOUT, "revanced_disable_auto_captions", "false")

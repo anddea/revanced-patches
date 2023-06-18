@@ -6,7 +6,9 @@ import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.data.toMethodWalker
-import app.revanced.patcher.extensions.*
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
@@ -90,7 +92,7 @@ class MainstreamVideoIdPatch : BytecodePatch(
             } ?: return SeekFingerprint.toErrorResult()
         } ?: return PlayerInitFingerprint.toErrorResult()
 
-        /*
+        /**
          * Set the high precision video time method
          */
         VideoTimeHighPrecisionParentFingerprint.result?.let { parentResult ->
@@ -99,12 +101,12 @@ class MainstreamVideoIdPatch : BytecodePatch(
             } ?: return VideoTimeHighPrecisionFingerprint.toErrorResult()
         } ?: return VideoTimeHighPrecisionParentFingerprint.toErrorResult()
 
-        /*
+        /**
          * Hook the methods which set the time
          */
         highPrecisionTimeHook(INTEGRATIONS_CLASS_DESCRIPTOR, "setVideoTime")
 
-        /*
+        /**
          * Set current video time
          */
         PlayerControllerSetTimeReferenceFingerprint.result?.let {

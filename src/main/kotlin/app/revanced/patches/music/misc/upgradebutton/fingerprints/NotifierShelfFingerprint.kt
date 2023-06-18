@@ -9,13 +9,13 @@ import org.jf.dexlib2.Opcode
 
 object NotifierShelfFingerprint : MethodFingerprint(
     returnType = "V",
-    access = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
     opcodes = listOf(
         Opcode.CONST,
         Opcode.CONST_4,
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT_OBJECT
     ),
-    customFingerprint = { it.isWideLiteralExists(notifierShelfId)}
+    customFingerprint = { it, _ -> it.isWideLiteralExists(notifierShelfId)}
 )
 

@@ -7,7 +7,7 @@ import org.jf.dexlib2.Opcode
 
 object CodecsLockFingerprint : MethodFingerprint(
     returnType = "L",
-    access = AccessFlags.PUBLIC or AccessFlags.STATIC,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
     opcodes = listOf(
         Opcode.NEW_INSTANCE,
         Opcode.NEW_INSTANCE,

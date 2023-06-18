@@ -5,8 +5,8 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.instruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -44,21 +44,21 @@ class HideAutoplayPreviewPatch : BytecodePatch(
         LayoutConstructorFingerprint.result?.mutableMethod?.let {
             val insertInstruction = it.implementation!!.instructions
 
-            val dummyRegister = it.instruction<OneRegisterInstruction>(it.getStringIndex("1.0x")).registerA
+            val dummyRegister = it.getInstruction<OneRegisterInstruction>(it.getStringIndex("1.0x")).registerA
             val insertIndex = it.getWideLiteralIndex(autoNavPreviewId)
 
             val branchIndex = insertInstruction.subList(insertIndex + 1, insertInstruction.size - 1).indexOfFirst { instruction ->
                 ((instruction as? ReferenceInstruction)?.reference as? FieldReference)?.type == "Lcom/google/android/apps/youtube/app/player/autonav/AutonavToggleController;"
             } + 1
 
-            val jumpInstruction = it.instruction<Instruction>(insertIndex + branchIndex)
+            val jumpInstruction = it.getInstruction<Instruction>(insertIndex + branchIndex)
 
-            it.addInstructions(
+            it.addInstructionsWithLabels(
                 insertIndex, """
                     invoke-static {}, $FULLSCREEN->hideAutoPlayPreview()Z
                     move-result v$dummyRegister
                     if-nez v$dummyRegister, :hidden
-                    """, listOf(ExternalLabel("hidden", jumpInstruction))
+                    """, ExternalLabel("hidden", jumpInstruction)
             )
         } ?: return LayoutConstructorFingerprint.toErrorResult()
 

@@ -4,8 +4,8 @@ import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.instruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -25,7 +25,7 @@ class ShortsInfoPanelPatch : BytecodePatch(
     override fun execute(context: BytecodeContext): PatchResult {
         ShortsInfoPanelFingerprint.result?.mutableMethod?.let {
             val insertIndex = it.getWideLiteralIndex(reelPlayerInfoPanelId) + 3
-            val insertRegister = it.instruction<OneRegisterInstruction>(insertIndex).registerA
+            val insertRegister = it.getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
             it.addInstructions(
                 insertIndex + 1, """

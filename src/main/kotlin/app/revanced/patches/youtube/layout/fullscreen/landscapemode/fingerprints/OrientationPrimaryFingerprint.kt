@@ -7,11 +7,11 @@ import org.jf.dexlib2.Opcode
 
 object OrientationPrimaryFingerprint : MethodFingerprint (
     returnType = "V",
-    access = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
     parameters = listOf("L"),
     opcodes = listOf(
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT
     ),
-    customFingerprint = {it.name == "<init>"}
+    customFingerprint = { it, _ -> it.name == "<init>"}
 )

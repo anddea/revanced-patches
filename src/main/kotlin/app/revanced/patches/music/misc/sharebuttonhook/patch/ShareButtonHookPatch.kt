@@ -5,9 +5,10 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstruction
-import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.instruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -48,13 +49,13 @@ class ShareButtonHookPatch : BytecodePatch(
             it.mutableMethod.apply {
                 val targetIndex = it.scanResult.patternScanResult!!.startIndex
 
-                addInstructions(
+                addInstructionsWithLabels(
                     targetIndex,"""
                         invoke-static {}, $INTEGRATIONS_CLASS_DESCRIPTOR->overrideSharePanel()Z
                         move-result p1
                         if-eqz p1, :default
                         return-void
-                    """, listOf(ExternalLabel("default", instruction(targetIndex)))
+                        """, ExternalLabel("default", getInstruction(targetIndex))
                 )
             }
         } ?: return SharePanelFingerprint.toErrorResult()
@@ -75,7 +76,7 @@ class ShareButtonHookPatch : BytecodePatch(
             1,"""
                 invoke-static {p0}, $MUSIC_INTEGRATIONS_PATH/settingsmenu/SharedPreferenceChangeListener;->initializeSettings(Landroid/app/Activity;)V
                 return-void
-            """
+                """
         ) ?: return FullStackTraceActivityFingerprint.toErrorResult()
 
         MusicSettingsPatch.addMusicPreference(CategoryType.MISC, "revanced_hook_share_button", "false")

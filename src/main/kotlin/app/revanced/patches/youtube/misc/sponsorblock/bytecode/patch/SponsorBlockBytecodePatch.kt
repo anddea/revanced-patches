@@ -4,10 +4,10 @@ import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstruction
-import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.instruction
-import app.revanced.patcher.extensions.replaceInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -96,7 +96,7 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         for ((index, instruction) in insertInstructions.withIndex()) {
             if (instruction.opcode != Opcode.INVOKE_STATIC) continue
 
-            val invokeInstruction = insertMethod.instruction<Instruction35c>(index)
+            val invokeInstruction = insertMethod.getInstruction<Instruction35c>(index)
             if ((invokeInstruction.reference as MethodReference).name != "round") continue
 
             val insertIndex = index + 2
@@ -143,7 +143,7 @@ class SponsorBlockBytecodePatch : BytecodePatch(
             val drawSegmentInstructionInsertIndex = index - 1
 
             val (canvasInstance, centerY) =
-                insertMethod.instruction<FiveRegisterInstruction>(drawSegmentInstructionInsertIndex).let { it.registerC to it.registerE }
+                insertMethod.getInstruction<FiveRegisterInstruction>(drawSegmentInstructionInsertIndex).let { it.registerC to it.registerE }
 
             insertMethod.addInstruction(
                 drawSegmentInstructionInsertIndex,
@@ -173,7 +173,7 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         TotalTimeFingerprint.result?.mutableMethod?.let {
             it.apply {
                 val targetIndex = getWideLiteralIndex(totalTimeId) + 2
-                val targetRegister = instruction<OneRegisterInstruction>(targetIndex).registerA
+                val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                 addInstructions(
                     targetIndex + 1, """
@@ -190,7 +190,7 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         OverlayViewLayoutFingerprint.result?.mutableMethod?.let{
             it.apply{
                 val targetIndex = getWideLiteralIndex(insetOverlayViewLayoutId) + 3
-                val targetRegister = instruction<OneRegisterInstruction>(targetIndex).registerA
+                val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                 addInstruction(
                     targetIndex + 1,
@@ -207,7 +207,7 @@ class SponsorBlockBytecodePatch : BytecodePatch(
 
             for ((index, instruction) in instructions.withIndex()) {
                 if (instruction.opcode != Opcode.CONST_STRING) continue
-                val register = it.instruction<OneRegisterInstruction>(index).registerA
+                val register = it.getInstruction<OneRegisterInstruction>(index).registerA
                 it.replaceInstruction(
                     index,
                     "const-string v$register, \"${MainstreamVideoIdPatch.reactReference}\""

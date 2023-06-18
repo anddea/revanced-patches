@@ -7,7 +7,7 @@ import org.jf.dexlib2.Opcode
 
 object RepeatListenerFingerprint : MethodFingerprint(
     returnType = "Z",
-    access = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     opcodes = listOf(
         Opcode.INVOKE_VIRTUAL_RANGE,
         Opcode.IGET_OBJECT,

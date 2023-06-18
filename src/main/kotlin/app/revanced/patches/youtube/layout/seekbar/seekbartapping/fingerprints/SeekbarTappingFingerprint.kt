@@ -8,7 +8,7 @@ import org.jf.dexlib2.Opcode
 
 object SeekbarTappingFingerprint : MethodFingerprint(
     returnType = "Z",
-    access = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("L"),
     opcodes = listOf(
         Opcode.NEW_INSTANCE,
@@ -17,5 +17,5 @@ object SeekbarTappingFingerprint : MethodFingerprint(
         Opcode.INVOKE_VIRTUAL,
         Opcode.RETURN
     ),
-    customFingerprint = { it.name == "onTouchEvent" && it.isNarrowLiteralExists(2147483647) }
+    customFingerprint = { it, _ -> it.name == "onTouchEvent" && it.isNarrowLiteralExists(2147483647) }
 )

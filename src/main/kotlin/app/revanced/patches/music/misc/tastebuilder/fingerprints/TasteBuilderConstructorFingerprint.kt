@@ -9,7 +9,7 @@ import org.jf.dexlib2.Opcode
 @FuzzyPatternScanMethod(2) // FIXME: Test this threshold and find the best value.
 object TasteBuilderConstructorFingerprint : MethodFingerprint(
     returnType = "V",
-    access = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
     parameters = listOf("L", "L", "L"),
     opcodes = listOf(
         Opcode.INVOKE_DIRECT,

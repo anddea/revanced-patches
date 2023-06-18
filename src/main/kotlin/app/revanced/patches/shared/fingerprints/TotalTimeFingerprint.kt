@@ -6,5 +6,5 @@ import app.revanced.util.bytecode.isWideLiteralExists
 
 object TotalTimeFingerprint : MethodFingerprint(
     returnType = "V",
-    customFingerprint = { it.isWideLiteralExists(totalTimeId) }
+    customFingerprint = { it, _ -> it.isWideLiteralExists(totalTimeId) }
 )

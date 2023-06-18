@@ -5,7 +5,8 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.*
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -28,7 +29,7 @@ class MusicVideoIdPatch : BytecodePatch(
             it.mutableMethod.apply {
                 insertIndex = it.scanResult.patternScanResult!!.endIndex
                 insertMethod = this
-                videoIdRegister = instruction<OneRegisterInstruction>(insertIndex).registerA
+                videoIdRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
             }
             offset++ // offset so setVideoId is called before any injected call
         } ?: return MusicVideoIdFingerprint.toErrorResult()
@@ -54,7 +55,7 @@ class MusicVideoIdPatch : BytecodePatch(
         fun injectCall(
             methodDescriptor: String
         ) {
-            insertMethod.addInstructions(
+            insertMethod.addInstruction(
                 insertIndex + offset, // move-result-object offset
                 "invoke-static {v$videoIdRegister}, $methodDescriptor"
             )

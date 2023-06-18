@@ -7,7 +7,7 @@ import org.jf.dexlib2.Opcode
 
 object Vp9SecondaryFingerprint : MethodFingerprint(
     returnType = "Z",
-    access = AccessFlags.PUBLIC or AccessFlags.STATIC,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
     parameters = listOf("L", "I"),
     opcodes = listOf(
         Opcode.RETURN,

@@ -6,7 +6,7 @@ import org.jf.dexlib2.AccessFlags
 
 object VideoEndFingerprint : MethodFingerprint(
     returnType = "V",
-    access = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf(),
-    customFingerprint = { it.implementation!!.instructions.count() == 3 && it.annotations.isEmpty()}
+    customFingerprint = { it, _ -> it.implementation!!.instructions.count() == 3 && it.annotations.isEmpty()}
 )

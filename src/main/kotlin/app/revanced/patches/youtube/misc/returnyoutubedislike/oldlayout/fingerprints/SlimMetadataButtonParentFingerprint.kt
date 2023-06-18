@@ -6,5 +6,5 @@ import app.revanced.util.bytecode.isWideLiteralExists
 
 object SlimMetadataButtonParentFingerprint : MethodFingerprint(
     returnType = "I",
-    customFingerprint = { it.isWideLiteralExists(slimMetadataToggleButtonId) }
+    customFingerprint = { it, _ -> it.isWideLiteralExists(slimMetadataToggleButtonId) }
 )

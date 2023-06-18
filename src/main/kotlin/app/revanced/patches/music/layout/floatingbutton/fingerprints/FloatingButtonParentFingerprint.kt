@@ -8,9 +8,9 @@ import org.jf.dexlib2.Opcode
 
 object FloatingButtonParentFingerprint : MethodFingerprint(
     returnType = "V",
-    access = AccessFlags.PROTECTED or AccessFlags.FINAL,
+    accessFlags = AccessFlags.PROTECTED or AccessFlags.FINAL,
     parameters = listOf("L"),
     opcodes = listOf(Opcode.INVOKE_DIRECT),
-    customFingerprint = { it.isNarrowLiteralExists(259982244) }
+    customFingerprint = { it, _ -> it.isNarrowLiteralExists(259982244) }
 )
 

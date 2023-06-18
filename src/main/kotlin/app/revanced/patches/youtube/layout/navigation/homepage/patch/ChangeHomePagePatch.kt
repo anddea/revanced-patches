@@ -5,8 +5,9 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.instruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -46,13 +47,13 @@ class ChangeHomePagePatch : BytecodePatch(
             it.mutableMethod.apply {
                 val index = it.scanResult.patternScanResult!!.endIndex + 1
 
-                addInstructions(
+                addInstructionsWithLabels(
                     index, """
                     invoke-static {}, $NAVIGATION->changeHomePage()Z
                     move-result v0
                     if-eqz v0, :default
                     return-void
-                    """, listOf(ExternalLabel("default", instruction(index)))
+                    """, ExternalLabel("default", getInstruction(index))
                 )
             }
         } ?: return IntentExceptionFingerprint.toErrorResult()

@@ -7,7 +7,7 @@ import org.jf.dexlib2.Opcode
 
 object VideoSpeedParentFingerprint : MethodFingerprint(
     returnType = "V",
-    access = AccessFlags.PUBLIC or AccessFlags.STATIC,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
     parameters = listOf("L", "L", "[L", "I"),
     opcodes = listOf(
         Opcode.ARRAY_LENGTH,

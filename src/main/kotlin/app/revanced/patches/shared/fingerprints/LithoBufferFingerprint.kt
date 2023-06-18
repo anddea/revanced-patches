@@ -7,7 +7,7 @@ import org.jf.dexlib2.Opcode
 
 object LithoBufferFingerprint : MethodFingerprint(
     returnType = "L",
-    access = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     opcodes = listOf(
         Opcode.CHECK_CAST,
         Opcode.INVOKE_VIRTUAL,

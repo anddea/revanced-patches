@@ -5,8 +5,8 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstruction
-import app.revanced.patcher.extensions.instruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
@@ -45,7 +45,7 @@ class SearchTermsPatch : BytecodePatch(
             SearchEndpointFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.let {
                 it.mutableMethod.apply {
                     val targetIndex = it.scanResult.patternScanResult!!.startIndex + 1
-                    val targetRegister = instruction<OneRegisterInstruction>(targetIndex).registerA
+                    val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                     addInstruction(
                         targetIndex + 1,
@@ -57,7 +57,7 @@ class SearchTermsPatch : BytecodePatch(
 
         SearchSuggestionEntryFingerprint.result?.mutableMethod?.let {
             val targetIndex = it.getWideLiteralIndex(searchSuggestionEntryId) + 2
-            val targetRegister = it.instruction<OneRegisterInstruction>(targetIndex).registerA
+            val targetRegister = it.getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
             it.addInstruction(
                 targetIndex + 4,

@@ -5,7 +5,7 @@ import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import org.jf.dexlib2.AccessFlags
 
 object WideSearchbarOneParentFingerprint : MethodFingerprint(
-    returnType = "V", access = AccessFlags.PRIVATE or AccessFlags.FINAL,
+    returnType = "V", accessFlags = AccessFlags.PRIVATE or AccessFlags.FINAL,
     parameters = listOf("L"),
     strings = listOf(
         "FEhistory",

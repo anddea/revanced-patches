@@ -9,13 +9,13 @@ import org.jf.dexlib2.Opcode
 
 object TabletIdentifierFingerprint : MethodFingerprint(
     returnType = "Z",
-    access = AccessFlags.PUBLIC or AccessFlags.STATIC,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
     parameters = listOf("L"),
     opcodes = listOf(
         Opcode.CONST,
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT
     ),
-    customFingerprint = { it.isWideLiteralExists(isTabletId) }
+    customFingerprint = { it, _ -> it.isWideLiteralExists(isTabletId) }
 )
 

@@ -5,9 +5,9 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.instruction
-import app.revanced.patcher.extensions.replaceInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -58,8 +58,8 @@ class HideFilmstripOverlayPatch : BytecodePatch(
     }
     private companion object {
         fun MutableMethod.hook(index: Int) {
-            val targetInstruction = instruction<TwoRegisterInstruction>(index)
-            val fieldReference = instruction<ReferenceInstruction>(index).reference
+            val targetInstruction = getInstruction<TwoRegisterInstruction>(index)
+            val fieldReference = getInstruction<ReferenceInstruction>(index).reference
             replaceInstruction(
                 index,
                 "invoke-static {v${targetInstruction.registerA}}, $FULLSCREEN->hideFilmstripOverlay(Z)Z"

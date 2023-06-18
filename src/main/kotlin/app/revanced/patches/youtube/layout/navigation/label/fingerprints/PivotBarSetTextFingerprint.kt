@@ -7,7 +7,7 @@ import org.jf.dexlib2.Opcode
 
 object PivotBarSetTextFingerprint : MethodFingerprint(
     returnType = "V",
-    access = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
     parameters = listOf("L", "L", "L"),
     opcodes = listOf(
         Opcode.IPUT_OBJECT,
@@ -19,5 +19,5 @@ object PivotBarSetTextFingerprint : MethodFingerprint(
         Opcode.INVOKE_VIRTUAL,
         Opcode.RETURN_VOID
     ),
-    customFingerprint = { it.name == "<init>" }
+    customFingerprint = { it, _ -> it.name == "<init>" }
 )
