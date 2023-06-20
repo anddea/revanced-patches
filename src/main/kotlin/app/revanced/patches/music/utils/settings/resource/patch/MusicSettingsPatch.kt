@@ -89,7 +89,7 @@ class MusicSettingsPatch : AbstractSettingsResourcePatch(
         return PatchResultSuccess()
     }
     companion object {
-        private lateinit var contexts: ResourceContext
+        lateinit var contexts: ResourceContext
 
         internal fun addMusicPreference(
             category: CategoryType,
