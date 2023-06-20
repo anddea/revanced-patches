@@ -5,14 +5,13 @@ import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 
-object LithoBufferFingerprint : MethodFingerprint(
+object IdentifierFingerprint : MethodFingerprint(
     returnType = "L",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     opcodes = listOf(
-        Opcode.CHECK_CAST,
         Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT,
-        Opcode.GOTO
+        Opcode.IF_EQZ,
+        Opcode.IPUT_OBJECT
     ),
     strings = listOf("Element missing type extension")
 )

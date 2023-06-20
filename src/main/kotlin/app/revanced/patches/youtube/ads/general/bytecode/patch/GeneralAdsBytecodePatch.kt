@@ -32,7 +32,7 @@ class GeneralAdsBytecodePatch : BytecodePatch() {
                     .mutableClass
                     .findMutableMethodOf(method)
                     .apply {
-                        val insertIndex = method.getWideLiteralIndex(AdAttribution) + 1
+                        val insertIndex = getWideLiteralIndex(AdAttribution) + 1
                         if (getInstruction(insertIndex).opcode != org.jf.dexlib2.Opcode.INVOKE_VIRTUAL)
                             return@forEach
 

@@ -7,7 +7,7 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
-import app.revanced.patches.youtube.misc.litho.patch.LithoThemePatch
+import app.revanced.patches.youtube.utils.litho.patch.LithoThemePatch
 import app.revanced.util.integrations.Constants.UTILS_PATH
 import org.w3c.dom.Element
 
