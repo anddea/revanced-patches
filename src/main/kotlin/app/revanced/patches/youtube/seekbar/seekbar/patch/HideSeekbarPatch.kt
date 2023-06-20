@@ -14,10 +14,10 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
+import app.revanced.patches.youtube.seekbar.seekbarcolor.patch.SeekbarColorPatch
 import app.revanced.patches.youtube.utils.fingerprints.SeekbarFingerprint
 import app.revanced.patches.youtube.utils.fingerprints.SeekbarOnDrawFingerprint
 import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
-import app.revanced.patches.youtube.seekbar.seekbarcolor.resource.patch.SeekbarColorResourcePatch
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.integrations.Constants.SEEKBAR
 
@@ -26,7 +26,7 @@ import app.revanced.util.integrations.Constants.SEEKBAR
 @Description("Hides the seekbar in video player and video thumbnails.")
 @DependsOn(
     [
-        SeekbarColorResourcePatch::class,
+        SeekbarColorPatch::class,
         SettingsPatch::class
     ]
 )
