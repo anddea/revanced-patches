@@ -12,7 +12,7 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patches.shared.annotation.YouTubeCompatibility
+import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.general.loadmorebutton.fingerprints.LoadMoreButtonFingerprint
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
@@ -31,7 +31,7 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 @YouTubeCompatibility
 @Version("0.0.1")
 class LoadMoreButtonPatch : BytecodePatch(
-    listOf(LoadMoreButtonFingerprint,)
+    listOf(LoadMoreButtonFingerprint)
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
         LoadMoreButtonFingerprint.result?.let {
@@ -43,7 +43,7 @@ class LoadMoreButtonPatch : BytecodePatch(
                     "invoke-static {v$targetRegister}, $GENERAL->hideLoadMoreButton(Landroid/view/View;)V"
                 )
             }
-        }?: return LoadMoreButtonFingerprint.toErrorResult()
+        } ?: return LoadMoreButtonFingerprint.toErrorResult()
 
         /**
          * Add settings

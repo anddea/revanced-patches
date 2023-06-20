@@ -13,7 +13,7 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patches.shared.annotation.YouTubeCompatibility
+import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.player.infocards.fingerprints.InfoCardsIncognitoFingerprint
 import app.revanced.patches.youtube.player.infocards.fingerprints.InfoCardsIncognitoParentFingerprint
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
@@ -34,7 +34,8 @@ class HideInfoCardsPatch : BytecodePatch(
             InfoCardsIncognitoFingerprint.also { it.resolve(context, classDef) }.result?.let {
                 it.mutableMethod.apply {
                     val targetIndex = it.scanResult.patternScanResult!!.startIndex
-                    val targetRegister = getInstruction<TwoRegisterInstruction>(targetIndex).registerA
+                    val targetRegister =
+                        getInstruction<TwoRegisterInstruction>(targetIndex).registerA
 
                     addInstructions(
                         targetIndex + 1, """

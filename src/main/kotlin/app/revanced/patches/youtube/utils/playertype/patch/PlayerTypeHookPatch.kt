@@ -11,7 +11,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
-import app.revanced.patches.shared.annotation.YouTubeCompatibility
+import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.playertype.fingerprint.PlayerTypeFingerprint
 import app.revanced.patches.youtube.utils.playertype.fingerprint.VideoStateFingerprint
 import app.revanced.util.integrations.Constants.UTILS_PATH

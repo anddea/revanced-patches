@@ -15,10 +15,13 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
+import app.revanced.patches.music.utils.annotations.MusicCompatibility
+import app.revanced.patches.music.misc.sharebuttonhook.fingerprints.ConnectionTrackerFingerprint
+import app.revanced.patches.music.misc.sharebuttonhook.fingerprints.FullStackTraceActivityFingerprint
+import app.revanced.patches.music.misc.sharebuttonhook.fingerprints.SharePanelFingerprint
+import app.revanced.patches.music.misc.sharebuttonhook.fingerprints.ShowToastFingerprint
 import app.revanced.patches.music.utils.settings.resource.patch.MusicSettingsPatch
-import app.revanced.patches.music.misc.sharebuttonhook.fingerprints.*
 import app.revanced.patches.music.utils.videoid.patch.MusicVideoIdPatch
-import app.revanced.patches.shared.annotation.YouTubeMusicCompatibility
 import app.revanced.util.enum.CategoryType
 import app.revanced.util.integrations.Constants.MUSIC_INTEGRATIONS_PATH
 import app.revanced.util.integrations.Constants.MUSIC_MISC_PATH
@@ -32,7 +35,7 @@ import app.revanced.util.integrations.Constants.MUSIC_MISC_PATH
         MusicVideoIdPatch::class
     ]
 )
-@YouTubeMusicCompatibility
+@MusicCompatibility
 @Version("0.0.1")
 class ShareButtonHookPatch : BytecodePatch(
     listOf(
@@ -48,7 +51,7 @@ class ShareButtonHookPatch : BytecodePatch(
                 val targetIndex = it.scanResult.patternScanResult!!.startIndex
 
                 addInstructionsWithLabels(
-                    targetIndex,"""
+                    targetIndex, """
                         invoke-static {}, $INTEGRATIONS_CLASS_DESCRIPTOR->overrideSharePanel()Z
                         move-result p1
                         if-eqz p1, :default
@@ -64,24 +67,33 @@ class ShareButtonHookPatch : BytecodePatch(
         ) ?: return ConnectionTrackerFingerprint.toErrorResult()
 
         ShowToastFingerprint.result?.mutableMethod?.addInstructions(
-            0,"""
+            0, """
                 invoke-static {p0}, $INTEGRATIONS_CLASS_DESCRIPTOR->dismissContext(Landroid/content/Context;)Landroid/content/Context;
                 move-result-object p0
                 """
         ) ?: return ShowToastFingerprint.toErrorResult()
 
         FullStackTraceActivityFingerprint.result?.mutableMethod?.addInstructions(
-            1,"""
+            1, """
                 invoke-static {p0}, $MUSIC_INTEGRATIONS_PATH/settingsmenu/SharedPreferenceChangeListener;->initializeSettings(Landroid/app/Activity;)V
                 return-void
                 """
         ) ?: return FullStackTraceActivityFingerprint.toErrorResult()
 
-        MusicSettingsPatch.addMusicPreference(CategoryType.MISC, "revanced_hook_share_button", "false")
-        MusicSettingsPatch.addMusicPreferenceWithIntent(CategoryType.MISC, "revanced_default_downloader", "revanced_hook_share_button")
+        MusicSettingsPatch.addMusicPreference(
+            CategoryType.MISC,
+            "revanced_hook_share_button",
+            "false"
+        )
+        MusicSettingsPatch.addMusicPreferenceWithIntent(
+            CategoryType.MISC,
+            "revanced_default_downloader",
+            "revanced_hook_share_button"
+        )
 
         return PatchResultSuccess()
     }
+
     private companion object {
         const val INTEGRATIONS_CLASS_DESCRIPTOR = "$MUSIC_MISC_PATH/HookShareButtonPatch;"
     }

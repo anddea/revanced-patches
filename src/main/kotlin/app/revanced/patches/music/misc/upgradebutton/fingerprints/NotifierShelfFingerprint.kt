@@ -16,6 +16,6 @@ object NotifierShelfFingerprint : MethodFingerprint(
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT_OBJECT
     ),
-    customFingerprint = { it, _ -> it.isWideLiteralExists(MusicNotifierShelf)}
+    customFingerprint = { it, _ -> it.isWideLiteralExists(MusicNotifierShelf) }
 )
 

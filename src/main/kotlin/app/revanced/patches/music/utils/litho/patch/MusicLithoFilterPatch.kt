@@ -6,14 +6,14 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
-import app.revanced.patches.shared.annotation.YouTubeMusicCompatibility
-import app.revanced.patches.shared.fingerprints.IdentifierFingerprint
+import app.revanced.patches.music.utils.annotations.MusicCompatibility
+import app.revanced.patches.shared.fingerprints.litho.IdentifierFingerprint
 import app.revanced.patches.shared.patch.litho.ComponentParserPatch
 import app.revanced.patches.shared.patch.litho.ComponentParserPatch.Companion.identifierHook
 import app.revanced.util.integrations.Constants.MUSIC_ADS_PATH
 
 @DependsOn([ComponentParserPatch::class])
-@YouTubeMusicCompatibility
+@MusicCompatibility
 @Version("0.0.1")
 class MusicLithoFilterPatch : BytecodePatch(
     listOf(IdentifierFingerprint)

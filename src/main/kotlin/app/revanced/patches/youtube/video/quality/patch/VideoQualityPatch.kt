@@ -14,11 +14,15 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patches.shared.annotation.YouTubeCompatibility
+import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch.Companion.contexts
 import app.revanced.patches.youtube.utils.videoid.legacy.patch.LegacyVideoIdPatch
-import app.revanced.patches.youtube.video.quality.fingerprints.*
+import app.revanced.patches.youtube.video.quality.fingerprints.VideoQualityReferenceFingerprint
+import app.revanced.patches.youtube.video.quality.fingerprints.VideoQualitySetterFingerprint
+import app.revanced.patches.youtube.video.quality.fingerprints.VideoQualitySettingsFingerprint
+import app.revanced.patches.youtube.video.quality.fingerprints.VideoQualitySettingsParentFingerprint
+import app.revanced.patches.youtube.video.quality.fingerprints.VideoUserQualityChangeFingerprint
 import app.revanced.util.integrations.Constants.VIDEO_PATH
 import app.revanced.util.resources.ResourceUtils.copyXmlNode
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
@@ -43,7 +47,12 @@ class VideoQualityPatch : BytecodePatch(
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
         VideoQualitySetterFingerprint.result?.let { parentResult ->
-            VideoQualityReferenceFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.let { result ->
+            VideoQualityReferenceFingerprint.also {
+                it.resolve(
+                    context,
+                    parentResult.classDef
+                )
+            }.result?.let { result ->
                 result.mutableMethod.apply {
                     qualityFieldReference =
                         getInstruction<ReferenceInstruction>(0).reference as FieldReference
@@ -54,15 +63,26 @@ class VideoQualityPatch : BytecodePatch(
                 }
             } ?: return VideoQualityReferenceFingerprint.toErrorResult()
 
-            VideoUserQualityChangeFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.mutableMethod?.addInstruction(
+            VideoUserQualityChangeFingerprint.also {
+                it.resolve(
+                    context,
+                    parentResult.classDef
+                )
+            }.result?.mutableMethod?.addInstruction(
                 0,
                 "invoke-static {p3}, $INTEGRATIONS_VIDEO_QUALITY_CLASS_DESCRIPTOR->userChangedQuality(I)V"
             ) ?: return VideoUserQualityChangeFingerprint.toErrorResult()
         } ?: return VideoQualitySetterFingerprint.toErrorResult()
 
         VideoQualitySettingsParentFingerprint.result?.let { parentResult ->
-            VideoQualitySettingsFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.mutableMethod?.let {
-                relayFieldReference = it.getInstruction<ReferenceInstruction>(0).reference as FieldReference
+            VideoQualitySettingsFingerprint.also {
+                it.resolve(
+                    context,
+                    parentResult.classDef
+                )
+            }.result?.mutableMethod?.let {
+                relayFieldReference =
+                    it.getInstruction<ReferenceInstruction>(0).reference as FieldReference
             } ?: return VideoQualitySettingsFingerprint.toErrorResult()
 
             parentResult.mutableMethod.addInstructions(
@@ -99,6 +119,7 @@ class VideoQualityPatch : BytecodePatch(
 
         return PatchResultSuccess()
     }
+
     private companion object {
         const val INTEGRATIONS_VIDEO_QUALITY_CLASS_DESCRIPTOR =
             "$VIDEO_PATH/VideoQualityPatch;"

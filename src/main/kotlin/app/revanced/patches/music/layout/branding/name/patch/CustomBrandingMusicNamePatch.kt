@@ -5,15 +5,19 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.patch.*
+import app.revanced.patcher.patch.OptionsContainer
+import app.revanced.patcher.patch.PatchOption
+import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patches.shared.annotation.YouTubeMusicCompatibility
+import app.revanced.patches.music.utils.annotations.MusicCompatibility
 import org.w3c.dom.Element
 
 @Patch(false)
 @Name("custom-branding-music-name")
 @Description("Changes the Music launcher name to your choice (defaults to YTM Extended, ReVanced Music Extended).")
-@YouTubeMusicCompatibility
+@MusicCompatibility
 @Version("0.0.1")
 class CustomBrandingMusicNamePatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
@@ -27,7 +31,7 @@ class CustomBrandingMusicNamePatch : ResourcePatch {
             if (!it.name.startsWithAny(*resourceFileNames)) return@forEach
 
             context.xmlEditor[it.absolutePath].use { editor ->
-            val resourcesNode = editor.file.getElementsByTagName("resources").item(0) as Element
+                val resourcesNode = editor.file.getElementsByTagName("resources").item(0) as Element
 
                 for (i in 0 until resourcesNode.childNodes.length) {
                     val node = resourcesNode.childNodes.item(i)
@@ -45,6 +49,7 @@ class CustomBrandingMusicNamePatch : ResourcePatch {
 
         return PatchResultSuccess()
     }
+
     companion object : OptionsContainer() {
         var MusicLongName: String? by option(
             PatchOption.StringOption(

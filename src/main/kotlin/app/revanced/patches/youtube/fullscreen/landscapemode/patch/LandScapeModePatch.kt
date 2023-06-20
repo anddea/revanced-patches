@@ -14,8 +14,10 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patches.shared.annotation.YouTubeCompatibility
-import app.revanced.patches.youtube.fullscreen.landscapemode.fingerprints.*
+import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
+import app.revanced.patches.youtube.fullscreen.landscapemode.fingerprints.OrientationParentFingerprint
+import app.revanced.patches.youtube.fullscreen.landscapemode.fingerprints.OrientationPrimaryFingerprint
+import app.revanced.patches.youtube.fullscreen.landscapemode.fingerprints.OrientationSecondaryFingerprint
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.integrations.Constants.FULLSCREEN
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
@@ -35,7 +37,8 @@ class LandScapeModePatch : BytecodePatch(
                 OrientationPrimaryFingerprint,
                 OrientationSecondaryFingerprint
             ).forEach {
-                it.also { it.resolve(context, classDef) }.result?.injectOverride() ?: return it.toErrorResult()
+                it.also { it.resolve(context, classDef) }.result?.injectOverride()
+                    ?: return it.toErrorResult()
             }
         } ?: return OrientationParentFingerprint.toErrorResult()
 
@@ -64,7 +67,7 @@ class LandScapeModePatch : BytecodePatch(
                 val register = getInstruction<OneRegisterInstruction>(index).registerA
 
                 addInstructions(
-                    index +1, """
+                    index + 1, """
                         invoke-static {v$register}, $INTEGRATIONS_CLASS_DESCRIPTOR
                         move-result v$register
                         """

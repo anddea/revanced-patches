@@ -9,7 +9,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
-import app.revanced.patches.shared.annotation.YouTubeCompatibility
+import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.playeroverlay.fingerprint.PlayerOverlaysOnFinishInflateFingerprint
 import app.revanced.util.integrations.Constants.UTILS_PATH
 

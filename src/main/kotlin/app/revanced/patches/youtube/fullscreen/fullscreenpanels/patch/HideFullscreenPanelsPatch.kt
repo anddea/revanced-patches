@@ -16,8 +16,8 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.shared.annotation.YouTubeCompatibility
-import app.revanced.patches.shared.fingerprints.LayoutConstructorFingerprint
+import app.revanced.patches.youtube.utils.fingerprints.LayoutConstructorFingerprint
+import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.fullscreen.fullscreenpanels.fingerprints.FullscreenEngagementPanelFingerprint
 import app.revanced.patches.youtube.fullscreen.fullscreenpanels.fingerprints.FullscreenViewAdderFingerprint
 import app.revanced.patches.youtube.utils.quickactionscontainer.patch.HideQuickActionsContainerPatch
@@ -83,7 +83,8 @@ class HideFullscreenPanelsPatch : BytecodePatch(
 
         LayoutConstructorFingerprint.result?.let {
             it.mutableMethod.apply {
-                val dummyRegister = getInstruction<OneRegisterInstruction>(getStringIndex("1.0x")).registerA
+                val dummyRegister =
+                    getInstruction<OneRegisterInstruction>(getStringIndex("1.0x")).registerA
 
                 val invokeIndex = implementation!!.instructions.indexOfFirst { instruction ->
                     instruction.opcode == Opcode.INVOKE_VIRTUAL &&

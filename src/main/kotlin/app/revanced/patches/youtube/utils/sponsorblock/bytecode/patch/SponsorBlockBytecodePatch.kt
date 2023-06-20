@@ -14,16 +14,19 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.shared.annotation.YouTubeCompatibility
-import app.revanced.patches.shared.fingerprints.SeekbarFingerprint
-import app.revanced.patches.shared.fingerprints.SeekbarOnDrawFingerprint
-import app.revanced.patches.shared.fingerprints.TotalTimeFingerprint
+import app.revanced.patches.youtube.utils.fingerprints.SeekbarFingerprint
+import app.revanced.patches.youtube.utils.fingerprints.SeekbarOnDrawFingerprint
+import app.revanced.patches.youtube.utils.fingerprints.TotalTimeFingerprint
+import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.overridespeed.patch.OverrideSpeedHookPatch
 import app.revanced.patches.youtube.utils.playercontrols.patch.PlayerControlsPatch
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch.Companion.InsetOverlayViewLayout
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch.Companion.TotalTime
-import app.revanced.patches.youtube.utils.sponsorblock.bytecode.fingerprints.*
+import app.revanced.patches.youtube.utils.sponsorblock.bytecode.fingerprints.EndScreenEngagementPanelsFingerprint
+import app.revanced.patches.youtube.utils.sponsorblock.bytecode.fingerprints.OverlayViewLayoutFingerprint
+import app.revanced.patches.youtube.utils.sponsorblock.bytecode.fingerprints.PlayerControllerFingerprint
+import app.revanced.patches.youtube.utils.sponsorblock.bytecode.fingerprints.RectangleFieldInvalidatorFingerprint
 import app.revanced.patches.youtube.utils.videoid.legacy.patch.LegacyVideoIdPatch
 import app.revanced.patches.youtube.utils.videoid.mainstream.patch.MainstreamVideoIdPatch
 import app.revanced.util.bytecode.BytecodeHelper.injectInit
@@ -81,7 +84,7 @@ class SponsorBlockBytecodePatch : BytecodePatch(
          */
         insertMethod = SeekbarFingerprint.result!!.let {
             SeekbarOnDrawFingerprint.apply { resolve(context, it.mutableClass) }
-        }.result?.mutableMethod?: return SeekbarFingerprint.toErrorResult()
+        }.result?.mutableMethod ?: return SeekbarFingerprint.toErrorResult()
         insertInstructions = insertMethod.implementation!!.instructions
 
 
@@ -126,7 +129,9 @@ class SponsorBlockBytecodePatch : BytecodePatch(
             val drawSegmentInstructionInsertIndex = index - 1
 
             val (canvasInstance, centerY) =
-                insertMethod.getInstruction<FiveRegisterInstruction>(drawSegmentInstructionInsertIndex).let { it.registerC to it.registerE }
+                insertMethod.getInstruction<FiveRegisterInstruction>(
+                    drawSegmentInstructionInsertIndex
+                ).let { it.registerC to it.registerE }
 
             insertMethod.addInstruction(
                 drawSegmentInstructionInsertIndex,
@@ -139,8 +144,8 @@ class SponsorBlockBytecodePatch : BytecodePatch(
          * Voting & Shield button
          */
         arrayOf("CreateSegmentButtonController", "VotingButtonController").forEach {
-           PlayerControlsPatch.initializeSB("$INTEGRATIONS_BUTTON_CLASS_DESCRIPTOR/ui/$it;")
-           PlayerControlsPatch.injectVisibility("$INTEGRATIONS_BUTTON_CLASS_DESCRIPTOR/ui/$it;")
+            PlayerControlsPatch.initializeSB("$INTEGRATIONS_BUTTON_CLASS_DESCRIPTOR/ui/$it;")
+            PlayerControlsPatch.injectVisibility("$INTEGRATIONS_BUTTON_CLASS_DESCRIPTOR/ui/$it;")
         }
 
         EndScreenEngagementPanelsFingerprint.result?.mutableMethod?.let {
@@ -170,8 +175,8 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         /**
          * Initialize the SponsorBlock view
          */
-        OverlayViewLayoutFingerprint.result?.mutableMethod?.let{
-            it.apply{
+        OverlayViewLayoutFingerprint.result?.mutableMethod?.let {
+            it.apply {
                 val targetIndex = getWideLiteralIndex(InsetOverlayViewLayout) + 3
                 val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
@@ -185,7 +190,10 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         /**
          * Replace strings
          */
-        RectangleFieldInvalidatorFingerprint.resolve(context, SeekbarOnDrawFingerprint.result!!.classDef)
+        RectangleFieldInvalidatorFingerprint.resolve(
+            context,
+            SeekbarOnDrawFingerprint.result!!.classDef
+        )
         val rectangleFieldInvalidatorInstructions =
             RectangleFieldInvalidatorFingerprint.result!!.method.implementation!!.instructions
         val rectangleFieldName =

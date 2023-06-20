@@ -13,7 +13,7 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patches.shared.annotation.YouTubeCompatibility
+import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.navigation.tabletnavbar.fingerprints.PivotBarChangedFingerprint
 import app.revanced.patches.youtube.navigation.tabletnavbar.fingerprints.PivotBarStyleFingerprint
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
@@ -40,7 +40,7 @@ class TabletNavigationBarPatch : BytecodePatch(
         ).forEach {
             it.result?.insertHook() ?: return it.toErrorResult()
         }
-        
+
         /**
          * Add settings
          */
@@ -55,10 +55,12 @@ class TabletNavigationBarPatch : BytecodePatch(
 
         return PatchResultSuccess()
     }
+
     companion object {
         private fun MethodFingerprintResult.insertHook() {
             val targetIndex = scanResult.patternScanResult!!.startIndex + 1
-            val register = mutableMethod.getInstruction<OneRegisterInstruction>(targetIndex).registerA
+            val register =
+                mutableMethod.getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
             mutableMethod.addInstructions(
                 targetIndex + 1, """

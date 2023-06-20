@@ -11,8 +11,8 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.shared.fingerprints.CodecReferenceFingerprint
-import app.revanced.patches.shared.fingerprints.CodecSelectorFingerprint
+import app.revanced.patches.shared.fingerprints.opus.CodecReferenceFingerprint
+import app.revanced.patches.shared.fingerprints.opus.CodecSelectorFingerprint
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction

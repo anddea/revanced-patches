@@ -8,7 +8,7 @@ import org.jf.dexlib2.Opcode
 object ByteBufferFingerprint : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
-    parameters = listOf("L","L"),
+    parameters = listOf("L", "L"),
     opcodes = listOf(
         Opcode.SGET_OBJECT,
         Opcode.INVOKE_VIRTUAL,

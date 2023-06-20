@@ -13,7 +13,7 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patches.shared.annotation.YouTubeCompatibility
+import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.general.accountmenu.fingerprints.AccountMenuFingerprint
 import app.revanced.patches.youtube.general.accountmenu.fingerprints.AccountMenuParentFingerprint
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch

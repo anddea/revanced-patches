@@ -22,7 +22,7 @@ internal object ResourceHelper {
 
     private var targetPackage = "com.google.android.youtube"
 
-    internal fun setMicroG (newPackage: String) {
+    internal fun setMicroG(newPackage: String) {
         targetPackage = newPackage
     }
 
@@ -96,21 +96,26 @@ internal object ResourceHelper {
     }
 
     internal fun ResourceContext.addReVancedPreference(key: String) {
-        val targetClass = "com.google.android.apps.youtube.app.settings.videoquality.VideoQualitySettingsActivity"
+        val targetClass =
+            "com.google.android.apps.youtube.app.settings.videoquality.VideoQualitySettingsActivity"
 
         this.xmlEditor[YOUTUBE_SETTINGS_PATH].use { editor ->
-            with (editor.file) {
+            with(editor.file) {
                 doRecursively loop@{
                     if (it !is Element) return@loop
                     it.getAttributeNode("android:key")?.let { attribute ->
                         if (attribute.textContent == "@string/about_key" && it.getAttributeNode("app:iconSpaceReserved").textContent == "false") {
                             it.insertNode("Preference", it) {
                                 setAttribute("android:title", "@string/revanced_" + key + "_title")
-                                this.appendChild(ownerDocument.createElement("intent").also { intentNode ->
-                                    intentNode.setAttribute("android:targetPackage", targetPackage)
-                                    intentNode.setAttribute("android:data", key)
-                                    intentNode.setAttribute("android:targetClass", targetClass)
-                                })
+                                this.appendChild(
+                                    ownerDocument.createElement("intent").also { intentNode ->
+                                        intentNode.setAttribute(
+                                            "android:targetPackage",
+                                            targetPackage
+                                        )
+                                        intentNode.setAttribute("android:data", key)
+                                        intentNode.setAttribute("android:targetClass", targetClass)
+                                    })
                             }
                             it.getAttributeNode("app:iconSpaceReserved").textContent = "true"
                             return@loop

@@ -8,7 +8,7 @@ import org.jf.dexlib2.AccessFlags
 
 object MusicVideoQualitySettingsParentFingerprint : MethodFingerprint(
     returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or  AccessFlags.CONSTRUCTOR,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
     parameters = listOf("L"),
-    customFingerprint = { it, _ -> it.isWideLiteralExists(QualityTitle)}
+    customFingerprint = { it, _ -> it.isWideLiteralExists(QualityTitle) }
 )

@@ -13,8 +13,8 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.shared.fingerprints.LegacyVideoAdsFingerprint
-import app.revanced.patches.shared.fingerprints.MainstreamVideoAdsFingerprint
+import app.revanced.patches.shared.fingerprints.videoads.LegacyVideoAdsFingerprint
+import app.revanced.patches.shared.fingerprints.videoads.MainstreamVideoAdsFingerprint
 
 @Name("abstract-video-ads-patch")
 @Version("0.0.1")
@@ -31,12 +31,12 @@ abstract class AbstractVideoAdsPatch(
             (context.toMethodWalker(it.method)
                 .nextMethod(13, true)
                 .getMethod() as MutableMethod).apply {
-                    addInstructions(
-                        0, """
+                addInstructions(
+                    0, """
                             invoke-static {}, $descriptor
                             move-result v1
                             """
-                    )
+                )
             }
         } ?: return LegacyVideoAdsFingerprint.toErrorResult()
 

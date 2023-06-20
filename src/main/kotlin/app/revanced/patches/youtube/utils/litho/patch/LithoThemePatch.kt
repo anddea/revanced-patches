@@ -9,7 +9,7 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.shared.annotation.YouTubeCompatibility
+import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.litho.fingerprints.LithoThemeFingerprint
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 import org.jf.dexlib2.iface.instruction.formats.Instruction35c
@@ -26,7 +26,7 @@ class LithoThemePatch : BytecodePatch(
     override fun execute(context: BytecodeContext): PatchResult {
 
         LithoThemeFingerprint.result?.mutableMethod?.let {
-            with (it.implementation!!.instructions) {
+            with(it.implementation!!.instructions) {
                 for (index in size - 1 downTo 0) {
                     val invokeInstruction = this[index] as? ReferenceInstruction ?: continue
                     if ((invokeInstruction.reference as MethodReference).name != "setColor") continue

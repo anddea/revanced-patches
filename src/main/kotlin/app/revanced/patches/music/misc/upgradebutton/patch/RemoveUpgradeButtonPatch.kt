@@ -14,11 +14,11 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
+import app.revanced.patches.music.utils.annotations.MusicCompatibility
+import app.revanced.patches.music.misc.upgradebutton.fingerprints.NotifierShelfFingerprint
+import app.revanced.patches.music.misc.upgradebutton.fingerprints.PivotBarConstructorFingerprint
 import app.revanced.patches.music.utils.integrations.patch.MusicIntegrationsPatch
 import app.revanced.patches.music.utils.resourceid.patch.SharedResourceIdPatch
-import app.revanced.patches.music.misc.upgradebutton.fingerprints.*
-import app.revanced.patches.shared.annotation.YouTubeMusicCompatibility
-import app.revanced.util.integrations.Constants.INTEGRATIONS_PATH
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
@@ -32,7 +32,7 @@ import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
         SharedResourceIdPatch::class
     ]
 )
-@YouTubeMusicCompatibility
+@MusicCompatibility
 @Version("0.0.1")
 class RemoveUpgradeButtonPatch : BytecodePatch(
     listOf(
@@ -47,14 +47,15 @@ class RemoveUpgradeButtonPatch : BytecodePatch(
                 val targetRegisterA = getInstruction<TwoRegisterInstruction>(targetIndex).registerA
                 val targetRegisterB = getInstruction<TwoRegisterInstruction>(targetIndex).registerB
 
-                val replaceReference = getInstruction<ReferenceInstruction>(targetIndex).reference.toString()
+                val replaceReference =
+                    getInstruction<ReferenceInstruction>(targetIndex).reference.toString()
 
                 replaceInstruction(
                     targetIndex,
                     "invoke-interface {v$targetRegisterA}, Ljava/util/List;->size()I"
                 )
                 addInstructionsWithLabels(
-                    targetIndex + 1,"""
+                    targetIndex + 1, """
                         move-result v1
                         const/4 v2, 0x3
                         if-le v1, v2, :dismiss

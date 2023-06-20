@@ -12,5 +12,9 @@ object OverlayViewLayoutFingerprint : MethodFingerprint(
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.CHECK_CAST
     ),
-    customFingerprint = { it, _ -> it.definingClass.endsWith("YouTubeControlsOverlay;") && it.isWideLiteralExists(InsetOverlayViewLayout) }
+    customFingerprint = { it, _ ->
+        it.definingClass.endsWith("YouTubeControlsOverlay;") && it.isWideLiteralExists(
+            InsetOverlayViewLayout
+        )
+    }
 )

@@ -8,9 +8,9 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
-import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.shared.patch.litho.ComponentParserPatch
 import app.revanced.patches.shared.patch.litho.ComponentParserPatch.Companion.generalHook
+import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.fix.doublebacktoclose.patch.DoubleBackToClosePatch
 import app.revanced.patches.youtube.utils.fix.swiperefresh.patch.SwipeRefreshPatch
 import app.revanced.patches.youtube.utils.litho.fingerprints.ByteBufferFingerprint

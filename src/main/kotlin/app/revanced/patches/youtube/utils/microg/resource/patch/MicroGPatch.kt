@@ -9,8 +9,8 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.shared.patch.packagename.PackageNamePatch
+import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.microg.bytecode.patch.MicroGBytecodePatch
 import app.revanced.patches.youtube.utils.microg.shared.Constants.PACKAGE_NAME
 import app.revanced.patches.youtube.utils.microg.shared.Constants.SPOOFED_PACKAGE_NAME

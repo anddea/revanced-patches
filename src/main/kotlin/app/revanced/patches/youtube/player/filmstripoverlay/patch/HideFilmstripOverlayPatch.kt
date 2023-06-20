@@ -15,8 +15,12 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.shared.annotation.YouTubeCompatibility
-import app.revanced.patches.youtube.player.filmstripoverlay.fingerprints.*
+import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
+import app.revanced.patches.youtube.player.filmstripoverlay.fingerprints.FilmStripOverlayConfigFingerprint
+import app.revanced.patches.youtube.player.filmstripoverlay.fingerprints.FilmStripOverlayInteractionFingerprint
+import app.revanced.patches.youtube.player.filmstripoverlay.fingerprints.FilmStripOverlayParentFingerprint
+import app.revanced.patches.youtube.player.filmstripoverlay.fingerprints.FilmStripOverlayPreviewFingerprint
+import app.revanced.patches.youtube.player.filmstripoverlay.fingerprints.TimeBarOnClickListenerFingerprint
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch.Companion.WatchWhileTimeBarOverlayStub
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
@@ -52,7 +56,12 @@ class HideFilmstripOverlayPatch : BytecodePatch(
                 FilmStripOverlayInteractionFingerprint,
                 FilmStripOverlayPreviewFingerprint
             ).forEach { fingerprint ->
-                fingerprint.also { it.resolve(context, classDef) }.result?.mutableMethod?.injectHook()
+                fingerprint.also {
+                    it.resolve(
+                        context,
+                        classDef
+                    )
+                }.result?.mutableMethod?.injectHook()
                     ?: return fingerprint.toErrorResult()
             }
         } ?: return FilmStripOverlayParentFingerprint.toErrorResult()
@@ -89,6 +98,7 @@ class HideFilmstripOverlayPatch : BytecodePatch(
 
         return PatchResultSuccess()
     }
+
     private companion object {
         fun MutableMethod.injectHook() {
             addInstructionsWithLabels(

@@ -13,10 +13,10 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
+import app.revanced.patches.music.utils.annotations.MusicCompatibility
 import app.revanced.patches.music.layout.compactdialog.fingerprints.DialogSolidFingerprint
 import app.revanced.patches.music.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.music.utils.settings.resource.patch.MusicSettingsPatch
-import app.revanced.patches.shared.annotation.YouTubeMusicCompatibility
 import app.revanced.util.enum.CategoryType
 import app.revanced.util.integrations.Constants.MUSIC_LAYOUT
 
@@ -30,17 +30,18 @@ import app.revanced.util.integrations.Constants.MUSIC_LAYOUT
         SharedResourceIdPatch::class
     ]
 )
-@YouTubeMusicCompatibility
+@MusicCompatibility
 @Version("0.0.1")
 class CompactDialogPatch : BytecodePatch(
     listOf(DialogSolidFingerprint)
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
         DialogSolidFingerprint.result?.let {
-            with(context
-                .toMethodWalker(it.method)
-                .nextMethod(it.scanResult.patternScanResult!!.endIndex, true)
-                .getMethod() as MutableMethod
+            with(
+                context
+                    .toMethodWalker(it.method)
+                    .nextMethod(it.scanResult.patternScanResult!!.endIndex, true)
+                    .getMethod() as MutableMethod
             ) {
                 addInstructions(
                     2, """
@@ -51,7 +52,11 @@ class CompactDialogPatch : BytecodePatch(
             }
         } ?: return DialogSolidFingerprint.toErrorResult()
 
-        MusicSettingsPatch.addMusicPreference(CategoryType.LAYOUT, "revanced_enable_compact_dialog", "true")
+        MusicSettingsPatch.addMusicPreference(
+            CategoryType.LAYOUT,
+            "revanced_enable_compact_dialog",
+            "true"
+        )
 
         return PatchResultSuccess()
     }

@@ -8,10 +8,16 @@ import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
-import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.shared.patch.mapping.ResourceMappingPatch
+import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.util.enum.ResourceType
-import app.revanced.util.enum.ResourceType.*
+import app.revanced.util.enum.ResourceType.ATTR
+import app.revanced.util.enum.ResourceType.COLOR
+import app.revanced.util.enum.ResourceType.DIMEN
+import app.revanced.util.enum.ResourceType.DRAWABLE
+import app.revanced.util.enum.ResourceType.ID
+import app.revanced.util.enum.ResourceType.LAYOUT
+import app.revanced.util.enum.ResourceType.STRING
 
 @Name("shared-resource-id")
 @DependsOn([ResourceMappingPatch::class])
@@ -104,8 +110,10 @@ class SharedResourceIdPatch : ResourcePatch {
         FullScreenEngagementPanel = find(ID, "fullscreen_engagement_panel_holder")
         HorizontalCardList = find(LAYOUT, "horizontal_card_list")
         ImageOnlyTab = find(LAYOUT, "image_only_tab")
-        InlineTimeBarColorizedBarPlayedColorDark = find(COLOR, "inline_time_bar_colorized_bar_played_color_dark")
-        InlineTimeBarPlayedNotHighlightedColor = find(COLOR, "inline_time_bar_played_not_highlighted_color")
+        InlineTimeBarColorizedBarPlayedColorDark =
+            find(COLOR, "inline_time_bar_colorized_bar_played_color_dark")
+        InlineTimeBarPlayedNotHighlightedColor =
+            find(COLOR, "inline_time_bar_played_not_highlighted_color")
         InsetOverlayViewLayout = find(ID, "inset_overlay_view_layout")
         LiveChatButton = find(ID, "live_chat_overlay_button")
         QuickActionsElementContainer = find(ID, "quick_actions_element_container")

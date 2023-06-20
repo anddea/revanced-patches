@@ -4,10 +4,14 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.patch.*
+import app.revanced.patcher.patch.OptionsContainer
+import app.revanced.patcher.patch.PatchOption
+import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patches.shared.annotation.YouTubeCompatibility
+import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.layout.theme.patch.GeneralThemePatch.Companion.isMonetPatchIncluded
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.resources.ResourceHelper.updatePatchStatusTheme

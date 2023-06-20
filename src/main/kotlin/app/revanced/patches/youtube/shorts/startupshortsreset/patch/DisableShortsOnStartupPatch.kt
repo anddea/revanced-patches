@@ -13,7 +13,7 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.shared.annotation.YouTubeCompatibility
+import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.shorts.startupshortsreset.fingerprints.UserWasInShortsFingerprint
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.integrations.Constants.SHORTS
@@ -35,12 +35,14 @@ class DisableShortsOnStartupPatch : BytecodePatch(
                 val targetIndex = it.scanResult.patternScanResult!!.endIndex
                 val register = getInstruction<OneRegisterInstruction>(targetIndex).registerA + 2
                 addInstructionsWithLabels(
-                    targetIndex + 1, """
+                    targetIndex + 1,
+                    """
                         invoke-static { }, $SHORTS->disableStartupShortsPlayer()Z
                         move-result v$register
                         if-eqz v$register, :show_startup_shorts_player
                         return-void
-                        """, ExternalLabel("show_startup_shorts_player", getInstruction(targetIndex + 1))
+                        """,
+                    ExternalLabel("show_startup_shorts_player", getInstruction(targetIndex + 1))
                 )
             }
         } ?: return UserWasInShortsFingerprint.toErrorResult()

@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.utils.settings.resource.patch
 
-import app.revanced.extensions.doRecursively
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
@@ -9,8 +8,8 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.shared.patch.settings.AbstractSettingsResourcePatch
+import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.bytecode.patch.SettingsBytecodePatch
@@ -25,7 +24,6 @@ import app.revanced.util.resources.ResourceUtils.copyResources
 import org.w3c.dom.Element
 import java.io.File
 import java.nio.file.Paths
-import kotlin.io.path.exists
 
 @Patch
 @Name("settings")
@@ -79,20 +77,20 @@ class SettingsPatch : AbstractSettingsResourcePatch(
         arrayOf("Theme.YouTube.Settings", "Theme.YouTube.Settings.Dark").forEach { themeName ->
             context.xmlEditor["res/values/styles.xml"].use { editor ->
                 with(editor.file) {
-                        val resourcesNode = getElementsByTagName("resources").item(0) as Element
+                    val resourcesNode = getElementsByTagName("resources").item(0) as Element
 
-                        val newElement: Element = createElement("item")
-                        newElement.setAttribute("name", "android:listDivider")
+                    val newElement: Element = createElement("item")
+                    newElement.setAttribute("name", "android:listDivider")
 
-                        for (i in 0 until resourcesNode.childNodes.length) {
-                            val node = resourcesNode.childNodes.item(i) as? Element ?: continue
+                    for (i in 0 until resourcesNode.childNodes.length) {
+                        val node = resourcesNode.childNodes.item(i) as? Element ?: continue
 
-                            if (node.getAttribute("name") == themeName) {
-                                    newElement.appendChild(createTextNode("@null"))
+                        if (node.getAttribute("name") == themeName) {
+                            newElement.appendChild(createTextNode("@null"))
 
-                                    node.appendChild(newElement)
-                            }
+                            node.appendChild(newElement)
                         }
+                    }
                 }
             }
         }
@@ -115,8 +113,11 @@ class SettingsPatch : AbstractSettingsResourcePatch(
 
         if (File(targetDirectory).exists()) {
             fun copyResources(resourceGroups: List<ResourceUtils.ResourceGroup>) {
-                try { context.copyFiles(resourceGroups, iconPath) }
-                catch (_: Exception) { context.makeDirectoryAndCopyFiles(resourceGroups, iconPath) }
+                try {
+                    context.copyFiles(resourceGroups, iconPath)
+                } catch (_: Exception) {
+                    context.makeDirectoryAndCopyFiles(resourceGroups, iconPath)
+                }
             }
 
             val iconResourceFileNames =
@@ -136,6 +137,7 @@ class SettingsPatch : AbstractSettingsResourcePatch(
 
         return PatchResultSuccess()
     }
+
     companion object {
         internal lateinit var contexts: ResourceContext
 

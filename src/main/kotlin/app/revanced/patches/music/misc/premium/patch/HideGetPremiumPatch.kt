@@ -14,11 +14,11 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
+import app.revanced.patches.music.utils.annotations.MusicCompatibility
 import app.revanced.patches.music.misc.premium.fingerprints.AccountMenuFooterFingerprint
 import app.revanced.patches.music.misc.premium.fingerprints.HideGetPremiumFingerprint
 import app.revanced.patches.music.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.music.utils.resourceid.patch.SharedResourceIdPatch.Companion.PrivacyTosFooter
-import app.revanced.patches.shared.annotation.YouTubeMusicCompatibility
 import app.revanced.util.bytecode.getWideLiteralIndex
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
@@ -30,7 +30,7 @@ import org.jf.dexlib2.iface.reference.Reference
 @Name("hide-get-premium")
 @Description("Removes all \"Get Premium\" evidences from the avatar menu.")
 @DependsOn([SharedResourceIdPatch::class])
-@YouTubeMusicCompatibility
+@MusicCompatibility
 @Version("0.0.1")
 class HideGetPremiumPatch : BytecodePatch(
     listOf(
@@ -58,17 +58,19 @@ class HideGetPremiumPatch : BytecodePatch(
                 val targetIndex = getWideLiteralIndex(PrivacyTosFooter) + 4
                 targetReference = getInstruction<ReferenceInstruction>(targetIndex + 1).reference
 
-                with (context
-                    .toMethodWalker(this)
-                    .nextMethod(targetIndex, true)
-                    .getMethod() as MutableMethod
+                with(
+                    context
+                        .toMethodWalker(this)
+                        .nextMethod(targetIndex, true)
+                        .getMethod() as MutableMethod
                 ) {
                     this.implementation!!.instructions.apply {
                         for ((index, instruction) in withIndex()) {
                             if (instruction.opcode != Opcode.IGET_OBJECT) continue
 
                             if (getInstruction<ReferenceInstruction>(index).reference == targetReference) {
-                                val targetRegister = getInstruction<OneRegisterInstruction>(index + 2).registerA
+                                val targetRegister =
+                                    getInstruction<OneRegisterInstruction>(index + 2).registerA
 
                                 addInstruction(
                                     index,
@@ -85,7 +87,8 @@ class HideGetPremiumPatch : BytecodePatch(
 
         return PatchResultSuccess()
     }
-    private companion object{
+
+    private companion object {
         lateinit var targetReference: Reference
     }
 }

@@ -15,10 +15,7 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patches.shared.annotation.YouTubeCompatibility
-import app.revanced.patches.youtube.utils.returnyoutubedislike.oldlayout.patch.ReturnYouTubeDislikeOldLayoutPatch
-import app.revanced.patches.youtube.utils.returnyoutubedislike.shorts.patch.ReturnYouTubeDislikeShortsPatch
-import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
+import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.returnyoutubedislike.general.fingerprints.DislikeFingerprint
 import app.revanced.patches.youtube.utils.returnyoutubedislike.general.fingerprints.LikeFingerprint
 import app.revanced.patches.youtube.utils.returnyoutubedislike.general.fingerprints.RemoveLikeFingerprint
@@ -26,6 +23,9 @@ import app.revanced.patches.youtube.utils.returnyoutubedislike.general.fingerpri
 import app.revanced.patches.youtube.utils.returnyoutubedislike.general.fingerprints.TextComponentConstructorFingerprint
 import app.revanced.patches.youtube.utils.returnyoutubedislike.general.fingerprints.TextComponentContextFingerprint
 import app.revanced.patches.youtube.utils.returnyoutubedislike.general.fingerprints.TextComponentTmpFingerprint
+import app.revanced.patches.youtube.utils.returnyoutubedislike.oldlayout.patch.ReturnYouTubeDislikeOldLayoutPatch
+import app.revanced.patches.youtube.utils.returnyoutubedislike.shorts.patch.ReturnYouTubeDislikeShortsPatch
+import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.patches.youtube.utils.videoid.mainstream.patch.MainstreamVideoIdPatch
 import app.revanced.util.integrations.Constants.UTILS_PATH
 import org.jf.dexlib2.iface.instruction.FiveRegisterInstruction
@@ -74,7 +74,12 @@ class ReturnYouTubeDislikePatch : BytecodePatch(
 
         TextComponentConstructorFingerprint.result?.let { parentResult ->
 
-            TextComponentContextFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.let {
+            TextComponentContextFingerprint.also {
+                it.resolve(
+                    context,
+                    parentResult.classDef
+                )
+            }.result?.let {
                 it.mutableMethod.apply {
                     val conversionContextIndex = it.scanResult.patternScanResult!!.startIndex
                     conversionContextFieldReference =
@@ -82,7 +87,12 @@ class ReturnYouTubeDislikePatch : BytecodePatch(
                 }
             } ?: return TextComponentContextFingerprint.toErrorResult()
 
-            TextComponentTmpFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.let {
+            TextComponentTmpFingerprint.also {
+                it.resolve(
+                    context,
+                    parentResult.classDef
+                )
+            }.result?.let {
                 it.mutableMethod.apply {
                     val startIndex = it.scanResult.patternScanResult!!.startIndex
                     tmpRegister =
@@ -91,11 +101,17 @@ class ReturnYouTubeDislikePatch : BytecodePatch(
             } ?: return TextComponentTmpFingerprint.toErrorResult()
 
 
-            TextComponentAtomicReferenceFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.let {
+            TextComponentAtomicReferenceFingerprint.also {
+                it.resolve(
+                    context,
+                    parentResult.classDef
+                )
+            }.result?.let {
                 it.mutableMethod.apply {
                     val atomicReferenceStartIndex = it.scanResult.patternScanResult!!.startIndex
                     val insertIndex = it.scanResult.patternScanResult!!.endIndex
-                    val moveCharSequenceInstruction = getInstruction<TwoRegisterInstruction>(insertIndex)
+                    val moveCharSequenceInstruction =
+                        getInstruction<TwoRegisterInstruction>(insertIndex)
 
                     val atomicReferenceRegister =
                         getInstruction<FiveRegisterInstruction>(atomicReferenceStartIndex).registerC
@@ -129,6 +145,7 @@ class ReturnYouTubeDislikePatch : BytecodePatch(
 
         return PatchResultSuccess()
     }
+
     private companion object {
         const val INTEGRATIONS_RYD_CLASS_DESCRIPTOR =
             "$UTILS_PATH/ReturnYouTubeDislikePatch;"

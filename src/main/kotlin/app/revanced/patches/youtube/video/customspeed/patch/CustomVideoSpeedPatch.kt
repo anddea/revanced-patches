@@ -13,7 +13,7 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patches.shared.annotation.YouTubeCompatibility
+import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.patches.youtube.video.customspeed.fingerprints.SpeedArrayGeneratorFingerprint
 import app.revanced.patches.youtube.video.customspeed.fingerprints.SpeedLimiterFingerprint
@@ -40,7 +40,7 @@ class CustomVideoSpeedPatch : BytecodePatch(
     override fun execute(context: BytecodeContext): PatchResult {
         SpeedArrayGeneratorFingerprint.result?.let { result ->
             result.mutableMethod.apply {
-                val targetIndex= result.scanResult.patternScanResult!!.startIndex
+                val targetIndex = result.scanResult.patternScanResult!!.startIndex
                 val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                 addInstructions(
@@ -73,7 +73,8 @@ class CustomVideoSpeedPatch : BytecodePatch(
                 for ((index, instruction) in targetInstruction.withIndex()) {
                     if (instruction.opcode != Opcode.SGET_OBJECT) continue
 
-                    val targetReference = getInstruction<ReferenceInstruction>(index).reference.toString()
+                    val targetReference =
+                        getInstruction<ReferenceInstruction>(index).reference.toString()
 
                     if (targetReference.contains("PlayerConfigModel;") && targetReference.endsWith("[F")) {
                         val register = getInstruction<OneRegisterInstruction>(index).registerA
@@ -92,11 +93,15 @@ class CustomVideoSpeedPatch : BytecodePatch(
 
         SpeedLimiterFingerprint.result?.let { result ->
             result.mutableMethod.apply {
-                val limiterMinConstIndex = implementation!!.instructions.indexOfFirst { (it as? NarrowLiteralInstruction)?.narrowLiteral == 0.25f.toRawBits() }
-                val limiterMaxConstIndex = implementation!!.instructions.indexOfFirst { (it as? NarrowLiteralInstruction)?.narrowLiteral == 2.0f.toRawBits() }
+                val limiterMinConstIndex =
+                    implementation!!.instructions.indexOfFirst { (it as? NarrowLiteralInstruction)?.narrowLiteral == 0.25f.toRawBits() }
+                val limiterMaxConstIndex =
+                    implementation!!.instructions.indexOfFirst { (it as? NarrowLiteralInstruction)?.narrowLiteral == 2.0f.toRawBits() }
 
-                val limiterMinConstDestination = getInstruction<OneRegisterInstruction>(limiterMinConstIndex).registerA
-                val limiterMaxConstDestination = getInstruction<OneRegisterInstruction>(limiterMaxConstIndex).registerA
+                val limiterMinConstDestination =
+                    getInstruction<OneRegisterInstruction>(limiterMinConstIndex).registerA
+                val limiterMaxConstDestination =
+                    getInstruction<OneRegisterInstruction>(limiterMaxConstIndex).registerA
 
                 replaceInstruction(
                     limiterMinConstIndex,

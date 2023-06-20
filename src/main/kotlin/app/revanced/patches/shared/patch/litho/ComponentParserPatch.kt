@@ -16,9 +16,9 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableField.Companion.toMut
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.annotation.RVXCompatibility
-import app.revanced.patches.shared.fingerprints.ByteBufferHookFingerprint
-import app.revanced.patches.shared.fingerprints.EmptyComponentBuilderFingerprint
-import app.revanced.patches.shared.fingerprints.IdentifierFingerprint
+import app.revanced.patches.shared.fingerprints.litho.ByteBufferHookFingerprint
+import app.revanced.patches.shared.fingerprints.litho.EmptyComponentBuilderFingerprint
+import app.revanced.patches.shared.fingerprints.litho.IdentifierFingerprint
 import app.revanced.util.bytecode.getStringIndex
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
@@ -45,8 +45,10 @@ class ComponentParserPatch : BytecodePatch(
         EmptyComponentBuilderFingerprint.result?.let {
             it.mutableMethod.apply {
                 val targetIndex = getStringIndex("Failed to convert Element to Flatbuffers: %s") + 2
-                val builderMethodDescriptor = getInstruction<ReferenceInstruction>(targetIndex).reference
-                val emptyComponentFieldDescriptor = getInstruction<ReferenceInstruction>(targetIndex + 2).reference
+                val builderMethodDescriptor =
+                    getInstruction<ReferenceInstruction>(targetIndex).reference
+                val emptyComponentFieldDescriptor =
+                    getInstruction<ReferenceInstruction>(targetIndex + 2).reference
 
                 emptyComponentLabel = """
                     move-object/from16 v0, p1
@@ -75,14 +77,15 @@ class ComponentParserPatch : BytecodePatch(
                 .toMethodWalker(it.method)
                 .nextMethod(it.scanResult.patternScanResult!!.endIndex, true)
                 .getMethod() as MutableMethod
-            ).apply {
-                val methodName = EmptyComponentBuilderFingerprint.result!!.mutableMethod.definingClass
+                    ).apply {
+                    val methodName =
+                        EmptyComponentBuilderFingerprint.result!!.mutableMethod.definingClass
 
-                addInstruction(
-                    0,
-                    "sput-object p2, $methodName->buffer:Ljava/nio/ByteBuffer;"
-                )
-            }
+                    addInstruction(
+                        0,
+                        "sput-object p2, $methodName->buffer:Ljava/nio/ByteBuffer;"
+                    )
+                }
         } ?: return ByteBufferHookFingerprint.toErrorResult()
 
         IdentifierFingerprint.result?.let {
@@ -91,7 +94,8 @@ class ComponentParserPatch : BytecodePatch(
 
                 val stringBuilderIndex =
                     implementation!!.instructions.indexOfFirst { instruction ->
-                        val fieldReference = (instruction as? ReferenceInstruction)?.reference as? FieldReference
+                        val fieldReference =
+                            (instruction as? ReferenceInstruction)?.reference as? FieldReference
                         fieldReference?.let { reference -> reference.type == "Ljava/lang/StringBuilder;" } == true
                     }
 
@@ -101,8 +105,10 @@ class ComponentParserPatch : BytecodePatch(
                     instruction.opcode == Opcode.CONST
                 }
 
-                stringBuilderRegister = getInstruction<TwoRegisterInstruction>(stringBuilderIndex).registerA
-                identifierRegister = getInstruction<OneRegisterInstruction>(identifierIndex).registerA
+                stringBuilderRegister =
+                    getInstruction<TwoRegisterInstruction>(stringBuilderIndex).registerA
+                identifierRegister =
+                    getInstruction<OneRegisterInstruction>(identifierIndex).registerA
                 objectRegister = getInstruction<BuilderInstruction35c>(objectIndex).registerC
                 freeRegister = getInstruction<OneRegisterInstruction>(freeIndex).registerA
 
@@ -129,12 +135,14 @@ class ComponentParserPatch : BytecodePatch(
         ) {
             insertMethod.apply {
                 addInstructionsWithLabels(
-                    insertIndex, """
+                    insertIndex,
+                    """
                         sget-object v$freeRegister, $definingClass->buffer:Ljava/nio/ByteBuffer;
                         invoke-static {v$stringBuilderRegister, v$identifierRegister, v$objectRegister, v$freeRegister}, $descriptor(Ljava/lang/StringBuilder;Ljava/lang/String;Ljava/lang/Object;Ljava/nio/ByteBuffer;)Z
                         move-result v$freeRegister
                         if-eqz v$freeRegister, :not_an_ad
-                        """ + emptyComponentLabel, ExternalLabel("not_an_ad", getInstruction(insertIndex))
+                        """ + emptyComponentLabel,
+                    ExternalLabel("not_an_ad", getInstruction(insertIndex))
                 )
             }
         }
@@ -144,11 +152,13 @@ class ComponentParserPatch : BytecodePatch(
         ) {
             insertMethod.apply {
                 addInstructionsWithLabels(
-                    insertIndex, """
+                    insertIndex,
+                    """
                         invoke-static {v$stringBuilderRegister, v$identifierRegister}, $descriptor(Ljava/lang/StringBuilder;Ljava/lang/String;)Z
                         move-result v$freeRegister
                         if-eqz v$freeRegister, :not_an_ad
-                        """ + emptyComponentLabel, ExternalLabel("not_an_ad", getInstruction(insertIndex))
+                        """ + emptyComponentLabel,
+                    ExternalLabel("not_an_ad", getInstruction(insertIndex))
                 )
             }
         }

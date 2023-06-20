@@ -12,8 +12,8 @@ import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.shared.patch.mapping.ResourceMappingPatch
+import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.iface.instruction.formats.Instruction22c
@@ -40,7 +40,7 @@ class HideStoriesPatch : BytecodePatch() {
     ).map { name ->
         ResourceMappingPatch.resourceMappings.single { it.name == name }.id
     }
-    private var patchSuccessArray = Array(resourceIds.size) {false}
+    private var patchSuccessArray = Array(resourceIds.size) { false }
 
     override fun execute(context: BytecodeContext): PatchResult {
         context.classes.forEach { classDef ->
@@ -55,10 +55,19 @@ class HideStoriesPatch : BytecodePatch() {
                                         val iPutInstruction = instructions.elementAt(insertIndex)
                                         if (iPutInstruction.opcode != Opcode.IPUT_OBJECT) return@forEachIndexed
 
-                                        val mutableMethod = context.proxy(classDef).mutableClass.findMutableMethodOf(method)
+                                        val mutableMethod =
+                                            context.proxy(classDef).mutableClass.findMutableMethodOf(
+                                                method
+                                            )
 
-                                        val viewRegister = (iPutInstruction as Instruction22c).registerA
-                                        mutableMethod.implementation!!.injectHideCall(insertIndex, viewRegister, "layout/GeneralPatch", "hideStoriesShelf")
+                                        val viewRegister =
+                                            (iPutInstruction as Instruction22c).registerA
+                                        mutableMethod.implementation!!.injectHideCall(
+                                            insertIndex,
+                                            viewRegister,
+                                            "layout/GeneralPatch",
+                                            "hideStoriesShelf"
+                                        )
 
                                         patchSuccessArray[0] = true
                                         patchSuccessArray[1] = true
@@ -69,15 +78,25 @@ class HideStoriesPatch : BytecodePatch() {
                                         val iPutInstruction = instructions.elementAt(insertIndex)
                                         if (iPutInstruction.opcode != Opcode.IPUT_OBJECT) return@forEachIndexed
 
-                                        val mutableMethod = context.proxy(classDef).mutableClass.findMutableMethodOf(method)
+                                        val mutableMethod =
+                                            context.proxy(classDef).mutableClass.findMutableMethodOf(
+                                                method
+                                            )
 
-                                        val viewRegister = (iPutInstruction as Instruction22c).registerA
-                                        mutableMethod.implementation!!.injectHideCall(insertIndex, viewRegister, "layout/GeneralPatch", "hideStoriesShelf")
+                                        val viewRegister =
+                                            (iPutInstruction as Instruction22c).registerA
+                                        mutableMethod.implementation!!.injectHideCall(
+                                            insertIndex,
+                                            viewRegister,
+                                            "layout/GeneralPatch",
+                                            "hideStoriesShelf"
+                                        )
 
                                         patchSuccessArray[2] = true
                                     }
                                 }
                             }
+
                             else -> return@forEachIndexed
                         }
                     }

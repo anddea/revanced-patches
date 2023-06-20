@@ -15,13 +15,13 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
+import app.revanced.patches.music.utils.annotations.MusicCompatibility
 import app.revanced.patches.music.misc.quality.fingerprints.MusicVideoQualitySettingsFingerprint
 import app.revanced.patches.music.misc.quality.fingerprints.MusicVideoQualitySettingsParentFingerprint
 import app.revanced.patches.music.misc.quality.fingerprints.UserQualityChangeFingerprint
 import app.revanced.patches.music.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.music.utils.settings.resource.patch.MusicSettingsPatch
 import app.revanced.patches.music.utils.videoid.patch.MusicVideoIdPatch
-import app.revanced.patches.shared.annotation.YouTubeMusicCompatibility
 import app.revanced.util.enum.CategoryType
 import app.revanced.util.integrations.Constants.MUSIC_MISC_PATH
 import org.jf.dexlib2.Opcode
@@ -41,7 +41,7 @@ import org.jf.dexlib2.iface.reference.Reference
         SharedResourceIdPatch::class
     ]
 )
-@YouTubeMusicCompatibility
+@MusicCompatibility
 @Version("0.0.1")
 class VideoQualityPatch : BytecodePatch(
     listOf(
@@ -55,8 +55,10 @@ class VideoQualityPatch : BytecodePatch(
             it.mutableMethod.apply {
                 val endIndex = it.scanResult.patternScanResult!!.endIndex
                 val qualityChangedClass =
-                    context.findClass((getInstruction<BuilderInstruction21c>(endIndex))
-                        .reference.toString())!!
+                    context.findClass(
+                        (getInstruction<BuilderInstruction21c>(endIndex))
+                            .reference.toString()
+                    )!!
                         .mutableClass
 
                 for (method in qualityChangedClass.methods) {
@@ -65,8 +67,10 @@ class VideoQualityPatch : BytecodePatch(
                             for ((index, instruction) in implementation!!.instructions.withIndex()) {
                                 if (instruction.opcode != Opcode.INVOKE_INTERFACE) continue
 
-                                qualityReference = getInstruction<ReferenceInstruction>(index - 1).reference
-                                qIndexMethodName = ((getInstruction<Instruction35c>(index).reference) as MethodReference).name
+                                qualityReference =
+                                    getInstruction<ReferenceInstruction>(index - 1).reference
+                                qIndexMethodName =
+                                    ((getInstruction<Instruction35c>(index).reference) as MethodReference).name
 
                                 addInstruction(
                                     0,
@@ -81,7 +85,12 @@ class VideoQualityPatch : BytecodePatch(
         } ?: return UserQualityChangeFingerprint.toErrorResult()
 
         MusicVideoQualitySettingsParentFingerprint.result?.let { parentResult ->
-            MusicVideoQualitySettingsFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.mutableMethod?.addInstructions(
+            MusicVideoQualitySettingsFingerprint.also {
+                it.resolve(
+                    context,
+                    parentResult.classDef
+                )
+            }.result?.mutableMethod?.addInstructions(
                 0, """
                     const-string v0, "$qIndexMethodName"
                     sput-object v0, $INTEGRATIONS_VIDEO_QUALITY_CLASS_DESCRIPTOR->qIndexMethod:Ljava/lang/String;
@@ -93,10 +102,15 @@ class VideoQualityPatch : BytecodePatch(
         } ?: return MusicVideoQualitySettingsParentFingerprint.toErrorResult()
 
         MusicVideoIdPatch.injectCall("$INTEGRATIONS_VIDEO_QUALITY_CLASS_DESCRIPTOR->newVideoStarted(Ljava/lang/String;)V")
-        MusicSettingsPatch.addMusicPreference(CategoryType.MISC, "revanced_enable_save_video_quality", "true")
+        MusicSettingsPatch.addMusicPreference(
+            CategoryType.MISC,
+            "revanced_enable_save_video_quality",
+            "true"
+        )
 
         return PatchResultSuccess()
     }
+
     private companion object {
         const val INTEGRATIONS_VIDEO_QUALITY_CLASS_DESCRIPTOR =
             "$MUSIC_MISC_PATH/MusicVideoQualityPatch;"

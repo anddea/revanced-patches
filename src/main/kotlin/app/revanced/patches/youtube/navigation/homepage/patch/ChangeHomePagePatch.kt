@@ -14,7 +14,7 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.shared.annotation.YouTubeCompatibility
+import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.navigation.homepage.fingerprints.IntentExceptionFingerprint
 import app.revanced.patches.youtube.navigation.homepage.fingerprints.LauncherActivityFingerprint
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch

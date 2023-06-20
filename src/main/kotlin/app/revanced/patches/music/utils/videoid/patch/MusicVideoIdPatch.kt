@@ -11,14 +11,14 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
+import app.revanced.patches.music.utils.annotations.MusicCompatibility
 import app.revanced.patches.music.utils.videoid.fingerprint.MusicVideoIdFingerprint
-import app.revanced.patches.shared.annotation.YouTubeMusicCompatibility
 import app.revanced.util.integrations.Constants.MUSIC_UTILS_PATH
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Name("music-video-id-hook")
 @Description("Hook to detect when the video id changes.")
-@YouTubeMusicCompatibility
+@MusicCompatibility
 @Version("0.0.1")
 class MusicVideoIdPatch : BytecodePatch(
     listOf(MusicVideoIdFingerprint)
@@ -33,7 +33,7 @@ class MusicVideoIdPatch : BytecodePatch(
             }
             offset++ // offset so setVideoId is called before any injected call
         } ?: return MusicVideoIdFingerprint.toErrorResult()
-        
+
         injectCall("$INTEGRATIONS_CLASS_DESCRIPTOR->setVideoId(Ljava/lang/String;)V")
 
         return PatchResultSuccess()

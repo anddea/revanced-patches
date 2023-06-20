@@ -8,8 +8,8 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
+import app.revanced.patches.music.utils.annotations.MusicCompatibility
 import app.revanced.patches.music.utils.settings.bytecode.patch.MusicSettingsBytecodePatch
-import app.revanced.patches.shared.annotation.YouTubeMusicCompatibility
 import app.revanced.patches.shared.patch.settings.AbstractSettingsResourcePatch
 import app.revanced.util.enum.CategoryType
 import app.revanced.util.resources.IconHelper
@@ -29,7 +29,7 @@ import java.nio.file.Paths
 @Name("music-settings")
 @Description("Adds settings for ReVanced to YouTube Music.")
 @DependsOn([MusicSettingsBytecodePatch::class])
-@YouTubeMusicCompatibility
+@MusicCompatibility
 @Version("0.0.1")
 class MusicSettingsPatch : AbstractSettingsResourcePatch(
     "music/settings",
@@ -67,8 +67,11 @@ class MusicSettingsPatch : AbstractSettingsResourcePatch(
 
         if (File(targetDirectory).exists()) {
             fun copyResources(resourceGroups: List<ResourceUtils.ResourceGroup>) {
-                try { context.copyFiles(resourceGroups, iconPath) }
-                catch (_: Exception) { context.makeDirectoryAndCopyFiles(resourceGroups, iconPath) }
+                try {
+                    context.copyFiles(resourceGroups, iconPath)
+                } catch (_: Exception) {
+                    context.makeDirectoryAndCopyFiles(resourceGroups, iconPath)
+                }
             }
 
             val iconResourceFileNames =
@@ -88,6 +91,7 @@ class MusicSettingsPatch : AbstractSettingsResourcePatch(
 
         return PatchResultSuccess()
     }
+
     companion object {
         lateinit var contexts: ResourceContext
 

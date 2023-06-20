@@ -12,7 +12,7 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patches.shared.annotation.YouTubeCompatibility
+import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.navigation.label.fingerprints.PivotBarSetTextFingerprint
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.integrations.Constants.NAVIGATION
@@ -33,7 +33,8 @@ class NavigationLabelPatch : BytecodePatch(
         PivotBarSetTextFingerprint.result?.let {
             it.mutableMethod.apply {
                 val targetIndex = it.scanResult.patternScanResult!!.endIndex - 2
-                val targetReference = getInstruction<ReferenceInstruction>(targetIndex).reference.toString()
+                val targetReference =
+                    getInstruction<ReferenceInstruction>(targetIndex).reference.toString()
                 val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                 if (targetReference != "Landroid/widget/TextView;")

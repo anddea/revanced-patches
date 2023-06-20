@@ -9,7 +9,7 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patches.shared.annotation.YouTubeCompatibility
+import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 
 @Patch(false)
@@ -30,14 +30,16 @@ class DoubleTapOverlayBackgroundPatch : ResourcePatch {
                         view.attributes.getNamedItem("android:id").nodeValue.endsWith("tap_bloom_view")
                     ) {
                         attributes.forEach { attribute ->
-                            view.attributes.getNamedItem("android:layout_$attribute").nodeValue = "0.0dip"
+                            view.attributes.getNamedItem("android:layout_$attribute").nodeValue =
+                                "0.0dip"
                         }
                     }
                     if (
                         view.hasAttributes() &&
                         view.attributes.getNamedItem("android:id").nodeValue.endsWith("dark_background")
                     ) {
-                        view.attributes.getNamedItem("android:src").nodeValue = "@color/full_transparent"
+                        view.attributes.getNamedItem("android:src").nodeValue =
+                            "@color/full_transparent"
                         break
                     }
                 }

@@ -10,7 +10,7 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patches.shared.annotation.YouTubeCompatibility
+import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.overlaybutton.autorepeat.patch.AutoRepeatPatch
 import app.revanced.patches.youtube.utils.overridespeed.patch.OverrideSpeedHookPatch
 import app.revanced.patches.youtube.utils.playercontrols.patch.PlayerControlsPatch
@@ -94,7 +94,11 @@ class OverlayButtonsPatch : ResourcePatch {
         /**
          * Merge xml nodes from the host to their real xml files
          */
-        context.copyXmlNode("youtube/overlaybuttons/host", "layout/youtube_controls_bottom_ui_container.xml", "android.support.constraint.ConstraintLayout")
+        context.copyXmlNode(
+            "youtube/overlaybuttons/host",
+            "layout/youtube_controls_bottom_ui_container.xml",
+            "android.support.constraint.ConstraintLayout"
+        )
 
         context.xmlEditor["res/layout/youtube_controls_bottom_ui_container.xml"].use { editor ->
             editor.file.doRecursively loop@{
@@ -108,7 +112,12 @@ class OverlayButtonsPatch : ResourcePatch {
                 }
 
                 // Adjust Fullscreen Button size and padding
-                val padding = "0.0dip" to arrayOf("paddingLeft", "paddingRight", "paddingTop", "paddingBottom")
+                val padding = "0.0dip" to arrayOf(
+                    "paddingLeft",
+                    "paddingRight",
+                    "paddingTop",
+                    "paddingBottom"
+                )
                 val size = "45.0dip" to arrayOf("layout_width", "layout_height")
                 it.getAttributeNode("android:id")?.let { attribute ->
                     if (attribute.textContent == "@id/fullscreen_button") {

@@ -11,7 +11,10 @@ internal object ResourceUtils {
      * @param sourceResourceDirectory The source resource directory name.
      * @param resources The resources to copy.
      */
-    internal fun ResourceContext.copyResources(sourceResourceDirectory: String, vararg resources: ResourceGroup) {
+    internal fun ResourceContext.copyResources(
+        sourceResourceDirectory: String,
+        vararg resources: ResourceGroup
+    ) {
         val classLoader = ResourceUtils.javaClass.classLoader
         val targetResourceDirectory = this["res"]
 
@@ -20,7 +23,8 @@ internal object ResourceUtils {
                 val resourceFile = "${resourceGroup.resourceDirectoryName}/$resource"
                 Files.copy(
                     classLoader.getResourceAsStream("$sourceResourceDirectory/$resourceFile")!!,
-                    targetResourceDirectory.resolve(resourceFile).toPath(), StandardCopyOption.REPLACE_EXISTING
+                    targetResourceDirectory.resolve(resourceFile).toPath(),
+                    StandardCopyOption.REPLACE_EXISTING
                 )
             }
         }
@@ -39,8 +43,13 @@ internal object ResourceUtils {
      * @param targetResource The target resource.
      * @param elementTag The element to copy.
      */
-    internal fun ResourceContext.copyXmlNode(resourceDirectory: String, targetResource: String, elementTag: String) {
-        val stringsResourceInputStream = ResourceUtils.javaClass.classLoader.getResourceAsStream("$resourceDirectory/$targetResource")!!
+    internal fun ResourceContext.copyXmlNode(
+        resourceDirectory: String,
+        targetResource: String,
+        elementTag: String
+    ) {
+        val stringsResourceInputStream =
+            ResourceUtils.javaClass.classLoader.getResourceAsStream("$resourceDirectory/$targetResource")!!
 
         // Copy nodes from the resources node to the real resource node
         elementTag.copyXmlNode(

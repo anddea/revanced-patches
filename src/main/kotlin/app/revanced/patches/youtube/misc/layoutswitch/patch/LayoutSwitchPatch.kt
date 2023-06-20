@@ -17,8 +17,8 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.shared.annotation.YouTubeCompatibility
-import app.revanced.patches.shared.fingerprints.LayoutSwitchFingerprint
+import app.revanced.patches.youtube.utils.fingerprints.LayoutSwitchFingerprint
+import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.misc.layoutswitch.fingerprints.ClientFormFactorFingerprint
 import app.revanced.patches.youtube.misc.layoutswitch.fingerprints.ClientFormFactorParentFingerprint
 import app.revanced.patches.youtube.misc.layoutswitch.fingerprints.ClientFormFactorWalkerFingerprint
@@ -56,18 +56,23 @@ class LayoutSwitchPatch : BytecodePatch(
                     mutableMethod.injectTabletLayout(scanResult.patternScanResult!!.startIndex + 1)
                 }
             } catch (_: Exception) {
-                ClientFormFactorWalkerFingerprint.also { it.resolve(context, classDef) }.result?.let {
+                ClientFormFactorWalkerFingerprint.also {
+                    it.resolve(
+                        context,
+                        classDef
+                    )
+                }.result?.let {
                     (context
                         .toMethodWalker(it.method)
                         .nextMethod(it.scanResult.patternScanResult!!.startIndex, true)
                         .getMethod() as MutableMethod).apply {
 
-                            val jumpIndex = implementation!!.instructions.indexOfFirst { instruction ->
-                                instruction.opcode == Opcode.RETURN_OBJECT
-                            } - 1
+                        val jumpIndex = implementation!!.instructions.indexOfFirst { instruction ->
+                            instruction.opcode == Opcode.RETURN_OBJECT
+                        } - 1
 
                         injectTabletLayout(jumpIndex)
-                        }
+                    }
                 } ?: return ClientFormFactorWalkerFingerprint.toErrorResult()
             }
         } ?: return ClientFormFactorParentFingerprint.toErrorResult()

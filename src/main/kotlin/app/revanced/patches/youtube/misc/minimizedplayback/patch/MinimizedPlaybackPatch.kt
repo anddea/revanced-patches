@@ -14,8 +14,10 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.shared.annotation.YouTubeCompatibility
-import app.revanced.patches.youtube.misc.minimizedplayback.fingerprints.*
+import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
+import app.revanced.patches.youtube.misc.minimizedplayback.fingerprints.KidsMinimizedPlaybackPolicyControllerFingerprint
+import app.revanced.patches.youtube.misc.minimizedplayback.fingerprints.MinimizedPlaybackManagerFingerprint
+import app.revanced.patches.youtube.misc.minimizedplayback.fingerprints.MinimizedPlaybackSettingsFingerprint
 import app.revanced.patches.youtube.utils.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.utils.playertype.patch.PlayerTypeHookPatch
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
@@ -48,7 +50,7 @@ class MinimizedPlaybackPatch : BytecodePatch(
             MinimizedPlaybackManagerFingerprint,
             MinimizedPlaybackSettingsFingerprint
         ).map {
-            it.result?.mutableMethod?: return it.toErrorResult()
+            it.result?.mutableMethod ?: return it.toErrorResult()
         }
 
         methods[0].hookKidsMiniPlayer()
@@ -88,8 +90,8 @@ class MinimizedPlaybackPatch : BytecodePatch(
             val booleanIndex = booleanCalls.elementAt(1).index
             val booleanMethod =
                 context.toMethodWalker(this)
-                .nextMethod(booleanIndex, true)
-                .getMethod() as MutableMethod
+                    .nextMethod(booleanIndex, true)
+                    .getMethod() as MutableMethod
 
             booleanMethod.addInstructions(
                 0, """

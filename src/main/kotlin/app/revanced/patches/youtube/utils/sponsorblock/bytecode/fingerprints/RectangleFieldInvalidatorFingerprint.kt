@@ -13,8 +13,10 @@ object RectangleFieldInvalidatorFingerprint : MethodFingerprint(
         // the method has definitely more than 5 instructions
         if (instructionCount < 5) return@custom false
 
-        val referenceInstruction = instructions.elementAt(instructionCount - 2) // the second to last instruction
-        val reference = ((referenceInstruction as? ReferenceInstruction)?.reference as? MethodReference)
+        val referenceInstruction =
+            instructions.elementAt(instructionCount - 2) // the second to last instruction
+        val reference =
+            ((referenceInstruction as? ReferenceInstruction)?.reference as? MethodReference)
 
         reference?.parameterTypes?.size == 1 && reference.name == "invalidate" // the reference is the invalidate(..) method
     }

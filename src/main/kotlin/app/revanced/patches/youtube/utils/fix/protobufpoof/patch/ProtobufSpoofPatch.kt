@@ -14,11 +14,13 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.shared.annotation.YouTubeCompatibility
+import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
+import app.revanced.patches.youtube.utils.fix.protobufpoof.fingerprints.BadResponseFingerprint
+import app.revanced.patches.youtube.utils.fix.protobufpoof.fingerprints.ProtobufParameterBuilderFingerprint
+import app.revanced.patches.youtube.utils.fix.protobufpoof.fingerprints.SubtitleWindowFingerprint
 import app.revanced.patches.youtube.utils.playertype.patch.PlayerTypeHookPatch
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.patches.youtube.utils.videoid.mainstream.patch.MainstreamVideoIdPatch
-import app.revanced.patches.youtube.utils.fix.protobufpoof.fingerprints.*
 import app.revanced.util.integrations.Constants.MISC_PATH
 
 @Patch
@@ -48,17 +50,17 @@ class ProtobufSpoofPatch : BytecodePatch(
                 .toMethodWalker(it.method)
                 .nextMethod(it.scanResult.patternScanResult!!.startIndex, true)
                 .getMethod() as MutableMethod
-            ).apply {
-                val protobufParam = 3
+                    ).apply {
+                    val protobufParam = 3
 
-                addInstructions(
-                    0,
-                    """
+                    addInstructions(
+                        0,
+                        """
                         invoke-static {p$protobufParam}, $MISC_PATH/ProtobufSpoofPatch;->overrideProtobufParameter(Ljava/lang/String;)Ljava/lang/String;
                         move-result-object p$protobufParam
                     """
-                )
-            }
+                    )
+                }
         } ?: return ProtobufParameterBuilderFingerprint.toErrorResult()
 
         // hook video playback result

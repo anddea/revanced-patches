@@ -14,11 +14,11 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
+import app.revanced.patches.music.utils.annotations.MusicCompatibility
 import app.revanced.patches.music.layout.floatingbutton.fingerprints.FloatingButtonFingerprint
 import app.revanced.patches.music.layout.floatingbutton.fingerprints.FloatingButtonParentFingerprint
 import app.revanced.patches.music.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.music.utils.settings.resource.patch.MusicSettingsPatch
-import app.revanced.patches.shared.annotation.YouTubeMusicCompatibility
 import app.revanced.util.enum.CategoryType
 import app.revanced.util.integrations.Constants.MUSIC_LAYOUT
 
@@ -31,7 +31,7 @@ import app.revanced.util.integrations.Constants.MUSIC_LAYOUT
         SharedResourceIdPatch::class
     ]
 )
-@YouTubeMusicCompatibility
+@MusicCompatibility
 @Version("0.0.1")
 class NewPlaylistButtonPatch : BytecodePatch(
     listOf(FloatingButtonParentFingerprint)
@@ -39,7 +39,12 @@ class NewPlaylistButtonPatch : BytecodePatch(
     override fun execute(context: BytecodeContext): PatchResult {
 
         FloatingButtonParentFingerprint.result?.let { parentResult ->
-            FloatingButtonFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.let {
+            FloatingButtonFingerprint.also {
+                it.resolve(
+                    context,
+                    parentResult.classDef
+                )
+            }.result?.let {
                 it.mutableMethod.apply {
                     addInstructionsWithLabels(
                         1, """
@@ -53,7 +58,11 @@ class NewPlaylistButtonPatch : BytecodePatch(
             } ?: return FloatingButtonFingerprint.toErrorResult()
         } ?: return FloatingButtonParentFingerprint.toErrorResult()
 
-        MusicSettingsPatch.addMusicPreference(CategoryType.LAYOUT, "revanced_hide_new_playlist_button", "false")
+        MusicSettingsPatch.addMusicPreference(
+            CategoryType.LAYOUT,
+            "revanced_hide_new_playlist_button",
+            "false"
+        )
 
         return PatchResultSuccess()
     }

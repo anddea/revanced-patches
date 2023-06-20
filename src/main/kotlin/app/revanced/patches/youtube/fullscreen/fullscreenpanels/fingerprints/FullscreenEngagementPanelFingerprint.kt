@@ -6,5 +6,9 @@ import app.revanced.util.bytecode.isWideLiteralExists
 
 object FullscreenEngagementPanelFingerprint : MethodFingerprint(
     returnType = "L",
-    customFingerprint = { it, _ -> it.definingClass.endsWith("FullscreenEngagementPanelOverlay;") && it.isWideLiteralExists(FullScreenEngagementPanel) }
+    customFingerprint = { it, _ ->
+        it.definingClass.endsWith("FullscreenEngagementPanelOverlay;") && it.isWideLiteralExists(
+            FullScreenEngagementPanel
+        )
+    }
 )

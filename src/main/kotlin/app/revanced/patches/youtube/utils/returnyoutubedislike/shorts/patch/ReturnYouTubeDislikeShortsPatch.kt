@@ -10,7 +10,7 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.shared.annotation.YouTubeCompatibility
+import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.returnyoutubedislike.shorts.fingerprints.ShortsTextViewFingerprint
 import app.revanced.util.integrations.Constants.UTILS_PATH
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
@@ -27,7 +27,8 @@ class ReturnYouTubeDislikeShortsPatch : BytecodePatch(
                 val patternResult = it.scanResult.patternScanResult!!
 
                 // If the field is true, the TextView is for a dislike button.
-                val isDisLikesBooleanReference = getInstruction<ReferenceInstruction>(patternResult.endIndex).reference
+                val isDisLikesBooleanReference =
+                    getInstruction<ReferenceInstruction>(patternResult.endIndex).reference
 
                 val textViewFieldReference = // Like/Dislike button TextView field
                     getInstruction<ReferenceInstruction>(patternResult.endIndex - 2).reference
@@ -54,6 +55,7 @@ class ReturnYouTubeDislikeShortsPatch : BytecodePatch(
         } ?: return ShortsTextViewFingerprint.toErrorResult()
         return PatchResultSuccess()
     }
+
     private companion object {
         const val INTEGRATIONS_RYD_CLASS_DESCRIPTOR =
             "$UTILS_PATH/ReturnYouTubeDislikePatch;"

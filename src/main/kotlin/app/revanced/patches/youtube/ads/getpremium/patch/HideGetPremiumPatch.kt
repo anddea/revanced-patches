@@ -24,8 +24,10 @@ class HideGetPremiumPatch : BytecodePatch(
         CompactYpcOfferModuleViewFingerprint.result?.let {
             it.mutableMethod.apply {
                 val startIndex = it.scanResult.patternScanResult!!.startIndex
-                val measuredWidthRegister = getInstruction<TwoRegisterInstruction>(startIndex).registerA
-                val measuredHeightInstruction = getInstruction<TwoRegisterInstruction>(startIndex + 1)
+                val measuredWidthRegister =
+                    getInstruction<TwoRegisterInstruction>(startIndex).registerA
+                val measuredHeightInstruction =
+                    getInstruction<TwoRegisterInstruction>(startIndex + 1)
                 val measuredHeightRegister = measuredHeightInstruction.registerA
                 val tempRegister = measuredHeightInstruction.registerB
 

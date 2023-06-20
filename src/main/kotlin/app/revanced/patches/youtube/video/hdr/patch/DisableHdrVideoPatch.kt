@@ -15,7 +15,7 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.shared.annotation.YouTubeCompatibility
+import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.patches.youtube.video.hdr.fingerprints.HdrCapabilitiesFingerprint
 import app.revanced.util.integrations.Constants.VIDEO_PATH
@@ -32,10 +32,11 @@ class DisableHdrVideoPatch : BytecodePatch(
     override fun execute(context: BytecodeContext): PatchResult {
 
         HdrCapabilitiesFingerprint.result?.let {
-            with (context
-                .toMethodWalker(it.method)
-                .nextMethod(it.scanResult.patternScanResult!!.endIndex, true)
-                .getMethod() as MutableMethod
+            with(
+                context
+                    .toMethodWalker(it.method)
+                    .nextMethod(it.scanResult.patternScanResult!!.endIndex, true)
+                    .getMethod() as MutableMethod
             ) {
                 addInstructionsWithLabels(
                     0, """
