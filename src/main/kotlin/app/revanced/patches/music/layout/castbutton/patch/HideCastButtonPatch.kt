@@ -15,14 +15,14 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.music.utils.annotations.MusicCompatibility
 import app.revanced.patches.music.layout.castbutton.fingerprints.HideCastButtonFingerprint
 import app.revanced.patches.music.layout.castbutton.fingerprints.HideCastButtonParentFingerprint
-import app.revanced.patches.music.utils.settings.resource.patch.MusicSettingsPatch
+import app.revanced.patches.music.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.enum.CategoryType
 import app.revanced.util.integrations.Constants.MUSIC_LAYOUT
 
 @Patch
-@Name("hide-music-cast-button")
+@Name("hide-cast-button")
 @Description("Hides the cast button in the video player and header.")
-@DependsOn([MusicSettingsPatch::class])
+@DependsOn([SettingsPatch::class])
 @MusicCompatibility
 @Version("0.0.1")
 class HideCastButtonPatch : BytecodePatch(
@@ -44,7 +44,7 @@ class HideCastButtonPatch : BytecodePatch(
             ) ?: return HideCastButtonFingerprint.toErrorResult()
         } ?: return HideCastButtonParentFingerprint.toErrorResult()
 
-        MusicSettingsPatch.addMusicPreference(
+        SettingsPatch.addMusicPreference(
             CategoryType.LAYOUT,
             "revanced_hide_cast_button",
             "true"

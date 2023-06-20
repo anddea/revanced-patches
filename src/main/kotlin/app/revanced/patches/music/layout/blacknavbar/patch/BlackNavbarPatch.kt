@@ -15,7 +15,7 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.music.utils.annotations.MusicCompatibility
 import app.revanced.patches.music.layout.blacknavbar.fingerprints.TabLayoutFingerprint
 import app.revanced.patches.music.utils.resourceid.patch.SharedResourceIdPatch
-import app.revanced.patches.music.utils.settings.resource.patch.MusicSettingsPatch
+import app.revanced.patches.music.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.enum.CategoryType
 import app.revanced.util.integrations.Constants.MUSIC_LAYOUT
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
@@ -25,7 +25,7 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 @Description("Sets the navigation bar color to black.")
 @DependsOn(
     [
-        MusicSettingsPatch::class,
+        SettingsPatch::class,
         SharedResourceIdPatch::class
     ]
 )
@@ -50,7 +50,7 @@ class BlackNavbarPatch : BytecodePatch(
             }
         } ?: return TabLayoutFingerprint.toErrorResult()
 
-        MusicSettingsPatch.addMusicPreference(
+        SettingsPatch.addMusicPreference(
             CategoryType.LAYOUT,
             "revanced_enable_black_navbar",
             "true"

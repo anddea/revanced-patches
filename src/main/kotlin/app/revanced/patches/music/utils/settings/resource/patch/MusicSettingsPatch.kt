@@ -9,7 +9,7 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.music.utils.annotations.MusicCompatibility
-import app.revanced.patches.music.utils.settings.bytecode.patch.MusicSettingsBytecodePatch
+import app.revanced.patches.music.utils.settings.bytecode.patch.SettingsBytecodePatch
 import app.revanced.patches.shared.patch.settings.AbstractSettingsResourcePatch
 import app.revanced.util.enum.CategoryType
 import app.revanced.util.resources.IconHelper
@@ -26,12 +26,12 @@ import java.io.File
 import java.nio.file.Paths
 
 @Patch
-@Name("music-settings")
+@Name("settings")
 @Description("Adds settings for ReVanced to YouTube Music.")
-@DependsOn([MusicSettingsBytecodePatch::class])
+@DependsOn([SettingsBytecodePatch::class])
 @MusicCompatibility
 @Version("0.0.1")
-class MusicSettingsPatch : AbstractSettingsResourcePatch(
+class SettingsPatch : AbstractSettingsResourcePatch(
     "music/settings",
     "music/settings/host",
     false

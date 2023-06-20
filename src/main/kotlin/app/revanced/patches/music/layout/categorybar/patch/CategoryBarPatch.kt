@@ -15,7 +15,7 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.music.utils.annotations.MusicCompatibility
 import app.revanced.patches.music.layout.categorybar.fingerprints.ChipCloudFingerprint
 import app.revanced.patches.music.utils.resourceid.patch.SharedResourceIdPatch
-import app.revanced.patches.music.utils.settings.resource.patch.MusicSettingsPatch
+import app.revanced.patches.music.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.enum.CategoryType
 import app.revanced.util.integrations.Constants.MUSIC_LAYOUT
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
@@ -25,8 +25,8 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 @Description("Hides the music category bar at the top of the homepage.")
 @DependsOn(
     [
-        SharedResourceIdPatch::class,
-        MusicSettingsPatch::class
+        SettingsPatch::class,
+        SharedResourceIdPatch::class
     ]
 )
 @MusicCompatibility
@@ -47,7 +47,7 @@ class CategoryBarPatch : BytecodePatch(
             }
         } ?: return ChipCloudFingerprint.toErrorResult()
 
-        MusicSettingsPatch.addMusicPreference(
+        SettingsPatch.addMusicPreference(
             CategoryType.LAYOUT,
             "revanced_hide_category_bar",
             "true"

@@ -11,18 +11,18 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.music.utils.annotations.MusicCompatibility
-import app.revanced.patches.music.utils.integrations.patch.MusicIntegrationsPatch
+import app.revanced.patches.music.utils.integrations.patch.IntegrationsPatch
 import app.revanced.patches.music.utils.settings.bytecode.fingerprints.PreferenceFingerprint
 import app.revanced.patches.music.utils.settings.bytecode.fingerprints.SettingsHeadersFragmentFingerprint
 import app.revanced.util.integrations.Constants.MUSIC_INTEGRATIONS_PATH
 import org.jf.dexlib2.iface.instruction.FiveRegisterInstruction
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
-@Name("music-settings-bytecode-patch")
-@DependsOn([MusicIntegrationsPatch::class])
+@Name("settings-bytecode-patch")
+@DependsOn([IntegrationsPatch::class])
 @MusicCompatibility
 @Version("0.0.1")
-class MusicSettingsBytecodePatch : BytecodePatch(
+class SettingsBytecodePatch : BytecodePatch(
     listOf(
         PreferenceFingerprint,
         SettingsHeadersFragmentFingerprint

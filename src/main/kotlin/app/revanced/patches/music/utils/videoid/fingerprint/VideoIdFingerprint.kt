@@ -3,7 +3,7 @@ package app.revanced.patches.music.utils.videoid.fingerprint
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import org.jf.dexlib2.Opcode
 
-object MusicVideoIdFingerprint : MethodFingerprint(
+object VideoIdFingerprint : MethodFingerprint(
     returnType = "V",
     parameters = listOf("L"),
     opcodes = listOf(

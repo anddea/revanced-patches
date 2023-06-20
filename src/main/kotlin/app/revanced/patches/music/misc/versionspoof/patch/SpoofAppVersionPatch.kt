@@ -9,7 +9,7 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.music.utils.annotations.MusicCompatibility
-import app.revanced.patches.music.utils.settings.resource.patch.MusicSettingsPatch
+import app.revanced.patches.music.utils.settings.resource.patch.SettingsPatch
 import app.revanced.patches.shared.patch.versionspoof.AbstractVersionSpoofPatch
 import app.revanced.util.enum.CategoryType
 import app.revanced.util.integrations.Constants.MUSIC_MISC_PATH
@@ -17,7 +17,7 @@ import app.revanced.util.integrations.Constants.MUSIC_MISC_PATH
 @Patch
 @Name("spoof-app-version")
 @Description("Spoof the YouTube Music client version.")
-@DependsOn([MusicSettingsPatch::class])
+@DependsOn([SettingsPatch::class])
 @MusicCompatibility
 @Version("0.0.1")
 class SpoofAppVersionPatch : AbstractVersionSpoofPatch(
@@ -25,7 +25,7 @@ class SpoofAppVersionPatch : AbstractVersionSpoofPatch(
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
 
-        MusicSettingsPatch.addMusicPreference(
+        SettingsPatch.addMusicPreference(
             CategoryType.MISC,
             "revanced_spoof_app_version",
             "false"

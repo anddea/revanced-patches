@@ -20,8 +20,8 @@ import app.revanced.patches.music.misc.sharebuttonhook.fingerprints.ConnectionTr
 import app.revanced.patches.music.misc.sharebuttonhook.fingerprints.FullStackTraceActivityFingerprint
 import app.revanced.patches.music.misc.sharebuttonhook.fingerprints.SharePanelFingerprint
 import app.revanced.patches.music.misc.sharebuttonhook.fingerprints.ShowToastFingerprint
-import app.revanced.patches.music.utils.settings.resource.patch.MusicSettingsPatch
-import app.revanced.patches.music.utils.videoid.patch.MusicVideoIdPatch
+import app.revanced.patches.music.utils.settings.resource.patch.SettingsPatch
+import app.revanced.patches.music.utils.videoid.patch.VideoIdPatch
 import app.revanced.util.enum.CategoryType
 import app.revanced.util.integrations.Constants.MUSIC_INTEGRATIONS_PATH
 import app.revanced.util.integrations.Constants.MUSIC_MISC_PATH
@@ -31,8 +31,8 @@ import app.revanced.util.integrations.Constants.MUSIC_MISC_PATH
 @Description("Replace share button with external download button or sleep timer dialog.")
 @DependsOn(
     [
-        MusicSettingsPatch::class,
-        MusicVideoIdPatch::class
+        SettingsPatch::class,
+        VideoIdPatch::class
     ]
 )
 @MusicCompatibility
@@ -80,12 +80,12 @@ class ShareButtonHookPatch : BytecodePatch(
                 """
         ) ?: return FullStackTraceActivityFingerprint.toErrorResult()
 
-        MusicSettingsPatch.addMusicPreference(
+        SettingsPatch.addMusicPreference(
             CategoryType.MISC,
             "revanced_hook_share_button",
             "false"
         )
-        MusicSettingsPatch.addMusicPreferenceWithIntent(
+        SettingsPatch.addMusicPreferenceWithIntent(
             CategoryType.MISC,
             "revanced_default_downloader",
             "revanced_hook_share_button"

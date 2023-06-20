@@ -12,27 +12,27 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.music.utils.annotations.MusicCompatibility
-import app.revanced.patches.music.utils.videoid.fingerprint.MusicVideoIdFingerprint
+import app.revanced.patches.music.utils.videoid.fingerprint.VideoIdFingerprint
 import app.revanced.util.integrations.Constants.MUSIC_UTILS_PATH
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
-@Name("music-video-id-hook")
+@Name("video-id-hook")
 @Description("Hook to detect when the video id changes.")
 @MusicCompatibility
 @Version("0.0.1")
-class MusicVideoIdPatch : BytecodePatch(
-    listOf(MusicVideoIdFingerprint)
+class VideoIdPatch : BytecodePatch(
+    listOf(VideoIdFingerprint)
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
 
-        MusicVideoIdFingerprint.result?.let {
+        VideoIdFingerprint.result?.let {
             it.mutableMethod.apply {
                 insertIndex = it.scanResult.patternScanResult!!.endIndex
                 insertMethod = this
                 videoIdRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
             }
             offset++ // offset so setVideoId is called before any injected call
-        } ?: return MusicVideoIdFingerprint.toErrorResult()
+        } ?: return VideoIdFingerprint.toErrorResult()
 
         injectCall("$INTEGRATIONS_CLASS_DESCRIPTOR->setVideoId(Ljava/lang/String;)V")
 

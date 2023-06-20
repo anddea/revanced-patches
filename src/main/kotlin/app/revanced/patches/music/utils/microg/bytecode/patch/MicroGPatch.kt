@@ -17,7 +17,7 @@ import app.revanced.patches.music.utils.microg.bytecode.fingerprints.CastDynamit
 import app.revanced.patches.music.utils.microg.bytecode.fingerprints.GooglePlayUtilityFingerprint
 import app.revanced.patches.music.utils.microg.bytecode.fingerprints.PrimeFingerprint
 import app.revanced.patches.music.utils.microg.bytecode.fingerprints.ServiceCheckFingerprint
-import app.revanced.patches.music.utils.microg.resource.patch.MusicMicroGResourcePatch
+import app.revanced.patches.music.utils.microg.resource.patch.MicroGResourcePatch
 import app.revanced.patches.music.utils.microg.shared.Constants.MUSIC_PACKAGE_NAME
 import app.revanced.patches.music.utils.microg.shared.Constants.YOUTUBE_PACKAGE_NAME
 import app.revanced.patches.shared.patch.packagename.PackageNamePatch
@@ -27,15 +27,15 @@ import app.revanced.util.microg.MicroGBytecodeHelper
 @DependsOn(
     [
         ClientSpoofMusicPatch::class,
-        MusicMicroGResourcePatch::class,
+        MicroGResourcePatch::class,
         PackageNamePatch::class
     ]
 )
-@Name("music-microg-support")
+@Name("microg-support")
 @Description("Allows ReVanced Music to run without root and under a different package name with MicroG.")
 @MusicCompatibility
 @Version("0.0.2")
-class MusicMicroGBytecodePatch : BytecodePatch(
+class MicroGPatch : BytecodePatch(
     listOf(
         ServiceCheckFingerprint,
         GooglePlayUtilityFingerprint,

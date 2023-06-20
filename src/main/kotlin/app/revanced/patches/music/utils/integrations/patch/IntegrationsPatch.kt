@@ -7,10 +7,10 @@ import app.revanced.patches.music.utils.integrations.fingerprints.InitFingerprin
 import app.revanced.patches.shared.patch.integrations.AbstractIntegrationsPatch
 import app.revanced.util.integrations.Constants.MUSIC_INTEGRATIONS_PATH
 
-@Name("music-integrations")
+@Name("integrations")
 @MusicCompatibility
 @RequiresIntegrations
-class MusicIntegrationsPatch : AbstractIntegrationsPatch(
+class IntegrationsPatch : AbstractIntegrationsPatch(
     "$MUSIC_INTEGRATIONS_PATH/utils/ReVancedUtils;",
     listOf(InitFingerprint),
 )

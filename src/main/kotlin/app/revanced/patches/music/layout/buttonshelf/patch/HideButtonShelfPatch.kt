@@ -10,8 +10,8 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.music.utils.annotations.MusicCompatibility
-import app.revanced.patches.music.utils.litho.patch.MusicLithoFilterPatch
-import app.revanced.patches.music.utils.settings.resource.patch.MusicSettingsPatch
+import app.revanced.patches.music.utils.litho.patch.LithoFilterPatch
+import app.revanced.patches.music.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.enum.CategoryType
 
 @Patch
@@ -19,8 +19,8 @@ import app.revanced.util.enum.CategoryType
 @Description("Hides the button shelf from homepage and explorer.")
 @DependsOn(
     [
-        MusicLithoFilterPatch::class,
-        MusicSettingsPatch::class
+        LithoFilterPatch::class,
+        SettingsPatch::class
     ]
 )
 @MusicCompatibility
@@ -28,7 +28,7 @@ import app.revanced.util.enum.CategoryType
 class HideButtonShelfPatch : BytecodePatch() {
     override fun execute(context: BytecodeContext): PatchResult {
 
-        MusicSettingsPatch.addMusicPreference(
+        SettingsPatch.addMusicPreference(
             CategoryType.LAYOUT,
             "revanced_hide_button_shelf",
             "false"
