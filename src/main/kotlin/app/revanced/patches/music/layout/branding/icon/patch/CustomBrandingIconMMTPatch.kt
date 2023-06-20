@@ -10,16 +10,18 @@ import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.music.utils.annotations.MusicCompatibility
 import app.revanced.util.resources.IconHelper.customIconMusic
+import app.revanced.util.resources.IconHelper.customIconMusicAdditional
 
-@Patch
-@Name("custom-branding-music-revancify-blue")
-@Description("Changes the YouTube Music launcher icon to Revancify Blue.")
+@Patch(false)
+@Name("custom-branding-icon-mmt")
+@Description("Changes the YouTube Music launcher icon to MMT.")
 @MusicCompatibility
 @Version("0.0.1")
-class CustomBrandingMusicIconRevancifyBluePatch : ResourcePatch {
+class CustomBrandingIconMMTPatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
 
-        context.customIconMusic("revancify-blue")
+        context.customIconMusic("mmt")
+        context.customIconMusicAdditional("mmt")
 
         return PatchResultSuccess()
     }

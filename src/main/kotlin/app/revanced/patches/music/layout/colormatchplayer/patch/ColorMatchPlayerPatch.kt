@@ -18,7 +18,7 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.music.utils.annotations.MusicCompatibility
 import app.revanced.patches.music.layout.colormatchplayer.fingerprints.ColorMatchPlayerFingerprint
-import app.revanced.patches.music.utils.settings.resource.patch.MusicSettingsPatch
+import app.revanced.patches.music.utils.settings.resource.patch.SettingsPatch
 import app.revanced.patches.music.utils.fingerprints.ColorMatchPlayerParentFingerprint
 import app.revanced.util.enum.CategoryType
 import app.revanced.util.integrations.Constants.MUSIC_LAYOUT
@@ -28,7 +28,7 @@ import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 @Patch
 @Name("enable-color-match-player")
 @Description("Matches the fullscreen player color with the minimized one.")
-@DependsOn([MusicSettingsPatch::class])
+@DependsOn([SettingsPatch::class])
 @MusicCompatibility
 @Version("0.0.1")
 class ColorMatchPlayerPatch : BytecodePatch(
@@ -77,7 +77,7 @@ class ColorMatchPlayerPatch : BytecodePatch(
             } ?: return ColorMatchPlayerFingerprint.toErrorResult()
         } ?: return ColorMatchPlayerParentFingerprint.toErrorResult()
 
-        MusicSettingsPatch.addMusicPreference(
+        SettingsPatch.addMusicPreference(
             CategoryType.LAYOUT,
             "revanced_enable_color_match_player",
             "true"

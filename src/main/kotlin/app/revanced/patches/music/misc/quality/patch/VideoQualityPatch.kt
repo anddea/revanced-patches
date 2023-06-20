@@ -20,8 +20,8 @@ import app.revanced.patches.music.misc.quality.fingerprints.MusicVideoQualitySet
 import app.revanced.patches.music.misc.quality.fingerprints.MusicVideoQualitySettingsParentFingerprint
 import app.revanced.patches.music.misc.quality.fingerprints.UserQualityChangeFingerprint
 import app.revanced.patches.music.utils.resourceid.patch.SharedResourceIdPatch
-import app.revanced.patches.music.utils.settings.resource.patch.MusicSettingsPatch
-import app.revanced.patches.music.utils.videoid.patch.MusicVideoIdPatch
+import app.revanced.patches.music.utils.settings.resource.patch.SettingsPatch
+import app.revanced.patches.music.utils.videoid.patch.VideoIdPatch
 import app.revanced.util.enum.CategoryType
 import app.revanced.util.integrations.Constants.MUSIC_MISC_PATH
 import org.jf.dexlib2.Opcode
@@ -36,9 +36,9 @@ import org.jf.dexlib2.iface.reference.Reference
 @Description("Save the video quality value whenever you change the video quality.")
 @DependsOn(
     [
-        MusicSettingsPatch::class,
-        MusicVideoIdPatch::class,
-        SharedResourceIdPatch::class
+        SettingsPatch::class,
+        SharedResourceIdPatch::class,
+        VideoIdPatch::class
     ]
 )
 @MusicCompatibility
@@ -101,8 +101,8 @@ class VideoQualityPatch : BytecodePatch(
             ) ?: return MusicVideoQualitySettingsFingerprint.toErrorResult()
         } ?: return MusicVideoQualitySettingsParentFingerprint.toErrorResult()
 
-        MusicVideoIdPatch.injectCall("$INTEGRATIONS_VIDEO_QUALITY_CLASS_DESCRIPTOR->newVideoStarted(Ljava/lang/String;)V")
-        MusicSettingsPatch.addMusicPreference(
+        VideoIdPatch.injectCall("$INTEGRATIONS_VIDEO_QUALITY_CLASS_DESCRIPTOR->newVideoStarted(Ljava/lang/String;)V")
+        SettingsPatch.addMusicPreference(
             CategoryType.MISC,
             "revanced_enable_save_video_quality",
             "true"
@@ -113,7 +113,7 @@ class VideoQualityPatch : BytecodePatch(
 
     private companion object {
         const val INTEGRATIONS_VIDEO_QUALITY_CLASS_DESCRIPTOR =
-            "$MUSIC_MISC_PATH/MusicVideoQualityPatch;"
+            "$MUSIC_MISC_PATH/VideoQualityPatch;"
 
         private lateinit var qIndexMethodName: String
         private lateinit var qualityReference: Reference

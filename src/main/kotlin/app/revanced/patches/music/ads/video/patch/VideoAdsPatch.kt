@@ -9,8 +9,8 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.music.utils.annotations.MusicCompatibility
-import app.revanced.patches.music.utils.litho.patch.MusicLithoFilterPatch
-import app.revanced.patches.music.utils.settings.resource.patch.MusicSettingsPatch
+import app.revanced.patches.music.utils.litho.patch.LithoFilterPatch
+import app.revanced.patches.music.utils.settings.resource.patch.SettingsPatch
 import app.revanced.patches.shared.patch.videoads.AbstractVideoAdsPatch
 import app.revanced.util.enum.CategoryType
 import app.revanced.util.integrations.Constants.MUSIC_ADS_PATH
@@ -20,19 +20,19 @@ import app.revanced.util.integrations.Constants.MUSIC_ADS_PATH
 @Description("Removes ads in the music player.")
 @DependsOn(
     [
-        MusicLithoFilterPatch::class,
-        MusicSettingsPatch::class
+        LithoFilterPatch::class,
+        SettingsPatch::class
     ]
 )
 @MusicCompatibility
 @Version("0.0.1")
-class MusicVideoAdsPatch : AbstractVideoAdsPatch(
+class VideoAdsPatch : AbstractVideoAdsPatch(
     "$MUSIC_ADS_PATH/HideMusicAdsPatch;->hideMusicAds()Z"
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
         super.execute(context)
 
-        MusicSettingsPatch.addMusicPreference(CategoryType.ADS, "revanced_hide_music_ads", "true")
+        SettingsPatch.addMusicPreference(CategoryType.ADS, "revanced_hide_music_ads", "true")
 
         return PatchResultSuccess()
     }

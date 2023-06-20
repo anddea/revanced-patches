@@ -17,7 +17,7 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.music.utils.annotations.MusicCompatibility
 import app.revanced.patches.music.misc.upgradebutton.fingerprints.NotifierShelfFingerprint
 import app.revanced.patches.music.misc.upgradebutton.fingerprints.PivotBarConstructorFingerprint
-import app.revanced.patches.music.utils.integrations.patch.MusicIntegrationsPatch
+import app.revanced.patches.music.utils.integrations.patch.IntegrationsPatch
 import app.revanced.patches.music.utils.resourceid.patch.SharedResourceIdPatch
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
@@ -28,7 +28,7 @@ import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
 @Description("Remove upgrade tab from pivot bar, hide upgrade banner from homepage.")
 @DependsOn(
     [
-        MusicIntegrationsPatch::class,
+        IntegrationsPatch::class,
         SharedResourceIdPatch::class
     ]
 )

@@ -19,7 +19,7 @@ import org.w3c.dom.Element
 @Description("Changes the Music launcher name to your choice (defaults to YTM Extended, ReVanced Music Extended).")
 @MusicCompatibility
 @Version("0.0.1")
-class CustomBrandingMusicNamePatch : ResourcePatch {
+class CustomBrandingNamePatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
 
         // App name

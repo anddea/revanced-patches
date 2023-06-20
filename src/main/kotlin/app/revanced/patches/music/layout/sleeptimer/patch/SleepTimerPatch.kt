@@ -14,7 +14,7 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.music.utils.annotations.MusicCompatibility
 import app.revanced.patches.music.layout.sleeptimer.fingerprints.SleepTimerFingerprint
-import app.revanced.patches.music.utils.settings.resource.patch.MusicSettingsPatch
+import app.revanced.patches.music.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.enum.CategoryType
 import app.revanced.util.integrations.Constants.MUSIC_LAYOUT
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
@@ -22,7 +22,7 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 @Patch
 @Name("enable-sleep-timer")
 @Description("Add sleep timer to flyout menu.")
-@DependsOn([MusicSettingsPatch::class])
+@DependsOn([SettingsPatch::class])
 @MusicCompatibility
 @Version("0.0.1")
 class SleepTimerPatch : BytecodePatch(
@@ -44,7 +44,7 @@ class SleepTimerPatch : BytecodePatch(
             }
         } ?: return SleepTimerFingerprint.toErrorResult()
 
-        MusicSettingsPatch.addMusicPreference(
+        SettingsPatch.addMusicPreference(
             CategoryType.LAYOUT,
             "revanced_enable_sleep_timer",
             "true"

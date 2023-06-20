@@ -16,7 +16,7 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.music.utils.annotations.MusicCompatibility
 import app.revanced.patches.music.layout.oldstyleminiplayer.fingerprints.NextButtonVisibilityFingerprint
 import app.revanced.patches.music.layout.oldstyleminiplayer.fingerprints.SwipeToCloseFingerprint
-import app.revanced.patches.music.utils.settings.resource.patch.MusicSettingsPatch
+import app.revanced.patches.music.utils.settings.resource.patch.SettingsPatch
 import app.revanced.patches.music.utils.fingerprints.ColorMatchPlayerParentFingerprint
 import app.revanced.util.enum.CategoryType
 import app.revanced.util.integrations.Constants.MUSIC_LAYOUT
@@ -25,7 +25,7 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 @Patch
 @Name("enable-old-style-miniplayer")
 @Description("Return the miniplayers to old style. (for YT Music v5.55.53+)")
-@DependsOn([MusicSettingsPatch::class])
+@DependsOn([SettingsPatch::class])
 @MusicCompatibility
 @Version("0.0.1")
 class OldStyleMiniPlayerPatch : BytecodePatch(
@@ -72,7 +72,7 @@ class OldStyleMiniPlayerPatch : BytecodePatch(
             }
         } ?: return SwipeToCloseFingerprint.toErrorResult()
 
-        MusicSettingsPatch.addMusicPreference(
+        SettingsPatch.addMusicPreference(
             CategoryType.LAYOUT,
             "revanced_enable_old_style_mini_player",
             "false"

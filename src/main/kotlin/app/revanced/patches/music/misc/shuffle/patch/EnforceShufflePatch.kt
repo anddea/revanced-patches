@@ -24,7 +24,7 @@ import app.revanced.patches.music.misc.shuffle.fingerprints.MusicPlaybackControl
 import app.revanced.patches.music.misc.shuffle.fingerprints.ShuffleClassFingerprint
 import app.revanced.patches.music.misc.shuffle.fingerprints.ShuffleClassReferenceFingerprint
 import app.revanced.patches.music.utils.resourceid.patch.SharedResourceIdPatch
-import app.revanced.patches.music.utils.settings.resource.patch.MusicSettingsPatch
+import app.revanced.patches.music.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.enum.CategoryType
 import app.revanced.util.integrations.Constants.MUSIC_MISC_PATH
 import org.jf.dexlib2.AccessFlags
@@ -42,7 +42,7 @@ import org.jf.dexlib2.immutable.ImmutableMethodParameter
 @Description("Enable force shuffle even if another track is played.")
 @DependsOn(
     [
-        MusicSettingsPatch::class,
+        SettingsPatch::class,
         SharedResourceIdPatch::class
     ]
 )
@@ -165,7 +165,7 @@ class EnforceShufflePatch : BytecodePatch(
             }
         } ?: return MusicPlaybackControlsFingerprint.toErrorResult()
 
-        MusicSettingsPatch.addMusicPreference(
+        SettingsPatch.addMusicPreference(
             CategoryType.MISC,
             "revanced_enable_force_shuffle",
             "true"
