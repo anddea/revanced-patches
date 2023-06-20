@@ -6,12 +6,10 @@ import app.revanced.patcher.annotation.Package
 @Compatibility(
     [Package(
         "com.google.android.youtube", arrayOf(
-            "18.12.35",
-            "18.13.38",
-            "18.14.41",
-            "18.15.40",
-            "18.16.39",
-            "18.17.43"
+            "18.19.36",
+            "18.20.39",
+            "18.21.35",
+            "18.22.37"
         )
     )]
 )

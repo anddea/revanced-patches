@@ -5,6 +5,7 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
+import app.revanced.patcher.data.toMethodWalker
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -14,12 +15,16 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
+import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.shared.fingerprints.LayoutSwitchFingerprint
-import app.revanced.patches.youtube.misc.layoutswitch.fingerprints.*
+import app.revanced.patches.youtube.misc.layoutswitch.fingerprints.ClientFormFactorFingerprint
+import app.revanced.patches.youtube.misc.layoutswitch.fingerprints.ClientFormFactorParentFingerprint
+import app.revanced.patches.youtube.misc.layoutswitch.fingerprints.ClientFormFactorWalkerFingerprint
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.integrations.Constants.MISC_PATH
+import org.jf.dexlib2.Opcode
 
 @Patch
 @Name("layout-switch")
@@ -35,19 +40,36 @@ class LayoutSwitchPatch : BytecodePatch(
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
 
-        ClientFormFactorParentFingerprint.result?.let { parentResult ->
-            ClientFormFactorFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.let {
-                it.mutableMethod.apply {
-                    val jumpIndex = it.scanResult.patternScanResult!!.startIndex + 1
-                    addInstructionsWithLabels(
-                        1, """
-                            invoke-static {}, $MISC_PATH/LayoutOverridePatch;->enableTabletLayout()Z
-                            move-result v2
-                            if-nez v2, :tablet_layout
-                            """, ExternalLabel("tablet_layout", getInstruction(jumpIndex))
-                    )
+        fun MutableMethod.injectTabletLayout(jumpIndex: Int) {
+            addInstructionsWithLabels(
+                0, """
+                    invoke-static {}, $MISC_PATH/LayoutOverridePatch;->enableTabletLayout()Z
+                    move-result v0
+                    if-nez v0, :tablet_layout
+                    """, ExternalLabel("tablet_layout", getInstruction(jumpIndex))
+            )
+        }
+
+        ClientFormFactorParentFingerprint.result?.classDef?.let { classDef ->
+            try {
+                ClientFormFactorFingerprint.also { it.resolve(context, classDef) }.result!!.apply {
+                    mutableMethod.injectTabletLayout(scanResult.patternScanResult!!.startIndex + 1)
                 }
-            } ?: return ClientFormFactorFingerprint.toErrorResult()
+            } catch (_: Exception) {
+                ClientFormFactorWalkerFingerprint.also { it.resolve(context, classDef) }.result?.let {
+                    (context
+                        .toMethodWalker(it.method)
+                        .nextMethod(it.scanResult.patternScanResult!!.startIndex, true)
+                        .getMethod() as MutableMethod).apply {
+
+                            val jumpIndex = implementation!!.instructions.indexOfFirst { instruction ->
+                                instruction.opcode == Opcode.RETURN_OBJECT
+                            } - 1
+
+                        injectTabletLayout(jumpIndex)
+                        }
+                } ?: return ClientFormFactorWalkerFingerprint.toErrorResult()
+            }
         } ?: return ClientFormFactorParentFingerprint.toErrorResult()
 
         LayoutSwitchFingerprint.result?.mutableMethod?.addInstructions(
@@ -57,7 +79,7 @@ class LayoutSwitchPatch : BytecodePatch(
                 """
         ) ?: return LayoutSwitchFingerprint.toErrorResult()
 
-        /*(
+        /**
          * Add settings
          */
         SettingsPatch.addPreference(
