@@ -16,9 +16,8 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.music.utils.settings.resource.patch.MusicSettingsPatch
-import app.revanced.patches.music.utils.videoid.patch.MusicVideoIdPatch
 import app.revanced.patches.music.misc.sharebuttonhook.fingerprints.*
-import app.revanced.patches.music.misc.sleeptimerhook.patch.SleepTimerHookPatch
+import app.revanced.patches.music.utils.videoid.patch.MusicVideoIdPatch
 import app.revanced.patches.shared.annotation.YouTubeMusicCompatibility
 import app.revanced.util.enum.CategoryType
 import app.revanced.util.integrations.Constants.MUSIC_INTEGRATIONS_PATH
@@ -30,8 +29,7 @@ import app.revanced.util.integrations.Constants.MUSIC_MISC_PATH
 @DependsOn(
     [
         MusicSettingsPatch::class,
-        MusicVideoIdPatch::class,
-        SleepTimerHookPatch::class
+        MusicVideoIdPatch::class
     ]
 )
 @YouTubeMusicCompatibility
@@ -69,7 +67,7 @@ class ShareButtonHookPatch : BytecodePatch(
             0,"""
                 invoke-static {p0}, $INTEGRATIONS_CLASS_DESCRIPTOR->dismissContext(Landroid/content/Context;)Landroid/content/Context;
                 move-result-object p0
-            """
+                """
         ) ?: return ShowToastFingerprint.toErrorResult()
 
         FullStackTraceActivityFingerprint.result?.mutableMethod?.addInstructions(
