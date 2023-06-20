@@ -6,5 +6,9 @@ import app.revanced.util.bytecode.isWideLiteralExists
 
 object TimeBarOnClickListenerFingerprint : MethodFingerprint(
     returnType = "V",
-    customFingerprint = { it, _ -> it.definingClass.endsWith("YouTubeControlsOverlay;") && it.isWideLiteralExists(WatchWhileTimeBarOverlayStub) }
+    customFingerprint = { it, _ ->
+        it.definingClass.endsWith("YouTubeControlsOverlay;") && it.isWideLiteralExists(
+            WatchWhileTimeBarOverlayStub
+        )
+    }
 )

@@ -12,7 +12,7 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patches.shared.annotation.YouTubeCompatibility
+import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.general.channellistsubmenu.fingerprints.ChannelListSubMenuFingerprint
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
@@ -42,7 +42,7 @@ class ChannelListSubMenuPatch : BytecodePatch(
 
                 addInstruction(
                     endIndex + 1,
-                        "invoke-static {v$register}, $GENERAL->hideChannelListSubMenu(Landroid/view/View;)V"
+                    "invoke-static {v$register}, $GENERAL->hideChannelListSubMenu(Landroid/view/View;)V"
                 )
             }
         } ?: return ChannelListSubMenuFingerprint.toErrorResult()

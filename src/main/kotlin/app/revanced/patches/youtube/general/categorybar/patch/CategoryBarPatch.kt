@@ -13,7 +13,7 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patches.shared.annotation.YouTubeCompatibility
+import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.general.categorybar.fingerprints.FilterBarHeightFingerprint
 import app.revanced.patches.youtube.general.categorybar.fingerprints.RelatedChipCloudFingerprint
 import app.revanced.patches.youtube.general.categorybar.fingerprints.SearchResultsChipBarFingerprint
@@ -76,8 +76,9 @@ class CategoryBarPatch : BytecodePatch(
 
         return PatchResultSuccess()
     }
+
     private companion object {
-        private fun <RegisterInstruction: OneRegisterInstruction> MethodFingerprint.patch(
+        private fun <RegisterInstruction : OneRegisterInstruction> MethodFingerprint.patch(
             insertIndexOffset: Int = 0,
             hookRegisterOffset: Int = 0,
             instructions: (Int) -> String
@@ -87,7 +88,8 @@ class CategoryBarPatch : BytecodePatch(
                     val endIndex = it.scanResult.patternScanResult!!.endIndex
 
                     val insertIndex = endIndex + insertIndexOffset
-                    val register = getInstruction<RegisterInstruction>(endIndex + hookRegisterOffset).registerA
+                    val register =
+                        getInstruction<RegisterInstruction>(endIndex + hookRegisterOffset).registerA
 
                     addInstructions(insertIndex, instructions(register))
                 }

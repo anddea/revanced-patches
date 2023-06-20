@@ -32,7 +32,11 @@ internal object MicroGBytecodeHelper {
         return { referencedString ->
             when (referencedString) {
                 "$fromPackageName.SuggestionsProvider",
-                "$fromPackageName.fileprovider" -> referencedString.replace(fromPackageName, toPackageName)
+                "$fromPackageName.fileprovider" -> referencedString.replace(
+                    fromPackageName,
+                    toPackageName
+                )
+
                 else -> null
             }
         }
@@ -61,7 +65,8 @@ internal object MicroGBytecodeHelper {
                     val targetIndex = implementation!!.instructions.indexOfFirst { instructions ->
                         if (instructions.opcode != Opcode.CONST_STRING) return@indexOfFirst false
 
-                        val instructionString = ((instructions as Instruction21c).reference as StringReference).string
+                        val instructionString =
+                            ((instructions as Instruction21c).reference as StringReference).string
                         if (instructionString != fromPackageName) return@indexOfFirst false
 
                         targetRegister = instructions.registerA

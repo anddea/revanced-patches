@@ -8,13 +8,13 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patches.shared.annotation.YouTubeMusicCompatibility
+import app.revanced.patches.music.utils.annotations.MusicCompatibility
 import org.w3c.dom.Element
 
 @Patch
 @Name("amoled")
 @Description("Applies pure black theme in flyout panels.")
-@YouTubeMusicCompatibility
+@MusicCompatibility
 @Version("0.0.1")
 class AmoledPatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {

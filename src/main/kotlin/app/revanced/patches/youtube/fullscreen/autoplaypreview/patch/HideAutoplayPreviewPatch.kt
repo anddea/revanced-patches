@@ -13,8 +13,8 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.shared.annotation.YouTubeCompatibility
-import app.revanced.patches.shared.fingerprints.LayoutConstructorFingerprint
+import app.revanced.patches.youtube.utils.fingerprints.LayoutConstructorFingerprint
+import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch.Companion.AutoNavPreviewStub
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
@@ -45,12 +45,15 @@ class HideAutoplayPreviewPatch : BytecodePatch(
             it.mutableMethod.apply {
                 val insertInstruction = implementation!!.instructions
 
-                val dummyRegister = getInstruction<OneRegisterInstruction>(getStringIndex("1.0x")).registerA
+                val dummyRegister =
+                    getInstruction<OneRegisterInstruction>(getStringIndex("1.0x")).registerA
                 val insertIndex = getWideLiteralIndex(AutoNavPreviewStub)
 
-                val branchIndex = insertInstruction.subList(insertIndex + 1, insertInstruction.size - 1).indexOfFirst { instruction ->
-                    ((instruction as? ReferenceInstruction)?.reference as? FieldReference)?.type == "Lcom/google/android/apps/youtube/app/player/autonav/AutonavToggleController;"
-                } + 1
+                val branchIndex =
+                    insertInstruction.subList(insertIndex + 1, insertInstruction.size - 1)
+                        .indexOfFirst { instruction ->
+                            ((instruction as? ReferenceInstruction)?.reference as? FieldReference)?.type == "Lcom/google/android/apps/youtube/app/player/autonav/AutonavToggleController;"
+                        } + 1
 
                 val jumpInstruction = getInstruction<Instruction>(insertIndex + branchIndex)
 

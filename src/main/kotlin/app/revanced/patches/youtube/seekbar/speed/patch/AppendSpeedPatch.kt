@@ -13,8 +13,8 @@ import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patches.shared.annotation.YouTubeCompatibility
-import app.revanced.patches.shared.fingerprints.TotalTimeFingerprint
+import app.revanced.patches.youtube.utils.fingerprints.TotalTimeFingerprint
+import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.overridespeed.patch.OverrideSpeedHookPatch
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
@@ -47,7 +47,8 @@ class AppendSpeedPatch : BytecodePatch(
                     if (targetInstruction.opcode != Opcode.INVOKE_VIRTUAL) continue
 
                     if (getInstruction<ReferenceInstruction>(targetIndex).reference.toString() ==
-                        "Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;") {
+                        "Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;"
+                    ) {
                         insertIndex = targetIndex + 2
                         val insertRegister = getInstruction<Instruction35c>(insertIndex).registerC
 

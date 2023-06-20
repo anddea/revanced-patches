@@ -5,6 +5,6 @@ import org.jf.dexlib2.Opcode
 
 object ShowToastFingerprint : MethodFingerprint(
     returnType = "V",
-    parameters = listOf("Landroid/content/Context;","Ljava/lang/CharSequence;","I"),
+    parameters = listOf("Landroid/content/Context;", "Ljava/lang/CharSequence;", "I"),
     opcodes = listOf(Opcode.IF_EQZ)
 )

@@ -18,7 +18,8 @@ internal object Constants {
     /**
      * meta-data for microG package signature spoofing on patched builds
      */
-    const val META_SPOOFED_PACKAGE_SIGNATURE = "$MICROG_VENDOR.android.gms.SPOOFED_PACKAGE_SIGNATURE"
+    const val META_SPOOFED_PACKAGE_SIGNATURE =
+        "$MICROG_VENDOR.android.gms.SPOOFED_PACKAGE_SIGNATURE"
 
     /**
      * meta-data for microG package detection

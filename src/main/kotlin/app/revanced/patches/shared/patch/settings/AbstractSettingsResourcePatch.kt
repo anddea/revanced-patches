@@ -27,7 +27,10 @@ abstract class AbstractSettingsResourcePatch(
 
         /* initialize ReVanced Settings */
         if (isYouTube)
-            context.copyResources(sourceDirectory, ResourceUtils.ResourceGroup("xml", "revanced_prefs.xml"))
+            context.copyResources(
+                sourceDirectory,
+                ResourceUtils.ResourceGroup("xml", "revanced_prefs.xml")
+            )
 
         return PatchResultSuccess()
     }

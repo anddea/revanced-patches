@@ -9,7 +9,7 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patches.shared.annotation.MicroGCompatibility
+import app.revanced.patches.microg.utils.annotations.MicroGCompatibility
 import org.w3c.dom.Element
 
 @Patch(false)

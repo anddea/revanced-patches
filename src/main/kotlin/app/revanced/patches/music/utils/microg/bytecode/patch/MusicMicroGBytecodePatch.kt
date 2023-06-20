@@ -1,4 +1,4 @@
-package app.revanced.patches.music.misc.microg.bytecode.patch
+package app.revanced.patches.music.utils.microg.bytecode.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
@@ -9,17 +9,17 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
+import app.revanced.patches.music.utils.annotations.MusicCompatibility
 import app.revanced.patches.music.utils.fix.clientspoof.patch.ClientSpoofMusicPatch
-import app.revanced.patches.music.utils.microg.resource.patch.MusicMicroGResourcePatch
-import app.revanced.patches.music.utils.microg.shared.Constants.MUSIC_PACKAGE_NAME
-import app.revanced.patches.music.utils.microg.shared.Constants.YOUTUBE_PACKAGE_NAME
 import app.revanced.patches.music.utils.microg.bytecode.fingerprints.CastContextFetchFingerprint
 import app.revanced.patches.music.utils.microg.bytecode.fingerprints.CastDynamiteModuleFingerprint
 import app.revanced.patches.music.utils.microg.bytecode.fingerprints.CastDynamiteModuleV2Fingerprint
 import app.revanced.patches.music.utils.microg.bytecode.fingerprints.GooglePlayUtilityFingerprint
 import app.revanced.patches.music.utils.microg.bytecode.fingerprints.PrimeFingerprint
 import app.revanced.patches.music.utils.microg.bytecode.fingerprints.ServiceCheckFingerprint
-import app.revanced.patches.shared.annotation.YouTubeMusicCompatibility
+import app.revanced.patches.music.utils.microg.resource.patch.MusicMicroGResourcePatch
+import app.revanced.patches.music.utils.microg.shared.Constants.MUSIC_PACKAGE_NAME
+import app.revanced.patches.music.utils.microg.shared.Constants.YOUTUBE_PACKAGE_NAME
 import app.revanced.patches.shared.patch.packagename.PackageNamePatch
 import app.revanced.util.microg.MicroGBytecodeHelper
 
@@ -33,7 +33,7 @@ import app.revanced.util.microg.MicroGBytecodeHelper
 )
 @Name("music-microg-support")
 @Description("Allows ReVanced Music to run without root and under a different package name with MicroG.")
-@YouTubeMusicCompatibility
+@MusicCompatibility
 @Version("0.0.2")
 class MusicMicroGBytecodePatch : BytecodePatch(
     listOf(

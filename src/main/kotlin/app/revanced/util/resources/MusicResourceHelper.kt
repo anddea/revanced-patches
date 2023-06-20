@@ -30,22 +30,25 @@ internal object MusicResourceHelper {
 
     private const val YOUTUBE_MUSIC_SETTINGS_KEY = "revanced_extended_settings"
 
-    private const val YOUTUBE_MUSIC_CATEGORY_TAG_NAME = "com.google.android.apps.youtube.music.ui.preference.PreferenceCategoryCompat"
+    private const val YOUTUBE_MUSIC_CATEGORY_TAG_NAME =
+        "com.google.android.apps.youtube.music.ui.preference.PreferenceCategoryCompat"
 
-    private const val YOUTUBE_MUSIC_PREFERENCE_TAG_NAME = "com.google.android.apps.youtube.music.ui.preference.SwitchCompatPreference"
+    private const val YOUTUBE_MUSIC_PREFERENCE_TAG_NAME =
+        "com.google.android.apps.youtube.music.ui.preference.SwitchCompatPreference"
 
-    private const val YOUTUBE_MUSIC_PREFERENCE_TARGET_CLASS = "com.google.android.libraries.strictmode.penalties.notification.FullStackTraceActivity"
+    private const val YOUTUBE_MUSIC_PREFERENCE_TARGET_CLASS =
+        "com.google.android.libraries.strictmode.penalties.notification.FullStackTraceActivity"
 
     private var currentMusicPreferenceCategory = emptyArray<String>()
 
     private var targetPackage = "com.google.android.apps.youtube.music"
 
-    internal fun ResourceContext.setMicroG (newPackage: String) {
+    internal fun ResourceContext.setMicroG(newPackage: String) {
         targetPackage = newPackage
         replacePackageName()
     }
 
-    private fun setMusicPreferenceCategory (newCategory: String) {
+    private fun setMusicPreferenceCategory(newCategory: String) {
         currentMusicPreferenceCategory += listOf(newCategory)
     }
 
@@ -85,9 +88,10 @@ internal object MusicResourceHelper {
         replacePackageName()
     }
 
-    private fun ResourceContext.replacePackageName(){
+    private fun ResourceContext.replacePackageName() {
         this[YOUTUBE_MUSIC_SETTINGS_PATH].writeText(
-            this[YOUTUBE_MUSIC_SETTINGS_PATH].readText().replace("\"com.google.android.apps.youtube.music\"", "\"" + targetPackage + "\"")
+            this[YOUTUBE_MUSIC_SETTINGS_PATH].readText()
+                .replace("\"com.google.android.apps.youtube.music\"", "\"" + targetPackage + "\"")
         )
     }
 
@@ -129,7 +133,10 @@ internal object MusicResourceHelper {
                         this.adoptChild("intent") {
                             setAttribute("android:targetPackage", targetPackage)
                             setAttribute("android:data", key)
-                            setAttribute("android:targetClass", YOUTUBE_MUSIC_PREFERENCE_TARGET_CLASS)
+                            setAttribute(
+                                "android:targetClass",
+                                YOUTUBE_MUSIC_PREFERENCE_TARGET_CLASS
+                            )
                         }
                     }
                 }
@@ -138,13 +145,19 @@ internal object MusicResourceHelper {
 
     internal fun ResourceContext.addReVancedMusicPreference() {
         this.xmlEditor[YOUTUBE_MUSIC_SETTINGS_PATH].use { editor ->
-            with (editor.file) {
+            with(editor.file) {
                 doRecursively loop@{
                     if (it !is Element) return@loop
                     it.getAttributeNode("android:key")?.let { attribute ->
-                        if (attribute.textContent == "settings_header_about_youtube_music" && it.getAttributeNode("app:allowDividerBelow").textContent == "false") {
+                        if (attribute.textContent == "settings_header_about_youtube_music" && it.getAttributeNode(
+                                "app:allowDividerBelow"
+                            ).textContent == "false"
+                        ) {
                             it.insertNode("PreferenceScreen", it) {
-                                setAttribute("android:title", "@string/" + YOUTUBE_MUSIC_SETTINGS_KEY + "_title")
+                                setAttribute(
+                                    "android:title",
+                                    "@string/" + YOUTUBE_MUSIC_SETTINGS_KEY + "_title"
+                                )
                                 setAttribute("android:key", YOUTUBE_MUSIC_SETTINGS_KEY)
                             }
                             it.getAttributeNode("app:allowDividerBelow").textContent = "true"

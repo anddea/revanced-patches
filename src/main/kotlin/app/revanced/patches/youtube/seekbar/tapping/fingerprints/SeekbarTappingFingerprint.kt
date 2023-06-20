@@ -26,5 +26,5 @@ object SeekbarTappingFingerprint : MethodFingerprint(
         Opcode.MOVE_RESULT,
         Opcode.IF_EQZ
     ),
-    customFingerprint = { it, _ -> it.name == "onTouchEvent"}
+    customFingerprint = { it, _ -> it.name == "onTouchEvent" }
 )

@@ -16,10 +16,10 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.smali.ExternalLabel
+import app.revanced.patches.music.utils.annotations.MusicCompatibility
 import app.revanced.patches.music.layout.colormatchplayer.fingerprints.ColorMatchPlayerFingerprint
 import app.revanced.patches.music.utils.settings.resource.patch.MusicSettingsPatch
-import app.revanced.patches.shared.annotation.YouTubeMusicCompatibility
-import app.revanced.patches.shared.fingerprints.ColorMatchPlayerParentFingerprint
+import app.revanced.patches.music.utils.fingerprints.ColorMatchPlayerParentFingerprint
 import app.revanced.util.enum.CategoryType
 import app.revanced.util.integrations.Constants.MUSIC_LAYOUT
 import org.jf.dexlib2.iface.instruction.Instruction
@@ -29,7 +29,7 @@ import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 @Name("enable-color-match-player")
 @Description("Matches the fullscreen player color with the minimized one.")
 @DependsOn([MusicSettingsPatch::class])
-@YouTubeMusicCompatibility
+@MusicCompatibility
 @Version("0.0.1")
 class ColorMatchPlayerPatch : BytecodePatch(
     listOf(ColorMatchPlayerParentFingerprint)
@@ -37,7 +37,12 @@ class ColorMatchPlayerPatch : BytecodePatch(
     override fun execute(context: BytecodeContext): PatchResult {
 
         ColorMatchPlayerParentFingerprint.result?.let { parentResult ->
-            ColorMatchPlayerFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.let {
+            ColorMatchPlayerFingerprint.also {
+                it.resolve(
+                    context,
+                    parentResult.classDef
+                )
+            }.result?.let {
                 it.mutableMethod.apply {
                     targetMethod = parentResult.mutableMethod
 
@@ -72,10 +77,15 @@ class ColorMatchPlayerPatch : BytecodePatch(
             } ?: return ColorMatchPlayerFingerprint.toErrorResult()
         } ?: return ColorMatchPlayerParentFingerprint.toErrorResult()
 
-        MusicSettingsPatch.addMusicPreference(CategoryType.LAYOUT, "revanced_enable_color_match_player", "true")
+        MusicSettingsPatch.addMusicPreference(
+            CategoryType.LAYOUT,
+            "revanced_enable_color_match_player",
+            "true"
+        )
 
         return PatchResultSuccess()
     }
+
     private companion object {
         private lateinit var targetMethod: MutableMethod
 

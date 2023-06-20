@@ -10,7 +10,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
-import app.revanced.patches.shared.annotation.YouTubeCompatibility
+import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.fix.clientspoof.fingerprints.UserAgentHeaderBuilderFingerprint
 import app.revanced.patches.youtube.utils.microg.shared.Constants.PACKAGE_NAME
 import org.jf.dexlib2.iface.instruction.FiveRegisterInstruction
@@ -27,7 +27,8 @@ class ClientSpoofPatch : BytecodePatch(
         UserAgentHeaderBuilderFingerprint.result?.let {
             it.mutableMethod.apply {
                 val insertIndex = it.scanResult.patternScanResult!!.endIndex
-                val packageNameRegister = getInstruction<FiveRegisterInstruction>(insertIndex).registerD
+                val packageNameRegister =
+                    getInstruction<FiveRegisterInstruction>(insertIndex).registerD
 
                 addInstruction(
                     insertIndex,

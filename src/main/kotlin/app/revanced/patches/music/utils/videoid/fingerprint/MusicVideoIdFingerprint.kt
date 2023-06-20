@@ -12,5 +12,5 @@ object MusicVideoIdFingerprint : MethodFingerprint(
         Opcode.INVOKE_INTERFACE,
         Opcode.MOVE_RESULT_OBJECT
     ),
-    customFingerprint = { it, _ -> it.definingClass.endsWith("SubtitlesOverlayPresenter;")  && it.name == "handleVideoStageEvent" }
+    customFingerprint = { it, _ -> it.definingClass.endsWith("SubtitlesOverlayPresenter;") && it.name == "handleVideoStageEvent" }
 )

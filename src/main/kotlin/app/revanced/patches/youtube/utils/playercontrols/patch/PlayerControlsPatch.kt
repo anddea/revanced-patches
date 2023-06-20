@@ -15,8 +15,7 @@ import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.shared.annotation.YouTubeCompatibility
-import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
+import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.playercontrols.fingerprints.BottomControlsInflateFingerprint
 import app.revanced.patches.youtube.utils.playercontrols.fingerprints.ControlsLayoutInflateFingerprint
 import app.revanced.patches.youtube.utils.playercontrols.fingerprints.PlayerControlsVisibilityFingerprint
@@ -25,6 +24,7 @@ import app.revanced.patches.youtube.utils.playercontrols.fingerprints.SeekEDUVis
 import app.revanced.patches.youtube.utils.playercontrols.fingerprints.SpeedEduVisibleFingerprint
 import app.revanced.patches.youtube.utils.playercontrols.fingerprints.SpeedEduVisibleParentFingerprint
 import app.revanced.patches.youtube.utils.playercontrols.fingerprints.UserScrubbingFingerprint
+import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.util.bytecode.getStringIndex
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
@@ -49,17 +49,24 @@ class PlayerControlsPatch : BytecodePatch(
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
 
-        val playerControlsVisibilityModelClassDef = PlayerControlsVisibilityModelFingerprint.result?.classDef?: return PlayerControlsVisibilityModelFingerprint.toErrorResult()
+        val playerControlsVisibilityModelClassDef =
+            PlayerControlsVisibilityModelFingerprint.result?.classDef
+                ?: return PlayerControlsVisibilityModelFingerprint.toErrorResult()
 
         SeekEDUVisibleFingerprint.resolve(context, playerControlsVisibilityModelClassDef)
-        seekEDUVisibleResult = SeekEDUVisibleFingerprint.result?: return SeekEDUVisibleFingerprint.toErrorResult()
+        seekEDUVisibleResult =
+            SeekEDUVisibleFingerprint.result ?: return SeekEDUVisibleFingerprint.toErrorResult()
 
         UserScrubbingFingerprint.resolve(context, playerControlsVisibilityModelClassDef)
-        userScrubbingResult = UserScrubbingFingerprint.result?: return UserScrubbingFingerprint.toErrorResult()
+        userScrubbingResult =
+            UserScrubbingFingerprint.result ?: return UserScrubbingFingerprint.toErrorResult()
 
-        playerControlsVisibilityResult = PlayerControlsVisibilityFingerprint.result?: return PlayerControlsVisibilityFingerprint.toErrorResult()
-        controlsLayoutInflateResult = ControlsLayoutInflateFingerprint.result?: return ControlsLayoutInflateFingerprint.toErrorResult()
-        inflateResult = BottomControlsInflateFingerprint.result?: return BottomControlsInflateFingerprint.toErrorResult()
+        playerControlsVisibilityResult = PlayerControlsVisibilityFingerprint.result
+            ?: return PlayerControlsVisibilityFingerprint.toErrorResult()
+        controlsLayoutInflateResult = ControlsLayoutInflateFingerprint.result
+            ?: return ControlsLayoutInflateFingerprint.toErrorResult()
+        inflateResult = BottomControlsInflateFingerprint.result
+            ?: return BottomControlsInflateFingerprint.toErrorResult()
 
         SpeedEduVisibleParentFingerprint.result?.let { parentResult ->
             var speedIndex = 0
@@ -72,7 +79,8 @@ class PlayerControlsPatch : BytecodePatch(
                     if (instruction.opcode != Opcode.IGET_BOOLEAN) continue
 
                     if (getInstruction<TwoRegisterInstruction>(index).registerA == targetRegister) {
-                        speedEDUVisibleReference = getInstruction<ReferenceInstruction>(index).reference
+                        speedEDUVisibleReference =
+                            getInstruction<ReferenceInstruction>(index).reference
                         speedIndex = index
                         break
                     }
@@ -80,7 +88,12 @@ class PlayerControlsPatch : BytecodePatch(
                 if (speedIndex == 0) return PatchResultError("SpeedEduVisibleParent Instruction not found!")
             }
 
-            SpeedEduVisibleFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.mutableMethod?.let {
+            SpeedEduVisibleFingerprint.also {
+                it.resolve(
+                    context,
+                    parentResult.classDef
+                )
+            }.result?.mutableMethod?.let {
                 it.implementation!!.instructions.apply {
                     for ((index, instruction) in withIndex()) {
                         if (instruction.opcode != Opcode.IPUT_BOOLEAN) continue
@@ -88,7 +101,8 @@ class PlayerControlsPatch : BytecodePatch(
                         if (it.getInstruction<ReferenceInstruction>(index).reference == speedEDUVisibleReference) {
                             speedEDUVisibleMutableMethod = it
                             speedEDUVisibleIndex = index
-                            speedEDUVisibleRegister = it.getInstruction<TwoRegisterInstruction>(index).registerA
+                            speedEDUVisibleRegister =
+                                it.getInstruction<TwoRegisterInstruction>(index).registerA
                             break
                         }
                     }
@@ -146,7 +160,10 @@ class PlayerControlsPatch : BytecodePatch(
 
         fun injectVisibility(descriptor: String) {
             playerControlsVisibilityResult.injectVisibilityCall(descriptor, "changeVisibility")
-            seekEDUVisibleResult.injectVisibilityCall(descriptor, "changeVisibilityNegatedImmediate")
+            seekEDUVisibleResult.injectVisibilityCall(
+                descriptor,
+                "changeVisibilityNegatedImmediate"
+            )
             userScrubbingResult.injectVisibilityCall(descriptor, "changeVisibilityNegatedImmediate")
             injectSpeedEduVisibilityCall(descriptor)
         }

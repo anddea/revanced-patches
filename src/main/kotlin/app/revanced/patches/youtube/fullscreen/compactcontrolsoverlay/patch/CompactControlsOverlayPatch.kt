@@ -14,7 +14,7 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.shared.annotation.YouTubeCompatibility
+import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.fullscreen.compactcontrolsoverlay.fingerprints.YouTubeControlsOverlayFingerprint
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
@@ -38,10 +38,11 @@ class CompactControlsOverlayPatch : BytecodePatch(
     override fun execute(context: BytecodeContext): PatchResult {
 
         YouTubeControlsOverlayFingerprint.result?.let {
-            with (context
-                .toMethodWalker(it.method)
-                .nextMethod(it.scanResult.patternScanResult!!.startIndex, true)
-                .getMethod() as MutableMethod
+            with(
+                context
+                    .toMethodWalker(it.method)
+                    .nextMethod(it.scanResult.patternScanResult!!.startIndex, true)
+                    .getMethod() as MutableMethod
             ) {
                 val insertIndex = implementation!!.instructions.size - 1
                 val targetRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA

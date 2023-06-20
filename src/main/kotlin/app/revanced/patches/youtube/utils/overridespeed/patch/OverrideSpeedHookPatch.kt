@@ -19,15 +19,21 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableField.Companion.toMut
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patcher.util.smali.toInstructions
-import app.revanced.patches.shared.annotation.YouTubeCompatibility
-import app.revanced.patches.youtube.utils.overridespeed.fingerprints.*
+import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
+import app.revanced.patches.youtube.utils.overridespeed.fingerprints.SpeedClassFingerprint
+import app.revanced.patches.youtube.utils.overridespeed.fingerprints.VideoSpeedChangedFingerprint
+import app.revanced.patches.youtube.utils.overridespeed.fingerprints.VideoSpeedParentFingerprint
+import app.revanced.patches.youtube.utils.overridespeed.fingerprints.VideoSpeedPatchFingerprint
 import app.revanced.util.integrations.Constants.INTEGRATIONS_PATH
 import app.revanced.util.integrations.Constants.VIDEO_PATH
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 import org.jf.dexlib2.iface.reference.FieldReference
-import org.jf.dexlib2.immutable.*
+import org.jf.dexlib2.immutable.ImmutableField
+import org.jf.dexlib2.immutable.ImmutableMethod
+import org.jf.dexlib2.immutable.ImmutableMethodImplementation
+import org.jf.dexlib2.immutable.ImmutableMethodParameter
 
 @Name("override-speed-hook")
 @YouTubeCompatibility
@@ -82,10 +88,11 @@ class OverrideSpeedHookPatch : BytecodePatch(
                         ).toMutable()
                     )
 
-                    with(context
-                        .toMethodWalker(this)
-                        .nextMethod(endIndex, true)
-                        .getMethod() as MutableMethod
+                    with(
+                        context
+                            .toMethodWalker(this)
+                            .nextMethod(endIndex, true)
+                            .getMethod() as MutableMethod
                     ) {
                         addInstruction(
                             this.implementation!!.instructions.size - 1,

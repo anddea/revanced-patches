@@ -16,9 +16,14 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.shared.annotation.YouTubeCompatibility
-import app.revanced.patches.shared.fingerprints.LayoutSwitchFingerprint
-import app.revanced.patches.youtube.misc.forcevp9.fingerprints.*
+import app.revanced.patches.youtube.utils.fingerprints.LayoutSwitchFingerprint
+import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
+import app.revanced.patches.youtube.misc.forcevp9.fingerprints.VideoCapabilitiesFingerprint
+import app.revanced.patches.youtube.misc.forcevp9.fingerprints.VideoCapabilitiesParentFingerprint
+import app.revanced.patches.youtube.misc.forcevp9.fingerprints.Vp9PrimaryFingerprint
+import app.revanced.patches.youtube.misc.forcevp9.fingerprints.Vp9PropsFingerprint
+import app.revanced.patches.youtube.misc.forcevp9.fingerprints.Vp9PropsParentFingerprint
+import app.revanced.patches.youtube.misc.forcevp9.fingerprints.Vp9SecondaryFingerprint
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.integrations.Constants.MISC_PATH
 import org.jf.dexlib2.Opcode
@@ -46,12 +51,18 @@ class ForceVP9CodecPatch : BytecodePatch(
                 Vp9PrimaryFingerprint,
                 Vp9SecondaryFingerprint
             ).forEach { fingerprint ->
-                fingerprint.also { it.resolve(context, classDef) }.result?.injectOverride() ?: return fingerprint.toErrorResult()
+                fingerprint.also { it.resolve(context, classDef) }.result?.injectOverride()
+                    ?: return fingerprint.toErrorResult()
             }
         } ?: return LayoutSwitchFingerprint.toErrorResult()
 
         Vp9PropsParentFingerprint.result?.let { parentResult ->
-            Vp9PropsFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.mutableMethod?.let {
+            Vp9PropsFingerprint.also {
+                it.resolve(
+                    context,
+                    parentResult.classDef
+                )
+            }.result?.mutableMethod?.let {
                 mapOf(
                     "MANUFACTURER" to "getManufacturer",
                     "BRAND" to "getBrand",
@@ -63,7 +74,12 @@ class ForceVP9CodecPatch : BytecodePatch(
         } ?: return Vp9PropsParentFingerprint.toErrorResult()
 
         VideoCapabilitiesParentFingerprint.result?.let { parentResult ->
-            VideoCapabilitiesFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.let {
+            VideoCapabilitiesFingerprint.also {
+                it.resolve(
+                    context,
+                    parentResult.classDef
+                )
+            }.result?.let {
                 it.mutableMethod.apply {
                     val insertIndex = it.scanResult.patternScanResult!!.startIndex
 
@@ -143,7 +159,8 @@ class ForceVP9CodecPatch : BytecodePatch(
             for ((index, instruction) in implementation!!.instructions.withIndex()) {
                 if (instruction.opcode != Opcode.SGET_OBJECT) continue
 
-                val indexString = ((instruction as? ReferenceInstruction)?.reference as? DexBackedFieldReference).toString()
+                val indexString =
+                    ((instruction as? ReferenceInstruction)?.reference as? DexBackedFieldReference).toString()
 
                 if (indexString != targetString) continue
 

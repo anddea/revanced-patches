@@ -13,7 +13,7 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patches.shared.annotation.YouTubeCompatibility
+import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.general.searchterms.fingerprints.SearchEndpointFingerprint
 import app.revanced.patches.youtube.general.searchterms.fingerprints.SearchEndpointParentFingerprint
 import app.revanced.patches.youtube.general.searchterms.fingerprints.SearchSuggestionEntryFingerprint
@@ -44,10 +44,16 @@ class SearchTermsPatch : BytecodePatch(
     override fun execute(context: BytecodeContext): PatchResult {
 
         SearchEndpointParentFingerprint.result?.let { parentResult ->
-            SearchEndpointFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.let {
+            SearchEndpointFingerprint.also {
+                it.resolve(
+                    context,
+                    parentResult.classDef
+                )
+            }.result?.let {
                 it.mutableMethod.apply {
                     val targetIndex = it.scanResult.patternScanResult!!.startIndex + 1
-                    val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
+                    val targetRegister =
+                        getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                     addInstruction(
                         targetIndex + 1,

@@ -15,9 +15,9 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.shared.annotation.YouTubeCompatibility
-import app.revanced.patches.shared.fingerprints.SubtitleButtonControllerFingerprint
-import app.revanced.patches.shared.fingerprints.SubtitleTrackFingerprint
+import app.revanced.patches.youtube.utils.fingerprints.SubtitleButtonControllerFingerprint
+import app.revanced.patches.shared.fingerprints.captions.SubtitleTrackFingerprint
+import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.general.autocaptions.fingerprints.StartVideoInformerFingerprint
 import app.revanced.patches.youtube.utils.playertype.patch.PlayerTypeHookPatch
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
@@ -51,7 +51,7 @@ class AutoCaptionsPatch : BytecodePatch(
                     const/4 v0, ${status.value}
                     sput-boolean v0, $GENERAL->captionsButtonStatus:Z
                     """
-            )?: return fingerprint.toErrorResult()
+            ) ?: return fingerprint.toErrorResult()
         }
 
         SubtitleTrackFingerprint.result?.let {

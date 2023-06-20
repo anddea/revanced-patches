@@ -5,7 +5,7 @@ import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 
-object OrientationPrimaryFingerprint : MethodFingerprint (
+object OrientationPrimaryFingerprint : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
     parameters = listOf("L"),
@@ -13,5 +13,5 @@ object OrientationPrimaryFingerprint : MethodFingerprint (
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT
     ),
-    customFingerprint = { it, _ -> it.name == "<init>"}
+    customFingerprint = { it, _ -> it.name == "<init>" }
 )

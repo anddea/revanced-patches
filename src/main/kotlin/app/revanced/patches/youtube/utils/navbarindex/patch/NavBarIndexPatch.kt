@@ -11,8 +11,8 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
-import app.revanced.patches.shared.annotation.YouTubeCompatibility
-import app.revanced.patches.shared.fingerprints.OnBackPressedFingerprint
+import app.revanced.patches.youtube.utils.fingerprints.OnBackPressedFingerprint
+import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.navbarindex.fingerprints.NavBarBuilderFingerprint
 import app.revanced.patches.youtube.utils.navbarindex.fingerprints.TopBarButtonFingerprint
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
@@ -54,9 +54,11 @@ class NavBarIndexPatch : BytecodePatch(
 
         NavBarBuilderFingerprint.result?.let {
             val endIndex = it.scanResult.patternScanResult!!.endIndex
-            val onClickListener = it.mutableMethod.getInstruction<ReferenceInstruction>(endIndex).reference.toString()
+            val onClickListener =
+                it.mutableMethod.getInstruction<ReferenceInstruction>(endIndex).reference.toString()
 
-            val targetMethod = context.findClass(onClickListener)?.mutableClass?.methods?.first { method -> method.name == "onClick" }
+            val targetMethod =
+                context.findClass(onClickListener)?.mutableClass?.methods?.first { method -> method.name == "onClick" }
 
             targetMethod?.apply {
                 for ((index, instruction) in implementation!!.instructions.withIndex()) {

@@ -38,7 +38,12 @@ class GeneralAdsBytecodePatch : BytecodePatch() {
 
                         val viewRegister = getInstruction<Instruction35c>(insertIndex).registerC
 
-                        this.implementation!!.injectHideCall(insertIndex, viewRegister, "ads/AdsFilter", "hideAdAttributionView")
+                        this.implementation!!.injectHideCall(
+                            insertIndex,
+                            viewRegister,
+                            "ads/AdsFilter",
+                            "hideAdAttributionView"
+                        )
                     }
             }
         }

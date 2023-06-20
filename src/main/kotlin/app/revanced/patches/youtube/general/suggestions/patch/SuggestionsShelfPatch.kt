@@ -12,7 +12,7 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patches.shared.annotation.YouTubeCompatibility
+import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.general.suggestions.fingerprints.BreakingNewsFingerprint
 import app.revanced.patches.youtube.utils.litho.patch.LithoFilterPatch
 import app.revanced.patches.youtube.utils.navbarindex.patch.NavBarIndexPatch
@@ -48,6 +48,20 @@ class SuggestionsShelfPatch : BytecodePatch(
                 )
             }
         } ?: return BreakingNewsFingerprint.toErrorResult()
+
+        /*
+        SuggestionContentsBuilderFingerprint.result?.let {
+            it.mutableMethod.apply {
+                addInstructionsWithLabels(
+                    2, """
+                        invoke-static/range {p2 .. p2}, $GENERAL->hideSuggestionsShelf(Ljava/lang/Object;)Z
+                        move-result v0
+                        if-eqz v0, :not_an_ad
+                        """ + emptyComponentLabel, ExternalLabel("not_an_ad", getInstruction(2))
+                )
+            }
+        } ?: return SuggestionContentsBuilderFingerprint.toErrorResult()
+         */
 
 
         /**

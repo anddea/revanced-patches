@@ -5,10 +5,14 @@ import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.OptionsContainer
-import app.revanced.patcher.patch.*
+import app.revanced.patcher.patch.PatchOption
+import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultError
+import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patches.shared.annotation.YouTubeCompatibility
+import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.resources.ResourceHelper.addEntryValues
 import app.revanced.util.resources.ResourceUtils
@@ -40,7 +44,7 @@ class DoubleTapLengthPatch : ResourcePatch {
         val length = DoubleTapLengthArrays
             ?: return PatchResultError("Invalid double-tap length array.")
 
-        val splits = length.replace(" ","").split(",")
+        val splits = length.replace(" ", "").split(",")
         if (splits.isEmpty()) throw IllegalArgumentException("Invalid double-tap length elements")
         val lengthElements = splits.map { it }
         for (index in 0 until splits.count()) {

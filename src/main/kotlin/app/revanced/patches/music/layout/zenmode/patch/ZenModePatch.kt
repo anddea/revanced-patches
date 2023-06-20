@@ -14,10 +14,10 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
+import app.revanced.patches.music.utils.annotations.MusicCompatibility
 import app.revanced.patches.music.layout.zenmode.fingerprints.ZenModeFingerprint
 import app.revanced.patches.music.utils.settings.resource.patch.MusicSettingsPatch
-import app.revanced.patches.shared.annotation.YouTubeMusicCompatibility
-import app.revanced.patches.shared.fingerprints.ColorMatchPlayerParentFingerprint
+import app.revanced.patches.music.utils.fingerprints.ColorMatchPlayerParentFingerprint
 import app.revanced.util.enum.CategoryType
 import app.revanced.util.integrations.Constants.MUSIC_LAYOUT
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
@@ -27,7 +27,7 @@ import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 @Name("enable-zen-mode")
 @Description("Adds a grey tint to the video player to reduce eye strain.")
 @DependsOn([MusicSettingsPatch::class])
-@YouTubeMusicCompatibility
+@MusicCompatibility
 @Version("0.0.1")
 class ZenModePatch : BytecodePatch(
     listOf(ColorMatchPlayerParentFingerprint)
@@ -40,11 +40,13 @@ class ZenModePatch : BytecodePatch(
                     val startIndex = it.scanResult.patternScanResult!!.startIndex
 
                     val firstRegister = getInstruction<OneRegisterInstruction>(startIndex).registerA
-                    val secondRegister = getInstruction<OneRegisterInstruction>(startIndex + 2).registerA
+                    val secondRegister =
+                        getInstruction<OneRegisterInstruction>(startIndex + 2).registerA
                     val dummyRegister = secondRegister + 1
 
                     val referenceIndex = it.scanResult.patternScanResult!!.endIndex + 1
-                    val targetReference = getInstruction<ReferenceInstruction>(referenceIndex).reference.toString()
+                    val targetReference =
+                        getInstruction<ReferenceInstruction>(referenceIndex).reference.toString()
 
                     val insertIndex = referenceIndex + 1
 
@@ -66,7 +68,11 @@ class ZenModePatch : BytecodePatch(
             } ?: return ZenModeFingerprint.toErrorResult()
         } ?: return ColorMatchPlayerParentFingerprint.toErrorResult()
 
-        MusicSettingsPatch.addMusicPreference(CategoryType.LAYOUT, "revanced_enable_zen_mode", "false")
+        MusicSettingsPatch.addMusicPreference(
+            CategoryType.LAYOUT,
+            "revanced_enable_zen_mode",
+            "false"
+        )
 
         return PatchResultSuccess()
     }

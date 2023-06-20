@@ -13,7 +13,7 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.shared.annotation.YouTubeCompatibility
+import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.seekbar.tapping.fingerprints.SeekbarTappingFingerprint
 import app.revanced.patches.youtube.seekbar.tapping.fingerprints.SeekbarTappingReferenceFingerprint
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
@@ -71,6 +71,7 @@ class SeekbarTappingPatch : BytecodePatch(
 
         return PatchResultSuccess()
     }
+
     private companion object {
         lateinit var TappingLabel: String
     }

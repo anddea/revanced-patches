@@ -11,7 +11,7 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
-import app.revanced.patches.shared.annotation.YouTubeCompatibility
+import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.playerbutton.fingerprints.LiveChatFingerprint
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.util.integrations.Constants.PLAYER
@@ -33,9 +33,11 @@ class PlayerButtonPatch : BytecodePatch(
             val instructions = it.mutableMethod.getInstruction(endIndex)
             val imageButtonClass =
                 context
-                .findClass((instructions as BuilderInstruction21c)
-                .reference.toString())!!
-                .mutableClass
+                    .findClass(
+                        (instructions as BuilderInstruction21c)
+                            .reference.toString()
+                    )!!
+                    .mutableClass
 
             for (method in imageButtonClass.methods) {
                 imageButtonClass.findMutableMethodOf(method).apply {
@@ -46,7 +48,8 @@ class PlayerButtonPatch : BytecodePatch(
                             val definedInstruction = (instructions as? BuilderInstruction35c)
 
                             if (definedInstruction?.reference.toString() ==
-                                "Landroid/view/View;->setVisibility(I)V") {
+                                "Landroid/view/View;->setVisibility(I)V"
+                            ) {
 
                                 jumpInstruction = !jumpInstruction
                                 if (jumpInstruction) return@forEachIndexed

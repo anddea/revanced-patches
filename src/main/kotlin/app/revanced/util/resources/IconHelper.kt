@@ -170,7 +170,7 @@ internal object IconHelper {
         iconPath: String,
         directory: String,
         iconArray: Array<String>
-    ){
+    ) {
         arrayOf(
             "xxxhdpi",
             "xxhdpi",
@@ -192,7 +192,7 @@ internal object IconHelper {
         appName: String,
         monochromeIconName: String,
         iconName: String
-    ){
+    ) {
         try {
             val relativePath = "drawable/$monochromeIconName.xml"
             Files.copy(
@@ -200,14 +200,15 @@ internal object IconHelper {
                 this["res"].resolve(relativePath).toPath(),
                 StandardCopyOption.REPLACE_EXISTING
             )
-        } catch (_: Exception) {}
+        } catch (_: Exception) {
+        }
     }
 
     private fun ResourceContext.copyMusicResources(
         iconName: String,
         iconArray: Array<String>,
         resourceNames: String
-    ){
+    ) {
         iconArray.forEach { path ->
             val relativePath = "drawable-$path/$resourceNames.png"
 
@@ -225,7 +226,9 @@ internal object IconHelper {
         xmlEditor[targetPath].use { editor ->
             val tags = editor.file.getElementsByTagName("item")
             List(tags.length) { tags.item(it) as Element }
-                .filter { it.getAttribute("name").contains("android:windowSplashScreenAnimatedIcon") }
+                .filter {
+                    it.getAttribute("name").contains("android:windowSplashScreenAnimatedIcon")
+                }
                 .forEach { it.parentNode.removeChild(it) }
         }
     }

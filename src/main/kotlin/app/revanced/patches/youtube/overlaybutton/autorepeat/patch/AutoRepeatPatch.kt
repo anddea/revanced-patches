@@ -13,8 +13,11 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.shared.annotation.YouTubeCompatibility
-import app.revanced.patches.youtube.overlaybutton.autorepeat.fingerprints.*
+import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
+import app.revanced.patches.youtube.overlaybutton.autorepeat.fingerprints.AutoNavInformerFingerprint
+import app.revanced.patches.youtube.overlaybutton.autorepeat.fingerprints.RepeatListenerFingerprint
+import app.revanced.patches.youtube.overlaybutton.autorepeat.fingerprints.VideoEndFingerprint
+import app.revanced.patches.youtube.overlaybutton.autorepeat.fingerprints.VideoEndParentFingerprint
 import app.revanced.util.integrations.Constants.UTILS_PATH
 import app.revanced.util.integrations.Constants.VIDEO_PATH
 import org.jf.dexlib2.builder.instruction.BuilderInstruction35c
@@ -33,7 +36,7 @@ class AutoRepeatPatch : BytecodePatch(
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
         VideoEndParentFingerprint.result?.classDef?.let { classDef ->
-            VideoEndFingerprint.also {it.resolve(context, classDef) }.result?.let {
+            VideoEndFingerprint.also { it.resolve(context, classDef) }.result?.let {
                 it.mutableMethod.apply {
                     addInstructionsWithLabels(
                         0, """

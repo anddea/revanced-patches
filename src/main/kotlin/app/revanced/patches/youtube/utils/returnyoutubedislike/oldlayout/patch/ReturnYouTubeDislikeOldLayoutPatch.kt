@@ -10,7 +10,7 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
-import app.revanced.patches.shared.annotation.YouTubeCompatibility
+import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch.Companion.DislikeButton
 import app.revanced.patches.youtube.utils.returnyoutubedislike.oldlayout.fingerprints.ButtonTagFingerprint
@@ -31,8 +31,10 @@ class ReturnYouTubeDislikeOldLayoutPatch : BytecodePatch(
             it.mutableMethod.apply {
                 val dislikeButtonIndex = getWideLiteralIndex(DislikeButton)
 
-                val resourceIdentifierRegister = getInstruction<OneRegisterInstruction>(dislikeButtonIndex).registerA
-                val textViewRegister = getInstruction<OneRegisterInstruction>(dislikeButtonIndex + 4).registerA
+                val resourceIdentifierRegister =
+                    getInstruction<OneRegisterInstruction>(dislikeButtonIndex).registerA
+                val textViewRegister =
+                    getInstruction<OneRegisterInstruction>(dislikeButtonIndex + 4).registerA
 
                 addInstruction(
                     dislikeButtonIndex + 4,
@@ -43,6 +45,7 @@ class ReturnYouTubeDislikeOldLayoutPatch : BytecodePatch(
 
         return PatchResultSuccess()
     }
+
     private companion object {
         const val INTEGRATIONS_RYD_CLASS_DESCRIPTOR =
             "$UTILS_PATH/ReturnYouTubeDislikePatch;"

@@ -12,26 +12,25 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
+import app.revanced.patches.music.utils.annotations.MusicCompatibility
 import app.revanced.patches.music.misc.backgroundplay.fingerprints.BackgroundPlaybackParentFingerprint
-import app.revanced.patches.shared.annotation.YouTubeMusicCompatibility
 
 @Patch
 @Name("background-play")
 @Description("Enables playing music in the background.")
-@YouTubeMusicCompatibility
+@MusicCompatibility
 @Version("0.0.1")
 class BackgroundPlayPatch : BytecodePatch(
-    listOf(
-        BackgroundPlaybackParentFingerprint
-    )
+    listOf(BackgroundPlaybackParentFingerprint)
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
 
         BackgroundPlaybackParentFingerprint.result?.let {
-            with(context
-                .toMethodWalker(it.method)
-                .nextMethod(it.scanResult.patternScanResult!!.startIndex, true)
-                .getMethod() as MutableMethod
+            with(
+                context
+                    .toMethodWalker(it.method)
+                    .nextMethod(it.scanResult.patternScanResult!!.startIndex, true)
+                    .getMethod() as MutableMethod
             ) {
                 addInstructions(
                     0, """

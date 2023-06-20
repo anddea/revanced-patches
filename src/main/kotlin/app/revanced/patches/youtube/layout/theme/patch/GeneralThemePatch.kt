@@ -40,7 +40,8 @@ class GeneralThemePatch : ResourcePatch {
             context.xmlEditor[stylesPath].use { editor ->
                 val file = editor.file
 
-                val childNodes = (file.getElementsByTagName("resources").item(0) as Element).childNodes
+                val childNodes =
+                    (file.getElementsByTagName("resources").item(0) as Element).childNodes
 
                 for (i in 0 until childNodes.length) {
                     val node = childNodes.item(i) as? Element ?: continue
@@ -64,10 +65,12 @@ class GeneralThemePatch : ResourcePatch {
                                         "Base.Theme.YouTube.Launcher.Light" -> "@color/yt_white1"
                                         else -> "null"
                                     }
+
                                     1 -> when (nodeAttributeName) {
                                         "Base.Theme.YouTube.Launcher" -> "?attr/splashScreenColor"
                                         else -> "null"
                                     }
+
                                     else -> "null"
                                 }
                             )
@@ -91,6 +94,7 @@ class GeneralThemePatch : ResourcePatch {
 
         return PatchResultSuccess()
     }
+
     internal companion object {
         var isMonetPatchIncluded: Boolean = false
     }

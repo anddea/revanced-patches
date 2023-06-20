@@ -9,7 +9,7 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patches.shared.annotation.YouTubeCompatibility
+import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.patches.youtube.utils.sponsorblock.bytecode.patch.SponsorBlockBytecodePatch
 import app.revanced.util.resources.ResourceUtils
@@ -65,26 +65,32 @@ class SponsorBlockResourcePatch : ResourcePatch {
         // copy nodes from host resources to their real xml files
         hostingXmlResources.forEach { (path, resources) ->
             resources.forEach { resource ->
-                val hostingResourceStream = this.javaClass.classLoader.getResourceAsStream("youtube/sponsorblock/host/$path/$resource.xml")!!
+                val hostingResourceStream =
+                    this.javaClass.classLoader.getResourceAsStream("youtube/sponsorblock/host/$path/$resource.xml")!!
 
                 val targetXmlEditor = context.xmlEditor["res/$path/$resource.xml"]
                 "RelativeLayout".copyXmlNode(
                     context.xmlEditor[hostingResourceStream],
                     targetXmlEditor
                 ).also {
-                    val children = targetXmlEditor.file.getElementsByTagName("RelativeLayout").item(0).childNodes
+                    val children = targetXmlEditor.file.getElementsByTagName("RelativeLayout")
+                        .item(0).childNodes
 
                     // Replace the startOf with the voting button view so that the button does not overlap
                     for (i in 1 until children.length) {
                         val view = children.item(i)
 
                         // Replace the attribute for a specific node only
-                        if (!(view.hasAttributes() && view.attributes.getNamedItem("android:id").nodeValue.endsWith("player_video_heading"))) continue
+                        if (!(view.hasAttributes() && view.attributes.getNamedItem("android:id").nodeValue.endsWith(
+                                "player_video_heading"
+                            ))
+                        ) continue
 
                         // voting button id from the voting button view from the youtube_controls_layout.xml host file
                         val votingButtonId = "@+id/sb_voting_button"
 
-                        view.attributes.getNamedItem("android:layout_toStartOf").nodeValue = votingButtonId
+                        view.attributes.getNamedItem("android:layout_toStartOf").nodeValue =
+                            votingButtonId
 
                         break
                     }

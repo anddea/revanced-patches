@@ -16,7 +16,7 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.shared.annotation.YouTubeCompatibility
+import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.general.tabletminiplayer.fingerprints.MiniPlayerDimensionsCalculatorFingerprint
 import app.revanced.patches.youtube.general.tabletminiplayer.fingerprints.MiniPlayerOverrideFingerprint
 import app.revanced.patches.youtube.general.tabletminiplayer.fingerprints.MiniPlayerOverrideNoContextFingerprint
@@ -49,9 +49,17 @@ class TabletMiniPlayerPatch : BytecodePatch(
     override fun execute(context: BytecodeContext): PatchResult {
 
         MiniPlayerDimensionsCalculatorFingerprint.result?.let { parentResult ->
-            MiniPlayerOverrideNoContextFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.let { result ->
+            MiniPlayerOverrideNoContextFingerprint.also {
+                it.resolve(
+                    context,
+                    parentResult.classDef
+                )
+            }.result?.let { result ->
                 val (method, _, parameterRegister) = result.addProxyCall()
-                method.insertOverride(method.implementation!!.instructions.size - 1, parameterRegister)
+                method.insertOverride(
+                    method.implementation!!.instructions.size - 1,
+                    parameterRegister
+                )
             } ?: return MiniPlayerOverrideNoContextFingerprint.toErrorResult()
         } ?: return MiniPlayerDimensionsCalculatorFingerprint.toErrorResult()
 
@@ -115,7 +123,8 @@ class TabletMiniPlayerPatch : BytecodePatch(
         fun MethodFingerprintResult.unwrap(): Triple<MutableMethod, Int, Int> {
             val scanIndex = this.scanResult.patternScanResult!!.endIndex
             val method = this.mutableMethod
-            val parameterRegister = method.getInstruction<OneRegisterInstruction>(scanIndex).registerA
+            val parameterRegister =
+                method.getInstruction<OneRegisterInstruction>(scanIndex).registerA
 
             return Triple(method, scanIndex, parameterRegister)
         }

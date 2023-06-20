@@ -9,8 +9,8 @@ import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
-import app.revanced.patches.shared.fingerprints.ClientInfoFingerprint
-import app.revanced.patches.shared.fingerprints.ClientInfoParentFingerprint
+import app.revanced.patches.shared.fingerprints.versionspoof.ClientInfoFingerprint
+import app.revanced.patches.shared.fingerprints.versionspoof.ClientInfoParentFingerprint
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.dexbacked.reference.DexBackedFieldReference
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
@@ -26,7 +26,12 @@ abstract class AbstractVersionSpoofPatch(
     override fun execute(context: BytecodeContext): PatchResult {
 
         ClientInfoParentFingerprint.result?.let { parentResult ->
-            ClientInfoFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.mutableMethod?.let {
+            ClientInfoFingerprint.also {
+                it.resolve(
+                    context,
+                    parentResult.classDef
+                )
+            }.result?.mutableMethod?.let {
                 it.apply {
                     var insertIndex = 0
                     val insertInstructions = implementation!!.instructions
@@ -35,7 +40,8 @@ abstract class AbstractVersionSpoofPatch(
                     for ((index, instruction) in insertInstructions.withIndex()) {
                         if (instruction.opcode != Opcode.SGET_OBJECT) continue
 
-                        val indexString = ((instruction as? ReferenceInstruction)?.reference as? DexBackedFieldReference).toString()
+                        val indexString =
+                            ((instruction as? ReferenceInstruction)?.reference as? DexBackedFieldReference).toString()
 
                         if (indexString != targetString) continue
 

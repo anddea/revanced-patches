@@ -15,8 +15,11 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.shared.annotation.YouTubeCompatibility
-import app.revanced.patches.youtube.player.hapticfeedback.fingerprints.*
+import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
+import app.revanced.patches.youtube.player.hapticfeedback.fingerprints.MarkerHapticsFingerprint
+import app.revanced.patches.youtube.player.hapticfeedback.fingerprints.ScrubbingHapticsFingerprint
+import app.revanced.patches.youtube.player.hapticfeedback.fingerprints.SeekHapticsFingerprint
+import app.revanced.patches.youtube.player.hapticfeedback.fingerprints.ZoomHapticsFingerprint
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.integrations.Constants.PLAYER
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction

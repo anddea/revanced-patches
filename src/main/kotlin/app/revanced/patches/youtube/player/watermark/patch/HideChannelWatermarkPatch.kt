@@ -14,7 +14,7 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patches.shared.annotation.YouTubeCompatibility
+import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.player.watermark.fingerprints.HideWatermarkFingerprint
 import app.revanced.patches.youtube.player.watermark.fingerprints.HideWatermarkParentFingerprint
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
@@ -33,7 +33,12 @@ class HideChannelWatermarkBytecodePatch : BytecodePatch(
     override fun execute(context: BytecodeContext): PatchResult {
 
         HideWatermarkParentFingerprint.result?.let { parentResult ->
-            HideWatermarkFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.let {
+            HideWatermarkFingerprint.also {
+                it.resolve(
+                    context,
+                    parentResult.classDef
+                )
+            }.result?.let {
                 it.mutableMethod.apply {
                     val insertIndex = it.scanResult.patternScanResult!!.endIndex
                     val register = getInstruction<TwoRegisterInstruction>(insertIndex).registerA

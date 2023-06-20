@@ -13,7 +13,7 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patches.shared.annotation.YouTubeCompatibility
+import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.player.endscreencards.fingerprints.LayoutCircleFingerprint
 import app.revanced.patches.youtube.player.endscreencards.fingerprints.LayoutIconFingerprint
 import app.revanced.patches.youtube.player.endscreencards.fingerprints.LayoutVideoFingerprint
@@ -45,10 +45,15 @@ class HideEndScreenCardsPatch : BytecodePatch(
             val index = scanResult.patternScanResult!!.endIndex
             mutableMethod.apply {
                 val register = this.getInstruction<OneRegisterInstruction>(index).registerA
-                implementation!!.injectHideCall(index + 1, register, "layout/PlayerPatch", "hideEndScreen")
+                implementation!!.injectHideCall(
+                    index + 1,
+                    register,
+                    "layout/PlayerPatch",
+                    "hideEndScreen"
+                )
             }
         }
-        
+
         listOf(
             LayoutCircleFingerprint,
             LayoutIconFingerprint,

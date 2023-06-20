@@ -5,9 +5,14 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.patch.*
+import app.revanced.patcher.patch.OptionsContainer
+import app.revanced.patcher.patch.PatchOption
+import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultError
+import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patches.shared.annotation.MicroGCompatibility
+import app.revanced.patches.microg.utils.annotations.MicroGCompatibility
 import org.w3c.dom.Element
 
 @Patch
@@ -25,7 +30,8 @@ class CustomBrandingNamePatch : ResourcePatch {
                 if (!it.name.startsWithAny(*resourceFileNames)) return@forEach
 
                 context.xmlEditor[it.absolutePath].use { editor ->
-                    val resourcesNode = editor.file.getElementsByTagName("resources").item(0) as Element
+                    val resourcesNode =
+                        editor.file.getElementsByTagName("resources").item(0) as Element
                     var label = ""
 
                     for (i in 0 until resourcesNode.childNodes.length) {
@@ -42,7 +48,7 @@ class CustomBrandingNamePatch : ResourcePatch {
                                 element.textContent = appName
                             }
 
-                            "gms_settings_name"-> element.textContent = appName
+                            "gms_settings_name" -> element.textContent = appName
 
                             else -> continue
                         }
@@ -62,10 +68,11 @@ class CustomBrandingNamePatch : ResourcePatch {
                 }
             }
 
-        }?: return PatchResultError("No app name provided")
+        } ?: return PatchResultError("No app name provided")
 
         return PatchResultSuccess()
     }
+
     companion object : OptionsContainer() {
         var MicroGAppName: String? by option(
             PatchOption.StringOption(

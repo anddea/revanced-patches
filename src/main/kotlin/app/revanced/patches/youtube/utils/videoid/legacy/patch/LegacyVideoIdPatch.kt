@@ -10,7 +10,7 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.shared.annotation.YouTubeCompatibility
+import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.videoid.legacy.fingerprint.LegacyVideoIdFingerprint
 import app.revanced.util.integrations.Constants.VIDEO_PATH
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
@@ -29,7 +29,8 @@ class LegacyVideoIdPatch : BytecodePatch(
 
             it.mutableMethod.apply {
                 insertMethod = this
-                videoIdRegister = (implementation!!.instructions[insertIndex + 1] as OneRegisterInstruction).registerA
+                videoIdRegister =
+                    (implementation!!.instructions[insertIndex + 1] as OneRegisterInstruction).registerA
             }
             offset++ // offset so setCurrentVideoId is called before any injected call
         } ?: return LegacyVideoIdFingerprint.toErrorResult()

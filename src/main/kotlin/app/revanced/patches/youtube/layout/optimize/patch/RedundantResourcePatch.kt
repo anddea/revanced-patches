@@ -7,7 +7,7 @@ import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
-import app.revanced.patches.shared.annotation.YouTubeCompatibility
+import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.util.resources.ResourceUtils
 import app.revanced.util.resources.ResourceUtils.copyResources
 import java.io.File
@@ -35,22 +35,23 @@ class RedundantResourcePatch : ResourcePatch {
             (WHITELIST_GENERAL + array).forEach { name ->
                 try {
                     Files.copy(
-                            context["res"].resolve("$path/$name").toPath(),
-                            context["res"].resolve("$tmpDirectory/$name").toPath(),
-                            StandardCopyOption.REPLACE_EXISTING
+                        context["res"].resolve("$path/$name").toPath(),
+                        context["res"].resolve("$tmpDirectory/$name").toPath(),
+                        StandardCopyOption.REPLACE_EXISTING
                     )
-                } catch (_: Exception) {}
+                } catch (_: Exception) {
+                }
             }
             val directoryPath = context["res"].resolve(path)
 
             Files.walk(directoryPath.toPath())
-                    .map(Path::toFile)
-                    .sorted(Comparator.reverseOrder())
-                    .forEach(File::delete)
+                .map(Path::toFile)
+                .sorted(Comparator.reverseOrder())
+                .forEach(File::delete)
 
             Files.move(
-                    context["res"].resolve(tmpDirectory).toPath(),
-                    context["res"].resolve(path).toPath()
+                context["res"].resolve(tmpDirectory).toPath(),
+                context["res"].resolve(path).toPath()
             )
         }
 

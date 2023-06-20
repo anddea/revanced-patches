@@ -13,8 +13,8 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patches.shared.annotation.YouTubeCompatibility
-import app.revanced.patches.shared.fingerprints.PivotBarCreateButtonViewFingerprint
+import app.revanced.patches.youtube.utils.fingerprints.PivotBarCreateButtonViewFingerprint
+import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.navigation.navigationbuttons.fingerprints.AutoMotiveFingerprint
 import app.revanced.patches.youtube.navigation.navigationbuttons.fingerprints.PivotBarEnumFingerprint
 import app.revanced.patches.youtube.navigation.navigationbuttons.fingerprints.PivotBarShortsButtonViewFingerprint
@@ -50,7 +50,7 @@ class NavigationButtonsPatch : BytecodePatch(
             /**
              * Home, Shorts, Subscriptions Button
              */
-            with (
+            with(
                 arrayOf(
                     PivotBarEnumFingerprint,
                     PivotBarShortsButtonViewFingerprint
@@ -125,20 +125,21 @@ class NavigationButtonsPatch : BytecodePatch(
 
         return PatchResultSuccess()
     }
+
     private companion object {
         const val enumHook =
             "sput-object v$REGISTER_TEMPLATE_REPLACEMENT, $NAVIGATION" +
-            "->" +
-            "lastPivotTab:Ljava/lang/Enum;"
+                    "->" +
+                    "lastPivotTab:Ljava/lang/Enum;"
 
         const val buttonHook =
             "invoke-static { v$REGISTER_TEMPLATE_REPLACEMENT }, $NAVIGATION" +
-            "->" +
-            "hideNavigationButton(Landroid/view/View;)V"
+                    "->" +
+                    "hideNavigationButton(Landroid/view/View;)V"
 
         const val createButtonHook =
             "invoke-static { v$REGISTER_TEMPLATE_REPLACEMENT }, $NAVIGATION" +
-            "->" +
-            "hideCreateButton(Landroid/view/View;)V"
+                    "->" +
+                    "hideCreateButton(Landroid/view/View;)V"
     }
 }

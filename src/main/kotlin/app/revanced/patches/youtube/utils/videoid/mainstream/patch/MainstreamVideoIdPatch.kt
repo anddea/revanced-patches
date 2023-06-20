@@ -17,9 +17,16 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
-import app.revanced.patches.shared.annotation.YouTubeCompatibility
+import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.playertype.patch.PlayerTypeHookPatch
-import app.revanced.patches.youtube.utils.videoid.mainstream.fingerprint.*
+import app.revanced.patches.youtube.utils.videoid.mainstream.fingerprint.MainstreamVideoIdFingerprint
+import app.revanced.patches.youtube.utils.videoid.mainstream.fingerprint.PlayerControllerSetTimeReferenceFingerprint
+import app.revanced.patches.youtube.utils.videoid.mainstream.fingerprint.PlayerInitFingerprint
+import app.revanced.patches.youtube.utils.videoid.mainstream.fingerprint.SeekFingerprint
+import app.revanced.patches.youtube.utils.videoid.mainstream.fingerprint.TimebarFingerprint
+import app.revanced.patches.youtube.utils.videoid.mainstream.fingerprint.VideoLengthFingerprint
+import app.revanced.patches.youtube.utils.videoid.mainstream.fingerprint.VideoTimeHighPrecisionFingerprint
+import app.revanced.patches.youtube.utils.videoid.mainstream.fingerprint.VideoTimeHighPrecisionParentFingerprint
 import app.revanced.util.integrations.Constants.VIDEO_PATH
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.builder.MutableMethodImplementation
@@ -48,7 +55,8 @@ class MainstreamVideoIdPatch : BytecodePatch(
     override fun execute(context: BytecodeContext): PatchResult {
 
         PlayerInitFingerprint.result?.let { parentResult ->
-            playerInitMethod = parentResult.mutableClass.methods.first { MethodUtil.isConstructor(it) }
+            playerInitMethod =
+                parentResult.mutableClass.methods.first { MethodUtil.isConstructor(it) }
 
             // hook the player controller for use through integrations
             onCreateHook(INTEGRATIONS_CLASS_DESCRIPTOR, "initialize")
@@ -85,7 +93,12 @@ class MainstreamVideoIdPatch : BytecodePatch(
          * Set the high precision video time method
          */
         VideoTimeHighPrecisionParentFingerprint.result?.let { parentResult ->
-            VideoTimeHighPrecisionFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.mutableMethod?.let { method ->
+            VideoTimeHighPrecisionFingerprint.also {
+                it.resolve(
+                    context,
+                    parentResult.classDef
+                )
+            }.result?.mutableMethod?.let { method ->
                 highPrecisionTimeMethod = method
             } ?: return VideoTimeHighPrecisionFingerprint.toErrorResult()
         } ?: return VideoTimeHighPrecisionParentFingerprint.toErrorResult()

@@ -8,14 +8,14 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patches.shared.annotation.YouTubeMusicCompatibility
+import app.revanced.patches.music.utils.annotations.MusicCompatibility
 import java.nio.file.Files
 import java.nio.file.StandardCopyOption
 
 @Patch
 @Name("optimize-resource-music")
 @Description("Remove unnecessary resources.")
-@YouTubeMusicCompatibility
+@MusicCompatibility
 @Version("0.0.1")
 class OptimizeResourcePatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
@@ -27,7 +27,7 @@ class OptimizeResourcePatch : ResourcePatch {
             context["res"].resolve(relativePath).toPath(),
             StandardCopyOption.REPLACE_EXISTING
         )
-        
+
         return PatchResultSuccess()
     }
 }

@@ -16,8 +16,8 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.shared.annotation.YouTubeCompatibility
-import app.revanced.patches.shared.fingerprints.PivotBarCreateButtonViewFingerprint
+import app.revanced.patches.youtube.utils.fingerprints.PivotBarCreateButtonViewFingerprint
+import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.navigation.shortsnavbar.fingerprints.NavigationEndpointFingerprint
 import app.revanced.patches.youtube.navigation.shortsnavbar.fingerprints.ReelWatchBundleFingerprint
 import app.revanced.patches.youtube.navigation.shortsnavbar.fingerprints.ReelWatchEndpointFingerprint
@@ -64,16 +64,21 @@ class ShortsNavBarPatch : BytecodePatch(
                 .toMethodWalker(it.method)
                 .nextMethod(it.scanResult.patternScanResult!!.endIndex, true)
                 .getMethod() as MutableMethod
-            ).apply {
-                addInstruction(
-                    0,
-                    "invoke-static {}, $NAVIGATION->hideShortsPlayerNavBar()V"
-                )
-            }
+                    ).apply {
+                    addInstruction(
+                        0,
+                        "invoke-static {}, $NAVIGATION->hideShortsPlayerNavBar()V"
+                    )
+                }
         } ?: return ReelWatchBundleFingerprint.toErrorResult()
 
         ReelWatchEndpointParentFingerprint.result?.let { parentResult ->
-            ReelWatchEndpointFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.mutableMethod?.addInstruction(
+            ReelWatchEndpointFingerprint.also {
+                it.resolve(
+                    context,
+                    parentResult.classDef
+                )
+            }.result?.mutableMethod?.addInstruction(
                 0,
                 "sput-object p1, $NAVIGATION->shortsContext:Landroid/content/Context;"
             ) ?: return ReelWatchEndpointFingerprint.toErrorResult()
@@ -82,7 +87,7 @@ class ShortsNavBarPatch : BytecodePatch(
         NavigationEndpointFingerprint.result?.let { result ->
             val navigationEndpointMethod = result.mutableMethod
 
-            with (navigationEndpointMethod.implementation!!.instructions) {
+            with(navigationEndpointMethod.implementation!!.instructions) {
                 filter { instruction ->
                     val fieldReference =
                         (instruction as? ReferenceInstruction)?.reference as? FieldReference

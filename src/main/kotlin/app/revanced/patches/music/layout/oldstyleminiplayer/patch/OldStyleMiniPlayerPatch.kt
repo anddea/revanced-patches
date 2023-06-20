@@ -13,11 +13,11 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
+import app.revanced.patches.music.utils.annotations.MusicCompatibility
 import app.revanced.patches.music.layout.oldstyleminiplayer.fingerprints.NextButtonVisibilityFingerprint
 import app.revanced.patches.music.layout.oldstyleminiplayer.fingerprints.SwipeToCloseFingerprint
 import app.revanced.patches.music.utils.settings.resource.patch.MusicSettingsPatch
-import app.revanced.patches.shared.annotation.YouTubeMusicCompatibility
-import app.revanced.patches.shared.fingerprints.ColorMatchPlayerParentFingerprint
+import app.revanced.patches.music.utils.fingerprints.ColorMatchPlayerParentFingerprint
 import app.revanced.util.enum.CategoryType
 import app.revanced.util.integrations.Constants.MUSIC_LAYOUT
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
@@ -26,7 +26,7 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 @Name("enable-old-style-miniplayer")
 @Description("Return the miniplayers to old style. (for YT Music v5.55.53+)")
 @DependsOn([MusicSettingsPatch::class])
-@YouTubeMusicCompatibility
+@MusicCompatibility
 @Version("0.0.1")
 class OldStyleMiniPlayerPatch : BytecodePatch(
     listOf(
@@ -37,10 +37,16 @@ class OldStyleMiniPlayerPatch : BytecodePatch(
     override fun execute(context: BytecodeContext): PatchResult {
 
         ColorMatchPlayerParentFingerprint.result?.let { parentResult ->
-            NextButtonVisibilityFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.let {
+            NextButtonVisibilityFingerprint.also {
+                it.resolve(
+                    context,
+                    parentResult.classDef
+                )
+            }.result?.let {
                 it.mutableMethod.apply {
                     val targetIndex = it.scanResult.patternScanResult!!.startIndex + 1
-                    val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
+                    val targetRegister =
+                        getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                     addInstructions(
                         targetIndex + 1, """
@@ -66,7 +72,11 @@ class OldStyleMiniPlayerPatch : BytecodePatch(
             }
         } ?: return SwipeToCloseFingerprint.toErrorResult()
 
-        MusicSettingsPatch.addMusicPreference(CategoryType.LAYOUT, "revanced_enable_old_style_mini_player", "false")
+        MusicSettingsPatch.addMusicPreference(
+            CategoryType.LAYOUT,
+            "revanced_enable_old_style_mini_player",
+            "false"
+        )
 
         return PatchResultSuccess()
     }

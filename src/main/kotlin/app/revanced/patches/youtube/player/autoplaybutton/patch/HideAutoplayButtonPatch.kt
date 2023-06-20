@@ -13,8 +13,8 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.shared.annotation.YouTubeCompatibility
-import app.revanced.patches.shared.fingerprints.LayoutConstructorFingerprint
+import app.revanced.patches.youtube.utils.fingerprints.LayoutConstructorFingerprint
+import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch.Companion.AutoNavPreviewStub
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
@@ -44,10 +44,14 @@ class HideAutoplayButtonPatch : BytecodePatch(
 
         LayoutConstructorFingerprint.result?.let {
             it.mutableMethod.apply {
-                val dummyRegister = getInstruction<OneRegisterInstruction>(getStringIndex("1.0x")).registerA
+                val dummyRegister =
+                    getInstruction<OneRegisterInstruction>(getStringIndex("1.0x")).registerA
                 val insertIndex = getWideLiteralIndex(AutoNavPreviewStub)
 
-                val branchIndex = implementation!!.instructions.subList(insertIndex + 1, implementation!!.instructions.size - 1).indexOfFirst { instruction ->
+                val branchIndex = implementation!!.instructions.subList(
+                    insertIndex + 1,
+                    implementation!!.instructions.size - 1
+                ).indexOfFirst { instruction ->
                     ((instruction as? ReferenceInstruction)?.reference as? MethodReference)?.name == "addOnLayoutChangeListener"
                 } + 2
 
