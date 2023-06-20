@@ -18,7 +18,7 @@ import app.revanced.util.resources.ResourceHelper.updatePatchStatusLabel
 import org.w3c.dom.Element
 
 @Patch
-@Name("custom-branding-name")
+@Name("custom-branding-youtube-name")
 @DependsOn([SettingsPatch::class])
 @Description("Changes the YouTube launcher name to your choice (defaults to ReVanced Extended).")
 @YouTubeCompatibility
