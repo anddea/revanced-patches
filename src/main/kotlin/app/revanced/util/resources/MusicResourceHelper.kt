@@ -111,29 +111,6 @@ internal object MusicResourceHelper {
         }
     }
 
-    internal fun ResourceContext.addMusicPreferenceAlt(
-        category: String,
-        key: String,
-        defaultValue: String,
-        dependencyKey: String
-    ) {
-        this.xmlEditor[YOUTUBE_MUSIC_SETTINGS_PATH].use { editor ->
-            val tags = editor.file.getElementsByTagName(YOUTUBE_MUSIC_CATEGORY_TAG_NAME)
-            List(tags.length) { tags.item(it) as Element }
-                .filter { it.getAttribute("android:key").contains("revanced_settings_$category") }
-                .forEach {
-                    it.adoptChild(YOUTUBE_MUSIC_PREFERENCE_TAG_NAME) {
-                        setAttribute("android:title", "@string/$key" + "_title")
-                        setAttribute("android:summaryOn", "@string/$key" + "_summary_on")
-                        setAttribute("android:summaryOff", "@string/$key" + "_summary_off")
-                        setAttribute("android:key", key)
-                        setAttribute("android:defaultValue", defaultValue)
-                        setAttribute("android:dependency", dependencyKey)
-                    }
-                }
-        }
-    }
-
     internal fun ResourceContext.addMusicPreferenceWithIntent(
         category: String,
         key: String,

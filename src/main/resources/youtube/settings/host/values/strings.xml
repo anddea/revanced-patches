@@ -6,7 +6,7 @@
     <string name="microg_settings_summary">Enable cloud messaging settings to receive notifications</string>
     <string name="microg_settings_title">Open MicroG</string>
     <string name="revanced_ads">Ads</string>
-    <string name="revanced_ad_remover_custom_filter_summary">Filter components by their name separated by a comma</string>
+    <string name="revanced_ad_remover_custom_filter_summary">Filter components by line-separated names</string>
     <string name="revanced_ad_remover_custom_filter_title">Custom filter</string>
     <string name="revanced_ad_remover_general_ads_summary_off">General ads are shown</string>
     <string name="revanced_ad_remover_general_ads_summary_on">General ads are hidden</string>
@@ -36,6 +36,9 @@
     <string name="revanced_copytimestamp_success">Time Stamp copied to clipboard</string>
     <string name="revanced_custom_seekbar_color_value_summary">Type the hex code of the seekbar color</string>
     <string name="revanced_custom_seekbar_color_value_title">Custom seekbar color value</string>
+    <string name="revanced_custom_speed_overlay_value_summary">Type the video speed to change when pressing and holding the player</string>
+    <string name="revanced_custom_speed_overlay_value_title">Custom speed overlay value</string>
+    <string name="revanced_custom_speed_overlay_text" formatted="false">Playing at %sx speed</string>
     <string name="revanced_custom_video_speeds_summary">Add or change the video speeds available</string>
     <string name="revanced_custom_video_speeds_title">Custom video speeds</string>
     <string name="revanced_default_app_settings_summary">To open RVX in an external browser, turn on \'Open supported links\' and enable supported web addresses</string>
@@ -58,6 +61,9 @@
     <string name="revanced_disable_haptic_feedback_zoom_summary_off">Zoom haptic feedback is enabled</string>
     <string name="revanced_disable_haptic_feedback_zoom_summary_on">Zoom haptic feedback is disabled</string>
     <string name="revanced_disable_haptic_feedback_zoom_title">Disable zoom haptic feedback</string>
+    <string name="revanced_disable_hdr_auto_brightness_summary_off">Auto HDR brightness is enabled</string>
+    <string name="revanced_disable_hdr_auto_brightness_summary_on">Auto HDR brightness is disabled</string>
+    <string name="revanced_disable_hdr_auto_brightness_title">Disable auto HDR brightness</string>
     <string name="revanced_disable_hdr_video_summary_off">HDR video is enabled</string>
     <string name="revanced_disable_hdr_video_summary_on">HDR video is disabled</string>
     <string name="revanced_disable_hdr_video_title">Disable HDR video</string>
@@ -79,25 +85,30 @@
     <string name="revanced_enable_always_auto_repeat_summary_off">Always auto repeat is disabled</string>
     <string name="revanced_enable_always_auto_repeat_summary_on">Always auto repeat is enabled</string>
     <string name="revanced_enable_always_auto_repeat_title">Always auto repeat</string>
+    <string name="revanced_enable_compact_controls_overlay_summary_off">Compact controls overlay is disabled</string>
+    <string name="revanced_enable_compact_controls_overlay_summary_on">Compact controls overlay is enabled</string>
+    <string name="revanced_enable_compact_controls_overlay_title">Enable compact controls overlay</string>
     <string name="revanced_enable_custom_seekbar_color_summary_off">Custom seekbar color is disabled</string>
     <string name="revanced_enable_custom_seekbar_color_summary_on">Custom seekbar color is enabled</string>
     <string name="revanced_enable_custom_seekbar_color_title">Enable custom seekbar color</string>
     <string name="revanced_enable_custom_video_speed_summary_off">Custom video speed is disabled</string>
     <string name="revanced_enable_custom_video_speed_summary_on">Custom video speed is enabled</string>
     <string name="revanced_enable_custom_video_speed_title">Enable custom video speed</string>
+    <string name="revanced_enable_debug_logging_summary_off">Debug logs are disabled</string>
+    <string name="revanced_enable_debug_logging_summary_on">Debug logs are enabled</string>
+    <string name="revanced_enable_debug_logging_title">Enable debug logging</string>
     <string name="revanced_enable_external_browser_summary_off">External browser is disabled</string>
     <string name="revanced_enable_external_browser_summary_on">External browser is enabled</string>
     <string name="revanced_enable_external_browser_title">Enable external browser</string>
-    <string name="revanced_spoof_app_version_summary">"Spoofing the client version to the old version
-
-This will change the appearance of the app, but unknown side effects may occur
-If later turned off, the old UI may remain until clear the app data"</string>
-    <string name="revanced_spoof_app_version_title">Spoof app version</string>
-    <string name="revanced_spoof_app_version_target_entry_1">17.41.37 - Playlists shelf in library tab follows old layout</string>
-    <string name="revanced_spoof_app_version_target_entry_2">17.30.34 - Restore old UI layout</string>
-    <string name="revanced_spoof_app_version_target_entry_3">17.06.35 - Enable sorting videos by oldest</string>
-    <string name="revanced_spoof_app_version_target_entry_4">16.08.35 - Restore explore tab</string>
-    <string name="revanced_spoof_app_version_target_title">Spoof app version target</string>
+    <string name="revanced_enable_new_splash_animation_summary_off">New splash animation is disabled</string>
+    <string name="revanced_enable_new_splash_animation_summary_on">New splash animation is enabled</string>
+    <string name="revanced_enable_new_splash_animation_title">Enable new splash animation</string>
+    <string name="revanced_enable_new_splash_animation_warning">Only available on Android 12+</string>
+    <string name="revanced_enable_new_thumbnail_preview_summary_off">New thumbnail preview is disabled</string>
+    <string name="revanced_enable_new_thumbnail_preview_summary_on">New thumbnail preview is enabled</string>
+    <string name="revanced_enable_new_thumbnail_preview_title">Enable new thumbnail preview</string>
+    <string name="revanced_enable_opus_codec_summary">Apply opus audio codec instead of mp4a audio codec</string>
+    <string name="revanced_enable_opus_codec_title">Enable opus codec</string>
     <string name="revanced_enable_old_quality_layout_summary_off">New style quality settings are shown</string>
     <string name="revanced_enable_old_quality_layout_summary_on">Old style quality settings are shown</string>
     <string name="revanced_enable_old_quality_layout_title">Enable old style quality layout</string>
@@ -107,6 +118,7 @@ If later turned off, the old UI may remain until clear the app data"</string>
     <string name="revanced_enable_phone_layout_summary">Tricks the dpi to use some phone layouts</string>
     <string name="revanced_enable_phone_layout_title">Enable phone layout</string>
     <string name="revanced_enable_protobuf_spoof_summary">"Spoofs the protobuf to prevent playback issues
+
 Known issues
 - End screen cards are always hidden
 - Offline downloads may not work (YouTube Premium users)"</string>
@@ -114,9 +126,9 @@ Known issues
     <string name="revanced_enable_press_to_swipe_summary_off">Press-to-swipe is disabled</string>
     <string name="revanced_enable_press_to_swipe_summary_on">Press-to-swipe is enabled</string>
     <string name="revanced_enable_press_to_swipe_title">Enable press-to-swipe gesture</string>
-    <string name="revanced_enable_save_brightness_summary_off">When entering fullscreen after restarting the app, the saved brightness value is not overwritten</string>
-    <string name="revanced_enable_save_brightness_summary_on">When entering fullscreen after restarting the app, the saved brightness value is overwritten</string>
-    <string name="revanced_enable_save_brightness_title">Enable save brightness</string>
+    <string name="revanced_enable_save_brightness_summary_off">Don\'t save and restore brightness when exiting or entering fullscreen</string>
+    <string name="revanced_enable_save_brightness_summary_on">Save and restore brightness when exiting or entering fullscreen</string>
+    <string name="revanced_enable_save_brightness_title">Enable save and restore brightness</string>
     <string name="revanced_enable_save_video_quality_summary_off">Does not save video quality values even when changing video quality</string>
     <string name="revanced_enable_save_video_quality_summary_on">Save the video quality value whenever you change the video quality</string>
     <string name="revanced_enable_save_video_quality_title">Enable save video quality</string>
@@ -129,9 +141,6 @@ Known issues
     <string name="revanced_enable_swipe_auto_brightness_summary_off">Even if the brightness is set to 0 by swiping, auto brightness is not activated</string>
     <string name="revanced_enable_swipe_auto_brightness_summary_on">When brightness reaches 0 by swiping, auto brightness is activated</string>
     <string name="revanced_enable_swipe_auto_brightness_title">Enable auto-brightness by swiping</string>
-    <string name="revanced_enable_swipe_brightness_in_hdr_summary_off">When playing HDR videos, brightness values specified by YouTube are applied</string>
-    <string name="revanced_enable_swipe_brightness_in_hdr_summary_on">When playing HDR video, swipe gesture brightness values are applied</string>
-    <string name="revanced_enable_swipe_brightness_in_hdr_title">Enable swipe gesture brightness values in HDR video</string>
     <string name="revanced_enable_swipe_brightness_summary_off">Brightness swipe is disabled</string>
     <string name="revanced_enable_swipe_brightness_summary_on">Brightness swipe is enabled</string>
     <string name="revanced_enable_swipe_brightness_title">Enable brightness gesture</string>
@@ -152,8 +161,8 @@ Known issues
     <string name="revanced_enable_time_stamp_speed_summary_off">Append time stamp speed is disabled</string>
     <string name="revanced_enable_time_stamp_speed_summary_on">Append time stamp speed is enabled</string>
     <string name="revanced_enable_time_stamp_speed_title">Enable time stamp speed</string>
-    <string name="revanced_enable_vp9_codec_summary">Spoof device information to enable VP9 codec</string>
-    <string name="revanced_enable_vp9_codec_title">Enable VP9 codec</string>
+    <string name="revanced_enable_vp9_codec_summary">Spoof device information to enable vp9 codec</string>
+    <string name="revanced_enable_vp9_codec_title">Enable vp9 codec</string>
     <string name="revanced_enable_wide_searchbar_summary_off">Wide search bar is disabled</string>
     <string name="revanced_enable_wide_searchbar_summary_on">Wide search bar is enabled</string>
     <string name="revanced_enable_wide_searchbar_title">Enable wide search bar</string>
@@ -192,12 +201,6 @@ Please do not report any issues you encounter while using this feature."</string
     <string name="revanced_hide_auto_player_popup_panels_summary_off">Auto player popup panels are shown</string>
     <string name="revanced_hide_auto_player_popup_panels_summary_on">Auto player popup panels are hidden</string>
     <string name="revanced_hide_auto_player_popup_panels_title">Hide auto player popup panels</string>
-    <string name="revanced_hide_breaking_news_shelf_summary_off">Breaking news shelves are shown</string>
-    <string name="revanced_hide_breaking_news_shelf_summary_on">Breaking news shelves are hidden</string>
-    <string name="revanced_hide_breaking_news_shelf_title">Hide breaking news shelf</string>
-    <string name="revanced_hide_browse_store_button_summary_off">Browse store button is shown</string>
-    <string name="revanced_hide_browse_store_button_summary_on">Browse store button is hidden</string>
-    <string name="revanced_hide_browse_store_button_title">Hide browse store button</string>
     <string name="revanced_hide_button_create_clip_summary_off">Clip button is shown</string>
     <string name="revanced_hide_button_create_clip_summary_on">Clip button is hidden</string>
     <string name="revanced_hide_button_create_clip_title">Hide clip button</string>
@@ -216,6 +219,9 @@ Please do not report any issues you encounter while using this feature."</string
     <string name="revanced_hide_button_playlist_summary_off">Playlist button is shown</string>
     <string name="revanced_hide_button_playlist_summary_on">Playlist button is hidden</string>
     <string name="revanced_hide_button_playlist_title">Hide playlist button</string>
+    <string name="revanced_hide_button_rewards_summary_off">Rewards button is shown</string>
+    <string name="revanced_hide_button_rewards_summary_on">Rewards button is hidden</string>
+    <string name="revanced_hide_button_rewards_title">Hide rewards button</string>
     <string name="revanced_hide_button_remix_summary_off">Remix button is shown</string>
     <string name="revanced_hide_button_remix_summary_on">Remix button is hidden</string>
     <string name="revanced_hide_button_remix_title">Hide remix button</string>
@@ -296,6 +302,9 @@ Please do not report any issues you encounter while using this feature."</string
     <string name="revanced_hide_fullscreen_panels_summary_off">Fullscreen panels are shown</string>
     <string name="revanced_hide_fullscreen_panels_summary_on">Fullscreen panels are hidden</string>
     <string name="revanced_hide_fullscreen_panels_title">Hide fullscreen panels</string>
+    <string name="revanced_hide_gray_description_summary_off">Gray description is shown</string>
+    <string name="revanced_hide_gray_description_summary_on">Gray description is hidden</string>
+    <string name="revanced_hide_gray_description_title">Hide gray description</string>
     <string name="revanced_hide_home_button_summary_off">Home button is shown</string>
     <string name="revanced_hide_home_button_summary_on">Home button is hidden</string>
     <string name="revanced_hide_home_button_title">Hide home button</string>
@@ -398,9 +407,12 @@ Please do not report any issues you encounter while using this feature."</string
     <string name="revanced_hide_quick_actions_related_videos_summary_off">Related videos are shown</string>
     <string name="revanced_hide_quick_actions_related_videos_summary_on">Related videos are hidden</string>
     <string name="revanced_hide_quick_actions_related_videos_title">Hide related videos in quick actions</string>
-    <string name="revanced_hide_seekbar_summary_off">Seekbar is shown</string>
-    <string name="revanced_hide_seekbar_summary_on">Seekbar is hidden</string>
-    <string name="revanced_hide_seekbar_title">Hide seekbar</string>
+    <string name="revanced_hide_seekbar_summary_off">Video player seekbar is shown</string>
+    <string name="revanced_hide_seekbar_summary_on">Video player seekbar is hidden</string>
+    <string name="revanced_hide_seekbar_title">Hide seekbar in video player</string>
+    <string name="revanced_hide_seekbar_thumbnail_summary_off">Thumbnail seekbar is shown</string>
+    <string name="revanced_hide_seekbar_thumbnail_summary_on">Thumbnail seekbar is hidden</string>
+    <string name="revanced_hide_seekbar_thumbnail_title">Hide seekbar in video thumbnails</string>
     <string name="revanced_hide_seek_message_summary_off">Seek message is shown</string>
     <string name="revanced_hide_seek_message_summary_on">Seek message is hidden</string>
     <string name="revanced_hide_seek_message_title">Hide seek message</string>
@@ -430,6 +442,9 @@ Please do not report any issues you encounter while using this feature."</string
     <string name="revanced_hide_snack_bar_summary_off">Snack bar is shown</string>
     <string name="revanced_hide_snack_bar_summary_on">Snack bar is hidden</string>
     <string name="revanced_hide_snack_bar_title">Hide snack bar</string>
+    <string name="revanced_hide_speed_overlay_summary_off">Speed overlay are shown</string>
+    <string name="revanced_hide_speed_overlay_summary_on">Speed overlay are hidden</string>
+    <string name="revanced_hide_speed_overlay_title">Hide speed overlay</string>
     <string name="revanced_hide_stories_shelf_summary_off">Stories shelves are shown</string>
     <string name="revanced_hide_stories_shelf_summary_on">Stories shelves are hidden</string>
     <string name="revanced_hide_stories_shelf_title">Hide stories shelf</string>
@@ -439,9 +454,9 @@ Please do not report any issues you encounter while using this feature."</string
     <string name="revanced_hide_suggested_actions_summary_off">Suggested actions shown</string>
     <string name="revanced_hide_suggested_actions_summary_on">Suggested actions hidden</string>
     <string name="revanced_hide_suggested_actions_title">Hide suggested actions</string>
-    <string name="revanced_hide_suggestions_summary_off">Suggestions are shown</string>
-    <string name="revanced_hide_suggestions_summary_on">Suggestions are hidden</string>
-    <string name="revanced_hide_suggestions_title">Hide suggestions</string>
+    <string name="revanced_hide_suggestions_shelf_summary_off">Following shelves are shown: Breaking news, Explore more channels, Shopping</string>
+    <string name="revanced_hide_suggestions_shelf_summary_on">Following shelves are hidden: Breaking news, Explore more channels, Shopping</string>
+    <string name="revanced_hide_suggestions_shelf_title">Hide suggestions shelf</string>
     <string name="revanced_hide_teaser_summary_off">Teasers are shown</string>
     <string name="revanced_hide_teaser_summary_on">Teasers are hidden</string>
     <string name="revanced_hide_teaser_title">Hide teaser under videos</string>
@@ -499,7 +514,7 @@ Please do not report any issues you encounter while using this feature."</string
     <string name="revanced_player_flyout_panel_title">Player flyout panel</string>
     <string name="revanced_player">Player</string>
     <string name="revanced_protobuf_spoof_notice">Spoofing protobuf to prevent playback issues</string>
-    <string name="revanced_quick_actions_components_title">Quick actions components (Experimental)</string>
+    <string name="revanced_quick_actions_components_title">Quick actions components</string>
     <string name="revanced_reboot_first_run">Restart to load the layout normally</string>
     <string name="revanced_reboot_warning_general">"As this is still an experimental feature, there may be other unknown issues.
 Are you sure you want to continue though?"</string>
@@ -527,6 +542,9 @@ Since these setting is quite outdated, it may not be valid"</string>
     <string name="revanced_ryd_enable_summary_on">Dislikes are shown</string>
     <string name="revanced_ryd_enable_title">Enable Return YouTube Dislike</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Dislikes not available (client API limit reached)</string>
+    <string name="revanced_ryd_shorts_summary_off">Dislikes hidden on Shorts</string>
+    <string name="revanced_ryd_shorts_summary_on">Dislikes shown on Shorts</string>
+    <string name="revanced_ryd_shorts_title">Show dislikes on Shorts</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Hidden</string>
     <string name="revanced_save_video_quality_mobile">Changing default mobile data quality to:</string>
     <string name="revanced_save_video_quality_none">Failed to set quality</string>
@@ -538,6 +556,18 @@ Since these setting is quite outdated, it may not be valid"</string>
     <string name="revanced_show_fullscreen_title_summary">Known issue: Title disappears when clicked</string>
     <string name="revanced_show_fullscreen_title_title">Show fullscreen title</string>
     <string name="revanced_sponsorblock_settings_summary">SponsorBlock related settings</string>
+    <string name="revanced_spoof_app_version_summary">"Spoofing the client version to the old version
+
+This will change the appearance of the app, but unknown side effects may occur
+If later turned off, the old UI may remain until clear the app data"</string>
+    <string name="revanced_spoof_app_version_title">Spoof app version</string>
+    <string name="revanced_spoof_app_version_target_entry_0">18.18.39 - Issue with old quality layout not working can be fixed</string>
+    <string name="revanced_spoof_app_version_target_entry_1">17.41.37 - Playlists shelf in library tab follows old layout</string>
+    <string name="revanced_spoof_app_version_target_entry_2">17.30.34 - Restore old UI layout</string>
+    <string name="revanced_spoof_app_version_target_entry_3">17.06.35 - Enable sorting videos by oldest</string>
+    <string name="revanced_spoof_app_version_target_entry_4">16.08.35 - Restore explore tab</string>
+    <string name="revanced_spoof_app_version_target_summary">Type the spoof app version target</string>
+    <string name="revanced_spoof_app_version_target_title">Spoof app version target</string>
     <string name="revanced_swipe_controls">Swipe controls</string>
     <string name="revanced_swipe_magnitude_threshold_summary">The amount of threshold for swipe to occur</string>
     <string name="revanced_swipe_magnitude_threshold_title">Swipe magnitude threshold</string>
@@ -547,9 +577,9 @@ Since these setting is quite outdated, it may not be valid"</string>
     <string name="revanced_swipe_overlay_text_size_title">Swipe overlay text size</string>
     <string name="revanced_swipe_overlay_timeout_summary">The amount of milliseconds the overlay is visible</string>
     <string name="revanced_swipe_overlay_timeout_title">Swipe overlay timeout</string>
-    <string name="revanced_switching_create_notification_summary_off">Create button and notification button not switching</string>
-    <string name="revanced_switching_create_notification_summary_on">Create button and notification button are switched</string>
-    <string name="revanced_switching_create_notification_title">Switching the create button and notification button</string>
+    <string name="revanced_switching_create_notification_summary_off">Create button is not switched with notifications</string>
+    <string name="revanced_switching_create_notification_summary_on">Create button is switched with notifications</string>
+    <string name="revanced_switching_create_notification_title">Switch create with notifications button</string>
     <string name="revanced_tool_used">Tool used</string>
     <string name="revanced_video">Video</string>
     <string name="revanced_video_ads_removal_summary_off">Video ads are shown</string>

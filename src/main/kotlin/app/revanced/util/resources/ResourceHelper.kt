@@ -50,33 +50,6 @@ internal object ResourceHelper {
         }
     }
 
-    internal fun ResourceContext.addEntries(
-        path: String,
-        speedEntries: String,
-        attributeName: String
-    ) {
-        xmlEditor[path].use {
-            with(it.file) {
-                val resourcesNode = getElementsByTagName("resources").item(0) as Element
-
-                val newElement: Element = createElement("item")
-
-                for (i in 0 until resourcesNode.childNodes.length) {
-                    val node = resourcesNode.childNodes.item(i) as? Element ?: continue
-
-                    if (node.getAttribute("name") == attributeName) {
-                        newElement.appendChild(createTextNode(speedEntries))
-
-                        node.appendChild(newElement)
-                    }
-                }
-            }
-        }
-        this[path].writeText(
-            this[path].readText().replace("1.0x", "@string/shorts_speed_control_normal_label")
-        )
-    }
-
     internal fun ResourceContext.addPreference(settingArray: Array<String>) {
         val prefs = this[TARGET_PREFERENCE_PATH]
 
