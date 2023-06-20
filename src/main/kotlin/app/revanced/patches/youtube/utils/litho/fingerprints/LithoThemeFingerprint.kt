@@ -1,19 +1,19 @@
-package app.revanced.patches.youtube.ads.doublebacktoclose.fingerprint
+package app.revanced.patches.youtube.utils.litho.fingerprints
 
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 
-object ScrollPositionFingerprint : MethodFingerprint(
+object LithoThemeFingerprint : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PROTECTED or AccessFlags.FINAL,
     parameters = listOf("L"),
     opcodes = listOf(
         Opcode.IF_NEZ,
-        Opcode.INVOKE_DIRECT,
+        Opcode.IGET_OBJECT,
+        Opcode.INVOKE_VIRTUAL, // Paint.setColor: inject point
         Opcode.RETURN_VOID
     ),
-    strings = listOf("scroll_position")
+    customFingerprint = { it, _ -> it.name == "onBoundsChange" }
 )
-

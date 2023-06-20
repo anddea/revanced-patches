@@ -19,7 +19,7 @@ import app.revanced.patches.shared.fingerprints.ControlsOverlayStyleFingerprint
 import app.revanced.patches.youtube.seekbar.seekbarcolor.bytecode.fingerprints.ProgressColorFingerprint
 import app.revanced.patches.youtube.seekbar.seekbarcolor.bytecode.fingerprints.SeekbarColorFingerprint
 import app.revanced.patches.youtube.seekbar.seekbarcolor.resource.patch.SeekbarColorResourcePatch
-import app.revanced.patches.youtube.misc.litho.patch.LithoThemePatch
+import app.revanced.patches.youtube.utils.litho.patch.LithoThemePatch
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch.Companion.InlineTimeBarColorizedBarPlayedColorDark
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch.Companion.InlineTimeBarPlayedNotHighlightedColor
@@ -48,9 +48,11 @@ class SeekbarColorPatch : BytecodePatch(
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
-        SeekbarColorFingerprint.result?.mutableMethod?.let {
-            it.hook(it.getWideLiteralIndex(InlineTimeBarColorizedBarPlayedColorDark) + 2)
-            it.hook(it.getWideLiteralIndex(InlineTimeBarPlayedNotHighlightedColor) + 2)
+        SeekbarColorFingerprint.result?.let {
+            it.mutableMethod.apply {
+                hook(getWideLiteralIndex(InlineTimeBarColorizedBarPlayedColorDark) + 2)
+                hook(getWideLiteralIndex(InlineTimeBarPlayedNotHighlightedColor) + 2)
+            }
         } ?: return SeekbarColorFingerprint.toErrorResult()
 
         ControlsOverlayStyleFingerprint.result?.let { parentResult ->

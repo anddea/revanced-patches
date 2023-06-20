@@ -14,8 +14,9 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
 import app.revanced.patches.youtube.ads.general.bytecode.patch.GeneralAdsBytecodePatch
 import app.revanced.patches.youtube.ads.getpremium.patch.HideGetPremiumPatch
-import app.revanced.patches.youtube.misc.litho.patch.ByteBufferFilterPatch
+import app.revanced.patches.youtube.utils.litho.patch.LithoFilterPatch
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
+import app.revanced.util.resources.ResourceUtils.copyXmlNode
 import org.w3c.dom.Element
 
 @Patch
@@ -23,9 +24,9 @@ import org.w3c.dom.Element
 @Description("Removes general ads.")
 @DependsOn(
     [
-        ByteBufferFilterPatch::class,
         GeneralAdsBytecodePatch::class,
         HideGetPremiumPatch::class,
+        LithoFilterPatch::class,
         SettingsPatch::class
     ]
 )
@@ -83,6 +84,11 @@ class GeneralAdsPatch : ResourcePatch {
                 }
             }
         }
+
+        /**
+         * Copy arrays
+         */
+        context.copyXmlNode("youtube/doubleback/host", "values/arrays.xml", "resources")
 
         /*
          * Add settings

@@ -10,7 +10,8 @@ import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.shared.annotation.YouTubeCompatibility
-import app.revanced.patches.youtube.misc.litho.patch.ByteBufferFilterPatch
+import app.revanced.patches.shared.patch.litho.ComponentParserPatch.Companion.objectHook
+import app.revanced.patches.youtube.utils.litho.patch.LithoFilterPatch
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.integrations.Constants.BOTTOM_PLAYER
 
@@ -19,7 +20,7 @@ import app.revanced.util.integrations.Constants.BOTTOM_PLAYER
 @Description("Adds the options to hide action buttons under a video.")
 @DependsOn(
     [
-        ByteBufferFilterPatch::class,
+        LithoFilterPatch::class,
         SettingsPatch::class
     ]
 )
@@ -28,7 +29,7 @@ import app.revanced.util.integrations.Constants.BOTTOM_PLAYER
 class ButtonContainerPatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
 
-        ByteBufferFilterPatch.inject("$BOTTOM_PLAYER->hideActionButtons")
+        objectHook("$BOTTOM_PLAYER->hideActionButton")
 
         /**
          * Add settings
