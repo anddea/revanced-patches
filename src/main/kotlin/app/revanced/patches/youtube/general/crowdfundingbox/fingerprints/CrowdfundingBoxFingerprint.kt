@@ -11,5 +11,5 @@ object CrowdfundingBoxFingerprint : MethodFingerprint(
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.IPUT_OBJECT
     ),
-    customFingerprint = { it, _ -> it.isWideLiteralExists(DonationCompanion) }
+    customFingerprint = { methodDef, _ -> methodDef.isWideLiteralExists(DonationCompanion) }
 )

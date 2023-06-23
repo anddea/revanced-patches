@@ -10,5 +10,5 @@ object MusicVideoQualitySettingsParentFingerprint : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
     parameters = listOf("L"),
-    customFingerprint = { it, _ -> it.isWideLiteralExists(QualityTitle) }
+    customFingerprint = { methodDef, _ -> methodDef.isWideLiteralExists(QualityTitle) }
 )

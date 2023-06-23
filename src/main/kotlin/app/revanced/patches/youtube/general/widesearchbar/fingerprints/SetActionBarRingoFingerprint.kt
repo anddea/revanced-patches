@@ -14,5 +14,5 @@ object SetActionBarRingoFingerprint : MethodFingerprint(
         Opcode.IGET_OBJECT,
         Opcode.INVOKE_STATIC
     ),
-    customFingerprint = { it, _ -> it.isWideLiteralExists(ActionBarRingo) }
+    customFingerprint = { methodDef, _ -> methodDef.isWideLiteralExists(ActionBarRingo) }
 )

@@ -15,5 +15,5 @@ object VideoLengthFingerprint : MethodFingerprint(
         Opcode.CONST_4,
         Opcode.INVOKE_VIRTUAL
     ),
-    customFingerprint = { it, _ -> it.isWide32LiteralExists(45388753) }
+    customFingerprint = { methodDef, _ -> methodDef.isWide32LiteralExists(45388753) }
 )

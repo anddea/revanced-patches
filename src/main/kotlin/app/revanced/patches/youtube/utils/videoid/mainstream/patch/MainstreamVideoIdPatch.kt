@@ -20,6 +20,7 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMu
 import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.playertype.patch.PlayerTypeHookPatch
 import app.revanced.patches.youtube.utils.videoid.mainstream.fingerprint.MainstreamVideoIdFingerprint
+import app.revanced.patches.youtube.utils.videoid.mainstream.fingerprint.MainstreamVideoIdParentFingerprint
 import app.revanced.patches.youtube.utils.videoid.mainstream.fingerprint.PlayerControllerSetTimeReferenceFingerprint
 import app.revanced.patches.youtube.utils.videoid.mainstream.fingerprint.PlayerInitFingerprint
 import app.revanced.patches.youtube.utils.videoid.mainstream.fingerprint.SeekFingerprint
@@ -42,7 +43,7 @@ import org.jf.dexlib2.util.MethodUtil
 @DependsOn([PlayerTypeHookPatch::class])
 class MainstreamVideoIdPatch : BytecodePatch(
     listOf(
-        MainstreamVideoIdFingerprint,
+        MainstreamVideoIdParentFingerprint,
         PlayerControllerSetTimeReferenceFingerprint,
         PlayerInitFingerprint,
         SeekFingerprint,
@@ -133,14 +134,21 @@ class MainstreamVideoIdPatch : BytecodePatch(
             }
         } ?: return VideoLengthFingerprint.toErrorResult()
 
-        MainstreamVideoIdFingerprint.result?.let {
-            it.mutableMethod.apply {
-                insertMethod = this
-                insertIndex = it.scanResult.patternScanResult!!.endIndex
-                videoIdRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
-            }
-            offset++ // offset so setVideoId is called before any injected call
-        } ?: return MainstreamVideoIdFingerprint.toErrorResult()
+        MainstreamVideoIdParentFingerprint.result?.let { parentResult ->
+            MainstreamVideoIdFingerprint.also {
+                it.resolve(
+                    context,
+                    parentResult.classDef
+                )
+            }.result?.let {
+                it.mutableMethod.apply {
+                    insertMethod = this
+                    insertIndex = it.scanResult.patternScanResult!!.endIndex
+                    videoIdRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+                }
+                offset++ // offset so setVideoId is called before any injected call
+            } ?: return MainstreamVideoIdFingerprint.toErrorResult()
+        } ?: return MainstreamVideoIdParentFingerprint.toErrorResult()
 
         return PatchResultSuccess()
     }

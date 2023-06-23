@@ -15,10 +15,7 @@
         <SwitchPreference android:title="@string/revanced_video_ads_removal_title" android:key="revanced_video_ads_removal" android:defaultValue="true" android:summaryOn="@string/revanced_video_ads_removal_summary_on" android:summaryOff="@string/revanced_video_ads_removal_summary_off" />SETTINGS: HIDE_VIDEO_ADS -->
 
         <!-- SETTINGS: HIDE_GENERAL_ADS
-        <SwitchPreference android:title="@string/revanced_ad_remover_get_premium_title" android:key="revanced_ad_remover_get_premium" android:defaultValue="true" android:summaryOn="@string/revanced_ad_remover_get_premium_summary_on" android:summaryOff="@string/revanced_ad_remover_get_premium_summary_off" />
-        <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_ad_remover_custom_filter_title" />
-        <SwitchPreference android:title="@string/revanced_ad_remover_user_filter_title" android:key="revanced_ad_remover_user_filter" android:defaultValue="false" android:summaryOn="@string/revanced_ad_remover_user_filter_summary_on" android:summaryOff="@string/revanced_ad_remover_user_filter_summary_off" />
-        <app.revanced.integrations.settingsmenu.ResettableEditTextPreference android:title="@string/revanced_ad_remover_custom_filter_title" android:key="revanced_ad_remover_custom_strings" android:summary="@string/revanced_ad_remover_custom_filter_summary" android:defaultValue="" android:inputType="textMultiLine" />SETTINGS: HIDE_GENERAL_ADS -->
+        <SwitchPreference android:title="@string/revanced_ad_remover_get_premium_title" android:key="revanced_ad_remover_get_premium" android:defaultValue="true" android:summaryOn="@string/revanced_ad_remover_get_premium_summary_on" android:summaryOff="@string/revanced_ad_remover_get_premium_summary_off" />SETTINGS: HIDE_GENERAL_ADS -->
 
     <!-- PREFERENCE: ADS_SETTINGS
     </PreferenceScreen>PREFERENCE: ADS_SETTINGS -->
@@ -48,8 +45,8 @@
         <!-- SETTINGS: COMMENT_COMPONENT_PARENT
         <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_comments_title" />SETTINGS: COMMENT_COMPONENT_PARENT -->
 
-        <!-- SETTINGS: HIDE_GENERAL_ADS
-        <SwitchPreference android:title="@string/revanced_hide_channel_guidelines_title" android:key="revanced_hide_channel_guidelines" android:defaultValue="true" android:summaryOn="@string/revanced_hide_channel_guidelines_summary_on" android:summaryOff="@string/revanced_hide_channel_guidelines_summary_off" />SETTINGS: HIDE_GENERAL_ADS -->
+        <!-- SETTINGS: HIDE_LAYOUT_COMPONENTS
+        <SwitchPreference android:title="@string/revanced_hide_channel_guidelines_title" android:key="revanced_hide_channel_guidelines" android:defaultValue="true" android:summaryOn="@string/revanced_hide_channel_guidelines_summary_on" android:summaryOff="@string/revanced_hide_channel_guidelines_summary_off" />SETTINGS: HIDE_LAYOUT_COMPONENTS -->
 
         <!-- SETTINGS: COMMENT_COMPONENTS
         <SwitchPreference android:title="@string/revanced_hide_comments_section_title" android:key="revanced_hide_comments_section" android:defaultValue="false" android:summaryOn="@string/revanced_hide_comments_section_summary_on" android:summaryOff="@string/revanced_hide_comments_section_summary_off" />
@@ -125,7 +122,14 @@
 
 
     <!-- PREFERENCE: GENERAL_SETTINGS
-    <PreferenceScreen android:title="@string/revanced_general" android:key="general">
+    <PreferenceScreen android:title="@string/revanced_general" android:key="general">PREFERENCE: GENERAL_SETTINGS -->
+
+        <!-- SETTINGS: HIDE_LAYOUT_COMPONENTS
+        <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_custom_filter_strings_title" />
+        <SwitchPreference android:title="@string/revanced_custom_filter_title" android:key="revanced_custom_filter" android:defaultValue="false" android:summaryOn="@string/revanced_custom_filter_summary_on" android:summaryOff="@string/revanced_custom_filter_summary_off" />
+        <app.revanced.integrations.settingsmenu.ResettableEditTextPreference android:title="@string/revanced_custom_filter_strings_title" android:key="revanced_custom_filter_strings" android:summary="@string/revanced_custom_filter_strings_summary" android:defaultValue="" android:inputType="textMultiLine" />SETTINGS: HIDE_LAYOUT_COMPONENTS -->
+
+        <!-- PREFERENCE: GENERAL_SETTINGS
         <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_general" />PREFERENCE: GENERAL_SETTINGS -->
 
         <!-- SETTINGS: ENABLE_TABLET_MINI_PLAYER
@@ -136,10 +140,10 @@
 
         <!-- SETTINGS: HIDE_ACCOUNT_MENU
         <SwitchPreference android:title="@string/revanced_hide_account_menu_title" android:key="revanced_hide_account_menu" android:defaultValue="false" android:summaryOn="@string/revanced_hide_account_menu_summary_on" android:summaryOff="@string/revanced_hide_account_menu_summary_off" />
-        <app.revanced.integrations.settingsmenu.ResettableEditTextPreference android:title="@string/revanced_account_menu_custom_filter_title" android:key="revanced_account_menu_custom_filter" android:summary="@string/revanced_account_menu_custom_filter_summary" android:defaultValue="YouTube Music\nYouTube Kids" android:inputType="textMultiLine" />SETTINGS: HIDE_ACCOUNT_MENU -->
+        <app.revanced.integrations.settingsmenu.ResettableEditTextPreference android:title="@string/revanced_hide_account_menu_custom_filter_strings_title" android:key="revanced_hide_account_menu_custom_filter_strings" android:summary="@string/revanced_hide_account_menu_custom_filter_strings_summary" android:defaultValue="YouTube Music\nYouTube Kids" android:inputType="textMultiLine" />SETTINGS: HIDE_ACCOUNT_MENU -->
 
-        <!-- SETTINGS: HIDE_GENERAL_ADS
-        <SwitchPreference android:title="@string/revanced_hide_album_card_title" android:key="revanced_hide_album_card" android:defaultValue="true" android:summaryOn="@string/revanced_hide_album_card_summary_on" android:summaryOff="@string/revanced_hide_album_card_summary_off" />SETTINGS: HIDE_GENERAL_ADS -->
+        <!-- SETTINGS: HIDE_LAYOUT_COMPONENTS
+        <SwitchPreference android:title="@string/revanced_hide_album_card_title" android:key="revanced_hide_album_card" android:defaultValue="true" android:summaryOn="@string/revanced_hide_album_card_summary_on" android:summaryOff="@string/revanced_hide_album_card_summary_off" />SETTINGS: HIDE_LAYOUT_COMPONENTS -->
 
         <!-- SETTINGS: HIDE_AUTO_CAPTIONS
         <SwitchPreference android:title="@string/revanced_hide_auto_captions_title" android:key="revanced_hide_auto_captions" android:defaultValue="false" android:summaryOn="@string/revanced_hide_auto_captions_summary_on" android:summaryOff="@string/revanced_hide_auto_captions_summary_off" />SETTINGS: HIDE_AUTO_CAPTIONS -->
@@ -152,16 +156,16 @@
         <SwitchPreference android:title="@string/revanced_hide_category_bar_in_related_video_title" android:key="revanced_hide_category_bar_in_related_video" android:defaultValue="false" android:summaryOn="@string/revanced_hide_category_bar_summary_on" android:summaryOff="@string/revanced_hide_category_bar_summary_off" />
         <SwitchPreference android:title="@string/revanced_hide_category_bar_in_search_results_title" android:key="revanced_hide_category_bar_in_search_results" android:defaultValue="false" android:summaryOn="@string/revanced_hide_category_bar_summary_on" android:summaryOff="@string/revanced_hide_category_bar_summary_off" />SETTINGS: HIDE_CATEGORY_BAR -->
 
-        <!-- SETTINGS: HIDE_GENERAL_ADS
-        <SwitchPreference android:title="@string/revanced_hide_channelbar_join_button_title" android:key="revanced_hide_channelbar_join_button" android:defaultValue="true" android:summaryOn="@string/revanced_hide_channelbar_join_button_summary_on" android:summaryOff="@string/revanced_hide_channelbar_join_button_summary_off" />SETTINGS: HIDE_GENERAL_ADS -->
+        <!-- SETTINGS: HIDE_LAYOUT_COMPONENTS
+        <SwitchPreference android:title="@string/revanced_hide_channelbar_join_button_title" android:key="revanced_hide_channelbar_join_button" android:defaultValue="true" android:summaryOn="@string/revanced_hide_channelbar_join_button_summary_on" android:summaryOff="@string/revanced_hide_channelbar_join_button_summary_off" />SETTINGS: HIDE_LAYOUT_COMPONENTS -->
 
         <!-- SETTINGS: HIDE_CHANNEL_LIST_SUBMENU
         <SwitchPreference android:title="@string/revanced_hide_channel_list_submenu_title" android:key="revanced_hide_channel_list_submenu" android:defaultValue="false" android:summaryOn="@string/revanced_hide_channel_list_submenu_summary_on" android:summaryOff="@string/revanced_hide_channel_list_submenu_summary_off" />SETTINGS: HIDE_CHANNEL_LIST_SUBMENU -->
 
-        <!-- SETTINGS: HIDE_GENERAL_ADS
+        <!-- SETTINGS: HIDE_LAYOUT_COMPONENTS
         <SwitchPreference android:title="@string/revanced_hide_channel_member_shelf_title" android:key="revanced_hide_channel_member_shelf" android:defaultValue="true" android:summaryOn="@string/revanced_hide_channel_member_shelf_summary_on" android:summaryOff="@string/revanced_hide_channel_member_shelf_summary_off" />
         <SwitchPreference android:title="@string/revanced_hide_community_posts_home_title" android:key="revanced_hide_community_posts_home" android:defaultValue="true" android:summaryOn="@string/revanced_hide_community_posts_home_summary_on" android:summaryOff="@string/revanced_hide_community_posts_home_summary_off" />
-        <SwitchPreference android:title="@string/revanced_hide_community_posts_subscriptions_title" android:key="revanced_hide_community_posts_subscriptions" android:defaultValue="false" android:summaryOn="@string/revanced_hide_community_posts_subscriptions_summary_on" android:summaryOff="@string/revanced_hide_community_posts_subscriptions_summary_off" />SETTINGS: HIDE_GENERAL_ADS -->
+        <SwitchPreference android:title="@string/revanced_hide_community_posts_subscriptions_title" android:key="revanced_hide_community_posts_subscriptions" android:defaultValue="false" android:summaryOn="@string/revanced_hide_community_posts_subscriptions_summary_on" android:summaryOff="@string/revanced_hide_community_posts_subscriptions_summary_off" />SETTINGS: HIDE_LAYOUT_COMPONENTS -->
 
         <!-- SETTINGS: HIDE_CROWDFUNDING_BOX
         <SwitchPreference android:title="@string/revanced_hide_crowdfunding_box_title" android:key="revanced_hide_crowdfunding_box" android:defaultValue="true" android:summaryOn="@string/revanced_hide_crowdfunding_box_summary_on" android:summaryOff="@string/revanced_hide_crowdfunding_box_summary_off" />SETTINGS: HIDE_CROWDFUNDING_BOX -->
@@ -172,32 +176,32 @@
         <!-- SETTINGS: HIDE_FLOATING_MICROPHONE
         <SwitchPreference android:title="@string/revanced_hide_floating_microphone_title" android:key="revanced_hide_floating_microphone" android:defaultValue="true" android:summaryOn="@string/revanced_hide_floating_microphone_summary_on" android:summaryOff="@string/revanced_hide_floating_microphone_summary_off" />SETTINGS: HIDE_FLOATING_MICROPHONE -->
 
-        <!-- SETTINGS: HIDE_GENERAL_ADS
+        <!-- SETTINGS: HIDE_LAYOUT_COMPONENTS
         <SwitchPreference android:title="@string/revanced_hide_gray_description_title" android:key="revanced_hide_gray_description" android:defaultValue="true" android:summaryOn="@string/revanced_hide_gray_description_summary_on" android:summaryOff="@string/revanced_hide_gray_description_summary_off" />
         <SwitchPreference android:title="@string/revanced_hide_image_shelf_title" android:key="revanced_hide_image_shelf" android:defaultValue="true" android:summaryOn="@string/revanced_hide_image_shelf_summary_on" android:summaryOff="@string/revanced_hide_image_shelf_summary_off" />
         <SwitchPreference android:title="@string/revanced_hide_info_panel_title" android:key="revanced_hide_info_panel" android:defaultValue="true" android:summaryOn="@string/revanced_hide_info_panel_summary_on" android:summaryOff="@string/revanced_hide_info_panel_summary_off" />
         <SwitchPreference android:title="@string/revanced_hide_in_feed_survey_title" android:key="revanced_hide_feed_survey" android:defaultValue="true" android:summaryOn="@string/revanced_hide_in_feed_survey_summary_on" android:summaryOff="@string/revanced_hide_in_feed_survey_summary_off" />
-        <SwitchPreference android:title="@string/revanced_hide_latest_posts_title" android:key="revanced_hide_latest_posts" android:defaultValue="true" android:summaryOn="@string/revanced_hide_latest_posts_summary_on" android:summaryOff="@string/revanced_hide_latest_posts_summary_off" />SETTINGS: HIDE_GENERAL_ADS -->
+        <SwitchPreference android:title="@string/revanced_hide_latest_posts_title" android:key="revanced_hide_latest_posts" android:defaultValue="true" android:summaryOn="@string/revanced_hide_latest_posts_summary_on" android:summaryOff="@string/revanced_hide_latest_posts_summary_off" />SETTINGS: HIDE_LAYOUT_COMPONENTS -->
 
         <!-- SETTINGS: HIDE_LOAD_MORE_BUTTON
         <SwitchPreference android:title="@string/revanced_hide_load_more_button_title" android:key="revanced_hide_load_more_button" android:defaultValue="true" android:summaryOn="@string/revanced_hide_load_more_button_summary_on" android:summaryOff="@string/revanced_hide_load_more_button_summary_off" />SETTINGS: HIDE_LOAD_MORE_BUTTON -->
 
-        <!-- SETTINGS: HIDE_GENERAL_ADS
+        <!-- SETTINGS: HIDE_LAYOUT_COMPONENTS
         <SwitchPreference android:title="@string/revanced_hide_medical_panel_title" android:key="revanced_hide_medical_panel" android:defaultValue="true" android:summaryOn="@string/revanced_hide_medical_panel_summary_on" android:summaryOff="@string/revanced_hide_medical_panel_summary_off" />
-        <SwitchPreference android:title="@string/revanced_hide_merchandise_title" android:key="revanced_hide_merchandise" android:defaultValue="true" android:summaryOn="@string/revanced_hide_merchandise_summary_on" android:summaryOff="@string/revanced_hide_merchandise_summary_off" />SETTINGS: HIDE_GENERAL_ADS -->
+        <SwitchPreference android:title="@string/revanced_hide_merchandise_title" android:key="revanced_hide_merchandise" android:defaultValue="true" android:summaryOn="@string/revanced_hide_merchandise_summary_on" android:summaryOff="@string/revanced_hide_merchandise_summary_off" />SETTINGS: HIDE_LAYOUT_COMPONENTS -->
 
         <!-- SETTINGS: HIDE_MIX_PLAYLISTS
         <SwitchPreference android:title="@string/revanced_hide_mix_playlists_title" android:key="revanced_hide_mix_playlists" android:defaultValue="false" android:summaryOn="@string/revanced_hide_mix_playlists_summary_on" android:summaryOff="@string/revanced_hide_mix_playlists_summary_off" />SETTINGS: HIDE_MIX_PLAYLISTS -->
 
-        <!-- SETTINGS: HIDE_GENERAL_ADS
+        <!-- SETTINGS: HIDE_LAYOUT_COMPONENTS
         <SwitchPreference android:title="@string/revanced_hide_movie_shelf_title" android:key="revanced_hide_movie_shelf" android:defaultValue="false" android:summaryOn="@string/revanced_hide_movie_shelf_summary_on" android:summaryOff="@string/revanced_hide_movie_shelf_summary_off" />
-        <SwitchPreference android:title="@string/revanced_hide_official_header_title" android:key="revanced_hide_official_header" android:defaultValue="false" android:summaryOn="@string/revanced_hide_official_header_summary_on" android:summaryOff="@string/revanced_hide_official_header_summary_off" />SETTINGS: HIDE_GENERAL_ADS -->
+        <SwitchPreference android:title="@string/revanced_hide_official_header_title" android:key="revanced_hide_official_header" android:defaultValue="false" android:summaryOn="@string/revanced_hide_official_header_summary_on" android:summaryOff="@string/revanced_hide_official_header_summary_off" />SETTINGS: HIDE_LAYOUT_COMPONENTS -->
 
         <!-- SETTINGS: HIDE_SEARCH_TERMS
         <SwitchPreference android:title="@string/revanced_hide_search_terms_title" android:key="revanced_hide_search_terms" android:defaultValue="false" android:summaryOn="@string/revanced_hide_search_terms_summary_on" android:summaryOff="@string/revanced_hide_search_terms_summary_off" />SETTINGS: HIDE_SEARCH_TERMS -->
 
-        <!-- SETTINGS: HIDE_GENERAL_ADS
-        <SwitchPreference android:title="@string/revanced_hide_separator_title" android:key="revanced_hide_separator" android:defaultValue="true" android:summaryOn="@string/revanced_hide_separator_summary_on" android:summaryOff="@string/revanced_hide_separator_summary_off" />SETTINGS: HIDE_GENERAL_ADS -->
+        <!-- SETTINGS: HIDE_LAYOUT_COMPONENTS
+        <SwitchPreference android:title="@string/revanced_hide_separator_title" android:key="revanced_hide_separator" android:defaultValue="true" android:summaryOn="@string/revanced_hide_separator_summary_on" android:summaryOff="@string/revanced_hide_separator_summary_off" />SETTINGS: HIDE_LAYOUT_COMPONENTS -->
 
         <!-- SETTINGS: HIDE_SNACK_BAR
         <SwitchPreference android:title="@string/revanced_hide_snack_bar_title" android:key="revanced_hide_snack_bar" android:defaultValue="false" android:summaryOn="@string/revanced_hide_snack_bar_summary_on" android:summaryOff="@string/revanced_hide_snack_bar_summary_off" />SETTINGS: HIDE_SNACK_BAR -->
@@ -208,11 +212,11 @@
         <!-- SETTINGS: HIDE_SUGGESTIONS_SHELF
         <SwitchPreference android:title="@string/revanced_hide_suggestions_shelf_title" android:key="revanced_hide_suggestions_shelf" android:defaultValue="false" android:summaryOn="@string/revanced_hide_suggestions_shelf_summary_on" android:summaryOff="@string/revanced_hide_suggestions_shelf_summary_off" />SETTINGS: HIDE_SUGGESTIONS_SHELF -->
 
-        <!-- SETTINGS: HIDE_GENERAL_ADS
+        <!-- SETTINGS: HIDE_LAYOUT_COMPONENTS
         <SwitchPreference android:title="@string/revanced_hide_teaser_title" android:key="revanced_hide_teaser" android:defaultValue="true" android:summaryOn="@string/revanced_hide_teaser_summary_on" android:summaryOff="@string/revanced_hide_teaser_summary_off" />
         <SwitchPreference android:title="@string/revanced_hide_ticket_shelf_title" android:key="revanced_hide_ticket_shelf" android:defaultValue="true" android:summaryOn="@string/revanced_hide_ticket_shelf_summary_on" android:summaryOff="@string/revanced_hide_ticket_shelf_summary_off" />
         <SwitchPreference android:title="@string/revanced_hide_timed_reactions_title" android:key="revanced_hide_timed_reactions" android:defaultValue="true" android:summaryOn="@string/revanced_hide_timed_reactions_summary_on" android:summaryOff="@string/revanced_hide_timed_reactions_summary_off" />
-        <SwitchPreference android:title="@string/revanced_hide_web_search_panel_title" android:key="revanced_hide_web_search_panel" android:defaultValue="true" android:summaryOn="@string/revanced_hide_web_search_panel_summary_on" android:summaryOff="@string/revanced_hide_web_search_panel_summary_off" />SETTINGS: HIDE_GENERAL_ADS -->
+        <SwitchPreference android:title="@string/revanced_hide_web_search_panel_title" android:key="revanced_hide_web_search_panel" android:defaultValue="true" android:summaryOn="@string/revanced_hide_web_search_panel_summary_on" android:summaryOff="@string/revanced_hide_web_search_panel_summary_off" />SETTINGS: HIDE_LAYOUT_COMPONENTS -->
 
         <!-- SETTINGS: HEADER_SWITCH
         <SwitchPreference android:title="@string/revanced_override_premium_header_title" android:key="revanced_override_premium_header" android:defaultValue="false" android:summaryOn="@string/revanced_override_premium_header_summary_on" android:summaryOff="@string/revanced_override_premium_header_summary_off" />SETTINGS: HEADER_SWITCH -->
@@ -254,7 +258,7 @@
         <SwitchPreference android:title="@string/revanced_disable_quic_protocol_title" android:key="revanced_disable_quic_protocol" android:defaultValue="false" android:summary="@string/revanced_disable_quic_protocol_summary" />SETTINGS: DISABLE_QUIC_PROTOCOL -->
 
         <!-- SETTINGS: ENABLE_OPUS_CODEC
-        <SwitchPreference android:title="@string/revanced_enable_opus_codec_title" android:key="revanced_enable_opus_codec" android:defaultValue="false" android:summary="@string/revanced_enable_opus_codec_summary" />SETTINGS: ENABLE_VP9_CODEC -->
+        <SwitchPreference android:title="@string/revanced_enable_opus_codec_title" android:key="revanced_enable_opus_codec" android:defaultValue="false" android:summary="@string/revanced_enable_opus_codec_summary" />SETTINGS: ENABLE_OPUS_CODEC -->
 
         <!-- SETTINGS: LAYOUT_SWITCH
         <SwitchPreference android:title="@string/revanced_enable_phone_layout_title" android:key="revanced_enable_phone_layout" android:summary="@string/revanced_enable_phone_layout_summary" android:defaultValue="false" />SETTINGS: LAYOUT_SWITCH -->
@@ -282,7 +286,7 @@
         <Preference android:title=" " android:selectable="false" android:summary="@string/pref_about_category" />
         <PreferenceScreen android:title="@string/revanced_patches_information"  android:summary="@string/revanced_patches_information_summary" >
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_tool_used" />
-            <Preference android:title="revanced-patches" android:selectable="false" android:summary="2.176.0" />
+            <Preference android:title="revanced-patches" android:selectable="false" android:summary="2.173.10" />
             <Preference android:title="revanced-integrations" android:key="revanced-integrations" android:selectable="false"/>
 
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_ads" />
@@ -321,6 +325,7 @@
             <Preference android:title="hide-crowdfunding-box" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-email-address" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-floating-microphone" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="hide-layout-components" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-load-more-button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-mix-playlists" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-search-terms" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>

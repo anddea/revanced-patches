@@ -14,7 +14,7 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
-import app.revanced.patches.youtube.player.playeroverlayfilter.fingerprints.ScrimOverlayFingerprint
+import app.revanced.patches.youtube.utils.fingerprints.YouTubeControlsOverlayFingerprint
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch.Companion.ScrimOverlay
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
@@ -35,11 +35,11 @@ import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 @YouTubeCompatibility
 @Version("0.0.1")
 class PlayerOverlayFilterPatch : BytecodePatch(
-    listOf(ScrimOverlayFingerprint)
+    listOf(YouTubeControlsOverlayFingerprint)
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
 
-        ScrimOverlayFingerprint.result?.let {
+        YouTubeControlsOverlayFingerprint.result?.let {
             it.mutableMethod.apply {
                 val targetIndex = getWideLiteralIndex(ScrimOverlay) + 3
                 val targetParameter = getInstruction<ReferenceInstruction>(targetIndex).reference
@@ -53,7 +53,7 @@ class PlayerOverlayFilterPatch : BytecodePatch(
                     "invoke-static {v$targetRegister}, $PLAYER->hidePlayerOverlayFilter(Landroid/widget/ImageView;)V"
                 )
             }
-        } ?: return ScrimOverlayFingerprint.toErrorResult()
+        } ?: return YouTubeControlsOverlayFingerprint.toErrorResult()
 
         /**
          * Add settings

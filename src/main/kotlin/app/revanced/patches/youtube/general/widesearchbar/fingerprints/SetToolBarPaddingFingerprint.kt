@@ -13,5 +13,5 @@ object SetToolBarPaddingFingerprint : MethodFingerprint(
         Opcode.IGET_OBJECT,
         Opcode.INVOKE_STATIC
     ),
-    customFingerprint = { it, _ -> it.isWideLiteralExists(ToolBarPaddingHome) }
+    customFingerprint = { methodDef, _ -> methodDef.isWideLiteralExists(ToolBarPaddingHome) }
 )

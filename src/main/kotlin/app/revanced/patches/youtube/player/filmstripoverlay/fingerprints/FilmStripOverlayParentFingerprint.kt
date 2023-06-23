@@ -9,5 +9,5 @@ import org.jf.dexlib2.AccessFlags
 object FilmStripOverlayParentFingerprint : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
-    customFingerprint = { it, _ -> it.isWideLiteralExists(Scrubbing) }
+    customFingerprint = { methodDef, _ -> methodDef.isWideLiteralExists(Scrubbing) }
 )

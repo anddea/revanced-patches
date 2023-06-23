@@ -10,5 +10,5 @@ object TooltipContentViewFingerprint : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("L"),
-    customFingerprint = { it, _ -> it.isWideLiteralExists(ToolTipContentView) }
+    customFingerprint = { methodDef, _ -> methodDef.isWideLiteralExists(ToolTipContentView) }
 )

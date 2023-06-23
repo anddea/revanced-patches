@@ -8,5 +8,5 @@ object VideoSpeedPatchFingerprint : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
     parameters = listOf("F"),
-    customFingerprint = { it, _ -> it.definingClass.endsWith("/VideoSpeedPatch;") && it.name == "overrideSpeed" }
+    customFingerprint = { methodDef, _ -> methodDef.definingClass.endsWith("/VideoSpeedPatch;") && methodDef.name == "overrideSpeed" }
 )

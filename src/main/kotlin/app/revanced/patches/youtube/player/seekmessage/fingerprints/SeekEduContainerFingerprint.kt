@@ -6,5 +6,5 @@ import app.revanced.util.bytecode.isWideLiteralExists
 
 object SeekEduContainerFingerprint : MethodFingerprint(
     returnType = "V",
-    customFingerprint = { it, _ -> it.isWideLiteralExists(EasySeekEduContainer) }
+    customFingerprint = { methodDef, _ -> methodDef.isWideLiteralExists(EasySeekEduContainer) }
 )

@@ -11,5 +11,5 @@ object BottomPanelOverlayTextFingerprint : MethodFingerprint(
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.IPUT_OBJECT
     ),
-    customFingerprint = { it, _ -> it.isWideLiteralExists(BottomPanelOverlayText) }
+    customFingerprint = { methodDef, _ -> methodDef.isWideLiteralExists(BottomPanelOverlayText) }
 )

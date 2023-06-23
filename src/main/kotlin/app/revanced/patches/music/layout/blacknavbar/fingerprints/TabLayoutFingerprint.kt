@@ -16,6 +16,6 @@ object TabLayoutFingerprint : MethodFingerprint(
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT
     ),
-    customFingerprint = { it, _ -> it.isWideLiteralExists(ColorGrey) }
+    customFingerprint = { methodDef, _ -> methodDef.isWideLiteralExists(ColorGrey) }
 )
 

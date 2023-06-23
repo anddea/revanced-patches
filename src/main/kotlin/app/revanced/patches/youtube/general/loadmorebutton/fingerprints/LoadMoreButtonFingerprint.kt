@@ -12,5 +12,5 @@ object LoadMoreButtonFingerprint : MethodFingerprint(
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT_OBJECT
     ),
-    customFingerprint = { it, _ -> it.isWideLiteralExists(ExpandButtonDown) }
+    customFingerprint = { methodDef, _ -> methodDef.isWideLiteralExists(ExpandButtonDown) }
 )

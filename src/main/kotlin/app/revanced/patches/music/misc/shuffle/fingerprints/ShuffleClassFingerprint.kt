@@ -18,6 +18,10 @@ object ShuffleClassFingerprint : MethodFingerprint(
         Opcode.INVOKE_VIRTUAL,
         Opcode.RETURN_VOID
     ),
-    customFingerprint = { it, _ -> it.name == "<init>" && it.isWideLiteralExists(DisabledIconAlpha) }
+    customFingerprint = { methodDef, _ ->
+        methodDef.name == "<init>" && methodDef.isWideLiteralExists(
+            DisabledIconAlpha
+        )
+    }
 )
 

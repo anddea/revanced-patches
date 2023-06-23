@@ -12,5 +12,5 @@ object VideoSpeedChangedFingerprint : MethodFingerprint(
         Opcode.IGET_OBJECT,
         Opcode.INVOKE_VIRTUAL
     ),
-    customFingerprint = { it, _ -> it.name == "onItemClick" }
+    customFingerprint = { methodDef, _ -> methodDef.name == "onItemClick" }
 )

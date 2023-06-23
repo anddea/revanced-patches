@@ -8,5 +8,5 @@ import org.jf.dexlib2.Opcode
 object ThemeSetterSystemFingerprint : MethodFingerprint(
     returnType = "L",
     opcodes = listOf(Opcode.RETURN_OBJECT),
-    customFingerprint = { it, _ -> it.isWideLiteralExists(Appearance) }
+    customFingerprint = { methodDef, _ -> methodDef.isWideLiteralExists(Appearance) }
 )

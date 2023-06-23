@@ -10,10 +10,11 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.overlaybutton.autorepeat.patch.AutoRepeatPatch
+import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.overridespeed.patch.OverrideSpeedHookPatch
 import app.revanced.patches.youtube.utils.playercontrols.patch.PlayerControlsPatch
+import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.patches.youtube.utils.videoid.mainstream.patch.MainstreamVideoIdPatch
 import app.revanced.util.integrations.Constants.BUTTON_PATH
@@ -31,7 +32,8 @@ import org.w3c.dom.Element
         MainstreamVideoIdPatch::class,
         OverrideSpeedHookPatch::class,
         PlayerControlsPatch::class,
-        SettingsPatch::class
+        SettingsPatch::class,
+        SharedResourceIdPatch::class
     ]
 )
 @YouTubeCompatibility

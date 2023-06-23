@@ -14,9 +14,9 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patches.music.utils.annotations.MusicCompatibility
 import app.revanced.patches.music.misc.upgradebutton.fingerprints.NotifierShelfFingerprint
 import app.revanced.patches.music.misc.upgradebutton.fingerprints.PivotBarConstructorFingerprint
+import app.revanced.patches.music.utils.annotations.MusicCompatibility
 import app.revanced.patches.music.utils.integrations.patch.IntegrationsPatch
 import app.revanced.patches.music.utils.resourceid.patch.SharedResourceIdPatch
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction

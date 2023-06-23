@@ -15,5 +15,5 @@ object AccountSwitcherAccessibilityLabelFingerprint : MethodFingerprint(
         Opcode.APUT_OBJECT,
         Opcode.CONST
     ),
-    customFingerprint = { it, _ -> it.isWideLiteralExists(AccountSwitcherAccessibility) }
+    customFingerprint = { methodDef, _ -> methodDef.isWideLiteralExists(AccountSwitcherAccessibility) }
 )

@@ -7,5 +7,5 @@ import org.jf.dexlib2.AccessFlags
 object WatchWhileActivityFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
     parameters = emptyList(),
-    customFingerprint = { it, _ -> it.definingClass.endsWith("WatchWhileActivity;") && it.name == "<init>" }
+    customFingerprint = { methodDef, _ -> methodDef.definingClass.endsWith("WatchWhileActivity;") && methodDef.name == "<init>" }
 )

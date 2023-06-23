@@ -4,6 +4,7 @@ import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
+import app.revanced.patcher.data.toMethodWalker
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -12,12 +13,13 @@ import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.overlaybutton.autorepeat.fingerprints.AutoNavInformerFingerprint
 import app.revanced.patches.youtube.overlaybutton.autorepeat.fingerprints.RepeatListenerFingerprint
 import app.revanced.patches.youtube.overlaybutton.autorepeat.fingerprints.VideoEndFingerprint
 import app.revanced.patches.youtube.overlaybutton.autorepeat.fingerprints.VideoEndParentFingerprint
+import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.util.integrations.Constants.UTILS_PATH
 import app.revanced.util.integrations.Constants.VIDEO_PATH
 import org.jf.dexlib2.builder.instruction.BuilderInstruction35c
@@ -74,7 +76,12 @@ class AutoRepeatPatch : BytecodePatch(
         } ?: return RepeatListenerFingerprint.toErrorResult()
 
         AutoNavInformerFingerprint.result?.let {
-            it.mutableMethod.apply {
+            with(
+                context
+                    .toMethodWalker(it.method)
+                    .nextMethod(it.scanResult.patternScanResult!!.startIndex, true)
+                    .getMethod() as MutableMethod
+            ) {
                 val index = implementation!!.instructions.size - 1 - 1
                 val register = getInstruction<OneRegisterInstruction>(index).registerA
 

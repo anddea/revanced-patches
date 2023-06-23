@@ -12,5 +12,5 @@ object SpeedOverlayHookFingerprint : MethodFingerprint(
         Opcode.INVOKE_VIRTUAL
     ),
     strings = listOf("Failed to easy seek haptics vibrate."),
-    customFingerprint = { it, _ -> it.name == "run" }
+    customFingerprint = { methodDef, _ -> methodDef.name == "run" }
 )

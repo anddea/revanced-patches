@@ -7,5 +7,5 @@ import org.jf.dexlib2.AccessFlags
 object VideoUserQualityChangeFingerprint : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    customFingerprint = { it, _ -> it.name == "onItemClick" }
+    customFingerprint = { methodDef, _ -> methodDef.name == "onItemClick" }
 )

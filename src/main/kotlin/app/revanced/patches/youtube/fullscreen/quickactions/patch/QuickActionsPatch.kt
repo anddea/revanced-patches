@@ -9,17 +9,18 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patches.youtube.ads.general.resource.patch.GeneralAdsPatch
 import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
+import app.revanced.patches.youtube.utils.litho.patch.LithoFilterPatch
 import app.revanced.patches.youtube.utils.quickactionscontainer.patch.HideQuickActionsContainerPatch
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
+import app.revanced.util.integrations.Constants.PATCHES_PATH
 
 @Patch
 @Name("hide-quick-actions")
 @Description("Adds the options to hide quick actions components in the fullscreen.")
 @DependsOn(
     [
-        GeneralAdsPatch::class,
+        LithoFilterPatch::class,
         HideQuickActionsContainerPatch::class,
         SettingsPatch::class
     ]
@@ -28,6 +29,7 @@ import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 @Version("0.0.1")
 class QuickActionsPatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
+        LithoFilterPatch.addFilter("$PATCHES_PATH/ads/QuickActionButtonsFilter;")
 
         /**
          * Add settings

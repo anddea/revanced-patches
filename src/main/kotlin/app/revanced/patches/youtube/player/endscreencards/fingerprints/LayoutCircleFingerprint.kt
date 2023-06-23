@@ -13,5 +13,5 @@ object LayoutCircleFingerprint : MethodFingerprint(
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.CHECK_CAST,
     ),
-    customFingerprint = { it, _ -> it.isWideLiteralExists(EndScreenElementLayoutCircle) }
+    customFingerprint = { methodDef, _ -> methodDef.isWideLiteralExists(EndScreenElementLayoutCircle) }
 )

@@ -15,11 +15,11 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.music.utils.annotations.MusicCompatibility
 import app.revanced.patches.music.misc.sharebuttonhook.fingerprints.ConnectionTrackerFingerprint
 import app.revanced.patches.music.misc.sharebuttonhook.fingerprints.FullStackTraceActivityFingerprint
 import app.revanced.patches.music.misc.sharebuttonhook.fingerprints.SharePanelFingerprint
 import app.revanced.patches.music.misc.sharebuttonhook.fingerprints.ShowToastFingerprint
+import app.revanced.patches.music.utils.annotations.MusicCompatibility
 import app.revanced.patches.music.utils.settings.resource.patch.SettingsPatch
 import app.revanced.patches.music.utils.videoid.patch.VideoIdPatch
 import app.revanced.util.enum.CategoryType

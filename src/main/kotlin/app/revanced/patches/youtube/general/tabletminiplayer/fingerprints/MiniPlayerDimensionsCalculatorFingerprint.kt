@@ -9,5 +9,5 @@ import org.jf.dexlib2.AccessFlags
 object MiniPlayerDimensionsCalculatorFingerprint : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    customFingerprint = { it, _ -> it.isWideLiteralExists(FloatyBarTopMargin) }
+    customFingerprint = { methodDef, _ -> methodDef.isWideLiteralExists(FloatyBarTopMargin) }
 )

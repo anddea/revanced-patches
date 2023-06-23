@@ -11,6 +11,6 @@ object FloatingButtonParentFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PROTECTED or AccessFlags.FINAL,
     parameters = listOf("L"),
     opcodes = listOf(Opcode.INVOKE_DIRECT),
-    customFingerprint = { it, _ -> it.isNarrowLiteralExists(259982244) }
+    customFingerprint = { methodDef, _ -> methodDef.isNarrowLiteralExists(259982244) }
 )
 

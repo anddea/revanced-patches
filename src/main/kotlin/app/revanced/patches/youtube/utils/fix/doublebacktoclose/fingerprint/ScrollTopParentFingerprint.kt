@@ -20,6 +20,6 @@ object ScrollTopParentFingerprint : MethodFingerprint(
         Opcode.IPUT_OBJECT,
         Opcode.RETURN_VOID
     ),
-    customFingerprint = { it, _ -> it.name == "<init>" }
+    customFingerprint = { methodDef, _ -> methodDef.name == "<init>" }
 )
 

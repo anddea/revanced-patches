@@ -11,5 +11,5 @@ object SeekHapticsFingerprint : MethodFingerprint(
         Opcode.IF_LE
     ),
     strings = listOf("Failed to easy seek haptics vibrate."),
-    customFingerprint = { it, _ -> it.name == "run" }
+    customFingerprint = { methodDef, _ -> methodDef.name == "run" }
 )

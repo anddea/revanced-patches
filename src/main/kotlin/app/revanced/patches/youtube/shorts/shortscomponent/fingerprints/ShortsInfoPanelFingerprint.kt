@@ -6,5 +6,5 @@ import app.revanced.util.bytecode.isWideLiteralExists
 
 object ShortsInfoPanelFingerprint : MethodFingerprint(
     returnType = "V",
-    customFingerprint = { it, _ -> it.isWideLiteralExists(ReelPlayerInfoPanel) }
+    customFingerprint = { methodDef, _ -> methodDef.isWideLiteralExists(ReelPlayerInfoPanel) }
 )

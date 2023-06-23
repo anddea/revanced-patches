@@ -15,5 +15,5 @@ object TopBarButtonFingerprint : MethodFingerprint(
         Opcode.IF_EQZ
     ),
     strings = listOf("parent_csn", "parent_ve_type"),
-    customFingerprint = { it, _ -> it.name == "onClick" }
+    customFingerprint = { methodDef, _ -> methodDef.name == "onClick" }
 )

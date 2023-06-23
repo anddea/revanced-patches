@@ -140,9 +140,9 @@ class ComponentParserPatch : BytecodePatch(
                         sget-object v$freeRegister, $definingClass->buffer:Ljava/nio/ByteBuffer;
                         invoke-static {v$stringBuilderRegister, v$identifierRegister, v$objectRegister, v$freeRegister}, $descriptor(Ljava/lang/StringBuilder;Ljava/lang/String;Ljava/lang/Object;Ljava/nio/ByteBuffer;)Z
                         move-result v$freeRegister
-                        if-eqz v$freeRegister, :not_an_ad
+                        if-eqz v$freeRegister, :unfiltered
                         """ + emptyComponentLabel,
-                    ExternalLabel("not_an_ad", getInstruction(insertIndex))
+                    ExternalLabel("unfiltered", getInstruction(insertIndex))
                 )
             }
         }
@@ -156,9 +156,9 @@ class ComponentParserPatch : BytecodePatch(
                     """
                         invoke-static {v$stringBuilderRegister, v$identifierRegister}, $descriptor(Ljava/lang/StringBuilder;Ljava/lang/String;)Z
                         move-result v$freeRegister
-                        if-eqz v$freeRegister, :not_an_ad
+                        if-eqz v$freeRegister, :unfiltered
                         """ + emptyComponentLabel,
-                    ExternalLabel("not_an_ad", getInstruction(insertIndex))
+                    ExternalLabel("unfiltered", getInstruction(insertIndex))
                 )
             }
         }
@@ -173,8 +173,8 @@ class ComponentParserPatch : BytecodePatch(
                         sget-object v1, $definingClass->buffer:Ljava/nio/ByteBuffer;
                         invoke-static {v0, v1}, $descriptor(Ljava/lang/Object;Ljava/nio/ByteBuffer;)Z
                         move-result v0
-                        if-eqz v0, :not_an_ad
-                        """ + emptyComponentLabel, ExternalLabel("not_an_ad", getInstruction(0))
+                        if-eqz v0, :unfiltered
+                        """ + emptyComponentLabel, ExternalLabel("unfiltered", getInstruction(0))
                 )
             }
         }

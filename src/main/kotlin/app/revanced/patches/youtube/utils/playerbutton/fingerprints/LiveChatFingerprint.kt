@@ -7,5 +7,5 @@ import org.jf.dexlib2.Opcode
 
 object LiveChatFingerprint : MethodFingerprint(
     opcodes = listOf(Opcode.NEW_INSTANCE),
-    customFingerprint = { it, _ -> it.isWideLiteralExists(LiveChatButton) }
+    customFingerprint = { methodDef, _ -> methodDef.isWideLiteralExists(LiveChatButton) }
 )

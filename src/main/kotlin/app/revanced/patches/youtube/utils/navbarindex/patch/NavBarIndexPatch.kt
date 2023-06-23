@@ -11,8 +11,8 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
-import app.revanced.patches.youtube.utils.fingerprints.OnBackPressedFingerprint
 import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
+import app.revanced.patches.youtube.utils.fingerprints.OnBackPressedFingerprint
 import app.revanced.patches.youtube.utils.navbarindex.fingerprints.NavBarBuilderFingerprint
 import app.revanced.patches.youtube.utils.navbarindex.fingerprints.TopBarButtonFingerprint
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch

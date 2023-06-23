@@ -14,8 +14,11 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.youtube.ads.general.bytecode.patch.GeneralAdsBytecodePatch
 import app.revanced.patches.youtube.ads.getpremium.patch.HideGetPremiumPatch
 import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
+import app.revanced.patches.youtube.utils.fix.doublebacktoclose.patch.DoubleBackToClosePatch
+import app.revanced.patches.youtube.utils.fix.swiperefresh.patch.SwipeRefreshPatch
 import app.revanced.patches.youtube.utils.litho.patch.LithoFilterPatch
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
+import app.revanced.util.integrations.Constants.PATCHES_PATH
 import app.revanced.util.resources.ResourceUtils.copyXmlNode
 import org.w3c.dom.Element
 
@@ -24,10 +27,12 @@ import org.w3c.dom.Element
 @Description("Removes general ads.")
 @DependsOn(
     [
+        DoubleBackToClosePatch::class,
         GeneralAdsBytecodePatch::class,
         HideGetPremiumPatch::class,
         LithoFilterPatch::class,
-        SettingsPatch::class
+        SettingsPatch::class,
+        SwipeRefreshPatch::class
     ]
 )
 @YouTubeCompatibility
@@ -55,6 +60,8 @@ class GeneralAdsPatch : ResourcePatch {
     )
 
     override fun execute(context: ResourceContext): PatchResult {
+        LithoFilterPatch.addFilter("$PATCHES_PATH/ads/AdsFilter;")
+
         context.forEach {
 
             if (!it.name.startsWithAny(*resourceFileNames)) return@forEach
@@ -90,7 +97,7 @@ class GeneralAdsPatch : ResourcePatch {
          */
         context.copyXmlNode("youtube/doubleback/host", "values/arrays.xml", "resources")
 
-        /*
+        /**
          * Add settings
          */
         SettingsPatch.addPreference(
@@ -98,17 +105,7 @@ class GeneralAdsPatch : ResourcePatch {
                 "PREFERENCE: ADS_SETTINGS",
                 "SETTINGS: HIDE_GENERAL_ADS",
 
-                "PREFERENCE: GENERAL_SETTINGS",
-                "SETTINGS: HIDE_GENERAL_ADS",
-
-                "PREFERENCE: GENERAL_SETTINGS",
-                "PREFERENCE_HEADER: PLAYER",
-                "SETTINGS: HIDE_AUDIO_TRACK_BUTTON",
-                "SETTINGS: HIDE_VIEW_PRODUCT",
-                "SETTINGS: DOUBLE_BACK_TIMEOUT",
-
-                "PREFERENCE: BOTTOM_PLAYER_SETTINGS",
-                "SETTINGS: COMMENT_COMPONENT_PARENT"
+                "SETTINGS: DOUBLE_BACK_TIMEOUT"
             )
         )
 
