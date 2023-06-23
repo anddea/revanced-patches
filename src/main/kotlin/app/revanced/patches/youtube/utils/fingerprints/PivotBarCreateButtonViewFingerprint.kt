@@ -14,5 +14,5 @@ object PivotBarCreateButtonViewFingerprint : MethodFingerprint(
         Opcode.MOVE_OBJECT,
         Opcode.INVOKE_DIRECT_RANGE, // unique instruction anchor
     ),
-    customFingerprint = { it, _ -> it.isWideLiteralExists(ImageOnlyTab) }
+    customFingerprint = { methodDef, _ -> methodDef.isWideLiteralExists(ImageOnlyTab) }
 )

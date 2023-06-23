@@ -4,6 +4,7 @@ import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
+import org.jf.dexlib2.iface.instruction.NarrowLiteralInstruction
 
 object KidsMinimizedPlaybackPolicyControllerFingerprint : MethodFingerprint(
     returnType = "V",
@@ -17,7 +18,29 @@ object KidsMinimizedPlaybackPolicyControllerFingerprint : MethodFingerprint(
         Opcode.IPUT_BOOLEAN,
         Opcode.IF_EQZ,
         Opcode.IGET,
-        Opcode.INVOKE_STATIC
+        Opcode.INVOKE_STATIC,
+        Opcode.MOVE_RESULT,
+        Opcode.IF_NEZ,
+        Opcode.GOTO,
+        Opcode.CONST_4,
+        Opcode.IF_NE,
+        Opcode.CONST_4,
+        Opcode.IF_NE,
+        Opcode.SGET_OBJECT,
+        Opcode.IF_NE,
+        Opcode.IGET,
+        Opcode.CONST_4,
+        Opcode.IF_NE,
+        Opcode.IGET_OBJECT,
+        Opcode.SGET_OBJECT,
+        Opcode.IF_EQ,
+        Opcode.GOTO,
+        Opcode.IGET_OBJECT,
+        Opcode.INVOKE_VIRTUAL,
+        Opcode.RETURN_VOID
     ),
-    customFingerprint = { it, _ -> it.definingClass.endsWith("MinimizedPlaybackPolicyController;") }
-)
+    customFingerprint = { methodDef, _ ->
+        methodDef.implementation!!.instructions.any {
+            ((it as? NarrowLiteralInstruction)?.narrowLiteral == 5)
+        }
+    })

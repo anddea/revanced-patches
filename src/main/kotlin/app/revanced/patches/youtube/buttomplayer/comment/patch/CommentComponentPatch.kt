@@ -11,7 +11,9 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.youtube.ads.general.bytecode.patch.GeneralAdsBytecodePatch
 import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
+import app.revanced.patches.youtube.utils.litho.patch.LithoFilterPatch
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
+import app.revanced.util.integrations.Constants.PATCHES_PATH
 
 @Patch
 @Name("hide-comment-component")
@@ -26,6 +28,7 @@ import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 @Version("0.0.1")
 class CommentComponentPatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
+        LithoFilterPatch.addFilter("$PATCHES_PATH/ads/CommentsFilter;")
 
         /**
          * Add settings

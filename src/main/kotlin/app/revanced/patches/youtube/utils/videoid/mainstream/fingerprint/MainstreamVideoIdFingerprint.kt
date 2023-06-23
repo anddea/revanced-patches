@@ -14,6 +14,5 @@ object MainstreamVideoIdFingerprint : MethodFingerprint(
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.INVOKE_INTERFACE,
         Opcode.MOVE_RESULT_OBJECT
-    ),
-    customFingerprint = { it, _ -> it.definingClass.endsWith("SubtitlesOverlayPresenter;") }
+    )
 )

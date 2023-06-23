@@ -13,18 +13,16 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.youtube.utils.fingerprints.LayoutConstructorFingerprint
 import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
+import app.revanced.patches.youtube.utils.fingerprints.LayoutConstructorFingerprint
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch.Companion.AutoNavPreviewStub
+import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch.Companion.VideoZoomIndicatorLayout
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.bytecode.getStringIndex
 import app.revanced.util.bytecode.getWideLiteralIndex
 import app.revanced.util.integrations.Constants.PLAYER
-import org.jf.dexlib2.iface.instruction.Instruction
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
-import org.jf.dexlib2.iface.instruction.ReferenceInstruction
-import org.jf.dexlib2.iface.reference.MethodReference
 
 @Patch
 @Name("hide-autoplay-button")
@@ -47,22 +45,14 @@ class HideAutoplayButtonPatch : BytecodePatch(
                 val dummyRegister =
                     getInstruction<OneRegisterInstruction>(getStringIndex("1.0x")).registerA
                 val insertIndex = getWideLiteralIndex(AutoNavPreviewStub)
-
-                val branchIndex = implementation!!.instructions.subList(
-                    insertIndex + 1,
-                    implementation!!.instructions.size - 1
-                ).indexOfFirst { instruction ->
-                    ((instruction as? ReferenceInstruction)?.reference as? MethodReference)?.name == "addOnLayoutChangeListener"
-                } + 2
-
-                val jumpInstruction = getInstruction<Instruction>(insertIndex + branchIndex)
+                val jumpIndex = getWideLiteralIndex(VideoZoomIndicatorLayout) - 1
 
                 addInstructionsWithLabels(
                     insertIndex, """
                         invoke-static {}, $PLAYER->hideAutoPlayButton()Z
                         move-result v$dummyRegister
                         if-nez v$dummyRegister, :hidden
-                        """, ExternalLabel("hidden", jumpInstruction)
+                        """, ExternalLabel("hidden", getInstruction(jumpIndex))
                 )
             }
         } ?: return LayoutConstructorFingerprint.toErrorResult()

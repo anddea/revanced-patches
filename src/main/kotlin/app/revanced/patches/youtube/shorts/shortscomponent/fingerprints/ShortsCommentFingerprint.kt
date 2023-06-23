@@ -5,5 +5,5 @@ import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.util.bytecode.isWideLiteralExists
 
 object ShortsCommentFingerprint : MethodFingerprint(
-    customFingerprint = { it, _ -> it.isWideLiteralExists(RightComment) }
+    customFingerprint = { methodDef, _ -> methodDef.isWideLiteralExists(RightComment) }
 )

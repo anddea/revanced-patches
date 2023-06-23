@@ -6,5 +6,5 @@ import app.revanced.util.bytecode.isWideLiteralExists
 
 object EndScreenResultsFingerprint : MethodFingerprint(
     returnType = "V",
-    customFingerprint = { it, _ -> it.isWideLiteralExists(AppRelatedEndScreenResults) }
+    customFingerprint = { methodDef, _ -> methodDef.isWideLiteralExists(AppRelatedEndScreenResults) }
 )

@@ -13,10 +13,10 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.player.endscreencards.fingerprints.LayoutCircleFingerprint
 import app.revanced.patches.youtube.player.endscreencards.fingerprints.LayoutIconFingerprint
 import app.revanced.patches.youtube.player.endscreencards.fingerprints.LayoutVideoFingerprint
+import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction

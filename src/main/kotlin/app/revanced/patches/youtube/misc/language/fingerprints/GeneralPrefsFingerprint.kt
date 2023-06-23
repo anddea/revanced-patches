@@ -14,5 +14,5 @@ object GeneralPrefsFingerprint : MethodFingerprint(
         Opcode.MOVE_RESULT_OBJECT
     ),
     strings = listOf("bedtime_reminder_toggle"),
-    customFingerprint = { it, _ -> it.definingClass.endsWith("GeneralPrefsFragment;") }
+    customFingerprint = { methodDef, _ -> methodDef.definingClass.endsWith("GeneralPrefsFragment;") }
 )

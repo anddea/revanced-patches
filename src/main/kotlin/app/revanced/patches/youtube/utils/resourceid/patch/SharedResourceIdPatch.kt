@@ -26,11 +26,13 @@ import app.revanced.util.enum.ResourceType.STRING
 class SharedResourceIdPatch : ResourcePatch {
     internal companion object {
         var AccountSwitcherAccessibility: Long = -1
+        var AccessibilityCaptionsButtonName: Long = -1
         var ActionBarRingo: Long = -1
         var AdAttribution: Long = -1
         var Appearance: Long = -1
         var AppRelatedEndScreenResults: Long = -1
         var AutoNavPreviewStub: Long = -1
+        var AutoNavToggle: Long = -1
         var BackgroundCategory: Long = -1
         var BarContainerHeight: Long = -1
         var BottomPanelOverlayText: Long = -1
@@ -55,6 +57,7 @@ class SharedResourceIdPatch : ResourcePatch {
         var InlineTimeBarPlayedNotHighlightedColor: Long = -1
         var InsetOverlayViewLayout: Long = -1
         var LiveChatButton: Long = -1
+        var MusicAppDeeplinkButtonView: Long = -1
         var QuickActionsElementContainer: Long = -1
         var ReelDynRemix: Long = -1
         var ReelPlayerBadge: Long = -1
@@ -67,12 +70,13 @@ class SharedResourceIdPatch : ResourcePatch {
         var ScrimOverlay: Long = -1
         var Scrubbing: Long = -1
         var SearchSuggestionEntry: Long = -1
+        var SettingsBooleanTimeRangeDialog: Long = -1
         var SuggestedAction: Long = -1
         var ToolBarPaddingHome: Long = -1
         var ToolTipContentView: Long = -1
         var TotalTime: Long = -1
         var VideoQualityBottomSheet: Long = -1
-        var WatchWhileTimeBarOverlayStub: Long = -1
+        var VideoZoomIndicatorLayout: Long = -1
         var WordMarkHeader: Long = -1
         var YoutubeControlsOverlay: Long = -1
     }
@@ -85,11 +89,13 @@ class SharedResourceIdPatch : ResourcePatch {
             ?: throw PatchResultError("Failed to find resource id : $resourceName")
 
         AccountSwitcherAccessibility = find(STRING, "account_switcher_accessibility_label")
+        AccessibilityCaptionsButtonName = find(STRING, "accessibility_captions_button_name")
         ActionBarRingo = find(LAYOUT, "action_bar_ringo")
         AdAttribution = find(ID, "ad_attribution")
         Appearance = find(STRING, "app_theme_appearance_dark")
         AppRelatedEndScreenResults = find(LAYOUT, "app_related_endscreen_results")
         AutoNavPreviewStub = find(ID, "autonav_preview_stub")
+        AutoNavToggle = find(ID, "autonav_toggle")
         BackgroundCategory = find(STRING, "pref_background_and_offline_category")
         BarContainerHeight = find(DIMEN, "bar_container_height")
         BottomPanelOverlayText = find(ID, "bottom_panel_overlay_text")
@@ -116,6 +122,7 @@ class SharedResourceIdPatch : ResourcePatch {
             find(COLOR, "inline_time_bar_played_not_highlighted_color")
         InsetOverlayViewLayout = find(ID, "inset_overlay_view_layout")
         LiveChatButton = find(ID, "live_chat_overlay_button")
+        MusicAppDeeplinkButtonView = find(ID, "music_app_deeplink_button_view")
         QuickActionsElementContainer = find(ID, "quick_actions_element_container")
         ReelDynRemix = find(ID, "reel_dyn_remix")
         ReelPlayerBadge = find(ID, "reel_player_badge")
@@ -128,12 +135,13 @@ class SharedResourceIdPatch : ResourcePatch {
         ScrimOverlay = find(ID, "scrim_overlay")
         Scrubbing = find(DIMEN, "vertical_touch_offset_to_enter_fine_scrubbing")
         SearchSuggestionEntry = find(LAYOUT, "search_suggestion_entry")
+        SettingsBooleanTimeRangeDialog = find(LAYOUT, "setting_boolean_time_range_dialog")
         SuggestedAction = find(LAYOUT, "suggested_action")
         ToolBarPaddingHome = find(DIMEN, "toolbar_padding_home_action_up")
         ToolTipContentView = find(LAYOUT, "tooltip_content_view")
         TotalTime = find(STRING, "total_time")
         VideoQualityBottomSheet = find(LAYOUT, "video_quality_bottom_sheet_list_fragment_title")
-        WatchWhileTimeBarOverlayStub = find(ID, "watch_while_timebar_overlay_stub")
+        VideoZoomIndicatorLayout = find(ID, "video_zoom_indicator_layout")
         WordMarkHeader = find(ATTR, "ytWordmarkHeader")
         YoutubeControlsOverlay = find(ID, "youtube_controls_overlay")
 

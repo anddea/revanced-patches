@@ -13,5 +13,5 @@ object LayoutVideoFingerprint : MethodFingerprint(
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.CHECK_CAST,
     ),
-    customFingerprint = { it, _ -> it.isWideLiteralExists(EndScreenElementLayoutVideo) }
+    customFingerprint = { methodDef, _ -> methodDef.isWideLiteralExists(EndScreenElementLayoutVideo) }
 )

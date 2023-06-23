@@ -19,5 +19,5 @@ object MinimizedPlaybackSettingsFingerprint : MethodFingerprint(
         Opcode.IF_NEZ,
         Opcode.GOTO
     ),
-    customFingerprint = { it, _ -> it.isWideLiteralExists(BackgroundCategory) }
+    customFingerprint = { methodDef, _ -> methodDef.isWideLiteralExists(BackgroundCategory) }
 )

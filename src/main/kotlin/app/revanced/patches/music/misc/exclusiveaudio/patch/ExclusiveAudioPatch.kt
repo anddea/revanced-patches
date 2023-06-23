@@ -11,8 +11,8 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patches.music.utils.annotations.MusicCompatibility
 import app.revanced.patches.music.misc.exclusiveaudio.fingerprints.AudioOnlyEnablerFingerprint
+import app.revanced.patches.music.utils.annotations.MusicCompatibility
 
 @Patch
 @Name("exclusive-audio-playback")

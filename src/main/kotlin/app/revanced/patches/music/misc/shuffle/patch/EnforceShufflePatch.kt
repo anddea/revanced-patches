@@ -19,10 +19,10 @@ import app.revanced.patcher.util.TypeUtil.traverseClassHierarchy
 import app.revanced.patcher.util.proxy.mutableTypes.MutableField.Companion.toMutable
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patcher.util.smali.toInstructions
-import app.revanced.patches.music.utils.annotations.MusicCompatibility
 import app.revanced.patches.music.misc.shuffle.fingerprints.MusicPlaybackControlsFingerprint
 import app.revanced.patches.music.misc.shuffle.fingerprints.ShuffleClassFingerprint
 import app.revanced.patches.music.misc.shuffle.fingerprints.ShuffleClassReferenceFingerprint
+import app.revanced.patches.music.utils.annotations.MusicCompatibility
 import app.revanced.patches.music.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.music.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.enum.CategoryType

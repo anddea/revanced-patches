@@ -19,5 +19,5 @@ object PivotBarSetTextFingerprint : MethodFingerprint(
         Opcode.INVOKE_VIRTUAL,
         Opcode.RETURN_VOID
     ),
-    customFingerprint = { it, _ -> it.name == "<init>" }
+    customFingerprint = { methodDef, _ -> methodDef.name == "<init>" }
 )

@@ -13,10 +13,10 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.general.searchterms.fingerprints.SearchEndpointFingerprint
 import app.revanced.patches.youtube.general.searchterms.fingerprints.SearchEndpointParentFingerprint
 import app.revanced.patches.youtube.general.searchterms.fingerprints.SearchSuggestionEntryFingerprint
+import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch.Companion.SearchSuggestionEntry
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch

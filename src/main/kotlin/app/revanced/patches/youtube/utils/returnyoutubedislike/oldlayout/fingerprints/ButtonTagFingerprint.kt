@@ -10,5 +10,5 @@ object ButtonTagFingerprint : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("L"),
-    customFingerprint = { it, _ -> it.isWideLiteralExists(DislikeButton) }
+    customFingerprint = { methodDef, _ -> methodDef.isWideLiteralExists(DislikeButton) }
 )

@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.layout.shorts.shortscomponent.patch
+package app.revanced.patches.youtube.shorts.shortscomponent.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
@@ -9,25 +9,19 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patches.shared.patch.mapping.ResourceMappingPatch
-import app.revanced.patches.youtube.ads.general.resource.patch.GeneralAdsPatch
 import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
-import app.revanced.patches.youtube.shorts.shortscomponent.patch.ShortsCommentButtonPatch
-import app.revanced.patches.youtube.shorts.shortscomponent.patch.ShortsInfoPanelPatch
-import app.revanced.patches.youtube.shorts.shortscomponent.patch.ShortsPaidContentBannerPatch
-import app.revanced.patches.youtube.shorts.shortscomponent.patch.ShortsRemixButtonPatch
-import app.revanced.patches.youtube.shorts.shortscomponent.patch.ShortsSubscriptionsButtonPatch
+import app.revanced.patches.youtube.utils.litho.patch.LithoFilterPatch
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.bytecode.BytecodeHelper.updatePatchStatus
+import app.revanced.util.integrations.Constants.PATCHES_PATH
 
 @Patch
 @Name("hide-shorts-component")
 @Description("Hides other Shorts components.")
 @DependsOn(
     [
-        GeneralAdsPatch::class,
-        ResourceMappingPatch::class,
+        LithoFilterPatch::class,
         SettingsPatch::class,
         SharedResourceIdPatch::class,
         ShortsCommentButtonPatch::class,
@@ -41,6 +35,8 @@ import app.revanced.util.bytecode.BytecodeHelper.updatePatchStatus
 @Version("0.0.1")
 class ShortsComponentPatch : BytecodePatch() {
     override fun execute(context: BytecodeContext): PatchResult {
+
+        LithoFilterPatch.addFilter("$PATCHES_PATH/ads/ShortsFilter;")
 
         context.updatePatchStatus("ShortsComponent")
 

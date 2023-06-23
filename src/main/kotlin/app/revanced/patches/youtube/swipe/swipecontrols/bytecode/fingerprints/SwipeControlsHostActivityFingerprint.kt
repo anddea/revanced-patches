@@ -7,5 +7,5 @@ import org.jf.dexlib2.AccessFlags
 object SwipeControlsHostActivityFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
     parameters = emptyList(),
-    customFingerprint = { it, _ -> it.definingClass == "Lapp/revanced/integrations/swipecontrols/SwipeControlsHostActivity;" }
+    customFingerprint = { methodDef, _ -> methodDef.definingClass == "Lapp/revanced/integrations/swipecontrols/SwipeControlsHostActivity;" }
 )

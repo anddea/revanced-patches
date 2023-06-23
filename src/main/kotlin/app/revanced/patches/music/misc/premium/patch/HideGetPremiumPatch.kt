@@ -14,9 +14,9 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.music.utils.annotations.MusicCompatibility
 import app.revanced.patches.music.misc.premium.fingerprints.AccountMenuFooterFingerprint
 import app.revanced.patches.music.misc.premium.fingerprints.HideGetPremiumFingerprint
+import app.revanced.patches.music.utils.annotations.MusicCompatibility
 import app.revanced.patches.music.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.music.utils.resourceid.patch.SharedResourceIdPatch.Companion.PrivacyTosFooter
 import app.revanced.util.bytecode.getWideLiteralIndex

@@ -16,14 +16,14 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.youtube.utils.fingerprints.LayoutSwitchFingerprint
-import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.misc.forcevp9.fingerprints.VideoCapabilitiesFingerprint
 import app.revanced.patches.youtube.misc.forcevp9.fingerprints.VideoCapabilitiesParentFingerprint
 import app.revanced.patches.youtube.misc.forcevp9.fingerprints.Vp9PrimaryFingerprint
 import app.revanced.patches.youtube.misc.forcevp9.fingerprints.Vp9PropsFingerprint
 import app.revanced.patches.youtube.misc.forcevp9.fingerprints.Vp9PropsParentFingerprint
 import app.revanced.patches.youtube.misc.forcevp9.fingerprints.Vp9SecondaryFingerprint
+import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
+import app.revanced.patches.youtube.utils.fingerprints.LayoutSwitchFingerprint
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.integrations.Constants.MISC_PATH
 import org.jf.dexlib2.Opcode

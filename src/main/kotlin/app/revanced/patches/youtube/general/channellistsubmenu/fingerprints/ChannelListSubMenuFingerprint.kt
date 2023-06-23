@@ -12,5 +12,5 @@ object ChannelListSubMenuFingerprint : MethodFingerprint(
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT_OBJECT
     ),
-    customFingerprint = { it, _ -> it.isWideLiteralExists(ChannelListSubMenu) }
+    customFingerprint = { methodDef, _ -> methodDef.isWideLiteralExists(ChannelListSubMenu) }
 )

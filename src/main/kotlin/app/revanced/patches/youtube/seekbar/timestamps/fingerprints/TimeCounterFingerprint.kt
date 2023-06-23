@@ -21,6 +21,5 @@ object TimeCounterFingerprint : MethodFingerprint(
         Opcode.MOVE_RESULT,
         Opcode.IF_EQZ,
         Opcode.GOTO
-    ),
-    customFingerprint = { _, classDef -> classDef.methods.count() == 14 }
+    )
 )

@@ -17,5 +17,5 @@ object BackgroundPlaybackParentFingerprint : MethodFingerprint(
         Opcode.GOTO,
         Opcode.NOP
     ),
-    customFingerprint = { it, _ -> it.definingClass.endsWith("/WatchFragment;") }
+    customFingerprint = { methodDef, _ -> methodDef.definingClass.endsWith("/WatchFragment;") }
 )

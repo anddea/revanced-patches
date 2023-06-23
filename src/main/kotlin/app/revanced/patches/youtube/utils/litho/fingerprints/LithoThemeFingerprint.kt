@@ -15,5 +15,5 @@ object LithoThemeFingerprint : MethodFingerprint(
         Opcode.INVOKE_VIRTUAL, // Paint.setColor: inject point
         Opcode.RETURN_VOID
     ),
-    customFingerprint = { it, _ -> it.name == "onBoundsChange" }
+    customFingerprint = { methodDef, _ -> methodDef.name == "onBoundsChange" }
 )

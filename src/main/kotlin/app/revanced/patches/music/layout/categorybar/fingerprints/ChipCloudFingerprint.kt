@@ -13,6 +13,6 @@ object ChipCloudFingerprint : MethodFingerprint(
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT_OBJECT
     ),
-    customFingerprint = { it, _ -> it.isWideLiteralExists(ChipCloud) }
+    customFingerprint = { methodDef, _ -> methodDef.isWideLiteralExists(ChipCloud) }
 )
 

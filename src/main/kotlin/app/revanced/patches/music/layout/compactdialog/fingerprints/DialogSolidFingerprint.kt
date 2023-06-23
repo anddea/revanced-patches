@@ -16,6 +16,6 @@ object DialogSolidFingerprint : MethodFingerprint(
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.INVOKE_STATIC
     ),
-    customFingerprint = { it, _ -> it.isWideLiteralExists(DialogSolid) }
+    customFingerprint = { methodDef, _ -> methodDef.isWideLiteralExists(DialogSolid) }
 )
 

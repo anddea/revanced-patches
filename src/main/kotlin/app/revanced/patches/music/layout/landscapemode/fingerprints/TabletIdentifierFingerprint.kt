@@ -16,6 +16,6 @@ object TabletIdentifierFingerprint : MethodFingerprint(
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT
     ),
-    customFingerprint = { it, _ -> it.isWideLiteralExists(IsTablet) }
+    customFingerprint = { methodDef, _ -> methodDef.isWideLiteralExists(IsTablet) }
 )
 

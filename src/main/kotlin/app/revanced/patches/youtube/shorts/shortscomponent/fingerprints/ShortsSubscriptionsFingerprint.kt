@@ -5,5 +5,5 @@ import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.util.bytecode.isWideLiteralExists
 
 object ShortsSubscriptionsFingerprint : MethodFingerprint(
-    customFingerprint = { it, _ -> it.isWideLiteralExists(ReelPlayerPausedStateButton) }
+    customFingerprint = { methodDef, _ -> methodDef.isWideLiteralExists(ReelPlayerPausedStateButton) }
 )

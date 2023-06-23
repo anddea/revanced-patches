@@ -11,5 +11,5 @@ object DismissQueueFingerprint : MethodFingerprint(
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT
     ),
-    customFingerprint = { it, _ -> it.isWide32LiteralExists(45413042) }
+    customFingerprint = { methodDef, _ -> methodDef.isWide32LiteralExists(45413042) }
 )

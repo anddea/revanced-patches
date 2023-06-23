@@ -13,5 +13,5 @@ object OrientationPrimaryFingerprint : MethodFingerprint(
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT
     ),
-    customFingerprint = { it, _ -> it.name == "<init>" }
+    customFingerprint = { methodDef, _ -> methodDef.name == "<init>" }
 )

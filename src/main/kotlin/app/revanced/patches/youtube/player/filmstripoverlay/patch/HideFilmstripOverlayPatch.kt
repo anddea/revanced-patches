@@ -15,19 +15,19 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.player.filmstripoverlay.fingerprints.FilmStripOverlayConfigFingerprint
 import app.revanced.patches.youtube.player.filmstripoverlay.fingerprints.FilmStripOverlayInteractionFingerprint
 import app.revanced.patches.youtube.player.filmstripoverlay.fingerprints.FilmStripOverlayParentFingerprint
 import app.revanced.patches.youtube.player.filmstripoverlay.fingerprints.FilmStripOverlayPreviewFingerprint
-import app.revanced.patches.youtube.player.filmstripoverlay.fingerprints.TimeBarOnClickListenerFingerprint
+import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
+import app.revanced.patches.youtube.utils.fingerprints.YouTubeControlsOverlayFingerprint
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
-import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch.Companion.WatchWhileTimeBarOverlayStub
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
-import app.revanced.util.bytecode.getWideLiteralIndex
 import app.revanced.util.integrations.Constants.PLAYER
 import org.jf.dexlib2.Opcode
+import org.jf.dexlib2.iface.instruction.NarrowLiteralInstruction
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
+import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
 import org.jf.dexlib2.iface.instruction.formats.Instruction35c
 import org.jf.dexlib2.iface.reference.MethodReference
 
@@ -45,7 +45,7 @@ import org.jf.dexlib2.iface.reference.MethodReference
 class HideFilmstripOverlayPatch : BytecodePatch(
     listOf(
         FilmStripOverlayParentFingerprint,
-        TimeBarOnClickListenerFingerprint
+        YouTubeControlsOverlayFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
@@ -66,23 +66,27 @@ class HideFilmstripOverlayPatch : BytecodePatch(
             }
         } ?: return FilmStripOverlayParentFingerprint.toErrorResult()
 
-        TimeBarOnClickListenerFingerprint.result?.let {
+        YouTubeControlsOverlayFingerprint.result?.let {
             it.mutableMethod.apply {
-                val freeIndex = getWideLiteralIndex(WatchWhileTimeBarOverlayStub)
-                val freeRegister = getInstruction<OneRegisterInstruction>(freeIndex).registerA
-
                 val insertIndex = getIndex("bringChildToFront") + 1
+                val insertRegister = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
+
                 val jumpIndex = getIndex("setOnClickListener") + 3
+
+                val fixIndex =
+                    implementation!!.instructions.indexOfFirst { instruction -> (instruction as? NarrowLiteralInstruction)?.narrowLiteral == 12 }
+                val fixRegister = getInstruction<OneRegisterInstruction>(fixIndex).registerA
 
                 addInstructionsWithLabels(
                     insertIndex, """
+                        const/16 v$fixRegister, 0xc
                         invoke-static {}, $PLAYER->hideFilmstripOverlay()Z
-                        move-result v$freeRegister
-                        if-nez v$freeRegister, :hidden
+                        move-result v$insertRegister
+                        if-nez v$insertRegister, :hidden
                         """, ExternalLabel("hidden", getInstruction(jumpIndex))
                 )
             }
-        } ?: return TimeBarOnClickListenerFingerprint.toErrorResult()
+        } ?: return YouTubeControlsOverlayFingerprint.toErrorResult()
 
         /**
          * Add settings

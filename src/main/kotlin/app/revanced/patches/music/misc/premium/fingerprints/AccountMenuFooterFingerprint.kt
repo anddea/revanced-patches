@@ -18,5 +18,5 @@ object AccountMenuFooterFingerprint : MethodFingerprint(
         Opcode.INVOKE_VIRTUAL,
         Opcode.IGET_OBJECT
     ),
-    customFingerprint = { it, _ -> it.isWideLiteralExists(PrivacyTosFooter) }
+    customFingerprint = { methodDef, _ -> methodDef.isWideLiteralExists(PrivacyTosFooter) }
 )

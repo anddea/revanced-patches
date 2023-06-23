@@ -16,5 +16,5 @@ object ScreenNavigatorFingerprint : MethodFingerprint(
         Opcode.INVOKE_STATIC
     ),
     strings = listOf("uri", "android.intent.action.VIEW"),
-    customFingerprint = { it, _ -> it.definingClass.endsWith("/RedditScreenNavigator;") }
+    customFingerprint = { methodDef, _ -> methodDef.definingClass.endsWith("/RedditScreenNavigator;") }
 )

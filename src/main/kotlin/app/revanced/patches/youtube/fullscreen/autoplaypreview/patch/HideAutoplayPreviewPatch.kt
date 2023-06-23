@@ -13,18 +13,16 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.youtube.utils.fingerprints.LayoutConstructorFingerprint
 import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
+import app.revanced.patches.youtube.utils.fingerprints.LayoutConstructorFingerprint
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch.Companion.AutoNavPreviewStub
+import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch.Companion.AutoNavToggle
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.bytecode.getStringIndex
 import app.revanced.util.bytecode.getWideLiteralIndex
 import app.revanced.util.integrations.Constants.FULLSCREEN
-import org.jf.dexlib2.iface.instruction.Instruction
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
-import org.jf.dexlib2.iface.instruction.ReferenceInstruction
-import org.jf.dexlib2.iface.reference.FieldReference
 
 @Patch
 @Name("hide-autoplay-preview")
@@ -43,26 +41,17 @@ class HideAutoplayPreviewPatch : BytecodePatch(
     override fun execute(context: BytecodeContext): PatchResult {
         LayoutConstructorFingerprint.result?.let {
             it.mutableMethod.apply {
-                val insertInstruction = implementation!!.instructions
-
                 val dummyRegister =
                     getInstruction<OneRegisterInstruction>(getStringIndex("1.0x")).registerA
                 val insertIndex = getWideLiteralIndex(AutoNavPreviewStub)
-
-                val branchIndex =
-                    insertInstruction.subList(insertIndex + 1, insertInstruction.size - 1)
-                        .indexOfFirst { instruction ->
-                            ((instruction as? ReferenceInstruction)?.reference as? FieldReference)?.type == "Lcom/google/android/apps/youtube/app/player/autonav/AutonavToggleController;"
-                        } + 1
-
-                val jumpInstruction = getInstruction<Instruction>(insertIndex + branchIndex)
+                val jumpIndex = getWideLiteralIndex(AutoNavToggle) - 1
 
                 addInstructionsWithLabels(
                     insertIndex, """
                         invoke-static {}, $FULLSCREEN->hideAutoPlayPreview()Z
                         move-result v$dummyRegister
                         if-nez v$dummyRegister, :hidden
-                        """, ExternalLabel("hidden", jumpInstruction)
+                        """, ExternalLabel("hidden", getInstruction(jumpIndex))
                 )
             }
         } ?: return LayoutConstructorFingerprint.toErrorResult()

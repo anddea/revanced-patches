@@ -13,5 +13,9 @@ object PivotBarConstructorFingerprint : MethodFingerprint(
         Opcode.IPUT_OBJECT,
         Opcode.RETURN_VOID
     ),
-    customFingerprint = { it, _ -> it.name == "<init>" && it.isNarrowLiteralExists(117501096) }
+    customFingerprint = { methodDef, _ ->
+        methodDef.name == "<init>" && methodDef.isNarrowLiteralExists(
+            117501096
+        )
+    }
 )

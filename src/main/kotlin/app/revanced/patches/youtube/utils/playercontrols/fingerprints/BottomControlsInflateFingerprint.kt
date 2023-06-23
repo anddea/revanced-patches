@@ -11,5 +11,5 @@ object BottomControlsInflateFingerprint : MethodFingerprint(
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT_OBJECT
     ),
-    customFingerprint = { it, _ -> it.isWideLiteralExists(BottomUiContainerStub) }
+    customFingerprint = { methodDef, _ -> methodDef.isWideLiteralExists(BottomUiContainerStub) }
 )

@@ -11,5 +11,5 @@ object MinimizedPlaybackManagerFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
     parameters = listOf("L"),
     opcodes = listOf(Opcode.AND_INT_LIT16),
-    customFingerprint = { it, _ -> it.isNarrowLiteralExists(64657230) }
+    customFingerprint = { methodDef, _ -> methodDef.isNarrowLiteralExists(64657230) }
 )

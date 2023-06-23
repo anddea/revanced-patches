@@ -27,5 +27,5 @@ object SeekbarTappingReferenceFingerprint : MethodFingerprint(
         Opcode.INVOKE_VIRTUAL, // pMethodReference
         Opcode.RETURN
     ),
-    customFingerprint = { it, _ -> it.name == "onTouchEvent" }
+    customFingerprint = { methodDef, _ -> methodDef.name == "onTouchEvent" }
 )

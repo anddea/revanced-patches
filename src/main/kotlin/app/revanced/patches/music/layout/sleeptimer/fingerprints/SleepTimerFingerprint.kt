@@ -6,5 +6,5 @@ import app.revanced.util.bytecode.isWide32LiteralExists
 object SleepTimerFingerprint : MethodFingerprint(
     returnType = "Z",
     parameters = listOf(),
-    customFingerprint = { it, _ -> it.isWide32LiteralExists(45372767) }
+    customFingerprint = { methodDef, _ -> methodDef.isWide32LiteralExists(45372767) }
 )

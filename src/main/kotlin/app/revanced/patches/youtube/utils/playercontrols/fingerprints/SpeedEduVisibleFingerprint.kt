@@ -6,5 +6,5 @@ import org.jf.dexlib2.Opcode
 object SpeedEduVisibleFingerprint : MethodFingerprint(
     returnType = "V",
     opcodes = listOf(Opcode.IPUT_BOOLEAN),
-    customFingerprint = { it, _ -> it.name == "<init>" }
+    customFingerprint = { methodDef, _ -> methodDef.name == "<init>" }
 )

@@ -8,5 +8,5 @@ object HideSnackBarFingerprint : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("L", "L"),
-    customFingerprint = { it, _ -> it.definingClass.endsWith("BottomUiContainer;") }
+    customFingerprint = { methodDef, _ -> methodDef.definingClass.endsWith("BottomUiContainer;") }
 )

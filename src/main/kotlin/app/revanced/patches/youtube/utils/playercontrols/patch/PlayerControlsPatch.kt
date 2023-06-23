@@ -16,6 +16,7 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
+import app.revanced.patches.youtube.utils.fingerprints.YouTubeControlsOverlayFingerprint
 import app.revanced.patches.youtube.utils.playercontrols.fingerprints.BottomControlsInflateFingerprint
 import app.revanced.patches.youtube.utils.playercontrols.fingerprints.ControlsLayoutInflateFingerprint
 import app.revanced.patches.youtube.utils.playercontrols.fingerprints.PlayerControlsVisibilityFingerprint
@@ -33,7 +34,7 @@ import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
 import org.jf.dexlib2.iface.instruction.formats.Instruction35c
 import org.jf.dexlib2.iface.reference.Reference
 
-@Name("player-controls-bytecode-patch")
+@Name("player-controls-patch")
 @DependsOn([SharedResourceIdPatch::class])
 @Description("Manages the code for the player controls of the YouTube player.")
 @YouTubeCompatibility
@@ -42,9 +43,9 @@ class PlayerControlsPatch : BytecodePatch(
     listOf(
         BottomControlsInflateFingerprint,
         ControlsLayoutInflateFingerprint,
-        PlayerControlsVisibilityFingerprint,
         PlayerControlsVisibilityModelFingerprint,
-        SpeedEduVisibleParentFingerprint
+        SpeedEduVisibleParentFingerprint,
+        YouTubeControlsOverlayFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
@@ -61,8 +62,14 @@ class PlayerControlsPatch : BytecodePatch(
         userScrubbingResult =
             UserScrubbingFingerprint.result ?: return UserScrubbingFingerprint.toErrorResult()
 
+        val controlsOverlayClassDef =
+            YouTubeControlsOverlayFingerprint.result?.classDef
+                ?: return YouTubeControlsOverlayFingerprint.toErrorResult()
+
+        PlayerControlsVisibilityFingerprint.resolve(context, controlsOverlayClassDef)
         playerControlsVisibilityResult = PlayerControlsVisibilityFingerprint.result
             ?: return PlayerControlsVisibilityFingerprint.toErrorResult()
+
         controlsLayoutInflateResult = ControlsLayoutInflateFingerprint.result
             ?: return ControlsLayoutInflateFingerprint.toErrorResult()
         inflateResult = BottomControlsInflateFingerprint.result

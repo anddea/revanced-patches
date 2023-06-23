@@ -8,5 +8,9 @@ object TimebarFingerprint : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("L"),
-    customFingerprint = { it, _ -> it.definingClass.endsWith("/TimeBar;") && it.name.contains("draw") }
+    customFingerprint = { methodDef, _ ->
+        methodDef.definingClass.endsWith("/TimeBar;") && methodDef.name.contains(
+            "draw"
+        )
+    }
 )

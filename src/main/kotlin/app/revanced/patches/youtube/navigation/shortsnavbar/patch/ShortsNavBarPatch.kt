@@ -16,13 +16,13 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.youtube.utils.fingerprints.PivotBarCreateButtonViewFingerprint
-import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.navigation.shortsnavbar.fingerprints.NavigationEndpointFingerprint
 import app.revanced.patches.youtube.navigation.shortsnavbar.fingerprints.ReelWatchBundleFingerprint
 import app.revanced.patches.youtube.navigation.shortsnavbar.fingerprints.ReelWatchEndpointFingerprint
 import app.revanced.patches.youtube.navigation.shortsnavbar.fingerprints.ReelWatchEndpointParentFingerprint
 import app.revanced.patches.youtube.navigation.shortsnavbar.fingerprints.SetPivotBarFingerprint
+import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
+import app.revanced.patches.youtube.utils.fingerprints.PivotBarCreateButtonViewFingerprint
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.integrations.Constants.NAVIGATION
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction

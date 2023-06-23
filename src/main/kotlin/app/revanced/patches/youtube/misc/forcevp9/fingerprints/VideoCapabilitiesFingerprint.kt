@@ -11,5 +11,5 @@ object VideoCapabilitiesFingerprint : MethodFingerprint(
         Opcode.IPUT,
         Opcode.IPUT
     ),
-    customFingerprint = { it, _ -> it.name == "<init>" }
+    customFingerprint = { methodDef, _ -> methodDef.name == "<init>" }
 )

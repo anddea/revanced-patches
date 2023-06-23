@@ -6,5 +6,5 @@ import app.revanced.util.bytecode.isWide32LiteralExists
 object FilmStripOverlayConfigFingerprint : MethodFingerprint(
     returnType = "Z",
     parameters = listOf(),
-    customFingerprint = { it, _ -> it.isWide32LiteralExists(45381958) }
+    customFingerprint = { methodDef, _ -> methodDef.isWide32LiteralExists(45381958) }
 )

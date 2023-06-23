@@ -14,17 +14,17 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
+import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.fingerprints.SeekbarFingerprint
 import app.revanced.patches.youtube.utils.fingerprints.SeekbarOnDrawFingerprint
 import app.revanced.patches.youtube.utils.fingerprints.TotalTimeFingerprint
-import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
+import app.revanced.patches.youtube.utils.fingerprints.YouTubeControlsOverlayFingerprint
 import app.revanced.patches.youtube.utils.overridespeed.patch.OverrideSpeedHookPatch
 import app.revanced.patches.youtube.utils.playercontrols.patch.PlayerControlsPatch
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch.Companion.InsetOverlayViewLayout
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch.Companion.TotalTime
 import app.revanced.patches.youtube.utils.sponsorblock.bytecode.fingerprints.EndScreenEngagementPanelsFingerprint
-import app.revanced.patches.youtube.utils.sponsorblock.bytecode.fingerprints.OverlayViewLayoutFingerprint
 import app.revanced.patches.youtube.utils.sponsorblock.bytecode.fingerprints.PlayerControllerFingerprint
 import app.revanced.patches.youtube.utils.sponsorblock.bytecode.fingerprints.RectangleFieldInvalidatorFingerprint
 import app.revanced.patches.youtube.utils.videoid.legacy.patch.LegacyVideoIdPatch
@@ -57,9 +57,9 @@ import org.jf.dexlib2.iface.reference.MethodReference
 class SponsorBlockBytecodePatch : BytecodePatch(
     listOf(
         EndScreenEngagementPanelsFingerprint,
-        OverlayViewLayoutFingerprint,
         PlayerControllerFingerprint,
-        TotalTimeFingerprint
+        TotalTimeFingerprint,
+        YouTubeControlsOverlayFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
@@ -175,7 +175,7 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         /**
          * Initialize the SponsorBlock view
          */
-        OverlayViewLayoutFingerprint.result?.mutableMethod?.let {
+        YouTubeControlsOverlayFingerprint.result?.mutableMethod?.let {
             it.apply {
                 val targetIndex = getWideLiteralIndex(InsetOverlayViewLayout) + 3
                 val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
@@ -185,7 +185,7 @@ class SponsorBlockBytecodePatch : BytecodePatch(
                     "invoke-static {v$targetRegister}, $INTEGRATIONS_BUTTON_CLASS_DESCRIPTOR/ui/SponsorBlockViewController;->initialize(Landroid/view/ViewGroup;)V"
                 )
             }
-        } ?: return OverlayViewLayoutFingerprint.toErrorResult()
+        } ?: return YouTubeControlsOverlayFingerprint.toErrorResult()
 
         /**
          * Replace strings

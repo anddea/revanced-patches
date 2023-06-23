@@ -7,5 +7,5 @@ import org.jf.dexlib2.AccessFlags
 object HideCommentAdsFingerprint : MethodFingerprint(
     returnType = "Ljava/lang/Object;",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    customFingerprint = { it, _ -> it.definingClass.endsWith("RedditCommentsPageAdRepository;") },
+    customFingerprint = { methodDef, _ -> methodDef.definingClass.endsWith("RedditCommentsPageAdRepository;") },
 )

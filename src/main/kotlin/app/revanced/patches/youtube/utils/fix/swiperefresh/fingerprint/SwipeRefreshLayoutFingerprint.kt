@@ -15,5 +15,5 @@ object SwipeRefreshLayoutFingerprint : MethodFingerprint(
         Opcode.MOVE_RESULT,
         Opcode.RETURN
     ),
-    customFingerprint = { it, _ -> it.definingClass.endsWith("SwipeRefreshLayout;") }
+    customFingerprint = { methodDef, _ -> methodDef.definingClass.endsWith("SwipeRefreshLayout;") }
 )
