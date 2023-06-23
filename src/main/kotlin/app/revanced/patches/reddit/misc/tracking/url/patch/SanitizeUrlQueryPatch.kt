@@ -10,18 +10,20 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patcher.patch.annotations.RequiresIntegrations
 import app.revanced.patches.reddit.misc.tracking.url.fingerprints.ShareLinkFactoryFingerprint
 import app.revanced.patches.reddit.utils.annotations.RedditCompatibility
+import app.revanced.patches.reddit.utils.settings.bytecode.patch.SettingsPatch
+import app.revanced.patches.reddit.utils.settings.bytecode.patch.SettingsPatch.Companion.updateSettingsStatus
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
 @Name("sanitize-sharing-links")
 @Description("Removes (tracking) query parameters from the URLs when sharing links.")
+@DependsOn([SettingsPatch::class])
 @RedditCompatibility
 @Version("0.0.1")
-@RequiresIntegrations
 class SanitizeUrlQueryPatch : BytecodePatch(
     listOf(ShareLinkFactoryFingerprint)
 ) {
@@ -40,6 +42,8 @@ class SanitizeUrlQueryPatch : BytecodePatch(
                 )
             }
         } ?: return ShareLinkFactoryFingerprint.toErrorResult()
+
+        updateSettingsStatus("SanitizeUrlQuery")
 
         return PatchResultSuccess()
     }
