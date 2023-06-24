@@ -25,8 +25,8 @@ import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.integrations.Constants.GENERAL
 
 @Patch
-@Name("hide-auto-captions")
-@Description("Hide captions from being automatically enabled.")
+@Name("disable-auto-captions")
+@Description("Disables forced auto captions.")
 @DependsOn(
     [
         PlayerTypeHookPatch::class,
@@ -60,7 +60,7 @@ class AutoCaptionsPatch : BytecodePatch(
             it.mutableMethod.apply {
                 addInstructionsWithLabels(
                     0, """
-                        invoke-static {}, $GENERAL->hideAutoCaptions()Z
+                        invoke-static {}, $GENERAL->disableAutoCaptions()Z
                         move-result v0
                         if-eqz v0, :auto_captions_shown
                         sget-boolean v0, $GENERAL->captionsButtonStatus:Z
@@ -78,11 +78,11 @@ class AutoCaptionsPatch : BytecodePatch(
         SettingsPatch.addPreference(
             arrayOf(
                 "PREFERENCE: GENERAL_SETTINGS",
-                "SETTINGS: HIDE_AUTO_CAPTIONS"
+                "SETTINGS: DISABLE_AUTO_CAPTIONS"
             )
         )
 
-        SettingsPatch.updatePatchStatus("hide-auto-captions")
+        SettingsPatch.updatePatchStatus("disable-auto-captions")
 
         return PatchResultSuccess()
     }

@@ -13,7 +13,7 @@ import java.nio.file.Files
 import java.nio.file.StandardCopyOption
 
 @Patch
-@Name("optimize-resource-music")
+@Name("optimize-resource")
 @Description("Remove unnecessary resources.")
 @MusicCompatibility
 @Version("0.0.1")

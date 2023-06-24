@@ -14,12 +14,12 @@ import app.revanced.patches.music.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.resources.ResourceHelper.addTranslations
 
 @Patch
-@Name("translations-music")
+@Name("translations")
 @Description("Add Crowdin translations for YouTube Music.")
 @DependsOn([SettingsPatch::class])
 @MusicCompatibility
 @Version("0.0.1")
-class MusicTranslationsPatch : ResourcePatch {
+class TranslationsPatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
 
         context.addTranslations("music", LANGUAGE_LIST)

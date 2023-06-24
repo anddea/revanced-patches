@@ -17,7 +17,7 @@ import org.w3c.dom.Element
 
 @Patch
 @Name("custom-branding-microg-name")
-@Description("Changes the MicroG launcher name to your choice (defaults to MicroG).")
+@Description("Rename the MicroG app to the name specified in options.json.")
 @MicroGCompatibility
 @Version("0.0.1")
 class CustomBrandingNamePatch : ResourcePatch {

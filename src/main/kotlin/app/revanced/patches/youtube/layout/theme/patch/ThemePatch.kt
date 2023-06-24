@@ -19,7 +19,7 @@ import org.w3c.dom.Element
 
 @Patch
 @Name("theme")
-@Description("Applies a custom theme (default: amoled).")
+@Description("Change the app's theme to the values specified in options.json.")
 @DependsOn(
     [
         GeneralThemePatch::class,

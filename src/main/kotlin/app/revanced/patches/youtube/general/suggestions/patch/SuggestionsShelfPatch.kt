@@ -15,7 +15,7 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.youtube.general.suggestions.fingerprints.BreakingNewsFingerprint
 import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.litho.patch.LithoFilterPatch
-import app.revanced.patches.youtube.utils.navbarindex.patch.NavBarIndexPatch
+import app.revanced.patches.youtube.utils.navbarindex.patch.NavBarIndexHookPatch
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.integrations.Constants.GENERAL
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
@@ -26,7 +26,7 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 @DependsOn(
     [
         LithoFilterPatch::class,
-        NavBarIndexPatch::class,
+        NavBarIndexHookPatch::class,
         SettingsPatch::class
     ]
 )

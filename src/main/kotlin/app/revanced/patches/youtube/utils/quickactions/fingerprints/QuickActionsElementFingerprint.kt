@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.utils.quickactionscontainer.fingerprints
+package app.revanced.patches.youtube.utils.quickactions.fingerprints
 
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch.Companion.QuickActionsElementContainer

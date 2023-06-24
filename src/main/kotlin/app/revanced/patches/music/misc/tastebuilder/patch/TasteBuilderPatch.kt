@@ -17,10 +17,10 @@ import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Patch
 @Name("hide-taste-builder")
-@Description("Removes the \"Tell us which artists you like\" card from the home screen.")
+@Description("Hides the \"Tell us which artists you like\" card from homepage.")
 @MusicCompatibility
 @Version("0.0.1")
-class RemoveTasteBuilderPatch : BytecodePatch(
+class TasteBuilderPatch : BytecodePatch(
     listOf(TasteBuilderConstructorFingerprint)
 ) {
     override fun execute(context: BytecodeContext): PatchResult {

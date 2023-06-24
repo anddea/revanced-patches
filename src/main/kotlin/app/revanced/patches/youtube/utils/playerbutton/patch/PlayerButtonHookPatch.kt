@@ -19,11 +19,11 @@ import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.builder.instruction.BuilderInstruction21c
 import org.jf.dexlib2.builder.instruction.BuilderInstruction35c
 
-@Name("hook-player-button-patch")
+@Name("player-button-hook")
 @DependsOn([SharedResourceIdPatch::class])
 @YouTubeCompatibility
 @Version("0.0.1")
-class PlayerButtonPatch : BytecodePatch(
+class PlayerButtonHookPatch : BytecodePatch(
     listOf(LiveChatFingerprint)
 ) {
     override fun execute(context: BytecodeContext): PatchResult {

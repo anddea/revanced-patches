@@ -26,7 +26,7 @@ import org.jf.dexlib2.builder.instruction.BuilderInstruction35c
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 
-@Name("always-auto-repeat")
+@Name("always-repeat")
 @YouTubeCompatibility
 @Version("0.0.1")
 class AutoRepeatPatch : BytecodePatch(

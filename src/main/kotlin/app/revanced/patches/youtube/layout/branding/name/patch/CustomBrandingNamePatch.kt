@@ -19,8 +19,8 @@ import org.w3c.dom.Element
 
 @Patch
 @Name("custom-branding-youtube-name")
+@Description("Rename the YouTube app to the name specified in options.json.")
 @DependsOn([SettingsPatch::class])
-@Description("Changes the YouTube launcher name to your choice (defaults to ReVanced Extended).")
 @YouTubeCompatibility
 @Version("0.0.1")
 class CustomBrandingNamePatch : ResourcePatch {

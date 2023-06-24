@@ -12,7 +12,7 @@ import app.revanced.patches.music.utils.annotations.MusicCompatibility
 
 @Patch
 @Name("bitrate-default-value")
-@Description("Set the audio quality to 'Always High' when you first install the app.")
+@Description("Set the audio quality to \"Always High\" when you first install the app.")
 @MusicCompatibility
 @Version("0.0.1")
 class BitrateDefaultValuePatch : ResourcePatch {

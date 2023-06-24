@@ -10,7 +10,7 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
-import app.revanced.patches.youtube.utils.playerbutton.patch.PlayerButtonPatch
+import app.revanced.patches.youtube.utils.playerbutton.patch.PlayerButtonHookPatch
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 
 @Patch
@@ -18,7 +18,7 @@ import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 @Description("Hides the previous and next button in the player controller.")
 @DependsOn(
     [
-        PlayerButtonPatch::class,
+        PlayerButtonHookPatch::class,
         SettingsPatch::class
     ]
 )

@@ -132,6 +132,9 @@
         <!-- PREFERENCE: GENERAL_SETTINGS
         <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_general" />PREFERENCE: GENERAL_SETTINGS -->
 
+        <!-- SETTINGS: DISABLE_AUTO_CAPTIONS
+        <SwitchPreference android:title="@string/revanced_disable_auto_captions_title" android:key="revanced_disable_auto_captions" android:defaultValue="false" android:summaryOn="@string/revanced_disable_auto_captions_summary_on" android:summaryOff="@string/revanced_disable_auto_captions_summary_off" />SETTINGS: DISABLE_AUTO_CAPTIONS -->
+
         <!-- SETTINGS: ENABLE_TABLET_MINI_PLAYER
         <SwitchPreference android:title="@string/revanced_enable_tablet_mini_player_title" android:key="revanced_enable_tablet_mini_player" android:defaultValue="false" android:summaryOn="@string/revanced_enable_tablet_mini_player_summary_on" android:summaryOff="@string/revanced_enable_tablet_mini_player_summary_off" />SETTINGS: ENABLE_TABLET_MINI_PLAYER -->
 
@@ -144,9 +147,6 @@
 
         <!-- SETTINGS: HIDE_LAYOUT_COMPONENTS
         <SwitchPreference android:title="@string/revanced_hide_album_card_title" android:key="revanced_hide_album_card" android:defaultValue="true" android:summaryOn="@string/revanced_hide_album_card_summary_on" android:summaryOff="@string/revanced_hide_album_card_summary_off" />SETTINGS: HIDE_LAYOUT_COMPONENTS -->
-
-        <!-- SETTINGS: HIDE_AUTO_CAPTIONS
-        <SwitchPreference android:title="@string/revanced_hide_auto_captions_title" android:key="revanced_hide_auto_captions" android:defaultValue="false" android:summaryOn="@string/revanced_hide_auto_captions_summary_on" android:summaryOff="@string/revanced_hide_auto_captions_summary_off" />SETTINGS: HIDE_AUTO_CAPTIONS -->
 
         <!-- SETTINGS: HIDE_AUTO_PLAYER_POPUP_PANELS
         <SwitchPreference android:title="@string/revanced_hide_auto_player_popup_panels_title" android:key="revanced_hide_auto_player_popup_panels" android:defaultValue="true" android:summaryOn="@string/revanced_hide_auto_player_popup_panels_summary_on" android:summaryOff="@string/revanced_hide_auto_player_popup_panels_summary_off" />SETTINGS: HIDE_AUTO_PLAYER_POPUP_PANELS -->
@@ -314,11 +314,11 @@
             <Preference android:title="hide-speed-overlay" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
 
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_general" />
+            <Preference android:title="disable-auto-captions" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="enable-tablet-miniplayer" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="enable-wide-searchbar" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="header-switch" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-account-menu" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
-            <Preference android:title="hide-auto-captions" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-auto-player-popup-panels" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-category-bar" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-channel-avatar-section" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
