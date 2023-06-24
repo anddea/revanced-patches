@@ -25,7 +25,7 @@ import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Patch
 @Name("hide-upgrade-button")
-@Description("Remove upgrade tab from pivot bar, hide upgrade banner from homepage.")
+@Description("Hides upgrade button from navigation bar and hide upgrade banner from homepage.")
 @DependsOn(
     [
         IntegrationsPatch::class,
@@ -34,7 +34,7 @@ import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
 )
 @MusicCompatibility
 @Version("0.0.1")
-class RemoveUpgradeButtonPatch : BytecodePatch(
+class UpgradeButtonPatch : BytecodePatch(
     listOf(
         PivotBarConstructorFingerprint,
         NotifierShelfFingerprint

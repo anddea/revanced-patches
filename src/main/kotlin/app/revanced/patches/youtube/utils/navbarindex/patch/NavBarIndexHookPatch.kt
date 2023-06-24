@@ -23,11 +23,11 @@ import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 import org.jf.dexlib2.iface.instruction.formats.Instruction35c
 import org.jf.dexlib2.iface.reference.MethodReference
 
-@Name("hook-navbar-index-patch")
+@Name("navbar-index-hook")
 @DependsOn([SharedResourceIdPatch::class])
 @YouTubeCompatibility
 @Version("0.0.1")
-class NavBarIndexPatch : BytecodePatch(
+class NavBarIndexHookPatch : BytecodePatch(
     listOf(
         NavBarBuilderFingerprint,
         OnBackPressedFingerprint,

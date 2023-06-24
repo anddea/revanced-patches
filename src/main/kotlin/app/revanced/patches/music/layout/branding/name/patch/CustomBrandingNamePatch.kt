@@ -16,7 +16,7 @@ import org.w3c.dom.Element
 
 @Patch(false)
 @Name("custom-branding-music-name")
-@Description("Changes the Music launcher name to your choice (defaults to YTM Extended, ReVanced Music Extended).")
+@Description("Rename the YouTube Music app to the name specified in options.json.")
 @MusicCompatibility
 @Version("0.0.1")
 class CustomBrandingNamePatch : ResourcePatch {

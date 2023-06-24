@@ -13,7 +13,7 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.youtube.player.playerbuttonbg.fingerprints.HidePlayerButtonFingerprint
 import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
-import app.revanced.patches.youtube.utils.playerbutton.patch.PlayerButtonPatch
+import app.revanced.patches.youtube.utils.playerbutton.patch.PlayerButtonHookPatch
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.integrations.Constants.INTEGRATIONS_PATH
 
@@ -22,7 +22,7 @@ import app.revanced.util.integrations.Constants.INTEGRATIONS_PATH
 @Description("Hide player button background.")
 @DependsOn(
     [
-        PlayerButtonPatch::class,
+        PlayerButtonHookPatch::class,
         SettingsPatch::class
     ]
 )

@@ -16,8 +16,8 @@ import app.revanced.util.enum.CategoryType
 import app.revanced.util.integrations.Constants.MUSIC_ADS_PATH
 
 @Patch
-@Name("hide-music-ads")
-@Description("Removes ads in the music player.")
+@Name("hide-video-ads")
+@Description("Removes ads in the music video.")
 @DependsOn(
     [
         LithoFilterPatch::class,

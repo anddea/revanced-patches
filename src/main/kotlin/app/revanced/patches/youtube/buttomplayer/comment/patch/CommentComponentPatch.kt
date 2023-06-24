@@ -17,7 +17,7 @@ import app.revanced.util.integrations.Constants.PATCHES_PATH
 
 @Patch
 @Name("hide-comment-component")
-@Description("Adds options to hide comment component under a video.")
+@Description("Hides components related to comments.")
 @DependsOn(
     [
         GeneralAdsBytecodePatch::class,

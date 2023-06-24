@@ -34,7 +34,7 @@ import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
 import org.jf.dexlib2.iface.instruction.formats.Instruction35c
 import org.jf.dexlib2.iface.reference.Reference
 
-@Name("player-controls-patch")
+@Name("player-controls")
 @DependsOn([SharedResourceIdPatch::class])
 @Description("Manages the code for the player controls of the YouTube player.")
 @YouTubeCompatibility
