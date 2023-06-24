@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.utils.fix.protobufpoof.patch
+package app.revanced.patches.youtube.utils.fix.parameter.patch
 
 import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
@@ -12,30 +12,27 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
-import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
-import app.revanced.patches.youtube.utils.fix.protobufpoof.fingerprints.BadResponseFingerprint
-import app.revanced.patches.youtube.utils.fix.protobufpoof.fingerprints.ProtobufParameterBuilderFingerprint
-import app.revanced.patches.youtube.utils.fix.protobufpoof.fingerprints.SubtitleWindowFingerprint
+import app.revanced.patches.youtube.utils.fix.parameter.fingerprints.BadResponseFingerprint
+import app.revanced.patches.youtube.utils.fix.parameter.fingerprints.ProtobufParameterBuilderFingerprint
+import app.revanced.patches.youtube.utils.fix.parameter.fingerprints.SubtitleWindowFingerprint
 import app.revanced.patches.youtube.utils.playertype.patch.PlayerTypeHookPatch
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.patches.youtube.utils.videoid.mainstream.patch.MainstreamVideoIdPatch
 import app.revanced.util.integrations.Constants.MISC_PATH
 
-@Patch
-@Name("protobuf-spoof")
-@Description("Spoofs the protobuf to prevent playback issues.")
+@Name("spoof-player-parameters")
+@Description("Spoofs player parameters to prevent playback issues.")
 @DependsOn(
     [
         MainstreamVideoIdPatch::class,
-        PlayerTypeHookPatch::class,
-        SettingsPatch::class
+        PlayerTypeHookPatch::class
     ]
 )
 @YouTubeCompatibility
 @Version("0.0.1")
-class ProtobufSpoofPatch : BytecodePatch(
+class SpoofPlayerParameterPatch : BytecodePatch(
     listOf(
         BadResponseFingerprint,
         ProtobufParameterBuilderFingerprint,
@@ -56,7 +53,7 @@ class ProtobufSpoofPatch : BytecodePatch(
                     addInstructions(
                         0,
                         """
-                        invoke-static {p$protobufParam}, $MISC_PATH/ProtobufSpoofPatch;->overrideProtobufParameter(Ljava/lang/String;)Ljava/lang/String;
+                        invoke-static {p$protobufParam}, $MISC_PATH/SpoofPlayerParameterPatch;->overridePlayerParameter(Ljava/lang/String;)Ljava/lang/String;
                         move-result-object p$protobufParam
                     """
                     )
@@ -66,14 +63,14 @@ class ProtobufSpoofPatch : BytecodePatch(
         // hook video playback result
         BadResponseFingerprint.result?.mutableMethod?.addInstruction(
             0,
-            "invoke-static {}, $MISC_PATH/ProtobufSpoofPatch;->switchProtobufSpoof()V"
+            "invoke-static {}, $MISC_PATH/SpoofPlayerParameterPatch;->switchPlayerParameters()V"
         ) ?: return BadResponseFingerprint.toErrorResult()
 
         // fix protobuf spoof side issue
         SubtitleWindowFingerprint.result?.mutableMethod?.addInstructions(
             0,
             """
-                invoke-static {p1, p2, p3, p4, p5}, $MISC_PATH/ProtobufSpoofPatch;->getSubtitleWindowSettingsOverride(IIIZZ)[I
+                invoke-static {p1, p2, p3, p4, p5}, $MISC_PATH/SpoofPlayerParameterPatch;->getSubtitleWindowSettingsOverride(IIIZZ)[I
                 move-result-object v0
                 const/4 v1, 0x0
                 aget p1, v0, v1     # ap, anchor position
@@ -85,17 +82,16 @@ class ProtobufSpoofPatch : BytecodePatch(
         ) ?: return SubtitleWindowFingerprint.toErrorResult()
 
         // Hook video id, required for subtitle fix.
-        MainstreamVideoIdPatch.injectCall("$MISC_PATH/ProtobufSpoofPatch;->setCurrentVideoId(Ljava/lang/String;)V")
+        MainstreamVideoIdPatch.injectCall("$MISC_PATH/SpoofPlayerParameterPatch;->setCurrentVideoId(Ljava/lang/String;)V")
 
         /**
          * Add settings
          */
         SettingsPatch.addPreference(
             arrayOf(
-                "SETTINGS: ENABLE_PROTOBUF_SPOOF"
+                "SETTINGS: SPOOF_PLAYER_PARAMETER"
             )
         )
-        SettingsPatch.updatePatchStatus("protobuf-spoof")
 
         return PatchResultSuccess()
     }
