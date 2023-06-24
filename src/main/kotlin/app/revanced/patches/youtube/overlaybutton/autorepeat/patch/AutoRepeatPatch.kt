@@ -65,7 +65,7 @@ class AutoRepeatPatch : BytecodePatch(
 
                 addInstructionsWithLabels(
                     targetIndex + 1, """
-                        invoke-static {}, $UTILS_PATH/EnableAutoRepeatPatch;->shouldAutoRepeat()Z
+                        invoke-static {}, $UTILS_PATH/AlwaysRepeatPatch;->shouldAlwaysRepeat()Z
                         move-result v$dummyRegister
                         if-nez v$dummyRegister, :bypass
                         invoke-virtual {v$registerC, v$registerD}, $targetReference
@@ -87,7 +87,7 @@ class AutoRepeatPatch : BytecodePatch(
 
                 addInstructions(
                     index + 1, """
-                        invoke-static {v$register}, $UTILS_PATH/EnableAutoRepeatPatch;->enableAutoRepeat(Z)Z
+                        invoke-static {v$register}, $UTILS_PATH/AlwaysRepeatPatch;->enableAlwaysRepeat(Z)Z
                         move-result v0
                         """
                 )
