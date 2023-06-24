@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.utils.fix.protobufpoof.fingerprints
+package app.revanced.patches.youtube.utils.fix.parameter.fingerprints
 
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 

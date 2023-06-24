@@ -10,7 +10,7 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.shared.patch.packagename.PackageNamePatch
 import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.fix.clientspoof.patch.ClientSpoofPatch
-import app.revanced.patches.youtube.utils.fix.protobufpoof.patch.ProtobufSpoofPatch
+import app.revanced.patches.youtube.utils.fix.parameter.patch.SpoofPlayerParameterPatch
 import app.revanced.patches.youtube.utils.microg.bytecode.fingerprints.CastContextFetchFingerprint
 import app.revanced.patches.youtube.utils.microg.bytecode.fingerprints.CastDynamiteModuleFingerprint
 import app.revanced.patches.youtube.utils.microg.bytecode.fingerprints.CastDynamiteModuleV2Fingerprint
@@ -26,7 +26,7 @@ import app.revanced.util.microg.MicroGBytecodeHelper
     [
         ClientSpoofPatch::class,
         PackageNamePatch::class,
-        ProtobufSpoofPatch::class
+        SpoofPlayerParameterPatch::class
     ]
 )
 @YouTubeCompatibility
