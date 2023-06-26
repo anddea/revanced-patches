@@ -26,10 +26,13 @@ import app.revanced.util.integrations.Constants.PATCHES_PATH
         SettingsPatch::class,
         SharedResourceIdPatch::class,
         ShortsCommentButtonPatch::class,
+        ShortsDislikeButtonPatch::class,
         ShortsInfoPanelPatch::class,
+        ShortsLikeButtonPatch::class,
         ShortsNavigationBarPatch::class,
         ShortsPaidContentBannerPatch::class,
         ShortsRemixButtonPatch::class,
+        ShortsShareButtonPatch::class,
         ShortsSubscriptionsButtonPatch::class
     ]
 )
