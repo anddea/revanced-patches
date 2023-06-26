@@ -1,9 +1,9 @@
-package app.revanced.patches.youtube.navigation.shortsnavbar.fingerprints
+package app.revanced.patches.youtube.shorts.shortsnavigationbar.fingerprints
 
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import org.jf.dexlib2.Opcode
 
-object ReelWatchBundleFingerprint : MethodFingerprint(
+object RenderBottomNavigationBarFingerprint : MethodFingerprint(
     returnType = "V",
     opcodes = listOf(
         Opcode.CHECK_CAST,

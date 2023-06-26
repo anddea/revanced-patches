@@ -35,15 +35,11 @@ class LayoutComponentsPatch : ResourcePatch {
          */
         SettingsPatch.addPreference(
             arrayOf(
-                "PREFERENCE: BOTTOM_PLAYER_SETTINGS",
                 "PREFERENCE: GENERAL_SETTINGS",
-                "PREFERENCE: PLAYER",
-
-                "SETTINGS: COMMENT_COMPONENT_PARENT",
+                "PREFERENCE: PLAYER_SETTINGS",
 
                 "SETTINGS: HIDE_AUDIO_TRACK_BUTTON",
-                "SETTINGS: HIDE_LAYOUT_COMPONENTS",
-                "SETTINGS: HIDE_VIEW_PRODUCT"
+                "SETTINGS: HIDE_LAYOUT_COMPONENTS"
             )
         )
 
