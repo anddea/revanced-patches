@@ -7,6 +7,7 @@ import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -36,21 +37,16 @@ class NavBarIndexHookPatch : BytecodePatch(
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
 
-        arrayOf(
-            OnBackPressedFingerprint,
-            TopBarButtonFingerprint
-        ).forEach { fingerprint ->
-            fingerprint.result?.let {
-                it.mutableMethod.apply {
-                    addInstructions(
-                        0, """
-                            const/4 v0, 0x0
-                            invoke-static {v0}, $UTILS_PATH/NavBarIndexPatch;->setNavBarIndex(I)V
-                            """
-                    )
-                }
-            } ?: return fingerprint.toErrorResult()
-        }
+        OnBackPressedFingerprint.result?.let {
+            it.mutableMethod.apply {
+                addInstruction(
+                    0,
+                    "invoke-static {}, $INTEGRATIONS_CLASS_DESCRIPTOR->setLastNavBarIndex()V"
+                )
+            }
+        } ?: return OnBackPressedFingerprint.toErrorResult()
+
+        TopBarButtonFingerprint.injectIndex(0)
 
         NavBarBuilderFingerprint.result?.let {
             val endIndex = it.scanResult.patternScanResult!!.endIndex
@@ -74,7 +70,7 @@ class NavBarIndexHookPatch : BytecodePatch(
 
                     addInstruction(
                         targetIndex,
-                        "invoke-static {v$targetRegister}, $UTILS_PATH/NavBarIndexPatch;->setNavBarIndex(I)V"
+                        "invoke-static {v$targetRegister}, $INTEGRATIONS_CLASS_DESCRIPTOR->setCurrentNavBarIndex(I)V"
                     )
                     break
                 }
@@ -82,5 +78,22 @@ class NavBarIndexHookPatch : BytecodePatch(
         } ?: return NavBarBuilderFingerprint.toErrorResult()
 
         return PatchResultSuccess()
+    }
+    companion object {
+        const val INTEGRATIONS_CLASS_DESCRIPTOR =
+            "$UTILS_PATH/NavBarIndexPatch;"
+
+        fun MethodFingerprint.injectIndex(index: Int) {
+            result?.let{
+                it.mutableMethod.apply {
+                    addInstructions(
+                        0, """
+                        const/4 v0, 0x$index
+                        invoke-static {v0}, $INTEGRATIONS_CLASS_DESCRIPTOR->setCurrentNavBarIndex(I)V
+                        """
+                    )
+                }
+            } ?: throw toErrorResult()
+        }
     }
 }
