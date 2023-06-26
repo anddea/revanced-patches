@@ -5,10 +5,10 @@ import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.data.toMethodWalker
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
@@ -16,15 +16,14 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.overlaybutton.autorepeat.fingerprints.AutoNavInformerFingerprint
-import app.revanced.patches.youtube.overlaybutton.autorepeat.fingerprints.RepeatListenerFingerprint
 import app.revanced.patches.youtube.overlaybutton.autorepeat.fingerprints.VideoEndFingerprint
 import app.revanced.patches.youtube.overlaybutton.autorepeat.fingerprints.VideoEndParentFingerprint
 import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
+import app.revanced.patches.youtube.utils.fingerprints.PlayerPatchFingerprint
+import app.revanced.util.integrations.Constants.INTEGRATIONS_PATH
 import app.revanced.util.integrations.Constants.UTILS_PATH
 import app.revanced.util.integrations.Constants.VIDEO_PATH
-import org.jf.dexlib2.builder.instruction.BuilderInstruction35c
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
-import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 
 @Name("always-repeat")
 @YouTubeCompatibility
@@ -32,7 +31,7 @@ import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 class AutoRepeatPatch : BytecodePatch(
     listOf(
         AutoNavInformerFingerprint,
-        RepeatListenerFingerprint,
+        PlayerPatchFingerprint,
         VideoEndParentFingerprint
     )
 ) {
@@ -42,6 +41,7 @@ class AutoRepeatPatch : BytecodePatch(
                 it.mutableMethod.apply {
                     addInstructionsWithLabels(
                         0, """
+                            invoke-static {}, $UTILS_PATH/AlwaysRepeatPatch;->shouldRepeatAndPause()V
                             invoke-static {}, $VIDEO_PATH/VideoInformation;->shouldAutoRepeat()Z
                             move-result v0
                             if-eqz v0, :notrepeat
@@ -52,28 +52,12 @@ class AutoRepeatPatch : BytecodePatch(
             } ?: return VideoEndFingerprint.toErrorResult()
         } ?: return VideoEndParentFingerprint.toErrorResult()
 
-        RepeatListenerFingerprint.result?.let {
-            it.mutableMethod.apply {
-                val targetIndex = it.scanResult.patternScanResult!!.startIndex - 1
-                val endIndex = it.scanResult.patternScanResult!!.endIndex
-
-                val registerC = getInstruction<BuilderInstruction35c>(targetIndex).registerC
-                val registerD = getInstruction<BuilderInstruction35c>(targetIndex).registerD
-
-                val dummyRegister = getInstruction<OneRegisterInstruction>(endIndex).registerA
-                val targetReference = getInstruction<ReferenceInstruction>(targetIndex).reference
-
-                addInstructionsWithLabels(
-                    targetIndex + 1, """
-                        invoke-static {}, $UTILS_PATH/AlwaysRepeatPatch;->shouldAlwaysRepeat()Z
-                        move-result v$dummyRegister
-                        if-nez v$dummyRegister, :bypass
-                        invoke-virtual {v$registerC, v$registerD}, $targetReference
-                        """, ExternalLabel("bypass", getInstruction(targetIndex + 1))
-                )
-                removeInstruction(targetIndex)
-            }
-        } ?: return RepeatListenerFingerprint.toErrorResult()
+        PlayerPatchFingerprint.result?.mutableMethod?.addInstruction(
+            0,
+            "invoke-static {p0}, " +
+                    "$INTEGRATIONS_PATH/utils/ResourceHelper;->" +
+                    "setPlayPauseButton(Landroid/view/View;)V"
+        ) ?: return PlayerPatchFingerprint.toErrorResult()
 
         AutoNavInformerFingerprint.result?.let {
             with(
