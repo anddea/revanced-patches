@@ -29,7 +29,7 @@ import app.revanced.util.integrations.Constants.PATCHES_PATH
 @Version("0.0.1")
 class QuickActionsPatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
-        LithoFilterPatch.addFilter("$PATCHES_PATH/ads/QuickActionButtonsFilter;")
+        LithoFilterPatch.addFilter("$PATCHES_PATH/ads/QuickActionFilter;")
 
         /**
          * Add settings
