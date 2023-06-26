@@ -12,6 +12,7 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.youtube.shorts.shortsnavigationbar.patch.ShortsNavigationBarPatch
 import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.litho.patch.LithoFilterPatch
+import app.revanced.patches.youtube.utils.navbarindex.patch.NavBarIndexHookPatch
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.bytecode.BytecodeHelper.updatePatchStatus
@@ -23,6 +24,7 @@ import app.revanced.util.integrations.Constants.PATCHES_PATH
 @DependsOn(
     [
         LithoFilterPatch::class,
+        NavBarIndexHookPatch::class,
         SettingsPatch::class,
         SharedResourceIdPatch::class,
         ShortsCommentButtonPatch::class,
@@ -33,7 +35,8 @@ import app.revanced.util.integrations.Constants.PATCHES_PATH
         ShortsPaidContentBannerPatch::class,
         ShortsRemixButtonPatch::class,
         ShortsShareButtonPatch::class,
-        ShortsSubscriptionsButtonPatch::class
+        ShortsSubscriptionsButtonPatch::class,
+        ShortsToolBarPatch::class
     ]
 )
 @YouTubeCompatibility
