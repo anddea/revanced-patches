@@ -20,8 +20,8 @@ import app.revanced.patches.reddit.utils.settings.bytecode.patch.SettingsPatch
 import app.revanced.patches.reddit.utils.settings.bytecode.patch.SettingsPatch.Companion.updateSettingsStatus
 
 @Patch
-@Name("hide-screenshot-popup")
-@Description("Hides the popup when taking a screenshot.")
+@Name("disable-screenshot-popup")
+@Description("Disables the popup that shows up when taking a screenshot.")
 @DependsOn(
     [
         SettingsPatch::class,
@@ -56,6 +56,6 @@ class ScreenshotPopupPatch : BytecodePatch(
     private companion object {
         private const val INTEGRATIONS_METHOD_DESCRIPTOR =
             "Lapp/revanced/reddit/patches/ScreenshotPopupPatch;" +
-                    "->hideScreenshotPopup()Z"
+                    "->disableScreenshotPopup()Z"
     }
 }
