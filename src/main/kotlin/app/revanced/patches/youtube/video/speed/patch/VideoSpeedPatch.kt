@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.video.speed.patch
 
-import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
@@ -14,9 +13,8 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.overridespeed.patch.OverrideSpeedHookPatch
-import app.revanced.patches.youtube.utils.playertype.patch.PlayerTypeHookPatch
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
-import app.revanced.patches.youtube.video.speed.fingerprints.OrganicPlaybackContextModelFingerprint
+import app.revanced.patches.youtube.utils.videocpn.patch.VideoCpnPatch
 import app.revanced.util.integrations.Constants.VIDEO_PATH
 import org.jf.dexlib2.iface.instruction.FiveRegisterInstruction
 
@@ -26,14 +24,12 @@ import org.jf.dexlib2.iface.instruction.FiveRegisterInstruction
 @DependsOn(
     [
         OverrideSpeedHookPatch::class,
-        PlayerTypeHookPatch::class
+        VideoCpnPatch::class
     ]
 )
 @YouTubeCompatibility
 @Version("0.0.1")
-class VideoSpeedPatch : BytecodePatch(
-    listOf(OrganicPlaybackContextModelFingerprint)
-) {
+class VideoSpeedPatch : BytecodePatch() {
     override fun execute(context: BytecodeContext): PatchResult {
 
         OverrideSpeedHookPatch.videoSpeedChangedResult.let {
@@ -48,10 +44,7 @@ class VideoSpeedPatch : BytecodePatch(
             }
         }
 
-        OrganicPlaybackContextModelFingerprint.result?.mutableMethod?.addInstruction(
-            2,
-            "invoke-static {p1,p2}, $INTEGRATIONS_VIDEO_SPEED_CLASS_DESCRIPTOR->newVideoStarted(Ljava/lang/String;Z)V"
-        ) ?: return OrganicPlaybackContextModelFingerprint.toErrorResult()
+        VideoCpnPatch.injectCall("$INTEGRATIONS_VIDEO_SPEED_CLASS_DESCRIPTOR->newVideoStarted(Ljava/lang/String;Z)V")
 
         /**
          * Add settings

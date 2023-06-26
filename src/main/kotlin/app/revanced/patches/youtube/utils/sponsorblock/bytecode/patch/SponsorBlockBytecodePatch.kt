@@ -27,8 +27,8 @@ import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.sponsorblock.bytecode.fingerprints.EndScreenEngagementPanelsFingerprint
 import app.revanced.patches.youtube.utils.sponsorblock.bytecode.fingerprints.PlayerControllerFingerprint
 import app.revanced.patches.youtube.utils.sponsorblock.bytecode.fingerprints.RectangleFieldInvalidatorFingerprint
-import app.revanced.patches.youtube.utils.videoid.legacy.patch.LegacyVideoIdPatch
-import app.revanced.patches.youtube.utils.videoid.mainstream.patch.MainstreamVideoIdPatch
+import app.revanced.patches.youtube.utils.videoid.general.patch.VideoIdPatch
+import app.revanced.patches.youtube.utils.videoid.withoutshorts.patch.VideoIdWithoutShortsPatch
 import app.revanced.util.bytecode.BytecodeHelper.injectInit
 import app.revanced.util.bytecode.BytecodeHelper.updatePatchStatus
 import app.revanced.util.bytecode.getWideLiteralIndex
@@ -45,11 +45,11 @@ import org.jf.dexlib2.iface.reference.MethodReference
 @Name("sponsorblock-bytecode-patch")
 @DependsOn(
     [
-        LegacyVideoIdPatch::class,
-        MainstreamVideoIdPatch::class,
         OverrideSpeedHookPatch::class,
         PlayerControlsPatch::class,
-        SharedResourceIdPatch::class
+        SharedResourceIdPatch::class,
+        VideoIdPatch::class,
+        VideoIdWithoutShortsPatch::class
     ]
 )
 @YouTubeCompatibility
@@ -67,7 +67,7 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         /**
          * Hook the video time methods
          */
-        MainstreamVideoIdPatch.apply {
+        VideoIdPatch.apply {
             videoTimeHook(
                 INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR,
                 "setVideoTime"
@@ -217,7 +217,7 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         /**
          * Inject VideoIdPatch
          */
-        LegacyVideoIdPatch.injectCall("$INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR->setCurrentVideoId(Ljava/lang/String;)V")
+        VideoIdWithoutShortsPatch.injectCall("$INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR->setCurrentVideoId(Ljava/lang/String;)V")
 
         context.injectInit("FirstRun", "initializationSB")
         context.updatePatchStatus("SponsorBlock")

@@ -1,7 +1,6 @@
-package app.revanced.patches.youtube.utils.videoid.legacy.patch
+package app.revanced.patches.youtube.utils.videoid.withoutshorts.patch
 
 import app.revanced.extensions.toErrorResult
-import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
@@ -12,22 +11,19 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
-import app.revanced.patches.youtube.utils.videoid.legacy.fingerprint.LegacyVideoIdParentFingerprint
+import app.revanced.patches.youtube.utils.videoid.withoutshorts.fingerprint.VideoIdWithoutShortsParentFingerprint
 import app.revanced.util.integrations.Constants.VIDEO_PATH
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
-@Name("video-id-hook-legacy")
-@Description("Hook to detect when the video id changes (legacy)")
-@YouTubeCompatibility
+@Name("video-id-without-shorts-hook")
 @Version("0.0.1")
-class LegacyVideoIdPatch : BytecodePatch(
-    listOf(LegacyVideoIdParentFingerprint)
+class VideoIdWithoutShortsPatch : BytecodePatch(
+    listOf(VideoIdWithoutShortsParentFingerprint)
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
 
-        LegacyVideoIdParentFingerprint.result?.let {
+        VideoIdWithoutShortsParentFingerprint.result?.let {
             insertMethod = context
                 .toMethodWalker(it.method)
                 .nextMethod(it.scanResult.patternScanResult!!.startIndex + 3, true)
@@ -39,15 +35,14 @@ class LegacyVideoIdPatch : BytecodePatch(
 
             insertRegister =
                 insertMethod.getInstruction<OneRegisterInstruction>(insertIndex + 1).registerA
-        } ?: return LegacyVideoIdParentFingerprint.toErrorResult()
+        } ?: return VideoIdWithoutShortsParentFingerprint.toErrorResult()
 
-        injectCall("$INTEGRATIONS_CLASS_DESCRIPTOR->setVideoId(Ljava/lang/String;)V")
+        injectCall("$VIDEO_PATH/VideoInformation;->setVideoId(Ljava/lang/String;)V")
 
         return PatchResultSuccess()
     }
 
     companion object {
-        const val INTEGRATIONS_CLASS_DESCRIPTOR = "$VIDEO_PATH/VideoInformation;"
         private var offset = 2
 
         private var insertIndex: Int = 0

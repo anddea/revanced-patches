@@ -17,7 +17,7 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch.Companion.contexts
-import app.revanced.patches.youtube.utils.videoid.legacy.patch.LegacyVideoIdPatch
+import app.revanced.patches.youtube.utils.videocpn.patch.VideoCpnPatch
 import app.revanced.patches.youtube.video.quality.fingerprints.VideoQualityReferenceFingerprint
 import app.revanced.patches.youtube.video.quality.fingerprints.VideoQualitySetterFingerprint
 import app.revanced.patches.youtube.video.quality.fingerprints.VideoQualitySettingsFingerprint
@@ -33,8 +33,8 @@ import org.jf.dexlib2.iface.reference.FieldReference
 @Description("Adds ability to set default video quality settings.")
 @DependsOn(
     [
-        LegacyVideoIdPatch::class,
-        SettingsPatch::class
+        SettingsPatch::class,
+        VideoCpnPatch::class
     ]
 )
 @YouTubeCompatibility
@@ -96,8 +96,7 @@ class VideoQualityPatch : BytecodePatch(
             )
         } ?: return VideoQualitySettingsParentFingerprint.toErrorResult()
 
-        LegacyVideoIdPatch.injectCall("$INTEGRATIONS_VIDEO_QUALITY_CLASS_DESCRIPTOR->newVideoStarted(Ljava/lang/String;)V")
-
+        VideoCpnPatch.injectCall("$INTEGRATIONS_VIDEO_QUALITY_CLASS_DESCRIPTOR->newVideoStarted(Ljava/lang/String;Z)V")
 
         /**
          * Copy arrays

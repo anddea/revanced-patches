@@ -26,7 +26,7 @@ import app.revanced.patches.youtube.utils.returnyoutubedislike.general.fingerpri
 import app.revanced.patches.youtube.utils.returnyoutubedislike.oldlayout.patch.ReturnYouTubeDislikeOldLayoutPatch
 import app.revanced.patches.youtube.utils.returnyoutubedislike.shorts.patch.ReturnYouTubeDislikeShortsPatch
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
-import app.revanced.patches.youtube.utils.videoid.mainstream.patch.MainstreamVideoIdPatch
+import app.revanced.patches.youtube.utils.videoid.general.patch.VideoIdPatch
 import app.revanced.util.integrations.Constants.UTILS_PATH
 import org.jf.dexlib2.iface.instruction.FiveRegisterInstruction
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
@@ -38,10 +38,10 @@ import org.jf.dexlib2.iface.reference.Reference
 @Description("Shows the dislike count of videos using the Return YouTube Dislike API.")
 @DependsOn(
     [
-        MainstreamVideoIdPatch::class,
         ReturnYouTubeDislikeOldLayoutPatch::class,
         ReturnYouTubeDislikeShortsPatch::class,
-        SettingsPatch::class
+        SettingsPatch::class,
+        VideoIdPatch::class
     ]
 )
 @YouTubeCompatibility
@@ -134,7 +134,7 @@ class ReturnYouTubeDislikePatch : BytecodePatch(
         } ?: return TextComponentConstructorFingerprint.toErrorResult()
 
 
-        MainstreamVideoIdPatch.injectCall("$INTEGRATIONS_RYD_CLASS_DESCRIPTOR->newVideoLoaded(Ljava/lang/String;)V")
+        VideoIdPatch.injectCall("$INTEGRATIONS_RYD_CLASS_DESCRIPTOR->newVideoLoaded(Ljava/lang/String;)V")
 
         /**
          * Add ReVanced Settings

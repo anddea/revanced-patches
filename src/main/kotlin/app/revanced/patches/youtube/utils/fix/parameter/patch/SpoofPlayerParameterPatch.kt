@@ -19,15 +19,15 @@ import app.revanced.patches.youtube.utils.fix.parameter.fingerprints.ProtobufPar
 import app.revanced.patches.youtube.utils.fix.parameter.fingerprints.SubtitleWindowFingerprint
 import app.revanced.patches.youtube.utils.playertype.patch.PlayerTypeHookPatch
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
-import app.revanced.patches.youtube.utils.videoid.mainstream.patch.MainstreamVideoIdPatch
+import app.revanced.patches.youtube.utils.videoid.general.patch.VideoIdPatch
 import app.revanced.util.integrations.Constants.MISC_PATH
 
 @Name("spoof-player-parameters")
 @Description("Spoofs player parameters to prevent playback issues.")
 @DependsOn(
     [
-        MainstreamVideoIdPatch::class,
-        PlayerTypeHookPatch::class
+        PlayerTypeHookPatch::class,
+        VideoIdPatch::class
     ]
 )
 @YouTubeCompatibility
@@ -53,7 +53,7 @@ class SpoofPlayerParameterPatch : BytecodePatch(
                     addInstructions(
                         0,
                         """
-                        invoke-static {p$protobufParam}, $MISC_PATH/SpoofPlayerParameterPatch;->overridePlayerParameter(Ljava/lang/String;)Ljava/lang/String;
+                        invoke-static {p$protobufParam}, $INTEGRATIONS_CLASS_DESCRIPTOR->overridePlayerParameter(Ljava/lang/String;)Ljava/lang/String;
                         move-result-object p$protobufParam
                     """
                     )
@@ -63,14 +63,14 @@ class SpoofPlayerParameterPatch : BytecodePatch(
         // hook video playback result
         BadResponseFingerprint.result?.mutableMethod?.addInstruction(
             0,
-            "invoke-static {}, $MISC_PATH/SpoofPlayerParameterPatch;->switchPlayerParameters()V"
+            "invoke-static {}, $INTEGRATIONS_CLASS_DESCRIPTOR->switchPlayerParameters()V"
         ) ?: return BadResponseFingerprint.toErrorResult()
 
         // fix protobuf spoof side issue
         SubtitleWindowFingerprint.result?.mutableMethod?.addInstructions(
             0,
             """
-                invoke-static {p1, p2, p3, p4, p5}, $MISC_PATH/SpoofPlayerParameterPatch;->getSubtitleWindowSettingsOverride(IIIZZ)[I
+                invoke-static {p1, p2, p3, p4, p5}, $INTEGRATIONS_CLASS_DESCRIPTOR->getSubtitleWindowSettingsOverride(IIIZZ)[I
                 move-result-object v0
                 const/4 v1, 0x0
                 aget p1, v0, v1     # ap, anchor position
@@ -82,7 +82,7 @@ class SpoofPlayerParameterPatch : BytecodePatch(
         ) ?: return SubtitleWindowFingerprint.toErrorResult()
 
         // Hook video id, required for subtitle fix.
-        MainstreamVideoIdPatch.injectCall("$MISC_PATH/SpoofPlayerParameterPatch;->setCurrentVideoId(Ljava/lang/String;)V")
+        VideoIdPatch.injectCall("$MISC_PATH/SpoofPlayerParameterPatch;->setCurrentVideoId(Ljava/lang/String;)V")
 
         /**
          * Add settings
@@ -94,5 +94,9 @@ class SpoofPlayerParameterPatch : BytecodePatch(
         )
 
         return PatchResultSuccess()
+    }
+    private companion object {
+        const val INTEGRATIONS_CLASS_DESCRIPTOR =
+            "$MISC_PATH/SpoofPlayerParameterPatch;"
     }
 }

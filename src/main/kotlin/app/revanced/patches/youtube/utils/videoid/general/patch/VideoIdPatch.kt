@@ -1,7 +1,6 @@
-package app.revanced.patches.youtube.utils.videoid.mainstream.patch
+package app.revanced.patches.youtube.utils.videoid.general.patch
 
 import app.revanced.extensions.toErrorResult
-import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
@@ -17,17 +16,15 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
-import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.playertype.patch.PlayerTypeHookPatch
-import app.revanced.patches.youtube.utils.videoid.mainstream.fingerprint.MainstreamVideoIdFingerprint
-import app.revanced.patches.youtube.utils.videoid.mainstream.fingerprint.MainstreamVideoIdParentFingerprint
-import app.revanced.patches.youtube.utils.videoid.mainstream.fingerprint.PlayerControllerSetTimeReferenceFingerprint
-import app.revanced.patches.youtube.utils.videoid.mainstream.fingerprint.PlayerInitFingerprint
-import app.revanced.patches.youtube.utils.videoid.mainstream.fingerprint.SeekFingerprint
-import app.revanced.patches.youtube.utils.videoid.mainstream.fingerprint.TimebarFingerprint
-import app.revanced.patches.youtube.utils.videoid.mainstream.fingerprint.VideoLengthFingerprint
-import app.revanced.patches.youtube.utils.videoid.mainstream.fingerprint.VideoTimeHighPrecisionFingerprint
-import app.revanced.patches.youtube.utils.videoid.mainstream.fingerprint.VideoTimeHighPrecisionParentFingerprint
+import app.revanced.patches.youtube.utils.videoid.general.fingerprint.PlayerControllerSetTimeReferenceFingerprint
+import app.revanced.patches.youtube.utils.videoid.general.fingerprint.PlayerInitFingerprint
+import app.revanced.patches.youtube.utils.videoid.general.fingerprint.SeekFingerprint
+import app.revanced.patches.youtube.utils.videoid.general.fingerprint.VideoIdFingerprint
+import app.revanced.patches.youtube.utils.videoid.general.fingerprint.VideoIdParentFingerprint
+import app.revanced.patches.youtube.utils.videoid.general.fingerprint.VideoLengthFingerprint
+import app.revanced.patches.youtube.utils.videoid.general.fingerprint.VideoTimeHighPrecisionFingerprint
+import app.revanced.patches.youtube.utils.videoid.general.fingerprint.VideoTimeHighPrecisionParentFingerprint
 import app.revanced.util.integrations.Constants.VIDEO_PATH
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.builder.MutableMethodImplementation
@@ -36,18 +33,15 @@ import org.jf.dexlib2.immutable.ImmutableMethod
 import org.jf.dexlib2.immutable.ImmutableMethodParameter
 import org.jf.dexlib2.util.MethodUtil
 
-@Name("video-id-hook-mainstream")
-@Description("Hook to detect when the video id changes (mainstream)")
-@YouTubeCompatibility
+@Name("video-id-hook")
 @Version("0.0.1")
 @DependsOn([PlayerTypeHookPatch::class])
-class MainstreamVideoIdPatch : BytecodePatch(
+class VideoIdPatch : BytecodePatch(
     listOf(
-        MainstreamVideoIdParentFingerprint,
         PlayerControllerSetTimeReferenceFingerprint,
         PlayerInitFingerprint,
         SeekFingerprint,
-        TimebarFingerprint,
+        VideoIdParentFingerprint,
         VideoLengthFingerprint,
         VideoTimeHighPrecisionFingerprint,
         VideoTimeHighPrecisionParentFingerprint
@@ -134,8 +128,8 @@ class MainstreamVideoIdPatch : BytecodePatch(
             }
         } ?: return VideoLengthFingerprint.toErrorResult()
 
-        MainstreamVideoIdParentFingerprint.result?.let { parentResult ->
-            MainstreamVideoIdFingerprint.also {
+        VideoIdParentFingerprint.result?.let { parentResult ->
+            VideoIdFingerprint.also {
                 it.resolve(
                     context,
                     parentResult.classDef
@@ -147,8 +141,8 @@ class MainstreamVideoIdPatch : BytecodePatch(
                     videoIdRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
                 }
                 offset++ // offset so setVideoId is called before any injected call
-            } ?: return MainstreamVideoIdFingerprint.toErrorResult()
-        } ?: return MainstreamVideoIdParentFingerprint.toErrorResult()
+            } ?: return VideoIdFingerprint.toErrorResult()
+        } ?: return VideoIdParentFingerprint.toErrorResult()
 
         return PatchResultSuccess()
     }
