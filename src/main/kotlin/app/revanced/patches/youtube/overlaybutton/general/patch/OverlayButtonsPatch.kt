@@ -13,6 +13,7 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.youtube.overlaybutton.autorepeat.patch.AutoRepeatPatch
 import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.overridespeed.patch.OverrideSpeedHookPatch
+import app.revanced.patches.youtube.utils.playerbutton.patch.PlayerButtonHookPatch
 import app.revanced.patches.youtube.utils.playercontrols.patch.PlayerControlsPatch
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
@@ -30,6 +31,7 @@ import org.w3c.dom.Element
     [
         AutoRepeatPatch::class,
         OverrideSpeedHookPatch::class,
+        PlayerButtonHookPatch::class,
         PlayerControlsPatch::class,
         SettingsPatch::class,
         SharedResourceIdPatch::class,
