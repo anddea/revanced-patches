@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.utils.videoid.legacy.fingerprint
+package app.revanced.patches.youtube.utils.videoid.withoutshorts.fingerprint
 
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
@@ -6,7 +6,7 @@ import app.revanced.util.bytecode.isWideLiteralExists
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 
-object LegacyVideoIdParentFingerprint : MethodFingerprint(
+object VideoIdWithoutShortsParentFingerprint : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("L"),

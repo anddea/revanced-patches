@@ -16,7 +16,7 @@ import app.revanced.patches.youtube.utils.overridespeed.patch.OverrideSpeedHookP
 import app.revanced.patches.youtube.utils.playercontrols.patch.PlayerControlsPatch
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
-import app.revanced.patches.youtube.utils.videoid.mainstream.patch.MainstreamVideoIdPatch
+import app.revanced.patches.youtube.utils.videoid.general.patch.VideoIdPatch
 import app.revanced.util.integrations.Constants.BUTTON_PATH
 import app.revanced.util.resources.ResourceUtils
 import app.revanced.util.resources.ResourceUtils.copyResources
@@ -29,11 +29,11 @@ import org.w3c.dom.Element
 @DependsOn(
     [
         AutoRepeatPatch::class,
-        MainstreamVideoIdPatch::class,
         OverrideSpeedHookPatch::class,
         PlayerControlsPatch::class,
         SettingsPatch::class,
-        SharedResourceIdPatch::class
+        SharedResourceIdPatch::class,
+        VideoIdPatch::class
     ]
 )
 @YouTubeCompatibility
