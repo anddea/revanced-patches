@@ -414,14 +414,14 @@
     <!-- PREFERENCE: OVERLAY_BUTTONS
     <PreferenceScreen android:title="@string/revanced_overlay_button" android:key="overlay_button">
         <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_overlay_button" />
-        <SwitchPreference android:title="@string/revanced_overlay_button_auto_repeat_title" android:key="revanced_overlay_button_auto_repeat" android:defaultValue="false" android:summaryOn="@string/revanced_overlay_button_auto_repeat_summary_on" android:summaryOff="@string/revanced_overlay_button_auto_repeat_summary_off" />
-        <SwitchPreference android:title="@string/revanced_overlay_button_copy_url_title" android:key="revanced_overlay_button_copy_url" android:defaultValue="false" android:summaryOn="@string/revanced_overlay_button_copy_url_summary_on" android:summaryOff="@string/revanced_overlay_button_copy_url_summary_off" />
-        <SwitchPreference android:title="@string/revanced_overlay_button_copy_url_with_timestamp_title" android:key="revanced_overlay_button_copy_url_with_timestamp" android:defaultValue="false" android:summaryOn="@string/revanced_overlay_button_copy_url_with_timestamp_summary_on" android:summaryOff="@string/revanced_overlay_button_copy_url_with_timestamp_summary_off" />
-        <SwitchPreference android:title="@string/revanced_overlay_button_downloads_title" android:key="revanced_overlay_button_downloads" android:defaultValue="true" android:summaryOn="@string/revanced_overlay_button_downloads_summary_on" android:summaryOff="@string/revanced_overlay_button_downloads_summary_off" />
-        <SwitchPreference android:title="@string/revanced_overlay_button_speed_title" android:key="revanced_overlay_button_speed" android:defaultValue="true" android:summaryOn="@string/revanced_overlay_button_speed_summary_on" android:summaryOff="@string/revanced_overlay_button_speed_summary_off" />
-        <PreferenceScreen android:title="@string/revanced_downloader_settings_title" android:key="downloader" android:summary="@string/revanced_downloader_settings_summary">
-            <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_downloader_settings_title" />
-            <app.revanced.integrations.settingsmenu.ResettableEditTextPreference android:hint="org.schabi.newpipe" android:title="@string/revanced_downloader_package_name_title" android:key="revanced_downloader_package_name" android:summary="@string/revanced_downloader_package_name_summary" android:inputType="text" />
+        <SwitchPreference android:title="@string/revanced_overlay_button_always_repeat_title" android:key="revanced_overlay_button_always_repeat" android:defaultValue="true" android:summary="@string/revanced_overlay_button_always_repeat_summary" />
+        <SwitchPreference android:title="@string/revanced_overlay_button_copy_video_url_title" android:key="revanced_overlay_button_copy_video_url" android:defaultValue="true" android:summary="@string/revanced_overlay_button_copy_video_url_summary" />
+        <SwitchPreference android:title="@string/revanced_overlay_button_copy_video_url_timestamp_title" android:key="revanced_overlay_button_copy_video_url_timestamp" android:defaultValue="false" android:summary="@string/revanced_overlay_button_copy_video_url_timestamp_summary" />
+        <SwitchPreference android:title="@string/revanced_overlay_button_external_downloader_title" android:key="revanced_overlay_button_external_downloader" android:defaultValue="false" android:summary="@string/revanced_overlay_button_external_downloader_summary" />
+        <SwitchPreference android:title="@string/revanced_overlay_button_speed_dialog_title" android:key="revanced_overlay_button_speed_dialog" android:defaultValue="true" android:summary="@string/revanced_overlay_button_speed_dialog_summary" />
+        <PreferenceScreen android:title="@string/revanced_external_downloader_settings_title" android:key="downloader" android:summary="@string/revanced_external_downloader_settings_summary">
+            <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_external_downloader_settings_title" />
+            <app.revanced.integrations.settingsmenu.ResettableEditTextPreference android:hint="com.deniscerri.ytdl" android:title="@string/revanced_external_downloader_name_title" android:key="revanced_external_downloader_name" android:summary="@string/revanced_external_downloader_name_summary" android:inputType="text" />
         </PreferenceScreen>
     </PreferenceScreen>PREFERENCE: OVERLAY_BUTTONS -->
 
