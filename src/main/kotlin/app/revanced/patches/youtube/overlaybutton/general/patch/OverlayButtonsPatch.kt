@@ -11,6 +11,7 @@ import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.youtube.overlaybutton.alwaysrepeat.patch.AlwaysRepeatPatch
+import app.revanced.patches.youtube.overlaybutton.downloadbuttonhook.patch.DownloadButtonHookPatch
 import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.overridespeed.patch.OverrideSpeedHookPatch
 import app.revanced.patches.youtube.utils.playerbutton.patch.PlayerButtonHookPatch
@@ -30,6 +31,7 @@ import org.w3c.dom.Element
 @DependsOn(
     [
         AlwaysRepeatPatch::class,
+        DownloadButtonHookPatch::class,
         OverrideSpeedHookPatch::class,
         PlayerButtonHookPatch::class,
         PlayerControlsPatch::class,
