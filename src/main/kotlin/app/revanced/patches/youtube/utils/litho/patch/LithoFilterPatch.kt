@@ -39,7 +39,7 @@ class LithoFilterPatch : BytecodePatch(
 
         ByteBufferFingerprint.result?.mutableMethod?.addInstruction(
             0,
-            "sput-object p0, $ADS_PATH/ByteBufferFilterPatch;->bytebuffer:Ljava/nio/ByteBuffer;"
+            "sput-object p0, $ADS_PATH/LowLevelFilter;->byteBuffer:Ljava/nio/ByteBuffer;"
         ) ?: return ByteBufferFingerprint.toErrorResult()
 
         generalHook("$ADS_PATH/LithoFilterPatch;->filters")

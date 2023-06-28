@@ -32,7 +32,7 @@ import app.revanced.util.integrations.Constants.PATCHES_PATH
         ShortsInfoPanelPatch::class,
         ShortsLikeButtonPatch::class,
         ShortsNavigationBarPatch::class,
-        ShortsPaidContentBannerPatch::class,
+        ShortsPaidPromotionBannerPatch::class,
         ShortsRemixButtonPatch::class,
         ShortsShareButtonPatch::class,
         ShortsSubscriptionsButtonPatch::class,

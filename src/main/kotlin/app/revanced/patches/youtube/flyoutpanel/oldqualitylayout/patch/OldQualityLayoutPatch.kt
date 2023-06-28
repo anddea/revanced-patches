@@ -53,6 +53,7 @@ class OldQualityLayoutPatch : BytecodePatch(
         SettingsPatch.addPreference(
             arrayOf(
                 "PREFERENCE: FLYOUT_PANEL_SETTINGS",
+                "SETTINGS: PLAYER_FLYOUT_PANEL_HEADER",
                 "SETTINGS: ENABLE_OLD_QUALITY_LAYOUT"
             )
         )

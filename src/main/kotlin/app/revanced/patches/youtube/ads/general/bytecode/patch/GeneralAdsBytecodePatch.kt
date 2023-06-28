@@ -12,7 +12,6 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch.Companion.AdAttribution
-import app.revanced.util.bytecode.BytecodeHelper.updatePatchStatus
 import app.revanced.util.bytecode.getWideLiteralIndex
 import app.revanced.util.bytecode.isWideLiteralExists
 import org.jf.dexlib2.iface.instruction.formats.Instruction35c
@@ -47,8 +46,6 @@ class GeneralAdsBytecodePatch : BytecodePatch() {
                     }
             }
         }
-
-        context.updatePatchStatus("GeneralAds")
 
         return PatchResultSuccess()
     }

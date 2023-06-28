@@ -3,15 +3,16 @@ package app.revanced.patches.youtube.general.layout.patch
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
-import app.revanced.patcher.data.ResourceContext
+import app.revanced.patcher.data.BytecodeContext
+import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
-import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.litho.patch.LithoFilterPatch
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
+import app.revanced.util.bytecode.BytecodeHelper.updatePatchStatus
 import app.revanced.util.integrations.Constants.PATCHES_PATH
 
 @Patch
@@ -25,8 +26,8 @@ import app.revanced.util.integrations.Constants.PATCHES_PATH
 )
 @YouTubeCompatibility
 @Version("0.0.1")
-class LayoutComponentsPatch : ResourcePatch {
-    override fun execute(context: ResourceContext): PatchResult {
+class LayoutComponentsPatch : BytecodePatch() {
+    override fun execute(context: BytecodeContext): PatchResult {
         LithoFilterPatch.addFilter("$PATCHES_PATH/ads/CommunityPostFilter;")
         LithoFilterPatch.addFilter("$PATCHES_PATH/ads/LayoutComponentsFilter;")
 
@@ -44,6 +45,8 @@ class LayoutComponentsPatch : ResourcePatch {
         )
 
         SettingsPatch.updatePatchStatus("hide-layout-components")
+
+        context.updatePatchStatus("LayoutComponent")
 
         return PatchResultSuccess()
     }
