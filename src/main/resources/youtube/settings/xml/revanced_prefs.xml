@@ -279,7 +279,6 @@
             <Preference android:title="hide-flyout-panel" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
 
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_fullscreen" />
-            <Preference android:title="custom-speed-overlay" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="disable-haptic-feedback" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="disable-landscape-mode" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-autoplay-preview" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
@@ -430,9 +429,6 @@
     <!-- PREFERENCE: PLAYER_SETTINGS
     <PreferenceScreen android:title="@string/revanced_player" android:key="player">
         <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_player" />PREFERENCE: PLAYER_SETTINGS -->
-
-        <!-- SETTINGS: CUSTOM_SPEED_OVERLAY
-        <app.revanced.integrations.settingsmenu.ResettableEditTextPreference android:hint="2.0" android:title="@string/revanced_custom_speed_overlay_value_title" android:key="revanced_custom_speed_overlay_value" android:summary="@string/revanced_custom_speed_overlay_value_summary" android:defaultValue="2.0" android:inputType="text" />SETTINGS: CUSTOM_SPEED_OVERLAY -->
 
         <!-- SETTINGS: HIDE_AUDIO_TRACK_BUTTON
         <SwitchPreference android:title="@string/revanced_hide_audio_track_button_title" android:key="revanced_hide_audio_track_button" android:defaultValue="true" android:summaryOn="@string/revanced_hide_audio_track_button_summary_on" android:summaryOff="@string/revanced_hide_audio_track_button_summary_off" />SETTINGS: HIDE_AUDIO_TRACK_BUTTON -->
