@@ -10,7 +10,7 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.youtube.shorts.shortscomponent.fingerprints.ShortsPaidContentFingerprint
+import app.revanced.patches.youtube.shorts.shortscomponent.fingerprints.ShortsPaidPromotionFingerprint
 import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch.Companion.ReelPlayerBadge
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch.Companion.ReelPlayerBadge2
@@ -18,14 +18,14 @@ import app.revanced.util.bytecode.getWideLiteralIndex
 import app.revanced.util.integrations.Constants.SHORTS
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
-@Name("hide-shorts-paid-content")
+@Name("hide-shorts-paid-promotion")
 @YouTubeCompatibility
 @Version("0.0.1")
-class ShortsPaidContentBannerPatch : BytecodePatch(
-    listOf(ShortsPaidContentFingerprint)
+class ShortsPaidPromotionBannerPatch : BytecodePatch(
+    listOf(ShortsPaidPromotionFingerprint)
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
-        ShortsPaidContentFingerprint.result?.let {
+        ShortsPaidPromotionFingerprint.result?.let {
             it.mutableMethod.apply {
                 val primaryIndex = getWideLiteralIndex(ReelPlayerBadge) + 3
                 val secondaryIndex = getWideLiteralIndex(ReelPlayerBadge2) + 3
@@ -38,7 +38,7 @@ class ShortsPaidContentBannerPatch : BytecodePatch(
                     insertHook(primaryIndex)
                 }
             }
-        } ?: return ShortsPaidContentFingerprint.toErrorResult()
+        } ?: return ShortsPaidPromotionFingerprint.toErrorResult()
 
         return PatchResultSuccess()
     }
@@ -49,7 +49,7 @@ class ShortsPaidContentBannerPatch : BytecodePatch(
 
             addInstructions(
                 insertIndex + 1, """
-                    invoke-static {v$insertRegister}, $SHORTS->hideShortsPlayerPaidContent(Landroid/view/ViewStub;)Landroid/view/ViewStub;
+                    invoke-static {v$insertRegister}, $SHORTS->hideShortsPlayerPaidPromotionBanner(Landroid/view/ViewStub;)Landroid/view/ViewStub;
                     move-result-object v$insertRegister
                     """
             )

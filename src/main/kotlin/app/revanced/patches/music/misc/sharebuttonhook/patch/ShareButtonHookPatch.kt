@@ -28,7 +28,7 @@ import app.revanced.util.integrations.Constants.MUSIC_MISC_PATH
 
 @Patch
 @Name("share-button-hook")
-@Description("Replace share button with external download button or sleep timer dialog.")
+@Description("Replace share button with external download button.")
 @DependsOn(
     [
         SettingsPatch::class,
