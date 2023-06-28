@@ -16,7 +16,7 @@
     <string name="revanced_change_homepage_summary_on">Current homepage: Subscriptions</string>
     <string name="revanced_change_homepage_title">Change homepage to subscriptions</string>
     <string name="revanced_comments_title">Comments</string>
-    <string name="revanced_copytimestamp_success">Time Stamp copied to clipboard</string>
+    <string name="revanced_copy_video_timestamp_success">Time Stamp copied to clipboard</string>
     <string name="revanced_custom_filter_strings_summary">Filter components by line-separated names</string>
     <string name="revanced_custom_filter_strings_title">Edit custom filter</string>
     <string name="revanced_custom_filter_summary_off">Custom filter is disabled</string>
@@ -65,11 +65,6 @@
     <string name="revanced_disable_quic_protocol_title">Disable QUIC protocol</string>
     <string name="revanced_double_back_timeout_summary">The amount of seconds the double press back to exit</string>
     <string name="revanced_double_back_timeout_title">Double back timeout</string>
-    <string name="revanced_downloader_not_installed">is not installed. Please install it.</string>
-    <string name="revanced_downloader_package_name_summary">"Package name of the downloader app such as NewPipe's"</string>
-    <string name="revanced_downloader_package_name_title">Downloader package name</string>
-    <string name="revanced_downloader_settings_summary">Default downloader related settings</string>
-    <string name="revanced_downloader_settings_title">Downloader settings</string>
     <string name="revanced_enable_compact_controls_overlay_summary_off">Compact controls overlay is disabled</string>
     <string name="revanced_enable_compact_controls_overlay_summary_on">Compact controls overlay is enabled</string>
     <string name="revanced_enable_compact_controls_overlay_title">Enable compact controls overlay</string>
@@ -150,6 +145,13 @@
     <string name="revanced_export_settings_title">Export settings</string>
     <string name="revanced_extended_support_center_summary">Report issues or leave suggestions here</string>
     <string name="revanced_extended_support_center_title">Support Center</string>
+    <string name="revanced_external_downloader_installed">Installed</string>
+    <string name="revanced_external_downloader_name_summary">Package name of your installed external downloader app, such as NewPipe or YTDLnis</string>
+    <string name="revanced_external_downloader_name_title">External downloader package name</string>
+    <string name="revanced_external_downloader_not_installed">Not installed</string>
+    <string name="revanced_external_downloader_not_installed_warning" formatted="false">%s is not installed. Please install it.</string>
+    <string name="revanced_external_downloader_settings_summary">Settings for using an external downloader</string>
+    <string name="revanced_external_downloader_settings_title">External downloader settings</string>
     <string name="revanced_flyout_menu">Flyout menu</string>
     <string name="revanced_fullscreen">Fullscreen</string>
     <string name="revanced_general">General</string>
@@ -481,22 +483,22 @@
     <string name="revanced_open_library_startup_title">Open library on app startup</string>
     <string name="revanced_others">Others</string>
     <string name="revanced_overlay_button">Overlay button</string>
-    <string name="revanced_overlay_button_auto_repeat_summary_off">Auto repeat button is hidden</string>
-    <string name="revanced_overlay_button_auto_repeat_summary_on">Auto repeat button is shown</string>
-    <string name="revanced_overlay_button_auto_repeat_title">Show auto repeat button</string>
-    <string name="revanced_overlay_button_copy_url_summary_off">Copy link button is hidden</string>
-    <string name="revanced_overlay_button_copy_url_summary_on">Copy link button is shown</string>
-    <string name="revanced_overlay_button_copy_url_title">Show copy link button</string>
-    <string name="revanced_overlay_button_copy_url_with_timestamp_summary_off">Copy link with timestamp button is hidden</string>
-    <string name="revanced_overlay_button_copy_url_with_timestamp_summary_on">Copy link with timestamp button is shown</string>
-    <string name="revanced_overlay_button_copy_url_with_timestamp_title">Show copy link with timestamp button</string>
-    <string name="revanced_overlay_button_downloads_summary_off">Download button is hidden</string>
-    <string name="revanced_overlay_button_downloads_summary_on">Download button is shown</string>
-    <string name="revanced_overlay_button_downloads_title">Show download button</string>
-    <string name="revanced_overlay_button_speed_reset">Video speed reseted (1.0x)</string>
-    <string name="revanced_overlay_button_speed_summary_off">Speed button is hidden</string>
-    <string name="revanced_overlay_button_speed_summary_on">Speed button is shown</string>
-    <string name="revanced_overlay_button_speed_title">Show speed button</string>
+    <string name="revanced_overlay_button_always_repeat_notice">Tap and hold to toggle pause after repeat states</string>
+    <string name="revanced_overlay_button_always_repeat_summary">"Tap to toggle always repeat states
+Tap and hold to toggle pause after repeat states"</string>
+    <string name="revanced_overlay_button_always_repeat_title">Show always repeat button</string>
+    <string name="revanced_overlay_button_copy_video_url_summary">"Tap to copy video URL
+Tap and hold to copy video URL with timestamp"</string>
+    <string name="revanced_overlay_button_copy_video_url_title">Show copy video URL button</string>
+    <string name="revanced_overlay_button_copy_video_url_timestamp_summary">"Tap to copy video URL with timestamp
+Tap and hold to copy video timestamp"</string>
+    <string name="revanced_overlay_button_copy_video_url_timestamp_title">Show copy timestamp URL button</string>
+    <string name="revanced_overlay_button_external_downloader_summary">Tap to launch external downloader</string>
+    <string name="revanced_overlay_button_external_downloader_title">Show external download button</string>
+    <string name="revanced_overlay_button_speed_dialog_reset">Video speed reseted (1.0x)</string>
+    <string name="revanced_overlay_button_speed_dialog_summary">"Tap to open speed dialog
+Tap and hold to set video speed to 1.0x"</string>
+    <string name="revanced_overlay_button_speed_dialog_title">Show speed button</string>
     <string name="revanced_override_premium_header_summary_off">Current Header: Default Header</string>
     <string name="revanced_override_premium_header_summary_on">Current Header: Premium Header</string>
     <string name="revanced_override_premium_header_title">Premium Header</string>

@@ -10,7 +10,7 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patches.youtube.overlaybutton.autorepeat.patch.AutoRepeatPatch
+import app.revanced.patches.youtube.overlaybutton.alwaysrepeat.patch.AlwaysRepeatPatch
 import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.overridespeed.patch.OverrideSpeedHookPatch
 import app.revanced.patches.youtube.utils.playerbutton.patch.PlayerButtonHookPatch
@@ -26,10 +26,10 @@ import org.w3c.dom.Element
 
 @Patch
 @Name("overlay-buttons")
-@Description("Add overlay buttons to the player such as copy video link, auto-repeat, download and speed control.")
+@Description("Add overlay buttons to the player.")
 @DependsOn(
     [
-        AutoRepeatPatch::class,
+        AlwaysRepeatPatch::class,
         OverrideSpeedHookPatch::class,
         PlayerButtonHookPatch::class,
         PlayerControlsPatch::class,
@@ -47,11 +47,11 @@ class OverlayButtonsPatch : ResourcePatch {
          * Inject hook
          */
         arrayOf(
-            "Download",
-            "AutoRepeat",
-            "CopyWithTimeStamp",
-            "Copy",
-            "Speed"
+            "AlwaysRepeat",
+            "CopyVideoUrl",
+            "CopyVideoUrlTimestamp",
+            "ExternalDownload",
+            "SpeedDialog"
         ).forEach {
             PlayerControlsPatch.initializeControl("$BUTTON_PATH/$it;")
             PlayerControlsPatch.injectVisibility("$BUTTON_PATH/$it;")
@@ -111,7 +111,7 @@ class OverlayButtonsPatch : ResourcePatch {
                 // Change the relationship between buttons
                 it.getAttributeNode("yt:layout_constraintRight_toLeftOf")?.let { attribute ->
                     if (attribute.textContent == "@id/fullscreen_button") {
-                        attribute.textContent = "@+id/speed_button"
+                        attribute.textContent = "@+id/speed_dialog_button"
                     }
                 }
 

@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.overlaybutton.autorepeat.patch
+package app.revanced.patches.youtube.overlaybutton.alwaysrepeat.patch
 
 import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Name
@@ -15,9 +15,9 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.youtube.overlaybutton.autorepeat.fingerprints.AutoNavInformerFingerprint
-import app.revanced.patches.youtube.overlaybutton.autorepeat.fingerprints.VideoEndFingerprint
-import app.revanced.patches.youtube.overlaybutton.autorepeat.fingerprints.VideoEndParentFingerprint
+import app.revanced.patches.youtube.overlaybutton.alwaysrepeat.fingerprints.AutoNavInformerFingerprint
+import app.revanced.patches.youtube.overlaybutton.alwaysrepeat.fingerprints.VideoEndFingerprint
+import app.revanced.patches.youtube.overlaybutton.alwaysrepeat.fingerprints.VideoEndParentFingerprint
 import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.fingerprints.PlayerPatchFingerprint
 import app.revanced.util.integrations.Constants.INTEGRATIONS_PATH
@@ -28,7 +28,7 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 @Name("always-repeat")
 @YouTubeCompatibility
 @Version("0.0.1")
-class AutoRepeatPatch : BytecodePatch(
+class AlwaysRepeatPatch : BytecodePatch(
     listOf(
         AutoNavInformerFingerprint,
         PlayerPatchFingerprint,
@@ -42,11 +42,11 @@ class AutoRepeatPatch : BytecodePatch(
                     addInstructionsWithLabels(
                         0, """
                             invoke-static {}, $UTILS_PATH/AlwaysRepeatPatch;->shouldRepeatAndPause()V
-                            invoke-static {}, $VIDEO_PATH/VideoInformation;->shouldAutoRepeat()Z
+                            invoke-static {}, $VIDEO_PATH/VideoInformation;->shouldAlwaysRepeat()Z
                             move-result v0
-                            if-eqz v0, :notrepeat
+                            if-eqz v0, :end
                             return-void
-                            """, ExternalLabel("notrepeat", getInstruction(0))
+                            """, ExternalLabel("end", getInstruction(0))
                     )
                 }
             } ?: return VideoEndFingerprint.toErrorResult()
