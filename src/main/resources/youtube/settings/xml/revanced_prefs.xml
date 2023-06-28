@@ -60,6 +60,11 @@
     <!-- PREFERENCE: FLYOUT_PANEL_SETTINGS
     <PreferenceScreen android:title="@string/revanced_flyout_menu" android:key="flyout_menu">PREFERENCE: FLYOUT_PANEL_SETTINGS -->
 
+        <!-- SETTINGS: HIDE_FEED_FLYOUT_PANEL
+        <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_feed_flyout_panel_title" />
+        <SwitchPreference android:title="@string/revanced_hide_feed_flyout_panel_title" android:key="revanced_hide_feed_flyout_panel" android:defaultValue="false" android:summaryOn="@string/revanced_hide_feed_flyout_panel_summary_on" android:summaryOff="@string/revanced_hide_feed_flyout_panel_summary_off" />
+        <app.revanced.integrations.settingsmenu.ResettableEditTextPreference android:title="@string/revanced_hide_feed_flyout_panel_custom_filter_strings_title" android:key="revanced_hide_feed_flyout_panel_custom_filter_strings" android:summary="@string/revanced_hide_feed_flyout_panel_custom_filter_strings_summary" android:defaultValue="" android:inputType="textMultiLine" />SETTINGS: HIDE_FEED_FLYOUT_PANEL -->
+
         <!-- SETTINGS: PLAYER_FLYOUT_PANEL_HEADER
         <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_player_flyout_panel_title" />SETTINGS: PLAYER_FLYOUT_PANEL_HEADER -->
 
@@ -277,6 +282,7 @@
 
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_flyout_menu" />
             <Preference android:title="enable-old-quality-layout" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="hide-feed-flyout-panel" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-player-flyout-panel" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
 
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_fullscreen" />
