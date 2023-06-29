@@ -95,6 +95,7 @@ class SpoofPlayerParameterPatch : BytecodePatch(
 
         return PatchResultSuccess()
     }
+
     private companion object {
         const val INTEGRATIONS_CLASS_DESCRIPTOR =
             "$MISC_PATH/SpoofPlayerParameterPatch;"

@@ -79,12 +79,13 @@ class NavBarIndexHookPatch : BytecodePatch(
 
         return PatchResultSuccess()
     }
+
     companion object {
         const val INTEGRATIONS_CLASS_DESCRIPTOR =
             "$UTILS_PATH/NavBarIndexPatch;"
 
         fun MethodFingerprint.injectIndex(index: Int) {
-            result?.let{
+            result?.let {
                 it.mutableMethod.apply {
                     addInstructions(
                         0, """
