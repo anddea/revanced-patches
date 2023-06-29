@@ -58,7 +58,7 @@ class PlayerTypeHookPatch : BytecodePatch(
                         """
                     )
                 }
-            }
+            } ?: return VideoStateFingerprint.toErrorResult()
         } ?: return YouTubeControlsOverlayFingerprint.toErrorResult()
 
         return PatchResultSuccess()

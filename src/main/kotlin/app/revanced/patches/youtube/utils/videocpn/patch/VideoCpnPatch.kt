@@ -18,7 +18,8 @@ class VideoCpnPatch : BytecodePatch(
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
 
-        insertMethod = OrganicPlaybackContextModelFingerprint.result?.mutableMethod?: return OrganicPlaybackContextModelFingerprint.toErrorResult()
+        insertMethod = OrganicPlaybackContextModelFingerprint.result?.mutableMethod
+            ?: return OrganicPlaybackContextModelFingerprint.toErrorResult()
 
         return PatchResultSuccess()
     }
