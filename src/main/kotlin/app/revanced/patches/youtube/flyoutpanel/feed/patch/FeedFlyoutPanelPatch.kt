@@ -36,7 +36,8 @@ class FeedFlyoutPanelPatch : BytecodePatch(
                 val targetIndex = it.scanResult.patternScanResult!!.endIndex
                 val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
-                val targetParameter = getInstruction<ReferenceInstruction>(targetIndex - 1).reference
+                val targetParameter =
+                    getInstruction<ReferenceInstruction>(targetIndex - 1).reference
                 if (!targetParameter.toString().endsWith("Ljava/lang/CharSequence;"))
                     return PatchResultError("Method signature parameter did not match: $targetParameter")
 

@@ -38,6 +38,7 @@ class MusicAdsPatch : AbstractAdsPatch(
 
         return PatchResultSuccess()
     }
+
     private companion object {
         private const val FILTER_CLASS_DESCRIPTOR =
             "$MUSIC_ADS_PATH/AdsFilter;"

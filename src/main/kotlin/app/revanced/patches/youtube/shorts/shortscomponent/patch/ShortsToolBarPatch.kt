@@ -37,17 +37,17 @@ class ShortsToolBarPatch : BytecodePatch(
             (context.toMethodWalker(it.method)
                 .nextMethod(targetIndex, true)
                 .getMethod() as MutableMethod
-            ).apply {
-                val targetParameter = getInstruction<ReferenceInstruction>(0).reference
-                if (!targetParameter.toString().endsWith("Landroid/support/v7/widget/Toolbar;"))
-                    return PatchResultError("Method signature parameter did not match: $targetParameter")
-                val targetRegister = getInstruction<TwoRegisterInstruction>(0).registerA
+                    ).apply {
+                    val targetParameter = getInstruction<ReferenceInstruction>(0).reference
+                    if (!targetParameter.toString().endsWith("Landroid/support/v7/widget/Toolbar;"))
+                        return PatchResultError("Method signature parameter did not match: $targetParameter")
+                    val targetRegister = getInstruction<TwoRegisterInstruction>(0).registerA
 
-                addInstruction(
-                    1,
-                    "invoke-static {v$targetRegister}, $SHORTS->hideShortsPlayerToolBar(Landroid/support/v7/widget/Toolbar;)V"
-                )
-            }
+                    addInstruction(
+                        1,
+                        "invoke-static {v$targetRegister}, $SHORTS->hideShortsPlayerToolBar(Landroid/support/v7/widget/Toolbar;)V"
+                    )
+                }
 
         } ?: return SetToolBarPaddingFingerprint.toErrorResult()
 

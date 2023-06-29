@@ -15,13 +15,13 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.youtube.general.trendingsearches.fingerprints.SearchBarEntryFingerprint
 import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
+import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch.Companion.YtOutlineArrowTimeBlack
+import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch.Companion.YtOutlineFireBlack
+import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch.Companion.YtOutlineSearchBlack
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.bytecode.getWideLiteralIndex
 import app.revanced.util.integrations.Constants.GENERAL
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
-import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch.Companion.YtOutlineArrowTimeBlack
-import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch.Companion.YtOutlineFireBlack
-import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch.Companion.YtOutlineSearchBlack
 import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Patch
@@ -48,7 +48,8 @@ class TrendingSearchesPatch : BytecodePatch(
                     .reversed()
                     .forEach { (index, value) ->
                         val freeRegister = getInstruction<OneRegisterInstruction>(index).registerA
-                        val viewRegister = getInstruction<TwoRegisterInstruction>(index - 1).registerA
+                        val viewRegister =
+                            getInstruction<TwoRegisterInstruction>(index - 1).registerA
 
                         addInstructions(
                             index, """
@@ -74,6 +75,7 @@ class TrendingSearchesPatch : BytecodePatch(
 
         return PatchResultSuccess()
     }
+
     private enum class SearchTerm(val resourceId: Long, val value: Int) {
         HISTORY(YtOutlineArrowTimeBlack, 0),
         SEARCH(YtOutlineSearchBlack, 0),
