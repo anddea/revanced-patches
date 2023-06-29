@@ -1,20 +1,24 @@
 package app.revanced.patches.youtube.video.speed.patch
 
+import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
+import app.revanced.patches.youtube.utils.fingerprints.NewFlyoutPanelsOnClickListenerFingerprint
 import app.revanced.patches.youtube.utils.overridespeed.patch.OverrideSpeedHookPatch
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.patches.youtube.utils.videocpn.patch.VideoCpnPatch
+import app.revanced.patches.youtube.video.speed.fingerprints.NewVideoSpeedChangedFingerprint
 import app.revanced.util.integrations.Constants.VIDEO_PATH
 import org.jf.dexlib2.iface.instruction.FiveRegisterInstruction
 
@@ -29,20 +33,31 @@ import org.jf.dexlib2.iface.instruction.FiveRegisterInstruction
 )
 @YouTubeCompatibility
 @Version("0.0.1")
-class VideoSpeedPatch : BytecodePatch() {
+class VideoSpeedPatch : BytecodePatch(
+    listOf(NewFlyoutPanelsOnClickListenerFingerprint)
+) {
     override fun execute(context: BytecodeContext): PatchResult {
 
-        OverrideSpeedHookPatch.videoSpeedChangedResult.let {
-            it.mutableMethod.apply {
-                val index = it.scanResult.patternScanResult!!.endIndex
-                val register = getInstruction<FiveRegisterInstruction>(index).registerD
-
-                addInstruction(
-                    index,
-                    "invoke-static {v$register}, $INTEGRATIONS_VIDEO_SPEED_CLASS_DESCRIPTOR->userChangedSpeed(F)V"
+        NewFlyoutPanelsOnClickListenerFingerprint.result?.let { parentResult ->
+            NewVideoSpeedChangedFingerprint.also {
+                it.resolve(
+                    context,
+                    parentResult.classDef
                 )
-            }
-        }
+            }.result?.let { result ->
+                arrayOf(result, OverrideSpeedHookPatch.videoSpeedChangedResult).forEach {
+                    it.mutableMethod.apply {
+                        val index = it.scanResult.patternScanResult!!.endIndex
+                        val register = getInstruction<FiveRegisterInstruction>(index).registerD
+
+                        addInstruction(
+                            index,
+                            "invoke-static {v$register}, $INTEGRATIONS_VIDEO_SPEED_CLASS_DESCRIPTOR->userChangedSpeed(F)V"
+                        )
+                    }
+                }
+            } ?: return NewVideoSpeedChangedFingerprint.toErrorResult()
+        } ?: return NewFlyoutPanelsOnClickListenerFingerprint.toErrorResult()
 
         VideoCpnPatch.injectCall("$INTEGRATIONS_VIDEO_SPEED_CLASS_DESCRIPTOR->newVideoStarted(Ljava/lang/String;Z)V")
 
