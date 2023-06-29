@@ -169,9 +169,6 @@
         <!-- SETTINGS: HIDE_MIX_PLAYLISTS
         <SwitchPreference android:title="@string/revanced_hide_mix_playlists_title" android:key="revanced_hide_mix_playlists" android:defaultValue="false" android:summaryOn="@string/revanced_hide_mix_playlists_summary_on" android:summaryOff="@string/revanced_hide_mix_playlists_summary_off" />SETTINGS: HIDE_MIX_PLAYLISTS -->
 
-        <!-- SETTINGS: HIDE_SEARCH_TERMS
-        <SwitchPreference android:title="@string/revanced_hide_search_terms_title" android:key="revanced_hide_search_terms" android:defaultValue="false" android:summaryOn="@string/revanced_hide_search_terms_summary_on" android:summaryOff="@string/revanced_hide_search_terms_summary_off" />SETTINGS: HIDE_SEARCH_TERMS -->
-
         <!-- SETTINGS: HIDE_SNACK_BAR
         <SwitchPreference android:title="@string/revanced_hide_snack_bar_title" android:key="revanced_hide_snack_bar" android:defaultValue="false" android:summaryOn="@string/revanced_hide_snack_bar_summary_on" android:summaryOff="@string/revanced_hide_snack_bar_summary_off" />SETTINGS: HIDE_SNACK_BAR -->
 
@@ -311,7 +308,6 @@
             <Preference android:title="hide-layout-components" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-load-more-button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-mix-playlists" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
-            <Preference android:title="hide-search-terms" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-snack-bar" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-suggestions-shelf" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
 
