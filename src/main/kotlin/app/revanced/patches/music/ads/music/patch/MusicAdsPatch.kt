@@ -34,6 +34,12 @@ class MusicAdsPatch : AbstractAdsPatch(
 
         SettingsPatch.addMusicPreference(CategoryType.ADS, "revanced_hide_music_ads", "true")
 
+        LithoFilterPatch.addFilter(FILTER_CLASS_DESCRIPTOR)
+
         return PatchResultSuccess()
+    }
+    private companion object {
+        private const val FILTER_CLASS_DESCRIPTOR =
+            "$MUSIC_ADS_PATH/AdsFilter;"
     }
 }
