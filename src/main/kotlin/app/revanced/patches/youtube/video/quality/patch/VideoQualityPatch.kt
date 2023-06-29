@@ -15,9 +15,11 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
+import app.revanced.patches.youtube.utils.fingerprints.NewFlyoutPanelsOnClickListenerFingerprint
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch.Companion.contexts
 import app.revanced.patches.youtube.utils.videocpn.patch.VideoCpnPatch
+import app.revanced.patches.youtube.video.quality.fingerprints.NewVideoQualityChangedFingerprint
 import app.revanced.patches.youtube.video.quality.fingerprints.VideoQualityReferenceFingerprint
 import app.revanced.patches.youtube.video.quality.fingerprints.VideoQualitySetterFingerprint
 import app.revanced.patches.youtube.video.quality.fingerprints.VideoQualitySettingsFingerprint
@@ -26,6 +28,7 @@ import app.revanced.patches.youtube.video.quality.fingerprints.VideoUserQualityC
 import app.revanced.util.integrations.Constants.VIDEO_PATH
 import app.revanced.util.resources.ResourceUtils.copyXmlNode
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
+import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
 import org.jf.dexlib2.iface.reference.FieldReference
 
 @Patch
@@ -41,11 +44,32 @@ import org.jf.dexlib2.iface.reference.FieldReference
 @Version("0.0.1")
 class VideoQualityPatch : BytecodePatch(
     listOf(
+        NewFlyoutPanelsOnClickListenerFingerprint,
         VideoQualitySetterFingerprint,
         VideoQualitySettingsParentFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
+
+        NewFlyoutPanelsOnClickListenerFingerprint.result?.let { parentResult ->
+            NewVideoQualityChangedFingerprint.also {
+                it.resolve(
+                    context,
+                    parentResult.classDef
+                )
+            }.result?.let {
+                it.mutableMethod.apply {
+                    val index = it.scanResult.patternScanResult!!.endIndex
+                    val register = getInstruction<TwoRegisterInstruction>(index).registerA
+
+                    addInstruction(
+                        index + 1,
+                        "invoke-static {v$register}, $INTEGRATIONS_VIDEO_QUALITY_CLASS_DESCRIPTOR->userChangedQualityInNewFlyoutPanels(I)V"
+                    )
+                }
+            }
+        } ?: return NewFlyoutPanelsOnClickListenerFingerprint.toErrorResult()
+
         VideoQualitySetterFingerprint.result?.let { parentResult ->
             VideoQualityReferenceFingerprint.also {
                 it.resolve(
