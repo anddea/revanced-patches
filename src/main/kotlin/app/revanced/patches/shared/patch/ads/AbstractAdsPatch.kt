@@ -1,4 +1,4 @@
-package app.revanced.patches.shared.patch.videoads
+package app.revanced.patches.shared.patch.ads
 
 import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Name
@@ -13,42 +13,42 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.shared.fingerprints.videoads.LegacyVideoAdsFingerprint
-import app.revanced.patches.shared.fingerprints.videoads.MainstreamVideoAdsFingerprint
+import app.revanced.patches.shared.fingerprints.ads.LegacyAdsFingerprint
+import app.revanced.patches.shared.fingerprints.ads.MainstreamAdsFingerprint
 
-@Name("abstract-video-ads-patch")
+@Name("abstract-ads-patch")
 @Version("0.0.1")
-abstract class AbstractVideoAdsPatch(
+abstract class AbstractAdsPatch(
     private val descriptor: String
 ) : BytecodePatch(
     listOf(
-        LegacyVideoAdsFingerprint,
-        MainstreamVideoAdsFingerprint
+        LegacyAdsFingerprint,
+        MainstreamAdsFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
-        LegacyVideoAdsFingerprint.result?.let {
+        LegacyAdsFingerprint.result?.let {
             (context.toMethodWalker(it.method)
                 .nextMethod(13, true)
                 .getMethod() as MutableMethod).apply {
                 addInstructions(
                     0, """
-                            invoke-static {}, $descriptor
-                            move-result v1
-                            """
+                        invoke-static {}, $descriptor
+                        move-result v1
+                        """
                 )
             }
-        } ?: return LegacyVideoAdsFingerprint.toErrorResult()
+        } ?: return LegacyAdsFingerprint.toErrorResult()
 
-        MainstreamVideoAdsFingerprint.result?.let {
+        MainstreamAdsFingerprint.result?.let {
             it.mutableMethod.apply {
                 addInstructionsWithLabels(
                     0, """
                         invoke-static {}, $descriptor
                         move-result v0
-                        if-nez v0, :show_video_ads
+                        if-nez v0, :show_ads
                         return-void
-                        """, ExternalLabel("show_video_ads", getInstruction(0))
+                        """, ExternalLabel("show_ads", getInstruction(0))
                 )
             }
         }

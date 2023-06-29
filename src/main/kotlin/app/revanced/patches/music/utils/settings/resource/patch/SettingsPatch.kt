@@ -21,6 +21,7 @@ import app.revanced.util.resources.MusicResourceHelper.addMusicPreferenceWithInt
 import app.revanced.util.resources.MusicResourceHelper.addReVancedMusicPreference
 import app.revanced.util.resources.MusicResourceHelper.sortMusicPreferenceCategory
 import app.revanced.util.resources.ResourceUtils
+import app.revanced.util.resources.ResourceUtils.copyResources
 import org.w3c.dom.Element
 import java.io.File
 import java.nio.file.Paths
@@ -39,6 +40,20 @@ class SettingsPatch : AbstractSettingsResourcePatch(
     override fun execute(context: ResourceContext): PatchResult {
         super.execute(context)
         contexts = context
+
+        /**
+         * create directory for the untranslated language resources
+         */
+        context["res/values-v21"].mkdirs()
+
+        arrayOf(
+            ResourceUtils.ResourceGroup(
+                "values-v21",
+                "strings.xml"
+            )
+        ).forEach { resourceGroup ->
+            context.copyResources("music/settings", resourceGroup)
+        }
 
         /**
          * Copy colors

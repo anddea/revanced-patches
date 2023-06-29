@@ -1,4 +1,4 @@
-package app.revanced.patches.music.ads.video.patch
+package app.revanced.patches.music.ads.music.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
@@ -11,13 +11,13 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.music.utils.annotations.MusicCompatibility
 import app.revanced.patches.music.utils.litho.patch.LithoFilterPatch
 import app.revanced.patches.music.utils.settings.resource.patch.SettingsPatch
-import app.revanced.patches.shared.patch.videoads.AbstractVideoAdsPatch
+import app.revanced.patches.shared.patch.ads.AbstractAdsPatch
 import app.revanced.util.enum.CategoryType
 import app.revanced.util.integrations.Constants.MUSIC_ADS_PATH
 
 @Patch
-@Name("hide-video-ads")
-@Description("Removes ads in the music video.")
+@Name("hide-music-ads")
+@Description("Hides ads before playing a music.")
 @DependsOn(
     [
         LithoFilterPatch::class,
@@ -26,7 +26,7 @@ import app.revanced.util.integrations.Constants.MUSIC_ADS_PATH
 )
 @MusicCompatibility
 @Version("0.0.1")
-class VideoAdsPatch : AbstractVideoAdsPatch(
+class MusicAdsPatch : AbstractAdsPatch(
     "$MUSIC_ADS_PATH/HideMusicAdsPatch;->hideMusicAds()Z"
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
