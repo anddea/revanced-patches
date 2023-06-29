@@ -19,15 +19,15 @@ import app.revanced.patches.youtube.player.filmstripoverlay.fingerprints.FilmStr
 import app.revanced.patches.youtube.player.filmstripoverlay.fingerprints.FilmStripOverlayInteractionFingerprint
 import app.revanced.patches.youtube.player.filmstripoverlay.fingerprints.FilmStripOverlayParentFingerprint
 import app.revanced.patches.youtube.player.filmstripoverlay.fingerprints.FilmStripOverlayPreviewFingerprint
+import app.revanced.patches.youtube.player.filmstripoverlay.fingerprints.YouTubeControlsOverlayWithFixFingerprint
 import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
-import app.revanced.patches.youtube.utils.fingerprints.YouTubeControlsOverlayFingerprint
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.integrations.Constants.PLAYER
 import org.jf.dexlib2.Opcode
-import org.jf.dexlib2.iface.instruction.NarrowLiteralInstruction
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
+import org.jf.dexlib2.iface.instruction.WideLiteralInstruction
 import org.jf.dexlib2.iface.instruction.formats.Instruction35c
 import org.jf.dexlib2.iface.reference.MethodReference
 
@@ -45,7 +45,7 @@ import org.jf.dexlib2.iface.reference.MethodReference
 class HideFilmstripOverlayPatch : BytecodePatch(
     listOf(
         FilmStripOverlayParentFingerprint,
-        YouTubeControlsOverlayFingerprint
+        YouTubeControlsOverlayWithFixFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
@@ -66,27 +66,27 @@ class HideFilmstripOverlayPatch : BytecodePatch(
             }
         } ?: return FilmStripOverlayParentFingerprint.toErrorResult()
 
-        YouTubeControlsOverlayFingerprint.result?.let {
+        YouTubeControlsOverlayWithFixFingerprint.result?.let {
             it.mutableMethod.apply {
                 val insertIndex = getIndex("bringChildToFront") + 1
                 val insertRegister = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
 
                 val jumpIndex = getIndex("setOnClickListener") + 3
 
-                val fixIndex =
-                    implementation!!.instructions.indexOfFirst { instruction -> (instruction as? NarrowLiteralInstruction)?.narrowLiteral == 12 }
+                val fixIndex = it.scanResult.patternScanResult!!.startIndex + 4
                 val fixRegister = getInstruction<OneRegisterInstruction>(fixIndex).registerA
+                val fixValue = getInstruction<WideLiteralInstruction>(fixIndex).wideLiteral.toInt()
 
                 addInstructionsWithLabels(
                     insertIndex, """
-                        const/16 v$fixRegister, 0xc
+                        const/16 v$fixRegister, $fixValue
                         invoke-static {}, $PLAYER->hideFilmstripOverlay()Z
                         move-result v$insertRegister
                         if-nez v$insertRegister, :hidden
                         """, ExternalLabel("hidden", getInstruction(jumpIndex))
                 )
             }
-        } ?: return YouTubeControlsOverlayFingerprint.toErrorResult()
+        } ?: return YouTubeControlsOverlayWithFixFingerprint.toErrorResult()
 
         /**
          * Add settings
