@@ -13,6 +13,7 @@ import app.revanced.patches.music.utils.annotations.MusicCompatibility
 import app.revanced.patches.music.utils.litho.patch.LithoFilterPatch
 import app.revanced.patches.music.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.enum.CategoryType
+import app.revanced.util.integrations.Constants.MUSIC_ADS_PATH
 
 @Patch
 @Name("hide-playlist-card")
@@ -34,6 +35,12 @@ class HidePlaylistCardPatch : BytecodePatch() {
             "false"
         )
 
+        LithoFilterPatch.addFilter(FILTER_CLASS_DESCRIPTOR)
+
         return PatchResultSuccess()
+    }
+    private companion object {
+        private const val FILTER_CLASS_DESCRIPTOR =
+            "$MUSIC_ADS_PATH/PlaylistCardFilter;"
     }
 }
