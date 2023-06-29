@@ -13,9 +13,11 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.youtube.flyoutpanel.oldqualitylayout.fingerprints.QualityMenuViewInflateFingerprint
+import app.revanced.patches.youtube.utils.alertdialog.patch.NewLayoutAlertDialogPatch
 import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
+import app.revanced.util.bytecode.BytecodeHelper.updatePatchStatus
 import app.revanced.util.integrations.Constants.FLYOUT_PANEL
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
@@ -24,6 +26,7 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 @Description("Enables the original quality flyout menu.")
 @DependsOn(
     [
+        NewLayoutAlertDialogPatch::class,
         SettingsPatch::class,
         SharedResourceIdPatch::class
     ]
@@ -46,6 +49,8 @@ class OldQualityLayoutPatch : BytecodePatch(
                 )
             }
         } ?: return QualityMenuViewInflateFingerprint.toErrorResult()
+
+        context.updatePatchStatus("OldQualityLayout")
 
         /**
          * Add settings

@@ -13,10 +13,12 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
+import app.revanced.patches.youtube.utils.alertdialog.patch.NewLayoutAlertDialogPatch
 import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.patches.youtube.video.customspeed.fingerprints.SpeedArrayGeneratorFingerprint
 import app.revanced.patches.youtube.video.customspeed.fingerprints.SpeedLimiterFingerprint
+import app.revanced.util.bytecode.BytecodeHelper.updatePatchStatus
 import app.revanced.util.integrations.Constants.VIDEO_PATH
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.iface.instruction.NarrowLiteralInstruction
@@ -28,7 +30,12 @@ import org.jf.dexlib2.iface.reference.MethodReference
 @Patch
 @Name("custom-video-speed")
 @Description("Adds more video speed options.")
-@DependsOn([SettingsPatch::class])
+@DependsOn(
+    [
+        NewLayoutAlertDialogPatch::class,
+        SettingsPatch::class
+    ]
+)
 @YouTubeCompatibility
 @Version("0.0.1")
 class CustomVideoSpeedPatch : BytecodePatch(
@@ -113,6 +120,8 @@ class CustomVideoSpeedPatch : BytecodePatch(
                 )
             }
         } ?: return SpeedLimiterFingerprint.toErrorResult()
+
+        context.updatePatchStatus("CustomVideoSpeed")
 
         /**
          * Add settings
