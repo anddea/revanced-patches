@@ -63,7 +63,7 @@
         <!-- SETTINGS: HIDE_FEED_FLYOUT_PANEL
         <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_feed_flyout_panel_title" />
         <SwitchPreference android:title="@string/revanced_hide_feed_flyout_panel_title" android:key="revanced_hide_feed_flyout_panel" android:defaultValue="false" android:summaryOn="@string/revanced_hide_feed_flyout_panel_summary_on" android:summaryOff="@string/revanced_hide_feed_flyout_panel_summary_off" />
-        <app.revanced.integrations.settingsmenu.ResettableEditTextPreference android:title="@string/revanced_hide_feed_flyout_panel_custom_filter_strings_title" android:key="revanced_hide_feed_flyout_panel_custom_filter_strings" android:summary="@string/revanced_hide_feed_flyout_panel_custom_filter_strings_summary" android:defaultValue="" android:inputType="textMultiLine" />SETTINGS: HIDE_FEED_FLYOUT_PANEL -->
+        <app.revanced.integrations.settingsmenu.ResettableEditTextPreference android:title="@string/revanced_hide_feed_flyout_panel_filter_strings_title" android:key="revanced_hide_feed_flyout_panel_filter_strings" android:summary="@string/revanced_hide_feed_flyout_panel_filter_strings_summary" android:defaultValue="" android:inputType="textMultiLine" />SETTINGS: HIDE_FEED_FLYOUT_PANEL -->
 
         <!-- SETTINGS: PLAYER_FLYOUT_PANEL_HEADER
         <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_player_flyout_panel_title" />SETTINGS: PLAYER_FLYOUT_PANEL_HEADER -->
@@ -141,7 +141,7 @@
 
         <!-- SETTINGS: HIDE_ACCOUNT_MENU
         <SwitchPreference android:title="@string/revanced_hide_account_menu_title" android:key="revanced_hide_account_menu" android:defaultValue="false" android:summaryOn="@string/revanced_hide_account_menu_summary_on" android:summaryOff="@string/revanced_hide_account_menu_summary_off" />
-        <app.revanced.integrations.settingsmenu.ResettableEditTextPreference android:title="@string/revanced_hide_account_menu_custom_filter_strings_title" android:key="revanced_hide_account_menu_custom_filter_strings" android:summary="@string/revanced_hide_account_menu_custom_filter_strings_summary" android:defaultValue="YouTube Music\nYouTube Kids" android:inputType="textMultiLine" />SETTINGS: HIDE_ACCOUNT_MENU -->
+        <app.revanced.integrations.settingsmenu.ResettableEditTextPreference android:title="@string/revanced_hide_account_menu_filter_strings_title" android:key="revanced_hide_account_menu_filter_strings" android:summary="@string/revanced_hide_account_menu_filter_strings_summary" android:defaultValue="YouTube Music\nYouTube Kids" android:inputType="textMultiLine" />SETTINGS: HIDE_ACCOUNT_MENU -->
 
         <!-- SETTINGS: HIDE_AUTO_PLAYER_POPUP_PANELS
         <SwitchPreference android:title="@string/revanced_hide_auto_player_popup_panels_title" android:key="revanced_hide_auto_player_popup_panels" android:defaultValue="true" android:summaryOn="@string/revanced_hide_auto_player_popup_panels_summary_on" android:summaryOff="@string/revanced_hide_auto_player_popup_panels_summary_off" />SETTINGS: HIDE_AUTO_PLAYER_POPUP_PANELS -->
@@ -428,7 +428,7 @@
         <SwitchPreference android:title="@string/revanced_overlay_button_speed_dialog_title" android:key="revanced_overlay_button_speed_dialog" android:defaultValue="true" android:summary="@string/revanced_overlay_button_speed_dialog_summary" />
         <PreferenceScreen android:title="@string/revanced_external_downloader_settings_title" android:key="external_downloader" android:summary="@string/revanced_external_downloader_settings_summary">
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_external_downloader_settings_title" />
-            <app.revanced.integrations.settingsmenu.ResettableEditTextPreference android:hint="com.deniscerri.ytdl" android:title="@string/revanced_external_downloader_name_title" android:key="revanced_external_downloader_name" android:summary="@string/revanced_external_downloader_name_summary" android:inputType="text" />
+            <app.revanced.integrations.settingsmenu.ResettableEditTextPreference android:hint="com.deniscerri.ytdl" android:title="@string/revanced_external_downloader_package_name_title" android:key="revanced_external_downloader_package_name" android:summary="@string/revanced_external_downloader_package_name_summary" android:inputType="text" />
         </PreferenceScreen>
     </PreferenceScreen>PREFERENCE: OVERLAY_BUTTONS -->
 
