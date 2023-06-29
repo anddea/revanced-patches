@@ -12,27 +12,52 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.music.utils.annotations.MusicCompatibility
-import app.revanced.patches.music.utils.videoid.fingerprint.VideoIdFingerprint
+import app.revanced.patches.music.utils.videoid.fingerprint.VideoIdParentFingerprint
 import app.revanced.util.integrations.Constants.MUSIC_UTILS_PATH
+import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
+import org.jf.dexlib2.iface.instruction.ReferenceInstruction
+import org.jf.dexlib2.iface.reference.FieldReference
 
 @Name("video-id-hook")
 @Description("Hook to detect when the video id changes.")
 @MusicCompatibility
 @Version("0.0.1")
 class VideoIdPatch : BytecodePatch(
-    listOf(VideoIdFingerprint)
+    listOf(VideoIdParentFingerprint)
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
 
-        VideoIdFingerprint.result?.let {
+        VideoIdParentFingerprint.result?.let {
             it.mutableMethod.apply {
-                insertIndex = it.scanResult.patternScanResult!!.endIndex
-                insertMethod = this
+                val targetIndex = it.scanResult.patternScanResult!!.endIndex
+
+                val targetReference = getInstruction<ReferenceInstruction>(targetIndex).reference
+                val targetClass = (targetReference as FieldReference).type
+
+                insertMethod = context
+                    .findClass(targetClass)!!
+                    .mutableClass.methods.first { method ->
+                        method.name == "handleVideoStageEvent"
+                    }
+            }
+        } ?: return VideoIdParentFingerprint.toErrorResult()
+
+        insertMethod.apply {
+            for (index in implementation!!.instructions.size - 1 downTo 0) {
+                if (getInstruction(index).opcode != Opcode.INVOKE_INTERFACE) continue
+
+                val targetReference = getInstruction<ReferenceInstruction>(index).reference
+
+                if (!targetReference.toString().endsWith("Ljava/lang/String;")) continue
+
+                insertIndex = index + 1
                 videoIdRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+
+                break
             }
             offset++ // offset so setVideoId is called before any injected call
-        } ?: return VideoIdFingerprint.toErrorResult()
+        }
 
         injectCall("$INTEGRATIONS_CLASS_DESCRIPTOR->setVideoId(Ljava/lang/String;)V")
 
