@@ -21,7 +21,7 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
 @Name("disable-auto-captions")
-@Description("Disable forced captions from automatically enabling in video player.")
+@Description("Disables forced auto captions.")
 @DependsOn([SettingsPatch::class])
 @MusicCompatibility
 @Version("0.0.1")

@@ -1,4 +1,4 @@
-package app.revanced.patches.shared.fingerprints.videoads
+package app.revanced.patches.shared.fingerprints.ads
 
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
@@ -6,7 +6,7 @@ import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.iface.instruction.NarrowLiteralInstruction
 
-object LegacyVideoAdsFingerprint : MethodFingerprint(
+object LegacyAdsFingerprint : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf(),

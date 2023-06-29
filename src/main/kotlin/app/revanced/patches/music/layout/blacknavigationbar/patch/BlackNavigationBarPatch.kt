@@ -1,4 +1,4 @@
-package app.revanced.patches.music.layout.blacknavbar.patch
+package app.revanced.patches.music.layout.blacknavigationbar.patch
 
 import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
@@ -21,7 +21,7 @@ import app.revanced.util.integrations.Constants.MUSIC_LAYOUT
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
-@Name("enable-black-navbar")
+@Name("enable-black-navigation-bar")
 @Description("Sets the navigation bar color to black.")
 @DependsOn(
     [
@@ -31,7 +31,7 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 )
 @MusicCompatibility
 @Version("0.0.1")
-class BlackNavbarPatch : BytecodePatch(
+class BlackNavigationBarPatch : BytecodePatch(
     listOf(TabLayoutFingerprint)
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
@@ -43,7 +43,7 @@ class BlackNavbarPatch : BytecodePatch(
 
                 addInstructions(
                     targetIndex + 1, """
-                        invoke-static {}, $MUSIC_LAYOUT->enableBlackNavbar()I
+                        invoke-static {}, $MUSIC_LAYOUT->enableBlackNavigationBar()I
                         move-result v$targetRegister
                         """
                 )
@@ -52,7 +52,7 @@ class BlackNavbarPatch : BytecodePatch(
 
         SettingsPatch.addMusicPreference(
             CategoryType.LAYOUT,
-            "revanced_enable_black_navbar",
+            "revanced_enable_black_navigation_bar",
             "true"
         )
 

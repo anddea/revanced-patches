@@ -3,14 +3,12 @@
     <string name="revanced_category_ads">Ads</string>
     <string name="revanced_category_layout">Layout</string>
     <string name="revanced_category_misc">Miscellaneous</string>
-    <string name="revanced_default_downloader_summary">Package name of the downloader app such as NewPipe\'s or Seal\'s.</string>
-    <string name="revanced_default_downloader_title">Package name of downloader</string>
-    <string name="revanced_disable_auto_captions_summary">Disable forced captions from automatically enabling in video player.</string>
-    <string name="revanced_disable_auto_captions_title">Disable auto captions</string>
+    <string name="revanced_disable_auto_captions_summary">Disables forced auto captions.</string>
+    <string name="revanced_disable_auto_captions_title">Disable forced auto captions</string>
     <string name="revanced_downloader_not_installed" formatted="false">%s is not installed. Please install it.</string>
-    <string name="revanced_enable_black_navbar_summary">Sets the navigation bar color to black.</string>
-    <string name="revanced_enable_black_navbar_title">Enable black navbar</string>
-    <string name="revanced_enable_color_match_player_summary">Matches the fullscreen player color with the minimized one.</string>
+    <string name="revanced_enable_black_navigation_bar_summary">Sets the navigation bar color to black.</string>
+    <string name="revanced_enable_black_navigation_bar_title">Enable black navigation bar</string>
+    <string name="revanced_enable_color_match_player_summary">Matches the color of the mini player and the fullscreen player.</string>
     <string name="revanced_enable_color_match_player_title">Enable color match player</string>
     <string name="revanced_enable_compact_dialog_summary">Enable compact dialog on phone.</string>
     <string name="revanced_enable_compact_dialog_title">Enable compact dialog</string>
@@ -24,8 +22,8 @@
     <string name="revanced_enable_landscape_mode_title">Enable landscape mode</string>
     <string name="revanced_enable_new_layout_summary">Enable new player layouts. (YT Music v5.47.51+)</string>
     <string name="revanced_enable_new_layout_title">Enable new layout</string>
-    <string name="revanced_enable_old_style_mini_player_summary">Return the miniplayers to old style. (YT Music v5.55.53+)</string>
-    <string name="revanced_enable_old_style_mini_player_title">Enable old style miniplayer</string>
+    <string name="revanced_enable_old_style_mini_player_summary">Return the mini players to old style. (YT Music v5.55.53+)</string>
+    <string name="revanced_enable_old_style_mini_player_title">Enable old style mini player</string>
     <string name="revanced_enable_opus_codec_summary">Enable 250/251 opus codec when playing audio.</string>
     <string name="revanced_enable_opus_codec_title">Enable opus codec</string>
     <string name="revanced_enable_save_video_quality_summary">Save the video quality value whenever you change the video quality.</string>
@@ -34,7 +32,9 @@
     <string name="revanced_enable_sleep_timer_title">Enable sleep timer</string>
     <string name="revanced_enable_zen_mode_summary">Adds a grey tint to the video player to reduce eye strain.</string>
     <string name="revanced_enable_zen_mode_title">Enable zen mode</string>
-    <string name="revanced_extended_settings_title">ReVanced Extended</string>
+    <string name="revanced_external_downloader_not_installed_warning" formatted="false">%s is not installed. Please install it.</string>
+    <string name="revanced_external_downloader_package_name_summary">Package name of your installed external downloader app, such as NewPipe or Seal</string>
+    <string name="revanced_external_downloader_package_name_title">External downloader package name</string>
     <string name="revanced_hide_button_shelf_summary">Hides the button shelf from homepage and explorer.</string>
     <string name="revanced_hide_button_shelf_title">Hide button shelf</string>
     <string name="revanced_hide_carousel_shelf_summary">Hides the carousel shelf from homepage and explorer.</string>
@@ -43,7 +43,7 @@
     <string name="revanced_hide_cast_button_title">Hide cast button</string>
     <string name="revanced_hide_category_bar_summary">Hides the music category bar at the top of the homepage.</string>
     <string name="revanced_hide_category_bar_title">Hide category bar</string>
-    <string name="revanced_hide_music_ads_summary">Hide ads before playing a track.</string>
+    <string name="revanced_hide_music_ads_summary">Hides ads before playing a music.</string>
     <string name="revanced_hide_music_ads_title">Hide music ads</string>
     <string name="revanced_hide_navigation_label_summary">Hide labels in navigation bar.</string>
     <string name="revanced_hide_navigation_label_title">Hide navigation bar labels</string>

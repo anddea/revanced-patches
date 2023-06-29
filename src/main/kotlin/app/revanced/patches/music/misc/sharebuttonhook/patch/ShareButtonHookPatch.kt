@@ -52,9 +52,10 @@ class ShareButtonHookPatch : BytecodePatch(
 
                 addInstructionsWithLabels(
                     targetIndex, """
-                        invoke-static {}, $INTEGRATIONS_CLASS_DESCRIPTOR->overrideSharePanel()Z
+                        invoke-static {}, $INTEGRATIONS_CLASS_DESCRIPTOR->shouldHookShareButton()Z
                         move-result p1
                         if-eqz p1, :default
+                        invoke-static {}, $INTEGRATIONS_CLASS_DESCRIPTOR->startDownloadActivity()V
                         return-void
                         """, ExternalLabel("default", getInstruction(targetIndex))
                 )
@@ -87,7 +88,7 @@ class ShareButtonHookPatch : BytecodePatch(
         )
         SettingsPatch.addMusicPreferenceWithIntent(
             CategoryType.MISC,
-            "revanced_default_downloader",
+            "revanced_external_downloader_package_name",
             "revanced_hook_share_button"
         )
 
