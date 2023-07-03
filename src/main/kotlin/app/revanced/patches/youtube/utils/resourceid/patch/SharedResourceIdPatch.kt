@@ -36,6 +36,7 @@ class SharedResourceIdPatch : ResourcePatch {
         var BackgroundCategory: Long = -1
         var BarContainerHeight: Long = -1
         var BottomPanelOverlayText: Long = -1
+        var BottomSheetMargins: Long = -1
         var BottomSheetRecyclerView: Long = -1
         var BottomUiContainerStub: Long = -1
         var ChannelListSubMenu: Long = -1
@@ -105,6 +106,7 @@ class SharedResourceIdPatch : ResourcePatch {
         BackgroundCategory = find(STRING, "pref_background_and_offline_category")
         BarContainerHeight = find(DIMEN, "bar_container_height")
         BottomPanelOverlayText = find(ID, "bottom_panel_overlay_text")
+        BottomSheetMargins = find(DIMEN, "bottom_sheet_margins")
         BottomSheetRecyclerView = find(LAYOUT, "bottom_sheet_recycler_view")
         BottomUiContainerStub = find(ID, "bottom_ui_container_stub")
         ChannelListSubMenu = find(LAYOUT, "channel_list_sub_menu")

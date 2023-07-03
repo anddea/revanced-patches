@@ -1,11 +1,16 @@
 package app.revanced.patches.youtube.flyoutpanel.oldqualitylayout.fingerprints
 
+import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch.Companion.VideoQualityBottomSheet
 import app.revanced.util.bytecode.isWideLiteralExists
+import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 
 object QualityMenuViewInflateFingerprint : MethodFingerprint(
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = listOf("L", "L", "L"),
+    returnType = "L",
     opcodes = listOf(
         Opcode.INVOKE_SUPER,
         Opcode.CONST,
