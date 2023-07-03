@@ -10,7 +10,6 @@ object ShareLinkFactoryFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     opcodes = listOf(
         Opcode.CONST_STRING,
-        Opcode.CONST_STRING,
         Opcode.INVOKE_DIRECT,
         Opcode.APUT_OBJECT,
         Opcode.INVOKE_STATIC,
