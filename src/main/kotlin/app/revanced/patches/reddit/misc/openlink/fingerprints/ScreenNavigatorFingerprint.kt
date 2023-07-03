@@ -8,7 +8,6 @@ import org.jf.dexlib2.Opcode
 object ScreenNavigatorFingerprint : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    parameters = listOf("L", "L", "L", "Z"),
     opcodes = listOf(
         Opcode.CONST_STRING,
         Opcode.INVOKE_STATIC,
