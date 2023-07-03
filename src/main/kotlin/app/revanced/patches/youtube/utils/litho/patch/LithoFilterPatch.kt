@@ -49,13 +49,12 @@ class LithoFilterPatch : BytecodePatch(
 
             addFilter = { classDescriptor ->
                 addInstructions(
-                    2,
-                    """
+                    2, """
                         new-instance v1, $classDescriptor
                         invoke-direct {v1}, $classDescriptor-><init>()V
-                        const/4 v2, ${filterCount++}
+                        ${getConstString(2, filterCount++)}
                         aput-object v1, v0, v2
-                    """
+                        """
                 )
             }
         } ?: return LithoFilterFingerprint.toErrorResult()
@@ -64,12 +63,17 @@ class LithoFilterPatch : BytecodePatch(
     }
 
     override fun close() = LithoFilterFingerprint.result!!
-        .mutableMethod.replaceInstruction(0, "const/4 v0, $filterCount")
+        .mutableMethod.replaceInstruction(0, getConstString(0, filterCount))
 
     companion object {
         internal lateinit var addFilter: (String) -> Unit
             private set
 
         private var filterCount = 0
+
+        private fun getConstString(
+            register: Int,
+            count: Int
+        ): String = if (count >= 8) "const/16 v$register, $count" else "const/4 v$register, $count"
     }
 }
