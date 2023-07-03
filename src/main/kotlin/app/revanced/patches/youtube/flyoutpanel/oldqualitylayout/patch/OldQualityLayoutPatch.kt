@@ -14,7 +14,6 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.youtube.flyoutpanel.oldqualitylayout.fingerprints.NewQualityLayoutBuilderFingerprint
 import app.revanced.patches.youtube.flyoutpanel.oldqualitylayout.fingerprints.QualityMenuViewInflateFingerprint
-import app.revanced.patches.youtube.utils.alertdialog.patch.NewLayoutAlertDialogPatch
 import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.litho.patch.LithoFilterPatch
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
@@ -28,7 +27,6 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 @Description("Enables the original quality flyout menu.")
 @DependsOn(
     [
-        NewLayoutAlertDialogPatch::class,
         LithoFilterPatch::class,
         SettingsPatch::class,
         SharedResourceIdPatch::class
