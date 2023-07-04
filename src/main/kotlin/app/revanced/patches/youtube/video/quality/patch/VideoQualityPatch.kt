@@ -15,7 +15,7 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
-import app.revanced.patches.youtube.utils.fingerprints.NewFlyoutPanelsOnClickListenerFingerprint
+import app.revanced.patches.youtube.utils.fingerprints.NewFlyoutPanelOnClickListenerFingerprint
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch.Companion.contexts
 import app.revanced.patches.youtube.utils.videocpn.patch.VideoCpnPatch
@@ -44,14 +44,14 @@ import org.jf.dexlib2.iface.reference.FieldReference
 @Version("0.0.1")
 class VideoQualityPatch : BytecodePatch(
     listOf(
-        NewFlyoutPanelsOnClickListenerFingerprint,
+        NewFlyoutPanelOnClickListenerFingerprint,
         VideoQualitySetterFingerprint,
         VideoQualitySettingsParentFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
 
-        NewFlyoutPanelsOnClickListenerFingerprint.result?.let { parentResult ->
+        NewFlyoutPanelOnClickListenerFingerprint.result?.let { parentResult ->
             NewVideoQualityChangedFingerprint.also {
                 it.resolve(
                     context,
@@ -68,7 +68,7 @@ class VideoQualityPatch : BytecodePatch(
                     )
                 }
             }
-        } ?: return NewFlyoutPanelsOnClickListenerFingerprint.toErrorResult()
+        } ?: return NewFlyoutPanelOnClickListenerFingerprint.toErrorResult()
 
         VideoQualitySetterFingerprint.result?.let { parentResult ->
             VideoQualityReferenceFingerprint.also {

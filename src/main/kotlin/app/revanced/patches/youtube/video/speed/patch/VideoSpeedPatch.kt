@@ -14,7 +14,7 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
-import app.revanced.patches.youtube.utils.fingerprints.NewFlyoutPanelsOnClickListenerFingerprint
+import app.revanced.patches.youtube.utils.fingerprints.NewFlyoutPanelOnClickListenerFingerprint
 import app.revanced.patches.youtube.utils.overridespeed.patch.OverrideSpeedHookPatch
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.patches.youtube.utils.videocpn.patch.VideoCpnPatch
@@ -34,11 +34,11 @@ import org.jf.dexlib2.iface.instruction.FiveRegisterInstruction
 @YouTubeCompatibility
 @Version("0.0.1")
 class VideoSpeedPatch : BytecodePatch(
-    listOf(NewFlyoutPanelsOnClickListenerFingerprint)
+    listOf(NewFlyoutPanelOnClickListenerFingerprint)
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
 
-        NewFlyoutPanelsOnClickListenerFingerprint.result?.let { parentResult ->
+        NewFlyoutPanelOnClickListenerFingerprint.result?.let { parentResult ->
             NewVideoSpeedChangedFingerprint.also {
                 it.resolve(
                     context,
@@ -57,7 +57,7 @@ class VideoSpeedPatch : BytecodePatch(
                     }
                 }
             } ?: return NewVideoSpeedChangedFingerprint.toErrorResult()
-        } ?: return NewFlyoutPanelsOnClickListenerFingerprint.toErrorResult()
+        } ?: return NewFlyoutPanelOnClickListenerFingerprint.toErrorResult()
 
         VideoCpnPatch.injectCall("$INTEGRATIONS_VIDEO_SPEED_CLASS_DESCRIPTOR->newVideoStarted(Ljava/lang/String;Z)V")
 
