@@ -12,9 +12,9 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patches.youtube.flyoutpanel.oldqualitylayout.fingerprints.NewQualityLayoutBuilderFingerprint
 import app.revanced.patches.youtube.flyoutpanel.oldqualitylayout.fingerprints.QualityMenuViewInflateFingerprint
 import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
+import app.revanced.patches.youtube.utils.fingerprints.NewFlyoutPanelBuilderFingerprint
 import app.revanced.patches.youtube.utils.litho.patch.LithoFilterPatch
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
@@ -36,14 +36,14 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 @Version("0.0.1")
 class OldQualityLayoutPatch : BytecodePatch(
     listOf(
-        NewQualityLayoutBuilderFingerprint,
+        NewFlyoutPanelBuilderFingerprint,
         QualityMenuViewInflateFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
 
         /**
-         * For old player flyout panels
+         * Old method
          */
         QualityMenuViewInflateFingerprint.result?.let {
             it.mutableMethod.apply {
@@ -58,9 +58,9 @@ class OldQualityLayoutPatch : BytecodePatch(
         } ?: return QualityMenuViewInflateFingerprint.toErrorResult()
 
         /**
-         * For new player flyout panels
+         * New method
          */
-        NewQualityLayoutBuilderFingerprint.result?.let {
+        NewFlyoutPanelBuilderFingerprint.result?.let {
             it.mutableMethod.apply {
                 val insertIndex = implementation!!.instructions.size - 1
                 val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
@@ -70,7 +70,7 @@ class OldQualityLayoutPatch : BytecodePatch(
                     "invoke-static { v$insertRegister }, $FLYOUT_PANEL->enableOldQualityMenu(Landroid/widget/LinearLayout;)V"
                 )
             }
-        } ?: return NewQualityLayoutBuilderFingerprint.toErrorResult()
+        } ?: return NewFlyoutPanelBuilderFingerprint.toErrorResult()
 
         context.updatePatchStatus("OldQualityLayout")
 
