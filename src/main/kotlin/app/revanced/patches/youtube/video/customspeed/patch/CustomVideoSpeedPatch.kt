@@ -13,6 +13,7 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
+import app.revanced.patches.youtube.flyoutpanel.oldspeedlayout.patch.OldSpeedLayoutPatch
 import app.revanced.patches.youtube.utils.alertdialog.patch.NewLayoutAlertDialogPatch
 import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
@@ -33,6 +34,7 @@ import org.jf.dexlib2.iface.reference.MethodReference
 @DependsOn(
     [
         NewLayoutAlertDialogPatch::class,
+        OldSpeedLayoutPatch::class,
         SettingsPatch::class
     ]
 )
