@@ -7,7 +7,7 @@ import org.jf.dexlib2.Opcode
 
 object VideoIdParentFingerprint : MethodFingerprint(
     returnType = "V",
-    parameters = listOf(),
+    parameters = emptyList(),
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     opcodes = listOf(
         Opcode.INVOKE_SUPER,
@@ -16,5 +16,5 @@ object VideoIdParentFingerprint : MethodFingerprint(
         Opcode.IPUT_OBJECT,
         Opcode.IGET_OBJECT
     ),
-    customFingerprint = { methodDef, _ -> methodDef.definingClass.endsWith("WatchFragment;") && methodDef.name == "onDestroyView" }
+    customFingerprint = { methodDef, _ -> methodDef.definingClass.endsWith("/WatchFragment;") && methodDef.name == "onDestroyView" }
 )

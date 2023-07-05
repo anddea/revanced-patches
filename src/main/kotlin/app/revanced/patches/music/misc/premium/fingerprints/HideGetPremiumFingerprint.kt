@@ -8,7 +8,7 @@ import org.jf.dexlib2.Opcode
 object HideGetPremiumFingerprint : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    parameters = listOf(),
+    parameters = emptyList(),
     opcodes = listOf(
         Opcode.IGET_BOOLEAN,
         Opcode.CONST_4,

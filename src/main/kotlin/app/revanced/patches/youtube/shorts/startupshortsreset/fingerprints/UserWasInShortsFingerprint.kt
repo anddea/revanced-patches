@@ -8,7 +8,7 @@ import org.jf.dexlib2.Opcode
 object UserWasInShortsFingerprint : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    parameters = listOf("L"),
+    parameters = listOf("Ljava/lang/Object;"),
     opcodes = listOf(
         Opcode.CHECK_CAST,
         Opcode.INVOKE_INTERFACE,

@@ -7,6 +7,6 @@ import org.jf.dexlib2.AccessFlags
 object PlaybackRateBottomSheetBuilderFingerprint : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    parameters = listOf(),
+    parameters = emptyList(),
     strings = listOf("PLAYBACK_RATE_MENU_BOTTOM_SHEET_FRAGMENT")
 )

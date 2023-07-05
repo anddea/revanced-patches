@@ -6,20 +6,39 @@ import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 
 object TimeCounterFingerprint : MethodFingerprint(
-    returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    parameters = emptyList(),
+    parameters = listOf(),
+    returnType = "V",
     opcodes = listOf(
+        Opcode.RETURN_VOID,
+        Opcode.IGET_BOOLEAN,
+        Opcode.IF_EQZ,
         Opcode.IGET_OBJECT,
         Opcode.IGET_WIDE,
-        Opcode.CONST_WIDE_16,
-        Opcode.CMP_LONG,
-        Opcode.IF_LEZ,
+        Opcode.IGET_WIDE,
+        Opcode.SUB_LONG_2ADDR,
+        Opcode.INVOKE_STATIC,
+        Opcode.MOVE_RESULT_OBJECT,
         Opcode.IGET_OBJECT,
-        Opcode.IF_EQZ,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT,
-        Opcode.IF_EQZ,
-        Opcode.GOTO
-    )
+        Opcode.IGET_WIDE,
+        Opcode.IGET_WIDE,
+        Opcode.SUB_LONG_2ADDR,
+        Opcode.IGET_WIDE,
+        Opcode.SUB_LONG_2ADDR,
+        Opcode.INVOKE_STATIC,
+        Opcode.MOVE_RESULT_OBJECT,
+        Opcode.IGET_OBJECT,
+        Opcode.IGET_WIDE,
+        Opcode.IGET_WIDE,
+        Opcode.SUB_LONG_2ADDR,
+        Opcode.INVOKE_STATIC,
+        Opcode.MOVE_RESULT_OBJECT,
+        Opcode.INVOKE_INTERFACE,
+        Opcode.RETURN_VOID
+    ),
+    customFingerprint = { _, classDef ->
+        // On older devices this fingerprint resolves very slowly.
+        // Speed this up by checking for the number of methods.
+        classDef.methods.count() == 14
+    }
 )

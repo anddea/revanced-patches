@@ -13,7 +13,7 @@ internal object BytecodeHelper {
     ) {
         this.classes.forEach { classDef ->
             classDef.methods.forEach { method ->
-                if (classDef.type.endsWith("WatchWhileActivity;") && method.name == "onCreate") {
+                if (classDef.type.endsWith("/WatchWhileActivity;") && method.name == "onCreate") {
                     val hookMethod =
                         this.proxy(classDef).mutableClass.methods.first { it.name == "onCreate" }
 
@@ -29,7 +29,7 @@ internal object BytecodeHelper {
     internal fun BytecodeContext.updatePatchStatus(patch: String) {
         this.classes.forEach { classDef ->
             classDef.methods.forEach { method ->
-                if (classDef.type.endsWith("PatchStatus;") && method.name == patch) {
+                if (classDef.type.endsWith("/PatchStatus;") && method.name == patch) {
                     val patchStatusMethod =
                         this.proxy(classDef).mutableClass.methods.first { it.name == patch }
 

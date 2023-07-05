@@ -34,13 +34,15 @@ class NavigationButtonsPatch : BytecodePatch(
         BottomNavScreenFingerprint.result?.let {
             it.mutableMethod.apply {
                 val startIndex = it.scanResult.patternScanResult!!.startIndex
-                val reference = getInstruction<ReferenceInstruction>(startIndex).reference.toString()
+                val reference =
+                    getInstruction<ReferenceInstruction>(startIndex).reference.toString()
 
                 if (!reference.endsWith("Ljava/util/List;"))
                     return PatchResultError("Invalid reference: $reference")
 
                 val insertIndex = startIndex + 2
-                val insertRegister = getInstruction<OneRegisterInstruction>(startIndex + 1).registerA
+                val insertRegister =
+                    getInstruction<OneRegisterInstruction>(startIndex + 1).registerA
 
                 addInstructions(
                     insertIndex, """

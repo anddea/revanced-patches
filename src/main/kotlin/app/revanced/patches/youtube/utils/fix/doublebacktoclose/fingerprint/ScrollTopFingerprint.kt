@@ -8,7 +8,7 @@ import org.jf.dexlib2.Opcode
 object ScrollTopFingerprint : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    parameters = listOf(),
+    parameters = emptyList(),
     opcodes = listOf(
         Opcode.CHECK_CAST,
         Opcode.CONST_4,

@@ -158,8 +158,8 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         /**
          * Append the new time to the player layout
          */
-        TotalTimeFingerprint.result?.mutableMethod?.let {
-            it.apply {
+        TotalTimeFingerprint.result?.let {
+            it.mutableMethod.apply {
                 val targetIndex = getWideLiteralIndex(TotalTime) + 2
                 val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
@@ -175,8 +175,8 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         /**
          * Initialize the SponsorBlock view
          */
-        YouTubeControlsOverlayFingerprint.result?.mutableMethod?.let {
-            it.apply {
+        YouTubeControlsOverlayFingerprint.result?.let {
+            it.mutableMethod.apply {
                 val targetIndex = getWideLiteralIndex(InsetOverlayViewLayout) + 3
                 val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
@@ -200,17 +200,19 @@ class SponsorBlockBytecodePatch : BytecodePatch(
             ((rectangleFieldInvalidatorInstructions.elementAt(rectangleFieldInvalidatorInstructions.count() - 3) as ReferenceInstruction).reference as FieldReference).name
 
 
-        PlayerControllerFingerprint.result?.mutableMethod?.let {
-            val instructions = it.implementation!!.instructions
+        PlayerControllerFingerprint.result?.let {
+            it.mutableMethod.apply {
+                for ((index, instruction) in implementation!!.instructions.withIndex()) {
+                    if (instruction.opcode != Opcode.CONST_STRING) continue
 
-            for ((index, instruction) in instructions.withIndex()) {
-                if (instruction.opcode != Opcode.CONST_STRING) continue
-                val register = it.getInstruction<OneRegisterInstruction>(index).registerA
-                it.replaceInstruction(
-                    index,
-                    "const-string v$register, \"$rectangleFieldName\""
-                )
-                break
+                    val register = getInstruction<OneRegisterInstruction>(index).registerA
+
+                    replaceInstruction(
+                        index,
+                        "const-string v$register, \"$rectangleFieldName\""
+                    )
+                    break
+                }
             }
         } ?: return PlayerControllerFingerprint.toErrorResult()
 

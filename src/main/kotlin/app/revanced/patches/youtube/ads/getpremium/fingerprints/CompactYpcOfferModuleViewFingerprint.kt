@@ -15,5 +15,5 @@ object CompactYpcOfferModuleViewFingerprint : MethodFingerprint(
         Opcode.INVOKE_VIRTUAL,
         Opcode.RETURN_VOID
     ),
-    customFingerprint = { methodDef, _ -> methodDef.definingClass.endsWith("CompactYpcOfferModuleView;") && methodDef.name == "onMeasure" }
+    customFingerprint = { methodDef, _ -> methodDef.definingClass.endsWith("/CompactYpcOfferModuleView;") && methodDef.name == "onMeasure" }
 )

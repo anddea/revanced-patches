@@ -8,7 +8,7 @@ import org.jf.dexlib2.Opcode
 object BackgroundPlaybackParentFingerprint : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    parameters = listOf(),
+    parameters = emptyList(),
     opcodes = listOf(
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT,

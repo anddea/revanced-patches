@@ -112,6 +112,7 @@ class OldSpeedLayoutPatch : BytecodePatch(
 
         return PatchResultSuccess()
     }
+
     private companion object {
         lateinit var PLAYBACK_RATE_BOTTOM_SHEET_CLASS: String
         lateinit var PLAYBACK_RATE_BOTTOM_SHEET_BUILDER_METHOD: String

@@ -17,8 +17,7 @@ object YouTubeControlsOverlayFingerprint : MethodFingerprint(
         Opcode.IF_EQZ
     ),
     customFingerprint = { methodDef, _ ->
-        methodDef.isWideLiteralExists(
-            YoutubeControlsOverlay
-        )
+        methodDef.definingClass.endsWith("/YouTubeControlsOverlay;") &&
+                methodDef.isWideLiteralExists(YoutubeControlsOverlay)
     }
 )
