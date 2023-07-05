@@ -5,18 +5,18 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patches.reddit.misc.tracking.url.fingerprints.ShareLinkFactoryFingerprint
+import app.revanced.patcher.util.smali.ExternalLabel
+import app.revanced.patches.reddit.misc.tracking.url.fingerprints.ShareLinkFormatterFingerprint
 import app.revanced.patches.reddit.utils.annotations.RedditCompatibility
 import app.revanced.patches.reddit.utils.settings.bytecode.patch.SettingsPatch
 import app.revanced.patches.reddit.utils.settings.bytecode.patch.SettingsPatch.Companion.updateSettingsStatus
-import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
 @Name("sanitize-sharing-links")
@@ -25,23 +25,23 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 @RedditCompatibility
 @Version("0.0.1")
 class SanitizeUrlQueryPatch : BytecodePatch(
-    listOf(ShareLinkFactoryFingerprint)
+    listOf(ShareLinkFormatterFingerprint)
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
-        ShareLinkFactoryFingerprint.result?.let { result ->
+        ShareLinkFormatterFingerprint.result?.let { result ->
             result.mutableMethod.apply {
-                val insertIndex = result.scanResult.patternScanResult!!.endIndex + 1
-                val urlRegister = getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA
 
-                addInstructions(
-                    insertIndex,
+                addInstructionsWithLabels(
+                    0,
                     """
-                        invoke-static {v$urlRegister}, $SANITIZE_METHOD_DESCRIPTOR
-                        move-result-object v$urlRegister
-                        """
+                        invoke-static {}, $SANITIZE_METHOD_DESCRIPTOR
+                        move-result v0
+                        if-eqz v0, :off
+                        return-object p0
+                        """, ExternalLabel("off", getInstruction(0))
                 )
             }
-        } ?: return ShareLinkFactoryFingerprint.toErrorResult()
+        } ?: return ShareLinkFormatterFingerprint.toErrorResult()
 
         updateSettingsStatus("SanitizeUrlQuery")
 
@@ -51,6 +51,6 @@ class SanitizeUrlQueryPatch : BytecodePatch(
     private companion object {
         private const val SANITIZE_METHOD_DESCRIPTOR =
             "Lapp/revanced/reddit/patches/SanitizeUrlQueryPatch;" +
-                    "->stripQueryParameters(Ljava/lang/String;)Ljava/lang/String;"
+                    "->stripQueryParameters()Z"
     }
 }
