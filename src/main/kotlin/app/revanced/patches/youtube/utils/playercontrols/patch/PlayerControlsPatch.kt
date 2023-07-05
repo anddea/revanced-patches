@@ -19,11 +19,11 @@ import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.fingerprints.YouTubeControlsOverlayFingerprint
 import app.revanced.patches.youtube.utils.playercontrols.fingerprints.BottomControlsInflateFingerprint
 import app.revanced.patches.youtube.utils.playercontrols.fingerprints.ControlsLayoutInflateFingerprint
+import app.revanced.patches.youtube.utils.playercontrols.fingerprints.FullscreenEngagementSpeedEduVisibleFingerprint
+import app.revanced.patches.youtube.utils.playercontrols.fingerprints.FullscreenEngagementSpeedEduVisibleParentFingerprint
 import app.revanced.patches.youtube.utils.playercontrols.fingerprints.PlayerControlsVisibilityFingerprint
 import app.revanced.patches.youtube.utils.playercontrols.fingerprints.PlayerControlsVisibilityModelFingerprint
 import app.revanced.patches.youtube.utils.playercontrols.fingerprints.SeekEDUVisibleFingerprint
-import app.revanced.patches.youtube.utils.playercontrols.fingerprints.SpeedEduVisibleFingerprint
-import app.revanced.patches.youtube.utils.playercontrols.fingerprints.SpeedEduVisibleParentFingerprint
 import app.revanced.patches.youtube.utils.playercontrols.fingerprints.UserScrubbingFingerprint
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.util.bytecode.getStringIndex
@@ -43,80 +43,77 @@ class PlayerControlsPatch : BytecodePatch(
     listOf(
         BottomControlsInflateFingerprint,
         ControlsLayoutInflateFingerprint,
+        FullscreenEngagementSpeedEduVisibleParentFingerprint,
         PlayerControlsVisibilityModelFingerprint,
-        SpeedEduVisibleParentFingerprint,
         YouTubeControlsOverlayFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
 
-        val playerControlsVisibilityModelClassDef =
-            PlayerControlsVisibilityModelFingerprint.result?.classDef
-                ?: return PlayerControlsVisibilityModelFingerprint.toErrorResult()
+        fun MutableMethod.findReference(targetString: String): Reference {
+            val targetIndex = getStringIndex(targetString) + 2
+            val targetRegister = getInstruction<Instruction35c>(targetIndex).registerD
 
-        SeekEDUVisibleFingerprint.resolve(context, playerControlsVisibilityModelClassDef)
-        seekEDUVisibleResult =
-            SeekEDUVisibleFingerprint.result ?: return SeekEDUVisibleFingerprint.toErrorResult()
+            val instructions = implementation!!.instructions
+            for ((index, instruction) in instructions.withIndex()) {
+                if (instruction.opcode != Opcode.IGET_BOOLEAN) continue
 
-        UserScrubbingFingerprint.resolve(context, playerControlsVisibilityModelClassDef)
-        userScrubbingResult =
-            UserScrubbingFingerprint.result ?: return UserScrubbingFingerprint.toErrorResult()
+                if (getInstruction<TwoRegisterInstruction>(index).registerA == targetRegister)
+                    return getInstruction<ReferenceInstruction>(index).reference
+            }
+            throw PatchResultError("Reference not found: $targetString")
+        }
 
-        val controlsOverlayClassDef =
-            YouTubeControlsOverlayFingerprint.result?.classDef
-                ?: return YouTubeControlsOverlayFingerprint.toErrorResult()
+        PlayerControlsVisibilityModelFingerprint.result?.classDef?.let { classDef ->
+            seekEDUVisibleMutableMethod =
+                SeekEDUVisibleFingerprint.also {
+                    it.resolve(
+                        context,
+                        classDef
+                    )
+                }.result?.mutableMethod ?: return SeekEDUVisibleFingerprint.toErrorResult()
 
-        PlayerControlsVisibilityFingerprint.resolve(context, controlsOverlayClassDef)
-        playerControlsVisibilityResult = PlayerControlsVisibilityFingerprint.result
-            ?: return PlayerControlsVisibilityFingerprint.toErrorResult()
+            userScrubbingMutableMethod =
+                UserScrubbingFingerprint.also {
+                    it.resolve(
+                        context,
+                        classDef
+                    )
+                }.result?.mutableMethod ?: return UserScrubbingFingerprint.toErrorResult()
+        } ?: return PlayerControlsVisibilityModelFingerprint.toErrorResult()
 
-        controlsLayoutInflateResult = ControlsLayoutInflateFingerprint.result
-            ?: return ControlsLayoutInflateFingerprint.toErrorResult()
-        inflateResult = BottomControlsInflateFingerprint.result
-            ?: return BottomControlsInflateFingerprint.toErrorResult()
+        YouTubeControlsOverlayFingerprint.result?.classDef?.let { classDef ->
+            playerControlsVisibilityMutableMethod =
+                PlayerControlsVisibilityFingerprint.also {
+                    it.resolve(
+                        context,
+                        classDef
+                    )
+                }.result?.mutableMethod ?: return PlayerControlsVisibilityFingerprint.toErrorResult()
+        } ?: return YouTubeControlsOverlayFingerprint.toErrorResult()
 
-        SpeedEduVisibleParentFingerprint.result?.let { parentResult ->
-            var speedIndex = 0
+        controlsLayoutInflateResult =
+            ControlsLayoutInflateFingerprint.result
+                ?: return ControlsLayoutInflateFingerprint.toErrorResult()
+
+        inflateResult =
+            BottomControlsInflateFingerprint.result
+                ?: return BottomControlsInflateFingerprint.toErrorResult()
+
+        FullscreenEngagementSpeedEduVisibleParentFingerprint.result?.let { parentResult ->
             parentResult.mutableMethod.apply {
-                val targetIndex = getStringIndex(", isSpeedmasterEDUVisible=") + 2
-                val targetRegister = getInstruction<Instruction35c>(targetIndex).registerD
-
-                val instructions = implementation!!.instructions
-                for ((index, instruction) in instructions.withIndex()) {
-                    if (instruction.opcode != Opcode.IGET_BOOLEAN) continue
-
-                    if (getInstruction<TwoRegisterInstruction>(index).registerA == targetRegister) {
-                        speedEDUVisibleReference =
-                            getInstruction<ReferenceInstruction>(index).reference
-                        speedIndex = index
-                        break
-                    }
-                }
-                if (speedIndex == 0) return PatchResultError("SpeedEduVisibleParent Instruction not found!")
+                fullscreenEngagementViewVisibleReference = findReference(", isFullscreenEngagementViewVisible=")
+                speedEDUVisibleReference = findReference(", isSpeedmasterEDUVisible=")
             }
 
-            SpeedEduVisibleFingerprint.also {
-                it.resolve(
-                    context,
-                    parentResult.classDef
-                )
-            }.result?.mutableMethod?.let {
-                it.implementation!!.instructions.apply {
-                    for ((index, instruction) in withIndex()) {
-                        if (instruction.opcode != Opcode.IPUT_BOOLEAN) continue
-
-                        if (it.getInstruction<ReferenceInstruction>(index).reference == speedEDUVisibleReference) {
-                            speedEDUVisibleMutableMethod = it
-                            speedEDUVisibleIndex = index
-                            speedEDUVisibleRegister =
-                                it.getInstruction<TwoRegisterInstruction>(index).registerA
-                            break
-                        }
-                    }
-                }
-                if (speedEDUVisibleIndex == 0) return PatchResultError("SpeedEduVisibleFingerprint Instruction not found!")
-            } ?: return SpeedEduVisibleFingerprint.toErrorResult()
-        } ?: return SpeedEduVisibleParentFingerprint.toErrorResult()
+            fullscreenEngagementSpeedEduVisibleMutableMethod =
+                FullscreenEngagementSpeedEduVisibleFingerprint.also {
+                    it.resolve(
+                        context,
+                        parentResult.classDef
+                    )
+                }.result?.mutableMethod?: return FullscreenEngagementSpeedEduVisibleFingerprint.toErrorResult()
+        } ?: return FullscreenEngagementSpeedEduVisibleParentFingerprint.toErrorResult()
 
         return PatchResultSuccess()
     }
@@ -124,28 +121,40 @@ class PlayerControlsPatch : BytecodePatch(
     internal companion object {
         lateinit var controlsLayoutInflateResult: MethodFingerprintResult
         lateinit var inflateResult: MethodFingerprintResult
-        lateinit var playerControlsVisibilityResult: MethodFingerprintResult
-        lateinit var seekEDUVisibleResult: MethodFingerprintResult
-        lateinit var userScrubbingResult: MethodFingerprintResult
 
-        lateinit var speedEDUVisibleMutableMethod: MutableMethod
+        lateinit var playerControlsVisibilityMutableMethod: MutableMethod
+        lateinit var seekEDUVisibleMutableMethod: MutableMethod
+        lateinit var userScrubbingMutableMethod: MutableMethod
+
+        lateinit var fullscreenEngagementSpeedEduVisibleMutableMethod: MutableMethod
+        lateinit var fullscreenEngagementViewVisibleReference: Reference
         lateinit var speedEDUVisibleReference: Reference
 
-        private var speedEDUVisibleRegister: Int = 1
-        private var speedEDUVisibleIndex: Int = 0
+        private fun injectFullscreenEngagementSpeedEduViewVisibilityCall(
+            reference: Reference,
+            descriptor: String
+        ) {
+            fullscreenEngagementSpeedEduVisibleMutableMethod.apply {
+                for ((index, instruction) in implementation!!.instructions.withIndex()) {
+                    if (instruction.opcode != Opcode.IPUT_BOOLEAN) continue
+                    if (getInstruction<ReferenceInstruction>(index).reference != reference) continue
 
-        private fun injectSpeedEduVisibilityCall(descriptor: String) {
-            speedEDUVisibleMutableMethod.addInstruction(
-                speedEDUVisibleIndex,
-                "invoke-static {v$speedEDUVisibleRegister}, $descriptor->changeVisibilityNegatedImmediate(Z)V"
-            )
+                    val register = getInstruction<TwoRegisterInstruction>(index).registerA
+
+                    addInstruction(
+                        index,
+                        "invoke-static {v$register}, $descriptor->changeVisibilityNegatedImmediate(Z)V"
+                    )
+                    break;
+                }
+            }
         }
 
-        private fun MethodFingerprintResult.injectVisibilityCall(
+        private fun MutableMethod.injectVisibilityCall(
             descriptor: String,
             fieldName: String
         ) {
-            mutableMethod.addInstruction(
+            addInstruction(
                 0,
                 "invoke-static {p1}, $descriptor->$fieldName(Z)V"
             )
@@ -166,13 +175,15 @@ class PlayerControlsPatch : BytecodePatch(
         }
 
         fun injectVisibility(descriptor: String) {
-            playerControlsVisibilityResult.injectVisibilityCall(descriptor, "changeVisibility")
-            seekEDUVisibleResult.injectVisibilityCall(
+            playerControlsVisibilityMutableMethod.injectVisibilityCall(descriptor, "changeVisibility")
+            seekEDUVisibleMutableMethod.injectVisibilityCall(
                 descriptor,
                 "changeVisibilityNegatedImmediate"
             )
-            userScrubbingResult.injectVisibilityCall(descriptor, "changeVisibilityNegatedImmediate")
-            injectSpeedEduVisibilityCall(descriptor)
+            userScrubbingMutableMethod.injectVisibilityCall(descriptor, "changeVisibilityNegatedImmediate")
+
+            injectFullscreenEngagementSpeedEduViewVisibilityCall(fullscreenEngagementViewVisibleReference, descriptor)
+            injectFullscreenEngagementSpeedEduViewVisibilityCall(speedEDUVisibleReference, descriptor)
         }
 
         fun initializeSB(descriptor: String) {

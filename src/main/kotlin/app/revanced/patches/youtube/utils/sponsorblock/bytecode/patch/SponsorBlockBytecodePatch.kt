@@ -24,7 +24,6 @@ import app.revanced.patches.youtube.utils.playercontrols.patch.PlayerControlsPat
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch.Companion.InsetOverlayViewLayout
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch.Companion.TotalTime
-import app.revanced.patches.youtube.utils.sponsorblock.bytecode.fingerprints.EndScreenEngagementPanelsFingerprint
 import app.revanced.patches.youtube.utils.sponsorblock.bytecode.fingerprints.PlayerControllerFingerprint
 import app.revanced.patches.youtube.utils.sponsorblock.bytecode.fingerprints.RectangleFieldInvalidatorFingerprint
 import app.revanced.patches.youtube.utils.videoid.general.patch.VideoIdPatch
@@ -56,7 +55,6 @@ import org.jf.dexlib2.iface.reference.MethodReference
 @Version("0.0.1")
 class SponsorBlockBytecodePatch : BytecodePatch(
     listOf(
-        EndScreenEngagementPanelsFingerprint,
         PlayerControllerFingerprint,
         TotalTimeFingerprint,
         YouTubeControlsOverlayFingerprint
@@ -146,13 +144,6 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         arrayOf("CreateSegmentButtonController", "VotingButtonController").forEach {
             PlayerControlsPatch.initializeSB("$INTEGRATIONS_BUTTON_CLASS_DESCRIPTOR/ui/$it;")
             PlayerControlsPatch.injectVisibility("$INTEGRATIONS_BUTTON_CLASS_DESCRIPTOR/ui/$it;")
-        }
-
-        EndScreenEngagementPanelsFingerprint.result?.mutableMethod?.let {
-            it.addInstruction(
-                it.implementation!!.instructions.size - 1,
-                "invoke-static {}, $INTEGRATIONS_BUTTON_CLASS_DESCRIPTOR/ui/SponsorBlockViewController;->endOfVideoReached()V"
-            )
         }
 
         /**
