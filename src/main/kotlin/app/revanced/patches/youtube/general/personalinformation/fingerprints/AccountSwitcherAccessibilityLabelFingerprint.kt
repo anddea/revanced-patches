@@ -6,6 +6,8 @@ import app.revanced.util.bytecode.isWideLiteralExists
 import org.jf.dexlib2.Opcode
 
 object AccountSwitcherAccessibilityLabelFingerprint : MethodFingerprint(
+    returnType = "V",
+    parameters = listOf("L", "Ljava/lang/Object;"),
     opcodes = listOf(
         Opcode.INVOKE_VIRTUAL,
         Opcode.IGET_OBJECT,

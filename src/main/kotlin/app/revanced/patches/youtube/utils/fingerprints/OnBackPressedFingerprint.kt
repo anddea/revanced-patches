@@ -5,5 +5,5 @@ import org.jf.dexlib2.Opcode
 
 object OnBackPressedFingerprint : MethodFingerprint(
     opcodes = listOf(Opcode.RETURN_VOID),
-    customFingerprint = { methodDef, _ -> methodDef.definingClass.endsWith("WatchWhileActivity;") && methodDef.name == "onBackPressed" }
+    customFingerprint = { methodDef, _ -> methodDef.definingClass.endsWith("/WatchWhileActivity;") && methodDef.name == "onBackPressed" }
 )

@@ -7,5 +7,8 @@ import org.jf.dexlib2.AccessFlags
 object SubtitleTrackFingerprint : MethodFingerprint(
     returnType = "Z",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    strings = listOf("DISABLE_CAPTIONS_OPTION")
+    strings = listOf("DISABLE_CAPTIONS_OPTION"),
+    customFingerprint = { methodDef, _ ->
+        methodDef.definingClass.endsWith("/SubtitleTrack;")
+    }
 )

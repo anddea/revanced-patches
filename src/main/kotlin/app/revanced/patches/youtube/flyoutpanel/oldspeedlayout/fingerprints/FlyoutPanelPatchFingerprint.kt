@@ -7,6 +7,6 @@ import org.jf.dexlib2.AccessFlags
 object FlyoutPanelPatchFingerprint : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PRIVATE or AccessFlags.STATIC,
-    parameters = listOf(),
+    parameters = emptyList(),
     customFingerprint = { methodDef, _ -> methodDef.definingClass.endsWith("/FlyoutPanelPatch;") && methodDef.name == "openOldPlaybackRateBottomSheetFragment" }
 )

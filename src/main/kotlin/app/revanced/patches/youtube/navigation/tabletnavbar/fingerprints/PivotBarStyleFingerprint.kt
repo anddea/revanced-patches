@@ -11,5 +11,5 @@ object PivotBarStyleFingerprint : MethodFingerprint(
         Opcode.MOVE_RESULT,
         Opcode.XOR_INT_2ADDR
     ),
-    customFingerprint = { methodDef, _ -> methodDef.definingClass.endsWith("PivotBar;") }
+    customFingerprint = { methodDef, _ -> methodDef.definingClass.endsWith("/PivotBar;") }
 )

@@ -10,7 +10,7 @@ import org.jf.dexlib2.Opcode
 object SubtitleButtonControllerFingerprint : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    parameters = listOf("L"),
+    parameters = listOf("Lcom/google/android/libraries/youtube/player/subtitles/model/SubtitleTrack;"),
     opcodes = listOf(
         Opcode.IGET_OBJECT,
         Opcode.IF_NEZ,

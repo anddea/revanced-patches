@@ -5,5 +5,9 @@ import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 object ShareLinkFormatterFingerprint : MethodFingerprint(
     returnType = "Ljava/lang/String;",
     parameters = listOf("Ljava/lang/String;", "Ljava/util/Map;"),
-    strings = listOf("uri.getQueryParameters(name)", "uri.queryParameterNames", "newUriBuilder.build().toString()"),
+    strings = listOf(
+        "uri.getQueryParameters(name)",
+        "uri.queryParameterNames",
+        "newUriBuilder.build().toString()"
+    ),
 )

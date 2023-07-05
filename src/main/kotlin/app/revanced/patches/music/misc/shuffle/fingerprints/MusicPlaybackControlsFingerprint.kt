@@ -14,5 +14,5 @@ object MusicPlaybackControlsFingerprint : MethodFingerprint(
         Opcode.INVOKE_VIRTUAL,
         Opcode.RETURN_VOID
     ),
-    customFingerprint = { methodDef, _ -> methodDef.definingClass.endsWith("MusicPlaybackControls;") }
+    customFingerprint = { methodDef, _ -> methodDef.definingClass.endsWith("/MusicPlaybackControls;") }
 )

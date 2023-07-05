@@ -6,8 +6,9 @@ import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 
 object InfoCardsIncognitoFingerprint : MethodFingerprint(
-    returnType = "L",
+    returnType = "Ljava/lang/Boolean;",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = listOf("L", "J"),
     opcodes = listOf(Opcode.IGET_BOOLEAN),
     strings = listOf("vibrator")
 )

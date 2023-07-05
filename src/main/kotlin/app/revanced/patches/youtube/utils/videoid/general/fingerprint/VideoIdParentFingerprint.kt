@@ -4,6 +4,9 @@ import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 
 object VideoIdParentFingerprint : MethodFingerprint(
     returnType = "V",
-    parameters = listOf("L", "L"),
+    parameters = listOf("Ljava/lang/Object;", "Ljava/lang/Exception;"),
     strings = listOf("error retrieving subtitle"),
+    customFingerprint = { methodDef, _ ->
+        methodDef.definingClass.endsWith("/SubtitlesOverlayPresenter;")
+    }
 )

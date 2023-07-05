@@ -5,7 +5,7 @@ import org.jf.dexlib2.Opcode
 
 object ClientFormFactorWalkerFingerprint : MethodFingerprint(
     returnType = "L",
-    parameters = listOf(),
+    parameters = emptyList(),
     opcodes = listOf(
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT_OBJECT,

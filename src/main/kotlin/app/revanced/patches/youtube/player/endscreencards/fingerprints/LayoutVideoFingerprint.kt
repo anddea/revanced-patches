@@ -6,6 +6,7 @@ import app.revanced.util.bytecode.isWideLiteralExists
 import org.jf.dexlib2.Opcode
 
 object LayoutVideoFingerprint : MethodFingerprint(
+    returnType = "Landroid/view/View;",
     opcodes = listOf(
         Opcode.CONST,
         Opcode.CONST_4,

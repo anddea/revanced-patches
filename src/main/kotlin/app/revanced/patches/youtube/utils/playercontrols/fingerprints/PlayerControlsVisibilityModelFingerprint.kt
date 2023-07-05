@@ -5,5 +5,5 @@ import org.jf.dexlib2.Opcode
 
 object PlayerControlsVisibilityModelFingerprint : MethodFingerprint(
     opcodes = listOf(Opcode.IGET_BOOLEAN),
-    strings = listOf("hasNext", "hasPrevious", "Missing required properties:")
+    strings = listOf("Missing required properties:", "hasNext", "hasPrevious")
 )

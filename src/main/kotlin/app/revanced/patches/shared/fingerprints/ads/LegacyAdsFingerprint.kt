@@ -9,7 +9,7 @@ import org.jf.dexlib2.iface.instruction.NarrowLiteralInstruction
 object LegacyAdsFingerprint : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    parameters = listOf(),
+    parameters = emptyList(),
     opcodes = listOf(
         Opcode.CONST_WIDE_16,
         Opcode.IPUT_WIDE,

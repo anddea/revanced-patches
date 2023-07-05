@@ -5,6 +5,6 @@ import app.revanced.util.bytecode.isWide32LiteralExists
 
 object NewLayoutFingerprint : MethodFingerprint(
     returnType = "Z",
-    parameters = listOf(),
+    parameters = emptyList(),
     customFingerprint = { methodDef, _ -> methodDef.isWide32LiteralExists(45399578) }
 )

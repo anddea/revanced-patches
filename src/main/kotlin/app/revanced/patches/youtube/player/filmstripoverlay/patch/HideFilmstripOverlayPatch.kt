@@ -10,6 +10,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
@@ -19,12 +20,13 @@ import app.revanced.patches.youtube.player.filmstripoverlay.fingerprints.FilmStr
 import app.revanced.patches.youtube.player.filmstripoverlay.fingerprints.FilmStripOverlayInteractionFingerprint
 import app.revanced.patches.youtube.player.filmstripoverlay.fingerprints.FilmStripOverlayParentFingerprint
 import app.revanced.patches.youtube.player.filmstripoverlay.fingerprints.FilmStripOverlayPreviewFingerprint
-import app.revanced.patches.youtube.player.filmstripoverlay.fingerprints.YouTubeControlsOverlayWithFixFingerprint
 import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
+import app.revanced.patches.youtube.utils.fingerprints.YouTubeControlsOverlayFingerprint
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.integrations.Constants.PLAYER
 import org.jf.dexlib2.Opcode
+import org.jf.dexlib2.iface.instruction.FiveRegisterInstruction
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
 import org.jf.dexlib2.iface.instruction.WideLiteralInstruction
@@ -45,7 +47,7 @@ import org.jf.dexlib2.iface.reference.MethodReference
 class HideFilmstripOverlayPatch : BytecodePatch(
     listOf(
         FilmStripOverlayParentFingerprint,
-        YouTubeControlsOverlayWithFixFingerprint
+        YouTubeControlsOverlayFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
@@ -66,16 +68,33 @@ class HideFilmstripOverlayPatch : BytecodePatch(
             }
         } ?: return FilmStripOverlayParentFingerprint.toErrorResult()
 
-        YouTubeControlsOverlayWithFixFingerprint.result?.let {
+        YouTubeControlsOverlayFingerprint.result?.let {
             it.mutableMethod.apply {
                 val insertIndex = getIndex("bringChildToFront") + 1
                 val insertRegister = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
 
-                val jumpIndex = getIndex("setOnClickListener") + 3
+                val setOnClickListenerIndex = getIndex("setOnClickListener")
+                val jumpIndex = setOnClickListenerIndex + 3
 
-                val fixIndex = it.scanResult.patternScanResult!!.startIndex + 4
-                val fixRegister = getInstruction<OneRegisterInstruction>(fixIndex).registerA
-                val fixValue = getInstruction<WideLiteralInstruction>(fixIndex).wideLiteral.toInt()
+                val initialIndex = setOnClickListenerIndex - 1
+                val fixRegister = getInstruction<FiveRegisterInstruction>(initialIndex).registerE
+                var fixValue = 12
+                var isFound = false
+
+                for (index in initialIndex downTo insertIndex) {
+                    if (getInstruction(index).opcode != Opcode.CONST_16) continue
+
+                    val register = getInstruction<OneRegisterInstruction>(index).registerA
+
+                    if (register != fixRegister) continue
+
+                    fixValue = getInstruction<WideLiteralInstruction>(index).wideLiteral.toInt()
+                    isFound = true
+                    break
+                }
+
+                if (!isFound)
+                    return PatchResultError("Couldn't find value to prevent player crash")
 
                 addInstructionsWithLabels(
                     insertIndex, """
@@ -86,7 +105,7 @@ class HideFilmstripOverlayPatch : BytecodePatch(
                         """, ExternalLabel("hidden", getInstruction(jumpIndex))
                 )
             }
-        } ?: return YouTubeControlsOverlayWithFixFingerprint.toErrorResult()
+        } ?: return YouTubeControlsOverlayFingerprint.toErrorResult()
 
         /**
          * Add settings

@@ -11,7 +11,6 @@ object MusicAppDeeplinkButtonFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("Z", "Z"),
     customFingerprint = { methodDef, _ ->
-        methodDef.isWideLiteralExists(
-            MusicAppDeeplinkButtonView
-        )
+        methodDef.definingClass.endsWith("MusicAppDeeplinkButtonController;") &&
+                methodDef.isWideLiteralExists(MusicAppDeeplinkButtonView)
     })

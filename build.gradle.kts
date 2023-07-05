@@ -17,6 +17,12 @@ repositories {
             password = githubPassword
         }
     }
+    maven {
+        url = uri("https://repo.sleeping.town")
+        content {
+            includeGroup("com.unascribed")
+        }
+    }
 }
 
 dependencies {
@@ -24,6 +30,8 @@ dependencies {
     implementation("app.revanced:multidexlib2:2.5.3-a3836654")
     // Required for meta
     implementation("com.google.code.gson:gson:2.10.1")
+    // Required for FlexVer-Java
+    implementation("com.unascribed:flexver-java:1.1.0")
 }
 
 tasks {
