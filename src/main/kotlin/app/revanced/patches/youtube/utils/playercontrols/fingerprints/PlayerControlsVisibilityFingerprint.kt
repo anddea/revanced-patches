@@ -7,6 +7,5 @@ import org.jf.dexlib2.AccessFlags
 object PlayerControlsVisibilityFingerprint : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PRIVATE or AccessFlags.FINAL,
-    parameters = listOf("Z", "Z"),
-    customFingerprint = { methodDef, _ -> methodDef.definingClass.endsWith("YouTubeControlsOverlay;") }
+    parameters = listOf("Z", "Z")
 )
