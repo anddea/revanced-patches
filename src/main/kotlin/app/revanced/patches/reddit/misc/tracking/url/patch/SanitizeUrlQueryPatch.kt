@@ -15,8 +15,8 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.reddit.misc.tracking.url.fingerprints.ShareLinkFormatterFingerprint
 import app.revanced.patches.reddit.utils.annotations.RedditCompatibility
-import app.revanced.patches.reddit.utils.settings.bytecode.patch.SettingsPatch
-import app.revanced.patches.reddit.utils.settings.bytecode.patch.SettingsPatch.Companion.updateSettingsStatus
+import app.revanced.patches.reddit.utils.settings.bytecode.patch.SettingsBytecodePatch.Companion.updateSettingsStatus
+import app.revanced.patches.reddit.utils.settings.resource.patch.SettingsPatch
 
 @Patch
 @Name("sanitize-sharing-links")
