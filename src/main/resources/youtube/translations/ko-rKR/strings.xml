@@ -19,7 +19,7 @@
     <string name="revanced_change_homepage_title">메인 페이지 변경하기</string>
     <string name="revanced_comments_title">댓글</string>
     <string name="revanced_copy_video_timestamp_success">타임스탬프가 클립보드에 저장되었습니다.</string>
-    <string name="revanced_custom_filter_strings_summary">구성요소의 이름을 줄로 구분하여 필터링합니다.</string>
+    <string name="revanced_custom_filter_strings_summary">구성요소의 이름을 줄바꿈으로 구분하여 필터링합니다.</string>
     <string name="revanced_custom_filter_strings_title">사용자 정의 필터 편집하기</string>
     <string name="revanced_custom_filter_summary_off">사용자 정의 필터를 비활성화합니다.</string>
     <string name="revanced_custom_filter_summary_on">사용자 정의 필터를 활성화합니다.</string>
@@ -155,7 +155,7 @@
     <string name="revanced_external_downloader_not_installed_warning" formatted="false">%s가 설치되지 않았습니다. 설치해 주세요.</string>
     <string name="revanced_external_downloader_package_name_summary">NewPipe 또는 YTDLnis와 같은 설치된 외부 다운로더 패키지명입니다.</string>
     <string name="revanced_external_downloader_package_name_title">외부 다운로더 패키지명</string>
-    <string name="revanced_external_downloader_settings_summary">외부 다운로더 사용 설정</string>
+    <string name="revanced_external_downloader_settings_summary">외부 다운로더를 설정합니다.</string>
     <string name="revanced_external_downloader_settings_title">외부 다운로더 설정</string>
     <string name="revanced_feed_flyout_panel_title">피드 구성요소 패널</string>
     <string name="revanced_flyout_menu">메뉴 구성요소</string>
@@ -243,9 +243,9 @@
     <string name="revanced_hide_channel_watermark_summary_off">동영상 하단 워터마크가 노출됩니다.</string>
     <string name="revanced_hide_channel_watermark_summary_on">동영상 하단 워터마크가 숨겨집니다.</string>
     <string name="revanced_hide_channel_watermark_title">동영상 하단 워터마크 숨기기</string>
-    <string name="revanced_hide_chapters_summary_off">챕터가 노출됩니다.</string>
-    <string name="revanced_hide_chapters_summary_on">챕터가 숨겨집니다.</string>
-    <string name="revanced_hide_chapters_title">챕터 숨기기</string>
+    <string name="revanced_hide_chapters_summary_off">챕터 섹션이 노출됩니다.</string>
+    <string name="revanced_hide_chapters_summary_on">챕터 섹션이 숨겨집니다.</string>
+    <string name="revanced_hide_chapters_title">챕터 섹션 숨기기</string>
     <string name="revanced_hide_collapse_button_summary_off">플레이어 접기 버튼이 노출됩니다.</string>
     <string name="revanced_hide_collapse_button_summary_on">플레이어 접기 버튼이 숨겨집니다.</string>
     <string name="revanced_hide_collapse_button_title">플레이어 접기 버튼 숨기기</string>
@@ -352,9 +352,9 @@
     <string name="revanced_hide_official_header_summary_off">검색 결과에서 공식 헤더가 노출됩니다.</string>
     <string name="revanced_hide_official_header_summary_on">검색 결과에서 공식 헤더가 숨겨집니다.</string>
     <string name="revanced_hide_official_header_title">공식 헤더 숨기기</string>
-    <string name="revanced_hide_paid_promotion_banner_summary_off">유료 광고 배너가 노출됩니다.</string>
-    <string name="revanced_hide_paid_promotion_banner_summary_on">유료 광고 배너가 숨겨집니다.</string>
-    <string name="revanced_hide_paid_promotion_banner_title">유료 광고 배너 숨기기</string>
+    <string name="revanced_hide_paid_promotion_banner_summary_off">유료 광고 포함 라벨이 노출됩니다.</string>
+    <string name="revanced_hide_paid_promotion_banner_summary_on">유료 광고 포함 라벨이 숨겨집니다.</string>
+    <string name="revanced_hide_paid_promotion_banner_title">유료 광고 포함 라벨 숨기기</string>
     <string name="revanced_hide_place_section_summary_off">동영상 속 장소 섹션이 노출됩니다.</string>
     <string name="revanced_hide_place_section_summary_on">동영상 속 장소 섹션이 숨겨집니다.</string>
     <string name="revanced_hide_place_section_title">동영상 속 장소 섹션 숨기기</string>
@@ -509,21 +509,21 @@ YouTube 18.24.37 버전 이상에서만 적용 가능합니다."</string>
     <string name="revanced_open_library_startup_title">앱 시작 시 보관함 열기</string>
     <string name="revanced_others">그 외</string>
     <string name="revanced_overlay_button">오버레이 버튼</string>
-    <string name="revanced_overlay_button_always_repeat_summary">"- 고정 반복 상태로 전환하려면 누르세요.
-- 길게 누르면 고정 반복 상태가 중지됩니다."</string>
-    <string name="revanced_overlay_button_always_repeat_title">고정 반복 버튼 표시하기</string>
-    <string name="revanced_overlay_button_copy_video_url_summary">"동영상 URL을 복사하려면 누르세요.
-길게 누르면 타임스탬프를 표기한 동영상 URL이 복사됩니다."</string>
-    <string name="revanced_overlay_button_copy_video_url_title">동영상 URL 복사 버튼 표시하기</string>
-    <string name="revanced_overlay_button_copy_video_url_timestamp_summary">"타임스탬프를 표기한 동영상 URL을 복사하려면 누르세요.
-길게 누르면 동영상 타임스탬프가 복사됩니다."</string>
-    <string name="revanced_overlay_button_copy_video_url_timestamp_title">타임스탬프 URL 복사 버튼 표시하기</string>
-    <string name="revanced_overlay_button_external_downloader_summary">외부 다운로더를 시작하려면 누르세요.</string>
+    <string name="revanced_overlay_button_always_repeat_summary">"자동 반복 상태로 전환하기 위한 버튼입니다.
+길게 누르면 자동 반복 상태가 중지됩니다."</string>
+    <string name="revanced_overlay_button_always_repeat_title">자동 반복 버튼 표시하기</string>
+    <string name="revanced_overlay_button_copy_video_url_summary">"링크를 복사하기 위한 버튼입니다.
+길게 누르면 타임스탬프를 표기한 링크가 복사됩니다."</string>
+    <string name="revanced_overlay_button_copy_video_url_title">링크 복사 버튼 표시하기</string>
+    <string name="revanced_overlay_button_copy_video_url_timestamp_summary">"타임스탬프를 표기한 링크를 복사하는 버튼입니다.
+길게 누르면 타임스탬프가 복사됩니다."</string>
+    <string name="revanced_overlay_button_copy_video_url_timestamp_title">타임스탬프를 표기한 링크 복사 버튼 표시하기</string>
+    <string name="revanced_overlay_button_external_downloader_summary">외부 다운로더를 실행하기 위한 버튼입니다.</string>
     <string name="revanced_overlay_button_external_downloader_title">외부 다운로드 버튼 표시하기</string>
     <string name="revanced_overlay_button_speed_dialog_reset">동영상 재생 속도 재설정 (1.0배속)</string>
-    <string name="revanced_overlay_button_speed_dialog_summary">"동영상 재생 속도 대화 상자를 열려면 누르세요.
-길게 누르면 동영상 재생 속도가 1.0배속으로 설정됩니다."</string>
-    <string name="revanced_overlay_button_speed_dialog_title">동영상 재생 속도 대화 상자 버튼 표시하기</string>
+    <string name="revanced_overlay_button_speed_dialog_summary">"동영상 재생 속도를 설정하기 위한 버튼입니다.
+길게 누르면 동영상 재생 속도가 1.0배속으로 재설정됩니다."</string>
+    <string name="revanced_overlay_button_speed_dialog_title">동영상 재생 속도 버튼 표시하기</string>
     <string name="revanced_override_premium_header_summary_off">현재 헤더: 기본 헤더</string>
     <string name="revanced_override_premium_header_summary_on">현재 헤더: 프리미엄 헤더</string>
     <string name="revanced_override_premium_header_title">프리미엄 헤더로 변경하기</string>
@@ -598,7 +598,7 @@ YouTube 18.24.37 버전 이상에서만 적용 가능합니다."</string>
 - 영화 조명 모드가 작동하지 않을 수 있습니다.
 - 오프라인 저장이 작동하지 않을 수 있습니다.
 - 재생바 썸네일이 숨겨집니다."</string>
-    <string name="revanced_spoof_player_parameter_type_title">플레이어 매개변수 설정</string>
+    <string name="revanced_spoof_player_parameter_type_title">변경할 플레이어 매개변수 설정</string>
     <string name="revanced_spoof_player_parameter_summary">플레이어 매개변수를 변경하여 재생 문제를 방지합니다.</string>
     <string name="revanced_spoof_player_parameter_title">플레이어 매개변수 변경하기</string>
     <string name="revanced_swipe_controls">스와이프 제스처</string>
@@ -615,7 +615,7 @@ YouTube 18.24.37 버전 이상에서만 적용 가능합니다."</string>
     <string name="revanced_switching_create_notification_title">만들기 버튼과 알림 버튼 위치 교환하기</string>
     <string name="revanced_tool_used">사용된 도구</string>
     <string name="revanced_video">동영상</string>
-    <string name="pref_app_language_dialog_message">&lt;b&gt;%1$s&lt;/b&gt;&lt;br&gt;&lt;br&gt;이렇게 하면 버튼, 텍스트 및 대화 상자를 포함한 YouTube에서 사용되는 언어가 변경되지만 ReVanced Extended 설정의 언어는 변경되지 않습니다.</string>
+    <string name="pref_app_language_dialog_message">&lt;b&gt;%1$s&lt;/b&gt;&lt;br&gt;&lt;br&gt;이렇게 하면 버튼, 텍스트 및 대화 상자를 포함한 YouTube에서 사용되는 언어는 변경되지만 ReVanced Extended 설정의 언어는 변경되지 않습니다.</string>
     <string name="pref_app_language_dialog_title">앱 언어를 변경하시겠습니까?</string>
     <string name="pref_app_language_heading_all">모든 언어</string>
     <string name="pref_app_language_heading_current">현재 언어</string>
