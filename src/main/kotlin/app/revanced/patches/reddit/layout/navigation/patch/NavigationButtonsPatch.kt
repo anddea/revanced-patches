@@ -5,25 +5,20 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
-import app.revanced.patcher.patch.annotations.DependsOn
-import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.reddit.layout.navigation.fingerprints.BottomNavScreenFingerprint
 import app.revanced.patches.reddit.utils.annotations.RedditCompatibility
-import app.revanced.patches.reddit.utils.settings.bytecode.patch.SettingsPatch
-import app.revanced.patches.reddit.utils.settings.bytecode.patch.SettingsPatch.Companion.updateSettingsStatus
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 
-@Patch
 @Name("hide-navigation-buttons")
 @Description("Hide navigation buttons.")
-@DependsOn([SettingsPatch::class])
 @RedditCompatibility
 @Version("0.0.1")
 class NavigationButtonsPatch : BytecodePatch(
@@ -53,14 +48,28 @@ class NavigationButtonsPatch : BytecodePatch(
             }
         } ?: return BottomNavScreenFingerprint.toErrorResult()
 
-        updateSettingsStatus("NavigationButtons")
-
         return PatchResultSuccess()
     }
 
-    private companion object {
-        private const val INTEGRATIONS_METHOD_DESCRIPTOR =
+    companion object {
+        const val INTEGRATIONS_METHOD_DESCRIPTOR =
             "Lapp/revanced/reddit/patches/NavigationButtonsPatch;" +
                     "->hideNavigationButtons(Ljava/util/List;)Ljava/util/List;"
+
+        internal fun BytecodeContext.setValue(patch: String) {
+            this.classes.forEach { classDef ->
+                classDef.methods.forEach { method ->
+                    if (classDef.type == "Lapp/revanced/reddit/settingsmenu/SettingsStatus;" && method.name == patch) {
+                        val patchStatusMethod =
+                            this.proxy(classDef).mutableClass.methods.first { it.name == patch }
+
+                        patchStatusMethod.addInstruction(
+                            2,
+                            "return-void"
+                        )
+                    }
+                }
+            }
+        }
     }
 }
