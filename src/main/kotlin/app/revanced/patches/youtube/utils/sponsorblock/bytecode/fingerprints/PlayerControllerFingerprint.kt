@@ -8,6 +8,8 @@ object PlayerControllerFingerprint : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
     parameters = listOf("Ljava/lang/Object;"),
-    customFingerprint = { methodDef, _ -> methodDef.definingClass == "Lapp/revanced/integrations/sponsorblock/SegmentPlaybackController;"
-            && methodDef.name == "setSponsorBarRect" }
+    customFingerprint = { methodDef, _ ->
+        methodDef.definingClass == "Lapp/revanced/integrations/sponsorblock/SegmentPlaybackController;"
+                && methodDef.name == "setSponsorBarRect"
+    }
 )
