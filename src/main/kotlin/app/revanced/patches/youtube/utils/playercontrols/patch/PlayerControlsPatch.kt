@@ -89,7 +89,8 @@ class PlayerControlsPatch : BytecodePatch(
                         context,
                         classDef
                     )
-                }.result?.mutableMethod ?: return PlayerControlsVisibilityFingerprint.toErrorResult()
+                }.result?.mutableMethod
+                    ?: return PlayerControlsVisibilityFingerprint.toErrorResult()
         } ?: return YouTubeControlsOverlayFingerprint.toErrorResult()
 
         controlsLayoutInflateResult =
@@ -102,7 +103,8 @@ class PlayerControlsPatch : BytecodePatch(
 
         FullscreenEngagementSpeedEduVisibleParentFingerprint.result?.let { parentResult ->
             parentResult.mutableMethod.apply {
-                fullscreenEngagementViewVisibleReference = findReference(", isFullscreenEngagementViewVisible=")
+                fullscreenEngagementViewVisibleReference =
+                    findReference(", isFullscreenEngagementViewVisible=")
                 speedEDUVisibleReference = findReference(", isSpeedmasterEDUVisible=")
             }
 
@@ -112,7 +114,8 @@ class PlayerControlsPatch : BytecodePatch(
                         context,
                         parentResult.classDef
                     )
-                }.result?.mutableMethod?: return FullscreenEngagementSpeedEduVisibleFingerprint.toErrorResult()
+                }.result?.mutableMethod
+                    ?: return FullscreenEngagementSpeedEduVisibleFingerprint.toErrorResult()
         } ?: return FullscreenEngagementSpeedEduVisibleParentFingerprint.toErrorResult()
 
         return PatchResultSuccess()
@@ -145,7 +148,7 @@ class PlayerControlsPatch : BytecodePatch(
                         index,
                         "invoke-static {v$register}, $descriptor->changeVisibilityNegatedImmediate(Z)V"
                     )
-                    break;
+                    break
                 }
             }
         }
@@ -175,15 +178,27 @@ class PlayerControlsPatch : BytecodePatch(
         }
 
         fun injectVisibility(descriptor: String) {
-            playerControlsVisibilityMutableMethod.injectVisibilityCall(descriptor, "changeVisibility")
+            playerControlsVisibilityMutableMethod.injectVisibilityCall(
+                descriptor,
+                "changeVisibility"
+            )
             seekEDUVisibleMutableMethod.injectVisibilityCall(
                 descriptor,
                 "changeVisibilityNegatedImmediate"
             )
-            userScrubbingMutableMethod.injectVisibilityCall(descriptor, "changeVisibilityNegatedImmediate")
+            userScrubbingMutableMethod.injectVisibilityCall(
+                descriptor,
+                "changeVisibilityNegatedImmediate"
+            )
 
-            injectFullscreenEngagementSpeedEduViewVisibilityCall(fullscreenEngagementViewVisibleReference, descriptor)
-            injectFullscreenEngagementSpeedEduViewVisibilityCall(speedEDUVisibleReference, descriptor)
+            injectFullscreenEngagementSpeedEduViewVisibilityCall(
+                fullscreenEngagementViewVisibleReference,
+                descriptor
+            )
+            injectFullscreenEngagementSpeedEduViewVisibilityCall(
+                speedEDUVisibleReference,
+                descriptor
+            )
         }
 
         fun initializeSB(descriptor: String) {

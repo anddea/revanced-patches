@@ -56,6 +56,7 @@ import org.jf.dexlib2.iface.reference.MethodReference
 class SponsorBlockBytecodePatch : BytecodePatch(
     listOf(
         PlayerControllerFingerprint,
+        SeekbarFingerprint,
         TotalTimeFingerprint,
         YouTubeControlsOverlayFingerprint
     )
@@ -80,10 +81,16 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         /**
          * Seekbar drawing
          */
-        insertMethod = SeekbarFingerprint.result!!.let {
-            SeekbarOnDrawFingerprint.apply { resolve(context, it.mutableClass) }
-        }.result?.mutableMethod ?: return SeekbarFingerprint.toErrorResult()
-        insertInstructions = insertMethod.implementation!!.instructions
+        SeekbarFingerprint.result?.mutableClass?.let { mutableClass ->
+            insertMethod = SeekbarOnDrawFingerprint.also {
+                it.resolve(
+                    context,
+                    mutableClass
+                )
+            }.result?.mutableMethod
+                ?: return SeekbarOnDrawFingerprint.toErrorResult()
+            insertInstructions = insertMethod.implementation!!.instructions
+        } ?: return SeekbarFingerprint.toErrorResult()
 
 
         /**
@@ -115,6 +122,7 @@ class SponsorBlockBytecodePatch : BytecodePatch(
             break
         }
 
+
         /**
          * Draw segment
          */
@@ -138,6 +146,7 @@ class SponsorBlockBytecodePatch : BytecodePatch(
             break
         }
 
+
         /**
          * Voting & Shield button
          */
@@ -145,6 +154,7 @@ class SponsorBlockBytecodePatch : BytecodePatch(
             PlayerControlsPatch.initializeSB("$INTEGRATIONS_BUTTON_CLASS_DESCRIPTOR/ui/$it;")
             PlayerControlsPatch.injectVisibility("$INTEGRATIONS_BUTTON_CLASS_DESCRIPTOR/ui/$it;")
         }
+
 
         /**
          * Append the new time to the player layout
@@ -163,6 +173,7 @@ class SponsorBlockBytecodePatch : BytecodePatch(
             }
         } ?: return TotalTimeFingerprint.toErrorResult()
 
+
         /**
          * Initialize the SponsorBlock view
          */
@@ -178,34 +189,42 @@ class SponsorBlockBytecodePatch : BytecodePatch(
             }
         } ?: return YouTubeControlsOverlayFingerprint.toErrorResult()
 
+
         /**
          * Replace strings
          */
-        RectangleFieldInvalidatorFingerprint.resolve(
-            context,
-            SeekbarOnDrawFingerprint.result!!.classDef
-        )
-        val rectangleFieldInvalidatorInstructions =
-            RectangleFieldInvalidatorFingerprint.result!!.method.implementation!!.instructions
-        val rectangleFieldName =
-            ((rectangleFieldInvalidatorInstructions.elementAt(rectangleFieldInvalidatorInstructions.count() - 3) as ReferenceInstruction).reference as FieldReference).name
+        SeekbarFingerprint.result?.mutableClass?.let { mutableClass ->
+            RectangleFieldInvalidatorFingerprint.also {
+                it.resolve(
+                    context,
+                    mutableClass
+                )
+            }.result?.let {
+                it.mutableMethod.apply {
+                    val rectangleReference =
+                        getInstruction<ReferenceInstruction>(implementation!!.instructions.count() - 3).reference
+                    val rectangleFieldName = (rectangleReference as FieldReference).name
 
+                    PlayerControllerFingerprint.result?.let { result ->
+                        result.mutableMethod.apply {
+                            for ((index, instruction) in implementation!!.instructions.withIndex()) {
+                                if (instruction.opcode != Opcode.CONST_STRING) continue
 
-        PlayerControllerFingerprint.result?.let {
-            it.mutableMethod.apply {
-                for ((index, instruction) in implementation!!.instructions.withIndex()) {
-                    if (instruction.opcode != Opcode.CONST_STRING) continue
+                                val register =
+                                    getInstruction<OneRegisterInstruction>(index).registerA
 
-                    val register = getInstruction<OneRegisterInstruction>(index).registerA
-
-                    replaceInstruction(
-                        index,
-                        "const-string v$register, \"$rectangleFieldName\""
-                    )
-                    break
+                                replaceInstruction(
+                                    index,
+                                    "const-string v$register, \"$rectangleFieldName\""
+                                )
+                                break
+                            }
+                        }
+                    } ?: return PlayerControllerFingerprint.toErrorResult()
                 }
-            }
-        } ?: return PlayerControllerFingerprint.toErrorResult()
+            } ?: return RectangleFieldInvalidatorFingerprint.toErrorResult()
+        } ?: return SeekbarFingerprint.toErrorResult()
+
 
         /**
          * Inject VideoIdPatch
