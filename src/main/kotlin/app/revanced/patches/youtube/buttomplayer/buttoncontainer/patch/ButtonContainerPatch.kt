@@ -14,6 +14,7 @@ import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.litho.patch.LithoFilterPatch
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.integrations.Constants.BOTTOM_PLAYER
+import app.revanced.util.integrations.Constants.PATCHES_PATH
 
 @Patch
 @Name("hide-button-container")
@@ -29,6 +30,7 @@ import app.revanced.util.integrations.Constants.BOTTOM_PLAYER
 class ButtonContainerPatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
 
+        LithoFilterPatch.addFilter("$PATCHES_PATH/ads/ButtonsFilter;")
         objectHook("$BOTTOM_PLAYER->hideActionButton")
 
         /**
