@@ -39,6 +39,6 @@ object TimeCounterFingerprint : MethodFingerprint(
     customFingerprint = { _, classDef ->
         // On older devices this fingerprint resolves very slowly.
         // Speed this up by checking for the number of methods.
-        classDef.methods.count() == 14
+        classDef.methods.count() == 14 || classDef.methods.count() == 15
     }
 )

@@ -8,7 +8,8 @@ object FullscreenEngagementPanelFingerprint : MethodFingerprint(
     returnType = "L",
     parameters = listOf("L"),
     customFingerprint = { methodDef, _ ->
-        methodDef.definingClass.endsWith("/FullscreenEngagementPanelOverlay;") &&
-                methodDef.isWideLiteralExists(FullScreenEngagementPanel)
+        methodDef.isWideLiteralExists(
+            FullScreenEngagementPanel
+        )
     }
 )
