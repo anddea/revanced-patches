@@ -70,6 +70,9 @@
     <string name="revanced_disable_quic_protocol_title">Wyłącz protokół QUIC</string>
     <string name="revanced_double_back_timeout_summary">Liczba sekund na stuknięcie przycisku do powrotu 2 razy, by wyjść z aplikacji</string>
     <string name="revanced_double_back_timeout_title">Limit czasu na stuknięcie przycisku do powrotu</string>
+    <string name="revanced_enable_compact_controls_overlay_summary_off">Nie</string>
+    <string name="revanced_enable_compact_controls_overlay_summary_on">Tak</string>
+    <string name="revanced_enable_compact_controls_overlay_title">Przyciski w odtwarzaczu bliżej środka</string>
     <string name="revanced_enable_custom_seekbar_color_summary_off">Niewidoczny</string>
     <string name="revanced_enable_custom_seekbar_color_summary_on">Widoczny</string>
     <string name="revanced_enable_custom_seekbar_color_title">Niestandardowy kolor paska wideo</string>
@@ -269,10 +272,13 @@
     <string name="revanced_hide_emoji_picker_title">Sugestie emotikon</string>
     <string name="revanced_hide_end_screen_cards_summary_off">Widoczne</string>
     <string name="revanced_hide_end_screen_cards_summary_on">Ukryte</string>
-    <string name="revanced_hide_end_screen_cards_title">Karty na końcach wideo</string>
+    <string name="revanced_hide_end_screen_cards_title">Karty końcowe wideo</string>
     <string name="revanced_hide_end_screen_overlay_summary_off">Widoczne</string>
     <string name="revanced_hide_end_screen_overlay_summary_on">Ukryte</string>
     <string name="revanced_hide_end_screen_overlay_title">Rekomendacje YouTube na końcach wideo</string>
+    <string name="revanced_hide_expandable_chip_summary_off">Widoczne</string>
+    <string name="revanced_hide_expandable_chip_summary_on">Ukryte</string>
+    <string name="revanced_hide_expandable_chip_title">Produkty i fragmenty pod wideo</string>
     <string name="revanced_hide_feed_flyout_panel_filter_strings_title">Edytuj menu ze strony głównej</string>
     <string name="revanced_hide_feed_flyout_panel_summary_off">Widoczne</string>
     <string name="revanced_hide_feed_flyout_panel_summary_on">Ukryte, zgodnie z filtrem</string>
@@ -441,16 +447,21 @@ Działa tylko na wersji YouTube v18.24.37 i wyższych"</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_off">Widoczny</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_on">Ukryty</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_title">Przycisk do strony subskrypcji</string>
+    <string name="revanced_hide_shorts_player_toolbar_summary_off">Widoczny</string>
+    <string name="revanced_hide_shorts_player_toolbar_summary_on">Ukryty</string>
+    <string name="revanced_hide_shorts_player_toolbar_title">Pasek z narzędziami</string>
     <string name="revanced_hide_shorts_shelf_summary_off">Widoczne</string>
     <string name="revanced_hide_shorts_shelf_summary_on">Ukryte</string>
     <string name="revanced_hide_shorts_shelf_title">Półki z shortami</string>
     <string name="revanced_hide_snack_bar_summary_off">Widoczne</string>
     <string name="revanced_hide_snack_bar_summary_on">Ukryte</string>
     <string name="revanced_hide_snack_bar_title">Komunikaty</string>
-    <string name="revanced_hide_speed_overlay_title">Ukryj nakładkę prędkości</string>
+    <string name="revanced_hide_speed_overlay_summary_off">Widoczna</string>
+    <string name="revanced_hide_speed_overlay_summary_on">Ukryta</string>
+    <string name="revanced_hide_speed_overlay_title">Informacja o prędkości w odtwarzaczu</string>
     <string name="revanced_hide_subscriptions_button_summary_off">Widoczny</string>
     <string name="revanced_hide_subscriptions_button_summary_on">Ukryty</string>
-    <string name="revanced_hide_subscriptions_button_title">Przycisk od subskrybowania</string>
+    <string name="revanced_hide_subscriptions_button_title">Przycisk do strony subskrypcji</string>
     <string name="revanced_hide_suggested_actions_summary_off">Widoczne</string>
     <string name="revanced_hide_suggested_actions_summary_on">Ukryte</string>
     <string name="revanced_hide_suggested_actions_title">Sugerowane działania</string>
@@ -498,8 +509,11 @@ Działa tylko na wersji YouTube v18.24.37 i wyższych"</string>
     <string name="revanced_open_library_startup_title">Otwieraj bibliotekę przy starcie aplikacji</string>
     <string name="revanced_others">Inne</string>
     <string name="revanced_overlay_button">Przyciski w odtwarzaczu</string>
-    <string name="revanced_overlay_button_copy_video_url_summary">"Stuknij, by skopiować URL video
-Stuknij i przytrzymaj, by skopiować URL video z czasem"</string>
+    <string name="revanced_overlay_button_always_repeat_summary">"Stuknij, by zmienić stan pętli
+Stuknij i przytrzymaj, by zmienić stan pętli z pauzom"</string>
+    <string name="revanced_overlay_button_always_repeat_title">Przycisk od pętli</string>
+    <string name="revanced_overlay_button_copy_video_url_summary">"Stuknij, by skopiować URL wideo
+Stuknij i przytrzymaj, by skopiować URL wideo z czasem"</string>
     <string name="revanced_overlay_button_copy_video_url_title">Przycisk od kopiowania URL wideo</string>
     <string name="revanced_overlay_button_copy_video_url_timestamp_summary">"Stuknij, by skopiować URL wideo z czasem
 Stuknij i przytrzymaj, by skopiować czas wideo"</string>
@@ -571,11 +585,28 @@ Jeśli później opcja ta zostanie wyłączona, stare UI może pozostać do czas
     <string name="revanced_spoof_app_version_target_entry_title">Oszukana wersja aplikacji</string>
     <string name="revanced_spoof_app_version_target_summary">Wpisz wersję, którą chcesz oszukiwać</string>
     <string name="revanced_spoof_app_version_target_title">Zmień oszukaną wersję aplikacji</string>
+    <string name="revanced_spoof_player_parameter_notice">Oszukaj parametry, by rozwiązać problemy z odtwarzaniem</string>
     <string name="revanced_spoof_player_parameter_reload">Proszę wczytać wideo ponownie</string>
+    <string name="revanced_spoof_player_parameter_type_summary_off">"Parametry Shortów
+
+Znane problemy
+- Pobieranie wideo może nie działać
+- Karty końcowe wideo są ukryte"</string>
+    <string name="revanced_spoof_player_parameter_type_summary_on">"Parametry trybu incognito
+
+Znane problemy
+- Oświetlnie kinowe może nie działać
+- Pobieranie wideo może nie działać
+- Podgląd wideo jest wyłączony"</string>
+    <string name="revanced_spoof_player_parameter_type_title">Oszukane parametry</string>
+    <string name="revanced_spoof_player_parameter_summary">Oszukuje parametry, by uniknąć problemów z odtwarzaniem wideo</string>
+    <string name="revanced_spoof_player_parameter_title">Oszukaj parametry</string>
     <string name="revanced_swipe_controls">Sterowanie przesuwaniem</string>
+    <string name="revanced_swipe_magnitude_threshold_summary">Minimalna długość przesunięcia</string>
     <string name="revanced_swipe_magnitude_threshold_title">Minimalna długość przesunięcia</string>
     <string name="revanced_swipe_overlay_background_alpha_summary">Widoczność tła nakładki przesuwania</string>
     <string name="revanced_swipe_overlay_background_alpha_title">Widoczność tła przesuwania</string>
+    <string name="revanced_swipe_overlay_text_size_summary">Rozmiar tekstu nakładki przesuwania</string>
     <string name="revanced_swipe_overlay_text_size_title">Rozmiar tekstu nakładki przesuwania</string>
     <string name="revanced_swipe_overlay_timeout_summary">Ilość milisekund, przez które nakładka jest widoczna</string>
     <string name="revanced_swipe_overlay_timeout_title">Limit czasu widoczności nakładki</string>
@@ -629,6 +660,7 @@ Jeśli później opcja ta zostanie wyłączona, stare UI może pozostać do czas
     <string name="sb_general_min_duration_sum">Segmenty krótsze niż ta wartość (w sekundach) nie będą pokazywane ani pomijane</string>
     <string name="sb_general_uuid">Twój prywatny identyfikator użytkownika</string>
     <string name="sb_general_uuid_sum">Nie powinno się go dzielić, działa jak hasło. Jeżeli ktoś go posiada, może korzystać z SponsorBlock jako ty np. może wysyłać segmenty</string>
+    <string name="sb_general_uuid_invalid">Pole z unikalnym identyfikatorem użytkownika nie może być puste</string>
     <string name="sb_general_api_url">Zmień Adres API</string>
     <string name="sb_general_api_url_sum">Adres SponsorBlock jest używany do wykonywania połączeń z serwerem. Nie zmieniaj tego, chyba że wiesz, co robisz</string>
     <string name="sb_api_url_reset">Adres API został zresetowany</string>
