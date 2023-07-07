@@ -24,6 +24,7 @@ class SpoofAppVersionPatch : AbstractVersionSpoofPatch(
     "$MUSIC_MISC_PATH/SpoofAppVersionPatch;->getVersionOverride(Ljava/lang/String;)Ljava/lang/String;"
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
+        super.execute(context)
 
         SettingsPatch.addMusicPreference(
             CategoryType.MISC,
