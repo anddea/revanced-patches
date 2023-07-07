@@ -167,9 +167,9 @@ The official ReVanced Extended Patches.
 |:--------:|:--------------:|:-----------------:|
 | `disable-screenshot-popup` | Disables the popup that shows up when taking a screenshot. | all |
 | `hide-ads` | Removes ads from the Reddit. | all |
-| `hide-chat-button` | Hide chat button at navigation bar. | all |
-| `hide-create-button` | Hide create button at navigation bar. | all |
-| `hide-discover-button` | Hide discover button at navigation bar. | all |
+| `hide-chat-button` | Hide chat button at navigation bar. | 2023.25.1 |
+| `hide-create-button` | Hide create button at navigation bar. | 2023.25.1 |
+| `hide-discover-button` | Hide discover button at navigation bar. | 2023.25.1 |
 | `open-links-directly` | Skips over redirection URLs to external links. | all |
 | `open-links-externally` | Open links outside of the app directly in your browser. | all |
 | `premium-icon-reddit` | Unlocks premium Reddit app icons. | all |
