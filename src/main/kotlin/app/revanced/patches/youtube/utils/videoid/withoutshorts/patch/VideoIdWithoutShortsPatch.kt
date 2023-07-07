@@ -11,7 +11,7 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.youtube.utils.videoid.withoutshorts.fingerprint.VideoIdWithoutShortsParentFingerprint
+import app.revanced.patches.youtube.utils.videoid.withoutshorts.fingerprint.VideoIdWithoutShortsFingerprint
 import app.revanced.util.integrations.Constants.VIDEO_PATH
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
@@ -19,15 +19,12 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 @Name("video-id-without-shorts-hook")
 @Version("0.0.1")
 class VideoIdWithoutShortsPatch : BytecodePatch(
-    listOf(VideoIdWithoutShortsParentFingerprint)
+    listOf(VideoIdWithoutShortsFingerprint)
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
 
-        VideoIdWithoutShortsParentFingerprint.result?.let {
-            insertMethod = context
-                .toMethodWalker(it.method)
-                .nextMethod(it.scanResult.patternScanResult!!.startIndex + 3, true)
-                .getMethod() as MutableMethod
+        VideoIdWithoutShortsFingerprint.result?.let {
+            insertMethod = it.mutableMethod
 
             insertIndex = insertMethod.implementation!!.instructions.indexOfFirst { instruction ->
                 instruction.opcode == Opcode.INVOKE_INTERFACE
@@ -35,7 +32,7 @@ class VideoIdWithoutShortsPatch : BytecodePatch(
 
             insertRegister =
                 insertMethod.getInstruction<OneRegisterInstruction>(insertIndex + 1).registerA
-        } ?: return VideoIdWithoutShortsParentFingerprint.toErrorResult()
+        } ?: return VideoIdWithoutShortsFingerprint.toErrorResult()
 
         injectCall("$VIDEO_PATH/VideoInformation;->setVideoId(Ljava/lang/String;)V")
 
