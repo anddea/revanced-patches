@@ -30,7 +30,7 @@ class CreateButtonPatch : BytecodePatch() {
 
         updateSettingsStatus("CreateButtons")
 
-        if (SettingsPatch.AddRedditSettings == "true")
+        if (SettingsPatch.RedditSettings == true)
             context.setValue("CreateButtons")
 
         return PatchResultSuccess()

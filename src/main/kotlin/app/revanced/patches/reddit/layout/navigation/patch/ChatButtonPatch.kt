@@ -30,7 +30,7 @@ class ChatButtonPatch : BytecodePatch() {
 
         updateSettingsStatus("ChatButtons")
 
-        if (SettingsPatch.AddRedditSettings == "true")
+        if (SettingsPatch.RedditSettings == true)
             context.setValue("ChatButtons")
 
         return PatchResultSuccess()

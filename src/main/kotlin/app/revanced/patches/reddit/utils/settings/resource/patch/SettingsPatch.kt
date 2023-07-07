@@ -39,7 +39,7 @@ class SettingsPatch : ResourcePatch {
          * It is presumed to be an APKTOOL issue, but it cannot be fixed right now
          * So it has been changed so that settings can be added only through options.json
          */
-        if (!AddRedditSettings.equals("true"))
+        if (RedditSettings != true)
             return PatchResultSuccess()
 
 
@@ -110,10 +110,10 @@ class SettingsPatch : ResourcePatch {
     }
 
     companion object : OptionsContainer() {
-        internal var AddRedditSettings: String? by option(
-            PatchOption.StringOption(
-                key = "AddRedditSettings",
-                default = "false",
+        internal var RedditSettings: Boolean? by option(
+            PatchOption.BooleanOption(
+                key = "RedditSettings",
+                default = false,
                 title = "Add settings to Reddit",
                 description = "Defaults to false to avoid exceptions in ReVanced Manager"
             )

@@ -30,7 +30,7 @@ class DiscoverButtonPatch : BytecodePatch() {
 
         updateSettingsStatus("DiscoverButtons")
 
-        if (SettingsPatch.AddRedditSettings == "true")
+        if (SettingsPatch.RedditSettings == true)
             context.setValue("DiscoverButtons")
 
         return PatchResultSuccess()
