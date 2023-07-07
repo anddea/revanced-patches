@@ -89,9 +89,9 @@
     <string name="revanced_enable_new_splash_animation_summary_on">Ảnh động khởi chạy mới đã bật</string>
     <string name="revanced_enable_new_splash_animation_title">Ảnh động khởi chạy mới</string>
     <string name="revanced_enable_new_splash_animation_warning">Chỉ khả dụng trên Android 12 trở lên</string>
-    <string name="revanced_enable_new_thumbnail_preview_summary_off">Bản xem trước hình thu nhỏ mới đã tắt</string>
-    <string name="revanced_enable_new_thumbnail_preview_summary_on">Bản xem trước hình thu nhỏ mới đã bật</string>
-    <string name="revanced_enable_new_thumbnail_preview_title">Xem trước hình thu nhỏ mới</string>
+    <string name="revanced_enable_new_thumbnail_preview_summary_off">Xem trước khung hình thu nhỏ mới đã tắt</string>
+    <string name="revanced_enable_new_thumbnail_preview_summary_on">Đang xem trước khung hình thu nhỏ mới khi tua video qua thanh tiến trình</string>
+    <string name="revanced_enable_new_thumbnail_preview_title">Xem trước khung hình thu nhỏ mới</string>
     <string name="revanced_enable_opus_codec_summary">Áp dụng codec âm thanh Opus thay vì MP4A</string>
     <string name="revanced_enable_opus_codec_title">Codec Opus</string>
     <string name="revanced_enable_old_quality_layout_summary_off">Đang sử dụng bố cục Chất lượng video đang xem mặc định</string>
@@ -301,9 +301,9 @@
     <string name="revanced_hide_get_premium_summary_off">Quảng cáo YouTube Premium được hiển thị</string>
     <string name="revanced_hide_get_premium_summary_on">Quảng cáo YouTube Premium đã ẩn</string>
     <string name="revanced_hide_get_premium_title">Ẩn quảng cáo YouTube Premium</string>
-    <string name="revanced_hide_gray_description_summary_off">Mô tả màu xám được hiển thị</string>
-    <string name="revanced_hide_gray_description_summary_on">Mô tả màu xám đã ẩn</string>
-    <string name="revanced_hide_gray_description_title">Ẩn mô tả màu xám</string>
+    <string name="revanced_hide_gray_description_summary_off">Dòng đề xuất video màu xám được hiển thị</string>
+    <string name="revanced_hide_gray_description_summary_on">Dòng đề xuất video màu xám đã ẩn</string>
+    <string name="revanced_hide_gray_description_title">Ẩn dòng đề xuất video màu xám</string>
     <string name="revanced_hide_gray_separator_summary_off">Dải phân cách màu xám được hiển thị</string>
     <string name="revanced_hide_gray_separator_summary_on">Dải phân cách màu xám đã ẩn</string>
     <string name="revanced_hide_gray_separator_title">Ẩn dải phân cách màu xám</string>
@@ -401,7 +401,7 @@
     <string name="revanced_hide_player_overlay_filter_summary_on">Nền tối của lớp phủ trình phát đã ẩn</string>
     <string name="revanced_hide_player_overlay_filter_title">Ẩn nền tối của lớp phủ trình phát</string>
     <string name="revanced_hook_download_button_summary">"Thay thế chức năng của nút Tải xuống bằng nút Tải xuống bên ngoài.
-Chỉ khả dụng trên YouTube phiên bản 18.24.37 trở lên."</string>
+\nLưu ý: Chỉ khả dụng trên YouTube phiên bản 18.24.37 trở lên."</string>
     <string name="revanced_hook_download_button_title">Thay thế nút Tải xuống</string>
     <string name="revanced_hide_preview_comment_off">Phần Xem trước bình luận được hiển thị</string>
     <string name="revanced_hide_preview_comment_on">Phần Xem trước bình luận đã ẩn</string>
@@ -456,9 +456,9 @@ Chỉ khả dụng trên YouTube phiên bản 18.24.37 trở lên."</string>
     <string name="revanced_hide_snack_bar_summary_off">Thanh thông báo nhanh được hiển thị</string>
     <string name="revanced_hide_snack_bar_summary_on">Thanh thông báo nhanh đã ẩn</string>
     <string name="revanced_hide_snack_bar_title">Ẩn thanh thông báo nhanh</string>
-    <string name="revanced_hide_speed_overlay_summary_off">Lớp phủ tốc độ phát được hiển thị</string>
-    <string name="revanced_hide_speed_overlay_summary_on">Lớp phủ tốc độ phát đã ẩn</string>
-    <string name="revanced_hide_speed_overlay_title">Ẩn lớp phủ tốc độ phát</string>
+    <string name="revanced_hide_speed_overlay_summary_off">Lớp phủ tốc độ phát khi nhấn và giữ được hiển thị</string>
+    <string name="revanced_hide_speed_overlay_summary_on">Lớp phủ tốc độ phát khi nhấn và giữ đã ẩn</string>
+    <string name="revanced_hide_speed_overlay_title">Ẩn lớp phủ tốc độ phát khi nhấn và giữ</string>
     <string name="revanced_hide_subscriptions_button_summary_off">Thẻ Kênh đăng ký được hiển thị</string>
     <string name="revanced_hide_subscriptions_button_summary_on">Thẻ Kênh đăng ký đã ẩn</string>
     <string name="revanced_hide_subscriptions_button_title">Ẩn thẻ Kênh đăng ký</string>
@@ -510,7 +510,7 @@ Chỉ khả dụng trên YouTube phiên bản 18.24.37 trở lên."</string>
     <string name="revanced_others">Khác</string>
     <string name="revanced_overlay_button">Nút trên lớp phủ trình phát</string>
     <string name="revanced_overlay_button_always_repeat_summary">"- Nhấn để luôn phát lặp lại một video.
-- Nhấn và giữ để tạm dừng sau khi phát lặp lại video một lần."</string>
+- Nhấn và giữ để tạm dừng sau khi phát hết video."</string>
     <string name="revanced_overlay_button_always_repeat_title">Nút Phát lặp lại một video</string>
     <string name="revanced_overlay_button_copy_video_url_summary">"- Nhấn để sao chép URL video.
 - Nhấn và giữ để sao chép URL video trong thời gian hiện tại."</string>
@@ -616,8 +616,8 @@ Sự cố đã biết:
     <string name="revanced_switching_create_notification_title">Chuyển vị trí giữa nút Tạo và nút Thông báo</string>
     <string name="revanced_tool_used">Công cụ sử dụng</string>
     <string name="revanced_video">Video</string>
-    <string name="pref_app_language_dialog_message">&lt;b&gt;%1$s&lt;/b&gt;&lt;br&gt;&lt;br&gt;Tuỳ chọn này sẽ thay đổi ngôn ngữ hiển thị trên YouTube, bao gồm các nút, văn bản và hộp thoại, nhưng sẽ không thay đổi ngôn ngữ trong phần Cài đặt ReVanced Extended</string>
-    <string name="pref_app_language_dialog_title">Bạn có chắc chắn muốn thay đổi ngôn ngữ ứng dụng không?</string>
+    <string name="pref_app_language_dialog_message">&lt;b&gt;%1$s&lt;/b&gt;&lt;br&gt;&lt;br&gt;Tuỳ chọn này sẽ thay đổi ngôn ngữ hiển thị trên YouTube, bao gồm các nút, văn bản và hộp thoại, nhưng sẽ không thay đổi ngôn ngữ trong phần Cài đặt ReVanced Extended.</string>
+    <string name="pref_app_language_dialog_title">Thay đổi ngôn ngữ ứng dụng thành:</string>
     <string name="pref_app_language_heading_all">Tất cả ngôn ngữ</string>
     <string name="pref_app_language_heading_current">Ngôn ngữ hiện tại</string>
     <string name="pref_app_language_system_default">Mặc định hệ thống</string>
