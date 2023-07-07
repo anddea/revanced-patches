@@ -13,13 +13,11 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patches.reddit.layout.navigation.fingerprints.BottomNavScreenFingerprint
-import app.revanced.patches.reddit.utils.annotations.RedditCompatibility
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 
 @Name("hide-navigation-buttons")
 @Description("Hide navigation buttons.")
-@RedditCompatibility
 @Version("0.0.1")
 class NavigationButtonsPatch : BytecodePatch(
     listOf(BottomNavScreenFingerprint)

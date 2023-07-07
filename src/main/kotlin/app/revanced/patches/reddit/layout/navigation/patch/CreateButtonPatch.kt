@@ -9,8 +9,8 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
+import app.revanced.patches.reddit.layout.navigation.annotations.NavigationButtonsCompatibility
 import app.revanced.patches.reddit.layout.navigation.patch.NavigationButtonsPatch.Companion.setValue
-import app.revanced.patches.reddit.utils.annotations.RedditCompatibility
 import app.revanced.patches.reddit.utils.settings.bytecode.patch.SettingsBytecodePatch.Companion.updateSettingsStatus
 import app.revanced.patches.reddit.utils.settings.resource.patch.SettingsPatch
 
@@ -23,7 +23,7 @@ import app.revanced.patches.reddit.utils.settings.resource.patch.SettingsPatch
         SettingsPatch::class
     ]
 )
-@RedditCompatibility
+@NavigationButtonsCompatibility
 @Version("0.0.1")
 class CreateButtonPatch : BytecodePatch() {
     override fun execute(context: BytecodeContext): PatchResult {
