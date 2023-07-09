@@ -27,7 +27,7 @@
     <string name="revanced_custom_seekbar_color_value_summary">カラーコードを入力して再生バー(シークバー)の色を変更できます</string>
     <string name="revanced_custom_seekbar_color_value_title">再生バーの色を変更する</string>
     <string name="revanced_custom_video_speeds_invalid">無効なカスタム再生速度です。デフォルト値にリセットします</string>
-    <string name="revanced_custom_video_speeds_warning" formatted="false">カスタム速度は %s倍速未満である必要があります。デフォルト値にリセットします</string>
+    <string name="revanced_custom_video_speeds_warning" formatted="false">カスタム再生速度は %s倍速未満である必要があります。デフォルト値にリセットします</string>
     <string name="revanced_custom_video_speeds_summary">利用可能な再生速度を追加または変更します</string>
     <string name="revanced_custom_video_speeds_title">再生速度のカスタマイズを有効にする</string>
     <string name="revanced_default_app_settings_summary">外部ブラウザのYouTubeから Revanced Extended を開くには“対応リンクを開く”で、“このアプリで開く”を有効にします</string>
@@ -338,7 +338,7 @@
     <string name="revanced_hide_medical_panel_title">医療パネルを非表示にする</string>
     <string name="revanced_hide_merchandise_shelf_summary_off">説明欄の下に表示される商品バナーを非表示にします</string>
     <string name="revanced_hide_merchandise_shelf_summary_on">説明欄の下に表示される商品バナーを非表示にします</string>
-    <string name="revanced_hide_merchandise_shelf_title">説明欄の下の商品バナーを非表示にする</string>
+    <string name="revanced_hide_merchandise_shelf_title">商品バナーを非表示にする</string>
     <string name="revanced_hide_mix_playlists_summary_off">ミックスリストを非表示にします</string>
     <string name="revanced_hide_mix_playlists_summary_on">ミックスリストを非表示にします</string>
     <string name="revanced_hide_mix_playlists_title">ミックスリストを非表示にする</string>
@@ -451,7 +451,7 @@
     <string name="revanced_hide_shorts_player_subscriptions_button_title">チャンネル登録ボタンを非表示にする</string>
     <string name="revanced_hide_shorts_player_toolbar_summary_off">YouTubeショートの上に表示されるツールバー(検索、作成ボタン)を非表示にします</string>
     <string name="revanced_hide_shorts_player_toolbar_summary_on">YouTubeショートの上に表示されるツールバー(検索、作成ボタン)を非表示にします</string>
-    <string name="revanced_hide_shorts_player_toolbar_title">YouTubeショートのツールバーを非表示にする</string>
+    <string name="revanced_hide_shorts_player_toolbar_title">ツールバーを非表示にする</string>
     <string name="revanced_hide_shorts_shelf_summary_off">YouTubeショート欄を非表示にします</string>
     <string name="revanced_hide_shorts_shelf_summary_on">YouTubeショート欄を非表示にします</string>
     <string name="revanced_hide_shorts_shelf_title">YouTubeショート欄を非表示にする</string>
@@ -483,8 +483,8 @@
     <string name="revanced_hide_time_stamp_summary_off">プレーヤーの左下に表示される経過時間を非表示にします</string>
     <string name="revanced_hide_time_stamp_summary_on">プレーヤーの左下に表示される経過時間を非表示にします</string>
     <string name="revanced_hide_time_stamp_title">経過時間を非表示にする</string>
-    <string name="revanced_hide_transcript_section_summary_off">説明欄にある場所の説明を非表示にします</string>
-    <string name="revanced_hide_transcript_section_summary_on">説明欄にある場所の説明を非表示にします</string>
+    <string name="revanced_hide_transcript_section_summary_off">概要欄にある場所などの説明を非表示にします</string>
+    <string name="revanced_hide_transcript_section_summary_on">概要欄にある場所などの説明を非表示にします</string>
     <string name="revanced_hide_transcript_section_title">トランスクリプト欄を非表示にする</string>
     <string name="revanced_hide_trending_searches_summary_off">検索欄のトレンド検索を非表示にします</string>
     <string name="revanced_hide_trending_searches_summary_on">検索欄のトレンド検索を非表示にします</string>
@@ -590,10 +590,6 @@
     <string name="revanced_spoof_app_version_target_title">アプリのバージョンを偽装する</string>
     <string name="revanced_spoof_player_parameter_notice">バッファリングの問題を修正するために、プレーヤーのパラメータを偽装しました</string>
     <string name="revanced_spoof_player_parameter_reload">動画を再読み込みしてください</string>
-    <string name="revanced_spoof_player_parameter_type_summary_off">"YouTubeショートのプレーヤーのパラメータ
-既知の問題
-‐ 動画のダウンロードに失敗することがあります
-‐ 動画の終了画面のカードは常に表示されます"</string>
     <string name="revanced_spoof_player_parameter_type_summary_on">"シークレットモードのプレイヤーパラメータ
 
 既知の問題
