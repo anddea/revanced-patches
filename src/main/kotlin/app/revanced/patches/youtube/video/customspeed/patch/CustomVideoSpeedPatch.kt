@@ -17,6 +17,7 @@ import app.revanced.patches.youtube.flyoutpanel.oldspeedlayout.patch.OldSpeedLay
 import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.patches.youtube.video.customspeed.fingerprints.SpeedArrayGeneratorFingerprint
+import app.revanced.patches.youtube.video.customspeed.fingerprints.SpeedLimiterFallBackFingerprint
 import app.revanced.patches.youtube.video.customspeed.fingerprints.SpeedLimiterFingerprint
 import app.revanced.util.integrations.Constants.VIDEO_PATH
 import org.jf.dexlib2.Opcode
@@ -40,6 +41,7 @@ import org.jf.dexlib2.iface.reference.MethodReference
 class CustomVideoSpeedPatch : BytecodePatch(
     listOf(
         SpeedArrayGeneratorFingerprint,
+        SpeedLimiterFallBackFingerprint,
         SpeedLimiterFingerprint
     )
 ) {
@@ -97,28 +99,33 @@ class CustomVideoSpeedPatch : BytecodePatch(
             }
         } ?: return SpeedArrayGeneratorFingerprint.toErrorResult()
 
-        SpeedLimiterFingerprint.result?.let { result ->
-            result.mutableMethod.apply {
-                val limiterMinConstIndex =
-                    implementation!!.instructions.indexOfFirst { (it as? NarrowLiteralInstruction)?.narrowLiteral == 0.25f.toRawBits() }
-                val limiterMaxConstIndex =
-                    implementation!!.instructions.indexOfFirst { (it as? NarrowLiteralInstruction)?.narrowLiteral == 2.0f.toRawBits() }
+        arrayOf(
+            SpeedLimiterFallBackFingerprint,
+            SpeedLimiterFingerprint
+        ).forEach { fingerprint ->
+            fingerprint.result?.let { result ->
+                result.mutableMethod.apply {
+                    val limiterMinConstIndex =
+                        implementation!!.instructions.indexOfFirst { (it as? NarrowLiteralInstruction)?.narrowLiteral == 0.25f.toRawBits() }
+                    val limiterMaxConstIndex =
+                        implementation!!.instructions.indexOfFirst { (it as? NarrowLiteralInstruction)?.narrowLiteral == 2.0f.toRawBits() }
 
-                val limiterMinConstDestination =
-                    getInstruction<OneRegisterInstruction>(limiterMinConstIndex).registerA
-                val limiterMaxConstDestination =
-                    getInstruction<OneRegisterInstruction>(limiterMaxConstIndex).registerA
+                    val limiterMinConstDestination =
+                        getInstruction<OneRegisterInstruction>(limiterMinConstIndex).registerA
+                    val limiterMaxConstDestination =
+                        getInstruction<OneRegisterInstruction>(limiterMaxConstIndex).registerA
 
-                replaceInstruction(
-                    limiterMinConstIndex,
-                    "const/high16 v$limiterMinConstDestination, 0x0"
-                )
-                replaceInstruction(
-                    limiterMaxConstIndex,
-                    "const/high16 v$limiterMaxConstDestination, 0x42c80000    # 100.0f"
-                )
-            }
-        } ?: return SpeedLimiterFingerprint.toErrorResult()
+                    replaceInstruction(
+                        limiterMinConstIndex,
+                        "const/high16 v$limiterMinConstDestination, 0x0"
+                    )
+                    replaceInstruction(
+                        limiterMaxConstIndex,
+                        "const/high16 v$limiterMaxConstDestination, 0x41200000    # 10.0f"
+                    )
+                }
+            } ?: return fingerprint.toErrorResult()
+        }
 
         /**
          * Add settings
