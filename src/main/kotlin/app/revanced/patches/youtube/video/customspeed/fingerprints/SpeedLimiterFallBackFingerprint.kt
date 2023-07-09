@@ -1,0 +1,20 @@
+package app.revanced.patches.youtube.video.customspeed.fingerprints
+
+import app.revanced.patcher.extensions.or
+import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import org.jf.dexlib2.AccessFlags
+import org.jf.dexlib2.Opcode
+
+object SpeedLimiterFallBackFingerprint : MethodFingerprint(
+    returnType = "F",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = listOf("L"),
+    opcodes = listOf(
+        Opcode.CONST_HIGH16,
+        Opcode.GOTO,
+        Opcode.CONST_HIGH16,
+        Opcode.CONST_HIGH16,
+        Opcode.INVOKE_STATIC,
+    ),
+    strings = listOf("Playback rate: %f")
+)
