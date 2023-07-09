@@ -361,6 +361,7 @@
 
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_shorts" />
             <Preference android:title="disable-startup-shorts-player" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="enable-new-comment-popup-panels" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-shorts-component" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
 
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_swipe_controls" />
@@ -542,6 +543,9 @@
 
         <!-- SETTINGS: DISABLE_STARTUP_SHORTS_PLAYER
         <SwitchPreference android:title="@string/revanced_disable_startup_shorts_player_title" android:key="revanced_disable_startup_shorts_player" android:defaultValue="true" android:summaryOn="@string/revanced_disable_startup_shorts_player_summary_on" android:summaryOff="@string/revanced_disable_startup_shorts_player_summary_off" />SETTINGS: DISABLE_STARTUP_SHORTS_PLAYER -->
+
+        <!-- SETTINGS: ENABLE_NEW_COMMENT_POPUP_PANELS
+        <SwitchPreference android:title="@string/revanced_enable_new_comment_popup_panels_title" android:key="revanced_enable_new_comment_popup_panels" android:defaultValue="false" android:summaryOn="@string/revanced_enable_new_comment_popup_panels_summary_on" android:summaryOff="@string/revanced_enable_new_comment_popup_panels_summary_off" />SETTINGS: ENABLE_NEW_COMMENT_POPUP_PANELS -->
 
         <!-- SETTINGS: HIDE_SHORTS_COMPONENTS
         <SwitchPreference android:title="@string/revanced_hide_shorts_player_comments_button_title" android:key="revanced_hide_shorts_player_comments_button" android:defaultValue="false" android:summaryOn="@string/revanced_hide_shorts_player_comments_button_summary_on" android:summaryOff="@string/revanced_hide_shorts_player_comments_button_summary_off" />
