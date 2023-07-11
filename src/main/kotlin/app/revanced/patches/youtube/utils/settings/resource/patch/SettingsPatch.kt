@@ -24,6 +24,8 @@ import app.revanced.util.resources.ResourceUtils.copyResources
 import org.w3c.dom.Element
 import java.io.File
 import java.nio.file.Paths
+import java.util.concurrent.Executors
+import java.util.concurrent.TimeUnit
 
 @Patch
 @Name("settings")
@@ -45,6 +47,41 @@ class SettingsPatch : AbstractSettingsResourcePatch(
     override fun execute(context: ResourceContext): PatchResult {
         super.execute(context)
         contexts = context
+
+        /**
+         * Check if the YouTube version is v18.20.39
+         */
+        val resourceXmlFile = context["res/values/integers.xml"].readBytes()
+
+        for (threadIndex in 0 until THREAD_COUNT) {
+            threadPoolExecutor.execute thread@{
+                context.xmlEditor[resourceXmlFile.inputStream()].use { editor ->
+                    val resources = editor.file.documentElement.childNodes
+                    val resourcesLength = resources.length
+                    val jobSize = resourcesLength / THREAD_COUNT
+
+                    val batchStart = jobSize * threadIndex
+                    val batchEnd = jobSize * (threadIndex + 1)
+                    element@ for (i in batchStart until batchEnd) {
+                        if (i >= resourcesLength) return@thread
+
+                        val node = resources.item(i)
+                        if (node !is Element) continue
+
+                        if (node.nodeName != "integer" || !node.getAttribute("name").startsWith("google_play_services_version"))
+                            continue
+
+                        belowAndroid1820 = node.textContent.toInt() <= 232100000
+
+                        break
+                    }
+                }
+            }
+        }
+
+        threadPoolExecutor
+            .also { it.shutdown() }
+            .awaitTermination(Long.MAX_VALUE, TimeUnit.SECONDS)
 
         /**
          * create directory for the untranslated language resources
@@ -139,7 +176,11 @@ class SettingsPatch : AbstractSettingsResourcePatch(
     }
 
     companion object {
+        private val THREAD_COUNT = Runtime.getRuntime().availableProcessors()
+        private val threadPoolExecutor = Executors.newFixedThreadPool(THREAD_COUNT)
+
         internal lateinit var contexts: ResourceContext
+        internal var belowAndroid1820: Boolean = false
 
         internal fun addPreference(settingArray: Array<String>) {
             contexts.addPreference(settingArray)
