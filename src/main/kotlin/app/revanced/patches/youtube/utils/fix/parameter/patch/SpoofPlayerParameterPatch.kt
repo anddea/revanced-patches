@@ -15,6 +15,7 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
+import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.fix.parameter.fingerprints.BadResponseFingerprint
@@ -31,6 +32,7 @@ import app.revanced.util.integrations.Constants.MISC_PATH
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 
+@Patch
 @Name("spoof-player-parameters")
 @Description("Spoofs player parameters to prevent playback issues.")
 @DependsOn(
