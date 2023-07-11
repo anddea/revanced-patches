@@ -53,7 +53,7 @@ internal class ReadmeGenerator : PatchesFileGenerator {
                         ) mostCommonVersion else "all"
 
                         appendLine(
-                            "| `${patch.patchName}` " +
+                            "| `${patch.patchName.lowercase().replace(" ", "-")}` " +
                                     "| ${patch.description} " +
                                     "| $recommendedPatchVersion |"
                         )
