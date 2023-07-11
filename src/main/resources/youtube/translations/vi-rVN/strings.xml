@@ -85,9 +85,12 @@
     <string name="revanced_enable_external_browser_summary_off">Đang mở các liên kết xuất hiện trên YouTube trong ứng dụng</string>
     <string name="revanced_enable_external_browser_summary_on">Đang mở các liên kết xuất hiện trên YouTube bằng trình duyệt bên ngoài</string>
     <string name="revanced_enable_external_browser_title">Mở liên kết bằng trình duyệt bên ngoài</string>
-    <string name="revanced_enable_new_splash_animation_summary_off">Ảnh động khởi chạy mới đã tắt</string>
-    <string name="revanced_enable_new_splash_animation_summary_on">Ảnh động khởi chạy mới đã bật</string>
-    <string name="revanced_enable_new_splash_animation_title">Ảnh động khởi chạy mới</string>
+    <string name="revanced_enable_new_comment_popup_panels_summary_off">Hộp Bình luận bật lên kiểu mới đã tắt</string>
+    <string name="revanced_enable_new_comment_popup_panels_summary_on">Hộp Bình luận bật lên kiểu mới đã bật</string>
+    <string name="revanced_enable_new_comment_popup_panels_title">Hộp Bình luận bật lên kiểu mới</string>
+    <string name="revanced_enable_new_splash_animation_summary_off">Ảnh động khởi chạy kiểu mới đã tắt</string>
+    <string name="revanced_enable_new_splash_animation_summary_on">Ảnh động khởi chạy kiểu mới đã bật</string>
+    <string name="revanced_enable_new_splash_animation_title">Ảnh động khởi chạy kiểu mới</string>
     <string name="revanced_enable_new_splash_animation_warning">Chỉ khả dụng trên Android 12 trở lên</string>
     <string name="revanced_enable_new_thumbnail_preview_summary_off">Xem trước khung hình thu nhỏ mới đã tắt</string>
     <string name="revanced_enable_new_thumbnail_preview_summary_on">Đang xem trước khung hình thu nhỏ mới khi tua video qua thanh tiến trình</string>
@@ -162,8 +165,6 @@
     <string name="revanced_fullscreen">Chế độ toàn màn hình</string>
     <string name="revanced_general">Chung</string>
     <string name="revanced_haptic_feedback_title">Phản hồi xúc giác</string>
-    <string name="revanced_hide_account_menu_summary_off">Bộ lọc trình đơn Tài khoản đã tắt</string>
-    <string name="revanced_hide_account_menu_summary_on">Đang ẩn các thành phần của trình đơn Tài khoản bằng bộ lọc</string>
     <string name="revanced_hide_account_menu_title">Bộ lọc trình đơn Tài khoản</string>
     <string name="revanced_hide_account_menu_filter_strings_title">Chỉnh sửa bộ lọc</string>
     <string name="revanced_hide_action_buttons_summary_off">Các nút chức năng khác (Chia sẻ, Remix, Cảm ơn,...) được hiển thị</string>
@@ -184,6 +185,9 @@
     <string name="revanced_hide_auto_player_popup_panels_summary_off">Hộp chức năng tự động bật lên khi phát video (Danh sách phát, Trò chuyện trực tiếp,...) được hiển thị</string>
     <string name="revanced_hide_auto_player_popup_panels_summary_on">Hộp chức năng tự động bật lên khi phát video (Danh sách phát, Trò chuyện trực tiếp,...) đã ẩn</string>
     <string name="revanced_hide_auto_player_popup_panels_title">Ẩn hộp chức năng tự động bật lên khi phát</string>
+    <string name="revanced_hide_browse_store_button_summary_off">Nút Duyệt xem cửa hàng được hiển thị</string>
+    <string name="revanced_hide_browse_store_button_summary_on">Nút Duyệt xem cửa hàng đã ẩn</string>
+    <string name="revanced_hide_browse_store_button_title">Ẩn nút Duyệt xem cửa hàng</string>
     <string name="revanced_hide_button_create_clip_summary_off">Nút Tạo đoạn video được hiển thị</string>
     <string name="revanced_hide_button_create_clip_summary_on">Nút Tạo đoạn video đã ẩn</string>
     <string name="revanced_hide_button_create_clip_title">Ẩn nút Tạo đoạn video</string>
@@ -240,9 +244,9 @@
     <string name="revanced_hide_channel_member_shelf_summary_off">Kệ ghi nhận hội viên của kênh được hiển thị</string>
     <string name="revanced_hide_channel_member_shelf_summary_on">Kệ ghi nhận hội viên của kênh đã ẩn</string>
     <string name="revanced_hide_channel_member_shelf_title">Ẩn kệ ghi nhận hội viên của kênh</string>
-    <string name="revanced_hide_channel_watermark_summary_off">Hình mờ cho video được hiển thị</string>
-    <string name="revanced_hide_channel_watermark_summary_on">Hình mờ cho video đã ẩn</string>
-    <string name="revanced_hide_channel_watermark_title">Ẩn hình mờ cho video</string>
+    <string name="revanced_hide_channel_watermark_summary_off">Hình mờ video được hiển thị</string>
+    <string name="revanced_hide_channel_watermark_summary_on">Hình mờ video đã ẩn</string>
+    <string name="revanced_hide_channel_watermark_title">Ẩn hình mờ video</string>
     <string name="revanced_hide_chapters_summary_off">Phân cảnh video được hiển thị</string>
     <string name="revanced_hide_chapters_summary_on">Phân cảnh video đã ẩn</string>
     <string name="revanced_hide_chapters_title">Ẩn phân cảnh</string>
@@ -295,15 +299,18 @@
     <string name="revanced_hide_fullscreen_panels_summary_off">Đang xem video ở chế độ toàn màn hình mặc định</string>
     <string name="revanced_hide_fullscreen_panels_summary_on">Đang xem video ở chế độ toàn màn hình đã lược bỏ đi các mục không cần thiết để giảm thiểu cảm giác lộn xộn</string>
     <string name="revanced_hide_fullscreen_panels_title">Xem ở chế độ toàn màn hình tối giản</string>
+    <string name="revanced_hide_game_section_summary_off">Phần Trò chơi được hiển thị</string>
+    <string name="revanced_hide_game_section_summary_on">Phần Trò chơi đã ẩn</string>
+    <string name="revanced_hide_game_section_title">Ẩn phần Trò chơi</string>
     <string name="revanced_hide_general_ads_summary_off">Quảng cáo chung được hiển thị</string>
     <string name="revanced_hide_general_ads_summary_on">Quảng cáo chung đã ẩn</string>
     <string name="revanced_hide_general_ads_title">Ẩn quảng cáo chung</string>
     <string name="revanced_hide_get_premium_summary_off">Quảng cáo YouTube Premium được hiển thị</string>
     <string name="revanced_hide_get_premium_summary_on">Quảng cáo YouTube Premium đã ẩn</string>
     <string name="revanced_hide_get_premium_title">Ẩn quảng cáo YouTube Premium</string>
-    <string name="revanced_hide_gray_description_summary_off">Dòng đề xuất video màu xám được hiển thị</string>
-    <string name="revanced_hide_gray_description_summary_on">Dòng đề xuất video màu xám đã ẩn</string>
-    <string name="revanced_hide_gray_description_title">Ẩn dòng đề xuất video màu xám</string>
+    <string name="revanced_hide_gray_description_summary_off">Dòng chữ đề xuất video được hiển thị</string>
+    <string name="revanced_hide_gray_description_summary_on">Dòng chữ đề xuất video đã ẩn</string>
+    <string name="revanced_hide_gray_description_title">Ẩn dòng chữ đề xuất video</string>
     <string name="revanced_hide_gray_separator_summary_off">Dải phân cách màu xám được hiển thị</string>
     <string name="revanced_hide_gray_separator_summary_on">Dải phân cách màu xám đã ẩn</string>
     <string name="revanced_hide_gray_separator_title">Ẩn dải phân cách màu xám</string>
@@ -313,6 +320,9 @@
     <string name="revanced_hide_image_shelf_summary_off">Kệ Hình ảnh từ web được hiển thị trong kết quả tìm kiếm</string>
     <string name="revanced_hide_image_shelf_summary_on">Kệ Hình ảnh từ web đã ẩn khỏi kết quả tìm kiếm</string>
     <string name="revanced_hide_image_shelf_title">Ẩn kệ Hình ảnh từ web</string>
+    <string name="revanced_hide_info_cards_section_summary_off">Phần thông tin kênh được hiển thị</string>
+    <string name="revanced_hide_info_cards_section_summary_on">Phần thông tin kênh đã ẩn</string>
+    <string name="revanced_hide_info_cards_section_title">Ẩn phần thông tin kênh</string>
     <string name="revanced_hide_info_cards_summary_off">Thẻ thông tin được hiển thị</string>
     <string name="revanced_hide_info_cards_summary_on">Thẻ thông tin đã ẩn</string>
     <string name="revanced_hide_info_cards_title">Ẩn thẻ thông tin</string>
@@ -588,6 +598,12 @@ Lưu ý:
     <string name="revanced_spoof_app_version_target_title">Chỉnh sửa phiên bản bản ứng dụng giả mạo</string>
     <string name="revanced_spoof_player_parameter_notice">Đã tự động bật giả mạo thông số trình phát</string>
     <string name="revanced_spoof_player_parameter_reload">Vui lòng tải lại video</string>
+    <string name="revanced_spoof_player_parameter_type_summary_off">"Thông số của trình phát Shorts.
+
+Sự cố đã biết:
+- Hình mờ video luôn ẩn.
+- Màn hình kết thúc luôn ẩn.
+- Tải video xuống có thể không hoạt động."</string>
     <string name="revanced_spoof_player_parameter_type_summary_on">"Thông số của trình phát ở Chế độ ẩn danh.
 
 Sự cố đã biết:

@@ -36,18 +36,18 @@
     <string name="revanced_default_video_quality_wifi_title">Kualitas video default di jaringan Wi-Fi</string>
     <string name="revanced_default_video_speed_title">Kecepatan video default</string>
     <string name="revanced_description_title">Deskripsi</string>
-    <string name="revanced_disable_auto_captions_summary_off">Caption paksa diaktifkan</string>
-    <string name="revanced_disable_auto_captions_summary_on">Caption paksa dinonaktifkan</string>
-    <string name="revanced_disable_auto_captions_title">Nonaktifkan paksa caption</string>
+    <string name="revanced_disable_auto_captions_summary_off">Subtitel paksa diaktifkan</string>
+    <string name="revanced_disable_auto_captions_summary_on">Subtitel paksa dinonaktifkan</string>
+    <string name="revanced_disable_auto_captions_title">Nonaktifkan paksa subtitel</string>
     <string name="revanced_disable_default_video_speed_live_summary_off">Kecepatan video default diaktifkan di live stream</string>
     <string name="revanced_disable_default_video_speed_live_summary_on">Kecepatan video default dinonaktifkan di live stream</string>
     <string name="revanced_disable_default_video_speed_live_title">Nonaktifkan kecepatan video di live stream</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">Umpan balik haptic segmen diaktifkan</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">Umpan balik haptic segmen dinonaktifkan</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">Nonaktifkan umpan balik haptic segmen</string>
-    <string name="revanced_disable_haptic_feedback_scrubbing_summary_off">Penghapusan umpan balik haptic diaktifkan</string>
-    <string name="revanced_disable_haptic_feedback_scrubbing_summary_on">Penghapusan umpan balik haptic dinonaktifkan</string>
-    <string name="revanced_disable_haptic_feedback_scrubbing_title">Nonaktifkan penghapusan umpan balik haptic</string>
+    <string name="revanced_disable_haptic_feedback_scrubbing_summary_off">Swipe umpan balik haptic diaktifkan</string>
+    <string name="revanced_disable_haptic_feedback_scrubbing_summary_on">Swipe umpan balik haptic dinonaktifkan</string>
+    <string name="revanced_disable_haptic_feedback_scrubbing_title">Nonaktifkan swipe umpan balik haptic</string>
     <string name="revanced_disable_haptic_feedback_seek_summary_off">Seek umpan balik haptic diaktifkan</string>
     <string name="revanced_disable_haptic_feedback_seek_summary_on">Seek umpan balik haptic dinonaktifkan</string>
     <string name="revanced_disable_haptic_feedback_seek_title">Nonaktifkan seek umpan balik haptic </string>
@@ -85,6 +85,9 @@
     <string name="revanced_enable_external_browser_summary_off">Browser eksternal dinonaktifkan</string>
     <string name="revanced_enable_external_browser_summary_on">Browser eksternal diaktifkan</string>
     <string name="revanced_enable_external_browser_title">Aktifkan browser eksternal</string>
+    <string name="revanced_enable_new_comment_popup_panels_summary_off">Panel munculan komentar baru dinonaktifkan</string>
+    <string name="revanced_enable_new_comment_popup_panels_summary_on">Panel munculan komentar baru diaktifkan</string>
+    <string name="revanced_enable_new_comment_popup_panels_title">Aktifkan panel munculan komentar baru</string>
     <string name="revanced_enable_new_splash_animation_summary_off">Animasi splash baru dinonaktifkan</string>
     <string name="revanced_enable_new_splash_animation_summary_on">Animasi splash baru diaktifkan</string>
     <string name="revanced_enable_new_splash_animation_title">Aktifkan animasi splash baru</string>
@@ -162,8 +165,6 @@
     <string name="revanced_fullscreen">Layar penuh</string>
     <string name="revanced_general">Umum</string>
     <string name="revanced_haptic_feedback_title">Umpan balik haptic</string>
-    <string name="revanced_hide_account_menu_summary_off">Menu akun ditampilkan</string>
-    <string name="revanced_hide_account_menu_summary_on">Menu akun disembunyikan</string>
     <string name="revanced_hide_account_menu_title">Sembunyikan menu akun</string>
     <string name="revanced_hide_account_menu_filter_strings_title">Edit filter menu akun</string>
     <string name="revanced_hide_action_buttons_summary_off">Tombol action ditampilkan</string>
@@ -181,9 +182,12 @@
     <string name="revanced_hide_autoplay_preview_summary_off">Wadah pratinjau putar otomatis ditampilkan</string>
     <string name="revanced_hide_autoplay_preview_summary_on">Wadah pratinjau putar otomatis disembunyikan</string>
     <string name="revanced_hide_autoplay_preview_title">Sembunyikan wadah pratinjau putar otomatis</string>
-    <string name="revanced_hide_auto_player_popup_panels_summary_off">Panel popup pemutar otomatis ditampilkan</string>
-    <string name="revanced_hide_auto_player_popup_panels_summary_on">Panel popup pemutar otomatis disembunyikan</string>
-    <string name="revanced_hide_auto_player_popup_panels_title">Sembunyikan panel popup pemutar otomatis</string>
+    <string name="revanced_hide_auto_player_popup_panels_summary_off">Panel munculan pemutar otomatis ditampilkan</string>
+    <string name="revanced_hide_auto_player_popup_panels_summary_on">Panel munculan pemutar otomatis disembunyikan</string>
+    <string name="revanced_hide_auto_player_popup_panels_title">Sembunyikan panel munculan pemutar otomatis</string>
+    <string name="revanced_hide_browse_store_button_summary_off">Tombol telusuri toko ditampilkan</string>
+    <string name="revanced_hide_browse_store_button_summary_on">Tombol telusuri toko disembunyikan</string>
+    <string name="revanced_hide_browse_store_button_title">Sembunyikan tombol telusuri toko</string>
     <string name="revanced_hide_button_create_clip_summary_off">Tombol klip ditampilkan</string>
     <string name="revanced_hide_button_create_clip_summary_on">Tombol klip disembunyikan</string>
     <string name="revanced_hide_button_create_clip_title">Sembunyikan tombol klip</string>
@@ -208,21 +212,21 @@
     <string name="revanced_hide_button_report_summary_off">Tombol laporkan ditampilkan</string>
     <string name="revanced_hide_button_report_summary_on">Tombol laporkan disembunyikan</string>
     <string name="revanced_hide_button_report_title">Sembunyikan tombol laporkan</string>
-    <string name="revanced_hide_button_rewards_summary_off">Tombol rewards ditampilkan</string>
-    <string name="revanced_hide_button_rewards_summary_on">Tombol rewards disembunyikan</string>
-    <string name="revanced_hide_button_rewards_title">Sembuyikan tombol rewards</string>
+    <string name="revanced_hide_button_rewards_summary_off">Tombol hadiah ditampilkan</string>
+    <string name="revanced_hide_button_rewards_summary_on">Tombol hadiah disembunyikan</string>
+    <string name="revanced_hide_button_rewards_title">Sembuyikan tombol hadiah</string>
     <string name="revanced_hide_button_share_summary_off">Tombol bagikan ditampilkan</string>
     <string name="revanced_hide_button_share_summary_on">Tombol bagikan disembunyikan</string>
     <string name="revanced_hide_button_share_title">Sembunyikan tombol bagikan</string>
     <string name="revanced_hide_button_shop_summary_off">Tombol belanja ditampilkan</string>
     <string name="revanced_hide_button_shop_summary_on">Tombol belanja disembunyikan</string>
     <string name="revanced_hide_button_shop_title">Sembunyikan tombol belanja</string>
-    <string name="revanced_hide_button_thanks_summary_off">Tombol thanks ditampilkan</string>
-    <string name="revanced_hide_button_thanks_summary_on">Tombol thanks disembunyikan</string>
-    <string name="revanced_hide_button_thanks_title">Sembunyikan tombol thanks</string>
-    <string name="revanced_hide_captions_button_summary_off">Tombol caption ditampilkan</string>
-    <string name="revanced_hide_captions_button_summary_on">Tombol caption disembunyikan</string>
-    <string name="revanced_hide_captions_button_title">Sembunyikan tombol caption</string>
+    <string name="revanced_hide_button_thanks_summary_off">Tombol terima kasih ditampilkan</string>
+    <string name="revanced_hide_button_thanks_summary_on">Tombol terima kasih disembunyikan</string>
+    <string name="revanced_hide_button_thanks_title">Sembunyikan tombol terima kasih</string>
+    <string name="revanced_hide_captions_button_summary_off">Tombol subtitel ditampilkan</string>
+    <string name="revanced_hide_captions_button_summary_on">Tombol subtitel disembunyikan</string>
+    <string name="revanced_hide_captions_button_title">Sembunyikan tombol subtitel</string>
     <string name="revanced_hide_cast_button_summary_off">Tombol cast ditampilkan</string>
     <string name="revanced_hide_cast_button_summary_on">Tombol cast disembunyikan</string>
     <string name="revanced_hide_cast_button_title">Sembunyikan tombol cast</string>
@@ -267,9 +271,9 @@
     <string name="revanced_hide_email_address_summary_off">Alamat email (handle) ditampilkan</string>
     <string name="revanced_hide_email_address_summary_on">Alamat email (handle) disembunyikan</string>
     <string name="revanced_hide_email_address_title">Sembunyikan alamat email (handle)</string>
-    <string name="revanced_hide_emoji_picker_summary_off">Emoji picker ditampilkan</string>
-    <string name="revanced_hide_emoji_picker_summary_on">Emoji picker disembunyikan</string>
-    <string name="revanced_hide_emoji_picker_title">Sembunyikan emoji picker</string>
+    <string name="revanced_hide_emoji_picker_summary_off">Pilih emoji ditampilkan</string>
+    <string name="revanced_hide_emoji_picker_summary_on">Pilih emoji disembunyikan</string>
+    <string name="revanced_hide_emoji_picker_title">Sembunyikan pilih emoji</string>
     <string name="revanced_hide_end_screen_cards_summary_off">Kartu layar akhir ditampilkan</string>
     <string name="revanced_hide_end_screen_cards_summary_on">Kartu layar akhir disembunyikan</string>
     <string name="revanced_hide_end_screen_cards_title">Sembunyikan kartu layar akhir</string>
@@ -295,6 +299,9 @@
     <string name="revanced_hide_fullscreen_panels_summary_off">Panel layar penuh ditampilkan</string>
     <string name="revanced_hide_fullscreen_panels_summary_on">Panel layar penuh disembunyikan</string>
     <string name="revanced_hide_fullscreen_panels_title">Sembunyikan panel layar penuh</string>
+    <string name="revanced_hide_game_section_summary_off">Bagian permainan ditampilkan</string>
+    <string name="revanced_hide_game_section_summary_on">Bagian permainan disembunyikan</string>
+    <string name="revanced_hide_game_section_title">Sembunyikan bagian permainan</string>
     <string name="revanced_hide_general_ads_summary_off">Iklan umum ditampilkan</string>
     <string name="revanced_hide_general_ads_summary_on">Iklan umum disembunyikan</string>
     <string name="revanced_hide_general_ads_title">Sembunyikan iklan umum</string>
@@ -313,6 +320,9 @@
     <string name="revanced_hide_image_shelf_summary_off">Rak gambar ditampilkan</string>
     <string name="revanced_hide_image_shelf_summary_on">Rak gambar disembunyikan</string>
     <string name="revanced_hide_image_shelf_title">Sembunyikan rak gambar</string>
+    <string name="revanced_hide_info_cards_section_summary_off">Bagian kartu info ditampilkan</string>
+    <string name="revanced_hide_info_cards_section_summary_on">Bagian kartu info disembunyikan</string>
+    <string name="revanced_hide_info_cards_section_title">Sembunyikan bagian kartu info</string>
     <string name="revanced_hide_info_cards_summary_off">Kartu info ditampilkan</string>
     <string name="revanced_hide_info_cards_summary_on">Kartu info disembunyikan</string>
     <string name="revanced_hide_info_cards_title">Sembunyikan kartu info</string>
@@ -328,9 +338,9 @@
     <string name="revanced_hide_library_button_summary_off">Tombol koleksi ditampilkan</string>
     <string name="revanced_hide_library_button_summary_on">Tombol koleksi disembunyikan</string>
     <string name="revanced_hide_library_button_title">Sembunyikan tombol koleksi</string>
-    <string name="revanced_hide_load_more_button_summary_off">Tombol muat lebih banyak ditampilkan</string>
-    <string name="revanced_hide_load_more_button_summary_on">Tombol muat lebih banyak disembunyikan</string>
-    <string name="revanced_hide_load_more_button_title">Sembunyikan tombol muat lebih banyak</string>
+    <string name="revanced_hide_load_more_button_summary_off">Tombol tampilkan lebih banyak ditampilkan</string>
+    <string name="revanced_hide_load_more_button_summary_on">Tombol tampilkan lebih banyak disembunyikan</string>
+    <string name="revanced_hide_load_more_button_title">Sembunyikan tombol tampilkan lebih banyak</string>
     <string name="revanced_hide_medical_panel_summary_off">Panel medis ditampilkan</string>
     <string name="revanced_hide_medical_panel_summary_on">Panel medis disembunyikan</string>
     <string name="revanced_hide_medical_panel_title">Sembunyikan panel medis</string>
@@ -367,12 +377,12 @@
     <string name="revanced_hide_player_flyout_panel_audio_track_summary_off">Menu trek audio ditampilkan</string>
     <string name="revanced_hide_player_flyout_panel_audio_track_summary_on">Menu trek audio disembunyikan</string>
     <string name="revanced_hide_player_flyout_panel_audio_track_title">Sembunyikan menu trek audio</string>
-    <string name="revanced_hide_player_flyout_panel_captions_summary_off">Menu caption ditampilkan</string>
-    <string name="revanced_hide_player_flyout_panel_captions_summary_on">Menu caption disembunyikan</string>
-    <string name="revanced_hide_player_flyout_panel_captions_title">Sembunyikan menu caption</string>
-    <string name="revanced_hide_player_flyout_panel_help_summary_off">Bantuan &amp; menu umpan balik ditampilkan</string>
-    <string name="revanced_hide_player_flyout_panel_help_summary_on">Bantuan &amp; menu umpan balik disembunyikan</string>
-    <string name="revanced_hide_player_flyout_panel_help_title">Sembunyikan bantuan &amp; menu umpan balik</string>
+    <string name="revanced_hide_player_flyout_panel_captions_summary_off">Menu subtitel ditampilkan</string>
+    <string name="revanced_hide_player_flyout_panel_captions_summary_on">Menu subtitel disembunyikan</string>
+    <string name="revanced_hide_player_flyout_panel_captions_title">Sembunyikan menu subtitel</string>
+    <string name="revanced_hide_player_flyout_panel_help_summary_off">Bantuan &amp; menu saran ditampilkan</string>
+    <string name="revanced_hide_player_flyout_panel_help_summary_on">Bantuan &amp; menu saran disembunyikan</string>
+    <string name="revanced_hide_player_flyout_panel_help_title">Sembunyikan bantuan &amp; menu saran</string>
     <string name="revanced_hide_player_flyout_panel_listening_controls_summary_off">Menu kontrol listening ditampilkan</string>
     <string name="revanced_hide_player_flyout_panel_listening_controls_summary_on">Menu kontrol listening disembunyikan</string>
     <string name="revanced_hide_player_flyout_panel_listening_controls_title">Sembunyikan menu kontrol listening</string>
@@ -400,9 +410,9 @@
     <string name="revanced_hide_player_overlay_filter_summary_off">Filter overlay pemutar ditampilkan</string>
     <string name="revanced_hide_player_overlay_filter_summary_on">Filter overlay pemutar disembunyikan</string>
     <string name="revanced_hide_player_overlay_filter_title">Sembunyikan filter overlay pemutar</string>
-    <string name="revanced_hook_download_button_summary">"Ganti tombol download dengan tombol download eksternal
+    <string name="revanced_hook_download_button_summary">"Mengganti tombol download dengan tombol download eksternal
 Hanya tersedia di YouTube v18.24.37+"</string>
-    <string name="revanced_hook_download_button_title">Tombol download hook</string>
+    <string name="revanced_hook_download_button_title">Tombol pengait download</string>
     <string name="revanced_hide_preview_comment_off">Komentar pratinjau ditampilkan</string>
     <string name="revanced_hide_preview_comment_on">Komentar pratinjau disembunyikan</string>
     <string name="revanced_hide_preview_comment_title">Sembunyikan komentar pratinjau</string>
@@ -493,9 +503,9 @@ Hanya tersedia di YouTube v18.24.37+"</string>
     <string name="revanced_hide_view_products_summary_off">Spanduk lihat produk ditampilkan</string>
     <string name="revanced_hide_view_products_summary_on">Spanduk lihat produk disembunyikan</string>
     <string name="revanced_hide_view_products_title">Sembunyikan spanduk lihat produk</string>
-    <string name="revanced_hide_web_search_results_summary_off">Hasil pencarian web ditampilkan</string>
-    <string name="revanced_hide_web_search_results_summary_on">Hasil pencarian web disembunyikan</string>
-    <string name="revanced_hide_web_search_results_title">Sembunyikan hasil pencarian web</string>
+    <string name="revanced_hide_web_search_results_summary_off">Hasil dari web ditampilkan</string>
+    <string name="revanced_hide_web_search_results_summary_on">Hasil dari web disembunyikan</string>
+    <string name="revanced_hide_web_search_results_title">Sembunyikan hasil dari web</string>
     <string name="revanced_hide_youtube_music_button_summary_off">Tombol YouTube Music ditampilkan</string>
     <string name="revanced_hide_youtube_music_button_summary_on">Tombol YouTube Music disembunyikan</string>
     <string name="revanced_hide_youtube_music_button_title">Sembunyikan tombol YouTube Music</string>
@@ -587,6 +597,12 @@ Jika nanti dimatikan, UI lama mungkin tetap ada sampai menghapus data aplikasi"<
     <string name="revanced_spoof_app_version_target_title">Edit pemalsuan versi aplikasi</string>
     <string name="revanced_spoof_player_parameter_notice">Parameter pemalsuan pemutar untuk memperbaiki masalah pemutaran</string>
     <string name="revanced_spoof_player_parameter_reload">Silahkan mulai ulang videonya</string>
+    <string name="revanced_spoof_player_parameter_type_summary_off">"Parameter pemutar shorts
+
+Masalah yang diketahui
+- Watermark channel selalu disembunyikan
+- Mendownload video mungkin tidak berfungsi
+- Kartu layar akhir selalu disembunyikan"</string>
     <string name="revanced_spoof_player_parameter_type_summary_on">"Parameter pemutar mode samaran
 
 Masalah yang diketahui
@@ -646,7 +662,7 @@ Masalah yang diketahui
     <string name="sb_guidelines_popup_title">Ikuti pedoman</string>
     <string name="sb_guidelines_popup_content">Disarankan untuk membaca pedoman SponsorBlock sebelum mengirimkan segmen apa pun</string>
     <string name="sb_guidelines_popup_already_read">Sudah dibaca</string>
-    <string name="sb_guidelines_popup_open">Tunjukkan padaku</string>
+    <string name="sb_guidelines_popup_open">Tunjukkan</string>
     <string name="sb_general">Umum</string>
     <string name="sb_general_skipcount">Aktifkan pelacakan jumlah lewati</string>
     <string name="sb_general_skipcount_sum_on">Beri tahu papan peringkat SponsorBlock berapa banyak waktu yang dihemat. Pesan dikirim ke papan peringkat setiap kali segmen dilewati</string>
@@ -764,7 +780,7 @@ Masalah yang diketahui
     <string name="sb_color_invalid">Kode warna tidak valid</string>
     <string name="sb_reset_color">Atur ulang warna</string>
     <string name="sb_reset">Atur ulang</string>
-    <string name="sb_about_api_sum">Data disediakan oleh API SponsorBlock. Tekan di sini untuk mempelajari lebih lanjut dan melihat downloadan untuk platform lain</string>
+    <string name="sb_about_api_sum">Data disediakan oleh API SponsorBlock. Tekan di sini untuk mempelajari lebih lanjut dan melihat unduhan untuk platform lain</string>
     <string name="sb_about_made_by">Integrasi dibuat oleh JakubWeg</string>
     <string name="seconds">detik</string>
     <string name="settings_export_failed">Gagal mengekspor setelan</string>
