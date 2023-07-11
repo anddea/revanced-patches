@@ -44,6 +44,9 @@ class ComponentParserPatch : BytecodePatch(
 
         EmptyComponentBuilderFingerprint.result?.let {
             it.mutableMethod.apply {
+                val byteBufferClassIndex = it.scanResult.patternScanResult!!.startIndex
+                byteBufferClassLabel = getInstruction<ReferenceInstruction>(byteBufferClassIndex).reference.toString()
+
                 val targetIndex = getStringIndex("Failed to convert Element to Flatbuffers: %s") + 2
                 val builderMethodDescriptor =
                     getInstruction<ReferenceInstruction>(targetIndex).reference
@@ -120,6 +123,7 @@ class ComponentParserPatch : BytecodePatch(
     }
 
     internal companion object {
+        lateinit var byteBufferClassLabel: String
         lateinit var emptyComponentLabel: String
         lateinit var insertMethod: MutableMethod
 
@@ -163,18 +167,23 @@ class ComponentParserPatch : BytecodePatch(
             }
         }
 
-        fun objectHook(
+        // only for YouTube v18.20.39
+        fun legacyHook(
             descriptor: String
         ) {
             insertMethod.apply {
                 addInstructionsWithLabels(
-                    0, """
-                        move-object/from16 v0, p2
-                        sget-object v1, $definingClass->buffer:Ljava/nio/ByteBuffer;
-                        invoke-static {v0, v1}, $descriptor(Ljava/lang/Object;Ljava/nio/ByteBuffer;)Z
-                        move-result v0
-                        if-eqz v0, :unfiltered
-                        """ + emptyComponentLabel, ExternalLabel("unfiltered", getInstruction(0))
+                    insertIndex,
+                    """
+                        move-object/from16 v$freeRegister, p3
+                        iget-object v$freeRegister, v$freeRegister, ${parameters[2]}->b:Ljava/lang/Object;
+                        if-eqz v$freeRegister, :unfiltered
+                        check-cast v$freeRegister, $byteBufferClassLabel
+                        iget-object v$freeRegister, v$freeRegister, $byteBufferClassLabel->b:Ljava/nio/ByteBuffer;
+                        invoke-static {v$stringBuilderRegister, v$identifierRegister, v$objectRegister, v$freeRegister}, $descriptor(Ljava/lang/StringBuilder;Ljava/lang/String;Ljava/lang/Object;Ljava/nio/ByteBuffer;)Z
+                        move-result v$freeRegister
+                        if-eqz v$freeRegister, :unfiltered
+                        """ + emptyComponentLabel, ExternalLabel("unfiltered", getInstruction(insertIndex))
                 )
             }
         }

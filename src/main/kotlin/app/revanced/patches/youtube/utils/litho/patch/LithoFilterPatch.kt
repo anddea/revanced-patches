@@ -13,17 +13,20 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.shared.patch.litho.ComponentParserPatch
 import app.revanced.patches.shared.patch.litho.ComponentParserPatch.Companion.generalHook
+import app.revanced.patches.shared.patch.litho.ComponentParserPatch.Companion.legacyHook
 import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.litho.fingerprints.ByteBufferFingerprint
 import app.revanced.patches.youtube.utils.litho.fingerprints.LithoFilterFingerprint
 import app.revanced.patches.youtube.utils.playertype.patch.PlayerTypeHookPatch
+import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.integrations.Constants.ADS_PATH
 import java.io.Closeable
 
 @DependsOn(
     [
         ComponentParserPatch::class,
-        PlayerTypeHookPatch::class
+        PlayerTypeHookPatch::class,
+        SettingsPatch::class
     ]
 )
 @YouTubeCompatibility
@@ -42,7 +45,10 @@ class LithoFilterPatch : BytecodePatch(
             "sput-object p0, $ADS_PATH/LowLevelFilter;->byteBuffer:Ljava/nio/ByteBuffer;"
         ) ?: return ByteBufferFingerprint.toErrorResult()
 
-        generalHook("$ADS_PATH/LithoFilterPatch;->filters")
+        if (SettingsPatch.belowAndroid1820)
+            legacyHook("$ADS_PATH/LithoFilterPatch;->filters")
+        else
+            generalHook("$ADS_PATH/LithoFilterPatch;->filters")
 
         LithoFilterFingerprint.result?.mutableMethod?.apply {
             removeInstructions(2, 4) // Remove dummy filter.
