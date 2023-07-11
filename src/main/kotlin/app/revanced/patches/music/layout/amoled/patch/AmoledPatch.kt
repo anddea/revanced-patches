@@ -12,7 +12,7 @@ import app.revanced.patches.music.utils.annotations.MusicCompatibility
 import org.w3c.dom.Element
 
 @Patch
-@Name("amoled")
+@Name("Amoled")
 @Description("Applies pure black theme in flyout panels.")
 @MusicCompatibility
 @Version("0.0.1")

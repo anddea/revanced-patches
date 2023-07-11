@@ -14,8 +14,8 @@ import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.integrations.Constants.ADS_PATH
 
 @Patch
-@Name("hide-video-ads")
-@Description("Removes ads in the video player.")
+@Name("Hide video ads")
+@Description("Hides ads in the video player.")
 @DependsOn([SettingsPatch::class])
 @YouTubeCompatibility
 @Version("0.0.1")

@@ -27,7 +27,7 @@ import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
-@Name("hide-navigation-buttons")
+@Name("Hide navigation buttons")
 @Description("Adds options to hide or change navigation buttons.")
 @DependsOn(
     [

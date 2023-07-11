@@ -20,7 +20,7 @@ import app.revanced.patches.reddit.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.bytecode.getStringIndex
 
 @Patch
-@Name("open-links-externally")
+@Name("Open links externally")
 @Description("Open links outside of the app directly in your browser.")
 @DependsOn([SettingsPatch::class])
 @RedditCompatibility

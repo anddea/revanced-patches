@@ -21,7 +21,7 @@ import app.revanced.util.integrations.Constants.MUSIC_LAYOUT
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
-@Name("hide-category-bar")
+@Name("Hide category bar")
 @Description("Hides the music category bar at the top of the homepage.")
 @DependsOn(
     [

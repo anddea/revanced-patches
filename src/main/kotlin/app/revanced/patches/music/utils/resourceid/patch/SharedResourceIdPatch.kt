@@ -1,14 +1,11 @@
 package app.revanced.patches.music.utils.resourceid.patch
 
-import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
-import app.revanced.patches.music.utils.annotations.MusicCompatibility
 import app.revanced.patches.shared.patch.mapping.ResourceMappingPatch
 import app.revanced.util.enum.ResourceType
 import app.revanced.util.enum.ResourceType.BOOL
@@ -19,10 +16,7 @@ import app.revanced.util.enum.ResourceType.LAYOUT
 import app.revanced.util.enum.ResourceType.STRING
 import app.revanced.util.enum.ResourceType.STYLE
 
-@Name("music-resource-id")
 @DependsOn([ResourceMappingPatch::class])
-@MusicCompatibility
-@Version("0.0.1")
 class SharedResourceIdPatch : ResourcePatch {
     internal companion object {
         var ChipCloud: Long = -1

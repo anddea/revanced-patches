@@ -21,7 +21,7 @@ import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Patch
-@Name("hide-captions-button")
+@Name("Hide captions button")
 @Description("Hides the captions button in the video player.")
 @DependsOn(
     [

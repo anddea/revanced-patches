@@ -32,7 +32,7 @@ import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
 import org.jf.dexlib2.iface.reference.FieldReference
 
 @Patch
-@Name("default-video-quality")
+@Name("Default video quality")
 @Description("Adds ability to set default video quality settings.")
 @DependsOn(
     [

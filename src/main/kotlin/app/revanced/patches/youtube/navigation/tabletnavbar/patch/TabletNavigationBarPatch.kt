@@ -21,7 +21,7 @@ import app.revanced.util.integrations.Constants.NAVIGATION
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
-@Name("enable-tablet-navigation-bar")
+@Name("Enable tablet navigation bar")
 @Description("Enables the tablet navigation bar.")
 @DependsOn([SettingsPatch::class])
 @YouTubeCompatibility

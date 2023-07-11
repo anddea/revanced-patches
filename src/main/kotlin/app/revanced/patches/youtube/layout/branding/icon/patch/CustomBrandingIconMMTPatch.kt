@@ -15,7 +15,7 @@ import app.revanced.util.resources.IconHelper.customIcon
 import app.revanced.util.resources.ResourceHelper.updatePatchStatusIcon
 
 @Patch(false)
-@Name("custom-branding-icon-mmt")
+@Name("Custom branding icon MMT")
 @Description("Changes the YouTube launcher icon to MMT.")
 @DependsOn([SettingsPatch::class])
 @YouTubeCompatibility

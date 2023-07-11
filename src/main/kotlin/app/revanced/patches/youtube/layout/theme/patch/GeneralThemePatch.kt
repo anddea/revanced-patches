@@ -1,7 +1,5 @@
 package app.revanced.patches.youtube.layout.theme.patch
 
-import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -11,9 +9,7 @@ import app.revanced.patches.youtube.utils.litho.patch.LithoThemePatch
 import app.revanced.util.integrations.Constants.UTILS_PATH
 import org.w3c.dom.Element
 
-@Name("general-theme-patch")
 @DependsOn([LithoThemePatch::class])
-@Version("0.0.1")
 class GeneralThemePatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
 

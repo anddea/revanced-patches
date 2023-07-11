@@ -15,7 +15,7 @@ import app.revanced.patches.reddit.utils.settings.bytecode.patch.SettingsBytecod
 import app.revanced.patches.reddit.utils.settings.resource.patch.SettingsPatch
 
 @Patch
-@Name("hide-discover-button")
+@Name("Hide discover button")
 @Description("Hide discover button at navigation bar.")
 @DependsOn(
     [

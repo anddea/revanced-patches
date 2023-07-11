@@ -16,7 +16,7 @@ import app.revanced.util.enum.CategoryType
 import app.revanced.util.integrations.Constants.MUSIC_ADS_PATH
 
 @Patch
-@Name("hide-button-shelf")
+@Name("Hide button shelf")
 @Description("Hides the button shelf from homepage and explorer.")
 @DependsOn(
     [

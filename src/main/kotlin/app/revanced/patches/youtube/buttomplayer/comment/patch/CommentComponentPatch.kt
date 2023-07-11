@@ -16,7 +16,7 @@ import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.integrations.Constants.PATCHES_PATH
 
 @Patch
-@Name("hide-comment-component")
+@Name("Hide comment component")
 @Description("Hides components related to comments.")
 @DependsOn(
     [

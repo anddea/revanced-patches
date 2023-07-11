@@ -24,8 +24,8 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Patch
-@Name("hide-category-bar")
-@Description("Hide the category bar at the top of the feed and at the top of related videos.")
+@Name("Hide category bar")
+@Description("Hides the category bar in video feeds.")
 @DependsOn(
     [
         SettingsPatch::class,

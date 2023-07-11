@@ -12,7 +12,7 @@ import app.revanced.patches.microg.utils.annotations.MicroGCompatibility
 import app.revanced.util.resources.MicroGResourceUtils.copyFiles
 
 @Patch
-@Name("custom-branding-microg-revancify-red")
+@Name("Custom branding icon Revancify red")
 @Description("Changes the MicroG launcher icon to Revancify Red.")
 @MicroGCompatibility
 @Version("0.0.1")

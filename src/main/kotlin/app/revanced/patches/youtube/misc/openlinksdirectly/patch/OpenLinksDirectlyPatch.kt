@@ -20,7 +20,7 @@ import app.revanced.util.integrations.Constants.MISC_PATH
 import org.jf.dexlib2.iface.instruction.formats.Instruction35c
 
 @Patch
-@Name("enable-open-links-directly")
+@Name("Enable open links directly")
 @Description("Skips over redirection URLs to external links.")
 @DependsOn([SettingsPatch::class])
 @YouTubeCompatibility

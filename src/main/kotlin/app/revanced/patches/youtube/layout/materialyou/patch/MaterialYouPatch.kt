@@ -19,7 +19,7 @@ import app.revanced.util.resources.ResourceUtils.copyResources
 import app.revanced.util.resources.ResourceUtils.copyXmlNode
 
 @Patch(false)
-@Name("materialyou")
+@Name("MaterialYou")
 @Description("Enables MaterialYou theme for Android 12+")
 @DependsOn(
     [

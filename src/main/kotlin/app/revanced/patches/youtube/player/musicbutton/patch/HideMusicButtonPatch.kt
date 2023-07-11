@@ -20,7 +20,7 @@ import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.integrations.Constants.PLAYER
 
 @Patch
-@Name("hide-music-button")
+@Name("Hide music button")
 @Description("Hides the YouTube Music button in the video player.")
 @DependsOn(
     [

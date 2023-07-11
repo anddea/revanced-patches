@@ -20,7 +20,7 @@ import app.revanced.patches.reddit.utils.settings.bytecode.patch.SettingsBytecod
 import app.revanced.patches.reddit.utils.settings.resource.patch.SettingsPatch
 
 @Patch
-@Name("disable-screenshot-popup")
+@Name("Disable screenshot popup")
 @Description("Disables the popup that shows up when taking a screenshot.")
 @DependsOn(
     [

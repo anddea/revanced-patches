@@ -24,8 +24,8 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 
 @Patch
-@Name("hide-player-overlay-filter")
-@Description("Remove the dark filter layer from the player's background.")
+@Name("Hide player overlay filter")
+@Description("Hides the dark filter layer from the player's background.")
 @DependsOn(
     [
         SettingsPatch::class,

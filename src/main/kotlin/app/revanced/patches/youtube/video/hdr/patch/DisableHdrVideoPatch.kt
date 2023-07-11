@@ -21,7 +21,7 @@ import app.revanced.patches.youtube.video.hdr.fingerprints.HdrCapabilitiesFinger
 import app.revanced.util.integrations.Constants.VIDEO_PATH
 
 @Patch
-@Name("disable-hdr-video")
+@Name("Disable hdr video")
 @Description("Disable HDR video.")
 @DependsOn([SettingsPatch::class])
 @YouTubeCompatibility

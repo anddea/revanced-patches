@@ -20,7 +20,7 @@ import app.revanced.util.integrations.Constants.GENERAL
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
-@Name("hide-load-more-button")
+@Name("Hide load more button")
 @Description("Hides the button under videos that loads similar videos.")
 @DependsOn(
     [

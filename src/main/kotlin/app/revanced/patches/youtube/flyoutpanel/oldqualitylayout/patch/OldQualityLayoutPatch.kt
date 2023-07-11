@@ -23,7 +23,7 @@ import app.revanced.util.integrations.Constants.FLYOUT_PANEL
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
-@Name("enable-old-quality-layout")
+@Name("Enable old quality layout")
 @Description("Enables the original quality flyout menu.")
 @DependsOn(
     [

@@ -25,7 +25,7 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Patch
-@Name("hide-trending-searches")
+@Name("Hide trending searches")
 @Description("Hide trending searches in the search bar.")
 @DependsOn(
     [

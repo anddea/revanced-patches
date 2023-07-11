@@ -19,7 +19,7 @@ import app.revanced.util.integrations.Constants.MUSIC_LAYOUT
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
-@Name("enable-force-minimized-player")
+@Name("Enable force minimized player")
 @Description("Permanently keep player minimized even if another track is played.")
 @DependsOn([SettingsPatch::class])
 @MusicCompatibility

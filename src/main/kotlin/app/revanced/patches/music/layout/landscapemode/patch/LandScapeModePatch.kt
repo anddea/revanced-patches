@@ -19,7 +19,7 @@ import app.revanced.util.enum.CategoryType
 import app.revanced.util.integrations.Constants.MUSIC_LAYOUT
 
 @Patch
-@Name("enable-landscape-mode")
+@Name("Enable landscape mode")
 @Description("Enables entry into landscape mode by screen rotation on the phone.")
 @DependsOn(
     [

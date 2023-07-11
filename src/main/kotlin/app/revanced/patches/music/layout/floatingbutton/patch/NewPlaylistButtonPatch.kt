@@ -23,8 +23,8 @@ import app.revanced.util.enum.CategoryType
 import app.revanced.util.integrations.Constants.MUSIC_LAYOUT
 
 @Patch
-@Name("hide-new-playlist-button")
-@Description("Hide the New Playlist button in the Library tab.")
+@Name("Hide new playlist button")
+@Description("Hide the \"New playlist\" button in the library.")
 @DependsOn(
     [
         SettingsPatch::class,

@@ -1,8 +1,6 @@
 package app.revanced.patches.shared.patch.opus
 
 import app.revanced.extensions.toErrorResult
-import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -18,8 +16,6 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 import org.jf.dexlib2.iface.reference.Reference
 
-@Name("abstract-opus-codec")
-@Version("0.0.1")
 abstract class AbstractOpusCodecsPatch(
     private val descriptor: String
 ) : BytecodePatch(

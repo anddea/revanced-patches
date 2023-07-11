@@ -33,7 +33,7 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 
 @Patch
-@Name("spoof-player-parameters")
+@Name("Spoof player parameters")
 @Description("Spoofs player parameters to prevent playback issues.")
 @DependsOn(
     [
@@ -85,7 +85,8 @@ class SpoofPlayerParameterPatch : BytecodePatch(
             }.result?.let {
                 it.mutableMethod.apply {
                     val targetIndex = it.scanResult.patternScanResult!!.endIndex
-                    val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
+                    val targetRegister =
+                        getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                     // Since this is end of the method must replace one line then add the rest.
                     addInstructions(

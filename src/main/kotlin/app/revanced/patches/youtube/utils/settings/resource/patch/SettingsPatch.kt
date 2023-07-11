@@ -28,7 +28,7 @@ import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
 
 @Patch
-@Name("settings")
+@Name("Settings")
 @Description("Applies mandatory patches to implement ReVanced settings into the application.")
 @DependsOn(
     [
@@ -68,7 +68,9 @@ class SettingsPatch : AbstractSettingsResourcePatch(
                         val node = resources.item(i)
                         if (node !is Element) continue
 
-                        if (node.nodeName != "integer" || !node.getAttribute("name").startsWith("google_play_services_version"))
+                        if (node.nodeName != "integer" || !node.getAttribute("name")
+                                .startsWith("google_play_services_version")
+                        )
                             continue
 
                         belowAndroid1820 = node.textContent.toInt() <= 232100000

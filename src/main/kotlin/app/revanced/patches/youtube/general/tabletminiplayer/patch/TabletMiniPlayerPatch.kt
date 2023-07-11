@@ -29,7 +29,7 @@ import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
-@Name("enable-tablet-mini-player")
+@Name("Enable tablet mini player")
 @Description("Enables the tablet mini player layout.")
 @DependsOn(
     [

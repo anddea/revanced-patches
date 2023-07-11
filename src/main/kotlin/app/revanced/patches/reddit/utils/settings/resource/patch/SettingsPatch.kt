@@ -21,7 +21,7 @@ import java.nio.file.Files
 import kotlin.io.path.exists
 
 @Patch
-@Name("reddit-settings")
+@Name("Reddit settings")
 @Description("Adds ReVanced settings to Reddit.")
 @DependsOn(
     [

@@ -15,7 +15,7 @@ import app.revanced.patches.music.misc.exclusiveaudio.fingerprints.AudioOnlyEnab
 import app.revanced.patches.music.utils.annotations.MusicCompatibility
 
 @Patch
-@Name("exclusive-audio-playback")
+@Name("Exclusive audio playback")
 @Description("Enables the option to play music without video.")
 @MusicCompatibility
 @Version("0.0.1")

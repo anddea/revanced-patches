@@ -16,7 +16,7 @@ import app.revanced.patches.music.utils.annotations.MusicCompatibility
 import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Patch
-@Name("hide-taste-builder")
+@Name("Hide taste builder")
 @Description("Hides the \"Tell us which artists you like\" card from homepage.")
 @MusicCompatibility
 @Version("0.0.1")

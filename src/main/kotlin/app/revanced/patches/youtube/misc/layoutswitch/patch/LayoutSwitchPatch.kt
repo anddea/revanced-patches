@@ -27,7 +27,7 @@ import app.revanced.util.integrations.Constants.MISC_PATH
 import org.jf.dexlib2.Opcode
 
 @Patch
-@Name("layout-switch")
+@Name("Layout switch")
 @Description("Tricks the dpi to use some tablet/phone layouts.")
 @DependsOn([SettingsPatch::class])
 @YouTubeCompatibility

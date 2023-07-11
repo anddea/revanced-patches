@@ -19,7 +19,7 @@ import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.integrations.Constants.GENERAL
 
 @Patch
-@Name("hide-auto-player-popup-panels")
+@Name("Hide auto player popup panels")
 @Description("Hide automatic popup panels (playlist or live chat) on video player.")
 @DependsOn([SettingsPatch::class])
 @YouTubeCompatibility

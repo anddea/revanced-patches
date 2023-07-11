@@ -24,7 +24,7 @@ import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Patch
-@Name("hide-upgrade-button")
+@Name("Hide upgrade button")
 @Description("Hides upgrade button from navigation bar and hide upgrade banner from homepage.")
 @DependsOn(
     [

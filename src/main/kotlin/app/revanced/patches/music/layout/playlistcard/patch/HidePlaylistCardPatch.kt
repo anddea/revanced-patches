@@ -16,7 +16,7 @@ import app.revanced.util.enum.CategoryType
 import app.revanced.util.integrations.Constants.MUSIC_ADS_PATH
 
 @Patch
-@Name("hide-playlist-card")
+@Name("Hide playlist card")
 @Description("Hides the playlist card from homepage.")
 @DependsOn(
     [

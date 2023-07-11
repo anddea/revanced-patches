@@ -20,7 +20,7 @@ import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
-@Name("hide-suggested-actions")
+@Name("Hide suggested actions")
 @Description("Hide the suggested actions bar inside the player.")
 @DependsOn(
     [

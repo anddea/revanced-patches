@@ -14,7 +14,7 @@ import app.revanced.patches.youtube.utils.playerbutton.patch.PlayerButtonHookPat
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 
 @Patch
-@Name("hide-previous-next-button")
+@Name("Hide previous next button")
 @Description("Hides the previous and next button in the player controller.")
 @DependsOn(
     [

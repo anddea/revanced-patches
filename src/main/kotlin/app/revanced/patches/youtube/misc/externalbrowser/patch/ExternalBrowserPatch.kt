@@ -21,7 +21,7 @@ import app.revanced.util.integrations.Constants.MISC_PATH
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
-@Name("enable-external-browser")
+@Name("Enable external browser")
 @Description("Open url outside the app in an external browser.")
 @DependsOn([SettingsPatch::class])
 @YouTubeCompatibility

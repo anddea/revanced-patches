@@ -22,7 +22,7 @@ import app.revanced.util.integrations.Constants.GENERAL
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
-@Name("header-switch")
+@Name("Header switch")
 @Description("Add switch to change header.")
 @DependsOn(
     [

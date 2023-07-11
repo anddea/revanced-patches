@@ -19,7 +19,7 @@ import app.revanced.util.resources.ResourceUtils
 import app.revanced.util.resources.ResourceUtils.copyResources
 
 @Patch
-@Name("custom-double-tap-length")
+@Name("Custom double tap length")
 @Description("Add 'double-tap to seek' value.")
 @DependsOn([SettingsPatch::class])
 @YouTubeCompatibility

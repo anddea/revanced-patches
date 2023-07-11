@@ -25,7 +25,7 @@ import app.revanced.util.integrations.Constants.PLAYER
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
-@Name("hide-autoplay-button")
+@Name("Hide autoplay button")
 @Description("Hides the autoplay button in the video player.")
 @DependsOn(
     [

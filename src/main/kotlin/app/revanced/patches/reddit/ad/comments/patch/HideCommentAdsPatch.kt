@@ -1,23 +1,15 @@
 package app.revanced.patches.reddit.ad.comments.patch
 
 import app.revanced.extensions.toErrorResult
-import app.revanced.patcher.annotation.Description
-import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.data.toMethodWalker
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
-import app.revanced.patcher.patch.annotations.RequiresIntegrations
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.reddit.ad.comments.fingerprints.HideCommentAdsFingerprint
 
-@Name("hide-comment-ads")
-@Description("Removes all comment ads.")
-@RequiresIntegrations
-@Version("0.0.1")
 class HideCommentAdsPatch : BytecodePatch(
     listOf(HideCommentAdsFingerprint)
 ) {

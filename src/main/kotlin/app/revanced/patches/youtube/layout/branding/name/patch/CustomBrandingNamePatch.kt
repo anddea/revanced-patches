@@ -18,7 +18,7 @@ import app.revanced.util.resources.ResourceHelper.updatePatchStatusLabel
 import org.w3c.dom.Element
 
 @Patch
-@Name("custom-branding-youtube-name")
+@Name("Custom branding YouTube name")
 @Description("Rename the YouTube app to the name specified in options.json.")
 @DependsOn([SettingsPatch::class])
 @YouTubeCompatibility

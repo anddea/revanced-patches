@@ -23,8 +23,8 @@ import app.revanced.util.resources.ResourceUtils.copyXmlNode
 import org.w3c.dom.Element
 
 @Patch
-@Name("hide-general-ads")
-@Description("Removes general ads.")
+@Name("Hide general ads")
+@Description("Hides general ads.")
 @DependsOn(
     [
         DoubleBackToClosePatch::class,

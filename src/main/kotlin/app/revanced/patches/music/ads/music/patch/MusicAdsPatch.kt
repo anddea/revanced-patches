@@ -16,7 +16,7 @@ import app.revanced.util.enum.CategoryType
 import app.revanced.util.integrations.Constants.MUSIC_ADS_PATH
 
 @Patch
-@Name("hide-music-ads")
+@Name("Hide music ads")
 @Description("Hides ads before playing a music.")
 @DependsOn(
     [

@@ -13,7 +13,7 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.shared.annotation.RVXCompatibility
 
 @Patch
-@Name("custom-package-name")
+@Name("Custom package name")
 @Description("Specifies the package name for YouTube and YT Music in the MicroG build.")
 @RVXCompatibility
 @Version("0.0.1")

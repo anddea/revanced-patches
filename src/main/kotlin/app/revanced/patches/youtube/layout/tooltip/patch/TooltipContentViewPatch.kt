@@ -17,7 +17,7 @@ import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 
 @Patch
-@Name("hide-tooltip-content")
+@Name("Hide tooltip content")
 @Description("Hides the tooltip box that appears on first install.")
 @DependsOn(
     [

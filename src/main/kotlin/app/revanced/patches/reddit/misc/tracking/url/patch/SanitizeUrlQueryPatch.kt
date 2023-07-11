@@ -19,7 +19,7 @@ import app.revanced.patches.reddit.utils.settings.bytecode.patch.SettingsBytecod
 import app.revanced.patches.reddit.utils.settings.resource.patch.SettingsPatch
 
 @Patch
-@Name("sanitize-sharing-links")
+@Name("Sanitize sharing links")
 @Description("Removes (tracking) query parameters from the URLs when sharing links.")
 @DependsOn([SettingsPatch::class])
 @RedditCompatibility

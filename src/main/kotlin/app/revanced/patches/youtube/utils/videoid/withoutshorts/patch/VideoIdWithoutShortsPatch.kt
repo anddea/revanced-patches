@@ -1,10 +1,7 @@
 package app.revanced.patches.youtube.utils.videoid.withoutshorts.patch
 
 import app.revanced.extensions.toErrorResult
-import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.data.toMethodWalker
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
@@ -16,8 +13,6 @@ import app.revanced.util.integrations.Constants.VIDEO_PATH
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
-@Name("video-id-without-shorts-hook")
-@Version("0.0.1")
 class VideoIdWithoutShortsPatch : BytecodePatch(
     listOf(VideoIdWithoutShortsFingerprint)
 ) {

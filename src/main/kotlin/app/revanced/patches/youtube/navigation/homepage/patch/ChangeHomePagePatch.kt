@@ -21,7 +21,7 @@ import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.integrations.Constants.NAVIGATION
 
 @Patch
-@Name("change-homepage")
+@Name("Change homepage")
 @Description("Change home page to subscription feed.")
 @DependsOn([SettingsPatch::class])
 @YouTubeCompatibility

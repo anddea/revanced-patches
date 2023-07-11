@@ -18,7 +18,7 @@ import app.revanced.util.resources.ResourceHelper.updatePatchStatusTheme
 import org.w3c.dom.Element
 
 @Patch
-@Name("theme")
+@Name("Theme")
 @Description("Change the app's theme to the values specified in options.json.")
 @DependsOn(
     [

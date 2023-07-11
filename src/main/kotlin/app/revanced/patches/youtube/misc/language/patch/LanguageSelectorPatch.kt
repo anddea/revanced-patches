@@ -18,7 +18,7 @@ import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
-@Name("language-switch")
+@Name("Language switch")
 @Description("Add language switch toggle.")
 @DependsOn([SettingsPatch::class])
 @YouTubeCompatibility

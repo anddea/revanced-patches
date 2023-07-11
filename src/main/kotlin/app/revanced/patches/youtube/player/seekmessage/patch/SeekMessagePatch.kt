@@ -20,7 +20,7 @@ import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.integrations.Constants.PLAYER
 
 @Patch
-@Name("hide-seek-message")
+@Name("Hide seek message")
 @Description("Hides the 'Slide left or right to seek' message container.")
 @DependsOn(
     [

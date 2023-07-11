@@ -20,8 +20,8 @@ import app.revanced.util.integrations.Constants.GENERAL
 import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Patch
-@Name("hide-floating-microphone")
-@Description("Hide the floating microphone button above the keyboard.")
+@Name("Hide floating microphone")
+@Description("Hides the floating microphone button which appears in search.")
 @DependsOn(
     [
         SettingsPatch::class,

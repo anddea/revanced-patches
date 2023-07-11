@@ -14,7 +14,7 @@ import app.revanced.patches.music.misc.minimizedplayback.fingerprints.MinimizedP
 import app.revanced.patches.music.utils.annotations.MusicCompatibility
 
 @Patch
-@Name("enable-minimized-playback")
+@Name("Enable minimized playback")
 @Description("Enables minimized playback on Kids music.")
 @MusicCompatibility
 @Version("0.0.1")

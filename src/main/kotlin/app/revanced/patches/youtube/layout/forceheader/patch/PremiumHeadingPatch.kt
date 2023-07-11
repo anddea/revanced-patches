@@ -17,8 +17,8 @@ import java.nio.file.StandardCopyOption
 import kotlin.io.path.exists
 
 @Patch(false)
-@Name("force-premium-heading")
-@Description("Forces premium heading on the home screen.")
+@Name("Force premium heading")
+@Description("Forces premium heading on the homepage.")
 @DependsOn([SettingsPatch::class])
 @YouTubeCompatibility
 @Version("0.0.1")

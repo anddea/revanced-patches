@@ -17,7 +17,7 @@ import app.revanced.util.resources.ResourceUtils.copyResources
 import app.revanced.util.resources.ResourceUtils.copyXmlNode
 
 @Patch
-@Name("sponsorblock")
+@Name("Sponsorblock")
 @Description("Integrates SponsorBlock which allows skipping video segments such as sponsored content.")
 @DependsOn(
     [

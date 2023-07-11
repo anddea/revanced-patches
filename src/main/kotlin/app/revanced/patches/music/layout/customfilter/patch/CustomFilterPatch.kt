@@ -16,7 +16,7 @@ import app.revanced.util.enum.CategoryType
 import app.revanced.util.integrations.Constants.MUSIC_ADS_PATH
 
 @Patch
-@Name("enable-custom-filter")
+@Name("Enable custom filter")
 @Description("Enables custom filter to hide layout components.")
 @DependsOn(
     [

@@ -23,7 +23,7 @@ import app.revanced.util.integrations.Constants.MUSIC_LAYOUT
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
-@Name("enable-old-style-miniplayer")
+@Name("Enable old style miniplayer")
 @Description("Return the miniplayers to old style. (for YT Music v5.55.53+)")
 @DependsOn([SettingsPatch::class])
 @MusicCompatibility

@@ -1,8 +1,6 @@
 package app.revanced.patches.youtube.utils.returnyoutubedislike.shorts.patch
 
 import app.revanced.extensions.toErrorResult
-import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -10,14 +8,10 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.returnyoutubedislike.shorts.fingerprints.ShortsTextViewFingerprint
 import app.revanced.util.integrations.Constants.UTILS_PATH
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 
-@Name("return-youtube-dislike-shorts")
-@YouTubeCompatibility
-@Version("0.0.1")
 class ReturnYouTubeDislikeShortsPatch : BytecodePatch(
     listOf(ShortsTextViewFingerprint)
 ) {

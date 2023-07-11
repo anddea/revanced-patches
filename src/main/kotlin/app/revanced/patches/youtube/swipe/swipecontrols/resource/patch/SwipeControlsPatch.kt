@@ -17,7 +17,7 @@ import app.revanced.util.resources.ResourceUtils
 import app.revanced.util.resources.ResourceUtils.copyResources
 
 @Patch
-@Name("swipe-controls")
+@Name("Swipe controls")
 @Description("Adds volume and brightness swipe controls.")
 @DependsOn(
     [

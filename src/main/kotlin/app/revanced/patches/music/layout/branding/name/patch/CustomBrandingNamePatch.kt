@@ -15,7 +15,7 @@ import app.revanced.patches.music.utils.annotations.MusicCompatibility
 import org.w3c.dom.Element
 
 @Patch(false)
-@Name("custom-branding-music-name")
+@Name("Custom branding Music name")
 @Description("Rename the YouTube Music app to the name specified in options.json.")
 @MusicCompatibility
 @Version("0.0.1")

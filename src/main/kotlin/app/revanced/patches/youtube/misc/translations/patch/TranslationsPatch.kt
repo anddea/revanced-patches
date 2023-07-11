@@ -14,7 +14,7 @@ import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.resources.ResourceHelper.addTranslations
 
 @Patch
-@Name("translations")
+@Name("Translations")
 @Description("Add Crowdin translations for YouTube.")
 @DependsOn([SettingsPatch::class])
 @YouTubeCompatibility

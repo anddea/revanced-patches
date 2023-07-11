@@ -13,7 +13,7 @@ import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 
 @Patch(false)
-@Name("enable-debug-logging")
+@Name("Enable debug logging")
 @Description("Adds debugging options.")
 @DependsOn([SettingsPatch::class])
 @YouTubeCompatibility

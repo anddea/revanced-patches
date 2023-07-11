@@ -15,7 +15,7 @@ import app.revanced.patches.reddit.utils.settings.bytecode.patch.SettingsBytecod
 import app.revanced.patches.reddit.utils.settings.resource.patch.SettingsPatch
 
 @Patch
-@Name("hide-create-button")
+@Name("Hide create button")
 @Description("Hide create button at navigation bar.")
 @DependsOn(
     [

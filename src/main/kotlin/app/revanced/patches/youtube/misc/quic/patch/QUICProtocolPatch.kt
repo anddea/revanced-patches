@@ -18,7 +18,7 @@ import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.integrations.Constants.MISC_PATH
 
 @Patch
-@Name("disable-quic-protocol")
+@Name("Disable QUIC protocol")
 @Description("Disable CronetEngine's QUIC protocol.")
 @DependsOn([SettingsPatch::class])
 @YouTubeCompatibility

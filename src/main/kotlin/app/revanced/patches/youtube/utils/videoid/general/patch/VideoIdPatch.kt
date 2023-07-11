@@ -1,8 +1,6 @@
 package app.revanced.patches.youtube.utils.videoid.general.patch
 
 import app.revanced.extensions.toErrorResult
-import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.data.toMethodWalker
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
@@ -33,8 +31,6 @@ import org.jf.dexlib2.immutable.ImmutableMethod
 import org.jf.dexlib2.immutable.ImmutableMethodParameter
 import org.jf.dexlib2.util.MethodUtil
 
-@Name("video-id-hook")
-@Version("0.0.1")
 @DependsOn([PlayerTypeHookPatch::class])
 class VideoIdPatch : BytecodePatch(
     listOf(

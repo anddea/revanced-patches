@@ -1,8 +1,6 @@
 package app.revanced.patches.youtube.shorts.shortscomponent.patch
 
 import app.revanced.extensions.toErrorResult
-import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
@@ -14,7 +12,6 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patches.youtube.shorts.shortscomponent.fingerprints.ShortsSubscriptionsFingerprint
 import app.revanced.patches.youtube.shorts.shortscomponent.fingerprints.ShortsSubscriptionsTabletFingerprint
 import app.revanced.patches.youtube.shorts.shortscomponent.fingerprints.ShortsSubscriptionsTabletParentFingerprint
-import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch.Companion.ReelPlayerFooter
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch.Companion.ReelPlayerPausedStateButton
 import app.revanced.util.bytecode.getWideLiteralIndex
@@ -25,9 +22,6 @@ import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
 import org.jf.dexlib2.iface.reference.FieldReference
 
-@Name("hide-shorts-subscriptions")
-@YouTubeCompatibility
-@Version("0.0.1")
 class ShortsSubscriptionsButtonPatch : BytecodePatch(
     listOf(
         ShortsSubscriptionsFingerprint,

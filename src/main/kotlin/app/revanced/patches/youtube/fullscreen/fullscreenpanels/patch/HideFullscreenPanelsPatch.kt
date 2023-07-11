@@ -33,7 +33,7 @@ import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 import org.jf.dexlib2.iface.instruction.formats.Instruction35c
 
 @Patch
-@Name("hide-fullscreen-panels")
+@Name("Hide fullscreen panels")
 @Description("Hides video description and comments panel in fullscreen view.")
 @DependsOn(
     [

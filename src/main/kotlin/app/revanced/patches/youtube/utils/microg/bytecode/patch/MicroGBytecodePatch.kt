@@ -1,14 +1,11 @@
 package app.revanced.patches.youtube.utils.microg.bytecode.patch
 
-import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.shared.patch.packagename.PackageNamePatch
-import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.fix.clientspoof.patch.ClientSpoofPatch
 import app.revanced.patches.youtube.utils.fix.parameter.patch.SpoofPlayerParameterPatch
 import app.revanced.patches.youtube.utils.microg.bytecode.fingerprints.CastContextFetchFingerprint
@@ -21,7 +18,6 @@ import app.revanced.patches.youtube.utils.microg.shared.Constants.PACKAGE_NAME
 import app.revanced.util.bytecode.BytecodeHelper.injectInit
 import app.revanced.util.microg.MicroGBytecodeHelper
 
-@Name("microg-support-bytecode-patch")
 @DependsOn(
     [
         ClientSpoofPatch::class,
@@ -29,8 +25,6 @@ import app.revanced.util.microg.MicroGBytecodeHelper
         SpoofPlayerParameterPatch::class
     ]
 )
-@YouTubeCompatibility
-@Version("0.0.1")
 class MicroGBytecodePatch : BytecodePatch(
     listOf(
         CastContextFetchFingerprint,

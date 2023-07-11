@@ -12,7 +12,7 @@ import app.revanced.patches.music.utils.annotations.MusicCompatibility
 import app.revanced.util.resources.IconHelper.customIconMusic
 
 @Patch(false)
-@Name("custom-branding-icon-revancify-red")
+@Name("Custom branding icon Revancify red")
 @Description("Changes the YouTube Music launcher icon to Revancify Red.")
 @MusicCompatibility
 @Version("0.0.1")

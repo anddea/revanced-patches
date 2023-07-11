@@ -1,8 +1,6 @@
 package app.revanced.patches.reddit.utils.settings.bytecode.patch
 
 import app.revanced.extensions.toErrorResult
-import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
@@ -10,14 +8,10 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.reddit.utils.annotations.RedditCompatibility
 import app.revanced.patches.reddit.utils.settings.bytecode.fingerprints.OssLicensesMenuActivityOnCreateFingerprint
 import app.revanced.patches.reddit.utils.settings.bytecode.fingerprints.SettingsStatusLoadFingerprint
 import kotlin.properties.Delegates
 
-@Name("settings-bytecode-patch")
-@RedditCompatibility
-@Version("0.0.1")
 class SettingsBytecodePatch : BytecodePatch(
     listOf(
         OssLicensesMenuActivityOnCreateFingerprint,

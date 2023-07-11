@@ -23,7 +23,7 @@ import app.revanced.util.integrations.Constants.FULLSCREEN
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(false)
-@Name("disable-landscape-mode")
+@Name("Disable landscape mode")
 @Description("Disable landscape mode when entering fullscreen.")
 @DependsOn([SettingsPatch::class])
 @YouTubeCompatibility

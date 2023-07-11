@@ -1,8 +1,6 @@
 package app.revanced.patches.shared.patch.ads
 
 import app.revanced.extensions.toErrorResult
-import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.data.toMethodWalker
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
@@ -16,8 +14,6 @@ import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.fingerprints.ads.LegacyAdsFingerprint
 import app.revanced.patches.shared.fingerprints.ads.MainstreamAdsFingerprint
 
-@Name("abstract-ads-patch")
-@Version("0.0.1")
 abstract class AbstractAdsPatch(
     private val descriptor: String
 ) : BytecodePatch(

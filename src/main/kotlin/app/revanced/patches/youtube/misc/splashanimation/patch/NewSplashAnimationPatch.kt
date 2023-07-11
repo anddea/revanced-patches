@@ -21,7 +21,7 @@ import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
-@Name("enable-new-splash-animation")
+@Name("Enable new splash animation")
 @Description("Enables a new type of splash animation on Android 12+ devices.")
 @DependsOn([SettingsPatch::class])
 @YouTubeCompatibility

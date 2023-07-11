@@ -21,7 +21,7 @@ import app.revanced.util.integrations.Constants.MUSIC_LAYOUT
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
-@Name("enable-black-navigation-bar")
+@Name("Enable black navigation bar")
 @Description("Sets the navigation bar color to black.")
 @DependsOn(
     [

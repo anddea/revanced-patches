@@ -16,7 +16,7 @@ import app.revanced.util.integrations.Constants.MISC_PATH
 import app.revanced.util.resources.ResourceUtils.copyXmlNode
 
 @Patch
-@Name("spoof-app-version")
+@Name("Spoof app version")
 @Description("Tricks YouTube into thinking, you are running an older version of the app. One of the side effects also includes restoring the old UI.")
 @DependsOn([SettingsPatch::class])
 @YouTubeCompatibility

@@ -21,7 +21,7 @@ import app.revanced.util.integrations.Constants.SEEKBAR
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 
 @Patch
-@Name("enable-seekbar-tapping")
+@Name("Enable seekbar tapping")
 @Description("Enables tap-to-seek on the seekbar of the video player.")
 @DependsOn([SettingsPatch::class])
 @YouTubeCompatibility

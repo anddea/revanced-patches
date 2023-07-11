@@ -19,7 +19,7 @@ import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.integrations.Constants.GENERAL
 
 @Patch
-@Name("hide-snack-bar")
+@Name("Hide snack bar")
 @Description("Hides the snack bar action popup.")
 @DependsOn([SettingsPatch::class])
 @YouTubeCompatibility
