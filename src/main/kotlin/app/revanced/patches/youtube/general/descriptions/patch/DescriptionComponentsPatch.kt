@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.descriptions.layout.patch
+package app.revanced.patches.youtube.general.descriptions.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
