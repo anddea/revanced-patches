@@ -16,7 +16,7 @@
     <string name="revanced_bypass_ambient_mode_restrictions_title">Ограничения фоновой подсветки</string>
     <string name="revanced_change_homepage_summary_off">Начальный экран: \"Главная\"</string>
     <string name="revanced_change_homepage_summary_on">Начальный экран: \"Подписки\"</string>
-    <string name="revanced_change_homepage_title">Начальный экран</string>
+    <string name="revanced_change_homepage_title">Вкладка начального экрана</string>
     <string name="revanced_comments_title">Комментарии</string>
     <string name="revanced_copy_video_timestamp_success">Таймкод скопирован в буфер обмена</string>
     <string name="revanced_custom_filter_strings_summary">Фильтровать компоненты по названиям через строку</string>
@@ -85,9 +85,9 @@
     <string name="revanced_enable_external_browser_summary_off">Внешний браузер отключен</string>
     <string name="revanced_enable_external_browser_summary_on">Внешний браузер включен</string>
     <string name="revanced_enable_external_browser_title">Внешний браузер</string>
-    <string name="revanced_enable_new_comment_popup_panels_summary_off">Новые всплывающие панели комментариев отключены</string>
-    <string name="revanced_enable_new_comment_popup_panels_summary_on">Новые всплывающие панели комментариев включены</string>
-    <string name="revanced_enable_new_comment_popup_panels_title">Новые панели комментариев</string>
+    <string name="revanced_enable_new_comment_popup_panels_summary_off">Новая всплывающая панель комментариев отключена</string>
+    <string name="revanced_enable_new_comment_popup_panels_summary_on">Новая всплывающая панель комментариев включена</string>
+    <string name="revanced_enable_new_comment_popup_panels_title">Новая панель комментариев</string>
     <string name="revanced_enable_new_splash_animation_summary_off">Новая анимация заставки отключена</string>
     <string name="revanced_enable_new_splash_animation_summary_on">Новая анимация заставки включена</string>
     <string name="revanced_enable_new_splash_animation_title">Новая анимация заставки</string>
@@ -159,14 +159,12 @@
     <string name="revanced_external_downloader_package_name_summary">Имя пакета Вашего внешнего установленного приложения для загрузки видео. Например, NewPipe или YTDLnis</string>
     <string name="revanced_external_downloader_package_name_title">Имя пакета внешнего загрузчика</string>
     <string name="revanced_external_downloader_settings_summary">Настройки использования внешнего загрузчика видео</string>
-    <string name="revanced_external_downloader_settings_title">Внешний загрузчик</string>
+    <string name="revanced_external_downloader_settings_title">Настройки внешнего загрузчика</string>
     <string name="revanced_feed_flyout_panel_title">Выдвижная панель ленты</string>
     <string name="revanced_flyout_menu">Выдвижное меню</string>
     <string name="revanced_fullscreen">Полноэкранный режим</string>
     <string name="revanced_general">Основные</string>
     <string name="revanced_haptic_feedback_title">Виброотклик</string>
-    <string name="revanced_hide_account_menu_summary_off">Меню аккаунта отображено</string>
-    <string name="revanced_hide_account_menu_summary_on">Меню аккаунта скрыто</string>
     <string name="revanced_hide_account_menu_title">Меню аккаунта</string>
     <string name="revanced_hide_account_menu_filter_strings_title">Фильтр меню учетной записи</string>
     <string name="revanced_hide_action_buttons_summary_off">Кнопки действий отображены</string>
@@ -255,9 +253,9 @@
     <string name="revanced_hide_collapse_button_summary_off">Кнопка \"Свернуть\" отображена</string>
     <string name="revanced_hide_collapse_button_summary_on">Кнопка \"Свернуть\" скрыта</string>
     <string name="revanced_hide_collapse_button_title">Свернуть</string>
-    <string name="revanced_hide_comments_section_summary_off">Раздел \"Комментарии\" отображен</string>
-    <string name="revanced_hide_comments_section_summary_on">Раздел \"Комментарии\" скрыт</string>
-    <string name="revanced_hide_comments_section_title">Раздел \"Комментарии\"</string>
+    <string name="revanced_hide_comments_section_summary_off">Раздел комментариев отображен</string>
+    <string name="revanced_hide_comments_section_summary_on">Раздел комментариев скрыт</string>
+    <string name="revanced_hide_comments_section_title">Раздел комментариев</string>
     <string name="revanced_hide_community_posts_home_summary_off">Публикации сообщества в ленте \"Главной\" страницы отображены</string>
     <string name="revanced_hide_community_posts_home_summary_on">Публикации сообщества в ленте \"Главной\" страницы скрыты</string>
     <string name="revanced_hide_community_posts_home_title">Публикации сообщества на \"Главной\"</string>
@@ -351,7 +349,7 @@
     <string name="revanced_hide_merchandise_shelf_title">Секции торговли</string>
     <string name="revanced_hide_mix_playlists_summary_off">Плейлист \"Джем\" отображен</string>
     <string name="revanced_hide_mix_playlists_summary_on">Плейлист \"Джем\" скрыт</string>
-    <string name="revanced_hide_mix_playlists_title">Плейлист \"Джем\"</string>
+    <string name="revanced_hide_mix_playlists_title">Джем</string>
     <string name="revanced_hide_movie_shelf_summary_off">Секции фильмов отображены</string>
     <string name="revanced_hide_movie_shelf_summary_on">Секции фильмов скрыты</string>
     <string name="revanced_hide_movie_shelf_title">Секции фильмов</string>
@@ -521,17 +519,17 @@
     <string name="revanced_open_library_startup_title">Библиотека при запуске</string>
     <string name="revanced_others">Дополнительные</string>
     <string name="revanced_overlay_button">Кнопки в плеере</string>
-    <string name="revanced_overlay_button_always_repeat_summary">"Нажмите для переключения всегда повторяющихся состояний
-Нажмите и удерживайте для переключения паузы после повторяющихся состояний"</string>
-    <string name="revanced_overlay_button_always_repeat_title">Кнопка повтора</string>
+    <string name="revanced_overlay_button_always_repeat_summary">"Нажмите для включения постоянного повтора
+Нажмите и удерживайте для включения паузы после повтора"</string>
+    <string name="revanced_overlay_button_always_repeat_title">Постоянный повтор</string>
     <string name="revanced_overlay_button_copy_video_url_summary">"Нажмите для копирования URL видео
 Нажмите и удерживайте для копирования URL видео с отметкой времени"</string>
-    <string name="revanced_overlay_button_copy_video_url_title">Кнопка копирования URL видео</string>
+    <string name="revanced_overlay_button_copy_video_url_title">Копирование URL видео</string>
     <string name="revanced_overlay_button_copy_video_url_timestamp_summary">"Нажмите для копирования URL видео с отметкой времени
 Нажмите и удерживайте для копирования отметки времени видео"</string>
-    <string name="revanced_overlay_button_copy_video_url_timestamp_title">Кнопка копирования URL отметки времени</string>
+    <string name="revanced_overlay_button_copy_video_url_timestamp_title">Копирование URL отметки времени</string>
     <string name="revanced_overlay_button_external_downloader_summary">Нажмите для запуска внешнего загрузчика</string>
-    <string name="revanced_overlay_button_external_downloader_title">Кнопка внешнего загрузчика</string>
+    <string name="revanced_overlay_button_external_downloader_title">Внешний загрузчик</string>
     <string name="revanced_overlay_button_speed_dialog_reset">Скорость видео сброшена (1.0x)</string>
     <string name="revanced_overlay_button_speed_dialog_summary">"Нажмите для открытия выбора скорости
 Нажмите и удерживайте для установки скорости видео в 1.0x"</string>

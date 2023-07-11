@@ -85,6 +85,9 @@
     <string name="revanced_enable_external_browser_summary_off">Wyłączona</string>
     <string name="revanced_enable_external_browser_summary_on">Włączona</string>
     <string name="revanced_enable_external_browser_title">Zewnętrzna przeglądarka</string>
+    <string name="revanced_enable_new_comment_popup_panels_summary_off">Wyłączony</string>
+    <string name="revanced_enable_new_comment_popup_panels_summary_on">Włączony</string>
+    <string name="revanced_enable_new_comment_popup_panels_title">Nowy wygląd wideo podczas patrzenia na komentarze</string>
     <string name="revanced_enable_new_splash_animation_summary_off">Wyłączona</string>
     <string name="revanced_enable_new_splash_animation_summary_on">Włączona</string>
     <string name="revanced_enable_new_splash_animation_title">Nowa animacja uruchamiania aplikacji</string>
@@ -162,13 +165,11 @@
     <string name="revanced_fullscreen">Pełny ekran</string>
     <string name="revanced_general">Ogólne</string>
     <string name="revanced_haptic_feedback_title">Wibracje</string>
-    <string name="revanced_hide_account_menu_summary_off">Widoczne</string>
-    <string name="revanced_hide_account_menu_summary_on">Ukryte</string>
     <string name="revanced_hide_account_menu_title">Menu konta</string>
     <string name="revanced_hide_account_menu_filter_strings_title">Edytuj menu konta</string>
     <string name="revanced_hide_action_buttons_summary_off">Widoczne</string>
     <string name="revanced_hide_action_buttons_summary_on">Ukryte</string>
-    <string name="revanced_hide_action_buttons_title">Przyciski akcji (sekcja eksperymentalna)</string>
+    <string name="revanced_hide_action_buttons_title">Pozostałe przyciski</string>
     <string name="revanced_hide_album_card_summary_off">Widoczne</string>
     <string name="revanced_hide_album_card_summary_on">Ukryte</string>
     <string name="revanced_hide_album_card_title">Karty albumów</string>
@@ -184,6 +185,9 @@
     <string name="revanced_hide_auto_player_popup_panels_summary_off">Widoczne</string>
     <string name="revanced_hide_auto_player_popup_panels_summary_on">Ukryte</string>
     <string name="revanced_hide_auto_player_popup_panels_title">Automatycznie wyskakujące panele</string>
+    <string name="revanced_hide_browse_store_button_summary_off">Widoczny</string>
+    <string name="revanced_hide_browse_store_button_summary_on">Ukryty</string>
+    <string name="revanced_hide_browse_store_button_title">Przycisk od sklepu</string>
     <string name="revanced_hide_button_create_clip_summary_off">Widoczny</string>
     <string name="revanced_hide_button_create_clip_summary_on">Ukryty</string>
     <string name="revanced_hide_button_create_clip_title">Przycisk od tworzenia klipów</string>
@@ -295,6 +299,9 @@
     <string name="revanced_hide_fullscreen_panels_summary_off">Widoczne</string>
     <string name="revanced_hide_fullscreen_panels_summary_on">Ukryte</string>
     <string name="revanced_hide_fullscreen_panels_title">Pełnoekranowe panele</string>
+    <string name="revanced_hide_game_section_summary_off">Widoczne</string>
+    <string name="revanced_hide_game_section_summary_on">Ukryte</string>
+    <string name="revanced_hide_game_section_title">Tytuły gier pod opisami</string>
     <string name="revanced_hide_general_ads_summary_off">Widoczne</string>
     <string name="revanced_hide_general_ads_summary_on">Ukryte</string>
     <string name="revanced_hide_general_ads_title">Ogólne reklamy</string>
@@ -313,6 +320,9 @@
     <string name="revanced_hide_image_shelf_summary_off">Widoczne</string>
     <string name="revanced_hide_image_shelf_summary_on">Ukryte</string>
     <string name="revanced_hide_image_shelf_title">Półki z obrazkami</string>
+    <string name="revanced_hide_info_cards_section_summary_off">Widoczne</string>
+    <string name="revanced_hide_info_cards_section_summary_on">Ukryte</string>
+    <string name="revanced_hide_info_cards_section_title">Nazwy kanałów pod opisami</string>
     <string name="revanced_hide_info_cards_summary_off">Widoczne</string>
     <string name="revanced_hide_info_cards_summary_on">Ukryte</string>
     <string name="revanced_hide_info_cards_title">Karty z informacjami</string>
@@ -587,6 +597,12 @@ Jeśli później opcja ta zostanie wyłączona, stare UI może pozostać do czas
     <string name="revanced_spoof_app_version_target_title">Zmień oszukaną wersję aplikacji</string>
     <string name="revanced_spoof_player_parameter_notice">Oszukaj parametry, by rozwiązać problemy z odtwarzaniem</string>
     <string name="revanced_spoof_player_parameter_reload">Proszę wczytać wideo ponownie</string>
+    <string name="revanced_spoof_player_parameter_type_summary_off">"Parametry Shortów
+
+Znane problemy
+- Znaki wodne kanałów są ukryte
+- Pobieranie wideo może nie działać
+- Karty końcowe wideo są ukryte"</string>
     <string name="revanced_spoof_player_parameter_type_summary_on">"Parametry trybu incognito
 
 Znane problemy

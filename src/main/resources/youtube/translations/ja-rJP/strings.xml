@@ -85,6 +85,7 @@
     <string name="revanced_enable_external_browser_summary_off">外部ブラウザを有効にします</string>
     <string name="revanced_enable_external_browser_summary_on">外部ブラウザを有効にします</string>
     <string name="revanced_enable_external_browser_title">外部ブラウザを有効にする</string>
+    <string name="revanced_enable_new_comment_popup_panels_title">コメント欄の新しいポップアップパネルを有効にする</string>
     <string name="revanced_enable_new_splash_animation_summary_off">YouTube起動時に新しいアニメーションを有効にします ‐ 注意：起動アニメーションを有効にすると、アプリの起動に少し時間がかかります。このアニメーションが必要ではない場合はオフにすることをおすすめします。</string>
     <string name="revanced_enable_new_splash_animation_summary_on">YouTube起動時に新しいアニメーションを有効にします ‐ 注意：起動アニメーションを有効にすると、アプリの起動に少し時間がかかります。このアニメーションが必要ではない場合はオフにすることをおすすめします。</string>
     <string name="revanced_enable_new_splash_animation_title">新しい起動アニメーションを有効にする</string>
@@ -162,8 +163,6 @@
     <string name="revanced_fullscreen">全画面表示</string>
     <string name="revanced_general">全般</string>
     <string name="revanced_haptic_feedback_title">振動フィードバック</string>
-    <string name="revanced_hide_account_menu_summary_off">アカウントに関する設定(チャンネル、YouTube Premiumに登録 などのメニュー)を非表示にします</string>
-    <string name="revanced_hide_account_menu_summary_on">アカウントに関する設定(チャンネル、YouTube Premiumに登録 などのメニュー)を非表示にします</string>
     <string name="revanced_hide_account_menu_title">アカウントに関する設定を非表示にする</string>
     <string name="revanced_hide_account_menu_filter_strings_title">アカウントメニューのフィルタを編集する</string>
     <string name="revanced_hide_action_buttons_summary_off">“リミックス”ボタン、“クリップ”ボタン、“Thanks”ボタン、“チャット”ボタン、“共有”ボタンを非表示にします
@@ -186,6 +185,9 @@
     <string name="revanced_hide_auto_player_popup_panels_summary_off">プレーヤーの自動ポップアップパネル (プレイリストまたはライブチャット)を無効にします</string>
     <string name="revanced_hide_auto_player_popup_panels_summary_on">プレーヤーの自動ポップアップパネル (プレイリストまたはライブチャット)を無効にします</string>
     <string name="revanced_hide_auto_player_popup_panels_title">プレーヤーのポップアップパネルを非表示にする</string>
+    <string name="revanced_hide_browse_store_button_summary_off">一部の国で特定のチャンネルに表示される“商品を見る(Browse store)”ボタンを非表示にします</string>
+    <string name="revanced_hide_browse_store_button_summary_on">一部の国で特定のチャンネルに表示される“商品を見る(Browse store)”ボタンを非表示にします</string>
+    <string name="revanced_hide_browse_store_button_title">“商品を見る”ボタンを非表示にする</string>
     <string name="revanced_hide_button_create_clip_summary_off">クリップボタンを非表示にします</string>
     <string name="revanced_hide_button_create_clip_summary_on">クリップボタンを非表示にします</string>
     <string name="revanced_hide_button_create_clip_title">クリップボタンを非表示にする</string>
@@ -297,6 +299,9 @@
     <string name="revanced_hide_fullscreen_panels_summary_off">全画面表示で右側に表示される説明欄とコメント欄を無効にします</string>
     <string name="revanced_hide_fullscreen_panels_summary_on">全画面表示で右側に表示される説明欄とコメント欄を無効にします</string>
     <string name="revanced_hide_fullscreen_panels_title">全画面表示パネルを非表示にする</string>
+    <string name="revanced_hide_game_section_summary_off">概要欄にあるゲームの説明を非表示にします</string>
+    <string name="revanced_hide_game_section_summary_on">概要欄にあるゲームの説明を非表示にします</string>
+    <string name="revanced_hide_game_section_title">ゲームのセクションを非表示にする</string>
     <string name="revanced_hide_general_ads_summary_off">全般的な広告(動画広告以外の全ての広告)を非表示にします</string>
     <string name="revanced_hide_general_ads_summary_on">全般的な広告(動画広告以外の全ての広告)を非表示にします</string>
     <string name="revanced_hide_general_ads_title">全般的な広告を非表示にする</string>
@@ -469,11 +474,11 @@
     <string name="revanced_hide_suggested_actions_title">提案されたアクションを非表示にする</string>
     <string name="revanced_hide_suggestions_shelf_summary">"以下の欄を非表示にします
 - ニュース速報
-- 再生を続ける
+- 続きを見る
 - 更にチャンネルを探す
 - ショッピング
-- もう一度見る"</string>
-    <string name="revanced_hide_suggestions_shelf_title">おすすめ欄を非表示にする</string>
+- もう一度見る/聴く"</string>
+    <string name="revanced_hide_suggestions_shelf_title">ホームタブのおすすめ欄を非表示にする</string>
     <string name="revanced_hide_ticket_shelf_summary_off">チケット欄を非表示にします</string>
     <string name="revanced_hide_ticket_shelf_summary_on">チケット欄を非表示にします</string>
     <string name="revanced_hide_ticket_shelf_title">チケット欄を非表示にする</string>
@@ -590,6 +595,11 @@
     <string name="revanced_spoof_app_version_target_title">アプリのバージョンを偽装する</string>
     <string name="revanced_spoof_player_parameter_notice">バッファリングの問題を修正するために、プレーヤーのパラメータを偽装しました</string>
     <string name="revanced_spoof_player_parameter_reload">動画を再読み込みしてください</string>
+    <string name="revanced_spoof_player_parameter_type_summary_off">"YouTubeショートのプレーヤーのパラメータ
+既知の問題：
+‐ 動画の右下のウォーターマークは表示されません
+‐ 動画のダウンロードに失敗することがあります
+‐ 動画の終了画面のカードは表示されません"</string>
     <string name="revanced_spoof_player_parameter_type_summary_on">"シークレットモードのプレイヤーパラメータ
 
 既知の問題
