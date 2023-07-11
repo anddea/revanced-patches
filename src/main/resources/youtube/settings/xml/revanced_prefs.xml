@@ -143,7 +143,7 @@
         <SwitchPreference android:title="@string/revanced_enable_wide_search_bar_title" android:key="revanced_enable_wide_search_bar" android:defaultValue="false" android:summaryOn="@string/revanced_enable_wide_search_bar_summary_on" android:summaryOff="@string/revanced_enable_wide_search_bar_summary_off" />SETTINGS: ENABLE_WIDE_SEARCH_BAR -->
 
         <!-- SETTINGS: HIDE_ACCOUNT_MENU
-        <SwitchPreference android:title="@string/revanced_hide_account_menu_title" android:key="revanced_hide_account_menu" android:defaultValue="false" android:summaryOn="@string/revanced_hide_account_menu_summary_on" android:summaryOff="@string/revanced_hide_account_menu_summary_off" />
+        <SwitchPreference android:title="@string/revanced_hide_account_menu_title" android:key="revanced_hide_account_menu" android:defaultValue="false" android:summary="@string/revanced_hide_account_menu_summary" />
         <app.revanced.integrations.settingsmenu.ResettableEditTextPreference android:title="@string/revanced_hide_account_menu_filter_strings_title" android:key="revanced_hide_account_menu_filter_strings" android:summary="@string/revanced_hide_account_menu_filter_strings_summary" android:defaultValue="YouTube Music\nYouTube Kids" android:inputType="textMultiLine" />SETTINGS: HIDE_ACCOUNT_MENU -->
 
         <!-- SETTINGS: HIDE_AUTO_PLAYER_POPUP_PANELS
