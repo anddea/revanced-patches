@@ -5,6 +5,7 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
@@ -93,17 +94,20 @@ class HideFilmstripOverlayPatch : BytecodePatch(
                     break
                 }
 
-                if (!isFound)
-                    return PatchResultError("Couldn't find value to prevent player crash")
-
                 addInstructionsWithLabels(
                     insertIndex, """
-                        const/16 v$fixRegister, $fixValue
                         invoke-static {}, $PLAYER->hideFilmstripOverlay()Z
                         move-result v$insertRegister
                         if-nez v$insertRegister, :hidden
                         """, ExternalLabel("hidden", getInstruction(jumpIndex))
                 )
+
+                if (isFound) {
+                    addInstruction(
+                        insertIndex,
+                        "const/16 v$fixRegister, $fixValue"
+                    )
+                }
             }
         } ?: return YouTubeControlsOverlayFingerprint.toErrorResult()
 
