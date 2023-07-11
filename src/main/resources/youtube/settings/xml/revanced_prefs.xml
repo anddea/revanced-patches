@@ -347,7 +347,6 @@
             <Preference android:title="hide-collapse-button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-endscreen-cards" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-info-cards" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
-            <Preference android:title="hide-live-chat-button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-music-button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-player-button-background" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-player-overlay-filter" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
@@ -464,9 +463,6 @@
 
         <!-- SETTINGS: HIDE_INFO_CARDS
         <SwitchPreference android:title="@string/revanced_hide_info_cards_title" android:key="revanced_hide_info_cards" android:defaultValue="true" android:summaryOn="@string/revanced_hide_info_cards_summary_on" android:summaryOff="@string/revanced_hide_info_cards_summary_off" />SETTINGS: HIDE_INFO_CARDS -->
-
-        <!-- SETTINGS: HIDE_LIVE_CHATS_BUTTON
-        <SwitchPreference android:title="@string/revanced_hide_live_chat_button_title" android:key="revanced_hide_live_chat_button" android:defaultValue="false" android:summaryOn="@string/revanced_hide_live_chat_button_summary_on" android:summaryOff="@string/revanced_hide_live_chat_button_summary_off" />SETTINGS: HIDE_LIVE_CHATS_BUTTON -->
 
         <!-- SETTINGS: HIDE_PLAYER_BUTTON_BACKGROUND
         <SwitchPreference android:title="@string/revanced_hide_player_button_background_title" android:key="revanced_hide_player_button_background" android:defaultValue="false" android:summaryOn="@string/revanced_hide_player_button_background_summary_on" android:summaryOff="@string/revanced_hide_player_button_background_summary_off" />SETTINGS: HIDE_PLAYER_BUTTON_BACKGROUND -->
