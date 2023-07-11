@@ -31,7 +31,7 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.w3c.dom.Element
 
 @Patch
-@Name("custom-seekbar-color")
+@Name("Custom seekbar color")
 @Description("Change seekbar color in video player and video thumbnails.")
 @DependsOn(
     [

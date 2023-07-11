@@ -19,7 +19,7 @@ import app.revanced.util.integrations.Constants.PLAYER
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
-@Name("hide-speed-overlay")
+@Name("Hide speed overlay")
 @Description("Hide speed overlay in player.")
 @DependsOn([SettingsPatch::class])
 @YouTubeCompatibility

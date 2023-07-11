@@ -11,7 +11,7 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.music.utils.annotations.MusicCompatibility
 
 @Patch
-@Name("bitrate-default-value")
+@Name("Bitrate default value")
 @Description("Set the audio quality to \"Always High\" when you first install the app.")
 @MusicCompatibility
 @Version("0.0.1")

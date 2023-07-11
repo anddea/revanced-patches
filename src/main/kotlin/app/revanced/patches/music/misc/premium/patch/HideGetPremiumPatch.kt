@@ -27,8 +27,8 @@ import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
 import org.jf.dexlib2.iface.reference.Reference
 
 @Patch
-@Name("hide-get-premium")
-@Description("Removes all \"Get Premium\" evidences from the avatar menu.")
+@Name("Hide get premium")
+@Description("Hides \"Get Premium\" label from the account menu.")
 @DependsOn([SharedResourceIdPatch::class])
 @MusicCompatibility
 @Version("0.0.1")

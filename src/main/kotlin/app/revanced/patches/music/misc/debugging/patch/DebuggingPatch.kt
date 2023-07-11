@@ -14,7 +14,7 @@ import app.revanced.patches.music.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.enum.CategoryType
 
 @Patch(false)
-@Name("enable-debug-logging")
+@Name("Enable debug logging")
 @Description("Adds debugging options.")
 @DependsOn([SettingsPatch::class])
 @MusicCompatibility

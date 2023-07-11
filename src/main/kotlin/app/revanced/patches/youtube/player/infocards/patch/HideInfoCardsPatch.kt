@@ -19,7 +19,7 @@ import app.revanced.util.integrations.Constants.PLAYER
 import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Patch
-@Name("hide-info-cards")
+@Name("Hide info cards")
 @Description("Hides info-cards in videos.")
 @DependsOn([SettingsPatch::class])
 @YouTubeCompatibility

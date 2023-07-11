@@ -24,7 +24,7 @@ import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 import org.jf.dexlib2.iface.instruction.formats.Instruction35c
 
 @Patch
-@Name("enable-timestamps-speed")
+@Name("Enable time stamps speed")
 @Description("Add the current video speed in brackets next to the current time.")
 @DependsOn(
     [

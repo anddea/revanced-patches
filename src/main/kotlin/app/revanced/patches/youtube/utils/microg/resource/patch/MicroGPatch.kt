@@ -22,7 +22,7 @@ import app.revanced.util.microg.MicroGResourceHelper.patchSetting
 import app.revanced.util.resources.ResourceHelper.setMicroG
 
 @Patch
-@Name("microg-support")
+@Name("MicroG support")
 @Description("Allows ReVanced to run without root and under a different package name with MicroG.")
 @DependsOn(
     [

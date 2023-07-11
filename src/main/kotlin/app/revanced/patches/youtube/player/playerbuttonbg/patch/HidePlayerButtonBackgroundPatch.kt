@@ -18,7 +18,7 @@ import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.integrations.Constants.INTEGRATIONS_PATH
 
 @Patch
-@Name("hide-player-button-background")
+@Name("Hide player button background")
 @Description("Hide player button background.")
 @DependsOn(
     [

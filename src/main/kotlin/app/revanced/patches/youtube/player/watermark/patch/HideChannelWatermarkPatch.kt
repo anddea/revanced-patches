@@ -22,7 +22,7 @@ import app.revanced.util.integrations.Constants.PLAYER
 import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Patch
-@Name("hide-channel-watermark")
+@Name("Hide channel watermark")
 @Description("Hides creator's watermarks on videos.")
 @DependsOn([SettingsPatch::class])
 @YouTubeCompatibility

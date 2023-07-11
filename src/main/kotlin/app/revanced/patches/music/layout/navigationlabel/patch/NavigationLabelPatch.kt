@@ -26,7 +26,7 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 
 @Patch
-@Name("hide-navigation-label")
+@Name("Hide navigation label")
 @Description("Hide navigation bar labels.")
 @DependsOn(
     [

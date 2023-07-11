@@ -16,7 +16,7 @@ import app.revanced.util.bytecode.BytecodeHelper.updatePatchStatus
 import app.revanced.util.integrations.Constants.PATCHES_PATH
 
 @Patch
-@Name("hide-layout-components")
+@Name("Hide layout components")
 @Description("Hides general layout components.")
 @DependsOn(
     [

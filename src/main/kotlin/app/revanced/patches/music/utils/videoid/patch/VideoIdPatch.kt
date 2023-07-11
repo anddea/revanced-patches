@@ -1,9 +1,6 @@
 package app.revanced.patches.music.utils.videoid.patch
 
 import app.revanced.extensions.toErrorResult
-import app.revanced.patcher.annotation.Description
-import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -11,7 +8,6 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.music.utils.annotations.MusicCompatibility
 import app.revanced.patches.music.utils.videoid.fingerprint.VideoIdParentFingerprint
 import app.revanced.util.integrations.Constants.MUSIC_UTILS_PATH
 import org.jf.dexlib2.Opcode
@@ -19,10 +15,6 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 import org.jf.dexlib2.iface.reference.FieldReference
 
-@Name("video-id-hook")
-@Description("Hook to detect when the video id changes.")
-@MusicCompatibility
-@Version("0.0.1")
 class VideoIdPatch : BytecodePatch(
     listOf(VideoIdParentFingerprint)
 ) {

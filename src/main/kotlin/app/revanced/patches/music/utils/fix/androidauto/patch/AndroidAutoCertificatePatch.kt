@@ -14,7 +14,7 @@ import app.revanced.patches.music.utils.annotations.MusicCompatibility
 import app.revanced.patches.music.utils.fix.androidauto.fingerprints.CertificateCheckFingerprint
 
 @Patch
-@Name("certificate-spoof")
+@Name("Certificate spoof")
 @Description("Spoofs the YouTube Music certificate for Android Auto.")
 @MusicCompatibility
 @Version("0.0.1")

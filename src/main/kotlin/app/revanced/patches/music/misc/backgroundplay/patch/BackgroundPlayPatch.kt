@@ -16,7 +16,7 @@ import app.revanced.patches.music.misc.backgroundplay.fingerprints.BackgroundPla
 import app.revanced.patches.music.utils.annotations.MusicCompatibility
 
 @Patch
-@Name("background-play")
+@Name("Background play")
 @Description("Enables playing music in the background.")
 @MusicCompatibility
 @Version("0.0.1")

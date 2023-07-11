@@ -26,7 +26,7 @@ import org.jf.dexlib2.iface.instruction.Instruction
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 
 @Patch
-@Name("enable-color-match-player")
+@Name("Enable color match player")
 @Description("Matches the color of the mini player and the fullscreen player.")
 @DependsOn([SettingsPatch::class])
 @MusicCompatibility

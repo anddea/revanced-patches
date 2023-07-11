@@ -34,7 +34,7 @@ import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
 import org.jf.dexlib2.iface.reference.Reference
 
 @Patch
-@Name("return-youtube-dislike")
+@Name("Return YouTube Dislike")
 @Description("Shows the dislike count of videos using the Return YouTube Dislike API.")
 @DependsOn(
     [

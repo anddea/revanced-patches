@@ -22,7 +22,7 @@ import app.revanced.util.integrations.Constants.GENERAL
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
-@Name("hide-account-menu")
+@Name("Hide account menu")
 @Description("Hide account menu elements.")
 @DependsOn(
     [

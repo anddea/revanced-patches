@@ -22,7 +22,7 @@ import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
-@Name("hide-endscreen-cards")
+@Name("Hide end screen cards")
 @Description("Hides the suggested video cards at the end of a video in fullscreen.")
 @DependsOn(
     [

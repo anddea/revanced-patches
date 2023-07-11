@@ -17,7 +17,7 @@ import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.integrations.Constants.PLAYER
 
 @Patch
-@Name("hide-cast-button")
+@Name("Hide cast button")
 @Description("Hides the cast button in the video player.")
 @DependsOn([SettingsPatch::class])
 @YouTubeCompatibility

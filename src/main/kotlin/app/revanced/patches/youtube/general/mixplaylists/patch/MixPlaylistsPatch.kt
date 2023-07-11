@@ -25,8 +25,8 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Patch
-@Name("hide-mix-playlists")
-@Description("Removes mix playlists from home feed and video player.")
+@Name("Hide mix playlists")
+@Description("Hides mix playlists from home feed and video player.")
 @DependsOn([SettingsPatch::class])
 @YouTubeCompatibility
 @Version("0.0.1")

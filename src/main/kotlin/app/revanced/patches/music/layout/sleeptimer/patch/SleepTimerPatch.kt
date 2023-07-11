@@ -20,7 +20,7 @@ import app.revanced.util.integrations.Constants.MUSIC_LAYOUT
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
-@Name("enable-sleep-timer")
+@Name("Enable sleep timer")
 @Description("Add sleep timer to flyout menu.")
 @DependsOn([SettingsPatch::class])
 @MusicCompatibility

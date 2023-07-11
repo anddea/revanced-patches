@@ -19,7 +19,7 @@ import app.revanced.util.integrations.Constants.SEEKBAR
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
-@Name("enable-new-thumbnail-preview")
+@Name("Enable new thumbnail preview")
 @Description("Enables a new type of thumbnail preview.")
 @DependsOn([SettingsPatch::class])
 @YouTubeCompatibility

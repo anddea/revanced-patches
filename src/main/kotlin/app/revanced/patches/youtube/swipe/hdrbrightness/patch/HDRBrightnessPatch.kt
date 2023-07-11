@@ -1,8 +1,6 @@
 package app.revanced.patches.youtube.swipe.hdrbrightness.patch
 
 import app.revanced.extensions.toErrorResult
-import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -11,12 +9,8 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.swipe.hdrbrightness.fingerprints.HDRBrightnessFingerprint
-import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.util.integrations.Constants.SWIPE_PATH
 
-@Name("disable-hdr-auto-brightness")
-@YouTubeCompatibility
-@Version("0.0.1")
 class HDRBrightnessPatch : BytecodePatch(
     listOf(HDRBrightnessFingerprint)
 ) {

@@ -22,7 +22,7 @@ import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.integrations.Constants.SEEKBAR
 
 @Patch
-@Name("hide-seekbar")
+@Name("Hide seekbar")
 @Description("Hides the seekbar in video player and video thumbnails.")
 @DependsOn(
     [

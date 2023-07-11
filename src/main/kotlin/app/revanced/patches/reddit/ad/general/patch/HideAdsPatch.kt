@@ -14,27 +14,27 @@ import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
+import app.revanced.patcher.patch.annotations.RequiresIntegrations
 import app.revanced.patches.reddit.ad.banner.patch.HideBannerPatch
 import app.revanced.patches.reddit.ad.comments.patch.HideCommentAdsPatch
 import app.revanced.patches.reddit.ad.general.fingerprints.AdPostFingerprint
 import app.revanced.patches.reddit.ad.general.fingerprints.NewAdPostFingerprint
 import app.revanced.patches.reddit.utils.annotations.RedditCompatibility
-import app.revanced.patches.reddit.utils.integrations.patch.IntegrationsPatch
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 import org.jf.dexlib2.iface.instruction.formats.Instruction22c
 import org.jf.dexlib2.iface.reference.FieldReference
 
 @Patch
-@Name("hide-ads")
-@Description("Removes ads from the Reddit.")
+@Name("Hide ads")
+@Description("Hides ads from the Reddit.")
 @DependsOn(
     [
         HideBannerPatch::class,
-        HideCommentAdsPatch::class,
-        IntegrationsPatch::class
+        HideCommentAdsPatch::class
     ]
 )
 @RedditCompatibility
+@RequiresIntegrations
 @Version("0.0.2")
 class HideAdsPatch : BytecodePatch(
     listOf(

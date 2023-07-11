@@ -32,7 +32,7 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 
 @Patch
-@Name("force-vp9-codec")
+@Name("Force VP9 codec")
 @Description("Forces the VP9 codec for videos.")
 @DependsOn([SettingsPatch::class])
 @YouTubeCompatibility

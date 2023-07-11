@@ -38,7 +38,7 @@ import org.jf.dexlib2.immutable.ImmutableMethodImplementation
 import org.jf.dexlib2.immutable.ImmutableMethodParameter
 
 @Patch
-@Name("enable-force-shuffle")
+@Name("Enable force shuffle")
 @Description("Enable force shuffle even if another track is played.")
 @DependsOn(
     [

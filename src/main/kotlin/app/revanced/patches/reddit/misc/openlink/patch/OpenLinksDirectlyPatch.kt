@@ -17,7 +17,7 @@ import app.revanced.patches.reddit.utils.settings.bytecode.patch.SettingsBytecod
 import app.revanced.patches.reddit.utils.settings.resource.patch.SettingsPatch
 
 @Patch
-@Name("open-links-directly")
+@Name("Open links directly")
 @Description("Skips over redirection URLs to external links.")
 @DependsOn([SettingsPatch::class])
 @RedditCompatibility

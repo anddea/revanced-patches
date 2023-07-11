@@ -15,7 +15,7 @@ import app.revanced.util.resources.ResourceUtils.copyXmlNode
 import kotlin.io.path.exists
 
 @Patch(false)
-@Name("add-splash-animation")
+@Name("Add splash animation")
 @Description("Adds splash animation, which was removed in YT v18.19.36+. This patch cannot be used with 'custom-branding-icon' patch")
 @YouTubeCompatibility
 @Version("0.0.1")

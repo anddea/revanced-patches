@@ -16,7 +16,7 @@ import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch.
 import app.revanced.util.integrations.Constants.PATCHES_PATH
 
 @Patch
-@Name("hide-button-container")
+@Name("Hide button container")
 @Description("Adds the options to hide action buttons under a video.")
 @DependsOn(
     [

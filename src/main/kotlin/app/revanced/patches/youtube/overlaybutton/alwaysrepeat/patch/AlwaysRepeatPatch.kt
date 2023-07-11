@@ -1,8 +1,6 @@
 package app.revanced.patches.youtube.overlaybutton.alwaysrepeat.patch
 
 import app.revanced.extensions.toErrorResult
-import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.data.toMethodWalker
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
@@ -18,16 +16,12 @@ import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.overlaybutton.alwaysrepeat.fingerprints.AutoNavInformerFingerprint
 import app.revanced.patches.youtube.overlaybutton.alwaysrepeat.fingerprints.VideoEndFingerprint
 import app.revanced.patches.youtube.overlaybutton.alwaysrepeat.fingerprints.VideoEndParentFingerprint
-import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.fingerprints.PlayerPatchFingerprint
 import app.revanced.util.integrations.Constants.INTEGRATIONS_PATH
 import app.revanced.util.integrations.Constants.UTILS_PATH
 import app.revanced.util.integrations.Constants.VIDEO_PATH
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
-@Name("always-repeat")
-@YouTubeCompatibility
-@Version("0.0.1")
 class AlwaysRepeatPatch : BytecodePatch(
     listOf(
         AutoNavInformerFingerprint,

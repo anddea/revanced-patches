@@ -27,7 +27,7 @@ import app.revanced.util.resources.ResourceUtils.copyXmlNode
 import org.w3c.dom.Element
 
 @Patch
-@Name("overlay-buttons")
+@Name("Overlay buttons")
 @Description("Add overlay buttons to the player.")
 @DependsOn(
     [

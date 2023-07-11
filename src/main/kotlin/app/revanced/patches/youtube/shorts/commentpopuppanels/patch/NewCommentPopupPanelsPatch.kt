@@ -20,7 +20,7 @@ import app.revanced.util.integrations.Constants.SHORTS
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
-@Name("enable-new-comment-popup-panels")
+@Name("Enable new comment popup panels")
 @Description("Enables a new type of comment popup panel in the shorts player.")
 @DependsOn([SettingsPatch::class])
 @YouTubeCompatibility

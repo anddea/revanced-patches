@@ -20,7 +20,7 @@ import app.revanced.util.integrations.Constants.MUSIC_LAYOUT
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
-@Name("enable-new-layout")
+@Name("Enable new layout")
 @Description("Enable new player layouts. (YT Music v5.47.51+)")
 @DependsOn([SettingsPatch::class])
 @MusicCompatibility

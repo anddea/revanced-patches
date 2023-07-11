@@ -20,7 +20,7 @@ import app.revanced.util.integrations.Constants.MUSIC_LAYOUT
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
-@Name("enable-dismiss-queue")
+@Name("Enable dismiss queue")
 @Description("Add dismiss queue to flyout menu. (YT Music v6.04.51+)")
 @DependsOn([SettingsPatch::class])
 @MusicCompatibility

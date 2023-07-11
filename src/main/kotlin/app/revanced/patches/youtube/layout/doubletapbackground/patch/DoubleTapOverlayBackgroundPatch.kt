@@ -13,8 +13,8 @@ import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 
 @Patch(false)
-@Name("hide-double-tap-overlay-filter")
-@Description("Remove the double tap dark filter layer.")
+@Name("Hide double tap overlay filter")
+@Description("Hides the double tap dark filter layer.")
 @DependsOn([SettingsPatch::class])
 @YouTubeCompatibility
 @Version("0.0.1")

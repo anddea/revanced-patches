@@ -28,7 +28,7 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction35c
 import org.jf.dexlib2.iface.reference.MethodReference
 
 @Patch
-@Name("custom-video-speed")
+@Name("Custom video speed")
 @Description("Adds more video speed options.")
 @DependsOn(
     [

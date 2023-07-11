@@ -17,7 +17,7 @@ import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 
 @Patch
-@Name("hide-pip-notification")
+@Name("Disable pip notification")
 @Description("Disable pip notification when you first launch pip mode.")
 @DependsOn([SettingsPatch::class])
 @YouTubeCompatibility

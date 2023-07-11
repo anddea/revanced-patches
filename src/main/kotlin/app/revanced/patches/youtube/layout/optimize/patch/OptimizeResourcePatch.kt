@@ -13,14 +13,14 @@ import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 
 @Patch
-@Name("optimize-resource")
+@Name("Optimize resource")
+@Description("Removes duplicate resources from YouTube.")
 @DependsOn(
     [
         RedundantResourcePatch::class,
         SettingsPatch::class
     ]
 )
-@Description("Removes duplicate resources from YouTube.")
 @YouTubeCompatibility
 @Version("0.0.1")
 class OptimizeResourcePatch : ResourcePatch {

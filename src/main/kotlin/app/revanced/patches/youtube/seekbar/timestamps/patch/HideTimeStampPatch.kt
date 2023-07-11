@@ -19,7 +19,7 @@ import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.integrations.Constants.SEEKBAR
 
 @Patch
-@Name("hide-time-stamp")
+@Name("Hide time stamp")
 @Description("Hides timestamp in video player.")
 @DependsOn([SettingsPatch::class])
 @YouTubeCompatibility

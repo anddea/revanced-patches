@@ -1,9 +1,6 @@
 package app.revanced.patches.reddit.layout.navigation.patch
 
 import app.revanced.extensions.toErrorResult
-import app.revanced.patcher.annotation.Description
-import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
@@ -16,9 +13,6 @@ import app.revanced.patches.reddit.layout.navigation.fingerprints.BottomNavScree
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 
-@Name("hide-navigation-buttons")
-@Description("Hide navigation buttons.")
-@Version("0.0.1")
 class NavigationButtonsPatch : BytecodePatch(
     listOf(BottomNavScreenFingerprint)
 ) {

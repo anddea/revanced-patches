@@ -21,7 +21,7 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 
 @Patch
-@Name("hide-feed-flyout-panel")
+@Name("Hide feed flyout panel")
 @Description("Hides feed flyout panel components.")
 @DependsOn([SettingsPatch::class])
 @YouTubeCompatibility

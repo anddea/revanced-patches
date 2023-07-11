@@ -1,8 +1,6 @@
 package app.revanced.patches.youtube.utils.sponsorblock.bytecode.patch
 
 import app.revanced.extensions.toErrorResult
-import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
@@ -14,7 +12,6 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.fingerprints.SeekbarFingerprint
 import app.revanced.patches.youtube.utils.fingerprints.SeekbarOnDrawFingerprint
 import app.revanced.patches.youtube.utils.fingerprints.TotalTimeFingerprint
@@ -41,7 +38,6 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction35c
 import org.jf.dexlib2.iface.reference.FieldReference
 import org.jf.dexlib2.iface.reference.MethodReference
 
-@Name("sponsorblock-bytecode-patch")
 @DependsOn(
     [
         OverrideSpeedHookPatch::class,
@@ -51,8 +47,6 @@ import org.jf.dexlib2.iface.reference.MethodReference
         VideoIdWithoutShortsPatch::class
     ]
 )
-@YouTubeCompatibility
-@Version("0.0.1")
 class SponsorBlockBytecodePatch : BytecodePatch(
     listOf(
         PlayerControllerFingerprint,

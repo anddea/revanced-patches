@@ -1,9 +1,6 @@
 package app.revanced.patches.youtube.utils.playercontrols.patch
 
 import app.revanced.extensions.toErrorResult
-import app.revanced.patcher.annotation.Description
-import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -15,7 +12,6 @@ import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.fingerprints.YouTubeControlsOverlayFingerprint
 import app.revanced.patches.youtube.utils.playercontrols.fingerprints.BottomControlsInflateFingerprint
 import app.revanced.patches.youtube.utils.playercontrols.fingerprints.ControlsLayoutInflateFingerprint
@@ -34,11 +30,7 @@ import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
 import org.jf.dexlib2.iface.instruction.formats.Instruction35c
 import org.jf.dexlib2.iface.reference.Reference
 
-@Name("player-controls")
 @DependsOn([SharedResourceIdPatch::class])
-@Description("Manages the code for the player controls of the YouTube player.")
-@YouTubeCompatibility
-@Version("0.0.1")
 class PlayerControlsPatch : BytecodePatch(
     listOf(
         BottomControlsInflateFingerprint,

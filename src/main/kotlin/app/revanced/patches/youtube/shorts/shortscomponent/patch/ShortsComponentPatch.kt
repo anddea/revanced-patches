@@ -19,7 +19,7 @@ import app.revanced.util.bytecode.BytecodeHelper.updatePatchStatus
 import app.revanced.util.integrations.Constants.PATCHES_PATH
 
 @Patch
-@Name("hide-shorts-component")
+@Name("Hide Shorts components")
 @Description("Hides other Shorts components.")
 @DependsOn(
     [

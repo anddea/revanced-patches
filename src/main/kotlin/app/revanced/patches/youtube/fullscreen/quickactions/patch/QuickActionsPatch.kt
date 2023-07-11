@@ -16,7 +16,7 @@ import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.integrations.Constants.PATCHES_PATH
 
 @Patch
-@Name("hide-quick-actions")
+@Name("Hide quick actions")
 @Description("Adds the options to hide quick actions components in the fullscreen.")
 @DependsOn(
     [

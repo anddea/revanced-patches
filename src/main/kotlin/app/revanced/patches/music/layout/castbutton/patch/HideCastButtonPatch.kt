@@ -20,7 +20,7 @@ import app.revanced.util.enum.CategoryType
 import app.revanced.util.integrations.Constants.MUSIC_LAYOUT
 
 @Patch
-@Name("hide-cast-button")
+@Name("Hide cast button")
 @Description("Hides the cast button in the video player and header.")
 @DependsOn([SettingsPatch::class])
 @MusicCompatibility

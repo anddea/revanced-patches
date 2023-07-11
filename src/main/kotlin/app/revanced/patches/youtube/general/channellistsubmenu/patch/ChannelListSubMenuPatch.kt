@@ -20,7 +20,7 @@ import app.revanced.util.integrations.Constants.GENERAL
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
-@Name("hide-channel-avatar-section")
+@Name("Hide channel avatar section")
 @Description("Hides the channel avatar section of the subscription feed.")
 @DependsOn(
     [

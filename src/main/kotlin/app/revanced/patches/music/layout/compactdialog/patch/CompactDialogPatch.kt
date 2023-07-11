@@ -20,9 +20,8 @@ import app.revanced.patches.music.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.enum.CategoryType
 import app.revanced.util.integrations.Constants.MUSIC_LAYOUT
 
-
 @Patch
-@Name("enable-compact-dialog")
+@Name("Enable compact dialog")
 @Description("Enable compact dialog on phone.")
 @DependsOn(
     [

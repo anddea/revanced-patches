@@ -15,7 +15,7 @@ import app.revanced.util.resources.IconHelper.customIcon
 import app.revanced.util.resources.ResourceHelper.updatePatchStatusIcon
 
 @Patch
-@Name("custom-branding-icon-revancify-blue")
+@Name("Custom branding icon Revancify blue")
 @Description("Changes the YouTube launcher icon to Revancify Blue.")
 @DependsOn([SettingsPatch::class])
 @YouTubeCompatibility

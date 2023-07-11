@@ -25,7 +25,7 @@ import app.revanced.util.integrations.Constants.FULLSCREEN
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
-@Name("hide-autoplay-preview")
+@Name("Hide autoplay preview")
 @Description("Hides the autoplay preview container in the fullscreen.")
 @DependsOn(
     [

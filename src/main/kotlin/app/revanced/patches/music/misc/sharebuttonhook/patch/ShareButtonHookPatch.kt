@@ -27,7 +27,7 @@ import app.revanced.util.integrations.Constants.MUSIC_INTEGRATIONS_PATH
 import app.revanced.util.integrations.Constants.MUSIC_MISC_PATH
 
 @Patch
-@Name("share-button-hook")
+@Name("Share button hook")
 @Description("Replace share button with external download button.")
 @DependsOn(
     [

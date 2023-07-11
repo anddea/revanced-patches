@@ -20,8 +20,8 @@ import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.integrations.Constants.FULLSCREEN
 
 @Patch
-@Name("hide-endscreen-overlay")
-@Description("Hide endscreen overlay on swipe controls.")
+@Name("Hide end screen overlay")
+@Description("Hide end screen overlay on swipe controls.")
 @DependsOn(
     [
         SettingsPatch::class,

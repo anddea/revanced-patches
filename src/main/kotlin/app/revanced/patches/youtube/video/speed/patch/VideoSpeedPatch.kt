@@ -23,7 +23,7 @@ import app.revanced.util.integrations.Constants.VIDEO_PATH
 import org.jf.dexlib2.iface.instruction.FiveRegisterInstruction
 
 @Patch
-@Name("default-video-speed")
+@Name("Default video speed")
 @Description("Adds ability to set default video speed settings.")
 @DependsOn(
     [

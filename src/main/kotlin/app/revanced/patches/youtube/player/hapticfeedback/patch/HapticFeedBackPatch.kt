@@ -25,7 +25,7 @@ import app.revanced.util.integrations.Constants.PLAYER
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
-@Name("disable-haptic-feedback")
+@Name("Disable haptic feedback")
 @Description("Disable haptic feedback when swiping.")
 @DependsOn([SettingsPatch::class])
 @YouTubeCompatibility

@@ -16,7 +16,7 @@ import app.revanced.patches.microg.utils.annotations.MicroGCompatibility
 import org.w3c.dom.Element
 
 @Patch
-@Name("custom-branding-microg-name")
+@Name("Custom branding Microg name")
 @Description("Rename the MicroG app to the name specified in options.json.")
 @MicroGCompatibility
 @Version("0.0.1")

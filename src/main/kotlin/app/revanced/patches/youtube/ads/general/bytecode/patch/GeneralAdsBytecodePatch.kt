@@ -2,8 +2,6 @@ package app.revanced.patches.youtube.ads.general.bytecode.patch
 
 import app.revanced.extensions.findMutableMethodOf
 import app.revanced.extensions.injectHideCall
-import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
@@ -16,9 +14,7 @@ import app.revanced.util.bytecode.getWideLiteralIndex
 import app.revanced.util.bytecode.isWideLiteralExists
 import org.jf.dexlib2.iface.instruction.formats.Instruction35c
 
-@Name("hide-general-ads-bytecode-patch")
 @DependsOn([SharedResourceIdPatch::class])
-@Version("0.0.1")
 @Suppress("LABEL_NAME_CLASH")
 class GeneralAdsBytecodePatch : BytecodePatch() {
     override fun execute(context: BytecodeContext): PatchResult {

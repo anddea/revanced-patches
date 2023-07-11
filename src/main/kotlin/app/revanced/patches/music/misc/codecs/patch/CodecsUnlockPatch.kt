@@ -15,7 +15,7 @@ import app.revanced.util.enum.CategoryType
 import app.revanced.util.integrations.Constants.MUSIC_MISC_PATH
 
 @Patch
-@Name("enable-opus-codec")
+@Name("Enable opus codec")
 @Description("Enable opus codec when playing audio.")
 @DependsOn([SettingsPatch::class])
 @MusicCompatibility

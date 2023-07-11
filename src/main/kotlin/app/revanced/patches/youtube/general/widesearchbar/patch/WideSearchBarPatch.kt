@@ -23,7 +23,7 @@ import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch.
 import app.revanced.util.integrations.Constants.GENERAL
 
 @Patch
-@Name("enable-wide-search-bar")
+@Name("Enable wide search bar")
 @Description("Replaces the search icon with a wide search bar. This will hide the YouTube logo when active.")
 @DependsOn(
     [

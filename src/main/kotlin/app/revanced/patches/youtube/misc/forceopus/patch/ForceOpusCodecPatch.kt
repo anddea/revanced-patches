@@ -14,8 +14,8 @@ import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.integrations.Constants.MISC_PATH
 
 @Patch
-@Name("force-opus-codec")
-@Description("Forces the opus codec for audios.")
+@Name("Force OPUS codec")
+@Description("Forces the OPUS codec for audios.")
 @DependsOn([SettingsPatch::class])
 @YouTubeCompatibility
 @Version("0.0.1")

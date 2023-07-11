@@ -13,7 +13,7 @@ import app.revanced.patches.microg.utils.annotations.MicroGCompatibility
 import org.w3c.dom.Element
 
 @Patch(false)
-@Name("hide-icon-from-launcher")
+@Name("Hide icon from launcher")
 @Description("Hide MicroG icon from launcher.")
 @MicroGCompatibility
 @Version("0.0.1")

@@ -2,8 +2,6 @@ package app.revanced.patches.youtube.utils.playerbutton.patch
 
 import app.revanced.extensions.findMutableMethodOf
 import app.revanced.extensions.toErrorResult
-import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -11,7 +9,6 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
-import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.playerbutton.fingerprints.LiveChatFingerprint
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.util.integrations.Constants.PLAYER
@@ -19,10 +16,7 @@ import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.builder.instruction.BuilderInstruction21c
 import org.jf.dexlib2.builder.instruction.BuilderInstruction35c
 
-@Name("player-button-hook")
 @DependsOn([SharedResourceIdPatch::class])
-@YouTubeCompatibility
-@Version("0.0.1")
 class PlayerButtonHookPatch : BytecodePatch(
     listOf(LiveChatFingerprint)
 ) {

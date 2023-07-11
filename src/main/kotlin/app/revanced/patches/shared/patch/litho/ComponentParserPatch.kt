@@ -1,8 +1,6 @@
 package app.revanced.patches.shared.patch.litho
 
 import app.revanced.extensions.toErrorResult
-import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.data.toMethodWalker
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
@@ -15,7 +13,6 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.util.proxy.mutableTypes.MutableField.Companion.toMutable
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.shared.annotation.RVXCompatibility
 import app.revanced.patches.shared.fingerprints.litho.ByteBufferHookFingerprint
 import app.revanced.patches.shared.fingerprints.litho.EmptyComponentBuilderFingerprint
 import app.revanced.patches.shared.fingerprints.litho.IdentifierFingerprint
@@ -30,9 +27,6 @@ import org.jf.dexlib2.iface.reference.FieldReference
 import org.jf.dexlib2.immutable.ImmutableField
 import kotlin.properties.Delegates
 
-@Name("component-parser-patch")
-@RVXCompatibility
-@Version("0.0.1")
 class ComponentParserPatch : BytecodePatch(
     listOf(
         ByteBufferHookFingerprint,
@@ -45,7 +39,8 @@ class ComponentParserPatch : BytecodePatch(
         EmptyComponentBuilderFingerprint.result?.let {
             it.mutableMethod.apply {
                 val byteBufferClassIndex = it.scanResult.patternScanResult!!.startIndex
-                byteBufferClassLabel = getInstruction<ReferenceInstruction>(byteBufferClassIndex).reference.toString()
+                byteBufferClassLabel =
+                    getInstruction<ReferenceInstruction>(byteBufferClassIndex).reference.toString()
 
                 val targetIndex = getStringIndex("Failed to convert Element to Flatbuffers: %s") + 2
                 val builderMethodDescriptor =
@@ -183,7 +178,8 @@ class ComponentParserPatch : BytecodePatch(
                         invoke-static {v$stringBuilderRegister, v$identifierRegister, v$objectRegister, v$freeRegister}, $descriptor(Ljava/lang/StringBuilder;Ljava/lang/String;Ljava/lang/Object;Ljava/nio/ByteBuffer;)Z
                         move-result v$freeRegister
                         if-eqz v$freeRegister, :unfiltered
-                        """ + emptyComponentLabel, ExternalLabel("unfiltered", getInstruction(insertIndex))
+                        """ + emptyComponentLabel,
+                    ExternalLabel("unfiltered", getInstruction(insertIndex))
                 )
             }
         }

@@ -1,8 +1,6 @@
 package app.revanced.patches.youtube.utils.overridespeed.patch
 
 import app.revanced.extensions.toErrorResult
-import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.data.toMethodWalker
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
@@ -19,7 +17,6 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableField.Companion.toMut
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patcher.util.smali.toInstructions
-import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.overridespeed.fingerprints.SpeedClassFingerprint
 import app.revanced.patches.youtube.utils.overridespeed.fingerprints.VideoSpeedChangedFingerprint
 import app.revanced.patches.youtube.utils.overridespeed.fingerprints.VideoSpeedParentFingerprint
@@ -35,9 +32,6 @@ import org.jf.dexlib2.immutable.ImmutableMethod
 import org.jf.dexlib2.immutable.ImmutableMethodImplementation
 import org.jf.dexlib2.immutable.ImmutableMethodParameter
 
-@Name("override-speed-hook")
-@YouTubeCompatibility
-@Version("0.0.1")
 class OverrideSpeedHookPatch : BytecodePatch(
     listOf(
         SpeedClassFingerprint,

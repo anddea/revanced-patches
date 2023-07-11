@@ -24,7 +24,7 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 
 @Patch
-@Name("enable-zen-mode")
+@Name("Enable zen mode")
 @Description("Adds a grey tint to the video player to reduce eye strain.")
 @DependsOn([SettingsPatch::class])
 @MusicCompatibility

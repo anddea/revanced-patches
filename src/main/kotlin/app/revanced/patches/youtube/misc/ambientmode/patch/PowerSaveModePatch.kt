@@ -23,7 +23,7 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction35c
 import org.jf.dexlib2.iface.reference.MethodReference
 
 @Patch
-@Name("bypass-ambient-mode-restrictions")
+@Name("Bypass ambient mode restrictions")
 @Description("Bypass ambient mode restrictions in battery saver mode.")
 @DependsOn([SettingsPatch::class])
 @YouTubeCompatibility

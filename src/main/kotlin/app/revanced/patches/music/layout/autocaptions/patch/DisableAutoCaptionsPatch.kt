@@ -20,7 +20,7 @@ import app.revanced.util.integrations.Constants.MUSIC_LAYOUT
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
-@Name("disable-auto-captions")
+@Name("Disable auto captions")
 @Description("Disables forced auto captions.")
 @DependsOn([SettingsPatch::class])
 @MusicCompatibility

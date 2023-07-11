@@ -32,7 +32,7 @@ import org.jf.dexlib2.iface.reference.MethodReference
 import org.jf.dexlib2.iface.reference.Reference
 
 @Patch
-@Name("remember-video-quality")
+@Name("Remember video quality")
 @Description("Save the video quality value whenever you change the video quality.")
 @DependsOn(
     [

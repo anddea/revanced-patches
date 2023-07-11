@@ -22,8 +22,8 @@ import app.revanced.util.integrations.Constants.FULLSCREEN
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
-@Name("enable-compact-controls-overlay")
-@Description("Enable compact control overlay.")
+@Name("Enable compact controls overlay")
+@Description("Enables compact control overlay.")
 @DependsOn(
     [
         SettingsPatch::class,

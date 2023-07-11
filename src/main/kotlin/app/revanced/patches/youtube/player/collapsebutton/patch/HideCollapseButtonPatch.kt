@@ -14,7 +14,7 @@ import app.revanced.patches.youtube.utils.playerbutton.patch.PlayerButtonHookPat
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 
 @Patch
-@Name("hide-collapse-button")
+@Name("Hide collapse button")
 @Description("Hides the collapse button in the video player.")
 @DependsOn(
     [

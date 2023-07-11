@@ -1,8 +1,6 @@
 package app.revanced.patches.shared.patch.versionspoof
 
 import app.revanced.extensions.toErrorResult
-import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
@@ -16,8 +14,6 @@ import org.jf.dexlib2.dexbacked.reference.DexBackedFieldReference
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 
-@Name("abstract-version-spoof")
-@Version("0.0.1")
 abstract class AbstractVersionSpoofPatch(
     private val descriptor: String
 ) : BytecodePatch(

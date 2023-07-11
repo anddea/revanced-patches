@@ -1,9 +1,6 @@
 package app.revanced.patches.youtube.shorts.shortsnavigationbar.patch
 
 import app.revanced.extensions.toErrorResult
-import app.revanced.patcher.annotation.Description
-import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.data.toMethodWalker
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
@@ -17,15 +14,10 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.shorts.shortsnavigationbar.fingerprints.BottomNavigationBarFingerprint
 import app.revanced.patches.youtube.shorts.shortsnavigationbar.fingerprints.RenderBottomNavigationBarFingerprint
 import app.revanced.patches.youtube.shorts.shortsnavigationbar.fingerprints.SetPivotBarFingerprint
-import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.fingerprints.PivotBarCreateButtonViewFingerprint
 import app.revanced.util.integrations.Constants.SHORTS
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
-@Name("hide-shorts-navigation-bar")
-@Description("Hide navigation bar when playing shorts.")
-@YouTubeCompatibility
-@Version("0.0.1")
 class ShortsNavigationBarPatch : BytecodePatch(
     listOf(
         BottomNavigationBarFingerprint,

@@ -16,7 +16,7 @@ import app.revanced.util.bytecode.BytecodeHelper.updatePatchStatus
 import app.revanced.util.integrations.Constants.PATCHES_PATH
 
 @Patch
-@Name("hide-description-components")
+@Name("Hide description components")
 @Description("Hides description components.")
 @DependsOn(
     [
