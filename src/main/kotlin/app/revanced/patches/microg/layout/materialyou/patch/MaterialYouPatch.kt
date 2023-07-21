@@ -1,4 +1,4 @@
-package app.revanced.patches.microg.layout.branding.icon.patch
+package app.revanced.patches.microg.layout.materialyou.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
@@ -9,16 +9,15 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.microg.utils.annotations.MicroGCompatibility
-
 import app.revanced.util.resources.ResourceUtils
 import app.revanced.util.resources.ResourceUtils.copyResources
 
 @Patch(false)
-@Name("microg-materialyou")
-@Description("Enables MaterialYou theme for microG for Android 12+")
+@Name("MaterialYou")
+@Description("Enables MaterialYou theme for Android 12+")
 @MicroGCompatibility
 @Version("0.0.1")
-class MicrogMaterialYouPatch : ResourcePatch {
+class MaterialYouPatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
 
         arrayOf(
