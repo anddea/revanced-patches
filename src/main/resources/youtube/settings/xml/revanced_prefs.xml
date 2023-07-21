@@ -605,24 +605,24 @@
         <ListPreference android:title="@string/revanced_default_video_quality_mobile_title" android:key="revanced_default_video_quality_mobile" android:entries="@array/revanced_default_video_quality_entry" android:defaultValue="-2" android:entryValues="@array/revanced_default_video_quality_entry_value" />
         <ListPreference android:title="@string/revanced_default_video_quality_wifi_title" android:key="revanced_default_video_quality_wifi" android:entries="@array/revanced_default_video_quality_entry" android:defaultValue="-2" android:entryValues="@array/revanced_default_video_quality_entry_value" />SETTINGS: DEFAULT_VIDEO_QUALITY -->
 
-        <!-- SETTINGS: DEFAULT_VIDEO_SPEED
-        <ListPreference android:title="@string/revanced_default_video_speed_title" android:key="revanced_default_video_speed" android:defaultValue="-2.0" />SETTINGS: DEFAULT_VIDEO_SPEED -->
+        <!-- SETTINGS: DEFAULT_PLAYBACK_SPEED
+        <ListPreference android:title="@string/revanced_default_playback_speed_title" android:key="revanced_default_playback_speed" android:defaultValue="-2.0" />SETTINGS: DEFAULT_PLAYBACK_SPEED -->
 
         <!-- SETTINGS: DISABLE_HDR_VIDEO
         <SwitchPreference android:title="@string/revanced_disable_hdr_video_title" android:key="revanced_disable_hdr_video" android:defaultValue="false" android:summaryOn="@string/revanced_disable_hdr_video_summary_on" android:summaryOff="@string/revanced_disable_hdr_video_summary_off" />SETTINGS: DISABLE_HDR_VIDEO -->
 
-        <!-- SETTINGS: DEFAULT_VIDEO_SPEED
-        <SwitchPreference android:title="@string/revanced_disable_default_video_speed_live_title" android:key="revanced_disable_default_video_speed_live" android:defaultValue="true" android:summaryOn="@string/revanced_disable_default_video_speed_live_summary_on" android:summaryOff="@string/revanced_disable_default_video_speed_live_summary_off" />SETTINGS: DEFAULT_VIDEO_SPEED -->
+        <!-- SETTINGS: DEFAULT_PLAYBACK_SPEED
+        <SwitchPreference android:title="@string/revanced_disable_default_playback_speed_live_title" android:key="revanced_disable_default_playback_speed_live" android:defaultValue="true" android:summaryOn="@string/revanced_disable_default_playback_speed_live_summary_on" android:summaryOff="@string/revanced_disable_default_playback_speed_live_summary_off" />SETTINGS: DEFAULT_PLAYBACK_SPEED -->
 
-        <!-- SETTINGS: CUSTOM_VIDEO_SPEED
-        <SwitchPreference android:title="@string/revanced_enable_custom_video_speed_title" android:key="revanced_enable_custom_video_speed" android:defaultValue="false" android:summaryOn="@string/revanced_enable_custom_video_speed_summary_on" android:summaryOff="@string/revanced_enable_custom_video_speed_summary_off" />
-        <app.revanced.integrations.settingsmenu.ResettableEditTextPreference android:title="@string/revanced_custom_video_speeds_title" android:key="revanced_custom_video_speeds" android:summary="@string/revanced_custom_video_speeds_summary" android:defaultValue="0.25\n0.5\n0.75\n1.0\n1.25\n1.5\n1.75\n2.0\n2.25\n2.5" android:inputType="textMultiLine" />SETTINGS: CUSTOM_VIDEO_SPEED -->
+        <!-- SETTINGS: CUSTOM_PLAYBACK_SPEED
+        <SwitchPreference android:title="@string/revanced_enable_custom_playback_speed_title" android:key="revanced_enable_custom_playback_speed" android:defaultValue="false" android:summaryOn="@string/revanced_enable_custom_playback_speed_summary_on" android:summaryOff="@string/revanced_enable_custom_playback_speed_summary_off" />
+        <app.revanced.integrations.settingsmenu.ResettableEditTextPreference android:title="@string/revanced_custom_playback_speeds_title" android:key="revanced_custom_playback_speeds" android:summary="@string/revanced_custom_playback_speeds_summary" android:defaultValue="0.25\n0.5\n0.75\n1.0\n1.25\n1.5\n1.75\n2.0\n2.25\n2.5" android:inputType="textMultiLine" />SETTINGS: CUSTOM_PLAYBACK_SPEED -->
 
         <!-- SETTINGS: DEFAULT_VIDEO_QUALITY
         <SwitchPreference android:title="@string/revanced_enable_save_video_quality_title" android:key="revanced_enable_save_video_quality" android:defaultValue="true" android:summaryOn="@string/revanced_enable_save_video_quality_summary_on" android:summaryOff="@string/revanced_enable_save_video_quality_summary_off" />SETTINGS: DEFAULT_VIDEO_QUALITY -->
 
-        <!-- SETTINGS: DEFAULT_VIDEO_SPEED
-        <SwitchPreference android:title="@string/revanced_enable_save_video_speed_title" android:key="revanced_enable_save_video_speed" android:defaultValue="true" android:summaryOn="@string/revanced_enable_save_video_speed_summary_on" android:summaryOff="@string/revanced_enable_save_video_speed_summary_off" />SETTINGS: DEFAULT_VIDEO_SPEED -->
+        <!-- SETTINGS: DEFAULT_PLAYBACK_SPEED
+        <SwitchPreference android:title="@string/revanced_enable_save_playback_speed_title" android:key="revanced_enable_save_playback_speed" android:defaultValue="true" android:summaryOn="@string/revanced_enable_save_playback_speed_summary_on" android:summaryOff="@string/revanced_enable_save_playback_speed_summary_off" />SETTINGS: DEFAULT_PLAYBACK_SPEED -->
 
     <!-- PREFERENCE: VIDEO_SETTINGS
     </PreferenceScreen>PREFERENCE: VIDEO_SETTINGS -->

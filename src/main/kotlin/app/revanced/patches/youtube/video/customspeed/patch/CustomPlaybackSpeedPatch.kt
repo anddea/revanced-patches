@@ -28,8 +28,8 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction35c
 import org.jf.dexlib2.iface.reference.MethodReference
 
 @Patch
-@Name("Custom video speed")
-@Description("Adds more video speed options.")
+@Name("Custom playback speed")
+@Description("Adds more playback speed options.")
 @DependsOn(
     [
         OldSpeedLayoutPatch::class,
@@ -38,7 +38,7 @@ import org.jf.dexlib2.iface.reference.MethodReference
 )
 @YouTubeCompatibility
 @Version("0.0.1")
-class CustomVideoSpeedPatch : BytecodePatch(
+class CustomPlaybackSpeedPatch : BytecodePatch(
     listOf(
         SpeedArrayGeneratorFingerprint,
         SpeedLimiterFallBackFingerprint,
@@ -53,7 +53,7 @@ class CustomVideoSpeedPatch : BytecodePatch(
 
                 addInstructions(
                     targetIndex + 1, """
-                        invoke-static {v$targetRegister}, $VIDEO_PATH/CustomVideoSpeedPatch;->getLength(I)I
+                        invoke-static {v$targetRegister}, $VIDEO_PATH/CustomPlaybackSpeedPatch;->getLength(I)I
                         move-result v$targetRegister
                         """
                 )
@@ -70,7 +70,7 @@ class CustomVideoSpeedPatch : BytecodePatch(
 
                     addInstructions(
                         index + 2, """
-                        invoke-static {v$register}, $VIDEO_PATH/CustomVideoSpeedPatch;->getSize(I)I
+                        invoke-static {v$register}, $VIDEO_PATH/CustomPlaybackSpeedPatch;->getSize(I)I
                         move-result v$register
                         """
                     )
@@ -89,7 +89,7 @@ class CustomVideoSpeedPatch : BytecodePatch(
 
                         addInstructions(
                             index + 1, """
-                                invoke-static {v$register}, $VIDEO_PATH/CustomVideoSpeedPatch;->getArray([F)[F
+                                invoke-static {v$register}, $VIDEO_PATH/CustomPlaybackSpeedPatch;->getArray([F)[F
                                 move-result-object v$register
                                 """
                         )
@@ -133,11 +133,11 @@ class CustomVideoSpeedPatch : BytecodePatch(
         SettingsPatch.addPreference(
             arrayOf(
                 "PREFERENCE: VIDEO_SETTINGS",
-                "SETTINGS: CUSTOM_VIDEO_SPEED"
+                "SETTINGS: CUSTOM_PLAYBACK_SPEED"
             )
         )
 
-        SettingsPatch.updatePatchStatus("custom-video-speed")
+        SettingsPatch.updatePatchStatus("custom-playback-speed")
 
         return PatchResultSuccess()
     }

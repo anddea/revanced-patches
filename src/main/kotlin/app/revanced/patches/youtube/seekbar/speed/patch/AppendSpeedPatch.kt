@@ -25,7 +25,7 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction35c
 
 @Patch
 @Name("Enable time stamps speed")
-@Description("Add the current video speed in brackets next to the current time.")
+@Description("Add the current playback speed in brackets next to the current time.")
 @DependsOn(
     [
         OverrideSpeedHookPatch::class,

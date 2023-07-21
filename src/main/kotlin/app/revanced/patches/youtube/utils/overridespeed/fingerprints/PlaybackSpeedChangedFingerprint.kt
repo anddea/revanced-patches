@@ -3,7 +3,7 @@ package app.revanced.patches.youtube.utils.overridespeed.fingerprints
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import org.jf.dexlib2.Opcode
 
-object VideoSpeedChangedFingerprint : MethodFingerprint(
+object PlaybackSpeedChangedFingerprint : MethodFingerprint(
     opcodes = listOf(
         Opcode.IGET_OBJECT,
         Opcode.IF_EQZ,
