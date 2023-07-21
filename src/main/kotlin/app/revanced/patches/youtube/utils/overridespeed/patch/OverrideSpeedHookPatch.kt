@@ -17,10 +17,10 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableField.Companion.toMut
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patcher.util.smali.toInstructions
-import app.revanced.patches.youtube.utils.overridespeed.fingerprints.SpeedClassFingerprint
 import app.revanced.patches.youtube.utils.overridespeed.fingerprints.PlaybackSpeedChangedFingerprint
 import app.revanced.patches.youtube.utils.overridespeed.fingerprints.PlaybackSpeedParentFingerprint
 import app.revanced.patches.youtube.utils.overridespeed.fingerprints.PlaybackSpeedPatchFingerprint
+import app.revanced.patches.youtube.utils.overridespeed.fingerprints.SpeedClassFingerprint
 import app.revanced.util.integrations.Constants.INTEGRATIONS_PATH
 import app.revanced.util.integrations.Constants.VIDEO_PATH
 import org.jf.dexlib2.AccessFlags
@@ -34,9 +34,9 @@ import org.jf.dexlib2.immutable.ImmutableMethodParameter
 
 class OverrideSpeedHookPatch : BytecodePatch(
     listOf(
-        SpeedClassFingerprint,
         PlaybackSpeedPatchFingerprint,
-        PlaybackSpeedParentFingerprint
+        PlaybackSpeedParentFingerprint,
+        SpeedClassFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
@@ -44,7 +44,12 @@ class OverrideSpeedHookPatch : BytecodePatch(
         PlaybackSpeedParentFingerprint.result?.let { parentResult ->
             val parentClassDef = parentResult.classDef
 
-            PlaybackSpeedChangedFingerprint.also { it.resolve(context, parentClassDef) }.result?.let {
+            PlaybackSpeedChangedFingerprint.also {
+                it.resolve(
+                    context,
+                    parentClassDef
+                )
+            }.result?.let {
                 it.mutableMethod.apply {
                     playbackSpeedChangedResult = it
                     val startIndex = it.scanResult.patternScanResult!!.startIndex
