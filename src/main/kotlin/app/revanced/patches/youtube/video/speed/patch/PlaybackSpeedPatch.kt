@@ -18,13 +18,13 @@ import app.revanced.patches.youtube.utils.fingerprints.NewFlyoutPanelOnClickList
 import app.revanced.patches.youtube.utils.overridespeed.patch.OverrideSpeedHookPatch
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.patches.youtube.utils.videocpn.patch.VideoCpnPatch
-import app.revanced.patches.youtube.video.speed.fingerprints.NewVideoSpeedChangedFingerprint
+import app.revanced.patches.youtube.video.speed.fingerprints.NewPlaybackSpeedChangedFingerprint
 import app.revanced.util.integrations.Constants.VIDEO_PATH
 import org.jf.dexlib2.iface.instruction.FiveRegisterInstruction
 
 @Patch
-@Name("Default video speed")
-@Description("Adds ability to set default video speed settings.")
+@Name("Default playback speed")
+@Description("Adds ability to set default playback speed settings.")
 @DependsOn(
     [
         OverrideSpeedHookPatch::class,
@@ -33,33 +33,33 @@ import org.jf.dexlib2.iface.instruction.FiveRegisterInstruction
 )
 @YouTubeCompatibility
 @Version("0.0.1")
-class VideoSpeedPatch : BytecodePatch(
+class PlaybackSpeedPatch : BytecodePatch(
     listOf(NewFlyoutPanelOnClickListenerFingerprint)
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
 
         NewFlyoutPanelOnClickListenerFingerprint.result?.let { parentResult ->
-            NewVideoSpeedChangedFingerprint.also {
+            NewPlaybackSpeedChangedFingerprint.also {
                 it.resolve(
                     context,
                     parentResult.classDef
                 )
             }.result?.let { result ->
-                arrayOf(result, OverrideSpeedHookPatch.videoSpeedChangedResult).forEach {
+                arrayOf(result, OverrideSpeedHookPatch.playbackSpeedChangedResult).forEach {
                     it.mutableMethod.apply {
                         val index = it.scanResult.patternScanResult!!.endIndex
                         val register = getInstruction<FiveRegisterInstruction>(index).registerD
 
                         addInstruction(
                             index,
-                            "invoke-static {v$register}, $INTEGRATIONS_VIDEO_SPEED_CLASS_DESCRIPTOR->userChangedSpeed(F)V"
+                            "invoke-static {v$register}, $INTEGRATIONS_PLAYBACK_SPEED_CLASS_DESCRIPTOR->userChangedSpeed(F)V"
                         )
                     }
                 }
-            } ?: return NewVideoSpeedChangedFingerprint.toErrorResult()
+            } ?: return NewPlaybackSpeedChangedFingerprint.toErrorResult()
         } ?: return NewFlyoutPanelOnClickListenerFingerprint.toErrorResult()
 
-        VideoCpnPatch.injectCall("$INTEGRATIONS_VIDEO_SPEED_CLASS_DESCRIPTOR->newVideoStarted(Ljava/lang/String;Z)V")
+        VideoCpnPatch.injectCall("$INTEGRATIONS_PLAYBACK_SPEED_CLASS_DESCRIPTOR->newVideoStarted(Ljava/lang/String;Z)V")
 
         /**
          * Add settings
@@ -67,17 +67,17 @@ class VideoSpeedPatch : BytecodePatch(
         SettingsPatch.addPreference(
             arrayOf(
                 "PREFERENCE: VIDEO_SETTINGS",
-                "SETTINGS: DEFAULT_VIDEO_SPEED"
+                "SETTINGS: DEFAULT_PLAYBACK_SPEED"
             )
         )
 
-        SettingsPatch.updatePatchStatus("default-video-speed")
+        SettingsPatch.updatePatchStatus("default-playback-speed")
 
         return PatchResultSuccess()
     }
 
     private companion object {
-        const val INTEGRATIONS_VIDEO_SPEED_CLASS_DESCRIPTOR =
-            "$VIDEO_PATH/VideoSpeedPatch;"
+        const val INTEGRATIONS_PLAYBACK_SPEED_CLASS_DESCRIPTOR =
+            "$VIDEO_PATH/PlaybackSpeedPatch;"
     }
 }

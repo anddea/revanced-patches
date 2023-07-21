@@ -18,9 +18,9 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patcher.util.smali.toInstructions
 import app.revanced.patches.youtube.utils.overridespeed.fingerprints.SpeedClassFingerprint
-import app.revanced.patches.youtube.utils.overridespeed.fingerprints.VideoSpeedChangedFingerprint
-import app.revanced.patches.youtube.utils.overridespeed.fingerprints.VideoSpeedParentFingerprint
-import app.revanced.patches.youtube.utils.overridespeed.fingerprints.VideoSpeedPatchFingerprint
+import app.revanced.patches.youtube.utils.overridespeed.fingerprints.PlaybackSpeedChangedFingerprint
+import app.revanced.patches.youtube.utils.overridespeed.fingerprints.PlaybackSpeedParentFingerprint
+import app.revanced.patches.youtube.utils.overridespeed.fingerprints.PlaybackSpeedPatchFingerprint
 import app.revanced.util.integrations.Constants.INTEGRATIONS_PATH
 import app.revanced.util.integrations.Constants.VIDEO_PATH
 import org.jf.dexlib2.AccessFlags
@@ -35,18 +35,18 @@ import org.jf.dexlib2.immutable.ImmutableMethodParameter
 class OverrideSpeedHookPatch : BytecodePatch(
     listOf(
         SpeedClassFingerprint,
-        VideoSpeedPatchFingerprint,
-        VideoSpeedParentFingerprint
+        PlaybackSpeedPatchFingerprint,
+        PlaybackSpeedParentFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
 
-        VideoSpeedParentFingerprint.result?.let { parentResult ->
+        PlaybackSpeedParentFingerprint.result?.let { parentResult ->
             val parentClassDef = parentResult.classDef
 
-            VideoSpeedChangedFingerprint.also { it.resolve(context, parentClassDef) }.result?.let {
+            PlaybackSpeedChangedFingerprint.also { it.resolve(context, parentClassDef) }.result?.let {
                 it.mutableMethod.apply {
-                    videoSpeedChangedResult = it
+                    playbackSpeedChangedResult = it
                     val startIndex = it.scanResult.patternScanResult!!.startIndex
                     val endIndex = it.scanResult.patternScanResult!!.endIndex
 
@@ -95,8 +95,8 @@ class OverrideSpeedHookPatch : BytecodePatch(
                     }
                 }
 
-            } ?: return VideoSpeedChangedFingerprint.toErrorResult()
-        } ?: return VideoSpeedParentFingerprint.toErrorResult()
+            } ?: return PlaybackSpeedChangedFingerprint.toErrorResult()
+        } ?: return PlaybackSpeedParentFingerprint.toErrorResult()
 
 
         SpeedClassFingerprint.result?.let {
@@ -106,7 +106,7 @@ class OverrideSpeedHookPatch : BytecodePatch(
                 SPEED_CLASS = this.returnType
                 replaceInstruction(
                     index,
-                    "sput-object v$register, $INTEGRATIONS_VIDEO_SPEED_CLASS_DESCRIPTOR->speedClass:$SPEED_CLASS"
+                    "sput-object v$register, $INTEGRATIONS_PLAYBACK_SPEED_CLASS_DESCRIPTOR->speedClass:$SPEED_CLASS"
                 )
                 addInstruction(
                     index + 1,
@@ -116,7 +116,7 @@ class OverrideSpeedHookPatch : BytecodePatch(
 
         } ?: return SpeedClassFingerprint.toErrorResult()
 
-        VideoSpeedPatchFingerprint.result?.let {
+        PlaybackSpeedPatchFingerprint.result?.let {
             it.mutableMethod.apply {
                 it.mutableClass.staticFields.add(
                     ImmutableField(
@@ -132,25 +132,25 @@ class OverrideSpeedHookPatch : BytecodePatch(
 
                 addInstructions(
                     0, """
-                        sget-object v0, $INTEGRATIONS_VIDEO_SPEED_CLASS_DESCRIPTOR->speedClass:$SPEED_CLASS
+                        sget-object v0, $INTEGRATIONS_PLAYBACK_SPEED_CLASS_DESCRIPTOR->speedClass:$SPEED_CLASS
                         invoke-virtual {v0, p0}, $SPEED_CLASS->overrideSpeed(F)V
                         """
                 )
             }
 
-        } ?: return VideoSpeedPatchFingerprint.toErrorResult()
+        } ?: return PlaybackSpeedPatchFingerprint.toErrorResult()
 
         return PatchResultSuccess()
     }
 
     internal companion object {
-        const val INTEGRATIONS_VIDEO_SPEED_CLASS_DESCRIPTOR =
-            "$VIDEO_PATH/VideoSpeedPatch;"
+        const val INTEGRATIONS_PLAYBACK_SPEED_CLASS_DESCRIPTOR =
+            "$VIDEO_PATH/PlaybackSpeedPatch;"
 
         const val INTEGRATIONS_VIDEO_HELPER_CLASS_DESCRIPTOR =
             "$INTEGRATIONS_PATH/utils/VideoHelpers;"
 
-        lateinit var videoSpeedChangedResult: MethodFingerprintResult
+        lateinit var playbackSpeedChangedResult: MethodFingerprintResult
 
         private lateinit var SPEED_CLASS: String
     }

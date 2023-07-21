@@ -24,22 +24,22 @@
     <string name="revanced_custom_filter_title">Enable custom filter</string>
     <string name="revanced_custom_seekbar_color_value_summary">Type the hex code of the seekbar color</string>
     <string name="revanced_custom_seekbar_color_value_title">Custom seekbar color value</string>
-    <string name="revanced_custom_video_speeds_invalid">Invalid custom video speeds. Reset to default values.</string>
-    <string name="revanced_custom_video_speeds_warning" formatted="false">Custom speeds must be less than %sx. Reset to default values.</string>
-    <string name="revanced_custom_video_speeds_summary">Add or change the video speeds available</string>
-    <string name="revanced_custom_video_speeds_title">Edit custom video speeds</string>
+    <string name="revanced_custom_playback_speeds_invalid">Invalid custom video speeds. Reset to default values.</string>
+    <string name="revanced_custom_playback_speeds_warning" formatted="false">Custom speeds must be less than %sx. Reset to default values.</string>
+    <string name="revanced_custom_playback_speeds_summary">Add or change the playback speeds available</string>
+    <string name="revanced_custom_playback_speeds_title">Edit custom playback speeds</string>
     <string name="revanced_default_app_settings_summary">To open RVX in an external browser, turn on \'Open supported links\' and enable supported web addresses</string>
     <string name="revanced_default_app_settings_title">Open default app settings</string>
     <string name="revanced_default_video_quality_mobile_title">Default video quality on Mobile network</string>
     <string name="revanced_default_video_quality_wifi_title">Default video quality on Wi-Fi network</string>
-    <string name="revanced_default_video_speed_title">Default video speed</string>
+    <string name="revanced_default_playback_speed_title">Default playback speed</string>
     <string name="revanced_description_title">Description</string>
     <string name="revanced_disable_auto_captions_summary_off">Forced auto captions are enabled</string>
     <string name="revanced_disable_auto_captions_summary_on">Forced auto captions are disabled</string>
     <string name="revanced_disable_auto_captions_title">Disable forced auto captions</string>
-    <string name="revanced_disable_default_video_speed_live_summary_off">Default video speed is enabled in live stream</string>
-    <string name="revanced_disable_default_video_speed_live_summary_on">Default video speed is disabled in live stream</string>
-    <string name="revanced_disable_default_video_speed_live_title">Disable video speed in live stream</string>
+    <string name="revanced_disable_default_playback_speed_live_summary_off">Default playback speed is enabled in live stream</string>
+    <string name="revanced_disable_default_playback_speed_live_summary_on">Default playback speed is disabled in live stream</string>
+    <string name="revanced_disable_default_playback_speed_live_title">Disable playback speed in live stream</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">Chapters haptic feedback is enabled</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">Chapters haptic feedback is disabled</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">Disable chapters haptic feedback</string>
@@ -74,9 +74,9 @@
     <string name="revanced_enable_custom_seekbar_color_summary_off">Custom seekbar color is disabled</string>
     <string name="revanced_enable_custom_seekbar_color_summary_on">Custom seekbar color is enabled</string>
     <string name="revanced_enable_custom_seekbar_color_title">Enable custom seekbar color</string>
-    <string name="revanced_enable_custom_video_speed_summary_off">Custom video speed is disabled</string>
-    <string name="revanced_enable_custom_video_speed_summary_on">Custom video speed is enabled</string>
-    <string name="revanced_enable_custom_video_speed_title">Enable custom video speed</string>
+    <string name="revanced_enable_custom_playback_speed_summary_off">Custom playback speed is disabled</string>
+    <string name="revanced_enable_custom_playback_speed_summary_on">Custom playback speed is enabled</string>
+    <string name="revanced_enable_custom_playback_speed_title">Enable custom playback speed</string>
     <string name="revanced_enable_debug_logging_summary_off">Debug logs are disabled</string>
     <string name="revanced_enable_debug_logging_summary_on">Debug logs are enabled</string>
     <string name="revanced_enable_debug_logging_title">Enable debug logging</string>
@@ -112,9 +112,9 @@
     <string name="revanced_enable_save_video_quality_summary_off">Does not save video quality values even when changing video quality</string>
     <string name="revanced_enable_save_video_quality_summary_on">Save the video quality value whenever you change the video quality</string>
     <string name="revanced_enable_save_video_quality_title">Enable save video quality</string>
-    <string name="revanced_enable_save_video_speed_summary_off">Does not save video speed values even when changing video speed</string>
-    <string name="revanced_enable_save_video_speed_summary_on">Save the video speed value whenever you change the video speed</string>
-    <string name="revanced_enable_save_video_speed_title">Enable save video speed</string>
+    <string name="revanced_enable_save_playback_speed_summary_off">Does not save playback speed values even when changing playback speed</string>
+    <string name="revanced_enable_save_playback_speed_summary_on">Save the playback speed value whenever you change the playback speed</string>
+    <string name="revanced_enable_save_playback_speed_title">Enable save playback speed</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">Seekbar tapping is disabled</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">Seekbar tapping is enabled</string>
     <string name="revanced_enable_seekbar_tapping_title">Enable seekbar tapping</string>
@@ -529,9 +529,9 @@ Tap and hold to copy video timestamp"</string>
     <string name="revanced_overlay_button_copy_video_url_timestamp_title">Show copy timestamp URL button</string>
     <string name="revanced_overlay_button_external_downloader_summary">Tap to launch external downloader</string>
     <string name="revanced_overlay_button_external_downloader_title">Show external download button</string>
-    <string name="revanced_overlay_button_speed_dialog_reset">Video speed reseted (1.0x)</string>
+    <string name="revanced_overlay_button_speed_dialog_reset">Playback speed reseted (1.0x)</string>
     <string name="revanced_overlay_button_speed_dialog_summary">"Tap to open speed dialog
-Tap and hold to set video speed to 1.0x"</string>
+Tap and hold to set Playback speed to 1.0x"</string>
     <string name="revanced_overlay_button_speed_dialog_title">Show speed dialog button</string>
     <string name="revanced_override_premium_header_summary_off">Current Header: Default Header</string>
     <string name="revanced_override_premium_header_summary_on">Current Header: Premium Header</string>
@@ -575,7 +575,7 @@ Since these setting is quite outdated, it may not be valid"</string>
     <string name="revanced_save_video_quality_mobile">Changing default mobile data quality to:</string>
     <string name="revanced_save_video_quality_none">Failed to set quality</string>
     <string name="revanced_save_video_quality_wifi">Changing default Wi-Fi quality to:</string>
-    <string name="revanced_save_video_speed">Changing default speed to:</string>
+    <string name="revanced_save_playback_speed">Changing default speed to:</string>
     <string name="revanced_seekbar">Seekbar</string>
     <string name="revanced_shorts">Shorts</string>
     <string name="revanced_shorts_player_title">Shorts player</string>
