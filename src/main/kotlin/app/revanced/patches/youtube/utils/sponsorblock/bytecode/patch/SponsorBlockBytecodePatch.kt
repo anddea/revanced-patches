@@ -21,8 +21,8 @@ import app.revanced.patches.youtube.utils.playercontrols.patch.PlayerControlsPat
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch.Companion.InsetOverlayViewLayout
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch.Companion.TotalTime
-import app.revanced.patches.youtube.utils.sponsorblock.bytecode.fingerprints.PlayerControllerFingerprint
 import app.revanced.patches.youtube.utils.sponsorblock.bytecode.fingerprints.RectangleFieldInvalidatorFingerprint
+import app.revanced.patches.youtube.utils.sponsorblock.bytecode.fingerprints.SegmentPlaybackControllerFingerprint
 import app.revanced.patches.youtube.utils.videoid.general.patch.VideoIdPatch
 import app.revanced.patches.youtube.utils.videoid.withoutshorts.patch.VideoIdWithoutShortsPatch
 import app.revanced.util.bytecode.BytecodeHelper.injectInit
@@ -49,8 +49,8 @@ import org.jf.dexlib2.iface.reference.MethodReference
 )
 class SponsorBlockBytecodePatch : BytecodePatch(
     listOf(
-        PlayerControllerFingerprint,
         SeekbarFingerprint,
+        SegmentPlaybackControllerFingerprint,
         TotalTimeFingerprint,
         YouTubeControlsOverlayFingerprint
     )
@@ -199,7 +199,7 @@ class SponsorBlockBytecodePatch : BytecodePatch(
                         getInstruction<ReferenceInstruction>(implementation!!.instructions.count() - 3).reference
                     val rectangleFieldName = (rectangleReference as FieldReference).name
 
-                    PlayerControllerFingerprint.result?.let { result ->
+                    SegmentPlaybackControllerFingerprint.result?.let { result ->
                         result.mutableMethod.apply {
                             for ((index, instruction) in implementation!!.instructions.withIndex()) {
                                 if (instruction.opcode != Opcode.CONST_STRING) continue
@@ -214,7 +214,7 @@ class SponsorBlockBytecodePatch : BytecodePatch(
                                 break
                             }
                         }
-                    } ?: return PlayerControllerFingerprint.toErrorResult()
+                    } ?: return SegmentPlaybackControllerFingerprint.toErrorResult()
                 }
             } ?: return RectangleFieldInvalidatorFingerprint.toErrorResult()
         } ?: return SeekbarFingerprint.toErrorResult()
