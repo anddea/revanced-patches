@@ -35,6 +35,7 @@ class SharedResourceIdPatch : ResourcePatch {
         var ChannelListSubMenu: Long = -1
         var CompactLink: Long = -1
         var ControlsLayoutStub: Long = -1
+        var CoreContainer: Long = -1
         var DislikeButton: Long = -1
         var DonationCompanion: Long = -1
         var EasySeekEduContainer: Long = -1
@@ -105,6 +106,7 @@ class SharedResourceIdPatch : ResourcePatch {
         ChannelListSubMenu = find(LAYOUT, "channel_list_sub_menu")
         CompactLink = find(LAYOUT, "compact_link")
         ControlsLayoutStub = find(ID, "controls_layout_stub")
+        CoreContainer = find(ID, "core_container")
         DislikeButton = find(ID, "dislike_button")
         DonationCompanion = find(LAYOUT, "donation_companion")
         EasySeekEduContainer = find(ID, "easy_seek_edu_container")

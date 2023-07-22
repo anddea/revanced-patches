@@ -116,6 +116,7 @@ class HideFilmstripOverlayPatch : BytecodePatch(
         SettingsPatch.addPreference(
             arrayOf(
                 "PREFERENCE: PLAYER_SETTINGS",
+                "SETTINGS: PLAYER_EXPERIMENTAL_FLAGS",
                 "SETTINGS: HIDE_FILMSTRIP_OVERLAY"
             )
         )
