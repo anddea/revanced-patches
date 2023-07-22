@@ -21,8 +21,6 @@ import app.revanced.patches.youtube.utils.videoid.general.fingerprint.SeekFinger
 import app.revanced.patches.youtube.utils.videoid.general.fingerprint.VideoIdFingerprint
 import app.revanced.patches.youtube.utils.videoid.general.fingerprint.VideoIdParentFingerprint
 import app.revanced.patches.youtube.utils.videoid.general.fingerprint.VideoLengthFingerprint
-import app.revanced.patches.youtube.utils.videoid.general.fingerprint.VideoTimeHighPrecisionFingerprint
-import app.revanced.patches.youtube.utils.videoid.general.fingerprint.VideoTimeHighPrecisionParentFingerprint
 import app.revanced.util.integrations.Constants.VIDEO_PATH
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.builder.MutableMethodImplementation
@@ -38,9 +36,7 @@ class VideoIdPatch : BytecodePatch(
         PlayerInitFingerprint,
         SeekFingerprint,
         VideoIdParentFingerprint,
-        VideoLengthFingerprint,
-        VideoTimeHighPrecisionFingerprint,
-        VideoTimeHighPrecisionParentFingerprint
+        VideoLengthFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
@@ -81,23 +77,9 @@ class VideoIdPatch : BytecodePatch(
         } ?: return PlayerInitFingerprint.toErrorResult()
 
         /**
-         * Set the high precision video time method
-         */
-        VideoTimeHighPrecisionParentFingerprint.result?.let { parentResult ->
-            VideoTimeHighPrecisionFingerprint.also {
-                it.resolve(
-                    context,
-                    parentResult.classDef
-                )
-            }.result?.mutableMethod?.let { method ->
-                highPrecisionTimeMethod = method
-            } ?: return VideoTimeHighPrecisionFingerprint.toErrorResult()
-        } ?: return VideoTimeHighPrecisionParentFingerprint.toErrorResult()
-
-        /**
          * Hook the methods which set the time
          */
-        highPrecisionTimeHook(INTEGRATIONS_CLASS_DESCRIPTOR, "setVideoTime")
+        videoTimeHook(INTEGRATIONS_CLASS_DESCRIPTOR, "setVideoTime")
 
         /**
          * Set current video time
@@ -140,6 +122,8 @@ class VideoIdPatch : BytecodePatch(
             } ?: return VideoIdFingerprint.toErrorResult()
         } ?: return VideoIdParentFingerprint.toErrorResult()
 
+        injectCall("$VIDEO_PATH/VideoInformation;->setVideoId(Ljava/lang/String;)V")
+
         return PatchResultSuccess()
     }
 
@@ -149,14 +133,12 @@ class VideoIdPatch : BytecodePatch(
         private var offset = 0
         private var playerInitInsertIndex = 4
         private var timeInitInsertIndex = 2
-        private var highPrecisionInsertIndex = 0
 
         private var insertIndex: Int = 0
         private var videoIdRegister: Int = 0
         private lateinit var insertMethod: MutableMethod
         private lateinit var playerInitMethod: MutableMethod
         private lateinit var timeMethod: MutableMethod
-        private lateinit var highPrecisionTimeMethod: MutableMethod
 
         /**
          * Adds an invoke-static instruction, called with the new id when the video changes
@@ -203,20 +185,6 @@ class VideoIdPatch : BytecodePatch(
         internal fun videoTimeHook(targetMethodClass: String, targetMethodName: String) =
             timeMethod.insertTimeHook(
                 timeInitInsertIndex++,
-                "$targetMethodClass->$targetMethodName(J)V"
-            )
-
-        /**
-         * Hook the high precision video time.
-         * The hooks is called extremely often (10 to 15 times a seconds), so use with caution.
-         * Note: the hook is usually called _off_ the main thread
-         *
-         * @param targetMethodClass The descriptor for the static method to invoke when the player controller is created.
-         * @param targetMethodName The name of the static method to invoke when the player controller is created.
-         */
-        internal fun highPrecisionTimeHook(targetMethodClass: String, targetMethodName: String) =
-            highPrecisionTimeMethod.insertTimeHook(
-                highPrecisionInsertIndex++,
                 "$targetMethodClass->$targetMethodName(J)V"
             )
     }
