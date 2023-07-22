@@ -307,6 +307,7 @@
             <Preference android:title="hide-quick-actions" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-seek-message" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-speed-overlay" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="hide-suggested-video-overlay" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
 
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_general" />
             <Preference android:title="disable-auto-captions" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
@@ -495,9 +496,14 @@
         <!-- SETTINGS: HIDE_YOUTUBE_MUSIC_BUTTON
         <SwitchPreference android:title="@string/revanced_hide_youtube_music_button_title" android:key="revanced_hide_youtube_music_button" android:defaultValue="false" android:summaryOn="@string/revanced_hide_youtube_music_button_summary_on" android:summaryOff="@string/revanced_hide_youtube_music_button_summary_off" />SETTINGS: HIDE_YOUTUBE_MUSIC_BUTTON -->
 
+        <!-- SETTINGS: PLAYER_EXPERIMENTAL_FLAGS
+        <Preference android:title=" " android:selectable="false" android:key="revanced_experimental_flag" android:summary="@string/revanced_experimental_flag" />SETTINGS: PLAYER_EXPERIMENTAL_FLAGS -->
+
         <!-- SETTINGS: HIDE_FILMSTRIP_OVERLAY
-        <Preference android:title=" " android:selectable="false" android:key="revanced_experimental_flag" android:summary="@string/revanced_experimental_flag" />
         <SwitchPreference android:title="@string/revanced_hide_filmstrip_overlay_title" android:key="revanced_hide_filmstrip_overlay" android:defaultValue="false" android:summaryOn="@string/revanced_hide_filmstrip_overlay_summary_on" android:summaryOff="@string/revanced_hide_filmstrip_overlay_summary_off" />SETTINGS: HIDE_FILMSTRIP_OVERLAY -->
+
+        <!-- SETTINGS: HIDE_SUGGESTED_VIDEO_OVERLAY
+        <SwitchPreference android:title="@string/revanced_hide_suggested_video_overlay_title" android:key="revanced_hide_suggested_video_overlay" android:defaultValue="false" android:summary="@string/revanced_hide_suggested_video_overlay_summary" />SETTINGS: HIDE_SUGGESTED_VIDEO_OVERLAY -->
 
         <!-- SETTINGS: DISABLE_HAPTIC_FEEDBACK
         <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_haptic_feedback_title" />
