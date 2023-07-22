@@ -6,7 +6,7 @@ import org.jf.dexlib2.AccessFlags
 
 object LithoFilterFingerprint : MethodFingerprint(
     returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC or AccessFlags.CONSTRUCTOR,
+    accessFlags = AccessFlags.STATIC or AccessFlags.CONSTRUCTOR,
     customFingerprint = { methodDef, _ ->
         methodDef.definingClass == "Lapp/revanced/integrations/patches/ads/LithoFilterPatch;"
     }
