@@ -14,8 +14,8 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.shared.fingerprints.litho.EmptyComponentBuilderFingerprint
 import app.revanced.patches.youtube.general.mixplaylists.fingerprints.BottomPanelOverlayTextFingerprint
+import app.revanced.patches.youtube.general.mixplaylists.fingerprints.EmptyFlatBufferFingerprint
 import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.bytecode.getStringIndex
@@ -33,7 +33,7 @@ import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
 class MixPlaylistsPatch : BytecodePatch(
     listOf(
         BottomPanelOverlayTextFingerprint,
-        EmptyComponentBuilderFingerprint
+        EmptyFlatBufferFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
@@ -58,22 +58,22 @@ class MixPlaylistsPatch : BytecodePatch(
          * Separated from bytebuffer patch
          * Target method is only used for Hide MixPlaylists patch
          */
-        EmptyComponentBuilderFingerprint.result?.let {
+        EmptyFlatBufferFingerprint.result?.let {
             it.mutableMethod.apply {
-                val freeIndex = implementation!!.instructions.indexOfFirst { instruction ->
-                    instruction.opcode == Opcode.CONST_4
-                }
+                val insertIndex = implementation!!.instructions.indexOfFirst { instruction ->
+                    instruction.opcode == Opcode.CHECK_CAST
+                } + 1
                 val jumpIndex = getStringIndex("Failed to convert Element to Flatbuffers: %s") + 2
-                val insertIndex = freeIndex + 5
 
-                val freeRegister = getInstruction<OneRegisterInstruction>(freeIndex).registerA + 1
+                val freeIndex = it.scanResult.patternScanResult!!.startIndex - 1
+                val freeRegister = getInstruction<TwoRegisterInstruction>(freeIndex).registerA
 
                 addInstructionsWithLabels(
                     insertIndex, """
                         invoke-static {v$freeRegister}, $GENERAL->hideMixPlaylists([B)Z
                         move-result v$freeRegister
                         if-nez v$freeRegister, :not_an_ad
-                    """, ExternalLabel("not_an_ad", getInstruction(jumpIndex))
+                        """, ExternalLabel("not_an_ad", getInstruction(jumpIndex))
                 )
 
                 addInstruction(
@@ -81,7 +81,7 @@ class MixPlaylistsPatch : BytecodePatch(
                     "move-object/from16 v$freeRegister, p3"
                 )
             }
-        } ?: return EmptyComponentBuilderFingerprint.toErrorResult()
+        } ?: return EmptyFlatBufferFingerprint.toErrorResult()
 
         /**
          * Add settings

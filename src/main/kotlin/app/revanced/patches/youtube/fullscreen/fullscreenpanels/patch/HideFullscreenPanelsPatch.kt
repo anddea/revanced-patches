@@ -24,6 +24,7 @@ import app.revanced.patches.youtube.utils.quickactions.patch.QuickActionsHookPat
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch.Companion.FullScreenEngagementPanel
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
+import app.revanced.util.bytecode.getNarrowLiteralIndex
 import app.revanced.util.bytecode.getStringIndex
 import app.revanced.util.bytecode.getWideLiteralIndex
 import app.revanced.util.integrations.Constants.FULLSCREEN
@@ -84,7 +85,7 @@ class HideFullscreenPanelsPatch : BytecodePatch(
         LayoutConstructorFingerprint.result?.let {
             it.mutableMethod.apply {
                 val dummyRegister =
-                    getInstruction<OneRegisterInstruction>(getStringIndex("1.0x")).registerA
+                    getInstruction<OneRegisterInstruction>(getNarrowLiteralIndex(159962)).registerA
 
                 val invokeIndex = implementation!!.instructions.indexOfFirst { instruction ->
                     instruction.opcode == Opcode.INVOKE_VIRTUAL &&
