@@ -31,7 +31,7 @@ import app.revanced.util.microg.MicroGBytecodeHelper
         PackageNamePatch::class
     ]
 )
-@Name("Microg support")
+@Name("MicroG support")
 @Description("Allows ReVanced Music to run without root and under a different package name with MicroG.")
 @MusicCompatibility
 @Version("0.0.2")
