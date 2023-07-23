@@ -16,8 +16,6 @@ import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.overlaybutton.alwaysrepeat.fingerprints.AutoNavInformerFingerprint
 import app.revanced.patches.youtube.overlaybutton.alwaysrepeat.fingerprints.VideoEndFingerprint
 import app.revanced.patches.youtube.overlaybutton.alwaysrepeat.fingerprints.VideoEndParentFingerprint
-import app.revanced.patches.youtube.utils.fingerprints.PlayerPatchFingerprint
-import app.revanced.util.integrations.Constants.INTEGRATIONS_PATH
 import app.revanced.util.integrations.Constants.UTILS_PATH
 import app.revanced.util.integrations.Constants.VIDEO_PATH
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
@@ -25,7 +23,6 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 class AlwaysRepeatPatch : BytecodePatch(
     listOf(
         AutoNavInformerFingerprint,
-        PlayerPatchFingerprint,
         VideoEndParentFingerprint
     )
 ) {
@@ -35,7 +32,6 @@ class AlwaysRepeatPatch : BytecodePatch(
                 it.mutableMethod.apply {
                     addInstructionsWithLabels(
                         0, """
-                            invoke-static {}, $UTILS_PATH/AlwaysRepeatPatch;->shouldRepeatAndPause()V
                             invoke-static {}, $VIDEO_PATH/VideoInformation;->shouldAlwaysRepeat()Z
                             move-result v0
                             if-eqz v0, :end
@@ -45,13 +41,6 @@ class AlwaysRepeatPatch : BytecodePatch(
                 }
             } ?: return VideoEndFingerprint.toErrorResult()
         } ?: return VideoEndParentFingerprint.toErrorResult()
-
-        PlayerPatchFingerprint.result?.mutableMethod?.addInstruction(
-            0,
-            "invoke-static {p0}, " +
-                    "$INTEGRATIONS_PATH/utils/ResourceHelper;->" +
-                    "setPlayPauseButton(Landroid/view/View;)V"
-        ) ?: return PlayerPatchFingerprint.toErrorResult()
 
         AutoNavInformerFingerprint.result?.let {
             with(
