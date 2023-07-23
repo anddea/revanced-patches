@@ -35,10 +35,9 @@ class OpenLinksExternallyPatch : BytecodePatch(
 
                 addInstructionsWithLabels(
                     insertIndex, """
-                        invoke-static {}, $INTEGRATIONS_METHOD_DESCRIPTOR->openLinksExternally()Z
+                        invoke-static {p1, p2}, $INTEGRATIONS_METHOD_DESCRIPTOR->openLinksExternally(Landroid/app/Activity;Landroid/net/Uri;)Z
                         move-result v0
-                        if-eqz v0, :dismiss                        
-                        invoke-static {p1, p2}, $INTEGRATIONS_METHOD_DESCRIPTOR->openLinksExternally(Landroid/app/Activity;Landroid/net/Uri;)V
+                        if-eqz v0, :dismiss
                         return-void
                         """, ExternalLabel("dismiss", getInstruction(insertIndex))
                 )
