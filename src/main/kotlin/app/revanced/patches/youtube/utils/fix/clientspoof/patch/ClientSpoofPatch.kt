@@ -9,7 +9,7 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patches.youtube.utils.fix.clientspoof.fingerprints.UserAgentHeaderBuilderFingerprint
 import app.revanced.patches.youtube.utils.microg.shared.Constants.PACKAGE_NAME
-import org.jf.dexlib2.iface.instruction.FiveRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 
 class ClientSpoofPatch : BytecodePatch(
     listOf(UserAgentHeaderBuilderFingerprint)

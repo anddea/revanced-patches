@@ -19,9 +19,9 @@ import app.revanced.patches.youtube.utils.overridespeed.patch.OverrideSpeedHookP
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.integrations.Constants.SEEKBAR
-import org.jf.dexlib2.Opcode
-import org.jf.dexlib2.iface.instruction.ReferenceInstruction
-import org.jf.dexlib2.iface.instruction.formats.Instruction35c
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
 
 @Patch
 @Name("Enable time stamps speed")

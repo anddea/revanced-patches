@@ -25,13 +25,13 @@ import app.revanced.patches.youtube.utils.fingerprints.YouTubeControlsOverlayFin
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.integrations.Constants.PLAYER
-import org.jf.dexlib2.Opcode
-import org.jf.dexlib2.iface.instruction.FiveRegisterInstruction
-import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
-import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
-import org.jf.dexlib2.iface.instruction.WideLiteralInstruction
-import org.jf.dexlib2.iface.instruction.formats.Instruction35c
-import org.jf.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.WideLiteralInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Patch
 @Name("Hide filmstrip overlay")

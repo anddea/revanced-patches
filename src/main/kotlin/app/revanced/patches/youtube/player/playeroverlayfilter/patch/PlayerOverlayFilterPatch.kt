@@ -20,8 +20,8 @@ import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.bytecode.getWideLiteralIndex
 import app.revanced.util.integrations.Constants.PLAYER
-import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
-import org.jf.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 
 @Patch
 @Name("Hide player overlay filter")

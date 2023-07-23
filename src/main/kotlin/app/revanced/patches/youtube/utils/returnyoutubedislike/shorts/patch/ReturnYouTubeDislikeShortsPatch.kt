@@ -10,7 +10,7 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.utils.returnyoutubedislike.shorts.fingerprints.ShortsTextViewFingerprint
 import app.revanced.util.integrations.Constants.UTILS_PATH
-import org.jf.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 
 class ReturnYouTubeDislikeShortsPatch : BytecodePatch(
     listOf(ShortsTextViewFingerprint)

@@ -25,13 +25,12 @@ import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch.Companion.FullScreenEngagementPanel
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.bytecode.getNarrowLiteralIndex
-import app.revanced.util.bytecode.getStringIndex
 import app.revanced.util.bytecode.getWideLiteralIndex
 import app.revanced.util.integrations.Constants.FULLSCREEN
-import org.jf.dexlib2.Opcode
-import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
-import org.jf.dexlib2.iface.instruction.ReferenceInstruction
-import org.jf.dexlib2.iface.instruction.formats.Instruction35c
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
 
 @Patch
 @Name("Hide fullscreen panels")

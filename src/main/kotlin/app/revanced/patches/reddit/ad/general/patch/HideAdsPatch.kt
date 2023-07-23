@@ -20,9 +20,9 @@ import app.revanced.patches.reddit.ad.comments.patch.HideCommentAdsPatch
 import app.revanced.patches.reddit.ad.general.fingerprints.AdPostFingerprint
 import app.revanced.patches.reddit.ad.general.fingerprints.NewAdPostFingerprint
 import app.revanced.patches.reddit.utils.annotations.RedditCompatibility
-import org.jf.dexlib2.iface.instruction.ReferenceInstruction
-import org.jf.dexlib2.iface.instruction.formats.Instruction22c
-import org.jf.dexlib2.iface.reference.FieldReference
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction22c
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 @Patch
 @Name("Hide ads")

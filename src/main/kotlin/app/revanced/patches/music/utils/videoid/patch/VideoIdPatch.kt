@@ -10,10 +10,10 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.music.utils.videoid.fingerprint.VideoIdParentFingerprint
 import app.revanced.util.integrations.Constants.MUSIC_UTILS_PATH
-import org.jf.dexlib2.Opcode
-import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
-import org.jf.dexlib2.iface.instruction.ReferenceInstruction
-import org.jf.dexlib2.iface.reference.FieldReference
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 class VideoIdPatch : BytecodePatch(
     listOf(VideoIdParentFingerprint)

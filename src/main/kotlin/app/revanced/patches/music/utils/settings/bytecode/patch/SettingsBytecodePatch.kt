@@ -12,8 +12,8 @@ import app.revanced.patches.music.utils.integrations.patch.IntegrationsPatch
 import app.revanced.patches.music.utils.settings.bytecode.fingerprints.PreferenceFingerprint
 import app.revanced.patches.music.utils.settings.bytecode.fingerprints.SettingsHeadersFragmentFingerprint
 import app.revanced.util.integrations.Constants.MUSIC_INTEGRATIONS_PATH
-import org.jf.dexlib2.iface.instruction.FiveRegisterInstruction
-import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @DependsOn([IntegrationsPatch::class])
 class SettingsBytecodePatch : BytecodePatch(

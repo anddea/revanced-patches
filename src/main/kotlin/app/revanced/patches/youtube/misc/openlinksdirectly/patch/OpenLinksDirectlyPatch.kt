@@ -17,7 +17,7 @@ import app.revanced.patches.youtube.misc.openlinksdirectly.fingerprints.OpenLink
 import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.integrations.Constants.MISC_PATH
-import org.jf.dexlib2.iface.instruction.formats.Instruction35c
+import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
 
 @Patch
 @Name("Enable open links directly")

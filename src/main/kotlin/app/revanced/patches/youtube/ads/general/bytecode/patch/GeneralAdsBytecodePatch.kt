@@ -12,7 +12,8 @@ import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch.Companion.AdAttribution
 import app.revanced.util.bytecode.getWideLiteralIndex
 import app.revanced.util.bytecode.isWideLiteralExists
-import org.jf.dexlib2.iface.instruction.formats.Instruction35c
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
 
 @DependsOn([SharedResourceIdPatch::class])
 @Suppress("LABEL_NAME_CLASH")
@@ -28,7 +29,7 @@ class GeneralAdsBytecodePatch : BytecodePatch() {
                     .findMutableMethodOf(method)
                     .apply {
                         val insertIndex = getWideLiteralIndex(AdAttribution) + 1
-                        if (getInstruction(insertIndex).opcode != org.jf.dexlib2.Opcode.INVOKE_VIRTUAL)
+                        if (getInstruction(insertIndex).opcode != Opcode.INVOKE_VIRTUAL)
                             return@forEach
 
                         val viewRegister = getInstruction<Instruction35c>(insertIndex).registerC

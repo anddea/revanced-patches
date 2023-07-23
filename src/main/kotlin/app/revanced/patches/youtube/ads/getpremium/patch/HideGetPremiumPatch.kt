@@ -10,7 +10,7 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.ads.getpremium.fingerprints.CompactYpcOfferModuleViewFingerprint
 import app.revanced.util.integrations.Constants.PATCHES_PATH
-import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
 class HideGetPremiumPatch : BytecodePatch(
     listOf(CompactYpcOfferModuleViewFingerprint)

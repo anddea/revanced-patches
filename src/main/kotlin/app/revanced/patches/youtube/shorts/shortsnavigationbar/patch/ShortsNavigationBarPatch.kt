@@ -16,7 +16,7 @@ import app.revanced.patches.youtube.shorts.shortsnavigationbar.fingerprints.Rend
 import app.revanced.patches.youtube.shorts.shortsnavigationbar.fingerprints.SetPivotBarFingerprint
 import app.revanced.patches.youtube.utils.fingerprints.PivotBarCreateButtonViewFingerprint
 import app.revanced.util.integrations.Constants.SHORTS
-import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 class ShortsNavigationBarPatch : BytecodePatch(
     listOf(

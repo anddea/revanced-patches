@@ -18,9 +18,9 @@ import app.revanced.patches.youtube.utils.fingerprints.NewFlyoutPanelBuilderFing
 import app.revanced.patches.youtube.utils.litho.patch.LithoFilterPatch
 import app.revanced.util.bytecode.BytecodeHelper.updatePatchStatus
 import app.revanced.util.integrations.Constants.FLYOUT_PANEL
-import org.jf.dexlib2.AccessFlags
-import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
-import org.jf.dexlib2.immutable.ImmutableField
+import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.immutable.ImmutableField
 
 @DependsOn([LithoFilterPatch::class])
 class OldSpeedLayoutPatch : BytecodePatch(
@@ -57,7 +57,7 @@ class OldSpeedLayoutPatch : BytecodePatch(
                         PLAYBACK_RATE_BOTTOM_SHEET_CLASS,
                         AccessFlags.PUBLIC or AccessFlags.STATIC,
                         null,
-                        null,
+                        annotations,
                         null
                     ).toMutable()
                 )

@@ -1,7 +1,7 @@
 package app.revanced.patches.youtube.navigation.tabletnavbar.fingerprints
 
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
-import org.jf.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.Opcode
 
 object PivotBarStyleFingerprint : MethodFingerprint(
     returnType = "V",

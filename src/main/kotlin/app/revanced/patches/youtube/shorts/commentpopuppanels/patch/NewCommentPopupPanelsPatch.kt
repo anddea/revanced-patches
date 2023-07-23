@@ -17,7 +17,7 @@ import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.bytecode.getWide32LiteralIndex
 import app.revanced.util.integrations.Constants.SHORTS
-import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
 @Name("Enable new comment popup panels")

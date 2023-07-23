@@ -1,7 +1,7 @@
 package app.revanced.patches.shared.fingerprints.litho
 
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
-import org.jf.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.Opcode
 
 object ByteBufferHookFingerprint : MethodFingerprint(
     returnType = "L",

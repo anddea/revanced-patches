@@ -12,8 +12,8 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMu
 import app.revanced.patches.youtube.swipe.swipecontrols.bytecode.fingerprints.SwipeControlsHostActivityFingerprint
 import app.revanced.patches.youtube.swipe.swipecontrols.bytecode.fingerprints.WatchWhileActivityFingerprint
 import app.revanced.patches.youtube.utils.playertype.patch.PlayerTypeHookPatch
-import org.jf.dexlib2.AccessFlags
-import org.jf.dexlib2.immutable.ImmutableMethod
+import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 
 @DependsOn([PlayerTypeHookPatch::class])
 class SwipeControlsBytecodePatch : BytecodePatch(

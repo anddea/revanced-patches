@@ -12,8 +12,8 @@ import app.revanced.patches.youtube.shorts.shortscomponent.fingerprints.ShortsLi
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch.Companion.ReelRightLikeIcon
 import app.revanced.util.bytecode.getWideLiteralIndex
 import app.revanced.util.integrations.Constants.SHORTS
-import org.jf.dexlib2.Opcode
-import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 class ShortsLikeButtonPatch : BytecodePatch(
     listOf(ShortsLikeFingerprint)

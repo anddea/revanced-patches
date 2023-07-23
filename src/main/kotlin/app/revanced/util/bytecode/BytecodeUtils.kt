@@ -1,10 +1,10 @@
 package app.revanced.util.bytecode
 
-import org.jf.dexlib2.Opcode
-import org.jf.dexlib2.builder.instruction.BuilderInstruction21c
-import org.jf.dexlib2.iface.Method
-import org.jf.dexlib2.iface.instruction.NarrowLiteralInstruction
-import org.jf.dexlib2.iface.instruction.WideLiteralInstruction
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction21c
+import com.android.tools.smali.dexlib2.iface.Method
+import com.android.tools.smali.dexlib2.iface.instruction.NarrowLiteralInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.WideLiteralInstruction
 
 fun Method.isNarrowLiteralExists(value: Int): Boolean {
     return getNarrowLiteralIndex(value) != -1

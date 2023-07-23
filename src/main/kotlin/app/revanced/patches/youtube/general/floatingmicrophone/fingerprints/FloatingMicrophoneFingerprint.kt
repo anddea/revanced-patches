@@ -4,8 +4,8 @@ import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch.Companion.Fab
 import app.revanced.util.bytecode.isWideLiteralExists
-import org.jf.dexlib2.AccessFlags
-import org.jf.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.Opcode
 
 object FloatingMicrophoneFingerprint : MethodFingerprint(
     returnType = "V",

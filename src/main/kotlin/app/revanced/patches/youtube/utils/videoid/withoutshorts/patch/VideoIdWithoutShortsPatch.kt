@@ -10,8 +10,8 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.utils.videoid.withoutshorts.fingerprint.VideoIdWithoutShortsFingerprint
 import app.revanced.util.integrations.Constants.VIDEO_PATH
-import org.jf.dexlib2.Opcode
-import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 class VideoIdWithoutShortsPatch : BytecodePatch(
     listOf(VideoIdWithoutShortsFingerprint)

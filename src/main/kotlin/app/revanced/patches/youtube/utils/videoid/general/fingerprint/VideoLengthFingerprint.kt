@@ -3,8 +3,8 @@ package app.revanced.patches.youtube.utils.videoid.general.fingerprint
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.util.bytecode.isWide32LiteralExists
-import org.jf.dexlib2.AccessFlags
-import org.jf.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.Opcode
 
 object VideoLengthFingerprint : MethodFingerprint(
     returnType = "V",

@@ -12,9 +12,9 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.youtube.utils.playerbutton.fingerprints.LiveChatFingerprint
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.util.integrations.Constants.PLAYER
-import org.jf.dexlib2.Opcode
-import org.jf.dexlib2.builder.instruction.BuilderInstruction21c
-import org.jf.dexlib2.builder.instruction.BuilderInstruction35c
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction21c
+import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction35c
 
 @DependsOn([SharedResourceIdPatch::class])
 class PlayerButtonHookPatch : BytecodePatch(

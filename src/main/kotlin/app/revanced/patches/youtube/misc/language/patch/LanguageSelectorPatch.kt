@@ -15,7 +15,7 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.youtube.misc.language.fingerprints.GeneralPrefsFingerprint
 import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
-import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
 @Name("Language switch")

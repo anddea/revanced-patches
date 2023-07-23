@@ -15,7 +15,7 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.music.misc.tastebuilder.fingerprints.TasteBuilderConstructorFingerprint
 import app.revanced.patches.music.utils.annotations.MusicCompatibility
 import app.revanced.patches.music.utils.fix.decoding.patch.DecodingPatch
-import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Patch
 @Name("Hide taste builder")

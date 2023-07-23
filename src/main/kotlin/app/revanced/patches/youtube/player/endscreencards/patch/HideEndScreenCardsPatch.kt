@@ -19,7 +19,7 @@ import app.revanced.patches.youtube.player.endscreencards.fingerprints.LayoutVid
 import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
-import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
 @Name("Hide end screen cards")

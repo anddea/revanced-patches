@@ -11,7 +11,7 @@ import app.revanced.patches.youtube.shorts.shortscomponent.fingerprints.ShortsRe
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch.Companion.ReelDynRemix
 import app.revanced.util.bytecode.getWideLiteralIndex
 import app.revanced.util.integrations.Constants.SHORTS
-import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 class ShortsRemixButtonPatch : BytecodePatch(
     listOf(ShortsRemixFingerprint)

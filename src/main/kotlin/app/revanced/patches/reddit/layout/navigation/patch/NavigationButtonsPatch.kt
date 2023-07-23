@@ -8,7 +8,7 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patches.reddit.layout.navigation.fingerprints.BottomNavScreenFingerprint
-import org.jf.dexlib2.iface.instruction.FiveRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 
 class NavigationButtonsPatch : BytecodePatch(
     listOf(BottomNavScreenFingerprint)

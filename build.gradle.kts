@@ -8,6 +8,7 @@ val githubUsername: String = project.findProperty("gpr.user") as? String ?: Syst
 val githubPassword: String = project.findProperty("gpr.key") as? String ?: System.getenv("GITHUB_TOKEN")
 
 repositories {
+    google()
     mavenCentral()
     mavenLocal()
     maven {
@@ -27,7 +28,9 @@ repositories {
 
 dependencies {
     implementation("app.revanced:revanced-patcher:11.0.4")
-    implementation("app.revanced:multidexlib2:2.5.3-a3836654")
+    implementation("com.android.tools.smali:smali:3.0.3")
+    implementation("com.android.tools.smali:smali-dexlib2:3.0.3")
+
     // Required for meta
     implementation("com.google.code.gson:gson:2.10.1")
     // Required for FlexVer-Java
@@ -40,7 +43,8 @@ tasks {
         dependsOn(build)
 
         doLast {
-            val androidHome = System.getenv("ANDROID_HOME") ?: throw GradleException("ANDROID_HOME not found")
+            val androidHome =
+                System.getenv("ANDROID_HOME") ?: throw GradleException("ANDROID_HOME not found")
             val d8 = "${androidHome}/build-tools/34.0.0/d8"
             val input = configurations.archives.get().allArtifacts.files.files.first().absolutePath
             val work = File("${buildDir}/libs")

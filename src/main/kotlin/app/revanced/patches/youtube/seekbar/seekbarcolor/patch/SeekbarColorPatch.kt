@@ -28,8 +28,8 @@ import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch.Companion.contexts
 import app.revanced.util.bytecode.getWideLiteralIndex
 import app.revanced.util.integrations.Constants.SEEKBAR
-import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
-import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import org.w3c.dom.Element
 
 @Patch

@@ -26,10 +26,10 @@ import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.fingerprints.LayoutSwitchFingerprint
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.integrations.Constants.MISC_PATH
-import org.jf.dexlib2.Opcode
-import org.jf.dexlib2.dexbacked.reference.DexBackedFieldReference
-import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
-import org.jf.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.dexbacked.reference.DexBackedFieldReference
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 
 @Patch
 @Name("Force VP9 codec")

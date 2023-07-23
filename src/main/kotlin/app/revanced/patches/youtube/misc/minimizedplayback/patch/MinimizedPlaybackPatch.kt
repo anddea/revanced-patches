@@ -22,8 +22,8 @@ import app.revanced.patches.youtube.utils.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.utils.playertype.patch.PlayerTypeHookPatch
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.util.integrations.Constants.MISC_PATH
-import org.jf.dexlib2.iface.instruction.ReferenceInstruction
-import org.jf.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Patch
 @Name("Enable minimized playback")

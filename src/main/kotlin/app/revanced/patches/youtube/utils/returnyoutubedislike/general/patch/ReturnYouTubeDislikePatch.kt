@@ -28,10 +28,10 @@ import app.revanced.patches.youtube.utils.returnyoutubedislike.shorts.patch.Retu
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.patches.youtube.utils.videoid.general.patch.VideoIdPatch
 import app.revanced.util.integrations.Constants.UTILS_PATH
-import org.jf.dexlib2.iface.instruction.FiveRegisterInstruction
-import org.jf.dexlib2.iface.instruction.ReferenceInstruction
-import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
-import org.jf.dexlib2.iface.reference.Reference
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.Reference
 
 @Patch
 @Name("Return YouTube Dislike")
