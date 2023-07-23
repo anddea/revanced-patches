@@ -7,6 +7,7 @@ import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.OptionsContainer
 import app.revanced.patcher.patch.PatchOption
 import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
@@ -41,6 +42,9 @@ class ThemePatch : ResourcePatch {
     }
 
     private fun ResourceContext.setTheme(valuesPath: String) {
+        val darkThemeColor = darkThemeBackgroundColor
+            ?: throw PatchResultError("Invalid color.")
+
         this.xmlEditor["res/$valuesPath/colors.xml"].use { editor ->
             val resourcesNode = editor.file.getElementsByTagName("resources").item(0) as Element
 
@@ -49,7 +53,7 @@ class ThemePatch : ResourcePatch {
 
                 node.textContent = when (node.getAttribute("name")) {
                     "yt_black0", "yt_black1", "yt_black1_opacity95", "yt_black1_opacity98", "yt_black2", "yt_black3",
-                    "yt_black4", "yt_status_bar_background_dark", "material_grey_850" -> darkThemeBackgroundColor
+                    "yt_black4", "yt_status_bar_background_dark", "material_grey_850" -> darkThemeColor
 
                     else -> continue
                 }

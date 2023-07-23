@@ -7,6 +7,7 @@ import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.OptionsContainer
 import app.revanced.patcher.patch.PatchOption
 import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
@@ -28,17 +29,11 @@ import app.revanced.patches.music.utils.fix.decoding.patch.DecodingPatch
 class CustomBrandingNamePatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
 
-        val longName =
-            if (MusicLongName != null)
-                MusicLongName
-            else
-                "ReVanced Extended Music"
+        val longName = MusicLongName
+            ?: throw PatchResultError("Invalid app name.")
 
-        val shortName =
-            if (MusicShortName != null)
-                MusicShortName
-            else
-                "RVX Music"
+        val shortName = MusicShortName
+            ?: throw PatchResultError("Invalid app name.")
 
         context.xmlEditor["res/values/strings.xml"].use { editor ->
             val document = editor.file

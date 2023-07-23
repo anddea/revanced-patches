@@ -3,6 +3,7 @@ package app.revanced.patches.youtube.utils.microg.bytecode.patch
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.shared.patch.packagename.PackageNamePatch
@@ -37,7 +38,11 @@ class MicroGBytecodePatch : BytecodePatch(
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
 
-        val packageName = PackageNamePatch.YouTubePackageName!!
+        val packageName = PackageNamePatch.YouTubePackageName
+            ?: throw PatchResultError("Invalid package name.")
+
+        if (packageName == PACKAGE_NAME)
+            throw PatchResultError("Original package name is not available as package name for MicroG build.")
 
         // apply common microG patch
         MicroGBytecodeHelper.patchBytecode(

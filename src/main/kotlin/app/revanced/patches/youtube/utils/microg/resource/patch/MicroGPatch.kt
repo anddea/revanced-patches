@@ -5,6 +5,7 @@ import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
@@ -36,7 +37,11 @@ import app.revanced.util.resources.ResourceHelper.setMicroG
 class MicroGPatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
 
-        val packageName = PackageNamePatch.YouTubePackageName!!
+        val packageName = PackageNamePatch.YouTubePackageName
+            ?: throw PatchResultError("Invalid package name.")
+
+        if (packageName == PACKAGE_NAME)
+            throw PatchResultError("Original package name is not available as package name for MicroG build.")
 
         /**
          * Add settings
