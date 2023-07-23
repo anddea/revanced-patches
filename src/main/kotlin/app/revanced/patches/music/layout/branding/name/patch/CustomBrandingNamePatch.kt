@@ -10,13 +10,20 @@ import app.revanced.patcher.patch.PatchOption
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
+import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.music.utils.annotations.MusicCompatibility
+import app.revanced.patches.music.utils.fix.decoding.patch.DecodingPatch
 import org.w3c.dom.Element
 
 @Patch(false)
 @Name("Custom branding Music name")
 @Description("Rename the YouTube Music app to the name specified in options.json.")
+@DependsOn(
+    [
+        DecodingPatch::class
+    ]
+)
 @MusicCompatibility
 @Version("0.0.1")
 class CustomBrandingNamePatch : ResourcePatch {

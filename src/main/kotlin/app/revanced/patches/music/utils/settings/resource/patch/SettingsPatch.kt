@@ -9,6 +9,7 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.music.utils.annotations.MusicCompatibility
+import app.revanced.patches.music.utils.fix.decoding.patch.DecodingPatch
 import app.revanced.patches.music.utils.settings.bytecode.patch.SettingsBytecodePatch
 import app.revanced.patches.shared.patch.settings.AbstractSettingsResourcePatch
 import app.revanced.util.enum.CategoryType
@@ -29,7 +30,12 @@ import java.nio.file.Paths
 @Patch
 @Name("Settings")
 @Description("Adds settings for ReVanced to YouTube Music.")
-@DependsOn([SettingsBytecodePatch::class])
+@DependsOn(
+    [
+        DecodingPatch::class,
+        SettingsBytecodePatch::class
+    ]
+)
 @MusicCompatibility
 @Version("0.0.1")
 class SettingsPatch : AbstractSettingsResourcePatch(
