@@ -1,6 +1,5 @@
 package app.revanced.patches.music.layout.branding.name.patch
 
-import app.revanced.extensions.startsWithAny
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
@@ -14,14 +13,14 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.music.utils.annotations.MusicCompatibility
 import app.revanced.patches.music.utils.fix.decoding.patch.DecodingPatch
-import org.w3c.dom.Element
 
-@Patch(false)
+@Patch
 @Name("Custom branding Music name")
 @Description("Rename the YouTube Music app to the name specified in options.json.")
 @DependsOn(
     [
-        DecodingPatch::class
+        DecodingPatch::class,
+        RemoveElementsPatch::class
     ]
 )
 @MusicCompatibility
@@ -29,28 +28,31 @@ import org.w3c.dom.Element
 class CustomBrandingNamePatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
 
-        // App name
-        val resourceFileNames = arrayOf("strings.xml")
-        val longName = MusicLongName
-        val shortName = MusicShortName
+        val longName =
+            if (MusicLongName != null)
+                MusicLongName
+            else
+                "ReVanced Extended Music"
 
-        context.forEach {
-            if (!it.name.startsWithAny(*resourceFileNames)) return@forEach
+        val shortName =
+            if (MusicShortName != null)
+                MusicShortName
+            else
+                "RVX Music"
 
-            context.xmlEditor[it.absolutePath].use { editor ->
-                val resourcesNode = editor.file.getElementsByTagName("resources").item(0) as Element
+        context.xmlEditor["res/values/strings.xml"].use { editor ->
+            val document = editor.file
 
-                for (i in 0 until resourcesNode.childNodes.length) {
-                    val node = resourcesNode.childNodes.item(i)
-                    if (node !is Element) continue
+            mapOf(
+                "app_name" to longName,
+                "app_launcher_name" to shortName
+            ).forEach { (k, v) ->
+                val stringElement = document.createElement("string")
 
-                    val element = resourcesNode.childNodes.item(i) as Element
-                    element.textContent = when (element.getAttribute("name")) {
-                        "app_name" -> "$longName"
-                        "app_launcher_name" -> "$shortName"
-                        else -> continue
-                    }
-                }
+                stringElement.setAttribute("name", k)
+                stringElement.textContent = v
+
+                document.getElementsByTagName("resources").item(0).appendChild(stringElement)
             }
         }
 
@@ -61,7 +63,7 @@ class CustomBrandingNamePatch : ResourcePatch {
         var MusicLongName: String? by option(
             PatchOption.StringOption(
                 key = "MusicLongName",
-                default = "ReVanced Music Extended",
+                default = "ReVanced Extended Music",
                 title = "Application Name of YouTube Music",
                 description = "The name of the YouTube Music it will show on your notification panel."
             )
@@ -69,7 +71,7 @@ class CustomBrandingNamePatch : ResourcePatch {
         var MusicShortName: String? by option(
             PatchOption.StringOption(
                 key = "MusicShortName",
-                default = "YTM Extended",
+                default = "RVX Music",
                 title = "Application Name of YouTube Music",
                 description = "The name of the YouTube Music it will show on your home screen."
             )
