@@ -77,11 +77,6 @@ class VideoIdPatch : BytecodePatch(
         } ?: return PlayerInitFingerprint.toErrorResult()
 
         /**
-         * Hook the methods which set the time
-         */
-        videoTimeHook(INTEGRATIONS_CLASS_DESCRIPTOR, "setVideoTime")
-
-        /**
          * Set current video time
          */
         PlayerControllerSetTimeReferenceFingerprint.result?.let {
@@ -89,6 +84,11 @@ class VideoIdPatch : BytecodePatch(
                 .nextMethod(it.scanResult.patternScanResult!!.startIndex, true)
                 .getMethod() as MutableMethod
         } ?: return PlayerControllerSetTimeReferenceFingerprint.toErrorResult()
+
+        /**
+         * Hook the methods which set the time
+         */
+        videoTimeHook(INTEGRATIONS_CLASS_DESCRIPTOR, "setVideoTime")
 
         /**
          * Set current video length
