@@ -15,8 +15,8 @@ import app.revanced.patches.reddit.utils.settings.bytecode.patch.SettingsBytecod
 import app.revanced.patches.reddit.utils.settings.resource.patch.SettingsPatch
 
 @Patch
-@Name("Hide discover button")
-@Description("Hide discover button at navigation bar.")
+@Name("Hide discover community button")
+@Description("Hide discover button or communities button at navigation bar.")
 @DependsOn(
     [
         NavigationButtonsPatch::class,
@@ -25,7 +25,7 @@ import app.revanced.patches.reddit.utils.settings.resource.patch.SettingsPatch
 )
 @RedditCompatibility
 @Version("0.0.1")
-class DiscoverButtonPatch : BytecodePatch() {
+class DiscoverCommunityButtonPatch : BytecodePatch() {
     override fun execute(context: BytecodeContext): PatchResult {
 
         updateSettingsStatus("DiscoverButtons")
