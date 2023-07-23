@@ -24,24 +24,24 @@
     <string name="revanced_custom_filter_summary_off">사용자 정의 필터를 비활성화합니다.</string>
     <string name="revanced_custom_filter_summary_on">사용자 정의 필터를 활성화합니다.</string>
     <string name="revanced_custom_filter_title">사용자 정의 필터로 광고 숨기기</string>
+    <string name="revanced_custom_playback_speeds_invalid">유효하지 않은 값입니다. 기본값으로 재설정합니다.</string>
+    <string name="revanced_custom_playback_speeds_warning" formatted="false">사용자 정의 동영상 재생 속도는 %s배속보다 작아야 합니다. 기본값으로 재설정합니다.</string>
+    <string name="revanced_custom_playback_speeds_summary">사용자 정의 동영상 재생 속도를 추가 또는 변경하세요.</string>
+    <string name="revanced_custom_playback_speeds_title">사용자 정의 동영상 재생 속도 편집하기</string>
     <string name="revanced_custom_seekbar_color_value_summary">재생바 색상의 헥스 코드를 입력하세요.</string>
     <string name="revanced_custom_seekbar_color_value_title">사용자 정의 재생바 색상 설정</string>
-    <string name="revanced_custom_video_speeds_invalid">유효하지 않은 값입니다. 기본값으로 재설정합니다.</string>
-    <string name="revanced_custom_video_speeds_warning" formatted="false">동영상 재생 속도는 %s배속보다 작아야 합니다. 기본값으로 재설정합니다.</string>
-    <string name="revanced_custom_video_speeds_summary">사용자 정의 동영상 재생 속도를 추가 또는 변경하세요.</string>
-    <string name="revanced_custom_video_speeds_title">사용자 정의 동영상 재생 속도 편집하기</string>
     <string name="revanced_default_app_settings_summary">다른 앱에서 YouTube 링크를 ReVanced Extended로 열려면 \'지원되는 링크 열기\'를 활성화하고 지원되는 링크를 추가하세요. 링크 추가가 잠겨있다면 순정 YouTube 앱 정보 &gt; \'기본적으로 열기\'에서 \'지원되는 링크 열기\'를 비활성화한 후에 추가할 수 있습니다.</string>
     <string name="revanced_default_app_settings_title">기본 앱 설정 열기</string>
+    <string name="revanced_default_playback_speed_title">기본 동영상 재생 속도</string>
     <string name="revanced_default_video_quality_mobile_title">모바일 네트워크 이용 시 기본 동영상 화질</string>
     <string name="revanced_default_video_quality_wifi_title">Wi-Fi 이용 시 기본 동영상 화질</string>
-    <string name="revanced_default_video_speed_title">기본 동영상 재생 속도</string>
     <string name="revanced_description_title">설명</string>
     <string name="revanced_disable_auto_captions_summary_off">자막 사용이 강제된 동영상에서 자막을 활성화합니다.</string>
     <string name="revanced_disable_auto_captions_summary_on">자막 사용이 강제된 동영상에서 자막을 비활성화합니다.</string>
     <string name="revanced_disable_auto_captions_title">자동 자막 비활성화하기</string>
-    <string name="revanced_disable_default_video_speed_live_summary_off">실시간 스트리밍 시청 시 기본 동영상 재생 속도를 활성화합니다.</string>
-    <string name="revanced_disable_default_video_speed_live_summary_on">실시간 스트리밍 시청 시 기본 동영상 재생 속도를 비활성화합니다.</string>
-    <string name="revanced_disable_default_video_speed_live_title">실시간 스트리밍 시청 시 기본 동영상 재생 속도 비활성화하기</string>
+    <string name="revanced_disable_default_playback_speed_live_summary_off">실시간 스트리밍 시청 시 기본 동영상 재생 속도를 활성화합니다.</string>
+    <string name="revanced_disable_default_playback_speed_live_summary_on">실시간 스트리밍 시청 시 기본 동영상 재생 속도를 비활성화합니다.</string>
+    <string name="revanced_disable_default_playback_speed_live_title">실시간 스트리밍 시청 시 기본 동영상 재생 속도 비활성화하기</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">챕터를 탐색할 때 진동 피드백을 활성화합니다.</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">챕터를 탐색할 때 진동 피드백을 비활성화합니다.</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">챕터를 탐색할 때 진동 피드백 비활성화하기</string>
@@ -66,7 +66,7 @@
     <string name="revanced_disable_startup_shorts_player_summary_off">앱 시작 시 Shorts 플레이어를 활성화합니다.</string>
     <string name="revanced_disable_startup_shorts_player_summary_on">앱 시작 시 Shorts 플레이어를 비활성화합니다.</string>
     <string name="revanced_disable_startup_shorts_player_title">앱 시작 시 Shorts 플레이어 비활성화하기</string>
-    <string name="revanced_disable_quic_protocol_summary">"QUIC 프로토콜을 비활성화해서 동영상을 불러올 때 발생하는 동영상 압축과 푸는 과정을 제거하여 데이터 사용량 절약은 할 수 없지만 동영상 로딩 속도를 향상시킵니다."</string>
+    <string name="revanced_disable_quic_protocol_summary">"QUIC 프로토콜을 비활성화해서 동영상을 불러올 때 발생하는 동영상 압축과 푸는 과정을 제거하여 동영상 로딩 속도를 향상시킵니다. 모바일 데이터 사용량이 증가할 수 있으니 주의하세요."</string>
     <string name="revanced_disable_quic_protocol_title">QUIC 프로토콜 비활성화하기</string>
     <string name="revanced_double_back_timeout_summary">앱을 종료하기 위해 내비게이션 바의 뒤로가기 버튼을 한 번 누르고 한 번 더 다시 누를 때까지의 제한 시간을 설정합니다. 0초로 설정 시 뒤로가기 버튼을 한 번만 누르면 즉시 종료할 수 있습니다.</string>
     <string name="revanced_double_back_timeout_title">뒤로가기 두 번 누르기 제한 시간</string>
@@ -76,9 +76,9 @@
     <string name="revanced_enable_custom_seekbar_color_summary_off">사용자 정의 재생바 색상을 비활성화합니다.</string>
     <string name="revanced_enable_custom_seekbar_color_summary_on">사용자 정의 재생바 색상을 활성화합니다.</string>
     <string name="revanced_enable_custom_seekbar_color_title">사용자 정의 재생바 색상 활성화하기</string>
-    <string name="revanced_enable_custom_video_speed_summary_off">사용자 정의 동영상 재생 속도를 비활성화합니다.</string>
-    <string name="revanced_enable_custom_video_speed_summary_on">사용자 정의 동영상 재생 속도를 활성화합니다.</string>
-    <string name="revanced_enable_custom_video_speed_title">사용자 정의 동영상 재생 속도 활성화하기</string>
+    <string name="revanced_enable_custom_playback_speed_summary_off">사용자 정의 동영상 재생 속도를 비활성화합니다.</string>
+    <string name="revanced_enable_custom_playback_speed_summary_on">사용자 정의 동영상 재생 속도를 활성화합니다.</string>
+    <string name="revanced_enable_custom_playback_speed_title">사용자 정의 동영상 재생 속도 편집하기</string>
     <string name="revanced_enable_debug_logging_summary_off">디버그 로그를 비활성화합니다.</string>
     <string name="revanced_enable_debug_logging_summary_on">디버그 로그를 활성화합니다.</string>
     <string name="revanced_enable_debug_logging_title">디버그 로깅 활성화하기</string>
@@ -111,12 +111,12 @@
     <string name="revanced_enable_save_brightness_summary_off">전체화면을 종료하거나 실행할 때 동영상 밝기 값을 저장 및 복원하지 않습니다.</string>
     <string name="revanced_enable_save_brightness_summary_on">전체화면을 종료하거나 실행할 때 동영상 밝기 값을 저장 및 복원합니다.</string>
     <string name="revanced_enable_save_brightness_title">동영상 밝기 값 저장 및 복원 활성화하기</string>
+    <string name="revanced_enable_save_playback_speed_summary_off">동영상 재생 속도 값을 변경할 때마다 저장하지 않습니다.</string>
+    <string name="revanced_enable_save_playback_speed_summary_on">동영상 재생 속도 값을 변경할 때마다 저장합니다.</string>
+    <string name="revanced_enable_save_playback_speed_title">동영상 재생 속도 저장 활성화하기</string>
     <string name="revanced_enable_save_video_quality_summary_off">동영상 화질 값을 변경할 때마다 저장하지 않습니다.</string>
     <string name="revanced_enable_save_video_quality_summary_on">동영상 화질 값을 변경할 때마다 저장합니다.</string>
     <string name="revanced_enable_save_video_quality_title">동영상 화질 저장 활성화하기</string>
-    <string name="revanced_enable_save_video_speed_summary_off">동영상 재생 속도 값을 변경할 때마다 저장하지 않습니다.</string>
-    <string name="revanced_enable_save_video_speed_summary_on">동영상 재생 속도 값을 변경할 때마다 저장합니다.</string>
-    <string name="revanced_enable_save_video_speed_title">동영상 재생 속도 저장 활성화하기</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">재생바 터치 조작을 비활성화합니다.</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">재생바 터치 조작을 활성화합니다.</string>
     <string name="revanced_enable_seekbar_tapping_title">재생바 터치 조작 활성화하기</string>
@@ -153,8 +153,8 @@
     <string name="revanced_export_settings_title">설정 내보내기</string>
     <string name="revanced_extended_support_center_summary">버그 신고 또는 기능 제안은 이곳을 방문해주세요.</string>
     <string name="revanced_extended_support_center_title">ReVanced Extended Issue Center</string>
-    <string name="revanced_external_downloader_installed">설치됨</string>
-    <string name="revanced_external_downloader_not_installed">설치 안 됨</string>
+    <string name="revanced_external_downloader_installed">설치되어 있습니다.</string>
+    <string name="revanced_external_downloader_not_installed">설치되어 있지 않습니다.</string>
     <string name="revanced_external_downloader_not_installed_warning" formatted="false">%s가 설치되지 않았습니다. 설치해 주세요.</string>
     <string name="revanced_external_downloader_package_name_summary">NewPipe 또는 YTDLnis와 같은 설치된 외부 다운로더 패키지명을 입력하세요.</string>
     <string name="revanced_external_downloader_package_name_title">외부 다운로더 패키지명</string>
@@ -165,6 +165,7 @@
     <string name="revanced_fullscreen">전체화면</string>
     <string name="revanced_general">일반</string>
     <string name="revanced_haptic_feedback_title">진동 피드백</string>
+    <string name="revanced_hide_account_menu_summary">알려진 문제점: 가로모드 또는 고해상도 기기에서 작동하지 않을 수 있습니다.</string>
     <string name="revanced_hide_account_menu_title">사용자 정의 필터로 계정 관련 메뉴 숨기기</string>
     <string name="revanced_hide_account_menu_filter_strings_title">계정 관련 메뉴 필터 편집하기</string>
     <string name="revanced_hide_action_buttons_summary_off">다음 버튼들이 노출됩니다:\n실시간 채팅, 공유, 쇼핑, 신고, 리믹스, Thanks, 클립</string>
@@ -482,6 +483,9 @@ YouTube 18.24.37 버전 이상에서만 적용 가능합니다."</string>
 - 쇼핑
 - 다시 시청하기"</string>
     <string name="revanced_hide_suggestions_shelf_title">추천 선반 숨기기</string>
+    <string name="revanced_hide_suggested_video_overlay_summary">"다음에 재생할 추천 동영상 오버레이가 숨겨집니다.
+알려진 문제점: 자동 재생이 작동하지 않습니다."</string>
+    <string name="revanced_hide_suggested_video_overlay_title">추천 동영상 오버레이 숨기기</string>
     <string name="revanced_hide_ticket_shelf_summary_off">콘서트 티켓 선반이 노출됩니다.\n(호주, 캐나다, 아일랜드, 뉴질랜드, 영국, 미국에만 해당.)</string>
     <string name="revanced_hide_ticket_shelf_summary_on">콘서트 티켓 선반이 숨겨집니다.\n(호주, 캐나다, 아일랜드, 뉴질랜드, 영국, 미국에만 해당.)</string>
     <string name="revanced_hide_ticket_shelf_title">콘서트 티켓 선반 숨기기</string>
@@ -574,10 +578,10 @@ YouTube 18.24.37 버전 이상에서만 적용 가능합니다."</string>
     <string name="revanced_ryd_shorts_summary_on">Shorts에서 싫어요가 노출됩니다.</string>
     <string name="revanced_ryd_shorts_title">Shorts에서 싫어요 표시하기</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">숨겨짐</string>
+    <string name="revanced_save_playback_speed">기본 동영상 재생 속도 변경:</string>
     <string name="revanced_save_video_quality_mobile">모바일 네트워크 이용 시 기본 동영상 화질 설정:</string>
     <string name="revanced_save_video_quality_none">동영상 화질 설정에 실패하였습니다.</string>
     <string name="revanced_save_video_quality_wifi">Wi-Fi 이용 시 기본 동영상 화질 설정:</string>
-    <string name="revanced_save_video_speed">기본 재생 속도 설정:</string>
     <string name="revanced_seekbar">재생바</string>
     <string name="revanced_shorts">Shorts</string>
     <string name="revanced_shorts_player_title">Shorts 플레이어</string>

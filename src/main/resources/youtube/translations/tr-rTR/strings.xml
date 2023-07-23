@@ -24,24 +24,24 @@
     <string name="revanced_custom_filter_summary_off">Özel filtre devre dışı</string>
     <string name="revanced_custom_filter_summary_on">Özel filtre etkin</string>
     <string name="revanced_custom_filter_title">Özel filtreyi etkinleştir</string>
+    <string name="revanced_custom_playback_speeds_invalid">Geçersiz özel geri çalma hızları. Varsayılan değerlere sıfırlayın.</string>
+    <string name="revanced_custom_playback_speeds_warning" formatted="false">Özel hızlar %sx\'den kısa olmalı. Varsayılan değerlere sıfırlayın.</string>
+    <string name="revanced_custom_playback_speeds_summary">Mevcut geri çalma hızlarını ekleyin veya değiştirin</string>
+    <string name="revanced_custom_playback_speeds_title">Özel geri çalma hızlarını düzenle</string>
     <string name="revanced_custom_seekbar_color_value_summary">Karalık modda kullanılacak zaman çubuğunun rengi</string>
     <string name="revanced_custom_seekbar_color_value_title">Özel zaman çubuğu renk değeri</string>
-    <string name="revanced_custom_video_speeds_invalid">Geçersiz özel video hızları. Varsayılan değerlere sıfırlayın.</string>
-    <string name="revanced_custom_video_speeds_warning" formatted="false">Özel hızlar %sx\'den kısa olmalı. Varsayılan değerlere sıfırlayın.</string>
-    <string name="revanced_custom_video_speeds_summary">Mevcut video hızlarını ekleyin veya değiştirin</string>
-    <string name="revanced_custom_video_speeds_title">Özel video hızlarını düzenle</string>
     <string name="revanced_default_app_settings_summary">RVX\'i harici bir tarayıcıda açmak için \"Desteklenen bağlantıları aç\"ı açın ve desteklenen web adreslerini etkinleştirin</string>
     <string name="revanced_default_app_settings_title">Varsayılan uygulama ayarlarını aç</string>
+    <string name="revanced_default_playback_speed_title">Varsayılan oynatma hızı</string>
     <string name="revanced_default_video_quality_mobile_title">Hücresel ağda tercih edilen video kalitesi</string>
     <string name="revanced_default_video_quality_wifi_title">Wi̇-Fİ ağında tercih edilen video kalitesi</string>
-    <string name="revanced_default_video_speed_title">Varsayılan video hızı</string>
     <string name="revanced_description_title">Açıklama</string>
     <string name="revanced_disable_auto_captions_summary_off">Zorunlu altyazılar etkin</string>
     <string name="revanced_disable_auto_captions_summary_on">Zorunlu altyazlar devre dışı</string>
     <string name="revanced_disable_auto_captions_title">Zorunlu altyazıyı devre dışı bırak</string>
-    <string name="revanced_disable_default_video_speed_live_summary_off">Açık</string>
-    <string name="revanced_disable_default_video_speed_live_summary_on">Kapalı</string>
-    <string name="revanced_disable_default_video_speed_live_title">Canlı yayında varsayılan video hızını devre dışı bırak</string>
+    <string name="revanced_disable_default_playback_speed_live_summary_off">Canlı yayında varsayılan geri sarma hızı açık</string>
+    <string name="revanced_disable_default_playback_speed_live_summary_on">Canlı yayında varsayılan geri çalma hızı kapalı</string>
+    <string name="revanced_disable_default_playback_speed_live_title">Canlı yayında varsayılan çalma hızını devre dışı bırak</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">Açık</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">Kapalı</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">Bölümler arasında geçiş yaparken titreşimli geri bildirim</string>
@@ -76,9 +76,9 @@
     <string name="revanced_enable_custom_seekbar_color_summary_off">Devre dışı</string>
     <string name="revanced_enable_custom_seekbar_color_summary_on">Etkin</string>
     <string name="revanced_enable_custom_seekbar_color_title">Özel zaman çubuğu rengini kullan</string>
-    <string name="revanced_enable_custom_video_speed_summary_off">Kapalı</string>
-    <string name="revanced_enable_custom_video_speed_summary_on">Açık</string>
-    <string name="revanced_enable_custom_video_speed_title">Özel video hızını etkinleştir</string>
+    <string name="revanced_enable_custom_playback_speed_summary_off">Kapalı</string>
+    <string name="revanced_enable_custom_playback_speed_summary_on">Açık</string>
+    <string name="revanced_enable_custom_playback_speed_title">Özel çalma hızını etkinleştir</string>
     <string name="revanced_enable_debug_logging_summary_off">Devre dışı</string>
     <string name="revanced_enable_debug_logging_summary_on">Etkin</string>
     <string name="revanced_enable_debug_logging_title">Hata ayıklama günlüğünü etkinleştir</string>
@@ -111,12 +111,12 @@
     <string name="revanced_enable_save_brightness_summary_off">Tam ekrandan çıkarken veya tam ekrana girerken parlaklığı kaydetmeyin ve geri yüklemeyin</string>
     <string name="revanced_enable_save_brightness_summary_on">Tam ekrandan çıkarken veya tam ekrana girerken parlaklığı kaydedin ve geri yükleyin</string>
     <string name="revanced_enable_save_brightness_title">Kaydetmeyi ve parlaklığı geri yüklemeyi etkinleştir</string>
+    <string name="revanced_enable_save_playback_speed_summary_off">Çalma hızı kaydedilmeyecek</string>
+    <string name="revanced_enable_save_playback_speed_summary_on">Çalma hızı kayıtlı kalacak</string>
+    <string name="revanced_enable_save_playback_speed_title">Çalma hızını kaydetmeyi etkinleştir</string>
     <string name="revanced_enable_save_video_quality_summary_off">Video kalitesini değiştirseniz bile varsayılan değer olarak kaydetmez</string>
     <string name="revanced_enable_save_video_quality_summary_on">Video kalitesini her değiştirdiğinizde varsayılan değer olarak kaydeder</string>
     <string name="revanced_enable_save_video_quality_title">Video kalitesini kaydetmeyi etkinleştir</string>
-    <string name="revanced_enable_save_video_speed_summary_off">Video hızını değiştirseniz bile varsayılan değer olarak kaydetmez</string>
-    <string name="revanced_enable_save_video_speed_summary_on">Video hızını her değiştirdiğinizde varsayılan değer olarak kaydeder</string>
-    <string name="revanced_enable_save_video_speed_title">Video hızını kaydetmeyi etkinleştir</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">Zaman çubuğuna (video ilerleme çubuğu) dokunma devre dışı</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">Zaman çubuğuna (video ilerleme çubuğu) dokunma etkin</string>
     <string name="revanced_enable_seekbar_tapping_title">Zaman çubuğuna dokunma</string>
@@ -165,6 +165,7 @@
     <string name="revanced_fullscreen">Tam Ekran</string>
     <string name="revanced_general">Genel</string>
     <string name="revanced_haptic_feedback_title">Dokunmatik geri bildirim</string>
+    <string name="revanced_hide_account_menu_summary">Bilinen sorun: Yatay modda veya yüksek dpi\'lı cihazlarda çalışmayabilir</string>
     <string name="revanced_hide_account_menu_title">Hesap menüsünü gizle</string>
     <string name="revanced_hide_account_menu_filter_strings_title">Hesap menüsü filtresini düzenle</string>
     <string name="revanced_hide_action_buttons_summary_off">Gizlenmiyor</string>
@@ -481,6 +482,9 @@
 -Alışveriş
 -Tekrar izleyin"</string>
     <string name="revanced_hide_suggestions_shelf_title">Öneriler rafını gizle</string>
+    <string name="revanced_hide_suggested_video_overlay_summary">"Sonraki oynatmak için önerilen video yerleşimini gizler
+Bilinen sorun: otomatik oynatma çalışmıyor"</string>
+    <string name="revanced_hide_suggested_video_overlay_title">Önerilen video yerleşimini gizle</string>
     <string name="revanced_hide_ticket_shelf_summary_off">Gizlenmiyor</string>
     <string name="revanced_hide_ticket_shelf_summary_on">Gizleniyor</string>
     <string name="revanced_hide_ticket_shelf_title">Bilet rafını gizle</string>
@@ -529,9 +533,9 @@ Video URL'sini zaman damgasıyla kopyalamak için basılı tutun"</string>
     <string name="revanced_overlay_button_copy_video_url_timestamp_title">Bağlantıyı kopyala (Zaman damgalı) butonu</string>
     <string name="revanced_overlay_button_external_downloader_summary">Harici indiriciyi başlatmak için dokunun</string>
     <string name="revanced_overlay_button_external_downloader_title">Harici indirme düğmesini göster</string>
-    <string name="revanced_overlay_button_speed_dialog_reset">Vıdeo hızı sıfırlandı (1.0x)</string>
+    <string name="revanced_overlay_button_speed_dialog_reset">Çalma hızı sıfırlandı (1.0x)</string>
     <string name="revanced_overlay_button_speed_dialog_summary">"Hız iletişim kutusunu açmak için dokunun
-Video hızını 1.0x olarak ayarlamak için dokunun ve basılı tutun"</string>
+Çalma hızını 1.0x olarak ayarlamak için dokunun ve basılı tutun"</string>
     <string name="revanced_overlay_button_speed_dialog_title">Hız diyaloğu düğmesini göster</string>
     <string name="revanced_override_premium_header_summary_off">Geçerli Başlık: Varsayılan Başlık</string>
     <string name="revanced_override_premium_header_summary_on">Geçerli Başlık: Premium Başlık</string>
@@ -571,10 +575,10 @@ Bu ayar oldukça eski olduğu için geçerli olmayabilir"</string>
     <string name="revanced_ryd_shorts_summary_on">Gizlenmiyor</string>
     <string name="revanced_ryd_shorts_title">Shorts\'da beğenmemeleri göster</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Gizlendi</string>
+    <string name="revanced_save_playback_speed">Varsayılan hız:</string>
     <string name="revanced_save_video_quality_mobile">Varsayılan mobil veri video kalitesi:</string>
     <string name="revanced_save_video_quality_none">Kalite ayarlanamadı</string>
     <string name="revanced_save_video_quality_wifi">Varsayılan Wİ-Fİ video kalitesi:</string>
-    <string name="revanced_save_video_speed">Varsayılan hız:</string>
     <string name="revanced_seekbar">Zaman çubuğu</string>
     <string name="revanced_shorts">Shorts</string>
     <string name="revanced_shorts_player_title">Shorts oynatıcı</string>

@@ -9,7 +9,7 @@
     <string name="microg_settings_title">打开 MicroG</string>
     <string name="revanced_ads">广告</string>
     <string name="revanced_backup_summary">导入/导出 ReVanced 配置文件</string>
-    <string name="revanced_bottom_player">播放器下方按钮</string>
+    <string name="revanced_bottom_player">播放器下方布局</string>
     <string name="revanced_button_container_title">按钮栏</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">省电模式下氛围模式已禁用</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">省电模式下氛围模式已启用</string>
@@ -24,24 +24,24 @@
     <string name="revanced_custom_filter_summary_off">自定义筛选已禁用</string>
     <string name="revanced_custom_filter_summary_on">自定义筛选已启用</string>
     <string name="revanced_custom_filter_title">自定义筛选</string>
+    <string name="revanced_custom_playback_speeds_invalid">无效的自定义播放速度，已重置为默认值</string>
+    <string name="revanced_custom_playback_speeds_warning" formatted="false">自定义播放速度必须小于%sx，已重置为默认值</string>
+    <string name="revanced_custom_playback_speeds_summary">添加或更改播放速度</string>
+    <string name="revanced_custom_playback_speeds_title">编辑自定义播放速度</string>
     <string name="revanced_custom_seekbar_color_value_summary">输入进度条颜色16进制代码</string>
     <string name="revanced_custom_seekbar_color_value_title">自定义进度条颜色</string>
-    <string name="revanced_custom_video_speeds_invalid">无效的自定义播放速度，已重置为默认值</string>
-    <string name="revanced_custom_video_speeds_warning" formatted="false">自定义播放速度必须小于%sx，已重置为默认值</string>
-    <string name="revanced_custom_video_speeds_summary">添加或更改视频播放速度</string>
-    <string name="revanced_custom_video_speeds_title">编辑自定义视频播放速度</string>
     <string name="revanced_default_app_settings_summary">要从外部浏览器中打开 Revanced Extended，请在“系统应用设置 - 默认打开 - 要在此应用中打开链接”中添加支持的网页链接</string>
     <string name="revanced_default_app_settings_title">打开默认应用设置</string>
-    <string name="revanced_default_video_quality_mobile_title">移动网络上的默认视频画质</string>
-    <string name="revanced_default_video_quality_wifi_title">WiFi 网络上的默认视频画质</string>
-    <string name="revanced_default_video_speed_title">默认播放速度</string>
+    <string name="revanced_default_playback_speed_title">默认播放速度</string>
+    <string name="revanced_default_video_quality_mobile_title">移动网络的默认视频画质</string>
+    <string name="revanced_default_video_quality_wifi_title">WiFi 网络的默认视频画质</string>
     <string name="revanced_description_title">说明</string>
-    <string name="revanced_disable_auto_captions_summary_off">强制自动字幕已启用</string>
-    <string name="revanced_disable_auto_captions_summary_on">强制自动字幕已禁用</string>
-    <string name="revanced_disable_auto_captions_title">禁用强制自动字幕</string>
-    <string name="revanced_disable_default_video_speed_live_summary_off">直播默认视频播放速度已启用</string>
-    <string name="revanced_disable_default_video_speed_live_summary_on">直播默认视频播放速度已禁用</string>
-    <string name="revanced_disable_default_video_speed_live_title">在直播中禁用视频倍速</string>
+    <string name="revanced_disable_auto_captions_summary_off">强制显示字幕已启用</string>
+    <string name="revanced_disable_auto_captions_summary_on">强制显示字幕已禁用</string>
+    <string name="revanced_disable_auto_captions_title">强制显示字幕</string>
+    <string name="revanced_disable_default_playback_speed_live_summary_off">直播默认播放速度已启用</string>
+    <string name="revanced_disable_default_playback_speed_live_summary_on">直播默认播放速度已禁用</string>
+    <string name="revanced_disable_default_playback_speed_live_title">直播默认播放速度</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">章节触感反馈已启用</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">章节触感反馈已禁用</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">章节触感反馈</string>
@@ -70,21 +70,24 @@
     <string name="revanced_disable_quic_protocol_title">禁用 QUIC 协议</string>
     <string name="revanced_double_back_timeout_summary">（主页）双击返回间隔X秒以内退出应用</string>
     <string name="revanced_double_back_timeout_title">双击返回</string>
-    <string name="revanced_enable_compact_controls_overlay_summary_off">紧凑控制叠加层已禁用</string>
-    <string name="revanced_enable_compact_controls_overlay_summary_on">紧凑控制叠加层已启用</string>
-    <string name="revanced_enable_compact_controls_overlay_title">紧凑控制叠加层</string>
+    <string name="revanced_enable_compact_controls_overlay_summary_off">紧凑的播放器布局已禁用</string>
+    <string name="revanced_enable_compact_controls_overlay_summary_on">紧凑的播放器布局已启用</string>
+    <string name="revanced_enable_compact_controls_overlay_title">紧凑的播放器布局叠加层</string>
     <string name="revanced_enable_custom_seekbar_color_summary_off">自定义进度条颜色已禁用</string>
     <string name="revanced_enable_custom_seekbar_color_summary_on">自定义进度条颜色已启用</string>
     <string name="revanced_enable_custom_seekbar_color_title">自定义进度条颜色</string>
-    <string name="revanced_enable_custom_video_speed_summary_off">自定义播放速度已禁用</string>
-    <string name="revanced_enable_custom_video_speed_summary_on">自定义播放速度已启用</string>
-    <string name="revanced_enable_custom_video_speed_title">自定义播放速度</string>
+    <string name="revanced_enable_custom_playback_speed_summary_off">自定义播放速度已禁用</string>
+    <string name="revanced_enable_custom_playback_speed_summary_on">自定义播放速度已启用</string>
+    <string name="revanced_enable_custom_playback_speed_title">自定义播放速度</string>
     <string name="revanced_enable_debug_logging_summary_off">Debug 日志已禁用</string>
     <string name="revanced_enable_debug_logging_summary_on">Debug 日志已启用</string>
     <string name="revanced_enable_debug_logging_title">Debug 日志</string>
     <string name="revanced_enable_external_browser_summary_off">外部浏览器已禁用</string>
     <string name="revanced_enable_external_browser_summary_on">外部浏览器已启用</string>
     <string name="revanced_enable_external_browser_title">外部浏览器</string>
+    <string name="revanced_enable_new_comment_popup_panels_summary_off">新版弹出评论面板已禁用</string>
+    <string name="revanced_enable_new_comment_popup_panels_summary_on">新版弹出评论面板已启用</string>
+    <string name="revanced_enable_new_comment_popup_panels_title">新版弹出评论面板</string>
     <string name="revanced_enable_new_splash_animation_summary_off">新版开屏动画已禁用</string>
     <string name="revanced_enable_new_splash_animation_summary_on">新版开屏动画已启用</string>
     <string name="revanced_enable_new_splash_animation_title">新版开屏动画</string>
@@ -108,12 +111,12 @@
     <string name="revanced_enable_save_brightness_summary_off">退出/进入全屏时不保存或恢复亮度</string>
     <string name="revanced_enable_save_brightness_summary_on">退出/进入全屏时保存和恢复亮度</string>
     <string name="revanced_enable_save_brightness_title">保存和恢复亮度</string>
+    <string name="revanced_enable_save_playback_speed_summary_off">当更改播放速度时不保存为默认播放速度</string>
+    <string name="revanced_enable_save_playback_speed_summary_on">当更改播放速度时保存为默认播放速度</string>
+    <string name="revanced_enable_save_playback_speed_title">保存播放速度</string>
     <string name="revanced_enable_save_video_quality_summary_off">修改视频画质时不保存为默认画质</string>
     <string name="revanced_enable_save_video_quality_summary_on">修改视频画质时保存为默认画质</string>
     <string name="revanced_enable_save_video_quality_title">保存视频画质</string>
-    <string name="revanced_enable_save_video_speed_summary_off">当更改视频倍速时不保存为默认视频倍速</string>
-    <string name="revanced_enable_save_video_speed_summary_on">当更改视频倍速时保存为默认视频倍速</string>
-    <string name="revanced_enable_save_video_speed_title">保存视频倍速</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">进度条点击已禁用</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">进度条点击已启用</string>
     <string name="revanced_enable_seekbar_tapping_title">进度条点击</string>
@@ -134,12 +137,12 @@
     <string name="revanced_enable_tablet_mini_player_summary_off">平板迷你播放器已禁用</string>
     <string name="revanced_enable_tablet_mini_player_summary_on">平板迷你播放器已启用</string>
     <string name="revanced_enable_tablet_mini_player_title">平板迷你播放器</string>
-    <string name="revanced_enable_tablet_navigation_bar_summary_off">平板导航栏已禁用</string>
-    <string name="revanced_enable_tablet_navigation_bar_summary_on">平板导航栏已启用</string>
-    <string name="revanced_enable_tablet_navigation_bar_title">平板导航栏</string>
-    <string name="revanced_enable_time_stamp_speed_summary_off">时间戳右侧的视频倍速已隐藏</string>
-    <string name="revanced_enable_time_stamp_speed_summary_on">时间戳右侧的视频倍速已显示</string>
-    <string name="revanced_enable_time_stamp_speed_title">播放器显示视频倍速</string>
+    <string name="revanced_enable_tablet_navigation_bar_summary_off">平板导航底栏已禁用</string>
+    <string name="revanced_enable_tablet_navigation_bar_summary_on">平板导航底栏已启用</string>
+    <string name="revanced_enable_tablet_navigation_bar_title">平板导航底栏</string>
+    <string name="revanced_enable_time_stamp_speed_summary_off">时间戳右侧的播放速度已隐藏</string>
+    <string name="revanced_enable_time_stamp_speed_summary_on">时间戳右侧的播放速度已显示</string>
+    <string name="revanced_enable_time_stamp_speed_title">播放器显示视频播放速度</string>
     <string name="revanced_enable_vp9_codec_summary">伪装机型信息以启用 VP9 编码</string>
     <string name="revanced_enable_vp9_codec_title">VP9 编码</string>
     <string name="revanced_enable_wide_search_bar_summary_off">宽搜索栏已禁用</string>
@@ -162,6 +165,7 @@
     <string name="revanced_fullscreen">全屏</string>
     <string name="revanced_general">常规设置</string>
     <string name="revanced_haptic_feedback_title">触控反馈</string>
+    <string name="revanced_hide_account_menu_summary">已知问题：可能无法在横屏模式或高 DPI 设备上工作</string>
     <string name="revanced_hide_account_menu_title">账号菜单</string>
     <string name="revanced_hide_account_menu_filter_strings_title">编辑账号菜单过滤</string>
     <string name="revanced_hide_action_buttons_summary_off">视频下方按钮已显示</string>
@@ -170,9 +174,9 @@
     <string name="revanced_hide_album_card_summary_off">专辑卡片已显示</string>
     <string name="revanced_hide_album_card_summary_on">专辑卡片已隐藏</string>
     <string name="revanced_hide_album_card_title">专辑卡片</string>
-    <string name="revanced_hide_audio_track_button_summary_off">“音轨”已显示</string>
-    <string name="revanced_hide_audio_track_button_summary_on">“音轨”已显示</string>
-    <string name="revanced_hide_audio_track_button_title">音轨</string>
+    <string name="revanced_hide_audio_track_button_summary_off">音轨按钮已显示</string>
+    <string name="revanced_hide_audio_track_button_summary_on">音轨按钮已显示</string>
+    <string name="revanced_hide_audio_track_button_title">音轨按钮</string>
     <string name="revanced_hide_autoplay_button_summary_off">自动播放按钮已显示</string>
     <string name="revanced_hide_autoplay_button_summary_on">自动播放按钮已隐藏</string>
     <string name="revanced_hide_autoplay_button_title">自动播放按钮</string>
@@ -182,6 +186,9 @@
     <string name="revanced_hide_auto_player_popup_panels_summary_off">播放器自动弹出面板（如播放列表、实时聊天）已显示</string>
     <string name="revanced_hide_auto_player_popup_panels_summary_on">播放器自动弹出面板（如播放列表、实时聊天）已隐藏</string>
     <string name="revanced_hide_auto_player_popup_panels_title">播放器自动弹出面板</string>
+    <string name="revanced_hide_browse_store_button_summary_off">浏览商店按钮已显示</string>
+    <string name="revanced_hide_browse_store_button_summary_on">浏览商店按钮已隐藏</string>
+    <string name="revanced_hide_browse_store_button_title">浏览商店按钮</string>
     <string name="revanced_hide_button_create_clip_summary_off">剪辑按钮已显示</string>
     <string name="revanced_hide_button_create_clip_summary_on">剪辑按钮已隐藏</string>
     <string name="revanced_hide_button_create_clip_title">剪辑按钮</string>
@@ -232,9 +239,9 @@
     <string name="revanced_hide_channel_guidelines_summary_off">频道指南已显示</string>
     <string name="revanced_hide_channel_guidelines_summary_on">频道指南已隐藏</string>
     <string name="revanced_hide_channel_guidelines_title">频道指南</string>
-    <string name="revanced_hide_channel_list_submenu_summary_off">订阅内容的频道头像已显示</string>
-    <string name="revanced_hide_channel_list_submenu_summary_on">订阅内容的频道头像已隐藏</string>
-    <string name="revanced_hide_channel_list_submenu_title">频道头像</string>
+    <string name="revanced_hide_channel_list_submenu_summary_off">订阅内容的频道头像部分已显示</string>
+    <string name="revanced_hide_channel_list_submenu_summary_on">订阅内容的频道头像部分已隐藏</string>
+    <string name="revanced_hide_channel_list_submenu_title">频道头像部分</string>
     <string name="revanced_hide_channel_member_shelf_summary_off">频道会员列表已显示</string>
     <string name="revanced_hide_channel_member_shelf_summary_on">频道会员列表已隐藏</string>
     <string name="revanced_hide_channel_member_shelf_title">频道会员列表</string>
@@ -293,6 +300,9 @@
     <string name="revanced_hide_fullscreen_panels_summary_off">全屏面板已显示</string>
     <string name="revanced_hide_fullscreen_panels_summary_on">全屏面板已隐藏</string>
     <string name="revanced_hide_fullscreen_panels_title">全屏面板</string>
+    <string name="revanced_hide_game_section_summary_off">游戏介绍已显示</string>
+    <string name="revanced_hide_game_section_summary_on">游戏介绍已隐藏</string>
+    <string name="revanced_hide_game_section_title">视频信息中的游戏介绍</string>
     <string name="revanced_hide_general_ads_summary_off">一般广告已显示</string>
     <string name="revanced_hide_general_ads_summary_on">一般广告已隐藏</string>
     <string name="revanced_hide_general_ads_title">一般广告</string>
@@ -311,6 +321,9 @@
     <string name="revanced_hide_image_shelf_summary_off">图片栏已显示</string>
     <string name="revanced_hide_image_shelf_summary_on">图片栏已隐藏</string>
     <string name="revanced_hide_image_shelf_title">图片栏</string>
+    <string name="revanced_hide_info_cards_section_summary_off">信息卡片已显示</string>
+    <string name="revanced_hide_info_cards_section_summary_on">信息卡片已隐藏</string>
+    <string name="revanced_hide_info_cards_section_title">视频中的信息卡片</string>
     <string name="revanced_hide_info_cards_summary_off">资料卡已显示</string>
     <string name="revanced_hide_info_cards_summary_on">资料卡已隐藏</string>
     <string name="revanced_hide_info_cards_title">资料卡</string>
@@ -398,7 +411,8 @@
     <string name="revanced_hide_player_overlay_filter_summary_off">播放器叠加层阴影已显示</string>
     <string name="revanced_hide_player_overlay_filter_summary_on">播放器叠加层阴影已隐藏</string>
     <string name="revanced_hide_player_overlay_filter_title">播放器叠加层阴影</string>
-    <string name="revanced_hook_download_button_summary">"替换下载按钮为外部下载器按钮仅支持 YouTube v18. 24.37+"</string>
+    <string name="revanced_hook_download_button_summary">"替换下载按钮为外部下载器按钮
+仅支持 YouTube v18. 24.37+"</string>
     <string name="revanced_hook_download_button_title">替换下载按钮</string>
     <string name="revanced_hide_preview_comment_off">预览评论已显示</string>
     <string name="revanced_hide_preview_comment_on">预览评论已隐藏</string>
@@ -453,9 +467,9 @@
     <string name="revanced_hide_snack_bar_summary_off">弹出消息已显示</string>
     <string name="revanced_hide_snack_bar_summary_on">弹出消息已隐藏</string>
     <string name="revanced_hide_snack_bar_title">弹出消息</string>
-    <string name="revanced_hide_speed_overlay_summary_off">倍速叠加层已显示</string>
-    <string name="revanced_hide_speed_overlay_summary_on">倍速叠加层已隐藏</string>
-    <string name="revanced_hide_speed_overlay_title">倍速叠加层</string>
+    <string name="revanced_hide_speed_overlay_summary_off">播放速度叠加层已显示</string>
+    <string name="revanced_hide_speed_overlay_summary_on">播放速度叠加层已隐藏</string>
+    <string name="revanced_hide_speed_overlay_title">播放速度叠加层</string>
     <string name="revanced_hide_subscriptions_button_summary_off">订阅按钮已显示</string>
     <string name="revanced_hide_subscriptions_button_summary_on">订阅按钮已隐藏</string>
     <string name="revanced_hide_subscriptions_button_title">订阅按钮</string>
@@ -468,6 +482,9 @@
 - 探索更多频道
 - 再次观看"</string>
     <string name="revanced_hide_suggestions_shelf_title">建议栏</string>
+    <string name="revanced_hide_suggested_video_overlay_summary">"推荐下一个播放视频叠加层隐藏
+已知问题：自动播放不工作"</string>
+    <string name="revanced_hide_suggested_video_overlay_title">推荐视频叠加层</string>
     <string name="revanced_hide_ticket_shelf_summary_off">购票栏已显示</string>
     <string name="revanced_hide_ticket_shelf_summary_on">购票栏已隐藏</string>
     <string name="revanced_hide_ticket_shelf_title">购票栏</string>
@@ -477,6 +494,9 @@
     <string name="revanced_hide_time_stamp_summary_off">时间戳已显示</string>
     <string name="revanced_hide_time_stamp_summary_on">时间戳已隐藏</string>
     <string name="revanced_hide_time_stamp_title">时间戳</string>
+    <string name="revanced_hide_transcript_section_summary_off">转写文稿部分已显示</string>
+    <string name="revanced_hide_transcript_section_summary_on">转写文稿部分已隐藏</string>
+    <string name="revanced_hide_transcript_section_title">转写文稿部分</string>
     <string name="revanced_hide_trending_searches_summary_off">热门搜索已显示</string>
     <string name="revanced_hide_trending_searches_summary_on">热门搜索已隐藏</string>
     <string name="revanced_hide_trending_searches_title">热门搜索</string>
@@ -513,7 +533,7 @@
     <string name="revanced_overlay_button_copy_video_url_timestamp_title">带时间戳的复制链接按钮</string>
     <string name="revanced_overlay_button_external_downloader_summary">点击以打开外部下载器</string>
     <string name="revanced_overlay_button_external_downloader_title">外部下载按钮</string>
-    <string name="revanced_overlay_button_speed_dialog_reset">重置视频倍速（1.0x）</string>
+    <string name="revanced_overlay_button_speed_dialog_reset">重置播放速度（1.0x）</string>
     <string name="revanced_overlay_button_speed_dialog_summary">"点按选择视频播放速度
 长按设置默认播放速度（1.0x）"</string>
     <string name="revanced_overlay_button_speed_dialog_title">播放速度按钮</string>
@@ -533,7 +553,7 @@
 如果启用该设置，可以使用以下功能：
 - 社区帖子
 - 隐藏合辑播放列表"</string>
-    <string name="revanced_reboot_warning_quic">如果网速不够快，不推荐使用该设置</string>
+    <string name="revanced_reboot_warning_quic">网速不够快时不推荐使用该设置</string>
     <string name="revanced_reboot_warning_tablet">"伪装 DPI 将一些布局改为平板样式。
 
 如果启用该设置，以下功能不可用：
@@ -557,10 +577,10 @@
     <string name="revanced_ryd_shorts_summary_on">点踩已显示</string>
     <string name="revanced_ryd_shorts_title">点踩</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">隐藏</string>
-    <string name="revanced_save_video_quality_mobile">更改移动数据默认画质为：</string>
+    <string name="revanced_save_playback_speed">更改默认播放速度为：</string>
+    <string name="revanced_save_video_quality_mobile">更改移动网络的默认画质为：</string>
     <string name="revanced_save_video_quality_none">设置画质失败</string>
-    <string name="revanced_save_video_quality_wifi">更改 WiFi 默认画质为：</string>
-    <string name="revanced_save_video_speed">更改默认倍速为：</string>
+    <string name="revanced_save_video_quality_wifi">更改 WiFi 网络默认画质为：</string>
     <string name="revanced_seekbar">进度条</string>
     <string name="revanced_shorts">短视频</string>
     <string name="revanced_shorts_player_title">短视频播放器</string>
@@ -581,6 +601,12 @@
     <string name="revanced_spoof_app_version_target_title">编辑伪装应用版本</string>
     <string name="revanced_spoof_player_parameter_notice">伪装播放器参数以修复播放问题</string>
     <string name="revanced_spoof_player_parameter_reload">请重新加载视频</string>
+    <string name="revanced_spoof_player_parameter_type_summary_off">"短视频的播放器参数
+
+已知问题
+- 频道水印总是隐藏
+- 可能无法下载视频
+- 结束画面卡片总是隐藏"</string>
     <string name="revanced_spoof_player_parameter_type_summary_on">"无痕模式的播放器参数
 
 已知问题

@@ -26,22 +26,14 @@
     <string name="revanced_custom_filter_title">啟用自訂篩選</string>
     <string name="revanced_custom_seekbar_color_value_summary">輸入搜尋欄十六進制代碼</string>
     <string name="revanced_custom_seekbar_color_value_title">自訂搜尋欄顏色</string>
-    <string name="revanced_custom_video_speeds_invalid">自訂影片速度無效。重設為預設值。</string>
-    <string name="revanced_custom_video_speeds_warning" formatted="false">自訂速度必須小於 %sx。重設為預設值。</string>
-    <string name="revanced_custom_video_speeds_summary">新增或更改可用的影片速度</string>
-    <string name="revanced_custom_video_speeds_title">編輯自訂影片速度</string>
     <string name="revanced_default_app_settings_summary">如過要讓RVX開啟Youtube的網址的話,請到手機設定&gt;RVX應用程式資訊&gt;設為預設&gt;前往支援的網址,將設定改為\"經此應用程式\"</string>
     <string name="revanced_default_app_settings_title">開啟預設應用程式設定</string>
     <string name="revanced_default_video_quality_mobile_title">預設行動數據影片畫質</string>
     <string name="revanced_default_video_quality_wifi_title">預設 Wi-Fi 影片畫質</string>
-    <string name="revanced_default_video_speed_title">預設播放速度</string>
     <string name="revanced_description_title">說明</string>
     <string name="revanced_disable_auto_captions_summary_off">強制自動字幕已啟用</string>
     <string name="revanced_disable_auto_captions_summary_on">強制自動字幕已停用</string>
     <string name="revanced_disable_auto_captions_title">停用強制自動字幕</string>
-    <string name="revanced_disable_default_video_speed_live_summary_off">預設直播播放速度已啟用</string>
-    <string name="revanced_disable_default_video_speed_live_summary_on">預設直播播放速度已停用</string>
-    <string name="revanced_disable_default_video_speed_live_title">停用預設直播播放速度</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">章節（震動）回饋已啟用</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">章節（震動）回饋已停用</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">停用章節（震動）回饋</string>
@@ -76,15 +68,15 @@
     <string name="revanced_enable_custom_seekbar_color_summary_off">自訂搜尋欄顏色已停用</string>
     <string name="revanced_enable_custom_seekbar_color_summary_on">自訂搜尋欄顏色已啟用</string>
     <string name="revanced_enable_custom_seekbar_color_title">啟用自動搜尋欄顏色</string>
-    <string name="revanced_enable_custom_video_speed_summary_off">自訂播放速度已停用</string>
-    <string name="revanced_enable_custom_video_speed_summary_on">自訂播放速度已啟用</string>
-    <string name="revanced_enable_custom_video_speed_title">啟用自訂播放速度</string>
     <string name="revanced_enable_debug_logging_summary_off">偵錯記錄已停用</string>
     <string name="revanced_enable_debug_logging_summary_on">偵錯記錄已啟用</string>
     <string name="revanced_enable_debug_logging_title">啟用偵錯記錄</string>
     <string name="revanced_enable_external_browser_summary_off">外部瀏覽器已停用</string>
     <string name="revanced_enable_external_browser_summary_on">外部瀏覽器已啟用</string>
     <string name="revanced_enable_external_browser_title">啟用外部瀏覽器</string>
+    <string name="revanced_enable_new_comment_popup_panels_summary_off">新評論彈出面板已停用</string>
+    <string name="revanced_enable_new_comment_popup_panels_summary_on">新評論彈出面板已啟用</string>
+    <string name="revanced_enable_new_comment_popup_panels_title">啟用新評論彈出面板</string>
     <string name="revanced_enable_new_splash_animation_summary_off">新版啟動畫已停用</string>
     <string name="revanced_enable_new_splash_animation_summary_on">新版啟動畫已啟用</string>
     <string name="revanced_enable_new_splash_animation_title">啟用新版啟動畫</string>
@@ -111,9 +103,6 @@
     <string name="revanced_enable_save_video_quality_summary_off">即使更改影片畫質也不記憶影片畫質設定</string>
     <string name="revanced_enable_save_video_quality_summary_on">更改影片畫質時記憶影片畫質設定</string>
     <string name="revanced_enable_save_video_quality_title">記憶影片畫質</string>
-    <string name="revanced_enable_save_video_speed_summary_off">即使更改影片速度也不記憶影片速度設定</string>
-    <string name="revanced_enable_save_video_speed_summary_on">更改影片速度時記憶影片速度設定</string>
-    <string name="revanced_enable_save_video_speed_title">記憶播放速度</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">進度條點擊已停用</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">進度條點擊已啟用</string>
     <string name="revanced_enable_seekbar_tapping_title">啟用進度條點擊</string>
@@ -162,6 +151,7 @@
     <string name="revanced_fullscreen">全螢幕</string>
     <string name="revanced_general">一般設定</string>
     <string name="revanced_haptic_feedback_title">震動回饋</string>
+    <string name="revanced_hide_account_menu_summary">已知問題：可能無法在橫向模式或高 dpi 設備上運作</string>
     <string name="revanced_hide_account_menu_title">隱藏帳戶選單</string>
     <string name="revanced_hide_account_menu_filter_strings_title">編輯帳號選單篩選</string>
     <string name="revanced_hide_action_buttons_summary_off">即時互動按鈕已顯示</string>
@@ -182,6 +172,9 @@
     <string name="revanced_hide_auto_player_popup_panels_summary_off">播放器自動彈出介面（如播放列表、即時聊天）已顯示</string>
     <string name="revanced_hide_auto_player_popup_panels_summary_on">播放器自動彈出介面（如播放列表、即時聊天）已隱藏</string>
     <string name="revanced_hide_auto_player_popup_panels_title">播放器自動彈出介面</string>
+    <string name="revanced_hide_browse_store_button_summary_off">瀏覽商店按鈕已顯示</string>
+    <string name="revanced_hide_browse_store_button_summary_on">瀏覽商店按鈕已隱藏</string>
+    <string name="revanced_hide_browse_store_button_title">隱藏瀏覽商店按鈕</string>
     <string name="revanced_hide_button_create_clip_summary_off">剪輯片段按鈕已顯示</string>
     <string name="revanced_hide_button_create_clip_summary_on">剪輯片段按鈕已隱藏</string>
     <string name="revanced_hide_button_create_clip_title">隱藏剪輯片段按鈕</string>
@@ -293,6 +286,9 @@
     <string name="revanced_hide_fullscreen_panels_summary_off">全螢幕面板已顯示</string>
     <string name="revanced_hide_fullscreen_panels_summary_on">全螢幕面板已隱藏</string>
     <string name="revanced_hide_fullscreen_panels_title">隱藏全螢幕面板</string>
+    <string name="revanced_hide_game_section_summary_off">顯示遊戲區段</string>
+    <string name="revanced_hide_game_section_summary_on">隱藏遊戲區段</string>
+    <string name="revanced_hide_game_section_title">隱藏遊戲區段</string>
     <string name="revanced_hide_general_ads_summary_off">顯示一般廣告</string>
     <string name="revanced_hide_general_ads_summary_on">隱藏一般廣告</string>
     <string name="revanced_hide_general_ads_title">隱藏一般廣告</string>
@@ -311,6 +307,9 @@
     <string name="revanced_hide_image_shelf_summary_off">圖片庫已顯示</string>
     <string name="revanced_hide_image_shelf_summary_on">圖片庫已隱藏</string>
     <string name="revanced_hide_image_shelf_title">隱藏圖片庫</string>
+    <string name="revanced_hide_info_cards_section_summary_off">顯示資訊卡片區段</string>
+    <string name="revanced_hide_info_cards_section_summary_on">隱藏資訊卡片區段</string>
+    <string name="revanced_hide_info_cards_section_title">隱藏資訊卡片區段</string>
     <string name="revanced_hide_info_cards_summary_off">資訊卡已顯示</string>
     <string name="revanced_hide_info_cards_summary_on">資訊卡已隱藏</string>
     <string name="revanced_hide_info_cards_title">資訊卡</string>
@@ -518,9 +517,6 @@
     <string name="revanced_overlay_button_copy_video_url_timestamp_title">顯示複製時間戳記網址按鈕</string>
     <string name="revanced_overlay_button_external_downloader_summary">點按以啟動外部下載程式</string>
     <string name="revanced_overlay_button_external_downloader_title">顯示外部下載按鈕</string>
-    <string name="revanced_overlay_button_speed_dialog_reset">影片速度已重設（1.0x）</string>
-    <string name="revanced_overlay_button_speed_dialog_summary">"點按切換播放速度
-長按重設播放速度至預設值（1.0x）"</string>
     <string name="revanced_overlay_button_speed_dialog_title">顯示播放速度按鈕</string>
     <string name="revanced_override_premium_header_summary_off">目前標題：預設標誌</string>
     <string name="revanced_override_premium_header_summary_on">目前標題： Premium 標誌</string>
@@ -565,7 +561,6 @@
     <string name="revanced_save_video_quality_mobile">將預設行動數據畫質更改為：</string>
     <string name="revanced_save_video_quality_none">設定畫質失敗</string>
     <string name="revanced_save_video_quality_wifi">將預設 Wi-Fi 畫質更改為：</string>
-    <string name="revanced_save_video_speed">將預設播放速度更改為：</string>
     <string name="revanced_seekbar">搜尋欄</string>
     <string name="revanced_shorts">Shorts</string>
     <string name="revanced_shorts_player_title">Shorts 播放器</string>
@@ -586,6 +581,12 @@
     <string name="revanced_spoof_app_version_target_title">編輯欺騙應用程式版本</string>
     <string name="revanced_spoof_player_parameter_notice">欺騙播放器參數以修復播放問題</string>
     <string name="revanced_spoof_player_parameter_reload">請重新載入影片</string>
+    <string name="revanced_spoof_player_parameter_type_summary_off">"短片播放器參數
+
+已知問題：
+- 頻道浮水印始終隱藏
+- 下載影片可能無法運作
+- 結尾畫面卡片始終隱藏"</string>
     <string name="revanced_spoof_player_parameter_type_summary_on">"隱身模式的播放器參數
 
 已知問題

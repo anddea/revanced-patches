@@ -24,24 +24,24 @@
     <string name="revanced_custom_filter_summary_off">Le filtre personnalisé est désactivé</string>
     <string name="revanced_custom_filter_summary_on">Le filtre personnalisé est activé</string>
     <string name="revanced_custom_filter_title">Le filtre personnalisé</string>
+    <string name="revanced_custom_playback_speeds_invalid">Vitesses vidéo invalides. Rétablissez les valeurs par défaut.</string>
+    <string name="revanced_custom_playback_speeds_warning" formatted="false">Les vitesses personnalisées doivent être inférieures à %sx. Rétablissez les valeurs par défaut.</string>
+    <string name="revanced_custom_playback_speeds_summary">Ajouter ou modifier les vitesses disponibles</string>
+    <string name="revanced_custom_playback_speeds_title">Modifier les vitesses vidéo personnalisées</string>
     <string name="revanced_custom_seekbar_color_value_summary">Saisissez le code hex de la couleur de la barre de progression </string>
     <string name="revanced_custom_seekbar_color_value_title">Couleur de la barre (hex)</string>
-    <string name="revanced_custom_video_speeds_invalid">Vitesses vidéo invalides. Rétablissez les valeurs par défaut.</string>
-    <string name="revanced_custom_video_speeds_warning" formatted="false">Les vitesses personnalisées doivent être inférieures à %sx. Rétablissez les valeurs par défaut.</string>
-    <string name="revanced_custom_video_speeds_summary">Ajouter ou modifier les vitesses disponibles</string>
-    <string name="revanced_custom_video_speeds_title">Modifier les vitesses vidéo personnalisées</string>
     <string name="revanced_default_app_settings_summary">Pour ouvrir RVX depuis votre navigateur, activez l\'option \"Ouvrir les liens compatibles\" et activez les liens Web compatibles</string>
     <string name="revanced_default_app_settings_title">Paramètres \"Ouvrir par défaut\"</string>
+    <string name="revanced_default_playback_speed_title">Vitesse de lecture par défaut</string>
     <string name="revanced_default_video_quality_mobile_title">Qualité vidéo par défaut : Données mobiles</string>
     <string name="revanced_default_video_quality_wifi_title">Qualité vidéo par défaut : Wi-Fi</string>
-    <string name="revanced_default_video_speed_title">Vitesse vidéo par défaut</string>
     <string name="revanced_description_title">Description</string>
     <string name="revanced_disable_auto_captions_summary_off">Les sous-titres automatiques sont forcés</string>
     <string name="revanced_disable_auto_captions_summary_on">Les sous-titres automatiques ne sont pas forcés</string>
     <string name="revanced_disable_auto_captions_title">Sous-titres automatiques forcés</string>
-    <string name="revanced_disable_default_video_speed_live_summary_off">La vitesse par défaut des diffusions en direct est activée</string>
-    <string name="revanced_disable_default_video_speed_live_summary_on">La vitesse par défaut des diffusions en direct est désactivée</string>
-    <string name="revanced_disable_default_video_speed_live_title">Vitesse par défaut des diffusions en direct</string>
+    <string name="revanced_disable_default_playback_speed_live_summary_off">La vitesse par défaut des diffusions en direct est activée</string>
+    <string name="revanced_disable_default_playback_speed_live_summary_on">La vitesse par défaut des diffusions en direct est désactivée</string>
+    <string name="revanced_disable_default_playback_speed_live_title">Vitesse par défaut des diffusions en direct</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">Le retour haptique lors de la sélection de chapitres est activé</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">La retour haptique lors de la sélection de chapitres est désactivé</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">Retour haptique de sélection de chapitres</string>
@@ -76,9 +76,9 @@
     <string name="revanced_enable_custom_seekbar_color_summary_off">La couleur personnalisée de la barre de progression est désactivée</string>
     <string name="revanced_enable_custom_seekbar_color_summary_on">La couleur personnalisée de la barre de progression est activée</string>
     <string name="revanced_enable_custom_seekbar_color_title">Couleur de la barre de progression</string>
-    <string name="revanced_enable_custom_video_speed_summary_off">La personnalisation de la vitesse de lecture est désactivée</string>
-    <string name="revanced_enable_custom_video_speed_summary_on">La personnalisation de la vitesse de lecture est activée</string>
-    <string name="revanced_enable_custom_video_speed_title">La personnalisation de la vitesse</string>
+    <string name="revanced_enable_custom_playback_speed_summary_off">La vitesse de lecture personnalisée est désactivée</string>
+    <string name="revanced_enable_custom_playback_speed_summary_on">La vitesse de lecture personnalisée est activée</string>
+    <string name="revanced_enable_custom_playback_speed_title">Modifier les vitesses vidéo personnalisées</string>
     <string name="revanced_enable_debug_logging_summary_off">Les journaux de débogage sont désactivés</string>
     <string name="revanced_enable_debug_logging_summary_on">Les journaux de débogage sont activés</string>
     <string name="revanced_enable_debug_logging_title">Les journaux de débogage</string>
@@ -111,12 +111,12 @@
     <string name="revanced_enable_save_brightness_summary_off">Ne pas enregistrer et restaurer la luminosité en quittant ou en entrant en mode plein écran</string>
     <string name="revanced_enable_save_brightness_summary_on">Enregistrer et restaurer la luminosité en quittant ou en entrant en mode plein écran</string>
     <string name="revanced_enable_save_brightness_title">L\'enregistrement et la restauration de la luminosité</string>
+    <string name="revanced_enable_save_playback_speed_summary_off">N’enregistre pas les valeurs de vitesse vidéo même en changeant la vitesse vidéo</string>
+    <string name="revanced_enable_save_playback_speed_summary_on">Enregistrez la valeur de vitesse vidéo chaque fois que vous modifiez la vitesse vidéo</string>
+    <string name="revanced_enable_save_playback_speed_title">Modifier les vitesses vidéo personnalisées</string>
     <string name="revanced_enable_save_video_quality_summary_off">N’enregistre pas les valeurs de qualité vidéo même lorsque la qualité vidéo est modifiée</string>
     <string name="revanced_enable_save_video_quality_summary_on">Enregistre la valeur de qualité vidéo chaque fois que vous modifiez la qualité vidéo</string>
     <string name="revanced_enable_save_video_quality_title">Enregistrement de la qualité de la vidéo</string>
-    <string name="revanced_enable_save_video_speed_summary_off">N\'enregistre pas les valeurs de vitesse de la vidéo même lorsque vous changez de vitesse vidéo</string>
-    <string name="revanced_enable_save_video_speed_summary_on">Enregistre les valeurs de vitesse de la vidéo lorsque vous changez de vitesse vidéo</string>
-    <string name="revanced_enable_save_video_speed_title">L\'enregistrement de vitesse vidéo</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">L\'accès à la barre de progression est désactivé</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">L\'accès à la barre de progression est activé</string>
     <string name="revanced_enable_seekbar_tapping_title">L\'accès à la barre de progression</string>
@@ -165,6 +165,7 @@
     <string name="revanced_fullscreen">Boutons en plein écran</string>
     <string name="revanced_general">Mise en page générale</string>
     <string name="revanced_haptic_feedback_title">Retour haptique</string>
+    <string name="revanced_hide_account_menu_summary">Problème connu : peut ne pas fonctionner en mode paysage ou sur des appareils dpi élevés</string>
     <string name="revanced_hide_account_menu_title">Les menus du compte YouTube</string>
     <string name="revanced_hide_account_menu_filter_strings_title">Modifier le menu filtre du compte</string>
     <string name="revanced_hide_action_buttons_summary_off">Les boutons \"Remixer\", \"Extrait\" \"Merci\" \"Partager\" et \"Chat en direct\" sont affichés</string>
@@ -482,6 +483,8 @@ Disponible uniquement sur YouTube v18.24.37+"</string>
 - Shopping
 - Regarder à nouveau"</string>
     <string name="revanced_hide_suggestions_shelf_title">Les menus de suggestions</string>
+    <string name="revanced_hide_suggested_video_overlay_summary">"Cache la superposition de vidéo suggérée pour la lecture suivante Problème connu : la lecture automatique ne fonctionne pas"</string>
+    <string name="revanced_hide_suggested_video_overlay_title">La superposition vidéo suggérée</string>
     <string name="revanced_hide_ticket_shelf_summary_off">Les tickets sont affichés</string>
     <string name="revanced_hide_ticket_shelf_summary_on">Les tickets sont cachés</string>
     <string name="revanced_hide_ticket_shelf_title">Les tickets concert</string>
@@ -571,10 +574,10 @@ Ce paramètre étant obsolètes, il se peut qu'ils ne soient plus valables"</str
     <string name="revanced_ryd_shorts_summary_on">Dislikes sur les Shorts affichés</string>
     <string name="revanced_ryd_shorts_title">Les dislikes sur les Shorts</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Caché</string>
+    <string name="revanced_save_playback_speed">Changer la vitesse par défaut en :</string>
     <string name="revanced_save_video_quality_mobile">Changer la qualité des données mobiles par défaut en :</string>
     <string name="revanced_save_video_quality_none">Échec de la définition de qualité</string>
     <string name="revanced_save_video_quality_wifi">Changer la qualité Wi-Fi par défaut en :</string>
-    <string name="revanced_save_video_speed">Changer la vitesse par défaut en :</string>
     <string name="revanced_seekbar">Barre de progression et durée de la vidéo</string>
     <string name="revanced_shorts">Shorts</string>
     <string name="revanced_shorts_player_title">Lecteur Shorts</string>
