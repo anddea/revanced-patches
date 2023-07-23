@@ -28,15 +28,15 @@ import app.revanced.patches.youtube.utils.videoid.withoutshorts.patch.VideoIdWit
 import app.revanced.util.bytecode.BytecodeHelper.injectInit
 import app.revanced.util.bytecode.BytecodeHelper.updatePatchStatus
 import app.revanced.util.bytecode.getWideLiteralIndex
-import org.jf.dexlib2.Opcode
-import org.jf.dexlib2.builder.BuilderInstruction
-import org.jf.dexlib2.builder.instruction.BuilderInstruction3rc
-import org.jf.dexlib2.iface.instruction.FiveRegisterInstruction
-import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
-import org.jf.dexlib2.iface.instruction.ReferenceInstruction
-import org.jf.dexlib2.iface.instruction.formats.Instruction35c
-import org.jf.dexlib2.iface.reference.FieldReference
-import org.jf.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.builder.BuilderInstruction
+import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction3rc
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @DependsOn(
     [

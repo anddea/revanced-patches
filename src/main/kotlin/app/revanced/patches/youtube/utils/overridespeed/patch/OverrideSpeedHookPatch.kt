@@ -23,14 +23,14 @@ import app.revanced.patches.youtube.utils.overridespeed.fingerprints.PlaybackSpe
 import app.revanced.patches.youtube.utils.overridespeed.fingerprints.SpeedClassFingerprint
 import app.revanced.util.integrations.Constants.INTEGRATIONS_PATH
 import app.revanced.util.integrations.Constants.VIDEO_PATH
-import org.jf.dexlib2.AccessFlags
-import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
-import org.jf.dexlib2.iface.instruction.ReferenceInstruction
-import org.jf.dexlib2.iface.reference.FieldReference
-import org.jf.dexlib2.immutable.ImmutableField
-import org.jf.dexlib2.immutable.ImmutableMethod
-import org.jf.dexlib2.immutable.ImmutableMethodImplementation
-import org.jf.dexlib2.immutable.ImmutableMethodParameter
+import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
+import com.android.tools.smali.dexlib2.immutable.ImmutableField
+import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
+import com.android.tools.smali.dexlib2.immutable.ImmutableMethodImplementation
+import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 
 class OverrideSpeedHookPatch : BytecodePatch(
     listOf(
@@ -66,10 +66,10 @@ class OverrideSpeedHookPatch : BytecodePatch(
                         ImmutableMethod(
                             parentMutableClass.type,
                             "overrideSpeed",
-                            listOf(ImmutableMethodParameter("F", null, null)),
+                            listOf(ImmutableMethodParameter("F", annotations, null)),
                             "V",
                             AccessFlags.PUBLIC or AccessFlags.PUBLIC,
-                            null,
+                            annotations,
                             null,
                             ImmutableMethodImplementation(
                                 4, """
@@ -130,7 +130,7 @@ class OverrideSpeedHookPatch : BytecodePatch(
                         SPEED_CLASS,
                         AccessFlags.PUBLIC or AccessFlags.STATIC,
                         null,
-                        null,
+                        annotations,
                         null
                     ).toMutable()
                 )

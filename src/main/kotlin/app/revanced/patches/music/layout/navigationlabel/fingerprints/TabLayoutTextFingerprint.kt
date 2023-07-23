@@ -4,8 +4,8 @@ import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patches.music.utils.resourceid.patch.SharedResourceIdPatch.Companion.Text1
 import app.revanced.util.bytecode.isWideLiteralExists
-import org.jf.dexlib2.AccessFlags
-import org.jf.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.Opcode
 
 object TabLayoutTextFingerprint : MethodFingerprint(
     returnType = "V",

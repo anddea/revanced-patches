@@ -8,9 +8,9 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableField
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.smali.toInstruction
 import app.revanced.util.integrations.Constants.PATCHES_PATH
-import org.jf.dexlib2.builder.MutableMethodImplementation
-import org.jf.dexlib2.iface.Method
-import org.jf.dexlib2.util.MethodUtil
+import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
+import com.android.tools.smali.dexlib2.iface.Method
+import com.android.tools.smali.dexlib2.util.MethodUtil
 import org.w3c.dom.Node
 
 internal fun MutableMethodImplementation.injectHideCall(

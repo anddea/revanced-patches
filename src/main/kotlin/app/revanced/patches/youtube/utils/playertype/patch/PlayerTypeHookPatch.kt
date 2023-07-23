@@ -15,7 +15,7 @@ import app.revanced.patches.youtube.utils.playertype.fingerprint.PlayerTypeFinge
 import app.revanced.patches.youtube.utils.playertype.fingerprint.VideoStateFingerprint
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.util.integrations.Constants.UTILS_PATH
-import org.jf.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 
 @DependsOn([SharedResourceIdPatch::class])
 class PlayerTypeHookPatch : BytecodePatch(

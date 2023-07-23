@@ -18,7 +18,7 @@ import app.revanced.patches.youtube.seekbar.tapping.fingerprints.SeekbarTappingR
 import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.integrations.Constants.SEEKBAR
-import org.jf.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 
 @Patch
 @Name("Enable seekbar tapping")

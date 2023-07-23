@@ -3,7 +3,7 @@ package app.revanced.patches.youtube.general.personalinformation.fingerprints
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch.Companion.AccountSwitcherAccessibility
 import app.revanced.util.bytecode.isWideLiteralExists
-import org.jf.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.Opcode
 
 object AccountSwitcherAccessibilityLabelFingerprint : MethodFingerprint(
     returnType = "V",

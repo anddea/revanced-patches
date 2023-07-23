@@ -22,12 +22,12 @@ import app.revanced.patches.youtube.utils.videoid.general.fingerprint.VideoIdFin
 import app.revanced.patches.youtube.utils.videoid.general.fingerprint.VideoIdParentFingerprint
 import app.revanced.patches.youtube.utils.videoid.general.fingerprint.VideoLengthFingerprint
 import app.revanced.util.integrations.Constants.VIDEO_PATH
-import org.jf.dexlib2.AccessFlags
-import org.jf.dexlib2.builder.MutableMethodImplementation
-import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
-import org.jf.dexlib2.immutable.ImmutableMethod
-import org.jf.dexlib2.immutable.ImmutableMethodParameter
-import org.jf.dexlib2.util.MethodUtil
+import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
+import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
+import com.android.tools.smali.dexlib2.util.MethodUtil
 
 @DependsOn([PlayerTypeHookPatch::class])
 class VideoIdPatch : BytecodePatch(
@@ -53,10 +53,10 @@ class VideoIdPatch : BytecodePatch(
                     val seekHelperMethod = ImmutableMethod(
                         definingClass,
                         "seekTo",
-                        listOf(ImmutableMethodParameter("J", null, "time")),
+                        listOf(ImmutableMethodParameter("J", annotations, "time")),
                         "Z",
                         AccessFlags.PUBLIC or AccessFlags.FINAL,
-                        null, null,
+                        annotations, null,
                         MutableMethodImplementation(4)
                     ).toMutable()
 

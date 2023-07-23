@@ -22,8 +22,8 @@ import app.revanced.patches.music.utils.settings.resource.patch.SettingsPatch.Co
 import app.revanced.util.bytecode.getWideLiteralIndex
 import app.revanced.util.enum.CategoryType
 import app.revanced.util.integrations.Constants.MUSIC_LAYOUT
-import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
-import org.jf.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 
 @Patch
 @Name("Hide navigation label")

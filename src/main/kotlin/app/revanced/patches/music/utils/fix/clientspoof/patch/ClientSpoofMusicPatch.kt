@@ -9,7 +9,7 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patches.music.utils.fix.clientspoof.fingerprints.UserAgentHeaderBuilderFingerprint
 import app.revanced.patches.music.utils.microg.shared.Constants.MUSIC_PACKAGE_NAME
-import org.jf.dexlib2.iface.instruction.FiveRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 
 class ClientSpoofMusicPatch : BytecodePatch(
     listOf(UserAgentHeaderBuilderFingerprint)

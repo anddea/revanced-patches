@@ -20,12 +20,12 @@ import app.revanced.patches.youtube.video.customspeed.fingerprints.SpeedArrayGen
 import app.revanced.patches.youtube.video.customspeed.fingerprints.SpeedLimiterFallBackFingerprint
 import app.revanced.patches.youtube.video.customspeed.fingerprints.SpeedLimiterFingerprint
 import app.revanced.util.integrations.Constants.VIDEO_PATH
-import org.jf.dexlib2.Opcode
-import org.jf.dexlib2.iface.instruction.NarrowLiteralInstruction
-import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
-import org.jf.dexlib2.iface.instruction.ReferenceInstruction
-import org.jf.dexlib2.iface.instruction.formats.Instruction35c
-import org.jf.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.NarrowLiteralInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Patch
 @Name("Custom playback speed")

@@ -17,14 +17,14 @@ import app.revanced.patches.shared.fingerprints.litho.ByteBufferHookFingerprint
 import app.revanced.patches.shared.fingerprints.litho.EmptyComponentBuilderFingerprint
 import app.revanced.patches.shared.fingerprints.litho.IdentifierFingerprint
 import app.revanced.util.bytecode.getStringIndex
-import org.jf.dexlib2.AccessFlags
-import org.jf.dexlib2.Opcode
-import org.jf.dexlib2.builder.instruction.BuilderInstruction35c
-import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
-import org.jf.dexlib2.iface.instruction.ReferenceInstruction
-import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
-import org.jf.dexlib2.iface.reference.FieldReference
-import org.jf.dexlib2.immutable.ImmutableField
+import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction35c
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
+import com.android.tools.smali.dexlib2.immutable.ImmutableField
 import kotlin.properties.Delegates
 
 class ComponentParserPatch : BytecodePatch(
@@ -63,7 +63,7 @@ class ComponentParserPatch : BytecodePatch(
                         "Ljava/nio/ByteBuffer;",
                         AccessFlags.PUBLIC or AccessFlags.STATIC,
                         null,
-                        null,
+                        annotations,
                         null
                     ).toMutable()
                 )

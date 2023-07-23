@@ -27,15 +27,15 @@ import app.revanced.patches.music.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.music.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.enum.CategoryType
 import app.revanced.util.integrations.Constants.MUSIC_MISC_PATH
-import org.jf.dexlib2.AccessFlags
-import org.jf.dexlib2.iface.instruction.Instruction
-import org.jf.dexlib2.iface.instruction.ReferenceInstruction
-import org.jf.dexlib2.iface.reference.FieldReference
-import org.jf.dexlib2.iface.reference.Reference
-import org.jf.dexlib2.immutable.ImmutableField
-import org.jf.dexlib2.immutable.ImmutableMethod
-import org.jf.dexlib2.immutable.ImmutableMethodImplementation
-import org.jf.dexlib2.immutable.ImmutableMethodParameter
+import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.iface.instruction.Instruction
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
+import com.android.tools.smali.dexlib2.iface.reference.Reference
+import com.android.tools.smali.dexlib2.immutable.ImmutableField
+import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
+import com.android.tools.smali.dexlib2.immutable.ImmutableMethodImplementation
+import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 
 @Patch
 @Name("Enable force shuffle")
@@ -92,7 +92,7 @@ class EnforceShufflePatch : BytecodePatch(
                         type,
                         AccessFlags.PUBLIC or AccessFlags.PUBLIC,
                         null,
-                        null,
+                        annotations,
                         null
                     ).toMutable()
                 }
@@ -120,7 +120,7 @@ class EnforceShufflePatch : BytecodePatch(
                         SHUFFLE_CLASS,
                         AccessFlags.PUBLIC or AccessFlags.STATIC,
                         null,
-                        null,
+                        annotations,
                         null
                     ).toMutable()
                 )
@@ -131,10 +131,10 @@ class EnforceShufflePatch : BytecodePatch(
                     ImmutableMethod(
                         it.classDef.type,
                         "buttonHook",
-                        listOf(ImmutableMethodParameter("Z", null, null)),
+                        listOf(ImmutableMethodParameter("Z", annotations, null)),
                         "V",
                         AccessFlags.PUBLIC or AccessFlags.FINAL,
-                        null,
+                        annotations,
                         null,
                         ImmutableMethodImplementation(
                             5, """

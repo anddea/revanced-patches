@@ -27,9 +27,9 @@ import app.revanced.patches.youtube.video.quality.fingerprints.VideoQualitySetti
 import app.revanced.patches.youtube.video.quality.fingerprints.VideoUserQualityChangeFingerprint
 import app.revanced.util.integrations.Constants.VIDEO_PATH
 import app.revanced.util.resources.ResourceUtils.copyXmlNode
-import org.jf.dexlib2.iface.instruction.ReferenceInstruction
-import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
-import org.jf.dexlib2.iface.reference.FieldReference
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 @Patch
 @Name("Default video quality")

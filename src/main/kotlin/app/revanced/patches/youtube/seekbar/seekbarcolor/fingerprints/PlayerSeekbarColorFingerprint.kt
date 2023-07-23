@@ -5,7 +5,7 @@ import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch.Companion.InlineTimeBarColorizedBarPlayedColorDark
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch.Companion.InlineTimeBarPlayedNotHighlightedColor
 import app.revanced.util.bytecode.isWideLiteralExists
-import org.jf.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.AccessFlags
 
 object PlayerSeekbarColorFingerprint : MethodFingerprint(
     returnType = "V",

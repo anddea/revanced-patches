@@ -11,7 +11,7 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.youtube.utils.quickactions.fingerprints.QuickActionsElementFingerprint
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.util.integrations.Constants.FULLSCREEN
-import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @DependsOn([SharedResourceIdPatch::class])
 class QuickActionsHookPatch : BytecodePatch(

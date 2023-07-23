@@ -6,7 +6,7 @@ import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch.Companion.YtOutlineFireBlack
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch.Companion.YtOutlineSearchBlack
 import app.revanced.util.bytecode.isWideLiteralExists
-import org.jf.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.AccessFlags
 
 object SearchBarEntryFingerprint : MethodFingerprint(
     returnType = "L",

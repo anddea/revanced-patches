@@ -3,7 +3,6 @@ package app.revanced.patches.youtube.overlaybutton.alwaysrepeat.patch
 import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.data.toMethodWalker
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -18,7 +17,7 @@ import app.revanced.patches.youtube.overlaybutton.alwaysrepeat.fingerprints.Vide
 import app.revanced.patches.youtube.overlaybutton.alwaysrepeat.fingerprints.VideoEndParentFingerprint
 import app.revanced.util.integrations.Constants.UTILS_PATH
 import app.revanced.util.integrations.Constants.VIDEO_PATH
-import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 class AlwaysRepeatPatch : BytecodePatch(
     listOf(
