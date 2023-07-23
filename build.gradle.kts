@@ -2,22 +2,13 @@ plugins {
     kotlin("jvm") version "1.8.22"
 }
 
-group = "app.revanced"
-
-val githubUsername: String = project.findProperty("gpr.user") as? String ?: System.getenv("GITHUB_ACTOR")
-val githubPassword: String = project.findProperty("gpr.key") as? String ?: System.getenv("GITHUB_TOKEN")
+group = "io.github.inotia00"
 
 repositories {
     google()
     mavenCentral()
     mavenLocal()
-    maven {
-        url = uri("https://maven.pkg.github.com/revanced/revanced-patcher")
-        credentials {
-            username = githubUsername
-            password = githubPassword
-        }
-    }
+    maven { url = uri("https://s01.oss.sonatype.org/content/repositories/snapshots") }
     maven {
         url = uri("https://repo.sleeping.town")
         content {
@@ -27,7 +18,7 @@ repositories {
 }
 
 dependencies {
-    implementation("app.revanced:revanced-patcher:11.0.4")
+    implementation("io.github.inotia00:revanced-patcher:11.0.6-SNAPSHOT")
     implementation("com.android.tools.smali:smali:3.0.3")
     implementation("com.android.tools.smali:smali-dexlib2:3.0.3")
 
