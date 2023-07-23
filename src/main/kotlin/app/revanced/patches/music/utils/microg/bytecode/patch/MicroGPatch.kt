@@ -6,6 +6,7 @@ import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
@@ -55,8 +56,14 @@ class MicroGPatch : BytecodePatch(
     // - "com.google.android.gms.phenotype.UPDATE",
     // - "com.google.android.gms.phenotype",
     override fun execute(context: BytecodeContext): PatchResult {
-        val packageNameYouTube = PackageNamePatch.YouTubePackageName!!
-        val packageNameMusic = PackageNamePatch.MusicPackageName!!
+        val youtubePackageName = PackageNamePatch.YouTubePackageName
+            ?: throw PatchResultError("Invalid package name.")
+
+        val musicPackageName = PackageNamePatch.MusicPackageName
+            ?: throw PatchResultError("Invalid package name.")
+
+        if (youtubePackageName == YOUTUBE_PACKAGE_NAME || musicPackageName == MUSIC_PACKAGE_NAME)
+            throw PatchResultError("Original package name is not available as package name for MicroG build.")
 
         // apply common microG patch
         MicroGBytecodeHelper.patchBytecode(
@@ -64,13 +71,13 @@ class MicroGPatch : BytecodePatch(
             arrayOf(
                 MicroGBytecodeHelper.packageNameTransform(
                     YOUTUBE_PACKAGE_NAME,
-                    packageNameYouTube
+                    youtubePackageName
                 )
             ),
             MicroGBytecodeHelper.PrimeMethodTransformationData(
                 PrimeFingerprint,
                 MUSIC_PACKAGE_NAME,
-                packageNameMusic
+                musicPackageName
             ),
             listOf(
                 ServiceCheckFingerprint,

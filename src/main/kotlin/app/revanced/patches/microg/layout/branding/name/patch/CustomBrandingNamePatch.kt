@@ -68,7 +68,7 @@ class CustomBrandingNamePatch : ResourcePatch {
                 }
             }
 
-        } ?: return PatchResultError("No app name provided")
+        } ?: return PatchResultError("Invalid app name.")
 
         return PatchResultSuccess()
     }
