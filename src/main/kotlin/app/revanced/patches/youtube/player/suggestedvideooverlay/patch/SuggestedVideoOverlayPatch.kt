@@ -13,6 +13,7 @@ import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
+import app.revanced.patches.youtube.overlaybutton.general.patch.OverlayButtonsPatch
 import app.revanced.patches.youtube.player.suggestedvideooverlay.fingerprints.CoreConatinerBuilderFingerprint
 import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
@@ -28,6 +29,7 @@ import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
 @Description("Hide the suggested video overlay to play next.")
 @DependsOn(
     [
+        OverlayButtonsPatch::class,
         SettingsPatch::class,
         SharedResourceIdPatch::class
     ]
