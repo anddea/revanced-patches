@@ -7,13 +7,16 @@ import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
+import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.music.utils.annotations.MusicCompatibility
+import app.revanced.patches.music.utils.fix.decoding.patch.DecodingPatch
 import org.w3c.dom.Element
 
 @Patch
 @Name("Amoled")
 @Description("Applies pure black theme in flyout panels.")
+@DependsOn([DecodingPatch::class])
 @MusicCompatibility
 @Version("0.0.1")
 class AmoledPatch : ResourcePatch {

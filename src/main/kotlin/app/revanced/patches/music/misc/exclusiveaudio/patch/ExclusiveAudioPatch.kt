@@ -10,13 +10,16 @@ import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.music.misc.exclusiveaudio.fingerprints.AudioOnlyEnablerFingerprint
 import app.revanced.patches.music.utils.annotations.MusicCompatibility
+import app.revanced.patches.music.utils.fix.decoding.patch.DecodingPatch
 
 @Patch
 @Name("Exclusive audio playback")
 @Description("Enables the option to play music without video.")
+@DependsOn([DecodingPatch::class])
 @MusicCompatibility
 @Version("0.0.1")
 class ExclusiveAudioPatch : BytecodePatch(
