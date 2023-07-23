@@ -5,9 +5,9 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
+import app.revanced.patcher.data.toMethodWalker
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultError
@@ -16,18 +16,20 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.seekbar.seekbarcolor.fingerprints.ControlsOverlayStyleFingerprint
-import app.revanced.patches.youtube.seekbar.seekbarcolor.fingerprints.ProgressColorFingerprint
-import app.revanced.patches.youtube.seekbar.seekbarcolor.fingerprints.SeekbarColorFingerprint
+import app.revanced.patches.youtube.seekbar.seekbarcolor.fingerprints.PlayerSeekbarColorFingerprint
+import app.revanced.patches.youtube.seekbar.seekbarcolor.fingerprints.ShortsSeekbarColorFingerprint
 import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.litho.patch.LithoThemePatch
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch.Companion.InlineTimeBarColorizedBarPlayedColorDark
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch.Companion.InlineTimeBarPlayedNotHighlightedColor
+import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch.Companion.ReelTimeBarPlayedColor
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch.Companion.contexts
 import app.revanced.util.bytecode.getWideLiteralIndex
 import app.revanced.util.integrations.Constants.SEEKBAR
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
+import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
 import org.w3c.dom.Element
 
 @Patch
@@ -45,29 +47,36 @@ import org.w3c.dom.Element
 class SeekbarColorPatch : BytecodePatch(
     listOf(
         ControlsOverlayStyleFingerprint,
-        SeekbarColorFingerprint
+        PlayerSeekbarColorFingerprint,
+        ShortsSeekbarColorFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
-        SeekbarColorFingerprint.result?.let {
-            it.mutableMethod.apply {
-                hook(getWideLiteralIndex(InlineTimeBarColorizedBarPlayedColorDark) + 2)
-                hook(getWideLiteralIndex(InlineTimeBarPlayedNotHighlightedColor) + 2)
-            }
-        } ?: return SeekbarColorFingerprint.toErrorResult()
+        PlayerSeekbarColorFingerprint.result?.mutableMethod?.apply {
+            hook(getWideLiteralIndex(InlineTimeBarColorizedBarPlayedColorDark) + 2)
+            hook(getWideLiteralIndex(InlineTimeBarPlayedNotHighlightedColor) + 2)
+        } ?: return PlayerSeekbarColorFingerprint.toErrorResult()
 
-        ControlsOverlayStyleFingerprint.result?.let { parentResult ->
-            ProgressColorFingerprint.also {
-                it.resolve(
-                    context,
-                    parentResult.classDef
-                )
-            }.result?.mutableMethod?.addInstructions(
-                0, """
-                    invoke-static {p1}, $SEEKBAR->getSeekbarClickedColorValue(I)I
-                    move-result p1
+        ShortsSeekbarColorFingerprint.result?.mutableMethod?.apply {
+            hook(getWideLiteralIndex(ReelTimeBarPlayedColor) + 2)
+        } ?: return ShortsSeekbarColorFingerprint.toErrorResult()
+
+        ControlsOverlayStyleFingerprint.result?.let {
+            with(
+                context
+                    .toMethodWalker(it.method)
+                    .nextMethod(it.scanResult.patternScanResult!!.startIndex + 1, true)
+                    .getMethod() as MutableMethod
+            ) {
+                val colorRegister = getInstruction<TwoRegisterInstruction>(0).registerA
+
+                addInstructions(
+                    0, """
+                    invoke-static {v$colorRegister}, $SEEKBAR->getSeekbarClickedColorValue(I)I
+                    move-result v$colorRegister
                     """
-            ) ?: return ProgressColorFingerprint.toErrorResult()
+                )
+            }
         } ?: return ControlsOverlayStyleFingerprint.toErrorResult()
 
         LithoThemePatch.injectCall("$SEEKBAR->getLithoColor(I)I")

@@ -4,6 +4,9 @@ import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import org.jf.dexlib2.Opcode
 
 object ControlsOverlayStyleFingerprint : MethodFingerprint(
-    opcodes = listOf(Opcode.IGET_BOOLEAN),
-    strings = listOf("supportsNextPrevious", "Missing required properties:")
+    opcodes = listOf(Opcode.CONST_HIGH16),
+    strings = listOf("YOUTUBE", "PREROLL", "POSTROLL"),
+    customFingerprint = { methodDef, _ ->
+        methodDef.definingClass.endsWith("/ControlsOverlayStyle;")
+    }
 )
