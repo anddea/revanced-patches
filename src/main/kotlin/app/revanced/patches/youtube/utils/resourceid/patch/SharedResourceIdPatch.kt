@@ -64,6 +64,7 @@ class SharedResourceIdPatch : ResourcePatch {
         var ReelPlayerPausedStateButton: Long = -1
         var ReelRightDislikeIcon: Long = -1
         var ReelRightLikeIcon: Long = -1
+        var ReelTimeBarPlayedColor: Long = -1
         var RelatedChipCloudMargin: Long = -1
         var RightComment: Long = -1
         var ScrimOverlay: Long = -1
@@ -137,6 +138,7 @@ class SharedResourceIdPatch : ResourcePatch {
         ReelPlayerPausedStateButton = find(ID, "reel_player_paused_state_buttons")
         ReelRightDislikeIcon = find(DRAWABLE, "reel_right_dislike_icon")
         ReelRightLikeIcon = find(DRAWABLE, "reel_right_like_icon")
+        ReelTimeBarPlayedColor = find(COLOR, "reel_time_bar_played_color")
         RelatedChipCloudMargin = find(LAYOUT, "related_chip_cloud_reduced_margins")
         RightComment = find(DRAWABLE, "ic_right_comment_32c")
         ScrimOverlay = find(ID, "scrim_overlay")
