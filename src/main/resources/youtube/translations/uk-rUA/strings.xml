@@ -24,24 +24,24 @@
     <string name="revanced_custom_filter_summary_off">Користувацький фільтр вимкнено</string>
     <string name="revanced_custom_filter_summary_on">Користувацький фільтр увімкнено</string>
     <string name="revanced_custom_filter_title">Увімкнути користувацький фільтр</string>
+    <string name="revanced_custom_playback_speeds_invalid">Неправильні користувацькі швидкості відтворення. Скинуто до значень за замовчуванням.</string>
+    <string name="revanced_custom_playback_speeds_warning" formatted="false">Користувацькі швидкості повинні бути менше ніж %sx. Скинуто до значень за замовчуванням.</string>
+    <string name="revanced_custom_playback_speeds_summary">Додати або змінити доступні швидкості відтворення</string>
+    <string name="revanced_custom_playback_speeds_title">Редагувати користувацькі швидкості відтворення</string>
     <string name="revanced_custom_seekbar_color_value_summary">Введіть hex код кольору рядка перемотки</string>
     <string name="revanced_custom_seekbar_color_value_title">Користувацьке значення кольору панелі прогресу</string>
-    <string name="revanced_custom_video_speeds_invalid">Неправильні користувацькі швидкості відео. Скинуто до значень за замовчуванням.</string>
-    <string name="revanced_custom_video_speeds_warning" formatted="false">Користувацькі швидкості повинні бути менше ніж %sx. Скинуто до значень за замовчуванням.</string>
-    <string name="revanced_custom_video_speeds_summary">Додати або змінити доступні швидкості відео</string>
-    <string name="revanced_custom_video_speeds_title">Редагувати користувацькі швидкості відео</string>
     <string name="revanced_default_app_settings_summary">Щоб відкрити RVX у зовнішньому браузері, увімкніть \"Відкривати підтримувані посилання\" та увімкніть підтримувані веб-адреси</string>
     <string name="revanced_default_app_settings_title">Відкрити налаштування за замовчуванням</string>
+    <string name="revanced_default_playback_speed_title">Стандартна швидкість відтворення</string>
     <string name="revanced_default_video_quality_mobile_title">Типова якість відео в мобільній мережі</string>
     <string name="revanced_default_video_quality_wifi_title">Типова якість відео в Wi-Fi мережі</string>
-    <string name="revanced_default_video_speed_title">Типова швидкість відео</string>
     <string name="revanced_description_title">Опис</string>
     <string name="revanced_disable_auto_captions_summary_off">Примусові авто субтитри увімкнено</string>
     <string name="revanced_disable_auto_captions_summary_on">Примусові авто субтитри вимкнено</string>
     <string name="revanced_disable_auto_captions_title">Вимкнути примусові авто субтитри</string>
-    <string name="revanced_disable_default_video_speed_live_summary_off">Типову швидкість відео увімкнено в прямих трансляціях</string>
-    <string name="revanced_disable_default_video_speed_live_summary_on">Типову швидкість відео вимкнено в прямих трансляціях</string>
-    <string name="revanced_disable_default_video_speed_live_title">Вимкнути швидкість відео в прямих трансляціях</string>
+    <string name="revanced_disable_default_playback_speed_live_summary_off">Стандартну швидкість відтворення увімкнено в прямих трансляціях</string>
+    <string name="revanced_disable_default_playback_speed_live_summary_on">Стандартну швидкість відтворення вимкнено в прямих трансляціях</string>
+    <string name="revanced_disable_default_playback_speed_live_title">Вимкнути швидкість відтворення в прямих трансляціях</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">Вібрацію при зміні розділу увімкнено</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">Вібрацію при зміні розділу вимкнено</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">Вимкнути вібрацію при зміні розділу</string>
@@ -76,9 +76,9 @@
     <string name="revanced_enable_custom_seekbar_color_summary_off">Користувацький колір панелі прогресу вимкнено</string>
     <string name="revanced_enable_custom_seekbar_color_summary_on">Користувацький колір панелі прогресу увімкнено</string>
     <string name="revanced_enable_custom_seekbar_color_title">Увімкнути користувацький колір рядка перемотки</string>
-    <string name="revanced_enable_custom_video_speed_summary_off">Користувацьку швидкість відео вимкнено</string>
-    <string name="revanced_enable_custom_video_speed_summary_on">Користувацьку швидкість відео увімкнено</string>
-    <string name="revanced_enable_custom_video_speed_title">Увімкнути користувацьку швидкість відео</string>
+    <string name="revanced_enable_custom_playback_speed_summary_off">Користувацьку швидкість відтворення вимкнено</string>
+    <string name="revanced_enable_custom_playback_speed_summary_on">Користувацьку швидкість відтворення увімкнено</string>
+    <string name="revanced_enable_custom_playback_speed_title">Увімкнути користувацьку швидкість відтворення</string>
     <string name="revanced_enable_debug_logging_summary_off">Журнали налагодження вимкнено</string>
     <string name="revanced_enable_debug_logging_summary_on">Журнали налагодження увімкнено</string>
     <string name="revanced_enable_debug_logging_title">Увімкнути журнал налагодження</string>
@@ -111,12 +111,12 @@
     <string name="revanced_enable_save_brightness_summary_off">Не зберігається та відновлюється яскравість при виході або на повноекранний режим</string>
     <string name="revanced_enable_save_brightness_summary_on">Зберігається та відновлюється яскравість при виході або на повноекранний режим</string>
     <string name="revanced_enable_save_brightness_title">Увімкнути збереження та відновлення яскравості</string>
+    <string name="revanced_enable_save_playback_speed_summary_off">Не зберігається значення швидкості відтворення навіть при зміні швидкості відтворення</string>
+    <string name="revanced_enable_save_playback_speed_summary_on">Зберігається значення швидкості відтворення щоразу, коли змінюється швидкість відтворення</string>
+    <string name="revanced_enable_save_playback_speed_title">Увімкнути збереження швидкості відтворення</string>
     <string name="revanced_enable_save_video_quality_summary_off">Не зберігається значення якості відео навіть у разі зміни якості відео</string>
     <string name="revanced_enable_save_video_quality_summary_on">Зберігається значення якості відео щоразу, коли змінюється якість відео</string>
     <string name="revanced_enable_save_video_quality_title">Увімкнути збереження якості відео</string>
-    <string name="revanced_enable_save_video_speed_summary_off">Не зберігає значення швидкості відео навіть при зміні швидкості відео</string>
-    <string name="revanced_enable_save_video_speed_summary_on">Зберігає значення швидкості відео щоразу, коли змінюється швидкість відео</string>
-    <string name="revanced_enable_save_video_speed_title">Увімкнути збереження швидкості відео</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">Натискання на рядок прогресу для перемотування відео вимкнено</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">Натискання на рядок прогресу для перемотування відео увімкнено</string>
     <string name="revanced_enable_seekbar_tapping_title">Увімкнути натискання на рядок прогресу</string>
@@ -165,6 +165,7 @@
     <string name="revanced_fullscreen">Повноекранний режим</string>
     <string name="revanced_general">Загальні</string>
     <string name="revanced_haptic_feedback_title">Вібровідгук</string>
+    <string name="revanced_hide_account_menu_summary">Відома проблема: Може не працювати в ландшафтному режимі або на пристроях з великим dpi</string>
     <string name="revanced_hide_account_menu_title">Приховати меню акаунту</string>
     <string name="revanced_hide_account_menu_filter_strings_title">Редагувати фільтр меню облікового запису</string>
     <string name="revanced_hide_action_buttons_summary_off">Кнопки дії показуються</string>
@@ -253,9 +254,9 @@
     <string name="revanced_hide_collapse_button_summary_off">Кнопка згортування показано</string>
     <string name="revanced_hide_collapse_button_summary_on">Кнопка згортування прихована</string>
     <string name="revanced_hide_collapse_button_title">Приховати кнопку згортування</string>
-    <string name="revanced_hide_comments_section_summary_off">Розділ коментарів показується</string>
-    <string name="revanced_hide_comments_section_summary_on">Розділ коментарів приховано</string>
-    <string name="revanced_hide_comments_section_title">Приховати розділ коментарів</string>
+    <string name="revanced_hide_comments_section_summary_off">Секцію коментарів показується</string>
+    <string name="revanced_hide_comments_section_summary_on">Секцію коментарів приховано</string>
+    <string name="revanced_hide_comments_section_title">Приховати секцію коментарів</string>
     <string name="revanced_hide_community_posts_home_summary_off">Публікації спільноти в домашній стрічці показуються</string>
     <string name="revanced_hide_community_posts_home_summary_on">Публікації спільноти в домашній стрічці приховано</string>
     <string name="revanced_hide_community_posts_home_title">Приховати публікації спільноти в домашній стрічці</string>
@@ -299,8 +300,8 @@
     <string name="revanced_hide_fullscreen_panels_summary_off">Повноекранні панелі показуються</string>
     <string name="revanced_hide_fullscreen_panels_summary_on">Повноекранні панелі приховано</string>
     <string name="revanced_hide_fullscreen_panels_title">Приховати повноекранні панелі</string>
-    <string name="revanced_hide_game_section_summary_off">Ігрові розділи показуються</string>
-    <string name="revanced_hide_game_section_summary_on">Ігрові розділи приховано</string>
+    <string name="revanced_hide_game_section_summary_off">Ігрові секції показуються</string>
+    <string name="revanced_hide_game_section_summary_on">Ігрові секції приховано</string>
     <string name="revanced_hide_game_section_title">Приховати секції гри</string>
     <string name="revanced_hide_general_ads_summary_off">Загальна реклама показується</string>
     <string name="revanced_hide_general_ads_summary_on">Загальна реклама прихована</string>
@@ -353,9 +354,9 @@
     <string name="revanced_hide_movie_shelf_summary_off">Полиці фільмів показуються</string>
     <string name="revanced_hide_movie_shelf_summary_on">Полиці фільмів приховано</string>
     <string name="revanced_hide_movie_shelf_title">Приховати полицю фільмів</string>
-    <string name="revanced_hide_music_section_summary_off">Розділи музики показуються</string>
-    <string name="revanced_hide_music_section_summary_on">Розділи музики приховано</string>
-    <string name="revanced_hide_music_section_title">Приховати розділи музики</string>
+    <string name="revanced_hide_music_section_summary_off">Секції музики показуються</string>
+    <string name="revanced_hide_music_section_summary_on">Секції музики приховано</string>
+    <string name="revanced_hide_music_section_title">Приховати секції музики</string>
     <string name="revanced_hide_navigation_label_summary_off">Навігаційна мітка показується</string>
     <string name="revanced_hide_navigation_label_summary_on">Навігаційна мітка прихована</string>
     <string name="revanced_hide_navigation_label_title">Приховати мітки на панелі навігації</string>
@@ -365,9 +366,9 @@
     <string name="revanced_hide_paid_promotion_banner_summary_off">Сповіщення Містить пряму рекламу показується</string>
     <string name="revanced_hide_paid_promotion_banner_summary_on">Сповіщення Містить пряму рекламу приховано</string>
     <string name="revanced_hide_paid_promotion_banner_title">Приховати сповіщення Містить пряму рекламу</string>
-    <string name="revanced_hide_place_section_summary_off">Розділи місць показуються</string>
-    <string name="revanced_hide_place_section_summary_on">Розділи місць приховано</string>
-    <string name="revanced_hide_place_section_title">Приховати розділи місць</string>
+    <string name="revanced_hide_place_section_summary_off">Секції місць показуються</string>
+    <string name="revanced_hide_place_section_summary_on">Секції місць приховано</string>
+    <string name="revanced_hide_place_section_title">Приховати секції місць</string>
     <string name="revanced_hide_player_button_background_summary_off">Фон кнопки плеєра показується</string>
     <string name="revanced_hide_player_button_background_summary_on">Фон кнопки плеєра прихований</string>
     <string name="revanced_hide_player_button_background_title">Приховати фон кнопки плеєра</string>
@@ -446,7 +447,7 @@
     <string name="revanced_hide_shorts_button_summary_off">Кнопка Shorts показується</string>
     <string name="revanced_hide_shorts_button_summary_on">Кнопка Shorts прихована</string>
     <string name="revanced_hide_shorts_button_title">Приховати кнопку Shorts</string>
-    <string name="revanced_hide_shorts_component_summary">Приховує розділ Shorts або компонент програвача Shorts</string>
+    <string name="revanced_hide_shorts_component_summary">Приховує секцію Shorts або компонент програвача Shorts</string>
     <string name="revanced_hide_shorts_component_title">Приховати компонент шортів</string>
     <string name="revanced_hide_shorts_player_navigation_bar_summary_off">Панель навігації показується</string>
     <string name="revanced_hide_shorts_player_navigation_bar_summary_on">Панель навігації приховано</string>
@@ -482,6 +483,9 @@
 - Покупки
 - Переглянути ще раз"</string>
     <string name="revanced_hide_suggestions_shelf_title">Приховати полицю пропозицій</string>
+    <string name="revanced_hide_suggested_video_overlay_summary">"Приховує запропоновані відео для наступного відтворення
+Відома проблема: автовідтворення не працює"</string>
+    <string name="revanced_hide_suggested_video_overlay_title">Приховати пропоновані відео</string>
     <string name="revanced_hide_ticket_shelf_summary_off">Полиці квитків показуються</string>
     <string name="revanced_hide_ticket_shelf_summary_on">Полиці квитків приховано</string>
     <string name="revanced_hide_ticket_shelf_title">Приховати полицю квитків</string>
@@ -491,9 +495,9 @@
     <string name="revanced_hide_time_stamp_summary_off">Мітка часу показується</string>
     <string name="revanced_hide_time_stamp_summary_on">Мітка часу прихована</string>
     <string name="revanced_hide_time_stamp_title">Приховати мітку часу</string>
-    <string name="revanced_hide_transcript_section_summary_off">Розділи транскрипту показуються</string>
-    <string name="revanced_hide_transcript_section_summary_on">Розділи транскрипту приховано</string>
-    <string name="revanced_hide_transcript_section_title">Приховати розділи транскрипту</string>
+    <string name="revanced_hide_transcript_section_summary_off">Секції транскрипту показуються</string>
+    <string name="revanced_hide_transcript_section_summary_on">Секції транскрипту приховано</string>
+    <string name="revanced_hide_transcript_section_title">Приховати секції транскрипту</string>
     <string name="revanced_hide_trending_searches_summary_off">Популярні пошуки показуються</string>
     <string name="revanced_hide_trending_searches_summary_on">Популярні пошуки приховано</string>
     <string name="revanced_hide_trending_searches_title">Приховати популярні пошуки</string>
@@ -530,9 +534,9 @@
     <string name="revanced_overlay_button_copy_video_url_timestamp_title">Показати кнопку копіювання URL із міткою часу</string>
     <string name="revanced_overlay_button_external_downloader_summary">Натисніть для запуску зовнішнього завантажувача</string>
     <string name="revanced_overlay_button_external_downloader_title">Показувати кнопку зовнішнього завантаження</string>
-    <string name="revanced_overlay_button_speed_dialog_reset">Швидкість відео скинута (1.0x)</string>
+    <string name="revanced_overlay_button_speed_dialog_reset">Швидкість відтворення скинуто (1.0х)</string>
     <string name="revanced_overlay_button_speed_dialog_summary">"Натисніть, щоб відкрити діалог швидкості
-Натисніть і утримуйте, щоб встановити швидкість відео на 1.0x"</string>
+Натисніть і утримуйте, щоб встановити швидкість відтворення 1.0x"</string>
     <string name="revanced_overlay_button_speed_dialog_title">Показувати кнопку Діалог швидкості</string>
     <string name="revanced_override_premium_header_summary_off">Поточний заголовок: Стандартний</string>
     <string name="revanced_override_premium_header_summary_on">Поточний заголовок: Преміум</string>
@@ -573,10 +577,10 @@
     <string name="revanced_ryd_shorts_summary_on">Не подобається показуються на Шортах</string>
     <string name="revanced_ryd_shorts_title">Показувати Не подобається на Шортах</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Приховано</string>
+    <string name="revanced_save_playback_speed">Зміна стандартної швидкості на:</string>
     <string name="revanced_save_video_quality_mobile">Зміна стандартної якості відео при мобільному з\'єднанні на:</string>
     <string name="revanced_save_video_quality_none">Не вдалося встановити якість</string>
     <string name="revanced_save_video_quality_wifi">Зміна стандартної якості відео для Wi-Fi на:</string>
-    <string name="revanced_save_video_speed">Зміна стандартної швидкості відео на:</string>
     <string name="revanced_seekbar">Панель прогресу</string>
     <string name="revanced_shorts">Шорти</string>
     <string name="revanced_shorts_player_title">Плеєр коротких відео</string>
@@ -682,7 +686,7 @@
     <string name="sb_segments_sponsor">Спонсор</string>
     <string name="sb_segments_sponsor_sum">Рекламні інтеграції, реферальні посилання і пряма реклама. Не для самореклами або рекомендацій різних подій/творців/сайтів/продуктів, які подобаються автору відео</string>
     <string name="sb_segments_selfpromo">Неоплачувана/Самореклама</string>
-    <string name="sb_segments_selfpromo_sum">Подібно до \"Спонсор\", за винятком неоплачуваної або самореклами. Включає розділи про товари, пожертви або інформацію про те, з ким вони співпрацювали</string>
+    <string name="sb_segments_selfpromo_sum">Подібно до \"Спонсор\", за винятком неоплачуваної або самореклами. Включає секції про товари, пожертви або інформацію про те, з ким вони співпрацювали</string>
     <string name="sb_segments_interaction">Нагадування про взаємодію (Підписка)</string>
     <string name="sb_segments_interaction_sum">Коротке нагадування про вподобання, підписку або підписку посеред контенту. Якщо воно довге або про щось конкретне, його слід розмістити в розділі самореклами</string>
     <string name="sb_segments_highlight">Основний момент</string>
@@ -695,7 +699,7 @@
     <string name="sb_segments_preview_sum">Колекція кліпів, які показують, що відбувається або що сталося у відео чи в інших відео серій, де вся інформація повторюється в іншому місці</string>
     <string name="sb_segments_filler">Дотичне наповнення/Жарти</string>
     <string name="sb_segments_filler_sum">Дотичні сцени, додані лише для наповнення або гумору, які не є необхідними для розуміння основного змісту відео. Не включає сегменти, що надають контекст або фонові деталі</string>
-    <string name="sb_segments_nomusic">Музика: Немузичний розділ</string>
+    <string name="sb_segments_nomusic">Музика: Немузична секція</string>
     <string name="sb_segments_nomusic_sum">Тільки для використання в музичних відео. Секції музичних відео без музики, які не підпадають під іншу категорію</string>
     <string name="sb_skip_button_compact">Пропустити</string>
     <string name="sb_skip_button_compact_highlight">Основний момент</string>
@@ -717,7 +721,7 @@
     <string name="sb_skipped_outro">Пропущено закінчення</string>
     <string name="sb_skipped_preview_beginning">Пропущено перед перегляд</string>
     <string name="sb_skipped_filler">Пропущено вставку</string>
-    <string name="sb_skipped_nomusic">Пропущено розділ без музики</string>
+    <string name="sb_skipped_nomusic">Пропущено секцію без музики</string>
     <string name="sb_skipped_unsubmitted">Пропущено не надісланий сегмент</string>
     <string name="sb_skipped_multiple_segments">Пропущено декілька сегментів</string>
     <string name="sb_skip_automatically">Пропустити автоматично</string>

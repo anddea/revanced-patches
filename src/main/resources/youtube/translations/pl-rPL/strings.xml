@@ -24,24 +24,24 @@
     <string name="revanced_custom_filter_summary_off">Wyłączony</string>
     <string name="revanced_custom_filter_summary_on">Włączony</string>
     <string name="revanced_custom_filter_title">Własny filtr</string>
+    <string name="revanced_custom_playback_speeds_invalid">Nieprawidłowe niestandardowe prędkości odtwarzania. Przywróć domyślne wartości.</string>
+    <string name="revanced_custom_playback_speeds_warning" formatted="false">Niestandardowe prędkości muszą by mniejsze niż %sx. Przywróć domyślne wartości.</string>
+    <string name="revanced_custom_playback_speeds_summary">Dodaj lub zmień dostępne prędkości odtwarzania</string>
+    <string name="revanced_custom_playback_speeds_title">Edytuj niestandardowe prędkości odtwarzania</string>
     <string name="revanced_custom_seekbar_color_value_summary">Wpisz kod hex koloru paska wideo</string>
     <string name="revanced_custom_seekbar_color_value_title">Niestandardowy kolor paska wideo</string>
-    <string name="revanced_custom_video_speeds_invalid">Nieprawidłowe niestandardowe prędkości wideo. Przywróć domyślne wartości.</string>
-    <string name="revanced_custom_video_speeds_warning" formatted="false">Niestandardowe prędkości muszą by mniejsze niż %sx. Przywróć domyślne wartości.</string>
-    <string name="revanced_custom_video_speeds_summary">Dodaj lub zmień dostępne prędkości wideo</string>
-    <string name="revanced_custom_video_speeds_title">Edytuj niestandardowe prędkości wideo</string>
     <string name="revanced_default_app_settings_summary">Aby otwierać aplikację YouTube używając linków, włącz \"Otwórz wspierane linki\" i wspierane linki</string>
     <string name="revanced_default_app_settings_title">Otwórz systemowe ustawienia aplikacji</string>
+    <string name="revanced_default_playback_speed_title">Domyślna prędkość odtwarzania</string>
     <string name="revanced_default_video_quality_mobile_title">Domyślna jakość wideo podczas używania sieci mobilnej</string>
     <string name="revanced_default_video_quality_wifi_title">Domyślna jakość wideo podczas używania Wi-Fi</string>
-    <string name="revanced_default_video_speed_title">Domyślna prędkość wideo</string>
     <string name="revanced_description_title">Opis</string>
     <string name="revanced_disable_auto_captions_summary_off">Włączone</string>
     <string name="revanced_disable_auto_captions_summary_on">Wyłączone</string>
     <string name="revanced_disable_auto_captions_title">Wymuszone napisy</string>
-    <string name="revanced_disable_default_video_speed_live_summary_off">Włączona</string>
-    <string name="revanced_disable_default_video_speed_live_summary_on">Wyłączona</string>
-    <string name="revanced_disable_default_video_speed_live_title">Domyślna prędkość wideo podczas transmisji na żywo</string>
+    <string name="revanced_disable_default_playback_speed_live_summary_off">Włączona</string>
+    <string name="revanced_disable_default_playback_speed_live_summary_on">Wyłączona</string>
+    <string name="revanced_disable_default_playback_speed_live_title">Domyślna prędkość odtwarzania podczas transmisji na żywo</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">Włączone</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">Wyłączone</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">Wibracje podczas zmieniania rozdziału</string>
@@ -76,9 +76,9 @@
     <string name="revanced_enable_custom_seekbar_color_summary_off">Niewidoczny</string>
     <string name="revanced_enable_custom_seekbar_color_summary_on">Widoczny</string>
     <string name="revanced_enable_custom_seekbar_color_title">Niestandardowy kolor paska wideo</string>
-    <string name="revanced_enable_custom_video_speed_summary_off">Wyłączona</string>
-    <string name="revanced_enable_custom_video_speed_summary_on">Włączona</string>
-    <string name="revanced_enable_custom_video_speed_title">Niestandardowa prędkość wideo</string>
+    <string name="revanced_enable_custom_playback_speed_summary_off">Wyłączona</string>
+    <string name="revanced_enable_custom_playback_speed_summary_on">Włączona</string>
+    <string name="revanced_enable_custom_playback_speed_title">Niestandardowa prędkość odtwarzania</string>
     <string name="revanced_enable_debug_logging_summary_off">Nie zapisywane</string>
     <string name="revanced_enable_debug_logging_summary_on">Zapisywane</string>
     <string name="revanced_enable_debug_logging_title">Logi do debugowania</string>
@@ -111,12 +111,12 @@
     <string name="revanced_enable_save_brightness_summary_off">Nie</string>
     <string name="revanced_enable_save_brightness_summary_on">Tak</string>
     <string name="revanced_enable_save_brightness_title">Zapisuj i przywracaj jasność podczas zamykania lub wchodzenia w tryb pełnoekranowy</string>
+    <string name="revanced_enable_save_playback_speed_summary_off">Nie nadpisuje domyślnej prędkości odtwarzania nawet przy zmianie prędkości odtwarzania</string>
+    <string name="revanced_enable_save_playback_speed_summary_on">Zapisuje wybraną prędkość odtwarzania jako domyślną za każdym razem, gdy ją zmienisz</string>
+    <string name="revanced_enable_save_playback_speed_title">Zapisywanie prędkości odtwarzania</string>
     <string name="revanced_enable_save_video_quality_summary_off">Nie nadpisuje domyślnej jakości wideo nawet przy zmianie jakości</string>
     <string name="revanced_enable_save_video_quality_summary_on">Zapisuje wybraną jakość wideo jako domyślną za każdym razem, gdy ją zmienisz</string>
     <string name="revanced_enable_save_video_quality_title">Zapisywanie jakości wideo</string>
-    <string name="revanced_enable_save_video_speed_summary_off">Nie nadpisuje domyślnej prędkości nawet przy zmianie prędkości</string>
-    <string name="revanced_enable_save_video_speed_summary_on">Zapisuje wybraną prędkość jako domyślną za każdym razem, gdy ją zmienisz</string>
-    <string name="revanced_enable_save_video_speed_title">Zapisywanie prędkości wideo</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">Wyłączone</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">Włączone</string>
     <string name="revanced_enable_seekbar_tapping_title">Stukanie w pasek wideo</string>
@@ -165,6 +165,7 @@
     <string name="revanced_fullscreen">Pełny ekran</string>
     <string name="revanced_general">Ogólne</string>
     <string name="revanced_haptic_feedback_title">Wibracje</string>
+    <string name="revanced_hide_account_menu_summary">Znany problem: Może nie działać w trybie poziomym lub na urządzeniach z dużym dpi</string>
     <string name="revanced_hide_account_menu_title">Menu konta</string>
     <string name="revanced_hide_account_menu_filter_strings_title">Edytuj menu konta</string>
     <string name="revanced_hide_action_buttons_summary_off">Widoczne</string>
@@ -482,6 +483,9 @@ Działa tylko na wersji YouTube v18.24.37 i wyższych"</string>
 - od kupowania
 - z wideo, które obejrzałeś"</string>
     <string name="revanced_hide_suggestions_shelf_title">Półki z sugestiami</string>
+    <string name="revanced_hide_suggested_video_overlay_summary">"Ukrywa rekomendacje wideo na końcach wideo
+Znany problem: automatyczne odtwarzanie nie działa"</string>
+    <string name="revanced_hide_suggested_video_overlay_title">Rekomendacje YouTube na końcach wideo</string>
     <string name="revanced_hide_ticket_shelf_summary_off">Widoczne</string>
     <string name="revanced_hide_ticket_shelf_summary_on">Ukryte</string>
     <string name="revanced_hide_ticket_shelf_title">Półki z biletami</string>
@@ -530,9 +534,9 @@ Stuknij i przytrzymaj, by skopiować czas wideo"</string>
     <string name="revanced_overlay_button_copy_video_url_timestamp_title">Przycisk od kopiowania URL wideo z czasem</string>
     <string name="revanced_overlay_button_external_downloader_summary">Stuknij, by otworzyć aplikacje od pobierania</string>
     <string name="revanced_overlay_button_external_downloader_title">Przycisk od pobierania</string>
-    <string name="revanced_overlay_button_speed_dialog_reset">Prędkość wideo została zresetowana (1.0x)</string>
-    <string name="revanced_overlay_button_speed_dialog_summary">"Stuknij, by zmienić prędkość
-Stuknij i przytrzymaj, by zmienić prędkość na 1.0x"</string>
+    <string name="revanced_overlay_button_speed_dialog_reset">Prędkość odtwarzania została zresetowana (1.0x)</string>
+    <string name="revanced_overlay_button_speed_dialog_summary">"Stuknij, by zmienić prędkość odtwarzania
+Stuknij i przytrzymaj, by zmienić prędkość odtwarzania na 1.0x"</string>
     <string name="revanced_overlay_button_speed_dialog_title">Przycisk od prędkości</string>
     <string name="revanced_override_premium_header_summary_off">Obecne Logo: Domyślne</string>
     <string name="revanced_override_premium_header_summary_on">Obecne Logo: Premium</string>
@@ -573,10 +577,10 @@ To ustawienie może nie zadziałać"</string>
     <string name="revanced_ryd_shorts_summary_on">Widoczna</string>
     <string name="revanced_ryd_shorts_title">Liczba łapek w dół w odtwarzaczu Shortów</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Ukryte</string>
+    <string name="revanced_save_playback_speed">Zmienianie domyślnej prędkości na:</string>
     <string name="revanced_save_video_quality_mobile">Zmienianie domyślnej jakości podczas używania danych mobilnych na:</string>
     <string name="revanced_save_video_quality_none">Jakość nie została ustawiona</string>
     <string name="revanced_save_video_quality_wifi">Zmienianie domyślnej jakości podczas używania Wi-Fi na:</string>
-    <string name="revanced_save_video_speed">Zmienianie domyślnej prędkości na:</string>
     <string name="revanced_seekbar">Pasek wideo</string>
     <string name="revanced_shorts">Shorty</string>
     <string name="revanced_shorts_player_title">Odtwarzacz shortów</string>

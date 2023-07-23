@@ -26,22 +26,14 @@
     <string name="revanced_custom_filter_title">Пользовательский фильтр</string>
     <string name="revanced_custom_seekbar_color_value_summary">Введите HEX код цвета прогресса воспроизведения</string>
     <string name="revanced_custom_seekbar_color_value_title">Пользовательское значение цвета</string>
-    <string name="revanced_custom_video_speeds_invalid">Недопустимые пользовательские скорости видео. Сброс к значениям по умолчанию</string>
-    <string name="revanced_custom_video_speeds_warning" formatted="false">Пользовательские скорости должны быть меньше %sx. Сброс к значениям по умолчанию</string>
-    <string name="revanced_custom_video_speeds_summary">Добавить или изменить доступные скорости видео</string>
-    <string name="revanced_custom_video_speeds_title">Пользовательские скорости видео</string>
     <string name="revanced_default_app_settings_summary">Для открытия RVX из внешнего браузера активируйте функцию \"Открытие поддерживаемых ссылок\" и включите поддерживаемые веб-адреса в настройках системы</string>
     <string name="revanced_default_app_settings_title">Приложение по умолчанию</string>
     <string name="revanced_default_video_quality_mobile_title">Качество видео для мобильной сети</string>
     <string name="revanced_default_video_quality_wifi_title">Качество видео для Wi-Fi сети</string>
-    <string name="revanced_default_video_speed_title">Скорость воспроизведения</string>
     <string name="revanced_description_title">Описание</string>
     <string name="revanced_disable_auto_captions_summary_off">Принудительные автоматические субтитры включены</string>
     <string name="revanced_disable_auto_captions_summary_on">Принудительные автоматические субтитры отключены</string>
     <string name="revanced_disable_auto_captions_title">Принудительные субтитры</string>
-    <string name="revanced_disable_default_video_speed_live_summary_off">Значение скорости воспроизведения видео по умолчанию в стримах включено</string>
-    <string name="revanced_disable_default_video_speed_live_summary_on">Значение скорости воспроизведения видео по умолчанию в стримах отключено</string>
-    <string name="revanced_disable_default_video_speed_live_title">Скорость воспроизведения в стримах</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">Виброотклик при смене главы видео включен</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">Виброотклик при смене главы видео отключен</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">Смена главы видео</string>
@@ -76,9 +68,6 @@
     <string name="revanced_enable_custom_seekbar_color_summary_off">Пользовательский цвет прогресса воспроизведения отключен</string>
     <string name="revanced_enable_custom_seekbar_color_summary_on">Пользовательский цвет прогресса воспроизведения включен</string>
     <string name="revanced_enable_custom_seekbar_color_title">Пользовательский цвет</string>
-    <string name="revanced_enable_custom_video_speed_summary_off">Пользовательская скорость воспроизведения видео отключена</string>
-    <string name="revanced_enable_custom_video_speed_summary_on">Пользовательская скорость воспроизведения видео включена</string>
-    <string name="revanced_enable_custom_video_speed_title">Пользовательская скорость видео</string>
     <string name="revanced_enable_debug_logging_summary_off">Журналы отладки отключены</string>
     <string name="revanced_enable_debug_logging_summary_on">Журналы отладки включены</string>
     <string name="revanced_enable_debug_logging_title">Ведение журналов отладки</string>
@@ -114,9 +103,6 @@
     <string name="revanced_enable_save_video_quality_summary_off">Значения качества воспроизведения видео при изменении не сохраняются</string>
     <string name="revanced_enable_save_video_quality_summary_on">Значения качества воспроизведения видео при изменении сохраняются</string>
     <string name="revanced_enable_save_video_quality_title">Сохранение качества видео</string>
-    <string name="revanced_enable_save_video_speed_summary_off">Значения скорости воспроизведения видео при изменении не сохраняются</string>
-    <string name="revanced_enable_save_video_speed_summary_on">Значения скорости воспроизведения видео при изменении сохраняются</string>
-    <string name="revanced_enable_save_video_speed_title">Сохранение скорости видео</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">Перемотка нажатием на прогресс воспроизведения отключена</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">Перемотка нажатием на прогресс воспроизведения включена</string>
     <string name="revanced_enable_seekbar_tapping_title">Перемотка нажатием</string>
@@ -165,6 +151,7 @@
     <string name="revanced_fullscreen">Полноэкранный режим</string>
     <string name="revanced_general">Основные</string>
     <string name="revanced_haptic_feedback_title">Виброотклик</string>
+    <string name="revanced_hide_account_menu_summary">Известная проблема: может не работать в ландшафтном режиме или на устройствах с высоким DPI</string>
     <string name="revanced_hide_account_menu_title">Меню аккаунта</string>
     <string name="revanced_hide_account_menu_filter_strings_title">Фильтр меню учетной записи</string>
     <string name="revanced_hide_action_buttons_summary_off">Кнопки действий отображены</string>
@@ -530,9 +517,6 @@
     <string name="revanced_overlay_button_copy_video_url_timestamp_title">Копирование URL отметки времени</string>
     <string name="revanced_overlay_button_external_downloader_summary">Нажмите для запуска внешнего загрузчика</string>
     <string name="revanced_overlay_button_external_downloader_title">Внешний загрузчик</string>
-    <string name="revanced_overlay_button_speed_dialog_reset">Скорость видео сброшена (1.0x)</string>
-    <string name="revanced_overlay_button_speed_dialog_summary">"Нажмите для открытия выбора скорости
-Нажмите и удерживайте для установки скорости видео в 1.0x"</string>
     <string name="revanced_overlay_button_speed_dialog_title">Кнопка выбора скорости</string>
     <string name="revanced_override_premium_header_summary_off">Текущий заголовок - \"YouTube\"</string>
     <string name="revanced_override_premium_header_summary_on">Текущий заголовок - \"Premium\"</string>
@@ -576,7 +560,6 @@
     <string name="revanced_save_video_quality_mobile">Изменить качество видео для мобильных сетей на:</string>
     <string name="revanced_save_video_quality_none">Не удалось установить качество</string>
     <string name="revanced_save_video_quality_wifi">Изменить качество видео для Wi-Fi сетей на:</string>
-    <string name="revanced_save_video_speed">Изменить скорость воспроизведения на:</string>
     <string name="revanced_seekbar">Прогресс воспроизведения</string>
     <string name="revanced_shorts">Shorts</string>
     <string name="revanced_shorts_player_title">Плеер \"Shorts\"</string>

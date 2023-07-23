@@ -26,22 +26,14 @@
     <string name="revanced_custom_filter_title">Ativar filtro personalizado</string>
     <string name="revanced_custom_seekbar_color_value_summary">Digite o código hexadecimal da cor da barra de pesquisa</string>
     <string name="revanced_custom_seekbar_color_value_title">Valor de cor personalizado da barra de progresso</string>
-    <string name="revanced_custom_video_speeds_invalid">Velocidade de vídeo personalizada inválida. Redefina os valores padrão.</string>
-    <string name="revanced_custom_video_speeds_warning" formatted="false">Velocidades personalizadas devem ser menores que %sx. Redefinir aos valores padrão.</string>
-    <string name="revanced_custom_video_speeds_summary">Adicionar ou alterar as velocidades de vídeo disponíveis</string>
-    <string name="revanced_custom_video_speeds_title">Editar velocidades de vídeo personalizadas</string>
     <string name="revanced_default_app_settings_summary">Para abrir o RVX em um navegador externo, ative \'Abrir links suportados\' e ative os endereços web suportados</string>
     <string name="revanced_default_app_settings_title">Abrir configurações padrão do aplicativo</string>
     <string name="revanced_default_video_quality_mobile_title">Qualidade de vídeo padrão nos dados móveis</string>
     <string name="revanced_default_video_quality_wifi_title">Qualidade de vídeo padrão no Wi-Fi</string>
-    <string name="revanced_default_video_speed_title">Velocidade de vídeo padrão</string>
     <string name="revanced_description_title">Descrição</string>
     <string name="revanced_disable_auto_captions_summary_off">Legendas automáticas forçadas estão ativadas</string>
     <string name="revanced_disable_auto_captions_summary_on">Legendas automáticas forçadas estão desativadas</string>
     <string name="revanced_disable_auto_captions_title">Desativar legendas automáticas forçada</string>
-    <string name="revanced_disable_default_video_speed_live_summary_off">A velocidade de vídeo padrão está ativada na transmissão ao vivo</string>
-    <string name="revanced_disable_default_video_speed_live_summary_on">A velocidade de vídeo padrão está desativada na transmissão ao vivo</string>
-    <string name="revanced_disable_default_video_speed_live_title">Desative a velocidade do vídeo na transmissão ao vivo</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">O retorno tátil de capítulos está ativado</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">O retorno tátil de capítulos está desativado</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">Desativar retorno tátil de capítulos</string>
@@ -76,9 +68,6 @@
     <string name="revanced_enable_custom_seekbar_color_summary_off">Cor personalizada da barra de progresso está desativada</string>
     <string name="revanced_enable_custom_seekbar_color_summary_on">A cor personalizada da barra de progresso está ativada</string>
     <string name="revanced_enable_custom_seekbar_color_title">Ativar cor personalizada da barra de busca</string>
-    <string name="revanced_enable_custom_video_speed_summary_off">Velocidade de vídeo personalizada está desativada</string>
-    <string name="revanced_enable_custom_video_speed_summary_on">A velocidade de vídeo personalizada está ativada</string>
-    <string name="revanced_enable_custom_video_speed_title">Ativar velocidade de vídeo personalizada</string>
     <string name="revanced_enable_debug_logging_summary_off">O registro de depuração está desativado</string>
     <string name="revanced_enable_debug_logging_summary_on">O registro de depuração está ativado</string>
     <string name="revanced_enable_debug_logging_title">Ativar o log de depuração</string>
@@ -111,9 +100,6 @@
     <string name="revanced_enable_save_video_quality_summary_off">Não salva valores de qualidade de vídeo, mesmo ao alterar a qualidade de vídeo</string>
     <string name="revanced_enable_save_video_quality_summary_on">Salva o valor de qualidade de vídeo sempre que alterar a qualidade de vídeo</string>
     <string name="revanced_enable_save_video_quality_title">Ativar salvamento da qualidade de vídeo</string>
-    <string name="revanced_enable_save_video_speed_summary_off">Não salva valores da velocidade de vídeo mesmo quando mudar a velocidade de vídeo</string>
-    <string name="revanced_enable_save_video_speed_summary_on">Salva o valor da velocidade de vídeo sempre que você mudar a velocidade de vídeo</string>
-    <string name="revanced_enable_save_video_speed_title">Ativar salvamento da velocidade de vídeo</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">O toque na barra de progresso desativado</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">O toque na barra de progresso está ativado</string>
     <string name="revanced_enable_seekbar_tapping_title">Ativar toque na barra de progresso</string>
@@ -518,9 +504,6 @@ Toque e segure para copiar o vídeo timestamp"</string>
     <string name="revanced_overlay_button_copy_video_url_timestamp_title">Exibir botão copiar URL timestamp</string>
     <string name="revanced_overlay_button_external_downloader_summary">Toque para iniciar o downloader externo</string>
     <string name="revanced_overlay_button_external_downloader_title">Exibir botão de download externo</string>
-    <string name="revanced_overlay_button_speed_dialog_reset">Velocidade do vídeo redefinida (1.0x)</string>
-    <string name="revanced_overlay_button_speed_dialog_summary">"Toque para abrir a caixa de diálogo de velocidade
-Toque e segure para definir a velocidade do vídeo para 1.0x"</string>
     <string name="revanced_overlay_button_speed_dialog_title">Exibir botão de velocidade</string>
     <string name="revanced_override_premium_header_summary_off">Cabeçalho Atual: Cabeçalho Padrão</string>
     <string name="revanced_override_premium_header_summary_on">Cabeçalho Atual: Cabeçalho Premium</string>
@@ -565,7 +548,6 @@ Como essas configurações estão bastante desatualizadas, podem não ser válid
     <string name="revanced_save_video_quality_mobile">Alterada a qualidade padrão dos dados móveis para:</string>
     <string name="revanced_save_video_quality_none">Falha ao definir a qualidade</string>
     <string name="revanced_save_video_quality_wifi">Alterada a qualidade padrão do Wi-Fi para:</string>
-    <string name="revanced_save_video_speed">Alterada a velocidade padrão para:</string>
     <string name="revanced_seekbar">Barra de busca</string>
     <string name="revanced_shorts">Shorts</string>
     <string name="revanced_shorts_player_title">Reprodutor do shorts</string>

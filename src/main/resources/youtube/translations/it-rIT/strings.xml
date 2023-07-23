@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="accessibility_settings_edu_opt_in_text">Vuoi attivare i controlli di accessibilità del riproduttore?</string>
-    <string name="accessibility_settings_edu_opt_out_text">I tuoi controlli sono stati modificati poiché un servizio di accessibilità è attivo.</string>
+    <string name="accessibility_settings_edu_opt_out_text">I tuoi controlli sono stati modificati poiché un servizio di accessibilità è attivo</string>
     <string name="microg_not_installed_notice">Per favore installa MicroG</string>
     <string name="microg_not_installed_warning">MicroG non trovato</string>
     <string name="microg_not_running_warning">MicroG non è in esecuzione in background</string>
@@ -24,24 +24,24 @@
     <string name="revanced_custom_filter_summary_off">Il filtro personalizzato è disattivato</string>
     <string name="revanced_custom_filter_summary_on">Il filtro personalizzato è attivato</string>
     <string name="revanced_custom_filter_title">Attiva il filtro personalizzato</string>
+    <string name="revanced_custom_playback_speeds_invalid">Velocità personalizzata del video non valida. Ripristina ai valori predefiniti</string>
+    <string name="revanced_custom_playback_speeds_warning" formatted="false">La velocità personalizzata deve essere inferiore a %sx. Ripristina ai valori predefiniti</string>
+    <string name="revanced_custom_playback_speeds_summary">È disponibile aggiungere o modificare le velocità di riproduzione</string>
+    <string name="revanced_custom_playback_speeds_title">Modifica le velocità personalizzate del video</string>
     <string name="revanced_custom_seekbar_color_value_summary">Digita il codice esadecimale del colore della barra di avanzamento</string>
     <string name="revanced_custom_seekbar_color_value_title">Valore del colore personalizzato della barra di avanzamento</string>
-    <string name="revanced_custom_video_speeds_invalid">Velocità personalizzata del video non valida. Ripristina ai valori predefiniti</string>
-    <string name="revanced_custom_video_speeds_warning" formatted="false">La velocità personalizzata deve essere inferiore a %sx. Ripristina ai valori predefiniti</string>
-    <string name="revanced_custom_video_speeds_summary">Aggiungi o modifica le velocità del video disponibili</string>
-    <string name="revanced_custom_video_speeds_title">Modifica la velocità personalizzata del video</string>
     <string name="revanced_default_app_settings_summary">Per aprire RVX in un browser esterno, attiva \"Apri collegamenti supportati\" e abilita gli indirizzi web supportati</string>
     <string name="revanced_default_app_settings_title">Apri le impostazioni predefinite dell\'app</string>
+    <string name="revanced_default_playback_speed_title">Velocità di riproduzione predefinita</string>
     <string name="revanced_default_video_quality_mobile_title">Qualità predefinita del video sulla rete mobile</string>
     <string name="revanced_default_video_quality_wifi_title">Qualità predefinita del video sulla rete Wi-Fi</string>
-    <string name="revanced_default_video_speed_title">Velocità video predefinita</string>
     <string name="revanced_description_title">Descrizione</string>
     <string name="revanced_disable_auto_captions_summary_off">I sottotitoli automatici forzati sono attivati</string>
     <string name="revanced_disable_auto_captions_summary_on">I sottotitoli automatici forzati sono disattivati</string>
     <string name="revanced_disable_auto_captions_title">Disattiva i sottotitoli automatici forzati</string>
-    <string name="revanced_disable_default_video_speed_live_summary_off">La velocità predefinita nei video dal vivo è attivata</string>
-    <string name="revanced_disable_default_video_speed_live_summary_on">La velocità predefinita nei video dal vivo è disattivata</string>
-    <string name="revanced_disable_default_video_speed_live_title">Disattiva la velocità predefinita nei video dal vivo</string>
+    <string name="revanced_disable_default_playback_speed_live_summary_off">La velocità di riproduzione predefinita nei video dal vivo è attivata</string>
+    <string name="revanced_disable_default_playback_speed_live_summary_on">La velocità di riproduzione predefinita nei video dal vivo è disattivata</string>
+    <string name="revanced_disable_default_playback_speed_live_title">Disattiva la velocità di riproduzione predefinita nei video dal vivo</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">La vibrazione in fase di cambio dei capitoli video è attivata</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">La vibrazione in fase di cambio dei capitoli video è disattivata</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">Capitoli video</string>
@@ -76,9 +76,9 @@
     <string name="revanced_enable_custom_seekbar_color_summary_off">Il colore personalizzato della barra di avanzamento è disattivato</string>
     <string name="revanced_enable_custom_seekbar_color_summary_on">Il colore personalizzato della barra di avanzamento è attivato</string>
     <string name="revanced_enable_custom_seekbar_color_title">Attiva il colore personalizzato della barra di avanzamento</string>
-    <string name="revanced_enable_custom_video_speed_summary_off">La velocità personalizzata del video è disattivata</string>
-    <string name="revanced_enable_custom_video_speed_summary_on">La velocità personalizzata del video è attivata</string>
-    <string name="revanced_enable_custom_video_speed_title">Attiva la velocità personalizzata del video</string>
+    <string name="revanced_enable_custom_playback_speed_summary_off">La velocità di riproduzione personalizzata è disattivata</string>
+    <string name="revanced_enable_custom_playback_speed_summary_on">La velocità di riproduzione personalizzata è attivata</string>
+    <string name="revanced_enable_custom_playback_speed_title">Attiva la velocità di riproduzione personalizzata</string>
     <string name="revanced_enable_debug_logging_summary_off">Il log di debug è disattivato</string>
     <string name="revanced_enable_debug_logging_summary_on">Il log di debug è attivato</string>
     <string name="revanced_enable_debug_logging_title">Attiva il log di debug</string>
@@ -102,36 +102,36 @@
     <string name="revanced_enable_old_quality_layout_title">Attiva la vecchia interfaccia qualitativa</string>
     <string name="revanced_enable_open_links_directly_summary_off">Seguendo la regola predefinita di reindirizzamento</string>
     <string name="revanced_enable_open_links_directly_summary_on">Ignora i reindirizzamenti degli URL</string>
-    <string name="revanced_enable_open_links_directly_title">Attiva apertura link diretta</string>
+    <string name="revanced_enable_open_links_directly_title">Attiva l\'apertura diretta dei link</string>
     <string name="revanced_enable_phone_layout_summary">Simula un diverso valore DPI per usare alcune parti dell\'interfaccia da telefono</string>
     <string name="revanced_enable_phone_layout_title">Attiva l\'interfaccia da telefono</string>
     <string name="revanced_enable_press_to_swipe_summary_off">Premi-per-Scorrere è disattivato</string>
     <string name="revanced_enable_press_to_swipe_summary_on">Premi-per-Scorrere è attivato</string>
-    <string name="revanced_enable_press_to_swipe_title">Gesto Premi-per-Scorrere</string>
+    <string name="revanced_enable_press_to_swipe_title">Attiva il gesto Premi-per-Scorrere</string>
     <string name="revanced_enable_save_brightness_summary_off">Non salvare e ripristinare la luminosità quando esci o entri a schermo intero</string>
     <string name="revanced_enable_save_brightness_summary_on">Salva e ripristina la luminosità quando esci o entri a schermo intero</string>
     <string name="revanced_enable_save_brightness_title">Attiva il salvataggio e il ripristino della luminosità</string>
-    <string name="revanced_enable_save_video_quality_summary_off">Non salvare i valori della qualità video anche quando si modifica la qualità video</string>
-    <string name="revanced_enable_save_video_quality_summary_on">Salva i valori della qualità video ogni volta che si modifica la qualità video</string>
+    <string name="revanced_enable_save_playback_speed_summary_off">Non salva il valore della velocità di riproduzione anche quando si cambia la velocità di riproduzione</string>
+    <string name="revanced_enable_save_playback_speed_summary_on">Salva il valore della velocità di riproduzione ogni volta che cambi la velocità di riproduzione</string>
+    <string name="revanced_enable_save_playback_speed_title">Attiva il salvataggio della velocità di riproduzione</string>
+    <string name="revanced_enable_save_video_quality_summary_off">Non salva il valore della qualità video anche quando si cambia la qualità video</string>
+    <string name="revanced_enable_save_video_quality_summary_on">Salva il valore della qualità video ogni volta che cambi la qualità video</string>
     <string name="revanced_enable_save_video_quality_title">Attiva salvataggio qualità video</string>
-    <string name="revanced_enable_save_video_speed_summary_off">Non salvare il valore della qualità video dopo ogni modifica manuale</string>
-    <string name="revanced_enable_save_video_speed_summary_on">Salva il valore della qualità video dopo ogni modifica manuale</string>
-    <string name="revanced_enable_save_video_speed_title">Attiva salvataggio velocità video</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">Il tocco della barra di avanzamento è disattivato</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">Il tocco della barra di avanzamento è attivato</string>
     <string name="revanced_enable_seekbar_tapping_title">Attiva il tocco della barra di avanzamento</string>
     <string name="revanced_enable_swipe_auto_brightness_summary_off">La luminosità automatica non verrà attivata anche se impostata a 0 con i gesti di scorrimento</string>
     <string name="revanced_enable_swipe_auto_brightness_summary_on">La luminosità automatica verrà attivata quando impostata a 0 con i gesti di scorrimento</string>
     <string name="revanced_enable_swipe_auto_brightness_title">Luminosità automatica con scorrimento</string>
-    <string name="revanced_enable_swipe_brightness_summary_off">La modifica della luminosità con gesto di scorrimento è disattivata</string>
-    <string name="revanced_enable_swipe_brightness_summary_on">La modifica della luminosità con gesto di scorrimento è attivata</string>
-    <string name="revanced_enable_swipe_brightness_title">Gesti per modifica luminosità</string>
-    <string name="revanced_enable_swipe_haptic_feedback_summary_off">La vibrazione con gesto Premi-per-Scorrere è disattivata</string>
-    <string name="revanced_enable_swipe_haptic_feedback_summary_on">La vibrazione con gesto Premi-per-Scorrere è attivata</string>
-    <string name="revanced_enable_swipe_haptic_feedback_title">Vibrazione con gesto Premi-per-Scorrere</string>
-    <string name="revanced_enable_swipe_volume_summary_off">La modifica del volume con gesto di scorrimento è disattivata</string>
-    <string name="revanced_enable_swipe_volume_summary_on">La modifica del volume con gesto di scorrimento è attivata</string>
-    <string name="revanced_enable_swipe_volume_title">Gesti per modifica volume</string>
+    <string name="revanced_enable_swipe_brightness_summary_off">La modifica della luminosità con i gesti è disattivata</string>
+    <string name="revanced_enable_swipe_brightness_summary_on">La modifica della luminosità con i gesti è attivata</string>
+    <string name="revanced_enable_swipe_brightness_title">Attiva i gesti per cambiare la luminosità</string>
+    <string name="revanced_enable_swipe_haptic_feedback_summary_off">La vibrazione del Premi-per-Scorrere è disattivata</string>
+    <string name="revanced_enable_swipe_haptic_feedback_summary_on">La vibrazione del Premi-per-Scorrere è attivata</string>
+    <string name="revanced_enable_swipe_haptic_feedback_title">Attiva la vibrazione del Premi-per-Scorrere</string>
+    <string name="revanced_enable_swipe_volume_summary_off">La modifica del volume con i gesti è disattivata</string>
+    <string name="revanced_enable_swipe_volume_summary_on">La modifica del volume con i gesti è attivata</string>
+    <string name="revanced_enable_swipe_volume_title">Attiva i gesti per cambiare il volume</string>
     <string name="revanced_enable_tablet_layout_summary">Simula un diverso valore DPI per usare alcune parti dell\'interfaccia da tablet</string>
     <string name="revanced_enable_tablet_layout_title">Attiva l\'interfaccia da tablet</string>
     <string name="revanced_enable_tablet_mini_player_summary_off">Il riproduttore mini da tablet è disattivato</string>
@@ -165,8 +165,9 @@
     <string name="revanced_fullscreen">Schermo intero</string>
     <string name="revanced_general">Generali</string>
     <string name="revanced_haptic_feedback_title">Feedback aptico</string>
+    <string name="revanced_hide_account_menu_summary">Problema noto: in modalità orizzontale o su dispositivi ad alta risoluzione potrebbe non funzionare</string>
     <string name="revanced_hide_account_menu_title">Nascondi i menù dell\'account</string>
-    <string name="revanced_hide_account_menu_filter_strings_title">Modifica il filtro del menù dell\'account</string>
+    <string name="revanced_hide_account_menu_filter_strings_title">Modifica il filtro dei menù dell\'account</string>
     <string name="revanced_hide_action_buttons_summary_off">I pulsanti di azione sono visibili</string>
     <string name="revanced_hide_action_buttons_summary_on">I pulsanti di azione sono nascosti</string>
     <string name="revanced_hide_action_buttons_title">Nascondi i pulsanti di azione</string>
@@ -481,7 +482,11 @@ Disponibile solo su YouTube 18.24.37+"</string>
 - Esplora più canali
 - Shopping
 - Guarda di nuovo"</string>
-    <string name="revanced_hide_suggestions_shelf_title">Nascondi lo scaffale dei suggerimenti</string>
+    <string name="revanced_hide_suggestions_shelf_title">Nascondi gli scaffali dei suggerimenti</string>
+    <string name="revanced_hide_suggested_video_overlay_summary">"Nasconde la sovrapposizione del video suggerito per la riproduzione successiva
+
+Problema noto: la riproduzione automatica non funziona"</string>
+    <string name="revanced_hide_suggested_video_overlay_title">Nascondi la sovrapposizione del video suggerito</string>
     <string name="revanced_hide_ticket_shelf_summary_off">Lo scaffale degli eventi è visibile</string>
     <string name="revanced_hide_ticket_shelf_summary_on">Lo scaffale degli eventi è nascosto</string>
     <string name="revanced_hide_ticket_shelf_title">Nascondi lo scaffale degli eventi</string>
@@ -530,9 +535,9 @@ Tocca e tieni premuto per copiare la marca temporale del video"</string>
     <string name="revanced_overlay_button_copy_video_url_timestamp_title">Mostra il pulsante Copia URL Video con Marca Temporale</string>
     <string name="revanced_overlay_button_external_downloader_summary">Tocca per avviare il downloader esterno</string>
     <string name="revanced_overlay_button_external_downloader_title">Mostra il pulsante Download Esterno</string>
-    <string name="revanced_overlay_button_speed_dialog_reset">Velocità del video ripristinata (1.0x)</string>
+    <string name="revanced_overlay_button_speed_dialog_reset">Velocità di riproduzione ripristinata (1.0x)</string>
     <string name="revanced_overlay_button_speed_dialog_summary">"Tocca per aprire la finestra di dialogo della velocità.
-Tocca e tieni premuto per impostare la velocità del video a 1.0x"</string>
+Tocca e tieni premuto per impostare la velocità di riproduzione a 1.0x"</string>
     <string name="revanced_overlay_button_speed_dialog_title">Mostra il pulsante Velocità Video</string>
     <string name="revanced_override_premium_header_summary_off">Intestazione attuale: Predefinita</string>
     <string name="revanced_override_premium_header_summary_on">Intestazione attuale: Premium</string>
@@ -573,10 +578,10 @@ Dal momento che questa opzione è abbastanza obsoleta, potrebbe risultare non pi
     <string name="revanced_ryd_shorts_summary_on">I Non Mi Piace degli Shorts sono visibili</string>
     <string name="revanced_ryd_shorts_title">Mostra i Non Mi Piace degli Shorts</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Nascosto</string>
+    <string name="revanced_save_playback_speed">Cambia la velocità predefinita in:</string>
     <string name="revanced_save_video_quality_mobile">Cambiando la qualità Dati Cellulare predefinita in:</string>
     <string name="revanced_save_video_quality_none">Cambio qualità non riuscito</string>
     <string name="revanced_save_video_quality_wifi">Cambiando la qualità Wi-Fi predefinita in:</string>
-    <string name="revanced_save_video_speed">Cambiando la velocità predefinita in:</string>
     <string name="revanced_seekbar">Barra di avanzamento</string>
     <string name="revanced_shorts">Shorts</string>
     <string name="revanced_shorts_player_title">Riproduttore degli Shorts</string>
@@ -672,11 +677,11 @@ Problemi noti:
     <string name="sb_general_uuid">Il tuo ID utente univoco</string>
     <string name="sb_general_uuid_sum">Questo dovrebbe essere tenuto al sicuro. È come una password e non dovrebbe essere condiviso con nessuno. Se qualcuno dovesse ottenerlo, potrebbe impersonarti</string>
     <string name="sb_general_uuid_invalid">Il campo ID utente non può essere vuoto</string>
-    <string name="sb_general_api_url">Modifica l\'URL dell\'API</string>
+    <string name="sb_general_api_url">Cambia l\'URL dell\'API</string>
     <string name="sb_general_api_url_sum">L\'indirizzo usato da SponsorBlock per contattare il server. Non cambiarlo a meno che tu non sappia cosa stai facendo</string>
     <string name="sb_api_url_reset">URL API ripristinato</string>
     <string name="sb_api_url_invalid">URL API non valido</string>
-    <string name="sb_api_url_changed">URL API modificato</string>
+    <string name="sb_api_url_changed">URL API cambiato</string>
     <string name="sb_settings_ie_sum">La tua configurazione di SponsorBlock in JSON che può essere importata o esportata su ReVanced e su altre piattaforme SponsorBlock. Questo include il tuo ID utente univoco, quindi assicurati di condividerlo con saggezza</string>
     <string name="sb_diff_segments">Modifica il comportamento dei segmenti</string>
     <string name="sb_segments_sponsor">Sponsor</string>
@@ -763,8 +768,8 @@ Soglia raggiunta (troppe richieste provenienti dallo stesso utente o IP)</string
     <string name="sb_stats_sb_disabled">SponsorBlock è disattivato</string>
     <string name="sb_stats_username" formatted="false">Il tuo nome utente: &lt;b&gt;%s&lt;/b&gt;</string>
     <string name="sb_stats_username_change">Tocca qui per cambiare il tuo nome utente</string>
-    <string name="sb_stats_username_change_unknown_error" formatted="false">Impossibile modificare il nome utente: Stato: %d %s</string>
-    <string name="sb_stats_username_changed">Nome utente modificato correttamente</string>
+    <string name="sb_stats_username_change_unknown_error" formatted="false">Impossibile cambiare il nome utente: Stato: %d %s</string>
+    <string name="sb_stats_username_changed">Nome utente cambiato correttamente</string>
     <string name="sb_stats_reputation" formatted="false">La tua reputazione è &lt;b&gt;%.2f&lt;/b&gt;</string>
     <string name="sb_stats_submissions" formatted="false">Hai creato &lt;b&gt;%s&lt;/b&gt; segmenti</string>
     <string name="sb_stats_saved_zero">Classifica di SponsorBlock</string>
@@ -778,7 +783,7 @@ Soglia raggiunta (troppe richieste provenienti dallo stesso utente o IP)</string
     <string name="sb_stats_saved_minute_format" formatted="false">%d minuti %d secondi</string>
     <string name="sb_stats_saved_second_format" formatted="false">%d secondi</string>
     <string name="sb_color_dot_label">Colore:</string>
-    <string name="sb_color_changed">Colore modificato</string>
+    <string name="sb_color_changed">Colore cambiato</string>
     <string name="sb_color_reset">Colore ripristinato</string>
     <string name="sb_color_invalid">Codice colore non valido</string>
     <string name="sb_reset_color">Ripristina colore</string>

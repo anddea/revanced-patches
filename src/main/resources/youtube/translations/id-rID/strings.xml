@@ -24,24 +24,24 @@
     <string name="revanced_custom_filter_summary_off">Filter kustom dinonaktifkan</string>
     <string name="revanced_custom_filter_summary_on">Filter kustom diaktifkan</string>
     <string name="revanced_custom_filter_title">Aktifkan filter kustom</string>
+    <string name="revanced_custom_playback_speeds_invalid">Kecepatan pemutaran kustom tidak valid. Atur ulang ke nilai default.</string>
+    <string name="revanced_custom_playback_speeds_warning" formatted="false">Kecepatan kustom harus kurang dari %sx. Atur ulang ke nilai default.</string>
+    <string name="revanced_custom_playback_speeds_summary">Menambah atau mengubah kecepatan pemutaran yang tersedia</string>
+    <string name="revanced_custom_playback_speeds_title">Edit kecepatan pemutaran kustom</string>
     <string name="revanced_custom_seekbar_color_value_summary">Ketik kode hex warna seekbar</string>
     <string name="revanced_custom_seekbar_color_value_title">Nilai warna seekbar kustom</string>
-    <string name="revanced_custom_video_speeds_invalid">Kecepatan video kustom tidak valid. Atur ulang ke nilai default.</string>
-    <string name="revanced_custom_video_speeds_warning" formatted="false">Kecepatan kustom harus kurang dari %sx. Atur ulang ke nilai default.</string>
-    <string name="revanced_custom_video_speeds_summary">Menambahkan atau mengubah kecepatan video yang tersedia</string>
-    <string name="revanced_custom_video_speeds_title">Edit kecepatan video kustom</string>
     <string name="revanced_default_app_settings_summary">Untuk membuka RVX di browser eksternal, aktifkan \'Buka tautan yang didukung\' dan aktifkan alamat web yang didukung</string>
     <string name="revanced_default_app_settings_title">Buka setelan aplikasi default</string>
+    <string name="revanced_default_playback_speed_title">Kecepatan pemutaran default</string>
     <string name="revanced_default_video_quality_mobile_title">Kualitas video default di jaringan seluler</string>
     <string name="revanced_default_video_quality_wifi_title">Kualitas video default di jaringan Wi-Fi</string>
-    <string name="revanced_default_video_speed_title">Kecepatan video default</string>
     <string name="revanced_description_title">Deskripsi</string>
     <string name="revanced_disable_auto_captions_summary_off">Subtitel paksa diaktifkan</string>
     <string name="revanced_disable_auto_captions_summary_on">Subtitel paksa dinonaktifkan</string>
     <string name="revanced_disable_auto_captions_title">Nonaktifkan paksa subtitel</string>
-    <string name="revanced_disable_default_video_speed_live_summary_off">Kecepatan video default diaktifkan di live stream</string>
-    <string name="revanced_disable_default_video_speed_live_summary_on">Kecepatan video default dinonaktifkan di live stream</string>
-    <string name="revanced_disable_default_video_speed_live_title">Nonaktifkan kecepatan video di live stream</string>
+    <string name="revanced_disable_default_playback_speed_live_summary_off">Kecepatan pemutaran default diaktifkan dalam live stream</string>
+    <string name="revanced_disable_default_playback_speed_live_summary_on">Kecepatan pemutaran default dinonaktifkan dalam live stream</string>
+    <string name="revanced_disable_default_playback_speed_live_title">Nonaktifkan kecepatan pemutaran dalam live stream</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">Umpan balik haptic segmen diaktifkan</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">Umpan balik haptic segmen dinonaktifkan</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">Nonaktifkan umpan balik haptic segmen</string>
@@ -76,9 +76,9 @@
     <string name="revanced_enable_custom_seekbar_color_summary_off">Warna seekbar kustom dinonaktifkan</string>
     <string name="revanced_enable_custom_seekbar_color_summary_on">Warna seekbar kustom diaktifkan</string>
     <string name="revanced_enable_custom_seekbar_color_title">Aktifkan warna seekbar kustom</string>
-    <string name="revanced_enable_custom_video_speed_summary_off">Kecepatan video kustom dinonaktifkan</string>
-    <string name="revanced_enable_custom_video_speed_summary_on">Kecepatan video kustom diaktifkan</string>
-    <string name="revanced_enable_custom_video_speed_title">Aktifkan kecepatan video kustom</string>
+    <string name="revanced_enable_custom_playback_speed_summary_off">Kecepatan pemutaran kustom dinonaktifkan</string>
+    <string name="revanced_enable_custom_playback_speed_summary_on">Kecepatan pemutaran kustom diaktifkan</string>
+    <string name="revanced_enable_custom_playback_speed_title">Aktifkan kecepatan pemutaran kustom</string>
     <string name="revanced_enable_debug_logging_summary_off">Pencatatan debug dinonaktifkan</string>
     <string name="revanced_enable_debug_logging_summary_on">Pencatatan debug diaktifkan</string>
     <string name="revanced_enable_debug_logging_title">Aktifkan pencatatan debug</string>
@@ -111,12 +111,12 @@
     <string name="revanced_enable_save_brightness_summary_off">Jangan menyimpan dan mengembalikan kecerahan saat keluar atau memasuki layar penuh</string>
     <string name="revanced_enable_save_brightness_summary_on">Simpan dan kembalikan kecerahan saat keluar atau memasuki layar penuh</string>
     <string name="revanced_enable_save_brightness_title">Aktifkan simpan dan pulihkan kecerahan</string>
+    <string name="revanced_enable_save_playback_speed_summary_off">Tidak menyimpan nilai kecepatan pemutaran bahkan saat mengubah kecepatan pemutaran</string>
+    <string name="revanced_enable_save_playback_speed_summary_on">Simpan nilai kecepatan pemutaran setiap kali Anda mengubah kecepatan pemutaran</string>
+    <string name="revanced_enable_save_playback_speed_title">Aktifkan simpan kecepatan pemutaran</string>
     <string name="revanced_enable_save_video_quality_summary_off">Tidak menyimpan nilai kualitas video bahkan saat mengubah kualitas video</string>
     <string name="revanced_enable_save_video_quality_summary_on">Menyimpan nilai kualitas video setiap kali Anda mengubah kualitas video</string>
     <string name="revanced_enable_save_video_quality_title">Aktifkan simpan kualitas video</string>
-    <string name="revanced_enable_save_video_speed_summary_off">Tidak menyimpan nilai kecepatan video bahkan saat mengubah kecepatan video</string>
-    <string name="revanced_enable_save_video_speed_summary_on">Menyimpan nilai kecepatan video setiap kali Anda mengubah kecepatan video</string>
-    <string name="revanced_enable_save_video_speed_title">Aktifkan simpan kecepatan video</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">Tapping seekbar dinonaktifkan</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">Tapping seekbar diaktifkan</string>
     <string name="revanced_enable_seekbar_tapping_title">Aktifkan tapping seekbar</string>
@@ -165,6 +165,7 @@
     <string name="revanced_fullscreen">Layar penuh</string>
     <string name="revanced_general">Umum</string>
     <string name="revanced_haptic_feedback_title">Umpan balik haptic</string>
+    <string name="revanced_hide_account_menu_summary">Masalah yang diketahui: Mungkin tidak berfungsi dalam mode lanskap atau pada perangkat dpi tinggi</string>
     <string name="revanced_hide_account_menu_title">Sembunyikan menu akun</string>
     <string name="revanced_hide_account_menu_filter_strings_title">Edit filter menu akun</string>
     <string name="revanced_hide_action_buttons_summary_off">Tombol action ditampilkan</string>
@@ -377,9 +378,9 @@
     <string name="revanced_hide_player_flyout_panel_audio_track_summary_off">Menu trek audio ditampilkan</string>
     <string name="revanced_hide_player_flyout_panel_audio_track_summary_on">Menu trek audio disembunyikan</string>
     <string name="revanced_hide_player_flyout_panel_audio_track_title">Sembunyikan menu trek audio</string>
-    <string name="revanced_hide_player_flyout_panel_captions_summary_off">Menu subtitel ditampilkan</string>
-    <string name="revanced_hide_player_flyout_panel_captions_summary_on">Menu subtitel disembunyikan</string>
-    <string name="revanced_hide_player_flyout_panel_captions_title">Sembunyikan menu subtitel</string>
+    <string name="revanced_hide_player_flyout_panel_captions_summary_off">Menu teks ditampilkan</string>
+    <string name="revanced_hide_player_flyout_panel_captions_summary_on">Menu teks disembunyikan</string>
+    <string name="revanced_hide_player_flyout_panel_captions_title">Sembunyikan menu teks</string>
     <string name="revanced_hide_player_flyout_panel_help_summary_off">Bantuan &amp; menu saran ditampilkan</string>
     <string name="revanced_hide_player_flyout_panel_help_summary_on">Bantuan &amp; menu saran disembunyikan</string>
     <string name="revanced_hide_player_flyout_panel_help_title">Sembunyikan bantuan &amp; menu saran</string>
@@ -389,9 +390,9 @@
     <string name="revanced_hide_player_flyout_panel_listen_with_youtube_music_summary_off">Menu dengarkan dengan YouTube Music ditampilkan</string>
     <string name="revanced_hide_player_flyout_panel_listen_with_youtube_music_summary_on">Menu dengarkan dengan YouTube Music disembunyikan</string>
     <string name="revanced_hide_player_flyout_panel_listen_with_youtube_music_title">Sembunyikan menu dengarkan dengan YouTube Music</string>
-    <string name="revanced_hide_player_flyout_panel_loop_video_summary_off">Menu video loop ditampilkan</string>
-    <string name="revanced_hide_player_flyout_panel_loop_video_summary_on">Menu video loop disembunyikan</string>
-    <string name="revanced_hide_player_flyout_panel_loop_video_title">Sembunyikan menu video loop</string>
+    <string name="revanced_hide_player_flyout_panel_loop_video_summary_off">Menu ulang video ditampilkan</string>
+    <string name="revanced_hide_player_flyout_panel_loop_video_summary_on">Menu ulang video disembunyikan</string>
+    <string name="revanced_hide_player_flyout_panel_loop_video_title">Sembunyikan menu ulang video</string>
     <string name="revanced_hide_player_flyout_panel_more_info_summary_off">Menu informasi lainnya ditampilkan</string>
     <string name="revanced_hide_player_flyout_panel_more_info_summary_on">Menu informasi lainnya disembunyikan</string>
     <string name="revanced_hide_player_flyout_panel_more_info_title">Sembunyikan menu informasi lainnya</string>
@@ -482,6 +483,9 @@ Hanya tersedia di YouTube v18.24.37+"</string>
 - Belanja
 - Tonton lagi"</string>
     <string name="revanced_hide_suggestions_shelf_title">Sembunyikan rak rekomendasi</string>
+    <string name="revanced_hide_suggested_video_overlay_summary">"Menyembunyikan overlay video yang disarankan untuk diputar berikutnya
+Masalah yang diketahui: putar otomatis tidak berfungsi"</string>
+    <string name="revanced_hide_suggested_video_overlay_title">Sembunyikan overlay video yang disarankan</string>
     <string name="revanced_hide_ticket_shelf_summary_off">Rak tiket ditampilkan</string>
     <string name="revanced_hide_ticket_shelf_summary_on">Rak tiket disembunyikan</string>
     <string name="revanced_hide_ticket_shelf_title">Sembunyikan rak tiket</string>
@@ -530,9 +534,9 @@ Tekan dan tahan untuk menyalin stempel waktu video"</string>
     <string name="revanced_overlay_button_copy_video_url_timestamp_title">Tampilkan tombol salin stempel waktu URL</string>
     <string name="revanced_overlay_button_external_downloader_summary">Tekan untuk membuka downloader eksternal</string>
     <string name="revanced_overlay_button_external_downloader_title">Tampilkan tombol download eksternal</string>
-    <string name="revanced_overlay_button_speed_dialog_reset">Kecepatan video diatur ulang (1,0x)</string>
+    <string name="revanced_overlay_button_speed_dialog_reset">Kecepatan pemutaran diatur ulang (1,0x)</string>
     <string name="revanced_overlay_button_speed_dialog_summary">"Tekan untuk membuka dialog kecepatan
-Tekan dan tahan untuk mengatur kecepatan video ke 1,0x"</string>
+Tekan dan tahan untuk mengatur kecepatan pemutaran ke 1,0x"</string>
     <string name="revanced_overlay_button_speed_dialog_title">Tampilkan tombol dialog kecepatan</string>
     <string name="revanced_override_premium_header_summary_off">Header saat ini: Header default</string>
     <string name="revanced_override_premium_header_summary_on">Header saat ini: Header premium</string>
@@ -573,10 +577,10 @@ Karena setelan ini sudah cukup usang, mungkin tidak valid"</string>
     <string name="revanced_ryd_shorts_summary_on">Dislike ditampilkan di shorts</string>
     <string name="revanced_ryd_shorts_title">Tampilkan dislike di shorts</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Tersembunyi</string>
+    <string name="revanced_save_playback_speed">Mengubah kecepatan default menjadi:</string>
     <string name="revanced_save_video_quality_mobile">Mengubah kualitas data seluler default menjadi:</string>
     <string name="revanced_save_video_quality_none">Gagal mengatur kualitas</string>
     <string name="revanced_save_video_quality_wifi">Mengubah kualitas Wi-Fi default menjadi:</string>
-    <string name="revanced_save_video_speed">Mengubah kecepatan default menjadi:</string>
     <string name="revanced_seekbar">Seekbar</string>
     <string name="revanced_shorts">Shorts</string>
     <string name="revanced_shorts_player_title">Pemutar shorts</string>
