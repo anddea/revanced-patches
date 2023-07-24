@@ -17,6 +17,7 @@ import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.litho.patch.LithoFilterPatch
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
+import app.revanced.util.bytecode.BytecodeHelper.updatePatchStatus
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
@@ -48,6 +49,8 @@ class SuggestedActionsPatch : BytecodePatch(
                 )
             }
         } ?: return SuggestedActionsFingerprint.toErrorResult()
+
+        context.updatePatchStatus("SuggestedActions")
 
         /**
          * Add settings
