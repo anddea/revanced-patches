@@ -24,16 +24,24 @@
     <string name="revanced_custom_filter_summary_off">自訂篩選已停用</string>
     <string name="revanced_custom_filter_summary_on">自訂篩選已啟用</string>
     <string name="revanced_custom_filter_title">啟用自訂篩選</string>
+    <string name="revanced_custom_playback_speeds_invalid">無效的自訂播放速度。已重設為預設值。</string>
+    <string name="revanced_custom_playback_speeds_warning" formatted="false">自訂速度必須小於 %sx。已重設為預設值。</string>
+    <string name="revanced_custom_playback_speeds_summary">新增或變更可用的播放速度</string>
+    <string name="revanced_custom_playback_speeds_title">編輯自訂播放速度</string>
     <string name="revanced_custom_seekbar_color_value_summary">輸入搜尋欄十六進制代碼</string>
     <string name="revanced_custom_seekbar_color_value_title">自訂搜尋欄顏色</string>
     <string name="revanced_default_app_settings_summary">如過要讓RVX開啟Youtube的網址的話,請到手機設定&gt;RVX應用程式資訊&gt;設為預設&gt;前往支援的網址,將設定改為\"經此應用程式\"</string>
     <string name="revanced_default_app_settings_title">開啟預設應用程式設定</string>
+    <string name="revanced_default_playback_speed_title">預設播放速度</string>
     <string name="revanced_default_video_quality_mobile_title">預設行動數據影片畫質</string>
     <string name="revanced_default_video_quality_wifi_title">預設 Wi-Fi 影片畫質</string>
     <string name="revanced_description_title">說明</string>
     <string name="revanced_disable_auto_captions_summary_off">強制自動字幕已啟用</string>
     <string name="revanced_disable_auto_captions_summary_on">強制自動字幕已停用</string>
     <string name="revanced_disable_auto_captions_title">停用強制自動字幕</string>
+    <string name="revanced_disable_default_playback_speed_live_summary_off">直播中已啟用預設播放速度</string>
+    <string name="revanced_disable_default_playback_speed_live_summary_on">直播中已停用預設播放速度</string>
+    <string name="revanced_disable_default_playback_speed_live_title">在直播中停用播放速度</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">章節（震動）回饋已啟用</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">章節（震動）回饋已停用</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">停用章節（震動）回饋</string>
@@ -68,6 +76,9 @@
     <string name="revanced_enable_custom_seekbar_color_summary_off">自訂搜尋欄顏色已停用</string>
     <string name="revanced_enable_custom_seekbar_color_summary_on">自訂搜尋欄顏色已啟用</string>
     <string name="revanced_enable_custom_seekbar_color_title">啟用自動搜尋欄顏色</string>
+    <string name="revanced_enable_custom_playback_speed_summary_off">已停用自訂播放速度</string>
+    <string name="revanced_enable_custom_playback_speed_summary_on">已啟用自訂播放速度</string>
+    <string name="revanced_enable_custom_playback_speed_title">啟用自訂播放速度</string>
     <string name="revanced_enable_debug_logging_summary_off">偵錯記錄已停用</string>
     <string name="revanced_enable_debug_logging_summary_on">偵錯記錄已啟用</string>
     <string name="revanced_enable_debug_logging_title">啟用偵錯記錄</string>
@@ -100,6 +111,9 @@
     <string name="revanced_enable_save_brightness_summary_off">當進入或退出全螢幕時,不要儲存或還原亮度設定</string>
     <string name="revanced_enable_save_brightness_summary_on">當進入或退出全螢幕時,儲存或還原亮度設定</string>
     <string name="revanced_enable_save_brightness_title">啟用儲存或還原亮度設定</string>
+    <string name="revanced_enable_save_playback_speed_summary_off">即使更改播放速度，也不儲存播放速度值</string>
+    <string name="revanced_enable_save_playback_speed_summary_on">每次更改播放速度時儲存播放速度值</string>
+    <string name="revanced_enable_save_playback_speed_title">啟用儲存播放速度</string>
     <string name="revanced_enable_save_video_quality_summary_off">即使更改影片畫質也不記憶影片畫質設定</string>
     <string name="revanced_enable_save_video_quality_summary_on">更改影片畫質時記憶影片畫質設定</string>
     <string name="revanced_enable_save_video_quality_title">記憶影片畫質</string>
@@ -469,6 +483,9 @@
 - 購物
 - 再次觀看"</string>
     <string name="revanced_hide_suggestions_shelf_title">隱藏首頁推薦欄</string>
+    <string name="revanced_hide_suggested_video_overlay_summary">"隱藏建議的下一部影片覆蓋層
+已知問題：自動播放不工作"</string>
+    <string name="revanced_hide_suggested_video_overlay_title">隱藏建議影片覆蓋層</string>
     <string name="revanced_hide_ticket_shelf_summary_off">購票庫已顯示</string>
     <string name="revanced_hide_ticket_shelf_summary_on">購票庫已隱藏</string>
     <string name="revanced_hide_ticket_shelf_title">隱藏購票庫</string>
@@ -517,6 +534,9 @@
     <string name="revanced_overlay_button_copy_video_url_timestamp_title">顯示複製時間戳記網址按鈕</string>
     <string name="revanced_overlay_button_external_downloader_summary">點按以啟動外部下載程式</string>
     <string name="revanced_overlay_button_external_downloader_title">顯示外部下載按鈕</string>
+    <string name="revanced_overlay_button_speed_dialog_reset">已重設播放速度（1.0x）</string>
+    <string name="revanced_overlay_button_speed_dialog_summary">"點擊以開啟速度對話框
+長按以將播放速度設定為 1.0x"</string>
     <string name="revanced_overlay_button_speed_dialog_title">顯示播放速度按鈕</string>
     <string name="revanced_override_premium_header_summary_off">目前標題：預設標誌</string>
     <string name="revanced_override_premium_header_summary_on">目前標題： Premium 標誌</string>
@@ -558,6 +578,7 @@
     <string name="revanced_ryd_shorts_summary_on">已於 Shorts 中顯示倒讚數</string>
     <string name="revanced_ryd_shorts_title">在 Shorts 中顯示倒讚數</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">隱藏</string>
+    <string name="revanced_save_playback_speed">將預設速度更改為：</string>
     <string name="revanced_save_video_quality_mobile">將預設行動數據畫質更改為：</string>
     <string name="revanced_save_video_quality_none">設定畫質失敗</string>
     <string name="revanced_save_video_quality_wifi">將預設 Wi-Fi 畫質更改為：</string>
