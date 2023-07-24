@@ -169,24 +169,12 @@ The official ReVanced Extended Patches.
 | `disable-screenshot-popup` | Disables the popup that shows up when taking a screenshot. | all |
 | `hide-ads` | Hides ads from the Reddit. | all |
 | `hide-navigation-buttons` | Hide buttons at navigation bar. | all |
+| `hide-place-button` | Hide r/place button in toolbar. | all |
 | `open-links-directly` | Skips over redirection URLs to external links. | all |
 | `open-links-externally` | Open links outside of the app directly in your browser. | all |
 | `premium-icon` | Unlocks premium icons. | all |
 | `reddit-settings` | Adds ReVanced settings to Reddit. | all |
 | `sanitize-sharing-links` | Removes (tracking) query parameters from the URLs when sharing links. | all |
-</details>
-
-### [📦 `com.mgoogle.android.gms`](https://play.google.com/store/apps/details?id=com.mgoogle.android.gms)
-<details>
-
-| 💊 Patch | 📜 Description | 🏹 Target Version |
-|:--------:|:--------------:|:-----------------:|
-| `custom-branding-microg-name` | Rename the MicroG app to the name specified in options.json. | all |
-| `custom-branding-icon-mmt` | Changes the MicroG launcher icon to MMT. | all |
-| `custom-branding-icon-revancify-blue` | Changes the MicroG launcher icon to Revancify Blue. | all |
-| `custom-branding-icon-revancify-red` | Changes the MicroG launcher icon to Revancify Red. | all |
-| `hide-icon-from-launcher` | Hide MicroG icon from launcher. | all |
-| `materialyou` | Enables MaterialYou theme for Android 12+ | all |
 </details>
 
 
