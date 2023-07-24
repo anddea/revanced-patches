@@ -16,8 +16,8 @@ import app.revanced.patches.youtube.flyoutpanel.oldspeedlayout.fingerprints.Play
 import app.revanced.patches.youtube.flyoutpanel.oldspeedlayout.fingerprints.PlaybackRateBottomSheetClassFingerprint
 import app.revanced.patches.youtube.utils.fingerprints.NewFlyoutPanelBuilderFingerprint
 import app.revanced.patches.youtube.utils.litho.patch.LithoFilterPatch
-import app.revanced.util.bytecode.BytecodeHelper.updatePatchStatus
 import app.revanced.util.integrations.Constants.FLYOUT_PANEL
+import app.revanced.util.integrations.Constants.PATCHES_PATH
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.immutable.ImmutableField
@@ -102,7 +102,7 @@ class OldSpeedLayoutPatch : BytecodePatch(
             }
         } ?: return NewFlyoutPanelBuilderFingerprint.toErrorResult()
 
-        context.updatePatchStatus("OldSpeedLayout")
+        LithoFilterPatch.addFilter("$PATCHES_PATH/ads/PlaybackSpeedMenuFilter;")
 
         return PatchResultSuccess()
     }

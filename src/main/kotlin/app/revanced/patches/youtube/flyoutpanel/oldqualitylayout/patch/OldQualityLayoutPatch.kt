@@ -18,8 +18,8 @@ import app.revanced.patches.youtube.utils.fingerprints.NewFlyoutPanelBuilderFing
 import app.revanced.patches.youtube.utils.litho.patch.LithoFilterPatch
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
-import app.revanced.util.bytecode.BytecodeHelper.updatePatchStatus
 import app.revanced.util.integrations.Constants.FLYOUT_PANEL
+import app.revanced.util.integrations.Constants.PATCHES_PATH
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
@@ -72,7 +72,7 @@ class OldQualityLayoutPatch : BytecodePatch(
             }
         } ?: return NewFlyoutPanelBuilderFingerprint.toErrorResult()
 
-        context.updatePatchStatus("OldQualityLayout")
+        LithoFilterPatch.addFilter("$PATCHES_PATH/ads/VideoQualityMenuFilter;")
 
         /**
          * Add settings
