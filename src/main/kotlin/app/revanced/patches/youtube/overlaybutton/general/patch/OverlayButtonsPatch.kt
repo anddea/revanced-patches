@@ -10,7 +10,6 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patches.youtube.misc.spoofappversion.patch.SpoofAppVersionPatch
 import app.revanced.patches.youtube.overlaybutton.alwaysrepeat.patch.AlwaysRepeatPatch
 import app.revanced.patches.youtube.overlaybutton.downloadbuttonhook.patch.DownloadButtonHookPatch
 import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
@@ -38,7 +37,6 @@ import org.w3c.dom.Element
         PlayerControlsPatch::class,
         SettingsPatch::class,
         SharedResourceIdPatch::class,
-        SpoofAppVersionPatch::class,
         VideoIdPatch::class
     ]
 )
