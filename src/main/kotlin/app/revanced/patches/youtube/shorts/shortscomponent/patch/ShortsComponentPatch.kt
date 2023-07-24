@@ -45,8 +45,7 @@ class ShortsComponentPatch : BytecodePatch() {
     override fun execute(context: BytecodeContext): PatchResult {
 
         LithoFilterPatch.addFilter("$PATCHES_PATH/ads/ShortsFilter;")
-
-        context.updatePatchStatus("ShortsComponent")
+        LithoFilterPatch.addFilter("$PATCHES_PATH/ads/ShortsHeaderFilter;")
 
         /**
          * Add settings
