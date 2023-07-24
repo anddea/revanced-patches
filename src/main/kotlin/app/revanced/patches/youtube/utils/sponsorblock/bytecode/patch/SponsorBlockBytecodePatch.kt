@@ -26,7 +26,6 @@ import app.revanced.patches.youtube.utils.sponsorblock.bytecode.fingerprints.Seg
 import app.revanced.patches.youtube.utils.videoid.general.patch.VideoIdPatch
 import app.revanced.patches.youtube.utils.videoid.withoutshorts.patch.VideoIdWithoutShortsPatch
 import app.revanced.util.bytecode.BytecodeHelper.injectInit
-import app.revanced.util.bytecode.BytecodeHelper.updatePatchStatus
 import app.revanced.util.bytecode.getWideLiteralIndex
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.BuilderInstruction
@@ -226,7 +225,6 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         VideoIdWithoutShortsPatch.injectCall("$INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR->setCurrentVideoId(Ljava/lang/String;)V")
 
         context.injectInit("FirstRun", "initializationSB")
-        context.updatePatchStatus("SponsorBlock")
 
         return PatchResultSuccess()
     }
