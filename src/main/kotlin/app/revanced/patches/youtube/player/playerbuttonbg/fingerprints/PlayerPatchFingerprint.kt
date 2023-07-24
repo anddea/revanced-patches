@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.utils.fingerprints
+package app.revanced.patches.youtube.player.playerbuttonbg.fingerprints
 
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 

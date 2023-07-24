@@ -13,8 +13,8 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.overlaybutton.alwaysrepeat.fingerprints.AutoNavInformerFingerprint
-import app.revanced.patches.youtube.overlaybutton.alwaysrepeat.fingerprints.VideoEndFingerprint
-import app.revanced.patches.youtube.overlaybutton.alwaysrepeat.fingerprints.VideoEndParentFingerprint
+import app.revanced.patches.youtube.utils.fingerprints.VideoEndFingerprint
+import app.revanced.patches.youtube.utils.fingerprints.VideoEndParentFingerprint
 import app.revanced.util.integrations.Constants.UTILS_PATH
 import app.revanced.util.integrations.Constants.VIDEO_PATH
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
