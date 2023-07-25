@@ -73,7 +73,8 @@ class OverlayButtonsPatch : ResourcePatch {
                 "drawable",
                 "playlist_repeat_button.xml",
                 "playlist_shuffle_button.xml",
-                "revanced_repeat_icon.xml"
+                "revanced_repeat_icon.xml",
+                "yt_outline_screen_vertical_vd_theme_24.xml"
             ),
             ResourceUtils.ResourceGroup(
                 "drawable-xxhdpi",
