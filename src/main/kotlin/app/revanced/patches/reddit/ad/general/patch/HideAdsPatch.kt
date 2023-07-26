@@ -22,6 +22,7 @@ import app.revanced.patches.reddit.ad.general.fingerprints.AdPostFingerprint
 import app.revanced.patches.reddit.ad.general.fingerprints.NewAdPostFingerprint
 import app.revanced.patches.reddit.utils.annotations.RedditCompatibility
 import app.revanced.patches.reddit.utils.settings.bytecode.patch.SettingsBytecodePatch.Companion.updateSettingsStatus
+import app.revanced.patches.reddit.utils.settings.resource.patch.SettingsPatch
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction22c
@@ -33,7 +34,8 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 @DependsOn(
     [
         HideBannerPatch::class,
-        HideCommentAdsPatch::class
+        HideCommentAdsPatch::class,
+        SettingsPatch::class
     ]
 )
 @RedditCompatibility
