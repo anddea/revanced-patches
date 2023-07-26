@@ -73,8 +73,7 @@ class OverlayButtonsPatch : ResourcePatch {
                 "drawable",
                 "playlist_repeat_button.xml",
                 "playlist_shuffle_button.xml",
-                "revanced_repeat_icon.xml",
-                "yt_outline_screen_vertical_vd_theme_24.xml"
+                "revanced_repeat_icon.xml"
             ),
             ResourceUtils.ResourceGroup(
                 "drawable-xxhdpi",
@@ -92,7 +91,8 @@ class OverlayButtonsPatch : ResourcePatch {
                 "yt_outline_arrow_repeat_1_white_24.png",
                 "yt_outline_arrow_shuffle_1_white_24.png",
                 "yt_outline_screen_full_exit_white_24.png",
-                "yt_outline_screen_full_white_24.png"
+                "yt_outline_screen_full_white_24.png",
+                "yt_outline_screen_vertical_vd_theme_24.png"
             )
         ).forEach { resourceGroup ->
             context.copyResources("youtube/overlaybuttons", resourceGroup)
