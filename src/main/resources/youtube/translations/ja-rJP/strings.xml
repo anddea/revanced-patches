@@ -24,16 +24,24 @@
     <string name="revanced_custom_filter_summary_off">ユーザー フィルタは有効です</string>
     <string name="revanced_custom_filter_summary_on">ユーザー フィルタは有効です</string>
     <string name="revanced_custom_filter_title">ユーザーフィルターを有効にする</string>
+    <string name="revanced_custom_playback_speeds_invalid">無効なカスタム再生速度です。デフォルト値にリセットします</string>
+    <string name="revanced_custom_playback_speeds_warning" formatted="false">カスタム再生速度は %s倍速未満である必要があります。デフォルト値にリセットします</string>
+    <string name="revanced_custom_playback_speeds_summary">利用可能な再生速度を追加または変更します</string>
+    <string name="revanced_custom_playback_speeds_title">再生速度のカスタマイズを有効にする</string>
     <string name="revanced_custom_seekbar_color_value_summary">カラーコードを入力して再生バー(シークバー)の色を変更できます</string>
     <string name="revanced_custom_seekbar_color_value_title">再生バーの色を変更する</string>
     <string name="revanced_default_app_settings_summary">外部ブラウザのYouTubeから Revanced Extended を開くには“対応リンクを開く”で、“このアプリで開く”を有効にします</string>
     <string name="revanced_default_app_settings_title">“デフォルトで開く”の設定画面に移動する</string>
+    <string name="revanced_default_playback_speed_title">デフォルトの再生速度</string>
     <string name="revanced_default_video_quality_mobile_title">モバイルデータ通信でのデフォルト画質</string>
     <string name="revanced_default_video_quality_wifi_title">Wi-Fi でのデフォルト画質</string>
     <string name="revanced_description_title">概要欄</string>
     <string name="revanced_disable_auto_captions_summary_off">強制字幕表示を無効にします</string>
     <string name="revanced_disable_auto_captions_summary_on">強制字幕表示を無効にします</string>
     <string name="revanced_disable_auto_captions_title">強制自動字幕を無効にする</string>
+    <string name="revanced_disable_default_playback_speed_live_summary_off">ライブではデフォルトで設定されている再生速度を無効にします</string>
+    <string name="revanced_disable_default_playback_speed_live_summary_on">ライブではデフォルトで設定されている再生速度を無効にします</string>
+    <string name="revanced_disable_default_playback_speed_live_title">ライブでデフォルトの再生速度を無効にする</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">チャプターの振動フィードバックを無効にします</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">チャプターの振動フィードバックを無効にします</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">チャプターの振動フィードバックを無効にする</string>
@@ -68,6 +76,9 @@
     <string name="revanced_enable_custom_seekbar_color_summary_off">再生バー(シークバー)の色を変更します</string>
     <string name="revanced_enable_custom_seekbar_color_summary_on">再生バー(シークバー)の色を変更します</string>
     <string name="revanced_enable_custom_seekbar_color_title">再生バー(シークバー)の色を変更する</string>
+    <string name="revanced_enable_custom_playback_speed_summary_off">カスタム再生速度は無効です</string>
+    <string name="revanced_enable_custom_playback_speed_summary_on">カスタム再生速度は有効です</string>
+    <string name="revanced_enable_custom_playback_speed_title">再生速度のカスタマイズを有効にする</string>
     <string name="revanced_enable_debug_logging_summary_off">バグレポートを出力します</string>
     <string name="revanced_enable_debug_logging_summary_on">バグレポートを出力します</string>
     <string name="revanced_enable_debug_logging_title">デバッグログを有効にする</string>
@@ -576,13 +587,10 @@
     <string name="revanced_spoof_app_version_title">アプリのバージョンを偽装する</string>
     <string name="revanced_spoof_app_version_target_entry_0">18.20.39 - 旧バージョンのプレイヤーフライアウトパネルを復元します</string>
     <string name="revanced_spoof_app_version_target_entry_1">17.41.37 - ライブラリタブで旧バージョンのプレイリスト欄を復元します</string>
-    <string name="revanced_spoof_app_version_target_entry_2">17.30.34 - 古いUIを復元します</string>
     <string name="revanced_spoof_app_version_target_entry_3">16.08.35 - “探す”タブを復元します</string>
     <string name="revanced_spoof_app_version_target_entry_title">偽装するバージョンを選択</string>
     <string name="revanced_spoof_app_version_target_summary">偽装したいバージョンを入力してください</string>
     <string name="revanced_spoof_app_version_target_title">アプリのバージョンを偽装する</string>
-    <string name="revanced_spoof_player_parameter_notice">バッファリングの問題を修正するために、プレーヤーのパラメータを偽装しました</string>
-    <string name="revanced_spoof_player_parameter_reload">動画を再読み込みしてください</string>
     <string name="revanced_spoof_player_parameter_type_summary_off">"YouTubeショートのプレーヤーのパラメータ
 既知の問題：
 ‐ 動画の右下のウォーターマークは表示されません
