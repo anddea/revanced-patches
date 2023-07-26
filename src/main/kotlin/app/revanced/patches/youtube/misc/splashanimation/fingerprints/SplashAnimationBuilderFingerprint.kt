@@ -5,5 +5,10 @@ import app.revanced.util.bytecode.isWide32LiteralExists
 
 object SplashAnimationBuilderFingerprint : MethodFingerprint(
     returnType = "V",
-    customFingerprint = { methodDef, _ -> methodDef.isWide32LiteralExists(45407550) }
+    parameters = listOf("Landroid/os/Bundle;"),
+    customFingerprint = { methodDef, _ ->
+        methodDef.definingClass.endsWith("/WatchWhileActivity;")
+                && methodDef.name == "onCreate"
+                && methodDef.isWide32LiteralExists(45407550)
+    }
 )
