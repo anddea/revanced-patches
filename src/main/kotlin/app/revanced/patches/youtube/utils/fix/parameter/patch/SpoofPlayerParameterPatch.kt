@@ -18,7 +18,6 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
-import app.revanced.patches.youtube.utils.fix.parameter.fingerprints.BadResponseFingerprint
 import app.revanced.patches.youtube.utils.fix.parameter.fingerprints.ProtobufParameterBuilderFingerprint
 import app.revanced.patches.youtube.utils.fix.parameter.fingerprints.ScrubbedPreviewLayoutFingerprint
 import app.revanced.patches.youtube.utils.fix.parameter.fingerprints.StoryboardThumbnailFingerprint
@@ -46,7 +45,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 @Version("0.0.1")
 class SpoofPlayerParameterPatch : BytecodePatch(
     listOf(
-        BadResponseFingerprint,
         ProtobufParameterBuilderFingerprint,
         ScrubbedPreviewLayoutFingerprint,
         StoryboardThumbnailParentFingerprint,
@@ -119,12 +117,6 @@ class SpoofPlayerParameterPatch : BytecodePatch(
                 )
             }
         } ?: return ScrubbedPreviewLayoutFingerprint.toErrorResult()
-
-        // hook video playback result
-        BadResponseFingerprint.result?.mutableMethod?.addInstruction(
-            0,
-            "invoke-static {}, $INTEGRATIONS_CLASS_DESCRIPTOR->switchPlayerParameters()V"
-        ) ?: return BadResponseFingerprint.toErrorResult()
 
         // fix protobuf spoof side issue
         SubtitleWindowFingerprint.result?.mutableMethod?.addInstructions(
