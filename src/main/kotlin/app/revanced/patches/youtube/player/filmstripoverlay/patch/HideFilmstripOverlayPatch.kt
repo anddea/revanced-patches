@@ -5,7 +5,6 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
@@ -77,36 +76,52 @@ class HideFilmstripOverlayPatch : BytecodePatch(
                 val jumpIndex = setOnClickListenerIndex + 3
 
                 val initialIndex = setOnClickListenerIndex - 1
-                val fixRegister = getInstruction<FiveRegisterInstruction>(initialIndex).registerE
-                var fixValue = 12
-                var isFound = false
 
-                for (index in initialIndex downTo insertIndex) {
-                    if (getInstruction(index).opcode != Opcode.CONST_16) continue
+                if (SettingsPatch.upward1828) {
+                    for (index in insertIndex .. initialIndex) {
+                        if (getInstruction(index).opcode != Opcode.CONST_16 && getInstruction(index).opcode != Opcode.CONST) continue
 
-                    val register = getInstruction<OneRegisterInstruction>(index).registerA
+                        val register = getInstruction<OneRegisterInstruction>(index).registerA
+                        val value = getInstruction<WideLiteralInstruction>(index).wideLiteral.toInt()
 
-                    if (register != fixRegister) continue
+                        val line =
+                            when (getInstruction(index).opcode) {
+                                Opcode.CONST_16 -> """
+                                const/16 v$register, $value
+                                
+                                """.trimIndent()
+                                Opcode.CONST -> """
+                                const v$register, $value
+                                
+                                """.trimIndent()
+                                else -> ""
+                            }
 
-                    fixValue = getInstruction<WideLiteralInstruction>(index).wideLiteral.toInt()
-                    isFound = true
-                    break
+                        fixComponent += line
+                    }
+                } else {
+                    val fixRegister = getInstruction<FiveRegisterInstruction>(initialIndex).registerE
+
+                    for (index in initialIndex downTo insertIndex) {
+                        if (getInstruction(index).opcode != Opcode.CONST_16) continue
+
+                        val register = getInstruction<OneRegisterInstruction>(index).registerA
+
+                        if (register != fixRegister) continue
+
+                        val fixValue = getInstruction<WideLiteralInstruction>(index).wideLiteral.toInt()
+                        fixComponent = "const/16 v$fixRegister, $fixValue"
+                        break
+                    }
                 }
 
                 addInstructionsWithLabels(
-                    insertIndex, """
+                    insertIndex, fixComponent + """
                         invoke-static {}, $PLAYER->hideFilmstripOverlay()Z
                         move-result v$insertRegister
                         if-nez v$insertRegister, :hidden
                         """, ExternalLabel("hidden", getInstruction(jumpIndex))
                 )
-
-                if (isFound) {
-                    addInstruction(
-                        insertIndex,
-                        "const/16 v$fixRegister, $fixValue"
-                    )
-                }
             }
         } ?: return YouTubeControlsOverlayFingerprint.toErrorResult()
 
@@ -127,6 +142,8 @@ class HideFilmstripOverlayPatch : BytecodePatch(
     }
 
     private companion object {
+        var fixComponent: String = ""
+
         fun MutableMethod.injectHook() {
             addInstructionsWithLabels(
                 0, """
