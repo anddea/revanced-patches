@@ -251,6 +251,9 @@
     <string name="revanced_hide_chapters_summary_off">La sezione Capitoli è visibile</string>
     <string name="revanced_hide_chapters_summary_on">La sezione Capitoli è nascosta</string>
     <string name="revanced_hide_chapters_title">Nascondi la sezione Capitoli</string>
+    <string name="revanced_hide_chips_shelf_off">Lo scaffale dei chip è visibile</string>
+    <string name="revanced_hide_chips_shelf_on">Lo scaffale dei chip è nascosto</string>
+    <string name="revanced_hide_chips_shelf_title">Nascondi lo scaffale dei chip</string>
     <string name="revanced_hide_collapse_button_summary_off">Il pulsante Comprimi è visibile</string>
     <string name="revanced_hide_collapse_button_summary_on">Il pulsante Comprimi è nascosto</string>
     <string name="revanced_hide_collapse_button_title">Nascondi il pulsante Comprimi</string>
@@ -291,9 +294,9 @@
     <string name="revanced_hide_feed_survey_summary_off">I sondaggi nei feed sono visibili</string>
     <string name="revanced_hide_feed_survey_summary_on">I sondaggi nei feed sono nascosti</string>
     <string name="revanced_hide_feed_survey_title">Nascondi i sondaggi nei feed</string>
-    <string name="revanced_hide_filmstrip_overlay_summary_off">La sezione film in sovrapposizione è visibile</string>
-    <string name="revanced_hide_filmstrip_overlay_summary_on">La sezione film in sovrapposizione è nascosta</string>
-    <string name="revanced_hide_filmstrip_overlay_title">Nascondi la sezione film in sovrapposizione</string>
+    <string name="revanced_hide_filmstrip_overlay_summary_off">La sovrapposizione della pellicola è visibile</string>
+    <string name="revanced_hide_filmstrip_overlay_summary_on">La sovrapposizione della pellicola è nascosta</string>
+    <string name="revanced_hide_filmstrip_overlay_title">Nascondi la sovrapposizione della pellicola</string>
     <string name="revanced_hide_floating_microphone_summary_off">Il pulsante fluttuante del microfono è visibile</string>
     <string name="revanced_hide_floating_microphone_summary_on">Il pulsante fluttuante del microfono è nascosto</string>
     <string name="revanced_hide_floating_microphone_title">Nascondi il pulsante fluttuante del microfono</string>
@@ -603,20 +606,14 @@ Se verrà disattivato in seguito, la vecchia interfaccia potrebbe rimanere fino 
     <string name="revanced_spoof_app_version_target_entry_title">La versione dell\'app da simulare</string>
     <string name="revanced_spoof_app_version_target_summary">Digita la versione dell\'app da simulare</string>
     <string name="revanced_spoof_app_version_target_title">Modifica la versione dell\'app da simulare</string>
-    <string name="revanced_spoof_player_parameter_type_summary_off">"Parametri del riproduttore degli Shorts.
+    <string name="revanced_spoof_player_parameter_summary">"I parametri del giocatore dei poofs per prevenire i problemi di riproduzione.
 
 Problemi noti:
-- Il watermark nei video è sempre nascosto
-- Il download di video potrebbe non funzionare
-- Le schede finali sono sempre nascoste"</string>
-    <string name="revanced_spoof_player_parameter_type_summary_on">"Parametri del riproduttore della navigazione in incognito.
-
-Problemi noti:
-- La modalità Ambient potrebbe non funzionare
-- Il download di video potrebbe non funzionare
-- L'anteprima degli thumbnails della barra di avanzamento è nascosta"</string>
-    <string name="revanced_spoof_player_parameter_type_title">Simula il tipo di parametri del riproduttore</string>
-    <string name="revanced_spoof_player_parameter_summary">Simula i parametri del riproduttore per prevenire problemi di riproduzione</string>
+• La Modalità Ambient potrebbe non funzionare
+• I clip non possono essere riprodotti normalmente
+• Il download dei video potrebbe non funzionare
+• La sovrapposizione della pellicola è sempre nascosta
+• L'anteprima degli thumbnails della barra di avanzamento è sempre nascosta"</string>
     <string name="revanced_spoof_player_parameter_title">Simula i parametri del riproduttore</string>
     <string name="revanced_swipe_controls">Controlli a scorrimento</string>
     <string name="revanced_swipe_magnitude_threshold_summary">La quantità di interazioni prima che lo scorrimento si verifichi</string>
