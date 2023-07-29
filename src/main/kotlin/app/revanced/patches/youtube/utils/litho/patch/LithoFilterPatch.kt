@@ -45,7 +45,7 @@ class LithoFilterPatch : BytecodePatch(
             "sput-object p0, $ADS_PATH/LowLevelFilter;->byteBuffer:Ljava/nio/ByteBuffer;"
         ) ?: return ByteBufferFingerprint.toErrorResult()
 
-        if (SettingsPatch.belowAndroid1820)
+        if (SettingsPatch.below1820)
             legacyHook("$ADS_PATH/LithoFilterPatch;->filters")
         else
             generalHook("$ADS_PATH/LithoFilterPatch;->filters")

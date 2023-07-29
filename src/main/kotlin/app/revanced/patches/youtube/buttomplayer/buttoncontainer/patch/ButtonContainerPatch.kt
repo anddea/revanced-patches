@@ -12,7 +12,6 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.litho.patch.LithoFilterPatch
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
-import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch.Companion.belowAndroid1820
 import app.revanced.util.integrations.Constants.PATCHES_PATH
 
 @Patch
@@ -29,7 +28,7 @@ import app.revanced.util.integrations.Constants.PATCHES_PATH
 class ButtonContainerPatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
 
-        if (belowAndroid1820) {
+        if (SettingsPatch.below1820) {
             LithoFilterPatch.addFilter("$PATCHES_PATH/ads/ActionButtonsFilter;")
             SettingsPatch.addPreference(
                 arrayOf(

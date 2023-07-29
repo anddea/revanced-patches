@@ -70,10 +70,12 @@ class SettingsPatch : AbstractSettingsResourcePatch(
 
                         if (node.nodeName != "integer" || !node.getAttribute("name")
                                 .startsWith("google_play_services_version")
-                        )
-                            continue
+                        ) continue
 
-                        belowAndroid1820 = node.textContent.toInt() <= 232100000
+                        val playServicesVersion = node.textContent.toInt()
+
+                        below1820 = playServicesVersion <= 232100000
+                        upward1828 = playServicesVersion >= 232900000
 
                         break
                     }
@@ -182,7 +184,8 @@ class SettingsPatch : AbstractSettingsResourcePatch(
         private val threadPoolExecutor = Executors.newFixedThreadPool(THREAD_COUNT)
 
         internal lateinit var contexts: ResourceContext
-        internal var belowAndroid1820: Boolean = false
+        internal var below1820: Boolean = false
+        internal var upward1828: Boolean = false
 
         internal fun addPreference(settingArray: Array<String>) {
             contexts.addPreference(settingArray)
