@@ -6,7 +6,6 @@ import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.data.toMethodWalker
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
@@ -22,11 +21,9 @@ import app.revanced.patches.youtube.utils.fix.parameter.fingerprints.ProtobufPar
 import app.revanced.patches.youtube.utils.fix.parameter.fingerprints.ScrubbedPreviewLayoutFingerprint
 import app.revanced.patches.youtube.utils.fix.parameter.fingerprints.StoryboardThumbnailFingerprint
 import app.revanced.patches.youtube.utils.fix.parameter.fingerprints.StoryboardThumbnailParentFingerprint
-import app.revanced.patches.youtube.utils.fix.parameter.fingerprints.SubtitleWindowFingerprint
 import app.revanced.patches.youtube.utils.playertype.patch.PlayerTypeHookPatch
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
-import app.revanced.patches.youtube.utils.videoid.general.patch.VideoIdPatch
 import app.revanced.util.integrations.Constants.MISC_PATH
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
@@ -37,8 +34,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 @DependsOn(
     [
         SharedResourceIdPatch::class,
-        PlayerTypeHookPatch::class,
-        VideoIdPatch::class
+        PlayerTypeHookPatch::class
     ]
 )
 @YouTubeCompatibility
@@ -47,8 +43,7 @@ class SpoofPlayerParameterPatch : BytecodePatch(
     listOf(
         ProtobufParameterBuilderFingerprint,
         ScrubbedPreviewLayoutFingerprint,
-        StoryboardThumbnailParentFingerprint,
-        SubtitleWindowFingerprint
+        StoryboardThumbnailParentFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
@@ -73,7 +68,7 @@ class SpoofPlayerParameterPatch : BytecodePatch(
         } ?: return ProtobufParameterBuilderFingerprint.toErrorResult()
 
         // When the player parameter is spoofed in incognito mode, this value will always be false
-        // If this value is true, the timestamp and chapter are showned when tapping the seekbar.
+        // If this value is true, the timestamp and chapter are shown when tapping the seekbar.
         StoryboardThumbnailParentFingerprint.result?.classDef?.let { classDef ->
             StoryboardThumbnailFingerprint.also {
                 it.resolve(
@@ -90,7 +85,7 @@ class SpoofPlayerParameterPatch : BytecodePatch(
                     addInstructions(
                         targetIndex + 1,
                         """
-                            invoke-static {v$targetRegister}, $INTEGRATIONS_CLASS_DESCRIPTOR->getSeekbarThumbnailOverrideValue(Z)Z
+                            invoke-static {}, $INTEGRATIONS_CLASS_DESCRIPTOR->getSeekbarThumbnailOverrideValue()Z
                             move-result v$targetRegister
                             return v$targetRegister
                             """
@@ -117,24 +112,6 @@ class SpoofPlayerParameterPatch : BytecodePatch(
                 )
             }
         } ?: return ScrubbedPreviewLayoutFingerprint.toErrorResult()
-
-        // fix protobuf spoof side issue
-        SubtitleWindowFingerprint.result?.mutableMethod?.addInstructions(
-            0,
-            """
-                invoke-static {p1, p2, p3, p4, p5}, $INTEGRATIONS_CLASS_DESCRIPTOR->getSubtitleWindowSettingsOverride(IIIZZ)[I
-                move-result-object v0
-                const/4 v1, 0x0
-                aget p1, v0, v1     # ap, anchor position
-                const/4 v1, 0x1
-                aget p2, v0, v1     # ah, horizontal anchor
-                const/4 v1, 0x2
-                aget p3, v0, v1     # av, vertical anchor
-            """
-        ) ?: return SubtitleWindowFingerprint.toErrorResult()
-
-        // Hook video id, required for subtitle fix.
-        VideoIdPatch.injectCall("$MISC_PATH/SpoofPlayerParameterPatch;->setCurrentVideoId(Ljava/lang/String;)V")
 
         /**
          * Add settings
