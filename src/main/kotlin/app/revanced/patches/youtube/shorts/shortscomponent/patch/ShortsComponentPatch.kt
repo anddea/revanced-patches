@@ -18,7 +18,7 @@ import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.integrations.Constants.PATCHES_PATH
 
 @Patch
-@Name("Hide Shorts components")
+@Name("Hide shorts components")
 @Description("Hides other Shorts components.")
 @DependsOn(
     [
