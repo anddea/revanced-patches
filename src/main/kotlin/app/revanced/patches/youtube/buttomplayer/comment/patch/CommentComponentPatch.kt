@@ -20,6 +20,7 @@ import app.revanced.util.integrations.Constants.PATCHES_PATH
 @Description("Hides components related to comments.")
 @DependsOn(
     [
+        LithoFilterPatch::class,
         GeneralAdsBytecodePatch::class,
         SettingsPatch::class
     ]
