@@ -36,7 +36,7 @@ class NewThumbnailPreviewPatch : BytecodePatch(
 
                 addInstructions(
                     insertIndex, """
-                        invoke-static {v$targetRegister}, $SEEKBAR->enableNewThumbnailPreview(Z)Z
+                        invoke-static {}, $SEEKBAR->enableNewThumbnailPreview()Z
                         move-result v$targetRegister
                         """
                 )
