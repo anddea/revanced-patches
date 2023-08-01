@@ -67,7 +67,7 @@ class OldQualityLayoutPatch : BytecodePatch(
 
                 addInstruction(
                     insertIndex,
-                    "invoke-static { v$insertRegister }, $FLYOUT_PANEL->enableOldQualityMenu(Landroid/widget/LinearLayout;)V"
+                    "invoke-static { v$insertRegister }, $FLYOUT_PANEL->onFlyoutMenuCreate(Landroid/widget/LinearLayout;)V"
                 )
             }
         } ?: return NewFlyoutPanelBuilderFingerprint.toErrorResult()
