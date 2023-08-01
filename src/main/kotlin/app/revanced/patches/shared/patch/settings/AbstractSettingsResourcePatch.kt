@@ -20,12 +20,14 @@ abstract class AbstractSettingsResourcePatch(
     private val isYouTube: Boolean,
 ) : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
-        /*
+        /**
          * Copy strings
          */
         context.copyXmlNode(sourceHostDirectory, "values/strings.xml", "resources")
 
-        /* initialize ReVanced Settings */
+        /**
+         * Initialize ReVanced Settings
+         */
         if (isYouTube)
             context.copyResources(
                 sourceDirectory,
