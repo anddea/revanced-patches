@@ -28,6 +28,7 @@ class SharedResourceIdPatch : ResourcePatch {
         var AutoNavPreviewStub: Long = -1
         var AutoNavToggle: Long = -1
         var BackgroundCategory: Long = -1
+        var Bar: Long = -1
         var BarContainerHeight: Long = -1
         var BottomPanelOverlayText: Long = -1
         var BottomSheetMargins: Long = -1
@@ -101,6 +102,7 @@ class SharedResourceIdPatch : ResourcePatch {
         AutoNavPreviewStub = find(ID, "autonav_preview_stub")
         AutoNavToggle = find(ID, "autonav_toggle")
         BackgroundCategory = find(STRING, "pref_background_and_offline_category")
+        Bar = find(LAYOUT, "bar")
         BarContainerHeight = find(DIMEN, "bar_container_height")
         BottomPanelOverlayText = find(ID, "bottom_panel_overlay_text")
         BottomSheetMargins = find(DIMEN, "bottom_sheet_margins")
