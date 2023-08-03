@@ -34,7 +34,7 @@ The official ReVanced Extended Patches.
 | `enable-external-browser` | Open url outside the app in an external browser. | 18.29.38 |
 | `enable-minimized-playback` | Enables minimized and background playback. | 18.29.38 |
 | `enable-new-comment-popup-panels` | Enables a new type of comment popup panel in the shorts player. | 18.29.38 |
-| `enable-new-splash-animation` | Enables a new type of splash animation on Android 12+ devices. | 18.29.38 |
+| `enable-new-splash-animation` | Enables a new type of splash animation. | 18.29.38 |
 | `enable-new-thumbnail-preview` | Enables a new type of thumbnail preview. | 18.29.38 |
 | `enable-old-quality-layout` | Enables the original quality flyout menu. | 18.29.38 |
 | `enable-open-links-directly` | Skips over redirection URLs to external links. | 18.29.38 |
@@ -72,6 +72,7 @@ The official ReVanced Extended Patches.
 | `hide-general-ads` | Hides general ads. | 18.29.38 |
 | `hide-handle` | Hides the handle in the account switcher. | 18.29.38 |
 | `hide-info-cards` | Hides info-cards in videos. | 18.29.38 |
+| `hide-latest-videos-button` | Hides latest videos button in home feed. | 18.29.38 |
 | `hide-layout-components` | Hides general layout components. | 18.29.38 |
 | `hide-load-more-button` | Hides the button under videos that loads similar videos. | 18.29.38 |
 | `hide-mix-playlists` | Hides mix playlists from home feed and video player. | 18.29.38 |
