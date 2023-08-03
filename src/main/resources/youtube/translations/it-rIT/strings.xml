@@ -42,18 +42,18 @@
     <string name="revanced_disable_default_playback_speed_live_summary_off">La velocità di riproduzione predefinita nei video dal vivo è attivata</string>
     <string name="revanced_disable_default_playback_speed_live_summary_on">La velocità di riproduzione predefinita nei video dal vivo è disattivata</string>
     <string name="revanced_disable_default_playback_speed_live_title">Disattiva la velocità di riproduzione predefinita nei video dal vivo</string>
-    <string name="revanced_disable_haptic_feedback_chapters_summary_off">La vibrazione in fase di cambio dei capitoli video è attivata</string>
-    <string name="revanced_disable_haptic_feedback_chapters_summary_on">La vibrazione in fase di cambio dei capitoli video è disattivata</string>
-    <string name="revanced_disable_haptic_feedback_chapters_title">Capitoli video</string>
-    <string name="revanced_disable_haptic_feedback_scrubbing_summary_off">La vibrazione in fase di trascinamento è attivata</string>
-    <string name="revanced_disable_haptic_feedback_scrubbing_summary_on">La vibrazione in fase di trascinamento è disattivata</string>
-    <string name="revanced_disable_haptic_feedback_scrubbing_title">Trascinamento</string>
-    <string name="revanced_disable_haptic_feedback_seek_summary_off">La vibrazione in fase di cambio del minutaggio è attivata</string>
-    <string name="revanced_disable_haptic_feedback_seek_summary_on">La vibrazione in fase di cambio del minutaggio è disattivata</string>
-    <string name="revanced_disable_haptic_feedback_seek_title">Barra del minutaggio</string>
-    <string name="revanced_disable_haptic_feedback_zoom_summary_off">La vibrazione in fase di cambio dello zoom video è attivata</string>
-    <string name="revanced_disable_haptic_feedback_zoom_summary_on">La vibrazione in fase di cambio dello zoom video è disattivata</string>
-    <string name="revanced_disable_haptic_feedback_zoom_title">Zoom video</string>
+    <string name="revanced_disable_haptic_feedback_chapters_summary_off">La vibrazione dei capitoli è attivata</string>
+    <string name="revanced_disable_haptic_feedback_chapters_summary_on">La vibrazione dei capitoli è disattivata</string>
+    <string name="revanced_disable_haptic_feedback_chapters_title">Disattiva la vibrazione dei capitoli</string>
+    <string name="revanced_disable_haptic_feedback_scrubbing_summary_off">La vibrazione del trascinamento è attivata</string>
+    <string name="revanced_disable_haptic_feedback_scrubbing_summary_on">La vibrazione del trascinamento è disattivata</string>
+    <string name="revanced_disable_haptic_feedback_scrubbing_title">Disattiva la vibrazione del trascinamento</string>
+    <string name="revanced_disable_haptic_feedback_seek_summary_off">La vibrazione della barra minutaggio è attivata</string>
+    <string name="revanced_disable_haptic_feedback_seek_summary_on">La vibrazione della barra minutaggio è disattivata</string>
+    <string name="revanced_disable_haptic_feedback_seek_title">Disattiva la vibrazione della barra del minutaggio</string>
+    <string name="revanced_disable_haptic_feedback_zoom_summary_off">La vibrazione dello zoom è attivata</string>
+    <string name="revanced_disable_haptic_feedback_zoom_summary_on">La vibrazione dello zoom è disattivata</string>
+    <string name="revanced_disable_haptic_feedback_zoom_title">Disattiva la vibrazione dello zoom</string>
     <string name="revanced_disable_hdr_auto_brightness_summary_off">La luminosità HDR automatica è attiva</string>
     <string name="revanced_disable_hdr_auto_brightness_summary_on">La luminosità HDR automatica è disattiva</string>
     <string name="revanced_disable_hdr_auto_brightness_title">Disattiva la luminosità HDR automatica</string>
@@ -62,7 +62,7 @@
     <string name="revanced_disable_hdr_video_title">Disattiva l\'HDR dei video</string>
     <string name="revanced_disable_landscape_mode_summary_off">La modalità orizzontale a schermo intero è attivata</string>
     <string name="revanced_disable_landscape_mode_summary_on">La modalità orizzontale a schermo intero è disattivata</string>
-    <string name="revanced_disable_landscape_mode_title">Modalità orizzontale a schermo intero</string>
+    <string name="revanced_disable_landscape_mode_title">Disattiva la modalità orizzontale a schermo intero</string>
     <string name="revanced_disable_startup_shorts_player_summary_off">Il riproduttore Shorts è visibile all\'avvio dell\'app</string>
     <string name="revanced_disable_startup_shorts_player_summary_on">Il riproduttore degli Shorts è nascosto all\'avvio dell\'app</string>
     <string name="revanced_disable_startup_shorts_player_title">Nascondi il riproduttore degli Shorts all\'avvio dell\'app</string>
@@ -91,7 +91,6 @@
     <string name="revanced_enable_new_splash_animation_summary_off">La nuova animazione splash è disattivata</string>
     <string name="revanced_enable_new_splash_animation_summary_on">La nuova animazione splash è attivata</string>
     <string name="revanced_enable_new_splash_animation_title">Attiva la nuova animazione splash</string>
-    <string name="revanced_enable_new_splash_animation_warning">Disponibile solo su Android 12+</string>
     <string name="revanced_enable_new_thumbnail_preview_summary_off">La nuova anteprima dei thumbnails è disattivata</string>
     <string name="revanced_enable_new_thumbnail_preview_summary_on">La nuova anteprima dei thumbnails è attivata</string>
     <string name="revanced_enable_new_thumbnail_preview_title">Attiva la nuova anteprima dei thumbnails</string>
@@ -151,8 +150,6 @@
     <string name="revanced_experimental_flag">Opzioni sperimentali</string>
     <string name="revanced_export_settings_summary">Salva le tue impostazioni di ReVanced su un file</string>
     <string name="revanced_export_settings_title">Esporta impostazioni</string>
-    <string name="revanced_extended_support_center_summary">Segnala problemi o lascia suggerimenti qui</string>
-    <string name="revanced_extended_support_center_title">Centro di supporto</string>
     <string name="revanced_external_downloader_installed">Installato</string>
     <string name="revanced_external_downloader_not_installed">Non installato</string>
     <string name="revanced_external_downloader_not_installed_warning" formatted="false">%s non è installato. Per favore installalo</string>
@@ -164,7 +161,7 @@
     <string name="revanced_flyout_menu">Menù contestuale</string>
     <string name="revanced_fullscreen">Schermo intero</string>
     <string name="revanced_general">Generali</string>
-    <string name="revanced_haptic_feedback_title">Feedback aptico</string>
+    <string name="revanced_haptic_feedback_title">Vibrazione</string>
     <string name="revanced_hide_account_menu_summary">Problema noto: in modalità orizzontale o su dispositivi ad alta risoluzione potrebbe non funzionare</string>
     <string name="revanced_hide_account_menu_title">Nascondi i menù dell\'account</string>
     <string name="revanced_hide_account_menu_filter_strings_title">Modifica il filtro dei menù dell\'account</string>
@@ -342,6 +339,9 @@
     <string name="revanced_hide_library_button_summary_off">La scheda Raccolta è visibile</string>
     <string name="revanced_hide_library_button_summary_on">La scheda Raccolta è nascosta</string>
     <string name="revanced_hide_library_button_title">Nascondi la scheda Raccolta</string>
+    <string name="revanced_hide_latest_videos_button_summary_off">Il pulsante Ultimi Video è visibile</string>
+    <string name="revanced_hide_latest_videos_button_summary_on">Il pulsante Ultimi Video è nascosto</string>
+    <string name="revanced_hide_latest_videos_button_title">Nascondi il pulsante Ultimi Video</string>
     <string name="revanced_hide_load_more_button_summary_off">Il pulsante Mostra Altro è visibile</string>
     <string name="revanced_hide_load_more_button_summary_on">Il pulsante Mostra Altro è nascosto</string>
     <string name="revanced_hide_load_more_button_title">Nascondi il pulsante Mostra Altro</string>
@@ -444,9 +444,9 @@ Disponibile solo su YouTube 18.24.37+"</string>
     <string name="revanced_hide_seekbar_thumbnail_summary_on">L\'anteprima degli thumbnails della barra di avanzamento è nascosta</string>
     <string name="revanced_hide_seekbar_thumbnail_title">Nascondi l\'anteprima degli thumbnails della barra di avanzamento</string>
     <string name="revanced_hide_seekbar_title">Nascondi la barra di avanzamento del riproduttore</string>
-    <string name="revanced_hide_seek_message_summary_off">Il messaggio di ricerca è visibile</string>
-    <string name="revanced_hide_seek_message_summary_on">Il messaggio di ricerca è nascosto</string>
-    <string name="revanced_hide_seek_message_title">Nascondi il messaggio di ricerca</string>
+    <string name="revanced_hide_seek_message_summary_off">Il messaggio del trascinamento è visibile</string>
+    <string name="revanced_hide_seek_message_summary_on">Il messaggio del trascinamento è nascosto</string>
+    <string name="revanced_hide_seek_message_title">Nascondi il messaggio del trascinamento</string>
     <string name="revanced_hide_self_sponsor_cards_summary_off">Le schede autopromozionali sono visibili</string>
     <string name="revanced_hide_self_sponsor_cards_summary_on">Le schede autopromozionali sono nascoste</string>
     <string name="revanced_hide_self_sponsor_cards_title">Nascondi le schede autopromozionali</string>
@@ -566,7 +566,7 @@ Attivando questa opzione, le seguenti funzionalità saranno disponibili:
 
 Attivando questa opzione, la seguente funzionalità non sarà più disponibile:
 - I post della community"</string>
-    <string name="revanced_reboot_warning_vp9">"Simula le informazioni del dispositivo per attivare il codec VP9
+    <string name="revanced_reboot_warning_vp9">"Simula le informazioni del dispositivo per attivare il codec VP9.
 
 Dal momento che questa opzione è abbastanza obsoleta, potrebbe risultare non più funzionante"</string>
     <string name="revanced_ryd_attribution_summary">I dati relativi ai Non Mi Piace sono forniti dall\'API di Return YouTube Dislike. Tocca qui per saperne di più</string>
@@ -600,20 +600,21 @@ Questo cambierà l'aspetto dell'app, ma potrebbero verificarsi effetti collatera
 Se verrà disattivato in seguito, la vecchia interfaccia potrebbe rimanere fino a quando non vengono cancellati i dati dell'app"</string>
     <string name="revanced_spoof_app_version_title">Simula la versione dell\'app</string>
     <string name="revanced_spoof_app_version_target_entry_0">18.20.39 - Ripristina il vecchio pannello a comparsa del riproduttore</string>
-    <string name="revanced_spoof_app_version_target_entry_1">17.41.37 - Ripristina il vecchio scaffale delle playlist nella scheda Raccolta</string>
-    <string name="revanced_spoof_app_version_target_entry_2">17.08.35 - Ripristina la vecchia interfaccia</string>
-    <string name="revanced_spoof_app_version_target_entry_3">16.08.35 - Ripristina la scheda Esplora</string>
+    <string name="revanced_spoof_app_version_target_entry_1">18.09.39 - Ripristina la vecchia scheda Raccolta</string>
+    <string name="revanced_spoof_app_version_target_entry_2">17.41.37 - Ripristina il vecchio scaffale delle playlist nella scheda Raccolta</string>
+    <string name="revanced_spoof_app_version_target_entry_3">17.08.35 - Ripristina la vecchia interfaccia</string>
+    <string name="revanced_spoof_app_version_target_entry_4">16.08.35 - Ripristina la scheda Esplora</string>
     <string name="revanced_spoof_app_version_target_entry_title">La versione dell\'app da simulare</string>
     <string name="revanced_spoof_app_version_target_summary">Digita la versione dell\'app da simulare</string>
     <string name="revanced_spoof_app_version_target_title">Modifica la versione dell\'app da simulare</string>
-    <string name="revanced_spoof_player_parameter_summary">"I parametri del giocatore dei poofs per prevenire i problemi di riproduzione.
+    <string name="revanced_spoof_player_parameter_summary">"Simula il riproduttore per prevenire problemi di riproduzione.
 
 Problemi noti:
-• La Modalità Ambient potrebbe non funzionare
-• I clip non possono essere riprodotti normalmente
-• Il download dei video potrebbe non funzionare
-• La sovrapposizione della pellicola è sempre nascosta
-• L'anteprima degli thumbnails della barra di avanzamento è sempre nascosta"</string>
+- La Modalità Ambient potrebbe non funzionare
+- I clip non possono essere riprodotti normalmente
+- Il download dei video potrebbe non funzionare
+- La sovrapposizione della pellicola è sempre nascosta
+- L'anteprima degli thumbnails della barra di avanzamento è sempre nascosta"</string>
     <string name="revanced_spoof_player_parameter_title">Simula i parametri del riproduttore</string>
     <string name="revanced_swipe_controls">Controlli a scorrimento</string>
     <string name="revanced_swipe_magnitude_threshold_summary">La quantità di interazioni prima che lo scorrimento si verifichi</string>
@@ -630,11 +631,7 @@ Problemi noti:
     <string name="revanced_tool_used">Tool utilizzati</string>
     <string name="revanced_video">Video</string>
     <string name="pref_app_language_dialog_message">&lt;b&gt;%1$s&lt;/b&gt;&lt;br&gt;&lt;br&gt;Questo cambierà la lingua utilizzata da YouTube, inclusi pulsanti, testo e finestre di dialogo, ma non cambierà la lingua delle impostazioni di ReVanced Extended</string>
-    <string name="pref_app_language_dialog_title">Cambiare la lingua dell\'app?</string>
-    <string name="pref_app_language_heading_all">Tutte le lingue</string>
-    <string name="pref_app_language_heading_current">Lingua corrente</string>
-    <string name="pref_app_language_system_default">Predefinito del sistema</string>
-    <string name="pref_app_language_title">Lingua dell\'app</string>
+    <string name="pref_app_language_dialog_message_no_lang_name">Questo cambierà la lingua utilizzata nell\'app, inclusi pulsanti, testo e finestre di dialogo, ma non cambierà la lingua delle impostazioni di ReVanced Extended</string>
     <string name="sb_enable_sb">Attiva SponsorBlock</string>
     <string name="sb_enable_sb_sum">SponsorBlock è un sistema collaborativo creato per saltare le parti fastidiose nei video di YouTube</string>
     <string name="sb_appearance_category">Aspetto</string>

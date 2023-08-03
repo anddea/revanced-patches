@@ -91,7 +91,6 @@
     <string name="revanced_enable_new_splash_animation_summary_off">새로운 스플래시 애니메이션을 비활성화합니다.</string>
     <string name="revanced_enable_new_splash_animation_summary_on">새로운 스플래시 애니메이션을 활성화합니다.</string>
     <string name="revanced_enable_new_splash_animation_title">새로운 스플래시 애니메이션 활성화하기</string>
-    <string name="revanced_enable_new_splash_animation_warning">안드로이드 12 버전 이상에서만 적용 가능합니다.</string>
     <string name="revanced_enable_new_thumbnail_preview_summary_off">새로운 썸네일 미리보기를 비활성화합니다.</string>
     <string name="revanced_enable_new_thumbnail_preview_summary_on">새로운 썸네일 미리보기를 활성화합니다.</string>
     <string name="revanced_enable_new_thumbnail_preview_title">새로운 썸네일 미리보기 활성화하기</string>
@@ -151,8 +150,6 @@
     <string name="revanced_experimental_flag">실험적인 기능</string>
     <string name="revanced_export_settings_summary">ReVanced 설정을 파일로 내보냅니다.</string>
     <string name="revanced_export_settings_title">설정 내보내기</string>
-    <string name="revanced_extended_support_center_summary">버그 신고 또는 기능 제안은 이곳을 방문해주세요.</string>
-    <string name="revanced_extended_support_center_title">ReVanced Extended Issue Center</string>
     <string name="revanced_external_downloader_installed">설치되어 있습니다.</string>
     <string name="revanced_external_downloader_not_installed">설치되어 있지 않습니다.</string>
     <string name="revanced_external_downloader_not_installed_warning" formatted="false">%s가 설치되지 않았습니다. 설치해 주세요.</string>
@@ -168,8 +165,8 @@
     <string name="revanced_hide_account_menu_summary">알려진 문제점: 가로모드 또는 고해상도 기기에서 작동하지 않을 수 있습니다.</string>
     <string name="revanced_hide_account_menu_title">사용자 정의 필터로 계정 관련 메뉴 숨기기</string>
     <string name="revanced_hide_account_menu_filter_strings_title">계정 관련 메뉴 필터 편집하기</string>
-    <string name="revanced_hide_action_buttons_summary_off">다음 버튼들이 노출됩니다:\n실시간 채팅, 공유, 쇼핑, 신고, 리믹스, Thanks, 클립</string>
-    <string name="revanced_hide_action_buttons_summary_on">다음 버튼들이 숨겨집니다:\n실시간 채팅, 공유, 쇼핑, 신고, 리믹스, Thanks, 클립 </string>
+    <string name="revanced_hide_action_buttons_summary_off">다음 버튼들이 노출됩니다:\n실시간 채팅, 공유, 쇼핑, 신고, 리믹스, Thanks</string>
+    <string name="revanced_hide_action_buttons_summary_on">다음 버튼들이 숨겨집니다:\n실시간 채팅, 공유, 쇼핑, 신고, 리믹스, Thanks</string>
     <string name="revanced_hide_action_buttons_title">액션 버튼들 숨기기</string>
     <string name="revanced_hide_album_card_summary_off">검색 결과에서 음악 앨범 카드가 노출됩니다.</string>
     <string name="revanced_hide_album_card_summary_on">검색 결과에서 음악 앨범 카드가 숨겨집니다.</string>
@@ -251,9 +248,9 @@
     <string name="revanced_hide_chapters_summary_off">챕터 섹션이 노출됩니다.</string>
     <string name="revanced_hide_chapters_summary_on">챕터 섹션이 숨겨집니다.</string>
     <string name="revanced_hide_chapters_title">챕터 섹션 숨기기</string>
-    <string name="revanced_hide_chips_shelf_off">칩 선반이 노출됩니다.</string>
-    <string name="revanced_hide_chips_shelf_on">칩 선반이 숨겨집니다.</string>
-    <string name="revanced_hide_chips_shelf_title">칩 선반 숨기기</string>
+    <string name="revanced_hide_chips_shelf_off">단어 선반이 노출됩니다.</string>
+    <string name="revanced_hide_chips_shelf_on">단어 선반이 숨겨집니다.</string>
+    <string name="revanced_hide_chips_shelf_title">썸네일 하단 동영상 관련 단어 선반 숨기기</string>
     <string name="revanced_hide_collapse_button_summary_off">플레이어 접기 버튼이 노출됩니다.</string>
     <string name="revanced_hide_collapse_button_summary_on">플레이어 접기 버튼이 숨겨집니다.</string>
     <string name="revanced_hide_collapse_button_title">플레이어 접기 버튼 숨기기</string>
@@ -284,9 +281,11 @@
     <string name="revanced_hide_end_screen_overlay_summary_off">추천 동영상 오버레이가 노출됩니다.</string>
     <string name="revanced_hide_end_screen_overlay_summary_on">추천 동영상 오버레이가 숨겨집니다.</string>
     <string name="revanced_hide_end_screen_overlay_title">추천 동영상 오버레이 숨기기</string>
-    <string name="revanced_hide_expandable_chip_summary_off">확장 가능한 칩이 노출됩니다.</string>
-    <string name="revanced_hide_expandable_chip_summary_on">확장 가능한 칩이 숨겨집니다.</string>
-    <string name="revanced_hide_expandable_chip_title">동영상 아래에 있는 확장 가능한 칩 숨기기</string>
+    <string name="revanced_hide_expandable_chip_summary_off">다음 정보들이 노출됩니다:\n
+동영상 설명, 챕터, 주요 순간, 스크립트, 재생목록의 동영상</string>
+    <string name="revanced_hide_expandable_chip_summary_on">다음 정보들이 숨겨집니다:\n
+동영상 설명, 챕터, 주요 순간, 스크립트, 재생목록의 동영상</string>
+    <string name="revanced_hide_expandable_chip_title">썸네일 하단 동영상 관련 정보 숨기기</string>
     <string name="revanced_hide_feed_flyout_panel_filter_strings_title">피드 구성요소 관련 메뉴 필터 편집하기</string>
     <string name="revanced_hide_feed_flyout_panel_summary_off">피드 구성요소 관련 메뉴가 노출됩니다.</string>
     <string name="revanced_hide_feed_flyout_panel_summary_on">피드 구성요소 관련 메뉴가 숨겨집니다.</string>
@@ -342,6 +341,9 @@
     <string name="revanced_hide_library_button_summary_off">보관함 버튼이 노출됩니다.</string>
     <string name="revanced_hide_library_button_summary_on">보관함 버튼이 숨겨집니다.</string>
     <string name="revanced_hide_library_button_title">보관함 버튼 숨기기</string>
+    <string name="revanced_hide_latest_videos_button_summary_off">최신 동영상 버튼이 피드 상단에서 노출됩니다.</string>
+    <string name="revanced_hide_latest_videos_button_summary_on">최신 동영상 버튼이 피드 상단에서 숨겨집니다.</string>
+    <string name="revanced_hide_latest_videos_button_title">최신 동영상 버튼 숨기기</string>
     <string name="revanced_hide_load_more_button_summary_off">자세히 보기 버튼이 노출됩니다.</string>
     <string name="revanced_hide_load_more_button_summary_on">자세히 보기 버튼이 숨겨집니다.</string>
     <string name="revanced_hide_load_more_button_title">자세히 보기 버튼 숨기기</string>
@@ -492,8 +494,8 @@ YouTube 18.24.37 버전 이상에서만 적용 가능합니다."</string>
     <string name="revanced_hide_suggested_video_overlay_summary">"다음 재생 동영상 추천 오버레이가 숨겨집니다.
 알려진 문제점: 자동 재생이 작동하지 않습니다."</string>
     <string name="revanced_hide_suggested_video_overlay_title">동영상 추천 오버레이 숨기기</string>
-    <string name="revanced_hide_ticket_shelf_summary_off">콘서트 티켓 선반이 노출됩니다.\n(호주, 캐나다, 아일랜드, 뉴질랜드, 영국, 미국에만 해당.)</string>
-    <string name="revanced_hide_ticket_shelf_summary_on">콘서트 티켓 선반이 숨겨집니다.\n(호주, 캐나다, 아일랜드, 뉴질랜드, 영국, 미국에만 해당.)</string>
+    <string name="revanced_hide_ticket_shelf_summary_off">콘서트 티켓 선반이 노출됩니다.\n호주, 캐나다, 아일랜드, 뉴질랜드, 영국, 미국에만 해당.</string>
+    <string name="revanced_hide_ticket_shelf_summary_on">콘서트 티켓 선반이 숨겨집니다.\n호주, 캐나다, 아일랜드, 뉴질랜드, 영국, 미국에만 해당.</string>
     <string name="revanced_hide_ticket_shelf_title">콘서트 티켓 선반 숨기기</string>
     <string name="revanced_hide_timed_reactions_summary_off">실시간 이모티콘 리액션이 노출됩니다.</string>
     <string name="revanced_hide_timed_reactions_summary_on">실시간 이모티콘 리액션이 숨겨집니다.</string>
@@ -599,9 +601,10 @@ YouTube 18.24.37 버전 이상에서만 적용 가능합니다."</string>
 알려지지 않은 다른 문제가 있을 수 있으며, 이를 다시 비활성화하더라도 앱 데이터를 지우기 전까지 이전 레이아웃이 유지될 수 있습니다."</string>
     <string name="revanced_spoof_app_version_title">앱 레이아웃 변경하기</string>
     <string name="revanced_spoof_app_version_target_entry_0">18.20.39 - 이전 플레이어 구성요소 패널을 복원합니다.</string>
-    <string name="revanced_spoof_app_version_target_entry_1">17.41.37 - 보관함 탭에서 이전 재생목록 선반을 복원합니다.</string>
-    <string name="revanced_spoof_app_version_target_entry_2">17.08.35 - 이전 레이아웃으로 복원합니다.</string>
-    <string name="revanced_spoof_app_version_target_entry_3">16.08.35 - 탐색 탭을 복원합니다.</string>
+    <string name="revanced_spoof_app_version_target_entry_1">18.09.39 - 이전 보관함 탭을 복원합니다.</string>
+    <string name="revanced_spoof_app_version_target_entry_2">17.41.37 - 보관함 탭에서 이전 재생목록 선반을 복원합니다.</string>
+    <string name="revanced_spoof_app_version_target_entry_3">17.08.35 - 이전 레이아웃으로 복원합니다.</string>
+    <string name="revanced_spoof_app_version_target_entry_4">16.08.35 - 탐색 탭을 복원합니다.</string>
     <string name="revanced_spoof_app_version_target_entry_title">변경할 앱 버전 설정</string>
     <string name="revanced_spoof_app_version_target_summary">변경할 앱 버전을 입력하세요.</string>
     <string name="revanced_spoof_app_version_target_title">변경할 앱 버전 편집하기</string>
@@ -629,11 +632,7 @@ YouTube 18.24.37 버전 이상에서만 적용 가능합니다."</string>
     <string name="revanced_tool_used">사용된 도구</string>
     <string name="revanced_video">동영상</string>
     <string name="pref_app_language_dialog_message">&lt;b&gt;%1$s&lt;/b&gt;&lt;br&gt;&lt;br&gt;이렇게 하면 버튼, 텍스트 및 대화 상자를 포함한 YouTube에서 사용되는 언어는 변경되지만 ReVanced Extended 설정의 언어는 변경되지 않습니다.</string>
-    <string name="pref_app_language_dialog_title">앱 언어를 변경하시겠습니까?</string>
-    <string name="pref_app_language_heading_all">모든 언어</string>
-    <string name="pref_app_language_heading_current">현재 언어</string>
-    <string name="pref_app_language_system_default">시스템 기본값</string>
-    <string name="pref_app_language_title">앱 언어</string>
+    <string name="pref_app_language_dialog_message_no_lang_name">이렇게 하면 버튼, 텍스트 및 대화 상자를 포함한 YouTube에서 사용되는 언어는 변경되지만 ReVanced Extended 설정의 언어는 변경되지 않습니다.</string>
     <string name="sb_enable_sb">SponsorBlock 활성화하기</string>
     <string name="sb_enable_sb_sum">SponsorBlock은 YouTube 동영상 내 성가신 구간을 건너뛰게 해주는 크라우드소싱 시스템입니다.</string>
     <string name="sb_appearance_category">레이아웃</string>

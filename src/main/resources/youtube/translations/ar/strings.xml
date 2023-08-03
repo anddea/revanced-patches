@@ -91,7 +91,6 @@
     <string name="revanced_enable_new_splash_animation_summary_off">تم تعطيل حركة البداية الجديدة</string>
     <string name="revanced_enable_new_splash_animation_summary_on">تم تمكين حركة البداية الجديدة</string>
     <string name="revanced_enable_new_splash_animation_title">تمكين حركة البداية الجديدة</string>
-    <string name="revanced_enable_new_splash_animation_warning">متوفر على نظام أندرويد 12 وما فوق</string>
     <string name="revanced_enable_new_thumbnail_preview_summary_off">تم تعطيل المعاينة المصغرة الجديدة</string>
     <string name="revanced_enable_new_thumbnail_preview_summary_on">تم تمكين المعاينة المصغرة الجديدة</string>
     <string name="revanced_enable_new_thumbnail_preview_title">تمكين المعاينة المصغرة الجديدة</string>
@@ -151,8 +150,6 @@
     <string name="revanced_experimental_flag">تعديلات تجريبية</string>
     <string name="revanced_export_settings_summary">حفظ إعدادات ReVanced الخاصة بك في مِلَفّ</string>
     <string name="revanced_export_settings_title">تصدير الإعدادات</string>
-    <string name="revanced_extended_support_center_summary">الإبلاغ عن المشاكل أو ترك الاقتراحات هنا</string>
-    <string name="revanced_extended_support_center_title">مركز الدعم</string>
     <string name="revanced_external_downloader_installed">مُثبَّت</string>
     <string name="revanced_external_downloader_not_installed">غير مثبّت</string>
     <string name="revanced_external_downloader_not_installed_warning" formatted="false">%s لم يتم تثبيته. الرجاء تثبيته.</string>
@@ -251,6 +248,9 @@
     <string name="revanced_hide_chapters_summary_off">يتم عرض الفصول</string>
     <string name="revanced_hide_chapters_summary_on">تم إخفاء الفصول</string>
     <string name="revanced_hide_chapters_title">إخفاء الفصول</string>
+    <string name="revanced_hide_chips_shelf_off">يتم عرض رف الشرائح</string>
+    <string name="revanced_hide_chips_shelf_on">تم إخفاء رف الشرائح</string>
+    <string name="revanced_hide_chips_shelf_title">إخفاء رف الشرائح</string>
     <string name="revanced_hide_collapse_button_summary_off">يتم عرض زر الطَيّ</string>
     <string name="revanced_hide_collapse_button_summary_on">تم إخفاء زر الطَيّ</string>
     <string name="revanced_hide_collapse_button_title">إخفاء زر الطَيّ</string>
@@ -339,6 +339,9 @@
     <string name="revanced_hide_library_button_summary_off">يتم عرض زر المكتبة</string>
     <string name="revanced_hide_library_button_summary_on">تم إخفاء زر المكتبة</string>
     <string name="revanced_hide_library_button_title">إخفاء زر المكتبة</string>
+    <string name="revanced_hide_latest_videos_button_summary_off">يتم عرض زر أحدث مقاطع الفيديو</string>
+    <string name="revanced_hide_latest_videos_button_summary_on">تم إخفاء زر أحدث مقاطع الفيديو</string>
+    <string name="revanced_hide_latest_videos_button_title">إخفاء زر أحدث مقاطع الفيديو</string>
     <string name="revanced_hide_load_more_button_summary_off">يتم عرض زر تحميل المزيد</string>
     <string name="revanced_hide_load_more_button_summary_on">تم إخفاء زر تحميل المزيد</string>
     <string name="revanced_hide_load_more_button_title">إخفاء زر تحميل المزيد</string>
@@ -593,12 +596,21 @@
 إذا تم إيقاف تشغيلها لاحقًا، فقد تظل واجهة المستخدم القديمة قائمة حتى يتم مسح بيانات التطبيق"</string>
     <string name="revanced_spoof_app_version_title">خِداع إصدار التطبيق</string>
     <string name="revanced_spoof_app_version_target_entry_0">18.20.39 - استعادة لوحة المشغل المنبثقة القديمة</string>
-    <string name="revanced_spoof_app_version_target_entry_1">17.41.37 - استعادة النمط القديم لرف قائمة التشغيل في علامة تبويب المكتبة</string>
-    <string name="revanced_spoof_app_version_target_entry_2">17.08.35 - استعادة تصميم واجهة المستخدم القديم</string>
-    <string name="revanced_spoof_app_version_target_entry_3">16.08.35 - استعادة تبويب استكشاف</string>
+    <string name="revanced_spoof_app_version_target_entry_1">18.09.39 - استعادة نمط تبويب المكتبة القديم</string>
+    <string name="revanced_spoof_app_version_target_entry_2">17.41.37 - استعادة النمط القديم لرف قائمة التشغيل في علامة تبويب المكتبة</string>
+    <string name="revanced_spoof_app_version_target_entry_3">17.08.35 - استعادة تصميم واجهة المستخدم القديم</string>
+    <string name="revanced_spoof_app_version_target_entry_4">16.08.35 - استعادة تبويب استكشاف</string>
     <string name="revanced_spoof_app_version_target_entry_title">الهدف من خِداع إصدار التطبيق</string>
     <string name="revanced_spoof_app_version_target_summary">اكتب هدف إصدار التطبيق المخادع</string>
     <string name="revanced_spoof_app_version_target_title">تعديل خِداع إصدار التطبيق</string>
+    <string name="revanced_spoof_player_parameter_summary">"لمنع مشاكل التشغيل Spoofs player parameters
+
+مشاكل معروفة
+• قد لا يعمل وضع الإضاءة السينمائية
+• لا يمكن تشغيل المقطع بشكل طبيعي
+• قد لا يعمل تنزيل مقاطع الفيديو
+• واجهة شريط الفيلم مخفية بشكل دائم
+• يتم إخفاء المعاينة المصغرة في شريط تقدم الفيديو"</string>
     <string name="revanced_spoof_player_parameter_title">Spoof Player Parameter</string>
     <string name="revanced_swipe_controls">التحكم عن طريق السحب</string>
     <string name="revanced_swipe_magnitude_threshold_summary">مقدار الحد الأدنى للتمرير قبل اكتشاف السحب 
@@ -623,11 +635,7 @@
     <string name="revanced_tool_used">الأداة المستخدمة</string>
     <string name="revanced_video">الفيديو</string>
     <string name="pref_app_language_dialog_message">&lt;b&gt;%1$s&lt;/b&gt;&lt;br&gt;&lt;br&gt;سيؤدي هذا إلى تغيير اللغة المستخدمة على YouTube، بما في ذلك الأزرار والنصوص ومربعات الحوار، ولكنه لن يغير لغة إعدادات ReVanced Extended.</string>
-    <string name="pref_app_language_dialog_title">تغيير لغة التطبيق؟</string>
-    <string name="pref_app_language_heading_all">كل اللغات</string>
-    <string name="pref_app_language_heading_current">اللغة الحالية</string>
-    <string name="pref_app_language_system_default">الإعداد الافتراضي للنظام</string>
-    <string name="pref_app_language_title">لغة التطبيق</string>
+    <string name="pref_app_language_dialog_message_no_lang_name">سيؤدي هذا إلى تغيير اللغة المستخدمة في التطبيق بما في ذلك الأزرار والنصوص ومربعات الحوار، ولكنه لن يغير لغة إعدادات ReVanced Extended.</string>
     <string name="sb_enable_sb">تمكين مانِع الرُعَاة SponsorBlock</string>
     <string name="sb_enable_sb_sum">مانِع الرُعَاة هو نظام جماعي لتخطي الأجزاء المُمِلَّة في مقاطع اليوتيوب</string>
     <string name="sb_appearance_category">المظهر</string>
