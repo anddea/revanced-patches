@@ -30,6 +30,7 @@ import app.revanced.util.integrations.Constants.PATCHES_PATH
 class CommentComponentPatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
         LithoFilterPatch.addFilter("$PATCHES_PATH/ads/CommentsFilter;")
+        LithoFilterPatch.addFilter("$PATCHES_PATH/ads/CommentsPreviewDotsFilter;")
 
         /**
          * Add settings
