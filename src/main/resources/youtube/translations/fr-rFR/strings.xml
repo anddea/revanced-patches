@@ -91,7 +91,6 @@
     <string name="revanced_enable_new_splash_animation_summary_off">Nouvel écran de démarrage désactivé</string>
     <string name="revanced_enable_new_splash_animation_summary_on">Nouvel écran de démarrage affiché</string>
     <string name="revanced_enable_new_splash_animation_title">Le nouvel écran de démarrage</string>
-    <string name="revanced_enable_new_splash_animation_warning">Uniquement disponible sur Android 12+</string>
     <string name="revanced_enable_new_thumbnail_preview_summary_off">Le nouvel aperçu de miniature est activé</string>
     <string name="revanced_enable_new_thumbnail_preview_summary_on">Le nouvel aperçu de miniature est activé</string>
     <string name="revanced_enable_new_thumbnail_preview_title">Activer le nouvel aperçu des miniatures</string>
@@ -113,7 +112,7 @@
     <string name="revanced_enable_save_brightness_title">L\'enregistrement et la restauration de la luminosité</string>
     <string name="revanced_enable_save_playback_speed_summary_off">N’enregistre pas les valeurs de vitesse vidéo même en changeant la vitesse vidéo</string>
     <string name="revanced_enable_save_playback_speed_summary_on">Enregistrez la valeur de vitesse vidéo chaque fois que vous modifiez la vitesse vidéo</string>
-    <string name="revanced_enable_save_playback_speed_title">Enregistrement de la qualité vidéo</string>
+    <string name="revanced_enable_save_playback_speed_title">Enregistrement de la vitesse de lecture</string>
     <string name="revanced_enable_save_video_quality_summary_off">N’enregistre pas les valeurs de qualité vidéo même lorsque la qualité vidéo est modifiée</string>
     <string name="revanced_enable_save_video_quality_summary_on">Enregistre la valeur de qualité vidéo chaque fois que vous modifiez la qualité vidéo</string>
     <string name="revanced_enable_save_video_quality_title">Enregistrement de la qualité de la vidéo</string>
@@ -151,8 +150,6 @@
     <string name="revanced_experimental_flag">Options expérimentales</string>
     <string name="revanced_export_settings_summary">Enregistrez vos paramètres ReVanced dans un fichier</string>
     <string name="revanced_export_settings_title">Paramètres d\'exportation</string>
-    <string name="revanced_extended_support_center_summary">Signaler des problèmes ou laisser des suggestions ici</string>
-    <string name="revanced_extended_support_center_title">Centre d\'aide</string>
     <string name="revanced_external_downloader_installed">Installée</string>
     <string name="revanced_external_downloader_not_installed">Non installé</string>
     <string name="revanced_external_downloader_not_installed_warning" formatted="false">%s n\'est pas installé. Veuillez l’installer.</string>
@@ -251,6 +248,9 @@
     <string name="revanced_hide_chapters_summary_off">Les chapitres sont affichés</string>
     <string name="revanced_hide_chapters_summary_on">Les chapitres sont cachés</string>
     <string name="revanced_hide_chapters_title">Les chapitres</string>
+    <string name="revanced_hide_chips_shelf_off">Les puces de suggestion sont affichés</string>
+    <string name="revanced_hide_chips_shelf_on">Les puces de suggestion sont cachés</string>
+    <string name="revanced_hide_chips_shelf_title">Les puces de suggestion</string>
     <string name="revanced_hide_collapse_button_summary_off">Le bouton \"Réduire\" est affiché</string>
     <string name="revanced_hide_collapse_button_summary_on">Le bouton \"Réduire\" est caché</string>
     <string name="revanced_hide_collapse_button_title">Le bouton \"Réduire\"</string>
@@ -590,12 +590,21 @@ Ce paramètre étant obsolètes, il se peut qu'ils ne soient plus valables"</str
     <string name="revanced_spoof_app_version_summary">"Utilise l'ancienne interface avec des risques d'effets inconnus. Supprimé les données pour retirer complètement si l'interface ne change pas"</string>
     <string name="revanced_spoof_app_version_title">Interface de l\'application</string>
     <string name="revanced_spoof_app_version_target_entry_0">18.20.39 - Restaure l\'ancienne mise en page du lecteur</string>
-    <string name="revanced_spoof_app_version_target_entry_1">17.41.37 - La catégorie \"Playlist\" dans la \"Bibliothèque\" suit l\'ancienne mise en page</string>
-    <string name="revanced_spoof_app_version_target_entry_2">17.08.35 - Restaure l\'ancienne mise en page de l\'interface</string>
-    <string name="revanced_spoof_app_version_target_entry_3">16.08.35 - Restaure le bouton \"Explorer\"</string>
+    <string name="revanced_spoof_app_version_target_entry_1">18.09.39 - Restaure l\'ancienne mise en page de la catégorie \"Bibliothèque\"</string>
+    <string name="revanced_spoof_app_version_target_entry_2">17.41.37 - La catégorie \"Playlist\" dans la \"Bibliothèque\" suit l\'ancienne mise en page</string>
+    <string name="revanced_spoof_app_version_target_entry_3">17.08.35 - Restaure l\'ancienne mise en page de l\'interface</string>
+    <string name="revanced_spoof_app_version_target_entry_4">16.08.35 - Restaure le bouton \"Explorer\"</string>
     <string name="revanced_spoof_app_version_target_entry_title">Falsifier la version de l\'application</string>
     <string name="revanced_spoof_app_version_target_summary">Tapez la version de l\'application à fausser</string>
     <string name="revanced_spoof_app_version_target_title">Falsifier la version de l\'application</string>
+    <string name="revanced_spoof_player_parameter_summary">"Paramètres du lecteur pour éviter les problèmes de lecture
+
+Problèmes connus
+• Le mode Ambiant peut ne pas fonctionner
+• L'extrait de la vidéo enregistré peut pas être lu normalement
+• Le téléchargement de vidéos peut ne pas fonctionner
+• Les bandes de films sont toujours cachée
+• La barre de progression sur les miniatures sont cachées"</string>
     <string name="revanced_spoof_player_parameter_title">Falsifier les paramètres du lecteur</string>
     <string name="revanced_swipe_controls">Commandes de balayage</string>
     <string name="revanced_swipe_magnitude_threshold_summary">L\'intensité de balayage correspond à la mesure de glissement utilisée pour ajuster le niveau sonore ou de luminosité</string>
@@ -612,11 +621,7 @@ Ce paramètre étant obsolètes, il se peut qu'ils ne soient plus valables"</str
     <string name="revanced_tool_used">Outils utilisés</string>
     <string name="revanced_video">Qualité et vitesse des vidéos</string>
     <string name="pref_app_language_dialog_message">&lt;b&gt;%1$s&lt;/b&gt;&lt;br&gt;&lt;br&gt;Modifier la langue utilisée sur YouTube, comprenant les boutons, le texte et les boîtes de dialogue, mais ne modifiera pas la langue des paramètres de ReVanced Extended.</string>
-    <string name="pref_app_language_dialog_title">Changer la langue de l\'application ?</string>
-    <string name="pref_app_language_heading_all">Toutes les langues</string>
-    <string name="pref_app_language_heading_current">Langue actuelle</string>
-    <string name="pref_app_language_system_default">Langue du système</string>
-    <string name="pref_app_language_title">Langue de l\'application</string>
+    <string name="pref_app_language_dialog_message_no_lang_name">Modifier la langue utilisée sur YouTube, comprenant les boutons, le texte et les boîtes de dialogue, mais ne modifiera pas la langue des paramètres de ReVanced Extended</string>
     <string name="sb_enable_sb">SponsorBlock</string>
     <string name="sb_enable_sb_sum">SponsorBlock est un système reposant sur la communauté qui permet de sauter les passages ennuyeux des vidéos YouTube</string>
     <string name="sb_appearance_category">Apparence</string>

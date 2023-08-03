@@ -91,7 +91,6 @@
     <string name="revanced_enable_new_splash_animation_summary_off">新版开屏动画已禁用</string>
     <string name="revanced_enable_new_splash_animation_summary_on">新版开屏动画已启用</string>
     <string name="revanced_enable_new_splash_animation_title">新版开屏动画</string>
-    <string name="revanced_enable_new_splash_animation_warning">仅支持 Android 12+</string>
     <string name="revanced_enable_new_thumbnail_preview_summary_off">新版缩略图预览已禁用</string>
     <string name="revanced_enable_new_thumbnail_preview_summary_on">新版缩略图预览已启用</string>
     <string name="revanced_enable_new_thumbnail_preview_title">新版缩略图预览</string>
@@ -151,8 +150,6 @@
     <string name="revanced_experimental_flag">实验性功能</string>
     <string name="revanced_export_settings_summary">保存 ReVanced 配置文件</string>
     <string name="revanced_export_settings_title">导出配置</string>
-    <string name="revanced_extended_support_center_summary">反馈问题或留下建议</string>
-    <string name="revanced_extended_support_center_title">帮助中心</string>
     <string name="revanced_external_downloader_installed">已安装</string>
     <string name="revanced_external_downloader_not_installed">未安装</string>
     <string name="revanced_external_downloader_not_installed_warning" formatted="false">%s未安装，请先安装</string>
@@ -593,12 +590,17 @@
 如果关掉该项，可能仍然保留旧版界面，清除应用数据以解决该问题"</string>
     <string name="revanced_spoof_app_version_title">伪装应用版本</string>
     <string name="revanced_spoof_app_version_target_entry_0">18.20.39 - 还原旧样式播放器弹出设置面板</string>
-    <string name="revanced_spoof_app_version_target_entry_1">17.41.37 - 在媒体库中还原旧样式播放列表</string>
-    <string name="revanced_spoof_app_version_target_entry_2">17.08.35 - 恢复旧版界面布局</string>
-    <string name="revanced_spoof_app_version_target_entry_3">16.08.35 - 恢复探索选项卡</string>
     <string name="revanced_spoof_app_version_target_entry_title">伪装应用版本</string>
     <string name="revanced_spoof_app_version_target_summary">选择伪装的应用版本</string>
     <string name="revanced_spoof_app_version_target_title">编辑伪装应用版本</string>
+    <string name="revanced_spoof_player_parameter_summary">"伪装播放器参数以回避播放问题
+
+已知问题
+• 可能无法使用氛围模式
+• 剪辑无法正常播放
+• 可能无法下载视频
+• 影片横条总是被隐藏
+• 进度条缩略图被隐藏"</string>
     <string name="revanced_spoof_player_parameter_title">伪装播放器参数</string>
     <string name="revanced_swipe_controls">滑动控制</string>
     <string name="revanced_swipe_magnitude_threshold_summary">防误触的滑动幅度阈值</string>
@@ -615,11 +617,6 @@
     <string name="revanced_tool_used">使用的工具</string>
     <string name="revanced_video">视频</string>
     <string name="pref_app_language_dialog_message">&lt;b&gt;%1$s&lt;/b&gt;&lt;br&gt;&lt;br&gt;这将更改 YouTube 的使用语言，包括按钮、文本和对话框，但不会更改 ReVanced Extended 设置的语言</string>
-    <string name="pref_app_language_dialog_title">更改应用语言</string>
-    <string name="pref_app_language_heading_all">所有语言</string>
-    <string name="pref_app_language_heading_current">当前语言</string>
-    <string name="pref_app_language_system_default">系统默认</string>
-    <string name="pref_app_language_title">应用语言</string>
     <string name="sb_enable_sb">启用 SponsorBlock</string>
     <string name="sb_enable_sb_sum">SponsorBlock 是一个众包平台，旨在帮助人们跳过 YouTube 视频中烦人的部分</string>
     <string name="sb_appearance_category">外观</string>

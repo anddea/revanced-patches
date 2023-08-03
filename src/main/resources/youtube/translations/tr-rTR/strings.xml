@@ -42,8 +42,8 @@
     <string name="revanced_disable_default_playback_speed_live_summary_off">Canlı yayınlarda varsayılan oynatma hızı açık</string>
     <string name="revanced_disable_default_playback_speed_live_summary_on">Canlı yayınlarda varsayılan oynatma hızı kapalı</string>
     <string name="revanced_disable_default_playback_speed_live_title">Canlı yayında varsayılan oynatma hızını devre dışı bırak</string>
-    <string name="revanced_disable_haptic_feedback_chapters_summary_off">Açık</string>
-    <string name="revanced_disable_haptic_feedback_chapters_summary_on">Kapalı</string>
+    <string name="revanced_disable_haptic_feedback_chapters_summary_off">Bölümler arasında geçiş yaparken titreşimli geri bildirim etkinleştirildi</string>
+    <string name="revanced_disable_haptic_feedback_chapters_summary_on">Bölümler arasında geçiş yaparken titreşimli geri bildirim kapalı</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">Bölümler arasında geçiş yaparken titreşimli geri bildirimi kapat</string>
     <string name="revanced_disable_haptic_feedback_scrubbing_summary_off">Dokunsal geri bildirim temizleme etkinleştirildi</string>
     <string name="revanced_disable_haptic_feedback_scrubbing_summary_on">Dokunsal geri bildirim temizleme devre dışı</string>
@@ -91,7 +91,6 @@
     <string name="revanced_enable_new_splash_animation_summary_off">Kapalı</string>
     <string name="revanced_enable_new_splash_animation_summary_on">Açık</string>
     <string name="revanced_enable_new_splash_animation_title">Yeni açılış animasyonunu etkinleştir</string>
-    <string name="revanced_enable_new_splash_animation_warning">Sadece Android 12 ve üzerinde çalışır</string>
     <string name="revanced_enable_new_thumbnail_preview_summary_off">Kapalı</string>
     <string name="revanced_enable_new_thumbnail_preview_summary_on">Açık</string>
     <string name="revanced_enable_new_thumbnail_preview_title">Yeni küçük resim önizlemesini etkinleştir</string>
@@ -151,8 +150,6 @@
     <string name="revanced_experimental_flag">Deneysel parametreler</string>
     <string name="revanced_export_settings_summary">ReVanced ayarlarınızı dosyaya kaydedin</string>
     <string name="revanced_export_settings_title">Dışa aktarım ayarları</string>
-    <string name="revanced_extended_support_center_summary">Sorunları bildirin veya önerileri buraya bırakın</string>
-    <string name="revanced_extended_support_center_title">Destek Merkezi</string>
     <string name="revanced_external_downloader_installed">Yüklü</string>
     <string name="revanced_external_downloader_not_installed">Yüklü değil</string>
     <string name="revanced_external_downloader_not_installed_warning" formatted="false">%s yüklü değil. Lütfen yükleyin.</string>
@@ -253,6 +250,7 @@
     <string name="revanced_hide_chapters_title">Bölümleri gizle</string>
     <string name="revanced_hide_chips_shelf_off">Gizlenmiyor</string>
     <string name="revanced_hide_chips_shelf_on">Gizleniyor</string>
+    <string name="revanced_hide_chips_shelf_title">Buna benzer daha çok video çipini gizle</string>
     <string name="revanced_hide_collapse_button_summary_off">Gizlenmiyor</string>
     <string name="revanced_hide_collapse_button_summary_on">Gizleniyor</string>
     <string name="revanced_hide_collapse_button_title">Daraltma butonunu gizle</string>
@@ -341,6 +339,9 @@
     <string name="revanced_hide_library_button_summary_off">Gizlenmiyor</string>
     <string name="revanced_hide_library_button_summary_on">Gizleniyor</string>
     <string name="revanced_hide_library_button_title">Kitaplık düğmesini gizle</string>
+    <string name="revanced_hide_latest_videos_button_summary_off">Gizlenmiyor</string>
+    <string name="revanced_hide_latest_videos_button_summary_on">Gizleniyor</string>
+    <string name="revanced_hide_latest_videos_button_title">Son videolar düğmesini gizle</string>
     <string name="revanced_hide_load_more_button_summary_off">Gizlenmiyor</string>
     <string name="revanced_hide_load_more_button_summary_on">Gizlenmiyor</string>
     <string name="revanced_hide_load_more_button_title">Daha fazla yükle düğmesini gizle</string>
@@ -595,9 +596,10 @@ Bu ayar oldukça eski olduğu için geçerli olmayabilir"</string>
 Bu, uygulamanın görünümünü değiştirir, ancak bilinmeyen yan etkiler ortaya çıkabilir Daha sonra kapatılırsa, uygulama verileri temizlenene kadar eski kullanıcı arayüzü kalabilir"</string>
     <string name="revanced_spoof_app_version_title">Uygulama Versiyonunu taklit et</string>
     <string name="revanced_spoof_app_version_target_entry_0">18.20.39 - Eski tarz oynatıcı açılır panelini geri yükleyin</string>
-    <string name="revanced_spoof_app_version_target_entry_1">17.41.37 - Kitaplık sekmesindeki eski stil oynatma listesi rafını geri yükle</string>
-    <string name="revanced_spoof_app_version_target_entry_2">17.08.35 - Eski kullanıcı arayüzü düzenini geri yükle</string>
-    <string name="revanced_spoof_app_version_target_entry_3">16.08.35 - Keşfet sekmesini geri getir</string>
+    <string name="revanced_spoof_app_version_target_entry_1">18.09.39 - Eski tarz oynatıcı kitaplık sekmesini geri yükleyin</string>
+    <string name="revanced_spoof_app_version_target_entry_2">17.41.37 - Kitaplık sekmesindeki eski stil oynatma listesi rafını geri yükle</string>
+    <string name="revanced_spoof_app_version_target_entry_3">17.08.35 - Eski kullanıcı arayüzü düzenini geri yükle</string>
+    <string name="revanced_spoof_app_version_target_entry_4">16.08.35 - Keşfet sekmesini geri yükle</string>
     <string name="revanced_spoof_app_version_target_entry_title">Uygulama hedef sürümünü kandır</string>
     <string name="revanced_spoof_app_version_target_summary">Sahte uygulama sürümü hedefini yazın</string>
     <string name="revanced_spoof_app_version_target_title">Kandırılmış uygulama sürümünü düzenle</string>
@@ -625,11 +627,7 @@ Bilinen sorunlar
     <string name="revanced_tool_used">araç kullanıldı</string>
     <string name="revanced_video">Video</string>
     <string name="pref_app_language_dialog_message">&lt;b&gt;%1$s&lt;/b&gt;&lt;br&gt;&lt;br&gt;Bu, düğmeler, metin ve diyaloglar dahil olmak üzere YouTube\'da kullanılan dili değiştirir, ancak ReVanced Extended ayarlarının dilini değiştirmez.</string>
-    <string name="pref_app_language_dialog_title">Uygulama dilini değiştir?</string>
-    <string name="pref_app_language_heading_all">Tüm diller</string>
-    <string name="pref_app_language_heading_current">Mevcut Dil</string>
-    <string name="pref_app_language_system_default">Sistem varsayılanı</string>
-    <string name="pref_app_language_title">Uygulama Dili</string>
+    <string name="pref_app_language_dialog_message_no_lang_name">Bu, düğmeler, metin ve diyaloglar dahil olmak üzere uygulamada kullanılan dili değiştirecek, ancak ReVanced Extended ayarlarının dilini değiştirmeyecektir.</string>
     <string name="sb_enable_sb">SponsorBlock\'u etkinleştir</string>
     <string name="sb_enable_sb_sum">SponsorBlock, YouTube videolarındaki sıkıcı kısımları atlamaya yarayan kitle kaynaklı bir sistemdir</string>
     <string name="sb_appearance_category">Görünüm</string>

@@ -30,7 +30,7 @@
     <string name="revanced_custom_playback_speeds_title">Editar velocidades de reprodução personalizadas</string>
     <string name="revanced_custom_seekbar_color_value_summary">Digite o código hexadecimal da cor da barra de pesquisa</string>
     <string name="revanced_custom_seekbar_color_value_title">Valor de cor personalizado da barra de progresso</string>
-    <string name="revanced_default_app_settings_summary">Para abrir o RVX em um navegador externo, ative \'Abrir links suportados\' e ative os endereços web suportados</string>
+    <string name="revanced_default_app_settings_summary">Para abrir o RVX em um navegador externo, ative \'Abrir links suportados\' e habilite os endereços web suportados</string>
     <string name="revanced_default_app_settings_title">Abrir configurações padrão do aplicativo</string>
     <string name="revanced_default_playback_speed_title">Velocidade de reprodução padrão</string>
     <string name="revanced_default_video_quality_mobile_title">Qualidade de vídeo padrão nos dados móveis</string>
@@ -38,10 +38,10 @@
     <string name="revanced_description_title">Descrição</string>
     <string name="revanced_disable_auto_captions_summary_off">Legendas automáticas forçadas estão ativadas</string>
     <string name="revanced_disable_auto_captions_summary_on">Legendas automáticas forçadas estão desativadas</string>
-    <string name="revanced_disable_auto_captions_title">Desativar legendas automáticas forçada</string>
+    <string name="revanced_disable_auto_captions_title">Desabilitar legendas automáticas forçadas</string>
     <string name="revanced_disable_default_playback_speed_live_summary_off">A velocidade de reprodução padrão está ativada na transmissão ao vivo</string>
     <string name="revanced_disable_default_playback_speed_live_summary_on">A velocidade de reprodução padrão está desativada na transmissão ao vivo</string>
-    <string name="revanced_disable_default_playback_speed_live_title">Desativar a velocidade de reprodução no stream ao vivo</string>
+    <string name="revanced_disable_default_playback_speed_live_title">Desativar a velocidade de reprodução na transmissão ao vivo</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">O retorno tátil de capítulos está ativado</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">O retorno tátil de capítulos está desativado</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">Desativar retorno tátil de capítulos</string>
@@ -91,7 +91,6 @@
     <string name="revanced_enable_new_splash_animation_summary_off">Nova animação inicial está desativada</string>
     <string name="revanced_enable_new_splash_animation_summary_on">Nova animação do inicial está ativada</string>
     <string name="revanced_enable_new_splash_animation_title">Ativar nova animação inicial</string>
-    <string name="revanced_enable_new_splash_animation_warning">Disponível apenas no Android 12+</string>
     <string name="revanced_enable_new_thumbnail_preview_summary_off">Nova pré-visualização de miniaturas está desativada</string>
     <string name="revanced_enable_new_thumbnail_preview_summary_on">Nova pré-visualização de miniaturas está ativada</string>
     <string name="revanced_enable_new_thumbnail_preview_title">Ativar nova pré-visualização de miniaturas</string>
@@ -151,8 +150,6 @@
     <string name="revanced_experimental_flag">Sinalizadores experimentais</string>
     <string name="revanced_export_settings_summary">Salve suas configurações ReVanced em um arquivo</string>
     <string name="revanced_export_settings_title">Exportar configurações</string>
-    <string name="revanced_extended_support_center_summary">Relate problemas ou deixe sugestões aqui</string>
-    <string name="revanced_extended_support_center_title">Central de ajuda</string>
     <string name="revanced_external_downloader_installed">Instalado</string>
     <string name="revanced_external_downloader_not_installed">Não instalado</string>
     <string name="revanced_external_downloader_not_installed_warning" formatted="false">%s não está instalado. Por favor, instale-o.</string>
@@ -251,6 +248,9 @@
     <string name="revanced_hide_chapters_summary_off">Capítulos são exibidos</string>
     <string name="revanced_hide_chapters_summary_on">Capítulos estão ocultos</string>
     <string name="revanced_hide_chapters_title">Ocultar capítulos</string>
+    <string name="revanced_hide_chips_shelf_off">Prateleira de chips é mostrada</string>
+    <string name="revanced_hide_chips_shelf_on">Prateleira de chips é escondida</string>
+    <string name="revanced_hide_chips_shelf_title">Ocultar prateleira de chips</string>
     <string name="revanced_hide_collapse_button_summary_off">O botão minimizar será exibido</string>
     <string name="revanced_hide_collapse_button_summary_on">O botão minimizar está oculto</string>
     <string name="revanced_hide_collapse_button_title">Ocultar botão minimizar</string>
@@ -339,6 +339,9 @@
     <string name="revanced_hide_library_button_summary_off">Botão biblioteca será mostrado</string>
     <string name="revanced_hide_library_button_summary_on">Botão biblioteca está oculto</string>
     <string name="revanced_hide_library_button_title">Ocultar botão biblioteca</string>
+    <string name="revanced_hide_latest_videos_button_summary_off">O botão para vídeos recentes é exibido</string>
+    <string name="revanced_hide_latest_videos_button_summary_on">O botão de vídeo mais recente está oculto</string>
+    <string name="revanced_hide_latest_videos_button_title">Ocultar o botão mais recente de vídeos</string>
     <string name="revanced_hide_load_more_button_summary_off">Botão carregar mais será mostrado</string>
     <string name="revanced_hide_load_more_button_summary_on">Botão carregar mais está oculto</string>
     <string name="revanced_hide_load_more_button_title">Ocultar botão carregar mais</string>
@@ -390,6 +393,9 @@
     <string name="revanced_hide_player_flyout_panel_listen_with_youtube_music_summary_off">O menu ouvir com o YouTube Music será mostrado</string>
     <string name="revanced_hide_player_flyout_panel_listen_with_youtube_music_summary_on">O menu ouvir com o YouTube Music está oculto</string>
     <string name="revanced_hide_player_flyout_panel_listen_with_youtube_music_title">Ocultar menu ouvir com o YouTube Music</string>
+    <string name="revanced_hide_player_flyout_panel_lock_screen_summary_off">Menu do ecrã de bloqueio visivel</string>
+    <string name="revanced_hide_player_flyout_panel_lock_screen_summary_on">Menu do ecrã de bloqueio oculto</string>
+    <string name="revanced_hide_player_flyout_panel_lock_screen_title">Oculta menú do ecrã de bloqueio</string>
     <string name="revanced_hide_player_flyout_panel_loop_video_summary_off">O menu de repetição de vídeo será mostrado</string>
     <string name="revanced_hide_player_flyout_panel_loop_video_summary_on">O menu de repetição de vídeo está oculto</string>
     <string name="revanced_hide_player_flyout_panel_loop_video_title">Ocultar menu de repetição de vídeo</string>
@@ -594,11 +600,21 @@ Isto irá alterar a aparência do aplicativo, mas os efeitos colaterais desconhe
 Se mais tarde for desligado, a interface do usuário antiga poderá permanecer até limpar os dados do aplicativo"</string>
     <string name="revanced_spoof_app_version_title">Versão da falsificação do aplicativo</string>
     <string name="revanced_spoof_app_version_target_entry_0">18.20.39 - Restaurar painel de flyout do antigo estilo</string>
-    <string name="revanced_spoof_app_version_target_entry_1">17.41.37 - Restaurar prateleira de lista de estilo antigo na aba biblioteca</string>
-    <string name="revanced_spoof_app_version_target_entry_3">16.08.35 - Restaurar aba explorar</string>
+    <string name="revanced_spoof_app_version_target_entry_1">18.09.39 - Restaurar aba de biblioteca ao estilo antigo</string>
+    <string name="revanced_spoof_app_version_target_entry_2">17.41.37 - Restaurar prateleira da playlist ao estilo antigo da aba de biblioteca</string>
+    <string name="revanced_spoof_app_version_target_entry_3">17.08.35 - Restaura antigo layout da interface</string>
+    <string name="revanced_spoof_app_version_target_entry_4">16.08.35 - Restaurar aba explorar</string>
     <string name="revanced_spoof_app_version_target_entry_title">Versão da falsificação do aplicativo</string>
     <string name="revanced_spoof_app_version_target_summary">Digite a versão do app para falsificação</string>
     <string name="revanced_spoof_app_version_target_title">Editar versão de falsificação do app</string>
+    <string name="revanced_spoof_player_parameter_summary">"Disfarça parâmetros do player para prevenir problemas de reprodução
+
+Problemas conhecidos
+• Modo ambiente pode não funcionar
+• Clip pode não ser reproduzido normalmente
+• Baixar vídeos pode não funcionar
+• Sobreposição de Filmstrip são sempre ocultas
+• Miniaturas da barra de busca estão ocultas"</string>
     <string name="revanced_spoof_player_parameter_title">Parâmetro de falsificação do player</string>
     <string name="revanced_swipe_controls">Controles por gestos</string>
     <string name="revanced_swipe_magnitude_threshold_summary">A distância a ser percorrida pelo gesto de deslizar</string>
@@ -615,11 +631,7 @@ Se mais tarde for desligado, a interface do usuário antiga poderá permanecer a
     <string name="revanced_tool_used">ferramenta usada</string>
     <string name="revanced_video">Vídeo</string>
     <string name="pref_app_language_dialog_message">&lt;b&gt;%1$s&lt;/b&gt;&lt;br&gt;&lt;br&gt;Isso mudará o idioma usado no YouTube, incluindo botões, texto e caixas de diálogo, mas não mudará o idioma das configurações do ReVanced Extended.</string>
-    <string name="pref_app_language_dialog_title">Alterar o idioma do aplicativo?</string>
-    <string name="pref_app_language_heading_all">Todos os idiomas</string>
-    <string name="pref_app_language_heading_current">Idioma atual</string>
-    <string name="pref_app_language_system_default">Padrão do sistema</string>
-    <string name="pref_app_language_title">Idioma do aplicativo</string>
+    <string name="pref_app_language_dialog_message_no_lang_name">Isso mudará o idioma usado no YouTube, incluindo botões, texto e caixas de diálogo, mas não mudará o idioma das configurações do ReVanced Extended.</string>
     <string name="sb_enable_sb">Ativar SponsorBlock</string>
     <string name="sb_enable_sb_sum">SponsorBlock é um sistema coletivo para pular partes patrocinadas ou irritantes de vídeos do YouTube</string>
     <string name="sb_appearance_category">Aparência</string>

@@ -91,7 +91,6 @@
     <string name="revanced_enable_new_splash_animation_summary_off">Wyłączona</string>
     <string name="revanced_enable_new_splash_animation_summary_on">Włączona</string>
     <string name="revanced_enable_new_splash_animation_title">Nowa animacja uruchamiania aplikacji</string>
-    <string name="revanced_enable_new_splash_animation_warning">Dostępna tylko dla wersji Android 12 i wyższych</string>
     <string name="revanced_enable_new_thumbnail_preview_summary_off">Wyłączony</string>
     <string name="revanced_enable_new_thumbnail_preview_summary_on">Włączony</string>
     <string name="revanced_enable_new_thumbnail_preview_title">Nowy podgląd wideo</string>
@@ -151,8 +150,6 @@
     <string name="revanced_experimental_flag">Ustawienia Eksperymentalne</string>
     <string name="revanced_export_settings_summary">Zapisz swoje ustawienia ReVanced do pliku</string>
     <string name="revanced_export_settings_title">Wyeksportuj ustawienia</string>
-    <string name="revanced_extended_support_center_summary">Zgłoś problemy lub zostaw sugestie tutaj</string>
-    <string name="revanced_extended_support_center_title">Centrum Wsparcia</string>
     <string name="revanced_external_downloader_installed">Zainstalowany</string>
     <string name="revanced_external_downloader_not_installed">Nie zainstalowany</string>
     <string name="revanced_external_downloader_not_installed_warning" formatted="false">%s nie jest zainstalowany. Proszę go zainstalować.</string>
@@ -230,7 +227,7 @@
     <string name="revanced_hide_captions_button_title">Przycisk od napisów</string>
     <string name="revanced_hide_cast_button_summary_off">Widoczny</string>
     <string name="revanced_hide_cast_button_summary_on">Ukryty</string>
-    <string name="revanced_hide_cast_button_title">Przycisk od powielania</string>
+    <string name="revanced_hide_cast_button_title">Przycisk do powielania</string>
     <string name="revanced_hide_category_bar_in_feed_title">Pasek z kategoriami na stronie głównej</string>
     <string name="revanced_hide_category_bar_in_related_video_title">Pasek z kategoriami pod odtwarzaczem</string>
     <string name="revanced_hide_category_bar_in_search_results_title">Pasek z kategoriami w wynikach wyszukiwania</string>
@@ -342,6 +339,9 @@
     <string name="revanced_hide_library_button_summary_off">Widoczny</string>
     <string name="revanced_hide_library_button_summary_on">Ukryty</string>
     <string name="revanced_hide_library_button_title">Przycisk do biblioteki</string>
+    <string name="revanced_hide_latest_videos_button_summary_off">Widoczny</string>
+    <string name="revanced_hide_latest_videos_button_summary_on">Ukryty</string>
+    <string name="revanced_hide_latest_videos_button_title">Przycisk do najnowszych wideo</string>
     <string name="revanced_hide_load_more_button_summary_off">Widoczny</string>
     <string name="revanced_hide_load_more_button_summary_on">Ukryty</string>
     <string name="revanced_hide_load_more_button_title">Przycisk od podobnych wideo</string>
@@ -599,12 +599,21 @@ Zmieni to wygląd aplikacji, lecz mogą wystąpić nieznane efekty uboczne
 Jeśli później opcja ta zostanie wyłączona, stare UI może pozostać do czasu usunięcia danych aplikacji"</string>
     <string name="revanced_spoof_app_version_title">Oszukaj wersję aplikacji</string>
     <string name="revanced_spoof_app_version_target_entry_0">18.20.39 - Przywróć stary wygląd menu ustawień wideo</string>
-    <string name="revanced_spoof_app_version_target_entry_1">17.41.37 - Przywróć stary układ playlist w bibliotece</string>
-    <string name="revanced_spoof_app_version_target_entry_2">17.08.35 - Przywróć stary wygląd UI</string>
-    <string name="revanced_spoof_app_version_target_entry_3">16.08.35 - Przywraca przycisk od odkrywania</string>
+    <string name="revanced_spoof_app_version_target_entry_1">18.09.39 - Przywróć stary styl biblioteki</string>
+    <string name="revanced_spoof_app_version_target_entry_2">17.41.37 - Przywróć stary układ playlist w bibliotece</string>
+    <string name="revanced_spoof_app_version_target_entry_3">17.08.35 - Przywróć stary wygląd interfejsu</string>
+    <string name="revanced_spoof_app_version_target_entry_4">16.08.35 - Przywróć przycisk od odkrywania</string>
     <string name="revanced_spoof_app_version_target_entry_title">Oszukana wersja aplikacji</string>
     <string name="revanced_spoof_app_version_target_summary">Wpisz wersję, którą chcesz oszukiwać</string>
     <string name="revanced_spoof_app_version_target_title">Zmień oszukaną wersję aplikacji</string>
+    <string name="revanced_spoof_player_parameter_summary">"Oszukuje parametry, by zapobiec problemom z odtwarzaniem
+
+Znane problemy
+• Oświetlenie kinowe może nie działać
+• Nie można zobaczyć klipów normalnie
+• Pobieranie wideo może nie działać
+• Precyzyjniejsze przesuwanie po pasku nie działa
+• Podgląd wideo nie działa"</string>
     <string name="revanced_spoof_player_parameter_title">Oszukaj parametry</string>
     <string name="revanced_swipe_controls">Sterowanie przesuwaniem</string>
     <string name="revanced_swipe_magnitude_threshold_summary">Minimalna długość przesunięcia</string>
@@ -621,11 +630,7 @@ Jeśli później opcja ta zostanie wyłączona, stare UI może pozostać do czas
     <string name="revanced_tool_used">Użyte narzędzie</string>
     <string name="revanced_video">Wideo</string>
     <string name="pref_app_language_dialog_message">&lt;b&gt;%1$s&lt;/b&gt;&lt;br&gt;&lt;br&gt;To zmieni język używany przez YouTube, łącznie z przyciskami i tekstem, ale nie zmieni języka ustawień ReVanced Extended.</string>
-    <string name="pref_app_language_dialog_title">Czy chcesz zmienić język aplikacji?</string>
-    <string name="pref_app_language_heading_all">Wszystkie języki</string>
-    <string name="pref_app_language_heading_current">Obecny język</string>
-    <string name="pref_app_language_system_default">Systemowy</string>
-    <string name="pref_app_language_title">Język Aplikacji</string>
+    <string name="pref_app_language_dialog_message_no_lang_name">To zmieni język używany w aplikacji, łącznie z przyciskami i tekstem, ale nie zmieni języka ustawień ReVanced Extended.</string>
     <string name="sb_enable_sb">SponsorBlock</string>
     <string name="sb_enable_sb_sum">SponsorBlock to system pomijania denerwujących fragmentów w wideo na YouTube</string>
     <string name="sb_appearance_category">Wygląd</string>

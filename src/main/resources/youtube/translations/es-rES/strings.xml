@@ -91,7 +91,6 @@
     <string name="revanced_enable_new_splash_animation_summary_off">La nueva animación splash está desactivada</string>
     <string name="revanced_enable_new_splash_animation_summary_on">La nueva animación splash está activada</string>
     <string name="revanced_enable_new_splash_animation_title">Activar nueva animación splash</string>
-    <string name="revanced_enable_new_splash_animation_warning">Solo disponible en Android 12+</string>
     <string name="revanced_enable_new_thumbnail_preview_summary_off">La nueva vista previa en miniatura está desactivada</string>
     <string name="revanced_enable_new_thumbnail_preview_summary_on">La nueva vista previa en miniatura está activada</string>
     <string name="revanced_enable_new_thumbnail_preview_title">Activar nueva vista previa en miniatura</string>
@@ -151,8 +150,6 @@
     <string name="revanced_experimental_flag">Funciones experimentales</string>
     <string name="revanced_export_settings_summary">Guarda tus ajustes de ReVanced en un archivo</string>
     <string name="revanced_export_settings_title">Exportar ajustes</string>
-    <string name="revanced_extended_support_center_summary">Comunique aquí sus problemas o sugerencias</string>
-    <string name="revanced_extended_support_center_title">Centro de soporte</string>
     <string name="revanced_external_downloader_installed">Instalado</string>
     <string name="revanced_external_downloader_not_installed">No instalado</string>
     <string name="revanced_external_downloader_not_installed_warning" formatted="false">%s no está instalado. Por favor, instálelo.</string>
@@ -342,6 +339,9 @@
     <string name="revanced_hide_library_button_summary_off">El botón Biblioteca está visible</string>
     <string name="revanced_hide_library_button_summary_on">El botón Biblioteca está oculto</string>
     <string name="revanced_hide_library_button_title">Ocultar botón Biblioteca</string>
+    <string name="revanced_hide_latest_videos_button_summary_off">El botón Últimos Vídeos está visible</string>
+    <string name="revanced_hide_latest_videos_button_summary_on">El botón Últimos Vídeos está oculto</string>
+    <string name="revanced_hide_latest_videos_button_title">Ocultar botón Últimos Vídeos</string>
     <string name="revanced_hide_load_more_button_summary_off">El botón Cargar Más está visible</string>
     <string name="revanced_hide_load_more_button_summary_on">El botón Cargar Más está oculto</string>
     <string name="revanced_hide_load_more_button_title">Ocultar botón Cargar Más</string>
@@ -601,9 +601,10 @@ Esto cambiará la apariencia de la aplicación, pero pueden producirse efectos s
 Si más tarde se desactiva, la antigua interfaz de usuario puede permanecer hasta que se borren los datos de la aplicación"</string>
     <string name="revanced_spoof_app_version_title">Modificar versión de aplicación</string>
     <string name="revanced_spoof_app_version_target_entry_0">18.20.39 - Restaurar el antiguo estilo del panel desplegable del reproductor</string>
-    <string name="revanced_spoof_app_version_target_entry_1">17.41.37 - Restaurar el antiguo estilo de la estantería de listas de reproducción en la pestaña Biblioteca</string>
-    <string name="revanced_spoof_app_version_target_entry_2">17.08.35 - Restaurar el antiguo diseño de la interfaz de usuario</string>
-    <string name="revanced_spoof_app_version_target_entry_3">16.08.35 - Restaurar la pestaña de exploración</string>
+    <string name="revanced_spoof_app_version_target_entry_1">18.09.39 - Restaurar el antiguo estilo de la pestaña Biblioteca</string>
+    <string name="revanced_spoof_app_version_target_entry_2">17.41.37 - Restaurar el antiguo estilo de la estantería de listas de reproducción en la pestaña Biblioteca</string>
+    <string name="revanced_spoof_app_version_target_entry_3">17.08.35 - Restaurar el antiguo diseño de la interfaz de usuario</string>
+    <string name="revanced_spoof_app_version_target_entry_4">16.08.35 - Restaurar la pestaña Explorar</string>
     <string name="revanced_spoof_app_version_target_entry_title">Versión a usar de la aplicación</string>
     <string name="revanced_spoof_app_version_target_summary">Escriba la versión a modificar de la app</string>
     <string name="revanced_spoof_app_version_target_title">Modificar versión de aplicación</string>
@@ -631,11 +632,7 @@ Problemas conocidos
     <string name="revanced_tool_used">Herramienta utilizada</string>
     <string name="revanced_video">Vídeo</string>
     <string name="pref_app_language_dialog_message">&lt;b&gt;%1$s&lt;/b&gt;&lt;br&gt;&lt;br&gt;Esto cambiará el idioma utilizado en YouTube, incluidos los botones, el texto y los cuadros de diálogo, pero no cambiará el idioma de los ajustes de ReVanced Extended.</string>
-    <string name="pref_app_language_dialog_title">¿Cambiar idioma de la app?</string>
-    <string name="pref_app_language_heading_all">Todos los idiomas</string>
-    <string name="pref_app_language_heading_current">Idioma actual</string>
-    <string name="pref_app_language_system_default">Predeterminado del sistema</string>
-    <string name="pref_app_language_title">Idioma de la app</string>
+    <string name="pref_app_language_dialog_message_no_lang_name">Esto cambiará el idioma utilizado en la aplicación, incluidos los botones, el texto y los cuadros de diálogo, pero no cambiará el idioma de los ajustes de ReVanced Extended.</string>
     <string name="sb_enable_sb">Activar SponsorBlock</string>
     <string name="sb_enable_sb_sum">SponsorBlock es un sistema colaborativo para omitir partes molestas en vídeos de YouTube</string>
     <string name="sb_appearance_category">Apariencia</string>
