@@ -37,7 +37,7 @@ class SleepTimerPatch : BytecodePatch(
 
                 addInstructions(
                     insertIndex, """
-                        invoke-static {v$targetRegister}, $MUSIC_LAYOUT->enableSleepTimer(Z)Z
+                        invoke-static {}, $MUSIC_LAYOUT->enableSleepTimer()Z
                         move-result v$targetRegister
                         """
                 )
