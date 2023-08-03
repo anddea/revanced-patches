@@ -169,6 +169,9 @@
         <!-- SETTINGS: HIDE_FLOATING_MICROPHONE
         <SwitchPreference android:title="@string/revanced_hide_floating_microphone_title" android:key="revanced_hide_floating_microphone" android:defaultValue="true" android:summaryOn="@string/revanced_hide_floating_microphone_summary_on" android:summaryOff="@string/revanced_hide_floating_microphone_summary_off" />SETTINGS: HIDE_FLOATING_MICROPHONE -->
 
+        <!-- SETTINGS: HIDE_LATEST_VIDEOS_BUTTON
+        <SwitchPreference android:title="@string/revanced_hide_latest_videos_button_title" android:key="revanced_hide_latest_videos_button" android:defaultValue="true" android:summaryOn="@string/revanced_hide_latest_videos_button_summary_on" android:summaryOff="@string/revanced_hide_latest_videos_button_summary_off" />SETTINGS: HIDE_LATEST_VIDEOS_BUTTON -->
+
         <!-- SETTINGS: HIDE_LOAD_MORE_BUTTON
         <SwitchPreference android:title="@string/revanced_hide_load_more_button_title" android:key="revanced_hide_load_more_button" android:defaultValue="true" android:summaryOn="@string/revanced_hide_load_more_button_summary_on" android:summaryOff="@string/revanced_hide_load_more_button_summary_off" />SETTINGS: HIDE_LOAD_MORE_BUTTON -->
 
@@ -326,6 +329,7 @@
             <Preference android:title="hide-email-address" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-floating-microphone" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-layout-components" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="hide-latest-videos-button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-load-more-button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-mix-playlists" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-snack-bar" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
