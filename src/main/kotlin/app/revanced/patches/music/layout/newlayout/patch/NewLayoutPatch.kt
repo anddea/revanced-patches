@@ -47,7 +47,7 @@ class NewLayoutPatch : BytecodePatch(
         SettingsPatch.addMusicPreference(
             CategoryType.LAYOUT,
             "revanced_enable_new_layout",
-            "false"
+            "true"
         )
 
         return PatchResultSuccess()
