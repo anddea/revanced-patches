@@ -32,6 +32,7 @@ class TranslationsPatch : ResourcePatch {
             "az-rAZ",
             "be-rBY",
             "bn",
+            "cs-rCZ",
             "de-rDE",
             "el-rGR",
             "es-rES",
