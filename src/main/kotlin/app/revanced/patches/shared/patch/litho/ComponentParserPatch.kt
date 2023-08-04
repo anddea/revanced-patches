@@ -9,6 +9,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.util.proxy.mutableTypes.MutableField.Companion.toMutable
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
@@ -16,6 +17,8 @@ import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.fingerprints.litho.ByteBufferHookFingerprint
 import app.revanced.patches.shared.fingerprints.litho.EmptyComponentBuilderFingerprint
 import app.revanced.patches.shared.fingerprints.litho.IdentifierFingerprint
+import app.revanced.patches.shared.fingerprints.litho.PbToFbFingerprint
+import app.revanced.patches.shared.fingerprints.litho.PbToFbLegacyFingerprint
 import app.revanced.util.bytecode.getStringIndex
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -31,44 +34,52 @@ class ComponentParserPatch : BytecodePatch(
     listOf(
         ByteBufferHookFingerprint,
         EmptyComponentBuilderFingerprint,
-        IdentifierFingerprint
+        IdentifierFingerprint,
+        PbToFbFingerprint,
+        PbToFbLegacyFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
 
         EmptyComponentBuilderFingerprint.result?.let {
             it.mutableMethod.apply {
-                val byteBufferClassIndex = it.scanResult.patternScanResult!!.startIndex
-                byteBufferClassLabel =
-                    getInstruction<ReferenceInstruction>(byteBufferClassIndex).reference.toString()
+                val targetStringIndex = getStringIndex("Error while converting %s")
 
-                val targetIndex = getStringIndex("Failed to convert Element to Flatbuffers: %s") + 2
-                val builderMethodDescriptor =
-                    getInstruction<ReferenceInstruction>(targetIndex).reference
-                val emptyComponentFieldDescriptor =
-                    getInstruction<ReferenceInstruction>(targetIndex + 2).reference
+                for (index in targetStringIndex until implementation!!.instructions.size - 1) {
+                    if (getInstruction(index).opcode != Opcode.INVOKE_STATIC_RANGE) continue
 
-                emptyComponentLabel = """
-                    move-object/from16 v0, p1
-                    invoke-static {v0}, $builderMethodDescriptor
-                    move-result-object v0
-                    iget-object v0, v0, $emptyComponentFieldDescriptor
-                    return-object v0
-                """
+                    val builderMethodDescriptor =
+                        getInstruction<ReferenceInstruction>(index).reference
+                    val emptyComponentFieldDescriptor =
+                        getInstruction<ReferenceInstruction>(index + 2).reference
 
-                it.mutableClass.staticFields.add(
-                    ImmutableField(
-                        definingClass,
-                        "buffer",
-                        "Ljava/nio/ByteBuffer;",
-                        AccessFlags.PUBLIC or AccessFlags.STATIC,
-                        null,
-                        annotations,
-                        null
-                    ).toMutable()
-                )
+                    emptyComponentLabel = """
+                        move-object/from16 v0, p1
+                        invoke-static {v0}, $builderMethodDescriptor
+                        move-result-object v0
+                        iget-object v0, v0, $emptyComponentFieldDescriptor
+                        return-object v0
+                        """
+                    break
+                }
+
+                if (emptyComponentLabel.isEmpty())
+                    throw PatchResultError("could not find Empty Component Label in method")
             }
         } ?: return EmptyComponentBuilderFingerprint.toErrorResult()
+
+        val pbToFbResult = PbToFbFingerprint.result
+            ?: PbToFbLegacyFingerprint.result
+            ?: throw PbToFbLegacyFingerprint.toErrorResult()
+
+        pbToFbResult.let {
+            it.mutableMethod.apply {
+                val byteBufferClassIndex = it.scanResult.patternScanResult!!.startIndex
+
+                byteBufferClassLabel =
+                    getInstruction<ReferenceInstruction>(byteBufferClassIndex).reference.toString()
+            }
+        }
 
         ByteBufferHookFingerprint.result?.let {
             (context
@@ -108,9 +119,28 @@ class ComponentParserPatch : BytecodePatch(
                 identifierRegister =
                     getInstruction<OneRegisterInstruction>(identifierIndex).registerA
                 objectRegister = getInstruction<BuilderInstruction35c>(objectIndex).registerC
-                freeRegister = getInstruction<OneRegisterInstruction>(freeIndex).registerA
+
+                val register = getInstruction<OneRegisterInstruction>(freeIndex).registerA
+
+                freeRegister =
+                    if (register == stringBuilderRegister || register == identifierRegister || register == objectRegister)
+                        15
+                    else
+                        register
 
                 insertIndex = stringBuilderIndex + 1
+
+                it.mutableClass.staticFields.add(
+                    ImmutableField(
+                        definingClass,
+                        "buffer",
+                        "Ljava/nio/ByteBuffer;",
+                        AccessFlags.PUBLIC or AccessFlags.STATIC,
+                        null,
+                        annotations,
+                        null
+                    ).toMutable()
+                )
             }
         } ?: return IdentifierFingerprint.toErrorResult()
 
@@ -124,7 +154,8 @@ class ComponentParserPatch : BytecodePatch(
 
         var insertIndex by Delegates.notNull<Int>()
 
-        var freeRegister by Delegates.notNull<Int>()
+        var freeRegister = 15
+
         var identifierRegister by Delegates.notNull<Int>()
         var objectRegister by Delegates.notNull<Int>()
         var stringBuilderRegister by Delegates.notNull<Int>()
@@ -135,7 +166,7 @@ class ComponentParserPatch : BytecodePatch(
             insertMethod.apply {
                 addInstructionsWithLabels(
                     insertIndex,
-                    """
+                        """
                         sget-object v$freeRegister, $definingClass->buffer:Ljava/nio/ByteBuffer;
                         invoke-static {v$stringBuilderRegister, v$identifierRegister, v$objectRegister, v$freeRegister}, $descriptor(Ljava/lang/StringBuilder;Ljava/lang/String;Ljava/lang/Object;Ljava/nio/ByteBuffer;)Z
                         move-result v$freeRegister
@@ -152,7 +183,7 @@ class ComponentParserPatch : BytecodePatch(
             insertMethod.apply {
                 addInstructionsWithLabels(
                     insertIndex,
-                    """
+                        """
                         invoke-static {v$stringBuilderRegister, v$identifierRegister}, $descriptor(Ljava/lang/StringBuilder;Ljava/lang/String;)Z
                         move-result v$freeRegister
                         if-eqz v$freeRegister, :unfiltered
@@ -169,7 +200,7 @@ class ComponentParserPatch : BytecodePatch(
             insertMethod.apply {
                 addInstructionsWithLabels(
                     insertIndex,
-                    """
+                        """
                         move-object/from16 v$freeRegister, p3
                         iget-object v$freeRegister, v$freeRegister, ${parameters[2]}->b:Ljava/lang/Object;
                         if-eqz v$freeRegister, :unfiltered

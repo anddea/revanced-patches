@@ -13,8 +13,10 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
+import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.general.mixplaylists.fingerprints.BottomPanelOverlayTextFingerprint
+import app.revanced.patches.youtube.general.mixplaylists.fingerprints.ElementParserFingerprint
 import app.revanced.patches.youtube.general.mixplaylists.fingerprints.EmptyFlatBufferFingerprint
 import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
@@ -32,6 +34,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 class MixPlaylistsPatch : BytecodePatch(
     listOf(
         BottomPanelOverlayTextFingerprint,
+        ElementParserFingerprint,
         EmptyFlatBufferFingerprint
     )
 ) {
@@ -57,6 +60,14 @@ class MixPlaylistsPatch : BytecodePatch(
          * Separated from bytebuffer patch
          * Target method is only used for Hide MixPlaylists patch
          */
+        ElementParserFingerprint.result
+            ?: EmptyFlatBufferFingerprint.result
+            ?: throw EmptyFlatBufferFingerprint.toErrorResult()
+
+
+        /**
+         * ~YouTube v18.29.38
+         */
         EmptyFlatBufferFingerprint.result?.let {
             it.mutableMethod.apply {
                 val insertIndex = implementation!!.instructions.indexOfFirst { instruction ->
@@ -65,22 +76,34 @@ class MixPlaylistsPatch : BytecodePatch(
                 val jumpIndex = getStringIndex("Failed to convert Element to Flatbuffers: %s") + 2
 
                 val freeIndex = it.scanResult.patternScanResult!!.startIndex - 1
-                val freeRegister = getInstruction<TwoRegisterInstruction>(freeIndex).registerA
 
-                addInstructionsWithLabels(
-                    insertIndex, """
-                        invoke-static {v$freeRegister}, $GENERAL->hideMixPlaylists([B)Z
-                        move-result v$freeRegister
-                        if-nez v$freeRegister, :not_an_ad
-                        """, ExternalLabel("not_an_ad", getInstruction(jumpIndex))
-                )
-
-                addInstruction(
-                    0,
-                    "move-object/from16 v$freeRegister, p3"
-                )
+                inject(freeIndex, insertIndex, jumpIndex)
             }
-        } ?: return EmptyFlatBufferFingerprint.toErrorResult()
+        }
+
+        /**
+         * YouTube v18.30.xx~
+         */
+        ElementParserFingerprint.result?.let {
+            it.mutableMethod.apply {
+                val methodInstructions = implementation!!.instructions
+
+                val insertIndex = methodInstructions.indexOfFirst { instruction ->
+                    instruction.opcode == Opcode.INVOKE_INTERFACE
+                }
+                val freeIndex = it.scanResult.patternScanResult!!.startIndex - 1
+
+                for (index in methodInstructions.size - 1 downTo 0) {
+                    if (getInstruction(index).opcode != Opcode.INVOKE_INTERFACE_RANGE) continue
+
+                    val jumpIndex = index + 1
+
+                    inject(freeIndex, insertIndex, jumpIndex)
+
+                    break
+                }
+            }
+        }
 
         /**
          * Add settings
@@ -95,5 +118,27 @@ class MixPlaylistsPatch : BytecodePatch(
         SettingsPatch.updatePatchStatus("hide-mix-playlists")
 
         return PatchResultSuccess()
+    }
+    private companion object {
+        fun MutableMethod.inject(
+            freeIndex: Int,
+            insertIndex: Int,
+            jumpIndex: Int
+        ) {
+            val freeRegister = getInstruction<TwoRegisterInstruction>(freeIndex).registerA
+
+            addInstructionsWithLabels(
+                insertIndex, """
+                    invoke-static {v$freeRegister}, $GENERAL->hideMixPlaylists([B)Z
+                    move-result v$freeRegister
+                    if-nez v$freeRegister, :not_an_ad
+                    """, ExternalLabel("not_an_ad", getInstruction(jumpIndex))
+            )
+
+            addInstruction(
+                0,
+                "move-object/from16 v$freeRegister, p3"
+            )
+        }
     }
 }
