@@ -6,37 +6,28 @@ import app.revanced.patcher.data.toMethodWalker
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.or
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
-import app.revanced.patcher.util.proxy.mutableTypes.MutableField.Companion.toMutable
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.shared.fingerprints.litho.ByteBufferHookFingerprint
 import app.revanced.patches.shared.fingerprints.litho.EmptyComponentBuilderFingerprint
 import app.revanced.patches.shared.fingerprints.litho.IdentifierFingerprint
-import app.revanced.patches.shared.fingerprints.litho.PbToFbFingerprint
-import app.revanced.patches.shared.fingerprints.litho.PbToFbLegacyFingerprint
 import app.revanced.util.bytecode.getStringIndex
-import com.android.tools.smali.dexlib2.AccessFlags
+import app.revanced.util.integrations.Constants.ADS_PATH
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction35c
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
-import com.android.tools.smali.dexlib2.immutable.ImmutableField
 import kotlin.properties.Delegates
 
 class ComponentParserPatch : BytecodePatch(
     listOf(
-        ByteBufferHookFingerprint,
         EmptyComponentBuilderFingerprint,
-        IdentifierFingerprint,
-        PbToFbFingerprint,
-        PbToFbLegacyFingerprint
+        IdentifierFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
@@ -67,35 +58,6 @@ class ComponentParserPatch : BytecodePatch(
                     throw PatchResultError("could not find Empty Component Label in method")
             }
         } ?: return EmptyComponentBuilderFingerprint.toErrorResult()
-
-        val pbToFbResult = PbToFbFingerprint.result
-            ?: PbToFbLegacyFingerprint.result
-            ?: throw PbToFbLegacyFingerprint.toErrorResult()
-
-        pbToFbResult.let {
-            it.mutableMethod.apply {
-                val byteBufferClassIndex = it.scanResult.patternScanResult!!.startIndex
-
-                byteBufferClassLabel =
-                    getInstruction<ReferenceInstruction>(byteBufferClassIndex).reference.toString()
-            }
-        }
-
-        ByteBufferHookFingerprint.result?.let {
-            (context
-                .toMethodWalker(it.method)
-                .nextMethod(it.scanResult.patternScanResult!!.endIndex, true)
-                .getMethod() as MutableMethod
-                    ).apply {
-                    val methodName =
-                        EmptyComponentBuilderFingerprint.result!!.mutableMethod.definingClass
-
-                    addInstruction(
-                        0,
-                        "sput-object p2, $methodName->buffer:Ljava/nio/ByteBuffer;"
-                    )
-                }
-        } ?: return ByteBufferHookFingerprint.toErrorResult()
 
         IdentifierFingerprint.result?.let {
             it.mutableMethod.apply {
@@ -129,18 +91,6 @@ class ComponentParserPatch : BytecodePatch(
                         register
 
                 insertIndex = stringBuilderIndex + 1
-
-                it.mutableClass.staticFields.add(
-                    ImmutableField(
-                        definingClass,
-                        "buffer",
-                        "Ljava/nio/ByteBuffer;",
-                        AccessFlags.PUBLIC or AccessFlags.STATIC,
-                        null,
-                        annotations,
-                        null
-                    ).toMutable()
-                )
             }
         } ?: return IdentifierFingerprint.toErrorResult()
 
@@ -148,7 +98,6 @@ class ComponentParserPatch : BytecodePatch(
     }
 
     internal companion object {
-        lateinit var byteBufferClassLabel: String
         lateinit var emptyComponentLabel: String
         lateinit var insertMethod: MutableMethod
 
@@ -167,8 +116,7 @@ class ComponentParserPatch : BytecodePatch(
                 addInstructionsWithLabels(
                     insertIndex,
                         """
-                        sget-object v$freeRegister, $definingClass->buffer:Ljava/nio/ByteBuffer;
-                        invoke-static {v$stringBuilderRegister, v$identifierRegister, v$objectRegister, v$freeRegister}, $descriptor(Ljava/lang/StringBuilder;Ljava/lang/String;Ljava/lang/Object;Ljava/nio/ByteBuffer;)Z
+                        invoke-static {v$stringBuilderRegister, v$identifierRegister, v$objectRegister}, $descriptor(Ljava/lang/StringBuilder;Ljava/lang/String;Ljava/lang/Object;)Z
                         move-result v$freeRegister
                         if-eqz v$freeRegister, :unfiltered
                         """ + emptyComponentLabel,
@@ -185,28 +133,6 @@ class ComponentParserPatch : BytecodePatch(
                     insertIndex,
                         """
                         invoke-static {v$stringBuilderRegister, v$identifierRegister}, $descriptor(Ljava/lang/StringBuilder;Ljava/lang/String;)Z
-                        move-result v$freeRegister
-                        if-eqz v$freeRegister, :unfiltered
-                        """ + emptyComponentLabel,
-                    ExternalLabel("unfiltered", getInstruction(insertIndex))
-                )
-            }
-        }
-
-        // only for YouTube v18.20.39
-        fun legacyHook(
-            descriptor: String
-        ) {
-            insertMethod.apply {
-                addInstructionsWithLabels(
-                    insertIndex,
-                        """
-                        move-object/from16 v$freeRegister, p3
-                        iget-object v$freeRegister, v$freeRegister, ${parameters[2]}->b:Ljava/lang/Object;
-                        if-eqz v$freeRegister, :unfiltered
-                        check-cast v$freeRegister, $byteBufferClassLabel
-                        iget-object v$freeRegister, v$freeRegister, $byteBufferClassLabel->b:Ljava/nio/ByteBuffer;
-                        invoke-static {v$stringBuilderRegister, v$identifierRegister, v$objectRegister, v$freeRegister}, $descriptor(Ljava/lang/StringBuilder;Ljava/lang/String;Ljava/lang/Object;Ljava/nio/ByteBuffer;)Z
                         move-result v$freeRegister
                         if-eqz v$freeRegister, :unfiltered
                         """ + emptyComponentLabel,

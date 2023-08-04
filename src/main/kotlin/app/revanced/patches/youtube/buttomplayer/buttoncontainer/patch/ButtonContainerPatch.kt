@@ -28,16 +28,6 @@ import app.revanced.util.integrations.Constants.PATCHES_PATH
 class ButtonContainerPatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
 
-        if (SettingsPatch.below1820) {
-            LithoFilterPatch.addFilter("$PATCHES_PATH/ads/ActionButtonsFilter;")
-            SettingsPatch.addPreference(
-                arrayOf(
-                    "PREFERENCE: BOTTOM_PLAYER_SETTINGS",
-                    "SETTINGS: EXPERIMENTAL_BUTTON_CONTAINER"
-                )
-            )
-        }
-
         LithoFilterPatch.addFilter("$PATCHES_PATH/ads/ButtonsFilter;")
 
         /**

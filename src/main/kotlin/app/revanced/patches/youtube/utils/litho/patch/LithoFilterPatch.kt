@@ -3,6 +3,7 @@ package app.revanced.patches.youtube.utils.litho.patch
 import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
+import app.revanced.patcher.data.toMethodWalker
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
@@ -11,12 +12,13 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
+import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.shared.patch.litho.ComponentParserPatch
 import app.revanced.patches.shared.patch.litho.ComponentParserPatch.Companion.generalHook
-import app.revanced.patches.shared.patch.litho.ComponentParserPatch.Companion.legacyHook
 import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
-import app.revanced.patches.youtube.utils.litho.fingerprints.ByteBufferFingerprint
+import app.revanced.patches.youtube.utils.litho.fingerprints.GeneralByteBufferFingerprint
 import app.revanced.patches.youtube.utils.litho.fingerprints.LithoFilterFingerprint
+import app.revanced.patches.youtube.utils.litho.fingerprints.LowLevelByteBufferFingerprint
 import app.revanced.patches.youtube.utils.playertype.patch.PlayerTypeHookPatch
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.integrations.Constants.ADS_PATH
@@ -33,22 +35,33 @@ import java.io.Closeable
 @Version("0.0.1")
 class LithoFilterPatch : BytecodePatch(
     listOf(
-        ByteBufferFingerprint,
-        LithoFilterFingerprint
+        GeneralByteBufferFingerprint,
+        LithoFilterFingerprint,
+        LowLevelByteBufferFingerprint
     )
 ), Closeable {
     override fun execute(context: BytecodeContext): PatchResult {
 
 
-        ByteBufferFingerprint.result?.mutableMethod?.addInstruction(
+        LowLevelByteBufferFingerprint.result?.mutableMethod?.addInstruction(
             0,
-            "sput-object p0, $ADS_PATH/LowLevelFilter;->byteBuffer:Ljava/nio/ByteBuffer;"
-        ) ?: return ByteBufferFingerprint.toErrorResult()
+            "invoke-static { p0 }, $ADS_PATH/LowLevelFilter;->setProtoBuffer(Ljava/nio/ByteBuffer;)V"
+        ) ?: return LowLevelByteBufferFingerprint.toErrorResult()
 
-        if (SettingsPatch.below1820)
-            legacyHook("$ADS_PATH/LithoFilterPatch;->filters")
-        else
-            generalHook("$ADS_PATH/LithoFilterPatch;->filters")
+        GeneralByteBufferFingerprint.result?.let {
+            (context
+                .toMethodWalker(it.method)
+                .nextMethod(it.scanResult.patternScanResult!!.endIndex, true)
+                .getMethod() as MutableMethod
+                    ).apply {
+                    addInstruction(
+                        0,
+                        "invoke-static { p2 }, $ADS_PATH/LithoFilterPatch;->setProtoBuffer(Ljava/nio/ByteBuffer;)V"
+                    )
+                }
+        } ?: return GeneralByteBufferFingerprint.toErrorResult()
+
+        generalHook("$ADS_PATH/LithoFilterPatch;->filters")
 
         LithoFilterFingerprint.result?.mutableMethod?.apply {
             removeInstructions(2, 4) // Remove dummy filter.
