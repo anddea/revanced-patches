@@ -79,7 +79,10 @@ class HideFilmstripOverlayPatch : BytecodePatch(
 
                 if (SettingsPatch.upward1828) {
                     for (index in insertIndex .. initialIndex) {
-                        if (getInstruction(index).opcode != Opcode.CONST_16 && getInstruction(index).opcode != Opcode.CONST) continue
+                        if (getInstruction(index).opcode != Opcode.CONST_16 &&
+                            getInstruction(index).opcode != Opcode.CONST_4 &&
+                            getInstruction(index).opcode != Opcode.CONST)
+                            continue
 
                         val register = getInstruction<OneRegisterInstruction>(index).registerA
                         val value = getInstruction<WideLiteralInstruction>(index).wideLiteral.toInt()
@@ -88,6 +91,10 @@ class HideFilmstripOverlayPatch : BytecodePatch(
                             when (getInstruction(index).opcode) {
                                 Opcode.CONST_16 -> """
                                 const/16 v$register, $value
+                                
+                                """.trimIndent()
+                                Opcode.CONST_4 -> """
+                                const/4 v$register, $value
                                 
                                 """.trimIndent()
                                 Opcode.CONST -> """

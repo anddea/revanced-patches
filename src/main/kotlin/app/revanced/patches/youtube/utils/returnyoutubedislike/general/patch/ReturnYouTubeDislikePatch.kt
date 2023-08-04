@@ -8,6 +8,7 @@ import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
@@ -20,6 +21,7 @@ import app.revanced.patches.youtube.utils.returnyoutubedislike.general.fingerpri
 import app.revanced.patches.youtube.utils.returnyoutubedislike.general.fingerprints.LikeFingerprint
 import app.revanced.patches.youtube.utils.returnyoutubedislike.general.fingerprints.RemoveLikeFingerprint
 import app.revanced.patches.youtube.utils.returnyoutubedislike.general.fingerprints.TextComponentAtomicReferenceFingerprint
+import app.revanced.patches.youtube.utils.returnyoutubedislike.general.fingerprints.TextComponentAtomicReferenceLegacyFingerprint
 import app.revanced.patches.youtube.utils.returnyoutubedislike.general.fingerprints.TextComponentConstructorFingerprint
 import app.revanced.patches.youtube.utils.returnyoutubedislike.general.fingerprints.TextComponentContextFingerprint
 import app.revanced.patches.youtube.utils.returnyoutubedislike.general.fingerprints.TextComponentTmpFingerprint
@@ -101,12 +103,34 @@ class ReturnYouTubeDislikePatch : BytecodePatch(
             } ?: return TextComponentTmpFingerprint.toErrorResult()
 
 
+            val textComponentAtomicReferenceResult =
+                TextComponentAtomicReferenceFingerprint.also {
+                    it.resolve(context, parentResult.classDef)
+                }.result
+                    ?:TextComponentAtomicReferenceLegacyFingerprint.also {
+                        it.resolve(context, parentResult.classDef)
+                    }.result
+                    ?: return TextComponentAtomicReferenceLegacyFingerprint.toErrorResult()
+
             TextComponentAtomicReferenceFingerprint.also {
-                it.resolve(
-                    context,
-                    parentResult.classDef
-                )
+                it.resolve(context, parentResult.classDef)
             }.result?.let {
+                it.mutableMethod.apply {
+                    val startIndex = it.scanResult.patternScanResult!!.startIndex
+                    val originalRegisterA = getInstruction<TwoRegisterInstruction>(startIndex + 2).registerA
+
+                    replaceInstruction(
+                        startIndex + 2,
+                        "move-object v$originalRegisterA, v$tmpRegister"
+                    )
+                    replaceInstruction(
+                        startIndex + 1,
+                        "move-result-object v$tmpRegister"
+                    )
+                }
+            }
+
+            textComponentAtomicReferenceResult.let {
                 it.mutableMethod.apply {
                     val atomicReferenceStartIndex = it.scanResult.patternScanResult!!.startIndex
                     val insertIndex = it.scanResult.patternScanResult!!.endIndex
@@ -130,7 +154,7 @@ class ReturnYouTubeDislikePatch : BytecodePatch(
                     )
                     removeInstruction(insertIndex)
                 }
-            } ?: return TextComponentAtomicReferenceFingerprint.toErrorResult()
+            }
         } ?: return TextComponentConstructorFingerprint.toErrorResult()
 
 

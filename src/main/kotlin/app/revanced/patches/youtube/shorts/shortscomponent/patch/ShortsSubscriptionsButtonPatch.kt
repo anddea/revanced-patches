@@ -41,6 +41,9 @@ class ShortsSubscriptionsButtonPatch : BytecodePatch(
             }
         } ?: return ShortsSubscriptionsFingerprint.toErrorResult()
 
+        /**
+         * Deprecated in YouTube v18.31.xx+
+         */
         ShortsSubscriptionsTabletParentFingerprint.result?.let { parentResult ->
             parentResult.mutableMethod.apply {
                 val targetIndex = getWideLiteralIndex(ReelPlayerFooter) - 1
