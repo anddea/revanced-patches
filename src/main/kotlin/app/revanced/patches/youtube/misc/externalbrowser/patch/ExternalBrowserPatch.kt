@@ -43,7 +43,8 @@ class ExternalBrowserPatch : BytecodePatch(
         ).forEach { fingerprint ->
             fingerprint.result?.let {
                 it.mutableMethod.apply {
-                    val targetIndex = getStringIndex("android.support.customtabs.action.CustomTabsService")
+                    val targetIndex =
+                        getStringIndex("android.support.customtabs.action.CustomTabsService")
                     val register = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                     addInstructions(

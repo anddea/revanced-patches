@@ -15,5 +15,6 @@ object BottomNavScreenFingerprint : MethodFingerprint(
     ),
     customFingerprint = { methodDef, classDef ->
         methodDef.name == "onGlobalLayout"
-                && classDef.type.startsWith("Lcom/reddit/launch/bottomnav/BottomNavScreen\$") }
+                && classDef.type.startsWith("Lcom/reddit/launch/bottomnav/BottomNavScreen\$")
+    }
 )

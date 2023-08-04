@@ -107,7 +107,7 @@ class ReturnYouTubeDislikePatch : BytecodePatch(
                 TextComponentAtomicReferenceFingerprint.also {
                     it.resolve(context, parentResult.classDef)
                 }.result
-                    ?:TextComponentAtomicReferenceLegacyFingerprint.also {
+                    ?: TextComponentAtomicReferenceLegacyFingerprint.also {
                         it.resolve(context, parentResult.classDef)
                     }.result
                     ?: return TextComponentAtomicReferenceLegacyFingerprint.toErrorResult()
@@ -117,7 +117,8 @@ class ReturnYouTubeDislikePatch : BytecodePatch(
             }.result?.let {
                 it.mutableMethod.apply {
                     val startIndex = it.scanResult.patternScanResult!!.startIndex
-                    val originalRegisterA = getInstruction<TwoRegisterInstruction>(startIndex + 2).registerA
+                    val originalRegisterA =
+                        getInstruction<TwoRegisterInstruction>(startIndex + 2).registerA
 
                     replaceInstruction(
                         startIndex + 2,

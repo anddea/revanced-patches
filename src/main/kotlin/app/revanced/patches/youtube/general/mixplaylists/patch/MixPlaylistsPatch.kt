@@ -119,6 +119,7 @@ class MixPlaylistsPatch : BytecodePatch(
 
         return PatchResultSuccess()
     }
+
     private companion object {
         fun MutableMethod.inject(
             freeIndex: Int,

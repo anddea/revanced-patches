@@ -29,8 +29,10 @@ class SettingsBytecodePatch : BytecodePatch(
          */
         AcknowledgementsLabelBuilderFingerprint.result?.let {
             it.mutableMethod.apply {
-                val insertIndex = getStringIndex("resources.getString(R.st\u2026g.label_acknowledgements)")
-                val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA
+                val insertIndex =
+                    getStringIndex("resources.getString(R.st\u2026g.label_acknowledgements)")
+                val insertRegister =
+                    getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA
 
                 addInstruction(
                     insertIndex,

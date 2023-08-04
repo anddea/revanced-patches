@@ -37,7 +37,7 @@ class NavigationButtonsPatch : BytecodePatch(
 
                 addInstruction(
                     startIndex + 1,
-                        "invoke-static {v$targetRegister}, $INTEGRATIONS_METHOD_DESCRIPTOR"
+                    "invoke-static {v$targetRegister}, $INTEGRATIONS_METHOD_DESCRIPTOR"
                 )
             }
         } ?: return BottomNavScreenFingerprint.toErrorResult()

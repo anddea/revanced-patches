@@ -2,8 +2,6 @@ package app.revanced.patches.shared.patch.litho
 
 import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.data.toMethodWalker
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
@@ -15,7 +13,6 @@ import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.fingerprints.litho.EmptyComponentBuilderFingerprint
 import app.revanced.patches.shared.fingerprints.litho.IdentifierFingerprint
 import app.revanced.util.bytecode.getStringIndex
-import app.revanced.util.integrations.Constants.ADS_PATH
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction35c
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -115,7 +112,7 @@ class ComponentParserPatch : BytecodePatch(
             insertMethod.apply {
                 addInstructionsWithLabels(
                     insertIndex,
-                        """
+                    """
                         invoke-static {v$stringBuilderRegister, v$identifierRegister, v$objectRegister}, $descriptor(Ljava/lang/StringBuilder;Ljava/lang/String;Ljava/lang/Object;)Z
                         move-result v$freeRegister
                         if-eqz v$freeRegister, :unfiltered
@@ -131,7 +128,7 @@ class ComponentParserPatch : BytecodePatch(
             insertMethod.apply {
                 addInstructionsWithLabels(
                     insertIndex,
-                        """
+                    """
                         invoke-static {v$stringBuilderRegister, v$identifierRegister}, $descriptor(Ljava/lang/StringBuilder;Ljava/lang/String;)Z
                         move-result v$freeRegister
                         if-eqz v$freeRegister, :unfiltered
