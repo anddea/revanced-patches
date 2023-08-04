@@ -32,13 +32,14 @@ class PlaceButtonPatch : BytecodePatch(
 
         HomePagerScreenFingerprint.result?.let {
             it.mutableMethod.apply {
-                val targetIndex = getStringIndex("view.findViewById(Search\u2026nav_search_cta_container)")
+                val targetIndex =
+                    getStringIndex("view.findViewById(Search\u2026nav_search_cta_container)")
                 val targetRegister =
                     getInstruction<OneRegisterInstruction>(targetIndex - 1).registerA
 
                 addInstruction(
                     targetIndex,
-                        "invoke-static {v$targetRegister}, $INTEGRATIONS_METHOD_DESCRIPTOR"
+                    "invoke-static {v$targetRegister}, $INTEGRATIONS_METHOD_DESCRIPTOR"
                 )
             }
         } ?: return HomePagerScreenFingerprint.toErrorResult()

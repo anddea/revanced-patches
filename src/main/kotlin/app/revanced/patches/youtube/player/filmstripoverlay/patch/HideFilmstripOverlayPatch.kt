@@ -78,14 +78,16 @@ class HideFilmstripOverlayPatch : BytecodePatch(
                 val initialIndex = setOnClickListenerIndex - 1
 
                 if (SettingsPatch.upward1828) {
-                    for (index in insertIndex .. initialIndex) {
+                    for (index in insertIndex..initialIndex) {
                         if (getInstruction(index).opcode != Opcode.CONST_16 &&
                             getInstruction(index).opcode != Opcode.CONST_4 &&
-                            getInstruction(index).opcode != Opcode.CONST)
+                            getInstruction(index).opcode != Opcode.CONST
+                        )
                             continue
 
                         val register = getInstruction<OneRegisterInstruction>(index).registerA
-                        val value = getInstruction<WideLiteralInstruction>(index).wideLiteral.toInt()
+                        val value =
+                            getInstruction<WideLiteralInstruction>(index).wideLiteral.toInt()
 
                         val line =
                             when (getInstruction(index).opcode) {
@@ -93,21 +95,25 @@ class HideFilmstripOverlayPatch : BytecodePatch(
                                 const/16 v$register, $value
                                 
                                 """.trimIndent()
+
                                 Opcode.CONST_4 -> """
                                 const/4 v$register, $value
                                 
                                 """.trimIndent()
+
                                 Opcode.CONST -> """
                                 const v$register, $value
                                 
                                 """.trimIndent()
+
                                 else -> ""
                             }
 
                         fixComponent += line
                     }
                 } else {
-                    val fixRegister = getInstruction<FiveRegisterInstruction>(initialIndex).registerE
+                    val fixRegister =
+                        getInstruction<FiveRegisterInstruction>(initialIndex).registerE
 
                     for (index in initialIndex downTo insertIndex) {
                         if (getInstruction(index).opcode != Opcode.CONST_16) continue
@@ -116,7 +122,8 @@ class HideFilmstripOverlayPatch : BytecodePatch(
 
                         if (register != fixRegister) continue
 
-                        val fixValue = getInstruction<WideLiteralInstruction>(index).wideLiteral.toInt()
+                        val fixValue =
+                            getInstruction<WideLiteralInstruction>(index).wideLiteral.toInt()
                         fixComponent = "const/16 v$fixRegister, $fixValue"
                         break
                     }

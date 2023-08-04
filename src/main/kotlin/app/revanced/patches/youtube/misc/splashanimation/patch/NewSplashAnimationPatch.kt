@@ -95,6 +95,7 @@ class NewSplashAnimationPatch : BytecodePatch(
 
         return PatchResultSuccess()
     }
+
     companion object {
         fun MutableMethod.inject(
             index: Int
