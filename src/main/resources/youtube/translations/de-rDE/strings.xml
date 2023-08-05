@@ -165,9 +165,6 @@
     <string name="revanced_hide_account_menu_summary">Bekanntes Problem: Könnte im Querformat oder auf hohen-dpi Geräten nicht funktionieren</string>
     <string name="revanced_hide_account_menu_title">Account Menü verstecken</string>
     <string name="revanced_hide_account_menu_filter_strings_title">Konto-Menüfilter bearbeiten</string>
-    <string name="revanced_hide_action_buttons_summary_off">Aktionstasten werden angezeigt</string>
-    <string name="revanced_hide_action_buttons_summary_on">Aktionstasten sind ausgeblendet</string>
-    <string name="revanced_hide_action_buttons_title">Aktionsschaltflächen ausblenden</string>
     <string name="revanced_hide_album_card_summary_off">Albumkarten werden gezeigt</string>
     <string name="revanced_hide_album_card_summary_on">Albumkarten werden ausgeblendet</string>
     <string name="revanced_hide_album_card_title">Albumkarten ausblenden</string>
@@ -318,6 +315,9 @@
     <string name="revanced_hide_home_button_summary_off">Home Schaltfläche wird angezeigt</string>
     <string name="revanced_hide_home_button_summary_on">Home Schaltfläche ist ausgeblendet</string>
     <string name="revanced_hide_home_button_title">Home Schaltfläche ausblenden</string>
+    <string name="revanced_hide_image_shelf_summary_off">Bildregale werden angezeigt</string>
+    <string name="revanced_hide_image_shelf_summary_on">Bildregale sind versteckt</string>
+    <string name="revanced_hide_image_shelf_title">Verstecke Bildregale</string>
     <string name="revanced_hide_info_cards_section_summary_off">Infokarten-Abschnitte werden angezeigt</string>
     <string name="revanced_hide_info_cards_section_summary_on">Infokarten-Abschnitte sind versteckt</string>
     <string name="revanced_hide_info_cards_section_title">Infokarten-Abschnitte verstecken</string>
@@ -336,6 +336,9 @@
     <string name="revanced_hide_library_button_summary_off">Bibliothek-Button wird angezeigt</string>
     <string name="revanced_hide_library_button_summary_on">Bibliothek-Button ist versteckt</string>
     <string name="revanced_hide_library_button_title">Bibliothek-Button verstecken</string>
+    <string name="revanced_hide_latest_videos_button_summary_off">Neue Videos-Schaltfläche wird angezeigt</string>
+    <string name="revanced_hide_latest_videos_button_summary_on">\"Neustes Video\" Button ist versteckt</string>
+    <string name="revanced_hide_latest_videos_button_title">Verstecke \"Neustes Video\" Button</string>
     <string name="revanced_hide_load_more_button_summary_off">Mehr laden-Button wird angezeigt</string>
     <string name="revanced_hide_load_more_button_summary_on">Mehr laden-Button ist versteckt</string>
     <string name="revanced_hide_load_more_button_title">Mehr laden-Button verstecken</string>
@@ -398,19 +401,52 @@
     <string name="revanced_hide_player_flyout_panel_more_info_title">Mehr Informationen-Menü verstecken</string>
     <string name="revanced_hide_player_flyout_panel_report_summary_off">Berichtsmenü wird angezeigt</string>
     <string name="revanced_hide_player_flyout_panel_report_summary_on">Berichtsmenü ist versteckt</string>
+    <string name="revanced_hide_player_flyout_panel_report_title">\'Melden\'-Menü ausblenden</string>
+    <string name="revanced_hide_player_flyout_panel_speed_summary_off">Das Menü \"Wiedergabegeschwindigkeit\" wird angezeigt</string>
+    <string name="revanced_hide_player_flyout_panel_speed_summary_on">Das Menü \"Wiedergabegeschwindigkeit\" ist ausgeblendet</string>
+    <string name="revanced_hide_player_flyout_panel_speed_title">Das Menü \"Wiedergabegeschwindigkeit\" ausblenden</string>
+    <string name="revanced_hide_player_flyout_panel_stats_for_nerds_summary_off">Statistiken für Nerds werden angezeigt</string>
+    <string name="revanced_hide_player_flyout_panel_stats_for_nerds_summary_on">Statistiken für Nerds sind versteckt</string>
+    <string name="revanced_hide_player_flyout_panel_stats_for_nerds_title">Verstecke Statistiken für Nerds</string>
+    <string name="revanced_hide_player_flyout_panel_watch_in_vr_summary_off">\'In VR ansehen\'-Menü wird angezeigt</string>
+    <string name="revanced_hide_player_flyout_panel_watch_in_vr_summary_on">\'In VR ansehen\'-Menü wird ausgeblendet</string>
+    <string name="revanced_hide_player_flyout_panel_watch_in_vr_title">Verstecke \'in VR ansehen\'-Menü</string>
     <string name="revanced_hide_player_overlay_filter_summary_off">Player Overlay Filter wird angezeigt</string>
     <string name="revanced_hide_player_overlay_filter_summary_on">Player Overlay Filter ist versteckt</string>
     <string name="revanced_hide_player_overlay_filter_title">Verstecke Player-Overlay-Filter</string>
+    <string name="revanced_hook_download_button_summary">"Ersetze den Download-Button mit externem Download-Button
+nur auf YouTube v18.24.37+ verfügbar"</string>
     <string name="revanced_hide_preview_comment_off">Vorschau-Kommentar wird angezeigt</string>
     <string name="revanced_hide_preview_comment_on">Vorschau-Kommentar ist versteckt</string>
     <string name="revanced_hide_preview_comment_title">Verstecke Vorschau-Kommentar</string>
     <string name="revanced_hide_previous_next_button_summary_off">Schaltflächen werden angezeigt</string>
     <string name="revanced_hide_previous_next_button_summary_on">Schaltflächen sind versteckt</string>
+    <string name="revanced_hide_quick_actions_comment_summary_off">Kommentar Button wird angezeigt</string>
+    <string name="revanced_hide_quick_actions_comment_summary_on">Kommentar Button wird versteckt</string>
+    <string name="revanced_hide_quick_actions_comment_title">Verstecke Kommentar Button</string>
+    <string name="revanced_hide_quick_actions_more_summary_off">\"Mehr\" Button wird angezeigt</string>
+    <string name="revanced_hide_quick_actions_more_summary_on">\"Mehr\" Button wird versteckt</string>
+    <string name="revanced_hide_quick_actions_more_title">Verstecke \"Mehr\" Button</string>
+    <string name="revanced_hide_quick_actions_related_videos_summary_off">Relevante Videos werden angezeigt</string>
+    <string name="revanced_hide_quick_actions_related_videos_summary_on">Relevante Videos werden versteckt</string>
+    <string name="revanced_hide_quick_actions_related_videos_title">Verstecke relevante Videos in Schnellaktionen</string>
+    <string name="revanced_hide_quick_actions_summary_off">\"Schnellaktionen\" Container wird angezeigt</string>
+    <string name="revanced_hide_quick_actions_summary_on">\"Schnellaktionen\" Container wird versteckt</string>
+    <string name="revanced_hide_quick_actions_title">Verstecke \"Schnellaktionen\" Container</string>
+    <string name="revanced_hide_seekbar_summary_off">Suchleiste für Video-Player wird angezeigt</string>
+    <string name="revanced_hide_seekbar_summary_on">Suchleiste für Video-Player wird versteckt</string>
+    <string name="revanced_hide_seekbar_thumbnail_summary_off">Thumbnail-Suchleiste wird angezeigt</string>
+    <string name="revanced_hide_seekbar_thumbnail_summary_on">Thumbnail-Suchleiste ist versteckt</string>
+    <string name="revanced_hide_seekbar_thumbnail_title">Verstecke Thumbnail-Suchleiste</string>
+    <string name="revanced_hide_seekbar_title">Verstecke Video-Player-Suchleiste</string>
     <string name="revanced_hide_shorts_button_summary_off">Shorts Schaltfläche wird angezeigt</string>
     <string name="revanced_hide_shorts_button_summary_on">Shorts Schaltfläche ist versteckt</string>
     <string name="revanced_hide_shorts_button_title">Verstecke Shorts Schaltfläche</string>
     <string name="revanced_hide_shorts_component_summary">Versteckt Shorts Abschnitt oder die Shorts Player-Elemente</string>
     <string name="revanced_hide_shorts_component_title">Verstecke Shorts Elemente</string>
+    <string name="revanced_hide_shorts_player_navigation_bar_summary_off">Navigationsleiste wird angezeigt</string>
+    <string name="revanced_hide_shorts_player_navigation_bar_summary_on">Navigationsleiste ist versteckt</string>
+    <string name="revanced_hide_shorts_player_navigation_bar_title">Navigationsleiste ausblenden</string>
     <string name="revanced_hide_shorts_player_toolbar_summary_on">Toolbar ist versteckt</string>
     <string name="revanced_hide_shorts_player_toolbar_title">Toolbar verstecken</string>
     <string name="revanced_hide_shorts_shelf_summary_off">Ausschnitte aus Shorts in Kanälen werden angezeigt</string>
@@ -447,6 +483,10 @@ Bekanntes Problem: Autoplay funktioniert nicht"</string>
     <string name="revanced_hide_time_stamp_summary_off">Der Zeitstempel wird angezeigt</string>
     <string name="revanced_hide_time_stamp_summary_on">Der Zeitstempel ist ausgeblendet</string>
     <string name="revanced_hide_time_stamp_title">Zeitstempel ausblenden</string>
+    <string name="revanced_hide_video_ads_summary_off">Videowerbung wird angezeigt</string>
+    <string name="revanced_hide_video_ads_summary_on">Videowerbung ist versteckt</string>
+    <string name="revanced_hide_video_ads_title">Verstecke Videowerbung</string>
+    <string name="revanced_hide_view_products_summary_off">Produkt-Banner anzeigen</string>
     <string name="revanced_hide_youtube_music_button_summary_off">YouTube Musik-Button wird angezeigt</string>
     <string name="revanced_hide_youtube_music_button_summary_on">YouTube Musik-Button ist ausgeblendet</string>
     <string name="revanced_hide_youtube_music_button_title">YouTube Musik-Button ausblenden</string>
@@ -579,6 +619,7 @@ Da diese Einstellung veraltet ist, ist sie möglicherweise nicht gültig"</strin
     <string name="sb_new_segment_mark_end">Ende</string>
     <string name="sb_new_segment_now">Jetzt</string>
     <string name="sb_new_segment_confirm_title">Sind die Zeiten korrekt?</string>
+    <string name="sb_new_segment_edit_by_hand_title">Zeiten des Abschnitts manuell bearbeiten</string>
     <string name="sb_new_segment_edit_by_hand_content">Willst du die Start- oder Endzeiten für den Abschnitt bearbeiten?</string>
     <string name="sb_new_segment_edit_by_hand_parse_error">Ungültige Zeit angegeben</string>
     <string name="sb_stats">Statistiken</string>
@@ -591,6 +632,7 @@ Da diese Einstellung veraltet ist, ist sie möglicherweise nicht gültig"</strin
     <string name="sb_stats_reputation" formatted="false">Dein Ruf ist &lt;b&gt;%.2f&lt;/b&gt;</string>
     <string name="sb_stats_submissions" formatted="false">Du hast &lt;b&gt;%s&lt;/b&gt; Segmente erstellt</string>
     <string name="sb_stats_saved_zero">SponsorBlock Rangliste</string>
+    <string name="sb_stats_saved" formatted="false">Du hast Zuschauer bereits vor &lt;b&gt;%s&lt;/b&gt; Segmenten bewahrt</string>
     <string name="sb_stats_saved_sum_zero">Hier tippen, um die globalen Statistiken und Top-Mitwirkende zu sehen</string>
     <string name="sb_stats_saved_sum" formatted="false">Das ist &lt;b&gt;%s&lt;/b&gt; ihres Lebens.&lt;br&gt;Tippen Sie hier, um die Rangliste zu sehen</string>
     <string name="sb_stats_self_saved" formatted="false">Du hast bereits &lt;b&gt;%s&lt;/b&gt; Segmente übersprungen</string>

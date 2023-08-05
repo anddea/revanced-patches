@@ -33,6 +33,7 @@ class TranslationsPatch : ResourcePatch {
         val LANGUAGE_LIST = arrayOf(
             "ar",
             "az-rAZ",
+            "be-rBY",
             "bg-rBG",
             "bn",
             "de-rDE",

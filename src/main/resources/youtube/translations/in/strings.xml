@@ -19,7 +19,7 @@
     <string name="revanced_change_homepage_title">Ubah beranda menjadi subscription</string>
     <string name="revanced_comments_title">Komentar</string>
     <string name="revanced_copy_video_timestamp_success">Stempel waktu disalin ke papan klip</string>
-    <string name="revanced_custom_filter_strings_summary">Filter komponen dengan nama yang dipisahkan garis</string>
+    <string name="revanced_custom_filter_strings_summary">Memfilter komponen dengan nama yang dipisahkan garis</string>
     <string name="revanced_custom_filter_strings_title">Edit filter kustom</string>
     <string name="revanced_custom_filter_summary_off">Filter kustom dinonaktifkan</string>
     <string name="revanced_custom_filter_summary_on">Filter kustom diaktifkan</string>
@@ -38,7 +38,7 @@
     <string name="revanced_description_title">Deskripsi</string>
     <string name="revanced_disable_auto_captions_summary_off">Teks paksa diaktifkan</string>
     <string name="revanced_disable_auto_captions_summary_on">Teks paksa dinonaktifkan</string>
-    <string name="revanced_disable_auto_captions_title">Nonaktifkan paksa teks</string>
+    <string name="revanced_disable_auto_captions_title">Nonaktifkan teks paksa</string>
     <string name="revanced_disable_default_playback_speed_live_summary_off">Kecepatan pemutaran default diaktifkan dalam live stream</string>
     <string name="revanced_disable_default_playback_speed_live_summary_on">Kecepatan pemutaran default dinonaktifkan dalam live stream</string>
     <string name="revanced_disable_default_playback_speed_live_title">Nonaktifkan kecepatan pemutaran dalam live stream</string>
@@ -165,9 +165,6 @@
     <string name="revanced_hide_account_menu_summary">Masalah yang diketahui: Mungkin tidak berfungsi dalam mode lanskap atau pada perangkat dpi tinggi</string>
     <string name="revanced_hide_account_menu_title">Sembunyikan menu akun</string>
     <string name="revanced_hide_account_menu_filter_strings_title">Edit filter menu akun</string>
-    <string name="revanced_hide_action_buttons_summary_off">Tombol action ditampilkan</string>
-    <string name="revanced_hide_action_buttons_summary_on">Tombol action disembunyikan</string>
-    <string name="revanced_hide_action_buttons_title">Sembunyikan tombol action</string>
     <string name="revanced_hide_album_card_summary_off">Kartu album ditampilkan</string>
     <string name="revanced_hide_album_card_summary_on">Kartu album disembunyikan</string>
     <string name="revanced_hide_album_card_title">Sembunyikan kartu album</string>
@@ -300,9 +297,9 @@
     <string name="revanced_hide_fullscreen_panels_summary_off">Panel layar penuh ditampilkan</string>
     <string name="revanced_hide_fullscreen_panels_summary_on">Panel layar penuh disembunyikan</string>
     <string name="revanced_hide_fullscreen_panels_title">Sembunyikan panel layar penuh</string>
-    <string name="revanced_hide_game_section_summary_off">Bagian permainan ditampilkan</string>
-    <string name="revanced_hide_game_section_summary_on">Bagian permainan disembunyikan</string>
-    <string name="revanced_hide_game_section_title">Sembunyikan bagian permainan</string>
+    <string name="revanced_hide_game_section_summary_off">Bagian game ditampilkan</string>
+    <string name="revanced_hide_game_section_summary_on">Bagian game disembunyikan</string>
+    <string name="revanced_hide_game_section_title">Sembunyikan bagian game</string>
     <string name="revanced_hide_general_ads_summary_off">Iklan umum ditampilkan</string>
     <string name="revanced_hide_general_ads_summary_on">Iklan umum disembunyikan</string>
     <string name="revanced_hide_general_ads_title">Sembunyikan iklan umum</string>
@@ -369,9 +366,9 @@
     <string name="revanced_hide_paid_promotion_banner_summary_off">Spanduk promosi berbayar ditampilkan</string>
     <string name="revanced_hide_paid_promotion_banner_summary_on">Spanduk promosi berbayar disembunyikan</string>
     <string name="revanced_hide_paid_promotion_banner_title">Sembunyikan spanduk promosi berbayar</string>
-    <string name="revanced_hide_place_section_summary_off">Bagian place ditampilkan</string>
-    <string name="revanced_hide_place_section_summary_on">Bagian place disembunyikan</string>
-    <string name="revanced_hide_place_section_title">Sembunyikan bagian place</string>
+    <string name="revanced_hide_place_section_summary_off">Bagian lokasi ditampilkan</string>
+    <string name="revanced_hide_place_section_summary_on">Bagian lokasi disembunyikan</string>
+    <string name="revanced_hide_place_section_title">Sembunyikan bagian lokasi</string>
     <string name="revanced_hide_player_button_background_summary_off">Latar belakang tombol pemutar ditampilkan</string>
     <string name="revanced_hide_player_button_background_summary_on">Latar belakang tombol pemutar disembunyikan</string>
     <string name="revanced_hide_player_button_background_title">Sembunyikan latar belakang tombol pemutar</string>
@@ -387,9 +384,9 @@
     <string name="revanced_hide_player_flyout_panel_help_summary_off">Bantuan &amp; menu saran ditampilkan</string>
     <string name="revanced_hide_player_flyout_panel_help_summary_on">Bantuan &amp; menu saran disembunyikan</string>
     <string name="revanced_hide_player_flyout_panel_help_title">Sembunyikan bantuan &amp; menu saran</string>
-    <string name="revanced_hide_player_flyout_panel_listening_controls_summary_off">Menu kontrol listening ditampilkan</string>
-    <string name="revanced_hide_player_flyout_panel_listening_controls_summary_on">Menu kontrol listening disembunyikan</string>
-    <string name="revanced_hide_player_flyout_panel_listening_controls_title">Sembunyikan menu kontrol listening</string>
+    <string name="revanced_hide_player_flyout_panel_listening_controls_summary_off">Menu kontrol audio ditampilkan</string>
+    <string name="revanced_hide_player_flyout_panel_listening_controls_summary_on">Menu kontrol audio disembunyikan</string>
+    <string name="revanced_hide_player_flyout_panel_listening_controls_title">Sembunyikan menu kontrol audio</string>
     <string name="revanced_hide_player_flyout_panel_listen_with_youtube_music_summary_off">Menu dengarkan dengan YouTube Music ditampilkan</string>
     <string name="revanced_hide_player_flyout_panel_listen_with_youtube_music_summary_on">Menu dengarkan dengan YouTube Music disembunyikan</string>
     <string name="revanced_hide_player_flyout_panel_listen_with_youtube_music_title">Sembunyikan menu dengarkan dengan YouTube Music</string>
@@ -434,10 +431,10 @@ Hanya tersedia di YouTube v18.24.37+"</string>
     <string name="revanced_hide_quick_actions_more_title">Sembunyikan tombol lainnya</string>
     <string name="revanced_hide_quick_actions_related_videos_summary_off">Video terkait ditampilkan</string>
     <string name="revanced_hide_quick_actions_related_videos_summary_on">Video terkait disembunyikan</string>
-    <string name="revanced_hide_quick_actions_related_videos_title">Sembunyikan video terkait dalam quick actions</string>
-    <string name="revanced_hide_quick_actions_summary_off">Wadah quick actions ditampilkan</string>
-    <string name="revanced_hide_quick_actions_summary_on">Wadah quick actions disembunyikan</string>
-    <string name="revanced_hide_quick_actions_title">Sembunyikan wadah quick actions</string>
+    <string name="revanced_hide_quick_actions_related_videos_title">Sembunyikan video terkait dalam aksi cepat</string>
+    <string name="revanced_hide_quick_actions_summary_off">Wadah aksi cepat ditampilkan</string>
+    <string name="revanced_hide_quick_actions_summary_on">Wadah aksi cepat disembunyikan</string>
+    <string name="revanced_hide_quick_actions_title">Sembunyikan wadah aksi cepat</string>
     <string name="revanced_hide_seekbar_summary_off">Seekbar pemutar video ditampilkan</string>
     <string name="revanced_hide_seekbar_summary_on">Seekbar pemutar video disembunyikan</string>
     <string name="revanced_hide_seekbar_thumbnail_summary_off">Seekbar thumbnail ditampilkan</string>
@@ -464,24 +461,24 @@ Hanya tersedia di YouTube v18.24.37+"</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_off">Tombol subscription ditampilkan</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_on">Tombol subscription disembunyikan</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_title">Sembunyikan tombol subscription</string>
-    <string name="revanced_hide_shorts_player_toolbar_summary_off">Toolbar ditampilkan</string>
-    <string name="revanced_hide_shorts_player_toolbar_summary_on">Toolbar disembunyikan</string>
-    <string name="revanced_hide_shorts_player_toolbar_title">Sembunyikan toolbar</string>
+    <string name="revanced_hide_shorts_player_toolbar_summary_off">Bilah alat ditampilkan</string>
+    <string name="revanced_hide_shorts_player_toolbar_summary_on">Bilah alat disembunyikan</string>
+    <string name="revanced_hide_shorts_player_toolbar_title">Sembunyikan bilah alat</string>
     <string name="revanced_hide_shorts_shelf_summary_off">Rak shorts ditampilkan</string>
     <string name="revanced_hide_shorts_shelf_summary_on">Rak shorts disembunyikan</string>
     <string name="revanced_hide_shorts_shelf_title">Sembunyikan rak shorts</string>
-    <string name="revanced_hide_snack_bar_summary_off">Snack bar ditampilkan</string>
-    <string name="revanced_hide_snack_bar_summary_on">Snack bar disembunyikan</string>
-    <string name="revanced_hide_snack_bar_title">Sembunyikan snack bar</string>
+    <string name="revanced_hide_snack_bar_summary_off">Bilah snack ditampilkan</string>
+    <string name="revanced_hide_snack_bar_summary_on">Bilah snack disembunyikan</string>
+    <string name="revanced_hide_snack_bar_title">Sembunyikan bilah snack</string>
     <string name="revanced_hide_speed_overlay_summary_off">Overlay kecepatan ditampilkan</string>
     <string name="revanced_hide_speed_overlay_summary_on">Overlay kecepatan disembunyikan</string>
     <string name="revanced_hide_speed_overlay_title">Sembunyikan overlay kecepatan</string>
     <string name="revanced_hide_subscriptions_button_summary_off">Tombol subscription ditampilkan</string>
     <string name="revanced_hide_subscriptions_button_summary_on">Tombol subscription disembunyikan</string>
     <string name="revanced_hide_subscriptions_button_title">Sembunyikan tombol subscription</string>
-    <string name="revanced_hide_suggested_actions_summary_off">Suggested actions ditampilkan</string>
-    <string name="revanced_hide_suggested_actions_summary_on">Suggested actions disembunyikan</string>
-    <string name="revanced_hide_suggested_actions_title">Sembunyikan suggested actions</string>
+    <string name="revanced_hide_suggested_actions_summary_off">Aksi yang disarankan ditampilkan</string>
+    <string name="revanced_hide_suggested_actions_summary_on">Aksi yang disarankan disembunyikan</string>
+    <string name="revanced_hide_suggested_actions_title">Sembunyikan aksi yang disarankan</string>
     <string name="revanced_hide_suggestions_shelf_summary">"Menyembunyikan rak berikut:
 - Berita terbaru
 - Lanjutkan menonton
@@ -495,9 +492,9 @@ Masalah yang diketahui: putar otomatis tidak berfungsi"</string>
     <string name="revanced_hide_ticket_shelf_summary_off">Rak tiket ditampilkan</string>
     <string name="revanced_hide_ticket_shelf_summary_on">Rak tiket disembunyikan</string>
     <string name="revanced_hide_ticket_shelf_title">Sembunyikan rak tiket</string>
-    <string name="revanced_hide_timed_reactions_summary_off">Timed reactions ditampilkan</string>
-    <string name="revanced_hide_timed_reactions_summary_on">Timed reactions disembunyikan</string>
-    <string name="revanced_hide_timed_reactions_title">Sembunyikan timed reactions</string>
+    <string name="revanced_hide_timed_reactions_summary_off">Reaksi berjangka waktu ditampilkan</string>
+    <string name="revanced_hide_timed_reactions_summary_on">Reaksi berjangka waktu disembunyikan</string>
+    <string name="revanced_hide_timed_reactions_title">Sembunyikan reaksi berjangka waktu</string>
     <string name="revanced_hide_time_stamp_summary_off">Stempel waktu ditampilkan</string>
     <string name="revanced_hide_time_stamp_summary_on">Stempel waktu disembunyikan</string>
     <string name="revanced_hide_time_stamp_title">Sembunyikan stempel waktu</string>
@@ -551,7 +548,7 @@ Tekan dan tahan untuk mengatur kecepatan pemutaran ke 1,0x"</string>
     <string name="revanced_patches_information_summary">Informasi tentang patch yang diterapkan</string>
     <string name="revanced_player_flyout_panel_title">Panel flyout pemutar</string>
     <string name="revanced_player">Pemutar</string>
-    <string name="revanced_quick_actions_title">Quick actions</string>
+    <string name="revanced_quick_actions_title">Aksi cepat</string>
     <string name="revanced_reboot_first_run">Mulai ulang untuk memuat tata letak secara normal</string>
     <string name="revanced_reboot_warning_general">"Karena ini masih merupakan fitur eksperimental, mungkin ada masalah lain yang tidak diketahui.
 Apakah Anda yakin ingin melanjutkan?"</string>
@@ -627,7 +624,7 @@ Masalah yang diketahui
     <string name="revanced_switching_create_notification_summary_off">Tombol buat tidak dialihkan dengan notifikasi</string>
     <string name="revanced_switching_create_notification_summary_on">Tombol buat dialihkan dengan notifikasi</string>
     <string name="revanced_switching_create_notification_title">Alihkan buat dengan tombol notifikasi</string>
-    <string name="revanced_tool_used">Patch yang digunakan</string>
+    <string name="revanced_tool_used">Alat yang digunakan</string>
     <string name="revanced_video">Video</string>
     <string name="pref_app_language_dialog_message">&lt;b&gt;%1$s&lt;/b&gt;&lt;br&gt;&lt;br&gt;Ini akan mengubah bahasa yang digunakan di YouTube, termasuk tombol, teks, dan dialog, tetapi tidak akan mengubah bahasa setelan ReVanced Extended.</string>
     <string name="pref_app_language_dialog_message_no_lang_name">Ini akan mengubah bahasa yang digunakan dalam aplikasi termasuk tombol, teks, dan dialog, tetapi tidak akan mengubah bahasa pengaturan ReVanced Extended.</string>
@@ -779,7 +776,7 @@ Masalah yang diketahui
     <string name="sb_color_invalid">Kode warna tidak valid</string>
     <string name="sb_reset_color">Atur ulang warna</string>
     <string name="sb_reset">Atur ulang</string>
-    <string name="sb_about_api_sum">Data disediakan oleh API SponsorBlock. Tekan di sini untuk mempelajari lebih lanjut dan melihat unduhan untuk platform lain</string>
+    <string name="sb_about_api_sum">Data disediakan oleh API SponsorBlock. Tekan di sini untuk mempelajari lebih lanjut dan melihat hasil download untuk platform lain</string>
     <string name="sb_about_made_by">Integrasi dibuat oleh JakubWeg</string>
     <string name="seconds">detik</string>
     <string name="settings_export_failed">Gagal mengekspor setelan</string>
