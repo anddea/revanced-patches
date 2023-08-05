@@ -11,8 +11,8 @@
     <string name="revanced_backup_summary">ReVancedの設定をファイルからインポートするか、ファイルにエクスポートします。</string>
     <string name="revanced_bottom_player">プレーヤー下のボタン</string>
     <string name="revanced_button_container_title">プレーヤーの下のボタン</string>
-    <string name="revanced_bypass_ambient_mode_restrictions_summary_off">バッテリーセーバーモードでアンビエントモードは無効です</string>
-    <string name="revanced_bypass_ambient_mode_restrictions_summary_on">バッテリーセーバーモードでアンビエントモードは有効です</string>
+    <string name="revanced_bypass_ambient_mode_restrictions_summary_off">バッテリーセーバーが有効になっていてもアンビエントモードを使えるようにします</string>
+    <string name="revanced_bypass_ambient_mode_restrictions_summary_on">バッテリーセーバーが有効になっていてもアンビエントモードを使えるようにします</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">アンビエントモードの制限を回避する</string>
     <string name="revanced_change_homepage_summary_off">起動時のタブ: ホーム</string>
     <string name="revanced_change_homepage_summary_on">起動時のタブ: 登録チャンネル</string>
@@ -165,17 +165,13 @@
     <string name="revanced_hide_account_menu_summary">既知の問題: 横画面モードまたは高dpiのデバイスでは動作しない可能性があります</string>
     <string name="revanced_hide_account_menu_title">アカウントメニューを非表示にする</string>
     <string name="revanced_hide_account_menu_filter_strings_title">アカウントメニューのフィルターを編集する</string>
-    <string name="revanced_hide_action_buttons_summary_off">“リミックス”ボタン、“クリップ”ボタン、“Thanks”ボタン、“チャット”ボタン、“共有”ボタンを非表示にします
-高評価、低評価、ダウンロード、“保存(プレイリストに追加)”ボタンは非表示になりません</string>
-    <string name="revanced_hide_action_buttons_summary_on">アクションボタン(チャット、共有、リミックス、Thanks等)は非表示です</string>
-    <string name="revanced_hide_action_buttons_title">アクションボタンを非表示にする</string>
-    <string name="revanced_hide_album_card_summary_off">アーティストの説明の下のアルバムカードは表示されています</string>
+    <string name="revanced_hide_album_card_summary_off">アーティストの説明の下のアルバムカードは表示されます</string>
     <string name="revanced_hide_album_card_summary_on">アーティストの説明の下のアルバムカードは非表示です</string>
     <string name="revanced_hide_album_card_title">アルバムカードを非表示にする</string>
-    <string name="revanced_hide_audio_track_button_summary_off">オーディオトラックボタンは表示されています</string>
+    <string name="revanced_hide_audio_track_button_summary_off">オーディオトラックボタンは表示されます</string>
     <string name="revanced_hide_audio_track_button_summary_on">オーディオトラックボタンは非表示です</string>
     <string name="revanced_hide_audio_track_button_title">オーディオトラックボタンを非表示にする</string>
-    <string name="revanced_hide_autoplay_button_summary_off">自動再生ボタンは表示されています</string>
+    <string name="revanced_hide_autoplay_button_summary_off">自動再生ボタンは表示されます</string>
     <string name="revanced_hide_autoplay_button_summary_on">自動再生ボタンは非表示です</string>
     <string name="revanced_hide_autoplay_button_title">自動再生ボタンを非表示にする</string>
     <string name="revanced_hide_autoplay_preview_summary_off">次に再生される動画のプレビューは表示されます</string>
@@ -304,8 +300,8 @@
     <string name="revanced_hide_game_section_summary_off">概要欄にあるゲームの説明を非表示にします</string>
     <string name="revanced_hide_game_section_summary_on">概要欄にあるゲームの説明を非表示にします</string>
     <string name="revanced_hide_game_section_title">ゲームのセクションを非表示にする</string>
-    <string name="revanced_hide_general_ads_summary_off">全般的な広告(動画広告以外の全ての広告)を非表示にします</string>
-    <string name="revanced_hide_general_ads_summary_on">全般的な広告(動画広告以外の全ての広告)を非表示にします</string>
+    <string name="revanced_hide_general_ads_summary_off">全般的な広告は表示されます</string>
+    <string name="revanced_hide_general_ads_summary_on">全般的な広告は非表示です</string>
     <string name="revanced_hide_general_ads_title">全般的な広告を非表示にする</string>
     <string name="revanced_hide_get_premium_summary_off">YouTube Premium の広告を非表示にします</string>
     <string name="revanced_hide_get_premium_summary_on">YouTube Premium の広告を非表示にします</string>
@@ -340,6 +336,9 @@
     <string name="revanced_hide_library_button_summary_off">下のタブ切り替えの“ライブラリ”ボタンを非表示にします</string>
     <string name="revanced_hide_library_button_summary_on">下のタブ切り替えの“ライブラリ”ボタンを非表示にします</string>
     <string name="revanced_hide_library_button_title">“ライブラリ”ボタンを非表示にする</string>
+    <string name="revanced_hide_latest_videos_button_summary_off">“最新の動画”ボタンを非表示にします</string>
+    <string name="revanced_hide_latest_videos_button_summary_on">“最新の動画”ボタンを非表示にします</string>
+    <string name="revanced_hide_latest_videos_button_title">“最新の動画”ボタンを非表示にする</string>
     <string name="revanced_hide_load_more_button_summary_off">検索した際に、検索結果の動画の下に表示される“もっと表示”のボタンを非表示にします</string>
     <string name="revanced_hide_load_more_button_summary_on">検索した際に、検索結果の動画の下に表示される“もっと表示”のボタンを非表示にします</string>
     <string name="revanced_hide_load_more_button_title">“もっと表示”を非表示にする</string>
@@ -505,9 +504,9 @@
     <string name="revanced_hide_trending_searches_summary_off">検索欄のトレンド検索を非表示にします</string>
     <string name="revanced_hide_trending_searches_summary_on">検索欄のトレンド検索を非表示にします</string>
     <string name="revanced_hide_trending_searches_title">トレンド検索を非表示にする</string>
-    <string name="revanced_hide_video_ads_summary_off">動画の広告を非表示にします</string>
-    <string name="revanced_hide_video_ads_summary_on">動画の広告を非表示にします</string>
-    <string name="revanced_hide_video_ads_title">動画の広告を非表示にする</string>
+    <string name="revanced_hide_video_ads_summary_off">動画広告は表示されます</string>
+    <string name="revanced_hide_video_ads_summary_on">動画広告は非表示です</string>
+    <string name="revanced_hide_video_ads_title">動画広告を非表示にする</string>
     <string name="revanced_hide_view_products_summary_off">商品バナーを非表示にします</string>
     <string name="revanced_hide_view_products_summary_on">商品バナーを非表示にします</string>
     <string name="revanced_hide_view_products_title">商品バナーを非表示にする</string>
@@ -550,7 +549,7 @@
     <string name="revanced_player_flyout_panel_title">プレーヤー上の設定メニュー</string>
     <string name="revanced_player">プレーヤー</string>
     <string name="revanced_quick_actions_title">クイックアクション</string>
-    <string name="revanced_reboot_first_run">再起動してYouTubeのレイアウトを正常に読みます</string>
+    <string name="revanced_reboot_first_run">再起動してレイアウトを正常に読み込みます</string>
     <string name="revanced_reboot_warning_general">"これはまだ実験的な機能であるため、他にも未知のバグがあるかもしれません。
 続行してもよろしいですか？"</string>
     <string name="revanced_reboot_warning_phone">"一部のレイアウトをスマートフォン用のレイアウトに変更するために dpi を偽装します。
@@ -598,9 +597,13 @@
 この機能を無効にしてもアプリのデータを消去するまで古い Ul が残る場合があります"</string>
     <string name="revanced_spoof_app_version_title">アプリのバージョンを偽装する</string>
     <string name="revanced_spoof_app_version_target_entry_0">18.20.39 - 旧バージョンのプレイヤーフライアウトパネルを復元します</string>
+    <string name="revanced_spoof_app_version_target_entry_1">18.09.39 - 旧バージョンのライブラリタブを復元します</string>
+    <string name="revanced_spoof_app_version_target_entry_2">17.41.37 - ライブラリタブで旧バージョンのプレイリスト欄を復元します</string>
+    <string name="revanced_spoof_app_version_target_entry_3">17.08.35 - 旧バージョンのUIを復元します</string>
+    <string name="revanced_spoof_app_version_target_entry_4">16.08.35 - 探索タブを復元します</string>
     <string name="revanced_spoof_app_version_target_entry_title">偽装するバージョンを選択</string>
     <string name="revanced_spoof_app_version_target_summary">偽装したいバージョンを入力してください</string>
-    <string name="revanced_spoof_app_version_target_title">アプリのバージョンを偽装する</string>
+    <string name="revanced_spoof_app_version_target_title">偽装するアプリのバージョンを編集する</string>
     <string name="revanced_spoof_player_parameter_summary">"プレーヤーのパラメータを偽装して、バッファリングの問題を修正します
 
  既知の問題点
@@ -624,7 +627,8 @@
     <string name="revanced_switching_create_notification_title">“作成”ボタンを“通知”ボタンに置き換える</string>
     <string name="revanced_tool_used">使用されたツール</string>
     <string name="revanced_video">動画</string>
-    <string name="pref_app_language_dialog_message">&lt;b&gt;%1$s&lt;/b&gt;&lt;br&gt;&lt;br&gt;YouTubeで使用される言語が変更されます。ボタン、テキスト、ダイアログを含みますが、ReVanded Extended設定の言語は変更されません。</string>
+    <string name="pref_app_language_dialog_message">&lt;b&gt;%1$s&lt;/b&gt;&lt;br&gt;&lt;br&gt;YouTubeで使用される言語が変更されます。ボタン、テキスト、ダイアログを含みますが、ReVanded Extended 設定の言語は変更されません。</string>
+    <string name="pref_app_language_dialog_message_no_lang_name">YouTubeで使用される言語が変更されます。ボタン、テキスト、ダイアログを含みますが、ReVanded Extended 設定の言語は変更されません。</string>
     <string name="sb_enable_sb">SponsorBlockを有効にする</string>
     <string name="sb_enable_sb_sum">SponsorBlock は、YouTubeの動画の迷惑/無駄な部分をスキップするためのクラウドソースシステムです</string>
     <string name="sb_appearance_category">表示設定</string>
@@ -773,7 +777,7 @@
     <string name="sb_color_invalid">カラーコードが無効です</string>
     <string name="sb_reset_color">色をリセットする</string>
     <string name="sb_reset">リセット</string>
-    <string name="sb_about_api_sum">データはSponsorBlock APIによって提供されます。詳細はここをタップしてください。</string>
+    <string name="sb_about_api_sum">データは SponsorBlock API によって提供されます。詳細はここをタップして、他のプラットフォームのダウンロードをご覧ください。</string>
     <string name="sb_about_made_by">JakubWeg による統合</string>
     <string name="seconds">秒</string>
     <string name="settings_export_failed">設定の書き出しに失敗しました</string>
