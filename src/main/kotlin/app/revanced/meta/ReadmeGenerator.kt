@@ -30,15 +30,23 @@ internal class ReadmeGenerator : PatchesFileGenerator {
             .entries
             .sortedByDescending { it.value.size }
             .forEach { (`package`, patches) ->
-                val mostCommonVersion = buildMap {
+                val supportVersions = buildMap {
                     patches.forEach { patch ->
                         patch.compatiblePackages?.single { compatiblePackage -> compatiblePackage.name == `package` }?.versions?.let {
                             it.forEach { version -> merge(version, 1, Integer::sum) }
                         }
                     }
-                }.let { commonMap ->
+                }
+
+                val minVersion = supportVersions.let { commonMap ->
                     commonMap.maxByOrNull { it.value }?.value?.let {
-                        commonMap.entries.filter { mostCommon -> mostCommon.value == it }
+                        commonMap.entries.filter { supported -> supported.value == it }
+                            .minOfWith(FlexVerComparator::compare, Map.Entry<String, Int>::key)
+                    } ?: "all"
+                }
+                val maxVersion = supportVersions.let { commonMap ->
+                    commonMap.maxByOrNull { it.value }?.value?.let {
+                        commonMap.entries.filter { supported -> supported.value == it }
                             .maxOfWith(FlexVerComparator::compare, Map.Entry<String, Int>::key)
                     } ?: "all"
                 }
@@ -48,14 +56,21 @@ internal class ReadmeGenerator : PatchesFileGenerator {
                     appendLine("<details>\n")
                     appendLine(TABLE_HEADER)
                     patches.forEach { patch ->
-                        val recommendedPatchVersion = if (
-                            patch.compatiblePackages?.single { it.name == `package` }?.versions?.isNotEmpty() == true
-                        ) mostCommonVersion else "all"
+                        val supportedVersion =
+                            if (
+                                patch.compatiblePackages?.single { it.name == `package` }?.versions?.isNotEmpty() == true
+                            ) {
+                                if (minVersion == maxVersion)
+                                    maxVersion
+                                else
+                                    "$minVersion ~ $maxVersion"
+                            } else
+                                "all"
 
                         appendLine(
                             "| `${patch.patchName.lowercase().replace(" ", "-")}` " +
                                     "| ${patch.description} " +
-                                    "| $recommendedPatchVersion |"
+                                    "| $supportedVersion |"
                         )
                     }
                     appendLine("</details>\n")
