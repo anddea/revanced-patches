@@ -1,13 +1,11 @@
 package app.revanced.patches.youtube.swipe.swipecontrols.bytecode.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.extensions.transformMethods
+import app.revanced.extensions.traverseClassHierarchy
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
-import app.revanced.patcher.util.TypeUtil.traverseClassHierarchy
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.youtube.swipe.swipecontrols.bytecode.fingerprints.SwipeControlsHostActivityFingerprint
 import app.revanced.patches.youtube.swipe.swipecontrols.bytecode.fingerprints.WatchWhileActivityFingerprint
@@ -22,11 +20,11 @@ class SwipeControlsBytecodePatch : BytecodePatch(
         WatchWhileActivityFingerprint
     )
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
         val wrapperClass = SwipeControlsHostActivityFingerprint.result?.mutableClass
-            ?: return SwipeControlsHostActivityFingerprint.toErrorResult()
+            ?: throw SwipeControlsHostActivityFingerprint.exception
         val targetClass = WatchWhileActivityFingerprint.result?.mutableClass
-            ?: return WatchWhileActivityFingerprint.toErrorResult()
+            ?: throw WatchWhileActivityFingerprint.exception
 
         // inject the wrapper class from integrations into the class hierarchy of WatchWhileActivity
         wrapperClass.setSuperClass(targetClass.superclass)
@@ -49,6 +47,5 @@ class SwipeControlsBytecodePatch : BytecodePatch(
             }
         }
 
-        return PatchResultSuccess()
     }
 }

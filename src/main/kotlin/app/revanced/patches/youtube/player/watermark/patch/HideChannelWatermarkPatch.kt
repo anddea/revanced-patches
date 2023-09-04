@@ -1,17 +1,14 @@
 package app.revanced.patches.youtube.player.watermark.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.youtube.player.watermark.fingerprints.HideWatermarkFingerprint
@@ -26,11 +23,10 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 @Description("Hides creator's watermarks on videos.")
 @DependsOn([SettingsPatch::class])
 @YouTubeCompatibility
-@Version("0.0.1")
 class HideChannelWatermarkBytecodePatch : BytecodePatch(
     listOf(HideWatermarkParentFingerprint)
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
 
         HideWatermarkParentFingerprint.result?.let { parentResult ->
             HideWatermarkFingerprint.also {
@@ -51,8 +47,8 @@ class HideChannelWatermarkBytecodePatch : BytecodePatch(
                             """
                     )
                 }
-            } ?: return HideWatermarkFingerprint.toErrorResult()
-        } ?: return HideWatermarkParentFingerprint.toErrorResult()
+            } ?: throw HideWatermarkFingerprint.exception
+        } ?: throw HideWatermarkParentFingerprint.exception
 
         /**
          * Add settings
@@ -66,6 +62,5 @@ class HideChannelWatermarkBytecodePatch : BytecodePatch(
 
         SettingsPatch.updatePatchStatus("hide-channel-watermark")
 
-        return PatchResultSuccess()
     }
 }

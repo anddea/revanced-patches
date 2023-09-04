@@ -1,12 +1,10 @@
 package app.revanced.patches.youtube.shorts.shortscomponent.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.shorts.shortscomponent.fingerprints.ShortsLikeFingerprint
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch.Companion.ReelRightLikeIcon
@@ -18,7 +16,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 class ShortsLikeButtonPatch : BytecodePatch(
     listOf(ShortsLikeFingerprint)
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
         ShortsLikeFingerprint.result?.let {
             it.mutableMethod.apply {
                 val insertIndex = getWideLiteralIndex(ReelRightLikeIcon)
@@ -38,8 +36,7 @@ class ShortsLikeButtonPatch : BytecodePatch(
                     break
                 }
             }
-        } ?: return ShortsLikeFingerprint.toErrorResult()
+        } ?: throw ShortsLikeFingerprint.exception
 
-        return PatchResultSuccess()
     }
 }

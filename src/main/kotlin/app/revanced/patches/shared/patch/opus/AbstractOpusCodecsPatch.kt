@@ -1,13 +1,11 @@
 package app.revanced.patches.shared.patch.opus
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultError
-import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.fingerprints.opus.CodecReferenceFingerprint
 import app.revanced.patches.shared.fingerprints.opus.CodecSelectorFingerprint
@@ -24,7 +22,7 @@ abstract class AbstractOpusCodecsPatch(
         CodecSelectorFingerprint
     )
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
 
         CodecReferenceFingerprint.result?.mutableMethod?.let {
             it.implementation!!.instructions.apply {
@@ -41,9 +39,9 @@ abstract class AbstractOpusCodecsPatch(
                     }
                 }
                 if (targetIndex == 0)
-                    throw PatchResultError("Target method not found!")
+                    throw PatchException("Target method not found!")
             }
-        } ?: return CodecReferenceFingerprint.toErrorResult()
+        } ?: throw CodecReferenceFingerprint.exception
 
         CodecSelectorFingerprint.result?.let {
             it.mutableMethod.apply {
@@ -60,9 +58,8 @@ abstract class AbstractOpusCodecsPatch(
                         """, ExternalLabel("mp4a", getInstruction(targetIndex + 1))
                 )
             }
-        } ?: return CodecSelectorFingerprint.toErrorResult()
+        } ?: throw CodecSelectorFingerprint.exception
 
-        return PatchResultSuccess()
     }
 
     companion object {

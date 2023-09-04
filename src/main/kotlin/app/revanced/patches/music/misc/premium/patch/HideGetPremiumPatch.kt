@@ -1,16 +1,12 @@
 package app.revanced.patches.music.misc.premium.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.data.toMethodWalker
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
@@ -37,14 +33,13 @@ import com.android.tools.smali.dexlib2.iface.reference.Reference
     ]
 )
 @MusicCompatibility
-@Version("0.0.1")
 class HideGetPremiumPatch : BytecodePatch(
     listOf(
         AccountMenuFooterFingerprint,
         HideGetPremiumFingerprint
     )
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
 
         HideGetPremiumFingerprint.result?.let {
             it.mutableMethod.apply {
@@ -56,7 +51,7 @@ class HideGetPremiumPatch : BytecodePatch(
                     "const/4 v$register, 0x0"
                 )
             }
-        } ?: return HideGetPremiumFingerprint.toErrorResult()
+        } ?: throw HideGetPremiumFingerprint.exception
 
 
         AccountMenuFooterFingerprint.result?.let {
@@ -89,9 +84,8 @@ class HideGetPremiumPatch : BytecodePatch(
                     }
                 }
             }
-        } ?: return AccountMenuFooterFingerprint.toErrorResult()
+        } ?: throw AccountMenuFooterFingerprint.exception
 
-        return PatchResultSuccess()
     }
 
     private companion object {

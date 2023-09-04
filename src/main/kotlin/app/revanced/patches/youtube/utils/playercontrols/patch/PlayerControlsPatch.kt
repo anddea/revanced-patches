@@ -1,15 +1,13 @@
 package app.revanced.patches.youtube.utils.playercontrols.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprintResult
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultError
-import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.utils.fingerprints.YouTubeControlsOverlayFingerprint
@@ -40,7 +38,7 @@ class PlayerControlsPatch : BytecodePatch(
         YouTubeControlsOverlayFingerprint
     )
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
 
         fun MutableMethod.findReference(targetString: String): Reference {
             val targetIndex = getStringIndex(targetString) + 2
@@ -53,7 +51,7 @@ class PlayerControlsPatch : BytecodePatch(
                 if (getInstruction<TwoRegisterInstruction>(index).registerA == targetRegister)
                     return getInstruction<ReferenceInstruction>(index).reference
             }
-            throw PatchResultError("Reference not found: $targetString")
+            throw PatchException("Reference not found: $targetString")
         }
 
         PlayerControlsVisibilityModelFingerprint.result?.classDef?.let { classDef ->
@@ -63,7 +61,7 @@ class PlayerControlsPatch : BytecodePatch(
                         context,
                         classDef
                     )
-                }.result?.mutableMethod ?: return SeekEDUVisibleFingerprint.toErrorResult()
+                }.result?.mutableMethod ?: throw SeekEDUVisibleFingerprint.exception
 
             userScrubbingMutableMethod =
                 UserScrubbingFingerprint.also {
@@ -71,8 +69,8 @@ class PlayerControlsPatch : BytecodePatch(
                         context,
                         classDef
                     )
-                }.result?.mutableMethod ?: return UserScrubbingFingerprint.toErrorResult()
-        } ?: return PlayerControlsVisibilityModelFingerprint.toErrorResult()
+                }.result?.mutableMethod ?: throw UserScrubbingFingerprint.exception
+        } ?: throw PlayerControlsVisibilityModelFingerprint.exception
 
         YouTubeControlsOverlayFingerprint.result?.classDef?.let { classDef ->
             playerControlsVisibilityMutableMethod =
@@ -82,16 +80,16 @@ class PlayerControlsPatch : BytecodePatch(
                         classDef
                     )
                 }.result?.mutableMethod
-                    ?: return PlayerControlsVisibilityFingerprint.toErrorResult()
-        } ?: return YouTubeControlsOverlayFingerprint.toErrorResult()
+                    ?: throw PlayerControlsVisibilityFingerprint.exception
+        } ?: throw YouTubeControlsOverlayFingerprint.exception
 
         controlsLayoutInflateResult =
             ControlsLayoutInflateFingerprint.result
-                ?: return ControlsLayoutInflateFingerprint.toErrorResult()
+                ?: throw ControlsLayoutInflateFingerprint.exception
 
         inflateResult =
             BottomControlsInflateFingerprint.result
-                ?: return BottomControlsInflateFingerprint.toErrorResult()
+                ?: throw BottomControlsInflateFingerprint.exception
 
         FullscreenEngagementSpeedEduVisibleParentFingerprint.result?.let { parentResult ->
             parentResult.mutableMethod.apply {
@@ -107,10 +105,9 @@ class PlayerControlsPatch : BytecodePatch(
                         parentResult.classDef
                     )
                 }.result?.mutableMethod
-                    ?: return FullscreenEngagementSpeedEduVisibleFingerprint.toErrorResult()
-        } ?: return FullscreenEngagementSpeedEduVisibleParentFingerprint.toErrorResult()
+                    ?: throw FullscreenEngagementSpeedEduVisibleFingerprint.exception
+        } ?: throw FullscreenEngagementSpeedEduVisibleParentFingerprint.exception
 
-        return PatchResultSuccess()
     }
 
     internal companion object {

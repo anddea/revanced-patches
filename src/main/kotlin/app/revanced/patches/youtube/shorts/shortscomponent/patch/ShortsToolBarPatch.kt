@@ -1,14 +1,11 @@
 package app.revanced.patches.youtube.shorts.shortscomponent.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.data.toMethodWalker
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultError
-import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.shorts.shortscomponent.fingerprints.ShortsCommentFingerprint
 import app.revanced.patches.youtube.utils.fingerprints.SetToolBarPaddingFingerprint
@@ -25,7 +22,7 @@ class ShortsToolBarPatch : BytecodePatch(
         ShortsCommentFingerprint
     )
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
         SetToolBarPaddingFingerprint.result?.let {
             val targetIndex = it.mutableMethod.getWideLiteralIndex(ToolBarPaddingHome) + 3
             (context.toMethodWalker(it.method)
@@ -34,7 +31,7 @@ class ShortsToolBarPatch : BytecodePatch(
                     ).apply {
                     val targetParameter = getInstruction<ReferenceInstruction>(0).reference
                     if (!targetParameter.toString().endsWith("Landroid/support/v7/widget/Toolbar;"))
-                        return PatchResultError("Method signature parameter did not match: $targetParameter")
+                        throw PatchException("Method signature parameter did not match: $targetParameter")
                     val targetRegister = getInstruction<TwoRegisterInstruction>(0).registerA
 
                     addInstruction(
@@ -43,10 +40,9 @@ class ShortsToolBarPatch : BytecodePatch(
                     )
                 }
 
-        } ?: return SetToolBarPaddingFingerprint.toErrorResult()
+        } ?: throw SetToolBarPaddingFingerprint.exception
 
         ShortsCommentFingerprint.injectIndex(1)
 
-        return PatchResultSuccess()
     }
 }

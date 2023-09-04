@@ -1,14 +1,11 @@
 package app.revanced.patches.music.utils.litho.patch
 
-import app.revanced.extensions.toErrorResult
-import app.revanced.patcher.annotation.Version
+import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.music.utils.annotations.MusicCompatibility
 import app.revanced.patches.music.utils.litho.fingerprints.LithoFilterFingerprint
@@ -19,11 +16,10 @@ import java.io.Closeable
 
 @DependsOn([ComponentParserPatch::class])
 @MusicCompatibility
-@Version("0.0.1")
 class LithoFilterPatch : BytecodePatch(
     listOf(LithoFilterFingerprint)
 ), Closeable {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
         identifierHook("$MUSIC_ADS_PATH/LithoFilterPatch;->filter")
 
         LithoFilterFingerprint.result?.mutableMethod?.apply {
@@ -40,9 +36,8 @@ class LithoFilterPatch : BytecodePatch(
                         """
                 )
             }
-        } ?: return LithoFilterFingerprint.toErrorResult()
+        } ?: throw LithoFilterFingerprint.exception
 
-        return PatchResultSuccess()
     }
 
     override fun close() = LithoFilterFingerprint.result!!

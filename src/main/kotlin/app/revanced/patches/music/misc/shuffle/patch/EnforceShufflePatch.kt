@@ -1,21 +1,18 @@
 package app.revanced.patches.music.misc.shuffle.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.extensions.transformFields
+import app.revanced.extensions.traverseClassHierarchy
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patcher.util.TypeUtil.traverseClassHierarchy
 import app.revanced.patcher.util.proxy.mutableTypes.MutableField.Companion.toMutable
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patcher.util.smali.toInstructions
@@ -47,7 +44,6 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
     ]
 )
 @MusicCompatibility
-@Version("0.0.1")
 class EnforceShufflePatch : BytecodePatch(
     listOf(
         MusicPlaybackControlsFingerprint,
@@ -55,7 +51,7 @@ class EnforceShufflePatch : BytecodePatch(
         ShuffleClassReferenceFingerprint
     )
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
 
         ShuffleClassReferenceFingerprint.result?.let {
             it.mutableMethod.apply {
@@ -72,7 +68,7 @@ class EnforceShufflePatch : BytecodePatch(
                 shuffleReference3 = getInstruction(endIndex).descriptor
                 shuffleReference4 = getInstruction(imageViewIndex).descriptor
             }
-        } ?: return ShuffleClassReferenceFingerprint.toErrorResult()
+        } ?: throw ShuffleClassReferenceFingerprint.exception
 
 
         ShuffleClassFingerprint.result?.let {
@@ -97,7 +93,7 @@ class EnforceShufflePatch : BytecodePatch(
                     ).toMutable()
                 }
             }
-        } ?: return ShuffleClassFingerprint.toErrorResult()
+        } ?: throw ShuffleClassFingerprint.exception
 
         MusicPlaybackControlsFingerprint.result?.let {
             it.mutableMethod.apply {
@@ -163,7 +159,7 @@ class EnforceShufflePatch : BytecodePatch(
                     ).toMutable()
                 )
             }
-        } ?: return MusicPlaybackControlsFingerprint.toErrorResult()
+        } ?: throw MusicPlaybackControlsFingerprint.exception
 
         SettingsPatch.addMusicPreference(
             CategoryType.MISC,
@@ -171,7 +167,6 @@ class EnforceShufflePatch : BytecodePatch(
             "true"
         )
 
-        return PatchResultSuccess()
     }
 
     private companion object {

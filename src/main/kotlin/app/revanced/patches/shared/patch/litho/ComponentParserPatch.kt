@@ -1,13 +1,11 @@
 package app.revanced.patches.shared.patch.litho
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultError
-import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.fingerprints.litho.EmptyComponentBuilderFingerprint
@@ -27,7 +25,7 @@ class ComponentParserPatch : BytecodePatch(
         IdentifierFingerprint
     )
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
 
         EmptyComponentBuilderFingerprint.result?.let {
             it.mutableMethod.apply {
@@ -52,9 +50,9 @@ class ComponentParserPatch : BytecodePatch(
                 }
 
                 if (emptyComponentLabel.isEmpty())
-                    throw PatchResultError("could not find Empty Component Label in method")
+                    throw PatchException("could not find Empty Component Label in method")
             }
-        } ?: return EmptyComponentBuilderFingerprint.toErrorResult()
+        } ?: throw EmptyComponentBuilderFingerprint.exception
 
         IdentifierFingerprint.result?.let {
             it.mutableMethod.apply {
@@ -89,9 +87,8 @@ class ComponentParserPatch : BytecodePatch(
 
                 insertIndex = stringBuilderIndex + 1
             }
-        } ?: return IdentifierFingerprint.toErrorResult()
+        } ?: throw IdentifierFingerprint.exception
 
-        return PatchResultSuccess()
     }
 
     internal companion object {

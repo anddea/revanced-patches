@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.utils.sponsorblock.bytecode.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
@@ -8,8 +8,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.utils.fingerprints.SeekbarFingerprint
@@ -54,7 +52,7 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         YouTubeControlsOverlayFingerprint
     )
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
 
         /**
          * Hook the video time methods
@@ -81,9 +79,9 @@ class SponsorBlockBytecodePatch : BytecodePatch(
                     mutableClass
                 )
             }.result?.mutableMethod
-                ?: return SeekbarOnDrawFingerprint.toErrorResult()
+                ?: throw SeekbarOnDrawFingerprint.exception
             insertInstructions = insertMethod.implementation!!.instructions
-        } ?: return SeekbarFingerprint.toErrorResult()
+        } ?: throw SeekbarFingerprint.exception
 
 
         /**
@@ -164,7 +162,7 @@ class SponsorBlockBytecodePatch : BytecodePatch(
                         """
                 )
             }
-        } ?: return TotalTimeFingerprint.toErrorResult()
+        } ?: throw TotalTimeFingerprint.exception
 
 
         /**
@@ -180,7 +178,7 @@ class SponsorBlockBytecodePatch : BytecodePatch(
                     "invoke-static {v$targetRegister}, $INTEGRATIONS_BUTTON_CLASS_DESCRIPTOR/ui/SponsorBlockViewController;->initialize(Landroid/view/ViewGroup;)V"
                 )
             }
-        } ?: return YouTubeControlsOverlayFingerprint.toErrorResult()
+        } ?: throw YouTubeControlsOverlayFingerprint.exception
 
 
         /**
@@ -213,10 +211,10 @@ class SponsorBlockBytecodePatch : BytecodePatch(
                                 break
                             }
                         }
-                    } ?: return SegmentPlaybackControllerFingerprint.toErrorResult()
+                    } ?: throw SegmentPlaybackControllerFingerprint.exception
                 }
-            } ?: return RectangleFieldInvalidatorFingerprint.toErrorResult()
-        } ?: return SeekbarFingerprint.toErrorResult()
+            } ?: throw RectangleFieldInvalidatorFingerprint.exception
+        } ?: throw SeekbarFingerprint.exception
 
 
         /**
@@ -226,7 +224,6 @@ class SponsorBlockBytecodePatch : BytecodePatch(
 
         context.injectInit("FirstRun", "initializationSB")
 
-        return PatchResultSuccess()
     }
 
     internal companion object {

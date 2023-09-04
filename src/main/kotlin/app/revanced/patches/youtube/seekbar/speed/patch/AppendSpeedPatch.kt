@@ -1,16 +1,13 @@
 package app.revanced.patches.youtube.seekbar.speed.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultError
-import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
@@ -34,11 +31,10 @@ import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
     ]
 )
 @YouTubeCompatibility
-@Version("0.0.1")
 class AppendSpeedPatch : BytecodePatch(
     listOf(TotalTimeFingerprint)
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
         TotalTimeFingerprint.result?.let {
             it.mutableMethod.apply {
                 var insertIndex = -1
@@ -62,9 +58,9 @@ class AppendSpeedPatch : BytecodePatch(
                     }
                 }
                 if (insertIndex == -1)
-                    return PatchResultError("target Instruction not found!")
+                    throw PatchException("target Instruction not found!")
             }
-        } ?: return TotalTimeFingerprint.toErrorResult()
+        } ?: throw TotalTimeFingerprint.exception
 
         /**
          * Add settings
@@ -78,6 +74,5 @@ class AppendSpeedPatch : BytecodePatch(
 
         SettingsPatch.updatePatchStatus("enable-timestamps-speed")
 
-        return PatchResultSuccess()
     }
 }

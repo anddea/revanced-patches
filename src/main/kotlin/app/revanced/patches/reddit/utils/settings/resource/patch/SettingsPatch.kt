@@ -2,11 +2,8 @@ package app.revanced.patches.reddit.utils.settings.resource.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultError
-import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
@@ -27,9 +24,8 @@ import kotlin.io.path.exists
     ]
 )
 @RedditCompatibility
-@Version("0.0.1")
 class SettingsPatch : ResourcePatch {
-    override fun execute(context: ResourceContext): PatchResult {
+    override fun execute(context: ResourceContext) {
 
         /**
          * Replace settings icon and label
@@ -39,7 +35,7 @@ class SettingsPatch : ResourcePatch {
             val targetXml = resDirectory.resolve("xml").resolve("$targetXML.xml").toPath()
 
             if (!targetXml.exists())
-                return PatchResultError("The preferences can not be found.")
+                throw PatchException("The preferences can not be found.")
 
             val preference = context["res/xml/$targetXML.xml"]
 
@@ -52,6 +48,5 @@ class SettingsPatch : ResourcePatch {
             )
         }
 
-        return PatchResultSuccess()
     }
 }

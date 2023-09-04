@@ -1,18 +1,14 @@
 package app.revanced.patches.youtube.misc.layoutswitch.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.data.toMethodWalker
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
@@ -31,14 +27,13 @@ import com.android.tools.smali.dexlib2.Opcode
 @Description("Tricks the dpi to use some tablet/phone layouts.")
 @DependsOn([SettingsPatch::class])
 @YouTubeCompatibility
-@Version("0.0.1")
 class LayoutSwitchPatch : BytecodePatch(
     listOf(
         ClientFormFactorParentFingerprint,
         LayoutSwitchFingerprint
     )
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
 
         fun MutableMethod.injectTabletLayout(jumpIndex: Int) {
             addInstructionsWithLabels(
@@ -73,16 +68,16 @@ class LayoutSwitchPatch : BytecodePatch(
 
                         injectTabletLayout(jumpIndex)
                     }
-                } ?: return ClientFormFactorWalkerFingerprint.toErrorResult()
+                } ?: throw ClientFormFactorWalkerFingerprint.exception
             }
-        } ?: return ClientFormFactorParentFingerprint.toErrorResult()
+        } ?: throw ClientFormFactorParentFingerprint.exception
 
         LayoutSwitchFingerprint.result?.mutableMethod?.addInstructions(
             4, """
                 invoke-static {p0}, $MISC_PATH/LayoutOverridePatch;->getLayoutOverride(I)I
                 move-result p0
                 """
-        ) ?: return LayoutSwitchFingerprint.toErrorResult()
+        ) ?: throw LayoutSwitchFingerprint.exception
 
         /**
          * Add settings
@@ -95,6 +90,5 @@ class LayoutSwitchPatch : BytecodePatch(
 
         SettingsPatch.updatePatchStatus("layout-switch")
 
-        return PatchResultSuccess()
     }
 }

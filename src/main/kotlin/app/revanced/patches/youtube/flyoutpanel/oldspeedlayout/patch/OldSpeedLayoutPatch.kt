@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.flyoutpanel.oldspeedlayout.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
@@ -8,8 +8,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.util.proxy.mutableTypes.MutableField.Companion.toMutable
 import app.revanced.patches.youtube.flyoutpanel.oldspeedlayout.fingerprints.CustomPlaybackSpeedIntegrationsFingerprint
@@ -32,7 +30,7 @@ class OldSpeedLayoutPatch : BytecodePatch(
         PlaybackRateBottomSheetBuilderFingerprint
     )
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
 
         /**
          * Find the values we need
@@ -42,7 +40,7 @@ class OldSpeedLayoutPatch : BytecodePatch(
                 PLAYBACK_RATE_BOTTOM_SHEET_CLASS = definingClass
                 PLAYBACK_RATE_BOTTOM_SHEET_BUILDER_METHOD = name
             }
-        } ?: return PlaybackRateBottomSheetClassFingerprint.toErrorResult()
+        } ?: throw PlaybackRateBottomSheetClassFingerprint.exception
 
         /**
          * Create a static field in the patch
@@ -76,7 +74,7 @@ class OldSpeedLayoutPatch : BytecodePatch(
                         """
                 )
             }
-        } ?: return CustomPlaybackSpeedIntegrationsFingerprint.toErrorResult()
+        } ?: throw CustomPlaybackSpeedIntegrationsFingerprint.exception
 
         /**
          * Input 'playbackRateBottomSheetClass' in FlyoutPanelPatch.
@@ -88,7 +86,7 @@ class OldSpeedLayoutPatch : BytecodePatch(
                     "sput-object p0, $INTEGRATIONS_CLASS_DESCRIPTOR->playbackRateBottomSheetClass:$PLAYBACK_RATE_BOTTOM_SHEET_CLASS"
                 )
             }
-        } ?: return PlaybackRateBottomSheetClassFingerprint.toErrorResult()
+        } ?: throw PlaybackRateBottomSheetClassFingerprint.exception
 
         /**
          * New method
@@ -103,11 +101,10 @@ class OldSpeedLayoutPatch : BytecodePatch(
                     "invoke-static { v$insertRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->onFlyoutMenuCreate(Landroid/widget/LinearLayout;)V"
                 )
             }
-        } ?: return NewFlyoutPanelBuilderFingerprint.toErrorResult()
+        } ?: throw NewFlyoutPanelBuilderFingerprint.exception
 
         LithoFilterPatch.addFilter("$PATCHES_PATH/ads/PlaybackSpeedMenuFilter;")
 
-        return PatchResultSuccess()
     }
 
     private companion object {

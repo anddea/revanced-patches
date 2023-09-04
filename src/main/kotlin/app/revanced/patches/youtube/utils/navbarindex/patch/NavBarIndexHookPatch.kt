@@ -1,14 +1,12 @@
 package app.revanced.patches.youtube.utils.navbarindex.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.youtube.utils.fingerprints.OnBackPressedFingerprint
 import app.revanced.patches.youtube.utils.litho.patch.LithoFilterPatch
@@ -37,7 +35,7 @@ class NavBarIndexHookPatch : BytecodePatch(
         TopBarButtonFingerprint
     )
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
 
         OnBackPressedFingerprint.result?.let {
             it.mutableMethod.apply {
@@ -46,7 +44,7 @@ class NavBarIndexHookPatch : BytecodePatch(
                     "invoke-static {}, $INTEGRATIONS_CLASS_DESCRIPTOR->setLastNavBarIndex()V"
                 )
             }
-        } ?: return OnBackPressedFingerprint.toErrorResult()
+        } ?: throw OnBackPressedFingerprint.exception
 
         TopBarButtonFingerprint.injectIndex(0)
 
@@ -77,13 +75,12 @@ class NavBarIndexHookPatch : BytecodePatch(
                     break
                 }
             }
-        } ?: return NavBarBuilderFingerprint.toErrorResult()
+        } ?: throw NavBarBuilderFingerprint.exception
 
         LithoFilterPatch.addFilter("$PATCHES_PATH/ads/NavBarIndexFilter;")
 
         context.injectInit("NavBarIndexPatch", "initializeIndex")
 
-        return PatchResultSuccess()
     }
 
     companion object {
@@ -100,7 +97,7 @@ class NavBarIndexHookPatch : BytecodePatch(
                         """
                     )
                 }
-            } ?: throw toErrorResult()
+            } ?: throw exception
         }
     }
 }

@@ -4,10 +4,7 @@ import app.revanced.extensions.doRecursively
 import app.revanced.extensions.startsWithAny
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
@@ -36,7 +33,6 @@ import org.w3c.dom.Element
     ]
 )
 @YouTubeCompatibility
-@Version("0.0.1")
 class GeneralAdsPatch : ResourcePatch {
     private val resourceFileNames = arrayOf(
         "promoted_",
@@ -59,7 +55,7 @@ class GeneralAdsPatch : ResourcePatch {
         "Top"
     )
 
-    override fun execute(context: ResourceContext): PatchResult {
+    override fun execute(context: ResourceContext) {
         LithoFilterPatch.addFilter("$PATCHES_PATH/ads/AdsFilter;")
 
         context.forEach {
@@ -111,6 +107,5 @@ class GeneralAdsPatch : ResourcePatch {
 
         SettingsPatch.updatePatchStatus("hide-general-ads")
 
-        return PatchResultSuccess()
     }
 }

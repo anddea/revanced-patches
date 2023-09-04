@@ -1,14 +1,11 @@
 package app.revanced.patches.shared.patch.ads
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.data.toMethodWalker
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.fingerprints.ads.LegacyAdsFingerprint
@@ -22,7 +19,7 @@ abstract class AbstractAdsPatch(
         MainstreamAdsFingerprint
     )
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
         LegacyAdsFingerprint.result?.let {
             (context.toMethodWalker(it.method)
                 .nextMethod(13, true)
@@ -34,7 +31,7 @@ abstract class AbstractAdsPatch(
                         """
                 )
             }
-        } ?: return LegacyAdsFingerprint.toErrorResult()
+        } ?: throw LegacyAdsFingerprint.exception
 
         MainstreamAdsFingerprint.result?.let {
             it.mutableMethod.apply {
@@ -49,6 +46,5 @@ abstract class AbstractAdsPatch(
             }
         }
 
-        return PatchResultSuccess()
     }
 }

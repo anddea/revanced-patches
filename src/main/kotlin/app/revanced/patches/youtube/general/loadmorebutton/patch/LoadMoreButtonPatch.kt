@@ -1,15 +1,12 @@
 package app.revanced.patches.youtube.general.loadmorebutton.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.youtube.general.loadmorebutton.fingerprints.LoadMoreButtonFingerprint
@@ -29,11 +26,10 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
     ]
 )
 @YouTubeCompatibility
-@Version("0.0.1")
 class LoadMoreButtonPatch : BytecodePatch(
     listOf(LoadMoreButtonFingerprint)
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
         LoadMoreButtonFingerprint.result?.let {
             it.mutableMethod.apply {
                 val targetIndex = it.scanResult.patternScanResult!!.endIndex
@@ -43,7 +39,7 @@ class LoadMoreButtonPatch : BytecodePatch(
                     "invoke-static {v$targetRegister}, $GENERAL->hideLoadMoreButton(Landroid/view/View;)V"
                 )
             }
-        } ?: return LoadMoreButtonFingerprint.toErrorResult()
+        } ?: throw LoadMoreButtonFingerprint.exception
 
         /**
          * Add settings
@@ -57,6 +53,5 @@ class LoadMoreButtonPatch : BytecodePatch(
 
         SettingsPatch.updatePatchStatus("hide-load-more-button")
 
-        return PatchResultSuccess()
     }
 }

@@ -1,16 +1,13 @@
 package app.revanced.patches.youtube.general.accountmenu.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.youtube.general.accountmenu.fingerprints.AccountMenuFingerprint
@@ -31,11 +28,10 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
     ]
 )
 @YouTubeCompatibility
-@Version("0.0.1")
 class AccountMenuPatch : BytecodePatch(
     listOf(AccountMenuParentFingerprint)
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
 
         AccountMenuParentFingerprint.result?.let { parentResult ->
             AccountMenuFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.let {
@@ -48,7 +44,7 @@ class AccountMenuPatch : BytecodePatch(
                         "invoke-static {v$register}, $GENERAL->hideAccountMenu(Landroid/text/Spanned;)V"
                     )
                 }
-            } ?: return AccountMenuFingerprint.toErrorResult()
+            } ?: throw AccountMenuFingerprint.exception
 
             parentResult.mutableMethod.apply {
                 val endIndex = parentResult.scanResult.patternScanResult!!.endIndex
@@ -59,7 +55,7 @@ class AccountMenuPatch : BytecodePatch(
                     "sput-object v$register, $GENERAL->compactLink:Landroid/view/View;"
                 )
             }
-        } ?: return AccountMenuParentFingerprint.toErrorResult()
+        } ?: throw AccountMenuParentFingerprint.exception
 
         /**
          * Add settings
@@ -73,6 +69,5 @@ class AccountMenuPatch : BytecodePatch(
 
         SettingsPatch.updatePatchStatus("hide-account-menu")
 
-        return PatchResultSuccess()
     }
 }

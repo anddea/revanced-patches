@@ -1,13 +1,11 @@
 package app.revanced.patches.youtube.utils.playerbutton.patch
 
+import app.revanced.extensions.exception
 import app.revanced.extensions.findMutableMethodOf
-import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.youtube.utils.playerbutton.fingerprints.LiveChatFingerprint
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
@@ -20,7 +18,7 @@ import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction35c
 class PlayerButtonHookPatch : BytecodePatch(
     listOf(LiveChatFingerprint)
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
 
         LiveChatFingerprint.result?.let {
             val endIndex = it.scanResult.patternScanResult!!.endIndex
@@ -62,8 +60,7 @@ class PlayerButtonHookPatch : BytecodePatch(
                     }
                 }
             }
-        } ?: return LiveChatFingerprint.toErrorResult()
+        } ?: throw LiveChatFingerprint.exception
 
-        return PatchResultSuccess()
     }
 }

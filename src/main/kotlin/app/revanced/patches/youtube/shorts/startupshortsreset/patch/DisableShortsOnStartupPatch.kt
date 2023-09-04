@@ -1,15 +1,12 @@
 package app.revanced.patches.youtube.shorts.startupshortsreset.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
@@ -24,11 +21,10 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 @Description("Disables playing YouTube Shorts when launching YouTube.")
 @DependsOn([SettingsPatch::class])
 @YouTubeCompatibility
-@Version("0.0.1")
 class DisableShortsOnStartupPatch : BytecodePatch(
     listOf(UserWasInShortsFingerprint)
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
 
         UserWasInShortsFingerprint.result?.let {
             it.mutableMethod.apply {
@@ -45,7 +41,7 @@ class DisableShortsOnStartupPatch : BytecodePatch(
                     ExternalLabel("show_startup_shorts_player", getInstruction(targetIndex + 1))
                 )
             }
-        } ?: return UserWasInShortsFingerprint.toErrorResult()
+        } ?: throw UserWasInShortsFingerprint.exception
 
         /**
          * Add settings
@@ -60,6 +56,5 @@ class DisableShortsOnStartupPatch : BytecodePatch(
 
         SettingsPatch.updatePatchStatus("disable-startup-shorts-player")
 
-        return PatchResultSuccess()
     }
 }

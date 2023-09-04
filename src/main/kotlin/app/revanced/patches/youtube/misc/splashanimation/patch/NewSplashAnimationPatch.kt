@@ -2,14 +2,11 @@ package app.revanced.patches.youtube.misc.splashanimation.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultError
-import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
@@ -36,18 +33,17 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
     ]
 )
 @YouTubeCompatibility
-@Version("0.0.1")
 class NewSplashAnimationPatch : BytecodePatch(
     listOf(
         WatchWhileActivityWithInFlagsFingerprint,
         WatchWhileActivityWithOutFlagsFingerprint
     )
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
 
         WatchWhileActivityWithInFlagsFingerprint.result
             ?: WatchWhileActivityWithOutFlagsFingerprint.result
-            ?: throw PatchResultError("Failed to resolve fingerprints")
+            ?: throw PatchException("Failed to resolve fingerprints")
 
         /**
          * ~YouTube v18.27.36
@@ -93,7 +89,6 @@ class NewSplashAnimationPatch : BytecodePatch(
 
         SettingsPatch.updatePatchStatus("enable-new-splash-animation")
 
-        return PatchResultSuccess()
     }
 
     companion object {

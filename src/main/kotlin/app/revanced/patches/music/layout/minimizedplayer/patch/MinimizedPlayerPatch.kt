@@ -1,14 +1,11 @@
 package app.revanced.patches.music.layout.minimizedplayer.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.music.layout.minimizedplayer.fingerprints.MinimizedPlayerFingerprint
@@ -23,11 +20,10 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 @Description("Permanently keep player minimized even if another track is played.")
 @DependsOn([SettingsPatch::class])
 @MusicCompatibility
-@Version("0.0.1")
 class MinimizedPlayerPatch : BytecodePatch(
     listOf(MinimizedPlayerFingerprint)
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
 
         MinimizedPlayerFingerprint.result?.let {
             with(it.mutableMethod) {
@@ -42,7 +38,7 @@ class MinimizedPlayerPatch : BytecodePatch(
                         """
                 )
             }
-        } ?: return MinimizedPlayerFingerprint.toErrorResult()
+        } ?: throw MinimizedPlayerFingerprint.exception
 
         SettingsPatch.addMusicPreference(
             CategoryType.LAYOUT,
@@ -50,6 +46,5 @@ class MinimizedPlayerPatch : BytecodePatch(
             "true"
         )
 
-        return PatchResultSuccess()
     }
 }

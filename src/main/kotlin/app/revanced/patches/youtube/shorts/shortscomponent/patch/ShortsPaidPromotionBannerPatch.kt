@@ -1,12 +1,10 @@
 package app.revanced.patches.youtube.shorts.shortscomponent.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.shorts.shortscomponent.fingerprints.ShortsPaidPromotionFingerprint
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch.Companion.ReelPlayerBadge
@@ -18,7 +16,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 class ShortsPaidPromotionBannerPatch : BytecodePatch(
     listOf(ShortsPaidPromotionFingerprint)
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
         ShortsPaidPromotionFingerprint.result?.let {
             it.mutableMethod.apply {
                 val primaryIndex = getWideLiteralIndex(ReelPlayerBadge) + 3
@@ -32,9 +30,8 @@ class ShortsPaidPromotionBannerPatch : BytecodePatch(
                     insertHook(primaryIndex)
                 }
             }
-        } ?: return ShortsPaidPromotionFingerprint.toErrorResult()
+        } ?: throw ShortsPaidPromotionFingerprint.exception
 
-        return PatchResultSuccess()
     }
 
     private companion object {

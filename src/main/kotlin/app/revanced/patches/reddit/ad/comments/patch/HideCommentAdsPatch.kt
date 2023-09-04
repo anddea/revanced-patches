@@ -1,13 +1,10 @@
 package app.revanced.patches.reddit.ad.comments.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.data.toMethodWalker
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.reddit.ad.comments.fingerprints.HideCommentAdsFingerprint
@@ -15,7 +12,7 @@ import app.revanced.patches.reddit.ad.comments.fingerprints.HideCommentAdsFinger
 class HideCommentAdsPatch : BytecodePatch(
     listOf(HideCommentAdsFingerprint)
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
         HideCommentAdsFingerprint.result?.let {
             with(
                 context
@@ -34,9 +31,8 @@ class HideCommentAdsPatch : BytecodePatch(
                         """, ExternalLabel("show", getInstruction(0))
                 )
             }
-        } ?: return HideCommentAdsFingerprint.toErrorResult()
+        } ?: throw HideCommentAdsFingerprint.exception
 
-        return PatchResultSuccess()
     }
 
     private companion object {

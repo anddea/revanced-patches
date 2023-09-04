@@ -1,12 +1,10 @@
 package app.revanced.patches.youtube.utils.returnyoutubedislike.shorts.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.utils.returnyoutubedislike.shorts.fingerprints.ShortsTextViewFingerprint
 import app.revanced.util.integrations.Constants.UTILS_PATH
@@ -15,7 +13,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 class ReturnYouTubeDislikeShortsPatch : BytecodePatch(
     listOf(ShortsTextViewFingerprint)
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
         ShortsTextViewFingerprint.result?.let {
             it.mutableMethod.apply {
                 val patternResult = it.scanResult.patternScanResult!!
@@ -46,8 +44,7 @@ class ReturnYouTubeDislikeShortsPatch : BytecodePatch(
                     """, ExternalLabel("ryd_disabled", getInstruction(insertIndex))
                 )
             }
-        } ?: return ShortsTextViewFingerprint.toErrorResult()
-        return PatchResultSuccess()
+        } ?: throw ShortsTextViewFingerprint.exception
     }
 
     private companion object {

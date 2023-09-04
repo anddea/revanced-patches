@@ -1,15 +1,12 @@
 package app.revanced.patches.youtube.overlaybutton.alwaysrepeat.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.data.toMethodWalker
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.overlaybutton.alwaysrepeat.fingerprints.AutoNavInformerFingerprint
@@ -25,7 +22,7 @@ class AlwaysRepeatPatch : BytecodePatch(
         VideoEndParentFingerprint
     )
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
         VideoEndParentFingerprint.result?.classDef?.let { classDef ->
             VideoEndFingerprint.also { it.resolve(context, classDef) }.result?.let {
                 it.mutableMethod.apply {
@@ -38,8 +35,8 @@ class AlwaysRepeatPatch : BytecodePatch(
                             """, ExternalLabel("end", getInstruction(0))
                     )
                 }
-            } ?: return VideoEndFingerprint.toErrorResult()
-        } ?: return VideoEndParentFingerprint.toErrorResult()
+            } ?: throw VideoEndFingerprint.exception
+        } ?: throw VideoEndParentFingerprint.exception
 
         AutoNavInformerFingerprint.result?.let {
             with(
@@ -58,8 +55,7 @@ class AlwaysRepeatPatch : BytecodePatch(
                         """
                 )
             }
-        } ?: return AutoNavInformerFingerprint.toErrorResult()
+        } ?: throw AutoNavInformerFingerprint.exception
 
-        return PatchResultSuccess()
     }
 }

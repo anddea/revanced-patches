@@ -1,12 +1,10 @@
 package app.revanced.patches.reddit.utils.fix.decoding.patch
 
 import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
 
 class DecodingPatch : ResourcePatch {
-    override fun execute(context: ResourceContext): PatchResult {
+    override fun execute(context: ResourceContext) {
 
         arrayOf(
             "res/layout/notification_media_cancel_action.xml",
@@ -26,6 +24,5 @@ class DecodingPatch : ResourcePatch {
             }
         }
 
-        return PatchResultSuccess()
     }
 }

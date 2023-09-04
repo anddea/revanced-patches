@@ -2,10 +2,7 @@ package app.revanced.patches.music.misc.debugging.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
@@ -18,9 +15,8 @@ import app.revanced.util.enum.CategoryType
 @Description("Adds debugging options.")
 @DependsOn([SettingsPatch::class])
 @MusicCompatibility
-@Version("0.0.1")
 class DebuggingPatch : ResourcePatch {
-    override fun execute(context: ResourceContext): PatchResult {
+    override fun execute(context: ResourceContext) {
 
         SettingsPatch.addMusicPreference(
             CategoryType.MISC,
@@ -28,6 +24,5 @@ class DebuggingPatch : ResourcePatch {
             "false"
         )
 
-        return PatchResultSuccess()
     }
 }

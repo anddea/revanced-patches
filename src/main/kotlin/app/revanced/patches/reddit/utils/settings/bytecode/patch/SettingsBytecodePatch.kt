@@ -1,13 +1,11 @@
 package app.revanced.patches.reddit.utils.settings.bytecode.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.reddit.utils.settings.bytecode.fingerprints.AcknowledgementsLabelBuilderFingerprint
 import app.revanced.patches.reddit.utils.settings.bytecode.fingerprints.OssLicensesMenuActivityOnCreateFingerprint
@@ -22,7 +20,7 @@ class SettingsBytecodePatch : BytecodePatch(
         SettingsStatusLoadFingerprint
     )
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
 
         /**
          * Replace settings label
@@ -39,7 +37,7 @@ class SettingsBytecodePatch : BytecodePatch(
                     "const-string v$insertRegister, \"ReVanced Extended\""
                 )
             }
-        } ?: return AcknowledgementsLabelBuilderFingerprint.toErrorResult()
+        } ?: throw AcknowledgementsLabelBuilderFingerprint.exception
 
         /**
          * Initialize settings activity
@@ -55,12 +53,11 @@ class SettingsBytecodePatch : BytecodePatch(
                         """
                 )
             }
-        } ?: return OssLicensesMenuActivityOnCreateFingerprint.toErrorResult()
+        } ?: throw OssLicensesMenuActivityOnCreateFingerprint.exception
 
         settingsMethod = SettingsStatusLoadFingerprint.result?.mutableMethod
-            ?: return SettingsStatusLoadFingerprint.toErrorResult()
+            ?: throw SettingsStatusLoadFingerprint.exception
 
-        return PatchResultSuccess()
     }
 
     internal companion object {

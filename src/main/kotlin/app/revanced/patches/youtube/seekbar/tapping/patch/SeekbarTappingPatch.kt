@@ -1,15 +1,12 @@
 package app.revanced.patches.youtube.seekbar.tapping.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
@@ -25,14 +22,13 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 @Description("Enables tap-to-seek on the seekbar of the video player.")
 @DependsOn([SettingsPatch::class])
 @YouTubeCompatibility
-@Version("0.0.1")
 class SeekbarTappingPatch : BytecodePatch(
     listOf(
         SeekbarTappingReferenceFingerprint,
         SeekbarTappingFingerprint
     )
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
         SeekbarTappingReferenceFingerprint.result?.let {
             it.mutableMethod.apply {
                 TappingLabel = """
@@ -43,7 +39,7 @@ class SeekbarTappingPatch : BytecodePatch(
                     invoke-virtual { p0, v2 }, ${getInstruction<ReferenceInstruction>(it.scanResult.patternScanResult!!.endIndex - 1).reference}
                     """
             }
-        } ?: return SeekbarTappingReferenceFingerprint.toErrorResult()
+        } ?: throw SeekbarTappingReferenceFingerprint.exception
 
         SeekbarTappingFingerprint.result?.let {
             it.mutableMethod.apply {
@@ -55,7 +51,7 @@ class SeekbarTappingPatch : BytecodePatch(
                     ExternalLabel("disabled", getInstruction(insertIndex))
                 )
             }
-        } ?: return SeekbarTappingFingerprint.toErrorResult()
+        } ?: throw SeekbarTappingFingerprint.exception
 
         /**
          * Add settings
@@ -69,7 +65,6 @@ class SeekbarTappingPatch : BytecodePatch(
 
         SettingsPatch.updatePatchStatus("enable-seekbar-tapping")
 
-        return PatchResultSuccess()
     }
 
     private companion object {

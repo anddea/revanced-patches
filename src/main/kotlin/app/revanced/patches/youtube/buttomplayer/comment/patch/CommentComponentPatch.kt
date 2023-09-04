@@ -2,10 +2,7 @@ package app.revanced.patches.youtube.buttomplayer.comment.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
@@ -26,9 +23,8 @@ import app.revanced.util.integrations.Constants.PATCHES_PATH
     ]
 )
 @YouTubeCompatibility
-@Version("0.0.1")
 class CommentComponentPatch : ResourcePatch {
-    override fun execute(context: ResourceContext): PatchResult {
+    override fun execute(context: ResourceContext) {
         LithoFilterPatch.addFilter("$PATCHES_PATH/ads/CommentsFilter;")
         LithoFilterPatch.addFilter("$PATCHES_PATH/ads/CommentsPreviewDotsFilter;")
 
@@ -44,6 +40,5 @@ class CommentComponentPatch : ResourcePatch {
 
         SettingsPatch.updatePatchStatus("hide-comment-component")
 
-        return PatchResultSuccess()
     }
 }
