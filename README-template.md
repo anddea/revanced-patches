@@ -17,7 +17,6 @@ Example:
   {
     "name": "default-video-quality",
     "description": "Adds ability to set default video quality settings.",
-    "version": "0.0.1",
     "excluded": false,
     "options": [],
     "dependencies": [
