@@ -1,6 +1,6 @@
 package app.revanced.util.microg
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
@@ -78,7 +78,7 @@ internal object MicroGBytecodeHelper {
                         "const-string v$targetRegister, \"$toPackageName\""
                     )
                 }
-            } ?: throw primeMethodFingerprint.toErrorResult()
+            } ?: throw primeMethodFingerprint.exception
         }
     }
 
@@ -235,7 +235,7 @@ internal object MicroGBytecodeHelper {
                         0, stringInstructions
                     )
                 }
-            } ?: throw fingerprint.toErrorResult()
+            } ?: throw fingerprint.exception
         }
     }
 }

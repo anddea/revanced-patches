@@ -1,16 +1,13 @@
 package app.revanced.patches.music.layout.navigationlabel.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultError
-import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.music.layout.navigationlabel.fingerprints.TabLayoutTextFingerprint
@@ -35,11 +32,10 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
     ]
 )
 @MusicCompatibility
-@Version("0.0.1")
 class NavigationLabelPatch : BytecodePatch(
     listOf(TabLayoutTextFingerprint)
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
         TabLayoutTextFingerprint.result?.let {
             it.mutableMethod.apply {
                 val targetIndex = getWideLiteralIndex(Text1) + 3
@@ -47,14 +43,14 @@ class NavigationLabelPatch : BytecodePatch(
                 val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                 if (!targetParameter.toString().endsWith("Landroid/widget/TextView;"))
-                    return PatchResultError("Method signature parameter did not match: $targetParameter")
+                    throw PatchException("Method signature parameter did not match: $targetParameter")
 
                 addInstruction(
                     targetIndex + 1,
                     "invoke-static {v$targetRegister}, $MUSIC_LAYOUT->hideNavigationLabel(Landroid/widget/TextView;)V"
                 )
             }
-        } ?: return TabLayoutTextFingerprint.toErrorResult()
+        } ?: throw TabLayoutTextFingerprint.exception
 
         contexts.xmlEditor[RESOURCE_FILE_PATH].use { editor ->
             val document = editor.file
@@ -74,7 +70,6 @@ class NavigationLabelPatch : BytecodePatch(
             "false"
         )
 
-        return PatchResultSuccess()
     }
 
     private companion object {

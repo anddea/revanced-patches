@@ -1,15 +1,12 @@
 package app.revanced.patches.youtube.general.floatingmicrophone.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.youtube.general.floatingmicrophone.fingerprints.FloatingMicrophoneFingerprint
@@ -29,11 +26,10 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
     ]
 )
 @YouTubeCompatibility
-@Version("0.0.1")
 class FloatingMicrophonePatch : BytecodePatch(
     listOf(FloatingMicrophoneFingerprint)
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
 
         FloatingMicrophoneFingerprint.result?.let {
             it.mutableMethod.apply {
@@ -47,7 +43,7 @@ class FloatingMicrophonePatch : BytecodePatch(
                         """
                 )
             }
-        } ?: return FloatingMicrophoneFingerprint.toErrorResult()
+        } ?: throw FloatingMicrophoneFingerprint.exception
 
         /**
          * Add settings
@@ -61,6 +57,5 @@ class FloatingMicrophonePatch : BytecodePatch(
 
         SettingsPatch.updatePatchStatus("hide-floating-microphone")
 
-        return PatchResultSuccess()
     }
 }

@@ -1,12 +1,10 @@
 package app.revanced.patches.youtube.utils.videoid.withoutshorts.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.utils.videoid.withoutshorts.fingerprint.VideoIdWithoutShortsFingerprint
 import app.revanced.util.integrations.Constants.VIDEO_PATH
@@ -16,7 +14,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 class VideoIdWithoutShortsPatch : BytecodePatch(
     listOf(VideoIdWithoutShortsFingerprint)
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
 
         VideoIdWithoutShortsFingerprint.result?.let {
             insertMethod = it.mutableMethod
@@ -27,11 +25,10 @@ class VideoIdWithoutShortsPatch : BytecodePatch(
 
             insertRegister =
                 insertMethod.getInstruction<OneRegisterInstruction>(insertIndex + 1).registerA
-        } ?: return VideoIdWithoutShortsFingerprint.toErrorResult()
+        } ?: throw VideoIdWithoutShortsFingerprint.exception
 
         injectCall("$VIDEO_PATH/VideoInformation;->setVideoId(Ljava/lang/String;)V")
 
-        return PatchResultSuccess()
     }
 
     companion object {

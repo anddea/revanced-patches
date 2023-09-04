@@ -1,9 +1,7 @@
 package app.revanced.patches.youtube.utils.resourceid.patch
 
 import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultError
-import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.shared.patch.mapping.ResourceMappingPatch
@@ -86,12 +84,12 @@ class SharedResourceIdPatch : ResourcePatch {
         var YtOutlineSearchBlack: Long = -1
     }
 
-    override fun execute(context: ResourceContext): PatchResult {
+    override fun execute(context: ResourceContext) {
 
         fun find(resourceType: ResourceType, resourceName: String) = ResourceMappingPatch
             .resourceMappings
             .find { it.type == resourceType.value && it.name == resourceName }?.id
-            ?: throw PatchResultError("Failed to find resource id : $resourceName")
+            ?: throw PatchException("Failed to find resource id : $resourceName")
 
         AccountSwitcherAccessibility = find(STRING, "account_switcher_accessibility_label")
         AccessibilityCaptionsButtonName = find(STRING, "accessibility_captions_button_name")
@@ -161,6 +159,5 @@ class SharedResourceIdPatch : ResourcePatch {
         YtOutlineFireBlack = find(DRAWABLE, "yt_outline_fire_black_24")
         YtOutlineSearchBlack = find(DRAWABLE, "yt_outline_search_black_24")
 
-        return PatchResultSuccess()
     }
 }

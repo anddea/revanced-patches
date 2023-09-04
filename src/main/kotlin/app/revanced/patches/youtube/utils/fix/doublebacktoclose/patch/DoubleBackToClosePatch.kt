@@ -1,13 +1,10 @@
 package app.revanced.patches.youtube.utils.fix.doublebacktoclose.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.data.toMethodWalker
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.utils.fingerprints.OnBackPressedFingerprint
 import app.revanced.patches.youtube.utils.fix.doublebacktoclose.fingerprint.ScrollPositionFingerprint
@@ -22,7 +19,7 @@ class DoubleBackToClosePatch : BytecodePatch(
         ScrollTopParentFingerprint
     )
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
 
         /**
          * Hook onBackPressed method inside WatchWhileActivity
@@ -38,7 +35,7 @@ class DoubleBackToClosePatch : BytecodePatch(
                             "closeActivityOnBackPressed(Landroid/app/Activity;)V"
                 )
             }
-        } ?: return OnBackPressedFingerprint.toErrorResult()
+        } ?: throw OnBackPressedFingerprint.exception
 
 
         /**
@@ -52,7 +49,7 @@ class DoubleBackToClosePatch : BytecodePatch(
             val insertIndex = insertMethod.implementation!!.instructions.size - 1 - 1
 
             insertMethod.injectScrollView(insertIndex, "onStartScrollView")
-        } ?: return ScrollPositionFingerprint.toErrorResult()
+        } ?: throw ScrollPositionFingerprint.exception
 
 
         /**
@@ -63,10 +60,9 @@ class DoubleBackToClosePatch : BytecodePatch(
                 val insertIndex = it.scanResult.patternScanResult!!.endIndex
 
                 it.mutableMethod.injectScrollView(insertIndex, "onStopScrollView")
-            } ?: return ScrollTopFingerprint.toErrorResult()
-        } ?: return ScrollTopParentFingerprint.toErrorResult()
+            } ?: throw ScrollTopFingerprint.exception
+        } ?: throw ScrollTopParentFingerprint.exception
 
-        return PatchResultSuccess()
     }
 
     private companion object {

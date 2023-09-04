@@ -1,15 +1,12 @@
 package app.revanced.patches.youtube.misc.openlinksdirectly.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.youtube.misc.openlinksdirectly.fingerprints.OpenLinksDirectlyFingerprintPrimary
@@ -24,14 +21,13 @@ import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
 @Description("Skips over redirection URLs to external links.")
 @DependsOn([SettingsPatch::class])
 @YouTubeCompatibility
-@Version("0.0.1")
 class OpenLinksDirectlyPatch : BytecodePatch(
     listOf(
         OpenLinksDirectlyFingerprintPrimary,
         OpenLinksDirectlyFingerprintSecondary
     )
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
 
         arrayOf(
             OpenLinksDirectlyFingerprintPrimary,
@@ -47,7 +43,7 @@ class OpenLinksDirectlyPatch : BytecodePatch(
                         "invoke-static {v$register}, $MISC_PATH/OpenLinksDirectlyPatch;->enableBypassRedirect(Ljava/lang/String;)Landroid/net/Uri;"
                     )
                 }
-            } ?: return fingerprint.toErrorResult()
+            } ?: throw fingerprint.exception
         }
 
         /**
@@ -61,6 +57,5 @@ class OpenLinksDirectlyPatch : BytecodePatch(
 
         SettingsPatch.updatePatchStatus("enable-open-links-directly")
 
-        return PatchResultSuccess()
     }
 }

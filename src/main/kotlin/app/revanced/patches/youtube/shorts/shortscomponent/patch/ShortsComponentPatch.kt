@@ -2,11 +2,8 @@ package app.revanced.patches.youtube.shorts.shortscomponent.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.youtube.shorts.shortsnavigationbar.patch.ShortsNavigationBarPatch
@@ -39,9 +36,8 @@ import app.revanced.util.integrations.Constants.PATCHES_PATH
     ]
 )
 @YouTubeCompatibility
-@Version("0.0.1")
 class ShortsComponentPatch : BytecodePatch() {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
 
         LithoFilterPatch.addFilter("$PATCHES_PATH/ads/ShortsFilter;")
         LithoFilterPatch.addFilter("$PATCHES_PATH/ads/ShortsHeaderFilter;")
@@ -60,6 +56,5 @@ class ShortsComponentPatch : BytecodePatch() {
 
         SettingsPatch.updatePatchStatus("hide-shorts-component")
 
-        return PatchResultSuccess()
     }
 }

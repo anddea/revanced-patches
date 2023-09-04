@@ -1,11 +1,9 @@
 package app.revanced.patches.youtube.utils.litho.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.utils.litho.fingerprints.LithoThemeFingerprint
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
@@ -17,7 +15,7 @@ class LithoThemePatch : BytecodePatch(
         LithoThemeFingerprint
     )
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
 
         LithoThemeFingerprint.result?.mutableMethod?.let {
             with(it.implementation!!.instructions) {
@@ -30,9 +28,8 @@ class LithoThemePatch : BytecodePatch(
                     break
                 }
             }
-        } ?: return LithoThemeFingerprint.toErrorResult()
+        } ?: throw LithoThemeFingerprint.exception
 
-        return PatchResultSuccess()
     }
 
     companion object {

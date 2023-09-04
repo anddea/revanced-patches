@@ -1,17 +1,14 @@
 package app.revanced.patches.music.layout.zenmode.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.music.layout.zenmode.fingerprints.ZenModeFingerprint
@@ -28,11 +25,10 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 @Description("Adds a grey tint to the video player to reduce eye strain.")
 @DependsOn([SettingsPatch::class])
 @MusicCompatibility
-@Version("0.0.1")
 class ZenModePatch : BytecodePatch(
     listOf(ColorMatchPlayerParentFingerprint)
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
 
         ColorMatchPlayerParentFingerprint.result?.let { parentResult ->
             ZenModeFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.let {
@@ -65,8 +61,8 @@ class ZenModePatch : BytecodePatch(
                     )
                     removeInstruction(referenceIndex)
                 }
-            } ?: return ZenModeFingerprint.toErrorResult()
-        } ?: return ColorMatchPlayerParentFingerprint.toErrorResult()
+            } ?: throw ZenModeFingerprint.exception
+        } ?: throw ColorMatchPlayerParentFingerprint.exception
 
         SettingsPatch.addMusicPreference(
             CategoryType.LAYOUT,
@@ -74,6 +70,5 @@ class ZenModePatch : BytecodePatch(
             "false"
         )
 
-        return PatchResultSuccess()
     }
 }

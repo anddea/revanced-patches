@@ -2,11 +2,8 @@ package app.revanced.patches.youtube.general.layout.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
@@ -25,9 +22,8 @@ import app.revanced.util.integrations.Constants.PATCHES_PATH
     ]
 )
 @YouTubeCompatibility
-@Version("0.0.1")
 class LayoutComponentsPatch : BytecodePatch() {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
         LithoFilterPatch.addFilter("$PATCHES_PATH/ads/CommunityPostFilter;")
         LithoFilterPatch.addFilter("$PATCHES_PATH/ads/LayoutComponentsFilter;")
 
@@ -48,6 +44,5 @@ class LayoutComponentsPatch : BytecodePatch() {
 
         context.updatePatchStatus("LayoutComponent")
 
-        return PatchResultSuccess()
     }
 }

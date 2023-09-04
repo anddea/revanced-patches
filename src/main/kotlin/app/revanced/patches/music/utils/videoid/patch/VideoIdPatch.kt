@@ -1,12 +1,10 @@
 package app.revanced.patches.music.utils.videoid.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.music.utils.videoid.fingerprint.VideoIdParentFingerprint
 import app.revanced.util.integrations.Constants.MUSIC_UTILS_PATH
@@ -18,7 +16,7 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 class VideoIdPatch : BytecodePatch(
     listOf(VideoIdParentFingerprint)
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
 
         VideoIdParentFingerprint.result?.let {
             it.mutableMethod.apply {
@@ -33,7 +31,7 @@ class VideoIdPatch : BytecodePatch(
                         method.name == "handleVideoStageEvent"
                     }
             }
-        } ?: return VideoIdParentFingerprint.toErrorResult()
+        } ?: throw VideoIdParentFingerprint.exception
 
         insertMethod.apply {
             for (index in implementation!!.instructions.size - 1 downTo 0) {
@@ -53,7 +51,6 @@ class VideoIdPatch : BytecodePatch(
 
         injectCall("$INTEGRATIONS_CLASS_DESCRIPTOR->setVideoId(Ljava/lang/String;)V")
 
-        return PatchResultSuccess()
     }
 
     companion object {

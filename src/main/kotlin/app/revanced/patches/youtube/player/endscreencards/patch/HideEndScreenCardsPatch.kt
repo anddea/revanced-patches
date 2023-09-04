@@ -1,16 +1,13 @@
 package app.revanced.patches.youtube.player.endscreencards.patch
 
+import app.revanced.extensions.exception
 import app.revanced.extensions.injectHideCall
-import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprintResult
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.youtube.player.endscreencards.fingerprints.LayoutCircleFingerprint
@@ -31,7 +28,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
     ]
 )
 @YouTubeCompatibility
-@Version("0.0.1")
 class HideEndScreenCardsPatch : BytecodePatch(
     listOf(
         LayoutCircleFingerprint,
@@ -39,7 +35,7 @@ class HideEndScreenCardsPatch : BytecodePatch(
         LayoutVideoFingerprint,
     )
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
 
         fun MethodFingerprintResult.injectHideCalls() {
             val index = scanResult.patternScanResult!!.endIndex
@@ -59,7 +55,7 @@ class HideEndScreenCardsPatch : BytecodePatch(
             LayoutIconFingerprint,
             LayoutVideoFingerprint
         ).forEach {
-            it.result?.injectHideCalls() ?: return it.toErrorResult()
+            it.result?.injectHideCalls() ?: throw it.exception
         }
 
         /**
@@ -74,6 +70,5 @@ class HideEndScreenCardsPatch : BytecodePatch(
 
         SettingsPatch.updatePatchStatus("hide-endscreen-cards")
 
-        return PatchResultSuccess()
     }
 }

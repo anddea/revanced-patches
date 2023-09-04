@@ -1,8 +1,6 @@
 package app.revanced.patches.shared.patch.settings
 
 import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.util.resources.ResourceUtils
 import app.revanced.util.resources.ResourceUtils.copyResources
@@ -19,7 +17,7 @@ abstract class AbstractSettingsResourcePatch(
     private val sourceHostDirectory: String,
     private val isYouTube: Boolean,
 ) : ResourcePatch {
-    override fun execute(context: ResourceContext): PatchResult {
+    override fun execute(context: ResourceContext) {
         /**
          * Copy strings
          */
@@ -34,6 +32,5 @@ abstract class AbstractSettingsResourcePatch(
                 ResourceUtils.ResourceGroup("xml", "revanced_prefs.xml")
             )
 
-        return PatchResultSuccess()
     }
 }

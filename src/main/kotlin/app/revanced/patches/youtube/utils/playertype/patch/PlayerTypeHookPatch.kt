@@ -1,14 +1,12 @@
 package app.revanced.patches.youtube.utils.playertype.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.youtube.utils.fingerprints.YouTubeControlsOverlayFingerprint
 import app.revanced.patches.youtube.utils.playertype.fingerprint.PlayerTypeFingerprint
@@ -24,7 +22,7 @@ class PlayerTypeHookPatch : BytecodePatch(
         YouTubeControlsOverlayFingerprint
     )
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
 
         PlayerTypeFingerprint.result?.let {
             it.mutableMethod.apply {
@@ -33,7 +31,7 @@ class PlayerTypeHookPatch : BytecodePatch(
                     "invoke-static {p1}, $INTEGRATIONS_CLASS_DESCRIPTOR->setPlayerType(Ljava/lang/Enum;)V"
                 )
             }
-        } ?: return PlayerTypeFingerprint.toErrorResult()
+        } ?: throw PlayerTypeFingerprint.exception
 
         YouTubeControlsOverlayFingerprint.result?.let { parentResult ->
             VideoStateFingerprint.also {
@@ -53,10 +51,9 @@ class PlayerTypeHookPatch : BytecodePatch(
                         """
                     )
                 }
-            } ?: return VideoStateFingerprint.toErrorResult()
-        } ?: return YouTubeControlsOverlayFingerprint.toErrorResult()
+            } ?: throw VideoStateFingerprint.exception
+        } ?: throw YouTubeControlsOverlayFingerprint.exception
 
-        return PatchResultSuccess()
     }
 
     companion object {

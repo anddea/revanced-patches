@@ -2,9 +2,7 @@ package app.revanced.patches.youtube.utils.microg.bytecode.patch
 
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultError
-import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.shared.patch.packagename.PackageNamePatch
 import app.revanced.patches.youtube.utils.fix.clientspoof.patch.ClientSpoofPatch
@@ -36,13 +34,13 @@ class MicroGBytecodePatch : BytecodePatch(
         ServiceCheckFingerprint
     )
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
 
         val packageName = PackageNamePatch.YouTubePackageName
-            ?: throw PatchResultError("Invalid package name.")
+            ?: throw PatchException("Invalid package name.")
 
         if (packageName == PACKAGE_NAME)
-            throw PatchResultError("Original package name is not available as package name for MicroG build.")
+            throw PatchException("Original package name is not available as package name for MicroG build.")
 
         // apply common microG patch
         MicroGBytecodeHelper.patchBytecode(
@@ -68,6 +66,5 @@ class MicroGBytecodePatch : BytecodePatch(
 
         context.injectInit("MicroGPatch", "checkAvailability")
 
-        return PatchResultSuccess()
     }
 }

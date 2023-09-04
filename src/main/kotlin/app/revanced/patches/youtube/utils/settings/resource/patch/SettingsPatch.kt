@@ -2,10 +2,7 @@ package app.revanced.patches.youtube.utils.settings.resource.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.shared.patch.settings.AbstractSettingsResourcePatch
@@ -38,13 +35,12 @@ import java.util.concurrent.TimeUnit
     ]
 )
 @YouTubeCompatibility
-@Version("0.0.1")
 class SettingsPatch : AbstractSettingsResourcePatch(
     "youtube/settings",
     "youtube/settings/host",
     true
 ) {
-    override fun execute(context: ResourceContext): PatchResult {
+    override fun execute(context: ResourceContext) {
         super.execute(context)
         contexts = context
 
@@ -175,7 +171,6 @@ class SettingsPatch : AbstractSettingsResourcePatch(
                 .let(::copyResources)
         }
 
-        return PatchResultSuccess()
     }
 
     companion object {

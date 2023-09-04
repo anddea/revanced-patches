@@ -1,15 +1,12 @@
 package app.revanced.patches.youtube.fullscreen.autoplaypreview.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
@@ -34,11 +31,10 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
     ]
 )
 @YouTubeCompatibility
-@Version("0.0.1")
 class HideAutoplayPreviewPatch : BytecodePatch(
     listOf(LayoutConstructorFingerprint)
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
         LayoutConstructorFingerprint.result?.let {
             it.mutableMethod.apply {
                 val dummyRegister =
@@ -54,7 +50,7 @@ class HideAutoplayPreviewPatch : BytecodePatch(
                         """, ExternalLabel("hidden", getInstruction(jumpIndex))
                 )
             }
-        } ?: return LayoutConstructorFingerprint.toErrorResult()
+        } ?: throw LayoutConstructorFingerprint.exception
 
         /**
          * Add settings
@@ -68,7 +64,6 @@ class HideAutoplayPreviewPatch : BytecodePatch(
 
         SettingsPatch.updatePatchStatus("hide-autoplay-preview")
 
-        return PatchResultSuccess()
     }
 }
 

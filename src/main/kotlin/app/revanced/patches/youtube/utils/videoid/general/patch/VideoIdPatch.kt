@@ -1,16 +1,13 @@
 package app.revanced.patches.youtube.utils.videoid.general.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.data.toMethodWalker
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
@@ -39,7 +36,7 @@ class VideoIdPatch : BytecodePatch(
         VideoLengthFingerprint
     )
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
 
         PlayerInitFingerprint.result?.let { parentResult ->
             playerInitMethod =
@@ -73,8 +70,8 @@ class VideoIdPatch : BytecodePatch(
 
                     parentResult.mutableClass.methods.add(seekHelperMethod)
                 }
-            } ?: return SeekFingerprint.toErrorResult()
-        } ?: return PlayerInitFingerprint.toErrorResult()
+            } ?: throw SeekFingerprint.exception
+        } ?: throw PlayerInitFingerprint.exception
 
         /**
          * Set current video time
@@ -83,7 +80,7 @@ class VideoIdPatch : BytecodePatch(
             timeMethod = context.toMethodWalker(it.method)
                 .nextMethod(it.scanResult.patternScanResult!!.startIndex, true)
                 .getMethod() as MutableMethod
-        } ?: return PlayerControllerSetTimeReferenceFingerprint.toErrorResult()
+        } ?: throw PlayerControllerSetTimeReferenceFingerprint.exception
 
         /**
          * Hook the methods which set the time
@@ -104,7 +101,7 @@ class VideoIdPatch : BytecodePatch(
                     "invoke-static {v$primaryRegister, v$secondaryRegister}, $INTEGRATIONS_CLASS_DESCRIPTOR->setVideoLength(J)V"
                 )
             }
-        } ?: return VideoLengthFingerprint.toErrorResult()
+        } ?: throw VideoLengthFingerprint.exception
 
         VideoIdParentFingerprint.result?.let { parentResult ->
             VideoIdFingerprint.also {
@@ -119,12 +116,11 @@ class VideoIdPatch : BytecodePatch(
                     videoIdRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
                 }
                 offset++ // offset so setVideoId is called before any injected call
-            } ?: return VideoIdFingerprint.toErrorResult()
-        } ?: return VideoIdParentFingerprint.toErrorResult()
+            } ?: throw VideoIdFingerprint.exception
+        } ?: throw VideoIdParentFingerprint.exception
 
         injectCall("$VIDEO_PATH/VideoInformation;->setVideoId(Ljava/lang/String;)V")
 
-        return PatchResultSuccess()
     }
 
     companion object {

@@ -1,8 +1,9 @@
 package app.revanced.extensions
 
+import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.MethodFingerprintExtensions.name
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
-import app.revanced.patcher.patch.PatchResultError
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
 import app.revanced.patcher.util.proxy.mutableTypes.MutableField
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
@@ -25,13 +26,13 @@ internal fun MutableMethodImplementation.injectHideCall(
     )
 }
 
-// TODO: populate this to all patches
 /**
- * Convert a [MethodFingerprint] to a [PatchResultError].
+ * Return [PatchException] from a [MethodFingerprint].
  *
- * @return A [PatchResultError] for the [MethodFingerprint].
+ * @return The [PatchException] for the [MethodFingerprint].
  */
-fun MethodFingerprint.toErrorResult() = PatchResultError("Failed to resolve $name")
+val MethodFingerprint.exception
+    get() = PatchException("Failed to resolve $name")
 
 /**
  * Find the [MutableMethod] from a given [Method] in a [MutableClass].
@@ -63,6 +64,22 @@ fun MutableClass.transformFields(transform: MutableField.() -> MutableField) {
     val transformedFields = fields.map { it.transform() }
     fields.clear()
     fields.addAll(transformedFields)
+}
+
+/**
+ * traverse the class hierarchy starting from the given root class
+ *
+ * @param targetClass the class to start traversing the class hierarchy from
+ * @param callback function that is called for every class in the hierarchy
+ */
+fun BytecodeContext.traverseClassHierarchy(
+    targetClass: MutableClass,
+    callback: MutableClass.() -> Unit
+) {
+    callback(targetClass)
+    this.findClass(targetClass.superclass ?: return)?.mutableClass?.let {
+        traverseClassHierarchy(it, callback)
+    }
 }
 
 internal fun Node.doRecursively(action: (Node) -> Unit) {

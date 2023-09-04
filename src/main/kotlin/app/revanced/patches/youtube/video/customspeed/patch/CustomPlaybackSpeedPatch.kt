@@ -1,16 +1,13 @@
 package app.revanced.patches.youtube.video.customspeed.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.youtube.flyoutpanel.oldspeedlayout.patch.OldSpeedLayoutPatch
@@ -37,7 +34,6 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
     ]
 )
 @YouTubeCompatibility
-@Version("0.0.1")
 class CustomPlaybackSpeedPatch : BytecodePatch(
     listOf(
         SpeedArrayGeneratorFingerprint,
@@ -45,7 +41,7 @@ class CustomPlaybackSpeedPatch : BytecodePatch(
         SpeedLimiterFingerprint
     )
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
         SpeedArrayGeneratorFingerprint.result?.let { result ->
             result.mutableMethod.apply {
                 val targetIndex = result.scanResult.patternScanResult!!.startIndex
@@ -97,7 +93,7 @@ class CustomPlaybackSpeedPatch : BytecodePatch(
                     }
                 }
             }
-        } ?: return SpeedArrayGeneratorFingerprint.toErrorResult()
+        } ?: throw SpeedArrayGeneratorFingerprint.exception
 
         arrayOf(
             SpeedLimiterFallBackFingerprint,
@@ -124,7 +120,7 @@ class CustomPlaybackSpeedPatch : BytecodePatch(
                         "const/high16 v$limiterMaxConstDestination, 0x41200000    # 10.0f"
                     )
                 }
-            } ?: return fingerprint.toErrorResult()
+            } ?: throw fingerprint.exception
         }
 
         /**
@@ -139,6 +135,5 @@ class CustomPlaybackSpeedPatch : BytecodePatch(
 
         SettingsPatch.updatePatchStatus("custom-playback-speed")
 
-        return PatchResultSuccess()
     }
 }

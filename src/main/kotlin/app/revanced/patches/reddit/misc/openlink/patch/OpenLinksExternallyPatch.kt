@@ -1,15 +1,12 @@
 package app.revanced.patches.reddit.misc.openlink.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
@@ -24,11 +21,10 @@ import app.revanced.util.bytecode.getStringIndex
 @Description("Open links outside of the app directly in your browser.")
 @DependsOn([SettingsPatch::class])
 @RedditCompatibility
-@Version("0.0.1")
 class OpenLinksExternallyPatch : BytecodePatch(
     listOf(ScreenNavigatorFingerprint)
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
         ScreenNavigatorFingerprint.result?.let {
             it.mutableMethod.apply {
                 val insertIndex = getStringIndex("uri") + 2
@@ -42,11 +38,10 @@ class OpenLinksExternallyPatch : BytecodePatch(
                         """, ExternalLabel("dismiss", getInstruction(insertIndex))
                 )
             }
-        } ?: return ScreenNavigatorFingerprint.toErrorResult()
+        } ?: throw ScreenNavigatorFingerprint.exception
 
         updateSettingsStatus("OpenLinksExternally")
 
-        return PatchResultSuccess()
     }
 
     private companion object {

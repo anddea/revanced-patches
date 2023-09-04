@@ -1,18 +1,14 @@
 package app.revanced.patches.youtube.general.tabletminiplayer.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.data.toMethodWalker
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprintResult
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
@@ -38,7 +34,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
     ]
 )
 @YouTubeCompatibility
-@Version("0.0.1")
 class TabletMiniPlayerPatch : BytecodePatch(
     listOf(
         MiniPlayerDimensionsCalculatorFingerprint,
@@ -46,7 +41,7 @@ class TabletMiniPlayerPatch : BytecodePatch(
         MiniPlayerOverrideFingerprint
     )
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
 
         MiniPlayerDimensionsCalculatorFingerprint.result?.let { parentResult ->
             MiniPlayerOverrideNoContextFingerprint.also {
@@ -60,8 +55,8 @@ class TabletMiniPlayerPatch : BytecodePatch(
                     method.implementation!!.instructions.size - 1,
                     parameterRegister
                 )
-            } ?: return MiniPlayerOverrideNoContextFingerprint.toErrorResult()
-        } ?: return MiniPlayerDimensionsCalculatorFingerprint.toErrorResult()
+            } ?: throw MiniPlayerOverrideNoContextFingerprint.exception
+        } ?: throw MiniPlayerDimensionsCalculatorFingerprint.exception
 
         MiniPlayerOverrideFingerprint.result?.let {
             it.mutableMethod.apply {
@@ -70,10 +65,10 @@ class TabletMiniPlayerPatch : BytecodePatch(
                     .getMethod() as MutableMethod)
                     .instructionProxyCall()
             }
-        } ?: return MiniPlayerOverrideFingerprint.toErrorResult()
+        } ?: throw MiniPlayerOverrideFingerprint.exception
 
         MiniPlayerResponseModelSizeCheckFingerprint.result?.addProxyCall()
-            ?: return MiniPlayerResponseModelSizeCheckFingerprint.toErrorResult()
+            ?: throw MiniPlayerResponseModelSizeCheckFingerprint.exception
 
         /**
          * Add settings
@@ -87,7 +82,6 @@ class TabletMiniPlayerPatch : BytecodePatch(
 
         SettingsPatch.updatePatchStatus("enable-tablet-mini-player")
 
-        return PatchResultSuccess()
     }
 
     // helper methods

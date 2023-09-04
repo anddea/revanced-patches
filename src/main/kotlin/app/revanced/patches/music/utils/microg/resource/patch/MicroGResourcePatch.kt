@@ -1,9 +1,7 @@
 package app.revanced.patches.music.utils.microg.resource.patch
 
 import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultError
-import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.music.utils.microg.shared.Constants.MUSIC_PACKAGE_NAME
@@ -16,12 +14,12 @@ import app.revanced.util.resources.MusicResourceHelper.setMicroG
 
 @DependsOn([PackageNamePatch::class])
 class MicroGResourcePatch : ResourcePatch {
-    override fun execute(context: ResourceContext): PatchResult {
+    override fun execute(context: ResourceContext) {
         val packageName = PackageNamePatch.MusicPackageName
-            ?: throw PatchResultError("Invalid package name.")
+            ?: throw PatchException("Invalid package name.")
 
         if (packageName == MUSIC_PACKAGE_NAME)
-            throw PatchResultError("Original package name is not available as package name for MicroG build.")
+            throw PatchException("Original package name is not available as package name for MicroG build.")
 
         // update manifest
         context.patchManifest(
@@ -37,6 +35,5 @@ class MicroGResourcePatch : ResourcePatch {
 
         context.setMicroG(packageName)
 
-        return PatchResultSuccess()
     }
 }

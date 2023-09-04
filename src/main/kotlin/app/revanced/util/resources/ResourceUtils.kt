@@ -1,17 +1,18 @@
 package app.revanced.util.resources
 
-import app.revanced.patcher.data.DomFileEditor
 import app.revanced.patcher.data.ResourceContext
+import app.revanced.patcher.util.DomFileEditor
 import java.nio.file.Files
 import java.nio.file.StandardCopyOption
 
-internal object ResourceUtils {
+@Suppress("MemberVisibilityCanBePrivate")
+object ResourceUtils {
     /**
      * Copy resources from the current class loader to the resource directory.
      * @param sourceResourceDirectory The source resource directory name.
      * @param resources The resources to copy.
      */
-    internal fun ResourceContext.copyResources(
+    fun ResourceContext.copyResources(
         sourceResourceDirectory: String,
         vararg resources: ResourceGroup
     ) {
@@ -35,7 +36,7 @@ internal object ResourceUtils {
      * @param resourceDirectoryName The name of the directory of the resource.
      * @param resources A list of resource names.
      */
-    internal class ResourceGroup(val resourceDirectoryName: String, vararg val resources: String)
+    class ResourceGroup(val resourceDirectoryName: String, vararg val resources: String)
 
     /**
      * Copy resources from the current class loader to the resource directory.
@@ -43,7 +44,7 @@ internal object ResourceUtils {
      * @param targetResource The target resource.
      * @param elementTag The element to copy.
      */
-    internal fun ResourceContext.copyXmlNode(
+    fun ResourceContext.copyXmlNode(
         resourceDirectory: String,
         targetResource: String,
         elementTag: String
@@ -64,7 +65,7 @@ internal object ResourceUtils {
      * @param target the target [DomFileEditor]-
      * @return AutoCloseable that closes the target [DomFileEditor]s.
      */
-    internal fun String.copyXmlNode(source: DomFileEditor, target: DomFileEditor): AutoCloseable {
+    fun String.copyXmlNode(source: DomFileEditor, target: DomFileEditor): AutoCloseable {
         val hostNodes = source.file.getElementsByTagName(this).item(0).childNodes
 
         val destinationResourceFile = target.file

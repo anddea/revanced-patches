@@ -1,16 +1,13 @@
 package app.revanced.patches.youtube.player.filmstripoverlay.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
@@ -42,14 +39,13 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
     ]
 )
 @YouTubeCompatibility
-@Version("0.0.1")
 class HideFilmstripOverlayPatch : BytecodePatch(
     listOf(
         FilmStripOverlayParentFingerprint,
         YouTubeControlsOverlayFingerprint
     )
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
 
         FilmStripOverlayParentFingerprint.result?.classDef?.let { classDef ->
             arrayOf(
@@ -63,9 +59,9 @@ class HideFilmstripOverlayPatch : BytecodePatch(
                         classDef
                     )
                 }.result?.mutableMethod?.injectHook()
-                    ?: return fingerprint.toErrorResult()
+                    ?: throw fingerprint.exception
             }
-        } ?: return FilmStripOverlayParentFingerprint.toErrorResult()
+        } ?: throw FilmStripOverlayParentFingerprint.exception
 
         YouTubeControlsOverlayFingerprint.result?.let {
             it.mutableMethod.apply {
@@ -137,7 +133,7 @@ class HideFilmstripOverlayPatch : BytecodePatch(
                         """, ExternalLabel("hidden", getInstruction(jumpIndex))
                 )
             }
-        } ?: return YouTubeControlsOverlayFingerprint.toErrorResult()
+        } ?: throw YouTubeControlsOverlayFingerprint.exception
 
         /**
          * Add settings
@@ -152,7 +148,6 @@ class HideFilmstripOverlayPatch : BytecodePatch(
 
         SettingsPatch.updatePatchStatus("hide-filmstrip-overlay")
 
-        return PatchResultSuccess()
     }
 
     private companion object {

@@ -1,16 +1,13 @@
 package app.revanced.patches.youtube.player.hapticfeedback.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
@@ -29,7 +26,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 @Description("Disable haptic feedback when swiping.")
 @DependsOn([SettingsPatch::class])
 @YouTubeCompatibility
-@Version("0.0.1")
 class HapticFeedBackPatch : BytecodePatch(
     listOf(
         MarkerHapticsFingerprint,
@@ -38,7 +34,7 @@ class HapticFeedBackPatch : BytecodePatch(
         ZoomHapticsFingerprint
     )
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
 
         arrayOf(
             SeekHapticsFingerprint to "disableSeekVibrate",
@@ -59,7 +55,6 @@ class HapticFeedBackPatch : BytecodePatch(
 
         SettingsPatch.updatePatchStatus("disable-haptic-feedback")
 
-        return PatchResultSuccess()
     }
 
     private companion object {
@@ -76,7 +71,7 @@ class HapticFeedBackPatch : BytecodePatch(
 
                     injectHook(index, register, methodName)
                 }
-            } ?: throw toErrorResult()
+            } ?: throw exception
         }
 
         fun MutableMethod.injectHook(

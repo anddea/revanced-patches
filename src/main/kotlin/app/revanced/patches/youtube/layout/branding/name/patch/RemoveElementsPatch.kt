@@ -1,13 +1,11 @@
 package app.revanced.patches.youtube.layout.branding.name.patch
 
 import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
 import kotlin.io.path.exists
 
 class RemoveElementsPatch : ResourcePatch {
-    override fun execute(context: ResourceContext): PatchResult {
+    override fun execute(context: ResourceContext) {
 
         LANGUAGE_LIST.forEach { path ->
             val resDirectory = context["res"]
@@ -23,7 +21,6 @@ class RemoveElementsPatch : ResourcePatch {
             }
         }
 
-        return PatchResultSuccess()
     }
 
     companion object {

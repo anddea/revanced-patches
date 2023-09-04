@@ -1,12 +1,10 @@
 package app.revanced.patches.youtube.utils.settings.bytecode.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.shared.patch.mapping.ResourceMappingPatch
 import app.revanced.patches.youtube.utils.integrations.patch.IntegrationsPatch
@@ -25,7 +23,7 @@ import app.revanced.util.integrations.Constants.INTEGRATIONS_PATH
 class SettingsBytecodePatch : BytecodePatch(
     listOf(ThemeSetterSystemFingerprint)
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
         // apply the current theme of the settings page
         ThemeSetterSystemFingerprint.result?.let {
             it.mutableMethod.apply {
@@ -43,11 +41,10 @@ class SettingsBytecodePatch : BytecodePatch(
                     SET_THEME
                 )
             }
-        } ?: return ThemeSetterSystemFingerprint.toErrorResult()
+        } ?: throw ThemeSetterSystemFingerprint.exception
 
         context.injectInit("FirstRun", "initializationRVX")
 
-        return PatchResultSuccess()
     }
 
     companion object {

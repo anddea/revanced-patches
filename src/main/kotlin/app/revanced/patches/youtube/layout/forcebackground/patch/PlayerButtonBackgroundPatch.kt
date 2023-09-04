@@ -3,10 +3,7 @@ package app.revanced.patches.youtube.layout.forcebackground.patch
 import app.revanced.extensions.doRecursively
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
@@ -19,10 +16,9 @@ import org.w3c.dom.Element
 @Description("Force hides the background from the video player buttons.")
 @DependsOn([SettingsPatch::class])
 @YouTubeCompatibility
-@Version("0.0.1")
 class PlayerButtonBackgroundPatch : ResourcePatch {
 
-    override fun execute(context: ResourceContext): PatchResult {
+    override fun execute(context: ResourceContext) {
         context.xmlEditor["res/drawable/player_button_circle_background.xml"].use { editor ->
             editor.file.doRecursively { node ->
                 arrayOf("color").forEach replacement@{ replacement ->
@@ -44,6 +40,5 @@ class PlayerButtonBackgroundPatch : ResourcePatch {
                 )
         )
 
-        return PatchResultSuccess()
     }
 }
