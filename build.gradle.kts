@@ -1,5 +1,7 @@
+@file:Suppress("DEPRECATION")
+
 plugins {
-    kotlin("jvm") version "1.9.0"
+    kotlin("jvm") version "1.9.10"
 }
 
 group = "app.revanced"
@@ -23,7 +25,6 @@ repositories {
 dependencies {
     implementation("app.revanced:revanced-patcher:14.2.2")
     implementation("com.android.tools.smali:smali:3.0.3")
-    implementation("com.android.tools.smali:smali-dexlib2:3.0.3")
 
     // Required for meta
     implementation("com.google.code.gson:gson:2.10.1")
