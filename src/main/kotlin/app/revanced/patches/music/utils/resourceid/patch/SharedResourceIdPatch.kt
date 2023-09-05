@@ -17,6 +17,7 @@ import app.revanced.util.enum.ResourceType.STYLE
 @DependsOn([ResourceMappingPatch::class])
 class SharedResourceIdPatch : ResourcePatch {
     internal companion object {
+        var ActionsContainer: Long = -1
         var ChipCloud: Long = -1
         var ColorGrey: Long = -1
         var DialogSolid: Long = -1
@@ -36,6 +37,7 @@ class SharedResourceIdPatch : ResourcePatch {
             .find { it.type == resourceType.value && it.name == resourceName }?.id
             ?: throw PatchException("Failed to find resource id : $resourceName")
 
+        ActionsContainer = find(ID, "actions_container")
         ChipCloud = find(LAYOUT, "chip_cloud")
         ColorGrey = find(COLOR, "ytm_color_grey_12")
         DialogSolid = find(STYLE, "Theme.YouTubeMusic.Dialog.Solid")
