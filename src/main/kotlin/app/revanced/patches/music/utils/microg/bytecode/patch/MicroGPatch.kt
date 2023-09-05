@@ -9,7 +9,6 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.music.utils.annotations.MusicCompatibility
 import app.revanced.patches.music.utils.fix.clientspoof.patch.ClientSpoofMusicPatch
-import app.revanced.patches.music.utils.fix.decoding.patch.DecodingPatch
 import app.revanced.patches.music.utils.microg.bytecode.fingerprints.CastContextFetchFingerprint
 import app.revanced.patches.music.utils.microg.bytecode.fingerprints.CastDynamiteModuleFingerprint
 import app.revanced.patches.music.utils.microg.bytecode.fingerprints.CastDynamiteModuleV2Fingerprint
@@ -26,7 +25,6 @@ import app.revanced.util.microg.MicroGBytecodeHelper
 @DependsOn(
     [
         ClientSpoofMusicPatch::class,
-        DecodingPatch::class,
         MicroGResourcePatch::class,
         PackageNamePatch::class
     ]

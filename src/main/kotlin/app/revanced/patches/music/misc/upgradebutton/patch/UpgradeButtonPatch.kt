@@ -14,7 +14,6 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.music.misc.upgradebutton.fingerprints.NotifierShelfFingerprint
 import app.revanced.patches.music.misc.upgradebutton.fingerprints.PivotBarConstructorFingerprint
 import app.revanced.patches.music.utils.annotations.MusicCompatibility
-import app.revanced.patches.music.utils.fix.decoding.patch.DecodingPatch
 import app.revanced.patches.music.utils.integrations.patch.IntegrationsPatch
 import app.revanced.patches.music.utils.resourceid.patch.SharedResourceIdPatch
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -26,7 +25,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 @Description("Hides upgrade button from navigation bar and hide upgrade banner from homepage.")
 @DependsOn(
     [
-        DecodingPatch::class,
         IntegrationsPatch::class,
         SharedResourceIdPatch::class
     ]

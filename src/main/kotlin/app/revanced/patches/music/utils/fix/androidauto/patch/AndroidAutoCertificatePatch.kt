@@ -6,16 +6,13 @@ import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.music.utils.annotations.MusicCompatibility
 import app.revanced.patches.music.utils.fix.androidauto.fingerprints.CertificateCheckFingerprint
-import app.revanced.patches.music.utils.fix.decoding.patch.DecodingPatch
 
 @Patch
 @Name("Certificate spoof")
 @Description("Spoofs the YouTube Music certificate for Android Auto.")
-@DependsOn([DecodingPatch::class])
 @MusicCompatibility
 class AndroidAutoCertificatePatch : BytecodePatch(
     listOf(CertificateCheckFingerprint)
