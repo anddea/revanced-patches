@@ -27,6 +27,7 @@ import app.revanced.patches.youtube.utils.returnyoutubedislike.shorts.patch.Retu
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.patches.youtube.utils.videoid.general.patch.VideoIdPatch
 import app.revanced.util.integrations.Constants.UTILS_PATH
+import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
@@ -79,9 +80,21 @@ class ReturnYouTubeDislikePatch : BytecodePatch(
                 )
             }.result?.let {
                 it.mutableMethod.apply {
-                    val conversionContextIndex = it.scanResult.patternScanResult!!.startIndex
-                    conversionContextFieldReference =
-                        getInstruction<ReferenceInstruction>(conversionContextIndex).reference
+                    val booleanIndex = it.scanResult.patternScanResult!!.endIndex
+
+                    for (index in booleanIndex downTo 0) {
+                        if (getInstruction(index).opcode != Opcode.IGET_OBJECT) continue
+
+                        val targetReference =
+                            getInstruction<ReferenceInstruction>(index).reference.toString()
+
+                        if (targetReference.endsWith("Ljava/util/Map;")) {
+                            conversionContextFieldReference =
+                                getInstruction<ReferenceInstruction>(index - 1).reference
+
+                            break
+                        }
+                    }
                 }
             } ?: throw TextComponentContextFingerprint.exception
 

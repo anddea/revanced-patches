@@ -5,13 +5,17 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patches.youtube.layout.pipnotification.fingerprints.PrimaryPiPFingerprint
-import app.revanced.patches.youtube.layout.pipnotification.fingerprints.SecondaryPiPFingerprint
+import app.revanced.patches.youtube.layout.pipnotification.fingerprints.PiPNotificationFingerprint
 import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
+import app.revanced.util.bytecode.getStringIndex
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 
 @Patch
 @Name("Disable pip notification")
@@ -19,26 +23,36 @@ import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 @DependsOn([SettingsPatch::class])
 @YouTubeCompatibility
 class PiPNotificationPatch : BytecodePatch(
-    listOf(
-        PrimaryPiPFingerprint,
-        SecondaryPiPFingerprint
-    )
+    listOf(PiPNotificationFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
 
-        arrayOf(
-            PrimaryPiPFingerprint,
-            SecondaryPiPFingerprint
-        ).forEach { fingerprint ->
-            fingerprint.result?.let {
-                it.mutableMethod.apply {
-                    addInstruction(
-                        it.scanResult.patternScanResult!!.endIndex - 4,
-                        "return-void"
-                    )
+        PiPNotificationFingerprint.result?.let {
+            it.mutableMethod.apply {
+                var insertIndex = -1
+
+                val startIndex = it.scanResult.patternScanResult!!.startIndex - 6
+                val endIndex = getStringIndex("honeycomb.Shell\$HomeActivity")
+
+                for (index in endIndex downTo startIndex) {
+                    if (getInstruction(index).opcode != Opcode.CHECK_CAST) continue
+
+                    val targetReference =
+                        getInstruction<ReferenceInstruction>(index).reference.toString()
+
+                    if (targetReference == "Lcom/google/apps/tiktok/account/AccountId;") {
+                        insertIndex = index + 1
+
+                        addInstruction(
+                            insertIndex,
+                            "return-void"
+                        )
+                    }
                 }
-            } ?: throw fingerprint.exception
-        }
+                if (insertIndex == -1)
+                    throw PatchException("Couldn't find target Index")
+            }
+        } ?: throw PiPNotificationFingerprint.exception
 
         /**
          * Add settings

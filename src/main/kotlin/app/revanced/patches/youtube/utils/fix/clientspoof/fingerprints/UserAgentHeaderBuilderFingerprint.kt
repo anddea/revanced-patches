@@ -9,5 +9,5 @@ object UserAgentHeaderBuilderFingerprint : MethodFingerprint(
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.INVOKE_VIRTUAL
     ),
-    strings = listOf("(Linux; U; Android "),
+    strings = listOf("(Linux; U; Android ")
 )

@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.seekbar.seekbarcolor.fingerprints
+package app.revanced.patches.youtube.utils.fingerprints
 
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint

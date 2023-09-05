@@ -74,8 +74,8 @@ class ShortsSubscriptionsButtonPatch : BytecodePatch(
                         )
                     }
                 }
-            } ?: throw ShortsSubscriptionsTabletFingerprint.exception
-        } ?: throw ShortsSubscriptionsTabletParentFingerprint.exception
+            }
+        }
 
     }
 
