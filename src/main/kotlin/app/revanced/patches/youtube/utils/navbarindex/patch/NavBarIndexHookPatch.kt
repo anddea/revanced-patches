@@ -79,7 +79,7 @@ class NavBarIndexHookPatch : BytecodePatch(
 
         LithoFilterPatch.addFilter("$PATCHES_PATH/ads/NavBarIndexFilter;")
 
-        context.injectInit("NavBarIndexPatch", "initializeIndex")
+        context.injectInit("NavBarIndexPatch", "initializeIndex", true)
 
     }
 

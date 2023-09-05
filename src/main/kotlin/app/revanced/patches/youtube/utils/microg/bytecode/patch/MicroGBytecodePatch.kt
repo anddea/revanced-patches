@@ -64,7 +64,7 @@ class MicroGBytecodePatch : BytecodePatch(
             )
         )
 
-        context.injectInit("MicroGPatch", "checkAvailability")
+        context.injectInit("MicroGPatch", "checkAvailability", true)
 
     }
 }

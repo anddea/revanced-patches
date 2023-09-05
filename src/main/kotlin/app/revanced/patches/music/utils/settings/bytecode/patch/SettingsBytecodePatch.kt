@@ -9,6 +9,7 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.music.utils.integrations.patch.IntegrationsPatch
 import app.revanced.patches.music.utils.settings.bytecode.fingerprints.PreferenceFingerprint
 import app.revanced.patches.music.utils.settings.bytecode.fingerprints.SettingsHeadersFragmentFingerprint
+import app.revanced.util.bytecode.BytecodeHelper.injectInit
 import app.revanced.util.integrations.Constants.MUSIC_INTEGRATIONS_PATH
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -46,6 +47,8 @@ class SettingsBytecodePatch : BytecodePatch(
                 )
             }
         } ?: throw PreferenceFingerprint.exception
+
+        context.injectInit("FirstRun", "initializationRVX", false)
 
     }
 

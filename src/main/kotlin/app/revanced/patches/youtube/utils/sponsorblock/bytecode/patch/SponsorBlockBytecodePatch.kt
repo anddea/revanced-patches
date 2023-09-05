@@ -222,7 +222,7 @@ class SponsorBlockBytecodePatch : BytecodePatch(
          */
         VideoIdWithoutShortsPatch.injectCall("$INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR->setCurrentVideoId(Ljava/lang/String;)V")
 
-        context.injectInit("FirstRun", "initializationSB")
+        context.injectInit("FirstRun", "initializationSB", true)
 
     }
 
