@@ -1,4 +1,4 @@
-package app.revanced.patches.music.misc.upgradebutton.fingerprints
+package app.revanced.patches.music.navigation.upgrade.fingerprints
 
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
