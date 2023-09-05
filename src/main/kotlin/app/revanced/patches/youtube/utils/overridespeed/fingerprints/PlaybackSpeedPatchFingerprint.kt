@@ -9,7 +9,7 @@ object PlaybackSpeedPatchFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
     parameters = listOf("F"),
     customFingerprint = { methodDef, _ ->
-        methodDef.definingClass.endsWith("/PlaybackSpeedPatch;")
+        methodDef.definingClass == "Lapp/revanced/integrations/patches/video/PlaybackSpeedPatch;"
                 && methodDef.name == "overrideSpeed"
     }
 )

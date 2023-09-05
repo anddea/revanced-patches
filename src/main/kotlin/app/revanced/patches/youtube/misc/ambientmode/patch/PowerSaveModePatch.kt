@@ -12,6 +12,7 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.youtube.misc.ambientmode.fingerprints.PowerSaveModeFingerprint
 import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
+import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.integrations.Constants.MISC_PATH
 import com.android.tools.smali.dexlib2.Opcode
@@ -22,7 +23,12 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 @Patch
 @Name("Bypass ambient mode restrictions")
 @Description("Bypass ambient mode restrictions in battery saver mode.")
-@DependsOn([SettingsPatch::class])
+@DependsOn(
+    [
+        SettingsPatch::class,
+        SharedResourceIdPatch::class
+    ]
+)
 @YouTubeCompatibility
 class PowerSaveModePatch : BytecodePatch(
     listOf(PowerSaveModeFingerprint)

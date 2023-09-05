@@ -8,8 +8,6 @@ import com.android.tools.smali.dexlib2.Opcode
 object LayoutIconFingerprint : MethodFingerprint(
     returnType = "Landroid/view/View;",
     opcodes = listOf(
-        Opcode.CONST_4,
-        Opcode.CONST,
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.CHECK_CAST,

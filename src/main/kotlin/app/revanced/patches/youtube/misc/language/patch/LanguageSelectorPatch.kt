@@ -26,7 +26,7 @@ class LanguageSelectorPatch : BytecodePatch(
 
         GeneralPrefsFingerprint.result?.let {
             it.mutableMethod.apply {
-                val targetIndex = it.scanResult.patternScanResult!!.startIndex + 2
+                val targetIndex = it.scanResult.patternScanResult!!.startIndex + 1
                 val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                 addInstruction(

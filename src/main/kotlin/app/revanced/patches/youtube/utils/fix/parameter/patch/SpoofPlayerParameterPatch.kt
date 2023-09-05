@@ -11,7 +11,6 @@ import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.fix.parameter.fingerprints.ProtobufParameterBuilderFingerprint
 import app.revanced.patches.youtube.utils.fix.parameter.fingerprints.ScrubbedPreviewLayoutFingerprint
@@ -45,21 +44,16 @@ class SpoofPlayerParameterPatch : BytecodePatch(
 
         // hook parameter
         ProtobufParameterBuilderFingerprint.result?.let {
-            (context
-                .toMethodWalker(it.method)
-                .nextMethod(it.scanResult.patternScanResult!!.startIndex, true)
-                .getMethod() as MutableMethod
-                    ).apply {
-                    val protobufParam = 3
+            it.mutableMethod.apply {
+                val protobufParam = 3
 
-                    addInstructions(
-                        0,
-                        """
+                addInstructions(
+                    0, """
                         invoke-static {p$protobufParam}, $INTEGRATIONS_CLASS_DESCRIPTOR->overridePlayerParameter(Ljava/lang/String;)Ljava/lang/String;
                         move-result-object p$protobufParam
-                    """
-                    )
-                }
+                        """
+                )
+            }
         } ?: throw ProtobufParameterBuilderFingerprint.exception
 
         // When the player parameter is spoofed in incognito mode, this value will always be false
