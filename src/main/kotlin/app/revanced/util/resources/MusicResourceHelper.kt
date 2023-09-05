@@ -212,4 +212,46 @@ internal object MusicResourceHelper {
         }
     }
 
+    internal fun ResourceContext.hookPreference(
+        key: String,
+        fragment: String
+    ) {
+        this.xmlEditor[YOUTUBE_MUSIC_SETTINGS_PATH].use { editor ->
+            with(editor.file) {
+                doRecursively loop@{
+                    if (it !is Element) return@loop
+                    it.getAttributeNode("android:key")?.let { attribute ->
+                        if (attribute.textContent == "settings_header_about_youtube_music" && it.getAttributeNode(
+                                "app:allowDividerBelow"
+                            ).textContent == "false"
+                        ) {
+                            it.insertNode("Preference", it) {
+                                setAttribute("android:persistent", "false")
+                                setAttribute(
+                                    "android:title",
+                                    "@string/" + key + "_title"
+                                )
+                                setAttribute("android:key", key)
+                                setAttribute("android:fragment", fragment)
+                                setAttribute("app:allowDividerAbove", "false")
+                                setAttribute("app:allowDividerAbove", "false")
+                            }
+                            it.getAttributeNode("app:allowDividerBelow").textContent = "true"
+                            return@loop
+                        }
+                    }
+                }
+
+                doRecursively loop@{
+                    if (it !is Element) return@loop
+
+                    it.getAttributeNode("app:allowDividerBelow")?.let { attribute ->
+                        if (attribute.textContent == "true") {
+                            attribute.textContent = "false"
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
