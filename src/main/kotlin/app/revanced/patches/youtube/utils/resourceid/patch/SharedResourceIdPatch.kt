@@ -1,7 +1,6 @@
 package app.revanced.patches.youtube.utils.resourceid.patch
 
 import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.shared.patch.mapping.ResourceMappingPatch
@@ -89,7 +88,7 @@ class SharedResourceIdPatch : ResourcePatch {
         fun find(resourceType: ResourceType, resourceName: String) = ResourceMappingPatch
             .resourceMappings
             .find { it.type == resourceType.value && it.name == resourceName }?.id
-            ?: throw PatchException("Failed to find resource id : $resourceName")
+            ?: -1
 
         AccountSwitcherAccessibility = find(STRING, "account_switcher_accessibility_label")
         AccessibilityCaptionsButtonName = find(STRING, "accessibility_captions_button_name")
