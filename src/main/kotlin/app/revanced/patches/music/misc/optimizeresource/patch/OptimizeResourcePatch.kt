@@ -4,17 +4,14 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.ResourcePatch
-import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.music.utils.annotations.MusicCompatibility
-import app.revanced.patches.music.utils.fix.decoding.patch.DecodingPatch
 import java.nio.file.Files
 import java.nio.file.StandardCopyOption
 
 @Patch
 @Name("Optimize resource")
 @Description("Remove unnecessary resources.")
-@DependsOn([DecodingPatch::class])
 @MusicCompatibility
 class OptimizeResourcePatch : ResourcePatch {
     override fun execute(context: ResourceContext) {

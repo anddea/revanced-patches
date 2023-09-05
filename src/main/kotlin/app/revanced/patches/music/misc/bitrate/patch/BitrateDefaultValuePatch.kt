@@ -4,15 +4,12 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.ResourcePatch
-import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.music.utils.annotations.MusicCompatibility
-import app.revanced.patches.music.utils.fix.decoding.patch.DecodingPatch
 
 @Patch
 @Name("Bitrate default value")
 @Description("Set the audio quality to \"Always High\" when you first install the app.")
-@DependsOn([DecodingPatch::class])
 @MusicCompatibility
 class BitrateDefaultValuePatch : ResourcePatch {
     override fun execute(context: ResourceContext) {

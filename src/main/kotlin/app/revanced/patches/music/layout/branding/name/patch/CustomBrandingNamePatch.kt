@@ -10,17 +10,11 @@ import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.music.utils.annotations.MusicCompatibility
-import app.revanced.patches.music.utils.fix.decoding.patch.DecodingPatch
 
 @Patch
 @Name("Custom branding Music name")
 @Description("Rename the YouTube Music app to the name specified in options.json.")
-@DependsOn(
-    [
-        DecodingPatch::class,
-        RemoveElementsPatch::class
-    ]
-)
+@DependsOn([RemoveElementsPatch::class])
 @MusicCompatibility
 class CustomBrandingNamePatch : ResourcePatch {
     override fun execute(context: ResourceContext) {
