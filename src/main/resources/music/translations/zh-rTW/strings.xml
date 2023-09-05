@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="revanced_category_ads">廣告設定</string>
-    <string name="revanced_category_layout">介面</string>
-    <string name="revanced_category_misc">其他 --唐懂翻譯</string>
-    <string name="revanced_custom_filter_strings_summary">按其名稱過濾並用半角逗號隔開</string>
+    <string name="revanced_category_button_container">功能按鈕欄</string>
+    <string name="revanced_category_flyout">彈出式選單</string>
+    <string name="revanced_category_general">常規設定</string>
+    <string name="revanced_category_misc">其他</string>
+    <string name="revanced_category_navigation">導覽列</string>
+    <string name="revanced_category_player">播放器</string>
     <string name="revanced_custom_filter_strings_title">編輯自訂過濾器</string>
     <string name="revanced_custom_filter_summary">啟用自訂過濾器</string>
     <string name="revanced_custom_filter_title">啟用自訂過濾器</string>
     <string name="revanced_disable_auto_captions_summary">停用在播放器中被強制啟用的字幕</string>
-    <string name="revanced_disable_auto_captions_title">停用自動字幕</string>
+    <string name="revanced_disable_auto_captions_title">停用強制自動字幕</string>
     <string name="revanced_downloader_not_installed" formatted="false">%s 尚未安裝. 請先安裝.</string>
     <string name="revanced_enable_black_navigation_bar_summary">將導覽列設成黑色</string>
     <string name="revanced_enable_black_navigation_bar_title">啟用黑色導覽列</string>
@@ -18,6 +21,8 @@
     <string name="revanced_enable_compact_dialog_title">啟用精簡彈出式選單</string>
     <string name="revanced_enable_debug_logging_summary">列出除錯記錄檔</string>
     <string name="revanced_enable_debug_logging_title">啟用除錯紀錄</string>
+    <string name="revanced_enable_flyout_panel_playback_speed_summary">添加播放速度調整鈕至彈出式選單</string>
+    <string name="revanced_enable_flyout_panel_playback_speed_title">啟用播放速度調整鈕</string>
     <string name="revanced_enable_force_minimized_player_summary">切換歌曲時保持迷你播放器狀態</string>
     <string name="revanced_enable_force_minimized_player_title">切換歌曲時保持迷你播放器</string>
     <string name="revanced_enable_force_shuffle_summary">即使播放另一首歌曲，也強制啟用隨機播放。</string>
@@ -30,6 +35,8 @@
     <string name="revanced_enable_old_style_mini_player_title">啟用舊版介面的迷你播放器</string>
     <string name="revanced_enable_opus_codec_summary">播放音樂時啟用 250/251 opus 解碼器。</string>
     <string name="revanced_enable_opus_codec_title">啟用解碼器覆寫</string>
+    <string name="revanced_enable_save_playback_speed_summary">每次更改播放速度時儲存播放速度值</string>
+    <string name="revanced_enable_save_playback_speed_title">啟用播放速度儲存</string>
     <string name="revanced_enable_save_video_quality_summary">每當您變更影片畫質時記憶影片畫質設定</string>
     <string name="revanced_enable_save_video_quality_title">啟用記憶影片畫質</string>
     <string name="revanced_enable_sleep_timer_summary">新增睡眠定時器至彈出選單</string>
@@ -39,6 +46,8 @@
     <string name="revanced_external_downloader_not_installed_warning" formatted="false">%s 尚未安裝. 請先安裝該應用後重試.</string>
     <string name="revanced_external_downloader_package_name_summary">已安裝的外部下載程式的套件名稱，例如 NewPipe 或 Seal</string>
     <string name="revanced_external_downloader_package_name_title">外部下載程式的套件名稱</string>
+    <string name="revanced_hide_button_container_radio_summary">隱藏開啟電台按鈕</string>
+    <string name="revanced_hide_button_container_radio_title">隱藏電台按鈕</string>
     <string name="revanced_hide_button_shelf_summary">從首頁和檔案管理隱藏按鈕。</string>
     <string name="revanced_hide_button_shelf_title">隱藏按鈕</string>
     <string name="revanced_hide_carousel_shelf_summary">從首頁和檔案管理隱藏輪播列表。</string>
@@ -47,9 +56,25 @@
     <string name="revanced_hide_cast_button_title">隱藏投放按鈕</string>
     <string name="revanced_hide_category_bar_summary">隱藏首頁頂部的音樂分類列表。</string>
     <string name="revanced_hide_category_bar_title">隱藏分類列表</string>
-    <string name="revanced_hide_channel_guidelines_summary">隱藏留言板頂層的頻道指南</string>
+    <string name="revanced_hide_channel_guidelines_summary">隱藏留言欄頂端的頻道指南</string>
     <string name="revanced_hide_channel_guidelines_title">隱藏頻道指南</string>
-    <string name="revanced_hide_music_ads_summary">隱藏在歌曲播放之前的廣告。</string>
+    <string name="revanced_hide_emoji_picker_summary">隱藏留言區的表情符號選擇器</string>
+    <string name="revanced_hide_emoji_picker_title">隱藏表情符號選擇器</string>
+    <string name="revanced_hide_flyout_panel_add_to_queue_title">隱藏加入待播清單選單</string>
+    <string name="revanced_hide_flyout_panel_dismiss_queue_title">隱藏從媒體庫中移除選單</string>
+    <string name="revanced_hide_flyout_panel_download_title">隱藏下載選單</string>
+    <string name="revanced_hide_flyout_panel_go_to_album_title">隱藏前往專輯頁面選單</string>
+    <string name="revanced_hide_flyout_panel_go_to_artist_title">隱藏前往藝人頁面選單</string>
+    <string name="revanced_hide_flyout_panel_like_dislike_title">隱藏讚和倒讚按鈕</string>
+    <string name="revanced_hide_flyout_panel_play_next_title">隱藏接著播放選單</string>
+    <string name="revanced_hide_flyout_panel_remove_from_library_title">隱藏從媒體庫中移除選單</string>
+    <string name="revanced_hide_flyout_panel_report_title">隱藏檢舉選單</string>
+    <string name="revanced_hide_flyout_panel_save_to_library_title">隱藏新增至媒體庫中選單</string>
+    <string name="revanced_hide_flyout_panel_save_to_playlist_title">隱藏儲存至播放清單選單</string>
+    <string name="revanced_hide_flyout_panel_share_title">隱藏分享選單</string>
+    <string name="revanced_hide_flyout_panel_start_radio_title">隱藏開啟電台選單</string>
+    <string name="revanced_hide_flyout_panel_view_song_credit_title">隱藏查看歌曲製作人員名單選單</string>
+    <string name="revanced_hide_music_ads_summary">在播放歌曲之前隱藏廣告。</string>
     <string name="revanced_hide_music_ads_title">隱藏音樂廣告</string>
     <string name="revanced_hide_navigation_label_summary">隱藏位於導覽列的標籤</string>
     <string name="revanced_hide_navigation_label_title">隱藏導覽列標籤</string>
@@ -57,10 +82,17 @@
     <string name="revanced_hide_new_playlist_button_title">隱藏新的播放清單按鈕</string>
     <string name="revanced_hide_playlist_card_summary">從首頁隱藏播放清單</string>
     <string name="revanced_hide_playlist_card_title">隱藏播放清單</string>
-    <string name="revanced_hook_share_button_summary">將分享按鈕功能覆蓋為外部下載功能</string>
-    <string name="revanced_hook_share_button_title">掛鉤分享按鈕（實驗性功能）</string>
+    <string name="revanced_hook_button_container_download_summary">將離線下載按鈕功能替換成外部下載按鈕</string>
+    <string name="revanced_hook_button_container_download_title">替換下載按鈕</string>
     <string name="revanced_reboot_message">套用並重新啟動</string>
     <string name="revanced_reset">重置</string>
+    <string name="revanced_ryd_compact_layout_summary">隱藏按讚按鈕中間的分隔線</string>
+    <string name="revanced_ryd_compact_layout_title">緊湊型按讚按鈕</string>
+    <string name="revanced_ryd_dislike_percentage_summary">將倒讚數以百分比的形式顯示</string>
+    <string name="revanced_ryd_dislike_percentage_title">倒讚百分比</string>
+    <string name="revanced_ryd_failure_client_rate_limit_requested">倒讚顯示不正常（已達到客戶端 API 限制）</string>
+    <string name="revanced_ryd_video_likes_hidden_by_video_owner">隱藏</string>
+    <string name="revanced_save_playback_speed">將預設播放速度更改為：</string>
     <string name="revanced_save_video_quality_mobile">將預設行動數據畫質顯示為：</string>
     <string name="revanced_save_video_quality_none">畫質設定失敗</string>
     <string name="revanced_save_video_quality_wifi">將預設無線網路畫質更改為：</string>
