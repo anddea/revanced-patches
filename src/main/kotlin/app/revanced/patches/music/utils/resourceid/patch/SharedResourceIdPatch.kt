@@ -23,6 +23,7 @@ class SharedResourceIdPatch : ResourcePatch {
         var DialogSolid: Long = -1
         var DisabledIconAlpha: Long = -1
         var IsTablet: Long = -1
+        var MusicMenuLikeButtons: Long = -1
         var MusicNotifierShelf: Long = -1
         var PrivacyTosFooter: Long = -1
         var QualityTitle: Long = -1
@@ -43,6 +44,7 @@ class SharedResourceIdPatch : ResourcePatch {
         DialogSolid = find(STYLE, "Theme.YouTubeMusic.Dialog.Solid")
         DisabledIconAlpha = find(DIMEN, "disabled_icon_alpha")
         IsTablet = find(BOOL, "is_tablet")
+        MusicMenuLikeButtons = find(LAYOUT, "music_menu_like_buttons")
         MusicNotifierShelf = find(LAYOUT, "music_notifier_shelf")
         PrivacyTosFooter = find(ID, "privacy_tos_footer")
         QualityTitle = find(STRING, "quality_title")
