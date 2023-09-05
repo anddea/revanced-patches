@@ -28,7 +28,6 @@ class SharedResourceIdPatch : ResourcePatch {
         var Bar: Long = -1
         var BarContainerHeight: Long = -1
         var BottomPanelOverlayText: Long = -1
-        var BottomSheetMargins: Long = -1
         var BottomUiContainerStub: Long = -1
         var ChannelListSubMenu: Long = -1
         var CompactLink: Long = -1
@@ -103,7 +102,6 @@ class SharedResourceIdPatch : ResourcePatch {
         Bar = find(LAYOUT, "bar")
         BarContainerHeight = find(DIMEN, "bar_container_height")
         BottomPanelOverlayText = find(ID, "bottom_panel_overlay_text")
-        BottomSheetMargins = find(DIMEN, "bottom_sheet_margins")
         BottomUiContainerStub = find(ID, "bottom_ui_container_stub")
         ChannelListSubMenu = find(LAYOUT, "channel_list_sub_menu")
         CompactLink = find(LAYOUT, "compact_link")
