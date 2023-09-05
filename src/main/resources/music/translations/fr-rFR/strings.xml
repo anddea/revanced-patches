@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="revanced_category_ads">Publicités</string>
-    <string name="revanced_category_layout">Mise en page</string>
+    <string name="revanced_category_button_container">Menus à Boutons</string>
+    <string name="revanced_category_flyout">Disposition</string>
+    <string name="revanced_category_general">Général</string>
     <string name="revanced_category_misc">Autres</string>
-    <string name="revanced_custom_filter_strings_summary">Filtre les composants par leur nom séparé par une virgule</string>
+    <string name="revanced_category_navigation">Navigation</string>
+    <string name="revanced_category_player">Lecteur</string>
     <string name="revanced_custom_filter_strings_title">Modifier le filtre personnalisé</string>
     <string name="revanced_custom_filter_summary">Active les filtres personnalisés</string>
     <string name="revanced_custom_filter_title">Activer les filtres personnalisés</string>
@@ -18,6 +21,8 @@
     <string name="revanced_enable_compact_dialog_title">Activer le mode compact</string>
     <string name="revanced_enable_debug_logging_summary">Imprime le journal de débogage</string>
     <string name="revanced_enable_debug_logging_title">Activer la journalisation de débogage</string>
+    <string name="revanced_enable_flyout_panel_playback_speed_summary">Ajout d\'une option de vitesse de lecture dans le menu déroulant.</string>
+    <string name="revanced_enable_flyout_panel_playback_speed_title">Activer la vitesse de lecture</string>
     <string name="revanced_enable_force_minimized_player_summary">Garde le lecteur minimisé lorsqu\'une autre piste est jouée.</string>
     <string name="revanced_enable_force_minimized_player_title">Activer la minimisation forcée du lecteur</string>
     <string name="revanced_enable_force_shuffle_summary">Active la lecture aléatoire lorsque vous lancez une musique.</string>
@@ -30,6 +35,8 @@
     <string name="revanced_enable_old_style_mini_player_title">Activer l\'ancien minilecteur</string>
     <string name="revanced_enable_opus_codec_summary">Active le codec opus 250/251 lors de la lecture audio.</string>
     <string name="revanced_enable_opus_codec_title">Activer le codec opus</string>
+    <string name="revanced_enable_save_playback_speed_summary">Enregistrez la vitesse de lecture chaque fois que vous la modifiez.</string>
+    <string name="revanced_enable_save_playback_speed_title">Activer l\'enregistrement de la vitesse de lecture</string>
     <string name="revanced_enable_save_video_quality_summary">Enregistre la qualité vidéo chaque fois que vous modifiez la qualité vidéo.</string>
     <string name="revanced_enable_save_video_quality_title">Activer l\'enregistrement de la qualité vidéo</string>
     <string name="revanced_enable_sleep_timer_summary">Ajoute un minuteur de mise en veille dans les options.</string>
@@ -39,6 +46,10 @@
     <string name="revanced_external_downloader_not_installed_warning" formatted="false">%s n\'es pas installé. Veuillez l\'installer.</string>
     <string name="revanced_external_downloader_package_name_summary">Nom du paquet de l\'application de téléchargement externe installée, telle que NewPipe ou Seal</string>
     <string name="revanced_external_downloader_package_name_title">Nom du paquet du téléchargeur externe</string>
+    <string name="revanced_hide_button_container_label_summary">Masquer les étiquettes dans le conteneur de boutons.</string>
+    <string name="revanced_hide_button_container_label_title">Masquer les étiquettes des conteneurs de boutons</string>
+    <string name="revanced_hide_button_container_radio_summary">Masque le bouton \"démarrer le mix\"</string>
+    <string name="revanced_hide_button_container_radio_title">Masquer le bouton mix</string>
     <string name="revanced_hide_button_shelf_summary">Masque les boutons des tendances dans l\'onglet Accueil et Explorer.</string>
     <string name="revanced_hide_button_shelf_title">Masquer les boutons des tendances</string>
     <string name="revanced_hide_carousel_shelf_summary">Masque les menus déroulant dans l\'onglet Accueil et Explorer.</string>
@@ -47,8 +58,24 @@
     <string name="revanced_hide_cast_button_title">Masquer le bouton \"Cast\"</string>
     <string name="revanced_hide_category_bar_summary">Masque les catégories de musiques en haut de la page d\'accueil.</string>
     <string name="revanced_hide_category_bar_title">Masquer les catégories</string>
-    <string name="revanced_hide_channel_guidelines_summary">Masque le règlement de la communauté au dessus des commentaires</string>
+    <string name="revanced_hide_channel_guidelines_summary">Masque le règlement de la communauté au-dessus des commentaires</string>
     <string name="revanced_hide_channel_guidelines_title">Masquer le règlement de la communauté</string>
+    <string name="revanced_hide_emoji_picker_summary">Cache le sélecteur d\'emoji dans les commentaires.</string>
+    <string name="revanced_hide_emoji_picker_title">Masque le sélecteur d\'emoji</string>
+    <string name="revanced_hide_flyout_panel_add_to_queue_title">Masque le menu \"Ajouter à la file d\'attente\"</string>
+    <string name="revanced_hide_flyout_panel_dismiss_queue_title">Masquer le menu \"Retirer de la file d\'attente\"</string>
+    <string name="revanced_hide_flyout_panel_download_title">Cacher le menu de téléchargement</string>
+    <string name="revanced_hide_flyout_panel_go_to_album_title">Masquer le menu \"Aller dans l\'album\"</string>
+    <string name="revanced_hide_flyout_panel_go_to_artist_title">Masquer le menu \"Voir l\'artiste\"</string>
+    <string name="revanced_hide_flyout_panel_like_dislike_title">Masque les boutons \"j\'aime\" et \"je n\'aime pas\".</string>
+    <string name="revanced_hide_flyout_panel_play_next_title">Masquer le bouton suivant</string>
+    <string name="revanced_hide_flyout_panel_remove_from_library_title">Masquer \"Supprimer de la bibliothèque\"</string>
+    <string name="revanced_hide_flyout_panel_report_title">Masquer le menu \"Signaler\"</string>
+    <string name="revanced_hide_flyout_panel_save_to_library_title">Masquer le menu \"Ajouter à la bibliothèque\"</string>
+    <string name="revanced_hide_flyout_panel_save_to_playlist_title">Masquer le menu \"Enregistrer dans une playlist\"</string>
+    <string name="revanced_hide_flyout_panel_share_title">Masquer le bouton \"Partager\"</string>
+    <string name="revanced_hide_flyout_panel_start_radio_title">Masque le bouton \"démarrer le mix\"</string>
+    <string name="revanced_hide_flyout_panel_view_song_credit_title">Masquer le menu \"Afficher les crédits du titre\"</string>
     <string name="revanced_hide_music_ads_summary">Cache les publicités avant de jouer une musique.</string>
     <string name="revanced_hide_music_ads_title">Masquer les publicités</string>
     <string name="revanced_hide_navigation_label_summary">Masque les noms des onglets dans la barre de navigation.</string>
@@ -57,10 +84,19 @@
     <string name="revanced_hide_new_playlist_button_title">Masquer le bouton \"Nouvelle Playlist\"</string>
     <string name="revanced_hide_playlist_card_summary">Masque les cartes de playlists dans l\'onglet accueil.</string>
     <string name="revanced_hide_playlist_card_title">Masquer les cartes de playlists</string>
-    <string name="revanced_hook_share_button_summary">Remplace le bouton \"Partager\" par un bouton de téléchargement externe.</string>
-    <string name="revanced_hook_share_button_title">Remplacer le bouton \"Partager\" (fonctionnalité expérimentale)</string>
+    <string name="revanced_hide_sample_button_summary">Masque le bouton \"Sample\" dans la barre de navigation.</string>
+    <string name="revanced_hide_sample_button_title">Masque le bouton \"Sample\"</string>
+    <string name="revanced_hook_button_container_download_summary">Remplace le bouton \"Téléchargement hors ligne\" dans les boutons sous la pochette du titre par un bouton de téléchargement externe.</string>
+    <string name="revanced_hook_button_container_download_title">Remplacer la fonction de téléchargement</string>
     <string name="revanced_reboot_message">Voulez-vous redémarrer pour appliquer </string>
     <string name="revanced_reset">Réinitialiser</string>
+    <string name="revanced_ryd_compact_layout_summary">Masque le séparateur du bouton \"J\'aime\".</string>
+    <string name="revanced_ryd_compact_layout_title">Bouton \"J\'aime\" compact</string>
+    <string name="revanced_ryd_dislike_percentage_summary">Le pourcentage de \"Je n\'aime pas\" au lieu du nombre de \"Je n\'aime pas\" est affiché</string>
+    <string name="revanced_ryd_dislike_percentage_title">\"Je n\'aime pas\" en pourcentage</string>
+    <string name="revanced_ryd_failure_client_rate_limit_requested">Les \"Je n\'aime pas\" ne sont pas disponible (Limite de l\'API atteinte)</string>
+    <string name="revanced_ryd_video_likes_hidden_by_video_owner">Masquer</string>
+    <string name="revanced_save_playback_speed">Remplacer la vitesse par défaut par:</string>
     <string name="revanced_save_video_quality_mobile">Changer la qualité des données mobiles par défaut en :</string>
     <string name="revanced_save_video_quality_none">Impossible de définir la qualité</string>
     <string name="revanced_save_video_quality_wifi">Changer la qualité Wi-Fi par défaut en :</string>

@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="revanced_category_ads">বিজ্ঞাপন</string>
-    <string name="revanced_category_layout">লেআউট</string>
+    <string name="revanced_category_button_container">বাটন কনটেইনার</string>
+    <string name="revanced_category_flyout">ফ্লাইআউট</string>
+    <string name="revanced_category_general">সাধারণ</string>
     <string name="revanced_category_misc">বিবিধ</string>
-    <string name="revanced_custom_filter_strings_summary">কমা দ্বারা পৃথক করে উপাদানগুলো তাদের নাম অনুযায়ী ফিল্টার করুন</string>
+    <string name="revanced_category_navigation">নেভিগেশন</string>
+    <string name="revanced_category_player">প্লেয়ার</string>
     <string name="revanced_custom_filter_strings_title">কাস্টম ফিল্টার সম্পাদনা করুন</string>
     <string name="revanced_custom_filter_summary">কাস্টম ফিল্টার সক্রিয় করুন</string>
     <string name="revanced_custom_filter_title">কাস্টম ফিল্টার সক্রিয় করুন</string>
@@ -18,6 +21,8 @@
     <string name="revanced_enable_compact_dialog_title">কম্প্যাক্ট ডায়ালগ সক্রিয় করুন</string>
     <string name="revanced_enable_debug_logging_summary">ডিবাগ লগ প্রিন্ট করে</string>
     <string name="revanced_enable_debug_logging_title">ডিবাগ লগ সক্রিয় করুন</string>
+    <string name="revanced_enable_flyout_panel_playback_speed_summary">ফ্লাইআউট মেনুতে প্লেব্যাক স্পিড যুক্ত করুন।</string>
+    <string name="revanced_enable_flyout_panel_playback_speed_title">প্লেব্যাক স্পিড সক্রিয় করুন</string>
     <string name="revanced_enable_force_minimized_player_summary">প্লেয়ারকে স্থায়ীভাবে মিনিমাইজ করে রাখুন এমনকি যদি অন্য ট্র্যাক চালানো হয়।</string>
     <string name="revanced_enable_force_minimized_player_title">জোরপূর্বক মিনিমাইজড প্লেয়ার সক্রিয় করুন</string>
     <string name="revanced_enable_force_shuffle_summary">যদিও অন্য একটি ট্র্যাক চলছে তবে ফোর্স শাফল সক্রিয় করুন।</string>
@@ -30,6 +35,8 @@
     <string name="revanced_enable_old_style_mini_player_title">পুরোনো স্টাইলের মিনি-প্লেয়ার সক্রিয় করুন</string>
     <string name="revanced_enable_opus_codec_summary">অডিও প্লে করার সময় ২৫০/২৫১ অপাস কোডেক সক্রিয় করুন।</string>
     <string name="revanced_enable_opus_codec_title">Opus কোডেক সক্রিয় করুন</string>
+    <string name="revanced_enable_save_playback_speed_summary">প্লেব্যাক স্পিড পরিবর্তন করার সময় প্লেব্যাক স্পিডের মান সংরক্ষণ করুন।</string>
+    <string name="revanced_enable_save_playback_speed_title">প্লেব্যাক স্পিড সংরক্ষণ সক্রিয় করুন</string>
     <string name="revanced_enable_save_video_quality_summary">যখনই আপনি ভিডিও কোয়ালিটি পরিবর্তন করবেন তখন ভিডিও কোয়ালিটি সংরক্ষণ করবে।</string>
     <string name="revanced_enable_save_video_quality_title">ভিডিও কোয়ালিটি সংরক্ষণ সক্রিয় করুন</string>
     <string name="revanced_enable_sleep_timer_summary">ফ্লাইআউট মেনুতে sleep timer যুক্ত করুন।</string>
@@ -39,6 +46,10 @@
     <string name="revanced_external_downloader_not_installed_warning" formatted="false">%s ইনস্টল করা হয়নি। অনুগ্রপূর্বক এটি ইনস্টল করুন।</string>
     <string name="revanced_external_downloader_package_name_summary">আপনার ইনস্টল করা বাইরের ডাউনলোডার অ্যাপের প্যাকেজ নাম, যেমন NewPipe বা Seal</string>
     <string name="revanced_external_downloader_package_name_title">বাহিরের ডাউনলোডারের প্যাকেজ নাম</string>
+    <string name="revanced_hide_button_container_label_summary">বাটন কনটেইনারের লেবেল লুকায়।</string>
+    <string name="revanced_hide_button_container_label_title">বাটন কনটেইনারের লেবেল লুকান</string>
+    <string name="revanced_hide_button_container_radio_summary">স্টার্ট রেডিও বাটন লুকায়।</string>
+    <string name="revanced_hide_button_container_radio_title">রেডিও বাটন লুকান</string>
     <string name="revanced_hide_button_shelf_summary">প্রধান পাতা ও এক্সপ্লোরার থেকে বাটন শেলফ লুকান।</string>
     <string name="revanced_hide_button_shelf_title">বাটন শেলফ লুকান</string>
     <string name="revanced_hide_carousel_shelf_summary">প্রধান পাতা ও এক্সপ্লোরার থেকে ক্যারোসেল শেলফ লুকান।</string>
@@ -47,6 +58,24 @@
     <string name="revanced_hide_cast_button_title">কাস্ট বাটন লুকান</string>
     <string name="revanced_hide_category_bar_summary">প্রধান পাতার উপর থেকে বিভাগ বার লুকান।</string>
     <string name="revanced_hide_category_bar_title">বিভাগ বার লুকান</string>
+    <string name="revanced_hide_channel_guidelines_summary">কমেন্টের উপর থেকে চ্যানেল গাইডলাইন লুকায়।</string>
+    <string name="revanced_hide_channel_guidelines_title">চ্যানেল গাইডলাইন লুকান</string>
+    <string name="revanced_hide_emoji_picker_summary">কমেন্ট বক্স থেকে ইমোজি পিকার লুকায়।</string>
+    <string name="revanced_hide_emoji_picker_title">ইমোজি পিকার লুকান</string>
+    <string name="revanced_hide_flyout_panel_add_to_queue_title">ক্যিউতে যুক্ত করুন মেনু লুকান</string>
+    <string name="revanced_hide_flyout_panel_dismiss_queue_title">ক্যিউ থেকে বাদ দিন মেনু লুকান</string>
+    <string name="revanced_hide_flyout_panel_download_title">ডাউনলোড মেনু লুকান</string>
+    <string name="revanced_hide_flyout_panel_go_to_album_title">অ্যালবাম মেনুতে যাওয়া লুকান</string>
+    <string name="revanced_hide_flyout_panel_go_to_artist_title">আর্টিস্ট মেনুতে যাওয়া লুকান</string>
+    <string name="revanced_hide_flyout_panel_like_dislike_title">পছন্দ এবং অপছন্দ বাটন লুকান</string>
+    <string name="revanced_hide_flyout_panel_play_next_title">পরবর্তী চালু বাটন লুকান</string>
+    <string name="revanced_hide_flyout_panel_remove_from_library_title">লাইব্রেরি থেকে বাদ দেয়া মেনু লুকান</string>
+    <string name="revanced_hide_flyout_panel_report_title">রিপোর্ট মেনু লুকান</string>
+    <string name="revanced_hide_flyout_panel_save_to_library_title">লাইব্রেরিতে সংরক্ষণ করুন মেনু লুকান</string>
+    <string name="revanced_hide_flyout_panel_save_to_playlist_title">প্লেলিস্টে সংরক্ষণ করুন মেনু লুকান</string>
+    <string name="revanced_hide_flyout_panel_share_title">শেয়ার মেনু লুকান</string>
+    <string name="revanced_hide_flyout_panel_start_radio_title">স্টার্ট রেডিও মেনু লুকান</string>
+    <string name="revanced_hide_flyout_panel_view_song_credit_title">গানের ক্রেডিট দেখার মেনু লুকান</string>
     <string name="revanced_hide_music_ads_summary">ট্র্যাক চালু হওয়ার আগে বিজ্ঞাপনগুলি লুকান।</string>
     <string name="revanced_hide_music_ads_title">সঙ্গীতের বিজ্ঞাপন লুকান</string>
     <string name="revanced_hide_navigation_label_summary">নেভিগেশন বার থেকে লেবেল হাইড করুন।</string>
@@ -55,10 +84,19 @@
     <string name="revanced_hide_new_playlist_button_title">নতুন প্লেলিস্ট বাটন লুকান</string>
     <string name="revanced_hide_playlist_card_summary">প্রধান পাতা থেকে প্লেলিস্ট কার্ড লুকায়।</string>
     <string name="revanced_hide_playlist_card_title">প্লেলিস্ট কার্ড লুকান</string>
-    <string name="revanced_hook_share_button_summary">শেয়ার বাটনকে বাহিরের ডাউনলোড বাটন দ্বারা প্রতিস্থাপন করুন।</string>
-    <string name="revanced_hook_share_button_title">শেয়ার বাটনটি হুক করুন (পরীক্ষামূলক ফ্ল্যাগ)</string>
+    <string name="revanced_hide_sample_button_summary">নেভিগেশন বার থেকে স্যাম্পল বাটন লুকায়।</string>
+    <string name="revanced_hide_sample_button_title">স্যাম্পল বাটন লুকান</string>
+    <string name="revanced_hook_button_container_download_summary">বাটন কনটেইনারে অফলাইন ডাউনলোড বাটনকে বাহিরের ডাউনলোড বাটন দ্বারা পুনঃস্থাপন করে।</string>
+    <string name="revanced_hook_button_container_download_title">ডাউনলোড বাটন হুক করুন</string>
     <string name="revanced_reboot_message">রিফ্রেশ করুন এবং পুনঃচালু করুন</string>
     <string name="revanced_reset">আবার সেট করুন</string>
+    <string name="revanced_ryd_compact_layout_summary">পছন্দ বাটনের বিভাজক লুকায়।</string>
+    <string name="revanced_ryd_compact_layout_title">কমপ্যাক্ট পছন্দ বাটন</string>
+    <string name="revanced_ryd_dislike_percentage_summary">অপছন্দ সংখ্যার পরিবর্তে, অপছন্দের শতাংশ দেখায়।</string>
+    <string name="revanced_ryd_dislike_percentage_title">শতাংশ অনুযায়ী অপছন্দ</string>
+    <string name="revanced_ryd_failure_client_rate_limit_requested">অপছন্দ পাওয়া যাচ্ছে না (ক্লায়েন্ট API সর্বোচ্চ সীমা পৌঁছেছে)</string>
+    <string name="revanced_ryd_video_likes_hidden_by_video_owner">লুকায়িত</string>
+    <string name="revanced_save_playback_speed">ডিফল্ট স্পিড পরিবর্তন হচ্ছে:</string>
     <string name="revanced_save_video_quality_mobile">ডিফল্ট মোবাইল ডাটা কোয়ালিটি এতে পরিবর্তিত হচ্ছে:</string>
     <string name="revanced_save_video_quality_none">ভিডিওর কোয়ালিটি সেটিংস ব্যার্থ হয়েছে</string>
     <string name="revanced_save_video_quality_wifi">ওয়াই-ফাই এর ডিফল্ট কোয়ালিটি এতে পরিবর্তন হচ্ছে:</string>
