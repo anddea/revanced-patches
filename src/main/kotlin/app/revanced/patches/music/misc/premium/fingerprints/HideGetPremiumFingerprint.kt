@@ -18,5 +18,5 @@ object HideGetPremiumFingerprint : MethodFingerprint(
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.INVOKE_STATIC
     ),
-    listOf("FEmusic_history")
+    strings = listOf("FEmusic_history")
 )
