@@ -4,7 +4,6 @@ import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.patch.BytecodePatch
@@ -13,21 +12,20 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableField.Companion.toMut
 import app.revanced.patches.youtube.flyoutpanel.oldspeedlayout.fingerprints.CustomPlaybackSpeedIntegrationsFingerprint
 import app.revanced.patches.youtube.flyoutpanel.oldspeedlayout.fingerprints.PlaybackRateBottomSheetBuilderFingerprint
 import app.revanced.patches.youtube.flyoutpanel.oldspeedlayout.fingerprints.PlaybackRateBottomSheetClassFingerprint
-import app.revanced.patches.youtube.utils.fingerprints.NewFlyoutPanelBuilderFingerprint
+import app.revanced.patches.youtube.utils.fingerprints.RecyclerViewTreeObserverFingerprint
 import app.revanced.patches.youtube.utils.litho.patch.LithoFilterPatch
 import app.revanced.util.integrations.Constants.PATCHES_PATH
 import app.revanced.util.integrations.Constants.VIDEO_PATH
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.immutable.ImmutableField
 
 @DependsOn([LithoFilterPatch::class])
 class OldSpeedLayoutPatch : BytecodePatch(
     listOf(
         CustomPlaybackSpeedIntegrationsFingerprint,
-        NewFlyoutPanelBuilderFingerprint,
         PlaybackRateBottomSheetClassFingerprint,
-        PlaybackRateBottomSheetBuilderFingerprint
+        PlaybackRateBottomSheetBuilderFingerprint,
+        RecyclerViewTreeObserverFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext) {
@@ -91,17 +89,17 @@ class OldSpeedLayoutPatch : BytecodePatch(
         /**
          * New method
          */
-        NewFlyoutPanelBuilderFingerprint.result?.let {
+        RecyclerViewTreeObserverFingerprint.result?.let {
             it.mutableMethod.apply {
-                val insertIndex = implementation!!.instructions.size - 1
-                val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+                val insertIndex = it.scanResult.patternScanResult!!.startIndex + 2
+                val recyclerViewRegister = 2
 
                 addInstruction(
                     insertIndex,
-                    "invoke-static { v$insertRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->onFlyoutMenuCreate(Landroid/widget/LinearLayout;)V"
+                    "invoke-static/range { p$recyclerViewRegister .. p$recyclerViewRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->onFlyoutMenuCreate(Landroid/support/v7/widget/RecyclerView;)V"
                 )
             }
-        } ?: throw NewFlyoutPanelBuilderFingerprint.exception
+        } ?: throw RecyclerViewTreeObserverFingerprint.exception
 
         LithoFilterPatch.addFilter("$PATCHES_PATH/ads/PlaybackSpeedMenuFilter;")
 
