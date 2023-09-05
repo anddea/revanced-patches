@@ -26,6 +26,7 @@ class LayoutComponentsPatch : BytecodePatch() {
     override fun execute(context: BytecodeContext) {
         LithoFilterPatch.addFilter("$PATCHES_PATH/ads/CommunityPostFilter;")
         LithoFilterPatch.addFilter("$PATCHES_PATH/ads/LayoutComponentsFilter;")
+        LithoFilterPatch.addFilter("$PATCHES_PATH/ads/LayoutComponentsUniversalFilter;")
 
         /**
          * Add settings
