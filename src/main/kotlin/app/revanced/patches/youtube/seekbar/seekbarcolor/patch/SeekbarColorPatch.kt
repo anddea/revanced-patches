@@ -11,11 +11,11 @@ import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
+import app.revanced.patches.shared.patch.litho.LithoThemePatch
 import app.revanced.patches.youtube.seekbar.seekbarcolor.fingerprints.ControlsOverlayStyleFingerprint
 import app.revanced.patches.youtube.seekbar.seekbarcolor.fingerprints.PlayerSeekbarColorFingerprint
 import app.revanced.patches.youtube.seekbar.seekbarcolor.fingerprints.ShortsSeekbarColorFingerprint
 import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
-import app.revanced.patches.youtube.utils.litho.patch.LithoThemePatch
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch.Companion.InlineTimeBarColorizedBarPlayedColorDark
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch.Companion.InlineTimeBarPlayedNotHighlightedColor

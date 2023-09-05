@@ -3,7 +3,7 @@ package app.revanced.patches.youtube.layout.theme.patch
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
-import app.revanced.patches.youtube.utils.litho.patch.LithoThemePatch
+import app.revanced.patches.shared.patch.litho.LithoThemePatch
 import app.revanced.util.integrations.Constants.UTILS_PATH
 import org.w3c.dom.Element
 
