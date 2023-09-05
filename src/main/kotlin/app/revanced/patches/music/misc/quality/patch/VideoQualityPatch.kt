@@ -63,10 +63,25 @@ class VideoQualityPatch : BytecodePatch(
                             for ((index, instruction) in implementation!!.instructions.withIndex()) {
                                 if (instruction.opcode != Opcode.INVOKE_INTERFACE) continue
 
-                                qualityReference =
-                                    getInstruction<ReferenceInstruction>(index - 1).reference
                                 qIndexMethodName =
                                     ((getInstruction<Instruction35c>(index).reference) as MethodReference).name
+
+                                val qIndexMethodClass =
+                                    ((getInstruction<Instruction35c>(index).reference) as MethodReference).definingClass
+
+                                for (qualityReferenceIndex in index downTo 0) {
+                                    if (getInstruction(qualityReferenceIndex).opcode != Opcode.IGET_OBJECT) continue
+
+                                    val targetReference =
+                                        getInstruction<ReferenceInstruction>(qualityReferenceIndex).reference
+
+                                    if (!targetReference.toString()
+                                            .endsWith(qIndexMethodClass)
+                                    ) continue
+
+                                    qualityReference = targetReference
+                                    break
+                                }
 
                                 addInstruction(
                                     0,
