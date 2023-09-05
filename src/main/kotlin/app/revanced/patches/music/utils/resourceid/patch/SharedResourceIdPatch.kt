@@ -18,6 +18,7 @@ import app.revanced.util.enum.ResourceType.STYLE
 class SharedResourceIdPatch : ResourcePatch {
     internal companion object {
         var ActionsContainer: Long = -1
+        var ButtonIconPaddingMedium: Long = -1
         var ChipCloud: Long = -1
         var ColorGrey: Long = -1
         var DialogSolid: Long = -1
@@ -39,6 +40,7 @@ class SharedResourceIdPatch : ResourcePatch {
             ?: throw PatchException("Failed to find resource id : $resourceName")
 
         ActionsContainer = find(ID, "actions_container")
+        ButtonIconPaddingMedium = find(DIMEN, "button_icon_padding_medium")
         ChipCloud = find(LAYOUT, "chip_cloud")
         ColorGrey = find(COLOR, "ytm_color_grey_12")
         DialogSolid = find(STYLE, "Theme.YouTubeMusic.Dialog.Solid")
