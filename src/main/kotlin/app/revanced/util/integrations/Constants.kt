@@ -6,7 +6,6 @@ internal object Constants {
 
     const val ADS_PATH = "$PATCHES_PATH/ads"
     const val SWIPE_PATH = "$PATCHES_PATH/swipe"
-    const val BOTTOM_PLAYER = "$PATCHES_PATH/layout/BottomPlayerPatch;"
     const val FLYOUT_PANEL = "$PATCHES_PATH/layout/FlyoutPanelPatch;"
     const val FULLSCREEN = "$PATCHES_PATH/layout/FullscreenPatch;"
     const val GENERAL = "$PATCHES_PATH/layout/GeneralPatch;"
@@ -23,7 +22,11 @@ internal object Constants {
     private const val MUSIC_PATCHES_PATH = "$MUSIC_INTEGRATIONS_PATH/patches"
 
     const val MUSIC_ADS_PATH = "$MUSIC_PATCHES_PATH/ads"
-    const val MUSIC_LAYOUT = "$MUSIC_PATCHES_PATH/layout/LayoutPatch;"
+    const val MUSIC_BUTTON_CONTAINER = "$MUSIC_PATCHES_PATH/buttoncontainer/ButtonContainerPatch;"
+    const val MUSIC_FLYOUT = "$MUSIC_PATCHES_PATH/flyout/FlyoutPatch;"
+    const val MUSIC_GENERAL = "$MUSIC_PATCHES_PATH/general/GeneralPatch;"
     const val MUSIC_MISC_PATH = "$MUSIC_PATCHES_PATH/misc"
+    const val MUSIC_NAVIGATION = "$MUSIC_PATCHES_PATH/navigation/NavigationPatch;"
+    const val MUSIC_PLAYER = "$MUSIC_PATCHES_PATH/player/PlayerPatch;"
     const val MUSIC_UTILS_PATH = "$MUSIC_PATCHES_PATH/utils"
 }
