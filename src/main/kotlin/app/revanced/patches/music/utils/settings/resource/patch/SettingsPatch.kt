@@ -54,6 +54,23 @@ class SettingsPatch : AbstractSettingsResourcePatch(
         }
 
         /**
+         * hide divider
+         */
+        val styleFile = context["res/values/styles.xml"]
+
+        styleFile.writeText(
+            styleFile.readText()
+                .replace(
+                    "allowDividerAbove\">true",
+                    "allowDividerAbove\">false"
+                ).replace(
+                    "allowDividerBelow\">true",
+                    "allowDividerBelow\">false"
+                )
+        )
+
+
+        /**
          * Copy colors
          */
         context.xmlEditor["res/values/colors.xml"].use { editor ->
