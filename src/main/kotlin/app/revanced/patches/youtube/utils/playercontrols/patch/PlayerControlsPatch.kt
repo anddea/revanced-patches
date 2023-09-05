@@ -17,6 +17,7 @@ import app.revanced.patches.youtube.utils.playercontrols.fingerprints.Fullscreen
 import app.revanced.patches.youtube.utils.playercontrols.fingerprints.FullscreenEngagementSpeedEduVisibleParentFingerprint
 import app.revanced.patches.youtube.utils.playercontrols.fingerprints.PlayerControlsVisibilityFingerprint
 import app.revanced.patches.youtube.utils.playercontrols.fingerprints.PlayerControlsVisibilityModelFingerprint
+import app.revanced.patches.youtube.utils.playercontrols.fingerprints.QuickSeekVisibleFingerprint
 import app.revanced.patches.youtube.utils.playercontrols.fingerprints.SeekEDUVisibleFingerprint
 import app.revanced.patches.youtube.utils.playercontrols.fingerprints.UserScrubbingFingerprint
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
@@ -42,19 +43,34 @@ class PlayerControlsPatch : BytecodePatch(
 
         fun MutableMethod.findReference(targetString: String): Reference {
             val targetIndex = getStringIndex(targetString) + 2
-            val targetRegister = getInstruction<Instruction35c>(targetIndex).registerD
+            val targetOpcode = getInstruction(targetIndex).opcode
 
-            val instructions = implementation!!.instructions
-            for ((index, instruction) in instructions.withIndex()) {
-                if (instruction.opcode != Opcode.IGET_BOOLEAN) continue
+            if (targetOpcode == Opcode.INVOKE_VIRTUAL) {
+                val targetRegister = getInstruction<Instruction35c>(targetIndex).registerD
 
-                if (getInstruction<TwoRegisterInstruction>(index).registerA == targetRegister)
-                    return getInstruction<ReferenceInstruction>(index).reference
+                val instructions = implementation!!.instructions
+                for ((index, instruction) in instructions.withIndex()) {
+                    if (instruction.opcode != Opcode.IGET_BOOLEAN) continue
+
+                    if (getInstruction<TwoRegisterInstruction>(index).registerA == targetRegister)
+                        return getInstruction<ReferenceInstruction>(index).reference
+                }
+            } else if (targetOpcode == Opcode.IGET_BOOLEAN) {
+                return getInstruction<ReferenceInstruction>(targetIndex).reference
             }
+
             throw PatchException("Reference not found: $targetString")
         }
 
         PlayerControlsVisibilityModelFingerprint.result?.classDef?.let { classDef ->
+            quickSeekVisibleMutableMethod =
+                QuickSeekVisibleFingerprint.also {
+                    it.resolve(
+                        context,
+                        classDef
+                    )
+                }.result?.mutableMethod ?: throw QuickSeekVisibleFingerprint.exception
+
             seekEDUVisibleMutableMethod =
                 SeekEDUVisibleFingerprint.also {
                     it.resolve(
@@ -115,6 +131,7 @@ class PlayerControlsPatch : BytecodePatch(
         lateinit var inflateResult: MethodFingerprintResult
 
         lateinit var playerControlsVisibilityMutableMethod: MutableMethod
+        lateinit var quickSeekVisibleMutableMethod: MutableMethod
         lateinit var seekEDUVisibleMutableMethod: MutableMethod
         lateinit var userScrubbingMutableMethod: MutableMethod
 
@@ -170,6 +187,10 @@ class PlayerControlsPatch : BytecodePatch(
             playerControlsVisibilityMutableMethod.injectVisibilityCall(
                 descriptor,
                 "changeVisibility"
+            )
+            quickSeekVisibleMutableMethod.injectVisibilityCall(
+                descriptor,
+                "changeVisibilityNegatedImmediate"
             )
             seekEDUVisibleMutableMethod.injectVisibilityCall(
                 descriptor,
