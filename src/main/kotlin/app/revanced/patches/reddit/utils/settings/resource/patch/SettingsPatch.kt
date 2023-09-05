@@ -8,7 +8,6 @@ import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.reddit.utils.annotations.RedditCompatibility
-import app.revanced.patches.reddit.utils.fix.decoding.patch.DecodingPatch
 import app.revanced.patches.reddit.utils.integrations.patch.IntegrationsPatch
 import app.revanced.patches.reddit.utils.settings.bytecode.patch.SettingsBytecodePatch
 import kotlin.io.path.exists
@@ -18,7 +17,6 @@ import kotlin.io.path.exists
 @Description("Adds ReVanced settings to Reddit.")
 @DependsOn(
     [
-        DecodingPatch::class,
         IntegrationsPatch::class,
         SettingsBytecodePatch::class
     ]
