@@ -1,11 +1,11 @@
-package app.revanced.patches.music.utils.flyoutbuttonhook.patch
+package app.revanced.patches.music.utils.flyoutbutton.patch
 
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.util.resources.ResourceUtils
 import app.revanced.util.resources.ResourceUtils.copyResources
 
-class FlyoutButtonHookPatch : ResourcePatch {
+class FlyoutButtonContainerResourcePatch : ResourcePatch {
     override fun execute(context: ResourceContext) {
 
         /**
@@ -26,8 +26,12 @@ class FlyoutButtonHookPatch : ResourcePatch {
             resourceGroups.forEach { context.copyResources("music/flyout", it) }
         }
 
+        val resourceFileNames = arrayOf(
+            "yt_outline_play_arrow_half_circle_black_24"
+        ).map { "$it.png" }.toTypedArray()
+
         fun createGroup(directory: String) = ResourceUtils.ResourceGroup(
-            directory, "yt_outline_play_arrow_half_circle_black_24.png"
+            directory, *resourceFileNames
         )
 
         arrayOf("xxxhdpi", "xxhdpi", "xhdpi", "hdpi", "mdpi")

@@ -12,7 +12,7 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.music.flyoutpanel.playbackspeed.fingerprints.FlyoutPanelLikeButtonFingerprint
 import app.revanced.patches.music.utils.annotations.MusicCompatibility
-import app.revanced.patches.music.utils.flyoutbuttonhook.patch.FlyoutButtonHookPatch
+import app.revanced.patches.music.utils.flyoutbutton.patch.FlyoutButtonContainerResourcePatch
 import app.revanced.patches.music.utils.overridespeed.patch.OverrideSpeedHookPatch
 import app.revanced.patches.music.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.music.utils.settings.resource.patch.SettingsPatch
@@ -27,7 +27,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 @Description("Add playback speed button to the flyout panel.")
 @DependsOn(
     [
-        FlyoutButtonHookPatch::class,
+        FlyoutButtonContainerResourcePatch::class,
         OverrideSpeedHookPatch::class,
         SettingsPatch::class,
         SharedResourceIdPatch::class

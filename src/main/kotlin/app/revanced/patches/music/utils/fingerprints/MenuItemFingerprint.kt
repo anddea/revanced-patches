@@ -1,4 +1,4 @@
-package app.revanced.patches.music.flyoutpanel.hide.fingerprints
+package app.revanced.patches.music.utils.fingerprints
 
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
@@ -10,14 +10,9 @@ object MenuItemFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = emptyList(),
     opcodes = listOf(
-        Opcode.IGET,
-        Opcode.INVOKE_STATIC,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.IF_NEZ,
-        Opcode.SGET_OBJECT,
-        Opcode.INVOKE_INTERFACE,
-        Opcode.MOVE_RESULT,
-        Opcode.IF_EQZ
+        Opcode.CHECK_CAST,
+        Opcode.INVOKE_DIRECT,
+        Opcode.MOVE_RESULT_OBJECT
     ),
     strings = listOf("toggleMenuItemMutations")
 )
