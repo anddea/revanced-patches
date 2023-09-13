@@ -22,6 +22,7 @@ class SharedResourceIdPatch : ResourcePatch {
         var ColorGrey: Long = -1
         var DialogSolid: Long = -1
         var DisabledIconAlpha: Long = -1
+        var InlineTimeBarAdBreakMarkerColor: Long = -1
         var IsTablet: Long = -1
         var MusicMenuLikeButtons: Long = -1
         var MusicNotifierShelf: Long = -1
@@ -44,6 +45,7 @@ class SharedResourceIdPatch : ResourcePatch {
         ColorGrey = find(COLOR, "ytm_color_grey_12")
         DialogSolid = find(STYLE, "Theme.YouTubeMusic.Dialog.Solid")
         DisabledIconAlpha = find(DIMEN, "disabled_icon_alpha")
+        InlineTimeBarAdBreakMarkerColor = find(COLOR, "inline_time_bar_ad_break_marker_color")
         IsTablet = find(BOOL, "is_tablet")
         MusicMenuLikeButtons = find(LAYOUT, "music_menu_like_buttons")
         MusicNotifierShelf = find(LAYOUT, "music_notifier_shelf")
