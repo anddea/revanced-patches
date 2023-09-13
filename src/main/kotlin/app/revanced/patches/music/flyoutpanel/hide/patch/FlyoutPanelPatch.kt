@@ -10,9 +10,10 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.music.flyoutpanel.hide.fingerprints.MenuItemFingerprint
+import app.revanced.patches.music.utils.fingerprints.MenuItemFingerprint
+import app.revanced.patches.music.flyoutpanel.utils.EnumUtils.getEnumIndex
 import app.revanced.patches.music.utils.annotations.MusicCompatibility
-import app.revanced.patches.music.utils.flyoutbuttonhook.patch.FlyoutButtonHookPatch
+import app.revanced.patches.music.utils.flyoutbutton.patch.FlyoutButtonContainerResourcePatch
 import app.revanced.patches.music.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.enum.CategoryType
 import app.revanced.util.integrations.Constants.MUSIC_FLYOUT
@@ -26,7 +27,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 @Description("Hides flyout panel components.")
 @DependsOn(
     [
-        FlyoutButtonHookPatch::class,
+        FlyoutButtonContainerResourcePatch::class,
         SettingsPatch::class
     ]
 )
@@ -42,15 +43,15 @@ class FlyoutPanelPatch : BytecodePatch(
                 }
                 val freeRegister = getInstruction<TwoRegisterInstruction>(freeIndex).registerA
 
-                val targetIndex = it.scanResult.patternScanResult!!.startIndex + 3
-                val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
+                val enumIndex = getEnumIndex()
+                val enumRegister = getInstruction<OneRegisterInstruction>(enumIndex).registerA
 
                 val jumpInstruction =
                     getInstruction<Instruction>(implementation!!.instructions.size - 1)
 
                 addInstructionsWithLabels(
-                    targetIndex, """
-                        invoke-static {v$targetRegister}, $MUSIC_FLYOUT->hideFlyoutPanels(Ljava/lang/Enum;)Z
+                    enumIndex + 1, """
+                        invoke-static {v$enumRegister}, $MUSIC_FLYOUT->hideFlyoutPanels(Ljava/lang/Enum;)Z
                         move-result v$freeRegister
                         if-nez v$freeRegister, :hide
                         """, ExternalLabel("hide", jumpInstruction)
