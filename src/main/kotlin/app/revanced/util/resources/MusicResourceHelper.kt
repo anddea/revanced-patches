@@ -31,6 +31,8 @@ internal object MusicResourceHelper {
 
     internal const val YOUTUBE_MUSIC_SETTINGS_KEY = "revanced_extended_settings"
 
+    internal const val RETURN_YOUTUBE_DISLIKE_SETTINGS_KEY = "revanced_ryd_settings"
+
     private const val YOUTUBE_MUSIC_PREFERENCE_SCREEN_TAG_NAME =
         "PreferenceScreen"
 
@@ -40,7 +42,7 @@ internal object MusicResourceHelper {
     private const val YOUTUBE_MUSIC_PREFERENCE_TARGET_CLASS =
         "com.google.android.libraries.strictmode.penalties.notification.FullStackTraceActivity"
 
-    private var targetPackage = "com.google.android.apps.youtube.music"
+    internal var targetPackage = "com.google.android.apps.youtube.music"
 
     internal fun ResourceContext.setMicroG(newPackage: String) {
         targetPackage = newPackage
