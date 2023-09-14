@@ -7,6 +7,7 @@
     <string name="revanced_category_misc">Autres</string>
     <string name="revanced_category_navigation">Navigation</string>
     <string name="revanced_category_player">Lecteur</string>
+    <string name="revanced_custom_filter_strings_summary">Filtrer les noms des composants en la séparant par une ligne</string>
     <string name="revanced_custom_filter_strings_title">Modifier le filtre personnalisé</string>
     <string name="revanced_custom_filter_summary">Active les filtres personnalisés</string>
     <string name="revanced_custom_filter_title">Activer les filtres personnalisés</string>
@@ -31,6 +32,8 @@
     <string name="revanced_enable_landscape_mode_title">Activer le \"Mode Paysage\"</string>
     <string name="revanced_enable_new_layout_summary">Active la nouvelle interface du lecteur. (YT Music v5.47.51+)</string>
     <string name="revanced_enable_new_layout_title">Activer la nouvelle interface</string>
+    <string name="revanced_enable_old_style_library_shelf_summary">Afficher l\'ancienne apparence de la bibliothèque (Expérimental)</string>
+    <string name="revanced_enable_old_style_library_shelf_title">Activer l\'ancienne interface de la bibliothèque</string>
     <string name="revanced_enable_old_style_mini_player_summary">Restaure l\'ancien style du minilecteur. (YT Music v5.55.53+)</string>
     <string name="revanced_enable_old_style_mini_player_title">Activer l\'ancien minilecteur</string>
     <string name="revanced_enable_opus_codec_summary">Active le codec opus 250/251 lors de la lecture audio.</string>
@@ -46,6 +49,7 @@
     <string name="revanced_external_downloader_not_installed_warning" formatted="false">%s n\'es pas installé. Veuillez l\'installer.</string>
     <string name="revanced_external_downloader_package_name_summary">Nom du paquet de l\'application de téléchargement externe installée, telle que NewPipe ou Seal</string>
     <string name="revanced_external_downloader_package_name_title">Nom du paquet du téléchargeur externe</string>
+    <string name="revanced_flyout_panel_watch_on_youtube">Regarder sur YouTube</string>
     <string name="revanced_hide_button_container_label_summary">Masquer les étiquettes dans le conteneur de boutons.</string>
     <string name="revanced_hide_button_container_label_title">Masquer les étiquettes des conteneurs de boutons</string>
     <string name="revanced_hide_button_container_radio_summary">Masque le bouton \"démarrer le mix\"</string>
@@ -88,8 +92,13 @@
     <string name="revanced_hide_sample_button_title">Masque le bouton \"Sample\"</string>
     <string name="revanced_hook_button_container_download_summary">Remplace le bouton \"Téléchargement hors ligne\" dans les boutons sous la pochette du titre par un bouton de téléchargement externe.</string>
     <string name="revanced_hook_button_container_download_title">Remplacer la fonction de téléchargement</string>
+    <string name="revanced_reboot_first_run">Redémarrer pour charger la mise en page normalement</string>
     <string name="revanced_reboot_message">Voulez-vous redémarrer pour appliquer </string>
     <string name="revanced_reset">Réinitialiser</string>
+    <string name="revanced_replace_flyout_panel_dismiss_queue_summary">Remplace le menu de la file d’attente pour regarder sur YouTube</string>
+    <string name="revanced_replace_flyout_panel_dismiss_queue_title">Remplacer la file d\'attente</string>
+    <string name="revanced_ryd_about">À propos</string>
+    <string name="revanced_ryd_attribution_summary">Les données sur YouTube Dislike sont fournies par l\'API Return YouTube Dislike Cliquez ici pour en savoir plus</string>
     <string name="revanced_ryd_compact_layout_summary">Masque le séparateur du bouton \"J\'aime\".</string>
     <string name="revanced_ryd_compact_layout_title">Bouton \"J\'aime\" compact</string>
     <string name="revanced_ryd_dislike_percentage_summary">Le pourcentage de \"Je n\'aime pas\" au lieu du nombre de \"Je n\'aime pas\" est affiché</string>
