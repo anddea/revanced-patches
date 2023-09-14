@@ -39,6 +39,7 @@ class TranslationsPatch : ResourcePatch {
             "it-rIT",
             "ja-rJP",
             "ko-rKR",
+            "nl-rNL",
             "pl-rPL",
             "pt-rBR",
             "ru-rRU",
