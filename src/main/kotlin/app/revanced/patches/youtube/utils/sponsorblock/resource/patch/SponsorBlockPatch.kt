@@ -14,7 +14,7 @@ import app.revanced.util.resources.ResourceUtils.copyResources
 import app.revanced.util.resources.ResourceUtils.copyXmlNode
 
 @Patch
-@Name("Sponsorblock")
+@Name("SponsorBlock")
 @Description("Integrates SponsorBlock which allows skipping video segments such as sponsored content.")
 @DependsOn(
     [
@@ -23,7 +23,7 @@ import app.revanced.util.resources.ResourceUtils.copyXmlNode
     ]
 )
 @YouTubeCompatibility
-class SponsorBlockResourcePatch : ResourcePatch {
+class SponsorBlockPatch : ResourcePatch {
 
     override fun execute(context: ResourceContext) {
         /**
