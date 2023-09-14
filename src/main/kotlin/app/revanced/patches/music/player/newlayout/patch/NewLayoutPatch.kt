@@ -18,7 +18,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
 @Name("Enable new layout")
-@Description("Enable new player layouts. (YT Music v5.47.51+)")
+@Description("Enable new player layouts.")
 @DependsOn([SettingsPatch::class])
 @MusicCompatibility
 class NewLayoutPatch : BytecodePatch(
