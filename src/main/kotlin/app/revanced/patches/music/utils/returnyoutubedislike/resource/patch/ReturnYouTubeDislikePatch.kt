@@ -29,7 +29,11 @@ class ReturnYouTubeDislikePatch : ResourcePatch {
 
         context.addReVancedMusicPreference(RETURN_YOUTUBE_DISLIKE_SETTINGS_KEY)
         context.addSwitchPreference("revanced_ryd_enabled", "true")
-        context.addSwitchPreference("revanced_ryd_dislike_percentage", "false", "revanced_ryd_enabled")
+        context.addSwitchPreference(
+            "revanced_ryd_dislike_percentage",
+            "false",
+            "revanced_ryd_enabled"
+        )
         context.addSwitchPreference("revanced_ryd_compact_layout", "false", "revanced_ryd_enabled")
         context.addPreferenceCategory("revanced_ryd_about")
         context.addAboutPreference("revanced_ryd_attribution")
@@ -76,7 +80,9 @@ class ReturnYouTubeDislikePatch : ResourcePatch {
             this.xmlEditor[YOUTUBE_MUSIC_SETTINGS_PATH].use { editor ->
                 val tags = editor.file.getElementsByTagName("PreferenceScreen")
                 List(tags.length) { tags.item(it) as Element }
-                    .filter { it.getAttribute("android:key").contains(RETURN_YOUTUBE_DISLIKE_SETTINGS_KEY) }
+                    .filter {
+                        it.getAttribute("android:key").contains(RETURN_YOUTUBE_DISLIKE_SETTINGS_KEY)
+                    }
                     .forEach {
                         it.adoptChild(PREFERENCE_CATEGORY_TAG_NAME) {
                             setAttribute("android:title", "@string/$category")
@@ -101,7 +107,9 @@ class ReturnYouTubeDislikePatch : ResourcePatch {
             this.xmlEditor[YOUTUBE_MUSIC_SETTINGS_PATH].use { editor ->
                 val tags = editor.file.getElementsByTagName("PreferenceScreen")
                 List(tags.length) { tags.item(it) as Element }
-                    .filter { it.getAttribute("android:key").contains(RETURN_YOUTUBE_DISLIKE_SETTINGS_KEY) }
+                    .filter {
+                        it.getAttribute("android:key").contains(RETURN_YOUTUBE_DISLIKE_SETTINGS_KEY)
+                    }
                     .forEach {
                         it.adoptChild(SWITCH_PREFERENCE_TAG_NAME) {
                             setAttribute("android:title", "@string/$key" + "_title")

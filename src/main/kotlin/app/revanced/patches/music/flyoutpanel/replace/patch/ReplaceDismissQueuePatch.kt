@@ -9,9 +9,9 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patches.music.utils.fingerprints.MenuItemFingerprint
 import app.revanced.patches.music.flyoutpanel.utils.EnumUtils.getEnumIndex
 import app.revanced.patches.music.utils.annotations.MusicCompatibility
+import app.revanced.patches.music.utils.fingerprints.MenuItemFingerprint
 import app.revanced.patches.music.utils.flyoutbutton.patch.FlyoutButtonItemResourcePatch
 import app.revanced.patches.music.utils.settings.resource.patch.SettingsPatch
 import app.revanced.patches.music.utils.videoid.patch.VideoIdPatch
@@ -42,8 +42,10 @@ class ReplaceDismissQueuePatch : BytecodePatch(
                 val textViewIndex = it.scanResult.patternScanResult!!.startIndex
                 val imageViewIndex = it.scanResult.patternScanResult!!.endIndex
 
-                val textViewRegister = getInstruction<OneRegisterInstruction>(textViewIndex).registerA
-                val imageViewRegister = getInstruction<OneRegisterInstruction>(imageViewIndex).registerA
+                val textViewRegister =
+                    getInstruction<OneRegisterInstruction>(textViewIndex).registerA
+                val imageViewRegister =
+                    getInstruction<OneRegisterInstruction>(imageViewIndex).registerA
 
                 addInstruction(
                     enumIndex + 1,
