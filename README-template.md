@@ -50,7 +50,7 @@ Example:
         "name": "com.google.android.apps.youtube.music",
         "versions": [
           "6.15.52",
-          "6.17.52"
+          "6.19.51"
         ]
       }
     ]
