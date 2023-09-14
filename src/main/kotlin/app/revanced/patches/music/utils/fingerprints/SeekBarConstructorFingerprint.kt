@@ -6,5 +6,9 @@ import app.revanced.util.bytecode.isWideLiteralExists
 
 object SeekBarConstructorFingerprint : MethodFingerprint(
     returnType = "V",
-    customFingerprint = { methodDef, _ -> methodDef.isWideLiteralExists(InlineTimeBarAdBreakMarkerColor) }
+    customFingerprint = { methodDef, _ ->
+        methodDef.isWideLiteralExists(
+            InlineTimeBarAdBreakMarkerColor
+        )
+    }
 )

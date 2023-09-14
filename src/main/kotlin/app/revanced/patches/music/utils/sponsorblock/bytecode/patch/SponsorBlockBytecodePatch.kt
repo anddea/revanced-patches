@@ -123,7 +123,8 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         MusicPlaybackControlsTimeBarOnMeasureFingerprint.result?.let {
             it.mutableMethod.apply {
                 val rectangleIndex = it.scanResult.patternScanResult!!.startIndex
-                val rectangleReference = getInstruction<ReferenceInstruction>(rectangleIndex).reference
+                val rectangleReference =
+                    getInstruction<ReferenceInstruction>(rectangleIndex).reference
                 rectangleFieldName = (rectangleReference as FieldReference).name
             }
         } ?: throw MusicPlaybackControlsTimeBarOnMeasureFingerprint.exception

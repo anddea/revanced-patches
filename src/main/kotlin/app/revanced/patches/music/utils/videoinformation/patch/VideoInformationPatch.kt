@@ -14,10 +14,10 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.music.utils.annotations.MusicCompatibility
+import app.revanced.patches.music.utils.fingerprints.SeekBarConstructorFingerprint
 import app.revanced.patches.music.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.music.utils.videoinformation.fingerprints.PlayerControllerSetTimeReferenceFingerprint
 import app.revanced.patches.music.utils.videoinformation.fingerprints.PlayerInitFingerprint
-import app.revanced.patches.music.utils.fingerprints.SeekBarConstructorFingerprint
 import app.revanced.patches.music.utils.videoinformation.fingerprints.SeekFingerprint
 import app.revanced.patches.music.utils.videoinformation.fingerprints.VideoLengthFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -91,12 +91,15 @@ class VideoInformationPatch : BytecodePatch(
                 )
             }.result?.let {
                 it.mutableMethod.apply {
-                    val rectangleReference = getInstruction<ReferenceInstruction>(implementation!!.instructions.count() - 3).reference
+                    val rectangleReference =
+                        getInstruction<ReferenceInstruction>(implementation!!.instructions.count() - 3).reference
                     rectangleFieldName = (rectangleReference as FieldReference).name
 
                     val videoLengthRegisterIndex = it.scanResult.patternScanResult!!.startIndex + 1
-                    val videoLengthRegister = getInstruction<OneRegisterInstruction>(videoLengthRegisterIndex).registerA
-                    val dummyRegisterForLong = videoLengthRegister + 1 // required for long values since they are wide
+                    val videoLengthRegister =
+                        getInstruction<OneRegisterInstruction>(videoLengthRegisterIndex).registerA
+                    val dummyRegisterForLong =
+                        videoLengthRegister + 1 // required for long values since they are wide
 
                     addInstruction(
                         videoLengthRegisterIndex + 1,
@@ -122,7 +125,8 @@ class VideoInformationPatch : BytecodePatch(
     }
 
     companion object {
-        private const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/music/patches/utils/VideoInformation;"
+        private const val INTEGRATIONS_CLASS_DESCRIPTOR =
+            "Lapp/revanced/music/patches/utils/VideoInformation;"
 
         private lateinit var playerInitMethod: MutableMethod
         private var playerInitInsertIndex = 4
