@@ -4,14 +4,12 @@ import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.music.navigation.upgrade.fingerprints.NotifierShelfFingerprint
 import app.revanced.patches.music.utils.annotations.MusicCompatibility
 import app.revanced.patches.music.utils.fingerprints.TabLayoutTextFingerprint
 import app.revanced.patches.music.utils.integrations.patch.IntegrationsPatch
@@ -24,7 +22,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Patch
 @Name("Hide upgrade button")
-@Description("Hides upgrade button from navigation bar and hide upgrade banner from homepage.")
+@Description("Hides upgrade button from navigation bar.")
 @DependsOn(
     [
         IntegrationsPatch::class,
@@ -33,10 +31,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 )
 @MusicCompatibility
 class UpgradeButtonPatch : BytecodePatch(
-    listOf(
-        NotifierShelfFingerprint,
-        TabLayoutTextFingerprint
-    )
+    listOf(TabLayoutTextFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
         TabLayoutTextFingerprint.result?.let {
@@ -64,17 +59,6 @@ class UpgradeButtonPatch : BytecodePatch(
                 }
             }
         } ?: throw TabLayoutTextFingerprint.exception
-
-        NotifierShelfFingerprint.result?.let {
-            it.mutableMethod.apply {
-                val targetIndex = it.scanResult.patternScanResult!!.endIndex
-                val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
-                addInstruction(
-                    targetIndex + 1,
-                    "invoke-static {v$targetRegister}, Lapp/revanced/music/utils/ReVancedUtils;->hideViewByLayoutParams(Landroid/view/View;)V"
-                )
-            }
-        } ?: throw NotifierShelfFingerprint.exception
 
     }
 }

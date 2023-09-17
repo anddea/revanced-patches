@@ -25,7 +25,6 @@ class SharedResourceIdPatch : ResourcePatch {
         var InlineTimeBarAdBreakMarkerColor: Long = -1
         var IsTablet: Long = -1
         var MusicMenuLikeButtons: Long = -1
-        var MusicNotifierShelf: Long = -1
         var PrivacyTosFooter: Long = -1
         var QualityTitle: Long = -1
         var Text1: Long = -1
@@ -48,7 +47,6 @@ class SharedResourceIdPatch : ResourcePatch {
         InlineTimeBarAdBreakMarkerColor = find(COLOR, "inline_time_bar_ad_break_marker_color")
         IsTablet = find(BOOL, "is_tablet")
         MusicMenuLikeButtons = find(LAYOUT, "music_menu_like_buttons")
-        MusicNotifierShelf = find(LAYOUT, "music_notifier_shelf")
         PrivacyTosFooter = find(ID, "privacy_tos_footer")
         QualityTitle = find(STRING, "quality_title")
         Text1 = find(ID, "text1")
