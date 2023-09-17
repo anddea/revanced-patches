@@ -60,5 +60,12 @@ class ReplaceDismissQueuePatch : BytecodePatch(
             "false"
         )
 
+        SettingsPatch.addMusicPreference(
+            CategoryType.FLYOUT,
+            "revanced_replace_flyout_panel_dismiss_queue_continue_watch",
+            "true",
+            "revanced_replace_flyout_panel_dismiss_queue"
+        )
+
     }
 }
