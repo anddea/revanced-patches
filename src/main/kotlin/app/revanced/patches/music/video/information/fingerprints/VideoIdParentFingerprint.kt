@@ -1,4 +1,4 @@
-package app.revanced.patches.music.utils.videoid.fingerprint
+package app.revanced.patches.music.video.information.fingerprints
 
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
