@@ -13,6 +13,7 @@ import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.shorts.startupshortsreset.fingerprints.UserWasInShortsFingerprint
 import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
+import app.revanced.util.bytecode.getWide32LiteralIndex
 import app.revanced.util.integrations.Constants.SHORTS
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
@@ -28,17 +29,18 @@ class DisableShortsOnStartupPatch : BytecodePatch(
 
         UserWasInShortsFingerprint.result?.let {
             it.mutableMethod.apply {
-                val targetIndex = it.scanResult.patternScanResult!!.endIndex
-                val register = getInstruction<OneRegisterInstruction>(targetIndex).registerA + 2
+                val insertIndex = getWide32LiteralIndex(45381394)
+                val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+
                 addInstructionsWithLabels(
-                    targetIndex + 1,
+                    insertIndex,
                     """
                         invoke-static { }, $SHORTS->disableStartupShortsPlayer()Z
-                        move-result v$register
-                        if-eqz v$register, :show_startup_shorts_player
+                        move-result v$insertRegister
+                        if-eqz v$insertRegister, :show_startup_shorts_player
                         return-void
                         """,
-                    ExternalLabel("show_startup_shorts_player", getInstruction(targetIndex + 1))
+                    ExternalLabel("show_startup_shorts_player", getInstruction(insertIndex))
                 )
             }
         } ?: throw UserWasInShortsFingerprint.exception
