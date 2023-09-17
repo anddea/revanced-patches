@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.video.customspeed.fingerprints
+package app.revanced.patches.shared.fingerprints.customspeed
 
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
