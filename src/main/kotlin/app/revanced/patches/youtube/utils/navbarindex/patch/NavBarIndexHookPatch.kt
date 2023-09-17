@@ -7,14 +7,9 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.youtube.utils.fingerprints.OnBackPressedFingerprint
-import app.revanced.patches.youtube.utils.litho.patch.LithoFilterPatch
 import app.revanced.patches.youtube.utils.navbarindex.fingerprints.NavBarBuilderFingerprint
 import app.revanced.patches.youtube.utils.navbarindex.fingerprints.TopBarButtonFingerprint
-import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
-import app.revanced.util.bytecode.BytecodeHelper.injectInit
-import app.revanced.util.integrations.Constants.PATCHES_PATH
 import app.revanced.util.integrations.Constants.UTILS_PATH
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -22,12 +17,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-@DependsOn(
-    [
-        SharedResourceIdPatch::class,
-        LithoFilterPatch::class
-    ]
-)
 class NavBarIndexHookPatch : BytecodePatch(
     listOf(
         NavBarBuilderFingerprint,
@@ -76,11 +65,6 @@ class NavBarIndexHookPatch : BytecodePatch(
                 }
             }
         } ?: throw NavBarBuilderFingerprint.exception
-
-        LithoFilterPatch.addFilter("$PATCHES_PATH/ads/NavBarIndexFilter;")
-
-        context.injectInit("NavBarIndexPatch", "initializeIndex", true)
-
     }
 
     companion object {
