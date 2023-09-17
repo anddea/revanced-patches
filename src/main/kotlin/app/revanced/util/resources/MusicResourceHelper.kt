@@ -110,7 +110,8 @@ internal object MusicResourceHelper {
     internal fun ResourceContext.addMusicPreference(
         category: String,
         key: String,
-        defaultValue: String
+        defaultValue: String,
+        dependencyKey: String
     ) {
         this.xmlEditor[YOUTUBE_MUSIC_SETTINGS_PATH].use { editor ->
             val tags = editor.file.getElementsByTagName(YOUTUBE_MUSIC_PREFERENCE_SCREEN_TAG_NAME)
@@ -122,6 +123,9 @@ internal object MusicResourceHelper {
                         setAttribute("android:summary", "@string/$key" + "_summary")
                         setAttribute("android:key", key)
                         setAttribute("android:defaultValue", defaultValue)
+                        if (dependencyKey != "") {
+                            setAttribute("android:dependency", dependencyKey)
+                        }
                     }
                 }
         }
@@ -141,7 +145,9 @@ internal object MusicResourceHelper {
                         setAttribute("android:title", "@string/$key" + "_title")
                         setAttribute("android:summary", "@string/$key" + "_summary")
                         setAttribute("android:key", key)
-                        setAttribute("android:dependency", dependencyKey)
+                        if (dependencyKey != "") {
+                            setAttribute("android:dependency", dependencyKey)
+                        }
                         this.adoptChild("intent") {
                             setAttribute("android:targetPackage", targetPackage)
                             setAttribute("android:data", key)

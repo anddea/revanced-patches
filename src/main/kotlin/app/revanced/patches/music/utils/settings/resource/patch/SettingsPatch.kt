@@ -131,9 +131,18 @@ class SettingsPatch : AbstractSettingsResourcePatch(
             key: String,
             defaultValue: String
         ) {
+            addMusicPreference(category, key, defaultValue, "")
+        }
+
+        internal fun addMusicPreference(
+            category: CategoryType,
+            key: String,
+            defaultValue: String,
+            dependencyKey: String
+        ) {
             val categoryValue = category.value
             contexts.addMusicPreferenceCategory(categoryValue)
-            contexts.addMusicPreference(categoryValue, key, defaultValue)
+            contexts.addMusicPreference(categoryValue, key, defaultValue, dependencyKey)
         }
 
         internal fun addMusicPreferenceWithoutSummary(
@@ -144,6 +153,13 @@ class SettingsPatch : AbstractSettingsResourcePatch(
             val categoryValue = category.value
             contexts.addMusicPreferenceCategory(categoryValue)
             contexts.addMusicPreferenceWithoutSummary(categoryValue, key, defaultValue)
+        }
+
+        internal fun addMusicPreferenceWithIntent(
+            category: CategoryType,
+            key: String
+        ) {
+            addMusicPreferenceWithIntent(category, key, "")
         }
 
         internal fun addMusicPreferenceWithIntent(
