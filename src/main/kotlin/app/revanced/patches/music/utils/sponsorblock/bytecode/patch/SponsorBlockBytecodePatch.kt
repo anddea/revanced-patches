@@ -14,7 +14,6 @@ import app.revanced.patches.music.utils.sponsorblock.bytecode.fingerprints.Music
 import app.revanced.patches.music.utils.sponsorblock.bytecode.fingerprints.MusicPlaybackControlsTimeBarOnMeasureFingerprint
 import app.revanced.patches.music.utils.sponsorblock.bytecode.fingerprints.SeekbarOnDrawFingerprint
 import app.revanced.patches.music.video.information.patch.VideoInformationPatch
-import app.revanced.patches.music.utils.videoinformation.patch.VideoInformationPatch
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction3rc
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
@@ -26,7 +25,6 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 @DependsOn(
     [
         SharedResourceIdPatch::class,
-        VideoInformationPatch::class,
         VideoInformationPatch::class
     ]
 )
