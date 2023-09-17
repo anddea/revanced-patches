@@ -11,6 +11,7 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.youtube.general.personalinformation.fingerprints.AccountSwitcherAccessibilityLabelFingerprint
 import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
+import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.integrations.Constants.GENERAL
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -18,7 +19,12 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 @Patch
 @Name("Hide handle")
 @Description("Hides the handle in the account switcher.")
-@DependsOn([SettingsPatch::class])
+@DependsOn(
+    [
+        SettingsPatch::class,
+        SharedResourceIdPatch::class
+    ]
+)
 @YouTubeCompatibility
 class HideEmailAddressPatch : BytecodePatch(
     listOf(AccountSwitcherAccessibilityLabelFingerprint)
@@ -49,7 +55,7 @@ class HideEmailAddressPatch : BytecodePatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("hide-email-address")
+        SettingsPatch.updatePatchStatus("hide-handle")
 
     }
 }
