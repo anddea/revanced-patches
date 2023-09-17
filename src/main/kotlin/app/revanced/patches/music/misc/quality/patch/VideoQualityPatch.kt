@@ -18,7 +18,7 @@ import app.revanced.patches.music.misc.quality.fingerprints.UserQualityChangeFin
 import app.revanced.patches.music.utils.annotations.MusicCompatibility
 import app.revanced.patches.music.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.music.utils.settings.resource.patch.SettingsPatch
-import app.revanced.patches.music.utils.videoid.patch.VideoIdPatch
+import app.revanced.patches.music.video.information.patch.VideoInformationPatch
 import app.revanced.util.enum.CategoryType
 import app.revanced.util.integrations.Constants.MUSIC_MISC_PATH
 import com.android.tools.smali.dexlib2.Opcode
@@ -35,7 +35,7 @@ import com.android.tools.smali.dexlib2.iface.reference.Reference
     [
         SettingsPatch::class,
         SharedResourceIdPatch::class,
-        VideoIdPatch::class
+        VideoInformationPatch::class
     ]
 )
 @MusicCompatibility
@@ -112,7 +112,7 @@ class VideoQualityPatch : BytecodePatch(
             ) ?: throw MusicVideoQualitySettingsFingerprint.exception
         } ?: throw MusicVideoQualitySettingsParentFingerprint.exception
 
-        VideoIdPatch.injectCall("$INTEGRATIONS_VIDEO_QUALITY_CLASS_DESCRIPTOR->newVideoStarted(Ljava/lang/String;)V")
+        VideoInformationPatch.injectCall("$INTEGRATIONS_VIDEO_QUALITY_CLASS_DESCRIPTOR->newVideoStarted(Ljava/lang/String;)V")
         SettingsPatch.addMusicPreference(
             CategoryType.MISC,
             "revanced_enable_save_video_quality",

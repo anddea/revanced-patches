@@ -10,7 +10,7 @@ import app.revanced.patches.music.utils.annotations.MusicCompatibility
 import app.revanced.patches.music.utils.buttoncontainerhook.patch.ButtonContainerHookPatch
 import app.revanced.patches.music.utils.intenthook.patch.IntentHookPatch
 import app.revanced.patches.music.utils.settings.resource.patch.SettingsPatch
-import app.revanced.patches.music.utils.videoid.patch.VideoIdPatch
+import app.revanced.patches.music.video.information.patch.VideoInformationPatch
 import app.revanced.util.enum.CategoryType
 
 @Patch
@@ -21,7 +21,7 @@ import app.revanced.util.enum.CategoryType
         ButtonContainerHookPatch::class,
         IntentHookPatch::class,
         SettingsPatch::class,
-        VideoIdPatch::class
+        VideoInformationPatch::class
     ]
 )
 @MusicCompatibility

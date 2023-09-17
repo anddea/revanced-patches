@@ -13,7 +13,7 @@ import app.revanced.patches.music.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.music.utils.sponsorblock.bytecode.fingerprints.MusicPlaybackControlsTimeBarDrawFingerprint
 import app.revanced.patches.music.utils.sponsorblock.bytecode.fingerprints.MusicPlaybackControlsTimeBarOnMeasureFingerprint
 import app.revanced.patches.music.utils.sponsorblock.bytecode.fingerprints.SeekbarOnDrawFingerprint
-import app.revanced.patches.music.utils.videoid.patch.VideoIdPatch
+import app.revanced.patches.music.video.information.patch.VideoInformationPatch
 import app.revanced.patches.music.utils.videoinformation.patch.VideoInformationPatch
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction3rc
@@ -26,7 +26,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 @DependsOn(
     [
         SharedResourceIdPatch::class,
-        VideoIdPatch::class,
+        VideoInformationPatch::class,
         VideoInformationPatch::class
     ]
 )
@@ -166,7 +166,7 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         /**
          * Set current video id
          */
-        VideoIdPatch.injectCall("$INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR->setCurrentVideoId(Ljava/lang/String;)V")
+        VideoInformationPatch.injectCall("$INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR->setCurrentVideoId(Ljava/lang/String;)V")
     }
 
     private companion object {

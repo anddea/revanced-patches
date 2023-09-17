@@ -1,8 +1,6 @@
-package app.revanced.patches.music.utils.videoinformation.patch
+package app.revanced.patches.music.video.information.patch
 
 import app.revanced.extensions.exception
-import app.revanced.patcher.annotation.Description
-import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
@@ -13,14 +11,16 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
-import app.revanced.patches.music.utils.annotations.MusicCompatibility
 import app.revanced.patches.music.utils.fingerprints.SeekBarConstructorFingerprint
 import app.revanced.patches.music.utils.resourceid.patch.SharedResourceIdPatch
-import app.revanced.patches.music.utils.videoinformation.fingerprints.PlayerControllerSetTimeReferenceFingerprint
-import app.revanced.patches.music.utils.videoinformation.fingerprints.PlayerInitFingerprint
-import app.revanced.patches.music.utils.videoinformation.fingerprints.SeekFingerprint
-import app.revanced.patches.music.utils.videoinformation.fingerprints.VideoLengthFingerprint
+import app.revanced.patches.music.video.information.fingerprints.PlayerControllerSetTimeReferenceFingerprint
+import app.revanced.patches.music.video.information.fingerprints.PlayerInitFingerprint
+import app.revanced.patches.music.video.information.fingerprints.SeekFingerprint
+import app.revanced.patches.music.video.information.fingerprints.VideoIdParentFingerprint
+import app.revanced.patches.music.video.information.fingerprints.VideoLengthFingerprint
+import app.revanced.util.integrations.Constants.MUSIC_VIDEO_PATH
 import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
@@ -29,19 +29,13 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 import com.android.tools.smali.dexlib2.util.MethodUtil
 
-@Name("Video information")
-@Description("Hooks YouTube to get information about the current playing video.")
-@DependsOn(
-    [
-        SharedResourceIdPatch::class
-    ]
-)
-@MusicCompatibility
+@DependsOn([SharedResourceIdPatch::class])
 class VideoInformationPatch : BytecodePatch(
     listOf(
         PlayerControllerSetTimeReferenceFingerprint,
         PlayerInitFingerprint,
         SeekBarConstructorFingerprint,
+        VideoIdParentFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext) {
@@ -80,6 +74,7 @@ class VideoInformationPatch : BytecodePatch(
             } ?: throw SeekFingerprint.exception
         } ?: throw PlayerInitFingerprint.exception
 
+
         /**
          * Set current video length
          */
@@ -109,6 +104,7 @@ class VideoInformationPatch : BytecodePatch(
             } ?: throw VideoLengthFingerprint.exception
         } ?: throw SeekBarConstructorFingerprint.exception
 
+
         /**
          * Set the video time method
          */
@@ -118,23 +114,83 @@ class VideoInformationPatch : BytecodePatch(
                 .getMethod() as MutableMethod
         } ?: throw PlayerControllerSetTimeReferenceFingerprint.exception
 
+
         /**
          * Set current video time
          */
         videoTimeHook(INTEGRATIONS_CLASS_DESCRIPTOR, "setVideoTime")
+
+
+        /**
+         * Inject call for video id
+         */
+        VideoIdParentFingerprint.result?.let {
+            it.mutableMethod.apply {
+                val targetIndex = it.scanResult.patternScanResult!!.endIndex
+
+                val targetReference = getInstruction<ReferenceInstruction>(targetIndex).reference
+                val targetClass = (targetReference as FieldReference).type
+
+                videoIdMethod = context
+                    .findClass(targetClass)!!
+                    .mutableClass.methods.first { method ->
+                        method.name == "handleVideoStageEvent"
+                    }
+            }
+        } ?: throw VideoIdParentFingerprint.exception
+
+        videoIdMethod.apply {
+            for (index in implementation!!.instructions.size - 1 downTo 0) {
+                if (getInstruction(index).opcode != Opcode.INVOKE_INTERFACE) continue
+
+                val targetReference = getInstruction<ReferenceInstruction>(index).reference
+
+                if (!targetReference.toString().endsWith("Ljava/lang/String;")) continue
+
+                videoIdIndex = index + 1
+                videoIdRegister = getInstruction<OneRegisterInstruction>(videoIdIndex).registerA
+
+                break
+            }
+            offset++ // offset so setVideoId is called before any injected call
+        }
+
+
+        /**
+         * Set current video id
+         */
+        injectCall("$INTEGRATIONS_CLASS_DESCRIPTOR->setVideoId(Ljava/lang/String;)V")
     }
 
     companion object {
         private const val INTEGRATIONS_CLASS_DESCRIPTOR =
-            "Lapp/revanced/music/patches/utils/VideoInformation;"
+            "$MUSIC_VIDEO_PATH/VideoInformation;"
 
-        private lateinit var playerInitMethod: MutableMethod
+        private var offset = 0
         private var playerInitInsertIndex = 4
-
-        private lateinit var timeMethod: MutableMethod
         private var timeInitInsertIndex = 2
+        private var videoIdIndex = 0
+
+        private var videoIdRegister: Int = 0
+
+        private lateinit var videoIdMethod: MutableMethod
+        private lateinit var playerInitMethod: MutableMethod
+        private lateinit var timeMethod: MutableMethod
 
         lateinit var rectangleFieldName: String
+
+        /**
+         * Adds an invoke-static instruction, called with the new id when the video changes
+         * @param methodDescriptor which method to call. Params have to be `Ljava/lang/String;`
+         */
+        internal fun injectCall(
+            methodDescriptor: String
+        ) {
+            videoIdMethod.addInstructions(
+                videoIdIndex + offset, // move-result-object offset
+                "invoke-static {v$videoIdRegister}, $methodDescriptor"
+            )
+        }
 
         private fun MutableMethod.insert(insertIndex: Int, register: String, descriptor: String) =
             addInstruction(insertIndex, "invoke-static { $register }, $descriptor")
