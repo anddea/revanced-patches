@@ -14,7 +14,7 @@ import app.revanced.patches.music.utils.overridespeed.fingerprints.PlaybackSpeed
 import app.revanced.patches.music.utils.overridespeed.fingerprints.PlaybackSpeedParentFingerprint
 import app.revanced.patches.music.utils.overridespeed.fingerprints.PlaybackSpeedPatchFingerprint
 import app.revanced.util.integrations.Constants.MUSIC_INTEGRATIONS_PATH
-import app.revanced.util.integrations.Constants.MUSIC_MISC_PATH
+import app.revanced.util.integrations.Constants.MUSIC_VIDEO_PATH
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction35c
 import com.android.tools.smali.dexlib2.dexbacked.reference.DexBackedMethodReference
@@ -103,7 +103,7 @@ class OverrideSpeedHookPatch : BytecodePatch(
 
     internal companion object {
         const val INTEGRATIONS_PLAYBACK_SPEED_CLASS_DESCRIPTOR =
-            "$MUSIC_MISC_PATH/PlaybackSpeedPatch;"
+            "$MUSIC_VIDEO_PATH/PlaybackSpeedPatch;"
 
         const val INTEGRATIONS_VIDEO_HELPER_CLASS_DESCRIPTOR =
             "$MUSIC_INTEGRATIONS_PATH/utils/VideoHelpers;"

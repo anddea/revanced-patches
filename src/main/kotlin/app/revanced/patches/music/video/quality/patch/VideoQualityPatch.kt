@@ -1,4 +1,4 @@
-package app.revanced.patches.music.misc.quality.patch
+package app.revanced.patches.music.video.quality.patch
 
 import app.revanced.extensions.exception
 import app.revanced.extensions.findMutableMethodOf
@@ -12,15 +12,15 @@ import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patches.music.misc.quality.fingerprints.MusicVideoQualitySettingsFingerprint
-import app.revanced.patches.music.misc.quality.fingerprints.MusicVideoQualitySettingsParentFingerprint
-import app.revanced.patches.music.misc.quality.fingerprints.UserQualityChangeFingerprint
 import app.revanced.patches.music.utils.annotations.MusicCompatibility
 import app.revanced.patches.music.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.music.utils.settings.resource.patch.SettingsPatch
 import app.revanced.patches.music.video.information.patch.VideoInformationPatch
+import app.revanced.patches.music.video.quality.fingerprints.MusicVideoQualitySettingsFingerprint
+import app.revanced.patches.music.video.quality.fingerprints.MusicVideoQualitySettingsParentFingerprint
+import app.revanced.patches.music.video.quality.fingerprints.UserQualityChangeFingerprint
 import app.revanced.util.enum.CategoryType
-import app.revanced.util.integrations.Constants.MUSIC_MISC_PATH
+import app.revanced.util.integrations.Constants.MUSIC_VIDEO_PATH
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction21c
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
@@ -113,8 +113,9 @@ class VideoQualityPatch : BytecodePatch(
         } ?: throw MusicVideoQualitySettingsParentFingerprint.exception
 
         VideoInformationPatch.injectCall("$INTEGRATIONS_VIDEO_QUALITY_CLASS_DESCRIPTOR->newVideoStarted(Ljava/lang/String;)V")
+
         SettingsPatch.addMusicPreference(
-            CategoryType.MISC,
+            CategoryType.VIDEO,
             "revanced_enable_save_video_quality",
             "true"
         )
@@ -123,7 +124,7 @@ class VideoQualityPatch : BytecodePatch(
 
     private companion object {
         const val INTEGRATIONS_VIDEO_QUALITY_CLASS_DESCRIPTOR =
-            "$MUSIC_MISC_PATH/VideoQualityPatch;"
+            "$MUSIC_VIDEO_PATH/VideoQualityPatch;"
 
         private lateinit var qIndexMethodName: String
         private lateinit var qualityReference: Reference
