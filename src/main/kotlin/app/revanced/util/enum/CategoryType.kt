@@ -7,5 +7,6 @@ internal enum class CategoryType(val value: String, var added: Boolean) {
     GENERAL("general", false),
     MISC("misc", false),
     NAVIGATION("navigation", false),
-    PLAYER("player", false)
+    PLAYER("player", false),
+    VIDEO("video", false)
 }

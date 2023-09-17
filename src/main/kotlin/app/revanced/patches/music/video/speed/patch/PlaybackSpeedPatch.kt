@@ -1,4 +1,4 @@
-package app.revanced.patches.music.misc.speed.patch
+package app.revanced.patches.music.video.speed.patch
 
 import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
@@ -10,13 +10,13 @@ import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patches.music.misc.speed.fingerprints.PlaybackSpeedBottomSheetFingerprint
-import app.revanced.patches.music.misc.speed.fingerprints.PlaybackSpeedBottomSheetParentFingerprint
 import app.revanced.patches.music.utils.annotations.MusicCompatibility
 import app.revanced.patches.music.utils.overridespeed.patch.OverrideSpeedHookPatch
 import app.revanced.patches.music.utils.settings.resource.patch.SettingsPatch
+import app.revanced.patches.music.video.speed.fingerprints.PlaybackSpeedBottomSheetFingerprint
+import app.revanced.patches.music.video.speed.fingerprints.PlaybackSpeedBottomSheetParentFingerprint
 import app.revanced.util.enum.CategoryType
-import app.revanced.util.integrations.Constants.MUSIC_MISC_PATH
+import app.revanced.util.integrations.Constants.MUSIC_VIDEO_PATH
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 
 @Patch
@@ -55,7 +55,7 @@ class PlaybackSpeedPatch : BytecodePatch(
         } ?: throw PlaybackSpeedBottomSheetParentFingerprint.exception
 
         SettingsPatch.addMusicPreference(
-            CategoryType.MISC,
+            CategoryType.VIDEO,
             "revanced_enable_save_playback_speed",
             "false"
         )
@@ -64,6 +64,6 @@ class PlaybackSpeedPatch : BytecodePatch(
 
     private companion object {
         const val INTEGRATIONS_CLASS_DESCRIPTOR =
-            "$MUSIC_MISC_PATH/PlaybackSpeedPatch;"
+            "$MUSIC_VIDEO_PATH/PlaybackSpeedPatch;"
     }
 }

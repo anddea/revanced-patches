@@ -1,16 +1,16 @@
-package app.revanced.patches.music.misc.quality.fingerprints
+package app.revanced.patches.music.video.speed.fingerprints
 
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-object MusicVideoQualitySettingsFingerprint : MethodFingerprint(
+object PlaybackSpeedBottomSheetFingerprint : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    parameters = listOf("[L", "I", "Z"),
     opcodes = listOf(
-        Opcode.IPUT_OBJECT,
-        Opcode.IPUT
-    )
+        Opcode.INVOKE_VIRTUAL,
+        Opcode.IGET_OBJECT
+    ),
+    customFingerprint = { methodDef, _ -> methodDef.name == "onItemClick" }
 )
