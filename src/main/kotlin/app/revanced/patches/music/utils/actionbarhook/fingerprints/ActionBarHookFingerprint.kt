@@ -1,11 +1,11 @@
-package app.revanced.patches.music.utils.buttoncontainerhook.fingerprints
+package app.revanced.patches.music.utils.actionbarhook.fingerprints
 
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-object ButtonContainerHookFingerprint : MethodFingerprint(
+object ActionBarHookFingerprint : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PRIVATE or AccessFlags.FINAL,
     parameters = listOf("L"),

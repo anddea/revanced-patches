@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="revanced_category_action_bar">Action Bar</string>
     <string name="revanced_category_ads">Ads</string>
-    <string name="revanced_category_button_container">Button Container</string>
     <string name="revanced_category_flyout">Flyout</string>
     <string name="revanced_category_general">General</string>
     <string name="revanced_category_misc">Miscellaneous</string>
@@ -13,9 +13,9 @@
     <string name="revanced_custom_filter_summary">Enables custom filter to hide layout components.</string>
     <string name="revanced_custom_filter_title">Enable custom filter</string>
     <string name="revanced_custom_playback_speeds_invalid">Invalid custom playback speeds! Reset to default values.</string>
-    <string name="revanced_custom_playback_speeds_warning" formatted="false">Custom speeds must be less than %sx</string>
     <string name="revanced_custom_playback_speeds_summary">Add or change the playback speeds available</string>
     <string name="revanced_custom_playback_speeds_title">Edit custom playback speeds</string>
+    <string name="revanced_custom_playback_speeds_warning" formatted="false">Custom speeds must be less than %sx</string>
     <string name="revanced_disable_auto_captions_summary">Disables forced auto captions.</string>
     <string name="revanced_disable_auto_captions_title">Disable forced auto captions</string>
     <string name="revanced_downloader_not_installed" formatted="false">%s is not installed. Please install it.</string>
@@ -55,10 +55,10 @@
     <string name="revanced_external_downloader_package_name_summary">Package name of your installed external downloader app, such as NewPipe or Seal.</string>
     <string name="revanced_external_downloader_package_name_title">External downloader package name</string>
     <string name="revanced_flyout_panel_watch_on_youtube">Watch on YouTube</string>
-    <string name="revanced_hide_button_container_label_summary">Hide labels in button container.</string>
-    <string name="revanced_hide_button_container_label_title">Hide button container labels</string>
-    <string name="revanced_hide_button_container_radio_summary">Hides start radio button.</string>
-    <string name="revanced_hide_button_container_radio_title">Hide radio button</string>
+    <string name="revanced_hide_action_bar_label_summary">Hide labels in action bar.</string>
+    <string name="revanced_hide_action_bar_label_title">Hide action bar labels</string>
+    <string name="revanced_hide_action_bar_radio_summary">Hides start radio button.</string>
+    <string name="revanced_hide_action_bar_radio_title">Hide radio button</string>
     <string name="revanced_hide_button_shelf_summary">Hides the button shelf from homepage and explorer.</string>
     <string name="revanced_hide_button_shelf_title">Hide button shelf</string>
     <string name="revanced_hide_carousel_shelf_summary">Hides the carousel shelf from homepage and explorer.</string>
@@ -95,15 +95,15 @@
     <string name="revanced_hide_playlist_card_title">Hide playlist card</string>
     <string name="revanced_hide_sample_button_summary">Hides the sample button in navigation bar.</string>
     <string name="revanced_hide_sample_button_title">Hide sample button</string>
-    <string name="revanced_hook_button_container_download_summary">Replaces the offline download button in the button container with an external download button.</string>
-    <string name="revanced_hook_button_container_download_title">Hook download button</string>
+    <string name="revanced_hook_action_bar_download_summary">Replaces the offline download button with an external download button.</string>
+    <string name="revanced_hook_action_bar_download_title">Hook download button</string>
     <string name="revanced_reboot_first_run">Restart to load the layout normally</string>
     <string name="revanced_reboot_message">Refresh and restart</string>
-    <string name="revanced_reset">Reset</string>
     <string name="revanced_replace_flyout_panel_dismiss_queue_continue_watch_summary">When watching on YouTube, continue watching from the current time.</string>
     <string name="revanced_replace_flyout_panel_dismiss_queue_continue_watch_title">Continue watching</string>
     <string name="revanced_replace_flyout_panel_dismiss_queue_summary">Replaces dismiss queue menu to watch on YouTube.</string>
     <string name="revanced_replace_flyout_panel_dismiss_queue_title">Replace dismiss queue</string>
+    <string name="revanced_reset">Reset</string>
     <string name="revanced_ryd_about">About</string>
     <string name="revanced_ryd_attribution_summary">Data is provided by the Return YouTube Dislike API. Tap here to learn more.</string>
     <string name="revanced_ryd_compact_layout_summary">Hides the separator of the like button.</string>

@@ -1,4 +1,4 @@
-package app.revanced.patches.music.utils.buttoncontainerhook.patch
+package app.revanced.patches.music.utils.actionbarhook.patch
 
 import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
@@ -7,20 +7,20 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotations.DependsOn
-import app.revanced.patches.music.utils.buttoncontainerhook.fingerprints.ButtonContainerHookFingerprint
-import app.revanced.patches.music.utils.fingerprints.ActionsContainerParentFingerprint
+import app.revanced.patches.music.utils.actionbarhook.fingerprints.ActionBarHookFingerprint
+import app.revanced.patches.music.utils.fingerprints.ActionsBarParentFingerprint
 import app.revanced.patches.music.utils.resourceid.patch.SharedResourceIdPatch
-import app.revanced.util.integrations.Constants.MUSIC_BUTTON_CONTAINER
+import app.revanced.util.integrations.Constants.MUSIC_ACTIONBAR
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @DependsOn([SharedResourceIdPatch::class])
-class ButtonContainerHookPatch : BytecodePatch(
-    listOf(ActionsContainerParentFingerprint)
+class ActionBarHookPatch : BytecodePatch(
+    listOf(ActionsBarParentFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
 
-        ActionsContainerParentFingerprint.result?.let { parentResult ->
-            ButtonContainerHookFingerprint.also {
+        ActionsBarParentFingerprint.result?.let { parentResult ->
+            ActionBarHookFingerprint.also {
                 it.resolve(
                     context,
                     parentResult.classDef
@@ -33,11 +33,11 @@ class ButtonContainerHookPatch : BytecodePatch(
 
                     addInstruction(
                         targetIndex + 1,
-                        "invoke-static {v$targetRegister}, $MUSIC_BUTTON_CONTAINER->hookButtonContainer(Landroid/view/ViewGroup;)V"
+                        "invoke-static {v$targetRegister}, $MUSIC_ACTIONBAR->hookActionBar(Landroid/view/ViewGroup;)V"
                     )
                 }
-            } ?: throw ButtonContainerHookFingerprint.exception
-        } ?: throw ActionsContainerParentFingerprint.exception
+            } ?: throw ActionBarHookFingerprint.exception
+        } ?: throw ActionsBarParentFingerprint.exception
 
     }
 }
