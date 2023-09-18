@@ -1,6 +1,7 @@
 package app.revanced.util.enum
 
 internal enum class CategoryType(val value: String, var added: Boolean) {
+    ACCOUNT("account", false),
     ACTION_BAR("action_bar", false),
     ADS("ads", false),
     FLYOUT("flyout", false),

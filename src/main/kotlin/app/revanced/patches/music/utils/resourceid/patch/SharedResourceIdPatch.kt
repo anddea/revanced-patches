@@ -16,6 +16,7 @@ import app.revanced.util.enum.ResourceType.STYLE
 @DependsOn([ResourceMappingPatch::class])
 class SharedResourceIdPatch : ResourcePatch {
     internal companion object {
+        var AccountSwitcherAccessibility: Long = -1
         var ActionsContainer: Long = -1
         var ButtonIconPaddingMedium: Long = -1
         var ChipCloud: Long = -1
@@ -25,6 +26,7 @@ class SharedResourceIdPatch : ResourcePatch {
         var InlineTimeBarAdBreakMarkerColor: Long = -1
         var IsTablet: Long = -1
         var MusicMenuLikeButtons: Long = -1
+        var NamesInactiveAccountThumbnailSize: Long = -1
         var PrivacyTosFooter: Long = -1
         var QualityTitle: Long = -1
         var Text1: Long = -1
@@ -38,6 +40,7 @@ class SharedResourceIdPatch : ResourcePatch {
             .find { it.type == resourceType.value && it.name == resourceName }?.id
             ?: -1
 
+        AccountSwitcherAccessibility = find(STRING, "account_switcher_accessibility_label")
         ActionsContainer = find(ID, "actions_container")
         ButtonIconPaddingMedium = find(DIMEN, "button_icon_padding_medium")
         ChipCloud = find(LAYOUT, "chip_cloud")
@@ -47,6 +50,7 @@ class SharedResourceIdPatch : ResourcePatch {
         InlineTimeBarAdBreakMarkerColor = find(COLOR, "inline_time_bar_ad_break_marker_color")
         IsTablet = find(BOOL, "is_tablet")
         MusicMenuLikeButtons = find(LAYOUT, "music_menu_like_buttons")
+        NamesInactiveAccountThumbnailSize = find(DIMEN, "names_inactive_account_thumbnail_size")
         PrivacyTosFooter = find(ID, "privacy_tos_footer")
         QualityTitle = find(STRING, "quality_title")
         Text1 = find(ID, "text1")
