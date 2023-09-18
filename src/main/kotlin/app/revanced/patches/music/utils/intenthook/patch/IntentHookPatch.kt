@@ -16,6 +16,7 @@ class IntentHookPatch : BytecodePatch(
     listOf(FullStackTraceActivityFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
+
         FullStackTraceActivityFingerprint.result?.let {
             it.mutableMethod.apply {
                 addInstructionsWithLabels(

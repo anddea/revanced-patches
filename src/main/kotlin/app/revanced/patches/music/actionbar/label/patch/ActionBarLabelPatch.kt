@@ -1,4 +1,4 @@
-package app.revanced.patches.music.buttoncontainer.label.patch
+package app.revanced.patches.music.actionbar.label.patch
 
 import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
@@ -10,18 +10,18 @@ import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patches.music.buttoncontainer.label.fingerprints.ButtonContainerLabelFingerprint
+import app.revanced.patches.music.actionbar.label.fingerprints.ActionBarLabelFingerprint
 import app.revanced.patches.music.utils.annotations.MusicCompatibility
-import app.revanced.patches.music.utils.fingerprints.ActionsContainerParentFingerprint
+import app.revanced.patches.music.utils.fingerprints.ActionsBarParentFingerprint
 import app.revanced.patches.music.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.music.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.enum.CategoryType
-import app.revanced.util.integrations.Constants.MUSIC_BUTTON_CONTAINER
+import app.revanced.util.integrations.Constants.MUSIC_ACTIONBAR
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
-@Name("Hide button container labels")
-@Description("Hide labels in button container.")
+@Name("Hide action bar label")
+@Description("Hide labels in action bar.")
 @DependsOn(
     [
         SettingsPatch::class,
@@ -29,12 +29,12 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
     ]
 )
 @MusicCompatibility
-class ButtonContainerLabelPatch : BytecodePatch(
-    listOf(ActionsContainerParentFingerprint)
+class ActionBarLabelPatch : BytecodePatch(
+    listOf(ActionsBarParentFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
-        ActionsContainerParentFingerprint.result?.let { parentResult ->
-            ButtonContainerLabelFingerprint.also {
+        ActionsBarParentFingerprint.result?.let { parentResult ->
+            ActionBarLabelFingerprint.also {
                 it.resolve(
                     context,
                     parentResult.classDef
@@ -47,17 +47,17 @@ class ButtonContainerLabelPatch : BytecodePatch(
 
                     addInstructions(
                         targetIndex, """
-                            invoke-static {v$targetRegister}, $MUSIC_BUTTON_CONTAINER->hideButtonContainerLabel(Z)Z
+                            invoke-static {v$targetRegister}, $MUSIC_ACTIONBAR->hideActionBarLabel(Z)Z
                             move-result v$targetRegister
                             """
                     )
                 }
-            } ?: throw ButtonContainerLabelFingerprint.exception
-        } ?: throw ActionsContainerParentFingerprint.exception
+            } ?: throw ActionBarLabelFingerprint.exception
+        } ?: throw ActionsBarParentFingerprint.exception
 
         SettingsPatch.addMusicPreference(
-            CategoryType.BUTTON_CONTAINER,
-            "revanced_hide_button_container_label",
+            CategoryType.ACTION_BAR,
+            "revanced_hide_action_bar_label",
             "false"
         )
 

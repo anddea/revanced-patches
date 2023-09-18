@@ -1,4 +1,4 @@
-package app.revanced.patches.music.buttoncontainer.downloadbuttonhook.patch
+package app.revanced.patches.music.actionbar.downloadbuttonhook.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
@@ -6,8 +6,8 @@ import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
+import app.revanced.patches.music.utils.actionbarhook.patch.ActionBarHookPatch
 import app.revanced.patches.music.utils.annotations.MusicCompatibility
-import app.revanced.patches.music.utils.buttoncontainerhook.patch.ButtonContainerHookPatch
 import app.revanced.patches.music.utils.intenthook.patch.IntentHookPatch
 import app.revanced.patches.music.utils.settings.resource.patch.SettingsPatch
 import app.revanced.patches.music.video.information.patch.VideoInformationPatch
@@ -18,7 +18,7 @@ import app.revanced.util.enum.CategoryType
 @Description("Replaces the offline download button in the button container with an external download button.")
 @DependsOn(
     [
-        ButtonContainerHookPatch::class,
+        ActionBarHookPatch::class,
         IntentHookPatch::class,
         SettingsPatch::class,
         VideoInformationPatch::class
@@ -29,14 +29,14 @@ class DownloadButtonHookPatch : BytecodePatch() {
     override fun execute(context: BytecodeContext) {
 
         SettingsPatch.addMusicPreference(
-            CategoryType.BUTTON_CONTAINER,
-            "revanced_hook_button_container_download",
+            CategoryType.ACTION_BAR,
+            "revanced_hook_action_bar_download",
             "false"
         )
         SettingsPatch.addMusicPreferenceWithIntent(
-            CategoryType.BUTTON_CONTAINER,
+            CategoryType.ACTION_BAR,
             "revanced_external_downloader_package_name",
-            "revanced_hook_button_container_download"
+            "revanced_hook_action_bar_download"
         )
 
     }

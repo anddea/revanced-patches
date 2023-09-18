@@ -6,7 +6,7 @@ import app.revanced.patches.music.utils.resourceid.patch.SharedResourceIdPatch.C
 import app.revanced.util.bytecode.isWideLiteralExists
 import com.android.tools.smali.dexlib2.AccessFlags
 
-object ActionsContainerParentFingerprint : MethodFingerprint(
+object ActionsBarParentFingerprint : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
     customFingerprint = { methodDef, _ -> methodDef.isWideLiteralExists(ActionsContainer) }
