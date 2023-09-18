@@ -25,6 +25,7 @@ class SharedResourceIdPatch : ResourcePatch {
         var DisabledIconAlpha: Long = -1
         var InlineTimeBarAdBreakMarkerColor: Long = -1
         var IsTablet: Long = -1
+        var MenuEntry: Long = -1
         var MusicMenuLikeButtons: Long = -1
         var NamesInactiveAccountThumbnailSize: Long = -1
         var PrivacyTosFooter: Long = -1
@@ -50,6 +51,7 @@ class SharedResourceIdPatch : ResourcePatch {
         DisabledIconAlpha = find(DIMEN, "disabled_icon_alpha")
         InlineTimeBarAdBreakMarkerColor = find(COLOR, "inline_time_bar_ad_break_marker_color")
         IsTablet = find(BOOL, "is_tablet")
+        MenuEntry = find(LAYOUT, "menu_entry")
         MusicMenuLikeButtons = find(LAYOUT, "music_menu_like_buttons")
         NamesInactiveAccountThumbnailSize = find(DIMEN, "names_inactive_account_thumbnail_size")
         PrivacyTosFooter = find(ID, "privacy_tos_footer")
