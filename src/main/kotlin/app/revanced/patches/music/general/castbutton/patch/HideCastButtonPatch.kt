@@ -18,7 +18,7 @@ import app.revanced.util.integrations.Constants.MUSIC_GENERAL
 
 @Patch
 @Name("Hide cast button")
-@Description("Hides the cast button in the video player and header.")
+@Description("Hides the cast button.")
 @DependsOn([SettingsPatch::class])
 @MusicCompatibility
 class HideCastButtonPatch : BytecodePatch(
