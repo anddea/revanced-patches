@@ -21,7 +21,7 @@ import app.revanced.util.integrations.Constants.MUSIC_GENERAL
 
 @Patch
 @Name("Hide new playlist button")
-@Description("Hide the \"New playlist\" button in the library.")
+@Description("Hides the \"New playlist\" button in the library.")
 @DependsOn(
     [
         SettingsPatch::class,

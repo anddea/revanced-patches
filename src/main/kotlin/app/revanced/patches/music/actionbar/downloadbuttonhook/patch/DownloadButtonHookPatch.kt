@@ -15,7 +15,7 @@ import app.revanced.util.enum.CategoryType
 
 @Patch
 @Name("Hook download button")
-@Description("Replaces the offline download button in the button container with an external download button.")
+@Description("Replaces the offline download button with an external download button.")
 @DependsOn(
     [
         ActionBarHookPatch::class,
