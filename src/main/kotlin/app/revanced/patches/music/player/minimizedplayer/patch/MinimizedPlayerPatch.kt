@@ -17,7 +17,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
 @Name("Enable force minimized player")
-@Description("Permanently keep player minimized even if another track is played.")
+@Description("Keep player permanently minimized even if another track is played.")
 @DependsOn([SettingsPatch::class])
 @MusicCompatibility
 class MinimizedPlayerPatch : BytecodePatch(
