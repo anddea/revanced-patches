@@ -8,7 +8,7 @@
     <string name="microg_settings_summary">알림 수신을 위한 클라우드 메시징 설정을 할 수 있습니다.</string>
     <string name="microg_settings_title">MicroG 열기</string>
     <string name="revanced_ads">광고</string>
-    <string name="revanced_backup_summary">파일에서 ReVanced 설정을 가져오거나 ReVanced 설정을 파일로 내보냅니다.</string>
+    <string name="revanced_backup_summary">ReVanced Extended 설정을 지정된 파일로부터 가져오거나 파일로 내보냅니다.</string>
     <string name="revanced_bottom_player">플레이어 하단</string>
     <string name="revanced_button_container_title">버튼 컨테이너</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">배터리 절전 모드에서 영화 조명 모드를 비활성화합니다.</string>
@@ -19,14 +19,14 @@
     <string name="revanced_change_homepage_title">메인 페이지 변경하기</string>
     <string name="revanced_comments_title">댓글</string>
     <string name="revanced_copy_video_timestamp_success">타임스탬프가 클립보드에 저장되었습니다.</string>
-    <string name="revanced_custom_filter_strings_summary">구성요소를 줄바꿈으로 구분하여 필터링합니다.</string>
+    <string name="revanced_custom_filter_strings_summary">구성요소의 이름을 줄바꿈으로 구분하여 필터링합니다.</string>
     <string name="revanced_custom_filter_strings_title">사용자 정의 필터 편집하기</string>
     <string name="revanced_custom_filter_summary_off">사용자 정의 필터를 비활성화합니다.</string>
     <string name="revanced_custom_filter_summary_on">사용자 정의 필터를 활성화합니다.</string>
     <string name="revanced_custom_filter_title">사용자 정의 필터로 광고 숨기기</string>
     <string name="revanced_custom_playback_speeds_invalid">유효하지 않은 값입니다. 기본값으로 재설정합니다.</string>
-    <string name="revanced_custom_playback_speeds_warning" formatted="false">사용자 정의 동영상 재생 속도는 %s배속보다 작아야 합니다. 기본값으로 재설정합니다.</string>
-    <string name="revanced_custom_playback_speeds_summary">사용자 정의 동영상 재생 속도를 추가 또는 변경하세요.</string>
+    <string name="revanced_custom_playback_speeds_warning" formatted="false">동영상 재생 속도는 %s배속보다 작아야 합니다. 기본값으로 재설정합니다.</string>
+    <string name="revanced_custom_playback_speeds_summary">사용 가능한 동영상 재생 속도를 추가 또는 변경하세요.</string>
     <string name="revanced_custom_playback_speeds_title">사용자 정의 동영상 재생 속도 편집하기</string>
     <string name="revanced_custom_seekbar_color_value_summary">재생바 색상의 헥스 코드를 입력하세요.</string>
     <string name="revanced_custom_seekbar_color_value_title">사용자 정의 재생바 색상 설정</string>
@@ -139,16 +139,13 @@
     <string name="revanced_enable_tablet_navigation_bar_summary_off">태블릿용 하단바(메뉴 가운데 정렬)를 비활성화합니다.</string>
     <string name="revanced_enable_tablet_navigation_bar_summary_on">태블릿용 하단바(메뉴 가운데 정렬)를 활성화합니다.</string>
     <string name="revanced_enable_tablet_navigation_bar_title">태블릿용 하단바 활성화하기</string>
-    <string name="revanced_enable_time_stamp_speed_summary_off">현재 속도를 타임스탬프에 표시하지 않습니다.</string>
-    <string name="revanced_enable_time_stamp_speed_summary_on">현재 속도를 타임스탬프에 표시합니다.</string>
-    <string name="revanced_enable_time_stamp_speed_title">현재 속도 표시하기</string>
     <string name="revanced_enable_vp9_codec_summary">기기 정보를 변경하여 VP9 코덱을 활성화합니다.</string>
     <string name="revanced_enable_vp9_codec_title">VP9 코덱 활성화하기</string>
     <string name="revanced_enable_wide_search_bar_summary_off">넓은 검색 바를 비활성화합니다.</string>
     <string name="revanced_enable_wide_search_bar_summary_on">넓은 검색 바를 활성화합니다.</string>
     <string name="revanced_enable_wide_search_bar_title">넓은 검색 바 활성화하기</string>
     <string name="revanced_experimental_flag">실험적인 기능</string>
-    <string name="revanced_export_settings_summary">ReVanced 설정을 파일로 내보냅니다.</string>
+    <string name="revanced_export_settings_summary">ReVanced Extended 설정을 파일로 내보냅니다.</string>
     <string name="revanced_export_settings_title">설정 내보내기</string>
     <string name="revanced_external_downloader_installed">설치되어 있습니다.</string>
     <string name="revanced_external_downloader_not_installed">설치되어 있지 않습니다.</string>
@@ -163,8 +160,8 @@
     <string name="revanced_general">일반</string>
     <string name="revanced_haptic_feedback_title">진동 피드백</string>
     <string name="revanced_hide_account_menu_summary">알려진 문제점: 가로모드 또는 고해상도 기기에서 작동하지 않을 수 있습니다.</string>
-    <string name="revanced_hide_account_menu_title">사용자 정의 필터로 계정 관련 메뉴 숨기기</string>
-    <string name="revanced_hide_account_menu_filter_strings_title">계정 관련 메뉴 필터 편집하기</string>
+    <string name="revanced_hide_account_menu_title">사용자 정의 필터로 계정 관리 메뉴 숨기기</string>
+    <string name="revanced_hide_account_menu_filter_strings_title">계정 관리 메뉴 필터 편집하기</string>
     <string name="revanced_hide_album_card_summary_off">검색 결과에서 음악 앨범 카드가 노출됩니다.</string>
     <string name="revanced_hide_album_card_summary_on">검색 결과에서 음악 앨범 카드가 숨겨집니다.</string>
     <string name="revanced_hide_album_card_title">음악 앨범 카드 숨기기</string>
@@ -266,9 +263,9 @@
     <string name="revanced_hide_crowdfunding_box_summary_off">플레이어 하단에 표시되는 크라우드펀딩 박스가 노출됩니다.</string>
     <string name="revanced_hide_crowdfunding_box_summary_on">플레이어 하단에 표시되는 크라우드펀딩 박스가 숨겨집니다.</string>
     <string name="revanced_hide_crowdfunding_box_title">크라우드펀딩 박스 숨기기</string>
-    <string name="revanced_hide_email_address_summary_off">이메일 주소(@사용자 이름)가 노출됩니다.</string>
-    <string name="revanced_hide_email_address_summary_on">이메일 주소(@사용자 이름)가 숨겨집니다.</string>
-    <string name="revanced_hide_email_address_title">이메일 주소(@사용자 이름) 숨기기</string>
+    <string name="revanced_hide_email_address_summary_off">핸들(@사용자 아이디)이 노출됩니다.</string>
+    <string name="revanced_hide_email_address_summary_on">핸들(@사용자 아이디)이 숨겨집니다.</string>
+    <string name="revanced_hide_email_address_title">핸들(@사용자 아이디) 숨기기</string>
     <string name="revanced_hide_emoji_picker_summary_off">이모지 선택기가 노출됩니다.</string>
     <string name="revanced_hide_emoji_picker_summary_on">이모지 선택기가 숨겨집니다.</string>
     <string name="revanced_hide_emoji_picker_title">이모지 선택기 숨기기</string>
@@ -479,7 +476,7 @@ YouTube 18.24.37 버전 이상에서만 적용 가능합니다."</string>
     <string name="revanced_hide_suggested_actions_summary_off">동작 추천바가 노출됩니다.</string>
     <string name="revanced_hide_suggested_actions_summary_on">동작 추천바가 숨겨집니다.</string>
     <string name="revanced_hide_suggested_actions_title">동작 추천바 숨기기</string>
-    <string name="revanced_hide_suggestions_shelf_summary">"다음 선반이 숨겨집니다.
+    <string name="revanced_hide_suggestions_shelf_summary">"다음 선반들이 숨겨집니다.
 - 주요 뉴스
 - 채널 더보기
 - 다시 듣기
@@ -518,7 +515,7 @@ YouTube 18.24.37 버전 이상에서만 적용 가능합니다."</string>
     <string name="revanced_hide_youtube_music_button_summary_off">유튜브 뮤직 버튼이 노출됩니다.</string>
     <string name="revanced_hide_youtube_music_button_summary_on">유튜브 뮤직 버튼이 숨겨집니다.</string>
     <string name="revanced_hide_youtube_music_button_title">유튜브 뮤직 버튼 숨기기</string>
-    <string name="revanced_import_settings_summary">저장된 파일로부터 ReVanced 설정을 가져옵니다.</string>
+    <string name="revanced_import_settings_summary">저장된 파일로부터 ReVanced Extended 설정을 가져옵니다.</string>
     <string name="revanced_import_settings_title">설정 가져오기</string>
     <string name="revanced_layout_title">레이아웃</string>
     <string name="revanced_misc">기타</string>

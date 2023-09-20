@@ -19,7 +19,7 @@
     <string name="revanced_change_homepage_title">تغيير الصفحة الرئيسية إلى موجز الاشتراكات</string>
     <string name="revanced_comments_title">التعليقات</string>
     <string name="revanced_copy_video_timestamp_success">تم نسخ الطابع الزمني إلى الحافظة</string>
-    <string name="revanced_custom_filter_strings_summary">تصفية المكونات بأسماء مفصولة بأسطر</string>
+    <string name="revanced_custom_filter_strings_summary">تصفية أسماء المكونات عن طريق مفصولة بأسطر</string>
     <string name="revanced_custom_filter_strings_title">تعديل الفلتر المخصص</string>
     <string name="revanced_custom_filter_summary_off">تم تعطيل الفلتر المخصص</string>
     <string name="revanced_custom_filter_summary_on">تم تمكين الفلتر المخصص</string>
@@ -68,7 +68,7 @@
     <string name="revanced_disable_startup_shorts_player_title">تعطيل مشغل Shorts عند بَدْء تشغيل التطبيق</string>
     <string name="revanced_disable_quic_protocol_summary">"تعطيل بروتوكول QUIC الخاص بـ CronetEngine"</string>
     <string name="revanced_disable_quic_protocol_title">تعطيل بروتوكول QUIC</string>
-    <string name="revanced_double_back_timeout_summary">عدد الثواني التي يتم الضغط عليها مرتين للعودة للخروج (بالثواني)</string>
+    <string name="revanced_double_back_timeout_summary">مقدار الثواني عند الضغط مرتين للخروج</string>
     <string name="revanced_double_back_timeout_title">مهلة العودة المزدوجة</string>
     <string name="revanced_enable_compact_controls_overlay_summary_off">تم تعطيل واجهة التحكم المدمج</string>
     <string name="revanced_enable_compact_controls_overlay_summary_on">تم تمكين واجهة التحكم المدمج</string>
@@ -139,9 +139,6 @@
     <string name="revanced_enable_tablet_navigation_bar_summary_off">تم تعطيل شريط التنقل في الجهاز اللوحي</string>
     <string name="revanced_enable_tablet_navigation_bar_summary_on">تم تمكين شريط التنقل في الجهاز اللوحي</string>
     <string name="revanced_enable_tablet_navigation_bar_title">تمكين شريط التنقل اللوحي</string>
-    <string name="revanced_enable_time_stamp_speed_summary_off">تم تعطيل إلحاق سرعة طابع الوقت</string>
-    <string name="revanced_enable_time_stamp_speed_summary_on">تم تمكين إلحاق سرعة طابع الوقت</string>
-    <string name="revanced_enable_time_stamp_speed_title">تمكين سرعة طابع الوقت</string>
     <string name="revanced_enable_vp9_codec_summary">خداع معلومات الجهاز لتمكين ترميز VP9</string>
     <string name="revanced_enable_vp9_codec_title">تمكين ترميز VP9</string>
     <string name="revanced_enable_wide_search_bar_summary_off">تم تعطيل شريط البحث العريض</string>
@@ -194,7 +191,7 @@
     <string name="revanced_hide_button_download_title">إخفاء زر التنزيل</string>
     <string name="revanced_hide_button_like_summary_off">يتم عرض زر \"أعجبني\"</string>
     <string name="revanced_hide_button_like_summary_on">تم إخفاء زر \"أعجبني\"</string>
-    <string name="revanced_hide_button_like_title">إخفاء زر الإعجاب</string>
+    <string name="revanced_hide_button_like_title">إخفاء زر أعجبني</string>
     <string name="revanced_hide_button_live_chat_summary_off">يتم عرض زر المحادثات المباشرة</string>
     <string name="revanced_hide_button_live_chat_summary_on">تم إخفاء زر المحادثات المباشرة</string>
     <string name="revanced_hide_button_live_chat_title">إخفاء زر المحادثات المباشرة</string>
@@ -563,11 +560,11 @@
 
 نظرًا لأن هذا الإعداد قديم تمامًا، فقد لا يكون صالحًا"</string>
     <string name="revanced_ryd_attribution_summary">يتم توفير بيانات عدم الإعجاب بمقاطع يوتيوب بواسطة the Return YouTube Dislike API. اضغط هنا لمعرفة المزيد.</string>
-    <string name="revanced_ryd_compact_layout_summary_off">زر الإعجاب مصمم لأفضل مظهر</string>
-    <string name="revanced_ryd_compact_layout_summary_on">زر الإعجاب مصمم لأدنى عرض</string>
-    <string name="revanced_ryd_compact_layout_title">زر الإعجاب المدمج</string>
-    <string name="revanced_ryd_dislike_percentage_summary_off">يظهر عدد لم يعجبني كـ رَقَم</string>
-    <string name="revanced_ryd_dislike_percentage_summary_on">يظهر عدد لم يعجبني كـ نسبة مئوية</string>
+    <string name="revanced_ryd_compact_layout_summary_off">زر أعجبني مصمم لأفضل مظهر</string>
+    <string name="revanced_ryd_compact_layout_summary_on">زر أعجبني مصمم لأدنى عرض</string>
+    <string name="revanced_ryd_compact_layout_title">مقاس زر أعجبني</string>
+    <string name="revanced_ryd_dislike_percentage_summary_off">يعرض عدد لم يعجبني كـ رَقَم</string>
+    <string name="revanced_ryd_dislike_percentage_summary_on">يعرض عدد لم يعجبني كـ نسبة مئوية</string>
     <string name="revanced_ryd_dislike_percentage_title">لم يعجبني كــ نسبة مئوية</string>
     <string name="revanced_ryd_enable_summary_off">لا يتم عرض لم يعجبني</string>
     <string name="revanced_ryd_enable_summary_on">يتم عرض لم يعجبني</string>
@@ -638,7 +635,7 @@
     <string name="sb_enable_voting">عرض زر التصويت</string>
     <string name="sb_enable_voting_sum_on">يتم عرض زر التصويت على المقطع</string>
     <string name="sb_enable_voting_sum_off">لا يتم عرض زر التصويت على المقطع</string>
-    <string name="sb_enable_compact_skip_button">استخدام زر التخطي المدمج</string>
+    <string name="sb_enable_compact_skip_button">استخدام زر التخطي المُصَغَّر</string>
     <string name="sb_enable_compact_skip_button_sum_on">زر التخطي مصمم لأدنى عرض</string>
     <string name="sb_enable_compact_skip_button_sum_off">زر التخطي مصمم لأفضل مظهر</string>
     <string name="sb_enable_auto_hide_skip_segment_button">إخفاء زر التخطي تلقائيًا</string>
