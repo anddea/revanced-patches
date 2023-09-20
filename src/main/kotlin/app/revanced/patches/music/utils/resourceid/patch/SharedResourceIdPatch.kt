@@ -29,7 +29,7 @@ class SharedResourceIdPatch : ResourcePatch {
         var MusicMenuLikeButtons: Long = -1
         var NamesInactiveAccountThumbnailSize: Long = -1
         var PrivacyTosFooter: Long = -1
-        var QualityTitle: Long = -1
+        var QualityAuto: Long = -1
         var Text1: Long = -1
         var ToolTipContentView: Long = -1
         var TosFooter: Long = -1
@@ -55,7 +55,7 @@ class SharedResourceIdPatch : ResourcePatch {
         MusicMenuLikeButtons = find(LAYOUT, "music_menu_like_buttons")
         NamesInactiveAccountThumbnailSize = find(DIMEN, "names_inactive_account_thumbnail_size")
         PrivacyTosFooter = find(ID, "privacy_tos_footer")
-        QualityTitle = find(STRING, "quality_title")
+        QualityAuto = find(STRING, "quality_auto")
         Text1 = find(ID, "text1")
         ToolTipContentView = find(LAYOUT, "tooltip_content_view")
         TosFooter = find(ID, "tos_footer")

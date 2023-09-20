@@ -1,49 +1,37 @@
 package app.revanced.patches.music.video.quality.patch
 
 import app.revanced.extensions.exception
-import app.revanced.extensions.findMutableMethodOf
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.music.utils.annotations.MusicCompatibility
-import app.revanced.patches.music.utils.resourceid.patch.SharedResourceIdPatch
+import app.revanced.patches.music.utils.overridequality.patch.OverrideQualityHookPatch
 import app.revanced.patches.music.utils.settings.resource.patch.SettingsPatch
 import app.revanced.patches.music.video.information.patch.VideoInformationPatch
-import app.revanced.patches.music.video.quality.fingerprints.MusicVideoQualitySettingsFingerprint
-import app.revanced.patches.music.video.quality.fingerprints.MusicVideoQualitySettingsParentFingerprint
 import app.revanced.patches.music.video.quality.fingerprints.UserQualityChangeFingerprint
 import app.revanced.util.enum.CategoryType
 import app.revanced.util.integrations.Constants.MUSIC_VIDEO_PATH
-import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction21c
-import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
-import com.android.tools.smali.dexlib2.iface.reference.Reference
 
 @Patch
 @Name("Remember video quality")
 @Description("Save the video quality value whenever you change the video quality.")
 @DependsOn(
     [
+        OverrideQualityHookPatch::class,
         SettingsPatch::class,
-        SharedResourceIdPatch::class,
         VideoInformationPatch::class
     ]
 )
 @MusicCompatibility
 class VideoQualityPatch : BytecodePatch(
-    listOf(
-        MusicVideoQualitySettingsParentFingerprint,
-        UserQualityChangeFingerprint
-    )
+    listOf(UserQualityChangeFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
 
@@ -57,60 +45,18 @@ class VideoQualityPatch : BytecodePatch(
                     )!!
                         .mutableClass
 
-                for (method in qualityChangedClass.methods) {
-                    qualityChangedClass.findMutableMethodOf(method).apply {
-                        if (this.name == "onItemClick") {
-                            for ((index, instruction) in implementation!!.instructions.withIndex()) {
-                                if (instruction.opcode != Opcode.INVOKE_INTERFACE) continue
+                val onItemClickMethod = qualityChangedClass.methods.find { method -> method.name == "onItemClick" }
 
-                                qIndexMethodName =
-                                    ((getInstruction<Instruction35c>(index).reference) as MethodReference).name
+                onItemClickMethod?.apply {
+                    val listItemIndexParameter = 3
 
-                                val qIndexMethodClass =
-                                    ((getInstruction<Instruction35c>(index).reference) as MethodReference).definingClass
-
-                                for (qualityReferenceIndex in index downTo 0) {
-                                    if (getInstruction(qualityReferenceIndex).opcode != Opcode.IGET_OBJECT) continue
-
-                                    val targetReference =
-                                        getInstruction<ReferenceInstruction>(qualityReferenceIndex).reference
-
-                                    if (!targetReference.toString()
-                                            .endsWith(qIndexMethodClass)
-                                    ) continue
-
-                                    qualityReference = targetReference
-                                    break
-                                }
-
-                                addInstruction(
-                                    0,
-                                    "invoke-static {p3}, $INTEGRATIONS_VIDEO_QUALITY_CLASS_DESCRIPTOR->userChangedQuality(I)V"
-                                )
-                                break
-                            }
-                        }
-                    }
-                }
+                    addInstruction(
+                        0,
+                        "invoke-static {p$listItemIndexParameter}, $INTEGRATIONS_VIDEO_QUALITY_CLASS_DESCRIPTOR->userChangedQuality(I)V"
+                    )
+                } ?: throw PatchException("Failed to find onItemClick method")
             }
         } ?: throw UserQualityChangeFingerprint.exception
-
-        MusicVideoQualitySettingsParentFingerprint.result?.let { parentResult ->
-            MusicVideoQualitySettingsFingerprint.also {
-                it.resolve(
-                    context,
-                    parentResult.classDef
-                )
-            }.result?.mutableMethod?.addInstructions(
-                0, """
-                    const-string v0, "$qIndexMethodName"
-                    sput-object v0, $INTEGRATIONS_VIDEO_QUALITY_CLASS_DESCRIPTOR->qIndexMethod:Ljava/lang/String;
-                    iget-object v0, p0, $qualityReference
-                    invoke-static {p1, p2, v0}, $INTEGRATIONS_VIDEO_QUALITY_CLASS_DESCRIPTOR->setVideoQuality([Ljava/lang/Object;ILjava/lang/Object;)I
-                    move-result p2
-                    """
-            ) ?: throw MusicVideoQualitySettingsFingerprint.exception
-        } ?: throw MusicVideoQualitySettingsParentFingerprint.exception
 
         VideoInformationPatch.injectCall("$INTEGRATIONS_VIDEO_QUALITY_CLASS_DESCRIPTOR->newVideoStarted(Ljava/lang/String;)V")
 
@@ -125,8 +71,5 @@ class VideoQualityPatch : BytecodePatch(
     private companion object {
         const val INTEGRATIONS_VIDEO_QUALITY_CLASS_DESCRIPTOR =
             "$MUSIC_VIDEO_PATH/VideoQualityPatch;"
-
-        private lateinit var qIndexMethodName: String
-        private lateinit var qualityReference: Reference
     }
 }

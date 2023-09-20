@@ -53,6 +53,7 @@ class SharedResourceIdPatch : ResourcePatch {
         var LiveChatButton: Long = -1
         var MusicAppDeeplinkButtonView: Long = -1
         var PosterArtWidthDefault: Long = -1
+        var QualityAuto: Long = -1
         var QuickActionsElementContainer: Long = -1
         var ReelDynRemix: Long = -1
         var ReelDynShare: Long = -1
@@ -130,6 +131,7 @@ class SharedResourceIdPatch : ResourcePatch {
         LiveChatButton = find(ID, "live_chat_overlay_button")
         MusicAppDeeplinkButtonView = find(ID, "music_app_deeplink_button_view")
         PosterArtWidthDefault = find(DIMEN, "poster_art_width_default")
+        QualityAuto = find(STRING, "quality_auto")
         QuickActionsElementContainer = find(ID, "quick_actions_element_container")
         ReelDynRemix = find(ID, "reel_dyn_remix")
         ReelDynShare = find(ID, "reel_dyn_share")
