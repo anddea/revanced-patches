@@ -22,7 +22,6 @@ class SharedResourceIdPatch : ResourcePatch {
         var ChipCloud: Long = -1
         var ColorGrey: Long = -1
         var DialogSolid: Long = -1
-        var DisabledIconAlpha: Long = -1
         var InlineTimeBarAdBreakMarkerColor: Long = -1
         var IsTablet: Long = -1
         var MenuEntry: Long = -1
@@ -49,7 +48,6 @@ class SharedResourceIdPatch : ResourcePatch {
         ChipCloud = find(LAYOUT, "chip_cloud")
         ColorGrey = find(COLOR, "ytm_color_grey_12")
         DialogSolid = find(STYLE, "Theme.YouTubeMusic.Dialog.Solid")
-        DisabledIconAlpha = find(DIMEN, "disabled_icon_alpha")
         InlineTimeBarAdBreakMarkerColor = find(COLOR, "inline_time_bar_ad_break_marker_color")
         IsTablet = find(BOOL, "is_tablet")
         MenuEntry = find(LAYOUT, "menu_entry")
