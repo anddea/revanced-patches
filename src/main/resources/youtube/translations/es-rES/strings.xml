@@ -8,6 +8,12 @@
     <string name="microg_settings_summary">Activa los ajustes de mensajería en la nube para recibir notificaciones</string>
     <string name="microg_settings_title">Abrir MicroG</string>
     <string name="revanced_ads">Anuncios</string>
+    <string name="revanced_append_time_stamp_information_summary_off">Añadir información de marca de tiempo está deshabilitado</string>
+    <string name="revanced_append_time_stamp_information_summary_on">Añadir información de marca de tiempo está habilitado</string>
+    <string name="revanced_append_time_stamp_information_title">Añadir información de marca de tiempo está habilitado</string>
+    <string name="revanced_append_time_stamp_information_type_summary_off">Añadir velocidad de reproducción</string>
+    <string name="revanced_append_time_stamp_information_type_summary_on">Añadir calidad de vídeo</string>
+    <string name="revanced_append_time_stamp_information_type_title">Añadir tipo de información</string>
     <string name="revanced_backup_summary">Importar los ajustes de ReVanced desde un archivo o exportar los ajustes de ReVanced a un archivo</string>
     <string name="revanced_bottom_player">Reproductor inferior</string>
     <string name="revanced_button_container_title">Contenedor de botones</string>
@@ -563,6 +569,7 @@ Si activas este ajuste, las siguientes características no estarán disponibles:
     <string name="revanced_reboot_warning_vp9">"Modifica la información del dispositivo para activar el códec VP9
 
 Dado que esta configuración está bastante desactualizada, es posible que no sea válida"</string>
+    <string name="revanced_ryd_about">Información</string>
     <string name="revanced_ryd_attribution_summary">Los datos de No Me Gusta son proporcionados por la API de Return YouTube Dislike.
 Toque aquí para obtener más información.</string>
     <string name="revanced_ryd_compact_layout_summary_off">El botón Me Gusta está diseñado para una mejor apariencia</string>
@@ -601,14 +608,12 @@ Si más tarde se desactiva, la antigua interfaz de usuario puede permanecer hast
     <string name="revanced_spoof_app_version_target_entry_title">Versión a usar de la aplicación</string>
     <string name="revanced_spoof_app_version_target_summary">Escriba la versión a modificar de la app</string>
     <string name="revanced_spoof_app_version_target_title">Modificar versión de aplicación</string>
-    <string name="revanced_spoof_player_parameter_summary">"Los parámetros del reproductor se modifican para evitar problemas de reproducción
+    <string name="revanced_spoof_player_parameter_summary">"Parámetros de modificación del reproductor para evitar problemas de reproducción
 
 Problemas conocidos
-- Es posible que el Modo Ambiente no funcione
-- El Clip no puede reproducirse normalmente
-- La descarga de vídeos puede no funcionar
-- La superposición de la tira de película siempre está oculta
-- Las miniaturas de la barra de progreso están ocultas"</string>
+- La tasa de bits mejorada no está disponible
+- Es posible que las descargas sin conexión no funcionen
+- La calidad de la vista previa de las miniaturas de la barra de progreso es muy baja"</string>
     <string name="revanced_spoof_player_parameter_title">Modificar parámetro del reproductor</string>
     <string name="revanced_swipe_controls">Controles deslizantes</string>
     <string name="revanced_swipe_magnitude_threshold_summary">La cantidad de umbral para que ocurra el deslizamiento</string>
@@ -773,6 +778,7 @@ Problemas conocidos
     <string name="sb_color_reset">Color restablecido</string>
     <string name="sb_color_invalid">Código de color no válido</string>
     <string name="sb_reset_color">Restablecer color</string>
+    <string name="sb_about">Información</string>
     <string name="sb_reset">Restablecer</string>
     <string name="sb_about_api_sum">Los datos son proporcionados por la API de SponsorBlock. Pulsa aquí para aprender más y ver las descargas para otras plataformas</string>
     <string name="settings_export_failed">No se pudo exportar la configuración</string>
