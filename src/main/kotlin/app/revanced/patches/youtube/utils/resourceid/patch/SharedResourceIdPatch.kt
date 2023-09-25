@@ -71,7 +71,6 @@ class SharedResourceIdPatch : ResourcePatch {
         var Scrubbing: Long = -1
         var SettingsBooleanTimeRangeDialog: Long = -1
         var SuggestedAction: Long = -1
-        var Thumbnail: Long = -1
         var ToolBarPaddingHome: Long = -1
         var ToolTipContentView: Long = -1
         var TotalTime: Long = -1
@@ -149,7 +148,6 @@ class SharedResourceIdPatch : ResourcePatch {
         Scrubbing = find(DIMEN, "vertical_touch_offset_to_enter_fine_scrubbing")
         SettingsBooleanTimeRangeDialog = find(LAYOUT, "setting_boolean_time_range_dialog")
         SuggestedAction = find(LAYOUT, "suggested_action")
-        Thumbnail = find(ID, "thumbnail")
         ToolBarPaddingHome = find(DIMEN, "toolbar_padding_home_action_up")
         ToolTipContentView = find(LAYOUT, "tooltip_content_view")
         TotalTime = find(STRING, "total_time")

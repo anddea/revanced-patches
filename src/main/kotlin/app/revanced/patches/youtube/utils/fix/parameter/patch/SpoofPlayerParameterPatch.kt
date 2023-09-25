@@ -5,23 +5,26 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
+import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
-import app.revanced.patches.youtube.utils.fix.parameter.fingerprints.ProtobufParameterBuilderFingerprint
-import app.revanced.patches.youtube.utils.fix.parameter.fingerprints.ScrubbedPreviewLayoutFingerprint
+import app.revanced.patches.youtube.utils.fix.parameter.fingerprints.PlayerParameterBuilderFingerprint
+import app.revanced.patches.youtube.utils.fix.parameter.fingerprints.PlayerResponseModelImplFingerprint
+import app.revanced.patches.youtube.utils.fix.parameter.fingerprints.StoryboardRendererSpecFingerprint
 import app.revanced.patches.youtube.utils.fix.parameter.fingerprints.StoryboardThumbnailFingerprint
 import app.revanced.patches.youtube.utils.fix.parameter.fingerprints.StoryboardThumbnailParentFingerprint
 import app.revanced.patches.youtube.utils.playertype.patch.PlayerTypeHookPatch
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
+import app.revanced.patches.youtube.utils.videoid.general.patch.VideoIdPatch
 import app.revanced.util.integrations.Constants.MISC_PATH
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 
 @Patch
 @Name("Spoof player parameters")
@@ -29,35 +32,42 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 @DependsOn(
     [
         SharedResourceIdPatch::class,
-        PlayerTypeHookPatch::class
+        PlayerTypeHookPatch::class,
+        VideoIdPatch::class
     ]
 )
 @YouTubeCompatibility
 class SpoofPlayerParameterPatch : BytecodePatch(
     listOf(
-        ProtobufParameterBuilderFingerprint,
-        ScrubbedPreviewLayoutFingerprint,
+        PlayerParameterBuilderFingerprint,
+        PlayerResponseModelImplFingerprint,
+        StoryboardRendererSpecFingerprint,
         StoryboardThumbnailParentFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext) {
 
-        // hook parameter
-        ProtobufParameterBuilderFingerprint.result?.let {
+        /**
+         * Hook player parameter
+         */
+        PlayerParameterBuilderFingerprint.result?.let {
             it.mutableMethod.apply {
-                val protobufParam = 3
+                val videoIdRegister = 1
+                val playerParameterRegister = 3
 
                 addInstructions(
                     0, """
-                        invoke-static {p$protobufParam}, $INTEGRATIONS_CLASS_DESCRIPTOR->overridePlayerParameter(Ljava/lang/String;)Ljava/lang/String;
-                        move-result-object p$protobufParam
+                        invoke-static {p$videoIdRegister, p$playerParameterRegister}, $INTEGRATIONS_CLASS_DESCRIPTOR->spoofParameter(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+                        move-result-object p$playerParameterRegister
                         """
                 )
             }
-        } ?: throw ProtobufParameterBuilderFingerprint.exception
+        } ?: throw PlayerParameterBuilderFingerprint.exception
 
-        // When the player parameter is spoofed in incognito mode, this value will always be false
-        // If this value is true, the timestamp and chapter are shown when tapping the seekbar.
+        /**
+         * Forces the SeekBar thumbnail preview container to be shown
+         * I don't think this code is needed anymore
+         */
         StoryboardThumbnailParentFingerprint.result?.classDef?.let { classDef ->
             StoryboardThumbnailFingerprint.also {
                 it.resolve(
@@ -84,23 +94,39 @@ class SpoofPlayerParameterPatch : BytecodePatch(
             } ?: throw StoryboardThumbnailFingerprint.exception
         } ?: throw StoryboardThumbnailParentFingerprint.exception
 
-        // Seekbar thumbnail now show up but are always a blank image.
-        // Additional changes are needed to force the client to generate the thumbnails (assuming it's possible),
-        // but for now hide the empty thumbnail.
-        ScrubbedPreviewLayoutFingerprint.result?.let {
+        /**
+         * Hook StoryBoard Renderer URL
+         * TODO: Find a way to increase the quality of SeekBar thumbnail previews
+         */
+        PlayerResponseModelImplFingerprint.result?.let {
             it.mutableMethod.apply {
-                val endIndex = it.scanResult.patternScanResult!!.endIndex
-                val imageViewFieldName = getInstruction<ReferenceInstruction>(endIndex).reference
+                val getStoryBoardIndex = it.scanResult.patternScanResult!!.endIndex
+                val getStoryBoardRegister =
+                    getInstruction<OneRegisterInstruction>(getStoryBoardIndex).registerA
 
                 addInstructions(
-                    implementation!!.instructions.lastIndex,
-                    """
-                        iget-object v0, p0, $imageViewFieldName   # copy imageview field to a register
-                        invoke-static {v0}, $INTEGRATIONS_CLASS_DESCRIPTOR->seekbarImageViewCreated(Landroid/widget/ImageView;)V
+                    getStoryBoardIndex, """
+                        invoke-static {}, $INTEGRATIONS_CLASS_DESCRIPTOR->getStoryboardRendererSpec()Ljava/lang/String;
+                        move-result-object v$getStoryBoardRegister
                         """
                 )
             }
-        } ?: throw ScrubbedPreviewLayoutFingerprint.exception
+        } ?: throw PlayerResponseModelImplFingerprint.exception
+
+        StoryboardRendererSpecFingerprint.result?.let {
+            it.mutableMethod.apply {
+                val storyBoardUrlParams = 0
+
+                addInstructionsWithLabels(
+                    0, """
+                        if-nez p$storyBoardUrlParams, :ignore
+                        invoke-static {}, $INTEGRATIONS_CLASS_DESCRIPTOR->getStoryboardRendererSpec()Ljava/lang/String;
+                        move-result-object p$storyBoardUrlParams
+                        """, ExternalLabel("ignore", getInstruction(0))
+                )
+            }
+        } ?: throw StoryboardRendererSpecFingerprint.exception
+
 
         /**
          * Add settings
