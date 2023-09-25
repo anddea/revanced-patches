@@ -43,7 +43,7 @@ class SettingsBytecodePatch : BytecodePatch(
             }
         } ?: throw ThemeSetterSystemFingerprint.exception
 
-        context.injectInit("FirstRun", "initializationRVX", true)
+        context.injectInit("InitializationPatch", "initializeReVancedSettings", true)
 
     }
 
