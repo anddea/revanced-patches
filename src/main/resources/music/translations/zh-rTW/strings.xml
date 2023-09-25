@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="revanced_category_account">帳號</string>
+    <string name="revanced_category_action_bar">操作欄</string>
     <string name="revanced_category_ads">廣告設定</string>
     <string name="revanced_category_flyout">彈出式選單</string>
     <string name="revanced_category_general">常規設定</string>
     <string name="revanced_category_misc">其他</string>
     <string name="revanced_category_navigation">導覽列</string>
     <string name="revanced_category_player">播放器</string>
+    <string name="revanced_category_video">影片</string>
+    <string name="revanced_custom_filter_strings_summary">按行分隔過濾元件名稱</string>
     <string name="revanced_custom_filter_strings_title">編輯自訂過濾器</string>
     <string name="revanced_custom_filter_summary">啟用自訂過濾器</string>
     <string name="revanced_custom_filter_title">啟用自訂過濾器</string>
+    <string name="revanced_custom_playback_speeds_invalid">無效的自訂播放速度。已重設為預設值。</string>
+    <string name="revanced_custom_playback_speeds_summary">新增或變更可用的播放速度</string>
+    <string name="revanced_custom_playback_speeds_title">編輯自訂播放速度</string>
+    <string name="revanced_custom_playback_speeds_warning" formatted="false">自訂的速度必須少於 %sx</string>
     <string name="revanced_disable_auto_captions_summary">停用在播放器中被強制啟用的字幕</string>
     <string name="revanced_disable_auto_captions_title">停用強制自動字幕</string>
     <string name="revanced_downloader_not_installed" formatted="false">%s 尚未安裝. 請先安裝.</string>
@@ -24,8 +32,6 @@
     <string name="revanced_enable_flyout_panel_playback_speed_title">啟用播放速度調整鈕</string>
     <string name="revanced_enable_force_minimized_player_summary">切換歌曲時保持迷你播放器狀態</string>
     <string name="revanced_enable_force_minimized_player_title">切換歌曲時保持迷你播放器</string>
-    <string name="revanced_enable_force_shuffle_summary">即使播放另一首歌曲，也強制啟用隨機播放。</string>
-    <string name="revanced_enable_force_shuffle_title">啟用強制隨機播放</string>
     <string name="revanced_enable_landscape_mode_summary">允許透過手機螢幕旋轉進入橫向模式。</string>
     <string name="revanced_enable_landscape_mode_title">啟用橫向模式</string>
     <string name="revanced_enable_new_layout_summary">使用新版播放器的介面</string>
