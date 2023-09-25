@@ -10,14 +10,17 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.util.proxy.mutableTypes.MutableField.Companion.toMutable
-import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.overridequality.fingerprints.VideoQualityListFingerprint
 import app.revanced.patches.youtube.utils.overridequality.fingerprints.VideoQualityPatchFingerprint
 import app.revanced.patches.youtube.utils.overridequality.fingerprints.VideoQualityTextFingerprint
+import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
+import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch.Companion.QualityAuto
+import app.revanced.util.bytecode.getWideLiteralIndex
 import app.revanced.util.integrations.Constants.INTEGRATIONS_PATH
 import app.revanced.util.integrations.Constants.VIDEO_PATH
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.immutable.ImmutableField
 import com.android.tools.smali.dexlib2.util.MethodUtil
@@ -53,9 +56,18 @@ class OverrideQualityHookPatch : BytecodePatch(
                 val listIndex = it.scanResult.patternScanResult!!.startIndex
                 val listRegister = getInstruction<FiveRegisterInstruction>(listIndex).registerD
 
+                val qualityAutoIndex = getWideLiteralIndex(QualityAuto) + 2
+                val qualityAutoRegister =
+                    getInstruction<OneRegisterInstruction>(qualityAutoIndex).registerA
+
                 addInstruction(
                     listIndex,
                     "invoke-static {v$listRegister}, $INTEGRATIONS_VIDEO_QUALITY_CLASS_DESCRIPTOR->setVideoQualityList([Ljava/lang/Object;)V"
+                )
+
+                addInstruction(
+                    qualityAutoIndex + 1,
+                    "sput-object v$qualityAutoRegister, $INTEGRATIONS_VIDEO_HELPER_CLASS_DESCRIPTOR->qualityAutoString:Ljava/lang/String;"
                 )
             }
         } ?: throw VideoQualityListFingerprint.exception

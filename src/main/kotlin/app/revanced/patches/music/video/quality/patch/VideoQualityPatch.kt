@@ -45,7 +45,8 @@ class VideoQualityPatch : BytecodePatch(
                     )!!
                         .mutableClass
 
-                val onItemClickMethod = qualityChangedClass.methods.find { method -> method.name == "onItemClick" }
+                val onItemClickMethod =
+                    qualityChangedClass.methods.find { method -> method.name == "onItemClick" }
 
                 onItemClickMethod?.apply {
                     val listItemIndexParameter = 3
