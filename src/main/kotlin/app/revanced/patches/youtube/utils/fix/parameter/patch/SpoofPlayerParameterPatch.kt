@@ -20,22 +20,14 @@ import app.revanced.patches.youtube.utils.fix.parameter.fingerprints.StoryboardR
 import app.revanced.patches.youtube.utils.fix.parameter.fingerprints.StoryboardThumbnailFingerprint
 import app.revanced.patches.youtube.utils.fix.parameter.fingerprints.StoryboardThumbnailParentFingerprint
 import app.revanced.patches.youtube.utils.playertype.patch.PlayerTypeHookPatch
-import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
-import app.revanced.patches.youtube.utils.videoid.general.patch.VideoIdPatch
 import app.revanced.util.integrations.Constants.MISC_PATH
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
 @Name("Spoof player parameters")
 @Description("Spoofs player parameters to prevent playback issues.")
-@DependsOn(
-    [
-        SharedResourceIdPatch::class,
-        PlayerTypeHookPatch::class,
-        VideoIdPatch::class
-    ]
-)
+@DependsOn([PlayerTypeHookPatch::class])
 @YouTubeCompatibility
 class SpoofPlayerParameterPatch : BytecodePatch(
     listOf(
