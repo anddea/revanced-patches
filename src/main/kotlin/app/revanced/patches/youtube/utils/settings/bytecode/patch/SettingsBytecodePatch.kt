@@ -43,6 +43,7 @@ class SettingsBytecodePatch : BytecodePatch(
             }
         } ?: throw ThemeSetterSystemFingerprint.exception
 
+        context.injectInit("InitializationPatch", "setDeviceInformation", true)
         context.injectInit("InitializationPatch", "initializeReVancedSettings", true)
 
     }
