@@ -50,7 +50,8 @@ class AppendTimeStampInformationPatch : BytecodePatch(
                     ) {
                         setTextIndex = textViewIndex + 2
                         val setTextRegister = getInstruction<Instruction35c>(setTextIndex).registerC
-                        val textViewRegister = getInstruction<Instruction35c>(textViewIndex).registerC
+                        val textViewRegister =
+                            getInstruction<Instruction35c>(textViewIndex).registerC
 
                         addInstructions(
                             setTextIndex, """

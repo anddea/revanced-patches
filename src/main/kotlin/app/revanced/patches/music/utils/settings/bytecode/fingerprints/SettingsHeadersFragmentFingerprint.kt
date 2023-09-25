@@ -10,7 +10,6 @@ object SettingsHeadersFragmentFingerprint : MethodFingerprint(
         Opcode.IGET_OBJECT,
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT_OBJECT
-
     ),
     customFingerprint = { methodDef, _ -> methodDef.definingClass.endsWith("/SettingsHeadersFragment;") && methodDef.name == "onCreate" }
 )

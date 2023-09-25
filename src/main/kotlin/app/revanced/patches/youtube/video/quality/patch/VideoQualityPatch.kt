@@ -64,7 +64,8 @@ class VideoQualityPatch : BytecodePatch(
         } ?: throw NewFlyoutPanelOnClickListenerFingerprint.exception
 
         VideoQualitySetterFingerprint.result?.let {
-            val onItemClickMethod = it.mutableClass.methods.find { method -> method.name == "onItemClick" }
+            val onItemClickMethod =
+                it.mutableClass.methods.find { method -> method.name == "onItemClick" }
 
             onItemClickMethod?.apply {
                 val listItemIndexParameter = 3

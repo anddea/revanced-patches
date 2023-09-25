@@ -29,12 +29,14 @@ class OverrideQualityHookPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
 
         VideoQualityListFingerprint.result?.let {
-            val constructorMethod = it.mutableClass.methods.first { method -> MethodUtil.isConstructor(method) }
-            val overrideMethod = it.mutableClass.methods.find { method -> method.parameterTypes.first() == "I" }
+            val constructorMethod =
+                it.mutableClass.methods.first { method -> MethodUtil.isConstructor(method) }
+            val overrideMethod =
+                it.mutableClass.methods.find { method -> method.parameterTypes.first() == "I" }
 
             QUALITY_CLASS = it.method.definingClass
             QUALITY_METHOD = overrideMethod?.name
-                ?:throw PatchException("Failed to find hook method")
+                ?: throw PatchException("Failed to find hook method")
 
             constructorMethod.apply {
                 addInstruction(
