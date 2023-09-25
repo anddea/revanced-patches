@@ -5,13 +5,11 @@ import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.fingerprints.litho.EmptyComponentBuilderFingerprint
 import app.revanced.patches.shared.fingerprints.litho.IdentifierFingerprint
 import app.revanced.util.bytecode.getStringIndex
-import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction35c
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
@@ -27,36 +25,26 @@ class ComponentParserPatch : BytecodePatch(
 ) {
     override fun execute(context: BytecodeContext) {
 
+        /**
+         * Shared fingerprint
+         */
         EmptyComponentBuilderFingerprint.result?.let {
             it.mutableMethod.apply {
-                val targetStringIndex = getStringIndex("Error while converting %s")
+                insertMethod = this
+                emptyComponentIndex = it.scanResult.patternScanResult!!.startIndex + 1
 
-                for (index in targetStringIndex until implementation!!.instructions.size - 1) {
-                    if (getInstruction(index).opcode != Opcode.INVOKE_STATIC_RANGE) continue
+                val builderMethodDescriptor =
+                    getInstruction<ReferenceInstruction>(emptyComponentIndex).reference
+                val emptyComponentFieldDescriptor =
+                    getInstruction<ReferenceInstruction>(emptyComponentIndex + 2).reference
 
-                    val builderMethodDescriptor =
-                        getInstruction<ReferenceInstruction>(index).reference
-                    val emptyComponentFieldDescriptor =
-                        getInstruction<ReferenceInstruction>(index + 2).reference
-
-                    emptyComponentLabel = """
+                emptyComponentLabel = """
                         move-object/from16 v0, p1
                         invoke-static {v0}, $builderMethodDescriptor
                         move-result-object v0
                         iget-object v0, v0, $emptyComponentFieldDescriptor
                         return-object v0
                         """
-                    break
-                }
-
-                if (emptyComponentLabel.isEmpty())
-                    throw PatchException("could not find Empty Component Label in method")
-            }
-        } ?: throw EmptyComponentBuilderFingerprint.exception
-
-        IdentifierFingerprint.result?.let {
-            it.mutableMethod.apply {
-                insertMethod = this
 
                 val stringBuilderIndex =
                     implementation!!.instructions.indexOfFirst { instruction ->
@@ -65,29 +53,26 @@ class ComponentParserPatch : BytecodePatch(
                         fieldReference?.let { reference -> reference.type == "Ljava/lang/StringBuilder;" } == true
                     }
 
-                val identifierIndex = it.scanResult.patternScanResult!!.endIndex
-                val objectIndex = getStringIndex("") + 1
-                val freeIndex = implementation!!.instructions.indexOfFirst { instruction ->
-                    instruction.opcode == Opcode.CONST
-                }
-
                 stringBuilderRegister =
                     getInstruction<TwoRegisterInstruction>(stringBuilderIndex).registerA
-                identifierRegister =
-                    getInstruction<OneRegisterInstruction>(identifierIndex).registerA
-                objectRegister = getInstruction<BuilderInstruction35c>(objectIndex).registerC
-
-                val register = getInstruction<OneRegisterInstruction>(freeIndex).registerA
-
-                freeRegister =
-                    if (register == stringBuilderRegister || register == identifierRegister || register == objectRegister)
-                        15
-                    else
-                        register
 
                 insertIndex = stringBuilderIndex + 1
             }
-        } ?: throw IdentifierFingerprint.exception
+        } ?: throw EmptyComponentBuilderFingerprint.exception
+
+        /**
+         * Only used in YouTube
+         */
+        IdentifierFingerprint.result?.let {
+            it.mutableMethod.apply {
+                val identifierIndex = it.scanResult.patternScanResult!!.endIndex
+                val objectIndex = getStringIndex("") + 1
+
+                identifierRegister =
+                    getInstruction<OneRegisterInstruction>(identifierIndex).registerA
+                objectRegister = getInstruction<BuilderInstruction35c>(objectIndex).registerC
+            }
+        }
 
     }
 
@@ -95,42 +80,35 @@ class ComponentParserPatch : BytecodePatch(
         lateinit var emptyComponentLabel: String
         lateinit var insertMethod: MutableMethod
 
+        var emptyComponentIndex by Delegates.notNull<Int>()
         var insertIndex by Delegates.notNull<Int>()
-
-        var freeRegister = 15
 
         var identifierRegister by Delegates.notNull<Int>()
         var objectRegister by Delegates.notNull<Int>()
         var stringBuilderRegister by Delegates.notNull<Int>()
 
-        fun generalHook(
-            descriptor: String
-        ) {
+        fun generalHook(descriptor: String) {
             insertMethod.apply {
                 addInstructionsWithLabels(
                     insertIndex,
                     """
                         invoke-static {v$stringBuilderRegister, v$identifierRegister, v$objectRegister}, $descriptor(Ljava/lang/StringBuilder;Ljava/lang/String;Ljava/lang/Object;)Z
-                        move-result v$freeRegister
-                        if-eqz v$freeRegister, :unfiltered
-                        """ + emptyComponentLabel,
-                    ExternalLabel("unfiltered", getInstruction(insertIndex))
+                        move-result v$stringBuilderRegister
+                        if-nez v$stringBuilderRegister, :filter
+                        """, ExternalLabel("filter", getInstruction(emptyComponentIndex))
                 )
             }
         }
 
-        fun identifierHook(
-            descriptor: String
-        ) {
+        fun pathBuilderHook(descriptor: String) {
             insertMethod.apply {
                 addInstructionsWithLabels(
                     insertIndex,
                     """
-                        invoke-static {v$stringBuilderRegister, v$identifierRegister}, $descriptor(Ljava/lang/StringBuilder;Ljava/lang/String;)Z
-                        move-result v$freeRegister
-                        if-eqz v$freeRegister, :unfiltered
-                        """ + emptyComponentLabel,
-                    ExternalLabel("unfiltered", getInstruction(insertIndex))
+                        invoke-static {v$stringBuilderRegister}, $descriptor(Ljava/lang/StringBuilder;)Z
+                        move-result v$stringBuilderRegister
+                        if-nez v$stringBuilderRegister, :filter
+                        """, ExternalLabel("filter", getInstruction(emptyComponentIndex))
                 )
             }
         }
