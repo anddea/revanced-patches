@@ -10,11 +10,13 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
+import app.revanced.patches.music.misc.exclusiveaudio.fingerprints.DataSavingSettingsFragmentFingerprint
 import app.revanced.patches.music.misc.exclusiveaudio.fingerprints.MusicBrowserServiceFingerprint
 import app.revanced.patches.music.misc.exclusiveaudio.fingerprints.PodCastConfigFingerprint
 import app.revanced.patches.music.utils.annotations.MusicCompatibility
 import app.revanced.util.bytecode.getStringIndex
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 
@@ -24,6 +26,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 @MusicCompatibility
 class ExclusiveAudioPatch : BytecodePatch(
     listOf(
+        DataSavingSettingsFragmentFingerprint,
         MusicBrowserServiceFingerprint,
         PodCastConfigFingerprint
     )
@@ -77,5 +80,17 @@ class ExclusiveAudioPatch : BytecodePatch(
                 )
             }
         } ?: throw PodCastConfigFingerprint.exception
+
+        DataSavingSettingsFragmentFingerprint.result?.let {
+            it.mutableMethod.apply {
+                val insertIndex = getStringIndex("pref_key_dont_play_nma_video") + 4
+                val targetRegister = getInstruction<FiveRegisterInstruction>(insertIndex).registerD
+
+                addInstruction(
+                    insertIndex,
+                    "const/4 v$targetRegister, 0x1"
+                )
+            }
+        } ?: throw DataSavingSettingsFragmentFingerprint.exception
     }
 }
