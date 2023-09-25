@@ -13,7 +13,7 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.music.player.oldstyleminiplayer.fingerprints.NextButtonVisibilityFingerprint
 import app.revanced.patches.music.player.oldstyleminiplayer.fingerprints.SwipeToCloseFingerprint
 import app.revanced.patches.music.utils.annotations.MusicCompatibility
-import app.revanced.patches.music.utils.fingerprints.ColorMatchPlayerParentFingerprint
+import app.revanced.patches.music.utils.fingerprints.PlayerColorFingerprint
 import app.revanced.patches.music.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.enum.CategoryType
 import app.revanced.util.integrations.Constants.MUSIC_PLAYER
@@ -26,13 +26,13 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 @MusicCompatibility
 class OldStyleMiniPlayerPatch : BytecodePatch(
     listOf(
-        ColorMatchPlayerParentFingerprint,
+        PlayerColorFingerprint,
         SwipeToCloseFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext) {
 
-        ColorMatchPlayerParentFingerprint.result?.let { parentResult ->
+        PlayerColorFingerprint.result?.let { parentResult ->
             NextButtonVisibilityFingerprint.also {
                 it.resolve(
                     context,
@@ -52,7 +52,7 @@ class OldStyleMiniPlayerPatch : BytecodePatch(
                     )
                 }
             } ?: throw NextButtonVisibilityFingerprint.exception
-        } ?: throw ColorMatchPlayerParentFingerprint.exception
+        } ?: throw PlayerColorFingerprint.exception
 
         SwipeToCloseFingerprint.result?.let {
             it.mutableMethod.apply {
