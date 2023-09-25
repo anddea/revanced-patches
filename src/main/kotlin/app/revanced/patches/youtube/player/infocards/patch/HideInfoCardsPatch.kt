@@ -11,14 +11,21 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.youtube.player.infocards.fingerprints.InfoCardsIncognitoFingerprint
 import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
+import app.revanced.patches.youtube.utils.litho.patch.LithoFilterPatch
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
+import app.revanced.util.integrations.Constants.PATCHES_PATH
 import app.revanced.util.integrations.Constants.PLAYER
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Patch
 @Name("Hide info cards")
 @Description("Hides info-cards in videos.")
-@DependsOn([SettingsPatch::class])
+@DependsOn(
+    [
+        LithoFilterPatch::class,
+        SettingsPatch::class
+    ]
+)
 @YouTubeCompatibility
 class HideInfoCardsPatch : BytecodePatch(
     listOf(InfoCardsIncognitoFingerprint)
@@ -38,6 +45,8 @@ class HideInfoCardsPatch : BytecodePatch(
                 )
             }
         } ?: throw InfoCardsIncognitoFingerprint.exception
+
+        LithoFilterPatch.addFilter("$PATCHES_PATH/ads/PlayerFilter;")
 
         /**
          * Add settings
