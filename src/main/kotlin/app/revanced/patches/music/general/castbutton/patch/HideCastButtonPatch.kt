@@ -44,7 +44,8 @@ class HideCastButtonPatch : BytecodePatch(
          * Hide cast button
          */
         MediaRouteButtonFingerprint.result?.let {
-            val setVisibilityMethod = it.mutableClass.methods.find { method -> method.name == "setVisibility" }
+            val setVisibilityMethod =
+                it.mutableClass.methods.find { method -> method.name == "setVisibility" }
 
             setVisibilityMethod?.apply {
                 addInstructions(
