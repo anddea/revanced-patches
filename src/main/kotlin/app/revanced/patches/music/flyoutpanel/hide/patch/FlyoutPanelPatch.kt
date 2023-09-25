@@ -66,6 +66,11 @@ class FlyoutPanelPatch : BytecodePatch(
         )
         SettingsPatch.addMusicPreferenceWithoutSummary(
             CategoryType.FLYOUT,
+            "revanced_hide_flyout_panel_captions",
+            "false"
+        )
+        SettingsPatch.addMusicPreferenceWithoutSummary(
+            CategoryType.FLYOUT,
             "revanced_hide_flyout_panel_dismiss_queue",
             "false"
         )
@@ -86,6 +91,16 @@ class FlyoutPanelPatch : BytecodePatch(
         )
         SettingsPatch.addMusicPreferenceWithoutSummary(
             CategoryType.FLYOUT,
+            "revanced_hide_flyout_panel_go_to_episode",
+            "false"
+        )
+        SettingsPatch.addMusicPreferenceWithoutSummary(
+            CategoryType.FLYOUT,
+            "revanced_hide_flyout_panel_go_to_podcast",
+            "false"
+        )
+        SettingsPatch.addMusicPreferenceWithoutSummary(
+            CategoryType.FLYOUT,
             "revanced_hide_flyout_panel_like_dislike",
             "false"
         )
@@ -102,6 +117,11 @@ class FlyoutPanelPatch : BytecodePatch(
         SettingsPatch.addMusicPreferenceWithoutSummary(
             CategoryType.FLYOUT,
             "revanced_hide_flyout_panel_report",
+            "false"
+        )
+        SettingsPatch.addMusicPreferenceWithoutSummary(
+            CategoryType.FLYOUT,
+            "revanced_hide_flyout_panel_save_episode_for_later",
             "false"
         )
         SettingsPatch.addMusicPreferenceWithoutSummary(
