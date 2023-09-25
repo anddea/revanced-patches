@@ -174,6 +174,12 @@ class SettingsPatch : AbstractSettingsResourcePatch(
     }
 
     override fun close() {
+        addMusicPreferenceWithIntent(
+            CategoryType.MISC,
+            "revanced_extended_settings_import_export",
+            ""
+        )
+
         CategoryType.entries.sorted().forEach {
             contexts.sortMusicPreferenceCategory(it.value)
         }
