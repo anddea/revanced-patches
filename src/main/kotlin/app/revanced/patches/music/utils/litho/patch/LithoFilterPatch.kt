@@ -9,7 +9,7 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.music.utils.annotations.MusicCompatibility
 import app.revanced.patches.music.utils.litho.fingerprints.LithoFilterFingerprint
 import app.revanced.patches.shared.patch.litho.ComponentParserPatch
-import app.revanced.patches.shared.patch.litho.ComponentParserPatch.Companion.identifierHook
+import app.revanced.patches.shared.patch.litho.ComponentParserPatch.Companion.pathBuilderHook
 import app.revanced.util.integrations.Constants.MUSIC_ADS_PATH
 import java.io.Closeable
 
@@ -19,7 +19,7 @@ class LithoFilterPatch : BytecodePatch(
     listOf(LithoFilterFingerprint)
 ), Closeable {
     override fun execute(context: BytecodeContext) {
-        identifierHook("$MUSIC_ADS_PATH/LithoFilterPatch;->filter")
+        pathBuilderHook("$MUSIC_ADS_PATH/LithoFilterPatch;->filter")
 
         LithoFilterFingerprint.result?.let {
             it.mutableMethod.apply {
