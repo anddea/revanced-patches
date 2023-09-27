@@ -24,6 +24,7 @@ import app.revanced.util.integrations.Constants.PATCHES_PATH
 class PlayerFlyoutPanelPatch : ResourcePatch {
     override fun execute(context: ResourceContext) {
         LithoFilterPatch.addFilter("$PATCHES_PATH/ads/PlayerFlyoutPanelsFilter;")
+        LithoFilterPatch.addFilter("$PATCHES_PATH/ads/PlayerFlyoutPanelsFooterFilter;")
 
         /**
          * Add settings
