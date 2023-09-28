@@ -5,6 +5,7 @@ internal object Constants {
     const val PATCHES_PATH = "$INTEGRATIONS_PATH/patches"
 
     const val ADS_PATH = "$PATCHES_PATH/ads"
+    const val ALTERNATIVE_THUMBNAILS = "$PATCHES_PATH/layout/AlternativeThumbnailsPatch;"
     const val SWIPE_PATH = "$PATCHES_PATH/swipe"
     const val FLYOUT_PANEL = "$PATCHES_PATH/layout/FlyoutPanelPatch;"
     const val FULLSCREEN = "$PATCHES_PATH/layout/FullscreenPatch;"

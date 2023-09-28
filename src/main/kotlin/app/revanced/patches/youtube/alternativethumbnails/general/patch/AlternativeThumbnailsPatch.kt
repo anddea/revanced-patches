@@ -17,6 +17,7 @@ import app.revanced.patches.youtube.alternativethumbnails.general.fingerprints.M
 import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch.Companion.contexts
+import app.revanced.util.integrations.Constants.ALTERNATIVE_THUMBNAILS
 import app.revanced.util.resources.ResourceUtils.copyXmlNode
 
 @Patch
@@ -45,7 +46,7 @@ class AlternativeThumbnailsPatch : BytecodePatch(
                 it.mutableMethod.apply {
                     addInstructions(
                         0, """
-                            invoke-static { p1 }, $INTEGRATIONS_CLASS_DESCRIPTOR->overrideImageURL(Ljava/lang/String;)Ljava/lang/String;
+                            invoke-static { p1 }, $ALTERNATIVE_THUMBNAILS->overrideImageURL(Ljava/lang/String;)Ljava/lang/String;
                             move-result-object p1
                             """
                     )
@@ -68,7 +69,7 @@ class AlternativeThumbnailsPatch : BytecodePatch(
                 it.mutableMethod.apply {
                     addInstruction(
                         0,
-                        "invoke-static { p2 }, $INTEGRATIONS_CLASS_DESCRIPTOR->handleCronetSuccess(Lorg/chromium/net/UrlResponseInfo;)V"
+                        "invoke-static { p2 }, $ALTERNATIVE_THUMBNAILS->handleCronetSuccess(Lorg/chromium/net/UrlResponseInfo;)V"
                     )
                 }
             } ?: throw CronetURLRequestCallbackOnSucceededFingerprint.exception
@@ -89,10 +90,5 @@ class AlternativeThumbnailsPatch : BytecodePatch(
         )
 
         SettingsPatch.updatePatchStatus("alternative-thumbnails")
-    }
-
-    internal companion object {
-        private const val INTEGRATIONS_CLASS_DESCRIPTOR =
-            "Lapp/revanced/integrations/alternativethumbnails/AlternativeThumbnailsPatch;"
     }
 }
