@@ -28,6 +28,7 @@ class SharedResourceIdPatch : ResourcePatch {
         var Bar: Long = -1
         var BarContainerHeight: Long = -1
         var BottomPanelOverlayText: Long = -1
+        var BottomSheetFooterText: Long = -1
         var BottomUiContainerStub: Long = -1
         var ChannelListSubMenu: Long = -1
         var CompactLink: Long = -1
@@ -70,6 +71,7 @@ class SharedResourceIdPatch : ResourcePatch {
         var ScrimOverlay: Long = -1
         var Scrubbing: Long = -1
         var SettingsBooleanTimeRangeDialog: Long = -1
+        var SubtitleMenuSettingsFooterInfo: Long = -1
         var SuggestedAction: Long = -1
         var ToolBarPaddingHome: Long = -1
         var ToolTipContentView: Long = -1
@@ -103,6 +105,7 @@ class SharedResourceIdPatch : ResourcePatch {
         Bar = find(LAYOUT, "bar")
         BarContainerHeight = find(DIMEN, "bar_container_height")
         BottomPanelOverlayText = find(ID, "bottom_panel_overlay_text")
+        BottomSheetFooterText = find(ID, "bottom_sheet_footer_text")
         BottomUiContainerStub = find(ID, "bottom_ui_container_stub")
         ChannelListSubMenu = find(LAYOUT, "channel_list_sub_menu")
         CompactLink = find(LAYOUT, "compact_link")
@@ -147,6 +150,7 @@ class SharedResourceIdPatch : ResourcePatch {
         ScrimOverlay = find(ID, "scrim_overlay")
         Scrubbing = find(DIMEN, "vertical_touch_offset_to_enter_fine_scrubbing")
         SettingsBooleanTimeRangeDialog = find(LAYOUT, "setting_boolean_time_range_dialog")
+        SubtitleMenuSettingsFooterInfo = find(STRING, "subtitle_menu_settings_footer_info")
         SuggestedAction = find(LAYOUT, "suggested_action")
         ToolBarPaddingHome = find(DIMEN, "toolbar_padding_home_action_up")
         ToolTipContentView = find(LAYOUT, "tooltip_content_view")
