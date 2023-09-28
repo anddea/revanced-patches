@@ -58,6 +58,7 @@ class SharedResourceIdPatch : ResourcePatch {
         var QuickActionsElementContainer: Long = -1
         var ReelDynRemix: Long = -1
         var ReelDynShare: Long = -1
+        var ReelForcedMuteButton: Long = -1
         var ReelPlayerBadge: Long = -1
         var ReelPlayerBadge2: Long = -1
         var ReelPlayerFooter: Long = -1
@@ -137,6 +138,7 @@ class SharedResourceIdPatch : ResourcePatch {
         QuickActionsElementContainer = find(ID, "quick_actions_element_container")
         ReelDynRemix = find(ID, "reel_dyn_remix")
         ReelDynShare = find(ID, "reel_dyn_share")
+        ReelForcedMuteButton = find(ID, "reel_player_forced_mute_button")
         ReelPlayerBadge = find(ID, "reel_player_badge")
         ReelPlayerBadge2 = find(ID, "reel_player_badge2")
         ReelPlayerFooter = find(LAYOUT, "reel_player_dyn_footer_vert_stories3")
