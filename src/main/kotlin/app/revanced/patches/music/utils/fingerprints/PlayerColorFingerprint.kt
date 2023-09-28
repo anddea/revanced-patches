@@ -19,9 +19,6 @@ object PlayerColorFingerprint : MethodFingerprint(
         Opcode.IF_EQ,
         Opcode.IPUT,
         Opcode.IGET_OBJECT,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT,
-        Opcode.IF_EQZ
+        Opcode.INVOKE_VIRTUAL
     )
 )
