@@ -30,8 +30,8 @@ class LithoFilterPatch : BytecodePatch(
                         0, """
                         new-instance v0, $classDescriptor
                         invoke-direct {v0}, $classDescriptor-><init>()V
-                        const/16 v2, ${filterCount++}
-                        aput-object v0, v1, v2
+                        const/16 v3, ${filterCount++}
+                        aput-object v0, v2, v3
                         """
                     )
                 }
@@ -44,7 +44,8 @@ class LithoFilterPatch : BytecodePatch(
         .mutableMethod.addInstructions(
             0, """
                 const/16 v1, $filterCount
-                new-array v1, v1, [Lapp/revanced/music/patches/ads/Filter;
+                new-array v2, v1, [Lapp/revanced/music/patches/ads/Filter;
+                const/4 v1, 0x1
                 """
         )
 
