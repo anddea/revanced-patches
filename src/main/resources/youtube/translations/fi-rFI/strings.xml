@@ -25,9 +25,9 @@
     <string name="revanced_custom_filter_summary_on">Benutzerdefinierter Filter ist aktiviert</string>
     <string name="revanced_custom_filter_title">Benutzerdefinierte Filter aktivieren</string>
     <string name="revanced_custom_playback_speeds_invalid">Ungültige benutzerdefinierte Wiedergabegeschwindigkeiten. Auf Standardwerte zurücksetzen.</string>
-    <string name="revanced_custom_playback_speeds_warning" formatted="false">Benutzerdefinierte Geschwindigkeiten müssen kleiner als %sx sein. Auf Standardwerte zurücksetzen.</string>
     <string name="revanced_custom_playback_speeds_summary">Verfügbare Wiedergabegeschwindigkeiten hinzufügen oder ändern</string>
     <string name="revanced_custom_playback_speeds_title">Benutzerdefinierte Wiedergabegeschwindigkeiten bearbeiten</string>
+    <string name="revanced_custom_playback_speeds_warning" formatted="false">Benutzerdefinierte Geschwindigkeiten müssen kleiner als %sx sein. Auf Standardwerte zurücksetzen.</string>
     <string name="revanced_custom_seekbar_color_value_summary">Hex-Code der Suchleisten-Farbe eingeben</string>
     <string name="revanced_custom_seekbar_color_value_title">Benutzerdefinierter Farbwert für die Suchleiste</string>
     <string name="revanced_default_app_settings_summary">Um RVX in einem externen Browser zu öffnen, aktivieren Sie \'Unterstützte Links öffnen\' und aktivieren Sie die unterstützen Web-Adressen</string>
@@ -63,22 +63,22 @@
     <string name="revanced_disable_landscape_mode_summary_off">Querformat im Fullscreen Modus aktiviert</string>
     <string name="revanced_disable_landscape_mode_summary_on">Querformat im Fullscreen Modus deaktiviert</string>
     <string name="revanced_disable_landscape_mode_title">Poista vaaka-asento käytöstä</string>
+    <string name="revanced_disable_quic_protocol_summary">"CronetEngine's QUIC-Protokoll deaktivieren"</string>
+    <string name="revanced_disable_quic_protocol_title">Poista QUIC-protokolla käytöstä</string>
     <string name="revanced_disable_startup_shorts_player_summary_off">Shorts-Player aktiv beim Start der Anwendung</string>
     <string name="revanced_disable_startup_shorts_player_summary_on">Shorts-Player nicht aktiv beim Start der Anwendung</string>
     <string name="revanced_disable_startup_shorts_player_title">Shorts-Player beim App-Start ausblenden</string>
-    <string name="revanced_disable_quic_protocol_summary">"CronetEngine's QUIC-Protokoll deaktivieren"</string>
-    <string name="revanced_disable_quic_protocol_title">Poista QUIC-protokolla käytöstä</string>
     <string name="revanced_double_back_timeout_summary">Die Anzahl an Sekunden, in der doppelt gedrückt werden muss, um zu beenden</string>
     <string name="revanced_double_back_timeout_title">Zeitbegrenzung für \'Doppelt Antippen\'</string>
     <string name="revanced_enable_compact_controls_overlay_summary_off">Kompaktsteuerungs-Overlay ist deaktiviert</string>
     <string name="revanced_enable_compact_controls_overlay_summary_on">Kompaktsteuerungs-Overlay ist aktiviert</string>
     <string name="revanced_enable_compact_controls_overlay_title">Kompaktsteuerungs-Overlay aktivieren</string>
-    <string name="revanced_enable_custom_seekbar_color_summary_off">Die benutzerdefinierte Farbe der Suchleiste ist deaktiviert</string>
-    <string name="revanced_enable_custom_seekbar_color_summary_on">Die benutzerdefinierte Farbe der Suchleiste ist aktiviert</string>
-    <string name="revanced_enable_custom_seekbar_color_title">Eigene Suchleistenfarbe aktivieren</string>
     <string name="revanced_enable_custom_playback_speed_summary_off">Benutzerdefinierte Wiedergabegeschwindigkeit ist deaktiviert</string>
     <string name="revanced_enable_custom_playback_speed_summary_on">Benutzerdefinierte Wiedergabegeschwindigkeit ist aktiviert</string>
     <string name="revanced_enable_custom_playback_speed_title">Benutzerdefinierte Wiedergabegeschwindigkeit aktivieren</string>
+    <string name="revanced_enable_custom_seekbar_color_summary_off">Die benutzerdefinierte Farbe der Suchleiste ist deaktiviert</string>
+    <string name="revanced_enable_custom_seekbar_color_summary_on">Die benutzerdefinierte Farbe der Suchleiste ist aktiviert</string>
+    <string name="revanced_enable_custom_seekbar_color_title">Eigene Suchleistenfarbe aktivieren</string>
     <string name="revanced_enable_debug_logging_summary_off">Debug-Logs sind deaktiviert</string>
     <string name="revanced_enable_debug_logging_summary_on">Debug-Logs sind aktiviert</string>
     <string name="revanced_enable_debug_logging_title">Debug-Protokollierung aktivieren</string>
@@ -94,14 +94,14 @@
     <string name="revanced_enable_new_thumbnail_preview_summary_off">Neue Vorschauansicht ist deaktiviert</string>
     <string name="revanced_enable_new_thumbnail_preview_summary_on">Neue Vorschauansicht ist aktiviert</string>
     <string name="revanced_enable_new_thumbnail_preview_title">Neue Vorschauansicht aktivieren</string>
-    <string name="revanced_enable_opus_codec_summary">Opus Audio Codec anstelle von mp4a Audio Codec anwenden</string>
-    <string name="revanced_enable_opus_codec_title">Aktiviere Opus Codec</string>
     <string name="revanced_enable_old_quality_layout_summary_off">Uusi laadunasetuksien tyyli on käytössä</string>
     <string name="revanced_enable_old_quality_layout_summary_on">Vanha laadunasetuksien tyyli on käytössä</string>
     <string name="revanced_enable_old_quality_layout_title">Käytä vanhaa laaduntyyliä</string>
     <string name="revanced_enable_open_links_directly_summary_off">Standard-Umleitungsrichtlinie folgen</string>
     <string name="revanced_enable_open_links_directly_summary_on">Umgehung von URL-Umleitungen</string>
     <string name="revanced_enable_open_links_directly_title">Links direkt öffnen</string>
+    <string name="revanced_enable_opus_codec_summary">Opus Audio Codec anstelle von mp4a Audio Codec anwenden</string>
+    <string name="revanced_enable_opus_codec_title">Aktiviere Opus Codec</string>
     <string name="revanced_enable_phone_layout_summary">Umgehe die DPI, um einige Telefon-Layouts zu verwenden</string>
     <string name="revanced_enable_phone_layout_title">Käytä puhelimen asettelua</string>
     <string name="revanced_enable_press_to_swipe_summary_off">Drücken zum Wischen ist deaktiviert</string>
@@ -159,9 +159,9 @@
     <string name="revanced_fullscreen">Kokonäyttö</string>
     <string name="revanced_general">Yleiset</string>
     <string name="revanced_haptic_feedback_title">Haptisches Feedback</string>
+    <string name="revanced_hide_account_menu_filter_strings_title">Konto-Menüfilter bearbeiten</string>
     <string name="revanced_hide_account_menu_summary">Bekanntes Problem: Könnte im Querformat oder auf hohen-dpi Geräten nicht funktionieren</string>
     <string name="revanced_hide_account_menu_title">Piilota tili-valikko</string>
-    <string name="revanced_hide_account_menu_filter_strings_title">Konto-Menüfilter bearbeiten</string>
     <string name="revanced_hide_album_card_summary_off">Albumkarten werden gezeigt</string>
     <string name="revanced_hide_album_card_summary_on">Albumkarten werden ausgeblendet</string>
     <string name="revanced_hide_album_card_title">Albumkarten ausblenden</string>
@@ -330,12 +330,12 @@
     <string name="revanced_hide_latest_posts_summary_off">Viimeisimmät viestit näytetään</string>
     <string name="revanced_hide_latest_posts_summary_on">Viimeisimmät viestit on piilotettu</string>
     <string name="revanced_hide_latest_posts_title">Piilota viimeisimmät viestit</string>
-    <string name="revanced_hide_library_button_summary_off">Bibliothek-Button wird angezeigt</string>
-    <string name="revanced_hide_library_button_summary_on">Bibliothek-Button ist versteckt</string>
-    <string name="revanced_hide_library_button_title">Bibliothek-Button verstecken</string>
     <string name="revanced_hide_latest_videos_button_summary_off">Neue Videos-Schaltfläche wird angezeigt</string>
     <string name="revanced_hide_latest_videos_button_summary_on">\"Neustes Video\" Button ist versteckt</string>
     <string name="revanced_hide_latest_videos_button_title">Verstecke \"Neustes Video\" Button</string>
+    <string name="revanced_hide_library_button_summary_off">Bibliothek-Button wird angezeigt</string>
+    <string name="revanced_hide_library_button_summary_on">Bibliothek-Button ist versteckt</string>
+    <string name="revanced_hide_library_button_title">Bibliothek-Button verstecken</string>
     <string name="revanced_hide_load_more_button_summary_off">Mehr laden-Button wird angezeigt</string>
     <string name="revanced_hide_load_more_button_summary_on">Mehr laden-Button ist versteckt</string>
     <string name="revanced_hide_load_more_button_title">Mehr laden-Button verstecken</string>
@@ -399,9 +399,6 @@
     <string name="revanced_hide_player_flyout_panel_report_summary_off">Berichtsmenü wird angezeigt</string>
     <string name="revanced_hide_player_flyout_panel_report_summary_on">Berichtsmenü ist versteckt</string>
     <string name="revanced_hide_player_flyout_panel_report_title">\'Melden\'-Menü ausblenden</string>
-    <string name="revanced_hide_player_flyout_panel_speed_summary_off">Das Menü \"Wiedergabegeschwindigkeit\" wird angezeigt</string>
-    <string name="revanced_hide_player_flyout_panel_speed_summary_on">Das Menü \"Wiedergabegeschwindigkeit\" ist ausgeblendet</string>
-    <string name="revanced_hide_player_flyout_panel_speed_title">Das Menü \"Wiedergabegeschwindigkeit\" ausblenden</string>
     <string name="revanced_hide_player_flyout_panel_stats_for_nerds_summary_off">Statistiken für Nerds werden angezeigt</string>
     <string name="revanced_hide_player_flyout_panel_stats_for_nerds_summary_on">Statistiken für Nerds sind versteckt</string>
     <string name="revanced_hide_player_flyout_panel_stats_for_nerds_title">Verstecke Statistiken für Nerds</string>
@@ -411,8 +408,6 @@
     <string name="revanced_hide_player_overlay_filter_summary_off">Player Overlay Filter wird angezeigt</string>
     <string name="revanced_hide_player_overlay_filter_summary_on">Player Overlay Filter ist versteckt</string>
     <string name="revanced_hide_player_overlay_filter_title">Verstecke Player-Overlay-Filter</string>
-    <string name="revanced_hook_download_button_summary">"Ersetze den Download-Button mit externem Download-Button
-nur auf YouTube v18.24.37+ verfügbar"</string>
     <string name="revanced_hide_preview_comment_off">Vorschau-Kommentar wird angezeigt</string>
     <string name="revanced_hide_preview_comment_on">Vorschau-Kommentar ist versteckt</string>
     <string name="revanced_hide_preview_comment_title">Verstecke Vorschau-Kommentar</string>
@@ -441,12 +436,12 @@ nur auf YouTube v18.24.37+ verfügbar"</string>
     <string name="revanced_hide_shorts_button_title">Piilota shorts-painike</string>
     <string name="revanced_hide_shorts_component_summary">Versteckt Shorts Abschnitt oder die Shorts Player-Elemente</string>
     <string name="revanced_hide_shorts_component_title">Piilota shorts-komponentti</string>
-    <string name="revanced_hide_shorts_player_navigation_bar_summary_off">Navigationsleiste wird angezeigt</string>
-    <string name="revanced_hide_shorts_player_navigation_bar_summary_on">Navigationsleiste ist versteckt</string>
-    <string name="revanced_hide_shorts_player_navigation_bar_title">Navigationsleiste ausblenden</string>
     <string name="revanced_hide_shorts_player_comments_button_summary_off">Kommentit-painike näytetään</string>
     <string name="revanced_hide_shorts_player_comments_button_summary_on">Kommentit-painike on piilotettu</string>
     <string name="revanced_hide_shorts_player_comments_button_title">Piilota kommentit-painike</string>
+    <string name="revanced_hide_shorts_player_navigation_bar_summary_off">Navigationsleiste wird angezeigt</string>
+    <string name="revanced_hide_shorts_player_navigation_bar_summary_on">Navigationsleiste ist versteckt</string>
+    <string name="revanced_hide_shorts_player_navigation_bar_title">Navigationsleiste ausblenden</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_off">Tilaukset-painike näytetään</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_on">Tilaukset-painike on piilotettu</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_title">Piilota tilaukset-painike</string>
@@ -467,6 +462,9 @@ nur auf YouTube v18.24.37+ verfügbar"</string>
     <string name="revanced_hide_suggested_actions_summary_off">Empfohlene Aktionen werden angezeigt</string>
     <string name="revanced_hide_suggested_actions_summary_on">Vorgeschlagene Aktionen sind versteckt</string>
     <string name="revanced_hide_suggested_actions_title">Verstecke empfohlene Vorschläge</string>
+    <string name="revanced_hide_suggested_video_overlay_summary">"Versteckt Overlay mit nächstem vorgeschlagenen Video
+Bekanntes Problem: Autoplay funktioniert nicht"</string>
+    <string name="revanced_hide_suggested_video_overlay_title">Vorgeschlagenes Video-Overlay verstecken</string>
     <string name="revanced_hide_suggestions_shelf_summary">"Versteckt folgende Abschnitte:
 - Aktuelle Nachrichten
 - Weiterschauen
@@ -474,9 +472,6 @@ nur auf YouTube v18.24.37+ verfügbar"</string>
 - Shopping
 - Erneut anschauen"</string>
     <string name="revanced_hide_suggestions_shelf_title">Vorschläge-Abschnitt verstecken</string>
-    <string name="revanced_hide_suggested_video_overlay_summary">"Versteckt Overlay mit nächstem vorgeschlagenen Video
-Bekanntes Problem: Autoplay funktioniert nicht"</string>
-    <string name="revanced_hide_suggested_video_overlay_title">Vorgeschlagenes Video-Overlay verstecken</string>
     <string name="revanced_hide_ticket_shelf_summary_off">Ticket-Abschnitte werden angezeigt</string>
     <string name="revanced_hide_ticket_shelf_summary_on">Ticket-Abschnitte sind versteckt</string>
     <string name="revanced_hide_ticket_shelf_title">Ticket-Abschnitte verstecken</string>
@@ -493,6 +488,8 @@ Bekanntes Problem: Autoplay funktioniert nicht"</string>
     <string name="revanced_hide_youtube_music_button_summary_off">YouTube Music -painike näytetään</string>
     <string name="revanced_hide_youtube_music_button_summary_on">YouTube Music -painike on piilotettu</string>
     <string name="revanced_hide_youtube_music_button_title">Piilota Youtube music -painike</string>
+    <string name="revanced_hook_download_button_summary">"Ersetze den Download-Button mit externem Download-Button
+nur auf YouTube v18.24.37+ verfügbar"</string>
     <string name="revanced_import_settings_summary">Nouda Revanced-asetukset tallennetusta tiedostosta</string>
     <string name="revanced_import_settings_title">Tuo asetukset</string>
     <string name="revanced_misc">Sekalaiset</string>
@@ -504,8 +501,8 @@ Bekanntes Problem: Autoplay funktioniert nicht"</string>
     <string name="revanced_override_premium_header_title">Premium-otsikko</string>
     <string name="revanced_patches_information">Patch-Informationen</string>
     <string name="revanced_patches_information_summary">Informationen über angewandte Patches</string>
-    <string name="revanced_player_flyout_panel_title">Player Flyout Panel</string>
     <string name="revanced_player">Soitin</string>
+    <string name="revanced_player_flyout_panel_title">Player Flyout Panel</string>
     <string name="revanced_reboot_warning_general">"Da dies noch ein experimentelles Feature ist, könnte es weitere unbekannte Probleme geben.
 Bist du sicher, dass du fortfahren möchtest?"</string>
     <string name="revanced_reboot_warning_phone">"Umgehe die DPI um einige Layouts auf Handy-Layouts zu ändern.

@@ -31,9 +31,9 @@
     <string name="revanced_custom_filter_summary_on">自訂篩選已啟用</string>
     <string name="revanced_custom_filter_title">啟用自訂篩選</string>
     <string name="revanced_custom_playback_speeds_invalid">無效的自訂播放速度。已重設為預設值。</string>
-    <string name="revanced_custom_playback_speeds_warning" formatted="false">自訂速度必須小於 %sx。已重設為預設值。</string>
     <string name="revanced_custom_playback_speeds_summary">新增或變更可用的播放速度</string>
     <string name="revanced_custom_playback_speeds_title">編輯自訂播放速度</string>
+    <string name="revanced_custom_playback_speeds_warning" formatted="false">自訂速度必須小於 %sx。已重設為預設值。</string>
     <string name="revanced_custom_seekbar_color_value_summary">輸入搜尋欄十六進制代碼</string>
     <string name="revanced_custom_seekbar_color_value_title">自訂搜尋欄顏色</string>
     <string name="revanced_default_app_settings_summary">如過要讓RVX開啟Youtube的網址的話,請到手機設定&gt;RVX應用程式資訊&gt;設為預設&gt;前往支援的網址,將設定改為\"經此應用程式\"</string>
@@ -69,22 +69,22 @@
     <string name="revanced_disable_landscape_mode_summary_off">進入全螢幕時橫向模式已啟用</string>
     <string name="revanced_disable_landscape_mode_summary_on">進入全螢幕時橫向模式已停用</string>
     <string name="revanced_disable_landscape_mode_title">停用橫向模式</string>
+    <string name="revanced_disable_quic_protocol_summary">"停用 CronetEngine 的 QUIC 協議"</string>
+    <string name="revanced_disable_quic_protocol_title">停用 QUIC 協議</string>
     <string name="revanced_disable_startup_shorts_player_summary_off">在啟動應用程式時自動開啟 Shorts 已啟用</string>
     <string name="revanced_disable_startup_shorts_player_summary_on">在啟動應用程式時自動開啟 Shorts 已停用</string>
     <string name="revanced_disable_startup_shorts_player_title">在應用程式啟動時停用自動開啟 Shorts</string>
-    <string name="revanced_disable_quic_protocol_summary">"停用 CronetEngine 的 QUIC 協議"</string>
-    <string name="revanced_disable_quic_protocol_title">停用 QUIC 協議</string>
     <string name="revanced_double_back_timeout_summary">雙擊返回退出的時間（秒）</string>
     <string name="revanced_double_back_timeout_title">雙擊間隔時間判別</string>
     <string name="revanced_enable_compact_controls_overlay_summary_off">精簡控制選單已禁用</string>
     <string name="revanced_enable_compact_controls_overlay_summary_on">精簡控制選單已啟用</string>
     <string name="revanced_enable_compact_controls_overlay_title">啟用精簡控制選單</string>
-    <string name="revanced_enable_custom_seekbar_color_summary_off">自訂搜尋欄顏色已停用</string>
-    <string name="revanced_enable_custom_seekbar_color_summary_on">自訂搜尋欄顏色已啟用</string>
-    <string name="revanced_enable_custom_seekbar_color_title">啟用自動搜尋欄顏色</string>
     <string name="revanced_enable_custom_playback_speed_summary_off">已停用自訂播放速度</string>
     <string name="revanced_enable_custom_playback_speed_summary_on">已啟用自訂播放速度</string>
     <string name="revanced_enable_custom_playback_speed_title">啟用自訂播放速度</string>
+    <string name="revanced_enable_custom_seekbar_color_summary_off">自訂搜尋欄顏色已停用</string>
+    <string name="revanced_enable_custom_seekbar_color_summary_on">自訂搜尋欄顏色已啟用</string>
+    <string name="revanced_enable_custom_seekbar_color_title">啟用自動搜尋欄顏色</string>
     <string name="revanced_enable_debug_logging_summary_off">偵錯記錄已停用</string>
     <string name="revanced_enable_debug_logging_summary_on">偵錯記錄已啟用</string>
     <string name="revanced_enable_debug_logging_title">啟用偵錯記錄</string>
@@ -100,14 +100,14 @@
     <string name="revanced_enable_new_thumbnail_preview_summary_off">已停用新縮圖預覽</string>
     <string name="revanced_enable_new_thumbnail_preview_summary_on">已啟用新縮圖預覽</string>
     <string name="revanced_enable_new_thumbnail_preview_title">啟用新縮圖預覽</string>
-    <string name="revanced_enable_opus_codec_summary">優先應用 opus 音訊解碼器 而非 mp4a 音訊解碼器</string>
-    <string name="revanced_enable_opus_codec_title">啟用 opus 解碼器</string>
     <string name="revanced_enable_old_quality_layout_summary_off">顯示新版畫質設定</string>
     <string name="revanced_enable_old_quality_layout_summary_on">顯示舊版畫質設定</string>
     <string name="revanced_enable_old_quality_layout_title">使用舊版畫質設定</string>
     <string name="revanced_enable_open_links_directly_summary_off">跟隨預設的重新載入行為</string>
     <string name="revanced_enable_open_links_directly_summary_on">跳過 URL 重新載入</string>
     <string name="revanced_enable_open_links_directly_title">直接開啟連結</string>
+    <string name="revanced_enable_opus_codec_summary">優先應用 opus 音訊解碼器 而非 mp4a 音訊解碼器</string>
+    <string name="revanced_enable_opus_codec_title">啟用 opus 解碼器</string>
     <string name="revanced_enable_phone_layout_summary">偽裝DPI以使用一些手機版介面</string>
     <string name="revanced_enable_phone_layout_title">啟用手機版介面</string>
     <string name="revanced_enable_press_to_swipe_summary_off">長按以滑動已停用</string>
@@ -165,9 +165,9 @@
     <string name="revanced_fullscreen">全螢幕</string>
     <string name="revanced_general">一般設定</string>
     <string name="revanced_haptic_feedback_title">震動回饋</string>
+    <string name="revanced_hide_account_menu_filter_strings_title">編輯帳號選單篩選</string>
     <string name="revanced_hide_account_menu_summary">已知問題：可能無法在橫向模式或高 dpi 設備上運作</string>
     <string name="revanced_hide_account_menu_title">隱藏帳戶選單</string>
-    <string name="revanced_hide_account_menu_filter_strings_title">編輯帳號選單篩選</string>
     <string name="revanced_hide_album_card_summary_off">專輯卡已顯示</string>
     <string name="revanced_hide_album_card_summary_on">專輯卡已隱藏</string>
     <string name="revanced_hide_album_card_title">隱藏專輯卡</string>
@@ -336,12 +336,12 @@
     <string name="revanced_hide_latest_posts_summary_off">最新貼文已顯示</string>
     <string name="revanced_hide_latest_posts_summary_on">最新貼文已隱藏</string>
     <string name="revanced_hide_latest_posts_title">隱藏最新貼文</string>
-    <string name="revanced_hide_library_button_summary_off">資料庫按鈕已顯示</string>
-    <string name="revanced_hide_library_button_summary_on">資料庫按鈕已隱藏</string>
-    <string name="revanced_hide_library_button_title">隱藏資料庫按鈕</string>
     <string name="revanced_hide_latest_videos_button_summary_off">最新影片按鈕已顯示</string>
     <string name="revanced_hide_latest_videos_button_summary_on">最新影片按鈕已隱藏</string>
     <string name="revanced_hide_latest_videos_button_title">隱藏最新影片按鈕</string>
+    <string name="revanced_hide_library_button_summary_off">資料庫按鈕已顯示</string>
+    <string name="revanced_hide_library_button_summary_on">資料庫按鈕已隱藏</string>
+    <string name="revanced_hide_library_button_title">隱藏資料庫按鈕</string>
     <string name="revanced_hide_load_more_button_summary_off">更多資訊按鈕已顯示</string>
     <string name="revanced_hide_load_more_button_summary_on">更多資訊按鈕已隱藏</string>
     <string name="revanced_hide_load_more_button_title">隱藏更多資訊按鈕</string>
@@ -405,9 +405,6 @@
     <string name="revanced_hide_player_flyout_panel_report_summary_off">顯示回報選單</string>
     <string name="revanced_hide_player_flyout_panel_report_summary_on">隱藏回報選單</string>
     <string name="revanced_hide_player_flyout_panel_report_title">隱藏回報選單</string>
-    <string name="revanced_hide_player_flyout_panel_speed_summary_off">顯示播放速度選單</string>
-    <string name="revanced_hide_player_flyout_panel_speed_summary_on">隱藏播放速度選單</string>
-    <string name="revanced_hide_player_flyout_panel_speed_title">隱藏播放速度選單</string>
     <string name="revanced_hide_player_flyout_panel_stats_for_nerds_summary_off">顯示資訊統計選單</string>
     <string name="revanced_hide_player_flyout_panel_stats_for_nerds_summary_on">隱藏資訊統</string>
     <string name="revanced_hide_player_flyout_panel_stats_for_nerds_title">隱藏資訊統計選單</string>
@@ -417,9 +414,6 @@
     <string name="revanced_hide_player_overlay_filter_summary_off">播放器疊加層底色已顯示</string>
     <string name="revanced_hide_player_overlay_filter_summary_on">播放器疊加層底色已隱藏</string>
     <string name="revanced_hide_player_overlay_filter_title">播放器疊加層底色</string>
-    <string name="revanced_hook_download_button_summary">"使用外部下載按鈕取代下載按鈕
-僅適用於 YouTube v18.24.37+"</string>
-    <string name="revanced_hook_download_button_title">Hook 下載按鈕</string>
     <string name="revanced_hide_preview_comment_off">留言區預覽已顯示</string>
     <string name="revanced_hide_preview_comment_on">留言區預覽已隱藏</string>
     <string name="revanced_hide_preview_comment_title">隱藏留言區預覽</string>
@@ -455,12 +449,12 @@
     <string name="revanced_hide_shorts_button_title">隱藏 Shorts 按鈕</string>
     <string name="revanced_hide_shorts_component_summary">隱藏 Shorts 介面或 Shorts 功能按鈕</string>
     <string name="revanced_hide_shorts_component_title">Shorts 模塊設定</string>
-    <string name="revanced_hide_shorts_player_navigation_bar_summary_off">顯示導航列</string>
-    <string name="revanced_hide_shorts_player_navigation_bar_summary_on">隱藏導航列</string>
-    <string name="revanced_hide_shorts_player_navigation_bar_title">隱藏導航列</string>
     <string name="revanced_hide_shorts_player_comments_button_summary_off">留言按鈕已顯示</string>
     <string name="revanced_hide_shorts_player_comments_button_summary_on">留言按鈕已隱藏</string>
     <string name="revanced_hide_shorts_player_comments_button_title">隱藏留言按鈕</string>
+    <string name="revanced_hide_shorts_player_navigation_bar_summary_off">顯示導航列</string>
+    <string name="revanced_hide_shorts_player_navigation_bar_summary_on">隱藏導航列</string>
+    <string name="revanced_hide_shorts_player_navigation_bar_title">隱藏導航列</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_off">訂閱按鈕已顯示</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_on">訂閱按鈕已隱藏</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_title">隱藏訂閱按鈕</string>
@@ -482,6 +476,9 @@
     <string name="revanced_hide_suggested_actions_summary_off">操作建議已顯示</string>
     <string name="revanced_hide_suggested_actions_summary_on">操作建議已隱藏</string>
     <string name="revanced_hide_suggested_actions_title">操作建議</string>
+    <string name="revanced_hide_suggested_video_overlay_summary">"隱藏建議的下一部影片覆蓋層
+已知問題：自動播放不工作"</string>
+    <string name="revanced_hide_suggested_video_overlay_title">隱藏建議影片覆蓋層</string>
     <string name="revanced_hide_suggestions_shelf_summary">"隱藏以下擺架：
 - 最新消息
 - 繼續觀看
@@ -489,9 +486,6 @@
 - 購物
 - 再次觀看"</string>
     <string name="revanced_hide_suggestions_shelf_title">隱藏首頁推薦欄</string>
-    <string name="revanced_hide_suggested_video_overlay_summary">"隱藏建議的下一部影片覆蓋層
-已知問題：自動播放不工作"</string>
-    <string name="revanced_hide_suggested_video_overlay_title">隱藏建議影片覆蓋層</string>
     <string name="revanced_hide_ticket_shelf_summary_off">購票庫已顯示</string>
     <string name="revanced_hide_ticket_shelf_summary_on">購票庫已隱藏</string>
     <string name="revanced_hide_ticket_shelf_title">隱藏購票庫</string>
@@ -519,6 +513,9 @@
     <string name="revanced_hide_youtube_music_button_summary_off">YouTube Music 按鈕已顯示</string>
     <string name="revanced_hide_youtube_music_button_summary_on">YouTube Music 按鈕已隱藏</string>
     <string name="revanced_hide_youtube_music_button_title">隱藏 YouTube Music 按鈕</string>
+    <string name="revanced_hook_download_button_summary">"使用外部下載按鈕取代下載按鈕
+僅適用於 YouTube v18.24.37+"</string>
+    <string name="revanced_hook_download_button_title">Hook 下載按鈕</string>
     <string name="revanced_import_settings_summary">從已儲存的檔案中恢復 ReVanced 設定</string>
     <string name="revanced_import_settings_title">導入設定</string>
     <string name="revanced_layout_title">版面</string>
@@ -534,10 +531,10 @@
     <string name="revanced_overlay_button_always_repeat_title">顯示總是重複按鈕</string>
     <string name="revanced_overlay_button_copy_video_url_summary">"點按複製影片網址
 長按複製帶有時間戳記的影片網址"</string>
-    <string name="revanced_overlay_button_copy_video_url_title">顯示複製影片網址按鈕</string>
     <string name="revanced_overlay_button_copy_video_url_timestamp_summary">"點按複製帶有時間戳記的影片網址
 長按複製影片時間戳記"</string>
     <string name="revanced_overlay_button_copy_video_url_timestamp_title">顯示複製時間戳記網址按鈕</string>
+    <string name="revanced_overlay_button_copy_video_url_title">顯示複製影片網址按鈕</string>
     <string name="revanced_overlay_button_external_downloader_summary">點按以啟動外部下載程式</string>
     <string name="revanced_overlay_button_external_downloader_title">顯示外部下載按鈕</string>
     <string name="revanced_overlay_button_speed_dialog_reset">已重設播放速度（1.0x）</string>
@@ -549,8 +546,8 @@
     <string name="revanced_override_premium_header_title">Premium 標誌</string>
     <string name="revanced_patches_information">補丁資訊</string>
     <string name="revanced_patches_information_summary">已套用的補丁資訊</string>
-    <string name="revanced_player_flyout_panel_title">播放器彈出面板</string>
     <string name="revanced_player">播放</string>
+    <string name="revanced_player_flyout_panel_title">播放器彈出面板</string>
     <string name="revanced_quick_actions_title">快捷操作</string>
     <string name="revanced_reboot_first_run">重新啟動以套用一般介面</string>
     <string name="revanced_reboot_warning_general">"由於這仍是一項實驗性功能，因此可能存在其他未知問題。
@@ -597,7 +594,6 @@
 
  這將改變應用程式的外觀，但可能會出現未知的反效果
  如果需要關閉，舊版介面可能會保留，直到清除應用程式資料"</string>
-    <string name="revanced_spoof_app_version_title">偽裝應用程式版本</string>
     <string name="revanced_spoof_app_version_target_entry_0">18.20.39 - 回復舊版的播放器彈出面板</string>
     <string name="revanced_spoof_app_version_target_entry_1">18.09.39 - 恢復舊版資料庫分頁</string>
     <string name="revanced_spoof_app_version_target_entry_2">17.41.37 - 恢復舊版資料庫分頁中的播放清單頁面</string>
@@ -606,6 +602,7 @@
     <string name="revanced_spoof_app_version_target_entry_title">欺騙應用程式版本目標</string>
     <string name="revanced_spoof_app_version_target_summary">輸入欺騙的應用程式版本目標</string>
     <string name="revanced_spoof_app_version_target_title">編輯欺騙應用程式版本</string>
+    <string name="revanced_spoof_app_version_title">偽裝應用程式版本</string>
     <string name="revanced_spoof_player_parameter_title">欺騙播放器參數</string>
     <string name="revanced_swipe_controls">滑動控制</string>
     <string name="revanced_swipe_magnitude_threshold_summary">滑動時調整的數值量</string>

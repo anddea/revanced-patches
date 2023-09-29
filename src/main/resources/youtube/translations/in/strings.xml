@@ -25,9 +25,9 @@
     <string name="revanced_custom_filter_summary_on">Filter kustom diaktifkan</string>
     <string name="revanced_custom_filter_title">Aktifkan filter kustom</string>
     <string name="revanced_custom_playback_speeds_invalid">Kecepatan pemutaran kustom tidak valid. Atur ulang ke nilai default.</string>
-    <string name="revanced_custom_playback_speeds_warning" formatted="false">Kecepatan kustom harus kurang dari %sx. Atur ulang ke nilai default.</string>
     <string name="revanced_custom_playback_speeds_summary">Menambah atau mengubah kecepatan pemutaran yang tersedia</string>
     <string name="revanced_custom_playback_speeds_title">Edit kecepatan pemutaran kustom</string>
+    <string name="revanced_custom_playback_speeds_warning" formatted="false">Kecepatan kustom harus kurang dari %sx. Atur ulang ke nilai default.</string>
     <string name="revanced_custom_seekbar_color_value_summary">Ketik kode hex warna seekbar</string>
     <string name="revanced_custom_seekbar_color_value_title">Nilai warna seekbar kustom</string>
     <string name="revanced_default_app_settings_summary">Untuk membuka RVX di browser eksternal, aktifkan \'Buka tautan yang didukung\' dan aktifkan alamat web yang didukung</string>
@@ -63,22 +63,22 @@
     <string name="revanced_disable_landscape_mode_summary_off">Mode lanskap saat memasuki layar penuh diaktifkan</string>
     <string name="revanced_disable_landscape_mode_summary_on">Mode lanskap saat memasuki layar penuh dinonaktifkan</string>
     <string name="revanced_disable_landscape_mode_title">Nonaktifkan mode lanskap</string>
+    <string name="revanced_disable_quic_protocol_summary">"Nonaktifkan protokol QUIC CronetEngine"</string>
+    <string name="revanced_disable_quic_protocol_title">Nonaktifkan protokol QUIC</string>
     <string name="revanced_disable_startup_shorts_player_summary_off">Pemutar shorts saat memulai aplikasi diaktifkan</string>
     <string name="revanced_disable_startup_shorts_player_summary_on">Pemutar shorts saat memulai aplikasi dinonaktifkan</string>
     <string name="revanced_disable_startup_shorts_player_title">Nonaktifkan pemutar shorts saat memulai aplikasi</string>
-    <string name="revanced_disable_quic_protocol_summary">"Nonaktifkan protokol QUIC CronetEngine"</string>
-    <string name="revanced_disable_quic_protocol_title">Nonaktifkan protokol QUIC</string>
     <string name="revanced_double_back_timeout_summary">Jumlah detik tekan dua kali kembali untuk keluar</string>
     <string name="revanced_double_back_timeout_title">Batas waktu mundur ganda</string>
     <string name="revanced_enable_compact_controls_overlay_summary_off">Overlay kontrol ringkas dinonaktifkan</string>
     <string name="revanced_enable_compact_controls_overlay_summary_on">Overlay kontrol ringkas diaktifkan</string>
     <string name="revanced_enable_compact_controls_overlay_title">Aktifkan overlay kontrol ringkas</string>
-    <string name="revanced_enable_custom_seekbar_color_summary_off">Warna seekbar kustom dinonaktifkan</string>
-    <string name="revanced_enable_custom_seekbar_color_summary_on">Warna seekbar kustom diaktifkan</string>
-    <string name="revanced_enable_custom_seekbar_color_title">Aktifkan warna seekbar kustom</string>
     <string name="revanced_enable_custom_playback_speed_summary_off">Kecepatan pemutaran kustom dinonaktifkan</string>
     <string name="revanced_enable_custom_playback_speed_summary_on">Kecepatan pemutaran kustom diaktifkan</string>
     <string name="revanced_enable_custom_playback_speed_title">Aktifkan kecepatan pemutaran kustom</string>
+    <string name="revanced_enable_custom_seekbar_color_summary_off">Warna seekbar kustom dinonaktifkan</string>
+    <string name="revanced_enable_custom_seekbar_color_summary_on">Warna seekbar kustom diaktifkan</string>
+    <string name="revanced_enable_custom_seekbar_color_title">Aktifkan warna seekbar kustom</string>
     <string name="revanced_enable_debug_logging_summary_off">Pencatatan debug dinonaktifkan</string>
     <string name="revanced_enable_debug_logging_summary_on">Pencatatan debug diaktifkan</string>
     <string name="revanced_enable_debug_logging_title">Aktifkan pencatatan debug</string>
@@ -94,14 +94,14 @@
     <string name="revanced_enable_new_thumbnail_preview_summary_off">Pratinjau thumbnail baru dinonaktifkan</string>
     <string name="revanced_enable_new_thumbnail_preview_summary_on">Pratinjau thumbnail baru diaktifkan</string>
     <string name="revanced_enable_new_thumbnail_preview_title">Aktifkan pratinjau thumbnail baru</string>
-    <string name="revanced_enable_opus_codec_summary">Menerapkan codec audio opus alih-alih codec audio mp4a</string>
-    <string name="revanced_enable_opus_codec_title">Aktifkan codec opus</string>
     <string name="revanced_enable_old_quality_layout_summary_off">Setelan kualitas gaya baru ditampilkan</string>
     <string name="revanced_enable_old_quality_layout_summary_on">Setelan kualitas gaya lama ditampilkan</string>
     <string name="revanced_enable_old_quality_layout_title">Aktifkan tata letak kualitas gaya lama</string>
     <string name="revanced_enable_open_links_directly_summary_off">Mengikuti kebijakan pengalihan default</string>
     <string name="revanced_enable_open_links_directly_summary_on">Abaikan pengalihan URL</string>
     <string name="revanced_enable_open_links_directly_title">Aktifkan tautan terbuka secara langsung</string>
+    <string name="revanced_enable_opus_codec_summary">Menerapkan codec audio opus alih-alih codec audio mp4a</string>
+    <string name="revanced_enable_opus_codec_title">Aktifkan codec opus</string>
     <string name="revanced_enable_phone_layout_summary">Trik dpi untuk menggunakan beberapa tata letak ponsel</string>
     <string name="revanced_enable_phone_layout_title">Aktifkan tata letak ponsel</string>
     <string name="revanced_enable_press_to_swipe_summary_off">Tekan untuk swipe dinonaktifkan</string>
@@ -159,9 +159,9 @@
     <string name="revanced_fullscreen">Layar penuh</string>
     <string name="revanced_general">Umum</string>
     <string name="revanced_haptic_feedback_title">Umpan balik haptic</string>
+    <string name="revanced_hide_account_menu_filter_strings_title">Edit filter menu akun</string>
     <string name="revanced_hide_account_menu_summary">Masalah yang diketahui: Mungkin tidak berfungsi dalam mode lanskap atau pada perangkat dpi tinggi</string>
     <string name="revanced_hide_account_menu_title">Sembunyikan menu akun</string>
-    <string name="revanced_hide_account_menu_filter_strings_title">Edit filter menu akun</string>
     <string name="revanced_hide_album_card_summary_off">Kartu album ditampilkan</string>
     <string name="revanced_hide_album_card_summary_on">Kartu album disembunyikan</string>
     <string name="revanced_hide_album_card_title">Sembunyikan kartu album</string>
@@ -330,12 +330,12 @@
     <string name="revanced_hide_latest_posts_summary_off">Postingan terbaru ditampilkan</string>
     <string name="revanced_hide_latest_posts_summary_on">Postingan terbaru disembunyikan</string>
     <string name="revanced_hide_latest_posts_title">Sembunyikan postingan terbaru</string>
-    <string name="revanced_hide_library_button_summary_off">Tombol koleksi ditampilkan</string>
-    <string name="revanced_hide_library_button_summary_on">Tombol koleksi disembunyikan</string>
-    <string name="revanced_hide_library_button_title">Sembunyikan tombol koleksi</string>
     <string name="revanced_hide_latest_videos_button_summary_off">Tombol video terbaru ditampilkan</string>
     <string name="revanced_hide_latest_videos_button_summary_on">Tombol video terbaru disembunyikan</string>
     <string name="revanced_hide_latest_videos_button_title">Sembunyikan tombol video terbaru</string>
+    <string name="revanced_hide_library_button_summary_off">Tombol koleksi ditampilkan</string>
+    <string name="revanced_hide_library_button_summary_on">Tombol koleksi disembunyikan</string>
+    <string name="revanced_hide_library_button_title">Sembunyikan tombol koleksi</string>
     <string name="revanced_hide_load_more_button_summary_off">Tombol tampilkan lebih banyak ditampilkan</string>
     <string name="revanced_hide_load_more_button_summary_on">Tombol tampilkan lebih banyak disembunyikan</string>
     <string name="revanced_hide_load_more_button_title">Sembunyikan tombol tampilkan lebih banyak</string>
@@ -399,9 +399,6 @@
     <string name="revanced_hide_player_flyout_panel_report_summary_off">Menu laporkan ditampilkan</string>
     <string name="revanced_hide_player_flyout_panel_report_summary_on">Menu laporkan disembunyikan</string>
     <string name="revanced_hide_player_flyout_panel_report_title">Sembunyikan menu laporkan</string>
-    <string name="revanced_hide_player_flyout_panel_speed_summary_off">Menu kecepatan pemutar video ditampilkan</string>
-    <string name="revanced_hide_player_flyout_panel_speed_summary_on">Menu kecepatan pemutar video disembunyikan</string>
-    <string name="revanced_hide_player_flyout_panel_speed_title">Sembunyikan menu kecepatan pemutar video</string>
     <string name="revanced_hide_player_flyout_panel_stats_for_nerds_summary_off">Statistik untuk menu nerds ditampilkan</string>
     <string name="revanced_hide_player_flyout_panel_stats_for_nerds_summary_on">Statistik untuk menu nerds disembunyikan</string>
     <string name="revanced_hide_player_flyout_panel_stats_for_nerds_title">Sembunyikan statistik untuk menu nerds</string>
@@ -411,9 +408,6 @@
     <string name="revanced_hide_player_overlay_filter_summary_off">Filter overlay pemutar ditampilkan</string>
     <string name="revanced_hide_player_overlay_filter_summary_on">Filter overlay pemutar disembunyikan</string>
     <string name="revanced_hide_player_overlay_filter_title">Sembunyikan filter overlay pemutar</string>
-    <string name="revanced_hook_download_button_summary">"Mengganti tombol download dengan tombol download eksternal
-Hanya tersedia di YouTube v18.24.37+"</string>
-    <string name="revanced_hook_download_button_title">Tombol pengait download</string>
     <string name="revanced_hide_preview_comment_off">Komentar pratinjau ditampilkan</string>
     <string name="revanced_hide_preview_comment_on">Komentar pratinjau disembunyikan</string>
     <string name="revanced_hide_preview_comment_title">Sembunyikan komentar pratinjau</string>
@@ -449,12 +443,12 @@ Hanya tersedia di YouTube v18.24.37+"</string>
     <string name="revanced_hide_shorts_button_title">Sembunyikan tombol shorts</string>
     <string name="revanced_hide_shorts_component_summary">Menyembunyikan bagian shorts atau komponen pemutar shorts</string>
     <string name="revanced_hide_shorts_component_title">Sembunyikan komponen shorts</string>
-    <string name="revanced_hide_shorts_player_navigation_bar_summary_off">Bilah navigasi ditampilkan</string>
-    <string name="revanced_hide_shorts_player_navigation_bar_summary_on">Bilah navigasi disembunyikan</string>
-    <string name="revanced_hide_shorts_player_navigation_bar_title">Sembunyikan bilah navigasi</string>
     <string name="revanced_hide_shorts_player_comments_button_summary_off">Tombol komentar ditampilkan</string>
     <string name="revanced_hide_shorts_player_comments_button_summary_on">Tombol komentar disembunyikan</string>
     <string name="revanced_hide_shorts_player_comments_button_title">Sembunyikan tombol komentar</string>
+    <string name="revanced_hide_shorts_player_navigation_bar_summary_off">Bilah navigasi ditampilkan</string>
+    <string name="revanced_hide_shorts_player_navigation_bar_summary_on">Bilah navigasi disembunyikan</string>
+    <string name="revanced_hide_shorts_player_navigation_bar_title">Sembunyikan bilah navigasi</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_off">Tombol subscription ditampilkan</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_on">Tombol subscription disembunyikan</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_title">Sembunyikan tombol subscription</string>
@@ -476,6 +470,9 @@ Hanya tersedia di YouTube v18.24.37+"</string>
     <string name="revanced_hide_suggested_actions_summary_off">Aksi yang disarankan ditampilkan</string>
     <string name="revanced_hide_suggested_actions_summary_on">Aksi yang disarankan disembunyikan</string>
     <string name="revanced_hide_suggested_actions_title">Sembunyikan aksi yang disarankan</string>
+    <string name="revanced_hide_suggested_video_overlay_summary">"Menyembunyikan overlay video yang disarankan untuk diputar berikutnya
+Masalah yang diketahui: putar otomatis tidak berfungsi"</string>
+    <string name="revanced_hide_suggested_video_overlay_title">Sembunyikan overlay video yang disarankan</string>
     <string name="revanced_hide_suggestions_shelf_summary">"Menyembunyikan rak berikut:
 - Berita terbaru
 - Lanjutkan menonton
@@ -483,9 +480,6 @@ Hanya tersedia di YouTube v18.24.37+"</string>
 - Belanja
 - Tonton lagi"</string>
     <string name="revanced_hide_suggestions_shelf_title">Sembunyikan rak rekomendasi</string>
-    <string name="revanced_hide_suggested_video_overlay_summary">"Menyembunyikan overlay video yang disarankan untuk diputar berikutnya
-Masalah yang diketahui: putar otomatis tidak berfungsi"</string>
-    <string name="revanced_hide_suggested_video_overlay_title">Sembunyikan overlay video yang disarankan</string>
     <string name="revanced_hide_ticket_shelf_summary_off">Rak tiket ditampilkan</string>
     <string name="revanced_hide_ticket_shelf_summary_on">Rak tiket disembunyikan</string>
     <string name="revanced_hide_ticket_shelf_title">Sembunyikan rak tiket</string>
@@ -513,6 +507,9 @@ Masalah yang diketahui: putar otomatis tidak berfungsi"</string>
     <string name="revanced_hide_youtube_music_button_summary_off">Tombol YouTube Music ditampilkan</string>
     <string name="revanced_hide_youtube_music_button_summary_on">Tombol YouTube Music disembunyikan</string>
     <string name="revanced_hide_youtube_music_button_title">Sembunyikan tombol YouTube Music</string>
+    <string name="revanced_hook_download_button_summary">"Mengganti tombol download dengan tombol download eksternal
+Hanya tersedia di YouTube v18.24.37+"</string>
+    <string name="revanced_hook_download_button_title">Tombol pengait download</string>
     <string name="revanced_import_settings_summary">Ambil setelan ReVanced dari file yang disimpan</string>
     <string name="revanced_import_settings_title">Setelan impor</string>
     <string name="revanced_layout_title">Tata letak</string>
@@ -528,10 +525,10 @@ Tekan dan tahan untuk mengalihkan jeda setelah status berulang"</string>
     <string name="revanced_overlay_button_always_repeat_title">Tampilkan tombol selalu ulangi</string>
     <string name="revanced_overlay_button_copy_video_url_summary">"Tekan untuk menyalin URL video
 Tekan dan tahan untuk menyalin URL video dengan stempel waktu"</string>
-    <string name="revanced_overlay_button_copy_video_url_title">Tampilkan tombol salin URL video</string>
     <string name="revanced_overlay_button_copy_video_url_timestamp_summary">"Tekan untuk menyalin URL video dengan stempel waktu
 Tekan dan tahan untuk menyalin stempel waktu video"</string>
     <string name="revanced_overlay_button_copy_video_url_timestamp_title">Tampilkan tombol salin stempel waktu URL</string>
+    <string name="revanced_overlay_button_copy_video_url_title">Tampilkan tombol salin URL video</string>
     <string name="revanced_overlay_button_external_downloader_summary">Tekan untuk membuka downloader eksternal</string>
     <string name="revanced_overlay_button_external_downloader_title">Tampilkan tombol download eksternal</string>
     <string name="revanced_overlay_button_speed_dialog_reset">Kecepatan pemutaran diatur ulang (1,0x)</string>
@@ -543,8 +540,8 @@ Tekan dan tahan untuk mengatur kecepatan pemutaran ke 1,0x"</string>
     <string name="revanced_override_premium_header_title">Header premium</string>
     <string name="revanced_patches_information">Informasi patch</string>
     <string name="revanced_patches_information_summary">Informasi tentang patch yang diterapkan</string>
-    <string name="revanced_player_flyout_panel_title">Panel flyout pemutar</string>
     <string name="revanced_player">Pemutar</string>
+    <string name="revanced_player_flyout_panel_title">Panel flyout pemutar</string>
     <string name="revanced_quick_actions_title">Aksi cepat</string>
     <string name="revanced_reboot_first_run">Mulai ulang untuk memuat tata letak secara normal</string>
     <string name="revanced_reboot_warning_general">"Karena ini masih merupakan fitur eksperimental, mungkin ada masalah lain yang tidak diketahui.
@@ -590,7 +587,6 @@ Karena setelan ini sudah cukup usang, mungkin tidak valid"</string>
 
 Ini akan mengubah tampilan aplikasi, tetapi efek samping yang tidak diketahui dapat terjadi
 Jika nanti dimatikan, UI lama mungkin tetap ada sampai menghapus data aplikasi"</string>
-    <string name="revanced_spoof_app_version_title">Palsukan versi aplikasi</string>
     <string name="revanced_spoof_app_version_target_entry_0">18.20.39 - Mengembalikan panel flyout pemutar gaya lama</string>
     <string name="revanced_spoof_app_version_target_entry_1">18.09.39 - Mengembalikan tab koleksi gaya lama</string>
     <string name="revanced_spoof_app_version_target_entry_2">17.41.37 - Mengembalikan rak playlist gaya lama di tab koleksi</string>
@@ -599,6 +595,7 @@ Jika nanti dimatikan, UI lama mungkin tetap ada sampai menghapus data aplikasi"<
     <string name="revanced_spoof_app_version_target_entry_title">Palsukan target versi aplikasi</string>
     <string name="revanced_spoof_app_version_target_summary">Ketik versi target pemalsuan aplikasi</string>
     <string name="revanced_spoof_app_version_target_title">Edit pemalsuan versi aplikasi</string>
+    <string name="revanced_spoof_app_version_title">Palsukan versi aplikasi</string>
     <string name="revanced_spoof_player_parameter_title">Parameter pemutar pemalsuan</string>
     <string name="revanced_swipe_controls">Kontrol swipe</string>
     <string name="revanced_swipe_magnitude_threshold_summary">Jumlah ambang batas untuk swipe terjadi</string>

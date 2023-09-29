@@ -27,7 +27,6 @@ class TranslationsPatch : ResourcePatch {
     private companion object {
         val LANGUAGE_LIST = arrayOf(
             "ar",
-            "az-rAZ",
             "bg-rBG",
             "bn",
             "de-rDE",
@@ -43,7 +42,6 @@ class TranslationsPatch : ResourcePatch {
             "ko-rKR",
             "pl-rPL",
             "pt-rBR",
-            "ro-rRO",
             "ru-rRU",
             "tr-rTR",
             "uk-rUA",
