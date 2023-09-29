@@ -12,7 +12,7 @@
     <string name="revanced_custom_filter_strings_summary">구성요소의 이름을 줄바꿈으로 구분하여 필터링합니다.</string>
     <string name="revanced_custom_filter_strings_title">사용자 정의 필터 편집</string>
     <string name="revanced_custom_filter_summary">사용자 정의 필터를 활성화하여 레이아웃 구성요소를 숨깁니다.</string>
-    <string name="revanced_custom_filter_title">사용자 정의 필터로 광고 제거</string>
+    <string name="revanced_custom_filter_title">사용자 정의 필터 활성화</string>
     <string name="revanced_custom_playback_speeds_invalid">유효하지 않은 값입니다. 기본값으로 재설정합니다.</string>
     <string name="revanced_custom_playback_speeds_summary">사용 가능한 재생 속도를 추가 또는 변경하세요.</string>
     <string name="revanced_custom_playback_speeds_title">사용자 정의 재생 속도 편집</string>
@@ -60,7 +60,7 @@
     <string name="revanced_external_downloader_not_installed_warning" formatted="false">%s가 설치되지 않았습니다. 설치해 주세요.</string>
     <string name="revanced_external_downloader_package_name_summary">NewPipe 또는 Seal와 같은 설치된 외부 다운로더 패키지명입니다.</string>
     <string name="revanced_external_downloader_package_name_title">외부 다운로더 패키지명</string>
-    <string name="revanced_flyout_panel_watch_on_youtube">YouTube에서 보기</string>
+    <string name="revanced_flyout_panel_watch_on_youtube">YouTube에서 시청</string>
     <string name="revanced_hide_account_menu_empty_component_summary">계정 관리 메뉴에서 비어있는 구성요소를 숨깁니다.</string>
     <string name="revanced_hide_account_menu_empty_component_title">비어있는 구성요소 제거</string>
     <string name="revanced_hide_account_menu_summary">계정 관리 메뉴에서 구성요소를 숨깁니다.</string>
@@ -123,14 +123,18 @@
     <string name="revanced_hide_terms_container_title">서비스 약관 컨테이너 제거</string>
     <string name="revanced_hide_upgrade_button_summary">업그레이드 버튼을 숨깁니다.</string>
     <string name="revanced_hide_upgrade_button_title">업그레이드 버튼 제거</string>
-    <string name="revanced_hook_action_bar_download_summary">오프라인 저장 버튼을 외부 다운로드 버튼으로 대체합니다.</string>
-    <string name="revanced_hook_action_bar_download_title">오프라인 저장 버튼 대체</string>
+    <string name="revanced_hook_action_bar_download_summary">오프라인 저장 버튼을 외부 다운로드 버튼으로 변경합니다.</string>
+    <string name="revanced_hook_action_bar_download_title">오프라인 저장 버튼 변경</string>
+    <string name="revanced_playlist_dismiss">이미 정식 음원으로 재생 중입니다.</string>
+    <string name="revanced_playlist_error">정식 음원으로 재생할 수 없습니다.</string>
     <string name="revanced_reboot_first_run">기능 및 레이아웃을 정상적으로 실행시키기 위해 다시 시작합니다.</string>
     <string name="revanced_reboot_message">새로고침 및 다시 시작</string>
-    <string name="revanced_replace_flyout_panel_dismiss_queue_continue_watch_summary">YouTube에서 보기 메뉴를 누르면 동영상을 ReVanced Extended Music에서 멈춘 시점부터 재생합니다.</string>
-    <string name="revanced_replace_flyout_panel_dismiss_queue_continue_watch_title">멈춘 시점부터 재생</string>
-    <string name="revanced_replace_flyout_panel_dismiss_queue_summary">현재 재생목록 닫기 메뉴를 YouTube에서 보기 메뉴로 대체합니다.</string>
-    <string name="revanced_replace_flyout_panel_dismiss_queue_title">현재 재생목록 닫기 메뉴 대체</string>
+    <string name="revanced_replace_flyout_panel_dismiss_queue_continue_watch_summary">YouTube에서 시청 메뉴를 누르면 YouTube에서 동영상을 ReVanced Extended Music에서 멈춘 시점부터 이어서 시청합니다.</string>
+    <string name="revanced_replace_flyout_panel_dismiss_queue_continue_watch_title">이어서 시청</string>
+    <string name="revanced_replace_flyout_panel_dismiss_queue_summary">현재 재생목록 닫기 메뉴를 YouTube에서 시청 메뉴로 변경합니다.</string>
+    <string name="revanced_replace_flyout_panel_dismiss_queue_title">현재 재생목록 닫기 메뉴 변경</string>
+    <string name="revanced_replace_player_cast_button_summary">플레이어의 크롬캐스트 버튼을 정식 음원으로 재생 버튼으로 변경합니다. (실험적인 기능)</string>
+    <string name="revanced_replace_player_cast_button_title">크롬캐스트 버튼 변경</string>
     <string name="revanced_remember_repeat_state_summary">반복 상태를 저장합니다.</string>
     <string name="revanced_remember_repeat_state_title">반복 상태 저장</string>
     <string name="revanced_remember_shuffle_state_summary">셔플 상태를 저장합니다.</string>

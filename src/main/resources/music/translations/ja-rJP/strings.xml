@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="revanced_category_account">アカウント</string>
+    <string name="revanced_category_action_bar">アクションバー</string>
     <string name="revanced_category_ads">広告</string>
     <string name="revanced_category_flyout">フライアウトメニュー</string>
     <string name="revanced_category_general">全般</string>
     <string name="revanced_category_misc">その他</string>
     <string name="revanced_category_navigation">ナビゲーション</string>
     <string name="revanced_category_player">プレーヤー</string>
+    <string name="revanced_category_video">動画</string>
     <string name="revanced_custom_filter_strings_summary">コンポーネント名でフィルター (改行区切り)</string>
     <string name="revanced_custom_filter_strings_title">カスタムフィルターを編集</string>
     <string name="revanced_custom_filter_summary">カスタムフィルターを有効にします</string>
     <string name="revanced_custom_filter_title">カスタムフィルター</string>
+    <string name="revanced_custom_playback_speeds_invalid">無効なカスタム再生速度です！デフォルトにリセットします</string>
+    <string name="revanced_custom_playback_speeds_summary">利用可能な再生速度を追加または変更します</string>
+    <string name="revanced_custom_playback_speeds_title">カスタム再生速度の編集</string>
+    <string name="revanced_custom_playback_speeds_warning" formatted="false">カスタム再生速度は %s 倍速 未満である必要があります</string>
     <string name="revanced_disable_auto_captions_summary">動画側で設定されている、字幕の強制は無効です。</string>
     <string name="revanced_disable_auto_captions_title">字幕の強制を無効化</string>
     <string name="revanced_downloader_not_installed" formatted="false">%s はインストールされていません。インストールしてください。</string>
@@ -54,6 +61,12 @@
     <string name="revanced_external_downloader_package_name_summary">インストールされている、NewPipe や Seal などの外部の動画ダウンローダーアプリのパッケージ名</string>
     <string name="revanced_external_downloader_package_name_title">外部ダウンローダーのパッケージ名</string>
     <string name="revanced_flyout_panel_watch_on_youtube">YouTube で視聴</string>
+    <string name="revanced_hide_account_menu_empty_component_summary">アカウントメニューの空のコンポーネントを非表示にします</string>
+    <string name="revanced_hide_account_menu_empty_component_title">空のコンポーネントを非表示</string>
+    <string name="revanced_hide_account_menu_summary">アカウントメニューの要素を非表示にします</string>
+    <string name="revanced_hide_account_menu_title">アカウントメニューを非表示</string>
+    <string name="revanced_hide_action_bar_label_summary">アクションバーのラベルを非表示にします</string>
+    <string name="revanced_hide_action_bar_label_title">アクションバーのラベルを非表示</string>
     <string name="revanced_hide_button_shelf_summary">ホームタブや探索タブのボタン欄を非表示にします</string>
     <string name="revanced_hide_button_shelf_title">ボタン欄を非表示</string>
     <string name="revanced_hide_carousel_shelf_summary">ホームタブや探索タブのカルーセル欄を非表示にします</string>
