@@ -25,9 +25,9 @@
     <string name="revanced_custom_filter_summary_on">Le filtre personnalisé est activé</string>
     <string name="revanced_custom_filter_title">Le filtre personnalisé</string>
     <string name="revanced_custom_playback_speeds_invalid">Vitesses vidéo invalides. Rétablissez les valeurs par défaut.</string>
-    <string name="revanced_custom_playback_speeds_warning" formatted="false">Les vitesses personnalisées doivent être inférieures à %sx. Rétablissez les valeurs par défaut.</string>
     <string name="revanced_custom_playback_speeds_summary">Ajouter ou modifier les vitesses disponibles</string>
     <string name="revanced_custom_playback_speeds_title">Modifier les vitesses vidéo personnalisées</string>
+    <string name="revanced_custom_playback_speeds_warning" formatted="false">Les vitesses personnalisées doivent être inférieures à %sx. Rétablissez les valeurs par défaut.</string>
     <string name="revanced_custom_seekbar_color_value_summary">Saisissez le code hex de la couleur de la barre de progression </string>
     <string name="revanced_custom_seekbar_color_value_title">Couleur de la barre (hex)</string>
     <string name="revanced_default_app_settings_summary">Pour ouvrir RVX depuis votre navigateur, activez l\'option \"Ouvrir les liens compatibles\" et activez les liens Web compatibles</string>
@@ -63,22 +63,22 @@
     <string name="revanced_disable_landscape_mode_summary_off">Le mode paysage lorsque vous passez en plein écran est activé</string>
     <string name="revanced_disable_landscape_mode_summary_on">Le mode paysage lorsque vous passez en plein écran est désactivé</string>
     <string name="revanced_disable_landscape_mode_title">Le mode paysage en plein écran</string>
+    <string name="revanced_disable_quic_protocol_summary">"Désactiver le protocole QUIC de CronetEngine (QUIC est un protocole Internet plus rapide et plus sûr utilisé par Google et d'autres entreprises pour leurs services en ligne)"</string>
+    <string name="revanced_disable_quic_protocol_title">Le protocole QUIC</string>
     <string name="revanced_disable_startup_shorts_player_summary_off">Les Shorts sont activés au démarrage de l\'application</string>
     <string name="revanced_disable_startup_shorts_player_summary_on">Les Shorts sont désactivés au démarrage de l\'application</string>
     <string name="revanced_disable_startup_shorts_player_title">Les Shorts au démarrage</string>
-    <string name="revanced_disable_quic_protocol_summary">"Désactiver le protocole QUIC de CronetEngine (QUIC est un protocole Internet plus rapide et plus sûr utilisé par Google et d'autres entreprises pour leurs services en ligne)"</string>
-    <string name="revanced_disable_quic_protocol_title">Le protocole QUIC</string>
     <string name="revanced_double_back_timeout_summary">Le nombre de secondes que met l\'application pour se fermer après avoir appuyé deux fois sur le bouton retour de votre téléphone (secondes)</string>
     <string name="revanced_double_back_timeout_title">Délai de l\'application pour se fermer</string>
     <string name="revanced_enable_compact_controls_overlay_summary_off">La superposition des contrôles compacts est désactivée</string>
     <string name="revanced_enable_compact_controls_overlay_summary_on">La superposition des contrôles compacts est activé</string>
     <string name="revanced_enable_compact_controls_overlay_title">La superposition des contrôles compacts</string>
-    <string name="revanced_enable_custom_seekbar_color_summary_off">La couleur personnalisée de la barre de progression est désactivée</string>
-    <string name="revanced_enable_custom_seekbar_color_summary_on">La couleur personnalisée de la barre de progression est activée</string>
-    <string name="revanced_enable_custom_seekbar_color_title">Couleur de la barre de progression</string>
     <string name="revanced_enable_custom_playback_speed_summary_off">La vitesse de lecture personnalisée est désactivée</string>
     <string name="revanced_enable_custom_playback_speed_summary_on">La vitesse de lecture personnalisée est activée</string>
     <string name="revanced_enable_custom_playback_speed_title">Modifier les vitesses vidéo personnalisées</string>
+    <string name="revanced_enable_custom_seekbar_color_summary_off">La couleur personnalisée de la barre de progression est désactivée</string>
+    <string name="revanced_enable_custom_seekbar_color_summary_on">La couleur personnalisée de la barre de progression est activée</string>
+    <string name="revanced_enable_custom_seekbar_color_title">Couleur de la barre de progression</string>
     <string name="revanced_enable_debug_logging_summary_off">Les journaux de débogage sont désactivés</string>
     <string name="revanced_enable_debug_logging_summary_on">Les journaux de débogage sont activés</string>
     <string name="revanced_enable_debug_logging_title">Les journaux de débogage</string>
@@ -94,14 +94,14 @@
     <string name="revanced_enable_new_thumbnail_preview_summary_off">Le nouvel aperçu de miniature est activé</string>
     <string name="revanced_enable_new_thumbnail_preview_summary_on">Le nouvel aperçu de miniature est activé</string>
     <string name="revanced_enable_new_thumbnail_preview_title">Activer le nouvel aperçu des miniatures</string>
-    <string name="revanced_enable_opus_codec_summary">Remplacer le codec audio mp4a par le codec audio opus</string>
-    <string name="revanced_enable_opus_codec_title">Le codec audio opus</string>
     <string name="revanced_enable_old_quality_layout_summary_off">La nouvelle interface des paramètres de qualité vidéo est affiché</string>
     <string name="revanced_enable_old_quality_layout_summary_on">L\'ancienne interface des paramètres de qualité vidéo est affiché</string>
     <string name="revanced_enable_old_quality_layout_title">L\'ancienne interface de qualité vidéo</string>
     <string name="revanced_enable_open_links_directly_summary_off">Suivre la politique de redirection par défaut</string>
     <string name="revanced_enable_open_links_directly_summary_on">Contournement des redirections URL</string>
     <string name="revanced_enable_open_links_directly_title">Les liens ouverts directement</string>
+    <string name="revanced_enable_opus_codec_summary">Remplacer le codec audio mp4a par le codec audio opus</string>
+    <string name="revanced_enable_opus_codec_title">Le codec audio opus</string>
     <string name="revanced_enable_phone_layout_summary">Utilise un dpi spécifique pour afficher la mise en page téléphone</string>
     <string name="revanced_enable_phone_layout_title">La mise en page téléphone</string>
     <string name="revanced_enable_press_to_swipe_summary_off">Les commandes de balayage sont désactivés</string>
@@ -159,9 +159,9 @@
     <string name="revanced_fullscreen">Boutons en plein écran</string>
     <string name="revanced_general">Mise en page générale</string>
     <string name="revanced_haptic_feedback_title">Retour haptique</string>
+    <string name="revanced_hide_account_menu_filter_strings_title">Modifier le menu filtre du compte</string>
     <string name="revanced_hide_account_menu_summary">Problème connu : peut ne pas fonctionner en mode paysage ou sur des appareils dpi élevés</string>
     <string name="revanced_hide_account_menu_title">Les menus du compte YouTube</string>
-    <string name="revanced_hide_account_menu_filter_strings_title">Modifier le menu filtre du compte</string>
     <string name="revanced_hide_album_card_summary_off">Les cartes de l\'album sont affichées</string>
     <string name="revanced_hide_album_card_summary_on">Les cartes de l\'album sont cachées</string>
     <string name="revanced_hide_album_card_title">Les cartes d\'album</string>
@@ -330,12 +330,12 @@
     <string name="revanced_hide_latest_posts_summary_off">Les derniers posts sont affichés</string>
     <string name="revanced_hide_latest_posts_summary_on">Les derniers posts sont cachés</string>
     <string name="revanced_hide_latest_posts_title">Les derniers posts</string>
-    <string name="revanced_hide_library_button_summary_off">Le bouton \"Bibliothèque\" est affiché</string>
-    <string name="revanced_hide_library_button_summary_on">Le bouton \"Bibliothèque\" est caché</string>
-    <string name="revanced_hide_library_button_title">Le bouton \"Bibliothèque\"</string>
     <string name="revanced_hide_latest_videos_button_summary_off">Le bouton \"Vidéos récentes\" est affiché</string>
     <string name="revanced_hide_latest_videos_button_summary_on">Le bouton \"Vidéos récentes\" est caché</string>
     <string name="revanced_hide_latest_videos_button_title">Le bouton \"Vidéos récentes\"</string>
+    <string name="revanced_hide_library_button_summary_off">Le bouton \"Bibliothèque\" est affiché</string>
+    <string name="revanced_hide_library_button_summary_on">Le bouton \"Bibliothèque\" est caché</string>
+    <string name="revanced_hide_library_button_title">Le bouton \"Bibliothèque\"</string>
     <string name="revanced_hide_load_more_button_summary_off">Le bouton \"Charger plus\" est affiché</string>
     <string name="revanced_hide_load_more_button_summary_on">Le bouton \"Charger plus\" est affiché</string>
     <string name="revanced_hide_load_more_button_title">Le bouton \"Charger plus\"</string>
@@ -399,9 +399,6 @@
     <string name="revanced_hide_player_flyout_panel_report_summary_off">Le bouton \"Signaler\" est affiché</string>
     <string name="revanced_hide_player_flyout_panel_report_summary_on">Le bouton \"Signaler\" est caché</string>
     <string name="revanced_hide_player_flyout_panel_report_title">Le bouton \"Signaler\"</string>
-    <string name="revanced_hide_player_flyout_panel_speed_summary_off">Le bouton \"Vitesse de lecture\" est affiché</string>
-    <string name="revanced_hide_player_flyout_panel_speed_summary_on">Le bouton \"Vitesse de lecture\" est caché</string>
-    <string name="revanced_hide_player_flyout_panel_speed_title">Le bouton \"Vitesse de lecture\"</string>
     <string name="revanced_hide_player_flyout_panel_stats_for_nerds_summary_off">Le bouton \"Statistiques pour les nerds\" est affiché</string>
     <string name="revanced_hide_player_flyout_panel_stats_for_nerds_summary_on">Le bouton \"Statistiques pour les geeks\" est caché</string>
     <string name="revanced_hide_player_flyout_panel_stats_for_nerds_title">Le bouton \"Statistique pour les nerds\"</string>
@@ -411,9 +408,6 @@
     <string name="revanced_hide_player_overlay_filter_summary_off">Le voile noir autour de la vidéo lors d\'un appui est affiché</string>
     <string name="revanced_hide_player_overlay_filter_summary_on">Le voile noir autour de la vidéo lors d\'un appui est caché</string>
     <string name="revanced_hide_player_overlay_filter_title">Le voile noir autour d\'une vidéo</string>
-    <string name="revanced_hook_download_button_summary">"Remplacer le bouton de téléchargement par le bouton de téléchargement externe
-Disponible uniquement sur YouTube v18.24.37+"</string>
-    <string name="revanced_hook_download_button_title">Le bouton de \"Téléchargement\"</string>
     <string name="revanced_hide_preview_comment_off">L\'aperçu des commentaires est affiché</string>
     <string name="revanced_hide_preview_comment_on">L\'aperçu des commentaires est caché</string>
     <string name="revanced_hide_preview_comment_title">L\'aperçu des commentaires</string>
@@ -449,12 +443,12 @@ Disponible uniquement sur YouTube v18.24.37+"</string>
     <string name="revanced_hide_shorts_button_title">Le bouton \"Shorts\"</string>
     <string name="revanced_hide_shorts_component_summary">Cache la section Shorts ou des éléments de contenu des Shorts</string>
     <string name="revanced_hide_shorts_component_title">Les boutons pour les Shorts</string>
-    <string name="revanced_hide_shorts_player_navigation_bar_summary_off">La barre de navigation est affichée</string>
-    <string name="revanced_hide_shorts_player_navigation_bar_summary_on">La barre de navigation est caché</string>
-    <string name="revanced_hide_shorts_player_navigation_bar_title">La barre de navigation</string>
     <string name="revanced_hide_shorts_player_comments_button_summary_off">La section commentaires est affichée</string>
     <string name="revanced_hide_shorts_player_comments_button_summary_on">La section commentaires est cachée</string>
     <string name="revanced_hide_shorts_player_comments_button_title">La section des commentaires</string>
+    <string name="revanced_hide_shorts_player_navigation_bar_summary_off">La barre de navigation est affichée</string>
+    <string name="revanced_hide_shorts_player_navigation_bar_summary_on">La barre de navigation est caché</string>
+    <string name="revanced_hide_shorts_player_navigation_bar_title">La barre de navigation</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_off">Le bouton \"S\'abonner\" est affiché</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_on">Le bouton \"S\'abonner\" est caché</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_title">Le bouton \"S\'abonner\"</string>
@@ -476,6 +470,8 @@ Disponible uniquement sur YouTube v18.24.37+"</string>
     <string name="revanced_hide_suggested_actions_summary_off">Les actions suggérées sont affichées</string>
     <string name="revanced_hide_suggested_actions_summary_on">Les actions suggérées sont cachées</string>
     <string name="revanced_hide_suggested_actions_title">Les actions suggérées</string>
+    <string name="revanced_hide_suggested_video_overlay_summary">"Cache la superposition de vidéo suggérée pour la lecture suivante Problème connu : la lecture automatique ne fonctionne pas"</string>
+    <string name="revanced_hide_suggested_video_overlay_title">La superposition vidéo suggérée</string>
     <string name="revanced_hide_suggestions_shelf_summary">"Cache les menus suivants :
 - Dernières nouvelles
 - Continue de regarder
@@ -483,8 +479,6 @@ Disponible uniquement sur YouTube v18.24.37+"</string>
 - Shopping
 - Regarder à nouveau"</string>
     <string name="revanced_hide_suggestions_shelf_title">Les menus de suggestions</string>
-    <string name="revanced_hide_suggested_video_overlay_summary">"Cache la superposition de vidéo suggérée pour la lecture suivante Problème connu : la lecture automatique ne fonctionne pas"</string>
-    <string name="revanced_hide_suggested_video_overlay_title">La superposition vidéo suggérée</string>
     <string name="revanced_hide_ticket_shelf_summary_off">Les tickets sont affichés</string>
     <string name="revanced_hide_ticket_shelf_summary_on">Les tickets sont cachés</string>
     <string name="revanced_hide_ticket_shelf_title">Les tickets concert</string>
@@ -512,6 +506,9 @@ Disponible uniquement sur YouTube v18.24.37+"</string>
     <string name="revanced_hide_youtube_music_button_summary_off">Le bouton \"YouTube Music\" est affiché</string>
     <string name="revanced_hide_youtube_music_button_summary_on">Le bouton \"YouTube Music\" est caché</string>
     <string name="revanced_hide_youtube_music_button_title">Le bouton \"YouTube Music\"</string>
+    <string name="revanced_hook_download_button_summary">"Remplacer le bouton de téléchargement par le bouton de téléchargement externe
+Disponible uniquement sur YouTube v18.24.37+"</string>
+    <string name="revanced_hook_download_button_title">Le bouton de \"Téléchargement\"</string>
     <string name="revanced_import_settings_summary">Récupérer les paramètres ReVanced à partir du fichier enregistré</string>
     <string name="revanced_import_settings_title">Paramètres d’importation</string>
     <string name="revanced_layout_title">Mise en page</string>
@@ -527,10 +524,10 @@ Appuyez longuement pour basculer et mettre en pause la répétition automatique"
     <string name="revanced_overlay_button_always_repeat_title">Le bouton \"Toujours répéter\"</string>
     <string name="revanced_overlay_button_copy_video_url_summary">"Cliquez pour copier l'URL de la vidéo
 Cliquez longuement pour copier l'URL de la vidéo"</string>
-    <string name="revanced_overlay_button_copy_video_url_title">Le bouton de \"Copie du lien\"</string>
     <string name="revanced_overlay_button_copy_video_url_timestamp_summary">"Cliquez pour copier le lien horodaté
 Cliquez longuement pour copier la vidéo horodatée"</string>
     <string name="revanced_overlay_button_copy_video_url_timestamp_title">Le bouton \"Copie du lien horodaté\"</string>
+    <string name="revanced_overlay_button_copy_video_url_title">Le bouton de \"Copie du lien\"</string>
     <string name="revanced_overlay_button_external_downloader_summary">Appuyez pour lancer le téléchargeur externe</string>
     <string name="revanced_overlay_button_external_downloader_title">Bouton de téléchargement externe</string>
     <string name="revanced_overlay_button_speed_dialog_reset">Vitesse de la vidéo réinitialisée (1.0x)</string>
@@ -542,8 +539,8 @@ Appuyez longuement pour régler la vitesse de la vidéo sur 1.0x"</string>
     <string name="revanced_override_premium_header_title">Icône YT Premium</string>
     <string name="revanced_patches_information">Informations sur les patchs</string>
     <string name="revanced_patches_information_summary">Informations sur les patchs appliqués</string>
-    <string name="revanced_player_flyout_panel_title">Les boutons du menu \"paramètre\" des vidéos</string>
     <string name="revanced_player">Boutons sur la vidéo</string>
+    <string name="revanced_player_flyout_panel_title">Les boutons du menu \"paramètre\" des vidéos</string>
     <string name="revanced_quick_actions_title">Actions rapides</string>
     <string name="revanced_reboot_first_run">Redémarrer pour charger la mise en page normalement</string>
     <string name="revanced_reboot_warning_general">"Comme il s’agit toujours d’un élément expérimental, il peut y avoir d’autres questions inconnues. Êtes-vous sûr de vouloir continuer?"</string>
@@ -584,7 +581,6 @@ Ce paramètre étant obsolètes, il se peut qu'ils ne soient plus valables"</str
     <string name="revanced_show_fullscreen_title_summary">Problème connu : le titre disparaît lorsqu\'on clique dessus</string>
     <string name="revanced_show_fullscreen_title_title">Le titre en plein écran</string>
     <string name="revanced_spoof_app_version_summary">"Utilise l'ancienne interface avec des risques d'effets inconnus. Supprimé les données pour retirer complètement si l'interface ne change pas"</string>
-    <string name="revanced_spoof_app_version_title">Interface de l\'application</string>
     <string name="revanced_spoof_app_version_target_entry_0">18.20.39 - Restaure l\'ancienne mise en page du lecteur</string>
     <string name="revanced_spoof_app_version_target_entry_1">18.09.39 - Restaure l\'ancienne mise en page de la catégorie \"Bibliothèque\"</string>
     <string name="revanced_spoof_app_version_target_entry_2">17.41.37 - La catégorie \"Playlist\" dans la \"Bibliothèque\" suit l\'ancienne mise en page</string>
@@ -593,6 +589,7 @@ Ce paramètre étant obsolètes, il se peut qu'ils ne soient plus valables"</str
     <string name="revanced_spoof_app_version_target_entry_title">Falsifier la version de l\'application</string>
     <string name="revanced_spoof_app_version_target_summary">Tapez la version de l\'application à fausser</string>
     <string name="revanced_spoof_app_version_target_title">Falsifier la version de l\'application</string>
+    <string name="revanced_spoof_app_version_title">Interface de l\'application</string>
     <string name="revanced_spoof_player_parameter_title">Falsifier les paramètres du lecteur</string>
     <string name="revanced_swipe_controls">Commandes de balayage</string>
     <string name="revanced_swipe_magnitude_threshold_summary">L\'intensité de balayage correspond à la mesure de glissement utilisée pour ajuster le niveau sonore ou de luminosité</string>

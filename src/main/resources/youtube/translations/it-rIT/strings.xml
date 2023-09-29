@@ -8,6 +8,25 @@
     <string name="microg_settings_summary">Attiva le impostazioni di messaggistica cloud per ricevere le notifiche</string>
     <string name="microg_settings_title">Apri MicroG</string>
     <string name="revanced_ads">Annunci</string>
+    <string name="revanced_alt_thumbnails">Thumbnails alternativi</string>
+    <string name="revanced_alt_thumbnail_about_summary">I thumbnails alternativi sono fotogrammi dall\'inizio/metà/fine di ogni video. Non viene usata alcuna API esterna, poiché queste immagini sono integrate in YouTube</string>
+    <string name="revanced_alt_thumbnail_about_title">Informazioni</string>
+    <string name="revanced_alt_thumbnail_enabled_summary_off">I thumbnails originali di YouTube sono visibili</string>
+    <string name="revanced_alt_thumbnail_enabled_summary_on">I thumbnails di YouTube sono sostituiti con quelli alternativi</string>
+    <string name="revanced_alt_thumbnail_enabled_title">Attiva thumbnails alternativi</string>
+    <string name="revanced_alt_thumbnail_fast_quality_summary_off">Uso di fotogrammi di alta qualità, ma avrà più ritardo</string>
+    <string name="revanced_alt_thumbnail_fast_quality_summary_on">Uso di fotogrammi di media qualità. I thumbnails verranno caricati più velocemente, ma i video dal vivo, non rilasciati o molto vecchi potrebbero mostrare thumbnails vuoti</string>
+    <string name="revanced_alt_thumbnail_fast_quality_title">Utilizza thumbnails alternativi rapidi</string>
+    <string name="revanced_alt_thumbnail_type_entry_1">Inizio video</string>
+    <string name="revanced_alt_thumbnail_type_entry_2">Metà video</string>
+    <string name="revanced_alt_thumbnail_type_entry_3">Fine video</string>
+    <string name="revanced_alt_thumbnail_type_title">Il tempo del video da cui prendere il fotogramma</string>
+    <string name="revanced_append_time_stamp_information_summary_off">Le informazioni della marca temporale sono nascoste</string>
+    <string name="revanced_append_time_stamp_information_summary_on">Le informazioni della marca temporale sono visibili</string>
+    <string name="revanced_append_time_stamp_information_title">Mostra le informazioni della marca temporale</string>
+    <string name="revanced_append_time_stamp_information_type_summary_off">Mostra la velocità di riproduzione</string>
+    <string name="revanced_append_time_stamp_information_type_summary_on">Mostra la qualità del video</string>
+    <string name="revanced_append_time_stamp_information_type_title">Mostra il tipo di informazione</string>
     <string name="revanced_backup_summary">Importa le impostazioni di ReVanced da un file o esporta le impostazioni ReVanced su un file</string>
     <string name="revanced_bottom_player">Riproduttore inferiore</string>
     <string name="revanced_button_container_title">Lista dei pulsanti inferiori del riproduttore</string>
@@ -25,9 +44,9 @@
     <string name="revanced_custom_filter_summary_on">Il filtro personalizzato è attivato</string>
     <string name="revanced_custom_filter_title">Attiva il filtro personalizzato</string>
     <string name="revanced_custom_playback_speeds_invalid">Velocità personalizzata del video non valida. Ripristina ai valori predefiniti</string>
-    <string name="revanced_custom_playback_speeds_warning" formatted="false">La velocità personalizzata deve essere inferiore a %sx. Ripristina ai valori predefiniti</string>
     <string name="revanced_custom_playback_speeds_summary">È disponibile aggiungere o modificare le velocità di riproduzione</string>
     <string name="revanced_custom_playback_speeds_title">Modifica le velocità personalizzate del video</string>
+    <string name="revanced_custom_playback_speeds_warning" formatted="false">La velocità personalizzata deve essere inferiore a %sx. Ripristina ai valori predefiniti</string>
     <string name="revanced_custom_seekbar_color_value_summary">Digita il codice esadecimale del colore della barra di avanzamento</string>
     <string name="revanced_custom_seekbar_color_value_title">Valore del colore personalizzato della barra di avanzamento</string>
     <string name="revanced_default_app_settings_summary">Per aprire RVX in un browser esterno, attiva \"Apri collegamenti supportati\" e abilita gli indirizzi web supportati</string>
@@ -63,22 +82,22 @@
     <string name="revanced_disable_landscape_mode_summary_off">La modalità orizzontale a schermo intero è attivata</string>
     <string name="revanced_disable_landscape_mode_summary_on">La modalità orizzontale a schermo intero è disattivata</string>
     <string name="revanced_disable_landscape_mode_title">Disattiva la modalità orizzontale a schermo intero</string>
+    <string name="revanced_disable_quic_protocol_summary">"Disattiva il protocollo QUIC di CronetEngine"</string>
+    <string name="revanced_disable_quic_protocol_title">Disattiva il protocollo QUIC</string>
     <string name="revanced_disable_startup_shorts_player_summary_off">Il riproduttore Shorts è visibile all\'avvio dell\'app</string>
     <string name="revanced_disable_startup_shorts_player_summary_on">Il riproduttore degli Shorts è nascosto all\'avvio dell\'app</string>
     <string name="revanced_disable_startup_shorts_player_title">Nascondi il riproduttore degli Shorts all\'avvio dell\'app</string>
-    <string name="revanced_disable_quic_protocol_summary">"Disattiva il protocollo QUIC di CronetEngine"</string>
-    <string name="revanced_disable_quic_protocol_title">Disattiva il protocollo QUIC</string>
     <string name="revanced_double_back_timeout_summary">Il numero di secondi per premere due volte il pulsante Indietro per uscire dall\'app</string>
     <string name="revanced_double_back_timeout_title">Durata del doppio tocco del pulsante Indietro</string>
     <string name="revanced_enable_compact_controls_overlay_summary_off">La sovrapposizione dei controlli compatti è disattivata</string>
     <string name="revanced_enable_compact_controls_overlay_summary_on">La sovrapposizione dei controlli compatti è attivata</string>
     <string name="revanced_enable_compact_controls_overlay_title">Attiva la sovrapposizione compatta dei controlli</string>
-    <string name="revanced_enable_custom_seekbar_color_summary_off">Il colore personalizzato della barra di avanzamento è disattivato</string>
-    <string name="revanced_enable_custom_seekbar_color_summary_on">Il colore personalizzato della barra di avanzamento è attivato</string>
-    <string name="revanced_enable_custom_seekbar_color_title">Attiva il colore personalizzato della barra di avanzamento</string>
     <string name="revanced_enable_custom_playback_speed_summary_off">La velocità di riproduzione personalizzata è disattivata</string>
     <string name="revanced_enable_custom_playback_speed_summary_on">La velocità di riproduzione personalizzata è attivata</string>
     <string name="revanced_enable_custom_playback_speed_title">Attiva la velocità di riproduzione personalizzata</string>
+    <string name="revanced_enable_custom_seekbar_color_summary_off">Il colore personalizzato della barra di avanzamento è disattivato</string>
+    <string name="revanced_enable_custom_seekbar_color_summary_on">Il colore personalizzato della barra di avanzamento è attivato</string>
+    <string name="revanced_enable_custom_seekbar_color_title">Attiva il colore personalizzato della barra di avanzamento</string>
     <string name="revanced_enable_debug_logging_summary_off">Il log di debug è disattivato</string>
     <string name="revanced_enable_debug_logging_summary_on">Il log di debug è attivato</string>
     <string name="revanced_enable_debug_logging_title">Attiva il log di debug</string>
@@ -94,14 +113,14 @@
     <string name="revanced_enable_new_thumbnail_preview_summary_off">La nuova anteprima dei thumbnails è disattivata</string>
     <string name="revanced_enable_new_thumbnail_preview_summary_on">La nuova anteprima dei thumbnails è attivata</string>
     <string name="revanced_enable_new_thumbnail_preview_title">Attiva la nuova anteprima dei thumbnails</string>
-    <string name="revanced_enable_opus_codec_summary">Applica il codec audio Opus invece del codec audio MP4A</string>
-    <string name="revanced_enable_opus_codec_title">Attiva il codec Opus</string>
     <string name="revanced_enable_old_quality_layout_summary_off">Mostra le nuove impostazioni qualitative</string>
     <string name="revanced_enable_old_quality_layout_summary_on">Mostra le vecchie impostazioni qualitative</string>
     <string name="revanced_enable_old_quality_layout_title">Attiva la vecchia interfaccia qualitativa</string>
     <string name="revanced_enable_open_links_directly_summary_off">Seguendo la regola predefinita di reindirizzamento</string>
     <string name="revanced_enable_open_links_directly_summary_on">Ignora i reindirizzamenti degli URL</string>
     <string name="revanced_enable_open_links_directly_title">Attiva l\'apertura diretta dei link</string>
+    <string name="revanced_enable_opus_codec_summary">Applica il codec audio Opus invece del codec audio MP4A</string>
+    <string name="revanced_enable_opus_codec_title">Attiva il codec Opus</string>
     <string name="revanced_enable_phone_layout_summary">Simula un diverso valore DPI per usare alcune parti dell\'interfaccia da telefono</string>
     <string name="revanced_enable_phone_layout_title">Attiva l\'interfaccia da telefono</string>
     <string name="revanced_enable_press_to_swipe_summary_off">Premi-per-Scorrere è disattivato</string>
@@ -159,9 +178,9 @@
     <string name="revanced_fullscreen">Schermo intero</string>
     <string name="revanced_general">Generali</string>
     <string name="revanced_haptic_feedback_title">Vibrazione</string>
+    <string name="revanced_hide_account_menu_filter_strings_title">Modifica il filtro dei menù dell\'account</string>
     <string name="revanced_hide_account_menu_summary">Problema noto: in modalità orizzontale o su dispositivi ad alta risoluzione potrebbe non funzionare</string>
     <string name="revanced_hide_account_menu_title">Nascondi i menù dell\'account</string>
-    <string name="revanced_hide_account_menu_filter_strings_title">Modifica il filtro dei menù dell\'account</string>
     <string name="revanced_hide_album_card_summary_off">Le schede degli album sono visibili</string>
     <string name="revanced_hide_album_card_summary_on">Le schede degli album sono nascoste</string>
     <string name="revanced_hide_album_card_title">Nascondi le schede degli album</string>
@@ -216,6 +235,9 @@
     <string name="revanced_hide_button_thanks_summary_off">Il pulsante Grazie è visibile</string>
     <string name="revanced_hide_button_thanks_summary_on">Il pulsante Grazie è nascosto</string>
     <string name="revanced_hide_button_thanks_title">Nascondi il pulsante Grazie</string>
+    <string name="revanced_hide_button_transcript_summary_off">Il pulsante Trascrizione è mostrato</string>
+    <string name="revanced_hide_button_transcript_summary_on">Il pulsante Trascrizione è nascosto</string>
+    <string name="revanced_hide_button_transcript_title">Nascondi pulsante trascrizione</string>
     <string name="revanced_hide_captions_button_summary_off">Il pulsante Sottotitoli è visibile</string>
     <string name="revanced_hide_captions_button_summary_on">Il pulsante Sottotitoli è nascosto</string>
     <string name="revanced_hide_captions_button_title">Nascondi il pulsante Sottotitoli</string>
@@ -330,12 +352,12 @@
     <string name="revanced_hide_latest_posts_summary_off">I post più recenti sono visibili</string>
     <string name="revanced_hide_latest_posts_summary_on">I post più recenti sono nascosti</string>
     <string name="revanced_hide_latest_posts_title">Nascondi i post più recenti</string>
-    <string name="revanced_hide_library_button_summary_off">La scheda Raccolta è visibile</string>
-    <string name="revanced_hide_library_button_summary_on">La scheda Raccolta è nascosta</string>
-    <string name="revanced_hide_library_button_title">Nascondi la scheda Raccolta</string>
     <string name="revanced_hide_latest_videos_button_summary_off">Il pulsante Video Recenti è visibile</string>
     <string name="revanced_hide_latest_videos_button_summary_on">Il pulsante Video Recenti è nascosto</string>
     <string name="revanced_hide_latest_videos_button_title">Nascondi il pulsante Video Recenti</string>
+    <string name="revanced_hide_library_button_summary_off">La scheda Raccolta è visibile</string>
+    <string name="revanced_hide_library_button_summary_on">La scheda Raccolta è nascosta</string>
+    <string name="revanced_hide_library_button_title">Nascondi la scheda Raccolta</string>
     <string name="revanced_hide_load_more_button_summary_off">Il pulsante Mostra Altro è visibile</string>
     <string name="revanced_hide_load_more_button_summary_on">Il pulsante Mostra Altro è nascosto</string>
     <string name="revanced_hide_load_more_button_title">Nascondi il pulsante Mostra Altro</string>
@@ -357,6 +379,9 @@
     <string name="revanced_hide_navigation_label_summary_off">Le etichette della barra di navigazione sono visibili</string>
     <string name="revanced_hide_navigation_label_summary_on">Le etichette della barra di navigazione sono nascoste</string>
     <string name="revanced_hide_navigation_label_title">Nascondi le etichette della barra di navigazione</string>
+    <string name="revanced_hide_notify_me_button_summary_off">Il pulsante Avvisami è visibile</string>
+    <string name="revanced_hide_notify_me_button_summary_on">Il pulsante Avvisami è nascosto</string>
+    <string name="revanced_hide_notify_me_button_title">Nascondi il pulsante Avvisami</string>
     <string name="revanced_hide_official_header_summary_off">L\'intestazione ufficiale è visibile</string>
     <string name="revanced_hide_official_header_summary_on">L\'intestazione ufficiale è nascosta</string>
     <string name="revanced_hide_official_header_title">Nascondi l\'intestazione ufficiale</string>
@@ -375,6 +400,9 @@
     <string name="revanced_hide_player_flyout_panel_audio_track_summary_off">Il menù Traccia Audio è visibile</string>
     <string name="revanced_hide_player_flyout_panel_audio_track_summary_on">Il menù Traccia Audio è nascosto</string>
     <string name="revanced_hide_player_flyout_panel_audio_track_title">Nascondi il menù Traccia Audio</string>
+    <string name="revanced_hide_player_flyout_panel_captions_footer_summary_off">La parte inferiore del menu Sottotitoli è visibile</string>
+    <string name="revanced_hide_player_flyout_panel_captions_footer_summary_on">La parte inferiore del menu Sottotitoli è nascosta</string>
+    <string name="revanced_hide_player_flyout_panel_captions_footer_title">Nascondi la parte inferiore del menu Sottotitoli</string>
     <string name="revanced_hide_player_flyout_panel_captions_summary_off">Il menù Sottotitoli è visibile</string>
     <string name="revanced_hide_player_flyout_panel_captions_summary_on">Il menù Sottotitoli è nascosto</string>
     <string name="revanced_hide_player_flyout_panel_captions_title">Nascondi il menù Sottotitoli</string>
@@ -396,12 +424,18 @@
     <string name="revanced_hide_player_flyout_panel_more_info_summary_off">Il menù Altro da ... è visibile</string>
     <string name="revanced_hide_player_flyout_panel_more_info_summary_on">Il menù Altro da ... è nascosto</string>
     <string name="revanced_hide_player_flyout_panel_more_info_title">Nascondi il menù Altro da ...</string>
+    <string name="revanced_hide_player_flyout_panel_playback_speed_summary_off">Il menù Velocità di Riproduzione è visibile</string>
+    <string name="revanced_hide_player_flyout_panel_playback_speed_summary_on">Il menù Velocità di Riproduzione è nascosto</string>
+    <string name="revanced_hide_player_flyout_panel_playback_speed_title">Nascondi il menù della Velocità di Riproduzione</string>
+    <string name="revanced_hide_player_flyout_panel_quality_footer_summary_off">La parte inferiore del menu Qualità è visibile</string>
+    <string name="revanced_hide_player_flyout_panel_quality_footer_summary_on">La parte inferiore del menu Qualità è nascosta</string>
+    <string name="revanced_hide_player_flyout_panel_quality_footer_title">Nascondi la parte inferiore del menu Qualità</string>
     <string name="revanced_hide_player_flyout_panel_report_summary_off">Il menù Segnala è visibile</string>
     <string name="revanced_hide_player_flyout_panel_report_summary_on">Il menù Segnala è nascosto</string>
     <string name="revanced_hide_player_flyout_panel_report_title">Nascondi il menù Segnala</string>
-    <string name="revanced_hide_player_flyout_panel_speed_summary_off">Il menù Velocità di Riproduzione è visibile</string>
-    <string name="revanced_hide_player_flyout_panel_speed_summary_on">Il menù Velocità di Riproduzione è nascosto</string>
-    <string name="revanced_hide_player_flyout_panel_speed_title">Nascondi il menù della Velocità di Riproduzione</string>
+    <string name="revanced_hide_player_flyout_panel_stable_volume_summary_off">Il menu volume stabile è visibile</string>
+    <string name="revanced_hide_player_flyout_panel_stable_volume_summary_on">Il menu volume stabile è nascosto</string>
+    <string name="revanced_hide_player_flyout_panel_stable_volume_title">Nascondi il menu volume stabile</string>
     <string name="revanced_hide_player_flyout_panel_stats_for_nerds_summary_off">Il menù Statistiche per Nerd è visibile</string>
     <string name="revanced_hide_player_flyout_panel_stats_for_nerds_summary_on">Il menù Statistiche per Nerd è nascosto</string>
     <string name="revanced_hide_player_flyout_panel_stats_for_nerds_title">Nascondi il menù Statistiche per Nerd</string>
@@ -411,9 +445,6 @@
     <string name="revanced_hide_player_overlay_filter_summary_off">Il filtro del riproduttore in sovrapposizione è visibile</string>
     <string name="revanced_hide_player_overlay_filter_summary_on">Il filtro del riproduttore in sovrapposizione è nascosto</string>
     <string name="revanced_hide_player_overlay_filter_title">Nascondi il filtro del riproduttore in sovrapposizione</string>
-    <string name="revanced_hook_download_button_summary">"Sostituisci il pulsante Download con il pulsante Download Esterno.
-Disponibile solo su YouTube 18.24.37+"</string>
-    <string name="revanced_hook_download_button_title">Sostituisci il pulsante Download</string>
     <string name="revanced_hide_preview_comment_off">Il commento di anteprima è visibile</string>
     <string name="revanced_hide_preview_comment_on">Il commento di anteprima è nascosto</string>
     <string name="revanced_hide_preview_comment_title">Nascondi il commento di anteprima</string>
@@ -449,12 +480,15 @@ Disponibile solo su YouTube 18.24.37+"</string>
     <string name="revanced_hide_shorts_button_title">Nascondi il pulsante Shorts</string>
     <string name="revanced_hide_shorts_component_summary">Nascondi la sezione Shorts o i componenti del riproduttore degli Shorts</string>
     <string name="revanced_hide_shorts_component_title">Nascondi componenti Shorts</string>
-    <string name="revanced_hide_shorts_player_navigation_bar_summary_off">La barra di navigazione è visibile</string>
-    <string name="revanced_hide_shorts_player_navigation_bar_summary_on">La barra di navigazione è nascosta</string>
-    <string name="revanced_hide_shorts_player_navigation_bar_title">Nascondi la barra di navigazione</string>
     <string name="revanced_hide_shorts_player_comments_button_summary_off">Il pulsante Commenti è visibile</string>
     <string name="revanced_hide_shorts_player_comments_button_summary_on">Il pulsante Commenti è nascosto</string>
     <string name="revanced_hide_shorts_player_comments_button_title">Nascondi il pulsante Commenti</string>
+    <string name="revanced_hide_shorts_player_navigation_bar_summary_off">La barra di navigazione è visibile</string>
+    <string name="revanced_hide_shorts_player_navigation_bar_summary_on">La barra di navigazione è nascosta</string>
+    <string name="revanced_hide_shorts_player_navigation_bar_title">Nascondi la barra di navigazione</string>
+    <string name="revanced_hide_shorts_player_pivot_button_summary_off">Il pulsante pivot è visibile</string>
+    <string name="revanced_hide_shorts_player_pivot_button_summary_on">Il pulsante pivot è nascosto</string>
+    <string name="revanced_hide_shorts_player_pivot_button_title">Nascondi il pulsante pivot</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_off">Il pulsante Iscriviti è visibile</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_on">Il pulsante Iscriviti è nascosto</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_title">Nascondi il pulsante Iscriviti</string>
@@ -476,6 +510,10 @@ Disponibile solo su YouTube 18.24.37+"</string>
     <string name="revanced_hide_suggested_actions_summary_off">Le azioni consigliate sono visibili</string>
     <string name="revanced_hide_suggested_actions_summary_on">Le azioni consigliate sono nascoste</string>
     <string name="revanced_hide_suggested_actions_title">Nascondi le azioni consigliate</string>
+    <string name="revanced_hide_suggested_video_overlay_summary">"Nasconde la sovrapposizione del video suggerito per la riproduzione successiva
+
+Problema noto: la riproduzione automatica non funziona"</string>
+    <string name="revanced_hide_suggested_video_overlay_title">Nascondi la sovrapposizione del video suggerito</string>
     <string name="revanced_hide_suggestions_shelf_summary">"Nasconde i seguenti scaffali:
 - Ultime notizie
 - Continua a guardare
@@ -483,10 +521,6 @@ Disponibile solo su YouTube 18.24.37+"</string>
 - Shopping
 - Guarda di nuovo"</string>
     <string name="revanced_hide_suggestions_shelf_title">Nascondi gli scaffali dei suggerimenti</string>
-    <string name="revanced_hide_suggested_video_overlay_summary">"Nasconde la sovrapposizione del video suggerito per la riproduzione successiva
-
-Problema noto: la riproduzione automatica non funziona"</string>
-    <string name="revanced_hide_suggested_video_overlay_title">Nascondi la sovrapposizione del video suggerito</string>
     <string name="revanced_hide_ticket_shelf_summary_off">Lo scaffale degli eventi è visibile</string>
     <string name="revanced_hide_ticket_shelf_summary_on">Lo scaffale degli eventi è nascosto</string>
     <string name="revanced_hide_ticket_shelf_title">Nascondi lo scaffale degli eventi</string>
@@ -514,6 +548,9 @@ Problema noto: la riproduzione automatica non funziona"</string>
     <string name="revanced_hide_youtube_music_button_summary_off">Il pulsante YouTube Music è visibile</string>
     <string name="revanced_hide_youtube_music_button_summary_on">Il pulsante YouTube Music è nascosto</string>
     <string name="revanced_hide_youtube_music_button_title">Nascondi il pulsante YouTube Music</string>
+    <string name="revanced_hook_download_button_summary">"Sostituisci il pulsante Download con il pulsante Download Esterno.
+Disponibile solo su YouTube 18.24.37+"</string>
+    <string name="revanced_hook_download_button_title">Sostituisci il pulsante Download</string>
     <string name="revanced_import_settings_summary">Carica le impostazioni di ReVanced da un file salvato</string>
     <string name="revanced_import_settings_title">Importa impostazioni</string>
     <string name="revanced_layout_title">Interfaccia</string>
@@ -529,10 +566,10 @@ Tocca e tieni premuto per attivare la pausa dopo gli stati di ripetizione"</stri
     <string name="revanced_overlay_button_always_repeat_title">Mostra il pulsante Ripeti Sempre</string>
     <string name="revanced_overlay_button_copy_video_url_summary">"Tocca per copiare l'URL del video.
 Tocca e tieni premuto per copiare l'URL del video con marca temporale"</string>
-    <string name="revanced_overlay_button_copy_video_url_title">Mostra il pulsante Copia URL Video</string>
     <string name="revanced_overlay_button_copy_video_url_timestamp_summary">"Tocca per copiare l'URL del video con marca temporale.
 Tocca e tieni premuto per copiare la marca temporale del video"</string>
     <string name="revanced_overlay_button_copy_video_url_timestamp_title">Mostra il pulsante Copia URL Video con Marca Temporale</string>
+    <string name="revanced_overlay_button_copy_video_url_title">Mostra il pulsante Copia URL Video</string>
     <string name="revanced_overlay_button_external_downloader_summary">Tocca per avviare il downloader esterno</string>
     <string name="revanced_overlay_button_external_downloader_title">Mostra il pulsante Download Esterno</string>
     <string name="revanced_overlay_button_speed_dialog_reset">Velocità di riproduzione ripristinata (1.0x)</string>
@@ -544,8 +581,8 @@ Tocca e tieni premuto per impostare la velocità di riproduzione a 1.0x"</string
     <string name="revanced_override_premium_header_title">Intestazione Premium</string>
     <string name="revanced_patches_information">Informazioni patch</string>
     <string name="revanced_patches_information_summary">Informazioni sulle patch applicate</string>
-    <string name="revanced_player_flyout_panel_title">Pannello del riproduttore in sovrapposizione</string>
     <string name="revanced_player">Riproduttore</string>
+    <string name="revanced_player_flyout_panel_title">Pannello del riproduttore in sovrapposizione</string>
     <string name="revanced_quick_actions_title">Azioni rapide</string>
     <string name="revanced_reboot_first_run">Riavvia per caricare l\'interfaccia normalmente</string>
     <string name="revanced_reboot_warning_general">"Poiché questa è ancora una funzionalità sperimentale, potrebbero verificarsi problemi sconosciuti.
@@ -563,6 +600,7 @@ Attivando questa opzione, la seguente funzionalità non sarà più disponibile:
     <string name="revanced_reboot_warning_vp9">"Simula le informazioni del dispositivo per attivare il codec VP9.
 
 Dal momento che questa opzione è abbastanza obsoleta, potrebbe risultare non più funzionante"</string>
+    <string name="revanced_ryd_about">Informazioni</string>
     <string name="revanced_ryd_attribution_summary">I dati relativi ai Non Mi Piace sono forniti dall\'API di Return YouTube Dislike. Tocca qui per saperne di più</string>
     <string name="revanced_ryd_compact_layout_summary_off">Pulsante Mi Piace riadattato per la migliore visualizzazione</string>
     <string name="revanced_ryd_compact_layout_summary_on">Pulsante Mi Piace riadattato per una larghezza minima</string>
@@ -591,7 +629,6 @@ Dal momento che questa opzione è abbastanza obsoleta, potrebbe risultare non pi
 
 Questo cambierà l'aspetto dell'app, ma potrebbero verificarsi effetti collaterali sconosciuti.
 Se verrà disattivato in seguito, la vecchia interfaccia potrebbe rimanere fino a quando non vengono cancellati i dati dell'app"</string>
-    <string name="revanced_spoof_app_version_title">Simula la versione dell\'app</string>
     <string name="revanced_spoof_app_version_target_entry_0">18.20.39 - Ripristina il vecchio pannello a comparsa del riproduttore</string>
     <string name="revanced_spoof_app_version_target_entry_1">18.09.39 - Ripristina la vecchia scheda Raccolta</string>
     <string name="revanced_spoof_app_version_target_entry_2">17.41.37 - Ripristina il vecchio scaffale delle playlist nella scheda Raccolta</string>
@@ -600,6 +637,13 @@ Se verrà disattivato in seguito, la vecchia interfaccia potrebbe rimanere fino 
     <string name="revanced_spoof_app_version_target_entry_title">La versione dell\'app da simulare</string>
     <string name="revanced_spoof_app_version_target_summary">Digita la versione dell\'app da simulare</string>
     <string name="revanced_spoof_app_version_target_title">Modifica la versione dell\'app da simulare</string>
+    <string name="revanced_spoof_app_version_title">Simula la versione dell\'app</string>
+    <string name="revanced_spoof_player_parameter_summary">"Simula i parametri del riproduttore per evitare problemi di riproduzione
+
+Problemi noti
+• Il Bitrate migliorato non è disponibile
+• Nessuna miniatura della barra di ricerca per video a pagamento
+•Il Download offline potrebbe non funzionare"</string>
     <string name="revanced_spoof_player_parameter_title">Simula i parametri del riproduttore</string>
     <string name="revanced_swipe_controls">Controlli a scorrimento</string>
     <string name="revanced_swipe_magnitude_threshold_summary">La quantità di interazioni prima che lo scorrimento si verifichi</string>
@@ -662,7 +706,13 @@ Se verrà disattivato in seguito, la vecchia interfaccia potrebbe rimanere fino 
     <string name="sb_api_url_reset">URL API ripristinato</string>
     <string name="sb_api_url_invalid">URL API non valido</string>
     <string name="sb_api_url_changed">URL API cambiato</string>
+    <string name="sb_settings_copy">Copia</string>
     <string name="sb_settings_ie_sum">La tua configurazione di SponsorBlock in JSON che può essere importata o esportata su ReVanced e su altre piattaforme SponsorBlock. Questo include il tuo ID utente univoco, quindi assicurati di condividerlo con saggezza</string>
+    <string name="sb_settings_import_successful">Impostazioni importate con sucesso</string>
+    <string name="sb_settings_import_failed">Importazione non riuscita: %s</string>
+    <string name="sb_settings_export_failed">Esportazione non riuscita: %s</string>
+    <string name="sb_settings_revanced_export_user_id_warning">Le tue impostazioni contengono un id utente privato di SponsorBlock.\n\nIl tuo Id utente è come una password e non dovrebbe mai essere condiviso.\n</string>
+    <string name="sb_settings_revanced_export_user_id_warning_dismiss">Non visualizzare più questo messaggio</string>
     <string name="sb_diff_segments">Modifica il comportamento dei segmenti</string>
     <string name="sb_segments_sponsor">Sponsor</string>
     <string name="sb_segments_sponsor_sum">Promozioni a pagamento, referral a pagamento e pubblicità diretta. Questo non dovrebbe includere autopromozione o ringraziamenti gratuiti a cause, creatori, siti web o prodotti di loro gradimento</string>
@@ -767,6 +817,7 @@ Soglia raggiunta (troppe richieste provenienti dallo stesso utente o IP)</string
     <string name="sb_color_reset">Colore ripristinato</string>
     <string name="sb_color_invalid">Codice colore non valido</string>
     <string name="sb_reset_color">Ripristina colore</string>
+    <string name="sb_about">Informazioni</string>
     <string name="sb_reset">Ripristina</string>
     <string name="sb_about_api_sum">I dati sono forniti dall\'API di SponsorBlock. Tocca qui per saperne di più e vedere i download per altre piattaforme</string>
     <string name="settings_export_failed">Impossibile esportare le impostazioni</string>
