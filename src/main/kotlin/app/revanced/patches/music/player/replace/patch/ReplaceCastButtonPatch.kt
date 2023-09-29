@@ -56,8 +56,10 @@ class ReplaceCastButtonPatch : BytecodePatch(
                 val freeRegister = getInstruction<OneRegisterInstruction>(freeIndex).registerA
 
                 val getActivityIndex = freeIndex - 4
-                val getActivityRegister = getInstruction<TwoRegisterInstruction>(getActivityIndex).registerB
-                val getActivityReference = getInstruction<ReferenceInstruction>(getActivityIndex).reference
+                val getActivityRegister =
+                    getInstruction<TwoRegisterInstruction>(getActivityIndex).registerB
+                val getActivityReference =
+                    getInstruction<ReferenceInstruction>(getActivityIndex).reference
 
                 for (index in freeIndex + 20 downTo freeIndex) {
                     if (getInstruction(index).opcode != Opcode.INVOKE_VIRTUAL)

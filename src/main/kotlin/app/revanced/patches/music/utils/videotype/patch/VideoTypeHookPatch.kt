@@ -26,7 +26,8 @@ class VideoTypeHookPatch : BytecodePatch(
             }.result?.let {
                 it.mutableMethod.apply {
                     val videoTypeIndex = it.scanResult.patternScanResult!!.endIndex
-                    val videoTypeRegister = getInstruction<OneRegisterInstruction>(videoTypeIndex).registerA
+                    val videoTypeRegister =
+                        getInstruction<OneRegisterInstruction>(videoTypeIndex).registerA
 
                     addInstructions(
                         videoTypeIndex + 1, """
