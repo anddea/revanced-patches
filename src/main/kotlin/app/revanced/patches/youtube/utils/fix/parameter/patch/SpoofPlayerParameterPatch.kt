@@ -15,25 +15,35 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.fix.parameter.fingerprints.PlayerParameterBuilderFingerprint
-import app.revanced.patches.youtube.utils.fix.parameter.fingerprints.PlayerResponseModelImplFingerprint
+import app.revanced.patches.youtube.utils.fix.parameter.fingerprints.PlayerResponseModelImplGeneralFingerprint
+import app.revanced.patches.youtube.utils.fix.parameter.fingerprints.PlayerResponseModelImplLiveStreamFingerprint
 import app.revanced.patches.youtube.utils.fix.parameter.fingerprints.StoryboardRendererSpecFingerprint
+import app.revanced.patches.youtube.utils.fix.parameter.fingerprints.StoryboardRendererSpecRecommendedLevelFingerprint
 import app.revanced.patches.youtube.utils.fix.parameter.fingerprints.StoryboardThumbnailFingerprint
 import app.revanced.patches.youtube.utils.fix.parameter.fingerprints.StoryboardThumbnailParentFingerprint
 import app.revanced.patches.youtube.utils.playertype.patch.PlayerTypeHookPatch
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.integrations.Constants.MISC_PATH
+import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
 @Name("Spoof player parameters")
 @Description("Spoofs player parameters to prevent playback issues.")
-@DependsOn([PlayerTypeHookPatch::class])
+@DependsOn(
+    [
+        PlayerTypeHookPatch::class,
+        SettingsPatch::class
+    ]
+)
 @YouTubeCompatibility
 class SpoofPlayerParameterPatch : BytecodePatch(
     listOf(
         PlayerParameterBuilderFingerprint,
-        PlayerResponseModelImplFingerprint,
+        PlayerResponseModelImplGeneralFingerprint,
+        PlayerResponseModelImplLiveStreamFingerprint,
         StoryboardRendererSpecFingerprint,
+        StoryboardRendererSpecRecommendedLevelFingerprint,
         StoryboardThumbnailParentFingerprint
     )
 ) {
@@ -88,37 +98,60 @@ class SpoofPlayerParameterPatch : BytecodePatch(
 
         /**
          * Hook StoryBoard Renderer URL
-         * TODO: Find a way to increase the quality of SeekBar thumbnail previews
          */
-        PlayerResponseModelImplFingerprint.result?.let {
+        arrayOf(
+            PlayerResponseModelImplGeneralFingerprint,
+            PlayerResponseModelImplLiveStreamFingerprint,
+            StoryboardRendererSpecFingerprint
+        ).forEach { fingerprint ->
+            fingerprint.result?.let {
+                it.mutableMethod.apply {
+                    val getStoryBoardIndex = it.scanResult.patternScanResult!!.endIndex
+                    val getStoryBoardRegister =
+                        getInstruction<OneRegisterInstruction>(getStoryBoardIndex).registerA
+
+                    addInstructionsWithLabels(
+                        getStoryBoardIndex, """
+                            if-nez v$getStoryBoardRegister, :ignore
+                            invoke-static {}, $INTEGRATIONS_CLASS_DESCRIPTOR->getStoryboardRendererSpec()Ljava/lang/String;
+                            move-result-object v$getStoryBoardRegister
+                            """, ExternalLabel("ignore", getInstruction(getStoryBoardIndex))
+                    )
+                }
+            } ?: throw fingerprint.exception
+        }
+
+        /**
+         * Hook recommended value and StoryBoard Renderer for live stream
+         */
+        StoryboardRendererSpecRecommendedLevelFingerprint.result?.let {
             it.mutableMethod.apply {
-                val getStoryBoardIndex = it.scanResult.patternScanResult!!.endIndex
-                val getStoryBoardRegister =
-                    getInstruction<OneRegisterInstruction>(getStoryBoardIndex).registerA
+                val moveOriginalRecommendedValueIndex = it.scanResult.patternScanResult!!.endIndex
+                val originalValueRegister =
+                    getInstruction<OneRegisterInstruction>(moveOriginalRecommendedValueIndex).registerA
+
+                val liveStreamStoryBoardUrlIndex =
+                    implementation!!.instructions.indexOfFirst { instruction ->
+                        instruction.opcode == Opcode.INVOKE_INTERFACE
+                    } + 1
+                val liveStreamStoryBoardUrlRegister =
+                    getInstruction<OneRegisterInstruction>(liveStreamStoryBoardUrlIndex).registerA
 
                 addInstructions(
-                    getStoryBoardIndex, """
-                        invoke-static {}, $INTEGRATIONS_CLASS_DESCRIPTOR->getStoryboardRendererSpec()Ljava/lang/String;
-                        move-result-object v$getStoryBoardRegister
+                    moveOriginalRecommendedValueIndex + 1, """
+                        invoke-static { v$originalValueRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->getRecommendedLevel(I)I
+                        move-result v$originalValueRegister
+                        """
+                )
+
+                addInstructions(
+                    liveStreamStoryBoardUrlIndex + 1, """
+                        invoke-static { v$liveStreamStoryBoardUrlRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->getStoryboardRendererSpec(Ljava/lang/String;)Ljava/lang/String;
+                        move-result-object v$liveStreamStoryBoardUrlRegister
                         """
                 )
             }
-        } ?: throw PlayerResponseModelImplFingerprint.exception
-
-        StoryboardRendererSpecFingerprint.result?.let {
-            it.mutableMethod.apply {
-                val storyBoardUrlParams = 0
-
-                addInstructionsWithLabels(
-                    0, """
-                        if-nez p$storyBoardUrlParams, :ignore
-                        invoke-static {}, $INTEGRATIONS_CLASS_DESCRIPTOR->getStoryboardRendererSpec()Ljava/lang/String;
-                        move-result-object p$storyBoardUrlParams
-                        """, ExternalLabel("ignore", getInstruction(0))
-                )
-            }
-        } ?: throw StoryboardRendererSpecFingerprint.exception
-
+        } ?: throw StoryboardRendererSpecRecommendedLevelFingerprint.exception
 
         /**
          * Add settings
