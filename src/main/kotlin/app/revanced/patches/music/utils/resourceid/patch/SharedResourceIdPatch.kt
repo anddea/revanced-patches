@@ -27,6 +27,7 @@ class SharedResourceIdPatch : ResourcePatch {
         var MenuEntry: Long = -1
         var MusicMenuLikeButtons: Long = -1
         var NamesInactiveAccountThumbnailSize: Long = -1
+        var PlayerCastMediaRouteButton: Long = -1
         var PlayerOverlayChip: Long = -1
         var PrivacyTosFooter: Long = -1
         var QualityAuto: Long = -1
@@ -53,6 +54,7 @@ class SharedResourceIdPatch : ResourcePatch {
         MenuEntry = find(LAYOUT, "menu_entry")
         MusicMenuLikeButtons = find(LAYOUT, "music_menu_like_buttons")
         NamesInactiveAccountThumbnailSize = find(DIMEN, "names_inactive_account_thumbnail_size")
+        PlayerCastMediaRouteButton = find(LAYOUT, "player_cast_media_route_button")
         PlayerOverlayChip = find(ID, "player_overlay_chip")
         PrivacyTosFooter = find(ID, "privacy_tos_footer")
         QualityAuto = find(STRING, "quality_auto")

@@ -48,6 +48,7 @@ class SettingsBytecodePatch : BytecodePatch(
             }
         } ?: throw PreferenceFingerprint.exception
 
+        context.injectInit("InitializationPatch", "setDeviceInformation", false)
         context.injectInit("InitializationPatch", "initializeReVancedSettings", false)
 
     }
