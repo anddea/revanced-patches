@@ -45,7 +45,7 @@ class HideEndScreenCardsPatch : BytecodePatch(
                     index + 1,
                     register,
                     "layout/PlayerPatch",
-                    "hideEndScreen"
+                    "hideEndScreenCards"
                 )
             }
         }
