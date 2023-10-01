@@ -16,16 +16,23 @@ import app.revanced.patches.youtube.general.mixplaylists.fingerprints.BottomPane
 import app.revanced.patches.youtube.general.mixplaylists.fingerprints.ElementParserFingerprint
 import app.revanced.patches.youtube.general.mixplaylists.fingerprints.EmptyFlatBufferFingerprint
 import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
+import app.revanced.patches.youtube.utils.litho.patch.LithoFilterPatch
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.bytecode.getStringIndex
 import app.revanced.util.integrations.Constants.GENERAL
+import app.revanced.util.integrations.Constants.PATCHES_PATH
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Patch
 @Name("Hide mix playlists")
 @Description("Hides mix playlists from home feed and video player.")
-@DependsOn([SettingsPatch::class])
+@DependsOn(
+    [
+        LithoFilterPatch::class,
+        SettingsPatch::class
+    ]
+)
 @YouTubeCompatibility
 class MixPlaylistsPatch : BytecodePatch(
     listOf(
@@ -62,7 +69,7 @@ class MixPlaylistsPatch : BytecodePatch(
 
 
         /**
-         * ~YouTube v18.29.38
+         * ~ YouTube v18.29.38
          */
         EmptyFlatBufferFingerprint.result?.let {
             it.mutableMethod.apply {
@@ -101,6 +108,8 @@ class MixPlaylistsPatch : BytecodePatch(
             }
         }
 
+        LithoFilterPatch.addFilter(FILTER_CLASS_DESCRIPTOR)
+
         /**
          * Add settings
          */
@@ -116,16 +125,22 @@ class MixPlaylistsPatch : BytecodePatch(
     }
 
     private companion object {
+        private const val FILTER_CLASS_DESCRIPTOR =
+            "$PATCHES_PATH/ads/MixPlaylistsFilter;"
+
         fun MutableMethod.inject(
             freeIndex: Int,
             insertIndex: Int,
             jumpIndex: Int
         ) {
             val freeRegister = getInstruction<TwoRegisterInstruction>(freeIndex).registerA
-
+            val objectIndex = implementation!!.instructions.indexOfFirst { instruction ->
+                instruction.opcode == Opcode.MOVE_OBJECT
+            }
+            val objectRegister = getInstruction<TwoRegisterInstruction>(objectIndex).registerA
             addInstructionsWithLabels(
                 insertIndex, """
-                    invoke-static {v$freeRegister}, $GENERAL->hideMixPlaylists([B)Z
+                    invoke-static {v$objectRegister, v$freeRegister}, $FILTER_CLASS_DESCRIPTOR->filterMixPlaylists(Ljava/lang/Object;[B)Z
                     move-result v$freeRegister
                     if-nez v$freeRegister, :not_an_ad
                     """, ExternalLabel("not_an_ad", getInstruction(jumpIndex))
