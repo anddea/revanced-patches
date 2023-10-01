@@ -17,6 +17,7 @@ import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.fix.parameter.fingerprints.PlayerParameterBuilderFingerprint
 import app.revanced.patches.youtube.utils.fix.parameter.fingerprints.PlayerResponseModelImplGeneralFingerprint
 import app.revanced.patches.youtube.utils.fix.parameter.fingerprints.PlayerResponseModelImplLiveStreamFingerprint
+import app.revanced.patches.youtube.utils.fix.parameter.fingerprints.PlayerResponseModelImplRecommendedLevel
 import app.revanced.patches.youtube.utils.fix.parameter.fingerprints.StoryboardRendererSpecFingerprint
 import app.revanced.patches.youtube.utils.fix.parameter.fingerprints.StoryboardRendererSpecRecommendedLevelFingerprint
 import app.revanced.patches.youtube.utils.fix.parameter.fingerprints.StoryboardThumbnailFingerprint
@@ -42,6 +43,7 @@ class SpoofPlayerParameterPatch : BytecodePatch(
         PlayerParameterBuilderFingerprint,
         PlayerResponseModelImplGeneralFingerprint,
         PlayerResponseModelImplLiveStreamFingerprint,
+        PlayerResponseModelImplRecommendedLevel,
         StoryboardRendererSpecFingerprint,
         StoryboardRendererSpecRecommendedLevelFingerprint,
         StoryboardThumbnailParentFingerprint
@@ -152,6 +154,22 @@ class SpoofPlayerParameterPatch : BytecodePatch(
                 )
             }
         } ?: throw StoryboardRendererSpecRecommendedLevelFingerprint.exception
+
+        PlayerResponseModelImplRecommendedLevel.result?.let {
+            it.mutableMethod.apply {
+                val moveOriginalRecommendedValueIndex = it.scanResult.patternScanResult!!.endIndex
+                val originalValueRegister =
+                    getInstruction<OneRegisterInstruction>(moveOriginalRecommendedValueIndex).registerA
+
+                addInstructions(
+                    moveOriginalRecommendedValueIndex, """
+                        invoke-static { v$originalValueRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->getRecommendedLevel(I)I
+                        move-result v$originalValueRegister
+                        """
+                )
+            }
+
+        } ?: throw PlayerResponseModelImplRecommendedLevel.exception
 
         /**
          * Add settings
