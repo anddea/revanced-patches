@@ -13,7 +13,7 @@ import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.music.flyoutpanel.utils.EnumUtils.getEnumIndex
 import app.revanced.patches.music.utils.annotations.MusicCompatibility
 import app.revanced.patches.music.utils.fingerprints.MenuItemFingerprint
-import app.revanced.patches.music.utils.flyoutbutton.patch.FlyoutButtonContainerResourcePatch
+import app.revanced.patches.music.utils.flyoutbutton.patch.FlyoutButtonContainerPatch
 import app.revanced.patches.music.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.enum.CategoryType
 import app.revanced.util.integrations.Constants.MUSIC_FLYOUT
@@ -27,7 +27,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 @Description("Hides flyout panel components.")
 @DependsOn(
     [
-        FlyoutButtonContainerResourcePatch::class,
+        FlyoutButtonContainerPatch::class,
         SettingsPatch::class
     ]
 )
