@@ -8,26 +8,26 @@
     <string name="microg_settings_summary">Включение настройки облачных сообщений для получения уведомлений</string>
     <string name="microg_settings_title">MicroG</string>
     <string name="revanced_ads">Реклама</string>
-    <string name="revanced_alt_thumbnails">Альтернативные превью видеороликов</string>
-    <string name="revanced_alt_thumbnail_about_summary">Альтернативные превью видеороликов используют изображения с начальной / средней / конечной части видеороликов. Дополнительные API не требуются, так как эти изображения уже существуют в YouTube</string>
+    <string name="revanced_alt_thumbnails">Альтернативные превью видео</string>
+    <string name="revanced_alt_thumbnail_about_summary">Альтернативные превью видео используют изображения из начала / середины / конца видеороликов. Дополнительные API не требуются, так как эти изображения уже существуют в YouTube</string>
     <string name="revanced_alt_thumbnail_about_title">Об интеграции</string>
-    <string name="revanced_alt_thumbnail_enabled_summary_off">Оригинальные превью видеороликов YouTube отображены</string>
-    <string name="revanced_alt_thumbnail_enabled_summary_on">Превью видеороликов YouTube заменены альтернативными</string>
-    <string name="revanced_alt_thumbnail_enabled_title">Альтернативные превью видеороликов</string>
+    <string name="revanced_alt_thumbnail_enabled_summary_off">Оригинальные превью видео YouTube отображены</string>
+    <string name="revanced_alt_thumbnail_enabled_summary_on">Превью видео YouTube заменены альтернативными</string>
+    <string name="revanced_alt_thumbnail_enabled_title">Альтернативные превью видео</string>
     <string name="revanced_alt_thumbnail_fast_quality_summary_off">Использует высокое качество изображений, но может отображаться с задержкой</string>
-    <string name="revanced_alt_thumbnail_fast_quality_summary_on">Использует среднее качество изображения. Превью видеороликов будут грузиться быстрее, но эфиры, премьеры или очень старые ролики могут отображать пустые превью</string>
-    <string name="revanced_alt_thumbnail_fast_quality_title">Менее качественные превью видеороликов</string>
-    <string name="revanced_alt_thumbnail_type_entry_1">Из начальной части видеоролика</string>
-    <string name="revanced_alt_thumbnail_type_entry_2">Из средней части видеоролика</string>
-    <string name="revanced_alt_thumbnail_type_entry_3">Из конечной части видеоролика</string>
-    <string name="revanced_alt_thumbnail_type_title">Часть видеоролика, из которой будет взято изображение для альтернативного превью</string>
+    <string name="revanced_alt_thumbnail_fast_quality_summary_on">Использует среднее качество изображения. Превью видео будут грузиться быстрее, но эфиры, премьеры или очень старые видео могут отображать пустые превью</string>
+    <string name="revanced_alt_thumbnail_fast_quality_title">Менее качественные превью видео</string>
+    <string name="revanced_alt_thumbnail_type_entry_1">Начало</string>
+    <string name="revanced_alt_thumbnail_type_entry_2">Середина</string>
+    <string name="revanced_alt_thumbnail_type_entry_3">Конец</string>
+    <string name="revanced_alt_thumbnail_type_title">Часть видео, из которой будет взято изображение для альтернативного превью</string>
     <string name="revanced_append_time_stamp_information_summary_off">Индикатор скорости / качества видео рядом с временем воспроизведения выключен</string>
     <string name="revanced_append_time_stamp_information_summary_on">Индикатор скорости / качества видео рядом с временем воспроизведения включён</string>
     <string name="revanced_append_time_stamp_information_title">Индикатор рядом с временем воспроизведения</string>
     <string name="revanced_append_time_stamp_information_type_summary_off">Индикатор скорости воспроизведения</string>
     <string name="revanced_append_time_stamp_information_type_summary_on">Индикатор качества видео</string>
     <string name="revanced_append_time_stamp_information_type_title">Тип индикатора</string>
-    <string name="revanced_backup_summary">Импортировать настройки ReVanced из файла / Экспортировать настройки ReVanced в файл</string>
+    <string name="revanced_backup_summary">Импортировать настройки ReVanced Extended из файла / Экспортировать настройки ReVanced Extended в файл</string>
     <string name="revanced_bottom_player">Нижняя часть плеера</string>
     <string name="revanced_button_container_title">Кнопки под плеером</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">Фоновая подсветка в режиме экономии заряда батареи отключена</string>
@@ -82,6 +82,8 @@
     <string name="revanced_disable_landscape_mode_summary_off">Ландшафтный режим включён при входе в полноэкранный режим</string>
     <string name="revanced_disable_landscape_mode_summary_on">Ландшафтный режим отключён при входе в полноэкранный режим</string>
     <string name="revanced_disable_landscape_mode_title">Отключить ландшафтный режим</string>
+    <string name="revanced_disable_speed_overlay_summary">"Отключить \"Воспроизводится на 2x скорости\" при удержании вниз"</string>
+    <string name="revanced_disable_speed_overlay_title">Отключить оверлей скорости воспроизведения</string>
     <string name="revanced_disable_quic_protocol_summary">"Отключает протокол QUIC CronetEngine"</string>
     <string name="revanced_disable_quic_protocol_title">Отключить протокол QUIC</string>
     <string name="revanced_disable_startup_shorts_player_summary_off">Плеер \"Shorts\" при запуске приложения отображён</string>
@@ -98,6 +100,9 @@
     <string name="revanced_enable_custom_seekbar_color_summary_off">Пользовательский цвет прогресса воспроизведения отключён</string>
     <string name="revanced_enable_custom_seekbar_color_summary_on">Пользовательский цвет прогресса воспроизведения включён</string>
     <string name="revanced_enable_custom_seekbar_color_title">Пользовательский цвет</string>
+    <string name="revanced_edit_speed_overlay_value_summary">"Редактировать значение скорости изменяющейся при удержании вниз
+Доступно только некоторым пользователям, которым доступна функция оверлея скорости воспроизведения"</string>
+    <string name="revanced_edit_speed_overlay_value_title">Редактировать оверлей скорости воспроизведения</string>
     <string name="revanced_enable_debug_logging_summary_off">Журналы отладки отключены</string>
     <string name="revanced_enable_debug_logging_summary_on">Журналы отладки включены</string>
     <string name="revanced_enable_debug_logging_title">Ведение журналов отладки</string>
@@ -164,7 +169,7 @@
     <string name="revanced_enable_wide_search_bar_summary_on">Широкая панель поиска включена</string>
     <string name="revanced_enable_wide_search_bar_title">Широкая панель поиска</string>
     <string name="revanced_experimental_flag">Экспериментальные опции</string>
-    <string name="revanced_export_settings_summary">Сохранение ваших настроек ReVanced в файл</string>
+    <string name="revanced_export_settings_summary">Сохранение ваших настроек ReVanced Extended в файл</string>
     <string name="revanced_export_settings_title">Экспорт настроек</string>
     <string name="revanced_external_downloader_installed">Установлен</string>
     <string name="revanced_external_downloader_not_installed">Не установлен</string>
@@ -208,6 +213,9 @@
     <string name="revanced_hide_button_download_summary_off">Кнопка \"Скачать\" отображена</string>
     <string name="revanced_hide_button_download_summary_on">Кнопка \"Скачать\" скрыта</string>
     <string name="revanced_hide_button_download_title">Скрыть кнопку \"Скачать\"</string>
+    <string name="revanced_hide_button_like_dislike_summary_off">Кнопки \"Лайк\" и \"Дизлайк\" отображены</string>
+    <string name="revanced_hide_button_like_dislike_summary_on">Кнопки \"Лайк\" и \"Дизлайк\" скрыты</string>
+    <string name="revanced_hide_button_like_dislike_title">Скрыть кнопки \"Лайк\" и \"Дизлайк\"</string>
     <string name="revanced_hide_button_like_summary_off">Кнопка \"Лайк\" отображена</string>
     <string name="revanced_hide_button_like_summary_on">Кнопка \"Лайк\" скрыта</string>
     <string name="revanced_hide_button_like_title">Скрыть кнопку \"Лайк\"</string>
@@ -381,7 +389,7 @@
     <string name="revanced_hide_navigation_label_title">Скрыть подписи вкладок навигации</string>
     <string name="revanced_hide_notify_me_button_summary_off">Кнопка \"Прислать уведомление\" отображена</string>
     <string name="revanced_hide_notify_me_button_summary_on">Кнопка \"Прислать уведомление\" скрыта</string>
-    <string name="revanced_hide_notify_me_button_title">Скрыть кнопку \"Прислать уведомление\" в ленте</string>
+    <string name="revanced_hide_notify_me_button_title">Скрыть кнопку \"Прислать уведомление\"</string>
     <string name="revanced_hide_official_header_summary_off">Заголовок результатов поиска трейлеров фильмов и артистов отображён</string>
     <string name="revanced_hide_official_header_summary_on">Заголовок результатов поиска трейлеров фильмов и артистов скрыт</string>
     <string name="revanced_hide_official_header_title">Скрыть заголовок при поиске</string>
@@ -424,12 +432,18 @@
     <string name="revanced_hide_player_flyout_panel_more_info_summary_off">Пункт \"Дополнительная информация\" отображён</string>
     <string name="revanced_hide_player_flyout_panel_more_info_summary_on">Пункт \"Дополнительная информация\" скрыт</string>
     <string name="revanced_hide_player_flyout_panel_more_info_title">Скрыть пункт \"Дополнительная информация\"</string>
+    <string name="revanced_hide_player_flyout_panel_playback_speed_summary_off">Пункт \"Скорость воспроизведения\" отображён</string>
+    <string name="revanced_hide_player_flyout_panel_playback_speed_summary_on">Пункт \"Скорость воспроизведения\" скрыт</string>
+    <string name="revanced_hide_player_flyout_panel_playback_speed_title">Скрыть пункт \"Скорость воспроизведения\"</string>
     <string name="revanced_hide_player_flyout_panel_quality_footer_summary_off">Подсказка в меню выбора качества отображена</string>
     <string name="revanced_hide_player_flyout_panel_quality_footer_summary_on">Подсказка в меню выбора качества скрыта</string>
     <string name="revanced_hide_player_flyout_panel_quality_footer_title">Скрыть подсказку в меню выбора качества</string>
     <string name="revanced_hide_player_flyout_panel_report_summary_off">Пункт \"Пожаловаться\" отображён</string>
     <string name="revanced_hide_player_flyout_panel_report_summary_on">Пункт \"Пожаловаться\" скрыт</string>
     <string name="revanced_hide_player_flyout_panel_report_title">Скрыть пункт \"Пожаловаться\"</string>
+    <string name="revanced_hide_player_flyout_panel_stable_volume_summary_off">Пункт \"Постоянный уровень громкости\" отображён</string>
+    <string name="revanced_hide_player_flyout_panel_stable_volume_summary_on">Пункт \"Постоянный уровень громкости\" скрыт</string>
+    <string name="revanced_hide_player_flyout_panel_stable_volume_title">Скрыть пункт \"Постоянный уровень громкости\"</string>
     <string name="revanced_hide_player_flyout_panel_stats_for_nerds_summary_off">Пункт \"Статистика для сисадминов\" отображён</string>
     <string name="revanced_hide_player_flyout_panel_stats_for_nerds_summary_on">Пункт \"Статистика для сисадминов\" скрыт</string>
     <string name="revanced_hide_player_flyout_panel_stats_for_nerds_title">Скрыть пункт \"Статистика для сисадминов\"</string>
@@ -495,9 +509,6 @@
     <string name="revanced_hide_snack_bar_summary_off">Всплывающий виджет отображён</string>
     <string name="revanced_hide_snack_bar_summary_on">Всплывающий виджет скрыт</string>
     <string name="revanced_hide_snack_bar_title">Скрыть всплывающий виджет</string>
-    <string name="revanced_hide_speed_overlay_summary_off">Оверлей скорости воспроизведения отображён</string>
-    <string name="revanced_hide_speed_overlay_summary_on">Оверлей скорости воспроизведения скрыт</string>
-    <string name="revanced_hide_speed_overlay_title">Скрыть оверлей скорости воспроизведения</string>
     <string name="revanced_hide_subscriptions_button_summary_off">Вкладка \"Подписки\" отображена</string>
     <string name="revanced_hide_subscriptions_button_summary_on">Вкладка \"Подписки\" скрыта</string>
     <string name="revanced_hide_subscriptions_button_title">Скрыть вкладку \"Подписки\"</string>
@@ -544,7 +555,7 @@
     <string name="revanced_hook_download_button_summary">"Заменяет кнопку \"Скачать\" кнопкой запуска внешнего загрузчика
 Доступно только в YouTube v18.24.37+"</string>
     <string name="revanced_hook_download_button_title">Замена кнопки \"Скачать\"</string>
-    <string name="revanced_import_settings_summary">Восстановление ваших настроек ReVanced из файла</string>
+    <string name="revanced_import_settings_summary">Восстановление ваших настроек ReVanced Extended из файла</string>
     <string name="revanced_import_settings_title">Импорт настроек</string>
     <string name="revanced_layout_title">Интерфейс</string>
     <string name="revanced_misc">Дополнительные</string>
@@ -618,14 +629,15 @@
     <string name="revanced_shorts_player_title">Плеер \"Shorts\"</string>
     <string name="revanced_show_fullscreen_title_summary">Известная проблема: заголовок исчезает при нажатии</string>
     <string name="revanced_show_fullscreen_title_title">Полноэкранный заголовок</string>
+    <string name="revanced_speed_overlay_text" formatted="false">Воспроизводится на %sx скорости</string>
     <string name="revanced_spoof_app_version_summary">"Подменяет версию клиента на старую
 
 Это изменит внешний вид приложения, но могут возникнуть неизвестные проблемы. Если отключить данную опцию после её активации, старый интерфейс может оставаться до тех пор, пока данные приложения не будут очищены"</string>
-    <string name="revanced_spoof_app_version_target_entry_0">18.20.39 - Восстановление старого стиля отображения выдвижного меню плеера</string>
-    <string name="revanced_spoof_app_version_target_entry_1">18.09.39 - Восстановление старого стиля отображения вкладки \"Библиотека\"</string>
-    <string name="revanced_spoof_app_version_target_entry_2">17.41.37 - Восстановление старого стиля отображения секции плейлистов во вкладке \"Библиотека\"</string>
-    <string name="revanced_spoof_app_version_target_entry_3">17.08.35 - Восстановление старого стиля отображения пользовательского интерфейса</string>
-    <string name="revanced_spoof_app_version_target_entry_4">16.08.35 - Восстановление вкладки \"Навигатор\"</string>
+    <string name="revanced_spoof_app_version_target_entry_16_08_35">16.08.35 - Восстановление вкладки \"Навигатор\"</string>
+    <string name="revanced_spoof_app_version_target_entry_17_08_35">17.08.35 - Восстановление старого интерфейса</string>
+    <string name="revanced_spoof_app_version_target_entry_17_41_37">17.41.37 - Восстановление старой секции плейлистов</string>
+    <string name="revanced_spoof_app_version_target_entry_18_05_40">18.05.40 - Восстановление старого поля ввода комментария</string>
+    <string name="revanced_spoof_app_version_target_entry_18_17_43">18.17.43 - Восстановление старого выдвижного меню плеера</string>
     <string name="revanced_spoof_app_version_target_entry_title">Целевая версия приложения при подмене</string>
     <string name="revanced_spoof_app_version_target_summary">Введите целевую версию приложения для подмены</string>
     <string name="revanced_spoof_app_version_target_title">Редактировать значение подмены версии приложения</string>
@@ -634,8 +646,9 @@
 
 Известные проблемы:
 • Высокий битрейт не доступен
-• Миниатюры прогресса не работают в проплаченных видео
-• Загрузка видео может не работать"</string>
+• Миниатюры прогресса не работают в видео для спонсоров
+• Загрузка видео может не работать
+• Видео может начинаться не с последнего времени просмотра"</string>
     <string name="revanced_spoof_player_parameter_title">Подмена параметров плеера</string>
     <string name="revanced_swipe_controls">Жесты</string>
     <string name="revanced_swipe_magnitude_threshold_summary">Минимальная амплитуда распознаваемого как жест движения</string>
@@ -668,7 +681,7 @@
     <string name="sb_general_skiptoast">Уведомление при пропуске</string>
     <string name="sb_general_skiptoast_sum_on">Всплывающее уведомление отображено при автоматическом пропуске сегмента. Нажмите здесь, чтобы увидеть пример</string>
     <string name="sb_general_skiptoast_sum_off">Всплывающее уведомление скрыто при автоматическом пропуске сегмента. Нажмите здесь, чтобы увидеть пример</string>
-    <string name="sb_general_time_without">Продолжительность без сегментов</string>
+    <string name="sb_general_time_without">Продолжительность видео за исключением всех сегментов</string>
     <string name="sb_general_time_without_sum_on">Продолжительность видео за исключением всех сегментов отображена в скобках рядом с полной продолжительностью видео</string>
     <string name="sb_general_time_without_sum_off">Полная продолжительность видео отображена</string>
     <string name="sb_create_segment_category">Создание новых сегментов</string>
@@ -699,7 +712,7 @@
     <string name="sb_api_url_invalid">Адрес сервера API недействителен</string>
     <string name="sb_api_url_changed">Адрес сервера API изменён</string>
     <string name="sb_settings_copy">Копировать</string>
-    <string name="sb_settings_ie_sum">Ваша конфигурация JSON SponsorBlock может быть импортирована / экспортирована в ReVanced и другие платформы SponsorBlock. Она включает в себя ваш личный ID пользователя, делитесь ею с умом</string>
+    <string name="sb_settings_ie_sum">Ваша конфигурация JSON SponsorBlock может быть импортирована / экспортирована в ReVanced Extended и другие платформы SponsorBlock. Она включает в себя ваш личный ID пользователя, делитесь ею с умом</string>
     <string name="sb_settings_import_successful">Настройки успешно восстановлены</string>
     <string name="sb_settings_import_failed">Не удалось восстановить: %s</string>
     <string name="sb_settings_export_failed">Не удалось сохранить: %s</string>
@@ -711,7 +724,7 @@
     <string name="sb_segments_selfpromo">Бесплатная реклама / Самореклама</string>
     <string name="sb_segments_selfpromo_sum">Похоже на спонсорскую рекламу, за исключением бесплатной рекламы или саморекламы. Включает разделы о товарах, пожертвованиях или информации о том, с кем они сотрудничали</string>
     <string name="sb_segments_interaction">Напоминание о взаимодействии</string>
-    <string name="sb_segments_interaction_sum">Короткое напоминание поставить лайк, подписаться на канал или соцсети посреди видеоролика. Если эта вставка длительная или о чём-то конкретном, она должна классифицироваться как самореклама</string>
+    <string name="sb_segments_interaction_sum">Короткое напоминание поставить лайк, подписаться на канал или соцсети посреди видео. Если эта вставка длительная или о чём-то конкретном, она должна классифицироваться как самореклама</string>
     <string name="sb_segments_highlight">Основные моменты</string>
     <string name="sb_segments_highlight_sum">Части видео, которые интересны большинству людей</string>
     <string name="sb_segments_intro">Пауза / Интро</string>
@@ -723,7 +736,7 @@
     <string name="sb_segments_filler">Отвлечённые темы / Шутки</string>
     <string name="sb_segments_filler_sum">Сегменты, которые увеличивают длительность видео за счёт отвлечённых тем или шуток, но не требуются для понимания основного содержания. Не включает сегменты, объясняющие контекст или предысторию</string>
     <string name="sb_segments_nomusic">Музыка: сегмент без музыки</string>
-    <string name="sb_segments_nomusic_sum">Только для использования в музыкальных видеороликах. Разделы музыкальных видео без музыки, которые ещё не охвачены другой категорией</string>
+    <string name="sb_segments_nomusic_sum">Только для использования в музыкальных видео. Разделы музыкальных видео без музыки, которые ещё не охвачены другой категорией</string>
     <string name="sb_skip_button_compact">Пропустить</string>
     <string name="sb_skip_button_compact_highlight">Основные моменты</string>
     <string name="sb_skip_button_sponsor">Пропустить спонсорскую рекламу</string>

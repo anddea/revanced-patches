@@ -82,6 +82,8 @@
     <string name="revanced_disable_landscape_mode_summary_off">Włączony przy wchodzeniu w tryb pełnoekranowy</string>
     <string name="revanced_disable_landscape_mode_summary_on">Wyłączony przy wchodzeniu w tryb pełnoekranowy</string>
     <string name="revanced_disable_landscape_mode_title">Tryb poziomy</string>
+    <string name="revanced_disable_speed_overlay_summary">"Wyłącz 'Odtwarzanie z prędkością 2x' przytrzymując w dół"</string>
+    <string name="revanced_disable_speed_overlay_title">Wyłącz nakładkę prędkości odtwarzania</string>
     <string name="revanced_disable_quic_protocol_summary">"Wyłącz protokół QUIC w CronetEngine"</string>
     <string name="revanced_disable_quic_protocol_title">Wyłącz protokół QUIC</string>
     <string name="revanced_disable_startup_shorts_player_summary_off">Widoczne</string>
@@ -98,6 +100,9 @@
     <string name="revanced_enable_custom_seekbar_color_summary_off">Niewidoczny</string>
     <string name="revanced_enable_custom_seekbar_color_summary_on">Widoczny</string>
     <string name="revanced_enable_custom_seekbar_color_title">Niestandardowy kolor paska wideo</string>
+    <string name="revanced_edit_speed_overlay_value_summary">"Edytuj prędkość, która zmienia się podczas przytrzymywania w dół
+Dostępne jedynie dla garstki użytkowników, którzy mogą używać nakładki prędkości odtwarzania"</string>
+    <string name="revanced_edit_speed_overlay_value_title">Edytuj nakładkę prędkości odtwarzania</string>
     <string name="revanced_enable_debug_logging_summary_off">Nie zapisywane</string>
     <string name="revanced_enable_debug_logging_summary_on">Zapisywane</string>
     <string name="revanced_enable_debug_logging_title">Logi do debugowania</string>
@@ -208,6 +213,9 @@
     <string name="revanced_hide_button_download_summary_off">Widoczny</string>
     <string name="revanced_hide_button_download_summary_on">Ukryty</string>
     <string name="revanced_hide_button_download_title">Przycisk od pobierania</string>
+    <string name="revanced_hide_button_like_dislike_summary_off">Widoczne</string>
+    <string name="revanced_hide_button_like_dislike_summary_on">Ukryte</string>
+    <string name="revanced_hide_button_like_dislike_title">Przyciski od łapkowania w górę i w dół</string>
     <string name="revanced_hide_button_like_summary_off">Widoczny</string>
     <string name="revanced_hide_button_like_summary_on">Ukryty</string>
     <string name="revanced_hide_button_like_title">Przycisk od łapkowania w górę</string>
@@ -237,13 +245,13 @@
     <string name="revanced_hide_button_thanks_title">Przycisk od dziękowania</string>
     <string name="revanced_hide_button_transcript_summary_off">Widoczne</string>
     <string name="revanced_hide_button_transcript_summary_on">Ukryte</string>
-    <string name="revanced_hide_button_transcript_title">Transkrypcje</string>
+    <string name="revanced_hide_button_transcript_title">Przycisk od transkrypcji</string>
     <string name="revanced_hide_captions_button_summary_off">Widoczny</string>
     <string name="revanced_hide_captions_button_summary_on">Ukryty</string>
     <string name="revanced_hide_captions_button_title">Przycisk od napisów</string>
     <string name="revanced_hide_cast_button_summary_off">Widoczny</string>
     <string name="revanced_hide_cast_button_summary_on">Ukryty</string>
-    <string name="revanced_hide_cast_button_title">Przycisk do powielania</string>
+    <string name="revanced_hide_cast_button_title">Przycisk do castowania</string>
     <string name="revanced_hide_category_bar_in_feed_title">Pasek z kategoriami na stronie głównej</string>
     <string name="revanced_hide_category_bar_in_related_video_title">Pasek z kategoriami pod odtwarzaczem</string>
     <string name="revanced_hide_category_bar_in_search_results_title">Pasek z kategoriami w wynikach wyszukiwania</string>
@@ -424,12 +432,18 @@
     <string name="revanced_hide_player_flyout_panel_more_info_summary_off">Widoczne</string>
     <string name="revanced_hide_player_flyout_panel_more_info_summary_on">Ukryte</string>
     <string name="revanced_hide_player_flyout_panel_more_info_title">Menu do większej ilości informacji</string>
+    <string name="revanced_hide_player_flyout_panel_playback_speed_summary_off">Widoczne</string>
+    <string name="revanced_hide_player_flyout_panel_playback_speed_summary_on">Ukryte</string>
+    <string name="revanced_hide_player_flyout_panel_playback_speed_title">Menu od prędkości</string>
     <string name="revanced_hide_player_flyout_panel_quality_footer_summary_off">Widoczna</string>
     <string name="revanced_hide_player_flyout_panel_quality_footer_summary_on">Ukryta</string>
     <string name="revanced_hide_player_flyout_panel_quality_footer_title">Stopka menu jakości</string>
     <string name="revanced_hide_player_flyout_panel_report_summary_off">Widoczne</string>
     <string name="revanced_hide_player_flyout_panel_report_summary_on">Ukryte</string>
     <string name="revanced_hide_player_flyout_panel_report_title">Menu od zgłaszania</string>
+    <string name="revanced_hide_player_flyout_panel_stable_volume_summary_off">Widoczne</string>
+    <string name="revanced_hide_player_flyout_panel_stable_volume_summary_on">Ukryte</string>
+    <string name="revanced_hide_player_flyout_panel_stable_volume_title">Menu od stabilnej głośności</string>
     <string name="revanced_hide_player_flyout_panel_stats_for_nerds_summary_off">Widoczne</string>
     <string name="revanced_hide_player_flyout_panel_stats_for_nerds_summary_on">Ukryte</string>
     <string name="revanced_hide_player_flyout_panel_stats_for_nerds_title">Menu od statystyk dla nerdów</string>
@@ -495,9 +509,6 @@
     <string name="revanced_hide_snack_bar_summary_off">Widoczne</string>
     <string name="revanced_hide_snack_bar_summary_on">Ukryte</string>
     <string name="revanced_hide_snack_bar_title">Komunikaty</string>
-    <string name="revanced_hide_speed_overlay_summary_off">Widoczna</string>
-    <string name="revanced_hide_speed_overlay_summary_on">Ukryta</string>
-    <string name="revanced_hide_speed_overlay_title">Informacja o prędkości w odtwarzaczu</string>
     <string name="revanced_hide_subscriptions_button_summary_off">Widoczny</string>
     <string name="revanced_hide_subscriptions_button_summary_on">Ukryty</string>
     <string name="revanced_hide_subscriptions_button_title">Przycisk do strony subskrypcji</string>
@@ -618,15 +629,16 @@ To ustawienie może nie zadziałać"</string>
     <string name="revanced_shorts_player_title">Odtwarzacz shortsów</string>
     <string name="revanced_show_fullscreen_title_summary">Znany problem: Tytuły znikają po stuknięciu w nie</string>
     <string name="revanced_show_fullscreen_title_title">Pokazuj tytuły w trybie pełnoekranowym</string>
+    <string name="revanced_speed_overlay_text" formatted="false">Odtwarzanie z prędkością %sx</string>
     <string name="revanced_spoof_app_version_summary">"Oszukuje wersję aplikacji do starszej wersji
 
 Zmieni to wygląd aplikacji, lecz mogą wystąpić nieznane efekty uboczne
 Jeśli później opcja ta zostanie wyłączona, stare UI może pozostać do czasu usunięcia danych aplikacji"</string>
-    <string name="revanced_spoof_app_version_target_entry_0">18.20.39 - Przywróć stary wygląd menu ustawień wideo</string>
-    <string name="revanced_spoof_app_version_target_entry_1">18.09.39 - Przywróć stary styl biblioteki</string>
-    <string name="revanced_spoof_app_version_target_entry_2">17.41.37 - Przywróć stary układ playlist w bibliotece</string>
-    <string name="revanced_spoof_app_version_target_entry_3">17.08.35 - Przywróć stary wygląd interfejsu</string>
-    <string name="revanced_spoof_app_version_target_entry_4">16.08.35 - Przywróć przycisk od odkrywania</string>
+    <string name="revanced_spoof_app_version_target_entry_16_08_35">16.08.35 - Przywróć zakładkę odkrywania</string>
+    <string name="revanced_spoof_app_version_target_entry_17_08_35">17.08.35 - Przywróć stary wygląd interfejsu</string>
+    <string name="revanced_spoof_app_version_target_entry_17_41_37">17.41.37 - Przywróć stary układ playlist w bibliotece</string>
+    <string name="revanced_spoof_app_version_target_entry_18_05_40">18.05.40 - Przywróć stare pole do pisania komentarzy</string>
+    <string name="revanced_spoof_app_version_target_entry_18_17_43">18.17.43 - Przywróć stary wygląd wygląd menu ustawień wideo</string>
     <string name="revanced_spoof_app_version_target_entry_title">Oszukana wersja aplikacji</string>
     <string name="revanced_spoof_app_version_target_summary">Wpisz wersję, którą chcesz oszukiwać</string>
     <string name="revanced_spoof_app_version_target_title">Zmień oszukaną wersję aplikacji</string>
@@ -636,7 +648,8 @@ Jeśli później opcja ta zostanie wyłączona, stare UI może pozostać do czas
 Znane problemy
 • Zwiększony bitrate nie jest dostępny
 • Brak miniaturek na pasku wideo dla płatnych wideo
-• Materiały offline mogą nie działać"</string>
+• Materiały offline mogą nie działać
+• Wideo mogą nie być odtwarzane od momentu ostatniego oglądania"</string>
     <string name="revanced_spoof_player_parameter_title">Oszukaj parametry</string>
     <string name="revanced_swipe_controls">Sterowanie przesuwaniem</string>
     <string name="revanced_swipe_magnitude_threshold_summary">Minimalna długość przesunięcia</string>
