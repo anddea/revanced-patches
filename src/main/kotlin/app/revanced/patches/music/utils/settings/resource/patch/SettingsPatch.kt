@@ -28,7 +28,7 @@ import java.nio.file.Paths
 
 @Patch
 @Name("Settings")
-@Description("Adds settings for ReVanced to YouTube Music.")
+@Description("Adds settings for ReVanced Extended to YouTube Music.")
 @DependsOn([SettingsBytecodePatch::class])
 @MusicCompatibility
 class SettingsPatch : AbstractSettingsResourcePatch(
