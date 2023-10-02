@@ -2,18 +2,15 @@ package app.revanced.patches.youtube.utils.navbarindex.fingerprints
 
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.util.bytecode.isNarrowLiteralExists
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-object NavButtonOnClickFingerprint : MethodFingerprint(
+object NavButtonOnClickLegacyFingerprint : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("Landroid/view/View;"),
     opcodes = listOf(
-        Opcode.NEW_INSTANCE,
-        null,
-        Opcode.INVOKE_DIRECT,
-        Opcode.INVOKE_VIRTUAL,
         Opcode.RETURN_VOID,
         Opcode.IGET_OBJECT,
         Opcode.CHECK_CAST,
@@ -24,6 +21,6 @@ object NavButtonOnClickFingerprint : MethodFingerprint(
         Opcode.RETURN_VOID
     ),
     customFingerprint = { methodDef, _ ->
-        methodDef.name == "onClick"
+        methodDef.name == "onClick" && methodDef.isNarrowLiteralExists(16843611)
     }
 )

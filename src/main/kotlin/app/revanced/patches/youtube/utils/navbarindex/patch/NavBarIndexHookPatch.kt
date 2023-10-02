@@ -9,10 +9,7 @@ import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patches.youtube.utils.fingerprints.OnBackPressedFingerprint
-import app.revanced.patches.youtube.utils.navbarindex.fingerprints.MobileTopBarButtonOnClickFingerprint
-import app.revanced.patches.youtube.utils.navbarindex.fingerprints.NavButtonOnClickFingerprint
-import app.revanced.patches.youtube.utils.navbarindex.fingerprints.OnResumeFragmentsFingerprints
-import app.revanced.patches.youtube.utils.navbarindex.fingerprints.SettingsActivityOnBackPressedFingerprint
+import app.revanced.patches.youtube.utils.navbarindex.fingerprints.*
 import app.revanced.util.integrations.Constants.UTILS_PATH
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction35c
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -21,6 +18,7 @@ class NavBarIndexHookPatch : BytecodePatch(
     listOf(
         MobileTopBarButtonOnClickFingerprint,
         NavButtonOnClickFingerprint,
+        NavButtonOnClickLegacyFingerprint,
         OnBackPressedFingerprint,
         OnResumeFragmentsFingerprints,
         SettingsActivityOnBackPressedFingerprint
@@ -28,10 +26,14 @@ class NavBarIndexHookPatch : BytecodePatch(
 ) {
     override fun execute(context: BytecodeContext) {
 
+        val navButtonOnClickFingerprintResult =
+            NavButtonOnClickFingerprint.result
+                ?: NavButtonOnClickLegacyFingerprint.result
+                ?: throw NavButtonOnClickFingerprint.exception
         /**
          * Change NavBar Index value according to selected Tab
          */
-        NavButtonOnClickFingerprint.result?.let {
+        navButtonOnClickFingerprintResult.let {
             it.mutableMethod.apply {
                 val insertIndex = it.scanResult.patternScanResult!!.endIndex - 1
                 val targetString =
@@ -46,7 +48,7 @@ class NavBarIndexHookPatch : BytecodePatch(
                     "invoke-static {v$indexRegister}, $INTEGRATIONS_CLASS_DESCRIPTOR->setCurrentNavBarIndex(I)V"
                 )
             }
-        } ?: throw NavButtonOnClickFingerprint.exception
+        }
 
         /**
          *  Set NavBar index to last index on back press
