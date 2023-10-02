@@ -6,6 +6,7 @@ import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotations.DependsOn
@@ -16,14 +17,15 @@ import app.revanced.patches.youtube.player.filmstripoverlay.fingerprints.FilmStr
 import app.revanced.patches.youtube.player.filmstripoverlay.fingerprints.FilmStripOverlayInteractionFingerprint
 import app.revanced.patches.youtube.player.filmstripoverlay.fingerprints.FilmStripOverlayParentFingerprint
 import app.revanced.patches.youtube.player.filmstripoverlay.fingerprints.FilmStripOverlayPreviewFingerprint
+import app.revanced.patches.youtube.player.filmstripoverlay.fingerprints.FineScrubbingOverlayFingerprint
 import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
-import app.revanced.patches.youtube.utils.fingerprints.YouTubeControlsOverlayFingerprint
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.util.integrations.Constants.PLAYER
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.WideLiteralInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
@@ -42,7 +44,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 class HideFilmstripOverlayPatch : BytecodePatch(
     listOf(
         FilmStripOverlayParentFingerprint,
-        YouTubeControlsOverlayFingerprint
+        FineScrubbingOverlayFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext) {
@@ -63,77 +65,44 @@ class HideFilmstripOverlayPatch : BytecodePatch(
             }
         } ?: throw FilmStripOverlayParentFingerprint.exception
 
-        YouTubeControlsOverlayFingerprint.result?.let {
+        FineScrubbingOverlayFingerprint.result?.let {
             it.mutableMethod.apply {
-                val insertIndex = getIndex("bringChildToFront") + 1
-                val insertRegister = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
-
                 val setOnClickListenerIndex = getIndex("setOnClickListener")
                 val jumpIndex = setOnClickListenerIndex + 3
-
                 val initialIndex = setOnClickListenerIndex - 1
 
                 if (SettingsPatch.upward1828) {
-                    for (index in insertIndex..initialIndex) {
-                        if (getInstruction(index).opcode != Opcode.CONST_16 &&
-                            getInstruction(index).opcode != Opcode.CONST_4 &&
-                            getInstruction(index).opcode != Opcode.CONST
-                        )
-                            continue
+                    val insertIndex = it.scanResult.patternScanResult!!.startIndex + 2
+                    val replaceInstruction = getInstruction<TwoRegisterInstruction>(insertIndex)
+                    val replaceReference = getInstruction<ReferenceInstruction>(insertIndex).reference
 
-                        val register = getInstruction<OneRegisterInstruction>(index).registerA
-                        val value =
-                            getInstruction<WideLiteralInstruction>(index).wideLiteral.toInt()
+                    addComponentUpward1828(insertIndex, initialIndex)
 
-                        val line =
-                            when (getInstruction(index).opcode) {
-                                Opcode.CONST_16 -> """
-                                const/16 v$register, $value
-                                
-                                """.trimIndent()
-
-                                Opcode.CONST_4 -> """
-                                const/4 v$register, $value
-                                
-                                """.trimIndent()
-
-                                Opcode.CONST -> """
-                                const v$register, $value
-                                
-                                """.trimIndent()
-
-                                else -> ""
-                            }
-
-                        fixComponent += line
-                    }
+                    addInstructionsWithLabels(
+                        insertIndex + 1, fixComponent + """
+                            invoke-static {}, $PLAYER->hideFilmstripOverlay()Z
+                            move-result v${replaceInstruction.registerA}
+                            if-nez v${replaceInstruction.registerA}, :hidden
+                            iget-object v${replaceInstruction.registerA}, v${replaceInstruction.registerB}, $replaceReference
+                            """, ExternalLabel("hidden", getInstruction(jumpIndex))
+                    )
+                    removeInstruction(insertIndex)
                 } else {
-                    val fixRegister =
-                        getInstruction<FiveRegisterInstruction>(initialIndex).registerE
+                    val insertIndex = getIndex("bringChildToFront") + 1
+                    val insertRegister = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
 
-                    for (index in initialIndex downTo insertIndex) {
-                        if (getInstruction(index).opcode != Opcode.CONST_16) continue
+                    addComponentBelow1828(insertIndex, initialIndex)
 
-                        val register = getInstruction<OneRegisterInstruction>(index).registerA
-
-                        if (register != fixRegister) continue
-
-                        val fixValue =
-                            getInstruction<WideLiteralInstruction>(index).wideLiteral.toInt()
-                        fixComponent = "const/16 v$fixRegister, $fixValue"
-                        break
-                    }
+                    addInstructionsWithLabels(
+                        insertIndex, fixComponent + """
+                            invoke-static {}, $PLAYER->hideFilmstripOverlay()Z
+                            move-result v$insertRegister
+                            if-nez v$insertRegister, :hidden
+                            """, ExternalLabel("hidden", getInstruction(jumpIndex))
+                    )
                 }
-
-                addInstructionsWithLabels(
-                    insertIndex, fixComponent + """
-                        invoke-static {}, $PLAYER->hideFilmstripOverlay()Z
-                        move-result v$insertRegister
-                        if-nez v$insertRegister, :hidden
-                        """, ExternalLabel("hidden", getInstruction(jumpIndex))
-                )
             }
-        } ?: throw YouTubeControlsOverlayFingerprint.exception
+        } ?: throw FineScrubbingOverlayFingerprint.exception
 
         /**
          * Add settings
@@ -152,6 +121,66 @@ class HideFilmstripOverlayPatch : BytecodePatch(
 
     private companion object {
         var fixComponent: String = ""
+
+        fun MutableMethod.addComponentBelow1828(
+            startIndex: Int,
+            endIndex: Int
+        ) {
+            val fixRegister =
+                getInstruction<FiveRegisterInstruction>(endIndex).registerE
+
+            for (index in endIndex downTo startIndex) {
+                val opcode = getInstruction(index).opcode
+                if (opcode != Opcode.CONST_16)
+                    continue
+
+                val register = getInstruction<OneRegisterInstruction>(index).registerA
+
+                if (register != fixRegister)
+                    continue
+
+                val fixValue = getInstruction<WideLiteralInstruction>(index).wideLiteral.toInt()
+
+                fixComponent = "const/16 v$fixRegister, $fixValue"
+
+                break
+            }
+        }
+
+        fun MutableMethod.addComponentUpward1828(
+            startIndex: Int,
+            endIndex: Int
+        ) {
+            for (index in startIndex..endIndex) {
+                val opcode = getInstruction(index).opcode
+                if (opcode != Opcode.CONST_16 && opcode != Opcode.CONST_4 && opcode != Opcode.CONST)
+                    continue
+
+                val register = getInstruction<OneRegisterInstruction>(index).registerA
+                val value = getInstruction<WideLiteralInstruction>(index).wideLiteral.toInt()
+
+                val line =
+                    when (opcode) {
+                        Opcode.CONST_16 -> """
+                            const/16 v$register, $value
+                            
+                            """.trimIndent()
+
+                        Opcode.CONST_4 -> """
+                            const/4 v$register, $value
+                            
+                            """.trimIndent()
+
+                        Opcode.CONST -> """
+                            const v$register, $value
+                            
+                            """.trimIndent()
+                        else -> ""
+                    }
+
+                fixComponent += line
+            }
+        }
 
         fun MutableMethod.injectHook() {
             addInstructionsWithLabels(
