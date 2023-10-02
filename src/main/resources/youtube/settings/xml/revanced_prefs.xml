@@ -288,8 +288,8 @@
 
         <!-- SETTINGS: SPOOF_APP_VERSION
         <SwitchPreference android:title="@string/revanced_spoof_app_version_title" android:key="revanced_spoof_app_version" android:defaultValue="false" android:summary="@string/revanced_spoof_app_version_summary" />
-        <ListPreference android:title="@string/revanced_spoof_app_version_target_entry_title" android:key="revanced_spoof_app_version_target" android:entries="@array/revanced_spoof_app_version_target_entry" android:defaultValue="18.20.39" android:entryValues="@array/revanced_spoof_app_version_target_entry_value" />
-        <app.revanced.integrations.settingsmenu.ResettableEditTextPreference android:hint="18.20.39" android:title="@string/revanced_spoof_app_version_target_title" android:key="revanced_spoof_app_version_target" android:summary="@string/revanced_spoof_app_version_target_summary" android:inputType="text" android:dependency="revanced_spoof_app_version" />SETTINGS: SPOOF_APP_VERSION -->
+        <ListPreference android:title="@string/revanced_spoof_app_version_target_entry_title" android:key="revanced_spoof_app_version_target" android:entries="@array/revanced_spoof_app_version_target_entry" android:defaultValue="18.17.43" android:entryValues="@array/revanced_spoof_app_version_target_entry_value" />
+        <app.revanced.integrations.settingsmenu.ResettableEditTextPreference android:hint="18.17.43" android:title="@string/revanced_spoof_app_version_target_title" android:key="revanced_spoof_app_version_target" android:summary="@string/revanced_spoof_app_version_target_summary" android:inputType="text" android:dependency="revanced_spoof_app_version" />SETTINGS: SPOOF_APP_VERSION -->
 
         <!-- SETTINGS: SPOOF_PLAYER_PARAMETER
         <SwitchPreference android:title="@string/revanced_spoof_player_parameter_title" android:key="revanced_spoof_player_parameter" android:defaultValue="false" android:summary="@string/revanced_spoof_player_parameter_summary" />SETTINGS: SPOOF_PLAYER_PARAMETER -->
@@ -489,10 +489,10 @@
         <SwitchPreference android:title="@string/revanced_hide_collapse_button_title" android:key="revanced_hide_collapse_button" android:defaultValue="false" android:summaryOn="@string/revanced_hide_collapse_button_summary_on" android:summaryOff="@string/revanced_hide_collapse_button_summary_off" />SETTINGS: HIDE_COLLAPSE_BUTTON -->
 
         <!-- SETTINGS: HIDE_END_SCREEN_CARDS
-        <SwitchPreference android:title="@string/revanced_hide_end_screen_cards_title" android:key="revanced_hide_end_screen_cards" android:defaultValue="true" android:summaryOn="@string/revanced_hide_end_screen_cards_summary_on" android:summaryOff="@string/revanced_hide_end_screen_cards_summary_off" />SETTINGS: HIDE_END_SCREEN_CARDS -->
+        <SwitchPreference android:title="@string/revanced_hide_end_screen_cards_title" android:key="revanced_hide_end_screen_cards" android:defaultValue="false" android:summaryOn="@string/revanced_hide_end_screen_cards_summary_on" android:summaryOff="@string/revanced_hide_end_screen_cards_summary_off" />SETTINGS: HIDE_END_SCREEN_CARDS -->
 
         <!-- SETTINGS: HIDE_INFO_CARDS
-        <SwitchPreference android:title="@string/revanced_hide_info_cards_title" android:key="revanced_hide_info_cards" android:defaultValue="true" android:summaryOn="@string/revanced_hide_info_cards_summary_on" android:summaryOff="@string/revanced_hide_info_cards_summary_off" />SETTINGS: HIDE_INFO_CARDS -->
+        <SwitchPreference android:title="@string/revanced_hide_info_cards_title" android:key="revanced_hide_info_cards" android:defaultValue="false" android:summaryOn="@string/revanced_hide_info_cards_summary_on" android:summaryOff="@string/revanced_hide_info_cards_summary_off" />SETTINGS: HIDE_INFO_CARDS -->
 
         <!-- SETTINGS: HIDE_PLAYER_BUTTON_BACKGROUND
         <SwitchPreference android:title="@string/revanced_hide_player_button_background_title" android:key="revanced_hide_player_button_background" android:defaultValue="false" android:summaryOn="@string/revanced_hide_player_button_background_summary_on" android:summaryOff="@string/revanced_hide_player_button_background_summary_off" />SETTINGS: HIDE_PLAYER_BUTTON_BACKGROUND -->
