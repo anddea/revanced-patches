@@ -25,7 +25,7 @@
     <string name="revanced_append_time_stamp_information_summary_on">타임스탬프에서 정보를 표시합니다.</string>
     <string name="revanced_append_time_stamp_information_title">타임스탬프에서 정보 표시하기</string>
     <string name="revanced_append_time_stamp_information_type_summary_off">현재 동영상 재생 속도를 표시합니다.\n타임스탬프 정보를 길게 누르면 정보를 빠르게 전환할 수 있습니다.</string>
-    <string name="revanced_append_time_stamp_information_type_summary_on">현재 동영상 화질를 표시합니다.\n타임스탬프 정보를 길게 누르면 정보를 빠르게 전환할 수 있습니다.</string>
+    <string name="revanced_append_time_stamp_information_type_summary_on">현재 동영상 화질을 표시합니다.\n타임스탬프 정보를 길게 누르면 정보를 빠르게 전환할 수 있습니다.</string>
     <string name="revanced_append_time_stamp_information_type_title">타임스탬프에서 표시할 정보 설정</string>
     <string name="revanced_backup_summary">ReVanced Extended 설정을 지정된 파일로부터 가져오거나 파일로 내보냅니다.</string>
     <string name="revanced_bottom_player">플레이어 하단</string>
@@ -82,6 +82,8 @@
     <string name="revanced_disable_landscape_mode_summary_off">전체화면에서 세로모드를 비활성화합니다.</string>
     <string name="revanced_disable_landscape_mode_summary_on">전체화면에서 세로모드를 활성화합니다.</string>
     <string name="revanced_disable_landscape_mode_title">전체화면에서 세로모드 활성화하기</string>
+    <string name="revanced_disable_speed_overlay_summary">"길게 누른 상태에서 '2배속 재생'를 비활성화합니다."</string>
+    <string name="revanced_disable_speed_overlay_title">동영상 재생 속도 오버레이 비활성화하기</string>
     <string name="revanced_disable_quic_protocol_summary">"QUIC 프로토콜을 비활성화해서 동영상을 불러올 때 발생하는 동영상 압축과 푸는 과정을 제거하여 동영상 로딩 속도를 향상시킵니다. 모바일 데이터 사용량이 증가할 수 있으니 주의하세요."</string>
     <string name="revanced_disable_quic_protocol_title">QUIC 프로토콜 비활성화하기</string>
     <string name="revanced_disable_startup_shorts_player_summary_off">앱 시작 시 Shorts 플레이어를 활성화합니다.</string>
@@ -98,6 +100,9 @@
     <string name="revanced_enable_custom_seekbar_color_summary_off">사용자 정의 재생바 색상을 비활성화합니다.</string>
     <string name="revanced_enable_custom_seekbar_color_summary_on">사용자 정의 재생바 색상을 활성화합니다.</string>
     <string name="revanced_enable_custom_seekbar_color_title">사용자 정의 재생바 색상 활성화하기</string>
+    <string name="revanced_edit_speed_overlay_value_summary">"길게 누른 상태에서 변경되는 동영상 재생 속도를 편집합니다.
+동영상 재생 속도 오버레이는 일부 사용자만 사용할 수 있습니다."</string>
+    <string name="revanced_edit_speed_overlay_value_title">사용자 정의 동영상 재생 속도 오버레이 편집하기</string>
     <string name="revanced_enable_debug_logging_summary_off">디버그 로그를 출력하지 않습니다.</string>
     <string name="revanced_enable_debug_logging_summary_on">디버그 로그를 출력합니다.</string>
     <string name="revanced_enable_debug_logging_title">디버그 로깅 활성화하기</string>
@@ -171,7 +176,7 @@
     <string name="revanced_external_downloader_not_installed_warning" formatted="false">%s가 설치되지 않았습니다. 설치해 주세요.</string>
     <string name="revanced_external_downloader_package_name_summary">NewPipe 또는 YTDLnis와 같은 설치된 외부 다운로더 패키지명을 입력하세요.</string>
     <string name="revanced_external_downloader_package_name_title">외부 다운로더 패키지명</string>
-    <string name="revanced_external_downloader_settings_summary">외부 다운로더를 설정합니다.</string>
+    <string name="revanced_external_downloader_settings_summary">외부 다운로더 설정을 할 수 있습니다.</string>
     <string name="revanced_external_downloader_settings_title">외부 다운로더 설정</string>
     <string name="revanced_feed_flyout_panel_title">피드 구성요소 패널</string>
     <string name="revanced_flyout_menu">메뉴 구성요소</string>
@@ -208,6 +213,9 @@
     <string name="revanced_hide_button_download_summary_off">오프라인 저장 버튼이 노출됩니다.</string>
     <string name="revanced_hide_button_download_summary_on">오프라인 저장 버튼이 숨겨집니다.</string>
     <string name="revanced_hide_button_download_title">오프라인 저장 버튼 숨기기</string>
+    <string name="revanced_hide_button_like_dislike_summary_off">좋아요 &amp; 싫어요 버튼이 노출됩니다.</string>
+    <string name="revanced_hide_button_like_dislike_summary_on">좋아요 &amp; 싫어요 버튼이 숨겨집니다.</string>
+    <string name="revanced_hide_button_like_dislike_title">좋아요 &amp; 싫어요 버튼 숨기기</string>
     <string name="revanced_hide_button_like_summary_off">좋아요 버튼이 노출됩니다.</string>
     <string name="revanced_hide_button_like_summary_on">좋아요 버튼이 숨겨집니다.</string>
     <string name="revanced_hide_button_like_title">좋아요 버튼 숨기기</string>
@@ -381,7 +389,7 @@
     <string name="revanced_hide_navigation_label_title">하단바 버튼 라벨 숨기기</string>
     <string name="revanced_hide_notify_me_button_summary_off">게시 예정 동영상 썸네일 하단에서 알림 받기 버튼이 노출됩니다.</string>
     <string name="revanced_hide_notify_me_button_summary_on">게시 예정 동영상 썸네일 하단에서 알림 받기 버튼이 숨겨집니다.</string>
-    <string name="revanced_hide_notify_me_button_title">알림 받기 버튼 숨기기</string>
+    <string name="revanced_hide_notify_me_button_title">피드에서 알림 받기 버튼 숨기기</string>
     <string name="revanced_hide_official_header_summary_off">검색 결과에서 공식 헤더가 노출됩니다.</string>
     <string name="revanced_hide_official_header_summary_on">검색 결과에서 공식 헤더가 숨겨집니다.</string>
     <string name="revanced_hide_official_header_title">공식 헤더 숨기기</string>
@@ -495,15 +503,12 @@
     <string name="revanced_hide_shorts_player_toolbar_summary_off">오른쪽 상단에서 도구 모음이 노출됩니다.</string>
     <string name="revanced_hide_shorts_player_toolbar_summary_on">오른쪽 상단에서 도구 모음이 숨겨집니다</string>
     <string name="revanced_hide_shorts_player_toolbar_title">도구 모음 숨기기</string>
-    <string name="revanced_hide_shorts_shelf_summary_off">Shorts 선반이 노출됩니다.</string>
-    <string name="revanced_hide_shorts_shelf_summary_on">Shorts 선반이 숨겨집니다.</string>
+    <string name="revanced_hide_shorts_shelf_summary_off">Shorts 선반이 노출됩니다.\n이 동영상을 리믹스한 Shorts 동영상 섹션 포함.</string>
+    <string name="revanced_hide_shorts_shelf_summary_on">Shorts 선반이 숨겨집니다.\n이 동영상을 리믹스한 Shorts 동영상 섹션 포함.</string>
     <string name="revanced_hide_shorts_shelf_title">Shorts 선반 숨기기</string>
     <string name="revanced_hide_snack_bar_summary_off">하단 팝업이 노출됩니다.</string>
     <string name="revanced_hide_snack_bar_summary_on">하단 팝업이 숨겨집니다.</string>
     <string name="revanced_hide_snack_bar_title">하단 팝업 숨기기</string>
-    <string name="revanced_hide_speed_overlay_summary_off">속도 오버레이가 노출됩니다.</string>
-    <string name="revanced_hide_speed_overlay_summary_on">속도 오버레이가 숨겨집니다.</string>
-    <string name="revanced_hide_speed_overlay_title">속도 오버레이 숨기기</string>
     <string name="revanced_hide_subscriptions_button_summary_off">구독 버튼이 노출됩니다.</string>
     <string name="revanced_hide_subscriptions_button_summary_on">구독 버튼이 숨겨집니다.</string>
     <string name="revanced_hide_subscriptions_button_title">구독 버튼 숨기기</string>
@@ -514,11 +519,12 @@
 알려진 문제점: 자동 재생이 작동하지 않습니다."</string>
     <string name="revanced_hide_suggested_video_overlay_title">동영상 추천 오버레이 숨기기</string>
     <string name="revanced_hide_suggestions_shelf_summary">"다음 선반들이 숨겨집니다.
-- 주요 뉴스
-- 채널 더보기
 - 다시 듣기
 - 다시 시청하기
 - 이어서 시청하기
+- 채널 더보기
+- 이 게임 더보기
+- 주요 뉴스
 - 라이브 쇼핑
 - 보건 정보 출처"</string>
     <string name="revanced_hide_suggestions_shelf_title">추천 선반 숨기기</string>
@@ -627,14 +633,15 @@ YouTube 18.24.37 버전 이상에서만 변경 가능합니다."</string>
     <string name="revanced_shorts_player_title">Shorts 플레이어</string>
     <string name="revanced_show_fullscreen_title_summary">알려진 문제점: 제목을 누르면 사라집니다.</string>
     <string name="revanced_show_fullscreen_title_title">전체화면 제목 표시하기</string>
+    <string name="revanced_speed_overlay_text" formatted="false">%s배속으로 재생 중입니다.</string>
     <string name="revanced_spoof_app_version_summary">"서버에 연결할때 사용되는 앱 버전을 지정하여 앱 레이아웃을 변경합니다.
 
 알려지지 않은 다른 문제가 있을 수 있으며, 이를 다시 비활성화하더라도 앱 데이터를 지우기 전까지 이전 레이아웃이 유지될 수 있습니다."</string>
-    <string name="revanced_spoof_app_version_target_entry_0">18.20.39 - 이전 플레이어 구성요소 패널을 복원합니다.</string>
-    <string name="revanced_spoof_app_version_target_entry_1">18.09.39 - 이전 보관함 탭을 복원합니다.</string>
-    <string name="revanced_spoof_app_version_target_entry_2">17.41.37 - 보관함 탭에서 이전 재생목록 선반을 복원합니다.</string>
-    <string name="revanced_spoof_app_version_target_entry_3">17.08.35 - 이전 레이아웃으로 복원합니다.</string>
-    <string name="revanced_spoof_app_version_target_entry_4">16.08.35 - 탐색 탭을 복원합니다.</string>
+    <string name="revanced_spoof_app_version_target_entry_16_08_35">16.08.35 - 탐색 탭을 복원합니다.</string>
+    <string name="revanced_spoof_app_version_target_entry_17_08_35">17.08.35 - 이전 UI 레이아웃을 복원합니다.</string>
+    <string name="revanced_spoof_app_version_target_entry_17_41_37">17.41.37 - 이전 재생목록 선반을 복원합니다.</string>
+    <string name="revanced_spoof_app_version_target_entry_18_05_40">18.05.40 - 이전 댓글 입력 상자를 복원합니다.</string>
+    <string name="revanced_spoof_app_version_target_entry_18_17_43">18.17.43 - 이전 플레이어 구성요소 패널을 복원합니다.</string>
     <string name="revanced_spoof_app_version_target_entry_title">변경할 앱 버전 설정</string>
     <string name="revanced_spoof_app_version_target_summary">변경할 앱 버전을 입력하세요.</string>
     <string name="revanced_spoof_app_version_target_title">변경할 앱 버전 편집하기</string>
@@ -642,9 +649,10 @@ YouTube 18.24.37 버전 이상에서만 변경 가능합니다."</string>
     <string name="revanced_spoof_player_parameter_summary">"플레이어 매개변수를 변경하여 재생 문제를 방지합니다.
 
 알려진 문제
-- 향상된 비트 전송률을 사용할 수 없습니다.
-- 유료 동영상에 대한 재생바 미리보기 썸네일이 없습니다.
-- 오프라인 저장이 작동하지 않을 수 있습니다."</string>
+• 향상된 비트 전송률을 사용할 수 없습니다.
+• 유료 동영상에서 재생바 미리보기 썸네일을 표시할 수 없습니다.
+• 오프라인 저장이 작동하지 않을 수 있습니다.
+• 동영상이 마지막으로 시청한 시간부터 시작되지 않을 수 있습니다."</string>
     <string name="revanced_spoof_player_parameter_title">플레이어 매개변수 변경하기</string>
     <string name="revanced_swipe_controls">스와이프 제스처</string>
     <string name="revanced_swipe_magnitude_threshold_summary">제스처 인식을 위해 얼마나 스와이프를 해야 할지를 설정할 수 있으며, 원하지 않은 제스처 인식을 방지합니다.</string>
@@ -708,7 +716,7 @@ YouTube 18.24.37 버전 이상에서만 변경 가능합니다."</string>
     <string name="sb_api_url_invalid">잘못된 주소입니다.</string>
     <string name="sb_api_url_changed">SponsorBlock 서버 주소가 변경되었습니다.</string>
     <string name="sb_settings_copy">복사하기</string>
-    <string name="sb_settings_ie_sum">다른 SponsorBlock 플랫폼으로 내보내거나 불러올 수 있는 JSON의 전체 구성 파일입니다. 비공개 사용자ID를 포함하고 있으므로 주의하세요.</string>
+    <string name="sb_settings_ie_sum">ReVanced Extended 또는 다른 SponsorBlock 플랫폼으로 내보내거나 불러올 수 있는 SponsorBlock JSON의 전체 구성 파일입니다. 비공개 사용자ID를 포함하고 있으므로 주의하세요.</string>
     <string name="sb_settings_import_successful">설정을 성공적으로 가져왔습니다.</string>
     <string name="sb_settings_import_failed">가져오기에 실패했습니다: %s</string>
     <string name="sb_settings_export_failed">내보내기에 실패했습니다: %s</string>

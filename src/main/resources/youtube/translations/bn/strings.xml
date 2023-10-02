@@ -8,6 +8,18 @@
     <string name="microg_settings_summary">বিজ্ঞপ্তি পাওয়ার জন্য ক্লাউড ম্যাসেজিং সেটিং সক্রিয় করুন</string>
     <string name="microg_settings_title">MicroG খুলুন</string>
     <string name="revanced_ads">বিজ্ঞাপন</string>
+    <string name="revanced_alt_thumbnails">বিকল্প থাম্বনেইল</string>
+    <string name="revanced_alt_thumbnail_about_summary">বিকল্প থাম্বনেইল হলো প্রতিটি ভিডিওর শুরু/মধ্য/শেষাংশের স্থিরচিত্র। কোন বাহ্যিক API ব্যবহার করা হয়নি, এই চিত্রগুলো সরাসরি YouTube এর পূর্ব নির্ধারিত</string>
+    <string name="revanced_alt_thumbnail_about_title">সম্পর্কে</string>
+    <string name="revanced_alt_thumbnail_enabled_summary_off">মূল YouTube থাম্বনেইল প্রদর্শিত হচ্ছে</string>
+    <string name="revanced_alt_thumbnail_enabled_summary_on">YouTube এর থাম্বনেইল ভিন্ন থাম্বনেইল দ্বারা প্রতিস্থাপন করা হবে</string>
+    <string name="revanced_alt_thumbnail_enabled_title">বিকল্প থাম্বনেইল সক্রিয় করুন</string>
+    <string name="revanced_alt_thumbnail_fast_quality_summary_off">উচ্চ মানের স্থিরচিত্র ব্যবহার করা হবে তবে একটু দেরি হতে পারে</string>
+    <string name="revanced_alt_thumbnail_fast_quality_summary_on">মাঝামাঝি মানের স্থিরচিত্র ব্যবহার করা হচ্ছে। থাম্বনেইল তাড়াতাড়ি লোড হবে, কিন্তু লাইভ স্ট্রম, অপ্রকাশিত বা অনেক পুরোনো ভিডিওর ক্ষেত্রে ফাঁকা থাম্বনেইল দেখাতে পারে।</string>
+    <string name="revanced_alt_thumbnail_fast_quality_title">দ্রুততম বিকল্প থাম্বনেইল ব্যবহার করুন</string>
+    <string name="revanced_alt_thumbnail_type_entry_1">ভিডিওর শুরুর অংশ</string>
+    <string name="revanced_alt_thumbnail_type_entry_2">ভিডিওর মধ্যাংশ</string>
+    <string name="revanced_alt_thumbnail_type_entry_3">ভিডিওর শেষাংশ</string>
     <string name="revanced_backup_summary">ফাইল থেকে ReVanced সেটিং আমদানী করুন অথবা ReVanced সেটিংস ফাইলে রপ্তানি করুন</string>
     <string name="revanced_bottom_player">প্লেয়ারের এর নিচে</string>
     <string name="revanced_button_container_title">বাটন কনটেইনার</string>
@@ -461,9 +473,6 @@
     <string name="revanced_hide_snack_bar_summary_off">স্ন্যাকবার প্রদর্শিত হয়েছে</string>
     <string name="revanced_hide_snack_bar_summary_on">স্ন্যাকবার লুকিয়ে রয়েছে</string>
     <string name="revanced_hide_snack_bar_title">স্ন্যাকবার লুকান</string>
-    <string name="revanced_hide_speed_overlay_summary_off">স্পিড ওভারলে প্রদর্শিত হয়েছে</string>
-    <string name="revanced_hide_speed_overlay_summary_on">স্পিড ওভারলে লুকিয়ে রয়েছে</string>
-    <string name="revanced_hide_speed_overlay_title">স্পিড ওভারলে লুকান</string>
     <string name="revanced_hide_subscriptions_button_summary_off">সাবস্ক্রিপশন বাটন প্রদর্শিত হয়েছে</string>
     <string name="revanced_hide_subscriptions_button_summary_on">সাবস্ক্রিপশন বাটন লুকিয়ে রয়েছে</string>
     <string name="revanced_hide_subscriptions_button_title">সাবস্ক্রিপশন বাটন লুকান</string>
@@ -588,11 +597,6 @@
 
 এটি অ্যাপের চেহারাটি পরিবর্তন করবে, কিন্তু অজানা পার্শ্বপ্রতিক্রিয়া দেখা দিতে পারে
 পরবর্তীতে এটি বন্ধ করা হলে, অ্যাপ ডেটা সাফ করা না করা পর্যন্ত পুরানো ইউআই থাকতে পারে"</string>
-    <string name="revanced_spoof_app_version_target_entry_0">১৮.২০.৩৯ - পুরাতন-স্টাইলের প্লেয়ার ফ্লাইআউট প্যানেল পুনরুদ্ধার করে</string>
-    <string name="revanced_spoof_app_version_target_entry_1">১৮.০৯.৩৯ - পুরোনো স্টাইলের লাইব্রেরি ট্যাব পুনরুদ্ধার করে</string>
-    <string name="revanced_spoof_app_version_target_entry_2">১৭.৪১.৩৭ - লাইব্রেরি ট্যাবে পুরোনো স্টাইলের প্লেলিস্ট শেলফ পুনরুদ্ধার করে</string>
-    <string name="revanced_spoof_app_version_target_entry_3">১৭.০৮.৩৫ পুরোনো ইউআই লেআউট পুনরুদ্ধার করে</string>
-    <string name="revanced_spoof_app_version_target_entry_4">১৬.০৮.৩৫ - ঘুরে দেখুন ট্যাব পুনরুদ্ধার করে</string>
     <string name="revanced_spoof_app_version_target_entry_title">স্পুফ অ্যাপ সংস্করণ টার্গেট</string>
     <string name="revanced_spoof_app_version_target_summary">আপনার নিজস্ব অ্যাপ স্পুফ সংস্করণ লিখুন</string>
     <string name="revanced_spoof_app_version_target_title">অ্যাপ সংস্করণ স্ফুপ সম্পাদনা করুন</string>

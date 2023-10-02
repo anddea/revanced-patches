@@ -27,7 +27,7 @@
     <string name="revanced_append_time_stamp_information_type_summary_off">إضافة سرعة التشغيل</string>
     <string name="revanced_append_time_stamp_information_type_summary_on">إضافة جودة الفيديو</string>
     <string name="revanced_append_time_stamp_information_type_title">إضافة نوع المعلومات</string>
-    <string name="revanced_backup_summary">استيراد إعدادات ReVanced من مِلَفّ، أو تصديرها إلى مِلَفّ</string>
+    <string name="revanced_backup_summary">استيراد إعدادات ReVanced Extended من مِلَفّ، أو تصدير إعدادات ReVanced Extended إلى مِلَفّ</string>
     <string name="revanced_bottom_player">المشغل السفلي</string>
     <string name="revanced_button_container_title">زر الحاوية</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">تم تعطيل الإضاءة السينمائية في وضع توفير شحن البطارية</string>
@@ -82,6 +82,8 @@
     <string name="revanced_disable_landscape_mode_summary_off">تم تمكين الوضع الأفقي عند الدخول إلى ملء الشاشة</string>
     <string name="revanced_disable_landscape_mode_summary_on">تم تعطيل الوضع الأفقي عند الدخول إلى ملء الشاشة</string>
     <string name="revanced_disable_landscape_mode_title">تعطيل الوضع الأفقي</string>
+    <string name="revanced_disable_speed_overlay_summary">"تعطيل \"التشغيل بسرعة 2x\" أثناء الضغط باستمرار"</string>
+    <string name="revanced_disable_speed_overlay_title">تعطيل تراكب السرعة</string>
     <string name="revanced_disable_quic_protocol_summary">"تعطيل بروتوكول QUIC الخاص بـ CronetEngine"</string>
     <string name="revanced_disable_quic_protocol_title">تعطيل بروتوكول QUIC</string>
     <string name="revanced_disable_startup_shorts_player_summary_off">تم تمكين مشغل Shorts عند بَدْء تشغيل التطبيق</string>
@@ -98,6 +100,8 @@
     <string name="revanced_enable_custom_seekbar_color_summary_off">تم تعطيل لون شريط تقدم الفيديو المخصص</string>
     <string name="revanced_enable_custom_seekbar_color_summary_on">تم تمكين لون شريط تقدم الفيديو المخصص</string>
     <string name="revanced_enable_custom_seekbar_color_title">تمكين لون شريط تقدم الفيديو المخصص</string>
+    <string name="revanced_edit_speed_overlay_value_summary">"تعديل السرعة التي تتغير أثناء الضغط باستمرار متاح فقط لبعض المستخدمين الذين يمكنهم استخدام تراكب السرعة"</string>
+    <string name="revanced_edit_speed_overlay_value_title">تعديل تراكب السرعة المخصصة</string>
     <string name="revanced_enable_debug_logging_summary_off">تم تعطيل Debug Logs</string>
     <string name="revanced_enable_debug_logging_summary_on">تم تمكين Debug Logs</string>
     <string name="revanced_enable_debug_logging_title">تمكين سجلات التصحيح</string>
@@ -164,7 +168,7 @@
     <string name="revanced_enable_wide_search_bar_summary_on">تم تمكين شريط البحث العريض</string>
     <string name="revanced_enable_wide_search_bar_title">تمكين شريط البحث العريض</string>
     <string name="revanced_experimental_flag">تعديلات تجريبية</string>
-    <string name="revanced_export_settings_summary">حفظ إعدادات ReVanced الخاصة بك في مِلَفّ</string>
+    <string name="revanced_export_settings_summary">حفظ إعدادات ReVanced Extended الخاصة بك في مِلَفّ</string>
     <string name="revanced_export_settings_title">تصدير الإعدادات</string>
     <string name="revanced_external_downloader_installed">مُثبَّت</string>
     <string name="revanced_external_downloader_not_installed">غير مثبّت</string>
@@ -208,6 +212,9 @@
     <string name="revanced_hide_button_download_summary_off">يتم عرض زر التنزيل</string>
     <string name="revanced_hide_button_download_summary_on">تم إخفاء زر التنزيل</string>
     <string name="revanced_hide_button_download_title">إخفاء زر التنزيل</string>
+    <string name="revanced_hide_button_like_dislike_summary_off">يتم عرض أزرار أعجبني ولم يعجبني</string>
+    <string name="revanced_hide_button_like_dislike_summary_on">تم إخفاء أزرار أعجبني ولم يعجبني</string>
+    <string name="revanced_hide_button_like_dislike_title">إخفاء أزرار أعجبني ولم يعجبني</string>
     <string name="revanced_hide_button_like_summary_off">يتم عرض زر \"أعجبني\"</string>
     <string name="revanced_hide_button_like_summary_on">تم إخفاء زر \"أعجبني\"</string>
     <string name="revanced_hide_button_like_title">إخفاء زر أعجبني</string>
@@ -381,7 +388,7 @@
     <string name="revanced_hide_navigation_label_title">إخفاء تسمية شريط التنقل</string>
     <string name="revanced_hide_notify_me_button_summary_off">يتم عرض زر تنبيهي</string>
     <string name="revanced_hide_notify_me_button_summary_on">تم إخفاء زر تنبيهي</string>
-    <string name="revanced_hide_notify_me_button_title">إخفاء زر تنبيهي في الموجز</string>
+    <string name="revanced_hide_notify_me_button_title">إخفاء زر تنبيهي</string>
     <string name="revanced_hide_official_header_summary_off">يتم عرض العنوان الرسمي</string>
     <string name="revanced_hide_official_header_summary_on">تم إخفاء العنوان الرسمي</string>
     <string name="revanced_hide_official_header_title">إخفاء العنوان الرسمي</string>
@@ -501,9 +508,6 @@
     <string name="revanced_hide_snack_bar_summary_off">يتم عرض شريط Snack Bar</string>
     <string name="revanced_hide_snack_bar_summary_on">تم إخفاء شريط Snack Bar</string>
     <string name="revanced_hide_snack_bar_title">إخفاء شريط Snack Bar</string>
-    <string name="revanced_hide_speed_overlay_summary_off">يتم عرض واجهة السرعة</string>
-    <string name="revanced_hide_speed_overlay_summary_on">تم إخفاء واجهة السرعة</string>
-    <string name="revanced_hide_speed_overlay_title">إخفاء تراكب السرعة</string>
     <string name="revanced_hide_subscriptions_button_summary_off">يتم عرض زر الاشتراكات</string>
     <string name="revanced_hide_subscriptions_button_summary_on">تم إخفاء زر الاشتراكات</string>
     <string name="revanced_hide_subscriptions_button_title">إخفاء زر الاشتراكات</string>
@@ -550,7 +554,7 @@
     <string name="revanced_hook_download_button_summary">"استبدال زر التنزيل بزر التنزيل الخارجي
 متاح فقط على إصدار YouTube v18.24.37+"</string>
     <string name="revanced_hook_download_button_title">زر خطاف التنزيل</string>
-    <string name="revanced_import_settings_summary">جلب إعدادات ReVanced من المِلَفّ المحفوظ</string>
+    <string name="revanced_import_settings_summary">جلب إعدادات ReVanced Extended من المِلَفّ المحفوظ</string>
     <string name="revanced_import_settings_title">استيراد الإعدادات</string>
     <string name="revanced_layout_title">التصميم</string>
     <string name="revanced_misc">إعدادات إضافية</string>
@@ -621,25 +625,27 @@
     <string name="revanced_shorts_player_title">مُشَغِل Shorts</string>
     <string name="revanced_show_fullscreen_title_summary">المشكلة المعروفة: يختفي العنوان عند النقر عليه</string>
     <string name="revanced_show_fullscreen_title_title">عرض العنوان بملء الشاشة</string>
+    <string name="revanced_speed_overlay_text" formatted="false">يتم التشغيل بسرعة %sx</string>
     <string name="revanced_spoof_app_version_summary">"خداع نسخة التطبيق الحالية إلى النسخة القديمة
 
 سيؤدي هذا إلى تغيير مظهر التطبيق، ولكن قد تحدث آثار جانبية غير معروفة
 إذا تم إيقاف تشغيلها لاحقًا، فقد تظل واجهة المستخدم القديمة قائمة حتى يتم مسح بيانات التطبيق"</string>
-    <string name="revanced_spoof_app_version_target_entry_0">18.20.39 - استعادة لوحة المشغل المنبثقة القديمة</string>
-    <string name="revanced_spoof_app_version_target_entry_1">18.09.39 - استعادة نمط تبويب المكتبة القديم</string>
-    <string name="revanced_spoof_app_version_target_entry_2">17.41.37 - استعادة النمط القديم لرف قائمة التشغيل في علامة تبويب المكتبة</string>
-    <string name="revanced_spoof_app_version_target_entry_3">17.08.35 - استعادة تصميم واجهة المستخدم القديم</string>
-    <string name="revanced_spoof_app_version_target_entry_4">16.08.35 - استعادة تبويب استكشاف</string>
+    <string name="revanced_spoof_app_version_target_entry_16_08_35">16.08.35 - استعادة تبويب استكشاف</string>
+    <string name="revanced_spoof_app_version_target_entry_17_08_35">17.08.35 - استعادة تصميم واجهة المستخدم القديم</string>
+    <string name="revanced_spoof_app_version_target_entry_17_41_37">17.41.37 - استعادة رف قائمة التشغيل القديم</string>
+    <string name="revanced_spoof_app_version_target_entry_18_05_40">18.05.40 - استعادة مربع إدخال التعليقات القديم</string>
+    <string name="revanced_spoof_app_version_target_entry_18_17_43">18.17.43 - استعادة لوحة المشغل المنبثقة القديمة</string>
     <string name="revanced_spoof_app_version_target_entry_title">الهدف من خِداع إصدار التطبيق</string>
     <string name="revanced_spoof_app_version_target_summary">اكتب هدف إصدار التطبيق المخادع</string>
     <string name="revanced_spoof_app_version_target_title">تعديل خِداع إصدار التطبيق</string>
     <string name="revanced_spoof_app_version_title">خِداع إصدار التطبيق</string>
-    <string name="revanced_spoof_player_parameter_summary">"Spoofs Player Parameters لمنع مشاكل التشغيل
+    <string name="revanced_spoof_player_parameter_summary">"لمنع مشاكل التشغيل Spoofs Player Parameters
 
 مشاكل معروفة
 • معدل البث المحسن غير متوفر
 • لا توجد مُصَّغَرات في شريط التقدم للمقاطع المدفوعة.
-• قد لا تعمل التنزيلات دون اتصال بالإنترنت"</string>
+• قد لا تعمل التنزيلات دون اتصال بالإنترنت
+• قد لا يبدأ الفيديو من وقت المشاهدة الأخير"</string>
     <string name="revanced_spoof_player_parameter_title">Spoof Player Parameter</string>
     <string name="revanced_swipe_controls">التحكم عن طريق السحب</string>
     <string name="revanced_swipe_magnitude_threshold_summary">مقدار الحد الأدنى للتمرير قبل اكتشاف السحب 
@@ -711,7 +717,7 @@
     <string name="sb_api_url_invalid">رابط API غير صالح</string>
     <string name="sb_api_url_changed">تم تغيير رابط API</string>
     <string name="sb_settings_copy">نَسخ</string>
-    <string name="sb_settings_ie_sum">تكوين SponsorBlock الخاص بك كتنسيق JSON الذي يمكن استيراده / تصديره إلى ReVanced وغيره من منصات SponsorBlock الأخرى. يتضمن هذا معرف المستخدم الفريد الخاص بك. تأكد من مشاركته بحكمة</string>
+    <string name="sb_settings_ie_sum">تكوين SponsorBlock الخاص بك كتنسيق JSON الذي يمكن استيراده / تصديره إلى ReVanced Extended وغيره من منصات SponsorBlock الأخرى. يتضمن هذا معرف المستخدم الفريد الخاص بك. تأكد من مشاركته بحكمة</string>
     <string name="sb_settings_import_successful">تم استيراد الإعدادات بنجاح</string>
     <string name="sb_settings_import_failed">فشل استيراد: %s</string>
     <string name="sb_settings_export_failed">فشل تصدير: %s</string>
