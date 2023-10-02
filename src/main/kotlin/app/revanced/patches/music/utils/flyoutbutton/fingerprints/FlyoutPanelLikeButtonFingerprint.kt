@@ -1,4 +1,4 @@
-package app.revanced.patches.music.flyoutpanel.playbackspeed.fingerprints
+package app.revanced.patches.music.utils.flyoutbutton.fingerprints
 
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
