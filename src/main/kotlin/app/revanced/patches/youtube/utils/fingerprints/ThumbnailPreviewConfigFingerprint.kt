@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.seekbar.thumbnailpreview.fingerprints
+package app.revanced.patches.youtube.utils.fingerprints
 
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.util.bytecode.isWide32LiteralExists

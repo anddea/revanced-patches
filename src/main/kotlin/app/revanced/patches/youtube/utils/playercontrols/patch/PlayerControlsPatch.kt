@@ -10,6 +10,7 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
+import app.revanced.patches.youtube.utils.fingerprints.ThumbnailPreviewConfigFingerprint
 import app.revanced.patches.youtube.utils.fingerprints.YouTubeControlsOverlayFingerprint
 import app.revanced.patches.youtube.utils.playercontrols.fingerprints.BottomControlsInflateFingerprint
 import app.revanced.patches.youtube.utils.playercontrols.fingerprints.ControlsLayoutInflateFingerprint
@@ -36,6 +37,7 @@ class PlayerControlsPatch : BytecodePatch(
         ControlsLayoutInflateFingerprint,
         FullscreenEngagementSpeedEduVisibleParentFingerprint,
         PlayerControlsVisibilityModelFingerprint,
+        ThumbnailPreviewConfigFingerprint,
         YouTubeControlsOverlayFingerprint
     )
 ) {
@@ -124,12 +126,23 @@ class PlayerControlsPatch : BytecodePatch(
                     ?: throw FullscreenEngagementSpeedEduVisibleFingerprint.exception
         } ?: throw FullscreenEngagementSpeedEduVisibleParentFingerprint.exception
 
+        ThumbnailPreviewConfigFingerprint.result?.let {
+            it.mutableMethod.apply {
+                bigBoardsVisibilityMutableMethod = this
+
+                addInstruction(
+                    0,
+                    "const/4 v0, 0x1"
+                )
+            }
+        } ?: throw ThumbnailPreviewConfigFingerprint.exception
     }
 
     internal companion object {
         lateinit var controlsLayoutInflateResult: MethodFingerprintResult
         lateinit var inflateResult: MethodFingerprintResult
 
+        lateinit var bigBoardsVisibilityMutableMethod: MutableMethod
         lateinit var playerControlsVisibilityMutableMethod: MutableMethod
         lateinit var quickSeekVisibleMutableMethod: MutableMethod
         lateinit var seekEDUVisibleMutableMethod: MutableMethod
@@ -138,6 +151,15 @@ class PlayerControlsPatch : BytecodePatch(
         lateinit var fullscreenEngagementSpeedEduVisibleMutableMethod: MutableMethod
         lateinit var fullscreenEngagementViewVisibleReference: Reference
         lateinit var speedEDUVisibleReference: Reference
+
+        private fun injectBigBoardsVisibilityCall(descriptor: String) {
+            bigBoardsVisibilityMutableMethod.apply {
+                addInstruction(
+                    1,
+                    "invoke-static {v0}, $descriptor->changeVisibilityNegatedImmediate(Z)V"
+                )
+            }
+        }
 
         private fun injectFullscreenEngagementSpeedEduViewVisibilityCall(
             reference: Reference,
@@ -200,6 +222,8 @@ class PlayerControlsPatch : BytecodePatch(
                 descriptor,
                 "changeVisibilityNegatedImmediate"
             )
+
+            injectBigBoardsVisibilityCall(descriptor)
 
             injectFullscreenEngagementSpeedEduViewVisibilityCall(
                 fullscreenEngagementViewVisibleReference,
