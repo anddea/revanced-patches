@@ -26,7 +26,7 @@ import java.util.concurrent.TimeUnit
 
 @Patch
 @Name("Settings")
-@Description("Applies mandatory patches to implement ReVanced settings into the application.")
+@Description("Applies mandatory patches to implement ReVanced Extended Settings into the application.")
 @DependsOn(
     [
         IntegrationsPatch::class,
@@ -103,12 +103,12 @@ class SettingsPatch : AbstractSettingsResourcePatch(
         }
 
         /**
-         * initialize ReVanced Settings
+         * initialize ReVanced Extended Settings
          */
         addReVancedPreference("extended_settings")
 
         /**
-         * remove revanced settings divider
+         * remove ReVanced Extended Settings divider
          */
         arrayOf("Theme.YouTube.Settings", "Theme.YouTube.Settings.Dark").forEach { themeName ->
             context.xmlEditor["res/values/styles.xml"].use { editor ->

@@ -24,7 +24,7 @@ abstract class AbstractSettingsResourcePatch(
         context.copyXmlNode(sourceHostDirectory, "values/strings.xml", "resources")
 
         /**
-         * Initialize ReVanced Settings
+         * Initialize ReVanced Extended Settings
          */
         if (isYouTube)
             context.copyResources(

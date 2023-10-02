@@ -21,7 +21,7 @@ import app.revanced.util.resources.ResourceHelper.setMicroG
 
 @Patch
 @Name("MicroG support")
-@Description("Allows ReVanced to run without root and under a different package name with MicroG.")
+@Description("Allows ReVanced Extended to run without root and under a different package name with MicroG.")
 @DependsOn(
     [
         PackageNamePatch::class,
