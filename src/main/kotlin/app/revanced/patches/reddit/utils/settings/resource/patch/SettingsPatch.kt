@@ -14,7 +14,7 @@ import kotlin.io.path.exists
 
 @Patch
 @Name("Reddit settings")
-@Description("Adds ReVanced settings to Reddit.")
+@Description("Adds ReVanced Extended Settings to Reddit.")
 @DependsOn(
     [
         IntegrationsPatch::class,
