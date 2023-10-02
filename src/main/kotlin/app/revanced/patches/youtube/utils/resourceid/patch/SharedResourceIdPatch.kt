@@ -73,6 +73,7 @@ class SharedResourceIdPatch : ResourcePatch {
         var ScrimOverlay: Long = -1
         var Scrubbing: Long = -1
         var SettingsBooleanTimeRangeDialog: Long = -1
+        var SpeedOverlayText: Long = -1
         var SubtitleMenuSettingsFooterInfo: Long = -1
         var SuggestedAction: Long = -1
         var ToolBarPaddingHome: Long = -1
@@ -154,6 +155,7 @@ class SharedResourceIdPatch : ResourcePatch {
         ScrimOverlay = find(ID, "scrim_overlay")
         Scrubbing = find(DIMEN, "vertical_touch_offset_to_enter_fine_scrubbing")
         SettingsBooleanTimeRangeDialog = find(LAYOUT, "setting_boolean_time_range_dialog")
+        SpeedOverlayText = find(ID, "speedmaster_edu_text")
         SubtitleMenuSettingsFooterInfo = find(STRING, "subtitle_menu_settings_footer_info")
         SuggestedAction = find(LAYOUT, "suggested_action")
         ToolBarPaddingHome = find(DIMEN, "toolbar_padding_home_action_up")

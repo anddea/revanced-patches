@@ -81,6 +81,8 @@
     <string name="revanced_disable_landscape_mode_summary_off">Landscape mode when entering fullscreen is enabled</string>
     <string name="revanced_disable_landscape_mode_summary_on">Landscape mode when entering fullscreen is disabled</string>
     <string name="revanced_disable_landscape_mode_title">Disable landscape mode</string>
+    <string name="revanced_disable_speed_overlay_summary">"Disable 'Playing at 2x speed' while holding down"</string>
+    <string name="revanced_disable_speed_overlay_title">Disable speed overlay</string>
     <string name="revanced_disable_quic_protocol_summary">"Disable CronetEngine's QUIC protocol"</string>
     <string name="revanced_disable_quic_protocol_title">Disable QUIC protocol</string>
     <string name="revanced_disable_startup_shorts_player_summary_off">Shorts player is enabled at app startup</string>
@@ -97,6 +99,9 @@
     <string name="revanced_enable_custom_seekbar_color_summary_off">Custom seekbar color is disabled</string>
     <string name="revanced_enable_custom_seekbar_color_summary_on">Custom seekbar color is enabled</string>
     <string name="revanced_enable_custom_seekbar_color_title">Enable custom seekbar color</string>
+    <string name="revanced_edit_speed_overlay_value_summary">"Edit speed that changes while holding down
+Only available to some users who can use the speed overlay"</string>
+    <string name="revanced_edit_speed_overlay_value_title">Edit custom speed overlay</string>
     <string name="revanced_enable_debug_logging_summary_off">Debug logs are disabled</string>
     <string name="revanced_enable_debug_logging_summary_on">Debug logs are enabled</string>
     <string name="revanced_enable_debug_logging_title">Enable debug logging</string>
@@ -503,9 +508,6 @@
     <string name="revanced_hide_snack_bar_summary_off">Snack bar is shown</string>
     <string name="revanced_hide_snack_bar_summary_on">Snack bar is hidden</string>
     <string name="revanced_hide_snack_bar_title">Hide snack bar</string>
-    <string name="revanced_hide_speed_overlay_summary_off">Speed overlay are shown</string>
-    <string name="revanced_hide_speed_overlay_summary_on">Speed overlay are hidden</string>
-    <string name="revanced_hide_speed_overlay_title">Hide speed overlay</string>
     <string name="revanced_hide_subscriptions_button_summary_off">Subscriptions button is shown</string>
     <string name="revanced_hide_subscriptions_button_summary_on">Subscriptions button is hidden</string>
     <string name="revanced_hide_subscriptions_button_title">Hide subscriptions button</string>
@@ -628,6 +630,7 @@ Since these setting is quite outdated, it may not be valid"</string>
     <string name="revanced_shorts_player_title">Shorts player</string>
     <string name="revanced_show_fullscreen_title_summary">Known issue: Title disappears when clicked</string>
     <string name="revanced_show_fullscreen_title_title">Show fullscreen title</string>
+    <string name="revanced_speed_overlay_text" formatted="false">Playing at %sx speed</string>
     <string name="revanced_spoof_app_version_summary">"Spoofing the client version to the old version
 
 This will change the appearance of the app, but unknown side effects may occur
