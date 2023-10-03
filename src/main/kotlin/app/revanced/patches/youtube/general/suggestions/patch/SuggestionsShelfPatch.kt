@@ -17,7 +17,7 @@ import app.revanced.patches.youtube.general.suggestions.fingerprints.SuggestionC
 import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.litho.patch.LithoFilterPatch
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
-import app.revanced.util.integrations.Constants.GENERAL
+import app.revanced.util.integrations.Constants.PATCHES_PATH
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
@@ -39,7 +39,7 @@ class SuggestionsShelfPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
 
         /**
-         * Legacy code for old layout
+         * Only used to tablet layout and the old UI components.
          */
         BreakingNewsFingerprint.result?.let {
             it.mutableMethod.apply {
@@ -48,28 +48,28 @@ class SuggestionsShelfPatch : BytecodePatch(
 
                 addInstruction(
                     targetIndex + 1,
-                    "invoke-static {v$targetRegister}, $GENERAL->hideBreakingNewsShelf(Landroid/view/View;)V"
+                    "invoke-static {v$targetRegister}, $FILTER_CLASS_DESCRIPTOR->hideBreakingNewsShelf(Landroid/view/View;)V"
                 )
             }
         } ?: throw BreakingNewsFingerprint.exception
 
         /**
-         * For new layout
-         *
          * Target method only removes the horizontal video shelf's content in the feed.
-         * Since the header of the horizontal video shelf is not removed, it must be removed through the low level filter
+         * Since the header of the horizontal video shelf is not removed, it should be removed through the SuggestionsShelfFilter
          */
         SuggestionContentsBuilderFingerprint.result?.let {
             it.mutableMethod.apply {
                 addInstructionsWithLabels(
                     2, """
-                        invoke-static/range {p2 .. p2}, $GENERAL->hideSuggestionsShelf(Ljava/lang/Object;)Z
+                        invoke-static/range {p2 .. p2}, $FILTER_CLASS_DESCRIPTOR->filterSuggestionsShelfSubComponents(Ljava/lang/Object;)Z
                         move-result v0
                         if-eqz v0, :show
                         """ + emptyComponentLabel, ExternalLabel("show", getInstruction(2))
                 )
             }
         } ?: throw SuggestionContentsBuilderFingerprint.exception
+
+        LithoFilterPatch.addFilter(FILTER_CLASS_DESCRIPTOR)
 
 
         /**
@@ -84,5 +84,10 @@ class SuggestionsShelfPatch : BytecodePatch(
 
         SettingsPatch.updatePatchStatus("hide-suggestions-shelf")
 
+    }
+
+    private companion object {
+        private const val FILTER_CLASS_DESCRIPTOR =
+            "$PATCHES_PATH/ads/SuggestionsShelfFilter;"
     }
 }
