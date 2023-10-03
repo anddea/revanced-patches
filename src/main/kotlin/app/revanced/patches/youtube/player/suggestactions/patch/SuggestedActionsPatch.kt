@@ -5,6 +5,7 @@ import app.revanced.extensions.injectHideCall
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotations.DependsOn
@@ -12,9 +13,10 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.youtube.player.suggestactions.fingerprints.SuggestedActionsFingerprint
 import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.litho.patch.LithoFilterPatch
+import app.revanced.patches.youtube.utils.playertype.patch.PlayerTypeHookPatch
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
-import app.revanced.util.bytecode.BytecodeHelper.updatePatchStatus
+import app.revanced.util.integrations.Constants.PATCHES_PATH
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
@@ -23,6 +25,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 @DependsOn(
     [
         LithoFilterPatch::class,
+        PlayerTypeHookPatch::class,
         SettingsPatch::class,
         SharedResourceIdPatch::class
     ]
@@ -37,16 +40,15 @@ class SuggestedActionsPatch : BytecodePatch(
                 val targetIndex = it.scanResult.patternScanResult!!.endIndex
                 val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
-                implementation!!.injectHideCall(
+                addInstruction(
                     targetIndex + 1,
-                    targetRegister,
-                    "layout/PlayerPatch",
-                    "hideSuggestedActions"
+                    "invoke-static {v$targetRegister}, $FILTER_CLASS_DESCRIPTOR->hideSuggestedActions(Landroid/view/View;)V"
+
                 )
             }
         } ?: throw SuggestedActionsFingerprint.exception
 
-        context.updatePatchStatus("SuggestedActions")
+        LithoFilterPatch.addFilter(FILTER_CLASS_DESCRIPTOR)
 
         /**
          * Add settings
@@ -60,5 +62,10 @@ class SuggestedActionsPatch : BytecodePatch(
 
         SettingsPatch.updatePatchStatus("hide-suggested-actions")
 
+    }
+
+    private companion object {
+        private const val FILTER_CLASS_DESCRIPTOR =
+            "$PATCHES_PATH/ads/SuggestedActionFilter;"
     }
 }
