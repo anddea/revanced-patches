@@ -82,7 +82,7 @@
     <string name="revanced_disable_landscape_mode_summary_off">전체화면에서 세로모드를 비활성화합니다.</string>
     <string name="revanced_disable_landscape_mode_summary_on">전체화면에서 세로모드를 활성화합니다.</string>
     <string name="revanced_disable_landscape_mode_title">전체화면에서 세로모드 활성화하기</string>
-    <string name="revanced_disable_speed_overlay_summary">"길게 누른 상태에서 '2배속 재생'를 비활성화합니다."</string>
+    <string name="revanced_disable_speed_overlay_summary">"길게 누른 상태에서 '2.0배속 재생'을 비활성화합니다."</string>
     <string name="revanced_disable_speed_overlay_title">동영상 재생 속도 오버레이 비활성화하기</string>
     <string name="revanced_disable_quic_protocol_summary">"QUIC 프로토콜을 비활성화해서 동영상을 불러올 때 발생하는 동영상 압축과 푸는 과정을 제거하여 동영상 로딩 속도를 향상시킵니다. 모바일 데이터 사용량이 증가할 수 있으니 주의하세요."</string>
     <string name="revanced_disable_quic_protocol_title">QUIC 프로토콜 비활성화하기</string>
@@ -100,9 +100,9 @@
     <string name="revanced_enable_custom_seekbar_color_summary_off">사용자 정의 재생바 색상을 비활성화합니다.</string>
     <string name="revanced_enable_custom_seekbar_color_summary_on">사용자 정의 재생바 색상을 활성화합니다.</string>
     <string name="revanced_enable_custom_seekbar_color_title">사용자 정의 재생바 색상 활성화하기</string>
-    <string name="revanced_edit_speed_overlay_value_summary">"길게 누른 상태에서 변경되는 동영상 재생 속도를 편집합니다.
-동영상 재생 속도 오버레이는 일부 사용자만 사용할 수 있습니다."</string>
-    <string name="revanced_edit_speed_overlay_value_title">사용자 정의 동영상 재생 속도 오버레이 편집하기</string>
+    <string name="revanced_edit_speed_overlay_value_summary">"길게 누른 상태에서 변경되는 동영상 재생 속도를 변경합니다.
+동영상 재생 속도 오버레이는 일부 사용자만 사용할 수 있습니다. (A/B 테스트)"</string>
+    <string name="revanced_edit_speed_overlay_value_title">사용자 정의 동영상 재생 속도 오버레이 변경하기</string>
     <string name="revanced_enable_debug_logging_summary_off">디버그 로그를 출력하지 않습니다.</string>
     <string name="revanced_enable_debug_logging_summary_on">디버그 로그를 출력합니다.</string>
     <string name="revanced_enable_debug_logging_title">디버그 로깅 활성화하기</string>
@@ -128,12 +128,6 @@
     <string name="revanced_enable_opus_codec_title">Opus 코덱 활성화하기</string>
     <string name="revanced_enable_phone_layout_summary">dpi를 변경하여 일부 레이아웃을 휴대폰 레이아웃으로 변경합니다.</string>
     <string name="revanced_enable_phone_layout_title">휴대폰 레이아웃 활성화하기</string>
-    <string name="revanced_enable_press_to_swipe_summary_off">눌러서 스와이프 제스처를 비활성화합니다.</string>
-    <string name="revanced_enable_press_to_swipe_summary_on">눌러서 스와이프 제스처를 활성화합니다.</string>
-    <string name="revanced_enable_press_to_swipe_title">눌러서 스와이프 제스처 활성화하기</string>
-    <string name="revanced_enable_save_brightness_summary_off">전체화면을 종료하거나 실행할 때 동영상 밝기 값을 저장 및 복원하지 않습니다.</string>
-    <string name="revanced_enable_save_brightness_summary_on">전체화면을 종료하거나 실행할 때 동영상 밝기 값을 저장 및 복원합니다.</string>
-    <string name="revanced_enable_save_brightness_title">동영상 밝기 값 저장 및 복원 활성화하기</string>
     <string name="revanced_enable_save_playback_speed_summary_off">동영상 재생 속도 값을 변경할 때마다 저장하지 않습니다.</string>
     <string name="revanced_enable_save_playback_speed_summary_on">동영상 재생 속도 값을 변경할 때마다 저장합니다.</string>
     <string name="revanced_enable_save_playback_speed_title">동영상 재생 속도 저장 활성화하기</string>
@@ -149,9 +143,6 @@
     <string name="revanced_enable_swipe_brightness_summary_off">스와이프 제스처로 밝기 조절을 비활성화합니다.</string>
     <string name="revanced_enable_swipe_brightness_summary_on">스와이프 제스처로 밝기 조절을 활성화합니다.</string>
     <string name="revanced_enable_swipe_brightness_title">스와이프 제스처로 밝기 조절 활성화하기</string>
-    <string name="revanced_enable_swipe_haptic_feedback_summary_off">눌러서 스와이프시 진동 피드백을 비활성화합니다.</string>
-    <string name="revanced_enable_swipe_haptic_feedback_summary_on">눌러서 스와이프시 진동 피드백을 활성화합니다.</string>
-    <string name="revanced_enable_swipe_haptic_feedback_title">눌러서 스와이프시 진동 피드백 활성화하기</string>
     <string name="revanced_enable_swipe_volume_summary_off">스와이프 제스처로 볼륨 조절을 비활성화합니다.</string>
     <string name="revanced_enable_swipe_volume_summary_on">스와이프 제스처로 볼륨 조절을 활성화합니다.</string>
     <string name="revanced_enable_swipe_volume_title">스와이프 제스처로 볼륨 조절 활성화하기</string>
@@ -716,7 +707,7 @@ YouTube 18.24.37 버전 이상에서만 변경 가능합니다."</string>
     <string name="sb_api_url_invalid">잘못된 주소입니다.</string>
     <string name="sb_api_url_changed">SponsorBlock 서버 주소가 변경되었습니다.</string>
     <string name="sb_settings_copy">복사하기</string>
-    <string name="sb_settings_ie_sum">ReVanced Extended 또는 다른 SponsorBlock 플랫폼으로 내보내거나 불러올 수 있는 SponsorBlock JSON의 전체 구성 파일입니다. 비공개 사용자ID를 포함하고 있으므로 주의하세요.</string>
+    <string name="sb_settings_ie_sum">ReVanced Extended 또는 다른 SponsorBlock 플랫폼으로 가져오거나 내보낼 수 있는 SponsorBlock JSON의 전체 구성 파일입니다. 비공개 사용자ID를 포함하고 있으므로 주의하세요.</string>
     <string name="sb_settings_import_successful">설정을 성공적으로 가져왔습니다.</string>
     <string name="sb_settings_import_failed">가져오기에 실패했습니다: %s</string>
     <string name="sb_settings_export_failed">내보내기에 실패했습니다: %s</string>

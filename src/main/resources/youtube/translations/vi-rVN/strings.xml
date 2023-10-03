@@ -82,8 +82,8 @@
     <string name="revanced_disable_landscape_mode_summary_off">Đang phát video ở chế độ toàn màn hình mặc định</string>
     <string name="revanced_disable_landscape_mode_summary_on">Đang phát video ở chế độ toàn màn hình dọc</string>
     <string name="revanced_disable_landscape_mode_title">Xem ở chế độ toàn màn hình dọc</string>
-    <string name="revanced_disable_speed_overlay_summary">"Tắt nhấn và giữ trong trình phát để xem ở tốc độ nhanh hơn 2 lần"</string>
-    <string name="revanced_disable_speed_overlay_title">Tắt nhấn và giữ để phát nhanh hơn</string>
+    <string name="revanced_disable_speed_overlay_summary">"Tắt tính năng Nhấn và giữ trong trình phát để xem ở tốc độ nhanh hơn 2 lần"</string>
+    <string name="revanced_disable_speed_overlay_title">Tắt nhấn và giữ để phát nhanh gấp đôi</string>
     <string name="revanced_disable_quic_protocol_summary">"Tắt giao thức QUIC của công cụ Cronet để giảm độ trễ khi phát video"</string>
     <string name="revanced_disable_quic_protocol_title">Tắt giao thức QUIC</string>
     <string name="revanced_disable_startup_shorts_player_summary_off">Đang mở thẻ Shorts để phát video ngắn khi khởi động nếu bạn đóng ứng dụng trong lúc xem một video ngắn trước đó</string>
@@ -101,7 +101,7 @@
     <string name="revanced_enable_custom_seekbar_color_summary_on">Đang sử dụng màu thanh tiến trình video tuỳ chỉnh</string>
     <string name="revanced_enable_custom_seekbar_color_title">Màu thanh tiến trình tuỳ chỉnh</string>
     <string name="revanced_edit_speed_overlay_value_summary">"Chỉnh sửa tốc độ phát khi nhấn và giữ trong trình phát.
-Chỉ khả dụng đối với một số người dùng có thể sử dụng tính năng này."</string>
+\nLưu ý: Tuỳ chọn này chỉ khả dụng đối với một số người dùng có thể sử dụng tính năng Nhấn và giữ để phát nhanh gấp đôi."</string>
     <string name="revanced_edit_speed_overlay_value_title">Chỉnh sửa tốc độ phát khi nhấn và giữ</string>
     <string name="revanced_enable_debug_logging_summary_off">Nhật ký gỡ lỗi đã tắt</string>
     <string name="revanced_enable_debug_logging_summary_on">Nhật ký gỡ lỗi đã bật</string>
@@ -128,12 +128,6 @@ Chỉ khả dụng đối với một số người dùng có thể sử dụng 
     <string name="revanced_enable_opus_codec_title">Codec Opus</string>
     <string name="revanced_enable_phone_layout_summary">Thay đổi DPI để sử dụng một số bố cục điện thoại</string>
     <string name="revanced_enable_phone_layout_title">Bố cục điện thoại</string>
-    <string name="revanced_enable_press_to_swipe_summary_off">Cử chỉ nhấn và giữ để vuốt đã tắt</string>
-    <string name="revanced_enable_press_to_swipe_summary_on">Cử chỉ nhấn và giữ để vuốt đã bật</string>
-    <string name="revanced_enable_press_to_swipe_title">Nhấn và giữ để vuốt</string>
-    <string name="revanced_enable_save_brightness_summary_off">Lưu độ sáng đã tắt</string>
-    <string name="revanced_enable_save_brightness_summary_on">Đang lưu giá trị độ sáng đã đặt bất cứ khi nào bạn thay đổi độ sáng bằng cử chỉ vuốt</string>
-    <string name="revanced_enable_save_brightness_title">Lưu độ sáng</string>
     <string name="revanced_enable_save_playback_speed_summary_off">Lưu tốc độ phát video đã tắt</string>
     <string name="revanced_enable_save_playback_speed_summary_on">Đang lưu giá trị tốc độ phát đã chọn bất cứ khi nào bạn thay đổi tốc độ phát video</string>
     <string name="revanced_enable_save_playback_speed_title">Lưu tốc độ phát video</string>
@@ -149,9 +143,6 @@ Chỉ khả dụng đối với một số người dùng có thể sử dụng 
     <string name="revanced_enable_swipe_brightness_summary_off">Cử chỉ vuốt Độ sáng đã tắt</string>
     <string name="revanced_enable_swipe_brightness_summary_on">Cử chỉ vuốt Độ sáng đã bật</string>
     <string name="revanced_enable_swipe_brightness_title">Vuốt Độ sáng</string>
-    <string name="revanced_enable_swipe_haptic_feedback_summary_off">Phản hồi xúc giác khi nhấn và giữ để vuốt đã tắt</string>
-    <string name="revanced_enable_swipe_haptic_feedback_summary_on">Phản hồi xúc giác khi nhấn và giữ để vuốt đã bật</string>
-    <string name="revanced_enable_swipe_haptic_feedback_title">Phản hồi xúc giác khi nhấn và giữ để vuốt</string>
     <string name="revanced_enable_swipe_volume_summary_off">Cử chỉ vuốt Âm lượng đã tắt</string>
     <string name="revanced_enable_swipe_volume_summary_on">Cử chỉ vuốt Âm lượng đã bật</string>
     <string name="revanced_enable_swipe_volume_title">Vuốt Âm lượng</string>
