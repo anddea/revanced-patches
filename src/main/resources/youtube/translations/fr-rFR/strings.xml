@@ -21,10 +21,10 @@
     <string name="revanced_alt_thumbnail_type_entry_2">Milieu de la vidéo</string>
     <string name="revanced_alt_thumbnail_type_entry_3">Fin de la vidéo</string>
     <string name="revanced_alt_thumbnail_type_title">De quel moment de la vidéo doit être prise</string>
-    <string name="revanced_append_time_stamp_information_summary_off">L\'ajout de la durée de la vidéo sans sponsors est désactivée</string>
-    <string name="revanced_append_time_stamp_information_summary_on">L\'ajout de la durée de la vidéo sans sponsors est activée (à côté de la durée de la vidéo)</string>
-    <string name="revanced_append_time_stamp_information_title">L\'ajout de la durée de la vidéo sans sponsors</string>
-    <string name="revanced_append_time_stamp_information_type_summary_off">Le bouton \"Vitesse de lecture\"</string>
+    <string name="revanced_append_time_stamp_information_summary_off">L\'ajout d\'infos supplémentaires tel que la qualité vidéo ou la vitesse vidéo est désactivé</string>
+    <string name="revanced_append_time_stamp_information_summary_on">L\'ajout d\'infos supplémentaires tel que la qualité vidéo ou la vitesse vidéo est activé</string>
+    <string name="revanced_append_time_stamp_information_title">Rajout d\'infos supplémentaires sur la vidéo</string>
+    <string name="revanced_append_time_stamp_information_type_summary_off">Ajout de la vitesse de lecture à côté de la durée de la vidéo</string>
     <string name="revanced_append_time_stamp_information_type_summary_on">Ajout de la qualité vidéo à côté de la durée de la vidéo</string>
     <string name="revanced_append_time_stamp_information_type_title">Ajout de type d\'information</string>
     <string name="revanced_backup_summary">Importer les paramètres ReVanced à partir d\'un fichier ou les exporter vers un fichier</string>
@@ -82,7 +82,7 @@
     <string name="revanced_disable_landscape_mode_summary_off">Le mode paysage lorsque vous passez en plein écran est activé</string>
     <string name="revanced_disable_landscape_mode_summary_on">Le mode paysage lorsque vous passez en plein écran est désactivé</string>
     <string name="revanced_disable_landscape_mode_title">Le mode paysage en plein écran</string>
-    <string name="revanced_disable_speed_overlay_summary">"La vitesse de lecture 2x en maintenant la vidéo est désactivé "</string>
+    <string name="revanced_disable_speed_overlay_summary">"La vitesse de lecture 2x en maintenant la vidéo"</string>
     <string name="revanced_disable_speed_overlay_title">Vitesse de lecture 2x en maintenant la vidéo</string>
     <string name="revanced_disable_quic_protocol_summary">"Désactiver le protocole QUIC de CronetEngine (QUIC est un protocole Internet plus rapide et plus sûr utilisé par Google et d'autres entreprises pour leurs services en ligne)"</string>
     <string name="revanced_disable_quic_protocol_title">Le protocole QUIC</string>
@@ -128,12 +128,6 @@
     <string name="revanced_enable_opus_codec_title">Le codec audio opus</string>
     <string name="revanced_enable_phone_layout_summary">Utilise un dpi spécifique pour afficher la mise en page téléphone</string>
     <string name="revanced_enable_phone_layout_title">La mise en page téléphone</string>
-    <string name="revanced_enable_press_to_swipe_summary_off">Les commandes de balayage sont désactivés</string>
-    <string name="revanced_enable_press_to_swipe_summary_on">Les commandes de balayage sont activés</string>
-    <string name="revanced_enable_press_to_swipe_title">Les commandes de balayage</string>
-    <string name="revanced_enable_save_brightness_summary_off">Ne pas enregistrer et restaurer la luminosité en quittant ou en entrant en mode plein écran</string>
-    <string name="revanced_enable_save_brightness_summary_on">Enregistrer et restaurer la luminosité en quittant ou en entrant en mode plein écran</string>
-    <string name="revanced_enable_save_brightness_title">L\'enregistrement et la restauration de la luminosité</string>
     <string name="revanced_enable_save_playback_speed_summary_off">N’enregistre pas les valeurs de vitesse vidéo même en changeant la vitesse vidéo</string>
     <string name="revanced_enable_save_playback_speed_summary_on">Enregistrez la valeur de vitesse vidéo chaque fois que vous modifiez la vitesse vidéo</string>
     <string name="revanced_enable_save_playback_speed_title">Enregistrement de la vitesse de lecture</string>
@@ -149,9 +143,6 @@
     <string name="revanced_enable_swipe_brightness_summary_off">Le balayage de la luminosité est désactivé</string>
     <string name="revanced_enable_swipe_brightness_summary_on">Le balayage de la luminosité est activé</string>
     <string name="revanced_enable_swipe_brightness_title">Le geste de luminosité</string>
-    <string name="revanced_enable_swipe_haptic_feedback_summary_off">Le retour haptique du balayage est désactivé</string>
-    <string name="revanced_enable_swipe_haptic_feedback_summary_on">Le retour haptique du balayage est activé</string>
-    <string name="revanced_enable_swipe_haptic_feedback_title">Le retour haptique du balayage</string>
     <string name="revanced_enable_swipe_volume_summary_off">Le balayage du volume est désactivé</string>
     <string name="revanced_enable_swipe_volume_summary_on">Le balayage du volume est activé</string>
     <string name="revanced_enable_swipe_volume_title">Le geste de volume</string>
@@ -623,6 +614,7 @@ Ce paramètre étant obsolètes, il se peut qu'ils ne soient plus valables"</str
     <string name="revanced_shorts_player_title">Lecteur Shorts</string>
     <string name="revanced_show_fullscreen_title_summary">Problème connu : le titre disparaît lorsqu\'on clique dessus</string>
     <string name="revanced_show_fullscreen_title_title">Le titre en plein écran</string>
+    <string name="revanced_speed_overlay_text" formatted="false">Vidéo en vitesse %sx </string>
     <string name="revanced_spoof_app_version_summary">"Utilise l'ancienne interface avec des risques d'effets inconnus. Supprimé les données pour retirer complètement si l'interface ne change pas"</string>
     <string name="revanced_spoof_app_version_target_entry_16_08_35">16.08.35 - Restaure le bouton \"Explorer\"</string>
     <string name="revanced_spoof_app_version_target_entry_17_08_35">17.08.35 - Restaure l\'ancienne mise en page de l\'interface</string>
@@ -633,6 +625,13 @@ Ce paramètre étant obsolètes, il se peut qu'ils ne soient plus valables"</str
     <string name="revanced_spoof_app_version_target_summary">Tapez la version de l\'application à fausser</string>
     <string name="revanced_spoof_app_version_target_title">Falsifier la version de l\'application</string>
     <string name="revanced_spoof_app_version_title">Interface de l\'application</string>
+    <string name="revanced_spoof_player_parameter_summary">"Paramètres du lecteur pour éviter les problèmes de lecture
+
+Problèmes connus 
+• Les hautes qualités vidéos ne sont pas disponibles
+• Les vignettes sur la barre de progression ne sont pas affichés sur les vidéos payantes 
+• Les téléchargements hors ligne peuvent ne pas fonctionner
+• Une fois vue la vidéo peux ne pas être revisionné"</string>
     <string name="revanced_spoof_player_parameter_title">Falsifier les paramètres du lecteur</string>
     <string name="revanced_swipe_controls">Commandes de balayage</string>
     <string name="revanced_swipe_magnitude_threshold_summary">L\'intensité de balayage correspond à la mesure de glissement utilisée pour ajuster le niveau sonore ou de luminosité</string>

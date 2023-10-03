@@ -82,6 +82,8 @@
     <string name="revanced_disable_landscape_mode_summary_off">進入全螢幕時橫向模式已啟用</string>
     <string name="revanced_disable_landscape_mode_summary_on">進入全螢幕時橫向模式已停用</string>
     <string name="revanced_disable_landscape_mode_title">停用橫向模式</string>
+    <string name="revanced_disable_speed_overlay_summary">"長按時禁止「2 倍速播放」"</string>
+    <string name="revanced_disable_speed_overlay_title">關閉速度顯示覆蓋</string>
     <string name="revanced_disable_quic_protocol_summary">"停用 CronetEngine 的 QUIC 協議"</string>
     <string name="revanced_disable_quic_protocol_title">停用 QUIC 協議</string>
     <string name="revanced_disable_startup_shorts_player_summary_off">在啟動應用程式時自動開啟 Shorts 已啟用</string>
@@ -98,6 +100,9 @@
     <string name="revanced_enable_custom_seekbar_color_summary_off">自訂搜尋欄顏色已停用</string>
     <string name="revanced_enable_custom_seekbar_color_summary_on">自訂搜尋欄顏色已啟用</string>
     <string name="revanced_enable_custom_seekbar_color_title">啟用自動搜尋欄顏色</string>
+    <string name="revanced_edit_speed_overlay_value_summary">"調整長按時的播放速度
+此功能僅對能使用速度覆蓋的用戶開放"</string>
+    <string name="revanced_edit_speed_overlay_value_title">編輯自訂的速度覆蓋</string>
     <string name="revanced_enable_debug_logging_summary_off">偵錯記錄已停用</string>
     <string name="revanced_enable_debug_logging_summary_on">偵錯記錄已啟用</string>
     <string name="revanced_enable_debug_logging_title">啟用偵錯記錄</string>
@@ -123,12 +128,6 @@
     <string name="revanced_enable_opus_codec_title">啟用 opus 解碼器</string>
     <string name="revanced_enable_phone_layout_summary">偽裝DPI以使用一些手機版介面</string>
     <string name="revanced_enable_phone_layout_title">啟用手機版介面</string>
-    <string name="revanced_enable_press_to_swipe_summary_off">長按以滑動已停用</string>
-    <string name="revanced_enable_press_to_swipe_summary_on">長按以滑動已啟用</string>
-    <string name="revanced_enable_press_to_swipe_title">長按以滑動</string>
-    <string name="revanced_enable_save_brightness_summary_off">當進入或退出全螢幕時,不要儲存或還原亮度設定</string>
-    <string name="revanced_enable_save_brightness_summary_on">當進入或退出全螢幕時,儲存或還原亮度設定</string>
-    <string name="revanced_enable_save_brightness_title">啟用儲存或還原亮度設定</string>
     <string name="revanced_enable_save_playback_speed_summary_off">即使更改播放速度，也不儲存播放速度值</string>
     <string name="revanced_enable_save_playback_speed_summary_on">每次更改播放速度時儲存播放速度值</string>
     <string name="revanced_enable_save_playback_speed_title">啟用儲存播放速度</string>
@@ -144,9 +143,6 @@
     <string name="revanced_enable_swipe_brightness_summary_off">滑動控制亮度已停用</string>
     <string name="revanced_enable_swipe_brightness_summary_on">滑動控制亮度已啟用</string>
     <string name="revanced_enable_swipe_brightness_title">亮度調整手勢</string>
-    <string name="revanced_enable_swipe_haptic_feedback_summary_off">滑動（震動）回饋已停用</string>
-    <string name="revanced_enable_swipe_haptic_feedback_summary_on">滑動（震動）回饋已啟用</string>
-    <string name="revanced_enable_swipe_haptic_feedback_title">滑動（震動）回饋</string>
     <string name="revanced_enable_swipe_volume_summary_off">滑動控制音量已停用</string>
     <string name="revanced_enable_swipe_volume_summary_on">滑動控制音量已啟用</string>
     <string name="revanced_enable_swipe_volume_title">啟用音量控制手勢</string>
@@ -625,6 +621,7 @@
     <string name="revanced_shorts_player_title">Shorts 播放器</string>
     <string name="revanced_show_fullscreen_title_summary">已知問題 : 標題被點擊時會消失</string>
     <string name="revanced_show_fullscreen_title_title">顯示全螢幕標題</string>
+    <string name="revanced_speed_overlay_text" formatted="false">正在以 %sx 的速度播放</string>
     <string name="revanced_spoof_app_version_summary">"將應用程式版本偽裝成舊版本
 
  這將改變應用程式的外觀，但可能會出現未知的反效果
@@ -638,6 +635,13 @@
     <string name="revanced_spoof_app_version_target_summary">輸入欺騙的應用程式版本目標</string>
     <string name="revanced_spoof_app_version_target_title">編輯欺騙應用程式版本</string>
     <string name="revanced_spoof_app_version_title">偽裝應用程式版本</string>
+    <string name="revanced_spoof_player_parameter_summary">"偽裝播放參數以解決播放困難
+
+注意事項
+• 增強位元率功能不可用
+• 付費影片不提供進度條縮圖
+• 離線下載功能可能失效
+• 影片可能不會從上次觀看的位置繼續播放"</string>
     <string name="revanced_spoof_player_parameter_title">欺騙播放器參數</string>
     <string name="revanced_swipe_controls">滑動控制</string>
     <string name="revanced_swipe_magnitude_threshold_summary">滑動時調整的數值量</string>

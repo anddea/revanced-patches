@@ -20,7 +20,7 @@
     <string name="revanced_alt_thumbnail_type_entry_1">Начало</string>
     <string name="revanced_alt_thumbnail_type_entry_2">Середина</string>
     <string name="revanced_alt_thumbnail_type_entry_3">Конец</string>
-    <string name="revanced_alt_thumbnail_type_title">Часть видео, из которой будет взято изображение для альтернативного превью</string>
+    <string name="revanced_alt_thumbnail_type_title">Часть видеоролика, из которой будет взято изображение для альтернативного превью</string>
     <string name="revanced_append_time_stamp_information_summary_off">Индикатор скорости / качества видео рядом с временем воспроизведения выключен</string>
     <string name="revanced_append_time_stamp_information_summary_on">Индикатор скорости / качества видео рядом с временем воспроизведения включён</string>
     <string name="revanced_append_time_stamp_information_title">Индикатор рядом с временем воспроизведения</string>
@@ -128,12 +128,6 @@
     <string name="revanced_enable_opus_codec_title">Кодек Opus</string>
     <string name="revanced_enable_phone_layout_summary">Подменяет DPI для использования \"Телефонного\" интерфейса</string>
     <string name="revanced_enable_phone_layout_title">Телефонный интерфейс</string>
-    <string name="revanced_enable_press_to_swipe_summary_off">Нажатие для выполнения жестов отключено</string>
-    <string name="revanced_enable_press_to_swipe_summary_on">Нажатие для выполнения жестов включено</string>
-    <string name="revanced_enable_press_to_swipe_title">Нажатие для жестов</string>
-    <string name="revanced_enable_save_brightness_summary_off">Не сохранять и восстанавливать яркость при выходе или входе в полноэкранный режим</string>
-    <string name="revanced_enable_save_brightness_summary_on">Сохранять и восстанавливать яркость при выходе или входе в полноэкранный режим</string>
-    <string name="revanced_enable_save_brightness_title">Сохранение и восстановление яркости</string>
     <string name="revanced_enable_save_playback_speed_summary_off">Скорость воспроизведения не сохраняется при её изменении</string>
     <string name="revanced_enable_save_playback_speed_summary_on">Скорость воспроизведения сохраняется при её изменении</string>
     <string name="revanced_enable_save_playback_speed_title">Сохранение скорости воспроизведения</string>
@@ -149,9 +143,6 @@
     <string name="revanced_enable_swipe_brightness_summary_off">Управление яркостью жестом отключено</string>
     <string name="revanced_enable_swipe_brightness_summary_on">Управление яркостью жестом включено</string>
     <string name="revanced_enable_swipe_brightness_title">Управление яркостью жестом</string>
-    <string name="revanced_enable_swipe_haptic_feedback_summary_off">Виброотклик при нажатии для жестов отключён</string>
-    <string name="revanced_enable_swipe_haptic_feedback_summary_on">Виброотклик при нажатии для жестов включён</string>
-    <string name="revanced_enable_swipe_haptic_feedback_title">Виброотклик при нажатии для жестов</string>
     <string name="revanced_enable_swipe_volume_summary_off">Управление громкостью жестом отключено</string>
     <string name="revanced_enable_swipe_volume_summary_on">Управление громкостью жестом включено</string>
     <string name="revanced_enable_swipe_volume_title">Управление громкостью жестом</string>
@@ -389,7 +380,7 @@
     <string name="revanced_hide_navigation_label_title">Скрыть подписи вкладок навигации</string>
     <string name="revanced_hide_notify_me_button_summary_off">Кнопка \"Прислать уведомление\" отображена</string>
     <string name="revanced_hide_notify_me_button_summary_on">Кнопка \"Прислать уведомление\" скрыта</string>
-    <string name="revanced_hide_notify_me_button_title">Скрыть кнопку \"Прислать уведомление\"</string>
+    <string name="revanced_hide_notify_me_button_title">Скрыть кнопку \"Прислать уведомление\" в ленте</string>
     <string name="revanced_hide_official_header_summary_off">Заголовок результатов поиска трейлеров фильмов и артистов отображён</string>
     <string name="revanced_hide_official_header_summary_on">Заголовок результатов поиска трейлеров фильмов и артистов скрыт</string>
     <string name="revanced_hide_official_header_title">Скрыть заголовок при поиске</string>
@@ -724,7 +715,7 @@
     <string name="sb_segments_selfpromo">Бесплатная реклама / Самореклама</string>
     <string name="sb_segments_selfpromo_sum">Похоже на спонсорскую рекламу, за исключением бесплатной рекламы или саморекламы. Включает разделы о товарах, пожертвованиях или информации о том, с кем они сотрудничали</string>
     <string name="sb_segments_interaction">Напоминание о взаимодействии</string>
-    <string name="sb_segments_interaction_sum">Короткое напоминание поставить лайк, подписаться на канал или соцсети посреди видео. Если эта вставка длительная или о чём-то конкретном, она должна классифицироваться как самореклама</string>
+    <string name="sb_segments_interaction_sum">Короткое напоминание поставить лайк, подписаться на канал или соцсети посреди видеоролика. Если эта вставка длительная или о чём-то конкретном, она должна классифицироваться как самореклама</string>
     <string name="sb_segments_highlight">Основные моменты</string>
     <string name="sb_segments_highlight_sum">Части видео, которые интересны большинству людей</string>
     <string name="sb_segments_intro">Пауза / Интро</string>
@@ -736,7 +727,7 @@
     <string name="sb_segments_filler">Отвлечённые темы / Шутки</string>
     <string name="sb_segments_filler_sum">Сегменты, которые увеличивают длительность видео за счёт отвлечённых тем или шуток, но не требуются для понимания основного содержания. Не включает сегменты, объясняющие контекст или предысторию</string>
     <string name="sb_segments_nomusic">Музыка: сегмент без музыки</string>
-    <string name="sb_segments_nomusic_sum">Только для использования в музыкальных видео. Разделы музыкальных видео без музыки, которые ещё не охвачены другой категорией</string>
+    <string name="sb_segments_nomusic_sum">Только для использования в музыкальных видеороликах. Разделы музыкальных видео без музыки, которые ещё не охвачены другой категорией</string>
     <string name="sb_skip_button_compact">Пропустить</string>
     <string name="sb_skip_button_compact_highlight">Основные моменты</string>
     <string name="sb_skip_button_sponsor">Пропустить спонсорскую рекламу</string>

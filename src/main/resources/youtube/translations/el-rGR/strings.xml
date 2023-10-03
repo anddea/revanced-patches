@@ -27,7 +27,7 @@
     <string name="revanced_append_time_stamp_information_type_summary_off">Προσθήκη ταχύτητας αναπαραγωγής</string>
     <string name="revanced_append_time_stamp_information_type_summary_on">Προσθήκη ποιότητας βίντεο</string>
     <string name="revanced_append_time_stamp_information_type_title">Τύπος πληροφορίων προσθήκης</string>
-    <string name="revanced_backup_summary">Εισαγωγή ρυθμίσεων ReVanced από αρχείο ή εξαγωγή ρυθμίσεων ReVanced σε αρχείο</string>
+    <string name="revanced_backup_summary">Εισαγωγή ρυθμίσεων ReVanced Extended από αρχείο ή εξαγωγή ρυθμίσεων ReVanced Extended σε αρχείο</string>
     <string name="revanced_bottom_player">Στοιχεία κάτω από τον αναπαραγωγέα</string>
     <string name="revanced_button_container_title">Κουμπιά κάτω από τον αναπαραγωγέα βίντεο</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">Η λειτουργία περιβάλλοντος απενεργοποιείται σε λειτουργία εξοικονόμησης μπαταρίας</string>
@@ -82,6 +82,8 @@
     <string name="revanced_disable_landscape_mode_summary_off">Η οριζόντια λειτουργία σε λειτουργία πλήρους οθόνης είναι ενεργοποιημένη</string>
     <string name="revanced_disable_landscape_mode_summary_on">Η οριζόντια λειτουργία σε λειτουργία πλήρους οθόνης είναι απενεργοποιημένη</string>
     <string name="revanced_disable_landscape_mode_title">Απενεργοποίηση οριζόντιας λειτουργίας</string>
+    <string name="revanced_disable_speed_overlay_summary">"Απενεργοποίηση του «Παίζοντας με 2x ταχύτητα» κατά το παρατεταμένο πάτημα"</string>
+    <string name="revanced_disable_speed_overlay_title">Απενεργοποίηση διεπαφής ταχύτητας</string>
     <string name="revanced_disable_quic_protocol_summary">"Απενεργοποίηση πρωτοκόλλου QUIC του CronetEngine
 
 Αυτή η λειτουργία αποτρέπει την συμπίεση και αποσυμπίεση των βίντεο κατά την αναπαραγωγή, κάτι το οποίο μπορεί να προκαλέσει κολλήματα, ενδέχεται όμως να χρησιμοποιηθούν περισσότερα δεδομένα."</string>
@@ -100,6 +102,9 @@
     <string name="revanced_enable_custom_seekbar_color_summary_off">Το προσαρμοσμένο χρώμα γραμμής προόδου είναι απενεργοποιημένο</string>
     <string name="revanced_enable_custom_seekbar_color_summary_on">Το προσαρμοσμένο χρώμα γραμμής προόδου είναι ενεργοποιημένο</string>
     <string name="revanced_enable_custom_seekbar_color_title">Προσαρμοσμένο χρώμα γραμμής προόδου</string>
+    <string name="revanced_edit_speed_overlay_value_summary">"Επεξεργασία της ταχύτητας που αλλάζει κατά το παρατεταμένο πάτημα
+Διαθέσιμο μόνο σε ορισμένους χρήστες που μπορούν να χρησιμοποιήσουν αυτή τη λειτουργία"</string>
+    <string name="revanced_edit_speed_overlay_value_title">Επεξεργασία διεπαφής προσαρμοσμένης ταχύτητας</string>
     <string name="revanced_enable_debug_logging_summary_off">Το αρχείο καταγραφής σφαλμάτων είναι απενεργοποιημένο</string>
     <string name="revanced_enable_debug_logging_summary_on">Το αρχείο καταγραφής σφαλμάτων είναι ενεργοποιημένο</string>
     <string name="revanced_enable_debug_logging_title">Αρχείο καταγραφής εντοπισμού σφαλμάτων</string>
@@ -125,12 +130,6 @@
     <string name="revanced_enable_opus_codec_title">Ενεργοποίηση κωδικοποιητή opus</string>
     <string name="revanced_enable_phone_layout_summary">Μετατρέπει το dpi ώστε να χρησιμοποιηθούν κάποιες διατάξεις κινητού</string>
     <string name="revanced_enable_phone_layout_title">Ενεργοποίηση εμφάνισης κινητού</string>
-    <string name="revanced_enable_press_to_swipe_summary_off">Η λειτουργία πάτημα-για-σάρωση είναι απενεργοποιημένη</string>
-    <string name="revanced_enable_press_to_swipe_summary_on">Η λειτουργία πάτημα-για-σάρωση είναι ενεργοποιημένη</string>
-    <string name="revanced_enable_press_to_swipe_title">Παρατεταμένο πάτημα για σάρωση</string>
-    <string name="revanced_enable_save_brightness_summary_off">Να μην αποθηκεύεται και να επαναφέρεται η φωτεινότητα κατά την έξοδο ή την είσοδο σε πλήρη οθόνη</string>
-    <string name="revanced_enable_save_brightness_summary_on">Αποθήκευση και επαναφορά φωτεινότητας κατά την έξοδο ή την είσοδο σε πλήρη οθόνη</string>
-    <string name="revanced_enable_save_brightness_title">Αποθήκευση και επαναφορά φωτεινότητας</string>
     <string name="revanced_enable_save_playback_speed_summary_off">Δεν αλλάζει η προεπιλεγμένη τιμή ταχύτητας βίντεο ακόμη και όταν αλλάζετε ταχύτητα βίντεο</string>
     <string name="revanced_enable_save_playback_speed_summary_on">Η τιμή ταχύτητας βίντεο αποθηκεύεται ως προεπιλογή κάθε φορά που αλλάζετε την ταχύτητα βίντεο</string>
     <string name="revanced_enable_save_playback_speed_title">Αποθήκευση ταχύτητας βίντεο πάντα</string>
@@ -146,9 +145,6 @@
     <string name="revanced_enable_swipe_brightness_summary_off">Η αλλαγή φωτεινότητας με χειρονομία σάρωσης είναι απενεργοποιημένη</string>
     <string name="revanced_enable_swipe_brightness_summary_on">Η αλλαγή φωτεινότητας με χειρονομία σάρωσης είναι ενεργοποιημένη</string>
     <string name="revanced_enable_swipe_brightness_title">Έλεγχος σάρωσης για Φωτεινότητα</string>
-    <string name="revanced_enable_swipe_haptic_feedback_summary_off">Η απόκριση δόνησης στη χειρονομία πάτημα-για-σάρωση είναι απενεργοποιημένη</string>
-    <string name="revanced_enable_swipe_haptic_feedback_summary_on">Η απόκριση δόνησης στη χειρονομία πάτημα-για-σάρωση είναι ενεργοποιημένη</string>
-    <string name="revanced_enable_swipe_haptic_feedback_title">Απόκριση δόνησης στο πάτημα-για-σάρωση</string>
     <string name="revanced_enable_swipe_volume_summary_off">Η αλλαγή έντασης ήχου με χειρονομία σάρωσης είναι απενεργοποιημένη</string>
     <string name="revanced_enable_swipe_volume_summary_on">Η αλλαγή έντασης ήχου με χειρονομία σάρωσης είναι ενεργοποιημένη</string>
     <string name="revanced_enable_swipe_volume_title">Έλεγχος σάρωσης για Ένταση Ήχου</string>
@@ -166,7 +162,7 @@
     <string name="revanced_enable_wide_search_bar_summary_on">Η ευρεία μπάρα αναζήτησης είναι ενεργοποιημένη</string>
     <string name="revanced_enable_wide_search_bar_title">Ευρεία μπάρα αναζήτησης</string>
     <string name="revanced_experimental_flag">Πειραματικές Λειτουργίες</string>
-    <string name="revanced_export_settings_summary">Αποθηκεύστε τις ρυθμίσεις ReVanced σας σε αρχείο</string>
+    <string name="revanced_export_settings_summary">Αποθηκεύστε τις ρυθμίσεις ReVanced Extended σας σε αρχείο</string>
     <string name="revanced_export_settings_title">Εξαγωγή ρυθμίσεων</string>
     <string name="revanced_external_downloader_installed">Εγκατεστημένο</string>
     <string name="revanced_external_downloader_not_installed">Δεν έχει εγκατασταθεί</string>
@@ -553,7 +549,7 @@
     <string name="revanced_hook_download_button_summary">"Αντικατάσταση του κουμπιού «Λήψη» κάτω απ'το βίντεο, με κουμπί λήψης βίντεο σε εξωτερικό πρόγραμμα λήψης
 Διαθέσιμο μόνο στο YouTube v18.24.37+"</string>
     <string name="revanced_hook_download_button_title">Αντικατάσταση κουμπιού λήψης</string>
-    <string name="revanced_import_settings_summary">Ανάκτηση ρυθμίσεων ReVanced από αποθηκευμένο αρχείο</string>
+    <string name="revanced_import_settings_summary">Ανάκτηση ρυθμίσεων ReVanced Extended από αποθηκευμένο αρχείο</string>
     <string name="revanced_import_settings_title">Εισαγωγή ρυθμίσεων</string>
     <string name="revanced_layout_title">Εμφάνιση</string>
     <string name="revanced_misc">Διάφορα</string>
@@ -629,6 +625,7 @@
     <string name="revanced_shorts_player_title">Αναπαραγωγέας Shorts</string>
     <string name="revanced_show_fullscreen_title_summary">Γνωστό ζήτημα: ο τίτλος εξαφανίζεται όταν πατηθεί</string>
     <string name="revanced_show_fullscreen_title_title">Εμφάνιση τίτλου σε πλήρη οθόνη</string>
+    <string name="revanced_speed_overlay_text" formatted="false">Αναπαραγωγή με ταχύτητα %sx</string>
     <string name="revanced_spoof_app_version_summary">"Αυτή η λειτουργία τροποποιεί την έκδοση της εφαρμογής σε παλαιότερη έκδοση.
 
 Αυτό θα αλλάξει την εμφάνιση της εφαρμογής, αλλά ενδέχεται να προκύψουν άγνωστες παρενέργειες.
@@ -642,6 +639,13 @@
     <string name="revanced_spoof_app_version_target_summary">Πληκτρολογήστε την έκδοση εφαρμογής που θα εφαρμοστεί</string>
     <string name="revanced_spoof_app_version_target_title">Επεξεργασία έκδοσης εφαρμογής που θα εφαρμοθεί</string>
     <string name="revanced_spoof_app_version_title">Τροποποίηση έκδοσης εφαρμογής</string>
+    <string name="revanced_spoof_player_parameter_summary">"Τροποποίηση των παραμέτρων του αναπαραγωγέα για την αποφυγή προβλημάτων αναπαραγωγής
+
+Γνωστά προβλήματα:
+• Δεν είναι διαθέσιμος ο υψηλός ρυθμός bitrate
+• Οι μικρογραφίες της γραμμής προόδου δεν λειτουργούν σε πληρωμένα βίντεο
+• Η λήψη εκτός σύνδεσης ενδέχεται να μην λειτουργεί
+• Τα βίντεο ενδέχεται να μην ξεκινούν από το τελευταίο μέρος που παρακολουθήσατε"</string>
     <string name="revanced_spoof_player_parameter_title">Τροποποίηση παραμέτρου αναπαραγωγέα</string>
     <string name="revanced_swipe_controls">Έλεγχος με σάρωση οθόνης</string>
     <string name="revanced_swipe_magnitude_threshold_summary">Ελάχιστο πλάτος κίνησης αναγνωρίσιμο ως χειρονομία σάρωσης</string>
@@ -705,7 +709,7 @@
     <string name="sb_api_url_invalid">Η διεύθυνση URL του API δεν είναι έγκυρη</string>
     <string name="sb_api_url_changed">Η διεύθυνση URL του API άλλαξε</string>
     <string name="sb_settings_copy">Αντιγραφή</string>
-    <string name="sb_settings_ie_sum">Οι ρυθμίσεις JSON του SponsorBlock σας που μπορούν να εισαχθούν/εξαχθούν στο ReVanced και σε άλλες πλατφόρμες SponsorBlock. Αυτό περιλαμβάνει το προσωπικό σας αναγνωριστικό χρήστη. Φροντίστε να το μοιραστείτε με σύνεση</string>
+    <string name="sb_settings_ie_sum">Οι ρυθμίσεις JSON του SponsorBlock σας που μπορούν να εισαχθούν/εξαχθούν στο ReVanced Extended και σε άλλες πλατφόρμες SponsorBlock. Αυτό περιλαμβάνει το προσωπικό σας αναγνωριστικό χρήστη. Φροντίστε να το μοιραστείτε με σύνεση</string>
     <string name="sb_settings_import_successful">Οι ρυθμίσεις εισήχθησαν επιτυχώς</string>
     <string name="sb_settings_import_failed">Η εισαγωγή απέτυχε: %s</string>
     <string name="sb_settings_export_failed">Η εξαγωγή απέτυχε: %s</string>
