@@ -172,7 +172,7 @@ ReVanced Extended Patches.
 | `replace-cast-button` | Replace the cast button in the player with the open music button. | 6.15.52 ~ 6.21.51 |
 | `replace-dismiss-queue` | Replace dismiss queue menu to watch on YouTube. | 6.15.52 ~ 6.21.51 |
 | `return-youtube-dislike` | Shows the dislike count of videos using the Return YouTube Dislike API. | 6.15.52 ~ 6.21.51 |
-| `settings` | Adds settings for ReVanced to YouTube Music. | 6.15.52 ~ 6.21.51 |
+| `settings` | Adds settings for ReVanced Extended to YouTube Music. | 6.15.52 ~ 6.21.51 |
 | `sponsorblock` | Integrates SponsorBlock which allows skipping video segments such as sponsored content. | 6.15.52 ~ 6.21.51 |
 | `spoof-app-version` | Spoof the YouTube Music client version. | 6.15.52 ~ 6.21.51 |
 | `start-page` | Set the default start page. | 6.15.52 ~ 6.21.51 |
