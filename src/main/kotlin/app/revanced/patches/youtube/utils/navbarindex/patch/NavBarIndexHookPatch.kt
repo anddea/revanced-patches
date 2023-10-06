@@ -9,7 +9,11 @@ import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patches.youtube.utils.fingerprints.OnBackPressedFingerprint
-import app.revanced.patches.youtube.utils.navbarindex.fingerprints.*
+import app.revanced.patches.youtube.utils.navbarindex.fingerprints.MobileTopBarButtonOnClickFingerprint
+import app.revanced.patches.youtube.utils.navbarindex.fingerprints.NavButtonOnClickFingerprint
+import app.revanced.patches.youtube.utils.navbarindex.fingerprints.NavButtonOnClickLegacyFingerprint
+import app.revanced.patches.youtube.utils.navbarindex.fingerprints.OnResumeFragmentsFingerprints
+import app.revanced.patches.youtube.utils.navbarindex.fingerprints.SettingsActivityOnBackPressedFingerprint
 import app.revanced.util.integrations.Constants.UTILS_PATH
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction35c
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction

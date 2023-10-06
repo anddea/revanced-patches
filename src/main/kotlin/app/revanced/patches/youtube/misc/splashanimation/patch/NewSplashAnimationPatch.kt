@@ -63,15 +63,28 @@ class NewSplashAnimationPatch : BytecodePatch(
          */
         WatchWhileActivityWithOutFlagsFingerprint.result?.let {
             it.mutableMethod.apply {
-                for (index in getWideLiteralIndex(DarkSplashAnimation) - 1 downTo 0) {
+                var startIndex = getWideLiteralIndex(DarkSplashAnimation) - 1
+                val endIndex = startIndex - 30
+
+                for (index in startIndex downTo endIndex) {
                     if (getInstruction(index).opcode != Opcode.IF_EQZ)
                         continue
 
+                    startIndex = index - 8
+
                     arrayOf(
                         index,
-                        index - 8,
-                        index - 14
+                        index - 8
                     ).forEach { insertIndex -> inject(insertIndex) }
+
+                    break
+                }
+
+                for (index in startIndex downTo endIndex) {
+                    if (getInstruction(index).opcode != Opcode.IF_NE)
+                        continue
+
+                    inject(index)
 
                     break
                 }
