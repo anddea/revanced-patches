@@ -115,9 +115,9 @@
     <string name="revanced_enable_new_splash_animation_summary_off">Nouvel écran de démarrage désactivé</string>
     <string name="revanced_enable_new_splash_animation_summary_on">Nouvel écran de démarrage affiché</string>
     <string name="revanced_enable_new_splash_animation_title">Le nouvel écran de démarrage</string>
-    <string name="revanced_enable_new_thumbnail_preview_summary_off">Le nouvel aperçu de miniature est activé</string>
-    <string name="revanced_enable_new_thumbnail_preview_summary_on">Le nouvel aperçu de miniature est activé</string>
-    <string name="revanced_enable_new_thumbnail_preview_title">Activer le nouvel aperçu des miniatures</string>
+    <string name="revanced_enable_new_thumbnail_preview_summary_off">Le nouvel aperçu des vignettes sur la barre de progression est désactivé </string>
+    <string name="revanced_enable_new_thumbnail_preview_summary_on">Le nouvel aperçu des vignettes sur la barre de progression est activé</string>
+    <string name="revanced_enable_new_thumbnail_preview_title">Nouvel aperçu des vignettes sur la barre de progression </string>
     <string name="revanced_enable_old_quality_layout_summary_off">La nouvelle interface des paramètres de qualité vidéo est affiché</string>
     <string name="revanced_enable_old_quality_layout_summary_on">L\'ancienne interface des paramètres de qualité vidéo est affiché</string>
     <string name="revanced_enable_old_quality_layout_title">L\'ancienne interface de qualité vidéo</string>
@@ -461,9 +461,9 @@
     <string name="revanced_hide_quick_actions_title">Tous les boutons d\'actions rapides</string>
     <string name="revanced_hide_seekbar_summary_off">La barre de progression est affiché</string>
     <string name="revanced_hide_seekbar_summary_on">La barre de progression est caché</string>
-    <string name="revanced_hide_seekbar_thumbnail_summary_off">La barre de progression sur la miniature est affiché</string>
-    <string name="revanced_hide_seekbar_thumbnail_summary_on">La barre de progression sur la miniature est caché</string>
-    <string name="revanced_hide_seekbar_thumbnail_title">La barre de progression sur la miniature</string>
+    <string name="revanced_hide_seekbar_thumbnail_summary_off">Les vignettes sur la barre de progression sont affichés</string>
+    <string name="revanced_hide_seekbar_thumbnail_summary_on">Les vignettes sur la barre de progression sont cachés</string>
+    <string name="revanced_hide_seekbar_thumbnail_title">Les vignettes sur la barre de progression</string>
     <string name="revanced_hide_seekbar_title">La barre de progression</string>
     <string name="revanced_hide_seek_message_summary_off">Les boîtes de messages discrets sont affichés</string>
     <string name="revanced_hide_seek_message_summary_on">Les boîtes de messages discrets sont cachés</string>
@@ -554,13 +554,13 @@ Disponible uniquement sur YouTube v18.24.37+"</string>
     <string name="revanced_overlay_button">Ajouts de boutons sur la vidéo</string>
     <string name="revanced_overlay_button_always_repeat_summary">"Appuyez pour basculer l'état de la répétition automatique
 Appuyez longuement pour basculer et mettre en pause la répétition automatique"</string>
-    <string name="revanced_overlay_button_always_repeat_title">Le bouton \"Toujours répéter\"</string>
+    <string name="revanced_overlay_button_always_repeat_title">Bouton \"Lecture en boucle\"</string>
     <string name="revanced_overlay_button_copy_video_url_summary">"Cliquez pour copier l'URL de la vidéo
 Cliquez longuement pour copier l'URL de la vidéo"</string>
-    <string name="revanced_overlay_button_copy_video_url_timestamp_summary">"Cliquez pour copier le lien horodaté
+    <string name="revanced_overlay_button_copy_video_url_timestamp_summary">"Cliquez pour copier l'URL de la vidéo horodaté 
 Cliquez longuement pour copier la vidéo horodatée"</string>
-    <string name="revanced_overlay_button_copy_video_url_timestamp_title">Le bouton \"Copie du lien horodaté\"</string>
-    <string name="revanced_overlay_button_copy_video_url_title">Le bouton de \"Copie du lien\"</string>
+    <string name="revanced_overlay_button_copy_video_url_timestamp_title">Bouton \"Copie du lien horodaté\"</string>
+    <string name="revanced_overlay_button_copy_video_url_title">Bouton de \"Copie du lien\"</string>
     <string name="revanced_overlay_button_external_downloader_summary">Appuyez pour lancer le téléchargeur externe</string>
     <string name="revanced_overlay_button_external_downloader_title">Bouton de téléchargement externe</string>
     <string name="revanced_overlay_button_speed_dialog_reset">Vitesse de la vidéo réinitialisée (1.0x)</string>
@@ -614,6 +614,16 @@ Ce paramètre étant obsolètes, il se peut qu'ils ne soient plus valables"</str
     <string name="revanced_shorts_player_title">Lecteur Shorts</string>
     <string name="revanced_show_fullscreen_title_summary">Problème connu : le titre disparaît lorsqu\'on clique dessus</string>
     <string name="revanced_show_fullscreen_title_title">Le titre en plein écran</string>
+    <string name="revanced_skipped_dummy">Le moment factice a été passée</string>
+    <string name="revanced_skip_dummy_segment_summary">"Passer le moment factice au début de la vidéo pour contourner les délais d'application de qualité vidéo côté serveur
+
+• Si la durée de la vidéo est inférieure à 10 secondes, elle ne sera pas passée
+• Au démarrage de la vidéo, il y a un délai d'environ 0,7 seconde, mais la qualité vidéo par défaut est appliquée immédiatement
+• Les délais d'application de qualité vidéo pour la vidéo HDR ne sont pas contournés"</string>
+    <string name="revanced_skip_dummy_segment_title">Passer le moment factice</string>
+    <string name="revanced_skip_dummy_segment_toast_summary_off">Le message est caché</string>
+    <string name="revanced_skip_dummy_segment_toast_summary_on">Le message est affiché</string>
+    <string name="revanced_skip_dummy_segment_toast_title">Message lors du passage du moment </string>
     <string name="revanced_speed_overlay_text" formatted="false">Vidéo en vitesse %sx </string>
     <string name="revanced_spoof_app_version_summary">"Utilise l'ancienne interface avec des risques d'effets inconnus. Supprimé les données pour retirer complètement si l'interface ne change pas"</string>
     <string name="revanced_spoof_app_version_target_entry_16_08_35">16.08.35 - Restaure le bouton \"Explorer\"</string>

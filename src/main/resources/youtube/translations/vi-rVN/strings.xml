@@ -204,9 +204,9 @@
     <string name="revanced_hide_button_download_summary_off">Nút Tải xuống được hiển thị</string>
     <string name="revanced_hide_button_download_summary_on">Nút Tải xuống đã ẩn</string>
     <string name="revanced_hide_button_download_title">Ẩn nút Tải xuống</string>
-    <string name="revanced_hide_button_like_dislike_summary_off">Nút Thích và Không thích được hiển thị</string>
-    <string name="revanced_hide_button_like_dislike_summary_on">Nút Thích và Không thích đã ẩn</string>
-    <string name="revanced_hide_button_like_dislike_title">Ẩn nút Thích và Không thích</string>
+    <string name="revanced_hide_button_like_dislike_summary_off">Nút Thích và nút Không thích được hiển thị</string>
+    <string name="revanced_hide_button_like_dislike_summary_on">Nút Thích và nút Không thích đã ẩn</string>
+    <string name="revanced_hide_button_like_dislike_title">Ẩn nút Thích và nút Không thích</string>
     <string name="revanced_hide_button_like_summary_off">Nút Thích được hiển thị</string>
     <string name="revanced_hide_button_like_summary_on">Nút Thích đã ẩn</string>
     <string name="revanced_hide_button_like_title">Ẩn nút Thích</string>
@@ -296,9 +296,9 @@
     <string name="revanced_hide_end_screen_overlay_summary_off">Lớp phủ màn hình kết thúc được hiển thị khi tắt tính năng Tự động phát</string>
     <string name="revanced_hide_end_screen_overlay_summary_on">Lớp phủ màn hình kết thúc đã ẩn khi tắt tính năng Tự động phát</string>
     <string name="revanced_hide_end_screen_overlay_title">Ẩn lớp phủ màn hình kết thúc</string>
-    <string name="revanced_hide_expandable_chip_summary_off">Bảng giới thiệu mở rộng bên dưới video được hiển thị</string>
-    <string name="revanced_hide_expandable_chip_summary_on">Bảng giới thiệu mở rộng bên dưới video đã ẩn</string>
-    <string name="revanced_hide_expandable_chip_title">Ẩn bảng giới thiệu mở rộng bên dưới video</string>
+    <string name="revanced_hide_expandable_chip_summary_off">Bảng giới thiệu mở rộng được hiển thị bên dưới video</string>
+    <string name="revanced_hide_expandable_chip_summary_on">Bảng giới thiệu mở rộng đã ẩn bên dưới video</string>
+    <string name="revanced_hide_expandable_chip_title">Ẩn bảng giới thiệu mở rộng</string>
     <string name="revanced_hide_feed_flyout_panel_filter_strings_title">Chỉnh sửa bộ lọc</string>
     <string name="revanced_hide_feed_flyout_panel_summary_off">Đang hiển thị trình đơn trên các trang video</string>
     <string name="revanced_hide_feed_flyout_panel_summary_on">Đang ẩn các thành phần của trình đơn trên các trang video bằng bộ lọc</string>
@@ -309,9 +309,9 @@
     <string name="revanced_hide_filmstrip_overlay_summary_off">Tua chính xác đã bật</string>
     <string name="revanced_hide_filmstrip_overlay_summary_on">Tua chính xác đã tắt</string>
     <string name="revanced_hide_filmstrip_overlay_title">Tắt tua chính xác</string>
-    <string name="revanced_hide_floating_microphone_summary_off">Nút Micrô nổi khi tìm kiếm được hiển thị</string>
-    <string name="revanced_hide_floating_microphone_summary_on">Nút Micrô nổi khi tìm kiếm đã ẩn</string>
-    <string name="revanced_hide_floating_microphone_title">Ẩn nút Micrô nổi khi tìm kiếm</string>
+    <string name="revanced_hide_floating_microphone_summary_off">Nút Micrô nổi được hiển thị khi tìm kiếm</string>
+    <string name="revanced_hide_floating_microphone_summary_on">Nút Micrô nổi đã ẩn khi tìm kiếm</string>
+    <string name="revanced_hide_floating_microphone_title">Ẩn nút Micrô nổi</string>
     <string name="revanced_hide_fullscreen_panels_summary_off">Đang phát video ở chế độ toàn màn hình mặc định</string>
     <string name="revanced_hide_fullscreen_panels_summary_on">Đang phát video ở chế độ toàn màn hình tối giản</string>
     <string name="revanced_hide_fullscreen_panels_title">Xem ở chế độ toàn màn hình tối giản</string>
@@ -620,6 +620,15 @@ Hầu hết các thiết bị bây giờ đều hỗ trợ codec VP9 nên bạn 
     <string name="revanced_shorts_player_title">Trình phát Shorts</string>
     <string name="revanced_show_fullscreen_title_summary">Hiển thị tiêu đề khi phát video ở chế độ toàn màn hình tối giản.\n\nSự cố đã biết: Tiêu đề đột ngột biến mất khi nhấn vào.</string>
     <string name="revanced_show_fullscreen_title_title">Hiện tiêu đề</string>
+    <string name="revanced_skipped_dummy">Đã bỏ qua khoảng trễ đầu video</string>
+    <string name="revanced_skip_dummy_segment_summary">"Bỏ qua khoảng trễ ở đầu video để tránh việc chờ xử lý chất lượng từ phía máy chủ.
+
+- Khi bạn nhấn nút Phát, sẽ có một độ trễ khoảng 0.7 giây trước khi video bắt đầu phát, tuy nhiên chất lượng video mặc định vẫn được áp dụng ngay lập tức.
+- Video có thời lượng dưới 10 giây và video HDR sẽ không bị bỏ qua khoảng trễ này."</string>
+    <string name="revanced_skip_dummy_segment_title">Bỏ qua khoảng trễ đầu video</string>
+    <string name="revanced_skip_dummy_segment_toast_summary_off">Thông báo ngắn đã ẩn khi bỏ qua phân đoạn</string>
+    <string name="revanced_skip_dummy_segment_toast_summary_on">Thông báo ngắn được hiển thị khi bỏ qua phân đoạn</string>
+    <string name="revanced_skip_dummy_segment_toast_title">Thông báo ngắn khi bỏ qua phân đoạn</string>
     <string name="revanced_speed_overlay_text" formatted="false">Đang phát ở tốc độ %sx</string>
     <string name="revanced_spoof_app_version_summary">"Giả mạo phiên bản YouTube hiện tại thành phiên bản cũ.
 
@@ -727,8 +736,8 @@ Sự cố đã biết:
     <string name="sb_segments_preview_sum">Xem trước/Tóm tắt những gì sẽ xảy ra/đã xảy ra trong video hiện tại hoặc các video tiếp theo/trước đó trong cùng một loạt video</string>
     <string name="sb_segments_filler">Cảnh phụ/Nội dung lạc đề - hài hước</string>
     <string name="sb_segments_filler_sum">Các cảnh phụ được thêm vào chỉ để gây cười hoặc dông dài làm tăng thời lượng video mà không bắt buộc để hiểu nội dung chính của video. Phân đoạn này không bao gồm bối cảnh hoặc các chi tiết nền.</string>
-    <string name="sb_segments_nomusic">Âm nhạc: Phần không phải âm nhạc</string>
-    <string name="sb_segments_nomusic_sum">Phân đoạn này chỉ dành cho video nhạc và nằm tách biệt với các phân đoạn khác, bao gồm những phần video không có trong bài hát chính thức</string>
+    <string name="sb_segments_nomusic">Âm nhạc: Phần không phải nhạc</string>
+    <string name="sb_segments_nomusic_sum">Phân đoạn này chỉ dành cho video nhạc và nằm tách biệt với các phân đoạn khác, bao gồm những phần video không có trong bản nhạc chính thức</string>
     <string name="sb_skip_button_compact">Bỏ qua</string>
     <string name="sb_skip_button_compact_highlight">Khoảnh khắc nổi bật</string>
     <string name="sb_skip_button_sponsor">Bỏ qua nhà tài trợ</string>
@@ -749,7 +758,7 @@ Sự cố đã biết:
     <string name="sb_skipped_outro">Đã bỏ qua phần kết thúc</string>
     <string name="sb_skipped_preview_beginning">Đã bỏ qua đoạn xem trước</string>
     <string name="sb_skipped_filler">Đã bỏ qua cảnh phụ/nội dung lạc đề - hài hước</string>
-    <string name="sb_skipped_nomusic">Đã bỏ qua phần không phải âm nhạc</string>
+    <string name="sb_skipped_nomusic">Đã bỏ qua phần không phải nhạc</string>
     <string name="sb_skipped_unsubmitted">Đã bỏ qua phân đoạn chưa gửi</string>
     <string name="sb_skipped_multiple_segments">Đã bỏ qua nhiều phân đoạn</string>
     <string name="sb_skip_automatically">Tự động bỏ qua</string>

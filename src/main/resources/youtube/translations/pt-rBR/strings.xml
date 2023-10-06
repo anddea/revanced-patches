@@ -82,6 +82,8 @@
     <string name="revanced_disable_landscape_mode_summary_off">Modo paisagem ao entrar em tela cheia está ativado</string>
     <string name="revanced_disable_landscape_mode_summary_on">Modo paisagem ao entrar em tela cheia está desativado</string>
     <string name="revanced_disable_landscape_mode_title">Desativar modo paisagem</string>
+    <string name="revanced_disable_speed_overlay_summary">"Desativar o 'Reproduzindo com velocidade 2x' enquanto segurar"</string>
+    <string name="revanced_disable_speed_overlay_title">Desativar sobreposição de velocidade</string>
     <string name="revanced_disable_quic_protocol_summary">"Desativar o protocolo QUIC do CronetEngine"</string>
     <string name="revanced_disable_quic_protocol_title">Desativar protocolo QUIC</string>
     <string name="revanced_disable_startup_shorts_player_summary_off">O reprodutor dos Shorts é ativado na inicialização do aplicativo</string>
@@ -98,6 +100,9 @@
     <string name="revanced_enable_custom_seekbar_color_summary_off">Cor personalizada da barra de progresso está desativada</string>
     <string name="revanced_enable_custom_seekbar_color_summary_on">A cor personalizada da barra de progresso está ativada</string>
     <string name="revanced_enable_custom_seekbar_color_title">Ativar cor personalizada da barra de busca</string>
+    <string name="revanced_edit_speed_overlay_value_summary">"Edite a velocidade que muda enquanto segura
+Disponível apenas para alguns usuários que podem usar a sobreposição de velocidade"</string>
+    <string name="revanced_edit_speed_overlay_value_title">Editar sobreposição de velocidade personalizada</string>
     <string name="revanced_enable_debug_logging_summary_off">O registro de depuração está desativado</string>
     <string name="revanced_enable_debug_logging_summary_on">O registro de depuração está ativado</string>
     <string name="revanced_enable_debug_logging_title">Ativar o registro de depuração</string>
@@ -199,6 +204,9 @@
     <string name="revanced_hide_button_download_summary_off">O botão de download será mostrado</string>
     <string name="revanced_hide_button_download_summary_on">O botão de download está oculto</string>
     <string name="revanced_hide_button_download_title">Ocultar botão de download</string>
+    <string name="revanced_hide_button_like_dislike_summary_off">Botões de like e deslike serão exibidos</string>
+    <string name="revanced_hide_button_like_dislike_summary_on">Botões de like e deslike estão ocultos</string>
+    <string name="revanced_hide_button_like_dislike_title">Ocultar botão de Like e Deslike</string>
     <string name="revanced_hide_button_like_summary_off">O botão de curtir será mostrado</string>
     <string name="revanced_hide_button_like_summary_on">O botão de curtir está oculto</string>
     <string name="revanced_hide_button_like_title">Ocultar botão de curtir</string>
@@ -415,12 +423,18 @@
     <string name="revanced_hide_player_flyout_panel_more_info_summary_off">O menu de mais informações será exibido</string>
     <string name="revanced_hide_player_flyout_panel_more_info_summary_on">O menu de mais informações está oculto</string>
     <string name="revanced_hide_player_flyout_panel_more_info_title">Ocultar menu de mais informações</string>
+    <string name="revanced_hide_player_flyout_panel_playback_speed_summary_off">O menu de velocidade de reprodução será exibido</string>
+    <string name="revanced_hide_player_flyout_panel_playback_speed_summary_on">O menu de velocidade de reprodução está oculto</string>
+    <string name="revanced_hide_player_flyout_panel_playback_speed_title">Ocultar menu de velocidade de produção</string>
     <string name="revanced_hide_player_flyout_panel_quality_footer_summary_off">O rodapé do menu de qualidade será exibido</string>
     <string name="revanced_hide_player_flyout_panel_quality_footer_summary_on">O rodapé do menu de qualidade está oculto</string>
     <string name="revanced_hide_player_flyout_panel_quality_footer_title">Ocultar rodapé do menu de qualidade</string>
     <string name="revanced_hide_player_flyout_panel_report_summary_off">O menu de denúncia será exibido</string>
     <string name="revanced_hide_player_flyout_panel_report_summary_on">O menu de denúncia está oculto</string>
     <string name="revanced_hide_player_flyout_panel_report_title">Ocultar menu de denúncia</string>
+    <string name="revanced_hide_player_flyout_panel_stable_volume_summary_off">O menu de volume estável será exibido</string>
+    <string name="revanced_hide_player_flyout_panel_stable_volume_summary_on">O menu de volume estável está oculto</string>
+    <string name="revanced_hide_player_flyout_panel_stable_volume_title">Ocultar menu de volume estável</string>
     <string name="revanced_hide_player_flyout_panel_stats_for_nerds_summary_off">O menu estatísticas para nerds será exibido</string>
     <string name="revanced_hide_player_flyout_panel_stats_for_nerds_summary_on">O menu estatísticas para nerds está oculto</string>
     <string name="revanced_hide_player_flyout_panel_stats_for_nerds_title">Ocultar o menu estatísticas para nerds</string>
@@ -606,14 +620,37 @@ Como essas configurações estão bastante desatualizadas, podem não ser válid
     <string name="revanced_shorts_player_title">Reprodutor do shorts</string>
     <string name="revanced_show_fullscreen_title_summary">Problema conhecido: o título desaparece quando clicado</string>
     <string name="revanced_show_fullscreen_title_title">Mostrar título em tela cheia</string>
+    <string name="revanced_skipped_dummy">Segmento fictício ignorado</string>
+    <string name="revanced_skip_dummy_segment_summary">"Ignorar segmento fictício no início do vídeo para ignorar atrasos na aplicação do vídeo no lado do servidor
+
+• Se a duração do vídeo for inferior a 10 segundos, ele não será pulado
+• Quando o vídeo começar, há um atraso de aproximadamente 0. segundos, mas a qualidade de vídeo padrão é aplicada imediatamente
+• Atraso na aplicação da qualidade de vídeo para vídeos HDR não estão ignorados"</string>
+    <string name="revanced_skip_dummy_segment_title">Pular segmento fictício</string>
+    <string name="revanced_skip_dummy_segment_toast_summary_off">Toast está oculto</string>
+    <string name="revanced_skip_dummy_segment_toast_summary_on">Toast será exibido</string>
+    <string name="revanced_skip_dummy_segment_toast_title">Mostrar um toast quando ignorado</string>
+    <string name="revanced_speed_overlay_text" formatted="false">Reproduzindo em velocidade %sx</string>
     <string name="revanced_spoof_app_version_summary">"Falsificação da versão cliente para a versão antiga
 
 Isto irá alterar a aparência do aplicativo, mas os efeitos colaterais desconhecidos podem ocorrer
 Se mais tarde for desligado, a interface do usuário antiga poderá permanecer até limpar os dados do aplicativo"</string>
+    <string name="revanced_spoof_app_version_target_entry_16_08_35">16.08.35 - Restaurar aba explorar</string>
+    <string name="revanced_spoof_app_version_target_entry_17_08_35">17.08.35 - Restaura antigo layout da interface</string>
+    <string name="revanced_spoof_app_version_target_entry_17_41_37">17.41.37 - Restaurar a prateleira de playlist antiga</string>
+    <string name="revanced_spoof_app_version_target_entry_18_05_40">18.05.40 - Restaurar caixa de entrada de comentários antiga</string>
+    <string name="revanced_spoof_app_version_target_entry_18_17_43">18.17.43 - Restaurar menu suspenso ao antigo estilo</string>
     <string name="revanced_spoof_app_version_target_entry_title">Versão da falsificação do aplicativo</string>
     <string name="revanced_spoof_app_version_target_summary">Digite a versão do app para falsificação</string>
     <string name="revanced_spoof_app_version_target_title">Editar versão de falsificação do app</string>
     <string name="revanced_spoof_app_version_title">Versão da falsificação do aplicativo</string>
+    <string name="revanced_spoof_player_parameter_summary">"Disfarce os parâmetros do reprodutor para prevenir problemas de reprodução
+
+Problemas conhecidos
+• Taxa de bits melhorada não está disponível
+• Nenhuma miniatura de barra de busca para vídeos pagos
+• Downloads offline podem não funcionar
+• O vídeo pode não começar a partir do último tempo assistido"</string>
     <string name="revanced_spoof_player_parameter_title">Parâmetro de falsificação do player</string>
     <string name="revanced_swipe_controls">Controles por gestos</string>
     <string name="revanced_swipe_magnitude_threshold_summary">A distância a ser percorrida pelo gesto de deslizar</string>
