@@ -10,13 +10,13 @@
     <string name="revanced_category_player">Плеер</string>
     <string name="revanced_category_video">Видео</string>
     <string name="revanced_custom_filter_strings_summary">Фильтровать компоненты по названиям через строку</string>
-    <string name="revanced_custom_filter_strings_title">Редактировать пользовательский фильтр</string>
+    <string name="revanced_custom_filter_strings_title">Изменить пользовательский фильтр</string>
     <string name="revanced_custom_filter_summary">Включает пользовательский фильтр для скрытия компонентов интерфейса</string>
     <string name="revanced_custom_filter_title">Пользовательский фильтр</string>
-    <string name="revanced_custom_playback_speeds_invalid">Недопустимые пользовательские скорости воспроизведения. Сброс к значениям по умолчанию</string>
+    <string name="revanced_custom_playback_speeds_invalid">Недопустимые значения скорости. Сброс к значениям по умолчанию</string>
     <string name="revanced_custom_playback_speeds_summary">Добавить или изменить доступные скорости воспроизведения</string>
-    <string name="revanced_custom_playback_speeds_title">Редактировать пользовательские скорости</string>
-    <string name="revanced_custom_playback_speeds_warning" formatted="false">Пользовательские скорости должны быть меньше, чем %sx</string>
+    <string name="revanced_custom_playback_speeds_title">Изменить значения скорости</string>
+    <string name="revanced_custom_playback_speeds_warning" formatted="false">Значения скорости должны быть меньше, чем %sx</string>
     <string name="revanced_disable_auto_captions_summary">Отключает автоматическое включение субтитров в видеоплеере</string>
     <string name="revanced_disable_auto_captions_title">Отключить автоматические субтитры</string>
     <string name="revanced_downloader_not_installed" formatted="false">%s не установлен. Пожалуйста, установите его.</string>
@@ -133,7 +133,6 @@
     <string name="revanced_replace_flyout_panel_dismiss_queue_continue_watch_title">Продолжить просмотр</string>
     <string name="revanced_replace_flyout_panel_dismiss_queue_summary">Заменяет пункт \"Очистить очередь\" на пункт \"Смотреть на YouTube\"</string>
     <string name="revanced_replace_flyout_panel_dismiss_queue_title">Замена пункта \"Очистить очередь\"</string>
-    <string name="revanced_replace_player_cast_button_summary">Заменяет кнопку \"Трансляция\" на кнопку открытия музыки (Экспериментальная опция)</string>
     <string name="revanced_replace_player_cast_button_title">Замена кнопки \"Трансляция\"</string>
     <string name="revanced_remember_repeat_state_summary">Запоминает состояние кнопки \"Повтор воспроизведения\"</string>
     <string name="revanced_remember_repeat_state_title">Запоминать состояние кнопки \"Повтор воспроизведения\"</string>
@@ -149,10 +148,10 @@
     <string name="revanced_ryd_enabled_summary">Отображает количество дизлайков в треках</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Дизлайки недоступны (достигнут лимит клиентов сервера API)</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Скрыто</string>
-    <string name="revanced_save_playback_speed">Изменить скорость воспроизведения по умолчанию на:</string>
-    <string name="revanced_save_video_quality_mobile">Качество видео при просмотре через мобильную сеть изменено на:</string>
+    <string name="revanced_save_playback_speed">Скорость воспроизведения по умолчанию изменена на:</string>
+    <string name="revanced_save_video_quality_mobile">Качество по умолчанию при моб. сети изменено на:</string>
     <string name="revanced_save_video_quality_none">Не удалось установить выбранное качество</string>
-    <string name="revanced_save_video_quality_wifi">Качество видео при просмотре через Wi-Fi сеть изменено на:</string>
+    <string name="revanced_save_video_quality_wifi">Качество по умолчанию при Wi-Fi изменено на:</string>
     <string name="revanced_spoof_app_version_summary">Подменить версию YouTube Music на v4.27.53 для пользователей из Канады</string>
     <string name="revanced_spoof_app_version_title">Подмена версии приложения</string>
     <string name="revanced_start_page_entry_chart">Хит-парады</string>
@@ -164,7 +163,7 @@
     <string name="revanced_start_page_title">Вкладка начального экрана</string>
     <string name="sb_enabled">SponsorBlock</string>
     <string name="sb_enabled_sum">SponsorBlock - коллективная система для пропуска раздражающих частей видео в YouTube</string>
-    <string name="sb_toast_on_skip">Уведомление при пропуске</string>
+    <string name="sb_toast_on_skip">Уведомление при автопропуске</string>
     <string name="sb_toast_on_skip_sum">Всплывающее уведомление отображено при автоматическом пропуске сегмента</string>
     <string name="sb_api_url">Изменить API адреса сервера</string>
     <string name="sb_api_url_sum">Адрес, используемый SponsorBlock для связи с сервером. Не изменяйте его, если не знаете, что делаете</string>
