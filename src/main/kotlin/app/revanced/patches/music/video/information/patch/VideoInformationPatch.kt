@@ -14,8 +14,7 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMu
 import app.revanced.patches.music.utils.fingerprints.SeekBarConstructorFingerprint
 import app.revanced.patches.music.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.music.video.information.fingerprints.PlayerControllerSetTimeReferenceFingerprint
-import app.revanced.patches.music.video.information.fingerprints.PlayerInitFingerprint
-import app.revanced.patches.music.video.information.fingerprints.SeekFingerprint
+import app.revanced.patches.music.video.information.fingerprints.VideoEndFingerprint
 import app.revanced.patches.music.video.information.fingerprints.VideoIdParentFingerprint
 import app.revanced.patches.music.video.information.fingerprints.VideoLengthFingerprint
 import app.revanced.util.integrations.Constants.MUSIC_VIDEO_PATH
@@ -33,46 +32,43 @@ import com.android.tools.smali.dexlib2.util.MethodUtil
 class VideoInformationPatch : BytecodePatch(
     listOf(
         PlayerControllerSetTimeReferenceFingerprint,
-        PlayerInitFingerprint,
         SeekBarConstructorFingerprint,
+        VideoEndFingerprint,
         VideoIdParentFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext) {
-        PlayerInitFingerprint.result?.let { parentResult ->
+        VideoEndFingerprint.result?.let {
             playerInitMethod =
-                parentResult.mutableClass.methods.first { MethodUtil.isConstructor(it) }
+                it.mutableClass.methods.first { method -> MethodUtil.isConstructor(method) }
 
             // hook the player controller for use through integrations
             onCreateHook(INTEGRATIONS_CLASS_DESCRIPTOR, "initialize")
 
-            SeekFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.let {
-                it.mutableMethod.apply {
-                    val seekHelperMethod = ImmutableMethod(
-                        definingClass,
-                        "seekTo",
-                        listOf(ImmutableMethodParameter("J", annotations, "time")),
-                        "Z",
-                        AccessFlags.PUBLIC or AccessFlags.FINAL,
-                        annotations, null,
-                        MutableMethodImplementation(4)
-                    ).toMutable()
+            it.mutableMethod.apply {
+                val seekHelperMethod = ImmutableMethod(
+                    definingClass,
+                    "seekTo",
+                    listOf(ImmutableMethodParameter("J", annotations, "time")),
+                    "Z",
+                    AccessFlags.PUBLIC or AccessFlags.FINAL,
+                    annotations, null,
+                    MutableMethodImplementation(4)
+                ).toMutable()
 
-                    val seekSourceEnumType = parameterTypes[1].toString()
+                val seekSourceEnumType = parameterTypes[1].toString()
 
-                    seekHelperMethod.addInstructions(
-                        0, """
+                seekHelperMethod.addInstructions(
+                    0, """
                             sget-object v0, $seekSourceEnumType->a:$seekSourceEnumType
                             invoke-virtual {p0, p1, p2, v0}, ${definingClass}->${name}(J$seekSourceEnumType)Z
                             move-result p1
                             return p1
                             """
-                    )
-
-                    parentResult.mutableClass.methods.add(seekHelperMethod)
-                }
-            } ?: throw SeekFingerprint.exception
-        } ?: throw PlayerInitFingerprint.exception
+                )
+                it.mutableClass.methods.add(seekHelperMethod)
+            }
+        } ?: throw VideoEndFingerprint.exception
 
 
         /**

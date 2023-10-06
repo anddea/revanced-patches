@@ -6,18 +6,16 @@ import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.youtube.player.suggestedvideooverlay.fingerprints.CoreConatinerBuilderFingerprint
 import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
-import app.revanced.patches.youtube.utils.fingerprints.VideoEndFingerprint
-import app.revanced.patches.youtube.utils.fingerprints.VideoEndParentFingerprint
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch.Companion.CoreContainer
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
+import app.revanced.patches.youtube.utils.videoid.general.patch.VideoIdPatch
 import app.revanced.util.bytecode.getWideLiteralIndex
 import app.revanced.util.integrations.Constants.PLAYER
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
@@ -29,15 +27,13 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 @DependsOn(
     [
         SettingsPatch::class,
-        SharedResourceIdPatch::class
+        SharedResourceIdPatch::class,
+        VideoIdPatch::class
     ]
 )
 @YouTubeCompatibility
 class SuggestedVideoOverlayPatch : BytecodePatch(
-    listOf(
-        CoreConatinerBuilderFingerprint,
-        VideoEndParentFingerprint
-    )
+    listOf(CoreConatinerBuilderFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
 
@@ -60,16 +56,12 @@ class SuggestedVideoOverlayPatch : BytecodePatch(
             }
         } ?: throw CoreConatinerBuilderFingerprint.exception
 
-        VideoEndParentFingerprint.result?.classDef?.let { classDef ->
-            VideoEndFingerprint.also { it.resolve(context, classDef) }.result?.let {
-                it.mutableMethod.apply {
-                    addInstruction(
-                        implementation!!.instructions.size - 1,
-                        "invoke-static {},$PLAYER->hideSuggestedVideoOverlay()V"
-                    )
-                }
-            } ?: throw VideoEndFingerprint.exception
-        } ?: throw VideoEndParentFingerprint.exception
+        VideoIdPatch.videoEndMethod.apply {
+            addInstruction(
+                implementation!!.instructions.size - 1,
+                "invoke-static {},$PLAYER->hideSuggestedVideoOverlay()V"
+            )
+        }
 
         /**
          * Add settings
