@@ -622,6 +622,16 @@ Toque aquí para obtener más información.</string>
     <string name="revanced_shorts_player_title">Reproductor de Shorts</string>
     <string name="revanced_show_fullscreen_title_summary">Problema conocido: El título desaparece al pulsarlo</string>
     <string name="revanced_show_fullscreen_title_title">Mostrar título en pantalla completa</string>
+    <string name="revanced_skipped_dummy">Segmento ficticio omitido</string>
+    <string name="revanced_skip_dummy_segment_summary">"Omite el segmento ficticio al inicio del vídeo para evitar retrasos en la aplicación de la calidad de vídeo en el lado del servidor
+
+- Si la duración del vídeo es inferior a 10 segundos, no se omitirá.
+- Cuando se inicia el vídeo, hay un retraso de aproximadamente 0,7 segundos, pero la calidad de vídeo predeterminada se aplica inmediatamente
+- Los retrasos de aplicación de la calidad de vídeo para vídeo HDR no se omiten"</string>
+    <string name="revanced_skip_dummy_segment_title">Omitir segmento ficticio</string>
+    <string name="revanced_skip_dummy_segment_toast_summary_off">El mensaje está oculto</string>
+    <string name="revanced_skip_dummy_segment_toast_summary_on">El mensaje está visible</string>
+    <string name="revanced_skip_dummy_segment_toast_title">Mostrar un mensaje al omitir</string>
     <string name="revanced_speed_overlay_text" formatted="false">Reproduciendo a velocidad %sx</string>
     <string name="revanced_spoof_app_version_summary">"Modificación de la versión del cliente a la versión antigua
 

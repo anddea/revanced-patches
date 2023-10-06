@@ -308,7 +308,7 @@ Dostępne jedynie dla garstki użytkowników, którzy mogą używać nakładki p
     <string name="revanced_hide_feed_survey_title">Ankiety</string>
     <string name="revanced_hide_filmstrip_overlay_summary_off">Włączone</string>
     <string name="revanced_hide_filmstrip_overlay_summary_on">Wyłączone</string>
-    <string name="revanced_hide_filmstrip_overlay_title">Precyzyjniejsze przesuwanie po pasku</string>
+    <string name="revanced_hide_filmstrip_overlay_title">Przewijanie w trybie taśmy filmowej</string>
     <string name="revanced_hide_floating_microphone_summary_off">Widoczny</string>
     <string name="revanced_hide_floating_microphone_summary_on">Ukryty</string>
     <string name="revanced_hide_floating_microphone_title">Dolny przycisk od mikrofonu</string>
@@ -542,7 +542,7 @@ Znany problem: automatyczne odtwarzanie nie działa"</string>
     <string name="revanced_hide_web_search_results_title">Wyniki wyszukiwania stron internetowych</string>
     <string name="revanced_hide_youtube_music_button_summary_off">Widoczny</string>
     <string name="revanced_hide_youtube_music_button_summary_on">Ukryty</string>
-    <string name="revanced_hide_youtube_music_button_title">Przycisk od odtwarzania na youtube music</string>
+    <string name="revanced_hide_youtube_music_button_title">Przycisk od odtwarzania na YouTube Music</string>
     <string name="revanced_hook_download_button_summary">"Zmodyfikuj przycisk od pobierania, by używał zewnętrznej aplikacji
 Działa tylko na wersji YouTube v18.24.37 i wyższych"</string>
     <string name="revanced_hook_download_button_title">Zmodyfikuj przycisk od pobierania</string>
@@ -620,6 +620,16 @@ To ustawienie może nie zadziałać"</string>
     <string name="revanced_shorts_player_title">Odtwarzacz shortsów</string>
     <string name="revanced_show_fullscreen_title_summary">Znany problem: Tytuły znikają po stuknięciu w nie</string>
     <string name="revanced_show_fullscreen_title_title">Pokazuj tytuły w trybie pełnoekranowym</string>
+    <string name="revanced_skipped_dummy">Pominięto fikcyjny segment</string>
+    <string name="revanced_skip_dummy_segment_summary">"Pomija fikcyjne segmenty na początku wideo, aby obejść opóźnienia w egzekwowaniu jakości wideo po stronie serwera
+
+• Jeśli długość wideo jest mniejsza niż 10 sekund, pominięcie nie zostanie zastosowane
+• Po uruchomieniu wideo występuje opóźnienie wynoszące około 0.7 sekundy, lecz domyślna jakość wideo jest stosowana natychmiast
+• Opóźnienia egzekwowania jakości wideo dla wideo HDR nie są obchodzone"</string>
+    <string name="revanced_skip_dummy_segment_title">Fikcyjne segmenty</string>
+    <string name="revanced_skip_dummy_segment_toast_summary_off">Ukryte</string>
+    <string name="revanced_skip_dummy_segment_toast_summary_on">Widoczne</string>
+    <string name="revanced_skip_dummy_segment_toast_title">Komunikaty po pominięciu</string>
     <string name="revanced_speed_overlay_text" formatted="false">Odtwarzanie z prędkością %sx</string>
     <string name="revanced_spoof_app_version_summary">"Oszukuje wersję aplikacji do starszej wersji
 

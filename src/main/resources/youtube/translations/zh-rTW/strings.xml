@@ -621,6 +621,16 @@
     <string name="revanced_shorts_player_title">Shorts 播放器</string>
     <string name="revanced_show_fullscreen_title_summary">已知問題 : 標題被點擊時會消失</string>
     <string name="revanced_show_fullscreen_title_title">顯示全螢幕標題</string>
+    <string name="revanced_skipped_dummy">忽略初始假片段</string>
+    <string name="revanced_skip_dummy_segment_summary">"在影片播放開始時，自動跳過虛擬片段，以避開伺服器對影片品質進行的強制延遲。
+
+• 若影片短於 10 秒，此功能不會啟動
+• 影片一開始會有大約 0.7 秒的延遲，但是預設的影片品質會馬上套用
+• 請注意，此功能不會跳過 HDR 影片的品質強制延遲"</string>
+    <string name="revanced_skip_dummy_segment_title">忽略初始假片段</string>
+    <string name="revanced_skip_dummy_segment_toast_summary_off">隱藏提示通知</string>
+    <string name="revanced_skip_dummy_segment_toast_summary_on">顯示提示通知</string>
+    <string name="revanced_skip_dummy_segment_toast_title">當成功忽略初始假片段時，將出現提示通知。</string>
     <string name="revanced_speed_overlay_text" formatted="false">正在以 %sx 的速度播放</string>
     <string name="revanced_spoof_app_version_summary">"將應用程式版本偽裝成舊版本
 

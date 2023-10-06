@@ -621,6 +621,16 @@ Dal momento che questa opzione è abbastanza obsoleta, potrebbe risultare non pi
     <string name="revanced_shorts_player_title">Riproduttore degli Shorts</string>
     <string name="revanced_show_fullscreen_title_summary">Problema noto: il titolo scompare quando viene toccato</string>
     <string name="revanced_show_fullscreen_title_title">Mostra il titolo a schermo intero</string>
+    <string name="revanced_skipped_dummy">Segmento Fittizio saltato</string>
+    <string name="revanced_skip_dummy_segment_summary">"Salta il segmento Fittizio all'inizio del video per aggirare i ritardi obbligatori della qualità video sul lato server.
+
+- Se la lunghezza del video è inferiore a 10 secondi, il segmento non sarà saltato
+- Quando il video comincia, c'è un ritardo di circa 0.7 secondi, ma la qualità video predefinita viene applicata immediatamente
+- Per i video HDR non funziona"</string>
+    <string name="revanced_skip_dummy_segment_title">Salta segmento Fittizio</string>
+    <string name="revanced_skip_dummy_segment_toast_summary_off">La notifica Toast è nascosta</string>
+    <string name="revanced_skip_dummy_segment_toast_summary_on">La notifica Toast è visibile</string>
+    <string name="revanced_skip_dummy_segment_toast_title">Mostra una notifica Toast quando un segmento è saltato</string>
     <string name="revanced_speed_overlay_text" formatted="false">Riproduzione a velocità %sx</string>
     <string name="revanced_spoof_app_version_summary">"Simula la versione del client a una versione precedente.
 
@@ -671,9 +681,9 @@ Problemi noti:
     <string name="sb_enable_auto_hide_skip_segment_button">Nascondi automaticamente il pulsante Salta</string>
     <string name="sb_enable_auto_hide_skip_segment_button_sum_on">Il pulsante Salta scompare dopo alcuni secondi</string>
     <string name="sb_enable_auto_hide_skip_segment_button_sum_off">Il pulsante Salta è visibile per tutta la durata del segmento</string>
-    <string name="sb_general_skiptoast">Mostra una notifica toast quando salti automaticamente un segmento</string>
-    <string name="sb_general_skiptoast_sum_on">Notifica toast visibile. Tocca qui per vedere un esempio</string>
-    <string name="sb_general_skiptoast_sum_off">Notifica toast nascosta. Tocca qui per vedere un esempio</string>
+    <string name="sb_general_skiptoast">Mostra una notifica Toast quando un segmento è saltato automaticamente</string>
+    <string name="sb_general_skiptoast_sum_on">Notifica Toast visibile. Tocca qui per vedere un esempio</string>
+    <string name="sb_general_skiptoast_sum_off">Notifica Toast nascosta. Tocca qui per vedere un esempio</string>
     <string name="sb_general_time_without">Mostra il tempo senza i segmenti</string>
     <string name="sb_general_time_without_sum_on">La durata del video meno tutti gli eventuali segmenti. Questo tempo è visibile tra parentesi accanto alla durata del video completo</string>
     <string name="sb_general_time_without_sum_off">La durata totale del video è visibile</string>
@@ -720,37 +730,37 @@ Problemi noti:
     <string name="sb_segments_interaction_sum">Un breve promemoria per mettere mi piace, iscriversi o seguirli su altre piattaforme durante la visione di un video. Se è lungo o riguarda qualcosa di specifico, dovrebbe essere considerato Autopromozione</string>
     <string name="sb_segments_highlight">Momento Saliente</string>
     <string name="sb_segments_highlight_sum">La parte del video che la maggior parte delle persone sta cercando</string>
-    <string name="sb_segments_intro">Intervallo/Animazione Introduttiva</string>
+    <string name="sb_segments_intro">Intervallo/Introduzione</string>
     <string name="sb_segments_intro_sum">Un intervallo senza contenuto effettivo. Potrebbe essere una pausa, un fotogramma statico o un\'animazione ripetuta. Questo non dovrebbe includere transizioni che contengono informazioni</string>
     <string name="sb_segments_outro">Schede Finali/Crediti</string>
-    <string name="sb_segments_outro_sum">I titoli di coda o quando appaiono le schede finali. Questo non dovrebbe includere conclusioni con informazioni</string>
+    <string name="sb_segments_outro_sum">I crediti o quando appaiono le schede finali. Questo non dovrebbe includere conclusioni con informazioni</string>
     <string name="sb_segments_preview">Anteprima/Riepilogo</string>
     <string name="sb_segments_preview_sum">Una breve raccolta di anteprime che mostrano ciò che è in programma o ciò che è successo nel video attuale o in altri video di una serie, dove tutte le informazioni sono ripetute altrove</string>
-    <string name="sb_segments_filler">Riempitivi Irrilevanti/Battute</string>
+    <string name="sb_segments_filler">Riempitivo Irrelevante/Battute</string>
     <string name="sb_segments_filler_sum">Scene riempitive aggiunte solo a scopo riempitivo o per umorismo, non necessarie per comprendere il contenuto principale del video. Questo non dovrebbe includere segmenti che forniscono contesto o dettagli di sfondo</string>
     <string name="sb_segments_nomusic">Musica: Sezione Non-Musicale</string>
     <string name="sb_segments_nomusic_sum">Solo per video musicali. Dovrebbe essere usato solo per le sezioni di video musicali senza musica che non sono già incluse in un\'altra categoria</string>
     <string name="sb_skip_button_compact">Salta</string>
     <string name="sb_skip_button_compact_highlight">Momento Saliente</string>
-    <string name="sb_skip_button_sponsor">Salta sponsor</string>
-    <string name="sb_skip_button_selfpromo">Salta promozione</string>
-    <string name="sb_skip_button_interaction">Salta interazione</string>
-    <string name="sb_skip_button_highlight">Passa al momento saliente</string>
-    <string name="sb_skip_button_intro_beginning">Salta introduzione</string>
-    <string name="sb_skip_button_outro">Salta conclusioni finali</string>
-    <string name="sb_skip_button_preview_beginning">Salta anteprima inizio</string>
-    <string name="sb_skip_button_filler">Salta riempitivo</string>
-    <string name="sb_skip_button_nomusic">Salta non-musica</string>
+    <string name="sb_skip_button_sponsor">Salta Sponsor</string>
+    <string name="sb_skip_button_selfpromo">Salta Autopromozione</string>
+    <string name="sb_skip_button_interaction">Salta Promemoria</string>
+    <string name="sb_skip_button_highlight">Passa al Momento Saliente</string>
+    <string name="sb_skip_button_intro_beginning">Salta Introduzione</string>
+    <string name="sb_skip_button_outro">Salta Crediti</string>
+    <string name="sb_skip_button_preview_beginning">Salta Anteprima</string>
+    <string name="sb_skip_button_filler">Salta Riempitivo</string>
+    <string name="sb_skip_button_nomusic">Salta Sezione Non-Musicale</string>
     <string name="sb_skip_button_unsubmitted">Salta segmento</string>
     <string name="sb_skipped_sponsor">Sponsor saltato</string>
     <string name="sb_skipped_selfpromo">Autopromozione saltata</string>
-    <string name="sb_skipped_interaction">Promemoria fastidioso saltato</string>
-    <string name="sb_skipped_highlight">Passato al momento saliente</string>
+    <string name="sb_skipped_interaction">Promemoria saltato</string>
+    <string name="sb_skipped_highlight">Passato al Momento Saliente</string>
     <string name="sb_skipped_intro_beginning">Introduzione saltata</string>
-    <string name="sb_skipped_outro">Conclusioni finali saltate</string>
-    <string name="sb_skipped_preview_beginning">Anteprima iniziale saltata</string>
+    <string name="sb_skipped_outro">Crediti saltati</string>
+    <string name="sb_skipped_preview_beginning">Anteprima saltata</string>
     <string name="sb_skipped_filler">Riempitivo saltato</string>
-    <string name="sb_skipped_nomusic">Sezione non-musicale saltata</string>
+    <string name="sb_skipped_nomusic">Sezione Non-Musicale saltata</string>
     <string name="sb_skipped_unsubmitted">Segmento non inviato saltato</string>
     <string name="sb_skipped_multiple_segments">Segmenti multipli saltati</string>
     <string name="sb_skip_automatically">Salta automaticamente</string>
