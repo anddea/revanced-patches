@@ -14,7 +14,7 @@ object FineScrubbingOverlayFingerprint : MethodFingerprint(
     opcodes = listOf(
         Opcode.IF_NEZ,
         Opcode.INVOKE_VIRTUAL,
-        Opcode.IGET_OBJECT,	// insert index
+        Opcode.IGET_OBJECT,    // insert index
         Opcode.IGET_OBJECT,
         Opcode.IGET_OBJECT,
         Opcode.IGET_OBJECT

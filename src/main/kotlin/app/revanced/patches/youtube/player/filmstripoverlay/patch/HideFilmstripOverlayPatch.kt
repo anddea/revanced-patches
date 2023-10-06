@@ -74,7 +74,8 @@ class HideFilmstripOverlayPatch : BytecodePatch(
                 if (SettingsPatch.upward1828) {
                     val insertIndex = it.scanResult.patternScanResult!!.startIndex + 2
                     val replaceInstruction = getInstruction<TwoRegisterInstruction>(insertIndex)
-                    val replaceReference = getInstruction<ReferenceInstruction>(insertIndex).reference
+                    val replaceReference =
+                        getInstruction<ReferenceInstruction>(insertIndex).reference
 
                     addComponentUpward1828(insertIndex, initialIndex)
 
@@ -89,7 +90,8 @@ class HideFilmstripOverlayPatch : BytecodePatch(
                     removeInstruction(insertIndex)
                 } else {
                     val insertIndex = getIndex("bringChildToFront") + 1
-                    val insertRegister = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
+                    val insertRegister =
+                        getInstruction<TwoRegisterInstruction>(insertIndex).registerA
 
                     addComponentBelow1828(insertIndex, initialIndex)
 
@@ -175,6 +177,7 @@ class HideFilmstripOverlayPatch : BytecodePatch(
                             const v$register, $value
                             
                             """.trimIndent()
+
                         else -> ""
                     }
 

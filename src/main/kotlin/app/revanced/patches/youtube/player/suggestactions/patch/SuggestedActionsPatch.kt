@@ -1,7 +1,6 @@
 package app.revanced.patches.youtube.player.suggestactions.patch
 
 import app.revanced.extensions.exception
-import app.revanced.extensions.injectHideCall
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
