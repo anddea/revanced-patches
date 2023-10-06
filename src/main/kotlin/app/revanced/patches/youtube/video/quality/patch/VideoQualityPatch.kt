@@ -14,6 +14,8 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.youtube.utils.annotations.YouTubeCompatibility
 import app.revanced.patches.youtube.utils.fingerprints.NewFlyoutPanelOnClickListenerFingerprint
 import app.revanced.patches.youtube.utils.overridequality.patch.OverrideQualityHookPatch
+import app.revanced.patches.youtube.utils.overridespeed.patch.OverrideSpeedHookPatch
+import app.revanced.patches.youtube.utils.playertype.patch.PlayerTypeHookPatch
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch
 import app.revanced.patches.youtube.utils.settings.resource.patch.SettingsPatch.Companion.contexts
 import app.revanced.patches.youtube.utils.videoid.general.patch.VideoIdPatch
@@ -30,9 +32,11 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 @DependsOn(
     [
         OverrideQualityHookPatch::class,
+        OverrideSpeedHookPatch::class,
+        PlayerTypeHookPatch::class,
+        SettingsPatch::class,
         VideoIdPatch::class,
         VideoIdWithoutShortsPatch::class,
-        SettingsPatch::class
     ]
 )
 @YouTubeCompatibility
@@ -80,6 +84,8 @@ class VideoQualityPatch : BytecodePatch(
         VideoIdPatch.injectCall("$INTEGRATIONS_VIDEO_QUALITY_CLASS_DESCRIPTOR->newVideoStarted(Ljava/lang/String;)V")
         VideoIdWithoutShortsPatch.injectCall("$INTEGRATIONS_VIDEO_QUALITY_CLASS_DESCRIPTOR->newVideoStarted(Ljava/lang/String;)V")
 
+        VideoIdWithoutShortsPatch.injectCall("$INTEGRATIONS_RELOAD_VIDEO_CLASS_DESCRIPTOR->setVideoId(Ljava/lang/String;)V")
+
         /**
          * Copy arrays
          */
@@ -103,5 +109,7 @@ class VideoQualityPatch : BytecodePatch(
     private companion object {
         const val INTEGRATIONS_VIDEO_QUALITY_CLASS_DESCRIPTOR =
             "$VIDEO_PATH/VideoQualityPatch;"
+        const val INTEGRATIONS_RELOAD_VIDEO_CLASS_DESCRIPTOR =
+            "$VIDEO_PATH/ReloadVideoPatch;"
     }
 }

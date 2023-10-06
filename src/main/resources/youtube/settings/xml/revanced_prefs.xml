@@ -646,7 +646,10 @@
         <SwitchPreference android:title="@string/revanced_enable_save_playback_speed_title" android:key="revanced_enable_save_playback_speed" android:defaultValue="false" android:summaryOn="@string/revanced_enable_save_playback_speed_summary_on" android:summaryOff="@string/revanced_enable_save_playback_speed_summary_off" />SETTINGS: DEFAULT_PLAYBACK_SPEED -->
 
         <!-- SETTINGS: DEFAULT_VIDEO_QUALITY
-        <SwitchPreference android:title="@string/revanced_enable_save_video_quality_title" android:key="revanced_enable_save_video_quality" android:defaultValue="true" android:summaryOn="@string/revanced_enable_save_video_quality_summary_on" android:summaryOff="@string/revanced_enable_save_video_quality_summary_off" />SETTINGS: DEFAULT_VIDEO_QUALITY -->
+        <SwitchPreference android:title="@string/revanced_enable_save_video_quality_title" android:key="revanced_enable_save_video_quality" android:defaultValue="true" android:summaryOn="@string/revanced_enable_save_video_quality_summary_on" android:summaryOff="@string/revanced_enable_save_video_quality_summary_off" />
+        <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_experimental_flag" />
+        <SwitchPreference android:title="@string/revanced_skip_dummy_segment_title" android:key="revanced_skip_dummy_segment" android:defaultValue="false" android:summary="@string/revanced_skip_dummy_segment_summary" />
+        <SwitchPreference android:title="@string/revanced_skip_dummy_segment_toast_title" android:key="revanced_skip_dummy_segment_toast" android:defaultValue="true" android:summaryOn="@string/revanced_skip_dummy_segment_toast_summary_on" android:summaryOff="@string/revanced_skip_dummy_segment_toast_summary_off" android:dependency="revanced_skip_dummy_segment" />SETTINGS: DEFAULT_VIDEO_QUALITY -->
 
     <!-- PREFERENCE: VIDEO_SETTINGS
     </PreferenceScreen>PREFERENCE: VIDEO_SETTINGS -->
