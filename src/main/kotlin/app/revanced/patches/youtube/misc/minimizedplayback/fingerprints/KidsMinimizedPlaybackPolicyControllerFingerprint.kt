@@ -43,4 +43,5 @@ object KidsMinimizedPlaybackPolicyControllerFingerprint : MethodFingerprint(
         methodDef.implementation!!.instructions.any {
             ((it as? NarrowLiteralInstruction)?.narrowLiteral == 5)
         }
-    })
+    }
+)

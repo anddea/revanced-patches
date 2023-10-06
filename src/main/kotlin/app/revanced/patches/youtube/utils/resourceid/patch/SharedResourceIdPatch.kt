@@ -22,6 +22,7 @@ class SharedResourceIdPatch : ResourcePatch {
         var AdAttribution: Long = -1
         var Appearance: Long = -1
         var AppRelatedEndScreenResults: Long = -1
+        var AudioUnavailable: Long = -1
         var AutoNavPreviewStub: Long = -1
         var AutoNavToggle: Long = -1
         var BackgroundCategory: Long = -1
@@ -102,6 +103,7 @@ class SharedResourceIdPatch : ResourcePatch {
         AdAttribution = find(ID, "ad_attribution")
         Appearance = find(STRING, "app_theme_appearance_dark")
         AppRelatedEndScreenResults = find(LAYOUT, "app_related_endscreen_results")
+        AudioUnavailable = find(STRING, "audio_unavailable")
         AutoNavPreviewStub = find(ID, "autonav_preview_stub")
         AutoNavToggle = find(ID, "autonav_toggle")
         BackgroundCategory = find(STRING, "pref_background_and_offline_category")
