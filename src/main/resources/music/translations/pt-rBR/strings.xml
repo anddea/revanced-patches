@@ -16,6 +16,7 @@
     <string name="revanced_custom_playback_speeds_invalid">Velocidade personalizada de reprodução inválida! Redefinir para valores padrão.</string>
     <string name="revanced_custom_playback_speeds_summary">Adicionar ou alterar as velocidades de reprodução disponíveis</string>
     <string name="revanced_custom_playback_speeds_title">Editar velocidades de reprodução personalizadas</string>
+    <string name="revanced_custom_playback_speeds_warning" formatted="false">Velocidades personalizadas não podem ser maiores que %sx</string>
     <string name="revanced_disable_auto_captions_summary">Desativar legendas automáticas forçadas.</string>
     <string name="revanced_disable_auto_captions_title">Desativar legendas automáticas</string>
     <string name="revanced_downloader_not_installed" formatted="false">%s não está instalado. Por favor, instale-o.</string>
@@ -151,6 +152,16 @@
     <string name="revanced_save_video_quality_mobile">Alterando a qualidade padrão dos dados móveis para:</string>
     <string name="revanced_save_video_quality_none">Falha ao definir qualidade</string>
     <string name="revanced_save_video_quality_wifi">Alterando a qualidade padrão no Wi-fi para:</string>
+    <string name="revanced_spoof_app_version_summary">"Falsificar a versão cliente para a versão antiga
+
+• Isso alterará a aparência do aplicativo, mas efeitos colaterais desconhecidos podem ocorrer
+• Se desligado mais tarde, a interface do usuário antiga pode permanecer até limpar os dados do app
+• Se os botões de navegação forem involuntariamente ocultos, reiniciar o aplicativo
+• Ativar este recurso faz com que o servidor receba uma resposta inválida do BrowseId Endpoint resultando na proteção da biblioteca de estilo antiga sendo aplicada"</string>
+    <string name="revanced_spoof_app_version_target_entry_4_27_53">4.27.53 - Desativar modo de rádio em regiões Canadenses</string>
+    <string name="revanced_spoof_app_version_target_entry_6_10_53">6.10.53 - Desativar letras em tempo real</string>
+    <string name="revanced_spoof_app_version_target_summary">Selecione a versão do app para falsificação</string>
+    <string name="revanced_spoof_app_version_target_title">Versão da falsificação do aplicativo</string>
     <string name="revanced_spoof_app_version_title">Falsificar a versão do app</string>
     <string name="revanced_start_page_entry_chart">Paradas</string>
     <string name="revanced_start_page_entry_explore">Explorar</string>
