@@ -26,6 +26,7 @@ object ScreenshotPopupPatch : BytecodePatch(
     private const val INTEGRATIONS_METHOD_DESCRIPTOR =
         "Lapp/revanced/reddit/patches/ScreenshotPopupPatch;" +
                 "->disableScreenshotPopup()Z"
+
     override fun execute(context: BytecodeContext) {
 
         ScreenshotTakenBannerFingerprint.result?.let {

@@ -29,6 +29,7 @@ object LithoThemePatch : BytecodePatch(
         } ?: throw LithoThemeFingerprint.exception
 
     }
+
     private var offset = 0
 
     private var insertIndex: Int = 0
