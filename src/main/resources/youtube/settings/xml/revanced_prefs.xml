@@ -461,7 +461,7 @@
         <SwitchPreference android:title="@string/revanced_overlay_button_speed_dialog_title" android:key="revanced_overlay_button_speed_dialog" android:defaultValue="true" android:summary="@string/revanced_overlay_button_speed_dialog_summary" />
         <PreferenceScreen android:title="@string/revanced_external_downloader_settings_title" android:key="external_downloader" android:summary="@string/revanced_external_downloader_settings_summary">
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_external_downloader_settings_title" />
-            <app.revanced.integrations.settingsmenu.ResettableEditTextPreference android:hint="com.deniscerri.ytdl" android:title="@string/revanced_external_downloader_package_name_title" android:key="revanced_external_downloader_package_name" android:summary="@string/revanced_external_downloader_package_name_summary" android:inputType="text" />
+            <app.revanced.integrations.settingsmenu.ResettableEditTextPreference android:hint="com.deniscerri.ytdl" android:defaultValue="com.deniscerri.ytdl" android:title="@string/revanced_external_downloader_package_name_title" android:key="revanced_external_downloader_package_name" android:summary="@string/revanced_external_downloader_package_name_summary" android:inputType="text" />
         </PreferenceScreen>
     </PreferenceScreen>PREFERENCE: OVERLAY_BUTTONS -->
 
@@ -472,7 +472,7 @@
 
         <!-- SETTINGS: CUSTOM_SPEED_OVERLAY
         <SwitchPreference android:title="@string/revanced_disable_speed_overlay_title" android:key="revanced_disable_speed_overlay" android:defaultValue="false" android:summary="@string/revanced_disable_speed_overlay_summary" />
-        <app.revanced.integrations.settingsmenu.ResettableEditTextPreference android:hint="2.0" android:title="@string/revanced_edit_speed_overlay_value_title" android:key="revanced_edit_speed_overlay_value" android:summary="@string/revanced_edit_speed_overlay_value_summary" android:inputType="text" />SETTINGS: CUSTOM_SPEED_OVERLAY -->
+        <app.revanced.integrations.settingsmenu.ResettableEditTextPreference android:hint="2.0" android:defaultValue="2.0" android:title="@string/revanced_edit_speed_overlay_value_title" android:key="revanced_edit_speed_overlay_value" android:summary="@string/revanced_edit_speed_overlay_value_summary" android:inputType="text" />SETTINGS: CUSTOM_SPEED_OVERLAY -->
 
         <!-- SETTINGS: HIDE_AUDIO_TRACK_BUTTON
         <SwitchPreference android:title="@string/revanced_hide_audio_track_button_title" android:key="revanced_hide_audio_track_button" android:defaultValue="true" android:summaryOn="@string/revanced_hide_audio_track_button_summary_on" android:summaryOff="@string/revanced_hide_audio_track_button_summary_off" />SETTINGS: HIDE_AUDIO_TRACK_BUTTON -->
