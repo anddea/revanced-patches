@@ -9,10 +9,17 @@
     <string name="microg_settings_title">MicroG 열기</string>
     <string name="revanced_ads">광고</string>
     <string name="revanced_alt_thumbnails">대체 썸네일</string>
+    <string name="revanced_alt_thumbnail_about_summary">선정성을 줄이기 위해 기본 동영상 썸네일을 대체 썸네일으로 변경하는 기능입니다.</string>
     <string name="revanced_alt_thumbnail_about_title">정보</string>
+    <string name="revanced_alt_thumbnail_dearrow_summary_off">썸네일을 외부 API 없이 생성합니다.</string>
+    <string name="revanced_alt_thumbnail_dearrow_summary_on">썸네일을 DeArrow API를 사용하여 생성합니다.</string>
+    <string name="revanced_alt_thumbnail_dearrow_title">DeArrow API 사용하여 썸네일 생성하기</string>
     <string name="revanced_alt_thumbnail_enabled_summary_off">원본 썸네일(클릭 유도 문안 썸네일)을 표시합니다.</string>
     <string name="revanced_alt_thumbnail_enabled_summary_on">대체 썸네일(동영상 스크린샷 썸네일)을 표시합니다.</string>
     <string name="revanced_alt_thumbnail_enabled_title">대체 썸네일 활성화하기</string>
+    <string name="revanced_alt_thumbnail_skip_checking_summary_off">썸네일을 변경하기 전에 존재 여부를 확인합니다.</string>
+    <string name="revanced_alt_thumbnail_skip_checking_summary_on">썸네일이 더 빠르게 불러오지만 일부 동영상에는 빈 썸네일이 표시됩니다.</string>
+    <string name="revanced_alt_thumbnail_skip_checking_title">썸네일 확인 건너뛰기</string>
     <string name="revanced_alt_thumbnail_type_entry_1">동영상의 첫 부분 이미지</string>
     <string name="revanced_alt_thumbnail_type_entry_2">동영상의 중간 부분 이미지</string>
     <string name="revanced_alt_thumbnail_type_entry_3">동영상의 마지막 부분 이미지</string>
@@ -42,6 +49,7 @@
     <string name="revanced_custom_playback_speeds_invalid">유효하지 않은 값입니다. 기본값으로 재설정합니다.</string>
     <string name="revanced_custom_playback_speeds_summary">사용 가능한 동영상 재생 속도를 추가 또는 변경하세요.</string>
     <string name="revanced_custom_playback_speeds_title">사용자 정의 동영상 재생 속도 편집하기</string>
+    <string name="revanced_custom_playback_speeds_warning" formatted="false">사용자 정의 동영상 재생 속도는 %s배속을 초과할 수 없습니다. 기본값으로 재설정합니다.</string>
     <string name="revanced_custom_seekbar_color_value_summary">재생바 색상의 헥스 코드를 입력하세요.</string>
     <string name="revanced_custom_seekbar_color_value_title">사용자 정의 재생바 색상 설정</string>
     <string name="revanced_default_app_settings_summary">다른 앱에서 YouTube 링크를 ReVanced Extended로 열려면 \'지원되는 링크 열기\'를 활성화하고 지원되는 링크를 추가하세요. 링크 추가가 잠겨있다면 순정 YouTube 앱 정보 &gt; \'기본적으로 열기\'에서 \'지원되는 링크 열기\'를 비활성화한 후에 추가할 수 있습니다.</string>
@@ -636,12 +644,22 @@ YouTube 18.24.37 버전 이상에서만 변경 가능합니다."</string>
     <string name="revanced_spoof_app_version_target_entry_16_08_35">16.08.35 - 탐색 탭을 복원합니다.</string>
     <string name="revanced_spoof_app_version_target_entry_17_08_35">17.08.35 - 이전 UI 레이아웃을 복원합니다.</string>
     <string name="revanced_spoof_app_version_target_entry_17_41_37">17.41.37 - 이전 재생목록 선반을 복원합니다.</string>
+    <string name="revanced_spoof_app_version_target_entry_18_01_38">"18.01.38 - '회원별 댓글' 배너를 제거합니다."</string>
     <string name="revanced_spoof_app_version_target_entry_18_05_40">18.05.40 - 이전 댓글 입력 상자를 복원합니다.</string>
     <string name="revanced_spoof_app_version_target_entry_18_17_43">18.17.43 - 이전 플레이어 구성요소 패널을 복원합니다.</string>
     <string name="revanced_spoof_app_version_target_entry_title">변경할 앱 버전 설정</string>
     <string name="revanced_spoof_app_version_target_summary">변경할 앱 버전을 입력하세요.</string>
     <string name="revanced_spoof_app_version_target_title">변경할 앱 버전 편집하기</string>
     <string name="revanced_spoof_app_version_title">앱 레이아웃 변경하기</string>
+    <string name="revanced_spoof_player_parameter_in_feed_summary_off">"피드 동영상의 플레이어 매개변수를 변경하지 않습니다.
+
+알려진 문제
+• 피드 동영상이 재생 문제가 발생하기 전에 1분 미만 동안 재생됩니다."</string>
+    <string name="revanced_spoof_player_parameter_in_feed_summary_on">"피드 동영상의 플레이어 매개변수를 변경합니다.
+
+알려진 문제점
+• 재생된 피드 동영상이 자동으로 시청 기록에 표시됩니다."</string>
+    <string name="revanced_spoof_player_parameter_in_feed_title">피드 동영상의 플레이어 매개변수 변경하기</string>
     <string name="revanced_spoof_player_parameter_summary">"플레이어 매개변수를 변경하여 재생 문제를 방지합니다.
 
 알려진 문제

@@ -9,10 +9,17 @@
     <string name="microg_settings_title">Otwórz MicroG</string>
     <string name="revanced_ads">Reklamy</string>
     <string name="revanced_alt_thumbnails">Alternatywne miniaturki</string>
+    <string name="revanced_alt_thumbnail_about_summary">Funkcja zastępująca domyślne miniaturki wideo na rzecz alternatywnych, aby zmniejszyć ilość sensacjonalizmu.</string>
     <string name="revanced_alt_thumbnail_about_title">Opis</string>
+    <string name="revanced_alt_thumbnail_dearrow_summary_off">Miniaturki generowane bez zewnętrznego API</string>
+    <string name="revanced_alt_thumbnail_dearrow_summary_on">Miniaturki generowane za pomocą DeArrow API</string>
+    <string name="revanced_alt_thumbnail_dearrow_title">Użyj API DeArrow</string>
     <string name="revanced_alt_thumbnail_enabled_summary_off">Oryginalne miniaturki YouTube są widoczne</string>
     <string name="revanced_alt_thumbnail_enabled_summary_on">Miniaturki YouTube są zastąpione alternatywnymi miniaturkami</string>
     <string name="revanced_alt_thumbnail_enabled_title">Alternatywne miniaturki</string>
+    <string name="revanced_alt_thumbnail_skip_checking_summary_off">Miniaturki zostaną sprawdzone, czy istnieją bądź nie przed zastąpieniem</string>
+    <string name="revanced_alt_thumbnail_skip_checking_summary_on">Miniaturki będą ładować się szybciej, lecz miniaturki w większości wideo mogą być puste</string>
+    <string name="revanced_alt_thumbnail_skip_checking_title">Pomiń sprawdzanie miniaturek</string>
     <string name="revanced_alt_thumbnail_type_entry_1">Początek wideo</string>
     <string name="revanced_alt_thumbnail_type_entry_2">Środek wideo</string>
     <string name="revanced_alt_thumbnail_type_entry_3">Koniec wideo</string>
@@ -237,7 +244,7 @@ Dostępne jedynie dla części użytkowników, którzy mogą używać nakładki 
     <string name="revanced_hide_captions_button_title">Przycisk od napisów</string>
     <string name="revanced_hide_cast_button_summary_off">Widoczny</string>
     <string name="revanced_hide_cast_button_summary_on">Ukryty</string>
-    <string name="revanced_hide_cast_button_title">Przycisk do powielania</string>
+    <string name="revanced_hide_cast_button_title">Przycisk do castowania</string>
     <string name="revanced_hide_category_bar_in_feed_title">Pasek z kategoriami na stronie głównej</string>
     <string name="revanced_hide_category_bar_in_related_video_title">Pasek z kategoriami pod odtwarzaczem</string>
     <string name="revanced_hide_category_bar_in_search_results_title">Pasek z kategoriami w wynikach wyszukiwania</string>
@@ -633,6 +640,7 @@ Jeśli później opcja ta zostanie wyłączona, stare UI może pozostać do czas
     <string name="revanced_spoof_app_version_target_entry_16_08_35">16.08.35 - Przywróć przycisk od odkrywania</string>
     <string name="revanced_spoof_app_version_target_entry_17_08_35">17.08.35 - Przywróć stary wygląd interfejsu</string>
     <string name="revanced_spoof_app_version_target_entry_17_41_37">17.41.37 - Przywróć starą półkę do playlist</string>
+    <string name="revanced_spoof_app_version_target_entry_18_01_38">"18.01.38 - Usuń banner komentarzy członków"</string>
     <string name="revanced_spoof_app_version_target_entry_18_05_40">18.05.40 - Przywróć stare pole od pisania komentarzy</string>
     <string name="revanced_spoof_app_version_target_entry_18_17_43">18.17.43 - Przywróć stary wygląd menu ustawień wideo</string>
     <string name="revanced_spoof_app_version_target_entry_title">Oszukana wersja aplikacji</string>
