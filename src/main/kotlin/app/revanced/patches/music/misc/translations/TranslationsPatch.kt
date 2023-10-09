@@ -32,16 +32,11 @@ object TranslationsPatch : ResourcePatch() {
     }
 
     private val LANGUAGE_LIST = arrayOf(
-        "az-rAZ",
-        "be-rBY",
         "bn",
         "cs-rCZ",
-        "de-rDE",
         "el-rGR",
         "es-rES",
         "fr-rFR",
-        "hi-rIN",
-        "hu-rHU",
         "id-rID",
         "in",
         "it-rIT",
@@ -51,7 +46,6 @@ object TranslationsPatch : ResourcePatch() {
         "pl-rPL",
         "pt-rBR",
         "ru-rRU",
-        "th-rTH",
         "tr-rTR",
         "uk-rUA",
         "vi-rVN",
