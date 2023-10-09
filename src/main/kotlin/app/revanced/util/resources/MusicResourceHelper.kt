@@ -27,7 +27,7 @@ private fun Node.insertNode(tagName: String, targetNode: Node, block: Element.()
 
 internal object MusicResourceHelper {
 
-    internal const val YOUTUBE_MUSIC_SETTINGS_PATH = "res/xml/settings_headers.xml"
+    private const val YOUTUBE_MUSIC_SETTINGS_PATH = "res/xml/settings_headers.xml"
 
     internal const val YOUTUBE_MUSIC_SETTINGS_KEY = "revanced_extended_settings"
 

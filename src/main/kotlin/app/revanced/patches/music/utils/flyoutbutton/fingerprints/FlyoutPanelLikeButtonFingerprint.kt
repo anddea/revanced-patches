@@ -2,7 +2,7 @@ package app.revanced.patches.music.utils.flyoutbutton.fingerprints
 
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
-import app.revanced.patches.music.utils.resourceid.patch.SharedResourceIdPatch.Companion.MusicMenuLikeButtons
+import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.MusicMenuLikeButtons
 import app.revanced.util.bytecode.isWideLiteralExists
 import com.android.tools.smali.dexlib2.AccessFlags
 

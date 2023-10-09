@@ -2,7 +2,7 @@ package app.revanced.patches.youtube.layout.tooltip.fingerprints
 
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
-import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch.Companion.ToolTipContentView
+import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.ToolTipContentView
 import app.revanced.util.bytecode.isWideLiteralExists
 import com.android.tools.smali.dexlib2.AccessFlags
 

@@ -1,7 +1,7 @@
 package app.revanced.patches.youtube.general.widesearchbar.fingerprints
 
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
-import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch.Companion.ActionBarRingo
+import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.ActionBarRingo
 import app.revanced.util.bytecode.isWideLiteralExists
 import com.android.tools.smali.dexlib2.Opcode
 

@@ -1,7 +1,6 @@
 package app.revanced.extensions
 
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.MethodFingerprintExtensions.name
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
@@ -32,7 +31,7 @@ internal fun MutableMethodImplementation.injectHideCall(
  * @return The [PatchException] for the [MethodFingerprint].
  */
 val MethodFingerprint.exception
-    get() = PatchException("Failed to resolve $name")
+    get() = PatchException("Failed to resolve ${this.javaClass.simpleName}")
 
 /**
  * Find the [MutableMethod] from a given [Method] in a [MutableClass].

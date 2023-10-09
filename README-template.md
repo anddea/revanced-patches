@@ -15,15 +15,12 @@ Example:
 ```json
 [
   {
-    "name": "default-video-quality",
+    "name": "Default video quality",
     "description": "Adds ability to set default video quality settings.",
-    "excluded": false,
-    "options": [],
-    "dependencies": [],
-    "compatiblePackages": [
+    "compatiblePackages":[
       {
-        "name": "com.google.android.youtube",
-        "versions": [
+        "name":"com.google.android.youtube",
+        "versions":[
           "18.22.37",
           "18.23.36",
           "18.24.37",
@@ -36,14 +33,14 @@ Example:
           "18.33.40"
         ]
       }
-    ]
+    ],
+    "use":true,
+    "requiresIntegrations":false,
+    "options": []
   },
   {
-    "name": "remember-video-quality",
+    "name": "Remember video quality",
     "description": "Save the video quality value whenever you change the video quality.",
-    "excluded": false,
-    "options": [],
-    "dependencies": [],
     "compatiblePackages": [
       {
         "name": "com.google.android.apps.youtube.music",
@@ -54,7 +51,10 @@ Example:
           "6.22.51"
         ]
       }
-    ]
+    ],
+    "use":true,
+    "requiresIntegrations":false,
+    "options": []
   }
 ]
 ```

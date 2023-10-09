@@ -17,8 +17,8 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import kotlin.properties.Delegates
 
-class ComponentParserPatch : BytecodePatch(
-    listOf(
+object ComponentParserPatch : BytecodePatch(
+    setOf(
         EmptyComponentBuilderFingerprint,
         IdentifierFingerprint
     )
@@ -75,42 +75,39 @@ class ComponentParserPatch : BytecodePatch(
         }
 
     }
+    lateinit var emptyComponentLabel: String
+    lateinit var insertMethod: MutableMethod
 
-    internal companion object {
-        lateinit var emptyComponentLabel: String
-        lateinit var insertMethod: MutableMethod
+    var emptyComponentIndex by Delegates.notNull<Int>()
+    var insertIndex by Delegates.notNull<Int>()
 
-        var emptyComponentIndex by Delegates.notNull<Int>()
-        var insertIndex by Delegates.notNull<Int>()
+    var identifierRegister by Delegates.notNull<Int>()
+    var objectRegister by Delegates.notNull<Int>()
+    var stringBuilderRegister by Delegates.notNull<Int>()
 
-        var identifierRegister by Delegates.notNull<Int>()
-        var objectRegister by Delegates.notNull<Int>()
-        var stringBuilderRegister by Delegates.notNull<Int>()
-
-        fun generalHook(descriptor: String) {
-            insertMethod.apply {
-                addInstructionsWithLabels(
-                    insertIndex,
-                    """
+    fun generalHook(descriptor: String) {
+        insertMethod.apply {
+            addInstructionsWithLabels(
+                insertIndex,
+                """
                         invoke-static {v$stringBuilderRegister, v$identifierRegister, v$objectRegister}, $descriptor(Ljava/lang/StringBuilder;Ljava/lang/String;Ljava/lang/Object;)Z
                         move-result v$stringBuilderRegister
                         if-nez v$stringBuilderRegister, :filter
                         """, ExternalLabel("filter", getInstruction(emptyComponentIndex))
-                )
-            }
+            )
         }
+    }
 
-        fun pathBuilderHook(descriptor: String) {
-            insertMethod.apply {
-                addInstructionsWithLabels(
-                    insertIndex,
-                    """
+    fun pathBuilderHook(descriptor: String) {
+        insertMethod.apply {
+            addInstructionsWithLabels(
+                insertIndex,
+                """
                         invoke-static {v$stringBuilderRegister}, $descriptor(Ljava/lang/StringBuilder;)Z
                         move-result v$stringBuilderRegister
                         if-nez v$stringBuilderRegister, :filter
                         """, ExternalLabel("filter", getInstruction(emptyComponentIndex))
-                )
-            }
+            )
         }
     }
 }

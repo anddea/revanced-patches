@@ -16,7 +16,7 @@ abstract class AbstractSettingsResourcePatch(
     private val sourceDirectory: String,
     private val sourceHostDirectory: String,
     private val isYouTube: Boolean,
-) : ResourcePatch {
+) : ResourcePatch() {
     override fun execute(context: ResourceContext) {
         /**
          * Copy strings
@@ -24,7 +24,7 @@ abstract class AbstractSettingsResourcePatch(
         context.copyXmlNode(sourceHostDirectory, "values/strings.xml", "resources")
 
         /**
-         * Initialize ReVanced Extended Settings
+         * Initialize ReVanced Settings
          */
         if (isYouTube)
             context.copyResources(
