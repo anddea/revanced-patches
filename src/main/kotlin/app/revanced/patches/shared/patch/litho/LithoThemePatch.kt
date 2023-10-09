@@ -10,8 +10,8 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-class LithoThemePatch : BytecodePatch(
-    listOf(LithoThemeFingerprint)
+object LithoThemePatch : BytecodePatch(
+    setOf(LithoThemeFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
 
@@ -29,26 +29,23 @@ class LithoThemePatch : BytecodePatch(
         } ?: throw LithoThemeFingerprint.exception
 
     }
+    private var offset = 0
 
-    companion object {
-        private var offset = 0
-
-        private var insertIndex: Int = 0
-        private var insertRegister: Int = 0
-        private lateinit var insertMethod: MutableMethod
+    private var insertIndex: Int = 0
+    private var insertRegister: Int = 0
+    private lateinit var insertMethod: MutableMethod
 
 
-        fun injectCall(
-            methodDescriptor: String
-        ) {
-            insertMethod.addInstructions(
-                insertIndex + offset, """
+    fun injectCall(
+        methodDescriptor: String
+    ) {
+        insertMethod.addInstructions(
+            insertIndex + offset, """
                     invoke-static {v$insertRegister}, $methodDescriptor
                     move-result v$insertRegister
                     """
-            )
-            offset += 2
-        }
+        )
+        offset += 2
     }
 }
 

@@ -31,7 +31,7 @@
     <PreferenceScreen android:title="@string/revanced_alt_thumbnails" android:key="alt_thumbnails">
         <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_alt_thumbnails" />
         <SwitchPreference android:title="@string/revanced_alt_thumbnail_enabled_title" android:key="revanced_alt_thumbnail_enabled" android:defaultValue="false" android:summaryOn="@string/revanced_alt_thumbnail_enabled_summary_on" android:summaryOff="@string/revanced_alt_thumbnail_enabled_summary_off" />
-	<SwitchPreference android:title="@string/revanced_alt_thumbnail_dearrow_enabled_title" android:key="revanced_alt_thumbnail_dearrow_enabled" android:defaultValue="false" android:summaryOn="@string/revanced_alt_thumbnail_dearrow_enabled_summary_on" android:summaryOff="@string/revanced_alt_thumbnail_dearrow_enabled_summary_off" />
+        <SwitchPreference android:title="@string/revanced_alt_thumbnail_dearrow_title" android:key="revanced_alt_thumbnail_dearrow" android:defaultValue="false" android:summaryOn="@string/revanced_alt_thumbnail_dearrow_summary_on" android:summaryOff="@string/revanced_alt_thumbnail_dearrow_summary_off" />
         <ListPreference android:title="@string/revanced_alt_thumbnail_type_title" android:key="revanced_alt_thumbnail_type" android:entries="@array/revanced_alt_thumbnail_type_entries" android:defaultValue="1" android:entryValues="@array/revanced_alt_thumbnail_type_entry_values" />
         <SwitchPreference android:title="@string/revanced_alt_thumbnail_fast_quality_title" android:key="revanced_alt_thumbnail_fast_quality" android:defaultValue="false" android:summaryOn="@string/revanced_alt_thumbnail_fast_quality_summary_on" android:summaryOff="@string/revanced_alt_thumbnail_fast_quality_summary_off" />
         <Preference android:title="@string/revanced_alt_thumbnail_about_title" android:selectable="false" android:summary="@string/revanced_alt_thumbnail_about_summary" />
@@ -297,7 +297,7 @@
         <Preference android:title=" " android:selectable="false" android:summary="@string/pref_about_category" />
         <PreferenceScreen android:title="@string/revanced_patches_information"  android:summary="@string/revanced_patches_information_summary" >
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_tool_used" />
-            <Preference android:title="revanced-patches" android:selectable="false" android:summary="2.190.24" />
+            <Preference android:title="revanced-patches" android:selectable="false" android:summary="2.192.0" />
             <Preference android:title="revanced-integrations" android:key="revanced-integrations" android:selectable="false"/>
 
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_ads" />

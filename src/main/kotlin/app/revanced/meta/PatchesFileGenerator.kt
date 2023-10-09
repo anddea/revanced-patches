@@ -1,13 +1,11 @@
 package app.revanced.meta
 
 import app.revanced.patcher.PatchBundleLoader
-import app.revanced.patcher.patch.PatchClass
+import app.revanced.patcher.PatchSet
 import java.io.File
 
-internal typealias PatchBundlePatches = List<PatchClass>
-
 internal interface PatchesFileGenerator {
-    fun generate(bundle: PatchBundlePatches)
+    fun generate(patches: PatchSet)
 
     private companion object {
         @JvmStatic
@@ -16,11 +14,7 @@ internal interface PatchesFileGenerator {
         ).also { loader ->
             if (loader.isEmpty()) throw IllegalStateException("No patches found")
         }.let { bundle ->
-            arrayOf(JsonGenerator(), ReadmeGenerator()).forEach { generator ->
-                generator.generate(
-                    bundle
-                )
-            }
+            arrayOf(JsonGenerator()).forEach { generator -> generator.generate(bundle) }
         }
     }
 }

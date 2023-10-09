@@ -1,7 +1,7 @@
 package app.revanced.patches.music.account.handle.fingerprints
 
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
-import app.revanced.patches.music.utils.resourceid.patch.SharedResourceIdPatch.Companion.NamesInactiveAccountThumbnailSize
+import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.NamesInactiveAccountThumbnailSize
 import app.revanced.util.bytecode.isWideLiteralExists
 import com.android.tools.smali.dexlib2.Opcode
 

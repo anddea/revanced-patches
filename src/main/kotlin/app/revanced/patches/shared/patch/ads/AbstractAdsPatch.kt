@@ -14,7 +14,7 @@ import app.revanced.patches.shared.fingerprints.ads.MainstreamAdsFingerprint
 abstract class AbstractAdsPatch(
     private val descriptor: String
 ) : BytecodePatch(
-    listOf(
+    setOf(
         LegacyAdsFingerprint,
         MainstreamAdsFingerprint
     )

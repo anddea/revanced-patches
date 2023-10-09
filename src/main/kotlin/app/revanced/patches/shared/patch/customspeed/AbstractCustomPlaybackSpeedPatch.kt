@@ -21,7 +21,7 @@ abstract class AbstractCustomPlaybackSpeedPatch(
     private val descriptor: String,
     private val maxSpeed: Float
 ) : BytecodePatch(
-    listOf(
+    setOf(
         SpeedArrayGeneratorFingerprint,
         SpeedLimiterFallBackFingerprint
     )

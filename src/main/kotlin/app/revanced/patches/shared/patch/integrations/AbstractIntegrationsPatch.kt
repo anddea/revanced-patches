@@ -1,6 +1,5 @@
 package app.revanced.patches.shared.patch.integrations
 
-import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
@@ -11,10 +10,9 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.ClassDef
 import com.android.tools.smali.dexlib2.iface.Method
 
-@Description("Applies mandatory patches to implement the ReVanced integrations into the application.")
 abstract class AbstractIntegrationsPatch(
     private val integrationsDescriptor: String,
-    private val hooks: Iterable<IntegrationsFingerprint>
+    private val hooks: Set<IntegrationsFingerprint>
 ) : BytecodePatch(hooks) {
     /**
      * [MethodFingerprint] for integrations.
@@ -47,7 +45,7 @@ abstract class AbstractIntegrationsPatch(
                     "sput-object v$contextRegister, " +
                             "$integrationsDescriptor->context:Landroid/content/Context;"
                 )
-            } ?: throw PatchException("Could not find target fingerprint.")
+            } ?: throw PatchException("Could not find hook target fingerprint.")
         }
 
         interface RegisterResolver : (Method) -> Int {

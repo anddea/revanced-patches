@@ -15,7 +15,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 abstract class AbstractVersionSpoofPatch(
     private val descriptor: String
 ) : BytecodePatch(
-    listOf(ClientInfoParentFingerprint)
+    setOf(ClientInfoParentFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
 

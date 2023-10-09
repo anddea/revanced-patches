@@ -2,8 +2,8 @@ package app.revanced.patches.youtube.flyoutpanel.player.fingerprints
 
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
-import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch.Companion.BottomSheetFooterText
-import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch.Companion.SubtitleMenuSettingsFooterInfo
+import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.BottomSheetFooterText
+import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.SubtitleMenuSettingsFooterInfo
 import app.revanced.util.bytecode.isWideLiteralExists
 import com.android.tools.smali.dexlib2.AccessFlags
 

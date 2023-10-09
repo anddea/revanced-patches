@@ -1,7 +1,7 @@
 package app.revanced.patches.youtube.general.loadmorebutton.fingerprints
 
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
-import app.revanced.patches.youtube.utils.resourceid.patch.SharedResourceIdPatch.Companion.ExpandButtonDown
+import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.ExpandButtonDown
 import app.revanced.util.bytecode.isWideLiteralExists
 import com.android.tools.smali.dexlib2.Opcode
 

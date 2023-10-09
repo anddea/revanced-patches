@@ -1,7 +1,7 @@
 package app.revanced.patches.music.general.categorybar.fingerprints
 
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
-import app.revanced.patches.music.utils.resourceid.patch.SharedResourceIdPatch.Companion.ChipCloud
+import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.ChipCloud
 import app.revanced.util.bytecode.isWideLiteralExists
 import com.android.tools.smali.dexlib2.Opcode
 
