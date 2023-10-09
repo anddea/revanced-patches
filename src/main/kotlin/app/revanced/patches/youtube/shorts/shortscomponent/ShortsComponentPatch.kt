@@ -126,7 +126,11 @@ object ShortsComponentPatch : BytecodePatch(
             it.mutableMethod.apply {
                 val insertIndex = getWideLiteralIndex(ReelPlayerInfoPanel) + 3
 
-                hideButtons(insertIndex, 1, "hideShortsPlayerInfoPanel(Landroid/view/ViewGroup;)Landroid/view/ViewGroup;")
+                hideButtons(
+                    insertIndex,
+                    1,
+                    "hideShortsPlayerInfoPanel(Landroid/view/ViewGroup;)Landroid/view/ViewGroup;"
+                )
             }
         } ?: throw ShortsInfoPanelFingerprint.exception
 
@@ -161,11 +165,27 @@ object ShortsComponentPatch : BytecodePatch(
                 val secondaryIndex = getWideLiteralIndex(ReelPlayerBadge2) + 3
 
                 if (primaryIndex > secondaryIndex) {
-                    hideButtons(primaryIndex, 1, "hideShortsPlayerPaidPromotionBanner(Landroid/view/ViewStub;)Landroid/view/ViewStub;")
-                    hideButtons(secondaryIndex, 1, "hideShortsPlayerPaidPromotionBanner(Landroid/view/ViewStub;)Landroid/view/ViewStub;")
+                    hideButtons(
+                        primaryIndex,
+                        1,
+                        "hideShortsPlayerPaidPromotionBanner(Landroid/view/ViewStub;)Landroid/view/ViewStub;"
+                    )
+                    hideButtons(
+                        secondaryIndex,
+                        1,
+                        "hideShortsPlayerPaidPromotionBanner(Landroid/view/ViewStub;)Landroid/view/ViewStub;"
+                    )
                 } else {
-                    hideButtons(secondaryIndex, 1, "hideShortsPlayerPaidPromotionBanner(Landroid/view/ViewStub;)Landroid/view/ViewStub;")
-                    hideButtons(primaryIndex, 1, "hideShortsPlayerPaidPromotionBanner(Landroid/view/ViewStub;)Landroid/view/ViewStub;")
+                    hideButtons(
+                        secondaryIndex,
+                        1,
+                        "hideShortsPlayerPaidPromotionBanner(Landroid/view/ViewStub;)Landroid/view/ViewStub;"
+                    )
+                    hideButtons(
+                        primaryIndex,
+                        1,
+                        "hideShortsPlayerPaidPromotionBanner(Landroid/view/ViewStub;)Landroid/view/ViewStub;"
+                    )
                 }
             }
         } ?: throw ShortsPaidPromotionFingerprint.exception
@@ -194,7 +214,11 @@ object ShortsComponentPatch : BytecodePatch(
                 val targetIndex = getWideLiteralIndex(ReelPivotButton)
                 val insertIndex = getTargetIndexDownTo(targetIndex, Opcode.INVOKE_STATIC) + 2
 
-                hideButtons(insertIndex, 0, "hideShortsPlayerPivotButton(Ljava/lang/Object;)Ljava/lang/Object;")
+                hideButtons(
+                    insertIndex,
+                    0,
+                    "hideShortsPlayerPivotButton(Ljava/lang/Object;)Ljava/lang/Object;"
+                )
             }
         } ?: throw ShortsPivotFingerprint.exception
 

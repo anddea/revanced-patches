@@ -23,6 +23,7 @@ object OpenLinksDirectlyPatch : BytecodePatch(
     private const val INTEGRATIONS_METHOD_DESCRIPTOR =
         "Lapp/revanced/reddit/patches/OpenLinksDirectlyPatch;" +
                 "->parseRedirectUri(Landroid/net/Uri;)Landroid/net/Uri;"
+
     override fun execute(context: BytecodeContext) {
         ScreenNavigatorFingerprint.result?.let {
             it.mutableMethod.apply {

@@ -42,6 +42,7 @@ object HideAdsPatch : BytecodePatch(
     private const val INTEGRATIONS_NEW_METHOD_DESCRIPTOR =
         "Lapp/revanced/reddit/patches/GeneralAdsPatch;" +
                 "->hideNewPostAds()Z"
+
     override fun execute(context: BytecodeContext) {
         // region Filter promoted ads (does not work in popular or latest feed)
 

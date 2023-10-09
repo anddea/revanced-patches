@@ -2,8 +2,8 @@ package app.revanced.patches.music.utils.returnyoutubedislike
 
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.ResourcePatch
-import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
+import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.music.utils.settings.SettingsPatch
 import app.revanced.util.resources.MusicResourceHelper.RETURN_YOUTUBE_DISLIKE_SETTINGS_KEY
 import app.revanced.util.resources.MusicResourceHelper.addReVancedMusicPreference

@@ -26,6 +26,7 @@ object PlaceButtonPatch : BytecodePatch(
     private const val INTEGRATIONS_METHOD_DESCRIPTOR =
         "Lapp/revanced/reddit/patches/PlaceButtonPatch;" +
                 "->hidePlaceButton(Landroid/view/View;)V"
+
     override fun execute(context: BytecodeContext) {
 
         HomePagerScreenFingerprint.result?.let {

@@ -61,5 +61,6 @@ abstract class AbstractOpusCodecsPatch(
         } ?: throw CodecSelectorFingerprint.exception
 
     }
+
     lateinit var targetReference: Reference
 }

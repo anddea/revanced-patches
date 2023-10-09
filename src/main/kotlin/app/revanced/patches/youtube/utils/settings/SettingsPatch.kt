@@ -3,10 +3,8 @@ package app.revanced.patches.youtube.utils.settings
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.shared.patch.mapping.ResourceMappingPatch
 import app.revanced.patches.shared.patch.settings.AbstractSettingsResourcePatch
 import app.revanced.patches.youtube.utils.integrations.IntegrationsPatch
-import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.util.resources.IconHelper.YOUTUBE_LAUNCHER_ICON_ARRAY
 import app.revanced.util.resources.IconHelper.copyFiles
 import app.revanced.util.resources.IconHelper.makeDirectoryAndCopyFiles

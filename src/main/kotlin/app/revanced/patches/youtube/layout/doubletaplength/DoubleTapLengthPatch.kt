@@ -5,11 +5,11 @@ import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patcher.patch.options.types.StringPatchOption.Companion.stringPatchOption
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.resources.ResourceHelper.addEntryValues
 import app.revanced.util.resources.ResourceUtils
 import app.revanced.util.resources.ResourceUtils.copyResources
-import app.revanced.patcher.patch.options.types.StringPatchOption.Companion.stringPatchOption
 
 @Patch(
     name = "Custom double tap length",

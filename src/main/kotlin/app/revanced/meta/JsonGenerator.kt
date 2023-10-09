@@ -16,7 +16,13 @@ internal class JsonGenerator : PatchesFileGenerator {
                 it.use,
                 it.requiresIntegrations,
                 it.options.values.map { option ->
-                    JsonPatch.Option(option.key, option.value, option.title, option.description, option.required)
+                    JsonPatch.Option(
+                        option.key,
+                        option.value,
+                        option.title,
+                        option.description,
+                        option.required
+                    )
                 }
             )
         }.let {

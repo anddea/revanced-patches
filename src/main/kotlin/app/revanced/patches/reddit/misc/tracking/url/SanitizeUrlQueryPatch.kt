@@ -25,6 +25,7 @@ object SanitizeUrlQueryPatch : BytecodePatch(
     private const val SANITIZE_METHOD_DESCRIPTOR =
         "Lapp/revanced/reddit/patches/SanitizeUrlQueryPatch;" +
                 "->stripQueryParameters()Z"
+
     override fun execute(context: BytecodeContext) {
         ShareLinkFormatterFingerprint.result?.let { result ->
             result.mutableMethod.apply {

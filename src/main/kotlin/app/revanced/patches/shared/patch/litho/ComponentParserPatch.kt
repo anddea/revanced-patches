@@ -75,6 +75,7 @@ object ComponentParserPatch : BytecodePatch(
         }
 
     }
+
     lateinit var emptyComponentLabel: String
     lateinit var insertMethod: MutableMethod
 

@@ -12,7 +12,7 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 
 object ReturnYouTubeDislikeShortsPatch : BytecodePatch(
-   setOf(ShortsTextViewFingerprint)
+    setOf(ShortsTextViewFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
         ShortsTextViewFingerprint.result?.let {
