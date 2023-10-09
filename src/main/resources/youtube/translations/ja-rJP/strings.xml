@@ -9,14 +9,10 @@
     <string name="microg_settings_title">MicroG を開く</string>
     <string name="revanced_ads">広告</string>
     <string name="revanced_alt_thumbnails">代替サムネイル</string>
-    <string name="revanced_alt_thumbnail_about_summary">代替サムネイルは、各動画の最初/中間/最後の静止画像です。これらの画像は YouTube に組み込まれているため、外部 API は使用しません。</string>
     <string name="revanced_alt_thumbnail_about_title">この機能について</string>
     <string name="revanced_alt_thumbnail_enabled_summary_off">オリジナルの YouTube サムネイルが表示されます</string>
     <string name="revanced_alt_thumbnail_enabled_summary_on">YouTube のサムネイルは代替サムネイルに置き換わります</string>
     <string name="revanced_alt_thumbnail_enabled_title">代替サムネイルを有効化</string>
-    <string name="revanced_alt_thumbnail_fast_quality_summary_off">高画質の静止画を使用しますが、遅延が大きくなることがあります。</string>
-    <string name="revanced_alt_thumbnail_fast_quality_summary_on">中画質の静止画を使用します。サムネイルの読み込みは速くなりますが、ライブ、未公開または非常に古い動画はサムネイルが空白になることがあります。</string>
-    <string name="revanced_alt_thumbnail_fast_quality_title">高速な代替サムネイルを使用</string>
     <string name="revanced_alt_thumbnail_type_entry_1">動画の最初</string>
     <string name="revanced_alt_thumbnail_type_entry_2">動画の中間</string>
     <string name="revanced_alt_thumbnail_type_entry_3">動画の最後</string>
@@ -46,7 +42,6 @@
     <string name="revanced_custom_playback_speeds_invalid">無効なカスタム再生速度です。デフォルト値にリセットします。</string>
     <string name="revanced_custom_playback_speeds_summary">利用可能なカスタム再生速度を編集します</string>
     <string name="revanced_custom_playback_speeds_title">カスタム再生速度を編集</string>
-    <string name="revanced_custom_playback_speeds_warning" formatted="false">カスタム再生速度は %s 倍速未満である必要があります。デフォルト値にリセットします。</string>
     <string name="revanced_custom_seekbar_color_value_summary">シークバーの色を16進数カラーコードで入力してください</string>
     <string name="revanced_custom_seekbar_color_value_title">シークバーの色</string>
     <string name="revanced_default_app_settings_summary">外部ブラウザから ReVanced Extended を開くには、「対応リンクを開く」でリンクを選択してください</string>
@@ -156,8 +151,8 @@
     <string name="revanced_enable_tablet_navigation_bar_title">タブレットのナビゲーションバー</string>
     <string name="revanced_enable_vp9_codec_summary">デバイス情報を偽装して VP9 コーデックを有効にします</string>
     <string name="revanced_enable_vp9_codec_title">VP9 コーデックを有効化</string>
-    <string name="revanced_enable_wide_search_bar_summary_off">幅の広い検索バーは無効です</string>
-    <string name="revanced_enable_wide_search_bar_summary_on">幅の広い検索バーは有効です</string>
+    <string name="revanced_enable_wide_search_bar_summary_off">通常の検索アイコンが表示されます</string>
+    <string name="revanced_enable_wide_search_bar_summary_on">検索アイコンを幅の広い検索バーに置き換えます</string>
     <string name="revanced_enable_wide_search_bar_title">幅の広い検索バー</string>
     <string name="revanced_experimental_flag">実験的な機能</string>
     <string name="revanced_export_settings_summary">ReVanced Extended の設定をファイルに保存します</string>
@@ -188,10 +183,10 @@
     <string name="revanced_hide_autoplay_button_title">自動再生ボタンを非表示</string>
     <string name="revanced_hide_autoplay_preview_summary_off">「次の動画」コンテナーは表示されます</string>
     <string name="revanced_hide_autoplay_preview_summary_on">「次の動画」コンテナーは非表示です</string>
-    <string name="revanced_hide_autoplay_preview_title">「次の動画」コンテナーを非表示</string>
+    <string name="revanced_hide_autoplay_preview_title">自動再生プレビューコンテナーを非表示</string>
     <string name="revanced_hide_auto_player_popup_panels_summary_off">再生リストパネル、ライブチャットパネルは自動で表示されます</string>
     <string name="revanced_hide_auto_player_popup_panels_summary_on">再生リストパネル、ライブチャットパネルは自動で表示されません</string>
-    <string name="revanced_hide_auto_player_popup_panels_title">プレーヤーの自動ポップアップパネルを非表示</string>
+    <string name="revanced_hide_auto_player_popup_panels_title">自動ポップアップパネルを非表示</string>
     <string name="revanced_hide_browse_store_button_summary_off">「ストアを見る」ボタンは表示されます</string>
     <string name="revanced_hide_browse_store_button_summary_on">「ストアを見る」ボタンは非表示です</string>
     <string name="revanced_hide_browse_store_button_title">「ストアを見る」ボタンを非表示</string>
@@ -281,18 +276,18 @@
     <string name="revanced_hide_create_button_summary_off">「作成」ボタンは表示されます</string>
     <string name="revanced_hide_create_button_summary_on">「作成」ボタンは非表示です</string>
     <string name="revanced_hide_create_button_title">作成 ボタンを非表示</string>
-    <string name="revanced_hide_crowdfunding_box_summary_off">クラウドファンディング欄は表示されます</string>
-    <string name="revanced_hide_crowdfunding_box_summary_on">クラウドファンディング欄は非表示です</string>
+    <string name="revanced_hide_crowdfunding_box_summary_off">プレーヤーと概要欄の間のクラウドファンディングボックスは表示されます</string>
+    <string name="revanced_hide_crowdfunding_box_summary_on">プレーヤーと概要欄の間のクラウドファンディングボックスは非表示です</string>
     <string name="revanced_hide_crowdfunding_box_title">クラウドファンディング欄を非表示</string>
-    <string name="revanced_hide_email_address_summary_off">メールアドレス (@handle) は表示されます</string>
-    <string name="revanced_hide_email_address_summary_on">メールアドレス (@handle) は非表示です</string>
+    <string name="revanced_hide_email_address_summary_off">アカウント切替画面のメールアドレス (@handle) は表示されます</string>
+    <string name="revanced_hide_email_address_summary_on">アカウント切替画面のメールアドレス (@handle) は非表示です</string>
     <string name="revanced_hide_email_address_title">メールアドレス (@handle) を非表示</string>
     <string name="revanced_hide_emoji_picker_summary_off">コメントを入力する際のキーボード上部の絵文字ピッカーは表示されます</string>
     <string name="revanced_hide_emoji_picker_summary_on">コメントを入力する際のキーボード上部の絵文字ピッカーは非表示です</string>
     <string name="revanced_hide_emoji_picker_title">絵文字ピッカーを非表示</string>
-    <string name="revanced_hide_end_screen_cards_summary_off">動画の終了画面(エンドカード)は表示されます</string>
-    <string name="revanced_hide_end_screen_cards_summary_on">動画の終了画面(エンドカード)は非表示です</string>
-    <string name="revanced_hide_end_screen_cards_title">終了画面を非表示</string>
+    <string name="revanced_hide_end_screen_cards_summary_off">動画のエンドカードは表示されます</string>
+    <string name="revanced_hide_end_screen_cards_summary_on">動画のエンドカードは非表示です</string>
+    <string name="revanced_hide_end_screen_cards_title">エンドカードを非表示</string>
     <string name="revanced_hide_end_screen_overlay_summary_off">全画面表示の状態で上にスワイプしたとき、および動画の最後の終了画面のオーバーレイは表示されます</string>
     <string name="revanced_hide_end_screen_overlay_summary_on">全画面表示の状態で上にスワイプしたとき、および動画の最後の終了画面のオーバーレイは非表示です</string>
     <string name="revanced_hide_end_screen_overlay_title">エンドスクリーンのオーバーレイを非表示</string>
@@ -306,8 +301,8 @@
     <string name="revanced_hide_feed_survey_summary_off">フィードのアンケートは表示されます</string>
     <string name="revanced_hide_feed_survey_summary_on">フィードのアンケートは非表示です</string>
     <string name="revanced_hide_feed_survey_title">フィードのアンケートを非表示</string>
-    <string name="revanced_hide_filmstrip_overlay_summary_off">フィルムストリップオーバーレイは表示されます</string>
-    <string name="revanced_hide_filmstrip_overlay_summary_on">フィルムストリップオーバーレイは非表示です</string>
+    <string name="revanced_hide_filmstrip_overlay_summary_off">シークバーを上スワイプで表示されるフィルムストリップは表示されます</string>
+    <string name="revanced_hide_filmstrip_overlay_summary_on">シークバーを上スワイプで表示されるフィルムストリップは非表示です</string>
     <string name="revanced_hide_filmstrip_overlay_title">フィルムストリップオーバーレイを非表示</string>
     <string name="revanced_hide_floating_microphone_summary_off">動画を検索する際、右下に表示される音声入力ボタンは表示されます</string>
     <string name="revanced_hide_floating_microphone_summary_on">動画を検索する際、右下に表示される音声入力ボタンは非表示です</string>
@@ -363,11 +358,11 @@
     <string name="revanced_hide_medical_panel_summary_off">医療パネルは表示されます</string>
     <string name="revanced_hide_medical_panel_summary_on">医療パネルは非表示です</string>
     <string name="revanced_hide_medical_panel_title">医療パネルを非表示</string>
-    <string name="revanced_hide_merchandise_shelf_summary_off">フィードの商品欄は表示されます</string>
-    <string name="revanced_hide_merchandise_shelf_summary_on">フィードの商品欄は非表示です</string>
+    <string name="revanced_hide_merchandise_shelf_summary_off">フィードの商品広告は表示されます</string>
+    <string name="revanced_hide_merchandise_shelf_summary_on">フィードの商品広告は非表示です</string>
     <string name="revanced_hide_merchandise_shelf_title">商品欄を非表示</string>
-    <string name="revanced_hide_mix_playlists_summary_off">ミックスリストは表示されます</string>
-    <string name="revanced_hide_mix_playlists_summary_on">ミックスリストは非表示です</string>
+    <string name="revanced_hide_mix_playlists_summary_off">フィードのミックスリストは表示されます</string>
+    <string name="revanced_hide_mix_playlists_summary_on">フィードのミックスリストは非表示です</string>
     <string name="revanced_hide_mix_playlists_title">ミックスリストを非表示</string>
     <string name="revanced_hide_movie_shelf_summary_off">「YouTube の映画とテレビ番組」の欄は表示されます</string>
     <string name="revanced_hide_movie_shelf_summary_on">「YouTube の映画とテレビ番組」の欄は非表示です</string>
@@ -471,9 +466,9 @@
     <string name="revanced_hide_seek_message_summary_off">動画長押しシーク時に表示される「移動するには左右にスライドします」を非表示にします</string>
     <string name="revanced_hide_seek_message_summary_on">動画長押しシーク時に表示される「移動するには左右にスライドします」を非表示にします</string>
     <string name="revanced_hide_seek_message_title">シーク時のメッセージを非表示</string>
-    <string name="revanced_hide_self_sponsor_cards_summary_off">自己スポンサーカードは表示されます</string>
-    <string name="revanced_hide_self_sponsor_cards_summary_on">自己スポンサーカードは非表示です</string>
-    <string name="revanced_hide_self_sponsor_cards_title">自己スポンサーカードを非表示</string>
+    <string name="revanced_hide_self_sponsor_cards_summary_off">動画情報下部のセルフスポンサーカードは表示されます</string>
+    <string name="revanced_hide_self_sponsor_cards_summary_on">動画情報下部のセルフスポンサーカードは非表示です</string>
+    <string name="revanced_hide_self_sponsor_cards_title">セルフスポンサーカードを非表示</string>
     <string name="revanced_hide_shorts_button_summary_off">「ショート」ボタンは表示されます</string>
     <string name="revanced_hide_shorts_button_summary_on">「ショート」ボタンは非表示です</string>
     <string name="revanced_hide_shorts_button_title">ショート ボタンを非表示</string>
@@ -620,6 +615,16 @@ YouTube v18.24.37 以降でのみ利用可能です"</string>
     <string name="revanced_shorts_player_title">ショートプレーヤー</string>
     <string name="revanced_show_fullscreen_title_summary">既知の問題: タイトルをタップすると消えます</string>
     <string name="revanced_show_fullscreen_title_title">全画面表示での動画タイトル</string>
+    <string name="revanced_skipped_dummy">ダミーセグメントをスキップしました</string>
+    <string name="revanced_skip_dummy_segment_summary">"動画開始時にダミーセグメントをスキップし、サーバー側での画質強制の遅延を回避します
+
+• 動画の長さが10秒未満の場合、スキップされません
+• 動画開始時に約0.7秒の遅延が発生しますが、すぐにデフォルト画質が適用されます
+• HDR 動画の画質強制の遅延は回避されません"</string>
+    <string name="revanced_skip_dummy_segment_title">ダミーセグメントをスキップ</string>
+    <string name="revanced_skip_dummy_segment_toast_summary_off">トーストは非表示です</string>
+    <string name="revanced_skip_dummy_segment_toast_summary_on">トーストは表示されます</string>
+    <string name="revanced_skip_dummy_segment_toast_title">スキップ時にトーストを表示</string>
     <string name="revanced_speed_overlay_text" formatted="false">%s 倍速で再生中</string>
     <string name="revanced_spoof_app_version_summary">"YouTube のバージョンを古いバージョンに偽装します
 

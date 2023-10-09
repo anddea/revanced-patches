@@ -9,14 +9,17 @@
     <string name="microg_settings_title">Apri MicroG</string>
     <string name="revanced_ads">Annunci</string>
     <string name="revanced_alt_thumbnails">Thumbnails alternativi</string>
-    <string name="revanced_alt_thumbnail_about_summary">I thumbnails alternativi sono fotogrammi dall\'inizio/metà/fine di ogni video. Non viene usata alcuna API esterna, poiché queste immagini sono integrate in YouTube</string>
+    <string name="revanced_alt_thumbnail_about_summary">Una funzionalità che sostituisce i thumbnails predefiniti con quelli alternativi per ridurre il sensazionalismo</string>
     <string name="revanced_alt_thumbnail_about_title">Informazioni</string>
-    <string name="revanced_alt_thumbnail_enabled_summary_off">I thumbnails originali di YouTube sono visibili</string>
+    <string name="revanced_alt_thumbnail_dearrow_summary_off">I thumbnails sono generati senza API esterna</string>
+    <string name="revanced_alt_thumbnail_dearrow_summary_on">I thumbnails sono generati usando l\'API di DeArrow</string>
+    <string name="revanced_alt_thumbnail_dearrow_title">Usando l\'API di DeArrow</string>
+    <string name="revanced_alt_thumbnail_enabled_summary_off">I thumbnails predefiniti di YouTube sono visibili</string>
     <string name="revanced_alt_thumbnail_enabled_summary_on">I thumbnails di YouTube sono sostituiti con quelli alternativi</string>
     <string name="revanced_alt_thumbnail_enabled_title">Attiva i thumbnails alternativi</string>
-    <string name="revanced_alt_thumbnail_fast_quality_summary_off">Uso di fotogrammi di alta qualità, ma avrà più ritardo</string>
-    <string name="revanced_alt_thumbnail_fast_quality_summary_on">Uso di fotogrammi di media qualità. I thumbnails verranno caricati più velocemente, ma i video dal vivo, quelli non rilasciati o molto vecchi potrebbero mostrare thumbnails vuoti</string>
-    <string name="revanced_alt_thumbnail_fast_quality_title">Attiva i thumbnails alternativi rapidi</string>
+    <string name="revanced_alt_thumbnail_skip_checking_summary_off">I thumbnails saranno controllati se esistono prima di sostituirli</string>
+    <string name="revanced_alt_thumbnail_skip_checking_summary_on">I thumbnails si caricheranno più velocemente, ma alcuni video mostreranno thumbnails vuoti</string>
+    <string name="revanced_alt_thumbnail_skip_checking_title">Salta il controllo dei thumbnails</string>
     <string name="revanced_alt_thumbnail_type_entry_1">Inizio video</string>
     <string name="revanced_alt_thumbnail_type_entry_2">Metà video</string>
     <string name="revanced_alt_thumbnail_type_entry_3">Fine video</string>
@@ -46,7 +49,7 @@
     <string name="revanced_custom_playback_speeds_invalid">Velocità personalizzata del video non valida. Ripristina ai valori predefiniti</string>
     <string name="revanced_custom_playback_speeds_summary">È disponibile aggiungere, rimuovere o modificare le velocità di riproduzione</string>
     <string name="revanced_custom_playback_speeds_title">Modifica le velocità personalizzate del video</string>
-    <string name="revanced_custom_playback_speeds_warning" formatted="false">La velocità personalizzata deve essere inferiore a %sx. Ripristina ai valori predefiniti</string>
+    <string name="revanced_custom_playback_speeds_warning" formatted="false">Le velocità personalizzate non possono essere maggiori di %sx. Ripristina ai valori predefiniti</string>
     <string name="revanced_custom_seekbar_color_value_summary">Digita il codice esadecimale del colore della barra di avanzamento</string>
     <string name="revanced_custom_seekbar_color_value_title">Valore del colore personalizzato della barra di avanzamento</string>
     <string name="revanced_default_app_settings_summary">Per aprire ReVanced Extended da un\'applicazione esterna, attiva \"Apri collegamenti supportati\" e abilita gli indirizzi web supportati</string>
@@ -384,9 +387,9 @@ Disponibile solo per alcuni utenti che possono usare la sovrapposizione della ve
     <string name="revanced_hide_official_header_summary_off">L\'intestazione ufficiale è visibile</string>
     <string name="revanced_hide_official_header_summary_on">L\'intestazione ufficiale è nascosta</string>
     <string name="revanced_hide_official_header_title">Nascondi l\'intestazione ufficiale</string>
-    <string name="revanced_hide_paid_promotion_banner_summary_off">L\'etichetta delle promozioni a pagamento è visibile</string>
-    <string name="revanced_hide_paid_promotion_banner_summary_on">L\'etichetta delle promozioni a pagamento è nascosta</string>
-    <string name="revanced_hide_paid_promotion_banner_title">Nascondi l\'etichetta delle promozioni a pagamento</string>
+    <string name="revanced_hide_paid_promotion_banner_summary_off">Il banner delle promozioni a pagamento è visibile</string>
+    <string name="revanced_hide_paid_promotion_banner_summary_on">Il banner delle promozioni a pagamento è nascosta</string>
+    <string name="revanced_hide_paid_promotion_banner_title">Nascondi il banner delle promozioni a pagamento</string>
     <string name="revanced_hide_place_section_summary_off">La sezione Luogo è visibile</string>
     <string name="revanced_hide_place_section_summary_on">La sezione Luogo è nascosta</string>
     <string name="revanced_hide_place_section_title">Nascondi la sezione Luogo</string>
@@ -639,6 +642,7 @@ Se verrà disattivato in seguito, la vecchia interfaccia potrebbe rimanere fino 
     <string name="revanced_spoof_app_version_target_entry_16_08_35">16.08.35 - Ripristina la scheda Esplora</string>
     <string name="revanced_spoof_app_version_target_entry_17_08_35">17.08.35 - Ripristina la vecchia interfaccia</string>
     <string name="revanced_spoof_app_version_target_entry_17_41_37">17.41.37 - Ripristina il vecchio scaffale delle playlist</string>
+    <string name="revanced_spoof_app_version_target_entry_18_01_38">"18.01.38 - Rimuove il banner dei commenti dei membri"</string>
     <string name="revanced_spoof_app_version_target_entry_18_05_40">18.05.40 - Ripristina la vecchia casella di input dei commenti</string>
     <string name="revanced_spoof_app_version_target_entry_18_17_43">18.17.43 - Ripristina il vecchio pannello a comparsa del riproduttore</string>
     <string name="revanced_spoof_app_version_target_entry_title">La versione dell\'app da simulare</string>
@@ -736,8 +740,8 @@ Problemi noti:
     <string name="sb_segments_outro_sum">I crediti o quando appaiono le schede finali. Questo non dovrebbe includere conclusioni con informazioni</string>
     <string name="sb_segments_preview">Anteprima/Riepilogo</string>
     <string name="sb_segments_preview_sum">Una breve raccolta di anteprime che mostrano ciò che è in programma o ciò che è successo nel video attuale o in altri video di una serie, dove tutte le informazioni sono ripetute altrove</string>
-    <string name="sb_segments_filler">Riempitivo Irrelevante/Battute</string>
-    <string name="sb_segments_filler_sum">Scene riempitive aggiunte solo a scopo riempitivo o per umorismo, non necessarie per comprendere il contenuto principale del video. Questo non dovrebbe includere segmenti che forniscono contesto o dettagli di sfondo</string>
+    <string name="sb_segments_filler">Filler Irrelevante/Battute</string>
+    <string name="sb_segments_filler_sum">Scene tangenziali aggiunte solo a scopo riempitivo o per umorismo, non necessarie per comprendere il contenuto principale del video. Questo non dovrebbe includere segmenti che forniscono contesto o dettagli di sfondo</string>
     <string name="sb_segments_nomusic">Musica: Sezione Non-Musicale</string>
     <string name="sb_segments_nomusic_sum">Solo per video musicali. Dovrebbe essere usato solo per le sezioni di video musicali senza musica che non sono già incluse in un\'altra categoria</string>
     <string name="sb_skip_button_compact">Salta</string>
@@ -749,7 +753,7 @@ Problemi noti:
     <string name="sb_skip_button_intro_beginning">Salta Introduzione</string>
     <string name="sb_skip_button_outro">Salta Crediti</string>
     <string name="sb_skip_button_preview_beginning">Salta Anteprima</string>
-    <string name="sb_skip_button_filler">Salta Riempitivo</string>
+    <string name="sb_skip_button_filler">Salta Filler</string>
     <string name="sb_skip_button_nomusic">Salta Sezione Non-Musicale</string>
     <string name="sb_skip_button_unsubmitted">Salta segmento</string>
     <string name="sb_skipped_sponsor">Sponsor saltato</string>
@@ -759,7 +763,7 @@ Problemi noti:
     <string name="sb_skipped_intro_beginning">Introduzione saltata</string>
     <string name="sb_skipped_outro">Crediti saltati</string>
     <string name="sb_skipped_preview_beginning">Anteprima saltata</string>
-    <string name="sb_skipped_filler">Riempitivo saltato</string>
+    <string name="sb_skipped_filler">Filler saltato</string>
     <string name="sb_skipped_nomusic">Sezione Non-Musicale saltata</string>
     <string name="sb_skipped_unsubmitted">Segmento non inviato saltato</string>
     <string name="sb_skipped_multiple_segments">Segmenti multipli saltati</string>
