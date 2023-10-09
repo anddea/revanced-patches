@@ -16,7 +16,7 @@
     <string name="revanced_custom_playback_speeds_invalid">Недопустимые значения скорости. Сброс к значениям по умолчанию</string>
     <string name="revanced_custom_playback_speeds_summary">Добавить или изменить доступные скорости воспроизведения</string>
     <string name="revanced_custom_playback_speeds_title">Изменить значения скорости</string>
-    <string name="revanced_custom_playback_speeds_warning" formatted="false">Значения скорости должны быть меньше, чем %sx</string>
+    <string name="revanced_custom_playback_speeds_warning" formatted="false">Значения скоростей не могут быть больше, чем %sx</string>
     <string name="revanced_disable_auto_captions_summary">Отключает автоматическое включение субтитров в видеоплеере</string>
     <string name="revanced_disable_auto_captions_title">Отключить автоматические субтитры</string>
     <string name="revanced_downloader_not_installed" formatted="false">%s не установлен. Пожалуйста, установите его.</string>
@@ -31,7 +31,7 @@
     <string name="revanced_enable_flyout_panel_playback_speed_summary">Добавляет пункт \"Скорость воспроизведения\" в выдвижное меню</string>
     <string name="revanced_enable_flyout_panel_playback_speed_title">Пункт \"Скорость воспроизведения\"</string>
     <string name="revanced_enable_force_minimized_player_summary">Держать плеер всегда свёрнутым при нажатии на трек с главной страницы</string>
-    <string name="revanced_enable_force_minimized_player_title">Держать плеер свёрнутым при включении трека</string>
+    <string name="revanced_enable_force_minimized_player_title">Держать плеер свёрнутым</string>
     <string name="revanced_enable_landscape_mode_summary">Даёт возможность перехода в альбомный режим при повороте экрана телефона</string>
     <string name="revanced_enable_landscape_mode_title">Альбомный режим</string>
     <string name="revanced_enable_new_layout_summary">Включает новые макеты полноэкранного плеера</string>
@@ -114,13 +114,13 @@
     <string name="revanced_hide_navigation_label_summary">Скрывает подписи вкладок на панели навигации</string>
     <string name="revanced_hide_navigation_label_title">Скрыть подписи вкладок навигации</string>
     <string name="revanced_hide_new_playlist_button_summary">Скрывает кнопку \"Новый\" (\"Новый плейлист\") во вкладке «Библиотека»</string>
-    <string name="revanced_hide_new_playlist_button_title">Скрыть новую кнопку создания плейлиста</string>
+    <string name="revanced_hide_new_playlist_button_title">Скрыть кнопку \"Новый\"</string>
     <string name="revanced_hide_playlist_card_summary">Скрывает карточку плейлиста с главной страницы</string>
     <string name="revanced_hide_playlist_card_title">Скрыть карточку плейлиста</string>
     <string name="revanced_hide_samples_button_summary">Скрывает вкладку \"Семплы\"</string>
     <string name="revanced_hide_samples_button_title">Скрыть вкладку \"Семплы\"</string>
     <string name="revanced_hide_terms_container_summary">Скрывает пункт \"Конфиденциальность • Условия\"</string>
-    <string name="revanced_hide_terms_container_title">Скрыть пункт \"Конфиденциальность • Условия\"</string>
+    <string name="revanced_hide_terms_container_title">Скрыть \"Конфиденциальность • Условия\"</string>
     <string name="revanced_hide_upgrade_button_summary">Скрывает кнопку \"Платные подписки\"</string>
     <string name="revanced_hide_upgrade_button_title">Скрыть кнопку \"Платные подписки\"</string>
     <string name="revanced_hook_action_bar_download_summary">Заменяет кнопку \"Скачать\" кнопкой запуска внешнего загрузчика</string>
@@ -135,9 +135,9 @@
     <string name="revanced_replace_flyout_panel_dismiss_queue_title">Замена пункта \"Очистить очередь\"</string>
     <string name="revanced_replace_player_cast_button_title">Замена кнопки \"Трансляция\"</string>
     <string name="revanced_remember_repeat_state_summary">Запоминает состояние кнопки \"Повтор воспроизведения\"</string>
-    <string name="revanced_remember_repeat_state_title">Запоминать состояние кнопки \"Повтор воспроизведения\"</string>
+    <string name="revanced_remember_repeat_state_title">Запоминать состояние повтора</string>
     <string name="revanced_remember_shuffle_state_summary">Запоминает состояние кнопки \"Перемешать\"</string>
-    <string name="revanced_remember_shuffle_state_title">Запоминать состояние кнопки \"Перемешать\"</string>
+    <string name="revanced_remember_shuffle_state_title">Запоминать состояние перемешивания</string>
     <string name="revanced_reset">Сброс</string>
     <string name="revanced_ryd_about">Об интеграции</string>
     <string name="revanced_ryd_attribution_summary">Данные дизлайков предоставляются при помощи Return YouTube Dislike API. Нажмите здесь, чтобы узнать больше</string>
@@ -152,7 +152,16 @@
     <string name="revanced_save_video_quality_mobile">Качество по умолчанию при моб. сети изменено на:</string>
     <string name="revanced_save_video_quality_none">Не удалось установить выбранное качество</string>
     <string name="revanced_save_video_quality_wifi">Качество по умолчанию при Wi-Fi изменено на:</string>
-    <string name="revanced_spoof_app_version_summary">Подменить версию YouTube Music на v4.27.53 для пользователей из Канады</string>
+    <string name="revanced_spoof_app_version_summary">"Подменяет версию клиента на старую
+
+• Это изменит внешний вид приложения, но могут возникнуть неизвестные проблемы.
+• Если отключить данную опцию после её активации, старый интерфейс может оставаться до тех пор, пока данные приложения не будут очищены
+• Если кнопки на панели навигации не отображаются по неизвестной причине, перезапустите приложение
+• Включение этой функции призывает сервер запрашивать неверный BrowseId. В результате мы получаем то, что старый стиль вкладки \"Библиотека\" отображен принудительно"</string>
+    <string name="revanced_spoof_app_version_target_entry_4_27_53">4.27.53 - Отключение режима радио в канадских регионах</string>
+    <string name="revanced_spoof_app_version_target_entry_6_10_53">6.10.53 - Отключение динамических текстов</string>
+    <string name="revanced_spoof_app_version_target_summary">Выберите целевую версию приложения для подмены</string>
+    <string name="revanced_spoof_app_version_target_title">Целевая версия приложения при подмене</string>
     <string name="revanced_spoof_app_version_title">Подмена версии приложения</string>
     <string name="revanced_start_page_entry_chart">Хит-парады</string>
     <string name="revanced_start_page_entry_explore">Навигатор</string>
