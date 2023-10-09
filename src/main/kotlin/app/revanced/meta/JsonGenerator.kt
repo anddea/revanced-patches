@@ -6,20 +6,22 @@ import com.google.gson.GsonBuilder
 import java.io.File
 
 internal class JsonGenerator : PatchesFileGenerator {
-    override fun generate(patches: PatchSet) = patches.map {
-        JsonPatch(
-            it.name!!,
-            it.description,
-            it.compatiblePackages,
-            it.use,
-            it.requiresIntegrations,
-            it.options.values.map { option ->
-                JsonPatch.Option(option.key, option.value, option.title, option.description, option.required)
-            }
-        )
-    }.let {
-        File("patches.json").writeText(GsonBuilder().serializeNulls().create().toJson(it))
-    }
+    override fun generate(patches: PatchSet) = patches
+        .sortedBy { it.name }
+        .map {
+            JsonPatch(
+                it.name!!,
+                it.description,
+                it.compatiblePackages,
+                it.use,
+                it.requiresIntegrations,
+                it.options.values.map { option ->
+                    JsonPatch.Option(option.key, option.value, option.title, option.description, option.required)
+                }
+            )
+        }.let {
+            File("patches.json").writeText(GsonBuilder().serializeNulls().create().toJson(it))
+        }
 
     @Suppress("unused")
     private class JsonPatch(
