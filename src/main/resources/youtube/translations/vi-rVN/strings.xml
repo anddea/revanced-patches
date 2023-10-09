@@ -9,14 +9,10 @@
     <string name="microg_settings_title">Mở MicroG</string>
     <string name="revanced_ads">Quảng cáo</string>
     <string name="revanced_alt_thumbnails">Hình thu nhỏ</string>
-    <string name="revanced_alt_thumbnail_about_summary">Hình thu nhỏ video thay thế là ảnh tĩnh ở đầu, giữa hoặc cuối mỗi video. Tính năng này không sử dụng bất kỳ API bên ngoài nào vì những hình ảnh này đã được tích hợp sẵn vào YouTube.</string>
     <string name="revanced_alt_thumbnail_about_title">Giới thiệu</string>
     <string name="revanced_alt_thumbnail_enabled_summary_off">Đang sử dụng hình thu nhỏ video mặc định</string>
     <string name="revanced_alt_thumbnail_enabled_summary_on">Đang sử dụng hình thu nhỏ video thay thế</string>
     <string name="revanced_alt_thumbnail_enabled_title">Hình thu nhỏ thay thế</string>
-    <string name="revanced_alt_thumbnail_fast_quality_summary_off">Đang sử dụng ảnh tĩnh chất lượng cao làm hình thu nhỏ video.\n\nLưu ý: Tuỳ chọn này sẽ gây ra độ trễ nhiều hơn khi tải hình thu nhỏ.</string>
-    <string name="revanced_alt_thumbnail_fast_quality_summary_on">Đang sử dụng ảnh tĩnh chất lượng trung bình làm hình thu nhỏ video.\n\nLưu ý: Hình thu nhỏ sẽ tải nhanh hơn, tuy nhiên các sự kiện trực tiếp, video sắp xuất bản hoặc video rất cũ có thể không hiển thị hình thu nhỏ.</string>
-    <string name="revanced_alt_thumbnail_fast_quality_title">Hình thu nhỏ nhanh</string>
     <string name="revanced_alt_thumbnail_type_entry_1">Đầu video</string>
     <string name="revanced_alt_thumbnail_type_entry_2">Giữa video</string>
     <string name="revanced_alt_thumbnail_type_entry_3">Cuối video</string>
@@ -46,7 +42,6 @@
     <string name="revanced_custom_playback_speeds_invalid">Tốc độ phát tuỳ chỉnh không hợp lệ. Đã đặt lại về giá trị mặc định.</string>
     <string name="revanced_custom_playback_speeds_summary">Thêm giá trị tốc độ phát video mà bạn muốn thay đổi hoặc chỉnh sửa các giá trị tốc độ phát video hiện có</string>
     <string name="revanced_custom_playback_speeds_title">Chỉnh sửa tốc độ phát</string>
-    <string name="revanced_custom_playback_speeds_warning" formatted="false">Tốc độ phát tuỳ chỉnh phải nhỏ hơn %sx. Đã đặt lại về giá trị mặc định.</string>
     <string name="revanced_custom_seekbar_color_value_summary">Nhập mã màu hex của thanh tiến trình video mà bạn muốn thay đổi</string>
     <string name="revanced_custom_seekbar_color_value_title">Thay đổi màu thanh tiến trình</string>
     <string name="revanced_default_app_settings_summary">Để mở URL bên ngoài trong ReVanced Extended, hãy bật tính năng Mở các liên kết được hỗ trợ và thêm các liên kết được hỗ trợ</string>
@@ -204,9 +199,9 @@
     <string name="revanced_hide_button_download_summary_off">Nút Tải xuống được hiển thị</string>
     <string name="revanced_hide_button_download_summary_on">Nút Tải xuống đã ẩn</string>
     <string name="revanced_hide_button_download_title">Ẩn nút Tải xuống</string>
-    <string name="revanced_hide_button_like_dislike_summary_off">Nút Thích và nút Không thích được hiển thị</string>
-    <string name="revanced_hide_button_like_dislike_summary_on">Nút Thích và nút Không thích đã ẩn</string>
-    <string name="revanced_hide_button_like_dislike_title">Ẩn nút Thích và nút Không thích</string>
+    <string name="revanced_hide_button_like_dislike_summary_off">Các nút Thích và Không thích được hiển thị</string>
+    <string name="revanced_hide_button_like_dislike_summary_on">Các nút Thích và Không thích đã ẩn</string>
+    <string name="revanced_hide_button_like_dislike_title">Ẩn các nút Thích/Không thích</string>
     <string name="revanced_hide_button_like_summary_off">Nút Thích được hiển thị</string>
     <string name="revanced_hide_button_like_summary_on">Nút Thích đã ẩn</string>
     <string name="revanced_hide_button_like_title">Ẩn nút Thích</string>
@@ -626,9 +621,9 @@ Hầu hết các thiết bị bây giờ đều hỗ trợ codec VP9 nên bạn 
 - Khi bạn nhấn nút Phát, sẽ có một độ trễ khoảng 0.7 giây trước khi video bắt đầu phát, tuy nhiên chất lượng video mặc định vẫn được áp dụng ngay lập tức.
 - Video có thời lượng dưới 10 giây và video HDR sẽ không bị bỏ qua khoảng trễ này."</string>
     <string name="revanced_skip_dummy_segment_title">Bỏ qua khoảng trễ đầu video</string>
-    <string name="revanced_skip_dummy_segment_toast_summary_off">Thông báo ngắn đã ẩn khi bỏ qua phân đoạn</string>
-    <string name="revanced_skip_dummy_segment_toast_summary_on">Thông báo ngắn được hiển thị khi bỏ qua phân đoạn</string>
-    <string name="revanced_skip_dummy_segment_toast_title">Thông báo ngắn khi bỏ qua phân đoạn</string>
+    <string name="revanced_skip_dummy_segment_toast_summary_off">Thông báo ngắn đã ẩn khi bỏ qua khoảng trễ đầu video</string>
+    <string name="revanced_skip_dummy_segment_toast_summary_on">Thông báo ngắn được hiển thị khi bỏ qua khoảng trễ đầu video</string>
+    <string name="revanced_skip_dummy_segment_toast_title">Thông báo ngắn khi bỏ qua</string>
     <string name="revanced_speed_overlay_text" formatted="false">Đang phát ở tốc độ %sx</string>
     <string name="revanced_spoof_app_version_summary">"Giả mạo phiên bản YouTube hiện tại thành phiên bản cũ.
 

@@ -9,14 +9,17 @@
     <string name="microg_settings_title">Ouvrir MicroG</string>
     <string name="revanced_ads">Pubs</string>
     <string name="revanced_alt_thumbnails">Miniatures alternatives</string>
-    <string name="revanced_alt_thumbnail_about_summary">Les miniatures alternatives sont des images fixes provenant du début, du milieu ou de la fin de chaque vidéo. Aucune API externe n\'est utilisée, car ces images sont intégrées dans YouTube</string>
+    <string name="revanced_alt_thumbnail_about_summary">Une fonctionnalité qui remplace les miniatures par défaut par des miniatures alternatives pour réduire le sensationnalisme</string>
     <string name="revanced_alt_thumbnail_about_title">À propos</string>
+    <string name="revanced_alt_thumbnail_dearrow_summary_off">Les miniatures sont générées sans API externe</string>
+    <string name="revanced_alt_thumbnail_dearrow_summary_on">Les miniatures sont générées à l\'aide de l\'API DeArrow</string>
+    <string name="revanced_alt_thumbnail_dearrow_title">Utilisation de l\'API DeArrow</string>
     <string name="revanced_alt_thumbnail_enabled_summary_off">Les miniatures d\'origine sont affichées</string>
     <string name="revanced_alt_thumbnail_enabled_summary_on">Les miniatures d\'origine sont remplacées par des miniatures alternatives</string>
     <string name="revanced_alt_thumbnail_enabled_title">Miniatures alternatives</string>
-    <string name="revanced_alt_thumbnail_fast_quality_summary_off">Utilisation d\'images fixes de haute qualité. Cela entraînera un délai d\'affichage plus long.</string>
-    <string name="revanced_alt_thumbnail_fast_quality_summary_on">Utilisation d\'images fixes de qualité moyenne. Les miniatures se chargeront plus rapidement, mais les diffusions en direct, les vidéos non publiées ou très anciennes peuvent afficher des miniatures vides</string>
-    <string name="revanced_alt_thumbnail_fast_quality_title">Miniatures alternatives rapides</string>
+    <string name="revanced_alt_thumbnail_skip_checking_summary_off">Les miniatures seront vérifiées si elles existent ou non avant de la remplacer</string>
+    <string name="revanced_alt_thumbnail_skip_checking_summary_on">Les miniatures se chargeront plus rapidement, mais certaines vidéos afficheront des miniatures vides</string>
+    <string name="revanced_alt_thumbnail_skip_checking_title">La vérification des miniatures</string>
     <string name="revanced_alt_thumbnail_type_entry_1">Début de la vidéo</string>
     <string name="revanced_alt_thumbnail_type_entry_2">Milieu de la vidéo</string>
     <string name="revanced_alt_thumbnail_type_entry_3">Fin de la vidéo</string>
@@ -47,7 +50,7 @@
     <string name="revanced_custom_playback_speeds_summary">Ajouter ou modifier les vitesses disponibles</string>
     <string name="revanced_custom_playback_speeds_title">Modifier les vitesses vidéo personnalisées</string>
     <string name="revanced_custom_playback_speeds_warning" formatted="false">Les vitesses personnalisées doivent être inférieures à %sx. Rétablissez les valeurs par défaut.</string>
-    <string name="revanced_custom_seekbar_color_value_summary">Saisissez le code hex de la couleur de la barre de progression </string>
+    <string name="revanced_custom_seekbar_color_value_summary">Saisissez le code couleur hex de la barre de durée vidéo </string>
     <string name="revanced_custom_seekbar_color_value_title">Couleur de la barre (hex)</string>
     <string name="revanced_default_app_settings_summary">Pour ouvrir RVX depuis votre navigateur, activez l\'option \"Ouvrir les liens compatibles\" et activez les liens Web compatibles</string>
     <string name="revanced_default_app_settings_title">Paramètres \"Ouvrir par défaut\"</string>
@@ -67,9 +70,9 @@
     <string name="revanced_disable_haptic_feedback_scrubbing_summary_off">Le retour haptique lors du balayage est activé</string>
     <string name="revanced_disable_haptic_feedback_scrubbing_summary_on">Le retour haptique lors du balayage est désactivé</string>
     <string name="revanced_disable_haptic_feedback_scrubbing_title">Retour haptique du balayage</string>
-    <string name="revanced_disable_haptic_feedback_seek_summary_off">Le retour haptique de la barre de progression est activé</string>
-    <string name="revanced_disable_haptic_feedback_seek_summary_on">Le retour haptique de la barre de progression est désactivé</string>
-    <string name="revanced_disable_haptic_feedback_seek_title">La vibration lors du clic sur la barre de progression</string>
+    <string name="revanced_disable_haptic_feedback_seek_summary_off">Le retour haptique de la barre de durée vidéo est activé</string>
+    <string name="revanced_disable_haptic_feedback_seek_summary_on">Le retour haptique de la barre de durée vidéo est désactivé</string>
+    <string name="revanced_disable_haptic_feedback_seek_title">La vibration lors du clic sur la barre de durée vidéo </string>
     <string name="revanced_disable_haptic_feedback_zoom_summary_off">La vibration lors du zoom est activé</string>
     <string name="revanced_disable_haptic_feedback_zoom_summary_on">La vibration lors du zoom est désactivé</string>
     <string name="revanced_disable_haptic_feedback_zoom_title">La vibration lors du zoom</string>
@@ -97,9 +100,9 @@
     <string name="revanced_enable_custom_playback_speed_summary_off">La vitesse de lecture personnalisée est désactivée</string>
     <string name="revanced_enable_custom_playback_speed_summary_on">La vitesse de lecture personnalisée est activée</string>
     <string name="revanced_enable_custom_playback_speed_title">Modifier les vitesses vidéo personnalisées</string>
-    <string name="revanced_enable_custom_seekbar_color_summary_off">La couleur personnalisée de la barre de progression est désactivée</string>
-    <string name="revanced_enable_custom_seekbar_color_summary_on">La couleur personnalisée de la barre de progression est activée</string>
-    <string name="revanced_enable_custom_seekbar_color_title">Couleur de la barre de progression</string>
+    <string name="revanced_enable_custom_seekbar_color_summary_off">La couleur personnalisée de la barre de durée vidéo est désactivée</string>
+    <string name="revanced_enable_custom_seekbar_color_summary_on">La couleur personnalisée de la barre de durée vidéo est activée</string>
+    <string name="revanced_enable_custom_seekbar_color_title">Couleur de la barre de durée vidéo </string>
     <string name="revanced_edit_speed_overlay_value_summary">"Modifie la vitesse de lecture lorsque l'on maintient un des côtés de la vidéo 
 (Uniquement disponible pour certains utilisateurs)"</string>
     <string name="revanced_edit_speed_overlay_value_title">Modifier la vitesse de lecture en maintenant </string>
@@ -115,9 +118,9 @@
     <string name="revanced_enable_new_splash_animation_summary_off">Nouvel écran de démarrage désactivé</string>
     <string name="revanced_enable_new_splash_animation_summary_on">Nouvel écran de démarrage affiché</string>
     <string name="revanced_enable_new_splash_animation_title">Le nouvel écran de démarrage</string>
-    <string name="revanced_enable_new_thumbnail_preview_summary_off">Le nouvel aperçu des vignettes sur la barre de progression est désactivé </string>
-    <string name="revanced_enable_new_thumbnail_preview_summary_on">Le nouvel aperçu des vignettes sur la barre de progression est activé</string>
-    <string name="revanced_enable_new_thumbnail_preview_title">Nouvel aperçu des vignettes sur la barre de progression </string>
+    <string name="revanced_enable_new_thumbnail_preview_summary_off">Le nouvel aperçu des vignettes sur la barre de durée vidéo est désactivé </string>
+    <string name="revanced_enable_new_thumbnail_preview_summary_on">Le nouvel aperçu des vignettes sur la barre de durée vidéo est activé</string>
+    <string name="revanced_enable_new_thumbnail_preview_title">Nouvel aperçu des vignettes sur la barre de durée vidéo</string>
     <string name="revanced_enable_old_quality_layout_summary_off">La nouvelle interface des paramètres de qualité vidéo est affiché</string>
     <string name="revanced_enable_old_quality_layout_summary_on">L\'ancienne interface des paramètres de qualité vidéo est affiché</string>
     <string name="revanced_enable_old_quality_layout_title">L\'ancienne interface de qualité vidéo</string>
@@ -134,9 +137,9 @@
     <string name="revanced_enable_save_video_quality_summary_off">N’enregistre pas les valeurs de qualité vidéo même lorsque la qualité vidéo est modifiée</string>
     <string name="revanced_enable_save_video_quality_summary_on">Enregistre la valeur de qualité vidéo chaque fois que vous modifiez la qualité vidéo</string>
     <string name="revanced_enable_save_video_quality_title">Enregistrement de la qualité de la vidéo</string>
-    <string name="revanced_enable_seekbar_tapping_summary_off">L\'accès à la barre de progression est désactivé</string>
-    <string name="revanced_enable_seekbar_tapping_summary_on">L\'accès à la barre de progression est activé</string>
-    <string name="revanced_enable_seekbar_tapping_title">L\'accès à la barre de progression</string>
+    <string name="revanced_enable_seekbar_tapping_summary_off">L\'accès à la barre de durée vidéo est désactivé</string>
+    <string name="revanced_enable_seekbar_tapping_summary_on">L\'accès à la barre de durée vidéo est activé</string>
+    <string name="revanced_enable_seekbar_tapping_title">L\'accès à la barre de durée vidéo </string>
     <string name="revanced_enable_swipe_auto_brightness_summary_off">Même si la luminosité est réglée à 0 par balayage, la luminosité automatique n\'est pas activée</string>
     <string name="revanced_enable_swipe_auto_brightness_summary_on">Lorsque la luminosité atteint 0 par balayage, la luminosité automatique est activée</string>
     <string name="revanced_enable_swipe_auto_brightness_title">La luminosité automatique en balayant</string>
@@ -423,9 +426,9 @@
     <string name="revanced_hide_player_flyout_panel_playback_speed_summary_off">Le bouton \"Vitesse de lecture\" est affiché</string>
     <string name="revanced_hide_player_flyout_panel_playback_speed_summary_on">Le bouton \"Vitesse de lecture\" est caché</string>
     <string name="revanced_hide_player_flyout_panel_playback_speed_title">Le bouton \"Vitesse de lecture\"</string>
-    <string name="revanced_hide_player_flyout_panel_quality_footer_summary_off">Le bouton \"Qualité\" est affiché </string>
-    <string name="revanced_hide_player_flyout_panel_quality_footer_summary_on">Le bouton \"Qualité\" est caché </string>
-    <string name="revanced_hide_player_flyout_panel_quality_footer_title">Le bouton \"Qualité\"</string>
+    <string name="revanced_hide_player_flyout_panel_quality_footer_summary_off">Les conseils d\'utilisation de qualité vidéo sont affichés</string>
+    <string name="revanced_hide_player_flyout_panel_quality_footer_summary_on">Les conseils d\'utilisation de qualité vidéo sont cachés</string>
+    <string name="revanced_hide_player_flyout_panel_quality_footer_title">Les conseils d\'utilisation de qualité vidéo</string>
     <string name="revanced_hide_player_flyout_panel_report_summary_off">Le bouton \"Signaler\" est affiché</string>
     <string name="revanced_hide_player_flyout_panel_report_summary_on">Le bouton \"Signaler\" est caché</string>
     <string name="revanced_hide_player_flyout_panel_report_title">Le bouton \"Signaler\"</string>
@@ -459,12 +462,12 @@
     <string name="revanced_hide_quick_actions_summary_off">Les boutons d\'actions rapides sont affichés</string>
     <string name="revanced_hide_quick_actions_summary_on">Les boutons d\'actions rapides sont caché</string>
     <string name="revanced_hide_quick_actions_title">Tous les boutons d\'actions rapides</string>
-    <string name="revanced_hide_seekbar_summary_off">La barre de progression est affiché</string>
-    <string name="revanced_hide_seekbar_summary_on">La barre de progression est caché</string>
-    <string name="revanced_hide_seekbar_thumbnail_summary_off">Les vignettes sur la barre de progression sont affichés</string>
-    <string name="revanced_hide_seekbar_thumbnail_summary_on">Les vignettes sur la barre de progression sont cachés</string>
-    <string name="revanced_hide_seekbar_thumbnail_title">Les vignettes sur la barre de progression</string>
-    <string name="revanced_hide_seekbar_title">La barre de progression</string>
+    <string name="revanced_hide_seekbar_summary_off">La barre de durée vidéo est affiché</string>
+    <string name="revanced_hide_seekbar_summary_on">La barre de durée vidéo est caché</string>
+    <string name="revanced_hide_seekbar_thumbnail_summary_off">Les vignettes sur la barre de durée vidéo sont affichés</string>
+    <string name="revanced_hide_seekbar_thumbnail_summary_on">Les vignettes sur la barre de durée vidéo sont cachés</string>
+    <string name="revanced_hide_seekbar_thumbnail_title">Les vignettes sur la barre de durée vidéo </string>
+    <string name="revanced_hide_seekbar_title">La barre de durée vidéo </string>
     <string name="revanced_hide_seek_message_summary_off">Les boîtes de messages discrets sont affichés</string>
     <string name="revanced_hide_seek_message_summary_on">Les boîtes de messages discrets sont cachés</string>
     <string name="revanced_hide_seek_message_title">Les boîtes de messages discrets</string>
@@ -528,7 +531,7 @@
     <string name="revanced_hide_trending_searches_summary_on">Les recherches tendances sont cachés</string>
     <string name="revanced_hide_trending_searches_title">Les recherches tendances</string>
     <string name="revanced_hide_video_ads_summary_off">Les pubs vidéos sont affichées</string>
-    <string name="revanced_hide_video_ads_summary_on">Les pubs vidéos sont masquées</string>
+    <string name="revanced_hide_video_ads_summary_on">Les pubs vidéos sont cachées </string>
     <string name="revanced_hide_video_ads_title">Les publicités vidéo</string>
     <string name="revanced_hide_view_products_summary_off">La bannière \"Voir les produits\" est affichée</string>
     <string name="revanced_hide_view_products_summary_on">La bannière \"Voir les produits\" est cachée</string>
@@ -551,7 +554,7 @@ Disponible uniquement sur YouTube v18.24.37+"</string>
     <string name="revanced_open_library_startup_summary_on">Page d\'accueil actuelle : Bibliothèque</string>
     <string name="revanced_open_library_startup_title">Change la page d\'accueil par \"Bibliothèque\"</string>
     <string name="revanced_others">Autres</string>
-    <string name="revanced_overlay_button">Ajouts de boutons sur la vidéo</string>
+    <string name="revanced_overlay_button">Ajouts de boutons raccourcis sur la vidéo</string>
     <string name="revanced_overlay_button_always_repeat_summary">"Appuyez pour basculer l'état de la répétition automatique
 Appuyez longuement pour basculer et mettre en pause la répétition automatique"</string>
     <string name="revanced_overlay_button_always_repeat_title">Bouton \"Lecture en boucle\"</string>
@@ -609,18 +612,17 @@ Ce paramètre étant obsolètes, il se peut qu'ils ne soient plus valables"</str
     <string name="revanced_save_video_quality_mobile">Changer la qualité des données mobiles par défaut en :</string>
     <string name="revanced_save_video_quality_none">Échec de la définition de qualité</string>
     <string name="revanced_save_video_quality_wifi">Changer la qualité Wi-Fi par défaut en :</string>
-    <string name="revanced_seekbar">Barre de progression et durée de la vidéo</string>
+    <string name="revanced_seekbar">Barre de durée vidéo </string>
     <string name="revanced_shorts">Shorts</string>
     <string name="revanced_shorts_player_title">Lecteur Shorts</string>
     <string name="revanced_show_fullscreen_title_summary">Problème connu : le titre disparaît lorsqu\'on clique dessus</string>
     <string name="revanced_show_fullscreen_title_title">Le titre en plein écran</string>
     <string name="revanced_skipped_dummy">Le moment factice a été passée</string>
     <string name="revanced_skip_dummy_segment_summary">"Passer le moment factice au début de la vidéo pour contourner les délais d'application de qualité vidéo côté serveur
-
 • Si la durée de la vidéo est inférieure à 10 secondes, elle ne sera pas passée
 • Au démarrage de la vidéo, il y a un délai d'environ 0,7 seconde, mais la qualité vidéo par défaut est appliquée immédiatement
 • Les délais d'application de qualité vidéo pour la vidéo HDR ne sont pas contournés"</string>
-    <string name="revanced_skip_dummy_segment_title">Passer le moment factice</string>
+    <string name="revanced_skip_dummy_segment_title">Le moment factice</string>
     <string name="revanced_skip_dummy_segment_toast_summary_off">Le message est caché</string>
     <string name="revanced_skip_dummy_segment_toast_summary_on">Le message est affiché</string>
     <string name="revanced_skip_dummy_segment_toast_title">Message lors du passage du moment </string>
@@ -629,6 +631,7 @@ Ce paramètre étant obsolètes, il se peut qu'ils ne soient plus valables"</str
     <string name="revanced_spoof_app_version_target_entry_16_08_35">16.08.35 - Restaure le bouton \"Explorer\"</string>
     <string name="revanced_spoof_app_version_target_entry_17_08_35">17.08.35 - Restaure l\'ancienne mise en page de l\'interface</string>
     <string name="revanced_spoof_app_version_target_entry_17_41_37">17.41.37 - La catégorie \"Playlist\" dans la \"Bibliothèque\" suit l\'ancienne mise en page</string>
+    <string name="revanced_spoof_app_version_target_entry_18_01_38">"18.01.38 - Supprime la section \"Membres\" sur les commentaires"</string>
     <string name="revanced_spoof_app_version_target_entry_18_05_40">18.05.40 - Restaure l\'ancienne mise en page de saisie de commentaire</string>
     <string name="revanced_spoof_app_version_target_entry_18_17_43">18.17.43 - Restaure l\'ancienne mise en page du lecteur</string>
     <string name="revanced_spoof_app_version_target_entry_title">Falsifier la version de l\'application</string>
@@ -639,7 +642,7 @@ Ce paramètre étant obsolètes, il se peut qu'ils ne soient plus valables"</str
 
 Problèmes connus 
 • Les hautes qualités vidéos ne sont pas disponibles
-• Les vignettes sur la barre de progression ne sont pas affichés sur les vidéos payantes 
+• Les vignettes sur la barre de durée vidéo ne sont pas affichés sur les vidéos payantes 
 • Les téléchargements hors ligne peuvent ne pas fonctionner
 • Une fois vue la vidéo peux ne pas être revisionné"</string>
     <string name="revanced_spoof_player_parameter_title">Falsifier les paramètres du lecteur</string>
@@ -656,7 +659,7 @@ Problèmes connus
     <string name="revanced_switching_create_notification_summary_on">Le bouton \"Créer\" et le bouton \"Notification\" changent de place</string>
     <string name="revanced_switching_create_notification_title">Inverser les boutons \"Créer\" et \"Notification\"</string>
     <string name="revanced_tool_used">Outils utilisés</string>
-    <string name="revanced_video">Qualité et vitesse des vidéos</string>
+    <string name="revanced_video">Qualité et vitesse vidéo</string>
     <string name="pref_app_language_dialog_message">&lt;b&gt;%1$s&lt;/b&gt;&lt;br&gt;&lt;br&gt;Modifier la langue utilisée sur YouTube, comprenant les boutons, le texte et les boîtes de dialogue, mais ne modifiera pas la langue des paramètres de ReVanced Extended.</string>
     <string name="pref_app_language_dialog_message_no_lang_name">Modifier la langue utilisée sur YouTube, comprenant les boutons, le texte et les boîtes de dialogue, mais ne modifiera pas la langue des paramètres de ReVanced Extended</string>
     <string name="sb_enable_sb">SponsorBlock</string>
@@ -671,7 +674,7 @@ Problèmes connus
     <string name="sb_enable_auto_hide_skip_segment_button">Cache automatiquement le bouton \"Passer\"</string>
     <string name="sb_enable_auto_hide_skip_segment_button_sum_on">Le bouton \"Passer\" se cache après quelques secondes</string>
     <string name="sb_enable_auto_hide_skip_segment_button_sum_off">Le bouton \"Passer\" est affichée tout le long du moment</string>
-    <string name="sb_general_skiptoast">Afficher un message lorsqu\'un moment est passé automatiquement</string>
+    <string name="sb_general_skiptoast">Message lors du passage auto des moments</string>
     <string name="sb_general_skiptoast_sum_on">Un message sera affiché lorsqu\'un moment est automatiquement passé. Appuyez ici pour voir un exemple</string>
     <string name="sb_general_skiptoast_sum_off">Un message ne s\'affichera pas lorsqu\'un moment est automatiquement passé. Appuyez ici pour voir un exemple</string>
     <string name="sb_general_time_without">Temps d\'affichage sans compter les sponsors ou autre</string>
@@ -756,7 +759,7 @@ Problèmes connus
     <string name="sb_skip_automatically">Passer automatiquement</string>
     <string name="sb_skip_automatically_once">Passer automatiquement une fois</string>
     <string name="sb_skip_showbutton">Afficher un bouton \"Passer\"</string>
-    <string name="sb_skip_seekbaronly">Afficher dans la barre de progression</string>
+    <string name="sb_skip_seekbaronly">Afficher dans la barre de durée vidéo </string>
     <string name="sb_skip_ignore">Désactiver</string>
     <string name="sb_submit_failed_invalid" formatted="false">Impossible de soumettre le moment : %s</string>
     <string name="sb_submit_failed_timeout">Impossible de soumettre les moments (API expirée)</string>
@@ -784,7 +787,7 @@ Existe déjà</string>
     <string name="sb_new_segment_confirm_title">Les temps sont-ils corrects ?</string>
     <string name="sb_new_segment_confirm_content" formatted="false">Le moment dure de %02d:%02d à %02d:%02d (%d minutes %02d secondes) Est-il prêt à être soumis ?</string>
     <string name="sb_new_segment_start_is_before_end">Le début doit être avant la fin</string>
-    <string name="sb_new_segment_mark_locations_first">Tout d\'abord marquer deux emplacements sur la barre de progression</string>
+    <string name="sb_new_segment_mark_locations_first">Tout d\'abord marquer deux emplacements sur la barre de durée vidéo </string>
     <string name="sb_new_segment_preview_segment_first">Prévisualisez le moment et assurez-vous qu\'il passe sans problème</string>
     <string name="sb_new_segment_edit_by_hand_title">Editer le temps du moment manuellement</string>
     <string name="sb_new_segment_edit_by_hand_content">Voulez-vous modifier le moment de début ou de fin du moment ?</string>

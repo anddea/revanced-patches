@@ -9,14 +9,17 @@
     <string name="microg_settings_title">فتح MicroG</string>
     <string name="revanced_ads">الإعلانات</string>
     <string name="revanced_alt_thumbnails">مُصغَّرات فيديو بديلة</string>
-    <string name="revanced_alt_thumbnail_about_summary">المُصغَّرات البديلة هي صور ثابتة من بداية / منتصف / نهاية كل مقطع فيديو. لا يتم استخدام واجهة برمجة تطبيقات خارجية، حيث إن هذه الصور مدمجة في YouTube</string>
+    <string name="revanced_alt_thumbnail_about_summary">مِيزة استبدال مُصغّرات الفيديو الافتراضية بمُصغّرات بديلة للحد من الإثارة.</string>
     <string name="revanced_alt_thumbnail_about_title">لمحة</string>
+    <string name="revanced_alt_thumbnail_dearrow_summary_off">يتم إنشاء المُصغّرات بدون واجهة برمجة التطبيقات الخارجية</string>
+    <string name="revanced_alt_thumbnail_dearrow_summary_on">يتم إنشاء المُصغّرات باستخدام DeArrow API</string>
+    <string name="revanced_alt_thumbnail_dearrow_title">استخدام DeArrow API</string>
     <string name="revanced_alt_thumbnail_enabled_summary_off">يتم عرض مُصغَّرات YouTube الأصلية</string>
     <string name="revanced_alt_thumbnail_enabled_summary_on">تم استبدال مُصغَّرات YouTube بأخرى بديلة</string>
     <string name="revanced_alt_thumbnail_enabled_title">تمكين المُصغَّرات البديلة</string>
-    <string name="revanced_alt_thumbnail_fast_quality_summary_off">استخدام صور ثابتة عالية الجودة ولكن سيكون لها مزيد من التأخير</string>
-    <string name="revanced_alt_thumbnail_fast_quality_summary_on">استخدام اللقطات متوسطة الجودة. سيتم تحميل المُصغَّرات بشكل أسرع، ولكن البث المباشر أو المقاطع التي لم يتم إصدارها أو القديمة جدًا قد تعرض مُصغَّرات فارغة</string>
-    <string name="revanced_alt_thumbnail_fast_quality_title">استخدام المُصغَّرات البديلة السريعة</string>
+    <string name="revanced_alt_thumbnail_skip_checking_summary_off">سيتم التحقق من المُصغّرات إذا كانت موجودة أم لا قبل استبدالها</string>
+    <string name="revanced_alt_thumbnail_skip_checking_summary_on">سيتم تحميل المُصغّرات بشكل أسرع، ولكن بعض مقاطع الفيديو ستعرض مُصغّرات فارغة</string>
+    <string name="revanced_alt_thumbnail_skip_checking_title">تخطي التحقق من المُصغّرات</string>
     <string name="revanced_alt_thumbnail_type_entry_1">بداية الفيديو</string>
     <string name="revanced_alt_thumbnail_type_entry_2">منتصف الفيديو</string>
     <string name="revanced_alt_thumbnail_type_entry_3">نهاية الفيديو</string>
@@ -46,7 +49,7 @@
     <string name="revanced_custom_playback_speeds_invalid">سرعات التشغيل المخصصة غير صالحة. إعادة التعيين إلى القيم الافتراضية.</string>
     <string name="revanced_custom_playback_speeds_summary">إضافة أو تغيير سرعات التشغيل المتاحة</string>
     <string name="revanced_custom_playback_speeds_title">تعديل سرعة التشغيل المخصصة</string>
-    <string name="revanced_custom_playback_speeds_warning" formatted="false">يجب أن تكون السرعات المخصصة أقل من %sx. إعادة التعيين إلى القيم الافتراضية.</string>
+    <string name="revanced_custom_playback_speeds_warning" formatted="false">السرعات المخصصة لا يمكن أن تكون أكثر من %sx. إعادة التعيين إلى القيم الافتراضية.</string>
     <string name="revanced_custom_seekbar_color_value_summary">اكتب رمز اللون للون شريط تقدم الفيديو</string>
     <string name="revanced_custom_seekbar_color_value_title">قيمة لون شريط تقدم الفيديو المخصصة</string>
     <string name="revanced_default_app_settings_summary">لفتح RVX في متصفح خارجي، قم بتشغيل \"فتح الروابط المدعومة\" وتمكين عناوين الويب المدعومة</string>
@@ -634,6 +637,7 @@
     <string name="revanced_spoof_app_version_target_entry_16_08_35">16.08.35 - استعادة تبويب استكشاف</string>
     <string name="revanced_spoof_app_version_target_entry_17_08_35">17.08.35 - استعادة تصميم واجهة المستخدم القديم</string>
     <string name="revanced_spoof_app_version_target_entry_17_41_37">17.41.37 - استعادة رف قائمة التشغيل القديم</string>
+    <string name="revanced_spoof_app_version_target_entry_18_01_38">"18-01-38 - إزالة لافتة 'تعليقات من قبل الأعضاء'"</string>
     <string name="revanced_spoof_app_version_target_entry_18_05_40">18.05.40 - استعادة مربع إدخال التعليقات القديم</string>
     <string name="revanced_spoof_app_version_target_entry_18_17_43">18.17.43 - استعادة لوحة المشغل المنبثقة القديمة</string>
     <string name="revanced_spoof_app_version_target_entry_title">الهدف من خِداع إصدار التطبيق</string>

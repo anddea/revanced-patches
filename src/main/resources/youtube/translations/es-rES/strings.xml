@@ -9,14 +9,17 @@
     <string name="microg_settings_title">Abrir MicroG</string>
     <string name="revanced_ads">Anuncios</string>
     <string name="revanced_alt_thumbnails">Miniaturas alternativas</string>
-    <string name="revanced_alt_thumbnail_about_summary">Las miniaturas alternativas son imágenes fijas del principio/medio/final de cada video. No se utiliza ninguna API externa, ya que estas imágenes están integradas en YouTube</string>
+    <string name="revanced_alt_thumbnail_about_summary">Una función que sustituía las miniaturas de vídeo predeterminadas por otras alternativas para reducir el sensacionalismo.</string>
     <string name="revanced_alt_thumbnail_about_title">Acerca de</string>
+    <string name="revanced_alt_thumbnail_dearrow_summary_off">Las miniaturas se generan sin API externa</string>
+    <string name="revanced_alt_thumbnail_dearrow_summary_on">Las miniaturas se generan mediante la API DeArrow</string>
+    <string name="revanced_alt_thumbnail_dearrow_title">Utilizando la API DeArrow</string>
     <string name="revanced_alt_thumbnail_enabled_summary_off">Se muestran las miniaturas originales de YouTube</string>
     <string name="revanced_alt_thumbnail_enabled_summary_on">Miniaturas de YouTube reemplazadas por unas alternativas</string>
     <string name="revanced_alt_thumbnail_enabled_title">Habilitar miniaturas alternativas</string>
-    <string name="revanced_alt_thumbnail_fast_quality_summary_off">Usando imágenes fijas de alta calidad, pero tendrá más retraso</string>
-    <string name="revanced_alt_thumbnail_fast_quality_summary_on">Usando niveles de calidad medios. Las miniaturas cargarán más rápido, pero los flujos en vivo, no liberados o videos muy antiguos pueden mostrar miniaturas en blanco</string>
-    <string name="revanced_alt_thumbnail_fast_quality_title">Usa miniaturas alternativas rápidas</string>
+    <string name="revanced_alt_thumbnail_skip_checking_summary_off">Se comprobará si las miniaturas existen o no antes de reemplazarlas</string>
+    <string name="revanced_alt_thumbnail_skip_checking_summary_on">Las miniaturas se cargarán más rápido, pero algunos vídeos mostrarán miniaturas en blanco</string>
+    <string name="revanced_alt_thumbnail_skip_checking_title">Omitir comprobación de miniaturas</string>
     <string name="revanced_alt_thumbnail_type_entry_1">Inicio del vídeo</string>
     <string name="revanced_alt_thumbnail_type_entry_2">Mitad del video</string>
     <string name="revanced_alt_thumbnail_type_entry_3">Final del vídeo</string>
@@ -46,7 +49,7 @@
     <string name="revanced_custom_playback_speeds_invalid">Las velocidades de reproducción personalizadas no son válidas. Restablezca a los valores predeterminados.</string>
     <string name="revanced_custom_playback_speeds_summary">Agregar o cambiar las velocidades de reproducción disponibles</string>
     <string name="revanced_custom_playback_speeds_title">Editar velocidades de reproducción personalizadas</string>
-    <string name="revanced_custom_playback_speeds_warning" formatted="false">Las velocidades personalizadas deben ser inferiores a %sx. Restablezca a los valores predeterminados.</string>
+    <string name="revanced_custom_playback_speeds_warning" formatted="false">Las velocidades personalizadas no pueden ser superiores a %sx. Restablezca a los valores predeterminados.</string>
     <string name="revanced_custom_seekbar_color_value_summary">Escriba el código hexadecimal del color de la barra de progreso</string>
     <string name="revanced_custom_seekbar_color_value_title">Valor de color personalizado para barra de progreso</string>
     <string name="revanced_default_app_settings_summary">Para abrir RVX en un navegador externo, activa \"Abrir enlaces compatibles\" y activa las direcciones web compatibles</string>
@@ -640,6 +643,7 @@ Si más tarde se desactiva, la antigua interfaz de usuario puede permanecer hast
     <string name="revanced_spoof_app_version_target_entry_16_08_35">16.08.35 - Restaurar la pestaña Explorar</string>
     <string name="revanced_spoof_app_version_target_entry_17_08_35">17.08.35 - Restaurar el antiguo diseño de la interfaz de usuario</string>
     <string name="revanced_spoof_app_version_target_entry_17_41_37">17.41.37 - Restaurar la antigua lista de reproducción shelf</string>
+    <string name="revanced_spoof_app_version_target_entry_18_01_38">"18.01.38 - Eliminar el banner \"Comentarios de los miembros\""</string>
     <string name="revanced_spoof_app_version_target_entry_18_05_40">18.05.40 - Restaurar la vieja caja de entrada de comentarios</string>
     <string name="revanced_spoof_app_version_target_entry_18_17_43">18.17.43 - Restaurar el antiguo estilo del panel desplegable del reproductor</string>
     <string name="revanced_spoof_app_version_target_entry_title">Versión a usar de la aplicación</string>

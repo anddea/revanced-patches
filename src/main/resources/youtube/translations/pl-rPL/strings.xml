@@ -9,14 +9,10 @@
     <string name="microg_settings_title">Otwórz MicroG</string>
     <string name="revanced_ads">Reklamy</string>
     <string name="revanced_alt_thumbnails">Alternatywne miniaturki</string>
-    <string name="revanced_alt_thumbnail_about_summary">Alternatywne miniaturki są nadal obrazkami, ale z początku/środka/końca każdego wideo. Żadne zewnętrzne API nie jest do tego używane, ponieważ te obrazki są pozyskiwane z YouTube\'a</string>
     <string name="revanced_alt_thumbnail_about_title">Opis</string>
     <string name="revanced_alt_thumbnail_enabled_summary_off">Oryginalne miniaturki YouTube są widoczne</string>
     <string name="revanced_alt_thumbnail_enabled_summary_on">Miniaturki YouTube są zastąpione alternatywnymi miniaturkami</string>
     <string name="revanced_alt_thumbnail_enabled_title">Alternatywne miniaturki</string>
-    <string name="revanced_alt_thumbnail_fast_quality_summary_off">Używasz miniaturek wysokiej jakości, przez co ładują się one wolniej</string>
-    <string name="revanced_alt_thumbnail_fast_quality_summary_on">Używasz miniaturek średniej jakości. Miniaturki będą ładować się szybciej, ale mogą być puste dla transmisji na żywo, niewydanych lub bardzo starych wideo</string>
-    <string name="revanced_alt_thumbnail_fast_quality_title">Szybkie alternatywne miniaturki</string>
     <string name="revanced_alt_thumbnail_type_entry_1">Początek wideo</string>
     <string name="revanced_alt_thumbnail_type_entry_2">Środek wideo</string>
     <string name="revanced_alt_thumbnail_type_entry_3">Koniec wideo</string>
@@ -46,7 +42,6 @@
     <string name="revanced_custom_playback_speeds_invalid">Nieprawidłowe niestandardowe prędkości odtwarzania. Przywróć domyślne wartości.</string>
     <string name="revanced_custom_playback_speeds_summary">Dodaj lub zmień dostępne prędkości odtwarzania</string>
     <string name="revanced_custom_playback_speeds_title">Edytuj niestandardowe prędkości odtwarzania</string>
-    <string name="revanced_custom_playback_speeds_warning" formatted="false">Niestandardowe prędkości muszą by mniejsze niż %sx. Przywróć domyślne wartości.</string>
     <string name="revanced_custom_seekbar_color_value_summary">Wpisz kod hex koloru paska wideo</string>
     <string name="revanced_custom_seekbar_color_value_title">Niestandardowy kolor paska wideo</string>
     <string name="revanced_default_app_settings_summary">Aby otwierać aplikację YouTube używając linków, włącz \"Otwórz wspierane linki\" i wspierane linki</string>
@@ -82,8 +77,8 @@
     <string name="revanced_disable_landscape_mode_summary_off">Włączony przy wchodzeniu w tryb pełnoekranowy</string>
     <string name="revanced_disable_landscape_mode_summary_on">Wyłączony przy wchodzeniu w tryb pełnoekranowy</string>
     <string name="revanced_disable_landscape_mode_title">Tryb poziomy</string>
-    <string name="revanced_disable_speed_overlay_summary">"Wyłącz 'Odtwarzanie z prędkością 2x' przytrzymując w dół"</string>
-    <string name="revanced_disable_speed_overlay_title">Wyłącz nakładkę prędkości odtwarzania</string>
+    <string name="revanced_disable_speed_overlay_summary">"Wyłącz „Odtwarzanie z prędkością 2x” podczas przytrzymywania"</string>
+    <string name="revanced_disable_speed_overlay_title">Nakładka prędkości odtwarzania</string>
     <string name="revanced_disable_quic_protocol_summary">"Wyłącz protokół QUIC w CronetEngine"</string>
     <string name="revanced_disable_quic_protocol_title">Wyłącz protokół QUIC</string>
     <string name="revanced_disable_startup_shorts_player_summary_off">Widoczne</string>
@@ -100,8 +95,8 @@
     <string name="revanced_enable_custom_seekbar_color_summary_off">Niewidoczny</string>
     <string name="revanced_enable_custom_seekbar_color_summary_on">Widoczny</string>
     <string name="revanced_enable_custom_seekbar_color_title">Niestandardowy kolor paska wideo</string>
-    <string name="revanced_edit_speed_overlay_value_summary">"Edytuj prędkość, która zmienia się podczas przytrzymywania w dół
-Dostępne jedynie dla garstki użytkowników, którzy mogą używać nakładki prędkości odtwarzania"</string>
+    <string name="revanced_edit_speed_overlay_value_summary">"Edytuj prędkość, która zmienia się podczas przytrzymywania
+Dostępne jedynie dla części użytkowników, którzy mogą używać nakładki prędkości odtwarzania"</string>
     <string name="revanced_edit_speed_overlay_value_title">Edytuj nakładkę prędkości odtwarzania</string>
     <string name="revanced_enable_debug_logging_summary_off">Nie zapisywane</string>
     <string name="revanced_enable_debug_logging_summary_on">Zapisywane</string>
@@ -206,7 +201,7 @@ Dostępne jedynie dla garstki użytkowników, którzy mogą używać nakładki p
     <string name="revanced_hide_button_download_title">Przycisk od pobierania</string>
     <string name="revanced_hide_button_like_dislike_summary_off">Widoczne</string>
     <string name="revanced_hide_button_like_dislike_summary_on">Ukryte</string>
-    <string name="revanced_hide_button_like_dislike_title">Przyciski od łapkowania w górę i w dół</string>
+    <string name="revanced_hide_button_like_dislike_title">Przyciski od łapkowania w górę i dół</string>
     <string name="revanced_hide_button_like_summary_off">Widoczny</string>
     <string name="revanced_hide_button_like_summary_on">Ukryty</string>
     <string name="revanced_hide_button_like_title">Przycisk od łapkowania w górę</string>
@@ -236,13 +231,13 @@ Dostępne jedynie dla garstki użytkowników, którzy mogą używać nakładki p
     <string name="revanced_hide_button_thanks_title">Przycisk od dziękowania</string>
     <string name="revanced_hide_button_transcript_summary_off">Widoczny</string>
     <string name="revanced_hide_button_transcript_summary_on">Ukryty</string>
-    <string name="revanced_hide_button_transcript_title">Przycisk od transkrypcji</string>
+    <string name="revanced_hide_button_transcript_title">Przycisk do transkrypcji</string>
     <string name="revanced_hide_captions_button_summary_off">Widoczny</string>
     <string name="revanced_hide_captions_button_summary_on">Ukryty</string>
     <string name="revanced_hide_captions_button_title">Przycisk od napisów</string>
     <string name="revanced_hide_cast_button_summary_off">Widoczny</string>
     <string name="revanced_hide_cast_button_summary_on">Ukryty</string>
-    <string name="revanced_hide_cast_button_title">Przycisk do castowania</string>
+    <string name="revanced_hide_cast_button_title">Przycisk do powielania</string>
     <string name="revanced_hide_category_bar_in_feed_title">Pasek z kategoriami na stronie głównej</string>
     <string name="revanced_hide_category_bar_in_related_video_title">Pasek z kategoriami pod odtwarzaczem</string>
     <string name="revanced_hide_category_bar_in_search_results_title">Pasek z kategoriami w wynikach wyszukiwania</string>
@@ -380,7 +375,7 @@ Dostępne jedynie dla garstki użytkowników, którzy mogą używać nakładki p
     <string name="revanced_hide_navigation_label_title">Nazwy w pasku nawigacji</string>
     <string name="revanced_hide_notify_me_button_summary_off">Widoczny</string>
     <string name="revanced_hide_notify_me_button_summary_on">Ukryty</string>
-    <string name="revanced_hide_notify_me_button_title">Przycisk powiadamiania mnie na stronie głównej</string>
+    <string name="revanced_hide_notify_me_button_title">Przycisk do wyjątkowych powiadomień</string>
     <string name="revanced_hide_official_header_summary_off">Widoczne</string>
     <string name="revanced_hide_official_header_summary_on">Ukryte</string>
     <string name="revanced_hide_official_header_title">Logo</string>
@@ -399,9 +394,9 @@ Dostępne jedynie dla garstki użytkowników, którzy mogą używać nakładki p
     <string name="revanced_hide_player_flyout_panel_audio_track_summary_off">Widoczne</string>
     <string name="revanced_hide_player_flyout_panel_audio_track_summary_on">Ukryte</string>
     <string name="revanced_hide_player_flyout_panel_audio_track_title">Menu od ścieżki audio</string>
-    <string name="revanced_hide_player_flyout_panel_captions_footer_summary_off">Widoczna</string>
-    <string name="revanced_hide_player_flyout_panel_captions_footer_summary_on">Ukryta</string>
-    <string name="revanced_hide_player_flyout_panel_captions_footer_title">Stopka menu napisów</string>
+    <string name="revanced_hide_player_flyout_panel_captions_footer_summary_off">Widoczny</string>
+    <string name="revanced_hide_player_flyout_panel_captions_footer_summary_on">Ukryty</string>
+    <string name="revanced_hide_player_flyout_panel_captions_footer_title">Opis menu od napisów</string>
     <string name="revanced_hide_player_flyout_panel_captions_summary_off">Widoczne</string>
     <string name="revanced_hide_player_flyout_panel_captions_summary_on">Ukryte</string>
     <string name="revanced_hide_player_flyout_panel_captions_title">Menu od napisów</string>
@@ -426,9 +421,9 @@ Dostępne jedynie dla garstki użytkowników, którzy mogą używać nakładki p
     <string name="revanced_hide_player_flyout_panel_playback_speed_summary_off">Widoczne</string>
     <string name="revanced_hide_player_flyout_panel_playback_speed_summary_on">Ukryte</string>
     <string name="revanced_hide_player_flyout_panel_playback_speed_title">Menu od prędkości</string>
-    <string name="revanced_hide_player_flyout_panel_quality_footer_summary_off">Widoczna</string>
-    <string name="revanced_hide_player_flyout_panel_quality_footer_summary_on">Ukryta</string>
-    <string name="revanced_hide_player_flyout_panel_quality_footer_title">Stopka menu jakości</string>
+    <string name="revanced_hide_player_flyout_panel_quality_footer_summary_off">Widoczny</string>
+    <string name="revanced_hide_player_flyout_panel_quality_footer_summary_on">Ukryty</string>
+    <string name="revanced_hide_player_flyout_panel_quality_footer_title">Opis menu od jakości</string>
     <string name="revanced_hide_player_flyout_panel_report_summary_off">Widoczne</string>
     <string name="revanced_hide_player_flyout_panel_report_summary_on">Ukryte</string>
     <string name="revanced_hide_player_flyout_panel_report_title">Menu od zgłaszania</string>
@@ -487,7 +482,7 @@ Dostępne jedynie dla garstki użytkowników, którzy mogą używać nakładki p
     <string name="revanced_hide_shorts_player_navigation_bar_title">Pasek nawigacji</string>
     <string name="revanced_hide_shorts_player_pivot_button_summary_off">Widoczny</string>
     <string name="revanced_hide_shorts_player_pivot_button_summary_on">Ukryty</string>
-    <string name="revanced_hide_shorts_player_pivot_button_title">Przycisk od dźwięku</string>
+    <string name="revanced_hide_shorts_player_pivot_button_title">Przycisk do dźwięku</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_off">Widoczny</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_on">Ukryty</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_title">Przycisk do strony subskrypcji</string>
@@ -620,13 +615,13 @@ To ustawienie może nie zadziałać"</string>
     <string name="revanced_shorts_player_title">Odtwarzacz shortsów</string>
     <string name="revanced_show_fullscreen_title_summary">Znany problem: Tytuły znikają po stuknięciu w nie</string>
     <string name="revanced_show_fullscreen_title_title">Pokazuj tytuły w trybie pełnoekranowym</string>
-    <string name="revanced_skipped_dummy">Pominięto fikcyjny segment</string>
-    <string name="revanced_skip_dummy_segment_summary">"Pomija fikcyjne segmenty na początku wideo, aby obejść opóźnienia w egzekwowaniu jakości wideo po stronie serwera
+    <string name="revanced_skipped_dummy">Pominięto segment niskiej jakości</string>
+    <string name="revanced_skip_dummy_segment_summary">"Pomija segmenty niskiej jakości na początku wideo, aby obejść opóźnienia w egzekwowaniu jakości wideo po stronie serwera
 
-• Jeśli długość wideo jest mniejsza niż 10 sekund, pominięcie nie zostanie zastosowane
-• Po uruchomieniu wideo występuje opóźnienie wynoszące około 0.7 sekundy, lecz domyślna jakość wideo jest stosowana natychmiast
+• Jeśli długość wideo jest mniejsza niż 10 sekund, nic nie zostanie pominięte
+• Po uruchomieniu wideo występuje opóźnienie wynoszące około 0.7 sekundy, lecz domyślna jakość wideo jest zastosowana natychmiast
 • Opóźnienia egzekwowania jakości wideo dla wideo HDR nie są obchodzone"</string>
-    <string name="revanced_skip_dummy_segment_title">Fikcyjne segmenty</string>
+    <string name="revanced_skip_dummy_segment_title">Segmenty niskiej jakości</string>
     <string name="revanced_skip_dummy_segment_toast_summary_off">Ukryte</string>
     <string name="revanced_skip_dummy_segment_toast_summary_on">Widoczne</string>
     <string name="revanced_skip_dummy_segment_toast_title">Komunikaty po pominięciu</string>
@@ -635,11 +630,11 @@ To ustawienie może nie zadziałać"</string>
 
 Zmieni to wygląd aplikacji, lecz mogą wystąpić nieznane efekty uboczne
 Jeśli później opcja ta zostanie wyłączona, stare UI może pozostać do czasu usunięcia danych aplikacji"</string>
-    <string name="revanced_spoof_app_version_target_entry_16_08_35">16.08.35 - Przywróć zakładkę odkrywania</string>
+    <string name="revanced_spoof_app_version_target_entry_16_08_35">16.08.35 - Przywróć przycisk od odkrywania</string>
     <string name="revanced_spoof_app_version_target_entry_17_08_35">17.08.35 - Przywróć stary wygląd interfejsu</string>
-    <string name="revanced_spoof_app_version_target_entry_17_41_37">17.41.37 - Przywróć stary układ playlist w bibliotece</string>
-    <string name="revanced_spoof_app_version_target_entry_18_05_40">18.05.40 - Przywróć stare pole do pisania komentarzy</string>
-    <string name="revanced_spoof_app_version_target_entry_18_17_43">18.17.43 - Przywróć stary wygląd menu ustawień wideo w odtwarzaczu</string>
+    <string name="revanced_spoof_app_version_target_entry_17_41_37">17.41.37 - Przywróć starą półkę do playlist</string>
+    <string name="revanced_spoof_app_version_target_entry_18_05_40">18.05.40 - Przywróć stare pole od pisania komentarzy</string>
+    <string name="revanced_spoof_app_version_target_entry_18_17_43">18.17.43 - Przywróć stary wygląd menu ustawień wideo</string>
     <string name="revanced_spoof_app_version_target_entry_title">Oszukana wersja aplikacji</string>
     <string name="revanced_spoof_app_version_target_summary">Wpisz wersję, którą chcesz oszukiwać</string>
     <string name="revanced_spoof_app_version_target_title">Zmień oszukaną wersję aplikacji</string>
@@ -648,10 +643,10 @@ Jeśli później opcja ta zostanie wyłączona, stare UI może pozostać do czas
 
 Znane problemy
 • Zwiększony bitrate nie jest dostępny
-• Brak miniaturek na pasku wideo dla płatnych wideo
-• Materiały offline mogą nie działać
-• Wideo mogą nie być odtwarzane od momentu ostatniego oglądania"</string>
-    <string name="revanced_spoof_player_parameter_title">Oszukaj parametry</string>
+• Brak podglądu dla płatnych wideo
+• Pobieranie może nie działać
+• Wideo mogą nie być rozpoczynane od momentu ostatniego oglądania"</string>
+    <string name="revanced_spoof_player_parameter_title">Oszukaj parametry odtwarzacza</string>
     <string name="revanced_swipe_controls">Sterowanie przesuwaniem</string>
     <string name="revanced_swipe_magnitude_threshold_summary">Minimalna długość przesunięcia</string>
     <string name="revanced_swipe_magnitude_threshold_title">Minimalna długość przesunięcia</string>
@@ -680,7 +675,7 @@ Znane problemy
     <string name="sb_enable_auto_hide_skip_segment_button">Automatyczne ukrywanie przycisku od pomijania</string>
     <string name="sb_enable_auto_hide_skip_segment_button_sum_on">Przycisk od pomijania znika po kilku sekundach</string>
     <string name="sb_enable_auto_hide_skip_segment_button_sum_off">Przycisk od pomijania jest wyświetlany podczas całego segmentu</string>
-    <string name="sb_general_skiptoast">Pokazuj komunikaty podczas automatycznego pomijania</string>
+    <string name="sb_general_skiptoast">Komunikaty po automatycznych pominięciach</string>
     <string name="sb_general_skiptoast_sum_on">Komunikaty są pokazywane, gdy segmenty są automatycznie pomijane. Stuknij tutaj, aby zobaczyć przykład</string>
     <string name="sb_general_skiptoast_sum_off">Komunikaty nie są pokazywane. Stuknij tutaj, aby zobaczyć przykład</string>
     <string name="sb_general_time_without">Czas bez segmentów</string>
@@ -716,9 +711,9 @@ Znane problemy
     <string name="sb_settings_copy">Kopiuj</string>
     <string name="sb_settings_ie_sum">Twoja konfiguracja JSON SponsorBlock, która może zostać zaimportowana/wyeksportowana do ReVanced i wtyczki SponsorBlock. To zawiera twój prywatny identyfikator użytkownika. Dziel się nią mądrze</string>
     <string name="sb_settings_import_successful">Ustawienia zostały pomyślnie zaimportowane</string>
-    <string name="sb_settings_import_failed">Błąd importowania: %s</string>
-    <string name="sb_settings_export_failed">Błąd eksportowania: %s</string>
-    <string name="sb_settings_revanced_export_user_id_warning">Twoje ustawienia zawierają prywatne ID użytkownika SponsorBlock.\n\nTwoje ID użytkownika jest jak hasło, więc nie powinno być nigdy udostępniane.\n</string>
+    <string name="sb_settings_import_failed">Nie udało się zaimportować: \'%s\'</string>
+    <string name="sb_settings_export_failed">Nie udało się wyeksportować: %s</string>
+    <string name="sb_settings_revanced_export_user_id_warning">Twoje ustawienia zawierają prywatne ID użytkownika SponsorBlock.\n\nTwoje ID użytkownika jest jak hasło i nie powinno być nigdy udostępniane.\n</string>
     <string name="sb_settings_revanced_export_user_id_warning_dismiss">Nie pokazuj ponownie</string>
     <string name="sb_diff_segments">Zmień sposoby pomijania segmentów</string>
     <string name="sb_segments_sponsor">Treści Sponsorowane</string>
