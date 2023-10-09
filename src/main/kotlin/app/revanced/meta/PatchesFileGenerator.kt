@@ -14,7 +14,7 @@ internal interface PatchesFileGenerator {
         ).also { loader ->
             if (loader.isEmpty()) throw IllegalStateException("No patches found")
         }.let { bundle ->
-            arrayOf(JsonGenerator()).forEach { generator -> generator.generate(bundle) }
+            arrayOf(JsonGenerator(), ReadmeGenerator()).forEach { generator -> generator.generate(bundle) }
         }
     }
 }
