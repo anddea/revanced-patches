@@ -131,7 +131,7 @@ object NewSplashAnimationPatch : BytecodePatch(
 
         addInstructions(
             index, """
-                    invoke-static {}, $MISC_PATH/SplashAnimationPatch;->enableNewSplashAnimationBoolean()Z
+                    invoke-static {v$register}, $MISC_PATH/SplashAnimationPatch;->enableNewSplashAnimationBoolean(Z)Z
                     move-result v$register
                     """
         )
@@ -142,7 +142,7 @@ object NewSplashAnimationPatch : BytecodePatch(
 
         addInstructions(
             index, """
-                    invoke-static {}, $MISC_PATH/SplashAnimationPatch;->enableNewSplashAnimationInt()I
+                    invoke-static {v$register}, $MISC_PATH/SplashAnimationPatch;->enableNewSplashAnimationInt(I)I
                     move-result v$register
                     """
         )
