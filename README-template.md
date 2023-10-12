@@ -21,8 +21,6 @@ Example:
       {
         "name":"com.google.android.youtube",
         "versions":[
-          "18.22.37",
-          "18.23.36",
           "18.24.37",
           "18.25.40",
           "18.27.36",
