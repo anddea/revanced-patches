@@ -29,6 +29,7 @@ import app.revanced.util.enum.CategoryType
 )
 @Suppress("unused")
 object NewPlayerLayoutPatch : ResourcePatch() {
+    private const val YOUTUBE_MUSIC_SETTINGS_PATH = "res/xml/settings_headers.xml"
     override fun execute(context: ResourceContext) {
 
         SettingsPatch.addMusicPreference(
@@ -37,5 +38,14 @@ object NewPlayerLayoutPatch : ResourcePatch() {
             "true"
         )
 
+        val prefs = context[YOUTUBE_MUSIC_SETTINGS_PATH]
+
+        prefs.writeText(
+            prefs.readText()
+                .replace(
+                    "revanced_enable_new_player_background\"",
+                    "revanced_enable_new_player_background\" android:dependency=\"revanced_enable_new_player_layout\""
+                )
+        )
     }
 }
