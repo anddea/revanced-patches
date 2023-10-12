@@ -7,6 +7,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.music.utils.integrations.IntegrationsPatch
+import app.revanced.patches.music.utils.settings.fingerprints.NewPlayerLayoutFingerprint
 import app.revanced.patches.music.utils.settings.fingerprints.PreferenceFingerprint
 import app.revanced.patches.music.utils.settings.fingerprints.SettingsHeadersFragmentFingerprint
 import app.revanced.util.bytecode.BytecodeHelper.injectInit
@@ -20,11 +21,24 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 )
 object SettingsBytecodePatch : BytecodePatch(
     setOf(
+        NewPlayerLayoutFingerprint,
         PreferenceFingerprint,
         SettingsHeadersFragmentFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext) {
+
+        NewPlayerLayoutFingerprint.result?.let {
+            it.mutableMethod.apply {
+                val insertIndex = implementation!!.instructions.size - 1
+                val targetRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+
+                addInstruction(
+                    insertIndex,
+                    "const/4 v$targetRegister, 0x1"
+                )
+            }
+        } ?: throw NewPlayerLayoutFingerprint.exception
 
         SettingsHeadersFragmentFingerprint.result?.let {
             it.mutableMethod.apply {
