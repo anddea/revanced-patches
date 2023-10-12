@@ -11,7 +11,7 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.youtube.utils.fix.parameter.fingerprints.PlayerParameterBuilderFingerprint
+import app.revanced.patches.youtube.utils.fingerprints.PlayerParameterBuilderFingerprint
 import app.revanced.patches.youtube.utils.fix.parameter.fingerprints.PlayerResponseModelImplGeneralFingerprint
 import app.revanced.patches.youtube.utils.fix.parameter.fingerprints.PlayerResponseModelImplLiveStreamFingerprint
 import app.revanced.patches.youtube.utils.fix.parameter.fingerprints.PlayerResponseModelImplRecommendedLevel
@@ -45,7 +45,10 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
                 "18.30.37",
                 "18.31.40",
                 "18.32.39",
-                "18.33.40"
+                "18.33.40",
+                "18.34.38",
+                "18.35.36",
+                "18.36.39"
             ]
         )
     ]

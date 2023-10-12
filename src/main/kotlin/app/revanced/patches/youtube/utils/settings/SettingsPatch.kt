@@ -43,7 +43,10 @@ import java.util.concurrent.TimeUnit
                 "18.30.37",
                 "18.31.40",
                 "18.32.39",
-                "18.33.40"
+                "18.33.40",
+                "18.34.38",
+                "18.35.36",
+                "18.36.39"
             ]
         )
     ],
@@ -86,6 +89,7 @@ object SettingsPatch : AbstractSettingsResourcePatch(
                         val playServicesVersion = node.textContent.toInt()
 
                         upward1828 = playServicesVersion >= 232900000
+                        upward1834 = playServicesVersion >= 233502000
 
                         break
                     }
@@ -193,6 +197,7 @@ object SettingsPatch : AbstractSettingsResourcePatch(
 
     internal lateinit var contexts: ResourceContext
     internal var upward1828: Boolean = false
+    internal var upward1834: Boolean = false
 
     internal fun addPreference(settingArray: Array<String>) {
         contexts.addPreference(settingArray)

@@ -11,6 +11,8 @@ import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patches.youtube.utils.litho.LithoFilterPatch
+import app.revanced.patches.youtube.utils.playerresponse.PlayerResponsePatch
 import app.revanced.patches.youtube.utils.returnyoutubedislike.general.fingerprints.DislikeFingerprint
 import app.revanced.patches.youtube.utils.returnyoutubedislike.general.fingerprints.LikeFingerprint
 import app.revanced.patches.youtube.utils.returnyoutubedislike.general.fingerprints.RemoveLikeFingerprint
@@ -23,6 +25,8 @@ import app.revanced.patches.youtube.utils.returnyoutubedislike.oldlayout.ReturnY
 import app.revanced.patches.youtube.utils.returnyoutubedislike.shorts.ReturnYouTubeDislikeShortsPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.patches.youtube.utils.videoid.general.VideoIdPatch
+import app.revanced.util.integrations.Constants
+import app.revanced.util.integrations.Constants.PATCHES_PATH
 import app.revanced.util.integrations.Constants.UTILS_PATH
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
@@ -34,6 +38,8 @@ import com.android.tools.smali.dexlib2.iface.reference.Reference
     name = "Return YouTube Dislike",
     description = "Shows the dislike count of videos using the Return YouTube Dislike API.",
     dependencies = [
+        LithoFilterPatch::class,
+        PlayerResponsePatch::class,
         ReturnYouTubeDislikeOldLayoutPatch::class,
         ReturnYouTubeDislikeShortsPatch::class,
         SettingsPatch::class,
@@ -52,7 +58,10 @@ import com.android.tools.smali.dexlib2.iface.reference.Reference
                 "18.30.37",
                 "18.31.40",
                 "18.32.39",
-                "18.33.40"
+                "18.33.40",
+                "18.34.38",
+                "18.35.36",
+                "18.36.39"
             ]
         )
     ]
@@ -180,7 +189,12 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
             }
         } ?: throw TextComponentConstructorFingerprint.exception
 
+        if (SettingsPatch.upward1834) {
+            LithoFilterPatch.addFilter(FILTER_CLASS_DESCRIPTOR)
+        }
+        PlayerResponsePatch.injectCall("$FILTER_CLASS_DESCRIPTOR->newPlayerResponseVideoId(Ljava/lang/String;)V")
 
+        PlayerResponsePatch.injectCall("$INTEGRATIONS_RYD_CLASS_DESCRIPTOR->preloadVideoId(Ljava/lang/String;)V")
         VideoIdPatch.injectCall("$INTEGRATIONS_RYD_CLASS_DESCRIPTOR->newVideoLoaded(Ljava/lang/String;)V")
 
         /**
@@ -194,6 +208,9 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
 
     private const val INTEGRATIONS_RYD_CLASS_DESCRIPTOR =
         "$UTILS_PATH/ReturnYouTubeDislikePatch;"
+
+    private const val FILTER_CLASS_DESCRIPTOR =
+        "$PATCHES_PATH/ads/ReturnYouTubeDislikeFilterPatch;"
 
     private lateinit var conversionContextFieldReference: Reference
     private var tmpRegister: Int = 12

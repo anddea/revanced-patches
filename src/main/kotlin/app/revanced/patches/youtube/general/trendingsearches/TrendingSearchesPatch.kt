@@ -38,7 +38,10 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
                 "18.30.37",
                 "18.31.40",
                 "18.32.39",
-                "18.33.40"
+                "18.33.40",
+                "18.34.38",
+                "18.35.36",
+                "18.36.39"
             ]
         )
     ]

@@ -12,6 +12,7 @@ import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.patch.litho.ComponentParserPatch.emptyComponentLabel
 import app.revanced.patches.youtube.general.suggestions.fingerprints.BreakingNewsFingerprint
 import app.revanced.patches.youtube.general.suggestions.fingerprints.SuggestionContentsBuilderFingerprint
+import app.revanced.patches.youtube.general.suggestions.fingerprints.SuggestionContentsBuilderLegacyFingerprint
 import app.revanced.patches.youtube.utils.litho.LithoFilterPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.integrations.Constants.PATCHES_PATH
@@ -37,7 +38,10 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
                 "18.30.37",
                 "18.31.40",
                 "18.32.39",
-                "18.33.40"
+                "18.33.40",
+                "18.34.38",
+                "18.35.36",
+                "18.36.39"
             ]
         )
     ]
@@ -46,7 +50,8 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 object SuggestionsShelfPatch : BytecodePatch(
     setOf(
         BreakingNewsFingerprint,
-        SuggestionContentsBuilderFingerprint
+        SuggestionContentsBuilderFingerprint,
+        SuggestionContentsBuilderLegacyFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext) {
@@ -70,7 +75,11 @@ object SuggestionsShelfPatch : BytecodePatch(
          * Target method only removes the horizontal video shelf's content in the feed.
          * Since the header of the horizontal video shelf is not removed, it should be removed through the SuggestionsShelfFilter
          */
-        SuggestionContentsBuilderFingerprint.result?.let {
+        val result = SuggestionContentsBuilderFingerprint.result // YouTube v18.36.xx ~
+            ?: SuggestionContentsBuilderLegacyFingerprint.result // ~ YouTube v18.35.xx
+            ?: throw SuggestionContentsBuilderFingerprint.exception
+
+        result.let {
             it.mutableMethod.apply {
                 addInstructionsWithLabels(
                     2, """
@@ -80,7 +89,7 @@ object SuggestionsShelfPatch : BytecodePatch(
                         """ + emptyComponentLabel, ExternalLabel("show", getInstruction(2))
                 )
             }
-        } ?: throw SuggestionContentsBuilderFingerprint.exception
+        }
 
         LithoFilterPatch.addFilter(FILTER_CLASS_DESCRIPTOR)
 
