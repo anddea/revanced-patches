@@ -11,14 +11,19 @@ import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.youtube.player.watermark.fingerprints.HideWatermarkFingerprint
 import app.revanced.patches.youtube.player.watermark.fingerprints.HideWatermarkParentFingerprint
+import app.revanced.patches.youtube.utils.litho.LithoFilterPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
+import app.revanced.util.integrations.Constants.PATCHES_PATH
 import app.revanced.util.integrations.Constants.PLAYER
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Patch(
     name = "Hide channel watermark",
     description = "Hides creator's watermarks on videos.",
-    dependencies = [SettingsPatch::class],
+    dependencies = [
+        LithoFilterPatch::class,
+        SettingsPatch::class
+    ],
     compatiblePackages = [
         CompatiblePackage(
             "com.google.android.youtube",
@@ -65,6 +70,8 @@ object HideChannelWatermarkBytecodePatch : BytecodePatch(
                 }
             } ?: throw HideWatermarkFingerprint.exception
         } ?: throw HideWatermarkParentFingerprint.exception
+
+        LithoFilterPatch.addFilter("$PATCHES_PATH/ads/WaterMarkFilter;")
 
         /**
          * Add settings
