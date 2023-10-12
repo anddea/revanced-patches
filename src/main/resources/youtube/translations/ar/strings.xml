@@ -49,6 +49,7 @@
     <string name="revanced_custom_playback_speeds_invalid">سرعات التشغيل المخصصة غير صالحة. إعادة التعيين إلى القيم الافتراضية.</string>
     <string name="revanced_custom_playback_speeds_summary">إضافة أو تغيير سرعات التشغيل المتاحة</string>
     <string name="revanced_custom_playback_speeds_title">تعديل سرعة التشغيل المخصصة</string>
+    <string name="revanced_custom_playback_speeds_warning" formatted="false">السرعات المخصصة لا يمكن أن تكون أكثر من %sx. إعادة التعيين إلى القيم الافتراضية.</string>
     <string name="revanced_custom_seekbar_color_value_summary">اكتب رمز اللون للون شريط تقدم الفيديو</string>
     <string name="revanced_custom_seekbar_color_value_title">قيمة لون شريط تقدم الفيديو المخصصة</string>
     <string name="revanced_default_app_settings_summary">لفتح RVX في متصفح خارجي، قم بتشغيل \"فتح الروابط المدعومة\" وتمكين عناوين الويب المدعومة</string>
@@ -618,16 +619,15 @@
     <string name="revanced_shorts_player_title">مُشَغِل Shorts</string>
     <string name="revanced_show_fullscreen_title_summary">المشكلة المعروفة: يختفي العنوان عند النقر عليه</string>
     <string name="revanced_show_fullscreen_title_title">عرض العنوان بملء الشاشة</string>
-    <string name="revanced_skipped_dummy">تم تخطي المقطع الوهمي</string>
-    <string name="revanced_skip_dummy_segment_summary">"تخطي المقطع الوهمي عند بدء الفيديو لتجاوز تأخيرات فرض جودة الفيديو من جانب الخادم
+    <string name="revanced_skipped_preloaded_buffer">تم تخطي التخزين المؤقت الذي تم تحميله مسبقًا</string>
+    <string name="revanced_skip_preloaded_buffer_summary">"تخطي التخزين المؤقت المحمل مسبقًا عند بَدْء الفيديو لتجاوز تأخير فرض جودة الفيديو الافتراضية
 
- • إذا كانت مدة الفيديو أقل من 10 ثوانٍ، فلن يتم تخطيه
- • عند بدء تشغيل الفيديو، يكون هناك تأخير قدره 0.7 ثانية تقريبًا، ولكن يتم تطبيق جودة الفيديو الافتراضية على الفور
- • لا يتم تجاوز تأخيرات فرض جودة الفيديو لفيديو HDR"</string>
-    <string name="revanced_skip_dummy_segment_title">تخطي المقطع الوهمي</string>
-    <string name="revanced_skip_dummy_segment_toast_summary_off">الإشعار مخفي</string>
-    <string name="revanced_skip_dummy_segment_toast_summary_on">يتم عرض الإشعار</string>
-    <string name="revanced_skip_dummy_segment_toast_title">عرض إشعار عند التخطي</string>
+• عند بَدْء تشغيل الفيديو، يكون هناك تأخير قدره 0.7 ثانية تقريبًا، ولكن يتم تطبيق جودة الفيديو الافتراضية على الفور
+• لا ينطبق على مقاطع فيديو HDR أو مقاطع الفيديو التي تقل مدتها عن 10 ثوانٍ"</string>
+    <string name="revanced_skip_preloaded_buffer_title">تخطي التخزين المؤقت المحمل مسبقًا</string>
+    <string name="revanced_skip_preloaded_buffer_toast_summary_off">الإشعار مخفي</string>
+    <string name="revanced_skip_preloaded_buffer_toast_summary_on">يتم عرض الإشعار</string>
+    <string name="revanced_skip_preloaded_buffer_toast_title">عرض إشعار عند التخطي</string>
     <string name="revanced_speed_overlay_text" formatted="false">يتم التشغيل بسرعة %sx</string>
     <string name="revanced_spoof_app_version_summary">"خداع نسخة التطبيق الحالية إلى النسخة القديمة
 
@@ -643,6 +643,15 @@
     <string name="revanced_spoof_app_version_target_summary">اكتب هدف إصدار التطبيق المخادع</string>
     <string name="revanced_spoof_app_version_target_title">تعديل خِداع إصدار التطبيق</string>
     <string name="revanced_spoof_app_version_title">خِداع إصدار التطبيق</string>
+    <string name="revanced_spoof_player_parameter_in_feed_summary_off">"Player Parameter not Spoofed for Feed Videos
+
+مشاكل معروفة
+• سيتم تشغيل مقاطع الفيديو الموجزة لمدة تقل عن دقيقة واحدة قبل مواجهة مشاكل التشغيل"</string>
+    <string name="revanced_spoof_player_parameter_in_feed_summary_on">"Player Parameter Spoofed for Feed Videos
+
+مشاكل معروفة
+• ستظهر مقاطع الفيديو التي يتم تشغيلها تلقائيًا في سجل المشاهدة لديك"</string>
+    <string name="revanced_spoof_player_parameter_in_feed_title">Spoof Player Parameter in Feed</string>
     <string name="revanced_spoof_player_parameter_summary">"لمنع مشاكل التشغيل Spoofs Player Parameters
 
 مشاكل معروفة

@@ -623,16 +623,15 @@ Como essas configurações estão bastante desatualizadas, podem não ser válid
     <string name="revanced_shorts_player_title">Reprodutor do shorts</string>
     <string name="revanced_show_fullscreen_title_summary">Problema conhecido: o título desaparece quando clicado</string>
     <string name="revanced_show_fullscreen_title_title">Mostrar título em tela cheia</string>
-    <string name="revanced_skipped_dummy">Segmento fictício ignorado</string>
-    <string name="revanced_skip_dummy_segment_summary">"Ignorar segmento fictício no início do vídeo para ignorar atrasos na aplicação do vídeo no lado do servidor
+    <string name="revanced_skipped_preloaded_buffer">Buffer pré-carregado ignorado</string>
+    <string name="revanced_skip_preloaded_buffer_summary">"Ignore o buffer pré-carregado no início do vídeo para ignorar o atraso padrão na aplicação da qualidade do vídeo
 
-• Se a duração do vídeo for inferior a 10 segundos, ele não será pulado
-• Quando o vídeo começar, há um atraso de aproximadamente 0. segundos, mas a qualidade de vídeo padrão é aplicada imediatamente
-• Atraso na aplicação da qualidade de vídeo para vídeos HDR não estão ignorados"</string>
-    <string name="revanced_skip_dummy_segment_title">Pular segmento fictício</string>
-    <string name="revanced_skip_dummy_segment_toast_summary_off">Toast está oculto</string>
-    <string name="revanced_skip_dummy_segment_toast_summary_on">Toast será exibido</string>
-    <string name="revanced_skip_dummy_segment_toast_title">Mostrar um toast quando ignorado</string>
+ • Quando o vídeo é iniciado, há um atraso de aproximadamente 0,7 segundos, mas a qualidade de vídeo padrão é aplicada imediatamente
+ • Não se aplica a vídeos HDR ou vídeos com menos de 10 segundos"</string>
+    <string name="revanced_skip_preloaded_buffer_title">Ignorar buffer pré-carregado</string>
+    <string name="revanced_skip_preloaded_buffer_toast_summary_off">O toast está oculto</string>
+    <string name="revanced_skip_preloaded_buffer_toast_summary_on">O toast será exibido</string>
+    <string name="revanced_skip_preloaded_buffer_toast_title">Mostrar um toast quando ignorado</string>
     <string name="revanced_speed_overlay_text" formatted="false">Reproduzindo em velocidade %sx</string>
     <string name="revanced_spoof_app_version_summary">"Falsificação da versão cliente para a versão antiga
 

@@ -9,10 +9,17 @@
     <string name="microg_settings_title">開啟 MicroG</string>
     <string name="revanced_ads">廣告</string>
     <string name="revanced_alt_thumbnails">替代縮圖</string>
+    <string name="revanced_alt_thumbnail_about_summary">此功能將預設的影片縮圖更換為另類版本，以減低過度吸睛或煽動性的內容。</string>
     <string name="revanced_alt_thumbnail_about_title">關於</string>
+    <string name="revanced_alt_thumbnail_dearrow_summary_off">無需外部 API 生成縮圖</string>
+    <string name="revanced_alt_thumbnail_dearrow_summary_on">使用 DeArrow API 生成縮圖</string>
+    <string name="revanced_alt_thumbnail_dearrow_title">採用 DeArrow API</string>
     <string name="revanced_alt_thumbnail_enabled_summary_off">顯示原始 YouTube 縮圖</string>
     <string name="revanced_alt_thumbnail_enabled_summary_on">以替代縮圖取代 YouTube 縮圖</string>
     <string name="revanced_alt_thumbnail_enabled_title">啟用替代縮圖</string>
+    <string name="revanced_alt_thumbnail_skip_checking_summary_off">替換前將檢查縮圖是否存在</string>
+    <string name="revanced_alt_thumbnail_skip_checking_summary_on">縮圖載入速度會更快，但某些影片會顯示空白縮圖</string>
+    <string name="revanced_alt_thumbnail_skip_checking_title">跳過縮圖檢查</string>
     <string name="revanced_alt_thumbnail_type_entry_1">影片開頭</string>
     <string name="revanced_alt_thumbnail_type_entry_2">影片中間</string>
     <string name="revanced_alt_thumbnail_type_entry_3">影片結尾</string>
@@ -42,6 +49,7 @@
     <string name="revanced_custom_playback_speeds_invalid">無效的自訂播放速度。已重設為預設值。</string>
     <string name="revanced_custom_playback_speeds_summary">新增或變更可用的播放速度</string>
     <string name="revanced_custom_playback_speeds_title">編輯自訂播放速度</string>
+    <string name="revanced_custom_playback_speeds_warning" formatted="false">自訂速度不能多於 %sx。已重設為預設值。</string>
     <string name="revanced_custom_seekbar_color_value_summary">輸入搜尋欄十六進制代碼</string>
     <string name="revanced_custom_seekbar_color_value_title">自訂搜尋欄顏色</string>
     <string name="revanced_default_app_settings_summary">如過要讓RVX開啟Youtube的網址的話,請到手機設定&gt;RVX應用程式資訊&gt;設為預設&gt;前往支援的網址,將設定改為\"經此應用程式\"</string>
@@ -569,7 +577,7 @@
     <string name="revanced_override_premium_header_summary_off">目前標題：預設標誌</string>
     <string name="revanced_override_premium_header_summary_on">目前標題： Premium 標誌</string>
     <string name="revanced_override_premium_header_title">Premium 標誌</string>
-    <string name="revanced_patches_information">補丁資訊</string>
+    <string name="revanced_patches_information">補丁資訊 --唐懂翻譯</string>
     <string name="revanced_patches_information_summary">已套用的補丁資訊</string>
     <string name="revanced_player">播放</string>
     <string name="revanced_player_flyout_panel_title">播放器彈出面板</string>
@@ -616,16 +624,15 @@
     <string name="revanced_shorts_player_title">Shorts 播放器</string>
     <string name="revanced_show_fullscreen_title_summary">已知問題 : 標題被點擊時會消失</string>
     <string name="revanced_show_fullscreen_title_title">顯示全螢幕標題</string>
-    <string name="revanced_skipped_dummy">忽略初始假片段</string>
-    <string name="revanced_skip_dummy_segment_summary">"在影片播放開始時，自動跳過虛擬片段，以避開伺服器對影片品質進行的強制延遲。
+    <string name="revanced_skipped_preloaded_buffer">已經忽略預先加載的緩衝區</string>
+    <string name="revanced_skip_preloaded_buffer_summary">"開始播放影片時，省略起始緩衝以快速套用預設影像品質
 
-• 若影片短於 10 秒，此功能不會啟動
-• 影片一開始會有大約 0.7 秒的延遲，但是預設的影片品質會馬上套用
-• 請注意，此功能不會跳過 HDR 影片的品質強制延遲"</string>
-    <string name="revanced_skip_dummy_segment_title">忽略初始假片段</string>
-    <string name="revanced_skip_dummy_segment_toast_summary_off">隱藏提示通知</string>
-    <string name="revanced_skip_dummy_segment_toast_summary_on">顯示提示通知</string>
-    <string name="revanced_skip_dummy_segment_toast_title">當成功忽略初始假片段時，將出現提示通知。</string>
+• 影片開始時約有 0.7 秒的延遲，但預設品質會立即生效
+• 不適用於 HDR 格式或短於 10 秒的影片"</string>
+    <string name="revanced_skip_preloaded_buffer_title">略過預先加載的緩衝區</string>
+    <string name="revanced_skip_preloaded_buffer_toast_summary_off">隱藏提示訊息</string>
+    <string name="revanced_skip_preloaded_buffer_toast_summary_on">顯示提示訊息</string>
+    <string name="revanced_skip_preloaded_buffer_toast_title">當略過預先加載的緩衝區時，將會顯示一條提示訊息</string>
     <string name="revanced_speed_overlay_text" formatted="false">正在以 %sx 的速度播放</string>
     <string name="revanced_spoof_app_version_summary">"將應用程式版本偽裝成舊版本
 
@@ -634,12 +641,22 @@
     <string name="revanced_spoof_app_version_target_entry_16_08_35">16.08.35 - 回復「探索」分頁功能</string>
     <string name="revanced_spoof_app_version_target_entry_17_08_35">17.08.35 - 重現傳統介面佈局</string>
     <string name="revanced_spoof_app_version_target_entry_17_41_37">17.41.37 - 回復舊版的播放清單架</string>
+    <string name="revanced_spoof_app_version_target_entry_18_01_38">"18.01.38 - 刪除「會員評論」橫幅"</string>
     <string name="revanced_spoof_app_version_target_entry_18_05_40">18.05.40 - 恢復原先的留言輸入區</string>
     <string name="revanced_spoof_app_version_target_entry_18_17_43">18.17.43 - 恢復原先的播放器彈出面板</string>
     <string name="revanced_spoof_app_version_target_entry_title">欺騙應用程式版本目標</string>
     <string name="revanced_spoof_app_version_target_summary">輸入欺騙的應用程式版本目標</string>
     <string name="revanced_spoof_app_version_target_title">編輯欺騙應用程式版本</string>
     <string name="revanced_spoof_app_version_title">偽裝應用程式版本</string>
+    <string name="revanced_spoof_player_parameter_in_feed_summary_off">"播放器參數未針對動態內影片廣告進行偽裝
+
+已知的問題
+• 在遇到播放問題之前，來源影片的播放時間將少於 1 分鐘"</string>
+    <string name="revanced_spoof_player_parameter_in_feed_summary_on">"播放器參數被偽裝用於動態內影片廣告
+
+已知的問題
+• 自動播放的動態內影片廣告將顯示在您的觀看記錄中"</string>
+    <string name="revanced_spoof_player_parameter_in_feed_title">偽裝播放器參數</string>
     <string name="revanced_spoof_player_parameter_summary">"偽裝播放參數以解決播放困難
 
 注意事項

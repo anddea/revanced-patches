@@ -623,16 +623,15 @@
     <string name="revanced_shorts_player_title">Плеер \"Shorts\"</string>
     <string name="revanced_show_fullscreen_title_summary">Известная проблема: заголовок исчезает при нажатии</string>
     <string name="revanced_show_fullscreen_title_title">Полноэкранный заголовок</string>
-    <string name="revanced_skipped_dummy">Пропущен пустой сегмент</string>
-    <string name="revanced_skip_dummy_segment_summary">"Пропускает пустой сегмент в начале видео, для обхода задержек сервера при установке качества
+    <string name="revanced_skipped_preloaded_buffer">Пропущена предварительная загрузка</string>
+    <string name="revanced_skip_preloaded_buffer_summary">"Пропускает предварительную загрузку в начале видео, для обхода задержки применения качества по умолчанию
 
-• Если видео меньше 10 секунд, сегмент не будет пропущен
-• В начале есть задержка, примерно 0,7 секунды, но качество устанавливается моментально
-• Задержки нельзя обойти в HDR видео"</string>
-    <string name="revanced_skip_dummy_segment_title">Пропускать пустой сегмент</string>
-    <string name="revanced_skip_dummy_segment_toast_summary_off">Уведомление скрыто</string>
-    <string name="revanced_skip_dummy_segment_toast_summary_on">Уведомление отображено</string>
-    <string name="revanced_skip_dummy_segment_toast_title">Уведомление при пропуске</string>
+• При запуске видео есть задержка примерно 0.7 секунды, но качество по умолчанию применяется моментально
+• Не применяется к HDR видео или видео короче 10 секунд"</string>
+    <string name="revanced_skip_preloaded_buffer_title">Пропустить предварительную загрузку</string>
+    <string name="revanced_skip_preloaded_buffer_toast_summary_off">Уведомление скрыто</string>
+    <string name="revanced_skip_preloaded_buffer_toast_summary_on">Уведомление отображено</string>
+    <string name="revanced_skip_preloaded_buffer_toast_title">Уведомление при пропуске</string>
     <string name="revanced_speed_overlay_text" formatted="false">Воспроизводится на %sx скорости</string>
     <string name="revanced_spoof_app_version_summary">"Подменяет версию клиента на старую
 

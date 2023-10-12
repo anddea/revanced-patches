@@ -49,6 +49,7 @@
     <string name="revanced_custom_playback_speeds_invalid">Geçersiz özel oynatma hızları. Varsayılan değerlere sıfırlayın.</string>
     <string name="revanced_custom_playback_speeds_summary">Mevcut oynatma hızlarını ekleyin veya değiştirin</string>
     <string name="revanced_custom_playback_speeds_title">Özel oynatma hızlarını düzenle</string>
+    <string name="revanced_custom_playback_speeds_warning" formatted="false">Özel hızlar %sx\'den uzun olmamalı. Varsayılan değerlere sıfırlayın.</string>
     <string name="revanced_custom_seekbar_color_value_summary">Karalık modda kullanılacak zaman çubuğunun rengi</string>
     <string name="revanced_custom_seekbar_color_value_title">Özel zaman çubuğu renk değeri</string>
     <string name="revanced_default_app_settings_summary">RVX\'i harici bir tarayıcıda açmak için \"Desteklenen bağlantıları aç\"ı açın ve desteklenen web adreslerini etkinleştirin</string>
@@ -619,16 +620,15 @@ Bu ayar oldukça eski olduğu için geçerli olmayabilir"</string>
     <string name="revanced_shorts_player_title">Shorts oynatıcı</string>
     <string name="revanced_show_fullscreen_title_summary">Bilinen sorun: Tıklandığında başlık kayboluyor</string>
     <string name="revanced_show_fullscreen_title_title">Tam ekran başlığını göster</string>
-    <string name="revanced_skipped_dummy">Gereksiz bölüm atlandı</string>
-    <string name="revanced_skip_dummy_segment_summary">"Sunucu tarafında video kalitesi uygulama gecikmelerini atlamak için video başlangıcında yapay segmenti atlayın
+    <string name="revanced_skipped_preloaded_buffer">Önceden yüklenmiş arabellek atlandı</string>
+    <string name="revanced_skip_preloaded_buffer_summary">"Varsayılan video kalitesi uygulama gecikmesini atlamak için video başlangıcında önceden yüklenmiş arabelleği atlayın
 
-• Video uzunluğu 10 saniyeden azsa atlanmaz.
-• Video başladığında yaklaşık 0,7 saniyelik bir gecikme olur ancak varsayılan video kalitesi hemen uygulanır. 
-• HDR video için video kalitesi uygulama gecikmeleri atlanmaz"</string>
-    <string name="revanced_skip_dummy_segment_title">Gereksiz bölüm atlandı</string>
-    <string name="revanced_skip_dummy_segment_toast_summary_off">Gizleniyor</string>
-    <string name="revanced_skip_dummy_segment_toast_summary_on">Gizlenmiyor</string>
-    <string name="revanced_skip_dummy_segment_toast_title">Bir kısım atlanırken uyarı ver</string>
+ • Video başladığında yaklaşık 0,7 saniyelik bir gecikme olur, ancak varsayılan video kalitesi hemen uygulanır 
+• HDR videolar veya 10 saniyeden kısa videolar için geçerli değildir"</string>
+    <string name="revanced_skip_preloaded_buffer_title">Önceden yüklenmiş arabelleği atla</string>
+    <string name="revanced_skip_preloaded_buffer_toast_summary_off">Gizleniyor</string>
+    <string name="revanced_skip_preloaded_buffer_toast_summary_on">Gizlenmiyor</string>
+    <string name="revanced_skip_preloaded_buffer_toast_title">Bir kısım atlanırken uyarı ver</string>
     <string name="revanced_speed_overlay_text" formatted="false">%sx hızında oynatılıyor</string>
     <string name="revanced_spoof_app_version_summary">"İstemci sürümünü eski sürüme uydurma
 
@@ -643,6 +643,15 @@ Bu, uygulamanın görünümünü değiştirir, ancak bilinmeyen yan etkiler orta
     <string name="revanced_spoof_app_version_target_summary">Sahte uygulama sürümü hedefini yazın</string>
     <string name="revanced_spoof_app_version_target_title">Kandırılmış uygulama sürümünü düzenle</string>
     <string name="revanced_spoof_app_version_title">Uygulama Versiyonunu taklit et</string>
+    <string name="revanced_spoof_player_parameter_in_feed_summary_off">"Akış videoları için oynatıcı parametresi sahteciliği yapılmıyor
+
+Bilinen sorunlar 
+• Akış videoları, oynatma sorunlarıyla karşılaşmadan önce 1 dakikadan daha kısa bir süre oynatılacak"</string>
+    <string name="revanced_spoof_player_parameter_in_feed_summary_on">"Akış videoları için oynatıcı parametresi sahtekarlığı 
+
+Bilinen sorunlar 
+• Otomatik olarak oynatılan yayın videoları izleme geçmişinizde görünecek"</string>
+    <string name="revanced_spoof_player_parameter_in_feed_title">Ana sayfada sahte oynatıcı parametresi</string>
     <string name="revanced_spoof_player_parameter_summary">"Oynatma sorunlarını önlemek için oynatıcı parametrelerini taklit eder
 
 Bilinen sorunlar
