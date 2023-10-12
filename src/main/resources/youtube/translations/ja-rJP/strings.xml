@@ -9,11 +9,17 @@
     <string name="microg_settings_title">MicroG を開く</string>
     <string name="revanced_ads">広告</string>
     <string name="revanced_alt_thumbnails">代替サムネイル</string>
+    <string name="revanced_alt_thumbnail_about_summary">デフォルトの動画サムネイルを代替サムネイルに置き換え、扇情を減らす機能です。</string>
     <string name="revanced_alt_thumbnail_about_title">この機能について</string>
+    <string name="revanced_alt_thumbnail_dearrow_summary_off">外部 API を使用せずにサムネイルを生成します</string>
+    <string name="revanced_alt_thumbnail_dearrow_summary_on">DeArrow API を使用してサムネイルを生成します</string>
     <string name="revanced_alt_thumbnail_dearrow_title">DeArrow API を使用</string>
     <string name="revanced_alt_thumbnail_enabled_summary_off">オリジナルの YouTube サムネイルが表示されます</string>
     <string name="revanced_alt_thumbnail_enabled_summary_on">YouTube のサムネイルは代替サムネイルに置き換わります</string>
     <string name="revanced_alt_thumbnail_enabled_title">代替サムネイルを有効化</string>
+    <string name="revanced_alt_thumbnail_skip_checking_summary_off">サムネイルは置き換える前に、存在するかどうかチェックされます</string>
+    <string name="revanced_alt_thumbnail_skip_checking_summary_on">サムネイルの読み込みが速くなりますが、一部の動画ではサムネイルが空白になります</string>
+    <string name="revanced_alt_thumbnail_skip_checking_title">サムネイルのチェックをスキップ</string>
     <string name="revanced_alt_thumbnail_type_entry_1">動画の最初</string>
     <string name="revanced_alt_thumbnail_type_entry_2">動画の中間</string>
     <string name="revanced_alt_thumbnail_type_entry_3">動画の最後</string>
@@ -43,6 +49,7 @@
     <string name="revanced_custom_playback_speeds_invalid">無効なカスタム再生速度です。デフォルト値にリセットします。</string>
     <string name="revanced_custom_playback_speeds_summary">利用可能なカスタム再生速度を編集します</string>
     <string name="revanced_custom_playback_speeds_title">カスタム再生速度を編集</string>
+    <string name="revanced_custom_playback_speeds_warning" formatted="false">カスタム再生速度は %s 倍速を超えることはできません。デフォルト値にリセットします。</string>
     <string name="revanced_custom_seekbar_color_value_summary">シークバーの色を16進数カラーコードで入力してください</string>
     <string name="revanced_custom_seekbar_color_value_title">シークバーの色</string>
     <string name="revanced_default_app_settings_summary">外部ブラウザから ReVanced Extended を開くには、「対応リンクを開く」でリンクを選択してください</string>
@@ -616,16 +623,15 @@ YouTube v18.24.37 以降でのみ利用可能です"</string>
     <string name="revanced_shorts_player_title">ショートプレーヤー</string>
     <string name="revanced_show_fullscreen_title_summary">既知の問題: タイトルをタップすると消えます</string>
     <string name="revanced_show_fullscreen_title_title">全画面表示での動画タイトル</string>
-    <string name="revanced_skipped_dummy">ダミーセグメントをスキップしました</string>
-    <string name="revanced_skip_dummy_segment_summary">"動画開始時にダミーセグメントをスキップし、サーバー側での画質強制の遅延を回避します
+    <string name="revanced_skipped_preloaded_buffer">プリロードされたバッファをスキップしました</string>
+    <string name="revanced_skip_preloaded_buffer_summary">"動画開始時にプリロードされたバッファをスキップして、デフォルトの画質強制の遅延を回避します
 
-• 動画の長さが10秒未満の場合、スキップされません
-• 動画開始時に約0.7秒の遅延が発生しますが、すぐにデフォルト画質が適用されます
-• HDR 動画の画質強制の遅延は回避されません"</string>
-    <string name="revanced_skip_dummy_segment_title">ダミーセグメントをスキップ</string>
-    <string name="revanced_skip_dummy_segment_toast_summary_off">トーストは非表示です</string>
-    <string name="revanced_skip_dummy_segment_toast_summary_on">トーストは表示されます</string>
-    <string name="revanced_skip_dummy_segment_toast_title">スキップ時にトーストを表示</string>
+• 動画開始時に約 0.7 秒の遅延が発生しますが、デフォルトの画質はすぐに適用されます
+• HDR 動画や 10 秒未満の動画には適用されません"</string>
+    <string name="revanced_skip_preloaded_buffer_title">プリロードバッファをスキップ</string>
+    <string name="revanced_skip_preloaded_buffer_toast_summary_off">トーストは非表示です</string>
+    <string name="revanced_skip_preloaded_buffer_toast_summary_on">トーストは表示されます</string>
+    <string name="revanced_skip_preloaded_buffer_toast_title">スキップ時にトーストを表示</string>
     <string name="revanced_speed_overlay_text" formatted="false">%s 倍速で再生中</string>
     <string name="revanced_spoof_app_version_summary">"YouTube のバージョンを古いバージョンに偽装します
 
@@ -642,6 +648,14 @@ YouTube v18.24.37 以降でのみ利用可能です"</string>
     <string name="revanced_spoof_app_version_target_summary">偽装するバージョンを入力してください</string>
     <string name="revanced_spoof_app_version_target_title">偽装するアプリのバージョンを編集</string>
     <string name="revanced_spoof_app_version_title">アプリのバージョンを偽装</string>
+    <string name="revanced_spoof_player_parameter_in_feed_summary_off">"フィードの動画のパラメーターを偽装しない
+
+既知の問題
+• フィードの動画は、1分未満で再生の問題が発生します"</string>
+    <string name="revanced_spoof_player_parameter_in_feed_summary_on">"フィードの動画のパラメーターを偽装する
+
+既知の問題
+• 自動再生されたフィードの動画が再生履歴に表示されます"</string>
     <string name="revanced_spoof_player_parameter_in_feed_title">フィードのプレーヤーのパラメーターを偽装</string>
     <string name="revanced_spoof_player_parameter_summary">"プレーヤーのパラメーターを偽装して、再生の問題を防ぎます
 

@@ -35,7 +35,7 @@
     <string name="revanced_button_container_title">Lista dei pulsanti inferiori del riproduttore</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">La modalità Ambient in modalità risparmio energetico è disattivata</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">La modalità Ambient in modalità risparmio energetico è attivata</string>
-    <string name="revanced_bypass_ambient_mode_restrictions_title">Ignora le restrizioni della modalità Ambient</string>
+    <string name="revanced_bypass_ambient_mode_restrictions_title">Bypassa le restrizioni della modalità Ambient</string>
     <string name="revanced_change_homepage_summary_off">Pagina iniziale attuale: Home</string>
     <string name="revanced_change_homepage_summary_on">Pagina iniziale attuale: Iscrizioni</string>
     <string name="revanced_change_homepage_title">Cambia la pagina iniziale</string>
@@ -49,6 +49,7 @@
     <string name="revanced_custom_playback_speeds_invalid">Velocità personalizzata del video non valida. Ripristina ai valori predefiniti</string>
     <string name="revanced_custom_playback_speeds_summary">È disponibile aggiungere, rimuovere o modificare le velocità di riproduzione</string>
     <string name="revanced_custom_playback_speeds_title">Modifica le velocità personalizzate del video</string>
+    <string name="revanced_custom_playback_speeds_warning" formatted="false">Le velocità personalizzate non possono essere maggiori di %sx. Ripristina ai valori predefiniti</string>
     <string name="revanced_custom_seekbar_color_value_summary">Digita il codice esadecimale del colore della barra di avanzamento</string>
     <string name="revanced_custom_seekbar_color_value_title">Valore del colore personalizzato della barra di avanzamento</string>
     <string name="revanced_default_app_settings_summary">Per aprire ReVanced Extended da un\'applicazione esterna, attiva \"Apri collegamenti supportati\" e abilita gli indirizzi web supportati</string>
@@ -124,7 +125,7 @@ Disponibile solo per alcuni utenti che possono usare la sovrapposizione della ve
     <string name="revanced_enable_old_quality_layout_summary_on">Le vecchie impostazioni qualitative sono visibili</string>
     <string name="revanced_enable_old_quality_layout_title">Attiva la vecchia interfaccia qualitativa</string>
     <string name="revanced_enable_open_links_directly_summary_off">Segui la regola predefinita di reindirizzamento</string>
-    <string name="revanced_enable_open_links_directly_summary_on">Ignora i reindirizzamenti degli URL</string>
+    <string name="revanced_enable_open_links_directly_summary_on">Bypassa i reindirizzamenti degli URL</string>
     <string name="revanced_enable_open_links_directly_title">Attiva l\'apertura diretta dei link</string>
     <string name="revanced_enable_opus_codec_summary">Applica il codec audio Opus invece del codec audio MP4A</string>
     <string name="revanced_enable_opus_codec_title">Attiva il codec Opus</string>
@@ -623,16 +624,15 @@ Dal momento che questa opzione è abbastanza obsoleta, potrebbe risultare non pi
     <string name="revanced_shorts_player_title">Riproduttore degli Shorts</string>
     <string name="revanced_show_fullscreen_title_summary">Problema noto: il titolo scompare quando viene toccato</string>
     <string name="revanced_show_fullscreen_title_title">Mostra il titolo a schermo intero</string>
-    <string name="revanced_skipped_dummy">Segmento Fittizio saltato</string>
-    <string name="revanced_skip_dummy_segment_summary">"Salta il segmento Fittizio all'inizio del video per aggirare i ritardi obbligatori della qualità video sul lato server.
+    <string name="revanced_skipped_preloaded_buffer">Buffer precaricato saltato</string>
+    <string name="revanced_skip_preloaded_buffer_summary">"Salta il buffer precaricato all'avvio dei video per bypassare il ritardo della qualità video predefinita forzata.
 
-- Se la lunghezza del video è inferiore a 10 secondi, il segmento non sarà saltato
-- Quando il video comincia, c'è un ritardo di circa 0.7 secondi, ma la qualità video predefinita viene applicata immediatamente
-- Per i video HDR non funziona"</string>
-    <string name="revanced_skip_dummy_segment_title">Salta segmento Fittizio</string>
-    <string name="revanced_skip_dummy_segment_toast_summary_off">La notifica Toast è nascosta</string>
-    <string name="revanced_skip_dummy_segment_toast_summary_on">La notifica Toast è visibile</string>
-    <string name="revanced_skip_dummy_segment_toast_title">Mostra una notifica Toast quando un segmento è saltato</string>
+- Quando il video inizia, c'è un ritardo di circa 0.7 secondi, ma la qualità video predefinita viene applicata immediatamente
+- Non si applica ai video HDR o ai video più brevi di 10 secondi"</string>
+    <string name="revanced_skip_preloaded_buffer_title">Salta il buffer precaricato</string>
+    <string name="revanced_skip_preloaded_buffer_toast_summary_off">La notifica Toast è nascosta</string>
+    <string name="revanced_skip_preloaded_buffer_toast_summary_on">La notifica Toast è visibile</string>
+    <string name="revanced_skip_preloaded_buffer_toast_title">Mostra una notifica Toast quando un segmento è saltato</string>
     <string name="revanced_speed_overlay_text" formatted="false">Riproduzione a velocità %sx</string>
     <string name="revanced_spoof_app_version_summary">"Simula la versione del client a una versione precedente.
 
@@ -648,6 +648,14 @@ Se verrà disattivato in seguito, la vecchia interfaccia potrebbe rimanere fino 
     <string name="revanced_spoof_app_version_target_summary">Digita la versione dell\'app da simulare</string>
     <string name="revanced_spoof_app_version_target_title">Modifica la versione dell\'app da simulare</string>
     <string name="revanced_spoof_app_version_title">Simula la versione dell\'app</string>
+    <string name="revanced_spoof_player_parameter_in_feed_summary_off">"I parametri del riproduttore non sono simulati per i video nei feed.
+
+Problema noto: i video nei feed saranno riprodotti per meno di un minuto prima di avere problemi di riproduzione
+"</string>
+    <string name="revanced_spoof_player_parameter_in_feed_summary_on">"I parametri del riproduttore sono simulati per i video nei feed.
+
+Problema noto: i video nei feed riprodotti automaticamente appariranno nella cronologia visualizzazioni"</string>
+    <string name="revanced_spoof_player_parameter_in_feed_title">Simula i parametri del riproduttore nei feed</string>
     <string name="revanced_spoof_player_parameter_summary">"Simula i parametri del riproduttore per prevenire problemi di riproduzione.
 
 Problemi noti:

@@ -9,10 +9,17 @@
     <string name="microg_settings_title">MicroG</string>
     <string name="revanced_ads">Διαφημίσεις</string>
     <string name="revanced_alt_thumbnails">Εναλλακτικές μικρογραφίες</string>
+    <string name="revanced_alt_thumbnail_about_summary">Μια λειτουργία που αντικαθιστά τις προεπιλεγμένες μικρογραφίες βίντεο με εναλλακτικές για τη μείωση του περιττού εντυπωσιασμού.</string>
     <string name="revanced_alt_thumbnail_about_title">Σχετικά με</string>
+    <string name="revanced_alt_thumbnail_dearrow_summary_off">Οι μικρογραφίες παράγονται χωρίς χρήση εξωτερικού API</string>
+    <string name="revanced_alt_thumbnail_dearrow_summary_on">Οι μικρογραφίες παράγονται χρησιμοποιώντας το API του DeArrow</string>
+    <string name="revanced_alt_thumbnail_dearrow_title">Χρήση API του DeArrow</string>
     <string name="revanced_alt_thumbnail_enabled_summary_off">Εμφανίζονται οι αρχικές μικρογραφίες των βίντεο του YouTube</string>
     <string name="revanced_alt_thumbnail_enabled_summary_on">Οι μικρογραφίες των βίντεο του YouTube αντικαθίστανται με εναλλακτικές</string>
     <string name="revanced_alt_thumbnail_enabled_title">Εναλλακτικές μικρογραφίες</string>
+    <string name="revanced_alt_thumbnail_skip_checking_summary_off">Οι μικρογραφίες θα ελέγχονται για να διαπιστωθεί αν υπήρχαν προηγουμένως πριν αντικατασταθούν</string>
+    <string name="revanced_alt_thumbnail_skip_checking_summary_on">Οι μικρογραφίες θα φορτώσουν πιο γρήγορα, αλλά μερικά βίντεο θα εμφανίσουν κενές μικρογραφίες</string>
+    <string name="revanced_alt_thumbnail_skip_checking_title">Παράλειψη ελέγχου για μικρογραφίες</string>
     <string name="revanced_alt_thumbnail_type_entry_1">Αρχή του βίντεο</string>
     <string name="revanced_alt_thumbnail_type_entry_2">Μέση του βίντεο</string>
     <string name="revanced_alt_thumbnail_type_entry_3">Τέλος του βίντεο</string>
@@ -42,6 +49,7 @@
     <string name="revanced_custom_playback_speeds_invalid">Μη έγκυρες προσαρμοσμένες ταχύτητες βίντεο. Έγινε επαναφορά στις προεπιλεγμένες τιμές.</string>
     <string name="revanced_custom_playback_speeds_summary">Προσθέστε ή αλλάξτε τις διαθέσιμες προσαρμοσμένες ταχύτητες βίντεο</string>
     <string name="revanced_custom_playback_speeds_title">Επεξεργασία ταχυτήτων βίντεο</string>
+    <string name="revanced_custom_playback_speeds_warning" formatted="false">Οι τιμές ταχύτητας δεν μπορούν να είναι μεγαλύτερες από %sx. Έγινε επαναφορά στις προεπιλεγμένες τιμές.</string>
     <string name="revanced_custom_seekbar_color_value_summary">Εισάγετε τον κωδικό hex του χρώματος της γραμμής προόδου</string>
     <string name="revanced_custom_seekbar_color_value_title">Τιμή χρώματος γραμμής προόδου</string>
     <string name="revanced_default_app_settings_summary">Για να ανοίξετε το RVX σε ένα εξωτερικό πρόγραμμα περιήγησης, ενεργοποιήστε το «Άνοιγμα υποστηριζόμενων συνδέσμων» και ενεργοποιήστε τις υποστηριζόμενες διευθύνσεις ιστού</string>
@@ -620,6 +628,15 @@
     <string name="revanced_shorts_player_title">Αναπαραγωγέας Shorts</string>
     <string name="revanced_show_fullscreen_title_summary">Γνωστό ζήτημα: ο τίτλος εξαφανίζεται όταν πατηθεί</string>
     <string name="revanced_show_fullscreen_title_title">Εμφάνιση τίτλου σε πλήρη οθόνη</string>
+    <string name="revanced_skipped_preloaded_buffer">Έγινε παράλειψη προφορτωμένου buffer</string>
+    <string name="revanced_skip_preloaded_buffer_summary">"Παράλειψη της προφόρτωσης στην αρχή του βίντεο, για να γίνει παράκαμψη της καθυστέρησης στην εφαρμογή της προεπιλεγμένης ποιότητας.
+
+• Υπάρχει μια καθυστέρηση περίπου 0,7 δευτερολέπτων κατά την έναρξη του βίντεο, αλλά η προεπιλεγμένη ποιότητα εφαρμόζεται αμέσως.
+• Δεν εφαρμόζεται σε βίντεο HDR ή βίντεο μικρότερα των 10 δευτερολέπτων"</string>
+    <string name="revanced_skip_preloaded_buffer_title">Παράλειψη προφόρτωσης βίντεο</string>
+    <string name="revanced_skip_preloaded_buffer_toast_summary_off">Η ειδοποίηση δεν εμφανίζεται</string>
+    <string name="revanced_skip_preloaded_buffer_toast_summary_on">Η ειδοποίηση εμφανίζεται</string>
+    <string name="revanced_skip_preloaded_buffer_toast_title">Ειδοποίηση κατά την παράλειψη</string>
     <string name="revanced_speed_overlay_text" formatted="false">Αναπαραγωγή με ταχύτητα %sx</string>
     <string name="revanced_spoof_app_version_summary">"Αυτή η λειτουργία τροποποιεί την έκδοση της εφαρμογής σε παλαιότερη έκδοση.
 
@@ -628,12 +645,22 @@
     <string name="revanced_spoof_app_version_target_entry_16_08_35">16.08.35 - Επαναφορά της καρτέλας «Εξερεύνηση»</string>
     <string name="revanced_spoof_app_version_target_entry_17_08_35">17.08.35 - Επαναφορά της παλιάς εμφάνισης</string>
     <string name="revanced_spoof_app_version_target_entry_17_41_37">17.41.37 - Επαναφορά παλιού ραφιού λίστας αναπαραγωγής</string>
+    <string name="revanced_spoof_app_version_target_entry_18_01_38">"18.01.38 - Αφαίρεση της ενότητας «Μέλη» από τα σχόλια"</string>
     <string name="revanced_spoof_app_version_target_entry_18_05_40">18.05.40 - Επαναφορά παλιού κουτιού εισαγωγής σχολίων</string>
     <string name="revanced_spoof_app_version_target_entry_18_17_43">18.17.43 - Επαναφορά παλιού στυλ αναδυόμενου πίνακα του αναπαραγωγέα</string>
     <string name="revanced_spoof_app_version_target_entry_title">Έκδοση της εφαρμογής που θα χρησιμοποιηθεί</string>
     <string name="revanced_spoof_app_version_target_summary">Πληκτρολογήστε την έκδοση εφαρμογής που θα εφαρμοστεί</string>
     <string name="revanced_spoof_app_version_target_title">Επεξεργασία έκδοσης εφαρμογής που θα εφαρμοθεί</string>
     <string name="revanced_spoof_app_version_title">Τροποποίηση έκδοσης εφαρμογής</string>
+    <string name="revanced_spoof_player_parameter_in_feed_summary_off">"Η παράμετρος του αναπαραγωγέα δεν θα τροποποιηθεί για βίντεο στη ροή
+
+Γνωστά θέματα
+• Τα βίντεο στη ροή θα αναπαράγονται για λιγότερο από 1 λεπτό πριν αντιμετωπίσουν προβλήματα αναπαραγωγής"</string>
+    <string name="revanced_spoof_player_parameter_in_feed_summary_on">"Η παράμετρος του αναπαραγωγέα θα τροποποιηθεί για βίντεο στη ροή
+
+Γνωστά θέματα
+• Τα βίντεο που αναπαράγονται αυτόματα στη ροή θα εμφανιστούν στο ιστορικό σας"</string>
+    <string name="revanced_spoof_player_parameter_in_feed_title">Τροποποίηση παραμέτρου αναπαραγωγέα στη ροή</string>
     <string name="revanced_spoof_player_parameter_summary">"Τροποποίηση των παραμέτρων του αναπαραγωγέα για την αποφυγή προβλημάτων αναπαραγωγής
 
 Γνωστά προβλήματα:

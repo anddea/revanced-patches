@@ -9,16 +9,16 @@
     <string name="microg_settings_title">Otwórz MicroG</string>
     <string name="revanced_ads">Reklamy</string>
     <string name="revanced_alt_thumbnails">Alternatywne miniaturki</string>
-    <string name="revanced_alt_thumbnail_about_summary">Funkcja zastępująca domyślne miniaturki wideo na rzecz alternatywnych, aby zmniejszyć ilość sensacjonalizmu.</string>
+    <string name="revanced_alt_thumbnail_about_summary">Funkcja zastępująca domyślne miniaturki wideo alternatywnymi, aby zmniejszyć ilość sensacji.</string>
     <string name="revanced_alt_thumbnail_about_title">Opis</string>
-    <string name="revanced_alt_thumbnail_dearrow_summary_off">Miniaturki generowane bez zewnętrznego API</string>
-    <string name="revanced_alt_thumbnail_dearrow_summary_on">Miniaturki generowane za pomocą DeArrow API</string>
+    <string name="revanced_alt_thumbnail_dearrow_summary_off">Miniaturki są generowane bez zewnętrznego API</string>
+    <string name="revanced_alt_thumbnail_dearrow_summary_on">Miniaturki są generowane za pomocą API DeArrow</string>
     <string name="revanced_alt_thumbnail_dearrow_title">Użyj API DeArrow</string>
     <string name="revanced_alt_thumbnail_enabled_summary_off">Oryginalne miniaturki YouTube są widoczne</string>
     <string name="revanced_alt_thumbnail_enabled_summary_on">Miniaturki YouTube są zastąpione alternatywnymi miniaturkami</string>
     <string name="revanced_alt_thumbnail_enabled_title">Alternatywne miniaturki</string>
     <string name="revanced_alt_thumbnail_skip_checking_summary_off">Miniaturki zostaną sprawdzone, czy istnieją bądź nie przed zastąpieniem</string>
-    <string name="revanced_alt_thumbnail_skip_checking_summary_on">Miniaturki będą ładować się szybciej, lecz miniaturki w większości wideo mogą być puste</string>
+    <string name="revanced_alt_thumbnail_skip_checking_summary_on">Miniaturki będą ładować się szybciej, lecz miniaturki większości wideo mogą być puste</string>
     <string name="revanced_alt_thumbnail_skip_checking_title">Pomiń sprawdzanie miniaturek</string>
     <string name="revanced_alt_thumbnail_type_entry_1">Początek wideo</string>
     <string name="revanced_alt_thumbnail_type_entry_2">Środek wideo</string>
@@ -49,6 +49,7 @@
     <string name="revanced_custom_playback_speeds_invalid">Nieprawidłowe niestandardowe prędkości odtwarzania. Przywróć domyślne wartości.</string>
     <string name="revanced_custom_playback_speeds_summary">Dodaj lub zmień dostępne prędkości odtwarzania</string>
     <string name="revanced_custom_playback_speeds_title">Edytuj niestandardowe prędkości odtwarzania</string>
+    <string name="revanced_custom_playback_speeds_warning" formatted="false">Niestandardowe prędkości nie mogą być większe niż %sx. Przywróć domyślne wartości.</string>
     <string name="revanced_custom_seekbar_color_value_summary">Wpisz kod hex koloru paska wideo</string>
     <string name="revanced_custom_seekbar_color_value_title">Niestandardowy kolor paska wideo</string>
     <string name="revanced_default_app_settings_summary">Aby otwierać aplikację YouTube używając linków, włącz \"Otwórz wspierane linki\" i wspierane linki</string>
@@ -622,16 +623,15 @@ To ustawienie może nie zadziałać"</string>
     <string name="revanced_shorts_player_title">Odtwarzacz shortsów</string>
     <string name="revanced_show_fullscreen_title_summary">Znany problem: Tytuły znikają po stuknięciu w nie</string>
     <string name="revanced_show_fullscreen_title_title">Pokazuj tytuły w trybie pełnoekranowym</string>
-    <string name="revanced_skipped_dummy">Pominięto segment niskiej jakości</string>
-    <string name="revanced_skip_dummy_segment_summary">"Pomija segmenty niskiej jakości na początku wideo, aby obejść opóźnienia w egzekwowaniu jakości wideo po stronie serwera
+    <string name="revanced_skipped_preloaded_buffer">Pominięto wstępnie załadowany bufor</string>
+    <string name="revanced_skip_preloaded_buffer_summary">"Pomija wstępnie załadowany bufor na początku wideo, aby obejść opóźnienia w egzekwowaniu jakości wideo
 
-• Jeśli długość wideo jest mniejsza niż 10 sekund, nic nie zostanie pominięte
-• Po uruchomieniu wideo występuje opóźnienie wynoszące około 0.7 sekundy, lecz domyślna jakość wideo jest zastosowana natychmiast
-• Opóźnienia egzekwowania jakości wideo dla wideo HDR nie są obchodzone"</string>
-    <string name="revanced_skip_dummy_segment_title">Segmenty niskiej jakości</string>
-    <string name="revanced_skip_dummy_segment_toast_summary_off">Ukryte</string>
-    <string name="revanced_skip_dummy_segment_toast_summary_on">Widoczne</string>
-    <string name="revanced_skip_dummy_segment_toast_title">Komunikaty po pominięciu</string>
+• Po uruchomieniu wideo występuje opóźnienie około 0.7 sekundy, lecz domyślna jakość wideo jest zastosowana natychmiast
+• Nie działa w przypadku wideo z HDR i krótszych niż 10 sekund"</string>
+    <string name="revanced_skip_preloaded_buffer_title">Wstępnie załadowany bufor</string>
+    <string name="revanced_skip_preloaded_buffer_toast_summary_off">Ukryte</string>
+    <string name="revanced_skip_preloaded_buffer_toast_summary_on">Widoczne</string>
+    <string name="revanced_skip_preloaded_buffer_toast_title">Komunikaty po pominięciu</string>
     <string name="revanced_speed_overlay_text" formatted="false">Odtwarzanie z prędkością %sx</string>
     <string name="revanced_spoof_app_version_summary">"Oszukuje wersję aplikacji do starszej wersji
 
@@ -640,13 +640,22 @@ Jeśli później opcja ta zostanie wyłączona, stare UI może pozostać do czas
     <string name="revanced_spoof_app_version_target_entry_16_08_35">16.08.35 - Przywróć przycisk od odkrywania</string>
     <string name="revanced_spoof_app_version_target_entry_17_08_35">17.08.35 - Przywróć stary wygląd interfejsu</string>
     <string name="revanced_spoof_app_version_target_entry_17_41_37">17.41.37 - Przywróć starą półkę do playlist</string>
-    <string name="revanced_spoof_app_version_target_entry_18_01_38">"18.01.38 - Usuń banner komentarzy członków"</string>
+    <string name="revanced_spoof_app_version_target_entry_18_01_38">"18.01.38 - Usuń banner z komentarzami od sponsorów"</string>
     <string name="revanced_spoof_app_version_target_entry_18_05_40">18.05.40 - Przywróć stare pole od pisania komentarzy</string>
     <string name="revanced_spoof_app_version_target_entry_18_17_43">18.17.43 - Przywróć stary wygląd menu ustawień wideo</string>
     <string name="revanced_spoof_app_version_target_entry_title">Oszukana wersja aplikacji</string>
     <string name="revanced_spoof_app_version_target_summary">Wpisz wersję, którą chcesz oszukiwać</string>
     <string name="revanced_spoof_app_version_target_title">Zmień oszukaną wersję aplikacji</string>
     <string name="revanced_spoof_app_version_title">Oszukaj wersję aplikacji</string>
+    <string name="revanced_spoof_player_parameter_in_feed_summary_off">"Parametry nie są oszukiwane na stronie głównej
+
+Znany problem
+• Wideo na stronie głównej będą odtwarzane przez mniej niż minutę przed napotkaniem problemów z odtwarzaniem"</string>
+    <string name="revanced_spoof_player_parameter_in_feed_summary_on">"Parametry są oszukiwane na stronie głównej
+
+Znany problem
+• Automatycznie odtwarzane wideo będą zapisywane do historii oglądania"</string>
+    <string name="revanced_spoof_player_parameter_in_feed_title">Oszukuj parametry na stronie głównej</string>
     <string name="revanced_spoof_player_parameter_summary">"Oszukuje parametry odtwarzacza, aby uniknąć problemów z odtwarzaniem
 
 Znane problemy

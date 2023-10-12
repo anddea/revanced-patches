@@ -9,16 +9,16 @@
     <string name="microg_settings_title">Mở MicroG</string>
     <string name="revanced_ads">Quảng cáo</string>
     <string name="revanced_alt_thumbnails">Hình thu nhỏ</string>
-    <string name="revanced_alt_thumbnail_about_summary">Hình thu nhỏ thay thế là tính năng giúp thay thế hình thu nhỏ mặc định của video để loại bỏ clickbait</string>
+    <string name="revanced_alt_thumbnail_about_summary">Hình thu nhỏ thay thế là tính năng thay đổi hình thu nhỏ mặc định của video trên YouTube nhằm hạn chế clickbait, giúp người dùng có một cái nhìn trực quan và chính xác hơn về nội dung của video trước xem</string>
     <string name="revanced_alt_thumbnail_about_title">Giới thiệu</string>
-    <string name="revanced_alt_thumbnail_dearrow_summary_off">Hình thu nhỏ được tạo không qua API bên ngoài</string>
-    <string name="revanced_alt_thumbnail_dearrow_summary_on">Hình thu nhỏ được tạo bởi API DeArrow</string>
+    <string name="revanced_alt_thumbnail_dearrow_summary_off">Đang sử dụng hình thu nhỏ được tạo bởi API mặc định</string>
+    <string name="revanced_alt_thumbnail_dearrow_summary_on">Đang sử dụng hình thu nhỏ được tạo bởi API DeArrow</string>
     <string name="revanced_alt_thumbnail_dearrow_title">Sử dụng API DeArrow</string>
     <string name="revanced_alt_thumbnail_enabled_summary_off">Đang sử dụng hình thu nhỏ video mặc định</string>
     <string name="revanced_alt_thumbnail_enabled_summary_on">Đang sử dụng hình thu nhỏ video thay thế</string>
     <string name="revanced_alt_thumbnail_enabled_title">Hình thu nhỏ thay thế</string>
     <string name="revanced_alt_thumbnail_skip_checking_summary_off">Hình thu nhỏ sẽ được kiểm tra xem có tồn tại hay không trước khi thay thế</string>
-    <string name="revanced_alt_thumbnail_skip_checking_summary_on">Hình thu nhỏ sẽ tải nhanh hơn, nhưng một số video sẽ bị trống hình thu nhỏ</string>
+    <string name="revanced_alt_thumbnail_skip_checking_summary_on">Hình thu nhỏ sẽ tải nhanh hơn, tuy nhiên một số video có thể không hiển thị hình thu nhỏ</string>
     <string name="revanced_alt_thumbnail_skip_checking_title">Bỏ qua kiểm tra hình thu nhỏ</string>
     <string name="revanced_alt_thumbnail_type_entry_1">Đầu video</string>
     <string name="revanced_alt_thumbnail_type_entry_2">Giữa video</string>
@@ -49,6 +49,7 @@
     <string name="revanced_custom_playback_speeds_invalid">Tốc độ phát tuỳ chỉnh không hợp lệ. Đã đặt lại về giá trị mặc định.</string>
     <string name="revanced_custom_playback_speeds_summary">Thêm giá trị tốc độ phát video mà bạn muốn thay đổi hoặc chỉnh sửa các giá trị tốc độ phát video hiện có</string>
     <string name="revanced_custom_playback_speeds_title">Chỉnh sửa tốc độ phát</string>
+    <string name="revanced_custom_playback_speeds_warning" formatted="false">Tốc độ phát tuỳ chỉnh không được vượt quá %sx. Đã đặt lại về giá trị mặc định.</string>
     <string name="revanced_custom_seekbar_color_value_summary">Nhập mã màu hex của thanh tiến trình video mà bạn muốn thay đổi</string>
     <string name="revanced_custom_seekbar_color_value_title">Thay đổi màu thanh tiến trình</string>
     <string name="revanced_default_app_settings_summary">Để mở URL bên ngoài trong ReVanced Extended, hãy bật tính năng Mở các liên kết được hỗ trợ và thêm các liên kết được hỗ trợ</string>
@@ -622,15 +623,15 @@ Hầu hết các thiết bị bây giờ đều hỗ trợ codec VP9 nên bạn 
     <string name="revanced_shorts_player_title">Trình phát Shorts</string>
     <string name="revanced_show_fullscreen_title_summary">Hiển thị tiêu đề khi phát video ở chế độ toàn màn hình tối giản.\n\nSự cố đã biết: Tiêu đề đột ngột biến mất khi nhấn vào.</string>
     <string name="revanced_show_fullscreen_title_title">Hiện tiêu đề</string>
-    <string name="revanced_skipped_dummy">Đã bỏ qua khoảng trễ đầu video</string>
-    <string name="revanced_skip_dummy_segment_summary">"Bỏ qua khoảng trễ ở đầu video để tránh việc chờ xử lý chất lượng từ phía máy chủ.
+    <string name="revanced_skipped_preloaded_buffer">Đã bỏ qua bộ đệm tải trước</string>
+    <string name="revanced_skip_preloaded_buffer_summary">"Bỏ qua bộ đệm tải trước để tránh thời gian chờ khi áp dụng chất lượng video mặc định.
 
-- Khi bạn nhấn nút Phát, sẽ có một độ trễ khoảng 0.7 giây trước khi video bắt đầu phát, tuy nhiên chất lượng video mặc định vẫn được áp dụng ngay lập tức.
-- Video có thời lượng dưới 10 giây và video HDR sẽ không bị bỏ qua khoảng trễ này."</string>
-    <string name="revanced_skip_dummy_segment_title">Bỏ qua khoảng trễ đầu video</string>
-    <string name="revanced_skip_dummy_segment_toast_summary_off">Thông báo ngắn đã ẩn khi bỏ qua khoảng trễ đầu video</string>
-    <string name="revanced_skip_dummy_segment_toast_summary_on">Thông báo ngắn được hiển thị khi bỏ qua khoảng trễ đầu video</string>
-    <string name="revanced_skip_dummy_segment_toast_title">Thông báo ngắn khi bỏ qua</string>
+Lưu ý:\n- Khi bạn nhấn nút Phát, sẽ có một độ trễ khoảng 0.7 giây trước khi video bắt đầu phát, tuy nhiên chất lượng video mặc định vẫn được áp dụng ngay lập tức.
+- Tuỳ chọn này không áp dụng cho video HDR và video có thời lượng dưới 10 giây."</string>
+    <string name="revanced_skip_preloaded_buffer_title">Bỏ qua bộ đệm tải trước</string>
+    <string name="revanced_skip_preloaded_buffer_toast_summary_off">Thông báo ngắn đã ẩn khi bỏ qua bộ đệm tải trước</string>
+    <string name="revanced_skip_preloaded_buffer_toast_summary_on">Thông báo ngắn được hiển thị khi bỏ qua bộ đệm tải trước</string>
+    <string name="revanced_skip_preloaded_buffer_toast_title">Thông báo ngắn khi bỏ qua</string>
     <string name="revanced_speed_overlay_text" formatted="false">Đang phát ở tốc độ %sx</string>
     <string name="revanced_spoof_app_version_summary">"Giả mạo phiên bản YouTube hiện tại thành phiên bản cũ.
 
@@ -647,6 +648,13 @@ Lưu ý:
     <string name="revanced_spoof_app_version_target_summary">Nhập phiên bản YouTube mà bạn muốn giả mạo</string>
     <string name="revanced_spoof_app_version_target_title">Chỉnh sửa phiên bản giả mạo</string>
     <string name="revanced_spoof_app_version_title">Giả mạo phiên bản ứng dụng</string>
+    <string name="revanced_spoof_player_parameter_in_feed_summary_off">"Giả mạo thông số trình phát trên các trang video đã tắt.
+
+Sự cố đã biết: Video được phát tự động sẽ phát dưới 1 phút trước khi bị giật hình."</string>
+    <string name="revanced_spoof_player_parameter_in_feed_summary_on">"Giả mạo thông số trình phát trên các trang video đã bật.
+
+Sự cố đã biết: Video được phát tự động sẽ hiển thị trong nhật ký xem của bạn."</string>
+    <string name="revanced_spoof_player_parameter_in_feed_title">Giả mạo thông số trình phát trên các trang video</string>
     <string name="revanced_spoof_player_parameter_summary">"Giả mạo thông số trình phát để khắc phục vấn đề giật hình khi phát video.
 
 Sự cố đã biết:

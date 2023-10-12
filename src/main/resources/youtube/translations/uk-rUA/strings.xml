@@ -49,6 +49,7 @@
     <string name="revanced_custom_playback_speeds_invalid">Неправильні користувацькі швидкості відтворення. Скинуто до значень за замовчуванням.</string>
     <string name="revanced_custom_playback_speeds_summary">Додати або змінити доступні швидкості відтворення</string>
     <string name="revanced_custom_playback_speeds_title">Редагувати користувацькі швидкості відтворення</string>
+    <string name="revanced_custom_playback_speeds_warning" formatted="false">Користувацькі швидкості не можуть бути більше ніж %sx. Скинуто до стандартних значень.</string>
     <string name="revanced_custom_seekbar_color_value_summary">Введіть hex код кольору рядка перемотки</string>
     <string name="revanced_custom_seekbar_color_value_title">Користувацьке значення кольору панелі прогресу</string>
     <string name="revanced_default_app_settings_summary">Щоб відкривати RVX у зовнішньому перегляді, увімкніть \"Відкривати підтримувані посилання\" та підтримувані вебадреси</string>
@@ -622,16 +623,15 @@
     <string name="revanced_shorts_player_title">Плеєр коротких відео</string>
     <string name="revanced_show_fullscreen_title_summary">Відома проблема: заголовок зникає при натисканні</string>
     <string name="revanced_show_fullscreen_title_title">Показати заголовок повноекранного режиму</string>
-    <string name="revanced_skipped_dummy">Пропущено фіктивний сегмент</string>
-    <string name="revanced_skip_dummy_segment_summary">"Пропуск фіктивного сегмента під час запуску відео, щоб обійти затримки примусового забезпечення якості відео на стороні сервера
+    <string name="revanced_skipped_preloaded_buffer">Пропущено перед вантажений буфер</string>
+    <string name="revanced_skip_preloaded_buffer_summary">"Пропуск перед вантаженого буфера під час запуску відео для обходу затримки примусового застосування стандартної якості відео
 
-• Якщо тривалість відео менше 10 секунд, він не пропускатиметься
-• Коли відео починається, є затримка приблизно 0.7 секунди, але стандартна якість відео застосовується відразу
-• Затримки примусового забезпечення якості відео для HDR відео не обійдено"</string>
-    <string name="revanced_skip_dummy_segment_title">Пропускати фіктивний сегмент</string>
-    <string name="revanced_skip_dummy_segment_toast_summary_off">Тост приховано</string>
-    <string name="revanced_skip_dummy_segment_toast_summary_on">Тост показується</string>
-    <string name="revanced_skip_dummy_segment_toast_title">Показувати тост, коли пропущено</string>
+• Під час запуску відео є затримка приблизно 0.7 секунди, але стандартна якість відео застосовується відразу
+• Не застосовується на відео HDR або менші ніж 10 секунд"</string>
+    <string name="revanced_skip_preloaded_buffer_title">Пропустити перед вантажений буфер</string>
+    <string name="revanced_skip_preloaded_buffer_toast_summary_off">Тост приховано</string>
+    <string name="revanced_skip_preloaded_buffer_toast_summary_on">Тост показується</string>
+    <string name="revanced_skip_preloaded_buffer_toast_title">Показувати тост, коли пропущено</string>
     <string name="revanced_speed_overlay_text" formatted="false">Відтворюється зі швидкістю %sx</string>
     <string name="revanced_spoof_app_version_summary">"Підміна версії клієнта на стару версію
 
@@ -647,6 +647,15 @@
     <string name="revanced_spoof_app_version_target_summary">Введіть цільову версію підробки програми</string>
     <string name="revanced_spoof_app_version_target_title">Редагувати підробку версії програми</string>
     <string name="revanced_spoof_app_version_title">Підробити версію програми</string>
+    <string name="revanced_spoof_player_parameter_in_feed_summary_off">"Параметр плеєра не підроблений для відео у стрічці
+
+Відомі проблеми
+• Стрічка відео відтворюватиметься менше однієї хвилини до виникнення проблем відтворення"</string>
+    <string name="revanced_spoof_player_parameter_in_feed_summary_on">"Параметр плеєра підроблений для відео у стрічці
+
+Відомі проблеми
+• Автоматично відтворені відео у стрічці показуватимуться у вашій історії перегляду"</string>
+    <string name="revanced_spoof_player_parameter_in_feed_title">Підробити параметр плеєра у стрічці</string>
     <string name="revanced_spoof_player_parameter_summary">"Підробка параметрів плеєра для вирішення проблем відтворення
 
 Відомі проблеми

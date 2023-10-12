@@ -49,6 +49,7 @@
     <string name="revanced_custom_playback_speeds_invalid">Невалидна скорост на видеото. Връщане на стойности по подразбиране.</string>
     <string name="revanced_custom_playback_speeds_summary">Добавяне или смяна на възможните скорости</string>
     <string name="revanced_custom_playback_speeds_title">Редактиране на скоростите по избор на видеото</string>
+    <string name="revanced_custom_playback_speeds_warning" formatted="false">Персонализираната скорост не може да бъде повече от %sx. Нулирайте стойностите по подразбиране.</string>
     <string name="revanced_custom_seekbar_color_value_summary">Въведете кода за цвят на лентата за време</string>
     <string name="revanced_custom_seekbar_color_value_title">Ст-ст по изб. за цвят на лентата за вр.</string>
     <string name="revanced_default_app_settings_summary">За да отворите RVX във външен браузър включете \"Отваряне на поддържани връзки\" и разрешете поддържаните адреси</string>
@@ -623,16 +624,6 @@
     <string name="revanced_shorts_player_title">Плейър за кратки клипове</string>
     <string name="revanced_show_fullscreen_title_summary">Известен проблем: Заглавието изчезва при докосване</string>
     <string name="revanced_show_fullscreen_title_title">Показване на заглавието при цял екран</string>
-    <string name="revanced_skipped_dummy">Пропуснат фиктивен сегмент</string>
-    <string name="revanced_skip_dummy_segment_summary">"Пропускане на фиктивен сегмент при стартиране на видеото, за да се заобиколят закъсненията за прилагане на качеството на видеото от страна на сървъра
-
-• Ако дължината на видеоклипа е по-малка от 10 секунди, той няма да бъде пропуснат
-• Когато видеото започне, има забавяне от приблизително 0,7 секунди, но качеството на видеото по подразбиране се прилага веднага
-• Закъсненията за прилагане на качеството на видеото за HDR видео не се заобикалят"</string>
-    <string name="revanced_skip_dummy_segment_title">Пропусни фиктивен сегмент</string>
-    <string name="revanced_skip_dummy_segment_toast_summary_off">Уведомлението е скрито</string>
-    <string name="revanced_skip_dummy_segment_toast_summary_on">Уведомлението се показва</string>
-    <string name="revanced_skip_dummy_segment_toast_title">Уведомление при пропуске</string>
     <string name="revanced_speed_overlay_text" formatted="false">Възпроизвеждане на %dX скорост</string>
     <string name="revanced_spoof_app_version_summary">"Подлъгване на клиента с остаряла версия
 
@@ -648,6 +639,9 @@
     <string name="revanced_spoof_app_version_target_summary">Задайте желаната фалшива версия на приложението</string>
     <string name="revanced_spoof_app_version_target_title">Редактиране на фалшивата версия</string>
     <string name="revanced_spoof_app_version_title">Подлъгване за версията на приложението</string>
+    <string name="revanced_spoof_player_parameter_in_feed_summary_off">"Параметърът на плейъра не е подправен за видеоклипове в емисии"</string>
+    <string name="revanced_spoof_player_parameter_in_feed_summary_on">"Параметърът на плейъра е подправен за видеоклипове в емисии"</string>
+    <string name="revanced_spoof_player_parameter_in_feed_title">Фалшив параметър на плейъра във емисията</string>
     <string name="revanced_spoof_player_parameter_summary">"Променя параметрите на плейъра, за да предотврати проблеми с възпроизвеждането
 
 Вече известни проблеми:
