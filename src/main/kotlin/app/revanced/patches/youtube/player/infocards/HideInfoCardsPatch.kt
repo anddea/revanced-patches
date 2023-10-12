@@ -60,7 +60,7 @@ object HideInfoCardsPatch : BytecodePatch(
             }
         } ?: throw InfoCardsIncognitoFingerprint.exception
 
-        LithoFilterPatch.addFilter("$PATCHES_PATH/ads/PlayerFilter;")
+        LithoFilterPatch.addFilter("$PATCHES_PATH/ads/InfoCardsFilter;")
 
         /**
          * Add settings
