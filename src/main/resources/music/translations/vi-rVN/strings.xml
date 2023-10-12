@@ -16,7 +16,7 @@
     <string name="revanced_custom_playback_speeds_invalid">Tốc độ phát tuỳ chỉnh không hợp lệ. Đã đặt lại về giá trị mặc định.</string>
     <string name="revanced_custom_playback_speeds_summary">Thêm giá trị tốc độ phát mà bạn muốn thay đổi hoặc chỉnh sửa các giá trị tốc độ phát hiện có</string>
     <string name="revanced_custom_playback_speeds_title">Chỉnh sửa tốc độ phát</string>
-    <string name="revanced_custom_playback_speeds_warning" formatted="false">Tốc độ phát tuỳ chỉnh không thể lớn hơn %sx</string>
+    <string name="revanced_custom_playback_speeds_warning" formatted="false">Tốc độ phát tuỳ chỉnh không được vượt quá %sx</string>
     <string name="revanced_disable_auto_captions_summary">Tắt tự động hiển thị phụ đề khi phát video nhạc có phụ đề</string>
     <string name="revanced_disable_auto_captions_title">Tắt tự động hiển thị phụ đề</string>
     <string name="revanced_downloader_not_installed" formatted="false">%s chưa được cài đặt. Hãy cài đặt và thử lại.</string>
@@ -34,8 +34,8 @@
     <string name="revanced_enable_force_minimized_player_title">Luôn phát trong trình phát thu nhỏ</string>
     <string name="revanced_enable_landscape_mode_summary">Cho phép ứng dụng tự động xoay theo hướng màn hình mà thiết bị được giữ</string>
     <string name="revanced_enable_landscape_mode_title">Tự động xoay màn hình</string>
-    <string name="revanced_enable_new_layout_summary">Bật bố cục trình phát kiểu mới</string>
-    <string name="revanced_enable_new_layout_title">Bố cục trình phát kiểu mới</string>
+    <string name="revanced_enable_new_player_background_summary">Bật nền trình phát kiểu mới</string>
+    <string name="revanced_enable_new_player_background_title">Nền trình phát kiểu mới</string>
     <string name="revanced_enable_old_style_library_shelf_summary">Khôi phục thẻ Thư viện kiểu cũ (Tính năng thử nghiệm)</string>
     <string name="revanced_enable_old_style_library_shelf_title">Thẻ Thư viện kiểu cũ</string>
     <string name="revanced_enable_old_style_mini_player_summary">Khôi phục trình phát thu nhỏ kiểu cũ</string>
@@ -155,10 +155,8 @@
     <string name="revanced_spoof_app_version_summary">"Giả mạo phiên bản YouTube Music hiện tại thành phiên bản cũ.
 
 Lưu ý:\n- Tuỳ chọn này sẽ thay đổi giao diện ứng dụng, tuy nhiên có thể xảy ra các sự cố chưa xác định khác.
-- Nếu tắt tuỳ chọn này sau đó, giao diện cũ có thể vẫn tồn tại cho đến khi bạn xoá dữ liệu ứng dụng.
-- Nếu các thẻ trên thanh điều hướng vô tình bị ẩn đi, hãy khởi động lại ứng dụng.
-- Bật tuỳ chọn này sẽ khiến máy chủ nhận được phản hồi không hợp lệ từ Endpoint BrowseId, dẫn đến việc áp dụng thẻ Thư viện kiểu cũ."</string>
-    <string name="revanced_spoof_app_version_target_entry_4_27_53">4.27.53 - Tắt chế độ Đài phát ở các khu vực Canada</string>
+- Nếu tắt tuỳ chọn này sau đó, giao diện cũ có thể vẫn tồn tại cho đến khi bạn xoá dữ liệu ứng dụng."</string>
+    <string name="revanced_spoof_app_version_target_entry_4_27_53">4.27.53 - Tắt chế độ Đài phát ở một số vùng của Canada</string>
     <string name="revanced_spoof_app_version_target_entry_6_10_53">6.10.53 - Tắt lời bài hát theo thời gian thực</string>
     <string name="revanced_spoof_app_version_target_summary">Chọn phiên bản YouTube Music mà bạn muốn giả mạo</string>
     <string name="revanced_spoof_app_version_target_title">Phiên bản giả mạo</string>
