@@ -4,7 +4,6 @@ import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
@@ -12,11 +11,9 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.misc.minimizedplayback.fingerprints.KidsMinimizedPlaybackPolicyControllerFingerprint
 import app.revanced.patches.youtube.misc.minimizedplayback.fingerprints.MinimizedPlaybackManagerFingerprint
 import app.revanced.patches.youtube.misc.minimizedplayback.fingerprints.MinimizedPlaybackSettingsFingerprint
-import app.revanced.patches.youtube.misc.minimizedplayback.fingerprints.PiPPlaybackFingerprint
 import app.revanced.patches.youtube.utils.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.utils.playertype.PlayerTypeHookPatch
 import app.revanced.util.integrations.Constants.MISC_PATH
-import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
@@ -50,8 +47,7 @@ object MinimizedPlaybackPatch : BytecodePatch(
     setOf(
         KidsMinimizedPlaybackPolicyControllerFingerprint,
         MinimizedPlaybackManagerFingerprint,
-        MinimizedPlaybackSettingsFingerprint,
-        PiPPlaybackFingerprint
+        MinimizedPlaybackSettingsFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext) {
@@ -68,7 +64,8 @@ object MinimizedPlaybackPatch : BytecodePatch(
             it.mutableMethod.apply {
                 addInstructions(
                     0, """
-                        const/4 v0, 0x1
+                        invoke-static {}, $INTEGRATIONS_METHOD_REFERENCE
+                        move-result v0
                         return v0
                         """
                 )
@@ -96,20 +93,6 @@ object MinimizedPlaybackPatch : BytecodePatch(
                 )
             }
         } ?: throw MinimizedPlaybackSettingsFingerprint.exception
-
-        PiPPlaybackFingerprint.result?.let {
-            it.mutableMethod.apply {
-                val insertIndex = it.scanResult.patternScanResult!!.endIndex
-                val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
-
-                addInstructions(
-                    insertIndex, """
-                        invoke-static {}, $INTEGRATIONS_METHOD_REFERENCE
-                        move-result v$insertRegister
-                        """
-                )
-            }
-        } ?: throw PiPPlaybackFingerprint.exception
     }
 
     private const val INTEGRATIONS_METHOD_REFERENCE =
