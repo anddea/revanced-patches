@@ -624,16 +624,15 @@ Since these setting is quite outdated, it may not be valid"</string>
     <string name="revanced_shorts_player_title">Shorts player</string>
     <string name="revanced_show_fullscreen_title_summary">Known issue: Title disappears when clicked</string>
     <string name="revanced_show_fullscreen_title_title">Show fullscreen title</string>
-    <string name="revanced_skipped_dummy">Skipped dummy segment</string>
-    <string name="revanced_skip_dummy_segment_summary">"Skip dummy segment at video start to bypass video quality enforcement delays on the server side
+    <string name="revanced_skipped_preloaded_buffer">Skipped preloaded buffer</string>
+    <string name="revanced_skip_preloaded_buffer_summary">"Skip preloaded buffer at video start to bypass default video quality enforcement delay
 
-• If the video length is less than 10 seconds, it will not be skipped
 • When the video starts, there is a delay of approximately 0.7 seconds, but the default video quality is applied immediately
-• Video quality enforcement delays for HDR video are not bypassed"</string>
-    <string name="revanced_skip_dummy_segment_title">Skip dummy segment</string>
-    <string name="revanced_skip_dummy_segment_toast_summary_off">Toast is hidden</string>
-    <string name="revanced_skip_dummy_segment_toast_summary_on">Toast is shown</string>
-    <string name="revanced_skip_dummy_segment_toast_title">Show a toast when skipped</string>
+• Does not apply to HDR videos or videos shorter than 10 seconds"</string>
+    <string name="revanced_skip_preloaded_buffer_title">Skip preloaded buffer</string>
+    <string name="revanced_skip_preloaded_buffer_toast_summary_off">Toast is hidden</string>
+    <string name="revanced_skip_preloaded_buffer_toast_summary_on">Toast is shown</string>
+    <string name="revanced_skip_preloaded_buffer_toast_title">Show a toast when skipped</string>
     <string name="revanced_speed_overlay_text" formatted="false">Playing at %sx speed</string>
     <string name="revanced_spoof_app_version_summary">"Spoofing the client version to the old version
 
