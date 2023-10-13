@@ -20,7 +20,7 @@ object PowerSaveModeFingerprint : MethodFingerprint(
         if (instructions.count() < 20)
             return@custom false
 
-        var count = 0;
+        var count = 0
         for (instruction in instructions) {
             if (instruction.opcode != Opcode.INVOKE_VIRTUAL)
                 continue

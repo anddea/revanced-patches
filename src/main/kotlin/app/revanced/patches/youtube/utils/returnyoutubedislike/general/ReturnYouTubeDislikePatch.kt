@@ -25,7 +25,6 @@ import app.revanced.patches.youtube.utils.returnyoutubedislike.oldlayout.ReturnY
 import app.revanced.patches.youtube.utils.returnyoutubedislike.shorts.ReturnYouTubeDislikeShortsPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.patches.youtube.utils.videoid.general.VideoIdPatch
-import app.revanced.util.integrations.Constants
 import app.revanced.util.integrations.Constants.PATCHES_PATH
 import app.revanced.util.integrations.Constants.UTILS_PATH
 import com.android.tools.smali.dexlib2.Opcode
