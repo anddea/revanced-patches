@@ -2,7 +2,7 @@ package app.revanced.patches.youtube.misc.language
 
 import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
@@ -10,11 +10,12 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.youtube.misc.language.fingerprints.GeneralPrefsFingerprint
 import app.revanced.patches.youtube.misc.language.fingerprints.GeneralPrefsLegacyFingerprint
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
+import app.revanced.util.integrations.Constants.MISC_PATH
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
-    name = "Language switch",
-    description = "Add language switch toggle.",
+    name = "Enable language switch",
+    description = "Enable/disable language switch toggle.",
     dependencies = [SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(
@@ -53,14 +54,25 @@ object LanguageSelectorPatch : BytecodePatch(
                 val targetIndex = it.scanResult.patternScanResult!!.endIndex
                 val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
-                addInstruction(
-                    targetIndex,
-                    "const/4 v$targetRegister, 0x1"
+                addInstructions(
+                    targetIndex, """
+                        invoke-static {}, $MISC_PATH/LanguageSelectorPatch;->enableLanguageSwitch()Z
+                        move-result v$targetRegister
+                        """
                 )
             }
         }
 
-        SettingsPatch.updatePatchStatus("language-switch")
+        /**
+         * Add settings
+         */
+        SettingsPatch.addPreference(
+            arrayOf(
+                "SETTINGS: ENABLE_LANGUAGE_SWITCH"
+            )
+        )
+
+        SettingsPatch.updatePatchStatus("enable-language-switch")
 
     }
 }
