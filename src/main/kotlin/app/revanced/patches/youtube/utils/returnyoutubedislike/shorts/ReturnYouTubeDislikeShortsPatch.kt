@@ -7,15 +7,18 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWith
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.utils.returnyoutubedislike.shorts.fingerprints.ShortsTextViewFingerprint
 import app.revanced.patches.youtube.utils.returnyoutubedislike.shorts.fingerprints.TextComponentSpecFingerprint
+import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.integrations.Constants.UTILS_PATH
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
+@Patch(dependencies = [SettingsPatch::class])
 object ReturnYouTubeDislikeShortsPatch : BytecodePatch(
     setOf(
         ShortsTextViewFingerprint,
@@ -59,26 +62,27 @@ object ReturnYouTubeDislikeShortsPatch : BytecodePatch(
             }
         } ?: throw ShortsTextViewFingerprint.exception
 
-        TextComponentSpecFingerprint.result?.let {
-            it.mutableMethod.apply {
-                val insertIndex = it.scanResult.patternScanResult!!.startIndex
+        if (SettingsPatch.upward1834) {
+            TextComponentSpecFingerprint.result?.let {
+                it.mutableMethod.apply {
+                    val insertIndex = it.scanResult.patternScanResult!!.startIndex
 
-                val charSequenceRegister =
-                    getInstruction<FiveRegisterInstruction>(insertIndex).registerC
-                val conversionContextRegister = getInstruction<TwoRegisterInstruction>(0).registerA
+                    val charSequenceRegister = getInstruction<FiveRegisterInstruction>(insertIndex).registerC
+                    val conversionContextRegister = getInstruction<TwoRegisterInstruction>(0).registerA
 
-                val replaceReference = getInstruction<ReferenceInstruction>(insertIndex).reference
+                    val replaceReference = getInstruction<ReferenceInstruction>(insertIndex).reference
 
-                addInstructions(
-                    insertIndex + 1, """
-                        invoke-static {v$conversionContextRegister, v$charSequenceRegister}, $INTEGRATIONS_RYD_CLASS_DESCRIPTOR->onCharSequenceLoaded(Ljava/lang/Object;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
-                        move-result-object v$charSequenceRegister
-                        invoke-static {v$charSequenceRegister}, $replaceReference
-                        """
-                )
-                removeInstruction(insertIndex)
-            }
-        } ?: throw TextComponentSpecFingerprint.exception
+                    addInstructions(
+                        insertIndex + 1, """
+                            invoke-static {v$conversionContextRegister, v$charSequenceRegister}, $INTEGRATIONS_RYD_CLASS_DESCRIPTOR->onCharSequenceLoaded(Ljava/lang/Object;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
+                            move-result-object v$charSequenceRegister
+                            invoke-static {v$charSequenceRegister}, $replaceReference
+                            """
+                    )
+                    removeInstruction(insertIndex)
+                }
+            } ?: throw TextComponentSpecFingerprint.exception
+        }
     }
 
     private const val INTEGRATIONS_RYD_CLASS_DESCRIPTOR =
