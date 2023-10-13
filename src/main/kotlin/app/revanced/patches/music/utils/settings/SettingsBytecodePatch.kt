@@ -7,7 +7,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.music.utils.integrations.IntegrationsPatch
-import app.revanced.patches.music.utils.settings.fingerprints.NewPlayerLayoutFingerprint
+import app.revanced.patches.music.utils.fingerprints.NewPlayerLayoutFingerprint
 import app.revanced.patches.music.utils.settings.fingerprints.PreferenceFingerprint
 import app.revanced.patches.music.utils.settings.fingerprints.SettingsHeadersFragmentFingerprint
 import app.revanced.util.bytecode.BytecodeHelper.injectInit
