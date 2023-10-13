@@ -260,6 +260,12 @@
         <!-- SETTINGS: ENABLE_NEW_SPLASH_ANIMATION
         <SwitchPreference android:title="@string/revanced_enable_new_splash_animation_title" android:key="revanced_enable_new_splash_animation" android:defaultValue="false" android:summaryOn="@string/revanced_enable_new_splash_animation_summary_on" android:summaryOff="@string/revanced_enable_new_splash_animation_summary_off" />SETTINGS: ENABLE_NEW_SPLASH_ANIMATION -->
 
+        <PreferenceScreen android:title="@string/revanced_backup_title" android:key="backup" android:summary="@string/revanced_backup_summary">
+            <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_backup_title" />
+            <Preference android:title="@string/revanced_export_settings_title" android:key="revanced_export_settings" android:summary="@string/revanced_export_settings_summary" />
+            <Preference android:title="@string/revanced_import_settings_title" android:key="revanced_import_settings" android:summary="@string/revanced_import_settings_summary" />
+        </PreferenceScreen>
+
         <!-- SETTINGS: ENABLE_OPEN_LINKS_DIRECTLY
         <SwitchPreference android:title="@string/revanced_enable_open_links_directly_title" android:key="revanced_enable_open_links_directly" android:defaultValue="true" android:summaryOn="@string/revanced_enable_open_links_directly_summary_on" android:summaryOff="@string/revanced_enable_open_links_directly_summary_off" />SETTINGS: ENABLE_OPEN_LINKS_DIRECTLY -->
 
@@ -285,12 +291,6 @@
 
         <!-- SETTINGS: ENABLE_VP9_CODEC
         <SwitchPreference android:title="@string/revanced_enable_vp9_codec_title" android:key="revanced_enable_vp9_codec" android:defaultValue="false" android:summary="@string/revanced_enable_vp9_codec_summary" />SETTINGS: ENABLE_VP9_CODEC -->
-
-        <PreferenceScreen android:title="@string/revanced_backup_title" android:key="backup" android:summary="@string/revanced_backup_summary">
-            <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_backup_title" />
-            <Preference android:title="@string/revanced_export_settings_title" android:key="revanced_export_settings" android:summary="@string/revanced_export_settings_summary" />
-            <Preference android:title="@string/revanced_import_settings_title" android:key="revanced_import_settings" android:summary="@string/revanced_import_settings_summary" />
-        </PreferenceScreen>
 
         <!-- SETTINGS: SPOOF_APP_VERSION
         <SwitchPreference android:title="@string/revanced_spoof_app_version_title" android:key="revanced_spoof_app_version" android:defaultValue="false" android:summary="@string/revanced_spoof_app_version_summary" />
