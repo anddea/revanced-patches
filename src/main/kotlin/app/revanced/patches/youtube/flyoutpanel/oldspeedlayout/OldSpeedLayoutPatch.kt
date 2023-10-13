@@ -12,6 +12,7 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableField.Companion.toMut
 import app.revanced.patches.youtube.flyoutpanel.oldspeedlayout.fingerprints.CustomPlaybackSpeedIntegrationsFingerprint
 import app.revanced.patches.youtube.flyoutpanel.oldspeedlayout.fingerprints.PlaybackRateBottomSheetBuilderFingerprint
 import app.revanced.patches.youtube.flyoutpanel.oldspeedlayout.fingerprints.PlaybackRateBottomSheetClassFingerprint
+import app.revanced.patches.youtube.flyoutpanel.recyclerview.BottomSheetRecyclerViewPatch
 import app.revanced.patches.youtube.utils.fingerprints.RecyclerViewTreeObserverFingerprint
 import app.revanced.patches.youtube.utils.litho.LithoFilterPatch
 import app.revanced.util.integrations.Constants.PATCHES_PATH
@@ -19,7 +20,13 @@ import app.revanced.util.integrations.Constants.VIDEO_PATH
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.immutable.ImmutableField
 
-@Patch(dependencies = [LithoFilterPatch::class])
+@Patch(
+    dependencies =
+    [
+        BottomSheetRecyclerViewPatch::class,
+        LithoFilterPatch::class
+    ]
+)
 object OldSpeedLayoutPatch : BytecodePatch(
     setOf(
         CustomPlaybackSpeedIntegrationsFingerprint,
