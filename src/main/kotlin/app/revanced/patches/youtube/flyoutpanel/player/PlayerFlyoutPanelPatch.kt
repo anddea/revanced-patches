@@ -12,6 +12,7 @@ import app.revanced.patches.youtube.flyoutpanel.player.fingerprints.AdvancedQual
 import app.revanced.patches.youtube.flyoutpanel.player.fingerprints.CaptionsBottomSheetFingerprint
 import app.revanced.patches.youtube.utils.fingerprints.QualityMenuViewInflateFingerprint
 import app.revanced.patches.youtube.utils.litho.LithoFilterPatch
+import app.revanced.patches.youtube.utils.playertype.PlayerTypeHookPatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.BottomSheetFooterText
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
@@ -25,6 +26,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
     description = "Hides player flyout panel components.",
     dependencies = [
         LithoFilterPatch::class,
+        PlayerTypeHookPatch::class,
         SettingsPatch::class,
         SharedResourceIdPatch::class
     ],
