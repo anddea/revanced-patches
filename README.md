@@ -35,6 +35,8 @@ ReVanced Extended Patches.
 | `Enable compact controls overlay` | Enables compact control overlay. | 18.24.37 ~ 18.36.39 |
 | `Enable debug logging` | Adds debugging options. | 18.24.37 ~ 18.36.39 |
 | `Enable external browser` | Open url outside the app in an external browser. | 18.24.37 ~ 18.36.39 |
+| `Enable gradient loading screen` | Enables gradient loading screen. | 18.24.37 ~ 18.36.39 |
+| `Enable language switch` | Enable/disable language switch toggle. | 18.24.37 ~ 18.36.39 |
 | `Enable minimized playback` | Enables minimized and background playback. | 18.24.37 ~ 18.36.39 |
 | `Enable new comment popup panels` | Enables a new type of comment popup panel in the shorts player. | 18.24.37 ~ 18.36.39 |
 | `Enable new splash animation` | Enables a new type of splash animation. | 18.24.37 ~ 18.36.39 |
@@ -97,7 +99,6 @@ ReVanced Extended Patches.
 | `Hide tooltip content` | Hides the tooltip box that appears on first install. | 18.24.37 ~ 18.36.39 |
 | `Hide trending searches` | Hide trending searches in the search bar. | 18.24.37 ~ 18.36.39 |
 | `Hide video ads` | Hides ads in the video player. | 18.24.37 ~ 18.36.39 |
-| `Language switch` | Add language switch toggle. | 18.24.37 ~ 18.36.39 |
 | `Layout switch` | Tricks the dpi to use some tablet/phone layouts. | 18.24.37 ~ 18.36.39 |
 | `MaterialYou` | Enables MaterialYou theme for Android 12+ | 18.24.37 ~ 18.36.39 |
 | `MicroG support` | Allows ReVanced Extended to run without root and under a different package name with MicroG. | 18.24.37 ~ 18.36.39 |
