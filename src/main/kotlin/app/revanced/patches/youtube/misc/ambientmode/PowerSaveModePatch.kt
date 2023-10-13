@@ -8,9 +8,7 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.youtube.misc.ambientmode.fingerprints.PowerSaveModeAlternativeFingerprint
 import app.revanced.patches.youtube.misc.ambientmode.fingerprints.PowerSaveModeFingerprint
-import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.integrations.Constants.MISC_PATH
 import com.android.tools.smali.dexlib2.Opcode
@@ -21,10 +19,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 @Patch(
     name = "Bypass ambient mode restrictions",
     description = "Bypass ambient mode restrictions in battery saver mode.",
-    dependencies = [
-        SettingsPatch::class,
-        SharedResourceIdPatch::class
-    ],
+    dependencies = [SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(
             "com.google.android.youtube",
@@ -46,19 +41,11 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 )
 @Suppress("unused")
 object PowerSaveModePatch : BytecodePatch(
-    setOf(
-        PowerSaveModeAlternativeFingerprint,
-        PowerSaveModeFingerprint
-    )
+    setOf(PowerSaveModeFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
 
-        val result =
-            PowerSaveModeFingerprint.result
-                ?: PowerSaveModeAlternativeFingerprint.result
-                ?: throw PowerSaveModeFingerprint.exception
-
-        result.let {
+        PowerSaveModeFingerprint.result?.let {
             it.mutableMethod.apply {
                 var insertIndex = -1
 
@@ -82,7 +69,7 @@ object PowerSaveModePatch : BytecodePatch(
                 if (insertIndex == -1)
                     throw PatchException("Couldn't find PowerManager reference")
             }
-        }
+        } ?: throw PowerSaveModeFingerprint.exception
 
         /**
          * Add settings
