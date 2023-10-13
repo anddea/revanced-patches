@@ -251,6 +251,9 @@
         <!-- SETTINGS: ENABLE_EXTERNAL_BROWSER
         <SwitchPreference android:title="@string/revanced_enable_external_browser_title" android:key="revanced_enable_external_browser" android:defaultValue="true" android:summaryOn="@string/revanced_enable_external_browser_summary_on" android:summaryOff="@string/revanced_enable_external_browser_summary_off" />SETTINGS: ENABLE_EXTERNAL_BROWSER -->
 
+        <!-- SETTINGS: ENABLE_LANGUAGE_SWITCH
+        <SwitchPreference android:title="@string/revanced_enable_language_switch_title" android:key="revanced_enable_language_switch" android:defaultValue="true" android:summaryOn="@string/revanced_enable_language_switch_summary_on" android:summaryOff="@string/revanced_enable_language_switch_summary_off" />SETTINGS: ENABLE_LANGUAGE_SWITCH -->
+
         <!-- SETTINGS: ENABLE_NEW_SPLASH_ANIMATION
         <SwitchPreference android:title="@string/revanced_enable_new_splash_animation_title" android:key="revanced_enable_new_splash_animation" android:defaultValue="false" android:summaryOn="@string/revanced_enable_new_splash_animation_summary_on" android:summaryOff="@string/revanced_enable_new_splash_animation_summary_off" />SETTINGS: ENABLE_NEW_SPLASH_ANIMATION -->
 
@@ -355,6 +358,7 @@
             <Preference android:title="disable-quic-protocol" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="enable-debug-logging" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="enable-external-browser" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="enable-language-switch" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="enable-new-splash-animation" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="enable-open-links-directly" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="force-opus-codec" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
@@ -414,7 +418,6 @@
             <Preference android:title="hide-tooltip-content" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="icons" android:summary="@string/revanced_icons_default" android:selectable="false"/>
             <Preference android:title="labels" android:summary="@string/revanced_labels_default" android:selectable="false"/>
-            <Preference android:title="language-switch" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="microg-support" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="return-youtube-dislike" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="sponsorblock" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
