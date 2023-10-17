@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.misc.forcevp9
+package app.revanced.patches.youtube.misc.codec.video
 
 import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
@@ -11,12 +11,12 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.youtube.misc.forcevp9.fingerprints.VideoCapabilitiesFingerprint
-import app.revanced.patches.youtube.misc.forcevp9.fingerprints.VideoCapabilitiesParentFingerprint
-import app.revanced.patches.youtube.misc.forcevp9.fingerprints.Vp9PrimaryFingerprint
-import app.revanced.patches.youtube.misc.forcevp9.fingerprints.Vp9PropsFingerprint
-import app.revanced.patches.youtube.misc.forcevp9.fingerprints.Vp9PropsParentFingerprint
-import app.revanced.patches.youtube.misc.forcevp9.fingerprints.Vp9SecondaryFingerprint
+import app.revanced.patches.youtube.misc.codec.video.fingerprints.VideoCapabilitiesFingerprint
+import app.revanced.patches.youtube.misc.codec.video.fingerprints.VideoCapabilitiesParentFingerprint
+import app.revanced.patches.youtube.misc.codec.video.fingerprints.VideoPrimaryFingerprint
+import app.revanced.patches.youtube.misc.codec.video.fingerprints.VideoPropsFingerprint
+import app.revanced.patches.youtube.misc.codec.video.fingerprints.VideoPropsParentFingerprint
+import app.revanced.patches.youtube.misc.codec.video.fingerprints.VideoSecondaryFingerprint
 import app.revanced.patches.youtube.utils.fingerprints.LayoutSwitchFingerprint
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.integrations.Constants.MISC_PATH
@@ -26,8 +26,8 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 
 @Patch(
-    name = "Force VP9 codec",
-    description = "Forces the VP9 codec for videos.",
+    name = "Force video codec",
+    description = "Forces the video codec for videos.",
     dependencies = [SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(
@@ -49,27 +49,27 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
     ]
 )
 @Suppress("unused")
-object ForceVP9CodecPatch : BytecodePatch(
+object ForceVideoCodecPatch : BytecodePatch(
     setOf(
         LayoutSwitchFingerprint,
         VideoCapabilitiesParentFingerprint,
-        Vp9PropsParentFingerprint
+        VideoPropsParentFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext) {
 
         LayoutSwitchFingerprint.result?.classDef?.let { classDef ->
             arrayOf(
-                Vp9PrimaryFingerprint,
-                Vp9SecondaryFingerprint
+                VideoPrimaryFingerprint,
+                VideoSecondaryFingerprint
             ).forEach { fingerprint ->
                 fingerprint.also { it.resolve(context, classDef) }.result?.injectOverride()
                     ?: throw fingerprint.exception
             }
         } ?: throw LayoutSwitchFingerprint.exception
 
-        Vp9PropsParentFingerprint.result?.let { parentResult ->
-            Vp9PropsFingerprint.also {
+        VideoPropsParentFingerprint.result?.let { parentResult ->
+            VideoPropsFingerprint.also {
                 it.resolve(
                     context,
                     parentResult.classDef
@@ -82,8 +82,8 @@ object ForceVP9CodecPatch : BytecodePatch(
                 ).forEach { (fieldName, descriptor) ->
                     it.hookProps(fieldName, descriptor)
                 }
-            } ?: throw Vp9PropsFingerprint.exception
-        } ?: throw Vp9PropsParentFingerprint.exception
+            } ?: throw VideoPropsFingerprint.exception
+        } ?: throw VideoPropsParentFingerprint.exception
 
         VideoCapabilitiesParentFingerprint.result?.let { parentResult ->
             VideoCapabilitiesFingerprint.also {
@@ -116,11 +116,11 @@ object ForceVP9CodecPatch : BytecodePatch(
          */
         SettingsPatch.addPreference(
             arrayOf(
-                "SETTINGS: ENABLE_VP9_CODEC"
+                "SETTINGS: ENABLE_VIDEO_CODEC"
             )
         )
 
-        SettingsPatch.updatePatchStatus("force-vp9-codec")
+        SettingsPatch.updatePatchStatus("force-video-codec")
 
     }
 
@@ -128,7 +128,7 @@ object ForceVP9CodecPatch : BytecodePatch(
         "$MISC_PATH/CodecOverridePatch;"
 
     private const val INTEGRATIONS_CLASS_METHOD_REFERENCE =
-        "$INTEGRATIONS_CLASS_DESCRIPTOR->shouldForceVP9(Z)Z"
+        "$INTEGRATIONS_CLASS_DESCRIPTOR->shouldForceCodec(Z)Z"
 
     private fun MethodFingerprintResult.injectOverride() {
         mutableMethod.apply {
