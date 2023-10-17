@@ -290,8 +290,8 @@
         <SwitchPreference android:title="@string/revanced_enable_tablet_layout_title" android:key="revanced_enable_tablet_layout" android:summary="@string/revanced_enable_tablet_layout_summary" android:defaultValue="false" />SETTINGS: LAYOUT_SWITCH -->
 
         <!-- SETTINGS: ENABLE_VIDEO_CODEC
-        <SwitchPreference android:title="@string/revanced_enable_vp9_codec_title" android:key="revanced_enable_vp9_codec" android:defaultValue="false" android:summary="@string/revanced_enable_vp9_codec_summary" />
-        <SwitchPreference android:title="@string/revanced_enable_hdr_codec_title" android:key="revanced_enable_hdr_codec" android:defaultValue="false" android:summary="@string/revanced_enable_hdr_codec_summary" />SETTINGS: ENABLE_VIDEO_CODEC -->
+        <SwitchPreference android:title="@string/revanced_enable_video_codec_title" android:key="revanced_enable_video_codec" android:defaultValue="false" android:summary="@string/revanced_enable_video_codec_summary" />
+        <SwitchPreference android:title="@string/revanced_enable_video_codec_type_title" android:key="revanced_enable_video_codec_type" android:defaultValue="false" android:summaryOn="@string/revanced_enable_video_codec_type_summary_on" android:summaryOff="@string/revanced_enable_video_codec_type_summary_off" android:dependency="revanced_enable_video_codec" />SETTINGS: ENABLE_VIDEO_CODEC -->
 
         <!-- SETTINGS: SPOOF_APP_VERSION
         <SwitchPreference android:title="@string/revanced_spoof_app_version_title" android:key="revanced_spoof_app_version" android:defaultValue="false" android:summary="@string/revanced_spoof_app_version_summary" />
