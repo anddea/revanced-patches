@@ -101,8 +101,8 @@ object ComponentParserPatch : BytecodePatch(
          */
         IdentifierFingerprint.result?.let {
             it.mutableMethod.apply {
-                val identifierIndex = it.scanResult.patternScanResult!!.endIndex
-                val objectIndex = getStringIndex("") + 1
+                val identifierIndex = it.scanResult.patternScanResult!!.startIndex
+                val objectIndex = it.scanResult.patternScanResult!!.endIndex + 1
 
                 identifierRegister =
                     getInstruction<OneRegisterInstruction>(identifierIndex).registerA

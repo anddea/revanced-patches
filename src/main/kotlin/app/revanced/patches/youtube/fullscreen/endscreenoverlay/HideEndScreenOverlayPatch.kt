@@ -34,7 +34,8 @@ import app.revanced.util.integrations.Constants.FULLSCREEN
                 "18.33.40",
                 "18.34.38",
                 "18.35.36",
-                "18.36.39"
+                "18.36.39",
+                "18.37.36"
             ]
         )
     ]

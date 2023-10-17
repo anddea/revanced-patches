@@ -9,9 +9,11 @@ object IdentifierFingerprint : MethodFingerprint(
     returnType = "L",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     opcodes = listOf(
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.IF_EQZ,
-        Opcode.IPUT_OBJECT
+        Opcode.IPUT_OBJECT,
+        Opcode.INVOKE_INTERFACE_RANGE,
+        Opcode.MOVE_RESULT_OBJECT,
+        Opcode.NEW_INSTANCE,
+        Opcode.CONST_STRING
     ),
     strings = listOf("Element missing type extension")
 )
