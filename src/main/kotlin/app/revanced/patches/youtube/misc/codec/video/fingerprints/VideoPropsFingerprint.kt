@@ -1,11 +1,11 @@
-package app.revanced.patches.youtube.misc.forcevp9.fingerprints
+package app.revanced.patches.youtube.misc.codec.video.fingerprints
 
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-object Vp9PropsFingerprint : MethodFingerprint(
+object VideoPropsFingerprint : MethodFingerprint(
     returnType = "L",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = emptyList(),

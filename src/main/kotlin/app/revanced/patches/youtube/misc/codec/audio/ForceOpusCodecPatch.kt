@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.misc.forceopus
+package app.revanced.patches.youtube.misc.codec.audio
 
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.patch.annotation.CompatiblePackage
