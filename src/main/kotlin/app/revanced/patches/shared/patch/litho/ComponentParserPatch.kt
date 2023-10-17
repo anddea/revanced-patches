@@ -9,7 +9,6 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.fingerprints.litho.EmptyComponentBuilderFingerprint
 import app.revanced.patches.shared.fingerprints.litho.IdentifierFingerprint
-import app.revanced.util.bytecode.getStringIndex
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction35c
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction

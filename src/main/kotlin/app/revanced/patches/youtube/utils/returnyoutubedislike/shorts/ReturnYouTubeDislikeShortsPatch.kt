@@ -67,10 +67,13 @@ object ReturnYouTubeDislikeShortsPatch : BytecodePatch(
                 it.mutableMethod.apply {
                     val insertIndex = it.scanResult.patternScanResult!!.startIndex
 
-                    val charSequenceRegister = getInstruction<FiveRegisterInstruction>(insertIndex).registerC
-                    val conversionContextRegister = getInstruction<TwoRegisterInstruction>(0).registerA
+                    val charSequenceRegister =
+                        getInstruction<FiveRegisterInstruction>(insertIndex).registerC
+                    val conversionContextRegister =
+                        getInstruction<TwoRegisterInstruction>(0).registerA
 
-                    val replaceReference = getInstruction<ReferenceInstruction>(insertIndex).reference
+                    val replaceReference =
+                        getInstruction<ReferenceInstruction>(insertIndex).reference
 
                     addInstructions(
                         insertIndex + 1, """
