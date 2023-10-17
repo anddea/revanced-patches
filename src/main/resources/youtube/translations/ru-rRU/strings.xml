@@ -24,7 +24,7 @@
     <string name="revanced_alt_thumbnail_type_entry_2">Из середины видео</string>
     <string name="revanced_alt_thumbnail_type_entry_3">Из конца видео</string>
     <string name="revanced_alt_thumbnail_type_title">Изображение для превью будет взято:</string>
-    <string name="revanced_append_time_stamp_information_summary_off">Индикатор скорости / качества видео рядом с временем воспроизведения выключен</string>
+    <string name="revanced_append_time_stamp_information_summary_off">Индикатор скорости / качества видео рядом с временем воспроизведения отключён</string>
     <string name="revanced_append_time_stamp_information_summary_on">Индикатор скорости / качества видео рядом с временем воспроизведения включён</string>
     <string name="revanced_append_time_stamp_information_title">Индикатор рядом с временем</string>
     <string name="revanced_append_time_stamp_information_type_summary_off">Индикатор скорости воспроизведения</string>
@@ -112,6 +112,12 @@
     <string name="revanced_enable_external_browser_summary_off">Внешний браузер отключён</string>
     <string name="revanced_enable_external_browser_summary_on">Внешний браузер включён</string>
     <string name="revanced_enable_external_browser_title">Внешний браузер</string>
+    <string name="revanced_enable_gradient_loading_screen_summary_off">Переливающийся экран загрузки отключён</string>
+    <string name="revanced_enable_gradient_loading_screen_summary_on">Переливающийся экран загрузки включён</string>
+    <string name="revanced_enable_gradient_loading_screen_title">Переливающийся экран загрузки</string>
+    <string name="revanced_enable_language_switch_summary_off">Переключатель языков отключён</string>
+    <string name="revanced_enable_language_switch_summary_on">Переключатель языков включён</string>
+    <string name="revanced_enable_language_switch_title">Переключатель языков</string>
     <string name="revanced_enable_new_comment_popup_panels_summary_off">Новая всплывающая панель комментариев отключена</string>
     <string name="revanced_enable_new_comment_popup_panels_summary_on">Новая всплывающая панель комментариев включена</string>
     <string name="revanced_enable_new_comment_popup_panels_title">Новая панель комментариев</string>
@@ -157,8 +163,6 @@
     <string name="revanced_enable_tablet_navigation_bar_summary_off">Планшетная панель навигации отключена</string>
     <string name="revanced_enable_tablet_navigation_bar_summary_on">Планшетная панель навигации включена</string>
     <string name="revanced_enable_tablet_navigation_bar_title">Планшетная панель навигации</string>
-    <string name="revanced_enable_vp9_codec_summary">Подменяет информацию об устройстве для включения кодека VP9</string>
-    <string name="revanced_enable_vp9_codec_title">Кодек VP9</string>
     <string name="revanced_enable_wide_search_bar_summary_off">Широкая панель поиска отключена</string>
     <string name="revanced_enable_wide_search_bar_summary_on">Широкая панель поиска включена</string>
     <string name="revanced_enable_wide_search_bar_title">Широкая панель поиска</string>
@@ -172,7 +176,7 @@
     <string name="revanced_external_downloader_package_name_title">Имя пакета внешнего загрузчика</string>
     <string name="revanced_external_downloader_settings_summary">Настройки использования внешнего загрузчика видео</string>
     <string name="revanced_external_downloader_settings_title">Настройки внешнего загрузчика</string>
-    <string name="revanced_feed_flyout_panel_title">Выдвижная панель фидов</string>
+    <string name="revanced_feed_flyout_panel_title">Выдвижная панель ленты</string>
     <string name="revanced_flyout_menu">Выдвижное меню</string>
     <string name="revanced_fullscreen">Полноэкранный режим</string>
     <string name="revanced_general">Основные</string>
@@ -201,18 +205,18 @@
     <string name="revanced_hide_button_create_clip_summary_off">Кнопка \"Создать клип\" отображена</string>
     <string name="revanced_hide_button_create_clip_summary_on">Кнопка \"Создать клип\" скрыта</string>
     <string name="revanced_hide_button_create_clip_title">Скрыть кнопку \"Создать клип\"</string>
-    <string name="revanced_hide_button_dislike_summary_off">Кнопка \"Дизлайк\" отображена</string>
-    <string name="revanced_hide_button_dislike_summary_on">Кнопка \"Дизлайк\" скрыта</string>
-    <string name="revanced_hide_button_dislike_title">Скрыть кнопку \"Дизлайк\"</string>
+    <string name="revanced_hide_button_dislike_summary_off">Кнопка \"Не нравится\" отображена</string>
+    <string name="revanced_hide_button_dislike_summary_on">Кнопка \"Не нравится\" скрыта</string>
+    <string name="revanced_hide_button_dislike_title">Скрыть кнопку \"Не нравится\"</string>
     <string name="revanced_hide_button_download_summary_off">Кнопка \"Скачать\" отображена</string>
     <string name="revanced_hide_button_download_summary_on">Кнопка \"Скачать\" скрыта</string>
     <string name="revanced_hide_button_download_title">Скрыть кнопку \"Скачать\"</string>
-    <string name="revanced_hide_button_like_dislike_summary_off">Кнопки \"Лайк\" и \"Дизлайк\" отображены</string>
-    <string name="revanced_hide_button_like_dislike_summary_on">Кнопки \"Лайк\" и \"Дизлайк\" скрыты</string>
-    <string name="revanced_hide_button_like_dislike_title">Скрыть кнопки \"Лайк\" и \"Дизлайк\"</string>
-    <string name="revanced_hide_button_like_summary_off">Кнопка \"Лайк\" отображена</string>
-    <string name="revanced_hide_button_like_summary_on">Кнопка \"Лайк\" скрыта</string>
-    <string name="revanced_hide_button_like_title">Скрыть кнопку \"Лайк\"</string>
+    <string name="revanced_hide_button_like_dislike_summary_off">Кнопки \"Нравится\" и \"Не нравится\" отображены</string>
+    <string name="revanced_hide_button_like_dislike_summary_on">Кнопки \"Нравится\" и \"Не нравится\" скрыты</string>
+    <string name="revanced_hide_button_like_dislike_title">Скрыть кнопки \"Нравится\" и \"Не нравится\"</string>
+    <string name="revanced_hide_button_like_summary_off">Кнопка \"Нравится\" отображена</string>
+    <string name="revanced_hide_button_like_summary_on">Кнопка \"Нравится\" скрыта</string>
+    <string name="revanced_hide_button_like_title">Скрыть кнопку \"Нравится\"</string>
     <string name="revanced_hide_button_live_chat_summary_off">Кнопка \"Чат\" отображена</string>
     <string name="revanced_hide_button_live_chat_summary_on">Кнопка \"Чат\" скрыта</string>
     <string name="revanced_hide_button_live_chat_title">Скрыть кнопку \"Чат\"</string>
@@ -246,7 +250,7 @@
     <string name="revanced_hide_cast_button_summary_off">Кнопка \"Трансляция\" отображена</string>
     <string name="revanced_hide_cast_button_summary_on">Кнопка \"Трансляция\" скрыта</string>
     <string name="revanced_hide_cast_button_title">Скрыть кнопку \"Трансляция\"</string>
-    <string name="revanced_hide_category_bar_in_feed_title">Скрыть панель категорий в фидах</string>
+    <string name="revanced_hide_category_bar_in_feed_title">Скрыть панель категорий в ленте</string>
     <string name="revanced_hide_category_bar_in_related_video_title">Скрыть панель категорий в похожих видео</string>
     <string name="revanced_hide_category_bar_in_search_results_title">Скрыть панель категорий в поиске</string>
     <string name="revanced_hide_category_bar_summary_off">Панель категорий отображена</string>
@@ -275,11 +279,11 @@
     <string name="revanced_hide_comments_section_summary_off">Раздел комментариев отображён</string>
     <string name="revanced_hide_comments_section_summary_on">Раздел комментариев скрыт</string>
     <string name="revanced_hide_comments_section_title">Скрыть раздел комментариев</string>
-    <string name="revanced_hide_community_posts_home_summary_off">Публикации сообщества в фидах вкладки \"Главная\" отображены</string>
-    <string name="revanced_hide_community_posts_home_summary_on">Публикации сообщества в фидах вкладки \"Главная\" скрыты</string>
+    <string name="revanced_hide_community_posts_home_summary_off">Публикации сообщества в ленте вкладки \"Главная\" отображены</string>
+    <string name="revanced_hide_community_posts_home_summary_on">Публикации сообщества в ленте вкладки \"Главная\" скрыты</string>
     <string name="revanced_hide_community_posts_home_title">Скрыть публикации сообщества на \"Главной\"</string>
-    <string name="revanced_hide_community_posts_subscriptions_summary_off">Публикации сообщества в фидах вкладки \"Подписки\" отображены</string>
-    <string name="revanced_hide_community_posts_subscriptions_summary_on">Публикации сообщества в фидах вкладки \"Подписки\" скрыты</string>
+    <string name="revanced_hide_community_posts_subscriptions_summary_off">Публикации сообщества в ленте вкладки \"Подписки\" отображены</string>
+    <string name="revanced_hide_community_posts_subscriptions_summary_on">Публикации сообщества в ленте вкладки \"Подписки\" скрыты</string>
     <string name="revanced_hide_community_posts_subscriptions_title">Скрыть публикации сообщества в \"Подписках\"</string>
     <string name="revanced_hide_create_button_summary_off">Кнопка \"Создать\" отображена</string>
     <string name="revanced_hide_create_button_summary_on">Кнопка \"Создать\" скрыта</string>
@@ -302,13 +306,13 @@
     <string name="revanced_hide_expandable_chip_summary_off">Расширяемые фрагменты под видео отображены</string>
     <string name="revanced_hide_expandable_chip_summary_on">Расширяемые фрагменты под видео скрыты</string>
     <string name="revanced_hide_expandable_chip_title">Скрыть расширяемые фрагменты</string>
-    <string name="revanced_hide_feed_flyout_panel_filter_strings_title">Изменить фильтр выдвижного меню фидов</string>
-    <string name="revanced_hide_feed_flyout_panel_summary_off">Выдвижное меню фидов отображено</string>
-    <string name="revanced_hide_feed_flyout_panel_summary_on">Выдвижное меню фидов скрыто</string>
-    <string name="revanced_hide_feed_flyout_panel_title">Скрыть выдвижное меню фидов</string>
-    <string name="revanced_hide_feed_survey_summary_off">Опросы в фидах отображены</string>
-    <string name="revanced_hide_feed_survey_summary_on">Опросы в фидах скрыты</string>
-    <string name="revanced_hide_feed_survey_title">Скрыть опросы в фидах</string>
+    <string name="revanced_hide_feed_flyout_panel_filter_strings_title">Изменить фильтр выдвижного меню ленты</string>
+    <string name="revanced_hide_feed_flyout_panel_summary_off">Выдвижное меню ленты отображено</string>
+    <string name="revanced_hide_feed_flyout_panel_summary_on">Выдвижное меню ленты скрыто</string>
+    <string name="revanced_hide_feed_flyout_panel_title">Скрыть выдвижное меню ленты</string>
+    <string name="revanced_hide_feed_survey_summary_off">Опросы в ленте отображены</string>
+    <string name="revanced_hide_feed_survey_summary_on">Опросы в ленте скрыты</string>
+    <string name="revanced_hide_feed_survey_title">Скрыть опросы в ленте</string>
     <string name="revanced_hide_filmstrip_overlay_summary_off">Покадровая лента в стиле \"старой киноплёнки\" для более точного перехода при перемотке отображена</string>
     <string name="revanced_hide_filmstrip_overlay_summary_on">Покадровая лента в стиле \"старой киноплёнки\" для более точного перехода при перемотке скрыта</string>
     <string name="revanced_hide_filmstrip_overlay_title">Скрыть покадровую ленту</string>
@@ -381,8 +385,8 @@
     <string name="revanced_hide_navigation_label_summary_off">Подписи вкладок на панели навигации отображены</string>
     <string name="revanced_hide_navigation_label_summary_on">Подписи вкладок на панели навигации скрыты</string>
     <string name="revanced_hide_navigation_label_title">Скрыть подписи вкладок навигации</string>
-    <string name="revanced_hide_notify_me_button_summary_off">Кнопка \"Прислать уведомление\" в фидах отображена</string>
-    <string name="revanced_hide_notify_me_button_summary_on">Кнопка \"Прислать уведомление\" в фидах скрыта</string>
+    <string name="revanced_hide_notify_me_button_summary_off">Кнопка \"Прислать уведомление\" в ленте отображена</string>
+    <string name="revanced_hide_notify_me_button_summary_on">Кнопка \"Прислать уведомление\" в ленте скрыта</string>
     <string name="revanced_hide_notify_me_button_title">Скрыть кнопку \"Прислать уведомление\"</string>
     <string name="revanced_hide_official_header_summary_off">Заголовок результатов поиска трейлеров фильмов и артистов отображён</string>
     <string name="revanced_hide_official_header_summary_on">Заголовок результатов поиска трейлеров фильмов и артистов скрыт</string>
@@ -582,26 +586,11 @@
     <string name="revanced_player_flyout_panel_title">Пункты выдвижной панели плеера</string>
     <string name="revanced_quick_actions_title">Быстрые действия</string>
     <string name="revanced_reboot_first_run">Перезапустите для загрузки нормального интерфейса</string>
-    <string name="revanced_reboot_warning_general">"Это экспериментальная функция и при её использовании возможны проблемы. 
-Вы уверены, что хотите продолжить?"</string>
-    <string name="revanced_reboot_warning_phone">"Подменяет DPI для изменения некоторых элементов интерфейса на \"Телефонный\".
-
-Если этот параметр включён, следующие функции будут доступны:
-- Сообщения сообщества
-- Скрытие плейлиста \"Джем\""</string>
-    <string name="revanced_reboot_warning_quic">Не рекомендуется использовать, если скорость вашего интернета недостаточно высока</string>
-    <string name="revanced_reboot_warning_tablet">"Подменяет DPI для изменения некоторых элементов интерфейса на \"Планшетный\".
-
-Если этот параметр включён, следующие функции будут недоступны:
-- Сообщения сообщества"</string>
-    <string name="revanced_reboot_warning_vp9">"Подменяет информацию об устройстве для включения кодека VP9
-
-Поскольку эти настройки устарели, они могут быть недействительны"</string>
     <string name="revanced_ryd_about">Об интеграции</string>
     <string name="revanced_ryd_attribution_summary">Данные дизлайков предоставляются при помощи Return YouTube Dislike API. Нажмите здесь, чтобы узнать больше.</string>
-    <string name="revanced_ryd_compact_layout_summary_off">Кнопка \"Лайк\" стилизована для лучшего внешнего вида</string>
-    <string name="revanced_ryd_compact_layout_summary_on">Кнопка \"Лайк\" стилизована под минимальную ширину</string>
-    <string name="revanced_ryd_compact_layout_title">Компактная кнопка \"Лайк\"</string>
+    <string name="revanced_ryd_compact_layout_summary_off">Кнопка \"Нравится\" стилизована для лучшего внешнего вида</string>
+    <string name="revanced_ryd_compact_layout_summary_on">Кнопка \"Нравится\" стилизована под минимальную ширину</string>
+    <string name="revanced_ryd_compact_layout_title">Компактная кнопка \"Нравится\"</string>
     <string name="revanced_ryd_dislike_percentage_summary_off">Дизлайки отображаются как число</string>
     <string name="revanced_ryd_dislike_percentage_summary_on">Дизлайки отображаются как проценты</string>
     <string name="revanced_ryd_dislike_percentage_title">Количество дизлайков в процентах</string>
@@ -645,15 +634,15 @@
     <string name="revanced_spoof_app_version_target_summary">Введите целевую версию приложения для подмены</string>
     <string name="revanced_spoof_app_version_target_title">Изменить значение подмены версии</string>
     <string name="revanced_spoof_app_version_title">Подмена версии приложения</string>
-    <string name="revanced_spoof_player_parameter_in_feed_summary_off">"Параметры плеера не подменены для видео в фидах
+    <string name="revanced_spoof_player_parameter_in_feed_summary_off">"Параметры плеера не подменены для видео в ленте
 
 Известные проблемы:
-• Видео в фидах смогут нормально воспроизводиться меньше минуты до начала проблем с воспроизведением"</string>
-    <string name="revanced_spoof_player_parameter_in_feed_summary_on">"Параметры плеера подменены для видео в фидах
+• Видео в ленте смогут нормально воспроизводиться меньше минуты до начала проблем с воспроизведением"</string>
+    <string name="revanced_spoof_player_parameter_in_feed_summary_on">"Параметры плеера подменены для видео в ленте
 
 Известные проблемы:
-• Автоматически воспроизводимые видео в фидах будут появляться в истории просмотра"</string>
-    <string name="revanced_spoof_player_parameter_in_feed_title">Подмена параметров плеера в фидах</string>
+• Автоматически воспроизводимые видео в ленте будут появляться в истории просмотра"</string>
+    <string name="revanced_spoof_player_parameter_in_feed_title">Подмена параметров плеера в ленте</string>
     <string name="revanced_spoof_player_parameter_summary">"Подменяет параметры плеера для предотвращения проблем с воспроизведением
 
 Известные проблемы:

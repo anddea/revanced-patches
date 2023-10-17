@@ -112,6 +112,12 @@
     <string name="revanced_enable_external_browser_summary_off">外部ブラウザは無効です</string>
     <string name="revanced_enable_external_browser_summary_on">外部ブラウザは有効です</string>
     <string name="revanced_enable_external_browser_title">外部ブラウザ</string>
+    <string name="revanced_enable_gradient_loading_screen_summary_off">グラデーションの読み込み画面は無効</string>
+    <string name="revanced_enable_gradient_loading_screen_summary_on">グラデーションの読み込み画面は有効</string>
+    <string name="revanced_enable_gradient_loading_screen_title">グラデーションの読み込み画面を有効にする</string>
+    <string name="revanced_enable_language_switch_summary_off">言語の切り替えは無効</string>
+    <string name="revanced_enable_language_switch_summary_on">言語の切り替えは有効</string>
+    <string name="revanced_enable_language_switch_title">言語切り替えを有効にする</string>
     <string name="revanced_enable_new_comment_popup_panels_summary_off">新しいコメントポップアップパネルは無効です</string>
     <string name="revanced_enable_new_comment_popup_panels_summary_on">新しいコメントポップアップパネルは有効です</string>
     <string name="revanced_enable_new_comment_popup_panels_title">コメント欄の新しいポップアップパネル</string>
@@ -157,8 +163,6 @@
     <string name="revanced_enable_tablet_navigation_bar_summary_off">タブレットのナビゲーションバーは無効です</string>
     <string name="revanced_enable_tablet_navigation_bar_summary_on">タブレットのナビゲーションバーは有効です</string>
     <string name="revanced_enable_tablet_navigation_bar_title">タブレットのナビゲーションバー</string>
-    <string name="revanced_enable_vp9_codec_summary">デバイス情報を偽装して VP9 コーデックを有効にします</string>
-    <string name="revanced_enable_vp9_codec_title">VP9 コーデックを有効化</string>
     <string name="revanced_enable_wide_search_bar_summary_off">通常の検索アイコンが表示されます</string>
     <string name="revanced_enable_wide_search_bar_summary_on">検索アイコンを幅の広い検索バーに置き換えます</string>
     <string name="revanced_enable_wide_search_bar_title">幅の広い検索バー</string>
@@ -511,7 +515,7 @@
     <string name="revanced_hide_suggested_actions_title">提案されたアクションを非表示</string>
     <string name="revanced_hide_suggested_video_overlay_summary">"次に再生する動画のオーバーレイを非表示にします
 既知の問題: 自動再生が機能しません"</string>
-    <string name="revanced_hide_suggested_video_overlay_title">次に再生する動画のオーバーレイを非表示</string>
+    <string name="revanced_hide_suggested_video_overlay_title">関連動画のオーバーレイを非表示</string>
     <string name="revanced_hide_suggestions_shelf_summary">"以下の欄を非表示にします
 - ニュース速報
 - 続きを見る
@@ -583,21 +587,6 @@ YouTube v18.24.37 以降でのみ利用可能です"</string>
     <string name="revanced_player_flyout_panel_title">プレーヤーのフライアウトパネル</string>
     <string name="revanced_quick_actions_title">クイックアクション</string>
     <string name="revanced_reboot_first_run">再起動してレイアウトを正常に読み込みます</string>
-    <string name="revanced_reboot_warning_general">"これはまだ実験的な機能であるため、他にも未知のバグがあるかもしれません。
-続行してもよろしいですか？"</string>
-    <string name="revanced_reboot_warning_phone">"一部のレイアウトをスマートフォン用のレイアウトに変更するために dpi を偽装します。
-
-この設定を有効にすると、次の機能は利用できません:
-- コミュニティ投稿
-- ミックスリストを非表示"</string>
-    <string name="revanced_reboot_warning_quic">インターネットの速度があまり速くない場合は無効にしないことをおすすめします</string>
-    <string name="revanced_reboot_warning_tablet">"一部のレイアウトをタブレット用のレイアウトに変更するために dpi を偽装します。
-
-この設定を有効にすると、次の機能は利用できません:
-- コミュニティの投稿"</string>
-    <string name="revanced_reboot_warning_vp9">"デバイス情報を偽装して VP9 コーデックを有効にします
-
-この設定は非常に古いので、有効にならない場合があります"</string>
     <string name="revanced_ryd_about">この機能について</string>
     <string name="revanced_ryd_attribution_summary">低評価のデータは、Return YouTube Dislike API によって提供されます。詳細はここをタップしてください。</string>
     <string name="revanced_ryd_compact_layout_summary_off">高評価ボタンは最適なサイズで表示されます</string>

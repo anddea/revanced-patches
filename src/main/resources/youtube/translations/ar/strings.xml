@@ -39,6 +39,7 @@
     <string name="revanced_change_homepage_summary_off">الصفحة الرئيسية الحالية: الصفحة الرئيسية</string>
     <string name="revanced_change_homepage_summary_on">الصفحة الرئيسية الحالية: الاشتراكات</string>
     <string name="revanced_change_homepage_title">تغيير الصفحة الرئيسية إلى موجز الاشتراكات</string>
+    <string name="revanced_channel_bar_title">شريط القناة</string>
     <string name="revanced_comments_title">التعليقات</string>
     <string name="revanced_copy_video_timestamp_success">تم نسخ الطابع الزمني إلى الحافظة</string>
     <string name="revanced_custom_filter_strings_summary">تصفية أسماء المكونات عن طريق مفصولة بأسطر</string>
@@ -111,6 +112,12 @@
     <string name="revanced_enable_external_browser_summary_off">تم تعطيل المتصفح الخارجي</string>
     <string name="revanced_enable_external_browser_summary_on">تم تمكين المتصفح الخارجي</string>
     <string name="revanced_enable_external_browser_title">تمكين المتصفح الخارجي</string>
+    <string name="revanced_enable_gradient_loading_screen_summary_off">تم تعطيل شاشة التحميل المتدرجة</string>
+    <string name="revanced_enable_gradient_loading_screen_summary_on">تم تمكين شاشة التحميل المتدرجة</string>
+    <string name="revanced_enable_gradient_loading_screen_title">تمكين شاشة التحميل المتدرجة</string>
+    <string name="revanced_enable_language_switch_summary_off">تم تعطيل تبديل اللغة</string>
+    <string name="revanced_enable_language_switch_summary_on">تم تمكين تبديل اللغة</string>
+    <string name="revanced_enable_language_switch_title">تمكين تبديل اللغة</string>
     <string name="revanced_enable_new_comment_popup_panels_summary_off">تم تعطيل لوحات التعليقات المنبثقة الجديدة</string>
     <string name="revanced_enable_new_comment_popup_panels_summary_on">تم تمكين لوحات التعليقات المنبثقة الجديدة</string>
     <string name="revanced_enable_new_comment_popup_panels_title">تمكين لوحات التعليقات المنبثقة الجديدة</string>
@@ -156,8 +163,11 @@
     <string name="revanced_enable_tablet_navigation_bar_summary_off">تم تعطيل شريط التنقل في الجهاز اللوحي</string>
     <string name="revanced_enable_tablet_navigation_bar_summary_on">تم تمكين شريط التنقل في الجهاز اللوحي</string>
     <string name="revanced_enable_tablet_navigation_bar_title">تمكين شريط التنقل اللوحي</string>
-    <string name="revanced_enable_vp9_codec_summary">خداع معلومات الجهاز لتمكين ترميز VP9</string>
-    <string name="revanced_enable_vp9_codec_title">تمكين ترميز VP9</string>
+    <string name="revanced_enable_video_codec_summary">خداع معلومات الجهاز لتمكين ترميز الفيديو</string>
+    <string name="revanced_enable_video_codec_title">تمكين ترميز الفيديو</string>
+    <string name="revanced_enable_video_codec_type_summary_off">تمكين ترميز VP9</string>
+    <string name="revanced_enable_video_codec_type_summary_on">تمكين ترميز HDR</string>
+    <string name="revanced_enable_video_codec_type_title">نوع ترميز الفيديو</string>
     <string name="revanced_enable_wide_search_bar_summary_off">تم تعطيل شريط البحث العريض</string>
     <string name="revanced_enable_wide_search_bar_summary_on">تم تمكين شريط البحث العريض</string>
     <string name="revanced_enable_wide_search_bar_title">تمكين شريط البحث العريض</string>
@@ -259,6 +269,9 @@
     <string name="revanced_hide_channel_member_shelf_summary_off">يتم عرض رف أعضاء القناة</string>
     <string name="revanced_hide_channel_member_shelf_summary_on">تم إخفاء رف أعضاء القناة</string>
     <string name="revanced_hide_channel_member_shelf_title">إخفاء رف أعضاء القناة</string>
+    <string name="revanced_hide_channel_profile_links_summary_off">يتم عرض الروابط في أعلى ملف تعريف القناة</string>
+    <string name="revanced_hide_channel_profile_links_summary_on">تم إخفاء الروابط في أعلى ملف تعريف القناة</string>
+    <string name="revanced_hide_channel_profile_links_title">إخفاء روابط ملف تعريف القناة</string>
     <string name="revanced_hide_channel_watermark_summary_off">يتم عرض علامة الفيديو المائية</string>
     <string name="revanced_hide_channel_watermark_summary_on">تم إخفاء علامة الفيديو المائية</string>
     <string name="revanced_hide_channel_watermark_title">إخفاء العلامة المائية للقناة</string>
@@ -545,8 +558,7 @@
     <string name="revanced_hide_youtube_music_button_summary_off">يتم عرض زر موسيقى YouTube</string>
     <string name="revanced_hide_youtube_music_button_summary_on">تم إخفاء زر موسيقى YouTube</string>
     <string name="revanced_hide_youtube_music_button_title">إخفاء زر موسيقى YouTube</string>
-    <string name="revanced_hook_download_button_summary">"استبدال زر التنزيل بزر التنزيل الخارجي
-متاح فقط على إصدار YouTube v18.24.37+"</string>
+    <string name="revanced_hook_download_button_summary">"استبدال زر التنزيل بزر التنزيل الخارجي"</string>
     <string name="revanced_hook_download_button_title">زر خطاف التنزيل</string>
     <string name="revanced_import_settings_summary">جلب إعدادات ReVanced Extended من المِلَفّ المحفوظ</string>
     <string name="revanced_import_settings_title">استيراد الإعدادات</string>
@@ -582,18 +594,6 @@
     <string name="revanced_player_flyout_panel_title">لوحة القائمة المنبثقة للمشغل</string>
     <string name="revanced_quick_actions_title">الإجراءات السّريعة</string>
     <string name="revanced_reboot_first_run">إعادة التشغيل لتحميل التصميم بشكل طبيعي</string>
-    <string name="revanced_reboot_warning_general">"نظرًا لأن هذه المِيزة لا تزال تجريبية، فقد تكون هناك مشكلات أخرى غير معروفة.  هل أنت متأكد أنك تريد الاستمرار بالرغم من ذلك؟"</string>
-    <string name="revanced_reboot_warning_phone">"حِيَل نقطة في البوصة لتغيير بعض التصميمات لتصميمات الجوال.
-إذا قمت بتمكين هذا الإعداد، فستتوفر الميزات التالية:
-- مشاركات المجتمع
-- إخفاء قائمة تشغيل التشكيلة"</string>
-    <string name="revanced_reboot_warning_quic">من المستحسن عدم استخدامه إذا كانت سرعة الإنترنت الخاصة بك ليست سريعة بما فيه الكفاية</string>
-    <string name="revanced_reboot_warning_tablet">"حِيَل نقطة في البوصة لتغيير بعض التصميمات لتصميمات الجهاز اللوحي.
-إذا قمت بتمكين هذا الإعداد، فلن ستتوفر الميزات التالية:
-- مشاركات المجتمع"</string>
-    <string name="revanced_reboot_warning_vp9">"خداع معلومات الجهاز لتمكين ترميز VP9
-
-نظرًا لأن هذا الإعداد قديم تمامًا، فقد لا يكون صالحًا"</string>
     <string name="revanced_ryd_about">لمحة</string>
     <string name="revanced_ryd_attribution_summary">يتم توفير بيانات عدم الإعجاب بمقاطع يوتيوب بواسطة the Return YouTube Dislike API. اضغط هنا لمعرفة المزيد.</string>
     <string name="revanced_ryd_compact_layout_summary_off">زر أعجبني مصمم لأفضل مظهر</string>

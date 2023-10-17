@@ -39,6 +39,7 @@
     <string name="revanced_change_homepage_summary_off">현재 메인 페이지: 홈</string>
     <string name="revanced_change_homepage_summary_on">현재 메인 페이지: 구독</string>
     <string name="revanced_change_homepage_title">메인 페이지 변경하기</string>
+    <string name="revanced_channel_bar_title">채널바</string>
     <string name="revanced_comments_title">댓글</string>
     <string name="revanced_copy_video_timestamp_success">타임스탬프가 클립보드에 저장되었습니다.</string>
     <string name="revanced_custom_filter_strings_summary">구성요소의 이름을 줄바꿈으로 구분하여 필터링합니다.</string>
@@ -112,6 +113,12 @@
     <string name="revanced_enable_external_browser_summary_off">앱 내에서 외부 링크를 열때 외부 브라우저를 사용하지 않습니다.</string>
     <string name="revanced_enable_external_browser_summary_on">앱 내에서 외부 링크를 열때 외부 브라우저를 사용합니다.</string>
     <string name="revanced_enable_external_browser_title">외부 브라우저 사용하기</string>
+    <string name="revanced_enable_gradient_loading_screen_summary_off">그라데이션 색상 로딩 화면을 비활성화합니다.</string>
+    <string name="revanced_enable_gradient_loading_screen_summary_on">그라데이션 색상 로딩 화면을 활성화합니다.</string>
+    <string name="revanced_enable_gradient_loading_screen_title">그라데이션 색상 로딩 화면 활성화하기</string>
+    <string name="revanced_enable_language_switch_summary_off">YouTube 일반 설정에서 앱 언어 변경을 비활성화합니다.</string>
+    <string name="revanced_enable_language_switch_summary_on">YouTube 일반 설정에서 앱 언어 변경을 활성화합니다.</string>
+    <string name="revanced_enable_language_switch_title">앱 언어 변경 활성화하기</string>
     <string name="revanced_enable_new_comment_popup_panels_summary_off">새로운 댓글 팝업 패널을 비활성화합니다.</string>
     <string name="revanced_enable_new_comment_popup_panels_summary_on">새로운 댓글 팝업 패널을 활성화합니다.</string>
     <string name="revanced_enable_new_comment_popup_panels_title">새로운 댓글 팝업 패널 활성화하기</string>
@@ -157,8 +164,11 @@
     <string name="revanced_enable_tablet_navigation_bar_summary_off">태블릿용 하단바(메뉴 가운데 정렬)를 비활성화합니다.</string>
     <string name="revanced_enable_tablet_navigation_bar_summary_on">태블릿용 하단바(메뉴 가운데 정렬)를 활성화합니다.</string>
     <string name="revanced_enable_tablet_navigation_bar_title">태블릿용 하단바 활성화하기</string>
-    <string name="revanced_enable_vp9_codec_summary">기기 정보를 변경하여 VP9 코덱을 활성화합니다.</string>
-    <string name="revanced_enable_vp9_codec_title">VP9 코덱 활성화하기</string>
+    <string name="revanced_enable_video_codec_summary">기기 정보를 변경하여 동영상 코덱을 활성화합니다.</string>
+    <string name="revanced_enable_video_codec_title">동영상 코덱 활성화하기</string>
+    <string name="revanced_enable_video_codec_type_summary_off">VP9 코덱을 활성화합니다.</string>
+    <string name="revanced_enable_video_codec_type_summary_on">HDR 코덱을 활성화합니다.</string>
+    <string name="revanced_enable_video_codec_type_title">변경할 동영상 코덱 설정</string>
     <string name="revanced_enable_wide_search_bar_summary_off">넓은 검색 바를 비활성화합니다.</string>
     <string name="revanced_enable_wide_search_bar_summary_on">넓은 검색 바를 활성화합니다.</string>
     <string name="revanced_enable_wide_search_bar_title">넓은 검색 바 활성화하기</string>
@@ -260,6 +270,9 @@
     <string name="revanced_hide_channel_member_shelf_summary_off">채널 회원 선반이 노출됩니다.</string>
     <string name="revanced_hide_channel_member_shelf_summary_on">채널 회원 선반이 숨겨집니다.</string>
     <string name="revanced_hide_channel_member_shelf_title">채널 회원 선반 숨기기</string>
+    <string name="revanced_hide_channel_profile_links_summary_off">채널 프로필 상단에서 링크가 노출됩니다.</string>
+    <string name="revanced_hide_channel_profile_links_summary_on">채널 프로필 상단에서 링크가 숨겨집니다.</string>
+    <string name="revanced_hide_channel_profile_links_title">채널 프로필 링크 숨기기</string>
     <string name="revanced_hide_channel_watermark_summary_off">동영상 하단에서 워터마크가 노출됩니다.</string>
     <string name="revanced_hide_channel_watermark_summary_on">동영상 하단에서 워터마크가 숨겨집니다.</string>
     <string name="revanced_hide_channel_watermark_title">동영상 하단에서 워터마크 숨기기</string>
@@ -585,22 +598,6 @@
     <string name="revanced_player_flyout_panel_title">플레이어 구성요소 패널</string>
     <string name="revanced_quick_actions_title">빠른 작업</string>
     <string name="revanced_reboot_first_run">기능 및 레이아웃을 정상적으로 실행시키기 위해 다시 시작합니다.</string>
-    <string name="revanced_reboot_warning_general">"이것은 여전히 실험적인 기능이기 때문에 정상적인 작동을 보장하지 않으며, 알려지지 않은 문제점이 있을 수 있습니다.
-
-그래도 계속하시겠습니까?"</string>
-    <string name="revanced_reboot_warning_phone">"dpi를 변경하여 일부 레이아웃을 휴대폰 레이아웃으로 변경합니다.
-
-이 설정을 활성화하면 다음 기능을 사용할 수 있습니다.
-- 커뮤니티 게시글
-- 추천 재생목록 숨기기"</string>
-    <string name="revanced_reboot_warning_quic">인터넷 속도가 충분히 빠르지 않으면 사용하지 않는 것을 권장합니다.</string>
-    <string name="revanced_reboot_warning_tablet">"dpi를 변경하여 일부 레이아웃을 태블릿 레이아웃으로 변경합니다.
-
-이 설정을 활성화하면 다음 기능을 사용할 수 없습니다.
-- 커뮤니티 게시글"</string>
-    <string name="revanced_reboot_warning_vp9">"기기 정보를 변경하여 VP9 코덱을 활성화합니다.
-
-이 설정은 상당히 오래되어 유효하지 않을 수 있습니다."</string>
     <string name="revanced_ryd_about">정보</string>
     <string name="revanced_ryd_attribution_summary">싫어요 개수의 데이터는 Return YouTube Dislike API에 의해 제공됩니다. 자세한 내용을 보려면 누르세요.</string>
     <string name="revanced_ryd_compact_layout_summary_off">좋아요 버튼에서 구분선을 표시합니다.</string>
