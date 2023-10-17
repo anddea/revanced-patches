@@ -6,7 +6,8 @@ import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.youtube.overlaybutton.alwaysrepeat.AlwaysRepeatPatch
-import app.revanced.patches.youtube.overlaybutton.downloadbuttonhook.DownloadButtonHookPatch
+import app.revanced.patches.youtube.overlaybutton.download.hook.DownloadButtonHookPatch
+import app.revanced.patches.youtube.overlaybutton.download.pip.DisablePiPPatch
 import app.revanced.patches.youtube.utils.overridespeed.OverrideSpeedHookPatch
 import app.revanced.patches.youtube.utils.playerbutton.PlayerButtonHookPatch
 import app.revanced.patches.youtube.utils.playercontrols.PlayerControlsPatch
@@ -24,6 +25,7 @@ import org.w3c.dom.Element
     description = "Add overlay buttons to the player.",
     dependencies = [
         AlwaysRepeatPatch::class,
+        DisablePiPPatch::class,
         DownloadButtonHookPatch::class,
         OverrideSpeedHookPatch::class,
         PlayerButtonHookPatch::class,

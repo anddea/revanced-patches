@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.overlaybutton.downloadbuttonhook.fingerprints
+package app.revanced.patches.youtube.overlaybutton.download.hook.fingerprints
 
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
