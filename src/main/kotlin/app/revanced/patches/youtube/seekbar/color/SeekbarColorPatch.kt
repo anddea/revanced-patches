@@ -115,7 +115,7 @@ object SeekbarColorPatch : BytecodePatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("custom-seekbar-color")
+        SettingsPatch.updatePatchStatus("Custom seekbar color")
 
     }
 

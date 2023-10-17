@@ -132,7 +132,7 @@ object NavigationButtonsPatch : BytecodePatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("hide-navigation-buttons")
+        SettingsPatch.updatePatchStatus("Hide navigation buttons")
 
     }
 

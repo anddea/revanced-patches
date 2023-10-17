@@ -70,7 +70,7 @@ object FloatingMicrophonePatch : BytecodePatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("hide-floating-microphone")
+        SettingsPatch.updatePatchStatus("Hide floating microphone")
 
     }
 }

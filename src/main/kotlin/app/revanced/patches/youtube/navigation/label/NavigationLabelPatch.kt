@@ -70,7 +70,7 @@ object NavigationLabelPatch : BytecodePatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("hide-navigation-label")
+        SettingsPatch.updatePatchStatus("Hide navigation label")
 
     }
 }

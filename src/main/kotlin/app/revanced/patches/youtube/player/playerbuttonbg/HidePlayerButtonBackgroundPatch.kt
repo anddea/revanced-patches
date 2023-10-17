@@ -61,7 +61,7 @@ object HidePlayerButtonBackgroundPatch : BytecodePatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("hide-player-button-background")
+        SettingsPatch.updatePatchStatus("Hide player button background")
 
     }
 }

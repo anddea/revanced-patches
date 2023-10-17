@@ -69,7 +69,7 @@ object SeekMessagePatch : BytecodePatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("hide-seek-message")
+        SettingsPatch.updatePatchStatus("Hide seek message")
 
     }
 }

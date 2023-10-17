@@ -51,7 +51,7 @@ object TooltipContentViewPatch : BytecodePatch(
         /**
          * Add settings
          */
-        SettingsPatch.updatePatchStatus("hide-tooltip-content")
+        SettingsPatch.updatePatchStatus("Hide tooltip content")
 
     }
 }

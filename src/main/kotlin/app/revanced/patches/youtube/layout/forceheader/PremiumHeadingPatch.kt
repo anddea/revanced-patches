@@ -68,7 +68,7 @@ object PremiumHeadingPatch : ResourcePatch() {
                     "HEADER_SWITCH",
                     "FORCE_PREMIUM_HEADER"
                 ).replace(
-                    "header-switch",
+                    "Header switch",
                     "force-premium-heading"
                 )
         )

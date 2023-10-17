@@ -67,7 +67,7 @@ object PlayerPopupPanelsPatch : BytecodePatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("hide-auto-player-popup-panels")
+        SettingsPatch.updatePatchStatus("Hide auto player popup panels")
 
     }
 }

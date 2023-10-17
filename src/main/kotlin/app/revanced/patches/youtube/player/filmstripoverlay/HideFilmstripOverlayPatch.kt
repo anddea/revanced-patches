@@ -132,7 +132,7 @@ object HideFilmstripOverlayPatch : BytecodePatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("hide-filmstrip-overlay")
+        SettingsPatch.updatePatchStatus("Hide filmstrip overlay")
 
     }
 

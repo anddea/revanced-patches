@@ -82,7 +82,7 @@ object AccountMenuPatch : BytecodePatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("hide-account-menu")
+        SettingsPatch.updatePatchStatus("Hide account menu")
 
     }
 }

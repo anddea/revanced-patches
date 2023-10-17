@@ -68,7 +68,7 @@ object CrowdfundingBoxPatch : BytecodePatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("hide-crowdfunding-box")
+        SettingsPatch.updatePatchStatus("Hide crowdfunding box")
 
     }
 }

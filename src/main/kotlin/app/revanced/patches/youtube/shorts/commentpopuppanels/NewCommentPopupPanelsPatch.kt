@@ -66,7 +66,7 @@ object NewCommentPopupPanelsPatch : BytecodePatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("enable-new-comment-popup-panels")
+        SettingsPatch.updatePatchStatus("Enable new comment popup panels")
 
     }
 }

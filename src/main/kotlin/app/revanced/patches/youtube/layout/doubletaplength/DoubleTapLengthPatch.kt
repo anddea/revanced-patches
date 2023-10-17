@@ -64,7 +64,7 @@ object DoubleTapLengthPatch : ResourcePatch() {
             context.addEntryValues(arrayPath, lengthElements[index], entriesName)
         }
 
-        SettingsPatch.updatePatchStatus("custom-double-tap-length")
+        SettingsPatch.updatePatchStatus("Custom double tap length")
 
     }
 

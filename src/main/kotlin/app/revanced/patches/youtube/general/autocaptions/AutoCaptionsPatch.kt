@@ -93,7 +93,7 @@ object AutoCaptionsPatch : BytecodePatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("disable-auto-captions")
+        SettingsPatch.updatePatchStatus("Disable auto captions")
 
     }
 

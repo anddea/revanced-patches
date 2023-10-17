@@ -96,7 +96,7 @@ object AppendTimeStampInformationPatch : BytecodePatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("append-timestamps-information")
+        SettingsPatch.updatePatchStatus("Append time stamps information")
 
     }
 }

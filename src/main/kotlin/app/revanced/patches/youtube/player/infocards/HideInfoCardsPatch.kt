@@ -73,7 +73,7 @@ object HideInfoCardsPatch : BytecodePatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("hide-info-cards")
+        SettingsPatch.updatePatchStatus("Hide info cards")
 
     }
 }

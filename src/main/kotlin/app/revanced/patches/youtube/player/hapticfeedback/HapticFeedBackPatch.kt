@@ -71,7 +71,7 @@ object HapticFeedBackPatch : BytecodePatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("disable-haptic-feedback")
+        SettingsPatch.updatePatchStatus("Disable haptic feedback")
 
     }
 

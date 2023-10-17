@@ -76,7 +76,7 @@ object PlayerOverlayFilterPatch : BytecodePatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("hide-player-overlay-filter")
+        SettingsPatch.updatePatchStatus("Hide player overlay filter")
 
     }
 }

@@ -48,7 +48,7 @@ object VideoAdsPatch : AbstractAdsPatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("hide-video-ads")
+        SettingsPatch.updatePatchStatus("Hide video ads")
 
     }
 }

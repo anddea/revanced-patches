@@ -115,7 +115,7 @@ object SpeedOverlayPatch : BytecodePatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("custom-speed-overlay")
+        SettingsPatch.updatePatchStatus("Custom speed overlay")
 
     }
 

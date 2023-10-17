@@ -68,7 +68,7 @@ object ChannelListSubMenuPatch : BytecodePatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("hide-channel-avatar-section")
+        SettingsPatch.updatePatchStatus("Hide channel avatar section")
 
     }
 }

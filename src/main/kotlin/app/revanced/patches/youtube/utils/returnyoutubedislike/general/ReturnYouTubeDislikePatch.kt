@@ -200,7 +200,7 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
          */
         SettingsPatch.addReVancedPreference("ryd_settings")
 
-        SettingsPatch.updatePatchStatus("return-youtube-dislike")
+        SettingsPatch.updatePatchStatus("Return YouTube Dislike")
 
     }
 

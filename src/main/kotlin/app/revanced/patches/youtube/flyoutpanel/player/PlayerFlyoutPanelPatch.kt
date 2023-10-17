@@ -81,7 +81,7 @@ object PlayerFlyoutPanelPatch : BytecodePatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("hide-player-flyout-panel")
+        SettingsPatch.updatePatchStatus("Hide player flyout panel")
 
     }
 

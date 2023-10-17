@@ -70,7 +70,7 @@ object HideMusicButtonPatch : BytecodePatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("hide-music-button")
+        SettingsPatch.updatePatchStatus("Hide music button")
 
     }
 }

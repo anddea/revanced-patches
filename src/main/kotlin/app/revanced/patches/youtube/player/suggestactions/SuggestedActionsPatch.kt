@@ -74,7 +74,7 @@ object SuggestedActionsPatch : BytecodePatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("hide-suggested-actions")
+        SettingsPatch.updatePatchStatus("Hide suggested actions")
 
     }
 

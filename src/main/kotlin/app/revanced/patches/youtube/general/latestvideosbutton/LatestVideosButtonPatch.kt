@@ -67,7 +67,7 @@ object LatestVideosButtonPatch : BytecodePatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("hide-latest-videos-button")
+        SettingsPatch.updatePatchStatus("Hide latest videos button")
 
     }
 }

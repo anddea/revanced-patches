@@ -80,7 +80,7 @@ object SeekbarTappingPatch : BytecodePatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("enable-seekbar-tapping")
+        SettingsPatch.updatePatchStatus("Enable seekbar tapping")
 
     }
 

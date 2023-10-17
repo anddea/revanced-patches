@@ -83,7 +83,7 @@ object HideEndScreenCardsPatch : BytecodePatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("hide-endscreen-cards")
+        SettingsPatch.updatePatchStatus("Hide end screen cards")
 
     }
 }

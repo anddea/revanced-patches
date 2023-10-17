@@ -75,7 +75,7 @@ object HideCaptionsButtonBytecodePatch : BytecodePatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("hide-captions-button")
+        SettingsPatch.updatePatchStatus("Hide captions button")
 
     }
 }

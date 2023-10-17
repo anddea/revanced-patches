@@ -106,6 +106,6 @@ object AlternativeThumbnailsPatch : BytecodePatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("alternative-thumbnails")
+        SettingsPatch.updatePatchStatus("Alternative thumbnails")
     }
 }

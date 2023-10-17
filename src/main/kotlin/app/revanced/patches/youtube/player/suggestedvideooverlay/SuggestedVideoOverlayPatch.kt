@@ -89,7 +89,7 @@ object SuggestedVideoOverlayPatch : BytecodePatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("hide-suggested-video-overlay")
+        SettingsPatch.updatePatchStatus("Hide suggested video overlay")
 
     }
 

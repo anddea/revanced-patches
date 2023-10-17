@@ -77,7 +77,7 @@ object HideAutoplayPreviewPatch : BytecodePatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("hide-autoplay-preview")
+        SettingsPatch.updatePatchStatus("Hide autoplay preview")
 
     }
 }

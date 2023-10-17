@@ -79,7 +79,7 @@ object HeaderSwitchPatch : BytecodePatch() {
             )
         )
 
-        SettingsPatch.updatePatchStatus("header-switch")
+        SettingsPatch.updatePatchStatus("Header switch")
 
     }
 }

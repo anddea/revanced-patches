@@ -47,7 +47,7 @@ object ForceOpusCodecPatch : AbstractOpusCodecsPatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("force-opus-codec")
+        SettingsPatch.updatePatchStatus("Force OPUS codec")
 
     }
 }

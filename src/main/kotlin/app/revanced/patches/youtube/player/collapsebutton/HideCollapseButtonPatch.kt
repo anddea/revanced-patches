@@ -49,7 +49,7 @@ object HideCollapseButtonPatch : ResourcePatch() {
             )
         )
 
-        SettingsPatch.updatePatchStatus("hide-collapse-button")
+        SettingsPatch.updatePatchStatus("Hide collapse button")
 
     }
 }

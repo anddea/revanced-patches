@@ -82,7 +82,7 @@ object TrendingSearchesPatch : BytecodePatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("hide-trending-searches")
+        SettingsPatch.updatePatchStatus("Hide trending searches")
 
     }
 

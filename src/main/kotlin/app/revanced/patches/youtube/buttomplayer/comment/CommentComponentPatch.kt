@@ -51,7 +51,7 @@ object CommentComponentPatch : BytecodePatch() {
             )
         )
 
-        SettingsPatch.updatePatchStatus("hide-comment-component")
+        SettingsPatch.updatePatchStatus("Hide comment component")
 
     }
 }

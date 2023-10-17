@@ -64,7 +64,7 @@ object TabletNavigationBarPatch : BytecodePatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("enable-tablet-navigation-bar")
+        SettingsPatch.updatePatchStatus("Enable tablet navigation bar")
 
     }
 

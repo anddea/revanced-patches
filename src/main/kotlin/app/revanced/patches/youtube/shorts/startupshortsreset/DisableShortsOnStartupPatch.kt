@@ -15,7 +15,7 @@ import app.revanced.util.integrations.Constants.SHORTS
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
-    name = "Disable Shorts on startup",
+    name = "Disable shorts on startup",
     description = "Disables playing YouTube Shorts when launching YouTube.",
     dependencies = [SettingsPatch::class],
     compatiblePackages = [
@@ -73,7 +73,7 @@ object DisableShortsOnStartupPatch : BytecodePatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("disable-startup-shorts-player")
+        SettingsPatch.updatePatchStatus("Disable shorts on startup")
 
     }
 }

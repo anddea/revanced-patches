@@ -68,7 +68,7 @@ object HideEndScreenOverlayPatch : BytecodePatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("hide-endscreen-overlay")
+        SettingsPatch.updatePatchStatus("Hide end screen overlay")
 
     }
 }

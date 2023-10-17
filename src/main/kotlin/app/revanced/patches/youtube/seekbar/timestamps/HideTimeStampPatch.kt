@@ -73,7 +73,7 @@ object HideTimeStampPatch : BytecodePatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("hide-time-stamp")
+        SettingsPatch.updatePatchStatus("Hide time stamp")
 
     }
 }

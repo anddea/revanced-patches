@@ -78,7 +78,7 @@ object HideAutoplayButtonPatch : BytecodePatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("hide-autoplay-button")
+        SettingsPatch.updatePatchStatus("Hide autoplay button")
 
     }
 }

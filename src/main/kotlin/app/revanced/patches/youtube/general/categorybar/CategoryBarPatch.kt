@@ -83,7 +83,7 @@ object CategoryBarPatch : BytecodePatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("hide-category-bar")
+        SettingsPatch.updatePatchStatus("Hide category bar")
 
     }
 

@@ -119,7 +119,7 @@ object GeneralAdsPatch : ResourcePatch() {
             )
         )
 
-        SettingsPatch.updatePatchStatus("hide-general-ads")
+        SettingsPatch.updatePatchStatus("Hide general ads")
 
     }
 }

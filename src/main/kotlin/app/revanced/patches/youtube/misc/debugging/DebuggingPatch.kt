@@ -44,7 +44,7 @@ object DebuggingPatch : ResourcePatch() {
             )
         )
 
-        SettingsPatch.updatePatchStatus("enable-debug-logging")
+        SettingsPatch.updatePatchStatus("Enable debug logging")
 
 
     }

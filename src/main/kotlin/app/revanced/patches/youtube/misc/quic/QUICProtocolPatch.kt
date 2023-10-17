@@ -65,7 +65,7 @@ object QUICProtocolPatch : BytecodePatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("disable-quic-protocol")
+        SettingsPatch.updatePatchStatus("Disable QUIC protocol")
 
     }
 }
