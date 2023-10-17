@@ -9,5 +9,8 @@ import com.android.tools.smali.dexlib2.AccessFlags
 object ScreenshotTakenBannerFingerprint : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    customFingerprint = { methodDef, classDef -> methodDef.isWideLiteralExists(ScreenShotShareBanner) && classDef.sourceFile == "ScreenshotTakenBanner.kt" }
+    customFingerprint = { methodDef, classDef ->
+        methodDef.isWideLiteralExists(ScreenShotShareBanner)
+                && classDef.sourceFile == "ScreenshotTakenBanner.kt"
+    }
 )

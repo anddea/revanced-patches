@@ -8,15 +8,21 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.reddit.layout.place.fingerprints.HomePagerScreenFingerprint
+import app.revanced.patches.reddit.utils.resourceid.SharedResourceIdPatch
+import app.revanced.patches.reddit.utils.resourceid.SharedResourceIdPatch.ToolBarNavSearchCtaContainer
 import app.revanced.patches.reddit.utils.settings.SettingsBytecodePatch.updateSettingsStatus
 import app.revanced.patches.reddit.utils.settings.SettingsPatch
-import app.revanced.util.bytecode.getStringIndex
+import app.revanced.util.bytecode.getWideLiteralIndex
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Hide place button",
     description = "Hide r/place button in toolbar.",
-    dependencies = [SettingsPatch::class],
+    dependencies =
+    [
+        SettingsPatch::class,
+        SharedResourceIdPatch::class
+    ],
     compatiblePackages = [CompatiblePackage("com.reddit.frontpage")]
 )
 @Suppress("unused")
@@ -32,7 +38,7 @@ object PlaceButtonPatch : BytecodePatch(
         HomePagerScreenFingerprint.result?.let {
             it.mutableMethod.apply {
                 val targetIndex =
-                    getStringIndex("view.findViewById(Search\u2026nav_search_cta_container)")
+                    getWideLiteralIndex(ToolBarNavSearchCtaContainer) + 3
                 val targetRegister =
                     getInstruction<OneRegisterInstruction>(targetIndex - 1).registerA
 
