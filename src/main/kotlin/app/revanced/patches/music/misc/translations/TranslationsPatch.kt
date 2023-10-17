@@ -32,6 +32,7 @@ object TranslationsPatch : ResourcePatch() {
     }
 
     private val LANGUAGE_LIST = arrayOf(
+        "bg-rBG",
         "bn",
         "cs-rCZ",
         "el-rGR",
