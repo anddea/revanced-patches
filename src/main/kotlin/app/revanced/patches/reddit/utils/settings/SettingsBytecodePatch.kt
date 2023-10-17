@@ -6,13 +6,17 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
+import app.revanced.patches.reddit.utils.resourceid.SharedResourceIdPatch
+import app.revanced.patches.reddit.utils.resourceid.SharedResourceIdPatch.LabelAcknowledgements
 import app.revanced.patches.reddit.utils.settings.fingerprints.AcknowledgementsLabelBuilderFingerprint
 import app.revanced.patches.reddit.utils.settings.fingerprints.OssLicensesMenuActivityOnCreateFingerprint
 import app.revanced.patches.reddit.utils.settings.fingerprints.SettingsStatusLoadFingerprint
-import app.revanced.util.bytecode.getStringIndex
+import app.revanced.util.bytecode.getWideLiteralIndex
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
+@Patch(dependencies = [SharedResourceIdPatch::class])
 object SettingsBytecodePatch : BytecodePatch(
     setOf(
         AcknowledgementsLabelBuilderFingerprint,
@@ -42,7 +46,7 @@ object SettingsBytecodePatch : BytecodePatch(
         AcknowledgementsLabelBuilderFingerprint.result?.let {
             it.mutableMethod.apply {
                 val insertIndex =
-                    getStringIndex("resources.getString(R.st\u2026g.label_acknowledgements)")
+                    getWideLiteralIndex(LabelAcknowledgements) + 3
                 val insertRegister =
                     getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA
 

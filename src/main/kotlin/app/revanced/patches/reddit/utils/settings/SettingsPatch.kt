@@ -11,7 +11,11 @@ import kotlin.io.path.exists
 @Patch(
     name = "Settings",
     description = "Adds ReVanced settings to Reddit.",
-    dependencies = [IntegrationsPatch::class, SettingsBytecodePatch::class],
+    dependencies =
+    [
+        IntegrationsPatch::class,
+        SettingsBytecodePatch::class
+    ],
     compatiblePackages = [CompatiblePackage("com.reddit.frontpage")],
     requiresIntegrations = true,
 )
