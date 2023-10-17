@@ -47,10 +47,12 @@ object LayoutComponentsPatch : BytecodePatch() {
          */
         SettingsPatch.addPreference(
             arrayOf(
+                "PREFERENCE: BOTTOM_PLAYER_SETTINGS",
                 "PREFERENCE: GENERAL_SETTINGS",
                 "PREFERENCE: PLAYER_SETTINGS",
 
                 "SETTINGS: HIDE_AUDIO_TRACK_BUTTON",
+                "SETTINGS: HIDE_CHANNEL_BAR_JOIN_BUTTON",
                 "SETTINGS: HIDE_LAYOUT_COMPONENTS"
             )
         )
