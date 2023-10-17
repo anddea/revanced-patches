@@ -121,7 +121,7 @@ object HideFullscreenPanelsPatch : BytecodePatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("hide-fullscreen-panels")
+        SettingsPatch.updatePatchStatus("Hide fullscreen panels")
 
     }
 }

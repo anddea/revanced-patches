@@ -73,7 +73,7 @@ object LanguageSelectorPatch : BytecodePatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("enable-language-switch")
+        SettingsPatch.updatePatchStatus("Enable language switch")
 
     }
 }

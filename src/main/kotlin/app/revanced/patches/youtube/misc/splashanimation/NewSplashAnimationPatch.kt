@@ -115,7 +115,7 @@ object NewSplashAnimationPatch : BytecodePatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("enable-new-splash-animation")
+        SettingsPatch.updatePatchStatus("Enable new splash animation")
 
     }
 

@@ -65,7 +65,7 @@ object HideSnackBarPatch : BytecodePatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("hide-snack-bar")
+        SettingsPatch.updatePatchStatus("Hide snack bar")
 
     }
 }

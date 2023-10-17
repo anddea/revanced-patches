@@ -194,6 +194,8 @@ object SpoofPlayerParameterPatch : BytecodePatch(
             )
         )
 
+        SettingsPatch.updatePatchStatus("Spoof player parameters")
+
     }
 
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =

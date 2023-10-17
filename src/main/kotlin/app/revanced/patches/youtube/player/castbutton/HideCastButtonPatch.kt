@@ -60,7 +60,7 @@ object HideCastButtonPatch : BytecodePatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("hide-cast-button")
+        SettingsPatch.updatePatchStatus("Hide cast button")
 
     }
 }

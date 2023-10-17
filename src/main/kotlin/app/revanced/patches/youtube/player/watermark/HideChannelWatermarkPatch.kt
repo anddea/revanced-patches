@@ -84,7 +84,7 @@ object HideChannelWatermarkBytecodePatch : BytecodePatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("hide-channel-watermark")
+        SettingsPatch.updatePatchStatus("Hide channel watermark")
 
     }
 }

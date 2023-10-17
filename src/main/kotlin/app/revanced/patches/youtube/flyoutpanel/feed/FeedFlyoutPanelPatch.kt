@@ -107,7 +107,7 @@ object FeedFlyoutPanelPatch : BytecodePatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("hide-feed-flyout-panel")
+        SettingsPatch.updatePatchStatus("Hide feed flyout panel")
 
     }
 }

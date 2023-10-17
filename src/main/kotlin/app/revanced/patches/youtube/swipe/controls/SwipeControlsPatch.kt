@@ -108,7 +108,7 @@ object SwipeControlsPatch : BytecodePatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("swipe-controls")
+        SettingsPatch.updatePatchStatus("Swipe controls")
 
         contexts.copyResources(
             "youtube/swipecontrols",

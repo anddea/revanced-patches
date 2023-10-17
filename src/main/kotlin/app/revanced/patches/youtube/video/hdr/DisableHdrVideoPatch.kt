@@ -71,7 +71,7 @@ object DisableHdrVideoPatch : BytecodePatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("disable-hdr-video")
+        SettingsPatch.updatePatchStatus("Disable hdr video")
 
     }
 }

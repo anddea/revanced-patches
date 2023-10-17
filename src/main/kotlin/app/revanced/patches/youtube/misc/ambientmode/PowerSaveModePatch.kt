@@ -81,7 +81,7 @@ object PowerSaveModePatch : BytecodePatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("bypass-ambient-mode-restrictions")
+        SettingsPatch.updatePatchStatus("Bypass ambient mode restrictions")
 
     }
 }

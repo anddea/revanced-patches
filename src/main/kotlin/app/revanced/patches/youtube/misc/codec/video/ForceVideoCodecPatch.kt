@@ -121,7 +121,7 @@ object ForceVideoCodecPatch : BytecodePatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("force-video-codec")
+        SettingsPatch.updatePatchStatus("Force video codec")
 
     }
 

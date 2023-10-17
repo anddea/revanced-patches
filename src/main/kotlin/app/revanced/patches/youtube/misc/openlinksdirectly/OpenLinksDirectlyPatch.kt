@@ -72,7 +72,7 @@ object OpenLinksDirectlyPatch : BytecodePatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("enable-open-links-directly")
+        SettingsPatch.updatePatchStatus("Enable open links directly")
 
     }
 }

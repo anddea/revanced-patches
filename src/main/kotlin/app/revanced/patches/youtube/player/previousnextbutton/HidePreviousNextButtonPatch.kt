@@ -48,7 +48,7 @@ object HidePreviousNextButtonPatch : BytecodePatch() {
             )
         )
 
-        SettingsPatch.updatePatchStatus("hide-previous-next-button")
+        SettingsPatch.updatePatchStatus("Hide previous next button")
 
     }
 }

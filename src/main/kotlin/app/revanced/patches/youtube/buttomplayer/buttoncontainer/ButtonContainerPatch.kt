@@ -51,7 +51,7 @@ object ButtonContainerPatch : BytecodePatch() {
             )
         )
 
-        SettingsPatch.updatePatchStatus("hide-button-container")
+        SettingsPatch.updatePatchStatus("Hide button container")
 
     }
 }

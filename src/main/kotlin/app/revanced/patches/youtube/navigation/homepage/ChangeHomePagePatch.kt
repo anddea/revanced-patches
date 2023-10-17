@@ -83,7 +83,7 @@ object ChangeHomePagePatch : BytecodePatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("change-homepage")
+        SettingsPatch.updatePatchStatus("Change homepage")
 
     }
 }

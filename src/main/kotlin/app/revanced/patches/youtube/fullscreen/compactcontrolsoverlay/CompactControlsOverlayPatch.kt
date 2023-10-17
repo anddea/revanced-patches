@@ -77,7 +77,7 @@ object CompactControlsOverlayPatch : BytecodePatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("enable-compact-controls-overlay")
+        SettingsPatch.updatePatchStatus("Enable compact controls overlay")
 
     }
 }

@@ -95,7 +95,7 @@ object TabletMiniPlayerPatch : BytecodePatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("enable-tablet-mini-player")
+        SettingsPatch.updatePatchStatus("Enable tablet mini player")
 
     }
 

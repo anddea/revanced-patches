@@ -117,7 +117,7 @@ object VideoQualityPatch : BytecodePatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("default-video-quality")
+        SettingsPatch.updatePatchStatus("Default video quality")
 
     }
 

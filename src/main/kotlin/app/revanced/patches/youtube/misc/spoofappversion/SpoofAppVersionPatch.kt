@@ -54,7 +54,7 @@ object SpoofAppVersionPatch : AbstractVersionSpoofPatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("spoof-app-version")
+        SettingsPatch.updatePatchStatus("Spoof app version")
 
     }
 }

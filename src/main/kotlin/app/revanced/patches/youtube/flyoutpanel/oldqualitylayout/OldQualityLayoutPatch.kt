@@ -98,7 +98,7 @@ object OldQualityLayoutPatch : BytecodePatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("enable-old-quality-layout")
+        SettingsPatch.updatePatchStatus("Enable old quality layout")
 
     }
 }

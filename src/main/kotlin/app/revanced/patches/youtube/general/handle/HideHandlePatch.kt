@@ -70,7 +70,7 @@ object HideHandlePatch : BytecodePatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("hide-handle")
+        SettingsPatch.updatePatchStatus("Hide handle")
 
     }
 }

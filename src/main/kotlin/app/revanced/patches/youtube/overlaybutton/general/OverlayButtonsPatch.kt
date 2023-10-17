@@ -172,7 +172,7 @@ object OverlayButtonsPatch : ResourcePatch() {
             )
         )
 
-        SettingsPatch.updatePatchStatus("overlay-buttons")
+        SettingsPatch.updatePatchStatus("Overlay buttons")
 
     }
 }

@@ -52,7 +52,7 @@ object QuickActionsPatch : BytecodePatch() {
             )
         )
 
-        SettingsPatch.updatePatchStatus("hide-quick-actions")
+        SettingsPatch.updatePatchStatus("Hide quick actions")
 
     }
 }

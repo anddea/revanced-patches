@@ -105,7 +105,7 @@ object LayoutSwitchPatch : BytecodePatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("layout-switch")
+        SettingsPatch.updatePatchStatus("Layout switch")
 
     }
 }

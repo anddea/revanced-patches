@@ -74,7 +74,7 @@ object HideSeekbarPatch : BytecodePatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("hide-seekbar")
+        SettingsPatch.updatePatchStatus("Hide seekbar")
 
     }
 }

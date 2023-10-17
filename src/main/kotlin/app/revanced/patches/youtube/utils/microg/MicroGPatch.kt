@@ -61,7 +61,7 @@ object MicroGPatch : ResourcePatch() {
                 "PREFERENCE: MICROG_SETTINGS"
             )
         )
-        SettingsPatch.updatePatchStatus("microg-support")
+        SettingsPatch.updatePatchStatus("MicroG support")
 
         // update settings fragment
         context.patchSetting(

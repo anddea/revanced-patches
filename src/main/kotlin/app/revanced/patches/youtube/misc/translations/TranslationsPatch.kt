@@ -37,7 +37,7 @@ object TranslationsPatch : ResourcePatch() {
 
         context.addTranslations("youtube", LANGUAGE_LIST)
 
-        SettingsPatch.updatePatchStatus("translations")
+        SettingsPatch.updatePatchStatus("Translations")
 
     }
 

@@ -66,7 +66,7 @@ object LandScapeModePatch : BytecodePatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("disable-landscape-mode")
+        SettingsPatch.updatePatchStatus("Disable landscape mode")
 
     }
 

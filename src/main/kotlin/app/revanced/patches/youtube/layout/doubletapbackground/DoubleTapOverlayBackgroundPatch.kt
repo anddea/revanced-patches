@@ -60,7 +60,7 @@ object DoubleTapOverlayBackgroundPatch : ResourcePatch() {
             }
         }
 
-        SettingsPatch.updatePatchStatus("hide-double-tap-overlay-filter")
+        SettingsPatch.updatePatchStatus("Hide double tap overlay filter")
 
     }
 

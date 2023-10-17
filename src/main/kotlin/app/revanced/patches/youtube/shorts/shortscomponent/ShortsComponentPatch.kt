@@ -261,7 +261,7 @@ object ShortsComponentPatch : BytecodePatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("hide-shorts-component")
+        SettingsPatch.updatePatchStatus("Hide shorts components")
 
     }
 

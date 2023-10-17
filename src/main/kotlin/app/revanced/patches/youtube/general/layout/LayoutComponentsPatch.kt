@@ -58,7 +58,7 @@ object LayoutComponentsPatch : BytecodePatch() {
             )
         )
 
-        SettingsPatch.updatePatchStatus("hide-layout-components")
+        SettingsPatch.updatePatchStatus("Hide layout components")
 
         context.updatePatchStatus("LayoutComponent")
 

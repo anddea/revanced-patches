@@ -50,7 +50,7 @@ object DescriptionComponentsPatch : BytecodePatch() {
             )
         )
 
-        SettingsPatch.updatePatchStatus("hide-description-components")
+        SettingsPatch.updatePatchStatus("Hide description components")
 
     }
 }

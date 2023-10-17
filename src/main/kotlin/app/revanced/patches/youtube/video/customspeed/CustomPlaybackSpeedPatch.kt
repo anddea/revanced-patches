@@ -53,6 +53,6 @@ object CustomPlaybackSpeedPatch : AbstractCustomPlaybackSpeedPatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("custom-playback-speed")
+        SettingsPatch.updatePatchStatus("Custom playback speed")
     }
 }

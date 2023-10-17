@@ -66,7 +66,7 @@ object NewThumbnailPreviewPatch : BytecodePatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("enable-new-thumbnail-preview")
+        SettingsPatch.updatePatchStatus("Enable new thumbnail preview")
 
     }
 }

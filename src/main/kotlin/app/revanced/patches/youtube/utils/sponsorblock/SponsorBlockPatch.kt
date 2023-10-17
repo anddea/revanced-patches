@@ -113,7 +113,7 @@ object SponsorBlockPatch : ResourcePatch() {
          */
         SettingsPatch.addReVancedPreference("sponsorblock_settings")
 
-        SettingsPatch.updatePatchStatus("sponsorblock")
+        SettingsPatch.updatePatchStatus("SponsorBlock")
 
     }
 }

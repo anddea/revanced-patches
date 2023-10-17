@@ -135,7 +135,7 @@ object MixPlaylistsPatch : BytecodePatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("hide-mix-playlists")
+        SettingsPatch.updatePatchStatus("Hide mix playlists")
 
     }
 

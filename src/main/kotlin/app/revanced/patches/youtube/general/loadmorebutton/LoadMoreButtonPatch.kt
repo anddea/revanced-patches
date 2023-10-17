@@ -66,7 +66,7 @@ object LoadMoreButtonPatch : BytecodePatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("hide-load-more-button")
+        SettingsPatch.updatePatchStatus("Hide load more button")
 
     }
 }

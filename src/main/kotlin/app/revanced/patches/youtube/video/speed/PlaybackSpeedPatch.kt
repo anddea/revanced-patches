@@ -83,7 +83,7 @@ object PlaybackSpeedPatch : BytecodePatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("default-playback-speed")
+        SettingsPatch.updatePatchStatus("Default playback speed")
 
     }
 

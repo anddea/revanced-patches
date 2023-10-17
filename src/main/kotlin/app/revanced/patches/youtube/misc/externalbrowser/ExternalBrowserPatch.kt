@@ -79,7 +79,7 @@ object ExternalBrowserPatch : BytecodePatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("enable-external-browser")
+        SettingsPatch.updatePatchStatus("Enable external browser")
 
     }
 }

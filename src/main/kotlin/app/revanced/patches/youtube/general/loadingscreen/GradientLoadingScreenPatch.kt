@@ -88,7 +88,7 @@ object GradientLoadingScreenPatch : BytecodePatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("enable-gradient-loading-screen")
+        SettingsPatch.updatePatchStatus("Enable gradient loading screen")
 
     }
 }

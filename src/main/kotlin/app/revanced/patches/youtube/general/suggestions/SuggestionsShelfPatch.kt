@@ -103,7 +103,7 @@ object SuggestionsShelfPatch : BytecodePatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("hide-suggestions-shelf")
+        SettingsPatch.updatePatchStatus("Hide suggestions shelf")
 
     }
 
