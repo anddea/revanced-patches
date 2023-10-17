@@ -13,8 +13,8 @@
     <string name="revanced_alt_thumbnail_about_title">Hakkında</string>
     <string name="revanced_alt_thumbnail_dearrow_summary_off">Küçük resimler harici API kullanılmadan oluşturuluyor</string>
     <string name="revanced_alt_thumbnail_dearrow_summary_on">Küçük resimler DeArrow API kullanılarak oluşturuluyor</string>
-    <string name="revanced_alt_thumbnail_dearrow_title">DeAreow API kullanılıyor</string>
-    <string name="revanced_alt_thumbnail_enabled_summary_off">Gizlenmiyor</string>
+    <string name="revanced_alt_thumbnail_dearrow_title">DeArrow API kullanılıyor</string>
+    <string name="revanced_alt_thumbnail_enabled_summary_off">Değiştirilmiyor</string>
     <string name="revanced_alt_thumbnail_enabled_summary_on">Değiştiliyor</string>
     <string name="revanced_alt_thumbnail_enabled_title">Alternatif kapak fotoğraflarını etkinleştir</string>
     <string name="revanced_alt_thumbnail_skip_checking_summary_off">Değiştirmeden önce küçük resimlerin var olup olmadığı kontrol edilecek</string>
@@ -111,6 +111,12 @@
     <string name="revanced_enable_external_browser_summary_off">Harici tarayıcı devre dışı</string>
     <string name="revanced_enable_external_browser_summary_on">Harici tarayıcı etkin</string>
     <string name="revanced_enable_external_browser_title">Harici tarayıcı</string>
+    <string name="revanced_enable_gradient_loading_screen_summary_off">Devre dışı</string>
+    <string name="revanced_enable_gradient_loading_screen_summary_on">Etkinleştirildi</string>
+    <string name="revanced_enable_gradient_loading_screen_title">Gradyan yükleme ekranını etkinleştir</string>
+    <string name="revanced_enable_language_switch_summary_off">Kapalı</string>
+    <string name="revanced_enable_language_switch_summary_on">Açık</string>
+    <string name="revanced_enable_language_switch_title">Dil anahtarını etkinleştir</string>
     <string name="revanced_enable_new_comment_popup_panels_summary_off">Kapalı</string>
     <string name="revanced_enable_new_comment_popup_panels_summary_on">Açık</string>
     <string name="revanced_enable_new_comment_popup_panels_title">Yeni yorum açılır panellerini etkinleştir</string>
@@ -156,8 +162,6 @@
     <string name="revanced_enable_tablet_navigation_bar_summary_off">Kapalı</string>
     <string name="revanced_enable_tablet_navigation_bar_summary_on">Açık</string>
     <string name="revanced_enable_tablet_navigation_bar_title">Tablet navigasyon çubuğunu etkinleştir</string>
-    <string name="revanced_enable_vp9_codec_summary">VP9 codec bileşenini etkinleştirmek için cihaz bilgilerini değiştir</string>
-    <string name="revanced_enable_vp9_codec_title">Vp9 codec bileşenini etkinleştir</string>
     <string name="revanced_enable_wide_search_bar_summary_off">Kapalı</string>
     <string name="revanced_enable_wide_search_bar_summary_on">Açık</string>
     <string name="revanced_enable_wide_search_bar_title">Geniş arama çubuğunu etkinleştir</string>
@@ -581,20 +585,6 @@ Video URL'sini zaman damgasıyla kopyalamak için basılı tutun"</string>
     <string name="revanced_player_flyout_panel_title">Oynatıcı açılır pencere paneli</string>
     <string name="revanced_quick_actions_title">Hızlı eylemler</string>
     <string name="revanced_reboot_first_run">Düzeni normal şekilde yüklemek için yeniden başlatın</string>
-    <string name="revanced_reboot_warning_general">"Bu henüz deneysel bir özellik olduğundan, bilinmeyen başka sorunlar olabilir. Yine de devam etmek istediğinizden emin misiniz?"</string>
-    <string name="revanced_reboot_warning_phone">"Bazı düzenleri telefon düzenlerine çevirmek için dpi'yi kandırır.
-
- Bu ayarı etkinleştirirseniz, aşağıdaki özellikler kullanılabilir:
- - Topluluk Gönderileri
-- Mix oynatma listesini gizle"</string>
-    <string name="revanced_reboot_warning_quic">İnternet hızınız yeterince hızlı değilse kullanmamanız tavsiye edilir</string>
-    <string name="revanced_reboot_warning_tablet">"Bazı düzenleri tablet düzenlerine dönüştürmek için dpi'yi kandırır.
-
-Bu ayarı etkinleştirirseniz aşağıdaki özellikler kullanılamaz:
-- Topluluk Gönderileri"</string>
-    <string name="revanced_reboot_warning_vp9">"VP9 kodek bileşenini etkinleştirmek için cihaz bilgilerini taklit eder
-
-Bu ayar oldukça eski olduğu için geçerli olmayabilir"</string>
     <string name="revanced_ryd_about">Hakkında</string>
     <string name="revanced_ryd_attribution_summary">Beğenmeme verileri True RYD Worker API tarafından sağlanır. Daha fazlasını öğrenmek için buraya dokunun.</string>
     <string name="revanced_ryd_compact_layout_summary_off">Beğen düğmesi en iyi görünüm için tasarlandı</string>

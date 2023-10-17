@@ -86,7 +86,7 @@
     <string name="revanced_disable_landscape_mode_summary_on">Mode lanskap saat memasuki layar penuh dinonaktifkan</string>
     <string name="revanced_disable_landscape_mode_title">Nonaktifkan mode lanskap</string>
     <string name="revanced_disable_speed_overlay_summary">"Nonaktifkan 'Putar dengan kecepatan 2x' ketika menahan"</string>
-    <string name="revanced_disable_speed_overlay_title">Nonaktifkan hamparan kecepatan</string>
+    <string name="revanced_disable_speed_overlay_title">Nonaktifkan overlay kecepatan</string>
     <string name="revanced_disable_quic_protocol_summary">"Nonaktifkan protokol QUIC CronetEngine"</string>
     <string name="revanced_disable_quic_protocol_title">Nonaktifkan protokol QUIC</string>
     <string name="revanced_disable_startup_shorts_player_summary_off">Pemutar shorts saat memulai aplikasi diaktifkan</string>
@@ -103,15 +103,21 @@
     <string name="revanced_enable_custom_seekbar_color_summary_off">Warna seekbar kustom dinonaktifkan</string>
     <string name="revanced_enable_custom_seekbar_color_summary_on">Warna seekbar kustom diaktifkan</string>
     <string name="revanced_enable_custom_seekbar_color_title">Aktifkan warna seekbar kustom</string>
-    <string name="revanced_edit_speed_overlay_value_summary">"Edit kecepatan yang berubah ketika menahan
-Hanya tersedia untuk beberapa pengguna yang dapat menggunakan hamparan kecepatan"</string>
-    <string name="revanced_edit_speed_overlay_value_title">Edit hamparan kecepatan kustom</string>
+    <string name="revanced_edit_speed_overlay_value_summary">"Edit kecepatan yang berubah ketika menahan layar
+Hanya tersedia untuk beberapa pengguna yang dapat menggunakan overlay kecepatan"</string>
+    <string name="revanced_edit_speed_overlay_value_title">Edit overlay kecepatan kustom</string>
     <string name="revanced_enable_debug_logging_summary_off">Pencatatan debug dinonaktifkan</string>
     <string name="revanced_enable_debug_logging_summary_on">Pencatatan debug diaktifkan</string>
     <string name="revanced_enable_debug_logging_title">Aktifkan pencatatan debug</string>
     <string name="revanced_enable_external_browser_summary_off">Browser eksternal dinonaktifkan</string>
     <string name="revanced_enable_external_browser_summary_on">Browser eksternal diaktifkan</string>
     <string name="revanced_enable_external_browser_title">Aktifkan browser eksternal</string>
+    <string name="revanced_enable_gradient_loading_screen_summary_off">Loading screen gradien dinonaktifkan</string>
+    <string name="revanced_enable_gradient_loading_screen_summary_on">Loading screen gradien diaktifkan</string>
+    <string name="revanced_enable_gradient_loading_screen_title">Aktifkan loading screen gradien</string>
+    <string name="revanced_enable_language_switch_summary_off">Peralihan bahasa dinonaktifkan</string>
+    <string name="revanced_enable_language_switch_summary_on">Peralihan bahasa diaktifkan</string>
+    <string name="revanced_enable_language_switch_title">Aktifkan peralihan bahasa</string>
     <string name="revanced_enable_new_comment_popup_panels_summary_off">Panel munculan komentar baru dinonaktifkan</string>
     <string name="revanced_enable_new_comment_popup_panels_summary_on">Panel munculan komentar baru diaktifkan</string>
     <string name="revanced_enable_new_comment_popup_panels_title">Aktifkan panel munculan komentar baru</string>
@@ -157,8 +163,6 @@ Hanya tersedia untuk beberapa pengguna yang dapat menggunakan hamparan kecepatan
     <string name="revanced_enable_tablet_navigation_bar_summary_off">Bilah navigasi tablet dinonaktifkan</string>
     <string name="revanced_enable_tablet_navigation_bar_summary_on">Bilah navigasi tablet diaktifkan</string>
     <string name="revanced_enable_tablet_navigation_bar_title">Aktifkan bilah navigasi tablet</string>
-    <string name="revanced_enable_vp9_codec_summary">Palsukan informasi perangkat untuk mengaktifkan codec vp9</string>
-    <string name="revanced_enable_vp9_codec_title">Aktifkan codec vp9</string>
     <string name="revanced_enable_wide_search_bar_summary_off">Bilah pencarian lebar dinonaktifkan</string>
     <string name="revanced_enable_wide_search_bar_summary_on">Bilah pencarian lebar diaktifkan</string>
     <string name="revanced_enable_wide_search_bar_title">Aktifkan bilah pencarian lebar</string>
@@ -490,6 +494,7 @@ Hanya tersedia untuk beberapa pengguna yang dapat menggunakan hamparan kecepatan
     <string name="revanced_hide_shorts_player_navigation_bar_title">Sembunyikan bilah navigasi</string>
     <string name="revanced_hide_shorts_player_pivot_button_summary_off">Tombol pivot ditampilkan</string>
     <string name="revanced_hide_shorts_player_pivot_button_summary_on">Tombol pivot disembunyikan</string>
+    <string name="revanced_hide_shorts_player_pivot_button_title">Sembunyikan tombol pivot</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_off">Tombol subscription ditampilkan</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_on">Tombol subscription disembunyikan</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_title">Sembunyikan tombol subscription</string>
@@ -545,8 +550,7 @@ Masalah yang diketahui: putar otomatis tidak berfungsi"</string>
     <string name="revanced_hide_youtube_music_button_summary_off">Tombol YouTube Music ditampilkan</string>
     <string name="revanced_hide_youtube_music_button_summary_on">Tombol YouTube Music disembunyikan</string>
     <string name="revanced_hide_youtube_music_button_title">Sembunyikan tombol YouTube Music</string>
-    <string name="revanced_hook_download_button_summary">"Mengganti tombol download dengan tombol download eksternal
-Hanya tersedia di YouTube v18.24.37+"</string>
+    <string name="revanced_hook_download_button_summary">"Mengganti tombol download dengan tombol download eksternal"</string>
     <string name="revanced_hook_download_button_title">Tombol pengait download</string>
     <string name="revanced_import_settings_summary">Ambil setelan ReVanced dari file yang disimpan</string>
     <string name="revanced_import_settings_title">Setelan impor</string>
@@ -582,21 +586,6 @@ Tekan dan tahan untuk mengatur kecepatan pemutaran ke 1,0x"</string>
     <string name="revanced_player_flyout_panel_title">Panel flyout pemutar</string>
     <string name="revanced_quick_actions_title">Aksi cepat</string>
     <string name="revanced_reboot_first_run">Mulai ulang untuk memuat tata letak secara normal</string>
-    <string name="revanced_reboot_warning_general">"Karena ini masih merupakan fitur eksperimental, mungkin ada masalah lain yang tidak diketahui.
-Apakah Anda yakin ingin melanjutkan?"</string>
-    <string name="revanced_reboot_warning_phone">"Trik dpi untuk mengubah beberapa tata letak menjadi tata letak ponsel.
-
-Jika Anda mengaktifkan setelan ini, fitur berikut akan tersedia:
-- Postingan komunitas
-- Sembunyikan playlist mix"</string>
-    <string name="revanced_reboot_warning_quic">Disarankan untuk tidak menggunakannya jika kecepatan internet Anda tidak cukup cepat</string>
-    <string name="revanced_reboot_warning_tablet">"Trik dpi untuk mengubah beberapa tata letak menjadi tata letak tablet.
-
-Jika Anda mengaktifkan setelan ini, fitur berikut tidak tersedia:
-- Postingan komunitas"</string>
-    <string name="revanced_reboot_warning_vp9">"Memalsukan informasi perangkat untuk mengaktifkan codec VP9
-
-Karena setelan ini sudah cukup usang, mungkin tidak valid"</string>
     <string name="revanced_ryd_about">Tentang</string>
     <string name="revanced_ryd_attribution_summary">Data dislike disediakan oleh API Return YouTube Dislike. Tekan di sini untuk mempelajari lebih lanjut.</string>
     <string name="revanced_ryd_compact_layout_summary_off">Tombol like ditata untuk penampilan terbaik</string>

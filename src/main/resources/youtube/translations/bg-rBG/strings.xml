@@ -112,6 +112,12 @@
     <string name="revanced_enable_external_browser_summary_off">Външния браузър е изключен</string>
     <string name="revanced_enable_external_browser_summary_on">Външния браузър е включен</string>
     <string name="revanced_enable_external_browser_title">Включване на външен браузър</string>
+    <string name="revanced_enable_gradient_loading_screen_summary_off">Екранът за зареждане с градиент е деактивиран</string>
+    <string name="revanced_enable_gradient_loading_screen_summary_on">Екранът за зареждане с градиент е активиран</string>
+    <string name="revanced_enable_gradient_loading_screen_title">Градиентен екрана за зареждане</string>
+    <string name="revanced_enable_language_switch_summary_off">Превключването на езика е деактивирано</string>
+    <string name="revanced_enable_language_switch_summary_on">Превключването на езика е активирано</string>
+    <string name="revanced_enable_language_switch_title">Превключване на език</string>
     <string name="revanced_enable_new_comment_popup_panels_summary_off">Изскачащите панели за нов коментар са изключени</string>
     <string name="revanced_enable_new_comment_popup_panels_summary_on">Изскачащите панели за нов коментар са включени</string>
     <string name="revanced_enable_new_comment_popup_panels_title">Вкл. изскачащи панели за нов коментар</string>
@@ -157,8 +163,6 @@
     <string name="revanced_enable_tablet_navigation_bar_summary_off">Навигационната лента за таблет е изключена</string>
     <string name="revanced_enable_tablet_navigation_bar_summary_on">Навигационната лента за таблет е включена</string>
     <string name="revanced_enable_tablet_navigation_bar_title">Навигационна лента за таблет</string>
-    <string name="revanced_enable_vp9_codec_summary">Замяна на параметрите за устройството за включване на VP9 кодек</string>
-    <string name="revanced_enable_vp9_codec_title">Включване на VP9 кодек</string>
     <string name="revanced_enable_wide_search_bar_summary_off">Широката лента за търсене е изключена</string>
     <string name="revanced_enable_wide_search_bar_summary_on">Широката лента за търсене е включена</string>
     <string name="revanced_enable_wide_search_bar_title">Вкл. широка лента за търсене</string>
@@ -583,22 +587,6 @@
     <string name="revanced_player_flyout_panel_title">Падащ панел на плейъра</string>
     <string name="revanced_quick_actions_title">Бързи действия</string>
     <string name="revanced_reboot_first_run">Презареждане за нормален изглед</string>
-    <string name="revanced_reboot_warning_general">"Това е все още експериментална функция и може да има проблеми с нея.
-Желаете ли да продължите?"</string>
-    <string name="revanced_reboot_warning_phone">"Залъгва относно гъстотата на екрана за да активира изглед като на телефон.
-
-При активиране ще са достъпни следните функции:
-- Постове от общността
-- Скриване на миксирания плейлист"</string>
-    <string name="revanced_reboot_warning_quic">Препоръчително ако скоростта на интернета ви не е достатъчно висока</string>
-    <string name="revanced_reboot_warning_tablet">"Залъгва относно гъстотата на екрана за да активира изглед като на таблет.
-
-При активиране няма да са достъпни следните функции:
-- Режим на околен цвят
-- Постове от общността"</string>
-    <string name="revanced_reboot_warning_vp9">"Залъгва за параметрите на устройството за да активира VP9 кодек
-
-Тези настройки да доста стари и могат да не работят"</string>
     <string name="revanced_ryd_about">За програмата</string>
     <string name="revanced_ryd_attribution_summary">Данните за нехаресване са от Return YouTube Dislike API. Докоснете за да научите повече.</string>
     <string name="revanced_ryd_compact_layout_summary_off">Най-добър изглед на бутона за харесване</string>
@@ -624,6 +612,15 @@
     <string name="revanced_shorts_player_title">Плейър за кратки клипове</string>
     <string name="revanced_show_fullscreen_title_summary">Известен проблем: Заглавието изчезва при докосване</string>
     <string name="revanced_show_fullscreen_title_title">Показване на заглавието при цял екран</string>
+    <string name="revanced_skipped_preloaded_buffer">Пропуснат предварително зареден буфер</string>
+    <string name="revanced_skip_preloaded_buffer_summary">"Пропуснете предварително заредения буфер при стартиране на видеото, за да заобиколите забавянето на принудителното качество на видеото по подразбиране
+
+• Когато видеото започне, има забавяне от приблизително 0,7 секунди, но качеството на видеото по подразбиране се прилага веднага
+• Не се отнася за HDR видеоклипове или видеоклипове, по-кратки от 10 секунди"</string>
+    <string name="revanced_skip_preloaded_buffer_title">Пропусни предварително зареден буфер</string>
+    <string name="revanced_skip_preloaded_buffer_toast_summary_off">Уведомлението е скрито</string>
+    <string name="revanced_skip_preloaded_buffer_toast_summary_on">Уведомлението се показва</string>
+    <string name="revanced_skip_preloaded_buffer_toast_title">Уведомление при пропуске</string>
     <string name="revanced_speed_overlay_text" formatted="false">Възпроизвеждане на %dX скорост</string>
     <string name="revanced_spoof_app_version_summary">"Подлъгване на клиента с остаряла версия
 

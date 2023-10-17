@@ -39,6 +39,7 @@
     <string name="revanced_change_homepage_summary_off">Поточна домашня сторінка: Головна</string>
     <string name="revanced_change_homepage_summary_on">Поточна домашня сторінка: Підписки</string>
     <string name="revanced_change_homepage_title">Змінити домашню сторінку на підписки</string>
+    <string name="revanced_channel_bar_title">Панель каналу</string>
     <string name="revanced_comments_title">Коментарі</string>
     <string name="revanced_copy_video_timestamp_success">Мітку часу скопійовано в буфер обміну</string>
     <string name="revanced_custom_filter_strings_summary">Фільтр компонентів за іменами, розділеними по рядках</string>
@@ -112,6 +113,12 @@
     <string name="revanced_enable_external_browser_summary_off">Зовнішній браузер вимкнено</string>
     <string name="revanced_enable_external_browser_summary_on">Зовнішній браузер увімкнено</string>
     <string name="revanced_enable_external_browser_title">Увімкнути зовнішній браузер</string>
+    <string name="revanced_enable_gradient_loading_screen_summary_off">Градієнт екрану завантаження вимкнуто</string>
+    <string name="revanced_enable_gradient_loading_screen_summary_on">Градієнт екрану завантаження увімкнуто</string>
+    <string name="revanced_enable_gradient_loading_screen_title">Увімкнути градієнт екрану завантаження</string>
+    <string name="revanced_enable_language_switch_summary_off">Перемикач мови вимкнуто</string>
+    <string name="revanced_enable_language_switch_summary_on">Перемикач мови ввімкнуто</string>
+    <string name="revanced_enable_language_switch_title">Увімкнути перемикач мови</string>
     <string name="revanced_enable_new_comment_popup_panels_summary_off">Нові спливаючі панелі коментарів вимкнено</string>
     <string name="revanced_enable_new_comment_popup_panels_summary_on">Нові спливаючі панелі коментарів увімкнено</string>
     <string name="revanced_enable_new_comment_popup_panels_title">Увімкнути нові виринаючі панелі коментарів</string>
@@ -157,8 +164,11 @@
     <string name="revanced_enable_tablet_navigation_bar_summary_off">Планшетну панель навігації вимкнено</string>
     <string name="revanced_enable_tablet_navigation_bar_summary_on">Планшетну панель навігації увімкнено</string>
     <string name="revanced_enable_tablet_navigation_bar_title">Увімкнути планшетну панель навігації</string>
-    <string name="revanced_enable_vp9_codec_summary">Підробити інформацію про пристрій, щоб увімкнути кодек VP9</string>
-    <string name="revanced_enable_vp9_codec_title">Увімкнути кодек VP9</string>
+    <string name="revanced_enable_video_codec_summary">Підробити інформацію про пристрій, щоб увімкнути відеокодек</string>
+    <string name="revanced_enable_video_codec_title">Увімкнути відеокодек</string>
+    <string name="revanced_enable_video_codec_type_summary_off">Увімкнути кодек VP9</string>
+    <string name="revanced_enable_video_codec_type_summary_on">Увімкнути кодек HDR</string>
+    <string name="revanced_enable_video_codec_type_title">Тип відеокодека</string>
     <string name="revanced_enable_wide_search_bar_summary_off">Широку панель пошуку вимкнено</string>
     <string name="revanced_enable_wide_search_bar_summary_on">Широку панель пошуку увімкнено</string>
     <string name="revanced_enable_wide_search_bar_title">Увімкнути широку панель пошуку</string>
@@ -260,6 +270,9 @@
     <string name="revanced_hide_channel_member_shelf_summary_off">Полиця учасників каналу показується</string>
     <string name="revanced_hide_channel_member_shelf_summary_on">Полиця учасників каналу прихована</string>
     <string name="revanced_hide_channel_member_shelf_title">Приховати полицю учасників каналу</string>
+    <string name="revanced_hide_channel_profile_links_summary_off">Посилання вверху опису каналу показуються</string>
+    <string name="revanced_hide_channel_profile_links_summary_on">Посилання вверху опису каналу приховано</string>
+    <string name="revanced_hide_channel_profile_links_title">Приховати посилання в описі каналу</string>
     <string name="revanced_hide_channel_watermark_summary_off">Водяний знак каналу показується</string>
     <string name="revanced_hide_channel_watermark_summary_on">Водяний знак каналу приховано</string>
     <string name="revanced_hide_channel_watermark_title">Приховати водяний знак каналу</string>
@@ -582,21 +595,6 @@
     <string name="revanced_player_flyout_panel_title">Спливаюча панель плеєра</string>
     <string name="revanced_quick_actions_title">Швидкі дії</string>
     <string name="revanced_reboot_first_run">Перезапустіть, щоб нормально завантажився макет</string>
-    <string name="revanced_reboot_warning_general">"Оскільки це експериментальна функція, можуть бути невідомі проблеми.
-Ви впевнені, що хочете продовжити?"</string>
-    <string name="revanced_reboot_warning_phone">"Змінює dpi, щоб змінити деякі макети на телефонні.
-
-Якщо ввімкнути цей параметр, будуть доступні такі функції:
-- Публікації спільноти
-- Приховати Мікс плейлист"</string>
-    <string name="revanced_reboot_warning_quic">Не рекомендується використовувати це, якщо швидкість вашого інтернету недостатньо висока</string>
-    <string name="revanced_reboot_warning_tablet">"Змінює dpi, щоб змінити деякі макети на планшетні.
-
-Якщо ввімкнути це налаштування, такі функції будуть недоступні:
-- Публікації спільноти"</string>
-    <string name="revanced_reboot_warning_vp9">"Підробити інформацію про пристрій для активації кодека VP9
-
-Оскільки ці налаштування застаріли, можуть бути некоректними"</string>
     <string name="revanced_ryd_about">Про це</string>
     <string name="revanced_ryd_attribution_summary">Дані про вподобання надаються за допомогою API повернення вподобань YouTube.  Натисніть тут, щоб дізнатися більше.</string>
     <string name="revanced_ryd_compact_layout_summary_off">Кнопка Подобається стилізована для кращого вигляду</string>
