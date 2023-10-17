@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.overlaybutton.downloadbuttonhook
+package app.revanced.patches.youtube.overlaybutton.download.hook
 
 import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
@@ -6,7 +6,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWith
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.youtube.overlaybutton.downloadbuttonhook.fingerprints.DownloadActionsFingerprint
+import app.revanced.patches.youtube.overlaybutton.download.hook.fingerprints.DownloadActionsFingerprint
 import app.revanced.util.integrations.Constants.UTILS_PATH
 
 object DownloadButtonHookPatch : BytecodePatch(
