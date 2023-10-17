@@ -16,11 +16,12 @@
     <string name="revanced_custom_playback_speeds_invalid">無効なカスタム再生速度です！デフォルトにリセットします</string>
     <string name="revanced_custom_playback_speeds_summary">利用可能な再生速度を追加または変更します</string>
     <string name="revanced_custom_playback_speeds_title">カスタム再生速度の編集</string>
+    <string name="revanced_custom_playback_speeds_warning" formatted="false">カスタムスピードは %sx 以上にすることはできません</string>
     <string name="revanced_disable_auto_captions_summary">動画側で設定されている、字幕の強制は無効です。</string>
     <string name="revanced_disable_auto_captions_title">字幕の強制を無効化</string>
     <string name="revanced_downloader_not_installed" formatted="false">%s はインストールされていません。インストールしてください。</string>
     <string name="revanced_enable_black_navigation_bar_summary">ナビゲーションバーの色を黒に設定します</string>
-    <string name="revanced_enable_black_navigation_bar_title">黒のナビゲーションバー</string>
+    <string name="revanced_enable_black_navigation_bar_title">ナビゲーションバーを黒くする</string>
     <string name="revanced_enable_color_match_player_summary">ミニプレーヤーと全画面プレーヤーの色を統一します。</string>
     <string name="revanced_enable_color_match_player_title">カラーマッチプレイヤーを有効化</string>
     <string name="revanced_enable_compact_dialog_summary">コンパクトなダイアログを有効化します</string>
@@ -29,10 +30,17 @@
     <string name="revanced_enable_debug_logging_title">デバッグログ</string>
     <string name="revanced_enable_flyout_panel_playback_speed_summary">フライアウトメニューに再生速度ボタンを追加します</string>
     <string name="revanced_enable_flyout_panel_playback_speed_title">再生速度ボタンを追加</string>
-    <string name="revanced_enable_force_minimized_player_summary">他のトラックが再生されていても、プレーヤーは永久に最小化されたままにします。</string>
+    <string name="revanced_enable_force_minimized_player_summary">他のトラックが再生されていても、プレイヤーは永久に最小化されたままにします</string>
     <string name="revanced_enable_force_minimized_player_title">最小化されたプレイヤーを有効にする</string>
     <string name="revanced_enable_landscape_mode_summary">画面回転で横画面モードに入るようにします</string>
     <string name="revanced_enable_landscape_mode_title">横画面モードを有効化</string>
+    <string name="revanced_enable_new_player_background_summary">新しいプレイヤーの背景を有効にする</string>
+    <string name="revanced_enable_new_player_background_title">新しいプレーヤーの背景は有効</string>
+    <string name="revanced_enable_old_player_layout_summary">"プレイヤーレイアウトを古いスタイルに戻します　
+古いプレイヤーレイアウトでは、一部の設定が正しく機能しない場合があります
+
+警告：これが有効になっている間は、新しいプレイヤーの背景を有効にしないでください"</string>
+    <string name="revanced_enable_old_player_layout_title">古いプレイヤーのレイアウトは有効</string>
     <string name="revanced_enable_old_style_library_shelf_summary">ライブラリの UI を古いスタイルに戻します (実験的)</string>
     <string name="revanced_enable_old_style_library_shelf_title">古いスタイルのライブラリ</string>
     <string name="revanced_enable_old_style_mini_player_summary">ミニプレーヤーを古いスタイルに戻します</string>
@@ -55,7 +63,7 @@
     <string name="revanced_extended_settings_import_reset">設定をデフォルトにリセットしました</string>
     <string name="revanced_extended_settings_import_success">%d の設定をインポートしました</string>
     <string name="revanced_external_downloader_not_installed_warning" formatted="false">%s はインストールされていません。インストールしてください</string>
-    <string name="revanced_external_downloader_package_name_summary">インストールされている、NewPipe や Seal などの外部の動画ダウンローダーアプリのパッケージ名</string>
+    <string name="revanced_external_downloader_package_name_summary">NewPipeやSealなど、インストールされている外部ダウンローダーアプリのパッケージ名</string>
     <string name="revanced_external_downloader_package_name_title">外部ダウンローダーのパッケージ名</string>
     <string name="revanced_flyout_panel_watch_on_youtube">YouTube で視聴</string>
     <string name="revanced_hide_account_menu_empty_component_summary">アカウントメニューの空のコンポーネントを非表示にします</string>
@@ -70,7 +78,7 @@
     <string name="revanced_hide_button_shelf_title">ボタン欄を非表示</string>
     <string name="revanced_hide_carousel_shelf_summary">ホームタブや探索タブのカルーセル欄を非表示にします</string>
     <string name="revanced_hide_carousel_shelf_title">カルーセル欄を非表示</string>
-    <string name="revanced_hide_cast_button_summary">ミニプレーヤーの右側と全画面プレーヤーの右上のキャストボタンを非表示にします</string>
+    <string name="revanced_hide_cast_button_summary">キャストボタンを非表示</string>
     <string name="revanced_hide_cast_button_title">キャストボタンを非表示</string>
     <string name="revanced_hide_category_bar_summary">ホームタブの上部にある音楽カテゴリーバーを非表示にします</string>
     <string name="revanced_hide_category_bar_title">カテゴリバーを非表示</string>
@@ -149,6 +157,14 @@
     <string name="revanced_save_video_quality_mobile">モバイルデータ通信での画質を変更:</string>
     <string name="revanced_save_video_quality_none">画質の設定に失敗しました</string>
     <string name="revanced_save_video_quality_wifi">Wi-Fi での画質を変更:</string>
+    <string name="revanced_spoof_app_version_summary">"YouTube のバージョンを古いバージョンに偽装します
+
+これによりアプリの外観が変わりますが、未知の問題が発生する場合があります
+後からこの機能を無効にしても、データを消去するまで古い UI のままになる場合があります"</string>
+    <string name="revanced_spoof_app_version_target_entry_4_27_53">4.27.53 - カナダにてラジオモードを無効にする</string>
+    <string name="revanced_spoof_app_version_target_entry_6_10_53">6.10.53 - リアルタイムの歌詞を無効にする</string>
+    <string name="revanced_spoof_app_version_target_summary">偽装したいバージョンを選んでください</string>
+    <string name="revanced_spoof_app_version_target_title">偽装するバージョンを選択</string>
     <string name="revanced_spoof_app_version_title">アプリのバージョンを偽装</string>
     <string name="revanced_start_page_entry_chart">チャート</string>
     <string name="revanced_start_page_entry_explore">探索</string>
