@@ -37,7 +37,7 @@ import app.revanced.util.integrations.Constants.VIDEO_PATH
 @Suppress("unused")
 object CustomPlaybackSpeedPatch : AbstractCustomPlaybackSpeedPatch(
     "$VIDEO_PATH/CustomPlaybackSpeedPatch;",
-    10.0f
+    8.0f
 ) {
     override fun execute(context: BytecodeContext) {
         super.execute(context)
