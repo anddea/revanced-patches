@@ -4,6 +4,7 @@ import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
@@ -11,10 +12,12 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.misc.minimizedplayback.fingerprints.KidsMinimizedPlaybackPolicyControllerFingerprint
 import app.revanced.patches.youtube.misc.minimizedplayback.fingerprints.MinimizedPlaybackManagerFingerprint
 import app.revanced.patches.youtube.misc.minimizedplayback.fingerprints.MinimizedPlaybackSettingsFingerprint
+import app.revanced.patches.youtube.misc.minimizedplayback.fingerprints.PiPControllerFingerprint
 import app.revanced.patches.youtube.utils.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.utils.playertype.PlayerTypeHookPatch
 import app.revanced.util.integrations.Constants.MISC_PATH
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Patch(
@@ -49,7 +52,8 @@ object MinimizedPlaybackPatch : BytecodePatch(
     setOf(
         KidsMinimizedPlaybackPolicyControllerFingerprint,
         MinimizedPlaybackManagerFingerprint,
-        MinimizedPlaybackSettingsFingerprint
+        MinimizedPlaybackSettingsFingerprint,
+        PiPControllerFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext) {
@@ -95,6 +99,22 @@ object MinimizedPlaybackPatch : BytecodePatch(
                 )
             }
         } ?: throw MinimizedPlaybackSettingsFingerprint.exception
+
+        PiPControllerFingerprint.result?.let {
+            val targetMethod = context
+                .toMethodWalker(it.method)
+                .nextMethod(it.scanResult.patternScanResult!!.endIndex, true)
+                .getMethod() as MutableMethod
+
+            targetMethod.apply {
+                val targetRegister = getInstruction<TwoRegisterInstruction>(0).registerA
+
+                addInstruction(
+                    1,
+                    "const/4 v$targetRegister, 0x1"
+                )
+            }
+        } ?: throw PiPControllerFingerprint.exception
     }
 
     private const val INTEGRATIONS_METHOD_REFERENCE =
