@@ -280,7 +280,9 @@
             <intent android:targetPackage="com.mgoogle.android.gms" android:targetClass="org.microg.gms.ui.SettingsActivity" />
         </Preference>PREFERENCE: MICROG_SETTINGS -->
 
-        <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_experimental_flag" />
+        <!-- SETTINGS: EXPERIMENTAL_FLAGS
+        <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_experimental_flag" />SETTINGS: EXPERIMENTAL_FLAGS -->
+
         <!-- SETTINGS: DISABLE_QUIC_PROTOCOL
         <SwitchPreference android:title="@string/revanced_disable_quic_protocol_title" android:key="revanced_disable_quic_protocol" android:defaultValue="false" android:summary="@string/revanced_disable_quic_protocol_summary" />SETTINGS: DISABLE_QUIC_PROTOCOL -->
 
@@ -288,9 +290,7 @@
         <SwitchPreference android:title="@string/revanced_enable_opus_codec_title" android:key="revanced_enable_opus_codec" android:defaultValue="false" android:summary="@string/revanced_enable_opus_codec_summary" />SETTINGS: ENABLE_OPUS_CODEC -->
 
         <!-- SETTINGS: LAYOUT_SWITCH
-        <SwitchPreference android:title="@string/revanced_enable_phone_layout_title" android:key="revanced_enable_phone_layout" android:summary="@string/revanced_enable_phone_layout_summary" android:defaultValue="false" />SETTINGS: LAYOUT_SWITCH -->
-
-        <!-- SETTINGS: LAYOUT_SWITCH
+        <SwitchPreference android:title="@string/revanced_enable_phone_layout_title" android:key="revanced_enable_phone_layout" android:summary="@string/revanced_enable_phone_layout_summary" android:defaultValue="false" />
         <SwitchPreference android:title="@string/revanced_enable_tablet_layout_title" android:key="revanced_enable_tablet_layout" android:summary="@string/revanced_enable_tablet_layout_summary" android:defaultValue="false" />SETTINGS: LAYOUT_SWITCH -->
 
         <!-- SETTINGS: ENABLE_VIDEO_CODEC
@@ -424,8 +424,8 @@
 
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_others" />
             <Preference android:title="Custom double tap length" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
-            <Preference android:title="Hide double tap overlay filter" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Disable pip notification" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="Hide double tap overlay filter" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Hide tooltip content" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Icons" android:summary="@string/revanced_icons_default" android:selectable="false"/>
             <Preference android:title="Labels" android:summary="@string/revanced_labels_default" android:selectable="false"/>

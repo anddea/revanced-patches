@@ -101,6 +101,7 @@ object LayoutSwitchPatch : BytecodePatch(
          */
         SettingsPatch.addPreference(
             arrayOf(
+                "SETTINGS: EXPERIMENTAL_FLAGS",
                 "SETTINGS: LAYOUT_SWITCH"
             )
         )
