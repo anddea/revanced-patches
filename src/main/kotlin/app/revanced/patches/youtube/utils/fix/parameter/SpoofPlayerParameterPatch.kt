@@ -190,6 +190,7 @@ object SpoofPlayerParameterPatch : BytecodePatch(
          */
         SettingsPatch.addPreference(
             arrayOf(
+                "SETTINGS: EXPERIMENTAL_FLAGS",
                 "SETTINGS: SPOOF_PLAYER_PARAMETER"
             )
         )

@@ -117,6 +117,7 @@ object ForceVideoCodecPatch : BytecodePatch(
          */
         SettingsPatch.addPreference(
             arrayOf(
+                "SETTINGS: EXPERIMENTAL_FLAGS",
                 "SETTINGS: ENABLE_VIDEO_CODEC"
             )
         )

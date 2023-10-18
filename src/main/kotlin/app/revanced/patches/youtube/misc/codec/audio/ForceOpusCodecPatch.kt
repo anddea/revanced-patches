@@ -43,6 +43,7 @@ object ForceOpusCodecPatch : AbstractOpusCodecsPatch(
          */
         SettingsPatch.addPreference(
             arrayOf(
+                "SETTINGS: EXPERIMENTAL_FLAGS",
                 "SETTINGS: ENABLE_OPUS_CODEC"
             )
         )

@@ -50,6 +50,7 @@ object SpoofAppVersionPatch : AbstractVersionSpoofPatch(
          */
         SettingsPatch.addPreference(
             arrayOf(
+                "SETTINGS: EXPERIMENTAL_FLAGS",
                 "SETTINGS: SPOOF_APP_VERSION"
             )
         )
