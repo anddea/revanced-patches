@@ -22,7 +22,6 @@ import app.revanced.patches.youtube.shorts.shortscomponent.fingerprints.ShortsPi
 import app.revanced.patches.youtube.shorts.shortscomponent.fingerprints.ShortsRemixFingerprint
 import app.revanced.patches.youtube.shorts.shortscomponent.fingerprints.ShortsShareFingerprint
 import app.revanced.patches.youtube.utils.litho.LithoFilterPatch
-import app.revanced.patches.youtube.utils.navbarindex.NavBarIndexHookPatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.ReelDynRemix
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.ReelDynShare
@@ -46,7 +45,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
     description = "Hides other Shorts components.",
     dependencies = [
         LithoFilterPatch::class,
-        NavBarIndexHookPatch::class,
         SettingsPatch::class,
         SharedResourceIdPatch::class,
         ShortsNavigationBarPatch::class,

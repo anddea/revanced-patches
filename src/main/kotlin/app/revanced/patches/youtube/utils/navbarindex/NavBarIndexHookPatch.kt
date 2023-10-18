@@ -18,6 +18,7 @@ import app.revanced.util.integrations.Constants.UTILS_PATH
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction35c
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
+@Suppress("unused")
 object NavBarIndexHookPatch : BytecodePatch(
     setOf(
         MobileTopBarButtonOnClickFingerprint,
