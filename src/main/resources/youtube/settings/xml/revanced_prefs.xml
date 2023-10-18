@@ -200,6 +200,9 @@
         <!-- SETTINGS: HIDE_SUGGESTIONS_SHELF
         <SwitchPreference android:title="@string/revanced_hide_suggestions_shelf_title" android:key="revanced_hide_suggestions_shelf" android:defaultValue="false" android:summary="@string/revanced_hide_suggestions_shelf_summary" />SETTINGS: HIDE_SUGGESTIONS_SHELF -->
 
+        <!-- SETTINGS: HIDE_TOOLBAR_BUTTON
+        <SwitchPreference android:title="@string/revanced_hide_toolbar_create_notification_button_title" android:key="revanced_hide_toolbar_create_notification_button" android:defaultValue="false" android:summaryOn="@string/revanced_hide_toolbar_create_notification_button_summary_on" android:summaryOff="@string/revanced_hide_toolbar_create_notification_button_summary_off" />SETTINGS: HIDE_TOOLBAR_BUTTON -->
+
         <!-- SETTINGS: HIDE_TRENDING_SEARCHES
         <SwitchPreference android:title="@string/revanced_hide_trending_searches_title" android:key="revanced_hide_trending_searches" android:defaultValue="true" android:summaryOn="@string/revanced_hide_trending_searches_summary_on" android:summaryOff="@string/revanced_hide_trending_searches_summary_off" />SETTINGS: HIDE_TRENDING_SEARCHES -->
 
@@ -356,6 +359,7 @@
             <Preference android:title="Hide mix playlists" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Hide snack bar" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Hide suggestions shelf" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="Hide toolbar button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Hide trending searches" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
 
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_misc" />

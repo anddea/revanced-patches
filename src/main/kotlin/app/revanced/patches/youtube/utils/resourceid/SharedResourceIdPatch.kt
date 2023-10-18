@@ -51,6 +51,7 @@ object SharedResourceIdPatch : ResourcePatch() {
     var InlineTimeBarPlayedNotHighlightedColor: Long = -1
     var InsetOverlayViewLayout: Long = -1
     var LiveChatButton: Long = -1
+    var MenuItemView: Long = -1
     var MusicAppDeeplinkButtonView: Long = -1
     var PosterArtWidthDefault: Long = -1
     var QualityAuto: Long = -1
@@ -131,6 +132,7 @@ object SharedResourceIdPatch : ResourcePatch() {
             find(COLOR, "inline_time_bar_played_not_highlighted_color")
         InsetOverlayViewLayout = find(ID, "inset_overlay_view_layout")
         LiveChatButton = find(ID, "live_chat_overlay_button")
+        MenuItemView = find(ID, "menu_item_view")
         MusicAppDeeplinkButtonView = find(ID, "music_app_deeplink_button_view")
         PosterArtWidthDefault = find(DIMEN, "poster_art_width_default")
         QualityAuto = find(STRING, "quality_auto")
