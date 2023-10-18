@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.general.personalinformation.fingerprints
+package app.revanced.patches.youtube.general.handle.fingerprints
 
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.AccountSwitcherAccessibility
