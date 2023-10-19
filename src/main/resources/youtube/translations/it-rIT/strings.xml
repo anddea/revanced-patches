@@ -39,6 +39,7 @@
     <string name="revanced_change_homepage_summary_off">Pagina iniziale attuale: Home</string>
     <string name="revanced_change_homepage_summary_on">Pagina iniziale attuale: Iscrizioni</string>
     <string name="revanced_change_homepage_title">Cambia la pagina iniziale</string>
+    <string name="revanced_channel_bar_title">Barra del canale</string>
     <string name="revanced_comments_title">Commenti</string>
     <string name="revanced_copy_video_timestamp_success">Timestamp copiato negli appunti</string>
     <string name="revanced_custom_filter_strings_summary">Filtra i componenti per nomi separati da righe</string>
@@ -163,6 +164,11 @@ Disponibile solo per alcuni utenti che possono usare la sovrapposizione della ve
     <string name="revanced_enable_tablet_navigation_bar_summary_off">La barra di navigazione da tablet è disattivata</string>
     <string name="revanced_enable_tablet_navigation_bar_summary_on">La barra di navigazione da tablet è attivata</string>
     <string name="revanced_enable_tablet_navigation_bar_title">Attiva la barra di navigazione da tablet</string>
+    <string name="revanced_enable_video_codec_summary">Simula le informazioni del dispositivo per attivare il codec video</string>
+    <string name="revanced_enable_video_codec_title">Attiva il codec video</string>
+    <string name="revanced_enable_video_codec_type_summary_off">Attiva il codec VP9</string>
+    <string name="revanced_enable_video_codec_type_summary_on">Attiva il codec HDR</string>
+    <string name="revanced_enable_video_codec_type_title">Tipo del codec video</string>
     <string name="revanced_enable_wide_search_bar_summary_off">La barra di ricerca estesa è disattivata</string>
     <string name="revanced_enable_wide_search_bar_summary_on">La barra di ricerca estesa è attivata</string>
     <string name="revanced_enable_wide_search_bar_title">Attiva la barra di ricerca estesa</string>
@@ -264,6 +270,9 @@ Disponibile solo per alcuni utenti che possono usare la sovrapposizione della ve
     <string name="revanced_hide_channel_member_shelf_summary_off">Lo scaffale degli abbonati è visibile</string>
     <string name="revanced_hide_channel_member_shelf_summary_on">Lo scaffale degli abbonati è nascosto</string>
     <string name="revanced_hide_channel_member_shelf_title">Nascondi lo scaffale degli abbonati</string>
+    <string name="revanced_hide_channel_profile_links_summary_off">I link in cima al profilo del canale sono visibili</string>
+    <string name="revanced_hide_channel_profile_links_summary_on">I link in cima al profilo del canale sono nascosti</string>
+    <string name="revanced_hide_channel_profile_links_title">Nascondi i link in cima al profilo del canale</string>
     <string name="revanced_hide_channel_watermark_summary_off">Il watermark nei video è visibile</string>
     <string name="revanced_hide_channel_watermark_summary_on">Il watermark nei video è nascosto</string>
     <string name="revanced_hide_channel_watermark_title">Nascondi il watermark nei video</string>
@@ -291,9 +300,6 @@ Disponibile solo per alcuni utenti che possono usare la sovrapposizione della ve
     <string name="revanced_hide_crowdfunding_box_summary_off">Il riquadro della raccolta fondi è visibile</string>
     <string name="revanced_hide_crowdfunding_box_summary_on">Il riquadro della raccolta fondi è nascosto</string>
     <string name="revanced_hide_crowdfunding_box_title">Nascondi il riquadro della raccolta fondi</string>
-    <string name="revanced_hide_email_address_summary_off">L\'indirizzo e-mail o l\'handle è visibile</string>
-    <string name="revanced_hide_email_address_summary_on">L\'indirizzo e-mail o l\'handle è nascosto</string>
-    <string name="revanced_hide_email_address_title">Nascondi l\'indirizzo e-mail o l\'handle</string>
     <string name="revanced_hide_emoji_picker_summary_off">Il selettore degli emoji è visibile</string>
     <string name="revanced_hide_emoji_picker_summary_on">Il selettore degli emoji è nascosto</string>
     <string name="revanced_hide_emoji_picker_title">Nascondi il selettore degli emoji</string>
@@ -337,6 +343,9 @@ Disponibile solo per alcuni utenti che possono usare la sovrapposizione della ve
     <string name="revanced_hide_gray_separator_summary_off">I separatori grigi sono visibili</string>
     <string name="revanced_hide_gray_separator_summary_on">I separatori grigi sono nascosti</string>
     <string name="revanced_hide_gray_separator_title">Nascondi i separatori grigi</string>
+    <string name="revanced_hide_handle_summary_off">L\'handle è visibile</string>
+    <string name="revanced_hide_handle_summary_on">L\'handle è nascosto</string>
+    <string name="revanced_hide_handle_title">Nascondi l\'handle</string>
     <string name="revanced_hide_home_button_summary_off">La scheda Home è visibile</string>
     <string name="revanced_hide_home_button_summary_on">La scheda Home è nascosta</string>
     <string name="revanced_hide_home_button_title">Nascondi la scheda Home</string>
@@ -415,9 +424,6 @@ Disponibile solo per alcuni utenti che possono usare la sovrapposizione della ve
     <string name="revanced_hide_player_flyout_panel_help_summary_off">Il menù Guida e Feedback è visibile</string>
     <string name="revanced_hide_player_flyout_panel_help_summary_on">Il menù Guida e Feedback è nascosto</string>
     <string name="revanced_hide_player_flyout_panel_help_title">Nascondi il menù Guida e Feedback</string>
-    <string name="revanced_hide_player_flyout_panel_listening_controls_summary_off">Il menù Controlli di Ascolto è visibile</string>
-    <string name="revanced_hide_player_flyout_panel_listening_controls_summary_on">Il menù Controlli di Ascolto è nascosto</string>
-    <string name="revanced_hide_player_flyout_panel_listening_controls_title">Nascondi il menù Controlli di Ascolto</string>
     <string name="revanced_hide_player_flyout_panel_listen_with_youtube_music_summary_off">Il menù Ascolta con YouTube Music è visibile</string>
     <string name="revanced_hide_player_flyout_panel_listen_with_youtube_music_summary_on">Il menù Ascolta con YouTube Music è nascosto</string>
     <string name="revanced_hide_player_flyout_panel_listen_with_youtube_music_title">Nascondi il menù Ascolta con YouTube Music</string>
@@ -433,6 +439,9 @@ Disponibile solo per alcuni utenti che possono usare la sovrapposizione della ve
     <string name="revanced_hide_player_flyout_panel_playback_speed_summary_off">Il menù Velocità di Riproduzione è visibile</string>
     <string name="revanced_hide_player_flyout_panel_playback_speed_summary_on">Il menù Velocità di Riproduzione è nascosto</string>
     <string name="revanced_hide_player_flyout_panel_playback_speed_title">Nascondi il menù della Velocità di Riproduzione</string>
+    <string name="revanced_hide_player_flyout_panel_premium_controls_summary_off">Il menù dei controlli premium è visibile</string>
+    <string name="revanced_hide_player_flyout_panel_premium_controls_summary_on">Il menù dei controlli premium è nascosto</string>
+    <string name="revanced_hide_player_flyout_panel_premium_controls_title">Nascondi il menù dei controlli premium</string>
     <string name="revanced_hide_player_flyout_panel_quality_footer_summary_off">La parte inferiore del menù Qualità è visibile</string>
     <string name="revanced_hide_player_flyout_panel_quality_footer_summary_on">La parte inferiore del menù Qualità è nascosta</string>
     <string name="revanced_hide_player_flyout_panel_quality_footer_title">Nascondi la parte inferiore del menù Qualità</string>
@@ -498,12 +507,21 @@ Disponibile solo per alcuni utenti che possono usare la sovrapposizione della ve
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_off">Il pulsante Iscriviti è visibile</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_on">Il pulsante Iscriviti è nascosto</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_title">Nascondi il pulsante Iscriviti</string>
-    <string name="revanced_hide_shorts_player_toolbar_summary_off">La barra degli strumenti è visibile</string>
-    <string name="revanced_hide_shorts_player_toolbar_summary_on">La barra degli strumenti è nascosta</string>
-    <string name="revanced_hide_shorts_player_toolbar_title">Nascondi la barra degli strumenti</string>
     <string name="revanced_hide_shorts_shelf_summary_off">Lo scaffale degli Shorts è visibile</string>
     <string name="revanced_hide_shorts_shelf_summary_on">Lo scaffale degli Shorts è nascosto</string>
     <string name="revanced_hide_shorts_shelf_title">Nascondi lo scaffale degli Shorts</string>
+    <string name="revanced_hide_shorts_toolbar_banner_summary_off">Il banner è visibile</string>
+    <string name="revanced_hide_shorts_toolbar_banner_summary_on">Il banner è nascosto</string>
+    <string name="revanced_hide_shorts_toolbar_banner_title">Nascondi il banner</string>
+    <string name="revanced_hide_shorts_toolbar_camera_button_summary_off">Il pulsante Camera è visibile</string>
+    <string name="revanced_hide_shorts_toolbar_camera_button_summary_on">Il pulsante Camera è nascosto</string>
+    <string name="revanced_hide_shorts_toolbar_camera_button_title">Nascondi il pulsante Camera</string>
+    <string name="revanced_hide_shorts_toolbar_menu_button_summary_off">Il pulsante Menù è visibile</string>
+    <string name="revanced_hide_shorts_toolbar_menu_button_summary_on">Il pulsante Menù è nascosto</string>
+    <string name="revanced_hide_shorts_toolbar_menu_button_title">Nascondi il pulsante Menù</string>
+    <string name="revanced_hide_shorts_toolbar_search_button_summary_off">Il pulsante Cerca è visibile</string>
+    <string name="revanced_hide_shorts_toolbar_search_button_summary_on">Il pulsante Cerca è nascosto</string>
+    <string name="revanced_hide_shorts_toolbar_search_button_title">Nascondi il pulsante Cerca</string>
     <string name="revanced_hide_snack_bar_summary_off">Le notifiche snackbar sono visibili</string>
     <string name="revanced_hide_snack_bar_summary_on">Le notifiche snackbar sono nascoste</string>
     <string name="revanced_hide_snack_bar_title">Nascondi le notifiche snackbar</string>
@@ -536,6 +554,9 @@ Problema noto: la riproduzione automatica non funziona"</string>
     <string name="revanced_hide_transcript_section_summary_off">La sezione Trascrizione è visibile</string>
     <string name="revanced_hide_transcript_section_summary_on">La sezione Trascrizione è nascosta</string>
     <string name="revanced_hide_transcript_section_title">Nascondi la sezione Trascrizione</string>
+    <string name="revanced_hide_toolbar_create_notification_button_summary_off">I pulsanti Crea e Notifica sono visibili</string>
+    <string name="revanced_hide_toolbar_create_notification_button_summary_on">I pulsanti Crea e Notifica sono nascosti</string>
+    <string name="revanced_hide_toolbar_create_notification_button_title">Nascondi i pulsanti Crea e Notifica</string>
     <string name="revanced_hide_trending_searches_summary_off">Le ricerche di tendenza sono visibili</string>
     <string name="revanced_hide_trending_searches_summary_on">Le ricerche di tendenza sono nascoste</string>
     <string name="revanced_hide_trending_searches_title">Nascondi le ricerche di tendenza</string>
@@ -578,9 +599,9 @@ Tocca e tieni premuto per copiare il timestamp del video"</string>
     <string name="revanced_overlay_button_speed_dialog_summary">"Tocca per aprire la finestra di dialogo della velocità.
 Tocca e tieni premuto per impostare la velocità di riproduzione a 1.0x"</string>
     <string name="revanced_overlay_button_speed_dialog_title">Mostra il pulsante Velocità Video</string>
-    <string name="revanced_override_premium_header_summary_off">Intestazione attuale: Predefinita</string>
-    <string name="revanced_override_premium_header_summary_on">Intestazione attuale: Premium</string>
-    <string name="revanced_override_premium_header_title">Intestazione Premium</string>
+    <string name="revanced_override_premium_header_summary_off">Intestazione attuale: predefinita</string>
+    <string name="revanced_override_premium_header_summary_on">Intestazione attuale: premium</string>
+    <string name="revanced_override_premium_header_title">Intestazione premium</string>
     <string name="revanced_patches_information">Informazioni patch</string>
     <string name="revanced_patches_information_summary">Informazioni sulle patch applicate</string>
     <string name="revanced_player">Riproduttore</string>
@@ -610,6 +631,7 @@ Tocca e tieni premuto per impostare la velocità di riproduzione a 1.0x"</string
     <string name="revanced_seekbar">Barra di avanzamento</string>
     <string name="revanced_shorts">Shorts</string>
     <string name="revanced_shorts_player_title">Riproduttore degli Shorts</string>
+    <string name="revanced_shorts_toolbar_title">Barra degli strumenti degli Shorts</string>
     <string name="revanced_show_fullscreen_title_summary">Problema noto: il titolo scompare quando viene toccato</string>
     <string name="revanced_show_fullscreen_title_title">Mostra il titolo a schermo intero</string>
     <string name="revanced_skipped_preloaded_buffer">Buffer precaricato saltato</string>

@@ -9,7 +9,7 @@
     <string name="microg_settings_title">MicroG を開く</string>
     <string name="revanced_ads">広告</string>
     <string name="revanced_alt_thumbnails">代替サムネイル</string>
-    <string name="revanced_alt_thumbnail_about_summary">デフォルトの動画サムネイルを代替サムネイルに置き換え、扇情を減らす機能です。</string>
+    <string name="revanced_alt_thumbnail_about_summary">デフォルトのサムネイルを代替サムネイルに置き換え、扇動的な表現を減らす機能です。</string>
     <string name="revanced_alt_thumbnail_about_title">この機能について</string>
     <string name="revanced_alt_thumbnail_dearrow_summary_off">外部 API を使用せずにサムネイルを生成します</string>
     <string name="revanced_alt_thumbnail_dearrow_summary_on">DeArrow API を使用してサムネイルを生成します</string>
@@ -39,6 +39,7 @@
     <string name="revanced_change_homepage_summary_off">起動時のタブ: ホーム</string>
     <string name="revanced_change_homepage_summary_on">起動時のタブ: 登録チャンネル</string>
     <string name="revanced_change_homepage_title">起動時のタブを登録チャンネルに変更</string>
+    <string name="revanced_channel_bar_title">チャンネルバー</string>
     <string name="revanced_comments_title">コメント</string>
     <string name="revanced_copy_video_timestamp_success">タイムスタンプをクリップボードにコピーしました</string>
     <string name="revanced_custom_filter_strings_summary">コンポーネント名でフィルター (改行区切り)</string>
@@ -112,12 +113,12 @@
     <string name="revanced_enable_external_browser_summary_off">外部ブラウザは無効です</string>
     <string name="revanced_enable_external_browser_summary_on">外部ブラウザは有効です</string>
     <string name="revanced_enable_external_browser_title">外部ブラウザ</string>
-    <string name="revanced_enable_gradient_loading_screen_summary_off">グラデーションの読み込み画面は無効</string>
-    <string name="revanced_enable_gradient_loading_screen_summary_on">グラデーションの読み込み画面は有効</string>
-    <string name="revanced_enable_gradient_loading_screen_title">グラデーションの読み込み画面を有効にする</string>
-    <string name="revanced_enable_language_switch_summary_off">言語の切り替えは無効</string>
-    <string name="revanced_enable_language_switch_summary_on">言語の切り替えは有効</string>
-    <string name="revanced_enable_language_switch_title">言語切り替えを有効にする</string>
+    <string name="revanced_enable_gradient_loading_screen_summary_off">グラデーションの読み込み画面は無効です</string>
+    <string name="revanced_enable_gradient_loading_screen_summary_on">グラデーションの読み込み画面は有効です</string>
+    <string name="revanced_enable_gradient_loading_screen_title">グラデーションの読み込み画面を有効化</string>
+    <string name="revanced_enable_language_switch_summary_off">アプリ言語の設定は無効です</string>
+    <string name="revanced_enable_language_switch_summary_on">アプリ言語の設定は有効です</string>
+    <string name="revanced_enable_language_switch_title">言語切り替えを有効化</string>
     <string name="revanced_enable_new_comment_popup_panels_summary_off">新しいコメントポップアップパネルは無効です</string>
     <string name="revanced_enable_new_comment_popup_panels_summary_on">新しいコメントポップアップパネルは有効です</string>
     <string name="revanced_enable_new_comment_popup_panels_title">コメント欄の新しいポップアップパネル</string>
@@ -163,6 +164,11 @@
     <string name="revanced_enable_tablet_navigation_bar_summary_off">タブレットのナビゲーションバーは無効です</string>
     <string name="revanced_enable_tablet_navigation_bar_summary_on">タブレットのナビゲーションバーは有効です</string>
     <string name="revanced_enable_tablet_navigation_bar_title">タブレットのナビゲーションバー</string>
+    <string name="revanced_enable_video_codec_summary">デバイス情報を偽装して動画コーデックを有効にします</string>
+    <string name="revanced_enable_video_codec_title">動画コーデックを有効化</string>
+    <string name="revanced_enable_video_codec_type_summary_off">VP9 コーデックを有効化</string>
+    <string name="revanced_enable_video_codec_type_summary_on">HDR コーデックを有効化</string>
+    <string name="revanced_enable_video_codec_type_title">動画コーデックの種類</string>
     <string name="revanced_enable_wide_search_bar_summary_off">通常の検索アイコンが表示されます</string>
     <string name="revanced_enable_wide_search_bar_summary_on">検索アイコンを幅の広い検索バーに置き換えます</string>
     <string name="revanced_enable_wide_search_bar_title">幅の広い検索バー</string>
@@ -172,7 +178,7 @@
     <string name="revanced_external_downloader_installed">インストール済み</string>
     <string name="revanced_external_downloader_not_installed">未インストール</string>
     <string name="revanced_external_downloader_not_installed_warning" formatted="false">%s はインストールされていません。インストールしてください。</string>
-    <string name="revanced_external_downloader_package_name_summary">インストールされている、NewPipe や YTDLnis などの外部の動画ダウンローダーアプリのパッケージ名</string>
+    <string name="revanced_external_downloader_package_name_summary">NewPipe や YTDLnis などの、インストールされている外部ダウンローダーアプリのパッケージ名</string>
     <string name="revanced_external_downloader_package_name_title">外部ダウンローダーのパッケージ名</string>
     <string name="revanced_external_downloader_settings_summary">外部の動画ダウンローダーの使用設定</string>
     <string name="revanced_external_downloader_settings_title">外部ダウンローダーの設定</string>
@@ -264,6 +270,9 @@
     <string name="revanced_hide_channel_member_shelf_summary_off">チャンネルメンバー欄は表示されます</string>
     <string name="revanced_hide_channel_member_shelf_summary_on">チャンネルメンバー欄は非表示です</string>
     <string name="revanced_hide_channel_member_shelf_title">チャンネルメンバー欄を非表示</string>
+    <string name="revanced_hide_channel_profile_links_summary_off">チャンネルプロフィール上部のリンクは表示されます</string>
+    <string name="revanced_hide_channel_profile_links_summary_on">チャンネルプロフィール上部のリンクは非表示です</string>
+    <string name="revanced_hide_channel_profile_links_title">チャンネルプロフィールのリンクを非表示</string>
     <string name="revanced_hide_channel_watermark_summary_off">チャンネルの透かしは表示されます</string>
     <string name="revanced_hide_channel_watermark_summary_on">チャンネルの透かしは非表示です</string>
     <string name="revanced_hide_channel_watermark_title">チャンネルの透かしを非表示</string>
@@ -291,9 +300,6 @@
     <string name="revanced_hide_crowdfunding_box_summary_off">プレーヤーと概要欄の間のクラウドファンディングボックスは表示されます</string>
     <string name="revanced_hide_crowdfunding_box_summary_on">プレーヤーと概要欄の間のクラウドファンディングボックスは非表示です</string>
     <string name="revanced_hide_crowdfunding_box_title">クラウドファンディング欄を非表示</string>
-    <string name="revanced_hide_email_address_summary_off">アカウント切替画面のメールアドレス (@handle) は表示されます</string>
-    <string name="revanced_hide_email_address_summary_on">アカウント切替画面のメールアドレス (@handle) は非表示です</string>
-    <string name="revanced_hide_email_address_title">メールアドレス (@handle) を非表示</string>
     <string name="revanced_hide_emoji_picker_summary_off">コメントを入力する際のキーボード上部の絵文字ピッカーは表示されます</string>
     <string name="revanced_hide_emoji_picker_summary_on">コメントを入力する際のキーボード上部の絵文字ピッカーは非表示です</string>
     <string name="revanced_hide_emoji_picker_title">絵文字ピッカーを非表示</string>
@@ -415,9 +421,6 @@
     <string name="revanced_hide_player_flyout_panel_help_summary_off">「ヘルプとフィードバック」メニューは表示されます</string>
     <string name="revanced_hide_player_flyout_panel_help_summary_on">「ヘルプとフィードバック」メニューは非表示です</string>
     <string name="revanced_hide_player_flyout_panel_help_title">「ヘルプとフィードバック」を非表示</string>
-    <string name="revanced_hide_player_flyout_panel_listening_controls_summary_off">「Premium のコントロール」メニューは表示されます</string>
-    <string name="revanced_hide_player_flyout_panel_listening_controls_summary_on">「Premium のコントロール」メニューは非表示です</string>
-    <string name="revanced_hide_player_flyout_panel_listening_controls_title">オーディオ再生コントロールを非表示</string>
     <string name="revanced_hide_player_flyout_panel_listen_with_youtube_music_summary_off">「YouTube Music で聴く」メニューは表示されます</string>
     <string name="revanced_hide_player_flyout_panel_listen_with_youtube_music_summary_on">「YouTube Music で聴く」メニューは非表示です</string>
     <string name="revanced_hide_player_flyout_panel_listen_with_youtube_music_title">「YouTube Music で聴く」を非表示</string>
@@ -498,9 +501,6 @@
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_off">「チャンネル登録」ボタンは表示されます</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_on">「チャンネル登録」ボタンは非表示です</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_title">チャンネル登録ボタンを非表示</string>
-    <string name="revanced_hide_shorts_player_toolbar_summary_off">画面上部の検索、作成、メニューボタンは表示されます</string>
-    <string name="revanced_hide_shorts_player_toolbar_summary_on">画面上部の検索、作成、メニューボタンは非表示です</string>
-    <string name="revanced_hide_shorts_player_toolbar_title">ツールバーを非表示</string>
     <string name="revanced_hide_shorts_shelf_summary_off">ショート欄は表示されます</string>
     <string name="revanced_hide_shorts_shelf_summary_on">ショート欄は非表示です</string>
     <string name="revanced_hide_shorts_shelf_title">ショート欄を非表示</string>
@@ -550,8 +550,7 @@
     <string name="revanced_hide_youtube_music_button_summary_off">YouTube Music ボタンは表示されます</string>
     <string name="revanced_hide_youtube_music_button_summary_on">YouTube Music ボタンは非表示です</string>
     <string name="revanced_hide_youtube_music_button_title">YouTube Music ボタンを非表示</string>
-    <string name="revanced_hook_download_button_summary">"「オフライン」ボタンを外部ダウンローダーに置き換えます
-YouTube v18.24.37 以降でのみ利用可能です"</string>
+    <string name="revanced_hook_download_button_summary">"「オフライン」ボタンを外部ダウンローダーに置き換えます"</string>
     <string name="revanced_hook_download_button_title">ダウンロードボタンをフック</string>
     <string name="revanced_import_settings_summary">ReVanced Extended の設定をファイルから読み込みます</string>
     <string name="revanced_import_settings_title">設定をインポート</string>

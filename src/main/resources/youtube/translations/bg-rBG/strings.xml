@@ -39,6 +39,7 @@
     <string name="revanced_change_homepage_summary_off">Домашна страница: Начало</string>
     <string name="revanced_change_homepage_summary_on">Домашна страница: Абонаменти</string>
     <string name="revanced_change_homepage_title">Смяна на дом. страница на абонаменти</string>
+    <string name="revanced_channel_bar_title">Панел на канала</string>
     <string name="revanced_comments_title">Коментари</string>
     <string name="revanced_copy_video_timestamp_success">Времевата марка е копирана в клипборда</string>
     <string name="revanced_custom_filter_strings_summary">Филтриране на компонентите по разделение на имената</string>
@@ -163,6 +164,11 @@
     <string name="revanced_enable_tablet_navigation_bar_summary_off">Навигационната лента за таблет е изключена</string>
     <string name="revanced_enable_tablet_navigation_bar_summary_on">Навигационната лента за таблет е включена</string>
     <string name="revanced_enable_tablet_navigation_bar_title">Навигационна лента за таблет</string>
+    <string name="revanced_enable_video_codec_summary">Замяна на параметрите за устройството за включване на VP9 кодек</string>
+    <string name="revanced_enable_video_codec_title">Вкл. видео кодек</string>
+    <string name="revanced_enable_video_codec_type_summary_off">Включване на VP9 кодек</string>
+    <string name="revanced_enable_video_codec_type_summary_on">Включване на HDR кодек</string>
+    <string name="revanced_enable_video_codec_type_title">Тип на видео кодека</string>
     <string name="revanced_enable_wide_search_bar_summary_off">Широката лента за търсене е изключена</string>
     <string name="revanced_enable_wide_search_bar_summary_on">Широката лента за търсене е включена</string>
     <string name="revanced_enable_wide_search_bar_title">Вкл. широка лента за търсене</string>
@@ -264,6 +270,9 @@
     <string name="revanced_hide_channel_member_shelf_summary_off">Рафта с членуващи се показва</string>
     <string name="revanced_hide_channel_member_shelf_summary_on">Рафта с членуващи е скрит</string>
     <string name="revanced_hide_channel_member_shelf_title">Скр. на рафта с членуващи</string>
+    <string name="revanced_hide_channel_profile_links_summary_off">Показани са в горната част връзки към профила на канала</string>
+    <string name="revanced_hide_channel_profile_links_summary_on">Връзките в горната част на профила на канала са скрити</string>
+    <string name="revanced_hide_channel_profile_links_title">Скр. на насоките към канала</string>
     <string name="revanced_hide_channel_watermark_summary_off">Водният знак на канала се показва</string>
     <string name="revanced_hide_channel_watermark_summary_on">Водният знак на канала е скрит</string>
     <string name="revanced_hide_channel_watermark_title">Воден знак на канала</string>
@@ -291,9 +300,6 @@
     <string name="revanced_hide_crowdfunding_box_summary_off">Кутията за финансиране се показва</string>
     <string name="revanced_hide_crowdfunding_box_summary_on">Кутията за финансиране е скрита</string>
     <string name="revanced_hide_crowdfunding_box_title">Кутия за финансиране</string>
-    <string name="revanced_hide_email_address_summary_off">Имейл адреса се показва</string>
-    <string name="revanced_hide_email_address_summary_on">Имейл адреса e скрит</string>
-    <string name="revanced_hide_email_address_title">Скриване на имейл адрес</string>
     <string name="revanced_hide_emoji_picker_summary_off">Менюто с емотикони се показва</string>
     <string name="revanced_hide_emoji_picker_summary_on">Менюто с емотикони е скрито</string>
     <string name="revanced_hide_emoji_picker_title">Скриване на емотиконите</string>
@@ -415,9 +421,6 @@
     <string name="revanced_hide_player_flyout_panel_help_summary_off">Менюто &amp; за помощ се показва</string>
     <string name="revanced_hide_player_flyout_panel_help_summary_on">Менюто &amp; за помощ е скрито</string>
     <string name="revanced_hide_player_flyout_panel_help_title">Скриване на менюто &amp; за помощ</string>
-    <string name="revanced_hide_player_flyout_panel_listening_controls_summary_off">Менюто за контрол на слуха се показва</string>
-    <string name="revanced_hide_player_flyout_panel_listening_controls_summary_on">Менюто за контрол на слуха е скрито</string>
-    <string name="revanced_hide_player_flyout_panel_listening_controls_title">Меню за контрол на слуха</string>
     <string name="revanced_hide_player_flyout_panel_listen_with_youtube_music_summary_off">Слушане с YouTube Music се показва</string>
     <string name="revanced_hide_player_flyout_panel_listen_with_youtube_music_summary_on">Слушане с YouTube Music е скрито</string>
     <string name="revanced_hide_player_flyout_panel_listen_with_youtube_music_title">Скриване на  менюто слушане с YouTube Music</string>
@@ -498,9 +501,6 @@
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_off">Бутона за абонаменти се показва</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_on">Бутона за абонаменти е скрит</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_title">Скр. бутона за абонаменти</string>
-    <string name="revanced_hide_shorts_player_toolbar_summary_off">Лента с инструменти се показва</string>
-    <string name="revanced_hide_shorts_player_toolbar_summary_on">Лента с инструменти е скрита</string>
-    <string name="revanced_hide_shorts_player_toolbar_title">Скриване на лентата с инструменти</string>
     <string name="revanced_hide_shorts_shelf_summary_off">Рафтовете с кратки клипове се показват</string>
     <string name="revanced_hide_shorts_shelf_summary_on">Рафтовете с кратки клипове са скрити</string>
     <string name="revanced_hide_shorts_shelf_title">Скр. рафтове с кратки клипове</string>
