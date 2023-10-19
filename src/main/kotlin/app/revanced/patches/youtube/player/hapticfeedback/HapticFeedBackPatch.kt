@@ -13,6 +13,7 @@ import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.player.hapticfeedback.fingerprints.MarkerHapticsFingerprint
 import app.revanced.patches.youtube.player.hapticfeedback.fingerprints.ScrubbingHapticsFingerprint
 import app.revanced.patches.youtube.player.hapticfeedback.fingerprints.SeekHapticsFingerprint
+import app.revanced.patches.youtube.player.hapticfeedback.fingerprints.SeekUndoHapticsFingerprint
 import app.revanced.patches.youtube.player.hapticfeedback.fingerprints.ZoomHapticsFingerprint
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.integrations.Constants.PLAYER
@@ -50,6 +51,7 @@ object HapticFeedBackPatch : BytecodePatch(
     setOf(
         MarkerHapticsFingerprint,
         SeekHapticsFingerprint,
+        SeekUndoHapticsFingerprint,
         ScrubbingHapticsFingerprint,
         ZoomHapticsFingerprint
     )
@@ -58,6 +60,7 @@ object HapticFeedBackPatch : BytecodePatch(
 
         arrayOf(
             SeekHapticsFingerprint to "disableSeekVibrate",
+            SeekUndoHapticsFingerprint to "disableSeekVibrate",
             ScrubbingHapticsFingerprint to "disableScrubbingVibrate",
             MarkerHapticsFingerprint to "disableChapterVibrate",
             ZoomHapticsFingerprint to "disableZoomVibrate"
