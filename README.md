@@ -9,108 +9,109 @@ ReVanced Extended Patches.
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
-| `Add splash animation` | Adds splash animation, which was removed in YT v18.19.36+. This patch cannot be used with 'custom-branding-icon' patch | 18.24.37 ~ 18.37.36 |
-| `Alternative thumbnails` | Adds an option to replace video thumbnails with still image captures of the video. | 18.24.37 ~ 18.37.36 |
-| `Append time stamps information` | Add the current video quality or playback speed in brackets next to the current time. | 18.24.37 ~ 18.37.36 |
-| `Bypass ambient mode restrictions` | Bypass ambient mode restrictions in battery saver mode. | 18.24.37 ~ 18.37.36 |
-| `Change homepage` | Change home page to subscription feed. | 18.24.37 ~ 18.37.36 |
-| `Custom branding YouTube name` | Rename the YouTube app to the name specified in options.json. | 18.24.37 ~ 18.37.36 |
-| `Custom branding icon MMT` | Changes the YouTube launcher icon to MMT. | 18.24.37 ~ 18.37.36 |
-| `Custom branding icon Revancify blue` | Changes the YouTube launcher icon to Revancify Blue. | 18.24.37 ~ 18.37.36 |
-| `Custom branding icon Revancify red` | Changes the YouTube launcher icon to Revancify Red. | 18.24.37 ~ 18.37.36 |
-| `Custom double tap length` | Add 'double-tap to seek' value. | 18.24.37 ~ 18.37.36 |
+| `Add splash animation` | Adds splash animation, which was removed in YT v18.19.36+. This patch cannot be used with 'custom-branding-icon' patch | 18.24.37 ~ 18.39.41 |
+| `Alternative thumbnails` | Adds an option to replace video thumbnails with still image captures of the video. | 18.24.37 ~ 18.39.41 |
+| `Append time stamps information` | Add the current video quality or playback speed in brackets next to the current time. | 18.24.37 ~ 18.39.41 |
+| `Bypass ambient mode restrictions` | Bypass ambient mode restrictions in battery saver mode. | 18.24.37 ~ 18.39.41 |
+| `Change homepage` | Change home page to subscription feed. | 18.24.37 ~ 18.39.41 |
+| `Custom branding YouTube name` | Rename the YouTube app to the name specified in options.json. | 18.24.37 ~ 18.39.41 |
+| `Custom branding icon MMT` | Changes the YouTube launcher icon to MMT. | 18.24.37 ~ 18.39.41 |
+| `Custom branding icon Revancify blue` | Changes the YouTube launcher icon to Revancify Blue. | 18.24.37 ~ 18.39.41 |
+| `Custom branding icon Revancify red` | Changes the YouTube launcher icon to Revancify Red. | 18.24.37 ~ 18.39.41 |
+| `Custom double tap length` | Add 'double-tap to seek' value. | 18.24.37 ~ 18.39.41 |
 | `Custom package name` | Specifies the package name for YouTube and YT Music in the MicroG build. | all |
-| `Custom playback speed` | Adds more playback speed options. | 18.24.37 ~ 18.37.36 |
-| `Custom seekbar color` | Change seekbar color in video player and video thumbnails. | 18.24.37 ~ 18.37.36 |
-| `Custom speed overlay` | Customize 'Play at 2x speed' while holding down. | 18.24.37 ~ 18.37.36 |
-| `Default playback speed` | Adds ability to set default playback speed settings. | 18.24.37 ~ 18.37.36 |
-| `Default video quality` | Adds ability to set default video quality settings. | 18.24.37 ~ 18.37.36 |
-| `Disable QUIC protocol` | Disable CronetEngine's QUIC protocol. | 18.24.37 ~ 18.37.36 |
-| `Disable Shorts on startup` | Disables playing YouTube Shorts when launching YouTube. | 18.24.37 ~ 18.37.36 |
-| `Disable auto captions` | Disables forced auto captions. | 18.24.37 ~ 18.37.36 |
-| `Disable haptic feedback` | Disable haptic feedback when swiping. | 18.24.37 ~ 18.37.36 |
-| `Disable hdr video` | Disable HDR video. | 18.24.37 ~ 18.37.36 |
-| `Disable landscape mode` | Disable landscape mode when entering fullscreen. | 18.24.37 ~ 18.37.36 |
-| `Disable pip notification` | Disable pip notification when you first launch pip mode. | 18.24.37 ~ 18.37.36 |
-| `Enable compact controls overlay` | Enables compact control overlay. | 18.24.37 ~ 18.37.36 |
-| `Enable debug logging` | Adds debugging options. | 18.24.37 ~ 18.37.36 |
-| `Enable external browser` | Open url outside the app in an external browser. | 18.24.37 ~ 18.37.36 |
-| `Enable gradient loading screen` | Enables gradient loading screen. | 18.24.37 ~ 18.37.36 |
-| `Enable language switch` | Enable/disable language switch toggle. | 18.24.37 ~ 18.37.36 |
-| `Enable minimized playback` | Enables minimized and background playback. | 18.24.37 ~ 18.37.36 |
-| `Enable new comment popup panels` | Enables a new type of comment popup panel in the shorts player. | 18.24.37 ~ 18.37.36 |
-| `Enable new splash animation` | Enables a new type of splash animation. | 18.24.37 ~ 18.37.36 |
-| `Enable new thumbnail preview` | Enables a new type of thumbnail preview. | 18.24.37 ~ 18.37.36 |
-| `Enable old quality layout` | Enables the original quality flyout menu. | 18.24.37 ~ 18.37.36 |
-| `Enable open links directly` | Skips over redirection URLs to external links. | 18.24.37 ~ 18.37.36 |
-| `Enable seekbar tapping` | Enables tap-to-seek on the seekbar of the video player. | 18.24.37 ~ 18.37.36 |
-| `Enable tablet mini player` | Enables the tablet mini player layout. | 18.24.37 ~ 18.37.36 |
-| `Enable tablet navigation bar` | Enables the tablet navigation bar. | 18.24.37 ~ 18.37.36 |
-| `Enable wide search bar` | Replaces the search icon with a wide search bar. This will hide the YouTube logo when active. | 18.24.37 ~ 18.37.36 |
-| `Force OPUS codec` | Forces the OPUS codec for audios. | 18.24.37 ~ 18.37.36 |
-| `Force hide player button background` | Force hides the background from the video player buttons. | 18.24.37 ~ 18.37.36 |
-| `Force premium heading` | Forces premium heading on the homepage. | 18.24.37 ~ 18.37.36 |
-| `Force video codec` | Forces the video codec for videos. | 18.24.37 ~ 18.37.36 |
-| `Header switch` | Add switch to change header. | 18.24.37 ~ 18.37.36 |
-| `Hide account menu` | Hide account menu elements. | 18.24.37 ~ 18.37.36 |
-| `Hide auto player popup panels` | Hide automatic popup panels (playlist or live chat) on video player. | 18.24.37 ~ 18.37.36 |
-| `Hide autoplay button` | Hides the autoplay button in the video player. | 18.24.37 ~ 18.37.36 |
-| `Hide autoplay preview` | Hides the autoplay preview container in the fullscreen. | 18.24.37 ~ 18.37.36 |
-| `Hide button container` | Adds the options to hide action buttons under a video. | 18.24.37 ~ 18.37.36 |
-| `Hide captions button` | Hides the captions button in the video player. | 18.24.37 ~ 18.37.36 |
-| `Hide cast button` | Hides the cast button in the video player. | 18.24.37 ~ 18.37.36 |
-| `Hide category bar` | Hides the category bar in feeds. | 18.24.37 ~ 18.37.36 |
-| `Hide channel avatar section` | Hides the channel avatar section of the subscription feed. | 18.24.37 ~ 18.37.36 |
-| `Hide channel watermark` | Hides creator's watermarks on videos. | 18.24.37 ~ 18.37.36 |
-| `Hide collapse button` | Hides the collapse button in the video player. | 18.24.37 ~ 18.37.36 |
-| `Hide comment component` | Hides components related to comments. | 18.24.37 ~ 18.37.36 |
-| `Hide crowdfunding box` | Hides the crowdfunding box between the player and video description. | 18.24.37 ~ 18.37.36 |
-| `Hide description components` | Hides description components. | 18.24.37 ~ 18.37.36 |
-| `Hide double tap overlay filter` | Hides the double tap dark filter layer. | 18.24.37 ~ 18.37.36 |
-| `Hide end screen cards` | Hides the suggested video cards at the end of a video in fullscreen. | 18.24.37 ~ 18.37.36 |
-| `Hide end screen overlay` | Hide end screen overlay on swipe controls. | 18.24.37 ~ 18.37.36 |
-| `Hide feed flyout panel` | Hides feed flyout panel components. | 18.24.37 ~ 18.37.36 |
-| `Hide filmstrip overlay` | Hide filmstrip overlay on swipe controls. | 18.24.37 ~ 18.37.36 |
-| `Hide floating microphone` | Hides the floating microphone button which appears in search. | 18.24.37 ~ 18.37.36 |
-| `Hide fullscreen panels` | Hides video description and comments panel in fullscreen view. | 18.24.37 ~ 18.37.36 |
-| `Hide general ads` | Hides general ads. | 18.24.37 ~ 18.37.36 |
-| `Hide handle` | Hides the handle in the account switcher. | 18.24.37 ~ 18.37.36 |
-| `Hide info cards` | Hides info-cards in videos. | 18.24.37 ~ 18.37.36 |
-| `Hide latest videos button` | Hides latest videos button in home feed. | 18.24.37 ~ 18.37.36 |
-| `Hide layout components` | Hides general layout components. | 18.24.37 ~ 18.37.36 |
-| `Hide load more button` | Hides the button under videos that loads similar videos. | 18.24.37 ~ 18.37.36 |
-| `Hide mix playlists` | Hides mix playlists in feed. | 18.24.37 ~ 18.37.36 |
-| `Hide music button` | Hides the YouTube Music button in the video player. | 18.24.37 ~ 18.37.36 |
-| `Hide navigation buttons` | Adds options to hide or change navigation buttons. | 18.24.37 ~ 18.37.36 |
-| `Hide navigation label` | Hide navigation bar labels. | 18.24.37 ~ 18.37.36 |
-| `Hide player button background` | Hide player button background. | 18.24.37 ~ 18.37.36 |
-| `Hide player flyout panel` | Hides player flyout panel components. | 18.24.37 ~ 18.37.36 |
-| `Hide player overlay filter` | Hides the dark filter layer from the player's background. | 18.24.37 ~ 18.37.36 |
-| `Hide previous next button` | Hides the previous and next button in the player controller. | 18.24.37 ~ 18.37.36 |
-| `Hide quick actions` | Adds the options to hide quick actions components in the fullscreen. | 18.24.37 ~ 18.37.36 |
-| `Hide seek message` | Hides the 'Slide left or right to seek' message container. | 18.24.37 ~ 18.37.36 |
-| `Hide seekbar` | Hides the seekbar in video player and video thumbnails. | 18.24.37 ~ 18.37.36 |
-| `Hide shorts components` | Hides other Shorts components. | 18.24.37 ~ 18.37.36 |
-| `Hide snack bar` | Hides the snack bar action popup. | 18.24.37 ~ 18.37.36 |
-| `Hide suggested actions` | Hide the suggested actions bar inside the player. | 18.24.37 ~ 18.37.36 |
-| `Hide suggested video overlay` | Hide the suggested video overlay to play next. | 18.24.37 ~ 18.37.36 |
-| `Hide suggestions shelf` | Hides the suggestions shelf. | 18.24.37 ~ 18.37.36 |
-| `Hide time stamp` | Hides timestamp in video player. | 18.24.37 ~ 18.37.36 |
-| `Hide tooltip content` | Hides the tooltip box that appears on first install. | 18.24.37 ~ 18.37.36 |
-| `Hide trending searches` | Hide trending searches in the search bar. | 18.24.37 ~ 18.37.36 |
-| `Hide video ads` | Hides ads in the video player. | 18.24.37 ~ 18.37.36 |
-| `Layout switch` | Tricks the dpi to use some tablet/phone layouts. | 18.24.37 ~ 18.37.36 |
-| `MaterialYou` | Enables MaterialYou theme for Android 12+ | 18.24.37 ~ 18.37.36 |
-| `MicroG support` | Allows ReVanced Extended to run without root and under a different package name with MicroG. | 18.24.37 ~ 18.37.36 |
-| `Overlay buttons` | Add overlay buttons to the player. | 18.24.37 ~ 18.37.36 |
-| `Return YouTube Dislike` | Shows the dislike count of videos using the Return YouTube Dislike API. | 18.24.37 ~ 18.37.36 |
-| `Settings` | Applies mandatory patches to implement ReVanced Extended settings into the application. | 18.24.37 ~ 18.37.36 |
-| `SponsorBlock` | Integrates SponsorBlock which allows skipping video segments such as sponsored content. | 18.24.37 ~ 18.37.36 |
-| `Spoof app version` | Spoof the YouTube client version. | 18.24.37 ~ 18.37.36 |
-| `Spoof player parameters` | Spoofs player parameters to prevent playback issues. | 18.24.37 ~ 18.37.36 |
-| `Swipe controls` | Adds volume and brightness swipe controls. | 18.24.37 ~ 18.37.36 |
-| `Theme` | Change the app's theme to the values specified in options.json. | 18.24.37 ~ 18.37.36 |
-| `Translations` | Add Crowdin translations for YouTube. | 18.24.37 ~ 18.37.36 |
+| `Custom playback speed` | Adds more playback speed options. | 18.24.37 ~ 18.39.41 |
+| `Custom seekbar color` | Change seekbar color in video player and video thumbnails. | 18.24.37 ~ 18.39.41 |
+| `Custom speed overlay` | Customize 'Play at 2x speed' while holding down. | 18.24.37 ~ 18.39.41 |
+| `Default playback speed` | Adds ability to set default playback speed settings. | 18.24.37 ~ 18.39.41 |
+| `Default video quality` | Adds ability to set default video quality settings. | 18.24.37 ~ 18.39.41 |
+| `Disable QUIC protocol` | Disable CronetEngine's QUIC protocol. | 18.24.37 ~ 18.39.41 |
+| `Disable auto captions` | Disables forced auto captions. | 18.24.37 ~ 18.39.41 |
+| `Disable haptic feedback` | Disable haptic feedback when swiping. | 18.24.37 ~ 18.39.41 |
+| `Disable hdr video` | Disable HDR video. | 18.24.37 ~ 18.39.41 |
+| `Disable landscape mode` | Disable landscape mode when entering fullscreen. | 18.24.37 ~ 18.39.41 |
+| `Disable pip notification` | Disable pip notification when you first launch pip mode. | 18.24.37 ~ 18.39.41 |
+| `Disable shorts on startup` | Disables playing YouTube Shorts when launching YouTube. | 18.24.37 ~ 18.39.41 |
+| `Enable compact controls overlay` | Enables compact control overlay. | 18.24.37 ~ 18.39.41 |
+| `Enable debug logging` | Adds debugging options. | 18.24.37 ~ 18.39.41 |
+| `Enable external browser` | Open url outside the app in an external browser. | 18.24.37 ~ 18.39.41 |
+| `Enable gradient loading screen` | Enables gradient loading screen. | 18.24.37 ~ 18.39.41 |
+| `Enable language switch` | Enable/disable language switch toggle. | 18.24.37 ~ 18.39.41 |
+| `Enable minimized playback` | Enables minimized and background playback. | 18.24.37 ~ 18.39.41 |
+| `Enable new comment popup panels` | Enables a new type of comment popup panel in the shorts player. | 18.24.37 ~ 18.39.41 |
+| `Enable new splash animation` | Enables a new type of splash animation. | 18.24.37 ~ 18.39.41 |
+| `Enable new thumbnail preview` | Enables a new type of thumbnail preview. | 18.24.37 ~ 18.39.41 |
+| `Enable old quality layout` | Enables the original quality flyout menu. | 18.24.37 ~ 18.39.41 |
+| `Enable open links directly` | Skips over redirection URLs to external links. | 18.24.37 ~ 18.39.41 |
+| `Enable seekbar tapping` | Enables tap-to-seek on the seekbar of the video player. | 18.24.37 ~ 18.39.41 |
+| `Enable tablet mini player` | Enables the tablet mini player layout. | 18.24.37 ~ 18.39.41 |
+| `Enable tablet navigation bar` | Enables the tablet navigation bar. | 18.24.37 ~ 18.39.41 |
+| `Enable wide search bar` | Replaces the search icon with a wide search bar. This will hide the YouTube logo when active. | 18.24.37 ~ 18.39.41 |
+| `Force OPUS codec` | Forces the OPUS codec for audios. | 18.24.37 ~ 18.39.41 |
+| `Force hide player button background` | Force hides the background from the video player buttons. | 18.24.37 ~ 18.39.41 |
+| `Force premium heading` | Forces premium heading on the homepage. | 18.24.37 ~ 18.39.41 |
+| `Force video codec` | Forces the video codec for videos. | 18.24.37 ~ 18.39.41 |
+| `Header switch` | Add switch to change header. | 18.24.37 ~ 18.39.41 |
+| `Hide account menu` | Hide account menu elements. | 18.24.37 ~ 18.39.41 |
+| `Hide auto player popup panels` | Hide automatic popup panels (playlist or live chat) on video player. | 18.24.37 ~ 18.39.41 |
+| `Hide autoplay button` | Hides the autoplay button in the video player. | 18.24.37 ~ 18.39.41 |
+| `Hide autoplay preview` | Hides the autoplay preview container in the fullscreen. | 18.24.37 ~ 18.39.41 |
+| `Hide button container` | Adds the options to hide action buttons under a video. | 18.24.37 ~ 18.39.41 |
+| `Hide captions button` | Hides the captions button in the video player. | 18.24.37 ~ 18.39.41 |
+| `Hide cast button` | Hides the cast button in the video player. | 18.24.37 ~ 18.39.41 |
+| `Hide category bar` | Hides the category bar in feeds. | 18.24.37 ~ 18.39.41 |
+| `Hide channel avatar section` | Hides the channel avatar section of the subscription feed. | 18.24.37 ~ 18.39.41 |
+| `Hide channel watermark` | Hides creator's watermarks on videos. | 18.24.37 ~ 18.39.41 |
+| `Hide collapse button` | Hides the collapse button in the video player. | 18.24.37 ~ 18.39.41 |
+| `Hide comment component` | Hides components related to comments. | 18.24.37 ~ 18.39.41 |
+| `Hide crowdfunding box` | Hides the crowdfunding box between the player and video description. | 18.24.37 ~ 18.39.41 |
+| `Hide description components` | Hides description components. | 18.24.37 ~ 18.39.41 |
+| `Hide double tap overlay filter` | Hides the double tap dark filter layer. | 18.24.37 ~ 18.39.41 |
+| `Hide end screen cards` | Hides the suggested video cards at the end of a video in fullscreen. | 18.24.37 ~ 18.39.41 |
+| `Hide end screen overlay` | Hide end screen overlay on swipe controls. | 18.24.37 ~ 18.39.41 |
+| `Hide feed flyout panel` | Hides feed flyout panel components. | 18.24.37 ~ 18.39.41 |
+| `Hide filmstrip overlay` | Hide filmstrip overlay on swipe controls. | 18.24.37 ~ 18.39.41 |
+| `Hide floating microphone` | Hides the floating microphone button which appears in search. | 18.24.37 ~ 18.39.41 |
+| `Hide fullscreen panels` | Hides video description and comments panel in fullscreen view. | 18.24.37 ~ 18.39.41 |
+| `Hide general ads` | Hides general ads. | 18.24.37 ~ 18.39.41 |
+| `Hide handle` | Hides the handle in the account switcher and You tab. | 18.24.37 ~ 18.39.41 |
+| `Hide info cards` | Hides info-cards in videos. | 18.24.37 ~ 18.39.41 |
+| `Hide latest videos button` | Hides latest videos button in home feed. | 18.24.37 ~ 18.39.41 |
+| `Hide layout components` | Hides general layout components. | 18.24.37 ~ 18.39.41 |
+| `Hide load more button` | Hides the button under videos that loads similar videos. | 18.24.37 ~ 18.39.41 |
+| `Hide mix playlists` | Hides mix playlists in feed. | 18.24.37 ~ 18.39.41 |
+| `Hide music button` | Hides the YouTube Music button in the video player. | 18.24.37 ~ 18.39.41 |
+| `Hide navigation buttons` | Adds options to hide or change navigation buttons. | 18.24.37 ~ 18.39.41 |
+| `Hide navigation label` | Hide navigation bar labels. | 18.24.37 ~ 18.39.41 |
+| `Hide player button background` | Hide player button background. | 18.24.37 ~ 18.39.41 |
+| `Hide player flyout panel` | Hides player flyout panel components. | 18.24.37 ~ 18.39.41 |
+| `Hide player overlay filter` | Hides the dark filter layer from the player's background. | 18.24.37 ~ 18.39.41 |
+| `Hide previous next button` | Hides the previous and next button in the player controller. | 18.24.37 ~ 18.39.41 |
+| `Hide quick actions` | Adds the options to hide quick actions components in the fullscreen. | 18.24.37 ~ 18.39.41 |
+| `Hide seek message` | Hides the 'Slide left or right to seek' or 'Release to cancel' message container. | 18.24.37 ~ 18.39.41 |
+| `Hide seekbar` | Hides the seekbar in video player and video thumbnails. | 18.24.37 ~ 18.39.41 |
+| `Hide shorts components` | Hides other Shorts components. | 18.24.37 ~ 18.39.41 |
+| `Hide snack bar` | Hides the snack bar action popup. | 18.24.37 ~ 18.39.41 |
+| `Hide suggested actions` | Hide the suggested actions bar inside the player. | 18.24.37 ~ 18.39.41 |
+| `Hide suggested video overlay` | Hide the suggested video overlay to play next. | 18.24.37 ~ 18.39.41 |
+| `Hide suggestions shelf` | Hides the suggestions shelf. | 18.24.37 ~ 18.39.41 |
+| `Hide time stamp` | Hides timestamp in video player. | 18.24.37 ~ 18.39.41 |
+| `Hide toolbar button` | Hide the button in the toolbar. | 18.24.37 ~ 18.39.41 |
+| `Hide tooltip content` | Hides the tooltip box that appears on first install. | 18.24.37 ~ 18.39.41 |
+| `Hide trending searches` | Hide trending searches in the search bar. | 18.24.37 ~ 18.39.41 |
+| `Hide video ads` | Hides ads in the video player. | 18.24.37 ~ 18.39.41 |
+| `Layout switch` | Tricks the dpi to use some tablet/phone layouts. | 18.24.37 ~ 18.39.41 |
+| `MaterialYou` | Enables MaterialYou theme for Android 12+ | 18.24.37 ~ 18.39.41 |
+| `MicroG support` | Allows ReVanced Extended to run without root and under a different package name with MicroG. | 18.24.37 ~ 18.39.41 |
+| `Overlay buttons` | Add overlay buttons to the player. | 18.24.37 ~ 18.39.41 |
+| `Return YouTube Dislike` | Shows the dislike count of videos using the Return YouTube Dislike API. | 18.24.37 ~ 18.39.41 |
+| `Settings` | Applies mandatory patches to implement ReVanced Extended settings into the application. | 18.24.37 ~ 18.39.41 |
+| `SponsorBlock` | Integrates SponsorBlock which allows skipping video segments such as sponsored content. | 18.24.37 ~ 18.39.41 |
+| `Spoof app version` | Spoof the YouTube client version. | 18.24.37 ~ 18.39.41 |
+| `Spoof player parameters` | Spoofs player parameters to prevent playback issues. | 18.24.37 ~ 18.39.41 |
+| `Swipe controls` | Adds volume and brightness swipe controls. | 18.24.37 ~ 18.39.41 |
+| `Theme` | Change the app's theme to the values specified in options.json. | 18.24.37 ~ 18.39.41 |
+| `Translations` | Add Crowdin translations for YouTube. | 18.24.37 ~ 18.39.41 |
 </details>
 
 ### [📦 `com.google.android.apps.youtube.music`](https://play.google.com/store/apps/details?id=com.google.android.apps.youtube.music)
@@ -225,7 +226,9 @@ Example:
           "18.34.38",
           "18.35.36",
           "18.36.39",
-          "18.37.36"
+          "18.37.36",
+          "18.38.44",
+          "18.39.41"
         ]
       }
     ],
