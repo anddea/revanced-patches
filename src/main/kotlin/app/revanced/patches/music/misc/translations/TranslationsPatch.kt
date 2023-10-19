@@ -46,6 +46,7 @@ object TranslationsPatch : ResourcePatch() {
         "nl-rNL",
         "pl-rPL",
         "pt-rBR",
+        "ro-rRO",
         "ru-rRU",
         "tr-rTR",
         "uk-rUA",
