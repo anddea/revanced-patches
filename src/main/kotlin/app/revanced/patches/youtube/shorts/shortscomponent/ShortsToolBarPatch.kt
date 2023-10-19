@@ -27,11 +27,13 @@ object ShortsToolBarPatch : BytecodePatch(
 
             targetMethod.apply {
                 addInstructionsWithLabels(
-                    0, """
+                    0,
+                    """
                         invoke-static {}, $SHORTS->hideShortsToolBarBanner()Z
                         move-result v0
                         if-nez v0, :hide
-                        """, ExternalLabel("hide", getInstruction(implementation!!.instructions.size - 1))
+                        """,
+                    ExternalLabel("hide", getInstruction(implementation!!.instructions.size - 1))
                 )
             }
         } ?: throw ToolBarBannerFingerprint.exception
