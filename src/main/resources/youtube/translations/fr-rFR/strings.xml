@@ -39,6 +39,7 @@
     <string name="revanced_change_homepage_summary_off">Page d\'accueil actuelle : Accueil</string>
     <string name="revanced_change_homepage_summary_on">Page d\'accueil actuelle : Abonnements</string>
     <string name="revanced_change_homepage_title">Change la page d\'accueil par \"Abonnements\"</string>
+    <string name="revanced_channel_bar_title">Barre de la chaîne </string>
     <string name="revanced_comments_title">Commentaires</string>
     <string name="revanced_copy_video_timestamp_success">Horodatage copié dans le presse-papiers</string>
     <string name="revanced_custom_filter_strings_summary">Filtrer les composants par noms séparés par un saut de ligne</string>
@@ -163,6 +164,11 @@
     <string name="revanced_enable_tablet_navigation_bar_summary_off">La barre de navigation tablette est désactivée</string>
     <string name="revanced_enable_tablet_navigation_bar_summary_on">La barre de navigation tablette est activée</string>
     <string name="revanced_enable_tablet_navigation_bar_title">Barre de navigation tablette</string>
+    <string name="revanced_enable_video_codec_summary">Falsification des infos pour activer le codec </string>
+    <string name="revanced_enable_video_codec_title">Codec vidéo</string>
+    <string name="revanced_enable_video_codec_type_summary_off">Codec VP9</string>
+    <string name="revanced_enable_video_codec_type_summary_on">Codec HDR</string>
+    <string name="revanced_enable_video_codec_type_title">Type de codec vidéo</string>
     <string name="revanced_enable_wide_search_bar_summary_off">La barre de recherche large est désactivée</string>
     <string name="revanced_enable_wide_search_bar_summary_on">La barre de recherche large est activée</string>
     <string name="revanced_enable_wide_search_bar_title">Barre de recherche large</string>
@@ -264,6 +270,9 @@
     <string name="revanced_hide_channel_member_shelf_summary_off">Les membres des chaînes YouTube sont affichés</string>
     <string name="revanced_hide_channel_member_shelf_summary_on">Les membres des chaînes YouTube sont masqués</string>
     <string name="revanced_hide_channel_member_shelf_title">Membres des chaînes YouTube</string>
+    <string name="revanced_hide_channel_profile_links_summary_off">Les liens en haut du profil des chaînes sont affichés</string>
+    <string name="revanced_hide_channel_profile_links_summary_on">Les liens en haut du profil des chaînes sont masqués</string>
+    <string name="revanced_hide_channel_profile_links_title">Lien sur le profil de chaîne</string>
     <string name="revanced_hide_channel_watermark_summary_off">Le filigrane vidéo est affiché</string>
     <string name="revanced_hide_channel_watermark_summary_on">Le filigrane vidéo est masqué</string>
     <string name="revanced_hide_channel_watermark_title">Filigrane de la chaîne</string>
@@ -291,9 +300,6 @@
     <string name="revanced_hide_crowdfunding_box_summary_off">La boîte de dons est affichée</string>
     <string name="revanced_hide_crowdfunding_box_summary_on">La boîte de dons est masquée</string>
     <string name="revanced_hide_crowdfunding_box_title">Boîte de dons</string>
-    <string name="revanced_hide_email_address_summary_off">L\'adresse e-mail (identifiant) est affichée</string>
-    <string name="revanced_hide_email_address_summary_on">L\'adresse e-mail (identifiant) est masquée</string>
-    <string name="revanced_hide_email_address_title">Adresse e-mail (identifiant)</string>
     <string name="revanced_hide_emoji_picker_summary_off">Le sélecteur d\'émoji est affiché</string>
     <string name="revanced_hide_emoji_picker_summary_on">Le sélecteur d\'émoji est masqué</string>
     <string name="revanced_hide_emoji_picker_title">Sélecteur d\'émoji</string>
@@ -337,6 +343,9 @@
     <string name="revanced_hide_gray_separator_summary_off">Les séparateurs gris sont affichés</string>
     <string name="revanced_hide_gray_separator_summary_on">Les séparateurs gris sont masqués</string>
     <string name="revanced_hide_gray_separator_title">Séparateurs gris</string>
+    <string name="revanced_hide_handle_summary_off">Les identifiants des chaînes YouTube sont affichés</string>
+    <string name="revanced_hide_handle_summary_on">Les identifiants des chaînes YouTube sont masqués</string>
+    <string name="revanced_hide_handle_title">Identifiants YouTube</string>
     <string name="revanced_hide_home_button_summary_off">Le bouton \"Accueil\" est affiché</string>
     <string name="revanced_hide_home_button_summary_on">Le bouton \"Accueil\" est masqué</string>
     <string name="revanced_hide_home_button_title">Bouton \"Accueil\"</string>
@@ -415,9 +424,6 @@
     <string name="revanced_hide_player_flyout_panel_help_summary_off">Le bouton \"Aide &amp; commentaires\" est affiché</string>
     <string name="revanced_hide_player_flyout_panel_help_summary_on">Le bouton \"Aide &amp; commentaires\" est masqué</string>
     <string name="revanced_hide_player_flyout_panel_help_title">Bouton \"Aide &amp; commentaires\"</string>
-    <string name="revanced_hide_player_flyout_panel_listening_controls_summary_off">Le bouton \"Commandes d\'écoute\" est affiché</string>
-    <string name="revanced_hide_player_flyout_panel_listening_controls_summary_on">Le bouton \"Commandes d\'écoute\" est masqué</string>
-    <string name="revanced_hide_player_flyout_panel_listening_controls_title">Bouton \"Commandes d\'écoute\"</string>
     <string name="revanced_hide_player_flyout_panel_listen_with_youtube_music_summary_off">Le bouton \"Écouter avec YouTube Music\" est affiché</string>
     <string name="revanced_hide_player_flyout_panel_listen_with_youtube_music_summary_on">Le bouton \"Écouter avec YouTube Music\" est masqué</string>
     <string name="revanced_hide_player_flyout_panel_listen_with_youtube_music_title">Bouton \"Écouter avec YouTube Music\"</string>
@@ -433,6 +439,9 @@
     <string name="revanced_hide_player_flyout_panel_playback_speed_summary_off">Le bouton \"Vitesse de lecture\" est affiché</string>
     <string name="revanced_hide_player_flyout_panel_playback_speed_summary_on">Le bouton \"Vitesse de lecture\" est masqué</string>
     <string name="revanced_hide_player_flyout_panel_playback_speed_title">Bouton \"Vitesse de lecture\"</string>
+    <string name="revanced_hide_player_flyout_panel_premium_controls_summary_off">Le menu \"Commandes Premium\" est affiché</string>
+    <string name="revanced_hide_player_flyout_panel_premium_controls_summary_on">Le menu \"Commandes Premium\" est masqué</string>
+    <string name="revanced_hide_player_flyout_panel_premium_controls_title">Menu \"Commandes Premium\"</string>
     <string name="revanced_hide_player_flyout_panel_quality_footer_summary_off">Les conseils d\'utilisation de qualité vidéo sont affichés</string>
     <string name="revanced_hide_player_flyout_panel_quality_footer_summary_on">Les conseils d\'utilisation de qualité vidéo sont masqués</string>
     <string name="revanced_hide_player_flyout_panel_quality_footer_title">Conseils d\'utilisation de qualité vidéo</string>
@@ -498,12 +507,21 @@
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_off">Le bouton \"S\'abonner\" est affiché</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_on">Le bouton \"S\'abonner\" est masqué</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_title">Bouton \"S\'abonner\"</string>
-    <string name="revanced_hide_shorts_player_toolbar_summary_off">La boîte à message discret est affichée</string>
-    <string name="revanced_hide_shorts_player_toolbar_summary_on">La boîte à message discret est masquée</string>
-    <string name="revanced_hide_shorts_player_toolbar_title">Boîte à message discrète </string>
     <string name="revanced_hide_shorts_shelf_summary_off">La proposition de Shorts est affichés dans les catégories de l\'application</string>
     <string name="revanced_hide_shorts_shelf_summary_on">La proposition de Shorts est masqués dans les catégories de l\'application</string>
     <string name="revanced_hide_shorts_shelf_title">Propositions de Shorts</string>
+    <string name="revanced_hide_shorts_toolbar_banner_summary_off">La bannière est affichée</string>
+    <string name="revanced_hide_shorts_toolbar_banner_summary_on">La bannière est masquée</string>
+    <string name="revanced_hide_shorts_toolbar_banner_title">Bannière YouTube</string>
+    <string name="revanced_hide_shorts_toolbar_camera_button_summary_off">Le bouton caméra est affiché </string>
+    <string name="revanced_hide_shorts_toolbar_camera_button_summary_on">Le bouton caméra est masqué</string>
+    <string name="revanced_hide_shorts_toolbar_camera_button_title">Bouton caméra</string>
+    <string name="revanced_hide_shorts_toolbar_menu_button_summary_off">Le bouton \"Menu\" est affiché</string>
+    <string name="revanced_hide_shorts_toolbar_menu_button_summary_on">Le bouton \"Menu\" est masqué</string>
+    <string name="revanced_hide_shorts_toolbar_menu_button_title">Bouton \"Menu\"</string>
+    <string name="revanced_hide_shorts_toolbar_search_button_summary_off">Le bouton \"Chercher des Shorts\" est affiché</string>
+    <string name="revanced_hide_shorts_toolbar_search_button_summary_on">Le bouton \"Chercher des Shorts\" est masqué </string>
+    <string name="revanced_hide_shorts_toolbar_search_button_title">Bouton \"Chercher des Shorts\"</string>
     <string name="revanced_hide_snack_bar_summary_off">La boîte à message discrète est affichée</string>
     <string name="revanced_hide_snack_bar_summary_on">La boîte à message discrète est masquée</string>
     <string name="revanced_hide_snack_bar_title">Boîte à messages discrète</string>
@@ -534,6 +552,9 @@
     <string name="revanced_hide_transcript_section_summary_off">La section \"Transcription\" est affiché</string>
     <string name="revanced_hide_transcript_section_summary_on">La section \"Transcription\" est masqué </string>
     <string name="revanced_hide_transcript_section_title">Section \"Transcription\"</string>
+    <string name="revanced_hide_toolbar_create_notification_button_summary_off">Les boutons \"Créer\" et \"Notifications\" sont affichés</string>
+    <string name="revanced_hide_toolbar_create_notification_button_summary_on">Les boutons \"Créer\" et \"Notifications\" sont masqués</string>
+    <string name="revanced_hide_toolbar_create_notification_button_title">Bouton \"Créer\" et \"Notifications\"</string>
     <string name="revanced_hide_trending_searches_summary_off">Les recherches tendances sont affichés</string>
     <string name="revanced_hide_trending_searches_summary_on">Les recherches tendances sont masqués</string>
     <string name="revanced_hide_trending_searches_title">Recherches tendances</string>
@@ -608,6 +629,7 @@ Appuyez longuement pour régler la vitesse de la vidéo sur 1.0x"</string>
     <string name="revanced_seekbar">Barre de progression et ajouts d\'infos</string>
     <string name="revanced_shorts">Shorts</string>
     <string name="revanced_shorts_player_title">Lecteur Shorts</string>
+    <string name="revanced_shorts_toolbar_title">Boutons en haut à droite</string>
     <string name="revanced_show_fullscreen_title_summary">Problème connu : 
 Le titre disparaît lorsqu\'on clique dessus</string>
     <string name="revanced_show_fullscreen_title_title">Titre en plein écran</string>
