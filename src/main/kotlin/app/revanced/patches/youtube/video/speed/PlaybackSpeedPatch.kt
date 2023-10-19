@@ -8,7 +8,7 @@ import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.youtube.utils.fingerprints.NewFlyoutPanelOnClickListenerFingerprint
+import app.revanced.patches.youtube.utils.fingerprints.NewVideoQualityChangedFingerprint
 import app.revanced.patches.youtube.utils.overridespeed.OverrideSpeedHookPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.patches.youtube.utils.videocpn.VideoCpnPatch
@@ -39,18 +39,20 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
                 "18.34.38",
                 "18.35.36",
                 "18.36.39",
-                "18.37.36"
+                "18.37.36",
+                "18.38.44",
+                "18.39.41"
             ]
         )
     ]
 )
 @Suppress("unused")
 object PlaybackSpeedPatch : BytecodePatch(
-    setOf(NewFlyoutPanelOnClickListenerFingerprint)
+    setOf(NewVideoQualityChangedFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
 
-        NewFlyoutPanelOnClickListenerFingerprint.result?.let { parentResult ->
+        NewVideoQualityChangedFingerprint.result?.let { parentResult ->
             NewPlaybackSpeedChangedFingerprint.also {
                 it.resolve(
                     context,
@@ -69,7 +71,7 @@ object PlaybackSpeedPatch : BytecodePatch(
                     }
                 }
             } ?: throw NewPlaybackSpeedChangedFingerprint.exception
-        } ?: throw NewFlyoutPanelOnClickListenerFingerprint.exception
+        } ?: throw NewVideoQualityChangedFingerprint.exception
 
         VideoCpnPatch.injectCall("$INTEGRATIONS_PLAYBACK_SPEED_CLASS_DESCRIPTOR->newVideoStarted(Ljava/lang/String;Z)V")
 

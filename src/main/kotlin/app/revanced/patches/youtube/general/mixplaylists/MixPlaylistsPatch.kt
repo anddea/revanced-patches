@@ -19,7 +19,9 @@ import app.revanced.util.bytecode.getStringIndex
 import app.revanced.util.integrations.Constants.GENERAL
 import app.revanced.util.integrations.Constants.PATCHES_PATH
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Patch(
     name = "Hide mix playlists",
@@ -43,7 +45,9 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
                 "18.34.38",
                 "18.35.36",
                 "18.36.39",
-                "18.37.36"
+                "18.37.36",
+                "18.38.44",
+                "18.39.41"
             ]
         )
     ]
@@ -108,6 +112,7 @@ object MixPlaylistsPatch : BytecodePatch(
 
                 val insertIndex = methodInstructions.indexOfFirst { instruction ->
                     instruction.opcode == Opcode.INVOKE_INTERFACE
+                            && (instruction as? ReferenceInstruction)?.reference.toString().contains("[B")
                 }
                 val freeIndex = it.scanResult.patternScanResult!!.startIndex - 1
 

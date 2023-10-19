@@ -9,6 +9,7 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.youtube.player.speedoverlay.fingerprints.SpeedOverlayConfigFingerprint
+import app.revanced.patches.youtube.player.speedoverlay.fingerprints.SpeedOverlayHookAlternativeFingerprint
 import app.revanced.patches.youtube.player.speedoverlay.fingerprints.SpeedOverlayHookFingerprint
 import app.revanced.patches.youtube.player.speedoverlay.fingerprints.YouTubeTextViewFingerprint
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
@@ -42,7 +43,9 @@ import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
                 "18.34.38",
                 "18.35.36",
                 "18.36.39",
-                "18.37.36"
+                "18.37.36",
+                "18.38.44",
+                "18.39.41"
             ]
         )
     ]
@@ -51,6 +54,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
 object SpeedOverlayPatch : BytecodePatch(
     setOf(
         SpeedOverlayConfigFingerprint,
+        SpeedOverlayHookAlternativeFingerprint,
         SpeedOverlayHookFingerprint,
         YouTubeTextViewFingerprint
     )
@@ -71,7 +75,12 @@ object SpeedOverlayPatch : BytecodePatch(
             }
         } ?: throw SpeedOverlayConfigFingerprint.exception
 
-        SpeedOverlayHookFingerprint.result?.let {
+        val speedOverlayHookResult =
+            SpeedOverlayHookFingerprint.result
+                ?: SpeedOverlayHookAlternativeFingerprint.result
+                ?: throw SpeedOverlayHookFingerprint.exception
+
+        speedOverlayHookResult.let {
             it.mutableMethod.apply {
                 val insertIndex = implementation!!.instructions.indexOfFirst { instruction ->
                     instruction.opcode == Opcode.CMPL_FLOAT
@@ -80,12 +89,12 @@ object SpeedOverlayPatch : BytecodePatch(
 
                 addInstructions(
                     insertIndex, """
-                        invoke-static {v$insertRegister}, $INTEGRATIONS_CLASS_DESCRIPTOR->getSpeed(F)F
-                        move-result v$insertRegister
-                        """
+                            invoke-static {v$insertRegister}, $INTEGRATIONS_CLASS_DESCRIPTOR->getSpeed(F)F
+                            move-result v$insertRegister
+                            """
                 )
             }
-        } ?: throw SpeedOverlayHookFingerprint.exception
+        }
 
         YouTubeTextViewFingerprint.result?.let {
             it.mutableMethod.apply {
