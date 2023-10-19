@@ -5,14 +5,9 @@ import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.ImageOnlyTab
 import app.revanced.util.bytecode.isWideLiteralExists
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.android.tools.smali.dexlib2.Opcode
 
 object PivotBarCreateButtonViewFingerprint : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    opcodes = listOf(
-        Opcode.MOVE_OBJECT,
-        Opcode.INVOKE_DIRECT_RANGE, // unique instruction anchor
-    ),
     customFingerprint = { methodDef, _ -> methodDef.isWideLiteralExists(ImageOnlyTab) }
 )

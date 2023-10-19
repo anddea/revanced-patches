@@ -32,7 +32,9 @@ import app.revanced.patches.youtube.utils.settings.SettingsPatch
                 "18.34.38",
                 "18.35.36",
                 "18.36.39",
-                "18.37.36"
+                "18.37.36",
+                "18.38.44",
+                "18.39.41"
             ]
         )
     ]

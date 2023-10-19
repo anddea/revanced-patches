@@ -4,12 +4,11 @@ import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.youtube.utils.fingerprints.NewFlyoutPanelOnClickListenerFingerprint
+import app.revanced.patches.youtube.utils.fingerprints.NewVideoQualityChangedFingerprint
 import app.revanced.patches.youtube.utils.overridequality.OverrideQualityHookPatch
 import app.revanced.patches.youtube.utils.overridespeed.OverrideSpeedHookPatch
 import app.revanced.patches.youtube.utils.playertype.PlayerTypeHookPatch
@@ -17,7 +16,6 @@ import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch.contexts
 import app.revanced.patches.youtube.utils.videoid.general.VideoIdPatch
 import app.revanced.patches.youtube.utils.videoid.withoutshorts.VideoIdWithoutShortsPatch
-import app.revanced.patches.youtube.video.quality.fingerprints.NewVideoQualityChangedFingerprint
 import app.revanced.patches.youtube.video.quality.fingerprints.VideoQualitySetterFingerprint
 import app.revanced.util.integrations.Constants.VIDEO_PATH
 import app.revanced.util.resources.ResourceUtils.copyXmlNode
@@ -49,7 +47,9 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
                 "18.34.38",
                 "18.35.36",
                 "18.36.39",
-                "18.37.36"
+                "18.37.36",
+                "18.38.44",
+                "18.39.41"
             ]
         )
     ]
@@ -57,30 +57,24 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 @Suppress("unused")
 object VideoQualityPatch : BytecodePatch(
     setOf(
-        NewFlyoutPanelOnClickListenerFingerprint,
+        NewVideoQualityChangedFingerprint,
         VideoQualitySetterFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext) {
 
-        NewFlyoutPanelOnClickListenerFingerprint.result?.let { parentResult ->
-            NewVideoQualityChangedFingerprint.also {
-                it.resolve(
-                    context,
-                    parentResult.classDef
-                )
-            }.result?.let {
-                it.mutableMethod.apply {
-                    val index = it.scanResult.patternScanResult!!.endIndex
-                    val register = getInstruction<TwoRegisterInstruction>(index).registerA
+        NewVideoQualityChangedFingerprint.result?.let {
+            it.mutableMethod.apply {
+                val index = it.scanResult.patternScanResult!!.startIndex
+                val qualityRegister = getInstruction<TwoRegisterInstruction>(index).registerA
 
-                    addInstruction(
-                        index + 1,
-                        "invoke-static {v$register}, $INTEGRATIONS_VIDEO_QUALITY_CLASS_DESCRIPTOR->userChangedQuality(I)V"
-                    )
-                }
+                addInstruction(
+                    index + 1,
+                    "invoke-static {v$qualityRegister}, $INTEGRATIONS_VIDEO_QUALITY_CLASS_DESCRIPTOR->userChangedQuality(I)V"
+                )
+
             }
-        } ?: throw NewFlyoutPanelOnClickListenerFingerprint.exception
+        } ?: throw NewVideoQualityChangedFingerprint.exception
 
         VideoQualitySetterFingerprint.result?.let {
             val onItemClickMethod =

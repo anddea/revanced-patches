@@ -13,7 +13,9 @@ import app.revanced.patches.youtube.navigation.navigationbuttons.fingerprints.Pi
 import app.revanced.patches.youtube.navigation.navigationbuttons.fingerprints.PivotBarShortsButtonViewFingerprint
 import app.revanced.patches.youtube.utils.fingerprints.PivotBarCreateButtonViewFingerprint
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
+import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.ImageOnlyTab
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
+import app.revanced.util.bytecode.getWideLiteralIndex
 import app.revanced.util.integrations.Constants.NAVIGATION
 import app.revanced.util.pivotbar.InjectionUtils.REGISTER_TEMPLATE_REPLACEMENT
 import app.revanced.util.pivotbar.InjectionUtils.injectHook
@@ -42,7 +44,9 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
                 "18.34.38",
                 "18.35.36",
                 "18.36.39",
-                "18.37.36"
+                "18.37.36",
+                "18.38.44",
+                "18.39.41"
             ]
         )
     ]
@@ -94,12 +98,12 @@ object NavigationButtonsPatch : BytecodePatch(
              */
             parentResult.mutableMethod.apply {
                 val insertIndex = implementation!!.instructions.let {
-                    val scanStart = parentResult.scanResult.patternScanResult!!.endIndex
+                    val scanStart = getWideLiteralIndex(ImageOnlyTab)
 
                     scanStart + it.subList(scanStart, it.size - 1).indexOfFirst { instruction ->
-                        instruction.opcode == Opcode.INVOKE_STATIC
+                        instruction.opcode == Opcode.INVOKE_VIRTUAL
                     }
-                }
+                } + 2
                 injectHook(CREATE_BUTTON_HOOK, insertIndex)
             }
 
