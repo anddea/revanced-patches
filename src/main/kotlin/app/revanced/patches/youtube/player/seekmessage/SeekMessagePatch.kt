@@ -9,13 +9,20 @@ import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.player.seekmessage.fingerprints.SeekEduContainerFingerprint
+import app.revanced.patches.youtube.player.seekmessage.fingerprints.SeekEduUndoOverlayFingerprint
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
+import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.SeekUndoEduOverlayStub
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
+import app.revanced.util.bytecode.getWideLiteralIndex
 import app.revanced.util.integrations.Constants.PLAYER
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Patch(
     name = "Hide seek message",
-    description = "Hides the 'Slide left or right to seek' message container.",
+    description = "Hides the 'Slide left or right to seek' or 'Release to cancel' message container.",
     dependencies = [
         SettingsPatch::class,
         SharedResourceIdPatch::class
@@ -44,7 +51,10 @@ import app.revanced.util.integrations.Constants.PLAYER
 )
 @Suppress("unused")
 object SeekMessagePatch : BytecodePatch(
-    setOf(SeekEduContainerFingerprint)
+    setOf(
+        SeekEduContainerFingerprint,
+        SeekEduUndoOverlayFingerprint
+    )
 ) {
     override fun execute(context: BytecodeContext) {
 
@@ -60,6 +70,35 @@ object SeekMessagePatch : BytecodePatch(
                 )
             }
         } ?: throw SeekEduContainerFingerprint.exception
+
+        /**
+         * Added in YouTube v18.29.xx~
+         */
+        SeekEduUndoOverlayFingerprint.result?.let {
+            it.mutableMethod.apply {
+                val insertIndex = getWideLiteralIndex(SeekUndoEduOverlayStub)
+                val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+
+                for (index in insertIndex until implementation!!.instructions.size) {
+                    val targetInstruction = getInstruction(index)
+                    if (targetInstruction.opcode != Opcode.INVOKE_VIRTUAL)
+                        continue
+
+                    if (((targetInstruction as Instruction35c).reference as MethodReference).name != "setOnClickListener")
+                        continue
+
+                    addInstructionsWithLabels(
+                        insertIndex, """
+                            invoke-static {}, $PLAYER->hideSeekMessage()Z
+                            move-result v$insertRegister
+                            if-nez v$insertRegister, :default
+                            """, ExternalLabel("default", getInstruction(index + 1))
+                    )
+
+                    break
+                }
+            }
+        }
 
         /**
          * Add settings
