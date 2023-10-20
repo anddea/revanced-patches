@@ -42,7 +42,7 @@ object LithoFilterPatch : BytecodePatch(
                 }
         } ?: throw GeneralByteBufferFingerprint.exception
 
-        generalHook("$ADS_PATH/LithoFilterPatch;->filters")
+        generalHook("$ADS_PATH/LithoFilterPatch;->filter")
 
         LithoFilterFingerprint.result?.mutableMethod?.apply {
             removeInstructions(0, 6)
