@@ -1,6 +1,7 @@
 package app.revanced.patches.youtube.misc.spoofappversion
 
 import app.revanced.patcher.data.BytecodeContext
+import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.shared.patch.versionspoof.AbstractVersionSpoofPatch
@@ -8,6 +9,7 @@ import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch.contexts
 import app.revanced.util.integrations.Constants.MISC_PATH
 import app.revanced.util.resources.ResourceUtils.copyXmlNode
+import org.w3c.dom.Element
 
 @Patch(
     name = "Spoof app version",
@@ -47,6 +49,10 @@ object SpoofAppVersionPatch : AbstractVersionSpoofPatch(
          */
         contexts.copyXmlNode("youtube/spoofappversion/host", "values/arrays.xml", "resources")
 
+        if (SettingsPatch.upward1834) {
+            contexts.appendChild()
+        }
+
         /**
          * Add settings
          */
@@ -59,5 +65,30 @@ object SpoofAppVersionPatch : AbstractVersionSpoofPatch(
 
         SettingsPatch.updatePatchStatus("Spoof app version")
 
+    }
+
+    private fun ResourceContext.appendChild(){
+        arrayOf(
+            "revanced_spoof_app_version_target_entry" to "@string/revanced_spoof_app_version_target_entry_18_33_40",
+            "revanced_spoof_app_version_target_entry_value" to "18.33.40",
+        ).map { (attributeName, attributeValue) ->
+            this.xmlEditor["res/values/arrays.xml"].use { editor ->
+                editor.file.apply {
+                    val resourcesNode = getElementsByTagName("resources").item(0) as Element
+
+                    val newElement: Element = createElement("item")
+                    for (i in 0 until resourcesNode.childNodes.length) {
+                        val node = resourcesNode.childNodes.item(i) as? Element ?: continue
+
+                        if (node.getAttribute("name") == attributeName) {
+                            newElement.appendChild(createTextNode(attributeValue))
+                            val firstChild = node.firstChild
+
+                            node.insertBefore(newElement, firstChild)
+                        }
+                    }
+                }
+            }
+        }
     }
 }
