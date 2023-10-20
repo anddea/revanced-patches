@@ -33,8 +33,8 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
             [
                 "6.15.52",
                 "6.20.51",
-                "6.21.51",
-                "6.22.51"
+                "6.22.51",
+                "6.23.54"
             ]
         )
     ]

@@ -16,8 +16,8 @@ import app.revanced.util.resources.IconHelper.customIconMusicAdditional
             [
                 "6.15.52",
                 "6.20.51",
-                "6.21.51",
-                "6.22.51"
+                "6.22.51",
+                "6.23.54"
             ]
         )
     ],
