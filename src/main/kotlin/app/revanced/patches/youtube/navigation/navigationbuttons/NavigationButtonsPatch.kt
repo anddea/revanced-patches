@@ -13,6 +13,7 @@ import app.revanced.patches.youtube.navigation.navigationbuttons.fingerprints.Pi
 import app.revanced.patches.youtube.navigation.navigationbuttons.fingerprints.PivotBarShortsButtonViewFingerprint
 import app.revanced.patches.youtube.utils.fingerprints.PivotBarCreateButtonViewFingerprint
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
+import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.AvatarImageWithTextTab
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.ImageOnlyTab
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.bytecode.getWideLiteralIndex
@@ -94,17 +95,22 @@ object NavigationButtonsPatch : BytecodePatch(
             }
 
             /**
-             * Create Button
+             * Create, You Button
              */
             parentResult.mutableMethod.apply {
-                val insertIndex = implementation!!.instructions.let {
-                    val scanStart = getWideLiteralIndex(ImageOnlyTab)
+                mapOf(
+                    CREATE_BUTTON_HOOK to ImageOnlyTab,
+                    YOU_BUTTON_HOOK to AvatarImageWithTextTab
+                ).forEach { (hook, resourceId) ->
+                    val insertIndex = implementation!!.instructions.let {
+                        val scanStart = getWideLiteralIndex(resourceId)
 
-                    scanStart + it.subList(scanStart, it.size - 1).indexOfFirst { instruction ->
-                        instruction.opcode == Opcode.INVOKE_VIRTUAL
-                    }
-                } + 2
-                injectHook(CREATE_BUTTON_HOOK, insertIndex)
+                        scanStart + it.subList(scanStart, it.size - 1).indexOfFirst { instruction ->
+                            instruction.opcode == Opcode.INVOKE_VIRTUAL
+                        }
+                    } + 2
+                    injectHook(hook, insertIndex)
+                }
             }
 
         } ?: throw PivotBarCreateButtonViewFingerprint.exception
@@ -154,4 +160,9 @@ object NavigationButtonsPatch : BytecodePatch(
         "invoke-static { v$REGISTER_TEMPLATE_REPLACEMENT }, $NAVIGATION" +
                 "->" +
                 "hideCreateButton(Landroid/view/View;)V"
+
+    private const val YOU_BUTTON_HOOK =
+        "invoke-static { v$REGISTER_TEMPLATE_REPLACEMENT }, $NAVIGATION" +
+                "->" +
+                "hideYouButton(Landroid/view/View;)V"
 }
