@@ -52,7 +52,8 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
                 "18.36.39",
                 "18.37.36",
                 "18.38.44",
-                "18.39.41"
+                "18.39.41",
+                "18.40.34"
             ]
         )
     ]
@@ -89,7 +90,10 @@ object HideFilmstripOverlayPatch : BytecodePatch(
                 val initialIndex = setOnClickListenerIndex - 1
 
                 if (SettingsPatch.upward1828) {
-                    val insertIndex = it.scanResult.patternScanResult!!.startIndex + 2
+                    var insertIndex = it.scanResult.patternScanResult!!.startIndex + 2
+                    if (getInstruction(insertIndex).opcode == Opcode.INVOKE_VIRTUAL)
+                        insertIndex ++
+
                     val replaceInstruction = getInstruction<TwoRegisterInstruction>(insertIndex)
                     val replaceReference =
                         getInstruction<ReferenceInstruction>(insertIndex).reference
