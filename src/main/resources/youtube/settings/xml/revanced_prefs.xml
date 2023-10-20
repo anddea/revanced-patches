@@ -401,7 +401,6 @@
             <Preference android:title="Hide info cards" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Hide music button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Hide player button background" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
-            <Preference android:title="Hide player overlay filter" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Hide previous next button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Hide seek message" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Hide suggested actions" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
@@ -521,9 +520,6 @@
 
         <!-- SETTINGS: HIDE_PLAYER_BUTTON_BACKGROUND
         <SwitchPreference android:title="@string/revanced_hide_player_button_background_title" android:key="revanced_hide_player_button_background" android:defaultValue="false" android:summaryOn="@string/revanced_hide_player_button_background_summary_on" android:summaryOff="@string/revanced_hide_player_button_background_summary_off" />SETTINGS: HIDE_PLAYER_BUTTON_BACKGROUND -->
-
-        <!-- SETTINGS: HIDE_PLAYER_OVERLAY_FILTER
-        <SwitchPreference android:title="@string/revanced_hide_player_overlay_filter_title" android:key="revanced_hide_player_overlay_filter" android:defaultValue="false" android:summaryOn="@string/revanced_hide_player_overlay_filter_summary_on" android:summaryOff="@string/revanced_hide_player_overlay_filter_summary_off" />SETTINGS: HIDE_PLAYER_OVERLAY_FILTER -->
 
         <!-- SETTINGS: HIDE_PREVIOUS_NEXT_BUTTON
         <SwitchPreference android:title="@string/revanced_hide_previous_next_button_title" android:key="revanced_hide_previous_next_button" android:defaultValue="false" android:summaryOn="@string/revanced_hide_previous_next_button_summary_on" android:summaryOff="@string/revanced_hide_previous_next_button_summary_off" />SETTINGS: HIDE_PREVIOUS_NEXT_BUTTON -->
