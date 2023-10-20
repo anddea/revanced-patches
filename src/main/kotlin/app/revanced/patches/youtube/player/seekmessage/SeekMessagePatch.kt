@@ -89,10 +89,20 @@ object SeekMessagePatch : BytecodePatch(
 
                     addInstructionsWithLabels(
                         insertIndex, """
-                            invoke-static {}, $PLAYER->hideSeekMessage()Z
+                            invoke-static {}, $PLAYER->hideSeekUndoMessage()Z
                             move-result v$insertRegister
                             if-nez v$insertRegister, :default
                             """, ExternalLabel("default", getInstruction(index + 1))
+                    )
+
+                    /**
+                     * Add settings
+                     */
+                    SettingsPatch.addPreference(
+                        arrayOf(
+                            "PREFERENCE: PLAYER_SETTINGS",
+                            "SETTINGS: HIDE_SEEK_UNDO_MESSAGE"
+                        )
                     )
 
                     break
