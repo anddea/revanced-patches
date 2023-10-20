@@ -12,7 +12,6 @@ import app.revanced.patches.shared.patch.litho.ComponentParserPatch
 import app.revanced.patches.shared.patch.litho.ComponentParserPatch.generalHook
 import app.revanced.patches.youtube.utils.litho.fingerprints.GeneralByteBufferFingerprint
 import app.revanced.patches.youtube.utils.litho.fingerprints.LithoFilterFingerprint
-import app.revanced.patches.youtube.utils.litho.fingerprints.LowLevelByteBufferFingerprint
 import app.revanced.util.integrations.Constants.ADS_PATH
 import java.io.Closeable
 
@@ -21,21 +20,14 @@ import java.io.Closeable
 object LithoFilterPatch : BytecodePatch(
     setOf(
         GeneralByteBufferFingerprint,
-        LithoFilterFingerprint,
-        LowLevelByteBufferFingerprint
+        LithoFilterFingerprint
     )
 ), Closeable {
     internal lateinit var addFilter: (String) -> Unit
         private set
 
     private var filterCount = 0
-
     override fun execute(context: BytecodeContext) {
-
-        LowLevelByteBufferFingerprint.result?.mutableMethod?.addInstruction(
-            0,
-            "invoke-static { p0 }, $ADS_PATH/LowLevelFilter;->setProtoBuffer(Ljava/nio/ByteBuffer;)V"
-        ) ?: throw LowLevelByteBufferFingerprint.exception
 
         GeneralByteBufferFingerprint.result?.let {
             (context
