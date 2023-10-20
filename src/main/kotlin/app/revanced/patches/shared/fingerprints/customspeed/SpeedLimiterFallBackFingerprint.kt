@@ -6,7 +6,6 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 object SpeedLimiterFallBackFingerprint : MethodFingerprint(
-    returnType = "F",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("L"),
     opcodes = listOf(

@@ -7,7 +7,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.shared.patch.litho.ComponentParserPatch
 import app.revanced.patches.shared.patch.litho.ComponentParserPatch.generalHook
 import app.revanced.patches.youtube.utils.litho.fingerprints.GeneralByteBufferFingerprint
@@ -30,16 +29,12 @@ object LithoFilterPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
 
         GeneralByteBufferFingerprint.result?.let {
-            (context
-                .toMethodWalker(it.method)
-                .nextMethod(it.scanResult.patternScanResult!!.endIndex, true)
-                .getMethod() as MutableMethod
-                    ).apply {
-                    addInstruction(
-                        0,
-                        "invoke-static { p2 }, $ADS_PATH/LithoFilterPatch;->setProtoBuffer(Ljava/nio/ByteBuffer;)V"
-                    )
-                }
+            it.mutableMethod.apply {
+                addInstruction(
+                    0,
+                    "invoke-static { p2 }, $ADS_PATH/LithoFilterPatch;->setProtoBuffer(Ljava/nio/ByteBuffer;)V"
+                )
+            }
         } ?: throw GeneralByteBufferFingerprint.exception
 
         generalHook("$ADS_PATH/LithoFilterPatch;->filter")

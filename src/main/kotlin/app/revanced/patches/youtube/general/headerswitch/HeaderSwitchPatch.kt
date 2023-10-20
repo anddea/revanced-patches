@@ -39,7 +39,8 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
                 "18.36.39",
                 "18.37.36",
                 "18.38.44",
-                "18.39.41"
+                "18.39.41",
+                "18.40.34"
             ]
         )
     ]
