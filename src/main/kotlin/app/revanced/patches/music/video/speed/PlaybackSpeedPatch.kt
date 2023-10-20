@@ -12,6 +12,7 @@ import app.revanced.patches.music.utils.overridespeed.OverrideSpeedHookPatch
 import app.revanced.patches.music.utils.settings.SettingsPatch
 import app.revanced.patches.music.video.speed.fingerprints.PlaybackSpeedBottomSheetFingerprint
 import app.revanced.patches.music.video.speed.fingerprints.PlaybackSpeedBottomSheetParentFingerprint
+import app.revanced.util.bytecode.BytecodeHelper.updatePatchStatus
 import app.revanced.util.enum.CategoryType
 import app.revanced.util.integrations.Constants.MUSIC_VIDEO_PATH
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
@@ -66,6 +67,8 @@ object PlaybackSpeedPatch : BytecodePatch(
             "revanced_enable_save_playback_speed",
             "false"
         )
+
+        context.updatePatchStatus("RememberPlaybackSpeed", false)
 
     }
 
