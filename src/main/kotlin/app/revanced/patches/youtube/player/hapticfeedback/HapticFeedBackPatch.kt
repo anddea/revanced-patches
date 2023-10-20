@@ -60,7 +60,7 @@ object HapticFeedBackPatch : BytecodePatch(
 
         arrayOf(
             SeekHapticsFingerprint to "disableSeekVibrate",
-            SeekUndoHapticsFingerprint to "disableSeekVibrate",
+            SeekUndoHapticsFingerprint to "disableSeekUndoVibrate",
             ScrubbingHapticsFingerprint to "disableScrubbingVibrate",
             MarkerHapticsFingerprint to "disableChapterVibrate",
             ZoomHapticsFingerprint to "disableZoomVibrate"
