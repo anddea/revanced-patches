@@ -8,7 +8,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.youtube.player.speedoverlay.fingerprints.SpeedOverlayConfigFingerprint
 import app.revanced.patches.youtube.player.speedoverlay.fingerprints.SpeedOverlayHookAlternativeFingerprint
 import app.revanced.patches.youtube.player.speedoverlay.fingerprints.SpeedOverlayHookFingerprint
 import app.revanced.patches.youtube.player.speedoverlay.fingerprints.YouTubeTextViewFingerprint
@@ -17,7 +16,6 @@ import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.Speed
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.integrations.Constants.UTILS_PATH
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
 
@@ -53,27 +51,12 @@ import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
 @Suppress("unused")
 object SpeedOverlayPatch : BytecodePatch(
     setOf(
-        SpeedOverlayConfigFingerprint,
         SpeedOverlayHookAlternativeFingerprint,
         SpeedOverlayHookFingerprint,
         YouTubeTextViewFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext) {
-
-        SpeedOverlayConfigFingerprint.result?.let {
-            it.mutableMethod.apply {
-                val insertIndex = implementation!!.instructions.size - 1
-                val targetRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
-
-                addInstructions(
-                    insertIndex, """
-                        invoke-static {v$targetRegister}, $INTEGRATIONS_CLASS_DESCRIPTOR->disableSpeedOverlay(Z)Z
-                        move-result v$targetRegister
-                        """
-                )
-            }
-        } ?: throw SpeedOverlayConfigFingerprint.exception
 
         val speedOverlayHookResult =
             SpeedOverlayHookFingerprint.result
