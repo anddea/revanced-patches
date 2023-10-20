@@ -40,18 +40,25 @@ internal object BytecodeHelper {
         }
     }
 
-    internal fun BytecodeContext.updatePatchStatus(patch: String) {
-        this.classes.forEach { classDef ->
-            classDef.methods.forEach { method ->
-                if (classDef.type.endsWith("/PatchStatus;") && method.name == patch) {
-                    val patchStatusMethod =
-                        this.proxy(classDef).mutableClass.methods.first { it.name == patch }
+    internal fun BytecodeContext.updatePatchStatus(
+        methodName: String,
+        isYouTube: Boolean
+    ) {
+        val integrationPath =
+            if (isYouTube)
+                UTILS_PATH
+            else
+                MUSIC_UTILS_PATH
 
-                    patchStatusMethod.replaceInstruction(
-                        0,
-                        "const/4 v0, 0x1"
-                    )
-                }
+        this.classes.forEach { classDef ->
+            if (classDef.type.endsWith("$integrationPath/PatchStatus;")) {
+                val patchStatusMethod =
+                    this.proxy(classDef).mutableClass.methods.first { it.name == methodName }
+
+                patchStatusMethod.replaceInstruction(
+                    0,
+                    "const/4 v0, 0x1"
+                )
             }
         }
     }

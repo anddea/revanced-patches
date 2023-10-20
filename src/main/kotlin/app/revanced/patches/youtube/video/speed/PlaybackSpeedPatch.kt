@@ -13,6 +13,8 @@ import app.revanced.patches.youtube.utils.overridespeed.OverrideSpeedHookPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.patches.youtube.utils.videocpn.VideoCpnPatch
 import app.revanced.patches.youtube.video.speed.fingerprints.NewPlaybackSpeedChangedFingerprint
+import app.revanced.util.bytecode.BytecodeHelper
+import app.revanced.util.bytecode.BytecodeHelper.updatePatchStatus
 import app.revanced.util.integrations.Constants.VIDEO_PATH
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 
@@ -86,6 +88,8 @@ object PlaybackSpeedPatch : BytecodePatch(
         )
 
         SettingsPatch.updatePatchStatus("Default playback speed")
+
+        context.updatePatchStatus("DefaultPlaybackSpeed", true)
 
     }
 
