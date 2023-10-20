@@ -55,7 +55,7 @@ object LayoutComponentsPatch : BytecodePatch() {
                 "PREFERENCE: PLAYER_SETTINGS",
 
                 "SETTINGS: HIDE_AUDIO_TRACK_BUTTON",
-                "SETTINGS: HIDE_CHANNEL_BAR_JOIN_BUTTON",
+                "SETTINGS: HIDE_CHANNEL_BAR_BUTTON",
                 "SETTINGS: HIDE_LAYOUT_COMPONENTS"
             )
         )

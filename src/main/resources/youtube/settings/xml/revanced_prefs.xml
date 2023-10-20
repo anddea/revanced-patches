@@ -41,9 +41,10 @@
     <!-- PREFERENCE: BOTTOM_PLAYER_SETTINGS
     <PreferenceScreen android:title="@string/revanced_bottom_player" android:key="bottom_player">PREFERENCE: BOTTOM_PLAYER_SETTINGS -->
 
-        <!-- SETTINGS: HIDE_CHANNEL_BAR_JOIN_BUTTON
+        <!-- SETTINGS: HIDE_CHANNEL_BAR_BUTTON
         <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_channel_bar_title" />
-        <SwitchPreference android:title="@string/revanced_hide_join_button_title" android:key="revanced_hide_join_button" android:defaultValue="true" android:summaryOn="@string/revanced_hide_join_button_summary_on" android:summaryOff="@string/revanced_hide_join_button_summary_off" />SETTINGS: HIDE_CHANNEL_BAR_JOIN_BUTTON -->
+        <SwitchPreference android:title="@string/revanced_hide_join_button_title" android:key="revanced_hide_join_button" android:defaultValue="true" android:summaryOn="@string/revanced_hide_join_button_summary_on" android:summaryOff="@string/revanced_hide_join_button_summary_off" />
+        <SwitchPreference android:title="@string/revanced_hide_start_trial_button_title" android:key="revanced_hide_start_trial_button" android:defaultValue="true" android:summaryOn="@string/revanced_hide_start_trial_button_summary_on" android:summaryOff="@string/revanced_hide_start_trial_button_summary_off" />SETTINGS: HIDE_CHANNEL_BAR_BUTTON -->
 
         <!-- SETTINGS: BUTTON_CONTAINER
         <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_button_container_title" />
