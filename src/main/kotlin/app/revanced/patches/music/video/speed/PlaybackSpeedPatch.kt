@@ -65,7 +65,7 @@ object PlaybackSpeedPatch : BytecodePatch(
         SettingsPatch.addMusicPreference(
             CategoryType.VIDEO,
             "revanced_enable_save_playback_speed",
-            "false"
+            "true"
         )
 
         context.updatePatchStatus("RememberPlaybackSpeed", false)
