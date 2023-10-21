@@ -59,23 +59,19 @@
     <string name="revanced_default_video_quality_mobile_title">モバイル ネットワーク使用時のデフォルト画質</string>
     <string name="revanced_default_video_quality_wifi_title">Wi-Fi 使用時のデフォルト画質</string>
     <string name="revanced_description_title">概要欄</string>
+    <string name="revanced_disable_ambient_mode_summary">アンビエントモードは常に無効です</string>
+    <string name="revanced_disable_ambient_mode_title">アンビエントモードを無効化</string>
     <string name="revanced_disable_auto_captions_summary_off">動画側で設定されている字幕の強制は有効です</string>
     <string name="revanced_disable_auto_captions_summary_on">動画側で設定されている字幕の強制は無効です</string>
     <string name="revanced_disable_auto_captions_title">字幕の強制を無効化</string>
     <string name="revanced_disable_default_playback_speed_live_summary_off">ライブでのデフォルト再生速度は有効です</string>
     <string name="revanced_disable_default_playback_speed_live_summary_on">ライブでのデフォルト再生速度は無効です</string>
     <string name="revanced_disable_default_playback_speed_live_title">ライブでのデフォルト再生速度を無効化</string>
-    <string name="revanced_disable_haptic_feedback_chapters_summary_off">チャプターの触覚フィードバックは有効です</string>
-    <string name="revanced_disable_haptic_feedback_chapters_summary_on">チャプターの触覚フィードバックは無効です</string>
+    <string name="revanced_disable_haptic_feedback_summary_off">触覚フィードバックは有効です</string>
+    <string name="revanced_disable_haptic_feedback_summary_on">触覚フィードバックは無効です</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">チャプターの触覚フィードバックを無効化</string>
-    <string name="revanced_disable_haptic_feedback_scrubbing_summary_off">シークバーのフィルムストリップ上下スワイプ時の触覚フィードバックは有効です</string>
-    <string name="revanced_disable_haptic_feedback_scrubbing_summary_on">シークバーのフィルムストリップ上下スワイプ時の触覚フィードバックは無効です</string>
     <string name="revanced_disable_haptic_feedback_scrubbing_title">フィルムストリップの触覚フィードバックを無効化</string>
-    <string name="revanced_disable_haptic_feedback_seek_summary_off">動画長押しシーク時の触覚フィードバックは有効です</string>
-    <string name="revanced_disable_haptic_feedback_seek_summary_on">動画長押しシーク時の触覚フィードバックは無効です</string>
     <string name="revanced_disable_haptic_feedback_seek_title">動画長押し時の触覚フィードバックを無効化</string>
-    <string name="revanced_disable_haptic_feedback_zoom_summary_off">動画ズーム時の触覚フィードバックは有効です</string>
-    <string name="revanced_disable_haptic_feedback_zoom_summary_on">動画ズーム時の触覚フィードバックは無効です</string>
     <string name="revanced_disable_haptic_feedback_zoom_title">動画ズーム時の触覚フィードバックを無効化</string>
     <string name="revanced_disable_hdr_auto_brightness_summary_off">HDR 動画の明るさの自動調節は有効です</string>
     <string name="revanced_disable_hdr_auto_brightness_summary_on">HDR 動画の明るさの自動調節は無効です</string>
@@ -86,8 +82,6 @@
     <string name="revanced_disable_landscape_mode_summary_off">全画面表示時の動画の縦向きの固定は無効です</string>
     <string name="revanced_disable_landscape_mode_summary_on">全画面表示時の動画の縦向きの固定は有効です</string>
     <string name="revanced_disable_landscape_mode_title">横画面モードを無効化</string>
-    <string name="revanced_disable_speed_overlay_summary">"長押しして 2 倍速で視聴する機能を無効化します"</string>
-    <string name="revanced_disable_speed_overlay_title">再生速度のオーバーレイを非表示</string>
     <string name="revanced_disable_quic_protocol_summary">"CronetEngine の QUIC プロトコルを無効にする"</string>
     <string name="revanced_disable_quic_protocol_title">QUIC プロトコルを無効化</string>
     <string name="revanced_disable_startup_shorts_player_summary_off">アプリ起動時のYouTube ショートプレーヤーは有効です</string>
@@ -104,9 +98,6 @@
     <string name="revanced_enable_custom_seekbar_color_summary_off">シークバーの色のカスタマイズは無効です</string>
     <string name="revanced_enable_custom_seekbar_color_summary_on">シークバーの色のカスタマイズは有効です</string>
     <string name="revanced_enable_custom_seekbar_color_title">シークバーの色のカスタマイズ</string>
-    <string name="revanced_edit_speed_overlay_value_summary">"長押しして倍速再生する機能の速度を編集します
-スピードオーバーレイが利用できる一部のユーザーのみ利用可能です"</string>
-    <string name="revanced_edit_speed_overlay_value_title">カスタムスピードオーバーレイを編集</string>
     <string name="revanced_enable_debug_logging_summary_off">デバッグログは無効です</string>
     <string name="revanced_enable_debug_logging_summary_on">デバッグログは有効です</string>
     <string name="revanced_enable_debug_logging_title">デバッグログ</string>
@@ -119,9 +110,6 @@
     <string name="revanced_enable_language_switch_summary_off">アプリ言語の設定は無効です</string>
     <string name="revanced_enable_language_switch_summary_on">アプリ言語の設定は有効です</string>
     <string name="revanced_enable_language_switch_title">言語切り替えを有効化</string>
-    <string name="revanced_enable_new_comment_popup_panels_summary_off">新しいコメントポップアップパネルは無効です</string>
-    <string name="revanced_enable_new_comment_popup_panels_summary_on">新しいコメントポップアップパネルは有効です</string>
-    <string name="revanced_enable_new_comment_popup_panels_title">コメント欄の新しいポップアップパネル</string>
     <string name="revanced_enable_new_splash_animation_summary_off">YouTube 起動時の新しいスプラッシュアニメーションは無効です</string>
     <string name="revanced_enable_new_splash_animation_summary_on">YouTube 起動時の新しいスプラッシュアニメーションは有効です</string>
     <string name="revanced_enable_new_splash_animation_title">新しいスプラッシュアニメーション</string>
@@ -165,7 +153,7 @@
     <string name="revanced_enable_tablet_navigation_bar_summary_on">タブレットのナビゲーションバーは有効です</string>
     <string name="revanced_enable_tablet_navigation_bar_title">タブレットのナビゲーションバー</string>
     <string name="revanced_enable_video_codec_summary">デバイス情報を偽装して動画コーデックを有効にします</string>
-    <string name="revanced_enable_video_codec_title">動画コーデックを有効化</string>
+    <string name="revanced_enable_video_codec_title">動画コーデックを強制</string>
     <string name="revanced_enable_video_codec_type_summary_off">VP9 コーデックを有効化</string>
     <string name="revanced_enable_video_codec_type_summary_on">HDR コーデックを有効化</string>
     <string name="revanced_enable_video_codec_type_title">動画コーデックの種類</string>
@@ -226,9 +214,6 @@
     <string name="revanced_hide_button_live_chat_summary_off">ライブの「チャット」ボタンは表示されます</string>
     <string name="revanced_hide_button_live_chat_summary_on">ライブの「チャット」ボタンは非表示です</string>
     <string name="revanced_hide_button_live_chat_title">ライブのチャットボタンを非表示</string>
-    <string name="revanced_hide_button_playlist_summary_off">再生リストの「保存」ボタンは表示されます</string>
-    <string name="revanced_hide_button_playlist_summary_on">再生リストの「保存」ボタンは非表示です</string>
-    <string name="revanced_hide_button_playlist_title">再生リストボタンを非表示</string>
     <string name="revanced_hide_button_remix_summary_off">「リミックス」ボタンは表示されます</string>
     <string name="revanced_hide_button_remix_summary_on">「リミックス」ボタンは非表示です</string>
     <string name="revanced_hide_button_remix_title">リミックスボタンを非表示</string>
@@ -343,6 +328,9 @@
     <string name="revanced_hide_gray_separator_summary_off">ホームフィードの動画の間に表示されるグレーのセパレーターは表示されます</string>
     <string name="revanced_hide_gray_separator_summary_on">ホームフィードの動画の間に表示されるグレーのセパレーターは非表示です</string>
     <string name="revanced_hide_gray_separator_title">グレーのセパレーターを非表示</string>
+    <string name="revanced_hide_handle_summary_off">ハンドル (例: @youtubecreators) は表示されます</string>
+    <string name="revanced_hide_handle_summary_on">ハンドル (例: @youtubecreators) は非表示です</string>
+    <string name="revanced_hide_handle_title">ハンドルを非表示</string>
     <string name="revanced_hide_home_button_summary_off">「ホーム」ボタンは表示されます</string>
     <string name="revanced_hide_home_button_summary_on">「ホーム」ボタンは非表示です</string>
     <string name="revanced_hide_home_button_title">ホーム ボタンを非表示</string>
@@ -436,6 +424,9 @@
     <string name="revanced_hide_player_flyout_panel_playback_speed_summary_off">「再生速度」メニューは表示されます</string>
     <string name="revanced_hide_player_flyout_panel_playback_speed_summary_on">「再生速度」メニューは非表示です</string>
     <string name="revanced_hide_player_flyout_panel_playback_speed_title">再生速度メニューを非表示</string>
+    <string name="revanced_hide_player_flyout_panel_premium_controls_summary_off">「Premium のコントロール」メニューは表示されます</string>
+    <string name="revanced_hide_player_flyout_panel_premium_controls_summary_on">「Premium のコントロール」メニューは非表示です</string>
+    <string name="revanced_hide_player_flyout_panel_premium_controls_title">オーディオ再生コントロールを非表示</string>
     <string name="revanced_hide_player_flyout_panel_quality_footer_summary_off">画質メニューのフッターは表示されます</string>
     <string name="revanced_hide_player_flyout_panel_quality_footer_summary_on">画質メニューのフッターは非表示です</string>
     <string name="revanced_hide_player_flyout_panel_quality_footer_title">画質メニューのフッターを非表示</string>
@@ -451,9 +442,6 @@
     <string name="revanced_hide_player_flyout_panel_watch_in_vr_summary_off">「VR で見る」メニューは表示されます</string>
     <string name="revanced_hide_player_flyout_panel_watch_in_vr_summary_on">「VR で見る」メニューは非表示です</string>
     <string name="revanced_hide_player_flyout_panel_watch_in_vr_title">「VR で見る」を非表示</string>
-    <string name="revanced_hide_player_overlay_filter_summary_off">プレーヤータップ時の暗いフィルターレイヤーは表示されます</string>
-    <string name="revanced_hide_player_overlay_filter_summary_on">プレーヤータップ時の暗いフィルターレイヤーは非表示です</string>
-    <string name="revanced_hide_player_overlay_filter_title">プレーヤーオーバーレイフィルターを非表示</string>
     <string name="revanced_hide_preview_comment_off">コメントのプレビューは表示されます</string>
     <string name="revanced_hide_preview_comment_on">コメントのプレビューは非表示です</string>
     <string name="revanced_hide_preview_comment_title">コメントのプレビューを非表示</string>
@@ -504,6 +492,18 @@
     <string name="revanced_hide_shorts_shelf_summary_off">ショート欄は表示されます</string>
     <string name="revanced_hide_shorts_shelf_summary_on">ショート欄は非表示です</string>
     <string name="revanced_hide_shorts_shelf_title">ショート欄を非表示</string>
+    <string name="revanced_hide_shorts_toolbar_banner_summary_off">ショートのバナーは表示されます</string>
+    <string name="revanced_hide_shorts_toolbar_banner_summary_on">ショートのバナーは非表示です</string>
+    <string name="revanced_hide_shorts_toolbar_banner_title">バナーを非表示</string>
+    <string name="revanced_hide_shorts_toolbar_camera_button_summary_off">カメラボタンは表示されます</string>
+    <string name="revanced_hide_shorts_toolbar_camera_button_summary_on">カメラボタンは非表示です</string>
+    <string name="revanced_hide_shorts_toolbar_camera_button_title">カメラボタンを非表示</string>
+    <string name="revanced_hide_shorts_toolbar_menu_button_summary_off">メニューボタンは表示されます</string>
+    <string name="revanced_hide_shorts_toolbar_menu_button_summary_on">メニューボタンは非表示です</string>
+    <string name="revanced_hide_shorts_toolbar_menu_button_title">メニューボタンを非表示</string>
+    <string name="revanced_hide_shorts_toolbar_search_button_summary_off">検索ボタンは表示されます</string>
+    <string name="revanced_hide_shorts_toolbar_search_button_summary_on">検索ボタンは非表示です</string>
+    <string name="revanced_hide_shorts_toolbar_search_button_title">検索ボタンを非表示</string>
     <string name="revanced_hide_snack_bar_summary_off">共有からリンクをコピーした際の画面下部のポップアップ等は表示されます</string>
     <string name="revanced_hide_snack_bar_summary_on">共有からリンクをコピーした際の画面下部のポップアップ等は非表示です</string>
     <string name="revanced_hide_snack_bar_title">スナックバーを非表示</string>
@@ -535,6 +535,9 @@
     <string name="revanced_hide_transcript_section_summary_off">概要欄にある文字起こし欄は表示されます</string>
     <string name="revanced_hide_transcript_section_summary_on">概要欄にある文字起こし欄は非表示です</string>
     <string name="revanced_hide_transcript_section_title">文字起こし欄を非表示</string>
+    <string name="revanced_hide_toolbar_create_notification_button_summary_off">作成ボタンと通知ボタンは表示されます</string>
+    <string name="revanced_hide_toolbar_create_notification_button_summary_on">作成ボタンと通知ボタンは非表示です</string>
+    <string name="revanced_hide_toolbar_create_notification_button_title">ツールバーのボタンを非表示</string>
     <string name="revanced_hide_trending_searches_summary_off">検索のトレンドは表示されます</string>
     <string name="revanced_hide_trending_searches_summary_on">検索のトレンドは非表示です</string>
     <string name="revanced_hide_trending_searches_title">検索のトレンドを非表示</string>
@@ -557,9 +560,9 @@
     <string name="revanced_layout_title">レイアウト</string>
     <string name="revanced_misc">その他</string>
     <string name="revanced_navigation">ナビゲーション</string>
-    <string name="revanced_open_library_startup_summary_off">アプリ起動時にライブラリタブは開かれません</string>
-    <string name="revanced_open_library_startup_summary_on">アプリ起動時にライブラリタブが開かれます</string>
-    <string name="revanced_open_library_startup_title">起動時のタブをライブラリに変更</string>
+    <string name="revanced_open_library_you_startup_summary_off">アプリ起動時にライブラリ(自分)タブは開かれません</string>
+    <string name="revanced_open_library_you_startup_summary_on">アプリ起動時にライブラリ(自分)タブが開かれます</string>
+    <string name="revanced_open_library_you_startup_title">起動時のタブをライブラリ(自分)に変更</string>
     <string name="revanced_others">その他</string>
     <string name="revanced_overlay_button">オーバーレイボタン</string>
     <string name="revanced_overlay_button_always_repeat_summary">"タップして常にリピート
@@ -609,6 +612,7 @@
     <string name="revanced_seekbar">シークバー</string>
     <string name="revanced_shorts">ショート動画</string>
     <string name="revanced_shorts_player_title">ショートプレーヤー</string>
+    <string name="revanced_shorts_toolbar_title">ショートのツールバー</string>
     <string name="revanced_show_fullscreen_title_summary">既知の問題: タイトルをタップすると消えます</string>
     <string name="revanced_show_fullscreen_title_title">全画面表示での動画タイトル</string>
     <string name="revanced_skipped_preloaded_buffer">プリロードされたバッファをスキップしました</string>
@@ -632,6 +636,7 @@
     <string name="revanced_spoof_app_version_target_entry_18_01_38">"18.01.38 - [メンバーからのコメント] を削除"</string>
     <string name="revanced_spoof_app_version_target_entry_18_05_40">18.05.40 - 古いコメント入力ボックスを復元</string>
     <string name="revanced_spoof_app_version_target_entry_18_17_43">18.17.43 - 古いプレーヤーフライアウトパネルを復元</string>
+    <string name="revanced_spoof_app_version_target_entry_18_33_40">18.33.40 - 古いショートのアクションバーを復元</string>
     <string name="revanced_spoof_app_version_target_entry_title">偽装するバージョンを選択</string>
     <string name="revanced_spoof_app_version_target_summary">偽装するバージョンを入力してください</string>
     <string name="revanced_spoof_app_version_target_title">偽装するアプリのバージョンを編集</string>
@@ -662,10 +667,7 @@
     <string name="revanced_swipe_overlay_text_size_title">オーバーレイのテキストサイズ</string>
     <string name="revanced_swipe_overlay_timeout_summary">スワイプオーバーレイが表示される時間 (単位: ミリ秒)</string>
     <string name="revanced_swipe_overlay_timeout_title">オーバーレイのタイムアウト</string>
-    <string name="revanced_switching_create_notification_summary_off">作成ボタンを通知ボタンは入れ替わりません
-既知の問題: この設定がオンの場合、広告のホワイトリストは動作しません</string>
-    <string name="revanced_switching_create_notification_summary_on">作成ボタンは通知ボタンと入れ替わります
-既知の問題: この設定がオンの場合、広告のホワイトリストは動作しません</string>
+    <string name="revanced_switching_create_notification_summary">注意: この設定が正しく適用されない場合は、デバイスを再起動してください</string>
     <string name="revanced_switching_create_notification_title">「作成」を「通知」と入れ替え</string>
     <string name="revanced_tool_used">使用されたツール</string>
     <string name="revanced_video">動画</string>
