@@ -2,21 +2,19 @@ package app.revanced.patches.youtube.shorts.shortscomponent
 
 import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.shorts.shortscomponent.fingerprints.ToolBarBannerFingerprint
-import app.revanced.patches.youtube.utils.fingerprints.ToolBarPatchFingerprint
+import app.revanced.patches.youtube.utils.toolbar.ToolBarHookPatch
 import app.revanced.util.integrations.Constants.SHORTS
 
+@Patch(dependencies = [ToolBarHookPatch::class])
 object ShortsToolBarPatch : BytecodePatch(
-    setOf(
-        ToolBarBannerFingerprint,
-        ToolBarPatchFingerprint
-    )
+    setOf(ToolBarBannerFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
         ToolBarBannerFingerprint.result?.let {
@@ -38,13 +36,6 @@ object ShortsToolBarPatch : BytecodePatch(
             }
         } ?: throw ToolBarBannerFingerprint.exception
 
-        ToolBarPatchFingerprint.result?.let {
-            it.mutableMethod.apply {
-                addInstruction(
-                    0,
-                    "invoke-static {p0, p1}, $SHORTS->hideShortsToolBarButton(Ljava/lang/String;Landroid/view/View;)V"
-                )
-            }
-        } ?: throw ToolBarPatchFingerprint.exception
+        ToolBarHookPatch.injectCall("$SHORTS->hideShortsToolBarButton")
     }
 }
