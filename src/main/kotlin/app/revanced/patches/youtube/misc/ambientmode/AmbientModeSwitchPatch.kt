@@ -8,8 +8,11 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patches.youtube.misc.ambientmode.fingerprints.AmbientModeInFullscreenFingerprint
 import app.revanced.patches.youtube.misc.ambientmode.fingerprints.PowerSaveModeFingerprint
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
+import app.revanced.util.bytecode.getWide32LiteralIndex
+import app.revanced.util.integrations.Constants.FULLSCREEN
 import app.revanced.util.integrations.Constants.MISC_PATH
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -17,8 +20,8 @@ import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Patch(
-    name = "Bypass ambient mode restrictions",
-    description = "Bypass ambient mode restrictions in battery saver mode.",
+    name = "Ambient mode switch",
+    description = "Bypass the restrictions of ambient mode or disable it completely.",
     dependencies = [SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(
@@ -44,8 +47,11 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
     ]
 )
 @Suppress("unused")
-object PowerSaveModePatch : BytecodePatch(
-    setOf(PowerSaveModeFingerprint)
+object AmbientModeSwitchPatch : BytecodePatch(
+    setOf(
+        AmbientModeInFullscreenFingerprint,
+        PowerSaveModeFingerprint
+    )
 ) {
     override fun execute(context: BytecodeContext) {
 
@@ -65,7 +71,7 @@ object PowerSaveModePatch : BytecodePatch(
 
                     addInstructions(
                         insertIndex, """
-                            invoke-static {v$targetRegister}, $MISC_PATH/PowerSaveModePatch;->bypassPowerSaveModeRestrictions(Z)Z
+                            invoke-static {v$targetRegister}, $MISC_PATH/AmbientModePatch;->bypassPowerSaveModeRestrictions(Z)Z
                             move-result v$targetRegister
                             """
                     )
@@ -75,16 +81,31 @@ object PowerSaveModePatch : BytecodePatch(
             }
         } ?: throw PowerSaveModeFingerprint.exception
 
+        AmbientModeInFullscreenFingerprint.result?.let {
+            it.mutableMethod.apply {
+                val targetIndex = getWide32LiteralIndex(45389368) + 3
+                val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
+
+                addInstructions(
+                    targetIndex + 1, """
+                        invoke-static {}, $FULLSCREEN->disableAmbientMode()Z
+                        move-result v$targetRegister
+                        """
+                )
+            }
+        } ?: throw AmbientModeInFullscreenFingerprint.exception
+
         /**
          * Add settings
          */
         SettingsPatch.addPreference(
             arrayOf(
-                "SETTINGS: BYPASS_AMBIENT_MODE_RESTRICTIONS"
+                "PREFERENCE: FULLSCREEN_SETTINGS",
+                "SETTINGS: AMBIENT_MODE_SWITCH"
             )
         )
 
-        SettingsPatch.updatePatchStatus("Bypass ambient mode restrictions")
+        SettingsPatch.updatePatchStatus("Ambient mode switch")
 
     }
 }
