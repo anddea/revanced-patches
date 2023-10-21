@@ -59,23 +59,20 @@
     <string name="revanced_default_video_quality_mobile_title">Calidad predeterminada de vídeo en red móvil</string>
     <string name="revanced_default_video_quality_wifi_title">Calidad predeterminada de vídeo en red Wi-Fi</string>
     <string name="revanced_description_title">Descripción</string>
+    <string name="revanced_disable_ambient_mode_summary">Desactiva siempre el modo ambiente</string>
+    <string name="revanced_disable_ambient_mode_title">Desactivar modo ambiente</string>
     <string name="revanced_disable_auto_captions_summary_off">Los subtítulos automáticos forzados están activados</string>
     <string name="revanced_disable_auto_captions_summary_on">Los subtítulos automáticos forzados están desactivados</string>
     <string name="revanced_disable_auto_captions_title">Desactivar subtítulos automáticos forzados</string>
     <string name="revanced_disable_default_playback_speed_live_summary_off">La velocidad predeterminada de reproducción está activada en la transmisión en vivo</string>
     <string name="revanced_disable_default_playback_speed_live_summary_on">La velocidad predeterminada de reproducción está desactivada en la transmisión en vivo</string>
     <string name="revanced_disable_default_playback_speed_live_title">Desactivar velocidad de reproducción en transmisión en vivo</string>
-    <string name="revanced_disable_haptic_feedback_chapters_summary_off">La vibración de los capítulos está activada</string>
-    <string name="revanced_disable_haptic_feedback_chapters_summary_on">La vibración de los capítulos está desactivada</string>
+    <string name="revanced_disable_haptic_feedback_summary_off">La vibración al deslizar está activada</string>
+    <string name="revanced_disable_haptic_feedback_summary_on">La vibración al deslizar está desactivada</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">Desactivar vibración de los capítulos</string>
-    <string name="revanced_disable_haptic_feedback_scrubbing_summary_off">La vibración al deslizar está activada</string>
-    <string name="revanced_disable_haptic_feedback_scrubbing_summary_on">La vibración al deslizar está desactivada</string>
     <string name="revanced_disable_haptic_feedback_scrubbing_title">Desactivar vibración al deslizar</string>
-    <string name="revanced_disable_haptic_feedback_seek_summary_off">La vibración al desplazarse está activada</string>
-    <string name="revanced_disable_haptic_feedback_seek_summary_on">La vibración al desplazarse está desactivada</string>
     <string name="revanced_disable_haptic_feedback_seek_title">Desactivar vibración al desplazarse</string>
-    <string name="revanced_disable_haptic_feedback_zoom_summary_off">La vibración al hacer zoom está activada</string>
-    <string name="revanced_disable_haptic_feedback_zoom_summary_on">La vibración al hacer zoom está desactivada</string>
+    <string name="revanced_disable_haptic_feedback_seek_undo_title">Desactivar vibración al desplazarse</string>
     <string name="revanced_disable_haptic_feedback_zoom_title">Desactivar vibración al hacer zoom</string>
     <string name="revanced_disable_hdr_auto_brightness_summary_off">El brillo HDR automático está activado</string>
     <string name="revanced_disable_hdr_auto_brightness_summary_on">El brillo HDR automático está desactivado</string>
@@ -86,8 +83,6 @@
     <string name="revanced_disable_landscape_mode_summary_off">El modo horizontal al entrar en pantalla completa está activado</string>
     <string name="revanced_disable_landscape_mode_summary_on">El modo horizontal al entrar en pantalla completa está desactivado</string>
     <string name="revanced_disable_landscape_mode_title">Desactivar modo horizontal al entrar en pantalla completa</string>
-    <string name="revanced_disable_speed_overlay_summary">"Desactivar 'Reproducir a velocidad 2x' mientras mantiene presionado"</string>
-    <string name="revanced_disable_speed_overlay_title">Desactivar superposición de velocidad</string>
     <string name="revanced_disable_quic_protocol_summary">"Desactiva el protocolo QUIC de CronetEngine"</string>
     <string name="revanced_disable_quic_protocol_title">Desactivar protocolo QUIC</string>
     <string name="revanced_disable_startup_shorts_player_summary_off">El reproductor de Shorts está activado al iniciar la aplicación</string>
@@ -104,9 +99,6 @@
     <string name="revanced_enable_custom_seekbar_color_summary_off">El color personalizado de la barra de progreso está desactivado</string>
     <string name="revanced_enable_custom_seekbar_color_summary_on">El color personalizado de la barra de progreso está activado</string>
     <string name="revanced_enable_custom_seekbar_color_title">Activar color personalizado de barra de progreso</string>
-    <string name="revanced_edit_speed_overlay_value_summary">"Edita la velocidad que cambia mientras pulsa
-Sólo disponible para algunos usuarios que pueden usar la superposición de velocidad"</string>
-    <string name="revanced_edit_speed_overlay_value_title">Editar superposición de velocidad personalizada</string>
     <string name="revanced_enable_debug_logging_summary_off">Los registros de depuración están desactivados</string>
     <string name="revanced_enable_debug_logging_summary_on">Los registros de depuración están activados</string>
     <string name="revanced_enable_debug_logging_title">Activar registro de depuración</string>
@@ -119,9 +111,6 @@ Sólo disponible para algunos usuarios que pueden usar la superposición de velo
     <string name="revanced_enable_language_switch_summary_off">El cambio de idioma está desactivado</string>
     <string name="revanced_enable_language_switch_summary_on">El cambio de idioma está activado</string>
     <string name="revanced_enable_language_switch_title">Activar cambio de idioma</string>
-    <string name="revanced_enable_new_comment_popup_panels_summary_off">Los nuevos paneles emergentes de comentarios están desactivados</string>
-    <string name="revanced_enable_new_comment_popup_panels_summary_on">Los nuevos paneles emergentes de comentarios están activados</string>
-    <string name="revanced_enable_new_comment_popup_panels_title">Activar nuevos paneles emergentes de comentarios</string>
     <string name="revanced_enable_new_splash_animation_summary_off">La nueva animación splash está desactivada</string>
     <string name="revanced_enable_new_splash_animation_summary_on">La nueva animación splash está activada</string>
     <string name="revanced_enable_new_splash_animation_title">Activar nueva animación splash</string>
@@ -226,9 +215,6 @@ Sólo disponible para algunos usuarios que pueden usar la superposición de velo
     <string name="revanced_hide_button_live_chat_summary_off">El botón Chat En Vivo está visible</string>
     <string name="revanced_hide_button_live_chat_summary_on">El botón Chat En Vivo está oculto</string>
     <string name="revanced_hide_button_live_chat_title">Ocultar botón Chat En Vivo</string>
-    <string name="revanced_hide_button_playlist_summary_off">El botón de lista de reproducción está visible</string>
-    <string name="revanced_hide_button_playlist_summary_on">El botón de lista de reproducción está oculto</string>
-    <string name="revanced_hide_button_playlist_title">Ocultar botón de lista de reproducción</string>
     <string name="revanced_hide_button_remix_summary_off">El botón Remix está visible</string>
     <string name="revanced_hide_button_remix_summary_on">El botón Remix está oculto</string>
     <string name="revanced_hide_button_remix_title">Ocultar botón Remix</string>
@@ -457,9 +443,6 @@ Sólo disponible para algunos usuarios que pueden usar la superposición de velo
     <string name="revanced_hide_player_flyout_panel_watch_in_vr_summary_off">El menú Ver En Realidad Virtual está visible</string>
     <string name="revanced_hide_player_flyout_panel_watch_in_vr_summary_on">El menú Ver En Realidad Virtual está oculto</string>
     <string name="revanced_hide_player_flyout_panel_watch_in_vr_title">Ocultar menú Ver En Realidad Virtual</string>
-    <string name="revanced_hide_player_overlay_filter_summary_off">El filtro de superposición del reproductor está visible</string>
-    <string name="revanced_hide_player_overlay_filter_summary_on">El filtro de superposición del reproductor está oculto</string>
-    <string name="revanced_hide_player_overlay_filter_title">Ocultar filtro de superposición del reproductor</string>
     <string name="revanced_hide_preview_comment_off">La vista previa de comentarios está visible</string>
     <string name="revanced_hide_preview_comment_on">La vista previa de comentarios está oculta</string>
     <string name="revanced_hide_preview_comment_title">Ocultar vista previa de comentarios</string>
@@ -487,6 +470,9 @@ Sólo disponible para algunos usuarios que pueden usar la superposición de velo
     <string name="revanced_hide_seek_message_summary_off">El mensaje de la búsqueda está visible</string>
     <string name="revanced_hide_seek_message_summary_on">El mensaje de la búsqueda está oculto</string>
     <string name="revanced_hide_seek_message_title">Ocultar mensaje de búsqueda</string>
+    <string name="revanced_hide_seek_undo_message_summary_off">El mensaje al desplazarse está visible</string>
+    <string name="revanced_hide_seek_undo_message_summary_on">El mensaje al desplazarse está oculto</string>
+    <string name="revanced_hide_seek_undo_message_title">Ocultar mensaje al desplazarse</string>
     <string name="revanced_hide_self_sponsor_cards_summary_off">Las tarjetas autopatrocinadas están visibles</string>
     <string name="revanced_hide_self_sponsor_cards_summary_on">Las tarjetas autopatrocinadas están ocultas</string>
     <string name="revanced_hide_self_sponsor_cards_title">Ocultar tarjetas autopatrocinadas</string>
@@ -525,6 +511,9 @@ Sólo disponible para algunos usuarios que pueden usar la superposición de velo
     <string name="revanced_hide_snack_bar_summary_off">La barra de snack está visible</string>
     <string name="revanced_hide_snack_bar_summary_on">La barra de snack está oculta</string>
     <string name="revanced_hide_snack_bar_title">Ocultar barra de snack</string>
+    <string name="revanced_hide_start_trial_button_summary_off">El botón de iniciar prueba está visible</string>
+    <string name="revanced_hide_start_trial_button_summary_on">El botón de iniciar prueba está oculto</string>
+    <string name="revanced_hide_start_trial_button_title">Ocultar botón de iniciar prueba</string>
     <string name="revanced_hide_subscriptions_button_summary_off">El botón Suscripciones está visible</string>
     <string name="revanced_hide_subscriptions_button_summary_on">El botón Suscripciones está oculto</string>
     <string name="revanced_hide_subscriptions_button_title">Ocultar botón Suscripciones</string>
@@ -538,6 +527,7 @@ Problema conocido: la reproducción automática no funciona"</string>
 - Noticias de última hora
 - Seguir viendo
 - Explorar más canales
+- Volver a escuchar
 - Compras
 - Volver a ver"</string>
     <string name="revanced_hide_suggestions_shelf_title">Ocultar estantería de sugerencias</string>
@@ -579,9 +569,9 @@ Solo disponible en YouTube v18.24.37+"</string>
     <string name="revanced_layout_title">Diseño</string>
     <string name="revanced_misc">Otros</string>
     <string name="revanced_navigation">Navegación</string>
-    <string name="revanced_open_library_startup_summary_off">La biblioteca no se abre al iniciar la aplicación</string>
-    <string name="revanced_open_library_startup_summary_on">La biblioteca se abre al iniciar la aplicación</string>
-    <string name="revanced_open_library_startup_title">Abrir biblioteca al iniciar la aplicación</string>
+    <string name="revanced_open_library_you_startup_summary_off">La biblioteca (Tú) no se abre al iniciar la app</string>
+    <string name="revanced_open_library_you_startup_summary_on">La biblioteca (Tú) se abre al iniciar la app</string>
+    <string name="revanced_open_library_you_startup_title">Abrir biblioteca (Tú) al iniciar la app</string>
     <string name="revanced_others">Otros</string>
     <string name="revanced_overlay_button">Botón superpuesto</string>
     <string name="revanced_overlay_button_always_repeat_summary">"Pulse para alternar siempre los estados repetidos
@@ -655,6 +645,7 @@ Si más tarde se desactiva, la antigua interfaz de usuario puede permanecer hast
     <string name="revanced_spoof_app_version_target_entry_18_01_38">"18.01.38 - Eliminar el banner \"Comentarios de los miembros\""</string>
     <string name="revanced_spoof_app_version_target_entry_18_05_40">18.05.40 - Restaurar la vieja caja de entrada de comentarios</string>
     <string name="revanced_spoof_app_version_target_entry_18_17_43">18.17.43 - Restaurar el antiguo estilo del panel desplegable del reproductor</string>
+    <string name="revanced_spoof_app_version_target_entry_18_33_40">18.33.40 - Restaurar la antigua barra de acción de Shorts</string>
     <string name="revanced_spoof_app_version_target_entry_title">Versión a usar de la aplicación</string>
     <string name="revanced_spoof_app_version_target_summary">Escriba la versión a modificar de la app</string>
     <string name="revanced_spoof_app_version_target_title">Modificar versión de aplicación</string>
@@ -685,8 +676,7 @@ Problemas conocidos
     <string name="revanced_swipe_overlay_text_size_title">Tamaño del texto de superposición de deslizamiento</string>
     <string name="revanced_swipe_overlay_timeout_summary">La cantidad de milisegundos que la superposición es visible</string>
     <string name="revanced_swipe_overlay_timeout_title">Tiempo de espera de superposición de deslizamiento</string>
-    <string name="revanced_switching_create_notification_summary_off">El botón Crear no se cambia con las notificaciones</string>
-    <string name="revanced_switching_create_notification_summary_on">El botón Crear se cambia con las notificaciones</string>
+    <string name="revanced_switching_create_notification_summary">Nota: Si este ajuste no se aplica correctamente, reinicie el dispositivo</string>
     <string name="revanced_switching_create_notification_title">Cambiar Crear con botón de notificaciones</string>
     <string name="revanced_tool_used">Herramienta utilizada</string>
     <string name="revanced_video">Vídeo</string>

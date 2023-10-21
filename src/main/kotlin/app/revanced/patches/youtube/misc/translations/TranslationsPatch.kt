@@ -61,6 +61,7 @@ object TranslationsPatch : ResourcePatch() {
         "ko-rKR",
         "pl-rPL",
         "pt-rBR",
+        "ro-rRO",
         "ru-rRU",
         "tr-rTR",
         "uk-rUA",

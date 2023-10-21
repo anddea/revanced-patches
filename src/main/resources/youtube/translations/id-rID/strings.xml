@@ -65,17 +65,9 @@
     <string name="revanced_disable_default_playback_speed_live_summary_off">Kecepatan pemutaran default diaktifkan dalam live stream</string>
     <string name="revanced_disable_default_playback_speed_live_summary_on">Kecepatan pemutaran default dinonaktifkan dalam live stream</string>
     <string name="revanced_disable_default_playback_speed_live_title">Nonaktifkan kecepatan pemutaran dalam live stream</string>
-    <string name="revanced_disable_haptic_feedback_chapters_summary_off">Umpan balik haptic segmen diaktifkan</string>
-    <string name="revanced_disable_haptic_feedback_chapters_summary_on">Umpan balik haptic segmen dinonaktifkan</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">Nonaktifkan umpan balik haptic segmen</string>
-    <string name="revanced_disable_haptic_feedback_scrubbing_summary_off">Swipe umpan balik haptic diaktifkan</string>
-    <string name="revanced_disable_haptic_feedback_scrubbing_summary_on">Swipe umpan balik haptic dinonaktifkan</string>
     <string name="revanced_disable_haptic_feedback_scrubbing_title">Nonaktifkan swipe umpan balik haptic</string>
-    <string name="revanced_disable_haptic_feedback_seek_summary_off">Seek umpan balik haptic diaktifkan</string>
-    <string name="revanced_disable_haptic_feedback_seek_summary_on">Seek umpan balik haptic dinonaktifkan</string>
     <string name="revanced_disable_haptic_feedback_seek_title">Nonaktifkan seek umpan balik haptic </string>
-    <string name="revanced_disable_haptic_feedback_zoom_summary_off">Umpan balik haptic zoom diaktifkan</string>
-    <string name="revanced_disable_haptic_feedback_zoom_summary_on">Umpan balik haptic zoom dinonaktifkan</string>
     <string name="revanced_disable_haptic_feedback_zoom_title">Nonaktifkan umpan balik haptic zoom</string>
     <string name="revanced_disable_hdr_auto_brightness_summary_off">Kecerahan HDR otomatis diaktifkan</string>
     <string name="revanced_disable_hdr_auto_brightness_summary_on">Kecerahan HDR otomatis dinonaktifkan</string>
@@ -86,8 +78,6 @@
     <string name="revanced_disable_landscape_mode_summary_off">Mode lanskap saat memasuki layar penuh diaktifkan</string>
     <string name="revanced_disable_landscape_mode_summary_on">Mode lanskap saat memasuki layar penuh dinonaktifkan</string>
     <string name="revanced_disable_landscape_mode_title">Nonaktifkan mode lanskap</string>
-    <string name="revanced_disable_speed_overlay_summary">"Nonaktifkan 'Putar dengan kecepatan 2x' ketika menahan"</string>
-    <string name="revanced_disable_speed_overlay_title">Nonaktifkan overlay kecepatan</string>
     <string name="revanced_disable_quic_protocol_summary">"Nonaktifkan protokol QUIC CronetEngine"</string>
     <string name="revanced_disable_quic_protocol_title">Nonaktifkan protokol QUIC</string>
     <string name="revanced_disable_startup_shorts_player_summary_off">Pemutar shorts saat memulai aplikasi diaktifkan</string>
@@ -104,9 +94,6 @@
     <string name="revanced_enable_custom_seekbar_color_summary_off">Warna seekbar kustom dinonaktifkan</string>
     <string name="revanced_enable_custom_seekbar_color_summary_on">Warna seekbar kustom diaktifkan</string>
     <string name="revanced_enable_custom_seekbar_color_title">Aktifkan warna seekbar kustom</string>
-    <string name="revanced_edit_speed_overlay_value_summary">"Edit kecepatan yang berubah ketika menahan layar
-Hanya tersedia untuk beberapa pengguna yang dapat menggunakan overlay kecepatan"</string>
-    <string name="revanced_edit_speed_overlay_value_title">Edit overlay kecepatan kustom</string>
     <string name="revanced_enable_debug_logging_summary_off">Pencatatan debug dinonaktifkan</string>
     <string name="revanced_enable_debug_logging_summary_on">Pencatatan debug diaktifkan</string>
     <string name="revanced_enable_debug_logging_title">Aktifkan pencatatan debug</string>
@@ -119,9 +106,6 @@ Hanya tersedia untuk beberapa pengguna yang dapat menggunakan overlay kecepatan"
     <string name="revanced_enable_language_switch_summary_off">Peralihan bahasa dinonaktifkan</string>
     <string name="revanced_enable_language_switch_summary_on">Peralihan bahasa diaktifkan</string>
     <string name="revanced_enable_language_switch_title">Aktifkan peralihan bahasa</string>
-    <string name="revanced_enable_new_comment_popup_panels_summary_off">Panel munculan komentar baru dinonaktifkan</string>
-    <string name="revanced_enable_new_comment_popup_panels_summary_on">Panel munculan komentar baru diaktifkan</string>
-    <string name="revanced_enable_new_comment_popup_panels_title">Aktifkan panel munculan komentar baru</string>
     <string name="revanced_enable_new_splash_animation_summary_off">Animasi splash baru dinonaktifkan</string>
     <string name="revanced_enable_new_splash_animation_summary_on">Animasi splash baru diaktifkan</string>
     <string name="revanced_enable_new_splash_animation_title">Aktifkan animasi splash baru</string>
@@ -226,9 +210,6 @@ Hanya tersedia untuk beberapa pengguna yang dapat menggunakan overlay kecepatan"
     <string name="revanced_hide_button_live_chat_summary_off">Tombol live chat ditampilkan</string>
     <string name="revanced_hide_button_live_chat_summary_on">Tombol live chat disembunyikan</string>
     <string name="revanced_hide_button_live_chat_title">Sembunyikan tombol live chat</string>
-    <string name="revanced_hide_button_playlist_summary_off">Tombol playlist ditampilkan</string>
-    <string name="revanced_hide_button_playlist_summary_on">Tombol playlist disembunyikan</string>
-    <string name="revanced_hide_button_playlist_title">Sembunyikan tombol playlist</string>
     <string name="revanced_hide_button_remix_summary_off">Tombol remix ditampilkan</string>
     <string name="revanced_hide_button_remix_summary_on">Tombol remix disembunyikan</string>
     <string name="revanced_hide_button_remix_title">Sembunyikan tombol remix</string>
@@ -343,6 +324,9 @@ Hanya tersedia untuk beberapa pengguna yang dapat menggunakan overlay kecepatan"
     <string name="revanced_hide_gray_separator_summary_off">Pemisah abu-abu ditampilkan</string>
     <string name="revanced_hide_gray_separator_summary_on">Pemisah abu-abu disembunyikan</string>
     <string name="revanced_hide_gray_separator_title">Sembunyikan pemisah abu-abu</string>
+    <string name="revanced_hide_handle_summary_off">Handle ditampilkan</string>
+    <string name="revanced_hide_handle_summary_on">Handle disembunyikan</string>
+    <string name="revanced_hide_handle_title">Sembunyikan handle</string>
     <string name="revanced_hide_home_button_summary_off">Tombol beranda ditampilkan</string>
     <string name="revanced_hide_home_button_summary_on">Tombol beranda disembunyikan</string>
     <string name="revanced_hide_home_button_title">Sembunyikan tombol beranda</string>
@@ -436,6 +420,9 @@ Hanya tersedia untuk beberapa pengguna yang dapat menggunakan overlay kecepatan"
     <string name="revanced_hide_player_flyout_panel_playback_speed_summary_off">Menu kecepatan pemutar video ditampilkan</string>
     <string name="revanced_hide_player_flyout_panel_playback_speed_summary_on">Menu kecepatan pemutar video disembunyikan</string>
     <string name="revanced_hide_player_flyout_panel_playback_speed_title">Sembunyikan menu kecepatan pemutar video</string>
+    <string name="revanced_hide_player_flyout_panel_premium_controls_summary_off">Menu kontrol premium ditampilkan</string>
+    <string name="revanced_hide_player_flyout_panel_premium_controls_summary_on">Menu kontrol premium disembunyikan</string>
+    <string name="revanced_hide_player_flyout_panel_premium_controls_title">Sembunyikan menu kontrol premium</string>
     <string name="revanced_hide_player_flyout_panel_quality_footer_summary_off">Footer menu kualitas ditampilkan</string>
     <string name="revanced_hide_player_flyout_panel_quality_footer_summary_on">Footer menu kualitas disembunyikan</string>
     <string name="revanced_hide_player_flyout_panel_quality_footer_title">Sembunyikan footer menu kualitas</string>
@@ -451,9 +438,6 @@ Hanya tersedia untuk beberapa pengguna yang dapat menggunakan overlay kecepatan"
     <string name="revanced_hide_player_flyout_panel_watch_in_vr_summary_off">Menu tonton di VR ditampilkan</string>
     <string name="revanced_hide_player_flyout_panel_watch_in_vr_summary_on">Menu tonton di VR disembunyikan</string>
     <string name="revanced_hide_player_flyout_panel_watch_in_vr_title">Sembunyikan menu tonton di VR</string>
-    <string name="revanced_hide_player_overlay_filter_summary_off">Filter overlay pemutar ditampilkan</string>
-    <string name="revanced_hide_player_overlay_filter_summary_on">Filter overlay pemutar disembunyikan</string>
-    <string name="revanced_hide_player_overlay_filter_title">Sembunyikan filter overlay pemutar</string>
     <string name="revanced_hide_preview_comment_off">Komentar pratinjau ditampilkan</string>
     <string name="revanced_hide_preview_comment_on">Komentar pratinjau disembunyikan</string>
     <string name="revanced_hide_preview_comment_title">Sembunyikan komentar pratinjau</string>
@@ -504,6 +488,18 @@ Hanya tersedia untuk beberapa pengguna yang dapat menggunakan overlay kecepatan"
     <string name="revanced_hide_shorts_shelf_summary_off">Rak shorts ditampilkan</string>
     <string name="revanced_hide_shorts_shelf_summary_on">Rak shorts disembunyikan</string>
     <string name="revanced_hide_shorts_shelf_title">Sembunyikan rak shorts</string>
+    <string name="revanced_hide_shorts_toolbar_banner_summary_off">Banner ditampilkan</string>
+    <string name="revanced_hide_shorts_toolbar_banner_summary_on">Banner disembunyikan</string>
+    <string name="revanced_hide_shorts_toolbar_banner_title">Sembunyikan banner</string>
+    <string name="revanced_hide_shorts_toolbar_camera_button_summary_off">Tombol kamera ditampilkan</string>
+    <string name="revanced_hide_shorts_toolbar_camera_button_summary_on">Tombol kamera disembunyikan</string>
+    <string name="revanced_hide_shorts_toolbar_camera_button_title">Sembunyikan tombol kamera</string>
+    <string name="revanced_hide_shorts_toolbar_menu_button_summary_off">Tombol menu ditampilkan</string>
+    <string name="revanced_hide_shorts_toolbar_menu_button_summary_on">Tombol menu disembunyikan</string>
+    <string name="revanced_hide_shorts_toolbar_menu_button_title">Sembunyikan tombol menu</string>
+    <string name="revanced_hide_shorts_toolbar_search_button_summary_off">Tombol pencarian ditampilkan</string>
+    <string name="revanced_hide_shorts_toolbar_search_button_summary_on">Tombol pencarian disembunyikan</string>
+    <string name="revanced_hide_shorts_toolbar_search_button_title">Sembunyikan tombol pencarian</string>
     <string name="revanced_hide_snack_bar_summary_off">Bilah snack ditampilkan</string>
     <string name="revanced_hide_snack_bar_summary_on">Bilah snack disembunyikan</string>
     <string name="revanced_hide_snack_bar_title">Sembunyikan bilah snack</string>
@@ -535,6 +531,9 @@ Masalah yang diketahui: putar otomatis tidak berfungsi"</string>
     <string name="revanced_hide_transcript_section_summary_off">Bagian transkrip ditampilkan</string>
     <string name="revanced_hide_transcript_section_summary_on">Bagian transkrip disembunyikan</string>
     <string name="revanced_hide_transcript_section_title">Sembunyikan bagian transkrip</string>
+    <string name="revanced_hide_toolbar_create_notification_button_summary_off">Tombol Buat dan Notifikasi ditampilkan</string>
+    <string name="revanced_hide_toolbar_create_notification_button_summary_on">Tombol Buat dan Notifikasi disembunyikan</string>
+    <string name="revanced_hide_toolbar_create_notification_button_title">Sembunyikan tombol di toolbar</string>
     <string name="revanced_hide_trending_searches_summary_off">Penelusuran yang sedang tren ditampilkan</string>
     <string name="revanced_hide_trending_searches_summary_on">Penelusuran yang sedang tren disembunyikan</string>
     <string name="revanced_hide_trending_searches_title">Sembunyikan penelusuran yang sedang tren</string>
@@ -557,9 +556,6 @@ Masalah yang diketahui: putar otomatis tidak berfungsi"</string>
     <string name="revanced_layout_title">Tata letak</string>
     <string name="revanced_misc">Lainnya</string>
     <string name="revanced_navigation">Navigasi</string>
-    <string name="revanced_open_library_startup_summary_off">Koleksi tidak dibuka saat memulai aplikasi</string>
-    <string name="revanced_open_library_startup_summary_on">Koleksi dibuka saat memulai aplikasi</string>
-    <string name="revanced_open_library_startup_title">Buka koleksi saat memulai aplikasi</string>
     <string name="revanced_others">Lainnya</string>
     <string name="revanced_overlay_button">Tombol overlay</string>
     <string name="revanced_overlay_button_always_repeat_summary">"Tekan untuk beralih status selalu ulangi
@@ -609,6 +605,7 @@ Tekan dan tahan untuk mengatur kecepatan pemutaran ke 1,0x"</string>
     <string name="revanced_seekbar">Seekbar</string>
     <string name="revanced_shorts">Shorts</string>
     <string name="revanced_shorts_player_title">Pemutar shorts</string>
+    <string name="revanced_shorts_toolbar_title">Shorts toolbar</string>
     <string name="revanced_show_fullscreen_title_summary">Masalah yang diketahui: Judul menghilang saat diklik</string>
     <string name="revanced_show_fullscreen_title_title">Tampilkan judul layar penuh</string>
     <string name="revanced_skipped_preloaded_buffer">Melewatkan buffer yang dimuat sebelumnya</string>
@@ -661,8 +658,6 @@ Masalah Dikenal
     <string name="revanced_swipe_overlay_text_size_title">Ukuran teks overlay swipe</string>
     <string name="revanced_swipe_overlay_timeout_summary">Jumlah milidetik overlay terlihat</string>
     <string name="revanced_swipe_overlay_timeout_title">Batas waktu overlay swipe</string>
-    <string name="revanced_switching_create_notification_summary_off">Tombol buat tidak dialihkan dengan notifikasi</string>
-    <string name="revanced_switching_create_notification_summary_on">Tombol buat dialihkan dengan notifikasi</string>
     <string name="revanced_switching_create_notification_title">Alihkan buat dengan tombol notifikasi</string>
     <string name="revanced_tool_used">Alat yang digunakan</string>
     <string name="revanced_video">Video</string>
