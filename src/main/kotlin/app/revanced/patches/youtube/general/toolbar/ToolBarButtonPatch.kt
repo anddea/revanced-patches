@@ -1,12 +1,9 @@
 package app.revanced.patches.youtube.general.toolbar
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.youtube.utils.fingerprints.ToolBarPatchFingerprint
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.patches.youtube.utils.toolbar.ToolBarHookPatch
 import app.revanced.util.integrations.Constants.GENERAL
@@ -42,19 +39,10 @@ import app.revanced.util.integrations.Constants.GENERAL
     ]
 )
 @Suppress("unused")
-object ToolBarButtonPatch : BytecodePatch(
-    setOf(ToolBarPatchFingerprint)
-) {
+object ToolBarButtonPatch : BytecodePatch() {
     override fun execute(context: BytecodeContext) {
 
-        ToolBarPatchFingerprint.result?.let {
-            it.mutableMethod.apply {
-                addInstruction(
-                    0,
-                    "invoke-static {p0, p1}, $GENERAL->hideToolBarButton(Ljava/lang/String;Landroid/view/View;)V"
-                )
-            }
-        } ?: throw ToolBarPatchFingerprint.exception
+        ToolBarHookPatch.injectCall("$GENERAL->hideToolBarButton")
 
         /**
          * Add settings
