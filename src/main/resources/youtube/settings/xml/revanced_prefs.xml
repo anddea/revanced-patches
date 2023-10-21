@@ -313,6 +313,9 @@
         <ListPreference android:title="@string/revanced_spoof_app_version_target_entry_title" android:key="revanced_spoof_app_version_target" android:entries="@array/revanced_spoof_app_version_target_entry" android:defaultValue="18.17.43" android:entryValues="@array/revanced_spoof_app_version_target_entry_value" />
         <app.revanced.integrations.settingsmenu.ResettableEditTextPreference android:hint="18.17.43" android:title="@string/revanced_spoof_app_version_target_title" android:key="revanced_spoof_app_version_target" android:summary="@string/revanced_spoof_app_version_target_summary" android:inputType="text" android:dependency="revanced_spoof_app_version" />SETTINGS: SPOOF_APP_VERSION -->
 
+        <!-- SETTINGS: SPOOF_DEVICE_DIMENSIONS
+        <SwitchPreference android:title="@string/revanced_spoof_device_dimensions_title" android:key="revanced_spoof_device_dimensions" android:defaultValue="false" android:summary="@string/revanced_spoof_device_dimensions_summary" />SETTINGS: SPOOF_DEVICE_DIMENSIONS -->
+
         <!-- SETTINGS: SPOOF_PLAYER_PARAMETER
         <SwitchPreference android:title="@string/revanced_spoof_player_parameter_title" android:key="revanced_spoof_player_parameter" android:defaultValue="false" android:summary="@string/revanced_spoof_player_parameter_summary" />
         <SwitchPreference android:title="@string/revanced_spoof_player_parameter_in_feed_title" android:key="revanced_spoof_player_parameter_in_feed" android:defaultValue="false" android:summaryOn="@string/revanced_spoof_player_parameter_in_feed_summary_on" android:summaryOff="@string/revanced_spoof_player_parameter_in_feed_summary_off" android:dependency="revanced_spoof_player_parameter" />SETTINGS: SPOOF_PLAYER_PARAMETER -->
@@ -382,6 +385,7 @@
             <Preference android:title="Force video codec" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Layout switch" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Spoof app version" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="Spoof device dimensions" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Spoof player parameters" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
 
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_navigation" />
