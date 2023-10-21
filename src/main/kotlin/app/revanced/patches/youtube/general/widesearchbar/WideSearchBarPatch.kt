@@ -3,17 +3,21 @@ package app.revanced.patches.youtube.general.widesearchbar
 import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.general.widesearchbar.fingerprints.SetActionBarRingoFingerprint
 import app.revanced.patches.youtube.general.widesearchbar.fingerprints.SetToolBarPaddingFingerprint
+import app.revanced.patches.youtube.general.widesearchbar.fingerprints.YouActionBarFingerprint
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch.contexts
 import app.revanced.util.integrations.Constants.GENERAL
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Enable wide search bar",
@@ -60,6 +64,25 @@ object WideSearchBarPatch : BytecodePatch(
         ).forEach {
             it.injectHook(context)
         }
+
+        YouActionBarFingerprint.also {
+            it.resolve(
+                context,
+                SetActionBarRingoFingerprint.result!!.classDef
+            )
+        }.result?.let {
+            it.mutableMethod.apply {
+                val insertIndex = it.scanResult.patternScanResult!!.endIndex
+                val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+
+                addInstructions(
+                    insertIndex, """
+                        invoke-static {v$insertRegister}, $GENERAL->enableWideSearchBarInYouTab(Z)Z
+                        move-result v$insertRegister
+                        """
+                )
+            }
+        } ?: throw YouActionBarFingerprint.exception
 
         /**
          * Set Wide SearchBar Start Margin

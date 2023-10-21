@@ -161,7 +161,8 @@
         <SwitchPreference android:title="@string/revanced_enable_tablet_mini_player_title" android:key="revanced_enable_tablet_mini_player" android:defaultValue="false" android:summaryOn="@string/revanced_enable_tablet_mini_player_summary_on" android:summaryOff="@string/revanced_enable_tablet_mini_player_summary_off" />SETTINGS: ENABLE_TABLET_MINI_PLAYER -->
 
         <!-- SETTINGS: ENABLE_WIDE_SEARCH_BAR
-        <SwitchPreference android:title="@string/revanced_enable_wide_search_bar_title" android:key="revanced_enable_wide_search_bar" android:defaultValue="false" android:summaryOn="@string/revanced_enable_wide_search_bar_summary_on" android:summaryOff="@string/revanced_enable_wide_search_bar_summary_off" />SETTINGS: ENABLE_WIDE_SEARCH_BAR -->
+        <SwitchPreference android:title="@string/revanced_enable_wide_search_bar_title" android:key="revanced_enable_wide_search_bar" android:defaultValue="false" android:summaryOn="@string/revanced_enable_wide_search_bar_summary_on" android:summaryOff="@string/revanced_enable_wide_search_bar_summary_off" />
+        <SwitchPreference android:title="@string/revanced_enable_wide_search_bar_in_you_tab_title" android:key="revanced_enable_wide_search_bar_in_you_tab" android:defaultValue="false" android:summary="@string/revanced_enable_wide_search_bar_in_you_tab_summary" android:dependency="revanced_enable_wide_search_bar" />SETTINGS: ENABLE_WIDE_SEARCH_BAR -->
 
         <!-- SETTINGS: HIDE_ACCOUNT_MENU
         <SwitchPreference android:title="@string/revanced_hide_account_menu_title" android:key="revanced_hide_account_menu" android:defaultValue="false" android:summary="@string/revanced_hide_account_menu_summary" />
