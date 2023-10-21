@@ -113,6 +113,9 @@
     <PreferenceScreen android:title="@string/revanced_fullscreen" android:key="fullscreen">
         <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_fullscreen" />PREFERENCE: FULLSCREEN_SETTINGS -->
 
+        <!-- SETTINGS: AMBIENT_MODE_SWITCH
+        <SwitchPreference android:title="@string/revanced_disable_ambient_mode_in_fullscreen_title" android:key="revanced_disable_ambient_mode_in_fullscreen" android:defaultValue="false" android:summary="@string/revanced_disable_ambient_mode_in_fullscreen_summary" />SETTINGS: AMBIENT_MODE_SWITCH -->
+
         <!-- SETTINGS: DISABLE_LANDSCAPE_MODE
         <SwitchPreference android:title="@string/revanced_disable_landscape_mode_title" android:key="revanced_disable_landscape_mode" android:defaultValue="false" android:summaryOn="@string/revanced_disable_landscape_mode_summary_on" android:summaryOff="@string/revanced_disable_landscape_mode_summary_off" />SETTINGS: DISABLE_LANDSCAPE_MODE -->
 
@@ -253,9 +256,9 @@
     <PreferenceScreen android:title="@string/revanced_misc" android:key="misc">
         <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_misc" />
 
-        <!-- SETTINGS: BYPASS_AMBIENT_MODE_RESTRICTIONS
+        <!-- SETTINGS: AMBIENT_MODE_SWITCH
         <SwitchPreference android:title="@string/revanced_bypass_ambient_mode_restrictions_title" android:key="revanced_bypass_ambient_mode_restrictions" android:defaultValue="false" android:summaryOn="@string/revanced_bypass_ambient_mode_restrictions_summary_on" android:summaryOff="@string/revanced_bypass_ambient_mode_restrictions_summary_off" />
-        <SwitchPreference android:title="@string/revanced_disable_ambient_mode_title" android:key="revanced_disable_ambient_mode" android:defaultValue="false" android:summary="@string/revanced_disable_ambient_mode_summary" />SETTINGS: BYPASS_AMBIENT_MODE_RESTRICTIONS -->
+        <SwitchPreference android:title="@string/revanced_disable_ambient_mode_title" android:key="revanced_disable_ambient_mode" android:defaultValue="false" android:summary="@string/revanced_disable_ambient_mode_summary" />SETTINGS: AMBIENT_MODE_SWITCH -->
 
         <!-- SETTINGS: DOUBLE_BACK_TIMEOUT
         <ListPreference android:title="@string/revanced_double_back_timeout_title" android:summary="@string/revanced_double_back_timeout_summary" android:key="revanced_double_back_timeout" android:entries="@array/revanced_double_back_timeout_entry" android:defaultValue="2" android:entryValues="@array/revanced_double_back_timeout_value" />SETTINGS: DOUBLE_BACK_TIMEOUT -->
@@ -368,7 +371,7 @@
             <Preference android:title="Hide trending searches" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
 
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_misc" />
-            <Preference android:title="Bypass ambient mode restrictions" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="Ambient mode switch" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Disable QUIC protocol" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Enable debug logging" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Enable external browser" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
