@@ -11,8 +11,6 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.youtube.misc.codec.video.fingerprints.VideoCapabilitiesFingerprint
-import app.revanced.patches.youtube.misc.codec.video.fingerprints.VideoCapabilitiesParentFingerprint
 import app.revanced.patches.youtube.misc.codec.video.fingerprints.VideoPrimaryFingerprint
 import app.revanced.patches.youtube.misc.codec.video.fingerprints.VideoPropsFingerprint
 import app.revanced.patches.youtube.misc.codec.video.fingerprints.VideoPropsParentFingerprint
@@ -56,7 +54,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 object ForceVideoCodecPatch : BytecodePatch(
     setOf(
         LayoutSwitchFingerprint,
-        VideoCapabilitiesParentFingerprint,
         VideoPropsParentFingerprint
     )
 ) {
@@ -88,32 +85,6 @@ object ForceVideoCodecPatch : BytecodePatch(
                 }
             } ?: throw VideoPropsFingerprint.exception
         } ?: throw VideoPropsParentFingerprint.exception
-
-        VideoCapabilitiesParentFingerprint.result?.let { parentResult ->
-            VideoCapabilitiesFingerprint.also {
-                it.resolve(
-                    context,
-                    parentResult.classDef
-                )
-            }.result?.let {
-                it.mutableMethod.apply {
-                    val insertIndex = it.scanResult.patternScanResult!!.startIndex
-
-                    addInstructions(
-                        insertIndex, """
-                            invoke-static {p1}, $INTEGRATIONS_CLASS_DESCRIPTOR->overrideMinHeight(I)I
-                            move-result p1
-                            invoke-static {p2}, $INTEGRATIONS_CLASS_DESCRIPTOR->overrideMaxHeight(I)I
-                            move-result p2
-                            invoke-static {p3}, $INTEGRATIONS_CLASS_DESCRIPTOR->overrideMinWidth(I)I
-                            move-result p3
-                            invoke-static {p4}, $INTEGRATIONS_CLASS_DESCRIPTOR->overrideMaxWidth(I)I
-                            move-result p4
-                            """
-                    )
-                }
-            } ?: throw VideoCapabilitiesFingerprint.exception
-        } ?: throw VideoCapabilitiesParentFingerprint.exception
 
         /**
          * Add settings
