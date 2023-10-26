@@ -10,7 +10,7 @@ import kotlin.io.path.exists
 
 @Patch(
     name = "Settings",
-    description = "Adds ReVanced settings to Reddit.",
+    description = "Adds ReVanced Extended settings to Reddit.",
     dependencies =
     [
         IntegrationsPatch::class,
