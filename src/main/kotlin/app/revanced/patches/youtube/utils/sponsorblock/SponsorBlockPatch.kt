@@ -62,6 +62,9 @@ object SponsorBlockPatch : ResourcePatch() {
                 "ic_sb_edit.xml",
                 "ic_sb_logo.xml",
                 "ic_sb_publish.xml",
+                "ns_bg.xml",
+                "ic_sb_forward.xml",
+                "ic_sb_backward.xml",
                 "ic_sb_voting.xml"
             )
         ).forEach { resourceGroup ->
