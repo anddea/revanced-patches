@@ -195,7 +195,7 @@ ReVanced Extended Patches.
 | `Open links externally` | Open links outside of the app directly in your browser. | all |
 | `Premium icon` | Unlocks premium icons. | all |
 | `Sanitize sharing links` | Removes (tracking) query parameters from the URLs when sharing links. | all |
-| `Settings` | Adds ReVanced settings to Reddit. | all |
+| `Settings` | Adds ReVanced Extended settings to Reddit. | all |
 </details>
 
 
