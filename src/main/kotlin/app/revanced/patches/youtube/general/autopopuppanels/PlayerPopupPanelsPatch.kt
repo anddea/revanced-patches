@@ -20,7 +20,6 @@ import app.revanced.util.integrations.Constants.GENERAL
         CompatiblePackage(
             "com.google.android.youtube",
             [
-                "18.24.37",
                 "18.25.40",
                 "18.27.36",
                 "18.29.38",

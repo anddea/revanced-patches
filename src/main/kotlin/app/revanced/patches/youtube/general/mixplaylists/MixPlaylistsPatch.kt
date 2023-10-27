@@ -33,7 +33,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
         CompatiblePackage(
             "com.google.android.youtube",
             [
-                "18.24.37",
                 "18.25.40",
                 "18.27.36",
                 "18.29.38",
