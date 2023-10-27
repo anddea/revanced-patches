@@ -10,11 +10,20 @@ object OpenLinksDirectlyFingerprintPrimary : MethodFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("Ljava/lang/Object"),
     opcodes = listOf(
+        Opcode.RETURN_OBJECT,
+        Opcode.CHECK_CAST,
+        Opcode.INVOKE_VIRTUAL,
+        Opcode.MOVE_RESULT_OBJECT,
+        Opcode.CHECK_CAST,
+        Opcode.RETURN_OBJECT,
+        Opcode.CHECK_CAST,
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.RETURN_OBJECT,
-        Opcode.CHECK_CAST,
-        Opcode.SGET,
-        Opcode.SGET_OBJECT
-    )
+        Opcode.CHECK_CAST
+    ),
+    customFingerprint = { methodDef, classDef ->
+        methodDef.name == "a"
+                && classDef.methods.count() == 3
+    }
 )
