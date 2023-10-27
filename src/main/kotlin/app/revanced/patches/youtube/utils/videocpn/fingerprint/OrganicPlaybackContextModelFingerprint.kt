@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.utils.videocpn.fingerprint
 
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 
 object OrganicPlaybackContextModelFingerprint : MethodFingerprint(
     returnType = "V",

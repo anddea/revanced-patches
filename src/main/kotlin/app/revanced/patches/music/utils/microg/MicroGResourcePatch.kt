@@ -15,7 +15,7 @@ import app.revanced.util.resources.MusicResourceHelper.setMicroG
 @Patch(dependencies = [PackageNamePatch::class])
 object MicroGResourcePatch : ResourcePatch() {
     override fun execute(context: ResourceContext) {
-        val packageName = PackageNamePatch.MusicPackageName
+        val packageName = PackageNamePatch.PackageNameYouTubeMusic
             ?: throw PatchException("Invalid package name.")
 
         if (packageName == MUSIC_PACKAGE_NAME)

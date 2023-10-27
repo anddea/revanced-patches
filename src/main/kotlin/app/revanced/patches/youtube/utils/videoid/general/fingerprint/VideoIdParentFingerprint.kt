@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.utils.videoid.general.fingerprint
 
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 
 object VideoIdParentFingerprint : MethodFingerprint(
     returnType = "V",

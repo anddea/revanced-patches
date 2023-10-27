@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.navigation.homepage.fingerprints
 
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 
 object LauncherActivityFingerprint : MethodFingerprint(
     returnType = "V",

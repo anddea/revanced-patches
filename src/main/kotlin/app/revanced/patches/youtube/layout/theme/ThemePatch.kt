@@ -5,7 +5,7 @@ import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patcher.patch.options.types.StringPatchOption.Companion.stringPatchOption
+import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatchOption
 import app.revanced.patches.youtube.layout.theme.GeneralThemePatch.isMonetPatchIncluded
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.resources.ResourceHelper.updatePatchStatusTheme
@@ -43,6 +43,7 @@ import org.w3c.dom.Element
 )
 @Suppress("unused")
 object ThemePatch : ResourcePatch() {
+    private const val AMOLED_BLACK_COLOR = "@android:color/black"
     override fun execute(context: ResourceContext) {
 
         arrayOf("values", "values-v31").forEach { context.setTheme(it) }
@@ -74,9 +75,19 @@ object ThemePatch : ResourcePatch() {
     }
 
     internal var darkThemeBackgroundColor by stringPatchOption(
-        key = "darkThemeBackgroundColor",
-        default = "@android:color/black",
-        title = "Background color for the dark theme",
-        description = "The background color of the dark theme. Can be a hex color or a resource reference."
+        key = "DarkThemeBackgroundColor",
+        default = AMOLED_BLACK_COLOR,
+        values = mapOf(
+            "Amoled black" to AMOLED_BLACK_COLOR,
+            "Catppuccin (Mocha)" to "#FF181825",
+            "Dark pink" to "#FF290025",
+            "Dark blue" to "#FF001029",
+            "Dark green" to "#FF002905",
+            "Dark yellow" to "#FF282900",
+            "Dark orange" to "#FF291800",
+            "Dark red" to "#FF290000"
+        ),
+        title = "Dark theme background color",
+        description = "Can be a hex color (#AARRGGBB) or a color resource reference.",
     )
 }

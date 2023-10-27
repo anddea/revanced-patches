@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.fullscreen.fullscreenpanels.fingerprints
 
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.FullScreenEngagementPanel
 import app.revanced.util.bytecode.isWideLiteralExists
 

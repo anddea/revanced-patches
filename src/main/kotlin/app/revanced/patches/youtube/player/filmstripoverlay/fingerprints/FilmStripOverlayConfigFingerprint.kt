@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.player.filmstripoverlay.fingerprints
 
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.util.bytecode.isWide32LiteralExists
 
 object FilmStripOverlayConfigFingerprint : MethodFingerprint(

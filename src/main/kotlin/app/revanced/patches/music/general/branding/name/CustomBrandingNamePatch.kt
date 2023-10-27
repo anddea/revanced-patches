@@ -5,7 +5,7 @@ import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patcher.patch.options.types.StringPatchOption.Companion.stringPatchOption
+import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatchOption
 
 @Patch(
     name = "Custom branding Music name",
@@ -27,41 +27,50 @@ import app.revanced.patcher.patch.options.types.StringPatchOption.Companion.stri
 object CustomBrandingNamePatch : ResourcePatch() {
     override fun execute(context: ResourceContext) {
 
-        val longName = MusicLongName
-            ?: throw PatchException("Invalid app name.")
+        AppNameNotification?.let { notificationName ->
+            AppNameLauncher?.let { launcherName ->
+                context.xmlEditor["res/values/strings.xml"].use { editor ->
+                    val document = editor.file
 
-        val shortName = MusicShortName
-            ?: throw PatchException("Invalid app name.")
+                    mapOf(
+                        "app_name" to notificationName,
+                        "app_launcher_name" to launcherName
+                    ).forEach { (k, v) ->
+                        val stringElement = document.createElement("string")
 
-        context.xmlEditor["res/values/strings.xml"].use { editor ->
-            val document = editor.file
+                        stringElement.setAttribute("name", k)
+                        stringElement.textContent = v
 
-            mapOf(
-                "app_name" to longName,
-                "app_launcher_name" to shortName
-            ).forEach { (k, v) ->
-                val stringElement = document.createElement("string")
-
-                stringElement.setAttribute("name", k)
-                stringElement.textContent = v
-
-                document.getElementsByTagName("resources").item(0).appendChild(stringElement)
-            }
-        }
-
+                        document.getElementsByTagName("resources").item(0)
+                            .appendChild(stringElement)
+                    }
+                }
+            } ?: throw PatchException("Invalid app name.")
+        } ?: throw PatchException("Invalid app name.")
     }
 
-    internal var MusicLongName by stringPatchOption(
-        key = "MusicLongName",
-        default = "ReVanced Extended Music",
-        title = "Application Name of YouTube Music",
-        description = "The name of the YouTube Music it will show on your notification panel."
+    private const val APP_NAME_NOTIFICATION = "ReVanced Extended Music"
+    private const val APP_NAME_LAUNCHER = "RVX Music"
+
+    internal var AppNameNotification by stringPatchOption(
+        key = "AppNameNotification",
+        default = APP_NAME_NOTIFICATION,
+        values = mapOf(
+            "Full name" to APP_NAME_NOTIFICATION,
+            "Short name" to APP_NAME_LAUNCHER
+        ),
+        title = "App name in notification panel",
+        description = "The name of the app as it appears in the notification panel."
     )
 
-    internal var MusicShortName by stringPatchOption(
-        key = "MusicShortName",
-        default = "RVX Music",
-        title = "Application Name of YouTube Music",
-        description = "The name of the YouTube Music it will show on your home screen."
+    internal var AppNameLauncher by stringPatchOption(
+        key = "AppNameLauncher",
+        default = APP_NAME_LAUNCHER,
+        values = mapOf(
+            "Full name" to APP_NAME_NOTIFICATION,
+            "Short name" to APP_NAME_LAUNCHER
+        ),
+        title = "App name in launcher",
+        description = "The name of the app as it appears in the launcher."
     )
 }

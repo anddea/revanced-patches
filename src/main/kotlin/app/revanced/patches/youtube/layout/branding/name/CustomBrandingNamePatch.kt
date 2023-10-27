@@ -5,7 +5,7 @@ import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patcher.patch.options.types.StringPatchOption.Companion.stringPatchOption
+import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatchOption
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.resources.ResourceHelper.updatePatchStatusLabel
 
@@ -43,33 +43,35 @@ import app.revanced.util.resources.ResourceHelper.updatePatchStatusLabel
 object CustomBrandingNamePatch : ResourcePatch() {
     override fun execute(context: ResourceContext) {
 
-        val appName = YouTubeAppName
-            ?: throw PatchException("Invalid app name.")
+        AppName?.let {
+            context.xmlEditor["res/values/strings.xml"].use { editor ->
+                val document = editor.file
 
-        context.xmlEditor["res/values/strings.xml"].use { editor ->
-            val document = editor.file
+                mapOf(
+                    "application_name" to it
+                ).forEach { (k, v) ->
+                    val stringElement = document.createElement("string")
 
-            mapOf(
-                "application_name" to appName
-            ).forEach { (k, v) ->
-                val stringElement = document.createElement("string")
+                    stringElement.setAttribute("name", k)
+                    stringElement.textContent = v
 
-                stringElement.setAttribute("name", k)
-                stringElement.textContent = v
-
-                document.getElementsByTagName("resources").item(0).appendChild(stringElement)
+                    document.getElementsByTagName("resources").item(0).appendChild(stringElement)
+                }
             }
-        }
-
-
-        context.updatePatchStatusLabel("$appName")
-
+            context.updatePatchStatusLabel(it)
+        } ?: throw PatchException("Invalid app name.")
     }
 
-    internal var YouTubeAppName by stringPatchOption(
-        key = "YouTubeAppName",
-        default = "ReVanced Extended",
-        title = "Application Name of YouTube",
-        description = "The name of the YouTube it will show on your home screen."
+    private const val APP_NAME = "ReVanced Extended"
+
+    internal var AppName by stringPatchOption(
+        key = "AppName",
+        default = APP_NAME,
+        values = mapOf(
+            "Full name" to APP_NAME,
+            "Short name" to "RVX"
+        ),
+        title = "App name",
+        description = "The name of the app."
     )
 }

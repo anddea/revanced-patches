@@ -5,7 +5,6 @@ import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
@@ -92,7 +91,7 @@ object HideFilmstripOverlayPatch : BytecodePatch(
                 if (SettingsPatch.upward1828) {
                     var insertIndex = it.scanResult.patternScanResult!!.startIndex + 2
                     if (getInstruction(insertIndex).opcode == Opcode.INVOKE_VIRTUAL)
-                        insertIndex ++
+                        insertIndex++
 
                     val replaceInstruction = getInstruction<TwoRegisterInstruction>(insertIndex)
                     val replaceReference =

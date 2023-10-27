@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.utils.returnyoutubedislike.shorts.fingerprints
 
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.Opcode
 
 object TextComponentSpecFingerprint : MethodFingerprint(

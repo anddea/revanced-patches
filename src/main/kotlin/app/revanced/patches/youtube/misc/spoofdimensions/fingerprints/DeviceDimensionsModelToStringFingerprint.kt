@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.misc.spoofdimensions.fingerprints
 
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 
 object DeviceDimensionsModelToStringFingerprint : MethodFingerprint(
     returnType = "L",
