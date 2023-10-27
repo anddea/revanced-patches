@@ -5,6 +5,7 @@ import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.youtube.general.loadmorebutton.fingerprints.LoadMoreButtonFingerprint
@@ -49,14 +50,21 @@ object LoadMoreButtonPatch : BytecodePatch(
 ) {
     override fun execute(context: BytecodeContext) {
         LoadMoreButtonFingerprint.result?.let {
-            it.mutableMethod.apply {
-                val targetIndex = it.scanResult.patternScanResult!!.endIndex
+            val getViewMethod =
+                it.mutableClass.methods.find { method ->
+                    method.parameters.isEmpty() &&
+                            method.returnType == "Landroid/view/View;"
+                }
+
+            getViewMethod?.apply {
+                val targetIndex = implementation!!.instructions.size - 1
                 val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
+
                 addInstruction(
-                    targetIndex + 1,
+                    targetIndex,
                     "invoke-static {v$targetRegister}, $GENERAL->hideLoadMoreButton(Landroid/view/View;)V"
                 )
-            }
+            } ?: throw PatchException("Failed to find getView method")
         } ?: throw LoadMoreButtonFingerprint.exception
 
         /**
