@@ -171,16 +171,13 @@ object OverlayButtonsPatch : ResourcePatch() {
                 }
 
                 // Adjust Fullscreen Button size and padding
-                val padding = "0.0dip" to arrayOf(
-                    "paddingLeft",
-                    "paddingRight",
-                    "paddingTop",
-                    "paddingBottom"
-                )
-                val size = "45.0dip" to arrayOf("layout_width", "layout_height")
                 it.getAttributeNode("android:id")?.let { attribute ->
                     if (attribute.textContent == "@id/fullscreen_button") {
-                        arrayOf(padding, size).forEach { (replace, attributes) ->
+                        arrayOf(
+                            "0.0dip" to arrayOf("paddingLeft", "paddingRight"),
+                            "22.0dip" to arrayOf("paddingBottom"),
+                            "48.0dip" to arrayOf("layout_height", "layout_width")
+                        ).forEach { (replace, attributes) ->
                             attributes.forEach { name ->
                                 it.getAttributeNode("android:$name").textContent = replace
                             }
@@ -189,9 +186,10 @@ object OverlayButtonsPatch : ResourcePatch() {
                 }
 
                 // Adjust TimeBar and Chapter bottom padding
-                val timeBarChapter = "@id/time_bar_chapter_title" to "14.0dip"
-                val timeStampContainer = "@id/timestamps_container" to "12.0dip"
-                arrayOf(timeBarChapter, timeStampContainer).forEach { (id, replace) ->
+                arrayOf(
+                    "@id/time_bar_chapter_title" to "14.0dip",
+                    "@id/timestamps_container" to "12.0dip"
+                ).forEach { (id, replace) ->
                     it.getAttributeNode("android:id")?.let { attribute ->
                         if (attribute.textContent == id) {
                             it.getAttributeNode("android:paddingBottom").textContent = replace
