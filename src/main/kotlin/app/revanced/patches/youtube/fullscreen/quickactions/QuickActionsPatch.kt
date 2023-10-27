@@ -45,6 +45,8 @@ object QuickActionsPatch : BytecodePatch() {
     override fun execute(context: BytecodeContext) {
         LithoFilterPatch.addFilter("$COMPONENTS_PATH/QuickActionFilter;")
 
+        QuickActionsHookPatch.injectQuickActionMargin()
+
         /**
          * Add settings
          */
