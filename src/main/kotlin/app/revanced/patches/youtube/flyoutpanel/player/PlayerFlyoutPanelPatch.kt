@@ -17,8 +17,8 @@ import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.BottomSheetFooterText
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.bytecode.getWideLiteralIndex
+import app.revanced.util.integrations.Constants.COMPONENTS_PATH
 import app.revanced.util.integrations.Constants.FLYOUT_PANEL
-import app.revanced.util.integrations.Constants.PATCHES_PATH
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
@@ -70,8 +70,8 @@ object PlayerFlyoutPanelPatch : BytecodePatch(
             fingerprint.injectCall(name)
         }
 
-        LithoFilterPatch.addFilter("$PATCHES_PATH/ads/PlayerFlyoutPanelsFilter;")
-        LithoFilterPatch.addFilter("$PATCHES_PATH/ads/PlayerFlyoutPanelsFooterFilter;")
+        LithoFilterPatch.addFilter("$COMPONENTS_PATH/PlayerFlyoutPanelsFilter;")
+        LithoFilterPatch.addFilter("$COMPONENTS_PATH/PlayerFlyoutPanelsFooterFilter;")
 
         /**
          * Add settings

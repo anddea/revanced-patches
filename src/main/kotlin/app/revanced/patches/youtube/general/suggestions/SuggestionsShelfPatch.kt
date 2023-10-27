@@ -15,7 +15,7 @@ import app.revanced.patches.youtube.general.suggestions.fingerprints.SuggestionC
 import app.revanced.patches.youtube.general.suggestions.fingerprints.SuggestionContentsBuilderLegacyFingerprint
 import app.revanced.patches.youtube.utils.litho.LithoFilterPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
-import app.revanced.util.integrations.Constants.PATCHES_PATH
+import app.revanced.util.integrations.Constants.COMPONENTS_PATH
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
@@ -111,5 +111,5 @@ object SuggestionsShelfPatch : BytecodePatch(
     }
 
     private const val FILTER_CLASS_DESCRIPTOR =
-        "$PATCHES_PATH/ads/SuggestionsShelfFilter;"
+        "$COMPONENTS_PATH/SuggestionsShelfFilter;"
 }

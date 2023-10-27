@@ -11,8 +11,8 @@ import app.revanced.patches.youtube.general.handle.fingerprints.AccountSwitcherA
 import app.revanced.patches.youtube.utils.litho.LithoFilterPatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
+import app.revanced.util.integrations.Constants.COMPONENTS_PATH
 import app.revanced.util.integrations.Constants.GENERAL
-import app.revanced.util.integrations.Constants.PATCHES_PATH
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
@@ -51,7 +51,7 @@ object HideHandlePatch : BytecodePatch(
     setOf(AccountSwitcherAccessibilityLabelFingerprint)
 ) {
     private const val FILTER_CLASS_DESCRIPTOR =
-        "$PATCHES_PATH/ads/HandlesFilter;"
+        "$COMPONENTS_PATH/HandlesFilter;"
 
     override fun execute(context: BytecodeContext) {
 

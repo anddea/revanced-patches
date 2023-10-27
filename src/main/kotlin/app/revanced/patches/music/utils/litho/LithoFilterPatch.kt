@@ -9,20 +9,23 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.music.utils.litho.fingerprints.LithoFilterFingerprint
 import app.revanced.patches.shared.patch.litho.ComponentParserPatch
 import app.revanced.patches.shared.patch.litho.ComponentParserPatch.pathBuilderHook
-import app.revanced.util.integrations.Constants.MUSIC_ADS_PATH
+import app.revanced.util.integrations.Constants.MUSIC_COMPONENTS_PATH
 import java.io.Closeable
 
 @Patch(dependencies = [ComponentParserPatch::class])
 object LithoFilterPatch : BytecodePatch(
     setOf(LithoFilterFingerprint)
 ), Closeable {
+    private const val INTEGRATIONS_CLASS_DESCRIPTOR =
+        "$MUSIC_COMPONENTS_PATH/LithoFilterPatch;"
+
     internal lateinit var addFilter: (String) -> Unit
         private set
 
     private var filterCount = 0
 
     override fun execute(context: BytecodeContext) {
-        pathBuilderHook("$MUSIC_ADS_PATH/LithoFilterPatch;->filter")
+        pathBuilderHook("$INTEGRATIONS_CLASS_DESCRIPTOR->filter")
 
         LithoFilterFingerprint.result?.let {
             it.mutableMethod.apply {
@@ -47,7 +50,7 @@ object LithoFilterPatch : BytecodePatch(
         .mutableMethod.addInstructions(
             0, """
                 const/16 v1, $filterCount
-                new-array v2, v1, [Lapp/revanced/music/patches/ads/Filter;
+                new-array v2, v1, [$MUSIC_COMPONENTS_PATH/Filter;
                 const/4 v1, 0x1
                 """
         )

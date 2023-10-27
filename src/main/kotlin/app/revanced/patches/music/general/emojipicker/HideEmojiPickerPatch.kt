@@ -7,7 +7,7 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.music.utils.litho.LithoFilterPatch
 import app.revanced.patches.music.utils.settings.SettingsPatch
 import app.revanced.util.enum.CategoryType
-import app.revanced.util.integrations.Constants.MUSIC_ADS_PATH
+import app.revanced.util.integrations.Constants.MUSIC_COMPONENTS_PATH
 
 @Patch(
     name = "Hide emoji picker",
@@ -43,5 +43,5 @@ object HideEmojiPickerPatch : BytecodePatch() {
     }
 
     private const val FILTER_CLASS_DESCRIPTOR =
-        "$MUSIC_ADS_PATH/EmojiPickerFilter;"
+        "$MUSIC_COMPONENTS_PATH/EmojiPickerFilter;"
 }
