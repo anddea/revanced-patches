@@ -94,8 +94,12 @@ object SeekMessagePatch : BytecodePatch(
                     if (((targetInstruction as Instruction35c).reference as MethodReference).name != "setOnClickListener")
                         continue
 
+                    // Force close occurs only in YouTube v18.36.xx unless we add this.
+                    if (SettingsPatch.is1836)
+                        addComponent(insertIndex, index - 1)
+
                     addInstructionsWithLabels(
-                        insertIndex, """
+                        insertIndex, fixComponent + """
                             invoke-static {}, $PLAYER->hideSeekUndoMessage()Z
                             move-result v$insertRegister
                             if-nez v$insertRegister, :default
@@ -129,5 +133,32 @@ object SeekMessagePatch : BytecodePatch(
 
         SettingsPatch.updatePatchStatus("Hide seek message")
 
+    }
+
+    private var fixComponent: String = ""
+
+    private fun MutableMethod.addComponent(
+        startIndex: Int,
+        endIndex: Int
+    ) {
+        val fixRegister =
+            getInstruction<FiveRegisterInstruction>(endIndex).registerE
+
+        for (index in endIndex downTo startIndex) {
+            val opcode = getInstruction(index).opcode
+            if (opcode != Opcode.CONST_16)
+                continue
+
+            val register = getInstruction<OneRegisterInstruction>(index).registerA
+
+            if (register != fixRegister)
+                continue
+
+            val fixValue = getInstruction<WideLiteralInstruction>(index).wideLiteral.toInt()
+
+            fixComponent = "const/16 v$fixRegister, $fixValue"
+
+            break
+        }
     }
 }
