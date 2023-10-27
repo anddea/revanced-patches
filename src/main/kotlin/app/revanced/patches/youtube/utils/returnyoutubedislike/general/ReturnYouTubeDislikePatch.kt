@@ -191,10 +191,10 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
 
         if (SettingsPatch.upward1834) {
             LithoFilterPatch.addFilter(FILTER_CLASS_DESCRIPTOR)
+            PlayerResponsePatch.injectCall("$FILTER_CLASS_DESCRIPTOR->newPlayerResponseVideoId(Ljava/lang/String;Z)V")
         }
-        PlayerResponsePatch.injectCall("$FILTER_CLASS_DESCRIPTOR->newPlayerResponseVideoId(Ljava/lang/String;)V")
 
-        PlayerResponsePatch.injectCall("$INTEGRATIONS_RYD_CLASS_DESCRIPTOR->preloadVideoId(Ljava/lang/String;)V")
+        PlayerResponsePatch.injectCall("$INTEGRATIONS_RYD_CLASS_DESCRIPTOR->preloadVideoId(Ljava/lang/String;Z)V")
         VideoIdPatch.injectCall("$INTEGRATIONS_RYD_CLASS_DESCRIPTOR->newVideoLoaded(Ljava/lang/String;)V")
 
         /**

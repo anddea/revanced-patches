@@ -10,6 +10,9 @@ import app.revanced.patches.youtube.utils.fingerprints.PlayerParameterBuilderFin
 object PlayerResponsePatch : BytecodePatch(
     setOf(PlayerParameterBuilderFingerprint)
 ) {
+    private const val VIDEO_ID_PARAMETER = 1
+    private const val VIDEO_IS_OPENING_OR_PLAYING_PARAMETER = 11
+
     private lateinit var insertMethod: MutableMethod
 
     /**
@@ -21,7 +24,7 @@ object PlayerResponsePatch : BytecodePatch(
     ) {
         insertMethod.addInstructions(
             0, // move-result-object offset
-            "invoke-static {p1}, $methodDescriptor"
+            "invoke-static {p$VIDEO_ID_PARAMETER, p$VIDEO_IS_OPENING_OR_PLAYING_PARAMETER}, $methodDescriptor"
         )
     }
 
