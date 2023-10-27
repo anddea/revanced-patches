@@ -10,7 +10,7 @@ import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.resources.ResourceHelper.updatePatchStatusLabel
 
 @Patch(
-    name = "Custom branding YouTube name",
+    name = "Custom branding name YouTube",
     description = "Rename the YouTube app to the name specified in options.json.",
     dependencies = [
         RemoveElementsPatch::class,

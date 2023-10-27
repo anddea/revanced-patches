@@ -9,7 +9,7 @@ import app.revanced.util.resources.IconHelper.customIcon
 import app.revanced.util.resources.ResourceHelper.updatePatchStatusIcon
 
 @Patch(
-    name = "Custom branding icon Revancify red",
+    name = "Custom branding icon Revancify Red",
     description = "Changes the YouTube launcher icon to Revancify Red.",
     dependencies = [SettingsPatch::class],
     compatiblePackages = [

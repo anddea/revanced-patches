@@ -8,7 +8,7 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatchOption
 
 @Patch(
-    name = "Custom branding Music name",
+    name = "Custom branding name YouTube Music",
     description = "Rename the YouTube Music app to the name specified in options.json.",
     dependencies = [RemoveElementsPatch::class],
     compatiblePackages = [
