@@ -4,7 +4,7 @@ import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patcher.patch.options.types.StringPatchOption.Companion.stringPatchOption
+import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatchOption
 
 @Patch(
     name = "Custom package name",
@@ -16,18 +16,32 @@ import app.revanced.patcher.patch.options.types.StringPatchOption.Companion.stri
 )
 @Suppress("unused")
 object PackageNamePatch : ResourcePatch() {
-    internal var YouTubePackageName by stringPatchOption(
-        key = "YouTubePackageName",
-        default = "app.rvx.android.youtube",
-        title = "Package Name of YouTube",
-        description = "The package name of the YouTube. (NON-ROOT user only)"
+    private const val CLONE_PACKAGE_NAME_YOUTUBE = "com.rvx.android.youtube"
+    private const val DEFAULT_PACKAGE_NAME_YOUTUBE = "app.rvx.android.youtube"
+
+    private const val CLONE_PACKAGE_NAME_YOUTUBE_MUSIC = "com.rvx.android.youtube"
+    private const val DEFAULT_PACKAGE_NAME_YOUTUBE_MUSIC = "app.rvx.android.apps.youtube.music"
+
+    internal var PackageNameYouTube by stringPatchOption(
+        key = "PackageNameYouTube",
+        default = DEFAULT_PACKAGE_NAME_YOUTUBE,
+        values = mapOf(
+            "Clone" to CLONE_PACKAGE_NAME_YOUTUBE,
+            "Default" to DEFAULT_PACKAGE_NAME_YOUTUBE
+        ),
+        title = "Package name of YouTube",
+        description = "The name of the package to use in MicroG support"
     )
 
-    internal var MusicPackageName by stringPatchOption(
-        key = "MusicPackageName",
-        default = "app.rvx.android.apps.youtube.music",
-        title = "Package Name of YouTube Music",
-        description = "The package name of the YouTube Music. (NON-ROOT user only)"
+    internal var PackageNameYouTubeMusic by stringPatchOption(
+        key = "PackageNameYouTubeMusic",
+        default = DEFAULT_PACKAGE_NAME_YOUTUBE_MUSIC,
+        values = mapOf(
+            "Clone" to CLONE_PACKAGE_NAME_YOUTUBE_MUSIC,
+            "Default" to DEFAULT_PACKAGE_NAME_YOUTUBE_MUSIC
+        ),
+        title = "Package name of YouTube Music",
+        description = "The name of the package to use in MicroG support"
     )
 
     override fun execute(context: ResourceContext) {

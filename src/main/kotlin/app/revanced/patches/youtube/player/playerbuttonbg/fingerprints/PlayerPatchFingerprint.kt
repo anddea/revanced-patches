@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.player.playerbuttonbg.fingerprints
 
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 
 object PlayerPatchFingerprint : MethodFingerprint(
     customFingerprint = { methodDef, _ ->

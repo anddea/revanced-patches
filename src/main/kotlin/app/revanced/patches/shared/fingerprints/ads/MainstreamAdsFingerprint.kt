@@ -1,6 +1,6 @@
 package app.revanced.patches.shared.fingerprints.ads
 
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 
 object MainstreamAdsFingerprint : MethodFingerprint(
     returnType = "V",

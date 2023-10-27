@@ -1,6 +1,6 @@
 package app.revanced.patches.music.misc.exclusiveaudio.fingerprints
 
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 
 object DataSavingSettingsFragmentFingerprint : MethodFingerprint(
     returnType = "V",

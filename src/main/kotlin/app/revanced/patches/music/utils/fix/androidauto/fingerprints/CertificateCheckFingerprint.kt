@@ -1,6 +1,6 @@
 package app.revanced.patches.music.utils.fix.androidauto.fingerprints
 
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 
 object CertificateCheckFingerprint : MethodFingerprint(
     returnType = "Z",

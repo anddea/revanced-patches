@@ -5,7 +5,6 @@ import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patches.shared.fingerprints.customspeed.SpeedArrayGeneratorFingerprint
 import app.revanced.patches.shared.fingerprints.customspeed.SpeedLimiterFallBackFingerprint

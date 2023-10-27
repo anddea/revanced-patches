@@ -1,6 +1,7 @@
+import org.gradle.kotlin.dsl.support.listFilesOrdered
+
 plugins {
     kotlin("jvm") version "1.9.10"
-    alias(libs.plugins.ksp)
 }
 
 group = "app.revanced"
@@ -22,12 +23,9 @@ repositories {
 dependencies {
     implementation(libs.revanced.patcher)
     implementation(libs.smali)
-    implementation(libs.revanced.patch.annotation.processor)
     // Used in JsonGenerator.
     implementation(libs.gson)
     implementation(libs.flexver)
-
-    ksp(libs.revanced.patch.annotation.processor)
 }
 
 kotlin {
@@ -40,19 +38,20 @@ tasks {
         dependsOn(build)
 
         doLast {
-            val androidHome = System.getenv("ANDROID_HOME") ?: throw GradleException("ANDROID_HOME not found")
-            val d8 = "${androidHome}/build-tools/34.0.0/d8"
-            val input = configurations.archives.get().allArtifacts.files.files.first().absolutePath
-            val work = layout.buildDirectory.dir("libs").get().asFile
+            val d8 = File(System.getenv("ANDROID_HOME")).resolve("build-tools")
+                .listFilesOrdered().last().resolve("d8").absolutePath
+
+            val artifacts = configurations.archives.get().allArtifacts.files.files.first().absolutePath
+            val workingDirectory = layout.buildDirectory.dir("libs").get().asFile
 
             exec {
-                workingDir = work
-                commandLine = listOf(d8, input)
+                workingDir = workingDirectory
+                commandLine = listOf(d8, artifacts)
             }
 
             exec {
-                workingDir = work
-                commandLine = listOf("zip", "-u", input, "classes.dex")
+                workingDir = workingDirectory
+                commandLine = listOf("zip", "-u", artifacts, "classes.dex")
             }
         }
     }
@@ -65,12 +64,10 @@ tasks {
         mainClass.set("app.revanced.meta.PatchesFileGenerator")
     }
 
-    // Dummy task to fix the Gradle semantic-release plugin.
-    // Remove this if you forked it to support building only.
-    // Tracking issue: https://github.com/KengoTODA/gradle-semantic-release-plugin/issues/435
+    // Required to run tasks because Gradle semantic-release plugin runs the publish task.
+    // Tracking: https://github.com/KengoTODA/gradle-semantic-release-plugin/issues/435
     register<DefaultTask>("publish") {
-        group = "publish"
-        description = "Dummy task"
-        dependsOn(named("generateBundle"), named("generateMeta"))
+        dependsOn("generateBundle")
+        dependsOn("generateMeta")
     }
 }

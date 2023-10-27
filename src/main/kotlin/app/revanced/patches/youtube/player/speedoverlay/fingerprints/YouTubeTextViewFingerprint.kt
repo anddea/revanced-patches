@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.player.speedoverlay.fingerprints
 
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.Opcode
 
 object YouTubeTextViewFingerprint : MethodFingerprint(

@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.general.mixplaylists.fingerprints
 
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.BottomPanelOverlayText
 import app.revanced.util.bytecode.isWideLiteralExists
 import com.android.tools.smali.dexlib2.Opcode

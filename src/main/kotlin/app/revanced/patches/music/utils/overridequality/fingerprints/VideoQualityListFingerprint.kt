@@ -1,6 +1,6 @@
 package app.revanced.patches.music.utils.overridequality.fingerprints
 
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.QualityAuto
 import app.revanced.util.bytecode.isWideLiteralExists
 import com.android.tools.smali.dexlib2.Opcode

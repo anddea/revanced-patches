@@ -1,7 +1,7 @@
 package app.revanced.patches.youtube.utils.videoid.general.fingerprint
 
 import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.util.bytecode.isWide32LiteralExists
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode

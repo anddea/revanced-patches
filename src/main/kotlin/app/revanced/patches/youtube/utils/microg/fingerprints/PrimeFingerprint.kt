@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.utils.microg.fingerprints
 
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 
 object PrimeFingerprint : MethodFingerprint(
     strings = listOf("com.google.android.GoogleCamera", "com.android.vending")

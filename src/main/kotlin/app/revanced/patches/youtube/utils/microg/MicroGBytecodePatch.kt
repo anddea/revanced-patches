@@ -36,7 +36,7 @@ object MicroGBytecodePatch : BytecodePatch(
 ) {
     override fun execute(context: BytecodeContext) {
 
-        val packageName = PackageNamePatch.YouTubePackageName
+        val packageName = PackageNamePatch.PackageNameYouTube
             ?: throw PatchException("Invalid package name.")
 
         if (packageName == PACKAGE_NAME)

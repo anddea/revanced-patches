@@ -68,7 +68,7 @@ object SpoofAppVersionPatch : AbstractVersionSpoofPatch(
 
     }
 
-    private fun ResourceContext.appendChild(){
+    private fun ResourceContext.appendChild() {
         arrayOf(
             "revanced_spoof_app_version_target_entry" to "@string/revanced_spoof_app_version_target_entry_18_33_40",
             "revanced_spoof_app_version_target_entry_value" to "18.33.40",

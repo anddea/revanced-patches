@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.utils.playerbutton.fingerprints
 
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.LiveChatButton
 import app.revanced.util.bytecode.isWideLiteralExists
 import com.android.tools.smali.dexlib2.Opcode

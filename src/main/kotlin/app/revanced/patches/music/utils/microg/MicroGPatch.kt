@@ -56,10 +56,10 @@ object MicroGPatch : BytecodePatch(
     // - "com.google.android.gms.phenotype.UPDATE",
     // - "com.google.android.gms.phenotype",
     override fun execute(context: BytecodeContext) {
-        val youtubePackageName = PackageNamePatch.YouTubePackageName
+        val youtubePackageName = PackageNamePatch.PackageNameYouTube
             ?: throw PatchException("Invalid package name.")
 
-        val musicPackageName = PackageNamePatch.MusicPackageName
+        val musicPackageName = PackageNamePatch.PackageNameYouTubeMusic
             ?: throw PatchException("Invalid package name.")
 
         if (youtubePackageName == YOUTUBE_PACKAGE_NAME || musicPackageName == MUSIC_PACKAGE_NAME)

@@ -50,7 +50,7 @@ import app.revanced.util.resources.ResourceHelper.setMicroG
 object MicroGPatch : ResourcePatch() {
     override fun execute(context: ResourceContext) {
 
-        val packageName = PackageNamePatch.YouTubePackageName
+        val packageName = PackageNamePatch.PackageNameYouTube
             ?: throw PatchException("Invalid package name.")
 
         if (packageName == PACKAGE_NAME)

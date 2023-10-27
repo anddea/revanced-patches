@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.player.hapticfeedback.fingerprints
 
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 
 object MarkerHapticsFingerprint : MethodFingerprint(
     returnType = "V",

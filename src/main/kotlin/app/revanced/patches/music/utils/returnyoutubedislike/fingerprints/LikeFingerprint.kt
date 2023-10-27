@@ -1,6 +1,6 @@
 package app.revanced.patches.music.utils.returnyoutubedislike.fingerprints
 
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 
 object LikeFingerprint : MethodFingerprint(
     returnType = "V",
