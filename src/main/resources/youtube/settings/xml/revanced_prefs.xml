@@ -129,7 +129,7 @@
         <SwitchPreference android:title="@string/revanced_hide_fullscreen_panels_title" android:key="revanced_hide_fullscreen_panels" android:defaultValue="false" android:summaryOn="@string/revanced_hide_fullscreen_panels_summary_on" android:summaryOff="@string/revanced_hide_fullscreen_panels_summary_off" />
         <SwitchPreference android:title="@string/revanced_show_fullscreen_title_title" android:key="revanced_show_fullscreen_title" android:defaultValue="true" android:summary="@string/revanced_show_fullscreen_title_summary" />SETTINGS: HIDE_FULLSCREEN_PANELS -->
 
-        <!-- SETTINGS: HIDE_QUICK_ACTIONS
+        <!-- SETTINGS: QUICK_ACTIONS_COMPONENTS
         <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_quick_actions_title" />
         <SwitchPreference android:title="@string/revanced_hide_quick_actions_title" android:key="revanced_hide_quick_actions" android:defaultValue="false" android:summaryOn="@string/revanced_hide_quick_actions_summary_on" android:summaryOff="@string/revanced_hide_quick_actions_summary_off" />
         <SwitchPreference android:title="@string/revanced_hide_quick_actions_comment_title" android:key="revanced_hide_quick_actions_comment" android:defaultValue="false" android:summaryOn="@string/revanced_hide_quick_actions_comment_summary_on" android:summaryOff="@string/revanced_hide_quick_actions_comment_summary_off" />
@@ -141,7 +141,7 @@
         <SwitchPreference android:title="@string/revanced_hide_quick_actions_open_playlist_title" android:key="revanced_hide_quick_actions_open_playlist" android:defaultValue="false" android:summaryOn="@string/revanced_hide_quick_actions_open_playlist_summary_on" android:summaryOff="@string/revanced_hide_quick_actions_open_playlist_summary_off" />
         <SwitchPreference android:title="@string/revanced_hide_quick_actions_related_videos_title" android:key="revanced_hide_quick_actions_related_videos" android:defaultValue="false" android:summaryOn="@string/revanced_hide_quick_actions_related_videos_summary_on" android:summaryOff="@string/revanced_hide_quick_actions_related_videos_summary_off" />
         <SwitchPreference android:title="@string/revanced_hide_quick_actions_save_to_playlist_title" android:key="revanced_hide_quick_actions_save_to_playlist" android:defaultValue="false" android:summaryOn="@string/revanced_hide_quick_actions_save_to_playlist_summary_on" android:summaryOff="@string/revanced_hide_quick_actions_save_to_playlist_summary_off" />
-        <SwitchPreference android:title="@string/revanced_hide_quick_actions_share_title" android:key="revanced_hide_quick_actions_share" android:defaultValue="false" android:summaryOn="@string/revanced_hide_quick_actions_share_summary_on" android:summaryOff="@string/revanced_hide_quick_actions_share_summary_off" />SETTINGS: HIDE_QUICK_ACTIONS -->
+        <SwitchPreference android:title="@string/revanced_hide_quick_actions_share_title" android:key="revanced_hide_quick_actions_share" android:defaultValue="false" android:summaryOn="@string/revanced_hide_quick_actions_share_summary_on" android:summaryOff="@string/revanced_hide_quick_actions_share_summary_off" />SETTINGS: QUICK_ACTIONS_COMPONENTS -->
 
         <!-- SETTINGS: ENABLE_COMPACT_CONTROLS_OVERLAY
         <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_experimental_flag" />
@@ -348,7 +348,7 @@
             <Preference android:title="Hide autoplay preview" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Hide end screen overlay" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Hide fullscreen panels" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
-            <Preference android:title="Hide quick actions" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="Quick actions components" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
 
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_general" />
             <Preference android:title="Disable auto captions" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
@@ -435,7 +435,7 @@
             <Preference android:title="Custom playback speed" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Default playback speed" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Default video quality" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
-            <Preference android:title="Disable hdr video" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="Disable HDR video" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
 
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_others" />
             <Preference android:title="Custom double tap length" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>

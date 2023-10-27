@@ -14,7 +14,7 @@ import app.revanced.patches.youtube.video.hdr.fingerprints.HdrCapabilitiesFinger
 import app.revanced.util.integrations.Constants.VIDEO_PATH
 
 @Patch(
-    name = "Disable hdr video",
+    name = "Disable HDR video",
     description = "Disable HDR video.",
     dependencies = [SettingsPatch::class],
     compatiblePackages = [
@@ -74,7 +74,7 @@ object DisableHdrVideoPatch : BytecodePatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("Disable hdr video")
+        SettingsPatch.updatePatchStatus("Disable HDR video")
 
     }
 }

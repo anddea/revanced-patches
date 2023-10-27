@@ -10,8 +10,8 @@ import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.integrations.Constants.COMPONENTS_PATH
 
 @Patch(
-    name = "Hide quick actions",
-    description = "Adds the options to hide quick actions components in the fullscreen.",
+    name = "Quick actions components",
+    description = "Adds options to customize quick action components in fullscreen.",
     dependencies = [
         LithoFilterPatch::class,
         QuickActionsHookPatch::class,
@@ -51,11 +51,11 @@ object QuickActionsPatch : BytecodePatch() {
         SettingsPatch.addPreference(
             arrayOf(
                 "PREFERENCE: BOTTOM_PLAYER_SETTINGS",
-                "SETTINGS: HIDE_QUICK_ACTIONS"
+                "SETTINGS: QUICK_ACTIONS_COMPONENTS"
             )
         )
 
-        SettingsPatch.updatePatchStatus("Hide quick actions")
+        SettingsPatch.updatePatchStatus("Quick actions components")
 
     }
 }

@@ -7,7 +7,7 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.util.resources.IconHelper.customIconMusic
 
 @Patch(
-    name = "Custom branding icon Revancify blue",
+    name = "Custom branding icon Revancify Blue",
     description = "Changes the YouTube Music launcher icon to Revancify Blue.",
     compatiblePackages = [
         CompatiblePackage(
