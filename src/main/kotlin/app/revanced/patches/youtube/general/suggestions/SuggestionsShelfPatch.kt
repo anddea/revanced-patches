@@ -14,8 +14,15 @@ import app.revanced.patches.youtube.general.suggestions.fingerprints.BreakingNew
 import app.revanced.patches.youtube.general.suggestions.fingerprints.SuggestionContentsBuilderFingerprint
 import app.revanced.patches.youtube.general.suggestions.fingerprints.SuggestionContentsBuilderLegacyFingerprint
 import app.revanced.patches.youtube.utils.litho.LithoFilterPatch
+import app.revanced.patches.youtube.utils.navigationbuttons.NavigationButtonHookPatch
+import app.revanced.patches.youtube.utils.navigationbuttons.NavigationButtonHookPatch.PivotBarMethod
+import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.AvatarImageWithTextTab
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
+import app.revanced.util.bytecode.getWideLiteralIndex
 import app.revanced.util.integrations.Constants.COMPONENTS_PATH
+import app.revanced.util.pivotbar.InjectionUtils.REGISTER_TEMPLATE_REPLACEMENT
+import app.revanced.util.pivotbar.InjectionUtils.injectHook
+import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
@@ -23,6 +30,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
     description = "Hides the suggestions shelf.",
     dependencies = [
         LithoFilterPatch::class,
+        NavigationButtonHookPatch::class,
         SettingsPatch::class
     ],
     compatiblePackages = [
@@ -93,6 +101,17 @@ object SuggestionsShelfPatch : BytecodePatch(
             }
         }
 
+        PivotBarMethod.apply {
+            val insertIndex = implementation!!.instructions.let {
+                val scanStart = getWideLiteralIndex(AvatarImageWithTextTab)
+
+                scanStart + it.subList(scanStart, it.size - 1).indexOfFirst { instruction ->
+                    instruction.opcode == Opcode.INVOKE_VIRTUAL
+                }
+            } + 2
+            injectHook(YOU_BUTTON_HOOK, insertIndex)
+        }
+
         LithoFilterPatch.addFilter(FILTER_CLASS_DESCRIPTOR)
 
 
@@ -112,4 +131,9 @@ object SuggestionsShelfPatch : BytecodePatch(
 
     private const val FILTER_CLASS_DESCRIPTOR =
         "$COMPONENTS_PATH/SuggestionsShelfFilter;"
+
+    private const val YOU_BUTTON_HOOK =
+        "invoke-static { v${REGISTER_TEMPLATE_REPLACEMENT} }, $FILTER_CLASS_DESCRIPTOR" +
+                "->" +
+                "isYouButtonEnabled(Landroid/view/View;)V"
 }
