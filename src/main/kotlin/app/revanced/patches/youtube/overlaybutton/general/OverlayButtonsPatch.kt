@@ -5,6 +5,7 @@ import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patcher.patch.options.types.BooleanPatchOption.Companion.booleanPatchOption
 import app.revanced.patches.youtube.overlaybutton.alwaysrepeat.AlwaysRepeatPatch
 import app.revanced.patches.youtube.overlaybutton.download.hook.DownloadButtonHookPatch
 import app.revanced.patches.youtube.overlaybutton.download.pip.DisablePiPPatch
@@ -59,6 +60,13 @@ import org.w3c.dom.Element
 )
 @Suppress("unused")
 object OverlayButtonsPatch : ResourcePatch() {
+    internal var OutlineIcon by booleanPatchOption(
+        key = "OutlineIcon",
+        default = false,
+        title = "Outline icons",
+        description = "Apply the outline icon"
+    )
+
     override fun execute(context: ResourceContext) {
 
         /**
@@ -78,8 +86,7 @@ object OverlayButtonsPatch : ResourcePatch() {
         /**
          * Copy arrays
          */
-        context.copyXmlNode("youtube/overlaybuttons/host", "values/arrays.xml", "resources")
-
+        context.copyXmlNode("youtube/overlaybuttons/shared/host", "values/arrays.xml", "resources")
 
         /**
          * Copy resources
@@ -90,35 +97,64 @@ object OverlayButtonsPatch : ResourcePatch() {
                 "playlist_repeat_button.xml",
                 "playlist_shuffle_button.xml",
                 "revanced_repeat_icon.xml"
-            ),
-            ResourceUtils.ResourceGroup(
-                "drawable-xxhdpi",
-                "ic_fullscreen_vertical_button.png",
-                "ic_vr.png",
-                "quantum_ic_fullscreen_exit_grey600_24.png",
-                "quantum_ic_fullscreen_exit_white_24.png",
-                "quantum_ic_fullscreen_grey600_24.png",
-                "quantum_ic_fullscreen_white_24.png",
-                "revanced_copy_icon.png",
-                "revanced_copy_icon_with_time.png",
-                "revanced_download_icon.png",
-                "revanced_speed_icon.png",
-                "yt_fill_arrow_repeat_white_24.png",
-                "yt_outline_arrow_repeat_1_white_24.png",
-                "yt_outline_arrow_shuffle_1_white_24.png",
-                "yt_outline_screen_full_exit_white_24.png",
-                "yt_outline_screen_full_white_24.png",
-                "yt_outline_screen_vertical_vd_theme_24.png"
             )
         ).forEach { resourceGroup ->
-            context.copyResources("youtube/overlaybuttons", resourceGroup)
+            context.copyResources("youtube/overlaybuttons/shared", resourceGroup)
+        }
+
+        if (OutlineIcon == true) {
+            arrayOf(
+                ResourceUtils.ResourceGroup(
+                    "drawable-xxhdpi",
+                    "ic_fullscreen_vertical_button.png",
+                    "quantum_ic_fullscreen_exit_grey600_24.png",
+                    "quantum_ic_fullscreen_exit_white_24.png",
+                    "quantum_ic_fullscreen_grey600_24.png",
+                    "quantum_ic_fullscreen_white_24.png",
+                    "revanced_copy_icon.png",
+                    "revanced_copy_icon_with_time.png",
+                    "revanced_download_icon.png",
+                    "revanced_speed_icon.png",
+                    "yt_fill_arrow_repeat_white_24.png",
+                    "yt_outline_arrow_repeat_1_white_24.png",
+                    "yt_outline_arrow_shuffle_1_white_24.png",
+                    "yt_outline_screen_full_exit_white_24.png",
+                    "yt_outline_screen_full_white_24.png"
+                )
+            ).forEach { resourceGroup ->
+                context.copyResources("youtube/overlaybuttons/outline", resourceGroup)
+            }
+        } else {
+            arrayOf(
+                ResourceUtils.ResourceGroup(
+                    "drawable-xxhdpi",
+                    "ic_fullscreen_vertical_button.png",
+                    "ic_vr.png",
+                    "quantum_ic_fullscreen_exit_grey600_24.png",
+                    "quantum_ic_fullscreen_exit_white_24.png",
+                    "quantum_ic_fullscreen_grey600_24.png",
+                    "quantum_ic_fullscreen_white_24.png",
+                    "revanced_copy_icon.png",
+                    "revanced_copy_icon_with_time.png",
+                    "revanced_download_icon.png",
+                    "revanced_speed_icon.png",
+                    "yt_fill_arrow_repeat_white_24.png",
+                    "yt_outline_arrow_repeat_1_white_24.png",
+                    "yt_outline_arrow_shuffle_1_white_24.png",
+                    "yt_outline_screen_full_exit_white_24.png",
+                    "yt_outline_screen_full_white_24.png",
+                    "yt_outline_screen_vertical_vd_theme_24.png"
+                )
+            ).forEach { resourceGroup ->
+                context.copyResources("youtube/overlaybuttons/default", resourceGroup)
+            }
         }
 
         /**
          * Merge xml nodes from the host to their real xml files
          */
         context.copyXmlNode(
-            "youtube/overlaybuttons/host",
+            "youtube/overlaybuttons/shared/host",
             "layout/youtube_controls_bottom_ui_container.xml",
             "android.support.constraint.ConstraintLayout"
         )
