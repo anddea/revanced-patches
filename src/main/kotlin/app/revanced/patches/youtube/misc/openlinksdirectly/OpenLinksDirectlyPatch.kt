@@ -11,7 +11,9 @@ import app.revanced.patches.youtube.misc.openlinksdirectly.fingerprints.OpenLink
 import app.revanced.patches.youtube.misc.openlinksdirectly.fingerprints.OpenLinksDirectlyFingerprintSecondary
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.integrations.Constants.MISC_PATH
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Patch(
     name = "Enable open links directly",
@@ -35,7 +37,8 @@ import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
                 "18.37.36",
                 "18.38.44",
                 "18.39.41",
-                "18.40.34"
+                "18.40.34",
+                "18.41.39"
             ]
         )
     ]
@@ -55,12 +58,15 @@ object OpenLinksDirectlyPatch : BytecodePatch(
         ).forEach { fingerprint ->
             fingerprint.result?.let {
                 it.mutableMethod.apply {
-                    val insertIndex = it.scanResult.patternScanResult!!.startIndex
-                    val register = getInstruction<Instruction35c>(insertIndex).registerC
+                    val insertIndex = implementation!!.instructions
+                        .indexOfFirst { instruction ->
+                            ((instruction as? ReferenceInstruction)?.reference as? MethodReference)?.name == "parse"
+                        }
+                    val insertRegister = getInstruction<Instruction35c>(insertIndex).registerC
 
                     replaceInstruction(
                         insertIndex,
-                        "invoke-static {v$register}, $MISC_PATH/OpenLinksDirectlyPatch;->enableBypassRedirect(Ljava/lang/String;)Landroid/net/Uri;"
+                        "invoke-static {v$insertRegister}, $MISC_PATH/OpenLinksDirectlyPatch;->enableBypassRedirect(Ljava/lang/String;)Landroid/net/Uri;"
                     )
                 }
             } ?: throw fingerprint.exception

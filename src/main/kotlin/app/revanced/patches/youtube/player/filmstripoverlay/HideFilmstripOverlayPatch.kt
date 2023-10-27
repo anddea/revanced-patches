@@ -6,6 +6,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWith
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
@@ -52,7 +53,8 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
                 "18.37.36",
                 "18.38.44",
                 "18.39.41",
-                "18.40.34"
+                "18.40.34",
+                "18.41.39"
             ]
         )
     ]
@@ -84,12 +86,11 @@ object HideFilmstripOverlayPatch : BytecodePatch(
 
         FineScrubbingOverlayFingerprint.result?.let {
             it.mutableMethod.apply {
-                val setOnClickListenerIndex = getIndex("setOnClickListener")
-                val jumpIndex = setOnClickListenerIndex + 3
-                val initialIndex = setOnClickListenerIndex - 1
-
                 if (SettingsPatch.upward1828) {
                     var insertIndex = it.scanResult.patternScanResult!!.startIndex + 2
+                    val jumpIndex = getTargetIndexUpTo(insertIndex, Opcode.GOTO, Opcode.GOTO_16)
+                    val initialIndex = jumpIndex - 1
+
                     if (getInstruction(insertIndex).opcode == Opcode.INVOKE_VIRTUAL)
                         insertIndex++
 
@@ -109,6 +110,10 @@ object HideFilmstripOverlayPatch : BytecodePatch(
                     )
                     removeInstruction(insertIndex)
                 } else {
+                    val setOnClickListenerIndex = getIndex("setOnClickListener")
+                    val jumpIndex = setOnClickListenerIndex + 3
+                    val initialIndex = setOnClickListenerIndex - 1
+
                     val insertIndex = getIndex("bringChildToFront") + 1
                     val insertRegister =
                         getInstruction<TwoRegisterInstruction>(insertIndex).registerA
@@ -202,6 +207,20 @@ object HideFilmstripOverlayPatch : BytecodePatch(
 
             fixComponent += line
         }
+    }
+
+    private fun MutableMethod.getTargetIndexUpTo(
+        startIndex: Int,
+        opcode1: Opcode,
+        opcode2: Opcode
+    ): Int {
+        for (index in startIndex until implementation!!.instructions.size) {
+            if (getInstruction(index).opcode != opcode1 && getInstruction(index).opcode != opcode2)
+                continue
+
+            return index
+        }
+        throw PatchException("Failed to find hook method")
     }
 
     private fun MutableMethod.injectHook() {
