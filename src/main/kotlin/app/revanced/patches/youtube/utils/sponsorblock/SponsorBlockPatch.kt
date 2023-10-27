@@ -4,6 +4,7 @@ import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patcher.patch.options.types.BooleanPatchOption.Companion.booleanPatchOption
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.resources.ResourceUtils
 import app.revanced.util.resources.ResourceUtils.copyResources
@@ -41,40 +42,65 @@ import app.revanced.util.resources.ResourceUtils.copyXmlNode
 )
 @Suppress("unused")
 object SponsorBlockPatch : ResourcePatch() {
+    internal var OutlineIcon by booleanPatchOption(
+        key = "OutlineIcon",
+        default = false,
+        title = "Outline icons",
+        description = "Apply the outline icon"
+    )
 
     override fun execute(context: ResourceContext) {
         /**
          * merge SponsorBlock drawables to main drawables
          */
-
-        arrayOf(
-            ResourceUtils.ResourceGroup(
-                "layout",
-                "inline_sponsor_overlay.xml",
-                "new_segment.xml",
-                "skip_sponsor_button.xml"
-            ),
-            ResourceUtils.ResourceGroup(
-                // required resource for back button, because when the base APK is used, this resource will not exist
-                "drawable",
-                "ic_sb_adjust.xml",
-                "ic_sb_compare.xml",
-                "ic_sb_edit.xml",
-                "ic_sb_logo.xml",
-                "ic_sb_publish.xml",
-                "ns_bg.xml",
-                "ic_sb_forward.xml",
-                "ic_sb_backward.xml",
-                "ic_sb_voting.xml"
-            )
-        ).forEach { resourceGroup ->
-            context.copyResources("youtube/sponsorblock", resourceGroup)
+        if (OutlineIcon == true) {
+            arrayOf(
+                ResourceUtils.ResourceGroup(
+                    "layout",
+                    "inline_sponsor_overlay.xml",
+                    "new_segment.xml",
+                    "skip_sponsor_button.xml"
+                ),
+                ResourceUtils.ResourceGroup(
+                    "drawable",
+                    "ic_sb_adjust.xml",
+                    "ic_sb_backward.xml",
+                    "ic_sb_compare.xml",
+                    "ic_sb_edit.xml",
+                    "ic_sb_forward.xml",
+                    "ic_sb_logo.xml",
+                    "ic_sb_publish.xml",
+                    "ic_sb_voting.xml",
+                    "ns_bg.xml"
+                )
+            ).forEach { resourceGroup ->
+                context.copyResources("youtube/sponsorblock/outline", resourceGroup)
+            }
+        } else {
+            arrayOf(
+                ResourceUtils.ResourceGroup(
+                    "layout",
+                    "inline_sponsor_overlay.xml",
+                    "new_segment.xml",
+                    "skip_sponsor_button.xml"
+                ),
+                ResourceUtils.ResourceGroup(
+                    "drawable",
+                    "ic_sb_adjust.xml",
+                    "ic_sb_compare.xml",
+                    "ic_sb_edit.xml",
+                    "ic_sb_logo.xml",
+                    "ic_sb_publish.xml",
+                    "ic_sb_voting.xml"
+                )
+            ).forEach { resourceGroup ->
+                context.copyResources("youtube/sponsorblock/default", resourceGroup)
+            }
         }
 
         /**
          * merge xml nodes from the host to their real xml files
          */
-
         // collect all host resources
         val hostingXmlResources = mapOf("layout" to arrayOf("youtube_controls_layout"))
 
@@ -82,7 +108,7 @@ object SponsorBlockPatch : ResourcePatch() {
         hostingXmlResources.forEach { (path, resources) ->
             resources.forEach { resource ->
                 val hostingResourceStream =
-                    this.javaClass.classLoader.getResourceAsStream("youtube/sponsorblock/host/$path/$resource.xml")!!
+                    this.javaClass.classLoader.getResourceAsStream("youtube/sponsorblock/shared/host/$path/$resource.xml")!!
 
                 val targetXmlEditor = context.xmlEditor["res/$path/$resource.xml"]
                 "RelativeLayout".copyXmlNode(
