@@ -42,7 +42,6 @@ import app.revanced.util.integrations.Constants.COMPONENTS_PATH
 object CommentComponentPatch : BytecodePatch() {
     override fun execute(context: BytecodeContext) {
         LithoFilterPatch.addFilter("$COMPONENTS_PATH/CommentsFilter;")
-        LithoFilterPatch.addFilter("$COMPONENTS_PATH/CommentsPreviewDotsFilter;")
 
         /**
          * Add settings
