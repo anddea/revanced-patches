@@ -32,6 +32,7 @@ object SharedResourceIdPatch : ResourcePatch() {
     var BottomUiContainerStub: Long = -1
     var ChannelListSubMenu: Long = -1
     var CompactLink: Long = -1
+    var CompactListItem: Long = -1
     var ControlsLayoutStub: Long = -1
     var CoreContainer: Long = -1
     var DarkSplashAnimation: Long = -1
@@ -113,6 +114,7 @@ object SharedResourceIdPatch : ResourcePatch() {
         BottomUiContainerStub = find(ID, "bottom_ui_container_stub")
         ChannelListSubMenu = find(LAYOUT, "channel_list_sub_menu")
         CompactLink = find(LAYOUT, "compact_link")
+        CompactListItem = find(LAYOUT, "compact_list_item")
         ControlsLayoutStub = find(ID, "controls_layout_stub")
         CoreContainer = find(ID, "core_container")
         DarkSplashAnimation = find(ID, "dark_splash_animation")

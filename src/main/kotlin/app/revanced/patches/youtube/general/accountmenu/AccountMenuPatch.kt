@@ -3,20 +3,26 @@ package app.revanced.patches.youtube.general.accountmenu
 import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patches.youtube.general.accountmenu.fingerprints.AccountListFingerprint
+import app.revanced.patches.youtube.general.accountmenu.fingerprints.AccountListParentFingerprint
 import app.revanced.patches.youtube.general.accountmenu.fingerprints.AccountMenuFingerprint
 import app.revanced.patches.youtube.general.accountmenu.fingerprints.AccountMenuParentFingerprint
+import app.revanced.patches.youtube.general.accountmenu.fingerprints.AccountMenuPatchFingerprint
+import app.revanced.patches.youtube.general.accountmenu.fingerprints.SetViewGroupMarginFingerprint
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.integrations.Constants.GENERAL
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 
 @Patch(
     name = "Hide account menu",
-    description = "Hide account menu elements.",
+    description = "Hide elements of the account menu and You tab.",
     dependencies = [
         SettingsPatch::class,
         SharedResourceIdPatch::class
@@ -46,9 +52,33 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 )
 @Suppress("unused")
 object AccountMenuPatch : BytecodePatch(
-    setOf(AccountMenuParentFingerprint)
+    setOf(
+        AccountListParentFingerprint,
+        AccountMenuParentFingerprint,
+        AccountMenuPatchFingerprint
+    )
 ) {
     override fun execute(context: BytecodeContext) {
+
+        AccountListParentFingerprint.result?.let { parentResult ->
+            AccountListFingerprint.also {
+                it.resolve(
+                    context,
+                    parentResult.classDef
+                )
+            }.result?.let {
+                it.mutableMethod.apply {
+                    val targetIndex = it.scanResult.patternScanResult!!.startIndex + 3
+                    val targetInstruction = getInstruction<FiveRegisterInstruction>(targetIndex)
+
+                    addInstruction(
+                        targetIndex,
+                        "invoke-static {v${targetInstruction.registerC}, v${targetInstruction.registerD}}, " +
+                                "$GENERAL->hideAccountList(Landroid/view/View;Ljava/lang/CharSequence;)V"
+                    )
+                }
+            } ?: throw AccountListFingerprint.exception
+        } ?: throw AccountListParentFingerprint.exception
 
         AccountMenuParentFingerprint.result?.let { parentResult ->
             AccountMenuFingerprint.also {
@@ -68,6 +98,25 @@ object AccountMenuPatch : BytecodePatch(
                     )
                 }
             } ?: throw AccountMenuFingerprint.exception
+
+            SetViewGroupMarginFingerprint.also {
+                it.resolve(
+                    context,
+                    parentResult.classDef
+                )
+            }.result?.let {
+                it.mutableMethod.apply {
+                    val setViewGroupMarginIndex = it.scanResult.patternScanResult!!.startIndex
+                    val setViewGroupMarginReference = getInstruction<ReferenceInstruction>(setViewGroupMarginIndex).reference
+
+                    AccountMenuPatchFingerprint.result?.mutableMethod?.addInstructions(
+                        0, """
+                            const/4 v0, 0x0
+                            invoke-static {p0, v0, v0}, $setViewGroupMarginReference
+                            """
+                    ) ?: throw AccountMenuPatchFingerprint.exception
+                }
+            } ?: throw SetViewGroupMarginFingerprint.exception
         } ?: throw AccountMenuParentFingerprint.exception
 
         /**
