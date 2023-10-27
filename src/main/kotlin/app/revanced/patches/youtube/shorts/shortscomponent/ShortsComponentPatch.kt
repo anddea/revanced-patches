@@ -35,7 +35,7 @@ import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.ReelR
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.RightComment
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.bytecode.getWideLiteralIndex
-import app.revanced.util.integrations.Constants.PATCHES_PATH
+import app.revanced.util.integrations.Constants.COMPONENTS_PATH
 import app.revanced.util.integrations.Constants.SHORTS
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -247,8 +247,8 @@ object ShortsComponentPatch : BytecodePatch(
             }
         } ?: throw ShortsShareFingerprint.exception
 
-        LithoFilterPatch.addFilter("$PATCHES_PATH/ads/ShortsFilter;")
-        LithoFilterPatch.addFilter("$PATCHES_PATH/ads/ShortsButtonsFilter;")
+        LithoFilterPatch.addFilter("$COMPONENTS_PATH/ShortsFilter;")
+        LithoFilterPatch.addFilter("$COMPONENTS_PATH/ShortsButtonsFilter;")
 
         /**
          * Add settings

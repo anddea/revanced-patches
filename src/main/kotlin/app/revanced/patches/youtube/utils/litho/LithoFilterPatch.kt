@@ -11,7 +11,7 @@ import app.revanced.patches.shared.patch.litho.ComponentParserPatch
 import app.revanced.patches.shared.patch.litho.ComponentParserPatch.generalHook
 import app.revanced.patches.youtube.utils.litho.fingerprints.GeneralByteBufferFingerprint
 import app.revanced.patches.youtube.utils.litho.fingerprints.LithoFilterFingerprint
-import app.revanced.util.integrations.Constants.ADS_PATH
+import app.revanced.util.integrations.Constants.COMPONENTS_PATH
 import java.io.Closeable
 
 @Patch(dependencies = [ComponentParserPatch::class])
@@ -22,6 +22,9 @@ object LithoFilterPatch : BytecodePatch(
         LithoFilterFingerprint
     )
 ), Closeable {
+    private const val INTEGRATIONS_CLASS_DESCRIPTOR =
+        "$COMPONENTS_PATH/LithoFilterPatch;"
+
     internal lateinit var addFilter: (String) -> Unit
         private set
 
@@ -32,12 +35,12 @@ object LithoFilterPatch : BytecodePatch(
             it.mutableMethod.apply {
                 addInstruction(
                     0,
-                    "invoke-static { p2 }, $ADS_PATH/LithoFilterPatch;->setProtoBuffer(Ljava/nio/ByteBuffer;)V"
+                    "invoke-static { p2 }, $INTEGRATIONS_CLASS_DESCRIPTOR->setProtoBuffer(Ljava/nio/ByteBuffer;)V"
                 )
             }
         } ?: throw GeneralByteBufferFingerprint.exception
 
-        generalHook("$ADS_PATH/LithoFilterPatch;->filter")
+        generalHook("$INTEGRATIONS_CLASS_DESCRIPTOR->filter")
 
         LithoFilterFingerprint.result?.mutableMethod?.apply {
             removeInstructions(0, 6)
@@ -60,7 +63,7 @@ object LithoFilterPatch : BytecodePatch(
         .mutableMethod.addInstructions(
             0, """
                 const/16 v1, $filterCount
-                new-array v2, v1, [Lapp/revanced/integrations/patches/ads/Filter;
+                new-array v2, v1, [$COMPONENTS_PATH/Filter;
                 const/4 v1, 0x1
                 """
         )

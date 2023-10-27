@@ -13,8 +13,8 @@ import app.revanced.patches.youtube.utils.fingerprints.RecyclerViewTreeObserverF
 import app.revanced.patches.youtube.utils.litho.LithoFilterPatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
+import app.revanced.util.integrations.Constants.COMPONENTS_PATH
 import app.revanced.util.integrations.Constants.FLYOUT_PANEL
-import app.revanced.util.integrations.Constants.PATCHES_PATH
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
@@ -88,7 +88,7 @@ object OldQualityLayoutPatch : BytecodePatch(
             }
         } ?: throw RecyclerViewTreeObserverFingerprint.exception
 
-        LithoFilterPatch.addFilter("$PATCHES_PATH/ads/VideoQualityMenuFilter;")
+        LithoFilterPatch.addFilter("$COMPONENTS_PATH/VideoQualityMenuFilter;")
 
         /**
          * Add settings

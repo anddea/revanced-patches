@@ -6,7 +6,7 @@ import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.youtube.utils.litho.LithoFilterPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
-import app.revanced.util.integrations.Constants.PATCHES_PATH
+import app.revanced.util.integrations.Constants.COMPONENTS_PATH
 
 @Patch(
     name = "Hide comment component",
@@ -41,8 +41,8 @@ import app.revanced.util.integrations.Constants.PATCHES_PATH
 @Suppress("unused")
 object CommentComponentPatch : BytecodePatch() {
     override fun execute(context: BytecodeContext) {
-        LithoFilterPatch.addFilter("$PATCHES_PATH/ads/CommentsFilter;")
-        LithoFilterPatch.addFilter("$PATCHES_PATH/ads/CommentsPreviewDotsFilter;")
+        LithoFilterPatch.addFilter("$COMPONENTS_PATH/CommentsFilter;")
+        LithoFilterPatch.addFilter("$COMPONENTS_PATH/CommentsPreviewDotsFilter;")
 
         /**
          * Add settings

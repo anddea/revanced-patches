@@ -10,7 +10,7 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.youtube.player.infocards.fingerprints.InfoCardsIncognitoFingerprint
 import app.revanced.patches.youtube.utils.litho.LithoFilterPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
-import app.revanced.util.integrations.Constants.PATCHES_PATH
+import app.revanced.util.integrations.Constants.COMPONENTS_PATH
 import app.revanced.util.integrations.Constants.PLAYER
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
@@ -64,7 +64,7 @@ object HideInfoCardsPatch : BytecodePatch(
             }
         } ?: throw InfoCardsIncognitoFingerprint.exception
 
-        LithoFilterPatch.addFilter("$PATCHES_PATH/ads/InfoCardsFilter;")
+        LithoFilterPatch.addFilter("$COMPONENTS_PATH/InfoCardsFilter;")
 
         /**
          * Add settings

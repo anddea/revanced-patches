@@ -15,7 +15,7 @@ import app.revanced.patches.youtube.flyoutpanel.oldspeedlayout.fingerprints.Play
 import app.revanced.patches.youtube.flyoutpanel.recyclerview.BottomSheetRecyclerViewPatch
 import app.revanced.patches.youtube.utils.fingerprints.RecyclerViewTreeObserverFingerprint
 import app.revanced.patches.youtube.utils.litho.LithoFilterPatch
-import app.revanced.util.integrations.Constants.PATCHES_PATH
+import app.revanced.util.integrations.Constants.COMPONENTS_PATH
 import app.revanced.util.integrations.Constants.VIDEO_PATH
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.immutable.ImmutableField
@@ -108,7 +108,7 @@ object OldSpeedLayoutPatch : BytecodePatch(
             }
         } ?: throw RecyclerViewTreeObserverFingerprint.exception
 
-        LithoFilterPatch.addFilter("$PATCHES_PATH/ads/PlaybackSpeedMenuFilter;")
+        LithoFilterPatch.addFilter("$COMPONENTS_PATH/PlaybackSpeedMenuFilter;")
 
     }
 

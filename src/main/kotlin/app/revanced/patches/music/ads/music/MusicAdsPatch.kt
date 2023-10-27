@@ -8,6 +8,7 @@ import app.revanced.patches.music.utils.settings.SettingsPatch
 import app.revanced.patches.shared.patch.ads.AbstractAdsPatch
 import app.revanced.util.enum.CategoryType
 import app.revanced.util.integrations.Constants.MUSIC_ADS_PATH
+import app.revanced.util.integrations.Constants.MUSIC_COMPONENTS_PATH
 
 @Patch(
     name = "Hide music ads",
@@ -42,5 +43,5 @@ object MusicAdsPatch : AbstractAdsPatch(
     }
 
     private const val FILTER_CLASS_DESCRIPTOR =
-        "$MUSIC_ADS_PATH/AdsFilter;"
+        "$MUSIC_COMPONENTS_PATH/AdsFilter;"
 }

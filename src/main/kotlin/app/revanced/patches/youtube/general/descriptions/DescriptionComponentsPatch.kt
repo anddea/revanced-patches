@@ -6,7 +6,7 @@ import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.youtube.utils.litho.LithoFilterPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
-import app.revanced.util.integrations.Constants.PATCHES_PATH
+import app.revanced.util.integrations.Constants.COMPONENTS_PATH
 
 @Patch(
     name = "Hide description components",
@@ -41,7 +41,7 @@ import app.revanced.util.integrations.Constants.PATCHES_PATH
 @Suppress("unused")
 object DescriptionComponentsPatch : BytecodePatch() {
     override fun execute(context: BytecodeContext) {
-        LithoFilterPatch.addFilter("$PATCHES_PATH/ads/DescriptionsFilter;")
+        LithoFilterPatch.addFilter("$COMPONENTS_PATH/DescriptionsFilter;")
 
         /**
          * Add settings

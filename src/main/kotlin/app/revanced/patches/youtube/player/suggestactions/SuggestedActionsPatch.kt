@@ -12,6 +12,7 @@ import app.revanced.patches.youtube.utils.litho.LithoFilterPatch
 import app.revanced.patches.youtube.utils.playertype.PlayerTypeHookPatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
+import app.revanced.util.integrations.Constants.COMPONENTS_PATH
 import app.revanced.util.integrations.Constants.PATCHES_PATH
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
@@ -82,5 +83,5 @@ object SuggestedActionsPatch : BytecodePatch(
     }
 
     private const val FILTER_CLASS_DESCRIPTOR =
-        "$PATCHES_PATH/ads/SuggestedActionFilter;"
+        "$COMPONENTS_PATH/SuggestedActionFilter;"
 }

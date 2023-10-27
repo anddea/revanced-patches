@@ -8,6 +8,6 @@ object LithoFilterFingerprint : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.STATIC or AccessFlags.CONSTRUCTOR,
     customFingerprint = { methodDef, _ ->
-        methodDef.definingClass == "Lapp/revanced/music/patches/ads/LithoFilterPatch;"
+        methodDef.definingClass == "Lapp/revanced/music/patches/components/LithoFilterPatch;"
     }
 )

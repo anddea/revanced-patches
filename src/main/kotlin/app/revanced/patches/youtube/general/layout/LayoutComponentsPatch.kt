@@ -6,7 +6,7 @@ import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.youtube.utils.litho.LithoFilterPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
-import app.revanced.util.integrations.Constants.PATCHES_PATH
+import app.revanced.util.integrations.Constants.COMPONENTS_PATH
 
 @Patch(
     name = "Hide layout components",
@@ -41,10 +41,10 @@ import app.revanced.util.integrations.Constants.PATCHES_PATH
 @Suppress("unused")
 object LayoutComponentsPatch : BytecodePatch() {
     override fun execute(context: BytecodeContext) {
-        LithoFilterPatch.addFilter("$PATCHES_PATH/ads/BrowseStoreButtonFilter;")
-        LithoFilterPatch.addFilter("$PATCHES_PATH/ads/CommunityPostFilter;")
-        LithoFilterPatch.addFilter("$PATCHES_PATH/ads/LayoutComponentsFilter;")
-        LithoFilterPatch.addFilter("$PATCHES_PATH/ads/LayoutComponentsUniversalFilter;")
+        LithoFilterPatch.addFilter("$COMPONENTS_PATH/BrowseStoreButtonFilter;")
+        LithoFilterPatch.addFilter("$COMPONENTS_PATH/CommunityPostFilter;")
+        LithoFilterPatch.addFilter("$COMPONENTS_PATH/LayoutComponentsFilter;")
+        LithoFilterPatch.addFilter("$COMPONENTS_PATH/LayoutComponentsUniversalFilter;")
 
         /**
          * Add settings

@@ -24,7 +24,7 @@ import app.revanced.patches.youtube.utils.returnyoutubedislike.oldlayout.ReturnY
 import app.revanced.patches.youtube.utils.returnyoutubedislike.shorts.ReturnYouTubeDislikeShortsPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.patches.youtube.utils.videoid.general.VideoIdPatch
-import app.revanced.util.integrations.Constants.PATCHES_PATH
+import app.revanced.util.integrations.Constants.COMPONENTS_PATH
 import app.revanced.util.integrations.Constants.UTILS_PATH
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
@@ -210,7 +210,7 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
         "$UTILS_PATH/ReturnYouTubeDislikePatch;"
 
     private const val FILTER_CLASS_DESCRIPTOR =
-        "$PATCHES_PATH/ads/ReturnYouTubeDislikeFilterPatch;"
+        "$COMPONENTS_PATH/ReturnYouTubeDislikeFilterPatch;"
 
     private lateinit var conversionContextFieldReference: Reference
     private var tmpRegister: Int = 12

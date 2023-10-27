@@ -11,7 +11,7 @@ import app.revanced.patches.youtube.utils.fix.doublebacktoclose.DoubleBackToClos
 import app.revanced.patches.youtube.utils.fix.swiperefresh.SwipeRefreshPatch
 import app.revanced.patches.youtube.utils.litho.LithoFilterPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
-import app.revanced.util.integrations.Constants.PATCHES_PATH
+import app.revanced.util.integrations.Constants.COMPONENTS_PATH
 import app.revanced.util.resources.ResourceUtils.copyXmlNode
 import org.w3c.dom.Element
 
@@ -73,7 +73,7 @@ object GeneralAdsPatch : ResourcePatch() {
     )
 
     override fun execute(context: ResourceContext) {
-        LithoFilterPatch.addFilter("$PATCHES_PATH/ads/AdsFilter;")
+        LithoFilterPatch.addFilter("$COMPONENTS_PATH/AdsFilter;")
 
         context.forEach {
 

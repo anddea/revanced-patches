@@ -12,7 +12,7 @@ import app.revanced.patches.youtube.player.watermark.fingerprints.HideWatermarkF
 import app.revanced.patches.youtube.player.watermark.fingerprints.HideWatermarkParentFingerprint
 import app.revanced.patches.youtube.utils.litho.LithoFilterPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
-import app.revanced.util.integrations.Constants.PATCHES_PATH
+import app.revanced.util.integrations.Constants.COMPONENTS_PATH
 import app.revanced.util.integrations.Constants.PLAYER
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
@@ -74,7 +74,7 @@ object HideChannelWatermarkBytecodePatch : BytecodePatch(
             } ?: throw HideWatermarkFingerprint.exception
         } ?: throw HideWatermarkParentFingerprint.exception
 
-        LithoFilterPatch.addFilter("$PATCHES_PATH/ads/WaterMarkFilter;")
+        LithoFilterPatch.addFilter("$COMPONENTS_PATH/WaterMarkFilter;")
 
         /**
          * Add settings
