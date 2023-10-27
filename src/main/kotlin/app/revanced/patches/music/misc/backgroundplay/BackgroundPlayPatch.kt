@@ -18,8 +18,7 @@ import app.revanced.patches.music.misc.backgroundplay.fingerprints.BackgroundPla
             [
                 "6.15.52",
                 "6.20.51",
-                "6.22.51",
-                "6.23.54"
+                "6.23.55"
             ]
         )
     ]
