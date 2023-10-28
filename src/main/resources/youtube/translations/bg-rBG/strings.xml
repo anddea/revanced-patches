@@ -51,6 +51,8 @@
     <string name="revanced_custom_playback_speeds_summary">Добавяне или смяна на възможните скорости</string>
     <string name="revanced_custom_playback_speeds_title">Редактиране на скоростите по избор на видеото</string>
     <string name="revanced_custom_playback_speeds_warning" formatted="false">Персонализираната скорост не може да бъде повече от %sx. Нулирайте стойностите по подразбиране.</string>
+    <string name="revanced_custom_player_overlay_opacity_summary">Стойност на непрозрачност между 0-100, където 0 е прозрачно</string>
+    <string name="revanced_custom_player_overlay_opacity_warning">Непрозрачността на наслагването на плейъра трябва да бъде между 0-100. Нулирайте стойностите по подразбиране.</string>
     <string name="revanced_custom_seekbar_color_value_summary">Въведете кода за цвят на лентата за време</string>
     <string name="revanced_custom_seekbar_color_value_title">Ст-ст по изб. за цвят на лентата за вр.</string>
     <string name="revanced_default_app_settings_summary">За да отворите RVX във външен браузър включете \"Отваряне на поддържани връзки\" и разрешете поддържаните адреси</string>
@@ -172,7 +174,6 @@
     <string name="revanced_general">Общи</string>
     <string name="revanced_haptic_feedback_title">Хаптична обратна връзка</string>
     <string name="revanced_hide_account_menu_filter_strings_title">Филтър за редактиране на меню на акаунта</string>
-    <string name="revanced_hide_account_menu_summary">Известен проблем: Може да не работи в пейзажен режим на устр. с висока резолюция</string>
     <string name="revanced_hide_account_menu_title">Скриване на менюто на акаунта</string>
     <string name="revanced_hide_album_card_summary_off">Албумните карти се показват</string>
     <string name="revanced_hide_album_card_summary_on">Албумните карти са скрити</string>
@@ -375,9 +376,6 @@
     <string name="revanced_hide_notify_me_button_summary_off">Бутона за известия се показва</string>
     <string name="revanced_hide_notify_me_button_summary_on">Бутона за известия е скрит</string>
     <string name="revanced_hide_notify_me_button_title">Скр. Бутона за известия</string>
-    <string name="revanced_hide_official_header_summary_off">Официалното заглавие се показва</string>
-    <string name="revanced_hide_official_header_summary_on">Официалното заглавие е скрито</string>
-    <string name="revanced_hide_official_header_title">Скр. официално заглавие</string>
     <string name="revanced_hide_paid_promotion_banner_summary_off">Промоционалните етикети се показват</string>
     <string name="revanced_hide_paid_promotion_banner_summary_on">Промоционалните етикети са скрити</string>
     <string name="revanced_hide_paid_promotion_banner_title">Скриване на платените промоции</string>
@@ -479,9 +477,10 @@
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_off">Бутона за абонаменти се показва</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_on">Бутона за абонаменти е скрит</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_title">Скр. бутона за абонаменти</string>
-    <string name="revanced_hide_shorts_shelf_summary_off">Рафтовете с кратки клипове се показват</string>
-    <string name="revanced_hide_shorts_shelf_summary_on">Рафтовете с кратки клипове са скрити</string>
     <string name="revanced_hide_shorts_shelf_title">Скр. рафтове с кратки клипове</string>
+    <string name="revanced_hide_shorts_toolbar_camera_button_summary_off">Бутона за камерата се показва</string>
+    <string name="revanced_hide_shorts_toolbar_camera_button_summary_on">Бутона за камерата е скрит</string>
+    <string name="revanced_hide_shorts_toolbar_camera_button_title">Скр. бутон на камерата</string>
     <string name="revanced_hide_snack_bar_summary_off">Лентата на състоянието се показва</string>
     <string name="revanced_hide_snack_bar_summary_on">Лентата на състоянието е скрита</string>
     <string name="revanced_hide_snack_bar_title">Скр. лентата на съст.</string>
@@ -553,9 +552,6 @@
     <string name="revanced_overlay_button_speed_dialog_summary">"Докоснете регулиране на скоростта на видеото
 Докоснете и задръжте за задаване на скоростта на 1.0х"</string>
     <string name="revanced_overlay_button_speed_dialog_title">Пок. бутон за скорост</string>
-    <string name="revanced_override_premium_header_summary_off">Текущ надпис: Обикновен</string>
-    <string name="revanced_override_premium_header_summary_on">Текущ надпис: Premium</string>
-    <string name="revanced_override_premium_header_title">Premium надпис</string>
     <string name="revanced_patches_information">Информация за корекции</string>
     <string name="revanced_patches_information_summary">Информация за приложените корекции</string>
     <string name="revanced_player">Плейър</string>
@@ -596,7 +592,6 @@
     <string name="revanced_skip_preloaded_buffer_toast_summary_off">Уведомлението е скрито</string>
     <string name="revanced_skip_preloaded_buffer_toast_summary_on">Уведомлението се показва</string>
     <string name="revanced_skip_preloaded_buffer_toast_title">Уведомление при пропуске</string>
-    <string name="revanced_speed_overlay_text" formatted="false">Възпроизвеждане на %dX скорост</string>
     <string name="revanced_spoof_app_version_summary">"Подлъгване на клиента с остаряла версия
 
 Това ще промени външния вид на приложението но могат да възникнат непознати странични ефекти

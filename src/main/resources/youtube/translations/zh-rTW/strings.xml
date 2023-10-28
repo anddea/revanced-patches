@@ -51,6 +51,9 @@
     <string name="revanced_custom_playback_speeds_summary">新增或變更可用的播放速度</string>
     <string name="revanced_custom_playback_speeds_title">編輯自訂播放速度</string>
     <string name="revanced_custom_playback_speeds_warning" formatted="false">自訂速度不能多於 %sx。已重設為預設值。</string>
+    <string name="revanced_custom_player_overlay_opacity_summary">設定值為 0 到 100 的不透明度，0 完全透明</string>
+    <string name="revanced_custom_player_overlay_opacity_title">設定播放器覆蓋層自定義的不透明度</string>
+    <string name="revanced_custom_player_overlay_opacity_warning">若播放器覆蓋層的不透明度不在 0 到 100 範圍內，將會重設回預設數值</string>
     <string name="revanced_custom_seekbar_color_value_summary">輸入搜尋欄十六進制代碼</string>
     <string name="revanced_custom_seekbar_color_value_title">自訂搜尋欄顏色</string>
     <string name="revanced_default_app_settings_summary">如過要讓RVX開啟Youtube的網址的話,請到手機設定&gt;RVX應用程式資訊&gt;設為預設&gt;前往支援的網址,將設定改為\"經此應用程式\"</string>
@@ -59,6 +62,8 @@
     <string name="revanced_default_video_quality_mobile_title">預設行動數據影片畫質</string>
     <string name="revanced_default_video_quality_wifi_title">預設 Wi-Fi 影片畫質</string>
     <string name="revanced_description_title">說明</string>
+    <string name="revanced_disable_ambient_mode_in_fullscreen_summary">在全螢幕狀態下，將環境模式關閉</string>
+    <string name="revanced_disable_ambient_mode_in_fullscreen_title">在全螢幕狀態下，取消環境模式</string>
     <string name="revanced_disable_ambient_mode_summary">永遠停用環境模式</string>
     <string name="revanced_disable_ambient_mode_title">停用環境模式</string>
     <string name="revanced_disable_auto_captions_summary_off">強制自動字幕已啟用</string>
@@ -161,6 +166,11 @@
     <string name="revanced_enable_wide_search_bar_summary_off">已停用寬搜尋列</string>
     <string name="revanced_enable_wide_search_bar_summary_on">已啟用寬搜尋列</string>
     <string name="revanced_enable_wide_search_bar_title">啟用寬搜尋列</string>
+    <string name="revanced_enable_wide_search_bar_in_you_tab_summary">"啟用這項設定後，「你」這一個標籤裡面的「設定」按鈕將會被停用
+
+若遇到此情況，請按照下面的操作步驟進行：
+「你」標籤 &gt; 查看頻道 &gt; 選單 &gt; 設定"</string>
+    <string name="revanced_enable_wide_search_bar_in_you_tab_title">在「你」標籤內，將搜索欄設定為寬版</string>
     <string name="revanced_experimental_flag">實驗性功能</string>
     <string name="revanced_export_settings_summary">將您的 ReVanced 設定匯出至檔案</string>
     <string name="revanced_export_settings_title">匯出設定</string>
@@ -177,7 +187,6 @@
     <string name="revanced_general">一般設定</string>
     <string name="revanced_haptic_feedback_title">震動回饋</string>
     <string name="revanced_hide_account_menu_filter_strings_title">編輯帳號選單篩選</string>
-    <string name="revanced_hide_account_menu_summary">已知問題：可能無法在橫向模式或高 dpi 設備上運作</string>
     <string name="revanced_hide_account_menu_title">隱藏帳戶選單</string>
     <string name="revanced_hide_album_card_summary_off">專輯卡已顯示</string>
     <string name="revanced_hide_album_card_summary_on">專輯卡已隱藏</string>
@@ -215,6 +224,12 @@
     <string name="revanced_hide_button_live_chat_summary_off">直播聊天室按鈕已顯示</string>
     <string name="revanced_hide_button_live_chat_summary_on">直播聊天室按鈕已隱藏</string>
     <string name="revanced_hide_button_live_chat_title">隱藏直播聊天室按鈕</string>
+    <string name="revanced_hide_button_open_mix_playlist_summary_off">顯示開啟混合播放清單的按鈕</string>
+    <string name="revanced_hide_button_open_mix_playlist_summary_on">隱藏開啟混合播放清單的按鈕</string>
+    <string name="revanced_hide_button_open_mix_playlist_title">隱藏開啟混合播放清單的按鈕</string>
+    <string name="revanced_hide_button_open_playlist_summary_off">顯示開啟播放清單的按鈕</string>
+    <string name="revanced_hide_button_open_playlist_summary_on">隱藏開啟播放清單的按鈕</string>
+    <string name="revanced_hide_button_open_playlist_title">隱藏開啟播放清單的按鈕</string>
     <string name="revanced_hide_button_remix_summary_off">Remix 按鈕已顯示</string>
     <string name="revanced_hide_button_remix_summary_on">Remix 按鈕已隱藏</string>
     <string name="revanced_hide_button_remix_title">隱藏 Remix 按鈕</string>
@@ -224,6 +239,9 @@
     <string name="revanced_hide_button_rewards_summary_off">顯示獎勵按鈕</string>
     <string name="revanced_hide_button_rewards_summary_on">隱藏獎勵按鈕</string>
     <string name="revanced_hide_button_rewards_title">隱藏獎勵按鈕</string>
+    <string name="revanced_hide_button_save_to_playlist_summary_off">顯示儲存到播放清單的按鈕</string>
+    <string name="revanced_hide_button_save_to_playlist_summary_on">隱藏儲存到播放清單的按鈕</string>
+    <string name="revanced_hide_button_save_to_playlist_title">隱藏儲存到播放清單的按鈕</string>
     <string name="revanced_hide_button_share_summary_off">分享按鈕已顯示</string>
     <string name="revanced_hide_button_share_summary_on">分享按鈕已隱藏</string>
     <string name="revanced_hide_button_share_title">隱藏分享按鈕</string>
@@ -383,9 +401,6 @@
     <string name="revanced_hide_notify_me_button_summary_off">顯示通知我按鈕</string>
     <string name="revanced_hide_notify_me_button_summary_on">隱藏通知我按鈕</string>
     <string name="revanced_hide_notify_me_button_title">在動態中隱藏通知我按鈕</string>
-    <string name="revanced_hide_official_header_summary_off">已顯示官方資訊</string>
-    <string name="revanced_hide_official_header_summary_on">已隱藏官方資訊</string>
-    <string name="revanced_hide_official_header_title">隱藏官方資訊</string>
     <string name="revanced_hide_paid_promotion_banner_summary_off">顯示付費推廣橫幅</string>
     <string name="revanced_hide_paid_promotion_banner_summary_on">隱藏付費推廣橫幅</string>
     <string name="revanced_hide_paid_promotion_banner_title">隱藏付費推廣橫幅</string>
@@ -493,8 +508,6 @@
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_off">訂閱按鈕已顯示</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_on">訂閱按鈕已隱藏</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_title">隱藏訂閱按鈕</string>
-    <string name="revanced_hide_shorts_shelf_summary_off">Shorts 功能列已顯示</string>
-    <string name="revanced_hide_shorts_shelf_summary_on">Shorts 功能列已隱藏</string>
     <string name="revanced_hide_shorts_shelf_title">Shorts 功能列</string>
     <string name="revanced_hide_shorts_toolbar_banner_summary_off">橫幅已顯示</string>
     <string name="revanced_hide_shorts_toolbar_banner_summary_on">橫幅已隱藏</string>
@@ -588,9 +601,6 @@
     <string name="revanced_overlay_button_speed_dialog_summary">"點擊以開啟速度對話框
 長按以將播放速度設定為 1.0x"</string>
     <string name="revanced_overlay_button_speed_dialog_title">顯示播放速度按鈕</string>
-    <string name="revanced_override_premium_header_summary_off">目前標題：預設標誌</string>
-    <string name="revanced_override_premium_header_summary_on">目前標題： Premium 標誌</string>
-    <string name="revanced_override_premium_header_title">Premium 標誌</string>
     <string name="revanced_patches_information">補丁資訊 --唐懂翻譯</string>
     <string name="revanced_patches_information_summary">已套用的補丁資訊</string>
     <string name="revanced_player">播放</string>
@@ -632,8 +642,7 @@
     <string name="revanced_skip_preloaded_buffer_toast_summary_off">隱藏提示訊息</string>
     <string name="revanced_skip_preloaded_buffer_toast_summary_on">顯示提示訊息</string>
     <string name="revanced_skip_preloaded_buffer_toast_title">當略過預先加載的緩衝區時，將會顯示一條提示訊息</string>
-    <string name="revanced_speed_overlay_text" formatted="false">正在以 %sx 的速度播放</string>
-    <string name="revanced_spoof_app_version_summary">"將應用程式版本偽裝成舊版本
+    <string name="revanced_spoof_app_version_summary">"將客戶端版本偽裝成舊版本
 
  這將改變應用程式的外觀，但可能會出現未知的反效果
  如果需要關閉，舊版介面可能會保留，直到清除應用程式資料"</string>
@@ -648,6 +657,8 @@
     <string name="revanced_spoof_app_version_target_summary">輸入欺騙的應用程式版本目標</string>
     <string name="revanced_spoof_app_version_target_title">編輯欺騙應用程式版本</string>
     <string name="revanced_spoof_app_version_title">偽裝應用程式版本</string>
+    <string name="revanced_spoof_device_dimensions_summary">更改裝置尺寸設定，以便解鎖在您目前的裝置上原本不支援的較高影片品質。</string>
+    <string name="revanced_spoof_device_dimensions_title">更改裝置的尺寸設定</string>
     <string name="revanced_spoof_player_parameter_in_feed_summary_off">"播放器參數未針對動態內影片廣告進行偽裝
 
 已知的問題
