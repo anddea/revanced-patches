@@ -11,12 +11,13 @@
     <string name="revanced_category_video">Видео</string>
     <string name="revanced_custom_filter_strings_summary">Фильтровать компоненты по названиям через строку.</string>
     <string name="revanced_custom_filter_strings_title">Изменить пользовательский фильтр</string>
+    <string name="revanced_custom_filter_strings_warning">Недопустимый пользовательский фильтр, сброс к данным по умолчанию.</string>
     <string name="revanced_custom_filter_summary">Включает пользовательский фильтр для скрытия компонентов интерфейса.</string>
     <string name="revanced_custom_filter_title">Пользовательский фильтр</string>
-    <string name="revanced_custom_playback_speeds_invalid">Недопустимые значения скоростей! Сброс к значениям по умолчанию.</string>
-    <string name="revanced_custom_playback_speeds_summary">Добавить или изменить доступные скорости воспроизведения</string>
+    <string name="revanced_custom_playback_speeds_invalid">Недопустимые значения скоростей. Сброс к значениям по умолчанию.</string>
+    <string name="revanced_custom_playback_speeds_summary">Добавить или изменить доступные скорости воспроизведения.</string>
     <string name="revanced_custom_playback_speeds_title">Изменить значения скорости</string>
-    <string name="revanced_custom_playback_speeds_warning" formatted="false">Значения скоростей не могут быть больше, чем %sx</string>
+    <string name="revanced_custom_playback_speeds_warning" formatted="false">Значения скоростей не могут быть больше, чем %sx.</string>
     <string name="revanced_disable_auto_captions_summary">Отключает автоматическое включение субтитров в видеоплеере.</string>
     <string name="revanced_disable_auto_captions_title">Отключить автоматические субтитры</string>
     <string name="revanced_downloader_not_installed" formatted="false">%s не установлен. Пожалуйста, установите его.</string>
@@ -28,8 +29,8 @@
     <string name="revanced_enable_compact_dialog_title">Компактный вид выдвижного меню</string>
     <string name="revanced_enable_debug_logging_summary">Выводит данные журнала отладки.</string>
     <string name="revanced_enable_debug_logging_title">Ведение журнала отладки</string>
-    <string name="revanced_enable_flyout_panel_playback_speed_summary">Добавляет пункт \"Скорость воспроизведения\" в выдвижную панель.</string>
-    <string name="revanced_enable_flyout_panel_playback_speed_title">Пункт \"Скорость воспроизведения\"</string>
+    <string name="revanced_enable_flyout_panel_playback_speed_summary">Добавляет кнопку \"Скорость воспроизведения\" в выдвижную панель.</string>
+    <string name="revanced_enable_flyout_panel_playback_speed_title">Кнопка \"Скорость воспроизведения\"</string>
     <string name="revanced_enable_force_minimized_player_summary">Держать плеер всегда свёрнутым при нажатии на трек с главной страницы.</string>
     <string name="revanced_enable_force_minimized_player_title">Держать плеер свёрнутым</string>
     <string name="revanced_enable_landscape_mode_summary">Даёт возможность перехода в альбомный режим при повороте экрана телефона.</string>
@@ -39,7 +40,7 @@
     <string name="revanced_enable_old_player_layout_summary">"Возвращение интерфейса полноэкранного плеера к старому стилю.
 Некоторые настройки могут не работать в старом интерфейсе полноэкранного плеера.
 
-ВАЖНО: Перед включением этой опции удостоверьтесь, что параметр \"Новый фон плеера\" отключён"</string>
+ВАЖНО: Перед включением этой опции удостоверьтесь, что параметр \"Новый фон плеера\" отключён."</string>
     <string name="revanced_enable_old_player_layout_title">Старый интерфейс плеера</string>
     <string name="revanced_enable_old_style_library_shelf_summary">Возвращает старый стиль вкладки \"Библиотека\". (Экспериментальная опция)</string>
     <string name="revanced_enable_old_style_library_shelf_title">Старый стиль вкладки \"Библиотека\"</string>
@@ -59,14 +60,14 @@
     <string name="revanced_extended_settings_import_copy">Копировать</string>
     <string name="revanced_extended_settings_import_export_summary">Импортировать или экспортировать настройки в виде текста.</string>
     <string name="revanced_extended_settings_import_export_title">Импорт / Экспорт</string>
-    <string name="revanced_extended_settings_import_failure_parse">Не удалось восстановить настройки: %s</string>
-    <string name="revanced_extended_settings_import_reset">Настройки сброшены до начальных</string>
-    <string name="revanced_extended_settings_import_success">Настройки в количестве: %d успешно восстановлены</string>
+    <string name="revanced_extended_settings_import_failure_parse">Не удалось восстановить настройки: %s.</string>
+    <string name="revanced_extended_settings_import_reset">Настройки сброшены до начальных.</string>
+    <string name="revanced_extended_settings_import_success">Настройки в количестве: %d успешно восстановлены.</string>
     <string name="revanced_external_downloader_not_installed_warning" formatted="false">%s не установлен. Пожалуйста, установите его.</string>
     <string name="revanced_external_downloader_package_name_summary">Имя пакета вашего установленного внешнего загрузчика. Например, NewPipe или YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_title">Имя пакета внешнего загрузчика</string>
     <string name="revanced_flyout_panel_watch_on_youtube">Открыть в YouTube</string>
-    <string name="revanced_hide_account_menu_empty_component_summary">Скрывает пустой пункт в меню аккаунта</string>
+    <string name="revanced_hide_account_menu_empty_component_summary">Скрывает пустой пункт в меню аккаунта.</string>
     <string name="revanced_hide_account_menu_empty_component_title">Скрыть пустой пункт</string>
     <string name="revanced_hide_account_menu_summary">Скрывает элементы меню аккаунта.</string>
     <string name="revanced_hide_account_menu_title">Скрыть меню аккаунта</string>
@@ -130,8 +131,8 @@
     <string name="revanced_hide_upgrade_button_title">Скрыть кнопку \"Платные подписки\"</string>
     <string name="revanced_hook_action_bar_download_summary">Заменяет кнопку \"Скачать\" кнопкой запуска внешнего загрузчика.</string>
     <string name="revanced_hook_action_bar_download_title">Замена кнопки \"Скачать\"</string>
-    <string name="revanced_playlist_dismiss">Уже воспроизводится с официального источника музыки</string>
-    <string name="revanced_playlist_error">Официальный источник музыки недоступен</string>
+    <string name="revanced_playlist_dismiss">Уже воспроизводится с официального источника музыки.</string>
+    <string name="revanced_playlist_error">Официальный источник музыки недоступен.</string>
     <string name="revanced_reboot_first_run">Перезапустите для правильной загрузки интерфейса</string>
     <string name="revanced_reboot_message">Обновить и перезапустить?</string>
     <string name="revanced_replace_flyout_panel_dismiss_queue_continue_watch_summary">При нажатии пункта \"Открыть в YouTube\" воспроизведение продолжится с текущего времени просмотра.</string>
@@ -148,22 +149,22 @@
     <string name="revanced_ryd_attribution_summary">Данные предоставляются при помощи Return YouTube Dislike API. Нажмите здесь, чтобы узнать больше.</string>
     <string name="revanced_ryd_compact_layout_summary">Скрывает линию-разделитель после кнопки \"Нравится\".</string>
     <string name="revanced_ryd_compact_layout_title">Компактная кнопка \"Нравится\"</string>
-    <string name="revanced_ryd_dislike_percentage_summary">Вместо числа дизлайков, они отображаются как процент.</string>
-    <string name="revanced_ryd_dislike_percentage_title">Количество дизлайков в процентах</string>
-    <string name="revanced_ryd_enabled_summary">Отображает количество дизлайков в видео.</string>
-    <string name="revanced_ryd_failure_client_rate_limit_requested">Дизлайки недоступны (достигнут лимит клиентов сервера API)</string>
+    <string name="revanced_ryd_dislike_percentage_summary">Вместо числа отметок \"Не нравится\"(Дизлайков), они отображаются как процент.</string>
+    <string name="revanced_ryd_dislike_percentage_title">Кол-во отметок \"Не нравится\" в процентах</string>
+    <string name="revanced_ryd_enabled_summary">Отображает количество отметок \"Не нравится\"(Дизлайков) в видео.</string>
+    <string name="revanced_ryd_failure_client_rate_limit_requested">Отметки \"Не нравится\" недоступны (достигнут лимит клиентов сервера API).</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Скрыто</string>
     <string name="revanced_save_playback_speed">Скорость воспроизведения по умолчанию изменена на:</string>
     <string name="revanced_save_video_quality_mobile">Качество по умолчанию при моб. сети изменено на:</string>
-    <string name="revanced_save_video_quality_none">Не удалось установить выбранное качество</string>
+    <string name="revanced_save_video_quality_none">Не удалось установить выбранное качество.</string>
     <string name="revanced_save_video_quality_wifi">Качество по умолчанию при Wi-Fi изменено на:</string>
-    <string name="revanced_spoof_app_version_summary">"Подменяет версию клиента на старую
+    <string name="revanced_spoof_app_version_summary">"Подменяет версию клиента на старую.
 
-• Это изменит внешний вид приложения, но могут возникнуть неизвестные проблемы
-• Если отключить данную опцию после её активации, старый интерфейс может оставаться до тех пор, пока данные приложения не будут очищены"</string>
+• Это изменит внешний вид приложения, но могут возникнуть неизвестные проблемы.
+• Если отключить данную опцию после её активации, старый интерфейс может оставаться до тех пор, пока данные приложения не будут очищены."</string>
     <string name="revanced_spoof_app_version_target_entry_4_27_53">4.27.53 - Отключение режима радио в канадских регионах</string>
     <string name="revanced_spoof_app_version_target_entry_6_10_53">6.10.53 - Отключение динамических текстов</string>
-    <string name="revanced_spoof_app_version_target_summary">Выберите целевую версию приложения для подмены</string>
+    <string name="revanced_spoof_app_version_target_summary">Выберите целевую версию приложения для подмены.</string>
     <string name="revanced_spoof_app_version_target_title">Целевая версия приложения при подмене</string>
     <string name="revanced_spoof_app_version_title">Подмена версии приложения</string>
     <string name="revanced_start_page_entry_chart">Хит-парады</string>
@@ -178,46 +179,46 @@
     <string name="sb_toast_on_skip">Уведомление при автопропуске</string>
     <string name="sb_toast_on_skip_sum">Всплывающее уведомление отображено при автоматическом пропуске сегмента.</string>
     <string name="sb_api_url">Изменить API адреса сервера</string>
-    <string name="sb_api_url_sum">Адрес, используемый SponsorBlock для связи с сервером. Не изменяйте его, если не знаете, что делаете</string>
-    <string name="sb_api_url_reset">Адрес сервера API сброшен</string>
-    <string name="sb_api_url_invalid">Адрес сервера API недействителен</string>
-    <string name="sb_api_url_changed">Адрес сервера API изменён</string>
+    <string name="sb_api_url_sum">Адрес, используемый для связи с сервером SponsorBlock. Не изменяйте его, если не знаете, что делаете.</string>
+    <string name="sb_api_url_reset">Адрес сервера API сброшен.</string>
+    <string name="sb_api_url_invalid">Адрес сервера API недействителен.</string>
+    <string name="sb_api_url_changed">Адрес сервера API изменён.</string>
     <string name="sb_diff_segments">Изменить поведение сегмента</string>
     <string name="sb_segments_sponsor">Спонсорская реклама</string>
-    <string name="sb_segments_sponsor_sum">Платные промоакции, платные рефералы и прямая реклама. Не для саморекламы или бесплатных рекомендаций о делах / создателях / веб-сайтах / продуктах, которые им нравятся</string>
+    <string name="sb_segments_sponsor_sum">Платные промоакции, платные рефералы и прямая реклама. Не для саморекламы или бесплатных рекомендаций о делах / создателях / веб-сайтах / продуктах, которые им нравятся.</string>
     <string name="sb_segments_selfpromo">Бесплатная реклама / Самореклама</string>
-    <string name="sb_segments_selfpromo_sum">Похоже на спонсорскую рекламу, за исключением бесплатной рекламы или саморекламы. Включает разделы о товарах, пожертвованиях или информации о том, с кем они сотрудничали</string>
+    <string name="sb_segments_selfpromo_sum">Похоже на спонсорскую рекламу, за исключением бесплатной рекламы или саморекламы. Включает разделы о товарах, пожертвованиях или информации о том, с кем они сотрудничали.</string>
     <string name="sb_segments_interaction">Напоминание о взаимодействии</string>
-    <string name="sb_segments_interaction_sum">Короткое напоминание поставить лайк, подписаться на канал или соцсети посреди видеоролика. Если эта вставка длительная или о чём-то конкретном, она должна классифицироваться как самореклама</string>
+    <string name="sb_segments_interaction_sum">Короткое напоминание поставить отметку \"Нравится\"(Лайк), подписаться на канал или соцсети посреди видеоролика. Если эта вставка длительная или о чём-то конкретном, она должна классифицироваться как самореклама.</string>
     <string name="sb_segments_intro">Пауза / Интро</string>
-    <string name="sb_segments_intro_sum">Интервал без фактического содержания. Это может быть пауза, статический кадр или повторяющаяся анимация. Не включает переходы, содержащие информацию</string>
+    <string name="sb_segments_intro_sum">Интервал без фактического содержания. Это может быть пауза, статический кадр или повторяющаяся анимация. Не включает переходы, содержащие информацию.</string>
     <string name="sb_segments_outro">Конечные заставки / Титры</string>
-    <string name="sb_segments_outro_sum">Титры или время появления конечных заставок YouTube. Не для подведения итогов сказанного в видео</string>
+    <string name="sb_segments_outro_sum">Титры или время появления конечных заставок YouTube. Не для подведения итогов сказанного в видео.</string>
     <string name="sb_segments_preview">Предпросмотр / Краткое содержание</string>
-    <string name="sb_segments_preview_sum">Краткое содержание предыдущих эпизодов или предварительный просмотр того, что будет в данном видео</string>
+    <string name="sb_segments_preview_sum">Краткое содержание предыдущих эпизодов или предварительный просмотр того, что будет в данном видео.</string>
     <string name="sb_segments_filler">Отвлечённые темы / Шутки</string>
-    <string name="sb_segments_filler_sum">Сегменты, которые увеличивают длительность видео за счёт отвлечённых тем или шуток, но не требуются для понимания основного содержания. Не включает сегменты, объясняющие контекст или предысторию</string>
+    <string name="sb_segments_filler_sum">Сегменты, которые увеличивают длительность видео за счёт отвлечённых тем или шуток, но не требуются для понимания основного содержания. Не включает сегменты, объясняющие контекст или предысторию.</string>
     <string name="sb_segments_nomusic">Музыка: сегмент без музыки</string>
-    <string name="sb_segments_nomusic_sum">Только для использования в музыкальных видеороликах. Разделы музыкальных видео без музыки, которые ещё не охвачены другой категорией</string>
-    <string name="sb_skipped_sponsor">Пропущена спонсорская реклама</string>
-    <string name="sb_skipped_selfpromo">Пропущена самореклама</string>
-    <string name="sb_skipped_interaction">Пропущено назойливое напоминание</string>
-    <string name="sb_skipped_intro_beginning">Пропущено интро</string>
-    <string name="sb_skipped_intro_middle">Пропущена пауза</string>
-    <string name="sb_skipped_intro_end">Пропущена пауза</string>
-    <string name="sb_skipped_outro">Пропущена концовка</string>
-    <string name="sb_skipped_preview_beginning">Пропущен предпросмотр</string>
-    <string name="sb_skipped_preview_middle">Пропущен предпросмотр</string>
-    <string name="sb_skipped_preview_end">Пропущено краткое повторение</string>
-    <string name="sb_skipped_filler">Пропущен наполнитель</string>
-    <string name="sb_skipped_nomusic">Пропущен немузыкальный сегмент</string>
-    <string name="sb_skipped_multiple_segments">Пропущено несколько сегментов</string>
+    <string name="sb_segments_nomusic_sum">Только для использования в музыкальных видеороликах. Разделы музыкальных видео без музыки, которые ещё не охвачены другой категорией.</string>
+    <string name="sb_skipped_sponsor">Пропущена спонсорская реклама.</string>
+    <string name="sb_skipped_selfpromo">Пропущена самореклама.</string>
+    <string name="sb_skipped_interaction">Пропущено назойливое напоминание.</string>
+    <string name="sb_skipped_intro_beginning">Пропущено интро.</string>
+    <string name="sb_skipped_intro_middle">Пропущена пауза.</string>
+    <string name="sb_skipped_intro_end">Пропущена пауза.</string>
+    <string name="sb_skipped_outro">Пропущена концовка.</string>
+    <string name="sb_skipped_preview_beginning">Пропущен предпросмотр.</string>
+    <string name="sb_skipped_preview_middle">Пропущен предпросмотр.</string>
+    <string name="sb_skipped_preview_end">Пропущено краткое повторение.</string>
+    <string name="sb_skipped_filler">Пропущен наполнитель.</string>
+    <string name="sb_skipped_nomusic">Пропущен немузыкальный сегмент.</string>
+    <string name="sb_skipped_multiple_segments">Пропущено несколько сегментов.</string>
     <string name="sb_skip_automatically">Автоматически пропускать</string>
     <string name="sb_skip_ignore">Отключить</string>
     <string name="sb_color_dot_label">Цвет:</string>
-    <string name="sb_color_changed">Цвет изменён</string>
-    <string name="sb_color_reset">Цвет сброшен</string>
-    <string name="sb_color_invalid">Неверный код цвета</string>
+    <string name="sb_color_changed">Цвет изменён.</string>
+    <string name="sb_color_reset">Цвет сброшен.</string>
+    <string name="sb_color_invalid">Неверный код цвета.</string>
     <string name="sb_reset_color">Сбросить цвет</string>
-    <string name="sb_about_api_sum">Данные предоставлены API SponsorBlock. Нажмите здесь, чтобы узнать больше и увидеть загрузки для других платформ</string>
+    <string name="sb_about_api_sum">Данные предоставлены API SponsorBlock. Нажмите здесь, чтобы узнать больше и увидеть загрузки для других платформ.</string>
 </resources>

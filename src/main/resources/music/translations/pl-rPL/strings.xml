@@ -11,12 +11,13 @@
     <string name="revanced_category_video">Wideo</string>
     <string name="revanced_custom_filter_strings_summary">Filtruj nazwy komponentów, oddzielając je osobnymi liniami.</string>
     <string name="revanced_custom_filter_strings_title">Edytuj własny filtr</string>
+    <string name="revanced_custom_filter_strings_warning">Nieprawidłowy własny filtr, przywróć domyślne wartości.</string>
     <string name="revanced_custom_filter_summary">Włącza własny filtr.</string>
     <string name="revanced_custom_filter_title">Włącz własny filtr</string>
-    <string name="revanced_custom_playback_speeds_invalid">Nieprawidłowe niestandardowe prędkości odtwarzania! Przywrócono domyślne wartości.</string>
-    <string name="revanced_custom_playback_speeds_summary">Dodaj lub zmień dostępne prędkości odtwarzania</string>
+    <string name="revanced_custom_playback_speeds_invalid">Nieprawidłowe niestandardowe prędkości odtwarzania. Przywrócono domyślne wartości.</string>
+    <string name="revanced_custom_playback_speeds_summary">Dodaj lub zmień dostępne prędkości odtwarzania.</string>
     <string name="revanced_custom_playback_speeds_title">Edytuj niestandardowe prędkości odtwarzania</string>
-    <string name="revanced_custom_playback_speeds_warning" formatted="false">Niestandardowe prędkości nie mogą być większe niż %sx</string>
+    <string name="revanced_custom_playback_speeds_warning" formatted="false">Niestandardowe prędkości nie mogą być większe niż %sx.</string>
     <string name="revanced_disable_auto_captions_summary">Wyłącza wymuszone napisy w odtwarzaczu wideo.</string>
     <string name="revanced_disable_auto_captions_title">Wyłącz automatyczne napisy</string>
     <string name="revanced_downloader_not_installed" formatted="false">%s nie jest zainstalowany. Zainstaluj go.</string>
@@ -37,9 +38,9 @@
     <string name="revanced_enable_new_player_background_summary">Włącza nowe tło odtwarzacza.</string>
     <string name="revanced_enable_new_player_background_title">Włącz nowe tło odtwarzacza</string>
     <string name="revanced_enable_old_player_layout_summary">"Przywraca układ odtwarzacza do starego wyglądu.
-Niektóre ustawienia mogą nie działać poprawnie na starym układzie odtwarzacza
+Niektóre ustawienia mogą nie działać poprawnie na starym układzie odtwarzacza.
 
-UWAGA: Nie włączaj nowego tła odtwarzacza, jeśli ta opcja jest włączona"</string>
+UWAGA: Nie włączaj nowego tła odtwarzacza, jeśli ta opcja jest włączona."</string>
     <string name="revanced_enable_old_player_layout_title">Włącz stary układ odtwarzacza</string>
     <string name="revanced_enable_old_style_library_shelf_summary">Przywraca półki biblioteki do starego stylu. (Eksperymentalne)</string>
     <string name="revanced_enable_old_style_library_shelf_title">Włącz stary styl półek biblioteki</string>
@@ -59,14 +60,14 @@ UWAGA: Nie włączaj nowego tła odtwarzacza, jeśli ta opcja jest włączona"</
     <string name="revanced_extended_settings_import_copy">Kopiuj</string>
     <string name="revanced_extended_settings_import_export_summary">Importuje lub eksportuje ustawienia jako plik tekstowy.</string>
     <string name="revanced_extended_settings_import_export_title">Importuj/Eksportuj ustawienia</string>
-    <string name="revanced_extended_settings_import_failure_parse">Importowanie nieudane: %s</string>
-    <string name="revanced_extended_settings_import_reset">Ustawienia zostały zresetowane do domyślnych</string>
-    <string name="revanced_extended_settings_import_success">Zaimportowano ustawienia %d</string>
+    <string name="revanced_extended_settings_import_failure_parse">Importowanie nieudane: %s.</string>
+    <string name="revanced_extended_settings_import_reset">Ustawienia zostały zresetowane do domyślnych.</string>
+    <string name="revanced_extended_settings_import_success">Zaimportowano ustawienia %d.</string>
     <string name="revanced_external_downloader_not_installed_warning" formatted="false">%s nie jest zainstalowany. Zainstaluj go.</string>
     <string name="revanced_external_downloader_package_name_summary">Nazwa pakietu zainstalowanej aplikacji od pobierania, takiej jak NewPipe lub YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_title">Nazwa pakietu aplikacji od pobierania</string>
     <string name="revanced_flyout_panel_watch_on_youtube">Oglądaj na YouTube</string>
-    <string name="revanced_hide_account_menu_empty_component_summary">Ukrywa puste komponenty w menu konta</string>
+    <string name="revanced_hide_account_menu_empty_component_summary">Ukrywa puste komponenty w menu konta.</string>
     <string name="revanced_hide_account_menu_empty_component_title">Ukryj puste komponenty</string>
     <string name="revanced_hide_account_menu_summary">Ukrywa elementy menu konta.</string>
     <string name="revanced_hide_account_menu_title">Ukryj menu konta</string>
@@ -130,8 +131,8 @@ UWAGA: Nie włączaj nowego tła odtwarzacza, jeśli ta opcja jest włączona"</
     <string name="revanced_hide_upgrade_button_title">Ukryj przycisk uaktualnienia</string>
     <string name="revanced_hook_action_bar_download_summary">Modyfikuje przycisk od pobierania, by używał zewnętrznej aplikacji.</string>
     <string name="revanced_hook_action_bar_download_title">Zmodyfikuj przycisk pobierania</string>
-    <string name="revanced_playlist_dismiss">Źródło oryginalnej muzyki już jest odtwarzane</string>
-    <string name="revanced_playlist_error">Oficjalne źródło muzyki jest niedostępne</string>
+    <string name="revanced_playlist_dismiss">Źródło oryginalnej muzyki już jest odtwarzane.</string>
+    <string name="revanced_playlist_error">Oficjalne źródło muzyki jest niedostępne.</string>
     <string name="revanced_reboot_first_run">Uruchom ponownie, aby załadować układ normalnie</string>
     <string name="revanced_reboot_message">Odśwież i uruchom ponownie</string>
     <string name="revanced_replace_flyout_panel_dismiss_queue_continue_watch_summary">Podczas oglądania na YouTube kontynuuj oglądanie od aktualnego czasu.</string>
@@ -151,19 +152,19 @@ UWAGA: Nie włączaj nowego tła odtwarzacza, jeśli ta opcja jest włączona"</
     <string name="revanced_ryd_dislike_percentage_summary">Zamiast ilości łapek w dół, jest wyświetlany ich procent.</string>
     <string name="revanced_ryd_dislike_percentage_title">Łapki w dół wyświetlane jako procent</string>
     <string name="revanced_ryd_enabled_summary">Pokazuje ilość łapek w dół wideo.</string>
-    <string name="revanced_ryd_failure_client_rate_limit_requested">Łapki w dół nie są dostępne (limit API użytkownika został osiągnięty)</string>
+    <string name="revanced_ryd_failure_client_rate_limit_requested">Łapki w dół nie są dostępne (limit API użytkownika został osiągnięty).</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Ukryte</string>
     <string name="revanced_save_playback_speed">Zmienianie domyślnej prędkości na:</string>
     <string name="revanced_save_video_quality_mobile">Zmiana domyślnej jakości podczas używania danych komórkowych na:</string>
-    <string name="revanced_save_video_quality_none">Jakość nie została ustawiona</string>
+    <string name="revanced_save_video_quality_none">Jakość nie została ustawiona.</string>
     <string name="revanced_save_video_quality_wifi">Zmiana domyślnej jakości podczas używania Wi-Fi na:</string>
-    <string name="revanced_spoof_app_version_summary">"Oszukuje wersję klienta do starszej wersji
+    <string name="revanced_spoof_app_version_summary">"Oszukuje wersję klienta do starszej wersji.
 
-• Zmieni to wygląd aplikacji, lecz mogą pojawić się nieznane efekty uboczne
-• Jeśli potem opcja zostanie wyłączona, stary interfejs użytkownika może pozostać do momentu wyczyszczenia danych aplikacji"</string>
+• Zmieni to wygląd aplikacji, lecz mogą pojawić się nieznane efekty uboczne.
+• Jeśli potem opcja zostanie wyłączona, stary interfejs użytkownika może pozostać do momentu wyczyszczenia danych aplikacji."</string>
     <string name="revanced_spoof_app_version_target_entry_4_27_53">4.27.53 - Wyłącz tryb radia w rejonach kanadyjskich</string>
     <string name="revanced_spoof_app_version_target_entry_6_10_53">6.10.53 - Wyłącz teksty w czasie rzeczywistym</string>
-    <string name="revanced_spoof_app_version_target_summary">Wybierz wersję, którą chcesz oszukiwać</string>
+    <string name="revanced_spoof_app_version_target_summary">Wybierz wersję, którą chcesz oszukiwać.</string>
     <string name="revanced_spoof_app_version_target_title">Docelowa wersja aplikacji</string>
     <string name="revanced_spoof_app_version_title">Oszukaj wersję aplikacji</string>
     <string name="revanced_start_page_entry_chart">Listy przebojów</string>
@@ -178,46 +179,46 @@ UWAGA: Nie włączaj nowego tła odtwarzacza, jeśli ta opcja jest włączona"</
     <string name="sb_toast_on_skip">Pokazuj komunikaty podczas automatycznego pomijania</string>
     <string name="sb_toast_on_skip_sum">Komunikaty są pokazywane, gdy segmenty są automatycznie pomijane.</string>
     <string name="sb_api_url">Zmień adres API</string>
-    <string name="sb_api_url_sum">Adres SponsorBlock jest używany do wykonywania połączeń z serwerem. Nie zmieniaj tego, chyba że wiesz, co robisz</string>
-    <string name="sb_api_url_reset">Adres API został zresetowany</string>
-    <string name="sb_api_url_invalid">Adres API jest nieprawidłowy</string>
-    <string name="sb_api_url_changed">Adres API został zmieniony</string>
+    <string name="sb_api_url_sum">Adres SponsorBlock jest używany do wykonywania połączeń z serwerem. Nie zmieniaj tego, chyba że wiesz, co robisz.</string>
+    <string name="sb_api_url_reset">Adres API został zresetowany.</string>
+    <string name="sb_api_url_invalid">Adres API jest nieprawidłowy.</string>
+    <string name="sb_api_url_changed">Adres API został zmieniony.</string>
     <string name="sb_diff_segments">Zmień sposoby pomijania segmentów</string>
     <string name="sb_segments_sponsor">Treści Sponsorowane</string>
-    <string name="sb_segments_sponsor_sum">Płatna promocja, płatne rekomendacje oraz bezpośrednie reklamy. Nie do autopromocji ani darmowych wyrazów uznania dla kwestii/twórców/stron/produktów, które im się podobają</string>
+    <string name="sb_segments_sponsor_sum">Płatna promocja, płatne rekomendacje oraz bezpośrednie reklamy. Nie do autopromocji ani darmowych wyrazów uznania dla kwestii/twórców/stron/produktów, które im się podobają.</string>
     <string name="sb_segments_selfpromo">Nieopłacona / Auto Promocja</string>
-    <string name="sb_segments_selfpromo_sum">Podobne do „Treści Sponsorowanych” z wyjątkiem nieopłaconych lub autopromocji. Obejmuje to sekcje o własnych towarach, darowiznach czy informacjach o tym, z kim współpracowali</string>
+    <string name="sb_segments_selfpromo_sum">Podobne do „Treści Sponsorowanych” z wyjątkiem nieopłaconych lub autopromocji. Obejmuje to sekcje o własnych towarach, darowiznach czy informacjach o tym, z kim współpracowali.</string>
     <string name="sb_segments_interaction">Przypomnienie o interakcji (Zasubskrybuj)</string>
-    <string name="sb_segments_interaction_sum">Krótkie przypomnienie o łapce w górę, subskrypcji lub obserwowaniu. Jeśli trwa długo lub dotyczy czegoś konkretnego, powinno być oznaczone jako autopromocja</string>
+    <string name="sb_segments_interaction_sum">Krótkie przypomnienie o łapce w górę, subskrypcji lub obserwowaniu. Jeśli trwa długo lub dotyczy czegoś konkretnego, powinno być oznaczone jako autopromocja.</string>
     <string name="sb_segments_intro">Przerywnik / Animowane Intro</string>
-    <string name="sb_segments_intro_sum">Fragment bez faktycznej treści. Może to być pauza, statyczna klatka lub powtarzająca się animacja. Nie dotyczy przejść zawierających informacje</string>
+    <string name="sb_segments_intro_sum">Fragment bez faktycznej treści. Może to być pauza, statyczna klatka lub powtarzająca się animacja. Nie dotyczy przejść zawierających informacje.</string>
     <string name="sb_segments_outro">Karty / Napisy końcowe</string>
-    <string name="sb_segments_outro_sum">Napisy końcowe lub gdy pojawia się ekran końcowy. Nie dotyczy zakończeń zawierających informacje</string>
+    <string name="sb_segments_outro_sum">Napisy końcowe lub gdy pojawia się ekran końcowy. Nie dotyczy zakończeń zawierających informacje.</string>
     <string name="sb_segments_preview">Zapowiedź / Podsumowanie</string>
-    <string name="sb_segments_preview_sum">Zbiór klipów pokazujących to, co pojawi się lub co pojawiło się w tym wideo, lub innych wideo z tej serii, w którym wszystkie informacje są gdzieś powtarzane</string>
+    <string name="sb_segments_preview_sum">Zbiór klipów pokazujących to, co pojawi się lub co pojawiło się w tym wideo, lub innych wideo z tej serii, w którym wszystkie informacje są gdzieś powtarzane.</string>
     <string name="sb_segments_filler">Nietematyczny Wypełniacz / Żarty</string>
-    <string name="sb_segments_filler_sum">Segmenty nietematyczne dodawane tylko dla wypełnienia lub humor, który nie jest wymagany do zrozumienia głównej treści wideo. Nie dotyczy segmentów zawierających informacje kontekstowe lub szczegółowe</string>
+    <string name="sb_segments_filler_sum">Segmenty nietematyczne dodawane tylko dla wypełnienia lub humor, który nie jest wymagany do zrozumienia głównej treści wideo. Nie dotyczy segmentów zawierających informacje kontekstowe lub szczegółowe.</string>
     <string name="sb_segments_nomusic">Muzyka: Sekcja Niemuzyczna</string>
-    <string name="sb_segments_nomusic_sum">Do użytku jedynie w filmach muzycznych. Sekcje filmów muzycznych, które nie są uwzględnione w innej kategorii</string>
-    <string name="sb_skipped_sponsor">Pominięto treści sponsorowane</string>
-    <string name="sb_skipped_selfpromo">Pominięto autopromocję</string>
-    <string name="sb_skipped_interaction">Pominięto irytujące przypomnienie</string>
-    <string name="sb_skipped_intro_beginning">Pominięto wstęp</string>
-    <string name="sb_skipped_intro_middle">Pominięto przerywnik</string>
-    <string name="sb_skipped_intro_end">Pominięto przerywnik</string>
-    <string name="sb_skipped_outro">Pominięto zakończenie</string>
-    <string name="sb_skipped_preview_beginning">Pominięto zapowiedź</string>
-    <string name="sb_skipped_preview_middle">Pominięto zapowiedź</string>
-    <string name="sb_skipped_preview_end">Pominięto podsumowanie</string>
-    <string name="sb_skipped_filler">Pominięto wypełniacz</string>
-    <string name="sb_skipped_nomusic">Pominięto fragment bez muzyki</string>
-    <string name="sb_skipped_multiple_segments">Pominięto wiele segmentów</string>
+    <string name="sb_segments_nomusic_sum">Do użytku jedynie w filmach muzycznych. Sekcje filmów muzycznych, które nie są uwzględnione w innej kategorii.</string>
+    <string name="sb_skipped_sponsor">Pominięto treści sponsorowane.</string>
+    <string name="sb_skipped_selfpromo">Pominięto autopromocję.</string>
+    <string name="sb_skipped_interaction">Pominięto irytujące przypomnienie.</string>
+    <string name="sb_skipped_intro_beginning">Pominięto wstęp.</string>
+    <string name="sb_skipped_intro_middle">Pominięto przerywnik.</string>
+    <string name="sb_skipped_intro_end">Pominięto przerywnik.</string>
+    <string name="sb_skipped_outro">Pominięto zakończenie.</string>
+    <string name="sb_skipped_preview_beginning">Pominięto zapowiedź.</string>
+    <string name="sb_skipped_preview_middle">Pominięto zapowiedź.</string>
+    <string name="sb_skipped_preview_end">Pominięto podsumowanie.</string>
+    <string name="sb_skipped_filler">Pominięto wypełniacz.</string>
+    <string name="sb_skipped_nomusic">Pominięto fragment bez muzyki.</string>
+    <string name="sb_skipped_multiple_segments">Pominięto wiele segmentów.</string>
     <string name="sb_skip_automatically">Pomiń automatycznie</string>
     <string name="sb_skip_ignore">Wyłącz</string>
     <string name="sb_color_dot_label">Kolor:</string>
-    <string name="sb_color_changed">Kolor został zmieniony</string>
-    <string name="sb_color_reset">Kolor został zresetowany</string>
-    <string name="sb_color_invalid">Nieprawidłowy kod koloru</string>
+    <string name="sb_color_changed">Kolor został zmieniony.</string>
+    <string name="sb_color_reset">Kolor został zresetowany.</string>
+    <string name="sb_color_invalid">Nieprawidłowy kod koloru.</string>
     <string name="sb_reset_color">Zresetuj kolor</string>
-    <string name="sb_about_api_sum">Dane są dostarczane przez API SponsorBlock. Stuknij tutaj, aby dowiedzieć się więcej i pobrać na inne platformy</string>
+    <string name="sb_about_api_sum">Dane są dostarczane przez API SponsorBlock. Stuknij tutaj, aby dowiedzieć się więcej i pobrać na inne platformy.</string>
 </resources>
