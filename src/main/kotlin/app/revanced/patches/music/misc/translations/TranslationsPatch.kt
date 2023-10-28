@@ -17,7 +17,8 @@ import app.revanced.util.resources.ResourceHelper.addTranslations
             [
                 "6.15.52",
                 "6.20.51",
-                "6.23.55"
+                "6.23.55",
+                "6.25.53"
             ]
         )
     ]
