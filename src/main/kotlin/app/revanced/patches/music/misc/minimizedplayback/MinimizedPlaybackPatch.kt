@@ -17,7 +17,8 @@ import app.revanced.patches.music.misc.minimizedplayback.fingerprints.MinimizedP
             [
                 "6.15.52",
                 "6.20.51",
-                "6.23.55"
+                "6.23.55",
+                "6.25.53"
             ]
         )
     ]
