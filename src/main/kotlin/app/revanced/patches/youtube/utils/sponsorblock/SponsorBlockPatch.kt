@@ -42,11 +42,12 @@ import app.revanced.util.resources.ResourceUtils.copyXmlNode
 )
 @Suppress("unused")
 object SponsorBlockPatch : ResourcePatch() {
-    internal var OutlineIcon by booleanPatchOption(
+    private val OutlineIcon by booleanPatchOption(
         key = "OutlineIcon",
         default = false,
         title = "Outline icons",
-        description = "Apply the outline icon"
+        description = "Apply the outline icon",
+        required = true
     )
 
     override fun execute(context: ResourceContext) {

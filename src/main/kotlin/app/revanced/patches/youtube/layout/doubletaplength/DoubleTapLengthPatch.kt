@@ -40,6 +40,14 @@ import app.revanced.util.resources.ResourceUtils.copyResources
 )
 @Suppress("unused")
 object DoubleTapLengthPatch : ResourcePatch() {
+    private val DoubleTapLengthArrays by stringPatchOption(
+        key = "DoubleTapLengthArrays",
+        default = "3, 5, 10, 15, 20, 30, 60, 120, 180",
+        title = "Double-tap to seek Values",
+        description = "A list of custom double-tap to seek lengths. Be sure to separate them with commas (,).",
+        required = true
+    )
+
     override fun execute(context: ResourceContext) {
         val arrayPath = "res/values-v21/arrays.xml"
         val entriesName = "double_tap_length_entries"
@@ -70,11 +78,4 @@ object DoubleTapLengthPatch : ResourcePatch() {
         SettingsPatch.updatePatchStatus("Custom double tap length")
 
     }
-
-    internal var DoubleTapLengthArrays by stringPatchOption(
-        key = "DoubleTapLengthArrays",
-        default = "3, 5, 10, 15, 20, 30, 60, 120, 180",
-        title = "Double-tap to seek Values",
-        description = "A list of custom double-tap to seek lengths. Be sure to separate them with commas (,)."
-    )
 }

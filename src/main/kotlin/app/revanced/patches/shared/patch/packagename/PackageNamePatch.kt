@@ -22,7 +22,7 @@ object PackageNamePatch : ResourcePatch() {
     private const val CLONE_PACKAGE_NAME_YOUTUBE_MUSIC = "com.rvx.android.youtube"
     private const val DEFAULT_PACKAGE_NAME_YOUTUBE_MUSIC = "app.rvx.android.apps.youtube.music"
 
-    internal var PackageNameYouTube by stringPatchOption(
+    internal val PackageNameYouTube by stringPatchOption(
         key = "PackageNameYouTube",
         default = DEFAULT_PACKAGE_NAME_YOUTUBE,
         values = mapOf(
@@ -30,10 +30,11 @@ object PackageNamePatch : ResourcePatch() {
             "Default" to DEFAULT_PACKAGE_NAME_YOUTUBE
         ),
         title = "Package name of YouTube",
-        description = "The name of the package to use in MicroG support"
+        description = "The name of the package to use in MicroG support",
+        required = true
     )
 
-    internal var PackageNameYouTubeMusic by stringPatchOption(
+    internal val PackageNameYouTubeMusic by stringPatchOption(
         key = "PackageNameYouTubeMusic",
         default = DEFAULT_PACKAGE_NAME_YOUTUBE_MUSIC,
         values = mapOf(
@@ -41,7 +42,8 @@ object PackageNamePatch : ResourcePatch() {
             "Default" to DEFAULT_PACKAGE_NAME_YOUTUBE_MUSIC
         ),
         title = "Package name of YouTube Music",
-        description = "The name of the package to use in MicroG support"
+        description = "The name of the package to use in MicroG support",
+        required = true
     )
 
     override fun execute(context: ResourceContext) {

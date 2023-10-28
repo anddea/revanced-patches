@@ -25,6 +25,33 @@ import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatc
 )
 @Suppress("unused")
 object CustomBrandingNamePatch : ResourcePatch() {
+    private const val APP_NAME_NOTIFICATION = "ReVanced Extended Music"
+    private const val APP_NAME_LAUNCHER = "RVX Music"
+
+    private val AppNameNotification by stringPatchOption(
+        key = "AppNameNotification",
+        default = APP_NAME_NOTIFICATION,
+        values = mapOf(
+            "Full name" to APP_NAME_NOTIFICATION,
+            "Short name" to APP_NAME_LAUNCHER
+        ),
+        title = "App name in notification panel",
+        description = "The name of the app as it appears in the notification panel.",
+        required = true
+    )
+
+    private val AppNameLauncher by stringPatchOption(
+        key = "AppNameLauncher",
+        default = APP_NAME_LAUNCHER,
+        values = mapOf(
+            "Full name" to APP_NAME_NOTIFICATION,
+            "Short name" to APP_NAME_LAUNCHER
+        ),
+        title = "App name in launcher",
+        description = "The name of the app as it appears in the launcher.",
+        required = true
+    )
+
     override fun execute(context: ResourceContext) {
 
         AppNameNotification?.let { notificationName ->
@@ -48,29 +75,4 @@ object CustomBrandingNamePatch : ResourcePatch() {
             } ?: throw PatchException("Invalid app name.")
         } ?: throw PatchException("Invalid app name.")
     }
-
-    private const val APP_NAME_NOTIFICATION = "ReVanced Extended Music"
-    private const val APP_NAME_LAUNCHER = "RVX Music"
-
-    internal var AppNameNotification by stringPatchOption(
-        key = "AppNameNotification",
-        default = APP_NAME_NOTIFICATION,
-        values = mapOf(
-            "Full name" to APP_NAME_NOTIFICATION,
-            "Short name" to APP_NAME_LAUNCHER
-        ),
-        title = "App name in notification panel",
-        description = "The name of the app as it appears in the notification panel."
-    )
-
-    internal var AppNameLauncher by stringPatchOption(
-        key = "AppNameLauncher",
-        default = APP_NAME_LAUNCHER,
-        values = mapOf(
-            "Full name" to APP_NAME_NOTIFICATION,
-            "Short name" to APP_NAME_LAUNCHER
-        ),
-        title = "App name in launcher",
-        description = "The name of the app as it appears in the launcher."
-    )
 }
