@@ -10,7 +10,7 @@ import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.general.widesearchbar.fingerprints.SetActionBarRingoFingerprint
-import app.revanced.patches.youtube.general.widesearchbar.fingerprints.SetToolBarPaddingFingerprint
+import app.revanced.patches.youtube.utils.fingerprints.SetToolBarPaddingFingerprint
 import app.revanced.patches.youtube.general.widesearchbar.fingerprints.YouActionBarFingerprint
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch

@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.general.widesearchbar.fingerprints
+package app.revanced.patches.youtube.utils.fingerprints
 
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.ToolBarPaddingHome
