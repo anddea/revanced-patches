@@ -280,6 +280,7 @@
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_backup_title" />
             <Preference android:title="@string/revanced_export_settings_title" android:key="revanced_export_settings" android:summary="@string/revanced_export_settings_summary" />
             <Preference android:title="@string/revanced_import_settings_title" android:key="revanced_import_settings" android:summary="@string/revanced_import_settings_summary" />
+            <Preference android:title="@string/revanced_inform" android:selectable="false" android:summary="@string/revanced_import_settings_inform" />
         </PreferenceScreen>
 
         <!-- SETTINGS: ENABLE_OPEN_LINKS_DIRECTLY
