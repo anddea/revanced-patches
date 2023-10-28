@@ -4,8 +4,8 @@
     <string name="accessibility_settings_edu_opt_out_text">ユーザー補助サービスがオンになっているため、コントロールは変更されます。</string>
     <string name="microg_not_installed_notice">MicroG をインストールしてください</string>
     <string name="microg_not_installed_warning">MicroG が見つかりません</string>
-    <string name="microg_not_running_warning">MicroG はバックグラウンドで動作しません</string>
-    <string name="microg_settings_summary">通知を受信するために Cloud Messaging の設定を有効にします</string>
+    <string name="microg_not_running_warning">MicroG がバックグラウンドで動作しません</string>
+    <string name="microg_settings_summary">Cloud Messaging の設定を有効にして、通知を受け取ります</string>
     <string name="microg_settings_title">MicroG を開く</string>
     <string name="revanced_ads">広告</string>
     <string name="revanced_alt_thumbnails">代替サムネイル</string>
@@ -16,26 +16,26 @@
     <string name="revanced_alt_thumbnail_dearrow_title">DeArrow API を使用</string>
     <string name="revanced_alt_thumbnail_enabled_summary_off">オリジナルの YouTube サムネイルが表示されます</string>
     <string name="revanced_alt_thumbnail_enabled_summary_on">YouTube のサムネイルは代替サムネイルに置き換わります</string>
-    <string name="revanced_alt_thumbnail_enabled_title">代替サムネイルを有効化</string>
-    <string name="revanced_alt_thumbnail_skip_checking_summary_off">サムネイルは置き換える前に、存在するかどうかチェックされます</string>
-    <string name="revanced_alt_thumbnail_skip_checking_summary_on">サムネイルの読み込みが速くなりますが、一部の動画ではサムネイルが空白になります</string>
+    <string name="revanced_alt_thumbnail_enabled_title">代替サムネイル</string>
+    <string name="revanced_alt_thumbnail_skip_checking_summary_off">サムネイルを置き換える前に、存在するかどうかを確認します</string>
+    <string name="revanced_alt_thumbnail_skip_checking_summary_on">サムネイルの読み込みは速くなりますが、一部の動画では空白のサムネイルが表示される場合があります</string>
     <string name="revanced_alt_thumbnail_skip_checking_title">サムネイルのチェックをスキップ</string>
     <string name="revanced_alt_thumbnail_type_entry_1">動画の最初</string>
     <string name="revanced_alt_thumbnail_type_entry_2">動画の中間</string>
     <string name="revanced_alt_thumbnail_type_entry_3">動画の最後</string>
-    <string name="revanced_alt_thumbnail_type_title">代替サムネイルの時間</string>
+    <string name="revanced_alt_thumbnail_type_title">代替サムネイルの取得時間</string>
     <string name="revanced_append_time_stamp_information_summary_off">情報は追加表示されません</string>
     <string name="revanced_append_time_stamp_information_summary_on">タイムスタンプの横に情報が追加表示されます</string>
     <string name="revanced_append_time_stamp_information_title">タイムスタンプの追加情報</string>
     <string name="revanced_append_time_stamp_information_type_summary_off">再生速度を表示します</string>
     <string name="revanced_append_time_stamp_information_type_summary_on">画質を表示します</string>
     <string name="revanced_append_time_stamp_information_type_title">追加する情報の種類</string>
-    <string name="revanced_backup_summary">ReVanced Extended の設定をファイルからインポートするか、ファイルにエクスポートします</string>
+    <string name="revanced_backup_summary">ファイルから ReVanced Extended の設定をインポートするか、ReVanced Extended の設定をファイルにエクスポートします</string>
     <string name="revanced_bottom_player">プレーヤー下部</string>
     <string name="revanced_button_container_title">プレーヤー下部のボタン</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">バッテリーセーバーモードではアンビエントモードが無効になります</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">バッテリーセーバーモードでもアンビエントモードが有効になります</string>
-    <string name="revanced_bypass_ambient_mode_restrictions_title">アンビエントモード制限を回避</string>
+    <string name="revanced_bypass_ambient_mode_restrictions_title">アンビエントモードの制限をバイパス</string>
     <string name="revanced_change_homepage_summary_off">起動時のタブ: ホーム</string>
     <string name="revanced_change_homepage_summary_on">起動時のタブ: 登録チャンネル</string>
     <string name="revanced_change_homepage_title">起動時のタブを登録チャンネルに変更</string>
@@ -51,22 +51,27 @@
     <string name="revanced_custom_playback_speeds_summary">利用可能なカスタム再生速度を編集します</string>
     <string name="revanced_custom_playback_speeds_title">カスタム再生速度を編集</string>
     <string name="revanced_custom_playback_speeds_warning" formatted="false">カスタム再生速度は %s 倍速を超えることはできません。デフォルト値にリセットします。</string>
+    <string name="revanced_custom_player_overlay_opacity_summary">透明度の値は 0〜100 の範囲で、0 が透明です</string>
+    <string name="revanced_custom_player_overlay_opacity_title">プレーヤーオーバーレイのカスタム透明度</string>
+    <string name="revanced_custom_player_overlay_opacity_warning">プレーヤーオーバーレイの透明度は 0〜100 の間でなければなりません。デフォルト値にリセットします。</string>
     <string name="revanced_custom_seekbar_color_value_summary">シークバーの色を16進数カラーコードで入力してください</string>
-    <string name="revanced_custom_seekbar_color_value_title">シークバーの色</string>
+    <string name="revanced_custom_seekbar_color_value_title">シークバーのカスタム色の値</string>
     <string name="revanced_default_app_settings_summary">外部ブラウザから ReVanced Extended を開くには、「対応リンクを開く」でリンクを選択してください</string>
     <string name="revanced_default_app_settings_title">「デフォルトで開く」の設定を開く</string>
     <string name="revanced_default_playback_speed_title">デフォルトの再生速度</string>
-    <string name="revanced_default_video_quality_mobile_title">モバイル ネットワーク使用時のデフォルト画質</string>
+    <string name="revanced_default_video_quality_mobile_title">モバイルネットワーク使用時のデフォルト画質</string>
     <string name="revanced_default_video_quality_wifi_title">Wi-Fi 使用時のデフォルト画質</string>
     <string name="revanced_description_title">概要欄</string>
+    <string name="revanced_disable_ambient_mode_in_fullscreen_summary">全画面表示時にアンビエントモードを無効化します</string>
+    <string name="revanced_disable_ambient_mode_in_fullscreen_title">全画面表示時のアンビエントモードを無効化</string>
     <string name="revanced_disable_ambient_mode_summary">アンビエントモードは常に無効です</string>
     <string name="revanced_disable_ambient_mode_title">アンビエントモードを無効化</string>
     <string name="revanced_disable_auto_captions_summary_off">動画側で設定されている字幕の強制は有効です</string>
     <string name="revanced_disable_auto_captions_summary_on">動画側で設定されている字幕の強制は無効です</string>
     <string name="revanced_disable_auto_captions_title">字幕の強制を無効化</string>
-    <string name="revanced_disable_default_playback_speed_live_summary_off">ライブでのデフォルト再生速度は有効です</string>
-    <string name="revanced_disable_default_playback_speed_live_summary_on">ライブでのデフォルト再生速度は無効です</string>
-    <string name="revanced_disable_default_playback_speed_live_title">ライブでのデフォルト再生速度を無効化</string>
+    <string name="revanced_disable_default_playback_speed_live_summary_off">デフォルトの再生速度はライブで有効になっています</string>
+    <string name="revanced_disable_default_playback_speed_live_summary_on">デフォルトの再生速度はライブで無効になっています</string>
+    <string name="revanced_disable_default_playback_speed_live_title">ライブでデフォルトの再生速度を無効化</string>
     <string name="revanced_disable_haptic_feedback_summary_off">触覚フィードバックは有効です</string>
     <string name="revanced_disable_haptic_feedback_summary_on">触覚フィードバックは無効です</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">チャプターの触覚フィードバックを無効化</string>
@@ -75,18 +80,18 @@
     <string name="revanced_disable_haptic_feedback_zoom_title">動画ズーム時の触覚フィードバックを無効化</string>
     <string name="revanced_disable_hdr_auto_brightness_summary_off">HDR 動画の明るさの自動調節は有効です</string>
     <string name="revanced_disable_hdr_auto_brightness_summary_on">HDR 動画の明るさの自動調節は無効です</string>
-    <string name="revanced_disable_hdr_auto_brightness_title">HDR 動画の明るさの自動調節を無効化</string>
+    <string name="revanced_disable_hdr_auto_brightness_title">HDR 動画の明るさ自動調節を無効化</string>
     <string name="revanced_disable_hdr_video_summary_off">HDR 動画は有効です</string>
     <string name="revanced_disable_hdr_video_summary_on">HDR 動画は無効です</string>
     <string name="revanced_disable_hdr_video_title">HDR 動画を無効化</string>
-    <string name="revanced_disable_landscape_mode_summary_off">全画面表示時の動画の縦向きの固定は無効です</string>
-    <string name="revanced_disable_landscape_mode_summary_on">全画面表示時の動画の縦向きの固定は有効です</string>
+    <string name="revanced_disable_landscape_mode_summary_off">全画面表示時は横画面モードになります</string>
+    <string name="revanced_disable_landscape_mode_summary_on">全画面表示時も縦画面モードのままになります</string>
     <string name="revanced_disable_landscape_mode_title">横画面モードを無効化</string>
     <string name="revanced_disable_quic_protocol_summary">"CronetEngine の QUIC プロトコルを無効にする"</string>
     <string name="revanced_disable_quic_protocol_title">QUIC プロトコルを無効化</string>
-    <string name="revanced_disable_startup_shorts_player_summary_off">アプリ起動時のYouTube ショートプレーヤーは有効です</string>
+    <string name="revanced_disable_startup_shorts_player_summary_off">アプリ起動時の YouTube ショートプレーヤーは有効です</string>
     <string name="revanced_disable_startup_shorts_player_summary_on">アプリ起動時の YouTube ショートプレーヤーは無効です</string>
-    <string name="revanced_disable_startup_shorts_player_title">起動時のショートプレーヤーを無効化</string>
+    <string name="revanced_disable_startup_shorts_player_title">アプリ起動時のショートプレーヤーを無効化</string>
     <string name="revanced_double_back_timeout_summary">戻るボタンを2回タップしてアプリを閉じる時のタップの間隔 (単位: 秒)</string>
     <string name="revanced_double_back_timeout_title">戻るボタンのダブルタップの間隔</string>
     <string name="revanced_enable_compact_controls_overlay_summary_off">コンパクトなコントロールオーバーレイは無効です</string>
@@ -160,6 +165,11 @@
     <string name="revanced_enable_wide_search_bar_summary_off">通常の検索アイコンが表示されます</string>
     <string name="revanced_enable_wide_search_bar_summary_on">検索アイコンを幅の広い検索バーに置き換えます</string>
     <string name="revanced_enable_wide_search_bar_title">幅の広い検索バー</string>
+    <string name="revanced_enable_wide_search_bar_in_you_tab_summary">"この設定を有効にすると、[マイページ] タブ内の設定ボタンが無効になります
+
+この場合、以下の手順に従ってください:
+[マイページ] タブ &gt; チャンネルを表示 &gt; メニュー &gt; 設定"</string>
+    <string name="revanced_enable_wide_search_bar_in_you_tab_title">[マイページ] タブで幅の広い検索バーを有効化</string>
     <string name="revanced_experimental_flag">実験的な機能</string>
     <string name="revanced_export_settings_summary">ReVanced Extended の設定をファイルに保存します</string>
     <string name="revanced_export_settings_title">設定をエクスポート</string>
@@ -176,7 +186,6 @@
     <string name="revanced_general">全般</string>
     <string name="revanced_haptic_feedback_title">触覚フィードバック</string>
     <string name="revanced_hide_account_menu_filter_strings_title">アカウントメニューのフィルターを編集</string>
-    <string name="revanced_hide_account_menu_summary">既知の問題: 横画面モードまたは高 dpi のデバイスでは動作しない場合があります</string>
     <string name="revanced_hide_account_menu_title">アカウントメニューを非表示</string>
     <string name="revanced_hide_album_card_summary_off">アーティストの説明の下のアルバムカードは表示されます</string>
     <string name="revanced_hide_album_card_summary_on">アーティストの説明の下のアルバムカードは非表示です</string>
@@ -223,6 +232,8 @@
     <string name="revanced_hide_button_rewards_summary_off">「特典」ボタンは表示されます</string>
     <string name="revanced_hide_button_rewards_summary_on">「特典」ボタンは非表示です</string>
     <string name="revanced_hide_button_rewards_title">特典ボタンを非表示</string>
+    <string name="revanced_hide_button_save_to_playlist_summary_off">「再生リストに保存」ボタンは表示されます</string>
+    <string name="revanced_hide_button_save_to_playlist_summary_on">「再生リストに保存」ボタンは非表示です</string>
     <string name="revanced_hide_button_share_summary_off">「共有」ボタンは表示されます</string>
     <string name="revanced_hide_button_share_summary_on">「共有」ボタンは非表示です</string>
     <string name="revanced_hide_button_share_title">共有ボタンを非表示</string>
@@ -382,9 +393,6 @@
     <string name="revanced_hide_notify_me_button_summary_off">フィードの配信予定の動画の「通知する」ボタンは表示されます</string>
     <string name="revanced_hide_notify_me_button_summary_on">フィードの配信予定の動画の「通知する」ボタンは非表示です</string>
     <string name="revanced_hide_notify_me_button_title">フィードの「通知する」ボタンを非表示</string>
-    <string name="revanced_hide_official_header_summary_off">映画の予告編など、検索バーのすぐ下に表示されるボックスは表示されます</string>
-    <string name="revanced_hide_official_header_summary_on">映画の予告編など、検索バーのすぐ下に表示されるボックスは非表示です</string>
-    <string name="revanced_hide_official_header_title">公式ヘッダーを非表示</string>
     <string name="revanced_hide_paid_promotion_banner_summary_off">有料プロモーションバナーは表示されます</string>
     <string name="revanced_hide_paid_promotion_banner_summary_on">有料プロモーションバナーは非表示です</string>
     <string name="revanced_hide_paid_promotion_banner_title">有料プロモーションバナーを非表示</string>
@@ -489,8 +497,6 @@
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_off">「チャンネル登録」ボタンは表示されます</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_on">「チャンネル登録」ボタンは非表示です</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_title">チャンネル登録ボタンを非表示</string>
-    <string name="revanced_hide_shorts_shelf_summary_off">ショート欄は表示されます</string>
-    <string name="revanced_hide_shorts_shelf_summary_on">ショート欄は非表示です</string>
     <string name="revanced_hide_shorts_shelf_title">ショート欄を非表示</string>
     <string name="revanced_hide_shorts_toolbar_banner_summary_off">ショートのバナーは表示されます</string>
     <string name="revanced_hide_shorts_toolbar_banner_summary_on">ショートのバナーは非表示です</string>
@@ -560,9 +566,9 @@
     <string name="revanced_layout_title">レイアウト</string>
     <string name="revanced_misc">その他</string>
     <string name="revanced_navigation">ナビゲーション</string>
-    <string name="revanced_open_library_you_startup_summary_off">アプリ起動時にライブラリ(自分)タブは開かれません</string>
-    <string name="revanced_open_library_you_startup_summary_on">アプリ起動時にライブラリ(自分)タブが開かれます</string>
-    <string name="revanced_open_library_you_startup_title">起動時のタブをライブラリ(自分)に変更</string>
+    <string name="revanced_open_library_you_startup_summary_off">アプリ起動時にライブラリ(マイページ)タブは開かれません</string>
+    <string name="revanced_open_library_you_startup_summary_on">アプリ起動時にライブラリ(マイページ)タブが開かれます</string>
+    <string name="revanced_open_library_you_startup_title">起動時のタブをライブラリ(マイページ)に変更</string>
     <string name="revanced_others">その他</string>
     <string name="revanced_overlay_button">オーバーレイボタン</string>
     <string name="revanced_overlay_button_always_repeat_summary">"タップして常にリピート
@@ -580,9 +586,6 @@
     <string name="revanced_overlay_button_speed_dialog_summary">"タップして再生速度ダイアログを開く
 長押しして再生速度を 1.0 倍速にする"</string>
     <string name="revanced_overlay_button_speed_dialog_title">再生速度のダイアログボタン</string>
-    <string name="revanced_override_premium_header_summary_off">現在のヘッダー: デフォルトのヘッダー</string>
-    <string name="revanced_override_premium_header_summary_on">現在のヘッダー: Premium ヘッダー</string>
-    <string name="revanced_override_premium_header_title">YouTube ヘッダーの切り替え</string>
     <string name="revanced_patches_information">パッチ情報</string>
     <string name="revanced_patches_information_summary">適用されたパッチに関する情報</string>
     <string name="revanced_player">プレーヤー</string>
@@ -624,7 +627,6 @@
     <string name="revanced_skip_preloaded_buffer_toast_summary_off">トーストは非表示です</string>
     <string name="revanced_skip_preloaded_buffer_toast_summary_on">トーストは表示されます</string>
     <string name="revanced_skip_preloaded_buffer_toast_title">スキップ時にトーストを表示</string>
-    <string name="revanced_speed_overlay_text" formatted="false">%s 倍速で再生中</string>
     <string name="revanced_spoof_app_version_summary">"YouTube のバージョンを古いバージョンに偽装します
 
 これによりアプリの外観が変わりますが、未知の問題が発生する場合があります
@@ -641,6 +643,8 @@
     <string name="revanced_spoof_app_version_target_summary">偽装するバージョンを入力してください</string>
     <string name="revanced_spoof_app_version_target_title">偽装するアプリのバージョンを編集</string>
     <string name="revanced_spoof_app_version_title">アプリのバージョンを偽装</string>
+    <string name="revanced_spoof_device_dimensions_summary">デバイスの寸法を偽装して、このデバイスでは利用できない高画質な動画をアンロックします。</string>
+    <string name="revanced_spoof_device_dimensions_title">デバイスの寸法を偽装</string>
     <string name="revanced_spoof_player_parameter_in_feed_summary_off">"フィードの動画のパラメーターを偽装しない
 
 既知の問題
@@ -654,9 +658,7 @@
 
 既知の問題
 • 拡張ビットレートは利用できません
-• 有料の動画のシークバーサムネイルは機能しません
-• オフラインへの動画の保存が機能しない場合があります
-• 動画が最後に視聴した時間から開始されない場合があります"</string>
+• オフラインへの動画の保存が機能しない場合があります"</string>
     <string name="revanced_spoof_player_parameter_title">プレーヤーのパラメーターを偽装</string>
     <string name="revanced_swipe_controls">スワイプコントロール</string>
     <string name="revanced_swipe_magnitude_threshold_summary">スワイプとして検出する量のしきい値</string>
@@ -728,23 +730,23 @@
     <string name="sb_settings_revanced_export_user_id_warning_dismiss">今後表示しない</string>
     <string name="sb_diff_segments">セグメントの設定</string>
     <string name="sb_segments_sponsor">スポンサー</string>
-    <string name="sb_segments_sponsor_sum">有料プロモーション、有料紹介、直接広告が含まれます。セルフプロモーションや、個人の好きな/クリエイター/ウェブサイト/商品に対する活動は含まれません。</string>
+    <string name="sb_segments_sponsor_sum">有料プロモーション、有料紹介、直接広告が含まれます。セルフプロモーションや、個人の好きな/クリエイター/ウェブサイト/商品に対する無償の活動は含まれません。</string>
     <string name="sb_segments_selfpromo">無報酬 / セルフプロモーション</string>
     <string name="sb_segments_selfpromo_sum">無報酬のプロモーションあるいはセルフプロモーションであるという点を除いては「スポンサー」と同様です。商品、寄付、コラボ情報に関する内容を含みます。</string>
     <string name="sb_segments_interaction">リマインダー</string>
-    <string name="sb_segments_interaction_sum">動画の途中に挿入される高評価、チャンネル登録、フォローなどを促す短いリマインダー。長い、もしくは何か具体的なものは、「セルフプロモーション」に分類するべきです。</string>
+    <string name="sb_segments_interaction_sum">動画の途中に挿入される高評価、チャンネル登録、フォローなどを促す短いリマインダーは、長いものや何か具体的なものは「セルフプロモーション」に分類するべきです。</string>
     <string name="sb_segments_highlight">ハイライト</string>
     <string name="sb_segments_highlight_sum">動画の中で多くの人々が見たい部分</string>
-    <string name="sb_segments_intro">休憩時間 / イントロアニメーション</string>
+    <string name="sb_segments_intro">休憩 / イントロアニメーション</string>
     <string name="sb_segments_intro_sum">本編ではない部分。一時停止、静止画面、アニメーションの繰り返しが含まれます。情報を含んだ転換画面は含まれません。</string>
     <string name="sb_segments_outro">エンドカード / クレジット</string>
-    <string name="sb_segments_outro_sum">クレジットや動画のエンドカードが表示されている場面を含みます。動画の結論は含まれません。</string>
-    <string name="sb_segments_preview">予告 / あらすじ</string>
+    <string name="sb_segments_outro_sum">クレジットや動画のエンドカードが表示されている場面。情報を含む結論は含まれません。</string>
+    <string name="sb_segments_preview">予告 / 振り返り</string>
     <string name="sb_segments_preview_sum">今後起きる内容などをまとめたクリップのコレクション、この動画や他の動画・シリーズで起きること、他の場面で繰り返されるすべての情報が含まれます。 </string>
     <string name="sb_segments_filler">繋ぎの話 / 冗談</string>
-    <string name="sb_segments_filler_sum">繋ぎの話や動画の本編を理解するのに必要のないユーモアなどの脱線したシーン。コンテクストや背景情報の詳細は含まれません。</string>
+    <string name="sb_segments_filler_sum">動画の本編を理解するのに必要のない繋ぎの話やユーモアなどの逸脱したシーン。コンテクストや背景情報の詳細は含まれません。</string>
     <string name="sb_segments_nomusic">ミュージック: 音楽ではない区間</string>
-    <string name="sb_segments_nomusic_sum">ミュージックビデオでのみ使われます。他のカテゴリーに含まれていないミュージックビデオの区間。</string>
+    <string name="sb_segments_nomusic_sum">ミュージックビデオでのみ使われます。既に他のカテゴリーに含まれていないミュージックビデオの音楽のない区間。</string>
     <string name="sb_skip_button_compact">スキップ</string>
     <string name="sb_skip_button_compact_highlight">ハイライト</string>
     <string name="sb_skip_button_sponsor">スポンサーをスキップ</string>
@@ -799,7 +801,7 @@
     <string name="sb_new_segment_confirm_content" formatted="false">このセグメントは %02d:%02d から %02d:%02d (%d 分 %02d 秒間)です。\n送信してよろしいですか？</string>
     <string name="sb_new_segment_start_is_before_end">開始時刻は終了時刻より前にある必要があります</string>
     <string name="sb_new_segment_mark_locations_first">最初にタイムバーの2箇所をマークしてください</string>
-    <string name="sb_new_segment_preview_segment_first">セグメントをプレビューし、スムーズにスキップできるようにしてください</string>
+    <string name="sb_new_segment_preview_segment_first">セグメントをプレビューして、スムーズにスキップするようにしてください。</string>
     <string name="sb_new_segment_edit_by_hand_title">セグメントのタイミングを手動で編集</string>
     <string name="sb_new_segment_edit_by_hand_content">セグメントの開始または終了のタイミングを編集しますか？</string>
     <string name="sb_new_segment_edit_by_hand_parse_error">時間の値が無効です</string>
@@ -807,15 +809,15 @@
     <string name="sb_stats_connection_failure">統計は一時的に利用できません (API ダウン)</string>
     <string name="sb_stats_sb_disabled">SponsorBlock は無効です</string>
     <string name="sb_stats_username" formatted="false">ユーザー名: &lt;b&gt;%s&lt;/b&gt;</string>
-    <string name="sb_stats_username_change">ここをタップしてユーザー名を変更する</string>
+    <string name="sb_stats_username_change">ユーザー名を変更するにはここをタップしてください</string>
     <string name="sb_stats_username_change_unknown_error" formatted="false">ユーザー名を変更できませんでした: ステータス: %d %s</string>
     <string name="sb_stats_username_changed">ユーザー名は正常に変更されました</string>
     <string name="sb_stats_reputation" formatted="false">あなたの評価は &lt;b&gt;%.2f&lt;/b&gt; です</string>
-    <string name="sb_stats_submissions" formatted="false">今までに &lt;b&gt;%s&lt;/b&gt; 個のセグメントを作成しました。</string>
+    <string name="sb_stats_submissions" formatted="false">今までに &lt;b&gt;%s&lt;/b&gt; 個のセグメントを作成しました</string>
     <string name="sb_stats_saved_zero">SponsorBlock リーダーボード</string>
     <string name="sb_stats_saved" formatted="false">今までに &lt;b&gt;%s&lt;/b&gt; 個のセグメントから人々から守りました</string>
-    <string name="sb_stats_saved_sum_zero">ここをタップして、グローバルの統計とトップの貢献者を見る</string>
-    <string name="sb_stats_saved_sum" formatted="false">合計で人々の人生を &lt;b&gt;%s&lt;/b&gt; 回無駄にせずにすみました。&lt;br&gt;ここをタップしてリーダーボードを見る</string>
+    <string name="sb_stats_saved_sum_zero">グローバルの統計およびトップの貢献者を見るにはここをタップしてください</string>
+    <string name="sb_stats_saved_sum" formatted="false">合計で人々の人生を &lt;b&gt;%s&lt;/b&gt; 回無駄にせずにすみました。&lt;br&gt;リーダーボードを見るにはここをタップしてください</string>
     <string name="sb_stats_self_saved" formatted="false">今までに &lt;b&gt;%s&lt;/b&gt; 個のセグメントをスキップしました</string>
     <string name="sb_stats_self_saved_sum" formatted="false">合計 &lt;b&gt;%s&lt;/b&gt; です</string>
     <string name="sb_stats_self_saved_reset_title">スキップ回数をリセットしますか？</string>
@@ -825,11 +827,11 @@
     <string name="sb_color_dot_label">色:</string>
     <string name="sb_color_changed">色を変更しました</string>
     <string name="sb_color_reset">色をリセットしました</string>
-    <string name="sb_color_invalid">カラーコードが無効です</string>
+    <string name="sb_color_invalid">無効なカラーコード</string>
     <string name="sb_reset_color">色をリセット</string>
     <string name="sb_about">この機能について</string>
     <string name="sb_reset">リセット</string>
-    <string name="sb_about_api_sum">データは SponsorBlock API によって提供されます。ここをタップして詳細と他のプラットフォームのダウンロードをご覧ください。</string>
+    <string name="sb_about_api_sum">データは SponsorBlock API によって提供されています。他のプラットフォームのダウンロードや詳細については、こちらをタップしてください。</string>
     <string name="settings_export_failed">設定のエクスポートに失敗しました</string>
     <string name="settings_export_successful">設定は正常にエクスポートされました</string>
     <string name="settings_ie">設定のインポート/エクスポート</string>

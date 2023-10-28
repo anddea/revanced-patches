@@ -51,6 +51,9 @@
     <string name="revanced_custom_playback_speeds_summary">Προσθέστε ή αλλάξτε τις διαθέσιμες προσαρμοσμένες ταχύτητες βίντεο</string>
     <string name="revanced_custom_playback_speeds_title">Επεξεργασία ταχυτήτων βίντεο</string>
     <string name="revanced_custom_playback_speeds_warning" formatted="false">Οι τιμές ταχύτητας δεν μπορούν να είναι μεγαλύτερες από %sx. Έγινε επαναφορά στις προεπιλεγμένες τιμές.</string>
+    <string name="revanced_custom_player_overlay_opacity_summary">Τιμή αδιαφάνειας μεταξύ 0-100, όπου το 0 είναι διαφανές</string>
+    <string name="revanced_custom_player_overlay_opacity_title">Προσαρμοσμένη αδιαφάνεια παρασκηνίου αναπαραγωγέα</string>
+    <string name="revanced_custom_player_overlay_opacity_warning">Η αδιαφάνεια παρασκηνίου του αναπαραγωγέα πρέπει να είναι μεταξύ 0-100. Έγινε επαναφορά στην προεπιλεγμένη τιμή.</string>
     <string name="revanced_custom_seekbar_color_value_summary">Εισάγετε τον κωδικό hex του χρώματος της γραμμής προόδου</string>
     <string name="revanced_custom_seekbar_color_value_title">Τιμή χρώματος γραμμής προόδου</string>
     <string name="revanced_default_app_settings_summary">Για να ανοίξετε το RVX σε ένα εξωτερικό πρόγραμμα περιήγησης, ενεργοποιήστε το «Άνοιγμα υποστηριζόμενων συνδέσμων» και ενεργοποιήστε τις υποστηριζόμενες διευθύνσεις ιστού</string>
@@ -59,6 +62,8 @@
     <string name="revanced_default_video_quality_mobile_title">Προεπιλεγμένη ποιότητα βίντεο με δεδομένα κινητής τηλεφωνίας</string>
     <string name="revanced_default_video_quality_wifi_title">Προεπιλεγμένη ποιότητα βίντεο με Wi-Fi</string>
     <string name="revanced_description_title">Περιγραφή</string>
+    <string name="revanced_disable_ambient_mode_in_fullscreen_summary">Απενεργοποίηση της λειτουργίας περιβάλλοντος σε λειτουργία πλήρους οθόνης</string>
+    <string name="revanced_disable_ambient_mode_in_fullscreen_title">Απενεργοποίηση λειτουργίας περιβάλλοντος σε πλήρη οθόνη</string>
     <string name="revanced_disable_ambient_mode_summary">Απενεργοποίηση της λειτουργίας περιβάλλοντος πάντα</string>
     <string name="revanced_disable_ambient_mode_title">Απενεργοποίηση λειτουργίας περιβάλλοντος</string>
     <string name="revanced_disable_auto_captions_summary_off">Οι υποχρεωτικοί αυτόματοι υπότιτλοι εμφανίζονται</string>
@@ -163,6 +168,11 @@
     <string name="revanced_enable_wide_search_bar_summary_off">Η ευρεία μπάρα αναζήτησης είναι απενεργοποιημένη</string>
     <string name="revanced_enable_wide_search_bar_summary_on">Η ευρεία μπάρα αναζήτησης είναι ενεργοποιημένη</string>
     <string name="revanced_enable_wide_search_bar_title">Ευρεία μπάρα αναζήτησης</string>
+    <string name="revanced_enable_wide_search_bar_in_you_tab_summary">"Η ενεργοποίηση αυτής της ρύθμισης θα απενεργοποιήσει το κουμπί ρυθμίσεων στην καρτέλα «Εσείς»
+
+Σε αυτή την περίπτωση, χρησιμοποιήστε το εξής μονοπάτι:
+Καρτέλα «Εσείς» &gt; Προβολή καναλιού &gt; Μενού &gt; Ρυθμίσεις"</string>
+    <string name="revanced_enable_wide_search_bar_in_you_tab_title">Ευρεία μπάρα αναζήτησης στην καρτέλα «Εσείς»</string>
     <string name="revanced_experimental_flag">Πειραματικές Λειτουργίες</string>
     <string name="revanced_export_settings_summary">Αποθηκεύστε τις ρυθμίσεις ReVanced Extended σας σε αρχείο</string>
     <string name="revanced_export_settings_title">Εξαγωγή ρυθμίσεων</string>
@@ -179,7 +189,6 @@
     <string name="revanced_general">Γενικά</string>
     <string name="revanced_haptic_feedback_title">Απόκριση δόνησης</string>
     <string name="revanced_hide_account_menu_filter_strings_title">Επεξεργασία φίλτρου στοιχείων μενού λογαριασμού</string>
-    <string name="revanced_hide_account_menu_summary">Γνωστό πρόβλημα: ενδέχεται να μην λειτουργεί σε λειτουργία οριζοντίου προσανατολισμού ή σε συσκευές υψηλής ανάλυσης</string>
     <string name="revanced_hide_account_menu_title">Απόκρυψη μενού λογαριασμού</string>
     <string name="revanced_hide_album_card_summary_off">Οι κάρτες άλμπουμ εμφανίζονται</string>
     <string name="revanced_hide_album_card_summary_on">Οι κάρτες άλμπουμ είναι κρυμμένες</string>
@@ -217,6 +226,12 @@
     <string name="revanced_hide_button_live_chat_summary_off">Το κουμπί «Ζωντανή συζήτηση» εμφανίζεται</string>
     <string name="revanced_hide_button_live_chat_summary_on">Το κουμπί «Ζωντανή συζήτηση» είναι κρυμμένο</string>
     <string name="revanced_hide_button_live_chat_title">Απόκρυψη κουμπιού «Ζωντανή συζήτηση»</string>
+    <string name="revanced_hide_button_open_mix_playlist_summary_off">Το κουμπί ανοίγματος λίστας αναπαραγωγής μίξης εμφανίζεται</string>
+    <string name="revanced_hide_button_open_mix_playlist_summary_on">Το κουμπί ανοίγματος λίστας αναπαραγωγής μίξης είναι κρυμμένο</string>
+    <string name="revanced_hide_button_open_mix_playlist_title">Απόκρυψη κουμπιού ανοίγματος λίστας αναπαραγωγής μίξης</string>
+    <string name="revanced_hide_button_open_playlist_summary_off">Το κουμπί ανοίγματος λίστας αναπαραγωγής εμφανίζεται</string>
+    <string name="revanced_hide_button_open_playlist_summary_on">Το κουμπί ανοίγματος λίστας αναπαραγωγής είναι κρυμμένο</string>
+    <string name="revanced_hide_button_open_playlist_title">Απόκρυψη κουμπιού ανοίγματος λίστας αναπαραγωγής</string>
     <string name="revanced_hide_button_remix_summary_off">Το κουμπί Remix εμφανίζεται</string>
     <string name="revanced_hide_button_remix_summary_on">Το κουμπί Remix είναι κρυμμένο</string>
     <string name="revanced_hide_button_remix_title">Απόκρυψη κουμπιού remix</string>
@@ -226,6 +241,9 @@
     <string name="revanced_hide_button_rewards_summary_off">Το κουμπί ανταμοιβών εμφανίζεται</string>
     <string name="revanced_hide_button_rewards_summary_on">Το κουμπί ανταμοιβών είναι κρυμμένο</string>
     <string name="revanced_hide_button_rewards_title">Απόκρυψη κουμπιού ανταμοιβών</string>
+    <string name="revanced_hide_button_save_to_playlist_summary_off">Το κουμπί «Αποθήκευση» εμφανίζεται</string>
+    <string name="revanced_hide_button_save_to_playlist_summary_on">Το κουμπί «Αποθήκευση» είναι κρυμμένο</string>
+    <string name="revanced_hide_button_save_to_playlist_title">Απόκρυψη κουμπιού «Αποθήκευση»</string>
     <string name="revanced_hide_button_share_summary_off">Το κουμπί «Κοινοποίηση» εμφανίζεται</string>
     <string name="revanced_hide_button_share_summary_on">Το κουμπί «Κοινοποίηση» είναι κρυμμένο</string>
     <string name="revanced_hide_button_share_title">Απόκρυψη κουμπιού «Κοινοποίηση»</string>
@@ -385,9 +403,6 @@
     <string name="revanced_hide_notify_me_button_summary_off">Το κουμπί υπενθύμισης εμφανίζεται στη ροή</string>
     <string name="revanced_hide_notify_me_button_summary_on">Το κουμπί υπενθύμισης στη ροή είναι κρυμμένο</string>
     <string name="revanced_hide_notify_me_button_title">Απόκρυψη κουμπιού υπενθύμισης στη ροή</string>
-    <string name="revanced_hide_official_header_summary_off">Η επίσημη επικεφαλίδα εμφανίζεται</string>
-    <string name="revanced_hide_official_header_summary_on">Η επίσημη επικεφαλίδα είναι κρυμμένη</string>
-    <string name="revanced_hide_official_header_title">Απόκρυψη επίσημης επικεφαλίδας</string>
     <string name="revanced_hide_paid_promotion_banner_summary_off">Οι ετικέτες πληρωμένων προωθητικών ενεργειών εμφανίζονται</string>
     <string name="revanced_hide_paid_promotion_banner_summary_on">Οι ετικέτες πληρωμένων προωθητικών ενεργειών είναι κρυμμένες</string>
     <string name="revanced_hide_paid_promotion_banner_title">Απόκρυψη πληρωμένων προωθήσεων</string>
@@ -495,8 +510,6 @@
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_off">Το κουμπί εγγραφών εμφανίζεται κατά την παύση του αναπαραγωγέα Shorts</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_on">Το κουμπί εγγραφών είναι κρυμμένο</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_title">Απόκρυψη κουμπιού εγγραφών</string>
-    <string name="revanced_hide_shorts_shelf_summary_off">Τα ράφια Shorts εμφανίζονται</string>
-    <string name="revanced_hide_shorts_shelf_summary_on">Τα ράφια Shorts είναι κρυμμένα</string>
     <string name="revanced_hide_shorts_shelf_title">Απόκρυψη των Shorts</string>
     <string name="revanced_hide_shorts_toolbar_banner_summary_off">Το λογότυπο Shorts εμφανίζεται</string>
     <string name="revanced_hide_shorts_toolbar_banner_summary_on">Το λογότυπο Shorts είναι κρυμμένο</string>
@@ -527,12 +540,12 @@
     <string name="revanced_hide_suggested_video_overlay_title">Απόκρυψη προτεινόμενων βίντεο</string>
     <string name="revanced_hide_suggestions_shelf_summary">"Απόκρυψη των παρακάτω ραφιών:
 
-- Έκτακτες ειδήσεις
-- Συνεχίστε να παρακολουθείτε
-- Εξερευνήστε περισσότερα κανάλια
-- Ακούστε ξανά
-- Αγορές
-- Παρακολουθήστε ξανά"</string>
+• Έκτακτες ειδήσεις
+• Συνεχίστε να παρακολουθείτε
+• Εξερευνήστε περισσότερα κανάλια
+• Ακούστε ξανά
+• Αγορές
+• Παρακολουθήστε ξανά"</string>
     <string name="revanced_hide_suggestions_shelf_title">Απόκρυψη ραφιού προτάσεων</string>
     <string name="revanced_hide_ticket_shelf_summary_off">Τα ράφια εισιτηρίων εμφανίζονται</string>
     <string name="revanced_hide_ticket_shelf_summary_on">Τα ράφια εισιτηρίων είναι κρυμμένα</string>
@@ -591,9 +604,6 @@
     <string name="revanced_overlay_button_speed_dialog_summary">"Πατήστε για να ανοίξετε το μενού αλλαγής ταχύτητας βίντεο
 Πατήστε παρατεταμένα για επαναφορά ταχύτητας βίντεο σε 1.0x"</string>
     <string name="revanced_overlay_button_speed_dialog_title">Κουμπί αλλαγής ταχύτητας βίντεο</string>
-    <string name="revanced_override_premium_header_summary_off">Τρέχουσα επικεφαλίδα: Προεπιλεγμένη επικεφαλίδα</string>
-    <string name="revanced_override_premium_header_summary_on">Τρέχουσα επικεφαλίδα: Επικεφαλίδα Premium</string>
-    <string name="revanced_override_premium_header_title">Επικεφαλίδα YouTube Premium</string>
     <string name="revanced_patches_information">Πληροφορίες Τροποποιήσεων</string>
     <string name="revanced_patches_information_summary">Πληροφορίες σχετικά με τις εφαρμοσμένες τροποποιήσεις</string>
     <string name="revanced_player">Αναπαραγωγέας</string>
@@ -635,7 +645,6 @@
     <string name="revanced_skip_preloaded_buffer_toast_summary_off">Η ειδοποίηση δεν εμφανίζεται</string>
     <string name="revanced_skip_preloaded_buffer_toast_summary_on">Η ειδοποίηση εμφανίζεται</string>
     <string name="revanced_skip_preloaded_buffer_toast_title">Ειδοποίηση κατά την παράλειψη</string>
-    <string name="revanced_speed_overlay_text" formatted="false">Αναπαραγωγή με ταχύτητα %sx</string>
     <string name="revanced_spoof_app_version_summary">"Αυτή η λειτουργία τροποποιεί την έκδοση της εφαρμογής σε παλαιότερη έκδοση.
 
 Αυτό θα αλλάξει την εμφάνιση της εφαρμογής, αλλά ενδέχεται να προκύψουν άγνωστες παρενέργειες.
@@ -651,6 +660,8 @@
     <string name="revanced_spoof_app_version_target_summary">Πληκτρολογήστε την έκδοση εφαρμογής που θα εφαρμοστεί</string>
     <string name="revanced_spoof_app_version_target_title">Επεξεργασία έκδοσης εφαρμογής που θα εφαρμοθεί</string>
     <string name="revanced_spoof_app_version_title">Τροποποίηση έκδοσης εφαρμογής</string>
+    <string name="revanced_spoof_device_dimensions_summary">Παραποίηση διαστάσεων συσκευής ώστε να ξεκλειδωθούν υψηλότερες ποιότητες βίντεο που μπορεί να μην είναι διαθέσιμες στη συσκευή σας</string>
+    <string name="revanced_spoof_device_dimensions_title">Παραποίηση διαστάσεων συσκευής</string>
     <string name="revanced_spoof_player_parameter_in_feed_summary_off">"Η παράμετρος του αναπαραγωγέα δεν θα τροποποιηθεί για βίντεο στη ροή
 
 Γνωστά θέματα
@@ -660,7 +671,7 @@
 Γνωστά θέματα
 • Τα βίντεο που αναπαράγονται αυτόματα στη ροή θα εμφανιστούν στο ιστορικό σας"</string>
     <string name="revanced_spoof_player_parameter_in_feed_title">Τροποποίηση παραμέτρου στη ροή</string>
-    <string name="revanced_spoof_player_parameter_summary">"Τροποποίηση των παραμέτρων του αναπαραγωγέα για την αποφυγή προβλημάτων αναπαραγωγής
+    <string name="revanced_spoof_player_parameter_summary">"Τροποποίηση παραμέτρων του αναπαραγωγέα για την αποφυγή προβλημάτων αναπαραγωγής
 
 Γνωστά προβλήματα:
 • Δεν είναι διαθέσιμος ο υψηλός ρυθμός bitrate

@@ -44,6 +44,7 @@
     <string name="revanced_copy_video_timestamp_success">Carimbo de Tempo copiado para área de transferência</string>
     <string name="revanced_custom_filter_strings_summary">Filtrar componentes por nomes separados por linha</string>
     <string name="revanced_custom_filter_strings_title">Editar filtro personalizado</string>
+    <string name="revanced_custom_filter_strings_warning">Filtro personalizado inválido, redefinido para padrão.</string>
     <string name="revanced_custom_filter_summary_off">Filtro personalizado está desativado</string>
     <string name="revanced_custom_filter_summary_on">Filtro personalizado está ativado</string>
     <string name="revanced_custom_filter_title">Ativar filtro personalizado</string>
@@ -56,14 +57,14 @@
     <string name="revanced_custom_player_overlay_opacity_warning">Opacidade da sobreposição do reprodutor deve ser entre 0-100. Redefinir para valores padrão.</string>
     <string name="revanced_custom_seekbar_color_value_summary">Digite o código hexadecimal da cor da barra de pesquisa</string>
     <string name="revanced_custom_seekbar_color_value_title">Valor de cor personalizado da barra de progresso</string>
-    <string name="revanced_custom_speed_overlay_summary">Valor da velocidade que muda enquanto se mantém pressionado</string>
-    <string name="revanced_custom_speed_overlay_title">Sobreposição de velocidade personalizada</string>
     <string name="revanced_default_app_settings_summary">Para abrir o RVX em um navegador externo, ative \'Abrir links suportados\' e habilite os endereços web suportados</string>
     <string name="revanced_default_app_settings_title">Abrir configurações padrão do aplicativo</string>
     <string name="revanced_default_playback_speed_title">Velocidade de reprodução padrão</string>
     <string name="revanced_default_video_quality_mobile_title">Qualidade de vídeo padrão nos dados móveis</string>
     <string name="revanced_default_video_quality_wifi_title">Qualidade de vídeo padrão no Wi-Fi</string>
     <string name="revanced_description_title">Descrição</string>
+    <string name="revanced_disable_ambient_mode_in_fullscreen_summary">Desativa o modo ambiente em tela cheia</string>
+    <string name="revanced_disable_ambient_mode_in_fullscreen_title">Desativar o modo ambiente em tela cheia</string>
     <string name="revanced_disable_ambient_mode_summary">Sempre desativar o modo ambiente</string>
     <string name="revanced_disable_ambient_mode_title">Desativar o modo ambiente</string>
     <string name="revanced_disable_auto_captions_summary_off">Legendas automáticas forçadas estão ativadas</string>
@@ -104,6 +105,9 @@
     <string name="revanced_enable_custom_seekbar_color_summary_off">Cor personalizada da barra de progresso está desativada</string>
     <string name="revanced_enable_custom_seekbar_color_summary_on">A cor personalizada da barra de progresso está ativada</string>
     <string name="revanced_enable_custom_seekbar_color_title">Ativar cor personalizada da barra de busca</string>
+    <string name="revanced_enable_debug_buffer_logging_summary_off">Os registros de depuração não incluem buffer</string>
+    <string name="revanced_enable_debug_buffer_logging_summary_on">Os registros de depuração incluem buffer</string>
+    <string name="revanced_enable_debug_buffer_logging_title">Ativar o registro de depuração do buffer</string>
     <string name="revanced_enable_debug_logging_summary_off">O registro de depuração está desativado</string>
     <string name="revanced_enable_debug_logging_summary_on">O registro de depuração está ativado</string>
     <string name="revanced_enable_debug_logging_title">Ativar o registro de depuração</string>
@@ -166,6 +170,11 @@
     <string name="revanced_enable_wide_search_bar_summary_off">A barra de pesquisa ampla está desativada</string>
     <string name="revanced_enable_wide_search_bar_summary_on">A barra de pesquisa ampla está ativada</string>
     <string name="revanced_enable_wide_search_bar_title">Ativar barra de pesquisa ampla</string>
+    <string name="revanced_enable_wide_search_bar_in_you_tab_summary">"Ativar essa configuração desativará o botão de configurações na aba
+
+Nesse caso, por favor, use o seguinte caminho:
+Aba &gt; Visualizar canal &gt; Menu &gt; Configurações"</string>
+    <string name="revanced_enable_wide_search_bar_in_you_tab_title">Ativar a barra de pesquisa ampla na aba Você</string>
     <string name="revanced_experimental_flag">Sinalizadores experimentais</string>
     <string name="revanced_export_settings_summary">Salve suas configurações ReVanced em um arquivo</string>
     <string name="revanced_export_settings_title">Exportar configurações</string>
@@ -182,7 +191,8 @@
     <string name="revanced_general">Geral</string>
     <string name="revanced_haptic_feedback_title">Retorno tátil</string>
     <string name="revanced_hide_account_menu_filter_strings_title">Editar filtro do menu da conta</string>
-    <string name="revanced_hide_account_menu_summary">Problema conhecido: Pode não funcionar no modo paisagem ou em dispositivos com DPI elevado</string>
+    <string name="revanced_hide_account_menu_summary">"Ocultar elementos do menu de contas e aba Você
+Alguns componentes podem não ser ocultos"</string>
     <string name="revanced_hide_account_menu_title">Ocultar menu de contas</string>
     <string name="revanced_hide_album_card_summary_off">Os cartões de álbum serão exibidos</string>
     <string name="revanced_hide_album_card_summary_on">Os cartões de álbum estão ocultos</string>
@@ -220,6 +230,9 @@
     <string name="revanced_hide_button_live_chat_summary_off">O botão de chat ao vivo será exibido</string>
     <string name="revanced_hide_button_live_chat_summary_on">O botão de chat ao vivo está oculto</string>
     <string name="revanced_hide_button_live_chat_title">Ocultar botão de chat ao vivo</string>
+    <string name="revanced_hide_button_open_mix_playlist_summary_off">O botão de abrir a playlist mix será exibido</string>
+    <string name="revanced_hide_button_open_mix_playlist_summary_on">O botão de abrir a playlist mix está oculto</string>
+    <string name="revanced_hide_button_open_mix_playlist_title">Ocultar botão abrir playlist mix</string>
     <string name="revanced_hide_button_open_playlist_summary_off">O botão de abrir lista de reprodução será exibido</string>
     <string name="revanced_hide_button_open_playlist_summary_on">O botão de abrir lista de reprodução está oculto</string>
     <string name="revanced_hide_button_open_playlist_title">Ocultar botão abrir lista de reprodução</string>
@@ -394,9 +407,6 @@
     <string name="revanced_hide_notify_me_button_summary_off">O botão notifique-me será exibido</string>
     <string name="revanced_hide_notify_me_button_summary_on">O botão notifique-me está oculto</string>
     <string name="revanced_hide_notify_me_button_title">Ocultar botão notifique-me no feed</string>
-    <string name="revanced_hide_official_header_summary_off">O cabeçalho oficial será exibido</string>
-    <string name="revanced_hide_official_header_summary_on">O cabeçalho oficial está oculto</string>
-    <string name="revanced_hide_official_header_title">Ocultar cabeçalho oficial</string>
     <string name="revanced_hide_paid_promotion_banner_summary_off">O banner de promoção pago será exibido</string>
     <string name="revanced_hide_paid_promotion_banner_summary_on">O banner de promoção pago está oculto</string>
     <string name="revanced_hide_paid_promotion_banner_title">Ocultar banner de promoção paga</string>
@@ -504,8 +514,9 @@
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_off">O botão de inscrições será exibido</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_on">O botão de inscrições está oculto</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_title">Ocultar botão de inscrições</string>
-    <string name="revanced_hide_shorts_shelf_summary_off">Os painéis do Shorts serão mostrados</string>
-    <string name="revanced_hide_shorts_shelf_summary_on">Os painéis do Shorts estão ocultos</string>
+    <string name="revanced_hide_shorts_shelf_summary">"Oculta a prateleiras de Shorts
+
+Problema conhecido: Cabeçalhos oficiais nos resultados de busca estão ocultos"</string>
     <string name="revanced_hide_shorts_shelf_title">Ocultar painel do Shorts</string>
     <string name="revanced_hide_shorts_toolbar_banner_summary_off">O banner será exibido</string>
     <string name="revanced_hide_shorts_toolbar_banner_summary_on">O banner está oculto</string>
@@ -574,14 +585,19 @@ Problema conhecido: a reprodução automática não funciona"</string>
     <string name="revanced_hook_download_button_summary">"Substituir o botão de download com o botão de download externo
 Disponível apenas no YouTube v18.24.37+"</string>
     <string name="revanced_hook_download_button_title">Botão de download hook</string>
+    <string name="revanced_import_settings_inform">"As configurações seguintes não podem ser importadas, então abra as configurações ReVanced Extended uma vez após importar as configurações
+
+• Ocultar menu de configurações adicionais (painel suspenso do reprodutor)
+• Ocultar barra de ferramentas do shorts"</string>
     <string name="revanced_import_settings_summary">Obter configurações ReVanced de um arquivo salvo</string>
     <string name="revanced_import_settings_title">Importar configurações</string>
+    <string name="revanced_inform">Informar</string>
     <string name="revanced_layout_title">Layout</string>
     <string name="revanced_misc">Diversos</string>
     <string name="revanced_navigation">Navegação</string>
-    <string name="revanced_open_library_you_startup_summary_off">A biblioteca não será aberta ao iniciar o aplicativo</string>
-    <string name="revanced_open_library_you_startup_summary_on">A biblioteca será aberta ao iniciar o aplicativo</string>
-    <string name="revanced_open_library_you_startup_title">Abrir biblioteca ao iniciar o aplicativo</string>
+    <string name="revanced_open_library_you_startup_summary_off">A biblioteca(Você) não será aberta ao iniciar o aplicativo</string>
+    <string name="revanced_open_library_you_startup_summary_on">A biblioteca(Você) será aberta ao iniciar o aplicativo</string>
+    <string name="revanced_open_library_you_startup_title">Abrir biblioteca(Você) ao iniciar o aplicativo</string>
     <string name="revanced_others">Outros</string>
     <string name="revanced_overlay_button">Botão de sobreposição</string>
     <string name="revanced_overlay_button_always_repeat_summary">"Toque para alternar sempre repetir estados
@@ -599,13 +615,15 @@ Toque e segure para copiar o vídeo timestamp"</string>
     <string name="revanced_overlay_button_speed_dialog_summary">"Toque para abrir a caixa de diálogo de velocidade
 Toque e segure para definir a velocidade do vídeo para 1.0x"</string>
     <string name="revanced_overlay_button_speed_dialog_title">Exibir botão de velocidade</string>
-    <string name="revanced_override_premium_header_summary_off">Cabeçalho Atual: Cabeçalho Padrão</string>
-    <string name="revanced_override_premium_header_summary_on">Cabeçalho Atual: Cabeçalho Premium</string>
-    <string name="revanced_override_premium_header_title">Cabeçalho Premium</string>
     <string name="revanced_patches_information">Informações sobre as modificações</string>
     <string name="revanced_patches_information_summary">Informações sobre as modificações aplicadas</string>
     <string name="revanced_player">Reprodutor</string>
+    <string name="revanced_player_flyout_panel_additional_settings_summary">Para ocultar o menu de configurações adicional, ocultar todas as configurações na categoria de configurações adicionais</string>
+    <string name="revanced_player_flyout_panel_additional_settings_title">Painel suspenso do reprodutor (Configurações adicionais)</string>
     <string name="revanced_player_flyout_panel_title">Painel suspenso do reprodutor</string>
+    <string name="revanced_quick_actions_margin_top_summary">Valor de margem superior entre 0-64</string>
+    <string name="revanced_quick_actions_margin_top_title">Margem superior das ações rápidas</string>
+    <string name="revanced_quick_actions_margin_top_warning">Margem superior das ações rápidas deve ser entre 0-64. Voltar para os valores padrão.</string>
     <string name="revanced_quick_actions_title">Ações rápidas</string>
     <string name="revanced_reboot_first_run">Reinicie para carregar o layout normalmente</string>
     <string name="revanced_ryd_about">Sobre</string>
@@ -631,6 +649,7 @@ Toque e segure para definir a velocidade do vídeo para 1.0x"</string>
     <string name="revanced_seekbar">Barra de busca</string>
     <string name="revanced_shorts">Shorts</string>
     <string name="revanced_shorts_player_title">Reprodutor do shorts</string>
+    <string name="revanced_shorts_toolbar_summary">Para ocultar a barra de ferramentas do shorts, esconda todas as configurações na categoria barra de ferramentas para shorts</string>
     <string name="revanced_shorts_toolbar_title">Barra de ferramentas curta</string>
     <string name="revanced_show_fullscreen_title_summary">Problema conhecido: o título desaparece quando clicado</string>
     <string name="revanced_show_fullscreen_title_title">Mostrar título em tela cheia</string>
@@ -643,7 +662,6 @@ Toque e segure para definir a velocidade do vídeo para 1.0x"</string>
     <string name="revanced_skip_preloaded_buffer_toast_summary_off">O toast está oculto</string>
     <string name="revanced_skip_preloaded_buffer_toast_summary_on">O toast será exibido</string>
     <string name="revanced_skip_preloaded_buffer_toast_title">Mostrar um toast quando ignorado</string>
-    <string name="revanced_speed_overlay_text" formatted="false">Reproduzindo em velocidade %sx</string>
     <string name="revanced_spoof_app_version_summary">"Falsificação da versão cliente para a versão antiga
 
 Isto irá alterar a aparência do aplicativo, mas os efeitos colaterais desconhecidos podem ocorrer
@@ -659,6 +677,8 @@ Se mais tarde for desligado, a interface do usuário antiga poderá permanecer a
     <string name="revanced_spoof_app_version_target_summary">Digite a versão do app para falsificação</string>
     <string name="revanced_spoof_app_version_target_title">Editar versão de falsificação do app</string>
     <string name="revanced_spoof_app_version_title">Versão da falsificação do aplicativo</string>
+    <string name="revanced_spoof_device_dimensions_summary">Falsifica as dimensões do dispositivo para desbloquear qualidades de vídeo maiores que podem não estar disponíveis no seu dispositivo</string>
+    <string name="revanced_spoof_device_dimensions_title">Falsificar dimensões do dispositivo</string>
     <string name="revanced_spoof_player_parameter_in_feed_summary_off">"Parâmetro do reprodutor não falsificado para vídeos do feed
 
 Problemas conhecidos

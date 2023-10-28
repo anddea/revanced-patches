@@ -44,6 +44,7 @@
     <string name="revanced_copy_video_timestamp_success">تم نسخ الطابع الزمني إلى الحافظة</string>
     <string name="revanced_custom_filter_strings_summary">تصفية أسماء المكونات عن طريق مفصولة بأسطر</string>
     <string name="revanced_custom_filter_strings_title">تعديل الفلتر المخصص</string>
+    <string name="revanced_custom_filter_strings_warning">فلتر مخصص غير صالح، إعادة التعيين إلى الافتراضي.</string>
     <string name="revanced_custom_filter_summary_off">تم تعطيل الفلتر المخصص</string>
     <string name="revanced_custom_filter_summary_on">تم تمكين الفلتر المخصص</string>
     <string name="revanced_custom_filter_title">تمكين الفلتر المخصص</string>
@@ -56,14 +57,14 @@
     <string name="revanced_custom_player_overlay_opacity_warning">شفافية تراكب المشغل يجب أن يكون بين 0-100. إعادة تعيين القيم الافتراضية.</string>
     <string name="revanced_custom_seekbar_color_value_summary">اكتب رمز اللون للون شريط تقدم الفيديو</string>
     <string name="revanced_custom_seekbar_color_value_title">قيمة لون شريط تقدم الفيديو المخصصة</string>
-    <string name="revanced_custom_speed_overlay_summary">قيمة السرعة التي تتغير أثناء الضغط باستمرار</string>
-    <string name="revanced_custom_speed_overlay_title">تراكب السرعة المخصصة</string>
     <string name="revanced_default_app_settings_summary">لفتح RVX في متصفح خارجي، قم بتشغيل \"فتح الروابط المدعومة\" وتمكين عناوين الويب المدعومة</string>
     <string name="revanced_default_app_settings_title">فتح إعدادات التطبيق الافتراضية</string>
     <string name="revanced_default_playback_speed_title">سرعة التشغيل الافتراضية</string>
     <string name="revanced_default_video_quality_mobile_title">جودة الفيديو الافتراضية على شبكة الجوَّال</string>
     <string name="revanced_default_video_quality_wifi_title">جودة الفيديو الافتراضية على شبكة Wi-Fi</string>
     <string name="revanced_description_title">الوصف</string>
+    <string name="revanced_disable_ambient_mode_in_fullscreen_summary">يُعطّل وضع الإضاءة السينمائية في ملء الشاشة</string>
+    <string name="revanced_disable_ambient_mode_in_fullscreen_title">تعطيل وضع الإضاءة السينمائية في ملء الشاشة</string>
     <string name="revanced_disable_ambient_mode_summary">تعطيل وضع الإضاءة السينمائية دائمًا</string>
     <string name="revanced_disable_ambient_mode_title">تعطيل وضع الإضاءة السينمائية</string>
     <string name="revanced_disable_auto_captions_summary_off">تم تمكين التَّرْجَمَة التلقائية المفروضة</string>
@@ -72,9 +73,12 @@
     <string name="revanced_disable_default_playback_speed_live_summary_off">تم تمكين سرعة التشغيل الافتراضية في البث المباشر</string>
     <string name="revanced_disable_default_playback_speed_live_summary_on">تم تعطيل سرعة التشغيل الافتراضية في البث المباشر</string>
     <string name="revanced_disable_default_playback_speed_live_title">تعطيل سرعة التشغيل في البث المباشر</string>
+    <string name="revanced_disable_haptic_feedback_summary_off">تم تمكين الاهتزاز</string>
+    <string name="revanced_disable_haptic_feedback_summary_on">تم تعطيل الاهتزاز</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">تعطيل الاهتزاز عند الضغط على الفصول</string>
     <string name="revanced_disable_haptic_feedback_scrubbing_title">تعطيل ردود الفعل اللمسية الخانقة</string>
     <string name="revanced_disable_haptic_feedback_seek_title">تعطيل الاهتزاز عند الضغط على شريط تقدم الفيديو</string>
+    <string name="revanced_disable_haptic_feedback_seek_undo_title">تعطيل الاهتزاز عند التراجع عن التمرير</string>
     <string name="revanced_disable_haptic_feedback_zoom_title">تعطيل الاهتزاز عند التكبير</string>
     <string name="revanced_disable_hdr_auto_brightness_summary_off">تم تمكين سطوع HDR التلقائي</string>
     <string name="revanced_disable_hdr_auto_brightness_summary_on">تم تعطيل سطوع HDR التلقائي</string>
@@ -101,6 +105,9 @@
     <string name="revanced_enable_custom_seekbar_color_summary_off">تم تعطيل لون شريط تقدم الفيديو المخصص</string>
     <string name="revanced_enable_custom_seekbar_color_summary_on">تم تمكين لون شريط تقدم الفيديو المخصص</string>
     <string name="revanced_enable_custom_seekbar_color_title">تمكين لون شريط تقدم الفيديو المخصص</string>
+    <string name="revanced_enable_debug_buffer_logging_summary_off">سجلات التصحيح لا تشمل المخزن المؤقت</string>
+    <string name="revanced_enable_debug_buffer_logging_summary_on">سجلات التصحيح تشمل المخزن المؤقت</string>
+    <string name="revanced_enable_debug_buffer_logging_title">تمكين تسجيل المخزن المؤقت للتصحيح</string>
     <string name="revanced_enable_debug_logging_summary_off">تم تعطيل Debug Logs</string>
     <string name="revanced_enable_debug_logging_summary_on">تم تمكين Debug Logs</string>
     <string name="revanced_enable_debug_logging_title">تمكين سجلات التصحيح</string>
@@ -163,6 +170,11 @@
     <string name="revanced_enable_wide_search_bar_summary_off">تم تعطيل شريط البحث العريض</string>
     <string name="revanced_enable_wide_search_bar_summary_on">تم تمكين شريط البحث العريض</string>
     <string name="revanced_enable_wide_search_bar_title">تمكين شريط البحث العريض</string>
+    <string name="revanced_enable_wide_search_bar_in_you_tab_summary">"تمكين هذا الإعداد سيؤدي إلى تعطيل زر الإعدادات في علامة التبويب \"أنت\".
+
+في هذه الحالة، الرجاء استخدام المسار التالي:
+علامة التبويب &gt; عرض القناة &gt; القائمة &gt; الإعدادات"</string>
+    <string name="revanced_enable_wide_search_bar_in_you_tab_title">تمكين شريط البحث العريض في علامة التبويب أنت</string>
     <string name="revanced_experimental_flag">تعديلات تجريبية</string>
     <string name="revanced_export_settings_summary">حفظ إعدادات ReVanced Extended الخاصة بك في مِلَفّ</string>
     <string name="revanced_export_settings_title">تصدير الإعدادات</string>
@@ -179,7 +191,8 @@
     <string name="revanced_general">عام</string>
     <string name="revanced_haptic_feedback_title">ردود الفعل اللمسية</string>
     <string name="revanced_hide_account_menu_filter_strings_title">تعديل فلتر قائمة الحساب</string>
-    <string name="revanced_hide_account_menu_summary">المشكلة المعروفة: قد لا تعمل في الوضع الأفقي أو على أجهزة dpi عالية</string>
+    <string name="revanced_hide_account_menu_summary">"إخفاء عناصر قائمة الحساب وعلامة التبويب أنت
+قد لا يتم إخفاء بعض المكونات"</string>
     <string name="revanced_hide_account_menu_title">إخفاء قائمة الحساب</string>
     <string name="revanced_hide_album_card_summary_off">يتم عرض بطاقات الألبوم</string>
     <string name="revanced_hide_album_card_summary_on">تم إخفاء بطاقات الألبوم</string>
@@ -217,6 +230,9 @@
     <string name="revanced_hide_button_live_chat_summary_off">يتم عرض زر المحادثات المباشرة</string>
     <string name="revanced_hide_button_live_chat_summary_on">تم إخفاء زر المحادثات المباشرة</string>
     <string name="revanced_hide_button_live_chat_title">إخفاء زر المحادثات المباشرة</string>
+    <string name="revanced_hide_button_open_mix_playlist_summary_off">يتم عرض زر فتح قائمة تشغيل التشكيلة</string>
+    <string name="revanced_hide_button_open_mix_playlist_summary_on">تم إخفاء زر فتح قائمة تشغيل التشكيلة</string>
+    <string name="revanced_hide_button_open_mix_playlist_title">إخفاء زر فتح قائمة تشغيل التشكيلة</string>
     <string name="revanced_hide_button_open_playlist_summary_off">يتم عرض زر فتح قائمة التشغيل</string>
     <string name="revanced_hide_button_open_playlist_summary_on">تم إخفاء زر فتح قائمة التشغيل</string>
     <string name="revanced_hide_button_open_playlist_title">إخفاء زر فتح قائمة التشغيل</string>
@@ -391,9 +407,6 @@
     <string name="revanced_hide_notify_me_button_summary_off">يتم عرض زر تنبيهي</string>
     <string name="revanced_hide_notify_me_button_summary_on">تم إخفاء زر تنبيهي</string>
     <string name="revanced_hide_notify_me_button_title">إخفاء زر تنبيهي</string>
-    <string name="revanced_hide_official_header_summary_off">يتم عرض العنوان الرسمي</string>
-    <string name="revanced_hide_official_header_summary_on">تم إخفاء العنوان الرسمي</string>
-    <string name="revanced_hide_official_header_title">إخفاء العنوان الرسمي</string>
     <string name="revanced_hide_paid_promotion_banner_summary_off">يتم عرض لافتة إعلان الترويج المدفوع</string>
     <string name="revanced_hide_paid_promotion_banner_summary_on">تم إخفاء لافتة إعلان الترويج المدفوع</string>
     <string name="revanced_hide_paid_promotion_banner_title">إخفاء لافتة إعلان الترويج المدفوع</string>
@@ -478,6 +491,9 @@
     <string name="revanced_hide_seek_message_summary_off">يتم عرض رسالة التمرير</string>
     <string name="revanced_hide_seek_message_summary_on">تم إخفاء رسالة التمرير</string>
     <string name="revanced_hide_seek_message_title">إخفاء رسالة التمرير</string>
+    <string name="revanced_hide_seek_undo_message_summary_off">يتم عرض رسالة تراجع عن التمرير</string>
+    <string name="revanced_hide_seek_undo_message_summary_on">تم إخفاء رسالة تراجع عن التمرير</string>
+    <string name="revanced_hide_seek_undo_message_title">إخفاء رسالة التراجع عن التمرير</string>
     <string name="revanced_hide_self_sponsor_cards_summary_off">يتم عرض بطاقات الرعاية الذاتية</string>
     <string name="revanced_hide_self_sponsor_cards_summary_on">تم إخفاء بطاقات الرعاية الذاتية</string>
     <string name="revanced_hide_self_sponsor_cards_title">إخفاء بطاقات الرعاية الذاتية</string>
@@ -498,8 +514,9 @@
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_off">يتم عرض زر الاشتراكات</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_on">تم إخفاء زر الاشتراكات</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_title">إخفاء زر الاشتراكات</string>
-    <string name="revanced_hide_shorts_shelf_summary_off">يتم عرض رفوف الفيديوهات القصيرة (Shorts)</string>
-    <string name="revanced_hide_shorts_shelf_summary_on">تم إخفاء رفوف الفيديوهات القصيرة (Shorts)</string>
+    <string name="revanced_hide_shorts_shelf_summary">"إخفاء رفوف Shorts
+
+مشكلة معروفة: يتم إخفاء الرؤوس الرسمية في نتائج البحث"</string>
     <string name="revanced_hide_shorts_shelf_title">إخفاء رف الفيديوهات القصيرة (Shorts)</string>
     <string name="revanced_hide_shorts_toolbar_banner_summary_off">يتم عرض البانر</string>
     <string name="revanced_hide_shorts_toolbar_banner_summary_on">تم إخفاء البانر</string>
@@ -593,13 +610,13 @@
     <string name="revanced_overlay_button_speed_dialog_summary">"انقر لفتح مربع حوار السرعة
 انقر مع الاستمرار لضبط سرعة التشغيل على 1.0x"</string>
     <string name="revanced_overlay_button_speed_dialog_title">عرض زر مربع حوار السرعة</string>
-    <string name="revanced_override_premium_header_summary_off">العنوان الحالي: الافتراضي</string>
-    <string name="revanced_override_premium_header_summary_on">العنوان الحالي: Premium Header</string>
-    <string name="revanced_override_premium_header_title">Premium Header</string>
     <string name="revanced_patches_information">معلومات التعديلات</string>
     <string name="revanced_patches_information_summary">معلومات عن التعديلات المطبقة</string>
     <string name="revanced_player">المشغل</string>
     <string name="revanced_player_flyout_panel_title">لوحة القائمة المنبثقة للمشغل</string>
+    <string name="revanced_quick_actions_margin_top_summary">قيمة الهامش العلوي بين 0-64</string>
+    <string name="revanced_quick_actions_margin_top_title">هامش إجراءات سريعة أعلى</string>
+    <string name="revanced_quick_actions_margin_top_warning">يجب أن يكون الهامش العلوي للإجراءات السريعة بين 0-64. إعادة التعيين إلى القيم الافتراضية.</string>
     <string name="revanced_quick_actions_title">الإجراءات السّريعة</string>
     <string name="revanced_reboot_first_run">إعادة التشغيل لتحميل التصميم بشكل طبيعي</string>
     <string name="revanced_ryd_about">لمحة</string>
@@ -637,11 +654,10 @@
     <string name="revanced_skip_preloaded_buffer_toast_summary_off">الإشعار مخفي</string>
     <string name="revanced_skip_preloaded_buffer_toast_summary_on">يتم عرض الإشعار</string>
     <string name="revanced_skip_preloaded_buffer_toast_title">عرض إشعار عند التخطي</string>
-    <string name="revanced_speed_overlay_text" formatted="false">يتم التشغيل بسرعة %sx</string>
     <string name="revanced_spoof_app_version_summary">"خداع نسخة التطبيق الحالية إلى النسخة القديمة
 
-سيؤدي هذا إلى تغيير مظهر التطبيق، ولكن قد تحدث آثار جانبية غير معروفة
-إذا تم إيقاف تشغيلها لاحقًا، فقد تظل واجهة المستخدم القديمة قائمة حتى يتم مسح بيانات التطبيق"</string>
+ • سيؤدي هذا إلى تغيير مظهر التطبيق، ولكن قد تحدث آثار جانبية غير معروفة
+ • إذا تم إيقاف تشغيله لاحقًا، فقد تظل واجهة المستخدم القديمة حتى يتم مسح بيانات التطبيق"</string>
     <string name="revanced_spoof_app_version_target_entry_16_08_35">16.08.35 - استعادة تبويب استكشاف</string>
     <string name="revanced_spoof_app_version_target_entry_17_08_35">17.08.35 - استعادة تصميم واجهة المستخدم القديم</string>
     <string name="revanced_spoof_app_version_target_entry_17_41_37">17.41.37 - استعادة رف قائمة التشغيل القديم</string>
@@ -653,18 +669,18 @@
     <string name="revanced_spoof_app_version_target_summary">اكتب هدف إصدار التطبيق المخادع</string>
     <string name="revanced_spoof_app_version_target_title">تعديل خِداع إصدار التطبيق</string>
     <string name="revanced_spoof_app_version_title">خِداع إصدار التطبيق</string>
+    <string name="revanced_spoof_device_dimensions_summary">يقلل من أبعاد الجهاز من أجل فتح جودة الفيديو الأعلى التي قد لا تكون متاحة على جهازك</string>
+    <string name="revanced_spoof_device_dimensions_title">محاكاة أبعاد الجهاز</string>
     <string name="revanced_spoof_player_parameter_in_feed_summary_off">"Player Parameter not Spoofed for Feed Videos
 
-مشاكل معروفة
-• سيتم تشغيل مقاطع الفيديو الموجزة لمدة تقل عن دقيقة واحدة قبل مواجهة مشاكل التشغيل"</string>
+مشكلة معروفة: سيتم تشغيل مقاطع الفيديو الموجزة لمدة تقل عن دقيقة واحدة قبل مواجهة مشاكل التشغيل"</string>
     <string name="revanced_spoof_player_parameter_in_feed_summary_on">"Player Parameter Spoofed for Feed Videos
 
-مشاكل معروفة
-• ستظهر مقاطع الفيديو التي يتم تشغيلها تلقائيًا في سجل المشاهدة لديك"</string>
+مشكلة معروفة: ستظهر مقاطع الفيديو التي يتم تشغيلها تلقائيًا في سجل المشاهدة لديك"</string>
     <string name="revanced_spoof_player_parameter_in_feed_title">Spoof Player Parameter in Feed</string>
     <string name="revanced_spoof_player_parameter_summary">"لمنع مشاكل التشغيل Spoofs Player Parameters
 
-مشاكل معروفة
+مشاكل معروفة:
 • معدل البث المحسن غير متوفر
 • لا توجد مُصَّغَرات في شريط التقدم للمقاطع المدفوعة.
 • قد لا تعمل التنزيلات دون اتصال بالإنترنت

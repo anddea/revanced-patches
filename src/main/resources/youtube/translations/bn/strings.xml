@@ -9,13 +9,27 @@
     <string name="microg_settings_title">MicroG খুলুন</string>
     <string name="revanced_ads">বিজ্ঞাপন</string>
     <string name="revanced_alt_thumbnails">বিকল্প থাম্বনেইল</string>
+    <string name="revanced_alt_thumbnail_about_summary">সংবেদনশীলতা কমাতে ভিডিওর পূর্বনির্ধারিত থাম্বনেইলকে বিকল্প থাম্বনেইল দ্বারা প্রতিস্থাপন করার ফিচার।</string>
     <string name="revanced_alt_thumbnail_about_title">সম্পর্কে</string>
+    <string name="revanced_alt_thumbnail_dearrow_summary_off">বাহিরের API ছাড়াই থাম্বনেইল তৈরি করা হয়েছে</string>
+    <string name="revanced_alt_thumbnail_dearrow_summary_on">DeArrow API ব্যবহার করে থাম্বনেইল তৈরি করা হয়েছে</string>
+    <string name="revanced_alt_thumbnail_dearrow_title">DeArrow API ব্যবহার করা হচ্ছে</string>
     <string name="revanced_alt_thumbnail_enabled_summary_off">মূল YouTube থাম্বনেইল প্রদর্শিত হচ্ছে</string>
     <string name="revanced_alt_thumbnail_enabled_summary_on">YouTube এর থাম্বনেইল ভিন্ন থাম্বনেইল দ্বারা প্রতিস্থাপন করা হবে</string>
     <string name="revanced_alt_thumbnail_enabled_title">বিকল্প থাম্বনেইল সক্রিয় করুন</string>
+    <string name="revanced_alt_thumbnail_skip_checking_summary_off">প্রতিস্থাপন করার পূর্বে কোন থাম্বনেইল বিদ্যমান আছে কিনা তা যাচাই করা হবে</string>
+    <string name="revanced_alt_thumbnail_skip_checking_summary_on">থাম্বনেইল তাড়াতাড়িই লোড করা হবে, কিন্তু কিছু ভিডিওতে ফাঁকা থাম্বনেইল দেখাতে পারে</string>
+    <string name="revanced_alt_thumbnail_skip_checking_title">থাম্বনেইল চেক করা এড়িয়ে যান</string>
     <string name="revanced_alt_thumbnail_type_entry_1">ভিডিওর শুরুর অংশ</string>
     <string name="revanced_alt_thumbnail_type_entry_2">ভিডিওর মধ্যাংশ</string>
     <string name="revanced_alt_thumbnail_type_entry_3">ভিডিওর শেষাংশ</string>
+    <string name="revanced_alt_thumbnail_type_title">ভিডিওর যে সময় থেকে স্থিরচিত্র নেয়া হবে</string>
+    <string name="revanced_append_time_stamp_information_summary_off">টাইম স্ট্যাম্প তথ্য দেখানো নিষ্ক্রিয় আছে</string>
+    <string name="revanced_append_time_stamp_information_summary_on">টাইম স্ট্যাম্প তথ্য দেখানো সক্রিয় আছে</string>
+    <string name="revanced_append_time_stamp_information_title">টাইম স্ট্যাম্প তথ্য দেখান</string>
+    <string name="revanced_append_time_stamp_information_type_summary_off">প্লেব্যাক স্পিড দেখান</string>
+    <string name="revanced_append_time_stamp_information_type_summary_on">ভিডিও মান দেখান</string>
+    <string name="revanced_append_time_stamp_information_type_title">তথ্যের ধরণ দেখান</string>
     <string name="revanced_backup_summary">ফাইল থেকে ReVanced সেটিং আমদানী করুন অথবা ReVanced সেটিংস ফাইলে রপ্তানি করুন</string>
     <string name="revanced_bottom_player">প্লেয়ারের এর নিচে</string>
     <string name="revanced_button_container_title">বাটন কনটেইনার</string>
@@ -25,6 +39,7 @@
     <string name="revanced_change_homepage_summary_off">বর্তমান প্রধান পাতা: মূল</string>
     <string name="revanced_change_homepage_summary_on">বর্তমান প্রধান পাতা: সাবস্ক্রিপশন</string>
     <string name="revanced_change_homepage_title">প্রধান পাতা সাবস্ক্রিপশনে পরিবর্তন করুন</string>
+    <string name="revanced_channel_bar_title">চ্যানেল ব</string>
     <string name="revanced_comments_title">মন্তব্য</string>
     <string name="revanced_copy_video_timestamp_success">টাইম স্ট্যাম্প ক্লিপবোর্ডে কপি হয়েছে</string>
     <string name="revanced_custom_filter_strings_summary">লাইনের মাধ্যমে নামগুলি দ্বারা উপাদানসমূহ ফিল্টার করুন</string>
@@ -35,6 +50,10 @@
     <string name="revanced_custom_playback_speeds_invalid">ত্রুটিপূর্ণ কাস্টম প্লেব্যাক স্পিড। পুর্বনির্ধারিত ভ্যালুতে আবার সেট করুন।</string>
     <string name="revanced_custom_playback_speeds_summary">পাওয়া যাচ্ছে এমন প্লেব্যাক স্পিড যুক্ত বা পরিবর্তন করুন</string>
     <string name="revanced_custom_playback_speeds_title">কাস্টম প্লেব্যাক স্পিড সম্পাদনা করুন</string>
+    <string name="revanced_custom_playback_speeds_warning" formatted="false">কাস্টম স্পিড %sx এর থেকে বেশি হতে পারবে না। পূর্বনির্ধারিত ভ্যালুতে আবার সেট করুন।</string>
+    <string name="revanced_custom_player_overlay_opacity_summary">অসচ্ছতা মান ০-১০০ এর মধ্যে, যেখানে ০ হল সম্পূর্ণ স্বচ্ছ</string>
+    <string name="revanced_custom_player_overlay_opacity_title">প্লেয়ায় ওভারলে এর কাস্টম অসচ্ছতা</string>
+    <string name="revanced_custom_player_overlay_opacity_warning">প্লেয়ার ওভারলের অসচ্ছতা অবশ্যই ০-১০০ এর মধ্যে হতে হবে। পূর্বনির্ধারিত ভ্যালুতে আবার ফিরিয়ে নিন।</string>
     <string name="revanced_custom_seekbar_color_value_summary">সিকবার রঙের হেক্স কোডটি টাইপ করুন</string>
     <string name="revanced_custom_seekbar_color_value_title">কাস্টম সিকবার রং ভ্যালু</string>
     <string name="revanced_default_app_settings_summary">একটি বাইরের ব্রাউজারে ReVanced Extended খুলতে, \'সমর্থিত লিংক খোলা\' চালু করুন এবং সমর্থিত ওয়েব ঠিকানা সক্রিয় করুন</string>
@@ -43,15 +62,22 @@
     <string name="revanced_default_video_quality_mobile_title">সেলুলারে ডিফল্ট ভিডিও গুণমান</string>
     <string name="revanced_default_video_quality_wifi_title">ওয়াই-ফাই ডিফল্ট ভিডিও গুণমান</string>
     <string name="revanced_description_title">বিস্তারিত বর্ণনা</string>
+    <string name="revanced_disable_ambient_mode_in_fullscreen_summary">পূর্ণ স্ক্রীনে অ্যাম্বিয়েন্ট মোড নিষ্ক্রিয় করে</string>
+    <string name="revanced_disable_ambient_mode_in_fullscreen_title">পূর্ণ স্ক্রীনে অ্যাম্বিয়েন্ট মোড নিষ্ক্রিয় করুন</string>
+    <string name="revanced_disable_ambient_mode_summary">অ্যাম্বিয়েন্ট মোড সর্বদা নিষ্ক্রিয় থাকবে</string>
+    <string name="revanced_disable_ambient_mode_title">অ্যাম্বিয় মোড নিষ্ক্রিয় করুন</string>
     <string name="revanced_disable_auto_captions_summary_off">জোরপূর্বক স্বয়ংক্রিয় ক্যাপশন সক্রিয় হয়েছে</string>
     <string name="revanced_disable_auto_captions_summary_on">জোরপূর্বক স্বয়ংক্রিয় ক্যাপশন নিষ্ক্রিয় হয়েছে</string>
     <string name="revanced_disable_auto_captions_title">জোরপূর্বক স্বয়ংক্রিয় ক্যাপশন নিষ্ক্রিয় করুন</string>
     <string name="revanced_disable_default_playback_speed_live_summary_off">লাইভ স্ট্রিমে ডিফল্ট প্লেব্যাক স্পিড সক্রিয় হয়েছে</string>
     <string name="revanced_disable_default_playback_speed_live_summary_on">লাইভ স্ট্রিমে ডিফল্ট প্লেব্যাক স্পিড নিষ্ক্রিয় করা হয়েছে</string>
     <string name="revanced_disable_default_playback_speed_live_title">লাইভ স্ট্রিমে ডিফল্ট প্লেব্যাক স্পিড নিষ্ক্রিয় করুন</string>
+    <string name="revanced_disable_haptic_feedback_summary_off">কম্পন প্রতিক্রিয়া সক্রিয় হয়েছে</string>
+    <string name="revanced_disable_haptic_feedback_summary_on">কম্পন প্রতিক্রিয়া নিষ্ক্রিয় হয়েছে</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">চ্যাপ্টার কম্পন প্রতিক্রিয়া নিষ্ক্রিয় করুন</string>
     <string name="revanced_disable_haptic_feedback_scrubbing_title">স্ক্রাবিং কম্পন প্রতিক্রিয়া নিষ্ক্রিয় করুন</string>
     <string name="revanced_disable_haptic_feedback_seek_title">সিক কম্পন প্রতিক্রিয়া নিষ্ক্রিয় করুন</string>
+    <string name="revanced_disable_haptic_feedback_seek_undo_title">সিক পূর্বাবস্থার কম্পন প্রতিক্রিয় নিষ্ক্রিয় করুন</string>
     <string name="revanced_disable_haptic_feedback_zoom_title">জুম কম্পন প্রতিক্রিয়া নিষ্ক্রিয় করুন</string>
     <string name="revanced_disable_hdr_auto_brightness_summary_off">স্বয়ংক্রিয় HDR উজ্জ্বলতা সক্রিয় হয়েছে</string>
     <string name="revanced_disable_hdr_auto_brightness_summary_on">স্বয়ংক্রিয় HDR উজ্জ্বলতা নিষ্ক্রিয় হয়েছে</string>
@@ -84,6 +110,12 @@
     <string name="revanced_enable_external_browser_summary_off">বাহ্যিক ব্রাউজার নিষ্ক্রিয় আছে</string>
     <string name="revanced_enable_external_browser_summary_on">বাহ্যিক ব্রাউজার সক্রিয় আছে</string>
     <string name="revanced_enable_external_browser_title">বাহ্যিক ব্রাউজার সক্রিয় করুন</string>
+    <string name="revanced_enable_gradient_loading_screen_summary_off">গ্রেডিয়েন্ট লোডিং স্ক্রিণ নিষ্ক্রিয় রয়েছে</string>
+    <string name="revanced_enable_gradient_loading_screen_summary_on">গ্রেডিয়েন্ট লোডিং স্ক্রিণ সক্রিয় হয়েছে</string>
+    <string name="revanced_enable_gradient_loading_screen_title">গ্রেডিয়েন্ট লোডিং স্ক্রিণ সক্রিয় করুন</string>
+    <string name="revanced_enable_language_switch_summary_off">ভাষা পরিবর্তন নিষ্ক্রিয় রয়েছে</string>
+    <string name="revanced_enable_language_switch_summary_on">ভাষা পরিবর্তন সক্রিয় হয়েছে</string>
+    <string name="revanced_enable_language_switch_title">ভাষা পরিবর্তন সক্রিয় করুন</string>
     <string name="revanced_enable_new_splash_animation_summary_off">নতুন স্প্ল্যাশ স্ক্রীণ নিষ্ক্রিয় করা রয়েছে</string>
     <string name="revanced_enable_new_splash_animation_summary_on">নতুন স্প্ল্যাশ স্ক্রীণ সক্রিয় করা হয়েছে</string>
     <string name="revanced_enable_new_splash_animation_title">নতুন স্প্ল্যাশ স্ক্রীণ সক্রিয় করুন</string>
@@ -126,9 +158,19 @@
     <string name="revanced_enable_tablet_navigation_bar_summary_off">ট্যাবলেট নেভিগেশন বার নিস্ক্রিয় করা হয়েছে</string>
     <string name="revanced_enable_tablet_navigation_bar_summary_on">ট্যাবলেট নেভিগেশন বার সক্রিয় করা হয়েছে</string>
     <string name="revanced_enable_tablet_navigation_bar_title">ট্যাবলেট নেভিগেশন বার সক্রিয় করুন</string>
+    <string name="revanced_enable_video_codec_summary">ভিডিও কোডেক সক্রিয় করতে ডিভাইস তথ্য স্পুফ করুন</string>
+    <string name="revanced_enable_video_codec_title">ভিডিও কোডেক সক্রিয় করুন</string>
+    <string name="revanced_enable_video_codec_type_summary_off">VP9 কোডেক সক্রিয় করুন</string>
+    <string name="revanced_enable_video_codec_type_summary_on">HDR কোডেক সক্রিয় করুন</string>
+    <string name="revanced_enable_video_codec_type_title">ভিডিও কোডেক ধরণ</string>
     <string name="revanced_enable_wide_search_bar_summary_off">প্রশস্ত অনুসন্ধান বার নিষ্ক্রিয় হয়েছে</string>
     <string name="revanced_enable_wide_search_bar_summary_on">প্রশস্ত অনুসন্ধান বার সক্রিয় হয়েছে</string>
     <string name="revanced_enable_wide_search_bar_title">প্রশস্ত অনুসন্ধান বার সক্রিয় করুন</string>
+    <string name="revanced_enable_wide_search_bar_in_you_tab_summary">"এই সেটিংটি সক্রিয় করলে আপনি ট্যাব থেকে সেটিং বাটন নিষ্ক্রিয় হয়ে যাবে
+
+এক্ষেত্রে, নিচের পদ্ধতিটি অনুসরণ করুন:
+আপনি ট্যাব &gt; চ্যানেল দেখুন &gt; মেনু &gt; সেটিং"</string>
+    <string name="revanced_enable_wide_search_bar_in_you_tab_title">আপনি ট্যাবে প্রশস্ত অনুসন্ধান বার সক্রিয় করুন</string>
     <string name="revanced_experimental_flag">পরীক্ষামূলক ফ্ল্যাগ</string>
     <string name="revanced_export_settings_summary">আপনার ReVanced সেটিং ফাইলে সংরক্ষণ করুন</string>
     <string name="revanced_export_settings_title">সেটিং রপ্তানি করুন</string>
@@ -145,7 +187,6 @@
     <string name="revanced_general">সাধারণ</string>
     <string name="revanced_haptic_feedback_title">কম্পন প্রতিক্রিয়া</string>
     <string name="revanced_hide_account_menu_filter_strings_title">একাউন্ট মেনু ফিল্টার সম্পাদনা করুন</string>
-    <string name="revanced_hide_account_menu_summary">জানা সমস্যা: ল্যান্ডস্কেপ মোডে বা উচ্চ dpi ডিভাইসগুলিতে কাজ না করতে পারে।</string>
     <string name="revanced_hide_account_menu_title">অ্যাকাউন্ট মেনু লুকান</string>
     <string name="revanced_hide_album_card_summary_off">অ্যালবাম কার্ড প্রদর্শিত হয়েছে</string>
     <string name="revanced_hide_album_card_summary_on">অ্যালবাম কার্ড লুকিয়ে রয়েছে</string>
@@ -174,12 +215,21 @@
     <string name="revanced_hide_button_download_summary_off">ডাউনলোড করুন বাটন প্রদর্শিত হয়েছে</string>
     <string name="revanced_hide_button_download_summary_on">ডাউনলোড করুন বাটন লুকিয়ে রয়েছে</string>
     <string name="revanced_hide_button_download_title">ডাউনলোড করুন বাটন লুকান</string>
+    <string name="revanced_hide_button_like_dislike_summary_off">পছন্দ এবং অপছন্দ বাটন প্রদর্শিত হয়েছে</string>
+    <string name="revanced_hide_button_like_dislike_summary_on">পছন্দ এবং অপছন্দ বাটন লুকিয়ে রয়েছে</string>
+    <string name="revanced_hide_button_like_dislike_title">পছন্দ এবং অপছন্দ বাটন লুকান</string>
     <string name="revanced_hide_button_like_summary_off">পছন্দ বাটন প্রদর্শিত হয়েছে</string>
     <string name="revanced_hide_button_like_summary_on">পছন্দ বাটন লুকিয়ে রয়েছে</string>
     <string name="revanced_hide_button_like_title">পছন্দ বাটন লুকান</string>
     <string name="revanced_hide_button_live_chat_summary_off">লাইভ চ্যাট বাটন প্রদর্শিত হয়েছে</string>
     <string name="revanced_hide_button_live_chat_summary_on">লাইভ চ্যাট বাটন লুকিয়ে রয়েছে</string>
     <string name="revanced_hide_button_live_chat_title">লাইভ চ্যাট বাটন লুকান</string>
+    <string name="revanced_hide_button_open_mix_playlist_summary_off">মিক্স প্লেলিস্ট খুলুন বাটন প্রদর্শিত হয়েছে</string>
+    <string name="revanced_hide_button_open_mix_playlist_summary_on">মিক্স প্লেলিস্ট খুলুন বাটন লুকিয়ে রয়েছে</string>
+    <string name="revanced_hide_button_open_mix_playlist_title">মিক্স প্লেলিস্ট খুলুন বাটন লুকান</string>
+    <string name="revanced_hide_button_open_playlist_summary_off">প্লেলিস্ট খুলুন বাটন প্রদর্শিত হয়েছে</string>
+    <string name="revanced_hide_button_open_playlist_summary_on">প্লেলিস্ট খুলুন বাটন লুকিয়ে রয়েছে</string>
+    <string name="revanced_hide_button_open_playlist_title">প্লেলিস্ট খুলুন বাটন লুকান</string>
     <string name="revanced_hide_button_remix_summary_off">রিমিক্স বাটন প্রদর্শিত হয়েছে</string>
     <string name="revanced_hide_button_remix_summary_on">রিমিক্স বাটন লুকিয়ে রয়েছে</string>
     <string name="revanced_hide_button_remix_title">রিমিক্স বাটন লুকান</string>
@@ -189,6 +239,9 @@
     <string name="revanced_hide_button_rewards_summary_off">রিওয়ার্ডস বাটন প্রদর্শিত হয়েছে</string>
     <string name="revanced_hide_button_rewards_summary_on">রিওয়ার্ডস বাটন লুকিয়ে রয়েছে</string>
     <string name="revanced_hide_button_rewards_title">রিওয়ার্ডস বাটন লুকান</string>
+    <string name="revanced_hide_button_save_to_playlist_summary_off">প্লেলিস্টে সংরক্ষণ বাটন প্রদর্শিত হয়েছে</string>
+    <string name="revanced_hide_button_save_to_playlist_summary_on">প্লেলিস্টে সংরক্ষণ বাটন লুকিয়ে রয়েছে</string>
+    <string name="revanced_hide_button_save_to_playlist_title">প্লেলিস্টে সংরক্ষণ বাটন লুকান</string>
     <string name="revanced_hide_button_share_summary_off">শেয়ার বাটন প্রদর্শিত হয়েছে</string>
     <string name="revanced_hide_button_share_summary_on">শেয়ার বাটন লুকিয়ে রয়েছে</string>
     <string name="revanced_hide_button_share_title">শেয়ার বাটন লুকান</string>
@@ -198,6 +251,9 @@
     <string name="revanced_hide_button_thanks_summary_off">ধন্যবাদ বাটন প্রদর্শিত হয়েছে</string>
     <string name="revanced_hide_button_thanks_summary_on">ধন্যবাদ বাটন লুকিয়ে রয়েছে</string>
     <string name="revanced_hide_button_thanks_title">ধন্যবাদ বাটন লুকান</string>
+    <string name="revanced_hide_button_transcript_summary_off">ট্রান্সস্ক্রিপ্ট বাটন প্রদর্শিত হয়েছে</string>
+    <string name="revanced_hide_button_transcript_summary_on">ট্রান্সস্ক্রিপ্ট বাটন লুকিয়ে রয়েছে</string>
+    <string name="revanced_hide_button_transcript_title">ট্রান্সস্ক্রিপ্ট বাটন লুকান</string>
     <string name="revanced_hide_captions_button_summary_off">ক্যাপশন বাটন প্রদর্শিত হয়েছে</string>
     <string name="revanced_hide_captions_button_summary_on">ক্যাপশন বাটন লুকিয়ে রয়েছে</string>
     <string name="revanced_hide_captions_button_title">ক্যাপশন বাটন লুকান</string>
@@ -218,6 +274,9 @@
     <string name="revanced_hide_channel_member_shelf_summary_off">চ্যানেল সদস্য শেলফ প্রদর্শিত হয়েছে</string>
     <string name="revanced_hide_channel_member_shelf_summary_on">চ্যানেল সদস্য শেলফ লুকিয়ে রয়েছে</string>
     <string name="revanced_hide_channel_member_shelf_title">চ্যানেল সদস্য শেলফ লুকান</string>
+    <string name="revanced_hide_channel_profile_links_summary_off">চ্যানেল প্রোফাইলের উপরের লিঙ্ক প্রদর্শিত হয়েছে</string>
+    <string name="revanced_hide_channel_profile_links_summary_on">চ্যানেল প্রোফাইলের উপরের লিঙ্ক লুকিয়ে রয়েছে</string>
+    <string name="revanced_hide_channel_profile_links_title">চ্যানেল প্রোফাইলের লিঙ্ক লুকান</string>
     <string name="revanced_hide_channel_watermark_summary_off">চ্যানেল জলছাপ প্রদর্শিত হয়েছে</string>
     <string name="revanced_hide_channel_watermark_summary_on">চ্যানেল জলছাপ লুকিয়ে রয়েছে</string>
     <string name="revanced_hide_channel_watermark_title">চ্যানেল জলছাপ লুকান</string>
@@ -288,6 +347,9 @@
     <string name="revanced_hide_gray_separator_summary_off">ধূসর বিভাজক প্রদর্শিত হয়েছে</string>
     <string name="revanced_hide_gray_separator_summary_on">ধূসর বিভাজক লুকিয়ে রয়েছে</string>
     <string name="revanced_hide_gray_separator_title">ধূসর বিভাজক লুকান</string>
+    <string name="revanced_hide_handle_summary_off">হ্যান্ডল প্রদর্শিত হয়েছে</string>
+    <string name="revanced_hide_handle_summary_on">হ্যান্ডল লুকিয়ে রয়েছে</string>
+    <string name="revanced_hide_handle_title">হ্যান্ডল লুকান</string>
     <string name="revanced_hide_home_button_summary_off">হোম বাটন প্রদর্শিত হয়েছে</string>
     <string name="revanced_hide_home_button_summary_on">হোম বাটন লুকিয়ে রয়েছে</string>
     <string name="revanced_hide_home_button_title">হোম বাটন লুকান</string>
@@ -336,9 +398,9 @@
     <string name="revanced_hide_navigation_label_summary_off">নেভিগেশন লেবেল প্রদর্শিত হয়েছে</string>
     <string name="revanced_hide_navigation_label_summary_on">নেভিগেশন লেবেল লুকিয়ে রয়েছে</string>
     <string name="revanced_hide_navigation_label_title">নেভিগেশন লেবেল লুকান</string>
-    <string name="revanced_hide_official_header_summary_off">অফিশ্যাল হেডার প্রদর্শিত হয়েছে</string>
-    <string name="revanced_hide_official_header_summary_on">অফিশ্যাল হেডার লুকিয়ে রয়েছে</string>
-    <string name="revanced_hide_official_header_title">অফিশ্যাল হেডার লুকান</string>
+    <string name="revanced_hide_notify_me_button_summary_off">আমাকে জানান বাটন প্রদর্শিত হয়েছে</string>
+    <string name="revanced_hide_notify_me_button_summary_on">আমাকে জানান বাটন লুকিয়ে রয়েছে</string>
+    <string name="revanced_hide_notify_me_button_title">আমাকে জানান বাটন লুকান</string>
     <string name="revanced_hide_paid_promotion_banner_summary_off">অর্থের বিনিময়ে প্রচার অন্তর্ভুক্ত রয়েছে ব্যানার প্রদর্শিত হয়েছে</string>
     <string name="revanced_hide_paid_promotion_banner_summary_on">অর্থের বিনিময়ে প্রচার অন্তর্ভুক্ত রয়েছে ব্যানার লুকিয়ে রয়েছে</string>
     <string name="revanced_hide_paid_promotion_banner_title">অর্থের বিনিময়ে প্রচার অন্তর্ভুক্ত রয়েছে ব্যানার লুকান</string>
@@ -354,6 +416,9 @@
     <string name="revanced_hide_player_flyout_panel_audio_track_summary_off">অডিও ট্র্যাক মেনু প্রদর্শিত হয়েছে</string>
     <string name="revanced_hide_player_flyout_panel_audio_track_summary_on">অডিও ট্র্যাক মেনু লুকিয়ে রয়েছে</string>
     <string name="revanced_hide_player_flyout_panel_audio_track_title">অডিও ট্র্যাক মেনু লুকান</string>
+    <string name="revanced_hide_player_flyout_panel_captions_footer_summary_off">ক্যাপশন মেনু ফুটার প্রদর্শিত হয়েছে</string>
+    <string name="revanced_hide_player_flyout_panel_captions_footer_summary_on">ক্যাপশন মেনু ফুটার লুকিয়ে রয়েছে</string>
+    <string name="revanced_hide_player_flyout_panel_captions_footer_title">ক্যাপশন মেনু ফুটার লুকান</string>
     <string name="revanced_hide_player_flyout_panel_captions_summary_off">ক্যাপশন মেনু প্রদর্শিত হয়েছে</string>
     <string name="revanced_hide_player_flyout_panel_captions_summary_on">ক্যাপশন মেনু লুকিয়ে রয়েছে</string>
     <string name="revanced_hide_player_flyout_panel_captions_title">ক্যাপশন মেনু লুকান</string>
@@ -372,9 +437,21 @@
     <string name="revanced_hide_player_flyout_panel_more_info_summary_off">আরও তথ্য মেনু প্রদর্শিত হয়েছে</string>
     <string name="revanced_hide_player_flyout_panel_more_info_summary_on">আরও তথ্য মেনু লুকিয়ে রয়েছে</string>
     <string name="revanced_hide_player_flyout_panel_more_info_title">আরও তথ্য মেনু লুকান</string>
+    <string name="revanced_hide_player_flyout_panel_playback_speed_summary_off">প্লেব্যাক স্পিড মেনু প্রদর্শিত হয়েছে</string>
+    <string name="revanced_hide_player_flyout_panel_playback_speed_summary_on">প্লেব্যাক স্পিড মেনু লুকিয়ে রয়েছে</string>
+    <string name="revanced_hide_player_flyout_panel_playback_speed_title">প্লেব্যাক স্পিড মেনু লুকান</string>
+    <string name="revanced_hide_player_flyout_panel_premium_controls_summary_off">প্রিমিয়াম নিয়ন্ত্রণ মেনু প্রদর্শিত হয়েছে</string>
+    <string name="revanced_hide_player_flyout_panel_premium_controls_summary_on">প্রিমিয়াম নিয়ন্ত্রণ মেনু লুকিয়ে রয়েছে</string>
+    <string name="revanced_hide_player_flyout_panel_premium_controls_title">প্রিমিয়াম নিয়ন্ত্রণ মেনু লুকান</string>
+    <string name="revanced_hide_player_flyout_panel_quality_footer_summary_off">কোয়ালিটি মেনু ফুটার প্রদর্শিত হয়েছে</string>
+    <string name="revanced_hide_player_flyout_panel_quality_footer_summary_on">কোয়ালিটি মেনু ফুটার লুকিয়ে রয়েছে</string>
+    <string name="revanced_hide_player_flyout_panel_quality_footer_title">কোয়ালিটি মেনু ফুটার লুকান</string>
     <string name="revanced_hide_player_flyout_panel_report_summary_off">রিপোর্ট মেনু প্রদর্শিত হয়েছে</string>
     <string name="revanced_hide_player_flyout_panel_report_summary_on">রিপোর্ট মেনু লুকিয়ে রয়েছে</string>
     <string name="revanced_hide_player_flyout_panel_report_title">রিপোর্ট মেনু লুকান</string>
+    <string name="revanced_hide_player_flyout_panel_stable_volume_summary_off">স্থিতিশীল ভলিউম মেনু প্রদর্শিত হয়েছে</string>
+    <string name="revanced_hide_player_flyout_panel_stable_volume_summary_on">স্থিতিশীল ভলিউম মেনু লুকিয়ে রয়েছে</string>
+    <string name="revanced_hide_player_flyout_panel_stable_volume_title">স্থিতিশীল ভলিউম মেনু লুকান</string>
     <string name="revanced_hide_player_flyout_panel_stats_for_nerds_summary_off">নার্ডদের জন্য পরিসংখ্যান মেনু প্রদর্শিত হয়েছে</string>
     <string name="revanced_hide_player_flyout_panel_stats_for_nerds_summary_on">নার্ডদের জন্য পরিসংখ্যান মেনু লুকিয়ে রয়েছে</string>
     <string name="revanced_hide_player_flyout_panel_stats_for_nerds_title">নার্ডদের জন্য পরিসংখ্যান মেনু লুকান</string>
@@ -408,6 +485,9 @@
     <string name="revanced_hide_seek_message_summary_off">সিক বার্তা প্রদর্শিত হয়েছে</string>
     <string name="revanced_hide_seek_message_summary_on">সিক বার্তা লুকিয়ে রয়েছে</string>
     <string name="revanced_hide_seek_message_title">সিক বার্তা লুকান</string>
+    <string name="revanced_hide_seek_undo_message_summary_off">সিক পূর্বাবস্থা বার্তা প্রদর্শিত হয়েছে</string>
+    <string name="revanced_hide_seek_undo_message_summary_on">সিক পূর্বাবস্থা বার্তা লুকিয়ে রয়েছে</string>
+    <string name="revanced_hide_seek_undo_message_title">সিক পূর্বাবস্থা বার্তা লুকান</string>
     <string name="revanced_hide_self_sponsor_cards_summary_off">স্ব-স্পন্সর কার্ড প্রদর্শিত হয়েছে</string>
     <string name="revanced_hide_self_sponsor_cards_summary_on">স্ব-স্পন্সর কার্ড লুকিয়ে রয়েছে</string>
     <string name="revanced_hide_self_sponsor_cards_title">স্ব-স্পন্সর কার্ড লুকান</string>
@@ -422,15 +502,31 @@
     <string name="revanced_hide_shorts_player_navigation_bar_summary_off">নেভিগেশন বার প্রদর্শিত হয়েছে</string>
     <string name="revanced_hide_shorts_player_navigation_bar_summary_on">নেভিগেশন বার লুকিয়ে রয়েছে</string>
     <string name="revanced_hide_shorts_player_navigation_bar_title">নেভিগেশন বার লুকান</string>
+    <string name="revanced_hide_shorts_player_pivot_button_summary_off">পিভট বাটন প্রদর্শিত হয়েছে</string>
+    <string name="revanced_hide_shorts_player_pivot_button_summary_on">পিভট বাটন লুকিয়ে রয়েছে</string>
+    <string name="revanced_hide_shorts_player_pivot_button_title">পিভট বাটন লুকান</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_off">সাবস্ক্রিপশন বাটন প্রদর্শিত হয়েছে</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_on">সাবস্ক্রিপশন বাটন লুকিয়ে রয়েছে</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_title">সাবস্ক্রিপশন বাটন লুকান</string>
-    <string name="revanced_hide_shorts_shelf_summary_off">শর্টস শেলফ প্রদর্শিত হয়েছে</string>
-    <string name="revanced_hide_shorts_shelf_summary_on">শর্টস শেলফ লুকিয়ে রয়েছে</string>
     <string name="revanced_hide_shorts_shelf_title">শর্টস শেলফ লুকান</string>
+    <string name="revanced_hide_shorts_toolbar_banner_summary_off">ব্যানার প্রদর্শিত হয়েছে</string>
+    <string name="revanced_hide_shorts_toolbar_banner_summary_on">ব্যানার লুকিয়ে রয়েছে</string>
+    <string name="revanced_hide_shorts_toolbar_banner_title">ব্যানার লুকান</string>
+    <string name="revanced_hide_shorts_toolbar_camera_button_summary_off">ক্যামেরা বাটন প্রদর্শিত হয়েছে</string>
+    <string name="revanced_hide_shorts_toolbar_camera_button_summary_on">ক্যামেরা বাটন লুকিয়ে রয়েছে</string>
+    <string name="revanced_hide_shorts_toolbar_camera_button_title">ক্যামেরা বাটন লুকান</string>
+    <string name="revanced_hide_shorts_toolbar_menu_button_summary_off">মেনু বাটন প্রদর্শিত হয়েছে</string>
+    <string name="revanced_hide_shorts_toolbar_menu_button_summary_on">মেনু বাটন লুকিয়ে রয়েছে</string>
+    <string name="revanced_hide_shorts_toolbar_menu_button_title">মেনু বাটন লুকান</string>
+    <string name="revanced_hide_shorts_toolbar_search_button_summary_off">সার্চ বাটন প্রদর্শিত হয়েছে</string>
+    <string name="revanced_hide_shorts_toolbar_search_button_summary_on">সার্চ বাটন লুকিয়ে রয়েছে</string>
+    <string name="revanced_hide_shorts_toolbar_search_button_title">সার্চ বাটন লুকান</string>
     <string name="revanced_hide_snack_bar_summary_off">স্ন্যাকবার প্রদর্শিত হয়েছে</string>
     <string name="revanced_hide_snack_bar_summary_on">স্ন্যাকবার লুকিয়ে রয়েছে</string>
     <string name="revanced_hide_snack_bar_title">স্ন্যাকবার লুকান</string>
+    <string name="revanced_hide_start_trial_button_summary_off">ট্রায়াল শুরু করুন বাটন প্রদর্শিত হয়েছে</string>
+    <string name="revanced_hide_start_trial_button_summary_on">ট্রায়াল শুরু করুন লুকিয়ে রয়েছে</string>
+    <string name="revanced_hide_start_trial_button_title">ট্রায়াল শুরু করুন বাটন লুকান</string>
     <string name="revanced_hide_subscriptions_button_summary_off">সাবস্ক্রিপশন বাটন প্রদর্শিত হয়েছে</string>
     <string name="revanced_hide_subscriptions_button_summary_on">সাবস্ক্রিপশন বাটন লুকিয়ে রয়েছে</string>
     <string name="revanced_hide_subscriptions_button_title">সাবস্ক্রিপশন বাটন লুকান</string>
@@ -459,6 +555,9 @@
     <string name="revanced_hide_transcript_section_summary_off">ট্রান্সস্ক্রিপ্ট সেকশন প্রদর্শিত হয়েছে</string>
     <string name="revanced_hide_transcript_section_summary_on">ট্রান্সস্ক্রিপ্ট সেকশন লুকিয়ে রয়েছে</string>
     <string name="revanced_hide_transcript_section_title">ট্রান্সস্ক্রিপ্ট সেকশন লুকান</string>
+    <string name="revanced_hide_toolbar_create_notification_button_summary_off">তৈরি করুন এবং বিজ্ঞপ্তি বাটন প্রদর্শিত হয়েছে</string>
+    <string name="revanced_hide_toolbar_create_notification_button_summary_on">তৈরি করুন এবং বিজ্ঞপ্তি বাটন লুকিয়ে রয়েছে</string>
+    <string name="revanced_hide_toolbar_create_notification_button_title">তৈরি করুন এবং বিজ্ঞপ্তি বাটন লুকান</string>
     <string name="revanced_hide_trending_searches_summary_off">ট্রেন্ডিং অনুসন্ধান প্রদর্শিত হয়েছে</string>
     <string name="revanced_hide_trending_searches_summary_on">ট্রেন্ডিং অনুসন্ধান লুকিয়ে রয়েছে</string>
     <string name="revanced_hide_trending_searches_title">ট্রেন্ডিং অনুসন্ধান লুকান</string>
@@ -482,6 +581,9 @@
     <string name="revanced_layout_title">লেআউট</string>
     <string name="revanced_misc">বিবিধ</string>
     <string name="revanced_navigation">নেভিগেশন</string>
+    <string name="revanced_open_library_you_startup_summary_off">লাইব্রেরি (আপনি) অ্যাপের শুরুতে খোলা হয়নি</string>
+    <string name="revanced_open_library_you_startup_summary_on">লাইব্রেরি (আপনি) অ্যাপের শুরুতে খোলা হয়েছে</string>
+    <string name="revanced_open_library_you_startup_title">লাইব্রেরি (আপনি) অ্যাপের শুরুতে খুলুন</string>
     <string name="revanced_others">অন্যান্য</string>
     <string name="revanced_overlay_button">ওভারলে বাটন</string>
     <string name="revanced_overlay_button_always_repeat_summary">"সর্বদা পুনরাবৃত্তি অবস্থা পরিবর্তন করতে ট্যাপ করুন
@@ -499,15 +601,13 @@
     <string name="revanced_overlay_button_speed_dialog_summary">"স্পিড ডায়ালগ খুলতে ট্যাপ করুন
 প্লেব্যাক স্পিড আবার সেট (১.০x) করতে ট্যাপ করে ধরে রাখুন"</string>
     <string name="revanced_overlay_button_speed_dialog_title">স্পিড ডায়ালগ বাটন দেখান</string>
-    <string name="revanced_override_premium_header_summary_off">বর্তমান হেডার: ডিফল্ট হেডার</string>
-    <string name="revanced_override_premium_header_summary_on">বর্তমান হেডার: প্রিমিয়াম হেডার</string>
-    <string name="revanced_override_premium_header_title">প্রিমিয়াম হেডার</string>
     <string name="revanced_patches_information">প্যাচ তথ্য</string>
     <string name="revanced_patches_information_summary">প্রয়োগকৃত প্যাচ সম্পর্কে তথ্য</string>
     <string name="revanced_player">প্লেয়ার</string>
     <string name="revanced_player_flyout_panel_title">প্লেয়ার ফ্লাইআউট প্যানেল</string>
     <string name="revanced_quick_actions_title">কুইক অ্যাকশন</string>
     <string name="revanced_reboot_first_run">লেআউটটি স্বাভাবিকভাবে লোড করতে পুনরায় চালু করুন</string>
+    <string name="revanced_ryd_about">সম্পর্কে</string>
     <string name="revanced_ryd_attribution_summary">অপছন্দের তথ্য প্রদান করা হয় Return YouTube Dislike API দ্বারা। আরও জানতে আলতো চাপুন।</string>
     <string name="revanced_ryd_compact_layout_summary_off">পছন্দ বাটন সেরা চেহারার জন্য সাজানো হয়েছে</string>
     <string name="revanced_ryd_compact_layout_summary_on">লাইক বোতামটি ন্যূনতম প্রস্থের জন্য সাজানো হয়েছে</string>
@@ -530,16 +630,51 @@
     <string name="revanced_seekbar">সিকবার</string>
     <string name="revanced_shorts">শর্টস</string>
     <string name="revanced_shorts_player_title">শর্টস প্লেয়ার</string>
+    <string name="revanced_shorts_toolbar_title">শর্টস টুলবার</string>
     <string name="revanced_show_fullscreen_title_summary">জানা সমস্যা: ক্লিক করলে টাইটেল অদৃশ্য হয়ে যায়</string>
     <string name="revanced_show_fullscreen_title_title">ফুলস্ক্রিণ টাইটেল দেখান</string>
+    <string name="revanced_skipped_preloaded_buffer">পূর্বে লোড হওয়া বাফার এড়িয়ে গেছে</string>
+    <string name="revanced_skip_preloaded_buffer_summary">"ভিডিও কোয়ালিটি প্রয়োগে দেরি হওয়া বাইপাস করতে পূর্বে লোড হওয়া বাফার এডিয়া যায়
+
+• যখন ভিডিও চালু হয়, ভিডিও কোয়ালিটি অবিলম্বে প্রয়োগ করতে ভিডিও চালু করতে ০.৭ সেকেন্ডে দেরি হয়
+• HDR ভিডিও এবং ১০ সেকেন্ডের কম ভিডিওতে এটি কাজ করে না"</string>
+    <string name="revanced_skip_preloaded_buffer_title">পূর্বে লোড হওয়া বাফার এড়িয়ে যান</string>
+    <string name="revanced_skip_preloaded_buffer_toast_summary_off">টোস্ট লুকিয়ে রয়েছে</string>
+    <string name="revanced_skip_preloaded_buffer_toast_summary_on">টোস্ট প্রদর্শিত হয়েছে</string>
+    <string name="revanced_skip_preloaded_buffer_toast_title">যখন এড়িয়ে যায় তখন একটি টোস্ট দেখান</string>
     <string name="revanced_spoof_app_version_summary">"পুরোনো সংস্করণে ক্লায়েন্ট সংস্করণ স্পুফিং করা হয়েছে
 
 এটি অ্যাপের চেহারাটি পরিবর্তন করবে, কিন্তু অজানা পার্শ্বপ্রতিক্রিয়া দেখা দিতে পারে
 পরবর্তীতে এটি বন্ধ করা হলে, অ্যাপ ডেটা সাফ করা না করা পর্যন্ত পুরানো ইউআই থাকতে পারে"</string>
+    <string name="revanced_spoof_app_version_target_entry_16_08_35">১৬.০৮.৩৫ - ঘুরে দেখুন ট্যাব পুনরুদ্ধার করে</string>
+    <string name="revanced_spoof_app_version_target_entry_17_08_35">১৭.০৮.৩৫ পুরোনো ইউআই লেআউট পুনরুদ্ধার করে</string>
+    <string name="revanced_spoof_app_version_target_entry_17_41_37">১৭.৪১.৩৭ - পুরোনো প্লেলিস্ট শেল্প পুনরুদ্ধার করে</string>
+    <string name="revanced_spoof_app_version_target_entry_18_01_38">"১৮.০১.৩৮ - 'সদস্যদের দ্বারা মন্তব্য' ব্যানার অপসারণ করে"</string>
+    <string name="revanced_spoof_app_version_target_entry_18_05_40">১৮.০৫.৪০ - পুরোনো মন্তব্য ইনপুট বাক্স পুনরুদ্ধার করে</string>
+    <string name="revanced_spoof_app_version_target_entry_18_17_43">১৮.১৭.৪৩ - পুরোনো প্লেয়ার ফ্লাইআউট প্যানেল পুনরুদ্ধার করে</string>
+    <string name="revanced_spoof_app_version_target_entry_18_33_40">১৮.৩৩.৪০ - পুরোনো শর্টস অ্যাকশন বার পুনরুদ্ধার করে</string>
     <string name="revanced_spoof_app_version_target_entry_title">স্পুফ অ্যাপ সংস্করণ টার্গেট</string>
     <string name="revanced_spoof_app_version_target_summary">আপনার নিজস্ব অ্যাপ স্পুফ সংস্করণ লিখুন</string>
     <string name="revanced_spoof_app_version_target_title">অ্যাপ সংস্করণ স্ফুপ সম্পাদনা করুন</string>
     <string name="revanced_spoof_app_version_title">অ্যাপ সংস্করণ স্পুফ করুন</string>
+    <string name="revanced_spoof_device_dimensions_summary">ডিভাইস ডাইমেনশন স্পুফ করার মাধ্যমে আপনার ডিভাইসে পাওয়া যায়নি এমন উচ্চমাত্রার ভিডিও কোয়ালিটি আনলক করে</string>
+    <string name="revanced_spoof_device_dimensions_title">ডিভাইস ডাইমেনশন স্পুফ করুন</string>
+    <string name="revanced_spoof_player_parameter_in_feed_summary_off">"ফিড ভিডিওতে প্লেয়ার প্যারামিটার স্পুফ করা হয়নি
+
+জানা সমস্যা
+• ফিড ভিডিও বাফারিং করার পূর্বে ১ মিনিট পর্যন্ত চলবে"</string>
+    <string name="revanced_spoof_player_parameter_in_feed_summary_on">"ফিড ভিডিওতে প্লেয়ার প্যারামিটির স্পুফ হয়েছে
+
+জানা সমস্যা
+• স্বয়ংক্রিয়ভাবে চলা ফিড ভিডিওগুলো ভিডিও দেখার ইতিহাসে যুক্ত হবে"</string>
+    <string name="revanced_spoof_player_parameter_in_feed_title">ফিডে প্লেয়ার প্যারামিটার স্পুফ করুন</string>
+    <string name="revanced_spoof_player_parameter_summary">"ভিডিওর বাফারিং ইস্যু সমস্যা ঠিক করতে প্লেয়ার প্যারামিটার স্পুফ করে
+
+জানা সমস্যা
+• উন্নত বিটরেট পাওয়া যাবে না
+• পেইড ভিডিওতে সিকবার থাম্বনেইল কাজ করবে না
+• অফলাইন ডাউনলোড কাজ নাও করতে পারে
+• সর্বশেষ যতটুকু পর্যন্ত ভিডিও দেখেছেন সেখান থেকে নাও শুরু হতে পারে"</string>
     <string name="revanced_spoof_player_parameter_title">প্লেয়ার প্যারামিটার স্পুফ করুন</string>
     <string name="revanced_swipe_controls">সোয়াইপ কন্ট্রোল</string>
     <string name="revanced_swipe_magnitude_threshold_summary">সোয়াইপ হওয়ার জন্য থ্রেশহোল্ডের পরিমাণ</string>
@@ -550,6 +685,7 @@
     <string name="revanced_swipe_overlay_text_size_title">সোয়াইপ ওভারলে টেক্সট সাইজ</string>
     <string name="revanced_swipe_overlay_timeout_summary">কত মিলিসেকেন্ডের জন্য ওভারলে দৃশ্যমান হবে</string>
     <string name="revanced_swipe_overlay_timeout_title">সোয়াইপ ওভারলে টাইমআউট</string>
+    <string name="revanced_switching_create_notification_summary">বি:দ্র: যদি সেটিং সঠিকভাবে প্রয়োগ না হয়, ফোন রিবুট করুন</string>
     <string name="revanced_switching_create_notification_title">তৈরি বাটনকে বিজ্ঞপ্তিসমূহের বাটনের সাথে সুইচ করুন</string>
     <string name="revanced_tool_used">ব্যবহৃত টুল</string>
     <string name="revanced_video">ভিডিও</string>
@@ -600,7 +736,13 @@
     <string name="sb_api_url_reset">API URL আবার সেট করুন</string>
     <string name="sb_api_url_invalid">API URL টি ভুল</string>
     <string name="sb_api_url_changed">API URL পরিবর্তন হয়েছে</string>
+    <string name="sb_settings_copy">কপি করুন</string>
     <string name="sb_settings_ie_sum">এটি আপনার একটি SponsorBlock JSON কনফিগারেশন যা ReVanced এবং অন্যান্য SponsorBlock প্ল্যাটফর্মে ইমপোর্ট / এক্সপোর্ট করা যেতে পারে। এটিতে আপনার ব্যক্তিগত ব্যবহারকারী আইডিও রয়েছে। এটি কোথাও শেয়ার করার সময় বিবেচনা করে করবেন</string>
+    <string name="sb_settings_import_successful">সেটিং সফলভাবে আমদানি করা হয়েছে</string>
+    <string name="sb_settings_import_failed">%s আমদানি করতে ব্যর্থ হয়েছে</string>
+    <string name="sb_settings_export_failed">%s রপ্তানি করতে ব্যর্থ হয়েছে</string>
+    <string name="sb_settings_revanced_export_user_id_warning">আপনার সেটিংএ একটি প্রাইভেট SponsorBlock ব্যবহারকারী আইডি রয়েছে।\n\nআপনার ব্যবহারকারী আইডি অনেকটা পাসওয়ার্ডের মতো তাই এটি কখনোই শেয়ার করা উচিত নয়।\n</string>
+    <string name="sb_settings_revanced_export_user_id_warning_dismiss">পুনরায় দেখাবেন না</string>
     <string name="sb_diff_segments">সেগমেন্ট আচরণ পরিবর্তন করুন</string>
     <string name="sb_segments_sponsor">স্পন্সর</string>
     <string name="sb_segments_sponsor_sum">পেইড প্রমোশন, পেইড রেফারেল এবং সরাসরি বিজ্ঞাপন। নিজের পছন্দসই কারণ/স্রষ্টা/ওয়েবসাইট/পণ্যগুলিতে স্ব-প্রচার বা বিনামূল্যে প্রচারের জন্য নয়।</string>
@@ -702,6 +844,7 @@
     <string name="sb_color_reset">রং আবার সেট করুন</string>
     <string name="sb_color_invalid">রংয়ের ভুল কোড</string>
     <string name="sb_reset_color">রঙ পুনরায় সেট করুন</string>
+    <string name="sb_about">সম্পর্কে</string>
     <string name="sb_reset">আবার সেট</string>
     <string name="sb_about_api_sum">ডেটা SponsorBlock API দ্বারা সরবরাহ করা হয়। আরও জানতে এবং অন্যান্য প্ল্যাটফর্মের ডাউনলোড দেখতে এখানে ট্যাপ করুন</string>
     <string name="settings_export_failed">সেটিং রপ্তানি করতে ব্যর্থ হয়েছে</string>
