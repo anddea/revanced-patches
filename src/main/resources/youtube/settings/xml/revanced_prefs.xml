@@ -214,9 +214,6 @@
         <!-- SETTINGS: HIDE_TRENDING_SEARCHES
         <SwitchPreference android:title="@string/revanced_hide_trending_searches_title" android:key="revanced_hide_trending_searches" android:defaultValue="true" android:summaryOn="@string/revanced_hide_trending_searches_summary_on" android:summaryOff="@string/revanced_hide_trending_searches_summary_off" />SETTINGS: HIDE_TRENDING_SEARCHES -->
 
-        <!-- SETTINGS: HEADER_SWITCH
-        <SwitchPreference android:title="@string/revanced_override_premium_header_title" android:key="revanced_override_premium_header" android:defaultValue="false" android:summaryOn="@string/revanced_override_premium_header_summary_on" android:summaryOff="@string/revanced_override_premium_header_summary_off" />SETTINGS: HEADER_SWITCH -->
-
         <!-- SETTINGS: HIDE_LAYOUT_COMPONENTS
         <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_layout_title" />
         <SwitchPreference android:title="@string/revanced_custom_filter_title" android:key="revanced_custom_filter" android:defaultValue="false" android:summaryOn="@string/revanced_custom_filter_summary_on" android:summaryOff="@string/revanced_custom_filter_summary_off" />
@@ -356,7 +353,6 @@
             <Preference android:title="Enable gradient loading screen" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Enable tablet mini player" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Enable wide search bar" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
-            <Preference android:title="Header switch" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Hide account menu" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Hide auto player popup panels" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Hide category bar" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
