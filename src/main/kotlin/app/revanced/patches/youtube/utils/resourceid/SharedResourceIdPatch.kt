@@ -84,7 +84,6 @@ object SharedResourceIdPatch : ResourcePatch() {
     var TotalTime: Long = -1
     var VideoQualityBottomSheet: Long = -1
     var VideoZoomIndicatorLayout: Long = -1
-    var WordMarkHeader: Long = -1
     var YoutubeControlsOverlay: Long = -1
     var YtOutlineArrowTimeBlack: Long = -1
     var YtOutlineFireBlack: Long = -1
@@ -168,7 +167,6 @@ object SharedResourceIdPatch : ResourcePatch() {
         TotalTime = find(STRING, "total_time")
         VideoQualityBottomSheet = find(LAYOUT, "video_quality_bottom_sheet_list_fragment_title")
         VideoZoomIndicatorLayout = find(ID, "video_zoom_indicator_layout")
-        WordMarkHeader = find(ATTR, "ytWordmarkHeader")
         YoutubeControlsOverlay = find(ID, "youtube_controls_overlay")
         YtOutlineArrowTimeBlack = find(DRAWABLE, "yt_outline_arrow_time_black_24")
         YtOutlineFireBlack = find(DRAWABLE, "yt_outline_fire_black_24")
