@@ -71,7 +71,7 @@ object MaterialYouPatch : ResourcePatch() {
         /**
          * Add settings
          */
-        context.updatePatchStatusTheme("materialyou")
+        context.updatePatchStatusTheme("MaterialYou")
 
         isMonetPatchIncluded = true
 

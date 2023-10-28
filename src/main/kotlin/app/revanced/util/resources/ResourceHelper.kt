@@ -66,16 +66,20 @@ internal object ResourceHelper {
         updatePatchStatusSettings(patchTitle, "@string/revanced_patches_included")
     }
 
+    internal fun ResourceContext.updatePatchStatusHeader(headerName: String) {
+        updatePatchStatusSettings("Header", headerName)
+    }
+
     internal fun ResourceContext.updatePatchStatusLabel(appName: String) {
-        updatePatchStatusSettings("Labels", appName)
+        updatePatchStatusSettings("Label", appName)
     }
 
     internal fun ResourceContext.updatePatchStatusIcon(iconName: String) {
-        updatePatchStatusSettings("Icons", "@string/revanced_icons_$iconName")
+        updatePatchStatusSettings("Icon", "@string/revanced_icon_$iconName")
     }
 
     internal fun ResourceContext.updatePatchStatusTheme(themeName: String) {
-        updatePatchStatusSettings("Themes", "@string/revanced_themes_$themeName")
+        updatePatchStatusSettings("Theme", themeName)
     }
 
     private fun ResourceContext.updatePatchStatusSettings(
