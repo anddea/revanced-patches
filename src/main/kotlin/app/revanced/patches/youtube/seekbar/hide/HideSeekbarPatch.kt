@@ -71,8 +71,7 @@ object HideSeekbarPatch : BytecodePatch(
         SettingsPatch.addPreference(
             arrayOf(
                 "PREFERENCE: SEEKBAR_SETTINGS",
-                "SETTINGS: HIDE_SEEKBAR",
-                "SETTINGS: HIDE_SEEKBAR_THUMBNAIL"
+                "SETTINGS: HIDE_SEEKBAR"
             )
         )
 
