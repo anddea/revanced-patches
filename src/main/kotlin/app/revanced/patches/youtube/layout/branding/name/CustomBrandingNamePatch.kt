@@ -41,6 +41,20 @@ import app.revanced.util.resources.ResourceHelper.updatePatchStatusLabel
 )
 @Suppress("unused")
 object CustomBrandingNamePatch : ResourcePatch() {
+    private const val APP_NAME = "ReVanced Extended"
+
+    private val AppName by stringPatchOption(
+        key = "AppName",
+        default = APP_NAME,
+        values = mapOf(
+            "Full name" to APP_NAME,
+            "Short name" to "RVX"
+        ),
+        title = "App name",
+        description = "The name of the app.",
+        required = true
+    )
+
     override fun execute(context: ResourceContext) {
 
         AppName?.let {
@@ -61,17 +75,4 @@ object CustomBrandingNamePatch : ResourcePatch() {
             context.updatePatchStatusLabel(it)
         } ?: throw PatchException("Invalid app name.")
     }
-
-    private const val APP_NAME = "ReVanced Extended"
-
-    internal var AppName by stringPatchOption(
-        key = "AppName",
-        default = APP_NAME,
-        values = mapOf(
-            "Full name" to APP_NAME,
-            "Short name" to "RVX"
-        ),
-        title = "App name",
-        description = "The name of the app."
-    )
 }

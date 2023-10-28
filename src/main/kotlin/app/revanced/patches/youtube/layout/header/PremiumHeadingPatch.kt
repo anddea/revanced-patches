@@ -47,7 +47,7 @@ object PremiumHeadingPatch : ResourcePatch() {
         default = true,
         title = "Use premium heading",
         description = "Whether to use the premium heading.",
-        required = true,
+        required = true
     )
 
     override fun execute(context: ResourceContext) {

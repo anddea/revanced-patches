@@ -60,11 +60,12 @@ import org.w3c.dom.Element
 )
 @Suppress("unused")
 object OverlayButtonsPatch : ResourcePatch() {
-    internal var OutlineIcon by booleanPatchOption(
+    private val OutlineIcon by booleanPatchOption(
         key = "OutlineIcon",
         default = false,
         title = "Outline icons",
-        description = "Apply the outline icon"
+        description = "Apply the outline icon",
+        required = true
     )
 
     override fun execute(context: ResourceContext) {

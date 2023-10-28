@@ -52,8 +52,7 @@ object ThemePatch : ResourcePatch() {
     private const val DARK_ORANGE_COLOR = "#FF291800"
     private const val DARK_RED_COLOR = "#FF290000"
 
-
-    internal var DarkThemeBackgroundColor by stringPatchOption(
+    private val DarkThemeBackgroundColor by stringPatchOption(
         key = "DarkThemeBackgroundColor",
         default = AMOLED_BLACK_COLOR,
         values = mapOf(
@@ -68,6 +67,7 @@ object ThemePatch : ResourcePatch() {
         ),
         title = "Dark theme background color",
         description = "Can be a hex color (#AARRGGBB) or a color resource reference.",
+        required = true
     )
 
     private fun getThemeString(darkThemeColor: String) =
