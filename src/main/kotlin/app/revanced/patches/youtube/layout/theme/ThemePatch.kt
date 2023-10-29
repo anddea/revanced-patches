@@ -44,7 +44,7 @@ import org.w3c.dom.Element
 @Suppress("unused")
 object ThemePatch : ResourcePatch() {
     private const val AMOLED_BLACK_COLOR = "@android:color/black"
-    private const val CATPPUCCIN_COLOR = "#FF181825"
+    private const val CATPPUCCIN_MOCHA_COLOR = "#FF181825"
     private const val DARK_PINK_COLOR = "#FF290025"
     private const val DARK_BLUE_COLOR = "#FF001029"
     private const val DARK_GREEN_COLOR = "#FF002905"
@@ -52,12 +52,21 @@ object ThemePatch : ResourcePatch() {
     private const val DARK_ORANGE_COLOR = "#FF291800"
     private const val DARK_RED_COLOR = "#FF290000"
 
+    private const val WHITE_COLOR = "@android:color/white"
+    private const val CATPPUCCIN_LATTE_COLOR = "#FFE6E9EF"
+    private const val LIGHT_PINK_COLOR = "#FFFCCFF3"
+    private const val LIGHT_BLUE_COLOR = "#FFD1E0FF"
+    private const val LIGHT_GREEN_COLOR = "#FFCCFFCC"
+    private const val LIGHT_YELLOW_COLOR = "#FFFDFFCC"
+    private const val LIGHT_ORANGE_COLOR = "#FFFFE6CC"
+    private const val LIGHT_RED_COLOR = "#FFFFD6D6"
+
     private val DarkThemeBackgroundColor by stringPatchOption(
         key = "DarkThemeBackgroundColor",
         default = AMOLED_BLACK_COLOR,
         values = mapOf(
             "Amoled Black" to AMOLED_BLACK_COLOR,
-            "Catppuccin (Mocha)" to CATPPUCCIN_COLOR,
+            "Catppuccin (Mocha)" to CATPPUCCIN_MOCHA_COLOR,
             "Dark Pink" to DARK_PINK_COLOR,
             "Dark Blue" to DARK_BLUE_COLOR,
             "Dark Green" to DARK_GREEN_COLOR,
@@ -70,10 +79,37 @@ object ThemePatch : ResourcePatch() {
         required = true
     )
 
-    private fun getThemeString(darkThemeColor: String) =
+    private val LightThemeBackgroundColor by stringPatchOption(
+        key = "LightThemeBackgroundColor",
+        default = WHITE_COLOR,
+        values = mapOf(
+            "White" to WHITE_COLOR,
+            "Catppuccin (Latte)" to CATPPUCCIN_LATTE_COLOR,
+            "Light Pink" to LIGHT_PINK_COLOR,
+            "Light Blue" to LIGHT_BLUE_COLOR,
+            "Light Green" to LIGHT_GREEN_COLOR,
+            "Light Yellow" to LIGHT_YELLOW_COLOR,
+            "Light Orange" to LIGHT_ORANGE_COLOR,
+            "Light Red" to LIGHT_RED_COLOR
+        ),
+        title = "Light theme background color",
+        description = "Can be a hex color (#AARRGGBB) or a color resource reference.",
+    )
+
+    private fun getThemeString(
+        darkThemeColor: String,
+        lightThemeColor: String
+    ): String {
+        return if (lightThemeColor != WHITE_COLOR)
+            getLightThemeString(lightThemeColor) + " + " + getDarkThemeString(darkThemeColor)
+        else
+            getDarkThemeString(darkThemeColor)
+    }
+
+    private fun getDarkThemeString(darkThemeColor: String) =
         when (darkThemeColor) {
             AMOLED_BLACK_COLOR -> "Amoled Black"
-            CATPPUCCIN_COLOR -> "Catppuccin (Mocha)"
+            CATPPUCCIN_MOCHA_COLOR -> "Catppuccin (Mocha)"
             DARK_PINK_COLOR -> "Dark Pink"
             DARK_BLUE_COLOR -> "Dark Blue"
             DARK_GREEN_COLOR -> "Dark Green"
@@ -83,10 +119,25 @@ object ThemePatch : ResourcePatch() {
             else -> "Custom"
         }
 
+    private fun getLightThemeString(lightThemeColor: String) =
+        when (lightThemeColor) {
+            CATPPUCCIN_LATTE_COLOR -> "Catppuccin (Latte)"
+            LIGHT_PINK_COLOR -> "Light Pink"
+            LIGHT_BLUE_COLOR -> "Light Blue"
+            LIGHT_GREEN_COLOR -> "Light Green"
+            LIGHT_YELLOW_COLOR -> "Light Yellow"
+            LIGHT_ORANGE_COLOR -> "Light Orange"
+            LIGHT_RED_COLOR -> "Light Red"
+            else -> "Custom"
+        }
+
     override fun execute(context: ResourceContext) {
 
         val darkThemeColor = DarkThemeBackgroundColor
-            ?: throw PatchException("Invalid color.")
+            ?: throw PatchException("Invalid dark color.")
+
+        val lightThemeColor = LightThemeBackgroundColor
+            ?: throw PatchException("Invalid light color.")
 
         arrayOf("values", "values-v31").forEach { path ->
             context.xmlEditor["res/$path/colors.xml"].use { editor ->
@@ -105,10 +156,27 @@ object ThemePatch : ResourcePatch() {
             }
         }
 
+        context.xmlEditor["res/values/colors.xml"].use { editor ->
+            val resourcesNode = editor.file.getElementsByTagName("resources").item(0) as Element
+
+            val children = resourcesNode.childNodes
+            for (i in 0 until children.length) {
+                val node = children.item(i) as? Element ?: continue
+
+                node.textContent = when (node.getAttribute("name")) {
+                    "yt_white1", "yt_white1_opacity95", "yt_white1_opacity98",
+                    "yt_white2", "yt_white3", "yt_white4",
+                    -> lightThemeColor
+
+                    else -> continue
+                }
+            }
+        }
+
         val currentTheme = if (isMonetPatchIncluded)
-            "MaterialYou + " + getThemeString(darkThemeColor)
+            "MaterialYou + " + getThemeString(darkThemeColor, lightThemeColor)
         else
-            getThemeString(darkThemeColor)
+            getThemeString(darkThemeColor, lightThemeColor)
 
         context.updatePatchStatusTheme(currentTheme)
 
