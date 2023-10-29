@@ -401,6 +401,7 @@
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_player" />
             <Preference android:title="Custom player overlay opacity" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Disable haptic feedback" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="Disable speed overlay" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Hide autoplay button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Hide captions button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Hide cast button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
@@ -503,6 +504,9 @@
 
         <!-- SETTINGS: CUSTOM_PLAYER_OVERLAY_OPACITY
         <app.revanced.integrations.settingsmenu.ResettableEditTextPreference android:hint="100" android:defaultValue="100" android:title="@string/revanced_custom_player_overlay_opacity_title" android:key="revanced_custom_player_overlay_opacity" android:summary="@string/revanced_custom_player_overlay_opacity_summary" android:inputType="number" />SETTINGS: CUSTOM_PLAYER_OVERLAY_OPACITY -->
+
+        <!-- SETTINGS: DISABLE_SPEED_OVERLAY
+        <SwitchPreference android:title="@string/revanced_disable_speed_overlay_title" android:key="revanced_disable_speed_overlay" android:defaultValue="false" android:summary="@string/revanced_disable_speed_overlay_summary" />SETTINGS: DISABLE_SPEED_OVERLAY -->
 
         <!-- SETTINGS: HIDE_AUDIO_TRACK_BUTTON
         <SwitchPreference android:title="@string/revanced_hide_audio_track_button_title" android:key="revanced_hide_audio_track_button" android:defaultValue="true" android:summaryOn="@string/revanced_hide_audio_track_button_summary_on" android:summaryOff="@string/revanced_hide_audio_track_button_summary_off" />SETTINGS: HIDE_AUDIO_TRACK_BUTTON -->
