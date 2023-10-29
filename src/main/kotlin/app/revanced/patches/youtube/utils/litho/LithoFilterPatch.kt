@@ -31,10 +31,11 @@ object LithoFilterPatch : BytecodePatch(
     private var filterCount = 0
     override fun execute(context: BytecodeContext) {
 
+        // ByteBuffer is set after checking for non-null
         GeneralByteBufferFingerprint.result?.let {
             it.mutableMethod.apply {
                 addInstruction(
-                    0,
+                    2,
                     "invoke-static { p2 }, $INTEGRATIONS_CLASS_DESCRIPTOR->setProtoBuffer(Ljava/nio/ByteBuffer;)V"
                 )
             }
