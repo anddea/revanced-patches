@@ -5,7 +5,6 @@ import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.shared.patch.mapping.ResourceMappingPatch
 import app.revanced.util.enum.ResourceType
-import app.revanced.util.enum.ResourceType.ATTR
 import app.revanced.util.enum.ResourceType.COLOR
 import app.revanced.util.enum.ResourceType.DIMEN
 import app.revanced.util.enum.ResourceType.DRAWABLE

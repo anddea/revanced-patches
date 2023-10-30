@@ -40,7 +40,8 @@ object ComponentParserPatch : BytecodePatch(
                         invoke-static {v$stringBuilderRegister, v$identifierRegister, v$objectRegister}, $descriptor(Ljava/lang/StringBuilder;Ljava/lang/String;Ljava/lang/Object;)Z
                         move-result v$stringBuilderRegister
                         if-eqz v$stringBuilderRegister, :filter
-                        """ + emptyComponentLabel, ExternalLabel("filter", getInstruction(insertIndex))
+                        """ + emptyComponentLabel,
+                ExternalLabel("filter", getInstruction(insertIndex))
             )
         }
     }
@@ -53,7 +54,8 @@ object ComponentParserPatch : BytecodePatch(
                         invoke-static {v$stringBuilderRegister}, $descriptor(Ljava/lang/StringBuilder;)Z
                         move-result v$stringBuilderRegister
                         if-eqz v$stringBuilderRegister, :filter
-                        """ + emptyComponentLabel, ExternalLabel("filter", getInstruction(insertIndex))
+                        """ + emptyComponentLabel,
+                ExternalLabel("filter", getInstruction(insertIndex))
             )
         }
     }
