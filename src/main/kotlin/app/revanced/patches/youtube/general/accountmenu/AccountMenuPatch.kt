@@ -45,7 +45,8 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
                 "18.38.44",
                 "18.39.41",
                 "18.40.34",
-                "18.41.39"
+                "18.41.39",
+                "18.42.41"
             ]
         )
     ]
@@ -107,7 +108,8 @@ object AccountMenuPatch : BytecodePatch(
             }.result?.let {
                 it.mutableMethod.apply {
                     val setViewGroupMarginIndex = it.scanResult.patternScanResult!!.startIndex
-                    val setViewGroupMarginReference = getInstruction<ReferenceInstruction>(setViewGroupMarginIndex).reference
+                    val setViewGroupMarginReference =
+                        getInstruction<ReferenceInstruction>(setViewGroupMarginIndex).reference
 
                     AccountMenuPatchFingerprint.result?.mutableMethod?.addInstructions(
                         0, """

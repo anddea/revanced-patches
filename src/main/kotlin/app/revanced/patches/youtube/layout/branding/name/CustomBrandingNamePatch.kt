@@ -34,7 +34,8 @@ import app.revanced.util.resources.ResourceHelper.updatePatchStatusLabel
                 "18.38.44",
                 "18.39.41",
                 "18.40.34",
-                "18.41.39"
+                "18.41.39",
+                "18.42.41"
             ]
         )
     ]

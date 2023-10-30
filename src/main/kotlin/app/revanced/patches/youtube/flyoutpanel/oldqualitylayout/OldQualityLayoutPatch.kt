@@ -44,7 +44,8 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
                 "18.38.44",
                 "18.39.41",
                 "18.40.34",
-                "18.41.39"
+                "18.41.39",
+                "18.42.41"
             ]
         )
     ]
@@ -78,7 +79,7 @@ object OldQualityLayoutPatch : BytecodePatch(
          */
         RecyclerViewTreeObserverFingerprint.result?.let {
             it.mutableMethod.apply {
-                val insertIndex = it.scanResult.patternScanResult!!.startIndex + 2
+                val insertIndex = it.scanResult.patternScanResult!!.startIndex
                 val recyclerViewRegister = 2
 
                 addInstruction(

@@ -98,7 +98,7 @@ object OldSpeedLayoutPatch : BytecodePatch(
          */
         RecyclerViewTreeObserverFingerprint.result?.let {
             it.mutableMethod.apply {
-                val insertIndex = it.scanResult.patternScanResult!!.startIndex + 2
+                val insertIndex = it.scanResult.patternScanResult!!.startIndex
                 val recyclerViewRegister = 2
 
                 addInstruction(
