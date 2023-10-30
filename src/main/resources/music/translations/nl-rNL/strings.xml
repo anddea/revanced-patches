@@ -11,6 +11,7 @@
     <string name="revanced_category_video">Video</string>
     <string name="revanced_custom_filter_strings_summary">Componentnamen filteren op lijn spatie</string>
     <string name="revanced_custom_filter_strings_title">Wijzig aangepaste filter</string>
+    <string name="revanced_custom_filter_strings_warning">Ongeldige aangepaste filter, reset naar standaard.</string>
     <string name="revanced_custom_filter_summary">Aangepast filter inschakelen</string>
     <string name="revanced_custom_filter_title">Aangepast filter inschakelen</string>
     <string name="revanced_custom_playback_speeds_invalid">Ongeldige aangepaste afspeelsnelheden. Herstel naar standaardwaarden.</string>
@@ -24,7 +25,11 @@
     <string name="revanced_enable_black_navigation_bar_title">Activeer zwarte navigatie balk</string>
     <string name="revanced_enable_color_match_player_summary">Komt overeen met de kleur van de mini speler en de volschermspeler.</string>
     <string name="revanced_enable_color_match_player_title">Kleuren overeenkomst van de speler inschakelen</string>
-    <string name="revanced_enable_compact_dialog_summary">Compacte dialoog inschakelen op telefoon.</string>
+    <string name="revanced_enable_compact_dialog_summary">"Zet compact dialoogvenster aan op telefoon.
+
+Bekende problemen:
+• Albumhoezen op de bibliotheekschaal worden ook kleiner.
+• Slaap timer lay-out kan ongebruikelijk verschijnen."</string>
     <string name="revanced_enable_compact_dialog_title">Compacte dialoog inschakelen op telefoon</string>
     <string name="revanced_enable_debug_logging_summary">Laat het debug logboek zien.</string>
     <string name="revanced_enable_debug_logging_title">Debug logging aanzetten</string>
@@ -96,6 +101,7 @@ WAARSCHUWING: Schakel de achtergronden van nieuwe spelers niet in als dit is ing
     <string name="revanced_hide_flyout_panel_go_to_artist_title">Verberg naar artiest menu</string>
     <string name="revanced_hide_flyout_panel_go_to_episode_title">Verberg ga naar aflevering menu</string>
     <string name="revanced_hide_flyout_panel_go_to_podcast_title">Verbergen naar podcast menu</string>
+    <string name="revanced_hide_flyout_panel_help_title">Help &amp; feedback menu verbergen</string>
     <string name="revanced_hide_flyout_panel_like_dislike_title">Verberg vind ik leuk en vind ik niet leuk knop</string>
     <string name="revanced_hide_flyout_panel_play_next_title">Verberg speel volgende menu</string>
     <string name="revanced_hide_flyout_panel_remove_from_library_title">Verberg verwijder van bibliotheek menu</string>
@@ -220,4 +226,5 @@ WAARSCHUWING: Schakel de achtergronden van nieuwe spelers niet in als dit is ing
     <string name="sb_color_invalid">Ongeldige kleurcode</string>
     <string name="sb_reset_color">Kleur terugzetten</string>
     <string name="sb_about_api_sum">Gegevens worden aangeboden door de SponsorBlock API. Tik hier om meer te weten te komen en de downloads van andere platforms te bekijken</string>
+    <string name="sb_about">Over</string>
 </resources>

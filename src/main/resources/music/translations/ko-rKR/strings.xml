@@ -25,7 +25,11 @@
     <string name="revanced_enable_black_navigation_bar_title">검정 하단바 활성화</string>
     <string name="revanced_enable_color_match_player_summary">최소화 상태의 플레이어와 전체화면 플레이어의 색상을 통일시킵니다.</string>
     <string name="revanced_enable_color_match_player_title">색상 일치 플레이어 활성화</string>
-    <string name="revanced_enable_compact_dialog_summary">휴대폰용 소형 다이얼로그를 활성화합니다.</string>
+    <string name="revanced_enable_compact_dialog_summary">"휴대폰에서 소형 다이얼로그를 활성화합니다.
+
+알려진 문제점:
+- 보관함 선반에서 앨범 커버도 작아집니다.
+- 취침 타이머 레이아웃이 비정상적으로 보일 수 있습니다."</string>
     <string name="revanced_enable_compact_dialog_title">소형 다이얼로그 활성화</string>
     <string name="revanced_enable_debug_logging_summary">디버그 로그를 출력합니다.</string>
     <string name="revanced_enable_debug_logging_title">디버그 로깅 활성화</string>
@@ -97,6 +101,7 @@
     <string name="revanced_hide_flyout_panel_go_to_artist_title">아티스트 페이지로 이동 메뉴 제거</string>
     <string name="revanced_hide_flyout_panel_go_to_episode_title">에피소드로 이동 메뉴 제거</string>
     <string name="revanced_hide_flyout_panel_go_to_podcast_title">팟캐스트로 이동 메뉴 제거</string>
+    <string name="revanced_hide_flyout_panel_help_title">고객센터 메뉴 제거</string>
     <string name="revanced_hide_flyout_panel_like_dislike_title">좋아요 &amp; 싫어요 버튼 제거</string>
     <string name="revanced_hide_flyout_panel_play_next_title">다음에 재생 메뉴 제거</string>
     <string name="revanced_hide_flyout_panel_remove_from_library_title">보관함에서 삭제 메뉴 제거</string>
@@ -221,4 +226,5 @@
     <string name="sb_color_invalid">잘못된 헥스 코드입니다.</string>
     <string name="sb_reset_color">색상 초기화</string>
     <string name="sb_about_api_sum">건너뛸 구간의 데이터는 SponsorBlock API에 의해 제공됩니다. 자세한 내용을 보려면 누르세요.</string>
+    <string name="sb_about">정보</string>
 </resources>
