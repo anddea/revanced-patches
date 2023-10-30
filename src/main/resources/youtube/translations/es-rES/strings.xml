@@ -91,6 +91,10 @@
     <string name="revanced_disable_landscape_mode_title">Desactivar modo horizontal al entrar en pantalla completa</string>
     <string name="revanced_disable_quic_protocol_summary">"Desactiva el protocolo QUIC de CronetEngine"</string>
     <string name="revanced_disable_quic_protocol_title">Desactivar protocolo QUIC</string>
+    <string name="revanced_disable_speed_overlay_summary">"Desactiva 'Reproduciendo a la velocidad 2x' mientras mantienes pulsado
+
+Nota: Al desactivar la superposición de velocidad no se restablece el comportamiento 'Deslizar para desplazarse' del diseño antiguo"</string>
+    <string name="revanced_disable_speed_overlay_title">Desactivar superposición de velocidad</string>
     <string name="revanced_disable_startup_shorts_player_summary_off">El reproductor de Shorts está activado al iniciar la aplicación</string>
     <string name="revanced_disable_startup_shorts_player_summary_on">El reproductor de Shorts está desactivado al iniciar la aplicación</string>
     <string name="revanced_disable_startup_shorts_player_title">Desactivar reproductor de Shorts al iniciar la app</string>
@@ -542,8 +546,9 @@ Problema conocido: Se ocultan las cabeceras oficiales en los resultados de búsq
     <string name="revanced_hide_suggested_actions_summary_off">Las acciones sugeridas están visibles</string>
     <string name="revanced_hide_suggested_actions_summary_on">Las acciones sugeridas están ocultas</string>
     <string name="revanced_hide_suggested_actions_title">Ocultar acciones sugeridas</string>
-    <string name="revanced_hide_suggested_video_overlay_summary">"Oculta la superposición de vídeo sugerido para reproducir a continuación
-Problema conocido: la reproducción automática no funciona"</string>
+    <string name="revanced_hide_suggested_video_overlay_summary">"Oculta la superposición del vídeo sugerido para reproducir a continuación
+
+Problema conocido: La reproducción automática no funciona"</string>
     <string name="revanced_hide_suggested_video_overlay_title">Ocultar superposición de vídeo sugerido</string>
     <string name="revanced_hide_suggestions_shelf_summary">"Oculta las siguientes estanterías:
 - Noticias de última hora
@@ -850,7 +855,7 @@ Problemas conocidos
     <string name="sb_stats_username_change_unknown_error" formatted="false">No se puede cambiar el nombre de usuario: Estado: %d %s</string>
     <string name="sb_stats_username_changed">Nombre de usuario cambiado correctamente</string>
     <string name="sb_stats_reputation" formatted="false">Tu reputación es de &lt;b&gt;%.2f&lt;/b&gt;</string>
-    <string name="sb_stats_submissions" formatted="false">Has omitido &lt;b&gt;%s&lt;/b&gt; segmentos</string>
+    <string name="sb_stats_submissions" formatted="false">Has creado &lt;b&gt;%s&lt;/b&gt; segmentos</string>
     <string name="sb_stats_saved_zero">Tabla de clasificación de SponsorBlock</string>
     <string name="sb_stats_saved" formatted="false">Has salvado personas de &lt;b&gt;%s&lt;/b&gt; segmentos</string>
     <string name="sb_stats_saved_sum_zero">Pulsa aquí para ver las estadísticas globales y los mejores colaboradores</string>

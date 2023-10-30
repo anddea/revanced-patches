@@ -63,7 +63,7 @@
     <string name="revanced_default_video_quality_mobile_title">Типова якість відео в мобільній мережі</string>
     <string name="revanced_default_video_quality_wifi_title">Типова якість відео в Wi-Fi мережі</string>
     <string name="revanced_description_title">Опис</string>
-    <string name="revanced_disable_ambient_mode_in_fullscreen_summary">Вимикає кінематографічне освітлення в повноекранному режимі</string>
+    <string name="revanced_disable_ambient_mode_in_fullscreen_summary">Вимикається кінематографічне освітлення в повноекранному режимі</string>
     <string name="revanced_disable_ambient_mode_in_fullscreen_title">Вимкнути кінематографічне освітлення в повноекранному режимі</string>
     <string name="revanced_disable_ambient_mode_summary">Завжди вимикати кінематографічне освітлення</string>
     <string name="revanced_disable_ambient_mode_title">Вимкнути кінематографічне освітлення</string>
@@ -91,6 +91,10 @@
     <string name="revanced_disable_landscape_mode_title">Вимкнути ландшафтний режим</string>
     <string name="revanced_disable_quic_protocol_summary">"Вимкнути протокол CronetEngine's QUIC"</string>
     <string name="revanced_disable_quic_protocol_title">Вимкнути протокол QUIC</string>
+    <string name="revanced_disable_speed_overlay_summary">"Вимикається 'Відтворення зі швидкістю 2x' під час утримання
+
+Примітка: Вимкнення накладання швидкості не відновлює поведінку 'Перемотки пересуванням' старого макету"</string>
+    <string name="revanced_disable_speed_overlay_title">Вимкнути накладання швидкості</string>
     <string name="revanced_disable_startup_shorts_player_summary_off">Плеєр коротких відео увімкнено при запуску програми</string>
     <string name="revanced_disable_startup_shorts_player_summary_on">Плеєр коротких відео вимкнено при запуску програми</string>
     <string name="revanced_disable_startup_shorts_player_title">Вимкнути плеєр коротких відео при запуску програми</string>
@@ -542,8 +546,9 @@
     <string name="revanced_hide_suggested_actions_summary_off">Пропоновані дії показуються</string>
     <string name="revanced_hide_suggested_actions_summary_on">Пропоновані дії приховано</string>
     <string name="revanced_hide_suggested_actions_title">Приховати пропоновані дії</string>
-    <string name="revanced_hide_suggested_video_overlay_summary">"Приховує запропоновані відео для наступного відтворення
-Відома проблема: автовідтворення не працює"</string>
+    <string name="revanced_hide_suggested_video_overlay_summary">"Приховуються запропоновані відео для наступного відтворення
+
+Відома проблема: Автовідтворення не працює"</string>
     <string name="revanced_hide_suggested_video_overlay_title">Приховати пропоновані відео</string>
     <string name="revanced_hide_suggestions_shelf_summary">"Приховати наступні полиці:
 - Важливі новини
@@ -585,8 +590,13 @@
     <string name="revanced_hide_youtube_music_button_title">Приховати кнопку Youtube Music</string>
     <string name="revanced_hook_download_button_summary">"Поміняти місцями кнопку завантаження з кнопкою зовнішнього завантаження"</string>
     <string name="revanced_hook_download_button_title">Змінити кнопку завантаження</string>
+    <string name="revanced_import_settings_inform">"Наступні налаштування не можуть бути імпортовані, тому, будь ласка, відкрийте налаштування ReVanced Extended один раз після імпорту налаштувань
+
+• Приховати меню додаткових налаштувань (спливаюча панель плеєра)
+• Приховати панель інструментів коротких"</string>
     <string name="revanced_import_settings_summary">Отримати налаштування ReVanced зі збереженого файлу</string>
     <string name="revanced_import_settings_title">Імпортувати налаштування</string>
+    <string name="revanced_inform">Інформувати</string>
     <string name="revanced_layout_title">Макет</string>
     <string name="revanced_misc">Різне</string>
     <string name="revanced_navigation">Навігація</string>
@@ -613,6 +623,8 @@
     <string name="revanced_patches_information">Інформація про патчі</string>
     <string name="revanced_patches_information_summary">Інформація про застосовані патчі</string>
     <string name="revanced_player">Плеєр</string>
+    <string name="revanced_player_flyout_panel_additional_settings_summary">Щоб приховати меню додаткових налаштувань, приховуються всі налаштування в категорії додаткових налаштувань</string>
+    <string name="revanced_player_flyout_panel_additional_settings_title">Спливаюча панель плеєра (Додаткові налаштування)</string>
     <string name="revanced_player_flyout_panel_title">Спливаюча панель плеєра</string>
     <string name="revanced_quick_actions_margin_top_summary">Значення поля угорі в межах 0-64</string>
     <string name="revanced_quick_actions_margin_top_title">Поле швидких дій угорі</string>
@@ -642,6 +654,7 @@
     <string name="revanced_seekbar">Панель прогресу</string>
     <string name="revanced_shorts">Короткі</string>
     <string name="revanced_shorts_player_title">Плеєр коротких відео</string>
+    <string name="revanced_shorts_toolbar_summary">Щоб приховати панель інструментів коротких, приховуються всі налаштування в категорії панель інструментів коротких</string>
     <string name="revanced_shorts_toolbar_title">Панель інструментів Коротких</string>
     <string name="revanced_show_fullscreen_title_summary">Відома проблема: заголовок зникає при натисканні</string>
     <string name="revanced_show_fullscreen_title_title">Показати заголовок повноекранного режиму</string>

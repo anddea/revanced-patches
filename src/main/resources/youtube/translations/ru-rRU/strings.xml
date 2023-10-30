@@ -91,6 +91,10 @@
     <string name="revanced_disable_landscape_mode_title">Отключить ландшафтный режим</string>
     <string name="revanced_disable_quic_protocol_summary">"Отключает протокол CronetEngine's QUIC"</string>
     <string name="revanced_disable_quic_protocol_title">Отключить протокол QUIC</string>
+    <string name="revanced_disable_speed_overlay_summary">"Отключить \"Воспроизводится на скорости 2x\" при удержании
+
+Примечание: Отключение оверлея скорости не вернёт поведение старого интерфейса \"Чтобы перемотать видео, проведите по экрану\""</string>
+    <string name="revanced_disable_speed_overlay_title">Отключить оверлей скорости</string>
     <string name="revanced_disable_startup_shorts_player_summary_off">Плеер \"Shorts\" при запуске приложения отображён</string>
     <string name="revanced_disable_startup_shorts_player_summary_on">Плеер \"Shorts\" при запуске приложения скрыт</string>
     <string name="revanced_disable_startup_shorts_player_title">Отключить автозапуск плеера \"Shorts\"</string>
@@ -132,7 +136,7 @@
     <string name="revanced_enable_open_links_directly_summary_off">Открытие ссылок напрямую отключено</string>
     <string name="revanced_enable_open_links_directly_summary_on">Открытие ссылок напрямую включено</string>
     <string name="revanced_enable_open_links_directly_title">Прямое открытие ссылок</string>
-    <string name="revanced_enable_opus_codec_summary">Использовать кодек аудио Opus вместо mp4a аудио кодека</string>
+    <string name="revanced_enable_opus_codec_summary">Использовать кодек аудио Opus вместо кодека mp4a</string>
     <string name="revanced_enable_opus_codec_title">Кодек Opus</string>
     <string name="revanced_enable_phone_layout_summary">Подменяет DPI для использования \"Телефонного\" интерфейса</string>
     <string name="revanced_enable_phone_layout_title">Телефонный интерфейс</string>
@@ -208,9 +212,9 @@
     <string name="revanced_hide_auto_player_popup_panels_summary_off">Автоматически всплывающие панели плеера отображены</string>
     <string name="revanced_hide_auto_player_popup_panels_summary_on">Автоматически всплывающие панели плеера скрыты</string>
     <string name="revanced_hide_auto_player_popup_panels_title">Скрыть всплывающие панели плеера</string>
-    <string name="revanced_hide_browse_store_button_summary_off">Кнопка \"Просмотр магазина\" отображена</string>
-    <string name="revanced_hide_browse_store_button_summary_on">Кнопка \"Просмотр магазина\" скрыта</string>
-    <string name="revanced_hide_browse_store_button_title">Скрыть кнопку \"Просмотр магазина\"</string>
+    <string name="revanced_hide_browse_store_button_summary_off">Кнопка \"Перейти в магазин\" отображена</string>
+    <string name="revanced_hide_browse_store_button_summary_on">Кнопка \"Перейти в магазин\" скрыта</string>
+    <string name="revanced_hide_browse_store_button_title">Скрыть кнопку \"Перейти в магазин\"</string>
     <string name="revanced_hide_button_create_clip_summary_off">Кнопка \"Создать клип\" отображена</string>
     <string name="revanced_hide_button_create_clip_summary_on">Кнопка \"Создать клип\" скрыта</string>
     <string name="revanced_hide_button_create_clip_title">Скрыть кнопку \"Создать клип\"</string>
@@ -276,9 +280,9 @@
     <string name="revanced_hide_channel_list_submenu_summary_off">Секция аватаров каналов в верхней части вкладки \"Подписки\" отображена</string>
     <string name="revanced_hide_channel_list_submenu_summary_on">Секция аватаров каналов в верхней части вкладки \"Подписки\" скрыта</string>
     <string name="revanced_hide_channel_list_submenu_title">Скрыть секцию аватаров каналов</string>
-    <string name="revanced_hide_channel_member_shelf_summary_off">Секция подписчиков канала отображена</string>
-    <string name="revanced_hide_channel_member_shelf_summary_on">Секция подписчиков канала скрыта</string>
-    <string name="revanced_hide_channel_member_shelf_title">Скрыть секцию подписчиков канала</string>
+    <string name="revanced_hide_channel_member_shelf_summary_off">Секция спонсоров канала отображена</string>
+    <string name="revanced_hide_channel_member_shelf_summary_on">Секция спонсоров канала скрыта</string>
+    <string name="revanced_hide_channel_member_shelf_title">Скрыть секцию спонсоров канала</string>
     <string name="revanced_hide_channel_profile_links_summary_off">Ссылки в верхней части профиля канала отображены</string>
     <string name="revanced_hide_channel_profile_links_summary_on">Ссылки в верхней части профиля канала скрыты</string>
     <string name="revanced_hide_channel_profile_links_title">Скрыть ссылки в профиле канала</string>
@@ -309,9 +313,9 @@
     <string name="revanced_hide_crowdfunding_box_summary_off">Колонка сбора средств отображена</string>
     <string name="revanced_hide_crowdfunding_box_summary_on">Колонка сбора средств скрыта</string>
     <string name="revanced_hide_crowdfunding_box_title">Скрыть колонку сбора средств</string>
-    <string name="revanced_hide_emoji_picker_summary_off">Эмодзи панель при комментировании отображена</string>
-    <string name="revanced_hide_emoji_picker_summary_on">Эмодзи панель при комментировании скрыта</string>
-    <string name="revanced_hide_emoji_picker_title">Скрыть эмодзи панель</string>
+    <string name="revanced_hide_emoji_picker_summary_off">Панель эмодзи при комментировании отображена</string>
+    <string name="revanced_hide_emoji_picker_summary_on">Панель эмодзи при комментировании скрыта</string>
+    <string name="revanced_hide_emoji_picker_title">Скрыть панель эмодзи</string>
     <string name="revanced_hide_end_screen_cards_summary_off">Заставки следующих видео в конце видеороликов отображены</string>
     <string name="revanced_hide_end_screen_cards_summary_on">Заставки следующих видео в конце видеороликов скрыты</string>
     <string name="revanced_hide_end_screen_cards_title">Скрыть заставки следущих видео</string>
@@ -361,9 +365,9 @@
     <string name="revanced_hide_image_shelf_summary_off">Секции изображений отображены</string>
     <string name="revanced_hide_image_shelf_summary_on">Секции изображений скрыты</string>
     <string name="revanced_hide_image_shelf_title">Скрыть секции изображений</string>
-    <string name="revanced_hide_info_cards_section_summary_off">Разделы подсказок отображены</string>
-    <string name="revanced_hide_info_cards_section_summary_on">Разделы подсказок скрыты</string>
-    <string name="revanced_hide_info_cards_section_title">Скрыть разделы подсказок</string>
+    <string name="revanced_hide_info_cards_section_summary_off">Разделы заголовка канала отображены</string>
+    <string name="revanced_hide_info_cards_section_summary_on">Разделы заголовка канала скрыты</string>
+    <string name="revanced_hide_info_cards_section_title">Скрыть разделы заголовка канала</string>
     <string name="revanced_hide_info_cards_summary_off">Подсказки отображены</string>
     <string name="revanced_hide_info_cards_summary_on">Подсказки скрыты</string>
     <string name="revanced_hide_info_cards_title">Скрыть подсказки</string>
@@ -542,7 +546,8 @@
     <string name="revanced_hide_suggested_actions_summary_on">Предлагаемые действия скрыты</string>
     <string name="revanced_hide_suggested_actions_title">Скрыть предлагаемые действия</string>
     <string name="revanced_hide_suggested_video_overlay_summary">"Скрывает заставку рекомендуемого к воспроизведению следующим видео
-Известная проблема: автовоспроизведение не работает"</string>
+
+Известная проблема: Автовоспроизведение не работает"</string>
     <string name="revanced_hide_suggested_video_overlay_title">Скрыть рекомендуемое видео</string>
     <string name="revanced_hide_suggestions_shelf_summary">"Скрывает следующие секции:
 • Срочные новости
@@ -584,8 +589,13 @@
     <string name="revanced_hide_youtube_music_button_title">Скрыть кнопку \"YouTube Music\"</string>
     <string name="revanced_hook_download_button_summary">"Заменяет кнопку \"Скачать\" кнопкой запуска внешнего загрузчика"</string>
     <string name="revanced_hook_download_button_title">Замена кнопки \"Скачать\"</string>
+    <string name="revanced_import_settings_inform">"Следующие настройки могут не быть импортированы, поэтому, пожалуйста, откройте настройки ReVanced Extended после импорта настроек
+
+• Скрыть пункт \"Дополнительные настройки\" (выдвижная панель плеера)
+• Скрыть панель инструментов \"Shorts\""</string>
     <string name="revanced_import_settings_summary">Восстановление ваших настроек ReVanced Extended из файла</string>
     <string name="revanced_import_settings_title">Импорт настроек</string>
+    <string name="revanced_inform">Примечание</string>
     <string name="revanced_layout_title">Интерфейс</string>
     <string name="revanced_misc">Дополнительные</string>
     <string name="revanced_navigation">Навигация</string>
@@ -612,10 +622,12 @@
     <string name="revanced_patches_information">Информация о патчах</string>
     <string name="revanced_patches_information_summary">Применённые в сборке патчи</string>
     <string name="revanced_player">Плеер</string>
+    <string name="revanced_player_flyout_panel_additional_settings_summary">Для скрытия пункта \"Дополнительные настройки\", скройте всё в категории \"Дополнительные настройки\"</string>
+    <string name="revanced_player_flyout_panel_additional_settings_title">Выдвижная панель плеера (Дополнительные настройки)</string>
     <string name="revanced_player_flyout_panel_title">Пункты выдвижной панели плеера</string>
-    <string name="revanced_quick_actions_margin_top_summary">Значение быстрых действий сверху в промежутке 0-64</string>
-    <string name="revanced_quick_actions_margin_top_title">Быстрые действия сверху</string>
-    <string name="revanced_quick_actions_margin_top_warning">Быстрые действия сверху должны быть в промежутке 0-64. Сброс к значениям по умолчанию.</string>
+    <string name="revanced_quick_actions_margin_top_summary">Пространство сверху быстрых действий в промежутке 0-64</string>
+    <string name="revanced_quick_actions_margin_top_title">Пространство сверху быстрых действий</string>
+    <string name="revanced_quick_actions_margin_top_warning">Пространство сверху быстрых действий должно быть в промежутке 0-64. Сброс к значениям по умолчанию.</string>
     <string name="revanced_quick_actions_title">Быстрые действия</string>
     <string name="revanced_reboot_first_run">Перезапустите для правильной загрузки интерфейса</string>
     <string name="revanced_ryd_about">Об интеграции</string>
@@ -641,8 +653,9 @@
     <string name="revanced_seekbar">Прогресс воспроизведения</string>
     <string name="revanced_shorts">Shorts</string>
     <string name="revanced_shorts_player_title">Плеер \"Shorts\"</string>
+    <string name="revanced_shorts_toolbar_summary">Для скрытия панели инструментов \"Shorts\", скройте всё в категории \"Панель инструментов в Shorts\"</string>
     <string name="revanced_shorts_toolbar_title">Панель инструментов в \"Shorts\"</string>
-    <string name="revanced_show_fullscreen_title_summary">Известная проблема: заголовок исчезает при нажатии</string>
+    <string name="revanced_show_fullscreen_title_summary">Известная проблема: Заголовок исчезает при нажатии</string>
     <string name="revanced_show_fullscreen_title_title">Полноэкранный заголовок</string>
     <string name="revanced_skipped_preloaded_buffer">Пропущена предварительная загрузка</string>
     <string name="revanced_skip_preloaded_buffer_summary">"Пропускает предварительную загрузку в начале видео для того, чтобы обойти задержки применения качества по умолчанию
@@ -675,14 +688,14 @@
 Известная проблема: Видео в ленте смогут нормально воспроизводиться меньше минуты до начала проблем с воспроизведением"</string>
     <string name="revanced_spoof_player_parameter_in_feed_summary_on">"Параметры плеера подменены для видео в ленте
 
-Известная проблема: Автоматически воспроизводимые видео в ленте будут появляться в истории просмотра"</string>
+Известная проблема: Автовоспроизводимые видео в ленте будут появляться в истории просмотра"</string>
     <string name="revanced_spoof_player_parameter_in_feed_title">Подмена параметров плеера в ленте</string>
     <string name="revanced_spoof_player_parameter_summary">"Подменяет параметры плеера для предотвращения проблем с воспроизведением
 
 Известные проблемы:
 • Высокий битрейт не доступен
 • Миниатюры прогресса не работают в видео для спонсоров
-• Загрузка видео может не работать
+• Скачивание видеороликов может не работать
 • Видео может начинаться не с последнего времени просмотра"</string>
     <string name="revanced_spoof_player_parameter_title">Подмена параметров плеера</string>
     <string name="revanced_swipe_controls">Жесты</string>
@@ -732,15 +745,15 @@
     <string name="sb_guidelines_popup_already_read">Уже прочитано</string>
     <string name="sb_guidelines_popup_open">Показать</string>
     <string name="sb_general">Основные</string>
-    <string name="sb_general_skipcount">Подсчет количества пропусков</string>
+    <string name="sb_general_skipcount">Подсчёт количества пропусков</string>
     <string name="sb_general_skipcount_sum_on">Это позволяет системе лидеров SponsorBlock знать, сколько времени было сэкономлено. Сообщение отправляется на сервер каждый раз при пропуске сегмента</string>
-    <string name="sb_general_skipcount_sum_off">Подсчет количества пропусков отключён</string>
+    <string name="sb_general_skipcount_sum_off">Подсчёт количества пропусков отключён</string>
     <string name="sb_general_min_duration">Минимальная продолжительность сегмента</string>
     <string name="sb_general_min_duration_sum">Сегменты короче данного значения (в секундах) не будут показаны или пропущены</string>
     <string name="sb_general_uuid">Ваш уникальный ID пользователя</string>
     <string name="sb_general_uuid_sum">Это нужно держать в секрете, как пароль. Не стоит им ни с кем делиться. Если он у кого-то есть, он сможет выдать себя за вас</string>
     <string name="sb_general_uuid_invalid">ID пользователя не должно быть пустым</string>
-    <string name="sb_general_api_url">Изменить API адреса сервера</string>
+    <string name="sb_general_api_url">Изменить адрес сервера API</string>
     <string name="sb_general_api_url_sum">Адрес, используемый для связи с сервером SponsorBlock. Не изменяйте его, если не знаете, что делаете</string>
     <string name="sb_api_url_reset">Адрес сервера API сброшен</string>
     <string name="sb_api_url_invalid">Адрес сервера API недействителен</string>
@@ -769,7 +782,7 @@
     <string name="sb_segments_preview_sum">Краткое содержание предыдущих эпизодов или предварительный просмотр того, что будет в данном видео</string>
     <string name="sb_segments_filler">Отвлечённые темы / Шутки</string>
     <string name="sb_segments_filler_sum">Сегменты, которые увеличивают длительность видео за счёт отвлечённых тем или шуток, но не требуются для понимания основного содержания. Не включает сегменты, объясняющие контекст или предысторию</string>
-    <string name="sb_segments_nomusic">Музыка: сегмент без музыки</string>
+    <string name="sb_segments_nomusic">Музыка: Сегмент без музыки</string>
     <string name="sb_segments_nomusic_sum">Только для использования в музыкальных видеороликах. Разделы музыкальных видео без музыки, которые ещё не охвачены другой категорией</string>
     <string name="sb_skip_button_compact">Пропустить</string>
     <string name="sb_skip_button_compact_highlight">Основные моменты</string>
@@ -799,12 +812,12 @@
     <string name="sb_skip_showbutton">Кнопка пропуска</string>
     <string name="sb_skip_seekbaronly">Показывать в прогрессе воспроизведения</string>
     <string name="sb_skip_ignore">Отключить</string>
-    <string name="sb_submit_failed_invalid" formatted="false">Не удается отправить сегмент: %s</string>
+    <string name="sb_submit_failed_invalid" formatted="false">Не удаётся отправить сегмент: %s</string>
     <string name="sb_submit_failed_timeout">Невозможно отправить сегменты (время API истекло)</string>
     <string name="sb_submit_failed_unknown_error" formatted="false">Невозможно отправить сегменты (статус: %d %s)</string>
-    <string name="sb_submit_failed_rate_limit">Не удается отправить сегмент.\nЛимит запросов (слишком много от одного пользователя или IP)</string>
-    <string name="sb_submit_failed_forbidden" formatted="false">Не удается отправить сегмент: %s</string>
-    <string name="sb_submit_failed_duplicate">Не удается отправить сегмент.\nУже существует</string>
+    <string name="sb_submit_failed_rate_limit">Не удаётся отправить сегмент.\nЛимит запросов (слишком много от одного пользователя или IP)</string>
+    <string name="sb_submit_failed_forbidden" formatted="false">Не удаётся отправить сегмент: %s</string>
+    <string name="sb_submit_failed_duplicate">Не удаётся отправить сегмент.\nУже существует</string>
     <string name="sb_submit_succeeded">Сегмент успешно отправлен</string>
     <string name="sb_vote_failed_unknown_error" formatted="false">Невозможно проголосовать за сегмент (статус: %d %s)</string>
     <string name="sb_vote_failed_forbidden" formatted="false">Невозможно проголосовать за сегмент: %s</string>
@@ -822,7 +835,7 @@
     <string name="sb_new_segment_time_start">Время начала сегмента:</string>
     <string name="sb_new_segment_time_end">Время окончания сегмента:</string>
     <string name="sb_new_segment_confirm_title">Верно ли выбрано время?</string>
-    <string name="sb_new_segment_confirm_content" formatted="false">Сегмент длится с %02d:%02d до %02d:%02d (%d минут %02d секунд)\nГотово для отправки?</string>
+    <string name="sb_new_segment_confirm_content" formatted="false">Сегмент длится с %02d:%02d до %02d:%02d (%d минут(ы) %02d секунд(ы))\nГотово для отправки?</string>
     <string name="sb_new_segment_start_is_before_end">Начало должно быть перед окончанием</string>
     <string name="sb_new_segment_mark_locations_first">Сначала отметьте два места на шкале времени</string>
     <string name="sb_new_segment_preview_segment_first">Предпросмотр сегмента для корректного пропуска</string>
@@ -845,9 +858,9 @@
     <string name="sb_stats_self_saved" formatted="false">Вы пропустили &lt;b&gt;%s&lt;/b&gt; сегментов</string>
     <string name="sb_stats_self_saved_sum" formatted="false">Это &lt;b&gt;%s&lt;/b&gt;</string>
     <string name="sb_stats_self_saved_reset_title">Сбросить счётчик пропущенных сегментов?</string>
-    <string name="sb_stats_saved_hour_format" formatted="false">%d часов %d минут</string>
-    <string name="sb_stats_saved_minute_format" formatted="false">%d минут %d секунд</string>
-    <string name="sb_stats_saved_second_format" formatted="false">%d секунд</string>
+    <string name="sb_stats_saved_hour_format" formatted="false">%d часа(ов) %d минут(ы)</string>
+    <string name="sb_stats_saved_minute_format" formatted="false">%d минут(ы) %d секунд(ы)</string>
+    <string name="sb_stats_saved_second_format" formatted="false">%d секунд(ы)</string>
     <string name="sb_color_dot_label">Цвет:</string>
     <string name="sb_color_changed">Цвет изменён</string>
     <string name="sb_color_reset">Цвет сброшен</string>

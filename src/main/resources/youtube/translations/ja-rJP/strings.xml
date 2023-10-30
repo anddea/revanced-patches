@@ -44,6 +44,7 @@
     <string name="revanced_copy_video_timestamp_success">タイムスタンプをクリップボードにコピーしました</string>
     <string name="revanced_custom_filter_strings_summary">コンポーネント名でフィルター (改行区切り)</string>
     <string name="revanced_custom_filter_strings_title">カスタムフィルターを編集</string>
+    <string name="revanced_custom_filter_strings_warning">無効なカスタムフィルタです。デフォルトにリセットしています。</string>
     <string name="revanced_custom_filter_summary_off">カスタムフィルターは無効です</string>
     <string name="revanced_custom_filter_summary_on">カスタムフィルターは有効です</string>
     <string name="revanced_custom_filter_title">カスタムフィルター</string>
@@ -77,6 +78,7 @@
     <string name="revanced_disable_haptic_feedback_chapters_title">チャプターの触覚フィードバックを無効化</string>
     <string name="revanced_disable_haptic_feedback_scrubbing_title">フィルムストリップの触覚フィードバックを無効化</string>
     <string name="revanced_disable_haptic_feedback_seek_title">動画長押し時の触覚フィードバックを無効化</string>
+    <string name="revanced_disable_haptic_feedback_seek_undo_title">動画長押し時の触覚フィードバックを無効化</string>
     <string name="revanced_disable_haptic_feedback_zoom_title">動画ズーム時の触覚フィードバックを無効化</string>
     <string name="revanced_disable_hdr_auto_brightness_summary_off">HDR 動画の明るさの自動調節は有効です</string>
     <string name="revanced_disable_hdr_auto_brightness_summary_on">HDR 動画の明るさの自動調節は無効です</string>
@@ -103,6 +105,9 @@
     <string name="revanced_enable_custom_seekbar_color_summary_off">シークバーの色のカスタマイズは無効です</string>
     <string name="revanced_enable_custom_seekbar_color_summary_on">シークバーの色のカスタマイズは有効です</string>
     <string name="revanced_enable_custom_seekbar_color_title">シークバーの色のカスタマイズ</string>
+    <string name="revanced_enable_debug_buffer_logging_summary_off">デバッグログにバッファが含まれていません</string>
+    <string name="revanced_enable_debug_buffer_logging_summary_on">デバッグログにバッファが含まれています</string>
+    <string name="revanced_enable_debug_buffer_logging_title">デバッグバッファログの有効化</string>
     <string name="revanced_enable_debug_logging_summary_off">デバッグログは無効です</string>
     <string name="revanced_enable_debug_logging_summary_on">デバッグログは有効です</string>
     <string name="revanced_enable_debug_logging_title">デバッグログ</string>
@@ -127,7 +132,7 @@
     <string name="revanced_enable_open_links_directly_summary_off">デフォルトのリダイレクトルールに従います</string>
     <string name="revanced_enable_open_links_directly_summary_on">URL リダイレクトをバイパスします</string>
     <string name="revanced_enable_open_links_directly_title">リダイレクトのバイパス</string>
-    <string name="revanced_enable_opus_codec_summary">mp4a オーディオコーデックの代わりに Opus オーディオコーデックを適用します</string>
+    <string name="revanced_enable_opus_codec_summary">mp4a オーディオコーデックの代わりに Opus オーディオコーデックを使用します</string>
     <string name="revanced_enable_opus_codec_title">Opus コーデックを有効化</string>
     <string name="revanced_enable_phone_layout_summary">一部のスマートフォン用のレイアウトを使用できるように dpi を偽装します</string>
     <string name="revanced_enable_phone_layout_title">スマートフォン用のレイアウト</string>
@@ -186,6 +191,8 @@
     <string name="revanced_general">全般</string>
     <string name="revanced_haptic_feedback_title">触覚フィードバック</string>
     <string name="revanced_hide_account_menu_filter_strings_title">アカウントメニューのフィルターを編集</string>
+    <string name="revanced_hide_account_menu_summary">"アカウントメニューとマイページタブの要素を非表示にします
+一部のコンポーネントは非表示になりません"</string>
     <string name="revanced_hide_account_menu_title">アカウントメニューを非表示</string>
     <string name="revanced_hide_album_card_summary_off">アーティストの説明の下のアルバムカードは表示されます</string>
     <string name="revanced_hide_album_card_summary_on">アーティストの説明の下のアルバムカードは非表示です</string>
@@ -223,6 +230,12 @@
     <string name="revanced_hide_button_live_chat_summary_off">ライブの「チャット」ボタンは表示されます</string>
     <string name="revanced_hide_button_live_chat_summary_on">ライブの「チャット」ボタンは非表示です</string>
     <string name="revanced_hide_button_live_chat_title">ライブのチャットボタンを非表示</string>
+    <string name="revanced_hide_button_open_mix_playlist_summary_off">プレイリストを開くボタンは表示されます</string>
+    <string name="revanced_hide_button_open_mix_playlist_summary_on">プレイリストを開くボタンは非表示です</string>
+    <string name="revanced_hide_button_open_mix_playlist_title">ミックスプレイリストを開くボタンを非表示</string>
+    <string name="revanced_hide_button_open_playlist_summary_off">プレイリストを開くボタンは表示されます</string>
+    <string name="revanced_hide_button_open_playlist_summary_on">プレイリストを開くボタンは非表示です</string>
+    <string name="revanced_hide_button_open_playlist_title">プレイリストを開くボタンを非表示</string>
     <string name="revanced_hide_button_remix_summary_off">「リミックス」ボタンは表示されます</string>
     <string name="revanced_hide_button_remix_summary_on">「リミックス」ボタンは非表示です</string>
     <string name="revanced_hide_button_remix_title">リミックスボタンを非表示</string>
@@ -234,6 +247,7 @@
     <string name="revanced_hide_button_rewards_title">特典ボタンを非表示</string>
     <string name="revanced_hide_button_save_to_playlist_summary_off">「再生リストに保存」ボタンは表示されます</string>
     <string name="revanced_hide_button_save_to_playlist_summary_on">「再生リストに保存」ボタンは非表示です</string>
+    <string name="revanced_hide_button_save_to_playlist_title">「再生リストに保存」ボタンを非表示</string>
     <string name="revanced_hide_button_share_summary_off">「共有」ボタンは表示されます</string>
     <string name="revanced_hide_button_share_summary_on">「共有」ボタンは非表示です</string>
     <string name="revanced_hide_button_share_title">共有ボタンを非表示</string>
@@ -477,6 +491,9 @@
     <string name="revanced_hide_seek_message_summary_off">動画長押しシーク時に表示される「移動するには左右にスライドします」を非表示にします</string>
     <string name="revanced_hide_seek_message_summary_on">動画長押しシーク時に表示される「移動するには左右にスライドします」を非表示にします</string>
     <string name="revanced_hide_seek_message_title">シーク時のメッセージを非表示</string>
+    <string name="revanced_hide_seek_undo_message_summary_off">動画長押しシーク時に表示される「移動するには左右にスライドします」は表示されます</string>
+    <string name="revanced_hide_seek_undo_message_summary_on">動画長押しシーク時に表示される「移動するには左右にスライドします」非表示です</string>
+    <string name="revanced_hide_seek_undo_message_title">シーク時のメッセージを非表示</string>
     <string name="revanced_hide_self_sponsor_cards_summary_off">動画情報下部のセルフスポンサーカードは表示されます</string>
     <string name="revanced_hide_self_sponsor_cards_summary_on">動画情報下部のセルフスポンサーカードは非表示です</string>
     <string name="revanced_hide_self_sponsor_cards_title">セルフスポンサーカードを非表示</string>
@@ -497,6 +514,9 @@
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_off">「チャンネル登録」ボタンは表示されます</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_on">「チャンネル登録」ボタンは非表示です</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_title">チャンネル登録ボタンを非表示</string>
+    <string name="revanced_hide_shorts_shelf_summary">"ショート欄を非表示にします
+
+既知の問題: 検索結果の公式ヘッダーが非表示になります"</string>
     <string name="revanced_hide_shorts_shelf_title">ショート欄を非表示</string>
     <string name="revanced_hide_shorts_toolbar_banner_summary_off">ショートのバナーは表示されます</string>
     <string name="revanced_hide_shorts_toolbar_banner_summary_on">ショートのバナーは非表示です</string>
@@ -513,6 +533,9 @@
     <string name="revanced_hide_snack_bar_summary_off">共有からリンクをコピーした際の画面下部のポップアップ等は表示されます</string>
     <string name="revanced_hide_snack_bar_summary_on">共有からリンクをコピーした際の画面下部のポップアップ等は非表示です</string>
     <string name="revanced_hide_snack_bar_title">スナックバーを非表示</string>
+    <string name="revanced_hide_start_trial_button_summary_off">トライアル開始ボタンは表示されます</string>
+    <string name="revanced_hide_start_trial_button_summary_on">トライアル開始ボタンは非表示です</string>
+    <string name="revanced_hide_start_trial_button_title">トライアル開始ボタンを非表示</string>
     <string name="revanced_hide_subscriptions_button_summary_off">「登録チャンネル」ボタンは表示されます</string>
     <string name="revanced_hide_subscriptions_button_summary_on">「登録チャンネル」ボタンは非表示です</string>
     <string name="revanced_hide_subscriptions_button_title">登録チャンネル ボタンを非表示</string>
@@ -523,11 +546,11 @@
 既知の問題: 自動再生が機能しません"</string>
     <string name="revanced_hide_suggested_video_overlay_title">関連動画のオーバーレイを非表示</string>
     <string name="revanced_hide_suggestions_shelf_summary">"以下の欄を非表示にします
-- ニュース速報
-- 続きを見る
-- 更にチャンネルを探す
-- ショッピング
-- もう一度見る/聴く"</string>
+• ニュース速報
+• 続きを見る
+• 更にチャンネルを探す
+• ショッピング
+• もう一度見る"</string>
     <string name="revanced_hide_suggestions_shelf_title">ホームタブのおすすめ欄を非表示</string>
     <string name="revanced_hide_ticket_shelf_summary_off">チケット欄は表示されます</string>
     <string name="revanced_hide_ticket_shelf_summary_on">チケット欄は非表示です</string>
@@ -552,7 +575,7 @@
     <string name="revanced_hide_video_ads_title">動画広告を非表示</string>
     <string name="revanced_hide_view_products_summary_off">「商品セクション」は表示されます</string>
     <string name="revanced_hide_view_products_summary_on">「商品セクション」は非表示です</string>
-    <string name="revanced_hide_view_products_title">商品セクション を非表示</string>
+    <string name="revanced_hide_view_products_title">商品セクションを非表示</string>
     <string name="revanced_hide_web_search_results_summary_off">「ウェブの検索結果」は表示されます</string>
     <string name="revanced_hide_web_search_results_summary_on">「ウェブの検索結果」は非表示です</string>
     <string name="revanced_hide_web_search_results_title">ウェブ検索結果を非表示</string>
@@ -561,8 +584,13 @@
     <string name="revanced_hide_youtube_music_button_title">YouTube Music ボタンを非表示</string>
     <string name="revanced_hook_download_button_summary">"「オフライン」ボタンを外部ダウンローダーに置き換えます"</string>
     <string name="revanced_hook_download_button_title">ダウンロードボタンをフック</string>
+    <string name="revanced_import_settings_inform">"以下の設定はインポートされない場合があります。設定のインポート後に一度 ReVanced Extended 設定を開いてください。
+
+• プレーヤーフライアウトパネルの「その他の設定」メニューの非表示
+• ショートのツールバーの非表示"</string>
     <string name="revanced_import_settings_summary">ReVanced Extended の設定をファイルから読み込みます</string>
     <string name="revanced_import_settings_title">設定をインポート</string>
+    <string name="revanced_inform">情報</string>
     <string name="revanced_layout_title">レイアウト</string>
     <string name="revanced_misc">その他</string>
     <string name="revanced_navigation">ナビゲーション</string>
@@ -589,7 +617,12 @@
     <string name="revanced_patches_information">パッチ情報</string>
     <string name="revanced_patches_information_summary">適用されたパッチに関する情報</string>
     <string name="revanced_player">プレーヤー</string>
+    <string name="revanced_player_flyout_panel_additional_settings_summary">「その他の設定」メニューを非表示にするには、「その他の設定」カテゴリーのすべての設定を非表示にしてください</string>
+    <string name="revanced_player_flyout_panel_additional_settings_title">プレーヤーのフライアウトパネル (その他の設定)</string>
     <string name="revanced_player_flyout_panel_title">プレーヤーのフライアウトパネル</string>
+    <string name="revanced_quick_actions_margin_top_summary">0-64 の間の最大マージン値</string>
+    <string name="revanced_quick_actions_margin_top_title">クイックアクションの上マージン（上限）</string>
+    <string name="revanced_quick_actions_margin_top_warning">クイックアクションのトップマージンは0-64の間でなければなりません。デフォルト値にリセットします。</string>
     <string name="revanced_quick_actions_title">クイックアクション</string>
     <string name="revanced_reboot_first_run">再起動してレイアウトを正常に読み込みます</string>
     <string name="revanced_ryd_about">この機能について</string>
@@ -615,6 +648,7 @@
     <string name="revanced_seekbar">シークバー</string>
     <string name="revanced_shorts">ショート動画</string>
     <string name="revanced_shorts_player_title">ショートプレーヤー</string>
+    <string name="revanced_shorts_toolbar_summary">ショートのツールバーを非表示にするには、ショートのツールバーカテゴリのすべての設定を非表示にします。</string>
     <string name="revanced_shorts_toolbar_title">ショートのツールバー</string>
     <string name="revanced_show_fullscreen_title_summary">既知の問題: タイトルをタップすると消えます</string>
     <string name="revanced_show_fullscreen_title_title">全画面表示での動画タイトル</string>
@@ -629,8 +663,8 @@
     <string name="revanced_skip_preloaded_buffer_toast_title">スキップ時にトーストを表示</string>
     <string name="revanced_spoof_app_version_summary">"YouTube のバージョンを古いバージョンに偽装します
 
-これによりアプリの外観が変わりますが、未知の問題が発生する場合があります
-後からこの機能を無効にしても、データを消去するまで古い UI のままになる場合があります
+• アプリの外観が変わりますが、未知の問題が発生する場合があります
+• 後からこの機能を無効にしても、アプリのデータを消去するまで古い UI のままになる場合があります
 "</string>
     <string name="revanced_spoof_app_version_target_entry_16_08_35">16.08.35 - 探索タブを復元</string>
     <string name="revanced_spoof_app_version_target_entry_17_08_35">17.08.35 - 古い UI レイアウトを復元</string>
@@ -658,7 +692,9 @@
 
 既知の問題
 • 拡張ビットレートは利用できません
-• オフラインへの動画の保存が機能しない場合があります"</string>
+• 有料の動画のシークバーサムネイルは機能しません
+• オフラインへの動画の保存が機能しない場合があります
+• 動画が最後に視聴した時間から開始されない場合があります"</string>
     <string name="revanced_spoof_player_parameter_title">プレーヤーのパラメーターを偽装</string>
     <string name="revanced_swipe_controls">スワイプコントロール</string>
     <string name="revanced_swipe_magnitude_threshold_summary">スワイプとして検出する量のしきい値</string>
@@ -715,7 +751,7 @@
     <string name="sb_general_uuid">プライベートユーザー ID</string>
     <string name="sb_general_uuid_sum">これは非公開にする必要があります。これはパスワードのようなもので、誰とも共有するべきではありません。誰かがこれを持っている場合、あなたになりすますことができます。</string>
     <string name="sb_general_uuid_invalid">ユーザー ID は空にできません</string>
-    <string name="sb_general_api_url">API の URL を変更する</string>
+    <string name="sb_general_api_url">API の URL を変更</string>
     <string name="sb_general_api_url_sum">SponsorBlock がサーバーとの通信で使うアドレスです。自分が何をしているか理解していない場合は、変更しないでください。</string>
     <string name="sb_api_url_reset">API の URL をリセットしました</string>
     <string name="sb_api_url_invalid">API の URL が無効です</string>

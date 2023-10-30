@@ -63,7 +63,7 @@
     <string name="revanced_default_video_quality_mobile_title">Qualità predefinita del video sulla rete mobile</string>
     <string name="revanced_default_video_quality_wifi_title">Qualità predefinita del video sulla rete Wi-Fi</string>
     <string name="revanced_description_title">Descrizione</string>
-    <string name="revanced_disable_ambient_mode_in_fullscreen_summary">Questo disattiva la modalità Ambient a schermo intero</string>
+    <string name="revanced_disable_ambient_mode_in_fullscreen_summary">Disattiva la modalità Ambient a schermo intero</string>
     <string name="revanced_disable_ambient_mode_in_fullscreen_title">Disattiva la modalità Ambient a schermo intero</string>
     <string name="revanced_disable_ambient_mode_summary">Disattiva sempre la modalità Ambient</string>
     <string name="revanced_disable_ambient_mode_title">Disattiva la modalità Ambient</string>
@@ -73,11 +73,11 @@
     <string name="revanced_disable_default_playback_speed_live_summary_off">La velocità di riproduzione predefinita nei video dal vivo è attivata</string>
     <string name="revanced_disable_default_playback_speed_live_summary_on">La velocità di riproduzione predefinita nei video dal vivo è disattivata</string>
     <string name="revanced_disable_default_playback_speed_live_title">Disattiva la velocità di riproduzione predefinita nei video dal vivo</string>
-    <string name="revanced_disable_haptic_feedback_summary_off">Le vibrazioni di ricerca e di annullamento sono attivate</string>
-    <string name="revanced_disable_haptic_feedback_summary_on">Le vibrazioni di ricerca e di annullamento sono disattivate</string>
+    <string name="revanced_disable_haptic_feedback_summary_off">La vibrazione è attivata</string>
+    <string name="revanced_disable_haptic_feedback_summary_on">La vibrazione è disattivata</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">Disattiva la vibrazione dei capitoli</string>
-    <string name="revanced_disable_haptic_feedback_scrubbing_title">Disattiva la vibrazione del trascinamento</string>
-    <string name="revanced_disable_haptic_feedback_seek_title">Disattiva la vibrazione di ricerca</string>
+    <string name="revanced_disable_haptic_feedback_scrubbing_title">Disattiva la vibrazione di trascinamento</string>
+    <string name="revanced_disable_haptic_feedback_seek_title">Disattiva la vibrazione di scorrimento</string>
     <string name="revanced_disable_haptic_feedback_seek_undo_title">Disattiva la vibrazione di annullamento</string>
     <string name="revanced_disable_haptic_feedback_zoom_title">Disattiva la vibrazione dello zoom</string>
     <string name="revanced_disable_hdr_auto_brightness_summary_off">La luminosità HDR automatica è attivata</string>
@@ -91,6 +91,8 @@
     <string name="revanced_disable_landscape_mode_title">Disattiva la modalità orizzontale a schermo intero</string>
     <string name="revanced_disable_quic_protocol_summary">"Disattiva il protocollo QUIC di CronetEngine"</string>
     <string name="revanced_disable_quic_protocol_title">Disattiva il protocollo QUIC</string>
+    <string name="revanced_disable_speed_overlay_summary">"Nota: disattivando la sovrapposizione della velocità non ripristina il comportamento \"Scorri la barra di avanzamento\" della vecchia interfaccia"</string>
+    <string name="revanced_disable_speed_overlay_title">Disattiva la sovrapposizione della velocità quando tieni premuto</string>
     <string name="revanced_disable_startup_shorts_player_summary_off">La riproduzione degli Shorts all\'avvio dell\'app è attivata</string>
     <string name="revanced_disable_startup_shorts_player_summary_on">La riproduzione degli Shorts all\'avvio dell\'app è disattivata</string>
     <string name="revanced_disable_startup_shorts_player_title">Disattiva la riproduzione degli Shorts all\'avvio dell\'app</string>
@@ -488,9 +490,9 @@ Alcuni componenti potrebbero non essere nascosti"</string>
     <string name="revanced_hide_seekbar_thumbnail_summary_on">I thumbnails della barra di avanzamento è nascosta</string>
     <string name="revanced_hide_seekbar_thumbnail_title">Nascondi i thumbnails della barra di avanzamento</string>
     <string name="revanced_hide_seekbar_title">Nascondi la barra di avanzamento</string>
-    <string name="revanced_hide_seek_message_summary_off">Il messaggio di ricerca è visibile</string>
-    <string name="revanced_hide_seek_message_summary_on">Il messaggio di ricerca è nascosto</string>
-    <string name="revanced_hide_seek_message_title">Nascondi il messaggio di ricerca</string>
+    <string name="revanced_hide_seek_message_summary_off">Il messaggio di scorrimento è visibile</string>
+    <string name="revanced_hide_seek_message_summary_on">Il messaggio di scorrimento è nascosto</string>
+    <string name="revanced_hide_seek_message_title">Nascondi il messaggio di scorrimento</string>
     <string name="revanced_hide_seek_undo_message_summary_off">Il messaggio di annullamento è visibile</string>
     <string name="revanced_hide_seek_undo_message_summary_on">Il messaggio di annullamento è nascosto</string>
     <string name="revanced_hide_seek_undo_message_title">Nascondi il messaggio di annullamento</string>
@@ -500,7 +502,7 @@ Alcuni componenti potrebbero non essere nascosti"</string>
     <string name="revanced_hide_shorts_button_summary_off">Il pulsante Shorts è visibile</string>
     <string name="revanced_hide_shorts_button_summary_on">Il pulsante Shorts è nascosto</string>
     <string name="revanced_hide_shorts_button_title">Nascondi il pulsante Shorts</string>
-    <string name="revanced_hide_shorts_component_summary">Nascondi la sezione Shorts o i componenti del riproduttore degli Shorts</string>
+    <string name="revanced_hide_shorts_component_summary">Nasconde la sezione Shorts o i componenti del riproduttore degli Shorts</string>
     <string name="revanced_hide_shorts_component_title">Nascondi componenti Shorts</string>
     <string name="revanced_hide_shorts_player_comments_button_summary_off">Il pulsante Commenti è visibile</string>
     <string name="revanced_hide_shorts_player_comments_button_summary_on">Il pulsante Commenti è nascosto</string>
@@ -514,9 +516,7 @@ Alcuni componenti potrebbero non essere nascosti"</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_off">Il pulsante Iscriviti è visibile</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_on">Il pulsante Iscriviti è nascosto</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_title">Nascondi il pulsante Iscriviti</string>
-    <string name="revanced_hide_shorts_shelf_summary">"Nascondi lo scaffale degli Shorts.
-
-Problema noto: l'intestazione ufficiale nei risultati di ricerca è nascosta"</string>
+    <string name="revanced_hide_shorts_shelf_summary">"Problema noto: l'intestazione ufficiale nei risultati di ricerca è nascosta"</string>
     <string name="revanced_hide_shorts_shelf_title">Nascondi lo scaffale degli Shorts</string>
     <string name="revanced_hide_shorts_toolbar_banner_summary_off">Il banner è visibile</string>
     <string name="revanced_hide_shorts_toolbar_banner_summary_on">Il banner è nascosto</string>
@@ -542,10 +542,8 @@ Problema noto: l'intestazione ufficiale nei risultati di ricerca è nascosta"</s
     <string name="revanced_hide_suggested_actions_summary_off">Le azioni consigliate sono visibili</string>
     <string name="revanced_hide_suggested_actions_summary_on">Le azioni consigliate sono nascoste</string>
     <string name="revanced_hide_suggested_actions_title">Nascondi le azioni consigliate</string>
-    <string name="revanced_hide_suggested_video_overlay_summary">"Nasconde la sovrapposizione del video suggerito per la riproduzione successiva.
-
-Problema noto: la riproduzione automatica non funziona"</string>
-    <string name="revanced_hide_suggested_video_overlay_title">Nascondi la sovrapposizione del video suggerito</string>
+    <string name="revanced_hide_suggested_video_overlay_summary">"Problema noto: la riproduzione automatica non funziona"</string>
+    <string name="revanced_hide_suggested_video_overlay_title">Nascondi la sovrapposizione del video suggerito da riprodurre successivamente</string>
     <string name="revanced_hide_suggestions_shelf_summary">"Nasconde i seguenti scaffali:
 • Ultime notizie
 • Continua a guardare
@@ -586,7 +584,7 @@ Problema noto: la riproduzione automatica non funziona"</string>
     <string name="revanced_hide_youtube_music_button_title">Nascondi il pulsante YouTube Music</string>
     <string name="revanced_hook_download_button_summary">"Sostituisci il pulsante Download con il pulsante Download Esterno"</string>
     <string name="revanced_hook_download_button_title">Sostituisci il pulsante Download</string>
-    <string name="revanced_import_settings_inform">"Le impostazioni seguenti potrebbero non essere importate, quindi apri le impostazioni di YouTube Extended dopo l'importazione delle impostazioni:
+    <string name="revanced_import_settings_inform">"Le impostazioni seguenti potrebbero non essere importate, quindi apri le impostazioni di ReVanced Extended dopo l'importazione delle impostazioni:
 • Nascondi il menù Impostazioni Aggiuntive
 • Nascondi la barra degli strumenti degli Shorts"</string>
     <string name="revanced_import_settings_summary">Carica le impostazioni di ReVanced Extended da un file salvato</string>
@@ -870,7 +868,7 @@ Soglia raggiunta (troppe richieste provenienti dallo stesso utente o IP)</string
     <string name="sb_about_api_sum">I dati sono forniti dall\'API di SponsorBlock. Tocca qui per saperne di più e vedere i download per altre piattaforme</string>
     <string name="settings_export_failed">Impossibile esportare le impostazioni</string>
     <string name="settings_export_successful">Impostazioni esportate correttamente</string>
-    <string name="settings_ie">Importa/Esporta impostazioni</string>
+    <string name="settings_ie">Esporta/Importa impostazioni</string>
     <string name="settings_import_failed">Impossibile importare le impostazioni</string>
     <string name="settings_import_successful">Impostazioni importate correttamente</string>
 </resources>
