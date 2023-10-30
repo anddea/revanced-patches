@@ -25,7 +25,11 @@
     <string name="revanced_enable_black_navigation_bar_title">Чёрная панель навигации</string>
     <string name="revanced_enable_color_match_player_summary">Цвет миниплеера соответствует цвету полноэкранного плеера.</string>
     <string name="revanced_enable_color_match_player_title">Цветовое соответствие плееров</string>
-    <string name="revanced_enable_compact_dialog_summary">Включает компактный вид выдвижного меню на телефонах.</string>
+    <string name="revanced_enable_compact_dialog_summary">"Компактный вид выдвижного меню на телефоне.
+
+Известные проблемы:
+• Заставки альбомов во вкладке \"Библиотека\" становятся меньше.
+• Интерфейс \"Автовыключение\" может внезапно появляться."</string>
     <string name="revanced_enable_compact_dialog_title">Компактный вид выдвижного меню</string>
     <string name="revanced_enable_debug_logging_summary">Выводит данные журнала отладки.</string>
     <string name="revanced_enable_debug_logging_title">Ведение журнала отладки</string>
@@ -62,7 +66,7 @@
     <string name="revanced_extended_settings_import_export_title">Импорт / Экспорт</string>
     <string name="revanced_extended_settings_import_failure_parse">Не удалось восстановить настройки: %s.</string>
     <string name="revanced_extended_settings_import_reset">Настройки сброшены до начальных.</string>
-    <string name="revanced_extended_settings_import_success">Настройки в количестве: %d успешно восстановлены.</string>
+    <string name="revanced_extended_settings_import_success">Настройки в кол-ве: %d успешно восстановлены.</string>
     <string name="revanced_external_downloader_not_installed_warning" formatted="false">%s не установлен. Пожалуйста, установите его.</string>
     <string name="revanced_external_downloader_package_name_summary">Имя пакета вашего установленного внешнего загрузчика. Например, NewPipe или YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_title">Имя пакета внешнего загрузчика</string>
@@ -85,8 +89,8 @@
     <string name="revanced_hide_category_bar_title">Скрыть панель категорий</string>
     <string name="revanced_hide_channel_guidelines_summary">Скрывает правила канала в верхней части комментариев.</string>
     <string name="revanced_hide_channel_guidelines_title">Скрыть правила канала</string>
-    <string name="revanced_hide_emoji_picker_summary">Скрывает эмодзи панель при комментировании.</string>
-    <string name="revanced_hide_emoji_picker_title">Скрыть эмодзи панель</string>
+    <string name="revanced_hide_emoji_picker_summary">Скрывает панель эмодзи при комментировании.</string>
+    <string name="revanced_hide_emoji_picker_title">Скрыть панель эмодзи</string>
     <string name="revanced_hide_explore_button_summary">Скрывает вкладку \"Навигатор\" на панели навигации.</string>
     <string name="revanced_hide_explore_button_title">Скрыть вкладку \"Навигатор\"</string>
     <string name="revanced_hide_flyout_panel_add_to_queue_title">Скрыть пункт \"Добавить в очередь\"</string>
@@ -97,6 +101,7 @@
     <string name="revanced_hide_flyout_panel_go_to_artist_title">Скрыть пункт \"Перейти на страницу исполнителя\"</string>
     <string name="revanced_hide_flyout_panel_go_to_episode_title">Скрыть пункт \"Перейти к выпуску\"</string>
     <string name="revanced_hide_flyout_panel_go_to_podcast_title">Скрыть пункт \"Перейти к подкасту\"</string>
+    <string name="revanced_hide_flyout_panel_help_title">Скрыть пункт \"Справка и отзывы\"</string>
     <string name="revanced_hide_flyout_panel_like_dislike_title">Скрыть кнопки \"Нравится\" и \"Не нравится\"</string>
     <string name="revanced_hide_flyout_panel_play_next_title">Скрыть пункт \"Включить следующим\"</string>
     <string name="revanced_hide_flyout_panel_remove_from_library_title">Скрыть пункт \"Удалить из библиотеки\"</string>
@@ -127,8 +132,8 @@
     <string name="revanced_hide_samples_button_title">Скрыть вкладку \"Семплы\"</string>
     <string name="revanced_hide_terms_container_summary">Скрывает пункт \"Конфиденциальность • Условия\".</string>
     <string name="revanced_hide_terms_container_title">Скрыть \"Конфиденциальность • Условия\"</string>
-    <string name="revanced_hide_upgrade_button_summary">Скрывает кнопку \"Платные подписки\".</string>
-    <string name="revanced_hide_upgrade_button_title">Скрыть кнопку \"Платные подписки\"</string>
+    <string name="revanced_hide_upgrade_button_summary">Скрывает вкладку \"Платные подписки\".</string>
+    <string name="revanced_hide_upgrade_button_title">Скрыть вкладку \"Платные подписки\"</string>
     <string name="revanced_hook_action_bar_download_summary">Заменяет кнопку \"Скачать\" кнопкой запуска внешнего загрузчика.</string>
     <string name="revanced_hook_action_bar_download_title">Замена кнопки \"Скачать\"</string>
     <string name="revanced_playlist_dismiss">Уже воспроизводится с официального источника музыки.</string>
@@ -145,7 +150,7 @@
     <string name="revanced_remember_shuffle_state_summary">Запоминает состояние кнопки \"Перемешать\".</string>
     <string name="revanced_remember_shuffle_state_title">Запоминать состояние перемешивания</string>
     <string name="revanced_reset">Сброс</string>
-    <string name="revanced_ryd_about">Об интеграции</string>
+    <string name="revanced_ryd_about">О Return YouTube Dislike</string>
     <string name="revanced_ryd_attribution_summary">Данные предоставляются при помощи Return YouTube Dislike API. Нажмите здесь, чтобы узнать больше.</string>
     <string name="revanced_ryd_compact_layout_summary">Скрывает линию-разделитель после кнопки \"Нравится\".</string>
     <string name="revanced_ryd_compact_layout_title">Компактная кнопка \"Нравится\"</string>
@@ -178,7 +183,7 @@
     <string name="sb_enabled_sum">SponsorBlock - коллективная система для пропуска раздражающих частей видео в YouTube.</string>
     <string name="sb_toast_on_skip">Уведомление при автопропуске</string>
     <string name="sb_toast_on_skip_sum">Всплывающее уведомление отображено при автоматическом пропуске сегмента.</string>
-    <string name="sb_api_url">Изменить API адреса сервера</string>
+    <string name="sb_api_url">Изменить адрес сервера API</string>
     <string name="sb_api_url_sum">Адрес, используемый для связи с сервером SponsorBlock. Не изменяйте его, если не знаете, что делаете.</string>
     <string name="sb_api_url_reset">Адрес сервера API сброшен.</string>
     <string name="sb_api_url_invalid">Адрес сервера API недействителен.</string>
@@ -198,7 +203,7 @@
     <string name="sb_segments_preview_sum">Краткое содержание предыдущих эпизодов или предварительный просмотр того, что будет в данном видео.</string>
     <string name="sb_segments_filler">Отвлечённые темы / Шутки</string>
     <string name="sb_segments_filler_sum">Сегменты, которые увеличивают длительность видео за счёт отвлечённых тем или шуток, но не требуются для понимания основного содержания. Не включает сегменты, объясняющие контекст или предысторию.</string>
-    <string name="sb_segments_nomusic">Музыка: сегмент без музыки</string>
+    <string name="sb_segments_nomusic">Музыка: Сегмент без музыки</string>
     <string name="sb_segments_nomusic_sum">Только для использования в музыкальных видеороликах. Разделы музыкальных видео без музыки, которые ещё не охвачены другой категорией.</string>
     <string name="sb_skipped_sponsor">Пропущена спонсорская реклама.</string>
     <string name="sb_skipped_selfpromo">Пропущена самореклама.</string>
@@ -221,4 +226,5 @@
     <string name="sb_color_invalid">Неверный код цвета.</string>
     <string name="sb_reset_color">Сбросить цвет</string>
     <string name="sb_about_api_sum">Данные предоставлены API SponsorBlock. Нажмите здесь, чтобы узнать больше и увидеть загрузки для других платформ.</string>
+    <string name="sb_about">О SponsorBlock</string>
 </resources>
