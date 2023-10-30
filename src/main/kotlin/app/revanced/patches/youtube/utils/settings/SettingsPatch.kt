@@ -90,9 +90,10 @@ object SettingsPatch : AbstractSettingsResourcePatch(
 
                         val playServicesVersion = node.textContent.toInt()
 
+                        is1836 = playServicesVersion in 233700000..233801999
                         upward1828 = 232900000 <= playServicesVersion
                         upward1834 = 233502000 <= playServicesVersion
-                        is1836 = playServicesVersion in 233700000..233801999
+                        upward1840 = 234102000 <= playServicesVersion
 
                         break
                     }
@@ -202,6 +203,7 @@ object SettingsPatch : AbstractSettingsResourcePatch(
     internal var is1836: Boolean = false
     internal var upward1828: Boolean = false
     internal var upward1834: Boolean = false
+    internal var upward1840: Boolean = false
 
     internal fun addPreference(settingArray: Array<String>) {
         contexts.addPreference(settingArray)

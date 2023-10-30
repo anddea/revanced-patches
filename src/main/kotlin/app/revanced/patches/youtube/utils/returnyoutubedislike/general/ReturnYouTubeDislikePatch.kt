@@ -3,6 +3,7 @@ package app.revanced.patches.youtube.utils.returnyoutubedislike.general
 import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
@@ -10,11 +11,14 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patcher.util.smali.ExternalLabel
+import app.revanced.patches.youtube.misc.spoofappversion.SpoofAppVersionPatch
 import app.revanced.patches.youtube.utils.litho.LithoFilterPatch
 import app.revanced.patches.youtube.utils.playerresponse.PlayerResponsePatch
 import app.revanced.patches.youtube.utils.returnyoutubedislike.general.fingerprints.DislikeFingerprint
 import app.revanced.patches.youtube.utils.returnyoutubedislike.general.fingerprints.LikeFingerprint
 import app.revanced.patches.youtube.utils.returnyoutubedislike.general.fingerprints.RemoveLikeFingerprint
+import app.revanced.patches.youtube.utils.returnyoutubedislike.general.fingerprints.SpoofAppVersionPatchFingerprint
 import app.revanced.patches.youtube.utils.returnyoutubedislike.general.fingerprints.TextComponentAtomicReferenceFingerprint
 import app.revanced.patches.youtube.utils.returnyoutubedislike.general.fingerprints.TextComponentAtomicReferenceLegacyFingerprint
 import app.revanced.patches.youtube.utils.returnyoutubedislike.general.fingerprints.TextComponentConstructorFingerprint
@@ -41,6 +45,7 @@ import com.android.tools.smali.dexlib2.iface.reference.Reference
         ReturnYouTubeDislikeOldLayoutPatch::class,
         ReturnYouTubeDislikeShortsPatch::class,
         SettingsPatch::class,
+        SpoofAppVersionPatch::class,
         VideoIdPatch::class
     ],
     compatiblePackages = [
@@ -72,6 +77,7 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
         DislikeFingerprint,
         LikeFingerprint,
         RemoveLikeFingerprint,
+        SpoofAppVersionPatchFingerprint,
         TextComponentConstructorFingerprint
     )
 ) {
@@ -188,6 +194,23 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
                 }
             }
         } ?: throw TextComponentConstructorFingerprint.exception
+
+        if (SettingsPatch.upward1840) {
+            SpoofAppVersionPatchFingerprint.result?.let {
+                it.mutableMethod.apply {
+                    addInstructionsWithLabels(
+                        0, """
+                            sget-object v0, Lapp/revanced/integrations/settings/SettingsEnum;->INITIALIZED:Lapp/revanced/integrations/settings/SettingsEnum;
+                            invoke-virtual {v0}, Lapp/revanced/integrations/settings/SettingsEnum;->getBoolean()Z
+                            move-result v0
+                            if-nez v0, :initialized
+                            const-string v0, "18.39.41"
+                            return-object v0
+                            """, ExternalLabel("initialized", getInstruction(0))
+                    )
+                }
+            } ?: throw SpoofAppVersionPatchFingerprint.exception
+        }
 
         if (SettingsPatch.upward1834) {
             LithoFilterPatch.addFilter(FILTER_CLASS_DESCRIPTOR)
