@@ -91,6 +91,10 @@
     <string name="revanced_disable_landscape_mode_title">Mode paysage en plein écran</string>
     <string name="revanced_disable_quic_protocol_summary">"Désactiver le protocole QUIC de CronetEngine (QUIC est un protocole Internet plus rapide et plus sûr utilisé par Google et d'autres entreprises pour leurs services en ligne)"</string>
     <string name="revanced_disable_quic_protocol_title">Protocole QUIC</string>
+    <string name="revanced_disable_speed_overlay_summary">"Désactive l'option \"Vitesse de lecture x2\" en maintenant enfoncé
+
+Note : Ne restaure pas l'option pour avancer ou reculer dans la vidéo sans appuyer sur la barre de progression "</string>
+    <string name="revanced_disable_speed_overlay_title">Vitesse de lecture x2 en maintenant </string>
     <string name="revanced_disable_startup_shorts_player_summary_off">Les Shorts sont activés au démarrage de l\'application</string>
     <string name="revanced_disable_startup_shorts_player_summary_on">Les Shorts sont désactivés au démarrage de l\'application</string>
     <string name="revanced_disable_startup_shorts_player_title">Shorts au démarrage de l\'appli</string>
@@ -541,7 +545,9 @@ Problème connu : Les fiches officielles dans les résultats de recherche sont 
     <string name="revanced_hide_suggested_actions_summary_off">Les actions suggérées sont affichées</string>
     <string name="revanced_hide_suggested_actions_summary_on">Les actions suggérées sont masquées</string>
     <string name="revanced_hide_suggested_actions_title">Actions suggérées</string>
-    <string name="revanced_hide_suggested_video_overlay_summary">"Masque la superposition de vidéo suggérée pour la lecture suivante Problème connu : la lecture automatique ne fonctionne pas"</string>
+    <string name="revanced_hide_suggested_video_overlay_summary">"Masque la superposition de vidéo suggérée pour la lecture suivante 
+
+Problème connu : la lecture automatique ne fonctionne pas"</string>
     <string name="revanced_hide_suggested_video_overlay_title">Superposition vidéo suggérée</string>
     <string name="revanced_hide_suggestions_shelf_summary">"Masque les menus suivants :
 - Dernières nouvelles
@@ -582,8 +588,13 @@ Problème connu : Les fiches officielles dans les résultats de recherche sont 
     <string name="revanced_hide_youtube_music_button_title">Bouton \"YouTube Music\"</string>
     <string name="revanced_hook_download_button_summary">"Remplace le bouton de téléchargement par le bouton de téléchargement externe"</string>
     <string name="revanced_hook_download_button_title">Bouton de \"Téléchargement\"</string>
+    <string name="revanced_import_settings_inform">"Les paramètres suivants ne peuvent pas être importés, donc veuillez ouvrir les paramètres ReVanced Extended une fois après l'importation des paramètres
+
+• Masque le menu des paramètres supplémentaires (boutons du menu \"paramètre\" des vidéos)
+• Masque les boutons en haut à droite des Shorts"</string>
     <string name="revanced_import_settings_summary">Récupérer les paramètres ReVanced  Extended à partir du fichier enregistré</string>
     <string name="revanced_import_settings_title">Paramètres d’importation</string>
+    <string name="revanced_inform">Info</string>
     <string name="revanced_layout_title">Mise en page</string>
     <string name="revanced_misc">Autres paramètres</string>
     <string name="revanced_navigation">Mise en page de navigation</string>
@@ -610,6 +621,8 @@ Appuyez longuement pour régler la vitesse de la vidéo sur 1.0x"</string>
     <string name="revanced_patches_information">Informations sur les patchs</string>
     <string name="revanced_patches_information_summary">Informations sur les patchs appliqués</string>
     <string name="revanced_player">Boutons sur la vidéo</string>
+    <string name="revanced_player_flyout_panel_additional_settings_summary">Pour masquer le menu des paramètres supplémentaires, masquer tous les paramètres dans la catégorie \"Paramètres supplémentaires\"</string>
+    <string name="revanced_player_flyout_panel_additional_settings_title">Boutons du menu \"paramètre\" des vidéos (Paramètres supplémentaires)</string>
     <string name="revanced_player_flyout_panel_title">Boutons du menu \"paramètre\" des vidéos</string>
     <string name="revanced_quick_actions_margin_top_summary">Valeur de marge supérieure entre 0 et 64</string>
     <string name="revanced_quick_actions_margin_top_title">Marge supérieure des actions rapides</string>
@@ -639,6 +652,7 @@ Appuyez longuement pour régler la vitesse de la vidéo sur 1.0x"</string>
     <string name="revanced_seekbar">Barre de progression et ajouts d\'infos</string>
     <string name="revanced_shorts">Shorts</string>
     <string name="revanced_shorts_player_title">Lecteur Shorts</string>
+    <string name="revanced_shorts_toolbar_summary">Pour masquer les boutons en haut à droite des shorts, Activer tous les paramètres de la catégorie \"Boutons en haut à droite\"</string>
     <string name="revanced_shorts_toolbar_title">Boutons en haut à droite</string>
     <string name="revanced_show_fullscreen_title_summary">Problème connu : 
 Le titre disparaît lorsqu\'on clique dessus</string>

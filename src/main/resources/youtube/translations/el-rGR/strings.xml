@@ -44,6 +44,7 @@
     <string name="revanced_copy_video_timestamp_success">Η χρονική σήμανση αντιγράφηκε στο πρόχειρο</string>
     <string name="revanced_custom_filter_strings_summary">Φιλτράρισμα στοιχείων με βάση τα ονόματα τους χωρισμένα σε γραμμές</string>
     <string name="revanced_custom_filter_strings_title">Επεξεργασία προσαρμοσμένου φίλτρου</string>
+    <string name="revanced_custom_filter_strings_warning">Μη έγκυρο προσαρμοσμένο φίλτρο, επαναφορά σε προεπιλογή.</string>
     <string name="revanced_custom_filter_summary_off">Το προσαρμοσμένο φίλτρο χρήστη είναι απενεργοποιημένο</string>
     <string name="revanced_custom_filter_summary_on">Το προσαρμοσμένο φίλτρο χρήστη είναι απενεργοποιημένο</string>
     <string name="revanced_custom_filter_title">Προσαρμοσμένο φίλτρο χρήστη</string>
@@ -92,6 +93,10 @@
 
 Αυτή η λειτουργία αποτρέπει την συμπίεση και αποσυμπίεση των βίντεο κατά την αναπαραγωγή, κάτι το οποίο μπορεί να προκαλέσει κολλήματα, ενδέχεται όμως να χρησιμοποιηθούν περισσότερα δεδομένα."</string>
     <string name="revanced_disable_quic_protocol_title">Απενεργοποίηση πρωτοκόλλου QUIC</string>
+    <string name="revanced_disable_speed_overlay_summary">"Απενεργοποίηση της λειτουργίας «Παίζοντας με 2x ταχύτητα» κατά το παρατεταμένο πάτημα
+
+Σημείωση: Η απενεργοποίηση της διεπαφής ταχύτητας δεν θα επαναφέρει την λειτουργία «Σύρετε για αναζήτηση» της παλιάς διάταξης"</string>
+    <string name="revanced_disable_speed_overlay_title">Απενεργοποίηση διεπαφής ταχύτητας</string>
     <string name="revanced_disable_startup_shorts_player_summary_off">Ο αναπαραγωγέας Shorts είναι ενεργοποιημένος κατά την εκκίνηση της εφαρμογής</string>
     <string name="revanced_disable_startup_shorts_player_summary_on">Ο αναπαραγωγέας Shorts είναι απενεργοποιημένος κατά την εκκίνηση της εφαρμογής</string>
     <string name="revanced_disable_startup_shorts_player_title">Απενεργοποίηση του Shorts player κατά την εκκίνηση της εφαρμογής</string>
@@ -106,6 +111,9 @@
     <string name="revanced_enable_custom_seekbar_color_summary_off">Το προσαρμοσμένο χρώμα γραμμής προόδου είναι απενεργοποιημένο</string>
     <string name="revanced_enable_custom_seekbar_color_summary_on">Το προσαρμοσμένο χρώμα γραμμής προόδου είναι ενεργοποιημένο</string>
     <string name="revanced_enable_custom_seekbar_color_title">Προσαρμοσμένο χρώμα γραμμής προόδου</string>
+    <string name="revanced_enable_debug_buffer_logging_summary_off">Τα αρχεία καταγραφής σφαλμάτων δεν περιλαμβάνουν το buffer</string>
+    <string name="revanced_enable_debug_buffer_logging_summary_on">Τα αρχεία καταγραφής σφαλμάτων περιλαμβάνουν το buffer</string>
+    <string name="revanced_enable_debug_buffer_logging_title">Συμπερίληψη του buffer στο αρχείο καταγραφής</string>
     <string name="revanced_enable_debug_logging_summary_off">Το αρχείο καταγραφής σφαλμάτων είναι απενεργοποιημένο</string>
     <string name="revanced_enable_debug_logging_summary_on">Το αρχείο καταγραφής σφαλμάτων είναι ενεργοποιημένο</string>
     <string name="revanced_enable_debug_logging_title">Αρχείο καταγραφής εντοπισμού σφαλμάτων</string>
@@ -189,6 +197,8 @@
     <string name="revanced_general">Γενικά</string>
     <string name="revanced_haptic_feedback_title">Απόκριση δόνησης</string>
     <string name="revanced_hide_account_menu_filter_strings_title">Επεξεργασία φίλτρου στοιχείων μενού λογαριασμού</string>
+    <string name="revanced_hide_account_menu_summary">"Απόκρυψη στοιχείων του μενού λογαριασμό και της καρτέλας «Εσείς»
+Κάποια στοιχεία ενδέχεται να μην αποκρύπτονται"</string>
     <string name="revanced_hide_account_menu_title">Απόκρυψη μενού λογαριασμού</string>
     <string name="revanced_hide_album_card_summary_off">Οι κάρτες άλμπουμ εμφανίζονται</string>
     <string name="revanced_hide_album_card_summary_on">Οι κάρτες άλμπουμ είναι κρυμμένες</string>
@@ -510,6 +520,9 @@
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_off">Το κουμπί εγγραφών εμφανίζεται κατά την παύση του αναπαραγωγέα Shorts</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_on">Το κουμπί εγγραφών είναι κρυμμένο</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_title">Απόκρυψη κουμπιού εγγραφών</string>
+    <string name="revanced_hide_shorts_shelf_summary">"Απόκρυψη των ραφιών Shorts
+
+Γνωστό θέμα: Οι επίσημες επικεφαλίδες στα αποτελέσματα αναζήτησης δεν εμφανίζονται"</string>
     <string name="revanced_hide_shorts_shelf_title">Απόκρυψη των Shorts</string>
     <string name="revanced_hide_shorts_toolbar_banner_summary_off">Το λογότυπο Shorts εμφανίζεται</string>
     <string name="revanced_hide_shorts_toolbar_banner_summary_on">Το λογότυπο Shorts είναι κρυμμένο</string>
@@ -579,8 +592,13 @@
     <string name="revanced_hide_youtube_music_button_title">Απόκρυψη κουμπιού YouTube Music</string>
     <string name="revanced_hook_download_button_summary">"Αντικατάσταση του κουμπιού «Λήψη» κάτω απ'το βίντεο, με κουμπί λήψης βίντεο σε εξωτερικό πρόγραμμα λήψης"</string>
     <string name="revanced_hook_download_button_title">Αντικατάσταση κουμπιού λήψης</string>
+    <string name="revanced_import_settings_inform">"Οι παρακάτω ρυθμίσεις ενδέχεται να μην εισαχθούν, επομένως παρακαλούμε να τις ελέγξετε αφού κάνετε εισαγωγή ρυθμίσεων
+
+• Απόκρυψη μενού πρόσθετων ρυθμίσεων (αναδυόμενος πίνακας του αναπαραγωγέα)
+• Απόκρυψη γραμμής εργαλείων Shorts"</string>
     <string name="revanced_import_settings_summary">Ανάκτηση ρυθμίσεων ReVanced Extended από αποθηκευμένο αρχείο</string>
     <string name="revanced_import_settings_title">Εισαγωγή ρυθμίσεων</string>
+    <string name="revanced_inform">Πληροφορίες</string>
     <string name="revanced_layout_title">Εμφάνιση</string>
     <string name="revanced_misc">Διάφορα</string>
     <string name="revanced_navigation">Μπάρα πλοήγησης</string>
@@ -607,7 +625,12 @@
     <string name="revanced_patches_information">Πληροφορίες Τροποποιήσεων</string>
     <string name="revanced_patches_information_summary">Πληροφορίες σχετικά με τις εφαρμοσμένες τροποποιήσεις</string>
     <string name="revanced_player">Αναπαραγωγέας</string>
+    <string name="revanced_player_flyout_panel_additional_settings_summary">Για απόκρυψη του μενού πρόσθετων ρυθμίσεων, ενεργοποιήστε όλες τις ρυθμίσεις απόκρυψης στοιχείων στην κατηγορία «Πρόσθετες ρυθμίσεις»</string>
+    <string name="revanced_player_flyout_panel_additional_settings_title">Αναδυόμενος πίνακας του αναπαραγωγέα (Πρόσθετες ρυθμίσεις)</string>
     <string name="revanced_player_flyout_panel_title">Αναδυόμενος πίνακας του αναπαραγωγέα</string>
+    <string name="revanced_quick_actions_margin_top_summary">Τιμή πάνω περιθωρίου μεταξύ 0-64</string>
+    <string name="revanced_quick_actions_margin_top_title">Πάνω περιθώριο γρήγορων ενεργειών</string>
+    <string name="revanced_quick_actions_margin_top_warning">Το πάνω περιθώριο των γρήγορων ενεργειών πρέπει να είναι μεταξύ 0-64. Έγινε επαναφορά στις προεπιλεγμένες τιμές.</string>
     <string name="revanced_quick_actions_title">Γρήγορες ενέργειες</string>
     <string name="revanced_reboot_first_run">Επανεκκίνηση για να φορτώσετε κανονικά τη διάταξη</string>
     <string name="revanced_ryd_about">Σχετικά με</string>
@@ -633,6 +656,7 @@
     <string name="revanced_seekbar">Γραμμή προόδου βίντεο</string>
     <string name="revanced_shorts">Shorts</string>
     <string name="revanced_shorts_player_title">Αναπαραγωγέας Shorts</string>
+    <string name="revanced_shorts_toolbar_summary">Για απόκρυψη της γραμμής εργαλείων Shorts, ενεργοποιήστε όλες τις ρυθμίσεις απόκρυψης στοιχείων στην κατηγορία γραμμής εργαλείων Shorts</string>
     <string name="revanced_shorts_toolbar_title">Γραμμή εργαλείων Shorts</string>
     <string name="revanced_show_fullscreen_title_summary">Γνωστό ζήτημα: ο τίτλος εξαφανίζεται όταν πατηθεί</string>
     <string name="revanced_show_fullscreen_title_title">Εμφάνιση τίτλου σε πλήρη οθόνη</string>
