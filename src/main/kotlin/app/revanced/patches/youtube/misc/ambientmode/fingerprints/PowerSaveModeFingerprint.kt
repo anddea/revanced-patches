@@ -31,9 +31,6 @@ object PowerSaveModeFingerprint : MethodFingerprint(
 
             count++
         }
-        if (count < 2)
-            return@custom false
-
         count == 2
     }
 )
