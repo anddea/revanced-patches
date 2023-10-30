@@ -11,7 +11,6 @@ import app.revanced.patcher.patch.PatchException
 import app.revanced.patches.youtube.utils.fingerprints.OnBackPressedFingerprint
 import app.revanced.patches.youtube.utils.navbarindex.fingerprints.MobileTopBarButtonOnClickFingerprint
 import app.revanced.patches.youtube.utils.navbarindex.fingerprints.NavButtonOnClickFingerprint
-import app.revanced.patches.youtube.utils.navbarindex.fingerprints.NavButtonOnClickLegacyFingerprint
 import app.revanced.patches.youtube.utils.navbarindex.fingerprints.OnResumeFragmentsFingerprints
 import app.revanced.patches.youtube.utils.navbarindex.fingerprints.SettingsActivityOnBackPressedFingerprint
 import app.revanced.util.integrations.Constants.UTILS_PATH
@@ -23,7 +22,6 @@ object NavBarIndexHookPatch : BytecodePatch(
     setOf(
         MobileTopBarButtonOnClickFingerprint,
         NavButtonOnClickFingerprint,
-        NavButtonOnClickLegacyFingerprint,
         OnBackPressedFingerprint,
         OnResumeFragmentsFingerprints,
         SettingsActivityOnBackPressedFingerprint
@@ -31,14 +29,10 @@ object NavBarIndexHookPatch : BytecodePatch(
 ) {
     override fun execute(context: BytecodeContext) {
 
-        val navButtonOnClickFingerprintResult =
-            NavButtonOnClickFingerprint.result
-                ?: NavButtonOnClickLegacyFingerprint.result
-                ?: throw NavButtonOnClickFingerprint.exception
         /**
          * Change NavBar Index value according to selected Tab
          */
-        navButtonOnClickFingerprintResult.let {
+        NavButtonOnClickFingerprint.result?.let {
             it.mutableMethod.apply {
                 val insertIndex = it.scanResult.patternScanResult!!.endIndex - 1
                 val targetString =
@@ -53,7 +47,7 @@ object NavBarIndexHookPatch : BytecodePatch(
                     "invoke-static {v$indexRegister}, $INTEGRATIONS_CLASS_DESCRIPTOR->setCurrentNavBarIndex(I)V"
                 )
             }
-        }
+        } ?: throw NavButtonOnClickFingerprint.exception
 
         /**
          *  Set NavBar index to last index on back press
