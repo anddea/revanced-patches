@@ -121,7 +121,24 @@ object OverlayButtonsPatch : ResourcePatch() {
                     "yt_outline_arrow_repeat_1_white_24.png",
                     "yt_outline_arrow_shuffle_1_white_24.png",
                     "yt_outline_screen_full_exit_white_24.png",
-                    "yt_outline_screen_full_white_24.png"
+                    "yt_outline_screen_full_white_24.png",
+
+                    // Shorts outline icons
+                    "ic_right_like_off_shadowed.webp",
+                    "ic_right_dislike_off_shadowed.webp",
+                    "ic_right_comment_shadowed.webp",
+                    "ic_right_share_shadowed.webp",
+                    "ic_remix_filled_white_24.webp",
+                    "ic_remix_filled_white_shadowed.webp"
+                ),
+
+                // Shorts outline icons for older versions of YouTube
+                ResourceUtils.ResourceGroup(
+                    "drawable",
+                    "ic_right_like_off_32c.xml",
+                    "ic_right_dislike_off_32c.xml",
+                    "ic_right_comment_32c.xml",
+                    "ic_right_share_32c.xml"
                 )
             ).forEach { resourceGroup ->
                 context.copyResources("youtube/overlaybuttons/outline", resourceGroup)
