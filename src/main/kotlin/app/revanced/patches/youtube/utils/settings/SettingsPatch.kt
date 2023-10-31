@@ -47,9 +47,7 @@ import java.util.concurrent.TimeUnit
                 "18.37.36",
                 "18.38.44",
                 "18.39.41",
-                "18.40.34",
-                "18.41.39",
-                "18.42.41"
+                "18.40.34"
             ]
         )
     ],
@@ -94,7 +92,6 @@ object SettingsPatch : AbstractSettingsResourcePatch(
                         is1836 = playServicesVersion in 233700000..233801999
                         upward1828 = 232900000 <= playServicesVersion
                         upward1834 = 233502000 <= playServicesVersion
-                        upward1840 = 234102000 <= playServicesVersion
 
                         break
                     }
@@ -204,7 +201,6 @@ object SettingsPatch : AbstractSettingsResourcePatch(
     internal var is1836: Boolean = false
     internal var upward1828: Boolean = false
     internal var upward1834: Boolean = false
-    internal var upward1840: Boolean = false
 
     internal fun addPreference(settingArray: Array<String>) {
         contexts.addPreference(settingArray)
