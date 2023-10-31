@@ -18,7 +18,6 @@ import app.revanced.patches.youtube.utils.playerresponse.PlayerResponsePatch
 import app.revanced.patches.youtube.utils.returnyoutubedislike.general.fingerprints.DislikeFingerprint
 import app.revanced.patches.youtube.utils.returnyoutubedislike.general.fingerprints.LikeFingerprint
 import app.revanced.patches.youtube.utils.returnyoutubedislike.general.fingerprints.RemoveLikeFingerprint
-import app.revanced.patches.youtube.utils.returnyoutubedislike.general.fingerprints.SpoofAppVersionPatchFingerprint
 import app.revanced.patches.youtube.utils.returnyoutubedislike.general.fingerprints.TextComponentAtomicReferenceFingerprint
 import app.revanced.patches.youtube.utils.returnyoutubedislike.general.fingerprints.TextComponentAtomicReferenceLegacyFingerprint
 import app.revanced.patches.youtube.utils.returnyoutubedislike.general.fingerprints.TextComponentConstructorFingerprint
@@ -45,7 +44,6 @@ import com.android.tools.smali.dexlib2.iface.reference.Reference
         ReturnYouTubeDislikeOldLayoutPatch::class,
         ReturnYouTubeDislikeShortsPatch::class,
         SettingsPatch::class,
-        SpoofAppVersionPatch::class,
         VideoIdPatch::class
     ],
     compatiblePackages = [
@@ -65,9 +63,7 @@ import com.android.tools.smali.dexlib2.iface.reference.Reference
                 "18.37.36",
                 "18.38.44",
                 "18.39.41",
-                "18.40.34",
-                "18.41.39",
-                "18.42.41"
+                "18.40.34"
             ]
         )
     ]
@@ -78,7 +74,6 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
         DislikeFingerprint,
         LikeFingerprint,
         RemoveLikeFingerprint,
-        SpoofAppVersionPatchFingerprint,
         TextComponentConstructorFingerprint
     )
 ) {
@@ -195,23 +190,6 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
                 }
             }
         } ?: throw TextComponentConstructorFingerprint.exception
-
-        if (SettingsPatch.upward1840) {
-            SpoofAppVersionPatchFingerprint.result?.let {
-                it.mutableMethod.apply {
-                    addInstructionsWithLabels(
-                        0, """
-                            sget-object v0, Lapp/revanced/integrations/settings/SettingsEnum;->INITIALIZED:Lapp/revanced/integrations/settings/SettingsEnum;
-                            invoke-virtual {v0}, Lapp/revanced/integrations/settings/SettingsEnum;->getBoolean()Z
-                            move-result v0
-                            if-nez v0, :initialized
-                            const-string v0, "18.39.41"
-                            return-object v0
-                            """, ExternalLabel("initialized", getInstruction(0))
-                    )
-                }
-            } ?: throw SpoofAppVersionPatchFingerprint.exception
-        }
 
         if (SettingsPatch.upward1834) {
             LithoFilterPatch.addFilter(FILTER_CLASS_DESCRIPTOR)

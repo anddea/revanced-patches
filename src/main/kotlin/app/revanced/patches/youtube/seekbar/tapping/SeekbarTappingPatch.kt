@@ -5,14 +5,18 @@ import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.seekbar.tapping.fingerprints.SeekbarTappingFingerprint
-import app.revanced.patches.youtube.seekbar.tapping.fingerprints.SeekbarTappingReferenceFingerprint
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.integrations.Constants.SEEKBAR
-import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction35c
+import com.android.tools.smali.dexlib2.dexbacked.reference.DexBackedMethodReference
+import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction11n
 
 @Patch(
     name = "Enable seekbar tapping",
@@ -35,41 +39,65 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
                 "18.37.36",
                 "18.38.44",
                 "18.39.41",
-                "18.40.34",
-                "18.41.39",
-                "18.42.41"
+                "18.40.34"
             ]
         )
     ]
 )
 @Suppress("unused")
 object SeekbarTappingPatch : BytecodePatch(
-    setOf(
-        SeekbarTappingReferenceFingerprint,
-        SeekbarTappingFingerprint
-    )
+    setOf(SeekbarTappingFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
-        SeekbarTappingReferenceFingerprint.result?.let {
-            it.mutableMethod.apply {
-                TappingLabel = """
-                    invoke-static {}, $SEEKBAR->enableSeekbarTapping()Z
-                    move-result v0
-                    if-eqz v0, :disabled
-                    invoke-virtual { p0, v2 }, ${getInstruction<ReferenceInstruction>(it.scanResult.patternScanResult!!.startIndex).reference}
-                    invoke-virtual { p0, v2 }, ${getInstruction<ReferenceInstruction>(it.scanResult.patternScanResult!!.endIndex - 1).reference}
-                    """
-            }
-        } ?: throw SeekbarTappingReferenceFingerprint.exception
-
         SeekbarTappingFingerprint.result?.let {
             it.mutableMethod.apply {
+                val tapSeekIndex = it.scanResult.patternScanResult!!.startIndex + 1
+                val tapSeekReference = getInstruction<BuilderInstruction35c>(tapSeekIndex).reference
+                val tapSeekClass =
+                    context
+                        .findClass(((tapSeekReference) as DexBackedMethodReference).definingClass)!!
+                        .mutableClass
+                val tapSeekMethods = mutableMapOf<String, MutableMethod>()
+
+                for (method in tapSeekClass.methods) {
+                    if (method.implementation == null)
+                        continue
+
+                    val instructions = method.implementation!!.instructions
+                    // here we make sure we actually find the method because it has more than 7 instructions
+                    if (instructions.count() != 10)
+                        continue
+
+                    // we know that the 7th instruction has the opcode CONST_4
+                    val instruction = instructions.elementAt(6)
+                    if (instruction.opcode != Opcode.CONST_4)
+                        continue
+
+                    // the literal for this instruction has to be either 1 or 2
+                    val literal = (instruction as Instruction11n).narrowLiteral
+
+                    // method founds
+                    if (literal == 1)
+                        tapSeekMethods["P"] = method
+                    else if (literal == 2)
+                        tapSeekMethods["O"] = method
+                }
+
+                val pMethod = tapSeekMethods["P"]
+                    ?: throw PatchException("tapSeekMethod not found")
+                val oMethod = tapSeekMethods["O"]
+                    ?: throw PatchException("tapSeekMethod not found")
+
                 val insertIndex = it.scanResult.patternScanResult!!.startIndex + 2
 
                 addInstructionsWithLabels(
-                    insertIndex,
-                    TappingLabel,
-                    ExternalLabel("disabled", getInstruction(insertIndex))
+                    insertIndex, """
+                        invoke-static {}, $SEEKBAR->enableSeekbarTapping()Z
+                        move-result v0
+                        if-eqz v0, :disabled
+                        invoke-virtual { p0, v2 }, ${oMethod.definingClass}->${oMethod.name}(I)V
+                        invoke-virtual { p0, v2 }, ${pMethod.definingClass}->${pMethod.name}(I)V
+                        """, ExternalLabel("disabled", getInstruction(insertIndex))
                 )
             }
         } ?: throw SeekbarTappingFingerprint.exception

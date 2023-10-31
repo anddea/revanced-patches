@@ -44,9 +44,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
                 "18.37.36",
                 "18.38.44",
                 "18.39.41",
-                "18.40.34",
-                "18.41.39",
-                "18.42.41"
+                "18.40.34"
             ]
         )
     ]
@@ -69,10 +67,7 @@ object NewSplashAnimationPatch : BytecodePatch(
          */
         WatchWhileActivityWithInFlagsFingerprint.result?.let {
             it.mutableMethod.apply {
-                var targetIndex = getWide32LiteralIndex(45407550) + 3
-                if (getInstruction(targetIndex).opcode == Opcode.MOVE_RESULT)
-                    targetIndex += 1
-
+                val targetIndex = getWide32LiteralIndex(45407550) + 3
                 inject(targetIndex)
             }
         }

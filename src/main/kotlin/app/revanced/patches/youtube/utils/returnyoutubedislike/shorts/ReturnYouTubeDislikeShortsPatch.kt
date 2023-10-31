@@ -8,7 +8,9 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWith
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.utils.returnyoutubedislike.shorts.fingerprints.IncognitoFingerprint
 import app.revanced.patches.youtube.utils.returnyoutubedislike.shorts.fingerprints.ShortsTextViewFingerprint
@@ -31,23 +33,25 @@ object ReturnYouTubeDislikeShortsPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         ShortsTextViewFingerprint.result?.let {
             it.mutableMethod.apply {
-                val patternResult = it.scanResult.patternScanResult!!
+                val startIndex = it.scanResult.patternScanResult!!.startIndex
 
-                val isDisLikesBooleanIndex =
-                    implementation!!.instructions.indexOfFirst { instruction ->
-                        instruction.opcode == Opcode.IGET_BOOLEAN
-                    }
+                val isDisLikesBooleanIndex = getTargetIndexDownTo(startIndex, Opcode.IGET_BOOLEAN)
+                val textViewFieldIndex = getTargetIndexDownTo(startIndex, Opcode.IGET_OBJECT)
+
                 // If the field is true, the TextView is for a dislike button.
                 val isDisLikesBooleanReference =
                     getInstruction<ReferenceInstruction>(isDisLikesBooleanIndex).reference
 
                 val textViewFieldReference = // Like/Dislike button TextView field
-                    getInstruction<ReferenceInstruction>(patternResult.endIndex).reference
+                    getInstruction<ReferenceInstruction>(textViewFieldIndex).reference
 
                 // Check if the hooked TextView object is that of the dislike button.
                 // If RYD is disabled, or the TextView object is not that of the dislike button, the execution flow is not interrupted.
                 // Otherwise, the TextView object is modified, and the execution flow is interrupted to prevent it from being changed afterward.
-                val insertIndex = patternResult.startIndex + 6
+                val insertIndex = implementation!!.instructions.indexOfFirst { instruction ->
+                    instruction.opcode == Opcode.CHECK_CAST
+                } + 1
+
                 addInstructionsWithLabels(
                     insertIndex, """
                     # Check, if the TextView is for a dislike button
@@ -98,6 +102,19 @@ object ReturnYouTubeDislikeShortsPatch : BytecodePatch(
                 }
             } ?: throw IncognitoFingerprint.exception
         }
+    }
+
+    private fun MutableMethod.getTargetIndexDownTo(
+        startIndex: Int,
+        opcode: Opcode
+    ): Int {
+        for (index in startIndex downTo 0) {
+            if (getInstruction(index).opcode != opcode)
+                continue
+
+            return index
+        }
+        throw PatchException("Failed to find target method")
     }
 
     private const val INTEGRATIONS_RYD_CLASS_DESCRIPTOR =
