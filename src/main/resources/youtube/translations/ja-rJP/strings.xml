@@ -44,7 +44,7 @@
     <string name="revanced_copy_video_timestamp_success">タイムスタンプをクリップボードにコピーしました</string>
     <string name="revanced_custom_filter_strings_summary">コンポーネント名でフィルター (改行区切り)</string>
     <string name="revanced_custom_filter_strings_title">カスタムフィルターを編集</string>
-    <string name="revanced_custom_filter_strings_warning">無効なカスタムフィルタです。デフォルトにリセットしています。</string>
+    <string name="revanced_custom_filter_strings_warning">無効なカスタムフィルターです。デフォルトにリセットします。</string>
     <string name="revanced_custom_filter_summary_off">カスタムフィルターは無効です</string>
     <string name="revanced_custom_filter_summary_on">カスタムフィルターは有効です</string>
     <string name="revanced_custom_filter_title">カスタムフィルター</string>
@@ -78,7 +78,6 @@
     <string name="revanced_disable_haptic_feedback_chapters_title">チャプターの触覚フィードバックを無効化</string>
     <string name="revanced_disable_haptic_feedback_scrubbing_title">フィルムストリップの触覚フィードバックを無効化</string>
     <string name="revanced_disable_haptic_feedback_seek_title">動画長押し時の触覚フィードバックを無効化</string>
-    <string name="revanced_disable_haptic_feedback_seek_undo_title">動画長押し時の触覚フィードバックを無効化</string>
     <string name="revanced_disable_haptic_feedback_zoom_title">動画ズーム時の触覚フィードバックを無効化</string>
     <string name="revanced_disable_hdr_auto_brightness_summary_off">HDR 動画の明るさの自動調節は有効です</string>
     <string name="revanced_disable_hdr_auto_brightness_summary_on">HDR 動画の明るさの自動調節は無効です</string>
@@ -105,9 +104,9 @@
     <string name="revanced_enable_custom_seekbar_color_summary_off">シークバーの色のカスタマイズは無効です</string>
     <string name="revanced_enable_custom_seekbar_color_summary_on">シークバーの色のカスタマイズは有効です</string>
     <string name="revanced_enable_custom_seekbar_color_title">シークバーの色のカスタマイズ</string>
-    <string name="revanced_enable_debug_buffer_logging_summary_off">デバッグログにバッファが含まれていません</string>
-    <string name="revanced_enable_debug_buffer_logging_summary_on">デバッグログにバッファが含まれています</string>
-    <string name="revanced_enable_debug_buffer_logging_title">デバッグバッファログの有効化</string>
+    <string name="revanced_enable_debug_buffer_logging_summary_off">バッファログをデバッグログに含めません</string>
+    <string name="revanced_enable_debug_buffer_logging_summary_on">バッファログをデバッグログに含めます</string>
+    <string name="revanced_enable_debug_buffer_logging_title">デバッグバッファログを有効化</string>
     <string name="revanced_enable_debug_logging_summary_off">デバッグログは無効です</string>
     <string name="revanced_enable_debug_logging_summary_on">デバッグログは有効です</string>
     <string name="revanced_enable_debug_logging_title">デバッグログ</string>
@@ -491,9 +490,6 @@
     <string name="revanced_hide_seek_message_summary_off">動画長押しシーク時に表示される「移動するには左右にスライドします」を非表示にします</string>
     <string name="revanced_hide_seek_message_summary_on">動画長押しシーク時に表示される「移動するには左右にスライドします」を非表示にします</string>
     <string name="revanced_hide_seek_message_title">シーク時のメッセージを非表示</string>
-    <string name="revanced_hide_seek_undo_message_summary_off">動画長押しシーク時に表示される「移動するには左右にスライドします」は表示されます</string>
-    <string name="revanced_hide_seek_undo_message_summary_on">動画長押しシーク時に表示される「移動するには左右にスライドします」非表示です</string>
-    <string name="revanced_hide_seek_undo_message_title">シーク時のメッセージを非表示</string>
     <string name="revanced_hide_self_sponsor_cards_summary_off">動画情報下部のセルフスポンサーカードは表示されます</string>
     <string name="revanced_hide_self_sponsor_cards_summary_on">動画情報下部のセルフスポンサーカードは非表示です</string>
     <string name="revanced_hide_self_sponsor_cards_title">セルフスポンサーカードを非表示</string>
@@ -543,6 +539,7 @@
     <string name="revanced_hide_suggested_actions_summary_on">プレーヤー上の「Premium のコントロール」などの提案は非表示です</string>
     <string name="revanced_hide_suggested_actions_title">提案されたアクションを非表示</string>
     <string name="revanced_hide_suggested_video_overlay_summary">"次に再生する動画のオーバーレイを非表示にします
+
 既知の問題: 自動再生が機能しません"</string>
     <string name="revanced_hide_suggested_video_overlay_title">関連動画のオーバーレイを非表示</string>
     <string name="revanced_hide_suggestions_shelf_summary">"以下の欄を非表示にします
@@ -617,7 +614,7 @@
     <string name="revanced_patches_information">パッチ情報</string>
     <string name="revanced_patches_information_summary">適用されたパッチに関する情報</string>
     <string name="revanced_player">プレーヤー</string>
-    <string name="revanced_player_flyout_panel_additional_settings_summary">「その他の設定」メニューを非表示にするには、「その他の設定」カテゴリーのすべての設定を非表示にしてください</string>
+    <string name="revanced_player_flyout_panel_additional_settings_summary">「その他の設定」メニューを非表示にするには、「その他の設定」カテゴリーのすべての設定を非表示にしてください。</string>
     <string name="revanced_player_flyout_panel_additional_settings_title">プレーヤーのフライアウトパネル (その他の設定)</string>
     <string name="revanced_player_flyout_panel_title">プレーヤーのフライアウトパネル</string>
     <string name="revanced_quick_actions_margin_top_summary">0-64 の間の最大マージン値</string>
@@ -648,7 +645,7 @@
     <string name="revanced_seekbar">シークバー</string>
     <string name="revanced_shorts">ショート動画</string>
     <string name="revanced_shorts_player_title">ショートプレーヤー</string>
-    <string name="revanced_shorts_toolbar_summary">ショートのツールバーを非表示にするには、ショートのツールバーカテゴリのすべての設定を非表示にします。</string>
+    <string name="revanced_shorts_toolbar_summary">ショートのツールバーを非表示にするには、ショートのツールバーカテゴリーのすべての設定を非表示にしてください。</string>
     <string name="revanced_shorts_toolbar_title">ショートのツールバー</string>
     <string name="revanced_show_fullscreen_title_summary">既知の問題: タイトルをタップすると消えます</string>
     <string name="revanced_show_fullscreen_title_title">全画面表示での動画タイトル</string>
@@ -681,12 +678,10 @@
     <string name="revanced_spoof_device_dimensions_title">デバイスの寸法を偽装</string>
     <string name="revanced_spoof_player_parameter_in_feed_summary_off">"フィードの動画のパラメーターを偽装しない
 
-既知の問題
-• フィードの動画は、1分未満で再生の問題が発生します"</string>
+既知の問題: フィードの動画は、1分未満で再生の問題が発生します"</string>
     <string name="revanced_spoof_player_parameter_in_feed_summary_on">"フィードの動画のパラメーターを偽装する
 
-既知の問題
-• 自動再生されたフィードの動画が再生履歴に表示されます"</string>
+既知の問題: 自動再生されたフィードの動画が再生履歴に表示されます"</string>
     <string name="revanced_spoof_player_parameter_in_feed_title">フィードのプレーヤーのパラメーターを偽装</string>
     <string name="revanced_spoof_player_parameter_summary">"プレーヤーのパラメーターを偽装して、再生の問題を防ぎます
 

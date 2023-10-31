@@ -33,9 +33,9 @@
     <string name="revanced_backup_summary">Beállítás importálása fájlból, vagy a beállítások exportálása fájlba</string>
     <string name="revanced_bottom_player">Mini lejátszó</string>
     <string name="revanced_button_container_title">Gomb tároló</string>
-    <string name="revanced_bypass_ambient_mode_restrictions_summary_off">A Mozifilmes világítás ki van kapcsolva akkumulátorkímélő üzemmódban</string>
-    <string name="revanced_bypass_ambient_mode_restrictions_summary_on">A Mozifilmes világítás engedélyezve van az akkumulátorkímélő üzemmódban</string>
-    <string name="revanced_bypass_ambient_mode_restrictions_title">A Mozifilmes világításbeli korlátozások megkerülése</string>
+    <string name="revanced_bypass_ambient_mode_restrictions_summary_off">A „Mozifilmes világítás” mód letiltott akkumulátorkímélő üzemmódban</string>
+    <string name="revanced_bypass_ambient_mode_restrictions_summary_on">A „Mozifilmes világítás” mód engedélyezve van akkumulátorkímélő üzemmódban</string>
+    <string name="revanced_bypass_ambient_mode_restrictions_title">Megkerüli a „Mozifilmes világítás” mód korlátozásait</string>
     <string name="revanced_change_homepage_summary_off">Jelenlegi kezdőlap: Főoldal</string>
     <string name="revanced_change_homepage_summary_on">Jelenlegi kezdőlap: Feliratkozások</string>
     <string name="revanced_change_homepage_title">Kezdőlap megváltoztatása felirarkozásokra</string>
@@ -44,6 +44,7 @@
     <string name="revanced_copy_video_timestamp_success">Az Időtartam másolva lett a vágólapra</string>
     <string name="revanced_custom_filter_strings_summary">Komponensek szűrése sorokkal elválasztott nevekkel</string>
     <string name="revanced_custom_filter_strings_title">Egyéni szűrő szerkesztése</string>
+    <string name="revanced_custom_filter_strings_warning">Érvénytelen egyedi szűrő, visszaállítás az eredetire.</string>
     <string name="revanced_custom_filter_summary_off">Az egyedi szűrő ki van kapcsolva</string>
     <string name="revanced_custom_filter_summary_on">Az egyedi szűrő engedélyezve van</string>
     <string name="revanced_custom_filter_title">Egyedi szűrő engedélyezése</string>
@@ -62,10 +63,10 @@
     <string name="revanced_default_video_quality_mobile_title">Alapértelmezett videó minőség mobilhálozaton</string>
     <string name="revanced_default_video_quality_wifi_title">Alapértelmezett videó minőség Wi-Fi hálózaton</string>
     <string name="revanced_description_title">Leírás</string>
-    <string name="revanced_disable_ambient_mode_in_fullscreen_summary">Letiltja a környezeti módot teljes képernyőn</string>
-    <string name="revanced_disable_ambient_mode_in_fullscreen_title">Teljes képernyőn a környezeti mód kikapcsolása</string>
-    <string name="revanced_disable_ambient_mode_summary">Mindig kapcsolja ki a környezeti módot</string>
-    <string name="revanced_disable_ambient_mode_title">A környezeti mód letiltása</string>
+    <string name="revanced_disable_ambient_mode_in_fullscreen_summary">Letiltja a „Mozifilmes világítás” módot teljes képernyőn</string>
+    <string name="revanced_disable_ambient_mode_in_fullscreen_title">Teljes képernyőn tiltsa le a „Mozifilmes világítás” módot</string>
+    <string name="revanced_disable_ambient_mode_summary">Mindig tiltsa le „Mozifilmes világítás” módot</string>
+    <string name="revanced_disable_ambient_mode_title">A „Mozifilmes világítás” mód letiltása</string>
     <string name="revanced_disable_auto_captions_summary_off">A kényszerített automatikus feliratok engedélyezve vannak</string>
     <string name="revanced_disable_auto_captions_summary_on">A kényszerített automatikus feliratok le vannak tiltva</string>
     <string name="revanced_disable_auto_captions_title">A kényszerített automatikus feliratok letiltása</string>
@@ -90,6 +91,10 @@
     <string name="revanced_disable_landscape_mode_title">Fekvő mód kikapcsolása</string>
     <string name="revanced_disable_quic_protocol_summary">"A CronetEngine QUIC protokoll letiltása"</string>
     <string name="revanced_disable_quic_protocol_title">QUIC protokoll letiltása</string>
+    <string name="revanced_disable_speed_overlay_summary">"Tiltsa le a „Lejátszás 2x sebességgel” nyomvatartás közben funkciót
+
+Megjegyzés: A sebesség átfedés letiltása nem állítja vissza a régi elrendezés „Slide to seek” viselkedését"</string>
+    <string name="revanced_disable_speed_overlay_title">Sebesség átfedés kikapcsolása</string>
     <string name="revanced_disable_startup_shorts_player_summary_off">A Shorts lejátszó az alkalmazás indításakor engedélyezve</string>
     <string name="revanced_disable_startup_shorts_player_summary_on">A Shorts lejátszó az alkalmazás indításakor kikapcsolva</string>
     <string name="revanced_disable_startup_shorts_player_title">A Shorts lejátszó kikapcsolása az alkalmazás indításakor</string>
@@ -104,6 +109,9 @@
     <string name="revanced_enable_custom_seekbar_color_summary_off">Az Egyéni lejátszó csík szín ki van kapcsolva</string>
     <string name="revanced_enable_custom_seekbar_color_summary_on">Az Egyéni lejátszó csík szín engedélyezve van</string>
     <string name="revanced_enable_custom_seekbar_color_title">Egyéni lejátszó csúszka szín engedélyezése</string>
+    <string name="revanced_enable_debug_buffer_logging_summary_off">A hibakeresési naplók nem tartalmaznak puffert</string>
+    <string name="revanced_enable_debug_buffer_logging_summary_on">A hibakeresési naplók puffert tartalmaznak</string>
+    <string name="revanced_enable_debug_buffer_logging_title">Hibakeresési puffernaplózás engedélyezése</string>
     <string name="revanced_enable_debug_logging_summary_off">A hibakeresési naplók le vannak tiltva</string>
     <string name="revanced_enable_debug_logging_summary_on">A hibakeresési naplók engedélyezve vannak</string>
     <string name="revanced_enable_debug_logging_title">Hibakeresési naplózás engedélyezése</string>
@@ -128,7 +136,7 @@
     <string name="revanced_enable_open_links_directly_summary_off">Az alapértelmezett YouTube átirányítási rendet követi</string>
     <string name="revanced_enable_open_links_directly_summary_on">URL átirányítások kikerülése</string>
     <string name="revanced_enable_open_links_directly_title">Közvetlen link megnyitások engedélyezése</string>
-    <string name="revanced_enable_opus_codec_summary">Opus audiokodek alkalmazása az mp4a audiokodek helyett</string>
+    <string name="revanced_enable_opus_codec_summary">Opus audio kodek alkalmazása az mp4a audio kodek helyett</string>
     <string name="revanced_enable_opus_codec_title">Opus kodek engedélyezése</string>
     <string name="revanced_enable_phone_layout_summary">Becsapja a dpi-t egyes telefon felületek használatához</string>
     <string name="revanced_enable_phone_layout_title">A telefonos felület engedélyezése</string>
@@ -181,18 +189,20 @@ Te lap &gt; Csatorna megtekintése &gt; Menü &gt; Beállítások"</string>
     <string name="revanced_external_downloader_package_name_title">Külső letöltő csomagneve</string>
     <string name="revanced_external_downloader_settings_summary">Külső letöltő használatának beállításai</string>
     <string name="revanced_external_downloader_settings_title">Külső letöltő beállítások</string>
-    <string name="revanced_feed_flyout_panel_title">Hírolyam kiugró panel</string>
-    <string name="revanced_flyout_menu">Előugró videó beállítások menü beállításai</string>
+    <string name="revanced_feed_flyout_panel_title">Hírfolyam kiugró panel</string>
+    <string name="revanced_flyout_menu">Előugró videó beállítások menü</string>
     <string name="revanced_fullscreen">Teljes képernyős mód</string>
     <string name="revanced_general">Általános beállítások</string>
     <string name="revanced_haptic_feedback_title">Haptikus visszajelzés</string>
     <string name="revanced_hide_account_menu_filter_strings_title">Fiók menüszűrő szerkesztése</string>
+    <string name="revanced_hide_account_menu_summary">"A fiók menü és az Ön lap elemeinek elrejtése
+Előfordulhat, hogy egyes komponensek nincsenek elrejtve"</string>
     <string name="revanced_hide_account_menu_title">A fiók menü elrejtése</string>
     <string name="revanced_hide_album_card_summary_off">Az album kártyák láthatóak</string>
     <string name="revanced_hide_album_card_summary_on">Az album kártyák el vannak rejtve</string>
     <string name="revanced_hide_album_card_title">Album kártyák elrejtése</string>
-    <string name="revanced_hide_audio_track_button_summary_off">A Zeneszám menü látható</string>
-    <string name="revanced_hide_audio_track_button_summary_on">A Zeneszám menü ki van kapcsolva</string>
+    <string name="revanced_hide_audio_track_button_summary_off">A Zeneszám menü gomb látható</string>
+    <string name="revanced_hide_audio_track_button_summary_on">A Zeneszám menü gomb rejtett</string>
     <string name="revanced_hide_audio_track_button_title">A Zeneszám menü gomb elrejtése</string>
     <string name="revanced_hide_autoplay_button_summary_off">Az Automatikus lejátszás gomb látható</string>
     <string name="revanced_hide_autoplay_button_summary_on">Az Automatikus lejátszás gomb el van rejtve</string>
@@ -410,11 +420,11 @@ Te lap &gt; Csatorna megtekintése &gt; Menü &gt; Beállítások"</string>
     <string name="revanced_hide_player_button_background_summary_off">A lejátszó gombjainak háttere megjelenítve</string>
     <string name="revanced_hide_player_button_background_summary_on">A lejátszó gombjainak háttere elrejtve</string>
     <string name="revanced_hide_player_button_background_title">A lejátszó gombjai hátterének elrejtése</string>
-    <string name="revanced_hide_player_flyout_panel_ambient_mode_summary_off">A környezeti menü megjelenítve</string>
-    <string name="revanced_hide_player_flyout_panel_ambient_mode_summary_on">A környezeti menü el van rejtve</string>
+    <string name="revanced_hide_player_flyout_panel_ambient_mode_summary_off">A „Mozifilmes világítás” menü megjelenítve</string>
+    <string name="revanced_hide_player_flyout_panel_ambient_mode_summary_on">A „Mozifilmes világítás” menü rejtett</string>
     <string name="revanced_hide_player_flyout_panel_ambient_mode_title">A „Mozifilmes világítás” menü elrejtése</string>
     <string name="revanced_hide_player_flyout_panel_audio_track_summary_off">A hangsáv menü megjelenítve</string>
-    <string name="revanced_hide_player_flyout_panel_audio_track_summary_on">A hangsáv menü el van rejtve</string>
+    <string name="revanced_hide_player_flyout_panel_audio_track_summary_on">A hangsáv menü rejtett</string>
     <string name="revanced_hide_player_flyout_panel_audio_track_title">A hangsáv menü elrejtése</string>
     <string name="revanced_hide_player_flyout_panel_captions_footer_summary_off">Feliratok menü lábléc megjelenítve</string>
     <string name="revanced_hide_player_flyout_panel_captions_footer_summary_on">Feliratok menü lábléc elrejtve</string>
@@ -449,8 +459,8 @@ Te lap &gt; Csatorna megtekintése &gt; Menü &gt; Beállítások"</string>
     <string name="revanced_hide_player_flyout_panel_report_summary_off">A Bejelentés menü látható</string>
     <string name="revanced_hide_player_flyout_panel_report_summary_on">A Bejelentés menü elrejtve</string>
     <string name="revanced_hide_player_flyout_panel_report_title">A Bejelentés menü elrejtése</string>
-    <string name="revanced_hide_player_flyout_panel_stable_volume_summary_off">Minőség menü lábléc megjelenítése</string>
-    <string name="revanced_hide_player_flyout_panel_stable_volume_summary_on">Stabil hangerő menü elrejtve</string>
+    <string name="revanced_hide_player_flyout_panel_stable_volume_summary_off">Stabil hangerő menü megjelenítése</string>
+    <string name="revanced_hide_player_flyout_panel_stable_volume_summary_on">Stabil hangerő menü rejtett</string>
     <string name="revanced_hide_player_flyout_panel_stable_volume_title">Stabil hangerő menü elrejtése</string>
     <string name="revanced_hide_player_flyout_panel_stats_for_nerds_summary_off">A Statisztikák menü látható</string>
     <string name="revanced_hide_player_flyout_panel_stats_for_nerds_summary_on">A Statisztikák menü elrejtve</string>
@@ -508,6 +518,9 @@ Te lap &gt; Csatorna megtekintése &gt; Menü &gt; Beállítások"</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_off">Feliratkozások gomb megjelenítve</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_on">Feliratkozások gomb elrejtve</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_title">Feliratkozások gomb elrejtése</string>
+    <string name="revanced_hide_shorts_shelf_summary">"Elrejti a Shorts polcokat
+
+Ismert probléma: A keresési eredmények hivatalos fejlécei el vannak rejtve"</string>
     <string name="revanced_hide_shorts_shelf_title">Shorts polcok elrejtése</string>
     <string name="revanced_hide_shorts_toolbar_banner_summary_off">A banner látható</string>
     <string name="revanced_hide_shorts_toolbar_banner_summary_on">A banner rejtett</string>
@@ -576,8 +589,13 @@ Ismert probléma: az automatikus lejátszás nem működik"</string>
     <string name="revanced_hook_download_button_summary">"A letöltés gomb lecserélése a külső letöltési gombra
 Csak a YouTube v18.24.37+ verzióban érhető el."</string>
     <string name="revanced_hook_download_button_title">Letöltés gomb</string>
+    <string name="revanced_import_settings_inform">"Előfordulhat, hogy a következő beállítások nem lettek importálva, ezért nyissa meg még egyszer a ReVanced Extended beállításokat az importálás után
+
+• További beállítások menü elrejtése (előugró lejátszó beállítások)
+• Shorts eszköztár elrejtése"</string>
     <string name="revanced_import_settings_summary">A ReVanced beállítások betöltése mentett fájlból</string>
     <string name="revanced_import_settings_title">Beállítások importálása</string>
+    <string name="revanced_inform">Megjegyzés</string>
     <string name="revanced_layout_title">Elrendezés</string>
     <string name="revanced_misc">Egyéb</string>
     <string name="revanced_navigation">Navigáció</string>
@@ -604,7 +622,12 @@ Tartsa nyomva a sebesség alaphelyzetbe állításához"</string>
     <string name="revanced_patches_information">Patch információ</string>
     <string name="revanced_patches_information_summary">Információ az alkalmazott patchekről</string>
     <string name="revanced_player">Lejátszó</string>
+    <string name="revanced_player_flyout_panel_additional_settings_summary">A további beállítások menü elrejtéséhez rejtse el a további beállítások kategória összes beállítását</string>
+    <string name="revanced_player_flyout_panel_additional_settings_title">Lejátszó kiugró menü (További beállítások)</string>
     <string name="revanced_player_flyout_panel_title">Lejátszó kiugró panel</string>
+    <string name="revanced_quick_actions_margin_top_summary">Felső margó értéke 0 és 64 közötti</string>
+    <string name="revanced_quick_actions_margin_top_title">Gyors műveletek felső margó</string>
+    <string name="revanced_quick_actions_margin_top_warning">A gyors műveletek felső margójának 0 és 64 között kell lennie. Visszaállítás alapértelmezettre.</string>
     <string name="revanced_quick_actions_title">Gyorsműveletek</string>
     <string name="revanced_reboot_first_run">Indítsd újra az alkalmazást a felület megfelelő betöltéséhez</string>
     <string name="revanced_ryd_about">Infó</string>
@@ -630,6 +653,7 @@ Tartsa nyomva a sebesség alaphelyzetbe állításához"</string>
     <string name="revanced_seekbar">Lejátszó csík</string>
     <string name="revanced_shorts">Rövid videók (Shorts) beállításai</string>
     <string name="revanced_shorts_player_title">Shorts lejátszó</string>
+    <string name="revanced_shorts_toolbar_summary">A Short eszköztár elrejtéséhez rejtse el a Short eszköztár kategória összes beállítását</string>
     <string name="revanced_shorts_toolbar_title">Shorts eszköztár</string>
     <string name="revanced_show_fullscreen_title_summary">Ismert probléma: A cím eltűnik, ha rákattintanak</string>
     <string name="revanced_show_fullscreen_title_title">Teljes képernyős cím megjelenítése</string>
