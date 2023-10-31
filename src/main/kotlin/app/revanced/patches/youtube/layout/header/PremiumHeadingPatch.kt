@@ -36,7 +36,8 @@ import kotlin.io.path.copyTo
                 "18.42.41"
             ]
         )
-    ]
+    ],
+    use = false
 )
 @Suppress("unused")
 object PremiumHeadingPatch : ResourcePatch() {
