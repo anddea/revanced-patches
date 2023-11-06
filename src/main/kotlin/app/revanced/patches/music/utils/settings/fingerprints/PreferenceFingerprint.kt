@@ -1,18 +1,14 @@
 package app.revanced.patches.music.utils.settings.fingerprints
 
 import app.revanced.patcher.fingerprint.MethodFingerprint
+import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 object PreferenceFingerprint : MethodFingerprint(
     returnType = "V",
+    accessFlags = AccessFlags.PROTECTED.value,
     parameters = listOf("Z"),
     opcodes = listOf(
-        Opcode.RETURN_VOID,
-        Opcode.XOR_INT_LIT8,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT,
-        Opcode.IF_NE,
-        Opcode.RETURN_VOID,
         Opcode.IGET_OBJECT,
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT_OBJECT,

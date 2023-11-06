@@ -16,7 +16,6 @@ object VideoTypeFingerprint : MethodFingerprint(
         Opcode.IF_NEZ,
         Opcode.SGET_OBJECT,
         Opcode.GOTO,
-        Opcode.SGET_OBJECT,
-        Opcode.RETURN_OBJECT
+        Opcode.SGET_OBJECT
     )
 )

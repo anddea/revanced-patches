@@ -2,14 +2,13 @@ package app.revanced.patches.music.utils.videotype
 
 import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patches.music.utils.videotype.fingerprint.VideoTypeFingerprint
 import app.revanced.patches.music.utils.videotype.fingerprint.VideoTypeParentFingerprint
 import app.revanced.util.integrations.Constants.MUSIC_UTILS_PATH
-import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 
 @Suppress("unused")
 object VideoTypeHookPatch : BytecodePatch(
@@ -25,17 +24,18 @@ object VideoTypeHookPatch : BytecodePatch(
                 )
             }.result?.let {
                 it.mutableMethod.apply {
-                    val videoTypeIndex = it.scanResult.patternScanResult!!.endIndex
-                    val videoTypeRegister =
-                        getInstruction<OneRegisterInstruction>(videoTypeIndex).registerA
+                    val insertIndex = it.scanResult.patternScanResult!!.startIndex + 3
+                    val referenceIndex = insertIndex + 1
+                    val referenceInstruction = getInstruction<ReferenceInstruction>(referenceIndex).reference
 
-                    addInstructions(
-                        videoTypeIndex + 1, """
-                            invoke-static {v$videoTypeRegister}, $INTEGRATIONS_CLASS_DESCRIPTOR->setVideoType(Ljava/lang/Enum;)V
-                            return-object v$videoTypeRegister
+                    addInstructionsWithLabels(
+                        insertIndex, """
+                            if-nez p0, :dismiss
+                            sget-object p0, $referenceInstruction
+                            :dismiss
+                            invoke-static {p0}, $INTEGRATIONS_CLASS_DESCRIPTOR->setVideoType(Ljava/lang/Enum;)V
                             """
                     )
-                    removeInstruction(videoTypeIndex)
                 }
             } ?: throw VideoTypeFingerprint.exception
         } ?: throw VideoTypeParentFingerprint.exception
