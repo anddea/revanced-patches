@@ -29,8 +29,8 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
             [
                 "6.15.52",
                 "6.20.51",
-                "6.23.55",
-                "6.25.53"
+                "6.25.53",
+                "6.26.50"
             ]
         )
     ]
