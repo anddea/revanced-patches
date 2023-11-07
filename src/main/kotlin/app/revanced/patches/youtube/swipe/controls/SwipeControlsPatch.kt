@@ -14,6 +14,7 @@ import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.swipe.controls.fingerprints.HDRBrightnessFingerprint
 import app.revanced.patches.youtube.swipe.controls.fingerprints.SwipeControlsHostActivityFingerprint
 import app.revanced.patches.youtube.swipe.controls.fingerprints.WatchWhileActivityFingerprint
+import app.revanced.patches.youtube.utils.lockmodestate.LockModeStateHookPatch
 import app.revanced.patches.youtube.utils.playertype.PlayerTypeHookPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch.contexts
@@ -27,6 +28,7 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
     name = "Swipe controls",
     description = "Adds volume and brightness swipe controls.",
     dependencies = [
+        LockModeStateHookPatch::class,
         PlayerTypeHookPatch::class,
         SettingsPatch::class
     ],
