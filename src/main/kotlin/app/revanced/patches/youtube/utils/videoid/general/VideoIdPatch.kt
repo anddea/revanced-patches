@@ -67,7 +67,7 @@ object VideoIdPatch : BytecodePatch(
                 )
                 it.mutableClass.methods.add(seekHelperMethod)
 
-                videoEndMethod = context.toMethodWalker(it.method)
+                val videoEndMethod = context.toMethodWalker(it.method)
                     .nextMethod(it.scanResult.patternScanResult!!.startIndex + 1, true)
                     .getMethod() as MutableMethod
 
@@ -145,7 +145,6 @@ object VideoIdPatch : BytecodePatch(
     private lateinit var insertMethod: MutableMethod
     private lateinit var playerInitMethod: MutableMethod
     private lateinit var timeMethod: MutableMethod
-    internal lateinit var videoEndMethod: MutableMethod
 
     /**
      * Adds an invoke-static instruction, called with the new id when the video changes
