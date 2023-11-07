@@ -205,6 +205,9 @@
         <!-- SETTINGS: HIDE_MIX_PLAYLISTS
         <SwitchPreference android:title="@string/revanced_hide_mix_playlists_title" android:key="revanced_hide_mix_playlists" android:defaultValue="false" android:summaryOn="@string/revanced_hide_mix_playlists_summary_on" android:summaryOff="@string/revanced_hide_mix_playlists_summary_off" />SETTINGS: HIDE_MIX_PLAYLISTS -->
 
+        <!-- SETTINGS: HIDE_SEARCH_TERM_THUMBNAIL
+        <SwitchPreference android:title="@string/revanced_hide_search_term_thumbnail_title" android:key="revanced_hide_search_term_thumbnail" android:defaultValue="false" android:summaryOn="@string/revanced_hide_search_term_thumbnail_summary_on" android:summaryOff="@string/revanced_hide_search_term_thumbnail_summary_off" />SETTINGS: HIDE_SEARCH_TERM_THUMBNAIL -->
+
         <!-- SETTINGS: HIDE_SNACK_BAR
         <SwitchPreference android:title="@string/revanced_hide_snack_bar_title" android:key="revanced_hide_snack_bar" android:defaultValue="false" android:summaryOn="@string/revanced_hide_snack_bar_summary_on" android:summaryOff="@string/revanced_hide_snack_bar_summary_off" />SETTINGS: HIDE_SNACK_BAR -->
 
@@ -370,6 +373,7 @@
             <Preference android:title="Hide layout components" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Hide load more button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Hide mix playlists" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="Hide search term thumbnail" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Hide snack bar" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Hide suggestions shelf" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Hide toolbar button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
