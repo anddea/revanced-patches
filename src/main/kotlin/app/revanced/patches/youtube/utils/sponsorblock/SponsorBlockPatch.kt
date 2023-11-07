@@ -53,13 +53,21 @@ object SponsorBlockPatch : ResourcePatch() {
         /**
          * merge SponsorBlock drawables to main drawables
          */
+        arrayOf(
+            ResourceUtils.ResourceGroup(
+                "layout",
+                "inline_sponsor_overlay.xml",
+                "skip_sponsor_button.xml"
+            )
+        ).forEach { resourceGroup ->
+            context.copyResources("youtube/sponsorblock/shared", resourceGroup)
+        }
+
         if (OutlineIcon == true) {
             arrayOf(
                 ResourceUtils.ResourceGroup(
                     "layout",
-                    "inline_sponsor_overlay.xml",
-                    "new_segment.xml",
-                    "skip_sponsor_button.xml"
+                    "new_segment.xml"
                 ),
                 ResourceUtils.ResourceGroup(
                     "drawable",
@@ -80,9 +88,7 @@ object SponsorBlockPatch : ResourcePatch() {
             arrayOf(
                 ResourceUtils.ResourceGroup(
                     "layout",
-                    "inline_sponsor_overlay.xml",
-                    "new_segment.xml",
-                    "skip_sponsor_button.xml"
+                    "new_segment.xml"
                 ),
                 ResourceUtils.ResourceGroup(
                     "drawable",
