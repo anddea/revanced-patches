@@ -3,10 +3,14 @@ package app.revanced.patches.music.video.information.fingerprints
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.Opcode
 
-object VideoIdParentFingerprint : MethodFingerprint(
+object VideoIdFingerprint : MethodFingerprint(
     returnType = "V",
-    parameters = emptyList(),
+    parameters = listOf("L", "L", "L"),
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    strings = listOf("currentWatchNextResponse")
+    opcodes = listOf(
+        Opcode.INVOKE_INTERFACE,
+        Opcode.MOVE_RESULT_OBJECT
+    )
 )
