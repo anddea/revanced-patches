@@ -14,6 +14,7 @@ import app.revanced.patches.music.utils.fingerprints.SeekBarConstructorFingerpri
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.music.video.information.fingerprints.PlayerControllerSetTimeReferenceFingerprint
 import app.revanced.patches.music.video.information.fingerprints.VideoEndFingerprint
+import app.revanced.patches.music.video.information.fingerprints.VideoIdFingerprint
 import app.revanced.patches.music.video.information.fingerprints.VideoIdParentFingerprint
 import app.revanced.patches.music.video.information.fingerprints.VideoLengthFingerprint
 import app.revanced.util.integrations.Constants.MUSIC_VIDEO_PATH
@@ -183,36 +184,21 @@ object VideoInformationPatch : BytecodePatch(
         /**
          * Inject call for video id
          */
-        VideoIdParentFingerprint.result?.let {
-            it.mutableMethod.apply {
-                val targetIndex = it.scanResult.patternScanResult!!.endIndex
-
-                val targetReference = getInstruction<ReferenceInstruction>(targetIndex).reference
-                val targetClass = (targetReference as FieldReference).type
-
-                videoIdMethod = context
-                    .findClass(targetClass)!!
-                    .mutableClass.methods.first { method ->
-                        method.name == "handleVideoStageEvent"
-                    }
-            }
+        VideoIdParentFingerprint.result?.let { parentResult ->
+            VideoIdFingerprint.also {
+                it.resolve(
+                    context,
+                    parentResult.classDef
+                )
+            }.result?.let {
+                it.mutableMethod.apply {
+                    videoIdMethod = this
+                    videoIdIndex = it.scanResult.patternScanResult!!.endIndex
+                    videoIdRegister = getInstruction<OneRegisterInstruction>(videoIdIndex).registerA
+                }
+                offset++ // offset so setVideoId is called before any injected call
+            } ?: throw VideoIdFingerprint.exception
         } ?: throw VideoIdParentFingerprint.exception
-
-        videoIdMethod.apply {
-            for (index in implementation!!.instructions.size - 1 downTo 0) {
-                if (getInstruction(index).opcode != Opcode.INVOKE_INTERFACE) continue
-
-                val targetReference = getInstruction<ReferenceInstruction>(index).reference
-
-                if (!targetReference.toString().endsWith("Ljava/lang/String;")) continue
-
-                videoIdIndex = index + 1
-                videoIdRegister = getInstruction<OneRegisterInstruction>(videoIdIndex).registerA
-
-                break
-            }
-            offset++ // offset so setVideoId is called before any injected call
-        }
 
 
         /**
