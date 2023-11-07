@@ -2,7 +2,6 @@ package app.revanced.meta
 
 import app.revanced.patcher.PatchSet
 import app.revanced.patcher.patch.Patch
-import com.unascribed.flexver.FlexVerComparator
 import java.io.File
 
 internal class ReadmeGenerator : PatchesFileGenerator {
@@ -27,36 +26,18 @@ internal class ReadmeGenerator : PatchesFileGenerator {
             .entries
             .sortedByDescending { it.value.size }
             .forEach { (`package`, patches) ->
-                val supportVersions = buildMap {
-                    patches.forEach { patch ->
-                        patch.compatiblePackages?.single { compatiblePackage -> compatiblePackage.name == `package` }?.versions?.let {
-                            it.forEach { version -> merge(version, 1, Integer::sum) }
-                        }
-                    }
-                }
-
-                val minVersion = supportVersions.let { commonMap ->
-                    commonMap.maxByOrNull { it.value }?.value?.let {
-                        commonMap.entries.filter { supported -> supported.value == it }
-                            .minOfWith(FlexVerComparator::compare, Map.Entry<String, Int>::key)
-                    } ?: "all"
-                }
-                val maxVersion = supportVersions.let { commonMap ->
-                    commonMap.maxByOrNull { it.value }?.value?.let {
-                        commonMap.entries.filter { supported -> supported.value == it }
-                            .maxOfWith(FlexVerComparator::compare, Map.Entry<String, Int>::key)
-                    } ?: "all"
-                }
-
                 output.apply {
                     appendLine("### [\uD83D\uDCE6 `${`package`}`](https://play.google.com/store/apps/details?id=${`package`})")
                     appendLine("<details>\n")
                     appendLine(TABLE_HEADER)
                     patches.sortedBy { it.name }.forEach { patch ->
+                        val supportedVersionArray =
+                            patch.compatiblePackages?.single { it.name == `package` }?.versions
                         val supportedVersion =
-                            if (
-                                patch.compatiblePackages?.single { it.name == `package` }?.versions?.isNotEmpty() == true
-                            ) {
+                            if (supportedVersionArray?.isNotEmpty() == true) {
+                                val minVersion = supportedVersionArray.elementAt(0)
+                                val maxVersion =
+                                    supportedVersionArray.elementAt(supportedVersionArray.size - 1)
                                 if (minVersion == maxVersion)
                                     maxVersion
                                 else
