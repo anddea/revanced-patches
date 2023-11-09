@@ -25,8 +25,8 @@ import app.revanced.util.integrations.Constants.MUSIC_GENERAL
             [
                 "6.15.52",
                 "6.20.51",
-                "6.25.53",
-                "6.26.50"
+                "6.26.51",
+                "6.27.53"
             ]
         )
     ]
