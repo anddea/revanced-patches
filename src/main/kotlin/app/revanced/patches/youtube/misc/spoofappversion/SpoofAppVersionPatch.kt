@@ -50,7 +50,21 @@ object SpoofAppVersionPatch : AbstractVersionSpoofPatch(
         contexts.copyXmlNode("youtube/spoofappversion/host", "values/arrays.xml", "resources")
 
         if (SettingsPatch.upward1834) {
-            contexts.appendChild()
+            contexts.appendChild(
+                arrayOf(
+                    "revanced_spoof_app_version_target_entry" to "@string/revanced_spoof_app_version_target_entry_18_33_40",
+                    "revanced_spoof_app_version_target_entry_value" to "18.33.40",
+                )
+            )
+
+            if (SettingsPatch.upward1841) {
+                contexts.appendChild(
+                    arrayOf(
+                        "revanced_spoof_app_version_target_entry" to "@string/revanced_spoof_app_version_target_entry_18_40_34",
+                        "revanced_spoof_app_version_target_entry_value" to "18.40.34",
+                    )
+                )
+            }
         }
 
         /**
@@ -67,11 +81,8 @@ object SpoofAppVersionPatch : AbstractVersionSpoofPatch(
 
     }
 
-    private fun ResourceContext.appendChild() {
-        arrayOf(
-            "revanced_spoof_app_version_target_entry" to "@string/revanced_spoof_app_version_target_entry_18_33_40",
-            "revanced_spoof_app_version_target_entry_value" to "18.33.40",
-        ).map { (attributeName, attributeValue) ->
+    private fun ResourceContext.appendChild(entryArray: Array<Pair<String, String>>) {
+        entryArray.map { (attributeName, attributeValue) ->
             this.xmlEditor["res/values/arrays.xml"].use { editor ->
                 editor.file.apply {
                     val resourcesNode = getElementsByTagName("resources").item(0) as Element
