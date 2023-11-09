@@ -165,6 +165,9 @@
         <!-- SETTINGS: ENABLE_GRADIENT_LOADING_SCREEN
         <SwitchPreference android:title="@string/revanced_enable_gradient_loading_screen_title" android:key="revanced_enable_gradient_loading_screen" android:defaultValue="false" android:summaryOn="@string/revanced_enable_gradient_loading_screen_summary_on" android:summaryOff="@string/revanced_enable_gradient_loading_screen_summary_off" />SETTINGS: ENABLE_GRADIENT_LOADING_SCREEN -->
 
+        <!-- SETTINGS: ENABLE_MUSIC_SEARCH
+        <SwitchPreference android:title="@string/revanced_enable_music_search_title" android:key="revanced_enable_music_search" android:defaultValue="true" android:summaryOn="@string/revanced_enable_music_search_summary_on" android:summaryOff="@string/revanced_enable_music_search_summary_off" />SETTINGS: ENABLE_MUSIC_SEARCH -->
+
         <!-- SETTINGS: ENABLE_TABLET_MINI_PLAYER
         <SwitchPreference android:title="@string/revanced_enable_tablet_mini_player_title" android:key="revanced_enable_tablet_mini_player" android:defaultValue="false" android:summaryOn="@string/revanced_enable_tablet_mini_player_summary_on" android:summaryOff="@string/revanced_enable_tablet_mini_player_summary_off" />SETTINGS: ENABLE_TABLET_MINI_PLAYER -->
 
@@ -359,6 +362,7 @@
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_general" />
             <Preference android:title="Disable auto captions" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Enable gradient loading screen" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="Enable music search" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Enable tablet mini player" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Enable wide search bar" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Hide account menu" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
@@ -580,25 +584,25 @@
     <PreferenceScreen android:title="@string/revanced_seekbar" android:key="seekbar">
         <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_seekbar" />PREFERENCE: SEEKBAR_SETTINGS -->
 
-    <!-- SETTINGS: APPEND_TIME_STAMP_INFORMATION
+        <!-- SETTINGS: APPEND_TIME_STAMP_INFORMATION
         <SwitchPreference android:title="@string/revanced_append_time_stamp_information_title" android:key="revanced_append_time_stamp_information" android:defaultValue="true" android:summaryOn="@string/revanced_append_time_stamp_information_summary_on" android:summaryOff="@string/revanced_append_time_stamp_information_summary_off" />
         <SwitchPreference android:title="@string/revanced_append_time_stamp_information_type_title" android:key="revanced_append_time_stamp_information_type" android:defaultValue="true" android:summaryOn="@string/revanced_append_time_stamp_information_type_summary_on" android:summaryOff="@string/revanced_append_time_stamp_information_type_summary_off" android:dependency="revanced_append_time_stamp_information" />SETTINGS: APPEND_TIME_STAMP_INFORMATION -->
 
-    <!-- SETTINGS: CUSTOM_SEEKBAR_COLOR
+        <!-- SETTINGS: CUSTOM_SEEKBAR_COLOR
         <SwitchPreference android:title="@string/revanced_enable_custom_seekbar_color_title" android:key="revanced_enable_custom_seekbar_color" android:defaultValue="true" android:summaryOn="@string/revanced_enable_custom_seekbar_color_summary_on" android:summaryOff="@string/revanced_enable_custom_seekbar_color_summary_off" />
         <app.revanced.integrations.settingsmenu.ResettableEditTextPreference android:title="@string/revanced_custom_seekbar_color_value_title" android:key="revanced_custom_seekbar_color_value" android:summary="@string/revanced_custom_seekbar_color_value_summary" android:defaultValue="#ff0000" android:hint="#ff0000" android:inputType="text" />SETTINGS: CUSTOM_SEEKBAR_COLOR -->
 
-    <!-- SETTINGS: ENABLE_NEW_THUMBNAIL_PREVIEW
+        <!-- SETTINGS: ENABLE_NEW_THUMBNAIL_PREVIEW
         <SwitchPreference android:title="@string/revanced_enable_new_thumbnail_preview_title" android:key="revanced_enable_new_thumbnail_preview" android:defaultValue="false" android:summaryOn="@string/revanced_enable_new_thumbnail_preview_summary_on" android:summaryOff="@string/revanced_enable_new_thumbnail_preview_summary_off" />SETTINGS: ENABLE_NEW_THUMBNAIL_PREVIEW -->
 
-    <!-- SETTINGS: ENABLE_SEEKBAR_TAPPING
+        <!-- SETTINGS: ENABLE_SEEKBAR_TAPPING
         <SwitchPreference android:title="@string/revanced_enable_seekbar_tapping_title" android:key="revanced_enable_seekbar_tapping" android:defaultValue="true" android:summaryOn="@string/revanced_enable_seekbar_tapping_summary_on" android:summaryOff="@string/revanced_enable_seekbar_tapping_summary_off" />SETTINGS: ENABLE_SEEKBAR_TAPPING -->
 
-    <!-- SETTINGS: HIDE_SEEKBAR
+        <!-- SETTINGS: HIDE_SEEKBAR
         <SwitchPreference android:title="@string/revanced_hide_seekbar_title" android:key="revanced_hide_seekbar" android:defaultValue="false" android:summaryOn="@string/revanced_hide_seekbar_summary_on" android:summaryOff="@string/revanced_hide_seekbar_summary_off" />
         <SwitchPreference android:title="@string/revanced_hide_seekbar_thumbnail_title" android:key="revanced_hide_seekbar_thumbnail" android:defaultValue="false" android:summaryOn="@string/revanced_hide_seekbar_thumbnail_summary_on" android:summaryOff="@string/revanced_hide_seekbar_thumbnail_summary_off" />SETTINGS: HIDE_SEEKBAR -->
 
-    <!-- SETTINGS: HIDE_TIME_STAMP
+        <!-- SETTINGS: HIDE_TIME_STAMP
         <SwitchPreference android:title="@string/revanced_hide_time_stamp_title" android:key="revanced_hide_time_stamp" android:defaultValue="false" android:summaryOn="@string/revanced_hide_time_stamp_summary_on" android:summaryOff="@string/revanced_hide_time_stamp_summary_off" />SETTINGS: HIDE_TIME_STAMP -->
 
     <!-- PREFERENCE: SEEKBAR_SETTINGS
