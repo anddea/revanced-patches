@@ -3,34 +3,23 @@ package app.revanced.patches.youtube.general.suggestions
 import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.shared.patch.litho.ComponentParserPatch.emptyComponentLabel
 import app.revanced.patches.youtube.general.suggestions.fingerprints.BreakingNewsFingerprint
-import app.revanced.patches.youtube.general.suggestions.fingerprints.SuggestionContentsBuilderFingerprint
-import app.revanced.patches.youtube.general.suggestions.fingerprints.SuggestionContentsBuilderLegacyFingerprint
+import app.revanced.patches.youtube.utils.browseid.BrowseIdHookPatch
 import app.revanced.patches.youtube.utils.litho.LithoFilterPatch
-import app.revanced.patches.youtube.utils.navigationbuttons.NavigationButtonHookPatch
-import app.revanced.patches.youtube.utils.navigationbuttons.NavigationButtonHookPatch.PivotBarMethod
-import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.AvatarImageWithTextTab
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
-import app.revanced.util.bytecode.getWideLiteralIndex
 import app.revanced.util.integrations.Constants.COMPONENTS_PATH
-import app.revanced.util.pivotbar.InjectionUtils.REGISTER_TEMPLATE_REPLACEMENT
-import app.revanced.util.pivotbar.InjectionUtils.injectHook
-import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Hide suggestions shelf",
     description = "Hides the suggestions shelf.",
     dependencies = [
+        BrowseIdHookPatch::class,
         LithoFilterPatch::class,
-        NavigationButtonHookPatch::class,
         SettingsPatch::class
     ],
     compatiblePackages = [
@@ -57,12 +46,11 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 )
 @Suppress("unused")
 object SuggestionsShelfPatch : BytecodePatch(
-    setOf(
-        BreakingNewsFingerprint,
-        SuggestionContentsBuilderFingerprint,
-        SuggestionContentsBuilderLegacyFingerprint
-    )
+    setOf(BreakingNewsFingerprint)
 ) {
+    private const val FILTER_CLASS_DESCRIPTOR =
+        "$COMPONENTS_PATH/SuggestionsShelfFilter;"
+
     override fun execute(context: BytecodeContext) {
 
         /**
@@ -80,37 +68,6 @@ object SuggestionsShelfPatch : BytecodePatch(
             }
         } ?: throw BreakingNewsFingerprint.exception
 
-        /**
-         * Target method only removes the horizontal video shelf's content in the feed.
-         * Since the header of the horizontal video shelf is not removed, it should be removed through the SuggestionsShelfFilter
-         */
-        val result = SuggestionContentsBuilderFingerprint.result // YouTube v18.36.xx ~
-            ?: SuggestionContentsBuilderLegacyFingerprint.result // ~ YouTube v18.35.xx
-            ?: throw SuggestionContentsBuilderFingerprint.exception
-
-        result.let {
-            it.mutableMethod.apply {
-                addInstructionsWithLabels(
-                    2, """
-                        invoke-static/range {p2 .. p2}, $FILTER_CLASS_DESCRIPTOR->filterSuggestionsShelfSubComponents(Ljava/lang/Object;)Z
-                        move-result v0
-                        if-eqz v0, :show
-                        """ + emptyComponentLabel, ExternalLabel("show", getInstruction(2))
-                )
-            }
-        }
-
-        PivotBarMethod.apply {
-            val insertIndex = implementation!!.instructions.let {
-                val scanStart = getWideLiteralIndex(AvatarImageWithTextTab)
-
-                scanStart + it.subList(scanStart, it.size - 1).indexOfFirst { instruction ->
-                    instruction.opcode == Opcode.INVOKE_VIRTUAL
-                }
-            } + 2
-            injectHook(YOU_BUTTON_HOOK, insertIndex)
-        }
-
         LithoFilterPatch.addFilter(FILTER_CLASS_DESCRIPTOR)
 
 
@@ -127,12 +84,4 @@ object SuggestionsShelfPatch : BytecodePatch(
         SettingsPatch.updatePatchStatus("Hide suggestions shelf")
 
     }
-
-    private const val FILTER_CLASS_DESCRIPTOR =
-        "$COMPONENTS_PATH/SuggestionsShelfFilter;"
-
-    private const val YOU_BUTTON_HOOK =
-        "invoke-static { v${REGISTER_TEMPLATE_REPLACEMENT} }, $FILTER_CLASS_DESCRIPTOR" +
-                "->" +
-                "isYouButtonEnabled(Landroid/view/View;)V"
 }
