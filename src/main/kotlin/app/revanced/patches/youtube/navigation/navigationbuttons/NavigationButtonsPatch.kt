@@ -10,9 +10,8 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.youtube.navigation.navigationbuttons.fingerprints.AutoMotiveFingerprint
 import app.revanced.patches.youtube.navigation.navigationbuttons.fingerprints.PivotBarEnumFingerprint
 import app.revanced.patches.youtube.navigation.navigationbuttons.fingerprints.PivotBarShortsButtonViewFingerprint
-import app.revanced.patches.youtube.utils.navigationbuttons.NavigationButtonHookPatch
-import app.revanced.patches.youtube.utils.navigationbuttons.NavigationButtonHookPatch.PivotBarMethod
-import app.revanced.patches.youtube.utils.navigationbuttons.NavigationButtonHookPatch.PivotBarResult
+import app.revanced.patches.youtube.utils.fingerprints.PivotBarCreateButtonViewFingerprint
+import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.AvatarImageWithTextTab
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.ImageOnlyTab
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
@@ -27,8 +26,8 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
     name = "Hide navigation buttons",
     description = "Adds options to hide or change navigation buttons.",
     dependencies = [
-        NavigationButtonHookPatch::class,
-        SettingsPatch::class
+        SettingsPatch::class,
+        SharedResourceIdPatch::class
     ],
     compatiblePackages = [
         CompatiblePackage(
@@ -54,52 +53,66 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 )
 @Suppress("unused")
 object NavigationButtonsPatch : BytecodePatch(
-    setOf(AutoMotiveFingerprint)
+    setOf(
+        AutoMotiveFingerprint,
+        PivotBarCreateButtonViewFingerprint
+    )
 ) {
     override fun execute(context: BytecodeContext) {
 
-        val pivotBarList =
-            arrayOf(
-                PivotBarEnumFingerprint,
-                PivotBarShortsButtonViewFingerprint
-            ).onEach {
-                it.resolve(
-                    context,
-                    PivotBarResult.classDef
-                )
-            }.map { fingerprint ->
-                fingerprint.result?.scanResult?.patternScanResult
-                    ?: throw fingerprint.exception
+        PivotBarCreateButtonViewFingerprint.result?.let { parentResult ->
+
+            /**
+             * Home, Shorts, Subscriptions Button
+             */
+            with(
+                arrayOf(
+                    PivotBarEnumFingerprint,
+                    PivotBarShortsButtonViewFingerprint
+                ).onEach {
+                    it.resolve(
+                        context,
+                        parentResult.mutableMethod,
+                        parentResult.mutableClass
+                    )
+                }.map {
+                    it.result?.scanResult?.patternScanResult ?: throw it.exception
+                }
+            ) {
+                val enumScanResult = this[0]
+                val buttonViewResult = this[1]
+
+                val enumHookInsertIndex = enumScanResult.startIndex + 2
+                val buttonHookInsertIndex = buttonViewResult.endIndex
+
+                mapOf(
+                    BUTTON_HOOK to buttonHookInsertIndex,
+                    ENUM_HOOK to enumHookInsertIndex
+                ).forEach { (hook, insertIndex) ->
+                    parentResult.mutableMethod.injectHook(hook, insertIndex)
+                }
             }
 
-        PivotBarMethod.apply {
-            val enumScanResult = pivotBarList[0]
-            val buttonViewResult = pivotBarList[1]
+            /**
+             * Create, You Button
+             */
+            parentResult.mutableMethod.apply {
+                mapOf(
+                    CREATE_BUTTON_HOOK to ImageOnlyTab,
+                    YOU_BUTTON_HOOK to AvatarImageWithTextTab
+                ).forEach { (hook, resourceId) ->
+                    val insertIndex = implementation!!.instructions.let {
+                        val scanStart = getWideLiteralIndex(resourceId)
 
-            val enumHookInsertIndex = enumScanResult.startIndex + 2
-            val buttonHookInsertIndex = buttonViewResult.endIndex
-
-            mapOf(
-                BUTTON_HOOK to buttonHookInsertIndex,
-                ENUM_HOOK to enumHookInsertIndex
-            ).forEach { (hook, insertIndex) ->
-                injectHook(hook, insertIndex)
+                        scanStart + it.subList(scanStart, it.size - 1).indexOfFirst { instruction ->
+                            instruction.opcode == Opcode.INVOKE_VIRTUAL
+                        }
+                    } + 2
+                    injectHook(hook, insertIndex)
+                }
             }
 
-            mapOf(
-                CREATE_BUTTON_HOOK to ImageOnlyTab,
-                YOU_BUTTON_HOOK to AvatarImageWithTextTab
-            ).forEach { (hook, resourceId) ->
-                val insertIndex = implementation!!.instructions.let {
-                    val scanStart = getWideLiteralIndex(resourceId)
-
-                    scanStart + it.subList(scanStart, it.size - 1).indexOfFirst { instruction ->
-                        instruction.opcode == Opcode.INVOKE_VIRTUAL
-                    }
-                } + 2
-                injectHook(hook, insertIndex)
-            }
-        }
+        } ?: throw PivotBarCreateButtonViewFingerprint.exception
 
         /**
          * Switch create button with notifications button
