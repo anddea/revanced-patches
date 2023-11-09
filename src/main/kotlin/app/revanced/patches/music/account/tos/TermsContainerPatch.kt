@@ -11,9 +11,7 @@ import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.music.account.tos.fingerprints.TermsOfServiceFingerprint
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch
-import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.TosFooter
 import app.revanced.patches.music.utils.settings.SettingsPatch
-import app.revanced.util.bytecode.getWideLiteralIndex
 import app.revanced.util.enum.CategoryType
 import app.revanced.util.integrations.Constants.MUSIC_ACCOUNT
 import com.android.tools.smali.dexlib2.Opcode
@@ -33,8 +31,8 @@ import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
             [
                 "6.15.52",
                 "6.20.51",
-                "6.25.53",
-                "6.26.50"
+                "6.26.51",
+                "6.27.53"
             ]
         )
     ]
@@ -47,10 +45,9 @@ object TermsContainerPatch : BytecodePatch(
 
         TermsOfServiceFingerprint.result?.let {
             it.mutableMethod.apply {
-                val tosIndex = getWideLiteralIndex(TosFooter)
                 var insertIndex = 0
 
-                for (index in tosIndex until implementation!!.instructions.size) {
+                for (index in implementation!!.instructions.size - 1 downTo 0) {
                     if (getInstruction(index).opcode != Opcode.INVOKE_VIRTUAL) continue
 
                     val targetReference =
