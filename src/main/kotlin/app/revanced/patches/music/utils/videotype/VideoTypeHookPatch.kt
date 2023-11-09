@@ -26,7 +26,8 @@ object VideoTypeHookPatch : BytecodePatch(
                 it.mutableMethod.apply {
                     val insertIndex = it.scanResult.patternScanResult!!.startIndex + 3
                     val referenceIndex = insertIndex + 1
-                    val referenceInstruction = getInstruction<ReferenceInstruction>(referenceIndex).reference
+                    val referenceInstruction =
+                        getInstruction<ReferenceInstruction>(referenceIndex).reference
 
                     addInstructionsWithLabels(
                         insertIndex, """

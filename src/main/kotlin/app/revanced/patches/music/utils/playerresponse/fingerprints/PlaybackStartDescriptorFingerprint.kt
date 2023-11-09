@@ -1,4 +1,4 @@
-package app.revanced.patches.music.player.replace.fingerprints
+package app.revanced.patches.music.utils.playerresponse.fingerprints
 
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.MethodFingerprint
