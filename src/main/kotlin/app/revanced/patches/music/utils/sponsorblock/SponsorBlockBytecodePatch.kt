@@ -8,6 +8,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.music.utils.fingerprints.SeekBarConstructorFingerprint
+import app.revanced.patches.music.utils.playerresponse.PlayerResponsePatch
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.music.utils.sponsorblock.bytecode.fingerprints.MusicPlaybackControlsTimeBarDrawFingerprint
 import app.revanced.patches.music.utils.sponsorblock.bytecode.fingerprints.MusicPlaybackControlsTimeBarOnMeasureFingerprint
@@ -23,6 +24,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Patch(
     dependencies = [
+        PlayerResponsePatch::class,
         SharedResourceIdPatch::class,
         VideoInformationPatch::class
     ]
@@ -34,6 +36,10 @@ object SponsorBlockBytecodePatch : BytecodePatch(
         SeekBarConstructorFingerprint
     )
 ) {
+    private const val INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR =
+        "Lapp/revanced/music/sponsorblock/SegmentPlaybackController;"
+
+    private lateinit var rectangleFieldName: String
     override fun execute(context: BytecodeContext) {
 
         /**
@@ -43,10 +49,6 @@ object SponsorBlockBytecodePatch : BytecodePatch(
             videoTimeHook(
                 INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR,
                 "setVideoTime"
-            )
-            onCreateHook(
-                INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR,
-                "initialize"
             )
         }
 
@@ -163,11 +165,8 @@ object SponsorBlockBytecodePatch : BytecodePatch(
         /**
          * Set current video id
          */
+        PlayerResponsePatch.injectCall("$INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR->setCurrentVideoId(Ljava/lang/String;Z)V")
+        VideoInformationPatch.injectBackgroundPlaybackCall("$INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR->setCurrentVideoId(Ljava/lang/String;)V")
         VideoInformationPatch.injectCall("$INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR->setCurrentVideoId(Ljava/lang/String;)V")
     }
-
-    private const val INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR =
-        "Lapp/revanced/music/sponsorblock/SegmentPlaybackController;"
-
-    lateinit var rectangleFieldName: String
 }
