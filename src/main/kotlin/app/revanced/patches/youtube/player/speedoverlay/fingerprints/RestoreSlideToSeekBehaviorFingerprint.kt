@@ -5,11 +5,11 @@ import app.revanced.util.bytecode.isWide32LiteralExists
 import com.android.tools.smali.dexlib2.Opcode
 
 /**
- * This value disables 'Playing at 2x speed' while holding down.
+ * This value restores the 'Slide to seek' behavior.
  */
-object SpeedOverlayFingerprint : MethodFingerprint(
+object RestoreSlideToSeekBehaviorFingerprint : MethodFingerprint(
     returnType = "Z",
     parameters = emptyList(),
     opcodes = listOf(Opcode.MOVE_RESULT),
-    customFingerprint = { methodDef, _ -> methodDef.isWide32LiteralExists(45411330) }
+    customFingerprint = { methodDef, _ -> methodDef.isWide32LiteralExists(45411329) }
 )

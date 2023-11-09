@@ -2,18 +2,16 @@ package app.revanced.patches.youtube.player.speedoverlay
 
 import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patches.youtube.player.speedoverlay.fingerprints.RestoreSlideToSeekBehaviorFingerprint
 import app.revanced.patches.youtube.player.speedoverlay.fingerprints.SpeedOverlayFingerprint
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.integrations.Constants.PLAYER
-import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Disable speed overlay",
@@ -43,43 +41,32 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 )
 @Suppress("unused")
 object SpeedOverlayPatch : BytecodePatch(
-    setOf(SpeedOverlayFingerprint)
+    setOf(
+        RestoreSlideToSeekBehaviorFingerprint,
+        SpeedOverlayFingerprint
+    )
 ) {
     override fun execute(context: BytecodeContext) {
 
-        SpeedOverlayFingerprint.result?.let {
-            it.mutableMethod.apply {
-                val endIndex = it.scanResult.patternScanResult!!.endIndex
+        arrayOf(
+            RestoreSlideToSeekBehaviorFingerprint,
+            SpeedOverlayFingerprint
+        ).forEach { fingerprint ->
+            fingerprint.result?.let {
+                it.mutableMethod.apply {
+                    val insertIndex = it.scanResult.patternScanResult!!.endIndex + 1
+                    val insertRegister =
+                        getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
-                for (index in endIndex downTo 0) {
-                    if (getInstruction(index).opcode != Opcode.RETURN_VOID) continue
-
-                    val replaceIndex = index + 1
-
-                    val replaceReference =
-                        getInstruction<ReferenceInstruction>(replaceIndex).reference
-
-                    val replaceInstruction = getInstruction<TwoRegisterInstruction>(replaceIndex)
-                    val registerA = replaceInstruction.registerA
-                    val registerB = replaceInstruction.registerB
-
-                    addInstructionsWithLabels(
-                        replaceIndex + 1, """
-                            invoke-static { }, $PLAYER->disableSpeedOverlay()Z
-                            move-result v$registerA
-                            if-eqz v$registerA, :show
-                            return-void
-                            :show
-                            iget-object v$registerA, v$registerB, $replaceReference
+                    addInstructions(
+                        insertIndex, """
+                            invoke-static {v$insertRegister}, $PLAYER->disableSpeedOverlay(Z)Z
+                            move-result v$insertRegister
                             """
                     )
-                    removeInstruction(replaceIndex)
-
-                    break
                 }
-            }
-        } ?: throw SpeedOverlayFingerprint.exception
-
+            } ?: throw fingerprint.exception
+        }
 
         /**
          * Add settings
