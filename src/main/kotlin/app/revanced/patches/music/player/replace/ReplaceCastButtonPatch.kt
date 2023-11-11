@@ -97,7 +97,7 @@ object ReplaceCastButtonPatch : BytecodePatch(
         PlayerResponsePatch.injectPlaylistCall(
             "$MUSIC_UTILS_PATH/CheckMusicVideoPatch;" +
                     "->" +
-                    "playbackStart(Ljava/lang/String;Ljava/lang/String;I)V"
+                    "playbackStart(Ljava/lang/String;Ljava/lang/String;IZ)V"
         )
 
         arrayOf(

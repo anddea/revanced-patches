@@ -31,7 +31,7 @@ object PlayerResponsePatch : BytecodePatch(
     ) {
         insertMethod.addInstructions(
             0, // move-result-object offset
-            "invoke-static {p$VIDEO_ID_PARAMETER, p$PLAYLIST_ID_PARAMETER, p$PLAYLIST_INDEX_PARAMETER}, $methodDescriptor"
+            "invoke-static {p$VIDEO_ID_PARAMETER, p$PLAYLIST_ID_PARAMETER, p$PLAYLIST_INDEX_PARAMETER, p$VIDEO_IS_OPENING_OR_PLAYING_PARAMETER}, $methodDescriptor"
         )
     }
 
