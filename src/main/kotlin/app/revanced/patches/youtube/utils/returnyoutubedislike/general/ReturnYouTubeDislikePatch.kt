@@ -3,7 +3,6 @@ package app.revanced.patches.youtube.utils.returnyoutubedislike.general
 import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
@@ -11,8 +10,6 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.youtube.misc.spoofappversion.SpoofAppVersionPatch
 import app.revanced.patches.youtube.utils.litho.LithoFilterPatch
 import app.revanced.patches.youtube.utils.playerresponse.PlayerResponsePatch
 import app.revanced.patches.youtube.utils.returnyoutubedislike.general.fingerprints.DislikeFingerprint
@@ -24,6 +21,7 @@ import app.revanced.patches.youtube.utils.returnyoutubedislike.general.fingerpri
 import app.revanced.patches.youtube.utils.returnyoutubedislike.general.fingerprints.TextComponentContextFingerprint
 import app.revanced.patches.youtube.utils.returnyoutubedislike.general.fingerprints.TextComponentTmpFingerprint
 import app.revanced.patches.youtube.utils.returnyoutubedislike.oldlayout.ReturnYouTubeDislikeOldLayoutPatch
+import app.revanced.patches.youtube.utils.returnyoutubedislike.rollingnumber.ReturnYouTubeDislikeRollingNumberPatch
 import app.revanced.patches.youtube.utils.returnyoutubedislike.shorts.ReturnYouTubeDislikeShortsPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.patches.youtube.utils.videoid.general.VideoIdPatch
@@ -42,6 +40,7 @@ import com.android.tools.smali.dexlib2.iface.reference.Reference
         LithoFilterPatch::class,
         PlayerResponsePatch::class,
         ReturnYouTubeDislikeOldLayoutPatch::class,
+        ReturnYouTubeDislikeRollingNumberPatch::class,
         ReturnYouTubeDislikeShortsPatch::class,
         SettingsPatch::class,
         VideoIdPatch::class

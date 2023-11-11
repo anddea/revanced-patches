@@ -92,6 +92,7 @@ object SettingsPatch : AbstractSettingsResourcePatch(
                         is1836 = playServicesVersion in 233700000..233801999
                         upward1828 = 232900000 <= playServicesVersion
                         upward1834 = 233502000 <= playServicesVersion
+                        upward1841 = 234200000 <= playServicesVersion
 
                         break
                     }
@@ -201,6 +202,7 @@ object SettingsPatch : AbstractSettingsResourcePatch(
     internal var is1836: Boolean = false
     internal var upward1828: Boolean = false
     internal var upward1834: Boolean = false
+    internal var upward1841: Boolean = false
 
     internal fun addPreference(settingArray: Array<String>) {
         contexts.addPreference(settingArray)
