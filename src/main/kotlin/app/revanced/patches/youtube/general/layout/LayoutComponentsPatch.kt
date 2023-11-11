@@ -47,6 +47,7 @@ object LayoutComponentsPatch : BytecodePatch() {
         LithoFilterPatch.addFilter("$COMPONENTS_PATH/CommunityPostFilter;")
         LithoFilterPatch.addFilter("$COMPONENTS_PATH/LayoutComponentsFilter;")
         LithoFilterPatch.addFilter("$COMPONENTS_PATH/LayoutComponentsUniversalFilter;")
+        LithoFilterPatch.addFilter("$COMPONENTS_PATH/LowViewsFilter;")
 
         /**
          * Add settings

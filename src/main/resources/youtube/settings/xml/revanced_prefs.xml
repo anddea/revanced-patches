@@ -245,7 +245,9 @@
         <SwitchPreference android:title="@string/revanced_hide_movie_shelf_title" android:key="revanced_hide_movie_shelf" android:defaultValue="false" android:summaryOn="@string/revanced_hide_movie_shelf_summary_on" android:summaryOff="@string/revanced_hide_movie_shelf_summary_off" />
         <SwitchPreference android:title="@string/revanced_hide_search_bar_title" android:key="revanced_hide_search_bar" android:defaultValue="false" android:summaryOn="@string/revanced_hide_search_bar_summary_on" android:summaryOff="@string/revanced_hide_search_bar_summary_off" />
         <SwitchPreference android:title="@string/revanced_hide_ticket_shelf_title" android:key="revanced_hide_ticket_shelf" android:defaultValue="true" android:summaryOn="@string/revanced_hide_ticket_shelf_summary_on" android:summaryOff="@string/revanced_hide_ticket_shelf_summary_off" />
-        <SwitchPreference android:title="@string/revanced_hide_timed_reactions_title" android:key="revanced_hide_timed_reactions" android:defaultValue="true" android:summaryOn="@string/revanced_hide_timed_reactions_summary_on" android:summaryOff="@string/revanced_hide_timed_reactions_summary_off" />SETTINGS: HIDE_LAYOUT_COMPONENTS -->
+        <SwitchPreference android:title="@string/revanced_hide_timed_reactions_title" android:key="revanced_hide_timed_reactions" android:defaultValue="true" android:summaryOn="@string/revanced_hide_timed_reactions_summary_on" android:summaryOff="@string/revanced_hide_timed_reactions_summary_off" />
+        <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_experimental_flag" />
+        <SwitchPreference android:title="@string/revanced_hide_video_with_low_view_title" android:key="revanced_hide_video_with_low_view" android:defaultValue="false" android:summary="@string/revanced_hide_video_with_low_view_summary" />SETTINGS: HIDE_LAYOUT_COMPONENTS -->
 
         <!-- SETTINGS: HIDE_DESCRIPTION_COMPONENTS
         <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_description_title" />
