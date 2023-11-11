@@ -11,6 +11,7 @@
     <string name="revanced_category_video">動画</string>
     <string name="revanced_custom_filter_strings_summary">コンポーネント名でフィルター (改行区切り)</string>
     <string name="revanced_custom_filter_strings_title">カスタムフィルターを編集</string>
+    <string name="revanced_custom_filter_strings_warning">無効なカスタムフィルターです。デフォルトにリセットします。</string>
     <string name="revanced_custom_filter_summary">カスタムフィルターを有効にします</string>
     <string name="revanced_custom_filter_title">カスタムフィルター</string>
     <string name="revanced_custom_playback_speeds_invalid">無効なカスタム再生速度です！デフォルトにリセットします</string>
@@ -24,6 +25,11 @@
     <string name="revanced_enable_black_navigation_bar_title">黒いナビゲーションバーを有効化</string>
     <string name="revanced_enable_color_match_player_summary">ミニプレーヤーと全画面プレーヤーの色を統一します。</string>
     <string name="revanced_enable_color_match_player_title">カラーマッチプレーヤーを有効化</string>
+    <string name="revanced_enable_compact_dialog_summary">"コンパクトなダイアログを有効にします。
+
+ 既知の問題点：
+ • ライブラリのアルバムアートも小さくなります。
+ • スリープ タイマーのレイアウトが異常に見える場合があります。"</string>
     <string name="revanced_enable_compact_dialog_title">コンパクトなダイアログ</string>
     <string name="revanced_enable_debug_logging_summary">デバッグログを出力します</string>
     <string name="revanced_enable_debug_logging_title">デバッグログ</string>
@@ -95,6 +101,7 @@
     <string name="revanced_hide_flyout_panel_go_to_artist_title">「アーティストに移動」を非表示</string>
     <string name="revanced_hide_flyout_panel_go_to_episode_title">「エピソードに移動」を非表示</string>
     <string name="revanced_hide_flyout_panel_go_to_podcast_title">「ポッドキャストに移動」を非表示</string>
+    <string name="revanced_hide_flyout_panel_help_title">「ヘルプとフィードバック」を非表示</string>
     <string name="revanced_hide_flyout_panel_like_dislike_title">高評価/低評価ボタンを非表示</string>
     <string name="revanced_hide_flyout_panel_play_next_title">「次に再生」を非表示</string>
     <string name="revanced_hide_flyout_panel_remove_from_library_title">「ライブラリから削除」を非表示</string>
@@ -129,6 +136,7 @@
     <string name="revanced_hide_upgrade_button_title">アップグレードボタンを非表示</string>
     <string name="revanced_hook_action_bar_download_summary">「オフラインに一時保存」ボタンでのダウンロードを外部アプリの機能に置き換えます</string>
     <string name="revanced_hook_action_bar_download_title">ダウンロードボタンをフック</string>
+    <string name="revanced_playback_speed_normal">標準</string>
     <string name="revanced_playlist_dismiss">既に公式の音楽ソースを再生しています</string>
     <string name="revanced_playlist_error">公式の音楽ソースが利用できません</string>
     <string name="revanced_reboot_first_run">再起動してレイアウトを正常に読み込みます</string>
@@ -152,10 +160,13 @@
     <string name="revanced_ryd_enabled_summary">低評価は数字で表示されます</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">低評価数は利用できません (クライアント API 制限)</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">非表示</string>
-    <string name="revanced_save_playback_speed">デフォルトの再生速度を変更:</string>
-    <string name="revanced_save_video_quality_mobile">モバイルデータ通信での画質を変更:</string>
+    <string name="revanced_sanitize_sharing_links_summary">リンクを共有するときに、URLからトラッキングクエリパラメータを削除します。</string>
+    <string name="revanced_sanitize_sharing_links_title">共有リンクを浄化</string>
+    <string name="revanced_save_playback_speed" formatted="false">デフォルトの再生速度を%sに変更しています。</string>
+    <string name="revanced_save_video_quality_mobile" formatted="false">既定のモバイルデータ品質を %sに変更しています。</string>
     <string name="revanced_save_video_quality_none">画質の設定に失敗しました</string>
-    <string name="revanced_save_video_quality_wifi">Wi-Fi での画質を変更:</string>
+    <string name="revanced_save_video_quality_wifi" formatted="false">デフォルトのWi-Fi品質を %sに変更しています。</string>
+    <string name="revanced_share_copy_settings_success">設定をクリップボードにコピーしました。</string>
     <string name="revanced_spoof_app_version_summary">"YouTube のバージョンを古いバージョンに偽装します
 
 • これによりアプリの外観が変わりますが、未知の問題が発生する場合があります
@@ -192,7 +203,7 @@
     <string name="sb_segments_intro_sum">本編ではない部分。一時停止、静止画面、アニメーション繰り返しが含まれます。情報を含んだ転換画面は含まれません。</string>
     <string name="sb_segments_outro">エンドカード / クレジット</string>
     <string name="sb_segments_outro_sum">クレジットや動画のエンドカードが表示されている場面を含みます。動画の結論は含まれません。</string>
-    <string name="sb_segments_preview">プレビュー / あらすじ</string>
+    <string name="sb_segments_preview">予告 / あらすじ</string>
     <string name="sb_segments_preview_sum">今後起きる内容などをまとめたクリップのコレクション、この動画や他の動画・シリーズで起きること、他の場面で繰り返されるすべての情報が含まれます。 </string>
     <string name="sb_segments_filler">繋ぎの話 / 冗談</string>
     <string name="sb_segments_filler_sum">繋ぎの話や動画の本編を理解するのに必要のないユーモアなどの脱線したシーン。コンテクストや背景情報の詳細は含まれません。</string>
@@ -219,4 +230,5 @@
     <string name="sb_color_invalid">カラーコードが無効です</string>
     <string name="sb_reset_color">色をリセット</string>
     <string name="sb_about_api_sum">データは SponsorBlock API によって提供されます。 ここをタップして詳細を確認し、他のプラットフォームのダウンロードを確認してください。</string>
+    <string name="sb_about">概要</string>
 </resources>

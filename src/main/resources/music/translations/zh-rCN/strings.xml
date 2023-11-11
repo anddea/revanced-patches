@@ -1,15 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="revanced_category_account">账号</string>
+    <string name="revanced_category_action_bar">快捷操作栏</string>
     <string name="revanced_category_ads">广告</string>
     <string name="revanced_category_flyout">弹出菜单</string>
     <string name="revanced_category_general">常规设置</string>
     <string name="revanced_category_misc">杂项</string>
     <string name="revanced_category_navigation">导航栏</string>
     <string name="revanced_category_player">播放器</string>
+    <string name="revanced_category_video">视频</string>
     <string name="revanced_custom_filter_strings_summary">按行分割过滤组件名称</string>
     <string name="revanced_custom_filter_strings_title">编辑自定义过滤隐藏</string>
+    <string name="revanced_custom_filter_strings_warning">无效的自定义过滤器，重置为默认值。</string>
     <string name="revanced_custom_filter_summary">启用自定义过滤</string>
     <string name="revanced_custom_filter_title">自定义过滤隐藏</string>
+    <string name="revanced_custom_playback_speeds_invalid">无效的自定义播放速度，已重置为默认值</string>
+    <string name="revanced_custom_playback_speeds_summary">添加或更改可用的播放速度</string>
+    <string name="revanced_custom_playback_speeds_title">编辑自定义播放速度</string>
+    <string name="revanced_custom_playback_speeds_warning" formatted="false">自定义速度不能超过 %s倍。</string>
     <string name="revanced_disable_auto_captions_summary">禁止视频播放器自动启用的强制字幕</string>
     <string name="revanced_disable_auto_captions_title">禁用自动字幕</string>
     <string name="revanced_downloader_not_installed" formatted="false">%s未安装，请先安装</string>
@@ -17,6 +25,11 @@
     <string name="revanced_enable_black_navigation_bar_title">黑色导航栏</string>
     <string name="revanced_enable_color_match_player_summary">使导航栏播放器与全屏播放器颜色一致.</string>
     <string name="revanced_enable_color_match_player_title">匹配播放器颜色</string>
+    <string name="revanced_enable_compact_dialog_summary">"在手机上启用紧凑对话框。
+
+已知问题：
+• 媒体库上的专辑封面也变得更小。
+• 睡眠定时器布局可能出现异常。"</string>
     <string name="revanced_enable_compact_dialog_title">启用紧凑对话框</string>
     <string name="revanced_enable_debug_logging_summary">打印 Debug 日志</string>
     <string name="revanced_enable_debug_logging_title">Debug 日志</string>
@@ -26,6 +39,13 @@
     <string name="revanced_enable_force_minimized_player_title">强制最小化播放器</string>
     <string name="revanced_enable_landscape_mode_summary">允许通过手机屏幕旋转进入横屏模式</string>
     <string name="revanced_enable_landscape_mode_title">横屏模式</string>
+    <string name="revanced_enable_new_player_background_summary">启用新的播放器背景</string>
+    <string name="revanced_enable_new_player_background_title">启用新的播放器背景</string>
+    <string name="revanced_enable_old_player_layout_summary">"将播放器版面配置恢复为旧样式。
+某些设定在旧的播放器布局中可能无法正常运作。
+
+警告：使用此功能时请勿启用新版的播放器背景。"</string>
+    <string name="revanced_enable_old_player_layout_title">启用旧播放器布局</string>
     <string name="revanced_enable_old_style_library_shelf_summary">将媒体库栏恢复为旧版（实验性）</string>
     <string name="revanced_enable_old_style_library_shelf_title">旧版媒体库栏</string>
     <string name="revanced_enable_old_style_mini_player_summary">恢复旧样式迷你播放器</string>
@@ -40,9 +60,25 @@
     <string name="revanced_enable_sleep_timer_title">息屏计时</string>
     <string name="revanced_enable_zen_mode_summary">在视频播放器上添加灰色阴影以减少眼睛疲劳</string>
     <string name="revanced_enable_zen_mode_title">禅定模式</string>
+    <string name="revanced_extended_settings_import">导入</string>
+    <string name="revanced_extended_settings_import_copy">复制</string>
+    <string name="revanced_extended_settings_import_export_summary">导入或导出设置为文本。</string>
+    <string name="revanced_extended_settings_import_export_title">导入/导出</string>
+    <string name="revanced_extended_settings_import_failure_parse">导入失败: %s</string>
+    <string name="revanced_extended_settings_import_reset">设置已被重置为默认值。</string>
+    <string name="revanced_extended_settings_import_success">已导入 %d 设置。</string>
     <string name="revanced_external_downloader_not_installed_warning" formatted="false">%s未安装，请先安装</string>
     <string name="revanced_external_downloader_package_name_summary">已安装的外部下载器应用的包名，例如 NewPipe 或 Seal</string>
     <string name="revanced_external_downloader_package_name_title">外部下载器应用包名</string>
+    <string name="revanced_flyout_panel_watch_on_youtube">在 Youtube上观看</string>
+    <string name="revanced_hide_account_menu_empty_component_summary">隐藏在账户菜单中的空组件。</string>
+    <string name="revanced_hide_account_menu_empty_component_title">隐藏空组件</string>
+    <string name="revanced_hide_account_menu_summary">隐藏账户菜单元素。</string>
+    <string name="revanced_hide_account_menu_title">隐藏账户菜单</string>
+    <string name="revanced_hide_action_bar_label_summary">隐藏操作栏中的标签。</string>
+    <string name="revanced_hide_action_bar_label_title">隐藏操作栏标签</string>
+    <string name="revanced_hide_action_bar_radio_summary">隐藏开启电台按钮</string>
+    <string name="revanced_hide_action_bar_radio_title">隐藏电台按钮</string>
     <string name="revanced_hide_button_shelf_summary">隐藏主页和探索中的按钮栏</string>
     <string name="revanced_hide_button_shelf_title">隐藏按钮栏</string>
     <string name="revanced_hide_carousel_shelf_summary">隐藏主页和探索中的播放列表</string>
@@ -55,7 +91,10 @@
     <string name="revanced_hide_channel_guidelines_title">频道指南</string>
     <string name="revanced_hide_emoji_picker_summary">隐藏评论框上方的 Emoji 列表</string>
     <string name="revanced_hide_emoji_picker_title">Emoji 列表</string>
+    <string name="revanced_hide_explore_button_summary">隐藏在导航栏中的探索按钮。</string>
+    <string name="revanced_hide_explore_button_title">隐藏探索按钮</string>
     <string name="revanced_hide_flyout_panel_add_to_queue_title">隐藏添加到队列</string>
+    <string name="revanced_hide_flyout_panel_captions_title">隐藏字幕菜单</string>
     <string name="revanced_hide_flyout_panel_dismiss_queue_title">隐藏清除队列</string>
     <string name="revanced_hide_flyout_panel_download_title">隐藏下载</string>
     <string name="revanced_hide_flyout_panel_go_to_album_title">隐藏转到专辑</string>
@@ -89,9 +128,6 @@
     <string name="revanced_ryd_enabled_summary">显示视频点踩数</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">点踩数不可用（已达到客户端 API 限制）</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">隐藏</string>
-    <string name="revanced_save_playback_speed">更改默认播放速度为：</string>
-    <string name="revanced_save_video_quality_mobile">更改移动网络的默认画质为：</string>
     <string name="revanced_save_video_quality_none">设置画质失败</string>
-    <string name="revanced_save_video_quality_wifi">更改 WiFi 的默认画质为：</string>
     <string name="revanced_spoof_app_version_title">伪装应用版本</string>
 </resources>

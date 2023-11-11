@@ -28,8 +28,8 @@
     <string name="revanced_enable_compact_dialog_summary">"휴대폰에서 소형 다이얼로그를 활성화합니다.
 
 알려진 문제점:
-- 보관함 선반에서 앨범 커버도 작아집니다.
-- 취침 타이머 레이아웃이 비정상적으로 보일 수 있습니다."</string>
+• 보관함 선반에서 앨범 커버도 작아집니다.
+• 취침 타이머 레이아웃이 비정상적으로 보일 수 있습니다."</string>
     <string name="revanced_enable_compact_dialog_title">소형 다이얼로그 활성화</string>
     <string name="revanced_enable_debug_logging_summary">디버그 로그를 출력합니다.</string>
     <string name="revanced_enable_debug_logging_title">디버그 로깅 활성화</string>
@@ -50,7 +50,7 @@
     <string name="revanced_enable_old_style_library_shelf_title">이전 보관함 선반 복원</string>
     <string name="revanced_enable_old_style_mini_player_summary">이전 최소화 상태의 플레이어로 복원합니다.</string>
     <string name="revanced_enable_old_style_mini_player_title">이전 최소화 상태의 플레이어 복원</string>
-    <string name="revanced_enable_opus_codec_summary">음악을 재생할때 250/251 Opus 코덱을 사용합니다.</string>
+    <string name="revanced_enable_opus_codec_summary">MP4A 오디오 코덱 대신 Opus 오디오 코덱을 활성화합니다.</string>
     <string name="revanced_enable_opus_codec_title">Opus 코덱 활성화</string>
     <string name="revanced_enable_save_playback_speed_summary">재생 속도 값을 변경할 때마다 저장합니다.</string>
     <string name="revanced_enable_save_playback_speed_title">재생 속도 저장 활성화</string>
@@ -83,8 +83,8 @@
     <string name="revanced_hide_button_shelf_title">버튼 선반 제거</string>
     <string name="revanced_hide_carousel_shelf_summary">홈과 둘러보기에서 썸네일 슬라이드 선반을 숨깁니다.</string>
     <string name="revanced_hide_carousel_shelf_title">썸네일 슬라이드 선반 제거</string>
-    <string name="revanced_hide_cast_button_summary">크롬캐스트 버튼을 숨깁니다.</string>
-    <string name="revanced_hide_cast_button_title">크롬캐스트 버튼 제거</string>
+    <string name="revanced_hide_cast_button_summary">캐스트 버튼을 숨깁니다.</string>
+    <string name="revanced_hide_cast_button_title">캐스트 버튼 제거</string>
     <string name="revanced_hide_category_bar_summary">홈 상단에서 음악 카테고리 바를 숨깁니다.</string>
     <string name="revanced_hide_category_bar_title">카테고리 바 제거</string>
     <string name="revanced_hide_channel_guidelines_summary">댓글 상단에서 커뮤니티 가이드라인을 숨깁니다.</string>
@@ -136,6 +136,7 @@
     <string name="revanced_hide_upgrade_button_title">업그레이드 버튼 제거</string>
     <string name="revanced_hook_action_bar_download_summary">오프라인 저장 버튼을 외부 다운로드 버튼으로 변경합니다.</string>
     <string name="revanced_hook_action_bar_download_title">오프라인 저장 버튼 변경</string>
+    <string name="revanced_playback_speed_normal">보통</string>
     <string name="revanced_playlist_dismiss">이미 정식 음원으로 재생 중입니다.</string>
     <string name="revanced_playlist_error">정식 음원으로 재생할 수 없습니다.</string>
     <string name="revanced_reboot_first_run">기능 및 레이아웃을 정상적으로 실행시키기 위해 다시 시작합니다.</string>
@@ -144,7 +145,7 @@
     <string name="revanced_replace_flyout_panel_dismiss_queue_continue_watch_title">이어서 시청</string>
     <string name="revanced_replace_flyout_panel_dismiss_queue_summary">현재 재생목록 닫기 메뉴를 YouTube에서 시청 메뉴로 변경합니다.</string>
     <string name="revanced_replace_flyout_panel_dismiss_queue_title">현재 재생목록 닫기 메뉴 변경</string>
-    <string name="revanced_replace_player_cast_button_title">크롬캐스트 버튼 변경</string>
+    <string name="revanced_replace_player_cast_button_title">\'정식 음원으로 듣기\' 버튼 표시</string>
     <string name="revanced_remember_repeat_state_summary">반복 상태를 저장합니다.</string>
     <string name="revanced_remember_repeat_state_title">반복 상태 저장</string>
     <string name="revanced_remember_shuffle_state_summary">셔플 상태를 저장합니다.</string>
@@ -159,10 +160,13 @@
     <string name="revanced_ryd_enabled_summary">싫어요 개수를 표시합니다.</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">싫어요 개수를 표시할 수 없습니다. (클라이언트 API 제한에 도달했습니다.)</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">숨겨짐</string>
-    <string name="revanced_save_playback_speed">기본 재생 속도 변경:</string>
-    <string name="revanced_save_video_quality_mobile">모바일 네트워크 이용 시 기본 동영상 품질 설정:</string>
+    <string name="revanced_sanitize_sharing_links_summary">링크를 공유할 때 URL에서 추적 쿼리 매개변수를 제거합니다.</string>
+    <string name="revanced_sanitize_sharing_links_title">추적 쿼리를 제거한 링크 공유</string>
+    <string name="revanced_save_playback_speed" formatted="false">기본 재생 속도를 %s으로 변경합니다.</string>
+    <string name="revanced_save_video_quality_mobile" formatted="false">모바일 네트워크 이용 시 기본 동영상 품질을 %s로 변경합니다.</string>
     <string name="revanced_save_video_quality_none">동영상 품질 설정에 실패하였습니다.</string>
-    <string name="revanced_save_video_quality_wifi">Wi-Fi 이용 시 기본 동영상 품질 설정:</string>
+    <string name="revanced_save_video_quality_wifi" formatted="false">Wi-Fi 이용 시 기본 동영상 품질을 %s로 변경합니다.</string>
+    <string name="revanced_share_copy_settings_success">설정이 클립보드에 복사되었습니다.</string>
     <string name="revanced_spoof_app_version_summary">"클라이언트 버전을 이전 버전으로 변경합니다.
 
 • 이 기능을 활성화하면 앱 레이아웃이 변경되지만 알려지지 않은 문제점이 발생할 수 있습니다.
@@ -199,7 +203,7 @@
     <string name="sb_segments_intro_sum">아무 내용도 없는 구간입니다. 애니메이션이나 정적 프레임과 같은 내용을 포함하고 있습니다.</string>
     <string name="sb_segments_outro">최종 화면 / 크레딧</string>
     <string name="sb_segments_outro_sum">엔딩 크레딧이나 최종 화면이 나타나는 구간입니다.</string>
-    <string name="sb_segments_preview">미리 보기 / 요약</string>
+    <string name="sb_segments_preview">미리 보기 / 요약 / 흥미 유발</string>
     <string name="sb_segments_preview_sum">이전 에피소드를 간략히 요약하거나 현재 동영상의 하이라이트를 미리 보여줍니다.</string>
     <string name="sb_segments_filler">주제와 관련 없는 구간</string>
     <string name="sb_segments_filler_sum">전반적인 동영상의 주제를 이해하는 데 필요 없는 내용을 포함합니다.</string>
