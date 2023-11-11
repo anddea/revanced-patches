@@ -41,10 +41,9 @@
     <string name="revanced_change_homepage_title">設定主畫面為訂閱內容</string>
     <string name="revanced_channel_bar_title">頻道列</string>
     <string name="revanced_comments_title">留言</string>
-    <string name="revanced_copy_video_timestamp_success">已複製時間戳記至剪貼簿</string>
     <string name="revanced_custom_filter_strings_summary">以換行分隔的名稱來過濾元件</string>
     <string name="revanced_custom_filter_strings_title">編輯自訂篩選</string>
-    <string name="revanced_custom_filter_strings_warning">若遇到不合法的自訂過濾規則，系統將自動回復至預設設定。</string>
+    <string name="revanced_custom_filter_strings_warning">無效的自訂過濾規則，系統將回復至預設設定。</string>
     <string name="revanced_custom_filter_summary_off">自訂篩選已停用</string>
     <string name="revanced_custom_filter_summary_on">自訂篩選已啟用</string>
     <string name="revanced_custom_filter_title">啟用自訂篩選</string>
@@ -52,12 +51,12 @@
     <string name="revanced_custom_playback_speeds_summary">新增或變更可用的播放速度</string>
     <string name="revanced_custom_playback_speeds_title">編輯自訂播放速度</string>
     <string name="revanced_custom_playback_speeds_warning" formatted="false">自訂速度不能多於 %sx。已重設為預設值。</string>
-    <string name="revanced_custom_player_overlay_opacity_summary">設定值為 0 到 100 的不透明度，0 完全透明</string>
+    <string name="revanced_custom_player_overlay_opacity_summary">不透明度值介於 0-100 之間，0 為透明</string>
     <string name="revanced_custom_player_overlay_opacity_title">設定播放器覆蓋層自定義的不透明度</string>
     <string name="revanced_custom_player_overlay_opacity_warning">若播放器覆蓋層的不透明度不在 0 到 100 範圍內，將會重設回預設數值</string>
     <string name="revanced_custom_seekbar_color_value_summary">輸入搜尋欄十六進制代碼</string>
     <string name="revanced_custom_seekbar_color_value_title">自訂搜尋欄顏色</string>
-    <string name="revanced_default_app_settings_summary">如過要讓RVX開啟Youtube的網址的話,請到手機設定&gt;RVX應用程式資訊&gt;設為預設&gt;前往支援的網址,將設定改為\"經此應用程式\"</string>
+    <string name="revanced_default_app_settings_summary">若要以外部瀏覽器開啟 RVX，請開啟「開啟支援連結」並啟用支援的網址。</string>
     <string name="revanced_default_app_settings_title">開啟預設應用程式設定</string>
     <string name="revanced_default_playback_speed_title">預設播放速度</string>
     <string name="revanced_default_video_quality_mobile_title">預設行動數據影片畫質</string>
@@ -73,8 +72,8 @@
     <string name="revanced_disable_default_playback_speed_live_summary_off">直播中已啟用預設播放速度</string>
     <string name="revanced_disable_default_playback_speed_live_summary_on">直播中已停用預設播放速度</string>
     <string name="revanced_disable_default_playback_speed_live_title">在直播中停用播放速度</string>
-    <string name="revanced_disable_haptic_feedback_summary_off">觸覺回饋已啟用</string>
-    <string name="revanced_disable_haptic_feedback_summary_on">觸覺回饋已停用</string>
+    <string name="revanced_disable_haptic_feedback_summary_off">觸覺回饋 (震動) 已啟用</string>
+    <string name="revanced_disable_haptic_feedback_summary_on">觸覺回饋 (震動) 已停用</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">停用章節（震動）回饋</string>
     <string name="revanced_disable_haptic_feedback_scrubbing_title">停用滑動（震動）回饋</string>
     <string name="revanced_disable_haptic_feedback_seek_title">停用進度條（震動）回饋</string>
@@ -91,9 +90,7 @@
     <string name="revanced_disable_landscape_mode_title">停用橫向模式</string>
     <string name="revanced_disable_quic_protocol_summary">"停用 CronetEngine 的 QUIC 協議"</string>
     <string name="revanced_disable_quic_protocol_title">停用 QUIC 協議</string>
-    <string name="revanced_disable_speed_overlay_summary">"在長按的情況下，可以禁用「以 2 倍速播放」的功能
-
-注意：這並不會讓你回到舊有佈局中「滑動來快進或倒退」的操作方式。"</string>
+    <string name="revanced_disable_speed_overlay_summary">"長按時禁用「2倍速播放」功能。"</string>
     <string name="revanced_disable_speed_overlay_title">停用影片播放速度的覆蓋層顯示</string>
     <string name="revanced_disable_startup_shorts_player_summary_off">在啟動應用程式時自動開啟 Shorts 已啟用</string>
     <string name="revanced_disable_startup_shorts_player_summary_on">在啟動應用程式時自動開啟 Shorts 已停用</string>
@@ -124,6 +121,9 @@
     <string name="revanced_enable_language_switch_summary_off">語言切換已停用</string>
     <string name="revanced_enable_language_switch_summary_on">語言切換已啟用</string>
     <string name="revanced_enable_language_switch_title">啟用語言切換</string>
+    <string name="revanced_enable_music_search_summary_off">音樂搜尋已禁用。</string>
+    <string name="revanced_enable_music_search_summary_on">音樂搜尋已啟用。</string>
+    <string name="revanced_enable_music_search_title">啟用音樂搜尋功能</string>
     <string name="revanced_enable_new_splash_animation_summary_off">新版啟動畫已停用</string>
     <string name="revanced_enable_new_splash_animation_summary_on">新版啟動畫已啟用</string>
     <string name="revanced_enable_new_splash_animation_title">啟用新版啟動畫</string>
@@ -134,11 +134,11 @@
     <string name="revanced_enable_old_quality_layout_summary_on">顯示舊版畫質設定</string>
     <string name="revanced_enable_old_quality_layout_title">使用舊版畫質設定</string>
     <string name="revanced_enable_open_links_directly_summary_off">跟隨預設的重新載入行為</string>
-    <string name="revanced_enable_open_links_directly_summary_on">跳過 URL 重新載入</string>
+    <string name="revanced_enable_open_links_directly_summary_on">跳過 URL 重新導向</string>
     <string name="revanced_enable_open_links_directly_title">直接開啟連結</string>
     <string name="revanced_enable_opus_codec_summary">優先應用 opus 音訊解碼器 而非 mp4a 音訊解碼器</string>
     <string name="revanced_enable_opus_codec_title">啟用 opus 解碼器</string>
-    <string name="revanced_enable_phone_layout_summary">偽裝DPI以使用一些手機版介面</string>
+    <string name="revanced_enable_phone_layout_summary">以 DPI 欺騙系統使用手機版介面</string>
     <string name="revanced_enable_phone_layout_title">啟用手機版介面</string>
     <string name="revanced_enable_save_playback_speed_summary_off">即使更改播放速度，也不儲存播放速度值</string>
     <string name="revanced_enable_save_playback_speed_summary_on">每次更改播放速度時儲存播放速度值</string>
@@ -158,7 +158,7 @@
     <string name="revanced_enable_swipe_volume_summary_off">滑動控制音量已停用</string>
     <string name="revanced_enable_swipe_volume_summary_on">滑動控制音量已啟用</string>
     <string name="revanced_enable_swipe_volume_title">啟用音量控制手勢</string>
-    <string name="revanced_enable_tablet_layout_summary">偽裝DPI以使用一些平板介面</string>
+    <string name="revanced_enable_tablet_layout_summary">以 DPI 欺騙系統使用平板電腦版介面</string>
     <string name="revanced_enable_tablet_layout_title">啟用平板介面</string>
     <string name="revanced_enable_tablet_mini_player_summary_off">平板迷你播放器已停用</string>
     <string name="revanced_enable_tablet_mini_player_summary_on">平板迷你播放器已啟用</string>
@@ -486,6 +486,12 @@
     <string name="revanced_hide_quick_actions_summary_off">快捷功能列已顯示</string>
     <string name="revanced_hide_quick_actions_summary_on">快捷功能列已隱藏</string>
     <string name="revanced_hide_quick_actions_title">隱藏快捷功能列</string>
+    <string name="revanced_hide_search_bar_summary_off">搜尋欄顯示中。</string>
+    <string name="revanced_hide_search_bar_summary_on">搜尋欄已隱藏。</string>
+    <string name="revanced_hide_search_bar_title">在首頁動態中隱藏搜尋欄。</string>
+    <string name="revanced_hide_search_term_thumbnail_summary_off">搜尋詞彙歷史中的縮圖已顯示。</string>
+    <string name="revanced_hide_search_term_thumbnail_summary_on">搜尋詞彙歷史中的縮圖已隱藏。</string>
+    <string name="revanced_hide_search_term_thumbnail_title">隱藏搜尋詞彙的縮圖</string>
     <string name="revanced_hide_seekbar_summary_off">全螢幕模式下的播放進度條已顯示</string>
     <string name="revanced_hide_seekbar_summary_on">全螢幕模式下的播放進度條已隱藏</string>
     <string name="revanced_hide_seekbar_thumbnail_summary_off">預覽模式下的播放進度條已顯示</string>
@@ -646,11 +652,11 @@
     <string name="revanced_ryd_shorts_summary_on">已於 Shorts 中顯示倒讚數</string>
     <string name="revanced_ryd_shorts_title">在 Shorts 中顯示倒讚數</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">隱藏</string>
-    <string name="revanced_save_playback_speed">將預設速度更改為：</string>
-    <string name="revanced_save_video_quality_mobile">將預設行動數據畫質更改為：</string>
     <string name="revanced_save_video_quality_none">設定畫質失敗</string>
-    <string name="revanced_save_video_quality_wifi">將預設 Wi-Fi 畫質更改為：</string>
     <string name="revanced_seekbar">搜尋欄</string>
+    <string name="revanced_share_copy_timestamp_success" formatted="false">時間戳記已複製到剪貼簿。（%s）</string>
+    <string name="revanced_share_copy_url_success">URL 已複製到剪貼簿。</string>
+    <string name="revanced_share_copy_url_timestamp_success">帶時間戳記的 URL 已複製到剪貼簿。</string>
     <string name="revanced_shorts">Shorts</string>
     <string name="revanced_shorts_player_title">Shorts 播放器</string>
     <string name="revanced_shorts_toolbar_summary">若想隱藏「短片」工具列，請在其對應的設定類別中將所有選項都設為隱藏。</string>
@@ -677,6 +683,7 @@
     <string name="revanced_spoof_app_version_target_entry_18_05_40">18.05.40 - 恢復原先的留言輸入區</string>
     <string name="revanced_spoof_app_version_target_entry_18_17_43">18.17.43 - 恢復原先的播放器彈出面板</string>
     <string name="revanced_spoof_app_version_target_entry_18_33_40">18.33.40 - 還原舊的 Short 操作列</string>
+    <string name="revanced_spoof_app_version_target_entry_18_40_34">"18.40.34 - 禁用即時更新「觀看數」和「喜歡數」的功能"</string>
     <string name="revanced_spoof_app_version_target_entry_title">欺騙應用程式版本目標</string>
     <string name="revanced_spoof_app_version_target_summary">輸入欺騙的應用程式版本目標</string>
     <string name="revanced_spoof_app_version_target_title">編輯欺騙應用程式版本</string>

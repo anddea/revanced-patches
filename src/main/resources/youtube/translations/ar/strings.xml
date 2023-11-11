@@ -41,7 +41,6 @@
     <string name="revanced_change_homepage_title">تغيير الصفحة الرئيسية إلى موجز الاشتراكات</string>
     <string name="revanced_channel_bar_title">شريط القناة</string>
     <string name="revanced_comments_title">التعليقات</string>
-    <string name="revanced_copy_video_timestamp_success">تم نسخ الطابع الزمني إلى الحافظة</string>
     <string name="revanced_custom_filter_strings_summary">تصفية أسماء المكونات عن طريق مفصولة بأسطر</string>
     <string name="revanced_custom_filter_strings_title">تعديل الفلتر المخصص</string>
     <string name="revanced_custom_filter_strings_warning">فلتر مخصص غير صالح، إعادة التعيين إلى الافتراضي.</string>
@@ -91,6 +90,7 @@
     <string name="revanced_disable_landscape_mode_title">تعطيل الوضع الأفقي</string>
     <string name="revanced_disable_quic_protocol_summary">"تعطيل بروتوكول QUIC الخاص بـ CronetEngine"</string>
     <string name="revanced_disable_quic_protocol_title">تعطيل بروتوكول QUIC</string>
+    <string name="revanced_disable_speed_overlay_summary">"تعطيل \"التشغيل بسرعة 2x\" أثناء الضغط باستمرار."</string>
     <string name="revanced_disable_speed_overlay_title">تعطيل تراكب السرعة</string>
     <string name="revanced_disable_startup_shorts_player_summary_off">تم تمكين مشغل Shorts عند بَدْء تشغيل التطبيق</string>
     <string name="revanced_disable_startup_shorts_player_summary_on">تم تعطيل مشغل Shorts عند بَدْء تشغيل التطبيق</string>
@@ -121,6 +121,9 @@
     <string name="revanced_enable_language_switch_summary_off">تم تعطيل تبديل اللغة</string>
     <string name="revanced_enable_language_switch_summary_on">تم تمكين تبديل اللغة</string>
     <string name="revanced_enable_language_switch_title">تمكين تبديل اللغة</string>
+    <string name="revanced_enable_music_search_summary_off">تم تعطيل البحث عن الموسيقى.</string>
+    <string name="revanced_enable_music_search_summary_on">تم تمكين البحث عن الموسيقى.</string>
+    <string name="revanced_enable_music_search_title">تمكين البحث عن الموسيقى</string>
     <string name="revanced_enable_new_splash_animation_summary_off">تم تعطيل حركة البداية الجديدة</string>
     <string name="revanced_enable_new_splash_animation_summary_on">تم تمكين حركة البداية الجديدة</string>
     <string name="revanced_enable_new_splash_animation_title">تمكين حركة البداية الجديدة</string>
@@ -483,6 +486,12 @@
     <string name="revanced_hide_quick_actions_summary_off">يتم عرض حاوية الإجراءات السريعة</string>
     <string name="revanced_hide_quick_actions_summary_on">تم إخفاء حاوية الإجراءات السريعة</string>
     <string name="revanced_hide_quick_actions_title">إخفاء حاوية الإجراءات السريعة</string>
+    <string name="revanced_hide_search_bar_summary_off">يتم عرض شريط البحث.</string>
+    <string name="revanced_hide_search_bar_summary_on">تم إخفاء شريط البحث.</string>
+    <string name="revanced_hide_search_bar_title">إخفاء شريط البحث في موجز الصفحة الرئيسية</string>
+    <string name="revanced_hide_search_term_thumbnail_summary_off">يتم عرض المصغرات في سجل مصطلحات البحث.</string>
+    <string name="revanced_hide_search_term_thumbnail_summary_on">تم إخفاء المصغرات في سجل مصطلحات البحث.</string>
+    <string name="revanced_hide_search_term_thumbnail_title">إخفاء مصغرة عبارة البحث</string>
     <string name="revanced_hide_seekbar_summary_off">يتم عرض شريط تقدم الفيديو</string>
     <string name="revanced_hide_seekbar_summary_on">تم إخفاء شريط تقدم الفيديو</string>
     <string name="revanced_hide_seekbar_thumbnail_summary_off">يتم عرض مُصَّغَرة الفيديو بشريط التقدم</string>
@@ -643,11 +652,11 @@
     <string name="revanced_ryd_shorts_summary_on">يتم عرض لم يعجني في مقاطع Shorts</string>
     <string name="revanced_ryd_shorts_title">عرض لم يعجني في مقاطع Shorts</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">مخفي</string>
-    <string name="revanced_save_playback_speed">تغيير السرعة الافتراضية إلى:</string>
-    <string name="revanced_save_video_quality_mobile">تغيير جودة بيانات الجوّال الافتراضية إلى:</string>
     <string name="revanced_save_video_quality_none">فشل في تعيين الجودة</string>
-    <string name="revanced_save_video_quality_wifi">تغيير جودة Wi-Fi الافتراضية إلى:</string>
     <string name="revanced_seekbar">شريط تقدم الفيديو</string>
+    <string name="revanced_share_copy_timestamp_success" formatted="false">تم نسخ الطابع الزمني إلى الحافظة. (%s)</string>
+    <string name="revanced_share_copy_url_success">تم نسخ عنوان URL إلى الحافظة.</string>
+    <string name="revanced_share_copy_url_timestamp_success">تم نسخ عنوان URL مع الطابع الزمني إلى الحافظة.</string>
     <string name="revanced_shorts">Shorts</string>
     <string name="revanced_shorts_player_title">مُشَغِل Shorts</string>
     <string name="revanced_shorts_toolbar_summary">لإخفاء شريط أدوات Shorts، قم بإخفاء جميع الإعدادات في فئة شريط أدوات Shorts</string>
@@ -674,6 +683,7 @@
     <string name="revanced_spoof_app_version_target_entry_18_05_40">18.05.40 - استعادة مربع إدخال التعليقات القديم</string>
     <string name="revanced_spoof_app_version_target_entry_18_17_43">18.17.43 - استعادة لوحة المشغل المنبثقة القديمة</string>
     <string name="revanced_spoof_app_version_target_entry_18_33_40">18.33.40 - استعادة شريط عمل Shorts القديم</string>
+    <string name="revanced_spoof_app_version_target_entry_18_40_34">"18.40.34 - تعطيل تحديث \"المشاهدات\" و\"الإعجابات\" في الوقت الفعلي"</string>
     <string name="revanced_spoof_app_version_target_entry_title">الهدف من خِداع إصدار التطبيق</string>
     <string name="revanced_spoof_app_version_target_summary">اكتب هدف إصدار التطبيق المخادع</string>
     <string name="revanced_spoof_app_version_target_title">تعديل خِداع إصدار التطبيق</string>
