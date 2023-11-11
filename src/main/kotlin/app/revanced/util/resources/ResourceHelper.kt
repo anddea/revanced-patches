@@ -70,12 +70,12 @@ internal object ResourceHelper {
         updatePatchStatusSettings("Header", headerName)
     }
 
-    internal fun ResourceContext.updatePatchStatusLabel(appName: String) {
-        updatePatchStatusSettings("Label", appName)
-    }
-
     internal fun ResourceContext.updatePatchStatusIcon(iconName: String) {
         updatePatchStatusSettings("Icon", "@string/revanced_icon_$iconName")
+    }
+
+    internal fun ResourceContext.updatePatchStatusLabel(appName: String) {
+        updatePatchStatusSettings("Label", appName)
     }
 
     internal fun ResourceContext.updatePatchStatusTheme(themeName: String) {
