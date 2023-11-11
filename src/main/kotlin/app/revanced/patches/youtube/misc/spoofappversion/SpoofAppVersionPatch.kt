@@ -32,7 +32,10 @@ import org.w3c.dom.Element
                 "18.37.36",
                 "18.38.44",
                 "18.39.41",
-                "18.40.34"
+                "18.40.34",
+                "18.41.39",
+                "18.42.41",
+                "18.43.45"
             ]
         )
     ]
@@ -61,7 +64,7 @@ object SpoofAppVersionPatch : AbstractVersionSpoofPatch(
                 contexts.appendChild(
                     arrayOf(
                         "revanced_spoof_app_version_target_entry" to "@string/revanced_spoof_app_version_target_entry_18_40_34",
-                        "revanced_spoof_app_version_target_entry_value" to "18.40.34",
+                        "revanced_spoof_app_version_target_entry_value" to "18.40.34"
                     )
                 )
             }

@@ -93,8 +93,8 @@ object ReturnYouTubeDislikeRollingNumberPatch : BytecodePatch(
 
                 // Video less than 24 hours after uploaded, like counts will be updated in real time.
                 // Whenever like counts are updated, TextView is set in this method.
-                val realTimeUpdateTextViewMethod = it.mutableClass.methods.find {
-                    method -> method.parameterTypes.first() == "Landroid/graphics/Bitmap;"
+                val realTimeUpdateTextViewMethod = it.mutableClass.methods.find { method ->
+                    method.parameterTypes.first() == "Landroid/graphics/Bitmap;"
                 } ?: throw PatchException("Failed to find realTimeUpdateTextViewMethod")
 
                 arrayOf(
@@ -102,9 +102,10 @@ object ReturnYouTubeDislikeRollingNumberPatch : BytecodePatch(
                     realTimeUpdateTextViewMethod
                 ).forEach { insertMethod ->
                     insertMethod.apply {
-                        val setTextIndex = implementation!!.instructions.indexOfFirst { instruction ->
-                            ((instruction as? ReferenceInstruction)?.reference as? MethodReference)?.name == "setText"
-                        }
+                        val setTextIndex =
+                            implementation!!.instructions.indexOfFirst { instruction ->
+                                ((instruction as? ReferenceInstruction)?.reference as? MethodReference)?.name == "setText"
+                            }
                         val textViewRegister =
                             getInstruction<FiveRegisterInstruction>(setTextIndex).registerC
 
