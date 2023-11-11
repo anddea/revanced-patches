@@ -14,7 +14,7 @@ import app.revanced.patches.reddit.utils.settings.SettingsPatch
 
 @Patch(
     name = "Sanitize sharing links",
-    description = "Removes (tracking) query parameters from the URLs when sharing links.",
+    description = "Removes tracking query parameters from the URLs when sharing links.",
     dependencies = [SettingsPatch::class],
     compatiblePackages = [CompatiblePackage("com.reddit.frontpage")]
 )
