@@ -197,18 +197,14 @@ object SponsorBlockBytecodePatch : BytecodePatch(
 
                     SegmentPlaybackControllerFingerprint.result?.let { result ->
                         result.mutableMethod.apply {
-                            for ((index, instruction) in implementation!!.instructions.withIndex()) {
-                                if (instruction.opcode != Opcode.CONST_STRING) continue
+                            val replaceIndex = result.scanResult.patternScanResult!!.startIndex
+                            val replaceRegister =
+                                getInstruction<OneRegisterInstruction>(replaceIndex).registerA
 
-                                val register =
-                                    getInstruction<OneRegisterInstruction>(index).registerA
-
-                                replaceInstruction(
-                                    index,
-                                    "const-string v$register, \"$rectangleFieldName\""
-                                )
-                                break
-                            }
+                            replaceInstruction(
+                                replaceIndex,
+                                "const-string v$replaceRegister, \"$rectangleFieldName\""
+                            )
                         }
                     } ?: throw SegmentPlaybackControllerFingerprint.exception
                 }

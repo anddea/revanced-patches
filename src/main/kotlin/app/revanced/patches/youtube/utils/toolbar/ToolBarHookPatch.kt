@@ -4,6 +4,7 @@ import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
@@ -11,7 +12,7 @@ import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.toolbar.fingerprints.ToolBarButtonFingerprint
 import app.revanced.patches.youtube.utils.toolbar.fingerprints.ToolBarPatchFingerprint
 import app.revanced.util.integrations.Constants.UTILS_PATH
-import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
@@ -26,21 +27,27 @@ object ToolBarHookPatch : BytecodePatch(
 
         ToolBarButtonFingerprint.result?.let {
             it.mutableMethod.apply {
-                val startIndex = it.scanResult.patternScanResult!!.startIndex
-                val endIndex = it.scanResult.patternScanResult!!.endIndex
+                val replaceIndex = it.scanResult.patternScanResult!!.startIndex
+                val freeIndex = it.scanResult.patternScanResult!!.endIndex - 1
 
-                val insertIndex = endIndex - 1
-                val enumRegister = getInstruction<OneRegisterInstruction>(startIndex).registerA
-                val freeRegister = getInstruction<TwoRegisterInstruction>(endIndex).registerA
+                val replaceReference = getInstruction<ReferenceInstruction>(replaceIndex).reference
+                val replaceRegister =
+                    getInstruction<FiveRegisterInstruction>(replaceIndex).registerC
+                val enumRegister = getInstruction<FiveRegisterInstruction>(replaceIndex).registerD
+                val freeRegister = getInstruction<TwoRegisterInstruction>(freeIndex).registerA
 
-                val imageViewReference = getInstruction<ReferenceInstruction>(insertIndex).reference
+                val imageViewIndex = replaceIndex + 2
+                val imageViewReference =
+                    getInstruction<ReferenceInstruction>(imageViewIndex).reference
 
                 addInstructions(
-                    insertIndex, """
+                    replaceIndex + 1, """
                         iget-object v$freeRegister, p0, $imageViewReference
                         invoke-static {v$enumRegister, v$freeRegister}, $INTEGRATIONS_CLASS_DESCRIPTOR->hookToolBar(Ljava/lang/Enum;Landroid/widget/ImageView;)V
+                        invoke-interface {v$replaceRegister, v$enumRegister}, $replaceReference
                         """
                 )
+                removeInstruction(replaceIndex)
             }
         } ?: throw ToolBarButtonFingerprint.exception
 

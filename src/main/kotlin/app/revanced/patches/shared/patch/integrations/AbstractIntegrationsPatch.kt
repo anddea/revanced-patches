@@ -1,5 +1,6 @@
 package app.revanced.patches.shared.patch.integrations
 
+import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.fingerprint.MethodFingerprint
@@ -45,7 +46,7 @@ abstract class AbstractIntegrationsPatch(
                     "sput-object v$contextRegister, " +
                             "$integrationsDescriptor->context:Landroid/content/Context;"
                 )
-            } ?: throw PatchException("Could not find hook target fingerprint.")
+            } ?: throw exception
         }
 
         interface RegisterResolver : (Method) -> Int {

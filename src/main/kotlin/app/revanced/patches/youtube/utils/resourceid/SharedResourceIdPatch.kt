@@ -38,6 +38,7 @@ object SharedResourceIdPatch : ResourcePatch() {
     var DislikeButton: Long = -1
     var DonationCompanion: Long = -1
     var EasySeekEduContainer: Long = -1
+    var EditSettingsAction: Long = -1
     var EndScreenElementLayoutCircle: Long = -1
     var EndScreenElementLayoutIcon: Long = -1
     var EndScreenElementLayoutVideo: Long = -1
@@ -119,6 +120,7 @@ object SharedResourceIdPatch : ResourcePatch() {
         DislikeButton = find(ID, "dislike_button")
         DonationCompanion = find(LAYOUT, "donation_companion")
         EasySeekEduContainer = find(ID, "easy_seek_edu_container")
+        EditSettingsAction = find(STRING, "edit_settings_action")
         EndScreenElementLayoutCircle = find(LAYOUT, "endscreen_element_layout_circle")
         EndScreenElementLayoutIcon = find(LAYOUT, "endscreen_element_layout_icon")
         EndScreenElementLayoutVideo = find(LAYOUT, "endscreen_element_layout_video")

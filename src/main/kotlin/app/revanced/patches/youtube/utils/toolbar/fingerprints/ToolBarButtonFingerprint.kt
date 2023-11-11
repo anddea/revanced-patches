@@ -12,12 +12,11 @@ object ToolBarButtonFingerprint : MethodFingerprint(
     parameters = listOf("Landroid/view/MenuItem;"),
     returnType = "V",
     opcodes = listOf(
-        Opcode.IF_NEZ,
-        Opcode.SGET_OBJECT,
         Opcode.INVOKE_INTERFACE,
         Opcode.MOVE_RESULT,
         Opcode.IGET_OBJECT,
-        Opcode.IGET_OBJECT
+        Opcode.IGET_OBJECT,
+        Opcode.INVOKE_VIRTUAL
     ),
     customFingerprint = { methodDef, _ -> methodDef.isWideLiteralExists(MenuItemView) }
 )

@@ -33,6 +33,7 @@ abstract class AbstractSanitizeUrlQueryPatch(
             }
         } ?: throw exception
     }
+
     override fun execute(context: BytecodeContext) {
         for (fingerprint in sharedFingerprints)
             fingerprint.invoke()

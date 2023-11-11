@@ -22,8 +22,8 @@ object ComponentParserPatch : BytecodePatch(
         IdentifierFingerprint
     )
 ) {
-    internal lateinit var emptyComponentLabel: String
-    private lateinit var insertMethod: MutableMethod
+    private lateinit var emptyComponentLabel: String
+    internal lateinit var insertMethod: MutableMethod
 
     private var emptyComponentIndex by Delegates.notNull<Int>()
     private var insertIndex by Delegates.notNull<Int>()
