@@ -300,6 +300,9 @@
             <intent android:targetPackage="com.mgoogle.android.gms" android:targetClass="org.microg.gms.ui.SettingsActivity" />
         </Preference>PREFERENCE: MICROG_SETTINGS -->
 
+        <!-- SETTINGS: SANITIZE_SHARING_LINKS
+        <SwitchPreference android:title="@string/revanced_sanitize_sharing_links_title" android:key="revanced_sanitize_sharing_links" android:defaultValue="true" android:summary="@string/revanced_sanitize_sharing_links_summary" />SETTINGS: SANITIZE_SHARING_LINKS -->
+
         <!-- SETTINGS: EXPERIMENTAL_FLAGS
         <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_experimental_flag" />SETTINGS: EXPERIMENTAL_FLAGS -->
 
@@ -394,6 +397,7 @@
             <Preference android:title="Force OPUS codec" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Force video codec" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Layout switch" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="Sanitize sharing links" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Spoof app version" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Spoof device dimensions" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Spoof player parameters" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
