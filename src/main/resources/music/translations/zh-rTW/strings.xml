@@ -11,6 +11,7 @@
     <string name="revanced_category_video">影片</string>
     <string name="revanced_custom_filter_strings_summary">按行分隔過濾元件名稱</string>
     <string name="revanced_custom_filter_strings_title">編輯自訂過濾器</string>
+    <string name="revanced_custom_filter_strings_warning">無效的自訂過濾規則，系統將回復至預設設定。</string>
     <string name="revanced_custom_filter_summary">啟用自訂過濾器</string>
     <string name="revanced_custom_filter_title">啟用自訂過濾器</string>
     <string name="revanced_custom_playback_speeds_invalid">無效的自訂播放速度。已重設為預設值。</string>
@@ -24,6 +25,11 @@
     <string name="revanced_enable_black_navigation_bar_title">啟用黑色導覽列</string>
     <string name="revanced_enable_color_match_player_summary">讓播放列顏色和全螢幕播放器一致</string>
     <string name="revanced_enable_color_match_player_title">啟用彩色播放列</string>
+    <string name="revanced_enable_compact_dialog_summary">"在手機上啟用緊湊對話框。
+
+已知問題：
+• 資料庫上的專輯封面會變得更小。
+• 睡眠定時器佈局可能會出現異常。"</string>
     <string name="revanced_enable_compact_dialog_title">啟用精簡彈出式選單</string>
     <string name="revanced_enable_debug_logging_summary">列出除錯記錄檔</string>
     <string name="revanced_enable_debug_logging_title">啟用除錯紀錄</string>
@@ -35,6 +41,11 @@
     <string name="revanced_enable_landscape_mode_title">啟用橫向模式</string>
     <string name="revanced_enable_new_player_background_summary">使用新版的播放器背景</string>
     <string name="revanced_enable_new_player_background_title">使用新版的播放器背景</string>
+    <string name="revanced_enable_old_player_layout_summary">"將播放器版面配置恢復為舊樣式。
+某些設定在舊的播放器佈局中可能無法正常運作。
+
+警告：使用此功能時請勿啟用新版的播放器背景。"</string>
+    <string name="revanced_enable_old_player_layout_title">使用舊版的播放器介面</string>
     <string name="revanced_enable_old_style_library_shelf_summary">將資料庫以舊樣式顯示 (實驗性功能)</string>
     <string name="revanced_enable_old_style_library_shelf_title">啟用舊版資料庫樣式</string>
     <string name="revanced_enable_old_style_mini_player_summary">將迷你播放器更改為舊版介面</string>
@@ -90,6 +101,7 @@
     <string name="revanced_hide_flyout_panel_go_to_artist_title">隱藏前往藝人頁面選單</string>
     <string name="revanced_hide_flyout_panel_go_to_episode_title">隱藏前往專輯選單</string>
     <string name="revanced_hide_flyout_panel_go_to_podcast_title">隱藏前往Podcast選單</string>
+    <string name="revanced_hide_flyout_panel_help_title">隱藏幫助 &amp; 與回饋選單</string>
     <string name="revanced_hide_flyout_panel_like_dislike_title">隱藏讚和倒讚按鈕</string>
     <string name="revanced_hide_flyout_panel_play_next_title">隱藏接著播放選單</string>
     <string name="revanced_hide_flyout_panel_remove_from_library_title">隱藏從媒體庫中移除選單</string>
@@ -124,6 +136,7 @@
     <string name="revanced_hide_upgrade_button_title">隱藏升級按鈕</string>
     <string name="revanced_hook_action_bar_download_summary">將離線下載按鈕功能替換成外部下載按鈕</string>
     <string name="revanced_hook_action_bar_download_title">替換下載按鈕</string>
+    <string name="revanced_playback_speed_normal">普通</string>
     <string name="revanced_playlist_dismiss">已經播放官方音樂來源</string>
     <string name="revanced_playlist_error">官方音樂來源不可用</string>
     <string name="revanced_reboot_first_run">重新啟動以套用一般介面</string>
@@ -147,10 +160,13 @@
     <string name="revanced_ryd_enabled_summary">顯示影片的不喜歡次數</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">倒讚顯示不正常（已達到客戶端 API 限制）</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">隱藏</string>
-    <string name="revanced_save_playback_speed">將預設播放速度更改為：</string>
-    <string name="revanced_save_video_quality_mobile">將預設行動數據畫質顯示為：</string>
+    <string name="revanced_sanitize_sharing_links_summary">分享連結時從 URL 中刪除追蹤參數。</string>
+    <string name="revanced_sanitize_sharing_links_title">清理分享連結</string>
+    <string name="revanced_save_playback_speed" formatted="false">設定預設播放速度為%s</string>
+    <string name="revanced_save_video_quality_mobile" formatted="false">設定預設行動網路下畫質為%s</string>
     <string name="revanced_save_video_quality_none">畫質設定失敗</string>
-    <string name="revanced_save_video_quality_wifi">將預設無線網路畫質更改為：</string>
+    <string name="revanced_save_video_quality_wifi" formatted="false">設定預設 Wi-Fi 下畫質為%s</string>
+    <string name="revanced_share_copy_settings_success">設定已複製到剪貼簿</string>
     <string name="revanced_spoof_app_version_summary">"將應用程式偽裝成舊版本
 
 • 這將改變應用程式的外觀，有可能會出現未知的Bug
@@ -216,4 +232,5 @@
     <string name="sb_color_invalid">無效的顏色代碼</string>
     <string name="sb_reset_color">重設顏色</string>
     <string name="sb_about_api_sum">資料由 SponsorBlock API 提供. 點擊此處來了解更多.</string>
+    <string name="sb_about">關於</string>
 </resources>
