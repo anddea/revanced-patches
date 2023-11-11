@@ -11,7 +11,7 @@ import kotlin.io.path.exists
 
 @Patch(
     name = "Add splash animation",
-    description = "Adds splash animation, which was removed in YT v18.19.36+. This patch cannot be used with 'custom-branding-icon' patch",
+    description = "Adds old style splash animation.",
     compatiblePackages = [
         CompatiblePackage(
             "com.google.android.youtube",
