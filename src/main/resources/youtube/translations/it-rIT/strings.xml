@@ -24,11 +24,11 @@
     <string name="revanced_alt_thumbnail_type_entry_2">Metà video</string>
     <string name="revanced_alt_thumbnail_type_entry_3">Fine video</string>
     <string name="revanced_alt_thumbnail_type_title">Il tempo del video da cui prendere il fotogramma</string>
-    <string name="revanced_append_time_stamp_information_summary_off">L\'info nel timestamp è nascosto</string>
-    <string name="revanced_append_time_stamp_information_summary_on">L\'info nel timestamp è visibile</string>
-    <string name="revanced_append_time_stamp_information_title">Mostra info nel timestamp</string>
-    <string name="revanced_append_time_stamp_information_type_summary_off">Mostra la velocità di riproduzione</string>
-    <string name="revanced_append_time_stamp_information_type_summary_on">Mostra la qualità del video</string>
+    <string name="revanced_append_time_stamp_information_summary_off">L\'informazione nel timestamp è nascosto</string>
+    <string name="revanced_append_time_stamp_information_summary_on">L\'informazione nel timestamp è visibile</string>
+    <string name="revanced_append_time_stamp_information_title">Mostra l\'informazione nel timestamp</string>
+    <string name="revanced_append_time_stamp_information_type_summary_off">Velocità di riproduzione</string>
+    <string name="revanced_append_time_stamp_information_type_summary_on">Qualità del video</string>
     <string name="revanced_append_time_stamp_information_type_title">Il tipo di informazione</string>
     <string name="revanced_backup_summary">Importa le impostazioni di ReVanced Extended da un file o esporta le impostazioni di ReVanced Extended su un file</string>
     <string name="revanced_bottom_player">Riproduttore inferiore</string>
@@ -41,7 +41,6 @@
     <string name="revanced_change_homepage_title">Cambia la pagina iniziale</string>
     <string name="revanced_channel_bar_title">Barra del canale</string>
     <string name="revanced_comments_title">Commenti</string>
-    <string name="revanced_copy_video_timestamp_success">Timestamp copiato negli appunti</string>
     <string name="revanced_custom_filter_strings_summary">Filtra i componenti per nomi separati da righe</string>
     <string name="revanced_custom_filter_strings_title">Modifica il filtro personalizzato</string>
     <string name="revanced_custom_filter_strings_warning">Filtro personalizzato non valido. Ripristinando ai valori predefiniti</string>
@@ -52,6 +51,9 @@
     <string name="revanced_custom_playback_speeds_summary">È disponibile aggiungere, rimuovere o modificare le velocità di riproduzione</string>
     <string name="revanced_custom_playback_speeds_title">Modifica le velocità personalizzate del video</string>
     <string name="revanced_custom_playback_speeds_warning" formatted="false">Le velocità personalizzate non possono essere maggiori di %sx. Ripristinando ai valori predefiniti</string>
+    <string name="revanced_custom_playback_speed_panel_type_summary_off">Vecchio pannello a comparsa</string>
+    <string name="revanced_custom_playback_speed_panel_type_summary_on">Finestra personalizzata</string>
+    <string name="revanced_custom_playback_speed_panel_type_title">Il tipo di velocità della riproduzione personalizzata</string>
     <string name="revanced_custom_player_overlay_opacity_summary">Il valore dell\'opacità è compreso tra 0 a 100, dove 0 è trasparente</string>
     <string name="revanced_custom_player_overlay_opacity_title">L\'opacità personalizzata della sovrapposizione del riproduttore</string>
     <string name="revanced_custom_player_overlay_opacity_warning">L\'opacità della sovrapposizione del riproduttore deve essere compresa tra 0 e 100. Ripristinando ai valori predefiniti</string>
@@ -60,8 +62,8 @@
     <string name="revanced_default_app_settings_summary">Per aprire ReVanced Extended da un\'applicazione esterna, attiva \"Apri collegamenti supportati\" e abilita gli indirizzi web supportati</string>
     <string name="revanced_default_app_settings_title">Apri le impostazioni predefinite dell\'app</string>
     <string name="revanced_default_playback_speed_title">Velocità di riproduzione predefinita</string>
-    <string name="revanced_default_video_quality_mobile_title">Qualità predefinita del video sulla rete mobile</string>
-    <string name="revanced_default_video_quality_wifi_title">Qualità predefinita del video sulla rete Wi-Fi</string>
+    <string name="revanced_default_video_quality_mobile_title">Qualità predefinita dei video con connessione dati</string>
+    <string name="revanced_default_video_quality_wifi_title">Qualità predefinita dei video con Wi-Fi</string>
     <string name="revanced_description_title">Descrizione</string>
     <string name="revanced_disable_ambient_mode_in_fullscreen_summary">Disattiva la modalità Ambient a schermo intero</string>
     <string name="revanced_disable_ambient_mode_in_fullscreen_title">Disattiva la modalità Ambient a schermo intero</string>
@@ -91,7 +93,7 @@
     <string name="revanced_disable_landscape_mode_title">Disattiva la modalità orizzontale a schermo intero</string>
     <string name="revanced_disable_quic_protocol_summary">"Disattiva il protocollo QUIC di CronetEngine"</string>
     <string name="revanced_disable_quic_protocol_title">Disattiva il protocollo QUIC</string>
-    <string name="revanced_disable_speed_overlay_summary">"Nota: disattivando la sovrapposizione della velocità non ripristina la funzionalità \"Scorri la barra di avanzamento\" della vecchia interfaccia"</string>
+    <string name="revanced_disable_speed_overlay_summary">"Disattiva la funzionalità \"2x\" tenendo premuto"</string>
     <string name="revanced_disable_speed_overlay_title">Disattiva la sovrapposizione della velocità quando tieni premuto</string>
     <string name="revanced_disable_startup_shorts_player_summary_off">La riproduzione degli Shorts all\'avvio dell\'app è attivata</string>
     <string name="revanced_disable_startup_shorts_player_summary_on">La riproduzione degli Shorts all\'avvio dell\'app è disattivata</string>
@@ -122,6 +124,9 @@
     <string name="revanced_enable_language_switch_summary_off">Il cambio della lingua è disattivato</string>
     <string name="revanced_enable_language_switch_summary_on">Il cambio della lingua è attivato</string>
     <string name="revanced_enable_language_switch_title">Attiva il cambio della lingua</string>
+    <string name="revanced_enable_music_search_summary_off">La ricerca della musica è disattivata</string>
+    <string name="revanced_enable_music_search_summary_on">La ricerca della musica è attivata</string>
+    <string name="revanced_enable_music_search_title">Attiva la ricerca della musica</string>
     <string name="revanced_enable_new_splash_animation_summary_off">La nuova animazione splash è disattivata</string>
     <string name="revanced_enable_new_splash_animation_summary_on">La nuova animazione splash è attivata</string>
     <string name="revanced_enable_new_splash_animation_title">Attiva la nuova animazione splash</string>
@@ -166,9 +171,9 @@
     <string name="revanced_enable_tablet_navigation_bar_title">Attiva la barra di navigazione da tablet</string>
     <string name="revanced_enable_video_codec_summary">Simula le informazioni del dispositivo per attivare il codec video</string>
     <string name="revanced_enable_video_codec_title">Attiva il codec video</string>
-    <string name="revanced_enable_video_codec_type_summary_off">Attiva il codec VP9</string>
-    <string name="revanced_enable_video_codec_type_summary_on">Attiva il codec HDR</string>
-    <string name="revanced_enable_video_codec_type_title">Tipo del codec video</string>
+    <string name="revanced_enable_video_codec_type_summary_off">VP9</string>
+    <string name="revanced_enable_video_codec_type_summary_on">HDR</string>
+    <string name="revanced_enable_video_codec_type_title">Il tipo del codec video</string>
     <string name="revanced_enable_wide_search_bar_summary_off">La barra di ricerca estesa è disattivata</string>
     <string name="revanced_enable_wide_search_bar_summary_on">La barra di ricerca estesa è attivata</string>
     <string name="revanced_enable_wide_search_bar_title">Attiva la barra di ricerca estesa</string>
@@ -484,6 +489,12 @@ Alcuni componenti potrebbero non essere nascosti"</string>
     <string name="revanced_hide_quick_actions_summary_off">Il contenitore delle azioni rapide è visibile</string>
     <string name="revanced_hide_quick_actions_summary_on">Il contenitore delle azioni rapide è nascosto</string>
     <string name="revanced_hide_quick_actions_title">Nascondi il contenitore delle azioni rapide</string>
+    <string name="revanced_hide_search_bar_summary_off">La barra di ricerca nel feed della home è visibile</string>
+    <string name="revanced_hide_search_bar_summary_on">La barra di ricerca nel feed della home è nascosta</string>
+    <string name="revanced_hide_search_bar_title">Nascondi la barra di ricerca nel feed della home</string>
+    <string name="revanced_hide_search_term_thumbnail_summary_off">I thumbnails nella cronologia delle ricerche sono visibili</string>
+    <string name="revanced_hide_search_term_thumbnail_summary_on">I thumbnails nella cronologia delle ricerche sono nascosti</string>
+    <string name="revanced_hide_search_term_thumbnail_title">Nascondi i thumbnails nella cronologia delle ricerche</string>
     <string name="revanced_hide_seekbar_summary_off">La barra di avanzamento è visibile</string>
     <string name="revanced_hide_seekbar_summary_on">La barra di avanzamento è nascosta</string>
     <string name="revanced_hide_seekbar_thumbnail_summary_off">I thumbnails della barra di avanzamento è visibile</string>
@@ -573,6 +584,9 @@ Alcuni componenti potrebbero non essere nascosti"</string>
     <string name="revanced_hide_video_ads_summary_off">Gli annunci video sono visibili</string>
     <string name="revanced_hide_video_ads_summary_on">Gli annunci video sono nascosti</string>
     <string name="revanced_hide_video_ads_title">Nascondi gli annunci dei video</string>
+    <string name="revanced_hide_video_with_low_view_summary">"Nascondi i video con meno di 1.000 visualizzazioni nel feed della home.
+Alcuni video, inclusi quelli dei canali iscritti, potrebbero non essere nascosti anche se hanno meno di 1.000 visualizzazioni"</string>
+    <string name="revanced_hide_video_with_low_view_title">Nascondi i video con poche visualizzazioni</string>
     <string name="revanced_hide_view_products_summary_off">Il banner dei prodotti è visibile</string>
     <string name="revanced_hide_view_products_summary_on">Il banner dei prodotti è nascosto</string>
     <string name="revanced_hide_view_products_title">Nascondi il banner dei prodotti</string>
@@ -612,9 +626,10 @@ Tocca e tieni premuto per copiare il timestamp del video"</string>
     <string name="revanced_overlay_button_speed_dialog_reset">Velocità di riproduzione ripristinata (1.0x)</string>
     <string name="revanced_overlay_button_speed_dialog_summary">"Tocca per aprire la finestra di dialogo della velocità.
 Tocca e tieni premuto per impostare la velocità di riproduzione a 1.0x"</string>
-    <string name="revanced_overlay_button_speed_dialog_title">Mostra il pulsante Velocità Video</string>
+    <string name="revanced_overlay_button_speed_dialog_title">Mostra la finestra di dialogo della velocità</string>
     <string name="revanced_patches_information">Informazioni patch</string>
     <string name="revanced_patches_information_summary">Informazioni sulle patch applicate</string>
+    <string name="revanced_playback_speed_normal">Normale</string>
     <string name="revanced_player">Riproduttore</string>
     <string name="revanced_player_flyout_panel_additional_settings_summary">Per nascondere il menù Impostazioni Aggiuntive, nascondi tutti i menù di Impostazioni Aggiuntive</string>
     <string name="revanced_player_flyout_panel_additional_settings_title">Impostazioni aggiuntive</string>
@@ -640,11 +655,16 @@ Tocca e tieni premuto per impostare la velocità di riproduzione a 1.0x"</string
     <string name="revanced_ryd_shorts_summary_on">I Non Mi Piace degli Shorts sono visibili</string>
     <string name="revanced_ryd_shorts_title">Mostra i Non Mi Piace degli Shorts</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Nascosto</string>
-    <string name="revanced_save_playback_speed">Cambia la velocità predefinita in:</string>
-    <string name="revanced_save_video_quality_mobile">Cambiando la qualità Dati Cellulare predefinita in:</string>
+    <string name="revanced_sanitize_sharing_links_summary">Rimuove i parametri della query di tracciamento dagli URL durante la condivisione dei link</string>
+    <string name="revanced_sanitize_sharing_links_title">Sanitizza i link di condivisione</string>
+    <string name="revanced_save_playback_speed" formatted="false">Cambiando la velocità predefinita in %s</string>
+    <string name="revanced_save_video_quality_mobile" formatted="false">Cambiando la qualità predefinita con connessione dati in %s</string>
     <string name="revanced_save_video_quality_none">Cambio qualità non riuscito</string>
-    <string name="revanced_save_video_quality_wifi">Cambiando la qualità Wi-Fi predefinita in:</string>
+    <string name="revanced_save_video_quality_wifi" formatted="false">Cambiando la qualità predefinita con Wi-Fi in %s</string>
     <string name="revanced_seekbar">Barra di avanzamento</string>
+    <string name="revanced_share_copy_timestamp_success" formatted="false">Timestamp copiato negli appunti (%s)</string>
+    <string name="revanced_share_copy_url_success">URL copiato negli appunti</string>
+    <string name="revanced_share_copy_url_timestamp_success">URL con timestamp copiato negli appunti</string>
     <string name="revanced_shorts">Shorts</string>
     <string name="revanced_shorts_player_title">Riproduttore</string>
     <string name="revanced_shorts_toolbar_summary">Per nascondere tutta la barra degli strumenti degli Shorts, nascondi tutti i pulsanti della barra degli strumenti degli Shorts</string>
@@ -671,6 +691,7 @@ Tocca e tieni premuto per impostare la velocità di riproduzione a 1.0x"</string
     <string name="revanced_spoof_app_version_target_entry_18_05_40">18.05.40 - Ripristina la vecchia casella di input dei commenti</string>
     <string name="revanced_spoof_app_version_target_entry_18_17_43">18.17.43 - Ripristina il vecchio pannello a comparsa del riproduttore</string>
     <string name="revanced_spoof_app_version_target_entry_18_33_40">18.33.40 - Ripristina la vecchia barra d\'azione degli Shorts</string>
+    <string name="revanced_spoof_app_version_target_entry_18_40_34">"18.40.34 - Disattiva le visualizzazioni e i mi piace dall'essere aggiornati in tempo reale"</string>
     <string name="revanced_spoof_app_version_target_entry_title">La versione dell\'app da simulare</string>
     <string name="revanced_spoof_app_version_target_summary">Digita la versione dell\'app da simulare</string>
     <string name="revanced_spoof_app_version_target_title">Modifica la versione dell\'app da simulare</string>
@@ -772,7 +793,7 @@ Problemi noti:
     <string name="sb_segments_intro_sum">Un intervallo senza contenuto effettivo. Potrebbe essere una pausa, un fotogramma statico o un\'animazione ripetuta. Questo non dovrebbe includere transizioni che contengono informazioni</string>
     <string name="sb_segments_outro">Schede Finali/Crediti</string>
     <string name="sb_segments_outro_sum">I crediti o quando appaiono le schede finali. Questo non dovrebbe includere conclusioni con informazioni</string>
-    <string name="sb_segments_preview">Anteprima/Riepilogo</string>
+    <string name="sb_segments_preview">Anteprima/Riepilogo/Pretesto</string>
     <string name="sb_segments_preview_sum">Una breve raccolta di anteprime che mostrano ciò che è in programma o ciò che è successo nel video attuale o in altri video di una serie, dove tutte le informazioni sono ripetute altrove</string>
     <string name="sb_segments_filler">Filler Irrelevante/Battute</string>
     <string name="sb_segments_filler_sum">Scene tangenziali aggiunte solo a scopo riempitivo o per umorismo, non necessarie per comprendere il contenuto principale del video. Questo non dovrebbe includere segmenti che forniscono contesto o dettagli di sfondo</string>
