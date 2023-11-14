@@ -5,10 +5,11 @@ import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.youtube.fullscreen.endscreenoverlay.fingerprints.EndScreenResultsFingerprint
+import app.revanced.patches.youtube.fullscreen.endscreenoverlay.fingerprints.EndScreenResultsParentFingerprint
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.integrations.Constants.FULLSCREEN
@@ -40,28 +41,30 @@ import app.revanced.util.integrations.Constants.FULLSCREEN
                 "18.40.34",
                 "18.41.39",
                 "18.42.41",
-                "18.43.45"
+                "18.43.45",
+                "18.44.41"
             ]
         )
     ]
 )
 @Suppress("unused")
 object HideEndScreenOverlayPatch : BytecodePatch(
-    setOf(EndScreenResultsFingerprint)
+    setOf(EndScreenResultsParentFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
-        EndScreenResultsFingerprint.result?.let {
-            it.mutableMethod.apply {
-                addInstructionsWithLabels(
-                    0, """
-                        invoke-static {}, $FULLSCREEN->hideEndScreenOverlay()Z
-                        move-result v0
-                        if-eqz v0, :show
-                        return-void
-                """, ExternalLabel("show", getInstruction(0))
-                )
-            }
-        } ?: throw EndScreenResultsFingerprint.exception
+        EndScreenResultsParentFingerprint.result?.let {
+            it.mutableClass.methods.find { method -> method.parameters == listOf("I", "Z", "I") }
+                ?.apply {
+                    addInstructionsWithLabels(
+                        0, """
+                            invoke-static {}, $FULLSCREEN->hideEndScreenOverlay()Z
+                            move-result v0
+                            if-eqz v0, :show
+                            return-void
+                            """, ExternalLabel("show", getInstruction(0))
+                    )
+                } ?: throw PatchException("Could not find targetMethod")
+        } ?: throw EndScreenResultsParentFingerprint.exception
 
         /**
          * Add settings
