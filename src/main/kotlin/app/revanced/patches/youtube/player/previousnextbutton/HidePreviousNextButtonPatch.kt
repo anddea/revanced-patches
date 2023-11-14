@@ -1,19 +1,21 @@
 package app.revanced.patches.youtube.player.previousnextbutton
 
+import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.youtube.utils.playerbutton.PlayerButtonHookPatch
+import app.revanced.patches.youtube.utils.fingerprints.PlayerControlsVisibilityModelFingerprint
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
+import app.revanced.util.integrations.Constants.PLAYER
+import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction3rc
 
 @Patch(
     name = "Hide previous next button",
     description = "Hides the previous and next button in the player controller.",
-    dependencies = [
-        PlayerButtonHookPatch::class,
-        SettingsPatch::class
-    ],
+    dependencies = [SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(
             "com.google.android.youtube",
@@ -40,8 +42,34 @@ import app.revanced.patches.youtube.utils.settings.SettingsPatch
     ]
 )
 @Suppress("unused")
-object HidePreviousNextButtonPatch : BytecodePatch() {
+object HidePreviousNextButtonPatch : BytecodePatch(
+    setOf(PlayerControlsVisibilityModelFingerprint)
+) {
+    private const val HAS_NEXT = 5
+    private const val HAS_PREVIOUS = 6
+
+    private const val INTEGRATIONS_METHOD_REFERENCE =
+        "$PLAYER->hidePreviousNextButton(Z)Z"
     override fun execute(context: BytecodeContext) {
+
+        PlayerControlsVisibilityModelFingerprint.result?.let {
+            it.mutableMethod.apply {
+                val callIndex = it.scanResult.patternScanResult!!.endIndex
+                val callInstruction = getInstruction<Instruction3rc>(callIndex)
+
+                val hasNextParameterRegister = callInstruction.startRegister + HAS_NEXT
+                val hasPreviousParameterRegister = callInstruction.startRegister + HAS_PREVIOUS
+
+                addInstructions(
+                    callIndex, """
+                        invoke-static { v$hasNextParameterRegister }, $INTEGRATIONS_METHOD_REFERENCE
+                        move-result v$hasNextParameterRegister
+                        invoke-static { v$hasPreviousParameterRegister }, $INTEGRATIONS_METHOD_REFERENCE
+                        move-result v$hasPreviousParameterRegister
+                        """
+                )
+            }
+        } ?: throw PlayerControlsVisibilityModelFingerprint.exception
 
         /**
          * Add settings
