@@ -1,23 +1,17 @@
 package app.revanced.patches.youtube.player.playerbuttonbg
 
-import app.revanced.extensions.exception
-import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.extensions.doRecursively
+import app.revanced.patcher.data.ResourceContext
+import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.youtube.player.playerbuttonbg.fingerprints.PlayerPatchFingerprint
-import app.revanced.patches.youtube.utils.playerbutton.PlayerButtonHookPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
-import app.revanced.util.integrations.Constants.INTEGRATIONS_PATH
+import org.w3c.dom.Element
 
 @Patch(
     name = "Hide player button background",
     description = "Hide player button background.",
-    dependencies = [
-        PlayerButtonHookPatch::class,
-        SettingsPatch::class
-    ],
+    dependencies = [SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(
             "com.google.android.youtube",
@@ -41,20 +35,24 @@ import app.revanced.util.integrations.Constants.INTEGRATIONS_PATH
                 "18.43.45"
             ]
         )
-    ]
+    ],
+    use = false
 )
 @Suppress("unused")
-object HidePlayerButtonBackgroundPatch : BytecodePatch(
-    setOf(PlayerPatchFingerprint)
-) {
-    override fun execute(context: BytecodeContext) {
+object HidePlayerButtonBackgroundPatch : ResourcePatch() {
+    override fun execute(context: ResourceContext) {
 
-        PlayerPatchFingerprint.result?.mutableMethod?.addInstruction(
-            0,
-            "invoke-static {p0}, " +
-                    "$INTEGRATIONS_PATH/utils/ResourceHelper;->" +
-                    "hidePlayerButtonBackground(Landroid/view/View;)V"
-        ) ?: throw PlayerPatchFingerprint.exception
+        context.xmlEditor["res/drawable/player_button_circle_background.xml"].use { editor ->
+            editor.file.doRecursively { node ->
+                arrayOf("color").forEach replacement@{ replacement ->
+                    if (node !is Element) return@replacement
+
+                    node.getAttributeNode("android:$replacement")?.let { attribute ->
+                        attribute.textContent = "@android:color/transparent"
+                    }
+                }
+            }
+        }
 
         /**
          * Add settings
