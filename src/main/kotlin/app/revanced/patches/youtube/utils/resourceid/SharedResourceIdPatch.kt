@@ -26,7 +26,6 @@ object SharedResourceIdPatch : ResourcePatch() {
     var BackgroundCategory: Long = -1
     var Bar: Long = -1
     var BarContainerHeight: Long = -1
-    var BottomPanelOverlayText: Long = -1
     var BottomSheetFooterText: Long = -1
     var BottomUiContainerStub: Long = -1
     var ChannelListSubMenu: Long = -1
@@ -108,7 +107,6 @@ object SharedResourceIdPatch : ResourcePatch() {
         BackgroundCategory = find(STRING, "pref_background_and_offline_category")
         Bar = find(LAYOUT, "bar")
         BarContainerHeight = find(DIMEN, "bar_container_height")
-        BottomPanelOverlayText = find(ID, "bottom_panel_overlay_text")
         BottomSheetFooterText = find(ID, "bottom_sheet_footer_text")
         BottomUiContainerStub = find(ID, "bottom_ui_container_stub")
         ChannelListSubMenu = find(LAYOUT, "channel_list_sub_menu")
