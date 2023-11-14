@@ -16,7 +16,7 @@ import app.revanced.patches.youtube.utils.playercontrols.fingerprints.ControlsLa
 import app.revanced.patches.youtube.utils.playercontrols.fingerprints.FullscreenEngagementSpeedEduVisibleFingerprint
 import app.revanced.patches.youtube.utils.playercontrols.fingerprints.FullscreenEngagementSpeedEduVisibleParentFingerprint
 import app.revanced.patches.youtube.utils.playercontrols.fingerprints.PlayerControlsVisibilityFingerprint
-import app.revanced.patches.youtube.utils.playercontrols.fingerprints.PlayerControlsVisibilityModelFingerprint
+import app.revanced.patches.youtube.utils.fingerprints.PlayerControlsVisibilityModelFingerprint
 import app.revanced.patches.youtube.utils.playercontrols.fingerprints.QuickSeekVisibleFingerprint
 import app.revanced.patches.youtube.utils.playercontrols.fingerprints.SeekEDUVisibleFingerprint
 import app.revanced.patches.youtube.utils.playercontrols.fingerprints.UserScrubbingFingerprint
