@@ -13,7 +13,6 @@ import app.revanced.util.resources.IconHelper.customIconMusic
         CompatiblePackage(
             "com.google.android.apps.youtube.music",
             [
-                "6.15.52",
                 "6.20.51",
                 "6.26.51",
                 "6.27.53"

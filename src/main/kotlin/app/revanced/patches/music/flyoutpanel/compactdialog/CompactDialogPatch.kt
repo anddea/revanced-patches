@@ -24,7 +24,6 @@ import app.revanced.util.integrations.Constants.MUSIC_FLYOUT
         CompatiblePackage(
             "com.google.android.apps.youtube.music",
             [
-                "6.15.52",
                 "6.20.51",
                 "6.26.51",
                 "6.27.53"
