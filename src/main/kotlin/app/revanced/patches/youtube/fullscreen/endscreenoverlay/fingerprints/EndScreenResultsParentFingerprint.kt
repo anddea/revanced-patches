@@ -4,7 +4,7 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.AppRelatedEndScreenResults
 import app.revanced.util.bytecode.isWideLiteralExists
 
-object EndScreenResultsFingerprint : MethodFingerprint(
+object EndScreenResultsParentFingerprint : MethodFingerprint(
     returnType = "V",
     customFingerprint = { methodDef, _ -> methodDef.isWideLiteralExists(AppRelatedEndScreenResults) }
 )
