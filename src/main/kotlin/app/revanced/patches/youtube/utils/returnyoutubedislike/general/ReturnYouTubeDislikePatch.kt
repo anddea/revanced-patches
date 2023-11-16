@@ -66,7 +66,8 @@ import com.android.tools.smali.dexlib2.iface.reference.Reference
                 "18.41.39",
                 "18.42.41",
                 "18.43.45",
-                "18.44.41"
+                "18.44.41",
+                "18.45.38"
             ]
         )
     ]
