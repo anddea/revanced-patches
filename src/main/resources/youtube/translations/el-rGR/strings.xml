@@ -51,6 +51,9 @@
     <string name="revanced_custom_playback_speeds_summary">Προσθέστε ή αλλάξτε τις διαθέσιμες προσαρμοσμένες ταχύτητες βίντεο</string>
     <string name="revanced_custom_playback_speeds_title">Επεξεργασία ταχυτήτων βίντεο</string>
     <string name="revanced_custom_playback_speeds_warning" formatted="false">Οι τιμές ταχύτητας δεν μπορούν να είναι μεγαλύτερες από %sx. Έγινε επαναφορά στις προεπιλεγμένες τιμές.</string>
+    <string name="revanced_custom_playback_speed_panel_type_summary_off">Αναδυόμενο μενού παλιού στυλ.</string>
+    <string name="revanced_custom_playback_speed_panel_type_summary_on">Προσαρμοσμένο παράθυρο.</string>
+    <string name="revanced_custom_playback_speed_panel_type_title">Τύπος μενού προσαρμοσμένης ταχύτητας αναπαραγωγής</string>
     <string name="revanced_custom_player_overlay_opacity_summary">Τιμή αδιαφάνειας μεταξύ 0-100, όπου το 0 είναι διαφανές</string>
     <string name="revanced_custom_player_overlay_opacity_title">Προσαρμοσμένη αδιαφάνεια παρασκηνίου αναπαραγωγέα</string>
     <string name="revanced_custom_player_overlay_opacity_warning">Η αδιαφάνεια παρασκηνίου του αναπαραγωγέα πρέπει να είναι μεταξύ 0-100. Έγινε επαναφορά στην προεπιλεγμένη τιμή.</string>
@@ -92,7 +95,8 @@
 
 Αυτή η λειτουργία αποτρέπει την συμπίεση και αποσυμπίεση των βίντεο κατά την αναπαραγωγή, κάτι το οποίο μπορεί να προκαλέσει κολλήματα, ενδέχεται όμως να χρησιμοποιηθούν περισσότερα δεδομένα."</string>
     <string name="revanced_disable_quic_protocol_title">Απενεργοποίηση πρωτοκόλλου QUIC</string>
-    <string name="revanced_disable_speed_overlay_summary">"Απενεργοποίηση του «Παίζοντας με 2x ταχύτητα» κατά το παρατεταμένο πάτημα."</string>
+    <string name="revanced_disable_speed_overlay_summary">"Απενεργοποίηση του «Παίζοντας με 2x ταχύτητα» κατά το παρατεταμένο πάτημα.
+Σημείωση: Ενεργοποιώντας αυτή τη ρύθμιση θα επαναφέρει το «Σύρετε αριστερά η δεξιά για αναζήτηση»"</string>
     <string name="revanced_disable_speed_overlay_title">Απενεργοποίηση διεπαφής ταχύτητας</string>
     <string name="revanced_disable_startup_shorts_player_summary_off">Ο αναπαραγωγέας Shorts είναι ενεργοποιημένος κατά την εκκίνηση της εφαρμογής</string>
     <string name="revanced_disable_startup_shorts_player_summary_on">Ο αναπαραγωγέας Shorts είναι απενεργοποιημένος κατά την εκκίνηση της εφαρμογής</string>
@@ -419,9 +423,6 @@
     <string name="revanced_hide_place_section_summary_off">Τα τμήματα ιστότοπου εμφανίζονται</string>
     <string name="revanced_hide_place_section_summary_on">Τα τμήματα ιστότοπου είναι κρυμμένα</string>
     <string name="revanced_hide_place_section_title">Απόκρυψη τμημάτων ιστότοπου</string>
-    <string name="revanced_hide_player_button_background_summary_off">Το φόντο κουμπιών του αναπαραγωγέα βίντεο εμφανίζεται</string>
-    <string name="revanced_hide_player_button_background_summary_on">Το φόντο κουμπιών του αναπαραγωγέα βίντεο είναι κρυμμένο</string>
-    <string name="revanced_hide_player_button_background_title">Απόκρυψη φόντου κουμπιών του αναπαραγωγέα βίντεο</string>
     <string name="revanced_hide_player_flyout_panel_ambient_mode_summary_off">Το μενού «Λειτουργία περιβάλλοντος» εμφανίζεται</string>
     <string name="revanced_hide_player_flyout_panel_ambient_mode_summary_on">Το μενού «Λειτουργία περιβάλλοντος» είναι κρυμμένο</string>
     <string name="revanced_hide_player_flyout_panel_ambient_mode_title">Απόκρυψη μενού «Λειτουργία περιβάλλοντος»</string>
@@ -587,6 +588,9 @@
     <string name="revanced_hide_video_ads_summary_off">Οι διαφημίσεις βίντεο εμφανίζονται</string>
     <string name="revanced_hide_video_ads_summary_on">Οι διαφημίσεις βίντεο είναι κρυμμένες</string>
     <string name="revanced_hide_video_ads_title">Απόκρυψη διαφημίσεων βίντεο</string>
+    <string name="revanced_hide_video_with_low_view_summary">"Απόκρυψη των βίντεο με λιγότερες από 1,000 προβολές στην αρχική ροή.
+Κάποια βίντεο, όπως αυτά από κανάλια στα οποία έχετε εγγραφεί, ενδέχεται να εμφανίζονται ακόμη και αν έχουν λιγότερες από 1,000 προβολές."</string>
+    <string name="revanced_hide_video_with_low_view_title">Απόκρυψη βίντεο με χαμηλές προβολές</string>
     <string name="revanced_hide_view_products_summary_off">Τα πάνελ προώθησης προϊόντων εμφανίζονται</string>
     <string name="revanced_hide_view_products_summary_on">Τα πάνελ προώθησης προϊόντων είναι κρυμμένα</string>
     <string name="revanced_hide_view_products_title">Απόκρυψη διαφημιστικών προϊόντων</string>
@@ -630,6 +634,7 @@
     <string name="revanced_overlay_button_speed_dialog_title">Κουμπί αλλαγής ταχύτητας βίντεο</string>
     <string name="revanced_patches_information">Πληροφορίες Τροποποιήσεων</string>
     <string name="revanced_patches_information_summary">Πληροφορίες σχετικά με τις εφαρμοσμένες τροποποιήσεις</string>
+    <string name="revanced_playback_speed_normal">Κανονική</string>
     <string name="revanced_player">Αναπαραγωγέας</string>
     <string name="revanced_player_flyout_panel_additional_settings_summary">Για απόκρυψη του μενού πρόσθετων ρυθμίσεων, ενεργοποιήστε όλες τις ρυθμίσεις απόκρυψης στοιχείων στην κατηγορία «Πρόσθετες ρυθμίσεις»</string>
     <string name="revanced_player_flyout_panel_additional_settings_title">Αναδυόμενος πίνακας του αναπαραγωγέα (Πρόσθετες ρυθμίσεις)</string>
@@ -655,7 +660,12 @@
     <string name="revanced_ryd_shorts_summary_on">Τα dislikes εμφανίζονται στα Shorts</string>
     <string name="revanced_ryd_shorts_title">Εμφάνιση των dislikes στα Shorts</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Κρυφό</string>
+    <string name="revanced_sanitize_sharing_links_summary">Αφαίρεση των παραμέτρων ερωτήματος παρακολούθησης από τις διευθύνσεις URL κατά την κοινή χρήση συνδέσμων.</string>
+    <string name="revanced_sanitize_sharing_links_title">Καθαρισμός συνδέσμων κοινοποίησης</string>
+    <string name="revanced_save_playback_speed" formatted="false">Αλλαγή της προεπιλεγμένης ταχύτητας σε %s.</string>
+    <string name="revanced_save_video_quality_mobile" formatted="false">Αλλαγή της προεπιλεγμένης ποιότητας με σύνδεση δεδομένων σε %s.</string>
     <string name="revanced_save_video_quality_none">Αποτυχία ρύθμισης της ποιότητας</string>
+    <string name="revanced_save_video_quality_wifi" formatted="false">Αλλαγή της προεπιλεγμένης ποιότητας με σύνδεση Wi-Fi σε %s.</string>
     <string name="revanced_seekbar">Γραμμή προόδου βίντεο</string>
     <string name="revanced_share_copy_timestamp_success" formatted="false">Η χρονική σήμανση αντιγράφηκε στο πρόχειρο. (%s)</string>
     <string name="revanced_share_copy_url_success">Η διεύθυνση URL αντιγράφηκε στο πρόχειρο.</string>
@@ -771,7 +781,7 @@
     <string name="sb_api_url_invalid">Η διεύθυνση URL του API δεν είναι έγκυρη</string>
     <string name="sb_api_url_changed">Η διεύθυνση URL του API άλλαξε</string>
     <string name="sb_settings_copy">Αντιγραφή</string>
-    <string name="sb_settings_ie_sum">Οι ρυθμίσεις JSON του SponsorBlock σας που μπορούν να εισαχθούν/εξαχθούν στο ReVanced Extended και σε άλλες πλατφόρμες SponsorBlock. Αυτό περιλαμβάνει το προσωπικό σας αναγνωριστικό χρήστη. Φροντίστε να το μοιραστείτε με σύνεση</string>
+    <string name="sb_settings_ie_sum">Οι ρυθμίσεις JSON του SponsorBlock σας που μπορούν να εισαχθούν / εξαχθούν στο ReVanced Extended και σε άλλες πλατφόρμες SponsorBlock. Αυτό περιλαμβάνει το προσωπικό σας αναγνωριστικό χρήστη. Φροντίστε να το μοιραστείτε με σύνεση.</string>
     <string name="sb_settings_import_successful">Οι ρυθμίσεις εισήχθησαν επιτυχώς</string>
     <string name="sb_settings_import_failed">Η εισαγωγή απέτυχε: %s</string>
     <string name="sb_settings_export_failed">Η εξαγωγή απέτυχε: %s</string>
@@ -779,7 +789,7 @@
     <string name="sb_settings_revanced_export_user_id_warning_dismiss">Να μην εμφανιστεί ξανά</string>
     <string name="sb_diff_segments">Αλλαγή συμπεριφοράς τμημάτων</string>
     <string name="sb_segments_sponsor">Χορηγός</string>
-    <string name="sb_segments_sponsor_sum">Προώθηση επί πληρωμή, παραπομπές επί πληρωμή και άμεσες διαφημίσεις. Όχι, για προσωπική προώθηση ή δωρεάν αναφορές σε δημιουργούς/ιστοσελίδες/προϊόντα που τους αρέσουν</string>
+    <string name="sb_segments_sponsor_sum">Προώθηση επί πληρωμή, παραπομπές επί πληρωμή και άμεσες διαφημίσεις. Όχι, για προσωπική προώθηση ή δωρεάν αναφορές σε δημιουργούς/ιστοσελίδες/προϊόντα που τους αρέσουν.</string>
     <string name="sb_segments_selfpromo">Μη αμειβόμενη / Αυτοπροώθηση</string>
     <string name="sb_segments_selfpromo_sum">Παρόμοιο με τη «Χορηγία» αλλά για μη κερδοσκοπικό σκοπό ή για προσωπική προώθηση. Αυτό συμπεριλαμβάνει τμήματα από εμπορεύματα, δωρεές, ή πληροφορίες σχετικές με το ποιους συνεργάστηκαν</string>
     <string name="sb_segments_interaction">Υπενθύμιση αλληλεπίδρασης (Εγγραφή)</string>
