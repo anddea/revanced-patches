@@ -93,7 +93,9 @@
     <string name="revanced_disable_landscape_mode_title">전체화면에서 세로모드 활성화하기</string>
     <string name="revanced_disable_quic_protocol_summary">"QUIC 프로토콜을 비활성화해서 동영상을 불러올 때 발생하는 동영상 압축과 푸는 과정을 제거하여 동영상 로딩 속도를 향상시킵니다. 모바일 데이터 사용량이 증가할 수 있으니 주의하세요."</string>
     <string name="revanced_disable_quic_protocol_title">QUIC 프로토콜 비활성화하기</string>
-    <string name="revanced_disable_speed_overlay_summary">"'길게 누른 상태에서 2.0배속 재생'을 비활성화합니다."</string>
+    <string name="revanced_disable_speed_overlay_summary">"길게 누른 상태에서 '2.0배속 재생'을 비활성화합니다.
+
+알림: 동영상 재생 속도 오버레이를 비활성화하면 이전 레이아웃의 '좌우 슬라이드하여 탐색' 동작이 복원됩니다."</string>
     <string name="revanced_disable_speed_overlay_title">동영상 재생 속도 오버레이 비활성화하기</string>
     <string name="revanced_disable_startup_shorts_player_summary_off">앱 시작할 때 Shorts 플레이어를 활성화합니다.</string>
     <string name="revanced_disable_startup_shorts_player_summary_on">앱 시작할 때 Shorts 플레이어를 비활성화합니다.</string>
@@ -420,9 +422,6 @@
     <string name="revanced_hide_place_section_summary_off">동영상 속 장소 섹션이 노출됩니다.</string>
     <string name="revanced_hide_place_section_summary_on">동영상 속 장소 섹션이 숨겨집니다.</string>
     <string name="revanced_hide_place_section_title">동영상 속 장소 섹션 숨기기</string>
-    <string name="revanced_hide_player_button_background_summary_off">플레이어 버튼 배경이 노출됩니다.</string>
-    <string name="revanced_hide_player_button_background_summary_on">플레이어 버튼 배경이 숨겨집니다.</string>
-    <string name="revanced_hide_player_button_background_title">플레이어 버튼 배경 숨기기</string>
     <string name="revanced_hide_player_flyout_panel_ambient_mode_summary_off">영화 조명 메뉴가 노출됩니다.</string>
     <string name="revanced_hide_player_flyout_panel_ambient_mode_summary_on">영화 조명 메뉴가 숨겨집니다.</string>
     <string name="revanced_hide_player_flyout_panel_ambient_mode_title">영화 조명 메뉴 숨기기</string>
@@ -620,24 +619,24 @@
     <string name="revanced_open_library_you_startup_title">앱 시작할 때 보관함(나) 열기</string>
     <string name="revanced_others">그 외</string>
     <string name="revanced_overlay_button">오버레이 버튼</string>
-    <string name="revanced_overlay_button_always_repeat_summary">"항상 반복 상태를 전환하려면 버튼을 누르세요.
-길게 누르면 반복 상태 후 일시 중지로 전환됩니다."</string>
-    <string name="revanced_overlay_button_always_repeat_title">항상 반복 버튼 표시하기</string>
-    <string name="revanced_overlay_button_copy_video_url_summary">"동영상 URL을 복사하려면 버튼을 누르세요.
+    <string name="revanced_overlay_button_always_repeat_summary">"버튼을 눌러서 동영상 반복 재생으로 전환할 수 있습니다.
+길게 누르면 동영상이 끝나면 일시 중지로 전환됩니다."</string>
+    <string name="revanced_overlay_button_always_repeat_title">동영상 반복 재생 버튼 표시하기</string>
+    <string name="revanced_overlay_button_copy_video_url_summary">"버튼을 눌러서 동영상 URL을 복사할 수 있습니다.
 길게 누르면 타임스탬프를 표기한 동영상 URL이 복사됩니다."</string>
-    <string name="revanced_overlay_button_copy_video_url_timestamp_summary">"타임스탬프를 표기한 동영상 URL을 복사하려면 버튼을 누르세요.
+    <string name="revanced_overlay_button_copy_video_url_timestamp_summary">"버튼을 눌러서 타임스탬프를 표기한 동영상 URL을 복사할 수 있습니다.
 길게 누르면 타임스탬프가 복사됩니다."</string>
     <string name="revanced_overlay_button_copy_video_url_timestamp_title">타임스탬프를 표기한 URL 복사 버튼 표시하기</string>
     <string name="revanced_overlay_button_copy_video_url_title">동영상 URL 복사 버튼 표시하기</string>
-    <string name="revanced_overlay_button_external_downloader_summary">외부 다운로더를 실행하려면 버튼을 누르세요.</string>
+    <string name="revanced_overlay_button_external_downloader_summary">버튼을 눌러서 외부 다운로더를 실행할 수 있습니다.</string>
     <string name="revanced_overlay_button_external_downloader_title">외부 다운로드 버튼 표시하기</string>
     <string name="revanced_overlay_button_speed_dialog_reset">동영상 재생 속도 재설정 (1.0배속)</string>
-    <string name="revanced_overlay_button_speed_dialog_summary">"동영상 재생 속도 다이얼로그를 열려면 버튼을 누르세요.
+    <string name="revanced_overlay_button_speed_dialog_summary">"버튼을 눌러서 동영상 재생 속도 다이얼로그를 열 수 있습니다.
 길게 누르면 동영상 재생 속도가 1.0배속으로 재설정됩니다."</string>
     <string name="revanced_overlay_button_speed_dialog_title">동영상 재생 속도 다이얼로그 버튼 표시하기</string>
     <string name="revanced_patches_information">패치 정보</string>
     <string name="revanced_patches_information_summary">적용된 패치에 대한 정보입니다.</string>
-    <string name="revanced_playback_speed_normal">보통</string>
+    <string name="revanced_playback_speed_normal">일반</string>
     <string name="revanced_player">플레이어</string>
     <string name="revanced_player_flyout_panel_additional_settings_summary">추가 설정 메뉴를 숨기려면, 추가 설정 카테고리에서 모든 설정을 숨겨야 합니다.</string>
     <string name="revanced_player_flyout_panel_additional_settings_title">플레이어 구성요소 패널 (추가 설정)</string>
@@ -658,7 +657,7 @@
     <string name="revanced_ryd_enable_summary_off">싫어요 개수를 표시하지 않습니다.</string>
     <string name="revanced_ryd_enable_summary_on">싫어요 개수를 표시합니다.</string>
     <string name="revanced_ryd_enable_title">Return YouTube Dislike 활성화하기</string>
-    <string name="revanced_ryd_failure_client_rate_limit_requested">ReturnYouTubeDislike 에러: 싫어요 개수를 표시할 수 없습니다. (클라이언트 API 제한 도달)</string>
+    <string name="revanced_ryd_failure_client_rate_limit_requested">싫어요 개수를 표시할 수 없습니다. (클라이언트 API 제한 도달)</string>
     <string name="revanced_ryd_shorts_summary_off">Shorts에서 싫어요가 숨겨집니다.</string>
     <string name="revanced_ryd_shorts_summary_on">Shorts에서 싫어요가 노출됩니다.</string>
     <string name="revanced_ryd_shorts_title">Shorts에서 싫어요 표시하기</string>

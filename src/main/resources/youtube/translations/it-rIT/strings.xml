@@ -93,7 +93,9 @@
     <string name="revanced_disable_landscape_mode_title">Disattiva la modalità orizzontale a schermo intero</string>
     <string name="revanced_disable_quic_protocol_summary">"Disattiva il protocollo QUIC di CronetEngine"</string>
     <string name="revanced_disable_quic_protocol_title">Disattiva il protocollo QUIC</string>
-    <string name="revanced_disable_speed_overlay_summary">"Disattiva la funzionalità \"2x\" tenendo premuto"</string>
+    <string name="revanced_disable_speed_overlay_summary">"Disattiva il \"2x\" quando tieni premuto.
+
+Nota: disattivando la sovrapposizione della velocità ripristina lo \"Scorri la barra di avanzamento\" della vecchia interfaccia"</string>
     <string name="revanced_disable_speed_overlay_title">Disattiva la sovrapposizione della velocità quando tieni premuto</string>
     <string name="revanced_disable_startup_shorts_player_summary_off">La riproduzione degli Shorts all\'avvio dell\'app è attivata</string>
     <string name="revanced_disable_startup_shorts_player_summary_on">La riproduzione degli Shorts all\'avvio dell\'app è disattivata</string>
@@ -124,9 +126,9 @@
     <string name="revanced_enable_language_switch_summary_off">Il cambio della lingua è disattivato</string>
     <string name="revanced_enable_language_switch_summary_on">Il cambio della lingua è attivato</string>
     <string name="revanced_enable_language_switch_title">Attiva il cambio della lingua</string>
-    <string name="revanced_enable_music_search_summary_off">La ricerca della musica è disattivata</string>
-    <string name="revanced_enable_music_search_summary_on">La ricerca della musica è attivata</string>
-    <string name="revanced_enable_music_search_title">Attiva la ricerca della musica</string>
+    <string name="revanced_enable_music_search_summary_off">La ricerca della musica nella schermata della ricerca vocale è disattivata</string>
+    <string name="revanced_enable_music_search_summary_on">La ricerca della musica nella schermata della ricerca vocale è attivata</string>
+    <string name="revanced_enable_music_search_title">Attiva la ricerca della musica nella schermata della ricerca vocale</string>
     <string name="revanced_enable_new_splash_animation_summary_off">La nuova animazione splash è disattivata</string>
     <string name="revanced_enable_new_splash_animation_summary_on">La nuova animazione splash è attivata</string>
     <string name="revanced_enable_new_splash_animation_title">Attiva la nuova animazione splash</string>
@@ -173,7 +175,7 @@
     <string name="revanced_enable_video_codec_title">Attiva il codec video</string>
     <string name="revanced_enable_video_codec_type_summary_off">VP9</string>
     <string name="revanced_enable_video_codec_type_summary_on">HDR</string>
-    <string name="revanced_enable_video_codec_type_title">Il tipo del codec video</string>
+    <string name="revanced_enable_video_codec_type_title">Il tipo di codec video</string>
     <string name="revanced_enable_wide_search_bar_summary_off">La barra di ricerca estesa è disattivata</string>
     <string name="revanced_enable_wide_search_bar_summary_on">La barra di ricerca estesa è attivata</string>
     <string name="revanced_enable_wide_search_bar_title">Attiva la barra di ricerca estesa</string>
@@ -420,9 +422,6 @@ Alcuni componenti potrebbero non essere nascosti"</string>
     <string name="revanced_hide_place_section_summary_off">La sezione Luogo è visibile</string>
     <string name="revanced_hide_place_section_summary_on">La sezione Luogo è nascosta</string>
     <string name="revanced_hide_place_section_title">Nascondi la sezione Luogo</string>
-    <string name="revanced_hide_player_button_background_summary_off">Lo sfondo dei pulsanti è visibile</string>
-    <string name="revanced_hide_player_button_background_summary_on">Lo sfondo dei pulsanti è nascosto</string>
-    <string name="revanced_hide_player_button_background_title">Nascondi lo sfondo dei pulsanti</string>
     <string name="revanced_hide_player_flyout_panel_ambient_mode_summary_off">Il menù Modalità Ambient è visibile</string>
     <string name="revanced_hide_player_flyout_panel_ambient_mode_summary_on">Il menù Modalità Ambient è nascosto</string>
     <string name="revanced_hide_player_flyout_panel_ambient_mode_title">Nascondi il menù Modalità Ambient</string>
@@ -644,9 +643,9 @@ Tocca e tieni premuto per impostare la velocità di riproduzione a 1.0x"</string
     <string name="revanced_ryd_compact_layout_summary_off">Pulsante Mi Piace riadattato per la migliore visualizzazione</string>
     <string name="revanced_ryd_compact_layout_summary_on">Pulsante Mi Piace riadattato per una dimensione minima</string>
     <string name="revanced_ryd_compact_layout_title">Usa il pulsante Mi Piace compatto</string>
-    <string name="revanced_ryd_dislike_percentage_summary_off">I Non Mi Piace sono mostrati come numero</string>
-    <string name="revanced_ryd_dislike_percentage_summary_on">I Non Mi Piace sono mostrati come percentuale</string>
-    <string name="revanced_ryd_dislike_percentage_title">I Non Mi piace in percentuale</string>
+    <string name="revanced_ryd_dislike_percentage_summary_off">In numero</string>
+    <string name="revanced_ryd_dislike_percentage_summary_on">In percentuale</string>
+    <string name="revanced_ryd_dislike_percentage_title">Il tipo di Non Mi Piace</string>
     <string name="revanced_ryd_enable_summary_off">I Non Mi Piace sono nascosti</string>
     <string name="revanced_ryd_enable_summary_on">I Non Mi Piace sono visibili</string>
     <string name="revanced_ryd_enable_title">Attiva Return YouTube Dislike</string>

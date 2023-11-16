@@ -51,7 +51,7 @@
     <string name="revanced_custom_playback_speeds_summary">利用可能なカスタム再生速度を編集します。</string>
     <string name="revanced_custom_playback_speeds_title">カスタム再生速度の編集</string>
     <string name="revanced_custom_playback_speeds_warning" formatted="false">カスタム再生速度は %s 倍速を超えることはできません。デフォルト値にリセットします。</string>
-    <string name="revanced_custom_playback_speed_panel_type_summary_off">古いスタイルのフライアウトパネルが使用されます。</string>
+    <string name="revanced_custom_playback_speed_panel_type_summary_off">古い形式のフライアウトパネルが使用されます。</string>
     <string name="revanced_custom_playback_speed_panel_type_summary_on">カスタムダイアログが使用されます。</string>
     <string name="revanced_custom_playback_speed_panel_type_title">カスタム再生速度パネルのタイプ</string>
     <string name="revanced_custom_player_overlay_opacity_summary">透明度の値は 0〜100 の範囲で、0 が透明です。</string>
@@ -93,7 +93,7 @@
     <string name="revanced_disable_landscape_mode_title">横画面モードを無効化</string>
     <string name="revanced_disable_quic_protocol_summary">"CronetEngine の QUIC プロトコルを無効にします。"</string>
     <string name="revanced_disable_quic_protocol_title">QUIC プロトコルを無効化</string>
-    <string name="revanced_disable_speed_overlay_summary">"長押しして 2 倍速で視聴する機能を無効化します."</string>
+    <string name="revanced_disable_speed_overlay_summary">"「長押しして2倍速で視聴」を無効化します。"</string>
     <string name="revanced_disable_speed_overlay_title">倍速再生のオーバーレイを無効化</string>
     <string name="revanced_disable_startup_shorts_player_summary_off">アプリ起動時の YouTube ショートプレーヤーは有効です。</string>
     <string name="revanced_disable_startup_shorts_player_summary_on">アプリ起動時の YouTube ショートプレーヤーは無効です。</string>
@@ -237,8 +237,8 @@
     <string name="revanced_hide_button_live_chat_summary_off">「チャット」ボタンは表示されます。</string>
     <string name="revanced_hide_button_live_chat_summary_on">「チャット」ボタンは非表示です。</string>
     <string name="revanced_hide_button_live_chat_title">チャットボタンを非表示</string>
-    <string name="revanced_hide_button_open_mix_playlist_summary_off">プレイリストを開くボタンは表示されます.</string>
-    <string name="revanced_hide_button_open_mix_playlist_summary_on">プレイリストを開くボタンは非表示です.</string>
+    <string name="revanced_hide_button_open_mix_playlist_summary_off">ミックスプレイリストを開くボタンは表示されます.</string>
+    <string name="revanced_hide_button_open_mix_playlist_summary_on">ミックスプレイリストを開くボタンは非表示です.</string>
     <string name="revanced_hide_button_open_mix_playlist_title">ミックスプレイリストを開くボタンを非表示</string>
     <string name="revanced_hide_button_open_playlist_summary_off">プレイリストを開くボタンは表示されます.</string>
     <string name="revanced_hide_button_open_playlist_summary_on">プレイリストを開くボタンは非表示です.</string>
@@ -420,9 +420,6 @@
     <string name="revanced_hide_place_section_summary_off">概要欄にある場所の説明は表示されます。</string>
     <string name="revanced_hide_place_section_summary_on">概要欄にある場所の説明は非表示です。</string>
     <string name="revanced_hide_place_section_title">場所欄を非表示</string>
-    <string name="revanced_hide_player_button_background_summary_off">コントロールボタンの背景は表示されます。</string>
-    <string name="revanced_hide_player_button_background_summary_on">コントロールボタンの背景は非表示です。</string>
-    <string name="revanced_hide_player_button_background_title">コントロールボタンの背景を非表示</string>
     <string name="revanced_hide_player_flyout_panel_ambient_mode_summary_off">「アンビエント モード」メニューは表示されます。</string>
     <string name="revanced_hide_player_flyout_panel_ambient_mode_summary_on">「アンビエント モード」メニューは非表示です。</string>
     <string name="revanced_hide_player_flyout_panel_ambient_mode_title">アンビエントモードメニューを非表示</string>
@@ -504,8 +501,8 @@
     <string name="revanced_hide_seek_message_summary_off">動画長押しシーク時に表示される「移動するには左右にスライドします」などのメッセージを非表示にします。</string>
     <string name="revanced_hide_seek_message_summary_on">動画長押しシーク時に表示される「移動するには左右にスライドします」などのメッセージを非表示にします。</string>
     <string name="revanced_hide_seek_message_title">シーク時のメッセージを非表示</string>
-    <string name="revanced_hide_seek_undo_message_summary_off">動画長押しシーク時に表示される「移動するには左右にスライドします」を表示します.</string>
-    <string name="revanced_hide_seek_undo_message_summary_on">動画長押しシーク時に表示される「移動するには左右にスライドします」は非表示です。</string>
+    <string name="revanced_hide_seek_undo_message_summary_off">シーク時のメッセージは表示されます。</string>
+    <string name="revanced_hide_seek_undo_message_summary_on">シーク時のメッセージは非表示です。</string>
     <string name="revanced_hide_seek_undo_message_title">シーク時のメッセージを非表示</string>
     <string name="revanced_hide_self_sponsor_cards_summary_off">セルフスポンサーカードは表示されます。</string>
     <string name="revanced_hide_self_sponsor_cards_summary_on">セルフスポンサーカードは非表示です。</string>
@@ -543,8 +540,8 @@
     <string name="revanced_hide_shorts_toolbar_search_button_summary_off">検索ボタンは表示されます。</string>
     <string name="revanced_hide_shorts_toolbar_search_button_summary_on">検索ボタンは非表示です。</string>
     <string name="revanced_hide_shorts_toolbar_search_button_title">検索ボタンを非表示</string>
-    <string name="revanced_hide_snack_bar_summary_off">共有からリンクをコピーした際の画面下部のポップアップ等は表示されます</string>
-    <string name="revanced_hide_snack_bar_summary_on">共有からリンクをコピーした際の画面下部のポップアップ等は非表示です</string>
+    <string name="revanced_hide_snack_bar_summary_off">共有からリンクをコピーした際の画面下部のポップアップなどは表示されます。</string>
+    <string name="revanced_hide_snack_bar_summary_on">共有からリンクをコピーした際の画面下部のポップアップなどは非表示です。</string>
     <string name="revanced_hide_snack_bar_title">スナックバーを非表示</string>
     <string name="revanced_hide_start_trial_button_summary_off">トライアル開始ボタンは表示されます.</string>
     <string name="revanced_hide_start_trial_button_summary_on">トライアル開始ボタンは非表示です.</string>
@@ -587,6 +584,8 @@
     <string name="revanced_hide_video_ads_summary_off">動画プレーヤー内の広告は表示されます。</string>
     <string name="revanced_hide_video_ads_summary_on">動画プレーヤー内の広告は非表示です。</string>
     <string name="revanced_hide_video_ads_title">動画広告を非表示</string>
+    <string name="revanced_hide_video_with_low_view_summary">"ホームフィードで表示される、視聴回数が1,000回未満の動画を非表示にします。チャンネル登録しているチャンネルの動画など、視聴回数が1,000回未満でも非表示にならない動画があります。"</string>
+    <string name="revanced_hide_video_with_low_view_title">視聴回数の少ない動画を非表示</string>
     <string name="revanced_hide_view_products_summary_off">プレーヤー内の商品バナーを非表示にします。</string>
     <string name="revanced_hide_view_products_summary_on">プレーヤー内の商品バナーを非表示にします。</string>
     <string name="revanced_hide_view_products_title">商品バナーを非表示</string>
@@ -639,7 +638,7 @@
     <string name="revanced_quick_actions_margin_top_title">クイックアクション上部の余白</string>
     <string name="revanced_quick_actions_margin_top_warning">クイックアクションの上部の余白は 0〜64 の範囲でなければなりません。デフォルト値にリセットします。</string>
     <string name="revanced_quick_actions_title">クイックアクション</string>
-    <string name="revanced_reboot_first_run">再起動してレイアウトを正常に読み込みます</string>
+    <string name="revanced_reboot_first_run">再起動してレイアウトを正常に読み込み</string>
     <string name="revanced_ryd_about">この機能について</string>
     <string name="revanced_ryd_attribution_summary">低評価のデータは、Return YouTube Dislike API によって提供されています。詳細はここをタップしてください。</string>
     <string name="revanced_ryd_compact_layout_summary_off">高評価ボタンは最適なサイズで表示されます。</string>
@@ -656,12 +655,11 @@
     <string name="revanced_ryd_shorts_summary_on">ショートの低評価数は表示されます。</string>
     <string name="revanced_ryd_shorts_title">ショートの低評価数</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">非表示</string>
-    <string name="revanced_sanitize_sharing_links_summary">リンクを共有するときに、URLからトラッキングクエリパラメータを削除します。</string>
-    <string name="revanced_sanitize_sharing_links_title">共有リンクを浄化</string>
-    <string name="revanced_save_playback_speed" formatted="false">デフォルトの再生速度を%sに変更しています。</string>
+    <string name="revanced_sanitize_sharing_links_summary">リンクを共有する際に、URL からトラッキングクエリパラメーターを削除します。</string>
+    <string name="revanced_sanitize_sharing_links_title">共有リンクのクリーンアップ</string>
+    <string name="revanced_save_playback_speed" formatted="false">デフォルトの速度を %sに変更しています。</string>
     <string name="revanced_save_video_quality_mobile" formatted="false">既定のモバイルデータ品質を %sに変更しています。</string>
     <string name="revanced_save_video_quality_none">画質の設定に失敗しました</string>
-    <string name="revanced_save_video_quality_wifi" formatted="false">デフォルトのWi-Fi品質を %sに変更しています。</string>
     <string name="revanced_seekbar">シークバー</string>
     <string name="revanced_share_copy_timestamp_success" formatted="false">タイムスタンプをクリップボードにコピーしました (%s)</string>
     <string name="revanced_share_copy_url_success">URL をクリップボードにコピーしました。</string>
@@ -795,7 +793,7 @@
     <string name="sb_segments_intro_sum">本編ではない部分。一時停止、静止画面、アニメーションの繰り返しが含まれます。情報を含んだ転換画面は含まれません。</string>
     <string name="sb_segments_outro">エンドカード / クレジット</string>
     <string name="sb_segments_outro_sum">クレジットや動画のエンドカードが表示されている場面。情報を含む結論は含まれません。</string>
-    <string name="sb_segments_preview">予告 / 要約</string>
+    <string name="sb_segments_preview">予告 / 要約 / フック</string>
     <string name="sb_segments_preview_sum">この動画やシリーズの他の動画で起きた、または今後起きる内容などをまとめたクリップのコレクション。すべての情報は、別の場所で繰り返し表示されます。</string>
     <string name="sb_segments_filler">繋ぎの話 / 冗談</string>
     <string name="sb_segments_filler_sum">動画の本編を理解するのに必要のない繋ぎの話やユーモアなどの逸脱したシーン。コンテクストや背景情報の詳細は含まれません。</string>

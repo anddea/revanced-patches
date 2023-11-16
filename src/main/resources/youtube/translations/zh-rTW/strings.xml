@@ -51,6 +51,9 @@
     <string name="revanced_custom_playback_speeds_summary">新增或變更可用的播放速度</string>
     <string name="revanced_custom_playback_speeds_title">編輯自訂播放速度</string>
     <string name="revanced_custom_playback_speeds_warning" formatted="false">自訂速度不能多於 %sx。已重設為預設值。</string>
+    <string name="revanced_custom_playback_speed_panel_type_summary_off">使用舊版彈出面板</string>
+    <string name="revanced_custom_playback_speed_panel_type_summary_on">使用自訂對話框</string>
+    <string name="revanced_custom_playback_speed_panel_type_title">自訂播放速度面板類型</string>
     <string name="revanced_custom_player_overlay_opacity_summary">不透明度值介於 0-100 之間，0 為透明</string>
     <string name="revanced_custom_player_overlay_opacity_title">設定播放器覆蓋層自定義的不透明度</string>
     <string name="revanced_custom_player_overlay_opacity_warning">若播放器覆蓋層的不透明度不在 0 到 100 範圍內，將會重設回預設數值</string>
@@ -158,7 +161,7 @@
     <string name="revanced_enable_swipe_volume_summary_off">滑動控制音量已停用</string>
     <string name="revanced_enable_swipe_volume_summary_on">滑動控制音量已啟用</string>
     <string name="revanced_enable_swipe_volume_title">啟用音量控制手勢</string>
-    <string name="revanced_enable_tablet_layout_summary">以 DPI 欺騙系統使用平板電腦版介面</string>
+    <string name="revanced_enable_tablet_layout_summary">偽裝DPI以使用一些平板介面</string>
     <string name="revanced_enable_tablet_layout_title">啟用平板介面</string>
     <string name="revanced_enable_tablet_mini_player_summary_off">平板迷你播放器已停用</string>
     <string name="revanced_enable_tablet_mini_player_summary_on">平板迷你播放器已啟用</string>
@@ -178,7 +181,7 @@
 
 若遇到此情況，請按照下面的操作步驟進行：
 「你」標籤 &gt; 查看頻道 &gt; 選單 &gt; 設定"</string>
-    <string name="revanced_enable_wide_search_bar_in_you_tab_title">在「你」標籤內，將搜索欄設定為寬版</string>
+    <string name="revanced_enable_wide_search_bar_in_you_tab_title">在「你」標籤內，將搜尋欄設定為寬版</string>
     <string name="revanced_experimental_flag">實驗性功能</string>
     <string name="revanced_export_settings_summary">將您的 ReVanced 設定匯出至檔案</string>
     <string name="revanced_export_settings_title">匯出設定</string>
@@ -417,9 +420,6 @@
     <string name="revanced_hide_place_section_summary_off">顯示地點區段</string>
     <string name="revanced_hide_place_section_summary_on">隱藏地點區段</string>
     <string name="revanced_hide_place_section_title">隱藏地點區段</string>
-    <string name="revanced_hide_player_button_background_summary_off">播放器按鈕背景已顯示</string>
-    <string name="revanced_hide_player_button_background_summary_on">播放器按鈕背景已隱藏</string>
-    <string name="revanced_hide_player_button_background_title">隱藏播放器按鈕背景</string>
     <string name="revanced_hide_player_flyout_panel_ambient_mode_summary_off">顯示環境模式選單</string>
     <string name="revanced_hide_player_flyout_panel_ambient_mode_summary_on">隱藏環境模式選單</string>
     <string name="revanced_hide_player_flyout_panel_ambient_mode_title">隱藏環境模式選單</string>
@@ -583,6 +583,9 @@
     <string name="revanced_hide_video_ads_summary_off">顯示影片廣告</string>
     <string name="revanced_hide_video_ads_summary_on">隱藏影片廣告</string>
     <string name="revanced_hide_video_ads_title">隱藏影片廣告</string>
+    <string name="revanced_hide_video_with_low_view_summary">"隱藏在首頁上顯示的觀看次數少於 1,000 次的影片。
+ 某些影片（包括您訂閱的頻道中的影片）即使觀看次數少於 1,000 次，也可能不會被隱藏。"</string>
+    <string name="revanced_hide_video_with_low_view_title">隱藏觀看次數較低的影片</string>
     <string name="revanced_hide_view_products_summary_off">觀看商品橫幅已顯示</string>
     <string name="revanced_hide_view_products_summary_on">觀看商品橫幅已隱藏</string>
     <string name="revanced_hide_view_products_title">隱藏檢視商品橫幅</string>
@@ -625,8 +628,9 @@
     <string name="revanced_overlay_button_speed_dialog_summary">"點擊以開啟速度對話框
 長按以將播放速度設定為 1.0x"</string>
     <string name="revanced_overlay_button_speed_dialog_title">顯示播放速度按鈕</string>
-    <string name="revanced_patches_information">補丁資訊 --唐懂翻譯</string>
+    <string name="revanced_patches_information">補丁資訊</string>
     <string name="revanced_patches_information_summary">已套用的補丁資訊</string>
+    <string name="revanced_playback_speed_normal">一般</string>
     <string name="revanced_player">播放</string>
     <string name="revanced_player_flyout_panel_additional_settings_summary">如果你希望隱藏額外的設定選單，請確保在該類別中所有的設定也都被隱藏</string>
     <string name="revanced_player_flyout_panel_additional_settings_title">播放器彈出面板（額外設定）</string>
@@ -652,7 +656,12 @@
     <string name="revanced_ryd_shorts_summary_on">已於 Shorts 中顯示倒讚數</string>
     <string name="revanced_ryd_shorts_title">在 Shorts 中顯示倒讚數</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">隱藏</string>
+    <string name="revanced_sanitize_sharing_links_summary">分享連結時從網址中刪除追蹤查詢參數。</string>
+    <string name="revanced_sanitize_sharing_links_title">清理分享連結</string>
+    <string name="revanced_save_playback_speed" formatted="false">將預設播放速度更改為%s</string>
+    <string name="revanced_save_video_quality_mobile" formatted="false">將預設的行動數據畫質更改為%s</string>
     <string name="revanced_save_video_quality_none">設定畫質失敗</string>
+    <string name="revanced_save_video_quality_wifi" formatted="false">將預設的Wi-Fi畫質調整為%s</string>
     <string name="revanced_seekbar">搜尋欄</string>
     <string name="revanced_share_copy_timestamp_success" formatted="false">時間戳記已複製到剪貼簿。（%s）</string>
     <string name="revanced_share_copy_url_success">URL 已複製到剪貼簿。</string>
@@ -718,7 +727,7 @@
     <string name="revanced_swipe_overlay_timeout_title">設定畫面的顯示時間</string>
     <string name="revanced_switching_create_notification_summary">注意：若您發現這些設定沒有正確生效，請考慮重新啟動您的裝置</string>
     <string name="revanced_switching_create_notification_title">將創作按鈕更換為通知按鈕</string>
-    <string name="revanced_tool_used">使用的工具 --唐懂翻譯</string>
+    <string name="revanced_tool_used">使用的工具</string>
     <string name="revanced_video">影片</string>
     <string name="pref_app_language_dialog_message">&lt;b&gt;%1$s&lt;/b&gt;&lt;br&gt;&lt;br&gt;您的Youtube語言將會進行更改,包括按鈕,項目文字,日誌...等,但這項設定並不會更改 ReVanced Extended 的語言</string>
     <string name="pref_app_language_dialog_message_no_lang_name">您的應用程式將會進行更改，包括按鈕、項目文字、日誌，但這項設定並不會更改 ReVanced Extended 的語言</string>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="accessibility_settings_edu_opt_in_text">Включване на контролите за достъпност на плейъра?</string>
+    <string name="accessibility_settings_edu_opt_in_text">Включване на контролите за достъпност за плейъра?</string>
     <string name="accessibility_settings_edu_opt_out_text">Контролите ви са модифицирани защото е включена услуга за достъпност.</string>
     <string name="microg_not_installed_notice">Моля, инсталирайте MicroG</string>
     <string name="microg_not_installed_warning">MicroG не е открит</string>
@@ -93,7 +93,7 @@
     <string name="revanced_disable_landscape_mode_title">Пейзажен режим при отиване на цял екран</string>
     <string name="revanced_disable_quic_protocol_summary">"Изключване на CronetEngine's QUIC протокол"</string>
     <string name="revanced_disable_quic_protocol_title">Изключване на QUIC протокол</string>
-    <string name="revanced_disable_speed_overlay_summary">"Деактивирайте „Възпроизвеждане със скорост 2x“, когато задържите на долу."</string>
+    <string name="revanced_disable_speed_overlay_summary">"Деактивирайте „Възпроизвеждане със скорост 2x“, когато задържите на екрана."</string>
     <string name="revanced_disable_speed_overlay_title">Скрива бутона за скорост</string>
     <string name="revanced_disable_startup_shorts_player_summary_off">Плейъра за кратки клипове е вкл. при стартиране</string>
     <string name="revanced_disable_startup_shorts_player_summary_on">Плейъра за кратки клипове е изкл. при стартиране</string>
@@ -420,9 +420,6 @@
     <string name="revanced_hide_place_section_summary_off">Секциите с места се показват</string>
     <string name="revanced_hide_place_section_summary_on">Секциите с места са скрити</string>
     <string name="revanced_hide_place_section_title">Скр. секции с места</string>
-    <string name="revanced_hide_player_button_background_summary_off">Фона на бутоните на плайъра се показва</string>
-    <string name="revanced_hide_player_button_background_summary_on">Фона на бутоните на плайъра е скрит</string>
-    <string name="revanced_hide_player_button_background_title">Скр. фона на бутоните на плайъра</string>
     <string name="revanced_hide_player_flyout_panel_ambient_mode_summary_off">Менюто за околен режим се показва</string>
     <string name="revanced_hide_player_flyout_panel_ambient_mode_summary_on">Менюто за околен режим е скрито</string>
     <string name="revanced_hide_player_flyout_panel_ambient_mode_title">Скр. меню за околен режим</string>
@@ -586,6 +583,9 @@
     <string name="revanced_hide_video_ads_summary_off">Видео рекламите се показват</string>
     <string name="revanced_hide_video_ads_summary_on">Видео рекламите са скрити</string>
     <string name="revanced_hide_video_ads_title">Скр. видео рекламите</string>
+    <string name="revanced_hide_video_with_low_view_summary">"Скриване на видеоклипове с по-малко от 1000 показвания, изложени на началната емисия.
+ Някои видеоклипове, включително тези от канали, за които се абонирате, може да не бъдат скрити дори ако имат по-малко от 1000 гледания."</string>
+    <string name="revanced_hide_video_with_low_view_title">Скриване на видеоклипове с малко гледания</string>
     <string name="revanced_hide_view_products_summary_off">Продуктовите банери се показват</string>
     <string name="revanced_hide_view_products_summary_on">Продуктовите банери са скрити</string>
     <string name="revanced_hide_view_products_title">Скриване на банера за преглед на продукти</string>
@@ -630,6 +630,7 @@
     <string name="revanced_overlay_button_speed_dialog_title">Пок. бутон за скорост</string>
     <string name="revanced_patches_information">Информация за корекции</string>
     <string name="revanced_patches_information_summary">Информация за приложените корекции</string>
+    <string name="revanced_playback_speed_normal">Нормално</string>
     <string name="revanced_player">Плейър</string>
     <string name="revanced_player_flyout_panel_additional_settings_summary">За да скриете менюто с допълнителни настройки, скрийте всички настройки в категорията с допълнителни настройки</string>
     <string name="revanced_player_flyout_panel_additional_settings_title">Изскачащ панел на плейъра (Допълнителни настройки)</string>
@@ -657,7 +658,10 @@
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Скрит</string>
     <string name="revanced_sanitize_sharing_links_summary">Премахва параметрите на заявката за проследяване от URL адресите при споделяне на връзки.</string>
     <string name="revanced_sanitize_sharing_links_title">Почистване на споделените връзки</string>
+    <string name="revanced_save_playback_speed" formatted="false">Смяна на скоростта на видеото на %s.</string>
+    <string name="revanced_save_video_quality_mobile" formatted="false">Смяна на качеството при мобилни данни на %s.</string>
     <string name="revanced_save_video_quality_none">Неуспешно задаване на качеството</string>
+    <string name="revanced_save_video_quality_wifi" formatted="false">Смяна на качеството при Wi-Fi на%s.</string>
     <string name="revanced_seekbar">Лента за време</string>
     <string name="revanced_share_copy_timestamp_success" formatted="false">Времевата отметка е копирана в клипборда. (%s)</string>
     <string name="revanced_share_copy_url_success">Връзката е копирана в клипборда.</string>
@@ -879,7 +883,7 @@
     <string name="sb_about_api_sum">Данните са предоставени от SponsorBlock API. Докоснете тук за повече информация и изтеглияния</string>
     <string name="settings_export_failed">Неуспешно експортиране на настройките</string>
     <string name="settings_export_successful">Настройките са експортирани успешно</string>
-    <string name="settings_ie">Импортиране/експортиране на настройките</string>
+    <string name="settings_ie">Импортиране / Експортиране на настройките</string>
     <string name="settings_import_failed">Неуспешно импортиране на настройките</string>
     <string name="settings_import_successful">Настройките са импортирани успешно</string>
 </resources>
