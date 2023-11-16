@@ -45,7 +45,7 @@ object OldSpeedLayoutPatch : BytecodePatch(
                 PLAYBACK_RATE_BOTTOM_SHEET_CLASS = definingClass
                 PLAYBACK_RATE_BOTTOM_SHEET_BUILDER_METHOD = name
             }
-        } ?: throw PlaybackRateBottomSheetClassFingerprint.exception
+        } ?: throw PlaybackRateBottomSheetBuilderFingerprint.exception
 
         /**
          * Create a static field in the patch
