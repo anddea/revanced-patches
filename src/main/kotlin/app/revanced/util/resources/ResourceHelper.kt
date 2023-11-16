@@ -82,7 +82,7 @@ internal object ResourceHelper {
         updatePatchStatusSettings("Theme", themeName)
     }
 
-    private fun ResourceContext.updatePatchStatusSettings(
+    internal fun ResourceContext.updatePatchStatusSettings(
         patchTitle: String,
         updateText: String
     ) {

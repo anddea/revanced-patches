@@ -13,9 +13,11 @@ import app.revanced.util.resources.IconHelper.makeDirectoryAndCopyFiles
 import app.revanced.util.resources.ResourceHelper.addPreference
 import app.revanced.util.resources.ResourceHelper.addReVancedPreference
 import app.revanced.util.resources.ResourceHelper.updatePatchStatus
+import app.revanced.util.resources.ResourceHelper.updatePatchStatusSettings
 import app.revanced.util.resources.ResourceUtils
 import app.revanced.util.resources.ResourceUtils.copyResources
 import org.w3c.dom.Element
+import java.io.Closeable
 import java.io.File
 import java.nio.file.Paths
 import java.util.concurrent.Executors
@@ -63,7 +65,7 @@ object SettingsPatch : AbstractSettingsResourcePatch(
     "youtube/settings",
     "youtube/settings/host",
     true
-) {
+), Closeable {
     override fun execute(context: ResourceContext) {
         super.execute(context)
         contexts = context
@@ -219,5 +221,31 @@ object SettingsPatch : AbstractSettingsResourcePatch(
 
     internal fun updatePatchStatus(patchTitle: String) {
         contexts.updatePatchStatus(patchTitle)
+    }
+
+    override fun close() {
+        SettingsBytecodePatch.contexts.classes.forEach { classDef ->
+            if (classDef.sourceFile != "BuildConfig.java")
+                return@forEach
+
+            classDef.fields.forEach { field ->
+                if (field.name == "VERSION_NAME") {
+                    contexts.updatePatchStatusSettings(
+                        "ReVanced Integrations",
+                        field.initialValue.toString().trim()
+                    )
+                }
+            }
+        }
+
+        contexts["res/xml/revanced_prefs.xml"].apply {
+            writeText(
+                readText()
+                    .replace(
+                        "&quot;",
+                        ""
+                    )
+            )
+        }
     }
 }

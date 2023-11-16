@@ -24,6 +24,8 @@ object SettingsBytecodePatch : BytecodePatch(
     setOf(ThemeSetterSystemFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
+        contexts = context
+
         // apply the current theme of the settings page
         ThemeSetterSystemFingerprint.result?.let {
             it.mutableMethod.apply {
@@ -47,6 +49,7 @@ object SettingsBytecodePatch : BytecodePatch(
         context.injectInit("InitializationPatch", "initializeReVancedSettings", true)
 
     }
+    internal lateinit var contexts: BytecodeContext
 
     private const val SET_THEME =
         "invoke-static {v0}, $INTEGRATIONS_PATH/utils/ThemeHelper;->setTheme(Ljava/lang/Object;)V"
