@@ -1,6 +1,7 @@
 package app.revanced.patches.youtube.utils.navbarindex
 
 import app.revanced.extensions.exception
+import app.revanced.extensions.findMutableMethodOf
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
@@ -8,20 +9,25 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
+import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.utils.fingerprints.OnBackPressedFingerprint
+import app.revanced.patches.youtube.utils.navbarindex.fingerprints.DefaultTabsBarFingerprint
 import app.revanced.patches.youtube.utils.navbarindex.fingerprints.MobileTopBarButtonOnClickFingerprint
-import app.revanced.patches.youtube.utils.navbarindex.fingerprints.NavButtonOnClickFingerprint
 import app.revanced.patches.youtube.utils.navbarindex.fingerprints.OnResumeFragmentsFingerprints
 import app.revanced.patches.youtube.utils.navbarindex.fingerprints.SettingsActivityOnBackPressedFingerprint
 import app.revanced.util.integrations.Constants.UTILS_PATH
+import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction35c
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.reference.Reference
 
 @Suppress("unused")
 object NavBarIndexHookPatch : BytecodePatch(
     setOf(
+        DefaultTabsBarFingerprint,
         MobileTopBarButtonOnClickFingerprint,
-        NavButtonOnClickFingerprint,
         OnBackPressedFingerprint,
         OnResumeFragmentsFingerprints,
         SettingsActivityOnBackPressedFingerprint
@@ -32,22 +38,23 @@ object NavBarIndexHookPatch : BytecodePatch(
         /**
          * Change NavBar Index value according to selected Tab
          */
-        NavButtonOnClickFingerprint.result?.let {
+        DefaultTabsBarFingerprint.result?.let {
             it.mutableMethod.apply {
-                val insertIndex = it.scanResult.patternScanResult!!.endIndex - 1
-                val targetString =
-                    getInstruction<BuilderInstruction35c>(insertIndex - 2).reference.toString()
-                if (!targetString.endsWith("Ljava/util/ArrayList;->indexOf(Ljava/lang/Object;)I"))
-                    throw PatchException("Reference not found: $targetString")
-                val indexRegister =
-                    getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA
+                val targetIndex = it.scanResult.patternScanResult!!.startIndex
+                val setTabIndexReference = getInstruction<ReferenceInstruction>(targetIndex).reference
 
-                addInstruction(
-                    insertIndex,
-                    "invoke-static {v$indexRegister}, $INTEGRATIONS_CLASS_DESCRIPTOR->setCurrentNavBarIndex(I)V"
-                )
+                val (onClickMethod, insertIndex) = getOnClickMethod(context, setTabIndexReference)
+
+                onClickMethod.apply {
+                    val indexRegister = getInstruction<FiveRegisterInstruction>(insertIndex).registerD
+
+                    addInstruction(
+                        insertIndex,
+                        "invoke-static {v$indexRegister}, $INTEGRATIONS_CLASS_DESCRIPTOR->setCurrentNavBarIndex(I)V"
+                    )
+                }
             }
-        } ?: throw NavButtonOnClickFingerprint.exception
+        } ?: throw DefaultTabsBarFingerprint.exception
 
         /**
          *  Set NavBar index to last index on back press
@@ -78,6 +85,31 @@ object NavBarIndexHookPatch : BytecodePatch(
 
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
         "$UTILS_PATH/NavBarIndexPatch;"
+
+    private fun getOnClickMethod(
+        context: BytecodeContext,
+        targetReference: Reference
+    ): Pair<MutableMethod, Int> {
+        context.classes.forEach { classDef ->
+            classDef.methods.forEach { method ->
+                if (method.name == "onClick") {
+                    method.implementation?.instructions?.forEachIndexed { index, instruction ->
+                        if (instruction.opcode != Opcode.INVOKE_VIRTUAL)
+                            return@forEachIndexed
+                        if ((instruction as ReferenceInstruction).reference != targetReference)
+                            return@forEachIndexed
+
+                        val targetMethod = context.proxy(classDef)
+                            .mutableClass
+                            .findMutableMethodOf(method)
+
+                        return Pair(targetMethod, index)
+                    }
+                }
+            }
+        }
+        throw PatchException("OnClickMethod not found!")
+    }
 
     /**
      * Hook setLastNavBarIndex method
