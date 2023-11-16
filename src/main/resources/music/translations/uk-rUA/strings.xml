@@ -9,17 +9,17 @@
     <string name="revanced_category_navigation">Навігація</string>
     <string name="revanced_category_player">Плеєр</string>
     <string name="revanced_category_video">Відео</string>
-    <string name="revanced_custom_filter_strings_summary">Фільтрувати компоненти за назвами через рядок.</string>
-    <string name="revanced_custom_filter_strings_title">Користувацький фільтр</string>
-    <string name="revanced_custom_filter_strings_warning">Неправильний користувацький фільтр, скинуто до значень за замовчуванням.</string>
+    <string name="revanced_custom_filter_strings_summary">Фільтр компонентів за іменами, розділеними по рядках.</string>
+    <string name="revanced_custom_filter_strings_title">Редагувати користувацький фільтр</string>
+    <string name="revanced_custom_filter_strings_warning">Недійсний користувацький фільтр, скинуто до стандартного.</string>
     <string name="revanced_custom_filter_summary">Вмикає користувацькі фільтри для приховування компонентів інтерфейсу.</string>
     <string name="revanced_custom_filter_title">Увімкнути користувацький фільтр</string>
     <string name="revanced_custom_playback_speeds_invalid">Неправильні користувацькі швидкості відтворення! Скинуто до значень за замовчуванням.</string>
     <string name="revanced_custom_playback_speeds_summary">Додати або змінити доступні швидкості відтворення</string>
     <string name="revanced_custom_playback_speeds_title">Редагувати користувацькі швидкості відтворення</string>
-    <string name="revanced_custom_playback_speeds_warning" formatted="false">Користувацькі швидкості не можуть бути більше %sx</string>
-    <string name="revanced_disable_auto_captions_summary">Вимикає автоматичне увімкнення субтитрів у відеоплеєрі.</string>
-    <string name="revanced_disable_auto_captions_title">Вимкнути автоматичні субтитри</string>
+    <string name="revanced_custom_playback_speeds_warning" formatted="false">Значення не може бути більше %sx.</string>
+    <string name="revanced_disable_auto_captions_summary">Вимикає примусові авто субтитри у відеоплеєрі.</string>
+    <string name="revanced_disable_auto_captions_title">Вимкнути примусові авто субтитри</string>
     <string name="revanced_downloader_not_installed" formatted="false">%s не встановлено. Будь ласка, встановіть його.</string>
     <string name="revanced_enable_black_navigation_bar_summary">Встановлює чорний колір навігаційної панелі.</string>
     <string name="revanced_enable_black_navigation_bar_title">Увімкнути чорну панель навігації</string>
@@ -50,11 +50,11 @@
     <string name="revanced_enable_old_style_library_shelf_title">Старий стиль вкладки \"Бібліотека\"</string>
     <string name="revanced_enable_old_style_mini_player_summary">Повертає старий стиль мініплеєра.</string>
     <string name="revanced_enable_old_style_mini_player_title">Увімкнути старий стиль інтерфейсу мініплеєра</string>
-    <string name="revanced_enable_opus_codec_summary">Вмикає кодек opus 250/251 під час відтворення аудіо.</string>
-    <string name="revanced_enable_opus_codec_title">Увімкнути opus кодек</string>
-    <string name="revanced_enable_save_playback_speed_summary">Швидкість відтворення зберігається за її зміни.</string>
+    <string name="revanced_enable_opus_codec_summary">Застосовувати аудіокодек opus 250/251 замість mp4a аудіо кодека.</string>
+    <string name="revanced_enable_opus_codec_title">Увімкнути кодек opus</string>
+    <string name="revanced_enable_save_playback_speed_summary">Зберігається значення швидкості відтворення щоразу, коли змінюється швидкість відтворення.</string>
     <string name="revanced_enable_save_playback_speed_title">Збереження швидкості відтворення</string>
-    <string name="revanced_enable_save_video_quality_summary">Якість відтворення відео зберігається під час його зміни.</string>
+    <string name="revanced_enable_save_video_quality_summary">Зберігається значення якості відео щоразу, коли змінюється якість відео.</string>
     <string name="revanced_enable_save_video_quality_title">Увімкнути збереження якості відео</string>
     <string name="revanced_enable_sleep_timer_summary">Додає пункт \"Таймер сну\" у спливаюче меню.</string>
     <string name="revanced_enable_sleep_timer_title">Увімкнути таймер вимкнення</string>
@@ -65,25 +65,25 @@
     <string name="revanced_extended_settings_import_export_summary">Імпортувати або експортувати налаштування у вигляді тексту.</string>
     <string name="revanced_extended_settings_import_export_title">Імпорт / Експорт налаштувань</string>
     <string name="revanced_extended_settings_import_failure_parse">Не вдалося відновити налаштування: %s</string>
-    <string name="revanced_extended_settings_import_reset">Налаштування скинуто за замовчуванням</string>
+    <string name="revanced_extended_settings_import_reset">Налаштування скинуто до стандартних.</string>
     <string name="revanced_extended_settings_import_success">Налаштування в кількості: %d успішно відновлено</string>
     <string name="revanced_external_downloader_not_installed_warning" formatted="false">%s не встановлено. Будь ласка, встановіть його.</string>
-    <string name="revanced_external_downloader_package_name_summary">Ім\'я пакета вашого встановленого зовнішнього завантажувача. Наприклад, NewPipe або Seal.</string>
-    <string name="revanced_external_downloader_package_name_title">Назва пакета зовнішнього завантажувача</string>
+    <string name="revanced_external_downloader_package_name_summary">Ім\'я пакета встановленого зовнішнього завантажувача, наприклад NewPipe або YTDLnis.</string>
+    <string name="revanced_external_downloader_package_name_title">Ім\'я пакета зовнішнього завантажувача</string>
     <string name="revanced_flyout_panel_watch_on_youtube">Дивитись на YouTube</string>
     <string name="revanced_hide_account_menu_empty_component_summary">Приховує порожній простір у меню облікового запису</string>
     <string name="revanced_hide_account_menu_empty_component_title">Приховати порожній простір</string>
     <string name="revanced_hide_account_menu_summary">Приховує елементи меню облікового запису.</string>
     <string name="revanced_hide_account_menu_title">Приховати меню облікового запису</string>
-    <string name="revanced_hide_action_bar_label_summary">Приховує підписи панелі дій.</string>
+    <string name="revanced_hide_action_bar_label_summary">Приховує підписи в панелі дій.</string>
     <string name="revanced_hide_action_bar_label_title">Приховати підписи панелі дій</string>
     <string name="revanced_hide_action_bar_radio_summary">Приховує кнопку \"Увімкнути радіо\".</string>
     <string name="revanced_hide_action_bar_radio_title">Приховати кнопку \"Радіо\"</string>
-    <string name="revanced_hide_button_shelf_summary">Приховує кнопки «Новинки», «Хіт-паради», «Настрій і жанри» на Головній та в Навігації.</string>
+    <string name="revanced_hide_button_shelf_summary">Приховує кнопки \"Новинки\", \"Хіт-паради\", \"Настрій і жанри\" на Головній та в Навігації.</string>
     <string name="revanced_hide_button_shelf_title">Приховати категорії в Навігації</string>
     <string name="revanced_hide_carousel_shelf_summary">Приховує карусель треків на Головній та в Навігації.</string>
     <string name="revanced_hide_carousel_shelf_title">Приховати карусель треків</string>
-    <string name="revanced_hide_cast_button_summary">Приховує кнопку \"Трансляція\".</string>
+    <string name="revanced_hide_cast_button_summary">Приховує кнопку \"Трансляція\" в плеєрі та мініплеєрі.</string>
     <string name="revanced_hide_cast_button_title">Приховати кнопку трансляції</string>
     <string name="revanced_hide_category_bar_summary">Приховує панель категорій музики у верхній частині головної сторінки.</string>
     <string name="revanced_hide_category_bar_title">Приховати панель категорій</string>
@@ -124,22 +124,22 @@
     <string name="revanced_hide_navigation_bar_title">Приховати панель навігації</string>
     <string name="revanced_hide_navigation_label_summary">Приховує підписи вкладок на панелі навігації.</string>
     <string name="revanced_hide_navigation_label_title">Приховати підписи кнопок навігації</string>
-    <string name="revanced_hide_new_playlist_button_summary">Приховує кнопку «Новий список відтворення» на вкладці «Бібліотека».</string>
+    <string name="revanced_hide_new_playlist_button_summary">Приховує кнопку \"Новий список відтворення\" у вкладці \"Бібліотека\".</string>
     <string name="revanced_hide_new_playlist_button_title">Приховати кнопку \"Новий список відтворення\"</string>
     <string name="revanced_hide_playlist_card_summary">Приховує картку списку відтворення з головної сторінки.</string>
     <string name="revanced_hide_playlist_card_title">Приховати картку списку відтворення</string>
     <string name="revanced_hide_samples_button_summary">Приховує вкладку \"Семпли\".</string>
     <string name="revanced_hide_samples_button_title">Приховати вкладку \"Семпли\"</string>
-    <string name="revanced_hide_terms_container_summary">Приховує \"Конфіденційність • Умови використання\".</string>
+    <string name="revanced_hide_terms_container_summary">Приховує пункт меню \"Конфіденційність • Умови використання\".</string>
     <string name="revanced_hide_terms_container_title">Приховати \"Конфіденційність • Умови використання\"</string>
     <string name="revanced_hide_upgrade_button_summary">Приховує кнопку \"Підписка\".</string>
     <string name="revanced_hide_upgrade_button_title">Приховати кнопку \"Підписка\"</string>
-    <string name="revanced_hook_action_bar_download_summary">Замінює кнопку \"Завантажити\" кнопкою запуску зовнішнього завантажувача.</string>
+    <string name="revanced_hook_action_bar_download_summary">Поміняти місцями кнопку завантаження з кнопкою зовнішнього завантаження.</string>
     <string name="revanced_hook_action_bar_download_title">Заміна кнопки \"Завантажити\"</string>
     <string name="revanced_playback_speed_normal">Стандартна</string>
     <string name="revanced_playlist_dismiss">Вже відтворюється з офіційного джерела музики</string>
     <string name="revanced_playlist_error">Офіційне джерело музики недоступне</string>
-    <string name="revanced_reboot_first_run">Перезапустіть для завантаження нормального інтерфейсу</string>
+    <string name="revanced_reboot_first_run">Перезапустіть, щоб нормально завантажився макет</string>
     <string name="revanced_reboot_message">Оновити та перезапустити</string>
     <string name="revanced_replace_flyout_panel_dismiss_queue_continue_watch_summary">Якщо натиснути \"Дивитись на YouTube\", відтворення продовжиться з поточного часу перегляду.</string>
     <string name="revanced_replace_flyout_panel_dismiss_queue_continue_watch_title">Продовжити перегляд</string>
@@ -160,17 +160,17 @@
     <string name="revanced_ryd_enabled_summary">Відображає кількість дизлайків у треках.</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Дизлайки недоступні (досягнуто ліміт клієнтів сервера API)</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Приховано</string>
-    <string name="revanced_sanitize_sharing_links_summary">Вилучає параметри відстеження запитів з URL під час поширення посилань.</string>
-    <string name="revanced_sanitize_sharing_links_title">\"Очищувати\" відправлені посилання</string>
-    <string name="revanced_save_playback_speed" formatted="false">Швидкість відтворення за замовчуванням змінена на %s.</string>
-    <string name="revanced_save_video_quality_mobile" formatted="false">Якість за замовчуванням через мобільну мережу змінено на %s.</string>
+    <string name="revanced_sanitize_sharing_links_summary">Вилучаються параметри запиту відстеження з посилань під час поширення посилань.</string>
+    <string name="revanced_sanitize_sharing_links_title">Обробляти поширення посилань</string>
+    <string name="revanced_save_playback_speed" formatted="false">Зміна типової швидкості на %s.</string>
+    <string name="revanced_save_video_quality_mobile" formatted="false">Зміна типової якості відео при мобільному з\'єднанні на %s.</string>
     <string name="revanced_save_video_quality_none">Не вдалося встановити обрану якість</string>
-    <string name="revanced_save_video_quality_wifi" formatted="false">Якість за замовчуванням через Wi-Fi змінена на %s.</string>
+    <string name="revanced_save_video_quality_wifi" formatted="false">Зміна типової якості відео для Wi-Fi на %s.</string>
     <string name="revanced_share_copy_settings_success">Налаштування скопійовано до буфера обміну.</string>
-    <string name="revanced_spoof_app_version_summary">"Підміняє версію клієнта на старішу
+    <string name="revanced_spoof_app_version_summary">"Підміна версії клієнта на стару версію
 
-• Це змінить зовнішній вигляд програми, але можуть виникнути невідомі проблеми.
-• Якщо вимкнути цю опцію після її активації, старий інтерфейс може залишатися доти, доки дані програми не будуть очищені"</string>
+• Це змінить зовнішній вигляд програми, але можуть виникнути невідомі побічні ефекти
+• Якщо пізніше вимкнути, старий інтерфейс може залишитися, доки не буде очищено дані програми."</string>
     <string name="revanced_spoof_app_version_target_entry_4_27_53">4.27.53 - Вимкнення режиму радіо в канадських регіонах</string>
     <string name="revanced_spoof_app_version_target_entry_6_10_53">6.10.53 - Вимкнення динамічних текстів (караоке)</string>
     <string name="revanced_spoof_app_version_target_summary">Виберіть цільову версію програми</string>
@@ -211,18 +211,18 @@
     <string name="sb_segments_nomusic_sum">Тільки для використання в музичних відео. Секції музичних відео без музики, які не підпадають під іншу категорію</string>
     <string name="sb_skipped_sponsor">Пропущено спонсорську вставку</string>
     <string name="sb_skipped_selfpromo">Пропущено саморекламу</string>
-    <string name="sb_skipped_interaction">Пропущено настирливе нагадування</string>
-    <string name="sb_skipped_intro_beginning">Пропущено інтро</string>
+    <string name="sb_skipped_interaction">Пропущено дратівливе нагадування.</string>
+    <string name="sb_skipped_intro_beginning">Пропущено вступ.</string>
     <string name="sb_skipped_intro_middle">Пропущено паузу</string>
     <string name="sb_skipped_intro_end">Пропущено паузу</string>
-    <string name="sb_skipped_outro">Пропущено кінцівку</string>
+    <string name="sb_skipped_outro">Пропущено закінчення.</string>
     <string name="sb_skipped_preview_beginning">Пропущено попередній перегляд</string>
     <string name="sb_skipped_preview_middle">Пропущено попередній перегляд</string>
     <string name="sb_skipped_preview_end">Пропущено нагадування</string>
-    <string name="sb_skipped_filler">Пропущено наповнення</string>
+    <string name="sb_skipped_filler">Пропущено вставку.</string>
     <string name="sb_skipped_nomusic">Пропущено секцію без музики</string>
     <string name="sb_skipped_multiple_segments">Пропущено декілька сегментів</string>
-    <string name="sb_skip_automatically">Автоматично пропускати</string>
+    <string name="sb_skip_automatically">Пропустити автоматично</string>
     <string name="sb_skip_ignore">Вимкнути</string>
     <string name="sb_color_dot_label">Колір:</string>
     <string name="sb_color_changed">Колір змінено</string>
