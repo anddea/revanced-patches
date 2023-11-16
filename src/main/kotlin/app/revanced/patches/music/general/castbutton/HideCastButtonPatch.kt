@@ -76,7 +76,7 @@ object HideCastButtonPatch : BytecodePatch(
                     "invoke-static {v$targetRegister}, $MUSIC_GENERAL->hideCastButton(Landroid/view/View;)V"
                 )
             }
-        }
+        } ?: throw PlayerOverlayChipFingerprint.exception
 
         SettingsPatch.addMusicPreference(
             CategoryType.GENERAL,
