@@ -21,6 +21,7 @@ object SharedResourceIdPatch : ResourcePatch() {
     internal var ChipCloud = -1L
     internal var ColorGrey = -1L
     internal var DialogSolid = -1L
+    internal var HistoryMenuItem = -1L
     internal var InlineTimeBarAdBreakMarkerColor = -1L
     internal var IsTablet = -1L
     internal var MenuEntry = -1L
@@ -47,6 +48,7 @@ object SharedResourceIdPatch : ResourcePatch() {
         ChipCloud = find(LAYOUT, "chip_cloud")
         ColorGrey = find(COLOR, "ytm_color_grey_12")
         DialogSolid = find(STYLE, "Theme.YouTubeMusic.Dialog.Solid")
+        HistoryMenuItem = find(ID, "history_menu_item")
         InlineTimeBarAdBreakMarkerColor = find(COLOR, "inline_time_bar_ad_break_marker_color")
         IsTablet = find(BOOL, "is_tablet")
         MenuEntry = find(LAYOUT, "menu_entry")
