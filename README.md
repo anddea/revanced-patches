@@ -107,7 +107,7 @@ ReVanced Extended Patches.
 | `Return YouTube Dislike` | Shows the dislike count of videos using the Return YouTube Dislike API. | 18.25.40 ~ 18.45.38 |
 | `Sanitize sharing links` | Removes tracking query parameters from the URLs when sharing links. | 18.25.40 ~ 18.45.38 |
 | `Settings` | Applies mandatory patches to implement ReVanced Extended settings into the application. | 18.25.40 ~ 18.45.38 |
-| `Shorts outline button` | Apply the outline icon to the action button of the Shorts player. | 18.25.40 ~ 18.44.41 |
+| `Shorts outline button` | Apply the outline icon to the action button of the Shorts player. | 18.25.40 ~ 18.45.38 |
 | `SponsorBlock` | Integrates SponsorBlock which allows skipping video segments such as sponsored content. | 18.25.40 ~ 18.45.38 |
 | `Spoof app version` | Spoof the YouTube client version. | 18.25.40 ~ 18.45.38 |
 | `Spoof device dimensions` | Spoofs the device dimensions in order to unlock higher video qualities that may not be available on your device. | 18.25.40 ~ 18.45.38 |
