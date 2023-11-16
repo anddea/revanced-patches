@@ -50,7 +50,7 @@ PERINGATAN: Jangan aktifkan latar belakang pemutar baru saat ini diaktifkan."</s
     <string name="revanced_enable_old_style_library_shelf_title">Aktifkan rak koleksi gaya lama</string>
     <string name="revanced_enable_old_style_mini_player_summary">Mengembalikan pemutar mini ke gaya lama.</string>
     <string name="revanced_enable_old_style_mini_player_title">Aktifkan pemutar mini gaya lama</string>
-    <string name="revanced_enable_opus_codec_summary">Mengaktifkan codec opus 250/251 saat memutar audio.</string>
+    <string name="revanced_enable_opus_codec_summary">Mengaktifkan codec audio opus alih-alih codec audio mp4a.</string>
     <string name="revanced_enable_opus_codec_title">Aktifkan codec opus</string>
     <string name="revanced_enable_save_playback_speed_summary">Simpan nilai kecepatan pemutaran setiap kali Anda mengubah kecepatan pemutaran.</string>
     <string name="revanced_enable_save_playback_speed_title">Aktifkan simpan kecepatan pemutaran</string>
@@ -136,6 +136,7 @@ PERINGATAN: Jangan aktifkan latar belakang pemutar baru saat ini diaktifkan."</s
     <string name="revanced_hide_upgrade_button_title">Sembunyikan tombol berlangganan</string>
     <string name="revanced_hook_action_bar_download_summary">Mengganti tombol download offline dengan tombol download eksternal.</string>
     <string name="revanced_hook_action_bar_download_title">Tombol pengait download</string>
+    <string name="revanced_playback_speed_normal">Normal</string>
     <string name="revanced_playlist_dismiss">Sudah memutar sumber musik official.</string>
     <string name="revanced_playlist_error">Sumber musik official tidak tersedia.</string>
     <string name="revanced_reboot_first_run">Mulai ulang untuk memuat tata letak normal</string>
@@ -159,7 +160,12 @@ PERINGATAN: Jangan aktifkan latar belakang pemutar baru saat ini diaktifkan."</s
     <string name="revanced_ryd_enabled_summary">Menunjukkan jumlah dislike pada video.</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Dislike tidak tersedia (batas API client tercapai).</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Sembunyikan</string>
+    <string name="revanced_sanitize_sharing_links_summary">Menghapus parameter kueri pelacakan dari URL saat membagikan tautan.</string>
+    <string name="revanced_sanitize_sharing_links_title">Sanitasi tautan berbagi</string>
+    <string name="revanced_save_playback_speed" formatted="false">Mengubah kecepatan default ke %s.</string>
+    <string name="revanced_save_video_quality_mobile" formatted="false">Mengubah kualitas data seluler default ke %s.</string>
     <string name="revanced_save_video_quality_none">Gagal mengatur kualitas.</string>
+    <string name="revanced_save_video_quality_wifi" formatted="false">Mengubah kualitas Wi-Fi default ke %s.</string>
     <string name="revanced_share_copy_settings_success">Setelan disalin ke papan klip.</string>
     <string name="revanced_spoof_app_version_summary">"Memalsukan versi klien ke versi lama
 
@@ -188,7 +194,7 @@ PERINGATAN: Jangan aktifkan latar belakang pemutar baru saat ini diaktifkan."</s
     <string name="sb_api_url_changed">URL API diubah.</string>
     <string name="sb_diff_segments">Ubah perilaku segmen</string>
     <string name="sb_segments_sponsor">Sponsor</string>
-    <string name="sb_segments_sponsor_sum">Promosi dibayar, referal dibayar dan iklan langsung. Tidak untuk promosi diri sendiri atau dukungan gratis untuk gerakan/kreator/website/produk yang mereka suka.</string>
+    <string name="sb_segments_sponsor_sum">Promosi dibayar, referal dibayar dan iklan langsung. Tidak untuk promosi diri sendiri atau dukungan gratis untuk gerakan / kreator / website / produk yang mereka suka.</string>
     <string name="sb_segments_selfpromo">Tidak dibayar / promosi diri sendiri</string>
     <string name="sb_segments_selfpromo_sum">Serupa dengan \"sponsor\" kecuali tidak dibayar atau promosi diri sendiri. Ini termasuk merchandise, donasi, atau informasi tentang siapa yang berkolaborasi dengan mereka.</string>
     <string name="sb_segments_interaction">Pengingat interaksi (subscribe)</string>
@@ -197,7 +203,7 @@ PERINGATAN: Jangan aktifkan latar belakang pemutar baru saat ini diaktifkan."</s
     <string name="sb_segments_intro_sum">Interval tanpa konten sebenarnya. Bisa berupa jeda, frame static, atau animasi berulang. Tidak termasuk transisi yang mengandung informasi.</string>
     <string name="sb_segments_outro">Kartu akhir / kredit</string>
     <string name="sb_segments_outro_sum">Kredit atau saat kartu akhir YouTube muncul. Tidak untuk kesimpulan dengan informasi.</string>
-    <string name="sb_segments_preview">Pratinjau / rekap</string>
+    <string name="sb_segments_preview">Pratinjau / rekap / pengait</string>
     <string name="sb_segments_preview_sum">Kumpulan klip yang menunjukkan apa yang akan terjadi atau apa yang terjadi di video atau di video lain dari suatu rangkaian, di mana semua informasi diulang di tempat lain.</string>
     <string name="sb_segments_filler">Filler tidak relevan / lelucon</string>
     <string name="sb_segments_filler_sum">Adegan tangensial ditambahkan hanya untuk filler atau humor yang tidak diperlukan untuk memahami isi utama video. Tidak menyertakan segmen yang menyediakan detail konteks atau latar belakang.</string>

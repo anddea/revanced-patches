@@ -50,7 +50,7 @@ UYARI: Bu etkinken yeni oynatıcı arka planlarını etkinleştirmeyin."</string
     <string name="revanced_enable_old_style_library_shelf_title">Eski stil kitaplık rafını etkinleştir</string>
     <string name="revanced_enable_old_style_mini_player_summary">Mini oynatıcıları eski stile döndürün.</string>
     <string name="revanced_enable_old_style_mini_player_title">Eski stil mini oynatıcıyı etkinleştir</string>
-    <string name="revanced_enable_opus_codec_summary">Ses çalarken 250/251 opus kodeği bileşenini etkinleştirin.</string>
+    <string name="revanced_enable_opus_codec_summary">\"mp4a\" ses kodeği yerine \"opus\" ses kodeğini uygulayın</string>
     <string name="revanced_enable_opus_codec_title">Opus kodeğini etkinleştir</string>
     <string name="revanced_enable_save_playback_speed_summary">Oynatma hızını değiştirdiğinizde oynatma hızı değerini kaydedin.</string>
     <string name="revanced_enable_save_playback_speed_title">Çalma hızını kaydetmeyi etkinleştir</string>
@@ -136,6 +136,7 @@ UYARI: Bu etkinken yeni oynatıcı arka planlarını etkinleştirmeyin."</string
     <string name="revanced_hide_upgrade_button_title">Gūncelle düğmesini gizle</string>
     <string name="revanced_hook_action_bar_download_summary">Çevrimdışı indirme düğmesini harici bir indirme düğmesiyle değiştirir.</string>
     <string name="revanced_hook_action_bar_download_title">Kanca indirme düğmesi</string>
+    <string name="revanced_playback_speed_normal">Normal</string>
     <string name="revanced_playlist_dismiss">Zaten orijinal ses kaynağı oynatılıyor.</string>
     <string name="revanced_playlist_error">Orijinal ses kaynağı kullanılamıyor.</string>
     <string name="revanced_reboot_first_run">Düzeni normal şekilde yüklemek için yeniden başlatın</string>
@@ -159,7 +160,13 @@ UYARI: Bu etkinken yeni oynatıcı arka planlarını etkinleştirmeyin."</string
     <string name="revanced_ryd_enabled_summary">Videoların beğenmeme sayısını gösterir.</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Beğenmeme sayısı mevcut değil (istemci API sınırına ulaşıldı).</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Gizlendi</string>
+    <string name="revanced_sanitize_sharing_links_summary">Bağlantıları paylaşırken, \"tracking query parametreleri\"ni URL\'lerden kaldırır</string>
+    <string name="revanced_sanitize_sharing_links_title">Paylaşılan bağlantıları sterilize edin</string>
+    <string name="revanced_save_playback_speed" formatted="false">Varsayılan hız %s olarak değiştiriliyor</string>
+    <string name="revanced_save_video_quality_mobile" formatted="false">Mobil ağda varsayılan video kalitesi %s olarak değiştiriliyor</string>
     <string name="revanced_save_video_quality_none">Kalite ayarlanamadı.</string>
+    <string name="revanced_save_video_quality_wifi" formatted="false">Wi-Fi\'da varsayılan video kalitesi %s olarak değiştiriliyor</string>
+    <string name="revanced_share_copy_settings_success">Ayarlar panoya kopyalandı</string>
     <string name="revanced_spoof_app_version_summary">"İstemciyi sürümünün eski sürümle sahteleştir 
 
 • Bu, uygulamanın görünümünü değiştirir ancak bilinmeyen yan etkiler ortaya çıkabilir.
@@ -187,7 +194,7 @@ UYARI: Bu etkinken yeni oynatıcı arka planlarını etkinleştirmeyin."</string
     <string name="sb_api_url_changed">API URL\'si değiştirildi.</string>
     <string name="sb_diff_segments">Segment davranışını değiştir</string>
     <string name="sb_segments_sponsor">Sponsor</string>
-    <string name="sb_segments_sponsor_sum">Ücretli tanıtım, ücretli yönlendirmeler ve doğrudan reklamlar. Kendini pazarlayan veya beğendiği içerik üreticilerine/sitelere/ürünlere atıfta bulunanlar için değil.</string>
+    <string name="sb_segments_sponsor_sum">Ücretli tanıtım, ücretli yönlendirmeler ve doğrudan reklamlar. Kendi tanıtımını yapmak veya beğendikleri olaylara / içerik üreticilerine / web sitelerine / ürünlere ücretsiz olarak atıfta bulunanlar için değil.</string>
     <string name="sb_segments_selfpromo">Karşılıksız/Kişisel Promosyon</string>
     <string name="sb_segments_selfpromo_sum">\"Sponsor\" seçeneğinden farkı para karşılığı olmaması veya kendi reklamını yapmasıdır. Buna kendi markalı ürünlerini satmak, bağış toplamak ve videoda işbirliği yaptığı kimselerden bahsetmek dahildir.</string>
     <string name="sb_segments_interaction">Etkileşim Hatırlatıcısı (Abone Ol)</string>
@@ -196,7 +203,7 @@ UYARI: Bu etkinken yeni oynatıcı arka planlarını etkinleştirmeyin."</string
     <string name="sb_segments_intro_sum">Gerçek içeriği olmayan bir aralık. Bir duraklama, statik çerçeve veya yinelenen animasyon olabilir. Bilgi içeren geçişleri içermez.</string>
     <string name="sb_segments_outro">Bitiş Kartları/Krediler</string>
     <string name="sb_segments_outro_sum">Videoda emeği geçenlerin veya video sonunda çıkan kartların gösterildiği kısımlar. Bilgilendirici sona sahip videolar için değil.</string>
-    <string name="sb_segments_preview">Önizleme/Özet</string>
+    <string name="sb_segments_preview">Önizleme / Özet</string>
     <string name="sb_segments_preview_sum">Videoda veya bir dizinin diğer videolarında neler olduğunu veya neler olduğunu gösteren, tüm bilgilerin başka bir yerde tekrarlandığı klip koleksiyonu.</string>
     <string name="sb_segments_filler">Dolgu Tanjantı/Şakalar</string>
     <string name="sb_segments_filler_sum">Sadece videoyu doldurmak ya da mizah için eklenmiş, videonun ana içeriğini anlamak için gerekli olmayan alakasız sahneler. Bu, içerik veya arka plan detayları hakkında bilgi veren kısımları içermemelidir.</string>
