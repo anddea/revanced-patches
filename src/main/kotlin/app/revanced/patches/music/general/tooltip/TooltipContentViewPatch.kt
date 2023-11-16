@@ -18,8 +18,8 @@ import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch
             "com.google.android.apps.youtube.music",
             [
                 "6.20.51",
-                "6.26.51",
-                "6.27.53"
+                "6.27.54",
+                "6.28.52"
             ]
         )
     ]
