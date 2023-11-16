@@ -127,6 +127,11 @@ object FlyoutPanelPatch : BytecodePatch(
         )
         SettingsPatch.addMusicPreferenceWithoutSummary(
             CategoryType.FLYOUT,
+            "revanced_hide_flyout_panel_remove_from_playlist",
+            "false"
+        )
+        SettingsPatch.addMusicPreferenceWithoutSummary(
+            CategoryType.FLYOUT,
             "revanced_hide_flyout_panel_report",
             "false"
         )
