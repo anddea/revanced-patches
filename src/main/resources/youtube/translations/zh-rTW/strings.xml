@@ -11,7 +11,7 @@
     <string name="revanced_alt_thumbnails">替代縮圖</string>
     <string name="revanced_alt_thumbnail_about_summary">此功能將預設的影片縮圖更換為另類版本，以減低過度吸睛或煽動性的內容。</string>
     <string name="revanced_alt_thumbnail_about_title">關於</string>
-    <string name="revanced_alt_thumbnail_dearrow_summary_off">無需外部 API 生成縮圖</string>
+    <string name="revanced_alt_thumbnail_dearrow_summary_off">未使用外部 API 來生成縮圖</string>
     <string name="revanced_alt_thumbnail_dearrow_summary_on">使用 DeArrow API 生成縮圖</string>
     <string name="revanced_alt_thumbnail_dearrow_title">採用 DeArrow API</string>
     <string name="revanced_alt_thumbnail_enabled_summary_off">顯示原始 YouTube 縮圖</string>
@@ -40,6 +40,7 @@
     <string name="revanced_change_homepage_summary_on">目前主畫面：訂閱內容</string>
     <string name="revanced_change_homepage_title">設定主畫面為訂閱內容</string>
     <string name="revanced_channel_bar_title">頻道列</string>
+    <string name="revanced_channel_profile_title">頻道設定</string>
     <string name="revanced_comments_title">留言</string>
     <string name="revanced_custom_filter_strings_summary">以換行分隔的名稱來過濾元件</string>
     <string name="revanced_custom_filter_strings_title">編輯自訂篩選</string>
@@ -342,6 +343,9 @@
     <string name="revanced_hide_floating_microphone_summary_off">語音辨識按鈕已顯示</string>
     <string name="revanced_hide_floating_microphone_summary_on">語音辨識按鈕已隱藏</string>
     <string name="revanced_hide_floating_microphone_title">隱藏語音辨識按鈕</string>
+    <string name="revanced_hide_for_you_shelf_summary_off">"「為您推薦」的功能列已顯示。"</string>
+    <string name="revanced_hide_for_you_shelf_summary_on">"「為您推薦」的功能列已隱藏。"</string>
+    <string name="revanced_hide_for_you_shelf_title">"隱藏「為您推薦」的功能列。"</string>
     <string name="revanced_hide_fullscreen_panels_summary_off">全螢幕面板已顯示</string>
     <string name="revanced_hide_fullscreen_panels_summary_on">全螢幕面板已隱藏</string>
     <string name="revanced_hide_fullscreen_panels_title">隱藏全螢幕面板</string>
@@ -468,6 +472,9 @@
     <string name="revanced_hide_player_flyout_panel_watch_in_vr_summary_off">顯示以 VR 觀看選單</string>
     <string name="revanced_hide_player_flyout_panel_watch_in_vr_summary_on">隱藏以 VR 觀看選單</string>
     <string name="revanced_hide_player_flyout_panel_watch_in_vr_title">隱藏以 VR 觀看選單</string>
+    <string name="revanced_hide_podcast_section_summary_off">Podcast 已顯示</string>
+    <string name="revanced_hide_podcast_section_summary_on">Podcast 已隱藏</string>
+    <string name="revanced_hide_podcast_section_title">隱藏 Podcast</string>
     <string name="revanced_hide_preview_comment_off">留言區預覽已顯示</string>
     <string name="revanced_hide_preview_comment_on">留言區預覽已隱藏</string>
     <string name="revanced_hide_preview_comment_title">隱藏留言區預覽</string>
@@ -672,19 +679,19 @@
     <string name="revanced_shorts_toolbar_title">Shorts 工具列</string>
     <string name="revanced_show_fullscreen_title_summary">已知問題 : 標題被點擊時會消失</string>
     <string name="revanced_show_fullscreen_title_title">顯示全螢幕標題</string>
-    <string name="revanced_skipped_preloaded_buffer">已經忽略預先加載的緩衝區</string>
+    <string name="revanced_skipped_preloaded_buffer">跳過預先載入緩衝區</string>
     <string name="revanced_skip_preloaded_buffer_summary">"開始播放影片時，省略起始緩衝以快速套用預設影像品質
 
 • 影片開始時約有 0.7 秒的延遲，但預設品質會立即生效
 • 不適用於 HDR 格式或短於 10 秒的影片"</string>
-    <string name="revanced_skip_preloaded_buffer_title">略過預先加載的緩衝區</string>
+    <string name="revanced_skip_preloaded_buffer_title">略過預先載入的緩衝區</string>
     <string name="revanced_skip_preloaded_buffer_toast_summary_off">隱藏提示訊息</string>
     <string name="revanced_skip_preloaded_buffer_toast_summary_on">顯示提示訊息</string>
-    <string name="revanced_skip_preloaded_buffer_toast_title">當略過預先加載的緩衝區時，將會顯示一條提示訊息</string>
-    <string name="revanced_spoof_app_version_summary">"將客戶端版本偽裝成舊版本
+    <string name="revanced_skip_preloaded_buffer_toast_title">略過預先載入緩衝區時顯示提示資訊</string>
+    <string name="revanced_spoof_app_version_summary">"偽裝成舊版的客戶端
 
- 這將改變應用程式的外觀，但可能會出現未知的反效果
- 如果需要關閉，舊版介面可能會保留，直到清除應用程式資料"</string>
+• 執行這項操作會改變應用程式的界面，但可能會引發未知的副作用
+• 若之後取消這項設定，舊版的使用者介面可能依然會顯示，除非你清空該應用程式的儲存"</string>
     <string name="revanced_spoof_app_version_target_entry_16_08_35">16.08.35 - 回復「探索」分頁功能</string>
     <string name="revanced_spoof_app_version_target_entry_17_08_35">17.08.35 - 重現傳統介面佈局</string>
     <string name="revanced_spoof_app_version_target_entry_17_41_37">17.41.37 - 回復舊版的播放清單架</string>
@@ -727,7 +734,7 @@
     <string name="revanced_swipe_overlay_timeout_title">設定畫面的顯示時間</string>
     <string name="revanced_switching_create_notification_summary">注意：若您發現這些設定沒有正確生效，請考慮重新啟動您的裝置</string>
     <string name="revanced_switching_create_notification_title">將創作按鈕更換為通知按鈕</string>
-    <string name="revanced_tool_used">使用的工具</string>
+    <string name="revanced_tool_used">使用的工具 --唐懂翻譯</string>
     <string name="revanced_video">影片</string>
     <string name="pref_app_language_dialog_message">&lt;b&gt;%1$s&lt;/b&gt;&lt;br&gt;&lt;br&gt;您的Youtube語言將會進行更改,包括按鈕,項目文字,日誌...等,但這項設定並不會更改 ReVanced Extended 的語言</string>
     <string name="pref_app_language_dialog_message_no_lang_name">您的應用程式將會進行更改，包括按鈕、項目文字、日誌，但這項設定並不會更改 ReVanced Extended 的語言</string>
