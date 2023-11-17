@@ -40,6 +40,7 @@
     <string name="revanced_change_homepage_summary_on">Начальный экран: \"Подписки\".</string>
     <string name="revanced_change_homepage_title">Замена начальной вкладки на \"Подписки\"</string>
     <string name="revanced_channel_bar_title">Панель канала</string>
+    <string name="revanced_channel_profile_title">Профиль канала</string>
     <string name="revanced_comments_title">Комментарии</string>
     <string name="revanced_custom_filter_strings_summary">Фильтровать компоненты по названиям через строку.</string>
     <string name="revanced_custom_filter_strings_title">Изменить пользовательский фильтр</string>
@@ -93,7 +94,9 @@
     <string name="revanced_disable_landscape_mode_title">Отключить ландшафтный режим</string>
     <string name="revanced_disable_quic_protocol_summary">"Отключает протокол CronetEngine's QUIC."</string>
     <string name="revanced_disable_quic_protocol_title">Отключить протокол QUIC</string>
-    <string name="revanced_disable_speed_overlay_summary">"Отключить \"Воспроизводится на скорости 2x\" при удержании."</string>
+    <string name="revanced_disable_speed_overlay_summary">"Отключить \"Воспроизводится на скорости 2x\" при удержании.
+
+Примечание: Отключение наложения скорости вернёт поведение старого интерфейса \"Чтобы перемотать видео, проведите по экрану\"."</string>
     <string name="revanced_disable_speed_overlay_title">Отключить наложение скорости</string>
     <string name="revanced_disable_startup_shorts_player_summary_off">Плеер \"Shorts\" при запуске приложения отображён.</string>
     <string name="revanced_disable_startup_shorts_player_summary_on">Плеер \"Shorts\" при запуске приложения скрыт.</string>
@@ -341,6 +344,9 @@
     <string name="revanced_hide_floating_microphone_summary_off">Плавающая кнопка \"Голосовой ввод\" отображена.</string>
     <string name="revanced_hide_floating_microphone_summary_on">Плавающая кнопка \"Голосовой ввод\" скрыта.</string>
     <string name="revanced_hide_floating_microphone_title">Скрыть кнопку \"Голосовой ввод\"</string>
+    <string name="revanced_hide_for_you_shelf_summary_off">"Секции \"Для вас\" отображены."</string>
+    <string name="revanced_hide_for_you_shelf_summary_on">"Секции \"Для вас\" скрыты."</string>
+    <string name="revanced_hide_for_you_shelf_title">"Скрыть секцию \"Для вас\""</string>
     <string name="revanced_hide_fullscreen_panels_summary_off">Заголовок видео и кнопки под плеером в полноэкранном режиме отображены.</string>
     <string name="revanced_hide_fullscreen_panels_summary_on">Заголовок видео и кнопки под плеером в полноэкранном режиме скрыты.</string>
     <string name="revanced_hide_fullscreen_panels_title">Скрыть полноэкранные панели</string>
@@ -467,6 +473,9 @@
     <string name="revanced_hide_player_flyout_panel_watch_in_vr_summary_off">Пункт \"Смотреть в VR-режиме\" отображён.</string>
     <string name="revanced_hide_player_flyout_panel_watch_in_vr_summary_on">Пункт \"Смотреть в VR-режиме\" скрыт.</string>
     <string name="revanced_hide_player_flyout_panel_watch_in_vr_title">Скрыть \"Смотреть в VR-режиме\"</string>
+    <string name="revanced_hide_podcast_section_summary_off">Секции подкастов отображены.</string>
+    <string name="revanced_hide_podcast_section_summary_on">Секции подкастов скрыты.</string>
+    <string name="revanced_hide_podcast_section_title">Скрыть секции подкастов</string>
     <string name="revanced_hide_preview_comment_off">Предпросмотр комментария отображён.</string>
     <string name="revanced_hide_preview_comment_on">Предпросмотр комментария скрыт.</string>
     <string name="revanced_hide_preview_comment_title">Скрыть предпросмотр комментария</string>
@@ -641,23 +650,23 @@
     <string name="revanced_quick_actions_title">Быстрые действия</string>
     <string name="revanced_reboot_first_run">Перезапустите для правильной загрузки интерфейса</string>
     <string name="revanced_ryd_about">Об интеграции</string>
-    <string name="revanced_ryd_attribution_summary">Данные отметок \"Не нравится\"(Дизлайков) предоставлены Return YouTube Dislike API. Нажмите здесь, чтобы узнать больше.</string>
+    <string name="revanced_ryd_attribution_summary">Данные отметок \"Не нравится\" предоставлены Return YouTube Dislike API. Нажмите здесь, чтобы узнать больше.</string>
     <string name="revanced_ryd_compact_layout_summary_off">Кнопка \"Нравится\" стилизована для лучшего внешнего вида.</string>
     <string name="revanced_ryd_compact_layout_summary_on">Кнопка \"Нравится\" стилизована под минимальную ширину.</string>
     <string name="revanced_ryd_compact_layout_title">Компактная кнопка \"Нравится\"</string>
-    <string name="revanced_ryd_dislike_percentage_summary_off">Отметки \"Не нравится\"(Дизлайки) отображаются как число.</string>
-    <string name="revanced_ryd_dislike_percentage_summary_on">Отметки \"Не нравится\"(Дизлайки) отображаются как проценты.</string>
+    <string name="revanced_ryd_dislike_percentage_summary_off">Отметки \"Не нравится\" отображаются как число.</string>
+    <string name="revanced_ryd_dislike_percentage_summary_on">Отметки \"Не нравится\" отображаются как проценты.</string>
     <string name="revanced_ryd_dislike_percentage_title">Кол-во отметок \"Не нравится\" в процентах</string>
-    <string name="revanced_ryd_enable_summary_off">Отметки \"Не нравится\"(Дизлайки) скрыты.</string>
-    <string name="revanced_ryd_enable_summary_on">Отметки \"Не нравится\"(Дизлайки) отображены.</string>
+    <string name="revanced_ryd_enable_summary_off">Отметки \"Не нравится\" скрыты.</string>
+    <string name="revanced_ryd_enable_summary_on">Отметки \"Не нравится\" отображены.</string>
     <string name="revanced_ryd_enable_title">Return YouTube Dislike</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Отметки \"Не нравится\" недоступны (достигнут лимит клиентов сервера API).</string>
-    <string name="revanced_ryd_shorts_summary_off">Отметки \"Не нравится\"(Дизлайки) в \"Shorts\" скрыты.</string>
-    <string name="revanced_ryd_shorts_summary_on">Отметки \"Не нравится\"(Дизлайки) в \"Shorts\" отображены.</string>
+    <string name="revanced_ryd_shorts_summary_off">Отметки \"Не нравится\" в \"Shorts\" скрыты.</string>
+    <string name="revanced_ryd_shorts_summary_on">Отметки \"Не нравится\" в \"Shorts\" отображены.</string>
     <string name="revanced_ryd_shorts_title">Отметки \"Не нравится\" в \"Shorts\"</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Скрыто</string>
     <string name="revanced_sanitize_sharing_links_summary">Убирает параметры отслеживания запросов из URL при отправке ссылки.</string>
-    <string name="revanced_sanitize_sharing_links_title">\"Очищать\" отправленные ссылки</string>
+    <string name="revanced_sanitize_sharing_links_title">Очищать ссылки от мусора</string>
     <string name="revanced_save_playback_speed" formatted="false">Скорость воспроизведения по умолчанию изменена на: %s.</string>
     <string name="revanced_save_video_quality_mobile" formatted="false">Качество по умолчанию при моб. сети изменено на: %s.</string>
     <string name="revanced_save_video_quality_none">Не удалось установить выбранное качество.</string>
@@ -692,7 +701,7 @@
     <string name="revanced_spoof_app_version_target_entry_18_05_40">18.05.40 - Вернуть старое поле ввода комментария</string>
     <string name="revanced_spoof_app_version_target_entry_18_17_43">18.17.43 - Вернуть старую выдвижную панель плеера</string>
     <string name="revanced_spoof_app_version_target_entry_18_33_40">18.33.40 - Вернуть старую панель действий в \"Shorts\"</string>
-    <string name="revanced_spoof_app_version_target_entry_18_40_34">"18.40.34 - Отключает обновление числа просмотров и отметок \"Нравится\"(Лайков) в реальном времени"</string>
+    <string name="revanced_spoof_app_version_target_entry_18_40_34">"18.40.34 - Отключает обновление числа просмотров и отметок \"Нравится\" в реальном времени"</string>
     <string name="revanced_spoof_app_version_target_entry_title">Целевая версия приложения при подмене</string>
     <string name="revanced_spoof_app_version_target_summary">Введите целевую версию приложения для подмены.</string>
     <string name="revanced_spoof_app_version_target_title">Изменить значение подмены версии</string>
@@ -787,7 +796,7 @@
     <string name="sb_segments_selfpromo">Бесплатная реклама / Самореклама</string>
     <string name="sb_segments_selfpromo_sum">Похоже на спонсорскую рекламу, за исключением бесплатной рекламы или саморекламы. Включает разделы о товарах, пожертвованиях или информации о том, с кем они сотрудничали.</string>
     <string name="sb_segments_interaction">Напоминание о взаимодействии</string>
-    <string name="sb_segments_interaction_sum">Короткое напоминание поставить отметку \"Нравится\"(Лайк), подписаться на канал или соцсети посреди видеоролика. Если эта вставка длительная или о чём-то конкретном, она должна классифицироваться как самореклама.</string>
+    <string name="sb_segments_interaction_sum">Короткое напоминание поставить отметку \"Нравится\", подписаться на канал или соцсети посреди видеоролика. Если эта вставка длительная или о чём-то конкретном, она должна классифицироваться как самореклама.</string>
     <string name="sb_segments_highlight">Основные моменты</string>
     <string name="sb_segments_highlight_sum">Части видео, которые интересны большинству людей.</string>
     <string name="sb_segments_intro">Пауза / Интро</string>
