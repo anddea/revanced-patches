@@ -3,7 +3,7 @@
     <string name="revanced_category_account">帳號</string>
     <string name="revanced_category_action_bar">操作欄</string>
     <string name="revanced_category_ads">廣告設定</string>
-    <string name="revanced_category_flyout">彈出式選單</string>
+    <string name="revanced_category_flyout">彈出式選項</string>
     <string name="revanced_category_general">一般設定</string>
     <string name="revanced_category_misc">其他</string>
     <string name="revanced_category_navigation">導覽列</string>
@@ -30,7 +30,7 @@
 已知問題：
 • 資料庫上的專輯封面會變得更小。
 • 睡眠定時器佈局可能會出現異常。"</string>
-    <string name="revanced_enable_compact_dialog_title">啟用精簡彈出式選單</string>
+    <string name="revanced_enable_compact_dialog_title">啟用精簡選單</string>
     <string name="revanced_enable_debug_logging_summary">列出除錯記錄檔</string>
     <string name="revanced_enable_debug_logging_title">啟用除錯紀錄</string>
     <string name="revanced_enable_flyout_panel_playback_speed_summary">添加播放速度調整鈕至彈出式選單</string>
@@ -46,7 +46,7 @@
 
 警告：使用此功能時請勿啟用新版的播放器背景。"</string>
     <string name="revanced_enable_old_player_layout_title">使用舊版的播放器介面</string>
-    <string name="revanced_enable_old_style_library_shelf_summary">將資料庫以舊樣式顯示 (實驗性功能)</string>
+    <string name="revanced_enable_old_style_library_shelf_summary">將媒體庫以舊介面顯示 (實驗性功能)</string>
     <string name="revanced_enable_old_style_library_shelf_title">啟用舊版資料庫樣式</string>
     <string name="revanced_enable_old_style_mini_player_summary">將迷你播放器更改為舊版介面</string>
     <string name="revanced_enable_old_style_mini_player_title">啟用舊版介面的迷你播放器</string>
@@ -70,13 +70,13 @@
     <string name="revanced_external_downloader_not_installed_warning" formatted="false">%s 尚未安裝. 請先安裝該應用後重試.</string>
     <string name="revanced_external_downloader_package_name_summary">已安裝的外部下載程式的套件名稱，例如 NewPipe 或 Seal</string>
     <string name="revanced_external_downloader_package_name_title">外部下載程式的套件名稱</string>
-    <string name="revanced_flyout_panel_watch_on_youtube">在Youtube上觀看</string>
-    <string name="revanced_hide_account_menu_empty_component_summary">隱藏帳戶選單中的空元件</string>
+    <string name="revanced_flyout_panel_watch_on_youtube">在 Youtube上觀看</string>
+    <string name="revanced_hide_account_menu_empty_component_summary">隱藏帳戶選項中的空元件</string>
     <string name="revanced_hide_account_menu_empty_component_title">Hide empty component</string>
-    <string name="revanced_hide_account_menu_summary">隱藏帳戶選單元素</string>
-    <string name="revanced_hide_account_menu_title">隱藏帳戶選單</string>
-    <string name="revanced_hide_action_bar_label_summary">隱藏操作欄中的標籤</string>
-    <string name="revanced_hide_action_bar_label_title">隱藏操作欄標籤</string>
+    <string name="revanced_hide_account_menu_summary">隱藏帳戶選項元素</string>
+    <string name="revanced_hide_account_menu_title">隱藏帳戶選項</string>
+    <string name="revanced_hide_action_bar_label_summary">隱藏導覽列中的標籤</string>
+    <string name="revanced_hide_action_bar_label_title">隱藏導覽列標籤</string>
     <string name="revanced_hide_action_bar_radio_summary">隱藏開啟電台按鈕</string>
     <string name="revanced_hide_action_bar_radio_title">隱藏電台按鈕</string>
     <string name="revanced_hide_button_shelf_summary">從首頁和檔案管理隱藏按鈕。</string>
@@ -93,27 +93,30 @@
     <string name="revanced_hide_emoji_picker_title">隱藏表情符號選擇器</string>
     <string name="revanced_hide_explore_button_summary">隱藏導覽列中的探索按鈕</string>
     <string name="revanced_hide_explore_button_title">隱藏探索按鈕</string>
-    <string name="revanced_hide_flyout_panel_add_to_queue_title">隱藏加入待播清單選單</string>
-    <string name="revanced_hide_flyout_panel_captions_title">隱藏字幕選單</string>
-    <string name="revanced_hide_flyout_panel_dismiss_queue_title">隱藏從媒體庫中移除選單</string>
+    <string name="revanced_hide_flyout_panel_add_to_queue_title">隱藏加入待播清單選項</string>
+    <string name="revanced_hide_flyout_panel_captions_title">隱藏字幕選項</string>
+    <string name="revanced_hide_flyout_panel_dismiss_queue_title">隱藏從媒體庫中移除選項</string>
     <string name="revanced_hide_flyout_panel_download_title">隱藏下載選單</string>
     <string name="revanced_hide_flyout_panel_go_to_album_title">隱藏前往專輯頁面選單</string>
     <string name="revanced_hide_flyout_panel_go_to_artist_title">隱藏前往藝人頁面選單</string>
-    <string name="revanced_hide_flyout_panel_go_to_episode_title">隱藏前往專輯選單</string>
-    <string name="revanced_hide_flyout_panel_go_to_podcast_title">隱藏前往Podcast選單</string>
-    <string name="revanced_hide_flyout_panel_help_title">隱藏幫助 &amp; 與回饋選單</string>
+    <string name="revanced_hide_flyout_panel_go_to_episode_title">隱藏前往專輯選項</string>
+    <string name="revanced_hide_flyout_panel_go_to_podcast_title">隱藏前往Podcast選項</string>
+    <string name="revanced_hide_flyout_panel_help_title">隱藏說明 &amp; 與回報問題選項</string>
     <string name="revanced_hide_flyout_panel_like_dislike_title">隱藏讚和倒讚按鈕</string>
     <string name="revanced_hide_flyout_panel_play_next_title">隱藏接著播放選單</string>
     <string name="revanced_hide_flyout_panel_remove_from_library_title">隱藏從媒體庫中移除選單</string>
+    <string name="revanced_hide_flyout_panel_remove_from_playlist_title">隱藏從播放清單中移除</string>
     <string name="revanced_hide_flyout_panel_report_title">隱藏檢舉選單</string>
-    <string name="revanced_hide_flyout_panel_save_episode_for_later_title">隱藏儲存專輯以供日後選單使用</string>
-    <string name="revanced_hide_flyout_panel_save_to_library_title">隱藏新增至媒體庫中選單</string>
+    <string name="revanced_hide_flyout_panel_save_episode_for_later_title">隱藏儲存專輯以供日後使用選項</string>
+    <string name="revanced_hide_flyout_panel_save_to_library_title">隱藏新增至媒體庫中選項</string>
     <string name="revanced_hide_flyout_panel_save_to_playlist_title">隱藏儲存至播放清單選單</string>
-    <string name="revanced_hide_flyout_panel_share_title">隱藏分享選單</string>
-    <string name="revanced_hide_flyout_panel_start_radio_title">隱藏開啟電台選單</string>
-    <string name="revanced_hide_flyout_panel_view_song_credit_title">隱藏查看歌曲製作人員名單選單</string>
+    <string name="revanced_hide_flyout_panel_share_title">隱藏分享選項</string>
+    <string name="revanced_hide_flyout_panel_start_radio_title">隱藏開啟電台選項</string>
+    <string name="revanced_hide_flyout_panel_view_song_credit_title">隱藏查看歌曲製作人員名單選項</string>
     <string name="revanced_hide_handle_summary">隱藏帳戶切換器中的句柄</string>
     <string name="revanced_hide_handle_title">隱藏手柄</string>
+    <string name="revanced_hide_history_button_summary">隱藏工具欄裡的歷史紀錄按鈕</string>
+    <string name="revanced_hide_history_button_title">隱藏歷史紀錄按鈕</string>
     <string name="revanced_hide_home_button_summary">隱藏主頁面按鈕</string>
     <string name="revanced_hide_home_button_title">隱藏\"首頁\"按鈕</string>
     <string name="revanced_hide_library_button_summary">隱藏資料庫按鈕</string>
@@ -143,7 +146,7 @@
     <string name="revanced_reboot_message">套用並重新啟動</string>
     <string name="revanced_replace_flyout_panel_dismiss_queue_continue_watch_summary">在 YouTube 上觀看時，從當前時間繼續觀看</string>
     <string name="revanced_replace_flyout_panel_dismiss_queue_continue_watch_title">繼續觀看</string>
-    <string name="revanced_replace_flyout_panel_dismiss_queue_summary">替換了取消隊列選單以在 YouTube 上觀看</string>
+    <string name="revanced_replace_flyout_panel_dismiss_queue_summary">替換取消隊列選項以在 YouTube 上觀看</string>
     <string name="revanced_replace_flyout_panel_dismiss_queue_title">替換取消隊列</string>
     <string name="revanced_replace_player_cast_button_title">更換投射按鈕</string>
     <string name="revanced_remember_repeat_state_summary">記住重複的狀態</string>
