@@ -43,7 +43,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
                 "18.42.41",
                 "18.43.45",
                 "18.44.41",
-                "18.45.38"
+                "18.45.41"
             ]
         )
     ]
