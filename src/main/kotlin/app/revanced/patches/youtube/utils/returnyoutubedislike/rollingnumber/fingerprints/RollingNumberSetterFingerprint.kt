@@ -6,7 +6,7 @@ import com.android.tools.smali.dexlib2.Opcode
 /**
  * This fingerprint is compatible with YouTube v18.29.38+
  */
-object RollingNumberTypeFingerprint : MethodFingerprint(
+object RollingNumberSetterFingerprint : MethodFingerprint(
     opcodes = listOf(
         Opcode.CHECK_CAST,
         Opcode.IGET,
