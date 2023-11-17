@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.general.layout
+package app.revanced.patches.youtube.general.descriptions
 
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.patch.BytecodePatch
@@ -9,8 +9,8 @@ import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.integrations.Constants.COMPONENTS_PATH
 
 @Patch(
-    name = "Hide layout components",
-    description = "Hides general layout components.",
+    name = "Hide channel profile components",
+    description = "Hides channel profile components.",
     dependencies = [
         LithoFilterPatch::class,
         SettingsPatch::class
@@ -43,28 +43,21 @@ import app.revanced.util.integrations.Constants.COMPONENTS_PATH
     ]
 )
 @Suppress("unused")
-object LayoutComponentsPatch : BytecodePatch() {
+object ChannelProfileComponentsPatch : BytecodePatch() {
     override fun execute(context: BytecodeContext) {
-        LithoFilterPatch.addFilter("$COMPONENTS_PATH/CommunityPostFilter;")
-        LithoFilterPatch.addFilter("$COMPONENTS_PATH/LayoutComponentsFilter;")
-        LithoFilterPatch.addFilter("$COMPONENTS_PATH/LayoutComponentsUniversalFilter;")
-        LithoFilterPatch.addFilter("$COMPONENTS_PATH/LowViewsFilter;")
+        LithoFilterPatch.addFilter("$COMPONENTS_PATH/ChannelProfileFilter;")
 
         /**
          * Add settings
          */
         SettingsPatch.addPreference(
             arrayOf(
-                "PREFERENCE: BOTTOM_PLAYER_SETTINGS",
                 "PREFERENCE: GENERAL_SETTINGS",
-                "PREFERENCE: PLAYER_SETTINGS",
-
-                "SETTINGS: HIDE_AUDIO_TRACK_BUTTON",
-                "SETTINGS: HIDE_CHANNEL_BAR_BUTTON",
-                "SETTINGS: HIDE_LAYOUT_COMPONENTS"
+                "SETTINGS: HIDE_CHANNEL_PROFILE_COMPONENTS"
             )
         )
 
-        SettingsPatch.updatePatchStatus("Hide layout components")
+        SettingsPatch.updatePatchStatus("Hide channel profile components")
+
     }
 }
