@@ -161,16 +161,6 @@ object SettingsPatch : AbstractSettingsResourcePatch(
         }
 
         /**
-         * If ad services config exists, disable it
-         */
-        context.xmlEditor["AndroidManifest.xml"].use { editor ->
-            val tags = editor.file.getElementsByTagName("property")
-            List(tags.length) { tags.item(it) as Element }
-                .filter { it.getAttribute("android:name").contains("AD_SERVICES_CONFIG") }
-                .forEach { it.parentNode.removeChild(it) }
-        }
-
-        /**
          * If a custom branding icon path exists, merge it
          */
         val iconPath = "branding"
