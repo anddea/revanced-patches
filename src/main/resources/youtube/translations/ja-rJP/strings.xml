@@ -40,6 +40,7 @@
     <string name="revanced_change_homepage_summary_on">起動時のタブ: 登録チャンネル</string>
     <string name="revanced_change_homepage_title">起動時のタブを登録チャンネルに変更</string>
     <string name="revanced_channel_bar_title">チャンネルバー</string>
+    <string name="revanced_channel_profile_title">チャンネルプロフィール</string>
     <string name="revanced_comments_title">コメント</string>
     <string name="revanced_custom_filter_strings_summary">コンポーネント名でフィルター (改行区切り)</string>
     <string name="revanced_custom_filter_strings_title">カスタムフィルターの編集</string>
@@ -124,9 +125,9 @@
     <string name="revanced_enable_language_switch_summary_off">アプリ言語の設定は無効です。</string>
     <string name="revanced_enable_language_switch_summary_on">アプリ言語の設定は有効です。</string>
     <string name="revanced_enable_language_switch_title">言語切り替えを有効化</string>
-    <string name="revanced_enable_music_search_summary_off">音楽検索は無効です。</string>
-    <string name="revanced_enable_music_search_summary_on">音楽検索が有効です。</string>
-    <string name="revanced_enable_music_search_title">音楽検索を有効化</string>
+    <string name="revanced_enable_music_search_summary_off">曲の検索は無効です。</string>
+    <string name="revanced_enable_music_search_summary_on">曲の検索が有効です。</string>
+    <string name="revanced_enable_music_search_title">曲の検索を有効化</string>
     <string name="revanced_enable_new_splash_animation_summary_off">YouTube 起動時の新しいスプラッシュアニメーションは無効です。</string>
     <string name="revanced_enable_new_splash_animation_summary_on">YouTube 起動時の新しいスプラッシュアニメーションは有効です。</string>
     <string name="revanced_enable_new_splash_animation_title">新しいスプラッシュアニメーション</string>
@@ -237,12 +238,12 @@
     <string name="revanced_hide_button_live_chat_summary_off">「チャット」ボタンは表示されます。</string>
     <string name="revanced_hide_button_live_chat_summary_on">「チャット」ボタンは非表示です。</string>
     <string name="revanced_hide_button_live_chat_title">チャットボタンを非表示</string>
-    <string name="revanced_hide_button_open_mix_playlist_summary_off">ミックスプレイリストを開くボタンは表示されます.</string>
-    <string name="revanced_hide_button_open_mix_playlist_summary_on">ミックスプレイリストを開くボタンは非表示です.</string>
-    <string name="revanced_hide_button_open_mix_playlist_title">ミックスプレイリストを開くボタンを非表示</string>
-    <string name="revanced_hide_button_open_playlist_summary_off">プレイリストを開くボタンは表示されます.</string>
-    <string name="revanced_hide_button_open_playlist_summary_on">プレイリストを開くボタンは非表示です.</string>
-    <string name="revanced_hide_button_open_playlist_title">プレイリストを開くボタンを非表示</string>
+    <string name="revanced_hide_button_open_mix_playlist_summary_off">ミックスリストを開くボタンは表示されます。</string>
+    <string name="revanced_hide_button_open_mix_playlist_summary_on">ミックスリストを開くボタンは非表示です。</string>
+    <string name="revanced_hide_button_open_mix_playlist_title">ミックスリストを開くボタンを非表示</string>
+    <string name="revanced_hide_button_open_playlist_summary_off">再生リストを開くボタンは表示されます。</string>
+    <string name="revanced_hide_button_open_playlist_summary_on">再生リストを開くボタンは非表示です。</string>
+    <string name="revanced_hide_button_open_playlist_title">再生リストを開くボタンを非表示</string>
     <string name="revanced_hide_button_remix_summary_off">「リミックス」ボタンは表示されます。</string>
     <string name="revanced_hide_button_remix_summary_on">「リミックス」ボタンは非表示です。</string>
     <string name="revanced_hide_button_remix_title">リミックスボタンを非表示</string>
@@ -345,9 +346,9 @@
     <string name="revanced_hide_fullscreen_panels_summary_off">全画面表示時に表示される、概要欄パネルとコメント欄パネルは表示されます。</string>
     <string name="revanced_hide_fullscreen_panels_summary_on">全画面表示時に表示される、概要欄パネルとコメント欄パネルは非表示です。</string>
     <string name="revanced_hide_fullscreen_panels_title">全画面表示パネルを非表示</string>
-    <string name="revanced_hide_game_section_summary_off">概要欄にあるゲームの説明は表示されます。</string>
-    <string name="revanced_hide_game_section_summary_on">概要欄にあるゲームの説明は非表示です。</string>
-    <string name="revanced_hide_game_section_title">ゲームの説明を非表示</string>
+    <string name="revanced_hide_game_section_summary_off">概要欄のゲームセクションは表示されます。</string>
+    <string name="revanced_hide_game_section_summary_on">概要欄のゲームセクションは非表示です。</string>
+    <string name="revanced_hide_game_section_title">ゲームセクションを非表示</string>
     <string name="revanced_hide_general_ads_summary_off">全般的な広告は表示されます。</string>
     <string name="revanced_hide_general_ads_summary_on">全般的な広告は非表示です。</string>
     <string name="revanced_hide_general_ads_title">全般的な広告を非表示</string>
@@ -369,8 +370,8 @@
     <string name="revanced_hide_image_shelf_summary_off">フィードの画像欄は表示されます</string>
     <string name="revanced_hide_image_shelf_summary_on">フィードの画像欄は非表示です</string>
     <string name="revanced_hide_image_shelf_title">画像欄を非表示</string>
-    <string name="revanced_hide_info_cards_section_summary_off">概要欄にあるチャンネル情報カードは表示されます。</string>
-    <string name="revanced_hide_info_cards_section_summary_on">概要欄にあるチャンネル情報カードは非表示です。</string>
+    <string name="revanced_hide_info_cards_section_summary_off">概要欄のチャンネル情報カードは表示されます。</string>
+    <string name="revanced_hide_info_cards_section_summary_on">概要欄のチャンネル情報カードは非表示です。</string>
     <string name="revanced_hide_info_cards_section_title">チャンネル情報カードを非表示</string>
     <string name="revanced_hide_info_cards_summary_off">プレーヤーの右上に表示される情報カードは表示されます。</string>
     <string name="revanced_hide_info_cards_summary_on">プレーヤーの右上に表示される情報カードは非表示です。</string>
@@ -405,9 +406,9 @@
     <string name="revanced_hide_movie_shelf_summary_off">「YouTube の映画とテレビ番組」の欄は表示されます。</string>
     <string name="revanced_hide_movie_shelf_summary_on">「YouTube の映画とテレビ番組」の欄は非表示です。</string>
     <string name="revanced_hide_movie_shelf_title">映画欄を非表示</string>
-    <string name="revanced_hide_music_section_summary_off">概要欄にある音楽の説明は表示されます。</string>
-    <string name="revanced_hide_music_section_summary_on">概要欄にある音楽の説明は非表示です。</string>
-    <string name="revanced_hide_music_section_title">音楽欄を非表示</string>
+    <string name="revanced_hide_music_section_summary_off">概要欄の音楽セクションは表示されます。</string>
+    <string name="revanced_hide_music_section_summary_on">概要欄の音楽セクションは非表示です。</string>
+    <string name="revanced_hide_music_section_title">音楽セクションを非表示</string>
     <string name="revanced_hide_navigation_label_summary_off">ナビゲーションバーのラベルは表示されます。</string>
     <string name="revanced_hide_navigation_label_summary_on">ナビゲーションバーのラベルは非表示です。</string>
     <string name="revanced_hide_navigation_label_title">ナビゲーションバーのラベルを非表示</string>
@@ -417,9 +418,9 @@
     <string name="revanced_hide_paid_promotion_banner_summary_off">動画の有料プロモーションバナーは表示されます。</string>
     <string name="revanced_hide_paid_promotion_banner_summary_on">動画の有料プロモーションバナーは非表示です。</string>
     <string name="revanced_hide_paid_promotion_banner_title">有料プロモーションバナーを非表示</string>
-    <string name="revanced_hide_place_section_summary_off">概要欄にある場所の説明は表示されます。</string>
-    <string name="revanced_hide_place_section_summary_on">概要欄にある場所の説明は非表示です。</string>
-    <string name="revanced_hide_place_section_title">場所欄を非表示</string>
+    <string name="revanced_hide_place_section_summary_off">概要欄の場所セクションは表示されます。</string>
+    <string name="revanced_hide_place_section_summary_on">概要欄の場所セクション非表示です。</string>
+    <string name="revanced_hide_place_section_title">場所セクションを非表示</string>
     <string name="revanced_hide_player_flyout_panel_ambient_mode_summary_off">「アンビエント モード」メニューは表示されます。</string>
     <string name="revanced_hide_player_flyout_panel_ambient_mode_summary_on">「アンビエント モード」メニューは非表示です。</string>
     <string name="revanced_hide_player_flyout_panel_ambient_mode_title">アンビエントモードメニューを非表示</string>
@@ -468,6 +469,9 @@
     <string name="revanced_hide_player_flyout_panel_watch_in_vr_summary_off">「VR で見る」メニューは表示されます。</string>
     <string name="revanced_hide_player_flyout_panel_watch_in_vr_summary_on">「VR で見る」メニューは非表示です。</string>
     <string name="revanced_hide_player_flyout_panel_watch_in_vr_title">「VR で見る」を非表示</string>
+    <string name="revanced_hide_podcast_section_summary_off">概要欄のポッドキャストセクションは表示されます。</string>
+    <string name="revanced_hide_podcast_section_summary_on">概要欄のポッドキャストセクションは非表示です。</string>
+    <string name="revanced_hide_podcast_section_title">ポッドキャストセクションを非表示</string>
     <string name="revanced_hide_preview_comment_off">コメントのプレビューは表示されます。</string>
     <string name="revanced_hide_preview_comment_on">コメントのプレビューを非表示にします。</string>
     <string name="revanced_hide_preview_comment_title">コメントのプレビューを非表示</string>
@@ -501,9 +505,9 @@
     <string name="revanced_hide_seek_message_summary_off">動画長押しシーク時に表示される「移動するには左右にスライドします」などのメッセージを非表示にします。</string>
     <string name="revanced_hide_seek_message_summary_on">動画長押しシーク時に表示される「移動するには左右にスライドします」などのメッセージを非表示にします。</string>
     <string name="revanced_hide_seek_message_title">シーク時のメッセージを非表示</string>
-    <string name="revanced_hide_seek_undo_message_summary_off">シーク時のメッセージは表示されます。</string>
-    <string name="revanced_hide_seek_undo_message_summary_on">シーク時のメッセージは非表示です。</string>
-    <string name="revanced_hide_seek_undo_message_title">シーク時のメッセージを非表示</string>
+    <string name="revanced_hide_seek_undo_message_summary_off">シーク取り消しのメッセージは表示されます。</string>
+    <string name="revanced_hide_seek_undo_message_summary_on">シーク取り消しのメッセージは非表示です。</string>
+    <string name="revanced_hide_seek_undo_message_title">シーク取り消しメッセージを非表示</string>
     <string name="revanced_hide_self_sponsor_cards_summary_off">セルフスポンサーカードは表示されます。</string>
     <string name="revanced_hide_self_sponsor_cards_summary_on">セルフスポンサーカードは非表示です。</string>
     <string name="revanced_hide_self_sponsor_cards_title">セルフスポンサーカードを非表示</string>
@@ -543,8 +547,6 @@
     <string name="revanced_hide_snack_bar_summary_off">共有からリンクをコピーした際の画面下部のポップアップなどは表示されます。</string>
     <string name="revanced_hide_snack_bar_summary_on">共有からリンクをコピーした際の画面下部のポップアップなどは非表示です。</string>
     <string name="revanced_hide_snack_bar_title">スナックバーを非表示</string>
-    <string name="revanced_hide_start_trial_button_summary_off">トライアル開始ボタンは表示されます.</string>
-    <string name="revanced_hide_start_trial_button_summary_on">トライアル開始ボタンは非表示です.</string>
     <string name="revanced_hide_start_trial_button_title">トライアル開始ボタンを非表示</string>
     <string name="revanced_hide_subscriptions_button_summary_off">「登録チャンネル」ボタンは表示されます。</string>
     <string name="revanced_hide_subscriptions_button_summary_on">「登録チャンネル」ボタンは非表示です。</string>
@@ -572,9 +574,9 @@
     <string name="revanced_hide_time_stamp_summary_off">タイムスタンプは表示されます。</string>
     <string name="revanced_hide_time_stamp_summary_on">タイムスタンプは非表示です。</string>
     <string name="revanced_hide_time_stamp_title">タイムスタンプを非表示</string>
-    <string name="revanced_hide_transcript_section_summary_off">概要欄にある文字起こし欄は表示されます。</string>
-    <string name="revanced_hide_transcript_section_summary_on">概要欄にある文字起こし欄は非表示です。</string>
-    <string name="revanced_hide_transcript_section_title">文字起こし欄を非表示</string>
+    <string name="revanced_hide_transcript_section_summary_off">概要欄の文字起こしセクションは表示されます。</string>
+    <string name="revanced_hide_transcript_section_summary_on">概要欄の文字起こしセクションは非表示です。</string>
+    <string name="revanced_hide_transcript_section_title">文字起こしセクションを非表示</string>
     <string name="revanced_hide_toolbar_create_notification_button_summary_off">作成ボタンと通知ボタンは表示されます。</string>
     <string name="revanced_hide_toolbar_create_notification_button_summary_on">作成ボタンと通知ボタンは非表示です。</string>
     <string name="revanced_hide_toolbar_create_notification_button_title">ツールバーのボタンを非表示</string>
@@ -657,14 +659,14 @@
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">非表示</string>
     <string name="revanced_sanitize_sharing_links_summary">リンクを共有する際に、URL からトラッキングクエリパラメーターを削除します。</string>
     <string name="revanced_sanitize_sharing_links_title">共有リンクのクリーンアップ</string>
-    <string name="revanced_save_playback_speed" formatted="false">デフォルトの速度を %sに変更しています。</string>
-    <string name="revanced_save_video_quality_mobile" formatted="false">既定のモバイルデータ品質を %sに変更しています。</string>
+    <string name="revanced_save_playback_speed" formatted="false">デフォルトの再生速度を %s に変更しました。</string>
+    <string name="revanced_save_video_quality_mobile" formatted="false">モバイルネットワーク使用時のデフォルト画質を %s に変更しました。</string>
     <string name="revanced_save_video_quality_none">画質の設定に失敗しました</string>
-    <string name="revanced_save_video_quality_wifi" formatted="false">デフォルトのWi-Fi品質を %sに変更しています。</string>
+    <string name="revanced_save_video_quality_wifi" formatted="false">Wi-Fi 使用時のデフォルト画質を %s に変更しました。</string>
     <string name="revanced_seekbar">シークバー</string>
-    <string name="revanced_share_copy_timestamp_success" formatted="false">タイムスタンプをクリップボードにコピーしました (%s)</string>
+    <string name="revanced_share_copy_timestamp_success" formatted="false">タイムスタンプをクリップボードにコピーしました。 (%s)</string>
     <string name="revanced_share_copy_url_success">URL をクリップボードにコピーしました。</string>
-    <string name="revanced_share_copy_url_timestamp_success">タイムスタンプ付きの URL がクリップボードにコピーされました。</string>
+    <string name="revanced_share_copy_url_timestamp_success">タイムスタンプ付きの URL をクリップボードにコピーしました。</string>
     <string name="revanced_shorts">ショート動画</string>
     <string name="revanced_shorts_player_title">ショートのプレーヤー</string>
     <string name="revanced_shorts_toolbar_summary">ショートのツールバーを非表示にするには、ショートのツールバーカテゴリーのすべての設定を非表示にしてください。</string>
@@ -692,7 +694,7 @@
     <string name="revanced_spoof_app_version_target_entry_18_05_40">18.05.40 - 古いコメント入力ボックスを復元</string>
     <string name="revanced_spoof_app_version_target_entry_18_17_43">18.17.43 - 古いプレーヤーフライアウトパネルを復元</string>
     <string name="revanced_spoof_app_version_target_entry_18_33_40">18.33.40 - 古いショートのアクションバーを復元</string>
-    <string name="revanced_spoof_app_version_target_entry_18_40_34">"リアルタイムでの視聴回数と高評価の更新を無効化"</string>
+    <string name="revanced_spoof_app_version_target_entry_18_40_34">"18.40.34 - リアルタイムでの視聴回数と高評価の更新を無効化"</string>
     <string name="revanced_spoof_app_version_target_entry_title">偽装するバージョンの選択</string>
     <string name="revanced_spoof_app_version_target_summary">偽装するバージョンを入力してください。</string>
     <string name="revanced_spoof_app_version_target_title">偽装するアプリバージョンの編集</string>
@@ -783,7 +785,7 @@
     <string name="sb_settings_revanced_export_user_id_warning_dismiss">今後表示しない</string>
     <string name="sb_diff_segments">セグメントの設定</string>
     <string name="sb_segments_sponsor">スポンサー</string>
-    <string name="sb_segments_sponsor_sum">有料プロモーション、有料紹介、直接広告が含まれます。セルフプロモーションや、個人の好きな/クリエイター/ウェブサイト/商品に対する無償の活動は含まれません。</string>
+    <string name="sb_segments_sponsor_sum">有料プロモーション、有料紹介、直接広告が含まれます。セルフプロモーションや、個人の好きなクリエイター/ウェブサイト/商品に対する無償の活動は含まれません。</string>
     <string name="sb_segments_selfpromo">無報酬 / セルフプロモーション</string>
     <string name="sb_segments_selfpromo_sum">無報酬のプロモーションあるいはセルフプロモーションであるという点を除いては「スポンサー」と同様です。商品、寄付、コラボ情報に関する内容を含みます。</string>
     <string name="sb_segments_interaction">リマインダー</string>
