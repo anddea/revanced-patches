@@ -30,6 +30,7 @@ import com.android.tools.smali.dexlib2.util.MethodUtil
 @Patch(dependencies = [PlayerTypeHookPatch::class])
 object VideoIdPatch : BytecodePatch(
     setOf(
+        OrganicPlaybackContextModelFingerprint,
         PlayerControllerSetTimeReferenceFingerprint,
         VideoEndFingerprint,
         VideoIdParentFingerprint,
