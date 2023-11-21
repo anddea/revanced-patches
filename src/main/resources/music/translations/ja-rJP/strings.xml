@@ -14,10 +14,10 @@
     <string name="revanced_custom_filter_strings_warning">無効なカスタムフィルターです。デフォルトにリセットします。</string>
     <string name="revanced_custom_filter_summary">カスタムフィルターを有効にします</string>
     <string name="revanced_custom_filter_title">カスタムフィルター</string>
-    <string name="revanced_custom_playback_speeds_invalid">無効なカスタム再生速度です！デフォルトにリセットします</string>
-    <string name="revanced_custom_playback_speeds_summary">利用可能な再生速度を追加または変更します</string>
+    <string name="revanced_custom_playback_speeds_invalid">無効なカスタム再生速度です。デフォルト値にリセットします。</string>
+    <string name="revanced_custom_playback_speeds_summary">利用可能な再生速度を編集します。</string>
     <string name="revanced_custom_playback_speeds_title">カスタム再生速度の編集</string>
-    <string name="revanced_custom_playback_speeds_warning" formatted="false">カスタム再生速度は %s 倍速以上にすることはできません</string>
+    <string name="revanced_custom_playback_speeds_warning" formatted="false">カスタム再生速度は %s 倍速以上にすることはできません。 </string>
     <string name="revanced_disable_auto_captions_summary">動画側で設定されている、字幕の強制は無効です。</string>
     <string name="revanced_disable_auto_captions_title">字幕の強制を無効化</string>
     <string name="revanced_downloader_not_installed" formatted="false">%s はインストールされていません。インストールしてください。</string>
@@ -27,9 +27,9 @@
     <string name="revanced_enable_color_match_player_title">カラーマッチプレーヤーを有効化</string>
     <string name="revanced_enable_compact_dialog_summary">"コンパクトなダイアログを有効にします。
 
- 既知の問題点：
- • ライブラリのアルバムアートも小さくなります。
- • スリープ タイマーのレイアウトが異常に見える場合があります。"</string>
+既知の問題:
+• ライブラリのアルバムアートが小さくなります。
+• スリープタイマーのレイアウトが異常になる場合があります。"</string>
     <string name="revanced_enable_compact_dialog_title">コンパクトなダイアログ</string>
     <string name="revanced_enable_debug_logging_summary">デバッグログを出力します</string>
     <string name="revanced_enable_debug_logging_title">デバッグログ</string>
@@ -41,8 +41,8 @@
     <string name="revanced_enable_landscape_mode_title">横画面モードを有効化</string>
     <string name="revanced_enable_new_player_background_summary">新しいプレーヤーの背景</string>
     <string name="revanced_enable_new_player_background_title">新しいプレーヤーの背景は有効です</string>
-    <string name="revanced_enable_old_player_layout_summary">"プレーヤーのレイアウトを古いスタイルに戻します　
-古いプレーヤーレイアウトでは、一部の設定が正常に機能しない場合があります
+    <string name="revanced_enable_old_player_layout_summary">"プレーヤーのレイアウトを古いスタイルに戻します。　
+古いプレーヤーレイアウトでは、一部の設定が正常に機能しない場合があります。
 
 警告: この機能が有効になっている間は [新しいプレーヤーの背景] を有効にしないでください。"</string>
     <string name="revanced_enable_old_player_layout_title">古いプレーヤーのレイアウト</string>
@@ -50,7 +50,7 @@
     <string name="revanced_enable_old_style_library_shelf_title">古いスタイルのライブラリ</string>
     <string name="revanced_enable_old_style_mini_player_summary">ミニプレーヤーを古いスタイルに戻します</string>
     <string name="revanced_enable_old_style_mini_player_title">古いスタイルのミニプレーヤー</string>
-    <string name="revanced_enable_opus_codec_summary">オーディオ再生時に 250/251 Opus コーデックを有効化します</string>
+    <string name="revanced_enable_opus_codec_summary">MP4A コーデックの代わりに、Opus コーデックを適用します。</string>
     <string name="revanced_enable_opus_codec_title">Opus コーデックを有効化</string>
     <string name="revanced_enable_save_playback_speed_summary">再生速度を変更するたびに、再生速度を保存します。</string>
     <string name="revanced_enable_save_playback_speed_title">再生速度を保存</string>
@@ -65,13 +65,13 @@
     <string name="revanced_extended_settings_import_export_summary">設定をテキストとしてインポートまたはエクスポートします。</string>
     <string name="revanced_extended_settings_import_export_title">インポート/エクスポート</string>
     <string name="revanced_extended_settings_import_failure_parse">インポート失敗: %s</string>
-    <string name="revanced_extended_settings_import_reset">設定をデフォルトにリセットしました</string>
-    <string name="revanced_extended_settings_import_success">%d の設定をインポートしました</string>
+    <string name="revanced_extended_settings_import_reset">設定をデフォルトにリセットしました。</string>
+    <string name="revanced_extended_settings_import_success">%d の設定をインポートしました。</string>
     <string name="revanced_external_downloader_not_installed_warning" formatted="false">%s はインストールされていません。インストールしてください</string>
     <string name="revanced_external_downloader_package_name_summary">NewPipe や YTDLnis などの、インストールされている外部ダウンローダーアプリのパッケージ名</string>
     <string name="revanced_external_downloader_package_name_title">外部ダウンローダーのパッケージ名</string>
     <string name="revanced_flyout_panel_watch_on_youtube">YouTube で視聴</string>
-    <string name="revanced_hide_account_menu_empty_component_summary">アカウントメニューの空のコンポーネントを非表示にします</string>
+    <string name="revanced_hide_account_menu_empty_component_summary">アカウントメニューの空のコンポーネントを非表示にします。</string>
     <string name="revanced_hide_account_menu_empty_component_title">空のコンポーネントを非表示</string>
     <string name="revanced_hide_account_menu_summary">アカウントメニューの要素を非表示にします</string>
     <string name="revanced_hide_account_menu_title">アカウントメニューを非表示</string>
@@ -105,7 +105,7 @@
     <string name="revanced_hide_flyout_panel_like_dislike_title">高評価/低評価ボタンを非表示</string>
     <string name="revanced_hide_flyout_panel_play_next_title">「次に再生」を非表示</string>
     <string name="revanced_hide_flyout_panel_remove_from_library_title">「ライブラリから削除」を非表示</string>
-    <string name="revanced_hide_flyout_panel_remove_from_playlist_title">プレイリストから削除するメニューを非表示</string>
+    <string name="revanced_hide_flyout_panel_remove_from_playlist_title">「プレイリストから削除」を非表示</string>
     <string name="revanced_hide_flyout_panel_report_title">「報告」を非表示</string>
     <string name="revanced_hide_flyout_panel_save_episode_for_later_title">「エピソードを保存」を非表示</string>
     <string name="revanced_hide_flyout_panel_save_to_library_title">「ライブラリに保存」を非表示</string>
@@ -140,8 +140,8 @@
     <string name="revanced_hook_action_bar_download_summary">「オフラインに一時保存」ボタンでのダウンロードを外部アプリの機能に置き換えます</string>
     <string name="revanced_hook_action_bar_download_title">ダウンロードボタンをフック</string>
     <string name="revanced_playback_speed_normal">標準</string>
-    <string name="revanced_playlist_dismiss">既に公式の音楽ソースを再生しています</string>
-    <string name="revanced_playlist_error">公式の音楽ソースが利用できません</string>
+    <string name="revanced_playlist_dismiss">すでに公式の音楽ソースを再生しています。</string>
+    <string name="revanced_playlist_error">公式の音楽ソースが利用できません。</string>
     <string name="revanced_reboot_first_run">再起動してレイアウトを正常に読み込みます</string>
     <string name="revanced_reboot_message">更新して再起動</string>
     <string name="revanced_replace_flyout_panel_dismiss_queue_continue_watch_summary">YouTube で視聴するときは、現在の時間から視聴を続けます。</string>
@@ -163,20 +163,20 @@
     <string name="revanced_ryd_enabled_summary">低評価は数字で表示されます</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">低評価数は利用できません (クライアント API 制限)</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">非表示</string>
-    <string name="revanced_sanitize_sharing_links_summary">リンクを共有するときに、URLからトラッキングクエリパラメータを削除します。</string>
-    <string name="revanced_sanitize_sharing_links_title">共有リンクを浄化</string>
-    <string name="revanced_save_playback_speed" formatted="false">デフォルトの再生速度を%sに変更しています。</string>
-    <string name="revanced_save_video_quality_mobile" formatted="false">既定のモバイルデータ品質を %sに変更しています。</string>
-    <string name="revanced_save_video_quality_none">画質の設定に失敗しました</string>
-    <string name="revanced_save_video_quality_wifi" formatted="false">デフォルトのWi-Fi品質を %sに変更しています。</string>
+    <string name="revanced_sanitize_sharing_links_summary">リンクを共有する際に、URL からトラッキングクエリパラメーターを削除します。</string>
+    <string name="revanced_sanitize_sharing_links_title">共有リンクのクリーンアップ</string>
+    <string name="revanced_save_playback_speed" formatted="false">デフォルトの再生速度を %s に変更しました。</string>
+    <string name="revanced_save_video_quality_mobile" formatted="false">モバイルネットワーク使用時のデフォルト画質を %s に変更しました。</string>
+    <string name="revanced_save_video_quality_none">画質の設定に失敗しました。</string>
+    <string name="revanced_save_video_quality_wifi" formatted="false">Wi-Fi 使用時のデフォルト画質を %s に変更しました。</string>
     <string name="revanced_share_copy_settings_success">設定をクリップボードにコピーしました。</string>
-    <string name="revanced_spoof_app_version_summary">"YouTube のバージョンを古いバージョンに偽装します
+    <string name="revanced_spoof_app_version_summary">"YouTube のバージョンを古いバージョンに偽装します。
 
-• これによりアプリの外観が変わりますが、未知の問題が発生する場合があります
-• 後からこの機能を無効にしても、データを消去するまで古い UI のままになる場合があります"</string>
+• これによりアプリの外観が変わりますが、未知の問題が発生する場合があります。
+• 後からこの機能を無効にしても、データを消去するまで古い UI のままになる場合があります。"</string>
     <string name="revanced_spoof_app_version_target_entry_4_27_53">4.27.53 - カナダの地域でラジオモードを無効化</string>
     <string name="revanced_spoof_app_version_target_entry_6_10_53">6.10.53 - リアルタイムの歌詞を無効化</string>
-    <string name="revanced_spoof_app_version_target_summary">偽装するバージョンを選択してください</string>
+    <string name="revanced_spoof_app_version_target_summary">偽装するバージョンを選択してください。</string>
     <string name="revanced_spoof_app_version_target_title">偽装するバージョン</string>
     <string name="revanced_spoof_app_version_title">アプリのバージョンを偽装</string>
     <string name="revanced_start_page_entry_chart">チャート</string>
@@ -191,37 +191,37 @@
     <string name="sb_toast_on_skip">自動的にスキップする時にトーストを表示する</string>
     <string name="sb_toast_on_skip_sum">セグメントが自動的にスキップされたときにトーストを表示します。</string>
     <string name="sb_api_url">API の URL を変更</string>
-    <string name="sb_api_url_sum">SponsorBlock がサーバーとの通信で使うアドレスです。何をしているか理解していない場合は、変更しないでください。</string>
+    <string name="sb_api_url_sum">SponsorBlock がサーバーとの通信で使うアドレスです。自分が何をしているのか理解していない場合は、変更しないでください。</string>
     <string name="sb_api_url_reset">API の URL をリセットしました</string>
     <string name="sb_api_url_invalid">API の URL が無効です</string>
     <string name="sb_api_url_changed">API の URL を変更しました</string>
     <string name="sb_diff_segments">セグメントの設定</string>
     <string name="sb_segments_sponsor">スポンサー</string>
-    <string name="sb_segments_sponsor_sum">有料プロモーション、有料紹介、直接広告が含まれます。セルフプロモーションや、個人の好きな/クリエイター/ウェブサイト/商品に対する活動は含まれません。</string>
+    <string name="sb_segments_sponsor_sum">有料プロモーション、有料紹介、直接広告が含まれます。セルフプロモーションや、個人の好きなクリエイター/ウェブサイト/商品に対する無償の活動は含まれません。</string>
     <string name="sb_segments_selfpromo">無報酬 / セルフプロモーション</string>
     <string name="sb_segments_selfpromo_sum">無報酬のプロモーションあるいはセルフプロモーションであるという点を除いては「スポンサー」と同様です。商品、寄付、コラボ情報に関する内容を含みます。</string>
     <string name="sb_segments_interaction">リマインダー</string>
-    <string name="sb_segments_interaction_sum">動画の途中に挿入される高評価、チャンネル登録、フォローなどを促す短いリマインダー。長い、もしくは何か具体的なものは、「セルフプロモーション」に分類するべきです。</string>
+    <string name="sb_segments_interaction_sum">動画の途中に挿入される高評価、チャンネル登録、フォローなどを促す短いリマインダーは、長いものや何か具体的なものは「セルフプロモーション」に分類するべきです。</string>
     <string name="sb_segments_intro">休憩 / イントロアニメーション</string>
-    <string name="sb_segments_intro_sum">本編ではない部分。一時停止、静止画面、アニメーション繰り返しが含まれます。情報を含んだ転換画面は含まれません。</string>
+    <string name="sb_segments_intro_sum">本編ではない部分。一時停止、静止画面、アニメーションの繰り返しが含まれます。情報を含んだ転換画面は含まれません。</string>
     <string name="sb_segments_outro">エンドカード / クレジット</string>
-    <string name="sb_segments_outro_sum">クレジットや動画のエンドカードが表示されている場面を含みます。動画の結論は含まれません。</string>
-    <string name="sb_segments_preview">予告 / あらすじ</string>
-    <string name="sb_segments_preview_sum">今後起きる内容などをまとめたクリップのコレクション、この動画や他の動画・シリーズで起きること、他の場面で繰り返されるすべての情報が含まれます。 </string>
+    <string name="sb_segments_outro_sum">クレジットや動画のエンドカードが表示されている場面。情報を含む結論は含まれません。</string>
+    <string name="sb_segments_preview">予告 / 要約 / フック</string>
+    <string name="sb_segments_preview_sum">この動画やシリーズの他の動画で起きた、または今後起きる内容などをまとめたクリップのコレクション。すべての情報は、別の場所で繰り返し表示されます。</string>
     <string name="sb_segments_filler">繋ぎの話 / 冗談</string>
-    <string name="sb_segments_filler_sum">繋ぎの話や動画の本編を理解するのに必要のないユーモアなどの脱線したシーン。コンテクストや背景情報の詳細は含まれません。</string>
-    <string name="sb_segments_nomusic">ミュージック: 音楽ではない区間</string>
-    <string name="sb_segments_nomusic_sum">ミュージックビデオでのみ使われます。他のカテゴリーに含まれていないミュージックビデオの区間。</string>
+    <string name="sb_segments_filler_sum">動画の本編を理解するのに必要のない繋ぎの話やユーモアなどの逸脱したシーン。コンテクストや背景情報の詳細は含まれません。</string>
+    <string name="sb_segments_nomusic">MV: 音楽ではない区間</string>
+    <string name="sb_segments_nomusic_sum">ミュージックビデオでのみ使用できます。他のカテゴリーに含まれていない、ミュージックビデオの音楽のない区間。</string>
     <string name="sb_skipped_sponsor">スポンサーをスキップしました</string>
     <string name="sb_skipped_selfpromo">セルフプロモーションをスキップしました</string>
     <string name="sb_skipped_interaction">リマインダーをスキップしました</string>
     <string name="sb_skipped_intro_beginning">イントロをスキップしました</string>
-    <string name="sb_skipped_intro_middle">休憩時間をスキップしました</string>
+    <string name="sb_skipped_intro_middle">休憩をスキップしました</string>
     <string name="sb_skipped_intro_end">休憩をスキップしました</string>
     <string name="sb_skipped_outro">アウトロをスキップしました</string>
-    <string name="sb_skipped_preview_beginning">プレビューをスキップしました</string>
-    <string name="sb_skipped_preview_middle">プレビューをスキップしました</string>
-    <string name="sb_skipped_preview_end">あらすじをスキップしました</string>
+    <string name="sb_skipped_preview_beginning">予告をスキップしました</string>
+    <string name="sb_skipped_preview_middle">予告をスキップしました</string>
+    <string name="sb_skipped_preview_end">要約をスキップしました</string>
     <string name="sb_skipped_filler">繋ぎの話をスキップしました</string>
     <string name="sb_skipped_nomusic">音楽ではない区間をスキップしました</string>
     <string name="sb_skipped_multiple_segments">複数のセグメントをスキップしました</string>
@@ -232,6 +232,6 @@
     <string name="sb_color_reset">色をリセットしました</string>
     <string name="sb_color_invalid">カラーコードが無効です</string>
     <string name="sb_reset_color">色をリセット</string>
-    <string name="sb_about_api_sum">データは SponsorBlock API によって提供されます。 ここをタップして詳細を確認し、他のプラットフォームのダウンロードを確認してください。</string>
-    <string name="sb_about">概要</string>
+    <string name="sb_about_api_sum">データは SponsorBlock API によって提供されています。他のプラットフォームのダウンロードや詳細については、ここをタップしてください。</string>
+    <string name="sb_about">この機能について</string>
 </resources>
