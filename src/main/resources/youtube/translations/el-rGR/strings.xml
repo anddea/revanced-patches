@@ -40,6 +40,7 @@
     <string name="revanced_change_homepage_summary_on">Τρέχουσα αρχική σελίδα: Εγγραφές</string>
     <string name="revanced_change_homepage_title">Αλλαγή αρχικής σελίδας σε «Εγγραφές»</string>
     <string name="revanced_channel_bar_title">Γραμμή καναλιού</string>
+    <string name="revanced_channel_profile_title">Προφίλ καναλιού</string>
     <string name="revanced_comments_title">Σχόλια</string>
     <string name="revanced_custom_filter_strings_summary">Φιλτράρισμα στοιχείων με βάση τα ονόματα τους χωρισμένα σε γραμμές</string>
     <string name="revanced_custom_filter_strings_title">Επεξεργασία προσαρμοσμένου φίλτρου</string>
@@ -96,7 +97,7 @@
 Αυτή η λειτουργία αποτρέπει την συμπίεση και αποσυμπίεση των βίντεο κατά την αναπαραγωγή, κάτι το οποίο μπορεί να προκαλέσει κολλήματα, ενδέχεται όμως να χρησιμοποιηθούν περισσότερα δεδομένα."</string>
     <string name="revanced_disable_quic_protocol_title">Απενεργοποίηση πρωτοκόλλου QUIC</string>
     <string name="revanced_disable_speed_overlay_summary">"Απενεργοποίηση του «Παίζοντας με 2x ταχύτητα» κατά το παρατεταμένο πάτημα.
-Σημείωση: Ενεργοποιώντας αυτή τη ρύθμιση θα επαναφέρει το «Σύρετε αριστερά η δεξιά για αναζήτηση»"</string>
+Σημείωση: Ενεργοποιώντας αυτή τη ρύθμιση θα επαναφέρει τη λειτουργία «Σύρετε αριστερά η δεξιά για αναζήτηση»."</string>
     <string name="revanced_disable_speed_overlay_title">Απενεργοποίηση διεπαφής ταχύτητας</string>
     <string name="revanced_disable_startup_shorts_player_summary_off">Ο αναπαραγωγέας Shorts είναι ενεργοποιημένος κατά την εκκίνηση της εφαρμογής</string>
     <string name="revanced_disable_startup_shorts_player_summary_on">Ο αναπαραγωγέας Shorts είναι απενεργοποιημένος κατά την εκκίνηση της εφαρμογής</string>
@@ -339,12 +340,15 @@
     <string name="revanced_hide_feed_survey_summary_off">Οι έρευνες εμφανίζονται στη ροή</string>
     <string name="revanced_hide_feed_survey_summary_on">Οι έρευνες είναι κρυμμένες από τη ροή</string>
     <string name="revanced_hide_feed_survey_title">Απόκρυψη ερευνών από τη ροή</string>
-    <string name="revanced_hide_filmstrip_overlay_summary_off">Η ακριβής αναζήτηση καρέ-καρέ εμφανίζεται</string>
-    <string name="revanced_hide_filmstrip_overlay_summary_on">Η ακριβής αναζήτηση καρέ-καρέ είναι κρυμμένη</string>
-    <string name="revanced_hide_filmstrip_overlay_title">Απόκρυψη αναζήτησης καρέ-καρέ (φιλμ ταινίας)</string>
+    <string name="revanced_hide_filmstrip_overlay_summary_off">Η λειτουργία ακριβής αναζήτησης καρέ-καρέ είναι ενεργοποιημένη</string>
+    <string name="revanced_hide_filmstrip_overlay_summary_on">Η λειτουργία ακριβής αναζήτησης καρέ-καρέ είναι απενεργοποιημένη</string>
+    <string name="revanced_hide_filmstrip_overlay_title">Απενεργοποίηση αναζήτησης καρέ-καρέ</string>
     <string name="revanced_hide_floating_microphone_summary_off">Το αιωρούμενο κουμπί μικροφώνου εμφανίζεται</string>
     <string name="revanced_hide_floating_microphone_summary_on">Το αιωρούμενο κουμπί μικροφώνου είναι κρυμμένο</string>
     <string name="revanced_hide_floating_microphone_title">Απόκρυψη αιωρούμενου κουμπιού μικροφώνου</string>
+    <string name="revanced_hide_for_you_shelf_summary_off">"Τα ράφια «Για εσάς» εμφανίζονται."</string>
+    <string name="revanced_hide_for_you_shelf_summary_on">"Τα ράφια «Για εσάς» είναι κρυμμένα."</string>
+    <string name="revanced_hide_for_you_shelf_title">"Απόκρυψη ραφιού «Για εσάς»"</string>
     <string name="revanced_hide_fullscreen_panels_summary_off">Τα πάνελ πλήρους οθόνης εμφανίζονται</string>
     <string name="revanced_hide_fullscreen_panels_summary_on">Τα πάνελ πλήρους οθόνης είναι κρυμμένα</string>
     <string name="revanced_hide_fullscreen_panels_title">Απόκρυψη πάνελ πλήρους οθόνης</string>
@@ -429,8 +433,8 @@
     <string name="revanced_hide_player_flyout_panel_audio_track_summary_off">Το μενού «Κομμάτι ήχου» εμφανίζεται</string>
     <string name="revanced_hide_player_flyout_panel_audio_track_summary_on">Το μενού «Κομμάτι ήχου» είναι κρυμμένο</string>
     <string name="revanced_hide_player_flyout_panel_audio_track_title">Απόκρυψη μενού «Κομμάτι ήχου»</string>
-    <string name="revanced_hide_player_flyout_panel_captions_footer_summary_off">Το υποσέλιδο μενού υπότιτλων εμφανίζεται</string>
-    <string name="revanced_hide_player_flyout_panel_captions_footer_summary_on">Το υποσέλιδο μενού υπότιτλων είναι κρυμμένο</string>
+    <string name="revanced_hide_player_flyout_panel_captions_footer_summary_off">Το υποσέλιδο του μενού υπότιτλων εμφανίζεται</string>
+    <string name="revanced_hide_player_flyout_panel_captions_footer_summary_on">Το υποσέλιδο του μενού υπότιτλων είναι κρυμμένο</string>
     <string name="revanced_hide_player_flyout_panel_captions_footer_title">Απόκρυψη υποσέλιδου μενού υπότιτλων</string>
     <string name="revanced_hide_player_flyout_panel_captions_summary_off">Το μενού «Υπότιτλοι» εμφανίζεται</string>
     <string name="revanced_hide_player_flyout_panel_captions_summary_on">Το μενού «Υπότιτλοι» είναι κρυμμένο</string>
@@ -456,8 +460,8 @@
     <string name="revanced_hide_player_flyout_panel_premium_controls_summary_off">Το μενού «Έλεγχοι Premium» εμφανίζεται</string>
     <string name="revanced_hide_player_flyout_panel_premium_controls_summary_on">Το μενού «Έλεγχοι Premium» είναι κρυμμένο</string>
     <string name="revanced_hide_player_flyout_panel_premium_controls_title">Απόκρυψη μενού «Έλεγχοι Premium»</string>
-    <string name="revanced_hide_player_flyout_panel_quality_footer_summary_off">Το υποσέλιδο μενού ποιότητας εμφανίζεται</string>
-    <string name="revanced_hide_player_flyout_panel_quality_footer_summary_on">Το υποσέλιδο μενού ποιότητας είναι κρυμμένο</string>
+    <string name="revanced_hide_player_flyout_panel_quality_footer_summary_off">Το υποσέλιδο του μενού ποιότητας εμφανίζεται</string>
+    <string name="revanced_hide_player_flyout_panel_quality_footer_summary_on">Το υποσέλιδο του μενού ποιότητας είναι κρυμμένο</string>
     <string name="revanced_hide_player_flyout_panel_quality_footer_title">Απόκρυψη υποσέλιδου μενού ποιότητας</string>
     <string name="revanced_hide_player_flyout_panel_report_summary_off">Το μενού «Αναφορά» εμφανίζεται</string>
     <string name="revanced_hide_player_flyout_panel_report_summary_on">Το μενού «Αναφορά» είναι κρυμμένο</string>
@@ -471,6 +475,9 @@
     <string name="revanced_hide_player_flyout_panel_watch_in_vr_summary_off">Το μενού «Προβολή σε VR» εμφανίζεται</string>
     <string name="revanced_hide_player_flyout_panel_watch_in_vr_summary_on">Το μενού «Προβολή σε VR» είναι κρυμμένο</string>
     <string name="revanced_hide_player_flyout_panel_watch_in_vr_title">Απόκρυψη μενού «Προβολή σε VR»</string>
+    <string name="revanced_hide_podcast_section_summary_off">Τα τμήματα εκπομπής εμφανίζονται.</string>
+    <string name="revanced_hide_podcast_section_summary_on">Τα τμήματα εκπομπής είναι κρυμμένα.</string>
+    <string name="revanced_hide_podcast_section_title">Απόκρυψη τμημάτων εκπομπής</string>
     <string name="revanced_hide_preview_comment_off">Η προεπισκόπηση σχολίων εμφανίζεται</string>
     <string name="revanced_hide_preview_comment_on">Η προεπισκόπηση σχολίων είναι κρυμμένη</string>
     <string name="revanced_hide_preview_comment_title">Απόκρυψη προεπισκόπησης σχολίων</string>
