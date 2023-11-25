@@ -16,6 +16,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: Open pull request
         uses: repo-sync/pull-request@v2
         with:
@@ -26,5 +27,5 @@ jobs:
           
             ## Dependencies before merge
 
-            - [ ] https://github.com/revanced/revanced-integrations
+            - [ ] https://github.com/inotia00/revanced-integrations
           pr_draft: true
