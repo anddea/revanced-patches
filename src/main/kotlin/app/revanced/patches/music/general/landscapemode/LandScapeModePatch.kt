@@ -23,7 +23,7 @@ import app.revanced.util.integrations.Constants.MUSIC_GENERAL
         CompatiblePackage(
             "com.google.android.apps.youtube.music",
             [
-                "6.20.51",
+                "6.21.52",
                 "6.27.54",
                 "6.28.52"
             ]
