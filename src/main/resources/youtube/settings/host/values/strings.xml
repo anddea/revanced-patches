@@ -812,9 +812,6 @@ Known issues:
     <string name="sb_settings_import_failed">Failed to import: %s.</string>
     <string name="sb_settings_export_failed">Failed to export: %s.</string>
 
-    <string name="sb_settings_revanced_export_user_id_warning">Your settings contain a private SponsorBlock user id.\n\nYour user id is like a password and it should never be shared.\n</string>
-    <string name="sb_settings_revanced_export_user_id_warning_dismiss">Do not show again</string>
-
     <string name="sb_diff_segments">Change segment behavior</string>
     <string name="sb_segments_sponsor">Sponsor</string>
     <string name="sb_segments_sponsor_sum">Paid promotion, paid referrals and direct advertisements. Not for self-promotion or free shout-outs to causes / creators / websites / products they like.</string>
@@ -878,6 +875,7 @@ Known issues:
     <string name="sb_submit_failed_duplicate">Can\'t submit the segment.\nAlready exists.</string>
     <string name="sb_submit_succeeded">Segment submitted successfully.</string>
 
+    <string name="sb_vote_failed_timeout">Unable to vote for segment (API timed out)</string>
     <string name="sb_vote_failed_unknown_error" formatted="false">Unable to vote for segment (status: %d %s).</string>
     <string name="sb_vote_failed_forbidden" formatted="false">Unable to vote for segment: %s.</string>
     <string name="sb_vote_upvote">Upvote</string>
