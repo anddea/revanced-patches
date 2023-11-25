@@ -62,13 +62,22 @@ object SpoofAppVersionPatch : AbstractVersionSpoofPatch(
                 )
             )
 
-            if (SettingsPatch.upward1841) {
+            if (SettingsPatch.upward1839) {
                 contexts.appendChild(
                     arrayOf(
-                        "revanced_spoof_app_version_target_entry" to "@string/revanced_spoof_app_version_target_entry_18_40_34",
-                        "revanced_spoof_app_version_target_entry_value" to "18.40.34"
+                        "revanced_spoof_app_version_target_entry" to "@string/revanced_spoof_app_version_target_entry_18_38_45",
+                        "revanced_spoof_app_version_target_entry_value" to "18.38.45"
                     )
                 )
+
+                if (SettingsPatch.upward1841) {
+                    contexts.appendChild(
+                        arrayOf(
+                            "revanced_spoof_app_version_target_entry" to "@string/revanced_spoof_app_version_target_entry_18_40_34",
+                            "revanced_spoof_app_version_target_entry_value" to "18.40.34"
+                        )
+                    )
+                }
             }
         }
 
