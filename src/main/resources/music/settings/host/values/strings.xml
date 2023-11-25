@@ -161,7 +161,10 @@ WARNING: Do not enable new player backgrounds while this is enabled."</string>
     <string name="revanced_ryd_dislike_percentage_summary">Instead of the number of dislikes, the percentage of dislikes is shown.</string>
     <string name="revanced_ryd_dislike_percentage_title">Dislikes as percentage</string>
     <string name="revanced_ryd_enabled_summary">Shows the dislike count of videos.</string>
+    <string name="revanced_ryd_failure_connection_timeout">Dislikes temporarily not available (API timed out).</string>
+    <string name="revanced_ryd_failure_connection_status_code" formatted="false">Dislikes not available (status %d).</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Dislikes not available (client API limit reached).</string>
+    <string name="revanced_ryd_failure_generic">Dislikes not available (%s).</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Hidden</string>
     <string name="revanced_sanitize_sharing_links_summary">Removes tracking query parameters from the URLs when sharing links.</string>
     <string name="revanced_sanitize_sharing_links_title">Sanitize sharing links</string>
@@ -232,6 +235,10 @@ WARNING: Do not enable new player backgrounds while this is enabled."</string>
     <string name="sb_skipped_multiple_segments">Skipped multiple segments.</string>
     <string name="sb_skip_automatically">Skip automatically</string>
     <string name="sb_skip_ignore">Disable</string>
+
+    <string name="sb_sponsorblock_connection_failure_generic">SponsorBlock temporarily not available.</string>
+    <string name="sb_sponsorblock_connection_failure_status" formatted="false">SponsorBlock temporarily not available (status %d).</string>
+    <string name="sb_sponsorblock_connection_failure_timeout">SponsorBlock temporarily not available (API timed out).</string>
 
     <string name="sb_color_dot_label">Color:</string>
     <string name="sb_color_changed">Color changed.</string>
