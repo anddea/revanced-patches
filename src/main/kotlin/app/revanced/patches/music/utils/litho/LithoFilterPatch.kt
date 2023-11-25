@@ -4,6 +4,7 @@ import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.music.utils.litho.fingerprints.LithoFilterFingerprint
@@ -29,15 +30,15 @@ object LithoFilterPatch : BytecodePatch(
 
         LithoFilterFingerprint.result?.let {
             it.mutableMethod.apply {
-                removeInstructions(0, 6)
+                removeInstructions(2, 4) // Remove dummy filter.
 
                 addFilter = { classDescriptor ->
                     addInstructions(
                         0, """
-                        new-instance v0, $classDescriptor
-                        invoke-direct {v0}, $classDescriptor-><init>()V
-                        const/16 v3, ${filterCount++}
-                        aput-object v0, v2, v3
+                        new-instance v1, $classDescriptor
+                        invoke-direct {v1}, $classDescriptor-><init>()V
+                        const/16 v2, ${filterCount++}
+                        aput-object v1, v0, v2
                         """
                     )
                 }
@@ -47,11 +48,5 @@ object LithoFilterPatch : BytecodePatch(
     }
 
     override fun close() = LithoFilterFingerprint.result!!
-        .mutableMethod.addInstructions(
-            0, """
-                const/16 v1, $filterCount
-                new-array v2, v1, [$MUSIC_COMPONENTS_PATH/Filter;
-                const/4 v1, 0x1
-                """
-        )
+        .mutableMethod.replaceInstruction(0, "const/16 v0, $filterCount")
 }
