@@ -107,6 +107,33 @@ internal object MusicResourceHelper {
         )
     }
 
+    internal fun ResourceContext.addMicroGPreference(
+        category: String,
+        key: String,
+        packageName: String,
+        targetClassName: String
+    ) {
+        this.xmlEditor[YOUTUBE_MUSIC_SETTINGS_PATH].use { editor ->
+            val tags = editor.file.getElementsByTagName(YOUTUBE_MUSIC_PREFERENCE_SCREEN_TAG_NAME)
+            List(tags.length) { tags.item(it) as Element }
+                .filter { it.getAttribute("android:key").contains("revanced_settings_$category") }
+                .forEach {
+                    it.adoptChild("Preference") {
+                        setAttribute("android:title", "@string/$key" + "_title")
+                        setAttribute("android:summary", "@string/$key" + "_summary")
+                        this.adoptChild("intent") {
+                            setAttribute("android:targetPackage", packageName)
+                            setAttribute("android:data", key)
+                            setAttribute(
+                                "android:targetClass",
+                                targetClassName
+                            )
+                        }
+                    }
+                }
+        }
+    }
+
     internal fun ResourceContext.addMusicPreference(
         category: String,
         key: String,

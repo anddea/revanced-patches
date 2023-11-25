@@ -11,15 +11,20 @@ internal object Constants {
     const val MICROG_VENDOR = "com.mgoogle"
 
     /**
+     * microG package name
+     */
+    const val MICROG_PACKAGE_NAME = "$MICROG_VENDOR.android.gms"
+
+    /**
      * meta-data for microG package name spoofing on patched builds
      */
-    const val META_SPOOFED_PACKAGE_NAME = "$MICROG_VENDOR.android.gms.SPOOFED_PACKAGE_NAME"
+    const val META_SPOOFED_PACKAGE_NAME = "$MICROG_PACKAGE_NAME.SPOOFED_PACKAGE_NAME"
 
     /**
      * meta-data for microG package signature spoofing on patched builds
      */
     const val META_SPOOFED_PACKAGE_SIGNATURE =
-        "$MICROG_VENDOR.android.gms.SPOOFED_PACKAGE_SIGNATURE"
+        "$MICROG_PACKAGE_NAME.SPOOFED_PACKAGE_SIGNATURE"
 
     /**
      * meta-data for microG package detection
