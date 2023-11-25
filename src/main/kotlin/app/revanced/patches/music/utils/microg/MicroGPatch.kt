@@ -15,6 +15,7 @@ import app.revanced.patches.music.utils.microg.fingerprints.GooglePlayUtilityFin
 import app.revanced.patches.music.utils.microg.fingerprints.PrimeFingerprint
 import app.revanced.patches.music.utils.microg.fingerprints.ServiceCheckFingerprint
 import app.revanced.patches.shared.patch.packagename.PackageNamePatch
+import app.revanced.util.bytecode.BytecodeHelper.injectInit
 import app.revanced.util.microg.MicroGBytecodeHelper
 
 @Patch(
@@ -86,6 +87,8 @@ object MicroGPatch : BytecodePatch(
                 CastContextFetchFingerprint
             )
         )
+
+        context.injectInit("MicroGPatch", "checkAvailability", false)
 
     }
 }
