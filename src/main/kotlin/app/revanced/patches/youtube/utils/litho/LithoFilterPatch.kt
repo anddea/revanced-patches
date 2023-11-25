@@ -5,7 +5,6 @@ import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.shared.patch.litho.ComponentParserPatch
@@ -45,11 +44,11 @@ object LithoFilterPatch : BytecodePatch(
         generalHook("$INTEGRATIONS_CLASS_DESCRIPTOR->filter")
 
         LithoFilterFingerprint.result?.mutableMethod?.apply {
-            removeInstructions(2, 4) // Remove dummy filter.
+            removeInstructions(0, 6)
 
             addFilter = { classDescriptor ->
                 addInstructions(
-                    2, """
+                    0, """
                         new-instance v1, $classDescriptor
                         invoke-direct {v1}, $classDescriptor-><init>()V
                         const/16 v2, ${filterCount++}
@@ -62,5 +61,10 @@ object LithoFilterPatch : BytecodePatch(
     }
 
     override fun close() = LithoFilterFingerprint.result!!
-        .mutableMethod.replaceInstruction(0, "const/16 v0, $filterCount")
+        .mutableMethod.addInstructions(
+            0, """
+                const/16 v0, $filterCount
+                new-array v0, v0, [$COMPONENTS_PATH/Filter;
+                """
+        )
 }
