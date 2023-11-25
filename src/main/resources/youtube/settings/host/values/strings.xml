@@ -672,7 +672,10 @@ Tap and hold to set playback speed to 1.0x."</string>
     <string name="revanced_ryd_enable_summary_off">Dislikes are not shown.</string>
     <string name="revanced_ryd_enable_summary_on">Dislikes are shown.</string>
     <string name="revanced_ryd_enable_title">Enable Return YouTube Dislike</string>
+    <string name="revanced_ryd_failure_connection_timeout">Dislikes temporarily not available (API timed out).</string>
+    <string name="revanced_ryd_failure_connection_status_code" formatted="false">Dislikes not available (status %d).</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Dislikes not available (client API limit reached).</string>
+    <string name="revanced_ryd_failure_generic">Dislikes not available (%s).</string>
     <string name="revanced_ryd_shorts_summary_off">Dislikes hidden on Shorts.</string>
     <string name="revanced_ryd_shorts_summary_on">Dislikes shown on Shorts.</string>
     <string name="revanced_ryd_shorts_title">Show dislikes on Shorts</string>
@@ -859,6 +862,10 @@ Known issues:
     <string name="sb_skip_showbutton">Show a skip button</string>
     <string name="sb_skip_seekbaronly">Show in seek bar</string>
     <string name="sb_skip_ignore">Disable</string>
+
+    <string name="sb_sponsorblock_connection_failure_generic">SponsorBlock temporarily not available.</string>
+    <string name="sb_sponsorblock_connection_failure_status" formatted="false">SponsorBlock temporarily not available (status %d).</string>
+    <string name="sb_sponsorblock_connection_failure_timeout">SponsorBlock temporarily not available (API timed out).</string>
 
     <string name="sb_submit_failed_invalid" formatted="false">Can\'t submit the segment: %s.</string>
     <string name="sb_submit_failed_timeout">Unable to submit segments (API timed out).</string>
