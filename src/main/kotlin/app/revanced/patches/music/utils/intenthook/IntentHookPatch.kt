@@ -21,7 +21,7 @@ object IntentHookPatch : BytecodePatch(
             it.mutableMethod.apply {
                 addInstructionsWithLabels(
                     1, """
-                        invoke-static {p0}, $MUSIC_INTEGRATIONS_PATH/settingsmenu/SharedPreferenceChangeListener;->initializeSettings(Landroid/app/Activity;)Z
+                        invoke-static {p0}, $MUSIC_INTEGRATIONS_PATH/settingsmenu/ReVancedSettingActivity;->initializeSettings(Landroid/app/Activity;)Z
                         move-result v0
                         if-eqz v0, :show
                         return-void
