@@ -17,6 +17,7 @@ import app.revanced.util.resources.MusicResourceHelper.addReVancedMusicPreferenc
 import app.revanced.util.resources.MusicResourceHelper.sortMusicPreferenceCategory
 import app.revanced.util.resources.ResourceUtils
 import app.revanced.util.resources.ResourceUtils.copyResources
+import app.revanced.util.resources.ResourceUtils.copyXmlNode
 import org.w3c.dom.Element
 import java.io.Closeable
 import java.io.File
@@ -179,6 +180,11 @@ object SettingsPatch : AbstractSettingsResourcePatch(
     }
 
     override fun close() {
+        /**
+         * Copy arrays
+         */
+        contexts.copyXmlNode("music/settings/host", "values/arrays.xml", "resources")
+
         addMusicPreferenceWithIntent(
             CategoryType.MISC,
             "revanced_extended_settings_import_export",
