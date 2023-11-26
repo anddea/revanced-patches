@@ -10,8 +10,9 @@ import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.general.widesearchbar.fingerprints.SetActionBarRingoFingerprint
+import app.revanced.patches.youtube.general.widesearchbar.fingerprints.SetWordMarkHeaderFingerprint
 import app.revanced.patches.youtube.general.widesearchbar.fingerprints.YouActionBarFingerprint
-import app.revanced.patches.youtube.utils.fingerprints.SetToolBarPaddingFingerprint
+import app.revanced.patches.youtube.utils.fingerprints.CreateSearchSuggestionsFingerprint
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch.contexts
@@ -55,23 +56,31 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 @Suppress("unused")
 object WideSearchBarPatch : BytecodePatch(
     setOf(
+        CreateSearchSuggestionsFingerprint,
         SetActionBarRingoFingerprint,
-        SetToolBarPaddingFingerprint
+        SetWordMarkHeaderFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext) {
 
-        arrayOf(
-            SetActionBarRingoFingerprint,
-            SetToolBarPaddingFingerprint
-        ).forEach {
-            it.injectHook(context)
+        val result = CreateSearchSuggestionsFingerprint.result
+            ?: throw CreateSearchSuggestionsFingerprint.exception
+
+        val parentClassDef = SetActionBarRingoFingerprint.result?.classDef
+            ?: throw CreateSearchSuggestionsFingerprint.exception
+
+        // patch methods
+        mapOf(
+            SetWordMarkHeaderFingerprint to 1,
+            CreateSearchSuggestionsFingerprint to result.scanResult.patternScanResult!!.startIndex
+        ).forEach { (fingerprint, callIndex) ->
+            context.walkMutable(callIndex, fingerprint).injectSearchBarHook()
         }
 
         YouActionBarFingerprint.also {
             it.resolve(
                 context,
-                SetActionBarRingoFingerprint.result!!.classDef
+                parentClassDef
             )
         }.result?.let {
             it.mutableMethod.apply {
@@ -119,19 +128,27 @@ object WideSearchBarPatch : BytecodePatch(
     private const val FLAG = "android:paddingStart"
     private const val TARGET_RESOURCE_PATH = "res/layout/action_bar_ringo_background.xml"
 
-    private fun MethodFingerprint.injectHook(context: BytecodeContext) {
-        result?.let {
-            (context
-                .toMethodWalker(it.method)
-                .nextMethod(it.scanResult.patternScanResult!!.endIndex, true)
-                .getMethod() as MutableMethod).apply {
-                addInstructions(
-                    implementation!!.instructions.size - 1, """
-                            invoke-static {}, $GENERAL->enableWideSearchBar()Z
-                            move-result p0
-                            """
-                )
-            }
-        } ?: throw exception
+    /**
+     * Walk a fingerprints method at a given index mutably.
+     *
+     * @param index The index to walk at.
+     * @param fromFingerprint The fingerprint to walk the method on.
+     * @return The [MutableMethod] which was walked on.
+     */
+    private fun BytecodeContext.walkMutable(index: Int, fromFingerprint: MethodFingerprint) =
+        fromFingerprint.result?.let {
+            toMethodWalker(it.method).nextMethod(index, true).getMethod() as MutableMethod
+        } ?: throw fromFingerprint.exception
+
+    /**
+     * Injects instructions required for certain methods.
+     */
+    private fun MutableMethod.injectSearchBarHook() {
+        addInstructions(
+            implementation!!.instructions.size - 1, """
+                invoke-static {}, $GENERAL->enableWideSearchBar()Z
+                move-result p0
+                """
+        )
     }
 }

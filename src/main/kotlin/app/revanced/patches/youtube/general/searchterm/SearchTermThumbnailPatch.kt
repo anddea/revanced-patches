@@ -11,7 +11,7 @@ import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.youtube.general.searchterm.fingerprints.SearchTermThumbnailFingerprint
+import app.revanced.patches.youtube.utils.fingerprints.CreateSearchSuggestionsFingerprint
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.integrations.Constants.GENERAL
 import com.android.tools.smali.dexlib2.Opcode
@@ -52,10 +52,10 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 )
 @Suppress("unused")
 object SearchTermThumbnailPatch : BytecodePatch(
-    setOf(SearchTermThumbnailFingerprint)
+    setOf(CreateSearchSuggestionsFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
-        SearchTermThumbnailFingerprint.result?.let { result ->
+        CreateSearchSuggestionsFingerprint.result?.let { result ->
             result.mutableMethod.apply {
                 val instructions = implementation!!.instructions
 
@@ -92,7 +92,7 @@ object SearchTermThumbnailPatch : BytecodePatch(
                 )
                 removeInstruction(replaceIndex)
             }
-        } ?: throw SearchTermThumbnailFingerprint.exception
+        } ?: throw CreateSearchSuggestionsFingerprint.exception
 
         /**
          * Add settings
