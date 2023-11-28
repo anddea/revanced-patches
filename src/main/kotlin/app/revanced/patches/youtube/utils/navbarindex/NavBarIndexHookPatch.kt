@@ -17,9 +17,7 @@ import app.revanced.patches.youtube.utils.navbarindex.fingerprints.OnResumeFragm
 import app.revanced.patches.youtube.utils.navbarindex.fingerprints.SettingsActivityOnBackPressedFingerprint
 import app.revanced.util.integrations.Constants.UTILS_PATH
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction35c
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.Reference
 
@@ -41,12 +39,14 @@ object NavBarIndexHookPatch : BytecodePatch(
         DefaultTabsBarFingerprint.result?.let {
             it.mutableMethod.apply {
                 val targetIndex = it.scanResult.patternScanResult!!.startIndex
-                val setTabIndexReference = getInstruction<ReferenceInstruction>(targetIndex).reference
+                val setTabIndexReference =
+                    getInstruction<ReferenceInstruction>(targetIndex).reference
 
                 val (onClickMethod, insertIndex) = getOnClickMethod(context, setTabIndexReference)
 
                 onClickMethod.apply {
-                    val indexRegister = getInstruction<FiveRegisterInstruction>(insertIndex).registerD
+                    val indexRegister =
+                        getInstruction<FiveRegisterInstruction>(insertIndex).registerD
 
                     addInstruction(
                         insertIndex,

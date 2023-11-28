@@ -22,7 +22,6 @@ import app.revanced.patches.youtube.utils.sponsorblock.fingerprints.RectangleFie
 import app.revanced.patches.youtube.utils.sponsorblock.fingerprints.SegmentPlaybackControllerFingerprint
 import app.revanced.patches.youtube.utils.videoid.general.VideoIdPatch
 import app.revanced.patches.youtube.utils.videoid.withoutshorts.VideoIdWithoutShortsPatch
-import app.revanced.util.bytecode.BytecodeHelper.injectInit
 import app.revanced.util.bytecode.getWideLiteralIndex
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.BuilderInstruction
@@ -216,9 +215,6 @@ object SponsorBlockBytecodePatch : BytecodePatch(
          * Inject VideoIdPatch
          */
         VideoIdWithoutShortsPatch.injectCall("$INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR->setCurrentVideoId(Ljava/lang/String;)V")
-
-        context.injectInit("InitializationPatch", "initializeSponsorBlockSettings", true)
-
     }
 
     private const val INTEGRATIONS_BUTTON_CLASS_DESCRIPTOR =

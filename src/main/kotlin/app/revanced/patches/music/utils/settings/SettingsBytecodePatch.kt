@@ -30,6 +30,7 @@ object SettingsBytecodePatch : BytecodePatch(
         "$MUSIC_INTEGRATIONS_PATH/settingsmenu/ReVancedSettingActivity;"
     private const val INTEGRATIONS_FRAGMENT_CLASS_DESCRIPTOR =
         "$MUSIC_INTEGRATIONS_PATH/settingsmenu/ReVancedSettingsFragment;"
+
     override fun execute(context: BytecodeContext) {
 
         /**

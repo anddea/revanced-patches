@@ -52,6 +52,7 @@ object HidePreviousNextButtonPatch : BytecodePatch(
 
     private const val INTEGRATIONS_METHOD_REFERENCE =
         "$PLAYER->hidePreviousNextButton(Z)Z"
+
     override fun execute(context: BytecodeContext) {
 
         PlayerControlsVisibilityModelFingerprint.result?.let {
