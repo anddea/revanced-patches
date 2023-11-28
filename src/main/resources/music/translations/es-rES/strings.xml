@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="microg_not_installed_notice">Por favor, instale MicroG.</string>
+    <string name="microg_not_installed_warning">MicroG no encontrado.</string>
+    <string name="microg_not_running_warning">MicroG no se ejecuta en segundo plano.</string>
+    <string name="microg_settings_summary">Activa los ajustes de mensajería en la nube para recibir notificaciones.</string>
+    <string name="microg_settings_title">Abrir MicroG</string>
     <string name="revanced_category_account">Cuenta</string>
     <string name="revanced_category_action_bar">Barra de estado</string>
     <string name="revanced_category_ads">Anuncios</string>
@@ -11,6 +16,7 @@
     <string name="revanced_category_video">Video</string>
     <string name="revanced_custom_filter_strings_summary">Filtra los nombres de los componentes separados por líneas</string>
     <string name="revanced_custom_filter_strings_title">Editar filtro personalizado</string>
+    <string name="revanced_custom_filter_strings_warning">Filtro personalizado no válido, restableciendo al predeterminado.</string>
     <string name="revanced_custom_filter_summary">Activa los filtros personalizados</string>
     <string name="revanced_custom_filter_title">Activar filtro personalizado</string>
     <string name="revanced_custom_playback_speeds_invalid">Las velocidades de reproducción personalizadas no son válidas. Restablezca a los valores predeterminados.</string>
@@ -24,6 +30,11 @@
     <string name="revanced_enable_black_navigation_bar_title">Activar barra de navegación negra</string>
     <string name="revanced_enable_color_match_player_summary">Hace coincidir el color del reproductor a pantalla completa con el de minimizado.</string>
     <string name="revanced_enable_color_match_player_title">Activar coincidencia de color de reproductores</string>
+    <string name="revanced_enable_compact_dialog_summary">"Activa el diálogo compacto en el teléfono.
+
+Problemas conocidos:
+- La carátula del álbum en la estantería de la biblioteca también se hace más pequeña.
+- El diseño del temporizador puede parecer inusual."</string>
     <string name="revanced_enable_compact_dialog_title">Activar diálogo compacto</string>
     <string name="revanced_enable_debug_logging_summary">Imprime el registro de depuración</string>
     <string name="revanced_enable_debug_logging_title">Activar registro de depuración</string>
@@ -54,11 +65,16 @@ ADVERTENCIA: No actives nuevos fondos del reproductor mientras esto esté activa
     <string name="revanced_enable_sleep_timer_title">Activar temporizador de apagado</string>
     <string name="revanced_enable_zen_mode_summary">Añade un tinte gris al reproductor de vídeo para reducir la fatiga visual.</string>
     <string name="revanced_enable_zen_mode_title">Activar modo zen</string>
+    <string name="revanced_extended_settings_export_as_file">Exportar ajustes a archivo</string>
+    <string name="revanced_extended_settings_export_failed">Error al exportar los ajustes.</string>
+    <string name="revanced_extended_settings_export_success">Los ajustes se han exportado correctamente.</string>
     <string name="revanced_extended_settings_import">Importar</string>
+    <string name="revanced_extended_settings_import_as_file">Importar ajustes desde archivo</string>
     <string name="revanced_extended_settings_import_copy">Copiar</string>
+    <string name="revanced_extended_settings_import_export_as_text">Importar o exportar ajustes como texto</string>
     <string name="revanced_extended_settings_import_export_summary">Importar o exportar ajustes como texto.</string>
     <string name="revanced_extended_settings_import_export_title">Importar / Exportar</string>
-    <string name="revanced_extended_settings_import_failure_parse">Importación fallida: %s</string>
+    <string name="revanced_extended_settings_import_failed">Error de importación: %s.</string>
     <string name="revanced_extended_settings_import_reset">Configuración restablecida por defecto</string>
     <string name="revanced_extended_settings_import_success">Configuración importada de %d</string>
     <string name="revanced_external_downloader_not_installed_warning" formatted="false">%s no está instalado. Por favor, instálelo.</string>
@@ -95,9 +111,11 @@ ADVERTENCIA: No actives nuevos fondos del reproductor mientras esto esté activa
     <string name="revanced_hide_flyout_panel_go_to_artist_title">Ocultar menú de ir al artista</string>
     <string name="revanced_hide_flyout_panel_go_to_episode_title">Ocultar menú de ir a episodios</string>
     <string name="revanced_hide_flyout_panel_go_to_podcast_title">Ocultar menú de ir al podcast</string>
+    <string name="revanced_hide_flyout_panel_help_title">Ocultar menú de ayuda y comentarios</string>
     <string name="revanced_hide_flyout_panel_like_dislike_title">Ocultar botones Me gusta y No me gusta</string>
     <string name="revanced_hide_flyout_panel_play_next_title">Ocultar menú de reproducción siguiente</string>
     <string name="revanced_hide_flyout_panel_remove_from_library_title">Ocultar menú de eliminar de la biblioteca</string>
+    <string name="revanced_hide_flyout_panel_remove_from_playlist_title">Ocultar menú de quitar de la lista de reproducción</string>
     <string name="revanced_hide_flyout_panel_report_title">Ocultar menú de denunciar</string>
     <string name="revanced_hide_flyout_panel_save_episode_for_later_title">Ocultar menú de guardar episodio para más tarde</string>
     <string name="revanced_hide_flyout_panel_save_to_library_title">Ocultar menú de guardar en biblioteca</string>
@@ -107,6 +125,8 @@ ADVERTENCIA: No actives nuevos fondos del reproductor mientras esto esté activa
     <string name="revanced_hide_flyout_panel_view_song_credit_title">Ocultar menú de vista de créditos de canción</string>
     <string name="revanced_hide_handle_summary">Oculta el asa en el conmutador de cuenta.</string>
     <string name="revanced_hide_handle_title">Ocultar asa</string>
+    <string name="revanced_hide_history_button_summary">Oculta el botón de historial en la barra de herramientas.</string>
+    <string name="revanced_hide_history_button_title">Ocultar botón de historial</string>
     <string name="revanced_hide_home_button_summary">Oculta el botón de inicio.</string>
     <string name="revanced_hide_home_button_title">Ocultar botón Inicio</string>
     <string name="revanced_hide_library_button_summary">Oculta el botón de la biblioteca.</string>
@@ -129,6 +149,7 @@ ADVERTENCIA: No actives nuevos fondos del reproductor mientras esto esté activa
     <string name="revanced_hide_upgrade_button_title">Ocultar botón de actualización</string>
     <string name="revanced_hook_action_bar_download_summary">Sustituye el botón de descarga sin conexión del contenedor de botones por un botón de descarga externa.</string>
     <string name="revanced_hook_action_bar_download_title">Sustituir botón de descarga</string>
+    <string name="revanced_playback_speed_normal">Normal</string>
     <string name="revanced_playlist_dismiss">Ya está reproduciendo la fuente oficial de música</string>
     <string name="revanced_playlist_error">La fuente oficial de música no está disponible</string>
     <string name="revanced_reboot_first_run">Reiniciar para cargar el diseño normalmente</string>
@@ -150,9 +171,18 @@ ADVERTENCIA: No actives nuevos fondos del reproductor mientras esto esté activa
     <string name="revanced_ryd_dislike_percentage_summary">En lugar del número de no me gusta, se muestra el porcentaje de no me gusta.</string>
     <string name="revanced_ryd_dislike_percentage_title">Porcentaje de No Me Gusta</string>
     <string name="revanced_ryd_enabled_summary">Muestra el número de vídeos que no te gustan.</string>
+    <string name="revanced_ryd_failure_connection_timeout">Los no me gusta están temporalmente no disponibles (la API no responde).</string>
+    <string name="revanced_ryd_failure_connection_status_code" formatted="false">Los no me gusta no están disponibles (estado %d).</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Los No Me Gusta no están disponibles (se alcanzó el límite de la API del cliente)</string>
+    <string name="revanced_ryd_failure_generic">Los no me gusta no están disponibles (%s).</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Oculto</string>
+    <string name="revanced_sanitize_sharing_links_summary">Elimina los parámetros de consulta de seguimiento de las URL al compartir enlaces.</string>
+    <string name="revanced_sanitize_sharing_links_title">Desinfectar enlaces compartidos</string>
+    <string name="revanced_save_playback_speed" formatted="false">Cambiando la velocidad predeterminada a %s.</string>
+    <string name="revanced_save_video_quality_mobile" formatted="false">Cambiando la calidad predeterminada con datos móviles a %s.</string>
     <string name="revanced_save_video_quality_none">No se ha establecido la calidad</string>
+    <string name="revanced_save_video_quality_wifi" formatted="false">Cambiando la calidad predeterminada con Wi-Fi a %s.</string>
+    <string name="revanced_share_copy_settings_success">Ajustes copiados en el portapapeles.</string>
     <string name="revanced_spoof_app_version_summary">"Modificación de la versión del cliente a la versión antigua
 
 - Esto cambiará la apariencia de la aplicación, pero pueden producirse efectos secundarios desconocidos
@@ -210,10 +240,14 @@ ADVERTENCIA: No actives nuevos fondos del reproductor mientras esto esté activa
     <string name="sb_skipped_multiple_segments">Varios segmentos omitidos</string>
     <string name="sb_skip_automatically">Omitir automáticamente</string>
     <string name="sb_skip_ignore">Deshabilitar</string>
+    <string name="sb_sponsorblock_connection_failure_generic">SponsorBlock temporalmente no disponible.</string>
+    <string name="sb_sponsorblock_connection_failure_status" formatted="false">SponsorBlock temporalmente no disponible (estado %d).</string>
+    <string name="sb_sponsorblock_connection_failure_timeout">SponsorBlock temporalmente no disponible (la API no responde).</string>
     <string name="sb_color_dot_label">Color:</string>
     <string name="sb_color_changed">Color cambiado</string>
     <string name="sb_color_reset">Restablecer color</string>
     <string name="sb_color_invalid">Código de color no válido</string>
     <string name="sb_reset_color">Restablecer color</string>
     <string name="sb_about_api_sum">Los datos son proporcionados por la API de SponsorBlock. Pulsa aquí para aprender más y ver las descargas para otras plataformas</string>
+    <string name="sb_about">Información</string>
 </resources>

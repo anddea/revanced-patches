@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="microg_not_installed_notice">Παρακαλούμε εγκαταστήστε το MicroG.</string>
+    <string name="microg_not_installed_warning">Το MicroG δεν βρέθηκε.</string>
+    <string name="microg_not_running_warning">Το MicroG δεν εκτελείται στο παρασκήνιο.</string>
+    <string name="microg_settings_summary">Ενεργοποιήστε τις ρυθμίσεις μηνυμάτων cloud για να λαμβάνετε ειδοποιήσεις.</string>
+    <string name="microg_settings_title">MicroG</string>
     <string name="revanced_category_account">Λογαριασμός</string>
     <string name="revanced_category_action_bar">Γραμμή ενεργειών</string>
     <string name="revanced_category_ads">Διαφημίσεις</string>
@@ -60,11 +65,16 @@
     <string name="revanced_enable_sleep_timer_title">Ενεργοποίηση χρονοδιακόπτη ύπνου</string>
     <string name="revanced_enable_zen_mode_summary">Προσθέτει μια γκρι απόχρωση στο πρόγραμμα αναπαραγωγής βίντεο για να μειώσει την καταπόνηση των ματιών.</string>
     <string name="revanced_enable_zen_mode_title">Ενεργοποίηση λειτουργίας zen</string>
+    <string name="revanced_extended_settings_export_as_file">Εξαγωγή ρυθμίσεων σε αρχείο</string>
+    <string name="revanced_extended_settings_export_failed">Αποτυχία εξαγωγής ρυθμίσεων.</string>
+    <string name="revanced_extended_settings_export_success">Οι ρυθμίσεις εξήχθησαν με επιτυχία.</string>
     <string name="revanced_extended_settings_import">Εισαγωγή</string>
+    <string name="revanced_extended_settings_import_as_file">Εισαγωγή ρυθμίσεων από αρχείο</string>
     <string name="revanced_extended_settings_import_copy">Αντιγραφή</string>
+    <string name="revanced_extended_settings_import_export_as_text">Εισαγωγή / Εξαγωγή ρυθμίσεων ως κείμενο</string>
     <string name="revanced_extended_settings_import_export_summary">Εισαγωγή ή εξαγωγή ρυθμίσεων ως κείμενο.</string>
     <string name="revanced_extended_settings_import_export_title">Εισαγωγή / Εξαγωγή</string>
-    <string name="revanced_extended_settings_import_failure_parse">Η εισαγωγή απέτυχε: %s</string>
+    <string name="revanced_extended_settings_import_failed">Η εισαγωγή απέτυχε: %s.</string>
     <string name="revanced_extended_settings_import_reset">Έγινε επαναφορά στις προεπιλεγμένες ρυθμίσεις</string>
     <string name="revanced_extended_settings_import_success">Έγινε εισαγωγή %d ρυθμίσεων</string>
     <string name="revanced_external_downloader_not_installed_warning" formatted="false">%s δεν έχει εγκατασταθεί. Παρακαλούμε εγκαταστήστε το.</string>
@@ -161,7 +171,10 @@
     <string name="revanced_ryd_dislike_percentage_summary">Αντί για τον αριθμό των dislike, θα εμφανίζεται το ποσοστό τους.</string>
     <string name="revanced_ryd_dislike_percentage_title">Τα dislike ως ποσοστό</string>
     <string name="revanced_ryd_enabled_summary">Εμφάνιση της ποσότητας των «δεν μου αρέσει» των βίντεο.</string>
+    <string name="revanced_ryd_failure_connection_timeout">Τα δεδομένα dislike είναι προσωρινά μή διαθέσιμα (το χρονικό όριο του API έληξε).</string>
+    <string name="revanced_ryd_failure_connection_status_code" formatted="false">Τα δεδομένα dislike δεν είναι διαθέσιμα (κατάσταση %d).</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Dislikes μη διαθέσιμα (το όριο του API του πελάτη έχει επιτευχθεί)</string>
+    <string name="revanced_ryd_failure_generic">Τα δεδομένα dislike δεν είναι διαθέσιμα (%s).</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Κρυμμένο</string>
     <string name="revanced_sanitize_sharing_links_summary">Αφαίρεση των παραμέτρων ερωτήματος παρακολούθησης από τις διευθύνσεις URL κατά την κοινή χρήση συνδέσμων.</string>
     <string name="revanced_sanitize_sharing_links_title">Καθαρισμός συνδέσμων κοινοποίησης</string>
@@ -229,6 +242,9 @@
     <string name="sb_skipped_multiple_segments">Παραλείφθηκαν πολλαπλά τμήματα</string>
     <string name="sb_skip_automatically">Αυτόματη παράλειψη</string>
     <string name="sb_skip_ignore">Απενεργοποίηση</string>
+    <string name="sb_sponsorblock_connection_failure_generic">Το SponsorBlock είναι προσωρινά μή διαθέσιμο.</string>
+    <string name="sb_sponsorblock_connection_failure_status" formatted="false">Το SponsorBlock είναι προσωρινά μή διαθέσιμο (κατάσταση %d).</string>
+    <string name="sb_sponsorblock_connection_failure_timeout">Το SponsorBlock είναι προσωρινά μή διαθέσιμο (το χρονικό όριο του API έληξε).</string>
     <string name="sb_color_dot_label">Χρώμα:</string>
     <string name="sb_color_changed">Το χρώμα άλλαξε</string>
     <string name="sb_color_reset">Έγινε επαναφορά χρώματος</string>

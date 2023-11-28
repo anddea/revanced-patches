@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="microg_not_installed_notice">Installeer MicroG</string>
+    <string name="microg_not_installed_warning">MicroG is niet gevonden.</string>
+    <string name="microg_not_running_warning">MicroG wordt niet op de achtergrond uitgevoerd</string>
+    <string name="microg_settings_summary">Schakel cloudberichten in om meldingen te ontvangen</string>
+    <string name="microg_settings_title">MicroG openen</string>
     <string name="revanced_category_account">Account</string>
     <string name="revanced_category_action_bar">Actiebalk</string>
     <string name="revanced_category_ads">Advertenties</string>
@@ -60,11 +65,16 @@ WAARSCHUWING: Schakel de achtergronden van nieuwe spelers niet in als dit is ing
     <string name="revanced_enable_sleep_timer_title">Schakel slaaptimer in</string>
     <string name="revanced_enable_zen_mode_summary">Een grijze tint toevoegen aan de videospeler om vermoeidheid van de ogen te verminderen.</string>
     <string name="revanced_enable_zen_mode_title">Zen-modus inschakelen</string>
+    <string name="revanced_extended_settings_export_as_file">Instellingen exporteren naar bestand</string>
+    <string name="revanced_extended_settings_export_failed">Instellingen exporteren mislukt.</string>
+    <string name="revanced_extended_settings_export_success">Instellingen zijn succesvol geëxporteerd.</string>
     <string name="revanced_extended_settings_import">Importeer</string>
+    <string name="revanced_extended_settings_import_as_file">Instellingen importeren uit bestand</string>
     <string name="revanced_extended_settings_import_copy">Kopiëer</string>
+    <string name="revanced_extended_settings_import_export_as_text">Importeer / exporteer instellingen als tekst</string>
     <string name="revanced_extended_settings_import_export_summary">Importeer / Exporteer instellingen</string>
     <string name="revanced_extended_settings_import_export_title">Importeren / exporteren</string>
-    <string name="revanced_extended_settings_import_failure_parse">Importeren mislukt: %s</string>
+    <string name="revanced_extended_settings_import_failed">Importeren mislukt: %s.</string>
     <string name="revanced_extended_settings_import_reset">Instellingen teruggezet naar standaard</string>
     <string name="revanced_extended_settings_import_success">Geïmporteerde %d instellingen</string>
     <string name="revanced_external_downloader_not_installed_warning" formatted="false">%s is niet geïnstalleerd. Installeer het alstublieft.</string>
@@ -161,7 +171,10 @@ WAARSCHUWING: Schakel de achtergronden van nieuwe spelers niet in als dit is ing
     <string name="revanced_ryd_dislike_percentage_summary">In plaats van het aantal \"hout niet van\" te laten zien, wordt het percentage getoond.</string>
     <string name="revanced_ryd_dislike_percentage_title">Hout niet van als percentage</string>
     <string name="revanced_ryd_enabled_summary">Laat de \"vind ik niet leuk\"s zien van video\'s.</string>
+    <string name="revanced_ryd_failure_connection_timeout">Dislikes tijdelijk niet beschikbaar (API time-out).</string>
+    <string name="revanced_ryd_failure_connection_status_code" formatted="false">Dislikes niet beschikbaar (status %d).</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Vind ik niet leuk is niet beschikbaar (client API limiet bereikt)</string>
+    <string name="revanced_ryd_failure_generic">Dislikes niet beschikbaar (%s).</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Verborgen</string>
     <string name="revanced_sanitize_sharing_links_summary">Verwijdert tracking query parameters uit de URL\'s bij het delen van links.</string>
     <string name="revanced_sanitize_sharing_links_title">Koppelingen delen</string>
@@ -227,6 +240,9 @@ WAARSCHUWING: Schakel de achtergronden van nieuwe spelers niet in als dit is ing
     <string name="sb_skipped_multiple_segments">Meerdere segmenten overgeslagen</string>
     <string name="sb_skip_automatically">Automatisch overslaan</string>
     <string name="sb_skip_ignore">Deactiveer</string>
+    <string name="sb_sponsorblock_connection_failure_generic">SponsorBlock tijdelijk niet beschikbaar.</string>
+    <string name="sb_sponsorblock_connection_failure_status" formatted="false">SponsorBlock tijdelijk niet beschikbaar (status %d).</string>
+    <string name="sb_sponsorblock_connection_failure_timeout">SponsorBlock tijdelijk niet beschikbaar (API time-out).</string>
     <string name="sb_color_dot_label">Kleur:</string>
     <string name="sb_color_changed">Kleur gewijzigd</string>
     <string name="sb_color_reset">Kleur opnieuw instellen</string>

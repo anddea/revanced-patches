@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="microg_not_installed_notice">Por favor, instale o MicroG.</string>
+    <string name="microg_not_installed_warning">O microG não foi encontrado.</string>
+    <string name="microg_not_running_warning">O MicroG não é executado em segundo plano.</string>
+    <string name="microg_settings_summary">Ative as configurações de mensagens na nuvem para receber notificações.</string>
+    <string name="microg_settings_title">Abrir o MicroG</string>
     <string name="revanced_category_account">Conta</string>
     <string name="revanced_category_action_bar">Barra de ação</string>
     <string name="revanced_category_ads">Anúncios</string>
@@ -60,11 +65,16 @@ AVISO: não ative o novo fundo do reprodutor enquanto isto estiver ativado"</str
     <string name="revanced_enable_sleep_timer_title">Ativar Timer de suspensão</string>
     <string name="revanced_enable_zen_mode_summary">Adiciona uma tonalidade cinza ao reprodutor de vídeo para reduzir o cansaço visual.</string>
     <string name="revanced_enable_zen_mode_title">Ativar modo calmo</string>
+    <string name="revanced_extended_settings_export_as_file">Exportar configurações para um arquivo</string>
+    <string name="revanced_extended_settings_export_failed">Falha ao exportar configurações.</string>
+    <string name="revanced_extended_settings_export_success">As configurações foram exportadas com sucesso.</string>
     <string name="revanced_extended_settings_import">Importar</string>
+    <string name="revanced_extended_settings_import_as_file">Importar configurações de um arquivo</string>
     <string name="revanced_extended_settings_import_copy">Copiar</string>
+    <string name="revanced_extended_settings_import_export_as_text">Importar / Exportar as configurações como texto</string>
     <string name="revanced_extended_settings_import_export_summary">Importar ou exportar as configurações como texto.</string>
     <string name="revanced_extended_settings_import_export_title">Importar / Exportar</string>
-    <string name="revanced_extended_settings_import_failure_parse">Importação falhou: %s</string>
+    <string name="revanced_extended_settings_import_failed">A importação falhou: %s.</string>
     <string name="revanced_extended_settings_import_reset">Configurações redefinidas para o padrão</string>
     <string name="revanced_extended_settings_import_success">Configurações %d importadas</string>
     <string name="revanced_external_downloader_not_installed_warning" formatted="false">%s não está instalado. Por favor, instale-o.</string>
@@ -161,7 +171,10 @@ AVISO: não ative o novo fundo do reprodutor enquanto isto estiver ativado"</str
     <string name="revanced_ryd_dislike_percentage_summary">Em vez do número de dislikes, é mostrada a porcentagem de dislikes.</string>
     <string name="revanced_ryd_dislike_percentage_title">Dislikes como porcentagem</string>
     <string name="revanced_ryd_enabled_summary">Mostra a contagem de deslike dos vídeos.</string>
+    <string name="revanced_ryd_failure_connection_timeout">Dislikes temporariamente indisponível (API expirou).</string>
+    <string name="revanced_ryd_failure_connection_status_code" formatted="false">Descurtir não disponível (status %d).</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Dislikes não disponíveis (limite de API do cliente atingido)</string>
+    <string name="revanced_ryd_failure_generic">Deslikes não disponível (%s).</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Oculto</string>
     <string name="revanced_sanitize_sharing_links_summary">Remove os parâmetros de consulta de rastreamento das URLs ao compartilhar os links.</string>
     <string name="revanced_sanitize_sharing_links_title">Limpar links compartilhados</string>
@@ -229,6 +242,9 @@ AVISO: não ative o novo fundo do reprodutor enquanto isto estiver ativado"</str
     <string name="sb_skipped_multiple_segments">Pulou vários segmentos</string>
     <string name="sb_skip_automatically">Pular automaticamente</string>
     <string name="sb_skip_ignore">Desativar</string>
+    <string name="sb_sponsorblock_connection_failure_generic">SponsorBlock temporariamente indisponível.</string>
+    <string name="sb_sponsorblock_connection_failure_status" formatted="false">SponsorBlock temporariamente indisponível (status %d).</string>
+    <string name="sb_sponsorblock_connection_failure_timeout">SponsorBlock temporariamente indisponível (API expirou).</string>
     <string name="sb_color_dot_label">Cor:</string>
     <string name="sb_color_changed">Cor alterada</string>
     <string name="sb_color_reset">Redefinir cor</string>
