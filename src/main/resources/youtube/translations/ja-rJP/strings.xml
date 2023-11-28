@@ -30,7 +30,6 @@
     <string name="revanced_append_time_stamp_information_type_summary_off">再生速度を表示します。</string>
     <string name="revanced_append_time_stamp_information_type_summary_on">画質を表示します。</string>
     <string name="revanced_append_time_stamp_information_type_title">追加する情報の種類</string>
-    <string name="revanced_backup_summary">ファイルから ReVanced Extended の設定をインポートするか、ReVanced Extended の設定をファイルにエクスポートします。</string>
     <string name="revanced_bottom_player">プレーヤー下部</string>
     <string name="revanced_button_container_title">プレーヤー下部のボタン</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">バッテリーセーバーモードでは、アンビエントモードが無効になります。</string>
@@ -144,6 +143,9 @@
     <string name="revanced_enable_opus_codec_title">Opus コーデックを有効化</string>
     <string name="revanced_enable_phone_layout_summary">スマートフォン用レイアウトの一部を使用できるように、dpi を偽装します。</string>
     <string name="revanced_enable_phone_layout_title">スマートフォン用レイアウト</string>
+    <string name="revanced_enable_press_to_swipe_summary_off">長押しスワイプコントロール(Press-to-Swipe)は無効です。</string>
+    <string name="revanced_enable_press_to_swipe_summary_on">長押しスワイプコントロール(Press-to-Swipe)は有効です。</string>
+    <string name="revanced_enable_press_to_swipe_title">長押し時のみのジェスチャー</string>
     <string name="revanced_enable_save_playback_speed_summary_off">再生速度は保存されません。</string>
     <string name="revanced_enable_save_playback_speed_summary_on">再生速度を変更するたびに、再生速度は保存されます。</string>
     <string name="revanced_enable_save_playback_speed_title">再生速度の保存</string>
@@ -159,6 +161,9 @@
     <string name="revanced_enable_swipe_brightness_summary_off">明るさのスワイプコントロールは無効です。</string>
     <string name="revanced_enable_swipe_brightness_summary_on">明るさのスワイプコントロールは有効です。</string>
     <string name="revanced_enable_swipe_brightness_title">明るさのジェスチャー</string>
+    <string name="revanced_enable_swipe_haptic_feedback_summary_off">長押しスワイプコントロール(Press-to-Swipe)の触覚フィードバックは無効です。</string>
+    <string name="revanced_enable_swipe_haptic_feedback_summary_on">長押しスワイプコントロール(Press-to-Swipe)の触覚フィードバックは有効です。</string>
+    <string name="revanced_enable_swipe_haptic_feedback_title">長押し時の触覚フィードバック</string>
     <string name="revanced_enable_swipe_volume_summary_off">音量のスワイプコントロールは無効です。</string>
     <string name="revanced_enable_swipe_volume_summary_on">音量のスワイプコントロールは有効です。</string>
     <string name="revanced_enable_swipe_volume_title">音量のジェスチャー</string>
@@ -184,8 +189,22 @@
 [マイページ] タブ &gt; チャンネルを表示 &gt; メニュー &gt; 設定"</string>
     <string name="revanced_enable_wide_search_bar_in_you_tab_title">[マイページ] タブで幅の広い検索バーを有効化</string>
     <string name="revanced_experimental_flag">実験的機能</string>
-    <string name="revanced_export_settings_summary">ReVanced Extended の設定をファイルに保存します。</string>
-    <string name="revanced_export_settings_title">設定のエクスポート</string>
+    <string name="revanced_extended_settings_export_failed">設定のエクスポートに失敗しました</string>
+    <string name="revanced_extended_settings_export_success">設定は正常にエクスポートされました</string>
+    <string name="revanced_extended_settings_export_summary">設定をファイルにエクスポートします。</string>
+    <string name="revanced_extended_settings_export_title">設定のエクスポート</string>
+    <string name="revanced_extended_settings_import">インポート</string>
+    <string name="revanced_extended_settings_import_copy">コピー</string>
+    <string name="revanced_extended_settings_import_export_as_file_title">ファイルとしてインポート/エクスポート</string>
+    <string name="revanced_extended_settings_import_export_as_text_summary">設定をテキストとしてインポート/エクスポートします。</string>
+    <string name="revanced_extended_settings_import_export_as_text_title">テキストとしてインポート/エクスポート</string>
+    <string name="revanced_extended_settings_import_export_summary">設定をインポート/エクスポートします。</string>
+    <string name="revanced_extended_settings_import_export_title">設定のインポート/エクスポート</string>
+    <string name="revanced_extended_settings_import_failed">設定のインポートに失敗しました</string>
+    <string name="revanced_extended_settings_import_reset">リセット</string>
+    <string name="revanced_extended_settings_import_success">設定は正常にインポートされました</string>
+    <string name="revanced_extended_settings_import_summary">ファイルから設定をインポートします。</string>
+    <string name="revanced_extended_settings_import_title">設定のインポート</string>
     <string name="revanced_external_downloader_installed">インストール済み</string>
     <string name="revanced_external_downloader_not_installed">未インストール</string>
     <string name="revanced_external_downloader_not_installed_warning" formatted="false">%s はインストールされていません。インストールしてください。</string>
@@ -279,9 +298,9 @@
     <string name="revanced_hide_category_bar_in_search_results_title">検索結果のカテゴリーバーを非表示</string>
     <string name="revanced_hide_category_bar_summary_off">カテゴリーバーは表示されます。</string>
     <string name="revanced_hide_category_bar_summary_on">カテゴリーバーは非表示です。</string>
-    <string name="revanced_hide_channel_guidelines_summary_off">コミュニティガイドラインのバナーは表示されます。</string>
-    <string name="revanced_hide_channel_guidelines_summary_on">コミュニティガイドラインのバナーは非表示です。</string>
-    <string name="revanced_hide_channel_guidelines_title">コミュニティガイドラインを非表示</string>
+    <string name="revanced_hide_channel_guidelines_summary_off">チャンネルガイドラインのバナーは表示されます。</string>
+    <string name="revanced_hide_channel_guidelines_summary_on">チャンネルガイドラインのバナーは非表示です。</string>
+    <string name="revanced_hide_channel_guidelines_title">チャンネルガイドラインを非表示</string>
     <string name="revanced_hide_channel_list_submenu_summary_off">登録チャンネルフィード上部のチャンネルアイコン欄は表示されます。</string>
     <string name="revanced_hide_channel_list_submenu_summary_on">登録チャンネルフィードの上部のチャンネルアイコン欄は非表示です。</string>
     <string name="revanced_hide_channel_list_submenu_title">登録チャンネルフィードのアイコン欄を非表示</string>
@@ -343,6 +362,9 @@
     <string name="revanced_hide_floating_microphone_summary_off">動画を検索する際、右下に表示される音声入力のフローティングボタンは表示されます。</string>
     <string name="revanced_hide_floating_microphone_summary_on">動画を検索する際、右下に表示される音声入力のフローティングボタンは非表示です。</string>
     <string name="revanced_hide_floating_microphone_title">音声入力のフローティングボタンを非表示</string>
+    <string name="revanced_hide_for_you_shelf_summary_off">"おすすめ欄は表示されます。"</string>
+    <string name="revanced_hide_for_you_shelf_summary_on">"おすすめ欄は非表示です。"</string>
+    <string name="revanced_hide_for_you_shelf_title">"おすすめ欄を非表示"</string>
     <string name="revanced_hide_fullscreen_panels_summary_off">全画面表示時に表示される、概要欄パネルとコメント欄パネルは表示されます。</string>
     <string name="revanced_hide_fullscreen_panels_summary_on">全画面表示時に表示される、概要欄パネルとコメント欄パネルは非表示です。</string>
     <string name="revanced_hide_fullscreen_panels_title">全画面表示パネルを非表示</string>
@@ -412,6 +434,9 @@
     <string name="revanced_hide_navigation_label_summary_off">ナビゲーションバーのラベルは表示されます。</string>
     <string name="revanced_hide_navigation_label_summary_on">ナビゲーションバーのラベルは非表示です。</string>
     <string name="revanced_hide_navigation_label_title">ナビゲーションバーのラベルを非表示</string>
+    <string name="revanced_hide_notifications_button_summary_off">通知ボタンは表示されます。</string>
+    <string name="revanced_hide_notifications_button_summary_on">通知ボタンは非表示です。</string>
+    <string name="revanced_hide_notifications_button_title">通知ボタンを非表示</string>
     <string name="revanced_hide_notify_me_button_summary_off">配信予定の動画の「通知する」ボタンは表示されます。</string>
     <string name="revanced_hide_notify_me_button_summary_on">配信予定の動画の「通知する」ボタンは非表示です。</string>
     <string name="revanced_hide_notify_me_button_title">フィードの「通知する」ボタンを非表示</string>
@@ -511,6 +536,9 @@
     <string name="revanced_hide_self_sponsor_cards_summary_off">セルフスポンサーカードは表示されます。</string>
     <string name="revanced_hide_self_sponsor_cards_summary_on">セルフスポンサーカードは非表示です。</string>
     <string name="revanced_hide_self_sponsor_cards_title">セルフスポンサーカードを非表示</string>
+    <string name="revanced_hide_shopping_links_summary_off">ショッピングのリンクは表示されます。</string>
+    <string name="revanced_hide_shopping_links_summary_on">ショッピングリンクは非表示です。</string>
+    <string name="revanced_hide_shopping_links_title">ショッピングリンクを非表示</string>
     <string name="revanced_hide_shorts_button_summary_off">「ショート」ボタンは表示されます。</string>
     <string name="revanced_hide_shorts_button_summary_on">「ショート」ボタンは非表示です。</string>
     <string name="revanced_hide_shorts_button_title">ショートボタンを非表示</string>
@@ -547,6 +575,8 @@
     <string name="revanced_hide_snack_bar_summary_off">共有からリンクをコピーした際の画面下部のポップアップなどは表示されます。</string>
     <string name="revanced_hide_snack_bar_summary_on">共有からリンクをコピーした際の画面下部のポップアップなどは非表示です。</string>
     <string name="revanced_hide_snack_bar_title">スナックバーを非表示</string>
+    <string name="revanced_hide_start_trial_button_summary_off">トライアル開始ボタンは表示されます.</string>
+    <string name="revanced_hide_start_trial_button_summary_on">トライアル開始ボタンは非表示です.</string>
     <string name="revanced_hide_start_trial_button_title">トライアル開始ボタンを非表示</string>
     <string name="revanced_hide_subscriptions_button_summary_off">「登録チャンネル」ボタンは表示されます。</string>
     <string name="revanced_hide_subscriptions_button_summary_on">「登録チャンネル」ボタンは非表示です。</string>
@@ -561,7 +591,7 @@
     <string name="revanced_hide_suggestions_shelf_summary">"以下の欄を非表示にします:
 • ニュース速報
 • 続きを見る
-• 更にチャンネルを探す
+• 他のチャンネルを探す
 • ショッピング
 • もう一度見る"</string>
     <string name="revanced_hide_suggestions_shelf_title">おすすめ欄を非表示</string>
@@ -599,12 +629,6 @@
     <string name="revanced_hide_youtube_music_button_title">YouTube Music ボタンを非表示</string>
     <string name="revanced_hook_download_button_summary">"「オフライン」ボタンを外部ダウンローダーに置き換えます。"</string>
     <string name="revanced_hook_download_button_title">ダウンロードボタンをフック</string>
-    <string name="revanced_import_settings_inform">"以下の設定はインポートされない場合があります。設定のインポート後に一度 ReVanced Extended 設定を開いてください。
-
-• プレーヤーフライアウトパネルの「その他の設定」メニューの非表示
-• ショートのツールバーの非表示"</string>
-    <string name="revanced_import_settings_summary">ReVanced Extended の設定をファイルから読み込みます。</string>
-    <string name="revanced_import_settings_title">設定のインポート</string>
     <string name="revanced_inform">情報</string>
     <string name="revanced_layout_title">レイアウト</string>
     <string name="revanced_misc">その他</string>
@@ -614,8 +638,7 @@
     <string name="revanced_open_library_you_startup_title">起動時にライブラリ(マイページ)を開く</string>
     <string name="revanced_others">その他</string>
     <string name="revanced_overlay_button">オーバーレイボタン</string>
-    <string name="revanced_overlay_button_always_repeat_summary">"タップしてリピート状態を切り替え
-長押ししてリピート後に一時停止"</string>
+    <string name="revanced_overlay_button_always_repeat_summary">タップして常に繰り返す状態を切り替えます。</string>
     <string name="revanced_overlay_button_always_repeat_title">自動リピートボタン</string>
     <string name="revanced_overlay_button_copy_video_url_summary">"タップして動画 URL をコピー
 長押ししてタイムスタンプ付き URL をコピー"</string>
@@ -652,7 +675,10 @@
     <string name="revanced_ryd_enable_summary_off">低評価数は表示されません。</string>
     <string name="revanced_ryd_enable_summary_on">低評価数は表示されます。</string>
     <string name="revanced_ryd_enable_title">Return YouTube Dislike を有効化</string>
+    <string name="revanced_ryd_failure_connection_timeout">低評価数は一時的に利用できません。(API タイムアウト)</string>
+    <string name="revanced_ryd_failure_connection_status_code" formatted="false">低評価数は一時的に利用できません。(ステータス %d)</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">低評価数は利用できません (クライアント API 制限)</string>
+    <string name="revanced_ryd_failure_generic">低評価数は一時的に利用できません。(%s)</string>
     <string name="revanced_ryd_shorts_summary_off">ショートの低評価数は表示されません。</string>
     <string name="revanced_ryd_shorts_summary_on">ショートの低評価数は表示されます。</string>
     <string name="revanced_ryd_shorts_title">ショートの低評価数</string>
@@ -664,12 +690,13 @@
     <string name="revanced_save_video_quality_none">画質の設定に失敗しました</string>
     <string name="revanced_save_video_quality_wifi" formatted="false">Wi-Fi 使用時のデフォルト画質を %s に変更しました。</string>
     <string name="revanced_seekbar">シークバー</string>
+    <string name="revanced_share_copy_settings_success">設定をクリップボードにコピーしました</string>
     <string name="revanced_share_copy_timestamp_success" formatted="false">タイムスタンプをクリップボードにコピーしました。 (%s)</string>
     <string name="revanced_share_copy_url_success">URL をクリップボードにコピーしました。</string>
     <string name="revanced_share_copy_url_timestamp_success">タイムスタンプ付きの URL をクリップボードにコピーしました。</string>
     <string name="revanced_shorts">ショート動画</string>
     <string name="revanced_shorts_player_title">ショートのプレーヤー</string>
-    <string name="revanced_shorts_toolbar_summary">ショートのツールバーを非表示にするには、ショートのツールバーカテゴリーのすべての設定を非表示にしてください。</string>
+    <string name="revanced_shorts_toolbar_summary">ツールバーの戻るボタンを非表示にすることはできません。</string>
     <string name="revanced_shorts_toolbar_title">ショートのツールバー</string>
     <string name="revanced_show_fullscreen_title_summary">既知の問題: タイトルをタップすると非表示になります。</string>
     <string name="revanced_show_fullscreen_title_title">全画面表示での動画タイトル</string>
@@ -677,7 +704,7 @@
     <string name="revanced_skip_preloaded_buffer_summary">"動画開始時にプリロードされたバッファをスキップして、デフォルトの画質強制の遅延を回避します。
 
 • 動画開始時に約 0.7 秒の遅延が発生しますが、デフォルトの画質はすぐに適用されます。
-• HDR 動画や 10 秒未満の動画には適用されません。"</string>
+• HDR 動画、ライブ配信、10 秒未満の動画には適用されません。"</string>
     <string name="revanced_skip_preloaded_buffer_title">プリロードバッファのスキップ</string>
     <string name="revanced_skip_preloaded_buffer_toast_summary_off">トーストは非表示です。</string>
     <string name="revanced_skip_preloaded_buffer_toast_summary_on">トーストは表示されます。</string>
@@ -694,6 +721,7 @@
     <string name="revanced_spoof_app_version_target_entry_18_05_40">18.05.40 - 古いコメント入力ボックスを復元</string>
     <string name="revanced_spoof_app_version_target_entry_18_17_43">18.17.43 - 古いプレーヤーフライアウトパネルを復元</string>
     <string name="revanced_spoof_app_version_target_entry_18_33_40">18.33.40 - 古いショートのアクションバーを復元</string>
+    <string name="revanced_spoof_app_version_target_entry_18_38_45">18.38.45 - 以前のデフォルトの画質の動作を復元</string>
     <string name="revanced_spoof_app_version_target_entry_18_40_34">"18.40.34 - リアルタイムでの視聴回数と高評価の更新を無効化"</string>
     <string name="revanced_spoof_app_version_target_entry_title">偽装するバージョンの選択</string>
     <string name="revanced_spoof_app_version_target_summary">偽装するバージョンを入力してください。</string>
@@ -725,7 +753,10 @@
     <string name="revanced_swipe_overlay_text_size_title">オーバーレイのテキストサイズ</string>
     <string name="revanced_swipe_overlay_timeout_summary">スワイプオーバーレイが表示される時間 (ミリ秒)</string>
     <string name="revanced_swipe_overlay_timeout_title">オーバーレイのタイムアウト</string>
-    <string name="revanced_switching_create_notification_summary">注意: この設定が正しく適用されない場合は、デバイスを再起動してください。</string>
+    <string name="revanced_switching_create_notification_summary">"デバイスの情報を偽装して、作成ボタンと通知ボタンの位置を入れ替えます。
+
+• この設定を変更しても、デバイスを再起動するまで有効にならない場合があります。
+• 動画広告を表示するには、この設定を無効にする必要があります。"</string>
     <string name="revanced_switching_create_notification_title">作成ボタンを通知ボタンと入れ替え</string>
     <string name="revanced_tool_used">使用されたツール</string>
     <string name="revanced_video">動画</string>
@@ -778,6 +809,7 @@
     <string name="sb_api_url_changed">API の URL を変更しました</string>
     <string name="sb_settings_copy">コピー</string>
     <string name="sb_settings_ie_sum">ReVanced Extended や他のプラットフォームの SponsorBlock にインポート/エクスポート可能な SponsorBlock 設定の JSON です。これにはプライベートユーザー ID が含まれています。共有する際は十分注意してください。</string>
+    <string name="sb_settings_ie">設定のインポート/エクスポート</string>
     <string name="sb_settings_import_successful">設定は正常にインポートされました</string>
     <string name="sb_settings_import_failed">インポート失敗: %s</string>
     <string name="sb_settings_export_failed">エクスポート失敗: %s</string>
@@ -830,6 +862,9 @@
     <string name="sb_skip_showbutton">スキップボタンを表示</string>
     <string name="sb_skip_seekbaronly">シークバーに表示</string>
     <string name="sb_skip_ignore">無効</string>
+    <string name="sb_sponsorblock_connection_failure_generic">SponsorBlock は一時的に利用できません。</string>
+    <string name="sb_sponsorblock_connection_failure_status" formatted="false">SponsorBlock は一時的に利用できません。(ステータス %d)</string>
+    <string name="sb_sponsorblock_connection_failure_timeout">SponsorBlock は一時的に利用できません。(API タイムアウト)</string>
     <string name="sb_submit_failed_invalid" formatted="false">セグメントを送信できません: %s</string>
     <string name="sb_submit_failed_timeout">セグメントを送信できません (API タイムアウト)</string>
     <string name="sb_submit_failed_unknown_error" formatted="false">セグメントを送信できません (ステータス: %d %s)</string>
@@ -837,6 +872,7 @@
     <string name="sb_submit_failed_forbidden" formatted="false">セグメントを送信できません: %s</string>
     <string name="sb_submit_failed_duplicate">セグメントを送信できません。\n既に存在します。</string>
     <string name="sb_submit_succeeded">セグメントは正常に送信されました</string>
+    <string name="sb_vote_failed_timeout">セグメントを評価できません (API タイムアウト)</string>
     <string name="sb_vote_failed_unknown_error" formatted="false">セグメントの評価を送信できません (ステータス: %d %s)</string>
     <string name="sb_vote_failed_forbidden" formatted="false">セグメントの評価を送信できません: %s</string>
     <string name="sb_vote_upvote">高評価</string>
@@ -887,9 +923,4 @@
     <string name="sb_about">この機能について</string>
     <string name="sb_reset">リセット</string>
     <string name="sb_about_api_sum">データは SponsorBlock API によって提供されています。他のプラットフォームのダウンロードや詳細については、ここをタップしてください。</string>
-    <string name="settings_export_failed">設定のエクスポートに失敗しました</string>
-    <string name="settings_export_successful">設定は正常にエクスポートされました</string>
-    <string name="settings_ie">設定のインポート/エクスポート</string>
-    <string name="settings_import_failed">設定のインポートに失敗しました</string>
-    <string name="settings_import_successful">設定は正常にインポートされました</string>
 </resources>

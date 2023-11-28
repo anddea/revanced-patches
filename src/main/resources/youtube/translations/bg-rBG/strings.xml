@@ -27,10 +27,9 @@
     <string name="revanced_append_time_stamp_information_summary_off">Индикаторът за скорост/качество на видеото до времето за възпроизвеждане е изключен</string>
     <string name="revanced_append_time_stamp_information_summary_on">Индикаторът за скорост/качество на видеото до времето за възпроизвеждане е активиран</string>
     <string name="revanced_append_time_stamp_information_title">Индикатор до времето за възпроизвеждане</string>
-    <string name="revanced_append_time_stamp_information_type_summary_off">Индикатор за скорост на воспроизвеждане</string>
+    <string name="revanced_append_time_stamp_information_type_summary_off">Индикатор за скорост на възпроизвеждане.</string>
     <string name="revanced_append_time_stamp_information_type_summary_on">Индикатор за качество на видеото</string>
     <string name="revanced_append_time_stamp_information_type_title">Добавете тип информация</string>
-    <string name="revanced_backup_summary">Зареждане или записване на настройки на ReVanced във файл</string>
     <string name="revanced_bottom_player">Долна част на плейъра</string>
     <string name="revanced_button_container_title">Долен контейнер</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">Околния цвят е изключен при пестене на енергия</string>
@@ -144,6 +143,9 @@
     <string name="revanced_enable_opus_codec_title">Включване на OPUS аудио кодек</string>
     <string name="revanced_enable_phone_layout_summary">Подлъгване на dpi за оформление като на телефон</string>
     <string name="revanced_enable_phone_layout_title">Вкл. на оформление като на телефон</string>
+    <string name="revanced_enable_press_to_swipe_summary_off">Изкл. плъзгащи контроли.</string>
+    <string name="revanced_enable_press_to_swipe_summary_on">Вкл. плъзгащи контроли.</string>
+    <string name="revanced_enable_press_to_swipe_title">Активиране на плъзгащи контроли</string>
     <string name="revanced_enable_save_playback_speed_summary_off">Не се запазва скоростта на видеото при промяна</string>
     <string name="revanced_enable_save_playback_speed_summary_on">Зап. на скоростта на видеото при промяна</string>
     <string name="revanced_enable_save_playback_speed_title">Вкл. на запазване скорост на видеото</string>
@@ -159,6 +161,9 @@
     <string name="revanced_enable_swipe_brightness_summary_off">Задаването на яркост чрез плъзгане е изключено</string>
     <string name="revanced_enable_swipe_brightness_summary_on">Задаването на яркост чрез плъзгане е включено</string>
     <string name="revanced_enable_swipe_brightness_title">Задаване на яркост чрез плъзгане</string>
+    <string name="revanced_enable_swipe_haptic_feedback_summary_off">ИЗКЛ. вибрация за обратна връзка при натискане и плъзгане.</string>
+    <string name="revanced_enable_swipe_haptic_feedback_summary_on">ВКЛ. вибрация за обратна връзка при натискане и плъзгане.</string>
+    <string name="revanced_enable_swipe_haptic_feedback_title">Вибрация за обратна връзка при натискане и плъзгане</string>
     <string name="revanced_enable_swipe_volume_summary_off">Настройването на звука чрез плъзгане е изключено</string>
     <string name="revanced_enable_swipe_volume_summary_on">Настройването на звука чрез плъзгане е включено</string>
     <string name="revanced_enable_swipe_volume_title">Настройване на звука чрез плъзгане</string>
@@ -184,8 +189,22 @@
 Вашият раздел &gt; Преглед на канала &gt; Меню &gt; Настройки"</string>
     <string name="revanced_enable_wide_search_bar_in_you_tab_title">Активирайте широката лента за търсене в раздела Вие</string>
     <string name="revanced_experimental_flag">Експериментални настройки</string>
-    <string name="revanced_export_settings_summary">Запазване на ReVanced настройките във файл</string>
-    <string name="revanced_export_settings_title">Изнасяне на настройки</string>
+    <string name="revanced_extended_settings_export_failed">Неуспешно експортиране на настройките.</string>
+    <string name="revanced_extended_settings_export_success">Настройките са експортирани успешно.</string>
+    <string name="revanced_extended_settings_export_summary">Експортирайте настройките във файл.</string>
+    <string name="revanced_extended_settings_export_title">Съхраняване на настройки</string>
+    <string name="revanced_extended_settings_import">Внасяне</string>
+    <string name="revanced_extended_settings_import_copy">Копирай</string>
+    <string name="revanced_extended_settings_import_export_as_file_title">Импортиране / Експортиране като файл</string>
+    <string name="revanced_extended_settings_import_export_as_text_summary">Импортирайте или експортирайте настройки като текст.</string>
+    <string name="revanced_extended_settings_import_export_as_text_title">Импортирайте / Експортирайте настройки в текст</string>
+    <string name="revanced_extended_settings_import_export_summary">Импортиране / Експортиране на настройките.</string>
+    <string name="revanced_extended_settings_import_export_title">Импортиране / Експортиране на настройките</string>
+    <string name="revanced_extended_settings_import_failed">Неуспешно импортиране на настройките.</string>
+    <string name="revanced_extended_settings_import_reset">Нулиране</string>
+    <string name="revanced_extended_settings_import_success">Настройките са импортирани успешно.</string>
+    <string name="revanced_extended_settings_import_summary">Импортиране на настройки от записан файл.</string>
+    <string name="revanced_extended_settings_import_title">Внасяне на настройки</string>
     <string name="revanced_external_downloader_installed">Инсталирано</string>
     <string name="revanced_external_downloader_not_installed">Не е инсталирано</string>
     <string name="revanced_external_downloader_not_installed_warning" formatted="false">%s не е инсталирано. Моля инсталирайте го.</string>
@@ -415,6 +434,9 @@
     <string name="revanced_hide_navigation_label_summary_off">Навигационния панел се показва</string>
     <string name="revanced_hide_navigation_label_summary_on">Навигационния панел е скрит</string>
     <string name="revanced_hide_navigation_label_title">Скр. навигационен панел</string>
+    <string name="revanced_hide_notifications_button_summary_off">Бутонът за известия се показва.</string>
+    <string name="revanced_hide_notifications_button_summary_on">Бутонът за известия е скрит.</string>
+    <string name="revanced_hide_notifications_button_title">Бутонът за известия</string>
     <string name="revanced_hide_notify_me_button_summary_off">Бутона за известия се показва</string>
     <string name="revanced_hide_notify_me_button_summary_on">Бутона за известия е скрит</string>
     <string name="revanced_hide_notify_me_button_title">Скр. Бутона за известия</string>
@@ -514,6 +536,9 @@
     <string name="revanced_hide_self_sponsor_cards_summary_off">Самоспонсорираните карти се показват</string>
     <string name="revanced_hide_self_sponsor_cards_summary_on">Самоспонсорираните карти са скрити</string>
     <string name="revanced_hide_self_sponsor_cards_title">Скр. самоспонсорирани карти</string>
+    <string name="revanced_hide_shopping_links_summary_off">Връзките за пазаруване се показват.</string>
+    <string name="revanced_hide_shopping_links_summary_on">Връзките за пазаруване са скрити.</string>
+    <string name="revanced_hide_shopping_links_title">Скриване на връзки за пазаруване</string>
     <string name="revanced_hide_shorts_button_summary_off">Бутона за кратки клипове се показва</string>
     <string name="revanced_hide_shorts_button_summary_on">Бутона за кратки клипове е скрит</string>
     <string name="revanced_hide_shorts_button_title">Скр. бутон кратки клипове</string>
@@ -605,12 +630,6 @@
     <string name="revanced_hook_download_button_summary">"Заменете бутона за изтегляне с външен бутон за изтегляне
 Предлага се само в YouTube v18.24.37+"</string>
     <string name="revanced_hook_download_button_title">Покажи бутон за изтегляне</string>
-    <string name="revanced_import_settings_inform">"Следните настройки може да не бъдат импортирани, така че, моля, отворете ReVanced Extended настройките веднъж след импортирането на настройките
-
-• Скриване на менюто с допълнителни настройки (изскачащ панел на плейъра)
-• Скриване на лентата с инструменти за шорти"</string>
-    <string name="revanced_import_settings_summary">Зареждане настройките на ReVanced от файл</string>
-    <string name="revanced_import_settings_title">Внасяне на настройки</string>
     <string name="revanced_inform">Информация</string>
     <string name="revanced_layout_title">Оформление</string>
     <string name="revanced_misc">Разни</string>
@@ -620,8 +639,7 @@
     <string name="revanced_open_library_you_startup_title">Отв. на библиотеката (Вие) при старт</string>
     <string name="revanced_others">Други</string>
     <string name="revanced_overlay_button">Бутони в плеъра</string>
-    <string name="revanced_overlay_button_always_repeat_summary">"Докоснете, за да превключите повторение
-Докоснете и задръжте, за да превключите на пауза след повтарвне"</string>
+    <string name="revanced_overlay_button_always_repeat_summary">Докоснете, за да превключите винаги повтарящи се състояния.</string>
     <string name="revanced_overlay_button_always_repeat_title">Пок. бутон за авт. повторение</string>
     <string name="revanced_overlay_button_copy_video_url_summary">"Докоснете, за да копирате URL адреса на видеоклипа
 Докоснете и задръжте, за да копирате URL адреса на видеоклипа с маркер за време"</string>
@@ -658,7 +676,10 @@
     <string name="revanced_ryd_enable_summary_off">Нехаресванията не се показват</string>
     <string name="revanced_ryd_enable_summary_on">Нехаресванията се показват</string>
     <string name="revanced_ryd_enable_title">Вкл. на Return YouTube Dislike</string>
+    <string name="revanced_ryd_failure_connection_timeout">Нехаресванията временно не са налични (изтече времето за изчакване на API).</string>
+    <string name="revanced_ryd_failure_connection_status_code" formatted="false">Нехаресванията не са налични (status %d).</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Нехаресванията не са достъпни (достигнат лимит на API)</string>
+    <string name="revanced_ryd_failure_generic">Нехаресванията не са налични (%s).</string>
     <string name="revanced_ryd_shorts_summary_off">Нехаресванията са скрити в кратките клипове</string>
     <string name="revanced_ryd_shorts_summary_on">Нехаресванията се показват в кратките клипове</string>
     <string name="revanced_ryd_shorts_title">Пок. нехаресвания в кратките клипове</string>
@@ -670,12 +691,13 @@
     <string name="revanced_save_video_quality_none">Неуспешно задаване на качеството</string>
     <string name="revanced_save_video_quality_wifi" formatted="false">Смяна на качеството при Wi-Fi на%s.</string>
     <string name="revanced_seekbar">Лента за време</string>
+    <string name="revanced_share_copy_settings_success">Настройките са копирани в клипборда.</string>
     <string name="revanced_share_copy_timestamp_success" formatted="false">Времевата отметка е копирана в клипборда. (%s)</string>
     <string name="revanced_share_copy_url_success">Връзката е копирана в клипборда.</string>
     <string name="revanced_share_copy_url_timestamp_success">URL адрес с отметка за време, копиран в клипборда.</string>
     <string name="revanced_shorts">Кратки клипове</string>
     <string name="revanced_shorts_player_title">Плейър за кратки клипове</string>
-    <string name="revanced_shorts_toolbar_summary">За да скриете лентата с инструменти за shorts, скрийте всички настройки в категорията на лентата с инструменти за shorts</string>
+    <string name="revanced_shorts_toolbar_summary">Бутонът за връщане в лентата с инструменти не може да бъде скрит.</string>
     <string name="revanced_shorts_toolbar_title">Панел инструменти за Кратки</string>
     <string name="revanced_show_fullscreen_title_summary">Известен проблем: Заглавието изчезва при докосване</string>
     <string name="revanced_show_fullscreen_title_title">Показване на заглавието при цял екран</string>
@@ -699,6 +721,7 @@
     <string name="revanced_spoof_app_version_target_entry_18_05_40">18.05.40 - Възстановяване на старото поле за писане на коментари</string>
     <string name="revanced_spoof_app_version_target_entry_18_17_43">18.17.43 - Възстановяване на стария стил на изскачащия панел</string>
     <string name="revanced_spoof_app_version_target_entry_18_33_40">18.33.40 - Възстановяване на старата лентата с действия за Кратки</string>
+    <string name="revanced_spoof_app_version_target_entry_18_38_45">18.38.45 - Възстановяване на старото качеството на видеото по подразбиране</string>
     <string name="revanced_spoof_app_version_target_entry_18_40_34">"18.40.34 - Деактивира актуализирането на „изгледи“ и „харесвания“ в реално време"</string>
     <string name="revanced_spoof_app_version_target_entry_title">Подлъгване за исканата версията на приложението</string>
     <string name="revanced_spoof_app_version_target_summary">Задайте желаната фалшива версия на приложението</string>
@@ -726,7 +749,10 @@
     <string name="revanced_swipe_overlay_text_size_title">Размер на текста при плъзгане</string>
     <string name="revanced_swipe_overlay_timeout_summary">Време за което плъзгащата контрола е видима</string>
     <string name="revanced_swipe_overlay_timeout_title">Задръжка на плъзг. контрола</string>
-    <string name="revanced_switching_create_notification_summary">Забележка: Ако тази настройка не се прилага правилно, рестартирайте устройството</string>
+    <string name="revanced_switching_create_notification_summary">"Разменете позициите на бутона за създаване и бутона за известия, като подправите информацията на устройството.
+
+• Дори ако промените тази настройка, тя може да не влезе в сила, докато не рестартирате устройството.
+• Трябва да деактивирате тази настройка, за да направите видео рекламите видими."</string>
     <string name="revanced_switching_create_notification_title">Превкл. бутон за създаване с известията</string>
     <string name="revanced_tool_used">Ползвани инстр.</string>
     <string name="revanced_video">Видео</string>
@@ -779,10 +805,11 @@
     <string name="sb_api_url_changed">URL на API е променен</string>
     <string name="sb_settings_copy">Копирай</string>
     <string name="sb_settings_ie_sum">Вашата SponsorBlock JSON конфигурация която може да се импортира/експортира до ReVanced или други платформи ползващи SponsorBlock. Това включва вашия потребителски id. Споделяйте това разумно</string>
+    <string name="sb_settings_ie">Импортиране / Експортиране на настройките</string>
     <string name="sb_settings_import_successful">Настройки успешно въстановени</string>
     <string name="sb_settings_import_failed">Неуспешно импортиране на „%s“</string>
     <string name="sb_settings_export_failed">Неуспешно експортиране на „%s“</string>
-    <string name="sb_settings_revanced_export_user_id_warning">Вашите настройки на SponsorBlock съдържат вашето лично потребителско име.\n\nВашето потребителско име е като парола и не трябва да се споделя с никого.\n</string>
+    <string name="sb_settings_revanced_export_user_id_warning">Вашите настройки съдържат лично потребителско име на SponsorBlock.\n\nВашето потребителско име е като парола и никога не трябва да се споделя.\n</string>
     <string name="sb_settings_revanced_export_user_id_warning_dismiss">Не показвай отново</string>
     <string name="sb_diff_segments">Какво да се прави с различните части</string>
     <string name="sb_segments_sponsor">Спонсор</string>
@@ -831,6 +858,9 @@
     <string name="sb_skip_showbutton">Пок. бутон за пропускане</string>
     <string name="sb_skip_seekbaronly">Показв. в лентата за време</string>
     <string name="sb_skip_ignore">Изключено</string>
+    <string name="sb_sponsorblock_connection_failure_generic">SponsorBlock временно не е наличен.</string>
+    <string name="sb_sponsorblock_connection_failure_status" formatted="false">SponsorBlock временно не е наличен (status %d).</string>
+    <string name="sb_sponsorblock_connection_failure_timeout">SponsorBlock временно не е наличен (API timed out).</string>
     <string name="sb_submit_failed_invalid" formatted="false">Не може да се изпрати частта: %s</string>
     <string name="sb_submit_failed_timeout">Не могат да се изпратят части (Проср. API вр.)</string>
     <string name="sb_submit_failed_unknown_error" formatted="false">Не могат да се изпратят частите: (статус: %d %s)</string>
@@ -838,6 +868,7 @@
     <string name="sb_submit_failed_forbidden" formatted="false">Не може да се изпрати частта: %s</string>
     <string name="sb_submit_failed_duplicate">Не може да се изпрати частта.\nВече съществува</string>
     <string name="sb_submit_succeeded">Частта е изпратена успешно</string>
+    <string name="sb_vote_failed_timeout">Не може да се гласува за сегмент (изтече времето за изчакване на API).</string>
     <string name="sb_vote_failed_unknown_error" formatted="false">Не може да се гласува за частите: (статус: %d %s)</string>
     <string name="sb_vote_failed_forbidden" formatted="false">Не може да се гласува за част: %s</string>
     <string name="sb_vote_upvote">Положителен вот</string>
@@ -888,9 +919,4 @@
     <string name="sb_about">Относно</string>
     <string name="sb_reset">Нулиране</string>
     <string name="sb_about_api_sum">Данните са предоставени от SponsorBlock API. Докоснете тук за повече информация и изтеглияния</string>
-    <string name="settings_export_failed">Неуспешно експортиране на настройките</string>
-    <string name="settings_export_successful">Настройките са експортирани успешно</string>
-    <string name="settings_ie">Импортиране / Експортиране на настройките</string>
-    <string name="settings_import_failed">Неуспешно импортиране на настройките</string>
-    <string name="settings_import_successful">Настройките са импортирани успешно</string>
 </resources>

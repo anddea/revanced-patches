@@ -30,7 +30,6 @@
     <string name="revanced_append_time_stamp_information_type_summary_off">Lisää toistonopeus</string>
     <string name="revanced_append_time_stamp_information_type_summary_on">Liitä videon laatu</string>
     <string name="revanced_append_time_stamp_information_type_title">Liitä tietotyyppi</string>
-    <string name="revanced_backup_summary">Tuo ReVanced Extended -asetukset tiedostosta tai vie ReVanced Extended -asetukset tiedostoon</string>
     <string name="revanced_bottom_player">Alempi soitin</string>
     <string name="revanced_button_container_title">Painikesäiliö</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">Ambient-tila on poissa käytöstä virransäästötilassa</string>
@@ -171,8 +170,6 @@
  Sinä-välilehti &gt; Näytä kanava &gt; Valikko &gt; asetukset"</string>
     <string name="revanced_enable_wide_search_bar_in_you_tab_title">Ota leveä hakupalkki käyttöön Sinä-välilehdessä</string>
     <string name="revanced_experimental_flag">Kokeellisia toimintoja</string>
-    <string name="revanced_export_settings_summary">Tallenna ReVancedin asetukset tiedostoon</string>
-    <string name="revanced_export_settings_title">Vie asetukset</string>
     <string name="revanced_external_downloader_installed">Asennetut</string>
     <string name="revanced_external_downloader_not_installed">Ei asennettu</string>
     <string name="revanced_external_downloader_not_installed_warning" formatted="false">%s ei ole asennettu. Asenna se.</string>
@@ -572,8 +569,6 @@ Tunnettu ongelma: Automaattinen toisto ei toimi"</string>
     <string name="revanced_hide_youtube_music_button_title">Piilota Youtube music -painike</string>
     <string name="revanced_hook_download_button_summary">"Korvaa latauspainike ulkoisella latauspainikkeella YouTube v18.24.37+ verfügbar"</string>
     <string name="revanced_hook_download_button_title">Koukun latauspainike</string>
-    <string name="revanced_import_settings_summary">Nouda Revanced-asetukset tallennetusta tiedostosta</string>
-    <string name="revanced_import_settings_title">Tuo asetukset</string>
     <string name="revanced_layout_title">Asettelu</string>
     <string name="revanced_misc">Sekalaiset</string>
     <string name="revanced_navigation">Navigation</string>
@@ -582,8 +577,6 @@ Tunnettu ongelma: Automaattinen toisto ei toimi"</string>
     <string name="revanced_open_library_you_startup_title">Avaa kirjasto (Sinä) sovelluksen käynnistyksen yhteydessä</string>
     <string name="revanced_others">Muut</string>
     <string name="revanced_overlay_button">Overlay-Schaltfläche</string>
-    <string name="revanced_overlay_button_always_repeat_summary">"Napauta vaihtaaksesi aina toistavat tilat
-Napauta ja pidä painettuna vaihtaaksesi tauko toistuvien tilojen jälkeen"</string>
     <string name="revanced_overlay_button_always_repeat_title">Näytä aina toista -painike</string>
     <string name="revanced_overlay_button_copy_video_url_summary">"Kopioi videon URL-osoite napauttamalla
 Kopioi videon URL-osoite aikaleimalla napauttamalla pitkään"</string>
@@ -678,7 +671,6 @@ Jos se sammutetaan myöhemmin, vanha käyttöliittymä saattaa jäädä, kunnes 
     <string name="revanced_swipe_overlay_text_size_title">Pyyhkäise peittotekstin kokoa</string>
     <string name="revanced_swipe_overlay_timeout_summary">Peittokuvan millisekuntien määrä on näkyvissä</string>
     <string name="revanced_swipe_overlay_timeout_title">Pyyhkäisemisen aikakatkaisu</string>
-    <string name="revanced_switching_create_notification_summary">Huomautus: Jos tämä asetus ei toimi oikein, käynnistä laite uudelleen</string>
     <string name="revanced_switching_create_notification_title">Vaihda luonti ilmoituksilla -painikkeella</string>
     <string name="revanced_tool_used">Käytetty työkalu</string>
     <string name="revanced_video">Video</string>
@@ -734,8 +726,6 @@ Jos se sammutetaan myöhemmin, vanha käyttöliittymä saattaa jäädä, kunnes 
     <string name="sb_settings_import_successful">Asetusten tuonti onnistui</string>
     <string name="sb_settings_import_failed">Tuonti epäonnistui: %s</string>
     <string name="sb_settings_export_failed">Vienti epäonnistui: %s</string>
-    <string name="sb_settings_revanced_export_user_id_warning">Asetuksesi sisältävät yksityisen SponsorBlock-käyttäjätunnuksen.\n\nKäyttäjätunnuksesi on kuin salasana, eikä sitä tule koskaan jakaa.\n</string>
-    <string name="sb_settings_revanced_export_user_id_warning_dismiss">Älä näytä uudelleen</string>
     <string name="sb_diff_segments">Muuta segmentin käyttäytymistä</string>
     <string name="sb_segments_sponsor">Sponsori</string>
     <string name="sb_segments_sponsor_sum">Maksettu promootio, maksetut suositukset ja suorat mainokset. Ei itsemarkkinointiin tai ilmaisiin huutopuheenvuoroihin aiheille/sisällöntuottajille/verkkosivustoille/tuotteille, joista he pitävät</string>
@@ -840,9 +830,4 @@ Jos se sammutetaan myöhemmin, vanha käyttöliittymä saattaa jäädä, kunnes 
     <string name="sb_about">Tietoja</string>
     <string name="sb_reset">Palauta</string>
     <string name="sb_about_api_sum">Tiedot tarjoaa SponsorBlock API. Napauta tätä saadaksesi lisätietoja ja nähdäksesi lataukset muille alustoille</string>
-    <string name="settings_export_failed">Asetusten vienti epäonnistui</string>
-    <string name="settings_export_successful">Asetusten vienti onnistui</string>
-    <string name="settings_ie">Tuo/Vie asetukset</string>
-    <string name="settings_import_failed">Asetusten tuonti epäonnistui</string>
-    <string name="settings_import_successful">Asetusten tuonti onnistui</string>
 </resources>

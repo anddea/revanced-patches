@@ -30,7 +30,6 @@
     <string name="revanced_append_time_stamp_information_type_summary_off">Ajout de la vitesse de lecture à côté de la durée de la vidéo</string>
     <string name="revanced_append_time_stamp_information_type_summary_on">Ajout de la qualité vidéo à côté de la durée de la vidéo</string>
     <string name="revanced_append_time_stamp_information_type_title">Ajout de type d\'information</string>
-    <string name="revanced_backup_summary">Importez/exportez les paramètres de ReVanced Extended depuis/vers un fichier.</string>
     <string name="revanced_bottom_player">Boutons sous le lecteur vidéo</string>
     <string name="revanced_button_container_title">Boutons sous le lecteur vidéo</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">Le mode ambiant est désactivé en mode économie d\'énergie</string>
@@ -144,6 +143,9 @@
     <string name="revanced_enable_opus_codec_title">Codec audio Opus</string>
     <string name="revanced_enable_phone_layout_summary">Modifie le DPI pour activer certaines mises en page pour les téléphones</string>
     <string name="revanced_enable_phone_layout_title">Mise en page pour les téléphones</string>
+    <string name="revanced_enable_press_to_swipe_summary_off">Les commandes de balayage sont désactivés.</string>
+    <string name="revanced_enable_press_to_swipe_summary_on">Les commandes de balayage sont activés.</string>
+    <string name="revanced_enable_press_to_swipe_title">Commande de balayage</string>
     <string name="revanced_enable_save_playback_speed_summary_off">N’enregistre pas les valeurs de vitesse de lecture, même en cas de modification de la vitesse de lecture</string>
     <string name="revanced_enable_save_playback_speed_summary_on">Enregistre la valeur de la vitesse de lecture à chaque modification de celle-ci</string>
     <string name="revanced_enable_save_playback_speed_title">Enregistrer la vitesse de lecture</string>
@@ -159,6 +161,9 @@
     <string name="revanced_enable_swipe_brightness_summary_off">Le balayage de la luminosité est désactivé</string>
     <string name="revanced_enable_swipe_brightness_summary_on">Le balayage de la luminosité est activé</string>
     <string name="revanced_enable_swipe_brightness_title">Geste de luminosité</string>
+    <string name="revanced_enable_swipe_haptic_feedback_summary_off">Le retour haptique des commentaires est désactivé.</string>
+    <string name="revanced_enable_swipe_haptic_feedback_summary_on">Le retour haptique des commentaires est activé.</string>
+    <string name="revanced_enable_swipe_haptic_feedback_title">Retour haptique des commentaires</string>
     <string name="revanced_enable_swipe_volume_summary_off">Le balayage du volume est désactivé</string>
     <string name="revanced_enable_swipe_volume_summary_on">Le balayage du volume est activé</string>
     <string name="revanced_enable_swipe_volume_title">Geste de volume</string>
@@ -184,8 +189,22 @@ Dans ce cas, veuillez utiliser le chemin d'accès suivant :
 Catégorie \"Vous\" &gt; \"Afficher la chaîne\" &gt; Trois points &gt; \"Paramètres\""</string>
     <string name="revanced_enable_wide_search_bar_in_you_tab_title">Active la barre de recherche large dans la catégorie \"Vous\"</string>
     <string name="revanced_experimental_flag">Options expérimentales</string>
-    <string name="revanced_export_settings_summary">Enregistre vos paramètres ReVanced dans un fichier</string>
-    <string name="revanced_export_settings_title">Paramètres d\'exportation</string>
+    <string name="revanced_extended_settings_export_failed">Échec de l\'exportation des paramètres</string>
+    <string name="revanced_extended_settings_export_success">Les paramètres ont été exportés avec succès</string>
+    <string name="revanced_extended_settings_export_summary">Exporter les paramètres vers un fichier</string>
+    <string name="revanced_extended_settings_export_title">Paramètres d\'exportation</string>
+    <string name="revanced_extended_settings_import">Importer</string>
+    <string name="revanced_extended_settings_import_copy">Copie</string>
+    <string name="revanced_extended_settings_import_export_as_file_title">Importer / Exporter sous forme de fichier</string>
+    <string name="revanced_extended_settings_import_export_as_text_summary">Importer ou exporter les paramètres sous forme de texte.</string>
+    <string name="revanced_extended_settings_import_export_as_text_title">Importer / Exporter sous forme de texte</string>
+    <string name="revanced_extended_settings_import_export_summary">Importer ou emporter des paramètres</string>
+    <string name="revanced_extended_settings_import_export_title">Importer / Exporter des paramètres</string>
+    <string name="revanced_extended_settings_import_failed">Échec de l\'importation des paramètres</string>
+    <string name="revanced_extended_settings_import_reset">Réinitialiser</string>
+    <string name="revanced_extended_settings_import_success">Les paramètres ont été importés avec succès</string>
+    <string name="revanced_extended_settings_import_summary">Importer les paramètres depuis un fichier enregistré.</string>
+    <string name="revanced_extended_settings_import_title">Paramètres d’importation</string>
     <string name="revanced_external_downloader_installed">Installé</string>
     <string name="revanced_external_downloader_not_installed">Non installé</string>
     <string name="revanced_external_downloader_not_installed_warning" formatted="false">%s n\'est pas installé. Veuillez l’installer.</string>
@@ -414,6 +433,9 @@ Catégorie \"Vous\" &gt; \"Afficher la chaîne\" &gt; Trois points &gt; \"Param�
     <string name="revanced_hide_navigation_label_summary_off">Le nom des catégories est affichée</string>
     <string name="revanced_hide_navigation_label_summary_on">Le nom des catégories est masquée.</string>
     <string name="revanced_hide_navigation_label_title">Nom des catégories</string>
+    <string name="revanced_hide_notifications_button_summary_off">Le bouton \"Notifications\" est affiché.</string>
+    <string name="revanced_hide_notifications_button_summary_on">Le bouton \"Notifications\" est masqué.</string>
+    <string name="revanced_hide_notifications_button_title">Bouton \"Notifications\"</string>
     <string name="revanced_hide_notify_me_button_summary_off">Le bouton \"M\'avertir\" est affiché</string>
     <string name="revanced_hide_notify_me_button_summary_on">Le bouton \"M\'avertir\" est masqué</string>
     <string name="revanced_hide_notify_me_button_title">Bouton \"M\'avertir\"</string>
@@ -513,6 +535,9 @@ Catégorie \"Vous\" &gt; \"Afficher la chaîne\" &gt; Trois points &gt; \"Param�
     <string name="revanced_hide_self_sponsor_cards_summary_off">Les cartes autosponsorisées sont affichées</string>
     <string name="revanced_hide_self_sponsor_cards_summary_on">Les cartes autosponsorisées sont masquées</string>
     <string name="revanced_hide_self_sponsor_cards_title">Cartes autosponsorisées</string>
+    <string name="revanced_hide_shopping_links_summary_off">Les liens de shopping sont affichés.</string>
+    <string name="revanced_hide_shopping_links_summary_on">Les liens de shopping sont masqués.</string>
+    <string name="revanced_hide_shopping_links_title">Les liens de shopping</string>
     <string name="revanced_hide_shorts_button_summary_off">Le bouton \"Shorts\" est affiché</string>
     <string name="revanced_hide_shorts_button_summary_on">Le bouton \"Shorts\" est masqué.</string>
     <string name="revanced_hide_shorts_button_title">Bouton \"Shorts\"</string>
@@ -604,12 +629,6 @@ Certaines vidéos, y compris celles des chaînes auxquelles vous êtes abonné, 
     <string name="revanced_hide_youtube_music_button_title">Bouton \"YouTube Music\"</string>
     <string name="revanced_hook_download_button_summary">"Remplace le bouton de téléchargement par le bouton de téléchargement externe"</string>
     <string name="revanced_hook_download_button_title">Bouton \"Téléchargement\"</string>
-    <string name="revanced_import_settings_inform">"Les paramètres suivants ne peuvent pas être importés, donc veuillez ouvrir les paramètres ReVanced Extended une fois l'importation terminée est activé manuellement 
-
-• Menu des paramètres supplémentaires (Boutons du menu \"paramètre\" des vidéos)
-• Les boutons en haut à droite des Shorts"</string>
-    <string name="revanced_import_settings_summary">Restaurer les paramètres ReVanced depuis un fichier sauvegardé.</string>
-    <string name="revanced_import_settings_title">Paramètres d’importation</string>
     <string name="revanced_inform">Info</string>
     <string name="revanced_layout_title">Mise en page</string>
     <string name="revanced_misc">Autres paramètres</string>
@@ -619,8 +638,7 @@ Certaines vidéos, y compris celles des chaînes auxquelles vous êtes abonné, 
     <string name="revanced_open_library_you_startup_title">Ouvrir la catégorie \"Bibliothèque\" (Vous) au démarrage de l\'appli</string>
     <string name="revanced_others">Autres</string>
     <string name="revanced_overlay_button">Ajouts de boutons</string>
-    <string name="revanced_overlay_button_always_repeat_summary">"Appuyez pour répéter en boucle 
-Appuyez longuement pour mettre en pause la répétition en boucle "</string>
+    <string name="revanced_overlay_button_always_repeat_summary">Appuyez pour activer la lecture en boucle</string>
     <string name="revanced_overlay_button_always_repeat_title">Bouton \"Lecture en boucle\"</string>
     <string name="revanced_overlay_button_copy_video_url_summary">"Appuyez pour copier l'URL de la vidéo
 Appuyez longuement pour copier l'URL horodaté de la vidéo."</string>
@@ -657,7 +675,10 @@ Appuyez longuement pour régler la vitesse de la vidéo sur 1.0x."</string>
     <string name="revanced_ryd_enable_summary_off">Les \"Je n\'aime pas\" ne sont pas affichés</string>
     <string name="revanced_ryd_enable_summary_on">Les \"Je n\'aime pas\" sont affichés</string>
     <string name="revanced_ryd_enable_title">Return YouTube Dislike</string>
+    <string name="revanced_ryd_failure_connection_timeout">Les dislikes sont temporairement indisponible (API obsolète)</string>
+    <string name="revanced_ryd_failure_connection_status_code" formatted="false">Dislikes non disponible (status %d).</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Les dislikes sont indisponibles (limite d\'API client atteinte)</string>
+    <string name="revanced_ryd_failure_generic">Dislikes non disponible (%s).</string>
     <string name="revanced_ryd_shorts_summary_off">Dislikes sur les Shorts masqués</string>
     <string name="revanced_ryd_shorts_summary_on">Dislikes sur les Shorts affichés</string>
     <string name="revanced_ryd_shorts_title">Les dislikes sur les Shorts</string>
@@ -669,12 +690,13 @@ Appuyez longuement pour régler la vitesse de la vidéo sur 1.0x."</string>
     <string name="revanced_save_video_quality_none">Échec du réglage de la qualité</string>
     <string name="revanced_save_video_quality_wifi" formatted="false">Changement de la qualité par défaut en Wi-Fi en : %s.</string>
     <string name="revanced_seekbar">Barre de progression</string>
+    <string name="revanced_share_copy_settings_success">Paramètres copiés dans le presse-papier.</string>
     <string name="revanced_share_copy_timestamp_success" formatted="false">Horodatage copié dans le presse-papiers. (%s)</string>
     <string name="revanced_share_copy_url_success">URL copié dans le presse-papier.</string>
     <string name="revanced_share_copy_url_timestamp_success">URL avec horodatage copié dans le presse-papier</string>
     <string name="revanced_shorts">Shorts</string>
     <string name="revanced_shorts_player_title">Lecteur de Shorts</string>
-    <string name="revanced_shorts_toolbar_summary">Pour masquer les boutons en haut à droite des shorts, Activer tous les paramètres de la catégorie \"Boutons en haut à droite\"</string>
+    <string name="revanced_shorts_toolbar_summary">Le bouton \"Retour\" en haut de la vidéo ne peut pas être masqué</string>
     <string name="revanced_shorts_toolbar_title">Boutons en haut à droite</string>
     <string name="revanced_show_fullscreen_title_summary">Problème connu : Le titre disparaît lorsqu\'on appuie dessus</string>
     <string name="revanced_show_fullscreen_title_title">Titre en plein écran</string>
@@ -697,6 +719,7 @@ Si elle est désactivée ultérieurement, l'ancienne interface utilisateur peut 
     <string name="revanced_spoof_app_version_target_entry_18_05_40">18.05.40 - Restaure l\'ancienne mise en page de saisie de commentaire</string>
     <string name="revanced_spoof_app_version_target_entry_18_17_43">18.17.43 - Restaure l\'ancienne mise en page du lecteur</string>
     <string name="revanced_spoof_app_version_target_entry_18_33_40">18.33.40 - Restaure l\'ancienne barre d\'action Shorts</string>
+    <string name="revanced_spoof_app_version_target_entry_18_38_45">18.38.45 - Restaure l\'ancien fonctionnement par défaut de la qualité vidéo</string>
     <string name="revanced_spoof_app_version_target_entry_18_40_34">"18.40.34 - Désactive les \"vues\" et \"j'aime\" en temps réel"</string>
     <string name="revanced_spoof_app_version_target_entry_title">Version cible pour la falsification</string>
     <string name="revanced_spoof_app_version_target_summary">Saisissez la version cible de l\'application à falsifier</string>
@@ -730,7 +753,11 @@ Problèmes connus:
     <string name="revanced_swipe_overlay_text_size_title">Taille du texte superposé</string>
     <string name="revanced_swipe_overlay_timeout_summary">La quantité de millisecondes pendant laquelle la superposition est visible</string>
     <string name="revanced_swipe_overlay_timeout_title">Délai de superposition</string>
-    <string name="revanced_switching_create_notification_summary">Note : Si ce paramètre ne s\'applique pas correctement, redémarrez votre appareil</string>
+    <string name="revanced_switching_create_notification_summary">"Échange la place des boutons \"Créer\" et \"Notifications\" en usurpant les infos de l'appareil
+
+• Malgré l'activation de ce paramètre, il peut ne pas fonctionner tant que vous n'avez pas redémarrer l'appareil
+
+• Vous devez désactiver ce paramètre pour pouvoir avoir des publicités vidéos"</string>
     <string name="revanced_switching_create_notification_title">Échanger \"Créer\" avec \"Notifications\"</string>
     <string name="revanced_tool_used">Outil utilisé</string>
     <string name="revanced_video">Qualité et vitesse vidéo</string>
@@ -783,6 +810,7 @@ Problèmes connus:
     <string name="sb_api_url_changed">L\'URL de l\'API a été modifiée</string>
     <string name="sb_settings_copy">Copie</string>
     <string name="sb_settings_ie_sum">Votre configuration SponsorBlock au format JSON peut être importé/exporté vers ReVanced Extended ou sur d\'autres plateformes. Cela inclut votre identifiant personnel. Partagez-le avec prudence</string>
+    <string name="sb_settings_ie">Importer / Exporter des paramètres</string>
     <string name="sb_settings_import_successful">Paramètres importés avec succès</string>
     <string name="sb_settings_import_failed">Importation échouée : %s</string>
     <string name="sb_settings_export_failed">Exportation échouée : %s</string>
@@ -835,6 +863,9 @@ Problèmes connus:
     <string name="sb_skip_showbutton">Afficher un bouton \"Passer\"</string>
     <string name="sb_skip_seekbaronly">Afficher dans la barre de progression </string>
     <string name="sb_skip_ignore">Désactiver</string>
+    <string name="sb_sponsorblock_connection_failure_generic">SponsorBlock est temporairement indisponible</string>
+    <string name="sb_sponsorblock_connection_failure_status" formatted="false">SponsorBlock est temporairement indisponible (status %d).</string>
+    <string name="sb_sponsorblock_connection_failure_timeout">SponsorBlock est temporairement indisponible (API obsolète).</string>
     <string name="sb_submit_failed_invalid" formatted="false">Impossible de soumettre le segment : %s</string>
     <string name="sb_submit_failed_timeout">Impossible de soumettre les segments (API expirée)</string>
     <string name="sb_submit_failed_unknown_error" formatted="false">Impossible de soumettre les segments (état : %d %s)</string>
@@ -842,6 +873,7 @@ Problèmes connus:
     <string name="sb_submit_failed_forbidden" formatted="false">Impossible de soumettre le segment : %s</string>
     <string name="sb_submit_failed_duplicate">Impossible de soumettre le segment.\nExiste déjà</string>
     <string name="sb_submit_succeeded">Segment soumis avec succès</string>
+    <string name="sb_vote_failed_timeout">Impossible de soumettre les segments (API obsolète).</string>
     <string name="sb_vote_failed_unknown_error" formatted="false">Impossible de voter pour le segment (état : %d %s)</string>
     <string name="sb_vote_failed_forbidden" formatted="false">Impossible de voter pour le segment : %s</string>
     <string name="sb_vote_upvote">Voter pour</string>
@@ -892,9 +924,4 @@ Problèmes connus:
     <string name="sb_about">À propos</string>
     <string name="sb_reset">Réinitialiser</string>
     <string name="sb_about_api_sum">Les données sont fournies par l\'API SponsorBlock. Cliquez ici pour en savoir plus et voir les téléchargements pour d\'autres plateformes</string>
-    <string name="settings_export_failed">Échec de l\'exportation des paramètres</string>
-    <string name="settings_export_successful">Les paramètres ont été exportés avec succès</string>
-    <string name="settings_ie">Importer/exporter des paramètres</string>
-    <string name="settings_import_failed">Échec de l\'importation des paramètres</string>
-    <string name="settings_import_successful">Les paramètres ont été importés avec succès</string>
 </resources>
