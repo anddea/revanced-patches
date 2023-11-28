@@ -30,7 +30,6 @@
     <string name="revanced_append_time_stamp_information_type_summary_off">Проецирующий скорость воспроизведения.</string>
     <string name="revanced_append_time_stamp_information_type_summary_on">Проецирующий качество видео.</string>
     <string name="revanced_append_time_stamp_information_type_title">Тип индикатора</string>
-    <string name="revanced_backup_summary">Импортировать настройки ReVanced Extended из файла / Экспортировать настройки ReVanced Extended в файл.</string>
     <string name="revanced_bottom_player">Нижняя часть плеера</string>
     <string name="revanced_button_container_title">Кнопки под плеером</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">Фоновая подсветка в режиме экономии заряда батареи отключена.</string>
@@ -146,6 +145,9 @@
     <string name="revanced_enable_opus_codec_title">Кодек Opus</string>
     <string name="revanced_enable_phone_layout_summary">Подменяет DPI для использования \"Телефонного\" интерфейса.</string>
     <string name="revanced_enable_phone_layout_title">Телефонный интерфейс</string>
+    <string name="revanced_enable_press_to_swipe_summary_off">Нажатие для жеста отключено.</string>
+    <string name="revanced_enable_press_to_swipe_summary_on">Нажатие для жеста включено.</string>
+    <string name="revanced_enable_press_to_swipe_title">Нажатие для жеста</string>
     <string name="revanced_enable_save_playback_speed_summary_off">Скорость воспроизведения не сохраняется при её изменении.</string>
     <string name="revanced_enable_save_playback_speed_summary_on">Скорость воспроизведения сохраняется при её изменении.</string>
     <string name="revanced_enable_save_playback_speed_title">Сохранение скорости воспроизведения</string>
@@ -161,6 +163,9 @@
     <string name="revanced_enable_swipe_brightness_summary_off">Управление яркостью жестом отключено.</string>
     <string name="revanced_enable_swipe_brightness_summary_on">Управление яркостью жестом включено.</string>
     <string name="revanced_enable_swipe_brightness_title">Управление яркостью жестом</string>
+    <string name="revanced_enable_swipe_haptic_feedback_summary_off">Виброотклик нажатия для жеста отключён.</string>
+    <string name="revanced_enable_swipe_haptic_feedback_summary_on">Виброотклик нажатия для жеста включён.</string>
+    <string name="revanced_enable_swipe_haptic_feedback_title">Виброотклик нажатия для жеста</string>
     <string name="revanced_enable_swipe_volume_summary_off">Управление громкостью жестом отключено.</string>
     <string name="revanced_enable_swipe_volume_summary_on">Управление громкостью жестом включено.</string>
     <string name="revanced_enable_swipe_volume_title">Управление громкостью жестом</string>
@@ -185,8 +190,22 @@
 В таком случае вы можете использовать такую последовательность: Вкладка \"Вы\" &gt; На страницу канала &gt; Три точки &gt; Настройки."</string>
     <string name="revanced_enable_wide_search_bar_in_you_tab_title">Широкая панель поиска во вкладке \"Вы\"</string>
     <string name="revanced_experimental_flag">Экспериментальные опции</string>
-    <string name="revanced_export_settings_summary">Сохранение ваших настроек ReVanced Extended в файл.</string>
-    <string name="revanced_export_settings_title">Экспорт настроек</string>
+    <string name="revanced_extended_settings_export_failed">Не удалось экспортировать настройки.</string>
+    <string name="revanced_extended_settings_export_success">Настройки успешно экспортированы.</string>
+    <string name="revanced_extended_settings_export_summary">Экспортировать настройки в файл.</string>
+    <string name="revanced_extended_settings_export_title">Экспорт настроек</string>
+    <string name="revanced_extended_settings_import">Импортировать</string>
+    <string name="revanced_extended_settings_import_copy">Копировать</string>
+    <string name="revanced_extended_settings_import_export_as_file_title">Импорт / Экспорт в виде файла</string>
+    <string name="revanced_extended_settings_import_export_as_text_summary">Импортировать или экспортировать настройки в виде текста.</string>
+    <string name="revanced_extended_settings_import_export_as_text_title">Импорт / Экспорт в виде текста</string>
+    <string name="revanced_extended_settings_import_export_summary">Импортировать или экспортировать настройки.</string>
+    <string name="revanced_extended_settings_import_export_title">Импорт / Экспорт настроек</string>
+    <string name="revanced_extended_settings_import_failed">Не удалось импортировать настройки.</string>
+    <string name="revanced_extended_settings_import_reset">Сбросить</string>
+    <string name="revanced_extended_settings_import_success">Настройки успешно импортированы.</string>
+    <string name="revanced_extended_settings_import_summary">Импортировать настройки из файла.</string>
+    <string name="revanced_extended_settings_import_title">Импорт настроек</string>
     <string name="revanced_external_downloader_installed">Установлен</string>
     <string name="revanced_external_downloader_not_installed">Не установлен</string>
     <string name="revanced_external_downloader_not_installed_warning" formatted="false">%s не установлен. Пожалуйста, установите его.</string>
@@ -201,7 +220,7 @@
     <string name="revanced_haptic_feedback_title">Виброотклик</string>
     <string name="revanced_hide_account_menu_filter_strings_title">Изменить фильтр меню аккаунта</string>
     <string name="revanced_hide_account_menu_summary">"Скрыть элементы меню аккаунта и вкладки \"Вы\".
-Некоторые компоненты не могут быть скрыты."</string>
+Некоторые компоненты могут не быть скрыты."</string>
     <string name="revanced_hide_account_menu_title">Скрыть меню аккаунта</string>
     <string name="revanced_hide_album_card_summary_off">Заставки альбомов отображены.</string>
     <string name="revanced_hide_album_card_summary_on">Заставки альбомов скрыты.</string>
@@ -416,6 +435,9 @@
     <string name="revanced_hide_navigation_label_summary_off">Подписи вкладок на панели навигации отображены.</string>
     <string name="revanced_hide_navigation_label_summary_on">Подписи вкладок на панели навигации скрыты.</string>
     <string name="revanced_hide_navigation_label_title">Скрыть подписи вкладок навигации</string>
+    <string name="revanced_hide_notifications_button_summary_off">Кнопка \"Уведомления\" отображена.</string>
+    <string name="revanced_hide_notifications_button_summary_on">Кнопка \"Уведомления\" скрыта.</string>
+    <string name="revanced_hide_notifications_button_title">Скрыть кнопку \"Уведомления\"</string>
     <string name="revanced_hide_notify_me_button_summary_off">Кнопка \"Прислать уведомление\" в ленте отображена.</string>
     <string name="revanced_hide_notify_me_button_summary_on">Кнопка \"Прислать уведомление\" в ленте скрыта.</string>
     <string name="revanced_hide_notify_me_button_title">Скрыть кнопку \"Прислать уведомление\"</string>
@@ -515,6 +537,9 @@
     <string name="revanced_hide_self_sponsor_cards_summary_off">Заставки саморекламы отображены.</string>
     <string name="revanced_hide_self_sponsor_cards_summary_on">Заставки саморекламы скрыты.</string>
     <string name="revanced_hide_self_sponsor_cards_title">Скрыть заставки саморекламы</string>
+    <string name="revanced_hide_shopping_links_summary_off">Ссылки на товары отображены.</string>
+    <string name="revanced_hide_shopping_links_summary_on">Ссылки на товары скрыты.</string>
+    <string name="revanced_hide_shopping_links_title">Скрыть ссылки на товары</string>
     <string name="revanced_hide_shorts_button_summary_off">Вкладка \"Shorts\" отображена.</string>
     <string name="revanced_hide_shorts_button_summary_on">Вкладка \"Shorts\" скрыта.</string>
     <string name="revanced_hide_shorts_button_title">Скрыть вкладку \"Shorts\"</string>
@@ -607,12 +632,6 @@
     <string name="revanced_hide_youtube_music_button_title">Скрыть кнопку \"YouTube Music\"</string>
     <string name="revanced_hook_download_button_summary">"Заменить кнопку \"Скачать\" кнопкой запуска внешнего загрузчика."</string>
     <string name="revanced_hook_download_button_title">Замена кнопки \"Скачать\"</string>
-    <string name="revanced_import_settings_inform">"Следующие настройки могут не быть импортированы, поэтому, пожалуйста, откройте настройки ReVanced Extended после импорта настроек:
-
-• Пункты меню \"Дополнительные настройки\"
-• Панель инструментов в \"Shorts\""</string>
-    <string name="revanced_import_settings_summary">Восстановление ваших настроек ReVanced Extended из файла.</string>
-    <string name="revanced_import_settings_title">Импорт настроек</string>
     <string name="revanced_inform">Примечание</string>
     <string name="revanced_layout_title">Интерфейс</string>
     <string name="revanced_misc">Разное</string>
@@ -622,8 +641,7 @@
     <string name="revanced_open_library_you_startup_title">Библиотека(Вы) при запуске</string>
     <string name="revanced_others">Другое</string>
     <string name="revanced_overlay_button">Кнопки в плеере</string>
-    <string name="revanced_overlay_button_always_repeat_summary">"Нажатие на кнопку переключает состояние постоянного повтора.
-Нажатие и удержание кнопки переключает паузу после состояния повтора."</string>
+    <string name="revanced_overlay_button_always_repeat_summary">Нажатие на кнопку переключает состояние постоянного повтора.</string>
     <string name="revanced_overlay_button_always_repeat_title">Постоянный повтор</string>
     <string name="revanced_overlay_button_copy_video_url_summary">"Нажатие на кнопку копирует ссылку видео.
 Нажатие и удержание кнопки копирует ссылку видео с временной меткой."</string>
@@ -660,7 +678,10 @@
     <string name="revanced_ryd_enable_summary_off">Отметки \"Не нравится\" скрыты.</string>
     <string name="revanced_ryd_enable_summary_on">Отметки \"Не нравится\" отображены.</string>
     <string name="revanced_ryd_enable_title">Return YouTube Dislike</string>
+    <string name="revanced_ryd_failure_connection_timeout">Отметки \"Не нравится\" временно недоступны (время API истекло).</string>
+    <string name="revanced_ryd_failure_connection_status_code" formatted="false">Отметки \"Не нравится\" недоступны (статус %d).</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Отметки \"Не нравится\" недоступны (достигнут лимит клиентов сервера API).</string>
+    <string name="revanced_ryd_failure_generic">Отметки \"Не нравится\" недоступны (%s).</string>
     <string name="revanced_ryd_shorts_summary_off">Отметки \"Не нравится\" в \"Shorts\" скрыты.</string>
     <string name="revanced_ryd_shorts_summary_on">Отметки \"Не нравится\" в \"Shorts\" отображены.</string>
     <string name="revanced_ryd_shorts_title">Отметки \"Не нравится\" в \"Shorts\"</string>
@@ -672,20 +693,21 @@
     <string name="revanced_save_video_quality_none">Не удалось установить выбранное качество.</string>
     <string name="revanced_save_video_quality_wifi" formatted="false">Качество по умолчанию при Wi-Fi изменено на: %s.</string>
     <string name="revanced_seekbar">Прогресс воспроизведения</string>
-    <string name="revanced_share_copy_timestamp_success" formatted="false">Временная метка скопирована в буфер обмена. (%s)</string>
-    <string name="revanced_share_copy_url_success">Ссылка скопирована в буфер обмена.</string>
-    <string name="revanced_share_copy_url_timestamp_success">Ссылка с временной меткой скопирована в буфер обмена.</string>
+    <string name="revanced_share_copy_settings_success">Настройки скопированы в буфер.</string>
+    <string name="revanced_share_copy_timestamp_success" formatted="false">Метка скопирована в буфер. (%s)</string>
+    <string name="revanced_share_copy_url_success">Ссылка скопирована в буфер.</string>
+    <string name="revanced_share_copy_url_timestamp_success">Ссылка с меткой скопирована в буфер.</string>
     <string name="revanced_shorts">Shorts</string>
     <string name="revanced_shorts_player_title">Плеер \"Shorts\"</string>
-    <string name="revanced_shorts_toolbar_summary">Для скрытия панели инструментов в \"Shorts\", скройте всё в категории \"Панель инструментов в Shorts\".</string>
+    <string name="revanced_shorts_toolbar_summary">Кнопка \"Назад\" на панели инструментов не может быть скрыта.</string>
     <string name="revanced_shorts_toolbar_title">Панель инструментов в \"Shorts\"</string>
     <string name="revanced_show_fullscreen_title_summary">Известная проблема: Заголовок исчезает при нажатии.</string>
     <string name="revanced_show_fullscreen_title_title">Полноэкранный заголовок</string>
     <string name="revanced_skipped_preloaded_buffer">Пропущена предварительная загрузка.</string>
-    <string name="revanced_skip_preloaded_buffer_summary">"Пропускает предварительную загрузку в начале видео для того, чтобы обойти задержки применения качества по умолчанию.
+    <string name="revanced_skip_preloaded_buffer_summary">"Пропускает предварительную загрузку в начале видео, чтобы обойти задержки применения качества по умолчанию.
 
 • При запуске видео есть задержка примерно 0.7 секунды, но качество по умолчанию применяется моментально.
-• Не применяется к HDR видео или видео короче 10 секунд."</string>
+• Не применяется к HDR видео, трансляциям, видео короче 10 секунд."</string>
     <string name="revanced_skip_preloaded_buffer_title">Пропустить предварительную загрузку</string>
     <string name="revanced_skip_preloaded_buffer_toast_summary_off">Уведомление скрыто.</string>
     <string name="revanced_skip_preloaded_buffer_toast_summary_on">Уведомление отображено.</string>
@@ -701,6 +723,7 @@
     <string name="revanced_spoof_app_version_target_entry_18_05_40">18.05.40 - Вернуть старое поле ввода комментария</string>
     <string name="revanced_spoof_app_version_target_entry_18_17_43">18.17.43 - Вернуть старую выдвижную панель плеера</string>
     <string name="revanced_spoof_app_version_target_entry_18_33_40">18.33.40 - Вернуть старую панель действий в \"Shorts\"</string>
+    <string name="revanced_spoof_app_version_target_entry_18_38_45">18.38.45 - Вернуть старое поведение качества по умолчанию</string>
     <string name="revanced_spoof_app_version_target_entry_18_40_34">"18.40.34 - Отключает обновление числа просмотров и отметок \"Нравится\" в реальном времени"</string>
     <string name="revanced_spoof_app_version_target_entry_title">Целевая версия приложения при подмене</string>
     <string name="revanced_spoof_app_version_target_summary">Введите целевую версию приложения для подмены.</string>
@@ -732,7 +755,10 @@
     <string name="revanced_swipe_overlay_text_size_title">Размер текста наложения</string>
     <string name="revanced_swipe_overlay_timeout_summary">Количество миллисекунд для отображения наложения жестов.</string>
     <string name="revanced_swipe_overlay_timeout_title">Длительность наложения</string>
-    <string name="revanced_switching_create_notification_summary">Примечание: Если настройка не применяется, перезапустите устройство.</string>
+    <string name="revanced_switching_create_notification_summary">"Поменять местами кнопки \"Создать\" и \"Уведомления\", используя подмену габаритов устройства.
+
+• Изменение этого параметра может не вступить в силу до перезагрузки устройства.
+• Для того, чтобы сделать рекламу в видео видимой, параметр должен быть отключён."</string>
     <string name="revanced_switching_create_notification_title">Замена местами кнопок</string>
     <string name="revanced_tool_used">Использованные инструменты</string>
     <string name="revanced_video">Видео</string>
@@ -785,9 +811,10 @@
     <string name="sb_api_url_changed">Адрес сервера API изменён.</string>
     <string name="sb_settings_copy">Копировать</string>
     <string name="sb_settings_ie_sum">Ваша конфигурация JSON SponsorBlock может быть импортирована / экспортирована в ReVanced Extended и другие платформы SponsorBlock. Она включает в себя ваш личный ID пользователя, делитесь ею с умом.</string>
-    <string name="sb_settings_import_successful">Настройки успешно восстановлены.</string>
-    <string name="sb_settings_import_failed">Не удалось восстановить: %s.</string>
-    <string name="sb_settings_export_failed">Не удалось сохранить: %s.</string>
+    <string name="sb_settings_ie">Импорт / Экспорт настроек</string>
+    <string name="sb_settings_import_successful">Настройки успешно импортированы.</string>
+    <string name="sb_settings_import_failed">Не удалось импортировать: %s.</string>
+    <string name="sb_settings_export_failed">Не удалось экспортировать: %s.</string>
     <string name="sb_settings_revanced_export_user_id_warning">Ваши настройки SponsorBlock содержат приватный ID пользователя.\n\nВаш ID пользователя как пароль, им не стоит ни с кем делиться.\n</string>
     <string name="sb_settings_revanced_export_user_id_warning_dismiss">Не показывать снова</string>
     <string name="sb_diff_segments">Изменить поведение сегмента</string>
@@ -837,6 +864,9 @@
     <string name="sb_skip_showbutton">Кнопка пропуска</string>
     <string name="sb_skip_seekbaronly">Показывать в прогрессе воспроизведения</string>
     <string name="sb_skip_ignore">Отключить</string>
+    <string name="sb_sponsorblock_connection_failure_generic">SponsorBlock временно недоступен.</string>
+    <string name="sb_sponsorblock_connection_failure_status" formatted="false">SponsorBlock временно недоступен (статус %d).</string>
+    <string name="sb_sponsorblock_connection_failure_timeout">SponsorBlock временно недоступен (время API истекло).</string>
     <string name="sb_submit_failed_invalid" formatted="false">Не удаётся отправить сегмент: %s.</string>
     <string name="sb_submit_failed_timeout">Невозможно отправить сегменты (время API истекло).</string>
     <string name="sb_submit_failed_unknown_error" formatted="false">Невозможно отправить сегменты (статус: %d %s).</string>
@@ -844,6 +874,7 @@
     <string name="sb_submit_failed_forbidden" formatted="false">Не удаётся отправить сегмент: %s.</string>
     <string name="sb_submit_failed_duplicate">Не удаётся отправить сегмент.\nУже существует.</string>
     <string name="sb_submit_succeeded">Сегмент успешно отправлен.</string>
+    <string name="sb_vote_failed_timeout">Невозможно проголосовать за сегмент (время API истекло).</string>
     <string name="sb_vote_failed_unknown_error" formatted="false">Невозможно проголосовать за сегмент (статус: %d %s).</string>
     <string name="sb_vote_failed_forbidden" formatted="false">Невозможно проголосовать за сегмент: %s.</string>
     <string name="sb_vote_upvote">Голосовать за</string>
@@ -892,11 +923,6 @@
     <string name="sb_color_invalid">Неверный код цвета.</string>
     <string name="sb_reset_color">Сбросить цвет</string>
     <string name="sb_about">Об интеграции</string>
-    <string name="sb_reset">Сброс</string>
+    <string name="sb_reset">Сбросить</string>
     <string name="sb_about_api_sum">Данные предоставлены SponsorBlock API. Нажмите здесь, чтобы узнать больше и увидеть опцию загрузки для других платформ.</string>
-    <string name="settings_export_failed">Не удалось сохранить настройки.</string>
-    <string name="settings_export_successful">Настройки успешно сохранены.</string>
-    <string name="settings_ie">Импорт / Экспорт настроек</string>
-    <string name="settings_import_failed">Не удалось восстановить настройки.</string>
-    <string name="settings_import_successful">Настройки успешно восстановлены.</string>
 </resources>

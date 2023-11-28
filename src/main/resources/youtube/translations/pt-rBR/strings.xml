@@ -30,7 +30,6 @@
     <string name="revanced_append_time_stamp_information_type_summary_off">Adicionar velocidade de reprodução</string>
     <string name="revanced_append_time_stamp_information_type_summary_on">Adicionar qualidade de vídeo</string>
     <string name="revanced_append_time_stamp_information_type_title">Adicionar tipo de informação</string>
-    <string name="revanced_backup_summary">Importar configurações do ReVanced de um arquivo ou exportar configurações do ReVanced para um arquivo</string>
     <string name="revanced_bottom_player">Reprodutor inferior</string>
     <string name="revanced_button_container_title">Container de botões</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">O modo ambiente está desativado no modo de economia de bateria</string>
@@ -144,6 +143,9 @@
     <string name="revanced_enable_opus_codec_title">Ativar codec opus</string>
     <string name="revanced_enable_phone_layout_summary">Engana o dpi para usar alguns layouts de telefone</string>
     <string name="revanced_enable_phone_layout_title">Ativar layout de telefone</string>
+    <string name="revanced_enable_press_to_swipe_summary_off">Pressionar para deslizar está desativado.</string>
+    <string name="revanced_enable_press_to_swipe_summary_on">Pressionar para deslizar está ativado.</string>
+    <string name="revanced_enable_press_to_swipe_title">Ativar gesto de pressionar para deslizar</string>
     <string name="revanced_enable_save_playback_speed_summary_off">Não salva a velocidade de reprodução mesmo quando a velocidade de reprodução é alterada</string>
     <string name="revanced_enable_save_playback_speed_summary_on">Salve a velocidade de reprodução sempre que você alterar a velocidade de reprodução</string>
     <string name="revanced_enable_save_playback_speed_title">Ativar salvar velocidade de reprodução</string>
@@ -159,6 +161,9 @@
     <string name="revanced_enable_swipe_brightness_summary_off">O gesto de brilho está desativado</string>
     <string name="revanced_enable_swipe_brightness_summary_on">O gesto de brilho está ativado</string>
     <string name="revanced_enable_swipe_brightness_title">Ativar gesto de brilho</string>
+    <string name="revanced_enable_swipe_haptic_feedback_summary_off">Feedback pressionar para deslizar toque está desativado.</string>
+    <string name="revanced_enable_swipe_haptic_feedback_summary_on">Feedback pressionar para deslizar está ativado.</string>
+    <string name="revanced_enable_swipe_haptic_feedback_title">Ativar feedback pressionar para deslizar ao tocar</string>
     <string name="revanced_enable_swipe_volume_summary_off">O gesto de volume está desativado</string>
     <string name="revanced_enable_swipe_volume_summary_on">O gesto de volume está ativado</string>
     <string name="revanced_enable_swipe_volume_title">Ativar gesto de volume</string>
@@ -184,8 +189,22 @@ Nesse caso, por favor, use o seguinte caminho:
 Aba &gt; Visualizar canal &gt; Menu &gt; Configurações"</string>
     <string name="revanced_enable_wide_search_bar_in_you_tab_title">Ativar a barra de pesquisa ampla na aba Você</string>
     <string name="revanced_experimental_flag">Sinalizadores experimentais</string>
-    <string name="revanced_export_settings_summary">Salve suas configurações ReVanced em um arquivo</string>
-    <string name="revanced_export_settings_title">Exportar configurações</string>
+    <string name="revanced_extended_settings_export_failed">Falha ao exportar configurações.</string>
+    <string name="revanced_extended_settings_export_success">As configurações foram exportadas com sucesso.</string>
+    <string name="revanced_extended_settings_export_summary">Exportar configurações para um arquivo.</string>
+    <string name="revanced_extended_settings_export_title">Exportar configurações</string>
+    <string name="revanced_extended_settings_import">Importar</string>
+    <string name="revanced_extended_settings_import_copy">Copiar</string>
+    <string name="revanced_extended_settings_import_export_as_file_title">Importar / Exportar como Arquivo</string>
+    <string name="revanced_extended_settings_import_export_as_text_summary">Importar / Exportar as configurações como texto.</string>
+    <string name="revanced_extended_settings_import_export_as_text_title">Importar / Exportar como texto</string>
+    <string name="revanced_extended_settings_import_export_summary">Importar ou exportar configurações.</string>
+    <string name="revanced_extended_settings_import_export_title">Importar / exportar configurações</string>
+    <string name="revanced_extended_settings_import_failed">Falha ao importar as configurações.</string>
+    <string name="revanced_extended_settings_import_reset">Redefinir</string>
+    <string name="revanced_extended_settings_import_success">As configurações foram importadas com sucesso.</string>
+    <string name="revanced_extended_settings_import_summary">Importar configurações do arquivo salvo.</string>
+    <string name="revanced_extended_settings_import_title">Importar configurações</string>
     <string name="revanced_external_downloader_installed">Instalado</string>
     <string name="revanced_external_downloader_not_installed">Não instalado</string>
     <string name="revanced_external_downloader_not_installed_warning" formatted="false">%s não está instalado. Por favor, instale-o.</string>
@@ -415,6 +434,9 @@ Alguns componentes podem não ser ocultos"</string>
     <string name="revanced_hide_navigation_label_summary_off">O rótulo de navegação será exibido</string>
     <string name="revanced_hide_navigation_label_summary_on">O rótulo de navegação está oculto</string>
     <string name="revanced_hide_navigation_label_title">Ocultar rótulo de navegação</string>
+    <string name="revanced_hide_notifications_button_summary_off">O botão de notificações será exibido.</string>
+    <string name="revanced_hide_notifications_button_summary_on">O botão de notificações está oculto.</string>
+    <string name="revanced_hide_notifications_button_title">Ocultar botão de notificações</string>
     <string name="revanced_hide_notify_me_button_summary_off">O botão notifique-me será exibido</string>
     <string name="revanced_hide_notify_me_button_summary_on">O botão notifique-me está oculto</string>
     <string name="revanced_hide_notify_me_button_title">Ocultar botão notifique-me no feed</string>
@@ -514,6 +536,9 @@ Alguns componentes podem não ser ocultos"</string>
     <string name="revanced_hide_self_sponsor_cards_summary_off">Os cartões auto-patrocinados serão exibidos</string>
     <string name="revanced_hide_self_sponsor_cards_summary_on">Os cartões auto-patrocinados estão ocultos</string>
     <string name="revanced_hide_self_sponsor_cards_title">Ocultar cartões auto-patrocinados</string>
+    <string name="revanced_hide_shopping_links_summary_off">Links de compras serão exibidos.</string>
+    <string name="revanced_hide_shopping_links_summary_on">Os links de compras estão ocultos.</string>
+    <string name="revanced_hide_shopping_links_title">Ocultar links de compras</string>
     <string name="revanced_hide_shorts_button_summary_off">O botão Shorts será exibido</string>
     <string name="revanced_hide_shorts_button_summary_on">O botão Shorts está oculto</string>
     <string name="revanced_hide_shorts_button_title">Ocultar botão do shorts</string>
@@ -605,12 +630,6 @@ Alguns vídeos, incluindo aqueles de canais que você se inscreve, podem não se
     <string name="revanced_hook_download_button_summary">"Substituir o botão de download com o botão de download externo
 Disponível apenas no YouTube v18.24.37+"</string>
     <string name="revanced_hook_download_button_title">Botão de download hook</string>
-    <string name="revanced_import_settings_inform">"As configurações seguintes não podem ser importadas, então abra as configurações ReVanced Extended uma vez após importar as configurações
-
-• Ocultar menu de configurações adicionais (painel suspenso do reprodutor)
-• Ocultar barra de ferramentas do shorts"</string>
-    <string name="revanced_import_settings_summary">Obter configurações ReVanced de um arquivo salvo</string>
-    <string name="revanced_import_settings_title">Importar configurações</string>
     <string name="revanced_inform">Informar</string>
     <string name="revanced_layout_title">Layout</string>
     <string name="revanced_misc">Diversos</string>
@@ -620,8 +639,7 @@ Disponível apenas no YouTube v18.24.37+"</string>
     <string name="revanced_open_library_you_startup_title">Abrir biblioteca(Você) ao iniciar o aplicativo</string>
     <string name="revanced_others">Outros</string>
     <string name="revanced_overlay_button">Botão de sobreposição</string>
-    <string name="revanced_overlay_button_always_repeat_summary">"Toque para alternar sempre repetir estados
-Toque e segure para alternar a pausa após repetir estados"</string>
+    <string name="revanced_overlay_button_always_repeat_summary">Toque para alternar os estados sempre que repetirem.</string>
     <string name="revanced_overlay_button_always_repeat_title">Exibir botão de repetição automática</string>
     <string name="revanced_overlay_button_copy_video_url_summary">"Toque para copiar a URL do vídeo
 Toque e segure para copiar a URL do vídeo com timestamp"</string>
@@ -658,7 +676,10 @@ Toque e segure para definir a velocidade do vídeo para 1.0x"</string>
     <string name="revanced_ryd_enable_summary_off">Dislikes não serão exibidos</string>
     <string name="revanced_ryd_enable_summary_on">Dislikes serão exibidos</string>
     <string name="revanced_ryd_enable_title">Ativar Return YouTube Dislike</string>
+    <string name="revanced_ryd_failure_connection_timeout">Dislikes temporariamente indisponível (API expirou).</string>
+    <string name="revanced_ryd_failure_connection_status_code" formatted="false">Deslikes indisponível (status %d).</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Dislikes não disponíveis (limite de API do cliente atingido)</string>
+    <string name="revanced_ryd_failure_generic">Deslikes indisponível (%s).</string>
     <string name="revanced_ryd_shorts_summary_off">Dislikes ocultos no Shorts</string>
     <string name="revanced_ryd_shorts_summary_on">Dislikes exibidos no Shorts</string>
     <string name="revanced_ryd_shorts_title">Exibir dislikes no Shorts</string>
@@ -670,12 +691,13 @@ Toque e segure para definir a velocidade do vídeo para 1.0x"</string>
     <string name="revanced_save_video_quality_none">Falha ao definir a qualidade</string>
     <string name="revanced_save_video_quality_wifi" formatted="false">Alterando a qualidade padrão do Wi-Fi para %s.</string>
     <string name="revanced_seekbar">Barra de busca</string>
+    <string name="revanced_share_copy_settings_success">Configurações copiadas para a sua área de transferência.</string>
     <string name="revanced_share_copy_timestamp_success" formatted="false">Marcador de Tempo copiado para área de transferência. (%s)</string>
     <string name="revanced_share_copy_url_success">URL copiada para a área de transferência.</string>
     <string name="revanced_share_copy_url_timestamp_success">URL com marcador de Tempo copiado para área de transferência.</string>
     <string name="revanced_shorts">Shorts</string>
     <string name="revanced_shorts_player_title">Reprodutor do shorts</string>
-    <string name="revanced_shorts_toolbar_summary">Para ocultar a barra de ferramentas do shorts, esconda todas as configurações na categoria barra de ferramentas para shorts</string>
+    <string name="revanced_shorts_toolbar_summary">O botão voltar na barra de ferramentas não pode ser oculto.</string>
     <string name="revanced_shorts_toolbar_title">Barra de ferramentas curta</string>
     <string name="revanced_show_fullscreen_title_summary">Problema conhecido: o título desaparece quando clicado</string>
     <string name="revanced_show_fullscreen_title_title">Mostrar título em tela cheia</string>
@@ -699,6 +721,7 @@ Se mais tarde for desligado, a interface do usuário antiga poderá permanecer a
     <string name="revanced_spoof_app_version_target_entry_18_05_40">18.05.40 - Restaurar caixa de entrada de comentários antiga</string>
     <string name="revanced_spoof_app_version_target_entry_18_17_43">18.17.43 - Restaurar menu suspenso ao antigo estilo</string>
     <string name="revanced_spoof_app_version_target_entry_18_33_40">18.33.40 - Restaurar barra de ação antiga do shorts</string>
+    <string name="revanced_spoof_app_version_target_entry_18_38_45">18.38.45 - Restaurar antigo comportamento padrão de qualidade de vídeo</string>
     <string name="revanced_spoof_app_version_target_entry_18_40_34">"18.40.34 - Desabilita 'visualizações' e 'curtidas' de serem atualizados em tempo real"</string>
     <string name="revanced_spoof_app_version_target_entry_title">Versão da falsificação do aplicativo</string>
     <string name="revanced_spoof_app_version_target_summary">Digite a versão do app para falsificação</string>
@@ -732,7 +755,10 @@ Problemas conhecidos
     <string name="revanced_swipe_overlay_text_size_title">Tamanho do texto da sobreposição de gestos</string>
     <string name="revanced_swipe_overlay_timeout_summary">A quantidade de milissegundos em que a sobreposição é visível</string>
     <string name="revanced_swipe_overlay_timeout_title">Tempo limite da sobreposição de gestos</string>
-    <string name="revanced_switching_create_notification_summary">Nota: Se essa configuração não se aplicar corretamente, reinicie o dispositivo</string>
+    <string name="revanced_switching_create_notification_summary">"Troque as posições do botão de criação e do botão de notificação falsificando as informações do dispositivo.
+
+• Mesmo que você altere esta configuração, ela poderá não entrar em vigor até que você reinicie o dispositivo. 
+• Você deve desativar esta configuração para tornar os anúncios em vídeo visíveis."</string>
     <string name="revanced_switching_create_notification_title">Alternar botão criar com botão notificações</string>
     <string name="revanced_tool_used">ferramenta usada</string>
     <string name="revanced_video">Vídeo</string>
@@ -785,11 +811,12 @@ Problemas conhecidos
     <string name="sb_api_url_changed">URL da API alterado</string>
     <string name="sb_settings_copy">Copiar</string>
     <string name="sb_settings_ie_sum">Sua configuração SponsorBlock JSON que pode ser importada/exportada para o ReVanced e outras plataformas SponsorBlock. Isso inclui seu ID de usuário privado. Certifique-se de compartilhar isso com sabedoria</string>
+    <string name="sb_settings_ie">Importar / Exportar configurações</string>
     <string name="sb_settings_import_successful">Configurações importadas com sucesso</string>
     <string name="sb_settings_import_failed">Falha ao importar %s</string>
     <string name="sb_settings_export_failed">Falha ao exportar: %s</string>
     <string name="sb_settings_revanced_export_user_id_warning">Suas configurações contêm uma ajuda privada de usuário SponsorBlock.\n\nSeu id de usuário é como uma senha e nunca deve ser compartilhada.\n</string>
-    <string name="sb_settings_revanced_export_user_id_warning_dismiss">Não mostrar novamente</string>
+    <string name="sb_settings_revanced_export_user_id_warning_dismiss">Não exibir novamente</string>
     <string name="sb_diff_segments">O que fazer com diferentes segmentos</string>
     <string name="sb_segments_sponsor">Patrocinador</string>
     <string name="sb_segments_sponsor_sum">Promoção paga, referências pagas e anúncios diretos. Não deve ser usado para auto-promoção ou mensagens grátis para causas/criadores/sites/produtos que eles gostam</string>
@@ -837,6 +864,9 @@ Problemas conhecidos
     <string name="sb_skip_showbutton">Exibir botão de pular</string>
     <string name="sb_skip_seekbaronly">Mostrar na barra de busca</string>
     <string name="sb_skip_ignore">Desativar</string>
+    <string name="sb_sponsorblock_connection_failure_generic">SponsorBlock temporariamente indisponível.</string>
+    <string name="sb_sponsorblock_connection_failure_status" formatted="false">SponsorBlock temporariamente indisponível (status %d).</string>
+    <string name="sb_sponsorblock_connection_failure_timeout">SponsorBlock temporariamente indisponível (API expirou).</string>
     <string name="sb_submit_failed_invalid" formatted="false">Não é possível enviar o segmento: %s</string>
     <string name="sb_submit_failed_timeout">Não é possível enviar segmentos (tempo limite da API esgotado)</string>
     <string name="sb_submit_failed_unknown_error" formatted="false">Não é possível enviar segmentos (status: %d %s)</string>
@@ -844,6 +874,7 @@ Problemas conhecidos
     <string name="sb_submit_failed_forbidden" formatted="false">Não é possível enviar o segmento: %s</string>
     <string name="sb_submit_failed_duplicate">Não é possível enviar o segmento.\nJá existe</string>
     <string name="sb_submit_succeeded">Segmento enviado com sucesso</string>
+    <string name="sb_vote_failed_timeout">Não foi possível votar para o segmento (API expirou).</string>
     <string name="sb_vote_failed_unknown_error" formatted="false">Não foi possível votar no segmento (estado: %d %s)</string>
     <string name="sb_vote_failed_forbidden" formatted="false">Não foi possível votar no segmento: %s</string>
     <string name="sb_vote_upvote">Voto positivo</string>
@@ -894,9 +925,4 @@ Problemas conhecidos
     <string name="sb_about">Sobre</string>
     <string name="sb_reset">Redefinir</string>
     <string name="sb_about_api_sum">Os dados são fornecidos pela API do SponsorBlock. Toque aqui para aprender mais e ver downloads para outras plataformas</string>
-    <string name="settings_export_failed">Falha ao exportar configurações</string>
-    <string name="settings_export_successful">As configurações foram exportadas com sucesso</string>
-    <string name="settings_ie">Importar/Exportar configurações</string>
-    <string name="settings_import_failed">Falha ao importar as configurações</string>
-    <string name="settings_import_successful">As configurações foram importadas com sucesso</string>
 </resources>

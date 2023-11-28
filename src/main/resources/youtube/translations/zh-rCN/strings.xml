@@ -30,7 +30,6 @@
     <string name="revanced_append_time_stamp_information_type_summary_off">添加播放速度</string>
     <string name="revanced_append_time_stamp_information_type_summary_on">添加视频分辨率</string>
     <string name="revanced_append_time_stamp_information_type_title">添加信息类型</string>
-    <string name="revanced_backup_summary">导入/导出 ReVanced 配置文件</string>
     <string name="revanced_bottom_player">播放器下方布局</string>
     <string name="revanced_button_container_title">按钮栏</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">省电模式下氛围模式已禁用</string>
@@ -176,8 +175,6 @@
 你的选项卡 &gt; 查看频道&gt; 菜单&gt; 设置"</string>
     <string name="revanced_enable_wide_search_bar_in_you_tab_title">在你的选项卡中启用宽搜索栏</string>
     <string name="revanced_experimental_flag">实验性功能</string>
-    <string name="revanced_export_settings_summary">保存 ReVanced 配置文件</string>
-    <string name="revanced_export_settings_title">导出配置</string>
     <string name="revanced_external_downloader_installed">已安装</string>
     <string name="revanced_external_downloader_not_installed">未安装</string>
     <string name="revanced_external_downloader_not_installed_warning" formatted="false">%s未安装，请先安装</string>
@@ -560,15 +557,11 @@
     <string name="revanced_hook_download_button_summary">"替换下载按钮为外部下载器按钮
 仅支持 YouTube v18. 24.37+"</string>
     <string name="revanced_hook_download_button_title">替换下载按钮</string>
-    <string name="revanced_import_settings_summary">从保存的文件恢复 ReVanced 配置</string>
-    <string name="revanced_import_settings_title">导入配置</string>
     <string name="revanced_layout_title">布局</string>
     <string name="revanced_misc">杂项</string>
     <string name="revanced_navigation">导航栏</string>
     <string name="revanced_others">其他</string>
     <string name="revanced_overlay_button">叠加层按钮</string>
-    <string name="revanced_overlay_button_always_repeat_summary">"点按可保持循环播放状态
-长按在循环播放后暂停"</string>
     <string name="revanced_overlay_button_always_repeat_title">循环播放按钮</string>
     <string name="revanced_overlay_button_copy_video_url_summary">"点按复制视频链接
 长按复制带时间戳的视频链接"</string>
@@ -659,7 +652,6 @@
     <string name="revanced_swipe_overlay_text_size_title">滑动叠加层上的文本大小</string>
     <string name="revanced_swipe_overlay_timeout_summary">滑动叠加层显示的时长（毫秒）</string>
     <string name="revanced_swipe_overlay_timeout_title">滑动叠加层时长</string>
-    <string name="revanced_switching_create_notification_summary">注意：如果此设定无法正确套用，请重启设备</string>
     <string name="revanced_switching_create_notification_title">交换创建和通知按钮</string>
     <string name="revanced_tool_used">使用的工具</string>
     <string name="revanced_video">视频</string>
@@ -715,8 +707,6 @@
     <string name="sb_settings_import_successful">配置文件成功导入</string>
     <string name="sb_settings_import_failed">导入失败：%s</string>
     <string name="sb_settings_export_failed">导出失败：%s</string>
-    <string name="sb_settings_revanced_export_user_id_warning">你的设置保留着私人 SponsorBlock 用户 ID。\n\n你的用户 ID 应该像密码一样不要分享给他人\n</string>
-    <string name="sb_settings_revanced_export_user_id_warning_dismiss">不再显示</string>
     <string name="sb_diff_segments">如何处理不同片段</string>
     <string name="sb_segments_sponsor">赞助推广</string>
     <string name="sb_segments_sponsor_sum">付费推广、付费推荐和直接广告。非自我推广或免费提及、推荐他们喜欢的事物/创作者/网站/产品</string>
@@ -821,9 +811,4 @@
     <string name="sb_about">关于</string>
     <string name="sb_reset">重置</string>
     <string name="sb_about_api_sum">数据由 SponsorBlock API 提供。点击此处了解更多和查看其他平台的下载</string>
-    <string name="settings_export_failed">导出配置失败</string>
-    <string name="settings_export_successful">导出配置成功</string>
-    <string name="settings_ie">导入/导出配置</string>
-    <string name="settings_import_failed">导入配置失败</string>
-    <string name="settings_import_successful">导入配置成功</string>
 </resources>

@@ -30,7 +30,6 @@
     <string name="revanced_append_time_stamp_information_type_summary_off">顯示播放速度</string>
     <string name="revanced_append_time_stamp_information_type_summary_on">顯示影片解析度</string>
     <string name="revanced_append_time_stamp_information_type_title">附加的資訊種類</string>
-    <string name="revanced_backup_summary">自檔案匯入 ReVanced 設定，或匯出 ReVanced 設定至檔案</string>
     <string name="revanced_bottom_player">播放器按鈕</string>
     <string name="revanced_button_container_title">功能按鈕欄</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">省電模式下微光模式已停用</string>
@@ -144,6 +143,9 @@
     <string name="revanced_enable_opus_codec_title">啟用 opus 解碼器</string>
     <string name="revanced_enable_phone_layout_summary">以 DPI 欺騙系統使用手機版介面</string>
     <string name="revanced_enable_phone_layout_title">啟用手機版介面</string>
+    <string name="revanced_enable_press_to_swipe_summary_off">點擊後滑動功能已停用。</string>
+    <string name="revanced_enable_press_to_swipe_summary_on">點擊後滑動功能已啟用。</string>
+    <string name="revanced_enable_press_to_swipe_title">啟用點擊後滑動手勢</string>
     <string name="revanced_enable_save_playback_speed_summary_off">即使更改播放速度，也不儲存播放速度值</string>
     <string name="revanced_enable_save_playback_speed_summary_on">每次更改播放速度時儲存播放速度值</string>
     <string name="revanced_enable_save_playback_speed_title">啟用儲存播放速度</string>
@@ -159,6 +161,9 @@
     <string name="revanced_enable_swipe_brightness_summary_off">滑動控制亮度已停用</string>
     <string name="revanced_enable_swipe_brightness_summary_on">滑動控制亮度已啟用</string>
     <string name="revanced_enable_swipe_brightness_title">亮度調整手勢</string>
+    <string name="revanced_enable_swipe_haptic_feedback_summary_off">點擊後滑動的觸覺反饋已停用。</string>
+    <string name="revanced_enable_swipe_haptic_feedback_summary_on">點擊後滑動的觸覺反饋已啟用。</string>
+    <string name="revanced_enable_swipe_haptic_feedback_title">啟用點擊後滑動觸覺反饋</string>
     <string name="revanced_enable_swipe_volume_summary_off">滑動控制音量已停用</string>
     <string name="revanced_enable_swipe_volume_summary_on">滑動控制音量已啟用</string>
     <string name="revanced_enable_swipe_volume_title">啟用音量控制手勢</string>
@@ -184,8 +189,22 @@
 「你」標籤 &gt; 查看頻道 &gt; 選單 &gt; 設定"</string>
     <string name="revanced_enable_wide_search_bar_in_you_tab_title">在「你」標籤內，將搜尋欄設定為寬版</string>
     <string name="revanced_experimental_flag">實驗性功能</string>
-    <string name="revanced_export_settings_summary">將您的 ReVanced 設定匯出至檔案</string>
-    <string name="revanced_export_settings_title">匯出設定</string>
+    <string name="revanced_extended_settings_export_failed">設定匯出失敗。</string>
+    <string name="revanced_extended_settings_export_success">設定已成功匯出。</string>
+    <string name="revanced_extended_settings_export_summary">將設定匯出至檔案。</string>
+    <string name="revanced_extended_settings_export_title">匯出設定</string>
+    <string name="revanced_extended_settings_import">匯入</string>
+    <string name="revanced_extended_settings_import_copy">複製</string>
+    <string name="revanced_extended_settings_import_export_as_file_title">以檔案形式匯入/匯出</string>
+    <string name="revanced_extended_settings_import_export_as_text_summary">以文字形式匯入或匯出設定。</string>
+    <string name="revanced_extended_settings_import_export_as_text_title">以文字形式匯入/匯出</string>
+    <string name="revanced_extended_settings_import_export_summary">匯入或匯出設定。</string>
+    <string name="revanced_extended_settings_import_export_title">匯入/匯出設定</string>
+    <string name="revanced_extended_settings_import_failed">匯入設定失敗。</string>
+    <string name="revanced_extended_settings_import_reset">重置</string>
+    <string name="revanced_extended_settings_import_success">設定已成功匯入。</string>
+    <string name="revanced_extended_settings_import_summary">從已儲存的檔案匯入設定。</string>
+    <string name="revanced_extended_settings_import_title">匯入設定</string>
     <string name="revanced_external_downloader_installed">已安裝</string>
     <string name="revanced_external_downloader_not_installed">未安裝</string>
     <string name="revanced_external_downloader_not_installed_warning" formatted="false">未安裝 %s。請安裝該應用程式。</string>
@@ -415,6 +434,9 @@
     <string name="revanced_hide_navigation_label_summary_off">導覽列已顯示</string>
     <string name="revanced_hide_navigation_label_summary_on">導覽列已隱藏</string>
     <string name="revanced_hide_navigation_label_title">隱藏導覽列</string>
+    <string name="revanced_hide_notifications_button_summary_off">通知按鈕顯示中。</string>
+    <string name="revanced_hide_notifications_button_summary_on">通知按鈕已隱藏。</string>
+    <string name="revanced_hide_notifications_button_title">隱藏通知按鈕</string>
     <string name="revanced_hide_notify_me_button_summary_off">顯示通知我按鈕</string>
     <string name="revanced_hide_notify_me_button_summary_on">隱藏通知我按鈕</string>
     <string name="revanced_hide_notify_me_button_title">在動態中隱藏通知我按鈕</string>
@@ -514,6 +536,9 @@
     <string name="revanced_hide_self_sponsor_cards_summary_off">顯示自贊助卡片</string>
     <string name="revanced_hide_self_sponsor_cards_summary_on">隱藏自贊助卡片</string>
     <string name="revanced_hide_self_sponsor_cards_title">隱藏自贊助卡片</string>
+    <string name="revanced_hide_shopping_links_summary_off">購物連結顯示中。</string>
+    <string name="revanced_hide_shopping_links_summary_on">購物連結已隱藏。</string>
+    <string name="revanced_hide_shopping_links_title">隱藏購物連結</string>
     <string name="revanced_hide_shorts_button_summary_off">Shorts 按鈕已顯示</string>
     <string name="revanced_hide_shorts_button_summary_on">Shorts 按鈕已隱藏</string>
     <string name="revanced_hide_shorts_button_title">隱藏 Shorts 按鈕</string>
@@ -605,12 +630,6 @@
     <string name="revanced_hook_download_button_summary">"使用外部下載按鈕取代下載按鈕
 僅適用於 YouTube v18.24.37+"</string>
     <string name="revanced_hook_download_button_title">Hook 下載按鈕</string>
-    <string name="revanced_import_settings_inform">"導入設定後，以下的設定可能不會被自動匯入，因此請開啟 ReVanced 的「擴充設定」進行確認：
-
-• 隱藏額外設定選單（播放器彈出面板）
-• 隱藏短片工具列"</string>
-    <string name="revanced_import_settings_summary">從已儲存的檔案中恢復 ReVanced 設定</string>
-    <string name="revanced_import_settings_title">導入設定</string>
     <string name="revanced_inform">提示訊息</string>
     <string name="revanced_layout_title">版面</string>
     <string name="revanced_misc">其他設定</string>
@@ -620,8 +639,6 @@
     <string name="revanced_open_library_you_startup_title">應用程式啟動時開啟「您的資料庫」</string>
     <string name="revanced_others">其他</string>
     <string name="revanced_overlay_button">畫面疊加按鈕</string>
-    <string name="revanced_overlay_button_always_repeat_summary">"點按切換總是重複狀態
-長按切換重複後暫停狀態"</string>
     <string name="revanced_overlay_button_always_repeat_title">顯示總是重複按鈕</string>
     <string name="revanced_overlay_button_copy_video_url_summary">"點按複製影片網址
 長按複製帶有時間戳記的影片網址"</string>
@@ -658,7 +675,10 @@
     <string name="revanced_ryd_enable_summary_off">倒讚未顯示</string>
     <string name="revanced_ryd_enable_summary_on">倒讚已顯示</string>
     <string name="revanced_ryd_enable_title">啟用 Return YouTube Dislike</string>
+    <string name="revanced_ryd_failure_connection_timeout">不喜歡功能暫時無法使用（API 超時）。</string>
+    <string name="revanced_ryd_failure_connection_status_code" formatted="false">不喜歡功能無法使用（狀態 %d）。</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">未支援倒讚（已達到客戶端 API 限制）</string>
+    <string name="revanced_ryd_failure_generic">不喜歡功能無法使用（%s）。</string>
     <string name="revanced_ryd_shorts_summary_off">未於 Shorts 中顯示倒讚數</string>
     <string name="revanced_ryd_shorts_summary_on">已於 Shorts 中顯示倒讚數</string>
     <string name="revanced_ryd_shorts_title">在 Shorts 中顯示倒讚數</string>
@@ -670,12 +690,13 @@
     <string name="revanced_save_video_quality_none">設定畫質失敗</string>
     <string name="revanced_save_video_quality_wifi" formatted="false">將預設的Wi-Fi畫質調整為%s</string>
     <string name="revanced_seekbar">搜尋欄</string>
+    <string name="revanced_share_copy_settings_success">設定已複製到剪貼簿。</string>
     <string name="revanced_share_copy_timestamp_success" formatted="false">時間戳記已複製到剪貼簿。（%s）</string>
     <string name="revanced_share_copy_url_success">URL 已複製到剪貼簿。</string>
     <string name="revanced_share_copy_url_timestamp_success">帶時間戳記的 URL 已複製到剪貼簿。</string>
     <string name="revanced_shorts">Shorts</string>
     <string name="revanced_shorts_player_title">Shorts 播放器</string>
-    <string name="revanced_shorts_toolbar_summary">若想隱藏「短片」工具列，請在其對應的設定類別中將所有選項都設為隱藏。</string>
+    <string name="revanced_shorts_toolbar_summary">工具欄裡的返回按鈕不可隱藏</string>
     <string name="revanced_shorts_toolbar_title">Shorts 工具列</string>
     <string name="revanced_show_fullscreen_title_summary">已知問題 : 標題被點擊時會消失</string>
     <string name="revanced_show_fullscreen_title_title">顯示全螢幕標題</string>
@@ -699,6 +720,7 @@
     <string name="revanced_spoof_app_version_target_entry_18_05_40">18.05.40 - 恢復原先的留言輸入區</string>
     <string name="revanced_spoof_app_version_target_entry_18_17_43">18.17.43 - 恢復原先的播放器彈出面板</string>
     <string name="revanced_spoof_app_version_target_entry_18_33_40">18.33.40 - 還原舊的 Short 操作列</string>
+    <string name="revanced_spoof_app_version_target_entry_18_38_45">18.38.45 - 還原舊版預設影片畫質</string>
     <string name="revanced_spoof_app_version_target_entry_18_40_34">"18.40.34 - 禁用即時更新「觀看數」和「喜歡數」的功能"</string>
     <string name="revanced_spoof_app_version_target_entry_title">欺騙應用程式版本目標</string>
     <string name="revanced_spoof_app_version_target_summary">輸入欺騙的應用程式版本目標</string>
@@ -732,7 +754,10 @@
     <string name="revanced_swipe_overlay_text_size_title">設定畫面的文字大小</string>
     <string name="revanced_swipe_overlay_timeout_summary">設定畫面的顯示時間(毫秒)</string>
     <string name="revanced_swipe_overlay_timeout_title">設定畫面的顯示時間</string>
-    <string name="revanced_switching_create_notification_summary">注意：若您發現這些設定沒有正確生效，請考慮重新啟動您的裝置</string>
+    <string name="revanced_switching_create_notification_summary">"透過偽裝裝置資訊，交換創建按鈕和通知按鈕的位置。
+
+• 即使更改此設定，也可能需要重新啟動裝置後才會生效。
+• 若想讓影片廣告顯示，應該停用此設定。"</string>
     <string name="revanced_switching_create_notification_title">將創作按鈕更換為通知按鈕</string>
     <string name="revanced_tool_used">使用的工具 --唐懂翻譯</string>
     <string name="revanced_video">影片</string>
@@ -785,11 +810,12 @@
     <string name="sb_api_url_changed">API 網址已更換</string>
     <string name="sb_settings_copy">複製</string>
     <string name="sb_settings_ie_sum">你的 SponsorBlock 設定檔 可以被 匯入/匯出 至 ReVanced 或其他 SponsorBlock 平台上. 這個設定檔內將包含你個人的用戶ID. 請小心使用.</string>
+    <string name="sb_settings_ie">匯入/匯出設定</string>
     <string name="sb_settings_import_successful">設定已成功匯入</string>
     <string name="sb_settings_import_failed">匯入失敗：%s</string>
     <string name="sb_settings_export_failed">匯出失敗：%s</string>
-    <string name="sb_settings_revanced_export_user_id_warning">您的設定中包含了一個私人的 SponsorBlock 用戶 Id。\n\n這個用戶 Id 如同密碼，應保持嚴格的保密，絕不應分享給他人。\n</string>
-    <string name="sb_settings_revanced_export_user_id_warning_dismiss">不再提醒</string>
+    <string name="sb_settings_revanced_export_user_id_warning">您的設定中包含了私人的 SponsorBlock 用戶 Id。\n\n您的用戶 Id 類似於密碼，絕不應該分享。\n</string>
+    <string name="sb_settings_revanced_export_user_id_warning_dismiss">不再顯示</string>
     <string name="sb_diff_segments">更改片段的操作</string>
     <string name="sb_segments_sponsor">贊助商廣告</string>
     <string name="sb_segments_sponsor_sum">有收錢的工商廣告和直接廣告。不是為了自我推銷或為了其他創作的免費推銷</string>
@@ -837,6 +863,9 @@
     <string name="sb_skip_showbutton">顯示跳過按鈕</string>
     <string name="sb_skip_seekbaronly">在時間條顯示</string>
     <string name="sb_skip_ignore">停用</string>
+    <string name="sb_sponsorblock_connection_failure_generic">SponsorBlock 暫時無法使用。</string>
+    <string name="sb_sponsorblock_connection_failure_status" formatted="false">SponsorBlock 暫時無法使用（狀態 %d）。</string>
+    <string name="sb_sponsorblock_connection_failure_timeout">SponsorBlock 暫時無法使用（API 超時）。</string>
     <string name="sb_submit_failed_invalid" formatted="false">無法送出分段：%s</string>
     <string name="sb_submit_failed_timeout">無法送出片段：API 回應超時</string>
     <string name="sb_submit_failed_unknown_error" formatted="false">無法送出片段：狀態 -- %d %s</string>
@@ -844,6 +873,7 @@
     <string name="sb_submit_failed_forbidden" formatted="false">無法送出分段：%s</string>
     <string name="sb_submit_failed_duplicate">無法提交片段。 \n片段已經存在</string>
     <string name="sb_submit_succeeded">成功提交新片段</string>
+    <string name="sb_vote_failed_timeout">無法為片段投票（API 超時）。</string>
     <string name="sb_vote_failed_unknown_error" formatted="false">無法為此片段投票：狀態：%d %s</string>
     <string name="sb_vote_failed_forbidden" formatted="false">無法為片段投票：狀態：%s</string>
     <string name="sb_vote_upvote">讚</string>
@@ -894,9 +924,4 @@
     <string name="sb_about">關於</string>
     <string name="sb_reset">重置</string>
     <string name="sb_about_api_sum">資料由 SponsorBlock API 提供. 點擊此處來了解更多.</string>
-    <string name="settings_export_failed">匯出設定失敗</string>
-    <string name="settings_export_successful">設定已成功匯出</string>
-    <string name="settings_ie">匯入/匯出設定</string>
-    <string name="settings_import_failed">匯入設定失敗</string>
-    <string name="settings_import_successful">成功匯入設定</string>
 </resources>

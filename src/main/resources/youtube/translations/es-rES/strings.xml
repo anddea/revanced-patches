@@ -30,7 +30,6 @@
     <string name="revanced_append_time_stamp_information_type_summary_off">Añadir velocidad de reproducción</string>
     <string name="revanced_append_time_stamp_information_type_summary_on">Añadir calidad de vídeo</string>
     <string name="revanced_append_time_stamp_information_type_title">Añadir tipo de información</string>
-    <string name="revanced_backup_summary">Importar los ajustes de ReVanced desde un archivo o exportar los ajustes de ReVanced a un archivo</string>
     <string name="revanced_bottom_player">Abajo del reproductor</string>
     <string name="revanced_button_container_title">Contenedor de botones</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">El modo ambiente está desactivado en el modo de ahorro de batería</string>
@@ -146,6 +145,9 @@ Nota: Al desactivar la superposición de velocidad se restablece el comportamien
     <string name="revanced_enable_opus_codec_title">Activar códec opus</string>
     <string name="revanced_enable_phone_layout_summary">Modifica los DPI para utilizar algunos diseños de teléfono</string>
     <string name="revanced_enable_phone_layout_title">Activar diseño de teléfono</string>
+    <string name="revanced_enable_press_to_swipe_summary_off">Pulsar para deslizar está desactivado.</string>
+    <string name="revanced_enable_press_to_swipe_summary_on">Pulsar para deslizar está activado.</string>
+    <string name="revanced_enable_press_to_swipe_title">Activar gesto de pulsar para deslizar</string>
     <string name="revanced_enable_save_playback_speed_summary_off">El valor de la velocidad de reproducción no se guarda incluso cuando cambia la velocidad de reproducción</string>
     <string name="revanced_enable_save_playback_speed_summary_on">El valor de la velocidad de reproducción se guarda cada vez que cambia la velocidad de reproducción</string>
     <string name="revanced_enable_save_playback_speed_title">Activar guardado de velocidad de reproducción</string>
@@ -161,6 +163,9 @@ Nota: Al desactivar la superposición de velocidad se restablece el comportamien
     <string name="revanced_enable_swipe_brightness_summary_off">El control del brillo al deslizar está desactivado</string>
     <string name="revanced_enable_swipe_brightness_summary_on">El control del brillo al deslizar está activado</string>
     <string name="revanced_enable_swipe_brightness_title">Activar control del brillo al deslizar</string>
+    <string name="revanced_enable_swipe_haptic_feedback_summary_off">La vibración al pulsar para deslizar está desactivada.</string>
+    <string name="revanced_enable_swipe_haptic_feedback_summary_on">La vibración al pulsar para deslizar está activada.</string>
+    <string name="revanced_enable_swipe_haptic_feedback_title">Activar vibración al pulsar para deslizar</string>
     <string name="revanced_enable_swipe_volume_summary_off">El control del volumen al deslizar está desactivado</string>
     <string name="revanced_enable_swipe_volume_summary_on">El control del volumen al deslizar está activado</string>
     <string name="revanced_enable_swipe_volume_title">Activar control del volumen al deslizar</string>
@@ -186,8 +191,22 @@ En este caso, utilice la siguiente ruta:
 Pestaña Tú &gt; Ver canal &gt; Menú &gt; Configuración."</string>
     <string name="revanced_enable_wide_search_bar_in_you_tab_title">Activar barra de búsqueda amplia en pestaña Tú</string>
     <string name="revanced_experimental_flag">Funciones experimentales</string>
-    <string name="revanced_export_settings_summary">Guarda tus ajustes de ReVanced en un archivo</string>
-    <string name="revanced_export_settings_title">Exportar ajustes</string>
+    <string name="revanced_extended_settings_export_failed">Error al exportar los ajustes.</string>
+    <string name="revanced_extended_settings_export_success">Los ajustes se han exportado correctamente.</string>
+    <string name="revanced_extended_settings_export_summary">Exporta los ajustes a un archivo.</string>
+    <string name="revanced_extended_settings_export_title">Exportar ajustes</string>
+    <string name="revanced_extended_settings_import">Importar</string>
+    <string name="revanced_extended_settings_import_copy">Copiar</string>
+    <string name="revanced_extended_settings_import_export_as_file_title">Importar / Exportar como archivo</string>
+    <string name="revanced_extended_settings_import_export_as_text_summary">Importa o exporta los ajustes como texto.</string>
+    <string name="revanced_extended_settings_import_export_as_text_title">Importar / Exportar como texto</string>
+    <string name="revanced_extended_settings_import_export_summary">Importa o exporta los ajustes.</string>
+    <string name="revanced_extended_settings_import_export_title">Importar / Exportar ajustes</string>
+    <string name="revanced_extended_settings_import_failed">Error al importar los ajustes.</string>
+    <string name="revanced_extended_settings_import_reset">Restablecer</string>
+    <string name="revanced_extended_settings_import_success">Los ajustes se han importado correctamente.</string>
+    <string name="revanced_extended_settings_import_summary">Importa los ajustes desde un archivo guardado.</string>
+    <string name="revanced_extended_settings_import_title">Importar ajustes</string>
     <string name="revanced_external_downloader_installed">Instalado</string>
     <string name="revanced_external_downloader_not_installed">No instalado</string>
     <string name="revanced_external_downloader_not_installed_warning" formatted="false">%s no está instalado. Por favor, instálelo.</string>
@@ -252,24 +271,24 @@ Algunos componentes pueden no estar ocultos."</string>
     <string name="revanced_hide_button_report_summary_off">El botón de denunciar está visible.</string>
     <string name="revanced_hide_button_report_summary_on">El botón de denunciar está oculto.</string>
     <string name="revanced_hide_button_report_title">Ocultar botón de denunciar</string>
-    <string name="revanced_hide_button_rewards_summary_off">El botón Recompensas está visible</string>
-    <string name="revanced_hide_button_rewards_summary_on">El botón Recompensas está oculto</string>
-    <string name="revanced_hide_button_rewards_title">Ocultar botón Recompensas</string>
+    <string name="revanced_hide_button_rewards_summary_off">El botón de recompensas está visible.</string>
+    <string name="revanced_hide_button_rewards_summary_on">El botón de recompensas está oculto.</string>
+    <string name="revanced_hide_button_rewards_title">Ocultar botón de recompensas</string>
     <string name="revanced_hide_button_save_to_playlist_summary_off">El botón de guardar está visible.</string>
     <string name="revanced_hide_button_save_to_playlist_summary_on">El botón de guardar está oculto.</string>
     <string name="revanced_hide_button_save_to_playlist_title">Ocultar botón de guardar</string>
     <string name="revanced_hide_button_share_summary_off">El botón de compartir está visible.</string>
     <string name="revanced_hide_button_share_summary_on">El botón de compartir está oculto.</string>
     <string name="revanced_hide_button_share_title">Ocultar botón de compartir</string>
-    <string name="revanced_hide_button_shop_summary_off">El botón Comprar está visible</string>
-    <string name="revanced_hide_button_shop_summary_on">El botón Comprar está oculto</string>
-    <string name="revanced_hide_button_shop_title">Ocultar botón Comprar</string>
+    <string name="revanced_hide_button_shop_summary_off">El botón de comprar está visible.</string>
+    <string name="revanced_hide_button_shop_summary_on">El botón de comprar está oculto.</string>
+    <string name="revanced_hide_button_shop_title">Ocultar botón de comprar</string>
     <string name="revanced_hide_button_thanks_summary_off">El botón de gracias está visible.</string>
     <string name="revanced_hide_button_thanks_summary_on">El botón de gracias está oculto.</string>
     <string name="revanced_hide_button_thanks_title">Ocultar botón de gracias</string>
     <string name="revanced_hide_button_transcript_summary_off">El botón de transcripción está visible.</string>
-    <string name="revanced_hide_button_transcript_summary_on">El botón transcripción está oculto</string>
-    <string name="revanced_hide_button_transcript_title">Ocultar botón transcripción</string>
+    <string name="revanced_hide_button_transcript_summary_on">El botón de transcripción está oculto.</string>
+    <string name="revanced_hide_button_transcript_title">Ocultar botón de transcripción</string>
     <string name="revanced_hide_captions_button_summary_off">El botón de subtítulos está visible.</string>
     <string name="revanced_hide_captions_button_summary_on">El botón de subtítulos está oculto.</string>
     <string name="revanced_hide_captions_button_title">Ocultar botón de subtítulos</string>
@@ -369,9 +388,9 @@ Algunos componentes pueden no estar ocultos."</string>
     <string name="revanced_hide_handle_summary_off">El mando está visible</string>
     <string name="revanced_hide_handle_summary_on">El mando está oculto</string>
     <string name="revanced_hide_handle_title">Ocultar mando</string>
-    <string name="revanced_hide_home_button_summary_off">El botón Inicio está visible</string>
-    <string name="revanced_hide_home_button_summary_on">El botón Inicio está oculto</string>
-    <string name="revanced_hide_home_button_title">Ocultar botón Inicio</string>
+    <string name="revanced_hide_home_button_summary_off">El botón de inicio está visible.</string>
+    <string name="revanced_hide_home_button_summary_on">El botón de inicio está oculto.</string>
+    <string name="revanced_hide_home_button_title">Ocultar botón de inicio</string>
     <string name="revanced_hide_image_shelf_summary_off">Los estantes de imágenes están visibles</string>
     <string name="revanced_hide_image_shelf_summary_on">Los estantes de imágenes están ocultos</string>
     <string name="revanced_hide_image_shelf_title">Ocultar estantes de imágenes</string>
@@ -390,15 +409,15 @@ Algunos componentes pueden no estar ocultos."</string>
     <string name="revanced_hide_latest_posts_summary_off">Las últimas publicaciones están visibles</string>
     <string name="revanced_hide_latest_posts_summary_on">Las últimas publicaciones están ocultas</string>
     <string name="revanced_hide_latest_posts_title">Ocultar últimas publicaciones</string>
-    <string name="revanced_hide_latest_videos_button_summary_off">El botón Últimos Vídeos está visible</string>
-    <string name="revanced_hide_latest_videos_button_summary_on">El botón Últimos Vídeos está oculto</string>
-    <string name="revanced_hide_latest_videos_button_title">Ocultar botón Últimos Vídeos</string>
-    <string name="revanced_hide_library_button_summary_off">El botón Biblioteca está visible</string>
-    <string name="revanced_hide_library_button_summary_on">El botón Biblioteca está oculto</string>
-    <string name="revanced_hide_library_button_title">Ocultar botón Biblioteca</string>
-    <string name="revanced_hide_load_more_button_summary_off">El botón Cargar Más está visible</string>
-    <string name="revanced_hide_load_more_button_summary_on">El botón Cargar Más está oculto</string>
-    <string name="revanced_hide_load_more_button_title">Ocultar botón Cargar Más</string>
+    <string name="revanced_hide_latest_videos_button_summary_off">El botón de últimos vídeos está visible.</string>
+    <string name="revanced_hide_latest_videos_button_summary_on">El botón de últimos vídeos está oculto.</string>
+    <string name="revanced_hide_latest_videos_button_title">Ocultar botón de últimos vídeos</string>
+    <string name="revanced_hide_library_button_summary_off">El botón de biblioteca está visible.</string>
+    <string name="revanced_hide_library_button_summary_on">El botón de biblioteca está oculto.</string>
+    <string name="revanced_hide_library_button_title">Ocultar botón de biblioteca</string>
+    <string name="revanced_hide_load_more_button_summary_off">El botón de cargar más está visible.</string>
+    <string name="revanced_hide_load_more_button_summary_on">El botón de cargar más está oculto.</string>
+    <string name="revanced_hide_load_more_button_title">Ocultar botón de cargar más</string>
     <string name="revanced_hide_medical_panel_summary_off">Los paneles médicos están visibles</string>
     <string name="revanced_hide_medical_panel_summary_on">Los paneles médicos están ocultos</string>
     <string name="revanced_hide_medical_panel_title">Ocultar paneles médicos</string>
@@ -417,6 +436,9 @@ Algunos componentes pueden no estar ocultos."</string>
     <string name="revanced_hide_navigation_label_summary_off">La etiqueta de navegación está visible</string>
     <string name="revanced_hide_navigation_label_summary_on">La etiqueta de navegación está oculta</string>
     <string name="revanced_hide_navigation_label_title">Ocultar etiqueta de navegación</string>
+    <string name="revanced_hide_notifications_button_summary_off">El botón de notificaciones está visible.</string>
+    <string name="revanced_hide_notifications_button_summary_on">El botón de notificaciones está oculto.</string>
+    <string name="revanced_hide_notifications_button_title">Ocultar botón de notificaciones</string>
     <string name="revanced_hide_notify_me_button_summary_off">Mostrar el botón de notificación</string>
     <string name="revanced_hide_notify_me_button_summary_on">El botón de notificación está oculto</string>
     <string name="revanced_hide_notify_me_button_title">Ocultar botón de notificación en el feed</string>
@@ -516,9 +538,12 @@ Algunos componentes pueden no estar ocultos."</string>
     <string name="revanced_hide_self_sponsor_cards_summary_off">Las tarjetas autopatrocinadas están visibles</string>
     <string name="revanced_hide_self_sponsor_cards_summary_on">Las tarjetas autopatrocinadas están ocultas</string>
     <string name="revanced_hide_self_sponsor_cards_title">Ocultar tarjetas autopatrocinadas</string>
-    <string name="revanced_hide_shorts_button_summary_off">El botón Shorts está visible</string>
-    <string name="revanced_hide_shorts_button_summary_on">El botón Shorts está oculto</string>
-    <string name="revanced_hide_shorts_button_title">Ocultar botón Shorts</string>
+    <string name="revanced_hide_shopping_links_summary_off">Los enlaces de compra están visibles.</string>
+    <string name="revanced_hide_shopping_links_summary_on">Los enlaces de compra están ocultos.</string>
+    <string name="revanced_hide_shopping_links_title">Ocultar enlaces de compra</string>
+    <string name="revanced_hide_shorts_button_summary_off">El botón de Shorts está visible.</string>
+    <string name="revanced_hide_shorts_button_summary_on">El botón de Shorts está oculto.</string>
+    <string name="revanced_hide_shorts_button_title">Ocultar botón de Shorts</string>
     <string name="revanced_hide_shorts_component_summary">Ocultar las secciones de Shorts o los componentes del reproductor de Shorts</string>
     <string name="revanced_hide_shorts_component_title">Ocultar componentes de Shorts</string>
     <string name="revanced_hide_shorts_player_comments_button_summary_off">El botón de los comentarios está visible</string>
@@ -530,9 +555,9 @@ Algunos componentes pueden no estar ocultos."</string>
     <string name="revanced_hide_shorts_player_pivot_button_summary_off">El botón de pivote está visible.</string>
     <string name="revanced_hide_shorts_player_pivot_button_summary_on">El botón de pivote está oculto</string>
     <string name="revanced_hide_shorts_player_pivot_button_title">Ocultar botón pivote</string>
-    <string name="revanced_hide_shorts_player_subscriptions_button_summary_off">El botón Suscripciones está visible</string>
-    <string name="revanced_hide_shorts_player_subscriptions_button_summary_on">El botón Suscripciones está oculto</string>
-    <string name="revanced_hide_shorts_player_subscriptions_button_title">Ocultar botón Suscripciones</string>
+    <string name="revanced_hide_shorts_player_subscriptions_button_summary_off">El botón de suscripciones está visible.</string>
+    <string name="revanced_hide_shorts_player_subscriptions_button_summary_on">El botón de suscripciones está oculto.</string>
+    <string name="revanced_hide_shorts_player_subscriptions_button_title">Ocultar botón de suscripciones</string>
     <string name="revanced_hide_shorts_shelf_summary">"Oculta los estantes Shorts
 
 Problema conocido: Se ocultan las cabeceras oficiales en los resultados de búsqueda"</string>
@@ -555,9 +580,9 @@ Problema conocido: Se ocultan las cabeceras oficiales en los resultados de búsq
     <string name="revanced_hide_start_trial_button_summary_off">El botón de iniciar prueba está visible</string>
     <string name="revanced_hide_start_trial_button_summary_on">El botón de iniciar prueba está oculto</string>
     <string name="revanced_hide_start_trial_button_title">Ocultar botón de iniciar prueba</string>
-    <string name="revanced_hide_subscriptions_button_summary_off">El botón Suscripciones está visible</string>
-    <string name="revanced_hide_subscriptions_button_summary_on">El botón Suscripciones está oculto</string>
-    <string name="revanced_hide_subscriptions_button_title">Ocultar botón Suscripciones</string>
+    <string name="revanced_hide_subscriptions_button_summary_off">El botón de suscripciones está visible.</string>
+    <string name="revanced_hide_subscriptions_button_summary_on">El botón de suscripciones está oculto.</string>
+    <string name="revanced_hide_subscriptions_button_title">Ocultar botón de suscripciones</string>
     <string name="revanced_hide_suggested_actions_summary_off">Las acciones sugeridas están visibles</string>
     <string name="revanced_hide_suggested_actions_summary_on">Las acciones sugeridas están ocultas</string>
     <string name="revanced_hide_suggested_actions_title">Ocultar acciones sugeridas</string>
@@ -609,12 +634,6 @@ Es posible que algunos vídeos, incluidos los de canales a los que estás suscri
     <string name="revanced_hook_download_button_summary">"Sustituye el botón de descarga por un botón de descarga externo
 Solo disponible en YouTube v18.24.37+"</string>
     <string name="revanced_hook_download_button_title">Sustituir botón de descarga</string>
-    <string name="revanced_import_settings_inform">"Es posible que los siguientes ajustes no se importen, así que por favor abre los ajustes de ReVanced Extended una vez después de importar los ajustes:
-
-- Ocultar el menú de ajustes adicionales (panel desplegable del reproductor)
-- Ocultar la barra de herramientas de Shorts"</string>
-    <string name="revanced_import_settings_summary">Obtiene los ajustes de ReVanced desde un archivo guardado</string>
-    <string name="revanced_import_settings_title">Importar ajustes</string>
     <string name="revanced_inform">Informe</string>
     <string name="revanced_layout_title">Diseño</string>
     <string name="revanced_misc">Otros</string>
@@ -624,8 +643,7 @@ Solo disponible en YouTube v18.24.37+"</string>
     <string name="revanced_open_library_you_startup_title">Abrir biblioteca (Tú) al iniciar la app</string>
     <string name="revanced_others">Otros</string>
     <string name="revanced_overlay_button">Botón superpuesto</string>
-    <string name="revanced_overlay_button_always_repeat_summary">"Pulse para alternar siempre los estados repetidos
-Mantenga pulsado para pausar después de estados repetidos"</string>
+    <string name="revanced_overlay_button_always_repeat_summary">Toque para alternar los estados de repetir siempre.</string>
     <string name="revanced_overlay_button_always_repeat_title">Mostrar botón de repetición continua</string>
     <string name="revanced_overlay_button_copy_video_url_summary">"Pulse para copiar la URL del vídeo
 Mantenga pulsado para copiar la URL del vídeo con la marca de tiempo"</string>
@@ -663,7 +681,10 @@ Toca aquí para obtener más información.</string>
     <string name="revanced_ryd_enable_summary_off">Los no me gusta están ocultos.</string>
     <string name="revanced_ryd_enable_summary_on">Los no me gusta están visibles.</string>
     <string name="revanced_ryd_enable_title">Activar Return YouTube Dislike</string>
+    <string name="revanced_ryd_failure_connection_timeout">Los no me gusta están temporalmente no disponibles (la API no responde).</string>
+    <string name="revanced_ryd_failure_connection_status_code" formatted="false">Los no me gusta no están disponibles (estado %d).</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Los no me gusta no están disponibles (se alcanzó el límite de la API del cliente).</string>
+    <string name="revanced_ryd_failure_generic">Los no me gusta no están disponibles (%s).</string>
     <string name="revanced_ryd_shorts_summary_off">Los no me gusta están ocultos en los Shorts.</string>
     <string name="revanced_ryd_shorts_summary_on">Los no me gusta están visibles en los Shorts.</string>
     <string name="revanced_ryd_shorts_title">Mostrar no me gusta en Shorts</string>
@@ -675,20 +696,20 @@ Toca aquí para obtener más información.</string>
     <string name="revanced_save_video_quality_none">No se ha establecido la calidad</string>
     <string name="revanced_save_video_quality_wifi" formatted="false">Cambiando la calidad predeterminada con Wi-Fi a %s.</string>
     <string name="revanced_seekbar">Barra de progreso</string>
+    <string name="revanced_share_copy_settings_success">Ajustes copiados en el portapapeles.</string>
     <string name="revanced_share_copy_timestamp_success" formatted="false">Marca de tiempo copiada en el portapapeles. (%s)</string>
     <string name="revanced_share_copy_url_success">URL copiada en el portapapeles.</string>
     <string name="revanced_share_copy_url_timestamp_success">URL con marca de tiempo copiada en el portapapeles.</string>
     <string name="revanced_shorts">Shorts</string>
     <string name="revanced_shorts_player_title">Reproductor de Shorts</string>
-    <string name="revanced_shorts_toolbar_summary">Para ocultar la barra de herramientas de Shorts, oculte todos los ajustes de la categoría de barra de herramientas de Shorts</string>
     <string name="revanced_shorts_toolbar_title">Barra de herramientas de Shorts</string>
     <string name="revanced_show_fullscreen_title_summary">Problema conocido: El título desaparece al pulsarlo</string>
     <string name="revanced_show_fullscreen_title_title">Mostrar título en pantalla completa</string>
     <string name="revanced_skipped_preloaded_buffer">Búfer precargado omitido</string>
-    <string name="revanced_skip_preloaded_buffer_summary">"Omite el búfer precargado al inicio del vídeo para evitar el retardo predeterminado en la aplicación de la calidad de vídeo
+    <string name="revanced_skip_preloaded_buffer_summary">"Omite el búfer precargado al inicio del vídeo para evitar el retardo en la aplicación de la calidad predeterminada de vídeo.
 
-- Cuando se inicia el vídeo, se produce un retardo de aproximadamente 0,7 segundos, pero la calidad de vídeo predeterminada se aplica inmediatamente
-- No se aplica a vídeos HDR ni a vídeos de menos de 10 segundos"</string>
+- Cuando se inicia el vídeo, se produce un retardo de aproximadamente 0,7 segundos, pero la calidad predeterminada de vídeo se aplica inmediatamente.
+- No se aplica a vídeos HDR, vídeos en directo ni vídeos de menos de 10 segundos."</string>
     <string name="revanced_skip_preloaded_buffer_title">Omitir búfer precargado</string>
     <string name="revanced_skip_preloaded_buffer_toast_summary_off">El mensaje está oculto</string>
     <string name="revanced_skip_preloaded_buffer_toast_summary_on">El mensaje está visible</string>
@@ -704,6 +725,7 @@ Si más tarde se desactiva, la antigua interfaz de usuario puede permanecer hast
     <string name="revanced_spoof_app_version_target_entry_18_05_40">18.05.40 - Restaurar la vieja caja de entrada de comentarios</string>
     <string name="revanced_spoof_app_version_target_entry_18_17_43">18.17.43 - Restaurar el antiguo estilo del panel desplegable del reproductor</string>
     <string name="revanced_spoof_app_version_target_entry_18_33_40">18.33.40 - Restaurar la antigua barra de acción de Shorts</string>
+    <string name="revanced_spoof_app_version_target_entry_18_38_45">18.38.45 - Restaurar el comportamiento antiguo de la calidad predeterminada de vídeo</string>
     <string name="revanced_spoof_app_version_target_entry_18_40_34">"18.40.34 - Desactiva la actualización en tiempo real de vistas y me gusta"</string>
     <string name="revanced_spoof_app_version_target_entry_title">Versión a usar de la aplicación</string>
     <string name="revanced_spoof_app_version_target_summary">Escriba la versión a modificar de la app</string>
@@ -737,7 +759,10 @@ Problemas conocidos
     <string name="revanced_swipe_overlay_text_size_title">Tamaño del texto de superposición de deslizamiento</string>
     <string name="revanced_swipe_overlay_timeout_summary">La cantidad de milisegundos que la superposición es visible</string>
     <string name="revanced_swipe_overlay_timeout_title">Tiempo de espera de superposición de deslizamiento</string>
-    <string name="revanced_switching_create_notification_summary">Nota: Si este ajuste no se aplica correctamente, reinicie el dispositivo</string>
+    <string name="revanced_switching_create_notification_summary">"Intercambia las posiciones del botón de crear y del botón de notificación modificando la información del dispositivo.
+
+- Aunque cambies este ajuste, es posible que no surta efecto hasta que reinicies el dispositivo.
+- Debes desactivar este ajuste para que los anuncios en vídeo sean visibles."</string>
     <string name="revanced_switching_create_notification_title">Cambiar botón de crear con el de notificaciones</string>
     <string name="revanced_tool_used">Herramienta utilizada</string>
     <string name="revanced_video">Vídeo</string>
@@ -790,10 +815,11 @@ Problemas conocidos
     <string name="sb_api_url_changed">La URL de la API fue cambiada</string>
     <string name="sb_settings_copy">Copiar</string>
     <string name="sb_settings_ie_sum">Tu configuración JSON de SponsorBlock que puede importarse/exportarse a ReVanced y otras plataformas SponsorBlock. Esto incluye tu ID de usuario privado. Asegúrate de compartirla sabiamente</string>
+    <string name="sb_settings_ie">Importar / Exportar ajustes</string>
     <string name="sb_settings_import_successful">Ajustes importados correctamente</string>
     <string name="sb_settings_import_failed">Error al importar: %s</string>
     <string name="sb_settings_export_failed">Error al exportar: %s</string>
-    <string name="sb_settings_revanced_export_user_id_warning">Sus ajustes contienen un identificador de usuario privado de SponsorBlock.\n\nSu identificador de usuario es como una contraseña y nunca debe compartirse.\n</string>
+    <string name="sb_settings_revanced_export_user_id_warning">Tus ajustes contienen un ID de usuario privado de SponsorBlock.\n\nTu ID de usuario es como una contraseña y nunca debe compartirse.\n</string>
     <string name="sb_settings_revanced_export_user_id_warning_dismiss">No volver a mostrar</string>
     <string name="sb_diff_segments">¿Qué hacer con los diferentes segmentos?</string>
     <string name="sb_segments_sponsor">Patrocinador</string>
@@ -842,6 +868,9 @@ Problemas conocidos
     <string name="sb_skip_showbutton">Mostrar botón de omitir</string>
     <string name="sb_skip_seekbaronly">Mostrar en barra de progreso</string>
     <string name="sb_skip_ignore">Desactivado</string>
+    <string name="sb_sponsorblock_connection_failure_generic">SponsorBlock temporalmente no disponible.</string>
+    <string name="sb_sponsorblock_connection_failure_status" formatted="false">SponsorBlock temporalmente no disponible (estado %d).</string>
+    <string name="sb_sponsorblock_connection_failure_timeout">SponsorBlock temporalmente no disponible (la API no responde).</string>
     <string name="sb_submit_failed_invalid" formatted="false">No se puede enviar el segmento: %s</string>
     <string name="sb_submit_failed_timeout">No se puede enviar segmentos (la API no responde)</string>
     <string name="sb_submit_failed_unknown_error" formatted="false">No se puede enviar segmentos (estado: %d %s)</string>
@@ -849,6 +878,7 @@ Problemas conocidos
     <string name="sb_submit_failed_forbidden" formatted="false">No se puede enviar el segmento: %s</string>
     <string name="sb_submit_failed_duplicate">No se puede enviar el segmento.\nYa existe</string>
     <string name="sb_submit_succeeded">Segmento enviado correctamente</string>
+    <string name="sb_vote_failed_timeout">No se puede votar por el segmento (la API no responde).</string>
     <string name="sb_vote_failed_unknown_error" formatted="false">No se puede votar por el segmento (estado: %d %s)</string>
     <string name="sb_vote_failed_forbidden" formatted="false">No se puede votar por el segmento: %s</string>
     <string name="sb_vote_upvote">Voto positivo</string>
@@ -899,9 +929,4 @@ Problemas conocidos
     <string name="sb_about">Información</string>
     <string name="sb_reset">Restablecer</string>
     <string name="sb_about_api_sum">Los datos son proporcionados por la API de SponsorBlock. Pulsa aquí para aprender más y ver las descargas para otras plataformas</string>
-    <string name="settings_export_failed">No se pudo exportar la configuración</string>
-    <string name="settings_export_successful">Los ajustes se han exportado correctamente</string>
-    <string name="settings_ie">Importar/exportar ajustes</string>
-    <string name="settings_import_failed">No se pudo importar la configuración</string>
-    <string name="settings_import_successful">Los ajustes se han importado correctamente</string>
 </resources>

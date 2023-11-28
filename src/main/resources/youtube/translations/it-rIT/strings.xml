@@ -30,7 +30,6 @@
     <string name="revanced_append_time_stamp_information_type_summary_off">Velocità di riproduzione</string>
     <string name="revanced_append_time_stamp_information_type_summary_on">Qualità del video</string>
     <string name="revanced_append_time_stamp_information_type_title">Il tipo di informazione</string>
-    <string name="revanced_backup_summary">Importa le impostazioni di ReVanced Extended da un file o esporta le impostazioni di ReVanced Extended su un file</string>
     <string name="revanced_bottom_player">Riproduttore inferiore</string>
     <string name="revanced_button_container_title">Lista dei pulsanti inferiori del riproduttore</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">La modalità Ambient in modalità risparmio energetico è disattivata</string>
@@ -146,6 +145,9 @@ Nota: disattivando la sovrapposizione della velocità ripristina lo \"Scorri la 
     <string name="revanced_enable_opus_codec_title">Attiva il codec Opus</string>
     <string name="revanced_enable_phone_layout_summary">Simula un diverso valore DPI per usare alcune parti dell\'interfaccia da telefono</string>
     <string name="revanced_enable_phone_layout_title">Attiva l\'interfaccia da telefono</string>
+    <string name="revanced_enable_press_to_swipe_summary_off">Il gesto Premi-per-Scorrere è disattivato</string>
+    <string name="revanced_enable_press_to_swipe_summary_on">Il gesto Premi-per-Scorrere è attivato</string>
+    <string name="revanced_enable_press_to_swipe_title">Attiva il gesto Premi-per-Scorrere</string>
     <string name="revanced_enable_save_playback_speed_summary_off">Non salva il valore della velocità di riproduzione anche quando si cambia la velocità di riproduzione</string>
     <string name="revanced_enable_save_playback_speed_summary_on">Salva il valore della velocità di riproduzione ogni volta che si cambia la velocità di riproduzione</string>
     <string name="revanced_enable_save_playback_speed_title">Attiva il salvataggio della velocità di riproduzione</string>
@@ -161,6 +163,9 @@ Nota: disattivando la sovrapposizione della velocità ripristina lo \"Scorri la 
     <string name="revanced_enable_swipe_brightness_summary_off">La modifica della luminosità con i gesti è disattivata</string>
     <string name="revanced_enable_swipe_brightness_summary_on">La modifica della luminosità con i gesti è attivata</string>
     <string name="revanced_enable_swipe_brightness_title">Attiva i gesti per cambiare la luminosità</string>
+    <string name="revanced_enable_swipe_haptic_feedback_summary_off">La vibrazione del gesto Premi-per-Scorrere è disattivata</string>
+    <string name="revanced_enable_swipe_haptic_feedback_summary_on">La vibrazione del gesto Premi-per-Scorrere è attivata</string>
+    <string name="revanced_enable_swipe_haptic_feedback_title">Attiva la vibrazione del gesto Premi-per-Scorrere</string>
     <string name="revanced_enable_swipe_volume_summary_off">La modifica del volume con i gesti è disattivata</string>
     <string name="revanced_enable_swipe_volume_summary_on">La modifica del volume con i gesti è attivata</string>
     <string name="revanced_enable_swipe_volume_title">Attiva i gesti per cambiare il volume</string>
@@ -186,8 +191,22 @@ In questo caso, utilizzate il seguente percorso:
 Scheda Tu &gt; Visualizza canale &gt; Menù &gt; Impostazioni"</string>
     <string name="revanced_enable_wide_search_bar_in_you_tab_title">Attiva la barra di ricerca estesa nella scheda Tu</string>
     <string name="revanced_experimental_flag">Opzioni sperimentali</string>
-    <string name="revanced_export_settings_summary">Salva le impostazioni di ReVanced Extended su un file</string>
-    <string name="revanced_export_settings_title">Esporta impostazioni</string>
+    <string name="revanced_extended_settings_export_failed">Impossibile esportare le impostazioni</string>
+    <string name="revanced_extended_settings_export_success">Impostazioni esportate correttamente</string>
+    <string name="revanced_extended_settings_export_summary">Esporta le impostazioni in un file</string>
+    <string name="revanced_extended_settings_export_title">Esporta impostazioni</string>
+    <string name="revanced_extended_settings_import">Importa</string>
+    <string name="revanced_extended_settings_import_copy">Copia</string>
+    <string name="revanced_extended_settings_import_export_as_file_title">Importa/Esporta come file</string>
+    <string name="revanced_extended_settings_import_export_as_text_summary">Importa/Esporta le impostazioni come testo</string>
+    <string name="revanced_extended_settings_import_export_as_text_title">Importa/Esporta come testo</string>
+    <string name="revanced_extended_settings_import_export_summary">Importa o esporta le impostazioni</string>
+    <string name="revanced_extended_settings_import_export_title">Importa/Esporta impostazioni</string>
+    <string name="revanced_extended_settings_import_failed">Impossibile importare le impostazioni</string>
+    <string name="revanced_extended_settings_import_reset">Ripristina</string>
+    <string name="revanced_extended_settings_import_success">Impostazioni importate correttamente</string>
+    <string name="revanced_extended_settings_import_summary">Importa le impostazioni dal file salvato</string>
+    <string name="revanced_extended_settings_import_title">Importa impostazioni</string>
     <string name="revanced_external_downloader_installed">Installato</string>
     <string name="revanced_external_downloader_not_installed">Non installato</string>
     <string name="revanced_external_downloader_not_installed_warning" formatted="false">%s non è installato. Per favore installalo</string>
@@ -417,6 +436,9 @@ Alcuni componenti potrebbero non essere nascosti"</string>
     <string name="revanced_hide_navigation_label_summary_off">Le etichette della barra di navigazione sono visibili</string>
     <string name="revanced_hide_navigation_label_summary_on">Le etichette della barra di navigazione sono nascoste</string>
     <string name="revanced_hide_navigation_label_title">Nascondi le etichette della barra di navigazione</string>
+    <string name="revanced_hide_notifications_button_summary_off">Il pulsante Notifiche è visibile</string>
+    <string name="revanced_hide_notifications_button_summary_on">Il pulsante Notifiche è nascosto</string>
+    <string name="revanced_hide_notifications_button_title">Nascondi il pulsante Notifiche</string>
     <string name="revanced_hide_notify_me_button_summary_off">Il pulsante Avvisami nei feed è visibile</string>
     <string name="revanced_hide_notify_me_button_summary_on">Il pulsante Avvisami nei feed è nascosto</string>
     <string name="revanced_hide_notify_me_button_title">Nascondi il pulsante Avvisami nei feed</string>
@@ -516,6 +538,9 @@ Alcuni componenti potrebbero non essere nascosti"</string>
     <string name="revanced_hide_self_sponsor_cards_summary_off">Le schede autopromozionali sono visibili</string>
     <string name="revanced_hide_self_sponsor_cards_summary_on">Le schede autopromozionali sono nascoste</string>
     <string name="revanced_hide_self_sponsor_cards_title">Nascondi le schede autopromozionali</string>
+    <string name="revanced_hide_shopping_links_summary_off">I link per lo shopping sono visibili</string>
+    <string name="revanced_hide_shopping_links_summary_on">I link per lo shopping sono nascosti</string>
+    <string name="revanced_hide_shopping_links_title">Nascondi i link per lo shopping</string>
     <string name="revanced_hide_shorts_button_summary_off">Il pulsante Shorts è visibile</string>
     <string name="revanced_hide_shorts_button_summary_on">Il pulsante Shorts è nascosto</string>
     <string name="revanced_hide_shorts_button_title">Nascondi il pulsante Shorts</string>
@@ -589,7 +614,7 @@ Alcuni componenti potrebbero non essere nascosti"</string>
     <string name="revanced_hide_trending_searches_title">Nascondi le ricerche di tendenza</string>
     <string name="revanced_hide_video_ads_summary_off">Gli annunci video sono visibili</string>
     <string name="revanced_hide_video_ads_summary_on">Gli annunci video sono nascosti</string>
-    <string name="revanced_hide_video_ads_title">Nascondi gli annunci dei video</string>
+    <string name="revanced_hide_video_ads_title">Nascondi gli annunci video</string>
     <string name="revanced_hide_video_with_low_view_summary">"Nascondi i video con meno di 1.000 visualizzazioni nel feed della home.
 Alcuni video, inclusi quelli dei canali iscritti, potrebbero non essere nascosti anche se hanno meno di 1.000 visualizzazioni"</string>
     <string name="revanced_hide_video_with_low_view_title">Nascondi i video con poche visualizzazioni</string>
@@ -604,11 +629,6 @@ Alcuni video, inclusi quelli dei canali iscritti, potrebbero non essere nascosti
     <string name="revanced_hide_youtube_music_button_title">Nascondi il pulsante YouTube Music</string>
     <string name="revanced_hook_download_button_summary">"Sostituisci il pulsante Download con il pulsante Download Esterno"</string>
     <string name="revanced_hook_download_button_title">Sostituisci il pulsante Download</string>
-    <string name="revanced_import_settings_inform">"Dopo l'importazione delle impostazioni, apri le impostazioni di ReVanced Extended una volta perchè le impostazioni seguenti potrebbero non essere importate:
-• Nascondi il menù Impostazioni Aggiuntive
-• Nascondi la barra degli strumenti degli Shorts"</string>
-    <string name="revanced_import_settings_summary">Carica le impostazioni di ReVanced Extended da un file salvato</string>
-    <string name="revanced_import_settings_title">Importa impostazioni</string>
     <string name="revanced_inform">Informazioni</string>
     <string name="revanced_layout_title">Interfaccia</string>
     <string name="revanced_misc">Varie</string>
@@ -618,8 +638,7 @@ Alcuni video, inclusi quelli dei canali iscritti, potrebbero non essere nascosti
     <string name="revanced_open_library_you_startup_title">Apri la scheda Raccolta (Tu) all\'avvio dell\'app</string>
     <string name="revanced_others">Altro</string>
     <string name="revanced_overlay_button">Pulsanti in sovrapposizione</string>
-    <string name="revanced_overlay_button_always_repeat_summary">"Tocca per attivare le ripetizioni dei video.
-Tocca e tieni premuto per attivare la pausa dopo le ripetizione"</string>
+    <string name="revanced_overlay_button_always_repeat_summary">Tocca per attivare o disattivare il \"Ripeti sempre\"</string>
     <string name="revanced_overlay_button_always_repeat_title">Mostra il pulsante Ripeti Sempre</string>
     <string name="revanced_overlay_button_copy_video_url_summary">"Tocca per copiare l'URL del video.
 Tocca e tieni premuto per copiare l'URL del video con il timestamp"</string>
@@ -656,7 +675,10 @@ Tocca e tieni premuto per impostare la velocità di riproduzione a 1.0x"</string
     <string name="revanced_ryd_enable_summary_off">I Non Mi Piace sono nascosti</string>
     <string name="revanced_ryd_enable_summary_on">I Non Mi Piace sono visibili</string>
     <string name="revanced_ryd_enable_title">Attiva Return YouTube Dislike</string>
+    <string name="revanced_ryd_failure_connection_timeout">Non Mi Piace temporaneamente non disponibili (API scaduto)</string>
+    <string name="revanced_ryd_failure_connection_status_code" formatted="false">Non Mi Piace non disponibili (stato %d)</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">I Non Mi Piace non sono disponibili (il limite del client API è stato raggiunto)</string>
+    <string name="revanced_ryd_failure_generic">Non Mi Piace non disponibili (%s)</string>
     <string name="revanced_ryd_shorts_summary_off">I Non Mi Piace degli Shorts sono nascosti</string>
     <string name="revanced_ryd_shorts_summary_on">I Non Mi Piace degli Shorts sono visibili</string>
     <string name="revanced_ryd_shorts_title">Mostra i Non Mi Piace degli Shorts</string>
@@ -668,12 +690,13 @@ Tocca e tieni premuto per impostare la velocità di riproduzione a 1.0x"</string
     <string name="revanced_save_video_quality_none">Cambio qualità non riuscito</string>
     <string name="revanced_save_video_quality_wifi" formatted="false">Cambiando la qualità predefinita con Wi-Fi in %s</string>
     <string name="revanced_seekbar">Barra di avanzamento</string>
+    <string name="revanced_share_copy_settings_success">Impostazioni copiate negli appunti</string>
     <string name="revanced_share_copy_timestamp_success" formatted="false">Timestamp copiato negli appunti (%s)</string>
     <string name="revanced_share_copy_url_success">URL copiato negli appunti</string>
     <string name="revanced_share_copy_url_timestamp_success">URL con timestamp copiato negli appunti</string>
     <string name="revanced_shorts">Shorts</string>
     <string name="revanced_shorts_player_title">Riproduttore</string>
-    <string name="revanced_shorts_toolbar_summary">Per nascondere tutta la barra degli strumenti degli Shorts, nascondi tutti i pulsanti della barra degli strumenti degli Shorts</string>
+    <string name="revanced_shorts_toolbar_summary">Il pulsante Indietro nella barra degli strumenti non può essere nascosto</string>
     <string name="revanced_shorts_toolbar_title">Barra degli strumenti</string>
     <string name="revanced_show_fullscreen_title_summary">Problema noto: il titolo scompare quando viene toccato</string>
     <string name="revanced_show_fullscreen_title_title">Mostra il titolo a schermo intero</string>
@@ -681,7 +704,7 @@ Tocca e tieni premuto per impostare la velocità di riproduzione a 1.0x"</string
     <string name="revanced_skip_preloaded_buffer_summary">"Salta il buffer precaricato all'avvio dei video per bypassare il ritardo della qualità video predefinita forzata.
 
 • Quando il video inizia, c'è un ritardo di circa 0.7 secondi, ma la qualità video predefinita viene applicata immediatamente
-• Non si applica ai video HDR o ai video più brevi di 10 secondi"</string>
+• Non si applica ai video HDR, dal vivo e più brevi di 10 secondi"</string>
     <string name="revanced_skip_preloaded_buffer_title">Salta il buffer precaricato</string>
     <string name="revanced_skip_preloaded_buffer_toast_summary_off">La notifica Toast è nascosta</string>
     <string name="revanced_skip_preloaded_buffer_toast_summary_on">La notifica Toast è visibile</string>
@@ -697,6 +720,7 @@ Tocca e tieni premuto per impostare la velocità di riproduzione a 1.0x"</string
     <string name="revanced_spoof_app_version_target_entry_18_05_40">18.05.40 - Ripristina la vecchia casella di input dei commenti</string>
     <string name="revanced_spoof_app_version_target_entry_18_17_43">18.17.43 - Ripristina il vecchio pannello a comparsa del riproduttore</string>
     <string name="revanced_spoof_app_version_target_entry_18_33_40">18.33.40 - Ripristina la vecchia barra d\'azione degli Shorts</string>
+    <string name="revanced_spoof_app_version_target_entry_18_38_45">18.38.45 - Ripristina il comportamento della vecchia qualità video predefinita</string>
     <string name="revanced_spoof_app_version_target_entry_18_40_34">"18.40.34 - Disattiva le visualizzazioni e i mi piace dall'essere aggiornati in tempo reale"</string>
     <string name="revanced_spoof_app_version_target_entry_title">La versione dell\'app da simulare</string>
     <string name="revanced_spoof_app_version_target_summary">Digita la versione dell\'app da simulare</string>
@@ -728,7 +752,11 @@ Problemi noti:
     <string name="revanced_swipe_overlay_text_size_title">Dimensione del testo sovrapposto dello scorrimento</string>
     <string name="revanced_swipe_overlay_timeout_summary">La visibilità in millisecondi della sovrapposizione</string>
     <string name="revanced_swipe_overlay_timeout_title">Durata della sovrapposizione dello scorrimento</string>
-    <string name="revanced_switching_create_notification_summary">Nota: se questa impostazione non viene applicata correttamente, riavvia il dispositivo</string>
+    <string name="revanced_switching_create_notification_summary">"Scambia il pulsante Crea e con il pulsante Notifiche simulando le informazioni del dispositivo.
+
+Note:
+• Anche se si modifica questa impostazione, potrebbe non avere effetto fino al riavvio del dispositivo
+• È necessario disattivare questa impostazione per rendere visibili gli annunci video"</string>
     <string name="revanced_switching_create_notification_title">Scambia il pulsante Crea con il pulsante Notifiche</string>
     <string name="revanced_tool_used">Tool utilizzati</string>
     <string name="revanced_video">Video</string>
@@ -781,10 +809,11 @@ Problemi noti:
     <string name="sb_api_url_changed">URL API cambiato</string>
     <string name="sb_settings_copy">Copia</string>
     <string name="sb_settings_ie_sum">La tua configurazione di SponsorBlock in JSON che può essere importata o esportata su ReVanced Extended e su altre piattaforme SponsorBlock. Questo include il tuo ID utente privato, quindi assicurati di condividerlo con saggezza</string>
+    <string name="sb_settings_ie">Importa/Esporta impostazioni</string>
     <string name="sb_settings_import_successful">Impostazioni importate con sucesso</string>
     <string name="sb_settings_import_failed">Importazione non riuscita: %s</string>
     <string name="sb_settings_export_failed">Esportazione non riuscita: %s</string>
-    <string name="sb_settings_revanced_export_user_id_warning">Le tue impostazioni contengono un ID utente privato di SponsorBlock.\n\nIl tuo ID utente è come una password e non dovrebbe mai essere condiviso.\n</string>
+    <string name="sb_settings_revanced_export_user_id_warning">Le tue impostazioni contengono un ID utente privato di SponsorBlock.\n\nIl tuo ID utente è come una password e non dovrebbe mai essere condiviso\n</string>
     <string name="sb_settings_revanced_export_user_id_warning_dismiss">Non mostrare più questo messaggio</string>
     <string name="sb_diff_segments">Modifica il comportamento dei segmenti</string>
     <string name="sb_segments_sponsor">Sponsor</string>
@@ -833,6 +862,9 @@ Problemi noti:
     <string name="sb_skip_showbutton">Mostra il pulsante Salta</string>
     <string name="sb_skip_seekbaronly">Mostralo nella barra di avanzamento</string>
     <string name="sb_skip_ignore">Disattiva</string>
+    <string name="sb_sponsorblock_connection_failure_generic">SponsorBlock temporaneamente non disponibile</string>
+    <string name="sb_sponsorblock_connection_failure_status" formatted="false">SponsorBlock temporaneamente non disponibile (stato %d)</string>
+    <string name="sb_sponsorblock_connection_failure_timeout">SponsorBlock temporaneamente non disponibile (API scaduto)</string>
     <string name="sb_submit_failed_invalid" formatted="false">Impossibile inviare il segmento: %s</string>
     <string name="sb_submit_failed_timeout">Impossibile inviare i segmenti (API scaduta)</string>
     <string name="sb_submit_failed_unknown_error" formatted="false">Impossibile inviare i segmenti (stato: %d %s)</string>
@@ -842,6 +874,7 @@ Soglia raggiunta (troppe richieste provenienti dallo stesso utente o IP)</string
     <string name="sb_submit_failed_duplicate">Impossibile inviare il segmento.
 È già presente un duplicato</string>
     <string name="sb_submit_succeeded">Segmento correttamente inviato</string>
+    <string name="sb_vote_failed_timeout">Impossibile votare per il segmento (API scaduto)</string>
     <string name="sb_vote_failed_unknown_error" formatted="false">Impossibile votare per il segmento (stato: %d %s)</string>
     <string name="sb_vote_failed_forbidden" formatted="false">Impossibile votare per il segmento: %s</string>
     <string name="sb_vote_upvote">Voto positivo</string>
@@ -893,9 +926,4 @@ Soglia raggiunta (troppe richieste provenienti dallo stesso utente o IP)</string
     <string name="sb_about">Informazioni</string>
     <string name="sb_reset">Ripristina</string>
     <string name="sb_about_api_sum">I dati sono forniti dall\'API di SponsorBlock. Tocca qui per saperne di più e vedere i download per altre piattaforme</string>
-    <string name="settings_export_failed">Impossibile esportare le impostazioni</string>
-    <string name="settings_export_successful">Impostazioni esportate correttamente</string>
-    <string name="settings_ie">Esporta/Importa impostazioni</string>
-    <string name="settings_import_failed">Impossibile importare le impostazioni</string>
-    <string name="settings_import_successful">Impostazioni importate correttamente</string>
 </resources>
