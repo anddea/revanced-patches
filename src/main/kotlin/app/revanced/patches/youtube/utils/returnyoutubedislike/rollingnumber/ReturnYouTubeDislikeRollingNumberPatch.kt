@@ -62,7 +62,8 @@ object ReturnYouTubeDislikeRollingNumberPatch : BytecodePatch(
                                 implementation!!.instructions.indexOfFirst { instruction ->
                                     instruction.opcode == Opcode.IPUT_OBJECT
                                 }
-                            charSequenceFieldReference = getInstruction<ReferenceInstruction>(rollingNumberFieldIndex).reference
+                            charSequenceFieldReference =
+                                getInstruction<ReferenceInstruction>(rollingNumberFieldIndex).reference
                         } ?: throw PatchException("RollingNumberClass not found!")
 
                     val insertIndex = rollingNumberClassIndex + 1
