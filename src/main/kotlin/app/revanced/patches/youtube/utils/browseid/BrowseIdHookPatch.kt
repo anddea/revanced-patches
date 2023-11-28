@@ -9,7 +9,7 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.shared.patch.litho.ComponentParserPatch
 import app.revanced.patches.youtube.utils.browseid.fingerprints.BrowseIdClassFingerprint
-import app.revanced.patches.youtube.utils.fingerprints.SetToolBarPaddingFingerprint
+import app.revanced.patches.youtube.utils.browseid.fingerprints.SetToolBarPaddingFingerprint
 import app.revanced.patches.youtube.utils.litho.LithoFilterPatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.util.integrations.Constants.UTILS_PATH
