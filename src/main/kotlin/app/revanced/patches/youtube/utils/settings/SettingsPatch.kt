@@ -120,9 +120,7 @@ object SettingsPatch : AbstractSettingsResourcePatch(
         arrayOf(
             ResourceUtils.ResourceGroup(
                 "layout",
-                "revanced_settings_toolbar.xml",
-                "revanced_settings_with_toolbar.xml",
-                "revanced_settings_with_toolbar_layout.xml"
+                "revanced_settings_with_toolbar.xml"
             ),
             ResourceUtils.ResourceGroup(
                 "values-v21",
