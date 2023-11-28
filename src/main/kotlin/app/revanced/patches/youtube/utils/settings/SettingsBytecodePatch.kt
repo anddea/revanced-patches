@@ -49,6 +49,7 @@ object SettingsBytecodePatch : BytecodePatch(
         context.injectInit("InitializationPatch", "initializeReVancedSettings", true)
 
     }
+
     internal lateinit var contexts: BytecodeContext
 
     private const val SET_THEME =
