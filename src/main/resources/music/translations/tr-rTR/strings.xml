@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="microg_not_installed_notice">Lütfen MicroG\'yi yükleyin.</string>
+    <string name="microg_not_installed_warning">MicroG bulunamadı.</string>
+    <string name="microg_not_running_warning">MicroG arka planda çalışmıyor.</string>
+    <string name="microg_settings_summary">Bildirimleri alabilmek için bulut mesajlaşma ayarlarını etkinleştirin.</string>
+    <string name="microg_settings_title">MicroG\'yi aç</string>
     <string name="revanced_category_account">Hesap</string>
     <string name="revanced_category_action_bar">Görev Çubuğu</string>
     <string name="revanced_category_ads">Reklamlar</string>
@@ -60,11 +65,16 @@ UYARI: Bu etkinken yeni oynatıcı arka planlarını etkinleştirmeyin."</string
     <string name="revanced_enable_sleep_timer_title">Uyku zamanlayıcısını etkinleştir</string>
     <string name="revanced_enable_zen_mode_summary">Video oynatıcıya grimsi bir ton ekleyerek göz yorgunluğunu azaltır.</string>
     <string name="revanced_enable_zen_mode_title">Zen modunu aç/kapa</string>
+    <string name="revanced_extended_settings_export_as_file">Ayarları bir dosyaya dışa aktar</string>
+    <string name="revanced_extended_settings_export_failed">Ayarlar dışa aktarılamadı.</string>
+    <string name="revanced_extended_settings_export_success">Ayarlar başarıyla dışa aktarıldı.</string>
     <string name="revanced_extended_settings_import">İçe aktar</string>
+    <string name="revanced_extended_settings_import_as_file">Ayarları dosyadan içe aktar</string>
     <string name="revanced_extended_settings_import_copy">Kopyala</string>
-    <string name="revanced_extended_settings_import_export_summary">Ayarları Yazı Olarak İçe/Dışa aktarma.</string>
-    <string name="revanced_extended_settings_import_export_title">Ayarları İçe/Dışa aktar</string>
-    <string name="revanced_extended_settings_import_failure_parse">İçeri aktarma başarısız oldu: %s.</string>
+    <string name="revanced_extended_settings_import_export_as_text">Ayarları yazı olarak içe / dışa aktar</string>
+    <string name="revanced_extended_settings_import_export_summary">Ayarları içe veya dışa aktarın.</string>
+    <string name="revanced_extended_settings_import_export_title">Ayarları içe / dışa aktar</string>
+    <string name="revanced_extended_settings_import_failed">İçe aktarma başarısız oldu: %s.</string>
     <string name="revanced_extended_settings_import_reset">Ayarlar varsayılana sıfırlandı.</string>
     <string name="revanced_extended_settings_import_success">%d ayar içe aktarıldı.</string>
     <string name="revanced_external_downloader_not_installed_warning" formatted="false">%s kurulmamış. Lütfen önce indiriniz.</string>
@@ -161,7 +171,10 @@ UYARI: Bu etkinken yeni oynatıcı arka planlarını etkinleştirmeyin."</string
     <string name="revanced_ryd_dislike_percentage_summary">Beğenmeme sayısı yerine beğenmeme yüzdesi gösterilir.</string>
     <string name="revanced_ryd_dislike_percentage_title">Yüzde olarak beğenmemeler</string>
     <string name="revanced_ryd_enabled_summary">Videoların beğenmeme sayısını gösterir.</string>
+    <string name="revanced_ryd_failure_connection_timeout">Beğenmemeler geçici olarak kullanılamıyor (API zaman aşımına uğradı).</string>
+    <string name="revanced_ryd_failure_connection_status_code" formatted="false">Beğenmemeler mevcut değil (durum %d).</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Beğenmeme sayısı mevcut değil (istemci API sınırına ulaşıldı).</string>
+    <string name="revanced_ryd_failure_generic">Beğenmemeler mevcut değil (%s).</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Gizlendi</string>
     <string name="revanced_sanitize_sharing_links_summary">Bağlantıları paylaşırken, \"tracking query parametreleri\"ni URL\'lerden kaldırır</string>
     <string name="revanced_sanitize_sharing_links_title">Paylaşılan bağlantıları sterilize edin</string>
@@ -227,6 +240,9 @@ UYARI: Bu etkinken yeni oynatıcı arka planlarını etkinleştirmeyin."</string
     <string name="sb_skipped_multiple_segments">Birden çok segment atlandı.</string>
     <string name="sb_skip_automatically">Otomatik olarak atla</string>
     <string name="sb_skip_ignore">Devre dışı bırak</string>
+    <string name="sb_sponsorblock_connection_failure_generic">SponsorBlock geçici olarak kullanılamıyor.</string>
+    <string name="sb_sponsorblock_connection_failure_status" formatted="false">SponsorBlock geçici olarak kullanılamıyor (durum %d).</string>
+    <string name="sb_sponsorblock_connection_failure_timeout">SponsorBlock geçici olarak kullanılamıyor (API zaman aşımına uğradı).</string>
     <string name="sb_color_dot_label">Renk:</string>
     <string name="sb_color_changed">Renk değiştirildi.</string>
     <string name="sb_color_reset">Renk sıfırlandı.</string>

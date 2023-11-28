@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="microg_not_installed_notice">Будь ласка, встановіть MicroG.</string>
+    <string name="microg_not_installed_warning">MicroG не знайдено.</string>
+    <string name="microg_not_running_warning">MicroG не працює у фоновому режимі.</string>
+    <string name="microg_settings_summary">Увімкніть налаштування спливаючих повідомлень, щоб отримувати сповіщення.</string>
+    <string name="microg_settings_title">Відкрити MicroG</string>
     <string name="revanced_category_account">Обліковий запис</string>
     <string name="revanced_category_action_bar">Панель дій</string>
     <string name="revanced_category_ads">Реклама</string>
@@ -60,11 +65,16 @@
     <string name="revanced_enable_sleep_timer_title">Увімкнути таймер вимкнення</string>
     <string name="revanced_enable_zen_mode_summary">Додає сірий відтінок у плеєр, щоб зменшити навантаження на очі.</string>
     <string name="revanced_enable_zen_mode_title">Увімкнути режим «Дзен»</string>
+    <string name="revanced_extended_settings_export_as_file">Експорт налаштувань у файл</string>
+    <string name="revanced_extended_settings_export_failed">Не вдалося експортувати налаштування.</string>
+    <string name="revanced_extended_settings_export_success">Налаштування було вдало експортовано.</string>
     <string name="revanced_extended_settings_import">Імпортувати</string>
+    <string name="revanced_extended_settings_import_as_file">Імпорт налаштувань зі збереженого файлу</string>
     <string name="revanced_extended_settings_import_copy">Копіювати</string>
+    <string name="revanced_extended_settings_import_export_as_text">Імпортувати або експортувати налаштування у вигляді тексту</string>
     <string name="revanced_extended_settings_import_export_summary">Імпортувати або експортувати налаштування у вигляді тексту.</string>
     <string name="revanced_extended_settings_import_export_title">Імпорт / Експорт налаштувань</string>
-    <string name="revanced_extended_settings_import_failure_parse">Не вдалося відновити налаштування: %s</string>
+    <string name="revanced_extended_settings_import_failed">Не вдалося імпортувати налаштування: %s.</string>
     <string name="revanced_extended_settings_import_reset">Налаштування скинуто до стандартних.</string>
     <string name="revanced_extended_settings_import_success">Налаштування в кількості: %d успішно відновлено</string>
     <string name="revanced_external_downloader_not_installed_warning" formatted="false">%s не встановлено. Будь ласка, встановіть його.</string>
@@ -161,7 +171,10 @@
     <string name="revanced_ryd_dislike_percentage_summary">Відображати відсоток замість кількості дизлайків.</string>
     <string name="revanced_ryd_dislike_percentage_title">Кількість дизлайків у відсотках</string>
     <string name="revanced_ryd_enabled_summary">Відображає кількість дизлайків у треках.</string>
+    <string name="revanced_ryd_failure_connection_timeout">Дизлайки тимчасово недоступні (закінчився час API).</string>
+    <string name="revanced_ryd_failure_connection_status_code" formatted="false">Дизлайки недоступні (статус %d).</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Дизлайки недоступні (досягнуто ліміт клієнтів сервера API)</string>
+    <string name="revanced_ryd_failure_generic">Дизлайки недоступні (%s).</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Приховано</string>
     <string name="revanced_sanitize_sharing_links_summary">Вилучаються параметри запиту відстеження з посилань під час поширення посилань.</string>
     <string name="revanced_sanitize_sharing_links_title">Обробляти поширення посилань</string>
@@ -227,6 +240,9 @@
     <string name="sb_skipped_multiple_segments">Пропущено декілька сегментів</string>
     <string name="sb_skip_automatically">Пропустити автоматично</string>
     <string name="sb_skip_ignore">Вимкнути</string>
+    <string name="sb_sponsorblock_connection_failure_generic">SponsorBlock тимчасово недоступний.</string>
+    <string name="sb_sponsorblock_connection_failure_status" formatted="false">SponsorBlock тимчасово недоступний (статус %d).</string>
+    <string name="sb_sponsorblock_connection_failure_timeout">SponsorBlock тимчасово недоступний (закінчився час APІ).</string>
     <string name="sb_color_dot_label">Колір:</string>
     <string name="sb_color_changed">Колір змінено</string>
     <string name="sb_color_reset">Колір скинуто</string>

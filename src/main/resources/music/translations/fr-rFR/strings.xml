@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="microg_not_installed_notice">Veuillez installer MicroG</string>
+    <string name="microg_not_installed_warning">MicroG n’est pas installé</string>
+    <string name="microg_not_running_warning">MicroG ne fonctionne pas en arrière-plan</string>
+    <string name="microg_settings_summary">Activez les paramètres de messagerie cloud pour recevoir les notifications</string>
+    <string name="microg_settings_title">Ouvrir MicroG</string>
     <string name="revanced_category_account">Compte</string>
     <string name="revanced_category_action_bar">Barre d\'actions</string>
     <string name="revanced_category_ads">Pubs</string>
@@ -60,11 +65,16 @@ AVERTISSEMENT : N'activez pas le nouvel arrière-plan du lecteur si cette option
     <string name="revanced_enable_sleep_timer_title">Activer le minuteur de veille</string>
     <string name="revanced_enable_zen_mode_summary">Ajoute une teinte grise au lecteur vidéo pour réduire la fatigue oculaire.</string>
     <string name="revanced_enable_zen_mode_title">Activer le mode zen</string>
+    <string name="revanced_extended_settings_export_as_file">Exporter les paramètres vers un fichier</string>
+    <string name="revanced_extended_settings_export_failed">Échec de l\'exportation des paramètres</string>
+    <string name="revanced_extended_settings_export_success">Les paramètres ont été exportés avec succès</string>
     <string name="revanced_extended_settings_import">Importer</string>
+    <string name="revanced_extended_settings_import_as_file">Importer les paramètres depuis un fichier</string>
     <string name="revanced_extended_settings_import_copy">Copier</string>
+    <string name="revanced_extended_settings_import_export_as_text">Importer / Exporter les paramètres sous forme de texte</string>
     <string name="revanced_extended_settings_import_export_summary">Importer ou exporter les paramètres au format texte.</string>
     <string name="revanced_extended_settings_import_export_title">Importer / Exporter</string>
-    <string name="revanced_extended_settings_import_failure_parse">Importation échouée : %s.</string>
+    <string name="revanced_extended_settings_import_failed">Importation échouée : %s.</string>
     <string name="revanced_extended_settings_import_reset">Les paramètres ont étés réinitialisés.</string>
     <string name="revanced_extended_settings_import_success">Paramètres %d importés.</string>
     <string name="revanced_external_downloader_not_installed_warning" formatted="false">%s n\'est pas installé. Veuillez l’installer.</string>
@@ -161,7 +171,10 @@ AVERTISSEMENT : N'activez pas le nouvel arrière-plan du lecteur si cette option
     <string name="revanced_ryd_dislike_percentage_summary">Les \"Je n\'aime pas\" sont affichés en pourcentages au lieu des nombres.</string>
     <string name="revanced_ryd_dislike_percentage_title">\"Je n\'aime pas\" en pourcentage</string>
     <string name="revanced_ryd_enabled_summary">Affiche les \"Je n\'aime pas\" sur les vidéos.</string>
+    <string name="revanced_ryd_failure_connection_timeout">Les dislikes sont temporairement indisponible (API obsolète)</string>
+    <string name="revanced_ryd_failure_connection_status_code" formatted="false">Dislikes non disponible (status %d).</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Les dislikes sont indisponibles (limite d\'API client atteinte).</string>
+    <string name="revanced_ryd_failure_generic">Dislikes non disponible (%s).</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Masqué</string>
     <string name="revanced_sanitize_sharing_links_summary">Supprime les paramètres de tracking des URL lors des partages de liens.</string>
     <string name="revanced_sanitize_sharing_links_title">Nettoies les liens partagés</string>
@@ -224,6 +237,9 @@ AVERTISSEMENT : N'activez pas le nouvel arrière-plan du lecteur si cette option
     <string name="sb_skipped_multiple_segments">Plusieurs segments ont été passés.</string>
     <string name="sb_skip_automatically">Passer automatiquement</string>
     <string name="sb_skip_ignore">Désactiver</string>
+    <string name="sb_sponsorblock_connection_failure_generic">SponsorBlock est temporairement indisponible</string>
+    <string name="sb_sponsorblock_connection_failure_status" formatted="false">SponsorBlock est temporairement indisponible (status %d).</string>
+    <string name="sb_sponsorblock_connection_failure_timeout">SponsorBlock est temporairement indisponible (API obsolète).</string>
     <string name="sb_color_dot_label">Couleur (hex) :</string>
     <string name="sb_color_changed">Couleur modifiée.</string>
     <string name="sb_color_reset">Couleur réinitialisée.</string>

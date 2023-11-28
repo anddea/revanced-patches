@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="microg_not_installed_notice">Vui lòng cài đặt MicroG.</string>
+    <string name="microg_not_installed_warning">Không tìm thấy MicroG.</string>
+    <string name="microg_not_running_warning">MicroG không chạy trong nền.</string>
+    <string name="microg_settings_summary">Mở MicroG để thiết lập tính năng nhận thông báo và các tuỳ chọn khác.</string>
+    <string name="microg_settings_title">Mở MicroG</string>
     <string name="revanced_category_account">Tài khoản</string>
     <string name="revanced_category_action_bar">Bảng nút thao tác</string>
     <string name="revanced_category_ads">Quảng cáo</string>
@@ -60,11 +65,16 @@ CẢNH BÁO: Không bật Nền trình phát kiểu mới trong khi tuỳ chọn
     <string name="revanced_enable_sleep_timer_title">Hẹn giờ ngủ</string>
     <string name="revanced_enable_zen_mode_summary">Thêm nền màu xám vào trình phát video nhạc để giúp bạn giảm mỏi mắt và tập trung hơn.</string>
     <string name="revanced_enable_zen_mode_title">Chế độ tập trung</string>
+    <string name="revanced_extended_settings_export_as_file">Xuất cài đặt dưới dạng tệp</string>
+    <string name="revanced_extended_settings_export_failed">Xuất cài đặt thất bại.</string>
+    <string name="revanced_extended_settings_export_success">Cài đặt đã được xuất thành công.</string>
     <string name="revanced_extended_settings_import">Nhập</string>
+    <string name="revanced_extended_settings_import_as_file">Nhập cài đặt từ tệp</string>
     <string name="revanced_extended_settings_import_copy">Sao chép</string>
-    <string name="revanced_extended_settings_import_export_summary">Nhập hoặc xuất cấu hình Music ReVanced Extended dưới dạng chuỗi JSON.</string>
+    <string name="revanced_extended_settings_import_export_as_text">Nhập/Xuất cài đặt dưới dạng văn bản</string>
+    <string name="revanced_extended_settings_import_export_summary">Nhập hoặc xuất các tuỳ chọn cài đặt của bạn.</string>
     <string name="revanced_extended_settings_import_export_title">Nhập/Xuất cài đặt</string>
-    <string name="revanced_extended_settings_import_failure_parse">Nhập cài đặt thất bại: %s.</string>
+    <string name="revanced_extended_settings_import_failed">Nhập cài đặt thất bại: %s.</string>
     <string name="revanced_extended_settings_import_reset">Đã đặt lại cài đặt về mặc định.</string>
     <string name="revanced_extended_settings_import_success">Đã nhập %d cài đặt.</string>
     <string name="revanced_external_downloader_not_installed_warning" formatted="false">%s chưa được cài đặt. Hãy cài đặt và thử lại.</string>
@@ -161,7 +171,10 @@ CẢNH BÁO: Không bật Nền trình phát kiểu mới trong khi tuỳ chọn
     <string name="revanced_ryd_dislike_percentage_summary">Hiển thị số lượt không thích dưới dạng tỉ lệ phần trăm.</string>
     <string name="revanced_ryd_dislike_percentage_title">Hiện số lượt không thích theo phần trăm</string>
     <string name="revanced_ryd_enabled_summary">Hiển thị số lượt không thích của bài hát và video nhạc.</string>
+    <string name="revanced_ryd_failure_connection_timeout">Số lượt không thích tạm thời không khả dụng (API đã hết thời gian chờ).</string>
+    <string name="revanced_ryd_failure_connection_status_code" formatted="false">Số lượt không thích không khả dụng (trạng thái %d).</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Số lượt không thích không khả dụng (đã đạt đến giới hạn API máy khách).</string>
+    <string name="revanced_ryd_failure_generic">Số lượt không thích không khả dụng (%s).</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Ẩn</string>
     <string name="revanced_sanitize_sharing_links_summary">Loại bỏ các tham số truy vấn theo dõi khỏi URL khi chia sẻ liên kết.</string>
     <string name="revanced_sanitize_sharing_links_title">Liên kết sạch khi chia sẻ</string>
@@ -227,6 +240,9 @@ Lưu ý:\n- Tuỳ chọn này sẽ thay đổi giao diện ứng dụng, tuy nhi
     <string name="sb_skipped_multiple_segments">Đã bỏ qua nhiều phân đoạn.</string>
     <string name="sb_skip_automatically">Tự động bỏ qua</string>
     <string name="sb_skip_ignore">Tắt</string>
+    <string name="sb_sponsorblock_connection_failure_generic">SponsorBlock tạm thời không khả dụng.</string>
+    <string name="sb_sponsorblock_connection_failure_status" formatted="false">SponsorBlock tạm thời không khả dụng (trạng thái %d).</string>
+    <string name="sb_sponsorblock_connection_failure_timeout">SponsorBlock tạm thời không khả dụng (API đã hết thời gian chờ).</string>
     <string name="sb_color_dot_label">Màu:</string>
     <string name="sb_color_changed">Đã thay đổi màu phân đoạn.</string>
     <string name="sb_color_reset">Đã đặt lại màu phân đoạn mặc định.</string>

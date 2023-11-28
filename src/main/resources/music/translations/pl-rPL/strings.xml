@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="microg_not_installed_notice">Proszę zainstalować MicroG.</string>
+    <string name="microg_not_installed_warning">MicroG nie zostało znalezione.</string>
+    <string name="microg_not_running_warning">MicroG nie działa w tle.</string>
+    <string name="microg_settings_summary">Włącz cloud messaging w ustawieniach, by otrzymywać powiadomienia.</string>
+    <string name="microg_settings_title">Otwórz MicroG</string>
     <string name="revanced_category_account">Konto</string>
     <string name="revanced_category_action_bar">Pasek akcji</string>
     <string name="revanced_category_ads">Reklamy</string>
@@ -60,11 +65,16 @@ UWAGA: Nie włączaj nowego tła odtwarzacza, jeśli ta opcja jest włączona."<
     <string name="revanced_enable_sleep_timer_title">Włącz wyłącznik czasowy</string>
     <string name="revanced_enable_zen_mode_summary">Dodaje szary odcień do odtwarzacza wideo, aby zmniejszyć zmęczenie oczu.</string>
     <string name="revanced_enable_zen_mode_title">Włącz tryb zen</string>
+    <string name="revanced_extended_settings_export_as_file">Wyeksportuj ustawienia do pliku</string>
+    <string name="revanced_extended_settings_export_failed">Nie udało się wyeksportować ustawień.</string>
+    <string name="revanced_extended_settings_export_success">Ustawienia zostały pomyślnie wyeksportowane.</string>
     <string name="revanced_extended_settings_import">Import</string>
+    <string name="revanced_extended_settings_import_as_file">Zaimportuj ustawienia z pliku</string>
     <string name="revanced_extended_settings_import_copy">Kopiuj</string>
-    <string name="revanced_extended_settings_import_export_summary">Importuje lub eksportuje ustawienia jako plik tekstowy.</string>
+    <string name="revanced_extended_settings_import_export_as_text">Zaimportuj/Wyeksportuj ustawienia jako tekst</string>
+    <string name="revanced_extended_settings_import_export_summary">Zaimportuj lub wyeksportuj ustawienia</string>
     <string name="revanced_extended_settings_import_export_title">Importuj/Eksportuj ustawienia</string>
-    <string name="revanced_extended_settings_import_failure_parse">Importowanie nieudane: %s.</string>
+    <string name="revanced_extended_settings_import_failed">Nie udało się zaimportować: %s.</string>
     <string name="revanced_extended_settings_import_reset">Ustawienia zostały zresetowane do domyślnych.</string>
     <string name="revanced_extended_settings_import_success">Zaimportowano ustawienia %d.</string>
     <string name="revanced_external_downloader_not_installed_warning" formatted="false">%s nie jest zainstalowany. Zainstaluj go.</string>
@@ -161,7 +171,10 @@ UWAGA: Nie włączaj nowego tła odtwarzacza, jeśli ta opcja jest włączona."<
     <string name="revanced_ryd_dislike_percentage_summary">Zamiast ilości łapek w dół, jest wyświetlany ich procent.</string>
     <string name="revanced_ryd_dislike_percentage_title">Łapki w dół wyświetlane jako procent</string>
     <string name="revanced_ryd_enabled_summary">Pokazuje ilość łapek w dół wideo.</string>
+    <string name="revanced_ryd_failure_connection_timeout">Łapki w dół są tymczasowo niedostępne (API nie reaguje).</string>
+    <string name="revanced_ryd_failure_connection_status_code" formatted="false">Liczba łapek w dół nie jest dostępna (status %d).</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Łapki w dół nie są dostępne (limit API użytkownika został osiągnięty).</string>
+    <string name="revanced_ryd_failure_generic">Liczba łapek w dół nie jest dostępna (%s).</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Ukryte</string>
     <string name="revanced_sanitize_sharing_links_summary">Usuwa parametry śledzących zapytań z adresów URL podczas udostępniania linków.</string>
     <string name="revanced_sanitize_sharing_links_title">Oczyść udostępniane linki</string>
@@ -227,6 +240,9 @@ UWAGA: Nie włączaj nowego tła odtwarzacza, jeśli ta opcja jest włączona."<
     <string name="sb_skipped_multiple_segments">Pominięto wiele segmentów.</string>
     <string name="sb_skip_automatically">Pomiń automatycznie</string>
     <string name="sb_skip_ignore">Wyłącz</string>
+    <string name="sb_sponsorblock_connection_failure_generic">SponsorBlock jest tymczasowo niedostępny.</string>
+    <string name="sb_sponsorblock_connection_failure_status" formatted="false">SponsorBlock jest tymczasowo niedostępny (status %d).</string>
+    <string name="sb_sponsorblock_connection_failure_timeout">SponsorBlock jest tymczasowo niedostępny (API nie reaguje).</string>
     <string name="sb_color_dot_label">Kolor:</string>
     <string name="sb_color_changed">Kolor został zmieniony.</string>
     <string name="sb_color_reset">Kolor został zresetowany.</string>
