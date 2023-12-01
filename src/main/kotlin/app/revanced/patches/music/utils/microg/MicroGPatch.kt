@@ -26,16 +26,7 @@ import app.revanced.util.microg.MicroGBytecodeHelper
         MicroGResourcePatch::class,
         PackageNamePatch::class
     ],
-    compatiblePackages = [
-        CompatiblePackage(
-            "com.google.android.apps.youtube.music",
-            [
-                "6.21.52",
-                "6.27.54",
-                "6.28.52"
-            ]
-        )
-    ]
+    compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")]
 )
 @Suppress("unused")
 object MicroGPatch : BytecodePatch(

@@ -11,16 +11,7 @@ import app.revanced.patches.music.utils.fix.androidauto.fingerprints.Certificate
 @Patch(
     name = "Certificate spoof",
     description = "Spoofs the YouTube Music certificate for Android Auto.",
-    compatiblePackages = [
-        CompatiblePackage(
-            "com.google.android.apps.youtube.music",
-            [
-                "6.21.52",
-                "6.27.54",
-                "6.28.52"
-            ]
-        )
-    ]
+    compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")]
 )
 @Suppress("unused")
 object AndroidAutoCertificatePatch : BytecodePatch(

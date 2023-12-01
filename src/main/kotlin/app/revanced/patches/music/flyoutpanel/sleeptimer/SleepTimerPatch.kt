@@ -17,16 +17,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
     name = "Enable sleep timer",
     description = "Add sleep timer to flyout menu.",
     dependencies = [SettingsPatch::class],
-    compatiblePackages = [
-        CompatiblePackage(
-            "com.google.android.apps.youtube.music",
-            [
-                "6.21.52",
-                "6.27.54",
-                "6.28.52"
-            ]
-        )
-    ]
+    compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")]
 )
 @Suppress("unused")
 object SleepTimerPatch : BytecodePatch(
