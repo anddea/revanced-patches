@@ -815,6 +815,10 @@ Known issues:
     <string name="sb_guidelines_popup_open">Show me</string>
 
     <string name="sb_general">General</string>
+    <string name="sb_toast_on_connection_error_title">Show a toast if API is not available</string>
+    <string name="sb_toast_on_connection_error_summary_on">Toast shown if SponsorBlock API is not available.</string>
+    <string name="sb_toast_on_connection_error_summary_off">Toast not shown if SponsorBlock API is not available.</string>
+
     <string name="sb_general_skipcount">Enable skip count tracking</string>
     <string name="sb_general_skipcount_sum_on">Lets the SponsorBlock leaderboard know how much time is saved. A message is sent to the leaderboard each time a segment is skipped.</string>
     <string name="sb_general_skipcount_sum_off">Skip count tracking is not enabled.</string>
@@ -829,7 +833,8 @@ Known issues:
     <string name="sb_api_url_invalid">API URL is invalid.</string>
     <string name="sb_api_url_changed">API URL changed.</string>
     <string name="sb_settings_copy">Copy</string>
-    <string name="sb_settings_ie_sum">Your SponsorBlock JSON configuration that can be imported / exported to ReVanced Extended and other SponsorBlock platforms. This includes your private user id. Be sure to share this wisely.</string>
+    <string name="sb_settings_ie_sum">Your SponsorBlock JSON configuration that can be imported / exported to ReVanced Extended and other SponsorBlock platforms. %s</string>
+    <string name="sb_settings_ie_sum_warning">This includes your private user id. Be sure to share this wisely.</string>
     <string name="sb_settings_ie">Import / Export settings</string>
     <string name="sb_settings_import_successful">Settings imported successfully.</string>
     <string name="sb_settings_import_failed">Failed to import: %s.</string>
