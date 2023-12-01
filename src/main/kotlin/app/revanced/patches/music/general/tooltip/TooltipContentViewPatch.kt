@@ -13,16 +13,7 @@ import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch
     name = "Hide tooltip content",
     description = "Hides the tooltip box that appears on first install.",
     dependencies = [SharedResourceIdPatch::class],
-    compatiblePackages = [
-        CompatiblePackage(
-            "com.google.android.apps.youtube.music",
-            [
-                "6.21.52",
-                "6.27.54",
-                "6.28.52"
-            ]
-        )
-    ]
+    compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")]
 )
 @Suppress("unused")
 object TooltipContentViewPatch : BytecodePatch(

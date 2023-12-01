@@ -11,16 +11,7 @@ import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatc
     name = "Custom branding name YouTube Music",
     description = "Rename the YouTube Music app to the name specified in options.json.",
     dependencies = [RemoveElementsPatch::class],
-    compatiblePackages = [
-        CompatiblePackage(
-            "com.google.android.apps.youtube.music",
-            [
-                "6.21.52",
-                "6.27.54",
-                "6.28.52"
-            ]
-        )
-    ]
+    compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")]
 )
 @Suppress("unused")
 object CustomBrandingNamePatch : ResourcePatch() {

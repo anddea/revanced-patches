@@ -9,16 +9,7 @@ import app.revanced.util.resources.IconHelper.customIconMusic
 @Patch(
     name = "Custom branding icon Revancify Blue",
     description = "Changes the YouTube Music launcher icon to Revancify Blue.",
-    compatiblePackages = [
-        CompatiblePackage(
-            "com.google.android.apps.youtube.music",
-            [
-                "6.21.52",
-                "6.27.54",
-                "6.28.52"
-            ]
-        )
-    ]
+    compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")]
 )
 @Suppress("unused")
 object CustomBrandingIconRevancifyBluePatch : ResourcePatch() {

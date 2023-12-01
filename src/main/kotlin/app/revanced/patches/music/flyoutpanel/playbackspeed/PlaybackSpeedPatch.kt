@@ -17,16 +17,7 @@ import app.revanced.util.enum.CategoryType
         OverrideSpeedHookPatch::class,
         SettingsPatch::class
     ],
-    compatiblePackages = [
-        CompatiblePackage(
-            "com.google.android.apps.youtube.music",
-            [
-                "6.21.52",
-                "6.27.54",
-                "6.28.52"
-            ]
-        )
-    ]
+    compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")]
 )
 @Suppress("unused")
 object PlaybackSpeedPatch : BytecodePatch() {

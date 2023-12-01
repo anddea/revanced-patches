@@ -20,16 +20,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
     name = "Enable zen mode",
     description = "Adds a grey tint to the video player to reduce eye strain.",
     dependencies = [SettingsPatch::class],
-    compatiblePackages = [
-        CompatiblePackage(
-            "com.google.android.apps.youtube.music",
-            [
-                "6.21.52",
-                "6.27.54",
-                "6.28.52"
-            ]
-        )
-    ]
+    compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")]
 )
 @Suppress("unused")
 object ZenModePatch : BytecodePatch(

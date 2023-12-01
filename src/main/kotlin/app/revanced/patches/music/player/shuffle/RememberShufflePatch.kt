@@ -33,16 +33,7 @@ import com.android.tools.smali.dexlib2.util.MethodUtil
     name = "Remember shuffle state",
     description = "Remembers the state of the shuffle.",
     dependencies = [SettingsPatch::class],
-    compatiblePackages = [
-        CompatiblePackage(
-            "com.google.android.apps.youtube.music",
-            [
-                "6.21.52",
-                "6.27.54",
-                "6.28.52"
-            ]
-        )
-    ]
+    compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")]
 )
 @Suppress("unused")
 object RememberShufflePatch : BytecodePatch(

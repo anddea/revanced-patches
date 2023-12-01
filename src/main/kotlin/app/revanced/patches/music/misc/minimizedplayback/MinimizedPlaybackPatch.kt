@@ -11,16 +11,7 @@ import app.revanced.patches.music.misc.minimizedplayback.fingerprints.MinimizedP
 @Patch(
     name = "Enable minimized playback",
     description = "Enables minimized playback on Kids music.",
-    compatiblePackages = [
-        CompatiblePackage(
-            "com.google.android.apps.youtube.music",
-            [
-                "6.21.52",
-                "6.27.54",
-                "6.28.52"
-            ]
-        )
-    ]
+    compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")]
 )
 @Suppress("unused")
 object MinimizedPlaybackPatch : BytecodePatch(

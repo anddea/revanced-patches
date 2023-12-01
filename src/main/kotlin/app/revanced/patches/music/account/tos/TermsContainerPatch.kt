@@ -25,16 +25,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
         SettingsPatch::class,
         SharedResourceIdPatch::class
     ],
-    compatiblePackages = [
-        CompatiblePackage(
-            "com.google.android.apps.youtube.music",
-            [
-                "6.21.52",
-                "6.27.54",
-                "6.28.52"
-            ]
-        )
-    ]
+    compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")]
 )
 @Suppress("unused")
 object TermsContainerPatch : BytecodePatch(

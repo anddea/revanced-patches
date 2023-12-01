@@ -12,16 +12,7 @@ import app.revanced.patches.music.misc.backgroundplay.fingerprints.BackgroundPla
 @Patch(
     name = "Background play",
     description = "Enables playing music in the background.",
-    compatiblePackages = [
-        CompatiblePackage(
-            "com.google.android.apps.youtube.music",
-            [
-                "6.21.52",
-                "6.27.54",
-                "6.28.52"
-            ]
-        )
-    ]
+    compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")]
 )
 @Suppress("unused")
 object BackgroundPlayPatch : BytecodePatch(

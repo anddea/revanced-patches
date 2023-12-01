@@ -27,16 +27,7 @@ import java.nio.file.Paths
     name = "Settings",
     description = "Adds settings for ReVanced Extended to YouTube Music.",
     dependencies = [SettingsBytecodePatch::class],
-    compatiblePackages = [
-        CompatiblePackage(
-            "com.google.android.apps.youtube.music",
-            [
-                "6.21.52",
-                "6.27.54",
-                "6.28.52"
-            ]
-        )
-    ]
+    compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")]
 )
 @Suppress("unused")
 object SettingsPatch : AbstractSettingsResourcePatch(

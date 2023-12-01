@@ -26,16 +26,7 @@ import kotlin.properties.Delegates
     name = "Enable color match player",
     description = "Matches the color of the mini player and the fullscreen player.",
     dependencies = [SettingsPatch::class],
-    compatiblePackages = [
-        CompatiblePackage(
-            "com.google.android.apps.youtube.music",
-            [
-                "6.21.52",
-                "6.27.54",
-                "6.28.52"
-            ]
-        )
-    ]
+    compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")]
 )
 @Suppress("unused")
 object ColorMatchPlayerPatch : BytecodePatch(

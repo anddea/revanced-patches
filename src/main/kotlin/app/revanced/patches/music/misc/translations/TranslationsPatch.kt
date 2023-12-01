@@ -11,16 +11,7 @@ import app.revanced.util.resources.ResourceHelper.addTranslations
     name = "Translations",
     description = "Add Crowdin translations for YouTube Music.",
     dependencies = [SettingsPatch::class],
-    compatiblePackages = [
-        CompatiblePackage(
-            "com.google.android.apps.youtube.music",
-            [
-                "6.21.52",
-                "6.27.54",
-                "6.28.52"
-            ]
-        )
-    ]
+    compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")]
 )
 @Suppress("unused")
 object TranslationsPatch : ResourcePatch() {

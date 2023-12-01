@@ -24,16 +24,7 @@ import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction21c
         SettingsPatch::class,
         VideoInformationPatch::class
     ],
-    compatiblePackages = [
-        CompatiblePackage(
-            "com.google.android.apps.youtube.music",
-            [
-                "6.21.52",
-                "6.27.54",
-                "6.28.52"
-            ]
-        )
-    ]
+    compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")]
 )
 @Suppress("unused")
 object VideoQualityPatch : BytecodePatch(

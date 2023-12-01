@@ -15,16 +15,7 @@ import app.revanced.util.integrations.Constants.MUSIC_PLAYER
     name = "Enable old player layout",
     description = "Return the player layout to old style.",
     dependencies = [SettingsPatch::class],
-    compatiblePackages = [
-        CompatiblePackage(
-            "com.google.android.apps.youtube.music",
-            [
-                "6.21.52",
-                "6.27.54",
-                "6.28.52"
-            ]
-        )
-    ],
+    compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")],
     use = false
 )
 @Suppress("unused")
