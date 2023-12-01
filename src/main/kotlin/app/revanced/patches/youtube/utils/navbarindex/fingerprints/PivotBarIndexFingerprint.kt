@@ -5,13 +5,14 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-object DefaultTabsBarFingerprint : MethodFingerprint(
+object PivotBarIndexFingerprint : MethodFingerprint(
     returnType = "V",
-    accessFlags = AccessFlags.PROTECTED or AccessFlags.FINAL,
-    parameters = listOf("Landroid/view/View;"),
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = listOf("I", "Z"),
     opcodes = listOf(
+        Opcode.IGET_OBJECT,
         Opcode.INVOKE_VIRTUAL,
-        Opcode.IGET
+        Opcode.INVOKE_VIRTUAL
     ),
-    customFingerprint = { methodDef, _ -> methodDef.definingClass.endsWith("/DefaultTabsBar;") }
+    customFingerprint = { methodDef, _ -> methodDef.definingClass.endsWith("/PivotBar;") }
 )

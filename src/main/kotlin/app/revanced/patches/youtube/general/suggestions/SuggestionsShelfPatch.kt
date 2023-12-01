@@ -10,6 +10,7 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.youtube.general.suggestions.fingerprints.BreakingNewsFingerprint
 import app.revanced.patches.youtube.utils.browseid.BrowseIdHookPatch
 import app.revanced.patches.youtube.utils.litho.LithoFilterPatch
+import app.revanced.patches.youtube.utils.navbarindex.NavBarIndexHookPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.integrations.Constants.COMPONENTS_PATH
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -20,6 +21,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
     dependencies = [
         BrowseIdHookPatch::class,
         LithoFilterPatch::class,
+        NavBarIndexHookPatch::class,
         SettingsPatch::class
     ],
     compatiblePackages = [
