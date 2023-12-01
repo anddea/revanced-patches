@@ -697,9 +697,13 @@ Tap and hold to set playback speed to 1.0x."</string>
     <string name="revanced_ryd_failure_connection_status_code" formatted="false">Dislikes not available (status %d).</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Dislikes not available (client API limit reached).</string>
     <string name="revanced_ryd_failure_generic">Dislikes not available (%s).</string>
+    <string name="revanced_ryd_shorts_summary_disclaimer">Limitation: Dislikes may not appear in certain situations.</string>
     <string name="revanced_ryd_shorts_summary_off">Dislikes hidden on Shorts.</string>
-    <string name="revanced_ryd_shorts_summary_on">Dislikes shown on Shorts.</string>
+    <string name="revanced_ryd_shorts_summary_on">Dislikes shown on Shorts. %s</string>
     <string name="revanced_ryd_shorts_title">Show dislikes on Shorts</string>
+    <string name="revanced_ryd_toast_on_connection_error_title">Show a toast if API not available</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary_off">Toast not shown if ReturnYouTubeDislike API is not available.</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary_on">Toast shown if ReturnYouTubeDislike API is not available.</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Hidden</string>
 
     <string name="revanced_sanitize_sharing_links_summary">Removes tracking query parameters from the URLs when sharing links.</string>
