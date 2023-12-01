@@ -49,6 +49,7 @@ ReVanced Extended Patches.
 | `Enable tablet navigation bar` | Enables the tablet navigation bar. | 18.25.40 ~ 18.45.43 |
 | `Enable wide search bar` | Replaces the search icon with a wide search bar. This will hide the YouTube logo when active. | 18.25.40 ~ 18.45.43 |
 | `Force OPUS codec` | Forces the OPUS codec for audios. | 18.25.40 ~ 18.45.43 |
+| `Force fullscreen` | Switch the video to fullscreen. | 18.25.40 ~ 18.45.43 |
 | `Force video codec` | Forces the video codec for videos. | 18.25.40 ~ 18.45.43 |
 | `Hide account menu` | Hide elements of the account menu and You tab. | 18.25.40 ~ 18.45.43 |
 | `Hide animated button background` | Hides the background of the pause and play animated buttons in the Shorts player. | 18.25.40 ~ 18.45.43 |
@@ -123,69 +124,69 @@ ReVanced Extended Patches.
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
-| `Amoled` | Applies pure black theme on some components. | 6.21.52 ~ 6.28.52 |
-| `Background play` | Enables playing music in the background. | 6.21.52 ~ 6.28.52 |
-| `Bitrate default value` | Set the audio quality to "Always High" when you first install the app. | 6.21.52 ~ 6.28.52 |
-| `Certificate spoof` | Spoofs the YouTube Music certificate for Android Auto. | 6.21.52 ~ 6.28.52 |
-| `Custom branding icon MMT` | Changes the YouTube Music launcher icon to MMT. | 6.21.52 ~ 6.28.52 |
-| `Custom branding icon Revancify Blue` | Changes the YouTube Music launcher icon to Revancify Blue. | 6.21.52 ~ 6.28.52 |
-| `Custom branding icon Revancify Red` | Changes the YouTube Music launcher icon to Revancify Red. | 6.21.52 ~ 6.28.52 |
-| `Custom branding name YouTube Music` | Rename the YouTube Music app to the name specified in options.json. | 6.21.52 ~ 6.28.52 |
-| `Custom package name` | Specifies the package name for YouTube and YT Music in the MicroG build. | all |
-| `Custom playback speed` | Adds more playback speed options. | 6.21.52 ~ 6.28.52 |
-| `Disable auto captions` | Disables forced auto captions. | 6.21.52 ~ 6.28.52 |
-| `Enable black navigation bar` | Sets the navigation bar color to black. | 6.21.52 ~ 6.28.52 |
-| `Enable color match player` | Matches the color of the mini player and the fullscreen player. | 6.21.52 ~ 6.28.52 |
-| `Enable compact dialog` | Enable compact dialog on phone. | 6.21.52 ~ 6.28.52 |
-| `Enable custom filter` | Enables custom filter to hide layout components. | 6.21.52 ~ 6.28.52 |
-| `Enable debug logging` | Adds debugging options. | 6.21.52 ~ 6.28.52 |
-| `Enable force minimized player` | Keep player permanently minimized even if another track is played. | 6.21.52 ~ 6.28.52 |
-| `Enable landscape mode` | Enables entry into landscape mode by screen rotation on the phone. | 6.21.52 ~ 6.28.52 |
-| `Enable minimized playback` | Enables minimized playback on Kids music. | 6.21.52 ~ 6.28.52 |
-| `Enable new player background` | Enable new player background. | 6.21.52 ~ 6.28.52 |
-| `Enable old player layout` | Return the player layout to old style. | 6.21.52 ~ 6.28.52 |
-| `Enable old style library shelf` | Return the library shelf to old style. | 6.21.52 ~ 6.28.52 |
-| `Enable old style miniplayer` | Return the miniplayers to old style. | 6.21.52 ~ 6.28.52 |
-| `Enable opus codec` | Enable opus codec when playing audio. | 6.21.52 ~ 6.28.52 |
-| `Enable playback speed` | Add playback speed button to the flyout panel. | 6.21.52 ~ 6.28.52 |
-| `Enable sleep timer` | Add sleep timer to flyout menu. | 6.21.52 ~ 6.28.52 |
-| `Enable zen mode` | Adds a grey tint to the video player to reduce eye strain. | 6.21.52 ~ 6.28.52 |
-| `Exclusive audio playback` | Enables the option to play music without video. | 6.21.52 ~ 6.28.52 |
-| `Hide account menu` | Hide account menu elements. | 6.21.52 ~ 6.28.52 |
-| `Hide action bar label` | Hide labels in action bar. | 6.21.52 ~ 6.28.52 |
-| `Hide button shelf` | Hides the button shelf from homepage and explorer. | 6.21.52 ~ 6.28.52 |
-| `Hide carousel shelf` | Hides the carousel shelf from homepage and explorer. | 6.21.52 ~ 6.28.52 |
-| `Hide cast button` | Hides the cast button. | 6.21.52 ~ 6.28.52 |
-| `Hide category bar` | Hides the music category bar at the top of the homepage. | 6.21.52 ~ 6.28.52 |
-| `Hide channel guidelines` | Hides channel guidelines at the top of comments. | 6.21.52 ~ 6.28.52 |
-| `Hide emoji picker` | Hides emoji picker at the comments box. | 6.21.52 ~ 6.28.52 |
-| `Hide flyout panel` | Hides flyout panel components. | 6.21.52 ~ 6.28.52 |
-| `Hide get premium` | Hides "Get Premium" label from the account menu or settings. | 6.21.52 ~ 6.28.52 |
-| `Hide handle` | Hides the handle in the account switcher. | 6.21.52 ~ 6.28.52 |
-| `Hide history button` | Hides history button in toolbar. | 6.21.52 ~ 6.28.52 |
-| `Hide music ads` | Hides ads before playing a music. | 6.21.52 ~ 6.28.52 |
-| `Hide navigation bar component` | Hides navigation bar components. | 6.21.52 ~ 6.28.52 |
-| `Hide new playlist button` | Hides the "New playlist" button in the library. | 6.21.52 ~ 6.28.52 |
-| `Hide playlist card` | Hides the playlist card from homepage. | 6.21.52 ~ 6.28.52 |
-| `Hide radio button` | Hides start radio button. | 6.21.52 ~ 6.28.52 |
-| `Hide taste builder` | Hides the "Tell us which artists you like" card from homepage. | 6.21.52 ~ 6.28.52 |
-| `Hide terms container` | Hides terms of service container at the account menu. | 6.21.52 ~ 6.28.52 |
-| `Hide tooltip content` | Hides the tooltip box that appears on first install. | 6.21.52 ~ 6.28.52 |
-| `Hook download button` | Replaces the offline download button with an external download button. | 6.21.52 ~ 6.28.52 |
-| `MicroG support` | Allows ReVanced Extended Music to run without root and under a different package name with MicroG. | 6.21.52 ~ 6.28.52 |
-| `Remember playback speed` | Save the playback speed value whenever you change the playback speed. | 6.21.52 ~ 6.28.52 |
-| `Remember repeat state` | Remembers the state of the repeat. | 6.21.52 ~ 6.28.52 |
-| `Remember shuffle state` | Remembers the state of the shuffle. | 6.21.52 ~ 6.28.52 |
-| `Remember video quality` | Save the video quality value whenever you change the video quality. | 6.21.52 ~ 6.28.52 |
-| `Replace cast button` | Replace the cast button in the player with the open music button. | 6.21.52 ~ 6.28.52 |
-| `Replace dismiss queue` | Replace dismiss queue menu to watch on YouTube. | 6.21.52 ~ 6.28.52 |
-| `Return YouTube Dislike` | Shows the dislike count of videos using the Return YouTube Dislike API. | 6.21.52 ~ 6.28.52 |
-| `Sanitize sharing links` | Removes tracking query parameters from the URLs when sharing links. | 6.21.52 ~ 6.28.52 |
-| `Settings` | Adds settings for ReVanced Extended to YouTube Music. | 6.21.52 ~ 6.28.52 |
-| `SponsorBlock` | Integrates SponsorBlock which allows skipping video segments such as sponsored content. | 6.21.52 ~ 6.28.52 |
-| `Spoof app version` | Spoof the YouTube Music client version. | 6.21.52 ~ 6.28.52 |
-| `Start page` | Set the default start page. | 6.21.52 ~ 6.28.52 |
-| `Translations` | Add Crowdin translations for YouTube Music. | 6.21.52 ~ 6.28.52 |
+| `Amoled` | Applies pure black theme on some components. | 6.21.52+ |
+| `Background play` | Enables playing music in the background. | 6.21.52+ |
+| `Bitrate default value` | Set the audio quality to "Always High" when you first install the app. | 6.21.52+ |
+| `Certificate spoof` | Spoofs the YouTube Music certificate for Android Auto. | 6.21.52+ |
+| `Custom branding icon MMT` | Changes the YouTube Music launcher icon to MMT. | 6.21.52+ |
+| `Custom branding icon Revancify Blue` | Changes the YouTube Music launcher icon to Revancify Blue. | 6.21.52+ |
+| `Custom branding icon Revancify Red` | Changes the YouTube Music launcher icon to Revancify Red. | 6.21.52+ |
+| `Custom branding name YouTube Music` | Rename the YouTube Music app to the name specified in options.json. | 6.21.52+ |
+| `Custom package name` | Specifies the package name for YouTube and YT Music in the MicroG build. | 6.21.52+ |
+| `Custom playback speed` | Adds more playback speed options. | 6.21.52+ |
+| `Disable auto captions` | Disables forced auto captions. | 6.21.52+ |
+| `Enable black navigation bar` | Sets the navigation bar color to black. | 6.21.52+ |
+| `Enable color match player` | Matches the color of the mini player and the fullscreen player. | 6.21.52+ |
+| `Enable compact dialog` | Enable compact dialog on phone. | 6.21.52+ |
+| `Enable custom filter` | Enables custom filter to hide layout components. | 6.21.52+ |
+| `Enable debug logging` | Adds debugging options. | 6.21.52+ |
+| `Enable force minimized player` | Keep player permanently minimized even if another track is played. | 6.21.52+ |
+| `Enable landscape mode` | Enables entry into landscape mode by screen rotation on the phone. | 6.21.52+ |
+| `Enable minimized playback` | Enables minimized playback on Kids music. | 6.21.52+ |
+| `Enable new player background` | Enable new player background. | 6.21.52+ |
+| `Enable old player layout` | Return the player layout to old style. | 6.21.52+ |
+| `Enable old style library shelf` | Return the library shelf to old style. | 6.21.52+ |
+| `Enable old style miniplayer` | Return the miniplayers to old style. | 6.21.52+ |
+| `Enable opus codec` | Enable opus codec when playing audio. | 6.21.52+ |
+| `Enable playback speed` | Add playback speed button to the flyout panel. | 6.21.52+ |
+| `Enable sleep timer` | Add sleep timer to flyout menu. | 6.21.52+ |
+| `Enable zen mode` | Adds a grey tint to the video player to reduce eye strain. | 6.21.52+ |
+| `Exclusive audio playback` | Enables the option to play music without video. | 6.21.52+ |
+| `Hide account menu` | Hide account menu elements. | 6.21.52+ |
+| `Hide action bar label` | Hide labels in action bar. | 6.21.52+ |
+| `Hide button shelf` | Hides the button shelf from homepage and explorer. | 6.21.52+ |
+| `Hide carousel shelf` | Hides the carousel shelf from homepage and explorer. | 6.21.52+ |
+| `Hide cast button` | Hides the cast button. | 6.21.52+ |
+| `Hide category bar` | Hides the music category bar at the top of the homepage. | 6.21.52+ |
+| `Hide channel guidelines` | Hides channel guidelines at the top of comments. | 6.21.52+ |
+| `Hide emoji picker` | Hides emoji picker at the comments box. | 6.21.52+ |
+| `Hide flyout panel` | Hides flyout panel components. | 6.21.52+ |
+| `Hide get premium` | Hides "Get Premium" label from the account menu or settings. | 6.21.52+ |
+| `Hide handle` | Hides the handle in the account switcher. | 6.21.52+ |
+| `Hide history button` | Hides history button in toolbar. | 6.21.52+ |
+| `Hide music ads` | Hides ads before playing a music. | 6.21.52+ |
+| `Hide navigation bar component` | Hides navigation bar components. | 6.21.52+ |
+| `Hide new playlist button` | Hides the "New playlist" button in the library. | 6.21.52+ |
+| `Hide playlist card` | Hides the playlist card from homepage. | 6.21.52+ |
+| `Hide radio button` | Hides start radio button. | 6.21.52+ |
+| `Hide taste builder` | Hides the "Tell us which artists you like" card from homepage. | 6.21.52+ |
+| `Hide terms container` | Hides terms of service container at the account menu. | 6.21.52+ |
+| `Hide tooltip content` | Hides the tooltip box that appears on first install. | 6.21.52+ |
+| `Hook download button` | Replaces the offline download button with an external download button. | 6.21.52+ |
+| `MicroG support` | Allows ReVanced Extended Music to run without root and under a different package name with MicroG. | 6.21.52+ |
+| `Remember playback speed` | Save the playback speed value whenever you change the playback speed. | 6.21.52+ |
+| `Remember repeat state` | Remembers the state of the repeat. | 6.21.52+ |
+| `Remember shuffle state` | Remembers the state of the shuffle. | 6.21.52+ |
+| `Remember video quality` | Save the video quality value whenever you change the video quality. | 6.21.52+ |
+| `Replace cast button` | Replace the cast button in the player with the open music button. | 6.21.52+ |
+| `Replace dismiss queue` | Replace dismiss queue menu to watch on YouTube. | 6.21.52+ |
+| `Return YouTube Dislike` | Shows the dislike count of videos using the Return YouTube Dislike API. | 6.21.52+ |
+| `Sanitize sharing links` | Removes tracking query parameters from the URLs when sharing links. | 6.21.52+ |
+| `Settings` | Adds settings for ReVanced Extended to YouTube Music. | 6.21.52+ |
+| `SponsorBlock` | Integrates SponsorBlock which allows skipping video segments such as sponsored content. | 6.21.52+ |
+| `Spoof app version` | Spoof the YouTube Music client version. | 6.21.52+ |
+| `Start page` | Set the default start page. | 6.21.52+ |
+| `Translations` | Add Crowdin translations for YouTube Music. | 6.21.52+ |
 </details>
 
 ### [📦 `com.reddit.frontpage`](https://play.google.com/store/apps/details?id=com.reddit.frontpage)
@@ -255,9 +256,7 @@ Example:
       {
         "name": "com.google.android.apps.youtube.music",
         "versions": [
-          "6.21.52",
-          "6.27.54",
-          "6.28.52"
+          "6.21.52+"
         ]
       }
     ],
