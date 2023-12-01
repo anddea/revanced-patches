@@ -61,27 +61,17 @@ object LayoutSwitchPatch : BytecodePatch(
 
         GetFormFactorFingerprint.result?.let {
             it.mutableMethod.apply {
-                val returnCurrentFormFactorIndex = getInstructions().lastIndex - 2
+                val jumpIndex = it.scanResult.patternScanResult!!.endIndex - 4
 
-                val returnIsLargeFormFactorLabel = getInstruction(returnCurrentFormFactorIndex - 2)
-                val returnFormFactorIndex = getInstruction(returnCurrentFormFactorIndex)
-
-                val insertIndex = returnCurrentFormFactorIndex + 1
-
-                // Replace the labeled instruction with a nop and add the preserved instructions back
-                replaceInstruction(returnCurrentFormFactorIndex, BuilderInstruction10x(Opcode.NOP))
-                addInstruction(insertIndex, returnFormFactorIndex)
-
-                // Because the labeled instruction is now a nop, we can add our own instructions right after it
                 addInstructionsWithLabels(
-                    insertIndex, """
+                    0, """
                         invoke-static { }, $MISC_PATH/LayoutOverridePatch;->enableTabletLayout()Z
                         move-result v0 # Free register
                         if-nez v0, :is_large_form_factor
                         """,
                     ExternalLabel(
                         "is_large_form_factor",
-                        returnIsLargeFormFactorLabel
+                        getInstruction(jumpIndex)
                     )
                 )
             }
