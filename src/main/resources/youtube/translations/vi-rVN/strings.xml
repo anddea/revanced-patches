@@ -193,29 +193,36 @@ Thẻ Bạn &gt; Xem kênh &gt; Trình đơn &gt; Cài đặt."</string>
     <string name="revanced_experimental_flag">Tính năng thử nghiệm</string>
     <string name="revanced_extended_settings_export_failed">Xuất cài đặt thất bại.</string>
     <string name="revanced_extended_settings_export_success">Cài đặt đã được xuất thành công.</string>
-    <string name="revanced_extended_settings_export_summary">Xuất cài đặt ReVanced Extended của bạn dưới dạng tệp JSON.</string>
+    <string name="revanced_extended_settings_export_summary">Xuất toàn bộ cài đặt của bạn dưới dạng tệp JSON.</string>
     <string name="revanced_extended_settings_export_title">Xuất cài đặt</string>
     <string name="revanced_extended_settings_import">Nhập</string>
     <string name="revanced_extended_settings_import_copy">Sao chép</string>
     <string name="revanced_extended_settings_import_export_as_file_title">Nhập/Xuất dưới dạng tệp</string>
-    <string name="revanced_extended_settings_import_export_as_text_summary">Nhập hoặc xuất các tuỳ chọn cài đặt ReVanced Extended của bạn dưới dạng văn bản.</string>
+    <string name="revanced_extended_settings_import_export_as_text_summary">Nhập hoặc xuất toàn bộ cài đặt của bạn dưới dạng văn bản.</string>
     <string name="revanced_extended_settings_import_export_as_text_title">Nhập/Xuất dưới dạng văn bản</string>
-    <string name="revanced_extended_settings_import_export_summary">Nhập hoặc xuất các tuỳ chọn cài đặt ReVanced Extended của bạn.</string>
+    <string name="revanced_extended_settings_import_export_summary">Nhập hoặc xuất toàn bộ cài đặt ReVanced Extended của bạn, bao gồm cả cài đặt Return YouTube Dislike và SponsorBlock.</string>
     <string name="revanced_extended_settings_import_export_title">Nhập/Xuất cài đặt</string>
     <string name="revanced_extended_settings_import_failed">Nhập cài đặt thất bại.</string>
     <string name="revanced_extended_settings_import_reset">Đặt lại</string>
     <string name="revanced_extended_settings_import_success">Cài đặt đã được nhập thành công.</string>
     <string name="revanced_extended_settings_import_summary">Nhập cài đặt ReVanced Extended từ tệp đã lưu.</string>
     <string name="revanced_extended_settings_import_title">Nhập cài đặt</string>
+    <string name="revanced_external_downloader_download">Tải ứng dụng</string>
     <string name="revanced_external_downloader_installed">Đã cài đặt</string>
     <string name="revanced_external_downloader_not_installed">Chưa được cài đặt</string>
     <string name="revanced_external_downloader_not_installed_warning" formatted="false">%s chưa được cài đặt. Hãy cài đặt và thử lại.</string>
     <string name="revanced_external_downloader_package_name_summary">Chọn trình tải xuống bên dưới hoặc nhập tên gói ứng dụng trình tải xuống đã cài đặt trên thiết bị của bạn.</string>
     <string name="revanced_external_downloader_package_name_title">Tên gói ứng dụng trình tải xuống</string>
+    <string name="revanced_external_downloader_set">Đặt làm trình tải xuống mặc định</string>
     <string name="revanced_external_downloader_settings_summary">Các thiết lập trình tải xuống bên ngoài.</string>
     <string name="revanced_external_downloader_settings_title">Trình tải xuống</string>
     <string name="revanced_feed_flyout_panel_title">Trình đơn trên các trang video</string>
     <string name="revanced_flyout_menu">Trình đơn tuỳ chọn</string>
+    <string name="revanced_force_fullscreen_summary">"Bắt buộc video chuyển sang chế độ toàn màn hình trong các trường hợp sau:
+
+- Nhấn vào dấu thời gian trong phần Bình luận.
+- Video bắt đầu phát."</string>
+    <string name="revanced_force_fullscreen_title">Buộc áp dụng chế độ toàn màn hình</string>
     <string name="revanced_fullscreen">Chế độ toàn màn hình</string>
     <string name="revanced_general">Chung</string>
     <string name="revanced_haptic_feedback_title">Phản hồi xúc giác</string>
@@ -538,9 +545,9 @@ Thẻ Bạn &gt; Xem kênh &gt; Trình đơn &gt; Cài đặt."</string>
     <string name="revanced_hide_self_sponsor_cards_summary_off">Thẻ được tài trợ được hiển thị.</string>
     <string name="revanced_hide_self_sponsor_cards_summary_on">Thẻ được tài trợ đã ẩn.</string>
     <string name="revanced_hide_self_sponsor_cards_title">Ẩn thẻ được tài trợ</string>
-    <string name="revanced_hide_shopping_links_summary_off">Các đường liên kết trên mặt hàng mua sắm được hiển thị.</string>
-    <string name="revanced_hide_shopping_links_summary_on">Các đường liên kết trên mặt hàng mua sắm đã ấn.</string>
-    <string name="revanced_hide_shopping_links_title">Ẩn liên kết mua sắm</string>
+    <string name="revanced_hide_shopping_links_summary_off">Phần Sản phẩm được hiển thị.</string>
+    <string name="revanced_hide_shopping_links_summary_on">Phần Sản phẩm đã ẩn.</string>
+    <string name="revanced_hide_shopping_links_title">Ẩn phần Sản phẩm</string>
     <string name="revanced_hide_shorts_button_summary_off">Thẻ Shorts được hiển thị.</string>
     <string name="revanced_hide_shorts_button_summary_on">Thẻ Shorts đã ẩn.</string>
     <string name="revanced_hide_shorts_button_title">Ẩn thẻ Shorts</string>
@@ -590,6 +597,16 @@ Sự cố đã biết: Tiêu đề của thẻ chính chức bị ẩn khỏi k�
 
 Sự cố đã biết: Tính năng Tự động phát không hoạt động."</string>
     <string name="revanced_hide_suggested_video_overlay_title">Ẩn lớp phủ video đề xuất</string>
+    <string name="revanced_hide_suggestions_shelf_method_summary_off">"Ẩn bằng cách nhận dạng các kệ đề xuất thông qua ID Browse.
+
+Sự cố đã biết:
+- Kệ đề xuất có thể không bị ẩn nếu không nhận dạng được ID Browse."</string>
+    <string name="revanced_hide_suggestions_shelf_method_summary_on">"Ẩn bằng cách nhận dạng các kệ đề xuất thông qua thẻ hiện tại.
+
+Sự cố đã biết:
+- Nhiều kệ khác có thể bị ẩn.
+- Các kệ danh sách phát có thể bị ẩn."</string>
+    <string name="revanced_hide_suggestions_shelf_method_title">Chọn cách ẩn</string>
     <string name="revanced_hide_suggestions_shelf_summary">"Ẩn các kệ đề xuất sau:
 - Tin nổi bật.
 - Tiếp tục xem.
@@ -683,9 +700,13 @@ Sự cố đã biết: Tính năng Tự động phát không hoạt động."</s
     <string name="revanced_ryd_failure_connection_status_code" formatted="false">Số lượt không thích không khả dụng (trạng thái %d).</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Số lượt không thích không khả dụng (đã đạt đến giới hạn API máy khách).</string>
     <string name="revanced_ryd_failure_generic">Số lượt không thích không khả dụng (%s).</string>
+    <string name="revanced_ryd_shorts_summary_disclaimer">Lưu ý: Số lượt không thích có thể không hiển thị trong một số trường hợp.</string>
     <string name="revanced_ryd_shorts_summary_off">Số lượt không thích đã ẩn khỏi trình phát Shorts.</string>
-    <string name="revanced_ryd_shorts_summary_on">Số lượt không thích được hiển thị trong trình phát Shorts.</string>
+    <string name="revanced_ryd_shorts_summary_on">Số lượt không thích được hiển thị trong trình phát Shorts. %s</string>
     <string name="revanced_ryd_shorts_title">Hiện số lượt không thích trong Shorts</string>
+    <string name="revanced_ryd_toast_on_connection_error_title">Thông báo ngắn nếu API không khả dụng</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary_off">Thông báo ngắn nếu API không khả dụng đã tắt.</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary_on">Hiển thị thông báo ngắn nếu API ReturnYouTubeDislike không khả dụng.</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Ẩn</string>
     <string name="revanced_sanitize_sharing_links_summary">Loại bỏ các tham số truy vấn theo dõi khỏi URL khi chia sẻ liên kết.</string>
     <string name="revanced_sanitize_sharing_links_title">Liên kết sạch khi chia sẻ</string>
@@ -717,7 +738,6 @@ Lưu ý:\n- Khi bạn nhấn nút Phát, sẽ có một độ trễ khoảng 0.7
 
 Lưu ý:\n- Tuỳ chọn này sẽ thay đổi giao diện ứng dụng, tuy nhiên có thể xảy ra các sự cố chưa xác định khác.
 - Nếu tắt tuỳ chọn này sau đó, giao diện cũ có thể vẫn tồn tại cho đến khi bạn xoá dữ liệu ứng dụng."</string>
-    <string name="revanced_spoof_app_version_target_entry_16_08_35">16.08.35 - Khôi phục thẻ Khám phá</string>
     <string name="revanced_spoof_app_version_target_entry_17_08_35">17.08.35 - Khôi phục giao diện YouTube kiểu cũ</string>
     <string name="revanced_spoof_app_version_target_entry_17_41_37">17.41.37 - Khôi phục kệ Danh sách phát kiểu cũ</string>
     <string name="revanced_spoof_app_version_target_entry_18_01_38">"18.01.38 - Loại bỏ phần Bình luận của hội viên"</string>
@@ -796,6 +816,9 @@ Lưu ý:
     <string name="sb_guidelines_popup_already_read">Đã xem</string>
     <string name="sb_guidelines_popup_open">Xem ngay</string>
     <string name="sb_general">Chung</string>
+    <string name="sb_toast_on_connection_error_title">Thông báo ngắn nếu API không khả dụng</string>
+    <string name="sb_toast_on_connection_error_summary_on">Hiển thị thông báo ngắn nếu API SponsorBlock không khả dụng.</string>
+    <string name="sb_toast_on_connection_error_summary_off">Thông báo ngắn nếu API không khả dụng đã tắt.</string>
     <string name="sb_general_skipcount">Theo dõi số lượng phân đoạn đã bỏ qua</string>
     <string name="sb_general_skipcount_sum_on">Tuỳ chọn này cho phép hệ thống xếp hạng của SponsorBlock biết mọi người đã tiết kiệm được bao nhiêu thời gian. Tiện ích sẽ gửi thông tin đến máy chủ mỗi khi bạn bỏ qua một phân đoạn.</string>
     <string name="sb_general_skipcount_sum_off">Theo dõi số lượng phân đoạn đã bỏ qua đã tắt.</string>
@@ -810,12 +833,13 @@ Lưu ý:
     <string name="sb_api_url_invalid">URL API SponsorBlock không hợp lệ.</string>
     <string name="sb_api_url_changed">Đã thay đổi URL API SponsorBlock.</string>
     <string name="sb_settings_copy">Sao chép</string>
-    <string name="sb_settings_ie_sum">Đây là toàn bộ cài đặt SponsorBlock của bạn, có thể nhập/xuất sang ReVanced Extended và các nền tảng SponsorBlock khác dưới dạng chuỗi JSON. Chuỗi này bao gồm cả ID người dùng riêng tư của bạn, vì vậy hãy thận trọng khi chia sẻ nó.</string>
+    <string name="sb_settings_ie_sum">Cài đặt SponsorBlock của bạn dưới dạng chuỗi JSON có thể nhập/xuất sang ReVanced Extended và các nền tảng SponsorBlock khác. %s</string>
+    <string name="sb_settings_ie_sum_warning">Chuỗi JSON này chứa ID người dùng riêng tư của bạn. Hãy thận trọng khi chia sẻ nó.</string>
     <string name="sb_settings_ie">Nhập/Xuất cài đặt</string>
     <string name="sb_settings_import_successful">Nhập cài đặt thành công.</string>
     <string name="sb_settings_import_failed">Nhập cài đặt thất bại: %s.</string>
     <string name="sb_settings_export_failed">Xuất cài đặt thất bại: %s.</string>
-    <string name="sb_settings_revanced_export_user_id_warning">Cài đặt SponsorBlock của bạn có chứa ID người dùng riêng tư.\n\nMã ID này cũng giống như mật khẩu của bạn, nên được giữ kín và không bao giờ chia sẻ với bất kỳ ai.\n</string>
+    <string name="sb_settings_revanced_export_user_id_warning">Cài đặt của bạn có chứa ID người dùng riêng tư SponsorBlock.\n\nGiống như mật khẩu, mã ID này nên được giữ kín và không bao giờ chia sẻ với bất kỳ ai.\n</string>
     <string name="sb_settings_revanced_export_user_id_warning_dismiss">Không hiển thị lại</string>
     <string name="sb_diff_segments">Phân đoạn</string>
     <string name="sb_segments_sponsor">Nhà tài trợ</string>

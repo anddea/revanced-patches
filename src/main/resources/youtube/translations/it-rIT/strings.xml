@@ -197,15 +197,15 @@ Scheda Tu &gt; Visualizza canale &gt; Menù &gt; Impostazioni"</string>
     <string name="revanced_extended_settings_export_title">Esporta impostazioni</string>
     <string name="revanced_extended_settings_import">Importa</string>
     <string name="revanced_extended_settings_import_copy">Copia</string>
-    <string name="revanced_extended_settings_import_export_as_file_title">Importa/Esporta come file</string>
-    <string name="revanced_extended_settings_import_export_as_text_summary">Importa/Esporta le impostazioni come testo</string>
-    <string name="revanced_extended_settings_import_export_as_text_title">Importa/Esporta come testo</string>
+    <string name="revanced_extended_settings_import_export_as_file_title">Esporta/Importa come file</string>
+    <string name="revanced_extended_settings_import_export_as_text_summary">Esporta/Importa le impostazioni come testo</string>
+    <string name="revanced_extended_settings_import_export_as_text_title">Esporta/Importa come testo</string>
     <string name="revanced_extended_settings_import_export_summary">Importa o esporta le impostazioni</string>
-    <string name="revanced_extended_settings_import_export_title">Importa/Esporta impostazioni</string>
+    <string name="revanced_extended_settings_import_export_title">Esporta/Importa impostazioni</string>
     <string name="revanced_extended_settings_import_failed">Impossibile importare le impostazioni</string>
     <string name="revanced_extended_settings_import_reset">Ripristina</string>
     <string name="revanced_extended_settings_import_success">Impostazioni importate correttamente</string>
-    <string name="revanced_extended_settings_import_summary">Importa le impostazioni dal file salvato</string>
+    <string name="revanced_extended_settings_import_summary">Importa le impostazioni dal file esportato</string>
     <string name="revanced_extended_settings_import_title">Importa impostazioni</string>
     <string name="revanced_external_downloader_installed">Installato</string>
     <string name="revanced_external_downloader_not_installed">Non installato</string>
@@ -214,8 +214,9 @@ Scheda Tu &gt; Visualizza canale &gt; Menù &gt; Impostazioni"</string>
     <string name="revanced_external_downloader_package_name_title">Nome del pacchetto del downloader esterno</string>
     <string name="revanced_external_downloader_settings_summary">Impostazioni per l\'utilizzo di un downloader esterno</string>
     <string name="revanced_external_downloader_settings_title">Impostazioni del downloader esterno</string>
-    <string name="revanced_feed_flyout_panel_title">Pannello a comparsa dei feed</string>
+    <string name="revanced_feed_flyout_panel_title">Pannello a comparsa nei feed</string>
     <string name="revanced_flyout_menu">Menù a comparsa</string>
+    <string name="revanced_force_fullscreen_title">Forza lo schermo intero</string>
     <string name="revanced_fullscreen">Schermo intero</string>
     <string name="revanced_general">Generali</string>
     <string name="revanced_haptic_feedback_title">Vibrazione</string>
@@ -351,10 +352,10 @@ Alcuni componenti potrebbero non essere nascosti"</string>
     <string name="revanced_hide_expandable_chip_summary_off">Il chip espandibile è visibile</string>
     <string name="revanced_hide_expandable_chip_summary_on">Il chip espandibile è nascosto</string>
     <string name="revanced_hide_expandable_chip_title">Nascondi il chip espandibile</string>
-    <string name="revanced_hide_feed_flyout_panel_filter_strings_title">Modifica il filtro dei menù a comparsa dei feed</string>
-    <string name="revanced_hide_feed_flyout_panel_summary_off">I menù a comparsa dei feed sono visibili</string>
-    <string name="revanced_hide_feed_flyout_panel_summary_on">I menù a comparsa dei feed sono nascosti</string>
-    <string name="revanced_hide_feed_flyout_panel_title">Nascondi il menù a comparsa dei feed</string>
+    <string name="revanced_hide_feed_flyout_panel_filter_strings_title">Modifica il filtro dei menù a comparsa nei feed</string>
+    <string name="revanced_hide_feed_flyout_panel_summary_off">I menù a comparsa nei feed sono visibili</string>
+    <string name="revanced_hide_feed_flyout_panel_summary_on">I menù a comparsa nei feed sono nascosti</string>
+    <string name="revanced_hide_feed_flyout_panel_title">Nascondi il menù a comparsa nei feed</string>
     <string name="revanced_hide_feed_survey_summary_off">I sondaggi nei feed sono visibili</string>
     <string name="revanced_hide_feed_survey_summary_on">I sondaggi nei feed sono nascosti</string>
     <string name="revanced_hide_feed_survey_title">Nascondi i sondaggi nei feed</string>
@@ -586,6 +587,7 @@ Alcuni componenti potrebbero non essere nascosti"</string>
     <string name="revanced_hide_suggested_actions_title">Nascondi le azioni consigliate</string>
     <string name="revanced_hide_suggested_video_overlay_summary">"Problema noto: la riproduzione automatica non funziona"</string>
     <string name="revanced_hide_suggested_video_overlay_title">Nascondi la sovrapposizione del video suggerito da riprodurre successivamente</string>
+    <string name="revanced_hide_suggestions_shelf_method_title">Seleziona il metodo per nascondere gli scaffali</string>
     <string name="revanced_hide_suggestions_shelf_summary">"Nasconde i seguenti scaffali:
 • Ultime notizie
 • Continua a guardare
@@ -680,7 +682,6 @@ Tocca e tieni premuto per impostare la velocità di riproduzione a 1.0x"</string
     <string name="revanced_ryd_failure_client_rate_limit_requested">I Non Mi Piace non sono disponibili (il limite del client API è stato raggiunto)</string>
     <string name="revanced_ryd_failure_generic">Non Mi Piace non disponibili (%s)</string>
     <string name="revanced_ryd_shorts_summary_off">I Non Mi Piace degli Shorts sono nascosti</string>
-    <string name="revanced_ryd_shorts_summary_on">I Non Mi Piace degli Shorts sono visibili</string>
     <string name="revanced_ryd_shorts_title">Mostra i Non Mi Piace degli Shorts</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Nascosto</string>
     <string name="revanced_sanitize_sharing_links_summary">Rimuove i parametri della query di tracciamento dagli URL durante la condivisione dei link</string>
@@ -713,7 +714,6 @@ Tocca e tieni premuto per impostare la velocità di riproduzione a 1.0x"</string
 
 • Questo cambierà l'aspetto dell'app, ma potrebbero verificarsi effetti collaterali sconosciuti
 • Se in seguito verrà disattivato, la vecchia interfaccia potrebbe rimanere fino a quando i dati dell'app non verranno cancellati"</string>
-    <string name="revanced_spoof_app_version_target_entry_16_08_35">16.08.35 - Ripristina la scheda Esplora</string>
     <string name="revanced_spoof_app_version_target_entry_17_08_35">17.08.35 - Ripristina la vecchia interfaccia</string>
     <string name="revanced_spoof_app_version_target_entry_17_41_37">17.41.37 - Ripristina il vecchio scaffale delle playlist</string>
     <string name="revanced_spoof_app_version_target_entry_18_01_38">"18.01.38 - Rimuove il banner dei commenti dei membri"</string>
@@ -808,8 +808,7 @@ Note:
     <string name="sb_api_url_invalid">URL API non valido</string>
     <string name="sb_api_url_changed">URL API cambiato</string>
     <string name="sb_settings_copy">Copia</string>
-    <string name="sb_settings_ie_sum">La tua configurazione di SponsorBlock in JSON che può essere importata o esportata su ReVanced Extended e su altre piattaforme SponsorBlock. Questo include il tuo ID utente privato, quindi assicurati di condividerlo con saggezza</string>
-    <string name="sb_settings_ie">Importa/Esporta impostazioni</string>
+    <string name="sb_settings_ie">Esporta/Importa impostazioni</string>
     <string name="sb_settings_import_successful">Impostazioni importate con sucesso</string>
     <string name="sb_settings_import_failed">Importazione non riuscita: %s</string>
     <string name="sb_settings_export_failed">Esportazione non riuscita: %s</string>

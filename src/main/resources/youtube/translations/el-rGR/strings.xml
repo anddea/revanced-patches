@@ -217,6 +217,7 @@
     <string name="revanced_external_downloader_settings_title">Ρυθμίσεις εξωτερικού προγράμματος λήψης</string>
     <string name="revanced_feed_flyout_panel_title">Αναδυόμενος πίνακας στη ροή</string>
     <string name="revanced_flyout_menu">Αναδυόμενο μενού ρυθμίσεων</string>
+    <string name="revanced_force_fullscreen_title">Εξαναγκασμός πλήρους οθόνης</string>
     <string name="revanced_fullscreen">Λειτουργία πλήρους οθόνης</string>
     <string name="revanced_general">Γενικά</string>
     <string name="revanced_haptic_feedback_title">Απόκριση δόνησης</string>
@@ -590,6 +591,7 @@
     <string name="revanced_hide_suggested_video_overlay_summary">"Απόκρυψη του προτεινόμενου βίντεο για την επόμενη αναπαραγωγή
 Γνωστό πρόβλημα: Η αυτόματη αναπαραγωγή δεν λειτουργεί"</string>
     <string name="revanced_hide_suggested_video_overlay_title">Απόκρυψη προτεινόμενων βίντεο</string>
+    <string name="revanced_hide_suggestions_shelf_method_title">Επιλέξτε μέθοδο για την απόκρυψη των ραφιών</string>
     <string name="revanced_hide_suggestions_shelf_summary">"Απόκρυψη των παρακάτω ραφιών:
 
 • Έκτακτες ειδήσεις
@@ -643,6 +645,7 @@
     <string name="revanced_open_library_you_startup_title">Άνοιγμα βιβλιοθήκης κατά την εκκίνηση της εφαρμογής</string>
     <string name="revanced_others">Άλλα</string>
     <string name="revanced_overlay_button">Προσθήκη κουμπιών στον αναπαραγωγέα βίντεο</string>
+    <string name="revanced_overlay_button_always_repeat_summary">Πατήστε για ενεργοποίηση ή απενεργοποίηση της λειτουργίας συνεχής επανάληψης.</string>
     <string name="revanced_overlay_button_always_repeat_title">Κουμπί αυτόματης επανάληψης βίντεο</string>
     <string name="revanced_overlay_button_copy_video_url_summary">"Πατήστε για να αντιγράψετε τον σύνδεσμο βίντεο
 Πατήστε παρατεταμένα για να αντιγράψετε τον σύνδεσμο βίντεο με χρονική σήμανση"</string>
@@ -684,7 +687,6 @@
     <string name="revanced_ryd_failure_client_rate_limit_requested">Dislikes μη διαθέσιμα (το όριο του API του πελάτη έχει επιτευχθεί)</string>
     <string name="revanced_ryd_failure_generic">Τα δεδομένα dislike δεν είναι διαθέσιμα (%s).</string>
     <string name="revanced_ryd_shorts_summary_off">Τα dislikes δεν εμφανίζονται στα Shorts</string>
-    <string name="revanced_ryd_shorts_summary_on">Τα dislikes εμφανίζονται στα Shorts</string>
     <string name="revanced_ryd_shorts_title">Εμφάνιση των dislikes στα Shorts</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Κρυφό</string>
     <string name="revanced_sanitize_sharing_links_summary">Αφαίρεση των παραμέτρων ερωτήματος παρακολούθησης από τις διευθύνσεις URL κατά την κοινή χρήση συνδέσμων.</string>
@@ -700,6 +702,7 @@
     <string name="revanced_share_copy_url_timestamp_success">Η διεύθυνση URL με χρονική σήμανση αντιγράφηκε στο πρόχειρο.</string>
     <string name="revanced_shorts">Shorts</string>
     <string name="revanced_shorts_player_title">Αναπαραγωγέας Shorts</string>
+    <string name="revanced_shorts_toolbar_summary">Το κουμπί επιστροφής στη γραμμή εργαλείων δεν μπορεί να κρυφτεί.</string>
     <string name="revanced_shorts_toolbar_title">Γραμμή εργαλείων Shorts</string>
     <string name="revanced_show_fullscreen_title_summary">Γνωστό ζήτημα: ο τίτλος εξαφανίζεται όταν πατηθεί</string>
     <string name="revanced_show_fullscreen_title_title">Εμφάνιση τίτλου σε πλήρη οθόνη</string>
@@ -716,7 +719,6 @@
 
 Αυτό θα αλλάξει την εμφάνιση της εφαρμογής, αλλά ενδέχεται να προκύψουν άγνωστες παρενέργειες.
 Εάν αργότερα απενεργοποιηθεί, η παλιά εμφάνιση μπορεί να παραμείνει μέχρι να διαγραφούν τα δεδομένα της εφαρμογής."</string>
-    <string name="revanced_spoof_app_version_target_entry_16_08_35">16.08.35 - Επαναφορά της καρτέλας «Εξερεύνηση»</string>
     <string name="revanced_spoof_app_version_target_entry_17_08_35">17.08.35 - Επαναφορά της παλιάς εμφάνισης</string>
     <string name="revanced_spoof_app_version_target_entry_17_41_37">17.41.37 - Επαναφορά παλιού ραφιού λίστας αναπαραγωγής</string>
     <string name="revanced_spoof_app_version_target_entry_18_01_38">"18.01.38 - Αφαίρεση της ενότητας «Μέλη» από τα σχόλια"</string>
@@ -812,7 +814,6 @@
     <string name="sb_api_url_invalid">Η διεύθυνση URL του API δεν είναι έγκυρη</string>
     <string name="sb_api_url_changed">Η διεύθυνση URL του API άλλαξε</string>
     <string name="sb_settings_copy">Αντιγραφή</string>
-    <string name="sb_settings_ie_sum">Οι ρυθμίσεις JSON του SponsorBlock σας που μπορούν να εισαχθούν / εξαχθούν στο ReVanced Extended και σε άλλες πλατφόρμες SponsorBlock. Αυτό περιλαμβάνει το προσωπικό σας αναγνωριστικό χρήστη. Φροντίστε να το μοιραστείτε με σύνεση.</string>
     <string name="sb_settings_ie">Εισαγωγή / Εξαγωγή ρυθμίσεων</string>
     <string name="sb_settings_import_successful">Οι ρυθμίσεις εισήχθησαν επιτυχώς</string>
     <string name="sb_settings_import_failed">Η εισαγωγή απέτυχε: %s</string>

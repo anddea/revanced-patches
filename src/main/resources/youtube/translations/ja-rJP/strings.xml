@@ -139,7 +139,7 @@
     <string name="revanced_enable_open_links_directly_summary_off">デフォルトのリダイレクトルールに従います</string>
     <string name="revanced_enable_open_links_directly_summary_on">URL リダイレクト (youtube.com/redirect) をバイパスします。</string>
     <string name="revanced_enable_open_links_directly_title">リダイレクトのバイパス</string>
-    <string name="revanced_enable_opus_codec_summary">mp4a オーディオコーデックの代わりに、Opus オーディオコーデックを使用します。</string>
+    <string name="revanced_enable_opus_codec_summary">MP4A オーディオコーデックの代わりに、Opus オーディオコーデックを使用します。</string>
     <string name="revanced_enable_opus_codec_title">Opus コーデックを有効化</string>
     <string name="revanced_enable_phone_layout_summary">スマートフォン用レイアウトの一部を使用できるように、dpi を偽装します。</string>
     <string name="revanced_enable_phone_layout_title">スマートフォン用レイアウト</string>
@@ -214,6 +214,7 @@
     <string name="revanced_external_downloader_settings_title">外部のダウンローダーの設定</string>
     <string name="revanced_feed_flyout_panel_title">フィードのフライアウトパネル</string>
     <string name="revanced_flyout_menu">フライアウトメニュー</string>
+    <string name="revanced_force_fullscreen_title">全画面表示の強制</string>
     <string name="revanced_fullscreen">全画面表示</string>
     <string name="revanced_general">全般</string>
     <string name="revanced_haptic_feedback_title">触覚フィードバック</string>
@@ -485,9 +486,9 @@
     <string name="revanced_hide_player_flyout_panel_report_summary_off">「報告」メニューは表示されます。</string>
     <string name="revanced_hide_player_flyout_panel_report_summary_on">「報告」メニューは非表示です。</string>
     <string name="revanced_hide_player_flyout_panel_report_title">報告メニューを非表示</string>
-    <string name="revanced_hide_player_flyout_panel_stable_volume_summary_off">安定した音量メニューは表示されます。</string>
-    <string name="revanced_hide_player_flyout_panel_stable_volume_summary_on">安定した音量メニューは表示されません。</string>
-    <string name="revanced_hide_player_flyout_panel_stable_volume_title">安定した音量メニューを非表示</string>
+    <string name="revanced_hide_player_flyout_panel_stable_volume_summary_off">「一定音量」メニューは表示されます。</string>
+    <string name="revanced_hide_player_flyout_panel_stable_volume_summary_on">「一定音量」メニューは表示されません。</string>
+    <string name="revanced_hide_player_flyout_panel_stable_volume_title">一定音量メニューを非表示</string>
     <string name="revanced_hide_player_flyout_panel_stats_for_nerds_summary_off">「統計情報」メニューは表示されます。</string>
     <string name="revanced_hide_player_flyout_panel_stats_for_nerds_summary_on">「統計情報」メニューは非表示です。</string>
     <string name="revanced_hide_player_flyout_panel_stats_for_nerds_title">統計情報メニューを非表示</string>
@@ -537,7 +538,7 @@
     <string name="revanced_hide_self_sponsor_cards_summary_on">セルフスポンサーカードは非表示です。</string>
     <string name="revanced_hide_self_sponsor_cards_title">セルフスポンサーカードを非表示</string>
     <string name="revanced_hide_shopping_links_summary_off">ショッピングのリンクは表示されます。</string>
-    <string name="revanced_hide_shopping_links_summary_on">ショッピングリンクは非表示です。</string>
+    <string name="revanced_hide_shopping_links_summary_on">ショッピングのリンクは非表示です。</string>
     <string name="revanced_hide_shopping_links_title">ショッピングリンクを非表示</string>
     <string name="revanced_hide_shorts_button_summary_off">「ショート」ボタンは表示されます。</string>
     <string name="revanced_hide_shorts_button_summary_on">「ショート」ボタンは非表示です。</string>
@@ -575,8 +576,8 @@
     <string name="revanced_hide_snack_bar_summary_off">共有からリンクをコピーした際の画面下部のポップアップなどは表示されます。</string>
     <string name="revanced_hide_snack_bar_summary_on">共有からリンクをコピーした際の画面下部のポップアップなどは非表示です。</string>
     <string name="revanced_hide_snack_bar_title">スナックバーを非表示</string>
-    <string name="revanced_hide_start_trial_button_summary_off">トライアル開始ボタンは表示されます.</string>
-    <string name="revanced_hide_start_trial_button_summary_on">トライアル開始ボタンは非表示です.</string>
+    <string name="revanced_hide_start_trial_button_summary_off">トライアル開始ボタンは表示されます。</string>
+    <string name="revanced_hide_start_trial_button_summary_on">トライアル開始ボタンは非表示です。</string>
     <string name="revanced_hide_start_trial_button_title">トライアル開始ボタンを非表示</string>
     <string name="revanced_hide_subscriptions_button_summary_off">「登録チャンネル」ボタンは表示されます。</string>
     <string name="revanced_hide_subscriptions_button_summary_on">「登録チャンネル」ボタンは非表示です。</string>
@@ -588,6 +589,7 @@
 
 既知の問題: 自動再生が機能しません"</string>
     <string name="revanced_hide_suggested_video_overlay_title">関連動画のオーバーレイを非表示</string>
+    <string name="revanced_hide_suggestions_shelf_method_title">提案欄を隠す方法の選択</string>
     <string name="revanced_hide_suggestions_shelf_summary">"以下の欄を非表示にします:
 • ニュース速報
 • 続きを見る
@@ -638,8 +640,8 @@
     <string name="revanced_open_library_you_startup_title">起動時にライブラリ(マイページ)を開く</string>
     <string name="revanced_others">その他</string>
     <string name="revanced_overlay_button">オーバーレイボタン</string>
-    <string name="revanced_overlay_button_always_repeat_summary">タップして常に繰り返す状態を切り替えます。</string>
-    <string name="revanced_overlay_button_always_repeat_title">自動リピートボタン</string>
+    <string name="revanced_overlay_button_always_repeat_summary">タップしてリピート状態を切り替え</string>
+    <string name="revanced_overlay_button_always_repeat_title">リピート切り替えボタン</string>
     <string name="revanced_overlay_button_copy_video_url_summary">"タップして動画 URL をコピー
 長押ししてタイムスタンプ付き URL をコピー"</string>
     <string name="revanced_overlay_button_copy_video_url_timestamp_summary">"タップしてタイムスタンプ付き URL をコピー
@@ -680,7 +682,6 @@
     <string name="revanced_ryd_failure_client_rate_limit_requested">低評価数は利用できません (クライアント API 制限)</string>
     <string name="revanced_ryd_failure_generic">低評価数は一時的に利用できません。(%s)</string>
     <string name="revanced_ryd_shorts_summary_off">ショートの低評価数は表示されません。</string>
-    <string name="revanced_ryd_shorts_summary_on">ショートの低評価数は表示されます。</string>
     <string name="revanced_ryd_shorts_title">ショートの低評価数</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">非表示</string>
     <string name="revanced_sanitize_sharing_links_summary">リンクを共有する際に、URL からトラッキングクエリパラメーターを削除します。</string>
@@ -714,7 +715,6 @@
 • アプリの外観が変わりますが、未知の問題が発生する場合があります。
 • 後からこの機能を無効にしても、アプリのデータを消去するまで古い UI のままになる場合があります。
 "</string>
-    <string name="revanced_spoof_app_version_target_entry_16_08_35">16.08.35 - 探索タブを復元</string>
     <string name="revanced_spoof_app_version_target_entry_17_08_35">17.08.35 - 古い UI レイアウトを復元</string>
     <string name="revanced_spoof_app_version_target_entry_17_41_37">17.41.37 - 古い再生リスト欄を復元</string>
     <string name="revanced_spoof_app_version_target_entry_18_01_38">"18.01.38 - [メンバーからのコメント] を削除"</string>
@@ -727,8 +727,8 @@
     <string name="revanced_spoof_app_version_target_summary">偽装するバージョンを入力してください。</string>
     <string name="revanced_spoof_app_version_target_title">偽装するアプリバージョンの編集</string>
     <string name="revanced_spoof_app_version_title">アプリのバージョンの偽装</string>
-    <string name="revanced_spoof_device_dimensions_summary">デバイスの寸法を偽装して、このデバイスでは利用できない高画質な動画をアンロックします。</string>
-    <string name="revanced_spoof_device_dimensions_title">デバイスの寸法の偽装</string>
+    <string name="revanced_spoof_device_dimensions_summary">デバイスの解像度を偽装して、このデバイスでは利用できない高画質な動画をアンロックします。</string>
+    <string name="revanced_spoof_device_dimensions_title">デバイスの解像度の偽装</string>
     <string name="revanced_spoof_player_parameter_in_feed_summary_off">"フィードの動画のパラメーターを偽装しません。
 
 既知の問題: フィードの動画は、1分未満で再生の問題が発生します。"</string>
@@ -808,7 +808,6 @@
     <string name="sb_api_url_invalid">API の URL が無効です</string>
     <string name="sb_api_url_changed">API の URL を変更しました</string>
     <string name="sb_settings_copy">コピー</string>
-    <string name="sb_settings_ie_sum">ReVanced Extended や他のプラットフォームの SponsorBlock にインポート/エクスポート可能な SponsorBlock 設定の JSON です。これにはプライベートユーザー ID が含まれています。共有する際は十分注意してください。</string>
     <string name="sb_settings_ie">設定のインポート/エクスポート</string>
     <string name="sb_settings_import_successful">設定は正常にインポートされました</string>
     <string name="sb_settings_import_failed">インポート失敗: %s</string>

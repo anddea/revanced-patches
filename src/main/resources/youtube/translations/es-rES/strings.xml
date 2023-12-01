@@ -207,6 +207,7 @@ Pestaña Tú &gt; Ver canal &gt; Menú &gt; Configuración."</string>
     <string name="revanced_extended_settings_import_success">Los ajustes se han importado correctamente.</string>
     <string name="revanced_extended_settings_import_summary">Importa los ajustes desde un archivo guardado.</string>
     <string name="revanced_extended_settings_import_title">Importar ajustes</string>
+    <string name="revanced_external_downloader_download">Descargar</string>
     <string name="revanced_external_downloader_installed">Instalado</string>
     <string name="revanced_external_downloader_not_installed">No instalado</string>
     <string name="revanced_external_downloader_not_installed_warning" formatted="false">%s no está instalado. Por favor, instálelo.</string>
@@ -216,6 +217,11 @@ Pestaña Tú &gt; Ver canal &gt; Menú &gt; Configuración."</string>
     <string name="revanced_external_downloader_settings_title">Ajustes de descargador externo</string>
     <string name="revanced_feed_flyout_panel_title">Panel desplegable del feed</string>
     <string name="revanced_flyout_menu">Menú desplegable</string>
+    <string name="revanced_force_fullscreen_summary">"El vídeo pasará a pantalla completa en las siguientes situaciones:
+
+- Has pulsado en la marca de tiempo de los comentarios.
+- El vídeo ha comenzado."</string>
+    <string name="revanced_force_fullscreen_title">Forzar pantalla completa</string>
     <string name="revanced_fullscreen">Pantalla completa</string>
     <string name="revanced_general">General</string>
     <string name="revanced_haptic_feedback_title">Respuesta táctil</string>
@@ -553,8 +559,8 @@ Algunos componentes pueden no estar ocultos."</string>
     <string name="revanced_hide_shorts_player_navigation_bar_summary_on">La barra de navegación está oculta</string>
     <string name="revanced_hide_shorts_player_navigation_bar_title">Ocultar barra de navegación</string>
     <string name="revanced_hide_shorts_player_pivot_button_summary_off">El botón de pivote está visible.</string>
-    <string name="revanced_hide_shorts_player_pivot_button_summary_on">El botón de pivote está oculto</string>
-    <string name="revanced_hide_shorts_player_pivot_button_title">Ocultar botón pivote</string>
+    <string name="revanced_hide_shorts_player_pivot_button_summary_on">El botón de pivote está oculto.</string>
+    <string name="revanced_hide_shorts_player_pivot_button_title">Ocultar botón de pivote</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_off">El botón de suscripciones está visible.</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_on">El botón de suscripciones está oculto.</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_title">Ocultar botón de suscripciones</string>
@@ -590,6 +596,16 @@ Problema conocido: Se ocultan las cabeceras oficiales en los resultados de búsq
 
 Problema conocido: La reproducción automática no funciona"</string>
     <string name="revanced_hide_suggested_video_overlay_title">Ocultar superposición de vídeo sugerido</string>
+    <string name="revanced_hide_suggestions_shelf_method_summary_off">"Identifica la estantería de sugerencias a través del identificador de navegación.
+
+Problemas conocidos:
+- Cuando no se identifica el identificador de navegación, es posible que no se oculte la estantería de sugerencias."</string>
+    <string name="revanced_hide_suggestions_shelf_method_summary_on">"Identifica la estantería de sugerencias a través de la pestaña actual.
+
+Problemas conocidos:
+- Es posible que se oculten más estanterías de cajones.
+- Las estanterías de listas de reproducción pueden estar ocultas."</string>
+    <string name="revanced_hide_suggestions_shelf_method_title">Selecciona el método para ocultar estanterías</string>
     <string name="revanced_hide_suggestions_shelf_summary">"Oculta las siguientes estanterías:
 - Noticias de última hora
 - Seguir viendo
@@ -685,9 +701,13 @@ Toca aquí para obtener más información.</string>
     <string name="revanced_ryd_failure_connection_status_code" formatted="false">Los no me gusta no están disponibles (estado %d).</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Los no me gusta no están disponibles (se alcanzó el límite de la API del cliente).</string>
     <string name="revanced_ryd_failure_generic">Los no me gusta no están disponibles (%s).</string>
+    <string name="revanced_ryd_shorts_summary_disclaimer">Limitación: Los no me gusta pueden no aparecer en determinadas situaciones.</string>
     <string name="revanced_ryd_shorts_summary_off">Los no me gusta están ocultos en los Shorts.</string>
-    <string name="revanced_ryd_shorts_summary_on">Los no me gusta están visibles en los Shorts.</string>
+    <string name="revanced_ryd_shorts_summary_on">No me gusta mostrados en Shorts. %s</string>
     <string name="revanced_ryd_shorts_title">Mostrar no me gusta en Shorts</string>
+    <string name="revanced_ryd_toast_on_connection_error_title">Mostrar mensaje si la API no está disponible</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary_off">No se muestra el mensaje si la API de ReturnYouTubeDislike no está disponible.</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary_on">Se muestra el mensaje si la API de ReturnYouTubeDislike no está disponible.</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Oculto</string>
     <string name="revanced_sanitize_sharing_links_summary">Elimina los parámetros de consulta de seguimiento de las URL al compartir enlaces.</string>
     <string name="revanced_sanitize_sharing_links_title">Desinfectar enlaces compartidos</string>
@@ -702,6 +722,7 @@ Toca aquí para obtener más información.</string>
     <string name="revanced_share_copy_url_timestamp_success">URL con marca de tiempo copiada en el portapapeles.</string>
     <string name="revanced_shorts">Shorts</string>
     <string name="revanced_shorts_player_title">Reproductor de Shorts</string>
+    <string name="revanced_shorts_toolbar_summary">El botón de volver atrás de la barra de herramientas no se puede ocultar.</string>
     <string name="revanced_shorts_toolbar_title">Barra de herramientas de Shorts</string>
     <string name="revanced_show_fullscreen_title_summary">Problema conocido: El título desaparece al pulsarlo</string>
     <string name="revanced_show_fullscreen_title_title">Mostrar título en pantalla completa</string>
@@ -718,7 +739,6 @@ Toca aquí para obtener más información.</string>
 
 Esto cambiará la apariencia de la aplicación, pero pueden producirse efectos secundarios desconocidos
 Si más tarde se desactiva, la antigua interfaz de usuario puede permanecer hasta que se borren los datos de la aplicación"</string>
-    <string name="revanced_spoof_app_version_target_entry_16_08_35">16.08.35 - Restaurar la pestaña Explorar</string>
     <string name="revanced_spoof_app_version_target_entry_17_08_35">17.08.35 - Restaurar el antiguo diseño de la interfaz de usuario</string>
     <string name="revanced_spoof_app_version_target_entry_17_41_37">17.41.37 - Restaurar la antigua lista de reproducción shelf</string>
     <string name="revanced_spoof_app_version_target_entry_18_01_38">"18.01.38 - Eliminar el banner \"Comentarios de los miembros\""</string>
@@ -800,6 +820,9 @@ Problemas conocidos
     <string name="sb_guidelines_popup_already_read">Ya leído</string>
     <string name="sb_guidelines_popup_open">Muéstrame</string>
     <string name="sb_general">General</string>
+    <string name="sb_toast_on_connection_error_title">Mostrar mensaje si la API no está disponible</string>
+    <string name="sb_toast_on_connection_error_summary_on">Se muestra el mensaje si la API de SponsorBlock no está disponible.</string>
+    <string name="sb_toast_on_connection_error_summary_off">No se muestra el mensaje si la API de SponsorBlock no está disponible.</string>
     <string name="sb_general_skipcount">Activar seguimiento del conteo de omisiones</string>
     <string name="sb_general_skipcount_sum_on">Permite que la tabla de clasificación de SponsorBlock sepa cuánto tiempo se ha ahorrado. Un mensaje se envía a la tabla de clasificación cada vez que se omite un segmento</string>
     <string name="sb_general_skipcount_sum_off">El seguimiento del conteo de omisiones no está activado</string>
@@ -814,7 +837,8 @@ Problemas conocidos
     <string name="sb_api_url_invalid">La URL de la API no es válida</string>
     <string name="sb_api_url_changed">La URL de la API fue cambiada</string>
     <string name="sb_settings_copy">Copiar</string>
-    <string name="sb_settings_ie_sum">Tu configuración JSON de SponsorBlock que puede importarse/exportarse a ReVanced y otras plataformas SponsorBlock. Esto incluye tu ID de usuario privado. Asegúrate de compartirla sabiamente</string>
+    <string name="sb_settings_ie_sum">Tus ajustes de SponsorBlock en formato JSON que pueden ser importados / exportados a ReVanced Extended y otras plataformas de SponsorBlock. %s</string>
+    <string name="sb_settings_ie_sum_warning">Esto incluye tu ID de usuario privado. Asegúrate de compartir con prudencia.</string>
     <string name="sb_settings_ie">Importar / Exportar ajustes</string>
     <string name="sb_settings_import_successful">Ajustes importados correctamente</string>
     <string name="sb_settings_import_failed">Error al importar: %s</string>
