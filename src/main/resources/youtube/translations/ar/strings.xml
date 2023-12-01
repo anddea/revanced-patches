@@ -207,6 +207,7 @@
     <string name="revanced_extended_settings_import_success">تم استيراد الإعدادات بنجاح.</string>
     <string name="revanced_extended_settings_import_summary">استيراد الإعدادات من الملف المحفوظ.</string>
     <string name="revanced_extended_settings_import_title">استيراد الإعدادات</string>
+    <string name="revanced_external_downloader_download">تنزيل</string>
     <string name="revanced_external_downloader_installed">مُثبَّت</string>
     <string name="revanced_external_downloader_not_installed">غير مثبّت</string>
     <string name="revanced_external_downloader_not_installed_warning" formatted="false">%s لم يتم تثبيته. الرجاء تثبيته.</string>
@@ -216,6 +217,11 @@
     <string name="revanced_external_downloader_settings_title">إعدادات التنزيل الخارجي</string>
     <string name="revanced_feed_flyout_panel_title">لوحة القائمة المنبثقة للموجز</string>
     <string name="revanced_flyout_menu">القائمة المنبثقة</string>
+    <string name="revanced_force_fullscreen_summary">"سيتم تبديل الفيديو إلى ملء الشاشة في الحالات التالية:
+
+• الضغط على الطابع الزمني في التعليقات.
+• عندما يبدأ الفيديو."</string>
+    <string name="revanced_force_fullscreen_title">فرض ملء الشاشة</string>
     <string name="revanced_fullscreen">ملء الشاشة</string>
     <string name="revanced_general">عام</string>
     <string name="revanced_haptic_feedback_title">ردود الفعل اللمسية</string>
@@ -589,6 +595,16 @@
     <string name="revanced_hide_suggested_video_overlay_summary">"يخفي تراكب الفيديو المقترح لتشغيله بعد ذلك
 مشكلة معروفة: التشغيل التلقائي لا يعمل"</string>
     <string name="revanced_hide_suggested_video_overlay_title">إخفاء تراكب الفيديو المقترح</string>
+    <string name="revanced_hide_suggestions_shelf_method_summary_off">"يحدد رف الاقتراحات من خلال معرف التصفح.
+
+مشاكل معروفة:
+• عندما لا يتم تحديد المتصفح، قد لا يكون رف الاقتراحات مخفيًا."</string>
+    <string name="revanced_hide_suggestions_shelf_method_summary_on">"يحدد رف الاقتراحات من خلال علامة التبويب الحالية.
+
+مشاكل معروفة:
+• قد يكون هناك المزيد من أرفف الأدراج مخفية.
+• قد تكون رفوف قائمة التشغيل مخفية."</string>
+    <string name="revanced_hide_suggestions_shelf_method_title">اختر طريقة لإخفاء الرفوف</string>
     <string name="revanced_hide_suggestions_shelf_summary">"يخفي الرفوف التالية:
 - أخبار عاجلة
 - متابعة المشاهدة
@@ -682,9 +698,13 @@
     <string name="revanced_ryd_failure_connection_status_code" formatted="false">لم يعجبني غير متاح (الحالة %d).</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">لم يعجبني غير متاح (تم الوصول إلى حد API العميل)</string>
     <string name="revanced_ryd_failure_generic">لم يعجبني غير متاح (%s).</string>
+    <string name="revanced_ryd_shorts_summary_disclaimer">القيد: قد لا يظهر لم يعجبني في بعض الحالات.</string>
     <string name="revanced_ryd_shorts_summary_off">تم إخفاء لم يعجني في مقاطع Shorts</string>
-    <string name="revanced_ryd_shorts_summary_on">يتم عرض لم يعجني في مقاطع Shorts</string>
+    <string name="revanced_ryd_shorts_summary_on">لم يعجبني يظهر على فيديوهات Shorts. %s</string>
     <string name="revanced_ryd_shorts_title">عرض لم يعجني في مقاطع Shorts</string>
+    <string name="revanced_ryd_toast_on_connection_error_title">عرض تنبيه إذا كان API غير متاح</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary_off">لا يتم عرض التنبيه في حالة عدم توفر ReturnYouTubeDislike API.</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary_on">يتم عرض التنبيه في حالة عدم توفر ReturnYouTubeDislike API.</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">مخفي</string>
     <string name="revanced_sanitize_sharing_links_summary">يزيل معلمات استعلام التتبع من عناوين URL عند مشاركة الروابط.</string>
     <string name="revanced_sanitize_sharing_links_title">تطهير روابط المشاركة</string>
@@ -716,7 +736,6 @@
 
  • سيؤدي هذا إلى تغيير مظهر التطبيق، ولكن قد تحدث آثار جانبية غير معروفة
  • إذا تم إيقاف تشغيله لاحقًا، فقد تظل واجهة المستخدم القديمة حتى يتم مسح بيانات التطبيق"</string>
-    <string name="revanced_spoof_app_version_target_entry_16_08_35">16.08.35 - استعادة تبويب استكشاف</string>
     <string name="revanced_spoof_app_version_target_entry_17_08_35">17.08.35 - استعادة تصميم واجهة المستخدم القديم</string>
     <string name="revanced_spoof_app_version_target_entry_17_41_37">17.41.37 - استعادة رف قائمة التشغيل القديم</string>
     <string name="revanced_spoof_app_version_target_entry_18_01_38">"18-01-38 - إزالة لافتة 'تعليقات من قبل الأعضاء'"</string>
@@ -804,6 +823,9 @@
     <string name="sb_guidelines_popup_already_read">تمت قراءتها</string>
     <string name="sb_guidelines_popup_open">اعرضها لي</string>
     <string name="sb_general">عام</string>
+    <string name="sb_toast_on_connection_error_title">عرض تنبيه إذا كان API غير متاح</string>
+    <string name="sb_toast_on_connection_error_summary_on">يتم عرض التنبيه في حالة عدم توفر SponsorBlock API.</string>
+    <string name="sb_toast_on_connection_error_summary_off">لا يتم عرض التنبيه في حالة عدم توفر SponsorBlock API.</string>
     <string name="sb_general_skipcount">تمكين تتبع مرات التخطي</string>
     <string name="sb_general_skipcount_sum_on">يُتيح لـ SponsorBlock Leaderboard معرفة مقدار الوقت الذي وفره المشاهدين، يتم إعلام الخادم في كل مرة تتخطى فيها مقطعًا</string>
     <string name="sb_general_skipcount_sum_off">تم تعطيل تتبع مرات التخطي</string>
@@ -818,7 +840,8 @@
     <string name="sb_api_url_invalid">رابط API غير صالح</string>
     <string name="sb_api_url_changed">تم تغيير رابط API</string>
     <string name="sb_settings_copy">نَسخ</string>
-    <string name="sb_settings_ie_sum">تكوين SponsorBlock الخاص بك كتنسيق JSON الذي يمكن استيراده \ تصديره إلى ReVanced Extended وغيره من منصات SponsorBlock الأخرى. يتضمن هذا معرف المستخدم الفريد الخاص بك. تأكد من مشاركته بحكمة.</string>
+    <string name="sb_settings_ie_sum">تكوين SponsorBlock JSON الخاص بك والذي يمكن استيراده/تصديره إلى ReVanced Extended ومنصات SponsorBlock الأخرى. %s</string>
+    <string name="sb_settings_ie_sum_warning">هذا يتضمن معرف المستخدم الخاص بك. تأكد من مشاركة هذا بحكمة.</string>
     <string name="sb_settings_ie">استيراد / تصدير الإعدادات</string>
     <string name="sb_settings_import_successful">تم استيراد الإعدادات بنجاح</string>
     <string name="sb_settings_import_failed">فشل استيراد: %s</string>

@@ -216,6 +216,7 @@
     <string name="revanced_external_downloader_settings_title">Налаштування зовнішнього завантажувача</string>
     <string name="revanced_feed_flyout_panel_title">Спливаюча панель стрічки</string>
     <string name="revanced_flyout_menu">Спливаюче меню</string>
+    <string name="revanced_force_fullscreen_title">Примусово на повний екран</string>
     <string name="revanced_fullscreen">Повноекранний режим</string>
     <string name="revanced_general">Загальні</string>
     <string name="revanced_haptic_feedback_title">Вібровідгук</string>
@@ -590,6 +591,7 @@
 
 Відома проблема: Автовідтворення не працює"</string>
     <string name="revanced_hide_suggested_video_overlay_title">Приховати пропоновані відео</string>
+    <string name="revanced_hide_suggestions_shelf_method_title">Виберіть метод приховування полиць</string>
     <string name="revanced_hide_suggestions_shelf_summary">"Приховати наступні полиці:
 - Важливі новини
 - Продовжити перегляд
@@ -684,7 +686,6 @@
     <string name="revanced_ryd_failure_client_rate_limit_requested">Дизлайки недоступні (досягнутий ліміт клієнта API)</string>
     <string name="revanced_ryd_failure_generic">Дизлайки недоступні (%s).</string>
     <string name="revanced_ryd_shorts_summary_off">Не подобається приховано на Коротких</string>
-    <string name="revanced_ryd_shorts_summary_on">Не подобається показується на Коротких</string>
     <string name="revanced_ryd_shorts_title">Показувати Не подобається на Коротких</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Приховано</string>
     <string name="revanced_sanitize_sharing_links_summary">Вилучаються параметри запиту відстеження з посилань під час поширення посилань.</string>
@@ -717,7 +718,6 @@
 
 • Це змінить зовнішній вигляд програми, але можуть виникнути невідомі побічні ефекти
 • Якщо пізніше вимкнути, старий інтерфейс може залишитися, доки не буде очищено дані програми"</string>
-    <string name="revanced_spoof_app_version_target_entry_16_08_35">16.08.35 - Відновлення вкладки тренди</string>
     <string name="revanced_spoof_app_version_target_entry_17_08_35">17.08.35 - Відновлення старого інтерфейсу</string>
     <string name="revanced_spoof_app_version_target_entry_17_41_37">17.41.37 - Відновлення старої полиці плейлистів</string>
     <string name="revanced_spoof_app_version_target_entry_18_01_38">"18.01.38 - Вилучення банера 'Коментарі учасників'"</string>
@@ -811,7 +811,6 @@
     <string name="sb_api_url_invalid">API URL недійсна</string>
     <string name="sb_api_url_changed">API URL змінено</string>
     <string name="sb_settings_copy">Копіювати</string>
-    <string name="sb_settings_ie_sum">Ваші конфігурації SponsorBlock JSON, які можуть бути імпортовані/експортовані у ReVanced та інші платформи SponsorBlock. Це включає Ваш особистий ідентифікатор користувача. Діліться ним розумно</string>
     <string name="sb_settings_ie">Імпортувати / Експортувати налаштування</string>
     <string name="sb_settings_import_successful">Налаштування успішно імпортовано</string>
     <string name="sb_settings_import_failed">Не вдалося імпортувати: %s</string>

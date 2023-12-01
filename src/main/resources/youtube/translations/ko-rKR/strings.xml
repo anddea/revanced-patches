@@ -163,8 +163,8 @@
     <string name="revanced_enable_swipe_brightness_summary_off">스와이프 제스처로 밝기 조절을 비활성화합니다.</string>
     <string name="revanced_enable_swipe_brightness_summary_on">스와이프 제스처로 밝기 조절을 활성화합니다.</string>
     <string name="revanced_enable_swipe_brightness_title">스와이프 제스처로 밝기 조절 활성화하기</string>
-    <string name="revanced_enable_swipe_haptic_feedback_summary_off">진동 피드백을 비활성화합니다.</string>
-    <string name="revanced_enable_swipe_haptic_feedback_summary_on">진동 피드백을 활성화합니다.</string>
+    <string name="revanced_enable_swipe_haptic_feedback_summary_off">길게 눌러서 스와이프 제스처 사용할 때 진동 피드백을 비활성화합니다.</string>
+    <string name="revanced_enable_swipe_haptic_feedback_summary_on">길게 눌러서 스와이프 제스처 사용할 때 진동 피드백을 활성화합니다.</string>
     <string name="revanced_enable_swipe_haptic_feedback_title">길게 눌러서 스와이프 제스처 사용할 때 진동 피드백 활성화하기</string>
     <string name="revanced_enable_swipe_volume_summary_off">스와이프 제스처로 볼륨 조절을 비활성화합니다.</string>
     <string name="revanced_enable_swipe_volume_summary_on">스와이프 제스처로 볼륨 조절을 활성화합니다.</string>
@@ -207,15 +207,22 @@
     <string name="revanced_extended_settings_import_success">설정을 성공적으로 가져왔습니다.</string>
     <string name="revanced_extended_settings_import_summary">설정을 저장된 파일에서 가져올 수 있습니다.</string>
     <string name="revanced_extended_settings_import_title">설정 가져오기</string>
+    <string name="revanced_external_downloader_download">다운로드</string>
     <string name="revanced_external_downloader_installed">설치되어 있습니다.</string>
     <string name="revanced_external_downloader_not_installed">설치되어 있지 않습니다.</string>
     <string name="revanced_external_downloader_not_installed_warning" formatted="false">%s가 설치되지 않았습니다. 설치해 주세요.</string>
     <string name="revanced_external_downloader_package_name_summary">NewPipe 또는 YTDLnis와 같은 설치된 외부 다운로더 패키지명을 입력하세요.</string>
     <string name="revanced_external_downloader_package_name_title">외부 다운로더 패키지명</string>
+    <string name="revanced_external_downloader_set">기본 다운로더로 설정하기</string>
     <string name="revanced_external_downloader_settings_summary">외부 다운로더 설정을 할 수 있습니다.</string>
     <string name="revanced_external_downloader_settings_title">외부 다운로더 설정</string>
     <string name="revanced_feed_flyout_panel_title">피드 구성요소 패널</string>
     <string name="revanced_flyout_menu">메뉴 구성요소</string>
+    <string name="revanced_force_fullscreen_summary">"다음과 같은 상황에서 동영상이 전체화면으로 전환됩니다:
+
+• 댓글의 타임스탬프를 클릭했을 경우.
+• 동영상이 시작되었을 경우."</string>
+    <string name="revanced_force_fullscreen_title">전체화면 강제 전환하기</string>
     <string name="revanced_fullscreen">전체화면</string>
     <string name="revanced_general">일반</string>
     <string name="revanced_haptic_feedback_title">진동 피드백</string>
@@ -424,8 +431,8 @@
     <string name="revanced_hide_merchandise_shelf_summary_off">상품 선반이 노출됩니다.</string>
     <string name="revanced_hide_merchandise_shelf_summary_on">상품 선반이 숨겨집니다.</string>
     <string name="revanced_hide_merchandise_shelf_title">상품 선반 숨기기</string>
-    <string name="revanced_hide_mix_playlists_summary_off">다음 재생목록들이 노출됩니다:\n믹스, 관련, YouTube Music 오늘의 핫리스트</string>
-    <string name="revanced_hide_mix_playlists_summary_on">다음 재생목록들이 숨겨집니다:\n믹스, 관련, YouTube Music 오늘의 핫리스트</string>
+    <string name="revanced_hide_mix_playlists_summary_off">믹스 재생목록이 노출됩니다.</string>
+    <string name="revanced_hide_mix_playlists_summary_on">믹스 재생목록이 숨겨집니다.</string>
     <string name="revanced_hide_mix_playlists_title">믹스 재생목록 숨기기</string>
     <string name="revanced_hide_movie_shelf_summary_off">영화 선반이 노출됩니다.</string>
     <string name="revanced_hide_movie_shelf_summary_on">영화 선반이 숨겨집니다.</string>
@@ -591,6 +598,16 @@
 
 알려진 문제점: 자동 재생이 작동하지 않습니다."</string>
     <string name="revanced_hide_suggested_video_overlay_title">동영상 추천 오버레이 숨기기</string>
+    <string name="revanced_hide_suggestions_shelf_method_summary_off">"browseId를 통해 추천 선반을 식별합니다.
+
+알려진 문제점:
+- browseId가 식별되지 않으면 추천 선반이 숨겨지지 않을 수 있습니다."</string>
+    <string name="revanced_hide_suggestions_shelf_method_summary_on">"현재 탭을 통해 추천 선반을 식별합니다.
+
+알려진 문제점:
+• 더 많은 서랍(인기 급상승, 쇼핑, 음악...)의 선반이 숨겨질 수 있습니다.
+• 재생목록 선반이 숨겨질 수 있습니다."</string>
+    <string name="revanced_hide_suggestions_shelf_method_title">선반을 숨기는 방법 설정</string>
     <string name="revanced_hide_suggestions_shelf_summary">"다음 선반들이 숨겨집니다.
 • 다시 듣기
 • 다시 시청하기
@@ -686,9 +703,13 @@
     <string name="revanced_ryd_failure_connection_status_code" formatted="false">싫어요 개수를 표시할 수 없습니다 (상태 %d).</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">싫어요 개수를 표시할 수 없습니다. (클라이언트 API 제한 도달)</string>
     <string name="revanced_ryd_failure_generic">싫어요 개수를 표시할 수 없습니다 (%s).</string>
+    <string name="revanced_ryd_shorts_summary_disclaimer">한계: 특정 상황에서는 싫어요가 표시되지 않을 수 있습니다.</string>
     <string name="revanced_ryd_shorts_summary_off">Shorts에서 싫어요가 숨겨집니다.</string>
-    <string name="revanced_ryd_shorts_summary_on">Shorts에서 싫어요가 노출됩니다.</string>
+    <string name="revanced_ryd_shorts_summary_on">Shorts에서 싫어요가 노출됩니다. %s</string>
     <string name="revanced_ryd_shorts_title">Shorts에서 싫어요 표시하기</string>
+    <string name="revanced_ryd_toast_on_connection_error_title">API를 사용할 수 없을 때 팝업 메시지 표시하기</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary_off">ReturnYouTubeDislike API를 사용할 수 없을 때 팝업 메시지를 표시하지 않습니다.</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary_on">ReturnYouTubeDislike API를 사용할 수 없을 때 팝업 메시지를 표시합니다.</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">숨겨짐</string>
     <string name="revanced_sanitize_sharing_links_summary">링크를 공유할 때 URL에서 추적 쿼리 매개변수를 제거합니다.</string>
     <string name="revanced_sanitize_sharing_links_title">추적 쿼리를 제거한 링크 공유하기</string>
@@ -720,7 +741,6 @@
 
 • 이 설정을 활성화하면 앱 레이아웃이 변경되지만 알려지지 않은 문제점이 발생할 수 있습니다.
 • 나중에 이 설정을 비활성화하면 앱 데이터를 지우기 전까지 이전 레이아웃이 유지될 수 있습니다."</string>
-    <string name="revanced_spoof_app_version_target_entry_16_08_35">16.08.35 - 탐색 탭을 복원합니다.</string>
     <string name="revanced_spoof_app_version_target_entry_17_08_35">17.08.35 - 이전 레이아웃으로 복원합니다.</string>
     <string name="revanced_spoof_app_version_target_entry_17_41_37">17.41.37 - 이전 재생목록 선반으로 복원합니다.</string>
     <string name="revanced_spoof_app_version_target_entry_18_01_38">"18.01.38 - '회원별 댓글' 배너를 제거합니다."</string>
@@ -762,7 +782,8 @@
     <string name="revanced_switching_create_notification_summary">"기기 정보를 변경하여 만들기 버튼과 알림 버튼의 위치를 교환합니다.
 
 • 이 설정을 변경하더라도 기기를 다시 시작할 때까지 적용되지 않을 수 있습니다.
-• 동영상 광고를 표시하려면 이 설정을 비활성화해야 합니다."</string>
+• '동영상 광고 숨기기'를 비활성화하려면 이 설정을 비활성화해야합니다.
+• 이 설정을 비활성화하면 Shorts 플레이어에서 동영상 광고가 노출될 수 있습니다."</string>
     <string name="revanced_switching_create_notification_title">만들기 버튼과 알림 버튼 위치 교환하기</string>
     <string name="revanced_tool_used">사용된 도구</string>
     <string name="revanced_video">동영상</string>
@@ -800,6 +821,9 @@
     <string name="sb_guidelines_popup_already_read">이미 읽음</string>
     <string name="sb_guidelines_popup_open">보러가기</string>
     <string name="sb_general">일반</string>
+    <string name="sb_toast_on_connection_error_title">API를 사용할 수 없을 때 팝업 메시지 표시하기</string>
+    <string name="sb_toast_on_connection_error_summary_on">SponsorBlock API를 사용할 수 없을 때 팝업 메시지를 표시합니다.</string>
+    <string name="sb_toast_on_connection_error_summary_off">SponsorBlock API를 사용할 수 없을 때 팝업 메시지를 표시하지 않습니다.</string>
     <string name="sb_general_skipcount">건너뛴 횟수 기록 활성화하기</string>
     <string name="sb_general_skipcount_sum_on">구간 건너뛰기를 통해 절약한 시간을 SponsorBlock의 리더보드 시스템에 알려줍니다. 건너뛴 구간에 대한 정보가 서버에 전송됩니다.</string>
     <string name="sb_general_skipcount_sum_off">건너뛴 횟수 기록을 비활성화합니다.</string>
@@ -814,7 +838,8 @@
     <string name="sb_api_url_invalid">잘못된 주소입니다.</string>
     <string name="sb_api_url_changed">SponsorBlock 서버 주소가 변경되었습니다.</string>
     <string name="sb_settings_copy">복사하기</string>
-    <string name="sb_settings_ie_sum">ReVanced Extended 및 다른 SponsorBlock 플랫폼으로부터 가져오거나 내보낼 수 있는 SponsorBlock JSON의 전체 구성 파일입니다. 비공개 사용자ID를 포함하고 있으므로 주의하세요.</string>
+    <string name="sb_settings_ie_sum">ReVanced Extended 및 다른 SponsorBlock 플랫폼에서 가져오거나 내보낼 수 있는 SponsorBlock JSON 구성입니다. %s</string>
+    <string name="sb_settings_ie_sum_warning">여기에는 비공개 사용자 아이디가 포함됩니다. 이 정보를 현명하게 공유하세요.</string>
     <string name="sb_settings_ie">설정 가져오기 / 내보내기</string>
     <string name="sb_settings_import_successful">설정을 성공적으로 가져왔습니다.</string>
     <string name="sb_settings_import_failed">가져오기에 실패했습니다: %s</string>
@@ -878,7 +903,7 @@
     <string name="sb_submit_failed_forbidden" formatted="false">구간을 제출할 수 없습니다: %s</string>
     <string name="sb_submit_failed_duplicate">구간을 제출할 수 없습니다.\n이미 존재하는 구간입니다</string>
     <string name="sb_submit_succeeded">구간이 성공적으로 제출되었습니다.</string>
-    <string name="sb_vote_failed_timeout">구간에 투표할수 없습니다 (응답 시간 초과).</string>
+    <string name="sb_vote_failed_timeout">구간에 투표할 수 없습니다 (응답 시간 초과).</string>
     <string name="sb_vote_failed_unknown_error" formatted="false">구간 투표에 실패하였습니다. (오류 내용: %d %s)</string>
     <string name="sb_vote_failed_forbidden" formatted="false">구간 투표에 실패하였습니다: %s</string>
     <string name="sb_vote_upvote">좋아요</string>

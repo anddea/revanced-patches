@@ -51,10 +51,10 @@
     <string name="revanced_custom_playback_speeds_summary">Yeni oynatma hızları ekleyin veya mevcut olanları değiştirin.</string>
     <string name="revanced_custom_playback_speeds_title">Oynatma hızlarını düzenle</string>
     <string name="revanced_custom_playback_speeds_warning" formatted="false">%sx\'ten hızlı oynatma hızı olamaz. Varsayılan değerlere sıfırlayın.</string>
-    <string name="revanced_custom_playback_speed_panel_type_summary_off">Eski stil açılır menü kullanılıyor.</string>
-    <string name="revanced_custom_playback_speed_panel_type_summary_on">Özel diyalog kullanılıyor.</string>
+    <string name="revanced_custom_playback_speed_panel_type_summary_off">Eski stil açılır menü kullanıldı.</string>
+    <string name="revanced_custom_playback_speed_panel_type_summary_on">Özel diyalog kullanıldı.</string>
     <string name="revanced_custom_playback_speed_panel_type_title">Oynatma hızı panel türü</string>
-    <string name="revanced_custom_player_overlay_opacity_summary">0-100 arası opaklık değeri, (0 şeffaftır).</string>
+    <string name="revanced_custom_player_overlay_opacity_summary">0-100 arası opaklık değeri, 0 şeffaftır.</string>
     <string name="revanced_custom_player_overlay_opacity_title">Oynatıcının siyah arkaplan opaklığı</string>
     <string name="revanced_custom_player_overlay_opacity_warning">Oynatıcının siyah arkaplan opaklığı 0 ila 100 arasında olmalıdır. Varsayılan değere sıfırlandı.</string>
     <string name="revanced_custom_seekbar_color_value_summary">Zaman çubuğunun olmasını istediğiniz rengin kodunu (6\'lı/hex) girin</string>
@@ -215,6 +215,7 @@ Bu durumda lütfen şu yolu kullanın: Siz sekmesi &gt; Kanalı görüntüle &gt
     <string name="revanced_external_downloader_settings_title">İndirme uygulaması ayarları</string>
     <string name="revanced_feed_flyout_panel_title">Akıştaki açılır menüler</string>
     <string name="revanced_flyout_menu">Açılır menü</string>
+    <string name="revanced_force_fullscreen_title">Tam ekrana zorla</string>
     <string name="revanced_fullscreen">Tam Ekran</string>
     <string name="revanced_general">Genel</string>
     <string name="revanced_haptic_feedback_title">Titreşimli geri bildirim</string>
@@ -588,6 +589,7 @@ Bilinen sorun: Arama sonuçlarındaki resmi başlıklar da gizlenebiliyor."</str
 
 Bilinen sorun: Otomatik oynatma çalışmıyor."</string>
     <string name="revanced_hide_suggested_video_overlay_title">\"Önerilen video\"yu gizle</string>
+    <string name="revanced_hide_suggestions_shelf_method_title">Rafları izlemek için bir yöntem seçin</string>
     <string name="revanced_hide_suggestions_shelf_summary">"Şu rafları gizler:
 • Son dakika haberleri
 • İzlemeye devam edin
@@ -682,7 +684,6 @@ Videoyu zaman damgasıyla kopyalamak için basılı tutun."</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Beğenmeme sayısı mevcut değil (istemci API sınırına ulaşıldı).</string>
     <string name="revanced_ryd_failure_generic">Beğenmemeler mevcut değil (%s).</string>
     <string name="revanced_ryd_shorts_summary_off">Shorts videolarda beğenmemeler gösterilmiyor</string>
-    <string name="revanced_ryd_shorts_summary_on">Shorts videolarda beğenmemeler gösteriliyor</string>
     <string name="revanced_ryd_shorts_title">Shorts videolarda beğenmemeleri göster</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Gizlendi</string>
     <string name="revanced_sanitize_sharing_links_summary">Bağlantıları paylaşırken, \"tracking query parametreleri\"ni URL\'lerden kaldırır</string>
@@ -715,7 +716,6 @@ Videoyu zaman damgasıyla kopyalamak için basılı tutun."</string>
 
 • Bu, uygulamanın görünümünü değiştirir, ancak bilinmeyen yan etkiler ortaya çıkabilir
 • Daha sonra kapatılırsa, uygulama verileri temizlenene kadar eski kullanıcı arayüzü kalabilir"</string>
-    <string name="revanced_spoof_app_version_target_entry_16_08_35">16.08.35 - Keşfet sekmesini geri yükle</string>
     <string name="revanced_spoof_app_version_target_entry_17_08_35">17.08.35 - Eski kullanıcı arayüzü düzenini geri yükle</string>
     <string name="revanced_spoof_app_version_target_entry_17_41_37">17.41.37 - Eski oynatma listesi raf düzenini geri yükle</string>
     <string name="revanced_spoof_app_version_target_entry_18_01_38">"18.01.38 - 'Üyelerin yorumları' başlığını kaldırın"</string>
@@ -810,7 +810,6 @@ Bir örnek görmek için buraya dokunun</string>
     <string name="sb_api_url_invalid">API bağlantısı geçersiz</string>
     <string name="sb_api_url_changed">API URL\'si değiştirildi</string>
     <string name="sb_settings_copy">Kopyala</string>
-    <string name="sb_settings_ie_sum">ReVanced Extended diğer SponsorBlock platformlarına içe/dışa aktarılabilen SponsorBlock JSON yapılandırmanız. Bu, özel kullanıcı kimliğinizi içerir. Bunu akıllıca paylaştığınızdan emin olun</string>
     <string name="sb_settings_ie">Ayarları içe/dışa aktar</string>
     <string name="sb_settings_import_successful">Ayarlar başarıyla içe aktarıldı</string>
     <string name="sb_settings_import_failed">%s içeri aktarılamadı</string>
