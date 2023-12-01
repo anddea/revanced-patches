@@ -153,6 +153,9 @@
 		<!-- SETTINGS: ENABLE_COMPACT_CONTROLS_OVERLAY
         <SwitchPreference android:title="@string/revanced_enable_compact_controls_overlay_title" android:key="revanced_enable_compact_controls_overlay" android:defaultValue="false" android:summaryOn="@string/revanced_enable_compact_controls_overlay_summary_on" android:summaryOff="@string/revanced_enable_compact_controls_overlay_summary_off" />SETTINGS: ENABLE_COMPACT_CONTROLS_OVERLAY -->
 
+        <!-- SETTINGS: FORCE_FULLSCREEN
+        <SwitchPreference android:title="@string/revanced_force_fullscreen_title" android:key="revanced_force_fullscreen" android:defaultValue="false" android:summary="@string/revanced_force_fullscreen_summary" />SETTINGS: FORCE_FULLSCREEN -->
+
     <!-- PREFERENCE: FULLSCREEN_SETTINGS
     </PreferenceScreen>PREFERENCE: FULLSCREEN_SETTINGS -->
 
@@ -373,6 +376,7 @@
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_fullscreen" />
             <Preference android:title="Disable landscape mode" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Enable compact controls overlay" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="Force fullscreen" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Hide autoplay preview" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Hide end screen overlay" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Hide fullscreen panels" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>

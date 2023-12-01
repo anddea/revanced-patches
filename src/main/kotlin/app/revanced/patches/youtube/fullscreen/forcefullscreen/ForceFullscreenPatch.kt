@@ -1,0 +1,128 @@
+package app.revanced.patches.youtube.fullscreen.forcefullscreen
+
+import app.revanced.extensions.exception
+import app.revanced.patcher.data.BytecodeContext
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patcher.patch.PatchException
+import app.revanced.patcher.patch.annotation.CompatiblePackage
+import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patches.youtube.fullscreen.forcefullscreen.fingerprints.ClientSettingEndpointFingerprint
+import app.revanced.patches.youtube.fullscreen.forcefullscreen.fingerprints.VideoPortraitParentFingerprint
+import app.revanced.patches.youtube.utils.settings.SettingsPatch
+import app.revanced.util.bytecode.getStringIndex
+import app.revanced.util.integrations.Constants.FULLSCREEN
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+
+@Patch(
+    name = "Force fullscreen",
+    description = "Switch the video to fullscreen.",
+    dependencies = [SettingsPatch::class],
+    compatiblePackages = [
+        CompatiblePackage(
+            "com.google.android.youtube",
+            [
+                "18.25.40",
+                "18.27.36",
+                "18.29.38",
+                "18.30.37",
+                "18.31.40",
+                "18.32.39",
+                "18.33.40",
+                "18.34.38",
+                "18.35.36",
+                "18.36.39",
+                "18.37.36",
+                "18.38.44",
+                "18.39.41",
+                "18.40.34",
+                "18.41.39",
+                "18.42.41",
+                "18.43.45",
+                "18.44.41",
+                "18.45.43"
+            ]
+        )
+    ]
+)
+@Suppress("unused")
+object ForceFullscreenPatch : BytecodePatch(
+    setOf(
+        ClientSettingEndpointFingerprint,
+        VideoPortraitParentFingerprint
+    )
+) {
+    override fun execute(context: BytecodeContext) {
+        /**
+         * Process that hooks Activity for using {Activity.setRequestedOrientation}.
+         */
+        ClientSettingEndpointFingerprint.result?.let {
+            it.mutableMethod.apply {
+                val getActivityIndex = getStringIndex("watch") + 2
+                val getActivityReference = getInstruction<ReferenceInstruction>(getActivityIndex).reference
+                val classRegister = getInstruction<TwoRegisterInstruction>(getActivityIndex).registerB
+
+                val watchDescriptorMethodIndex = getStringIndex("start_watch_minimized") - 1
+                val watchDescriptorRegister = getInstruction<FiveRegisterInstruction>(watchDescriptorMethodIndex).registerD
+
+                addInstructions(
+                    watchDescriptorMethodIndex, """
+                        invoke-static {v$watchDescriptorRegister}, $FULLSCREEN->forceFullscreen(Z)Z
+                        move-result v$watchDescriptorRegister
+                        """
+                )
+
+                val insertIndex = getStringIndex("force_fullscreen")
+                val freeRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+
+                addInstructions(
+                    insertIndex, """
+                        iget-object v$freeRegister, v$classRegister, $getActivityReference
+                        check-cast v$freeRegister, Landroid/app/Activity;
+                        sput-object v$freeRegister, $FULLSCREEN->watchDescriptorActivity:Landroid/app/Activity;
+                        """
+                )
+            }
+        } ?: throw ClientSettingEndpointFingerprint.exception
+
+        /**
+         * Don't rotate the screen in vertical video.
+         * Add an instruction to check the vertical video.
+         */
+        VideoPortraitParentFingerprint.result?.let {
+            it.mutableMethod.apply {
+                val targetIndex = it.scanResult.patternScanResult!!.endIndex - 1
+                val targetClass = context
+                    .findClass(getInstruction<ReferenceInstruction>(targetIndex).reference.toString())!!
+                    .mutableClass
+
+                targetClass.methods.find { method -> method.parameters == listOf("I", "I", "Z") }
+                    ?.apply {
+                        addInstruction(
+                            1,
+                            "invoke-static {p1, p2}, $FULLSCREEN->setVideoPortrait(II)V"
+                        )
+                    } ?: throw PatchException("Could not find targetMethod")
+            }
+        } ?: throw VideoPortraitParentFingerprint.exception
+
+        /**
+         * Add settings
+         */
+        SettingsPatch.addPreference(
+            arrayOf(
+                "PREFERENCE: FULLSCREEN_SETTINGS",
+                "SETTINGS: FULLSCREEN_EXPERIMENTAL_FLAGS",
+                "SETTINGS: FORCE_FULLSCREEN"
+            )
+        )
+
+        SettingsPatch.updatePatchStatus("Force fullscreen")
+
+    }
+}
