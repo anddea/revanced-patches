@@ -59,6 +59,7 @@ object LayoutComponentsPatch : BytecodePatch() {
                 "PREFERENCE: GENERAL_SETTINGS",
                 "PREFERENCE: PLAYER_SETTINGS",
 
+                "SETTINGS: GENERAL_EXPERIMENTAL_FLAGS",
                 "SETTINGS: HIDE_AUDIO_TRACK_BUTTON",
                 "SETTINGS: HIDE_CHANNEL_BAR_BUTTON",
                 "SETTINGS: HIDE_LAYOUT_COMPONENTS"
