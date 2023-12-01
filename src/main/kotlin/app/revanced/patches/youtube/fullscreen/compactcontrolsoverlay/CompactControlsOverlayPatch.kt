@@ -80,6 +80,7 @@ object CompactControlsOverlayPatch : BytecodePatch(
         SettingsPatch.addPreference(
             arrayOf(
                 "PREFERENCE: FULLSCREEN_SETTINGS",
+                "SETTINGS: FULLSCREEN_EXPERIMENTAL_FLAGS",
                 "SETTINGS: ENABLE_COMPACT_CONTROLS_OVERLAY"
             )
         )

@@ -82,6 +82,7 @@ object SuggestionsShelfPatch : BytecodePatch(
         SettingsPatch.addPreference(
             arrayOf(
                 "PREFERENCE: GENERAL_SETTINGS",
+                "SETTINGS: GENERAL_EXPERIMENTAL_FLAGS",
                 "SETTINGS: HIDE_SUGGESTIONS_SHELF"
             )
         )

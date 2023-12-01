@@ -68,6 +68,7 @@ object LandScapeModePatch : BytecodePatch(
         SettingsPatch.addPreference(
             arrayOf(
                 "PREFERENCE: FULLSCREEN_SETTINGS",
+                "SETTINGS: FULLSCREEN_EXPERIMENTAL_FLAGS",
                 "SETTINGS: DISABLE_LANDSCAPE_MODE"
             )
         )

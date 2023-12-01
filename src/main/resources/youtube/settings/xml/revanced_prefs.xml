@@ -119,9 +119,6 @@
         <!-- SETTINGS: AMBIENT_MODE_SWITCH
         <SwitchPreference android:title="@string/revanced_disable_ambient_mode_in_fullscreen_title" android:key="revanced_disable_ambient_mode_in_fullscreen" android:defaultValue="false" android:summary="@string/revanced_disable_ambient_mode_in_fullscreen_summary" />SETTINGS: AMBIENT_MODE_SWITCH -->
 
-        <!-- SETTINGS: DISABLE_LANDSCAPE_MODE
-        <SwitchPreference android:title="@string/revanced_disable_landscape_mode_title" android:key="revanced_disable_landscape_mode" android:defaultValue="false" android:summaryOn="@string/revanced_disable_landscape_mode_summary_on" android:summaryOff="@string/revanced_disable_landscape_mode_summary_off" />SETTINGS: DISABLE_LANDSCAPE_MODE -->
-
         <!-- SETTINGS: HIDE_AUTOPLAY_PREVIEW
         <SwitchPreference android:title="@string/revanced_hide_autoplay_preview_title" android:key="revanced_hide_autoplay_preview" android:defaultValue="false" android:summaryOn="@string/revanced_hide_autoplay_preview_summary_on" android:summaryOff="@string/revanced_hide_autoplay_preview_summary_off" />SETTINGS: HIDE_AUTOPLAY_PREVIEW -->
 
@@ -147,8 +144,13 @@
         <SwitchPreference android:title="@string/revanced_hide_quick_actions_share_title" android:key="revanced_hide_quick_actions_share" android:defaultValue="false" android:summaryOn="@string/revanced_hide_quick_actions_share_summary_on" android:summaryOff="@string/revanced_hide_quick_actions_share_summary_off" />
         <app.revanced.integrations.settingsmenu.ResettableEditTextPreference android:hint="12" android:defaultValue="12" android:title="@string/revanced_quick_actions_margin_top_title" android:key="revanced_quick_actions_margin_top" android:summary="@string/revanced_quick_actions_margin_top_summary" android:inputType="number" />SETTINGS: QUICK_ACTIONS_COMPONENTS -->
 
-        <!-- SETTINGS: ENABLE_COMPACT_CONTROLS_OVERLAY
-        <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_experimental_flag" />
+        <!-- SETTINGS: FULLSCREEN_EXPERIMENTAL_FLAGS
+        <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_experimental_flag" />SETTINGS: FULLSCREEN_EXPERIMENTAL_FLAGS -->
+
+        <!-- SETTINGS: DISABLE_LANDSCAPE_MODE
+        <SwitchPreference android:title="@string/revanced_disable_landscape_mode_title" android:key="revanced_disable_landscape_mode" android:defaultValue="false" android:summaryOn="@string/revanced_disable_landscape_mode_summary_on" android:summaryOff="@string/revanced_disable_landscape_mode_summary_off" />SETTINGS: DISABLE_LANDSCAPE_MODE -->
+
+		<!-- SETTINGS: ENABLE_COMPACT_CONTROLS_OVERLAY
         <SwitchPreference android:title="@string/revanced_enable_compact_controls_overlay_title" android:key="revanced_enable_compact_controls_overlay" android:defaultValue="false" android:summaryOn="@string/revanced_enable_compact_controls_overlay_summary_on" android:summaryOff="@string/revanced_enable_compact_controls_overlay_summary_off" />SETTINGS: ENABLE_COMPACT_CONTROLS_OVERLAY -->
 
     <!-- PREFERENCE: FULLSCREEN_SETTINGS
@@ -214,9 +216,6 @@
         <!-- SETTINGS: HIDE_SNACK_BAR
         <SwitchPreference android:title="@string/revanced_hide_snack_bar_title" android:key="revanced_hide_snack_bar" android:defaultValue="false" android:summaryOn="@string/revanced_hide_snack_bar_summary_on" android:summaryOff="@string/revanced_hide_snack_bar_summary_off" />SETTINGS: HIDE_SNACK_BAR -->
 
-        <!-- SETTINGS: HIDE_SUGGESTIONS_SHELF
-        <SwitchPreference android:title="@string/revanced_hide_suggestions_shelf_title" android:key="revanced_hide_suggestions_shelf" android:defaultValue="false" android:summary="@string/revanced_hide_suggestions_shelf_summary" />SETTINGS: HIDE_SUGGESTIONS_SHELF -->
-
         <!-- SETTINGS: HIDE_TOOLBAR_BUTTON
         <SwitchPreference android:title="@string/revanced_hide_toolbar_create_notification_button_title" android:key="revanced_hide_toolbar_create_notification_button" android:defaultValue="false" android:summaryOn="@string/revanced_hide_toolbar_create_notification_button_summary_on" android:summaryOff="@string/revanced_hide_toolbar_create_notification_button_summary_off" />SETTINGS: HIDE_TOOLBAR_BUTTON -->
 
@@ -242,8 +241,15 @@
         <SwitchPreference android:title="@string/revanced_hide_movie_shelf_title" android:key="revanced_hide_movie_shelf" android:defaultValue="false" android:summaryOn="@string/revanced_hide_movie_shelf_summary_on" android:summaryOff="@string/revanced_hide_movie_shelf_summary_off" />
         <SwitchPreference android:title="@string/revanced_hide_search_bar_title" android:key="revanced_hide_search_bar" android:defaultValue="false" android:summaryOn="@string/revanced_hide_search_bar_summary_on" android:summaryOff="@string/revanced_hide_search_bar_summary_off" />
         <SwitchPreference android:title="@string/revanced_hide_ticket_shelf_title" android:key="revanced_hide_ticket_shelf" android:defaultValue="true" android:summaryOn="@string/revanced_hide_ticket_shelf_summary_on" android:summaryOff="@string/revanced_hide_ticket_shelf_summary_off" />
-        <SwitchPreference android:title="@string/revanced_hide_timed_reactions_title" android:key="revanced_hide_timed_reactions" android:defaultValue="true" android:summaryOn="@string/revanced_hide_timed_reactions_summary_on" android:summaryOff="@string/revanced_hide_timed_reactions_summary_off" />
-        <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_experimental_flag" />
+        <SwitchPreference android:title="@string/revanced_hide_timed_reactions_title" android:key="revanced_hide_timed_reactions" android:defaultValue="true" android:summaryOn="@string/revanced_hide_timed_reactions_summary_on" android:summaryOff="@string/revanced_hide_timed_reactions_summary_off" />SETTINGS: HIDE_LAYOUT_COMPONENTS -->
+
+        <!-- SETTINGS: GENERAL_EXPERIMENTAL_FLAGS
+        <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_experimental_flag" />SETTINGS: GENERAL_EXPERIMENTAL_FLAGS -->
+
+        <!-- SETTINGS: HIDE_SUGGESTIONS_SHELF
+        <SwitchPreference android:title="@string/revanced_hide_suggestions_shelf_title" android:key="revanced_hide_suggestions_shelf" android:defaultValue="false" android:summary="@string/revanced_hide_suggestions_shelf_summary" />SETTINGS: HIDE_SUGGESTIONS_SHELF -->
+
+        <!-- SETTINGS: HIDE_LAYOUT_COMPONENTS
         <SwitchPreference android:title="@string/revanced_hide_video_with_low_view_title" android:key="revanced_hide_video_with_low_view" android:defaultValue="false" android:summary="@string/revanced_hide_video_with_low_view_summary" />SETTINGS: HIDE_LAYOUT_COMPONENTS -->
 
         <!-- SETTINGS: HIDE_CHANNEL_PROFILE_COMPONENTS
