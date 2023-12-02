@@ -206,15 +206,21 @@
     <string name="revanced_extended_settings_import_success">Настройки успешно импортированы.</string>
     <string name="revanced_extended_settings_import_summary">Импортировать настройки из файла.</string>
     <string name="revanced_extended_settings_import_title">Импорт настроек</string>
+    <string name="revanced_external_downloader_download">Скачать приложение</string>
     <string name="revanced_external_downloader_installed">Установлен</string>
     <string name="revanced_external_downloader_not_installed">Не установлен</string>
     <string name="revanced_external_downloader_not_installed_warning" formatted="false">%s не установлен. Пожалуйста, установите его.</string>
     <string name="revanced_external_downloader_package_name_summary">Имя пакета вашего установленного внешнего загрузчика. Например, NewPipe или YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_title">Имя пакета внешнего загрузчика</string>
+    <string name="revanced_external_downloader_set">Сделать загрузчиком по умолчанию</string>
     <string name="revanced_external_downloader_settings_summary">Настройки использования внешнего загрузчика видео.</string>
     <string name="revanced_external_downloader_settings_title">Настройки внешнего загрузчика</string>
     <string name="revanced_feed_flyout_panel_title">Выдвижная панель ленты</string>
     <string name="revanced_flyout_menu">Выдвижное меню</string>
+    <string name="revanced_force_fullscreen_summary">"Видео будет переведено в полноэкранный режим в следующих ситуациях:
+
+• Нажатие на временную метку в комментариях.
+• Запуск видео."</string>
     <string name="revanced_force_fullscreen_title">Постоянный полноэкранный режим</string>
     <string name="revanced_fullscreen">Полноэкранный режим</string>
     <string name="revanced_general">Основные</string>
@@ -590,6 +596,15 @@
 
 Известная проблема: Автовоспроизведение не работает."</string>
     <string name="revanced_hide_suggested_video_overlay_title">Скрыть рекомендуемое видео</string>
+    <string name="revanced_hide_suggestions_shelf_method_summary_off">"Идентифицирует секции рекомендаций через browse id.
+
+Известные проблемы:
+• Когда Browseid не идентифицирован, секции рекомендаций могут не быть скрыты."</string>
+    <string name="revanced_hide_suggestions_shelf_method_summary_on">"Идентифицирует секции рекомендаций через текущую вкладку.
+
+Известные проблемы:
+• Секции в разделах навигатора могут быть скрыты.
+• Секции плейлистов могут быть скрыты."</string>
     <string name="revanced_hide_suggestions_shelf_method_title">Метод скрытия секций</string>
     <string name="revanced_hide_suggestions_shelf_summary">"Скрывает следующие секции:
 • Срочные новости
@@ -668,7 +683,6 @@
     <string name="revanced_quick_actions_margin_top_title">Пространство сверху быстрых действий</string>
     <string name="revanced_quick_actions_margin_top_warning">Пространство сверху быстрых действий должно быть в промежутке 0-64. Сброс к значениям по умолчанию.</string>
     <string name="revanced_quick_actions_title">Быстрые действия</string>
-    <string name="revanced_reboot_first_run">Перезапустите для правильной загрузки интерфейса</string>
     <string name="revanced_ryd_about">Об интеграции</string>
     <string name="revanced_ryd_attribution_summary">Данные отметок \"Не нравится\" предоставлены Return YouTube Dislike API. Нажмите здесь, чтобы узнать больше.</string>
     <string name="revanced_ryd_compact_layout_summary_off">Кнопка \"Нравится\" стилизована для лучшего внешнего вида.</string>
@@ -684,8 +698,13 @@
     <string name="revanced_ryd_failure_connection_status_code" formatted="false">Отметки \"Не нравится\" недоступны (статус %d).</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Отметки \"Не нравится\" недоступны (достигнут лимит клиентов сервера API).</string>
     <string name="revanced_ryd_failure_generic">Отметки \"Не нравится\" недоступны (%s).</string>
+    <string name="revanced_ryd_shorts_summary_disclaimer">Ограничение: Отметки \"Не нравится\" могут не появляться в определённых ситуациях.</string>
     <string name="revanced_ryd_shorts_summary_off">Отметки \"Не нравится\" в \"Shorts\" скрыты.</string>
+    <string name="revanced_ryd_shorts_summary_on">Отметки \"Не нравится\" в \"Shorts\" отображены. %s</string>
     <string name="revanced_ryd_shorts_title">Отметки \"Не нравится\" в \"Shorts\"</string>
+    <string name="revanced_ryd_toast_on_connection_error_title">Уведомление, когда API недоступен</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary_off">Всплывающее уведомление не отображено, когда ReturnYouTubeDislike API недоступен.</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary_on">Всплывающее уведомление отображено, когда ReturnYouTubeDislike API недоступен.</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Скрыто</string>
     <string name="revanced_sanitize_sharing_links_summary">Убирает параметры отслеживания запросов из URL при отправке ссылки.</string>
     <string name="revanced_sanitize_sharing_links_title">Очищать ссылки от мусора</string>
@@ -710,8 +729,8 @@
 • При запуске видео есть задержка примерно 0.7 секунды, но качество по умолчанию применяется моментально.
 • Не применяется к HDR видео, трансляциям, видео короче 10 секунд."</string>
     <string name="revanced_skip_preloaded_buffer_title">Пропустить предварительную загрузку</string>
-    <string name="revanced_skip_preloaded_buffer_toast_summary_off">Уведомление скрыто.</string>
-    <string name="revanced_skip_preloaded_buffer_toast_summary_on">Уведомление отображено.</string>
+    <string name="revanced_skip_preloaded_buffer_toast_summary_off">Всплывающее уведомление скрыто.</string>
+    <string name="revanced_skip_preloaded_buffer_toast_summary_on">Всплывающее уведомление отображено.</string>
     <string name="revanced_skip_preloaded_buffer_toast_title">Уведомление при пропуске</string>
     <string name="revanced_spoof_app_version_summary">"Подменяет версию клиента на старую.
 
@@ -796,6 +815,9 @@
     <string name="sb_guidelines_popup_already_read">Уже прочитано</string>
     <string name="sb_guidelines_popup_open">Показать</string>
     <string name="sb_general">Основные</string>
+    <string name="sb_toast_on_connection_error_title">Уведомление, когда API недоступен</string>
+    <string name="sb_toast_on_connection_error_summary_on">Всплывающее уведомление отображено, когда SponsorBlock API недоступен.</string>
+    <string name="sb_toast_on_connection_error_summary_off">Всплывающее уведомление не отображено, когда SponsorBlock API недоступен.</string>
     <string name="sb_general_skipcount">Подсчёт количества пропусков</string>
     <string name="sb_general_skipcount_sum_on">Это позволяет системе лидеров SponsorBlock знать, сколько времени было сэкономлено. Сообщение отправляется на сервер каждый раз при пропуске сегмента.</string>
     <string name="sb_general_skipcount_sum_off">Подсчёт количества пропусков отключён.</string>
@@ -810,6 +832,8 @@
     <string name="sb_api_url_invalid">Адрес сервера API недействителен.</string>
     <string name="sb_api_url_changed">Адрес сервера API изменён.</string>
     <string name="sb_settings_copy">Копировать</string>
+    <string name="sb_settings_ie_sum">Ваша JSON конфигурация SponsorBlock, которая может быть импортирована / экспортирована в ReVanced Extended и другие платформы SponsorBlock. %s</string>
+    <string name="sb_settings_ie_sum_warning">Она включает в себя ваш личный ID пользователя, делитесь ею с умом.</string>
     <string name="sb_settings_ie">Импорт / Экспорт настроек</string>
     <string name="sb_settings_import_successful">Настройки успешно импортированы.</string>
     <string name="sb_settings_import_failed">Не удалось импортировать: %s.</string>

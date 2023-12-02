@@ -208,15 +208,21 @@
     <string name="revanced_extended_settings_import_success">Οι ρυθμίσεις εισήχθησαν με επιτυχία.</string>
     <string name="revanced_extended_settings_import_summary">Εισαγωγή ρυθμίσεων από αποθηκευμένο αρχείο.</string>
     <string name="revanced_extended_settings_import_title">Εισαγωγή ρυθμίσεων</string>
+    <string name="revanced_external_downloader_download">Λήψη εφαρμογής</string>
     <string name="revanced_external_downloader_installed">Εγκατεστημένο</string>
     <string name="revanced_external_downloader_not_installed">Δεν έχει εγκατασταθεί</string>
     <string name="revanced_external_downloader_not_installed_warning" formatted="false">%s δεν έχει εγκατασταθεί. Παρακαλούμε εγκαταστήστε το.</string>
     <string name="revanced_external_downloader_package_name_summary">Όνομα πακέτου της εγκατεστημένης σας εξωτερικής εφαρμογής λήψης (π.χ NewPipe, YTLDnis)</string>
     <string name="revanced_external_downloader_package_name_title">Όνομα πακέτου εξωτερικού προγράμματος λήψης</string>
+    <string name="revanced_external_downloader_set">Ορισμός ως προεπιλεγμένο πρόγραμμα λήψης</string>
     <string name="revanced_external_downloader_settings_summary">Ρυθμίσεις για χρήση εξωτερικού προγράμματος λήψης</string>
     <string name="revanced_external_downloader_settings_title">Ρυθμίσεις εξωτερικού προγράμματος λήψης</string>
     <string name="revanced_feed_flyout_panel_title">Αναδυόμενος πίνακας στη ροή</string>
     <string name="revanced_flyout_menu">Αναδυόμενο μενού ρυθμίσεων</string>
+    <string name="revanced_force_fullscreen_summary">"Τα βίντεο θα αναπαραχθούν σε λειτουργία πλήρους οθόνης στις ακόλουθες περιπτώσεις:
+
+• Κάνατε κλικ σε κάποια χρονοσήμανση στα σχόλια.
+• Το βίντεο ξεκίνησε."</string>
     <string name="revanced_force_fullscreen_title">Εξαναγκασμός πλήρους οθόνης</string>
     <string name="revanced_fullscreen">Λειτουργία πλήρους οθόνης</string>
     <string name="revanced_general">Γενικά</string>
@@ -591,6 +597,15 @@
     <string name="revanced_hide_suggested_video_overlay_summary">"Απόκρυψη του προτεινόμενου βίντεο για την επόμενη αναπαραγωγή
 Γνωστό πρόβλημα: Η αυτόματη αναπαραγωγή δεν λειτουργεί"</string>
     <string name="revanced_hide_suggested_video_overlay_title">Απόκρυψη προτεινόμενων βίντεο</string>
+    <string name="revanced_hide_suggestions_shelf_method_summary_off">"Προσδιορισμός του ραφιού προτάσεων μέσω του αναγνωριστικό περιήγησης.
+
+Γνωστά προβλήματα:
+• Όταν το αναγνωριστικό περιήγησης (Browseid) δεν αναγνωρίζεται, τα ράφια προτάσεων ενδέχεται να εμφανίζονται."</string>
+    <string name="revanced_hide_suggestions_shelf_method_summary_on">"Προσδιορισμός του ραφιού προτάσεων μέσω της τρέχουσας καρτέλας.
+
+Γνωστά προβλήματα:
+• Ενδέχεται να είναι κρυμμένα περισσότερα ράφια συρταριών.
+• Ενδέχεται να είναι κρυμμένα τα ράφια λίστας αναπαραγωγής."</string>
     <string name="revanced_hide_suggestions_shelf_method_title">Επιλέξτε μέθοδο για την απόκρυψη των ραφιών</string>
     <string name="revanced_hide_suggestions_shelf_summary">"Απόκρυψη των παρακάτω ραφιών:
 
@@ -670,7 +685,6 @@
     <string name="revanced_quick_actions_margin_top_title">Πάνω περιθώριο γρήγορων ενεργειών</string>
     <string name="revanced_quick_actions_margin_top_warning">Το πάνω περιθώριο των γρήγορων ενεργειών πρέπει να είναι μεταξύ 0-64. Έγινε επαναφορά στις προεπιλεγμένες τιμές.</string>
     <string name="revanced_quick_actions_title">Γρήγορες ενέργειες</string>
-    <string name="revanced_reboot_first_run">Επανεκκίνηση για να φορτώσετε κανονικά τη διάταξη</string>
     <string name="revanced_ryd_about">Σχετικά με</string>
     <string name="revanced_ryd_attribution_summary">Τα δεδομένα Dislike παρέχονται από το API του Return YouTube Dislike.  Πατήστε εδώ για να μάθετε περισσότερα.</string>
     <string name="revanced_ryd_compact_layout_summary_off">Εμφανίζεται κουμπί «Μου αρέσει» διαμορφωμένο για καλύτερη εμφάνιση</string>
@@ -686,8 +700,13 @@
     <string name="revanced_ryd_failure_connection_status_code" formatted="false">Τα δεδομένα dislike δεν είναι διαθέσιμα (κατάσταση %d).</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Dislikes μη διαθέσιμα (το όριο του API του πελάτη έχει επιτευχθεί)</string>
     <string name="revanced_ryd_failure_generic">Τα δεδομένα dislike δεν είναι διαθέσιμα (%s).</string>
+    <string name="revanced_ryd_shorts_summary_disclaimer">Περιορισμός: Τα Dislike μπορεί να μην εμφανίζονται σε ορισμένες περιπτώσεις.</string>
     <string name="revanced_ryd_shorts_summary_off">Τα dislikes δεν εμφανίζονται στα Shorts</string>
+    <string name="revanced_ryd_shorts_summary_on">Τα dislikes εμφανίζονται στα Shorts. %s</string>
     <string name="revanced_ryd_shorts_title">Εμφάνιση των dislikes στα Shorts</string>
+    <string name="revanced_ryd_toast_on_connection_error_title">Εμφάνιση ειδοποίησης αν το API δεν είναι διαθέσιμο</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary_off">Δεν εμφανίζεται ειδοποίηση αν το ReturnYouTubeDislike API δεν είναι διαθέσιμο.</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary_on">Εμφανίζεται ειδοποίηση αν το ReturnYouTubeDislike API δεν είναι διαθέσιμο.</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Κρυφό</string>
     <string name="revanced_sanitize_sharing_links_summary">Αφαίρεση των παραμέτρων ερωτήματος παρακολούθησης από τις διευθύνσεις URL κατά την κοινή χρήση συνδέσμων.</string>
     <string name="revanced_sanitize_sharing_links_title">Καθαρισμός συνδέσμων κοινοποίησης</string>
@@ -800,6 +819,9 @@
     <string name="sb_guidelines_popup_already_read">Το διάβασα ήδη</string>
     <string name="sb_guidelines_popup_open">Δείξε μου</string>
     <string name="sb_general">Γενικά</string>
+    <string name="sb_toast_on_connection_error_title">Εμφάνιση ειδοποίησης αν το API δεν είναι διαθέσιμο</string>
+    <string name="sb_toast_on_connection_error_summary_on">Εμφανίζεται ειδοποίηση αν το SponsorBlock API δεν είναι διαθέσιμο.</string>
+    <string name="sb_toast_on_connection_error_summary_off">Δεν εμφανίζεται ειδοποίηση αν το SponsorBlock API δεν είναι διαθέσιμο.</string>
     <string name="sb_general_skipcount">Mετρητής παραλείψεων τμημάτων</string>
     <string name="sb_general_skipcount_sum_on">Επιτρέπει στον πίνακα κατάταξης SponsorBlock να γνωρίζει πόσος χρόνος εξοικονομήθηκε. Ένα μήνυμα αποστέλλεται στον πίνακα κατάταξης κάθε φορά που παραλείπεται ένα τμήμα</string>
     <string name="sb_general_skipcount_sum_off">Ο μετρητής παραλείψεων δεν είναι ενεργός</string>
@@ -814,6 +836,8 @@
     <string name="sb_api_url_invalid">Η διεύθυνση URL του API δεν είναι έγκυρη</string>
     <string name="sb_api_url_changed">Η διεύθυνση URL του API άλλαξε</string>
     <string name="sb_settings_copy">Αντιγραφή</string>
+    <string name="sb_settings_ie_sum">Οι ρυθμίσεις SponsorBlock σας σε μορφή JSON που μπορούν να εισαχθούν / εξαχθούν στο ReVanced Extended και σε άλλες πλατφόρμες SponsorBlock. %s</string>
+    <string name="sb_settings_ie_sum_warning">Αυτό περιλαμβάνει το ιδιωτικό σας id χρήστη. Βεβαιωθείτε πως το μοιράζεστε με σύνεση.</string>
     <string name="sb_settings_ie">Εισαγωγή / Εξαγωγή ρυθμίσεων</string>
     <string name="sb_settings_import_successful">Οι ρυθμίσεις εισήχθησαν επιτυχώς</string>
     <string name="sb_settings_import_failed">Η εισαγωγή απέτυχε: %s</string>

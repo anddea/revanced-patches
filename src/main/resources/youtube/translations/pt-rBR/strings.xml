@@ -205,15 +205,21 @@ Aba &gt; Visualizar canal &gt; Menu &gt; Configurações"</string>
     <string name="revanced_extended_settings_import_success">As configurações foram importadas com sucesso.</string>
     <string name="revanced_extended_settings_import_summary">Importar configurações do arquivo salvo.</string>
     <string name="revanced_extended_settings_import_title">Importar configurações</string>
+    <string name="revanced_external_downloader_download">Baixar aplicativo</string>
     <string name="revanced_external_downloader_installed">Instalado</string>
     <string name="revanced_external_downloader_not_installed">Não instalado</string>
     <string name="revanced_external_downloader_not_installed_warning" formatted="false">%s não está instalado. Por favor, instale-o.</string>
     <string name="revanced_external_downloader_package_name_summary">Nome do pacote do seu aplicativo de download externo instalado, como NewPipe ou YTDLnis</string>
     <string name="revanced_external_downloader_package_name_title">Nome do pacote do aplicativo de download externo</string>
+    <string name="revanced_external_downloader_set">Definir como baixador padrão</string>
     <string name="revanced_external_downloader_settings_summary">Configurações para usar um aplicativo de download externo</string>
     <string name="revanced_external_downloader_settings_title">Configurações de download externo</string>
     <string name="revanced_feed_flyout_panel_title">Painel suspenso do feed</string>
     <string name="revanced_flyout_menu">Menu suspenso</string>
+    <string name="revanced_force_fullscreen_summary">"O vídeo será alternado para tela cheia nas seguintes situações:
+
+• Clicado no timestamp nos comentários.
+• O vídeo foi iniciado."</string>
     <string name="revanced_force_fullscreen_title">Forçar tela cheia</string>
     <string name="revanced_fullscreen">Tela cheia</string>
     <string name="revanced_general">Geral</string>
@@ -588,6 +594,15 @@ Problema conhecido: Cabeçalhos oficiais nos resultados de busca estão ocultos"
     <string name="revanced_hide_suggested_video_overlay_summary">"Oculta a sobreposição de vídeo sugerida para reproduzir o próximo
 Problema conhecido: a reprodução automática não funciona"</string>
     <string name="revanced_hide_suggested_video_overlay_title">Ocultar sobreposição de vídeo sugerida</string>
+    <string name="revanced_hide_suggestions_shelf_method_summary_off">"Identifica a estante de sugestões através do ID de navegação.
+
+Problemas conhecidos:
+• Quando o Browseid não é identificado, a prateleira de sugestões não pode ser ocultada."</string>
+    <string name="revanced_hide_suggestions_shelf_method_summary_on">"Identifica a prateleira de sugestões através da aba atual.
+
+Problemas conhecidos:
+• Mais prateleiras de gaveta podem estar ocultas.
+• Prateleiras de lista de reprodução podem ser ocultadas."</string>
     <string name="revanced_hide_suggestions_shelf_method_title">Selecione o método para ocultar os shelves</string>
     <string name="revanced_hide_suggestions_shelf_summary">"Oculta as seguintes prateleiras:
 - Últimas notícias
@@ -666,7 +681,6 @@ Toque e segure para definir a velocidade do vídeo para 1.0x"</string>
     <string name="revanced_quick_actions_margin_top_title">Margem superior das ações rápidas</string>
     <string name="revanced_quick_actions_margin_top_warning">Margem superior das ações rápidas deve ser entre 0-64. Voltar para os valores padrão.</string>
     <string name="revanced_quick_actions_title">Ações rápidas</string>
-    <string name="revanced_reboot_first_run">Reinicie para carregar o layout normalmente</string>
     <string name="revanced_ryd_about">Sobre</string>
     <string name="revanced_ryd_attribution_summary">Os dados de dislikes são fornecidos pela API do Return YouTube Dislike. Toque aqui para obter mais informações.</string>
     <string name="revanced_ryd_compact_layout_summary_off">O botão curtir estilizado para melhor aparência</string>
@@ -682,8 +696,13 @@ Toque e segure para definir a velocidade do vídeo para 1.0x"</string>
     <string name="revanced_ryd_failure_connection_status_code" formatted="false">Deslikes indisponível (status %d).</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Dislikes não disponíveis (limite de API do cliente atingido)</string>
     <string name="revanced_ryd_failure_generic">Deslikes indisponível (%s).</string>
+    <string name="revanced_ryd_shorts_summary_disclaimer">Limitação: Os dislikes podem não aparecer em certas situações.</string>
     <string name="revanced_ryd_shorts_summary_off">Dislikes ocultos no Shorts</string>
+    <string name="revanced_ryd_shorts_summary_on">Dislikes exibidos no Shorts. %s</string>
     <string name="revanced_ryd_shorts_title">Exibir dislikes no Shorts</string>
+    <string name="revanced_ryd_toast_on_connection_error_title">Mostrar uma notificação flutuante se a API não estiver disponível</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary_off">Toast não exibida se API do ReturnYouTubeDislike não está disponível.</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary_on">Toast exibida se API do RetornYouTubeDislike não está disponível.</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Oculto</string>
     <string name="revanced_sanitize_sharing_links_summary">Remove os parâmetros de consulta de rastreamento das URLs ao compartilhar os links.</string>
     <string name="revanced_sanitize_sharing_links_title">Limpar links compartilhados</string>
@@ -796,6 +815,9 @@ Problemas conhecidos
     <string name="sb_guidelines_popup_already_read">Já lido</string>
     <string name="sb_guidelines_popup_open">Mostre-me</string>
     <string name="sb_general">Geral</string>
+    <string name="sb_toast_on_connection_error_title">Mostrar uma notificação flutuante se a API não estiver disponível</string>
+    <string name="sb_toast_on_connection_error_summary_on">Toast exibida se a API do SponsorBlock não está disponível.</string>
+    <string name="sb_toast_on_connection_error_summary_off">Toast não exibida se a API do SponsorBlock não está disponível.</string>
     <string name="sb_general_skipcount">Ativar rastreamento de contagem de pulos</string>
     <string name="sb_general_skipcount_sum_on">Permite que a classificação do SponsorBlock saiba quanto tempo é economizado. Uma mensagem é enviada para a tabela de classificação sempre que um segmento é ignorado</string>
     <string name="sb_general_skipcount_sum_off">O rastreamento de contagem de pulos não está ativado</string>
@@ -810,6 +832,8 @@ Problemas conhecidos
     <string name="sb_api_url_invalid">URL da API é inválido</string>
     <string name="sb_api_url_changed">URL da API alterado</string>
     <string name="sb_settings_copy">Copiar</string>
+    <string name="sb_settings_ie_sum">Sua configuração JSON do SponsorBlock que pode ser importada/exportada para ReVanced Extended e outras plataformas do SponsorBlock. %s</string>
+    <string name="sb_settings_ie_sum_warning">Isso inclui seu id de usuário particular. Certifique-se de compartilhar isso sabiamente.</string>
     <string name="sb_settings_ie">Importar / Exportar configurações</string>
     <string name="sb_settings_import_successful">Configurações importadas com sucesso</string>
     <string name="sb_settings_import_failed">Falha ao importar %s</string>
