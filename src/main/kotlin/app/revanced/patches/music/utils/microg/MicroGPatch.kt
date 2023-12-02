@@ -6,6 +6,8 @@ import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.music.utils.fix.clientspoof.ClientSpoofPatch
+import app.revanced.patches.music.utils.mainactivity.MainActivityResolvePatch
+import app.revanced.patches.music.utils.mainactivity.MainActivityResolvePatch.injectInit
 import app.revanced.patches.music.utils.microg.Constants.MUSIC_PACKAGE_NAME
 import app.revanced.patches.music.utils.microg.Constants.YOUTUBE_PACKAGE_NAME
 import app.revanced.patches.music.utils.microg.fingerprints.CastContextFetchFingerprint
@@ -15,7 +17,6 @@ import app.revanced.patches.music.utils.microg.fingerprints.GooglePlayUtilityFin
 import app.revanced.patches.music.utils.microg.fingerprints.PrimeFingerprint
 import app.revanced.patches.music.utils.microg.fingerprints.ServiceCheckFingerprint
 import app.revanced.patches.shared.patch.packagename.PackageNamePatch
-import app.revanced.util.bytecode.BytecodeHelper.injectInit
 import app.revanced.util.microg.MicroGBytecodeHelper
 
 @Patch(
@@ -23,6 +24,7 @@ import app.revanced.util.microg.MicroGBytecodeHelper
     description = "Allows ReVanced Extended Music to run without root and under a different package name with MicroG.",
     dependencies = [
         ClientSpoofPatch::class,
+        MainActivityResolvePatch::class,
         MicroGResourcePatch::class,
         PackageNamePatch::class
     ],
@@ -79,7 +81,7 @@ object MicroGPatch : BytecodePatch(
             )
         )
 
-        context.injectInit("MicroGPatch", "checkAvailability", false)
+        injectInit("MicroGPatch", "checkAvailability")
 
     }
 }

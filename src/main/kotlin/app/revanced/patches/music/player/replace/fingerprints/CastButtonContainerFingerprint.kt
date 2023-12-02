@@ -8,6 +8,5 @@ object CastButtonContainerFingerprint : MethodFingerprint(
     returnType = "V",
     customFingerprint = { methodDef, _ ->
         methodDef.isWideLiteralExists(PlayerCastMediaRouteButton)
-                && methodDef.definingClass.endsWith("/MusicActivity;")
     }
 )
