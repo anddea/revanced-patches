@@ -6,7 +6,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.youtube.utils.mainactivity.fingerprints.MainActivityFingerprint
 import app.revanced.patches.youtube.utils.fix.doublebacktoclose.fingerprint.ScrollPositionFingerprint
 import app.revanced.patches.youtube.utils.fix.doublebacktoclose.fingerprint.ScrollTopFingerprint
 import app.revanced.patches.youtube.utils.fix.doublebacktoclose.fingerprint.ScrollTopParentFingerprint
@@ -18,7 +17,6 @@ import com.android.tools.smali.dexlib2.Opcode
 @Patch(dependencies = [MainActivityResolvePatch::class])
 object DoubleBackToClosePatch : BytecodePatch(
     setOf(
-        MainActivityFingerprint,
         ScrollPositionFingerprint,
         ScrollTopParentFingerprint
     )
