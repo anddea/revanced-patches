@@ -26,10 +26,10 @@ object MusicAdsPatch : AbstractAdsPatch(
     override fun execute(context: BytecodeContext) {
         super.execute(context)
 
-        SettingsPatch.addMusicPreference(CategoryType.ADS, "revanced_hide_music_ads", "true")
-
         LithoFilterPatch.addFilter(FILTER_CLASS_DESCRIPTOR)
 
+        SettingsPatch.addMusicPreference(CategoryType.ADS, "revanced_close_interstitial_ads", "false")
+        SettingsPatch.addMusicPreference(CategoryType.ADS, "revanced_hide_music_ads", "true")
     }
 
     private const val FILTER_CLASS_DESCRIPTOR =
