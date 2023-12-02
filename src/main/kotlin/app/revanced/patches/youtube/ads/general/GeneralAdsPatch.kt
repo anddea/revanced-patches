@@ -78,6 +78,7 @@ object GeneralAdsPatch : ResourcePatch() {
 
     override fun execute(context: ResourceContext) {
         LithoFilterPatch.addFilter("$COMPONENTS_PATH/AdsFilter;")
+        LithoFilterPatch.addFilter("$COMPONENTS_PATH/InterstitialBannerFilter;")
 
         context.forEach {
 
