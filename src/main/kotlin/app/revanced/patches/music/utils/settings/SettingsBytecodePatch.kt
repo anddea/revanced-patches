@@ -8,15 +8,19 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.music.utils.fingerprints.NewPlayerLayoutFingerprint
 import app.revanced.patches.music.utils.integrations.IntegrationsPatch
+import app.revanced.patches.music.utils.mainactivity.MainActivityResolvePatch
+import app.revanced.patches.music.utils.mainactivity.MainActivityResolvePatch.injectInit
 import app.revanced.patches.music.utils.settings.fingerprints.PreferenceFingerprint
 import app.revanced.patches.music.utils.settings.fingerprints.SettingsHeadersFragmentFingerprint
-import app.revanced.util.bytecode.BytecodeHelper.injectInit
 import app.revanced.util.integrations.Constants.MUSIC_INTEGRATIONS_PATH
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
-    dependencies = [IntegrationsPatch::class],
+    dependencies = [
+        IntegrationsPatch::class,
+        MainActivityResolvePatch::class
+    ],
     requiresIntegrations = true
 )
 object SettingsBytecodePatch : BytecodePatch(
@@ -79,8 +83,8 @@ object SettingsBytecodePatch : BytecodePatch(
             }
         } ?: throw PreferenceFingerprint.exception
 
-        context.injectInit("InitializationPatch", "setDeviceInformation", false)
-        context.injectInit("InitializationPatch", "initializeReVancedSettings", false)
+        injectInit("InitializationPatch", "setDeviceInformation")
+        injectInit("InitializationPatch", "initializeReVancedSettings")
 
     }
 }

@@ -9,6 +9,8 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.music.player.replace.fingerprints.CastButtonContainerFingerprint
+import app.revanced.patches.music.utils.mainactivity.MainActivityResolvePatch
+import app.revanced.patches.music.utils.mainactivity.MainActivityResolvePatch.mainActivityClassDef
 import app.revanced.patches.music.utils.playerresponse.PlayerResponsePatch
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.PlayerCastMediaRouteButton
@@ -32,6 +34,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
     name = "Replace cast button",
     description = "Replace the cast button in the player with the open music button.",
     dependencies = [
+        MainActivityResolvePatch::class,
         PlayerResponsePatch::class,
         SettingsPatch::class,
         SharedResourceIdPatch::class,
@@ -41,10 +44,9 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
     use = false
 )
 @Suppress("unused")
-object ReplaceCastButtonPatch : BytecodePatch(
-    setOf(CastButtonContainerFingerprint)
-) {
+object ReplaceCastButtonPatch : BytecodePatch() {
     override fun execute(context: BytecodeContext) {
+        CastButtonContainerFingerprint.resolve(context, mainActivityClassDef)
 
         CastButtonContainerFingerprint.result?.let {
             it.mutableMethod.apply {
