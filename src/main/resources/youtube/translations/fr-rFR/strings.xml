@@ -205,15 +205,21 @@ Catégorie \"Vous\" &gt; \"Afficher la chaîne\" &gt; Trois points &gt; \"Param�
     <string name="revanced_extended_settings_import_success">Les paramètres ont été importés avec succès</string>
     <string name="revanced_extended_settings_import_summary">Importer les paramètres depuis un fichier enregistré.</string>
     <string name="revanced_extended_settings_import_title">Paramètres d’importation</string>
+    <string name="revanced_external_downloader_download">Télécharger l\'app</string>
     <string name="revanced_external_downloader_installed">Installé</string>
     <string name="revanced_external_downloader_not_installed">Non installé</string>
     <string name="revanced_external_downloader_not_installed_warning" formatted="false">%s n\'est pas installé. Veuillez l’installer.</string>
     <string name="revanced_external_downloader_package_name_summary">Nom de package du téléchargeur externe installé, telle que NewPipe ou YTDLnis</string>
     <string name="revanced_external_downloader_package_name_title">Nom du paquet du téléchargeur externe</string>
+    <string name="revanced_external_downloader_set">Définir comme téléchargeur par défaut</string>
     <string name="revanced_external_downloader_settings_summary">Paramètres pour utiliser un téléchargeur externe</string>
     <string name="revanced_external_downloader_settings_title">Paramètres du téléchargeur externe</string>
     <string name="revanced_feed_flyout_panel_title">Menu déroulant flottant</string>
     <string name="revanced_flyout_menu">Menu \"paramètre\" des vidéos</string>
+    <string name="revanced_force_fullscreen_summary">"La vidéo passera en mode plein écran dans les situations suivantes :
+
+• Clic sur un horodatage dans les commentaires.
+• Lors du démarrage de la vidéo"</string>
     <string name="revanced_force_fullscreen_title">Forcer le plein écran</string>
     <string name="revanced_fullscreen">Boutons en plein écran</string>
     <string name="revanced_general">Mise en page générale</string>
@@ -334,6 +340,9 @@ Catégorie \"Vous\" &gt; \"Afficher la chaîne\" &gt; Trois points &gt; \"Param�
     <string name="revanced_hide_create_button_summary_off">Le bouton \"Créer\" est affiché</string>
     <string name="revanced_hide_create_button_summary_on">Le bouton \"Créer\" est masqué.</string>
     <string name="revanced_hide_create_button_title">Bouton \"Créer\"</string>
+    <string name="revanced_hide_create_shorts_button_summary_off">Le bouton \"Créer un Short\" est affiché.</string>
+    <string name="revanced_hide_create_shorts_button_summary_on">Le bouton \"Créer un Short\" est masqué.</string>
+    <string name="revanced_hide_create_shorts_button_title">Bouton \"Créer un Short\"</string>
     <string name="revanced_hide_crowdfunding_box_summary_off">La boîte de dons est affichée</string>
     <string name="revanced_hide_crowdfunding_box_summary_on">Les boîtes de dons sont masqués.</string>
     <string name="revanced_hide_crowdfunding_box_title">Les boîtes de dons</string>
@@ -588,7 +597,16 @@ Problème connu : Les fiches officielles dans les résultats de recherche sont 
 
 Problème connu : la lecture automatique ne fonctionne pas."</string>
     <string name="revanced_hide_suggested_video_overlay_title">Superposition vidéo suggérée</string>
-    <string name="revanced_hide_suggestions_shelf_method_title">Sélectionnez une méthode pour masquer les étagères</string>
+    <string name="revanced_hide_suggestions_shelf_method_summary_off">"Identifie les étagères suggérées via un id de navigation
+
+Problèmes connus : 
+• Lorsque l'id n'est pas identifié les étagères suggérées ne peuvent pas être masqué."</string>
+    <string name="revanced_hide_suggestions_shelf_method_summary_on">"Identifie les étagères suggérées dans l'onglet actuel.
+
+Problèmes connus : 
+• D'autres étagères peuvent être masqués
+• La section \"Playlist\" peut être masqué"</string>
+    <string name="revanced_hide_suggestions_shelf_method_title">Méthode de masquage des étagères</string>
     <string name="revanced_hide_suggestions_shelf_summary">"Masque les étagères suivantes :
 - Actualités
 - Continuer à regarder
@@ -665,7 +683,6 @@ Appuyez longuement pour régler la vitesse de la vidéo sur 1.0x."</string>
     <string name="revanced_quick_actions_margin_top_title">Hauteur de la barre de progression </string>
     <string name="revanced_quick_actions_margin_top_warning">La hauteur doit être comprise entre 0 et 64. Rétablir les valeurs par défaut</string>
     <string name="revanced_quick_actions_title">Actions rapides</string>
-    <string name="revanced_reboot_first_run">Redémarrez pour afficher la mise en page normalement</string>
     <string name="revanced_ryd_about">À propos</string>
     <string name="revanced_ryd_attribution_summary">Les données des \"Je n\'aime pas\" sont fournies par l\'API de Return YouTube Dislike. Appuyez ici pour en savoir plus.</string>
     <string name="revanced_ryd_compact_layout_summary_off">Le bouton \"J\'aime\" s\'affiche avec une meilleure apparence.</string>
@@ -681,8 +698,13 @@ Appuyez longuement pour régler la vitesse de la vidéo sur 1.0x."</string>
     <string name="revanced_ryd_failure_connection_status_code" formatted="false">Dislikes non disponible (status %d).</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Les dislikes sont indisponibles (limite d\'API client atteinte)</string>
     <string name="revanced_ryd_failure_generic">Dislikes non disponible (%s).</string>
+    <string name="revanced_ryd_shorts_summary_disclaimer">Limitation : Les dislikes peuvent ne pas apparaître dans certaines situations.</string>
     <string name="revanced_ryd_shorts_summary_off">Dislikes sur les Shorts masqués</string>
+    <string name="revanced_ryd_shorts_summary_on">Les dislikes sont affichés sur les Shorts. %s</string>
     <string name="revanced_ryd_shorts_title">Les dislikes sur les Shorts</string>
+    <string name="revanced_ryd_toast_on_connection_error_title">Afficher un message si l\'API n\'est pas disponible</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary_off">Message non affiché si l\'API ReturnYouTubeDislike n\'est pas disponible.</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary_on">Message affiché si l\'API ReturnYouTubeDislike n\'est pas disponible.</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Masqué</string>
     <string name="revanced_sanitize_sharing_links_summary">Supprime les paramètres de tracking des URL lors des partages de liens</string>
     <string name="revanced_sanitize_sharing_links_title">Nettoies les liens partagés</string>
@@ -795,6 +817,9 @@ Problèmes connus:
     <string name="sb_guidelines_popup_already_read">Déjà lu</string>
     <string name="sb_guidelines_popup_open">Me montrer</string>
     <string name="sb_general">Général</string>
+    <string name="sb_toast_on_connection_error_title">Message si l\'API n\'est pas disponible</string>
+    <string name="sb_toast_on_connection_error_summary_on">Message affiché si l\'API SponsorBlock n\'est pas disponible.</string>
+    <string name="sb_toast_on_connection_error_summary_off">Message non affiché si l\'API SponsorBlock n\'est pas disponible.</string>
     <string name="sb_general_skipcount">Compteur de segments passés</string>
     <string name="sb_general_skipcount_sum_on">Affiche le temps que vous auriez perdu si vous n\'aviez pas passé de segment </string>
     <string name="sb_general_skipcount_sum_off">Le compteur de segments passés est désactivé</string>
@@ -809,6 +834,8 @@ Problèmes connus:
     <string name="sb_api_url_invalid">L\'URL de l\'API est invalide</string>
     <string name="sb_api_url_changed">L\'URL de l\'API a été modifiée</string>
     <string name="sb_settings_copy">Copie</string>
+    <string name="sb_settings_ie_sum">Votre configuration JSON SponsorBlock pouvant être importée/exportée vers ReVanced Extended et d\'autres plateformes SponsorBlock. %s</string>
+    <string name="sb_settings_ie_sum_warning">Cela inclut votre identifiant utilisateur privé. Assurez-vous de le partager de manière avisée.</string>
     <string name="sb_settings_ie">Importer / Exporter des paramètres</string>
     <string name="sb_settings_import_successful">Paramètres importés avec succès</string>
     <string name="sb_settings_import_failed">Importation échouée : %s</string>

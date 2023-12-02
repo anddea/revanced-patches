@@ -207,15 +207,20 @@ Scheda Tu &gt; Visualizza canale &gt; Menù &gt; Impostazioni"</string>
     <string name="revanced_extended_settings_import_success">Impostazioni importate correttamente</string>
     <string name="revanced_extended_settings_import_summary">Importa le impostazioni dal file esportato</string>
     <string name="revanced_extended_settings_import_title">Importa impostazioni</string>
+    <string name="revanced_external_downloader_download">Scarica l\'app</string>
     <string name="revanced_external_downloader_installed">Installato</string>
     <string name="revanced_external_downloader_not_installed">Non installato</string>
     <string name="revanced_external_downloader_not_installed_warning" formatted="false">%s non è installato. Per favore installalo</string>
     <string name="revanced_external_downloader_package_name_summary">Nome del pacchetto dell\'app downloader esterna installata, ad esempio NewPipe o YTDLnis</string>
     <string name="revanced_external_downloader_package_name_title">Nome del pacchetto del downloader esterno</string>
+    <string name="revanced_external_downloader_set">Imposta come downloader predefinito</string>
     <string name="revanced_external_downloader_settings_summary">Impostazioni per l\'utilizzo di un downloader esterno</string>
     <string name="revanced_external_downloader_settings_title">Impostazioni del downloader esterno</string>
     <string name="revanced_feed_flyout_panel_title">Pannello a comparsa nei feed</string>
     <string name="revanced_flyout_menu">Menù a comparsa</string>
+    <string name="revanced_force_fullscreen_summary">"Il video passerà automaticamente a schermo intero nelle seguenti situazioni:
+• Toccando sul timestamp nei commenti
+• Appena il video inizia"</string>
     <string name="revanced_force_fullscreen_title">Forza lo schermo intero</string>
     <string name="revanced_fullscreen">Schermo intero</string>
     <string name="revanced_general">Generali</string>
@@ -337,6 +342,9 @@ Alcuni componenti potrebbero non essere nascosti"</string>
     <string name="revanced_hide_create_button_summary_off">Il pulsante Crea è visibile</string>
     <string name="revanced_hide_create_button_summary_on">Il pulsante Crea è nascosto</string>
     <string name="revanced_hide_create_button_title">Nascondi il pulsante Crea</string>
+    <string name="revanced_hide_create_shorts_button_summary_off">Il pulsante Crea Shorts è visibile</string>
+    <string name="revanced_hide_create_shorts_button_summary_on">Il pulsante Crea Shorts è nascosto</string>
+    <string name="revanced_hide_create_shorts_button_title">Nascondi il pulsante Crea Shorts</string>
     <string name="revanced_hide_crowdfunding_box_summary_off">Il riquadro della raccolta fondi è visibile</string>
     <string name="revanced_hide_crowdfunding_box_summary_on">Il riquadro della raccolta fondi è nascosto</string>
     <string name="revanced_hide_crowdfunding_box_title">Nascondi il riquadro della raccolta fondi</string>
@@ -437,9 +445,9 @@ Alcuni componenti potrebbero non essere nascosti"</string>
     <string name="revanced_hide_navigation_label_summary_off">Le etichette della barra di navigazione sono visibili</string>
     <string name="revanced_hide_navigation_label_summary_on">Le etichette della barra di navigazione sono nascoste</string>
     <string name="revanced_hide_navigation_label_title">Nascondi le etichette della barra di navigazione</string>
-    <string name="revanced_hide_notifications_button_summary_off">Il pulsante Notifiche è visibile</string>
-    <string name="revanced_hide_notifications_button_summary_on">Il pulsante Notifiche è nascosto</string>
-    <string name="revanced_hide_notifications_button_title">Nascondi il pulsante Notifiche</string>
+    <string name="revanced_hide_notifications_button_summary_off">La scheda Notifiche è visibile</string>
+    <string name="revanced_hide_notifications_button_summary_on">La scheda Notifiche è nascosto</string>
+    <string name="revanced_hide_notifications_button_title">Nascondi la scheda Notifiche</string>
     <string name="revanced_hide_notify_me_button_summary_off">Il pulsante Avvisami nei feed è visibile</string>
     <string name="revanced_hide_notify_me_button_summary_on">Il pulsante Avvisami nei feed è nascosto</string>
     <string name="revanced_hide_notify_me_button_title">Nascondi il pulsante Avvisami nei feed</string>
@@ -587,6 +595,14 @@ Alcuni componenti potrebbero non essere nascosti"</string>
     <string name="revanced_hide_suggested_actions_title">Nascondi le azioni consigliate</string>
     <string name="revanced_hide_suggested_video_overlay_summary">"Problema noto: la riproduzione automatica non funziona"</string>
     <string name="revanced_hide_suggested_video_overlay_title">Nascondi la sovrapposizione del video suggerito da riprodurre successivamente</string>
+    <string name="revanced_hide_suggestions_shelf_method_summary_off">"Identifica gli scaffali dei suggerimenti attraverso il BrowseId.
+
+Problema noto: quando il BrowseId non viene identificato, gli scaffali dei suggerimenti potrebbero non essere nascosti"</string>
+    <string name="revanced_hide_suggestions_shelf_method_summary_on">"Identifica gli scaffali dei suggerimenti attraverso la scheda corrente.
+
+Problemi noti:
+• Altri scaffali potrebbero essere nascosti
+• Gli scaffali delle playlist potrebbero essere nascosti"</string>
     <string name="revanced_hide_suggestions_shelf_method_title">Seleziona il metodo per nascondere gli scaffali</string>
     <string name="revanced_hide_suggestions_shelf_summary">"Nasconde i seguenti scaffali:
 • Ultime notizie
@@ -665,7 +681,8 @@ Tocca e tieni premuto per impostare la velocità di riproduzione a 1.0x"</string
     <string name="revanced_quick_actions_margin_top_title">Margine superiore delle azioni rapide</string>
     <string name="revanced_quick_actions_margin_top_warning">Il valore del margine superiore deve essere compreso tra 0 e 64. Ripristinando ai valori predefiniti</string>
     <string name="revanced_quick_actions_title">Azioni rapide</string>
-    <string name="revanced_reboot_first_run">Riavvia per caricare l\'interfaccia normalmente</string>
+    <string name="revanced_restart_first_run">Riavvia per caricare l\'interfaccia normalmente</string>
+    <string name="revanced_restart_message">Ricarica e riavvia</string>
     <string name="revanced_ryd_about">Informazioni</string>
     <string name="revanced_ryd_attribution_summary">I dati relativi ai Non Mi Piace sono forniti dall\'API di Return YouTube Dislike. Tocca qui per saperne di più</string>
     <string name="revanced_ryd_compact_layout_summary_off">Pulsante Mi Piace riadattato per la migliore visualizzazione</string>
@@ -681,8 +698,13 @@ Tocca e tieni premuto per impostare la velocità di riproduzione a 1.0x"</string
     <string name="revanced_ryd_failure_connection_status_code" formatted="false">Non Mi Piace non disponibili (stato %d)</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">I Non Mi Piace non sono disponibili (il limite del client API è stato raggiunto)</string>
     <string name="revanced_ryd_failure_generic">Non Mi Piace non disponibili (%s)</string>
+    <string name="revanced_ryd_shorts_summary_disclaimer">Limitazione: i Non Mi Piace potrebbero non apparire in determinate situazioni</string>
     <string name="revanced_ryd_shorts_summary_off">I Non Mi Piace degli Shorts sono nascosti</string>
+    <string name="revanced_ryd_shorts_summary_on">I Non Mi Piace degli Shorts sono visibili %s</string>
     <string name="revanced_ryd_shorts_title">Mostra i Non Mi Piace degli Shorts</string>
+    <string name="revanced_ryd_toast_on_connection_error_title">Mostra una notifica toast se l\'API non è disponibile</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary_off">Notifica toast nascosta se l\'API di ReturnYouTubeDislike non è disponibile</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary_on">Notifica toast visibile se l\'API di ReturnYouTubeDislike non è disponibile</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Nascosto</string>
     <string name="revanced_sanitize_sharing_links_summary">Rimuove i parametri della query di tracciamento dagli URL durante la condivisione dei link</string>
     <string name="revanced_sanitize_sharing_links_title">Sanitizza i link di condivisione</string>
@@ -707,9 +729,9 @@ Tocca e tieni premuto per impostare la velocità di riproduzione a 1.0x"</string
 • Quando il video inizia, c'è un ritardo di circa 0.7 secondi, ma la qualità video predefinita viene applicata immediatamente
 • Non si applica ai video HDR, dal vivo e più brevi di 10 secondi"</string>
     <string name="revanced_skip_preloaded_buffer_title">Salta il buffer precaricato</string>
-    <string name="revanced_skip_preloaded_buffer_toast_summary_off">La notifica Toast è nascosta</string>
-    <string name="revanced_skip_preloaded_buffer_toast_summary_on">La notifica Toast è visibile</string>
-    <string name="revanced_skip_preloaded_buffer_toast_title">Mostra una notifica Toast quando un segmento è saltato</string>
+    <string name="revanced_skip_preloaded_buffer_toast_summary_off">La notifica toast è nascosta</string>
+    <string name="revanced_skip_preloaded_buffer_toast_summary_on">La notifica toast è visibile</string>
+    <string name="revanced_skip_preloaded_buffer_toast_title">Mostra una notifica toast quando un segmento è saltato</string>
     <string name="revanced_spoof_app_version_summary">"Simula la versione del client a una versione precedente.
 
 • Questo cambierà l'aspetto dell'app, ma potrebbero verificarsi effetti collaterali sconosciuti
@@ -774,9 +796,9 @@ Note:
     <string name="sb_enable_auto_hide_skip_segment_button">Nascondi automaticamente il pulsante Salta</string>
     <string name="sb_enable_auto_hide_skip_segment_button_sum_on">Il pulsante Salta scompare dopo alcuni secondi</string>
     <string name="sb_enable_auto_hide_skip_segment_button_sum_off">Il pulsante Salta è visibile per tutta la durata del segmento</string>
-    <string name="sb_general_skiptoast">Mostra una notifica Toast quando un segmento è saltato automaticamente</string>
-    <string name="sb_general_skiptoast_sum_on">Notifica Toast visibile. Tocca qui per vedere un esempio</string>
-    <string name="sb_general_skiptoast_sum_off">Notifica Toast nascosta. Tocca qui per vedere un esempio</string>
+    <string name="sb_general_skiptoast">Mostra una notifica toast quando un segmento è saltato automaticamente</string>
+    <string name="sb_general_skiptoast_sum_on">Notifica toast visibile quando un segmento è saltato automaticamente. Tocca qui per vedere un esempio</string>
+    <string name="sb_general_skiptoast_sum_off">Notifica toast nascosta quando un segmento è saltato automaticamente. Tocca qui per vedere un esempio</string>
     <string name="sb_general_time_without">Mostra il tempo senza i segmenti</string>
     <string name="sb_general_time_without_sum_on">La durata del video meno tutti gli eventuali segmenti. Questo tempo è visibile tra parentesi accanto alla durata del video completo</string>
     <string name="sb_general_time_without_sum_off">La durata totale del video è visibile</string>
@@ -794,25 +816,30 @@ Note:
     <string name="sb_guidelines_popup_already_read">Già letto</string>
     <string name="sb_guidelines_popup_open">Mostrami</string>
     <string name="sb_general">Generali</string>
+    <string name="sb_toast_on_connection_error_title">Mostra una notifica toast se l\'API non è disponibile</string>
+    <string name="sb_toast_on_connection_error_summary_on">Notifica toast visibile se l\'API di SponsorBlock non è disponibile</string>
+    <string name="sb_toast_on_connection_error_summary_off">Notifica toast nascosta se l\'API di SponsorBlock non è disponibile</string>
     <string name="sb_general_skipcount">Attiva l\'invio del conteggio dei salti</string>
     <string name="sb_general_skipcount_sum_on">Questo permette al sistema di classifica di SponsorBlock di sapere quanto tempo le persone hanno risparmiato. Viene inviato un messaggio al server ogni volta che un segmento viene saltato</string>
     <string name="sb_general_skipcount_sum_off">L\'invio del conteggio dei salti è disattivato</string>
     <string name="sb_general_min_duration">Durata minima del segmento</string>
     <string name="sb_general_min_duration_sum">I segmenti più brevi di questo valore (in secondi) non verranno mostrati o saltati</string>
-    <string name="sb_general_uuid">Il tuo ID utente privato</string>
+    <string name="sb_general_uuid">Il tuo Id utente privato</string>
     <string name="sb_general_uuid_sum">Questo dovrebbe essere tenuto al sicuro. È come una password e non dovrebbe essere condiviso con nessuno. Se qualcuno dovesse ottenerlo, potrebbe impersonarti</string>
-    <string name="sb_general_uuid_invalid">Il campo ID utente non può essere vuoto</string>
+    <string name="sb_general_uuid_invalid">Il campo Id utente non può essere vuoto</string>
     <string name="sb_general_api_url">Cambia l\'URL dell\'API</string>
     <string name="sb_general_api_url_sum">L\'indirizzo usato da SponsorBlock per contattare il server. Non cambiarlo a meno che tu non sappia cosa stai facendo</string>
     <string name="sb_api_url_reset">URL API ripristinato</string>
     <string name="sb_api_url_invalid">URL API non valido</string>
     <string name="sb_api_url_changed">URL API cambiato</string>
     <string name="sb_settings_copy">Copia</string>
+    <string name="sb_settings_ie_sum">La tua configurazione di SponsorBlock in JSON che può essere esportata/importata su ReVanced Extended e su altre piattaforme SponsorBlock %s</string>
+    <string name="sb_settings_ie_sum_warning">Questo include il tuo Id utente privato. Assicurati di condividerlo con prudenza</string>
     <string name="sb_settings_ie">Esporta/Importa impostazioni</string>
     <string name="sb_settings_import_successful">Impostazioni importate con sucesso</string>
     <string name="sb_settings_import_failed">Importazione non riuscita: %s</string>
     <string name="sb_settings_export_failed">Esportazione non riuscita: %s</string>
-    <string name="sb_settings_revanced_export_user_id_warning">Le tue impostazioni contengono un ID utente privato di SponsorBlock.\n\nIl tuo ID utente è come una password e non dovrebbe mai essere condiviso\n</string>
+    <string name="sb_settings_revanced_export_user_id_warning">Le tue impostazioni contengono un Id utente privato di SponsorBlock.\n\nIl tuo Id utente è come una password e non dovrebbe mai essere condiviso\n</string>
     <string name="sb_settings_revanced_export_user_id_warning_dismiss">Non mostrare più questo messaggio</string>
     <string name="sb_diff_segments">Modifica il comportamento dei segmenti</string>
     <string name="sb_segments_sponsor">Sponsor</string>

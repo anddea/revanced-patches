@@ -207,15 +207,21 @@
     <string name="revanced_extended_settings_import_success">Налаштування було вдало імпортовано.</string>
     <string name="revanced_extended_settings_import_summary">Імпорт налаштувань зі збереженого файлу.</string>
     <string name="revanced_extended_settings_import_title">Імпортувати налаштування</string>
+    <string name="revanced_external_downloader_download">Завантажити додаток</string>
     <string name="revanced_external_downloader_installed">Встановлено</string>
     <string name="revanced_external_downloader_not_installed">Не встановлено</string>
     <string name="revanced_external_downloader_not_installed_warning" formatted="false">%s не встановлено. Будь ласка, встановіть його.</string>
     <string name="revanced_external_downloader_package_name_summary">Ім\'я пакета встановленого зовнішнього завантажувача, наприклад NewPipe або YTDLnis</string>
     <string name="revanced_external_downloader_package_name_title">Ім\'я пакета зовнішнього завантажувача</string>
+    <string name="revanced_external_downloader_set">Встановити як стандартний завантажувач</string>
     <string name="revanced_external_downloader_settings_summary">Параметри використання зовнішнього завантажувача</string>
     <string name="revanced_external_downloader_settings_title">Налаштування зовнішнього завантажувача</string>
     <string name="revanced_feed_flyout_panel_title">Спливаюча панель стрічки</string>
     <string name="revanced_flyout_menu">Спливаюче меню</string>
+    <string name="revanced_force_fullscreen_summary">"Відео перемикатиметься на повний екран в таких ситуаціях:
+
+• Натиснуто на мітку часу у коментарях.
+• Відео розпочалося."</string>
     <string name="revanced_force_fullscreen_title">Примусово на повний екран</string>
     <string name="revanced_fullscreen">Повноекранний режим</string>
     <string name="revanced_general">Загальні</string>
@@ -337,6 +343,9 @@
     <string name="revanced_hide_create_button_summary_off">Кнопку Створити показується</string>
     <string name="revanced_hide_create_button_summary_on">Кнопку Створити приховано</string>
     <string name="revanced_hide_create_button_title">Приховати кнопку Створити</string>
+    <string name="revanced_hide_create_shorts_button_summary_off">Кнопку створення коротких показується.</string>
+    <string name="revanced_hide_create_shorts_button_summary_on">Кнопку створення коротких приховано.</string>
+    <string name="revanced_hide_create_shorts_button_title">Приховати кнопку створення коротких</string>
     <string name="revanced_hide_crowdfunding_box_summary_off">Скриньку фінансування показується.</string>
     <string name="revanced_hide_crowdfunding_box_summary_on">Скринька фінансування приховано</string>
     <string name="revanced_hide_crowdfunding_box_title">Приховати скриню фінансування</string>
@@ -591,6 +600,15 @@
 
 Відома проблема: Автовідтворення не працює"</string>
     <string name="revanced_hide_suggested_video_overlay_title">Приховати пропоновані відео</string>
+    <string name="revanced_hide_suggestions_shelf_method_summary_off">"Ідентифікується полицю пропозицій через ідентифікатор перегляду.
+
+Відомі проблеми:
+• Якщо ідентифікатор перегляду не виявлено, полицю пропозиції неможливо приховати."</string>
+    <string name="revanced_hide_suggestions_shelf_method_summary_on">"Ідентифікується полицю пропозицій через поточну вкладку.
+
+Відомі проблеми:
+• Більшість висувних полиць може бути приховано.
+• Полиці списку відтворення може бути приховано."</string>
     <string name="revanced_hide_suggestions_shelf_method_title">Виберіть метод приховування полиць</string>
     <string name="revanced_hide_suggestions_shelf_summary">"Приховати наступні полиці:
 - Важливі новини
@@ -669,7 +687,7 @@
     <string name="revanced_quick_actions_margin_top_title">Верхній відступ швидких дій</string>
     <string name="revanced_quick_actions_margin_top_warning">Верхній відступ швидких дій повинен бути в межах 0-64. Скидання до стандартних значень.</string>
     <string name="revanced_quick_actions_title">Швидкі дії</string>
-    <string name="revanced_reboot_first_run">Перезапустіть, щоб нормально завантажився макет</string>
+    <string name="revanced_restart_first_run">Перезапустіть, щоб нормально завантажився макет</string>
     <string name="revanced_ryd_about">Про це</string>
     <string name="revanced_ryd_attribution_summary">Дані про вподобання надаються за допомогою API повернення вподобань YouTube.  Натисніть тут, щоб дізнатися більше.</string>
     <string name="revanced_ryd_compact_layout_summary_off">Кнопку Подобається стилізовано для кращого вигляду</string>
@@ -685,8 +703,13 @@
     <string name="revanced_ryd_failure_connection_status_code" formatted="false">Дизлайки недоступні (статус %d).</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Дизлайки недоступні (досягнутий ліміт клієнта API)</string>
     <string name="revanced_ryd_failure_generic">Дизлайки недоступні (%s).</string>
+    <string name="revanced_ryd_shorts_summary_disclaimer">Обмеження: Дизлайки можуть не з\'являтися у певних ситуаціях.</string>
     <string name="revanced_ryd_shorts_summary_off">Не подобається приховано на Коротких</string>
+    <string name="revanced_ryd_shorts_summary_on">Дизлайки показується на Коротких. %s</string>
     <string name="revanced_ryd_shorts_title">Показувати Не подобається на Коротких</string>
+    <string name="revanced_ryd_toast_on_connection_error_title">Показувати тост, якщо не доступний API</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary_off">Тост не показується, якщо API ReturnYouTubeDislike не доступний.</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary_on">Тост показується, якщо API ReturnYouTubeDislike не доступний.</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Приховано</string>
     <string name="revanced_sanitize_sharing_links_summary">Вилучаються параметри запиту відстеження з посилань під час поширення посилань.</string>
     <string name="revanced_sanitize_sharing_links_title">Обробляти поширення посилань</string>
@@ -797,6 +820,9 @@
     <string name="sb_guidelines_popup_already_read">Прочитано</string>
     <string name="sb_guidelines_popup_open">Показати</string>
     <string name="sb_general">Загальні</string>
+    <string name="sb_toast_on_connection_error_title">Показувати тост, якщо не доступний API</string>
+    <string name="sb_toast_on_connection_error_summary_on">Тост показується, якщо API SponsorBlock не доступний.</string>
+    <string name="sb_toast_on_connection_error_summary_off">Тост не показується, якщо API SponsorBlock не доступний.</string>
     <string name="sb_general_skipcount">Увімкнути відстеження кількості пропусків</string>
     <string name="sb_general_skipcount_sum_on">Дозволяє таблиці лідерів SponsorBlock дізнатися, скільки часу заощаджено. Повідомлення надсилається в таблицю лідерів щоразу, коли сегмент пропущено</string>
     <string name="sb_general_skipcount_sum_off">Відстеження кількості пропусків не ввімкнено</string>
@@ -811,6 +837,8 @@
     <string name="sb_api_url_invalid">API URL недійсна</string>
     <string name="sb_api_url_changed">API URL змінено</string>
     <string name="sb_settings_copy">Копіювати</string>
+    <string name="sb_settings_ie_sum">Ваші конфігурації SponsorBlock JSON, які можуть бути імпортовані / експортовані у ReVanced Extended та інші платформи SponsorBlock. %s</string>
+    <string name="sb_settings_ie_sum_warning">Це включає Ваш особистий id користувача. Поширюйте його розумно.</string>
     <string name="sb_settings_ie">Імпортувати / Експортувати налаштування</string>
     <string name="sb_settings_import_successful">Налаштування успішно імпортовано</string>
     <string name="sb_settings_import_failed">Не вдалося імпортувати: %s</string>
