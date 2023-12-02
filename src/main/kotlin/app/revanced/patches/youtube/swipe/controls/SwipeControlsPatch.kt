@@ -13,8 +13,9 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMu
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.swipe.controls.fingerprints.HDRBrightnessFingerprint
 import app.revanced.patches.youtube.swipe.controls.fingerprints.SwipeControlsHostActivityFingerprint
-import app.revanced.patches.youtube.swipe.controls.fingerprints.WatchWhileActivityFingerprint
 import app.revanced.patches.youtube.utils.lockmodestate.LockModeStateHookPatch
+import app.revanced.patches.youtube.utils.mainactivity.MainActivityResolvePatch
+import app.revanced.patches.youtube.utils.mainactivity.MainActivityResolvePatch.mainActivityMutableClass
 import app.revanced.patches.youtube.utils.playertype.PlayerTypeHookPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch.contexts
@@ -29,6 +30,7 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
     description = "Adds volume and brightness swipe controls.",
     dependencies = [
         LockModeStateHookPatch::class,
+        MainActivityResolvePatch::class,
         PlayerTypeHookPatch::class,
         SettingsPatch::class
     ],
@@ -63,17 +65,15 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 object SwipeControlsPatch : BytecodePatch(
     setOf(
         HDRBrightnessFingerprint,
-        SwipeControlsHostActivityFingerprint,
-        WatchWhileActivityFingerprint
+        SwipeControlsHostActivityFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext) {
         val wrapperClass = SwipeControlsHostActivityFingerprint.result?.mutableClass
             ?: throw SwipeControlsHostActivityFingerprint.exception
-        val targetClass = WatchWhileActivityFingerprint.result?.mutableClass
-            ?: throw WatchWhileActivityFingerprint.exception
+        val targetClass = mainActivityMutableClass
 
-        // inject the wrapper class from integrations into the class hierarchy of WatchWhileActivity
+        // inject the wrapper class from integrations into the class hierarchy of MainActivity (WatchWhileActivity)
         wrapperClass.setSuperClass(targetClass.superclass)
         targetClass.setSuperClass(wrapperClass.type)
 

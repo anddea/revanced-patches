@@ -41,6 +41,5 @@ object GeneralAdsBytecodePatch : BytecodePatch() {
                     }
             }
         }
-
     }
 }

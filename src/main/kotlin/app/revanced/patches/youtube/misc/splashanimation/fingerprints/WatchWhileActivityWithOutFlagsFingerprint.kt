@@ -20,8 +20,7 @@ object WatchWhileActivityWithOutFlagsFingerprint : MethodFingerprint(
         Opcode.IF_EQZ // target
     ),
     customFingerprint = { methodDef, _ ->
-        methodDef.definingClass.endsWith("/WatchWhileActivity;")
-                && methodDef.name == "onCreate"
+        methodDef.name == "onCreate"
                 && methodDef.isWideLiteralExists(DarkSplashAnimation)
     }
 )

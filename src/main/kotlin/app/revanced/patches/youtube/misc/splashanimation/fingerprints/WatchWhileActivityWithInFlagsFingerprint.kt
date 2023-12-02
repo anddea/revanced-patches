@@ -7,8 +7,7 @@ object WatchWhileActivityWithInFlagsFingerprint : MethodFingerprint(
     returnType = "V",
     parameters = listOf("Landroid/os/Bundle;"),
     customFingerprint = { methodDef, _ ->
-        methodDef.definingClass.endsWith("/WatchWhileActivity;")
-                && methodDef.name == "onCreate"
+        methodDef.name == "onCreate"
                 && methodDef.isWide32LiteralExists(45407550)
     }
 )

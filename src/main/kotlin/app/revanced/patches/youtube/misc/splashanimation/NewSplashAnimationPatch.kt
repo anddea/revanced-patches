@@ -10,6 +10,8 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.misc.splashanimation.fingerprints.WatchWhileActivityWithInFlagsFingerprint
 import app.revanced.patches.youtube.misc.splashanimation.fingerprints.WatchWhileActivityWithOutFlagsFingerprint
+import app.revanced.patches.youtube.utils.mainactivity.MainActivityResolvePatch
+import app.revanced.patches.youtube.utils.mainactivity.MainActivityResolvePatch.mainActivityClassDef
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.DarkSplashAnimation
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
@@ -24,6 +26,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
     name = "Enable new splash animation",
     description = "Enables a new type of splash animation.",
     dependencies = [
+        MainActivityResolvePatch::class,
         SettingsPatch::class,
         SharedResourceIdPatch::class
     ],
@@ -55,13 +58,11 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
     ]
 )
 @Suppress("unused")
-object NewSplashAnimationPatch : BytecodePatch(
-    setOf(
-        WatchWhileActivityWithInFlagsFingerprint,
-        WatchWhileActivityWithOutFlagsFingerprint
-    )
-) {
+object NewSplashAnimationPatch : BytecodePatch() {
     override fun execute(context: BytecodeContext) {
+
+        WatchWhileActivityWithInFlagsFingerprint.resolve(context, mainActivityClassDef)
+        WatchWhileActivityWithOutFlagsFingerprint.resolve(context, mainActivityClassDef)
 
         WatchWhileActivityWithInFlagsFingerprint.result
             ?: WatchWhileActivityWithOutFlagsFingerprint.result
