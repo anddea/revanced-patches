@@ -40,7 +40,8 @@ import app.revanced.util.integrations.Constants.NAVIGATION
                 "18.42.41",
                 "18.43.45",
                 "18.44.41",
-                "18.45.43"
+                "18.45.43",
+                "18.46.43"
             ]
         )
     ]
