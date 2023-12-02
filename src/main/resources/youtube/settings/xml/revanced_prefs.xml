@@ -21,7 +21,9 @@
         <SwitchPreference android:title="@string/revanced_hide_web_search_results_title" android:key="revanced_hide_web_search_results" android:defaultValue="true" android:summaryOn="@string/revanced_hide_web_search_results_summary_on" android:summaryOff="@string/revanced_hide_web_search_results_summary_off" />SETTINGS: HIDE_GENERAL_ADS -->
 
         <!-- SETTINGS: HIDE_GENERAL_ADS
-        <SwitchPreference android:title="@string/revanced_hide_get_premium_title" android:key="revanced_hide_get_premium" android:defaultValue="true" android:summaryOn="@string/revanced_hide_get_premium_summary_on" android:summaryOff="@string/revanced_hide_get_premium_summary_off" />SETTINGS: HIDE_GENERAL_ADS -->
+        <SwitchPreference android:title="@string/revanced_hide_get_premium_title" android:key="revanced_hide_get_premium" android:defaultValue="true" android:summaryOn="@string/revanced_hide_get_premium_summary_on" android:summaryOff="@string/revanced_hide_get_premium_summary_off" />
+        <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_experimental_flag" />
+        <SwitchPreference android:title="@string/revanced_close_interstitial_ads_title" android:key="revanced_close_interstitial_ads" android:defaultValue="false" android:summary="@string/revanced_close_interstitial_ads_summary" />SETTINGS: HIDE_GENERAL_ADS -->
 
     <!-- PREFERENCE: ADS_SETTINGS
     </PreferenceScreen>PREFERENCE: ADS_SETTINGS -->
