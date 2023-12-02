@@ -9,11 +9,13 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.fullscreen.forcefullscreen.fingerprints.ClientSettingEndpointFingerprint
 import app.revanced.patches.youtube.fullscreen.forcefullscreen.fingerprints.VideoPortraitParentFingerprint
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.bytecode.getStringIndex
 import app.revanced.util.integrations.Constants.FULLSCREEN
+import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
@@ -96,7 +98,9 @@ object ForceFullscreenPatch : BytecodePatch(
          */
         VideoPortraitParentFingerprint.result?.let {
             it.mutableMethod.apply {
-                val targetIndex = it.scanResult.patternScanResult!!.endIndex - 1
+                val stringIndex = getStringIndex("Acquiring NetLatencyActionLogger failed. taskId=")
+                val invokeIndex = getTargetIndexTo(stringIndex, Opcode.INVOKE_INTERFACE)
+                val targetIndex = getTargetIndexTo(invokeIndex, Opcode.CHECK_CAST)
                 val targetClass = context
                     .findClass(getInstruction<ReferenceInstruction>(targetIndex).reference.toString())!!
                     .mutableClass
@@ -124,5 +128,18 @@ object ForceFullscreenPatch : BytecodePatch(
 
         SettingsPatch.updatePatchStatus("Force fullscreen")
 
+    }
+
+    private fun MutableMethod.getTargetIndexTo(
+        startIndex: Int,
+        opcode: Opcode
+    ): Int {
+        for (index in startIndex until implementation!!.instructions.size) {
+            if (getInstruction(index).opcode != opcode)
+                continue
+
+            return index
+        }
+        throw PatchException("Failed to find target index")
     }
 }
