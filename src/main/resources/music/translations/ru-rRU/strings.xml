@@ -175,6 +175,8 @@
     <string name="revanced_ryd_failure_connection_status_code" formatted="false">Отметки \"Не нравится\" недоступны (статус %d).</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Отметки \"Не нравится\" недоступны (достигнут лимит клиентов сервера API).</string>
     <string name="revanced_ryd_failure_generic">Отметки \"Не нравится\" недоступны (%s).</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary">Отображает всплывающее уведомление, когда ReturnYouTubeDislike API недоступен.</string>
+    <string name="revanced_ryd_toast_on_connection_error_title">Уведомление, когда API недоступен</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Скрыто</string>
     <string name="revanced_sanitize_sharing_links_summary">Убирает параметры отслеживания запросов из URL при отправке ссылки.</string>
     <string name="revanced_sanitize_sharing_links_title">Очищать ссылки от мусора</string>
@@ -201,8 +203,10 @@
     <string name="revanced_start_page_title">Вкладка начального экрана</string>
     <string name="sb_enabled">SponsorBlock</string>
     <string name="sb_enabled_sum">SponsorBlock - коллективная система для пропуска раздражающих частей видео в YouTube.</string>
+    <string name="sb_toast_on_connection_error">Уведомление, когда API недоступен</string>
+    <string name="sb_toast_on_connection_error_sum">Отображает всплывающее уведомление, когда SponsorBlock API недоступен.</string>
     <string name="sb_toast_on_skip">Уведомление при автопропуске</string>
-    <string name="sb_toast_on_skip_sum">Всплывающее уведомление отображено при автоматическом пропуске сегмента.</string>
+    <string name="sb_toast_on_skip_sum">Отображает всплывающее уведомление при автоматическом пропуске сегмента.</string>
     <string name="sb_api_url">Изменить адрес сервера API</string>
     <string name="sb_api_url_sum">Адрес, используемый для связи с сервером SponsorBlock. Не изменяйте его, если не знаете, что делаете.</string>
     <string name="sb_api_url_reset">Адрес сервера API сброшен.</string>
