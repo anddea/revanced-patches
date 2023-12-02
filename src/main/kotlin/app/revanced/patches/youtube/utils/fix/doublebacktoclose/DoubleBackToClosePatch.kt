@@ -4,16 +4,21 @@ import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.youtube.utils.fix.doublebacktoclose.fingerprint.OnBackPressedFingerprint
+import app.revanced.patches.youtube.utils.mainactivity.fingerprints.MainActivityFingerprint
 import app.revanced.patches.youtube.utils.fix.doublebacktoclose.fingerprint.ScrollPositionFingerprint
 import app.revanced.patches.youtube.utils.fix.doublebacktoclose.fingerprint.ScrollTopFingerprint
 import app.revanced.patches.youtube.utils.fix.doublebacktoclose.fingerprint.ScrollTopParentFingerprint
+import app.revanced.patches.youtube.utils.mainactivity.MainActivityResolvePatch
+import app.revanced.patches.youtube.utils.mainactivity.MainActivityResolvePatch.onBackPressedMethod
 import app.revanced.util.integrations.Constants.UTILS_PATH
+import com.android.tools.smali.dexlib2.Opcode
 
+@Patch(dependencies = [MainActivityResolvePatch::class])
 object DoubleBackToClosePatch : BytecodePatch(
     setOf(
-        OnBackPressedFingerprint,
+        MainActivityFingerprint,
         ScrollPositionFingerprint,
         ScrollTopParentFingerprint
     )
@@ -21,20 +26,20 @@ object DoubleBackToClosePatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
 
         /**
-         * Hook onBackPressed method inside WatchWhileActivity
+         * Hook onBackPressed method inside MainActivity (WatchWhileActivity)
          */
-        OnBackPressedFingerprint.result?.let {
-            it.mutableMethod.apply {
-                val insertIndex = it.scanResult.patternScanResult!!.endIndex
-
-                addInstruction(
-                    insertIndex,
-                    "invoke-static {p0}, $INTEGRATIONS_CLASS_DESCRIPTOR" +
-                            "->" +
-                            "closeActivityOnBackPressed(Landroid/app/Activity;)V"
-                )
+        onBackPressedMethod.apply {
+            val insertIndex = implementation!!.instructions.indexOfFirst { instruction ->
+                instruction.opcode == Opcode.RETURN_VOID
             }
-        } ?: throw OnBackPressedFingerprint.exception
+
+            addInstruction(
+                insertIndex,
+                "invoke-static {p0}, $INTEGRATIONS_CLASS_DESCRIPTOR" +
+                        "->" +
+                        "closeActivityOnBackPressed(Landroid/app/Activity;)V"
+            )
+        }
 
 
         /**
