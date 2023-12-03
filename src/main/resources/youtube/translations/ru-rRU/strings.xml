@@ -97,9 +97,9 @@
 
 Примечание: Отключение наложения скорости вернёт поведение старого интерфейса \"Чтобы перемотать видео, проведите по экрану\"."</string>
     <string name="revanced_disable_speed_overlay_title">Отключить наложение скорости</string>
-    <string name="revanced_disable_startup_shorts_player_summary_off">Плеер \"Shorts\" при запуске приложения отображён.</string>
-    <string name="revanced_disable_startup_shorts_player_summary_on">Плеер \"Shorts\" при запуске приложения скрыт.</string>
-    <string name="revanced_disable_startup_shorts_player_title">Отключить автозапуск плеера \"Shorts\"</string>
+    <string name="revanced_disable_startup_shorts_player_summary_off">Плеер Shorts при запуске приложения отображён.</string>
+    <string name="revanced_disable_startup_shorts_player_summary_on">Плеер Shorts при запуске приложения скрыт.</string>
+    <string name="revanced_disable_startup_shorts_player_title">Отключить автозапуск плеера Shorts</string>
     <string name="revanced_double_back_timeout_summary">Количество секунд для выхода из приложения при двойном нажатии / жесте \"Назад\".</string>
     <string name="revanced_double_back_timeout_title">Время ожидания для выхода</string>
     <string name="revanced_enable_compact_controls_overlay_summary_off">Компактные элементы управления отключены.</string>
@@ -145,9 +145,6 @@
     <string name="revanced_enable_opus_codec_title">Кодек Opus</string>
     <string name="revanced_enable_phone_layout_summary">Подменяет DPI для использования \"Телефонного\" интерфейса.</string>
     <string name="revanced_enable_phone_layout_title">Телефонный интерфейс</string>
-    <string name="revanced_enable_press_to_swipe_summary_off">Нажатие для жеста отключено.</string>
-    <string name="revanced_enable_press_to_swipe_summary_on">Нажатие для жеста включено.</string>
-    <string name="revanced_enable_press_to_swipe_title">Нажатие для жеста</string>
     <string name="revanced_enable_save_playback_speed_summary_off">Скорость воспроизведения не сохраняется при её изменении.</string>
     <string name="revanced_enable_save_playback_speed_summary_on">Скорость воспроизведения сохраняется при её изменении.</string>
     <string name="revanced_enable_save_playback_speed_title">Сохранение скорости воспроизведения</string>
@@ -163,9 +160,12 @@
     <string name="revanced_enable_swipe_brightness_summary_off">Управление яркостью жестом отключено.</string>
     <string name="revanced_enable_swipe_brightness_summary_on">Управление яркостью жестом включено.</string>
     <string name="revanced_enable_swipe_brightness_title">Управление яркостью жестом</string>
-    <string name="revanced_enable_swipe_haptic_feedback_summary_off">Виброотклик нажатия для жеста отключён.</string>
-    <string name="revanced_enable_swipe_haptic_feedback_summary_on">Виброотклик нажатия для жеста включён.</string>
-    <string name="revanced_enable_swipe_haptic_feedback_title">Виброотклик нажатия для жеста</string>
+    <string name="revanced_enable_swipe_haptic_feedback_summary_off">Виброотклик отключён.</string>
+    <string name="revanced_enable_swipe_haptic_feedback_summary_on">Виброотклик включён.</string>
+    <string name="revanced_enable_swipe_haptic_feedback_title">Виброотклик</string>
+    <string name="revanced_enable_swipe_press_to_engage_summary_off">Прикосновение для активации жеста.</string>
+    <string name="revanced_enable_swipe_press_to_engage_summary_on">Прикосновение и удержание для активации жеста.</string>
+    <string name="revanced_enable_swipe_press_to_engage_title">Нажатие для жеста</string>
     <string name="revanced_enable_swipe_volume_summary_off">Управление громкостью жестом отключено.</string>
     <string name="revanced_enable_swipe_volume_summary_on">Управление громкостью жестом включено.</string>
     <string name="revanced_enable_swipe_volume_title">Управление громкостью жестом</string>
@@ -342,6 +342,9 @@
     <string name="revanced_hide_create_button_summary_off">Кнопка \"Создать\" отображена.</string>
     <string name="revanced_hide_create_button_summary_on">Кнопка \"Создать\" скрыта.</string>
     <string name="revanced_hide_create_button_title">Скрыть кнопку \"Создать\"</string>
+    <string name="revanced_hide_create_shorts_button_summary_off">Кнопка \"Создать Shorts\" отображена.</string>
+    <string name="revanced_hide_create_shorts_button_summary_on">Кнопка \"Создать Shorts\" скрыта.</string>
+    <string name="revanced_hide_create_shorts_button_title">Скрыть кнопку \"Создать Shorts\"</string>
     <string name="revanced_hide_crowdfunding_box_summary_off">Колонка сбора средств отображена.</string>
     <string name="revanced_hide_crowdfunding_box_summary_on">Колонка сбора средств скрыта.</string>
     <string name="revanced_hide_crowdfunding_box_title">Скрыть колонку сбора средств</string>
@@ -550,8 +553,8 @@
     <string name="revanced_hide_shorts_button_summary_off">Вкладка \"Shorts\" отображена.</string>
     <string name="revanced_hide_shorts_button_summary_on">Вкладка \"Shorts\" скрыта.</string>
     <string name="revanced_hide_shorts_button_title">Скрыть вкладку \"Shorts\"</string>
-    <string name="revanced_hide_shorts_component_summary">Скрывает секции \"Shorts\" или компоненты плеера \"Shorts\".</string>
-    <string name="revanced_hide_shorts_component_title">Скрыть компоненты \"Shorts\"</string>
+    <string name="revanced_hide_shorts_component_summary">Скрывает секции \"Shorts\" или компоненты плеера Shorts.</string>
+    <string name="revanced_hide_shorts_component_title">Скрыть компоненты Shorts</string>
     <string name="revanced_hide_shorts_player_comments_button_summary_off">Кнопка \"Комментарии\" отображена.</string>
     <string name="revanced_hide_shorts_player_comments_button_summary_on">Кнопка \"Комментарии\" скрыта.</string>
     <string name="revanced_hide_shorts_player_comments_button_title">Скрыть кнопку \"Комментарии\"</string>
@@ -674,7 +677,7 @@
     <string name="revanced_overlay_button_speed_dialog_title">Выбор скорости воспроизведения</string>
     <string name="revanced_patches_information">Информация о патчах</string>
     <string name="revanced_patches_information_summary">Применённые в сборке патчи.</string>
-    <string name="revanced_playback_speed_normal">Стандартная</string>
+    <string name="revanced_playback_speed_normal">Обычная</string>
     <string name="revanced_player">Плеер</string>
     <string name="revanced_player_flyout_panel_additional_settings_summary">Для скрытия пункта \"Дополнительные настройки\", скройте всё в категории \"Пункты меню Дополнительные настройки\".</string>
     <string name="revanced_player_flyout_panel_additional_settings_title">Пункты меню \"Дополнительные настройки\"</string>
@@ -683,6 +686,8 @@
     <string name="revanced_quick_actions_margin_top_title">Пространство сверху быстрых действий</string>
     <string name="revanced_quick_actions_margin_top_warning">Пространство сверху быстрых действий должно быть в промежутке 0-64. Сброс к значениям по умолчанию.</string>
     <string name="revanced_quick_actions_title">Быстрые действия</string>
+    <string name="revanced_restart_first_run">Перезапустите для правильной загрузки интерфейса</string>
+    <string name="revanced_restart_message">Обновите и перезапустите</string>
     <string name="revanced_ryd_about">Об интеграции</string>
     <string name="revanced_ryd_attribution_summary">Данные отметок \"Не нравится\" предоставлены Return YouTube Dislike API. Нажмите здесь, чтобы узнать больше.</string>
     <string name="revanced_ryd_compact_layout_summary_off">Кнопка \"Нравится\" стилизована для лучшего внешнего вида.</string>
@@ -699,9 +704,9 @@
     <string name="revanced_ryd_failure_client_rate_limit_requested">Отметки \"Не нравится\" недоступны (достигнут лимит клиентов сервера API).</string>
     <string name="revanced_ryd_failure_generic">Отметки \"Не нравится\" недоступны (%s).</string>
     <string name="revanced_ryd_shorts_summary_disclaimer">Ограничение: Отметки \"Не нравится\" могут не появляться в определённых ситуациях.</string>
-    <string name="revanced_ryd_shorts_summary_off">Отметки \"Не нравится\" в \"Shorts\" скрыты.</string>
-    <string name="revanced_ryd_shorts_summary_on">Отметки \"Не нравится\" в \"Shorts\" отображены. %s</string>
-    <string name="revanced_ryd_shorts_title">Отметки \"Не нравится\" в \"Shorts\"</string>
+    <string name="revanced_ryd_shorts_summary_off">Отметки \"Не нравится\" в Shorts скрыты.</string>
+    <string name="revanced_ryd_shorts_summary_on">Отметки \"Не нравится\" в Shorts отображены. %s</string>
+    <string name="revanced_ryd_shorts_title">Отметки \"Не нравится\" в Shorts</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Уведомление, когда API недоступен</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_off">Всплывающее уведомление не отображено, когда ReturnYouTubeDislike API недоступен.</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_on">Всплывающее уведомление отображено, когда ReturnYouTubeDislike API недоступен.</string>
@@ -718,9 +723,9 @@
     <string name="revanced_share_copy_url_success">Ссылка скопирована в буфер.</string>
     <string name="revanced_share_copy_url_timestamp_success">Ссылка с меткой скопирована в буфер.</string>
     <string name="revanced_shorts">Shorts</string>
-    <string name="revanced_shorts_player_title">Плеер \"Shorts\"</string>
+    <string name="revanced_shorts_player_title">Плеер Shorts</string>
     <string name="revanced_shorts_toolbar_summary">Кнопка \"Назад\" на панели инструментов не может быть скрыта.</string>
-    <string name="revanced_shorts_toolbar_title">Панель инструментов в \"Shorts\"</string>
+    <string name="revanced_shorts_toolbar_title">Панель инструментов в Shorts</string>
     <string name="revanced_show_fullscreen_title_summary">Известная проблема: Заголовок исчезает при нажатии.</string>
     <string name="revanced_show_fullscreen_title_title">Полноэкранный заголовок</string>
     <string name="revanced_skipped_preloaded_buffer">Пропущена предварительная загрузка.</string>
@@ -741,7 +746,7 @@
     <string name="revanced_spoof_app_version_target_entry_18_01_38">"18.01.38 - Удаление раздела \"Спонсоры\" в комментариях"</string>
     <string name="revanced_spoof_app_version_target_entry_18_05_40">18.05.40 - Вернуть старое поле ввода комментария</string>
     <string name="revanced_spoof_app_version_target_entry_18_17_43">18.17.43 - Вернуть старую выдвижную панель плеера</string>
-    <string name="revanced_spoof_app_version_target_entry_18_33_40">18.33.40 - Вернуть старую панель действий в \"Shorts\"</string>
+    <string name="revanced_spoof_app_version_target_entry_18_33_40">18.33.40 - Вернуть старую панель действий в Shorts</string>
     <string name="revanced_spoof_app_version_target_entry_18_38_45">18.38.45 - Вернуть старое поведение качества по умолчанию</string>
     <string name="revanced_spoof_app_version_target_entry_18_40_34">"18.40.34 - Отключает обновление числа просмотров и отметок \"Нравится\" в реальном времени"</string>
     <string name="revanced_spoof_app_version_target_entry_title">Целевая версия приложения при подмене</string>
@@ -766,6 +771,9 @@
 • Видео может начинаться не с последнего времени просмотра."</string>
     <string name="revanced_spoof_player_parameter_title">Подмена параметров плеера</string>
     <string name="revanced_swipe_controls">Жесты</string>
+    <string name="revanced_swipe_gestures_lock_mode_summary_off">"Жесты отключены в режиме \"Блокировка экрана\"."</string>
+    <string name="revanced_swipe_gestures_lock_mode_summary_on">"Жесты включены в режиме \"Блокировка экрана\"."</string>
+    <string name="revanced_swipe_gestures_lock_mode_title">"Жесты в режиме \"Блокировка экрана\""</string>
     <string name="revanced_swipe_magnitude_threshold_summary">Минимальная амплитуда распознаваемого как жест движения.</string>
     <string name="revanced_swipe_magnitude_threshold_title">Пороговая величина жеста</string>
     <string name="revanced_swipe_overlay_background_alpha_summary">Видимость фона наложения при жесте.</string>

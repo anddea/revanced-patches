@@ -145,9 +145,6 @@ Lưu ý: Bật tuỳ chọn này sẽ khôi phục tính năng Trượt để tu
     <string name="revanced_enable_opus_codec_title">Buộc áp dụng codec Opus</string>
     <string name="revanced_enable_phone_layout_summary">Thay đổi DPI để sử dụng một số bố cục điện thoại.</string>
     <string name="revanced_enable_phone_layout_title">Bố cục điện thoại</string>
-    <string name="revanced_enable_press_to_swipe_summary_off">Cử chỉ nhấn và giữ để vuốt đã tắt.</string>
-    <string name="revanced_enable_press_to_swipe_summary_on">Cử chỉ nhấn và giữ để vuốt đã bật.</string>
-    <string name="revanced_enable_press_to_swipe_title">Nhấn và giữ để vuốt</string>
     <string name="revanced_enable_save_playback_speed_summary_off">Lưu tốc độ phát video đã tắt.</string>
     <string name="revanced_enable_save_playback_speed_summary_on">Đang lưu giá trị tốc độ phát đã chọn bất cứ khi nào bạn thay đổi tốc độ phát video.</string>
     <string name="revanced_enable_save_playback_speed_title">Lưu tốc độ phát video</string>
@@ -163,9 +160,12 @@ Lưu ý: Bật tuỳ chọn này sẽ khôi phục tính năng Trượt để tu
     <string name="revanced_enable_swipe_brightness_summary_off">Cử chỉ vuốt Độ sáng đã tắt.</string>
     <string name="revanced_enable_swipe_brightness_summary_on">Cử chỉ vuốt Độ sáng đã bật.</string>
     <string name="revanced_enable_swipe_brightness_title">Vuốt Độ sáng</string>
-    <string name="revanced_enable_swipe_haptic_feedback_summary_off">Phản hồi xúc giác khi nhấn và giữ để vuốt đã tắt.</string>
-    <string name="revanced_enable_swipe_haptic_feedback_summary_on">Phản hồi xúc giác khi nhấn và giữ để vuốt đã bật.</string>
-    <string name="revanced_enable_swipe_haptic_feedback_title">Phản hồi xúc giác khi nhấn và giữ để vuốt</string>
+    <string name="revanced_enable_swipe_haptic_feedback_summary_off">Phản hồi xúc giác đã tắt.</string>
+    <string name="revanced_enable_swipe_haptic_feedback_summary_on">Phản hồi xúc giác đã bật.</string>
+    <string name="revanced_enable_swipe_haptic_feedback_title">Phản hồi xúc giác</string>
+    <string name="revanced_enable_swipe_press_to_engage_summary_off">Nhấn và giữ để vuốt đã tắt.</string>
+    <string name="revanced_enable_swipe_press_to_engage_summary_on">Nhấn và giữ để kích hoạt cử chỉ vuốt.</string>
+    <string name="revanced_enable_swipe_press_to_engage_title">Nhấn và giữ để vuốt</string>
     <string name="revanced_enable_swipe_volume_summary_off">Cử chỉ vuốt Âm lượng đã tắt.</string>
     <string name="revanced_enable_swipe_volume_summary_on">Cử chỉ vuốt Âm lượng đã bật.</string>
     <string name="revanced_enable_swipe_volume_title">Vuốt Âm lượng</string>
@@ -771,6 +771,9 @@ Sự cố đã biết:
 - Tải video xuống để xem khi không có mạng, Xem tiếp có thể không hoạt động."</string>
     <string name="revanced_spoof_player_parameter_title">Giả mạo thông số trình phát</string>
     <string name="revanced_swipe_controls">Điều khiển bằng cử chỉ vuốt</string>
+    <string name="revanced_swipe_gestures_lock_mode_summary_off">"Vuốt ở chế độ Khoá màn hình đã tắt."</string>
+    <string name="revanced_swipe_gestures_lock_mode_summary_on">"Cử chỉ vuốt đã bật ở chế độ Khoá màn hình."</string>
+    <string name="revanced_swipe_gestures_lock_mode_title">"Vuốt ở chế độ Khoá màn hình"</string>
     <string name="revanced_swipe_magnitude_threshold_summary">Độ rộng của ngưỡng vuốt để thực hiện cử chỉ vuốt.</string>
     <string name="revanced_swipe_magnitude_threshold_title">Độ rộng ngưỡng vuốt</string>
     <string name="revanced_swipe_overlay_background_alpha_summary">Độ mờ của nền lớp phủ vuốt khi thực hiện cử chỉ vuốt.</string>
