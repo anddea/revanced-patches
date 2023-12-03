@@ -50,6 +50,7 @@ object VoiceSearchButtonPatch : AbstractVoiceSearchButtonPatch(
     arrayOf(
         "height",
         "marginEnd",
+        "marginStart",
         "width"
     )
 ) {
