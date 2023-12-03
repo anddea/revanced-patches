@@ -101,13 +101,14 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
 
 
         TextComponentConstructorFingerprint.result?.let { parentResult ->
+            // Resolves fingerprints
+            val parentClassDef = parentResult.classDef
+            TextComponentContextFingerprint.resolve(context, parentClassDef)
+            TextComponentTmpFingerprint.resolve(context, parentClassDef)
+            TextComponentAtomicReferenceFingerprint.resolve(context, parentClassDef)
+            TextComponentAtomicReferenceLegacyFingerprint.resolve(context, parentClassDef)
 
-            TextComponentContextFingerprint.also {
-                it.resolve(
-                    context,
-                    parentResult.classDef
-                )
-            }.result?.let {
+            TextComponentContextFingerprint.result?.let {
                 it.mutableMethod.apply {
                     val booleanIndex = it.scanResult.patternScanResult!!.endIndex
 
@@ -127,12 +128,7 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
                 }
             } ?: throw TextComponentContextFingerprint.exception
 
-            TextComponentTmpFingerprint.also {
-                it.resolve(
-                    context,
-                    parentResult.classDef
-                )
-            }.result?.let {
+            TextComponentTmpFingerprint.result?.let {
                 it.mutableMethod.apply {
                     val startIndex = it.scanResult.patternScanResult!!.startIndex
                     tmpRegister =
@@ -142,17 +138,11 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
 
 
             val textComponentAtomicReferenceResult =
-                TextComponentAtomicReferenceFingerprint.also {
-                    it.resolve(context, parentResult.classDef)
-                }.result
-                    ?: TextComponentAtomicReferenceLegacyFingerprint.also {
-                        it.resolve(context, parentResult.classDef)
-                    }.result
+                TextComponentAtomicReferenceFingerprint.result
+                    ?: TextComponentAtomicReferenceLegacyFingerprint.result
                     ?: throw TextComponentAtomicReferenceLegacyFingerprint.exception
 
-            TextComponentAtomicReferenceFingerprint.also {
-                it.resolve(context, parentResult.classDef)
-            }.result?.let {
+            TextComponentAtomicReferenceFingerprint.result?.let {
                 it.mutableMethod.apply {
                     val startIndex = it.scanResult.patternScanResult!!.startIndex
                     val originalRegisterA =
@@ -196,13 +186,13 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
             }
         } ?: throw TextComponentConstructorFingerprint.exception
 
+        VideoIdPatch.injectCall("$INTEGRATIONS_RYD_CLASS_DESCRIPTOR->newVideoLoaded(Ljava/lang/String;)V")
+        VideoIdPatch.injectPlayerResponseVideoId("$INTEGRATIONS_RYD_CLASS_DESCRIPTOR->preloadVideoId(Ljava/lang/String;Z)V")
+
         if (SettingsPatch.upward1834) {
             LithoFilterPatch.addFilter(FILTER_CLASS_DESCRIPTOR)
-            PlayerResponsePatch.injectCall("$FILTER_CLASS_DESCRIPTOR->newPlayerResponseVideoId(Ljava/lang/String;Z)V")
+            VideoIdPatch.injectPlayerResponseVideoId("$FILTER_CLASS_DESCRIPTOR->newPlayerResponseVideoId(Ljava/lang/String;Z)V")
         }
-
-        PlayerResponsePatch.injectCall("$INTEGRATIONS_RYD_CLASS_DESCRIPTOR->preloadVideoId(Ljava/lang/String;Z)V")
-        VideoIdPatch.injectCall("$INTEGRATIONS_RYD_CLASS_DESCRIPTOR->newVideoLoaded(Ljava/lang/String;)V")
 
         /**
          * Add ReVanced Extended Settings
