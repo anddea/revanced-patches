@@ -17,14 +17,13 @@ object VideoIdWithoutShortsPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
 
         VideoIdWithoutShortsFingerprint.result?.let {
-            insertMethod = it.mutableMethod
-
-            insertIndex = insertMethod.implementation!!.instructions.indexOfFirst { instruction ->
-                instruction.opcode == Opcode.INVOKE_INTERFACE
+            it.mutableMethod.apply {
+                insertMethod = this
+                insertIndex = implementation!!.instructions.indexOfFirst { instruction ->
+                    instruction.opcode == Opcode.INVOKE_INTERFACE
+                }
+                insertRegister = getInstruction<OneRegisterInstruction>(insertIndex + 1).registerA
             }
-
-            insertRegister =
-                insertMethod.getInstruction<OneRegisterInstruction>(insertIndex + 1).registerA
         } ?: throw VideoIdWithoutShortsFingerprint.exception
 
         injectCall("$VIDEO_PATH/VideoInformation;->setVideoId(Ljava/lang/String;)V")

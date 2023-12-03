@@ -41,7 +41,7 @@ import app.revanced.util.integrations.Constants.ADS_PATH
 )
 @Suppress("unused")
 object VideoAdsPatch : AbstractAdsPatch(
-    "$ADS_PATH/HideVideoAdsPatch;->hideVideoAds()Z"
+    "$ADS_PATH/VideoAdsPatch;->hideVideoAds()Z"
 ) {
     override fun execute(context: BytecodeContext) {
         super.execute(context)

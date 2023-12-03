@@ -21,7 +21,7 @@ import app.revanced.util.integrations.Constants.MUSIC_COMPONENTS_PATH
 )
 @Suppress("unused")
 object MusicAdsPatch : AbstractAdsPatch(
-    "$MUSIC_ADS_PATH/HideMusicAdsPatch;->hideMusicAds()Z"
+    "$MUSIC_ADS_PATH/MusicAdsPatch;->hideMusicAds()Z"
 ) {
     override fun execute(context: BytecodeContext) {
         super.execute(context)
