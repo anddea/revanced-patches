@@ -11,7 +11,7 @@ import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.youtube.utils.fingerprints.CreateSearchSuggestionsFingerprint
+import app.revanced.patches.youtube.general.searchterm.fingerprints.CreateSearchSuggestionsFingerprint
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.integrations.Constants.GENERAL
 import com.android.tools.smali.dexlib2.Opcode
