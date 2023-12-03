@@ -15,25 +15,27 @@ import app.revanced.util.enum.ResourceType.STYLE
 
 @Patch(dependencies = [ResourceMappingPatch::class])
 object SharedResourceIdPatch : ResourcePatch() {
-    internal var AccountSwitcherAccessibility = -1L
-    internal var ActionsContainer = -1L
-    internal var ButtonIconPaddingMedium = -1L
-    internal var ChipCloud = -1L
-    internal var ColorGrey = -1L
-    internal var DialogSolid = -1L
-    internal var HistoryMenuItem = -1L
-    internal var InlineTimeBarAdBreakMarkerColor = -1L
-    internal var IsTablet = -1L
-    internal var MenuEntry = -1L
-    internal var MusicMenuLikeButtons = -1L
-    internal var NamesInactiveAccountThumbnailSize = -1L
-    internal var PlayerCastMediaRouteButton = -1L
-    internal var PlayerOverlayChip = -1L
-    internal var PrivacyTosFooter = -1L
-    internal var QualityAuto = -1L
-    internal var Text1 = -1L
-    internal var ToolTipContentView = -1L
-    internal var TosFooter = -1L
+    var AccountSwitcherAccessibility: Long = -1
+    var ActionsContainer: Long = -1
+    var ButtonIconPaddingMedium: Long = -1
+    var ChipCloud: Long = -1
+    var ColorGrey: Long = -1
+    var DialogSolid: Long = -1
+    var FloatingLayout: Long = -1
+    var HistoryMenuItem: Long = -1
+    var InlineTimeBarAdBreakMarkerColor: Long = -1
+    var IsTablet: Long = -1
+    var MenuEntry: Long = -1
+    var MusicMenuLikeButtons: Long = -1
+    var MusicNotifierShelf: Long = -1
+    var NamesInactiveAccountThumbnailSize: Long = -1
+    var PlayerCastMediaRouteButton: Long = -1
+    var PlayerOverlayChip: Long = -1
+    var PrivacyTosFooter: Long = -1
+    var QualityAuto: Long = -1
+    var Text1: Long = -1
+    var ToolTipContentView: Long = -1
+    var TosFooter: Long = -1
 
     override fun execute(context: ResourceContext) {
 
@@ -48,11 +50,13 @@ object SharedResourceIdPatch : ResourcePatch() {
         ChipCloud = find(LAYOUT, "chip_cloud")
         ColorGrey = find(COLOR, "ytm_color_grey_12")
         DialogSolid = find(STYLE, "Theme.YouTubeMusic.Dialog.Solid")
+        FloatingLayout = find(ID, "floating_layout")
         HistoryMenuItem = find(ID, "history_menu_item")
         InlineTimeBarAdBreakMarkerColor = find(COLOR, "inline_time_bar_ad_break_marker_color")
         IsTablet = find(BOOL, "is_tablet")
         MenuEntry = find(LAYOUT, "menu_entry")
         MusicMenuLikeButtons = find(LAYOUT, "music_menu_like_buttons")
+        MusicNotifierShelf = find(LAYOUT, "music_notifier_shelf")
         NamesInactiveAccountThumbnailSize = find(DIMEN, "names_inactive_account_thumbnail_size")
         PlayerCastMediaRouteButton = find(LAYOUT, "player_cast_media_route_button")
         PlayerOverlayChip = find(ID, "player_overlay_chip")
