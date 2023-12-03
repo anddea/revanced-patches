@@ -145,9 +145,6 @@ Notka: wyłączenie nakładki prędkości odtwarzania przywróci zachowania prze
     <string name="revanced_enable_opus_codec_title">Włącz kodek opus</string>
     <string name="revanced_enable_phone_layout_summary">Oszukuje dpi, aby używać układu telefonu</string>
     <string name="revanced_enable_phone_layout_title">Układ telefonu</string>
-    <string name="revanced_enable_press_to_swipe_summary_off">Wyłączone</string>
-    <string name="revanced_enable_press_to_swipe_summary_on">Włączone</string>
-    <string name="revanced_enable_press_to_swipe_title">Naciśnij, by przesunąć</string>
     <string name="revanced_enable_save_playback_speed_summary_off">Nie nadpisuje domyślnej prędkości odtwarzania nawet przy zmianie prędkości odtwarzania</string>
     <string name="revanced_enable_save_playback_speed_summary_on">Zapisuje wybraną prędkość odtwarzania jako domyślną za każdym razem, gdy ją zmienisz</string>
     <string name="revanced_enable_save_playback_speed_title">Zapisywanie prędkości odtwarzania</string>
@@ -165,7 +162,10 @@ Notka: wyłączenie nakładki prędkości odtwarzania przywróci zachowania prze
     <string name="revanced_enable_swipe_brightness_title">Zmienianie jasności przesuwaniem</string>
     <string name="revanced_enable_swipe_haptic_feedback_summary_off">Wyłączone</string>
     <string name="revanced_enable_swipe_haptic_feedback_summary_on">Włączone</string>
-    <string name="revanced_enable_swipe_haptic_feedback_title">Wibracje naciskania, by przesunąć</string>
+    <string name="revanced_enable_swipe_haptic_feedback_title">Wibracje</string>
+    <string name="revanced_enable_swipe_press_to_engage_summary_off">Stuknij, aby aktywować przesuwanie</string>
+    <string name="revanced_enable_swipe_press_to_engage_summary_on">Stuknij i przytrzymaj, aby aktywować przesuwanie</string>
+    <string name="revanced_enable_swipe_press_to_engage_title">Naciśnij, by przesunąć</string>
     <string name="revanced_enable_swipe_volume_summary_off">Wyłączone</string>
     <string name="revanced_enable_swipe_volume_summary_on">Włączone</string>
     <string name="revanced_enable_swipe_volume_title">Zmienianie głośności przesuwaniem</string>
@@ -343,6 +343,9 @@ Niektóre komponenty mogą nie być ukryte"</string>
     <string name="revanced_hide_create_button_summary_off">Widoczny</string>
     <string name="revanced_hide_create_button_summary_on">Ukryty</string>
     <string name="revanced_hide_create_button_title">Przycisk od przesyłania</string>
+    <string name="revanced_hide_create_shorts_button_summary_off">Widoczny</string>
+    <string name="revanced_hide_create_shorts_button_summary_on">Ukryty</string>
+    <string name="revanced_hide_create_shorts_button_title">Przycisk tworzenia shortsów</string>
     <string name="revanced_hide_crowdfunding_box_summary_off">Widoczne</string>
     <string name="revanced_hide_crowdfunding_box_summary_on">Ukryte</string>
     <string name="revanced_hide_crowdfunding_box_title">Ramki ze zbiórkami</string>
@@ -684,6 +687,8 @@ Stuknij i przytrzymaj, by zmienić prędkość odtwarzania na 1.0x."</string>
     <string name="revanced_quick_actions_margin_top_title">Górny margines przycisków na dole odtwarzacza</string>
     <string name="revanced_quick_actions_margin_top_warning">Margines górny przycisków na dole odtwarzacza musi wynosić między 0 a 64. Przywróć domyślne wartości.</string>
     <string name="revanced_quick_actions_title">Pod paskiem wideo</string>
+    <string name="revanced_restart_first_run">Uruchom ponownie, aby wczytać poprawnie układ aplikacji</string>
+    <string name="revanced_restart_message">Odśwież i uruchom ponownie</string>
     <string name="revanced_ryd_about">O integracji</string>
     <string name="revanced_ryd_attribution_summary">Dane o łapkach w dół są dostarczane przez API Return YouTube Dislike. Stuknij tutaj by dowiedzieć się więcej.</string>
     <string name="revanced_ryd_compact_layout_summary_off">Przycisk łapki w górę ładnie wygląda</string>
@@ -701,7 +706,7 @@ Stuknij i przytrzymaj, by zmienić prędkość odtwarzania na 1.0x."</string>
     <string name="revanced_ryd_failure_generic">Liczba łapek w dół nie jest dostępna (%s).</string>
     <string name="revanced_ryd_shorts_summary_disclaimer">Ograniczenie: w niektórych sytuacjach łapki w dół mogą się nie pojawiać.</string>
     <string name="revanced_ryd_shorts_summary_off">Niewidoczna</string>
-    <string name="revanced_ryd_shorts_summary_on">Widoczna. %s</string>
+    <string name="revanced_ryd_shorts_summary_on">Widoczna %s</string>
     <string name="revanced_ryd_shorts_title">Liczba łapek w dół w odtwarzaczu Shortsów</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Komunikat o niedostępnym API</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_off">Ukryty</string>
@@ -767,6 +772,9 @@ Znane problemy:
 • Wideo mogą nie być rozpoczynane od momentu ostatniego oglądania"</string>
     <string name="revanced_spoof_player_parameter_title">Oszukaj parametry odtwarzacza</string>
     <string name="revanced_swipe_controls">Sterowanie przesuwaniem</string>
+    <string name="revanced_swipe_gestures_lock_mode_summary_off">"Wyłączone"</string>
+    <string name="revanced_swipe_gestures_lock_mode_summary_on">"Włączone"</string>
+    <string name="revanced_swipe_gestures_lock_mode_title">"Przesuwanie podczas blokady ekranu"</string>
     <string name="revanced_swipe_magnitude_threshold_summary">Minimalna długość przesunięcia</string>
     <string name="revanced_swipe_magnitude_threshold_title">Minimalna długość przesunięcia</string>
     <string name="revanced_swipe_overlay_background_alpha_summary">Widoczność tła nakładki przesuwania</string>

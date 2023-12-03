@@ -145,9 +145,6 @@ Not: Bu özelliği devre dışı bırakmak, eski arayüzdeki \"Videoyu sarmak i�
     <string name="revanced_enable_opus_codec_title">Opus kodeğini etkinleştir</string>
     <string name="revanced_enable_phone_layout_summary">Bazı telefon arayüzlerini kullanabilmek için dpi\'ı kandırır.</string>
     <string name="revanced_enable_phone_layout_title">Telefon düzenini kullan</string>
-    <string name="revanced_enable_press_to_swipe_summary_off">Basılı-tut-kaydır devre dışı.</string>
-    <string name="revanced_enable_press_to_swipe_summary_on">Basılı-tut-kaydır etkin.</string>
-    <string name="revanced_enable_press_to_swipe_title">Basılı tut ve kaydır</string>
     <string name="revanced_enable_save_playback_speed_summary_off">Oynatma hızı değiştirilse bile sonraki videolara aktarılmaz.</string>
     <string name="revanced_enable_save_playback_speed_summary_on">Oynatma hızını her değiştirdiğinizde, seçili hız sonraki videolara aktarılır.</string>
     <string name="revanced_enable_save_playback_speed_title">Oynatma hızını kaydet</string>
@@ -163,9 +160,9 @@ Not: Bu özelliği devre dışı bırakmak, eski arayüzdeki \"Videoyu sarmak i�
     <string name="revanced_enable_swipe_brightness_summary_off">Video tam ekrandayken, ekranın solunu kaydırarak ekran parlaklığını ayarlama kapalı</string>
     <string name="revanced_enable_swipe_brightness_summary_on">Video tam ekrandayken, ekranın solunu kaydırarak ekran parlaklığını ayarlama açık</string>
     <string name="revanced_enable_swipe_brightness_title">Kaydırarak parlaklığı ayarla</string>
-    <string name="revanced_enable_swipe_haptic_feedback_summary_off">Basılı tutunca titreşme kapalı</string>
-    <string name="revanced_enable_swipe_haptic_feedback_summary_on">Basılı tutunca titreşme açık</string>
-    <string name="revanced_enable_swipe_haptic_feedback_title">Basılı tutunca cihazı titreştir</string>
+    <string name="revanced_enable_swipe_haptic_feedback_summary_off">Titreşim kapalı.</string>
+    <string name="revanced_enable_swipe_haptic_feedback_summary_on">Titreşim açık.</string>
+    <string name="revanced_enable_swipe_haptic_feedback_title">Titreşimli geribildirimi etkinleştir</string>
     <string name="revanced_enable_swipe_volume_summary_off">Video tam ekrandayken, ekranın sağını kaydırarak sesi ayarlama kapalı</string>
     <string name="revanced_enable_swipe_volume_summary_on">Video tam ekrandayken, ekranın sağını kaydırarak sesi ayarlama açık</string>
     <string name="revanced_enable_swipe_volume_title">Kaydırarak sesi ayarla</string>
@@ -217,6 +214,10 @@ Bu durumda lütfen şu yolu kullanın: Siz sekmesi &gt; Kanalı görüntüle &gt
     <string name="revanced_external_downloader_settings_title">İndirme uygulaması ayarları</string>
     <string name="revanced_feed_flyout_panel_title">Akıştaki açılır menüler</string>
     <string name="revanced_flyout_menu">Açılır menü</string>
+    <string name="revanced_force_fullscreen_summary">"Aşağıdaki durumlarda video tam ekrana geçecektir:
+
+• Yorumlardaki zaman damgasına tıklandı.
+• Video başladı."</string>
     <string name="revanced_force_fullscreen_title">Tam ekrana zorla</string>
     <string name="revanced_fullscreen">Tam Ekran</string>
     <string name="revanced_general">Genel</string>
@@ -337,6 +338,9 @@ Bu durumda lütfen şu yolu kullanın: Siz sekmesi &gt; Kanalı görüntüle &gt
     <string name="revanced_hide_create_button_summary_off">Oluştur butonu gösteriliyor</string>
     <string name="revanced_hide_create_button_summary_on">Oluştur butonu gizleniyor</string>
     <string name="revanced_hide_create_button_title">\"Oluştur\" butonunu gizle</string>
+    <string name="revanced_hide_create_shorts_button_summary_off">Shorts oluştur butonu gösterilir.</string>
+    <string name="revanced_hide_create_shorts_button_summary_on">Shorts oluştur butonu gizlenir.</string>
+    <string name="revanced_hide_create_shorts_button_title">Shorts oluştur butonunu gizle</string>
     <string name="revanced_hide_crowdfunding_box_summary_off">Bağış etkinliği menüleri gösteriliyor</string>
     <string name="revanced_hide_crowdfunding_box_summary_on">Bağış etkinliği menüleri gizleniyor</string>
     <string name="revanced_hide_crowdfunding_box_title">Video altındaki bağış etkinliklerini gizle</string>
@@ -348,10 +352,10 @@ Bu durumda lütfen şu yolu kullanın: Siz sekmesi &gt; Kanalı görüntüle &gt
     <string name="revanced_hide_end_screen_cards_title">Videoların sonundaki kartları gizle</string>
     <string name="revanced_hide_end_screen_overlay_summary_off">Gösteriliyor</string>
     <string name="revanced_hide_end_screen_overlay_summary_on">Gizleniyor</string>
-    <string name="revanced_hide_end_screen_overlay_title">Bitiş ekranı arayüzü</string>
+    <string name="revanced_hide_end_screen_overlay_title">Bitiş ekranı arayüzünü gizle</string>
     <string name="revanced_hide_expandable_chip_summary_off">Genişletilebilir çipler gizlenmiyor.</string>
     <string name="revanced_hide_expandable_chip_summary_on">Genişletilebilir çipler gizleniyor. </string>
-    <string name="revanced_hide_expandable_chip_title">Genişletilebilir çipi videoların altında gizle</string>
+    <string name="revanced_hide_expandable_chip_title">Vdeoların altındaki genişletilebilir çipi gizle</string>
     <string name="revanced_hide_feed_flyout_panel_filter_strings_title">Açılır menü filtresini düzenle</string>
     <string name="revanced_hide_feed_flyout_panel_summary_off">Açılır menü butonları gizlenmiyor.</string>
     <string name="revanced_hide_feed_flyout_panel_summary_on">Açılır menü butonları gizleniyor</string>
@@ -382,10 +386,10 @@ Bu durumda lütfen şu yolu kullanın: Siz sekmesi &gt; Kanalı görüntüle &gt
     <string name="revanced_hide_get_premium_title">YouTube Premium reklamlarını gizle</string>
     <string name="revanced_hide_gray_description_summary_off">\"Bunu da izlediler\" vb. yazıları gizlenmiyor.</string>
     <string name="revanced_hide_gray_description_summary_on">\"Bunu da izlediler\" vb. yazıları gizleniyor.</string>
-    <string name="revanced_hide_gray_description_title">Gri açıklama kısmını gizle</string>
+    <string name="revanced_hide_gray_description_title">Gri açıklamayı gizle</string>
     <string name="revanced_hide_gray_separator_summary_off">Video ve topluluk gönderisi arasındaki gri çubuk gizlenmiyor.</string>
     <string name="revanced_hide_gray_separator_summary_on">Video ve topluluk gönderisi arasındaki gri çubuk gizleniyor.</string>
-    <string name="revanced_hide_gray_separator_title">Gri ayırıcıları gizle</string>
+    <string name="revanced_hide_gray_separator_title">Gri ayırıcıyı gizle</string>
     <string name="revanced_hide_handle_summary_off">Etiket gizlenmiyor.</string>
     <string name="revanced_hide_handle_summary_on">Etiket gizleniyor.</string>
     <string name="revanced_hide_handle_title">Hesap kısmındaki kullanıcı ismini/emaili gizle</string>
@@ -430,7 +434,7 @@ Bu durumda lütfen şu yolu kullanın: Siz sekmesi &gt; Kanalı görüntüle &gt
     <string name="revanced_hide_mix_playlists_title">\"Mix\" oynatma listelerini gizle</string>
     <string name="revanced_hide_movie_shelf_summary_off">Filmler rafı gizlenmiyor.</string>
     <string name="revanced_hide_movie_shelf_summary_on">Filmler rafı gizleniyor.</string>
-    <string name="revanced_hide_movie_shelf_title">Film rafını kaldır</string>
+    <string name="revanced_hide_movie_shelf_title">Filmler rafını gizle</string>
     <string name="revanced_hide_music_section_summary_off">Video açıklamasındaki müzik bilgisi kısmı gizlenmiyor.</string>
     <string name="revanced_hide_music_section_summary_on">Video açıklamasındaki müzik bilgisi kısmı gizleniyor.</string>
     <string name="revanced_hide_music_section_title">Video açıklamasındaki müzik kısmını gizle</string>
@@ -591,6 +595,15 @@ Bilinen sorun: Arama sonuçlarındaki resmi başlıklar da gizlenebiliyor."</str
 
 Bilinen sorun: Otomatik oynatma çalışmıyor."</string>
     <string name="revanced_hide_suggested_video_overlay_title">\"Önerilen video\"yu gizle</string>
+    <string name="revanced_hide_suggestions_shelf_method_summary_off">"Göz atma kimliği aracılığıyla öneri rafını tanımlar.
+
+Bilinen Sorunlar:
+• Göz Atma kimliği belirlenmediğinde öneri rafı gizlenmeyebilir."</string>
+    <string name="revanced_hide_suggestions_shelf_method_summary_on">"Geçerli sekme aracılığıyla öneri rafını tanımlar.
+
+Bilinen Sorunlar:
+• Daha fazla çekmece rafı gizlenmiş olabilir.
+• Çalma listesi rafları gizlenmiş olabilir."</string>
     <string name="revanced_hide_suggestions_shelf_method_title">Rafları izlemek için bir yöntem seçin</string>
     <string name="revanced_hide_suggestions_shelf_summary">"Şu rafları gizler:
 • Son dakika haberleri
@@ -669,6 +682,8 @@ Videoyu zaman damgasıyla kopyalamak için basılı tutun."</string>
     <string name="revanced_quick_actions_margin_top_title">Zaman çubuğunun yerden yüksekliği</string>
     <string name="revanced_quick_actions_margin_top_warning">Hızlı eylemler üst kenar boşluğu 0-64 arasında olmalıdır. Varsayılan değerlere sıfırlayın.</string>
     <string name="revanced_quick_actions_title">Hızlı eylemler</string>
+    <string name="revanced_restart_first_run">Düzeni normal şekilde yüklemek için yeniden başlatın</string>
+    <string name="revanced_restart_message">Yenileme ve yeniden başlatma?</string>
     <string name="revanced_ryd_about">Hakkında</string>
     <string name="revanced_ryd_attribution_summary">Beğenmeme verileri Return Youtube Dislike API tarafından sağlanır. Daha fazlasını öğrenmek için buraya dokunun.</string>
     <string name="revanced_ryd_compact_layout_summary_off">Beğen düğmesi en iyi görünüm için tasarlandı.</string>
@@ -684,8 +699,13 @@ Videoyu zaman damgasıyla kopyalamak için basılı tutun."</string>
     <string name="revanced_ryd_failure_connection_status_code" formatted="false">Beğenmemeler mevcut değil (durum %d).</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Beğenmeme sayısı mevcut değil (istemci API sınırına ulaşıldı).</string>
     <string name="revanced_ryd_failure_generic">Beğenmemeler mevcut değil (%s).</string>
+    <string name="revanced_ryd_shorts_summary_disclaimer">Sınırlama: Beğenmemeler belirli durumlarda görünmeyebilir.</string>
     <string name="revanced_ryd_shorts_summary_off">Shorts videolarda beğenmemeler gösterilmiyor</string>
+    <string name="revanced_ryd_shorts_summary_on">Shorts videolarda beğenmemeler gösteriliyor. %s</string>
     <string name="revanced_ryd_shorts_title">Shorts videolarda beğenmemeleri göster</string>
+    <string name="revanced_ryd_toast_on_connection_error_title">API mevcut değilse bir uyarı göster</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary_off">ReturnYouTubeDislike API\'si mevcut değilse uyarı gösterilmiyor.</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary_on">ReturnYouTubeDislike API\'si mevcut değilse uyarı gösteriliyor.</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Gizlendi</string>
     <string name="revanced_sanitize_sharing_links_summary">Bağlantıları paylaşırken, \"tracking query parametreleri\"ni URL\'lerden kaldırır</string>
     <string name="revanced_sanitize_sharing_links_title">Paylaşılan bağlantıları sterilize edin</string>
@@ -797,6 +817,9 @@ Bir örnek görmek için buraya dokunun</string>
     <string name="sb_guidelines_popup_already_read">Zaten okundu</string>
     <string name="sb_guidelines_popup_open">Göster bana</string>
     <string name="sb_general">Genel</string>
+    <string name="sb_toast_on_connection_error_title">API mevcut olmadığında bir uyarı göster</string>
+    <string name="sb_toast_on_connection_error_summary_on">SponsorBlock API\'nin mevcut olmaması durumunda uyarı gösterilir.</string>
+    <string name="sb_toast_on_connection_error_summary_off">SponsorBlock API\'nin mevcut olmaması durumunda uyarı gösterilmez.</string>
     <string name="sb_general_skipcount">Atlama sayısı izlemeyi etkinleştir</string>
     <string name="sb_general_skipcount_sum_on">SponsorBlock liderlik tablosunun ne kadar zaman kazanıldığını bilmesini sağlar. Bir segment her atlandığında skor tablosuna bir mesaj gönderilir</string>
     <string name="sb_general_skipcount_sum_off">Kapalı</string>
@@ -811,6 +834,8 @@ Bir örnek görmek için buraya dokunun</string>
     <string name="sb_api_url_invalid">API bağlantısı geçersiz</string>
     <string name="sb_api_url_changed">API URL\'si değiştirildi</string>
     <string name="sb_settings_copy">Kopyala</string>
+    <string name="sb_settings_ie_sum">ReVanced Extended ve diğer SponsorBlock platformlarına içe/dışa aktarılabilen SponsorBlock JSON yapılandırmanız. %s</string>
+    <string name="sb_settings_ie_sum_warning">Buna özel kullanıcı kimliğiniz de dahildir. Bunu akıllıca paylaştığınızdan emin olun.</string>
     <string name="sb_settings_ie">Ayarları içe/dışa aktar</string>
     <string name="sb_settings_import_successful">Ayarlar başarıyla içe aktarıldı</string>
     <string name="sb_settings_import_failed">%s içeri aktarılamadı</string>

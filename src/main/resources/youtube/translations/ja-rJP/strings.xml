@@ -143,9 +143,6 @@
     <string name="revanced_enable_opus_codec_title">Opus コーデックを有効化</string>
     <string name="revanced_enable_phone_layout_summary">スマートフォン用レイアウトの一部を使用できるように、dpi を偽装します。</string>
     <string name="revanced_enable_phone_layout_title">スマートフォン用レイアウト</string>
-    <string name="revanced_enable_press_to_swipe_summary_off">長押しスワイプコントロール(Press-to-Swipe)は無効です。</string>
-    <string name="revanced_enable_press_to_swipe_summary_on">長押しスワイプコントロール(Press-to-Swipe)は有効です。</string>
-    <string name="revanced_enable_press_to_swipe_title">長押し時のみのジェスチャー</string>
     <string name="revanced_enable_save_playback_speed_summary_off">再生速度は保存されません。</string>
     <string name="revanced_enable_save_playback_speed_summary_on">再生速度を変更するたびに、再生速度は保存されます。</string>
     <string name="revanced_enable_save_playback_speed_title">再生速度の保存</string>
@@ -161,9 +158,6 @@
     <string name="revanced_enable_swipe_brightness_summary_off">明るさのスワイプコントロールは無効です。</string>
     <string name="revanced_enable_swipe_brightness_summary_on">明るさのスワイプコントロールは有効です。</string>
     <string name="revanced_enable_swipe_brightness_title">明るさのジェスチャー</string>
-    <string name="revanced_enable_swipe_haptic_feedback_summary_off">長押しスワイプコントロール(Press-to-Swipe)の触覚フィードバックは無効です。</string>
-    <string name="revanced_enable_swipe_haptic_feedback_summary_on">長押しスワイプコントロール(Press-to-Swipe)の触覚フィードバックは有効です。</string>
-    <string name="revanced_enable_swipe_haptic_feedback_title">長押し時の触覚フィードバック</string>
     <string name="revanced_enable_swipe_volume_summary_off">音量のスワイプコントロールは無効です。</string>
     <string name="revanced_enable_swipe_volume_summary_on">音量のスワイプコントロールは有効です。</string>
     <string name="revanced_enable_swipe_volume_title">音量のジェスチャー</string>
@@ -205,11 +199,13 @@
     <string name="revanced_extended_settings_import_success">設定は正常にインポートされました</string>
     <string name="revanced_extended_settings_import_summary">ファイルから設定をインポートします。</string>
     <string name="revanced_extended_settings_import_title">設定のインポート</string>
+    <string name="revanced_external_downloader_download">アプリをダウンロード</string>
     <string name="revanced_external_downloader_installed">インストール済み</string>
     <string name="revanced_external_downloader_not_installed">未インストール</string>
     <string name="revanced_external_downloader_not_installed_warning" formatted="false">%s はインストールされていません。インストールしてください。</string>
     <string name="revanced_external_downloader_package_name_summary">NewPipe や YTDLnis などの、インストールされている外部ダウンローダーアプリのパッケージ名。</string>
     <string name="revanced_external_downloader_package_name_title">外部ダウンローダーのパッケージ名</string>
+    <string name="revanced_external_downloader_set">デフォルトとして設定</string>
     <string name="revanced_external_downloader_settings_summary">外部の動画ダウンローダーの使用設定</string>
     <string name="revanced_external_downloader_settings_title">外部のダウンローダーの設定</string>
     <string name="revanced_feed_flyout_panel_title">フィードのフライアウトパネル</string>
@@ -335,6 +331,9 @@
     <string name="revanced_hide_create_button_summary_off">作成ボタンは表示されます。</string>
     <string name="revanced_hide_create_button_summary_on">作成ボタンは非表示です。</string>
     <string name="revanced_hide_create_button_title">作成ボタンを非表示</string>
+    <string name="revanced_hide_create_shorts_button_summary_off">ショート作成ボタンは表示されます。</string>
+    <string name="revanced_hide_create_shorts_button_summary_on">ショート作成ボタンは非表示です。</string>
+    <string name="revanced_hide_create_shorts_button_title">ショート作成ボタンを非表示</string>
     <string name="revanced_hide_crowdfunding_box_summary_off">プレーヤーと概要欄の間のクラウドファンディングボックスは表示されます。</string>
     <string name="revanced_hide_crowdfunding_box_summary_on">プレーヤーと概要欄の間のクラウドファンディングボックスは非表示です。</string>
     <string name="revanced_hide_crowdfunding_box_title">クラウドファンディング欄を非表示</string>
@@ -665,6 +664,8 @@
     <string name="revanced_quick_actions_margin_top_title">クイックアクション上部の余白</string>
     <string name="revanced_quick_actions_margin_top_warning">クイックアクションの上部の余白は 0〜64 の範囲でなければなりません。デフォルト値にリセットします。</string>
     <string name="revanced_quick_actions_title">クイックアクション</string>
+    <string name="revanced_restart_first_run">再起動してレイアウトを正常に読み込みます</string>
+    <string name="revanced_restart_message">再起動して更新</string>
     <string name="revanced_ryd_about">この機能について</string>
     <string name="revanced_ryd_attribution_summary">低評価のデータは、Return YouTube Dislike API によって提供されています。詳細はここをタップしてください。</string>
     <string name="revanced_ryd_compact_layout_summary_off">高評価ボタンは最適なサイズで表示されます。</string>
@@ -680,6 +681,7 @@
     <string name="revanced_ryd_failure_connection_status_code" formatted="false">低評価数は一時的に利用できません。(ステータス %d)</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">低評価数は利用できません (クライアント API 制限)</string>
     <string name="revanced_ryd_failure_generic">低評価数は一時的に利用できません。(%s)</string>
+    <string name="revanced_ryd_shorts_summary_disclaimer">制限: 特定の状況では低評価が表示されない場合があります。</string>
     <string name="revanced_ryd_shorts_summary_off">ショートの低評価数は表示されません。</string>
     <string name="revanced_ryd_shorts_title">ショートの低評価数</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">非表示</string>

@@ -65,8 +65,8 @@
     <string name="revanced_default_video_quality_mobile_title">모바일 네트워크 이용 시 기본 동영상 화질</string>
     <string name="revanced_default_video_quality_wifi_title">Wi-Fi 이용 시 기본 동영상 화질</string>
     <string name="revanced_description_title">설명</string>
-    <string name="revanced_disable_ambient_mode_in_fullscreen_summary">전체화면에서 영화 조명 모드를 비활성화합니다.</string>
-    <string name="revanced_disable_ambient_mode_in_fullscreen_title">전체화면에서 영화 조명 모드 비활성화하기</string>
+    <string name="revanced_disable_ambient_mode_in_fullscreen_summary">전체 화면에서 영화 조명 모드를 비활성화합니다.</string>
+    <string name="revanced_disable_ambient_mode_in_fullscreen_title">전체 화면에서 영화 조명 모드 비활성화하기</string>
     <string name="revanced_disable_ambient_mode_summary">영화 조명 모드를 항상 비활성화합니다.</string>
     <string name="revanced_disable_ambient_mode_title">영화 조명 모드 비활성화하기</string>
     <string name="revanced_disable_auto_captions_summary_off">자막 사용이 강제된 동영상에서 자막을 활성화합니다.</string>
@@ -88,9 +88,9 @@
     <string name="revanced_disable_hdr_video_summary_off">HDR 동영상을 활성화합니다.</string>
     <string name="revanced_disable_hdr_video_summary_on">HDR 동영상을 비활성화합니다.</string>
     <string name="revanced_disable_hdr_video_title">HDR 동영상 비활성화하기</string>
-    <string name="revanced_disable_landscape_mode_summary_off">전체화면에서 세로모드를 비활성화합니다.</string>
-    <string name="revanced_disable_landscape_mode_summary_on">전체화면에서 세로모드를 활성화합니다.</string>
-    <string name="revanced_disable_landscape_mode_title">전체화면에서 세로모드 활성화하기</string>
+    <string name="revanced_disable_landscape_mode_summary_off">전체 화면에서 세로 모드를 비활성화합니다.</string>
+    <string name="revanced_disable_landscape_mode_summary_on">전체 화면에서 세로 모드를 활성화합니다.</string>
+    <string name="revanced_disable_landscape_mode_title">전체 화면에서 세로 모드 활성화하기</string>
     <string name="revanced_disable_quic_protocol_summary">"QUIC 프로토콜을 비활성화해서 동영상을 불러올 때 발생하는 동영상 압축과 푸는 과정을 제거하여 동영상 로딩 속도를 향상시킵니다. 모바일 데이터 사용량이 증가할 수 있으니 주의하세요."</string>
     <string name="revanced_disable_quic_protocol_title">QUIC 프로토콜 비활성화하기</string>
     <string name="revanced_disable_speed_overlay_summary">"길게 누른 상태에서 '2.0배속 재생'을 비활성화합니다.
@@ -100,10 +100,10 @@
     <string name="revanced_disable_startup_shorts_player_summary_off">앱 시작할 때 Shorts 플레이어를 활성화합니다.</string>
     <string name="revanced_disable_startup_shorts_player_summary_on">앱 시작할 때 Shorts 플레이어를 비활성화합니다.</string>
     <string name="revanced_disable_startup_shorts_player_title">앱 시작할 때 Shorts 플레이어 비활성화하기</string>
-    <string name="revanced_double_back_timeout_summary">앱을 종료하기 위해 내비게이션 바의 뒤로가기 버튼을 한 번 누르고 한 번 더 다시 누를 때까지의 제한 시간을 설정합니다. 0초로 설정 시 뒤로가기 버튼을 한 번만 누르면 즉시 종료할 수 있습니다.</string>
-    <string name="revanced_double_back_timeout_title">뒤로가기 두 번 누르기 제한 시간</string>
-    <string name="revanced_enable_compact_controls_overlay_summary_off">전체화면에서 재생바 및 일부 버튼들을 더 작게 표시하지 않습니다.</string>
-    <string name="revanced_enable_compact_controls_overlay_summary_on">전체화면에서 재생바 및 일부 버튼들을 더 작게 표시합니다.</string>
+    <string name="revanced_double_back_timeout_summary">앱을 종료하기 위해 내비게이션 바의 뒤로 가기 버튼을 한 번 누르고 한 번 더 다시 누를 때까지의 제한 시간을 설정합니다. 0초로 설정 시 뒤로가기 버튼을 한 번만 누르면 즉시 종료할 수 있습니다.</string>
+    <string name="revanced_double_back_timeout_title">뒤로 가기 두 번 누르기 제한 시간</string>
+    <string name="revanced_enable_compact_controls_overlay_summary_off">전체 화면에서 재생바 및 일부 버튼들을 더 작게 표시하지 않습니다.</string>
+    <string name="revanced_enable_compact_controls_overlay_summary_on">전체 화면에서 재생바 및 일부 버튼들을 더 작게 표시합니다.</string>
     <string name="revanced_enable_compact_controls_overlay_title">컴팩트 컨트롤 오버레이 활성화하기</string>
     <string name="revanced_enable_custom_playback_speed_summary_off">사용자 정의 동영상 재생 속도를 비활성화합니다.</string>
     <string name="revanced_enable_custom_playback_speed_summary_on">사용자 정의 동영상 재생 속도를 활성화합니다.</string>
@@ -145,9 +145,6 @@
     <string name="revanced_enable_opus_codec_title">Opus 코덱 활성화하기</string>
     <string name="revanced_enable_phone_layout_summary">dpi를 변경하여 일부 레이아웃을 휴대폰 레이아웃으로 변경합니다.</string>
     <string name="revanced_enable_phone_layout_title">휴대폰 레이아웃 활성화하기</string>
-    <string name="revanced_enable_press_to_swipe_summary_off">길게 눌러서 스와이프 제스처 사용을 비활성화합니다.</string>
-    <string name="revanced_enable_press_to_swipe_summary_on">길게 눌러서 스와이프 제스처 사용을 활성화합니다.</string>
-    <string name="revanced_enable_press_to_swipe_title">길게 눌러서 스와이프 제스처 사용 활성화하기</string>
     <string name="revanced_enable_save_playback_speed_summary_off">동영상 재생 속도 값을 변경할 때마다 저장하지 않습니다.</string>
     <string name="revanced_enable_save_playback_speed_summary_on">동영상 재생 속도 값을 변경할 때마다 저장합니다.</string>
     <string name="revanced_enable_save_playback_speed_title">동영상 재생 속도 저장 활성화하기</string>
@@ -163,9 +160,12 @@
     <string name="revanced_enable_swipe_brightness_summary_off">스와이프 제스처로 밝기 조절을 비활성화합니다.</string>
     <string name="revanced_enable_swipe_brightness_summary_on">스와이프 제스처로 밝기 조절을 활성화합니다.</string>
     <string name="revanced_enable_swipe_brightness_title">스와이프 제스처로 밝기 조절 활성화하기</string>
-    <string name="revanced_enable_swipe_haptic_feedback_summary_off">길게 눌러서 스와이프 제스처 사용할 때 진동 피드백을 비활성화합니다.</string>
-    <string name="revanced_enable_swipe_haptic_feedback_summary_on">길게 눌러서 스와이프 제스처 사용할 때 진동 피드백을 활성화합니다.</string>
-    <string name="revanced_enable_swipe_haptic_feedback_title">길게 눌러서 스와이프 제스처 사용할 때 진동 피드백 활성화하기</string>
+    <string name="revanced_enable_swipe_haptic_feedback_summary_off">진동 피드백을 비활성화합니다.</string>
+    <string name="revanced_enable_swipe_haptic_feedback_summary_on">진동 피드백을 활성화합니다.</string>
+    <string name="revanced_enable_swipe_haptic_feedback_title">진동 피드백 활성화하기</string>
+    <string name="revanced_enable_swipe_press_to_engage_summary_off">화면을 짧게 눌러서 스와이프 제스처를 사용합니다.</string>
+    <string name="revanced_enable_swipe_press_to_engage_summary_on">화면을 길게 눌러서 스와이프 제스처를 사용합니다.</string>
+    <string name="revanced_enable_swipe_press_to_engage_title">길게 눌러서 스와이프 제스처 사용하기</string>
     <string name="revanced_enable_swipe_volume_summary_off">스와이프 제스처로 볼륨 조절을 비활성화합니다.</string>
     <string name="revanced_enable_swipe_volume_summary_on">스와이프 제스처로 볼륨 조절을 활성화합니다.</string>
     <string name="revanced_enable_swipe_volume_title">스와이프 제스처로 볼륨 조절 활성화하기</string>
@@ -218,12 +218,14 @@
     <string name="revanced_external_downloader_settings_title">외부 다운로더 설정</string>
     <string name="revanced_feed_flyout_panel_title">피드 구성요소 패널</string>
     <string name="revanced_flyout_menu">메뉴 구성요소</string>
-    <string name="revanced_force_fullscreen_summary">"다음과 같은 상황에서 동영상이 전체화면으로 전환됩니다:
+    <string name="revanced_force_fullscreen_summary">"
+다음과 같은 상황에서 동영상이 전체 화면으로 전환됩니다:
 
-• 댓글의 타임스탬프를 클릭했을 경우.
-• 동영상이 시작되었을 경우."</string>
-    <string name="revanced_force_fullscreen_title">전체화면 강제 전환하기</string>
-    <string name="revanced_fullscreen">전체화면</string>
+• 동영상이 시작되었을 경우.
+• 동영상 설명에서 챕터를 선택했을 경우.
+• 댓글 내용에서 타임스탬프를 눌렀을 경우."</string>
+    <string name="revanced_force_fullscreen_title">전체 화면 강제 전환하기</string>
+    <string name="revanced_fullscreen">전체 화면</string>
     <string name="revanced_general">일반</string>
     <string name="revanced_haptic_feedback_title">진동 피드백</string>
     <string name="revanced_hide_account_menu_filter_strings_title">계정 메뉴 필터 편집하기</string>
@@ -377,9 +379,9 @@
     <string name="revanced_hide_for_you_shelf_summary_off">"채널 프로필에서 추천 선반이 노출됩니다."</string>
     <string name="revanced_hide_for_you_shelf_summary_on">"채널 프로필에서 추천 선반이 숨겨집니다."</string>
     <string name="revanced_hide_for_you_shelf_title">"추천 선반 숨기기"</string>
-    <string name="revanced_hide_fullscreen_panels_summary_off">전체화면 패널이 노출됩니다.</string>
-    <string name="revanced_hide_fullscreen_panels_summary_on">전체화면 패널이 숨겨집니다.</string>
-    <string name="revanced_hide_fullscreen_panels_title">전체화면 패널 숨기기</string>
+    <string name="revanced_hide_fullscreen_panels_summary_off">전체 화면 패널이 노출됩니다.</string>
+    <string name="revanced_hide_fullscreen_panels_summary_on">전체 화면 패널이 숨겨집니다.</string>
+    <string name="revanced_hide_fullscreen_panels_title">전체 화면 패널 숨기기</string>
     <string name="revanced_hide_game_section_summary_off">게임 섹션이 노출됩니다.</string>
     <string name="revanced_hide_game_section_summary_on">게임 섹션이 숨겨집니다.</string>
     <string name="revanced_hide_game_section_title">게임 섹션 숨기기</string>
@@ -707,10 +709,10 @@
     <string name="revanced_ryd_failure_connection_status_code" formatted="false">싫어요 개수를 표시할 수 없습니다 (상태 %d).</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">싫어요 개수를 표시할 수 없습니다. (클라이언트 API 제한 도달)</string>
     <string name="revanced_ryd_failure_generic">싫어요 개수를 표시할 수 없습니다 (%s).</string>
-    <string name="revanced_ryd_shorts_summary_disclaimer">한계: 특정 상황에서는 싫어요가 표시되지 않을 수 있습니다.</string>
-    <string name="revanced_ryd_shorts_summary_off">Shorts에서 싫어요가 숨겨집니다.</string>
-    <string name="revanced_ryd_shorts_summary_on">Shorts에서 싫어요가 노출됩니다. %s</string>
-    <string name="revanced_ryd_shorts_title">Shorts에서 싫어요 표시하기</string>
+    <string name="revanced_ryd_shorts_summary_disclaimer">한계: 특정 상황에서는 싫어요 개수가 표시되지 않을 수 있습니다.</string>
+    <string name="revanced_ryd_shorts_summary_off">Shorts에서 싫어요 개수가 숨겨집니다.</string>
+    <string name="revanced_ryd_shorts_summary_on">Shorts에서 싫어요 개수가 노출됩니다. %s</string>
+    <string name="revanced_ryd_shorts_title">Shorts에서 싫어요 개수 표시하기</string>
     <string name="revanced_ryd_toast_on_connection_error_title">API를 사용할 수 없을 때 팝업 메시지 표시하기</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_off">ReturnYouTubeDislike API를 사용할 수 없을 때 팝업 메시지를 표시하지 않습니다.</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_on">ReturnYouTubeDislike API를 사용할 수 없을 때 팝업 메시지를 표시합니다.</string>
@@ -731,7 +733,7 @@
     <string name="revanced_shorts_toolbar_summary">툴바의 뒤로 가기 버튼은 숨길 수 없습니다.</string>
     <string name="revanced_shorts_toolbar_title">Shorts 툴바</string>
     <string name="revanced_show_fullscreen_title_summary">알려진 문제점: 제목을 누르면 사라집니다.</string>
-    <string name="revanced_show_fullscreen_title_title">전체화면 제목 표시하기</string>
+    <string name="revanced_show_fullscreen_title_title">전체 화면 제목 표시하기</string>
     <string name="revanced_skipped_preloaded_buffer">미리 로드된 버퍼를 건너뛰었습니다.</string>
     <string name="revanced_skip_preloaded_buffer_summary">"동영상 시작 시 미리 로드된 버퍼를 건너뛰어 기본 동영상 화질 적용 지연을 우회합니다.
 
@@ -775,6 +777,9 @@
 • 동영상이 마지막으로 시청한 시간부터 시작되지 않을 수 있습니다."</string>
     <string name="revanced_spoof_player_parameter_title">플레이어 매개변수 변경하기</string>
     <string name="revanced_swipe_controls">스와이프 제스처</string>
+    <string name="revanced_swipe_gestures_lock_mode_summary_off">"'잠금 화면' 모드에서 스와이프 제스처를 비활성화합니다."</string>
+    <string name="revanced_swipe_gestures_lock_mode_summary_on">"'잠금 화면' 모드에서 스와이프 제스처를 활성화합니다."</string>
+    <string name="revanced_swipe_gestures_lock_mode_title">"'잠금 화면' 모드에서 스와이프 제스처 활성화하기"</string>
     <string name="revanced_swipe_magnitude_threshold_summary">제스처 인식을 위해 얼마나 스와이프를 해야 할지를 설정할 수 있으며, 원하지 않은 제스처 인식을 방지합니다.</string>
     <string name="revanced_swipe_magnitude_threshold_title">스와이프 한계치</string>
     <string name="revanced_swipe_overlay_background_alpha_summary">오버레이 투명도 값을 지정합니다. (0–255)</string>

@@ -145,9 +145,6 @@ Nota: disattivando la sovrapposizione della velocità ripristina lo \"Scorri la 
     <string name="revanced_enable_opus_codec_title">Attiva il codec Opus</string>
     <string name="revanced_enable_phone_layout_summary">Simula un diverso valore DPI per usare alcune parti dell\'interfaccia da telefono</string>
     <string name="revanced_enable_phone_layout_title">Attiva l\'interfaccia da telefono</string>
-    <string name="revanced_enable_press_to_swipe_summary_off">Il gesto Premi-per-Scorrere è disattivato</string>
-    <string name="revanced_enable_press_to_swipe_summary_on">Il gesto Premi-per-Scorrere è attivato</string>
-    <string name="revanced_enable_press_to_swipe_title">Attiva il gesto Premi-per-Scorrere</string>
     <string name="revanced_enable_save_playback_speed_summary_off">Non salva il valore della velocità di riproduzione anche quando si cambia la velocità di riproduzione</string>
     <string name="revanced_enable_save_playback_speed_summary_on">Salva il valore della velocità di riproduzione ogni volta che si cambia la velocità di riproduzione</string>
     <string name="revanced_enable_save_playback_speed_title">Attiva il salvataggio della velocità di riproduzione</string>
@@ -157,18 +154,21 @@ Nota: disattivando la sovrapposizione della velocità ripristina lo \"Scorri la 
     <string name="revanced_enable_seekbar_tapping_summary_off">Il tocco della barra di avanzamento è disattivato</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">Il tocco della barra di avanzamento è attivato</string>
     <string name="revanced_enable_seekbar_tapping_title">Attiva il tocco della barra di avanzamento</string>
-    <string name="revanced_enable_swipe_auto_brightness_summary_off">La luminosità automatica non verrà attivata anche se impostata scorrendo su 0</string>
-    <string name="revanced_enable_swipe_auto_brightness_summary_on">La luminosità automatica verrà attivata quando impostata scorrendo a 0</string>
-    <string name="revanced_enable_swipe_auto_brightness_title">Attiva la luminosità automatica con scorrimento</string>
-    <string name="revanced_enable_swipe_brightness_summary_off">La modifica della luminosità con i gesti è disattivata</string>
-    <string name="revanced_enable_swipe_brightness_summary_on">La modifica della luminosità con i gesti è attivata</string>
-    <string name="revanced_enable_swipe_brightness_title">Attiva i gesti per cambiare la luminosità</string>
-    <string name="revanced_enable_swipe_haptic_feedback_summary_off">La vibrazione del gesto Premi-per-Scorrere è disattivata</string>
-    <string name="revanced_enable_swipe_haptic_feedback_summary_on">La vibrazione del gesto Premi-per-Scorrere è attivata</string>
-    <string name="revanced_enable_swipe_haptic_feedback_title">Attiva la vibrazione del gesto Premi-per-Scorrere</string>
-    <string name="revanced_enable_swipe_volume_summary_off">La modifica del volume con i gesti è disattivata</string>
-    <string name="revanced_enable_swipe_volume_summary_on">La modifica del volume con i gesti è attivata</string>
-    <string name="revanced_enable_swipe_volume_title">Attiva i gesti per cambiare il volume</string>
+    <string name="revanced_enable_swipe_auto_brightness_summary_off">La luminosità automatica non si attiva anche se trascini la luminosità su 0</string>
+    <string name="revanced_enable_swipe_auto_brightness_summary_on">La luminosità automatica si attiva quando trascini la luminosità su 0</string>
+    <string name="revanced_enable_swipe_auto_brightness_title">Attiva la luminosità automatica trascinando</string>
+    <string name="revanced_enable_swipe_brightness_summary_off">Il trascinamento per modificare la luminosità è disattivato</string>
+    <string name="revanced_enable_swipe_brightness_summary_on">Il trascinamento per modificare la luminosità è attivato</string>
+    <string name="revanced_enable_swipe_brightness_title">Attiva il trascinamento per modificare la luminosità</string>
+    <string name="revanced_enable_swipe_haptic_feedback_summary_off">La vibrazione è disattivata</string>
+    <string name="revanced_enable_swipe_haptic_feedback_summary_on">La vibrazione è attivata</string>
+    <string name="revanced_enable_swipe_haptic_feedback_title">Attiva la vibrazione</string>
+    <string name="revanced_enable_swipe_press_to_engage_summary_off">Tocca per attivare i gesti di trascinamento</string>
+    <string name="revanced_enable_swipe_press_to_engage_summary_on">Tocca e tieni premuto per attivare i gesti di trascinamento</string>
+    <string name="revanced_enable_swipe_press_to_engage_title">Attiva il gesto Premi-per-Trascinare</string>
+    <string name="revanced_enable_swipe_volume_summary_off">Il trascinamento per modificare il volume è disattivato</string>
+    <string name="revanced_enable_swipe_volume_summary_on">Il trascinamento per modificare il volume è attivato</string>
+    <string name="revanced_enable_swipe_volume_title">Attiva il trascinamento per modificare il volume</string>
     <string name="revanced_enable_tablet_layout_summary">Simula un diverso valore DPI per usare alcune parti dell\'interfaccia da tablet</string>
     <string name="revanced_enable_tablet_layout_title">Attiva l\'interfaccia da tablet</string>
     <string name="revanced_enable_tablet_mini_player_summary_off">Il riproduttore mini da tablet è disattivato</string>
@@ -200,7 +200,7 @@ Scheda Tu &gt; Visualizza canale &gt; Menù &gt; Impostazioni"</string>
     <string name="revanced_extended_settings_import_export_as_file_title">Esporta/Importa come file</string>
     <string name="revanced_extended_settings_import_export_as_text_summary">Esporta/Importa le impostazioni come testo</string>
     <string name="revanced_extended_settings_import_export_as_text_title">Esporta/Importa come testo</string>
-    <string name="revanced_extended_settings_import_export_summary">Importa o esporta le impostazioni</string>
+    <string name="revanced_extended_settings_import_export_summary">Esporta o importa le impostazioni</string>
     <string name="revanced_extended_settings_import_export_title">Esporta/Importa impostazioni</string>
     <string name="revanced_extended_settings_import_failed">Impossibile importare le impostazioni</string>
     <string name="revanced_extended_settings_import_reset">Ripristina</string>
@@ -342,9 +342,9 @@ Alcuni componenti potrebbero non essere nascosti"</string>
     <string name="revanced_hide_create_button_summary_off">Il pulsante Crea è visibile</string>
     <string name="revanced_hide_create_button_summary_on">Il pulsante Crea è nascosto</string>
     <string name="revanced_hide_create_button_title">Nascondi il pulsante Crea</string>
-    <string name="revanced_hide_create_shorts_button_summary_off">Il pulsante Crea Shorts è visibile</string>
-    <string name="revanced_hide_create_shorts_button_summary_on">Il pulsante Crea Shorts è nascosto</string>
-    <string name="revanced_hide_create_shorts_button_title">Nascondi il pulsante Crea Shorts</string>
+    <string name="revanced_hide_create_shorts_button_summary_off">Il pulsante Crea Short è visibile</string>
+    <string name="revanced_hide_create_shorts_button_summary_on">Il pulsante Crea Short è nascosto</string>
+    <string name="revanced_hide_create_shorts_button_title">Nascondi il pulsante Crea Short</string>
     <string name="revanced_hide_crowdfunding_box_summary_off">Il riquadro della raccolta fondi è visibile</string>
     <string name="revanced_hide_crowdfunding_box_summary_on">Il riquadro della raccolta fondi è nascosto</string>
     <string name="revanced_hide_crowdfunding_box_title">Nascondi il riquadro della raccolta fondi</string>
@@ -475,9 +475,9 @@ Alcuni componenti potrebbero non essere nascosti"</string>
     <string name="revanced_hide_player_flyout_panel_listen_with_youtube_music_summary_off">Il menù Ascolta con YouTube Music è visibile</string>
     <string name="revanced_hide_player_flyout_panel_listen_with_youtube_music_summary_on">Il menù Ascolta con YouTube Music è nascosto</string>
     <string name="revanced_hide_player_flyout_panel_listen_with_youtube_music_title">Nascondi il menù Ascolta con YouTube Music</string>
-    <string name="revanced_hide_player_flyout_panel_lock_screen_summary_off">Il menù Blocco Schermo è visibile</string>
-    <string name="revanced_hide_player_flyout_panel_lock_screen_summary_on">Il menù Blocco Schermo è nascosto</string>
-    <string name="revanced_hide_player_flyout_panel_lock_screen_title">Nascondi il menù Blocco Schermo</string>
+    <string name="revanced_hide_player_flyout_panel_lock_screen_summary_off">Il menù Blocca Schermo è visibile</string>
+    <string name="revanced_hide_player_flyout_panel_lock_screen_summary_on">Il menù Blocca Schermo è nascosto</string>
+    <string name="revanced_hide_player_flyout_panel_lock_screen_title">Nascondi il menù Blocca Schermo</string>
     <string name="revanced_hide_player_flyout_panel_loop_video_summary_off">Il menù Loop del Video è visibile</string>
     <string name="revanced_hide_player_flyout_panel_loop_video_summary_on">Il menù Loop del Video è nascosto</string>
     <string name="revanced_hide_player_flyout_panel_loop_video_title">Nascondi il menù Loop del Video</string>
@@ -765,15 +765,18 @@ Problemi noti:
 • Il download offline potrebbe non funzionare
 • Il video potrebbe non iniziare dall'ultimo minutaggio visto"</string>
     <string name="revanced_spoof_player_parameter_title">Simula i parametri del riproduttore</string>
-    <string name="revanced_swipe_controls">Controlli a scorrimento</string>
-    <string name="revanced_swipe_magnitude_threshold_summary">La quantità di interazioni prima che lo scorrimento si verifichi</string>
-    <string name="revanced_swipe_magnitude_threshold_title">Ampiezza della soglia di scorrimento</string>
-    <string name="revanced_swipe_overlay_background_alpha_summary">La visibilità dello sfondo in sovrapposizione durante lo scorrimento</string>
-    <string name="revanced_swipe_overlay_background_alpha_title">Visibilità dello sfondo durante lo scorrimento</string>
-    <string name="revanced_swipe_overlay_text_size_summary">La dimensione del testo in sovrapposizione durante lo scorrimento</string>
-    <string name="revanced_swipe_overlay_text_size_title">Dimensione del testo sovrapposto dello scorrimento</string>
+    <string name="revanced_swipe_controls">Controlli di trascinamento</string>
+    <string name="revanced_swipe_gestures_lock_mode_summary_off">"I gesti di trascinamento in modalità Blocca Schermo sono disattivati"</string>
+    <string name="revanced_swipe_gestures_lock_mode_summary_on">"I gesti di trascinamento in modalità Blocca Schermo sono attivati"</string>
+    <string name="revanced_swipe_gestures_lock_mode_title">"Gesti di trascinamento in modalità Blocca Schermo"</string>
+    <string name="revanced_swipe_magnitude_threshold_summary">La quantità di interazioni prima che il trascinamento si verifichi</string>
+    <string name="revanced_swipe_magnitude_threshold_title">Ampiezza della soglia di trascinamento</string>
+    <string name="revanced_swipe_overlay_background_alpha_summary">La visibilità dello sfondo in sovrapposizione durante il trascinamento</string>
+    <string name="revanced_swipe_overlay_background_alpha_title">Visibilità dello sfondo durante il trascinamento</string>
+    <string name="revanced_swipe_overlay_text_size_summary">La dimensione del testo in sovrapposizione durante il trascinamento</string>
+    <string name="revanced_swipe_overlay_text_size_title">Dimensione del testo sovrapposto del trascinamento</string>
     <string name="revanced_swipe_overlay_timeout_summary">La visibilità in millisecondi della sovrapposizione</string>
-    <string name="revanced_swipe_overlay_timeout_title">Durata della sovrapposizione dello scorrimento</string>
+    <string name="revanced_swipe_overlay_timeout_title">Durata della sovrapposizione del trascinamento</string>
     <string name="revanced_switching_create_notification_summary">"Scambia il pulsante Crea e con il pulsante Notifiche simulando le informazioni del dispositivo.
 
 Note:
