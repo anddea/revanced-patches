@@ -18,8 +18,10 @@ import app.revanced.patches.youtube.utils.fix.parameter.fingerprints.StoryboardR
 import app.revanced.patches.youtube.utils.fix.parameter.fingerprints.StoryboardRendererSpecRecommendedLevelFingerprint
 import app.revanced.patches.youtube.utils.fix.parameter.fingerprints.StoryboardThumbnailFingerprint
 import app.revanced.patches.youtube.utils.fix.parameter.fingerprints.StoryboardThumbnailParentFingerprint
+import app.revanced.patches.youtube.utils.playerresponse.PlayerResponsePatch
 import app.revanced.patches.youtube.utils.playertype.PlayerTypeHookPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
+import app.revanced.patches.youtube.utils.videoid.general.VideoIdPatch
 import app.revanced.util.integrations.Constants.MISC_PATH
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -29,6 +31,8 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
     description = "Spoofs player parameters to prevent playback issues.",
     dependencies = [
         PlayerTypeHookPatch::class,
+        PlayerResponsePatch::class,
+        VideoIdPatch::class,
         SettingsPatch::class
     ],
     compatiblePackages = [
@@ -75,19 +79,9 @@ object SpoofPlayerParameterPatch : BytecodePatch(
         /**
          * Hook player parameter
          */
-        PlayerParameterBuilderFingerprint.result?.let {
-            it.mutableMethod.apply {
-                val videoIdRegister = 1
-                val playerParameterRegister = 3
-
-                addInstructions(
-                    0, """
-                        invoke-static {p$videoIdRegister, p$playerParameterRegister}, $INTEGRATIONS_CLASS_DESCRIPTOR->spoofParameter(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-                        move-result-object p$playerParameterRegister
-                        """
-                )
-            }
-        } ?: throw PlayerParameterBuilderFingerprint.exception
+        PlayerResponsePatch += PlayerResponsePatch.Hook.PlayerParameter(
+            "$INTEGRATIONS_CLASS_DESCRIPTOR->spoofParameter(Ljava/lang/String;Z)Ljava/lang/String;"
+        )
 
         /**
          * Forces the SeekBar thumbnail preview container to be shown

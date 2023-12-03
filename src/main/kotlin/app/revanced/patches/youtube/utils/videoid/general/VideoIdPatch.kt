@@ -13,6 +13,7 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.utils.fingerprints.OrganicPlaybackContextModelFingerprint
+import app.revanced.patches.youtube.utils.playerresponse.PlayerResponsePatch
 import app.revanced.patches.youtube.utils.playertype.PlayerTypeHookPatch
 import app.revanced.patches.youtube.utils.videoid.general.fingerprint.PlayerControllerSetTimeReferenceFingerprint
 import app.revanced.patches.youtube.utils.videoid.general.fingerprint.VideoEndFingerprint
@@ -27,7 +28,12 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 import com.android.tools.smali.dexlib2.util.MethodUtil
 
-@Patch(dependencies = [PlayerTypeHookPatch::class])
+@Patch(
+    dependencies = [
+        PlayerTypeHookPatch::class,
+        PlayerResponsePatch::class
+    ]
+)
 object VideoIdPatch : BytecodePatch(
     setOf(
         OrganicPlaybackContextModelFingerprint,
@@ -144,8 +150,12 @@ object VideoIdPatch : BytecodePatch(
             } ?: throw VideoIdFingerprint.exception
         } ?: throw VideoIdParentFingerprint.exception
 
-        injectCall("$VIDEO_PATH/VideoInformation;->setVideoId(Ljava/lang/String;)V")
-
+        injectCall("$INTEGRATIONS_CLASS_DESCRIPTOR->setVideoId(Ljava/lang/String;)V")
+        injectPlayerResponseVideoId("$INTEGRATIONS_CLASS_DESCRIPTOR->setPlayerResponseVideoId(Ljava/lang/String;Z)V")
+        // Call before any other video id hooks,
+        // so they can use VideoInformation and check if the video id is for a Short.
+        PlayerResponsePatch += PlayerResponsePatch.Hook.PlayerBeforeVideoId(
+            "$INTEGRATIONS_CLASS_DESCRIPTOR->newPlayerResponseSignature(Ljava/lang/String;Z)Ljava/lang/String;")
     }
 
     const val INTEGRATIONS_CLASS_DESCRIPTOR = "$VIDEO_PATH/VideoInformation;"
@@ -170,6 +180,34 @@ object VideoIdPatch : BytecodePatch(
         insertMethod.addInstructions(
             insertIndex + offset, // move-result-object offset
             "invoke-static {v$videoIdRegister}, $methodDescriptor"
+        )
+    }
+
+    /**
+     * Hooks the video id of every video when loaded.
+     * Supports all videos and functions in all situations.
+     *
+     * First parameter is the video id.
+     * Second parameter is if the video is a Short AND it is being opened or is currently playing.
+     *
+     * Hook is always called off the main thread.
+     *
+     * This hook is called as soon as the player response is parsed,
+     * and called before many other hooks are updated such as [PlayerTypeHookPatch].
+     *
+     * Note: The video id returned here may not be the current video that's being played.
+     * It's common for multiple Shorts to load at once in preparation
+     * for the user swiping to the next Short.
+     *
+     * Be aware, this can be called multiple times for the same video id.
+     *
+     * @param methodDescriptor which method to call. Params must be `Ljava/lang/String;Z`
+     */
+    internal fun injectPlayerResponseVideoId(
+        methodDescriptor: String
+    ) {
+        PlayerResponsePatch += PlayerResponsePatch.Hook.VideoId(
+            methodDescriptor
         )
     }
 
