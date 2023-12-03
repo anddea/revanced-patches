@@ -162,10 +162,10 @@ ReVanced Extended Patches.
 | `Hide channel guidelines` | Hides channel guidelines at the top of comments. | 6.21.52+ |
 | `Hide emoji picker` | Hides emoji picker at the comments box. | 6.21.52+ |
 | `Hide flyout panel` | Hides flyout panel components. | 6.21.52+ |
+| `Hide general ads` | Hides general ads. | 6.21.52+ |
 | `Hide get premium` | Hides "Get Premium" label from the account menu or settings. | 6.21.52+ |
 | `Hide handle` | Hides the handle in the account switcher. | 6.21.52+ |
 | `Hide history button` | Hides history button in toolbar. | 6.21.52+ |
-| `Hide music ads` | Hides ads before playing a music. | 6.21.52+ |
 | `Hide navigation bar component` | Hides navigation bar components. | 6.21.52+ |
 | `Hide new playlist button` | Hides the "New playlist" button in the library. | 6.21.52+ |
 | `Hide playlist card` | Hides the playlist card from homepage. | 6.21.52+ |
