@@ -4,7 +4,6 @@ import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
@@ -12,7 +11,7 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.general.widesearchbar.fingerprints.SetActionBarRingoFingerprint
 import app.revanced.patches.youtube.general.widesearchbar.fingerprints.SetWordMarkHeaderFingerprint
 import app.revanced.patches.youtube.general.widesearchbar.fingerprints.YouActionBarFingerprint
-import app.revanced.patches.youtube.utils.fingerprints.CreateSearchSuggestionsFingerprint
+import app.revanced.patches.youtube.utils.fingerprints.LayoutSwitchFingerprint
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch.contexts
@@ -57,33 +56,32 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 @Suppress("unused")
 object WideSearchBarPatch : BytecodePatch(
     setOf(
-        CreateSearchSuggestionsFingerprint,
+        LayoutSwitchFingerprint,
         SetActionBarRingoFingerprint,
         SetWordMarkHeaderFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext) {
 
-        val result = CreateSearchSuggestionsFingerprint.result
-            ?: throw CreateSearchSuggestionsFingerprint.exception
-
+        // resolves fingerprints
         val parentClassDef = SetActionBarRingoFingerprint.result?.classDef
-            ?: throw CreateSearchSuggestionsFingerprint.exception
+            ?: throw SetActionBarRingoFingerprint.exception
+        YouActionBarFingerprint.resolve(context, parentClassDef)
 
         // patch methods
-        mapOf(
-            SetWordMarkHeaderFingerprint to 1,
-            CreateSearchSuggestionsFingerprint to result.scanResult.patternScanResult!!.startIndex
-        ).forEach { (fingerprint, callIndex) ->
-            context.walkMutable(callIndex, fingerprint).injectSearchBarHook()
-        }
+        SetWordMarkHeaderFingerprint.result?.let {
+            val targetMethod =
+                context.toMethodWalker(it.method)
+                    .nextMethod(1, true)
+                    .getMethod() as MutableMethod
 
-        YouActionBarFingerprint.also {
-            it.resolve(
-                context,
-                parentClassDef
-            )
-        }.result?.let {
+            targetMethod.injectSearchBarHook()
+        } ?: throw SetWordMarkHeaderFingerprint.exception
+
+        LayoutSwitchFingerprint.result?.mutableMethod?.injectSearchBarHook()
+            ?: throw LayoutSwitchFingerprint.exception
+
+        YouActionBarFingerprint.result?.let {
             it.mutableMethod.apply {
                 val insertIndex = it.scanResult.patternScanResult!!.endIndex
                 val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
@@ -128,18 +126,6 @@ object WideSearchBarPatch : BytecodePatch(
 
     private const val FLAG = "android:paddingStart"
     private const val TARGET_RESOURCE_PATH = "res/layout/action_bar_ringo_background.xml"
-
-    /**
-     * Walk a fingerprints method at a given index mutably.
-     *
-     * @param index The index to walk at.
-     * @param fromFingerprint The fingerprint to walk the method on.
-     * @return The [MutableMethod] which was walked on.
-     */
-    private fun BytecodeContext.walkMutable(index: Int, fromFingerprint: MethodFingerprint) =
-        fromFingerprint.result?.let {
-            toMethodWalker(it.method).nextMethod(index, true).getMethod() as MutableMethod
-        } ?: throw fromFingerprint.exception
 
     /**
      * Injects instructions required for certain methods.
