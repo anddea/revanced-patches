@@ -27,8 +27,8 @@
     <string name="revanced_append_time_stamp_information_summary_off">타임스탬프에서 정보를 표시하지 않습니다.</string>
     <string name="revanced_append_time_stamp_information_summary_on">타임스탬프에서 정보를 표시합니다.</string>
     <string name="revanced_append_time_stamp_information_title">타임스탬프에서 정보 표시하기</string>
-    <string name="revanced_append_time_stamp_information_type_summary_off">현재 동영상 재생 속도를 표시합니다.\n타임스탬프 정보를 길게 누르면 정보를 빠르게 전환할 수 있습니다.</string>
-    <string name="revanced_append_time_stamp_information_type_summary_on">현재 동영상 화질을 표시합니다.\n타임스탬프 정보를 길게 누르면 정보를 빠르게 전환할 수 있습니다.</string>
+    <string name="revanced_append_time_stamp_information_type_summary_off">현재 동영상 재생 속도를 표시합니다.\n타임스탬프 정보를 길게 누르면 다른 정보로 빠르게 전환할 수 있습니다.</string>
+    <string name="revanced_append_time_stamp_information_type_summary_on">현재 동영상 화질을 표시합니다.\n타임스탬프 정보를 길게 누르면 다른 정보로 빠르게 전환할 수 있습니다.</string>
     <string name="revanced_append_time_stamp_information_type_title">타임스탬프에서 표시할 정보 설정</string>
     <string name="revanced_bottom_player">플레이어 하단</string>
     <string name="revanced_button_container_title">버튼 컨테이너</string>
@@ -40,6 +40,11 @@
     <string name="revanced_change_homepage_title">메인 페이지 변경하기</string>
     <string name="revanced_channel_bar_title">채널바</string>
     <string name="revanced_channel_profile_title">채널 프로필</string>
+    <string name="revanced_close_interstitial_ads_summary">"자동으로 전면 광고를 닫습니다.
+
+알림: 아직 테스트되지 않은 기능입니다."</string>
+    <string name="revanced_close_interstitial_ads_title">전면 광고 닫기</string>
+    <string name="revanced_close_interstitial_ads_toast">전면 광고를 닫습니다.</string>
     <string name="revanced_comments_title">댓글</string>
     <string name="revanced_custom_filter_strings_summary">구성요소의 이름을 줄바꿈으로 구분하여 필터링합니다.</string>
     <string name="revanced_custom_filter_strings_title">사용자 정의 필터 편집하기</string>
@@ -162,7 +167,7 @@
     <string name="revanced_enable_swipe_brightness_title">스와이프 제스처로 밝기 조절 활성화하기</string>
     <string name="revanced_enable_swipe_haptic_feedback_summary_off">진동 피드백을 비활성화합니다.</string>
     <string name="revanced_enable_swipe_haptic_feedback_summary_on">진동 피드백을 활성화합니다.</string>
-    <string name="revanced_enable_swipe_haptic_feedback_title">진동 피드백 활성화하기</string>
+    <string name="revanced_enable_swipe_haptic_feedback_title">길게 눌러서 스와이프 제스처를 사용할 때 진동 피드백 활성화하기</string>
     <string name="revanced_enable_swipe_press_to_engage_summary_off">화면을 짧게 눌러서 스와이프 제스처를 사용합니다.</string>
     <string name="revanced_enable_swipe_press_to_engage_summary_on">화면을 길게 눌러서 스와이프 제스처를 사용합니다.</string>
     <string name="revanced_enable_swipe_press_to_engage_title">길게 눌러서 스와이프 제스처 사용하기</string>
@@ -207,7 +212,7 @@
     <string name="revanced_extended_settings_import_success">설정을 성공적으로 가져왔습니다.</string>
     <string name="revanced_extended_settings_import_summary">설정을 저장된 파일에서 가져올 수 있습니다.</string>
     <string name="revanced_extended_settings_import_title">설정 가져오기</string>
-    <string name="revanced_external_downloader_download">다운로드</string>
+    <string name="revanced_external_downloader_download">앱 다운로드 (개발자 GitHub)</string>
     <string name="revanced_external_downloader_installed">설치되어 있습니다.</string>
     <string name="revanced_external_downloader_not_installed">설치되어 있지 않습니다.</string>
     <string name="revanced_external_downloader_not_installed_warning" formatted="false">%s가 설치되지 않았습니다. 설치해 주세요.</string>
@@ -241,9 +246,9 @@
     <string name="revanced_hide_autoplay_button_summary_off">자동 재생 버튼이 노출됩니다.</string>
     <string name="revanced_hide_autoplay_button_summary_on">자동 재생 버튼이 숨겨집니다.</string>
     <string name="revanced_hide_autoplay_button_title">자동 재생 버튼 숨기기</string>
-    <string name="revanced_hide_autoplay_preview_summary_off">자동재생 미리보기 컨테이너가 노출됩니다.</string>
-    <string name="revanced_hide_autoplay_preview_summary_on">자동재생 미리보기 컨테이너가 숨겨집니다.</string>
-    <string name="revanced_hide_autoplay_preview_title">자동재생 미리보기 컨테이너 숨기기</string>
+    <string name="revanced_hide_autoplay_preview_summary_off">자동 재생 미리 보기 컨테이너가 노출됩니다.</string>
+    <string name="revanced_hide_autoplay_preview_summary_on">자동 재생 미리 보기 컨테이너가 숨겨집니다.</string>
+    <string name="revanced_hide_autoplay_preview_title">자동 재생 미리 보기 컨테이너 숨기기</string>
     <string name="revanced_hide_auto_player_popup_panels_summary_off">플레이어 팝업 패널(재생목록 또는 실시간 채팅)이 노출됩니다.</string>
     <string name="revanced_hide_auto_player_popup_panels_summary_on">플레이어 팝업 패널(재생목록 또는 실시간 채팅)이 숨겨집니다.</string>
     <string name="revanced_hide_auto_player_popup_panels_title">플레이어 팝업 패널 숨기기</string>
@@ -348,9 +353,9 @@
     <string name="revanced_hide_create_shorts_button_summary_off">Shorts 만들기 버튼이 노출됩니다.</string>
     <string name="revanced_hide_create_shorts_button_summary_on">Shorts 만들기 버튼이 숨겨집니다.</string>
     <string name="revanced_hide_create_shorts_button_title">Shorts 만들기 버튼 숨기기</string>
-    <string name="revanced_hide_crowdfunding_box_summary_off">플레이어 하단에서 크라우드펀딩 박스가 노출됩니다.</string>
-    <string name="revanced_hide_crowdfunding_box_summary_on">플레이어 하단에서 크라우드펀딩 박스가 숨겨집니다.</string>
-    <string name="revanced_hide_crowdfunding_box_title">크라우드펀딩 박스 숨기기</string>
+    <string name="revanced_hide_crowdfunding_box_summary_off">플레이어 하단에서 크라우드 펀딩 박스가 노출됩니다.</string>
+    <string name="revanced_hide_crowdfunding_box_summary_on">플레이어 하단에서 크라우드 펀딩 박스가 숨겨집니다.</string>
+    <string name="revanced_hide_crowdfunding_box_title">크라우드 펀딩 박스 숨기기</string>
     <string name="revanced_hide_emoji_picker_summary_off">이모지 선택기가 노출됩니다.</string>
     <string name="revanced_hide_emoji_picker_summary_on">이모지 선택기가 숨겨집니다.</string>
     <string name="revanced_hide_emoji_picker_title">이모지 선택기 숨기기</string>
@@ -511,9 +516,9 @@
     <string name="revanced_hide_podcast_section_summary_off">팟캐스트 살펴보기 섹션이 노출됩니다.</string>
     <string name="revanced_hide_podcast_section_summary_on">팟캐스트 살펴보기 섹션이 숨겨집니다.</string>
     <string name="revanced_hide_podcast_section_title">팟캐스트 살펴보기 섹션 숨기기</string>
-    <string name="revanced_hide_preview_comment_off">댓글 미리보기가 노출됩니다.</string>
-    <string name="revanced_hide_preview_comment_on">댓글 미리보기가 숨겨집니다.</string>
-    <string name="revanced_hide_preview_comment_title">댓글 미리보기 숨기기</string>
+    <string name="revanced_hide_preview_comment_off">댓글 미리 보기가 노출됩니다.</string>
+    <string name="revanced_hide_preview_comment_on">댓글 미리 보기가 숨겨집니다.</string>
+    <string name="revanced_hide_preview_comment_title">댓글 미리 보기 숨기기</string>
     <string name="revanced_hide_previous_next_button_summary_off">이전 동영상 &amp; 다음 동영상 버튼이 노출됩니다.</string>
     <string name="revanced_hide_previous_next_button_summary_on">이전 동영상 &amp; 다음 동영상 버튼이 숨겨집니다.</string>
     <string name="revanced_hide_previous_next_button_title">이전 동영상 &amp; 다음 동영상 버튼 숨기기</string>
@@ -710,8 +715,8 @@
     <string name="revanced_ryd_failure_client_rate_limit_requested">싫어요 개수를 표시할 수 없습니다. (클라이언트 API 제한 도달)</string>
     <string name="revanced_ryd_failure_generic">싫어요 개수를 표시할 수 없습니다 (%s).</string>
     <string name="revanced_ryd_shorts_summary_disclaimer">한계: 특정 상황에서는 싫어요 개수가 표시되지 않을 수 있습니다.</string>
-    <string name="revanced_ryd_shorts_summary_off">Shorts에서 싫어요 개수가 숨겨집니다.</string>
-    <string name="revanced_ryd_shorts_summary_on">Shorts에서 싫어요 개수가 노출됩니다. %s</string>
+    <string name="revanced_ryd_shorts_summary_off">Shorts에서 싫어요 개수를 표시하지 않습니다.</string>
+    <string name="revanced_ryd_shorts_summary_on">Shorts에서 싫어요 개수를 표시합니다. %s</string>
     <string name="revanced_ryd_shorts_title">Shorts에서 싫어요 개수 표시하기</string>
     <string name="revanced_ryd_toast_on_connection_error_title">API를 사용할 수 없을 때 팝업 메시지 표시하기</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_off">ReturnYouTubeDislike API를 사용할 수 없을 때 팝업 메시지를 표시하지 않습니다.</string>
@@ -791,7 +796,7 @@
     <string name="revanced_switching_create_notification_summary">"기기 정보를 변경하여 만들기 버튼과 알림 버튼의 위치를 교환합니다.
 
 • 이 설정을 변경하더라도 기기를 다시 시작할 때까지 적용되지 않을 수 있습니다.
-• '동영상 광고 숨기기'를 비활성화하려면 이 설정을 비활성화해야합니다.
+• '동영상 광고 숨기기'를 비활성화하려면 이 설정도 비활성화해야합니다.
 • 이 설정을 비활성화하면 Shorts 플레이어에서 동영상 광고가 노출될 수 있습니다."</string>
     <string name="revanced_switching_create_notification_title">만들기 버튼과 알림 버튼 위치 교환하기</string>
     <string name="revanced_tool_used">사용된 도구</string>

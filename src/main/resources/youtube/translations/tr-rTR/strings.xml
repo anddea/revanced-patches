@@ -40,6 +40,11 @@
     <string name="revanced_change_homepage_title">Ana sayfayı Abonelikler sayfası yap</string>
     <string name="revanced_channel_bar_title">Kanal çubuğu</string>
     <string name="revanced_channel_profile_title">Kanal profili</string>
+    <string name="revanced_close_interstitial_ads_summary">"Geçiş reklamlarını otomatik olarak kapatın.
+
+Not: Test edilmemiş bir özelliktir."</string>
+    <string name="revanced_close_interstitial_ads_title">Geçiş reklamlarını kapatın</string>
+    <string name="revanced_close_interstitial_ads_toast">Geçiş reklamları kapatılıyor.</string>
     <string name="revanced_comments_title">Yorumlar</string>
     <string name="revanced_custom_filter_strings_summary">Öğeleri satır satır ayırarak yazınız</string>
     <string name="revanced_custom_filter_strings_title">Özel filtreyi düzenle</string>
@@ -163,6 +168,9 @@ Not: Bu özelliği devre dışı bırakmak, eski arayüzdeki \"Videoyu sarmak i�
     <string name="revanced_enable_swipe_haptic_feedback_summary_off">Titreşim kapalı.</string>
     <string name="revanced_enable_swipe_haptic_feedback_summary_on">Titreşim açık.</string>
     <string name="revanced_enable_swipe_haptic_feedback_title">Titreşimli geribildirimi etkinleştir</string>
+    <string name="revanced_enable_swipe_press_to_engage_summary_off">Kaydırma hareketini etkinleştirmek için dokunun.</string>
+    <string name="revanced_enable_swipe_press_to_engage_summary_on">Kaydırma hareketini etkinleştirmek için dokunun ve basılı tutun.</string>
+    <string name="revanced_enable_swipe_press_to_engage_title">Basılı tut ve kaydır hareketini etkinleştir</string>
     <string name="revanced_enable_swipe_volume_summary_off">Video tam ekrandayken, ekranın sağını kaydırarak sesi ayarlama kapalı</string>
     <string name="revanced_enable_swipe_volume_summary_on">Video tam ekrandayken, ekranın sağını kaydırarak sesi ayarlama açık</string>
     <string name="revanced_enable_swipe_volume_title">Kaydırarak sesi ayarla</string>
@@ -470,16 +478,16 @@ Bu durumda lütfen şu yolu kullanın: Siz sekmesi &gt; Kanalı görüntüle &gt
     <string name="revanced_hide_player_flyout_panel_help_title">\"Yardım ve geri bildirim\" butonunu gizle</string>
     <string name="revanced_hide_player_flyout_panel_listen_with_youtube_music_summary_off">\"YouTube Müzik ile dinle\" butonu gizlenmiyor.</string>
     <string name="revanced_hide_player_flyout_panel_listen_with_youtube_music_summary_on">\"YouTube Müzik ile dinle\" butonu gizleniyor.</string>
-    <string name="revanced_hide_player_flyout_panel_listen_with_youtube_music_title">YouTube Music ile dinle butonunu gizle</string>
+    <string name="revanced_hide_player_flyout_panel_listen_with_youtube_music_title">YouTube Music ile dinle menüsünü gizle</string>
     <string name="revanced_hide_player_flyout_panel_lock_screen_summary_off">\"Ekranı kilitle\" butonu gösteriliyor</string>
     <string name="revanced_hide_player_flyout_panel_lock_screen_summary_on">\"Ekranı kilitle\" butonu gizleniyor</string>
     <string name="revanced_hide_player_flyout_panel_lock_screen_title">\"Ekranı kilitle\" butonunu gizle</string>
     <string name="revanced_hide_player_flyout_panel_loop_video_summary_off">\"Videoyu döngüye al\" butonu gösteriliyor</string>
     <string name="revanced_hide_player_flyout_panel_loop_video_summary_on">\"Videoyu döngüye al\" butonu gizleniyor</string>
     <string name="revanced_hide_player_flyout_panel_loop_video_title">\"Videoyu döngüye al\" butonunu gizle</string>
-    <string name="revanced_hide_player_flyout_panel_more_info_summary_off">Gizlenmiyor</string>
-    <string name="revanced_hide_player_flyout_panel_more_info_summary_on">Gizleniyor</string>
-    <string name="revanced_hide_player_flyout_panel_more_info_title">Daha fazla bilgi butonunu gizle</string>
+    <string name="revanced_hide_player_flyout_panel_more_info_summary_off">Daha fazla bilgi menüsü gösterilir.</string>
+    <string name="revanced_hide_player_flyout_panel_more_info_summary_on">Daha fazla bilgi menüsü gizli.</string>
+    <string name="revanced_hide_player_flyout_panel_more_info_title">Daha fazla bilgi menüsünü gizle</string>
     <string name="revanced_hide_player_flyout_panel_playback_speed_summary_off">\"Oynatma hızı\" butonu gösteriliyor</string>
     <string name="revanced_hide_player_flyout_panel_playback_speed_summary_on">\"Oynatma hızı\" butonu gizleniyor</string>
     <string name="revanced_hide_player_flyout_panel_playback_speed_title">\"Oynatma hızı\" butonunu gizle</string>
@@ -540,17 +548,17 @@ Bu durumda lütfen şu yolu kullanın: Siz sekmesi &gt; Kanalı görüntüle &gt
     <string name="revanced_hide_seek_undo_message_summary_off">\"İptal etmek için bırakın\" gibi yazılar gizlenmiyor.</string>
     <string name="revanced_hide_seek_undo_message_summary_on">\"İptal etmek için bırakın\" gibi yazılar gizleniyor.</string>
     <string name="revanced_hide_seek_undo_message_title">\"İptal etmek için bırakın\" yazısını gizle</string>
-    <string name="revanced_hide_self_sponsor_cards_summary_off">Gizlenmiyor</string>
-    <string name="revanced_hide_self_sponsor_cards_summary_on">Gizleniyor</string>
-    <string name="revanced_hide_self_sponsor_cards_title">Kanalın kendi reklamlarını gizle</string>
+    <string name="revanced_hide_self_sponsor_cards_summary_off">Kanalın kendine sponsor kartları gösteriliyor.</string>
+    <string name="revanced_hide_self_sponsor_cards_summary_on">Kanalın kendine sponsor kartları gizli.</string>
+    <string name="revanced_hide_self_sponsor_cards_title">Kanalın kendi sponsorlu kartlarını gizle</string>
     <string name="revanced_hide_shopping_links_summary_off">Alışveriş linkleri gizlenmiyor.</string>
     <string name="revanced_hide_shopping_links_summary_on">Alışveriş linkleri gizleniyor.</string>
-    <string name="revanced_hide_shopping_links_title">Alışveriş linklerini gizle</string>
+    <string name="revanced_hide_shopping_links_title">Alışveriş bağlantılarını gizle</string>
     <string name="revanced_hide_shorts_button_summary_off">\"Shorts\" butonu gösteriliyor</string>
     <string name="revanced_hide_shorts_button_summary_on">\"Shorts\" butonu gizleniyor</string>
     <string name="revanced_hide_shorts_button_title">\"Shorts\" butonunu gizle</string>
-    <string name="revanced_hide_shorts_component_summary">Shorts bileşenini veya Shorts oynatıcı bileşenini gizler</string>
-    <string name="revanced_hide_shorts_component_title">Shorts bileşenlerini gizle</string>
+    <string name="revanced_hide_shorts_component_summary">Shorts bileşenini veya Shorts oynatıcı bileşenini gizler.</string>
+    <string name="revanced_hide_shorts_component_title">Shorts bileşenini gizle</string>
     <string name="revanced_hide_shorts_player_comments_button_summary_off">Yorum butonu gösteriliyor</string>
     <string name="revanced_hide_shorts_player_comments_button_summary_on">Yorum butonu gizleniyor</string>
     <string name="revanced_hide_shorts_player_comments_button_title">\"Yorumlar\" butonunu gizle</string>
@@ -767,6 +775,9 @@ Bilinen sorunlar:
 • Video son İzlenen kısımdan başlamayabilir"</string>
     <string name="revanced_spoof_player_parameter_title">Oynatıcı parametresini taklit et</string>
     <string name="revanced_swipe_controls">Kaydırma kontrolleri</string>
+    <string name="revanced_swipe_gestures_lock_mode_summary_off">"Kaydırma hareketleri 'Kilit ekranı' modunda devre dışıdır."</string>
+    <string name="revanced_swipe_gestures_lock_mode_summary_on">"Kaydırma hareketleri 'Kilit ekranı' modunda etkindir."</string>
+    <string name="revanced_swipe_gestures_lock_mode_title">"'Kilit ekranı' modundaki kaydırma hareketleri"</string>
     <string name="revanced_swipe_magnitude_threshold_summary">Kaydırma işleminin gerçekleşmesi için eşik miktarı</string>
     <string name="revanced_swipe_magnitude_threshold_title">Kaydırma büyüklük eşiği</string>
     <string name="revanced_swipe_overlay_background_alpha_summary">Kaydırma arka planının şeffaflık değeri</string>
@@ -794,26 +805,26 @@ Bilinen sorunlar:
     <string name="sb_enable_compact_skip_button_sum_on">Minimum genişlik için tasarlanmış atlama düğmesi</string>
     <string name="sb_enable_compact_skip_button_sum_off">En iyi görünüm için tasarlanmış atla düğmesi</string>
     <string name="sb_enable_auto_hide_skip_segment_button">Atla düğmesini otomatik olarak gizle</string>
-    <string name="sb_enable_auto_hide_skip_segment_button_sum_on">Atla düğmesi birkaç saniye sonra gizlenir</string>
-    <string name="sb_enable_auto_hide_skip_segment_button_sum_off">Atlama düğmesi tüm segmentler için görüntülenir</string>
+    <string name="sb_enable_auto_hide_skip_segment_button_sum_on">Atla düğmesi birkaç saniye sonra gizlenir.</string>
+    <string name="sb_enable_auto_hide_skip_segment_button_sum_off">Atlama düğmesi tüm segmentler için görüntülenir.</string>
     <string name="sb_general_skiptoast">Bir kısım otomatikman atlanırken uyarı ver</string>
-    <string name="sb_general_skiptoast_sum_on">Tost, bir bölüm otomatik olarak atlandığında gösterilir.
-Bir örnek görmek için buraya dokunun</string>
-    <string name="sb_general_skiptoast_sum_off">Tost gizleniyor. Bir örnek görmek için buraya dokunun</string>
+    <string name="sb_general_skiptoast_sum_on">Uyarı, bir bölüm otomatik olarak atlandığında gösterilir.
+Bir örnek görmek için buraya dokunun.</string>
+    <string name="sb_general_skiptoast_sum_off">Uyarı gizleniyor. Bir örnek görmek için buraya dokunun.</string>
     <string name="sb_general_time_without">Video uzunluğunu bölümler olmadan göster</string>
-    <string name="sb_general_time_without_sum_on">Video uzunluğu eksi tüm segmentler, tam video uzunluğunun yanında parantez içinde gösterilir</string>
-    <string name="sb_general_time_without_sum_off">Gizlenmiyor</string>
+    <string name="sb_general_time_without_sum_on">Video uzunluğu eksi tüm segmentler, tam video uzunluğunun yanında parantez içinde gösterilir.</string>
+    <string name="sb_general_time_without_sum_off">Tam video uzunluğu gizlenmiyor.</string>
     <string name="sb_create_segment_category">Yeni segmentler oluşturma</string>
     <string name="sb_enable_create_segment">Yeni segment oluştur düğmesini göster</string>
-    <string name="sb_enable_create_segment_sum_on">Gizlenmiyor</string>
-    <string name="sb_enable_create_segment_sum_off">Gizleniyor</string>
+    <string name="sb_enable_create_segment_sum_on">Yeni bölüm oluştur butonu gizlenmiyor.</string>
+    <string name="sb_enable_create_segment_sum_off">Yeni bölüm oluştur butonu gizleniyor.</string>
     <string name="sb_general_adjusting">Yeni kısım adımını ayarla</string>
-    <string name="sb_general_adjusting_sum">Yeni segmentler oluşturulurken zaman ayarlama düğmelerinin hareket ettiği milisaniye sayısı</string>
-    <string name="sb_general_adjusting_invalid">Değer pozitif bir sayı olmalıdır</string>
+    <string name="sb_general_adjusting_sum">Yeni segmentler oluşturulurken adım düğmelerinin hareket ettiği milisaniye sayısı.</string>
+    <string name="sb_general_adjusting_invalid">Değer pozitif bir sayı olmalıdır.</string>
     <string name="sb_guidelines_preference_title">Yönergeleri görüntüle</string>
-    <string name="sb_guidelines_preference_sum">Yönergeler, yeni segmentler oluşturmak için kurallar ve ipuçları içerir</string>
+    <string name="sb_guidelines_preference_sum">Yönergeler yeni segmentler oluşturmak için kurallar ve ipuçları içerir.</string>
     <string name="sb_guidelines_popup_title">Yönergeleri takip et</string>
-    <string name="sb_guidelines_popup_content">Herhangi bir kısmı göndermeden önce SponsorBlock kurallarını okumanız tavsiye edilir</string>
+    <string name="sb_guidelines_popup_content">Herhangi bir kısmı göndermeden önce SponsorBlock kurallarını okumalısınız.</string>
     <string name="sb_guidelines_popup_already_read">Zaten okundu</string>
     <string name="sb_guidelines_popup_open">Göster bana</string>
     <string name="sb_general">Genel</string>
@@ -821,7 +832,7 @@ Bir örnek görmek için buraya dokunun</string>
     <string name="sb_toast_on_connection_error_summary_on">SponsorBlock API\'nin mevcut olmaması durumunda uyarı gösterilir.</string>
     <string name="sb_toast_on_connection_error_summary_off">SponsorBlock API\'nin mevcut olmaması durumunda uyarı gösterilmez.</string>
     <string name="sb_general_skipcount">Atlama sayısı izlemeyi etkinleştir</string>
-    <string name="sb_general_skipcount_sum_on">SponsorBlock liderlik tablosunun ne kadar zaman kazanıldığını bilmesini sağlar. Bir segment her atlandığında skor tablosuna bir mesaj gönderilir</string>
+    <string name="sb_general_skipcount_sum_on">SponsorBlock liderlik tablosunun ne kadar zaman kazanıldığını bilmesini sağlar. Bir segment her atlandığında skor tablosuna bir mesaj gönderilir.</string>
     <string name="sb_general_skipcount_sum_off">Kapalı</string>
     <string name="sb_general_min_duration">En az bölüm süresi</string>
     <string name="sb_general_min_duration_sum">Bu değerden (saniye olarak) daha kısa bölümler gösterilmeyecek veya atlanmayacaktır</string>

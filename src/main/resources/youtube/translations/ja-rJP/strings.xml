@@ -158,6 +158,9 @@
     <string name="revanced_enable_swipe_brightness_summary_off">明るさのスワイプコントロールは無効です。</string>
     <string name="revanced_enable_swipe_brightness_summary_on">明るさのスワイプコントロールは有効です。</string>
     <string name="revanced_enable_swipe_brightness_title">明るさのジェスチャー</string>
+    <string name="revanced_enable_swipe_haptic_feedback_summary_off">触覚フィードバックは無効です。</string>
+    <string name="revanced_enable_swipe_haptic_feedback_summary_on">触覚フィードバックは有効です。</string>
+    <string name="revanced_enable_swipe_haptic_feedback_title">触覚フィードバックを有効化</string>
     <string name="revanced_enable_swipe_volume_summary_off">音量のスワイプコントロールは無効です。</string>
     <string name="revanced_enable_swipe_volume_summary_on">音量のスワイプコントロールは有効です。</string>
     <string name="revanced_enable_swipe_volume_title">音量のジェスチャー</string>
@@ -210,6 +213,10 @@
     <string name="revanced_external_downloader_settings_title">外部のダウンローダーの設定</string>
     <string name="revanced_feed_flyout_panel_title">フィードのフライアウトパネル</string>
     <string name="revanced_flyout_menu">フライアウトメニュー</string>
+    <string name="revanced_force_fullscreen_summary">"以下の状況でフルスクリーンに切り替わります:
+
+• コメントのタイムスタンプをタップしたとき
+• 動画開始時"</string>
     <string name="revanced_force_fullscreen_title">全画面表示の強制</string>
     <string name="revanced_fullscreen">全画面表示</string>
     <string name="revanced_general">全般</string>
@@ -588,6 +595,15 @@
 
 既知の問題: 自動再生が機能しません"</string>
     <string name="revanced_hide_suggested_video_overlay_title">関連動画のオーバーレイを非表示</string>
+    <string name="revanced_hide_suggestions_shelf_method_summary_off">"ブラウズ ID で提案欄を識別します。
+
+既知の問題:
+• ブラウズ ID が識別されない場合、提案欄を非表示にできない場合があります。"</string>
+    <string name="revanced_hide_suggestions_shelf_method_summary_on">"現在のタブで提案欄を識別します。
+
+既知の問題:
+• より多くのドロワー欄が非表示になる場合があります。
+• 再生リスト欄が非表示になる場合があります。"</string>
     <string name="revanced_hide_suggestions_shelf_method_title">提案欄を隠す方法の選択</string>
     <string name="revanced_hide_suggestions_shelf_summary">"以下の欄を非表示にします:
 • ニュース速報
@@ -683,7 +699,11 @@
     <string name="revanced_ryd_failure_generic">低評価数は一時的に利用できません。(%s)</string>
     <string name="revanced_ryd_shorts_summary_disclaimer">制限: 特定の状況では低評価が表示されない場合があります。</string>
     <string name="revanced_ryd_shorts_summary_off">ショートの低評価数は表示されません。</string>
+    <string name="revanced_ryd_shorts_summary_on">ショートの低評価数は表示されます。%s</string>
     <string name="revanced_ryd_shorts_title">ショートの低評価数</string>
+    <string name="revanced_ryd_toast_on_connection_error_title">API が利用できない場合にトーストを表示</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary_off">トーストは表示されません。</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary_on">ReturnYouTubeDislike API が利用できない場合、トーストが表示されます。</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">非表示</string>
     <string name="revanced_sanitize_sharing_links_summary">リンクを共有する際に、URL からトラッキングクエリパラメーターを削除します。</string>
     <string name="revanced_sanitize_sharing_links_title">共有リンクのクリーンアップ</string>
@@ -795,6 +815,9 @@
     <string name="sb_guidelines_popup_already_read">読みました</string>
     <string name="sb_guidelines_popup_open">表示する</string>
     <string name="sb_general">全般設定</string>
+    <string name="sb_toast_on_connection_error_title">API が利用できない場合にトーストを表示</string>
+    <string name="sb_toast_on_connection_error_summary_on">SponsorBlock API が利用できない場合に、トーストを表示します。</string>
+    <string name="sb_toast_on_connection_error_summary_off">トーストは表示されません。</string>
     <string name="sb_general_skipcount">スキップ回数のトラッキング</string>
     <string name="sb_general_skipcount_sum_on">SponsorBlock リーダーボードに、どれだけの時間を節約したかを知らせます。セグメントがスキップされるたびに、リーダーボードにメッセージが送信されます。</string>
     <string name="sb_general_skipcount_sum_off">スキップ回数のトラッキングは無効です。</string>
@@ -809,6 +832,8 @@
     <string name="sb_api_url_invalid">API の URL が無効です</string>
     <string name="sb_api_url_changed">API の URL を変更しました</string>
     <string name="sb_settings_copy">コピー</string>
+    <string name="sb_settings_ie_sum">SponsorBlock 設定の JSON は、ReVanced Extended やその他の SponsorBlock プラットフォームにインポート/エクスポートできます。%s</string>
+    <string name="sb_settings_ie_sum_warning">これにはプライベートユーザー ID が含まれています。賢く共有してください。</string>
     <string name="sb_settings_ie">設定のインポート/エクスポート</string>
     <string name="sb_settings_import_successful">設定は正常にインポートされました</string>
     <string name="sb_settings_import_failed">インポート失敗: %s</string>
