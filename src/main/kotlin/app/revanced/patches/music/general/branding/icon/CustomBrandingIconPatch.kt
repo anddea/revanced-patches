@@ -57,6 +57,7 @@ object CustomBrandingIconPatch : ResourcePatch() {
             .split("\n")
             .joinToString("\n") { it.trimIndent() } // Remove the leading whitespace from each line.
             .trimIndent(), // Remove the leading newline.
+        required = true
     )
 
     override fun execute(context: ResourceContext) {
