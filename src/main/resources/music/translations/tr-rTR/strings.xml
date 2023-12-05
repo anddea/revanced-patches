@@ -15,6 +15,8 @@
     <string name="revanced_category_player">Oynatıcı</string>
     <string name="revanced_category_video">Video</string>
     <string name="revanced_close_interstitial_ads_summary">Geçiş reklamlarını otomatik olarak kapatın.</string>
+    <string name="revanced_close_interstitial_ads_title">Geçiş reklamlarını kapatın</string>
+    <string name="revanced_close_interstitial_ads_toast">Geçiş reklamları kapatılıyor.</string>
     <string name="revanced_custom_filter_strings_summary">Bileşenleri satırla ayrılmış isimlere göre filtreleyin.</string>
     <string name="revanced_custom_filter_strings_title">Özel filtreyi düzenle</string>
     <string name="revanced_custom_filter_strings_warning">Geçersiz özel filtre, varsayılana dönülüyor.</string>
@@ -124,6 +126,8 @@ UYARI: Bu etkinken yeni oynatıcı arka planlarını etkinleştirmeyin."</string
     <string name="revanced_hide_flyout_panel_share_title">Paylaş menüsünü gizle</string>
     <string name="revanced_hide_flyout_panel_start_radio_title">Radyoyu başlat menüsünü gizle</string>
     <string name="revanced_hide_flyout_panel_view_song_credit_title">Şarkı kredileri menüsünü görüntüle</string>
+    <string name="revanced_hide_general_ads_summary">Genel reklamları gizler.</string>
+    <string name="revanced_hide_general_ads_title">Genel reklamları gizle</string>
     <string name="revanced_hide_handle_summary">Hesap değiştiricideki etiketi gizler.</string>
     <string name="revanced_hide_handle_title">Etiketi gizle</string>
     <string name="revanced_hide_history_button_summary">Araç çubuğundaki geçmiş düğmesini gizler.</string>
@@ -142,6 +146,10 @@ UYARI: Bu etkinken yeni oynatıcı arka planlarını etkinleştirmeyin."</string
     <string name="revanced_hide_new_playlist_button_title">Yeni oynatma listesi butonunu gizle</string>
     <string name="revanced_hide_playlist_card_summary">Oynatma listesi kartını ana sayfadan gizler.</string>
     <string name="revanced_hide_playlist_card_title">Önerilen oynatma listeleri kardını gizler</string>
+    <string name="revanced_hide_premium_promotion_summary">Premium promosyonu açılır penceresini gizle.</string>
+    <string name="revanced_hide_premium_promotion_title">Premium promosyonu açılır penceresini gizler</string>
+    <string name="revanced_hide_premium_renewal_summary">Premium yenileme başlığını gizler.</string>
+    <string name="revanced_hide_premium_renewal_title">Premium yenileme başlığını gizle</string>
     <string name="revanced_hide_samples_button_summary">Örnek düğmesini gizler.</string>
     <string name="revanced_hide_samples_button_title">Örnekler düğmesini gizle</string>
     <string name="revanced_hide_terms_container_summary">Hizmet kapsayıcısının şartlarını gizler.</string>
@@ -153,6 +161,8 @@ UYARI: Bu etkinken yeni oynatıcı arka planlarını etkinleştirmeyin."</string
     <string name="revanced_playback_speed_normal">Normal</string>
     <string name="revanced_playlist_dismiss">Zaten orijinal ses kaynağı oynatılıyor.</string>
     <string name="revanced_playlist_error">Orijinal ses kaynağı kullanılamıyor.</string>
+    <string name="revanced_restart_first_run">Düzeni normal şekilde yüklemek için yeniden başlatın?</string>
+    <string name="revanced_restart_message">Yenileme ve yeniden başlatma?</string>
     <string name="revanced_replace_flyout_panel_dismiss_queue_continue_watch_summary">YouTube\'da izlerken geçerli saatten itibaren izlemeye devam edin.</string>
     <string name="revanced_replace_flyout_panel_dismiss_queue_continue_watch_title">İzlemeye devam et</string>
     <string name="revanced_replace_flyout_panel_dismiss_queue_summary">YouTube\'da izlemek için kuyruğu kapatma menüsünün yerini alır.</string>
@@ -174,6 +184,8 @@ UYARI: Bu etkinken yeni oynatıcı arka planlarını etkinleştirmeyin."</string
     <string name="revanced_ryd_failure_connection_status_code" formatted="false">Beğenmemeler mevcut değil (durum %d).</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Beğenmeme sayısı mevcut değil (istemci API sınırına ulaşıldı).</string>
     <string name="revanced_ryd_failure_generic">Beğenmemeler mevcut değil (%s).</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary">ReturnYouTubeDislike API\'si mevcut değilse uyarı gösteriliyor.</string>
+    <string name="revanced_ryd_toast_on_connection_error_title">API mevcut değilse bir uyarı göster</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Gizlendi</string>
     <string name="revanced_sanitize_sharing_links_summary">Bağlantıları paylaşırken, \"tracking query parametreleri\"ni URL\'lerden kaldırır</string>
     <string name="revanced_sanitize_sharing_links_title">Paylaşılan bağlantıları sterilize edin</string>
@@ -200,6 +212,8 @@ UYARI: Bu etkinken yeni oynatıcı arka planlarını etkinleştirmeyin."</string
     <string name="revanced_start_page_title">Başlangıç sayfası</string>
     <string name="sb_enabled">SponsorBlock\'u etkinleştir</string>
     <string name="sb_enabled_sum">SponsorBlock, YouTube videolarının sinir bozucu kısımlarını atlamak için kitle kaynaklı bir sistemdir.</string>
+    <string name="sb_toast_on_connection_error">API mevcut olmadığında bir uyarı göster</string>
+    <string name="sb_toast_on_connection_error_sum">SponsorBlock API\'nin mevcut olmaması durumunda uyarı gösterilir.</string>
     <string name="sb_toast_on_skip">Otomatik olarak atlarken bir uyarı göster</string>
     <string name="sb_toast_on_skip_sum">Bölüm otomatik olarak atandığında uyarı gösterilir.</string>
     <string name="sb_api_url">API URL\'sini değiştir</string>

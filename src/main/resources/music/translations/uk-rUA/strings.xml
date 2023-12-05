@@ -14,6 +14,9 @@
     <string name="revanced_category_navigation">Навігація</string>
     <string name="revanced_category_player">Плеєр</string>
     <string name="revanced_category_video">Відео</string>
+    <string name="revanced_close_interstitial_ads_summary">Автоматично закривати міжсторінкові оголошення.</string>
+    <string name="revanced_close_interstitial_ads_title">Закрити міжсторінкові оголошення</string>
+    <string name="revanced_close_interstitial_ads_toast">Закриття міжсторінкового оголошення.</string>
     <string name="revanced_custom_filter_strings_summary">Фільтр компонентів за іменами, розділеними по рядках.</string>
     <string name="revanced_custom_filter_strings_title">Редагувати користувацький фільтр</string>
     <string name="revanced_custom_filter_strings_warning">Недійсний користувацький фільтр, скинуто до стандартного.</string>
@@ -123,6 +126,8 @@
     <string name="revanced_hide_flyout_panel_share_title">Приховати пункт \"Поділитися\"</string>
     <string name="revanced_hide_flyout_panel_start_radio_title">Приховати пункт \"Увімкнути Радіо\"</string>
     <string name="revanced_hide_flyout_panel_view_song_credit_title">Приховати пункт \"Переглянути авторів пісні\"</string>
+    <string name="revanced_hide_general_ads_summary">Приховує загальну рекламу.</string>
+    <string name="revanced_hide_general_ads_title">Приховати загальну рекламу</string>
     <string name="revanced_hide_handle_summary">Приховує електронну пошту / @нік у меню зміни облікових записів.</string>
     <string name="revanced_hide_handle_title">Приховати електронну пошту / @нік</string>
     <string name="revanced_hide_history_button_summary">Приховує кнопку історії на панелі інструментів вкладки \"Бібліотека\".</string>
@@ -141,6 +146,10 @@
     <string name="revanced_hide_new_playlist_button_title">Приховати кнопку \"Новий список відтворення\"</string>
     <string name="revanced_hide_playlist_card_summary">Приховує картку списку відтворення з головної сторінки.</string>
     <string name="revanced_hide_playlist_card_title">Приховати картку списку відтворення</string>
+    <string name="revanced_hide_premium_promotion_summary">Приховує спливаюче вікно реклами підписки Music Premium.</string>
+    <string name="revanced_hide_premium_promotion_title">Приховати спливаючу рекламу Premium</string>
+    <string name="revanced_hide_premium_renewal_summary">Приховує банер поновлення підписки Music Premium.</string>
+    <string name="revanced_hide_premium_renewal_title">Приховати банер поновлення Premium</string>
     <string name="revanced_hide_samples_button_summary">Приховує вкладку \"Семпли\".</string>
     <string name="revanced_hide_samples_button_title">Приховати вкладку \"Семпли\"</string>
     <string name="revanced_hide_terms_container_summary">Приховує пункт меню \"Конфіденційність • Умови використання\".</string>
@@ -152,6 +161,8 @@
     <string name="revanced_playback_speed_normal">Стандартна</string>
     <string name="revanced_playlist_dismiss">Вже відтворюється з офіційного джерела музики</string>
     <string name="revanced_playlist_error">Офіційне джерело музики недоступне</string>
+    <string name="revanced_restart_first_run">Перезапустіть, щоб нормально завантажився макет</string>
+    <string name="revanced_restart_message">Оновити та перезавантажити?</string>
     <string name="revanced_replace_flyout_panel_dismiss_queue_continue_watch_summary">Якщо натиснути \"Дивитись на YouTube\", відтворення продовжиться з поточного моменту перегляду.</string>
     <string name="revanced_replace_flyout_panel_dismiss_queue_continue_watch_title">Продовжити перегляд</string>
     <string name="revanced_replace_flyout_panel_dismiss_queue_summary">Замінює пункт \"Відхилити чергу\" на пункт \"Дивитись на YouTube\".</string>
@@ -173,6 +184,8 @@
     <string name="revanced_ryd_failure_connection_status_code" formatted="false">Дизлайки недоступні (статус %d).</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Дизлайки недоступні (досягнуто ліміт клієнтів сервера API)</string>
     <string name="revanced_ryd_failure_generic">Дизлайки недоступні (%s).</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary">Спливаюче повідомлення показується, якщо API ReturnYouTubeDislike не доступний.</string>
+    <string name="revanced_ryd_toast_on_connection_error_title">Показувати спливаюче повідомлення, якщо API не доступний</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Приховано</string>
     <string name="revanced_sanitize_sharing_links_summary">Вилучаються параметри запиту відстеження з посилань під час поширення посилань.</string>
     <string name="revanced_sanitize_sharing_links_title">Обробляти поширення посилань</string>
@@ -199,7 +212,9 @@
     <string name="revanced_start_page_title">Вкладка початкового екрану</string>
     <string name="sb_enabled">SponsorBlock</string>
     <string name="sb_enabled_sum">SponsorBlock - це краудсорсингова система для пропускання дратівливих частин відео на YouTube.</string>
-    <string name="sb_toast_on_skip">Показати спливаюче повідомлення під час автоматичного пропуску сегмента</string>
+    <string name="sb_toast_on_connection_error">Показувати спливаюче повідомлення, якщо API недоступний</string>
+    <string name="sb_toast_on_connection_error_sum">Спливаюче повідомлення показується, якщо API SponsorBlock не доступний.</string>
+    <string name="sb_toast_on_skip">Показувати спливаюче повідомлення під час автоматичного пропуску сегмента</string>
     <string name="sb_toast_on_skip_sum">Спливаюче повідомлення показується, коли сегмент автоматично пропущено. Натисніть тут, щоб побачити приклад.</string>
     <string name="sb_api_url">Змінити API URL</string>
     <string name="sb_api_url_sum">Адреса, яку SponsorBlock використовує для звернень до сервера. Не змінюйте це, якщо не знаєте, що робите</string>

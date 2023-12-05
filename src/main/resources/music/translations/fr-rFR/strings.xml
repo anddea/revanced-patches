@@ -14,6 +14,8 @@
     <string name="revanced_category_navigation">Navigation</string>
     <string name="revanced_category_player">Lecteur</string>
     <string name="revanced_category_video">Vidéo</string>
+    <string name="revanced_close_interstitial_ads_summary">Fermer automatiquement les pubs.</string>
+    <string name="revanced_close_interstitial_ads_title">Fermeture des publicités interstitielles</string>
     <string name="revanced_close_interstitial_ads_toast">Fermeture des publicités interstitielles.</string>
     <string name="revanced_custom_filter_strings_summary">Filtrer les noms des composants par une virgule.</string>
     <string name="revanced_custom_filter_strings_title">Modifier le filtre personnalisé</string>
@@ -144,6 +146,10 @@ AVERTISSEMENT : N'activez pas le nouvel arrière-plan du lecteur si cette option
     <string name="revanced_hide_new_playlist_button_title">Masquer le bouton \"Nouvelle playlist\"</string>
     <string name="revanced_hide_playlist_card_summary">Masque les cartes de playlists de la page \"Accueil\".</string>
     <string name="revanced_hide_playlist_card_title">Masquer les cartes de playlists</string>
+    <string name="revanced_hide_premium_promotion_summary">Masque la publicité popup pour YouTube Premium</string>
+    <string name="revanced_hide_premium_promotion_title">Publicité popup pour YouTube Premium</string>
+    <string name="revanced_hide_premium_renewal_summary">Masque la bannière de renouvellement de l\'abonnement Premium</string>
+    <string name="revanced_hide_premium_renewal_title">Bannière de renouvellement de Premium</string>
     <string name="revanced_hide_samples_button_summary">Masque le bouton samples.</string>
     <string name="revanced_hide_samples_button_title">Masquer le bouton samples</string>
     <string name="revanced_hide_terms_container_summary">Masque le conteneur de termes.</string>
@@ -155,6 +161,8 @@ AVERTISSEMENT : N'activez pas le nouvel arrière-plan du lecteur si cette option
     <string name="revanced_playback_speed_normal">Normal</string>
     <string name="revanced_playlist_dismiss">Source musicale officielle déjà en cours de lecture.</string>
     <string name="revanced_playlist_error">Source musicale officielle non disponible.</string>
+    <string name="revanced_restart_first_run">Redémarrez pour charger la mise en page normalement</string>
+    <string name="revanced_restart_message">Appliquer et redémarrer</string>
     <string name="revanced_replace_flyout_panel_dismiss_queue_continue_watch_summary">Regardez sur YouTube, continuez la lecture ici.</string>
     <string name="revanced_replace_flyout_panel_dismiss_queue_continue_watch_title">Continuer à regarder</string>
     <string name="revanced_replace_flyout_panel_dismiss_queue_summary">Remplace le bouton \"Supprimer la file d\'attente\" par le bouton \"Regarder sur YouTube\".</string>
@@ -176,6 +184,8 @@ AVERTISSEMENT : N'activez pas le nouvel arrière-plan du lecteur si cette option
     <string name="revanced_ryd_failure_connection_status_code" formatted="false">Dislikes non disponible (status %d).</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Les dislikes sont indisponibles (limite d\'API client atteinte).</string>
     <string name="revanced_ryd_failure_generic">Dislikes non disponible (%s).</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary">Message affiché si l\'API ReturnYouTubeDislike n\'est pas disponible.</string>
+    <string name="revanced_ryd_toast_on_connection_error_title">Afficher un message si l\'API n\'est pas disponible</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Masqué</string>
     <string name="revanced_sanitize_sharing_links_summary">Supprime les paramètres de tracking des URL lors des partages de liens.</string>
     <string name="revanced_sanitize_sharing_links_title">Nettoies les liens partagés</string>
@@ -199,6 +209,8 @@ AVERTISSEMENT : N'activez pas le nouvel arrière-plan du lecteur si cette option
     <string name="revanced_start_page_title">Page de démarrage</string>
     <string name="sb_enabled">SponsorBlock</string>
     <string name="sb_enabled_sum">SponsorBlock est une extension open-source permettant de passer les parties ennuyeuses des vidéos YouTube.</string>
+    <string name="sb_toast_on_connection_error">Afficher un message si l\'API n\'est pas disponible</string>
+    <string name="sb_toast_on_connection_error_sum">Message affiché si l\'API SponsorBlock n\'est pas disponible.</string>
     <string name="sb_toast_on_skip">Message lors du passage auto des segments</string>
     <string name="sb_toast_on_skip_sum">Un message sera affiché lorsqu\'un segment est automatiquement passé.</string>
     <string name="sb_api_url">Modifier l\'URL de l\'API</string>

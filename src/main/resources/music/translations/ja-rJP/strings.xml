@@ -14,6 +14,9 @@
     <string name="revanced_category_navigation">ナビゲーション</string>
     <string name="revanced_category_player">プレーヤー</string>
     <string name="revanced_category_video">動画</string>
+    <string name="revanced_close_interstitial_ads_summary">全画面広告を自動的に閉じます。</string>
+    <string name="revanced_close_interstitial_ads_title">全画面広告を閉じる</string>
+    <string name="revanced_close_interstitial_ads_toast">全画面広告を閉じています。</string>
     <string name="revanced_custom_filter_strings_summary">コンポーネント名でフィルター (改行区切り)</string>
     <string name="revanced_custom_filter_strings_title">カスタムフィルターを編集</string>
     <string name="revanced_custom_filter_strings_warning">無効なカスタムフィルターです。デフォルトにリセットします。</string>
@@ -123,6 +126,8 @@
     <string name="revanced_hide_flyout_panel_share_title">「共有」を非表示</string>
     <string name="revanced_hide_flyout_panel_start_radio_title">「ラジオを聴く」を非表示</string>
     <string name="revanced_hide_flyout_panel_view_song_credit_title">「曲のクレジットを表示」を非表示</string>
+    <string name="revanced_hide_general_ads_summary">一般広告を非表示にします。</string>
+    <string name="revanced_hide_general_ads_title">一般広告を非表示</string>
     <string name="revanced_hide_handle_summary">アカウントスイッチャーでハンドルを非表示にします</string>
     <string name="revanced_hide_handle_title">ハンドルを非表示</string>
     <string name="revanced_hide_history_button_summary">ツールバーの履歴ボタンを非表示にします。</string>
@@ -141,6 +146,10 @@
     <string name="revanced_hide_new_playlist_button_title">新しいプレイリスト ボタンを非表示</string>
     <string name="revanced_hide_playlist_card_summary">ホームからプレイリストカードを非表示にします</string>
     <string name="revanced_hide_playlist_card_title">プレイリストカードを隠す</string>
+    <string name="revanced_hide_premium_promotion_summary">プレミアムプロモーションポップアップを非表示にします。</string>
+    <string name="revanced_hide_premium_promotion_title">プレミアムプロモーションポップアップを非表示</string>
+    <string name="revanced_hide_premium_renewal_summary">プレミアム更新バナーを非表示にします。</string>
+    <string name="revanced_hide_premium_renewal_title">プレミアム更新バナーを非表示</string>
     <string name="revanced_hide_samples_button_summary">サンプルボタンを非表示にします</string>
     <string name="revanced_hide_samples_button_title">サンプルボタンを非表示</string>
     <string name="revanced_hide_terms_container_summary">利用規約コンテナーを非表示にします</string>
@@ -152,6 +161,8 @@
     <string name="revanced_playback_speed_normal">標準</string>
     <string name="revanced_playlist_dismiss">すでに公式の音楽ソースを再生しています。</string>
     <string name="revanced_playlist_error">公式の音楽ソースが利用できません。</string>
+    <string name="revanced_restart_first_run">再起動してレイアウトを正常に読み込みます</string>
+    <string name="revanced_restart_message">更新して再起動</string>
     <string name="revanced_replace_flyout_panel_dismiss_queue_continue_watch_summary">YouTube で視聴するときは、現在の時間から視聴を続けます。</string>
     <string name="revanced_replace_flyout_panel_dismiss_queue_continue_watch_title">視聴を続ける</string>
     <string name="revanced_replace_flyout_panel_dismiss_queue_summary">「キューを閉じる」を「YouTube で視聴」に置き換えます</string>
@@ -173,6 +184,8 @@
     <string name="revanced_ryd_failure_connection_status_code" formatted="false">低評価数は一時的に利用できません。(ステータス %d)</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">低評価数は利用できません (クライアント API 制限)</string>
     <string name="revanced_ryd_failure_generic">低評価数は一時的に利用できません。(%s)</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary">RYDが利用できない場合、メッセージが表示されます。</string>
+    <string name="revanced_ryd_toast_on_connection_error_title">API が利用できない場合にメッセージを表示</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">非表示</string>
     <string name="revanced_sanitize_sharing_links_summary">リンクを共有する際に、URL からトラッキングクエリパラメーターを削除します。</string>
     <string name="revanced_sanitize_sharing_links_title">共有リンクのクリーンアップ</string>
@@ -199,6 +212,8 @@
     <string name="revanced_start_page_title">起動時のページ</string>
     <string name="sb_enabled">SponsorBlock を有効化</string>
     <string name="sb_enabled_sum">SponsorBlock は、YouTube の動画の迷惑な部分をスキップするためのクラウドソーシングシステムです。</string>
+    <string name="sb_toast_on_connection_error">API が利用できない場合にメッセージを表示</string>
+    <string name="sb_toast_on_connection_error_sum">SponsorBlock API が利用できない場合、メッセージが表示されます。</string>
     <string name="sb_toast_on_skip">自動的にスキップする時にトーストを表示する</string>
     <string name="sb_toast_on_skip_sum">セグメントが自動的にスキップされたときにトーストを表示します。</string>
     <string name="sb_api_url">API の URL を変更</string>

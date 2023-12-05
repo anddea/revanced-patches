@@ -14,6 +14,9 @@
     <string name="revanced_category_navigation">Навигация</string>
     <string name="revanced_category_player">Плеер</string>
     <string name="revanced_category_video">Видео</string>
+    <string name="revanced_close_interstitial_ads_summary">Автоматически закрывать полноэкранную рекламу.</string>
+    <string name="revanced_close_interstitial_ads_title">Закрывать полноэкранную рекламу</string>
+    <string name="revanced_close_interstitial_ads_toast">Полноэкранная реклама закрыта.</string>
     <string name="revanced_custom_filter_strings_summary">Фильтровать компоненты по названиям через строку.</string>
     <string name="revanced_custom_filter_strings_title">Изменить пользовательский фильтр</string>
     <string name="revanced_custom_filter_strings_warning">Недопустимый пользовательский фильтр, сброс к данным по умолчанию.</string>
@@ -47,7 +50,7 @@
     <string name="revanced_enable_new_player_background_summary">Включает новый фон полноэкранного плеера.</string>
     <string name="revanced_enable_new_player_background_title">Новый фон плеера</string>
     <string name="revanced_enable_old_player_layout_summary">"Вернуть интерфейс полноэкранного плеера к старому стилю.
-Некоторые настройки могут не работать в старом интерфейсе полноэкранного плеера.
+Некоторые настройки не могут работать в старом интерфейсе полноэкранного плеера.
 
 ВАЖНО: Перед включением этой опции удостоверьтесь, что параметр \"Новый фон плеера\" отключён."</string>
     <string name="revanced_enable_old_player_layout_title">Старый интерфейс плеера</string>
@@ -143,6 +146,10 @@
     <string name="revanced_hide_new_playlist_button_title">Скрыть кнопку \"Новый\"</string>
     <string name="revanced_hide_playlist_card_summary">Скрывает карточку плейлиста с главной страницы.</string>
     <string name="revanced_hide_playlist_card_title">Скрыть карточку плейлиста</string>
+    <string name="revanced_hide_premium_promotion_summary">Скрывает всплывающую рекламу Premium.</string>
+    <string name="revanced_hide_premium_promotion_title">Скрыть всплывающую рекламу Premium</string>
+    <string name="revanced_hide_premium_renewal_summary">Скрывает баннер продления Premium.</string>
+    <string name="revanced_hide_premium_renewal_title">Скрыть баннер продления Premium</string>
     <string name="revanced_hide_samples_button_summary">Скрывает вкладку \"Семплы\".</string>
     <string name="revanced_hide_samples_button_title">Скрыть вкладку \"Семплы\"</string>
     <string name="revanced_hide_terms_container_summary">Скрывает пункт \"Конфиденциальность • Условия\".</string>
@@ -179,7 +186,7 @@
     <string name="revanced_ryd_failure_generic">Отметки \"Не нравится\" недоступны (%s).</string>
     <string name="revanced_ryd_toast_on_connection_error_summary">Отображает всплывающее уведомление, когда ReturnYouTubeDislike API недоступен.</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Уведомление, когда API недоступен</string>
-    <string name="revanced_ryd_video_likes_hidden_by_video_owner">Скрыто</string>
+    <string name="revanced_ryd_video_likes_hidden_by_video_owner">Скрыты</string>
     <string name="revanced_sanitize_sharing_links_summary">Убирает параметры отслеживания запросов из URL при отправке ссылки.</string>
     <string name="revanced_sanitize_sharing_links_title">Очищать ссылки от мусора</string>
     <string name="revanced_save_playback_speed" formatted="false">Скорость воспроизведения по умолчанию изменена на: %s.</string>
