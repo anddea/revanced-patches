@@ -40,6 +40,11 @@
     <string name="revanced_change_homepage_title">Page d\'accueil sur \"Abonnements\"</string>
     <string name="revanced_channel_bar_title">Barre de la chaîne </string>
     <string name="revanced_channel_profile_title">Profil de chaîne</string>
+    <string name="revanced_close_interstitial_ads_summary">"Ferme automatiquement les publicités interstitielles.
+
+Note : Ceci est une fonctionnalité qui n'a pas été testée."</string>
+    <string name="revanced_close_interstitial_ads_title">Fermeture des pubs interstitielles</string>
+    <string name="revanced_close_interstitial_ads_toast">Fermeture des publicités interstitielles.</string>
     <string name="revanced_comments_title">Commentaires</string>
     <string name="revanced_custom_filter_strings_summary">Filtrer les noms des composants par une virgule</string>
     <string name="revanced_custom_filter_strings_title">Modifier le filtre personnalisé</string>
@@ -142,7 +147,7 @@
     <string name="revanced_enable_opus_codec_summary">Remplace le codec audio MP4A par le codec audio Opus</string>
     <string name="revanced_enable_opus_codec_title">Codec audio Opus</string>
     <string name="revanced_enable_phone_layout_summary">Modifie le DPI pour activer certaines mises en page pour les téléphones</string>
-    <string name="revanced_enable_phone_layout_title">Mise en page pour les téléphones</string>
+    <string name="revanced_enable_phone_layout_title">Mise en page téléphone</string>
     <string name="revanced_enable_save_playback_speed_summary_off">N’enregistre pas les valeurs de vitesse de lecture, même en cas de modification de la vitesse de lecture</string>
     <string name="revanced_enable_save_playback_speed_summary_on">Enregistre la valeur de la vitesse de lecture à chaque modification de celle-ci</string>
     <string name="revanced_enable_save_playback_speed_title">Enregistrer la vitesse de lecture</string>
@@ -158,6 +163,12 @@
     <string name="revanced_enable_swipe_brightness_summary_off">Le balayage de la luminosité est désactivé</string>
     <string name="revanced_enable_swipe_brightness_summary_on">Le balayage de la luminosité est activé</string>
     <string name="revanced_enable_swipe_brightness_title">Geste de luminosité</string>
+    <string name="revanced_enable_swipe_haptic_feedback_summary_off">Le retour haptique est désactivé.</string>
+    <string name="revanced_enable_swipe_haptic_feedback_summary_on">Le retour haptique est activé.</string>
+    <string name="revanced_enable_swipe_haptic_feedback_title">Retour haptique</string>
+    <string name="revanced_enable_swipe_press_to_engage_summary_off">Appuyez pour activer les commandes de balayage.</string>
+    <string name="revanced_enable_swipe_press_to_engage_summary_on">Appuyez et maintenez pour activer les commandes de balayage.</string>
+    <string name="revanced_enable_swipe_press_to_engage_title">Commande de balayage</string>
     <string name="revanced_enable_swipe_volume_summary_off">Le balayage du volume est désactivé</string>
     <string name="revanced_enable_swipe_volume_summary_on">Le balayage du volume est activé</string>
     <string name="revanced_enable_swipe_volume_title">Geste de volume</string>
@@ -763,6 +774,9 @@ Problèmes connus:
 • Les vidéos pourrait démarrer à la fin."</string>
     <string name="revanced_spoof_player_parameter_title">Falsifier les paramètres du lecteur</string>
     <string name="revanced_swipe_controls">Commandes de balayage</string>
+    <string name="revanced_swipe_gestures_lock_mode_summary_off">"Les commandes de balayage sont désactivés lorsque le mode \"Verrouiller l'écran\" est activé."</string>
+    <string name="revanced_swipe_gestures_lock_mode_summary_on">"Les commandes de balayage sont activés lorsque le mode \"Verrouiller l'écran\" est activé."</string>
+    <string name="revanced_swipe_gestures_lock_mode_title">"Les commandes de balayage sous verrouillage d'écran."</string>
     <string name="revanced_swipe_magnitude_threshold_summary">L\'intensité de balayage correspond à la mesure de glissement utilisée pour ajuster le niveau sonore ou de luminosité</string>
     <string name="revanced_swipe_magnitude_threshold_title">Intensité de balayage</string>
     <string name="revanced_swipe_overlay_background_alpha_summary">La visibilité de l’arrière-plan de superposition par balayage</string>

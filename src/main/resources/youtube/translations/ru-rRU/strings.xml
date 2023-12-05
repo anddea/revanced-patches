@@ -40,6 +40,11 @@
     <string name="revanced_change_homepage_title">Замена начальной вкладки на \"Подписки\"</string>
     <string name="revanced_channel_bar_title">Панель канала</string>
     <string name="revanced_channel_profile_title">Профиль канала</string>
+    <string name="revanced_close_interstitial_ads_summary">"Автоматически закрывать полноэкранную рекламу.
+
+Примечание: Эта функция не тестировалась."</string>
+    <string name="revanced_close_interstitial_ads_title">Закрывать полноэкранную рекламу</string>
+    <string name="revanced_close_interstitial_ads_toast">Полноэкранная реклама закрыта.</string>
     <string name="revanced_comments_title">Комментарии</string>
     <string name="revanced_custom_filter_strings_summary">Фильтровать компоненты по названиям через строку.</string>
     <string name="revanced_custom_filter_strings_title">Изменить пользовательский фильтр</string>
@@ -227,7 +232,7 @@
     <string name="revanced_haptic_feedback_title">Виброотклик</string>
     <string name="revanced_hide_account_menu_filter_strings_title">Изменить фильтр меню аккаунта</string>
     <string name="revanced_hide_account_menu_summary">"Скрыть элементы меню аккаунта и вкладки \"Вы\".
-Некоторые компоненты могут не быть скрыты."</string>
+Некоторые компоненты не могут быть скрыты."</string>
     <string name="revanced_hide_account_menu_title">Скрыть меню аккаунта</string>
     <string name="revanced_hide_album_card_summary_off">Заставки альбомов отображены.</string>
     <string name="revanced_hide_album_card_summary_on">Заставки альбомов скрыты.</string>
@@ -602,7 +607,7 @@
     <string name="revanced_hide_suggestions_shelf_method_summary_off">"Идентифицирует секции рекомендаций через browse id.
 
 Известные проблемы:
-• Когда Browseid не идентифицирован, секции рекомендаций могут не быть скрыты."</string>
+• Когда Browseid не идентифицирован, секции рекомендаций не могут быть скрыты."</string>
     <string name="revanced_hide_suggestions_shelf_method_summary_on">"Идентифицирует секции рекомендаций через текущую вкладку.
 
 Известные проблемы:
@@ -639,7 +644,7 @@
     <string name="revanced_hide_video_ads_summary_on">Реклама в видео скрыта.</string>
     <string name="revanced_hide_video_ads_title">Скрыть рекламу в видео</string>
     <string name="revanced_hide_video_with_low_view_summary">"Скрыть видео с просмотрами, меньше, чем 1,000 из рекомендаций.
-Некоторые видео, включая видео с каналов, на которые вы подписаны, могут не быть скрыты, даже если у них меньше, чем 1,000 просмотров."</string>
+Некоторые видео, включая видео с каналов, на которые вы подписаны, не могут быть скрыты, даже если у них меньше, чем 1,000 просмотров."</string>
     <string name="revanced_hide_video_with_low_view_title">Скрыть видео с маленькими просмотрами</string>
     <string name="revanced_hide_view_products_summary_off">Баннер товаров отображён.</string>
     <string name="revanced_hide_view_products_summary_on">Баннер товаров скрыт.</string>
@@ -710,7 +715,7 @@
     <string name="revanced_ryd_toast_on_connection_error_title">Уведомление, когда API недоступен</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_off">Всплывающее уведомление не отображено, когда ReturnYouTubeDislike API недоступен.</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_on">Всплывающее уведомление отображено, когда ReturnYouTubeDislike API недоступен.</string>
-    <string name="revanced_ryd_video_likes_hidden_by_video_owner">Скрыто</string>
+    <string name="revanced_ryd_video_likes_hidden_by_video_owner">Скрыты</string>
     <string name="revanced_sanitize_sharing_links_summary">Убирает параметры отслеживания запросов из URL при отправке ссылки.</string>
     <string name="revanced_sanitize_sharing_links_title">Очищать ссылки от мусора</string>
     <string name="revanced_save_playback_speed" formatted="false">Скорость воспроизведения по умолчанию изменена на: %s.</string>
@@ -771,9 +776,9 @@
 • Видео может начинаться не с последнего времени просмотра."</string>
     <string name="revanced_spoof_player_parameter_title">Подмена параметров плеера</string>
     <string name="revanced_swipe_controls">Жесты</string>
-    <string name="revanced_swipe_gestures_lock_mode_summary_off">"Жесты отключены в режиме \"Блокировка экрана\"."</string>
-    <string name="revanced_swipe_gestures_lock_mode_summary_on">"Жесты включены в режиме \"Блокировка экрана\"."</string>
-    <string name="revanced_swipe_gestures_lock_mode_title">"Жесты в режиме \"Блокировка экрана\""</string>
+    <string name="revanced_swipe_gestures_lock_mode_summary_off">"Жесты отключены при заблокированном экране."</string>
+    <string name="revanced_swipe_gestures_lock_mode_summary_on">"Жесты включены при заблокированном экране."</string>
+    <string name="revanced_swipe_gestures_lock_mode_title">"Жесты при заблокированном экране"</string>
     <string name="revanced_swipe_magnitude_threshold_summary">Минимальная амплитуда распознаваемого как жест движения.</string>
     <string name="revanced_swipe_magnitude_threshold_title">Пороговая величина жеста</string>
     <string name="revanced_swipe_overlay_background_alpha_summary">Видимость фона наложения при жесте.</string>

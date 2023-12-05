@@ -40,6 +40,11 @@
     <string name="revanced_change_homepage_title">Cambiar página de inicio a suscripciones</string>
     <string name="revanced_channel_bar_title">Barra de canal</string>
     <string name="revanced_channel_profile_title">Perfil del canal</string>
+    <string name="revanced_close_interstitial_ads_summary">"Cierra automáticamente los anuncios intersticiales.
+
+Nota: Es una característica que no ha sido probada."</string>
+    <string name="revanced_close_interstitial_ads_title">Cerrar anuncios intersticiales</string>
+    <string name="revanced_close_interstitial_ads_toast">Cerrando anuncios intersticiales.</string>
     <string name="revanced_comments_title">Comentarios</string>
     <string name="revanced_custom_filter_strings_summary">Filtrar los componentes por nombres separados por líneas</string>
     <string name="revanced_custom_filter_strings_title">Editar filtro personalizado</string>
@@ -103,7 +108,7 @@ Nota: Al desactivar la superposición de velocidad se restablece el comportamien
     <string name="revanced_double_back_timeout_summary">La cantidad de segundos de la doble pulsación hacia atrás para salir (segundos)</string>
     <string name="revanced_double_back_timeout_title">Tiempo de espera de doble atrás</string>
     <string name="revanced_enable_compact_controls_overlay_summary_off">La superposición de los controles compactos está desactivada</string>
-    <string name="revanced_enable_compact_controls_overlay_summary_on">La superposición de los controles compactos está activada</string>
+    <string name="revanced_enable_compact_controls_overlay_summary_on">La superposición de los controles compactos está activada.</string>
     <string name="revanced_enable_compact_controls_overlay_title">Activar superposición de controles compactos</string>
     <string name="revanced_enable_custom_playback_speed_summary_off">La velocidad personalizada de reproducción está desactivada</string>
     <string name="revanced_enable_custom_playback_speed_summary_on">La velocidad personalizada de reproducción está activada</string>
@@ -160,6 +165,12 @@ Nota: Al desactivar la superposición de velocidad se restablece el comportamien
     <string name="revanced_enable_swipe_brightness_summary_off">El control del brillo al deslizar está desactivado</string>
     <string name="revanced_enable_swipe_brightness_summary_on">El control del brillo al deslizar está activado</string>
     <string name="revanced_enable_swipe_brightness_title">Activar control del brillo al deslizar</string>
+    <string name="revanced_enable_swipe_haptic_feedback_summary_off">La vibración al deslizar está desactivada.</string>
+    <string name="revanced_enable_swipe_haptic_feedback_summary_on">La vibración al deslizar está activada.</string>
+    <string name="revanced_enable_swipe_haptic_feedback_title">Activar vibración al deslizar</string>
+    <string name="revanced_enable_swipe_press_to_engage_summary_off">Toca para activar el gesto de deslizar.</string>
+    <string name="revanced_enable_swipe_press_to_engage_summary_on">Toca y mantén pulsado para activar el gesto de deslizar.</string>
+    <string name="revanced_enable_swipe_press_to_engage_title">Activar gesto de pulsar para deslizar</string>
     <string name="revanced_enable_swipe_volume_summary_off">El control del volumen al deslizar está desactivado</string>
     <string name="revanced_enable_swipe_volume_summary_on">El control del volumen al deslizar está activado</string>
     <string name="revanced_enable_swipe_volume_title">Activar control del volumen al deslizar</string>
@@ -337,6 +348,9 @@ Algunos componentes pueden no estar ocultos."</string>
     <string name="revanced_hide_create_button_summary_off">El botón de crear está visible.</string>
     <string name="revanced_hide_create_button_summary_on">El botón de crear está oculto.</string>
     <string name="revanced_hide_create_button_title">Ocultar botón de crear</string>
+    <string name="revanced_hide_create_shorts_button_summary_off">El botón de crear Shorts está visible.</string>
+    <string name="revanced_hide_create_shorts_button_summary_on">El botón de crear Shorts está oculto.</string>
+    <string name="revanced_hide_create_shorts_button_title">Ocultar botón de crear Shorts</string>
     <string name="revanced_hide_crowdfunding_box_summary_off">El cuadro de Crowdfunding está visible</string>
     <string name="revanced_hide_crowdfunding_box_summary_on">El cuadro de Crowdfunding está oculto</string>
     <string name="revanced_hide_crowdfunding_box_title">Ocultar cuadro de Crowdfunding</string>
@@ -679,6 +693,8 @@ Mantenga pulsado para ajustar la velocidad de reproducción a 1.0x"</string>
     <string name="revanced_quick_actions_margin_top_title">Margen superior de acciones rápidas</string>
     <string name="revanced_quick_actions_margin_top_warning">El margen superior de las acciones rápidas debe estar entre 0-64. Restablezca a los valores predeterminados.</string>
     <string name="revanced_quick_actions_title">Acciones rápidas</string>
+    <string name="revanced_restart_first_run">Reiniciar para cargar el diseño normalmente</string>
+    <string name="revanced_restart_message">Actualizar y reiniciar</string>
     <string name="revanced_ryd_about">Información</string>
     <string name="revanced_ryd_attribution_summary">Los datos de no me gusta son proporcionados por la API de Return YouTube Dislike.
 Toca aquí para obtener más información.</string>
@@ -765,6 +781,9 @@ Problemas conocidos
  • Es posible que el vídeo no comience desde la última vez que lo vio"</string>
     <string name="revanced_spoof_player_parameter_title">Modificar parámetro del reproductor</string>
     <string name="revanced_swipe_controls">Controles deslizantes</string>
+    <string name="revanced_swipe_gestures_lock_mode_summary_off">"Los gestos de deslizamiento están desactivados en el modo \"Bloquear pantalla\"."</string>
+    <string name="revanced_swipe_gestures_lock_mode_summary_on">"Los gestos de deslizamiento están activados en el modo \"Bloquear pantalla\"."</string>
+    <string name="revanced_swipe_gestures_lock_mode_title">"Gestos de deslizamiento en modo \"Bloquear pantalla\""</string>
     <string name="revanced_swipe_magnitude_threshold_summary">La cantidad de umbral para que ocurra el deslizamiento</string>
     <string name="revanced_swipe_magnitude_threshold_title">Umbral de magnitud de deslizamiento</string>
     <string name="revanced_swipe_overlay_background_alpha_summary">La visibilidad del fondo de superposición de deslizamiento</string>

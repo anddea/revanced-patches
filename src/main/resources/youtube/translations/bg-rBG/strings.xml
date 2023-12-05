@@ -40,6 +40,11 @@
     <string name="revanced_change_homepage_title">Смяна на дом. страница на абонаменти</string>
     <string name="revanced_channel_bar_title">Панел на канала</string>
     <string name="revanced_channel_profile_title">Профил на канала</string>
+    <string name="revanced_close_interstitial_ads_summary">"Автоматично затваряне на междинни реклами. 
+
+Забележка: Това е функция, която не е тествана."</string>
+    <string name="revanced_close_interstitial_ads_title">Затворете междинните реклами</string>
+    <string name="revanced_close_interstitial_ads_toast">Затваряне на междинни реклами.</string>
     <string name="revanced_comments_title">Коментари</string>
     <string name="revanced_custom_filter_strings_summary">Филтриране на компонентите по разделение на имената</string>
     <string name="revanced_custom_filter_strings_title">Редактиране на потребителския филтъра</string>
@@ -158,6 +163,12 @@
     <string name="revanced_enable_swipe_brightness_summary_off">Задаването на яркост чрез плъзгане е изключено</string>
     <string name="revanced_enable_swipe_brightness_summary_on">Задаването на яркост чрез плъзгане е включено</string>
     <string name="revanced_enable_swipe_brightness_title">Задаване на яркост чрез плъзгане</string>
+    <string name="revanced_enable_swipe_haptic_feedback_summary_off">Вибрация за обратна връзка е изключена.</string>
+    <string name="revanced_enable_swipe_haptic_feedback_summary_on">Вибрация за обратна връзка е включена.</string>
+    <string name="revanced_enable_swipe_haptic_feedback_title">Разрешаване на вибрация</string>
+    <string name="revanced_enable_swipe_press_to_engage_summary_off">Докоснете, за да активирате жеста за плъзгане.</string>
+    <string name="revanced_enable_swipe_press_to_engage_summary_on">Докоснете и задръжте, за да активирате жеста за плъзгане.</string>
+    <string name="revanced_enable_swipe_press_to_engage_title">Активиране на жеста натискане за преместване</string>
     <string name="revanced_enable_swipe_volume_summary_off">Настройването на звука чрез плъзгане е изключено</string>
     <string name="revanced_enable_swipe_volume_summary_on">Настройването на звука чрез плъзгане е включено</string>
     <string name="revanced_enable_swipe_volume_title">Настройване на звука чрез плъзгане</string>
@@ -205,10 +216,15 @@
     <string name="revanced_external_downloader_not_installed_warning" formatted="false">%s не е инсталирано. Моля инсталирайте го.</string>
     <string name="revanced_external_downloader_package_name_summary">Име на пакета на приложението за изтегляне като NewPipe или YTDLnis</string>
     <string name="revanced_external_downloader_package_name_title">Име на пакета на външно приложение за изтегляне</string>
+    <string name="revanced_external_downloader_set">Задайте като програма за изтегляне по подразбиране</string>
     <string name="revanced_external_downloader_settings_summary">Настройки при ползване на външно приложение за изтегляне</string>
     <string name="revanced_external_downloader_settings_title">Настройки на външно приложение за изтегляне</string>
     <string name="revanced_feed_flyout_panel_title">Падащ панел на плейъра</string>
     <string name="revanced_flyout_menu">Падащо меню</string>
+    <string name="revanced_force_fullscreen_summary">"Видеото ще бъде превключено на цял екран в следните ситуации:
+
+• Щракване върху клеймото за време в коментарите.
+• Видеото е започнало."</string>
     <string name="revanced_force_fullscreen_title">Принудително на цял екран</string>
     <string name="revanced_fullscreen">На цял екран</string>
     <string name="revanced_general">Общи</string>
@@ -330,6 +346,9 @@
     <string name="revanced_hide_create_button_summary_off">Бутона за създаване се показва</string>
     <string name="revanced_hide_create_button_summary_on">Бутонът за създаване е скрит</string>
     <string name="revanced_hide_create_button_title">Скриване на бутона за създаване</string>
+    <string name="revanced_hide_create_shorts_button_summary_off">Бутонът за създаване на Кратко видео се показва.</string>
+    <string name="revanced_hide_create_shorts_button_summary_on">Бутонът за създаване на Кратко видео е скрит.</string>
+    <string name="revanced_hide_create_shorts_button_title">Скриване на бутонът за създаване на Кратко видео</string>
     <string name="revanced_hide_crowdfunding_box_summary_off">Кутията за финансиране се показва</string>
     <string name="revanced_hide_crowdfunding_box_summary_on">Кутията за финансиране е скрита</string>
     <string name="revanced_hide_crowdfunding_box_title">Кутия за финансиране</string>
@@ -583,6 +602,12 @@
     <string name="revanced_hide_suggested_video_overlay_summary">"Скрива предложението за следващ клип
 Известен проблем: автом. възпроизвеждане не работи"</string>
     <string name="revanced_hide_suggested_video_overlay_title">Скриване на предложените клипове</string>
+    <string name="revanced_hide_suggestions_shelf_method_summary_off">"Идентифицира рафта с предложения чрез идентификатора за разглеждане."</string>
+    <string name="revanced_hide_suggestions_shelf_method_summary_on">"Идентифицира рафта с предложения през текущия раздел.
+
+ Известни проблеми:
+• Може да са скрити повече рафтове в чекмеджетата.
+• Възможно е да са скрити рафтовете на плейлистите."</string>
     <string name="revanced_hide_suggestions_shelf_method_title">Изберете метод за скриване на рафтове</string>
     <string name="revanced_hide_suggestions_shelf_summary">"Скрива следните рафтове:
 - Извънредни новини
@@ -661,6 +686,8 @@
     <string name="revanced_quick_actions_margin_top_title">Горно поле за бързи действия</string>
     <string name="revanced_quick_actions_margin_top_warning">Горното поле за бързи действия трябва да е между 0-64. Нулирайте стойностите по подразбиране.</string>
     <string name="revanced_quick_actions_title">Бързи действия</string>
+    <string name="revanced_restart_first_run">Рестартирайте, за да заредите оформлението нормално</string>
+    <string name="revanced_restart_message">Опреснете и рестартирайте</string>
     <string name="revanced_ryd_about">За програмата</string>
     <string name="revanced_ryd_attribution_summary">Данните за нехаресване са от Return YouTube Dislike API. Докоснете за да научите повече.</string>
     <string name="revanced_ryd_compact_layout_summary_off">Най-добър изглед на бутона за харесване</string>
@@ -676,8 +703,13 @@
     <string name="revanced_ryd_failure_connection_status_code" formatted="false">Нехаресванията не са налични (status %d).</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Нехаресванията не са достъпни (достигнат лимит на API)</string>
     <string name="revanced_ryd_failure_generic">Нехаресванията не са налични (%s).</string>
+    <string name="revanced_ryd_shorts_summary_disclaimer">Ограничение: Нехаресванията може да не се показват в определени ситуации.</string>
     <string name="revanced_ryd_shorts_summary_off">Нехаресванията са скрити в кратките клипове</string>
+    <string name="revanced_ryd_shorts_summary_on">Нехаресвания, показани в Shorts. %s</string>
     <string name="revanced_ryd_shorts_title">Пок. нехаресвания в кратките клипове</string>
+    <string name="revanced_ryd_toast_on_connection_error_title">Показване на известие, ако API не е наличен</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary_off">Не се показва известие, ако API ReturnYouTubeDislike не е наличен.</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary_on">Показва известие, ако API ReturnYouTubeDislike не е наличен.</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Скрит</string>
     <string name="revanced_sanitize_sharing_links_summary">Премахва параметрите на заявката за проследяване от URL адресите при споделяне на връзки.</string>
     <string name="revanced_sanitize_sharing_links_title">Почистване на споделените връзки</string>
@@ -735,6 +767,9 @@
 • Видеото може да не започне от последното гледане"</string>
     <string name="revanced_spoof_player_parameter_title">Фалшив параметър на плейъра</string>
     <string name="revanced_swipe_controls">Плъзгащи контроли</string>
+    <string name="revanced_swipe_gestures_lock_mode_summary_off">"Жестовете за плъзгане са деактивирани в режим „Заключен екран“."</string>
+    <string name="revanced_swipe_gestures_lock_mode_summary_on">"Жестовете за плъзгане са активирани в режим „Заключен екран“."</string>
+    <string name="revanced_swipe_gestures_lock_mode_title">"Плъзне в режим Заключен екран."</string>
     <string name="revanced_swipe_magnitude_threshold_summary">Праг преди да се осъществи плъзгането</string>
     <string name="revanced_swipe_magnitude_threshold_title">Праг на величината на плъзгане</string>
     <string name="revanced_swipe_overlay_background_alpha_summary">Видимостта на фона на плъзгащите контроли</string>
@@ -784,6 +819,9 @@
     <string name="sb_guidelines_popup_already_read">Вече ги прочетох</string>
     <string name="sb_guidelines_popup_open">Покажете ги</string>
     <string name="sb_general">Общи</string>
+    <string name="sb_toast_on_connection_error_title">Показване на известие, ако API не е наличен</string>
+    <string name="sb_toast_on_connection_error_summary_on">Показва се известие, ако API на SponsorBlock не е наличен.</string>
+    <string name="sb_toast_on_connection_error_summary_off">Не се показва известие, ако API на SponsorBlock не е наличен.</string>
     <string name="sb_general_skipcount">Вкл. прослед. на броя пропускания</string>
     <string name="sb_general_skipcount_sum_on">Показва в класацията на SponsorBlock колко време е спестено. Съобщение се изпраща при всяка пропусната част</string>
     <string name="sb_general_skipcount_sum_off">Прослед. на броя пропускания е изкл.</string>
@@ -798,6 +836,8 @@
     <string name="sb_api_url_invalid">URL адресът е невалиден</string>
     <string name="sb_api_url_changed">URL на API е променен</string>
     <string name="sb_settings_copy">Копирай</string>
+    <string name="sb_settings_ie_sum">Вашата JSON конфигурация на SponsorBlock, която може да бъде импортирана/експортирана в ReVanced Extended и други платформи на SponsorBlock. %s</string>
+    <string name="sb_settings_ie_sum_warning">Това включва вашия личен потребителски идентификатор. Не забравяйте да споделите това разумно.</string>
     <string name="sb_settings_ie">Импортиране / Експортиране на настройките</string>
     <string name="sb_settings_import_successful">Настройки успешно въстановени</string>
     <string name="sb_settings_import_failed">Неуспешно импортиране на „%s“</string>

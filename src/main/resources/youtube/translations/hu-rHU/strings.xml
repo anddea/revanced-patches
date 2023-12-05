@@ -158,6 +158,12 @@
     <string name="revanced_enable_swipe_brightness_summary_off">A fényerő vezérlés csúsztatással ki van kapcsolva.</string>
     <string name="revanced_enable_swipe_brightness_summary_on">A fényerő vezérlés csúsztatással be van kapcsolva.</string>
     <string name="revanced_enable_swipe_brightness_title">A fényerő csúsztatás engedélyezése</string>
+    <string name="revanced_enable_swipe_haptic_feedback_summary_off">A haptikus visszajelzés le van tiltva.</string>
+    <string name="revanced_enable_swipe_haptic_feedback_summary_on">A haptikus visszajelzés engedélyezve van.</string>
+    <string name="revanced_enable_swipe_haptic_feedback_title">A haptikus visszajelzés engedélyezése</string>
+    <string name="revanced_enable_swipe_press_to_engage_summary_off">Érintse meg a csúsztatási mozdulathoz.</string>
+    <string name="revanced_enable_swipe_press_to_engage_summary_on">Érintse meg és tartsa nyomva a csúsztatási mozdulathoz.</string>
+    <string name="revanced_enable_swipe_press_to_engage_title">A nyomva húzás engedélyezése</string>
     <string name="revanced_enable_swipe_volume_summary_off">A hangerő vezérlés csúsztatással le van tiltva.</string>
     <string name="revanced_enable_swipe_volume_summary_on">A hangerő vezérlés csúsztatással engedélyezve van.</string>
     <string name="revanced_enable_swipe_volume_title">A hangerő csúsztatás engedélyezése</string>
@@ -199,15 +205,21 @@ Te lap &gt; Csatorna megtekintése &gt; Menü &gt; Beállítások."</string>
     <string name="revanced_extended_settings_import_success">A beállítások sikeresen importálva.</string>
     <string name="revanced_extended_settings_import_summary">Beállítások importálása mentett fájlból.</string>
     <string name="revanced_extended_settings_import_title">Beállítások importálása</string>
+    <string name="revanced_external_downloader_download">Alkalmazás letöltése</string>
     <string name="revanced_external_downloader_installed">Telepítve</string>
     <string name="revanced_external_downloader_not_installed">Nincs telepítve</string>
     <string name="revanced_external_downloader_not_installed_warning" formatted="false">%s nincs telepítve. Kérjük, telepítse.</string>
     <string name="revanced_external_downloader_package_name_summary">A telepített külső letöltő alkalmazás csomagneve, például NewPipe vagy YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_title">Külső letöltő csomagneve</string>
+    <string name="revanced_external_downloader_set">Beállítja alapértelmezett letöltőnek</string>
     <string name="revanced_external_downloader_settings_summary">Külső letöltő használatának beállításai.</string>
     <string name="revanced_external_downloader_settings_title">A külső letöltő beállításai</string>
     <string name="revanced_feed_flyout_panel_title">Hírfolyam kiugró panel</string>
     <string name="revanced_flyout_menu">Előugró videó beállítások menü</string>
+    <string name="revanced_force_fullscreen_summary">"A videó teljes képernyőre vált a következő esetekben:
+
+• A megjegyzésekben időbélyegzőre kattintva.
+• A videó elindult."</string>
     <string name="revanced_force_fullscreen_title">A teljes képernyő erőltetése</string>
     <string name="revanced_fullscreen">Teljes képernyő</string>
     <string name="revanced_general">Általános</string>
@@ -329,6 +341,9 @@ Előfordulhat, hogy egyes komponensek nincsenek elrejtve."</string>
     <string name="revanced_hide_create_button_summary_off">A létrehozás gomb látható.</string>
     <string name="revanced_hide_create_button_summary_on">A létrehozás gomb el van rejtve.</string>
     <string name="revanced_hide_create_button_title">A létrehozás gomb elrejtése</string>
+    <string name="revanced_hide_create_shorts_button_summary_off">A Short létrehozás gomb látható.</string>
+    <string name="revanced_hide_create_shorts_button_summary_on">A Short létrehozás gomb el van rejtve.</string>
+    <string name="revanced_hide_create_shorts_button_title">A Short létrehozás gomb elrejtése</string>
     <string name="revanced_hide_crowdfunding_box_summary_off">Megjelenik a közösségi finanszírozási mező.</string>
     <string name="revanced_hide_crowdfunding_box_summary_on">A közösségi finanszírozási mező rejtett.</string>
     <string name="revanced_hide_crowdfunding_box_title">A Közösségi finanszírozás ablak elrejtése</string>
@@ -377,34 +392,34 @@ Előfordulhat, hogy egyes komponensek nincsenek elrejtve."</string>
     <string name="revanced_hide_gray_description_title">A szürke leírás elrejtése</string>
     <string name="revanced_hide_gray_separator_summary_off">A szürke elválasztók láthatók.</string>
     <string name="revanced_hide_gray_separator_summary_on">A szürke elválasztók el vannak rejtve.</string>
-    <string name="revanced_hide_gray_separator_title">Szürke elválasztó elrejtése</string>
+    <string name="revanced_hide_gray_separator_title">A szürke elválasztó elrejtése</string>
     <string name="revanced_hide_handle_summary_off">A kezelő látható.</string>
     <string name="revanced_hide_handle_summary_on">A kezelő el van rejtve.</string>
     <string name="revanced_hide_handle_title">Rejtse el a kezelőt</string>
     <string name="revanced_hide_home_button_summary_off">A kezdőlap gomb látható.</string>
     <string name="revanced_hide_home_button_summary_on">AkKezdőlap gomb el van rejtve.</string>
-    <string name="revanced_hide_home_button_title">Kezdőlap gomb elrejtése</string>
+    <string name="revanced_hide_home_button_title">A kezdőlap gomb elrejtése</string>
     <string name="revanced_hide_image_shelf_summary_off">A kép polcok láthatók.</string>
     <string name="revanced_hide_image_shelf_summary_on">A kép polcok el vannak rejtve.</string>
-    <string name="revanced_hide_image_shelf_title">Kép-polc elrejtése</string>
+    <string name="revanced_hide_image_shelf_title">A kép polc elrejtése</string>
     <string name="revanced_hide_info_cards_section_summary_off">Az infó kártyák rész látható.</string>
     <string name="revanced_hide_info_cards_section_summary_on">Az infó kártyák rész el van rejtve.</string>
     <string name="revanced_hide_info_cards_section_title">Az infó kártyák rész elrejtése</string>
     <string name="revanced_hide_info_cards_summary_off">Az info kártyák láthatók.</string>
     <string name="revanced_hide_info_cards_summary_on">Az info kártyák el vannak rejtve.</string>
-    <string name="revanced_hide_info_cards_title">Információs kártyák elrejtése</string>
+    <string name="revanced_hide_info_cards_title">Az Infó kártyák elrejtése</string>
     <string name="revanced_hide_info_panel_summary_off">Az info panelek láthatók.</string>
     <string name="revanced_hide_info_panel_summary_on">Az info panelek el vannak rejtve.</string>
-    <string name="revanced_hide_info_panel_title">Az információs panel elrejtése</string>
+    <string name="revanced_hide_info_panel_title">Az infó panelek elrejtése</string>
     <string name="revanced_hide_join_button_summary_off">A csatlakozás gomb látható.</string>
     <string name="revanced_hide_join_button_summary_on">A csatlakozás gomb el van rejtve.</string>
     <string name="revanced_hide_join_button_title">A csatlakozás gomb elrejtése</string>
     <string name="revanced_hide_latest_posts_summary_off">A legutóbbi bejegyzések láthatók.</string>
     <string name="revanced_hide_latest_posts_summary_on">A legutóbbi bejegyzések el vannak rejtve.</string>
-    <string name="revanced_hide_latest_posts_title">Legutóbbi bejegyzések elrejtése</string>
+    <string name="revanced_hide_latest_posts_title">A legutóbbi bejegyzések elrejtése</string>
     <string name="revanced_hide_latest_videos_button_summary_off">Az utolsó videók gomb látható.</string>
     <string name="revanced_hide_latest_videos_button_summary_on">Az utolsó videók gomb el van rejtve.</string>
-    <string name="revanced_hide_latest_videos_button_title">Az utolsó videók gomb elrejtése</string>
+    <string name="revanced_hide_latest_videos_button_title">Az legutóbbi videók gomb elrejtése</string>
     <string name="revanced_hide_library_button_summary_off">A könyvtár gomb látható.</string>
     <string name="revanced_hide_library_button_summary_on">A könyvtár gomb el van rejtve.</string>
     <string name="revanced_hide_library_button_title">A könyvtár gomb elrejtése</string>
@@ -583,6 +598,15 @@ Ismert probléma: a keresési eredményekben a hivatalos fejlécek el vannak rej
 
 Ismert probléma: Az automatikus lejátszás nem működik."</string>
     <string name="revanced_hide_suggested_video_overlay_title">Javasolt videofedvény elrejtése</string>
+    <string name="revanced_hide_suggestions_shelf_method_summary_off">"A böngészési azonosítón keresztül azonosítja a javaslatok polcot.
+
+Ismert problémák:
+• Ha a böngészési azonosító nem felismerhető fel, előfordulhat, hogy a javaslatok polc nem lesz elrejtve."</string>
+    <string name="revanced_hide_suggestions_shelf_method_summary_on">"Az aktuális lapon keresztül azonosítja a javaslatok polcot.
+
+Ismert problémák:
+• Előfordulhat, hogy több fiók polc is el van rejtve.
+• Előfordulhat, hogy a lejátszási lista polcok el vannak rejtve."</string>
     <string name="revanced_hide_suggestions_shelf_method_title">Válasszon módszert a polcok elrejtéséhez</string>
     <string name="revanced_hide_suggestions_shelf_summary">"A következő polcok elrejtése:
 - Rendkívüli hírek
@@ -661,6 +685,8 @@ Tartsa nyomva a sebesség alaphelyzetbe állításához."</string>
     <string name="revanced_quick_actions_margin_top_title">Gyors műveletek felső margó</string>
     <string name="revanced_quick_actions_margin_top_warning">A gyors műveletek felső margójának 0 és 64 között kell lennie. Visszaállítás alapértelmezettre.</string>
     <string name="revanced_quick_actions_title">Gyorsműveletek</string>
+    <string name="revanced_restart_first_run">Indítsa újra az elrendezés normál betöltéséhez</string>
+    <string name="revanced_restart_message">Frissítés és újraindítás</string>
     <string name="revanced_ryd_about">Infó</string>
     <string name="revanced_ryd_attribution_summary">A Dislike adatokat a Return YouTube Dislike API szolgáltatja. További információkért érints ide.</string>
     <string name="revanced_ryd_compact_layout_summary_off">A tetszik gomb a legjobb megjelenésre formázva.</string>
@@ -676,8 +702,13 @@ Tartsa nyomva a sebesség alaphelyzetbe állításához."</string>
     <string name="revanced_ryd_failure_connection_status_code" formatted="false">A nem tetszik funkció nem elérhető (állapot %d).</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">A nemtetszés számláló jelenleg nem érhető el (kliens API limit elérve).</string>
     <string name="revanced_ryd_failure_generic">A nem tetszik funkció nem elérhető (%s).</string>
+    <string name="revanced_ryd_shorts_summary_disclaimer">Korlátozás: előfordulhat, hogy a nemtetszés bizonyos helyzetekben nem jelenik meg.</string>
     <string name="revanced_ryd_shorts_summary_off">A nemtetszések el vannak rejtve a shorts-okban.</string>
+    <string name="revanced_ryd_shorts_summary_on">A nemtetszés látható a Short-on. %s</string>
     <string name="revanced_ryd_shorts_title">A dislike megjelenítése a shorts-okban</string>
+    <string name="revanced_ryd_toast_on_connection_error_title">Mutasson üzenetet, ha az API nem elérhető</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary_off">Nem mutat üzenetet, ha a ReturnYouTubeDislike API nem érhető el.</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary_on">Üzenetet mutat, ha a ReturnYouTubeDislike API nem érhető el.</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Elrejtve</string>
     <string name="revanced_sanitize_sharing_links_summary">Linkek megosztásakor eltávolítja a nyomkövetés lekérdezési paramétereket az URL-ekből.</string>
     <string name="revanced_sanitize_sharing_links_title">Tisztítsa meg a megosztási linkeket</string>
@@ -739,6 +770,9 @@ Ismert problémák:
 • Előfordulhat, hogy a videó nem az utoljára megtekintett időponttól indul el."</string>
     <string name="revanced_spoof_player_parameter_title">Lejátszó paraméter hamisítása</string>
     <string name="revanced_swipe_controls">Csúsztatásos vezérlők</string>
+    <string name="revanced_swipe_gestures_lock_mode_summary_off">"A csúsztatási mozdulatok le vannak tiltva a 'Képernyő lezárása' módban."</string>
+    <string name="revanced_swipe_gestures_lock_mode_summary_on">"A csúsztatási mozdulatok engedélyezve vannak a 'Képernyő lezárása' módban."</string>
+    <string name="revanced_swipe_gestures_lock_mode_title">"A csúsztatási mozdulatok a 'Képernyő lezárása' módban"</string>
     <string name="revanced_swipe_magnitude_threshold_summary">A csúsztatáshoz szükséges küszöbérték.</string>
     <string name="revanced_swipe_magnitude_threshold_title">A csúsztatás küszöbértéke</string>
     <string name="revanced_swipe_overlay_background_alpha_summary">A csúsztatási fedés hátterének láthatósága.</string>
@@ -788,6 +822,9 @@ Ismert problémák:
     <string name="sb_guidelines_popup_already_read">Megtekintve</string>
     <string name="sb_guidelines_popup_open">Mutasd</string>
     <string name="sb_general">Általános beállítások</string>
+    <string name="sb_toast_on_connection_error_title">Mutasson üzenetet, ha az API nem elérhető</string>
+    <string name="sb_toast_on_connection_error_summary_on">Üzenet látható, ha a SponsorBlock API nem elérhető.</string>
+    <string name="sb_toast_on_connection_error_summary_off">Üzenet nem látható, ha a SponsorBlock API nem elérhető.</string>
     <string name="sb_general_skipcount">Átugrás-számláló követés bekapcsolása</string>
     <string name="sb_general_skipcount_sum_on">Lehetővé teszi a SponsorBlock ranglistájának, hogy tudja, mennyi időt takarított meg. Minden egyes szegmens kihagyáskor üzenetet küld a ranglistának.</string>
     <string name="sb_general_skipcount_sum_off">A kihagyások számának követése le van tiltva.</string>
@@ -802,6 +839,8 @@ Ismert problémák:
     <string name="sb_api_url_invalid">Az API URL érvénytelen.</string>
     <string name="sb_api_url_changed">Az API URL megváltozott.</string>
     <string name="sb_settings_copy">Másolás</string>
+    <string name="sb_settings_ie_sum">A SponsorBlock JSON konfiguráció, amely importálható / exportálható a ReVanced Extended és más SponsorBlock platformokra. %s</string>
+    <string name="sb_settings_ie_sum_warning">Ez magában foglalja a privát felhasználói azonosítót is. Körültekintően ossza meg.</string>
     <string name="sb_settings_ie">Beállítások importálása / exportlása</string>
     <string name="sb_settings_import_successful">A beállítások importálása sikeres.</string>
     <string name="sb_settings_import_failed">Nem sikerült importálni: %s.</string>
