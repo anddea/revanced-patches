@@ -11,7 +11,7 @@ import java.io.Closeable
 
 object PlayerResponsePatch : BytecodePatch(
     setOf(PlayerParameterBuilderFingerprint)
-), Closeable,MutableSet<PlayerResponsePatch.Hook> by mutableSetOf() {
+), Closeable, MutableSet<PlayerResponsePatch.Hook> by mutableSetOf() {
     private const val VIDEO_ID_PARAMETER = 1
     private const val PLAYER_PARAMETER = 3
     private const val IS_SHORT_AND_OPENING_OR_PLAYING_PARAMETER = 11
@@ -31,7 +31,7 @@ object PlayerResponsePatch : BytecodePatch(
 
         fun hookPlayerParameter(hook: Hook) = playerResponseMethod.addInstructions(
             0, """
-                invoke-static {p$PLAYER_PARAMETER, p$IS_SHORT_AND_OPENING_OR_PLAYING_PARAMETER}, $hook
+                invoke-static {p$VIDEO_ID_PARAMETER, p$PLAYER_PARAMETER, p$IS_SHORT_AND_OPENING_OR_PLAYING_PARAMETER}, $hook
                 move-result-object p$PLAYER_PARAMETER
                 """
         )

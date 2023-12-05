@@ -155,7 +155,8 @@ object VideoIdPatch : BytecodePatch(
         // Call before any other video id hooks,
         // so they can use VideoInformation and check if the video id is for a Short.
         PlayerResponsePatch += PlayerResponsePatch.Hook.PlayerBeforeVideoId(
-            "$INTEGRATIONS_CLASS_DESCRIPTOR->newPlayerResponseSignature(Ljava/lang/String;Z)Ljava/lang/String;")
+            "$INTEGRATIONS_CLASS_DESCRIPTOR->newPlayerParameter(Ljava/lang/String;Ljava/lang/String;Z)Ljava/lang/String;"
+        )
     }
 
     const val INTEGRATIONS_CLASS_DESCRIPTOR = "$VIDEO_PATH/VideoInformation;"
