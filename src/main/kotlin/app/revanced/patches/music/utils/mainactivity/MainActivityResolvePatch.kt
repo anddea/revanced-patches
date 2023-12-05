@@ -1,12 +1,12 @@
 package app.revanced.patches.music.utils.mainactivity
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
+import app.revanced.patches.music.utils.integrations.Constants.UTILS_PATH
 import app.revanced.patches.music.utils.mainactivity.fingerprints.MainActivityFingerprint
-import app.revanced.util.integrations.Constants.MUSIC_UTILS_PATH
+import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.iface.ClassDef
 
 object MainActivityResolvePatch : BytecodePatch(
@@ -29,7 +29,7 @@ object MainActivityResolvePatch : BytecodePatch(
         onCreateMethod.apply {
             addInstruction(
                 2,
-                "invoke-static/range {p0 .. p0}, $MUSIC_UTILS_PATH/$methods;->$descriptor(Landroid/content/Context;)V"
+                "invoke-static/range {p0 .. p0}, $UTILS_PATH/$methods;->$descriptor(Landroid/content/Context;)V"
             )
         }
     }

@@ -1,12 +1,12 @@
 package app.revanced.patches.music.utils.fix.clientspoof
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patches.music.utils.fix.clientspoof.fingerprints.UserAgentHeaderBuilderFingerprint
 import app.revanced.patches.music.utils.microg.Constants.MUSIC_PACKAGE_NAME
+import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 
 object ClientSpoofPatch : BytecodePatch(

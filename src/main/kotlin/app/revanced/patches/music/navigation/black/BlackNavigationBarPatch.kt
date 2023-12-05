@@ -1,6 +1,5 @@
 package app.revanced.patches.music.navigation.black
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -8,10 +7,11 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.music.navigation.black.fingerprints.TabLayoutFingerprint
+import app.revanced.patches.music.utils.integrations.Constants.NAVIGATION
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch
+import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.SettingsPatch
-import app.revanced.util.enum.CategoryType
-import app.revanced.util.integrations.Constants.MUSIC_NAVIGATION
+import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
@@ -36,7 +36,7 @@ object BlackNavigationBarPatch : BytecodePatch(
 
                 addInstructions(
                     targetIndex + 1, """
-                        invoke-static {}, $MUSIC_NAVIGATION->enableBlackNavigationBar()I
+                        invoke-static {}, $NAVIGATION->enableBlackNavigationBar()I
                         move-result v$targetRegister
                         """
                 )

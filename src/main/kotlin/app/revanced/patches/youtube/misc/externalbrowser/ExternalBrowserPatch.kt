@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.misc.externalbrowser
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -10,9 +9,10 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.youtube.misc.externalbrowser.fingerprints.ExternalBrowserPrimaryFingerprint
 import app.revanced.patches.youtube.misc.externalbrowser.fingerprints.ExternalBrowserSecondaryFingerprint
 import app.revanced.patches.youtube.misc.externalbrowser.fingerprints.ExternalBrowserTertiaryFingerprint
+import app.revanced.patches.youtube.utils.integrations.Constants.MISC_PATH
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
-import app.revanced.util.bytecode.getStringIndex
-import app.revanced.util.integrations.Constants.MISC_PATH
+import app.revanced.util.exception
+import app.revanced.util.getStringInstructionIndex
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
@@ -65,7 +65,7 @@ object ExternalBrowserPatch : BytecodePatch(
             fingerprint.result?.let {
                 it.mutableMethod.apply {
                     val targetIndex =
-                        getStringIndex("android.support.customtabs.action.CustomTabsService")
+                        getStringInstructionIndex("android.support.customtabs.action.CustomTabsService")
                     val register = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                     addInstructions(

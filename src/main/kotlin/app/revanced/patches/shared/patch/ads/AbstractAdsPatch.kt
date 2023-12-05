@@ -1,6 +1,5 @@
 package app.revanced.patches.shared.patch.ads
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
@@ -10,6 +9,7 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.fingerprints.ads.LegacyAdsFingerprint
 import app.revanced.patches.shared.fingerprints.ads.MainstreamAdsFingerprint
+import app.revanced.util.exception
 
 abstract class AbstractAdsPatch(
     private val descriptor: String

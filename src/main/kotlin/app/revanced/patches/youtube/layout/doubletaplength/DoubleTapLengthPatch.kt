@@ -6,10 +6,10 @@ import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatchOption
+import app.revanced.patches.youtube.utils.settings.ResourceUtils.addEntryValues
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
-import app.revanced.util.resources.ResourceHelper.addEntryValues
-import app.revanced.util.resources.ResourceUtils
-import app.revanced.util.resources.ResourceUtils.copyResources
+import app.revanced.util.ResourceGroup
+import app.revanced.util.copyResources
 
 @Patch(
     name = "Custom double tap length",
@@ -63,7 +63,7 @@ object DoubleTapLengthPatch : ResourcePatch() {
          */
         context.copyResources(
             "youtube/doubletap",
-            ResourceUtils.ResourceGroup(
+            ResourceGroup(
                 "values-v21",
                 "arrays.xml"
             )

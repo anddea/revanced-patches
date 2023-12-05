@@ -1,9 +1,8 @@
 package app.revanced.patches.youtube.general.musicsearch.fingerprints
 
-import app.revanced.patcher.fingerprint.MethodFingerprint
-import app.revanced.util.bytecode.isWide32LiteralExists
+import app.revanced.util.fingerprint.LiteralValueFingerprint
 
-object VoiceSearchConfigFingerprint : MethodFingerprint(
+object VoiceSearchConfigFingerprint : LiteralValueFingerprint(
     returnType = "Z",
-    customFingerprint = { methodDef, _ -> methodDef.isWide32LiteralExists(45417109) }
+    literalSupplier = { 45417109 }
 )

@@ -1,6 +1,5 @@
 package app.revanced.patches.music.navigation.component
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -9,11 +8,12 @@ import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.music.navigation.component.fingerprints.TabLayoutTextFingerprint
+import app.revanced.patches.music.utils.integrations.Constants.NAVIGATION
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch
+import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.SettingsPatch
-import app.revanced.util.bytecode.getWideLiteralIndex
-import app.revanced.util.enum.CategoryType
-import app.revanced.util.integrations.Constants.MUSIC_NAVIGATION
+import app.revanced.util.exception
+import app.revanced.util.getWideLiteralInstructionIndex
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
@@ -39,7 +39,7 @@ object NavigationBarComponentPatch : BytecodePatch(
          */
         TabLayoutTextFingerprint.result?.let {
             it.mutableMethod.apply {
-                val targetIndex = getWideLiteralIndex(SharedResourceIdPatch.Text1) + 3
+                val targetIndex = getWideLiteralInstructionIndex(SharedResourceIdPatch.Text1) + 3
                 val targetParameter = getInstruction<ReferenceInstruction>(targetIndex).reference
                 val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
@@ -48,7 +48,7 @@ object NavigationBarComponentPatch : BytecodePatch(
 
                 addInstruction(
                     targetIndex + 1,
-                    "invoke-static {v$targetRegister}, $MUSIC_NAVIGATION->hideNavigationLabel(Landroid/widget/TextView;)V"
+                    "invoke-static {v$targetRegister}, $NAVIGATION->hideNavigationLabel(Landroid/widget/TextView;)V"
                 )
             }
         } ?: throw TabLayoutTextFingerprint.exception
@@ -85,12 +85,12 @@ object NavigationBarComponentPatch : BytecodePatch(
 
                 addInstruction(
                     pivotTabIndex,
-                    "invoke-static {v$pivotTabRegister}, $MUSIC_NAVIGATION->hideNavigationButton(Landroid/view/View;)V"
+                    "invoke-static {v$pivotTabRegister}, $NAVIGATION->hideNavigationButton(Landroid/view/View;)V"
                 )
 
                 addInstruction(
                     insertIndex,
-                    "sput-object v$enumRegister, $MUSIC_NAVIGATION->lastPivotTab:Ljava/lang/Enum;"
+                    "sput-object v$enumRegister, $NAVIGATION->lastPivotTab:Ljava/lang/Enum;"
                 )
             }
         } ?: throw TabLayoutTextFingerprint.exception

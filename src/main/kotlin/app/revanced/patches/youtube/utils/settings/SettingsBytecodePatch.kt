@@ -1,18 +1,18 @@
 package app.revanced.patches.youtube.utils.settings
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.shared.patch.mapping.ResourceMappingPatch
+import app.revanced.patches.youtube.utils.integrations.Constants.INTEGRATIONS_PATH
 import app.revanced.patches.youtube.utils.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.utils.mainactivity.MainActivityResolvePatch
 import app.revanced.patches.youtube.utils.mainactivity.MainActivityResolvePatch.injectInit
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.fingerprints.ThemeSetterSystemFingerprint
-import app.revanced.util.integrations.Constants.INTEGRATIONS_PATH
+import app.revanced.util.exception
 
 @Patch(
     dependencies = [

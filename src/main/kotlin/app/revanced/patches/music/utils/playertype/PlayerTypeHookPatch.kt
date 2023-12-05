@@ -1,11 +1,11 @@
 package app.revanced.patches.music.utils.playertype
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patches.music.utils.integrations.Constants.UTILS_PATH
 import app.revanced.patches.music.utils.playertype.fingerprint.PlayerTypeFingerprint
-import app.revanced.util.integrations.Constants.MUSIC_UTILS_PATH
+import app.revanced.util.exception
 
 @Suppress("unused")
 object PlayerTypeHookPatch : BytecodePatch(
@@ -25,5 +25,5 @@ object PlayerTypeHookPatch : BytecodePatch(
     }
 
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
-        "$MUSIC_UTILS_PATH/PlayerTypeHookPatch;"
+        "$UTILS_PATH/PlayerTypeHookPatch;"
 }

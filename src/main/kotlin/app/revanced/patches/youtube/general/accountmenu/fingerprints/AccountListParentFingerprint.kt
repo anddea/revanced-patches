@@ -1,9 +1,8 @@
 package app.revanced.patches.youtube.general.accountmenu.fingerprints
 
-import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.CompactListItem
-import app.revanced.util.bytecode.isWideLiteralExists
+import app.revanced.util.fingerprint.LiteralValueFingerprint
 
-object AccountListParentFingerprint : MethodFingerprint(
-    customFingerprint = { methodDef, _ -> methodDef.isWideLiteralExists(CompactListItem) }
+object AccountListParentFingerprint : LiteralValueFingerprint(
+    literalSupplier = { CompactListItem }
 )

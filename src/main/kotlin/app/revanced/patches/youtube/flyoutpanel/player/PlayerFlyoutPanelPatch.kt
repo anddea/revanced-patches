@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.flyoutpanel.player
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -11,14 +10,15 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.youtube.flyoutpanel.player.fingerprints.AdvancedQualityBottomSheetFingerprint
 import app.revanced.patches.youtube.flyoutpanel.player.fingerprints.CaptionsBottomSheetFingerprint
 import app.revanced.patches.youtube.utils.fingerprints.QualityMenuViewInflateFingerprint
+import app.revanced.patches.youtube.utils.integrations.Constants.COMPONENTS_PATH
+import app.revanced.patches.youtube.utils.integrations.Constants.FLYOUT_PANEL
 import app.revanced.patches.youtube.utils.litho.LithoFilterPatch
 import app.revanced.patches.youtube.utils.playertype.PlayerTypeHookPatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.BottomSheetFooterText
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
-import app.revanced.util.bytecode.getWideLiteralIndex
-import app.revanced.util.integrations.Constants.COMPONENTS_PATH
-import app.revanced.util.integrations.Constants.FLYOUT_PANEL
+import app.revanced.util.exception
+import app.revanced.util.getWideLiteralInstructionIndex
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
@@ -96,7 +96,7 @@ object PlayerFlyoutPanelPatch : BytecodePatch(
     private fun MethodFingerprint.injectCall(descriptor: String) {
         result?.let {
             it.mutableMethod.apply {
-                val insertIndex = getWideLiteralIndex(BottomSheetFooterText) + 3
+                val insertIndex = getWideLiteralInstructionIndex(BottomSheetFooterText) + 3
                 val insertRegister =
                     getInstruction<OneRegisterInstruction>(insertIndex).registerA
 

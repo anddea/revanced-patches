@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.utils.overridespeed
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
@@ -13,12 +12,13 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableField.Companion.toMut
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patcher.util.smali.toInstructions
+import app.revanced.patches.youtube.utils.integrations.Constants.INTEGRATIONS_PATH
+import app.revanced.patches.youtube.utils.integrations.Constants.VIDEO_PATH
 import app.revanced.patches.youtube.utils.overridespeed.fingerprints.PlaybackSpeedChangedFingerprint
 import app.revanced.patches.youtube.utils.overridespeed.fingerprints.PlaybackSpeedParentFingerprint
 import app.revanced.patches.youtube.utils.overridespeed.fingerprints.PlaybackSpeedPatchFingerprint
 import app.revanced.patches.youtube.utils.overridespeed.fingerprints.SpeedClassFingerprint
-import app.revanced.util.integrations.Constants.INTEGRATIONS_PATH
-import app.revanced.util.integrations.Constants.VIDEO_PATH
+import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction

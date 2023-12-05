@@ -1,6 +1,5 @@
 package app.revanced.patches.music.video.information
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
@@ -11,6 +10,7 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.music.utils.fingerprints.SeekBarConstructorFingerprint
+import app.revanced.patches.music.utils.integrations.Constants.VIDEO_PATH
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.music.video.information.fingerprints.BackgroundPlaybackVideoIdFingerprint
 import app.revanced.patches.music.video.information.fingerprints.BackgroundPlaybackVideoIdParentFingerprint
@@ -18,7 +18,7 @@ import app.revanced.patches.music.video.information.fingerprints.PlayerControlle
 import app.revanced.patches.music.video.information.fingerprints.VideoEndFingerprint
 import app.revanced.patches.music.video.information.fingerprints.VideoIdParentFingerprint
 import app.revanced.patches.music.video.information.fingerprints.VideoLengthFingerprint
-import app.revanced.util.integrations.Constants.MUSIC_VIDEO_PATH
+import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
@@ -40,7 +40,7 @@ object VideoInformationPatch : BytecodePatch(
     )
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
-        "$MUSIC_VIDEO_PATH/VideoInformation;"
+        "$VIDEO_PATH/VideoInformation;"
 
     private var backgroundPlaybackInsertIndex = 0
     private var offset = 0

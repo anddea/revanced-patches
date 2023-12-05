@@ -1,10 +1,9 @@
 package app.revanced.patches.youtube.player.seekmessage.fingerprints
 
-import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.EasySeekEduContainer
-import app.revanced.util.bytecode.isWideLiteralExists
+import app.revanced.util.fingerprint.LiteralValueFingerprint
 
-object SeekEduContainerFingerprint : MethodFingerprint(
+object SeekEduContainerFingerprint : LiteralValueFingerprint(
     returnType = "V",
-    customFingerprint = { methodDef, _ -> methodDef.isWideLiteralExists(EasySeekEduContainer) }
+    literalSupplier = { EasySeekEduContainer }
 )

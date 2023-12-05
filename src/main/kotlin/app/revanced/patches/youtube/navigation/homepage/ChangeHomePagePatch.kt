@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.navigation.homepage
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
@@ -11,8 +10,9 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.navigation.homepage.fingerprints.IntentExceptionFingerprint
 import app.revanced.patches.youtube.navigation.homepage.fingerprints.LauncherActivityFingerprint
+import app.revanced.patches.youtube.utils.integrations.Constants.NAVIGATION
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
-import app.revanced.util.integrations.Constants.NAVIGATION
+import app.revanced.util.exception
 
 @Patch(
     name = "Change homepage",

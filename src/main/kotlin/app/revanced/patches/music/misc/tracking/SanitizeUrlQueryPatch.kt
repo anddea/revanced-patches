@@ -4,11 +4,11 @@ import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.music.misc.tracking.fingerprints.ShareLinkFormatterFingerprint
+import app.revanced.patches.music.utils.integrations.Constants.MISC_PATH
+import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.SettingsPatch
 import app.revanced.patches.shared.fingerprints.tracking.CopyTextEndpointFingerprint
 import app.revanced.patches.shared.patch.tracking.AbstractSanitizeUrlQueryPatch
-import app.revanced.util.enum.CategoryType
-import app.revanced.util.integrations.Constants.MUSIC_MISC_PATH
 
 @Patch(
     name = "Sanitize sharing links",
@@ -18,7 +18,7 @@ import app.revanced.util.integrations.Constants.MUSIC_MISC_PATH
 )
 @Suppress("unused")
 object SanitizeUrlQueryPatch : AbstractSanitizeUrlQueryPatch(
-    "$MUSIC_MISC_PATH/SanitizeUrlQueryPatch;",
+    "$MISC_PATH/SanitizeUrlQueryPatch;",
     listOf(
         CopyTextEndpointFingerprint,
         ShareLinkFormatterFingerprint

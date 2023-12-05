@@ -1,13 +1,12 @@
 package app.revanced.patches.youtube.shorts.shortscomponent.fingerprints
 
 import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.ReelPlayerInfoPanel
-import app.revanced.util.bytecode.isWideLiteralExists
+import app.revanced.util.fingerprint.LiteralValueFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-object ShortsInfoPanelFingerprint : MethodFingerprint(
+object ShortsInfoPanelFingerprint : LiteralValueFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    customFingerprint = { methodDef, _ -> methodDef.isWideLiteralExists(ReelPlayerInfoPanel) }
+    literalSupplier = { ReelPlayerInfoPanel }
 )

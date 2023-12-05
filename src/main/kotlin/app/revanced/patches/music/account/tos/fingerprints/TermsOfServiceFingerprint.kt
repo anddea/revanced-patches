@@ -1,10 +1,9 @@
 package app.revanced.patches.music.account.tos.fingerprints
 
-import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.TosFooter
-import app.revanced.util.bytecode.isWideLiteralExists
+import app.revanced.util.fingerprint.LiteralValueFingerprint
 
-object TermsOfServiceFingerprint : MethodFingerprint(
+object TermsOfServiceFingerprint : LiteralValueFingerprint(
     returnType = "Landroid/view/View;",
-    customFingerprint = { methodDef, _ -> methodDef.isWideLiteralExists(TosFooter) }
+    literalSupplier = { TosFooter }
 )

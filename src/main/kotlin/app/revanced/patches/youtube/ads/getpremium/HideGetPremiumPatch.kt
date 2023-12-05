@@ -1,13 +1,13 @@
 package app.revanced.patches.youtube.ads.getpremium
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.ads.getpremium.fingerprints.CompactYpcOfferModuleViewFingerprint
-import app.revanced.util.integrations.Constants.COMPONENTS_PATH
+import app.revanced.patches.youtube.utils.integrations.Constants.COMPONENTS_PATH
+import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
 object HideGetPremiumPatch : BytecodePatch(

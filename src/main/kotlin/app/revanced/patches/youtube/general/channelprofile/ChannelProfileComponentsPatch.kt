@@ -4,9 +4,9 @@ import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patches.youtube.utils.integrations.Constants.COMPONENTS_PATH
 import app.revanced.patches.youtube.utils.litho.LithoFilterPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
-import app.revanced.util.integrations.Constants.COMPONENTS_PATH
 
 @Patch(
     name = "Hide channel profile components",
@@ -44,7 +44,7 @@ import app.revanced.util.integrations.Constants.COMPONENTS_PATH
     ]
 )
 @Suppress("unused")
-object ChannelProfileComponentsPatch : BytecodePatch() {
+object ChannelProfileComponentsPatch : BytecodePatch(emptySet()) {
     override fun execute(context: BytecodeContext) {
         LithoFilterPatch.addFilter("$COMPONENTS_PATH/ChannelProfileFilter;")
 

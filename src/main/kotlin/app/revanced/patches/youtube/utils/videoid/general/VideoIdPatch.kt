@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.utils.videoid.general
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
@@ -13,6 +12,7 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.utils.fingerprints.OrganicPlaybackContextModelFingerprint
+import app.revanced.patches.youtube.utils.integrations.Constants.VIDEO_PATH
 import app.revanced.patches.youtube.utils.playerresponse.PlayerResponsePatch
 import app.revanced.patches.youtube.utils.playertype.PlayerTypeHookPatch
 import app.revanced.patches.youtube.utils.videoid.general.fingerprint.PlayerControllerSetTimeReferenceFingerprint
@@ -20,7 +20,7 @@ import app.revanced.patches.youtube.utils.videoid.general.fingerprint.VideoEndFi
 import app.revanced.patches.youtube.utils.videoid.general.fingerprint.VideoIdFingerprint
 import app.revanced.patches.youtube.utils.videoid.general.fingerprint.VideoIdParentFingerprint
 import app.revanced.patches.youtube.utils.videoid.general.fingerprint.VideoLengthFingerprint
-import app.revanced.util.integrations.Constants.VIDEO_PATH
+import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction

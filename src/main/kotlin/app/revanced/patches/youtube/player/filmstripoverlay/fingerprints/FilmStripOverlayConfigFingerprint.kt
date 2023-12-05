@@ -1,10 +1,9 @@
 package app.revanced.patches.youtube.player.filmstripoverlay.fingerprints
 
-import app.revanced.patcher.fingerprint.MethodFingerprint
-import app.revanced.util.bytecode.isWide32LiteralExists
+import app.revanced.util.fingerprint.LiteralValueFingerprint
 
-object FilmStripOverlayConfigFingerprint : MethodFingerprint(
+object FilmStripOverlayConfigFingerprint : LiteralValueFingerprint(
     returnType = "Z",
     parameters = emptyList(),
-    customFingerprint = { methodDef, _ -> methodDef.isWide32LiteralExists(45381958) }
+    literalSupplier = { 45381958 }
 )

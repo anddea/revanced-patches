@@ -1,15 +1,15 @@
 package app.revanced.patches.music.player.newplayerbackground
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.music.player.newplayerbackground.fingerprints.NewPlayerBackgroundFingerprint
+import app.revanced.patches.music.utils.integrations.Constants.PLAYER
+import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.SettingsPatch
-import app.revanced.util.enum.CategoryType
-import app.revanced.util.integrations.Constants.MUSIC_PLAYER
+import app.revanced.util.exception
 
 @Patch(
     name = "Enable new player background",
@@ -27,7 +27,7 @@ object NewPlayerBackgroundPatch : BytecodePatch(
             it.mutableMethod.apply {
                 addInstructions(
                     0, """
-                        invoke-static {}, $MUSIC_PLAYER->enableNewPlayerBackground()Z
+                        invoke-static {}, $PLAYER->enableNewPlayerBackground()Z
                         move-result v0
                         return v0
                         """

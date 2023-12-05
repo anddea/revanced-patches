@@ -1,13 +1,12 @@
 package app.revanced.patches.youtube.general.categorybar.fingerprints
 
 import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.FilterBarHeight
-import app.revanced.util.bytecode.isWideLiteralExists
+import app.revanced.util.fingerprint.LiteralValueFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-object FilterBarHeightFingerprint : MethodFingerprint(
+object FilterBarHeightFingerprint : LiteralValueFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
     opcodes = listOf(
@@ -16,5 +15,5 @@ object FilterBarHeightFingerprint : MethodFingerprint(
         Opcode.MOVE_RESULT,
         Opcode.IPUT
     ),
-    customFingerprint = { methodDef, _ -> methodDef.isWideLiteralExists(FilterBarHeight) }
+    literalSupplier = { FilterBarHeight }
 )

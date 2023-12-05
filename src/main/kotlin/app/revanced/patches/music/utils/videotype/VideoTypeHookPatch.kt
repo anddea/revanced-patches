@@ -1,13 +1,13 @@
 package app.revanced.patches.music.utils.videotype
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patches.music.utils.integrations.Constants.UTILS_PATH
 import app.revanced.patches.music.utils.videotype.fingerprint.VideoTypeFingerprint
 import app.revanced.patches.music.utils.videotype.fingerprint.VideoTypeParentFingerprint
-import app.revanced.util.integrations.Constants.MUSIC_UTILS_PATH
+import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 
 @Suppress("unused")
@@ -43,5 +43,5 @@ object VideoTypeHookPatch : BytecodePatch(
     }
 
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
-        "$MUSIC_UTILS_PATH/VideoTypeHookPatch;"
+        "$UTILS_PATH/VideoTypeHookPatch;"
 }

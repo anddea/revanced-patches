@@ -1,6 +1,5 @@
 package app.revanced.patches.music.general.tooltip
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.patch.BytecodePatch
@@ -8,6 +7,7 @@ import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.music.general.tooltip.fingerprints.TooltipContentViewFingerprint
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch
+import app.revanced.util.exception
 
 @Patch(
     name = "Hide tooltip content",

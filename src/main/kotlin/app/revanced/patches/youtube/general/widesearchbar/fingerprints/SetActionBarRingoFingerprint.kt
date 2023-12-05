@@ -1,11 +1,10 @@
 package app.revanced.patches.youtube.general.widesearchbar.fingerprints
 
-import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.ActionBarRingo
-import app.revanced.util.bytecode.isWideLiteralExists
+import app.revanced.util.fingerprint.LiteralValueFingerprint
 import com.android.tools.smali.dexlib2.Opcode
 
-object SetActionBarRingoFingerprint : MethodFingerprint(
+object SetActionBarRingoFingerprint : LiteralValueFingerprint(
     returnType = "L",
     parameters = listOf("L", "L"),
     opcodes = listOf(
@@ -14,5 +13,5 @@ object SetActionBarRingoFingerprint : MethodFingerprint(
         Opcode.IGET_OBJECT,
         Opcode.INVOKE_STATIC
     ),
-    customFingerprint = { methodDef, _ -> methodDef.isWideLiteralExists(ActionBarRingo) }
+    literalSupplier = { ActionBarRingo }
 )

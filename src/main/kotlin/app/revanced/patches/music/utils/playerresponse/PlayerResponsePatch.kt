@@ -1,11 +1,11 @@
 package app.revanced.patches.music.utils.playerresponse
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.music.utils.playerresponse.fingerprints.PlaybackStartDescriptorFingerprint
+import app.revanced.util.exception
 
 object PlayerResponsePatch : BytecodePatch(
     setOf(PlaybackStartDescriptorFingerprint)

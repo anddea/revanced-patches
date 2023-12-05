@@ -1,18 +1,19 @@
 package app.revanced.patches.youtube.player.endscreencards
 
-import app.revanced.extensions.exception
-import app.revanced.extensions.injectHideCall
 import app.revanced.patcher.data.BytecodeContext
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.fingerprint.MethodFingerprintResult
+import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.youtube.player.endscreencards.fingerprints.LayoutCircleFingerprint
 import app.revanced.patches.youtube.player.endscreencards.fingerprints.LayoutIconFingerprint
 import app.revanced.patches.youtube.player.endscreencards.fingerprints.LayoutVideoFingerprint
+import app.revanced.patches.youtube.utils.integrations.Constants.PLAYER
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
+import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
@@ -59,27 +60,25 @@ object HideEndScreenCardsPatch : BytecodePatch(
     )
 ) {
     override fun execute(context: BytecodeContext) {
+        fun MethodFingerprint.injectHideCall() {
+            result?.let {
+                it.mutableMethod.apply {
+                    val insertIndex = it.scanResult.patternScanResult!!.endIndex
+                    val viewRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
-        fun MethodFingerprintResult.injectHideCalls() {
-            val index = scanResult.patternScanResult!!.endIndex
-            mutableMethod.apply {
-                val register = this.getInstruction<OneRegisterInstruction>(index).registerA
-                implementation!!.injectHideCall(
-                    index + 1,
-                    register,
-                    "layout/PlayerPatch",
-                    "hideEndScreenCards"
-                )
-            }
+                    addInstruction(
+                        insertIndex + 1,
+                        "invoke-static { v$viewRegister }, $PLAYER->hideEndScreenCards(Landroid/view/View;)V"
+                    )
+                }
+            } ?: throw exception
         }
 
         listOf(
             LayoutCircleFingerprint,
             LayoutIconFingerprint,
             LayoutVideoFingerprint
-        ).forEach {
-            it.result?.injectHideCalls() ?: throw it.exception
-        }
+        ).forEach(MethodFingerprint::injectHideCall)
 
         /**
          * Add settings

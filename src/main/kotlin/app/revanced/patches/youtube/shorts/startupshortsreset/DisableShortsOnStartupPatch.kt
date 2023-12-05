@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.shorts.startupshortsreset
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -9,9 +8,10 @@ import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.shorts.startupshortsreset.fingerprints.UserWasInShortsFingerprint
+import app.revanced.patches.youtube.utils.integrations.Constants.SHORTS
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
-import app.revanced.util.bytecode.getWide32LiteralIndex
-import app.revanced.util.integrations.Constants.SHORTS
+import app.revanced.util.exception
+import app.revanced.util.getWideLiteralInstructionIndex
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
@@ -54,7 +54,7 @@ object DisableShortsOnStartupPatch : BytecodePatch(
 
         UserWasInShortsFingerprint.result?.let {
             it.mutableMethod.apply {
-                val insertIndex = getWide32LiteralIndex(45381394)
+                val insertIndex = getWideLiteralInstructionIndex(45381394)
                 val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
                 addInstructionsWithLabels(

@@ -1,6 +1,5 @@
 package app.revanced.patches.music.account.handle
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -10,10 +9,11 @@ import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.music.account.handle.fingerprints.AccountSwitcherAccessibilityLabelFingerprint
 import app.revanced.patches.music.account.handle.fingerprints.NamesInactiveAccountThumbnailSizeFingerprint
+import app.revanced.patches.music.utils.integrations.Constants.ACCOUNT
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch
+import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.SettingsPatch
-import app.revanced.util.enum.CategoryType
-import app.revanced.util.integrations.Constants.MUSIC_ACCOUNT
+import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
@@ -56,7 +56,7 @@ object HideHandlePatch : BytecodePatch(
 
                         replaceInstruction(
                             index,
-                            "invoke-static {v${textViewInstruction.registerC}, v${textViewInstruction.registerD}}, $MUSIC_ACCOUNT->hideHandle(Landroid/widget/TextView;I)V"
+                            "invoke-static {v${textViewInstruction.registerC}, v${textViewInstruction.registerD}}, $ACCOUNT->hideHandle(Landroid/widget/TextView;I)V"
                         )
 
                         break
@@ -75,7 +75,7 @@ object HideHandlePatch : BytecodePatch(
 
                 addInstructions(
                     targetIndex, """
-                        invoke-static {v$targetRegister}, $MUSIC_ACCOUNT->hideHandle(Z)Z
+                        invoke-static {v$targetRegister}, $ACCOUNT->hideHandle(Z)Z
                         move-result v$targetRegister
                         """
                 )

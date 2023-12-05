@@ -1,13 +1,12 @@
 package app.revanced.patches.music.general.landscapemode.fingerprints
 
 import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.IsTablet
-import app.revanced.util.bytecode.isWideLiteralExists
+import app.revanced.util.fingerprint.LiteralValueFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-object TabletIdentifierFingerprint : MethodFingerprint(
+object TabletIdentifierFingerprint : LiteralValueFingerprint(
     returnType = "Z",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
     parameters = listOf("L"),
@@ -16,6 +15,6 @@ object TabletIdentifierFingerprint : MethodFingerprint(
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT
     ),
-    customFingerprint = { methodDef, _ -> methodDef.isWideLiteralExists(IsTablet) }
+    literalSupplier = { IsTablet }
 )
 

@@ -1,8 +1,5 @@
 package app.revanced.patches.music.player.shuffle
 
-import app.revanced.extensions.exception
-import app.revanced.extensions.transformFields
-import app.revanced.extensions.traverseClassHierarchy
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
@@ -17,9 +14,12 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.music.player.shuffle.fingerprints.MusicPlaybackControlsFingerprint
 import app.revanced.patches.music.player.shuffle.fingerprints.ShuffleClassReferenceFingerprint
+import app.revanced.patches.music.utils.integrations.Constants.PLAYER
+import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.SettingsPatch
-import app.revanced.util.enum.CategoryType
-import app.revanced.util.integrations.Constants.MUSIC_PLAYER
+import app.revanced.util.exception
+import app.revanced.util.transformFields
+import app.revanced.util.traverseClassHierarchy
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
@@ -78,7 +78,7 @@ object RememberShufflePatch : BytecodePatch(
             constructorMethod.apply {
                 addInstruction(
                     implementation!!.instructions.size - 1,
-                    "sput-object p0, $MUSIC_PLAYBACK_CONTROLS_CLASS_DESCRIPTOR->shuffleClass:$SHUFFLE_CLASS"
+                    "sput-object p0, $PLAYBACK_CONTROLS_CLASS_DESCRIPTOR->shuffleClass:$SHUFFLE_CLASS"
                 )
             }
 
@@ -87,7 +87,7 @@ object RememberShufflePatch : BytecodePatch(
                     0, """
                         move-object v0, p0
                         """ + shuffleStateLabel + """
-                        invoke-static {v1}, $MUSIC_PLAYER->setShuffleState(I)V
+                        invoke-static {v1}, $PLAYER->setShuffleState(I)V
                         """
                 )
             }
@@ -112,7 +112,7 @@ object RememberShufflePatch : BytecodePatch(
             it.mutableMethod.apply {
                 addInstruction(
                     0,
-                    "invoke-virtual {v0}, $MUSIC_PLAYBACK_CONTROLS_CLASS_DESCRIPTOR->rememberShuffleState()V"
+                    "invoke-virtual {v0}, $PLAYBACK_CONTROLS_CLASS_DESCRIPTOR->rememberShuffleState()V"
                 )
 
                 val shuffleField = ImmutableField(
@@ -137,10 +137,10 @@ object RememberShufflePatch : BytecodePatch(
 
                 shuffleMethod.addInstructionsWithLabels(
                     0, """
-                            invoke-static {}, $MUSIC_PLAYER->getShuffleState()I
+                            invoke-static {}, $PLAYER->getShuffleState()I
                             move-result v2
                             if-nez v2, :dont_shuffle
-                            sget-object v0, $MUSIC_PLAYBACK_CONTROLS_CLASS_DESCRIPTOR->shuffleClass:$SHUFFLE_CLASS
+                            sget-object v0, $PLAYBACK_CONTROLS_CLASS_DESCRIPTOR->shuffleClass:$SHUFFLE_CLASS
                             """ + shuffleStateLabel + """
                             iget-object v3, v0, $imageViewReference
                             invoke-virtual {v3}, Landroid/widget/ImageView;->performClick()Z
@@ -164,7 +164,7 @@ object RememberShufflePatch : BytecodePatch(
 
     }
 
-    private const val MUSIC_PLAYBACK_CONTROLS_CLASS_DESCRIPTOR =
+    private const val PLAYBACK_CONTROLS_CLASS_DESCRIPTOR =
         "Lcom/google/android/apps/youtube/music/watchpage/MusicPlaybackControls;"
 
     private lateinit var SHUFFLE_CLASS: String

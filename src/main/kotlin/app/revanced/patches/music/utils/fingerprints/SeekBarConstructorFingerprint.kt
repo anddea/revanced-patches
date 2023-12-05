@@ -1,14 +1,9 @@
 package app.revanced.patches.music.utils.fingerprints
 
-import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.InlineTimeBarAdBreakMarkerColor
-import app.revanced.util.bytecode.isWideLiteralExists
+import app.revanced.util.fingerprint.LiteralValueFingerprint
 
-object SeekBarConstructorFingerprint : MethodFingerprint(
+object SeekBarConstructorFingerprint : LiteralValueFingerprint(
     returnType = "V",
-    customFingerprint = { methodDef, _ ->
-        methodDef.isWideLiteralExists(
-            InlineTimeBarAdBreakMarkerColor
-        )
-    }
+    literalSupplier = { InlineTimeBarAdBreakMarkerColor }
 )

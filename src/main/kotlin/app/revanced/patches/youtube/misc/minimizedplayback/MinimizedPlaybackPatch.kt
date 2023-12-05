@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.misc.minimizedplayback
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
@@ -13,9 +12,10 @@ import app.revanced.patches.youtube.misc.minimizedplayback.fingerprints.KidsMini
 import app.revanced.patches.youtube.misc.minimizedplayback.fingerprints.MinimizedPlaybackManagerFingerprint
 import app.revanced.patches.youtube.misc.minimizedplayback.fingerprints.MinimizedPlaybackSettingsFingerprint
 import app.revanced.patches.youtube.misc.minimizedplayback.fingerprints.PiPControllerFingerprint
+import app.revanced.patches.youtube.utils.integrations.Constants.MISC_PATH
 import app.revanced.patches.youtube.utils.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.utils.playertype.PlayerTypeHookPatch
-import app.revanced.util.integrations.Constants.MISC_PATH
+import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference

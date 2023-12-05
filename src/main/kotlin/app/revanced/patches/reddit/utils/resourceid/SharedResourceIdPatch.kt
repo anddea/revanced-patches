@@ -4,15 +4,15 @@ import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.shared.patch.mapping.ResourceMappingPatch
-import app.revanced.util.enum.ResourceType
-import app.revanced.util.enum.ResourceType.ID
-import app.revanced.util.enum.ResourceType.STRING
+import app.revanced.patches.shared.patch.mapping.ResourceType
+import app.revanced.patches.shared.patch.mapping.ResourceType.ID
+import app.revanced.patches.shared.patch.mapping.ResourceType.STRING
 
 @Patch(dependencies = [ResourceMappingPatch::class])
 object SharedResourceIdPatch : ResourcePatch() {
-    internal var LabelAcknowledgements = -1L
-    internal var ScreenShotShareBanner = -1L
-    internal var ToolBarNavSearchCtaContainer = -1L
+    var LabelAcknowledgements: Long = -1L
+    var ScreenShotShareBanner: Long = -1L
+    var ToolBarNavSearchCtaContainer: Long = -1L
 
     override fun execute(context: ResourceContext) {
 

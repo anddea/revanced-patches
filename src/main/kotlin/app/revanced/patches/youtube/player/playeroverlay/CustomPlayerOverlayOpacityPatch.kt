@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.player.playeroverlay
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -9,11 +8,12 @@ import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.youtube.utils.fingerprints.YouTubeControlsOverlayFingerprint
+import app.revanced.patches.youtube.utils.integrations.Constants.PLAYER
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.ScrimOverlay
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
-import app.revanced.util.bytecode.getWideLiteralIndex
-import app.revanced.util.integrations.Constants.PLAYER
+import app.revanced.util.exception
+import app.revanced.util.getWideLiteralInstructionIndex
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 
@@ -60,7 +60,7 @@ object CustomPlayerOverlayOpacityPatch : BytecodePatch(
 
         YouTubeControlsOverlayFingerprint.result?.let {
             it.mutableMethod.apply {
-                val targetIndex = getWideLiteralIndex(ScrimOverlay) + 3
+                val targetIndex = getWideLiteralInstructionIndex(ScrimOverlay) + 3
                 val targetParameter = getInstruction<ReferenceInstruction>(targetIndex).reference
                 val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 

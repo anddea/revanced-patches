@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.overlaybutton.general
 
-import app.revanced.extensions.doRecursively
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
@@ -9,16 +8,17 @@ import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.booleanPat
 import app.revanced.patches.youtube.overlaybutton.alwaysrepeat.AlwaysRepeatPatch
 import app.revanced.patches.youtube.overlaybutton.download.hook.DownloadButtonHookPatch
 import app.revanced.patches.youtube.overlaybutton.download.pip.DisablePiPPatch
+import app.revanced.patches.youtube.utils.integrations.Constants.OVERLAY_BUTTONS_PATH
 import app.revanced.patches.youtube.utils.overridespeed.OverrideSpeedHookPatch
 import app.revanced.patches.youtube.utils.playerbutton.PlayerButtonHookPatch
 import app.revanced.patches.youtube.utils.playercontrols.PlayerControlsPatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.patches.youtube.utils.videoid.general.VideoIdPatch
-import app.revanced.util.integrations.Constants.BUTTON_PATH
-import app.revanced.util.resources.ResourceUtils
-import app.revanced.util.resources.ResourceUtils.copyResources
-import app.revanced.util.resources.ResourceUtils.copyXmlNode
+import app.revanced.util.ResourceGroup
+import app.revanced.util.copyResources
+import app.revanced.util.copyXmlNode
+import app.revanced.util.doRecursively
 import org.w3c.dom.Element
 
 @Patch(
@@ -84,9 +84,9 @@ object OverlayButtonsPatch : ResourcePatch() {
             "CopyVideoUrlTimestamp",
             "ExternalDownload",
             "SpeedDialog"
-        ).forEach {
-            PlayerControlsPatch.initializeControl("$BUTTON_PATH/$it;")
-            PlayerControlsPatch.injectVisibility("$BUTTON_PATH/$it;")
+        ).forEach { patch ->
+            PlayerControlsPatch.initializeControl("$OVERLAY_BUTTONS_PATH/$patch;")
+            PlayerControlsPatch.injectVisibility("$OVERLAY_BUTTONS_PATH/$patch;")
         }
 
         /**
@@ -98,7 +98,7 @@ object OverlayButtonsPatch : ResourcePatch() {
          * Copy resources
          */
         arrayOf(
-            ResourceUtils.ResourceGroup(
+            ResourceGroup(
                 "drawable",
                 "playlist_repeat_button.xml",
                 "playlist_shuffle_button.xml",
@@ -110,7 +110,7 @@ object OverlayButtonsPatch : ResourcePatch() {
 
         if (OutlineIcon == true) {
             arrayOf(
-                ResourceUtils.ResourceGroup(
+                ResourceGroup(
                     "drawable-xxhdpi",
                     "ic_fullscreen_vertical_button.png",
                     "quantum_ic_fullscreen_exit_grey600_24.png",
@@ -132,7 +132,7 @@ object OverlayButtonsPatch : ResourcePatch() {
             }
         } else {
             arrayOf(
-                ResourceUtils.ResourceGroup(
+                ResourceGroup(
                     "drawable-xxhdpi",
                     "ic_fullscreen_vertical_button.png",
                     "ic_vr.png",

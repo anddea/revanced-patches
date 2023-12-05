@@ -1,6 +1,5 @@
 package app.revanced.patches.music.utils.actionbarhook
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -8,8 +7,9 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.music.utils.actionbarhook.fingerprints.ActionBarHookFingerprint
 import app.revanced.patches.music.utils.fingerprints.ActionsBarParentFingerprint
+import app.revanced.patches.music.utils.integrations.Constants.ACTIONBAR
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch
-import app.revanced.util.integrations.Constants.MUSIC_ACTIONBAR
+import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Patch(dependencies = [SharedResourceIdPatch::class])
@@ -32,7 +32,7 @@ object ActionBarHookPatch : BytecodePatch(
 
                     addInstruction(
                         targetIndex + 1,
-                        "invoke-static {v$targetRegister}, $MUSIC_ACTIONBAR->hookActionBar(Landroid/view/ViewGroup;)V"
+                        "invoke-static {v$targetRegister}, $ACTIONBAR->hookActionBar(Landroid/view/ViewGroup;)V"
                     )
                 }
             } ?: throw ActionBarHookFingerprint.exception

@@ -28,9 +28,10 @@ abstract class AbstractVoiceSearchButtonPatch(
                         .filter { it.getAttribute("android:id").equals(VOICE_SEARCH_ID) }
                         .forEach { node ->
                             replacements.forEach replacement@{ replacement ->
-                                node.getAttributeNode("android:layout_$replacement")?.let { attribute ->
-                                    attribute.textContent = "0.0dip"
-                                }
+                                node.getAttributeNode("android:layout_$replacement")
+                                    ?.let { attribute ->
+                                        attribute.textContent = "0.0dip"
+                                    }
                             }
                         }
                 }

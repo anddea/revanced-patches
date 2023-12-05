@@ -1,6 +1,5 @@
 package app.revanced.patches.music.account.tos
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
@@ -10,10 +9,11 @@ import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.music.account.tos.fingerprints.TermsOfServiceFingerprint
+import app.revanced.patches.music.utils.integrations.Constants.ACCOUNT
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch
+import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.SettingsPatch
-import app.revanced.util.enum.CategoryType
-import app.revanced.util.integrations.Constants.MUSIC_ACCOUNT
+import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
@@ -55,7 +55,7 @@ object TermsContainerPatch : BytecodePatch(
                         )
                         addInstructions(
                             index, """
-                                invoke-static {}, $MUSIC_ACCOUNT->hideTermsContainer()I
+                                invoke-static {}, $ACCOUNT->hideTermsContainer()I
                                 move-result v$visibilityRegister
                                 """
                         )

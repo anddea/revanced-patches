@@ -1,13 +1,12 @@
 package app.revanced.patches.music.navigation.component.fingerprints
 
 import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.Text1
-import app.revanced.util.bytecode.isWideLiteralExists
+import app.revanced.util.fingerprint.LiteralValueFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-object TabLayoutTextFingerprint : MethodFingerprint(
+object TabLayoutTextFingerprint : LiteralValueFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("L"),
@@ -20,6 +19,6 @@ object TabLayoutTextFingerprint : MethodFingerprint(
         Opcode.INVOKE_INTERFACE,
         Opcode.MOVE_RESULT
     ),
-    customFingerprint = { methodDef, _ -> methodDef.isWideLiteralExists(Text1) }
+    literalSupplier = { Text1 }
 )
 

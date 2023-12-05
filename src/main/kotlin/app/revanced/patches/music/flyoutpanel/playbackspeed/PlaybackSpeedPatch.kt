@@ -6,8 +6,8 @@ import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.music.utils.flyoutbutton.FlyoutButtonContainerPatch
 import app.revanced.patches.music.utils.overridespeed.OverrideSpeedHookPatch
+import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.SettingsPatch
-import app.revanced.util.enum.CategoryType
 
 @Patch(
     name = "Enable playback speed",
@@ -20,7 +20,7 @@ import app.revanced.util.enum.CategoryType
     compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")]
 )
 @Suppress("unused")
-object PlaybackSpeedPatch : BytecodePatch() {
+object PlaybackSpeedPatch : BytecodePatch(emptySet()) {
     override fun execute(context: BytecodeContext) {
 
         SettingsPatch.addMusicPreference(

@@ -1,16 +1,15 @@
 package app.revanced.patches.youtube.utils.overridequality.fingerprints
 
-import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.QualityAuto
-import app.revanced.util.bytecode.isWideLiteralExists
+import app.revanced.util.fingerprint.LiteralValueFingerprint
 import com.android.tools.smali.dexlib2.Opcode
 
-object VideoQualityListFingerprint : MethodFingerprint(
+object VideoQualityListFingerprint : LiteralValueFingerprint(
     returnType = "V",
     parameters = listOf("L"),
     opcodes = listOf(
         Opcode.INVOKE_INTERFACE,
         Opcode.RETURN_VOID
     ),
-    customFingerprint = { methodDef, _ -> methodDef.isWideLiteralExists(QualityAuto) }
+    literalSupplier = { QualityAuto }
 )

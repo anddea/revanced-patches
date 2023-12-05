@@ -1,6 +1,5 @@
 package app.revanced.patches.music.utils.overridequality
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
@@ -10,10 +9,11 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableField.Companion.toMutable
+import app.revanced.patches.music.utils.integrations.Constants.VIDEO_PATH
 import app.revanced.patches.music.utils.overridequality.fingerprints.VideoQualityListFingerprint
 import app.revanced.patches.music.utils.overridequality.fingerprints.VideoQualityPatchFingerprint
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch
-import app.revanced.util.integrations.Constants.MUSIC_VIDEO_PATH
+import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.immutable.ImmutableField
@@ -81,7 +81,7 @@ object OverrideQualityHookPatch : BytecodePatch(
     }
 
     private const val INTEGRATIONS_VIDEO_QUALITY_CLASS_DESCRIPTOR =
-        "$MUSIC_VIDEO_PATH/VideoQualityPatch;"
+        "$VIDEO_PATH/VideoQualityPatch;"
 
     private lateinit var QUALITY_CLASS: String
     private lateinit var QUALITY_METHOD: String

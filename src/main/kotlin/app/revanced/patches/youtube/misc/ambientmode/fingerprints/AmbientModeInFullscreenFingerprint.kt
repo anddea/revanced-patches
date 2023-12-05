@@ -1,11 +1,8 @@
 package app.revanced.patches.youtube.misc.ambientmode.fingerprints
 
-import app.revanced.patcher.fingerprint.MethodFingerprint
-import app.revanced.util.bytecode.isWide32LiteralExists
+import app.revanced.util.fingerprint.LiteralValueFingerprint
 
-object AmbientModeInFullscreenFingerprint : MethodFingerprint(
+object AmbientModeInFullscreenFingerprint : LiteralValueFingerprint(
     returnType = "V",
-    customFingerprint = { methodDef, _ ->
-        methodDef.isWide32LiteralExists(45389368)
-    }
+    literalSupplier = { 45389368 }
 )

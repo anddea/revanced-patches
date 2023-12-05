@@ -7,19 +7,14 @@ import app.revanced.patches.shared.patch.mapping.ResourceMappingPatch
 import app.revanced.patches.shared.patch.settings.AbstractSettingsResourcePatch
 import app.revanced.patches.youtube.utils.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
-import app.revanced.util.resources.IconHelper.YOUTUBE_LAUNCHER_ICON_ARRAY
-import app.revanced.util.resources.IconHelper.copyFiles
-import app.revanced.util.resources.IconHelper.makeDirectoryAndCopyFiles
-import app.revanced.util.resources.ResourceHelper.addPreference
-import app.revanced.util.resources.ResourceHelper.addReVancedPreference
-import app.revanced.util.resources.ResourceHelper.updatePatchStatus
-import app.revanced.util.resources.ResourceHelper.updatePatchStatusSettings
-import app.revanced.util.resources.ResourceUtils
-import app.revanced.util.resources.ResourceUtils.copyResources
+import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
+import app.revanced.patches.youtube.utils.settings.ResourceUtils.addReVancedPreference
+import app.revanced.patches.youtube.utils.settings.ResourceUtils.updatePatchStatus
+import app.revanced.patches.youtube.utils.settings.ResourceUtils.updatePatchStatusSettings
+import app.revanced.util.ResourceGroup
+import app.revanced.util.copyResources
 import org.w3c.dom.Element
 import java.io.Closeable
-import java.io.File
-import java.nio.file.Paths
 import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
 
@@ -63,9 +58,7 @@ import java.util.concurrent.TimeUnit
 )
 @Suppress("unused")
 object SettingsPatch : AbstractSettingsResourcePatch(
-    "youtube/settings",
-    "youtube/settings/host",
-    true
+    "youtube/settings"
 ), Closeable {
     override fun execute(context: ResourceContext) {
         super.execute(context)
@@ -99,6 +92,7 @@ object SettingsPatch : AbstractSettingsResourcePatch(
 
                         is1836 = playServicesVersion in 233700000..233801999
                         upward1828 = 232900000 <= playServicesVersion
+                        upward1831 = 233200000 <= playServicesVersion
                         upward1834 = 233502000 <= playServicesVersion
                         upward1839 = 234002000 <= playServicesVersion
                         upward1841 = 234200000 <= playServicesVersion
@@ -119,11 +113,11 @@ object SettingsPatch : AbstractSettingsResourcePatch(
         context["res/values-v21"].mkdirs()
 
         arrayOf(
-            ResourceUtils.ResourceGroup(
+            ResourceGroup(
                 "layout",
                 "revanced_settings_with_toolbar.xml"
             ),
-            ResourceUtils.ResourceGroup(
+            ResourceGroup(
                 "values-v21",
                 "strings.xml"
             )
@@ -160,36 +154,6 @@ object SettingsPatch : AbstractSettingsResourcePatch(
             }
         }
 
-        /**
-         * If a custom branding icon path exists, merge it
-         */
-        val iconPath = "branding"
-        val targetDirectory = Paths.get("").toAbsolutePath().toString() + "/$iconPath"
-
-        if (File(targetDirectory).exists()) {
-            fun copyResources(resourceGroups: List<ResourceUtils.ResourceGroup>) {
-                try {
-                    context.copyFiles(resourceGroups, iconPath)
-                } catch (_: Exception) {
-                    context.makeDirectoryAndCopyFiles(resourceGroups, iconPath)
-                }
-            }
-
-            val iconResourceFileNames =
-                YOUTUBE_LAUNCHER_ICON_ARRAY
-                    .map { "$it.png" }
-                    .toTypedArray()
-
-            fun createGroup(directory: String) = ResourceUtils.ResourceGroup(
-                directory, *iconResourceFileNames
-            )
-
-            arrayOf("xxxhdpi", "xxhdpi", "xhdpi", "hdpi", "mdpi")
-                .map { "mipmap-$it" }
-                .map(::createGroup)
-                .let(::copyResources)
-        }
-
     }
 
     private val THREAD_COUNT = Runtime.getRuntime().availableProcessors()
@@ -198,6 +162,7 @@ object SettingsPatch : AbstractSettingsResourcePatch(
     internal lateinit var contexts: ResourceContext
     internal var is1836: Boolean = false
     internal var upward1828: Boolean = false
+    internal var upward1831: Boolean = false
     internal var upward1834: Boolean = false
     internal var upward1839: Boolean = false
     internal var upward1841: Boolean = false

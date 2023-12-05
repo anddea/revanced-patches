@@ -1,6 +1,5 @@
 package app.revanced.patches.music.general.castbutton
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
@@ -11,12 +10,13 @@ import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.music.general.castbutton.fingerprints.MediaRouteButtonFingerprint
 import app.revanced.patches.music.general.castbutton.fingerprints.PlayerOverlayChipFingerprint
+import app.revanced.patches.music.utils.integrations.Constants.GENERAL
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.PlayerOverlayChip
+import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.SettingsPatch
-import app.revanced.util.bytecode.getWideLiteralIndex
-import app.revanced.util.enum.CategoryType
-import app.revanced.util.integrations.Constants.MUSIC_GENERAL
+import app.revanced.util.exception
+import app.revanced.util.getWideLiteralInstructionIndex
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
@@ -47,7 +47,7 @@ object HideCastButtonPatch : BytecodePatch(
             setVisibilityMethod?.apply {
                 addInstructions(
                     0, """
-                        invoke-static {p1}, $MUSIC_GENERAL->hideCastButton(I)I
+                        invoke-static {p1}, $GENERAL->hideCastButton(I)I
                         move-result p1
                         """
                 )
@@ -59,12 +59,12 @@ object HideCastButtonPatch : BytecodePatch(
          */
         PlayerOverlayChipFingerprint.result?.let {
             it.mutableMethod.apply {
-                val targetIndex = getWideLiteralIndex(PlayerOverlayChip) + 2
+                val targetIndex = getWideLiteralInstructionIndex(PlayerOverlayChip) + 2
                 val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                 addInstruction(
                     targetIndex + 1,
-                    "invoke-static {v$targetRegister}, $MUSIC_GENERAL->hideCastButton(Landroid/view/View;)V"
+                    "invoke-static {v$targetRegister}, $GENERAL->hideCastButton(Landroid/view/View;)V"
                 )
             }
         } ?: throw PlayerOverlayChipFingerprint.exception

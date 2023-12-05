@@ -4,8 +4,8 @@ import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patches.music.utils.integrations.Constants.UTILS_PATH
 import app.revanced.patches.shared.patch.litho.LithoThemePatch
-import app.revanced.util.integrations.Constants.MUSIC_UTILS_PATH
 import org.w3c.dom.Element
 
 @Patch(
@@ -18,7 +18,7 @@ import org.w3c.dom.Element
 object AmoledPatch : ResourcePatch() {
     override fun execute(context: ResourceContext) {
 
-        LithoThemePatch.injectCall("$MUSIC_UTILS_PATH/LithoThemePatch;->applyLithoTheme(I)I")
+        LithoThemePatch.injectCall("$UTILS_PATH/LithoThemePatch;->applyLithoTheme(I)I")
 
         context.xmlEditor["res/values/colors.xml"].use { editor ->
             val resourcesNode = editor.file.getElementsByTagName("resources").item(0) as Element

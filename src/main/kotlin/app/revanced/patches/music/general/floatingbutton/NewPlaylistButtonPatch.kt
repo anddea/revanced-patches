@@ -1,6 +1,5 @@
 package app.revanced.patches.music.general.floatingbutton
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -10,10 +9,11 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.music.general.floatingbutton.fingerprints.FloatingButtonFingerprint
 import app.revanced.patches.music.general.floatingbutton.fingerprints.FloatingButtonParentFingerprint
+import app.revanced.patches.music.utils.integrations.Constants.GENERAL
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch
+import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.SettingsPatch
-import app.revanced.util.enum.CategoryType
-import app.revanced.util.integrations.Constants.MUSIC_GENERAL
+import app.revanced.util.exception
 
 @Patch(
     name = "Hide new playlist button",
@@ -40,7 +40,7 @@ object NewPlaylistButtonPatch : BytecodePatch(
                 it.mutableMethod.apply {
                     addInstructionsWithLabels(
                         1, """
-                            invoke-static {}, $MUSIC_GENERAL->hideNewPlaylistButton()Z
+                            invoke-static {}, $GENERAL->hideNewPlaylistButton()Z
                             move-result v0
                             if-eqz v0, :show
                             return-void

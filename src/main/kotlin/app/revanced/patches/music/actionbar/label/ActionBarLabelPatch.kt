@@ -1,6 +1,5 @@
 package app.revanced.patches.music.actionbar.label
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -9,10 +8,11 @@ import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.music.actionbar.label.fingerprints.ActionBarLabelFingerprint
 import app.revanced.patches.music.utils.fingerprints.ActionsBarParentFingerprint
+import app.revanced.patches.music.utils.integrations.Constants.ACTIONBAR
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch
+import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.SettingsPatch
-import app.revanced.util.enum.CategoryType
-import app.revanced.util.integrations.Constants.MUSIC_ACTIONBAR
+import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
@@ -43,7 +43,7 @@ object ActionBarLabelPatch : BytecodePatch(
 
                     addInstructions(
                         targetIndex, """
-                            invoke-static {v$targetRegister}, $MUSIC_ACTIONBAR->hideActionBarLabel(Z)Z
+                            invoke-static {v$targetRegister}, $ACTIONBAR->hideActionBarLabel(Z)Z
                             move-result v$targetRegister
                             """
                     )

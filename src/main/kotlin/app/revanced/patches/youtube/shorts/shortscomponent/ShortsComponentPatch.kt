@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.shorts.shortscomponent
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
@@ -21,6 +20,8 @@ import app.revanced.patches.youtube.shorts.shortscomponent.fingerprints.ShortsPi
 import app.revanced.patches.youtube.shorts.shortscomponent.fingerprints.ShortsPivotLegacyFingerprint
 import app.revanced.patches.youtube.shorts.shortscomponent.fingerprints.ShortsRemixFingerprint
 import app.revanced.patches.youtube.shorts.shortscomponent.fingerprints.ShortsShareFingerprint
+import app.revanced.patches.youtube.utils.integrations.Constants.COMPONENTS_PATH
+import app.revanced.patches.youtube.utils.integrations.Constants.SHORTS
 import app.revanced.patches.youtube.utils.litho.LithoFilterPatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.ReelDynRemix
@@ -34,9 +35,8 @@ import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.ReelR
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.ReelRightLikeIcon
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.RightComment
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
-import app.revanced.util.bytecode.getWideLiteralIndex
-import app.revanced.util.integrations.Constants.COMPONENTS_PATH
-import app.revanced.util.integrations.Constants.SHORTS
+import app.revanced.util.exception
+import app.revanced.util.getWideLiteralInstructionIndex
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
@@ -100,7 +100,7 @@ object ShortsComponentPatch : BytecodePatch(
          */
         ShortsCommentFingerprint.result?.let {
             it.mutableMethod.apply {
-                val insertIndex = getWideLiteralIndex(RightComment) + 3
+                val insertIndex = getWideLiteralInstructionIndex(RightComment) + 3
 
                 hideButton(insertIndex, 1, "hideShortsPlayerCommentsButton")
             }
@@ -111,7 +111,7 @@ object ShortsComponentPatch : BytecodePatch(
          */
         ShortsDislikeFingerprint.result?.let {
             it.mutableMethod.apply {
-                val insertIndex = getWideLiteralIndex(ReelRightDislikeIcon)
+                val insertIndex = getWideLiteralInstructionIndex(ReelRightDislikeIcon)
                 val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
                 val jumpIndex = getTargetIndexUpTo(insertIndex, Opcode.CONST_CLASS) + 2
@@ -132,7 +132,7 @@ object ShortsComponentPatch : BytecodePatch(
          */
         ShortsInfoPanelFingerprint.result?.let {
             it.mutableMethod.apply {
-                val insertIndex = getWideLiteralIndex(ReelPlayerInfoPanel) + 3
+                val insertIndex = getWideLiteralInstructionIndex(ReelPlayerInfoPanel) + 3
 
                 hideButtons(
                     insertIndex,
@@ -147,7 +147,7 @@ object ShortsComponentPatch : BytecodePatch(
          */
         ShortsLikeFingerprint.result?.let {
             it.mutableMethod.apply {
-                val insertIndex = getWideLiteralIndex(ReelRightLikeIcon)
+                val insertIndex = getWideLiteralInstructionIndex(ReelRightLikeIcon)
 
                 val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
@@ -169,8 +169,8 @@ object ShortsComponentPatch : BytecodePatch(
          */
         ShortsPaidPromotionFingerprint.result?.let {
             it.mutableMethod.apply {
-                val primaryIndex = getWideLiteralIndex(ReelPlayerBadge) + 3
-                val secondaryIndex = getWideLiteralIndex(ReelPlayerBadge2) + 3
+                val primaryIndex = getWideLiteralInstructionIndex(ReelPlayerBadge) + 3
+                val secondaryIndex = getWideLiteralInstructionIndex(ReelPlayerBadge2) + 3
 
                 if (primaryIndex > secondaryIndex) {
                     hideButtons(
@@ -203,7 +203,7 @@ object ShortsComponentPatch : BytecodePatch(
          */
         ShortsPivotLegacyFingerprint.result?.let {
             it.mutableMethod.apply {
-                val targetIndex = getWideLiteralIndex(ReelForcedMuteButton)
+                val targetIndex = getWideLiteralInstructionIndex(ReelForcedMuteButton)
                 val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                 val insertIndex = getTargetIndexDownTo(targetIndex, Opcode.IF_EQZ)
@@ -219,7 +219,7 @@ object ShortsComponentPatch : BytecodePatch(
             }
         } ?: ShortsPivotFingerprint.result?.let {
             it.mutableMethod.apply {
-                val targetIndex = getWideLiteralIndex(ReelPivotButton)
+                val targetIndex = getWideLiteralInstructionIndex(ReelPivotButton)
                 val insertIndex = getTargetIndexDownTo(targetIndex, Opcode.INVOKE_STATIC) + 2
 
                 hideButtons(
@@ -235,7 +235,7 @@ object ShortsComponentPatch : BytecodePatch(
          */
         ShortsRemixFingerprint.result?.let {
             it.mutableMethod.apply {
-                val insertIndex = getWideLiteralIndex(ReelDynRemix) - 2
+                val insertIndex = getWideLiteralInstructionIndex(ReelDynRemix) - 2
 
                 hideButton(insertIndex, 0, "hideShortsPlayerRemixButton")
             }
@@ -246,7 +246,7 @@ object ShortsComponentPatch : BytecodePatch(
          */
         ShortsShareFingerprint.result?.let {
             it.mutableMethod.apply {
-                val insertIndex = getWideLiteralIndex(ReelDynShare) - 2
+                val insertIndex = getWideLiteralInstructionIndex(ReelDynShare) - 2
 
                 hideButton(insertIndex, 0, "hideShortsPlayerShareButton")
             }

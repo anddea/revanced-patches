@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.general.trendingsearches
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -8,13 +7,14 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.youtube.general.trendingsearches.fingerprints.SearchBarEntryFingerprint
+import app.revanced.patches.youtube.utils.integrations.Constants.GENERAL
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.YtOutlineArrowTimeBlack
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.YtOutlineFireBlack
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.YtOutlineSearchBlack
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
-import app.revanced.util.bytecode.getWideLiteralIndex
-import app.revanced.util.integrations.Constants.GENERAL
+import app.revanced.util.exception
+import app.revanced.util.getWideLiteralInstructionIndex
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
@@ -62,7 +62,7 @@ object TrendingSearchesPatch : BytecodePatch(
         SearchBarEntryFingerprint.result?.let {
             it.mutableMethod.apply {
                 SearchTerm.entries
-                    .map { searchTerm -> getWideLiteralIndex(searchTerm.resourceId) to searchTerm.value }
+                    .map { searchTerm -> getWideLiteralInstructionIndex(searchTerm.resourceId) to searchTerm.value }
                     .sortedBy { searchTerm -> searchTerm.first }
                     .reversed()
                     .forEach { (index, value) ->

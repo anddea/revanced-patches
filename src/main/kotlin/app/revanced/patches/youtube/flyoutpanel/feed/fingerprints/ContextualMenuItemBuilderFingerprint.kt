@@ -1,13 +1,12 @@
 package app.revanced.patches.youtube.flyoutpanel.feed.fingerprints
 
 import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.PosterArtWidthDefault
-import app.revanced.util.bytecode.isWideLiteralExists
+import app.revanced.util.fingerprint.LiteralValueFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-object ContextualMenuItemBuilderFingerprint : MethodFingerprint(
+object ContextualMenuItemBuilderFingerprint : LiteralValueFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL or AccessFlags.SYNTHETIC,
     parameters = listOf("L", "L"),
     returnType = "V",
@@ -18,5 +17,5 @@ object ContextualMenuItemBuilderFingerprint : MethodFingerprint(
         Opcode.MOVE_RESULT,
         Opcode.ADD_INT_2ADDR
     ),
-    customFingerprint = { methodDef, _ -> methodDef.isWideLiteralExists(PosterArtWidthDefault) }
+    literalSupplier = { PosterArtWidthDefault }
 )

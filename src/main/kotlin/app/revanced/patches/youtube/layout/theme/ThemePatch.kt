@@ -7,8 +7,8 @@ import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatchOption
 import app.revanced.patches.youtube.layout.theme.GeneralThemePatch.isMonetPatchIncluded
+import app.revanced.patches.youtube.utils.settings.ResourceUtils.updatePatchStatusTheme
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
-import app.revanced.util.resources.ResourceHelper.updatePatchStatusTheme
 import org.w3c.dom.Element
 
 @Patch(

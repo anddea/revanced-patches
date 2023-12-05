@@ -1,13 +1,12 @@
 package app.revanced.patches.youtube.flyoutpanel.player.fingerprints
 
 import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.VideoQualityBottomSheet
-import app.revanced.util.bytecode.isWideLiteralExists
+import app.revanced.util.fingerprint.LiteralValueFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-object AdvancedQualityBottomSheetFingerprint : MethodFingerprint(
+object AdvancedQualityBottomSheetFingerprint : LiteralValueFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("L", "L", "L"),
     returnType = "L",
@@ -37,5 +36,5 @@ object AdvancedQualityBottomSheetFingerprint : MethodFingerprint(
         Opcode.IGET_OBJECT,
         Opcode.CONST_STRING
     ),
-    customFingerprint = { methodDef, _ -> methodDef.isWideLiteralExists(VideoQualityBottomSheet) }
+    literalSupplier = { VideoQualityBottomSheet }
 )

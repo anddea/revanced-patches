@@ -1,6 +1,5 @@
 package app.revanced.patches.music.misc.premium
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
@@ -15,7 +14,8 @@ import app.revanced.patches.music.misc.premium.fingerprints.MembershipSettingsFi
 import app.revanced.patches.music.misc.premium.fingerprints.MembershipSettingsParentFingerprint
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.PrivacyTosFooter
-import app.revanced.util.bytecode.getWideLiteralIndex
+import app.revanced.util.exception
+import app.revanced.util.getWideLiteralInstructionIndex
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
@@ -53,7 +53,7 @@ object HideGetPremiumPatch : BytecodePatch(
 
         AccountMenuFooterFingerprint.result?.let {
             it.mutableMethod.apply {
-                val targetIndex = getWideLiteralIndex(PrivacyTosFooter) + 4
+                val targetIndex = getWideLiteralInstructionIndex(PrivacyTosFooter) + 4
                 targetReference = getInstruction<ReferenceInstruction>(targetIndex + 1).reference
 
                 with(

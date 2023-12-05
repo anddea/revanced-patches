@@ -1,11 +1,10 @@
 package app.revanced.patches.youtube.player.suggestactions.fingerprints
 
-import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.SuggestedAction
-import app.revanced.util.bytecode.isWideLiteralExists
+import app.revanced.util.fingerprint.LiteralValueFingerprint
 import com.android.tools.smali.dexlib2.Opcode
 
-object SuggestedActionsFingerprint : MethodFingerprint(
+object SuggestedActionsFingerprint : LiteralValueFingerprint(
     returnType = "V",
     opcodes = listOf(
         Opcode.CONST,
@@ -13,5 +12,5 @@ object SuggestedActionsFingerprint : MethodFingerprint(
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT_OBJECT
     ),
-    customFingerprint = { methodDef, _ -> methodDef.isWideLiteralExists(SuggestedAction) }
+    literalSupplier = { SuggestedAction }
 )

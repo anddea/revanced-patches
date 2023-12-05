@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.utils.playercontrols
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -21,7 +20,8 @@ import app.revanced.patches.youtube.utils.playercontrols.fingerprints.QuickSeekV
 import app.revanced.patches.youtube.utils.playercontrols.fingerprints.SeekEDUVisibleFingerprint
 import app.revanced.patches.youtube.utils.playercontrols.fingerprints.UserScrubbingFingerprint
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
-import app.revanced.util.bytecode.getStringIndex
+import app.revanced.util.exception
+import app.revanced.util.getStringInstructionIndex
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
@@ -43,7 +43,7 @@ object PlayerControlsPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
 
         fun MutableMethod.findReference(targetString: String): Reference {
-            val targetIndex = getStringIndex(targetString) + 2
+            val targetIndex = getStringInstructionIndex(targetString) + 2
             val targetOpcode = getInstruction(targetIndex).opcode
 
             if (targetOpcode == Opcode.INVOKE_VIRTUAL) {

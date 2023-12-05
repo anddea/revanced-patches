@@ -3,25 +3,19 @@ package app.revanced.patches.music.utils.settings
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patches.music.utils.settings.ResourceUtils.YOUTUBE_MUSIC_SETTINGS_KEY
+import app.revanced.patches.music.utils.settings.ResourceUtils.addMusicPreference
+import app.revanced.patches.music.utils.settings.ResourceUtils.addMusicPreferenceCategory
+import app.revanced.patches.music.utils.settings.ResourceUtils.addMusicPreferenceWithIntent
+import app.revanced.patches.music.utils.settings.ResourceUtils.addMusicPreferenceWithoutSummary
+import app.revanced.patches.music.utils.settings.ResourceUtils.addReVancedMusicPreference
+import app.revanced.patches.music.utils.settings.ResourceUtils.sortMusicPreferenceCategory
 import app.revanced.patches.shared.patch.settings.AbstractSettingsResourcePatch
-import app.revanced.util.enum.CategoryType
-import app.revanced.util.resources.IconHelper
-import app.revanced.util.resources.IconHelper.copyFiles
-import app.revanced.util.resources.IconHelper.makeDirectoryAndCopyFiles
-import app.revanced.util.resources.MusicResourceHelper.YOUTUBE_MUSIC_SETTINGS_KEY
-import app.revanced.util.resources.MusicResourceHelper.addMusicPreference
-import app.revanced.util.resources.MusicResourceHelper.addMusicPreferenceCategory
-import app.revanced.util.resources.MusicResourceHelper.addMusicPreferenceWithIntent
-import app.revanced.util.resources.MusicResourceHelper.addMusicPreferenceWithoutSummary
-import app.revanced.util.resources.MusicResourceHelper.addReVancedMusicPreference
-import app.revanced.util.resources.MusicResourceHelper.sortMusicPreferenceCategory
-import app.revanced.util.resources.ResourceUtils
-import app.revanced.util.resources.ResourceUtils.copyResources
-import app.revanced.util.resources.ResourceUtils.copyXmlNode
+import app.revanced.util.ResourceGroup
+import app.revanced.util.copyResources
+import app.revanced.util.copyXmlNode
 import org.w3c.dom.Element
 import java.io.Closeable
-import java.io.File
-import java.nio.file.Paths
 
 @Patch(
     name = "Settings",
@@ -31,9 +25,7 @@ import java.nio.file.Paths
 )
 @Suppress("unused")
 object SettingsPatch : AbstractSettingsResourcePatch(
-    "music/settings",
-    "music/settings/host",
-    false
+    "music/settings"
 ), Closeable {
     override fun execute(context: ResourceContext) {
         contexts = context
@@ -44,7 +36,7 @@ object SettingsPatch : AbstractSettingsResourcePatch(
         context["res/values-v21"].mkdirs()
 
         arrayOf(
-            ResourceUtils.ResourceGroup(
+            ResourceGroup(
                 "values-v21",
                 "strings.xml"
             )
@@ -87,36 +79,6 @@ object SettingsPatch : AbstractSettingsResourcePatch(
         }
 
         context.addReVancedMusicPreference(YOUTUBE_MUSIC_SETTINGS_KEY)
-
-        /**
-         * If a custom branding icon path exists, merge it
-         */
-        val iconPath = "branding-music"
-        val targetDirectory = Paths.get("").toAbsolutePath().toString() + "/$iconPath"
-
-        if (File(targetDirectory).exists()) {
-            fun copyResources(resourceGroups: List<ResourceUtils.ResourceGroup>) {
-                try {
-                    context.copyFiles(resourceGroups, iconPath)
-                } catch (_: Exception) {
-                    context.makeDirectoryAndCopyFiles(resourceGroups, iconPath)
-                }
-            }
-
-            val iconResourceFileNames =
-                IconHelper.YOUTUBE_MUSIC_LAUNCHER_ICON_ARRAY
-                    .map { "$it.png" }
-                    .toTypedArray()
-
-            fun createGroup(directory: String) = ResourceUtils.ResourceGroup(
-                directory, *iconResourceFileNames
-            )
-
-            arrayOf("xxxhdpi", "xxhdpi", "xhdpi", "hdpi", "mdpi")
-                .map { "mipmap-$it" }
-                .map(::createGroup)
-                .let(::copyResources)
-        }
 
         super.execute(context)
 

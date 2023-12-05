@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.general.tabletminiplayer
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -13,10 +12,11 @@ import app.revanced.patches.youtube.general.tabletminiplayer.fingerprints.MiniPl
 import app.revanced.patches.youtube.general.tabletminiplayer.fingerprints.MiniPlayerOverrideFingerprint
 import app.revanced.patches.youtube.general.tabletminiplayer.fingerprints.MiniPlayerOverrideNoContextFingerprint
 import app.revanced.patches.youtube.general.tabletminiplayer.fingerprints.MiniPlayerResponseModelSizeCheckFingerprint
+import app.revanced.patches.youtube.utils.integrations.Constants.GENERAL
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
-import app.revanced.util.bytecode.getStringIndex
-import app.revanced.util.integrations.Constants.GENERAL
+import app.revanced.util.exception
+import app.revanced.util.getStringInstructionIndex
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
@@ -83,7 +83,7 @@ object TabletMiniPlayerPatch : BytecodePatch(
         MiniPlayerOverrideFingerprint.result?.let {
             it.mutableMethod.apply {
                 (context.toMethodWalker(this)
-                    .nextMethod(getStringIndex("appName") + 2, true)
+                    .nextMethod(getStringInstructionIndex("appName") + 2, true)
                     .getMethod() as MutableMethod)
                     .instructionProxyCall()
             }

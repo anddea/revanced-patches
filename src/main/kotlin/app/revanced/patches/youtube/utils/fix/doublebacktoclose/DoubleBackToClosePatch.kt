@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.utils.fix.doublebacktoclose
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.patch.BytecodePatch
@@ -9,9 +8,10 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.utils.fix.doublebacktoclose.fingerprint.ScrollPositionFingerprint
 import app.revanced.patches.youtube.utils.fix.doublebacktoclose.fingerprint.ScrollTopFingerprint
 import app.revanced.patches.youtube.utils.fix.doublebacktoclose.fingerprint.ScrollTopParentFingerprint
+import app.revanced.patches.youtube.utils.integrations.Constants.UTILS_PATH
 import app.revanced.patches.youtube.utils.mainactivity.MainActivityResolvePatch
 import app.revanced.patches.youtube.utils.mainactivity.MainActivityResolvePatch.onBackPressedMethod
-import app.revanced.util.integrations.Constants.UTILS_PATH
+import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.Opcode
 
 @Patch(dependencies = [MainActivityResolvePatch::class])

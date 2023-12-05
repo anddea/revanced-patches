@@ -1,13 +1,12 @@
 package app.revanced.patches.music.misc.exclusiveaudio.fingerprints
 
 import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.MethodFingerprint
-import app.revanced.util.bytecode.isWide32LiteralExists
+import app.revanced.util.fingerprint.LiteralValueFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-object PodCastConfigFingerprint : MethodFingerprint(
+object PodCastConfigFingerprint : LiteralValueFingerprint(
     returnType = "Z",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = emptyList(),
-    customFingerprint = { methodDef, _ -> methodDef.isWide32LiteralExists(45388403) }
+    literalSupplier = { 45388403 }
 )
