@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.seekbar.color
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -13,14 +12,15 @@ import app.revanced.patches.shared.patch.litho.LithoThemePatch
 import app.revanced.patches.youtube.seekbar.color.fingerprints.ControlsOverlayStyleFingerprint
 import app.revanced.patches.youtube.seekbar.color.fingerprints.ShortsSeekbarColorFingerprint
 import app.revanced.patches.youtube.utils.fingerprints.PlayerSeekbarColorFingerprint
+import app.revanced.patches.youtube.utils.integrations.Constants.SEEKBAR
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.InlineTimeBarColorizedBarPlayedColorDark
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.InlineTimeBarPlayedNotHighlightedColor
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.ReelTimeBarPlayedColor
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch.contexts
-import app.revanced.util.bytecode.getWideLiteralIndex
-import app.revanced.util.integrations.Constants.SEEKBAR
+import app.revanced.util.exception
+import app.revanced.util.getWideLiteralInstructionIndex
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import org.w3c.dom.Element
@@ -71,12 +71,12 @@ object SeekbarColorPatch : BytecodePatch(
 ) {
     override fun execute(context: BytecodeContext) {
         PlayerSeekbarColorFingerprint.result?.mutableMethod?.apply {
-            hook(getWideLiteralIndex(InlineTimeBarColorizedBarPlayedColorDark) + 2)
-            hook(getWideLiteralIndex(InlineTimeBarPlayedNotHighlightedColor) + 2)
+            hook(getWideLiteralInstructionIndex(InlineTimeBarColorizedBarPlayedColorDark) + 2)
+            hook(getWideLiteralInstructionIndex(InlineTimeBarPlayedNotHighlightedColor) + 2)
         } ?: throw PlayerSeekbarColorFingerprint.exception
 
         ShortsSeekbarColorFingerprint.result?.mutableMethod?.apply {
-            hook(getWideLiteralIndex(ReelTimeBarPlayedColor) + 2)
+            hook(getWideLiteralInstructionIndex(ReelTimeBarPlayedColor) + 2)
         } ?: throw ShortsSeekbarColorFingerprint.exception
 
         ControlsOverlayStyleFingerprint.result?.let {

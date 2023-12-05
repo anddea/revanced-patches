@@ -1,6 +1,5 @@
 package app.revanced.patches.music.utils.returnyoutubedislike
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -8,13 +7,14 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patches.music.utils.integrations.Constants.UTILS_PATH
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.music.utils.returnyoutubedislike.fingerprints.DislikeFingerprint
 import app.revanced.patches.music.utils.returnyoutubedislike.fingerprints.LikeFingerprint
 import app.revanced.patches.music.utils.returnyoutubedislike.fingerprints.RemoveLikeFingerprint
 import app.revanced.patches.music.utils.returnyoutubedislike.fingerprints.TextComponentFingerprint
 import app.revanced.patches.music.video.information.VideoInformationPatch
-import app.revanced.util.integrations.Constants.MUSIC_UTILS_PATH
+import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
@@ -34,7 +34,7 @@ object ReturnYouTubeDislikeBytecodePatch : BytecodePatch(
     )
 ) {
     private const val INTEGRATIONS_RYD_CLASS_DESCRIPTOR =
-        "$MUSIC_UTILS_PATH/ReturnYouTubeDislikePatch;"
+        "$UTILS_PATH/ReturnYouTubeDislikePatch;"
 
     override fun execute(context: BytecodeContext) {
         setOf(

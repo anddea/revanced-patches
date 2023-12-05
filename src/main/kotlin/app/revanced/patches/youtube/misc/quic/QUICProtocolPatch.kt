@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.misc.quic
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.BytecodePatch
@@ -8,8 +7,9 @@ import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.youtube.misc.quic.fingerprints.CronetEngineBuilderFingerprint
 import app.revanced.patches.youtube.misc.quic.fingerprints.ExperimentalCronetEngineBuilderFingerprint
+import app.revanced.patches.youtube.utils.integrations.Constants.MISC_PATH
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
-import app.revanced.util.integrations.Constants.MISC_PATH
+import app.revanced.util.exception
 
 @Patch(
     name = "Disable QUIC protocol",

@@ -4,13 +4,13 @@ import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.shared.patch.mapping.ResourceMappingPatch
-import app.revanced.util.enum.ResourceType
-import app.revanced.util.enum.ResourceType.COLOR
-import app.revanced.util.enum.ResourceType.DIMEN
-import app.revanced.util.enum.ResourceType.DRAWABLE
-import app.revanced.util.enum.ResourceType.ID
-import app.revanced.util.enum.ResourceType.LAYOUT
-import app.revanced.util.enum.ResourceType.STRING
+import app.revanced.patches.shared.patch.mapping.ResourceType
+import app.revanced.patches.shared.patch.mapping.ResourceType.COLOR
+import app.revanced.patches.shared.patch.mapping.ResourceType.DIMEN
+import app.revanced.patches.shared.patch.mapping.ResourceType.DRAWABLE
+import app.revanced.patches.shared.patch.mapping.ResourceType.ID
+import app.revanced.patches.shared.patch.mapping.ResourceType.LAYOUT
+import app.revanced.patches.shared.patch.mapping.ResourceType.STRING
 
 @Patch(dependencies = [ResourceMappingPatch::class])
 object SharedResourceIdPatch : ResourcePatch() {
@@ -75,7 +75,6 @@ object SharedResourceIdPatch : ResourcePatch() {
     var Scrubbing: Long = -1
     var SeekUndoEduOverlayStub: Long = -1
     var SettingsBooleanTimeRangeDialog: Long = -1
-    var SpeedOverlayText: Long = -1
     var SubtitleMenuSettingsFooterInfo: Long = -1
     var SuggestedAction: Long = -1
     var ToolBarPaddingHome: Long = -1
@@ -158,7 +157,6 @@ object SharedResourceIdPatch : ResourcePatch() {
         Scrubbing = find(DIMEN, "vertical_touch_offset_to_enter_fine_scrubbing")
         SeekUndoEduOverlayStub = find(ID, "seek_undo_edu_overlay_stub")
         SettingsBooleanTimeRangeDialog = find(LAYOUT, "setting_boolean_time_range_dialog")
-        SpeedOverlayText = find(ID, "speedmaster_edu_text")
         SubtitleMenuSettingsFooterInfo = find(STRING, "subtitle_menu_settings_footer_info")
         SuggestedAction = find(LAYOUT, "suggested_action")
         ToolBarPaddingHome = find(DIMEN, "toolbar_padding_home_action_up")

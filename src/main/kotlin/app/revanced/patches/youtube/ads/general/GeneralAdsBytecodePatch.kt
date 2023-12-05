@@ -1,44 +1,51 @@
 package app.revanced.patches.youtube.ads.general
 
-import app.revanced.extensions.findMutableMethodOf
-import app.revanced.extensions.injectHideCall
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patches.youtube.utils.integrations.Constants.COMPONENTS_PATH
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.AdAttribution
-import app.revanced.util.bytecode.getWideLiteralIndex
-import app.revanced.util.bytecode.isWideLiteralExists
+import app.revanced.util.findMutableMethodOf
+import app.revanced.util.injectHideViewCall
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction31i
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
 
 @Patch(dependencies = [SharedResourceIdPatch::class])
-@Suppress("LABEL_NAME_CLASH")
-object GeneralAdsBytecodePatch : BytecodePatch() {
+object GeneralAdsBytecodePatch : BytecodePatch(emptySet()) {
     override fun execute(context: BytecodeContext) {
         context.classes.forEach { classDef ->
             classDef.methods.forEach { method ->
-                if (!method.isWideLiteralExists(AdAttribution))
-                    return@forEach
+                method.implementation.apply {
+                    this?.instructions?.forEachIndexed { index, instruction ->
+                        if (instruction.opcode != Opcode.CONST)
+                            return@forEachIndexed
+                        // Instruction to store the id adAttribution into a register
+                        if ((instruction as Instruction31i).wideLiteral != AdAttribution)
+                            return@forEachIndexed
 
-                context.proxy(classDef)
-                    .mutableClass
-                    .findMutableMethodOf(method)
-                    .apply {
-                        val insertIndex = getWideLiteralIndex(AdAttribution) + 1
-                        if (getInstruction(insertIndex).opcode != Opcode.INVOKE_VIRTUAL)
-                            return@forEach
+                        val insertIndex = index + 1
 
-                        val viewRegister = getInstruction<Instruction35c>(insertIndex).registerC
+                        // Call to get the view with the id adAttribution
+                        (instructions.elementAt(insertIndex)).apply {
+                            if (opcode != Opcode.INVOKE_VIRTUAL)
+                                return@forEachIndexed
 
-                        this.implementation!!.injectHideCall(
-                            insertIndex,
-                            viewRegister,
-                            "ads/AdsFilter",
-                            "hideAdAttributionView"
-                        )
+                            // Hide the view
+                            val viewRegister = (this as Instruction35c).registerC
+                            context.proxy(classDef)
+                                .mutableClass
+                                .findMutableMethodOf(method)
+                                .injectHideViewCall(
+                                    insertIndex,
+                                    viewRegister,
+                                    "$COMPONENTS_PATH/AdsFilter;",
+                                    "hideAdAttributionView"
+                                )
+                        }
                     }
+                }
             }
         }
     }

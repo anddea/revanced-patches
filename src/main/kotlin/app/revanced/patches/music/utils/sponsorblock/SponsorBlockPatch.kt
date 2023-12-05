@@ -4,11 +4,11 @@ import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patches.music.utils.settings.ResourceUtils
+import app.revanced.patches.music.utils.settings.ResourceUtils.hookPreference
 import app.revanced.patches.music.utils.settings.SettingsPatch
-import app.revanced.util.resources.MusicResourceHelper
-import app.revanced.util.resources.MusicResourceHelper.hookPreference
-import app.revanced.util.resources.ResourceUtils
-import app.revanced.util.resources.ResourceUtils.copyResources
+import app.revanced.util.ResourceGroup
+import app.revanced.util.copyResources
 
 @Patch(
     name = "SponsorBlock",
@@ -27,7 +27,7 @@ object SponsorBlockPatch : ResourcePatch() {
          * Copy preference
          */
         arrayOf(
-            ResourceUtils.ResourceGroup(
+            ResourceGroup(
                 "xml",
                 "sponsorblock_prefs.xml"
             )
@@ -57,7 +57,7 @@ object SponsorBlockPatch : ResourcePatch() {
             context["res/xml/sponsorblock_prefs.xml"].readText()
                 .replace(
                     "\"com.google.android.apps.youtube.music\"",
-                    "\"" + MusicResourceHelper.targetPackage + "\""
+                    "\"" + ResourceUtils.targetPackage + "\""
                 )
         )
 

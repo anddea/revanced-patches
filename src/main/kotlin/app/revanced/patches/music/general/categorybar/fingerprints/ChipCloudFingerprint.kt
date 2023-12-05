@@ -1,11 +1,10 @@
 package app.revanced.patches.music.general.categorybar.fingerprints
 
-import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.ChipCloud
-import app.revanced.util.bytecode.isWideLiteralExists
+import app.revanced.util.fingerprint.LiteralValueFingerprint
 import com.android.tools.smali.dexlib2.Opcode
 
-object ChipCloudFingerprint : MethodFingerprint(
+object ChipCloudFingerprint : LiteralValueFingerprint(
     returnType = "V",
     opcodes = listOf(
         Opcode.CONST,
@@ -13,6 +12,6 @@ object ChipCloudFingerprint : MethodFingerprint(
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT_OBJECT
     ),
-    customFingerprint = { methodDef, _ -> methodDef.isWideLiteralExists(ChipCloud) }
+    literalSupplier = { ChipCloud }
 )
 

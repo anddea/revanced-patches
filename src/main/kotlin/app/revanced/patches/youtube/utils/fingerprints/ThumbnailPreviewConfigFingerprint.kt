@@ -1,10 +1,9 @@
 package app.revanced.patches.youtube.utils.fingerprints
 
-import app.revanced.patcher.fingerprint.MethodFingerprint
-import app.revanced.util.bytecode.isWide32LiteralExists
+import app.revanced.util.fingerprint.LiteralValueFingerprint
 
-object ThumbnailPreviewConfigFingerprint : MethodFingerprint(
+object ThumbnailPreviewConfigFingerprint : LiteralValueFingerprint(
     returnType = "Z",
     parameters = emptyList(),
-    customFingerprint = { methodDef, _ -> methodDef.isWide32LiteralExists(45398577) }
+    literalSupplier = { 45398577 }
 )

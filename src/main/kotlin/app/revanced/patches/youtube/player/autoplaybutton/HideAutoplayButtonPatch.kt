@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.player.autoplaybutton
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -9,13 +8,14 @@ import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.utils.fingerprints.LayoutConstructorFingerprint
+import app.revanced.patches.youtube.utils.integrations.Constants.PLAYER
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.AutoNavPreviewStub
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.VideoZoomIndicatorLayout
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
-import app.revanced.util.bytecode.getStringIndex
-import app.revanced.util.bytecode.getWideLiteralIndex
-import app.revanced.util.integrations.Constants.PLAYER
+import app.revanced.util.exception
+import app.revanced.util.getStringInstructionIndex
+import app.revanced.util.getWideLiteralInstructionIndex
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
@@ -62,9 +62,9 @@ object HideAutoplayButtonPatch : BytecodePatch(
         LayoutConstructorFingerprint.result?.let {
             it.mutableMethod.apply {
                 val dummyRegister =
-                    getInstruction<OneRegisterInstruction>(getStringIndex("1.0x")).registerA
-                val insertIndex = getWideLiteralIndex(AutoNavPreviewStub)
-                val jumpIndex = getWideLiteralIndex(VideoZoomIndicatorLayout) - 1
+                    getInstruction<OneRegisterInstruction>(getStringInstructionIndex("1.0x")).registerA
+                val insertIndex = getWideLiteralInstructionIndex(AutoNavPreviewStub)
+                val jumpIndex = getWideLiteralInstructionIndex(VideoZoomIndicatorLayout) - 1
 
                 addInstructionsWithLabels(
                     insertIndex, """

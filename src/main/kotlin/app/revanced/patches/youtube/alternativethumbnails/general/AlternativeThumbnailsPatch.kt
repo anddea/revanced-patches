@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.alternativethumbnails.general
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
@@ -11,10 +10,11 @@ import app.revanced.patches.youtube.alternativethumbnails.general.fingerprints.C
 import app.revanced.patches.youtube.alternativethumbnails.general.fingerprints.CronetURLRequestCallbackOnSucceededFingerprint
 import app.revanced.patches.youtube.alternativethumbnails.general.fingerprints.MessageDigestImageUrlFingerprint
 import app.revanced.patches.youtube.alternativethumbnails.general.fingerprints.MessageDigestImageUrlParentFingerprint
+import app.revanced.patches.youtube.utils.integrations.Constants.ALTERNATIVE_THUMBNAILS
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch.contexts
-import app.revanced.util.integrations.Constants.ALTERNATIVE_THUMBNAILS
-import app.revanced.util.resources.ResourceUtils.copyXmlNode
+import app.revanced.util.copyXmlNode
+import app.revanced.util.exception
 
 @Patch(
     name = "Alternative thumbnails",

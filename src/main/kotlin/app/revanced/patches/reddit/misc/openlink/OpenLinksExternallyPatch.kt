@@ -1,6 +1,5 @@
 package app.revanced.patches.reddit.misc.openlink
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -11,7 +10,8 @@ import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.reddit.misc.openlink.fingerprints.ScreenNavigatorFingerprint
 import app.revanced.patches.reddit.utils.settings.SettingsBytecodePatch.updateSettingsStatus
 import app.revanced.patches.reddit.utils.settings.SettingsPatch
-import app.revanced.util.bytecode.getStringIndex
+import app.revanced.util.exception
+import app.revanced.util.getStringInstructionIndex
 
 @Patch(
     name = "Open links externally",
@@ -29,7 +29,7 @@ object OpenLinksExternallyPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         ScreenNavigatorFingerprint.result?.let {
             it.mutableMethod.apply {
-                val insertIndex = getStringIndex("uri") + 2
+                val insertIndex = getStringInstructionIndex("uri") + 2
 
                 addInstructionsWithLabels(
                     insertIndex, """

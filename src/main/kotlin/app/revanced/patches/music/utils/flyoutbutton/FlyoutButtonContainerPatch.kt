@@ -1,6 +1,5 @@
 package app.revanced.patches.music.utils.flyoutbutton
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -8,10 +7,11 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.music.utils.flyoutbutton.fingerprints.FlyoutPanelLikeButtonFingerprint
+import app.revanced.patches.music.utils.integrations.Constants.FLYOUT
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.MusicMenuLikeButtons
-import app.revanced.util.bytecode.getWideLiteralIndex
-import app.revanced.util.integrations.Constants.MUSIC_FLYOUT
+import app.revanced.util.exception
+import app.revanced.util.getWideLiteralInstructionIndex
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
@@ -28,7 +28,7 @@ object FlyoutButtonContainerPatch : BytecodePatch(
 
         FlyoutPanelLikeButtonFingerprint.result?.let {
             it.mutableMethod.apply {
-                val targetIndex = getWideLiteralIndex(MusicMenuLikeButtons)
+                val targetIndex = getWideLiteralInstructionIndex(MusicMenuLikeButtons)
 
                 var insertIndex = -1
 
@@ -40,7 +40,7 @@ object FlyoutButtonContainerPatch : BytecodePatch(
 
                     addInstruction(
                         index + 1,
-                        "invoke-static {v$register}, $MUSIC_FLYOUT->setFlyoutButtonContainer(Landroid/view/View;)V"
+                        "invoke-static {v$register}, $FLYOUT->setFlyoutButtonContainer(Landroid/view/View;)V"
                     )
                     break
                 }

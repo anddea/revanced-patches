@@ -1,13 +1,13 @@
 package app.revanced.patches.youtube.utils.lockmodestate
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patches.youtube.utils.integrations.Constants.UTILS_PATH
 import app.revanced.patches.youtube.utils.lockmodestate.fingerprint.LockModeStateFingerprint
-import app.revanced.util.integrations.Constants.UTILS_PATH
+import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 object LockModeStateHookPatch : BytecodePatch(

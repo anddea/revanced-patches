@@ -5,8 +5,8 @@ import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
-import app.revanced.util.resources.ResourceUtils
-import app.revanced.util.resources.ResourceUtils.copyResources
+import app.revanced.util.ResourceGroup
+import app.revanced.util.copyResources
 
 @Patch(
     name = "Shorts outline button",
@@ -54,7 +54,7 @@ object ShortsOutlineButton : ResourcePatch() {
         ).forEach { dpi ->
             context.copyResources(
                 "youtube/shorts/outline",
-                ResourceUtils.ResourceGroup(
+                ResourceGroup(
                     "drawable-$dpi",
                     "ic_remix_filled_white_24.webp",
                     "ic_remix_filled_white_shadowed.webp",
@@ -68,7 +68,7 @@ object ShortsOutlineButton : ResourcePatch() {
 
         arrayOf(
             // Shorts outline icons for older versions of YouTube
-            ResourceUtils.ResourceGroup(
+            ResourceGroup(
                 "drawable",
                 "ic_right_comment_32c.xml",
                 "ic_right_dislike_off_32c.xml",

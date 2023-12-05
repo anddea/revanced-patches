@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.fullscreen.forcefullscreen
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
@@ -12,9 +11,10 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.fullscreen.forcefullscreen.fingerprints.ClientSettingEndpointFingerprint
 import app.revanced.patches.youtube.fullscreen.forcefullscreen.fingerprints.VideoPortraitParentFingerprint
+import app.revanced.patches.youtube.utils.integrations.Constants.FULLSCREEN
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
-import app.revanced.util.bytecode.getStringIndex
-import app.revanced.util.integrations.Constants.FULLSCREEN
+import app.revanced.util.exception
+import app.revanced.util.getStringInstructionIndex
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -66,12 +66,16 @@ object ForceFullscreenPatch : BytecodePatch(
          */
         ClientSettingEndpointFingerprint.result?.let {
             it.mutableMethod.apply {
-                val getActivityIndex = getStringIndex("watch") + 2
-                val getActivityReference = getInstruction<ReferenceInstruction>(getActivityIndex).reference
-                val classRegister = getInstruction<TwoRegisterInstruction>(getActivityIndex).registerB
+                val getActivityIndex = getStringInstructionIndex("watch") + 2
+                val getActivityReference =
+                    getInstruction<ReferenceInstruction>(getActivityIndex).reference
+                val classRegister =
+                    getInstruction<TwoRegisterInstruction>(getActivityIndex).registerB
 
-                val watchDescriptorMethodIndex = getStringIndex("start_watch_minimized") - 1
-                val watchDescriptorRegister = getInstruction<FiveRegisterInstruction>(watchDescriptorMethodIndex).registerD
+                val watchDescriptorMethodIndex =
+                    getStringInstructionIndex("start_watch_minimized") - 1
+                val watchDescriptorRegister =
+                    getInstruction<FiveRegisterInstruction>(watchDescriptorMethodIndex).registerD
 
                 addInstructions(
                     watchDescriptorMethodIndex, """
@@ -80,7 +84,7 @@ object ForceFullscreenPatch : BytecodePatch(
                         """
                 )
 
-                val insertIndex = getStringIndex("force_fullscreen")
+                val insertIndex = getStringInstructionIndex("force_fullscreen")
                 val freeRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
                 addInstructions(
@@ -99,7 +103,8 @@ object ForceFullscreenPatch : BytecodePatch(
          */
         VideoPortraitParentFingerprint.result?.let {
             it.mutableMethod.apply {
-                val stringIndex = getStringIndex("Acquiring NetLatencyActionLogger failed. taskId=")
+                val stringIndex =
+                    getStringInstructionIndex("Acquiring NetLatencyActionLogger failed. taskId=")
                 val invokeIndex = getTargetIndexTo(stringIndex, Opcode.INVOKE_INTERFACE)
                 val targetIndex = getTargetIndexTo(invokeIndex, Opcode.CHECK_CAST)
                 val targetClass = context

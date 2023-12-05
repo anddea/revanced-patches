@@ -5,15 +5,15 @@ import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patches.shared.patch.microg.MicroGManifestHelper.addSpoofingMetadata
+import app.revanced.patches.shared.patch.microg.MicroGResourceHelper.patchManifest
+import app.revanced.patches.shared.patch.microg.MicroGResourceHelper.patchSetting
 import app.revanced.patches.shared.patch.packagename.PackageNamePatch
 import app.revanced.patches.youtube.utils.microg.Constants.PACKAGE_NAME
 import app.revanced.patches.youtube.utils.microg.Constants.SPOOFED_PACKAGE_NAME
 import app.revanced.patches.youtube.utils.microg.Constants.SPOOFED_PACKAGE_SIGNATURE
+import app.revanced.patches.youtube.utils.settings.ResourceUtils.setMicroG
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
-import app.revanced.util.microg.MicroGManifestHelper.addSpoofingMetadata
-import app.revanced.util.microg.MicroGResourceHelper.patchManifest
-import app.revanced.util.microg.MicroGResourceHelper.patchSetting
-import app.revanced.util.resources.ResourceHelper.setMicroG
 
 @Patch(
     name = "MicroG support",

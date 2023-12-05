@@ -1,11 +1,11 @@
 package app.revanced.patches.youtube.player.playerbuttonbg
 
-import app.revanced.extensions.doRecursively
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
+import app.revanced.util.doRecursively
 import org.w3c.dom.Element
 
 @Patch(

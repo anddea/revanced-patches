@@ -1,7 +1,5 @@
 package app.revanced.patches.youtube.ads.general
 
-import app.revanced.extensions.doRecursively
-import app.revanced.extensions.startsWithAny
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
@@ -9,10 +7,12 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.youtube.ads.getpremium.HideGetPremiumPatch
 import app.revanced.patches.youtube.utils.fix.doublebacktoclose.DoubleBackToClosePatch
 import app.revanced.patches.youtube.utils.fix.swiperefresh.SwipeRefreshPatch
+import app.revanced.patches.youtube.utils.integrations.Constants.COMPONENTS_PATH
 import app.revanced.patches.youtube.utils.litho.LithoFilterPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
-import app.revanced.util.integrations.Constants.COMPONENTS_PATH
-import app.revanced.util.resources.ResourceUtils.copyXmlNode
+import app.revanced.util.copyXmlNode
+import app.revanced.util.doRecursively
+import app.revanced.util.startsWithAny
 import org.w3c.dom.Element
 
 @Patch(

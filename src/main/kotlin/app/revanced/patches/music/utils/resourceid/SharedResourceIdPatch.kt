@@ -4,14 +4,14 @@ import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.shared.patch.mapping.ResourceMappingPatch
-import app.revanced.util.enum.ResourceType
-import app.revanced.util.enum.ResourceType.BOOL
-import app.revanced.util.enum.ResourceType.COLOR
-import app.revanced.util.enum.ResourceType.DIMEN
-import app.revanced.util.enum.ResourceType.ID
-import app.revanced.util.enum.ResourceType.LAYOUT
-import app.revanced.util.enum.ResourceType.STRING
-import app.revanced.util.enum.ResourceType.STYLE
+import app.revanced.patches.shared.patch.mapping.ResourceType
+import app.revanced.patches.shared.patch.mapping.ResourceType.BOOL
+import app.revanced.patches.shared.patch.mapping.ResourceType.COLOR
+import app.revanced.patches.shared.patch.mapping.ResourceType.DIMEN
+import app.revanced.patches.shared.patch.mapping.ResourceType.ID
+import app.revanced.patches.shared.patch.mapping.ResourceType.LAYOUT
+import app.revanced.patches.shared.patch.mapping.ResourceType.STRING
+import app.revanced.patches.shared.patch.mapping.ResourceType.STYLE
 
 @Patch(dependencies = [ResourceMappingPatch::class])
 object SharedResourceIdPatch : ResourcePatch() {

@@ -4,7 +4,7 @@ import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.shared.patch.litho.LithoThemePatch
-import app.revanced.util.integrations.Constants.UTILS_PATH
+import app.revanced.patches.youtube.utils.integrations.Constants.UTILS_PATH
 import org.w3c.dom.Element
 
 @Patch(dependencies = [LithoThemePatch::class])

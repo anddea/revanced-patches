@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.seekbar.hide
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -11,8 +10,9 @@ import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.seekbar.color.SeekbarColorPatch
 import app.revanced.patches.youtube.utils.fingerprints.SeekbarFingerprint
 import app.revanced.patches.youtube.utils.fingerprints.SeekbarOnDrawFingerprint
+import app.revanced.patches.youtube.utils.integrations.Constants.SEEKBAR
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
-import app.revanced.util.integrations.Constants.SEEKBAR
+import app.revanced.util.exception
 
 @Patch(
     name = "Hide seekbar",

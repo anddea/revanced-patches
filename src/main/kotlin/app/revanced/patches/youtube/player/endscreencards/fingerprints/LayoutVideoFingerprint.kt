@@ -1,11 +1,10 @@
 package app.revanced.patches.youtube.player.endscreencards.fingerprints
 
-import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.EndScreenElementLayoutVideo
-import app.revanced.util.bytecode.isWideLiteralExists
+import app.revanced.util.fingerprint.LiteralValueFingerprint
 import com.android.tools.smali.dexlib2.Opcode
 
-object LayoutVideoFingerprint : MethodFingerprint(
+object LayoutVideoFingerprint : LiteralValueFingerprint(
     returnType = "Landroid/view/View;",
     opcodes = listOf(
         Opcode.CONST,
@@ -14,5 +13,5 @@ object LayoutVideoFingerprint : MethodFingerprint(
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.CHECK_CAST,
     ),
-    customFingerprint = { methodDef, _ -> methodDef.isWideLiteralExists(EndScreenElementLayoutVideo) }
+    literalSupplier = { EndScreenElementLayoutVideo }
 )

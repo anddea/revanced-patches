@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.fullscreen.fullscreenpanels
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
@@ -14,12 +13,12 @@ import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.fullscreen.fullscreenpanels.fingerprints.FullscreenEngagementPanelFingerprint
 import app.revanced.patches.youtube.fullscreen.fullscreenpanels.fingerprints.FullscreenViewAdderFingerprint
 import app.revanced.patches.youtube.utils.fingerprints.LayoutConstructorFingerprint
+import app.revanced.patches.youtube.utils.integrations.Constants.FULLSCREEN
 import app.revanced.patches.youtube.utils.quickactions.QuickActionsHookPatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.FullScreenEngagementPanel
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
-import app.revanced.util.bytecode.getNarrowLiteralIndex
-import app.revanced.util.bytecode.getWideLiteralIndex
-import app.revanced.util.integrations.Constants.FULLSCREEN
+import app.revanced.util.exception
+import app.revanced.util.getWideLiteralInstructionIndex
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
@@ -72,7 +71,7 @@ object HideFullscreenPanelsPatch : BytecodePatch(
 
         FullscreenEngagementPanelFingerprint.result?.let {
             it.mutableMethod.apply {
-                val targetIndex = getWideLiteralIndex(FullScreenEngagementPanel) + 3
+                val targetIndex = getWideLiteralInstructionIndex(FullScreenEngagementPanel) + 3
                 val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                 addInstruction(
@@ -101,7 +100,7 @@ object HideFullscreenPanelsPatch : BytecodePatch(
         LayoutConstructorFingerprint.result?.let {
             it.mutableMethod.apply {
                 val dummyRegister =
-                    getInstruction<OneRegisterInstruction>(getNarrowLiteralIndex(159962)).registerA
+                    getInstruction<OneRegisterInstruction>(getWideLiteralInstructionIndex(159962)).registerA
 
                 val invokeIndex = implementation!!.instructions.indexOfFirst { instruction ->
                     instruction.opcode == Opcode.INVOKE_VIRTUAL &&

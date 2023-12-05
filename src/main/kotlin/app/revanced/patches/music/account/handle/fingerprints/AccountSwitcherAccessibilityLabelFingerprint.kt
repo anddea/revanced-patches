@@ -1,11 +1,10 @@
 package app.revanced.patches.music.account.handle.fingerprints
 
-import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.AccountSwitcherAccessibility
-import app.revanced.util.bytecode.isWideLiteralExists
+import app.revanced.util.fingerprint.LiteralValueFingerprint
 
-object AccountSwitcherAccessibilityLabelFingerprint : MethodFingerprint(
+object AccountSwitcherAccessibilityLabelFingerprint : LiteralValueFingerprint(
     returnType = "V",
     parameters = listOf("L", "Ljava/lang/Object;"),
-    customFingerprint = { methodDef, _ -> methodDef.isWideLiteralExists(AccountSwitcherAccessibility) }
+    literalSupplier = { AccountSwitcherAccessibility }
 )

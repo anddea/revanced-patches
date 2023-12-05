@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.utils.fix.parameter
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
@@ -18,11 +17,12 @@ import app.revanced.patches.youtube.utils.fix.parameter.fingerprints.StoryboardR
 import app.revanced.patches.youtube.utils.fix.parameter.fingerprints.StoryboardRendererSpecRecommendedLevelFingerprint
 import app.revanced.patches.youtube.utils.fix.parameter.fingerprints.StoryboardThumbnailFingerprint
 import app.revanced.patches.youtube.utils.fix.parameter.fingerprints.StoryboardThumbnailParentFingerprint
+import app.revanced.patches.youtube.utils.integrations.Constants.MISC_PATH
 import app.revanced.patches.youtube.utils.playerresponse.PlayerResponsePatch
 import app.revanced.patches.youtube.utils.playertype.PlayerTypeHookPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.patches.youtube.utils.videoid.general.VideoIdPatch
-import app.revanced.util.integrations.Constants.MISC_PATH
+import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 

@@ -1,10 +1,9 @@
 package app.revanced.patches.music.player.newplayerbackground.fingerprints
 
-import app.revanced.patcher.fingerprint.MethodFingerprint
-import app.revanced.util.bytecode.isWide32LiteralExists
+import app.revanced.util.fingerprint.LiteralValueFingerprint
 
-object NewPlayerBackgroundFingerprint : MethodFingerprint(
+object NewPlayerBackgroundFingerprint : LiteralValueFingerprint(
     returnType = "Z",
     parameters = emptyList(),
-    customFingerprint = { methodDef, _ -> methodDef.isWide32LiteralExists(45415319) }
+    literalSupplier = { 45415319 }
 )

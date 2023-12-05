@@ -1,6 +1,5 @@
 package app.revanced.patches.reddit.layout.screenshotpopup
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -12,6 +11,7 @@ import app.revanced.patches.reddit.layout.screenshotpopup.fingerprints.Screensho
 import app.revanced.patches.reddit.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.reddit.utils.settings.SettingsBytecodePatch.updateSettingsStatus
 import app.revanced.patches.reddit.utils.settings.SettingsPatch
+import app.revanced.util.exception
 
 @Patch(
     name = "Disable screenshot popup",

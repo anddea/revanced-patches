@@ -5,9 +5,9 @@ import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.shared.patch.customspeed.AbstractCustomPlaybackSpeedPatch
 import app.revanced.patches.youtube.flyoutpanel.oldspeedlayout.OldSpeedLayoutPatch
+import app.revanced.patches.youtube.utils.integrations.Constants.VIDEO_PATH
 import app.revanced.patches.youtube.utils.overridespeed.OverrideSpeedHookPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
-import app.revanced.util.integrations.Constants.VIDEO_PATH
 
 @Patch(
     name = "Custom playback speed",

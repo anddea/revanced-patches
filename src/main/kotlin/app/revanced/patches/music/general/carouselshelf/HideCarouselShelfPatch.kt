@@ -4,10 +4,10 @@ import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patches.music.utils.integrations.Constants.COMPONENTS_PATH
 import app.revanced.patches.music.utils.litho.LithoFilterPatch
+import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.SettingsPatch
-import app.revanced.util.enum.CategoryType
-import app.revanced.util.integrations.Constants.MUSIC_COMPONENTS_PATH
 
 @Patch(
     name = "Hide carousel shelf",
@@ -19,7 +19,7 @@ import app.revanced.util.integrations.Constants.MUSIC_COMPONENTS_PATH
     compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")]
 )
 @Suppress("unused")
-object HideCarouselShelfPatch : BytecodePatch() {
+object HideCarouselShelfPatch : BytecodePatch(emptySet()) {
     override fun execute(context: BytecodeContext) {
 
         SettingsPatch.addMusicPreference(
@@ -33,5 +33,5 @@ object HideCarouselShelfPatch : BytecodePatch() {
     }
 
     private const val FILTER_CLASS_DESCRIPTOR =
-        "$MUSIC_COMPONENTS_PATH/CarouselShelfFilter;"
+        "$COMPONENTS_PATH/CarouselShelfFilter;"
 }

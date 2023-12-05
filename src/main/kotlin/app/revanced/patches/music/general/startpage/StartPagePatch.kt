@@ -1,6 +1,5 @@
 package app.revanced.patches.music.general.startpage
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -9,12 +8,13 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.music.general.startpage.fingerprints.ColdStartUpFingerprint
+import app.revanced.patches.music.utils.integrations.Constants.GENERAL
 import app.revanced.patches.music.utils.intenthook.IntentHookPatch
+import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.SettingsPatch
 import app.revanced.patches.music.utils.settings.SettingsPatch.contexts
-import app.revanced.util.enum.CategoryType
-import app.revanced.util.integrations.Constants.MUSIC_GENERAL
-import app.revanced.util.resources.ResourceUtils.copyXmlNode
+import app.revanced.util.copyXmlNode
+import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
@@ -39,7 +39,7 @@ object StartPagePatch : BytecodePatch(
 
                 addInstructions(
                     targetIndex + 1, """
-                        invoke-static {v$targetRegister}, $MUSIC_GENERAL->setStartPage(Ljava/lang/String;)Ljava/lang/String;
+                        invoke-static {v$targetRegister}, $GENERAL->setStartPage(Ljava/lang/String;)Ljava/lang/String;
                         move-result-object v$targetRegister
                         return-object v$targetRegister
                         """

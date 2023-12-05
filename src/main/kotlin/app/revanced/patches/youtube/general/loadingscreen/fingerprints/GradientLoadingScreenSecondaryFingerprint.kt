@@ -1,8 +1,7 @@
 package app.revanced.patches.youtube.general.loadingscreen.fingerprints
 
-import app.revanced.patcher.fingerprint.MethodFingerprint
-import app.revanced.util.bytecode.isWide32LiteralExists
+import app.revanced.util.fingerprint.LiteralValueFingerprint
 
-object GradientLoadingScreenSecondaryFingerprint : MethodFingerprint(
-    customFingerprint = { methodDef, _ -> methodDef.isWide32LiteralExists(45418917) }
+object GradientLoadingScreenSecondaryFingerprint : LiteralValueFingerprint(
+    literalSupplier = { 45418917 }
 )

@@ -1,6 +1,5 @@
 package app.revanced.patches.music.video.quality
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -8,12 +7,13 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patches.music.utils.integrations.Constants.VIDEO_PATH
 import app.revanced.patches.music.utils.overridequality.OverrideQualityHookPatch
+import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.SettingsPatch
 import app.revanced.patches.music.video.information.VideoInformationPatch
 import app.revanced.patches.music.video.quality.fingerprints.UserQualityChangeFingerprint
-import app.revanced.util.enum.CategoryType
-import app.revanced.util.integrations.Constants.MUSIC_VIDEO_PATH
+import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction21c
 
 @Patch(
@@ -67,5 +67,5 @@ object VideoQualityPatch : BytecodePatch(
     }
 
     private const val INTEGRATIONS_VIDEO_QUALITY_CLASS_DESCRIPTOR =
-        "$MUSIC_VIDEO_PATH/VideoQualityPatch;"
+        "$VIDEO_PATH/VideoQualityPatch;"
 }

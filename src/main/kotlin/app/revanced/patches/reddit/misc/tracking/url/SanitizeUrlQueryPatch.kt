@@ -1,6 +1,5 @@
 package app.revanced.patches.reddit.misc.tracking.url
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -11,6 +10,7 @@ import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.reddit.misc.tracking.url.fingerprints.ShareLinkFormatterFingerprint
 import app.revanced.patches.reddit.utils.settings.SettingsBytecodePatch.updateSettingsStatus
 import app.revanced.patches.reddit.utils.settings.SettingsPatch
+import app.revanced.util.exception
 
 @Patch(
     name = "Sanitize sharing links",

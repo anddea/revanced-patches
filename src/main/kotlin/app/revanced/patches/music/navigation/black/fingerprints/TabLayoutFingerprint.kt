@@ -1,13 +1,12 @@
 package app.revanced.patches.music.navigation.black.fingerprints
 
 import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.ColorGrey
-import app.revanced.util.bytecode.isWideLiteralExists
+import app.revanced.util.fingerprint.LiteralValueFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-object TabLayoutFingerprint : MethodFingerprint(
+object TabLayoutFingerprint : LiteralValueFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = emptyList(),
@@ -16,6 +15,6 @@ object TabLayoutFingerprint : MethodFingerprint(
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT
     ),
-    customFingerprint = { methodDef, _ -> methodDef.isWideLiteralExists(ColorGrey) }
+    literalSupplier = { ColorGrey }
 )
 

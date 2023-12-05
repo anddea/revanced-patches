@@ -1,6 +1,5 @@
 package app.revanced.patches.reddit.layout.place
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -12,7 +11,8 @@ import app.revanced.patches.reddit.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.reddit.utils.resourceid.SharedResourceIdPatch.ToolBarNavSearchCtaContainer
 import app.revanced.patches.reddit.utils.settings.SettingsBytecodePatch.updateSettingsStatus
 import app.revanced.patches.reddit.utils.settings.SettingsPatch
-import app.revanced.util.bytecode.getWideLiteralIndex
+import app.revanced.util.exception
+import app.revanced.util.getWideLiteralInstructionIndex
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
@@ -38,7 +38,7 @@ object PlaceButtonPatch : BytecodePatch(
         HomePagerScreenFingerprint.result?.let {
             it.mutableMethod.apply {
                 val targetIndex =
-                    getWideLiteralIndex(ToolBarNavSearchCtaContainer) + 3
+                    getWideLiteralInstructionIndex(ToolBarNavSearchCtaContainer) + 3
                 val targetRegister =
                     getInstruction<OneRegisterInstruction>(targetIndex - 1).registerA
 

@@ -1,10 +1,9 @@
 package app.revanced.patches.youtube.utils.fingerprints
 
-import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.TotalTime
-import app.revanced.util.bytecode.isWideLiteralExists
+import app.revanced.util.fingerprint.LiteralValueFingerprint
 
-object TotalTimeFingerprint : MethodFingerprint(
+object TotalTimeFingerprint : LiteralValueFingerprint(
     returnType = "V",
-    customFingerprint = { methodDef, _ -> methodDef.isWideLiteralExists(TotalTime) }
+    literalSupplier = { TotalTime }
 )

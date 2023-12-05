@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.utils.litho
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
@@ -9,9 +8,10 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.shared.patch.litho.ComponentParserPatch
 import app.revanced.patches.shared.patch.litho.ComponentParserPatch.generalHook
+import app.revanced.patches.youtube.utils.integrations.Constants.COMPONENTS_PATH
 import app.revanced.patches.youtube.utils.litho.fingerprints.GeneralByteBufferFingerprint
 import app.revanced.patches.youtube.utils.litho.fingerprints.LithoFilterFingerprint
-import app.revanced.util.integrations.Constants.COMPONENTS_PATH
+import app.revanced.util.exception
 import java.io.Closeable
 
 @Patch(dependencies = [ComponentParserPatch::class])

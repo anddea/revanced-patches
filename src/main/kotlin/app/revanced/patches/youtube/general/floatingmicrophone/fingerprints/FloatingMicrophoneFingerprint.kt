@@ -1,13 +1,12 @@
 package app.revanced.patches.youtube.general.floatingmicrophone.fingerprints
 
 import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.Fab
-import app.revanced.util.bytecode.isWideLiteralExists
+import app.revanced.util.fingerprint.LiteralValueFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-object FloatingMicrophoneFingerprint : MethodFingerprint(
+object FloatingMicrophoneFingerprint : LiteralValueFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = emptyList(),
@@ -16,5 +15,5 @@ object FloatingMicrophoneFingerprint : MethodFingerprint(
         Opcode.IF_EQZ,
         Opcode.RETURN_VOID
     ),
-    customFingerprint = { methodDef, _ -> methodDef.isWideLiteralExists(Fab) }
+    literalSupplier = { Fab }
 )

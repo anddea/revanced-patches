@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.player.previousnextbutton
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -8,8 +7,9 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.youtube.utils.fingerprints.PlayerControlsVisibilityModelFingerprint
+import app.revanced.patches.youtube.utils.integrations.Constants.PLAYER
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
-import app.revanced.util.integrations.Constants.PLAYER
+import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction3rc
 
 @Patch(

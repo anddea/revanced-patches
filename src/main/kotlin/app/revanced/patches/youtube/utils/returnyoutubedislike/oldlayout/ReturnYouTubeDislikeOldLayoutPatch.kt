@@ -1,16 +1,16 @@
 package app.revanced.patches.youtube.utils.returnyoutubedislike.oldlayout
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patches.youtube.utils.integrations.Constants.UTILS_PATH
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.DislikeButton
 import app.revanced.patches.youtube.utils.returnyoutubedislike.oldlayout.fingerprints.ButtonTagFingerprint
-import app.revanced.util.bytecode.getWideLiteralIndex
-import app.revanced.util.integrations.Constants.UTILS_PATH
+import app.revanced.util.exception
+import app.revanced.util.getWideLiteralInstructionIndex
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(dependencies = [SharedResourceIdPatch::class])
@@ -21,7 +21,7 @@ object ReturnYouTubeDislikeOldLayoutPatch : BytecodePatch(
 
         ButtonTagFingerprint.result?.let {
             it.mutableMethod.apply {
-                val dislikeButtonIndex = getWideLiteralIndex(DislikeButton)
+                val dislikeButtonIndex = getWideLiteralInstructionIndex(DislikeButton)
 
                 val resourceIdentifierRegister =
                     getInstruction<OneRegisterInstruction>(dislikeButtonIndex).registerA

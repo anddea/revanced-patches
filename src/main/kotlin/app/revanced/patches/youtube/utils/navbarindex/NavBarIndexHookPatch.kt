@@ -1,16 +1,16 @@
 package app.revanced.patches.youtube.utils.navbarindex
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patches.youtube.utils.integrations.Constants.UTILS_PATH
 import app.revanced.patches.youtube.utils.navbarindex.fingerprints.MobileTopBarButtonOnClickFingerprint
 import app.revanced.patches.youtube.utils.navbarindex.fingerprints.PivotBarIndexFingerprint
 import app.revanced.patches.youtube.utils.navbarindex.fingerprints.SettingsActivityOnBackPressedFingerprint
-import app.revanced.util.integrations.Constants.UTILS_PATH
+import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 
 @Suppress("unused")

@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.misc.codec.video
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -15,8 +14,9 @@ import app.revanced.patches.youtube.misc.codec.video.fingerprints.VideoPropsFing
 import app.revanced.patches.youtube.misc.codec.video.fingerprints.VideoPropsParentFingerprint
 import app.revanced.patches.youtube.misc.codec.video.fingerprints.VideoSecondaryFingerprint
 import app.revanced.patches.youtube.utils.fingerprints.LayoutSwitchFingerprint
+import app.revanced.patches.youtube.utils.integrations.Constants.MISC_PATH
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
-import app.revanced.util.integrations.Constants.MISC_PATH
+import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.dexbacked.reference.DexBackedFieldReference
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction

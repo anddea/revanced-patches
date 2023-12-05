@@ -5,8 +5,8 @@ import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
-import app.revanced.util.resources.ResourceUtils
-import app.revanced.util.resources.ResourceUtils.copyResources
+import app.revanced.util.ResourceGroup
+import app.revanced.util.copyResources
 
 @Patch(
     name = "Hide animated button background",
@@ -49,7 +49,7 @@ object AnimatedButtonBackgroundPatch : ResourcePatch() {
          */
         context.copyResources(
             "youtube/animated",
-            ResourceUtils.ResourceGroup(
+            ResourceGroup(
                 "raw",
                 "pause_tap_feedback.json",
                 "play_tap_feedback.json"

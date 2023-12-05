@@ -5,8 +5,8 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.music.utils.actionbarhook.ActionBarHookPatch
+import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.SettingsPatch
-import app.revanced.util.enum.CategoryType
 
 @Patch(
     name = "Hide radio button",
@@ -18,7 +18,7 @@ import app.revanced.util.enum.CategoryType
     compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")]
 )
 @Suppress("unused")
-object HideRadioButtonPatch : BytecodePatch() {
+object HideRadioButtonPatch : BytecodePatch(emptySet()) {
     override fun execute(context: BytecodeContext) {
 
         SettingsPatch.addMusicPreference(

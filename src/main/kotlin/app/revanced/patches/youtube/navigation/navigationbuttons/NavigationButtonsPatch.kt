@@ -1,25 +1,26 @@
 package app.revanced.patches.youtube.navigation.navigationbuttons
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.navigation.navigationbuttons.fingerprints.AutoMotiveFingerprint
 import app.revanced.patches.youtube.navigation.navigationbuttons.fingerprints.PivotBarEnumFingerprint
 import app.revanced.patches.youtube.navigation.navigationbuttons.fingerprints.PivotBarShortsButtonViewFingerprint
 import app.revanced.patches.youtube.utils.fingerprints.PivotBarCreateButtonViewFingerprint
+import app.revanced.patches.youtube.utils.integrations.Constants.NAVIGATION
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.AvatarImageWithTextTab
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.ImageOnlyTab
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
-import app.revanced.util.bytecode.getWideLiteralIndex
-import app.revanced.util.integrations.Constants.NAVIGATION
-import app.revanced.util.pivotbar.InjectionUtils.REGISTER_TEMPLATE_REPLACEMENT
-import app.revanced.util.pivotbar.InjectionUtils.injectHook
+import app.revanced.util.exception
+import app.revanced.util.getWideLiteralInstructionIndex
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.Opcode.MOVE_RESULT_OBJECT
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
@@ -108,7 +109,7 @@ object NavigationButtonsPatch : BytecodePatch(
                     YOU_BUTTON_HOOK to AvatarImageWithTextTab
                 ).forEach { (hook, resourceId) ->
                     val insertIndex = implementation!!.instructions.let {
-                        val scanStart = getWideLiteralIndex(resourceId)
+                        val scanStart = getWideLiteralInstructionIndex(resourceId)
 
                         scanStart + it.subList(scanStart, it.size - 1).indexOfFirst { instruction ->
                             instruction.opcode == Opcode.INVOKE_VIRTUAL
@@ -151,6 +152,8 @@ object NavigationButtonsPatch : BytecodePatch(
 
     }
 
+    private const val REGISTER_TEMPLATE_REPLACEMENT: String = "REGISTER_INDEX"
+
     private const val ENUM_HOOK =
         "sput-object v$REGISTER_TEMPLATE_REPLACEMENT, $NAVIGATION" +
                 "->" +
@@ -170,4 +173,23 @@ object NavigationButtonsPatch : BytecodePatch(
         "invoke-static { v$REGISTER_TEMPLATE_REPLACEMENT }, $NAVIGATION" +
                 "->" +
                 "hideYouButton(Landroid/view/View;)V"
+
+    /**
+     * Injects an instruction into insertIndex of the hook.
+     * @param hook The hook to insert.
+     * @param insertIndex The index to insert the instruction at.
+     * [MOVE_RESULT_OBJECT] has to be the previous instruction before [insertIndex].
+     */
+    private fun MutableMethod.injectHook(hook: String, insertIndex: Int) {
+        val injectTarget = this
+
+        // Register to pass to the hook
+        val registerIndex = insertIndex - 1 // MOVE_RESULT_OBJECT is always the previous instruction
+        val register = injectTarget.getInstruction<OneRegisterInstruction>(registerIndex).registerA
+
+        injectTarget.addInstruction(
+            insertIndex,
+            hook.replace("REGISTER_INDEX", register.toString()),
+        )
+    }
 }

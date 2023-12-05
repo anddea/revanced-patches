@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.flyoutpanel.oldqualitylayout
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -10,11 +9,12 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.youtube.flyoutpanel.recyclerview.BottomSheetRecyclerViewPatch
 import app.revanced.patches.youtube.utils.fingerprints.QualityMenuViewInflateFingerprint
 import app.revanced.patches.youtube.utils.fingerprints.RecyclerViewTreeObserverFingerprint
+import app.revanced.patches.youtube.utils.integrations.Constants.COMPONENTS_PATH
+import app.revanced.patches.youtube.utils.integrations.Constants.FLYOUT_PANEL
 import app.revanced.patches.youtube.utils.litho.LithoFilterPatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
-import app.revanced.util.integrations.Constants.COMPONENTS_PATH
-import app.revanced.util.integrations.Constants.FLYOUT_PANEL
+import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(

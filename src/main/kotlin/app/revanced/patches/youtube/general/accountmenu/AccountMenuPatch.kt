@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.general.accountmenu
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
@@ -14,9 +13,10 @@ import app.revanced.patches.youtube.general.accountmenu.fingerprints.AccountMenu
 import app.revanced.patches.youtube.general.accountmenu.fingerprints.AccountMenuParentFingerprint
 import app.revanced.patches.youtube.general.accountmenu.fingerprints.AccountMenuPatchFingerprint
 import app.revanced.patches.youtube.general.accountmenu.fingerprints.SetViewGroupMarginFingerprint
+import app.revanced.patches.youtube.utils.integrations.Constants.GENERAL
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
-import app.revanced.util.integrations.Constants.GENERAL
+import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 

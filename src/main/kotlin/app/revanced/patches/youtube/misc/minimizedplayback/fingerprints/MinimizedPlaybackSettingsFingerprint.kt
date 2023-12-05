@@ -1,13 +1,12 @@
 package app.revanced.patches.youtube.misc.minimizedplayback.fingerprints
 
 import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.BackgroundCategory
-import app.revanced.util.bytecode.isWideLiteralExists
+import app.revanced.util.fingerprint.LiteralValueFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-object MinimizedPlaybackSettingsFingerprint : MethodFingerprint(
+object MinimizedPlaybackSettingsFingerprint : LiteralValueFingerprint(
     returnType = "L",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     opcodes = listOf(
@@ -19,5 +18,5 @@ object MinimizedPlaybackSettingsFingerprint : MethodFingerprint(
         Opcode.IF_NEZ,
         Opcode.GOTO
     ),
-    customFingerprint = { methodDef, _ -> methodDef.isWideLiteralExists(BackgroundCategory) }
+    literalSupplier = { BackgroundCategory }
 )

@@ -2,7 +2,7 @@ package app.revanced.patches.youtube.utils.fix.parameter.fingerprints
 
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.MethodFingerprint
-import app.revanced.util.bytecode.isWideLiteralExists
+import app.revanced.util.containsWideLiteralInstructionIndex
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
@@ -15,9 +15,10 @@ object PlayerResponseModelImplGeneralFingerprint : MethodFingerprint(
         Opcode.CONST_4,
         Opcode.RETURN_OBJECT
     ),
-    customFingerprint = { methodDef, _ ->
-        methodDef.definingClass.endsWith("/PlayerResponseModelImpl;") && methodDef.isWideLiteralExists(
-            55735497
-        )
+    customFingerprint = handler@{ methodDef, _ ->
+        if (!methodDef.definingClass.endsWith("/PlayerResponseModelImpl;"))
+            return@handler false
+
+        methodDef.containsWideLiteralInstructionIndex(55735497)
     }
 )

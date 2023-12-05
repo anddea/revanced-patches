@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.video.speed
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -8,12 +7,14 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.youtube.utils.fingerprints.NewVideoQualityChangedFingerprint
+import app.revanced.patches.youtube.utils.integrations.Constants.UTILS_PATH
+import app.revanced.patches.youtube.utils.integrations.Constants.VIDEO_PATH
 import app.revanced.patches.youtube.utils.overridespeed.OverrideSpeedHookPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.patches.youtube.utils.videocpn.VideoCpnPatch
 import app.revanced.patches.youtube.video.speed.fingerprints.NewPlaybackSpeedChangedFingerprint
-import app.revanced.util.bytecode.BytecodeHelper.updatePatchStatus
-import app.revanced.util.integrations.Constants.VIDEO_PATH
+import app.revanced.util.exception
+import app.revanced.util.updatePatchStatus
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 
 @Patch(
@@ -93,7 +94,7 @@ object PlaybackSpeedPatch : BytecodePatch(
 
         SettingsPatch.updatePatchStatus("Default playback speed")
 
-        context.updatePatchStatus("DefaultPlaybackSpeed", true)
+        context.updatePatchStatus("$UTILS_PATH/PatchStatus;", "DefaultPlaybackSpeed")
 
     }
 

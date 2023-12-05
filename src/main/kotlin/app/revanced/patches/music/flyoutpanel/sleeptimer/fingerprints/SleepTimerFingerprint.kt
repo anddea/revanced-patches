@@ -1,10 +1,9 @@
 package app.revanced.patches.music.flyoutpanel.sleeptimer.fingerprints
 
-import app.revanced.patcher.fingerprint.MethodFingerprint
-import app.revanced.util.bytecode.isWide32LiteralExists
+import app.revanced.util.fingerprint.LiteralValueFingerprint
 
-object SleepTimerFingerprint : MethodFingerprint(
+object SleepTimerFingerprint : LiteralValueFingerprint(
     returnType = "Z",
     parameters = emptyList(),
-    customFingerprint = { methodDef, _ -> methodDef.isWide32LiteralExists(45372767) }
+    literalSupplier = { 45372767 }
 )

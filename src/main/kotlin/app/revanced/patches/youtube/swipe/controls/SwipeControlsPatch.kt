@@ -1,8 +1,5 @@
 package app.revanced.patches.youtube.swipe.controls
 
-import app.revanced.extensions.exception
-import app.revanced.extensions.transformMethods
-import app.revanced.extensions.traverseClassHierarchy
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -13,15 +10,18 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMu
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.swipe.controls.fingerprints.HDRBrightnessFingerprint
 import app.revanced.patches.youtube.swipe.controls.fingerprints.SwipeControlsHostActivityFingerprint
+import app.revanced.patches.youtube.utils.integrations.Constants.SWIPE_PATH
 import app.revanced.patches.youtube.utils.lockmodestate.LockModeStateHookPatch
 import app.revanced.patches.youtube.utils.mainactivity.MainActivityResolvePatch
 import app.revanced.patches.youtube.utils.mainactivity.MainActivityResolvePatch.mainActivityMutableClass
 import app.revanced.patches.youtube.utils.playertype.PlayerTypeHookPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch.contexts
-import app.revanced.util.integrations.Constants.SWIPE_PATH
-import app.revanced.util.resources.ResourceUtils
-import app.revanced.util.resources.ResourceUtils.copyResources
+import app.revanced.util.ResourceGroup
+import app.revanced.util.copyResources
+import app.revanced.util.exception
+import app.revanced.util.transformMethods
+import app.revanced.util.traverseClassHierarchy
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 
@@ -122,7 +122,7 @@ object SwipeControlsPatch : BytecodePatch(
 
         contexts.copyResources(
             "youtube/swipecontrols",
-            ResourceUtils.ResourceGroup(
+            ResourceGroup(
                 "drawable",
                 "ic_sc_brightness_auto.xml",
                 "ic_sc_brightness_manual.xml",

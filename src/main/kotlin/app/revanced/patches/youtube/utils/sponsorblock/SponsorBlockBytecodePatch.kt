@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.utils.sponsorblock
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
@@ -22,7 +21,8 @@ import app.revanced.patches.youtube.utils.sponsorblock.fingerprints.RectangleFie
 import app.revanced.patches.youtube.utils.sponsorblock.fingerprints.SegmentPlaybackControllerFingerprint
 import app.revanced.patches.youtube.utils.videoid.general.VideoIdPatch
 import app.revanced.patches.youtube.utils.videoid.withoutshorts.VideoIdWithoutShortsPatch
-import app.revanced.util.bytecode.getWideLiteralIndex
+import app.revanced.util.exception
+import app.revanced.util.getWideLiteralInstructionIndex
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.BuilderInstruction
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction3rc
@@ -150,7 +150,7 @@ object SponsorBlockBytecodePatch : BytecodePatch(
          */
         TotalTimeFingerprint.result?.let {
             it.mutableMethod.apply {
-                val targetIndex = getWideLiteralIndex(TotalTime) + 2
+                val targetIndex = getWideLiteralInstructionIndex(TotalTime) + 2
                 val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                 addInstructions(
@@ -168,7 +168,7 @@ object SponsorBlockBytecodePatch : BytecodePatch(
          */
         YouTubeControlsOverlayFingerprint.result?.let {
             it.mutableMethod.apply {
-                val targetIndex = getWideLiteralIndex(InsetOverlayViewLayout) + 3
+                val targetIndex = getWideLiteralInstructionIndex(InsetOverlayViewLayout) + 3
                 val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                 addInstruction(

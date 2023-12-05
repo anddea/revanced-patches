@@ -1,15 +1,15 @@
 package app.revanced.patches.music.utils.litho
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patches.music.utils.integrations.Constants.COMPONENTS_PATH
 import app.revanced.patches.music.utils.litho.fingerprints.LithoFilterFingerprint
 import app.revanced.patches.shared.patch.litho.ComponentParserPatch
 import app.revanced.patches.shared.patch.litho.ComponentParserPatch.pathBuilderHook
-import app.revanced.util.integrations.Constants.MUSIC_COMPONENTS_PATH
+import app.revanced.util.exception
 import java.io.Closeable
 
 @Patch(dependencies = [ComponentParserPatch::class])
@@ -17,7 +17,7 @@ object LithoFilterPatch : BytecodePatch(
     setOf(LithoFilterFingerprint)
 ), Closeable {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
-        "$MUSIC_COMPONENTS_PATH/LithoFilterPatch;"
+        "$COMPONENTS_PATH/LithoFilterPatch;"
 
     internal lateinit var addFilter: (String) -> Unit
         private set
@@ -50,7 +50,7 @@ object LithoFilterPatch : BytecodePatch(
         .mutableMethod.addInstructions(
             0, """
                 const/16 v0, $filterCount
-                new-array v0, v0, [$MUSIC_COMPONENTS_PATH/Filter;
+                new-array v0, v0, [$COMPONENTS_PATH/Filter;
                 """
         )
 }

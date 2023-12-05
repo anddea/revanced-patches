@@ -1,6 +1,5 @@
 package app.revanced.patches.reddit.layout.navigation
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -10,6 +9,7 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.reddit.layout.navigation.fingerprints.BottomNavScreenFingerprint
 import app.revanced.patches.reddit.utils.settings.SettingsBytecodePatch.updateSettingsStatus
 import app.revanced.patches.reddit.utils.settings.SettingsPatch
+import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 
 @Patch(

@@ -1,6 +1,5 @@
 package app.revanced.patches.music.flyoutpanel.replace
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -10,10 +9,11 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.music.flyoutpanel.utils.EnumUtils.getEnumIndex
 import app.revanced.patches.music.utils.fingerprints.MenuItemFingerprint
 import app.revanced.patches.music.utils.flyoutbutton.FlyoutButtonItemResourcePatch
+import app.revanced.patches.music.utils.integrations.Constants.FLYOUT
+import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.SettingsPatch
 import app.revanced.patches.music.video.information.VideoInformationPatch
-import app.revanced.util.enum.CategoryType
-import app.revanced.util.integrations.Constants.MUSIC_FLYOUT
+import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
@@ -46,7 +46,7 @@ object ReplaceDismissQueuePatch : BytecodePatch(
 
                 addInstruction(
                     enumIndex + 1,
-                    "invoke-static {v$enumRegister, v$textViewRegister, v$imageViewRegister}, $MUSIC_FLYOUT->replaceDismissQueue(Ljava/lang/Enum;Landroid/widget/TextView;Landroid/widget/ImageView;)V"
+                    "invoke-static {v$enumRegister, v$textViewRegister, v$imageViewRegister}, $FLYOUT->replaceDismissQueue(Ljava/lang/Enum;Landroid/widget/TextView;Landroid/widget/ImageView;)V"
                 )
             }
         } ?: throw MenuItemFingerprint.exception

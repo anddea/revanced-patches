@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.general.mixplaylists
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
@@ -12,10 +11,11 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.general.mixplaylists.fingerprints.ElementParserFingerprint
 import app.revanced.patches.youtube.general.mixplaylists.fingerprints.EmptyFlatBufferFingerprint
+import app.revanced.patches.youtube.utils.integrations.Constants.COMPONENTS_PATH
 import app.revanced.patches.youtube.utils.litho.LithoFilterPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
-import app.revanced.util.bytecode.getStringIndex
-import app.revanced.util.integrations.Constants.COMPONENTS_PATH
+import app.revanced.util.exception
+import app.revanced.util.getStringInstructionIndex
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
@@ -81,7 +81,8 @@ object MixPlaylistsPatch : BytecodePatch(
                 val insertIndex = implementation!!.instructions.indexOfFirst { instruction ->
                     instruction.opcode == Opcode.CHECK_CAST
                 } + 1
-                val jumpIndex = getStringIndex("Failed to convert Element to Flatbuffers: %s") + 2
+                val jumpIndex =
+                    getStringInstructionIndex("Failed to convert Element to Flatbuffers: %s") + 2
 
                 val freeIndex = it.scanResult.patternScanResult!!.startIndex - 1
 

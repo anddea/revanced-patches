@@ -1,6 +1,5 @@
 package app.revanced.patches.music.flyoutpanel.component
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -11,9 +10,10 @@ import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.music.flyoutpanel.utils.EnumUtils.getEnumIndex
 import app.revanced.patches.music.utils.fingerprints.MenuItemFingerprint
 import app.revanced.patches.music.utils.flyoutbutton.FlyoutButtonContainerPatch
+import app.revanced.patches.music.utils.integrations.Constants.FLYOUT
+import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.SettingsPatch
-import app.revanced.util.enum.CategoryType
-import app.revanced.util.integrations.Constants.MUSIC_FLYOUT
+import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.Instruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -48,7 +48,7 @@ object FlyoutPanelPatch : BytecodePatch(
 
                 addInstructionsWithLabels(
                     enumIndex + 1, """
-                        invoke-static {v$enumRegister}, $MUSIC_FLYOUT->hideFlyoutPanels(Ljava/lang/Enum;)Z
+                        invoke-static {v$enumRegister}, $FLYOUT->hideFlyoutPanels(Ljava/lang/Enum;)Z
                         move-result v$freeRegister
                         if-nez v$freeRegister, :hide
                         """, ExternalLabel("hide", jumpInstruction)

@@ -1,13 +1,12 @@
 package app.revanced.patches.youtube.utils.fingerprints
 
 import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.VideoQualityBottomSheet
-import app.revanced.util.bytecode.isWideLiteralExists
+import app.revanced.util.fingerprint.LiteralValueFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-object QualityMenuViewInflateFingerprint : MethodFingerprint(
+object QualityMenuViewInflateFingerprint : LiteralValueFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("L", "L", "L"),
     returnType = "L",
@@ -27,5 +26,5 @@ object QualityMenuViewInflateFingerprint : MethodFingerprint(
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.CHECK_CAST
     ),
-    customFingerprint = { methodDef, _ -> methodDef.isWideLiteralExists(VideoQualityBottomSheet) }
+    literalSupplier = { VideoQualityBottomSheet }
 )

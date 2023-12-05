@@ -1,10 +1,9 @@
 package app.revanced.patches.music.utils.fingerprints
 
-import app.revanced.patcher.fingerprint.MethodFingerprint
-import app.revanced.util.bytecode.isWide32LiteralExists
+import app.revanced.util.fingerprint.LiteralValueFingerprint
 
-object NewPlayerLayoutFingerprint : MethodFingerprint(
+object NewPlayerLayoutFingerprint : LiteralValueFingerprint(
     returnType = "Z",
     parameters = emptyList(),
-    customFingerprint = { methodDef, _ -> methodDef.isWide32LiteralExists(45399578) }
+    literalSupplier = { 45399578 }
 )

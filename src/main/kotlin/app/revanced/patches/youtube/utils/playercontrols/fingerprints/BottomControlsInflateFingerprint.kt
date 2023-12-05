@@ -1,13 +1,12 @@
 package app.revanced.patches.youtube.utils.playercontrols.fingerprints
 
 import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.BottomUiContainerStub
-import app.revanced.util.bytecode.isWideLiteralExists
+import app.revanced.util.fingerprint.LiteralValueFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-object BottomControlsInflateFingerprint : MethodFingerprint(
+object BottomControlsInflateFingerprint : LiteralValueFingerprint(
     returnType = "Ljava/lang/Object;",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL or AccessFlags.SYNTHETIC,
     parameters = emptyList(),
@@ -16,5 +15,5 @@ object BottomControlsInflateFingerprint : MethodFingerprint(
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT_OBJECT
     ),
-    customFingerprint = { methodDef, _ -> methodDef.isWideLiteralExists(BottomUiContainerStub) }
+    literalSupplier = { BottomUiContainerStub }
 )

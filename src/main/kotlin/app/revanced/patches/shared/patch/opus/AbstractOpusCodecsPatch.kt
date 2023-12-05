@@ -1,6 +1,5 @@
 package app.revanced.patches.shared.patch.opus
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -9,6 +8,7 @@ import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.fingerprints.opus.CodecReferenceFingerprint
 import app.revanced.patches.shared.fingerprints.opus.CodecSelectorFingerprint
+import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction

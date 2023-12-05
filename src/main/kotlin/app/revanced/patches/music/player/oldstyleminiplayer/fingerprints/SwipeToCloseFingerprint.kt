@@ -1,10 +1,9 @@
 package app.revanced.patches.music.player.oldstyleminiplayer.fingerprints
 
-import app.revanced.patcher.fingerprint.MethodFingerprint
-import app.revanced.util.bytecode.isWide32LiteralExists
+import app.revanced.util.fingerprint.LiteralValueFingerprint
 
-object SwipeToCloseFingerprint : MethodFingerprint(
+object SwipeToCloseFingerprint : LiteralValueFingerprint(
     returnType = "Z",
     parameters = emptyList(),
-    customFingerprint = { methodDef, _ -> methodDef.isWide32LiteralExists(45398432) }
+    literalSupplier = { 45398432 }
 )

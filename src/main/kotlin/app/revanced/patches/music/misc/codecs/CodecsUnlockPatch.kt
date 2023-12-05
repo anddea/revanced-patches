@@ -3,10 +3,10 @@ package app.revanced.patches.music.misc.codecs
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patches.music.utils.integrations.Constants.MISC_PATH
+import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.SettingsPatch
 import app.revanced.patches.shared.patch.opus.AbstractOpusCodecsPatch
-import app.revanced.util.enum.CategoryType
-import app.revanced.util.integrations.Constants.MUSIC_MISC_PATH
 
 @Patch(
     name = "Enable opus codec",
@@ -16,7 +16,7 @@ import app.revanced.util.integrations.Constants.MUSIC_MISC_PATH
 )
 @Suppress("unused")
 object CodecsUnlockPatch : AbstractOpusCodecsPatch(
-    "$MUSIC_MISC_PATH/OpusCodecPatch;->enableOpusCodec()Z"
+    "$MISC_PATH/OpusCodecPatch;->enableOpusCodec()Z"
 ) {
     override fun execute(context: BytecodeContext) {
         super.execute(context)

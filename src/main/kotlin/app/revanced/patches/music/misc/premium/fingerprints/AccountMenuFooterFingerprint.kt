@@ -1,13 +1,12 @@
 package app.revanced.patches.music.misc.premium.fingerprints
 
 import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.PrivacyTosFooter
-import app.revanced.util.bytecode.isWideLiteralExists
+import app.revanced.util.fingerprint.LiteralValueFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-object AccountMenuFooterFingerprint : MethodFingerprint(
+object AccountMenuFooterFingerprint : LiteralValueFingerprint(
     returnType = "L",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     opcodes = listOf(
@@ -18,5 +17,5 @@ object AccountMenuFooterFingerprint : MethodFingerprint(
         Opcode.INVOKE_VIRTUAL,
         Opcode.IGET_OBJECT
     ),
-    customFingerprint = { methodDef, _ -> methodDef.isWideLiteralExists(PrivacyTosFooter) }
+    literalSupplier = { PrivacyTosFooter }
 )

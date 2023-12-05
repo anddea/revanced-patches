@@ -1,11 +1,10 @@
 package app.revanced.patches.music.account.handle.fingerprints
 
-import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.NamesInactiveAccountThumbnailSize
-import app.revanced.util.bytecode.isWideLiteralExists
+import app.revanced.util.fingerprint.LiteralValueFingerprint
 import com.android.tools.smali.dexlib2.Opcode
 
-object NamesInactiveAccountThumbnailSizeFingerprint : MethodFingerprint(
+object NamesInactiveAccountThumbnailSizeFingerprint : LiteralValueFingerprint(
     returnType = "V",
     parameters = listOf("L", "Ljava/lang/Object;"),
     opcodes = listOf(
@@ -21,9 +20,5 @@ object NamesInactiveAccountThumbnailSizeFingerprint : MethodFingerprint(
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.IF_EQZ
     ),
-    customFingerprint = { methodDef, _ ->
-        methodDef.isWideLiteralExists(
-            NamesInactiveAccountThumbnailSize
-        )
-    }
+    literalSupplier = { NamesInactiveAccountThumbnailSize }
 )

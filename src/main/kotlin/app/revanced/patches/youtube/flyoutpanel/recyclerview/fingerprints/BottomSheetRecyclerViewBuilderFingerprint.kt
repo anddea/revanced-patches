@@ -1,8 +1,7 @@
 package app.revanced.patches.youtube.flyoutpanel.recyclerview.fingerprints
 
-import app.revanced.patcher.fingerprint.MethodFingerprint
-import app.revanced.util.bytecode.isWide32LiteralExists
+import app.revanced.util.fingerprint.LiteralValueFingerprint
 
-object BottomSheetRecyclerViewBuilderFingerprint : MethodFingerprint(
-    customFingerprint = { methodDef, _ -> methodDef.isWide32LiteralExists(45382015) }
+object BottomSheetRecyclerViewBuilderFingerprint : LiteralValueFingerprint(
+    literalSupplier = { 45382015 }
 )

@@ -1,11 +1,11 @@
 package app.revanced.patches.shared.patch.versionspoof
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patches.shared.fingerprints.versionspoof.ClientInfoFingerprint
 import app.revanced.patches.shared.fingerprints.versionspoof.ClientInfoParentFingerprint
+import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.dexbacked.reference.DexBackedFieldReference
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction

@@ -6,9 +6,9 @@ import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.booleanPatchOption
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
-import app.revanced.util.resources.ResourceUtils
-import app.revanced.util.resources.ResourceUtils.copyResources
-import app.revanced.util.resources.ResourceUtils.copyXmlNode
+import app.revanced.util.ResourceGroup
+import app.revanced.util.copyResources
+import app.revanced.util.copyXmlNode
 
 @Patch(
     name = "SponsorBlock",
@@ -60,7 +60,7 @@ object SponsorBlockPatch : ResourcePatch() {
          * merge SponsorBlock drawables to main drawables
          */
         arrayOf(
-            ResourceUtils.ResourceGroup(
+            ResourceGroup(
                 "layout",
                 "inline_sponsor_overlay.xml",
                 "skip_sponsor_button.xml"
@@ -71,11 +71,11 @@ object SponsorBlockPatch : ResourcePatch() {
 
         if (OutlineIcon == true) {
             arrayOf(
-                ResourceUtils.ResourceGroup(
+                ResourceGroup(
                     "layout",
                     "new_segment.xml"
                 ),
-                ResourceUtils.ResourceGroup(
+                ResourceGroup(
                     "drawable",
                     "ic_sb_adjust.xml",
                     "ic_sb_backward.xml",
@@ -92,11 +92,11 @@ object SponsorBlockPatch : ResourcePatch() {
             }
         } else {
             arrayOf(
-                ResourceUtils.ResourceGroup(
+                ResourceGroup(
                     "layout",
                     "new_segment.xml"
                 ),
-                ResourceUtils.ResourceGroup(
+                ResourceGroup(
                     "drawable",
                     "ic_sb_adjust.xml",
                     "ic_sb_compare.xml",
@@ -113,44 +113,39 @@ object SponsorBlockPatch : ResourcePatch() {
         /**
          * merge xml nodes from the host to their real xml files
          */
-        // collect all host resources
-        val hostingXmlResources = mapOf("layout" to arrayOf("youtube_controls_layout"))
-
         // copy nodes from host resources to their real xml files
-        hostingXmlResources.forEach { (path, resources) ->
-            resources.forEach { resource ->
-                val hostingResourceStream =
-                    this.javaClass.classLoader.getResourceAsStream("youtube/sponsorblock/shared/host/$path/$resource.xml")!!
+        val hostingResourceStream =
+            this.javaClass.classLoader.getResourceAsStream("youtube/sponsorblock/shared/host/layout/youtube_controls_layout.xml")!!
 
-                val targetXmlEditor = context.xmlEditor["res/$path/$resource.xml"]
-                "RelativeLayout".copyXmlNode(
-                    context.xmlEditor[hostingResourceStream],
-                    targetXmlEditor
-                ).also {
-                    val children = targetXmlEditor.file.getElementsByTagName("RelativeLayout")
-                        .item(0).childNodes
+        val targetXmlEditor = context.xmlEditor["res/layout/youtube_controls_layout.xml"]
 
-                    // Replace the startOf with the voting button view so that the button does not overlap
-                    for (i in 1 until children.length) {
-                        val view = children.item(i)
+        "RelativeLayout".copyXmlNode(
+            context.xmlEditor[hostingResourceStream],
+            targetXmlEditor
+        ).also {
+            val children = targetXmlEditor.file.getElementsByTagName("RelativeLayout")
+                .item(0).childNodes
 
-                        // Replace the attribute for a specific node only
-                        if (!(view.hasAttributes() && view.attributes.getNamedItem("android:id").nodeValue.endsWith(
-                                "player_video_heading"
-                            ))
-                        ) continue
+            // Replace the startOf with the voting button view so that the button does not overlap
+            for (i in 1 until children.length) {
+                val view = children.item(i)
 
-                        // voting button id from the voting button view from the youtube_controls_layout.xml host file
-                        val votingButtonId = "@+id/sb_voting_button"
+                // Replace the attribute for a specific node only
+                if (!(view.hasAttributes() && view.attributes.getNamedItem("android:id").nodeValue.endsWith(
+                        "player_video_heading"
+                    ))
+                ) continue
 
-                        view.attributes.getNamedItem("android:layout_toStartOf").nodeValue =
-                            votingButtonId
+                // voting button id from the voting button view from the youtube_controls_layout.xml host file
+                val votingButtonId = "@+id/sb_voting_button"
 
-                        break
-                    }
-                }.close() // close afterwards
+                view.attributes.getNamedItem("android:layout_toStartOf").nodeValue =
+                    votingButtonId
+
+                break
             }
-        }
+        }.close() // close afterwards
+
 
         /**
          * Add ReVanced Extended Settings
