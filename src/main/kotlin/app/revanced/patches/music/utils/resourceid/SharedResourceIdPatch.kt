@@ -17,6 +17,7 @@ import app.revanced.patches.shared.patch.mapping.ResourceType.STYLE
 object SharedResourceIdPatch : ResourcePatch() {
     var AccountSwitcherAccessibility: Long = -1
     var ActionsContainer: Long = -1
+    var ButtonContainer: Long = -1
     var ButtonIconPaddingMedium: Long = -1
     var ChipCloud: Long = -1
     var ColorGrey: Long = -1
@@ -46,6 +47,7 @@ object SharedResourceIdPatch : ResourcePatch() {
 
         AccountSwitcherAccessibility = find(STRING, "account_switcher_accessibility_label")
         ActionsContainer = find(ID, "actions_container")
+        ButtonContainer = find(ID, "button_container")
         ButtonIconPaddingMedium = find(DIMEN, "button_icon_padding_medium")
         ChipCloud = find(LAYOUT, "chip_cloud")
         ColorGrey = find(COLOR, "ytm_color_grey_12")

@@ -13,6 +13,7 @@ import app.revanced.patches.music.utils.integrations.Constants.ADS_PATH
 import app.revanced.patches.music.utils.integrations.Constants.COMPONENTS_PATH
 import app.revanced.patches.music.utils.litho.LithoFilterPatch
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch
+import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.ButtonContainer
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.FloatingLayout
 import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.SettingsPatch
@@ -62,17 +63,13 @@ object GeneralAdsPatch : BytecodePatch(
          */
         NotifierShelfFingerprint.result?.let {
             it.mutableMethod.apply {
-                val linearLayoutIndex = it.scanResult.patternScanResult!!.startIndex
+                val linearLayoutIndex = getWideLiteralInstructionIndex(ButtonContainer) + 3
                 val linearLayoutRegister =
-                    getInstruction<FiveRegisterInstruction>(linearLayoutIndex).registerC
-
-                val textViewIndex = linearLayoutIndex + 2
-                val textViewRegister =
-                    getInstruction<OneRegisterInstruction>(textViewIndex).registerA
+                    getInstruction<OneRegisterInstruction>(linearLayoutIndex).registerA
 
                 addInstruction(
-                    textViewIndex,
-                    "invoke-static {v$linearLayoutRegister, v$textViewRegister}, $ADS_PATH/PremiumRenewalPatch;->hidePremiumRenewal(Landroid/widget/LinearLayout;Landroid/view/View;)V"
+                    linearLayoutIndex + 1,
+                    "invoke-static {v$linearLayoutRegister}, $ADS_PATH/PremiumRenewalPatch;->hidePremiumRenewal(Landroid/widget/LinearLayout;)V"
                 )
             }
         } ?: throw NotifierShelfFingerprint.exception
