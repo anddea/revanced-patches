@@ -34,15 +34,14 @@ import app.revanced.util.copyResources
                 "18.42.41",
                 "18.43.45",
                 "18.44.41",
-                "18.45.43",
-                "18.46.43"
+                "18.45.43"
             ]
         )
     ],
     use = false
 )
 @Suppress("unused")
-object ShortsOutlineButton : ResourcePatch() {
+object ShortsOutlineButtonPatch : ResourcePatch() {
     override fun execute(context: ResourceContext) {
 
         arrayOf(
