@@ -80,7 +80,7 @@ object SpoofPlayerParameterPatch : BytecodePatch(
          * Hook player parameter
          */
         PlayerResponsePatch += PlayerResponsePatch.Hook.PlayerParameter(
-            "$INTEGRATIONS_CLASS_DESCRIPTOR->spoofParameter(Ljava/lang/String;Z)Ljava/lang/String;"
+            "$INTEGRATIONS_CLASS_DESCRIPTOR->spoofParameter(Ljava/lang/String;Ljava/lang/String;Z)Ljava/lang/String;"
         )
 
         /**
