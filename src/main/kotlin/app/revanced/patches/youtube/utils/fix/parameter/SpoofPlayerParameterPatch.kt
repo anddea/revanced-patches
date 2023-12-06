@@ -182,7 +182,6 @@ object SpoofPlayerParameterPatch : BytecodePatch(
                         """
                 )
             }
-
         } ?: throw PlayerResponseModelImplRecommendedLevel.exception
 
         /**
