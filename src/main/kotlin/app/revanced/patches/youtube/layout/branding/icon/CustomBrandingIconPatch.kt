@@ -106,7 +106,8 @@ object CustomBrandingIconPatch : ResourcePatch() {
 
     override fun execute(context: ResourceContext) {
         AppIcon?.let { appIcon ->
-            if (!availableIcon.containsKey(appIcon)) {
+            val appIconValue = appIcon.lowercase().replace(" ","_")
+            if (!availableIcon.containsValue(appIconValue)) {
                 mipmapDirectories.map { directory ->
                     ResourceGroup(
                         directory, *mipmapIconResourceFileNames
@@ -129,7 +130,6 @@ object CustomBrandingIconPatch : ResourcePatch() {
                     context.updatePatchStatusIcon("custom")
                 }
             } else {
-                val appIconValue = availableIcon[appIcon] + ""
                 val resourcePath = "youtube/branding/$appIconValue"
 
                 // change launcher icon.
