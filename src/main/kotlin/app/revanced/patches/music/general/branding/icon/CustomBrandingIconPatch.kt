@@ -68,19 +68,23 @@ object CustomBrandingIconPatch : ResourcePatch() {
                         directory, *mipmapIconResourceFileNames
                     )
                 }.let { resourceGroups ->
-                    val path = File(appIcon)
-                    val resourceDirectory = context["res"]
+                    try {
+                        val path = File(appIcon)
+                        val resourceDirectory = context["res"]
 
-                    resourceGroups.forEach { group ->
-                        val fromDirectory = path.resolve(group.resourceDirectoryName)
-                        val toDirectory = resourceDirectory.resolve(group.resourceDirectoryName)
+                        resourceGroups.forEach { group ->
+                            val fromDirectory = path.resolve(group.resourceDirectoryName)
+                            val toDirectory = resourceDirectory.resolve(group.resourceDirectoryName)
 
-                        group.resources.forEach { iconFileName ->
-                            Files.write(
-                                toDirectory.resolve(iconFileName).toPath(),
-                                fromDirectory.resolve(iconFileName).readBytes()
-                            )
+                            group.resources.forEach { iconFileName ->
+                                Files.write(
+                                    toDirectory.resolve(iconFileName).toPath(),
+                                    fromDirectory.resolve(iconFileName).readBytes()
+                                )
+                            }
                         }
+                    } catch (_: Exception) {
+                        throw PatchException("Invalid app icon path: $appIcon")
                     }
                 }
             } else {
