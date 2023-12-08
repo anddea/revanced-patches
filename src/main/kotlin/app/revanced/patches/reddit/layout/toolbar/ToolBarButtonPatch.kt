@@ -1,4 +1,4 @@
-package app.revanced.patches.reddit.layout.place
+package app.revanced.patches.reddit.layout.toolbar
 
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
@@ -6,7 +6,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.reddit.layout.place.fingerprints.HomePagerScreenFingerprint
+import app.revanced.patches.reddit.layout.toolbar.fingerprints.HomePagerScreenFingerprint
 import app.revanced.patches.reddit.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.reddit.utils.resourceid.SharedResourceIdPatch.ToolBarNavSearchCtaContainer
 import app.revanced.patches.reddit.utils.settings.SettingsBytecodePatch.updateSettingsStatus
@@ -16,8 +16,8 @@ import app.revanced.util.getWideLiteralInstructionIndex
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
-    name = "Hide place button",
-    description = "Hide r/place button in toolbar.",
+    name = "Hide toolbar button",
+    description = "Hides 'r/place' button or 'reddit recap' button in the toolbar.",
     dependencies =
     [
         SettingsPatch::class,
@@ -26,12 +26,12 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
     compatiblePackages = [CompatiblePackage("com.reddit.frontpage")]
 )
 @Suppress("unused")
-object PlaceButtonPatch : BytecodePatch(
+object ToolBarButtonPatch : BytecodePatch(
     setOf(HomePagerScreenFingerprint)
 ) {
     private const val INTEGRATIONS_METHOD_DESCRIPTOR =
-        "Lapp/revanced/reddit/patches/PlaceButtonPatch;" +
-                "->hidePlaceButton(Landroid/view/View;)V"
+        "Lapp/revanced/reddit/patches/ToolBarButtonPatch;" +
+                "->hideToolBarButton(Landroid/view/View;)V"
 
     override fun execute(context: BytecodeContext) {
 
@@ -49,7 +49,7 @@ object PlaceButtonPatch : BytecodePatch(
             }
         } ?: throw HomePagerScreenFingerprint.exception
 
-        updateSettingsStatus("PlaceButton")
+        updateSettingsStatus("ToolBarButton")
 
     }
 }

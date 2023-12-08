@@ -1,4 +1,4 @@
-package app.revanced.patches.reddit.layout.place.fingerprints
+package app.revanced.patches.reddit.layout.toolbar.fingerprints
 
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.MethodFingerprint
