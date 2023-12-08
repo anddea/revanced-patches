@@ -5,7 +5,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.music.utils.fingerprints.NewPlayerLayoutFingerprint
 import app.revanced.patches.music.utils.integrations.Constants.INTEGRATIONS_PATH
 import app.revanced.patches.music.utils.integrations.IntegrationsPatch
 import app.revanced.patches.music.utils.mainactivity.MainActivityResolvePatch
@@ -25,7 +24,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 )
 object SettingsBytecodePatch : BytecodePatch(
     setOf(
-        NewPlayerLayoutFingerprint,
         PreferenceFingerprint,
         SettingsHeadersFragmentFingerprint
     )
@@ -36,21 +34,6 @@ object SettingsBytecodePatch : BytecodePatch(
         "$INTEGRATIONS_PATH/settingsmenu/ReVancedSettingsFragment;"
 
     override fun execute(context: BytecodeContext) {
-
-        /**
-         * Add instructions to prevent the new player layout from being loaded when you first install the app.
-         */
-        NewPlayerLayoutFingerprint.result?.let {
-            it.mutableMethod.apply {
-                val insertIndex = implementation!!.instructions.size - 1
-                val targetRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
-
-                addInstruction(
-                    insertIndex,
-                    "const/4 v$targetRegister, 0x1"
-                )
-            }
-        } ?: throw NewPlayerLayoutFingerprint.exception
 
         /**
          * Inject settings Activity.
