@@ -141,7 +141,7 @@ ReVanced Extended Patches.
 | `Enable landscape mode` | Enables entry into landscape mode by screen rotation on the phone. | 6.21.52+ |
 | `Enable minimized playback` | Enables minimized playback on Kids music. | 6.21.52+ |
 | `Enable new player background` | Enable new player background. | 6.21.52+ |
-| `Enable old player layout` | Return the player layout to old style. | 6.21.52+ |
+| `Enable old player layout` | Return the player layout to old style. Deprecated on YT Music 6.31.55+ | 6.21.52+ |
 | `Enable old style library shelf` | Return the library shelf to old style. | 6.21.52+ |
 | `Enable old style miniplayer` | Return the miniplayers to old style. | 6.21.52+ |
 | `Enable opus codec` | Enable opus codec when playing audio. | 6.21.52+ |
@@ -195,8 +195,8 @@ ReVanced Extended Patches.
 | `Disable screenshot popup` | Disables the popup that shows up when taking a screenshot. | all |
 | `Hide ads` | Hides ads from the Reddit. | all |
 | `Hide navigation buttons` | Hide buttons at navigation bar. | all |
-| `Hide place button` | Hide r/place button in toolbar. | all |
 | `Hide recently visited shelf` | Hides recently visited shelf in sidebar. | all |
+| `Hide toolbar button` | Hides 'r/place' button or 'reddit recap' button in the toolbar. | all |
 | `Open links directly` | Skips over redirection URLs to external links. | all |
 | `Open links externally` | Open links outside of the app directly in your browser. | all |
 | `Premium icon` | Unlocks premium icons. | all |
