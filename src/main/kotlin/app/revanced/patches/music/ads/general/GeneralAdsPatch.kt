@@ -7,6 +7,7 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.music.ads.general.fingerprints.FloatingLayoutFingerprint
+import app.revanced.patches.music.ads.general.fingerprints.InterstitialsContainerFingerprint
 import app.revanced.patches.music.ads.general.fingerprints.NotifierShelfFingerprint
 import app.revanced.patches.music.ads.music.MusicAdsPatch
 import app.revanced.patches.music.utils.integrations.Constants.ADS_PATH
@@ -15,11 +16,11 @@ import app.revanced.patches.music.utils.litho.LithoFilterPatch
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.ButtonContainer
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.FloatingLayout
+import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.InterstitialsContainer
 import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.SettingsPatch
 import app.revanced.util.exception
 import app.revanced.util.getWideLiteralInstructionIndex
-import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
@@ -37,11 +38,27 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 object GeneralAdsPatch : BytecodePatch(
     setOf(
         FloatingLayoutFingerprint,
+        InterstitialsContainerFingerprint,
         NotifierShelfFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext) {
         LithoFilterPatch.addFilter(FILTER_CLASS_DESCRIPTOR)
+
+        /**
+         * Hides interstitials banner (non-litho)
+         */
+        InterstitialsContainerFingerprint.result?.let {
+            it.mutableMethod.apply {
+                val targetIndex = getWideLiteralInstructionIndex(InterstitialsContainer) + 2
+                val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
+
+                addInstruction(
+                    targetIndex + 1,
+                    "invoke-static {v$targetRegister}, $ADS_PATH/InterstitialsBannerPatch;->hideInterstitialsBanner(Landroid/view/View;)V"
+                )
+            }
+        } ?: throw InterstitialsContainerFingerprint.exception
 
         /**
          * Hides premium promotion popup
