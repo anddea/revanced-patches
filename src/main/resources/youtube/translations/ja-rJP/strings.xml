@@ -40,6 +40,11 @@
     <string name="revanced_change_homepage_title">起動時のタブを登録チャンネルに変更</string>
     <string name="revanced_channel_bar_title">チャンネルバー</string>
     <string name="revanced_channel_profile_title">チャンネルプロフィール</string>
+    <string name="revanced_close_interstitial_ads_summary">"全画面広告を自動的に閉じます。
+
+注: これはテストされていない機能です。"</string>
+    <string name="revanced_close_interstitial_ads_title">全画面広告を閉じる</string>
+    <string name="revanced_close_interstitial_ads_toast">全画面広告を閉じています。</string>
     <string name="revanced_comments_title">コメント</string>
     <string name="revanced_custom_filter_strings_summary">コンポーネント名でフィルター (改行区切り)</string>
     <string name="revanced_custom_filter_strings_title">カスタムフィルターの編集</string>
@@ -161,6 +166,9 @@
     <string name="revanced_enable_swipe_haptic_feedback_summary_off">触覚フィードバックは無効です。</string>
     <string name="revanced_enable_swipe_haptic_feedback_summary_on">触覚フィードバックは有効です。</string>
     <string name="revanced_enable_swipe_haptic_feedback_title">触覚フィードバックを有効化</string>
+    <string name="revanced_enable_swipe_press_to_engage_summary_off">タップしてスワイプジェスチャーを有効化します。</string>
+    <string name="revanced_enable_swipe_press_to_engage_summary_on">長押ししてスワイプジェスチャーを有効化します。</string>
+    <string name="revanced_enable_swipe_press_to_engage_title">長押し時のみのジェスチャー</string>
     <string name="revanced_enable_swipe_volume_summary_off">音量のスワイプコントロールは無効です。</string>
     <string name="revanced_enable_swipe_volume_summary_on">音量のスワイプコントロールは有効です。</string>
     <string name="revanced_enable_swipe_volume_title">音量のジェスチャー</string>
@@ -766,6 +774,9 @@
 • 動画が最後に視聴した時間から開始されない場合があります。"</string>
     <string name="revanced_spoof_player_parameter_title">プレーヤーのパラメーターの偽装</string>
     <string name="revanced_swipe_controls">スワイプコントロール</string>
+    <string name="revanced_swipe_gestures_lock_mode_summary_off">"スワイプジェスチャーは「画面のロック」モードでは無効になっています。"</string>
+    <string name="revanced_swipe_gestures_lock_mode_summary_on">"スワイプジェスチャーは「画面のロック」モードで有効になっています。"</string>
+    <string name="revanced_swipe_gestures_lock_mode_title">"「画面のロック」時のスワイプジェスチャー"</string>
     <string name="revanced_swipe_magnitude_threshold_summary">スワイプとして検出する量のしきい値です。</string>
     <string name="revanced_swipe_magnitude_threshold_title">スワイプのしきい値</string>
     <string name="revanced_swipe_overlay_background_alpha_summary">スワイプオーバーレイの背景の透明度です。</string>
@@ -833,7 +844,7 @@
     <string name="sb_api_url_changed">API の URL を変更しました</string>
     <string name="sb_settings_copy">コピー</string>
     <string name="sb_settings_ie_sum">SponsorBlock 設定の JSON は、ReVanced Extended やその他の SponsorBlock プラットフォームにインポート/エクスポートできます。%s</string>
-    <string name="sb_settings_ie_sum_warning">これにはプライベートユーザー ID が含まれています。賢く共有してください。</string>
+    <string name="sb_settings_ie_sum_warning">これにはプライベートユーザー ID が含まれています。共有する際は、注意してください。</string>
     <string name="sb_settings_ie">設定のインポート/エクスポート</string>
     <string name="sb_settings_import_successful">設定は正常にインポートされました</string>
     <string name="sb_settings_import_failed">インポート失敗: %s</string>
