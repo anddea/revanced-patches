@@ -56,7 +56,7 @@ AVERTISSEMENT : N'activez pas le nouvel arrière-plan du lecteur si cette option
     <string name="revanced_enable_old_player_layout_title">Activer l\'ancienne interface du lecteur</string>
     <string name="revanced_enable_old_style_library_shelf_summary">Revenir à l\'ancienne interface de la bibliothèque. (Expérimental)</string>
     <string name="revanced_enable_old_style_library_shelf_title">Activer l\'ancienne interface de la bibliothèque</string>
-    <string name="revanced_enable_old_style_mini_player_summary">Restaure l\'ancien style du lecteur réduit.</string>
+    <string name="revanced_enable_old_style_mini_player_summary">Restaure l\'ancien mini-lecteur.</string>
     <string name="revanced_enable_old_style_mini_player_title">Activer l\'ancien style du lecteur réduit</string>
     <string name="revanced_enable_opus_codec_summary">Active le codec audio Opus au lieu du codec audio MP4A.</string>
     <string name="revanced_enable_opus_codec_title">Activer le codec Opus</string>
@@ -64,8 +64,8 @@ AVERTISSEMENT : N'activez pas le nouvel arrière-plan du lecteur si cette option
     <string name="revanced_enable_save_playback_speed_title">Activer l\'enregistrement de la vitesse de lecture</string>
     <string name="revanced_enable_save_video_quality_summary">Enregistre la qualité vidéo à chaque fois que vous la modifiez.</string>
     <string name="revanced_enable_save_video_quality_title">Activer l\'enregistrement de la qualité vidéo</string>
-    <string name="revanced_enable_sleep_timer_summary">Ajoute un minuteur de veille dans le menu déroulant.</string>
-    <string name="revanced_enable_sleep_timer_title">Activer le minuteur de veille</string>
+    <string name="revanced_enable_sleep_timer_summary">Ajoute un bouton \"Délai de mise en veille\"</string>
+    <string name="revanced_enable_sleep_timer_title">Bouton \"Délai de mise en veille\"</string>
     <string name="revanced_enable_zen_mode_summary">Ajoute une teinte grise au lecteur vidéo pour réduire la fatigue oculaire.</string>
     <string name="revanced_enable_zen_mode_title">Activer le mode zen</string>
     <string name="revanced_extended_settings_export_as_file">Exporter les paramètres vers un fichier</string>
@@ -79,13 +79,13 @@ AVERTISSEMENT : N'activez pas le nouvel arrière-plan du lecteur si cette option
     <string name="revanced_extended_settings_import_export_title">Importer / Exporter</string>
     <string name="revanced_extended_settings_import_failed">Importation échouée : %s.</string>
     <string name="revanced_extended_settings_import_reset">Les paramètres ont étés réinitialisés.</string>
-    <string name="revanced_extended_settings_import_success">Paramètres %d importés.</string>
+    <string name="revanced_extended_settings_import_success"> %d Paramètres importés </string>
     <string name="revanced_external_downloader_not_installed_warning" formatted="false">%s n\'est pas installé. Veuillez l’installer.</string>
     <string name="revanced_external_downloader_package_name_summary">Nom de package du téléchargeur externe installé, telle que NewPipe ou YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_title">Nom du paquet du téléchargeur externe</string>
     <string name="revanced_flyout_panel_watch_on_youtube">Regarder sur YouTube</string>
     <string name="revanced_hide_account_menu_empty_component_summary">Masque les catégories vides dans le menu du compte.</string>
-    <string name="revanced_hide_account_menu_empty_component_title">Masquer les catégories vide</string>
+    <string name="revanced_hide_account_menu_empty_component_title">Masquer les catégories vides</string>
     <string name="revanced_hide_account_menu_summary">Masque les éléments du menu du compte.</string>
     <string name="revanced_hide_account_menu_title">Masquer les menus du compte</string>
     <string name="revanced_hide_action_bar_label_summary">Masquer le nom dans la barre d\'action.</string>
@@ -162,7 +162,7 @@ AVERTISSEMENT : N'activez pas le nouvel arrière-plan du lecteur si cette option
     <string name="revanced_playlist_dismiss">Source musicale officielle déjà en cours de lecture.</string>
     <string name="revanced_playlist_error">Source musicale officielle non disponible.</string>
     <string name="revanced_restart_first_run">Redémarrez pour charger la mise en page normalement</string>
-    <string name="revanced_restart_message">Appliquer et redémarrer</string>
+    <string name="revanced_restart_message">Redémarrer pour appliquer ces changements ?</string>
     <string name="revanced_replace_flyout_panel_dismiss_queue_continue_watch_summary">Regardez sur YouTube, continuez la lecture ici.</string>
     <string name="revanced_replace_flyout_panel_dismiss_queue_continue_watch_title">Continuer à regarder</string>
     <string name="revanced_replace_flyout_panel_dismiss_queue_summary">Remplace le bouton \"Supprimer la file d\'attente\" par le bouton \"Regarder sur YouTube\".</string>
