@@ -1,19 +1,28 @@
-package app.revanced.patches.youtube.general.descriptions
+package app.revanced.patches.youtube.general.channelprofile
 
 import app.revanced.patcher.data.BytecodeContext
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patches.youtube.general.channelprofile.fingerprints.DefaultsTabsBarFingerprint
 import app.revanced.patches.youtube.utils.integrations.Constants.COMPONENTS_PATH
 import app.revanced.patches.youtube.utils.litho.LithoFilterPatch
+import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
+import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.TabsBarTextTabView
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
+import app.revanced.util.exception
+import app.revanced.util.getWideLiteralInstructionIndex
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Hide channel profile components",
     description = "Hides channel profile components.",
     dependencies = [
         LithoFilterPatch::class,
-        SettingsPatch::class
+        SettingsPatch::class,
+        SharedResourceIdPatch::class
     ],
     compatiblePackages = [
         CompatiblePackage(
@@ -43,9 +52,27 @@ import app.revanced.patches.youtube.utils.settings.SettingsPatch
     ]
 )
 @Suppress("unused")
-object ChannelProfileComponentsPatch : BytecodePatch(emptySet()) {
+object ChannelProfileComponentsPatch : BytecodePatch(
+    setOf(DefaultsTabsBarFingerprint)
+) {
+    private const val FILTER_CLASS_DESCRIPTOR =
+        "$COMPONENTS_PATH/ChannelProfileFilter;"
+
     override fun execute(context: BytecodeContext) {
-        LithoFilterPatch.addFilter("$COMPONENTS_PATH/ChannelProfileFilter;")
+
+        DefaultsTabsBarFingerprint.result?.let {
+            it.mutableMethod.apply {
+                val viewIndex = getWideLiteralInstructionIndex(TabsBarTextTabView) + 2
+                val viewRegister = getInstruction<OneRegisterInstruction>(viewIndex).registerA
+
+                addInstruction(
+                    viewIndex + 1,
+                    "sput-object v$viewRegister, $FILTER_CLASS_DESCRIPTOR->channelTabView:Landroid/view/View;"
+                )
+            }
+        } ?: throw DefaultsTabsBarFingerprint.exception
+
+        LithoFilterPatch.addFilter(FILTER_CLASS_DESCRIPTOR)
 
         /**
          * Add settings

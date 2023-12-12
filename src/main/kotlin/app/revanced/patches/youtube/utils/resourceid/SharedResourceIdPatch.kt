@@ -77,6 +77,7 @@ object SharedResourceIdPatch : ResourcePatch() {
     var SettingsBooleanTimeRangeDialog: Long = -1
     var SubtitleMenuSettingsFooterInfo: Long = -1
     var SuggestedAction: Long = -1
+    var TabsBarTextTabView: Long = -1
     var ToolBarPaddingHome: Long = -1
     var ToolTipContentView: Long = -1
     var TotalTime: Long = -1
@@ -159,6 +160,7 @@ object SharedResourceIdPatch : ResourcePatch() {
         SettingsBooleanTimeRangeDialog = find(LAYOUT, "setting_boolean_time_range_dialog")
         SubtitleMenuSettingsFooterInfo = find(STRING, "subtitle_menu_settings_footer_info")
         SuggestedAction = find(LAYOUT, "suggested_action")
+        TabsBarTextTabView = find(ID, "tabs_bar_text_tab_view")
         ToolBarPaddingHome = find(DIMEN, "toolbar_padding_home_action_up")
         ToolTipContentView = find(LAYOUT, "tooltip_content_view")
         TotalTime = find(STRING, "total_time")
