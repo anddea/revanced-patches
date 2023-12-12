@@ -44,6 +44,7 @@ object SharedResourceIdPatch : ResourcePatch() {
     var Fab: Long = -1
     var FilterBarHeight: Long = -1
     var FloatyBarTopMargin: Long = -1
+    var FullScreenEngagementOverlay: Long = -1
     var FullScreenEngagementPanel: Long = -1
     var HorizontalCardList: Long = -1
     var ImageOnlyTab: Long = -1
@@ -124,6 +125,7 @@ object SharedResourceIdPatch : ResourcePatch() {
         Fab = find(ID, "fab")
         FilterBarHeight = find(DIMEN, "filter_bar_height")
         FloatyBarTopMargin = find(DIMEN, "floaty_bar_button_top_margin")
+        FullScreenEngagementOverlay = find(LAYOUT, "fullscreen_engagement_overlay")
         FullScreenEngagementPanel = find(ID, "fullscreen_engagement_panel_holder")
         HorizontalCardList = find(LAYOUT, "horizontal_card_list")
         ImageOnlyTab = find(LAYOUT, "image_only_tab")
