@@ -184,8 +184,8 @@
         <!-- SETTINGS: ENABLE_GRADIENT_LOADING_SCREEN
         <SwitchPreference android:title="@string/revanced_enable_gradient_loading_screen_title" android:key="revanced_enable_gradient_loading_screen" android:defaultValue="false" android:summaryOn="@string/revanced_enable_gradient_loading_screen_summary_on" android:summaryOff="@string/revanced_enable_gradient_loading_screen_summary_off" />SETTINGS: ENABLE_GRADIENT_LOADING_SCREEN -->
 
-        <!-- SETTINGS: ENABLE_MUSIC_SEARCH
-        <SwitchPreference android:title="@string/revanced_enable_music_search_title" android:key="revanced_enable_music_search" android:defaultValue="true" android:summaryOn="@string/revanced_enable_music_search_summary_on" android:summaryOff="@string/revanced_enable_music_search_summary_off" />SETTINGS: ENABLE_MUSIC_SEARCH -->
+        <!-- SETTINGS: ENABLE_SONG_SEARCH
+        <SwitchPreference android:title="@string/revanced_enable_song_search_title" android:key="revanced_enable_song_search" android:defaultValue="true" android:summaryOn="@string/revanced_enable_song_search_summary_on" android:summaryOff="@string/revanced_enable_song_search_summary_off" />SETTINGS: ENABLE_SONG_SEARCH -->
 
         <!-- SETTINGS: ENABLE_TABLET_MINI_PLAYER
         <SwitchPreference android:title="@string/revanced_enable_tablet_mini_player_title" android:key="revanced_enable_tablet_mini_player" android:defaultValue="false" android:summaryOn="@string/revanced_enable_tablet_mini_player_summary_on" android:summaryOff="@string/revanced_enable_tablet_mini_player_summary_off" />SETTINGS: ENABLE_TABLET_MINI_PLAYER -->
@@ -401,7 +401,7 @@
             <Preference android:title="Change start page" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Disable auto captions" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Enable gradient loading screen" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
-            <Preference android:title="Enable music search" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="Enable song search" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Enable tablet mini player" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Enable wide search bar" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Hide account menu" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
