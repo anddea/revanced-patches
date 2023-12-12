@@ -22,7 +22,6 @@ object SharedResourceIdPatch : ResourcePatch() {
     var AppRelatedEndScreenResults: Long = -1
     var AutoNavPreviewStub: Long = -1
     var AutoNavToggle: Long = -1
-    var AvatarImageWithTextTab: Long = -1
     var BackgroundCategory: Long = -1
     var Bar: Long = -1
     var BarContainerHeight: Long = -1
@@ -103,7 +102,6 @@ object SharedResourceIdPatch : ResourcePatch() {
         AppRelatedEndScreenResults = find(LAYOUT, "app_related_endscreen_results")
         AutoNavPreviewStub = find(ID, "autonav_preview_stub")
         AutoNavToggle = find(ID, "autonav_toggle")
-        AvatarImageWithTextTab = find(LAYOUT, "avatar_image_with_text_tab")
         BackgroundCategory = find(STRING, "pref_background_and_offline_category")
         Bar = find(LAYOUT, "bar")
         BarContainerHeight = find(DIMEN, "bar_container_height")
