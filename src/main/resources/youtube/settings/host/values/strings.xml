@@ -8,21 +8,42 @@
 
     <string name="revanced_ads">Ads</string>
     <string name="revanced_alt_thumbnails">Alternative thumbnails</string>
-    <string name="revanced_alt_thumbnail_about_summary">A feature that replaced default video thumbnails with Alternative ones to reduce sensationalism.</string>
-    <string name="revanced_alt_thumbnail_about_title">About</string>
-    <string name="revanced_alt_thumbnail_dearrow_summary_off">Thumbnails is generated without external API.</string>
-    <string name="revanced_alt_thumbnail_dearrow_summary_on">Thumbnails is generated using DeArrow API.</string>
-    <string name="revanced_alt_thumbnail_dearrow_title">Using DeArrow API</string>
-    <string name="revanced_alt_thumbnail_enabled_summary_off">Original YouTube thumbnails shown.</string>
-    <string name="revanced_alt_thumbnail_enabled_summary_on">YouTube thumbnails replaced with Alternative ones.</string>
-    <string name="revanced_alt_thumbnail_enabled_title">Enable alternative thumbnails</string>
-    <string name="revanced_alt_thumbnail_skip_checking_summary_off">Thumbnails will be checked if exist or not before replacing.</string>
-    <string name="revanced_alt_thumbnail_skip_checking_summary_on">Thumbnails will load faster, but some video will show blank thumbnails.</string>
-    <string name="revanced_alt_thumbnail_skip_checking_title">Skip checking for thumbnails</string>
-    <string name="revanced_alt_thumbnail_type_entry_1">Beginning of video</string>
-    <string name="revanced_alt_thumbnail_type_entry_2">Middle of video</string>
-    <string name="revanced_alt_thumbnail_type_entry_3">End of video</string>
-    <string name="revanced_alt_thumbnail_type_title">Video time to take the still from</string>
+    <string name="revanced_alt_thumbnail_about_status_dearrow">"Showing DeArrow thumbnails.
+If a video has no DeArrow thumbnails then the original YouTube thumbnails are shown."</string>
+    <string name="revanced_alt_thumbnail_about_status_dearrow_stills">"Showing DeArrow thumbnails.
+If a video has no DeArrow thumbnails then still video captures are shown."</string>
+    <string name="revanced_alt_thumbnail_about_status_disabled">Showing original YouTube thumbnails.</string>
+    <string name="revanced_alt_thumbnail_about_status_stills">Showing still video captures.</string>
+    <string name="revanced_alt_thumbnail_about_title">Thumbnails in use</string>
+    <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow provides crowd sourced thumbnails for YouTube videos. These thumbnails are often more relevant than those provided by YouTube. If enabled, video URLs will be sent to the API server and no other data is sent.
+
+Tap here to learn more about DeArrow."</string>
+    <string name="revanced_alt_thumbnail_dearrow_about_title">About DeArrow</string>
+    <string name="revanced_alt_thumbnail_dearrow_api_url_summary">"The URL of the DeArrow thumbnail cache endpoint. Do not change this unless you know what you're doing."</string>
+    <string name="revanced_alt_thumbnail_dearrow_api_url_title">DeArrow API endpoint</string>
+    <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Toast not shown if DeArrow is not available.</string>
+    <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">Toast shown if DeArrow is not available.</string>
+    <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">Show toast if API is not available</string>
+    <string name="revanced_alt_thumbnail_dearrow_error">DeArrow temporarily not available. (status code: %s)</string>
+    <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow temporarily not available.</string>
+    <string name="revanced_alt_thumbnail_dearrow_summary_off">Not using DeArrow.</string>
+    <string name="revanced_alt_thumbnail_dearrow_summary_on">Using DeArrow.</string>
+    <string name="revanced_alt_thumbnail_dearrow_title">Enable DeArrow</string>
+    <string name="revanced_alt_thumbnail_preference_screen_summary">Video thumbnail settings.</string>
+    <string name="revanced_alt_thumbnail_preference_screen_title">Alternative thumbnails</string>
+    <string name="revanced_alt_thumbnail_stills">Still video captures</string>
+    <string name="revanced_alt_thumbnail_stills_about_summary">Still captures are taken from the beginning / middle / end of each video. These images are built into YouTube and no external API is used.</string>
+    <string name="revanced_alt_thumbnail_stills_about_title">About still video captures</string>
+    <string name="revanced_alt_thumbnail_stills_fast_summary_off">Using high quality still captures.</string>
+    <string name="revanced_alt_thumbnail_stills_fast_summary_on">Using medium quality still captures. Thumbnails will load faster, but live streams, unreleased, or very old videos may show blank thumbnails.</string>
+    <string name="revanced_alt_thumbnail_stills_fast_title">Use fast still captures</string>
+    <string name="revanced_alt_thumbnail_stills_summary_off">Not using YouTube video still captures.</string>
+    <string name="revanced_alt_thumbnail_stills_summary_on">Using YouTube video still captures.</string>
+    <string name="revanced_alt_thumbnail_stills_time_entry_1">Beginning of video</string>
+    <string name="revanced_alt_thumbnail_stills_time_entry_2">Middle of video</string>
+    <string name="revanced_alt_thumbnail_stills_time_entry_3">End of video</string>
+    <string name="revanced_alt_thumbnail_stills_time_title">Video time to take the still from</string>
+    <string name="revanced_alt_thumbnail_stills_title">Enable still video captures</string>
     <string name="revanced_append_time_stamp_information_summary_off">Append time stamp information is disabled.</string>
     <string name="revanced_append_time_stamp_information_summary_on">Append time stamp information is enabled.</string>
     <string name="revanced_append_time_stamp_information_title">Append time stamp information</string>
