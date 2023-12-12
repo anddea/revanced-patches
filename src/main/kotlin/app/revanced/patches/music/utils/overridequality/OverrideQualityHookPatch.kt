@@ -9,13 +9,16 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableField.Companion.toMutable
+import app.revanced.patches.music.utils.integrations.Constants.INTEGRATIONS_PATH
 import app.revanced.patches.music.utils.integrations.Constants.VIDEO_PATH
 import app.revanced.patches.music.utils.overridequality.fingerprints.VideoQualityListFingerprint
 import app.revanced.patches.music.utils.overridequality.fingerprints.VideoQualityPatchFingerprint
+import app.revanced.patches.music.utils.overridequality.fingerprints.VideoQualityTextFingerprint
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch
 import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.immutable.ImmutableField
 import com.android.tools.smali.dexlib2.util.MethodUtil
 
@@ -23,7 +26,8 @@ import com.android.tools.smali.dexlib2.util.MethodUtil
 object OverrideQualityHookPatch : BytecodePatch(
     setOf(
         VideoQualityListFingerprint,
-        VideoQualityPatchFingerprint
+        VideoQualityPatchFingerprint,
+        VideoQualityTextFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext) {
@@ -78,10 +82,25 @@ object OverrideQualityHookPatch : BytecodePatch(
                 )
             }
         } ?: throw VideoQualityPatchFingerprint.exception
+
+        VideoQualityTextFingerprint.result?.let {
+            it.mutableMethod.apply {
+                val textIndex = it.scanResult.patternScanResult!!.endIndex
+                val textRegister = getInstruction<TwoRegisterInstruction>(textIndex).registerA
+
+                addInstruction(
+                    textIndex + 1,
+                    "sput-object v$textRegister, $INTEGRATIONS_VIDEO_HELPER_CLASS_DESCRIPTOR->currentQuality:Ljava/lang/String;"
+                )
+            }
+        } ?: throw VideoQualityTextFingerprint.exception
     }
 
     private const val INTEGRATIONS_VIDEO_QUALITY_CLASS_DESCRIPTOR =
         "$VIDEO_PATH/VideoQualityPatch;"
+
+    private const val INTEGRATIONS_VIDEO_HELPER_CLASS_DESCRIPTOR =
+        "$INTEGRATIONS_PATH/utils/VideoHelpers;"
 
     private lateinit var QUALITY_CLASS: String
     private lateinit var QUALITY_METHOD: String
