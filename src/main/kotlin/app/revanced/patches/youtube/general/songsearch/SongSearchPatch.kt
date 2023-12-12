@@ -1,18 +1,18 @@
-package app.revanced.patches.youtube.general.musicsearch
+package app.revanced.patches.youtube.general.songsearch
 
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.youtube.general.musicsearch.fingerprints.VoiceSearchConfigFingerprint
+import app.revanced.patches.youtube.general.songsearch.fingerprints.VoiceSearchConfigFingerprint
 import app.revanced.patches.youtube.utils.integrations.Constants.GENERAL
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.exception
 
 @Patch(
-    name = "Enable music search",
-    description = "Enables music search in the voice search screen.",
+    name = "Enable song search",
+    description = "Enables song search in the voice search screen.",
     dependencies = [SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(
@@ -40,7 +40,7 @@ import app.revanced.util.exception
     use = false
 )
 @Suppress("unused")
-object MusicSearchPatch : BytecodePatch(
+object SongSearchPatch : BytecodePatch(
     setOf(VoiceSearchConfigFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
@@ -49,10 +49,10 @@ object MusicSearchPatch : BytecodePatch(
             it.mutableMethod.apply {
                 addInstructions(
                     0, """
-                        invoke-static { }, $GENERAL->enableMusicSearch()Z
+                        invoke-static { }, $GENERAL->enableSongSearch()Z
                         move-result v0
                         return v0
-                    """
+                        """
                 )
             }
         } ?: throw VoiceSearchConfigFingerprint.exception
@@ -63,10 +63,10 @@ object MusicSearchPatch : BytecodePatch(
         SettingsPatch.addPreference(
             arrayOf(
                 "PREFERENCE: GENERAL_SETTINGS",
-                "SETTINGS: ENABLE_MUSIC_SEARCH"
+                "SETTINGS: ENABLE_SONG_SEARCH"
             )
         )
 
-        SettingsPatch.updatePatchStatus("Enable music search")
+        SettingsPatch.updatePatchStatus("Enable song search")
     }
 }

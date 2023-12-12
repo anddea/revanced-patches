@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.general.musicsearch.fingerprints
+package app.revanced.patches.youtube.general.songsearch.fingerprints
 
 import app.revanced.util.fingerprint.LiteralValueFingerprint
 
