@@ -18,8 +18,8 @@ import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
-    name = "Start page",
-    description = "Set the default start page.",
+    name = "Change start page",
+    description = "Changes the start page of the app.",
     dependencies = [
         IntentHookPatch::class,
         SettingsPatch::class
@@ -27,7 +27,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
     compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")]
 )
 @Suppress("unused")
-object StartPagePatch : BytecodePatch(
+object ChangeStartPagePatch : BytecodePatch(
     setOf(ColdStartUpFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
@@ -39,7 +39,7 @@ object StartPagePatch : BytecodePatch(
 
                 addInstructions(
                     targetIndex + 1, """
-                        invoke-static {v$targetRegister}, $GENERAL->setStartPage(Ljava/lang/String;)Ljava/lang/String;
+                        invoke-static {v$targetRegister}, $GENERAL->changeStartPage(Ljava/lang/String;)Ljava/lang/String;
                         move-result-object v$targetRegister
                         return-object v$targetRegister
                         """
@@ -55,7 +55,7 @@ object StartPagePatch : BytecodePatch(
 
         SettingsPatch.addMusicPreferenceWithIntent(
             CategoryType.GENERAL,
-            "revanced_start_page"
+            "revanced_change_start_page"
         )
 
     }
