@@ -1,6 +1,7 @@
 package app.revanced.patches.youtube.swipe.controls
 
 import app.revanced.patcher.data.BytecodeContext
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
@@ -8,6 +9,7 @@ import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patcher.util.smali.ExternalLabel
+import app.revanced.patches.youtube.swipe.controls.fingerprints.FullScreenEngagementOverlayFingerprint
 import app.revanced.patches.youtube.swipe.controls.fingerprints.HDRBrightnessFingerprint
 import app.revanced.patches.youtube.swipe.controls.fingerprints.SwipeControlsHostActivityFingerprint
 import app.revanced.patches.youtube.utils.integrations.Constants.SWIPE_PATH
@@ -15,14 +17,18 @@ import app.revanced.patches.youtube.utils.lockmodestate.LockModeStateHookPatch
 import app.revanced.patches.youtube.utils.mainactivity.MainActivityResolvePatch
 import app.revanced.patches.youtube.utils.mainactivity.MainActivityResolvePatch.mainActivityMutableClass
 import app.revanced.patches.youtube.utils.playertype.PlayerTypeHookPatch
+import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
+import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.FullScreenEngagementOverlay
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch.contexts
 import app.revanced.util.ResourceGroup
 import app.revanced.util.copyResources
 import app.revanced.util.exception
+import app.revanced.util.getWideLiteralInstructionIndex
 import app.revanced.util.transformMethods
 import app.revanced.util.traverseClassHierarchy
 import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 
 @Patch(
@@ -32,7 +38,8 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
         LockModeStateHookPatch::class,
         MainActivityResolvePatch::class,
         PlayerTypeHookPatch::class,
-        SettingsPatch::class
+        SettingsPatch::class,
+        SharedResourceIdPatch::class
     ],
     compatiblePackages = [
         CompatiblePackage(
@@ -64,10 +71,14 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 @Suppress("unused")
 object SwipeControlsPatch : BytecodePatch(
     setOf(
+        FullScreenEngagementOverlayFingerprint,
         HDRBrightnessFingerprint,
         SwipeControlsHostActivityFingerprint
     )
 ) {
+    private const val INTEGRATIONS_CLASS_DESCRIPTOR =
+        "$SWIPE_PATH/SwipeControlsPatch;"
+
     override fun execute(context: BytecodeContext) {
         val wrapperClass = SwipeControlsHostActivityFingerprint.result?.mutableClass
             ?: throw SwipeControlsHostActivityFingerprint.exception
@@ -94,11 +105,23 @@ object SwipeControlsPatch : BytecodePatch(
             }
         }
 
+        FullScreenEngagementOverlayFingerprint.result?.let {
+            it.mutableMethod.apply {
+                val viewIndex = getWideLiteralInstructionIndex(FullScreenEngagementOverlay) + 3
+                val viewRegister = getInstruction<OneRegisterInstruction>(viewIndex).registerA
+
+                addInstruction(
+                    viewIndex + 1,
+                    "sput-object v$viewRegister, $INTEGRATIONS_CLASS_DESCRIPTOR->engagementOverlay:Landroid/view/View;"
+                )
+            }
+        } ?: throw FullScreenEngagementOverlayFingerprint.exception
+
         HDRBrightnessFingerprint.result?.let {
             it.mutableMethod.apply {
                 addInstructionsWithLabels(
                     0, """
-                        invoke-static {}, $SWIPE_PATH/DisableHDRAutoBrightnessPatch;->disableHDRAutoBrightness()Z
+                        invoke-static {}, $INTEGRATIONS_CLASS_DESCRIPTOR->disableHDRAutoBrightness()Z
                         move-result v0
                         if-eqz v0, :default
                         return-void
