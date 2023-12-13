@@ -9,21 +9,6 @@
     <string name="microg_settings_title">MicroG を開く</string>
     <string name="revanced_ads">広告</string>
     <string name="revanced_alt_thumbnails">代替サムネイル</string>
-    <string name="revanced_alt_thumbnail_about_summary">過度な誇張や煽りによって視聴者の注意を引こうとする動画サムネイルを、動画内から切り取ったサムネイルに置き換える機能です。</string>
-    <string name="revanced_alt_thumbnail_about_title">この機能について</string>
-    <string name="revanced_alt_thumbnail_dearrow_summary_off">サムネイルは、外部 API を使用せずに生成されます。</string>
-    <string name="revanced_alt_thumbnail_dearrow_summary_on">サムネイルは、DeArrow API を使用して生成されます。</string>
-    <string name="revanced_alt_thumbnail_dearrow_title">DeArrow API の使用</string>
-    <string name="revanced_alt_thumbnail_enabled_summary_off">オリジナルの YouTube サムネイルが表示されます。</string>
-    <string name="revanced_alt_thumbnail_enabled_summary_on">YouTube のサムネイルは、代替サムネイルに置き換わります。</string>
-    <string name="revanced_alt_thumbnail_enabled_title">代替サムネイルを有効化</string>
-    <string name="revanced_alt_thumbnail_skip_checking_summary_off">サムネイルを置き換える前に、代替サムネイルが存在するかどうかチェックされます。</string>
-    <string name="revanced_alt_thumbnail_skip_checking_summary_on">サムネイルの読み込みが速くなりますが、一部の動画は空白のサムネイルが表示されます。</string>
-    <string name="revanced_alt_thumbnail_skip_checking_title">サムネイルのチェックをスキップ</string>
-    <string name="revanced_alt_thumbnail_type_entry_1">動画の最初</string>
-    <string name="revanced_alt_thumbnail_type_entry_2">動画の中間</string>
-    <string name="revanced_alt_thumbnail_type_entry_3">動画の最後</string>
-    <string name="revanced_alt_thumbnail_type_title">取得するサムネイルの時間</string>
     <string name="revanced_append_time_stamp_information_summary_off">情報は追加表示されません。</string>
     <string name="revanced_append_time_stamp_information_summary_on">タイムスタンプの横に情報が追加表示されます。</string>
     <string name="revanced_append_time_stamp_information_title">タイムスタンプの追加情報</string>
@@ -35,9 +20,6 @@
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">バッテリーセーバーモードでは、アンビエントモードが無効になります。</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">バッテリーセーバーモードでも、アンビエントモードが有効になります。</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">アンビエントモードの制限をバイパス</string>
-    <string name="revanced_change_homepage_summary_off">起動時のタブ: ホーム</string>
-    <string name="revanced_change_homepage_summary_on">起動時のタブ: 登録チャンネル</string>
-    <string name="revanced_change_homepage_title">起動時のタブを登録チャンネルに変更</string>
     <string name="revanced_channel_bar_title">チャンネルバー</string>
     <string name="revanced_channel_profile_title">チャンネルプロフィール</string>
     <string name="revanced_close_interstitial_ads_summary">"全画面広告を自動的に閉じます。
@@ -129,9 +111,6 @@
     <string name="revanced_enable_language_switch_summary_off">アプリ言語の設定は無効です。</string>
     <string name="revanced_enable_language_switch_summary_on">アプリ言語の設定は有効です。</string>
     <string name="revanced_enable_language_switch_title">言語切り替えを有効化</string>
-    <string name="revanced_enable_music_search_summary_off">曲の検索は無効です。</string>
-    <string name="revanced_enable_music_search_summary_on">曲の検索が有効です。</string>
-    <string name="revanced_enable_music_search_title">曲の検索を有効化</string>
     <string name="revanced_enable_new_splash_animation_summary_off">YouTube 起動時の新しいスプラッシュアニメーションは無効です。</string>
     <string name="revanced_enable_new_splash_animation_summary_on">YouTube 起動時の新しいスプラッシュアニメーションは有効です。</string>
     <string name="revanced_enable_new_splash_animation_title">新しいスプラッシュアニメーション</string>
@@ -616,9 +595,10 @@
     <string name="revanced_hide_suggestions_shelf_summary">"以下の欄を非表示にします:
 • ニュース速報
 • 続きを見る
+• もう一度見る
+• もう一度聴く
 • 他のチャンネルを探す
-• ショッピング
-• もう一度見る"</string>
+• ショッピング"</string>
     <string name="revanced_hide_suggestions_shelf_title">おすすめ欄を非表示</string>
     <string name="revanced_hide_ticket_shelf_summary_off">チケット欄は表示されます。</string>
     <string name="revanced_hide_ticket_shelf_summary_on">チケット欄は非表示です。</string>
@@ -658,9 +638,6 @@
     <string name="revanced_layout_title">レイアウト</string>
     <string name="revanced_misc">その他</string>
     <string name="revanced_navigation">ナビゲーション</string>
-    <string name="revanced_open_library_you_startup_summary_off">アプリ起動時に、ライブラリ(マイページ)タブは開かれません。</string>
-    <string name="revanced_open_library_you_startup_summary_on">アプリ起動時に、ライブラリ(マイページ)タブが開かれます。</string>
-    <string name="revanced_open_library_you_startup_title">起動時にライブラリ(マイページ)を開く</string>
     <string name="revanced_others">その他</string>
     <string name="revanced_overlay_button">オーバーレイボタン</string>
     <string name="revanced_overlay_button_always_repeat_summary">タップしてリピート状態を切り替え</string>
@@ -788,6 +765,7 @@
     <string name="revanced_switching_create_notification_summary">"デバイスの情報を偽装して、作成ボタンと通知ボタンの位置を入れ替えます。
 
 • この設定を変更しても、デバイスを再起動するまで有効にならない場合があります。
+• この設定を無効にすると、サーバーからさらに多くの広告が読み込まれます。
 • 動画広告を表示するには、この設定を無効にする必要があります。"</string>
     <string name="revanced_switching_create_notification_title">作成ボタンを通知ボタンと入れ替え</string>
     <string name="revanced_tool_used">使用されたツール</string>

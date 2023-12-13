@@ -9,21 +9,42 @@
     <string name="microg_settings_title">Apri MicroG</string>
     <string name="revanced_ads">Annunci</string>
     <string name="revanced_alt_thumbnails">Thumbnails alternativi</string>
-    <string name="revanced_alt_thumbnail_about_summary">Una funzionalità che sostituisce i thumbnails predefiniti con quelli alternativi per ridurre il sensazionalismo</string>
-    <string name="revanced_alt_thumbnail_about_title">Informazioni</string>
-    <string name="revanced_alt_thumbnail_dearrow_summary_off">I thumbnails sono generati senza API esterna</string>
-    <string name="revanced_alt_thumbnail_dearrow_summary_on">I thumbnails sono generati usando l\'API di DeArrow</string>
-    <string name="revanced_alt_thumbnail_dearrow_title">Usando l\'API di DeArrow</string>
-    <string name="revanced_alt_thumbnail_enabled_summary_off">I thumbnails predefiniti di YouTube sono visibili</string>
-    <string name="revanced_alt_thumbnail_enabled_summary_on">I thumbnails di YouTube sono sostituiti con quelli alternativi</string>
-    <string name="revanced_alt_thumbnail_enabled_title">Attiva i thumbnails alternativi</string>
-    <string name="revanced_alt_thumbnail_skip_checking_summary_off">I thumbnails saranno controllati se esistono prima di sostituirli</string>
-    <string name="revanced_alt_thumbnail_skip_checking_summary_on">I thumbnails si caricheranno più velocemente, ma alcuni video mostreranno thumbnails vuoti</string>
-    <string name="revanced_alt_thumbnail_skip_checking_title">Salta il controllo dei thumbnails</string>
-    <string name="revanced_alt_thumbnail_type_entry_1">Inizio video</string>
-    <string name="revanced_alt_thumbnail_type_entry_2">Metà video</string>
-    <string name="revanced_alt_thumbnail_type_entry_3">Fine video</string>
-    <string name="revanced_alt_thumbnail_type_title">Il tempo del video da cui prendere il fotogramma</string>
+    <string name="revanced_alt_thumbnail_about_status_dearrow">"Mostrando i thumbnails di DeArrow.
+Se un video non ha i thumbnails di DeArrow, verranno mostrati i thumbnails originali di YouTube"</string>
+    <string name="revanced_alt_thumbnail_about_status_dearrow_stills">"Mostrando i thumbnails di DeArrow.
+Se un video non ha i thumbnails di DeArrow, verranno mostrati i thumbnails alternativi"</string>
+    <string name="revanced_alt_thumbnail_about_status_disabled">Mostrando i thumbnails originali di YouTube</string>
+    <string name="revanced_alt_thumbnail_about_status_stills">Mostrando i thumbnails alternativi</string>
+    <string name="revanced_alt_thumbnail_about_title">DeArrow è attivato</string>
+    <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow fornisce thumbnails provenienti da crowdsourcing per i video di YouTube. Questi thumbnails sono spesso più rilevanti di quelle fornite da YouTube. Se attivato, gli URL dei video verranno inviati al server API e non vengono inviati altri dati
+
+Tocca qui per saperne di più su DeArrow"</string>
+    <string name="revanced_alt_thumbnail_dearrow_about_title">Informazioni su DeArrow</string>
+    <string name="revanced_alt_thumbnail_dearrow_api_url_summary">"L'URL dell'endpoint cache dei thumbnails di DeArrow. Non cambiarlo a meno che tu non sappia cosa stai facendo"</string>
+    <string name="revanced_alt_thumbnail_dearrow_api_url_title">DeArrow API endpoint</string>
+    <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Notifica toast nascosta se l\'API di DeArrow non è disponibile</string>
+    <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">Notifica toast visibile se l\'API di DeArrow non è disponibile</string>
+    <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">Mostra una notifica toast se l\'API non è disponibile</string>
+    <string name="revanced_alt_thumbnail_dearrow_error">DeArrow temporaneamente non disponibile (stato: %s)</string>
+    <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow temporaneamente non disponibile</string>
+    <string name="revanced_alt_thumbnail_dearrow_summary_off">DeArrow è disattivato</string>
+    <string name="revanced_alt_thumbnail_dearrow_summary_on">DeArrow è attivato</string>
+    <string name="revanced_alt_thumbnail_dearrow_title">Attiva DeArrow</string>
+    <string name="revanced_alt_thumbnail_preference_screen_summary">Impostazioni dei thumbnails dei video</string>
+    <string name="revanced_alt_thumbnail_preference_screen_title">Thumbnails alternativi</string>
+    <string name="revanced_alt_thumbnail_stills">Thumbnails alternativi</string>
+    <string name="revanced_alt_thumbnail_stills_about_summary">I thumbnails alternativi sono presi dall\'inizio, metà o fine di ogni video. Queste immagini sono integrate in YouTube e non viene usato nessun API esterno</string>
+    <string name="revanced_alt_thumbnail_stills_about_title">Informazioni sui thumbnails alternativi</string>
+    <string name="revanced_alt_thumbnail_stills_fast_summary_off">Ithumbnails alternativi di alta qualità sono attivati</string>
+    <string name="revanced_alt_thumbnail_stills_fast_summary_on">I thumbnails alternativi di media qualità sono attivati. I thumbnails caricheranno più velocemente, ma i video dal vivo, quelli non rilasciati o molto vecchi potrebbero mostrare thumbnails vuoti</string>
+    <string name="revanced_alt_thumbnail_stills_fast_title">Attiva thumbnails alternativi veloci</string>
+    <string name="revanced_alt_thumbnail_stills_summary_off">I thumbnails alternativi sono disattivati</string>
+    <string name="revanced_alt_thumbnail_stills_summary_on">I thumbnails alternativi sono attivati</string>
+    <string name="revanced_alt_thumbnail_stills_time_entry_1">Inizio video</string>
+    <string name="revanced_alt_thumbnail_stills_time_entry_2">Metà video</string>
+    <string name="revanced_alt_thumbnail_stills_time_entry_3">Fine video</string>
+    <string name="revanced_alt_thumbnail_stills_time_title">Il tempo del video da cui prendere il fotogramma</string>
+    <string name="revanced_alt_thumbnail_stills_title">Attiva i thumbnails alternativi</string>
     <string name="revanced_append_time_stamp_information_summary_off">L\'informazione nel timestamp è nascosto</string>
     <string name="revanced_append_time_stamp_information_summary_on">L\'informazione nel timestamp è visibile</string>
     <string name="revanced_append_time_stamp_information_title">Mostra l\'informazione nel timestamp</string>
@@ -35,9 +56,18 @@
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">La modalità Ambient in modalità risparmio energetico è disattivata</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">La modalità Ambient in modalità risparmio energetico è attivata</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">Bypassa le restrizioni della modalità Ambient</string>
-    <string name="revanced_change_homepage_summary_off">Pagina iniziale attuale: Home</string>
-    <string name="revanced_change_homepage_summary_on">Pagina iniziale attuale: Iscrizioni</string>
-    <string name="revanced_change_homepage_title">Cambia la pagina iniziale</string>
+    <string name="revanced_change_start_page_entry_default">Predefinito</string>
+    <string name="revanced_change_start_page_entry_explore">Esplora</string>
+    <string name="revanced_change_start_page_entry_history">Cronologia</string>
+    <string name="revanced_change_start_page_entry_library">Raccolta</string>
+    <string name="revanced_change_start_page_entry_liked_videos">Video piaciuti</string>
+    <string name="revanced_change_start_page_entry_podcasts">Podcast</string>
+    <string name="revanced_change_start_page_entry_search">Cerca</string>
+    <string name="revanced_change_start_page_entry_shorts">Shorts</string>
+    <string name="revanced_change_start_page_entry_subscriptions">Iscrizioni</string>
+    <string name="revanced_change_start_page_entry_trending">Tendenze</string>
+    <string name="revanced_change_start_page_title">Cambia la pagina iniziale</string>
+    <string name="revanced_change_start_page_warning">Pagina iniziale non valida, ripristinando al predefinito</string>
     <string name="revanced_channel_bar_title">Barra del canale</string>
     <string name="revanced_channel_profile_title">Profilo canale</string>
     <string name="revanced_close_interstitial_ads_summary">"Chiudi automaticamente gli annunci interstiziali.
@@ -131,9 +161,6 @@ Nota: disattivando la sovrapposizione della velocità ripristina lo \"Scorri la 
     <string name="revanced_enable_language_switch_summary_off">Il cambio della lingua è disattivato</string>
     <string name="revanced_enable_language_switch_summary_on">Il cambio della lingua è attivato</string>
     <string name="revanced_enable_language_switch_title">Attiva il cambio della lingua</string>
-    <string name="revanced_enable_music_search_summary_off">La ricerca della musica nella schermata della ricerca vocale è disattivata</string>
-    <string name="revanced_enable_music_search_summary_on">La ricerca della musica nella schermata della ricerca vocale è attivata</string>
-    <string name="revanced_enable_music_search_title">Attiva la ricerca della musica nella schermata della ricerca vocale</string>
     <string name="revanced_enable_new_splash_animation_summary_off">La nuova animazione splash è disattivata</string>
     <string name="revanced_enable_new_splash_animation_summary_on">La nuova animazione splash è attivata</string>
     <string name="revanced_enable_new_splash_animation_title">Attiva la nuova animazione splash</string>
@@ -159,6 +186,9 @@ Nota: disattivando la sovrapposizione della velocità ripristina lo \"Scorri la 
     <string name="revanced_enable_seekbar_tapping_summary_off">Il tocco della barra di avanzamento è disattivato</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">Il tocco della barra di avanzamento è attivato</string>
     <string name="revanced_enable_seekbar_tapping_title">Attiva il tocco della barra di avanzamento</string>
+    <string name="revanced_enable_song_search_summary_off">La ricerca dei brani è disattivata</string>
+    <string name="revanced_enable_song_search_summary_on">La ricerca dei brani è attivata</string>
+    <string name="revanced_enable_song_search_title">Attiva la ricerca dei brani</string>
     <string name="revanced_enable_swipe_auto_brightness_summary_off">La luminosità automatica non si attiva anche se trascini la luminosità su 0</string>
     <string name="revanced_enable_swipe_auto_brightness_summary_on">La luminosità automatica si attiva quando trascini la luminosità su 0</string>
     <string name="revanced_enable_swipe_auto_brightness_title">Attiva la luminosità automatica trascinando</string>
@@ -192,7 +222,7 @@ Nota: disattivando la sovrapposizione della velocità ripristina lo \"Scorri la 
     <string name="revanced_enable_wide_search_bar_title">Attiva la barra di ricerca estesa</string>
     <string name="revanced_enable_wide_search_bar_in_you_tab_summary">"L'attivazione di questa impostazione disattiverà il pulsante Impostazioni nella scheda Tu.
 
-In questo caso, utilizzate il seguente percorso:
+In questo caso, usate il seguente percorso:
 Scheda Tu &gt; Visualizza canale &gt; Menù &gt; Impostazioni"</string>
     <string name="revanced_enable_wide_search_bar_in_you_tab_title">Attiva la barra di ricerca estesa nella scheda Tu</string>
     <string name="revanced_experimental_flag">Opzioni sperimentali</string>
@@ -219,7 +249,7 @@ Scheda Tu &gt; Visualizza canale &gt; Menù &gt; Impostazioni"</string>
     <string name="revanced_external_downloader_package_name_summary">Nome del pacchetto dell\'app downloader esterna installata, ad esempio NewPipe o YTDLnis</string>
     <string name="revanced_external_downloader_package_name_title">Nome del pacchetto del downloader esterno</string>
     <string name="revanced_external_downloader_set">Imposta come downloader predefinito</string>
-    <string name="revanced_external_downloader_settings_summary">Impostazioni per l\'utilizzo di un downloader esterno</string>
+    <string name="revanced_external_downloader_settings_summary">Impostazioni per l\'uso di un downloader esterno</string>
     <string name="revanced_external_downloader_settings_title">Impostazioni del downloader esterno</string>
     <string name="revanced_feed_flyout_panel_title">Pannello a comparsa nei feed</string>
     <string name="revanced_flyout_menu">Menù a comparsa</string>
@@ -539,9 +569,9 @@ Alcuni componenti potrebbero non essere nascosti"</string>
     <string name="revanced_hide_search_term_thumbnail_title">Nascondi i thumbnails nella cronologia delle ricerche</string>
     <string name="revanced_hide_seekbar_summary_off">La barra di avanzamento è visibile</string>
     <string name="revanced_hide_seekbar_summary_on">La barra di avanzamento è nascosta</string>
-    <string name="revanced_hide_seekbar_thumbnail_summary_off">I thumbnails della barra di avanzamento è visibile</string>
-    <string name="revanced_hide_seekbar_thumbnail_summary_on">I thumbnails della barra di avanzamento è nascosta</string>
-    <string name="revanced_hide_seekbar_thumbnail_title">Nascondi i thumbnails della barra di avanzamento</string>
+    <string name="revanced_hide_seekbar_thumbnail_summary_off">La barra di avanzamento nel thumbnail dei video è visibile</string>
+    <string name="revanced_hide_seekbar_thumbnail_summary_on">La barra di avanzamento nel thumbnail dei video è nascosta</string>
+    <string name="revanced_hide_seekbar_thumbnail_title">Nascondi la barra di avanzamento nel thumbnail dei video</string>
     <string name="revanced_hide_seekbar_title">Nascondi la barra di avanzamento</string>
     <string name="revanced_hide_seek_message_summary_off">Il messaggio di scorrimento è visibile</string>
     <string name="revanced_hide_seek_message_summary_on">Il messaggio di scorrimento è nascosto</string>
@@ -592,6 +622,9 @@ Alcuni componenti potrebbero non essere nascosti"</string>
     <string name="revanced_hide_start_trial_button_summary_off">Il pulsante Avvia Prova è visibile</string>
     <string name="revanced_hide_start_trial_button_summary_on">Il pulsante Avvia Prova è nascosto</string>
     <string name="revanced_hide_start_trial_button_title">Nascondi il pulsante Avvia Prova</string>
+    <string name="revanced_hide_store_tab_summary_off">La scheda Negozio è visibile</string>
+    <string name="revanced_hide_store_tab_summary_on">La scheda Negozio è nascosta</string>
+    <string name="revanced_hide_store_tab_title">Nascondi la scheda Negozio</string>
     <string name="revanced_hide_subscriptions_button_summary_off">La scheda Iscrizioni è visibile</string>
     <string name="revanced_hide_subscriptions_button_summary_on">La scheda Iscrizioni è nascosta</string>
     <string name="revanced_hide_subscriptions_button_title">Nascondi la scheda Iscrizioni</string>
@@ -656,9 +689,6 @@ Alcuni video, inclusi quelli dei canali iscritti, potrebbero non essere nascosti
     <string name="revanced_layout_title">Interfaccia</string>
     <string name="revanced_misc">Varie</string>
     <string name="revanced_navigation">Barra di navigazione</string>
-    <string name="revanced_open_library_you_startup_summary_off">La scheda Raccolta (Tu) non è aperta all\'avvio dell\'app</string>
-    <string name="revanced_open_library_you_startup_summary_on">La scheda Raccolta (Tu) è aperta all\'avvio dell\'app</string>
-    <string name="revanced_open_library_you_startup_title">Apri la scheda Raccolta (Tu) all\'avvio dell\'app</string>
     <string name="revanced_others">Altro</string>
     <string name="revanced_overlay_button">Pulsanti in sovrapposizione</string>
     <string name="revanced_overlay_button_always_repeat_summary">Tocca per attivare o disattivare il \"Ripeti sempre\"</string>
@@ -692,7 +722,7 @@ Tocca e tieni premuto per impostare la velocità di riproduzione a 1.0x"</string
     <string name="revanced_ryd_attribution_summary">I dati relativi ai Non Mi Piace sono forniti dall\'API di Return YouTube Dislike. Tocca qui per saperne di più</string>
     <string name="revanced_ryd_compact_layout_summary_off">Pulsante Mi Piace riadattato per la migliore visualizzazione</string>
     <string name="revanced_ryd_compact_layout_summary_on">Pulsante Mi Piace riadattato per una dimensione minima</string>
-    <string name="revanced_ryd_compact_layout_title">Usa il pulsante Mi Piace compatto</string>
+    <string name="revanced_ryd_compact_layout_title">Attiva il pulsante Mi Piace compatto</string>
     <string name="revanced_ryd_dislike_percentage_summary_off">In numero</string>
     <string name="revanced_ryd_dislike_percentage_summary_on">In percentuale</string>
     <string name="revanced_ryd_dislike_percentage_title">Il tipo di Non Mi Piace</string>
@@ -700,8 +730,8 @@ Tocca e tieni premuto per impostare la velocità di riproduzione a 1.0x"</string
     <string name="revanced_ryd_enable_summary_on">I Non Mi Piace sono visibili</string>
     <string name="revanced_ryd_enable_title">Attiva Return YouTube Dislike</string>
     <string name="revanced_ryd_failure_connection_timeout">Non Mi Piace temporaneamente non disponibili (API scaduto)</string>
-    <string name="revanced_ryd_failure_connection_status_code" formatted="false">Non Mi Piace non disponibili (stato %d)</string>
-    <string name="revanced_ryd_failure_client_rate_limit_requested">I Non Mi Piace non sono disponibili (il limite del client API è stato raggiunto)</string>
+    <string name="revanced_ryd_failure_connection_status_code" formatted="false">Non Mi Piace non disponibili (stato: %d)</string>
+    <string name="revanced_ryd_failure_client_rate_limit_requested">Non Mi Piace non disponibili (è stato raggiunto il limite del client API)</string>
     <string name="revanced_ryd_failure_generic">Non Mi Piace non disponibili (%s)</string>
     <string name="revanced_ryd_shorts_summary_disclaimer">Limitazione: i Non Mi Piace potrebbero non apparire in determinate situazioni</string>
     <string name="revanced_ryd_shorts_summary_off">I Non Mi Piace degli Shorts sono nascosti</string>
@@ -766,7 +796,7 @@ Problema noto: i video nei feed riprodotti automaticamente appariranno nella cro
 
 Problemi noti:
 • Il bitrate migliorato non è disponibile
-• Nessun thumbnail della barra di avanzamento per i video a pagamento
+• La barra di avanzamento nel thumbnail dei video a pagamento è nascosta
 • Il download offline potrebbe non funzionare
 • Il video potrebbe non iniziare dall'ultimo minutaggio visto"</string>
     <string name="revanced_spoof_player_parameter_title">Simula i parametri del riproduttore</string>
@@ -791,15 +821,15 @@ Note:
     <string name="revanced_switching_create_notification_title">Scambia il pulsante Crea con il pulsante Notifiche</string>
     <string name="revanced_tool_used">Tool utilizzati</string>
     <string name="revanced_video">Video</string>
-    <string name="pref_app_language_dialog_message">&lt;b&gt;%1$s&lt;/b&gt;&lt;br&gt;&lt;br&gt;Questo cambierà la lingua utilizzata da YouTube, inclusi pulsanti, testo e finestre di dialogo, ma non cambierà la lingua delle impostazioni di ReVanced Extended</string>
-    <string name="pref_app_language_dialog_message_no_lang_name">Questo cambierà la lingua utilizzata nell\'app, inclusi pulsanti, testo e finestre di dialogo, ma non cambierà la lingua delle impostazioni di ReVanced Extended</string>
+    <string name="pref_app_language_dialog_message">&lt;b&gt;%1$s&lt;/b&gt;&lt;br&gt;&lt;br&gt;Questo cambierà la lingua usata da YouTube, pulsanti, testo e finestre di dialogo inclusi, ma non cambierà la lingua delle impostazioni di ReVanced Extended</string>
+    <string name="pref_app_language_dialog_message_no_lang_name">Questo cambierà la lingua usata dall\'app, pulsanti, testo e finestre di dialogo inclusi, ma non cambierà la lingua delle impostazioni di ReVanced Extended</string>
     <string name="sb_enable_sb">Attiva SponsorBlock</string>
     <string name="sb_enable_sb_sum">SponsorBlock è un sistema collaborativo creato per saltare le parti fastidiose nei video di YouTube</string>
     <string name="sb_appearance_category">Aspetto</string>
     <string name="sb_enable_voting">Mostra il pulsante Voto</string>
     <string name="sb_enable_voting_sum_on">Il pulsante Voto è visibile</string>
     <string name="sb_enable_voting_sum_off">Il pulsante Voto è nascosto</string>
-    <string name="sb_enable_compact_skip_button">Usa il pulsante Salta compatto</string>
+    <string name="sb_enable_compact_skip_button">Attiva il pulsante Salta compatto</string>
     <string name="sb_enable_compact_skip_button_sum_on">Pulsante Salta riadattato per una dimensione minima</string>
     <string name="sb_enable_compact_skip_button_sum_off">Pulsante Salta riadattato per la migliore visualizzazione</string>
     <string name="sb_enable_auto_hide_skip_segment_button">Nascondi automaticamente il pulsante Salta</string>
@@ -898,10 +928,10 @@ Note:
     <string name="sb_skip_seekbaronly">Mostralo nella barra di avanzamento</string>
     <string name="sb_skip_ignore">Disattiva</string>
     <string name="sb_sponsorblock_connection_failure_generic">SponsorBlock temporaneamente non disponibile</string>
-    <string name="sb_sponsorblock_connection_failure_status" formatted="false">SponsorBlock temporaneamente non disponibile (stato %d)</string>
+    <string name="sb_sponsorblock_connection_failure_status" formatted="false">SponsorBlock temporaneamente non disponibile (stato: %d)</string>
     <string name="sb_sponsorblock_connection_failure_timeout">SponsorBlock temporaneamente non disponibile (API scaduto)</string>
     <string name="sb_submit_failed_invalid" formatted="false">Impossibile inviare il segmento: %s</string>
-    <string name="sb_submit_failed_timeout">Impossibile inviare i segmenti (API scaduta)</string>
+    <string name="sb_submit_failed_timeout">Impossibile inviare i segmenti (API scaduto)</string>
     <string name="sb_submit_failed_unknown_error" formatted="false">Impossibile inviare i segmenti (stato: %d %s)</string>
     <string name="sb_submit_failed_rate_limit">Impossibile inviare il segmento.
 Soglia raggiunta (troppe richieste provenienti dallo stesso utente o IP)</string>
@@ -926,8 +956,8 @@ Soglia raggiunta (troppe richieste provenienti dallo stesso utente o IP)</string
     <string name="sb_new_segment_time_start">Il segmento inizia a</string>
     <string name="sb_new_segment_time_end">Il segmento termina a</string>
     <string name="sb_new_segment_confirm_title">I valori temporali sono corretti?</string>
-    <string name="sb_new_segment_confirm_content" formatted="false">Il segmento dura da %02d:%02d a %02d:%02d (%d minuti %02d secondi)
-È pronto per l\'invio?</string>
+    <string name="sb_new_segment_confirm_content" formatted="false">Il segmento dura da %02d:%02d a %02d:%02d (%d minuti %02d secondi).
+Il segmento è pronto per l\'invio?</string>
     <string name="sb_new_segment_start_is_before_end">L\'inizio deve essere antecedente alla fine</string>
     <string name="sb_new_segment_mark_locations_first">Segna prima due posizioni sulla barra di avanzamento</string>
     <string name="sb_new_segment_preview_segment_first">Visualizzare in anteprima il segmento e assicurarsi che lo salti senza problemi</string>
@@ -935,11 +965,11 @@ Soglia raggiunta (troppe richieste provenienti dallo stesso utente o IP)</string
     <string name="sb_new_segment_edit_by_hand_content">Vuoi modificare l\'intervallo temporale di inizio o fine segmento?</string>
     <string name="sb_new_segment_edit_by_hand_parse_error">Il periodo temporale fornito non è valido</string>
     <string name="sb_stats">Statistiche</string>
-    <string name="sb_stats_connection_failure">Statistiche temporaneamente non disponibili (API è disconnessa)</string>
+    <string name="sb_stats_connection_failure">Statistiche temporaneamente non disponibili (API down)</string>
     <string name="sb_stats_sb_disabled">SponsorBlock è disattivato</string>
     <string name="sb_stats_username" formatted="false">Il tuo nome utente: &lt;b&gt;%s&lt;/b&gt;</string>
     <string name="sb_stats_username_change">Tocca qui per cambiare il tuo nome utente</string>
-    <string name="sb_stats_username_change_unknown_error" formatted="false">Impossibile cambiare il nome utente: Stato: %d %s</string>
+    <string name="sb_stats_username_change_unknown_error" formatted="false">Impossibile cambiare il nome utente (stato: %d %s)</string>
     <string name="sb_stats_username_changed">Nome utente cambiato correttamente</string>
     <string name="sb_stats_reputation" formatted="false">La tua reputazione è &lt;b&gt;%.2f&lt;/b&gt;</string>
     <string name="sb_stats_submissions" formatted="false">Hai creato &lt;b&gt;%s&lt;/b&gt; segmenti</string>

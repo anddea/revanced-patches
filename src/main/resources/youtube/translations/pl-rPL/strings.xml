@@ -9,21 +9,42 @@
     <string name="microg_settings_title">Otwórz MicroG</string>
     <string name="revanced_ads">Reklamy</string>
     <string name="revanced_alt_thumbnails">Alternatywne miniaturki</string>
-    <string name="revanced_alt_thumbnail_about_summary">Funkcja zastępująca domyślne miniaturki wideo alternatywnymi, aby zmniejszyć ilość sensacji.</string>
-    <string name="revanced_alt_thumbnail_about_title">Opis</string>
-    <string name="revanced_alt_thumbnail_dearrow_summary_off">Miniaturki są generowane bez zewnętrznego API</string>
-    <string name="revanced_alt_thumbnail_dearrow_summary_on">Miniaturki są generowane za pomocą API DeArrow</string>
-    <string name="revanced_alt_thumbnail_dearrow_title">Użyj API DeArrow</string>
-    <string name="revanced_alt_thumbnail_enabled_summary_off">Oryginalne miniaturki YouTube są widoczne</string>
-    <string name="revanced_alt_thumbnail_enabled_summary_on">Miniaturki YouTube są zastąpione alternatywnymi miniaturkami</string>
-    <string name="revanced_alt_thumbnail_enabled_title">Alternatywne miniaturki</string>
-    <string name="revanced_alt_thumbnail_skip_checking_summary_off">Miniaturki zostaną sprawdzone, czy istnieją bądź nie przed zastąpieniem</string>
-    <string name="revanced_alt_thumbnail_skip_checking_summary_on">Miniaturki będą ładować się szybciej, lecz miniaturki większości wideo mogą być puste</string>
-    <string name="revanced_alt_thumbnail_skip_checking_title">Pomiń sprawdzanie miniaturek</string>
-    <string name="revanced_alt_thumbnail_type_entry_1">Początek wideo</string>
-    <string name="revanced_alt_thumbnail_type_entry_2">Środek wideo</string>
-    <string name="revanced_alt_thumbnail_type_entry_3">Koniec wideo</string>
-    <string name="revanced_alt_thumbnail_type_title">Czas miniaturki</string>
+    <string name="revanced_alt_thumbnail_about_status_dearrow">"Miniaturki DeArrow są wyświetlane.
+Jeśli wideo nie posiada miniaturki DeArrow, wyświetlana jest oryginalna z YouTube."</string>
+    <string name="revanced_alt_thumbnail_about_status_dearrow_stills">"Miniaturki DeArrow są wyświetlane.
+Jeśli wideo nie posiada miniaturki DeArrow, to nadal widoczne są te przechwycone z wideo."</string>
+    <string name="revanced_alt_thumbnail_about_status_disabled">Oryginalne miniaturki YouTube.</string>
+    <string name="revanced_alt_thumbnail_about_status_stills">Miniaturki przechwycone z wideo.</string>
+    <string name="revanced_alt_thumbnail_about_title">Miniaturki w użyciu</string>
+    <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow dostarcza miniaturki wideo z YouTube pochodzące z procesu crowdsourcingu. Miniaturki te są często bardziej trafne niż te dostarczane przez YouTube. Jeśli opcja ta jest włączona, adresy URL filmów będą wysyłane do serwera API i nie będą wysyłane żadne inne dane.
+
+Kliknij tutaj, aby dowiedzieć się więcej o DeArrow."</string>
+    <string name="revanced_alt_thumbnail_dearrow_about_title">O DeArrow</string>
+    <string name="revanced_alt_thumbnail_dearrow_api_url_summary">"Adres URL punktu końcowego pamięci podręcznej miniatur DeArrow. Nie zmieniaj tego dopóki nie będziesz wiedzieć co robić."</string>
+    <string name="revanced_alt_thumbnail_dearrow_api_url_title">Punkt końcowy API DeArrow</string>
+    <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Ukryty</string>
+    <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">Widoczny</string>
+    <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">Komunikat o niedostępnym API</string>
+    <string name="revanced_alt_thumbnail_dearrow_error">DeArrow jest tymczasowo niedostępne. (kod statusu: %s)</string>
+    <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow jest tymczasowo niedostępne.</string>
+    <string name="revanced_alt_thumbnail_dearrow_summary_off">Wyłączone</string>
+    <string name="revanced_alt_thumbnail_dearrow_summary_on">Włączone</string>
+    <string name="revanced_alt_thumbnail_dearrow_title">DeArrow</string>
+    <string name="revanced_alt_thumbnail_preference_screen_summary">Ustawienia miniaturek wideo</string>
+    <string name="revanced_alt_thumbnail_preference_screen_title">Alternatywne miniaturki</string>
+    <string name="revanced_alt_thumbnail_stills">Miniaturki przechwycone z wideo</string>
+    <string name="revanced_alt_thumbnail_stills_about_summary">Miniaturki przechwytywane z wideo są brane z początku/środka/końca wideo. Obrazy te są wbudowane w YouTube, więc żadne zewnętrzne API nie jest używane.</string>
+    <string name="revanced_alt_thumbnail_stills_about_title">O miniaturkach przechwytywanych z wideo</string>
+    <string name="revanced_alt_thumbnail_stills_fast_summary_off">Używasz przechwytywania wysokiej jakości.</string>
+    <string name="revanced_alt_thumbnail_stills_fast_summary_on">Używasz przechwytywania średniej jakości. Miniaturki będą ładować się szybciej, lecz mogą pozostać puste w przypadku transmisji na żywo, niewydanych i bardzo starych wideo.</string>
+    <string name="revanced_alt_thumbnail_stills_fast_title">Szybkie przechwytywanie miniaturek z wideo</string>
+    <string name="revanced_alt_thumbnail_stills_summary_off">Przechwytywanie z YouTube nie jest używane.</string>
+    <string name="revanced_alt_thumbnail_stills_summary_on">Przechwytywanie z YouTube jest używane.</string>
+    <string name="revanced_alt_thumbnail_stills_time_entry_1">Początek wideo</string>
+    <string name="revanced_alt_thumbnail_stills_time_entry_2">Środek wideo</string>
+    <string name="revanced_alt_thumbnail_stills_time_entry_3">Koniec wideo</string>
+    <string name="revanced_alt_thumbnail_stills_time_title">Czas, z którego ma być przechwycona miniaturka z wideo</string>
+    <string name="revanced_alt_thumbnail_stills_title">Przechwytywanie miniaturek z wideo</string>
     <string name="revanced_append_time_stamp_information_summary_off">Ukryta</string>
     <string name="revanced_append_time_stamp_information_summary_on">Widoczna</string>
     <string name="revanced_append_time_stamp_information_title">Dodatkowa informacja obok czasu</string>
@@ -35,9 +56,18 @@
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">Niemożliwe</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">Możliwe</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">Oświetlenie kinowe w trybie oszczędzania baterii</string>
-    <string name="revanced_change_homepage_summary_off">Obecna strona główna: Główna</string>
-    <string name="revanced_change_homepage_summary_on">Obecna strona główna: Subskrypcji</string>
-    <string name="revanced_change_homepage_title">Zmień stronę główną na stronę subskrypcji</string>
+    <string name="revanced_change_start_page_entry_default">Domyślna</string>
+    <string name="revanced_change_start_page_entry_explore">Odkrywaj</string>
+    <string name="revanced_change_start_page_entry_history">Historia</string>
+    <string name="revanced_change_start_page_entry_library">Biblioteka</string>
+    <string name="revanced_change_start_page_entry_liked_videos">Polubione wideo</string>
+    <string name="revanced_change_start_page_entry_podcasts">Podcasty</string>
+    <string name="revanced_change_start_page_entry_search">Wyszukiwanie</string>
+    <string name="revanced_change_start_page_entry_shorts">Shortsy</string>
+    <string name="revanced_change_start_page_entry_subscriptions">Subskrypcje</string>
+    <string name="revanced_change_start_page_entry_trending">Na czasie</string>
+    <string name="revanced_change_start_page_title">Zmień stronę startową</string>
+    <string name="revanced_change_start_page_warning">Nieprawidłowa strona startowa, resetowanie do domyślnych wartości.</string>
     <string name="revanced_channel_bar_title">Pasek kanału</string>
     <string name="revanced_channel_profile_title">Profil kanału</string>
     <string name="revanced_close_interstitial_ads_summary">"Automatycznie zamyka pełnoekranowe reklamy
@@ -131,9 +161,6 @@ Notka: wyłączenie nakładki prędkości odtwarzania przywróci zachowania prze
     <string name="revanced_enable_language_switch_summary_off">Wyłączone</string>
     <string name="revanced_enable_language_switch_summary_on">Włączone</string>
     <string name="revanced_enable_language_switch_title">Zmienianie języka</string>
-    <string name="revanced_enable_music_search_summary_off">Wyłączone</string>
-    <string name="revanced_enable_music_search_summary_on">Włączone</string>
-    <string name="revanced_enable_music_search_title">Wyszukiwanie muzyki</string>
     <string name="revanced_enable_new_splash_animation_summary_off">Wyłączona</string>
     <string name="revanced_enable_new_splash_animation_summary_on">Włączona</string>
     <string name="revanced_enable_new_splash_animation_title">Nowa animacja uruchamiania aplikacji</string>
@@ -159,6 +186,9 @@ Notka: wyłączenie nakładki prędkości odtwarzania przywróci zachowania prze
     <string name="revanced_enable_seekbar_tapping_summary_off">Wyłączone</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">Włączone</string>
     <string name="revanced_enable_seekbar_tapping_title">Stukanie w pasek wideo</string>
+    <string name="revanced_enable_song_search_summary_off">Wyłączone</string>
+    <string name="revanced_enable_song_search_summary_on">Włączone</string>
+    <string name="revanced_enable_song_search_title">Wyszukiwanie piosenek</string>
     <string name="revanced_enable_swipe_auto_brightness_summary_off">Jest wyłączona, nawet jeśli jasność jest ustawiona na 0</string>
     <string name="revanced_enable_swipe_auto_brightness_summary_on">Jest włączona, kiedy jasność jest ustawiona na 0</string>
     <string name="revanced_enable_swipe_auto_brightness_title">Automatyczna jasność przesuwając</string>
@@ -595,6 +625,9 @@ Znany problem: nagłówki z tytułami są ukryte w wynikach wyszukiwania."</stri
     <string name="revanced_hide_start_trial_button_summary_off">Widoczny</string>
     <string name="revanced_hide_start_trial_button_summary_on">Ukryty</string>
     <string name="revanced_hide_start_trial_button_title">Przycisk od rozpoczęcia okresu próbnego</string>
+    <string name="revanced_hide_store_tab_summary_off">Widoczna</string>
+    <string name="revanced_hide_store_tab_summary_on">Ukryta</string>
+    <string name="revanced_hide_store_tab_title">Zakładka sklepu</string>
     <string name="revanced_hide_subscriptions_button_summary_off">Widoczny</string>
     <string name="revanced_hide_subscriptions_button_summary_on">Ukryty</string>
     <string name="revanced_hide_subscriptions_button_title">Przycisk do strony subskrypcji</string>
@@ -662,9 +695,6 @@ Niektóre wideo, w tym te z subskrybowanych kanałów, mogą nie zostać ukryte.
     <string name="revanced_layout_title">Układ</string>
     <string name="revanced_misc">Pozostałe</string>
     <string name="revanced_navigation">Nawigacja</string>
-    <string name="revanced_open_library_you_startup_summary_off">Nie</string>
-    <string name="revanced_open_library_you_startup_summary_on">Tak</string>
-    <string name="revanced_open_library_you_startup_title">Otwieraj bibliotekę (Ty) przy starcie aplikacji</string>
     <string name="revanced_others">Inne</string>
     <string name="revanced_overlay_button">Przyciski w odtwarzaczu</string>
     <string name="revanced_overlay_button_always_repeat_summary">Kliknij, aby przełączyć stan zapętlania wideo.</string>
@@ -779,7 +809,7 @@ Znane problemy:
     <string name="revanced_swipe_controls">Sterowanie przesuwaniem</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_off">"Wyłączone"</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_on">"Włączone"</string>
-    <string name="revanced_swipe_gestures_lock_mode_title">"Przesuwanie podczas blokady ekranu"</string>
+    <string name="revanced_swipe_gestures_lock_mode_title">"Przesuwanie trybie blokady ekranu"</string>
     <string name="revanced_swipe_magnitude_threshold_summary">Minimalna długość przesunięcia</string>
     <string name="revanced_swipe_magnitude_threshold_title">Minimalna długość przesunięcia</string>
     <string name="revanced_swipe_overlay_background_alpha_summary">Widoczność tła nakładki przesuwania</string>
@@ -792,7 +822,7 @@ Znane problemy:
 
 • Nawet jeśli zmienisz to ustawienie, może się nic nie zmienić dopóki nie zrestartujesz urządzenia.
 • Reklamy wideo nie będą widoczne, gdy to ustawienie jest włączone.
-• Powinieneś wyłączyć to ustawienie, aby uczynić reklamu wideo widocznymi."</string>
+• Powinieneś wyłączyć to ustawienie, aby uczynić reklamy wideo widocznymi."</string>
     <string name="revanced_switching_create_notification_title">Zamień przyciski od przesyłania i powiadomień</string>
     <string name="revanced_tool_used">Użyte narzędzie</string>
     <string name="revanced_video">Wideo</string>
