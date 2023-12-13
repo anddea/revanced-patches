@@ -15,15 +15,15 @@ If a video has no DeArrow thumbnails then still video captures are shown."</stri
     <string name="revanced_alt_thumbnail_about_status_disabled">Showing original YouTube thumbnails.</string>
     <string name="revanced_alt_thumbnail_about_status_stills">Showing still video captures.</string>
     <string name="revanced_alt_thumbnail_about_title">Thumbnails in use</string>
-    <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow provides crowd sourced thumbnails for YouTube videos. These thumbnails are often more relevant than those provided by YouTube. If enabled, video URLs will be sent to the API server and no other data is sent.
+    <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow provides crowd-sourced thumbnails for YouTube videos. These thumbnails are often more relevant than those provided by YouTube. If enabled, video URLs will be sent to the API server and no other data is sent.
 
 Tap here to learn more about DeArrow."</string>
     <string name="revanced_alt_thumbnail_dearrow_about_title">About DeArrow</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_summary">"The URL of the DeArrow thumbnail cache endpoint. Do not change this unless you know what you're doing."</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_title">DeArrow API endpoint</string>
-    <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Toast not shown if DeArrow is not available.</string>
-    <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">Toast shown if DeArrow is not available.</string>
-    <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">Show toast if API is not available</string>
+    <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Toast is not shown if DeArrow is not available.</string>
+    <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">Toast is shown if DeArrow is not available.</string>
+    <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">Show a toast if API is not available</string>
     <string name="revanced_alt_thumbnail_dearrow_error">DeArrow temporarily not available. (status code: %s)</string>
     <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow temporarily not available.</string>
     <string name="revanced_alt_thumbnail_dearrow_summary_off">Not using DeArrow.</string>
@@ -37,8 +37,8 @@ Tap here to learn more about DeArrow."</string>
     <string name="revanced_alt_thumbnail_stills_fast_summary_off">Using high quality still captures.</string>
     <string name="revanced_alt_thumbnail_stills_fast_summary_on">Using medium quality still captures. Thumbnails will load faster, but live streams, unreleased, or very old videos may show blank thumbnails.</string>
     <string name="revanced_alt_thumbnail_stills_fast_title">Use fast still captures</string>
-    <string name="revanced_alt_thumbnail_stills_summary_off">Not using YouTube video still captures.</string>
-    <string name="revanced_alt_thumbnail_stills_summary_on">Using YouTube video still captures.</string>
+    <string name="revanced_alt_thumbnail_stills_summary_off">Not using YouTube still video captures.</string>
+    <string name="revanced_alt_thumbnail_stills_summary_on">Using YouTube still video captures.</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_1">Beginning of video</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_2">Middle of video</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_3">End of video</string>
@@ -743,8 +743,8 @@ Tap and hold to set playback speed to 1.0x."</string>
     <string name="revanced_ryd_shorts_summary_on">Dislikes shown on Shorts. %s</string>
     <string name="revanced_ryd_shorts_title">Show dislikes on Shorts</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Show a toast if API is not available</string>
-    <string name="revanced_ryd_toast_on_connection_error_summary_off">Toast not shown if ReturnYouTubeDislike API is not available.</string>
-    <string name="revanced_ryd_toast_on_connection_error_summary_on">Toast shown if ReturnYouTubeDislike API is not available.</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary_off">Toast is not shown if Return YouTube Dislike is not available.</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary_on">Toast is shown if Return YouTube Dislike is not available.</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Hidden</string>
 
     <string name="revanced_sanitize_sharing_links_summary">Removes tracking query parameters from the URLs when sharing links.</string>
@@ -770,7 +770,7 @@ Tap and hold to set playback speed to 1.0x."</string>
 • When the video starts, there is a delay of approximately 0.7 seconds, but the default video quality is applied immediately.
 • Does not apply to HDR videos, live stream videos, videos shorter than 10 seconds."</string>
     <string name="revanced_skip_preloaded_buffer_title">Skip preloaded buffer</string>
-    <string name="revanced_skip_preloaded_buffer_toast_summary_off">Toast is hidden.</string>
+    <string name="revanced_skip_preloaded_buffer_toast_summary_off">Toast is not shown.</string>
     <string name="revanced_skip_preloaded_buffer_toast_summary_on">Toast is shown.</string>
     <string name="revanced_skip_preloaded_buffer_toast_title">Show a toast when skipped</string>
     <string name="revanced_spoof_app_version_summary">"Spoofing the client version to the old version.
@@ -841,8 +841,8 @@ Known issues:
     <string name="sb_enable_auto_hide_skip_segment_button_sum_on">Skip button hides after a few seconds.</string>
     <string name="sb_enable_auto_hide_skip_segment_button_sum_off">Skip button displayed for entire segment.</string>
     <string name="sb_general_skiptoast">Show a toast when skipping automatically</string>
-    <string name="sb_general_skiptoast_sum_on">Toast shown when a segment is automatically skipped. Tap here to see an example.</string>
-    <string name="sb_general_skiptoast_sum_off">Toast not shown. Tap here to see an example.</string>
+    <string name="sb_general_skiptoast_sum_on">Toast is shown when a segment is automatically skipped. Tap here to see an example.</string>
+    <string name="sb_general_skiptoast_sum_off">Toast is not shown. Tap here to see an example.</string>
     <string name="sb_general_time_without">Show video length without segments</string>
     <string name="sb_general_time_without_sum_on">Video length minus all segments, shown in parentheses next to the full video length.</string>
     <string name="sb_general_time_without_sum_off">Full video length shown.</string>
@@ -864,8 +864,8 @@ Known issues:
 
     <string name="sb_general">General</string>
     <string name="sb_toast_on_connection_error_title">Show a toast if API is not available</string>
-    <string name="sb_toast_on_connection_error_summary_on">Toast shown if SponsorBlock API is not available.</string>
-    <string name="sb_toast_on_connection_error_summary_off">Toast not shown if SponsorBlock API is not available.</string>
+    <string name="sb_toast_on_connection_error_summary_on">Toast is shown if SponsorBlock is not available.</string>
+    <string name="sb_toast_on_connection_error_summary_off">Toast is not shown if SponsorBlock is not available.</string>
 
     <string name="sb_general_skipcount">Enable skip count tracking</string>
     <string name="sb_general_skipcount_sum_on">Lets the SponsorBlock leaderboard know how much time is saved. A message is sent to the leaderboard each time a segment is skipped.</string>
