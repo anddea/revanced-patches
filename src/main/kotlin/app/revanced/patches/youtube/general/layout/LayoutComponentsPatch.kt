@@ -45,10 +45,7 @@ import app.revanced.patches.youtube.utils.settings.SettingsPatch
 @Suppress("unused")
 object LayoutComponentsPatch : BytecodePatch(emptySet()) {
     override fun execute(context: BytecodeContext) {
-        LithoFilterPatch.addFilter("$COMPONENTS_PATH/CommunityPostFilter;")
         LithoFilterPatch.addFilter("$COMPONENTS_PATH/LayoutComponentsFilter;")
-        LithoFilterPatch.addFilter("$COMPONENTS_PATH/LayoutComponentsUniversalFilter;")
-        LithoFilterPatch.addFilter("$COMPONENTS_PATH/LowViewsFilter;")
 
         /**
          * Add settings
