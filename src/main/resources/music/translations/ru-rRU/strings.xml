@@ -14,6 +14,13 @@
     <string name="revanced_category_navigation">Навигация</string>
     <string name="revanced_category_player">Плеер</string>
     <string name="revanced_category_video">Видео</string>
+    <string name="revanced_change_start_page_entry_chart">Хит-парады</string>
+    <string name="revanced_change_start_page_entry_explore">Навигатор</string>
+    <string name="revanced_change_start_page_entry_home">Главная</string>
+    <string name="revanced_change_start_page_entry_library">Библиотека</string>
+    <string name="revanced_change_start_page_entry_subscription">Подписки</string>
+    <string name="revanced_change_start_page_summary">Изменяет начальную страницу приложения.</string>
+    <string name="revanced_change_start_page_title">Изменить начальную страницу</string>
     <string name="revanced_close_interstitial_ads_summary">Автоматически закрывать полноэкранную рекламу.</string>
     <string name="revanced_close_interstitial_ads_title">Закрывать полноэкранную рекламу</string>
     <string name="revanced_close_interstitial_ads_toast">Полноэкранная реклама закрыта.</string>
@@ -184,10 +191,10 @@
     <string name="revanced_ryd_failure_connection_status_code" formatted="false">Отметки \"Не нравится\" недоступны (статус %d).</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Отметки \"Не нравится\" недоступны (достигнут лимит клиентов сервера API).</string>
     <string name="revanced_ryd_failure_generic">Отметки \"Не нравится\" недоступны (%s).</string>
-    <string name="revanced_ryd_toast_on_connection_error_summary">Отображает всплывающее уведомление, когда ReturnYouTubeDislike API недоступен.</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary">Отображает всплывающее уведомление, когда Return YouTube Dislike недоступен.</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Уведомление, когда API недоступен</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Скрыты</string>
-    <string name="revanced_sanitize_sharing_links_summary">Убирает параметры отслеживания запросов из URL при отправке ссылки.</string>
+    <string name="revanced_sanitize_sharing_links_summary">Убирает параметры отслеживания запросов из адреса при отправке ссылки.</string>
     <string name="revanced_sanitize_sharing_links_title">Очищать ссылки от мусора</string>
     <string name="revanced_save_playback_speed" formatted="false">Скорость воспроизведения по умолчанию изменена на: %s.</string>
     <string name="revanced_save_video_quality_mobile" formatted="false">Качество по умолчанию при моб. сети изменено на: %s.</string>
@@ -203,17 +210,10 @@
     <string name="revanced_spoof_app_version_target_summary">Выберите целевую версию приложения для подмены.</string>
     <string name="revanced_spoof_app_version_target_title">Целевая версия приложения при подмене</string>
     <string name="revanced_spoof_app_version_title">Подмена версии приложения</string>
-    <string name="revanced_start_page_entry_chart">Хит-парады</string>
-    <string name="revanced_start_page_entry_explore">Навигатор</string>
-    <string name="revanced_start_page_entry_home">Главная</string>
-    <string name="revanced_start_page_entry_library">Библиотека</string>
-    <string name="revanced_start_page_entry_subscription">Подписки</string>
-    <string name="revanced_start_page_summary">Устанавливает вкладку начального экрана.</string>
-    <string name="revanced_start_page_title">Вкладка начального экрана</string>
     <string name="sb_enabled">SponsorBlock</string>
-    <string name="sb_enabled_sum">SponsorBlock - коллективная система для пропуска раздражающих частей видео в YouTube.</string>
+    <string name="sb_enabled_sum">SponsorBlock - это crowd-sourced система для пропуска раздражающих частей видео в YouTube.</string>
     <string name="sb_toast_on_connection_error">Уведомление, когда API недоступен</string>
-    <string name="sb_toast_on_connection_error_sum">Отображает всплывающее уведомление, когда SponsorBlock API недоступен.</string>
+    <string name="sb_toast_on_connection_error_sum">Отображает всплывающее уведомление, когда SponsorBlock недоступен.</string>
     <string name="sb_toast_on_skip">Уведомление при автопропуске</string>
     <string name="sb_toast_on_skip_sum">Отображает всплывающее уведомление при автоматическом пропуске сегмента.</string>
     <string name="sb_api_url">Изменить адрес сервера API</string>
