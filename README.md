@@ -13,7 +13,7 @@ ReVanced Extended Patches.
 | `Alternative thumbnails` | Adds an option to replace video thumbnails with still image captures of the video. | 18.25.40 ~ 18.45.43 |
 | `Ambient mode switch` | Bypass the restrictions of ambient mode or disable it completely. | 18.25.40 ~ 18.45.43 |
 | `Append time stamps information` | Add the current video quality or playback speed in brackets next to the current time. | 18.25.40 ~ 18.45.43 |
-| `Change homepage` | Change home page to subscription feed. | 18.25.40 ~ 18.45.43 |
+| `Change start page` | Changes the start page of the app. | 18.25.40 ~ 18.45.43 |
 | `Custom branding icon YouTube` | Change the YouTube launcher icon to the icon specified in options.json. | 18.25.40 ~ 18.45.43 |
 | `Custom branding name YouTube` | Rename the YouTube app to the name specified in options.json. | 18.25.40 ~ 18.45.43 |
 | `Custom double tap length` | Add 'double-tap to seek' value. | 18.25.40 ~ 18.45.43 |
@@ -37,12 +37,12 @@ ReVanced Extended Patches.
 | `Enable gradient loading screen` | Enables gradient loading screen. | 18.25.40 ~ 18.45.43 |
 | `Enable language switch` | Enable/disable language switch toggle. | 18.25.40 ~ 18.45.43 |
 | `Enable minimized playback` | Enables minimized and background playback. | 18.25.40 ~ 18.45.43 |
-| `Enable music search` | Enables music search in the voice search screen. | 18.30.37 ~ 18.45.43 |
 | `Enable new splash animation` | Enables a new type of splash animation. | 18.25.40 ~ 18.45.43 |
 | `Enable new thumbnail preview` | Enables a new type of thumbnail preview. | 18.25.40 ~ 18.45.43 |
 | `Enable old quality layout` | Enables the original quality flyout menu. | 18.25.40 ~ 18.45.43 |
 | `Enable open links directly` | Skips over redirection URLs to external links. | 18.25.40 ~ 18.45.43 |
 | `Enable seekbar tapping` | Enables tap-to-seek on the seekbar of the video player. | 18.25.40 ~ 18.45.43 |
+| `Enable song search` | Enables song search in the voice search screen. | 18.30.37 ~ 18.45.43 |
 | `Enable tablet mini player` | Enables the tablet mini player layout. | 18.25.40 ~ 18.45.43 |
 | `Enable tablet navigation bar` | Enables the tablet navigation bar. | 18.25.40 ~ 18.45.43 |
 | `Enable wide search bar` | Replaces the search icon with a wide search bar. This will hide the YouTube logo when active. | 18.25.40 ~ 18.45.43 |
@@ -127,6 +127,7 @@ ReVanced Extended Patches.
 | `Background play` | Enables playing music in the background. | 6.21.52+ |
 | `Bitrate default value` | Set the audio quality to "Always High" when you first install the app. | 6.21.52+ |
 | `Certificate spoof` | Spoofs the YouTube Music certificate for Android Auto. | 6.21.52+ |
+| `Change start page` | Changes the start page of the app. | 6.21.52+ |
 | `Custom branding icon YouTube Music` | Change the YouTube Music launcher icon to the icon specified in options.json. | 6.21.52+ |
 | `Custom branding name YouTube Music` | Rename the YouTube Music app to the name specified in options.json. | 6.21.52+ |
 | `Custom package name` | Specifies the package name for YouTube and YT Music in the MicroG build. | 6.21.52+ |
@@ -183,7 +184,6 @@ ReVanced Extended Patches.
 | `Settings` | Adds settings for ReVanced Extended to YouTube Music. | 6.21.52+ |
 | `SponsorBlock` | Integrates SponsorBlock which allows skipping video segments such as sponsored content. | 6.21.52+ |
 | `Spoof app version` | Spoof the YouTube Music client version. | 6.21.52+ |
-| `Start page` | Set the default start page. | 6.21.52+ |
 | `Translations` | Add Crowdin translations for YouTube Music. | 6.21.52+ |
 </details>
 
