@@ -9,21 +9,42 @@
     <string name="microg_settings_title">Mở MicroG</string>
     <string name="revanced_ads">Quảng cáo</string>
     <string name="revanced_alt_thumbnails">Hình thu nhỏ</string>
-    <string name="revanced_alt_thumbnail_about_summary">Hình thu nhỏ thay thế là tính năng thay đổi hình thu nhỏ mặc định của video trên YouTube nhằm hạn chế clickbait, giúp người dùng có một cái nhìn trực quan và chính xác hơn về nội dung của video trước xem.</string>
-    <string name="revanced_alt_thumbnail_about_title">Giới thiệu</string>
-    <string name="revanced_alt_thumbnail_dearrow_summary_off">Đang sử dụng hình thu nhỏ được tạo bởi API mặc định.</string>
-    <string name="revanced_alt_thumbnail_dearrow_summary_on">Đang sử dụng hình thu nhỏ được tạo bởi API DeArrow.</string>
-    <string name="revanced_alt_thumbnail_dearrow_title">Sử dụng API DeArrow</string>
-    <string name="revanced_alt_thumbnail_enabled_summary_off">Đang sử dụng hình thu nhỏ video mặc định.</string>
-    <string name="revanced_alt_thumbnail_enabled_summary_on">Đang sử dụng hình thu nhỏ video thay thế.</string>
-    <string name="revanced_alt_thumbnail_enabled_title">Hình thu nhỏ thay thế</string>
-    <string name="revanced_alt_thumbnail_skip_checking_summary_off">Hình thu nhỏ sẽ được kiểm tra xem có tồn tại hay không trước khi thay thế.</string>
-    <string name="revanced_alt_thumbnail_skip_checking_summary_on">Hình thu nhỏ sẽ tải nhanh hơn, tuy nhiên một số video có thể không hiển thị hình thu nhỏ.</string>
-    <string name="revanced_alt_thumbnail_skip_checking_title">Bỏ qua kiểm tra hình thu nhỏ</string>
-    <string name="revanced_alt_thumbnail_type_entry_1">Đầu video</string>
-    <string name="revanced_alt_thumbnail_type_entry_2">Giữa video</string>
-    <string name="revanced_alt_thumbnail_type_entry_3">Cuối video</string>
-    <string name="revanced_alt_thumbnail_type_title">Thời điểm để lấy ảnh tĩnh từ video</string>
+    <string name="revanced_alt_thumbnail_about_status_dearrow">"Hình thu nhỏ thay thế bởi DeArrow.
+Hiển thị hình thu nhỏ mặc định nếu video không có hình thu nhỏ được thay thế bởi DeArrow."</string>
+    <string name="revanced_alt_thumbnail_about_status_dearrow_stills">"Hình thu nhỏ thay thế bởi DeArrow.
+Hiển thị hình thu nhỏ tự động nếu video không có hình thu nhỏ được thay thế bởi DeArrow."</string>
+    <string name="revanced_alt_thumbnail_about_status_disabled">Hình thu nhỏ mặc định.</string>
+    <string name="revanced_alt_thumbnail_about_status_stills">Hình thu nhỏ tự động.</string>
+    <string name="revanced_alt_thumbnail_about_title">Loại hình thủ nhỏ đang sử dụng</string>
+    <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow là một tiện ích được đóng góp bởi cồng đồng nhằm cung cấp hình thu nhỏ tốt hơn cho video YouTube. Những hình thu nhỏ này thường phù hợp hơn những hình thu nhỏ do YouTube cung cấp. Nếu được bật, URL video sẽ được gửi đến máy chủ API và không có dữ liệu nào khác được gửi đi.
+
+Nhấn vào đây để tìm hiểu thêm về DeArrow."</string>
+    <string name="revanced_alt_thumbnail_dearrow_about_title">Giới thiệu về DeArrow</string>
+    <string name="revanced_alt_thumbnail_dearrow_api_url_summary">"URL endpoint của bộ nhớ đệm hình thu nhỏ DeArrow. Không thay đổi URL này trừ khi bạn biết mình đang làm gì."</string>
+    <string name="revanced_alt_thumbnail_dearrow_api_url_title">Endpoint API DeArrow</string>
+    <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Thông báo ngắn nếu API không khả dụng đã tắt.</string>
+    <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">Hiển thị thông báo ngắn nếu API DeArrow không khả dụng.</string>
+    <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">Thông báo ngắn nếu API không khả dụng</string>
+    <string name="revanced_alt_thumbnail_dearrow_error">DeArrow tạm thời không khả dụng (Mã trạng thái: %s).</string>
+    <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow tạm thời không khả dụng.</string>
+    <string name="revanced_alt_thumbnail_dearrow_summary_off">DeArrow đã tắt.</string>
+    <string name="revanced_alt_thumbnail_dearrow_summary_on">DeArrow đã bật.</string>
+    <string name="revanced_alt_thumbnail_dearrow_title">DeArrow</string>
+    <string name="revanced_alt_thumbnail_preference_screen_summary">Các thiết lập hình thu nhỏ thay thế.</string>
+    <string name="revanced_alt_thumbnail_preference_screen_title">Hình thu nhỏ thay thế</string>
+    <string name="revanced_alt_thumbnail_stills">Hình thu nhỏ tự động</string>
+    <string name="revanced_alt_thumbnail_stills_about_summary">Hình thu nhỏ tự động là ảnh tĩnh ở đầu, giữa hoặc cuối mỗi video được tạo tự động bởi YouTube và không sử dụng bất kỳ API bên ngoài nào.</string>
+    <string name="revanced_alt_thumbnail_stills_about_title">Giới thiệu về Hình thu nhỏ tự động</string>
+    <string name="revanced_alt_thumbnail_stills_fast_summary_off">Đang sử dụng ảnh tĩnh chất lượng cao làm hình thu nhỏ video.</string>
+    <string name="revanced_alt_thumbnail_stills_fast_summary_on">Đang sử dụng ảnh tĩnh chất lượng trung bình làm hình thu nhỏ video.\n\nLưu ý: Hình thu nhỏ sẽ tải nhanh hơn, tuy nhiên các sự kiện trực tiếp, video sắp xuất bản hoặc video rất cũ có thể hiển thị hình thu nhỏ trống.</string>
+    <string name="revanced_alt_thumbnail_stills_fast_title">Hình thu nhỏ nhanh</string>
+    <string name="revanced_alt_thumbnail_stills_summary_off">Hình thu nhỏ tự động đã tắt.</string>
+    <string name="revanced_alt_thumbnail_stills_summary_on">Hình thu nhỏ tự động đã bật.</string>
+    <string name="revanced_alt_thumbnail_stills_time_entry_1">Đầu video</string>
+    <string name="revanced_alt_thumbnail_stills_time_entry_2">Giữa video</string>
+    <string name="revanced_alt_thumbnail_stills_time_entry_3">Cuối video</string>
+    <string name="revanced_alt_thumbnail_stills_time_title">Thời điểm để lấy ảnh tĩnh từ video</string>
+    <string name="revanced_alt_thumbnail_stills_title">Hình thu nhỏ tự động</string>
     <string name="revanced_append_time_stamp_information_summary_off">Nối thông tin vào nút Thời gian đã tắt.</string>
     <string name="revanced_append_time_stamp_information_summary_on">Nối thông tin vào nút Thời gian đã bật.</string>
     <string name="revanced_append_time_stamp_information_title">Nối thông tin vào nút Thời gian</string>
@@ -35,9 +56,18 @@
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">Không giới hạn chế độ môi trường xung quanh đã tắt.</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">Đang bỏ qua tự động tắt chế độ môi trường xung quanh khi thiết bị ở chế độ tiết kiệm pin.</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">Không giới hạn chế độ môi trường xung quanh</string>
-    <string name="revanced_change_homepage_summary_off">Mở thẻ Kênh đăng ký khi khởi động ứng dụng đã tắt.</string>
-    <string name="revanced_change_homepage_summary_on">Mở thẻ Kênh đăng ký khi khởi động ứng dụng đã bật.</string>
-    <string name="revanced_change_homepage_title">Mở thẻ Kênh đăng ký khi khởi động</string>
+    <string name="revanced_change_start_page_entry_default">Mặc định</string>
+    <string name="revanced_change_start_page_entry_explore">Khám phá</string>
+    <string name="revanced_change_start_page_entry_history">Video đã xem</string>
+    <string name="revanced_change_start_page_entry_library">Bạn</string>
+    <string name="revanced_change_start_page_entry_liked_videos">Video đã thích</string>
+    <string name="revanced_change_start_page_entry_podcasts">Podcast</string>
+    <string name="revanced_change_start_page_entry_search">Tìm kiếm</string>
+    <string name="revanced_change_start_page_entry_shorts">Shorts</string>
+    <string name="revanced_change_start_page_entry_subscriptions">Kênh đăng ký</string>
+    <string name="revanced_change_start_page_entry_trending">Thịnh hành</string>
+    <string name="revanced_change_start_page_title">Thay đổi trang khởi động</string>
+    <string name="revanced_change_start_page_warning">Trang khởi động không hợp lệ. Đã đặt lại về mặc định.</string>
     <string name="revanced_channel_bar_title">Thanh kênh</string>
     <string name="revanced_channel_profile_title">Hồ sơ kênh</string>
     <string name="revanced_close_interstitial_ads_summary">"Tự động đóng các quảng cáo xen kẽ hiển thị trên toàn màn hình.
@@ -131,9 +161,6 @@ Lưu ý: Bật tuỳ chọn này sẽ khôi phục tính năng Trượt để tu
     <string name="revanced_enable_language_switch_summary_off">Cho phép thay đổi ngôn ngữ đã tắt.</string>
     <string name="revanced_enable_language_switch_summary_on">Đang cho phép thay đổi ngôn ngữ hiển thị trong ứng dụng thông qua phần Cài đặt Chung của YouTube.</string>
     <string name="revanced_enable_language_switch_title">Cho phép thay đổi ngôn ngữ</string>
-    <string name="revanced_enable_music_search_summary_off">Tìm kiếm bài hát đã tắt.</string>
-    <string name="revanced_enable_music_search_summary_on">Tìm kiếm bài hát đã bật.</string>
-    <string name="revanced_enable_music_search_title">Tìm kiếm bài hát</string>
     <string name="revanced_enable_new_splash_animation_summary_off">Ảnh động khởi chạy kiểu mới đã tắt.</string>
     <string name="revanced_enable_new_splash_animation_summary_on">Ảnh động khởi chạy kiểu mới đã bật.</string>
     <string name="revanced_enable_new_splash_animation_title">Ảnh động khởi chạy kiểu mới</string>
@@ -159,6 +186,9 @@ Lưu ý: Bật tuỳ chọn này sẽ khôi phục tính năng Trượt để tu
     <string name="revanced_enable_seekbar_tapping_summary_off">Chạm thanh tiến trình video để tua đã tắt.</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">Chạm thanh tiến trình video để tua đã bật.</string>
     <string name="revanced_enable_seekbar_tapping_title">Chạm thanh tiến trình để tua</string>
+    <string name="revanced_enable_song_search_summary_off">Tìm kiếm bài hát đã tắt.</string>
+    <string name="revanced_enable_song_search_summary_on">Tìm kiếm bài hát đã bật.</string>
+    <string name="revanced_enable_song_search_title">Tìm kiếm bài hát</string>
     <string name="revanced_enable_swipe_auto_brightness_summary_off">Cử chỉ vuốt Độ sáng tự động đã tắt.</string>
     <string name="revanced_enable_swipe_auto_brightness_summary_on">Khi vuốt Độ sáng về 0, độ sáng tự động sẽ được bật.</string>
     <string name="revanced_enable_swipe_auto_brightness_title">Vuốt Độ sáng tự động</string>
@@ -595,6 +625,9 @@ Sự cố đã biết: Tiêu đề của thẻ chính chức bị ẩn khỏi k�
     <string name="revanced_hide_start_trial_button_summary_off">Nút mua Kênh Primetime (Bắt đầu dùng thử/Dùng thử miễn phí/Đăng ký/Mua Sunday Ticket...) được hiển thị.</string>
     <string name="revanced_hide_start_trial_button_summary_on">Nút mua Kênh Primetime (Bắt đầu dùng thử/Dùng thử miễn phí/Đăng ký/Mua Sunday Ticket...) đã ẩn.</string>
     <string name="revanced_hide_start_trial_button_title">Ẩn nút mua Kênh Primetime</string>
+    <string name="revanced_hide_store_tab_summary_off">Thẻ Cửa hàng được hiển thị.</string>
+    <string name="revanced_hide_store_tab_summary_on">Thẻ Cửa hàng đã ẩn.</string>
+    <string name="revanced_hide_store_tab_title">Ẩn thẻ Cửa hàng</string>
     <string name="revanced_hide_subscriptions_button_summary_off">Thẻ Kênh đăng ký được hiển thị.</string>
     <string name="revanced_hide_subscriptions_button_summary_on">Thẻ Kênh đăng ký đã ẩn.</string>
     <string name="revanced_hide_subscriptions_button_title">Ẩn thẻ Kênh đăng ký</string>
@@ -662,9 +695,6 @@ Sự cố đã biết:
     <string name="revanced_layout_title">Bố cục</string>
     <string name="revanced_misc">Khác</string>
     <string name="revanced_navigation">Thanh điều hướng</string>
-    <string name="revanced_open_library_you_startup_summary_off">Mở thẻ Thư viện/Bạn khi khởi động ứng dụng đã tắt.</string>
-    <string name="revanced_open_library_you_startup_summary_on">Mở thẻ Thư viện/Bạn khi khởi động ứng dụng đã bật.</string>
-    <string name="revanced_open_library_you_startup_title">Mở thẻ Thư viện/Bạn khi khởi động</string>
     <string name="revanced_others">Khác</string>
     <string name="revanced_overlay_button">Nút trên lớp phủ trình phát</string>
     <string name="revanced_overlay_button_always_repeat_summary">Nhấn để luôn phát lặp lại một video.</string>
@@ -740,8 +770,8 @@ Sự cố đã biết:
 Lưu ý:\n- Khi bạn nhấn nút Phát, sẽ có một độ trễ khoảng 0.7 giây trước khi video bắt đầu phát, tuy nhiên chất lượng video mặc định vẫn được áp dụng ngay lập tức.
 - Tuỳ chọn này không áp dụng cho video HDR, video có thời lượng dưới 10 giây, sự kiện trực tiếp và buổi công chiếu."</string>
     <string name="revanced_skip_preloaded_buffer_title">Bỏ qua bộ đệm tải trước</string>
-    <string name="revanced_skip_preloaded_buffer_toast_summary_off">Thông báo ngắn đã ẩn khi bỏ qua bộ đệm tải trước.</string>
-    <string name="revanced_skip_preloaded_buffer_toast_summary_on">Thông báo ngắn được hiển thị khi bỏ qua bộ đệm tải trước.</string>
+    <string name="revanced_skip_preloaded_buffer_toast_summary_off">Thông báo ngắn đã ẩn.</string>
+    <string name="revanced_skip_preloaded_buffer_toast_summary_on">Thông báo ngắn được hiển thị.</string>
     <string name="revanced_skip_preloaded_buffer_toast_title">Thông báo ngắn khi bỏ qua</string>
     <string name="revanced_spoof_app_version_summary">"Giả mạo phiên bản YouTube hiện tại thành phiên bản cũ.
 

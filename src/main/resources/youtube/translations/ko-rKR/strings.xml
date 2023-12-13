@@ -9,21 +9,42 @@
     <string name="microg_settings_title">MicroG 열기</string>
     <string name="revanced_ads">광고</string>
     <string name="revanced_alt_thumbnails">대체 썸네일</string>
-    <string name="revanced_alt_thumbnail_about_summary">선정성을 줄이기 위해 기본 썸네일을 대체 썸네일으로 변경하는 기능입니다.</string>
-    <string name="revanced_alt_thumbnail_about_title">정보</string>
-    <string name="revanced_alt_thumbnail_dearrow_summary_off">썸네일을 외부 API 없이 생성합니다.</string>
-    <string name="revanced_alt_thumbnail_dearrow_summary_on">썸네일을 DeArrow API를 사용하여 생성합니다.</string>
-    <string name="revanced_alt_thumbnail_dearrow_title">DeArrow API 사용하여 썸네일 생성하기</string>
-    <string name="revanced_alt_thumbnail_enabled_summary_off">기본 썸네일(클릭 유도 문안 썸네일)을 표시합니다.</string>
-    <string name="revanced_alt_thumbnail_enabled_summary_on">대체 썸네일(동영상 스크린샷 썸네일)을 표시합니다.</string>
-    <string name="revanced_alt_thumbnail_enabled_title">대체 썸네일 활성화하기</string>
-    <string name="revanced_alt_thumbnail_skip_checking_summary_off">썸네일을 변경하기 전에 존재 여부를 확인합니다.</string>
-    <string name="revanced_alt_thumbnail_skip_checking_summary_on">썸네일이 더 빠르게 불러오지만 일부 동영상에는 빈 썸네일이 표시됩니다.</string>
-    <string name="revanced_alt_thumbnail_skip_checking_title">썸네일 확인 건너뛰기</string>
-    <string name="revanced_alt_thumbnail_type_entry_1">동영상의 첫 부분 이미지</string>
-    <string name="revanced_alt_thumbnail_type_entry_2">동영상의 중간 부분 이미지</string>
-    <string name="revanced_alt_thumbnail_type_entry_3">동영상의 마지막 부분 이미지</string>
-    <string name="revanced_alt_thumbnail_type_title">대체 썸네일에 사용되는 이미지</string>
+    <string name="revanced_alt_thumbnail_about_status_dearrow">"DeArrow 썸네일을 표시합니다.
+동영상에 DeArrow 썸네일이 없는 경우에는 원본 썸네일을 표시합니다."</string>
+    <string name="revanced_alt_thumbnail_about_status_dearrow_stills">"DeArrow 썸네일을 표시합니다.
+동영상에 DeArrow 썸네일이 없는 경우에는 동영상 스크린샷 썸네일을 표시합니다."</string>
+    <string name="revanced_alt_thumbnail_about_status_disabled">원본 썸네일을 표시합니다.</string>
+    <string name="revanced_alt_thumbnail_about_status_stills">동영상 스크린샷 썸네일을 표시합니다.</string>
+    <string name="revanced_alt_thumbnail_about_title">표시 중인 썸네일</string>
+    <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow는 YouTube 동영상에 크라우드 소싱된 썸네일을 제공합니다. 이러한 썸네일은 YouTube에서 제공하는 썸네일보다 관련성이 높은 경우가 많습니다. 이 기능을 활성화하면 동영상 URL이 API 서버로 전송되며 다른 데이터는 전송되지 않습니다.
+
+DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
+    <string name="revanced_alt_thumbnail_dearrow_about_title">DeArrow에 대한 정보</string>
+    <string name="revanced_alt_thumbnail_dearrow_api_url_summary">"DeArrow 썸네일 캐시 엔드포인트 URL입니다. 이것이 무슨 역할을 하는지 모르는 경우에는 이 URL을 변경하지 마세요."</string>
+    <string name="revanced_alt_thumbnail_dearrow_api_url_title">DeArrow API 엔드포인트</string>
+    <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">DeArrow를 사용할 수 없을 때 팝업 메시지를 표시하지 않습니다.</string>
+    <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">DeArrow를 사용할 수 없을 때 팝업 메시지를 표시합니다.</string>
+    <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">API를 사용할 수 없을 때 팝업 메시지 표시하기</string>
+    <string name="revanced_alt_thumbnail_dearrow_error">DeArrow를 일시적으로 사용할 수 없습니다. (상태 코드: %s)</string>
+    <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow를 일시적으로 사용할 수 없습니다.</string>
+    <string name="revanced_alt_thumbnail_dearrow_summary_off">DeArrow를 비활성화합니다.</string>
+    <string name="revanced_alt_thumbnail_dearrow_summary_on">DeArrow를 활성화합니다.</string>
+    <string name="revanced_alt_thumbnail_dearrow_title">DeArrow 활성화하기</string>
+    <string name="revanced_alt_thumbnail_preference_screen_summary">동영상 썸네일을 설정할 수 있습니다.</string>
+    <string name="revanced_alt_thumbnail_preference_screen_title">대체 썸네일</string>
+    <string name="revanced_alt_thumbnail_stills">동영상 스크린샷 썸네일</string>
+    <string name="revanced_alt_thumbnail_stills_about_summary">동영상 스크린샷 썸네일은 각 동영상의 시작 / 중간 / 끝에서 캡쳐된 이미지입니다. 이러한 이미지는 YouTube에 내장되어 있으며 외부 API는 사용하지 않습니다.</string>
+    <string name="revanced_alt_thumbnail_stills_about_title">동영상 스크린샷 썸네일에 대한 정보</string>
+    <string name="revanced_alt_thumbnail_stills_fast_summary_off">고화질 동영상 스크린샷 썸네일을 표시합니다.</string>
+    <string name="revanced_alt_thumbnail_stills_fast_summary_on">일반화질 동영상 스크린샷 썸네일을 표시합니다. 썸네일을 빠르게 불러오지만 실시간 스트리밍, 비공개, 오래된 동영상에서는 아무것도 표시되지 않은 썸네일이 표시될 수 있습니다.</string>
+    <string name="revanced_alt_thumbnail_stills_fast_title">일반화질 동영상 스크린샷 썸네일 표시하기</string>
+    <string name="revanced_alt_thumbnail_stills_summary_off">동영상 스크린샷 썸네일을 표시하지 않습니다.</string>
+    <string name="revanced_alt_thumbnail_stills_summary_on">동영상 스크린샷 썸네일을 표시합니다.</string>
+    <string name="revanced_alt_thumbnail_stills_time_entry_1">동영상의 첫 부분 이미지</string>
+    <string name="revanced_alt_thumbnail_stills_time_entry_2">동영상의 중간 부분 이미지</string>
+    <string name="revanced_alt_thumbnail_stills_time_entry_3">동영상의 마지막 부분 이미지</string>
+    <string name="revanced_alt_thumbnail_stills_time_title">동영상 스크린샷 썸네일에 표시되는 이미지</string>
+    <string name="revanced_alt_thumbnail_stills_title">동영상 스크린샷 썸네일 활성화하기</string>
     <string name="revanced_append_time_stamp_information_summary_off">타임스탬프에서 정보를 표시하지 않습니다.</string>
     <string name="revanced_append_time_stamp_information_summary_on">타임스탬프에서 정보를 표시합니다.</string>
     <string name="revanced_append_time_stamp_information_title">타임스탬프에서 정보 표시하기</string>
@@ -35,9 +56,18 @@
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">배터리 절전 모드에서 영화 조명 모드를 비활성화합니다.</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">배터리 절전 모드에서 영화 조명 모드를 활성화합니다.</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">영화 조명 모드 제한 비활성화하기</string>
-    <string name="revanced_change_homepage_summary_off">현재 메인 페이지: 홈</string>
-    <string name="revanced_change_homepage_summary_on">현재 메인 페이지: 구독</string>
-    <string name="revanced_change_homepage_title">메인 페이지 변경하기</string>
+    <string name="revanced_change_start_page_entry_default">기본값</string>
+    <string name="revanced_change_start_page_entry_explore">탐색</string>
+    <string name="revanced_change_start_page_entry_history">기록</string>
+    <string name="revanced_change_start_page_entry_library">보관함</string>
+    <string name="revanced_change_start_page_entry_liked_videos">좋아요 표시한 동영상</string>
+    <string name="revanced_change_start_page_entry_podcasts">팟캐스트</string>
+    <string name="revanced_change_start_page_entry_search">검색</string>
+    <string name="revanced_change_start_page_entry_shorts">Shorts</string>
+    <string name="revanced_change_start_page_entry_subscriptions">구독</string>
+    <string name="revanced_change_start_page_entry_trending">인기 급상승</string>
+    <string name="revanced_change_start_page_title">메인 페이지 변경하기</string>
+    <string name="revanced_change_start_page_warning">유효하지 않은 메인 페이지이므로 기본값으로 재설정합니다.</string>
     <string name="revanced_channel_bar_title">채널바</string>
     <string name="revanced_channel_profile_title">채널 프로필</string>
     <string name="revanced_close_interstitial_ads_summary">"자동으로 전면 광고를 닫습니다.
@@ -131,9 +161,6 @@
     <string name="revanced_enable_language_switch_summary_off">YouTube 일반 설정에서 앱 언어 변경을 비활성화합니다.</string>
     <string name="revanced_enable_language_switch_summary_on">YouTube 일반 설정에서 앱 언어 변경을 활성화합니다.</string>
     <string name="revanced_enable_language_switch_title">앱 언어 변경 활성화하기</string>
-    <string name="revanced_enable_music_search_summary_off">노래 검색을 비활성화합니다.</string>
-    <string name="revanced_enable_music_search_summary_on">노래 검색을 활성화합니다.</string>
-    <string name="revanced_enable_music_search_title">노래 검색 활성화하기</string>
     <string name="revanced_enable_new_splash_animation_summary_off">새로운 스플래시 애니메이션을 비활성화합니다.</string>
     <string name="revanced_enable_new_splash_animation_summary_on">새로운 스플래시 애니메이션을 활성화합니다.</string>
     <string name="revanced_enable_new_splash_animation_title">새로운 스플래시 애니메이션 활성화하기</string>
@@ -159,6 +186,9 @@
     <string name="revanced_enable_seekbar_tapping_summary_off">재생바 터치 조작을 비활성화합니다.</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">재생바 터치 조작을 활성화합니다.</string>
     <string name="revanced_enable_seekbar_tapping_title">재생바 터치 조작 활성화하기</string>
+    <string name="revanced_enable_song_search_summary_off">노래 검색을 비활성화합니다.\n\n\'Hide voice search button\' 패치가 포함된 앱에서는 이 기능을 사용할 수 없습니다.</string>
+    <string name="revanced_enable_song_search_summary_on">노래 검색을 비활성화합니다.\n\n\'Hide voice search button\' 패치가 포함된 앱에서는 이 기능을 사용할 수 없습니다.</string>
+    <string name="revanced_enable_song_search_title">노래 검색 활성화하기</string>
     <string name="revanced_enable_swipe_auto_brightness_summary_off">스와이프 제스처로 밝기가 0이 되더라도 자동 밝기를 활성화하지 않습니다.</string>
     <string name="revanced_enable_swipe_auto_brightness_summary_on">스와이프 제스처로 밝기가 0이 되면 자동 밝기를 활성화합니다.</string>
     <string name="revanced_enable_swipe_auto_brightness_title">스와이프 제스처 중 자동 밝기 활성화하기</string>
@@ -598,6 +628,9 @@
     <string name="revanced_hide_start_trial_button_summary_off">일부 국가 OTT 채널의 채널바에서 체험 시작 버튼이 노출됩니다. (일부 국가 VPN를 사용하면 버튼이 노출됨.)</string>
     <string name="revanced_hide_start_trial_button_summary_on">일부 국가 OTT 채널의 채널바에서 체험 시작 버튼이 숨겨집니다.</string>
     <string name="revanced_hide_start_trial_button_title">체험 시작 버튼 숨기기</string>
+    <string name="revanced_hide_store_tab_summary_off">스토어 탭이 노출됩니다.</string>
+    <string name="revanced_hide_store_tab_summary_on">스토어 탭이 숨겨집니다.</string>
+    <string name="revanced_hide_store_tab_title">스토어 탭 숨기기</string>
     <string name="revanced_hide_subscriptions_button_summary_off">구독 버튼이 노출됩니다.</string>
     <string name="revanced_hide_subscriptions_button_summary_on">구독 버튼이 숨겨집니다.</string>
     <string name="revanced_hide_subscriptions_button_title">구독 버튼 숨기기</string>
@@ -667,9 +700,6 @@
     <string name="revanced_layout_title">레이아웃</string>
     <string name="revanced_misc">기타</string>
     <string name="revanced_navigation">하단바</string>
-    <string name="revanced_open_library_you_startup_summary_off">앱 시작할 때 나(보관함) 탭이 열리지 않습니다.</string>
-    <string name="revanced_open_library_you_startup_summary_on">앱 시작할 때 나(보관함) 탭이 열립니다.</string>
-    <string name="revanced_open_library_you_startup_title">앱 시작할 때 나(보관함) 탭 열기</string>
     <string name="revanced_others">그 외</string>
     <string name="revanced_overlay_button">오버레이 버튼</string>
     <string name="revanced_overlay_button_always_repeat_summary">버튼을 눌러서 동영상 반복 재생으로 전환할 수 있습니다.</string>
@@ -719,8 +749,8 @@
     <string name="revanced_ryd_shorts_summary_on">Shorts에서 싫어요 개수를 표시합니다. %s</string>
     <string name="revanced_ryd_shorts_title">Shorts에서 싫어요 개수 표시하기</string>
     <string name="revanced_ryd_toast_on_connection_error_title">API를 사용할 수 없을 때 팝업 메시지 표시하기</string>
-    <string name="revanced_ryd_toast_on_connection_error_summary_off">ReturnYouTubeDislike API를 사용할 수 없을 때 팝업 메시지를 표시하지 않습니다.</string>
-    <string name="revanced_ryd_toast_on_connection_error_summary_on">ReturnYouTubeDislike API를 사용할 수 없을 때 팝업 메시지를 표시합니다.</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary_off">ReturnYouTubeDislike를 사용할 수 없을 때 팝업 메시지를 표시하지 않습니다.</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary_on">ReturnYouTubeDislike를 사용할 수 없을 때 팝업 메시지를 표시합니다.</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">숨겨짐</string>
     <string name="revanced_sanitize_sharing_links_summary">링크를 공유할 때 URL에서 추적 쿼리 매개변수를 제거합니다.</string>
     <string name="revanced_sanitize_sharing_links_title">추적 쿼리를 제거한 링크 공유하기</string>
@@ -796,7 +826,7 @@
     <string name="revanced_switching_create_notification_summary">"기기 정보를 변경하여 만들기 버튼과 알림 버튼의 위치를 교환합니다.
 
 • 이 설정을 변경하더라도 기기를 다시 시작할 때까지 적용되지 않을 수 있습니다.
-• 이 설정을 비활성화하면 서버 측에서 필터를 거치지 않은 광고가 로드됩니다.
+• 이 설정을 비활성화하면 서버에서 광고 필터에 등록되지 않은 광고가 로드됩니다.
 • 광고 설정에서 '동영상 광고 숨기기'를 비활성화하려면 이 설정도 비활성화해야합니다."</string>
     <string name="revanced_switching_create_notification_title">만들기 버튼과 알림 버튼 위치 교환하기</string>
     <string name="revanced_tool_used">사용된 도구</string>
@@ -836,8 +866,8 @@
     <string name="sb_guidelines_popup_open">보러가기</string>
     <string name="sb_general">일반</string>
     <string name="sb_toast_on_connection_error_title">API를 사용할 수 없을 때 팝업 메시지 표시하기</string>
-    <string name="sb_toast_on_connection_error_summary_on">SponsorBlock API를 사용할 수 없을 때 팝업 메시지를 표시합니다.</string>
-    <string name="sb_toast_on_connection_error_summary_off">SponsorBlock API를 사용할 수 없을 때 팝업 메시지를 표시하지 않습니다.</string>
+    <string name="sb_toast_on_connection_error_summary_on">SponsorBlock을 사용할 수 없을 때 팝업 메시지를 표시합니다.</string>
+    <string name="sb_toast_on_connection_error_summary_off">SponsorBlock을 사용할 수 없을 때 팝업 메시지를 표시하지 않습니다.</string>
     <string name="sb_general_skipcount">건너뛴 횟수 기록 활성화하기</string>
     <string name="sb_general_skipcount_sum_on">구간 건너뛰기를 통해 절약한 시간을 SponsorBlock의 리더보드 시스템에 알려줍니다. 건너뛴 구간에 대한 정보가 서버에 전송됩니다.</string>
     <string name="sb_general_skipcount_sum_off">건너뛴 횟수 기록을 비활성화합니다.</string>
@@ -846,12 +876,12 @@
     <string name="sb_general_uuid">비공개 사용자 ID</string>
     <string name="sb_general_uuid_sum">비공개 사용자 ID는 SponsorBlock 서버에서 구간을 제출하거나 건너뛴 구간 정보를 기록하는데 사용되는 고유 ID 입니다. 절대 다른 이에게 공개하지 마세요.</string>
     <string name="sb_general_uuid_invalid">유효하지 않은 값입니다.</string>
-    <string name="sb_general_api_url">SponsorBlock 서버 주소 변경하기</string>
-    <string name="sb_general_api_url_sum">SponsorBlock이 요청을 보낼 서버 주소입니다. 이것이 무슨 역할을 하는지 알고 있는 경우에만 이 주소를 변경하세요.</string>
-    <string name="sb_api_url_reset">SponsorBlock 서버 주소 초기화</string>
-    <string name="sb_api_url_invalid">잘못된 주소입니다.</string>
-    <string name="sb_api_url_changed">SponsorBlock 서버 주소가 변경되었습니다.</string>
-    <string name="sb_settings_copy">복사하기</string>
+    <string name="sb_general_api_url">API URL 변경하기</string>
+    <string name="sb_general_api_url_sum">SponsorBlock이 요청을 보낼 서버 URL입니다. 이것이 무슨 역할을 하는지 알고 있는 경우에만 이 URL을 변경하세요.</string>
+    <string name="sb_api_url_reset">API URL을 초기화하였습니다.</string>
+    <string name="sb_api_url_invalid">유효하지 않은 API URL입니다.</string>
+    <string name="sb_api_url_changed">API URL을 변경하였습니다.</string>
+    <string name="sb_settings_copy">복사</string>
     <string name="sb_settings_ie_sum">ReVanced Extended 및 다른 SponsorBlock 플랫폼에서 가져오거나 내보낼 수 있는 SponsorBlock JSON 구성입니다. %s</string>
     <string name="sb_settings_ie_sum_warning">여기에는 비공개 사용자 아이디가 포함됩니다. 이 정보를 현명하게 공유하세요.</string>
     <string name="sb_settings_ie">설정 가져오기 / 내보내기</string>

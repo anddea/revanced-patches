@@ -9,21 +9,42 @@
     <string name="microg_settings_title">Відкрити MicroG</string>
     <string name="revanced_ads">Реклама</string>
     <string name="revanced_alt_thumbnails">Альтернативні мініатюри</string>
-    <string name="revanced_alt_thumbnail_about_summary">Функція замінює стандартні мініатюри відео альтернативними для зниження сенсаційності.</string>
-    <string name="revanced_alt_thumbnail_about_title">Про це</string>
-    <string name="revanced_alt_thumbnail_dearrow_summary_off">Мініатюри генеруються без зовнішнього API</string>
-    <string name="revanced_alt_thumbnail_dearrow_summary_on">Мініатюри генеруються використовуючи DeArrow API</string>
-    <string name="revanced_alt_thumbnail_dearrow_title">Використовувати DeArrow API</string>
-    <string name="revanced_alt_thumbnail_enabled_summary_off">Зображається оригінальні мініатюри YouTube.</string>
-    <string name="revanced_alt_thumbnail_enabled_summary_on">Мініатюри Youtube заміняється альтернативними.</string>
-    <string name="revanced_alt_thumbnail_enabled_title">Увімкнути альтернативні мініатюри</string>
-    <string name="revanced_alt_thumbnail_skip_checking_summary_off">Мініатюри перевірятимуться існують чи ні перед заміною</string>
-    <string name="revanced_alt_thumbnail_skip_checking_summary_on">Мініатюри вантажитимуться швидше, але деякі відео показуватимуть порожні мініатюри</string>
-    <string name="revanced_alt_thumbnail_skip_checking_title">Пропустити перевірку мініатюр</string>
-    <string name="revanced_alt_thumbnail_type_entry_1">Початок відео</string>
-    <string name="revanced_alt_thumbnail_type_entry_2">Середина відео</string>
-    <string name="revanced_alt_thumbnail_type_entry_3">Кінець відео</string>
-    <string name="revanced_alt_thumbnail_type_title">Час відео з якого береться кадр</string>
+    <string name="revanced_alt_thumbnail_about_status_dearrow">"Показ мініатюр DeArrow.
+Якщо у відео немає мініатюр DeArrow, то показуватиметься оригінальні мініатюри YouTube."</string>
+    <string name="revanced_alt_thumbnail_about_status_dearrow_stills">"Показ мініатюр DeArrow.
+Якщо у відео немає мініатюр DeArrow, то показуватиметься кадри з відео."</string>
+    <string name="revanced_alt_thumbnail_about_status_disabled">Зображається оригінальні мініатюри YouTube.</string>
+    <string name="revanced_alt_thumbnail_about_status_stills">Зображається кадри з відео.</string>
+    <string name="revanced_alt_thumbnail_about_title">Мініатюри використовується</string>
+    <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow надає краудсорсингові мініатюри для відео з YouTube. Ці мініатюри часто більш релевантні, ніж ті, що надаються YouTube. Якщо увімкнено, URL-адреси відео надсилатиметься на сервер API, а інші дані не надсилатиметься.
+
+Натисніть тут, щоб дізнатися більше про DeArrow."</string>
+    <string name="revanced_alt_thumbnail_dearrow_about_title">Про DeArrow</string>
+    <string name="revanced_alt_thumbnail_dearrow_api_url_summary">"URL-адреса кінцевої точки кешу мініатюр DeArrow. Не змінюйте цей параметр, якщо ви не знаєте, що робите."</string>
+    <string name="revanced_alt_thumbnail_dearrow_api_url_title">Кінцева точка API DeArrow</string>
+    <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Тост не показується, якщо DeArrow не доступний.</string>
+    <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">Тост показується, якщо DeArrow не доступний.</string>
+    <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">Показувати тост, якщо API не доступний</string>
+    <string name="revanced_alt_thumbnail_dearrow_error">DeArrow тимчасово недоступний. (код статусу: %s)</string>
+    <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow тимчасово недоступний.</string>
+    <string name="revanced_alt_thumbnail_dearrow_summary_off">DeArrow не використовується.</string>
+    <string name="revanced_alt_thumbnail_dearrow_summary_on">DeArrow використовується.</string>
+    <string name="revanced_alt_thumbnail_dearrow_title">Увімкнути DeArrow</string>
+    <string name="revanced_alt_thumbnail_preference_screen_summary">Налаштування мініатюр відео.</string>
+    <string name="revanced_alt_thumbnail_preference_screen_title">Альтернативні мініатюри</string>
+    <string name="revanced_alt_thumbnail_stills">Кадри з відео</string>
+    <string name="revanced_alt_thumbnail_stills_about_summary">Кадри береться з початку/середини/кінця кожного відео. Ці зображення вбудовані в YouTube і зовнішній API не використовується.</string>
+    <string name="revanced_alt_thumbnail_stills_about_title">Про кадри з відео</string>
+    <string name="revanced_alt_thumbnail_stills_fast_summary_off">Використовується кадри високої якості.</string>
+    <string name="revanced_alt_thumbnail_stills_fast_summary_on">Використовується кадри середньої якості. Мініатюри завантажуватиметься швидше, але прямі трансляції, неопубліковані або дуже старі відео можуть зображатися порожніми мініатюрами.</string>
+    <string name="revanced_alt_thumbnail_stills_fast_title">Використовувати неточні кадри</string>
+    <string name="revanced_alt_thumbnail_stills_summary_off">Кадри з відео YouTube не використовується.</string>
+    <string name="revanced_alt_thumbnail_stills_summary_on">Кадри з відео YouTube використовується.</string>
+    <string name="revanced_alt_thumbnail_stills_time_entry_1">Початок відео</string>
+    <string name="revanced_alt_thumbnail_stills_time_entry_2">Середина відео</string>
+    <string name="revanced_alt_thumbnail_stills_time_entry_3">Кінець відео</string>
+    <string name="revanced_alt_thumbnail_stills_time_title">Час відео з якого береться кадр</string>
+    <string name="revanced_alt_thumbnail_stills_title">Увімкнути кадри з відео</string>
     <string name="revanced_append_time_stamp_information_summary_off">Додавання інформації біля мітки часу вимкнуто.</string>
     <string name="revanced_append_time_stamp_information_summary_on">Додавання інформації біля мітки часу увімкнуто.</string>
     <string name="revanced_append_time_stamp_information_title">Додавати інформацію біля мітки часу</string>
@@ -35,9 +56,18 @@
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">Кінематографічне освітлення вимкнуто в енергозберігаючому режимі.</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">Кінематографічне освітлення увімкнуто в енергозберігаючому режимі.</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">Обхід обмежень кінематографічного освітлення</string>
-    <string name="revanced_change_homepage_summary_off">Поточна домашня сторінка: Головна</string>
-    <string name="revanced_change_homepage_summary_on">Поточна домашня сторінка: Підписки</string>
-    <string name="revanced_change_homepage_title">Змінити домашню сторінку на підписки</string>
+    <string name="revanced_change_start_page_entry_default">Стандартна</string>
+    <string name="revanced_change_start_page_entry_explore">Що нового</string>
+    <string name="revanced_change_start_page_entry_history">Історія</string>
+    <string name="revanced_change_start_page_entry_library">Бібліотека</string>
+    <string name="revanced_change_start_page_entry_liked_videos">Відео, які сподобалися</string>
+    <string name="revanced_change_start_page_entry_podcasts">Подкасти</string>
+    <string name="revanced_change_start_page_entry_search">Пошук</string>
+    <string name="revanced_change_start_page_entry_shorts">Shorts</string>
+    <string name="revanced_change_start_page_entry_subscriptions">Підписки</string>
+    <string name="revanced_change_start_page_entry_trending">Тенденції</string>
+    <string name="revanced_change_start_page_title">Змінити початкову сторінку</string>
+    <string name="revanced_change_start_page_warning">Недійсна початкова сторінка, скидається на стандартну.</string>
     <string name="revanced_channel_bar_title">Панель каналу</string>
     <string name="revanced_channel_profile_title">Профіль каналу</string>
     <string name="revanced_close_interstitial_ads_summary">"Автоматично закривати повноекранну рекламу.
@@ -131,9 +161,6 @@
     <string name="revanced_enable_language_switch_summary_off">Перемикач мови вимкнуто</string>
     <string name="revanced_enable_language_switch_summary_on">Перемикач мови ввімкнуто</string>
     <string name="revanced_enable_language_switch_title">Увімкнути перемикач мови</string>
-    <string name="revanced_enable_music_search_summary_off">Пошук музики вимкнуто.</string>
-    <string name="revanced_enable_music_search_summary_on">Пошук музики ввімкнуто.</string>
-    <string name="revanced_enable_music_search_title">Увімкнути пошук музики</string>
     <string name="revanced_enable_new_splash_animation_summary_off">Нова анімація сплешу вимкнена</string>
     <string name="revanced_enable_new_splash_animation_summary_on">Нова анімація сплешу ввімкнена</string>
     <string name="revanced_enable_new_splash_animation_title">Увімкнути нову анімацію сплешу</string>
@@ -159,6 +186,9 @@
     <string name="revanced_enable_seekbar_tapping_summary_off">Натискання на рядок прогресу для перемотування відео вимкнено</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">Натискання на рядок прогресу для перемотування відео увімкнено</string>
     <string name="revanced_enable_seekbar_tapping_title">Увімкнути натискання на рядок прогресу</string>
+    <string name="revanced_enable_song_search_summary_off">Пошук пісень увімкнено.</string>
+    <string name="revanced_enable_song_search_summary_on">Пошук пісень вимкнено.</string>
+    <string name="revanced_enable_song_search_title">Увімкнути пошук пісень</string>
     <string name="revanced_enable_swipe_auto_brightness_summary_off">Навіть якщо яскравість встановлена на 0 жестом, автоматична яскравість не активується</string>
     <string name="revanced_enable_swipe_auto_brightness_summary_on">Коли яскравість сягає 0 жестом, активується автоматична яскравість</string>
     <string name="revanced_enable_swipe_auto_brightness_title">Увімкнути автояскравість жестом</string>
@@ -595,6 +625,9 @@
     <string name="revanced_hide_start_trial_button_summary_off">Кнопку Спробувати показується</string>
     <string name="revanced_hide_start_trial_button_summary_on">Кнопку Спробувати приховано</string>
     <string name="revanced_hide_start_trial_button_title">Приховати кнопку Спробувати</string>
+    <string name="revanced_hide_store_tab_summary_off">Вкладку Магазину показується.</string>
+    <string name="revanced_hide_store_tab_summary_on">Вкладку Магазину приховано.</string>
+    <string name="revanced_hide_store_tab_title">Приховати вкладку Магазину</string>
     <string name="revanced_hide_subscriptions_button_summary_off">Кнопку Підписки показується.</string>
     <string name="revanced_hide_subscriptions_button_summary_on">Кнопку Підписки приховано.</string>
     <string name="revanced_hide_subscriptions_button_title">Приховати кнопку Підписки</string>
@@ -662,9 +695,6 @@
     <string name="revanced_layout_title">Макет</string>
     <string name="revanced_misc">Різне</string>
     <string name="revanced_navigation">Навігація</string>
-    <string name="revanced_open_library_you_startup_summary_off">Бібліотека(Ви) не відкривається при запуску програми</string>
-    <string name="revanced_open_library_you_startup_summary_on">Бібліотека(Ви) відкривається при запуску програми</string>
-    <string name="revanced_open_library_you_startup_title">Відкривати Бібліотека(Ви) при запуску додатка</string>
     <string name="revanced_others">Інше</string>
     <string name="revanced_overlay_button">Накладання кнопок</string>
     <string name="revanced_overlay_button_always_repeat_summary">Натискайте для перемикання станів повторення.</string>
@@ -714,8 +744,8 @@
     <string name="revanced_ryd_shorts_summary_on">Дизлайки показується на Коротких. %s</string>
     <string name="revanced_ryd_shorts_title">Показувати Не подобається на Коротких</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Показувати тост, якщо не доступний API</string>
-    <string name="revanced_ryd_toast_on_connection_error_summary_off">Тост не показується, якщо API ReturnYouTubeDislike не доступний.</string>
-    <string name="revanced_ryd_toast_on_connection_error_summary_on">Тост показується, якщо API ReturnYouTubeDislike не доступний.</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary_off">Тост не показується, якщо Повернення дизлайків YouTube не доступне.</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary_on">Тост показується, якщо Повернення дизлайків YouTube не доступне.</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Приховано</string>
     <string name="revanced_sanitize_sharing_links_summary">Вилучаються параметри запиту відстеження з посилань під час поширення посилань.</string>
     <string name="revanced_sanitize_sharing_links_title">Обробляти поширення посилань</string>
@@ -740,7 +770,7 @@
 • Під час запуску відео є затримка приблизно 0.7 секунди, але стандартна якість відео застосовується відразу.
 • Не застосовується на відео HDR, прямі трансляції, менші ніж 10 секунд."</string>
     <string name="revanced_skip_preloaded_buffer_title">Пропустити перед вантажений буфер</string>
-    <string name="revanced_skip_preloaded_buffer_toast_summary_off">Тост приховано</string>
+    <string name="revanced_skip_preloaded_buffer_toast_summary_off">Тост не показується.</string>
     <string name="revanced_skip_preloaded_buffer_toast_summary_on">Тост показується</string>
     <string name="revanced_skip_preloaded_buffer_toast_title">Показувати тост, коли пропущено</string>
     <string name="revanced_spoof_app_version_summary">"Підміна версії клієнта на стару версію
@@ -811,8 +841,8 @@
     <string name="sb_enable_auto_hide_skip_segment_button_sum_on">Кнопку пропуску приховується після декількох секунд</string>
     <string name="sb_enable_auto_hide_skip_segment_button_sum_off">Кнопку пропуску показується для всього сегменту</string>
     <string name="sb_general_skiptoast">Показати тост коли пропущено сегмент автоматично</string>
-    <string name="sb_general_skiptoast_sum_on">Тост показується, коли сегмент автоматично пропущено. Натисніть тут, щоб побачити приклад</string>
-    <string name="sb_general_skiptoast_sum_off">Тост не показується. Натисніть тут, щоб побачити приклад</string>
+    <string name="sb_general_skiptoast_sum_on">Тост показується, коли сегмент автоматично пропущено. Натисніть тут, щоб побачити приклад.</string>
+    <string name="sb_general_skiptoast_sum_off">Тост не показується. Натисніть тут, щоб побачити приклад.</string>
     <string name="sb_general_time_without">Показати тривалість відео без сегментів</string>
     <string name="sb_general_time_without_sum_on">Тривалість відео мінус всі сегменти, вказано в дужках поруч з повною тривалістю відео</string>
     <string name="sb_general_time_without_sum_off">Тривалість повного відео показується</string>
@@ -831,8 +861,8 @@
     <string name="sb_guidelines_popup_open">Показати</string>
     <string name="sb_general">Загальні</string>
     <string name="sb_toast_on_connection_error_title">Показувати тост, якщо не доступний API</string>
-    <string name="sb_toast_on_connection_error_summary_on">Тост показується, якщо API SponsorBlock не доступний.</string>
-    <string name="sb_toast_on_connection_error_summary_off">Тост не показується, якщо API SponsorBlock не доступний.</string>
+    <string name="sb_toast_on_connection_error_summary_on">Тост показується, якщо SponsorBlock не доступний.</string>
+    <string name="sb_toast_on_connection_error_summary_off">Тост не показується, якщо SponsorBlock не доступний.</string>
     <string name="sb_general_skipcount">Увімкнути відстеження кількості пропусків</string>
     <string name="sb_general_skipcount_sum_on">Дозволяє таблиці лідерів SponsorBlock дізнатися, скільки часу заощаджено. Повідомлення надсилається в таблицю лідерів щоразу, коли сегмент пропущено</string>
     <string name="sb_general_skipcount_sum_off">Відстеження кількості пропусків не ввімкнено</string>

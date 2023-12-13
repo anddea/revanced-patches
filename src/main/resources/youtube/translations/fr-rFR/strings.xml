@@ -9,21 +9,43 @@
     <string name="microg_settings_title">Ouvrir MicroG</string>
     <string name="revanced_ads">Pubs</string>
     <string name="revanced_alt_thumbnails">Miniatures alternatives</string>
-    <string name="revanced_alt_thumbnail_about_summary">Les miniatures alternatives sont des images fixes provenant du début, du milieu ou de la fin de chaque vidéo. Aucune API externe n\'est utilisée, car ces images sont intégrées dans YouTube</string>
+    <string name="revanced_alt_thumbnail_about_status_dearrow">"Affichages de miniature DeArrow
+Si une vidéo n'a pas de miniature DeArrow, les miniatures originales seront affichés"</string>
+    <string name="revanced_alt_thumbnail_about_status_dearrow_stills">"Affichage de miniature DeArrow
+Si une vidéo n'a pas de miniature DeArrow, des miniatures alternatives seront affichés"</string>
+    <string name="revanced_alt_thumbnail_about_status_disabled">Affichage des miniatures originelles</string>
+    <string name="revanced_alt_thumbnail_about_status_stills">Affichage de miniature alternative </string>
     <string name="revanced_alt_thumbnail_about_title">À propos</string>
-    <string name="revanced_alt_thumbnail_dearrow_summary_off">Les miniatures sont générées sans API externe</string>
-    <string name="revanced_alt_thumbnail_dearrow_summary_on">Les miniatures sont générées à l\'aide de l\'API DeArrow</string>
-    <string name="revanced_alt_thumbnail_dearrow_title">Utilisation de l\'API DeArrow</string>
-    <string name="revanced_alt_thumbnail_enabled_summary_off">Les miniatures d\'origine sont affichées</string>
-    <string name="revanced_alt_thumbnail_enabled_summary_on">Les miniatures par défaut sont remplacées par des miniatures alternatives</string>
-    <string name="revanced_alt_thumbnail_enabled_title">Miniatures alternatives</string>
-    <string name="revanced_alt_thumbnail_skip_checking_summary_off">Les miniatures seront vérifiées si elles existent ou non avant de la remplacer</string>
-    <string name="revanced_alt_thumbnail_skip_checking_summary_on">Les miniatures se chargeront plus rapidement, mais certaines vidéos afficheront des miniatures vides</string>
-    <string name="revanced_alt_thumbnail_skip_checking_title">Vérification des miniatures</string>
-    <string name="revanced_alt_thumbnail_type_entry_1">Début de la vidéo</string>
-    <string name="revanced_alt_thumbnail_type_entry_2">Milieu de la vidéo</string>
-    <string name="revanced_alt_thumbnail_type_entry_3">Fin de la vidéo</string>
-    <string name="revanced_alt_thumbnail_type_title">De quel moment de la vidéo doit être prise</string>
+    <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow fournit des miniatures externes pour les vidéos YouTube. Ces miniatures sont souvent plus pertinentes que celles fournies par YouTube. Si elle est activée, les URL vidéo seront envoyées au serveur API et aucune autre donnée n’est envoyée.
+
+Cliquez ici pour en savoir plus sur DeArrow."</string>
+    <string name="revanced_alt_thumbnail_dearrow_about_title">À propos de DeArrow</string>
+    <string name="revanced_alt_thumbnail_dearrow_api_url_summary">"URL où sont stockées les miniatures en cache de DeArrow
+Ne modifiez pas cette adresse à moins de savoir ce que vous faites."</string>
+    <string name="revanced_alt_thumbnail_dearrow_api_url_title">Point d\'API DeArrow</string>
+    <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Message non affiché si DeArrow n\'est pas disponible.</string>
+    <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">Message affiché si DeArrow n\'est pas disponible.</string>
+    <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">Message si l\'API n\'est pas disponible</string>
+    <string name="revanced_alt_thumbnail_dearrow_error">DeArrow est temporairement indisponible (code de statut : %s)</string>
+    <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow est temporairement indisponible.</string>
+    <string name="revanced_alt_thumbnail_dearrow_summary_off">N\'utilise pas DeArrow</string>
+    <string name="revanced_alt_thumbnail_dearrow_summary_on">Utilisation de DeArrow</string>
+    <string name="revanced_alt_thumbnail_dearrow_title">Miniature DeArrow</string>
+    <string name="revanced_alt_thumbnail_preference_screen_summary">Paramètres des miniatures des vidéos</string>
+    <string name="revanced_alt_thumbnail_preference_screen_title">Miniatures alternatives</string>
+    <string name="revanced_alt_thumbnail_stills">Miniatures alternatives extraites de la vidéo</string>
+    <string name="revanced_alt_thumbnail_stills_about_summary">Les miniatures sont extraites du début, du milieu et de la fin de chaque vidéo. Ces images sont intégrées à YouTube et aucune API externe n\'est utilisée</string>
+    <string name="revanced_alt_thumbnail_stills_about_title">À propos des captures vidéos</string>
+    <string name="revanced_alt_thumbnail_stills_fast_summary_off">Utilisation de miniature de haute qualité.</string>
+    <string name="revanced_alt_thumbnail_stills_fast_summary_on">Utilisation de miniatures alternatives de qualité moyenne. Les miniatures se chargeront plus rapidement, mais les diffusions en direct, les vidéos non publiées ou très anciennes peuvent afficher des miniatures vides.</string>
+    <string name="revanced_alt_thumbnail_stills_fast_title">Utilisation de miniature rapide</string>
+    <string name="revanced_alt_thumbnail_stills_summary_off">N\'utilise pas de miniature alternative.</string>
+    <string name="revanced_alt_thumbnail_stills_summary_on">Utilisation de miniature YouTube.</string>
+    <string name="revanced_alt_thumbnail_stills_time_entry_1">Début de la vidéo</string>
+    <string name="revanced_alt_thumbnail_stills_time_entry_2">Milieu de la vidéo</string>
+    <string name="revanced_alt_thumbnail_stills_time_entry_3">Fin de la vidéo</string>
+    <string name="revanced_alt_thumbnail_stills_time_title">De quel moment de la vidéo doit être prise</string>
+    <string name="revanced_alt_thumbnail_stills_title">Miniatures alternatives</string>
     <string name="revanced_append_time_stamp_information_summary_off">L\'ajout d\'infos supplémentaires tel que la qualité vidéo ou la vitesse vidéo est désactivé</string>
     <string name="revanced_append_time_stamp_information_summary_on">L\'ajout d\'infos supplémentaires tel que la qualité vidéo ou la vitesse vidéo est activé</string>
     <string name="revanced_append_time_stamp_information_title">Rajout d\'infos supplémentaires sur la vidéo</string>
@@ -35,9 +57,18 @@
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">Le mode ambiant est désactivé en mode économie d\'énergie</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">Le mode ambiant est activé en mode économie d\'énergie</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">Contourner les restrictions du mode ambiant</string>
-    <string name="revanced_change_homepage_summary_off">Page d\'accueil actuelle : Accueil</string>
-    <string name="revanced_change_homepage_summary_on">Page d\'accueil actuelle : Abonnements</string>
-    <string name="revanced_change_homepage_title">Page d\'accueil sur \"Abonnements\"</string>
+    <string name="revanced_change_start_page_entry_default">Défaut</string>
+    <string name="revanced_change_start_page_entry_explore">Explorer</string>
+    <string name="revanced_change_start_page_entry_history">Historique</string>
+    <string name="revanced_change_start_page_entry_library">Bibliothèque</string>
+    <string name="revanced_change_start_page_entry_liked_videos">Vidéos \"J\'aime\"</string>
+    <string name="revanced_change_start_page_entry_podcasts">Podcasts</string>
+    <string name="revanced_change_start_page_entry_search">Rechercher sur YouTube</string>
+    <string name="revanced_change_start_page_entry_shorts">Shorts</string>
+    <string name="revanced_change_start_page_entry_subscriptions">Abonnements</string>
+    <string name="revanced_change_start_page_entry_trending">Tendances</string>
+    <string name="revanced_change_start_page_title">Page de démarrage</string>
+    <string name="revanced_change_start_page_warning">Page d\'accueil invalide, réinitialisation par défaut.</string>
     <string name="revanced_channel_bar_title">Barre de la chaîne </string>
     <string name="revanced_channel_profile_title">Profil de chaîne</string>
     <string name="revanced_close_interstitial_ads_summary">"Ferme automatiquement les publicités interstitielles.
@@ -55,7 +86,7 @@ Note : Ceci est une fonctionnalité qui n'a pas été testée."</string>
     <string name="revanced_custom_playback_speeds_invalid">Vitesses de lecture invalides. Rétablissez les valeurs par défaut.</string>
     <string name="revanced_custom_playback_speeds_summary">Ajouter ou modifier les vitesses de lecture disponibles</string>
     <string name="revanced_custom_playback_speeds_title">Vitesses de lecture personnalisées</string>
-    <string name="revanced_custom_playback_speeds_warning" formatted="false">Les vitesses perso. doivent être inférieures à %sx. Rétab. les valeurs par défaut.</string>
+    <string name="revanced_custom_playback_speeds_warning" formatted="false">Les vitesses persos doivent être &lt; %sx. Rétab. les valeurs par défaut.</string>
     <string name="revanced_custom_playback_speed_panel_type_summary_off">L\'ancien style du menu \"Vitesse de lecture\" est utilisé.</string>
     <string name="revanced_custom_playback_speed_panel_type_summary_on">Affichage de sélection de vitesse personnalisé</string>
     <string name="revanced_custom_playback_speed_panel_type_title">Type d\'affichage de vitesse de lecture personnalisée </string>
@@ -95,7 +126,7 @@ Note : Ceci est une fonctionnalité qui n'a pas été testée."</string>
     <string name="revanced_disable_hdr_video_title">Vidéo HDR</string>
     <string name="revanced_disable_landscape_mode_summary_off">Le passage en mode paysage en plein écran est activé</string>
     <string name="revanced_disable_landscape_mode_summary_on">Le passage en mode paysage en plein écran est désactivé</string>
-    <string name="revanced_disable_landscape_mode_title">Mode paysage en plein écran</string>
+    <string name="revanced_disable_landscape_mode_title">Mode paysage</string>
     <string name="revanced_disable_quic_protocol_summary">"Désactiver le protocole QUIC de CronetEngine"</string>
     <string name="revanced_disable_quic_protocol_title">Protocole QUIC</string>
     <string name="revanced_disable_speed_overlay_summary">"Désactive la vitesse de lecture x2 en maintenant la vidéo."</string>
@@ -120,8 +151,8 @@ Note : Ceci est une fonctionnalité qui n'a pas été testée."</string>
     <string name="revanced_enable_debug_logging_summary_off">Les journaux de débogage sont désactivés</string>
     <string name="revanced_enable_debug_logging_summary_on">Les journaux de débogage sont activés</string>
     <string name="revanced_enable_debug_logging_title">Journaux de débogage</string>
-    <string name="revanced_enable_external_browser_summary_off">Le navigateur externe est désactivé</string>
-    <string name="revanced_enable_external_browser_summary_on">Le navigateur externe est activé</string>
+    <string name="revanced_enable_external_browser_summary_off">Les liens ne s\'ouvriront pas dans le navigateur externe</string>
+    <string name="revanced_enable_external_browser_summary_on">Les liens s\'ouvriront dans le navigateur externe</string>
     <string name="revanced_enable_external_browser_title">Navigateur externe</string>
     <string name="revanced_enable_gradient_loading_screen_summary_off">Le dégradé de couleur lors du chargement des vidéos est désactivé</string>
     <string name="revanced_enable_gradient_loading_screen_summary_on">Le dégradé de couleur lors du chargement des vidéos est activé</string>
@@ -129,9 +160,6 @@ Note : Ceci est une fonctionnalité qui n'a pas été testée."</string>
     <string name="revanced_enable_language_switch_summary_off">Le changement de langue est désactivé</string>
     <string name="revanced_enable_language_switch_summary_on">Le changement de langue est activé</string>
     <string name="revanced_enable_language_switch_title">Changement de langue</string>
-    <string name="revanced_enable_music_search_summary_off">La recherche de chanson est désactivée</string>
-    <string name="revanced_enable_music_search_summary_on">La recherche de chanson est activée</string>
-    <string name="revanced_enable_music_search_title">Recherche de chanson</string>
     <string name="revanced_enable_new_splash_animation_summary_off">Le nouvel écran de démarrage est désactivé</string>
     <string name="revanced_enable_new_splash_animation_summary_on">Le nouvel écran de démarrage est activé</string>
     <string name="revanced_enable_new_splash_animation_title">Nouvel écran de démarrage</string>
@@ -157,6 +185,9 @@ Note : Ceci est une fonctionnalité qui n'a pas été testée."</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">Le tapotement sur la barre de progression est désactivé</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">Le tapotement sur la barre de progression est activé</string>
     <string name="revanced_enable_seekbar_tapping_title">Tapotement sur la barre de progression</string>
+    <string name="revanced_enable_song_search_summary_off">La recherche de chanson est désactivée</string>
+    <string name="revanced_enable_song_search_summary_on">La recherche de chanson est désactivée</string>
+    <string name="revanced_enable_song_search_title">Recherche de chanson</string>
     <string name="revanced_enable_swipe_auto_brightness_summary_off">Même si la luminosité est réglée à 0 par balayage, la luminosité automatique n\'est pas activée</string>
     <string name="revanced_enable_swipe_auto_brightness_summary_on">Lorsque la luminosité atteint 0 par balayage, la luminosité automatique est activée</string>
     <string name="revanced_enable_swipe_auto_brightness_title">La luminosité automatique en balayant</string>
@@ -538,7 +569,7 @@ Catégorie \"Vous\" &gt; \"Afficher la chaîne\" &gt; Trois points &gt; \"Param�
     <string name="revanced_hide_seekbar_summary_off">La barre de progression est affiché</string>
     <string name="revanced_hide_seekbar_summary_on">La barre de progression est masqué.</string>
     <string name="revanced_hide_seekbar_thumbnail_summary_off">Les miniatures sur la barre de progression sont affichés.</string>
-    <string name="revanced_hide_seekbar_thumbnail_summary_on">Les miniatures sur la barre de progression  sont masqués.</string>
+    <string name="revanced_hide_seekbar_thumbnail_summary_on">Les miniatures sur la barre de progression sont masqués.</string>
     <string name="revanced_hide_seekbar_thumbnail_title">Miniature sur la barre de progression </string>
     <string name="revanced_hide_seekbar_title">Barre de progression </string>
     <string name="revanced_hide_seek_message_summary_off">Les boîtes de messages discrets sont affichés</string>
@@ -592,6 +623,9 @@ Problème connu : Les fiches officielles dans les résultats de recherche sont 
     <string name="revanced_hide_start_trial_button_summary_off">Le bouton \"Démarrer l\'essai\" est affiché</string>
     <string name="revanced_hide_start_trial_button_summary_on">Le bouton \"Démarrer l\'essai\" est masqué</string>
     <string name="revanced_hide_start_trial_button_title">Bouton \"Démarrer l\'essai\"</string>
+    <string name="revanced_hide_store_tab_summary_off">L\'onglet \"Parcourir\" est affiché.</string>
+    <string name="revanced_hide_store_tab_summary_on">L\'onglet \"Parcourir\" est masqué.</string>
+    <string name="revanced_hide_store_tab_title">L\'onglet \"Parcourir</string>
     <string name="revanced_hide_subscriptions_button_summary_off">Le bouton \"Abonnements\" est affiché</string>
     <string name="revanced_hide_subscriptions_button_summary_on">Le bouton \"Abonnements\" est masqué</string>
     <string name="revanced_hide_subscriptions_button_title">Bouton \"Abonnements\"</string>
@@ -618,7 +652,7 @@ Problèmes connus :
 - Explorer d'autres chaînes
 - Marchandises
 - Regarder à nouveau"</string>
-    <string name="revanced_hide_suggestions_shelf_title">Menu de suggestion</string>
+    <string name="revanced_hide_suggestions_shelf_title">Étagère des suggestions</string>
     <string name="revanced_hide_ticket_shelf_summary_off">Les tickets sont affichés</string>
     <string name="revanced_hide_ticket_shelf_summary_on">Les tickets sont masqués</string>
     <string name="revanced_hide_ticket_shelf_title">\"Places de concert\"</string>
@@ -658,9 +692,6 @@ Certaines vidéos, y compris celles des chaînes auxquelles vous êtes abonné, 
     <string name="revanced_layout_title">Interface</string>
     <string name="revanced_misc">Autres paramètres</string>
     <string name="revanced_navigation">Interface de navigation</string>
-    <string name="revanced_open_library_you_startup_summary_off">La catégorie \"Bibliothèque\" (Vous) n\'est pas ouverte au démarrage de l\'appli</string>
-    <string name="revanced_open_library_you_startup_summary_on">La catégorie \"Bibliothèque\" (Vous) est ouverte au démarrage de l\'appli</string>
-    <string name="revanced_open_library_you_startup_title">Ouvrir la catégorie \"Bibliothèque\" (Vous) au démarrage de l\'appli</string>
     <string name="revanced_others">Autres</string>
     <string name="revanced_overlay_button">Ajouts de boutons</string>
     <string name="revanced_overlay_button_always_repeat_summary">Appuyez pour activer la lecture en boucle</string>
@@ -695,8 +726,8 @@ Appuyez longuement pour régler la vitesse de la vidéo sur 1.0x."</string>
     <string name="revanced_ryd_compact_layout_summary_off">Le bouton \"J\'aime\" s\'affiche avec une meilleure apparence.</string>
     <string name="revanced_ryd_compact_layout_summary_on">Le bouton \"J\'aime\" s\'affiche avec une taille réduite.</string>
     <string name="revanced_ryd_compact_layout_title">Bouton \"J\'aime\" compact</string>
-    <string name="revanced_ryd_dislike_percentage_summary_off">Les \"Je n\'aime pas\" sont affichés en nombre.</string>
-    <string name="revanced_ryd_dislike_percentage_summary_on">Les \"Je n\'aime pas\" sont affichés en pourcentage.</string>
+    <string name="revanced_ryd_dislike_percentage_summary_off">Les \"Je n\'aime pas\" sont affichés sous forme de nombre</string>
+    <string name="revanced_ryd_dislike_percentage_summary_on">Les \"Je n\'aime pas\" sont affichés sous forme de pourcentage</string>
     <string name="revanced_ryd_dislike_percentage_title">\"Je n\'aime pas\" en pourcentage</string>
     <string name="revanced_ryd_enable_summary_off">Les \"Je n\'aime pas\" ne sont pas affichés</string>
     <string name="revanced_ryd_enable_summary_on">Les \"Je n\'aime pas\" sont affichés</string>
@@ -706,12 +737,12 @@ Appuyez longuement pour régler la vitesse de la vidéo sur 1.0x."</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Les dislikes sont indisponibles (limite d\'API client atteinte)</string>
     <string name="revanced_ryd_failure_generic">Dislikes non disponible (%s).</string>
     <string name="revanced_ryd_shorts_summary_disclaimer">Limitation : Les dislikes peuvent ne pas apparaître dans certaines situations.</string>
-    <string name="revanced_ryd_shorts_summary_off">Les dislikes sur les Shorts masqués</string>
-    <string name="revanced_ryd_shorts_summary_on">Les dislikes sont affichés sur les Shorts. %s</string>
+    <string name="revanced_ryd_shorts_summary_off">Les dislikes sur les Shorts sont masqués</string>
+    <string name="revanced_ryd_shorts_summary_on">Les dislikes sur les Shorts sont affichés. %s</string>
     <string name="revanced_ryd_shorts_title">Dislikes sur les Shorts</string>
-    <string name="revanced_ryd_toast_on_connection_error_title">Afficher un message si l\'API n\'est pas disponible</string>
-    <string name="revanced_ryd_toast_on_connection_error_summary_off">Message non affiché si l\'API ReturnYouTubeDislike n\'est pas disponible.</string>
-    <string name="revanced_ryd_toast_on_connection_error_summary_on">Message affiché si l\'API ReturnYouTubeDislike n\'est pas disponible.</string>
+    <string name="revanced_ryd_toast_on_connection_error_title">Message si l\'API n\'est pas disponible</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary_off">Message non affiché si ReturnYouTubeDislike n\'est pas disponible.</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary_on">Message affiché si ReturnYouTubeDislike n\'est pas disponible.</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Masqué</string>
     <string name="revanced_sanitize_sharing_links_summary">Supprime les paramètres de tracking des URL lors des partages de liens</string>
     <string name="revanced_sanitize_sharing_links_title">Nettoies les liens partagés</string>
@@ -825,11 +856,11 @@ Problèmes connus:
     <string name="sb_guidelines_popup_title">Suivez les directives</string>
     <string name="sb_guidelines_popup_content">Lisez les directives de SponsorBlock avant de créer un nouveau segment.</string>
     <string name="sb_guidelines_popup_already_read">Déjà lu</string>
-    <string name="sb_guidelines_popup_open">Me montrer</string>
+    <string name="sb_guidelines_popup_open">Afficher</string>
     <string name="sb_general">Général</string>
     <string name="sb_toast_on_connection_error_title">Message si l\'API n\'est pas disponible</string>
-    <string name="sb_toast_on_connection_error_summary_on">Message affiché si l\'API SponsorBlock n\'est pas disponible.</string>
-    <string name="sb_toast_on_connection_error_summary_off">Message non affiché si l\'API SponsorBlock n\'est pas disponible.</string>
+    <string name="sb_toast_on_connection_error_summary_on">Message affiché si SponsorBlock n\'est pas disponible.</string>
+    <string name="sb_toast_on_connection_error_summary_off">Message non affiché si SponsorBlock n\'est pas disponible.</string>
     <string name="sb_general_skipcount">Compteur de segments passés</string>
     <string name="sb_general_skipcount_sum_on">Affiche le temps que vous auriez perdu si vous n\'aviez pas passé de segment </string>
     <string name="sb_general_skipcount_sum_off">Le compteur de segments passés est désactivé</string>
@@ -862,7 +893,7 @@ Problèmes connus:
     <string name="sb_segments_highlight">Point essentiel</string>
     <string name="sb_segments_highlight_sum">La partie de la vidéo que la plupart des gens veut voir</string>
     <string name="sb_segments_intro">Intro / Entracte</string>
-    <string name="sb_segments_intro_sum">Intervalle sans réel contenu. Il peut s\'agir d\'une pause, d\'une image fixe ou d\'une animation répétitive. N\'inclus pas les transitions contenant des informations.</string>
+    <string name="sb_segments_intro_sum">Intervalle sans réel contenu. Il peut s\'agir d\'une pause, d\'une image statique ou d\'une animation répétitive. Ne comprend pas les transitions contenant des informations</string>
     <string name="sb_segments_outro">Outro / Crédits</string>
     <string name="sb_segments_outro_sum">Crédits ou les vidéos suggérées apparaissent en fin de vidéo. Non destiné aux conclusions contenant des informations</string>
     <string name="sb_segments_preview">Aperçu / Récapitulatif</string>

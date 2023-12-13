@@ -9,21 +9,42 @@
     <string name="microg_settings_title">MicroG</string>
     <string name="revanced_ads">Реклама</string>
     <string name="revanced_alt_thumbnails">Альтернативные превью видео</string>
-    <string name="revanced_alt_thumbnail_about_summary">Функция, которая заменяет обычные превью видео на альтернативные для уменьшения лишнего волнения.</string>
-    <string name="revanced_alt_thumbnail_about_title">Об интеграции</string>
-    <string name="revanced_alt_thumbnail_dearrow_summary_off">Превью сгенерированы без помощи дополнительного API.</string>
-    <string name="revanced_alt_thumbnail_dearrow_summary_on">Превью сгенерированы с помощью DeArrow API.</string>
-    <string name="revanced_alt_thumbnail_dearrow_title">DeArrow API</string>
-    <string name="revanced_alt_thumbnail_enabled_summary_off">Оригинальные превью видео YouTube отображены.</string>
-    <string name="revanced_alt_thumbnail_enabled_summary_on">Превью видео YouTube заменены альтернативными.</string>
-    <string name="revanced_alt_thumbnail_enabled_title">Альтернативные превью видео</string>
-    <string name="revanced_alt_thumbnail_skip_checking_summary_off">Перед заменой превью будут проверены на то, существовали ли они ранее.</string>
-    <string name="revanced_alt_thumbnail_skip_checking_summary_on">Превью будут грузиться быстрее, но некоторые видео могут отображать пустые превью.</string>
-    <string name="revanced_alt_thumbnail_skip_checking_title">Пропускать проверку превью</string>
-    <string name="revanced_alt_thumbnail_type_entry_1">Из начала видео</string>
-    <string name="revanced_alt_thumbnail_type_entry_2">Из середины видео</string>
-    <string name="revanced_alt_thumbnail_type_entry_3">Из конца видео</string>
-    <string name="revanced_alt_thumbnail_type_title">Изображение для превью будет взято:</string>
+    <string name="revanced_alt_thumbnail_about_status_dearrow">"Отображает превью DeArrow.
+Оригинальные превью YouTube отображены, если у DeArrow нет превью для этого видео."</string>
+    <string name="revanced_alt_thumbnail_about_status_dearrow_stills">"Отображает превью DeArrow.
+Изображение, взятое из видео отображено, если у DeArrow нет превью для этого видео."</string>
+    <string name="revanced_alt_thumbnail_about_status_disabled">Отображает оригинальные превью YouTube.</string>
+    <string name="revanced_alt_thumbnail_about_status_stills">Отображает изображение, взятое из видео.</string>
+    <string name="revanced_alt_thumbnail_about_title">Превью в использовании</string>
+    <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow предоставляет crowd-sourced превью для видео в YouTube. Обычно такие превью куда более уместны, чем те, что предоставлены YouTube. Если включено, ссылки видео будут отправлены серверу API и никаких других данных не будет отправлено.
+
+Нажмите здесь, чтобы узнать больше про DeArrow."</string>
+    <string name="revanced_alt_thumbnail_dearrow_about_title">О DeArrow</string>
+    <string name="revanced_alt_thumbnail_dearrow_api_url_summary">"Адрес конечной точки кэша превью DeArrow. Не изменяйте его, если не знаете, что делаете."</string>
+    <string name="revanced_alt_thumbnail_dearrow_api_url_title">Конечная точка DeArrow API</string>
+    <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Всплывающее уведомление не отображено, когда DeArrow недоступен.</string>
+    <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">Всплывающее уведомление отображено, когда DeArrow недоступен.</string>
+    <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">Уведомление, когда API недоступен</string>
+    <string name="revanced_alt_thumbnail_dearrow_error">DeArrow временно недоступен. (код статуса: %s)</string>
+    <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow временно недоступен.</string>
+    <string name="revanced_alt_thumbnail_dearrow_summary_off">Не использует DeArrow.</string>
+    <string name="revanced_alt_thumbnail_dearrow_summary_on">Использует DeArrow.</string>
+    <string name="revanced_alt_thumbnail_dearrow_title">DeArrow</string>
+    <string name="revanced_alt_thumbnail_preference_screen_summary">Настройки превью видео.</string>
+    <string name="revanced_alt_thumbnail_preference_screen_title">Альтернативные превью</string>
+    <string name="revanced_alt_thumbnail_stills">Взятие изображения из видео</string>
+    <string name="revanced_alt_thumbnail_stills_about_summary">Изображения взяты из начала / середины / конца каждого видео. Эти изображения уже есть в YouTube и внешний API не используется.</string>
+    <string name="revanced_alt_thumbnail_stills_about_title">О взятии изображения из видео</string>
+    <string name="revanced_alt_thumbnail_stills_fast_summary_off">Использует высокое качество взятого изображения.</string>
+    <string name="revanced_alt_thumbnail_stills_fast_summary_on">Использует среднее качество взятого изображения. Превью будут грузиться быстрее, но трансляции, невыпущенные, или очень старые видео могут отображать пустые превью.</string>
+    <string name="revanced_alt_thumbnail_stills_fast_title">Быстрое взятие изображения</string>
+    <string name="revanced_alt_thumbnail_stills_summary_off">Не использует взятие изображения из видео в YouTube.</string>
+    <string name="revanced_alt_thumbnail_stills_summary_on">Использует взятие изображения из видео в YouTube.</string>
+    <string name="revanced_alt_thumbnail_stills_time_entry_1">Начало видео</string>
+    <string name="revanced_alt_thumbnail_stills_time_entry_2">Середина видео</string>
+    <string name="revanced_alt_thumbnail_stills_time_entry_3">Конец видео</string>
+    <string name="revanced_alt_thumbnail_stills_time_title">Часть видео для взятия</string>
+    <string name="revanced_alt_thumbnail_stills_title">Взятие изображения из видео</string>
     <string name="revanced_append_time_stamp_information_summary_off">Индикатор, проецирующий скорость / качество рядом с временной меткой отключён.</string>
     <string name="revanced_append_time_stamp_information_summary_on">Индикатор, проецирующий скорость / качество рядом с временной меткой включён.</string>
     <string name="revanced_append_time_stamp_information_title">Индикатор рядом с временной меткой</string>
@@ -35,9 +56,18 @@
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">Фоновая подсветка в режиме экономии заряда батареи отключена.</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">Фоновая подсветка в режиме экономии заряда батареи включена.</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">Обход ограничений фоновой подсветки</string>
-    <string name="revanced_change_homepage_summary_off">Начальный экран: \"Главная\".</string>
-    <string name="revanced_change_homepage_summary_on">Начальный экран: \"Подписки\".</string>
-    <string name="revanced_change_homepage_title">Замена начальной вкладки на \"Подписки\"</string>
+    <string name="revanced_change_start_page_entry_default">По умолчанию</string>
+    <string name="revanced_change_start_page_entry_explore">Навигатор</string>
+    <string name="revanced_change_start_page_entry_history">История</string>
+    <string name="revanced_change_start_page_entry_library">Библиотека</string>
+    <string name="revanced_change_start_page_entry_liked_videos">Понравившиеся</string>
+    <string name="revanced_change_start_page_entry_podcasts">Подкасты</string>
+    <string name="revanced_change_start_page_entry_search">Поиск</string>
+    <string name="revanced_change_start_page_entry_shorts">Shorts</string>
+    <string name="revanced_change_start_page_entry_subscriptions">Подписки</string>
+    <string name="revanced_change_start_page_entry_trending">В тренде</string>
+    <string name="revanced_change_start_page_title">Изменить начальную страницу</string>
+    <string name="revanced_change_start_page_warning">Недопустимая начальная страница, сброс к данным по умолчанию.</string>
     <string name="revanced_channel_bar_title">Панель канала</string>
     <string name="revanced_channel_profile_title">Профиль канала</string>
     <string name="revanced_close_interstitial_ads_summary">"Автоматически закрывать полноэкранную рекламу.
@@ -131,9 +161,6 @@
     <string name="revanced_enable_language_switch_summary_off">Переключатель языков отключён.</string>
     <string name="revanced_enable_language_switch_summary_on">Переключатель языков включён.</string>
     <string name="revanced_enable_language_switch_title">Переключатель языков</string>
-    <string name="revanced_enable_music_search_summary_off">Поиск по трекам отключён.</string>
-    <string name="revanced_enable_music_search_summary_on">Поиск по трекам включён.</string>
-    <string name="revanced_enable_music_search_title">Поиск по трекам</string>
     <string name="revanced_enable_new_splash_animation_summary_off">Новая анимация заставки отключена.</string>
     <string name="revanced_enable_new_splash_animation_summary_on">Новая анимация заставки включена.</string>
     <string name="revanced_enable_new_splash_animation_title">Новая анимация заставки</string>
@@ -159,6 +186,9 @@
     <string name="revanced_enable_seekbar_tapping_summary_off">Перемотка нажатием на прогресс воспроизведения отключена.</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">Перемотка нажатием на прогресс воспроизведения включена.</string>
     <string name="revanced_enable_seekbar_tapping_title">Перемотка нажатием</string>
+    <string name="revanced_enable_song_search_summary_off">Поиск по трекам отключён.</string>
+    <string name="revanced_enable_song_search_summary_on">Поиск по трекам включён.</string>
+    <string name="revanced_enable_song_search_title">Поиск по трекам</string>
     <string name="revanced_enable_swipe_auto_brightness_summary_off">Автояркость не активируется при яркости, установленной жестом на 0.</string>
     <string name="revanced_enable_swipe_auto_brightness_summary_on">Автояркость активируется при яркости, установленной жестом на 0.</string>
     <string name="revanced_enable_swipe_auto_brightness_title">Активация автояркости жестом</string>
@@ -594,6 +624,9 @@
     <string name="revanced_hide_start_trial_button_summary_off">Кнопка \"Попробовать\" отображена.</string>
     <string name="revanced_hide_start_trial_button_summary_on">Кнопка \"Попробовать\" скрыта.</string>
     <string name="revanced_hide_start_trial_button_title">Скрыть кнопку \"Попробовать\"</string>
+    <string name="revanced_hide_store_tab_summary_off">Вкладка \"Магазин\" отображена.</string>
+    <string name="revanced_hide_store_tab_summary_on">Вкладка \"Магазин\" скрыта.</string>
+    <string name="revanced_hide_store_tab_title">Скрыть вкладку \"Магазин\"</string>
     <string name="revanced_hide_subscriptions_button_summary_off">Кнопка \"Подписаться\" отображена.</string>
     <string name="revanced_hide_subscriptions_button_summary_on">Кнопка \"Подписаться\" скрыта.</string>
     <string name="revanced_hide_subscriptions_button_title">Скрыть вкладку \"Подписки\"</string>
@@ -661,9 +694,6 @@
     <string name="revanced_layout_title">Интерфейс</string>
     <string name="revanced_misc">Разное</string>
     <string name="revanced_navigation">Навигация</string>
-    <string name="revanced_open_library_you_startup_summary_off">Вкладка \"Библиотека\"(\"Вы\") не открывается при запуске приложения.</string>
-    <string name="revanced_open_library_you_startup_summary_on">Вкладка \"Библиотека\"(\"Вы\") открывается при запуске приложения.</string>
-    <string name="revanced_open_library_you_startup_title">Библиотека(Вы) при запуске</string>
     <string name="revanced_others">Другое</string>
     <string name="revanced_overlay_button">Кнопки в плеере</string>
     <string name="revanced_overlay_button_always_repeat_summary">Нажатие на кнопку переключает состояние постоянного повтора.</string>
@@ -713,10 +743,10 @@
     <string name="revanced_ryd_shorts_summary_on">Отметки \"Не нравится\" в Shorts отображены. %s</string>
     <string name="revanced_ryd_shorts_title">Отметки \"Не нравится\" в Shorts</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Уведомление, когда API недоступен</string>
-    <string name="revanced_ryd_toast_on_connection_error_summary_off">Всплывающее уведомление не отображено, когда ReturnYouTubeDislike API недоступен.</string>
-    <string name="revanced_ryd_toast_on_connection_error_summary_on">Всплывающее уведомление отображено, когда ReturnYouTubeDislike API недоступен.</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary_off">Всплывающее уведомление не отображено, когда Return YouTube Dislike недоступен.</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary_on">Всплывающее уведомление отображено, когда Return YouTube Dislike недоступен.</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Скрыты</string>
-    <string name="revanced_sanitize_sharing_links_summary">Убирает параметры отслеживания запросов из URL при отправке ссылки.</string>
+    <string name="revanced_sanitize_sharing_links_summary">Убирает параметры отслеживания запросов из адреса при отправке ссылки.</string>
     <string name="revanced_sanitize_sharing_links_title">Очищать ссылки от мусора</string>
     <string name="revanced_save_playback_speed" formatted="false">Скорость воспроизведения по умолчанию изменена на: %s.</string>
     <string name="revanced_save_video_quality_mobile" formatted="false">Качество по умолчанию при моб. сети изменено на: %s.</string>
@@ -739,7 +769,7 @@
 • При запуске видео есть задержка примерно 0.7 секунды, но качество по умолчанию применяется моментально.
 • Не применяется к HDR видео, трансляциям, видео короче 10 секунд."</string>
     <string name="revanced_skip_preloaded_buffer_title">Пропустить предварительную загрузку</string>
-    <string name="revanced_skip_preloaded_buffer_toast_summary_off">Всплывающее уведомление скрыто.</string>
+    <string name="revanced_skip_preloaded_buffer_toast_summary_off">Всплывающее уведомление не отображено.</string>
     <string name="revanced_skip_preloaded_buffer_toast_summary_on">Всплывающее уведомление отображено.</string>
     <string name="revanced_skip_preloaded_buffer_toast_title">Уведомление при пропуске</string>
     <string name="revanced_spoof_app_version_summary">"Подменяет версию клиента на старую.
@@ -798,7 +828,7 @@
     <string name="pref_app_language_dialog_message">&lt;b&gt;%1$s&lt;/b&gt;&lt;br&gt;&lt;br&gt;Все кнопки, сообщения, окна и другие элементы приложения будут на выбранном языке, но это не изменит язык настроек ReVanced Extended.</string>
     <string name="pref_app_language_dialog_message_no_lang_name">Все кнопки, сообщения, окна и другие элементы приложения будут на выбранном языке, но это не изменит язык настроек ReVanced Extended.</string>
     <string name="sb_enable_sb">SponsorBlock</string>
-    <string name="sb_enable_sb_sum">SponsorBlock - коллективная система для пропуска раздражающих частей видео в YouTube.</string>
+    <string name="sb_enable_sb_sum">SponsorBlock - это crowd-sourced система для пропуска раздражающих частей видео в YouTube.</string>
     <string name="sb_appearance_category">Внешний вид</string>
     <string name="sb_enable_voting">Голосование</string>
     <string name="sb_enable_voting_sum_on">Кнопка голосования за сегмент отображена.</string>
@@ -811,7 +841,7 @@
     <string name="sb_enable_auto_hide_skip_segment_button_sum_off">Кнопка пропуска отображается для всего сегмента.</string>
     <string name="sb_general_skiptoast">Уведомление при автопропуске</string>
     <string name="sb_general_skiptoast_sum_on">Всплывающее уведомление отображено при автоматическом пропуске сегмента. Нажмите здесь, чтобы увидеть пример.</string>
-    <string name="sb_general_skiptoast_sum_off">Всплывающее уведомление скрыто при автоматическом пропуске сегмента. Нажмите здесь, чтобы увидеть пример.</string>
+    <string name="sb_general_skiptoast_sum_off">Всплывающее уведомление не отображено. Нажмите здесь, чтобы увидеть пример.</string>
     <string name="sb_general_time_without">Продолжительность без сегментов</string>
     <string name="sb_general_time_without_sum_on">Продолжительность видео за исключением всех сегментов отображена в скобках рядом с полной продолжительностью видео.</string>
     <string name="sb_general_time_without_sum_off">Полная продолжительность видео отображена.</string>
@@ -830,8 +860,8 @@
     <string name="sb_guidelines_popup_open">Показать</string>
     <string name="sb_general">Основные</string>
     <string name="sb_toast_on_connection_error_title">Уведомление, когда API недоступен</string>
-    <string name="sb_toast_on_connection_error_summary_on">Всплывающее уведомление отображено, когда SponsorBlock API недоступен.</string>
-    <string name="sb_toast_on_connection_error_summary_off">Всплывающее уведомление не отображено, когда SponsorBlock API недоступен.</string>
+    <string name="sb_toast_on_connection_error_summary_on">Всплывающее уведомление отображено, когда SponsorBlock недоступен.</string>
+    <string name="sb_toast_on_connection_error_summary_off">Всплывающее уведомление не отображено, когда SponsorBlock недоступен.</string>
     <string name="sb_general_skipcount">Подсчёт количества пропусков</string>
     <string name="sb_general_skipcount_sum_on">Это позволяет системе лидеров SponsorBlock знать, сколько времени было сэкономлено. Сообщение отправляется на сервер каждый раз при пропуске сегмента.</string>
     <string name="sb_general_skipcount_sum_off">Подсчёт количества пропусков отключён.</string>
