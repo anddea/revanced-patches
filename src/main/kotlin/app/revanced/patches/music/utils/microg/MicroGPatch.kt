@@ -6,6 +6,7 @@ import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.music.utils.fix.clientspoof.ClientSpoofPatch
+import app.revanced.patches.music.utils.fix.fileprovider.FileProviderPatch
 import app.revanced.patches.music.utils.mainactivity.MainActivityResolvePatch
 import app.revanced.patches.music.utils.mainactivity.MainActivityResolvePatch.injectInit
 import app.revanced.patches.music.utils.microg.Constants.MUSIC_PACKAGE_NAME
@@ -26,7 +27,8 @@ import app.revanced.patches.shared.patch.packagename.PackageNamePatch
         ClientSpoofPatch::class,
         MainActivityResolvePatch::class,
         MicroGResourcePatch::class,
-        PackageNamePatch::class
+        PackageNamePatch::class,
+        FileProviderPatch::class
     ],
     compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")]
 )
