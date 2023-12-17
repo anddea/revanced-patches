@@ -31,6 +31,7 @@ ReVanced Extended Patches.
 | `Disable pip notification` | Disable pip notification when you first launch pip mode. | 18.25.40 ~ 18.45.43 |
 | `Disable shorts on startup` | Disables playing YouTube Shorts when launching YouTube. | 18.25.40 ~ 18.45.43 |
 | `Disable speed overlay` | Disable 'Play at 2x speed' while holding down. | 18.25.40 ~ 18.45.43 |
+| `Enable bottom player gestures` | Switching to fullscreen by swiping the bottom area of the player. | 18.25.40 ~ 18.45.43 |
 | `Enable compact controls overlay` | Enables compact control overlay. | 18.25.40 ~ 18.45.43 |
 | `Enable debug logging` | Adds debugging options. | 18.25.40 ~ 18.45.43 |
 | `Enable external browser` | Open url outside the app in an external browser. | 18.25.40 ~ 18.45.43 |
