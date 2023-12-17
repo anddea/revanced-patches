@@ -14,6 +14,15 @@
     <string name="revanced_category_navigation">導覽列</string>
     <string name="revanced_category_player">播放器</string>
     <string name="revanced_category_video">影片</string>
+    <string name="revanced_change_start_page_entry_explore">探索</string>
+    <string name="revanced_change_start_page_entry_home">主頁</string>
+    <string name="revanced_change_start_page_entry_library">資料庫</string>
+    <string name="revanced_change_start_page_entry_subscription">訂閱</string>
+    <string name="revanced_change_start_page_summary">更改App開啟時的頁面</string>
+    <string name="revanced_change_start_page_title">更改App的開始頁面</string>
+    <string name="revanced_close_interstitial_ads_summary">自動關閉插頁式廣告。</string>
+    <string name="revanced_close_interstitial_ads_title">關閉插頁式廣告</string>
+    <string name="revanced_close_interstitial_ads_toast">正在關閉插頁式廣告.</string>
     <string name="revanced_custom_filter_strings_summary">按行分隔過濾元件名稱</string>
     <string name="revanced_custom_filter_strings_title">編輯自訂過濾器</string>
     <string name="revanced_custom_filter_strings_warning">無效的自訂過濾規則，系統將回復至預設設定。</string>
@@ -123,6 +132,8 @@
     <string name="revanced_hide_flyout_panel_share_title">隱藏分享選項</string>
     <string name="revanced_hide_flyout_panel_start_radio_title">隱藏開啟電台選項</string>
     <string name="revanced_hide_flyout_panel_view_song_credit_title">隱藏查看歌曲製作人員名單選項</string>
+    <string name="revanced_hide_general_ads_summary">隱藏一般廣告</string>
+    <string name="revanced_hide_general_ads_title">隱藏一般廣告</string>
     <string name="revanced_hide_handle_summary">隱藏帳戶切換器中的句柄</string>
     <string name="revanced_hide_handle_title">隱藏手柄</string>
     <string name="revanced_hide_history_button_summary">隱藏工具欄裡的歷史紀錄按鈕</string>
@@ -152,6 +163,8 @@
     <string name="revanced_playback_speed_normal">普通</string>
     <string name="revanced_playlist_dismiss">已經播放官方音樂來源</string>
     <string name="revanced_playlist_error">官方音樂來源不可用</string>
+    <string name="revanced_restart_first_run">重新啟動以套用更改之介面</string>
+    <string name="revanced_restart_message">套用並重新啟動</string>
     <string name="revanced_replace_flyout_panel_dismiss_queue_continue_watch_summary">在 YouTube 上觀看時，從當前時間繼續觀看</string>
     <string name="revanced_replace_flyout_panel_dismiss_queue_continue_watch_title">繼續觀看</string>
     <string name="revanced_replace_flyout_panel_dismiss_queue_summary">替換取消隊列選項以在 YouTube 上觀看</string>
@@ -173,6 +186,7 @@
     <string name="revanced_ryd_failure_connection_status_code" formatted="false">倒讚數無法使用 (狀態 %d)。</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">倒讚顯示不正常（已達到客戶端 API 限制）</string>
     <string name="revanced_ryd_failure_generic">倒讚數無法使用 (狀態 %s)。</string>
+    <string name="revanced_ryd_toast_on_connection_error_title">當API不可用時顯示快顯訊息</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">隱藏</string>
     <string name="revanced_sanitize_sharing_links_summary">分享連結時從 URL 中刪除追蹤參數。</string>
     <string name="revanced_sanitize_sharing_links_title">清理分享連結</string>
@@ -194,6 +208,8 @@
     <string name="revanced_spoof_app_version_title">偽裝應用程式版本</string>
     <string name="sb_enabled">啟用 SponsorBlock</string>
     <string name="sb_enabled_sum">SponsorBlock 是透過使用者共同編輯新增片段來跳過 YouTube 的擾人片段</string>
+    <string name="sb_toast_on_connection_error">當API不可用時顯示快顯訊息</string>
+    <string name="sb_toast_on_connection_error_sum">當 Sponsorblock 不可用時顯示Toast</string>
     <string name="sb_toast_on_skip">自動跳過片段時顯示提示</string>
     <string name="sb_toast_on_skip_sum">自動跳過某個片段時顯示Toast通知</string>
     <string name="sb_api_url">更改 API 網址</string>
