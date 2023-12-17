@@ -51,6 +51,10 @@
     <!-- PREFERENCE: BOTTOM_PLAYER_SETTINGS
     <PreferenceScreen android:title="@string/revanced_bottom_player" android:key="bottom_player">PREFERENCE: BOTTOM_PLAYER_SETTINGS -->
 
+        <!-- SETTINGS: ENABLE_BOTTOM_PLAYER_GESTURES
+        <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_bottom_player" />
+        <SwitchPreference android:title="@string/revanced_enable_bottom_player_gestures_title" android:key="revanced_enable_bottom_player_gestures" android:defaultValue="true" android:summaryOn="@string/revanced_enable_bottom_player_gestures_summary_on" android:summaryOff="@string/revanced_enable_bottom_player_gestures_summary_off" />SETTINGS: ENABLE_BOTTOM_PLAYER_GESTURES -->
+
         <!-- SETTINGS: HIDE_CHANNEL_BAR_BUTTON
         <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_channel_bar_title" />
         <SwitchPreference android:title="@string/revanced_hide_join_button_title" android:key="revanced_hide_join_button" android:defaultValue="true" android:summaryOn="@string/revanced_hide_join_button_summary_on" android:summaryOff="@string/revanced_hide_join_button_summary_off" />
@@ -381,6 +385,7 @@
             <Preference android:title="Alternative thumbnails" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
 
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_bottom_player" />
+            <Preference android:title="Enable bottom player gestures" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Hide button container" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Hide comment component" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
 
