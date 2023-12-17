@@ -61,7 +61,6 @@ DeArrow hakkında daha fazla bilgi edinmek için buraya dokunun."</string>
     <string name="revanced_change_start_page_entry_history">Geçmiş</string>
     <string name="revanced_change_start_page_entry_library">Kütüphane</string>
     <string name="revanced_change_start_page_entry_liked_videos">Beğenilen videolar</string>
-    <string name="revanced_change_start_page_entry_podcasts">Podcastler</string>
     <string name="revanced_change_start_page_entry_search">Ara</string>
     <string name="revanced_change_start_page_entry_shorts">Shortlar</string>
     <string name="revanced_change_start_page_entry_subscriptions">Abonelikler</string>
@@ -137,6 +136,9 @@ Not: Bu özelliği devre dışı bırakmak, eski arayüzdeki \"Videoyu sarmak i�
     <string name="revanced_disable_startup_shorts_player_title">Uygulama açılışında Shorts videolarını engelle</string>
     <string name="revanced_double_back_timeout_summary">Çıkmak için geri tuşuna çift basmanın arasındaki maksimum saniye sayısı.</string>
     <string name="revanced_double_back_timeout_title">İki defa geriye basma arasındaki süre</string>
+    <string name="revanced_enable_bottom_player_gestures_summary_off">Videonun altından kaydırarak tam ekrana geçme etkin değil.</string>
+    <string name="revanced_enable_bottom_player_gestures_summary_on">Videonun altından kaydırarak tam ekrana geçme etkin.</string>
+    <string name="revanced_enable_bottom_player_gestures_title">Alt oynatıcı hareketlerini etkinleştir</string>
     <string name="revanced_enable_compact_controls_overlay_summary_off">Tam ekran videoda sıkışık oynatıcı etkin değil</string>
     <string name="revanced_enable_compact_controls_overlay_summary_on">Tam ekran videoda sıkışık oynatıcı etkin.</string>
     <string name="revanced_enable_compact_controls_overlay_title">Tam ekranda sıkışık oynatıcıyı etkinleştir</string>
@@ -364,6 +366,9 @@ Bu durumda lütfen şu yolu kullanın: Siz sekmesi &gt; Kanalı görüntüle &gt
     <string name="revanced_hide_collapse_button_summary_off">Videoyu küçült butonu gösteriliyor</string>
     <string name="revanced_hide_collapse_button_summary_on">Videoyu küçült butonu devre dışı</string>
     <string name="revanced_hide_collapse_button_title">Sol üstteki videoyu küçültme butonunu gizle</string>
+    <string name="revanced_hide_comments_by_members_summary_off">Üyeler tarafından yapılan yorumlar afişi gizlenmiyor.</string>
+    <string name="revanced_hide_comments_by_members_summary_on">Üyeler tarafından yapılan yorumlar afişi gizleniyor.</string>
+    <string name="revanced_hide_comments_by_members_title">Üyeler tarafından yapılan yorumlar afişini gizle</string>
     <string name="revanced_hide_comments_section_summary_off">Yorumlar gizlenmiyor</string>
     <string name="revanced_hide_comments_section_summary_on">Yorumlar gizleniyor</string>
     <string name="revanced_hide_comments_section_title">\"Yorumlar\" bölümünü gizle</string>
@@ -777,7 +782,6 @@ Videoyu zaman damgasıyla kopyalamak için basılı tutun."</string>
 • Daha sonra kapatılırsa, uygulama verileri temizlenene kadar eski kullanıcı arayüzü kalabilir"</string>
     <string name="revanced_spoof_app_version_target_entry_17_08_35">17.08.35 - Eski kullanıcı arayüzü düzenini geri yükle</string>
     <string name="revanced_spoof_app_version_target_entry_17_41_37">17.41.37 - Eski oynatma listesi raf düzenini geri yükle</string>
-    <string name="revanced_spoof_app_version_target_entry_18_01_38">"18.01.38 - 'Üyelerin yorumları' başlığını kaldırın"</string>
     <string name="revanced_spoof_app_version_target_entry_18_05_40">18.05.40 - Eski yorum girme düzenini geri yükle</string>
     <string name="revanced_spoof_app_version_target_entry_18_17_43">18.17.43 - Eski tarz oynatıcı açılır panelini geri yükleyin</string>
     <string name="revanced_spoof_app_version_target_entry_18_33_40">18.33.40 - Eski shorts aksiyon çubuğunu geri yükle</string>
@@ -981,9 +985,9 @@ Bir örnek görmek için buraya dokunun.</string>
     <string name="sb_stats_self_saved" formatted="false">&lt;b&gt;%s&lt;/b&gt; segmenti atladın</string>
     <string name="sb_stats_self_saved_sum" formatted="false">Bu da &lt;b&gt;%s&lt;/b&gt; demek</string>
     <string name="sb_stats_self_saved_reset_title">Atlanan segment sayacı sıfırlansın mı?</string>
-    <string name="sb_stats_saved_hour_format" formatted="false">%d saat %d dakika</string>
-    <string name="sb_stats_saved_minute_format" formatted="false">%d dakika %d saniye</string>
-    <string name="sb_stats_saved_second_format" formatted="false">%d saniye</string>
+    <string name="sb_stats_saved_hour_format" formatted="false">%s saat %s dakika</string>
+    <string name="sb_stats_saved_minute_format" formatted="false">%s dakika %s saniye</string>
+    <string name="sb_stats_saved_second_format" formatted="false">%s saniye</string>
     <string name="sb_color_dot_label">Renk:</string>
     <string name="sb_color_changed">Renk değiştirildi</string>
     <string name="sb_color_reset">Renk sıfırlandı</string>

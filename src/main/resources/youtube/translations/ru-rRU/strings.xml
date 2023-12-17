@@ -4,52 +4,52 @@
     <string name="accessibility_settings_edu_opt_out_text">Управление изменено, поскольку служба специальных возможностей включена.</string>
     <string name="microg_not_installed_notice">Пожалуйста, установите MicroG.</string>
     <string name="microg_not_installed_warning">MicroG не установлен.</string>
-    <string name="microg_not_running_warning">MicroG не работает в фоновом режиме.</string>
+    <string name="microg_not_running_warning">MicroG не запущен в фоновом режиме.</string>
     <string name="microg_settings_summary">Включение настройки облачных сообщений для получения уведомлений.</string>
     <string name="microg_settings_title">MicroG</string>
     <string name="revanced_ads">Реклама</string>
-    <string name="revanced_alt_thumbnails">Альтернативные превью видео</string>
-    <string name="revanced_alt_thumbnail_about_status_dearrow">"Отображает превью DeArrow.
-Оригинальные превью YouTube отображены, если у DeArrow нет превью для этого видео."</string>
-    <string name="revanced_alt_thumbnail_about_status_dearrow_stills">"Отображает превью DeArrow.
-Изображение, взятое из видео отображено, если у DeArrow нет превью для этого видео."</string>
-    <string name="revanced_alt_thumbnail_about_status_disabled">Отображает оригинальные превью YouTube.</string>
-    <string name="revanced_alt_thumbnail_about_status_stills">Отображает изображение, взятое из видео.</string>
+    <string name="revanced_alt_thumbnails">Альтернативные превью</string>
+    <string name="revanced_alt_thumbnail_about_status_dearrow">"Отображаются превью DeArrow.
+Если у DeArrow нет превью для видео, будет показано оригинальное превью YouTube."</string>
+    <string name="revanced_alt_thumbnail_about_status_dearrow_stills">"Отображаются превью DeArrow.
+Если у DeArrow нет превью для видео, будет использоваться его кадр."</string>
+    <string name="revanced_alt_thumbnail_about_status_disabled">Отображаются оригинальные превью YouTube.</string>
+    <string name="revanced_alt_thumbnail_about_status_stills">Отображается кадр, взятый из видео.</string>
     <string name="revanced_alt_thumbnail_about_title">Превью в использовании</string>
-    <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow предоставляет crowd-sourced превью для видео в YouTube. Обычно такие превью куда более уместны, чем те, что предоставлены YouTube. Если включено, ссылки видео будут отправлены серверу API и никаких других данных не будет отправлено.
+    <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow предоставляет crowd-sourced превью для видео в YouTube. Обычно такие превью куда более уместны, чем те, что предоставлены YouTube. Если включено, серверу API будут отправлены только ссылки видео, и больше никаких других данных.
 
 Нажмите здесь, чтобы узнать больше про DeArrow."</string>
     <string name="revanced_alt_thumbnail_dearrow_about_title">О DeArrow</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_summary">"Адрес конечной точки кэша превью DeArrow. Не изменяйте его, если не знаете, что делаете."</string>
-    <string name="revanced_alt_thumbnail_dearrow_api_url_title">Конечная точка DeArrow API</string>
+    <string name="revanced_alt_thumbnail_dearrow_api_url_title">Конечная точка API DeArrow</string>
     <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Всплывающее уведомление не отображено, когда DeArrow недоступен.</string>
     <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">Всплывающее уведомление отображено, когда DeArrow недоступен.</string>
-    <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">Уведомление, когда API недоступен</string>
-    <string name="revanced_alt_thumbnail_dearrow_error">DeArrow временно недоступен. (код статуса: %s)</string>
+    <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">Уведомлять, когда API недоступен</string>
+    <string name="revanced_alt_thumbnail_dearrow_error">DeArrow временно недоступен. (код состояния: %s)</string>
     <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow временно недоступен.</string>
-    <string name="revanced_alt_thumbnail_dearrow_summary_off">Не использует DeArrow.</string>
-    <string name="revanced_alt_thumbnail_dearrow_summary_on">Использует DeArrow.</string>
+    <string name="revanced_alt_thumbnail_dearrow_summary_off">DeArrow не используется.</string>
+    <string name="revanced_alt_thumbnail_dearrow_summary_on">DeArrow используется.</string>
     <string name="revanced_alt_thumbnail_dearrow_title">DeArrow</string>
     <string name="revanced_alt_thumbnail_preference_screen_summary">Настройки превью видео.</string>
     <string name="revanced_alt_thumbnail_preference_screen_title">Альтернативные превью</string>
-    <string name="revanced_alt_thumbnail_stills">Взятие изображения из видео</string>
-    <string name="revanced_alt_thumbnail_stills_about_summary">Изображения взяты из начала / середины / конца каждого видео. Эти изображения уже есть в YouTube и внешний API не используется.</string>
-    <string name="revanced_alt_thumbnail_stills_about_title">О взятии изображения из видео</string>
-    <string name="revanced_alt_thumbnail_stills_fast_summary_off">Использует высокое качество взятого изображения.</string>
-    <string name="revanced_alt_thumbnail_stills_fast_summary_on">Использует среднее качество взятого изображения. Превью будут грузиться быстрее, но трансляции, невыпущенные, или очень старые видео могут отображать пустые превью.</string>
-    <string name="revanced_alt_thumbnail_stills_fast_title">Быстрое взятие изображения</string>
-    <string name="revanced_alt_thumbnail_stills_summary_off">Не использует взятие изображения из видео в YouTube.</string>
-    <string name="revanced_alt_thumbnail_stills_summary_on">Использует взятие изображения из видео в YouTube.</string>
+    <string name="revanced_alt_thumbnail_stills">Взятие кадра из видео</string>
+    <string name="revanced_alt_thumbnail_stills_about_summary">Кадры взяты из начала / середины / конца каждого видео. Эти изображения уже есть в YouTube и внешний API не используется.</string>
+    <string name="revanced_alt_thumbnail_stills_about_title">О взятии кадра из видео</string>
+    <string name="revanced_alt_thumbnail_stills_fast_summary_off">Используется высокое качество кадра.</string>
+    <string name="revanced_alt_thumbnail_stills_fast_summary_on">Используется среднее качество кадра. Превью будут грузиться быстрее, но возможна их потеря у трансляций, премьер или очень старых видео.</string>
+    <string name="revanced_alt_thumbnail_stills_fast_title">Быстрое взятие кадра</string>
+    <string name="revanced_alt_thumbnail_stills_summary_off">Не используется взятие кадра из видео в YouTube.</string>
+    <string name="revanced_alt_thumbnail_stills_summary_on">Используется взятие кадра из видео в YouTube.</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_1">Начало видео</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_2">Середина видео</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_3">Конец видео</string>
-    <string name="revanced_alt_thumbnail_stills_time_title">Часть видео для взятия</string>
-    <string name="revanced_alt_thumbnail_stills_title">Взятие изображения из видео</string>
-    <string name="revanced_append_time_stamp_information_summary_off">Индикатор, проецирующий скорость / качество рядом с временной меткой отключён.</string>
-    <string name="revanced_append_time_stamp_information_summary_on">Индикатор, проецирующий скорость / качество рядом с временной меткой включён.</string>
+    <string name="revanced_alt_thumbnail_stills_time_title">Время взятия кадра</string>
+    <string name="revanced_alt_thumbnail_stills_title">Взятие кадра из видео</string>
+    <string name="revanced_append_time_stamp_information_summary_off">Индикатор скорости / качества рядом с временной меткой отключён.</string>
+    <string name="revanced_append_time_stamp_information_summary_on">Индикатор скорости / качества рядом с временной меткой включён.</string>
     <string name="revanced_append_time_stamp_information_title">Индикатор рядом с временной меткой</string>
-    <string name="revanced_append_time_stamp_information_type_summary_off">Проецирующий скорость воспроизведения.</string>
-    <string name="revanced_append_time_stamp_information_type_summary_on">Проецирующий качество видео.</string>
+    <string name="revanced_append_time_stamp_information_type_summary_off">Показывает скорость воспроизведения.</string>
+    <string name="revanced_append_time_stamp_information_type_summary_on">Показывает качество.</string>
     <string name="revanced_append_time_stamp_information_type_title">Тип индикатора</string>
     <string name="revanced_bottom_player">Нижняя часть плеера</string>
     <string name="revanced_button_container_title">Кнопки под плеером</string>
@@ -61,7 +61,6 @@
     <string name="revanced_change_start_page_entry_history">История</string>
     <string name="revanced_change_start_page_entry_library">Библиотека</string>
     <string name="revanced_change_start_page_entry_liked_videos">Понравившиеся</string>
-    <string name="revanced_change_start_page_entry_podcasts">Подкасты</string>
     <string name="revanced_change_start_page_entry_search">Поиск</string>
     <string name="revanced_change_start_page_entry_shorts">Shorts</string>
     <string name="revanced_change_start_page_entry_subscriptions">Подписки</string>
@@ -82,10 +81,10 @@
     <string name="revanced_custom_filter_summary_off">Пользовательский фильтр отключён.</string>
     <string name="revanced_custom_filter_summary_on">Пользовательский фильтр включён.</string>
     <string name="revanced_custom_filter_title">Пользовательский фильтр</string>
-    <string name="revanced_custom_playback_speeds_invalid">Недопустимые значения скоростей. Сброс к значениям по умолчанию.</string>
+    <string name="revanced_custom_playback_speeds_invalid">Недопустимые скорости воспроизведения. Сброс к значениям по умолчанию.</string>
     <string name="revanced_custom_playback_speeds_summary">Добавить или изменить доступные скорости воспроизведения.</string>
-    <string name="revanced_custom_playback_speeds_title">Изменить значения скорости</string>
-    <string name="revanced_custom_playback_speeds_warning" formatted="false">Значения скоростей не могут быть больше, чем %sx. Сброс к значениям по умолчанию.</string>
+    <string name="revanced_custom_playback_speeds_title">Изменить скорости воспроизведения</string>
+    <string name="revanced_custom_playback_speeds_warning" formatted="false">Скорости воспроизведения не могут быть больше, чем %sx. Сброс к значениям по умолчанию.</string>
     <string name="revanced_custom_playback_speed_panel_type_summary_off">Используется старый стиль выдвижной панели.</string>
     <string name="revanced_custom_playback_speed_panel_type_summary_on">Используется пользовательское меню.</string>
     <string name="revanced_custom_playback_speed_panel_type_title">Тип панели для пользовательских скоростей</string>
@@ -137,6 +136,9 @@
     <string name="revanced_disable_startup_shorts_player_title">Отключить автозапуск плеера Shorts</string>
     <string name="revanced_double_back_timeout_summary">Количество секунд для выхода из приложения при двойном нажатии / жесте \"Назад\".</string>
     <string name="revanced_double_back_timeout_title">Время ожидания для выхода</string>
+    <string name="revanced_enable_bottom_player_gestures_summary_off">Переход в полноэкранный режим проведением по нижней части плеера отключён.</string>
+    <string name="revanced_enable_bottom_player_gestures_summary_on">Переход в полноэкранный режим проведением по нижней части плеера включён.</string>
+    <string name="revanced_enable_bottom_player_gestures_title">Жесты нижней части плеера</string>
     <string name="revanced_enable_compact_controls_overlay_summary_off">Компактные элементы управления отключены.</string>
     <string name="revanced_enable_compact_controls_overlay_summary_on">Компактные элементы управления включены.</string>
     <string name="revanced_enable_compact_controls_overlay_title">Компактные элементы управления</string>
@@ -167,9 +169,9 @@
     <string name="revanced_enable_new_thumbnail_preview_summary_off">Новый предпросмотр миниатюр отключён.</string>
     <string name="revanced_enable_new_thumbnail_preview_summary_on">Новый предпросмотр миниатюр включён.</string>
     <string name="revanced_enable_new_thumbnail_preview_title">Новый предпросмотр миниатюр</string>
-    <string name="revanced_enable_old_quality_layout_summary_off">Используется новый стиль отображения выбора качества видео.</string>
-    <string name="revanced_enable_old_quality_layout_summary_on">Используется старый стиль отображения выбора качества видео.</string>
-    <string name="revanced_enable_old_quality_layout_title">Старый стиль выбора качества видео</string>
+    <string name="revanced_enable_old_quality_layout_summary_off">Используется новый стиль настройки качества.</string>
+    <string name="revanced_enable_old_quality_layout_summary_on">Используется старый стиль настройки качества.</string>
+    <string name="revanced_enable_old_quality_layout_title">Старый стиль интерфейса качества</string>
     <string name="revanced_enable_open_links_directly_summary_off">Открытие ссылок напрямую отключено.</string>
     <string name="revanced_enable_open_links_directly_summary_on">Открытие ссылок напрямую включено.</string>
     <string name="revanced_enable_open_links_directly_title">Прямое открытие ссылок</string>
@@ -180,9 +182,9 @@
     <string name="revanced_enable_save_playback_speed_summary_off">Скорость воспроизведения не сохраняется при её изменении.</string>
     <string name="revanced_enable_save_playback_speed_summary_on">Скорость воспроизведения сохраняется при её изменении.</string>
     <string name="revanced_enable_save_playback_speed_title">Сохранение скорости воспроизведения</string>
-    <string name="revanced_enable_save_video_quality_summary_off">Качество воспроизведения не сохраняется при его изменении.</string>
-    <string name="revanced_enable_save_video_quality_summary_on">Качество воспроизведения сохраняется при его изменении.</string>
-    <string name="revanced_enable_save_video_quality_title">Сохранение качества воспроизведения</string>
+    <string name="revanced_enable_save_video_quality_summary_off">Качество видео не сохраняется при его изменении.</string>
+    <string name="revanced_enable_save_video_quality_summary_on">Качество видео сохраняется при его изменении.</string>
+    <string name="revanced_enable_save_video_quality_title">Сохранение качества видео</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">Перемотка нажатием на прогресс воспроизведения отключена.</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">Перемотка нажатием на прогресс воспроизведения включена.</string>
     <string name="revanced_enable_seekbar_tapping_title">Перемотка нажатием</string>
@@ -365,6 +367,9 @@
     <string name="revanced_hide_collapse_button_summary_off">Кнопка \"Свернуть\" отображена.</string>
     <string name="revanced_hide_collapse_button_summary_on">Кнопка \"Свернуть\" скрыта.</string>
     <string name="revanced_hide_collapse_button_title">Скрыть кнопку \"Свернуть\"</string>
+    <string name="revanced_hide_comments_by_members_summary_off">Раздел \"Спонсоры\" отображён.</string>
+    <string name="revanced_hide_comments_by_members_summary_on">Раздел \"Спонсоры\" скрыт.</string>
+    <string name="revanced_hide_comments_by_members_title">Скрыть раздел \"Спонсоры\"</string>
     <string name="revanced_hide_comments_section_summary_off">Раздел комментариев отображён.</string>
     <string name="revanced_hide_comments_section_summary_on">Раздел комментариев скрыт.</string>
     <string name="revanced_hide_comments_section_title">Скрыть раздел комментариев</string>
@@ -525,8 +530,8 @@
     <string name="revanced_hide_player_flyout_panel_premium_controls_summary_off">Пункт \"Настройки Premium\" отображён.</string>
     <string name="revanced_hide_player_flyout_panel_premium_controls_summary_on">Пункт \"Настройки Premium\" скрыт.</string>
     <string name="revanced_hide_player_flyout_panel_premium_controls_title">Скрыть \"Настройки Premium\"</string>
-    <string name="revanced_hide_player_flyout_panel_quality_footer_summary_off">Подсказка в меню выбора качества отображена.</string>
-    <string name="revanced_hide_player_flyout_panel_quality_footer_summary_on">Подсказка в меню выбора качества скрыта.</string>
+    <string name="revanced_hide_player_flyout_panel_quality_footer_summary_off">Подсказка в меню качества отображена.</string>
+    <string name="revanced_hide_player_flyout_panel_quality_footer_summary_on">Подсказка в меню качества скрыта.</string>
     <string name="revanced_hide_player_flyout_panel_quality_footer_title">Скрыть подсказку в меню качества</string>
     <string name="revanced_hide_player_flyout_panel_report_summary_off">Пункт \"Пожаловаться\" отображён.</string>
     <string name="revanced_hide_player_flyout_panel_report_summary_on">Пункт \"Пожаловаться\" скрыт.</string>
@@ -604,7 +609,7 @@
     <string name="revanced_hide_shorts_player_subscriptions_button_title">Скрыть кнопку \"Подписаться\"</string>
     <string name="revanced_hide_shorts_shelf_summary">"Скрывает секции \"Shorts\".
 
-Известная проблема: Вывески информации о человеке в результатах поиска скрыты."</string>
+Известная проблема: Вывески информации о человеке в результатах поиска будут скрыты."</string>
     <string name="revanced_hide_shorts_shelf_title">Скрыть секции \"Shorts\"</string>
     <string name="revanced_hide_shorts_toolbar_banner_summary_off">Баннер отображён.</string>
     <string name="revanced_hide_shorts_toolbar_banner_summary_on">Баннер скрыт.</string>
@@ -735,23 +740,23 @@
     <string name="revanced_ryd_enable_summary_on">Отметки \"Не нравится\" отображены.</string>
     <string name="revanced_ryd_enable_title">Return YouTube Dislike</string>
     <string name="revanced_ryd_failure_connection_timeout">Отметки \"Не нравится\" временно недоступны (время API истекло).</string>
-    <string name="revanced_ryd_failure_connection_status_code" formatted="false">Отметки \"Не нравится\" недоступны (статус %d).</string>
+    <string name="revanced_ryd_failure_connection_status_code" formatted="false">Отметки \"Не нравится\" недоступны (состояние %d).</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Отметки \"Не нравится\" недоступны (достигнут лимит клиентов сервера API).</string>
     <string name="revanced_ryd_failure_generic">Отметки \"Не нравится\" недоступны (%s).</string>
     <string name="revanced_ryd_shorts_summary_disclaimer">Ограничение: Отметки \"Не нравится\" могут не появляться в определённых ситуациях.</string>
     <string name="revanced_ryd_shorts_summary_off">Отметки \"Не нравится\" в Shorts скрыты.</string>
     <string name="revanced_ryd_shorts_summary_on">Отметки \"Не нравится\" в Shorts отображены. %s</string>
     <string name="revanced_ryd_shorts_title">Отметки \"Не нравится\" в Shorts</string>
-    <string name="revanced_ryd_toast_on_connection_error_title">Уведомление, когда API недоступен</string>
+    <string name="revanced_ryd_toast_on_connection_error_title">Уведомлять, когда API недоступен</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_off">Всплывающее уведомление не отображено, когда Return YouTube Dislike недоступен.</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_on">Всплывающее уведомление отображено, когда Return YouTube Dislike недоступен.</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Скрыты</string>
     <string name="revanced_sanitize_sharing_links_summary">Убирает параметры отслеживания запросов из адреса при отправке ссылки.</string>
     <string name="revanced_sanitize_sharing_links_title">Очищать ссылки от мусора</string>
-    <string name="revanced_save_playback_speed" formatted="false">Скорость воспроизведения по умолчанию изменена на: %s.</string>
-    <string name="revanced_save_video_quality_mobile" formatted="false">Качество по умолчанию при моб. сети изменено на: %s.</string>
-    <string name="revanced_save_video_quality_none">Не удалось установить выбранное качество.</string>
-    <string name="revanced_save_video_quality_wifi" formatted="false">Качество по умолчанию при Wi-Fi изменено на: %s.</string>
+    <string name="revanced_save_playback_speed" formatted="false">Скорость воспроизведения по умолчанию изменена на %s.</string>
+    <string name="revanced_save_video_quality_mobile" formatted="false">Качество по умолчанию при моб. сети изменено на %s.</string>
+    <string name="revanced_save_video_quality_none">Не удалось установить качество.</string>
+    <string name="revanced_save_video_quality_wifi" formatted="false">Качество по умолчанию при Wi-Fi изменено на %s.</string>
     <string name="revanced_seekbar">Прогресс воспроизведения</string>
     <string name="revanced_share_copy_settings_success">Настройки скопированы в буфер.</string>
     <string name="revanced_share_copy_timestamp_success" formatted="false">Метка скопирована в буфер. (%s)</string>
@@ -778,7 +783,6 @@
 • Если отключить данную опцию после её активации, старый интерфейс может оставаться до тех пор, пока данные приложения не будут очищены."</string>
     <string name="revanced_spoof_app_version_target_entry_17_08_35">17.08.35 - Вернуть старый интерфейс</string>
     <string name="revanced_spoof_app_version_target_entry_17_41_37">17.41.37 - Вернуть старую секцию плейлистов</string>
-    <string name="revanced_spoof_app_version_target_entry_18_01_38">"18.01.38 - Удаление раздела \"Спонсоры\" в комментариях"</string>
     <string name="revanced_spoof_app_version_target_entry_18_05_40">18.05.40 - Вернуть старое поле ввода комментария</string>
     <string name="revanced_spoof_app_version_target_entry_18_17_43">18.17.43 - Вернуть старую выдвижную панель плеера</string>
     <string name="revanced_spoof_app_version_target_entry_18_33_40">18.33.40 - Вернуть старую панель действий в Shorts</string>
@@ -788,7 +792,7 @@
     <string name="revanced_spoof_app_version_target_summary">Введите целевую версию приложения для подмены.</string>
     <string name="revanced_spoof_app_version_target_title">Изменить значение подмены версии</string>
     <string name="revanced_spoof_app_version_title">Подмена версии приложения</string>
-    <string name="revanced_spoof_device_dimensions_summary">Подменяет габариты устройства, чтобы разблокировать значения качества видео, которые могли быть ранее недоступны на вашем устройстве.</string>
+    <string name="revanced_spoof_device_dimensions_summary">Подменяет габариты устройства, чтобы разблокировать качество видео, которое могло быть ранее недоступно на вашем устройстве.</string>
     <string name="revanced_spoof_device_dimensions_title">Подмена габаритов устройства</string>
     <string name="revanced_spoof_player_parameter_in_feed_summary_off">"Параметры плеера не подменены для видео в ленте.
 
@@ -859,7 +863,7 @@
     <string name="sb_guidelines_popup_already_read">Уже прочитано</string>
     <string name="sb_guidelines_popup_open">Показать</string>
     <string name="sb_general">Основные</string>
-    <string name="sb_toast_on_connection_error_title">Уведомление, когда API недоступен</string>
+    <string name="sb_toast_on_connection_error_title">Уведомлять, когда API недоступен</string>
     <string name="sb_toast_on_connection_error_summary_on">Всплывающее уведомление отображено, когда SponsorBlock недоступен.</string>
     <string name="sb_toast_on_connection_error_summary_off">Всплывающее уведомление не отображено, когда SponsorBlock недоступен.</string>
     <string name="sb_general_skipcount">Подсчёт количества пропусков</string>
@@ -932,17 +936,17 @@
     <string name="sb_skip_seekbaronly">Показывать в прогрессе воспроизведения</string>
     <string name="sb_skip_ignore">Отключить</string>
     <string name="sb_sponsorblock_connection_failure_generic">SponsorBlock временно недоступен.</string>
-    <string name="sb_sponsorblock_connection_failure_status" formatted="false">SponsorBlock временно недоступен (статус %d).</string>
+    <string name="sb_sponsorblock_connection_failure_status" formatted="false">SponsorBlock временно недоступен (состояние %d).</string>
     <string name="sb_sponsorblock_connection_failure_timeout">SponsorBlock временно недоступен (время API истекло).</string>
     <string name="sb_submit_failed_invalid" formatted="false">Не удаётся отправить сегмент: %s.</string>
     <string name="sb_submit_failed_timeout">Невозможно отправить сегменты (время API истекло).</string>
-    <string name="sb_submit_failed_unknown_error" formatted="false">Невозможно отправить сегменты (статус: %d %s).</string>
+    <string name="sb_submit_failed_unknown_error" formatted="false">Невозможно отправить сегменты (состояние: %d %s).</string>
     <string name="sb_submit_failed_rate_limit">Не удаётся отправить сегмент.\nЛимит запросов (слишком много от одного пользователя или IP).</string>
     <string name="sb_submit_failed_forbidden" formatted="false">Не удаётся отправить сегмент: %s.</string>
     <string name="sb_submit_failed_duplicate">Не удаётся отправить сегмент.\nУже существует.</string>
     <string name="sb_submit_succeeded">Сегмент успешно отправлен.</string>
     <string name="sb_vote_failed_timeout">Невозможно проголосовать за сегмент (время API истекло).</string>
-    <string name="sb_vote_failed_unknown_error" formatted="false">Невозможно проголосовать за сегмент (статус: %d %s).</string>
+    <string name="sb_vote_failed_unknown_error" formatted="false">Невозможно проголосовать за сегмент (состояние: %d %s).</string>
     <string name="sb_vote_failed_forbidden" formatted="false">Невозможно проголосовать за сегмент: %s.</string>
     <string name="sb_vote_upvote">Голосовать за</string>
     <string name="sb_vote_downvote">Голосовать против</string>
@@ -970,7 +974,7 @@
     <string name="sb_stats_sb_disabled">SponsorBlock отключён.</string>
     <string name="sb_stats_username" formatted="false">Ваше имя пользователя: &lt;b&gt;%s&lt;/b&gt;</string>
     <string name="sb_stats_username_change">Нажмите, чтобы изменить ваше имя пользователя</string>
-    <string name="sb_stats_username_change_unknown_error" formatted="false">Невозможно изменить имя пользователя: Статус: %d %s.</string>
+    <string name="sb_stats_username_change_unknown_error" formatted="false">Невозможно изменить имя пользователя: Состояние: %d %s.</string>
     <string name="sb_stats_username_changed">Имя пользователя успешно изменено.</string>
     <string name="sb_stats_reputation" formatted="false">Ваша репутация &lt;b&gt;%.2f&lt;/b&gt;</string>
     <string name="sb_stats_submissions" formatted="false">Вы создали &lt;b&gt;%s&lt;/b&gt; сегментов</string>
@@ -981,9 +985,9 @@
     <string name="sb_stats_self_saved" formatted="false">Вы пропустили &lt;b&gt;%s&lt;/b&gt; сегментов</string>
     <string name="sb_stats_self_saved_sum" formatted="false">Это &lt;b&gt;%s&lt;/b&gt;.</string>
     <string name="sb_stats_self_saved_reset_title">Сбросить счётчик пропущенных сегментов?</string>
-    <string name="sb_stats_saved_hour_format" formatted="false">%d часа(ов) %d минут(ы)</string>
-    <string name="sb_stats_saved_minute_format" formatted="false">%d минут(ы) %d секунд(ы)</string>
-    <string name="sb_stats_saved_second_format" formatted="false">%d секунд(ы)</string>
+    <string name="sb_stats_saved_hour_format" formatted="false">%s часа(ов) %s минут(ы)</string>
+    <string name="sb_stats_saved_minute_format" formatted="false">%s минут(ы) %s секунд(ы)</string>
+    <string name="sb_stats_saved_second_format" formatted="false">%s секунд(ы)</string>
     <string name="sb_color_dot_label">Цвет:</string>
     <string name="sb_color_changed">Цвет изменён.</string>
     <string name="sb_color_reset">Цвет сброшен.</string>

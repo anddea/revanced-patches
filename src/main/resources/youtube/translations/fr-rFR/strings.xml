@@ -15,7 +15,7 @@ Si une vidéo n'a pas de miniature DeArrow, les miniatures originales seront aff
 Si une vidéo n'a pas de miniature DeArrow, des miniatures alternatives seront affichés"</string>
     <string name="revanced_alt_thumbnail_about_status_disabled">Affichage des miniatures originelles</string>
     <string name="revanced_alt_thumbnail_about_status_stills">Affichage de miniature alternative </string>
-    <string name="revanced_alt_thumbnail_about_title">À propos</string>
+    <string name="revanced_alt_thumbnail_about_title">Miniatures utilisées</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow fournit des miniatures externes pour les vidéos YouTube. Ces miniatures sont souvent plus pertinentes que celles fournies par YouTube. Si elle est activée, les URL vidéo seront envoyées au serveur API et aucune autre donnée n’est envoyée.
 
 Cliquez ici pour en savoir plus sur DeArrow."</string>
@@ -35,7 +35,7 @@ Ne modifiez pas cette adresse à moins de savoir ce que vous faites."</string>
     <string name="revanced_alt_thumbnail_preference_screen_title">Miniatures alternatives</string>
     <string name="revanced_alt_thumbnail_stills">Miniatures alternatives extraites de la vidéo</string>
     <string name="revanced_alt_thumbnail_stills_about_summary">Les miniatures sont extraites du début, du milieu et de la fin de chaque vidéo. Ces images sont intégrées à YouTube et aucune API externe n\'est utilisée</string>
-    <string name="revanced_alt_thumbnail_stills_about_title">À propos des captures vidéos</string>
+    <string name="revanced_alt_thumbnail_stills_about_title">À propos des miniatures alternatives</string>
     <string name="revanced_alt_thumbnail_stills_fast_summary_off">Utilisation de miniature de haute qualité.</string>
     <string name="revanced_alt_thumbnail_stills_fast_summary_on">Utilisation de miniatures alternatives de qualité moyenne. Les miniatures se chargeront plus rapidement, mais les diffusions en direct, les vidéos non publiées ou très anciennes peuvent afficher des miniatures vides.</string>
     <string name="revanced_alt_thumbnail_stills_fast_title">Utilisation de miniature rapide</string>
@@ -62,7 +62,6 @@ Ne modifiez pas cette adresse à moins de savoir ce que vous faites."</string>
     <string name="revanced_change_start_page_entry_history">Historique</string>
     <string name="revanced_change_start_page_entry_library">Bibliothèque</string>
     <string name="revanced_change_start_page_entry_liked_videos">Vidéos \"J\'aime\"</string>
-    <string name="revanced_change_start_page_entry_podcasts">Podcasts</string>
     <string name="revanced_change_start_page_entry_search">Rechercher sur YouTube</string>
     <string name="revanced_change_start_page_entry_shorts">Shorts</string>
     <string name="revanced_change_start_page_entry_subscriptions">Abonnements</string>
@@ -136,9 +135,12 @@ Note : Ceci est une fonctionnalité qui n'a pas été testée."</string>
     <string name="revanced_disable_startup_shorts_player_title">Shorts au démarrage de l\'application</string>
     <string name="revanced_double_back_timeout_summary">Le nombre de secondes pour la fermeture en double pression sur le bouton Retour</string>
     <string name="revanced_double_back_timeout_title">Délai de fermeture de l\'application</string>
+    <string name="revanced_enable_bottom_player_gestures_summary_off">Le passage en plein écran en faisant glisser la zone inférieure du lecteur a été désactivée.</string>
+    <string name="revanced_enable_bottom_player_gestures_summary_on">Le passage en plein écran en faisant glisser la zone inférieure du lecteur a été activée.</string>
+    <string name="revanced_enable_bottom_player_gestures_title">Geste de lecteur inférieur</string>
     <string name="revanced_enable_compact_controls_overlay_summary_off">La superposition des contrôles compacts est désactivée</string>
     <string name="revanced_enable_compact_controls_overlay_summary_on">La superposition des contrôles compacts est activé</string>
-    <string name="revanced_enable_compact_controls_overlay_title">La superposition des contrôles compacts</string>
+    <string name="revanced_enable_compact_controls_overlay_title">Superposition des contrôles compacts</string>
     <string name="revanced_enable_custom_playback_speed_summary_off">Les vitesses de lecture personnalisées sont désactivées</string>
     <string name="revanced_enable_custom_playback_speed_summary_on">Les vitesses de lecture personnalisées sont activées</string>
     <string name="revanced_enable_custom_playback_speed_title">Vitesses de lecture personnalisées</string>
@@ -190,7 +192,7 @@ Note : Ceci est une fonctionnalité qui n'a pas été testée."</string>
     <string name="revanced_enable_song_search_title">Recherche de chanson</string>
     <string name="revanced_enable_swipe_auto_brightness_summary_off">Même si la luminosité est réglée à 0 par balayage, la luminosité automatique n\'est pas activée</string>
     <string name="revanced_enable_swipe_auto_brightness_summary_on">Lorsque la luminosité atteint 0 par balayage, la luminosité automatique est activée</string>
-    <string name="revanced_enable_swipe_auto_brightness_title">La luminosité automatique en balayant</string>
+    <string name="revanced_enable_swipe_auto_brightness_title">Luminosité auto en balayant</string>
     <string name="revanced_enable_swipe_brightness_summary_off">Le balayage de la luminosité est désactivé</string>
     <string name="revanced_enable_swipe_brightness_summary_on">Le balayage de la luminosité est activé</string>
     <string name="revanced_enable_swipe_brightness_title">Geste de luminosité</string>
@@ -210,7 +212,7 @@ Note : Ceci est une fonctionnalité qui n'a pas été testée."</string>
     <string name="revanced_enable_tablet_mini_player_title">Mini-lecteur pour tablettes</string>
     <string name="revanced_enable_tablet_navigation_bar_summary_off">La barre de navigation pour tablette est désactivée</string>
     <string name="revanced_enable_tablet_navigation_bar_summary_on">La barre de navigation pour tablette est activée</string>
-    <string name="revanced_enable_tablet_navigation_bar_title">La barre de navigation pour tablette</string>
+    <string name="revanced_enable_tablet_navigation_bar_title">Barre de navigation pour tablette</string>
     <string name="revanced_enable_video_codec_summary">Falsification des infos pour activer le codec </string>
     <string name="revanced_enable_video_codec_title">Codec vidéo</string>
     <string name="revanced_enable_video_codec_type_summary_off">Codec VP9</string>
@@ -364,6 +366,9 @@ Catégorie \"Vous\" &gt; \"Afficher la chaîne\" &gt; Trois points &gt; \"Param�
     <string name="revanced_hide_collapse_button_summary_off">Le bouton \"Réduire\" est affiché</string>
     <string name="revanced_hide_collapse_button_summary_on">Le bouton \"Réduire\" est masqué.</string>
     <string name="revanced_hide_collapse_button_title">Bouton \"Réduire\"</string>
+    <string name="revanced_hide_comments_by_members_summary_off">Les commentaires des membres sont affichés.</string>
+    <string name="revanced_hide_comments_by_members_summary_on">Les commentaires des membres sont cachés.</string>
+    <string name="revanced_hide_comments_by_members_title">Commentaires des membres</string>
     <string name="revanced_hide_comments_section_summary_off">La section des commentaires est affichée</string>
     <string name="revanced_hide_comments_section_summary_on">La section des commentaires est masquée</string>
     <string name="revanced_hide_comments_section_title">Section des commentaires</string>
@@ -775,7 +780,6 @@ Celle-ci modifiera l'apparence de l'application, mais des effets indésirables i
 Si elle est désactivée ultérieurement, l'ancienne interface utilisateur peut subsister jusqu'à ce que les données de l'application soient effacées"</string>
     <string name="revanced_spoof_app_version_target_entry_17_08_35">17.08.35 - Restaure l\'ancienne interface</string>
     <string name="revanced_spoof_app_version_target_entry_17_41_37">17.41.37 - La catégorie \"Playlist\" dans la \"Bibliothèque\" utilise l\'ancienne interface</string>
-    <string name="revanced_spoof_app_version_target_entry_18_01_38">"18.01.38 - Supprime la section \"Membres\" sur les commentaires"</string>
     <string name="revanced_spoof_app_version_target_entry_18_05_40">18.05.40 - Restaure l\'ancienne interface de saisie commentaire</string>
     <string name="revanced_spoof_app_version_target_entry_18_17_43">18.17.43 - Restaure l\'ancienne interface du lecteur</string>
     <string name="revanced_spoof_app_version_target_entry_18_33_40">18.33.40 - Restaure l\'ancienne barre d\'action Shorts</string>
@@ -807,7 +811,7 @@ Problèmes connus:
     <string name="revanced_swipe_controls">Commandes de balayage</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_off">"Les commandes de balayage sont désactivés lorsque le mode \"Verrouiller l'écran\" est activé."</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_on">"Les commandes de balayage sont activés lorsque le mode \"Verrouiller l'écran\" est activé."</string>
-    <string name="revanced_swipe_gestures_lock_mode_title">"Les commandes de balayage sous verrouillage d'écran."</string>
+    <string name="revanced_swipe_gestures_lock_mode_title">"Commandes de balayage sous verrouillage d'écran"</string>
     <string name="revanced_swipe_magnitude_threshold_summary">L\'intensité de balayage correspond à la mesure de glissement utilisée pour ajuster le niveau sonore ou de luminosité</string>
     <string name="revanced_swipe_magnitude_threshold_title">Intensité de balayage</string>
     <string name="revanced_swipe_overlay_background_alpha_summary">La visibilité de l’arrière-plan de superposition par balayage</string>
@@ -980,9 +984,9 @@ Problèmes connus:
     <string name="sb_stats_self_saved" formatted="false">Vous avez passé &lt;b&gt;%s&lt;/b&gt; segment(s)</string>
     <string name="sb_stats_self_saved_sum" formatted="false">Cela représente &lt;b&gt;%s&lt;/b&gt;</string>
     <string name="sb_stats_self_saved_reset_title">Voulez-vous réinitialiser le compteur de segment ?</string>
-    <string name="sb_stats_saved_hour_format" formatted="false">%d heures et %d minutes</string>
-    <string name="sb_stats_saved_minute_format" formatted="false">%d minutes et %d secondes</string>
-    <string name="sb_stats_saved_second_format" formatted="false">%d secondes</string>
+    <string name="sb_stats_saved_hour_format" formatted="false">%s heures et %s minutes</string>
+    <string name="sb_stats_saved_minute_format" formatted="false">%s minutes et %s secondes</string>
+    <string name="sb_stats_saved_second_format" formatted="false">%s secondes</string>
     <string name="sb_color_dot_label">Couleur (hex) :</string>
     <string name="sb_color_changed">Couleur modifiée</string>
     <string name="sb_color_reset">Couleur réinitialisée</string>

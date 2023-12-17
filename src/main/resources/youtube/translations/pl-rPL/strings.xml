@@ -61,7 +61,6 @@ Kliknij tutaj, aby dowiedzieć się więcej o DeArrow."</string>
     <string name="revanced_change_start_page_entry_history">Historia</string>
     <string name="revanced_change_start_page_entry_library">Biblioteka</string>
     <string name="revanced_change_start_page_entry_liked_videos">Polubione wideo</string>
-    <string name="revanced_change_start_page_entry_podcasts">Podcasty</string>
     <string name="revanced_change_start_page_entry_search">Wyszukiwanie</string>
     <string name="revanced_change_start_page_entry_shorts">Shortsy</string>
     <string name="revanced_change_start_page_entry_subscriptions">Subskrypcje</string>
@@ -137,6 +136,9 @@ Notka: wyłączenie nakładki prędkości odtwarzania przywróci zachowania prze
     <string name="revanced_disable_startup_shorts_player_title">Shortsy przy starcie aplikacji</string>
     <string name="revanced_double_back_timeout_summary">Liczba sekund na stuknięcie przycisku do powrotu 2 razy, by wyjść z aplikacji</string>
     <string name="revanced_double_back_timeout_title">Limit czasu na stuknięcie przycisku do powrotu</string>
+    <string name="revanced_enable_bottom_player_gestures_summary_off">Wyłączony</string>
+    <string name="revanced_enable_bottom_player_gestures_summary_on">Włączony</string>
+    <string name="revanced_enable_bottom_player_gestures_title">Gest przełączania w tryb pełnoekranowy</string>
     <string name="revanced_enable_compact_controls_overlay_summary_off">Nie</string>
     <string name="revanced_enable_compact_controls_overlay_summary_on">Tak</string>
     <string name="revanced_enable_compact_controls_overlay_title">Przyciski w odtwarzaczu bliżej środka</string>
@@ -366,6 +368,9 @@ Niektóre komponenty mogą nie być ukryte"</string>
     <string name="revanced_hide_collapse_button_summary_off">Widoczny</string>
     <string name="revanced_hide_collapse_button_summary_on">Ukryty</string>
     <string name="revanced_hide_collapse_button_title">Przycisk od minimalizowania wideo</string>
+    <string name="revanced_hide_comments_by_members_summary_off">Widoczne</string>
+    <string name="revanced_hide_comments_by_members_summary_on">Ukryte</string>
+    <string name="revanced_hide_comments_by_members_title">Banery z komentarzami wspierających</string>
     <string name="revanced_hide_comments_section_summary_off">Widoczna</string>
     <string name="revanced_hide_comments_section_summary_on">Ukryta</string>
     <string name="revanced_hide_comments_section_title">Sekcja komentarzy</string>
@@ -605,7 +610,7 @@ Niektóre komponenty mogą nie być ukryte"</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_title">Przycisk do strony subskrypcji</string>
     <string name="revanced_hide_shorts_shelf_summary">"Ukrywa półki z shortsami.
 
-Znany problem: nagłówki z tytułami są ukryte w wynikach wyszukiwania."</string>
+Znany problem: nagłówki z tytułami będą ukryte w wynikach wyszukiwania."</string>
     <string name="revanced_hide_shorts_shelf_title">Półki z shortsami</string>
     <string name="revanced_hide_shorts_toolbar_banner_summary_off">Widoczne</string>
     <string name="revanced_hide_shorts_toolbar_banner_summary_on">Ukryte</string>
@@ -779,7 +784,6 @@ Stuknij i przytrzymaj, by zmienić prędkość odtwarzania na 1.0x."</string>
 • Jeśli później opcja ta zostanie wyłączona, stare UI może pozostać do czasu usunięcia danych aplikacji"</string>
     <string name="revanced_spoof_app_version_target_entry_17_08_35">17.08.35 - Przywróć stary wygląd interfejsu</string>
     <string name="revanced_spoof_app_version_target_entry_17_41_37">17.41.37 - Przywróć starą półkę do playlist</string>
-    <string name="revanced_spoof_app_version_target_entry_18_01_38">"18.01.38 - Usuń banner z komentarzami od sponsorów"</string>
     <string name="revanced_spoof_app_version_target_entry_18_05_40">18.05.40 - Przywróć stare pole od pisania komentarzy</string>
     <string name="revanced_spoof_app_version_target_entry_18_17_43">18.17.43 - Przywróć stary wygląd menu ustawień wideo</string>
     <string name="revanced_spoof_app_version_target_entry_18_33_40">18.33.40 - Przywróć stary pasek akcji shortsów</string>
@@ -982,9 +986,9 @@ Znane problemy:
     <string name="sb_stats_self_saved" formatted="false">Pominąłeś &lt;b&gt;%s&lt;/b&gt; segmentów</string>
     <string name="sb_stats_self_saved_sum" formatted="false">To &lt;b&gt;%s&lt;/b&gt;</string>
     <string name="sb_stats_self_saved_reset_title">Czy chcesz zresetować ilość pominiętych segmentów?</string>
-    <string name="sb_stats_saved_hour_format" formatted="false">%d godzin i %d minut</string>
-    <string name="sb_stats_saved_minute_format" formatted="false">%d minut i %d sekund</string>
-    <string name="sb_stats_saved_second_format" formatted="false">%d sekund</string>
+    <string name="sb_stats_saved_hour_format" formatted="false">%s godzin %s minut</string>
+    <string name="sb_stats_saved_minute_format" formatted="false">%s minut %s sekund</string>
+    <string name="sb_stats_saved_second_format" formatted="false">%s sekund</string>
     <string name="sb_color_dot_label">Kolor:</string>
     <string name="sb_color_changed">Kolor został zmieniony.</string>
     <string name="sb_color_reset">Kolor został zresetowany.</string>
