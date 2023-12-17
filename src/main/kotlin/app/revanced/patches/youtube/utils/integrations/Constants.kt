@@ -7,6 +7,7 @@ object Constants {
 
     const val ADS_PATH = "$PATCHES_PATH/ads"
     const val ALTERNATIVE_THUMBNAILS_PATH = "$PATCHES_PATH/alternativethumbnails"
+    const val BOTTOM_PLAYER_PATH = "$PATCHES_PATH/bottomplayer"
     const val COMPONENTS_PATH = "$PATCHES_PATH/components"
     const val FLYOUT_PANEL_PATH = "$PATCHES_PATH/flyoutpanel"
     const val FULLSCREEN_PATH = "$PATCHES_PATH/fullscreen"
@@ -22,6 +23,7 @@ object Constants {
     const val VIDEO_PATH = "$PATCHES_PATH/video"
 
     const val ALTERNATIVE_THUMBNAILS = "$ALTERNATIVE_THUMBNAILS_PATH/AlternativeThumbnailsPatch;"
+    const val BOTTOM_PLAYER = "$BOTTOM_PLAYER_PATH/BottomPlayerPatch;"
     const val FLYOUT_PANEL = "$FLYOUT_PANEL_PATH/FlyoutPanelPatch;"
     const val FULLSCREEN = "$FULLSCREEN_PATH/FullscreenPatch;"
     const val GENERAL = "$GENERAL_PATH/GeneralPatch;"
