@@ -252,7 +252,6 @@ object ShortsComponentPatch : BytecodePatch(
         } ?: throw ShortsShareFingerprint.exception
 
         LithoFilterPatch.addFilter("$COMPONENTS_PATH/ShortsFilter;")
-        LithoFilterPatch.addFilter("$COMPONENTS_PATH/ShortsButtonsFilter;")
 
         /**
          * Add settings
