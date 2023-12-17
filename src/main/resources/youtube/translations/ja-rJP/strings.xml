@@ -9,6 +9,41 @@
     <string name="microg_settings_title">MicroG を開く</string>
     <string name="revanced_ads">広告</string>
     <string name="revanced_alt_thumbnails">代替サムネイル</string>
+    <string name="revanced_alt_thumbnail_about_status_dearrow">"DeArrow サムネイルを表示します。
+DeArrow サムネイルがない場合は、代わりにオリジナルの YouTube サムネイルを表示します。"</string>
+    <string name="revanced_alt_thumbnail_about_status_dearrow_stills">"DeArrow サムネイルを表示します。
+DeArrow サムネイルがない場合は、代わりに動画キャプチャを表示します。"</string>
+    <string name="revanced_alt_thumbnail_about_status_disabled">オリジナルの YouTube サムネイルを表示します。</string>
+    <string name="revanced_alt_thumbnail_about_status_stills">静止画サムネイルを表示します。</string>
+    <string name="revanced_alt_thumbnail_about_title">表示するサムネイル</string>
+    <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow は、YouTube 動画のサムネイルをクラウドソーシングで提供する機能です。DeArrow のサムネイルは、YouTube が提供するサムネイルよりも適切なことが多いです。有効にすると、動画の URL が API サーバーに送信されますが、他のデータは送信されません。
+
+DeArrow の詳細については、ここをタップしてください。"</string>
+    <string name="revanced_alt_thumbnail_dearrow_about_title">DeArrow について</string>
+    <string name="revanced_alt_thumbnail_dearrow_api_url_summary">"DeArrow サムネイルキャッシュのエンドポイントの URL です。自分が何をしているのか理解していない場合は、変更しないでください。"</string>
+    <string name="revanced_alt_thumbnail_dearrow_api_url_title">DeArrow API エンドポイント</string>
+    <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">トーストは表示されません。</string>
+    <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">DeArrow が利用できない場合、トーストが表示されます。</string>
+    <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">API が利用できない場合にトーストを表示</string>
+    <string name="revanced_alt_thumbnail_dearrow_error">DeArrow は一時的に利用できません (ステータスコード: %s)</string>
+    <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow は一時的に利用できません</string>
+    <string name="revanced_alt_thumbnail_dearrow_summary_off">DeArrow を使用していません。</string>
+    <string name="revanced_alt_thumbnail_dearrow_summary_on">DeArrow を使用しています。</string>
+    <string name="revanced_alt_thumbnail_dearrow_title">DeArrow を有効化</string>
+    <string name="revanced_alt_thumbnail_preference_screen_title">代替サムネイル</string>
+    <string name="revanced_alt_thumbnail_stills">静止画サムネイル</string>
+    <string name="revanced_alt_thumbnail_stills_about_summary">静止画サムネイルは、各動画の最初/中間/最後の部分から取得されます。これらの画像は YouTube に直接組み込まれており、外部 API は使用されません。</string>
+    <string name="revanced_alt_thumbnail_stills_about_title">静止画サムネイルについて</string>
+    <string name="revanced_alt_thumbnail_stills_fast_summary_off">高画質の静止画を使用します。</string>
+    <string name="revanced_alt_thumbnail_stills_fast_summary_on">中画質の静止画を使用します。サムネイルの読み込みは速くなりますが、ライブ、未公開または非常に古い動画は、サムネイルが空白になることがあります。</string>
+    <string name="revanced_alt_thumbnail_stills_fast_title">高速な静止画サムネイル</string>
+    <string name="revanced_alt_thumbnail_stills_summary_off">YouTube の静止画を使用しません。</string>
+    <string name="revanced_alt_thumbnail_stills_summary_on">YouTube の静止画を使用します。</string>
+    <string name="revanced_alt_thumbnail_stills_time_entry_1">動画の最初</string>
+    <string name="revanced_alt_thumbnail_stills_time_entry_2">動画の中間</string>
+    <string name="revanced_alt_thumbnail_stills_time_entry_3">動画の最後</string>
+    <string name="revanced_alt_thumbnail_stills_time_title">取得する静止画の位置</string>
+    <string name="revanced_alt_thumbnail_stills_title">静止画サムネイルを有効化</string>
     <string name="revanced_append_time_stamp_information_summary_off">情報は追加表示されません。</string>
     <string name="revanced_append_time_stamp_information_summary_on">タイムスタンプの横に情報が追加表示されます。</string>
     <string name="revanced_append_time_stamp_information_title">タイムスタンプの追加情報</string>
@@ -20,11 +55,22 @@
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">バッテリーセーバーモードでは、アンビエントモードが無効になります。</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">バッテリーセーバーモードでも、アンビエントモードが有効になります。</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">アンビエントモードの制限をバイパス</string>
+    <string name="revanced_change_start_page_entry_default">デフォルト</string>
+    <string name="revanced_change_start_page_entry_explore">探索</string>
+    <string name="revanced_change_start_page_entry_history">履歴</string>
+    <string name="revanced_change_start_page_entry_library">ライブラリ</string>
+    <string name="revanced_change_start_page_entry_liked_videos">高く評価した動画</string>
+    <string name="revanced_change_start_page_entry_search">検索</string>
+    <string name="revanced_change_start_page_entry_shorts">ショート</string>
+    <string name="revanced_change_start_page_entry_subscriptions">登録チャンネル</string>
+    <string name="revanced_change_start_page_entry_trending">トレンド</string>
+    <string name="revanced_change_start_page_title">開始時のページを変更</string>
+    <string name="revanced_change_start_page_warning">無効なページです。デフォルトにリセットします。</string>
     <string name="revanced_channel_bar_title">チャンネルバー</string>
     <string name="revanced_channel_profile_title">チャンネルプロフィール</string>
     <string name="revanced_close_interstitial_ads_summary">"全画面広告を自動的に閉じます。
 
-注: これはテストされていない機能です。"</string>
+注意: この機能はテストされていません。"</string>
     <string name="revanced_close_interstitial_ads_title">全画面広告を閉じる</string>
     <string name="revanced_close_interstitial_ads_toast">全画面広告を閉じています。</string>
     <string name="revanced_comments_title">コメント</string>
@@ -136,6 +182,9 @@
     <string name="revanced_enable_seekbar_tapping_summary_off">シークバーのタップは無効です。</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">シークバーのタップは有効です。</string>
     <string name="revanced_enable_seekbar_tapping_title">シークバーのタップ</string>
+    <string name="revanced_enable_song_search_summary_off">曲の検索は無効です。</string>
+    <string name="revanced_enable_song_search_summary_on">曲の検索は有効です。</string>
+    <string name="revanced_enable_song_search_title">曲の検索を有効化</string>
     <string name="revanced_enable_swipe_auto_brightness_summary_off">スワイプして明るさを 0 にしても、明るさの自動調節は有効になりません。</string>
     <string name="revanced_enable_swipe_auto_brightness_summary_on">スワイプして明るさを 0 にすると、明るさの自動調節が有効になります。</string>
     <string name="revanced_enable_swipe_auto_brightness_title">スワイプして明るさの自動調節を有効化</string>
@@ -313,6 +362,9 @@
     <string name="revanced_hide_collapse_button_summary_off">プレーヤーの最小化ボタンは表示されます。</string>
     <string name="revanced_hide_collapse_button_summary_on">プレーヤーの最小化ボタンは非表示です。</string>
     <string name="revanced_hide_collapse_button_title">最小化ボタンを非表示</string>
+    <string name="revanced_hide_comments_by_members_summary_off">「メンバーからのコメント」バナーは表示されます。</string>
+    <string name="revanced_hide_comments_by_members_summary_on">「メンバーからのコメント」バナーは非表示です。</string>
+    <string name="revanced_hide_comments_by_members_title">メンバーからのコメントバナーを非表示</string>
     <string name="revanced_hide_comments_section_summary_off">コメント欄は表示されます。</string>
     <string name="revanced_hide_comments_section_summary_on">コメント欄を非表示にします。</string>
     <string name="revanced_hide_comments_section_title">コメント欄を非表示</string>
@@ -572,6 +624,9 @@
     <string name="revanced_hide_start_trial_button_summary_off">トライアル開始ボタンは表示されます。</string>
     <string name="revanced_hide_start_trial_button_summary_on">トライアル開始ボタンは非表示です。</string>
     <string name="revanced_hide_start_trial_button_title">トライアル開始ボタンを非表示</string>
+    <string name="revanced_hide_store_tab_summary_off">ストアタブは表示されます。</string>
+    <string name="revanced_hide_store_tab_summary_on">ストアタブは非表示です。</string>
+    <string name="revanced_hide_store_tab_title">ストアタブを非表示</string>
     <string name="revanced_hide_subscriptions_button_summary_off">「登録チャンネル」ボタンは表示されます。</string>
     <string name="revanced_hide_subscriptions_button_summary_on">「登録チャンネル」ボタンは非表示です。</string>
     <string name="revanced_hide_subscriptions_button_title">登録チャンネルボタンを非表示</string>
@@ -680,7 +735,7 @@
     <string name="revanced_ryd_enable_title">Return YouTube Dislike を有効化</string>
     <string name="revanced_ryd_failure_connection_timeout">低評価数は一時的に利用できません。(API タイムアウト)</string>
     <string name="revanced_ryd_failure_connection_status_code" formatted="false">低評価数は一時的に利用できません。(ステータス %d)</string>
-    <string name="revanced_ryd_failure_client_rate_limit_requested">低評価数は利用できません (クライアント API 制限)</string>
+    <string name="revanced_ryd_failure_client_rate_limit_requested">低評価数は利用できません。(クライアント API 制限)</string>
     <string name="revanced_ryd_failure_generic">低評価数は一時的に利用できません。(%s)</string>
     <string name="revanced_ryd_shorts_summary_disclaimer">制限: 特定の状況では低評価が表示されない場合があります。</string>
     <string name="revanced_ryd_shorts_summary_off">ショートの低評価数は表示されません。</string>
@@ -688,7 +743,7 @@
     <string name="revanced_ryd_shorts_title">ショートの低評価数</string>
     <string name="revanced_ryd_toast_on_connection_error_title">API が利用できない場合にトーストを表示</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_off">トーストは表示されません。</string>
-    <string name="revanced_ryd_toast_on_connection_error_summary_on">ReturnYouTubeDislike API が利用できない場合、トーストが表示されます。</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary_on">Return YouTube Dislike が利用できない場合、トーストが表示されます。</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">非表示</string>
     <string name="revanced_sanitize_sharing_links_summary">リンクを共有する際に、URL からトラッキングクエリパラメーターを削除します。</string>
     <string name="revanced_sanitize_sharing_links_title">共有リンクのクリーンアップ</string>
@@ -723,7 +778,6 @@
 "</string>
     <string name="revanced_spoof_app_version_target_entry_17_08_35">17.08.35 - 古い UI レイアウトを復元</string>
     <string name="revanced_spoof_app_version_target_entry_17_41_37">17.41.37 - 古い再生リスト欄を復元</string>
-    <string name="revanced_spoof_app_version_target_entry_18_01_38">"18.01.38 - [メンバーからのコメント] を削除"</string>
     <string name="revanced_spoof_app_version_target_entry_18_05_40">18.05.40 - 古いコメント入力ボックスを復元</string>
     <string name="revanced_spoof_app_version_target_entry_18_17_43">18.17.43 - 古いプレーヤーフライアウトパネルを復元</string>
     <string name="revanced_spoof_app_version_target_entry_18_33_40">18.33.40 - 古いショートのアクションバーを復元</string>
@@ -805,7 +859,7 @@
     <string name="sb_guidelines_popup_open">表示する</string>
     <string name="sb_general">全般設定</string>
     <string name="sb_toast_on_connection_error_title">API が利用できない場合にトーストを表示</string>
-    <string name="sb_toast_on_connection_error_summary_on">SponsorBlock API が利用できない場合に、トーストを表示します。</string>
+    <string name="sb_toast_on_connection_error_summary_on">SponsorBlock が利用できない場合、トーストが表示されます。</string>
     <string name="sb_toast_on_connection_error_summary_off">トーストは表示されません。</string>
     <string name="sb_general_skipcount">スキップ回数のトラッキング</string>
     <string name="sb_general_skipcount_sum_on">SponsorBlock リーダーボードに、どれだけの時間を節約したかを知らせます。セグメントがスキップされるたびに、リーダーボードにメッセージが送信されます。</string>
@@ -878,7 +932,7 @@
     <string name="sb_skip_ignore">無効</string>
     <string name="sb_sponsorblock_connection_failure_generic">SponsorBlock は一時的に利用できません。</string>
     <string name="sb_sponsorblock_connection_failure_status" formatted="false">SponsorBlock は一時的に利用できません。(ステータス %d)</string>
-    <string name="sb_sponsorblock_connection_failure_timeout">SponsorBlock は一時的に利用できません。(API タイムアウト)</string>
+    <string name="sb_sponsorblock_connection_failure_timeout">SponsorBlock は一時的に利用できません (API タイムアウト)</string>
     <string name="sb_submit_failed_invalid" formatted="false">セグメントを送信できません: %s</string>
     <string name="sb_submit_failed_timeout">セグメントを送信できません (API タイムアウト)</string>
     <string name="sb_submit_failed_unknown_error" formatted="false">セグメントを送信できません (ステータス: %d %s)</string>
@@ -926,9 +980,6 @@
     <string name="sb_stats_self_saved" formatted="false">今までに &lt;b&gt;%s&lt;/b&gt; 個のセグメントをスキップしました</string>
     <string name="sb_stats_self_saved_sum" formatted="false">合計 &lt;b&gt;%s&lt;/b&gt; です。</string>
     <string name="sb_stats_self_saved_reset_title">スキップ回数をリセットしますか？</string>
-    <string name="sb_stats_saved_hour_format" formatted="false">%d 時間 %d 分</string>
-    <string name="sb_stats_saved_minute_format" formatted="false">%d 分 %d 秒</string>
-    <string name="sb_stats_saved_second_format" formatted="false">%d 秒</string>
     <string name="sb_color_dot_label">色:</string>
     <string name="sb_color_changed">色を変更しました</string>
     <string name="sb_color_reset">色をリセットしました</string>

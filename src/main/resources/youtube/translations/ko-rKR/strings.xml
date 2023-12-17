@@ -27,9 +27,9 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">API를 사용할 수 없을 때 팝업 메시지 표시하기</string>
     <string name="revanced_alt_thumbnail_dearrow_error">DeArrow를 일시적으로 사용할 수 없습니다. (상태 코드: %s)</string>
     <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow를 일시적으로 사용할 수 없습니다.</string>
-    <string name="revanced_alt_thumbnail_dearrow_summary_off">DeArrow를 비활성화합니다.</string>
-    <string name="revanced_alt_thumbnail_dearrow_summary_on">DeArrow를 활성화합니다.</string>
-    <string name="revanced_alt_thumbnail_dearrow_title">DeArrow 활성화하기</string>
+    <string name="revanced_alt_thumbnail_dearrow_summary_off">DeArrow 썸네일을 표시하지 않습니다.</string>
+    <string name="revanced_alt_thumbnail_dearrow_summary_on">DeArrow 썸네일을 표시합니다.</string>
+    <string name="revanced_alt_thumbnail_dearrow_title">DeArrow 썸네일 표시하기</string>
     <string name="revanced_alt_thumbnail_preference_screen_summary">동영상 썸네일을 설정할 수 있습니다.</string>
     <string name="revanced_alt_thumbnail_preference_screen_title">대체 썸네일</string>
     <string name="revanced_alt_thumbnail_stills">동영상 스크린샷 썸네일</string>
@@ -44,7 +44,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_2">동영상의 중간 부분 이미지</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_3">동영상의 마지막 부분 이미지</string>
     <string name="revanced_alt_thumbnail_stills_time_title">동영상 스크린샷 썸네일에 표시되는 이미지</string>
-    <string name="revanced_alt_thumbnail_stills_title">동영상 스크린샷 썸네일 활성화하기</string>
+    <string name="revanced_alt_thumbnail_stills_title">동영상 스크린샷 썸네일 표시하기</string>
     <string name="revanced_append_time_stamp_information_summary_off">타임스탬프에서 정보를 표시하지 않습니다.</string>
     <string name="revanced_append_time_stamp_information_summary_on">타임스탬프에서 정보를 표시합니다.</string>
     <string name="revanced_append_time_stamp_information_title">타임스탬프에서 정보 표시하기</string>
@@ -56,12 +56,11 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">배터리 절전 모드에서 영화 조명 모드를 비활성화합니다.</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">배터리 절전 모드에서 영화 조명 모드를 활성화합니다.</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">영화 조명 모드 제한 비활성화하기</string>
-    <string name="revanced_change_start_page_entry_default">기본값</string>
+    <string name="revanced_change_start_page_entry_default">기본</string>
     <string name="revanced_change_start_page_entry_explore">탐색</string>
     <string name="revanced_change_start_page_entry_history">기록</string>
-    <string name="revanced_change_start_page_entry_library">보관함</string>
+    <string name="revanced_change_start_page_entry_library">나 (보관함)</string>
     <string name="revanced_change_start_page_entry_liked_videos">좋아요 표시한 동영상</string>
-    <string name="revanced_change_start_page_entry_podcasts">팟캐스트</string>
     <string name="revanced_change_start_page_entry_search">검색</string>
     <string name="revanced_change_start_page_entry_shorts">Shorts</string>
     <string name="revanced_change_start_page_entry_subscriptions">구독</string>
@@ -137,6 +136,9 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_disable_startup_shorts_player_title">앱 시작할 때 Shorts 플레이어 비활성화하기</string>
     <string name="revanced_double_back_timeout_summary">앱을 종료하기 위해 내비게이션 바의 뒤로 가기 버튼을 한 번 누르고 한 번 더 다시 누를 때까지의 제한 시간을 설정합니다. 0초로 설정 시 뒤로가기 버튼을 한 번만 누르면 즉시 종료할 수 있습니다.</string>
     <string name="revanced_double_back_timeout_title">뒤로 가기 두 번 누르기 제한 시간</string>
+    <string name="revanced_enable_bottom_player_gestures_summary_off">플레이어 하단 영역을 스와이프하여 전체 화면으로 전환하는 기능을 비활성화합니다.</string>
+    <string name="revanced_enable_bottom_player_gestures_summary_on">플레이어 하단 영역을 스와이프하여 전체 화면으로 전환하는 기능을 활성화합니다.</string>
+    <string name="revanced_enable_bottom_player_gestures_title">플레이어 하단 제스처 활성화하기</string>
     <string name="revanced_enable_compact_controls_overlay_summary_off">전체 화면에서 재생바 및 일부 버튼들을 더 작게 표시하지 않습니다.</string>
     <string name="revanced_enable_compact_controls_overlay_summary_on">전체 화면에서 재생바 및 일부 버튼들을 더 작게 표시합니다.</string>
     <string name="revanced_enable_compact_controls_overlay_title">컴팩트 컨트롤 오버레이 활성화하기</string>
@@ -226,7 +228,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
 나 탭 &gt; 채널 보기 &gt; 메뉴 더보기 (툴바) &gt; 설정"</string>
     <string name="revanced_enable_wide_search_bar_in_you_tab_title">나 탭에서 넓은 검색 바 활성화하기</string>
     <string name="revanced_experimental_flag">실험적인 기능</string>
-    <string name="revanced_extended_settings_export_failed">설정을 내보내는 데 실패했습니다.</string>
+    <string name="revanced_extended_settings_export_failed">설정을 내보내는 데 실패하였습니다.</string>
     <string name="revanced_extended_settings_export_success">설정을 성공적으로 내보냈습니다.</string>
     <string name="revanced_extended_settings_export_summary">설정을 파일로 내보낼 수 있습니다.</string>
     <string name="revanced_extended_settings_export_title">설정 내보내기</string>
@@ -237,7 +239,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_extended_settings_import_export_as_text_title">텍스트로 가져오기 / 내보내기</string>
     <string name="revanced_extended_settings_import_export_summary">설정을 가져오거나 내보낼 수 있습니다.</string>
     <string name="revanced_extended_settings_import_export_title">설정 가져오기 / 내보내기</string>
-    <string name="revanced_extended_settings_import_failed">설정을 가져오는 데 실패했습니다.</string>
+    <string name="revanced_extended_settings_import_failed">설정을 가져오는 데 실패하였습니다.</string>
     <string name="revanced_extended_settings_import_reset">초기화</string>
     <string name="revanced_extended_settings_import_success">설정을 성공적으로 가져왔습니다.</string>
     <string name="revanced_extended_settings_import_summary">설정을 저장된 파일에서 가져올 수 있습니다.</string>
@@ -368,6 +370,9 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_hide_collapse_button_summary_off">플레이어 접기 버튼이 노출됩니다.</string>
     <string name="revanced_hide_collapse_button_summary_on">플레이어 접기 버튼이 숨겨집니다.</string>
     <string name="revanced_hide_collapse_button_title">플레이어 접기 버튼 숨기기</string>
+    <string name="revanced_hide_comments_by_members_summary_off">회원별 댓글 배너가 노출됩니다.</string>
+    <string name="revanced_hide_comments_by_members_summary_on">회원별 댓글 배너가 숨겨집니다.</string>
+    <string name="revanced_hide_comments_by_members_title">회원별 댓글 배너 숨기기</string>
     <string name="revanced_hide_comments_section_summary_off">댓글 영역이 노출됩니다.</string>
     <string name="revanced_hide_comments_section_summary_on">댓글 영역이 숨겨집니다.</string>
     <string name="revanced_hide_comments_section_title">댓글 영역 숨기기</string>
@@ -784,7 +789,6 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
 • 나중에 이 설정을 비활성화하면 앱 데이터를 지우기 전까지 이전 레이아웃이 유지될 수 있습니다."</string>
     <string name="revanced_spoof_app_version_target_entry_17_08_35">17.08.35 - 이전 레이아웃으로 복원합니다.</string>
     <string name="revanced_spoof_app_version_target_entry_17_41_37">17.41.37 - 이전 재생목록 선반으로 복원합니다.</string>
-    <string name="revanced_spoof_app_version_target_entry_18_01_38">"18.01.38 - '회원별 댓글' 배너를 제거합니다."</string>
     <string name="revanced_spoof_app_version_target_entry_18_05_40">18.05.40 - 이전 댓글 입력 상자로 복원합니다.</string>
     <string name="revanced_spoof_app_version_target_entry_18_17_43">18.17.43 - 이전 플레이어 구성요소 패널으로 복원합니다.</string>
     <string name="revanced_spoof_app_version_target_entry_18_33_40">18.33.40 - 이전 Shorts 액션바로 복원합니다.</string>
@@ -886,8 +890,8 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="sb_settings_ie_sum_warning">여기에는 비공개 사용자 아이디가 포함됩니다. 이 정보를 현명하게 공유하세요.</string>
     <string name="sb_settings_ie">설정 가져오기 / 내보내기</string>
     <string name="sb_settings_import_successful">설정을 성공적으로 가져왔습니다.</string>
-    <string name="sb_settings_import_failed">가져오기에 실패했습니다: %s</string>
-    <string name="sb_settings_export_failed">내보내기에 실패했습니다: %s</string>
+    <string name="sb_settings_import_failed">가져오기에 실패하였습니다: %s</string>
+    <string name="sb_settings_export_failed">내보내기에 실패하였습니다: %s</string>
     <string name="sb_settings_revanced_export_user_id_warning">설정에는 비공개 SponsorBlock 사용자 아이디가 포함되어 있습니다.\n\n절대 다른 이에게 공개하지 마세요.\n</string>
     <string name="sb_settings_revanced_export_user_id_warning_dismiss">다시 보지 않기</string>
     <string name="sb_diff_segments">각 구간에 설정할 동작</string>
@@ -935,13 +939,13 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="sb_skip_automatically">자동으로 건너뛰기</string>
     <string name="sb_skip_automatically_once">한 번만 자동으로 건너뛰기</string>
     <string name="sb_skip_showbutton">건너뛰기 버튼 표시하기</string>
-    <string name="sb_skip_seekbaronly">재생바에만 표시</string>
+    <string name="sb_skip_seekbaronly">재생바에만 표시하기</string>
     <string name="sb_skip_ignore">아무것도 하지 않기</string>
     <string name="sb_sponsorblock_connection_failure_generic">SponsorBlock을 일시적으로 사용할 수 없습니다.</string>
     <string name="sb_sponsorblock_connection_failure_status" formatted="false">SponsorBlock을 일시적으로 사용할 수 없습니다 (상태 %d).</string>
     <string name="sb_sponsorblock_connection_failure_timeout">SponsorBlock을 일시적으로 사용할 수 없습니다 (응답 시간 초과).</string>
     <string name="sb_submit_failed_invalid" formatted="false">구간을 제출할 수 없습니다: %s</string>
-    <string name="sb_submit_failed_timeout">구간을 제출할수 없습니다. (응답 시간 초과)</string>
+    <string name="sb_submit_failed_timeout">구간을 제출할 수 없습니다. (응답 시간 초과)</string>
     <string name="sb_submit_failed_unknown_error" formatted="false">구간 제출에 실패하였습니다: 오류 내용: %d %s</string>
     <string name="sb_submit_failed_rate_limit">구간을 제출할 수 없습니다.\n동일 사용자 또는 동일 IP로 부터 제출된 요청이 너무 많습니다.</string>
     <string name="sb_submit_failed_forbidden" formatted="false">구간을 제출할 수 없습니다: %s</string>
@@ -987,9 +991,9 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="sb_stats_self_saved" formatted="false">구간 &lt;b&gt;%s&lt;/b&gt;개를 건너뛰었습니다.</string>
     <string name="sb_stats_self_saved_sum" formatted="false">이는 &lt;b&gt;%s&lt;/b&gt;에 해당합니다.</string>
     <string name="sb_stats_self_saved_reset_title">건너뛴 횟수 기록을 초기화하겠습니까?</string>
-    <string name="sb_stats_saved_hour_format" formatted="false">%d 시간 %d 분</string>
-    <string name="sb_stats_saved_minute_format" formatted="false">%d 분 %d 초</string>
-    <string name="sb_stats_saved_second_format" formatted="false">%d 초</string>
+    <string name="sb_stats_saved_hour_format" formatted="false">%s 시간 %s 분</string>
+    <string name="sb_stats_saved_minute_format" formatted="false">%s 분 %s 초</string>
+    <string name="sb_stats_saved_second_format" formatted="false">%s 초</string>
     <string name="sb_color_dot_label">색상:</string>
     <string name="sb_color_changed">설정한 색상이 적용되었습니다.</string>
     <string name="sb_color_reset">색상이 초기화되었습니다.</string>

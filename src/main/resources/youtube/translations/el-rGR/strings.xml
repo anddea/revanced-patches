@@ -61,7 +61,6 @@
     <string name="revanced_change_start_page_entry_history">Ιστορικό</string>
     <string name="revanced_change_start_page_entry_library">Βιβλιοθήκη</string>
     <string name="revanced_change_start_page_entry_liked_videos">Βίντεο που σας αρέσουν</string>
-    <string name="revanced_change_start_page_entry_podcasts">Podcasts</string>
     <string name="revanced_change_start_page_entry_search">Αναζήτηση</string>
     <string name="revanced_change_start_page_entry_shorts">Shorts</string>
     <string name="revanced_change_start_page_entry_subscriptions">Εγγραφές</string>
@@ -138,6 +137,9 @@
     <string name="revanced_disable_startup_shorts_player_title">Απενεργοποίηση συνέχισης Shorts κατά την εκκίνηση της εφαρμογής</string>
     <string name="revanced_double_back_timeout_summary">Ο αριθμός των δευτερολέπτων που απαιτούνται για διπλό πάτημα του κουμπιού επιστροφής ώστε να γίνει έξοδος απ\' την εφαρμογή</string>
     <string name="revanced_double_back_timeout_title">Χρονικό όριο διπλού πατήματος εξόδου</string>
+    <string name="revanced_enable_bottom_player_gestures_summary_off">Η εναλλαγή σε λειτουργία πλήρους οθόνης σύροντας την κάτω περιοχή του αναπαραγωγέα είναι απενεργοποιημένη.</string>
+    <string name="revanced_enable_bottom_player_gestures_summary_on">Η εναλλαγή σε λειτουργία πλήρους οθόνης σύροντας την κάτω περιοχή του αναπαραγωγέα είναι ενεργοποιημένη.</string>
+    <string name="revanced_enable_bottom_player_gestures_title">Χειρονομία εναλλαγής σε πλήρη οθόνη</string>
     <string name="revanced_enable_compact_controls_overlay_summary_off">Τα στοιχεία ελέγχου μικρότερου στυλ είναι απενεργοποιημένα</string>
     <string name="revanced_enable_compact_controls_overlay_summary_on">Τα στοιχεία ελέγχου μικρότερου στυλ είναι ενεργοποιημένα</string>
     <string name="revanced_enable_compact_controls_overlay_title">Μικρότερα στοιχεία ελέγχου</string>
@@ -367,6 +369,9 @@
     <string name="revanced_hide_collapse_button_summary_off">Το κουμπί ελαχιστοποίησης εμφανίζεται</string>
     <string name="revanced_hide_collapse_button_summary_on">Το κουμπί ελαχιστοποίησης είναι κρυμμένο</string>
     <string name="revanced_hide_collapse_button_title">Απόκρυψη κουμπιού ελαχιστοποίησης</string>
+    <string name="revanced_hide_comments_by_members_summary_off">Η ετικέτα «Σχόλια από μέλη» εμφανίζεται.</string>
+    <string name="revanced_hide_comments_by_members_summary_on">Η ετικέτα «Σχόλια από μέλη» είναι κρυμμένη.</string>
+    <string name="revanced_hide_comments_by_members_title">Απόκρυψη ετικέτας «Σχόλια από μέλη»</string>
     <string name="revanced_hide_comments_section_summary_off">Η περιοχή σχολίων εμφανίζεται</string>
     <string name="revanced_hide_comments_section_summary_on">Η περιοχή σχολίων είναι κρυμμένη</string>
     <string name="revanced_hide_comments_section_title">Απόκρυψη σχολίων</string>
@@ -780,7 +785,6 @@
 Εάν αργότερα απενεργοποιηθεί, η παλιά εμφάνιση μπορεί να παραμείνει μέχρι να διαγραφούν τα δεδομένα της εφαρμογής."</string>
     <string name="revanced_spoof_app_version_target_entry_17_08_35">17.08.35 - Επαναφορά της παλιάς εμφάνισης</string>
     <string name="revanced_spoof_app_version_target_entry_17_41_37">17.41.37 - Επαναφορά παλιού ραφιού λίστας αναπαραγωγής</string>
-    <string name="revanced_spoof_app_version_target_entry_18_01_38">"18.01.38 - Αφαίρεση της ενότητας «Μέλη» από τα σχόλια"</string>
     <string name="revanced_spoof_app_version_target_entry_18_05_40">18.05.40 - Επαναφορά παλιού κουτιού εισαγωγής σχολίων</string>
     <string name="revanced_spoof_app_version_target_entry_18_17_43">18.17.43 - Επαναφορά παλιού στυλ αναδυόμενου πίνακα του αναπαραγωγέα</string>
     <string name="revanced_spoof_app_version_target_entry_18_33_40">18.33.40 - Επαναφορά παλιάς μπάρας δράσεων Shorts</string>
@@ -984,9 +988,9 @@
     <string name="sb_stats_self_saved" formatted="false">Έχετε παραλείψει &lt;b&gt;%s&lt;/b&gt; τμήματα</string>
     <string name="sb_stats_self_saved_sum" formatted="false">Αυτό είναι &lt;b&gt;%s&lt;/b&gt;</string>
     <string name="sb_stats_self_saved_reset_title">Επαναφορά μετρητή τμημάτων που παραλείφθηκαν;</string>
-    <string name="sb_stats_saved_hour_format" formatted="false">%d ώρες %d λεπτά</string>
-    <string name="sb_stats_saved_minute_format" formatted="false">%d λεπτά %d δευτερόλεπτα</string>
-    <string name="sb_stats_saved_second_format" formatted="false">%d δευτερόλεπτα</string>
+    <string name="sb_stats_saved_hour_format" formatted="false">%s ώρες %s λεπτά</string>
+    <string name="sb_stats_saved_minute_format" formatted="false">%s λεπτά %s δευτερόλεπτα</string>
+    <string name="sb_stats_saved_second_format" formatted="false">%s δευτερόλεπτα</string>
     <string name="sb_color_dot_label">Χρώμα:</string>
     <string name="sb_color_changed">Το χρώμα άλλαξε</string>
     <string name="sb_color_reset">Έγινε επαναφορά χρώματος</string>

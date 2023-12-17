@@ -15,14 +15,14 @@ Hiển thị hình thu nhỏ mặc định nếu video không có hình thu nh�
 Hiển thị hình thu nhỏ tự động nếu video không có hình thu nhỏ được thay thế bởi DeArrow."</string>
     <string name="revanced_alt_thumbnail_about_status_disabled">Hình thu nhỏ mặc định.</string>
     <string name="revanced_alt_thumbnail_about_status_stills">Hình thu nhỏ tự động.</string>
-    <string name="revanced_alt_thumbnail_about_title">Loại hình thủ nhỏ đang sử dụng</string>
-    <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow là một tiện ích được đóng góp bởi cồng đồng nhằm cung cấp hình thu nhỏ tốt hơn cho video YouTube. Những hình thu nhỏ này thường phù hợp hơn những hình thu nhỏ do YouTube cung cấp. Nếu được bật, URL video sẽ được gửi đến máy chủ API và không có dữ liệu nào khác được gửi đi.
+    <string name="revanced_alt_thumbnail_about_title">Hình thủ nhỏ đang sử dụng</string>
+    <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow là một tiện ích được đóng góp bởi cồng đồng nhằm thay thế hình thu nhỏ mặc định của video YouTube, mang đến cho người dùng những hình thu nhỏ phù hợp hơn và hạn chế clickbait. Nếu được bật, chỉ có URL video được gửi đến máy chủ API, ngoài ra không có bất kì dữ liệu nào khác được gửi đi.
 
 Nhấn vào đây để tìm hiểu thêm về DeArrow."</string>
     <string name="revanced_alt_thumbnail_dearrow_about_title">Giới thiệu về DeArrow</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_summary">"URL endpoint của bộ nhớ đệm hình thu nhỏ DeArrow. Không thay đổi URL này trừ khi bạn biết mình đang làm gì."</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_title">Endpoint API DeArrow</string>
-    <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Thông báo ngắn nếu API không khả dụng đã tắt.</string>
+    <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Thông báo ngắn nếu API DeArrow không khả dụng đã tắt.</string>
     <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">Hiển thị thông báo ngắn nếu API DeArrow không khả dụng.</string>
     <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">Thông báo ngắn nếu API không khả dụng</string>
     <string name="revanced_alt_thumbnail_dearrow_error">DeArrow tạm thời không khả dụng (Mã trạng thái: %s).</string>
@@ -61,7 +61,6 @@ Nhấn vào đây để tìm hiểu thêm về DeArrow."</string>
     <string name="revanced_change_start_page_entry_history">Video đã xem</string>
     <string name="revanced_change_start_page_entry_library">Bạn</string>
     <string name="revanced_change_start_page_entry_liked_videos">Video đã thích</string>
-    <string name="revanced_change_start_page_entry_podcasts">Podcast</string>
     <string name="revanced_change_start_page_entry_search">Tìm kiếm</string>
     <string name="revanced_change_start_page_entry_shorts">Shorts</string>
     <string name="revanced_change_start_page_entry_subscriptions">Kênh đăng ký</string>
@@ -137,6 +136,9 @@ Lưu ý: Bật tuỳ chọn này sẽ khôi phục tính năng Trượt để tu
     <string name="revanced_disable_startup_shorts_player_title">Không mở thẻ Shorts khi khởi động</string>
     <string name="revanced_double_back_timeout_summary">Số giây để thực hiện thao tác nhấn Quay lại 2 lần để thoát.</string>
     <string name="revanced_double_back_timeout_title">Thời gian chờ nhấn Quay lại 2 lần để thoát (giây)</string>
+    <string name="revanced_enable_bottom_player_gestures_summary_off">Cử chỉ vuốt xuống từ khu vực bên dưới trình phát để xem ở chế độ toàn màn hình dọc đã tắt.</string>
+    <string name="revanced_enable_bottom_player_gestures_summary_on">Cử chỉ vuốt xuống từ khu vực bên dưới trình phát để xem ở chế độ toàn màn hình dọc đã bật.</string>
+    <string name="revanced_enable_bottom_player_gestures_title">Vuốt xuống để xem ở chế độ toàn màn hình dọc</string>
     <string name="revanced_enable_compact_controls_overlay_summary_off">Lớp phủ điều khiển trình phát thu gọn đã tắt.</string>
     <string name="revanced_enable_compact_controls_overlay_summary_on">Lớp phủ điều khiển trình phát thu gọn đã bật.</string>
     <string name="revanced_enable_compact_controls_overlay_title">Lớp phủ điều khiển trình phát thu gọn</string>
@@ -256,7 +258,7 @@ Thẻ Bạn &gt; Xem kênh &gt; Trình đơn &gt; Cài đặt."</string>
     <string name="revanced_force_fullscreen_summary">"Bắt buộc video chuyển sang chế độ toàn màn hình trong các trường hợp sau:
 
 - Nhấn vào dấu thời gian trong phần Bình luận.
-- Video bắt đầu phát."</string>
+- Khi video bắt đầu phát."</string>
     <string name="revanced_force_fullscreen_title">Buộc áp dụng chế độ toàn màn hình</string>
     <string name="revanced_fullscreen">Chế độ toàn màn hình</string>
     <string name="revanced_general">Chung</string>
@@ -366,6 +368,9 @@ Thẻ Bạn &gt; Xem kênh &gt; Trình đơn &gt; Cài đặt."</string>
     <string name="revanced_hide_collapse_button_summary_off">Nút thu nhỏ trình phát được hiển thị.</string>
     <string name="revanced_hide_collapse_button_summary_on">Nút thu nhỏ trình phát đã ẩn.</string>
     <string name="revanced_hide_collapse_button_title">Ẩn nút thu nhỏ trình phát</string>
+    <string name="revanced_hide_comments_by_members_summary_off">Biểu ngữ Bình luận của hội viên được hiển thị.</string>
+    <string name="revanced_hide_comments_by_members_summary_on">Biểu ngữ Bình luận của hội viên đã ẩn.</string>
+    <string name="revanced_hide_comments_by_members_title">Ẩn biểu ngữ Bình luận của hội viên</string>
     <string name="revanced_hide_comments_section_summary_off">Phần Bình luận được hiển thị.</string>
     <string name="revanced_hide_comments_section_summary_on">Phần Bình luận đã ẩn.</string>
     <string name="revanced_hide_comments_section_title">Ẩn phần Bình luận</string>
@@ -744,8 +749,8 @@ Sự cố đã biết:
     <string name="revanced_ryd_shorts_summary_on">Số lượt không thích được hiển thị trong trình phát Shorts. %s</string>
     <string name="revanced_ryd_shorts_title">Hiện số lượt không thích trong Shorts</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Thông báo ngắn nếu API không khả dụng</string>
-    <string name="revanced_ryd_toast_on_connection_error_summary_off">Thông báo ngắn nếu API không khả dụng đã tắt.</string>
-    <string name="revanced_ryd_toast_on_connection_error_summary_on">Hiển thị thông báo ngắn nếu API ReturnYouTubeDislike không khả dụng.</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary_off">Thông báo ngắn nếu API Return YouTube Dislike không khả dụng đã tắt.</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary_on">Hiển thị thông báo ngắn nếu API Return YouTube Dislike không khả dụng.</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Ẩn</string>
     <string name="revanced_sanitize_sharing_links_summary">Loại bỏ các tham số truy vấn theo dõi khỏi URL khi chia sẻ liên kết.</string>
     <string name="revanced_sanitize_sharing_links_title">Liên kết sạch khi chia sẻ</string>
@@ -779,7 +784,6 @@ Lưu ý:\n- Tuỳ chọn này sẽ thay đổi giao diện ứng dụng, tuy nhi
 - Nếu tắt tuỳ chọn này sau đó, giao diện cũ có thể vẫn tồn tại cho đến khi bạn xoá dữ liệu ứng dụng."</string>
     <string name="revanced_spoof_app_version_target_entry_17_08_35">17.08.35 - Khôi phục giao diện YouTube kiểu cũ</string>
     <string name="revanced_spoof_app_version_target_entry_17_41_37">17.41.37 - Khôi phục kệ Danh sách phát kiểu cũ</string>
-    <string name="revanced_spoof_app_version_target_entry_18_01_38">"18.01.38 - Loại bỏ phần Bình luận của hội viên"</string>
     <string name="revanced_spoof_app_version_target_entry_18_05_40">18.05.40 - Khôi phục hộp Viết bình luận kiểu cũ</string>
     <string name="revanced_spoof_app_version_target_entry_18_17_43">18.17.43 - Khôi phục trình đơn Cài đặt trình phát kiểu cũ</string>
     <string name="revanced_spoof_app_version_target_entry_18_33_40">18.33.40 - Khôi phục bảng nút thao tác Shorts kiểu cũ</string>
@@ -827,7 +831,7 @@ Lưu ý:
     <string name="pref_app_language_dialog_message">&lt;b&gt;%1$s&lt;/b&gt;&lt;br&gt;&lt;br&gt;Thao tác này sẽ thay đổi ngôn ngữ hiển thị trong ứng dụng, kể cả các nút, văn bản và hộp thoại, nhưng sẽ không thay đổi ngôn ngữ trong phần Cài đặt ReVanced Extended.</string>
     <string name="pref_app_language_dialog_message_no_lang_name">Thao tác này sẽ thay đổi ngôn ngữ hiển thị trong ứng dụng, kể cả các nút, văn bản và hộp thoại, nhưng sẽ không thay đổi ngôn ngữ trong phần Cài đặt ReVanced Extended.</string>
     <string name="sb_enable_sb">SponsorBlock</string>
-    <string name="sb_enable_sb_sum">SponsorBlock là một tiện tích được đóng góp bởi cộng đồng nhằm bỏ qua các phân đoạn gây khó chịu trong video trên YouTube.</string>
+    <string name="sb_enable_sb_sum">SponsorBlock là một tiện tích được đóng góp bởi cộng đồng nhằm bỏ qua các phân đoạn gây khó chịu trong video YouTube.</string>
     <string name="sb_appearance_category">Giao diện</string>
     <string name="sb_enable_voting">Nút Bình chọn phân đoạn</string>
     <string name="sb_enable_voting_sum_on">Nút Bình chọn phân đoạn được hiển thị.</string>
@@ -860,7 +864,7 @@ Lưu ý:
     <string name="sb_general">Chung</string>
     <string name="sb_toast_on_connection_error_title">Thông báo ngắn nếu API không khả dụng</string>
     <string name="sb_toast_on_connection_error_summary_on">Hiển thị thông báo ngắn nếu API SponsorBlock không khả dụng.</string>
-    <string name="sb_toast_on_connection_error_summary_off">Thông báo ngắn nếu API không khả dụng đã tắt.</string>
+    <string name="sb_toast_on_connection_error_summary_off">Thông báo ngắn nếu API SponsorBlock không khả dụng đã tắt.</string>
     <string name="sb_general_skipcount">Theo dõi số lượng phân đoạn đã bỏ qua</string>
     <string name="sb_general_skipcount_sum_on">Tuỳ chọn này cho phép hệ thống xếp hạng của SponsorBlock biết mọi người đã tiết kiệm được bao nhiêu thời gian. Tiện ích sẽ gửi thông tin đến máy chủ mỗi khi bạn bỏ qua một phân đoạn.</string>
     <string name="sb_general_skipcount_sum_off">Theo dõi số lượng phân đoạn đã bỏ qua đã tắt.</string>
@@ -869,7 +873,7 @@ Lưu ý:
     <string name="sb_general_uuid">ID người dùng riêng tư của bạn</string>
     <string name="sb_general_uuid_sum">Mã ID này cũng giống như mật khẩu của bạn, nên được giữ riêng tư và không bao giờ chia sẻ với bất kỳ ai. Nếu ai đó có được nó, họ có thể mạo danh bạn.</string>
     <string name="sb_general_uuid_invalid">ID người dùng riêng tư không được để trống.</string>
-    <string name="sb_general_api_url">Thay đổi URL API SponsorBlock</string>
+    <string name="sb_general_api_url">Thay đổi URL API</string>
     <string name="sb_general_api_url_sum">URL API SponsorBlock được dùng để thực hiện các kết nối đến máy chủ. Không thay đổi địa chỉ này trừ khi bạn biết mình đang làm gì.</string>
     <string name="sb_api_url_reset">Đã đặt lại URL API SponsorBlock.</string>
     <string name="sb_api_url_invalid">URL API SponsorBlock không hợp lệ.</string>
@@ -980,9 +984,9 @@ Lưu ý:
     <string name="sb_stats_self_saved" formatted="false">Bạn đã bỏ qua &lt;b&gt;%s&lt;/b&gt; phân đoạn</string>
     <string name="sb_stats_self_saved_sum" formatted="false">Tổng thời gian là &lt;b&gt;%s&lt;/b&gt;.</string>
     <string name="sb_stats_self_saved_reset_title">Bạn có chắc chắn muốn đặt lại bộ đếm phân đoạn đã bỏ qua không?</string>
-    <string name="sb_stats_saved_hour_format" formatted="false">%d giờ %d phút</string>
-    <string name="sb_stats_saved_minute_format" formatted="false">%d phút %d giây</string>
-    <string name="sb_stats_saved_second_format" formatted="false">%d giây</string>
+    <string name="sb_stats_saved_hour_format" formatted="false">%s giờ %s phút</string>
+    <string name="sb_stats_saved_minute_format" formatted="false">%s phút %s giây</string>
+    <string name="sb_stats_saved_second_format" formatted="false">%s giây</string>
     <string name="sb_color_dot_label">Màu:</string>
     <string name="sb_color_changed">Đã thay đổi màu phân đoạn.</string>
     <string name="sb_color_reset">Đã đặt lại màu phân đoạn mặc định.</string>
