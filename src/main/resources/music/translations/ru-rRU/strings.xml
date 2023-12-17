@@ -2,7 +2,7 @@
 <resources>
     <string name="microg_not_installed_notice">Пожалуйста, установите MicroG.</string>
     <string name="microg_not_installed_warning">MicroG не установлен.</string>
-    <string name="microg_not_running_warning">MicroG не работает в фоновом режиме.</string>
+    <string name="microg_not_running_warning">MicroG не запущен в фоновом режиме.</string>
     <string name="microg_settings_summary">Включение настройки облачных сообщений для получения уведомлений.</string>
     <string name="microg_settings_title">MicroG</string>
     <string name="revanced_category_account">Аккаунт</string>
@@ -29,10 +29,10 @@
     <string name="revanced_custom_filter_strings_warning">Недопустимый пользовательский фильтр, сброс к данным по умолчанию.</string>
     <string name="revanced_custom_filter_summary">Включает пользовательский фильтр для скрытия компонентов интерфейса.</string>
     <string name="revanced_custom_filter_title">Пользовательский фильтр</string>
-    <string name="revanced_custom_playback_speeds_invalid">Недопустимые значения скоростей. Сброс к значениям по умолчанию.</string>
+    <string name="revanced_custom_playback_speeds_invalid">Недопустимые скорости воспроизведения. Сброс к значениям по умолчанию.</string>
     <string name="revanced_custom_playback_speeds_summary">Добавить или изменить доступные скорости воспроизведения.</string>
-    <string name="revanced_custom_playback_speeds_title">Изменить значения скорости</string>
-    <string name="revanced_custom_playback_speeds_warning" formatted="false">Значения скоростей не могут быть больше, чем %sx.</string>
+    <string name="revanced_custom_playback_speeds_title">Изменить скорости воспроизведения</string>
+    <string name="revanced_custom_playback_speeds_warning" formatted="false">Скорости воспроизведения не могут быть больше, чем %sx.</string>
     <string name="revanced_disable_auto_captions_summary">Отключает автоматическое включение субтитров в видеоплеере.</string>
     <string name="revanced_disable_auto_captions_title">Отключить автоматические субтитры</string>
     <string name="revanced_downloader_not_installed" formatted="false">%s не установлен. Пожалуйста, установите его.</string>
@@ -67,9 +67,9 @@
     <string name="revanced_enable_old_style_mini_player_title">Старый стиль миниплеера</string>
     <string name="revanced_enable_opus_codec_summary">Использовать кодек аудио Opus вместо кодека аудио mp4a.</string>
     <string name="revanced_enable_opus_codec_title">Кодек Opus</string>
-    <string name="revanced_enable_save_playback_speed_summary">Скорость воспроизведения сохраняется при её изменении.</string>
+    <string name="revanced_enable_save_playback_speed_summary">Сохраняет скорость воспроизведения при её изменении.</string>
     <string name="revanced_enable_save_playback_speed_title">Сохранение скорости воспроизведения</string>
-    <string name="revanced_enable_save_video_quality_summary">Качество воспроизведения видео сохраняется при его изменении.</string>
+    <string name="revanced_enable_save_video_quality_summary">Сохраняет качество видео при его изменении.</string>
     <string name="revanced_enable_save_video_quality_title">Сохранение качества видео</string>
     <string name="revanced_enable_sleep_timer_summary">Добавляет пункт \"Автовыключение\" в выдвижное меню.</string>
     <string name="revanced_enable_sleep_timer_title">Пункт \"Автовыключение\"</string>
@@ -188,18 +188,18 @@
     <string name="revanced_ryd_dislike_percentage_title">Кол-во отметок \"Не нравится\" в процентах</string>
     <string name="revanced_ryd_enabled_summary">Отображает количество отметок \"Не нравится\" в видео.</string>
     <string name="revanced_ryd_failure_connection_timeout">Отметки \"Не нравится\" временно недоступны (время API истекло).</string>
-    <string name="revanced_ryd_failure_connection_status_code" formatted="false">Отметки \"Не нравится\" недоступны (статус %d).</string>
+    <string name="revanced_ryd_failure_connection_status_code" formatted="false">Отметки \"Не нравится\" недоступны (состояние %d).</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Отметки \"Не нравится\" недоступны (достигнут лимит клиентов сервера API).</string>
     <string name="revanced_ryd_failure_generic">Отметки \"Не нравится\" недоступны (%s).</string>
     <string name="revanced_ryd_toast_on_connection_error_summary">Отображает всплывающее уведомление, когда Return YouTube Dislike недоступен.</string>
-    <string name="revanced_ryd_toast_on_connection_error_title">Уведомление, когда API недоступен</string>
+    <string name="revanced_ryd_toast_on_connection_error_title">Уведомлять, когда API недоступен</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Скрыты</string>
     <string name="revanced_sanitize_sharing_links_summary">Убирает параметры отслеживания запросов из адреса при отправке ссылки.</string>
     <string name="revanced_sanitize_sharing_links_title">Очищать ссылки от мусора</string>
-    <string name="revanced_save_playback_speed" formatted="false">Скорость воспроизведения по умолчанию изменена на: %s.</string>
-    <string name="revanced_save_video_quality_mobile" formatted="false">Качество по умолчанию при моб. сети изменено на: %s.</string>
-    <string name="revanced_save_video_quality_none">Не удалось установить выбранное качество.</string>
-    <string name="revanced_save_video_quality_wifi" formatted="false">Качество по умолчанию при Wi-Fi изменено на: %s.</string>
+    <string name="revanced_save_playback_speed" formatted="false">Скорость воспроизведения по умолчанию изменена на %s.</string>
+    <string name="revanced_save_video_quality_mobile" formatted="false">Качество по умолчанию при моб. сети изменено на %s.</string>
+    <string name="revanced_save_video_quality_none">Не удалось установить качество.</string>
+    <string name="revanced_save_video_quality_wifi" formatted="false">Качество по умолчанию при Wi-Fi изменено на %s.</string>
     <string name="revanced_share_copy_settings_success">Настройки скопированы в буфер.</string>
     <string name="revanced_spoof_app_version_summary">"Подменяет версию клиента на старую.
 
@@ -212,7 +212,7 @@
     <string name="revanced_spoof_app_version_title">Подмена версии приложения</string>
     <string name="sb_enabled">SponsorBlock</string>
     <string name="sb_enabled_sum">SponsorBlock - это crowd-sourced система для пропуска раздражающих частей видео в YouTube.</string>
-    <string name="sb_toast_on_connection_error">Уведомление, когда API недоступен</string>
+    <string name="sb_toast_on_connection_error">Уведомлять, когда API недоступен</string>
     <string name="sb_toast_on_connection_error_sum">Отображает всплывающее уведомление, когда SponsorBlock недоступен.</string>
     <string name="sb_toast_on_skip">Уведомление при автопропуске</string>
     <string name="sb_toast_on_skip_sum">Отображает всплывающее уведомление при автоматическом пропуске сегмента.</string>
@@ -254,7 +254,7 @@
     <string name="sb_skip_automatically">Автоматически пропускать</string>
     <string name="sb_skip_ignore">Отключить</string>
     <string name="sb_sponsorblock_connection_failure_generic">SponsorBlock временно недоступен.</string>
-    <string name="sb_sponsorblock_connection_failure_status" formatted="false">SponsorBlock временно недоступен (статус %d).</string>
+    <string name="sb_sponsorblock_connection_failure_status" formatted="false">SponsorBlock временно недоступен (состояние %d).</string>
     <string name="sb_sponsorblock_connection_failure_timeout">SponsorBlock временно недоступен (время API истекло).</string>
     <string name="sb_color_dot_label">Цвет:</string>
     <string name="sb_color_changed">Цвет изменён.</string>
