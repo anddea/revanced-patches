@@ -6,14 +6,14 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal object PlayerResponseModelImplRecommendedLevelFingerprint : MethodFingerprint(
-    returnType = "I",
+internal object PlayerResponseModelGeneralStoryboardRendererFingerprint : MethodFingerprint(
+    returnType = "Ljava/lang/String;",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = emptyList(),
     opcodes = listOf(
-        Opcode.SGET_OBJECT,
-        Opcode.IGET,
-        Opcode.RETURN
+        Opcode.RETURN_OBJECT,
+        Opcode.CONST_4,
+        Opcode.RETURN_OBJECT
     ),
     customFingerprint = handler@{ methodDef, _ ->
         if (!methodDef.definingClass.endsWith("/PlayerResponseModelImpl;"))
