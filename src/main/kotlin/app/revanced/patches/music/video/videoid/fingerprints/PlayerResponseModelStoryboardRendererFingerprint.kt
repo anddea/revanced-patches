@@ -5,7 +5,7 @@ import app.revanced.util.fingerprint.LiteralValueFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal object PlayerResponseModelImplGeneralFingerprint : LiteralValueFingerprint(
+internal object PlayerResponseModelStoryboardRendererFingerprint : LiteralValueFingerprint(
     returnType = "Ljava/lang/String;",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = emptyList(),

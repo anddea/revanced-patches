@@ -7,7 +7,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.music.video.videoid.fingerprints.PlayerResponseModelImplGeneralFingerprint
+import app.revanced.patches.music.video.videoid.fingerprints.PlayerResponseModelStoryboardRendererFingerprint
 import app.revanced.patches.music.video.videoid.fingerprints.VideoIdParentFingerprint
 import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.Opcode
@@ -19,7 +19,7 @@ import java.io.Closeable
 
 object VideoIdPatch : BytecodePatch(
     setOf(
-        PlayerResponseModelImplGeneralFingerprint,
+        PlayerResponseModelStoryboardRendererFingerprint,
         VideoIdParentFingerprint
     )
 ), Closeable {
@@ -55,13 +55,13 @@ object VideoIdPatch : BytecodePatch(
                 }
         } ?: throw VideoIdParentFingerprint.exception
 
-        PlayerResponseModelImplGeneralFingerprint.result
+        PlayerResponseModelStoryboardRendererFingerprint.result
             ?.mutableClass?.methods?.find { method -> method.name == backgroundPlaybackMethodName }
             ?.apply {
                 backgroundPlaybackMethod = this
                 backgroundPlaybackInsertIndex = implementation!!.instructions.size - 1
                 backgroundPlaybackVideoIdRegister = getInstruction<OneRegisterInstruction>(backgroundPlaybackInsertIndex).registerA
-            } ?: throw PlayerResponseModelImplGeneralFingerprint.exception
+            } ?: throw PlayerResponseModelStoryboardRendererFingerprint.exception
     }
 
     override fun close() {

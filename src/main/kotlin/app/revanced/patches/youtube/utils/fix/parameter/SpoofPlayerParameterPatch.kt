@@ -9,9 +9,9 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.youtube.utils.fix.parameter.fingerprints.PlayerResponseModelImplGeneralFingerprint
-import app.revanced.patches.youtube.utils.fix.parameter.fingerprints.PlayerResponseModelImplLiveStreamFingerprint
-import app.revanced.patches.youtube.utils.fix.parameter.fingerprints.PlayerResponseModelImplRecommendedLevelFingerprint
+import app.revanced.patches.youtube.utils.fix.parameter.fingerprints.PlayerResponseModelGeneralStoryboardRendererFingerprint
+import app.revanced.patches.youtube.utils.fix.parameter.fingerprints.PlayerResponseModelLiveStreamStoryboardRendererFingerprint
+import app.revanced.patches.youtube.utils.fix.parameter.fingerprints.PlayerResponseModelStoryboardRecommendedLevelFingerprint
 import app.revanced.patches.youtube.utils.fix.parameter.fingerprints.StoryboardRendererDecoderRecommendedLevelFingerprint
 import app.revanced.patches.youtube.utils.fix.parameter.fingerprints.StoryboardRendererDecoderSpecFingerprint
 import app.revanced.patches.youtube.utils.fix.parameter.fingerprints.StoryboardRendererSpecFingerprint
@@ -63,12 +63,12 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 )
 object SpoofPlayerParameterPatch : BytecodePatch(
     setOf(
-        PlayerResponseModelImplGeneralFingerprint,
-        PlayerResponseModelImplLiveStreamFingerprint,
-        PlayerResponseModelImplRecommendedLevelFingerprint,
-        StoryboardRendererSpecFingerprint,
-        StoryboardRendererDecoderSpecFingerprint,
+        PlayerResponseModelGeneralStoryboardRendererFingerprint,
+        PlayerResponseModelLiveStreamStoryboardRendererFingerprint,
+        PlayerResponseModelStoryboardRecommendedLevelFingerprint,
         StoryboardRendererDecoderRecommendedLevelFingerprint,
+        StoryboardRendererDecoderSpecFingerprint,
+        StoryboardRendererSpecFingerprint,
         StoryboardThumbnailParentFingerprint
     )
 ) {
@@ -113,8 +113,8 @@ object SpoofPlayerParameterPatch : BytecodePatch(
 
         // Hook storyboard renderer url.
         arrayOf(
-            PlayerResponseModelImplGeneralFingerprint,
-            PlayerResponseModelImplLiveStreamFingerprint
+            PlayerResponseModelGeneralStoryboardRendererFingerprint,
+            PlayerResponseModelLiveStreamStoryboardRendererFingerprint
         ).forEach { fingerprint ->
             fingerprint.result?.let {
                 it.mutableMethod.apply {
@@ -150,7 +150,7 @@ object SpoofPlayerParameterPatch : BytecodePatch(
         } ?: throw StoryboardRendererDecoderRecommendedLevelFingerprint.exception
 
         // Hook the recommended precise seeking thumbnails quality level.
-        PlayerResponseModelImplRecommendedLevelFingerprint.result?.let {
+        PlayerResponseModelStoryboardRecommendedLevelFingerprint.result?.let {
             it.mutableMethod.apply {
                 val moveOriginalRecommendedValueIndex = it.scanResult.patternScanResult!!.endIndex
                 val originalValueRegister =
@@ -163,7 +163,7 @@ object SpoofPlayerParameterPatch : BytecodePatch(
                         """
                 )
             }
-        } ?: throw PlayerResponseModelImplRecommendedLevelFingerprint.exception
+        } ?: throw PlayerResponseModelStoryboardRecommendedLevelFingerprint.exception
 
         StoryboardRendererSpecFingerprint.result?.let {
             it.mutableMethod.apply {
