@@ -13,7 +13,7 @@ import app.revanced.patches.music.utils.returnyoutubedislike.fingerprints.Dislik
 import app.revanced.patches.music.utils.returnyoutubedislike.fingerprints.LikeFingerprint
 import app.revanced.patches.music.utils.returnyoutubedislike.fingerprints.RemoveLikeFingerprint
 import app.revanced.patches.music.utils.returnyoutubedislike.fingerprints.TextComponentFingerprint
-import app.revanced.patches.music.video.information.VideoInformationPatch
+import app.revanced.patches.music.video.videoid.VideoIdPatch
 import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -22,7 +22,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
 @Patch(
     dependencies = [
         SharedResourceIdPatch::class,
-        VideoInformationPatch::class
+        VideoIdPatch::class
     ]
 )
 object ReturnYouTubeDislikeBytecodePatch : BytecodePatch(
@@ -80,7 +80,7 @@ object ReturnYouTubeDislikeBytecodePatch : BytecodePatch(
             }
         } ?: throw TextComponentFingerprint.exception
 
-        VideoInformationPatch.injectCall("$INTEGRATIONS_RYD_CLASS_DESCRIPTOR->newVideoLoaded(Ljava/lang/String;)V")
+        VideoIdPatch.hookVideoId("$INTEGRATIONS_RYD_CLASS_DESCRIPTOR->newVideoLoaded(Ljava/lang/String;)V")
 
     }
 
