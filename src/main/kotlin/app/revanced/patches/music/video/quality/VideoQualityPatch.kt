@@ -11,8 +11,8 @@ import app.revanced.patches.music.utils.integrations.Constants.VIDEO_PATH
 import app.revanced.patches.music.utils.overridequality.OverrideQualityHookPatch
 import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.SettingsPatch
-import app.revanced.patches.music.video.information.VideoInformationPatch
 import app.revanced.patches.music.video.quality.fingerprints.UserQualityChangeFingerprint
+import app.revanced.patches.music.video.videoid.VideoIdPatch
 import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction21c
 
@@ -22,7 +22,7 @@ import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction21c
     dependencies = [
         OverrideQualityHookPatch::class,
         SettingsPatch::class,
-        VideoInformationPatch::class
+        VideoIdPatch::class
     ],
     compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")]
 )
@@ -56,7 +56,7 @@ object VideoQualityPatch : BytecodePatch(
             }
         } ?: throw UserQualityChangeFingerprint.exception
 
-        VideoInformationPatch.injectCall("$INTEGRATIONS_VIDEO_QUALITY_CLASS_DESCRIPTOR->newVideoStarted(Ljava/lang/String;)V")
+        VideoIdPatch.hookVideoId("$INTEGRATIONS_VIDEO_QUALITY_CLASS_DESCRIPTOR->newVideoStarted(Ljava/lang/String;)V")
 
         SettingsPatch.addMusicPreference(
             CategoryType.VIDEO,

@@ -7,12 +7,12 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.music.utils.fingerprints.SeekBarConstructorFingerprint
-import app.revanced.patches.music.utils.playerresponse.PlayerResponsePatch
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.music.utils.sponsorblock.bytecode.fingerprints.MusicPlaybackControlsTimeBarDrawFingerprint
 import app.revanced.patches.music.utils.sponsorblock.bytecode.fingerprints.MusicPlaybackControlsTimeBarOnMeasureFingerprint
 import app.revanced.patches.music.utils.sponsorblock.bytecode.fingerprints.SeekbarOnDrawFingerprint
 import app.revanced.patches.music.video.information.VideoInformationPatch
+import app.revanced.patches.music.video.videoid.VideoIdPatch
 import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction3rc
@@ -24,9 +24,9 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Patch(
     dependencies = [
-        PlayerResponsePatch::class,
         SharedResourceIdPatch::class,
-        VideoInformationPatch::class
+        VideoInformationPatch::class,
+        VideoIdPatch::class
     ]
 )
 object SponsorBlockBytecodePatch : BytecodePatch(
@@ -165,8 +165,7 @@ object SponsorBlockBytecodePatch : BytecodePatch(
         /**
          * Set current video id
          */
-        PlayerResponsePatch.injectCall("$INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR->setCurrentVideoId(Ljava/lang/String;Z)V")
-        VideoInformationPatch.injectBackgroundPlaybackCall("$INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR->setCurrentVideoId(Ljava/lang/String;)V")
-        VideoInformationPatch.injectCall("$INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR->setCurrentVideoId(Ljava/lang/String;)V")
+        VideoIdPatch.hookBackgroundPlayVideoId("$INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR->setVideoId(Ljava/lang/String;)V")
+        VideoIdPatch.hookVideoId("$INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR->setVideoId(Ljava/lang/String;)V")
     }
 }

@@ -12,15 +12,12 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMu
 import app.revanced.patches.music.utils.fingerprints.SeekBarConstructorFingerprint
 import app.revanced.patches.music.utils.integrations.Constants.VIDEO_PATH
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch
-import app.revanced.patches.music.video.information.fingerprints.BackgroundPlaybackVideoIdFingerprint
-import app.revanced.patches.music.video.information.fingerprints.BackgroundPlaybackVideoIdParentFingerprint
 import app.revanced.patches.music.video.information.fingerprints.PlayerControllerSetTimeReferenceFingerprint
 import app.revanced.patches.music.video.information.fingerprints.VideoEndFingerprint
-import app.revanced.patches.music.video.information.fingerprints.VideoIdParentFingerprint
 import app.revanced.patches.music.video.information.fingerprints.VideoLengthFingerprint
+import app.revanced.patches.music.video.videoid.VideoIdPatch
 import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
@@ -29,56 +26,30 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 import com.android.tools.smali.dexlib2.util.MethodUtil
 
-@Patch(dependencies = [SharedResourceIdPatch::class])
+@Patch(
+    dependencies = [
+        SharedResourceIdPatch::class,
+        VideoIdPatch::class
+    ]
+)
+@Suppress("MemberVisibilityCanBePrivate")
 object VideoInformationPatch : BytecodePatch(
     setOf(
-        BackgroundPlaybackVideoIdParentFingerprint,
         PlayerControllerSetTimeReferenceFingerprint,
         SeekBarConstructorFingerprint,
-        VideoEndFingerprint,
-        VideoIdParentFingerprint
+        VideoEndFingerprint
     )
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
         "$VIDEO_PATH/VideoInformation;"
 
-    private var backgroundPlaybackInsertIndex = 0
-    private var offset = 0
     private var playerInitInsertIndex = 4
     private var timeInitInsertIndex = 2
-    private var videoIdIndex = 0
 
-    private var backgroundPlaybackVideoIdRegister = 0
-    private var videoIdRegister: Int = 0
-
-    private lateinit var backgroundPlaybackMethod: MutableMethod
-    private lateinit var videoIdMethod: MutableMethod
     private lateinit var playerInitMethod: MutableMethod
     private lateinit var timeMethod: MutableMethod
 
     lateinit var rectangleFieldName: String
-
-    internal fun injectBackgroundPlaybackCall(
-        methodDescriptor: String
-    ) {
-        backgroundPlaybackMethod.addInstructions(
-            backgroundPlaybackInsertIndex, // move-result-object offset
-            "invoke-static {v$backgroundPlaybackVideoIdRegister}, $methodDescriptor"
-        )
-    }
-
-    /**
-     * Adds an invoke-static instruction, called with the new id when the video changes
-     * @param methodDescriptor which method to call. Params have to be `Ljava/lang/String;`
-     */
-    internal fun injectCall(
-        methodDescriptor: String
-    ) {
-        videoIdMethod.addInstructions(
-            videoIdIndex + offset, // move-result-object offset
-            "invoke-static {v$videoIdRegister}, $methodDescriptor"
-        )
-    }
 
     private fun MutableMethod.insert(insertIndex: Int, register: String, descriptor: String) =
         addInstruction(insertIndex, "invoke-static { $register }, $descriptor")
@@ -196,64 +167,10 @@ object VideoInformationPatch : BytecodePatch(
 
 
         /**
-         * Inject call for background playback video id
-         */
-        BackgroundPlaybackVideoIdParentFingerprint.result?.let { parentResult ->
-            BackgroundPlaybackVideoIdFingerprint.also {
-                it.resolve(
-                    context,
-                    parentResult.classDef
-                )
-            }.result?.let {
-                it.mutableMethod.apply {
-                    backgroundPlaybackMethod = this
-                    backgroundPlaybackInsertIndex = it.scanResult.patternScanResult!!.endIndex
-                    backgroundPlaybackVideoIdRegister =
-                        getInstruction<OneRegisterInstruction>(backgroundPlaybackInsertIndex).registerA
-                    backgroundPlaybackInsertIndex++
-                }
-            } ?: throw BackgroundPlaybackVideoIdFingerprint.exception
-        } ?: throw BackgroundPlaybackVideoIdParentFingerprint.exception
-
-
-        /**
-         * Inject call for video id
-         */
-        VideoIdParentFingerprint.result?.let {
-            it.mutableMethod.apply {
-                val targetIndex = it.scanResult.patternScanResult!!.endIndex
-
-                val targetReference = getInstruction<ReferenceInstruction>(targetIndex).reference
-                val targetClass = (targetReference as FieldReference).type
-
-                videoIdMethod = context
-                    .findClass(targetClass)!!
-                    .mutableClass.methods.first { method ->
-                        method.name == "handleVideoStageEvent"
-                    }
-            }
-        } ?: throw VideoIdParentFingerprint.exception
-
-        videoIdMethod.apply {
-            for (index in implementation!!.instructions.size - 1 downTo 0) {
-                if (getInstruction(index).opcode != Opcode.INVOKE_INTERFACE) continue
-
-                val targetReference = getInstruction<ReferenceInstruction>(index).reference
-
-                if (!targetReference.toString().endsWith("Ljava/lang/String;")) continue
-
-                videoIdIndex = index + 1
-                videoIdRegister = getInstruction<OneRegisterInstruction>(videoIdIndex).registerA
-
-                break
-            }
-            offset++ // offset so setVideoId is called before any injected call
-        }
-
-
-        /**
          * Set current video id
          */
-        injectCall("$INTEGRATIONS_CLASS_DESCRIPTOR->setVideoId(Ljava/lang/String;)V")
+        val videoIdMethodDescriptor = "$INTEGRATIONS_CLASS_DESCRIPTOR->setVideoId(Ljava/lang/String;)V"
+        VideoIdPatch.hookVideoId(videoIdMethodDescriptor)
+        VideoIdPatch.hookBackgroundPlayVideoId(videoIdMethodDescriptor)
     }
 }
