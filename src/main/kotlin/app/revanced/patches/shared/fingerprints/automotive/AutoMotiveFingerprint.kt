@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.navigation.navigationbuttons.fingerprints
+package app.revanced.patches.shared.fingerprints.automotive
 
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.Opcode

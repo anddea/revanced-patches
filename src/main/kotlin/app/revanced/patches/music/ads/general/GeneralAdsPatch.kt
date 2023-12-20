@@ -2,10 +2,13 @@ package app.revanced.patches.music.ads.general
 
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
+import app.revanced.patches.shared.fingerprints.automotive.AutoMotiveFingerprint
 import app.revanced.patches.music.ads.general.fingerprints.FloatingLayoutFingerprint
 import app.revanced.patches.music.ads.general.fingerprints.InterstitialsContainerFingerprint
 import app.revanced.patches.music.ads.general.fingerprints.NotifierShelfFingerprint
@@ -20,6 +23,7 @@ import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.Interst
 import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.SettingsPatch
 import app.revanced.util.exception
+import app.revanced.util.getStringInstructionIndex
 import app.revanced.util.getWideLiteralInstructionIndex
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
@@ -37,6 +41,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 @Suppress("unused")
 object GeneralAdsPatch : BytecodePatch(
     setOf(
+        AutoMotiveFingerprint,
         FloatingLayoutFingerprint,
         InterstitialsContainerFingerprint,
         NotifierShelfFingerprint
@@ -48,6 +53,27 @@ object GeneralAdsPatch : BytecodePatch(
         /**
          * Hides interstitials banner (non-litho)
          */
+        AutoMotiveFingerprint.result?.let {
+            it.mutableMethod.apply {
+                with(
+                    context
+                        .toMethodWalker(this)
+                        .nextMethod(getStringInstructionIndex("Android Automotive") - 3, true)
+                        .getMethod() as MutableMethod
+                ) {
+                    val targetIndex = implementation!!.instructions.size - 1
+                    val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
+
+                    addInstructions(
+                        targetIndex, """
+                            invoke-static {v$targetRegister}, $ADS_PATH/InterstitialsBannerPatch;->hideInterstitialsBanner(Z)Z
+                            move-result v$targetRegister
+                            """
+                    )
+                }
+            }
+        } ?: throw AutoMotiveFingerprint.exception
+
         InterstitialsContainerFingerprint.result?.let {
             it.mutableMethod.apply {
                 val targetIndex = getWideLiteralInstructionIndex(InterstitialsContainer) + 2
@@ -96,14 +122,31 @@ object GeneralAdsPatch : BytecodePatch(
             "revanced_close_interstitial_ads",
             "true"
         )
-        SettingsPatch.addMusicPreference(CategoryType.ADS, "revanced_hide_general_ads", "true")
-        SettingsPatch.addMusicPreference(CategoryType.ADS, "revanced_hide_music_ads", "true")
+        SettingsPatch.addMusicPreference(
+            CategoryType.ADS,
+            "revanced_hide_interstitial_ads",
+            "true"
+        )
+        SettingsPatch.addMusicPreference(
+            CategoryType.ADS,
+            "revanced_hide_general_ads",
+            "true"
+        )
+        SettingsPatch.addMusicPreference(
+            CategoryType.ADS,
+            "revanced_hide_music_ads",
+            "true"
+        )
         SettingsPatch.addMusicPreference(
             CategoryType.ADS,
             "revanced_hide_premium_promotion",
             "true"
         )
-        SettingsPatch.addMusicPreference(CategoryType.ADS, "revanced_hide_premium_renewal", "true")
+        SettingsPatch.addMusicPreference(
+            CategoryType.ADS,
+            "revanced_hide_premium_renewal",
+            "true"
+        )
     }
 
     private const val FILTER_CLASS_DESCRIPTOR =
