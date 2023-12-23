@@ -152,7 +152,7 @@ ReVanced Extended Patches.
 | `Enable zen mode` | Adds a grey tint to the video player to reduce eye strain. | 6.21.52+ |
 | `Exclusive audio playback` | Enables the option to play music without video. | 6.21.52+ |
 | `Hide account menu` | Hide account menu elements. | 6.21.52+ |
-| `Hide action bar label` | Hide labels in action bar. | 6.21.52+ |
+| `Hide action bar component` | Hides action bar components or replaces the offline download button with an external download button. | 6.21.52+ |
 | `Hide button shelf` | Hides the button shelf from homepage and explorer. | 6.21.52+ |
 | `Hide carousel shelf` | Hides the carousel shelf from homepage and explorer. | 6.21.52+ |
 | `Hide cast button` | Hides the cast button. | 6.21.52+ |
@@ -167,12 +167,10 @@ ReVanced Extended Patches.
 | `Hide navigation bar component` | Hides navigation bar components. | 6.21.52+ |
 | `Hide new playlist button` | Hides the "New playlist" button in the library. | 6.21.52+ |
 | `Hide playlist card` | Hides the playlist card from homepage. | 6.21.52+ |
-| `Hide radio button` | Hides start radio button. | 6.21.52+ |
 | `Hide taste builder` | Hides the "Tell us which artists you like" card from homepage. | 6.21.52+ |
 | `Hide terms container` | Hides terms of service container at the account menu. | 6.21.52+ |
 | `Hide tooltip content` | Hides the tooltip box that appears on first install. | 6.21.52+ |
 | `Hide voice search button` | Hide voice search button in search bar. | 6.21.52+ |
-| `Hook download button` | Replaces the offline download button with an external download button. | 6.21.52+ |
 | `MicroG support` | Allows ReVanced Extended Music to run without root and under a different package name with MicroG. | 6.21.52+ |
 | `Remember playback speed` | Save the playback speed value whenever you change the playback speed. | 6.21.52+ |
 | `Remember repeat state` | Remembers the state of the repeat. | 6.21.52+ |
@@ -193,6 +191,8 @@ ReVanced Extended Patches.
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
+| `Change package name` | Specifies the package name for Reddit. | all |
+| `Custom branding name Reddit` | Rename the Reddit app to the name specified in options.json. | all |
 | `Disable screenshot popup` | Disables the popup that shows up when taking a screenshot. | all |
 | `Hide ads` | Hides ads from the Reddit. | all |
 | `Hide navigation buttons` | Hide buttons at navigation bar. | all |
