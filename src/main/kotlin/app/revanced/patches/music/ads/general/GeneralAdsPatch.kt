@@ -47,6 +47,9 @@ object GeneralAdsPatch : BytecodePatch(
         NotifierShelfFingerprint
     )
 ) {
+    private const val FILTER_CLASS_DESCRIPTOR =
+        "$COMPONENTS_PATH/AdsFilter;"
+
     override fun execute(context: BytecodeContext) {
         LithoFilterPatch.addFilter(FILTER_CLASS_DESCRIPTOR)
 
@@ -119,11 +122,6 @@ object GeneralAdsPatch : BytecodePatch(
 
         SettingsPatch.addMusicPreference(
             CategoryType.ADS,
-            "revanced_close_interstitial_ads",
-            "true"
-        )
-        SettingsPatch.addMusicPreference(
-            CategoryType.ADS,
             "revanced_hide_interstitial_ads",
             "true"
         )
@@ -148,7 +146,4 @@ object GeneralAdsPatch : BytecodePatch(
             "true"
         )
     }
-
-    private const val FILTER_CLASS_DESCRIPTOR =
-        "$COMPONENTS_PATH/AdsFilter;"
 }
