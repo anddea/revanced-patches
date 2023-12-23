@@ -10,7 +10,6 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.general.widesearchbar.fingerprints.SetActionBarRingoFingerprint
 import app.revanced.patches.youtube.general.widesearchbar.fingerprints.SetWordMarkHeaderFingerprint
 import app.revanced.patches.youtube.general.widesearchbar.fingerprints.YouActionBarFingerprint
-import app.revanced.patches.youtube.utils.fingerprints.LayoutSwitchFingerprint
 import app.revanced.patches.youtube.utils.integrations.Constants.GENERAL
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
@@ -55,11 +54,13 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 @Suppress("unused")
 object WideSearchBarPatch : BytecodePatch(
     setOf(
-        LayoutSwitchFingerprint,
         SetActionBarRingoFingerprint,
         SetWordMarkHeaderFingerprint
     )
 ) {
+    private const val FLAG = "android:paddingStart"
+    private const val TARGET_RESOURCE_PATH = "res/layout/action_bar_ringo_background.xml"
+
     override fun execute(context: BytecodeContext) {
 
         // resolves fingerprints
@@ -74,22 +75,19 @@ object WideSearchBarPatch : BytecodePatch(
                     .nextMethod(1, true)
                     .getMethod() as MutableMethod
 
-            targetMethod.injectSearchBarHook()
+            targetMethod.apply {
+                injectSearchBarHook(
+                    implementation!!.instructions.size - 1,
+                    "enableWideSearchBar"
+                )
+            }
         } ?: throw SetWordMarkHeaderFingerprint.exception
-
-        LayoutSwitchFingerprint.result?.mutableMethod?.injectSearchBarHook()
-            ?: throw LayoutSwitchFingerprint.exception
 
         YouActionBarFingerprint.result?.let {
             it.mutableMethod.apply {
-                val insertIndex = it.scanResult.patternScanResult!!.endIndex
-                val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
-
-                addInstructions(
-                    insertIndex, """
-                        invoke-static {v$insertRegister}, $GENERAL->enableWideSearchBarInYouTab(Z)Z
-                        move-result v$insertRegister
-                        """
+                injectSearchBarHook(
+                    it.scanResult.patternScanResult!!.endIndex,
+                    "enableWideSearchBarInYouTab"
                 )
             }
         } ?: throw YouActionBarFingerprint.exception
@@ -123,17 +121,19 @@ object WideSearchBarPatch : BytecodePatch(
 
     }
 
-    private const val FLAG = "android:paddingStart"
-    private const val TARGET_RESOURCE_PATH = "res/layout/action_bar_ringo_background.xml"
-
     /**
      * Injects instructions required for certain methods.
      */
-    private fun MutableMethod.injectSearchBarHook() {
+    private fun MutableMethod.injectSearchBarHook(
+        insertIndex: Int,
+        descriptor: String
+    ) {
+        val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+
         addInstructions(
-            implementation!!.instructions.size - 1, """
-                invoke-static {}, $GENERAL->enableWideSearchBar()Z
-                move-result p0
+            insertIndex, """
+                invoke-static {v$insertRegister}, $GENERAL->$descriptor(Z)Z
+                move-result v$insertRegister
                 """
         )
     }
