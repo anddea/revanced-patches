@@ -129,7 +129,7 @@ Nota: è una funzionalità che non è stata testata"</string>
     <string name="revanced_disable_quic_protocol_title">Disattiva il protocollo QUIC</string>
     <string name="revanced_disable_speed_overlay_summary">"Disattiva il \"2x\" quando tieni premuto.
 
-Nota: disattivando la sovrapposizione della velocità ripristina lo \"Scorri la barra di avanzamento\" della vecchia interfaccia"</string>
+Nota: disattivando la sovrapposizione della velocità verrà ripristinato lo \"Scorri la barra di avanzamento\" della vecchia interfaccia"</string>
     <string name="revanced_disable_speed_overlay_title">Disattiva la sovrapposizione della velocità quando tieni premuto</string>
     <string name="revanced_disable_startup_shorts_player_summary_off">La riproduzione degli Shorts all\'avvio dell\'app è attivata</string>
     <string name="revanced_disable_startup_shorts_player_summary_on">La riproduzione degli Shorts all\'avvio dell\'app è disattivata</string>
@@ -169,9 +169,9 @@ Nota: disattivando la sovrapposizione della velocità ripristina lo \"Scorri la 
     <string name="revanced_enable_new_thumbnail_preview_summary_off">La nuova anteprima dei thumbnails è disattivata</string>
     <string name="revanced_enable_new_thumbnail_preview_summary_on">La nuova anteprima dei thumbnails è attivata</string>
     <string name="revanced_enable_new_thumbnail_preview_title">Attiva la nuova anteprima dei thumbnails</string>
-    <string name="revanced_enable_old_quality_layout_summary_off">Le nuove impostazioni qualitative sono visibili</string>
-    <string name="revanced_enable_old_quality_layout_summary_on">Le vecchie impostazioni qualitative sono visibili</string>
-    <string name="revanced_enable_old_quality_layout_title">Attiva la vecchia interfaccia qualitativa</string>
+    <string name="revanced_enable_old_quality_layout_summary_off">Il nuovo menù Qualità è visibile</string>
+    <string name="revanced_enable_old_quality_layout_summary_on">Il vecchio menù Qualità è visibile</string>
+    <string name="revanced_enable_old_quality_layout_title">Mostra il vecchio menù Qualità</string>
     <string name="revanced_enable_open_links_directly_summary_off">Segui la regola predefinita di reindirizzamento</string>
     <string name="revanced_enable_open_links_directly_summary_on">Bypassa i reindirizzamenti degli URL</string>
     <string name="revanced_enable_open_links_directly_title">Attiva l\'apertura diretta dei link</string>
@@ -527,9 +527,9 @@ Alcuni componenti potrebbero non essere nascosti"</string>
     <string name="revanced_hide_player_flyout_panel_playback_speed_summary_off">Il menù Velocità di Riproduzione è visibile</string>
     <string name="revanced_hide_player_flyout_panel_playback_speed_summary_on">Il menù Velocità di Riproduzione è nascosto</string>
     <string name="revanced_hide_player_flyout_panel_playback_speed_title">Nascondi il menù della Velocità di Riproduzione</string>
-    <string name="revanced_hide_player_flyout_panel_premium_controls_summary_off">Il menù Controlli di Premium è visibile</string>
-    <string name="revanced_hide_player_flyout_panel_premium_controls_summary_on">Il menù Controlli di Premium è nascosto</string>
-    <string name="revanced_hide_player_flyout_panel_premium_controls_title">Nascondi il menù Controlli di Premium</string>
+    <string name="revanced_hide_player_flyout_panel_premium_controls_summary_off">Il menù Controlli per l\'Ascolto è visibile</string>
+    <string name="revanced_hide_player_flyout_panel_premium_controls_summary_on">Il menù Controlli per l\'Ascolto è nascosto</string>
+    <string name="revanced_hide_player_flyout_panel_premium_controls_title">Nascondi il menù Controlli per l\'Ascolto</string>
     <string name="revanced_hide_player_flyout_panel_quality_footer_summary_off">La parte inferiore del menù Qualità è visibile</string>
     <string name="revanced_hide_player_flyout_panel_quality_footer_summary_on">La parte inferiore del menù Qualità è nascosta</string>
     <string name="revanced_hide_player_flyout_panel_quality_footer_title">Nascondi la parte inferiore del menù Qualità</string>
@@ -607,7 +607,7 @@ Alcuni componenti potrebbero non essere nascosti"</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_off">Il pulsante Iscriviti è visibile</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_on">Il pulsante Iscriviti è nascosto</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_title">Nascondi il pulsante Iscriviti</string>
-    <string name="revanced_hide_shorts_shelf_summary">"Problema noto: l'intestazione ufficiale nei risultati di ricerca è nascosta"</string>
+    <string name="revanced_hide_shorts_shelf_summary">"Problema noto: l'intestazione ufficiale nei risultati di ricerca sarà nascosta"</string>
     <string name="revanced_hide_shorts_shelf_title">Nascondi lo scaffale degli Shorts</string>
     <string name="revanced_hide_shorts_toolbar_banner_summary_off">Il banner è visibile</string>
     <string name="revanced_hide_shorts_toolbar_banner_summary_on">Il banner è nascosto</string>
@@ -636,7 +636,7 @@ Alcuni componenti potrebbero non essere nascosti"</string>
     <string name="revanced_hide_suggested_actions_summary_off">Le azioni consigliate sono visibili</string>
     <string name="revanced_hide_suggested_actions_summary_on">Le azioni consigliate sono nascoste</string>
     <string name="revanced_hide_suggested_actions_title">Nascondi le azioni consigliate</string>
-    <string name="revanced_hide_suggested_video_overlay_summary">"Problema noto: la riproduzione automatica non funziona"</string>
+    <string name="revanced_hide_suggested_video_overlay_summary">"Problema noto: la riproduzione automatica non funzionerà"</string>
     <string name="revanced_hide_suggested_video_overlay_title">Nascondi la sovrapposizione del video suggerito da riprodurre successivamente</string>
     <string name="revanced_hide_suggestions_shelf_method_summary_off">"Identifica gli scaffali dei suggerimenti attraverso il BrowseId.
 
@@ -644,8 +644,8 @@ Problema noto: quando il BrowseId non viene identificato, gli scaffali dei sugge
     <string name="revanced_hide_suggestions_shelf_method_summary_on">"Identifica gli scaffali dei suggerimenti attraverso la pagina corrente.
 
 Problemi noti:
-• Altri scaffali potrebbero essere nascosti
-• Gli scaffali delle playlist potrebbero essere nascosti"</string>
+• Gli scaffali delle playlist potrebbero essere nascosti
+• Altri scaffali potrebbero essere nascosti"</string>
     <string name="revanced_hide_suggestions_shelf_method_title">Seleziona il metodo per nascondere gli scaffali</string>
     <string name="revanced_hide_suggestions_shelf_summary">"Nasconde i seguenti scaffali:
 • Ultime notizie
@@ -676,6 +676,8 @@ Problemi noti:
     <string name="revanced_hide_video_ads_summary_off">Gli annunci video sono visibili</string>
     <string name="revanced_hide_video_ads_summary_on">Gli annunci video sono nascosti</string>
     <string name="revanced_hide_video_ads_title">Nascondi gli annunci video</string>
+    <string name="revanced_hide_video_with_gray_description_summary">"I video con una descrizione grigia includono video che non sono relativi ai termini di ricerca"</string>
+    <string name="revanced_hide_video_with_gray_description_title">Nascondi i video con una descrizione grigia</string>
     <string name="revanced_hide_video_with_low_view_summary">"Nascondi i video con meno di 1.000 visualizzazioni nel feed della home.
 Alcuni video, inclusi quelli dei canali iscritti, potrebbero non essere nascosti anche se hanno meno di 1.000 visualizzazioni"</string>
     <string name="revanced_hide_video_with_low_view_title">Nascondi i video con poche visualizzazioni</string>
@@ -774,7 +776,8 @@ Tocca e tieni premuto per impostare la velocità di riproduzione a 1.0x"</string
     <string name="revanced_skip_preloaded_buffer_toast_title">Mostra una notifica toast quando un segmento è saltato</string>
     <string name="revanced_spoof_app_version_summary">"Simula la versione del client a una versione precedente.
 
-• Questo cambierà l'aspetto dell'app, ma potrebbero verificarsi effetti collaterali sconosciuti
+Note:
+• Questo cambierà l'aspetto dell'app, ma potrebbero verificarsi degli effetti collaterali sconosciuti
 • Se in seguito verrà disattivato, la vecchia interfaccia potrebbe rimanere fino a quando i dati dell'app non verranno cancellati"</string>
     <string name="revanced_spoof_app_version_target_entry_17_08_35">17.08.35 - Ripristina la vecchia interfaccia</string>
     <string name="revanced_spoof_app_version_target_entry_17_41_37">17.41.37 - Ripristina il vecchio scaffale delle playlist</string>
@@ -794,13 +797,13 @@ Tocca e tieni premuto per impostare la velocità di riproduzione a 1.0x"</string
 Problema noto: i video nei feed saranno riprodotti per meno di un minuto prima di avere problemi di riproduzione"</string>
     <string name="revanced_spoof_player_parameter_in_feed_summary_on">"I parametri del riproduttore sono simulati per i video nei feed.
 
-Problema noto: i video nei feed riprodotti automaticamente appariranno nella cronologia delle visualizzazioni"</string>
+Problema noto: i video nei feed riprodotti automaticamente appariranno nella cronologia"</string>
     <string name="revanced_spoof_player_parameter_in_feed_title">Simula i parametri del riproduttore nei feed</string>
     <string name="revanced_spoof_player_parameter_summary">"Simula i parametri del riproduttore per prevenire problemi di riproduzione.
 
 Problemi noti:
-• Il bitrate migliorato non è disponibile
-• La barra di avanzamento nel thumbnail dei video a pagamento è nascosta
+• Il bitrate migliorato non sarà disponibile
+• La barra di avanzamento nel thumbnail dei video a pagamento sarà nascosta
 • Il download offline potrebbe non funzionare
 • Il video potrebbe non iniziare dall'ultimo minutaggio visto"</string>
     <string name="revanced_spoof_player_parameter_title">Simula i parametri del riproduttore</string>
@@ -820,7 +823,7 @@ Problemi noti:
 
 Note:
 • Anche se si modifica questa impostazione, potrebbe non avere effetto fino al riavvio del dispositivo
-• Disabilitando questa impostazione carica più annunci dal lato server
+• Disabilitando questa impostazione verrando caricati più annunci dal lato server
 • È necessario disattivare questa impostazione per rendere visibili gli annunci video"</string>
     <string name="revanced_switching_create_notification_title">Scambia il pulsante Crea con il pulsante Notifiche</string>
     <string name="revanced_tool_used">Tool utilizzati</string>

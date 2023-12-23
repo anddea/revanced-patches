@@ -182,10 +182,10 @@
     <string name="revanced_enable_phone_layout_title">Ενεργοποίηση εμφάνισης κινητού</string>
     <string name="revanced_enable_save_playback_speed_summary_off">Δεν αλλάζει η προεπιλεγμένη τιμή ταχύτητας βίντεο ακόμη και όταν αλλάζετε ταχύτητα βίντεο</string>
     <string name="revanced_enable_save_playback_speed_summary_on">Η τιμή ταχύτητας βίντεο αποθηκεύεται ως προεπιλογή κάθε φορά που αλλάζετε την ταχύτητα βίντεο</string>
-    <string name="revanced_enable_save_playback_speed_title">Αποθήκευση ταχύτητας βίντεο πάντα</string>
+    <string name="revanced_enable_save_playback_speed_title">Αποθήκευση αλλαγών ταχύτητας βίντεο πάντα</string>
     <string name="revanced_enable_save_video_quality_summary_off">Δεν αλλάζει η προεπιλεγμένη τιμή ποιότητας βίντεο ακόμη και όταν αλλάζετε ποιότητα βίντεο</string>
     <string name="revanced_enable_save_video_quality_summary_on">Η τιμή ποιότητας βίντεο αποθηκεύεται ως προεπιλογή κάθε φορά που αλλάζετε την ποιότητα βίντεο</string>
-    <string name="revanced_enable_save_video_quality_title">Αποθήκευση ποιότητας βίντεο πάντα</string>
+    <string name="revanced_enable_save_video_quality_title">Αποθήκευση αλλαγών ποιότητας βίντεο πάντα</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">Το πάτημα στη γραμμή προόδου είναι απενεργοποιημένο</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">Το πάτημα στη γραμμή προόδου είναι ενεργοποιημένο</string>
     <string name="revanced_enable_seekbar_tapping_title">Πάτημα γραμμής προόδου</string>
@@ -277,8 +277,8 @@
     <string name="revanced_hide_autoplay_button_summary_off">Το κουμπί αυτόματης αναπαραγωγής εμφανίζεται</string>
     <string name="revanced_hide_autoplay_button_summary_on">Το κουμπί αυτόματης αναπαραγωγής είναι κρυμμένο</string>
     <string name="revanced_hide_autoplay_button_title">Απόκρυψη κουμπιού αυτόματης αναπαραγωγής</string>
-    <string name="revanced_hide_autoplay_preview_summary_off">Η προεπισκόπηση αυτόματης αναπαραγωγής εμφανίζεται</string>
-    <string name="revanced_hide_autoplay_preview_summary_on">Η προεπισκόπηση αυτόματης αναπαραγωγής είναι κρυμμένη</string>
+    <string name="revanced_hide_autoplay_preview_summary_off">Η προεπισκόπηση αυτόματης αναπαραγωγής επόμενου βίντεο εμφανίζεται.</string>
+    <string name="revanced_hide_autoplay_preview_summary_on">Η προεπισκόπηση αυτόματης αναπαραγωγής επόμενου βίντεο είναι κρυμμένη.</string>
     <string name="revanced_hide_autoplay_preview_title">Απόκρυψη προεπισκόπησης αυτόματης αναπαραγωγής</string>
     <string name="revanced_hide_auto_player_popup_panels_summary_off">Τα αυτόματα αναδυόμενα παράθυρα του αναπαραγωγέα εμφανίζονται</string>
     <string name="revanced_hide_auto_player_popup_panels_summary_on">Τα αυτόματα αναδυόμενα παράθυρα του αναπαραγωγέα είναι κρυμμένα</string>
@@ -387,9 +387,9 @@
     <string name="revanced_hide_create_shorts_button_summary_off">Το κουμπί δημιουργίας Shorts εμφανίζεται.</string>
     <string name="revanced_hide_create_shorts_button_summary_on">Το κουμπί δημιουργίας Shorts είναι κρυμμένο.</string>
     <string name="revanced_hide_create_shorts_button_title">Απόκρυψη κουμπιού δημιουργίας Shorts</string>
-    <string name="revanced_hide_crowdfunding_box_summary_off">Το κουτί χρηματοδότησης (crowdfunding) εμφανίζεται</string>
-    <string name="revanced_hide_crowdfunding_box_summary_on">Το κουτί χρηματοδότησης (crowdfunding) είναι κρυμμένο</string>
-    <string name="revanced_hide_crowdfunding_box_title">Απόκρυψη κουτιού χρηματοδότησης</string>
+    <string name="revanced_hide_crowdfunding_box_summary_off">Το κουτί δωρεάς εμφανίζεται.</string>
+    <string name="revanced_hide_crowdfunding_box_summary_on">Το κουτί δωρεάς είναι κρυμμένο.</string>
+    <string name="revanced_hide_crowdfunding_box_title">Απόκρυψη κουτιού δωρεάς</string>
     <string name="revanced_hide_emoji_picker_summary_off">Ο επιλογέας emoji εμφανίζεται</string>
     <string name="revanced_hide_emoji_picker_summary_on">Ο επιλογέας emoji είναι κρυμμένος</string>
     <string name="revanced_hide_emoji_picker_title">Απόκρυψη επιλογέα emoji</string>
@@ -753,7 +753,7 @@
     <string name="revanced_ryd_toast_on_connection_error_summary_off">Δεν εμφανίζεται ειδοποίηση αν το ReturnYouTubeDislike API δεν είναι διαθέσιμο.</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_on">Εμφανίζεται ειδοποίηση αν το ReturnYouTubeDislike API δεν είναι διαθέσιμο.</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Κρυφό</string>
-    <string name="revanced_sanitize_sharing_links_summary">Αφαίρεση των παραμέτρων ερωτήματος παρακολούθησης από τις διευθύνσεις URL κατά την κοινή χρήση συνδέσμων.</string>
+    <string name="revanced_sanitize_sharing_links_summary">Αφαίρεση των παραμέτρων παρακολούθησης από τις διευθύνσεις URL κατά την κοινή χρήση συνδέσμων.</string>
     <string name="revanced_sanitize_sharing_links_title">Καθαρισμός συνδέσμων κοινοποίησης</string>
     <string name="revanced_save_playback_speed" formatted="false">Αλλαγή της προεπιλεγμένης ταχύτητας σε %s.</string>
     <string name="revanced_save_video_quality_mobile" formatted="false">Αλλαγή της προεπιλεγμένης ποιότητας με σύνδεση δεδομένων σε %s.</string>

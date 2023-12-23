@@ -30,7 +30,14 @@
     <string name="revanced_alt_thumbnail_dearrow_title">啟用 DeArrow</string>
     <string name="revanced_alt_thumbnail_preference_screen_summary">影片縮圖設定</string>
     <string name="revanced_alt_thumbnail_preference_screen_title">替代縮圖</string>
+    <string name="revanced_alt_thumbnail_stills">靜態影片擷取</string>
+    <string name="revanced_alt_thumbnail_stills_about_summary">靜態捕捉是從每個影片的開頭/中間/結尾處截取的。 這些圖像內建於 YouTube 中，不會使用外部 API。</string>
     <string name="revanced_alt_thumbnail_stills_about_title">關於靜態影片擷取。</string>
+    <string name="revanced_alt_thumbnail_stills_fast_summary_off">使用高品質的靜態捕捉</string>
+    <string name="revanced_alt_thumbnail_stills_fast_summary_on">使用中等質量靜態擷取。 縮圖載入速度會更快，但直播、未發布或非常舊的影片可能會顯示空白縮圖。</string>
+    <string name="revanced_alt_thumbnail_stills_fast_title">使用快速靜態捕捉</string>
+    <string name="revanced_alt_thumbnail_stills_summary_off">不在使用 YouTube 靜態影片捕獲。</string>
+    <string name="revanced_alt_thumbnail_stills_summary_on">正在使用 YouTube 靜態影片捕獲。</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_1">影片的開頭</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_2">影片的中間</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_3">影片的結尾</string>
@@ -55,6 +62,9 @@
     <string name="revanced_change_start_page_entry_search">搜尋</string>
     <string name="revanced_change_start_page_entry_shorts">Shorts</string>
     <string name="revanced_change_start_page_entry_subscriptions">訂閱</string>
+    <string name="revanced_change_start_page_entry_trending">熱門</string>
+    <string name="revanced_change_start_page_title">更改開始頁面</string>
+    <string name="revanced_change_start_page_warning">無效的開始頁面，將回復至預設設定。</string>
     <string name="revanced_channel_bar_title">頻道列</string>
     <string name="revanced_channel_profile_title">頻道設定</string>
     <string name="revanced_close_interstitial_ads_summary">"自動關閉插頁式廣告。
@@ -122,6 +132,9 @@
     <string name="revanced_disable_startup_shorts_player_title">在應用程式啟動時停用自動開啟 Shorts</string>
     <string name="revanced_double_back_timeout_summary">雙擊返回退出的時間（秒）</string>
     <string name="revanced_double_back_timeout_title">雙擊間隔時間判別</string>
+    <string name="revanced_enable_bottom_player_gestures_summary_off">透過滑動播放器底部區域切換到全螢幕已停用。</string>
+    <string name="revanced_enable_bottom_player_gestures_summary_on">透過滑動播放器底部區域切換到全螢幕已啟用。</string>
+    <string name="revanced_enable_bottom_player_gestures_title">啟用底部播放器手勢</string>
     <string name="revanced_enable_compact_controls_overlay_summary_off">精簡控制選單已禁用</string>
     <string name="revanced_enable_compact_controls_overlay_summary_on">精簡控制選單已啟用</string>
     <string name="revanced_enable_compact_controls_overlay_title">啟用精簡控制選單</string>
@@ -351,6 +364,9 @@
     <string name="revanced_hide_collapse_button_summary_off">最小化按鈕已顯示</string>
     <string name="revanced_hide_collapse_button_summary_on">最小化按鈕已隱藏</string>
     <string name="revanced_hide_collapse_button_title">隱藏最小化按鈕</string>
+    <string name="revanced_hide_comments_by_members_summary_off">顯示會員的評論橫幅。</string>
+    <string name="revanced_hide_comments_by_members_summary_on">隱藏會員的評論橫幅。</string>
+    <string name="revanced_hide_comments_by_members_title">隱藏會員橫幅的評論</string>
     <string name="revanced_hide_comments_section_summary_off">留言區已顯示</string>
     <string name="revanced_hide_comments_section_summary_on">留言區已隱藏</string>
     <string name="revanced_hide_comments_section_title">隱藏留言區</string>
@@ -610,6 +626,9 @@
     <string name="revanced_hide_start_trial_button_summary_off">顯示開始試用按鈕</string>
     <string name="revanced_hide_start_trial_button_summary_on">隱藏開始試用按鈕</string>
     <string name="revanced_hide_start_trial_button_title">隱藏開始試用按鈕</string>
+    <string name="revanced_hide_store_tab_summary_off">已顯示商店選項卡。</string>
+    <string name="revanced_hide_store_tab_summary_on">已隱藏商店選項卡。</string>
+    <string name="revanced_hide_store_tab_title">隱藏商店選項卡</string>
     <string name="revanced_hide_subscriptions_button_summary_off">訂閱按鈕已顯示</string>
     <string name="revanced_hide_subscriptions_button_summary_on">訂閱按鈕已隱藏</string>
     <string name="revanced_hide_subscriptions_button_title">隱藏訂閱按鈕</string>
@@ -963,6 +982,9 @@
     <string name="sb_stats_self_saved" formatted="false">您已跳過 &lt;b&gt;%s&lt;/b&gt; 個片段。</string>
     <string name="sb_stats_self_saved_sum" formatted="false">總共 &lt;b&gt;%s&lt;/b&gt;</string>
     <string name="sb_stats_self_saved_reset_title">重置略過片段的計數器?</string>
+    <string name="sb_stats_saved_hour_format" formatted="false">%s 小時 %s分鐘</string>
+    <string name="sb_stats_saved_minute_format" formatted="false">%s分鐘 %s秒</string>
+    <string name="sb_stats_saved_second_format" formatted="false">%s 秒</string>
     <string name="sb_color_dot_label">顏色：</string>
     <string name="sb_color_changed">已變更顏色</string>
     <string name="sb_color_reset">顏色已重置</string>

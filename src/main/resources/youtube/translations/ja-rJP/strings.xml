@@ -30,6 +30,7 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_alt_thumbnail_dearrow_summary_off">DeArrow を使用していません。</string>
     <string name="revanced_alt_thumbnail_dearrow_summary_on">DeArrow を使用しています。</string>
     <string name="revanced_alt_thumbnail_dearrow_title">DeArrow を有効化</string>
+    <string name="revanced_alt_thumbnail_preference_screen_summary">動画のサムネイル設定</string>
     <string name="revanced_alt_thumbnail_preference_screen_title">代替サムネイル</string>
     <string name="revanced_alt_thumbnail_stills">静止画サムネイル</string>
     <string name="revanced_alt_thumbnail_stills_about_summary">静止画サムネイルは、各動画の最初/中間/最後の部分から取得されます。これらの画像は YouTube に直接組み込まれており、外部 API は使用されません。</string>
@@ -126,13 +127,16 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_disable_landscape_mode_title">横画面モードを無効化</string>
     <string name="revanced_disable_quic_protocol_summary">"CronetEngine の QUIC プロトコルを無効にします。"</string>
     <string name="revanced_disable_quic_protocol_title">QUIC プロトコルを無効化</string>
-    <string name="revanced_disable_speed_overlay_summary">"「長押しして2倍速で視聴」を無効化します。"</string>
+    <string name="revanced_disable_speed_overlay_summary">"「長押しして2倍速で視聴」を無効にします。"</string>
     <string name="revanced_disable_speed_overlay_title">倍速再生のオーバーレイを無効化</string>
     <string name="revanced_disable_startup_shorts_player_summary_off">アプリ起動時の YouTube ショートプレーヤーは有効です。</string>
     <string name="revanced_disable_startup_shorts_player_summary_on">アプリ起動時の YouTube ショートプレーヤーは無効です。</string>
     <string name="revanced_disable_startup_shorts_player_title">アプリ起動時のショートプレーヤーを無効化</string>
     <string name="revanced_double_back_timeout_summary">戻るボタンを2回タップしてアプリを閉じる時のタップの間隔 (秒)</string>
     <string name="revanced_double_back_timeout_title">戻るボタンのダブルタップの間隔</string>
+    <string name="revanced_enable_bottom_player_gestures_summary_off">プレイヤーの下部をスワイプして全画面に切り替えることはできません。</string>
+    <string name="revanced_enable_bottom_player_gestures_summary_on">プレイヤーの一番下の領域をスワイプして全画面に切り替えることができます。</string>
+    <string name="revanced_enable_bottom_player_gestures_title">最下部のプレイヤージェスチャーを有効化</string>
     <string name="revanced_enable_compact_controls_overlay_summary_off">コンパクトなコントロールオーバーレイは無効です。</string>
     <string name="revanced_enable_compact_controls_overlay_summary_on">コンパクトなコントロールオーバーレイは有効です。</string>
     <string name="revanced_enable_compact_controls_overlay_title">コンパクトなコントロールオーバーレイ</string>
@@ -179,9 +183,9 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_enable_save_video_quality_summary_off">画質は保存されません。</string>
     <string name="revanced_enable_save_video_quality_summary_on">画質を変更するたびに、画質は保存されます。</string>
     <string name="revanced_enable_save_video_quality_title">画質の保存</string>
-    <string name="revanced_enable_seekbar_tapping_summary_off">シークバーのタップは無効です。</string>
-    <string name="revanced_enable_seekbar_tapping_summary_on">シークバーのタップは有効です。</string>
-    <string name="revanced_enable_seekbar_tapping_title">シークバーのタップ</string>
+    <string name="revanced_enable_seekbar_tapping_summary_off">進捗バーのタップは無効です。</string>
+    <string name="revanced_enable_seekbar_tapping_summary_on">進捗バーのタップは有効です。</string>
+    <string name="revanced_enable_seekbar_tapping_title">進捗バーのタップ</string>
     <string name="revanced_enable_song_search_summary_off">曲の検索は無効です。</string>
     <string name="revanced_enable_song_search_summary_on">曲の検索は有効です。</string>
     <string name="revanced_enable_song_search_title">曲の検索を有効化</string>
@@ -676,6 +680,9 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_hide_video_ads_summary_off">動画プレーヤー内の広告は表示されます。</string>
     <string name="revanced_hide_video_ads_summary_on">動画プレーヤー内の広告は非表示です。</string>
     <string name="revanced_hide_video_ads_title">動画広告を非表示</string>
+    <string name="revanced_hide_video_with_gray_description_summary">"検索結果から灰色の説明付きの動画を非表示にします。
+灰色の説明付きの動画には検索語と関係のない動画が含まれます。"</string>
+    <string name="revanced_hide_video_with_gray_description_title">灰色の説明付きの動画を非表示</string>
     <string name="revanced_hide_video_with_low_view_summary">"ホームフィードで表示される、視聴回数が1,000回未満の動画を非表示にします。チャンネル登録しているチャンネルの動画など、視聴回数が1,000回未満でも非表示にならない動画があります。"</string>
     <string name="revanced_hide_video_with_low_view_title">視聴回数の少ない動画を非表示</string>
     <string name="revanced_hide_view_products_summary_off">プレーヤー内の商品バナーを非表示にします。</string>
@@ -980,6 +987,9 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="sb_stats_self_saved" formatted="false">今までに &lt;b&gt;%s&lt;/b&gt; 個のセグメントをスキップしました</string>
     <string name="sb_stats_self_saved_sum" formatted="false">合計 &lt;b&gt;%s&lt;/b&gt; です。</string>
     <string name="sb_stats_self_saved_reset_title">スキップ回数をリセットしますか？</string>
+    <string name="sb_stats_saved_hour_format" formatted="false">%s 時間 %s 分</string>
+    <string name="sb_stats_saved_minute_format" formatted="false">%s 分 %s 秒</string>
+    <string name="sb_stats_saved_second_format" formatted="false">%s 秒</string>
     <string name="sb_color_dot_label">色:</string>
     <string name="sb_color_changed">色を変更しました</string>
     <string name="sb_color_reset">色をリセットしました</string>
