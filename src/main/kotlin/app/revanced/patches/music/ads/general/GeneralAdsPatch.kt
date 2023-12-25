@@ -7,8 +7,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.shared.fingerprints.automotive.AutoMotiveFingerprint
 import app.revanced.patches.music.ads.general.fingerprints.FloatingLayoutFingerprint
 import app.revanced.patches.music.ads.general.fingerprints.InterstitialsContainerFingerprint
 import app.revanced.patches.music.ads.general.fingerprints.NotifierShelfFingerprint
@@ -22,6 +20,7 @@ import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.Floatin
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.InterstitialsContainer
 import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.SettingsPatch
+import app.revanced.patches.shared.fingerprints.automotive.AutoMotiveFingerprint
 import app.revanced.util.exception
 import app.revanced.util.getStringInstructionIndex
 import app.revanced.util.getWideLiteralInstructionIndex
@@ -58,22 +57,15 @@ object GeneralAdsPatch : BytecodePatch(
          */
         AutoMotiveFingerprint.result?.let {
             it.mutableMethod.apply {
-                with(
-                    context
-                        .toMethodWalker(this)
-                        .nextMethod(getStringInstructionIndex("Android Automotive") - 3, true)
-                        .getMethod() as MutableMethod
-                ) {
-                    val targetIndex = implementation!!.instructions.size - 1
-                    val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
+                val targetIndex = getStringInstructionIndex("Android Automotive") - 1
+                val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
-                    addInstructions(
-                        targetIndex, """
-                            invoke-static {v$targetRegister}, $ADS_PATH/InterstitialsBannerPatch;->hideInterstitialsBanner(Z)Z
-                            move-result v$targetRegister
-                            """
-                    )
-                }
+                addInstructions(
+                    targetIndex, """
+                        invoke-static {v$targetRegister}, $ADS_PATH/InterstitialsBannerPatch;->hideInterstitialsBanner(Z)Z
+                        move-result v$targetRegister
+                        """
+                )
             }
         } ?: throw AutoMotiveFingerprint.exception
 
