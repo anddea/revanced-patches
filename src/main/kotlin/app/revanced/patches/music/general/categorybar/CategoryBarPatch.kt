@@ -16,7 +16,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Hide category bar",
-    description = "Hides the music category bar at the top of the homepage.",
+    description = "Hides the category bar.",
     dependencies = [
         SettingsPatch::class,
         SharedResourceIdPatch::class
