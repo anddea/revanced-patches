@@ -4,6 +4,7 @@ import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patches.music.utils.intenthook.IntentHookPatch
 import app.revanced.patches.music.utils.settings.ResourceUtils
 import app.revanced.patches.music.utils.settings.ResourceUtils.hookPreference
 import app.revanced.patches.music.utils.settings.SettingsPatch
@@ -14,6 +15,7 @@ import app.revanced.util.copyResources
     name = "SponsorBlock",
     description = "Integrates SponsorBlock which allows skipping video segments such as sponsored content.",
     dependencies = [
+        IntentHookPatch::class,
         SettingsPatch::class,
         SponsorBlockBytecodePatch::class
     ],
