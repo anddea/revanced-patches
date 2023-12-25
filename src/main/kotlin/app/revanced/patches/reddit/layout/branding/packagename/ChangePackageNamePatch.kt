@@ -7,6 +7,7 @@ import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatchOption
 import org.w3c.dom.Element
+import java.io.Closeable
 
 @Patch(
     name = "Change package name",
@@ -15,10 +16,13 @@ import org.w3c.dom.Element
     use = false
 )
 @Suppress("unused")
-object ChangePackageNamePatch : ResourcePatch() {
+object ChangePackageNamePatch : ResourcePatch(), Closeable {
     private const val PACKAGE_NAME_REDDIT = "com.reddit.frontpage"
     private const val CLONE_PACKAGE_NAME_REDDIT = "$PACKAGE_NAME_REDDIT.revanced"
     private const val DEFAULT_PACKAGE_NAME_REDDIT = "$PACKAGE_NAME_REDDIT.rvx"
+
+    private lateinit var context: ResourceContext
+    private lateinit var redditPackageName: String
 
     private val PackageNameReddit by stringPatchOption(
         key = "PackageNameReddit",
@@ -32,36 +36,41 @@ object ChangePackageNamePatch : ResourcePatch() {
     )
 
     override fun execute(context: ResourceContext) {
-        val redditPackageName = PackageNameReddit
+        this.context = context
+
+        redditPackageName = PackageNameReddit
             ?: throw PatchException("Invalid package name.")
 
         // Ensure device runs Android.
         try {
-            // Android, RVX Manager
+            // RVX Manager
             // ====
             // For some reason, in Android AAPT2, a compilation error occurs when changing the [strings.xml] of the Reddit
             // This only affects RVX Manager, and has not yet found a valid workaround
             Class.forName("android.os.Environment")
-            context.replaceManifest(redditPackageName)
         } catch (_: ClassNotFoundException) {
             // CLI
-            context.replaceManifestAndString(redditPackageName)
+            context.replacePackageName(redditPackageName)
         }
     }
 
-    private fun ResourceContext.replaceManifest(redditPackageName: String) {
-        this["AndroidManifest.xml"].apply {
+    override fun close() {
+        context["AndroidManifest.xml"].apply {
             writeText(
                 readText()
                     .replace(
                         "package=\"$PACKAGE_NAME_REDDIT",
                         "package=\"$redditPackageName"
                     )
+                    .replace(
+                        "$PACKAGE_NAME_REDDIT.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION",
+                        "$redditPackageName.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+                    )
             )
         }
     }
 
-    private fun ResourceContext.replaceManifestAndString(redditPackageName: String) {
+    private fun ResourceContext.replacePackageName(redditPackageName: String) {
         // replace strings
         this.xmlEditor["res/values/strings.xml"].use { editor ->
             val resourcesNode = editor.file.getElementsByTagName("resources").item(0) as Element
@@ -87,14 +96,6 @@ object ChangePackageNamePatch : ResourcePatch() {
                     .replace(
                         "android:authorities=\"$PACKAGE_NAME_REDDIT",
                         "android:authorities=\"$redditPackageName"
-                    )
-                    .replace(
-                        "package=\"$PACKAGE_NAME_REDDIT",
-                        "package=\"$redditPackageName"
-                    )
-                    .replace(
-                        "$PACKAGE_NAME_REDDIT.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION",
-                        "$redditPackageName.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
                     )
             )
         }
