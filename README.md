@@ -156,7 +156,7 @@ ReVanced Extended Patches.
 | `Hide button shelf` | Hides the button shelf from homepage and explorer. | 6.21.52+ |
 | `Hide carousel shelf` | Hides the carousel shelf from homepage and explorer. | 6.21.52+ |
 | `Hide cast button` | Hides the cast button. | 6.21.52+ |
-| `Hide category bar` | Hides the music category bar at the top of the homepage. | 6.21.52+ |
+| `Hide category bar` | Hides the category bar. | 6.21.52+ |
 | `Hide channel guidelines` | Hides channel guidelines at the top of comments. | 6.21.52+ |
 | `Hide emoji picker` | Hides emoji picker at the comments box. | 6.21.52+ |
 | `Hide flyout panel` | Hides flyout panel components. | 6.21.52+ |
