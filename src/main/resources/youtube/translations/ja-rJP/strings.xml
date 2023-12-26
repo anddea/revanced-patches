@@ -27,9 +27,9 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">API が利用できない場合にトーストを表示</string>
     <string name="revanced_alt_thumbnail_dearrow_error">DeArrow は一時的に利用できません (ステータスコード: %s)</string>
     <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow は一時的に利用できません</string>
-    <string name="revanced_alt_thumbnail_dearrow_summary_off">DeArrow を使用していません。</string>
-    <string name="revanced_alt_thumbnail_dearrow_summary_on">DeArrow を使用しています。</string>
-    <string name="revanced_alt_thumbnail_dearrow_title">DeArrow を有効化</string>
+    <string name="revanced_alt_thumbnail_dearrow_summary_off">DeArrow のサムネイルを使用していません。</string>
+    <string name="revanced_alt_thumbnail_dearrow_summary_on">DeArrow のサムネイルを使用しています。</string>
+    <string name="revanced_alt_thumbnail_dearrow_title">DeArrow サムネイルを有効化</string>
     <string name="revanced_alt_thumbnail_preference_screen_summary">動画のサムネイル設定</string>
     <string name="revanced_alt_thumbnail_preference_screen_title">代替サムネイル</string>
     <string name="revanced_alt_thumbnail_stills">静止画サムネイル</string>
@@ -127,7 +127,9 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_disable_landscape_mode_title">横画面モードを無効化</string>
     <string name="revanced_disable_quic_protocol_summary">"CronetEngine の QUIC プロトコルを無効にします。"</string>
     <string name="revanced_disable_quic_protocol_title">QUIC プロトコルを無効化</string>
-    <string name="revanced_disable_speed_overlay_summary">"「長押しして2倍速で視聴」を無効にします。"</string>
+    <string name="revanced_disable_speed_overlay_summary">"画面を長押ししている間、2倍速で再生する機能を無効にします。
+
+注意: 倍速再生オーバーレイを無効にすると、古いレイアウトの「スライドしてシーク」動作が復元されます。"</string>
     <string name="revanced_disable_speed_overlay_title">倍速再生のオーバーレイを無効化</string>
     <string name="revanced_disable_startup_shorts_player_summary_off">アプリ起動時の YouTube ショートプレーヤーは有効です。</string>
     <string name="revanced_disable_startup_shorts_player_summary_on">アプリ起動時の YouTube ショートプレーヤーは無効です。</string>
@@ -136,7 +138,7 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_double_back_timeout_title">戻るボタンのダブルタップの間隔</string>
     <string name="revanced_enable_bottom_player_gestures_summary_off">プレイヤーの下部をスワイプして全画面に切り替えることはできません。</string>
     <string name="revanced_enable_bottom_player_gestures_summary_on">プレイヤーの一番下の領域をスワイプして全画面に切り替えることができます。</string>
-    <string name="revanced_enable_bottom_player_gestures_title">最下部のプレイヤージェスチャーを有効化</string>
+    <string name="revanced_enable_bottom_player_gestures_title">プレーヤー下部のジェスチャーを有効化</string>
     <string name="revanced_enable_compact_controls_overlay_summary_off">コンパクトなコントロールオーバーレイは無効です。</string>
     <string name="revanced_enable_compact_controls_overlay_summary_on">コンパクトなコントロールオーバーレイは有効です。</string>
     <string name="revanced_enable_compact_controls_overlay_title">コンパクトなコントロールオーバーレイ</string>
@@ -183,9 +185,9 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_enable_save_video_quality_summary_off">画質は保存されません。</string>
     <string name="revanced_enable_save_video_quality_summary_on">画質を変更するたびに、画質は保存されます。</string>
     <string name="revanced_enable_save_video_quality_title">画質の保存</string>
-    <string name="revanced_enable_seekbar_tapping_summary_off">進捗バーのタップは無効です。</string>
-    <string name="revanced_enable_seekbar_tapping_summary_on">進捗バーのタップは有効です。</string>
-    <string name="revanced_enable_seekbar_tapping_title">進捗バーのタップ</string>
+    <string name="revanced_enable_seekbar_tapping_summary_off">シークバーのタップは無効です。</string>
+    <string name="revanced_enable_seekbar_tapping_summary_on">シークバーのタップは有効です。</string>
+    <string name="revanced_enable_seekbar_tapping_title">シークバーのタップ</string>
     <string name="revanced_enable_song_search_summary_off">曲の検索は無効です。</string>
     <string name="revanced_enable_song_search_summary_on">曲の検索は有効です。</string>
     <string name="revanced_enable_song_search_title">曲の検索を有効化</string>

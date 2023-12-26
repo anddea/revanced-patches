@@ -27,9 +27,9 @@
     <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">Уведомлять, когда API недоступен</string>
     <string name="revanced_alt_thumbnail_dearrow_error">DeArrow временно недоступен. (код состояния: %s)</string>
     <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow временно недоступен.</string>
-    <string name="revanced_alt_thumbnail_dearrow_summary_off">DeArrow не используется.</string>
-    <string name="revanced_alt_thumbnail_dearrow_summary_on">DeArrow используется.</string>
-    <string name="revanced_alt_thumbnail_dearrow_title">DeArrow</string>
+    <string name="revanced_alt_thumbnail_dearrow_summary_off">Значки видео DeArrow не используются.</string>
+    <string name="revanced_alt_thumbnail_dearrow_summary_on">Значки видео DeArrow используются.</string>
+    <string name="revanced_alt_thumbnail_dearrow_title">Значки видео DeArrow</string>
     <string name="revanced_alt_thumbnail_preference_screen_summary">Настройки значков видео.</string>
     <string name="revanced_alt_thumbnail_preference_screen_title">Альтернативные значки</string>
     <string name="revanced_alt_thumbnail_stills">Взятие кадра из видео</string>
@@ -181,7 +181,7 @@
     <string name="revanced_enable_phone_layout_title">Телефонный интерфейс</string>
     <string name="revanced_enable_save_playback_speed_summary_off">Не сохранять скорость воспроизведения при её изменении.</string>
     <string name="revanced_enable_save_playback_speed_summary_on">Сохранять скорость воспроизведения при её изменении.</string>
-    <string name="revanced_enable_save_playback_speed_title">Сохранение скорости</string>
+    <string name="revanced_enable_save_playback_speed_title">Сохранение скорости воспроизведения</string>
     <string name="revanced_enable_save_video_quality_summary_off">Не сохранять качество видео при его изменении.</string>
     <string name="revanced_enable_save_video_quality_summary_on">Сохранять качество видео при его изменении.</string>
     <string name="revanced_enable_save_video_quality_title">Сохранение качества видео</string>
@@ -227,17 +227,17 @@
 В таком случае вы можете использовать такую последовательность: Вкладка \"Вы\" &gt; На страницу канала &gt; Три точки &gt; Настройки."</string>
     <string name="revanced_enable_wide_search_bar_in_you_tab_title">Широкая панель поиска во вкладке \"Вы\"</string>
     <string name="revanced_experimental_flag">Экспериментальные опции</string>
-    <string name="revanced_extended_settings_export_failed">Не удалось сохранить настройки.</string>
-    <string name="revanced_extended_settings_export_success">Настройки успешно сохранены.</string>
-    <string name="revanced_extended_settings_export_summary">Сохранить настройки в файл.</string>
-    <string name="revanced_extended_settings_export_title">Восстановление настроек</string>
+    <string name="revanced_extended_settings_export_failed">Не удалось извлечь настройки.</string>
+    <string name="revanced_extended_settings_export_success">Настройки успешно извлечены.</string>
+    <string name="revanced_extended_settings_export_summary">Извлечь настройки в файл.</string>
+    <string name="revanced_extended_settings_export_title">Извлечение настроек</string>
     <string name="revanced_extended_settings_import">Восстановить</string>
     <string name="revanced_extended_settings_import_copy">Копировать</string>
-    <string name="revanced_extended_settings_import_export_as_file_title">Восстановление / Сохранение в виде файла</string>
-    <string name="revanced_extended_settings_import_export_as_text_summary">Восстановить или сохранить настройки в виде текста.</string>
-    <string name="revanced_extended_settings_import_export_as_text_title">Восстановление / Сохранение в виде текста</string>
-    <string name="revanced_extended_settings_import_export_summary">Восстановить или сохранить настройки.</string>
-    <string name="revanced_extended_settings_import_export_title">Восстановление / Сохранение настроек</string>
+    <string name="revanced_extended_settings_import_export_as_file_title">Восстановление / Извлечение в виде файла</string>
+    <string name="revanced_extended_settings_import_export_as_text_summary">Восстановить или извлечь настройки в виде текста.</string>
+    <string name="revanced_extended_settings_import_export_as_text_title">Восстановление / Извлечение в виде текста</string>
+    <string name="revanced_extended_settings_import_export_summary">Восстановить или извлечь настройки.</string>
+    <string name="revanced_extended_settings_import_export_title">Восстановление / Извлечение настроек</string>
     <string name="revanced_extended_settings_import_failed">Не удалось восстановить настройки.</string>
     <string name="revanced_extended_settings_import_reset">Сбросить</string>
     <string name="revanced_extended_settings_import_success">Настройки успешно восстановлены.</string>
@@ -252,7 +252,7 @@
     <string name="revanced_external_downloader_set">Сделать загрузчиком по умолчанию</string>
     <string name="revanced_external_downloader_settings_summary">Настройки использования внешнего загрузчика видео.</string>
     <string name="revanced_external_downloader_settings_title">Настройки внешнего загрузчика</string>
-    <string name="revanced_feed_flyout_panel_title">Выдвижная панель ленты</string>
+    <string name="revanced_feed_flyout_panel_title">Выдвижная панель фидов</string>
     <string name="revanced_flyout_menu">Выдвижное меню</string>
     <string name="revanced_force_fullscreen_summary">"Видео будет переведено в полноэкранный режим в следующих ситуациях:
 
@@ -314,9 +314,9 @@
     <string name="revanced_hide_button_report_summary_off">Кнопка \"Пожаловаться\" отображена.</string>
     <string name="revanced_hide_button_report_summary_on">Кнопка \"Пожаловаться\" скрыта.</string>
     <string name="revanced_hide_button_report_title">Скрыть кнопку \"Пожаловаться\"</string>
-    <string name="revanced_hide_button_rewards_summary_off">Кнопка \"Вознаграждения\" отображена.</string>
-    <string name="revanced_hide_button_rewards_summary_on">Кнопка \"Вознаграждения\" скрыта.</string>
-    <string name="revanced_hide_button_rewards_title">Скрыть кнопку \"Вознаграждения\"</string>
+    <string name="revanced_hide_button_rewards_summary_off">Кнопка \"Бонусы\" отображена.</string>
+    <string name="revanced_hide_button_rewards_summary_on">Кнопка \"Бонусы\" скрыта.</string>
+    <string name="revanced_hide_button_rewards_title">Скрыть кнопку \"Бонусы\"</string>
     <string name="revanced_hide_button_save_to_playlist_summary_off">Кнопка \"Сохранить (в плейлист)\" отображена.</string>
     <string name="revanced_hide_button_save_to_playlist_summary_on">Кнопка \"Сохранить (в плейлист)\" скрыта.</string>
     <string name="revanced_hide_button_save_to_playlist_title">Скрыть кнопку \"Сохранить\"</string>
@@ -338,7 +338,7 @@
     <string name="revanced_hide_cast_button_summary_off">Кнопка \"Трансляция\" отображена.</string>
     <string name="revanced_hide_cast_button_summary_on">Кнопка \"Трансляция\" скрыта.</string>
     <string name="revanced_hide_cast_button_title">Скрыть кнопку \"Трансляция\"</string>
-    <string name="revanced_hide_category_bar_in_feed_title">Скрыть панель категорий в ленте</string>
+    <string name="revanced_hide_category_bar_in_feed_title">Скрыть панель категорий в фидах</string>
     <string name="revanced_hide_category_bar_in_related_video_title">Скрыть панель категорий в похожих видео</string>
     <string name="revanced_hide_category_bar_in_search_results_title">Скрыть панель категорий в поиске</string>
     <string name="revanced_hide_category_bar_summary_off">Панель категорий отображена.</string>
@@ -361,23 +361,23 @@
     <string name="revanced_hide_chapters_summary_off">Эпизоды отображены.</string>
     <string name="revanced_hide_chapters_summary_on">Эпизоды скрыты.</string>
     <string name="revanced_hide_chapters_title">Скрыть эпизоды</string>
-    <string name="revanced_hide_chips_shelf_off">Секция тегов похожих видео в ленте отображена.</string>
-    <string name="revanced_hide_chips_shelf_on">Секция тегов похожих видео в ленте скрыта.</string>
+    <string name="revanced_hide_chips_shelf_off">Секция тегов похожих видео в фидах отображена.</string>
+    <string name="revanced_hide_chips_shelf_on">Секция тегов похожих видео в фидах скрыта.</string>
     <string name="revanced_hide_chips_shelf_title">Скрыть секцию тегов видео</string>
     <string name="revanced_hide_collapse_button_summary_off">Кнопка \"Свернуть\" отображена.</string>
     <string name="revanced_hide_collapse_button_summary_on">Кнопка \"Свернуть\" скрыта.</string>
     <string name="revanced_hide_collapse_button_title">Скрыть кнопку \"Свернуть\"</string>
-    <string name="revanced_hide_comments_by_members_summary_off">Раздел \"Спонсоры\" отображён.</string>
-    <string name="revanced_hide_comments_by_members_summary_on">Раздел \"Спонсоры\" скрыт.</string>
-    <string name="revanced_hide_comments_by_members_title">Скрыть раздел \"Спонсоры\"</string>
+    <string name="revanced_hide_comments_by_members_summary_off">Баннер \"Комментарии спонсоров\" отображён.</string>
+    <string name="revanced_hide_comments_by_members_summary_on">Баннер \"Комментарии спонсоров\" скрыт.</string>
+    <string name="revanced_hide_comments_by_members_title">Скрыть баннер \"Комментарии спонсоров\"</string>
     <string name="revanced_hide_comments_section_summary_off">Раздел комментариев отображён.</string>
     <string name="revanced_hide_comments_section_summary_on">Раздел комментариев скрыт.</string>
     <string name="revanced_hide_comments_section_title">Скрыть раздел комментариев</string>
-    <string name="revanced_hide_community_posts_home_summary_off">Публикации сообщества в ленте вкладки \"Главная\" отображены.</string>
-    <string name="revanced_hide_community_posts_home_summary_on">Публикации сообщества в ленте вкладки \"Главная\" скрыты.</string>
+    <string name="revanced_hide_community_posts_home_summary_off">Публикации сообщества во вкладке \"Главная\" отображены.</string>
+    <string name="revanced_hide_community_posts_home_summary_on">Публикации сообщества во вкладке \"Главная\" скрыты.</string>
     <string name="revanced_hide_community_posts_home_title">Скрыть публикации сообщества на \"Главной\"</string>
-    <string name="revanced_hide_community_posts_subscriptions_summary_off">Публикации сообщества в ленте вкладки \"Подписки\" отображены.</string>
-    <string name="revanced_hide_community_posts_subscriptions_summary_on">Публикации сообщества в ленте вкладки \"Подписки\" скрыты.</string>
+    <string name="revanced_hide_community_posts_subscriptions_summary_off">Публикации сообщества во вкладке \"Подписки\" отображены.</string>
+    <string name="revanced_hide_community_posts_subscriptions_summary_on">Публикации сообщества во вкладке \"Подписки\" скрыты.</string>
     <string name="revanced_hide_community_posts_subscriptions_title">Скрыть публикации сообщества в \"Подписках\"</string>
     <string name="revanced_hide_create_button_summary_off">Кнопка \"Создать\" отображена.</string>
     <string name="revanced_hide_create_button_summary_on">Кнопка \"Создать\" скрыта.</string>
@@ -400,13 +400,13 @@
     <string name="revanced_hide_expandable_chip_summary_off">Расширяемые фрагменты под видео отображены.</string>
     <string name="revanced_hide_expandable_chip_summary_on">Расширяемые фрагменты под видео скрыты.</string>
     <string name="revanced_hide_expandable_chip_title">Скрыть расширяемые фрагменты</string>
-    <string name="revanced_hide_feed_flyout_panel_filter_strings_title">Изменить фильтр выдвижного меню ленты</string>
-    <string name="revanced_hide_feed_flyout_panel_summary_off">Выдвижное меню ленты отображено.</string>
-    <string name="revanced_hide_feed_flyout_panel_summary_on">Выдвижное меню ленты скрыто.</string>
-    <string name="revanced_hide_feed_flyout_panel_title">Скрыть выдвижное меню ленты</string>
-    <string name="revanced_hide_feed_survey_summary_off">Опросы в ленте отображены.</string>
-    <string name="revanced_hide_feed_survey_summary_on">Опросы в ленте скрыты.</string>
-    <string name="revanced_hide_feed_survey_title">Скрыть опросы в ленте</string>
+    <string name="revanced_hide_feed_flyout_panel_filter_strings_title">Изменить фильтр выдвижного меню фидов</string>
+    <string name="revanced_hide_feed_flyout_panel_summary_off">Выдвижное меню фидов отображено.</string>
+    <string name="revanced_hide_feed_flyout_panel_summary_on">Выдвижное меню фидов скрыто.</string>
+    <string name="revanced_hide_feed_flyout_panel_title">Скрыть выдвижное меню фидов</string>
+    <string name="revanced_hide_feed_survey_summary_off">Опросы в фидах отображены.</string>
+    <string name="revanced_hide_feed_survey_summary_on">Опросы в фидах скрыты.</string>
+    <string name="revanced_hide_feed_survey_title">Скрыть опросы в фидах</string>
     <string name="revanced_hide_filmstrip_overlay_summary_off">Покадровая лента в стиле \"старой киноплёнки\" для более точного перехода при перемотке отображена.</string>
     <string name="revanced_hide_filmstrip_overlay_summary_on">Покадровая лента в стиле \"старой киноплёнки\" для более точного перехода при перемотке скрыта.</string>
     <string name="revanced_hide_filmstrip_overlay_title">Скрыть покадровую ленту</string>
@@ -437,9 +437,9 @@
     <string name="revanced_hide_handle_summary_off">Адрес электронной почты / @ник учётной записи отображён.</string>
     <string name="revanced_hide_handle_summary_on">Адрес электронной почты / @ник учётной записи скрыт.</string>
     <string name="revanced_hide_handle_title">Скрыть электронную почту / @ник</string>
-    <string name="revanced_hide_home_button_summary_off">Вкладка \"Главная\" отображена.</string>
-    <string name="revanced_hide_home_button_summary_on">Вкладка \"Главная\" скрыта.</string>
-    <string name="revanced_hide_home_button_title">Скрыть вкладку \"Главная\"</string>
+    <string name="revanced_hide_home_button_summary_off">Кнопка \"Главная\" отображена.</string>
+    <string name="revanced_hide_home_button_summary_on">Кнопка \"Главная\" скрыта.</string>
+    <string name="revanced_hide_home_button_title">Скрыть кнопку \"Главная\"</string>
     <string name="revanced_hide_image_shelf_summary_off">Секции изображений отображены.</string>
     <string name="revanced_hide_image_shelf_summary_on">Секции изображений скрыты.</string>
     <string name="revanced_hide_image_shelf_title">Скрыть секции изображений</string>
@@ -461,9 +461,9 @@
     <string name="revanced_hide_latest_videos_button_summary_off">Кнопка \"Новые видео\" отображена.</string>
     <string name="revanced_hide_latest_videos_button_summary_on">Кнопка \"Новые видео\" скрыта.</string>
     <string name="revanced_hide_latest_videos_button_title">Скрыть кнопку \"Новые видео\"</string>
-    <string name="revanced_hide_library_button_summary_off">Вкладка \"Библиотека\" отображена.</string>
-    <string name="revanced_hide_library_button_summary_on">Вкладка \"Библиотека\" скрыта.</string>
-    <string name="revanced_hide_library_button_title">Скрыть вкладку \"Библиотека\"</string>
+    <string name="revanced_hide_library_button_summary_off">Кнопка \"Библиотека\" отображена.</string>
+    <string name="revanced_hide_library_button_summary_on">Кнопка \"Библиотека\" скрыта.</string>
+    <string name="revanced_hide_library_button_title">Скрыть кнопку \"Библиотека\"</string>
     <string name="revanced_hide_load_more_button_summary_off">Кнопка \"Ещё\" отображена.</string>
     <string name="revanced_hide_load_more_button_summary_on">Кнопка \"Ещё\" скрыта.</string>
     <string name="revanced_hide_load_more_button_title">Скрыть кнопку \"Ещё\"</string>
@@ -482,14 +482,14 @@
     <string name="revanced_hide_music_section_summary_off">Разделы музыки отображены.</string>
     <string name="revanced_hide_music_section_summary_on">Разделы музыки скрыты.</string>
     <string name="revanced_hide_music_section_title">Скрыть разделы музыки</string>
-    <string name="revanced_hide_navigation_label_summary_off">Подписи вкладок на панели навигации отображены.</string>
-    <string name="revanced_hide_navigation_label_summary_on">Подписи вкладок на панели навигации скрыты.</string>
-    <string name="revanced_hide_navigation_label_title">Скрыть подписи вкладок навигации</string>
+    <string name="revanced_hide_navigation_label_summary_off">Подписи кнопок на панели навигации отображены.</string>
+    <string name="revanced_hide_navigation_label_summary_on">Подписи кнопок на панели навигации скрыты.</string>
+    <string name="revanced_hide_navigation_label_title">Скрыть подписи кнопок навигации</string>
     <string name="revanced_hide_notifications_button_summary_off">Кнопка \"Уведомления\" отображена.</string>
     <string name="revanced_hide_notifications_button_summary_on">Кнопка \"Уведомления\" скрыта.</string>
     <string name="revanced_hide_notifications_button_title">Скрыть кнопку \"Уведомления\"</string>
-    <string name="revanced_hide_notify_me_button_summary_off">Кнопка \"Прислать уведомление\" в ленте отображена.</string>
-    <string name="revanced_hide_notify_me_button_summary_on">Кнопка \"Прислать уведомление\" в ленте скрыта.</string>
+    <string name="revanced_hide_notify_me_button_summary_off">Кнопка \"Прислать уведомление\" в фидах отображена.</string>
+    <string name="revanced_hide_notify_me_button_summary_on">Кнопка \"Прислать уведомление\" в фидах скрыта.</string>
     <string name="revanced_hide_notify_me_button_title">Скрыть кнопку \"Прислать уведомление\"</string>
     <string name="revanced_hide_paid_promotion_banner_summary_off">Баннер платных акций отображён.</string>
     <string name="revanced_hide_paid_promotion_banner_summary_on">Баннер платных акций скрыт.</string>
@@ -566,12 +566,12 @@
     <string name="revanced_hide_quick_actions_summary_off">Быстрые действия отображены.</string>
     <string name="revanced_hide_quick_actions_summary_on">Быстрые действия скрыты.</string>
     <string name="revanced_hide_quick_actions_title">Скрыть быстрые действия</string>
-    <string name="revanced_hide_search_bar_summary_off">Панель поиска в ленте вкладки \"Главная\" отображена.</string>
-    <string name="revanced_hide_search_bar_summary_on">Панель поиска в ленте вкладки \"Главная\" скрыта.</string>
-    <string name="revanced_hide_search_bar_title">Скрыть панель поиска в ленте \"Главной\"</string>
-    <string name="revanced_hide_search_term_thumbnail_summary_off">Значки в истории поиска отображены.</string>
-    <string name="revanced_hide_search_term_thumbnail_summary_on">Значки в истории поиска скрыты.</string>
-    <string name="revanced_hide_search_term_thumbnail_title">Скрыть значки в истории поиска</string>
+    <string name="revanced_hide_search_bar_summary_off">Панель поиска в фидах вкладки \"Главная\" отображена.</string>
+    <string name="revanced_hide_search_bar_summary_on">Панель поиска в фидах вкладки \"Главная\" скрыта.</string>
+    <string name="revanced_hide_search_bar_title">Скрыть панель поиска в фидах \"Главной\"</string>
+    <string name="revanced_hide_search_term_thumbnail_summary_off">Значки в поисковых запросах отображены.</string>
+    <string name="revanced_hide_search_term_thumbnail_summary_on">Значки в поисковых запросах скрыты.</string>
+    <string name="revanced_hide_search_term_thumbnail_title">Скрыть значки в поисковых запросах</string>
     <string name="revanced_hide_seekbar_summary_off">Прогресс воспроизведения в плеере отображён.</string>
     <string name="revanced_hide_seekbar_summary_on">Прогресс воспроизведения в плеере скрыт.</string>
     <string name="revanced_hide_seekbar_thumbnail_summary_off">Миниатюры прогресса отображены.</string>
@@ -590,9 +590,9 @@
     <string name="revanced_hide_shopping_links_summary_off">Ссылки на товары отображены.</string>
     <string name="revanced_hide_shopping_links_summary_on">Ссылки на товары скрыты.</string>
     <string name="revanced_hide_shopping_links_title">Скрыть ссылки на товары</string>
-    <string name="revanced_hide_shorts_button_summary_off">Вкладка \"Shorts\" отображена.</string>
-    <string name="revanced_hide_shorts_button_summary_on">Вкладка \"Shorts\" скрыта.</string>
-    <string name="revanced_hide_shorts_button_title">Скрыть вкладку \"Shorts\"</string>
+    <string name="revanced_hide_shorts_button_summary_off">Кнопка \"Shorts\" отображена.</string>
+    <string name="revanced_hide_shorts_button_summary_on">Кнопка \"Shorts\" скрыта.</string>
+    <string name="revanced_hide_shorts_button_title">Скрыть кнопку \"Shorts\"</string>
     <string name="revanced_hide_shorts_component_summary">Скрывает секции \"Shorts\" или компоненты плеера Shorts.</string>
     <string name="revanced_hide_shorts_component_title">Скрыть компоненты Shorts</string>
     <string name="revanced_hide_shorts_player_comments_button_summary_off">Кнопка \"Комментарии\" отображена.</string>
@@ -634,7 +634,7 @@
     <string name="revanced_hide_store_tab_title">Скрыть вкладку \"Магазин\"</string>
     <string name="revanced_hide_subscriptions_button_summary_off">Кнопка \"Подписаться\" отображена.</string>
     <string name="revanced_hide_subscriptions_button_summary_on">Кнопка \"Подписаться\" скрыта.</string>
-    <string name="revanced_hide_subscriptions_button_title">Скрыть вкладку \"Подписки\"</string>
+    <string name="revanced_hide_subscriptions_button_title">Скрыть кнопку \"Подписки\"</string>
     <string name="revanced_hide_suggested_actions_summary_off">Предлагаемые действия отображены.</string>
     <string name="revanced_hide_suggested_actions_summary_on">Предлагаемые действия скрыты.</string>
     <string name="revanced_hide_suggested_actions_title">Скрыть предлагаемые действия</string>
@@ -797,13 +797,13 @@
     <string name="revanced_spoof_app_version_title">Подмена версии приложения</string>
     <string name="revanced_spoof_device_dimensions_summary">Подменяет габариты устройства, чтобы разблокировать качество видео, которое могло быть ранее недоступно на вашем устройстве.</string>
     <string name="revanced_spoof_device_dimensions_title">Подмена габаритов устройства</string>
-    <string name="revanced_spoof_player_parameter_in_feed_summary_off">"Параметры плеера не подменены для видео в ленте.
+    <string name="revanced_spoof_player_parameter_in_feed_summary_off">"Параметры плеера не подменены для видео в фидах.
 
-Известная проблема: Видео в ленте смогут нормально воспроизводиться меньше минуты до начала проблем с воспроизведением."</string>
-    <string name="revanced_spoof_player_parameter_in_feed_summary_on">"Параметры плеера подменены для видео в ленте.
+Известная проблема: Видео в фидах смогут нормально воспроизводиться меньше минуты до начала проблем с воспроизведением."</string>
+    <string name="revanced_spoof_player_parameter_in_feed_summary_on">"Параметры плеера подменены для видео в фидах.
 
-Известная проблема: Видео, воспроизводимые автоматически в ленте будут появляться в истории просмотра."</string>
-    <string name="revanced_spoof_player_parameter_in_feed_title">Подмена параметров плеера в ленте</string>
+Известная проблема: Видео, воспроизводимые автоматически в фидах будут появляться в истории просмотра."</string>
+    <string name="revanced_spoof_player_parameter_in_feed_title">Подмена параметров плеера в фидах</string>
     <string name="revanced_spoof_player_parameter_summary">"Подменяет параметры плеера для предотвращения проблем с воспроизведением.
 
 Известные проблемы:
@@ -883,12 +883,12 @@
     <string name="sb_api_url_invalid">Адрес сервера API недействителен.</string>
     <string name="sb_api_url_changed">Адрес сервера API изменён.</string>
     <string name="sb_settings_copy">Копировать</string>
-    <string name="sb_settings_ie_sum">Ваша JSON конфигурация SponsorBlock, которая может быть восстановлена / сохранена в ReVanced Extended и другие платформы SponsorBlock. %s</string>
+    <string name="sb_settings_ie_sum">Ваша JSON конфигурация SponsorBlock, которая может быть восстановлена / извлечена в ReVanced Extended и другие платформы SponsorBlock. %s</string>
     <string name="sb_settings_ie_sum_warning">Она включает в себя ваш личный ID пользователя, делитесь ею с умом.</string>
-    <string name="sb_settings_ie">Восстановление / Сохранение настроек</string>
+    <string name="sb_settings_ie">Восстановление / Извлечение настроек</string>
     <string name="sb_settings_import_successful">Настройки успешно восстановлены.</string>
     <string name="sb_settings_import_failed">Не удалось восстановить: %s.</string>
-    <string name="sb_settings_export_failed">Не удалось сохранить: %s.</string>
+    <string name="sb_settings_export_failed">Не удалось извлечь: %s.</string>
     <string name="sb_settings_revanced_export_user_id_warning">Ваши настройки SponsorBlock содержат приватный ID пользователя.\n\nВаш ID пользователя как пароль, им не стоит ни с кем делиться.\n</string>
     <string name="sb_settings_revanced_export_user_id_warning_dismiss">Не показывать снова</string>
     <string name="sb_diff_segments">Изменить поведение сегмента</string>

@@ -27,9 +27,9 @@
     <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">Εμφάνιση ειδοποίησης αν το API δεν είναι διαθέσιμο</string>
     <string name="revanced_alt_thumbnail_dearrow_error">Το DeArrow είναι προσωρινά μή διαθέσιμο. (κωδικός κατάστασης: %s)</string>
     <string name="revanced_alt_thumbnail_dearrow_error_generic">Το DeArrow είναι προσωρινά μή διαθέσιμο.</string>
-    <string name="revanced_alt_thumbnail_dearrow_summary_off">Δε χρησιμοποιείται το DeArrow.</string>
-    <string name="revanced_alt_thumbnail_dearrow_summary_on">Χρησιμοποιείται το DeArrow.</string>
-    <string name="revanced_alt_thumbnail_dearrow_title">Ενεργοποίηση του DeArrow</string>
+    <string name="revanced_alt_thumbnail_dearrow_summary_off">Δε χρησιμοποιούνται μικρογραφίες DeArrow.</string>
+    <string name="revanced_alt_thumbnail_dearrow_summary_on">Χρησιμοποιείται μικρογραφίες DeArrow.</string>
+    <string name="revanced_alt_thumbnail_dearrow_title">Ενεργοποίηση μικρογραφιών DeArrow</string>
     <string name="revanced_alt_thumbnail_preference_screen_summary">Ρυθμίσεις των μικρογραφιών βίντεο.</string>
     <string name="revanced_alt_thumbnail_preference_screen_title">Εναλλακτικές μικρογραφίες</string>
     <string name="revanced_alt_thumbnail_stills">Λήψεις ακίνητων καρέ βίντεο</string>
@@ -45,14 +45,14 @@
     <string name="revanced_alt_thumbnail_stills_time_entry_3">Τέλος του βίντεο</string>
     <string name="revanced_alt_thumbnail_stills_time_title">Ο χρόνος του βίντεο από τον οποίο θα ληφθεί το καρέ</string>
     <string name="revanced_alt_thumbnail_stills_title">Ενεργοποίηση λήψεων ακίνητων καρέ βίντεο</string>
-    <string name="revanced_append_time_stamp_information_summary_off">Η προσθήκη πληροφοριών χρονοσφραγίδας είναι απενεργοποιημένη</string>
-    <string name="revanced_append_time_stamp_information_summary_on">Η προσθήκη πληροφοριών χρονοσφραγίδας είναι ενεργοποιημένη</string>
+    <string name="revanced_append_time_stamp_information_summary_off">Η προσθήκη πληροφοριών στη χρονοσφραγίδα είναι απενεργοποιημένη.</string>
+    <string name="revanced_append_time_stamp_information_summary_on">Η προσθήκη πληροφοριών στη χρονοσφραγίδα είναι ενεργοποιημένη.</string>
     <string name="revanced_append_time_stamp_information_title">Προσθήκη πληροφοριών χρονοσφραγίδας</string>
-    <string name="revanced_append_time_stamp_information_type_summary_off">Προσθήκη ταχύτητας αναπαραγωγής</string>
-    <string name="revanced_append_time_stamp_information_type_summary_on">Προσθήκη ποιότητας βίντεο</string>
-    <string name="revanced_append_time_stamp_information_type_title">Τύπος πληροφορίων προσθήκης</string>
+    <string name="revanced_append_time_stamp_information_type_summary_off">Εμφάνιση της ταχύτητας αναπαραγωγής</string>
+    <string name="revanced_append_time_stamp_information_type_summary_on">Εμφάνιση της ποιότητας βίντεο</string>
+    <string name="revanced_append_time_stamp_information_type_title">Τύπος πληροφορίας που θα εμφανίζεται</string>
     <string name="revanced_bottom_player">Στοιχεία κάτω από τον αναπαραγωγέα</string>
-    <string name="revanced_button_container_title">Κουμπιά κάτω από τον αναπαραγωγέα βίντεο</string>
+    <string name="revanced_button_container_title">Κουμπιά δράσης</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">Η λειτουργία περιβάλλοντος απενεργοποιείται σε λειτουργία εξοικονόμησης μπαταρίας</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">Η λειτουργία περιβάλλοντος παραμένει ενεργή σε λειτουργία εξοικονόμησης μπαταρίας</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">Παράκαμψη περιορισμών λειτουργίας περιβάλλοντος</string>
@@ -89,8 +89,8 @@
     <string name="revanced_custom_playback_speed_panel_type_summary_on">Προσαρμοσμένο παράθυρο.</string>
     <string name="revanced_custom_playback_speed_panel_type_title">Τύπος μενού προσαρμοσμένης ταχύτητας αναπαραγωγής</string>
     <string name="revanced_custom_player_overlay_opacity_summary">Τιμή αδιαφάνειας μεταξύ 0-100, όπου το 0 είναι διαφανές</string>
-    <string name="revanced_custom_player_overlay_opacity_title">Προσαρμοσμένη αδιαφάνεια παρασκηνίου αναπαραγωγέα</string>
-    <string name="revanced_custom_player_overlay_opacity_warning">Η αδιαφάνεια παρασκηνίου του αναπαραγωγέα πρέπει να είναι μεταξύ 0-100. Έγινε επαναφορά στην προεπιλεγμένη τιμή.</string>
+    <string name="revanced_custom_player_overlay_opacity_title">Αλλαγή αδιαφάνειας φόντου αναπαραγωγέα</string>
+    <string name="revanced_custom_player_overlay_opacity_warning">Η αδιαφάνεια φόντου του αναπαραγωγέα πρέπει να είναι μεταξύ 0-100. Έγινε επαναφορά στην προεπιλεγμένη τιμή.</string>
     <string name="revanced_custom_seekbar_color_value_summary">Εισάγετε τον κωδικό hex του χρώματος της γραμμής προόδου</string>
     <string name="revanced_custom_seekbar_color_value_title">Τιμή χρώματος γραμμής προόδου</string>
     <string name="revanced_default_app_settings_summary">Για να ανοίξετε το RVX σε ένα εξωτερικό πρόγραμμα περιήγησης, ενεργοποιήστε το «Άνοιγμα υποστηριζόμενων συνδέσμων» και ενεργοποιήστε τις υποστηριζόμενες διευθύνσεις ιστού</string>
@@ -98,7 +98,7 @@
     <string name="revanced_default_playback_speed_title">Προεπιλεγμένη ταχύτητα αναπαραγωγής</string>
     <string name="revanced_default_video_quality_mobile_title">Προεπιλεγμένη ποιότητα βίντεο με δεδομένα κινητής τηλεφωνίας</string>
     <string name="revanced_default_video_quality_wifi_title">Προεπιλεγμένη ποιότητα βίντεο με Wi-Fi</string>
-    <string name="revanced_description_title">Περιγραφή</string>
+    <string name="revanced_description_title">Περιγραφή βίντεο</string>
     <string name="revanced_disable_ambient_mode_in_fullscreen_summary">Απενεργοποίηση της λειτουργίας περιβάλλοντος σε λειτουργία πλήρους οθόνης</string>
     <string name="revanced_disable_ambient_mode_in_fullscreen_title">Απενεργοποίηση λειτουργίας περιβάλλοντος σε πλήρη οθόνη</string>
     <string name="revanced_disable_ambient_mode_summary">Απενεργοποίηση της λειτουργίας περιβάλλοντος πάντα</string>
@@ -135,7 +135,7 @@
     <string name="revanced_disable_startup_shorts_player_summary_off">Ο αναπαραγωγέας Shorts θα συνεχίζει από εκεί που σταμάτησε κατά την εκκίνηση της εφαρμογής</string>
     <string name="revanced_disable_startup_shorts_player_summary_on">Ο αναπαραγωγέας Shorts δε θα συνεχίζει από εκεί που σταμάτησε κατά την εκκίνηση της εφαρμογής</string>
     <string name="revanced_disable_startup_shorts_player_title">Απενεργοποίηση συνέχισης Shorts κατά την εκκίνηση της εφαρμογής</string>
-    <string name="revanced_double_back_timeout_summary">Ο αριθμός των δευτερολέπτων που απαιτούνται για διπλό πάτημα του κουμπιού επιστροφής ώστε να γίνει έξοδος απ\' την εφαρμογή</string>
+    <string name="revanced_double_back_timeout_summary">Ο αριθμός των δευτερολέπτων που απαιτούνται για διπλό πάτημα του κουμπιού επιστροφής ώστε να γίνει έξοδος από την εφαρμογή.</string>
     <string name="revanced_double_back_timeout_title">Χρονικό όριο διπλού πατήματος εξόδου</string>
     <string name="revanced_enable_bottom_player_gestures_summary_off">Η εναλλαγή σε λειτουργία πλήρους οθόνης σύροντας την κάτω περιοχή του αναπαραγωγέα είναι απενεργοποιημένη.</string>
     <string name="revanced_enable_bottom_player_gestures_summary_on">Η εναλλαγή σε λειτουργία πλήρους οθόνης σύροντας την κάτω περιοχή του αναπαραγωγέα είναι ενεργοποιημένη.</string>
@@ -167,9 +167,9 @@
     <string name="revanced_enable_new_splash_animation_summary_off">Τα νέα εφέ εκκίνησης είναι απενεργοποιημένα</string>
     <string name="revanced_enable_new_splash_animation_summary_on">Τα νέα εφέ εκκίνησης είναι ενεργοποιημένα</string>
     <string name="revanced_enable_new_splash_animation_title">Ενεργοποίηση νέων εφέ εκκίνησης</string>
-    <string name="revanced_enable_new_thumbnail_preview_summary_off">Η νέα προεπισκόπηση μικρογραφιών είναι απενεργοποιημένη</string>
-    <string name="revanced_enable_new_thumbnail_preview_summary_on">Η νέα προεπισκόπηση μικρογραφιών είναι ενεργοποιημένη</string>
-    <string name="revanced_enable_new_thumbnail_preview_title">Νέα προεπισκόπηση μικρογραφιών βίντεο</string>
+    <string name="revanced_enable_new_thumbnail_preview_summary_off">Η νέα προεπισκόπηση μικρογραφιών γραμμής προόδου είναι απενεργοποιημένη.</string>
+    <string name="revanced_enable_new_thumbnail_preview_summary_on">Η νέα προεπισκόπηση μικρογραφιών γραμμής προόδου είναι ενεργοποιημένη.</string>
+    <string name="revanced_enable_new_thumbnail_preview_title">Νέα προεπισκόπηση μικρογραφιών</string>
     <string name="revanced_enable_old_quality_layout_summary_off">Οι ρυθμίσεις ποιότητας εμφανίζονται με το νέο στυλ</string>
     <string name="revanced_enable_old_quality_layout_summary_on">Οι ρυθμίσεις ποιότητας εμφανίζονται με το παλιό στυλ</string>
     <string name="revanced_enable_old_quality_layout_title">Ρυθμίσεις ποιότητας παλιού στυλ</string>
@@ -260,7 +260,7 @@
 
 • Κάνατε κλικ σε κάποια χρονοσήμανση στα σχόλια.
 • Το βίντεο ξεκίνησε."</string>
-    <string name="revanced_force_fullscreen_title">Εξαναγκασμός πλήρους οθόνης</string>
+    <string name="revanced_force_fullscreen_title">Εξαναγκασμός πλήρης οθόνης πάντα</string>
     <string name="revanced_fullscreen">Λειτουργία πλήρους οθόνης</string>
     <string name="revanced_general">Γενικά</string>
     <string name="revanced_haptic_feedback_title">Απόκριση δόνησης</string>
@@ -564,10 +564,10 @@
     <string name="revanced_hide_quick_actions_more_title">Απόκρυψη κουμπιού περισσότερων ενεργειών</string>
     <string name="revanced_hide_quick_actions_related_videos_summary_off">Τα σχετικά βίντεο εμφανίζονται</string>
     <string name="revanced_hide_quick_actions_related_videos_summary_on">Τα σχετικά βίντεο είναι κρυμμένα</string>
-    <string name="revanced_hide_quick_actions_related_videos_title">Απόκρυψη σχετικών βίντεο στις γρήγορες ενέργειες</string>
+    <string name="revanced_hide_quick_actions_related_videos_title">Απόκρυψη σχετικών βίντεο</string>
     <string name="revanced_hide_quick_actions_summary_off">Οι γρήγορες ενέργειες εμφανίζονται</string>
     <string name="revanced_hide_quick_actions_summary_on">Οι γρήγορες ενέργειες είναι κρυμμένες</string>
-    <string name="revanced_hide_quick_actions_title">Απόκρυψη των γρήγορων ενεργειών</string>
+    <string name="revanced_hide_quick_actions_title">Απόκρυψη όλων των γρήγορων ενεργειών</string>
     <string name="revanced_hide_search_bar_summary_off">Η γραμμή αναζήτησης εμφανίζεται.</string>
     <string name="revanced_hide_search_bar_summary_on">Η γραμμή αναζήτησης είναι κρυμμένη.</string>
     <string name="revanced_hide_search_bar_title">Απόκρυψη γραμμής αναζήτησης στην αρχική ροή</string>
@@ -583,8 +583,8 @@
     <string name="revanced_hide_seek_message_summary_off">Το μήνυμα κύλισης γραμμής προόδου εμφανίζεται</string>
     <string name="revanced_hide_seek_message_summary_on">Το μήνυμα κύλισης γραμμής προόδου είναι κρυμμένο</string>
     <string name="revanced_hide_seek_message_title">Απόκρυψη μηνύματος κύλισης γραμμής προόδου</string>
-    <string name="revanced_hide_seek_undo_message_summary_off">Το μήνυμα «Αφήστε για ακύρωση» της γραμμής προόδου εμφανίζεται</string>
-    <string name="revanced_hide_seek_undo_message_summary_on">Το μήνυμα «Αφήστε για ακύρωση» της γραμμής προόδου είναι κρυμμένο</string>
+    <string name="revanced_hide_seek_undo_message_summary_off">Το μήνυμα «Αφήστε για ακύρωση» εμφανίζεται.</string>
+    <string name="revanced_hide_seek_undo_message_summary_on">Το μήνυμα «Αφήστε για ακύρωση» είναι κρυμμένο.</string>
     <string name="revanced_hide_seek_undo_message_title">Απόκρυψη μηνύματος «Αφήστε για ακύρωση»</string>
     <string name="revanced_hide_self_sponsor_cards_summary_off">Οι αυτοχρηματοδοτούμενες κάρτες εμφανίζονται</string>
     <string name="revanced_hide_self_sponsor_cards_summary_on">Οι αυτοχρηματοδοτούμενες κάρτες είναι κρυμμένες</string>
@@ -642,7 +642,7 @@
     <string name="revanced_hide_suggested_actions_title">Απόκρυψη προτεινόμενων ενεργειών</string>
     <string name="revanced_hide_suggested_video_overlay_summary">"Απόκρυψη του προτεινόμενου βίντεο για την επόμενη αναπαραγωγή
 Γνωστό πρόβλημα: Η αυτόματη αναπαραγωγή δεν λειτουργεί"</string>
-    <string name="revanced_hide_suggested_video_overlay_title">Απόκρυψη προτεινόμενων βίντεο</string>
+    <string name="revanced_hide_suggested_video_overlay_title">Απόκρυψη προτεινόμενου βίντεο</string>
     <string name="revanced_hide_suggestions_shelf_method_summary_off">"Προσδιορισμός του ραφιού προτάσεων μέσω του αναγνωριστικό περιήγησης.
 
 Γνωστά προβλήματα:
@@ -683,6 +683,9 @@
     <string name="revanced_hide_video_ads_summary_off">Οι διαφημίσεις βίντεο εμφανίζονται</string>
     <string name="revanced_hide_video_ads_summary_on">Οι διαφημίσεις βίντεο είναι κρυμμένες</string>
     <string name="revanced_hide_video_ads_title">Απόκρυψη διαφημίσεων βίντεο</string>
+    <string name="revanced_hide_video_with_gray_description_summary">"Απόκρυψη των βίντεο με γκρι περιγραφή από τα αποτελέσματα αναζήτησης.
+Τα βίντεο με γκρι περιγραφή περιλαμβάνουν βίντεο που δεν σχετίζονται με τους όρους αναζήτησης."</string>
+    <string name="revanced_hide_video_with_gray_description_title">Απόκρυψη βίντεο με γκρι περιγραφή</string>
     <string name="revanced_hide_video_with_low_view_summary">"Απόκρυψη των βίντεο με λιγότερες από 1,000 προβολές στην αρχική ροή.
 Κάποια βίντεο, όπως αυτά από κανάλια στα οποία έχετε εγγραφεί, ενδέχεται να εμφανίζονται ακόμη και αν έχουν λιγότερες από 1,000 προβολές."</string>
     <string name="revanced_hide_video_with_low_view_title">Απόκρυψη βίντεο με χαμηλές προβολές</string>
@@ -725,8 +728,8 @@
     <string name="revanced_player_flyout_panel_additional_settings_title">Αναδυόμενος πίνακας του αναπαραγωγέα (Πρόσθετες ρυθμίσεις)</string>
     <string name="revanced_player_flyout_panel_title">Αναδυόμενος πίνακας του αναπαραγωγέα</string>
     <string name="revanced_quick_actions_margin_top_summary">Τιμή πάνω περιθωρίου μεταξύ 0-64</string>
-    <string name="revanced_quick_actions_margin_top_title">Πάνω περιθώριο γρήγορων ενεργειών</string>
-    <string name="revanced_quick_actions_margin_top_warning">Το πάνω περιθώριο των γρήγορων ενεργειών πρέπει να είναι μεταξύ 0-64. Έγινε επαναφορά στις προεπιλεγμένες τιμές.</string>
+    <string name="revanced_quick_actions_margin_top_title">Ύψος της γραμμής προόδου</string>
+    <string name="revanced_quick_actions_margin_top_warning">Το ύψος της γραμμής προόδου πρέπει να είναι μεταξύ 0-64. Έγινε επαναφορά στις προεπιλεγμένες τιμές.</string>
     <string name="revanced_quick_actions_title">Γρήγορες ενέργειες</string>
     <string name="revanced_restart_first_run">Επανεκκίνηση για να φορτώσετε κανονικά τη διάταξη</string>
     <string name="revanced_restart_message">Ανανέωση και επανεκκίνηση</string>
@@ -784,10 +787,10 @@
 Αυτό θα αλλάξει την εμφάνιση της εφαρμογής, αλλά ενδέχεται να προκύψουν άγνωστες παρενέργειες.
 Εάν αργότερα απενεργοποιηθεί, η παλιά εμφάνιση μπορεί να παραμείνει μέχρι να διαγραφούν τα δεδομένα της εφαρμογής."</string>
     <string name="revanced_spoof_app_version_target_entry_17_08_35">17.08.35 - Επαναφορά της παλιάς εμφάνισης</string>
-    <string name="revanced_spoof_app_version_target_entry_17_41_37">17.41.37 - Επαναφορά παλιού ραφιού λίστας αναπαραγωγής</string>
-    <string name="revanced_spoof_app_version_target_entry_18_05_40">18.05.40 - Επαναφορά παλιού κουτιού εισαγωγής σχολίων</string>
-    <string name="revanced_spoof_app_version_target_entry_18_17_43">18.17.43 - Επαναφορά παλιού στυλ αναδυόμενου πίνακα του αναπαραγωγέα</string>
-    <string name="revanced_spoof_app_version_target_entry_18_33_40">18.33.40 - Επαναφορά παλιάς μπάρας δράσεων Shorts</string>
+    <string name="revanced_spoof_app_version_target_entry_17_41_37">17.41.37 - Επαναφορά ραφιού λίστας αναπαραγωγής παλιού στυλ</string>
+    <string name="revanced_spoof_app_version_target_entry_18_05_40">18.05.40 - Επαναφορά κουτιού εισαγωγής σχολίων παλιού στυλ</string>
+    <string name="revanced_spoof_app_version_target_entry_18_17_43">18.17.43 - Επαναφορά αναδυόμενου πίνακα του αναπαραγωγέα παλιού στυλ</string>
+    <string name="revanced_spoof_app_version_target_entry_18_33_40">18.33.40 - Επαναφορά μπάρας δράσης Shorts παλιού στυλ</string>
     <string name="revanced_spoof_app_version_target_entry_18_38_45">18.38.45 - Επαναφορά της παλιάς συμπεριφοράς προεπιλεγμένης ποιότητας βίντεο</string>
     <string name="revanced_spoof_app_version_target_entry_18_40_34">"18.40.34 - Απενεργοποίηση της ενημέρωσης των προβολών/«Μου αρέσει» σε πραγματικό χρόνο"</string>
     <string name="revanced_spoof_app_version_target_entry_title">Έκδοση της εφαρμογής που θα χρησιμοποιηθεί</string>
@@ -796,10 +799,10 @@
     <string name="revanced_spoof_app_version_title">Τροποποίηση έκδοσης εφαρμογής</string>
     <string name="revanced_spoof_device_dimensions_summary">Παραποίηση διαστάσεων συσκευής ώστε να ξεκλειδωθούν υψηλότερες ποιότητες βίντεο που μπορεί να μην είναι διαθέσιμες στη συσκευή σας</string>
     <string name="revanced_spoof_device_dimensions_title">Παραποίηση διαστάσεων συσκευής</string>
-    <string name="revanced_spoof_player_parameter_in_feed_summary_off">"Η παράμετρος του αναπαραγωγέα δεν θα τροποποιηθεί για βίντεο στη ροή
+    <string name="revanced_spoof_player_parameter_in_feed_summary_off">"Η παράμετρος του αναπαραγωγέα δε θα τροποποιηθεί για βίντεο στη ροή.
 
 Γνωστά θέματα
-• Τα βίντεο στη ροή θα αναπαράγονται για λιγότερο από 1 λεπτό πριν αντιμετωπίσουν προβλήματα αναπαραγωγής"</string>
+• Τα βίντεο στη ροή θα αναπαράγονται για λιγότερο από 1 λεπτό πριν αντιμετωπίσουν προβλήματα αναπαραγωγής."</string>
     <string name="revanced_spoof_player_parameter_in_feed_summary_on">"Η παράμετρος του αναπαραγωγέα θα τροποποιηθεί για βίντεο στη ροή
 
 Γνωστά θέματα
@@ -832,8 +835,8 @@
     <string name="revanced_switching_create_notification_title">Εναλλαγή κουμπιού δημιουργίας με το κουμπί ειδοποιήσεων</string>
     <string name="revanced_tool_used">χρησιμοποιούμενο εργαλείο</string>
     <string name="revanced_video">Βίντεο</string>
-    <string name="pref_app_language_dialog_message">&lt;b&gt;%1$s&lt;/b&gt;&lt;br&gt;&lt;br&gt;Αυτό θα αλλάξει τη γλώσσα που χρησιμοποιείται στο YouTube, συμπεριλαμβανομένων κουμπιών, κειμένου και διαλόγων, αλλά δεν θα αλλάξει τη γλώσσα των ρυθμίσεων ReVanced Extended.</string>
-    <string name="pref_app_language_dialog_message_no_lang_name">Αυτό θα αλλάξει τη γλώσσα που χρησιμοποιείται στην εφαρμογή, συμπεριλαμβανομένων των κουμπιών, του κειμένου και των διαλόγων, αλλά δεν θα αλλάξει τη γλώσσα των ρυθμίσεων του ReVanced Extended.</string>
+    <string name="pref_app_language_dialog_message">&lt;b&gt;%1$s&lt;/b&gt;&lt;br&gt;&lt;br&gt;Αυτό θα αλλάξει τη γλώσσα που χρησιμοποιείται στο YouTube, συμπεριλαμβανομένων κουμπιών, κειμένου και διαλόγων, αλλά δε θα αλλάξει τη γλώσσα των ρυθμίσεων ReVanced Extended.</string>
+    <string name="pref_app_language_dialog_message_no_lang_name">Αυτό θα αλλάξει τη γλώσσα που χρησιμοποιείται στην εφαρμογή, συμπεριλαμβανομένων των κουμπιών, του κειμένου και των διαλόγων, αλλά δε θα αλλάξει τη γλώσσα των ρυθμίσεων του ReVanced Extended.</string>
     <string name="sb_enable_sb">Ενεργοποίηση του SponsorBlock</string>
     <string name="sb_enable_sb_sum">Το SponsorBlock είναι ένα σύστημα που προέρχεται από το κοινό για παράβλεψη ενοχλητικών τμημάτων σε βίντεο YouTube</string>
     <string name="sb_appearance_category">Εμφάνιση</string>
@@ -873,9 +876,9 @@
     <string name="sb_general_skipcount_sum_on">Επιτρέπει στον πίνακα κατάταξης SponsorBlock να γνωρίζει πόσος χρόνος εξοικονομήθηκε. Ένα μήνυμα αποστέλλεται στον πίνακα κατάταξης κάθε φορά που παραλείπεται ένα τμήμα</string>
     <string name="sb_general_skipcount_sum_off">Ο μετρητής παραλείψεων δεν είναι ενεργός</string>
     <string name="sb_general_min_duration">Ελάχιστη διάρκεια τμήματος</string>
-    <string name="sb_general_min_duration_sum">Τμήματα μικρότερα από την καθορισμένη τιμή (σε δευτερόλεπτα) δεν θα παραβλεφθούν ούτε θα εμφανίζονται στο πρόγραμμα αναπαραγωγής</string>
+    <string name="sb_general_min_duration_sum">Τμήματα μικρότερα από την καθορισμένη τιμή (σε δευτερόλεπτα) δε θα παραβλεφθούν ούτε θα εμφανίζονται στο πρόγραμμα αναπαραγωγής.</string>
     <string name="sb_general_uuid">Το ιδιωτικό σας αναγνωριστικό χρήστη</string>
-    <string name="sb_general_uuid_sum">Αυτό θα πρέπει να μείνει μυστικό. Είναι σαν έναν κωδικό πρόσβασης που δεν πρέπει να μοιραστείτε με κανέναν. Εάν κάποιος αποκτήσει αυτόν τον κωδικό, μπορεί να σας υποδυθεί</string>
+    <string name="sb_general_uuid_sum">Αυτό θα πρέπει να μείνει μυστικό. Είναι σαν έναν κωδικό πρόσβασης που δεν πρέπει να μοιραστείτε με κανέναν. Εάν κάποιος αποκτήσει αυτόν τον κωδικό, μπορεί να σας υποδυθεί.</string>
     <string name="sb_general_uuid_invalid">Το αναγνωριστικό χρήστη δεν μπορεί να είναι κενό</string>
     <string name="sb_general_api_url">Αλλαγή διεύθυνσης URL του API</string>
     <string name="sb_general_api_url_sum">Η διεύθυνση που χρησιμοποιείται για επικοινωνία με τον διακομιστή του SponsorBlock. &lt;b&gt;Μην το αλλάξετε αυτό αν δεν ξέρετε τι κάνετε.&lt;/b&gt;</string>
