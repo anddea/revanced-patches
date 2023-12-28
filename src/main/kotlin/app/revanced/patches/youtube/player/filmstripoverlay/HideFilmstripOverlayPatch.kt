@@ -15,6 +15,7 @@ import app.revanced.patches.youtube.player.filmstripoverlay.fingerprints.FilmStr
 import app.revanced.patches.youtube.player.filmstripoverlay.fingerprints.FilmStripOverlayParentFingerprint
 import app.revanced.patches.youtube.player.filmstripoverlay.fingerprints.FilmStripOverlayPreviewFingerprint
 import app.revanced.patches.youtube.player.filmstripoverlay.fingerprints.FineScrubbingOverlayFingerprint
+import app.revanced.patches.youtube.utils.controlsoverlay.DisableControlsOverlayConfigPatch
 import app.revanced.patches.youtube.utils.integrations.Constants.PLAYER
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
@@ -32,6 +33,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
     name = "Hide filmstrip overlay",
     description = "Hide filmstrip overlay on swipe controls.",
     dependencies = [
+        DisableControlsOverlayConfigPatch::class,
         SettingsPatch::class,
         SharedResourceIdPatch::class,
     ],
