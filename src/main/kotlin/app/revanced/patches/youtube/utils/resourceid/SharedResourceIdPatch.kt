@@ -15,7 +15,6 @@ import app.revanced.patches.shared.patch.mapping.ResourceType.STRING
 @Patch(dependencies = [ResourceMappingPatch::class])
 object SharedResourceIdPatch : ResourcePatch() {
     var AccountSwitcherAccessibility: Long = -1
-    var AccessibilityCaptionsButtonName: Long = -1
     var ActionBarRingo: Long = -1
     var AdAttribution: Long = -1
     var Appearance: Long = -1
@@ -96,7 +95,6 @@ object SharedResourceIdPatch : ResourcePatch() {
             ?: -1
 
         AccountSwitcherAccessibility = find(STRING, "account_switcher_accessibility_label")
-        AccessibilityCaptionsButtonName = find(STRING, "accessibility_captions_button_name")
         ActionBarRingo = find(LAYOUT, "action_bar_ringo")
         AdAttribution = find(ID, "ad_attribution")
         Appearance = find(STRING, "app_theme_appearance_dark")
