@@ -10,6 +10,7 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.player.seekmessage.fingerprints.SeekEduContainerFingerprint
 import app.revanced.patches.youtube.player.seekmessage.fingerprints.SeekEduUndoOverlayFingerprint
+import app.revanced.patches.youtube.utils.controlsoverlay.DisableControlsOverlayConfigPatch
 import app.revanced.patches.youtube.utils.integrations.Constants.PLAYER
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.SeekUndoEduOverlayStub
@@ -26,6 +27,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
     name = "Hide seek message",
     description = "Hides the 'Slide left or right to seek' or 'Release to cancel' message container.",
     dependencies = [
+        DisableControlsOverlayConfigPatch::class,
         SettingsPatch::class,
         SharedResourceIdPatch::class
     ],
