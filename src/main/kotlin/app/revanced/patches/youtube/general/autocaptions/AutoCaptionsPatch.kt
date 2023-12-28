@@ -1,30 +1,19 @@
 package app.revanced.patches.youtube.general.autocaptions
 
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.fingerprint.MethodFingerprint
-import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.shared.fingerprints.captions.SubtitleTrackFingerprint
-import app.revanced.patches.youtube.general.autocaptions.fingerprints.StartVideoInformerFingerprint
-import app.revanced.patches.youtube.utils.fingerprints.SubtitleButtonControllerFingerprint
+import app.revanced.patches.shared.patch.captions.AbstractAutoCaptionsPatch
 import app.revanced.patches.youtube.utils.integrations.Constants.GENERAL
-import app.revanced.patches.youtube.utils.playertype.PlayerTypeHookPatch
-import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
-import app.revanced.util.exception
+import app.revanced.patches.youtube.utils.videoid.general.VideoIdPatch
 
 @Patch(
     name = "Disable auto captions",
     description = "Disables forced auto captions.",
     dependencies = [
-        PlayerTypeHookPatch::class,
         SettingsPatch::class,
-        SharedResourceIdPatch::class
+        VideoIdPatch::class
     ],
     compatiblePackages = [
         CompatiblePackage(
@@ -54,41 +43,13 @@ import app.revanced.util.exception
     ]
 )
 @Suppress("unused")
-object AutoCaptionsPatch : BytecodePatch(
-    setOf(
-        StartVideoInformerFingerprint,
-        SubtitleButtonControllerFingerprint,
-        SubtitleTrackFingerprint
-    )
+object AutoCaptionsPatch : AbstractAutoCaptionsPatch(
+    GENERAL
 ) {
     override fun execute(context: BytecodeContext) {
-        listOf(
-            StartVideoInformerFingerprint.toPatch(Status.DISABLED),
-            SubtitleButtonControllerFingerprint.toPatch(Status.ENABLED)
-        ).forEach { (fingerprint, status) ->
-            fingerprint.result?.mutableMethod?.addInstructions(
-                0, """
-                    const/4 v0, ${status.value}
-                    sput-boolean v0, $GENERAL->captionsButtonStatus:Z
-                    """
-            ) ?: throw fingerprint.exception
-        }
+        super.execute(context)
 
-        SubtitleTrackFingerprint.result?.let {
-            it.mutableMethod.apply {
-                addInstructionsWithLabels(
-                    0, """
-                        invoke-static {}, $GENERAL->disableAutoCaptions()Z
-                        move-result v0
-                        if-eqz v0, :auto_captions_shown
-                        sget-boolean v0, $GENERAL->captionsButtonStatus:Z
-                        if-nez v0, :auto_captions_shown
-                        const/4 v0, 0x1
-                        return v0
-                        """, ExternalLabel("auto_captions_shown", getInstruction(0))
-                )
-            }
-        } ?: throw SubtitleTrackFingerprint.exception
+        VideoIdPatch.injectCall("$GENERAL->newVideoStarted(Ljava/lang/String;)V")
 
         /**
          * Add settings
@@ -102,14 +63,5 @@ object AutoCaptionsPatch : BytecodePatch(
 
         SettingsPatch.updatePatchStatus("Disable auto captions")
 
-    }
-
-    private fun MethodFingerprint.toPatch(visibility: Status) = SetStatus(this, visibility)
-
-    private data class SetStatus(val fingerprint: MethodFingerprint, val visibility: Status)
-
-    private enum class Status(val value: Int) {
-        ENABLED(1),
-        DISABLED(0)
     }
 }

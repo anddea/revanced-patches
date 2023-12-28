@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.general.autocaptions.fingerprints
+package app.revanced.patches.shared.fingerprints.captions
 
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.MethodFingerprint
