@@ -2,20 +2,18 @@ package app.revanced.patches.youtube.layout.branding.name
 
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.PatchException
-import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatchOption
+import app.revanced.patches.shared.patch.elements.AbstractRemoveStringsElementsPatch
+import app.revanced.patches.youtube.utils.integrations.Constants.LANGUAGE_LIST
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.updatePatchStatusLabel
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 
 @Patch(
     name = "Custom branding name YouTube",
     description = "Rename the YouTube app to the name specified in options.json.",
-    dependencies = [
-        RemoveElementsPatch::class,
-        SettingsPatch::class
-    ],
+    dependencies = [SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(
             "com.google.android.youtube",
@@ -44,7 +42,10 @@ import app.revanced.patches.youtube.utils.settings.SettingsPatch
     ]
 )
 @Suppress("unused")
-object CustomBrandingNamePatch : ResourcePatch() {
+object CustomBrandingNamePatch : AbstractRemoveStringsElementsPatch(
+    LANGUAGE_LIST,
+    arrayOf("application_name")
+) {
     private const val APP_NAME = "ReVanced Extended"
 
     private val AppName by stringPatchOption(
@@ -60,6 +61,7 @@ object CustomBrandingNamePatch : ResourcePatch() {
     )
 
     override fun execute(context: ResourceContext) {
+        super.execute(context)
 
         AppName?.let {
             context.xmlEditor["res/values/strings.xml"].use { editor ->

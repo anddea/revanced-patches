@@ -63,9 +63,6 @@ object SettingsPatch : AbstractSettingsResourcePatch(
         super.execute(context)
         contexts = context
 
-        /**
-         * Check if YouTube version is higher than v18.28.xx
-         */
         val resourceXmlFile = context["res/values/integers.xml"].readBytes()
 
         for (threadIndex in 0 until THREAD_COUNT) {

@@ -2,19 +2,22 @@ package app.revanced.patches.music.general.branding.name
 
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.PatchException
-import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatchOption
+import app.revanced.patches.music.utils.integrations.Constants.LANGUAGE_LIST
+import app.revanced.patches.shared.patch.elements.AbstractRemoveStringsElementsPatch
 
 @Patch(
     name = "Custom branding name YouTube Music",
     description = "Rename the YouTube Music app to the name specified in options.json.",
-    dependencies = [RemoveElementsPatch::class],
     compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")]
 )
 @Suppress("unused")
-object CustomBrandingNamePatch : ResourcePatch() {
+object CustomBrandingNamePatch : AbstractRemoveStringsElementsPatch(
+    LANGUAGE_LIST,
+    arrayOf("app_launcher_name", "app_name")
+) {
     private const val APP_NAME_NOTIFICATION = "ReVanced Extended Music"
     private const val APP_NAME_LAUNCHER = "RVX Music"
 
@@ -43,6 +46,7 @@ object CustomBrandingNamePatch : ResourcePatch() {
     )
 
     override fun execute(context: ResourceContext) {
+        super.execute(context)
 
         AppNameNotification?.let { notificationName ->
             AppNameLauncher?.let { launcherName ->
