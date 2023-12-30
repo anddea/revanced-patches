@@ -21,20 +21,26 @@ abstract class AbstractRemoveViewerDiscretionDialogPatch(
         additionalFingerprints.let(::addAll)
     }
 ) {
-    private fun MutableMethod.invoke() {
+    private fun MutableMethod.invoke(isAgeVerified: Boolean) {
         val showDialogIndex = implementation!!.instructions.indexOfFirst { instruction ->
             ((instruction as? ReferenceInstruction)?.reference as? MethodReference)?.name == "show"
         }
         val dialogRegister = getInstruction<FiveRegisterInstruction>(showDialogIndex).registerC
 
+        val methodName =
+            if (isAgeVerified)
+                "confirmDialogAgeVerified"
+            else
+                "confirmDialog"
+
         addInstruction(
             showDialogIndex + 1,
-            "invoke-static { v$dialogRegister }, $classDescriptor->confirmDialog(Landroid/app/AlertDialog;)V",
+            "invoke-static { v$dialogRegister }, $classDescriptor->$methodName(Landroid/app/AlertDialog;)V"
         )
     }
 
     override fun execute(context: BytecodeContext) {
-        CreateDialogFingerprint.result?.mutableMethod?.invoke()
+        CreateDialogFingerprint.result?.mutableMethod?.invoke(false)
             ?: throw CreateDialogFingerprint.exception
 
         if (additionalFingerprints.isNotEmpty()) {
@@ -44,7 +50,7 @@ abstract class AbstractRemoveViewerDiscretionDialogPatch(
                         .nextMethod(it.scanResult.patternScanResult!!.endIndex - 1, true)
                         .getMethod() as MutableMethod
 
-                    targetMethod.invoke()
+                    targetMethod.invoke(true)
                 } ?: throw fingerprint.exception
             }
         }
