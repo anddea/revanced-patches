@@ -244,6 +244,9 @@
         <!-- SETTINGS: HIDE_TRENDING_SEARCHES
         <SwitchPreference android:title="@string/revanced_hide_trending_searches_title" android:key="revanced_hide_trending_searches" android:defaultValue="true" android:summaryOn="@string/revanced_hide_trending_searches_summary_on" android:summaryOff="@string/revanced_hide_trending_searches_summary_off" />SETTINGS: HIDE_TRENDING_SEARCHES -->
 
+        <!-- SETTINGS: REMOVE_VIEWER_DISCRETION_DIALOG
+        <SwitchPreference android:title="@string/revanced_remove_viewer_discretion_dialog_title" android:key="revanced_remove_viewer_discretion_dialog" android:defaultValue="false" android:summary="@string/revanced_remove_viewer_discretion_dialog_summary" />SETTINGS: REMOVE_VIEWER_DISCRETION_DIALOG -->
+
         <!-- SETTINGS: HIDE_LAYOUT_COMPONENTS
         <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_layout_title" />
         <SwitchPreference android:title="@string/revanced_custom_filter_title" android:key="revanced_custom_filter" android:defaultValue="false" android:summaryOn="@string/revanced_custom_filter_summary_on" android:summaryOff="@string/revanced_custom_filter_summary_off" />
@@ -428,6 +431,7 @@
             <Preference android:title="Hide suggestions shelf" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Hide toolbar button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Hide trending searches" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="Remove viewer discretion dialog" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
 
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_misc" />
             <Preference android:title="Ambient mode switch" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
