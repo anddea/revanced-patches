@@ -68,12 +68,22 @@ object FlyoutPanelPatch : BytecodePatch(
         )
         SettingsPatch.addMusicPreferenceWithoutSummary(
             CategoryType.FLYOUT,
+            "revanced_hide_flyout_panel_delete_playlist",
+            "false"
+        )
+        SettingsPatch.addMusicPreferenceWithoutSummary(
+            CategoryType.FLYOUT,
             "revanced_hide_flyout_panel_dismiss_queue",
             "false"
         )
         SettingsPatch.addMusicPreferenceWithoutSummary(
             CategoryType.FLYOUT,
             "revanced_hide_flyout_panel_download",
+            "false"
+        )
+        SettingsPatch.addMusicPreferenceWithoutSummary(
+            CategoryType.FLYOUT,
+            "revanced_hide_flyout_panel_edit_playlist",
             "false"
         )
         SettingsPatch.addMusicPreferenceWithoutSummary(
@@ -113,6 +123,11 @@ object FlyoutPanelPatch : BytecodePatch(
         )
         SettingsPatch.addMusicPreferenceWithoutSummary(
             CategoryType.FLYOUT,
+            "revanced_hide_flyout_panel_quality",
+            "false"
+        )
+        SettingsPatch.addMusicPreferenceWithoutSummary(
+            CategoryType.FLYOUT,
             "revanced_hide_flyout_panel_remove_from_library",
             "false"
         )
@@ -148,7 +163,17 @@ object FlyoutPanelPatch : BytecodePatch(
         )
         SettingsPatch.addMusicPreferenceWithoutSummary(
             CategoryType.FLYOUT,
+            "revanced_hide_flyout_panel_shuffle_play",
+            "false"
+        )
+        SettingsPatch.addMusicPreferenceWithoutSummary(
+            CategoryType.FLYOUT,
             "revanced_hide_flyout_panel_start_radio",
+            "false"
+        )
+        SettingsPatch.addMusicPreferenceWithoutSummary(
+            CategoryType.FLYOUT,
+            "revanced_hide_flyout_panel_stats_for_nerds",
             "false"
         )
         SettingsPatch.addMusicPreferenceWithoutSummary(
