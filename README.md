@@ -106,6 +106,7 @@ ReVanced Extended Patches.
 | `Overlay buttons` | Add overlay buttons to the player. | 18.25.40 ~ 18.45.43 |
 | `Premium heading` | Show or hide the premium heading. | 18.25.40 ~ 18.45.43 |
 | `Quick actions components` | Adds options to customize quick action components in fullscreen. | 18.25.40 ~ 18.45.43 |
+| `Remove viewer discretion dialog` | Removes the dialog that appears when you try to watch a video that has been age-restricted by accepting it automatically. This does not bypass the age restriction. | 18.25.40 ~ 18.45.43 |
 | `Return YouTube Dislike` | Shows the dislike count of videos using the Return YouTube Dislike API. | 18.25.40 ~ 18.45.43 |
 | `Sanitize sharing links` | Removes tracking query parameters from the URLs when sharing links. | 18.25.40 ~ 18.45.43 |
 | `Settings` | Applies mandatory patches to implement ReVanced Extended settings into the application. | 18.25.40 ~ 18.45.43 |
@@ -176,6 +177,7 @@ ReVanced Extended Patches.
 | `Remember repeat state` | Remembers the state of the repeat. | 6.21.52+ |
 | `Remember shuffle state` | Remembers the state of the shuffle. | 6.21.52+ |
 | `Remember video quality` | Save the video quality value whenever you change the video quality. | 6.21.52+ |
+| `Remove viewer discretion dialog` | Removes the dialog that appears when you try to watch a video that has been age-restricted by accepting it automatically. This does not bypass the age restriction. | 6.21.52+ |
 | `Replace cast button` | Replace the cast button in the player with the open music button. | 6.21.52+ |
 | `Replace dismiss queue` | Replace dismiss queue menu to watch on YouTube. | 6.21.52+ |
 | `Return YouTube Dislike` | Shows the dislike count of videos using the Return YouTube Dislike API. | 6.21.52+ |
