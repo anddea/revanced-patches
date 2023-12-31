@@ -28,7 +28,7 @@
     <string name="revanced_alt_thumbnail_dearrow_error">Το DeArrow είναι προσωρινά μή διαθέσιμο. (κωδικός κατάστασης: %s)</string>
     <string name="revanced_alt_thumbnail_dearrow_error_generic">Το DeArrow είναι προσωρινά μή διαθέσιμο.</string>
     <string name="revanced_alt_thumbnail_dearrow_summary_off">Δε χρησιμοποιούνται μικρογραφίες DeArrow.</string>
-    <string name="revanced_alt_thumbnail_dearrow_summary_on">Χρησιμοποιείται μικρογραφίες DeArrow.</string>
+    <string name="revanced_alt_thumbnail_dearrow_summary_on">Χρησιμοποιούνται μικρογραφίες DeArrow.</string>
     <string name="revanced_alt_thumbnail_dearrow_title">Ενεργοποίηση μικρογραφιών DeArrow</string>
     <string name="revanced_alt_thumbnail_preference_screen_summary">Ρυθμίσεις των μικρογραφιών βίντεο.</string>
     <string name="revanced_alt_thumbnail_preference_screen_title">Εναλλακτικές μικρογραφίες</string>
@@ -178,7 +178,7 @@
     <string name="revanced_enable_open_links_directly_title">Παράκαμψη ανακατευθύνσεων συνδέσμων</string>
     <string name="revanced_enable_opus_codec_summary">Εξαναγκασμός κωδικοποιητή ήχου opus αντί για mp4a</string>
     <string name="revanced_enable_opus_codec_title">Ενεργοποίηση κωδικοποιητή opus</string>
-    <string name="revanced_enable_phone_layout_summary">Μετατρέπει το dpi ώστε να χρησιμοποιηθούν κάποιες διατάξεις κινητού</string>
+    <string name="revanced_enable_phone_layout_summary">Μετατροπή του dpi ώστε να χρησιμοποιηθούν διατάξεις κινητού.</string>
     <string name="revanced_enable_phone_layout_title">Ενεργοποίηση εμφάνισης κινητού</string>
     <string name="revanced_enable_save_playback_speed_summary_off">Δεν αλλάζει η προεπιλεγμένη τιμή ταχύτητας βίντεο ακόμη και όταν αλλάζετε ταχύτητα βίντεο</string>
     <string name="revanced_enable_save_playback_speed_summary_on">Η τιμή ταχύτητας βίντεο αποθηκεύεται ως προεπιλογή κάθε φορά που αλλάζετε την ταχύτητα βίντεο</string>
@@ -207,7 +207,7 @@
     <string name="revanced_enable_swipe_volume_summary_off">Η αλλαγή έντασης ήχου με χειρονομία σάρωσης είναι απενεργοποιημένη</string>
     <string name="revanced_enable_swipe_volume_summary_on">Η αλλαγή έντασης ήχου με χειρονομία σάρωσης είναι ενεργοποιημένη</string>
     <string name="revanced_enable_swipe_volume_title">Έλεγχος σάρωσης για Ένταση Ήχου</string>
-    <string name="revanced_enable_tablet_layout_summary">Μετατρέπει το dpi ώστε να χρησιμοποιηθούν κάποιες διατάξεις τάμπλετ</string>
+    <string name="revanced_enable_tablet_layout_summary">Μετατροπή του dpi ώστε να χρησιμοποιηθούν διατάξεις τάμπλετ.</string>
     <string name="revanced_enable_tablet_layout_title">Ενεργοποίηση εμφάνισης τάμπλετ</string>
     <string name="revanced_enable_tablet_mini_player_summary_off">Η ελαχιστοποιημένη οθόνη αναπαραγωγής στυλ τάμπλετ είναι απενεργοποιημένη</string>
     <string name="revanced_enable_tablet_mini_player_summary_on">Η ελαχιστοποιημένη οθόνη αναπαραγωγής στυλ τάμπλετ είναι ενεργοποιημένη</string>
@@ -611,7 +611,7 @@
     <string name="revanced_hide_shorts_player_subscriptions_button_title">Απόκρυψη κουμπιού εγγραφών</string>
     <string name="revanced_hide_shorts_shelf_summary">"Απόκρυψη των ραφιών Shorts
 
-Γνωστό θέμα: Οι επίσημες επικεφαλίδες στα αποτελέσματα αναζήτησης δεν εμφανίζονται"</string>
+Γνωστό πρόβλημα: Οι επίσημες επικεφαλίδες στα αποτελέσματα αναζήτησης δεν εμφανίζονται."</string>
     <string name="revanced_hide_shorts_shelf_title">Απόκρυψη των Shorts</string>
     <string name="revanced_hide_shorts_toolbar_banner_summary_off">Το λογότυπο Shorts εμφανίζεται</string>
     <string name="revanced_hide_shorts_toolbar_banner_summary_on">Το λογότυπο Shorts είναι κρυμμένο</string>
@@ -640,8 +640,9 @@
     <string name="revanced_hide_suggested_actions_summary_off">Οι προτεινόμενες ενέργειες εμφανίζονται</string>
     <string name="revanced_hide_suggested_actions_summary_on">Οι προτεινόμενες ενέργειες είναι κρυμμένες</string>
     <string name="revanced_hide_suggested_actions_title">Απόκρυψη προτεινόμενων ενεργειών</string>
-    <string name="revanced_hide_suggested_video_overlay_summary">"Απόκρυψη του προτεινόμενου βίντεο για την επόμενη αναπαραγωγή
-Γνωστό πρόβλημα: Η αυτόματη αναπαραγωγή δεν λειτουργεί"</string>
+    <string name="revanced_hide_suggested_video_overlay_summary">"Απόκρυψη του προτεινόμενου βίντεο για την επόμενη αναπαραγωγή.
+
+Γνωστό πρόβλημα: Η αυτόματη αναπαραγωγή δε λειτουργεί."</string>
     <string name="revanced_hide_suggested_video_overlay_title">Απόκρυψη προτεινόμενου βίντεο</string>
     <string name="revanced_hide_suggestions_shelf_method_summary_off">"Προσδιορισμός του ραφιού προτάσεων μέσω του αναγνωριστικό περιήγησης.
 
@@ -727,10 +728,13 @@
     <string name="revanced_player_flyout_panel_additional_settings_summary">Για απόκρυψη του μενού πρόσθετων ρυθμίσεων, ενεργοποιήστε όλες τις ρυθμίσεις απόκρυψης στοιχείων στην κατηγορία «Πρόσθετες ρυθμίσεις»</string>
     <string name="revanced_player_flyout_panel_additional_settings_title">Αναδυόμενος πίνακας του αναπαραγωγέα (Πρόσθετες ρυθμίσεις)</string>
     <string name="revanced_player_flyout_panel_title">Αναδυόμενος πίνακας του αναπαραγωγέα</string>
-    <string name="revanced_quick_actions_margin_top_summary">Τιμή πάνω περιθωρίου μεταξύ 0-64</string>
+    <string name="revanced_quick_actions_margin_top_summary">Τιμή ύψους γραμμής προόδου μεταξύ 0-64.</string>
     <string name="revanced_quick_actions_margin_top_title">Ύψος της γραμμής προόδου</string>
     <string name="revanced_quick_actions_margin_top_warning">Το ύψος της γραμμής προόδου πρέπει να είναι μεταξύ 0-64. Έγινε επαναφορά στις προεπιλεγμένες τιμές.</string>
     <string name="revanced_quick_actions_title">Γρήγορες ενέργειες</string>
+    <string name="revanced_remove_viewer_discretion_dialog_summary">"Αφαίρεση του παραθύρου προειδοποίησης ηλικιακού περιορισμού.
+Αυτό δεν παρακάμπτει τον ηλικιακό περιορισμό, απλά τον αποδέχεται αυτόματα."</string>
+    <string name="revanced_remove_viewer_discretion_dialog_title">Αφαίρεση παραθύρου ηλικιακού περιορισμού</string>
     <string name="revanced_restart_first_run">Επανεκκίνηση για να φορτώσετε κανονικά τη διάταξη</string>
     <string name="revanced_restart_message">Ανανέωση και επανεκκίνηση</string>
     <string name="revanced_ryd_about">Σχετικά με</string>
@@ -769,7 +773,7 @@
     <string name="revanced_share_copy_url_timestamp_success">Η διεύθυνση URL με χρονική σήμανση αντιγράφηκε στο πρόχειρο.</string>
     <string name="revanced_shorts">Shorts</string>
     <string name="revanced_shorts_player_title">Αναπαραγωγέας Shorts</string>
-    <string name="revanced_shorts_toolbar_summary">Το κουμπί επιστροφής στη γραμμή εργαλείων δεν μπορεί να κρυφτεί.</string>
+    <string name="revanced_shorts_toolbar_summary">Το κουμπί επιστροφής στη γραμμή εργαλείων δεν γίνεται να κρυφτεί.</string>
     <string name="revanced_shorts_toolbar_title">Γραμμή εργαλείων Shorts</string>
     <string name="revanced_show_fullscreen_title_summary">Γνωστό ζήτημα: ο τίτλος εξαφανίζεται όταν πατηθεί</string>
     <string name="revanced_show_fullscreen_title_title">Εμφάνιση τίτλου σε πλήρη οθόνη</string>
