@@ -3,7 +3,7 @@
   xmlns:android="http://schemas.android.com/apk/res/android" xmlns:yt="http://schemas.android.com/apk/res-auto">
     <com.google.android.apps.youtube.music.ui.preference.SwitchCompatPreference android:title="@string/sb_enabled" android:key="sb_enabled" android:summary="@string/sb_enabled_sum" android:defaultValue="true" />
     <com.google.android.apps.youtube.music.ui.preference.SwitchCompatPreference android:title="@string/sb_toast_on_skip" android:key="sb_toast_on_skip" android:summary="@string/sb_toast_on_skip_sum" android:dependency="sb_enabled" android:defaultValue="true" />
-    <com.google.android.apps.youtube.music.ui.preference.SwitchCompatPreference android:title="@string/sb_toast_on_connection_error" android:key="sb_toast_on_connection_error" android:summary="@string/sb_toast_on_connection_error_sum" android:dependency="sb_enabled" android:defaultValue="true" />
+    <com.google.android.apps.youtube.music.ui.preference.SwitchCompatPreference android:title="@string/sb_toast_on_connection_error" android:key="sb_toast_on_connection_error" android:summary="@string/sb_toast_on_connection_error_sum" android:dependency="sb_enabled" android:defaultValue="false" />
     <Preference android:title="@string/sb_api_url" android:key="sb_api_url" android:summary="@string/sb_api_url_sum" android:dependency="sb_enabled">
         <intent android:targetPackage="com.google.android.apps.youtube.music" android:data="sb_api_url" android:targetClass="com.google.android.libraries.strictmode.penalties.notification.FullStackTraceActivity" />
     </Preference>
