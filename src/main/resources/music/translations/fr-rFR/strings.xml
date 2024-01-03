@@ -92,6 +92,18 @@ AVERTISSEMENT : N'activez pas le nouvel arrière-plan du lecteur si cette option
     <string name="revanced_hide_account_menu_empty_component_title">Masquer les catégories vides</string>
     <string name="revanced_hide_account_menu_summary">Masque les éléments du menu du compte.</string>
     <string name="revanced_hide_account_menu_title">Masquer les menus du compte</string>
+    <string name="revanced_hide_action_button_add_to_playlist_summary">Masque le bouton \"Enregistrer dans la playlist\".</string>
+    <string name="revanced_hide_action_button_add_to_playlist_title">Masquer \"Enregistrer dans la playlist\"</string>
+    <string name="revanced_hide_action_button_comment_summary">Masque le bouton commentaire.</string>
+    <string name="revanced_hide_action_button_comment_title">Masquer le bouton Commentaire</string>
+    <string name="revanced_hide_action_button_download_summary">Masque le bouton \"Télécharger\".</string>
+    <string name="revanced_hide_action_button_download_title">Masquer le bouton \"Télécharger\"</string>
+    <string name="revanced_hide_action_button_label_summary">Masquer les labels dans le menu d\'action.</string>
+    <string name="revanced_hide_action_button_label_title">Masquer les labels des boutons d\'actions</string>
+    <string name="revanced_hide_action_button_radio_summary">Masque le bouton \"démarrer la radio\".</string>
+    <string name="revanced_hide_action_button_radio_title">Masquer le bouton \"Radio\"</string>
+    <string name="revanced_hide_action_button_share_summary">Masque le bouton \"Partager\".</string>
+    <string name="revanced_hide_action_button_share_title">Masquer le bouton \"Partager\"</string>
     <string name="revanced_hide_button_shelf_summary">Masque les barres de boutons des pages \"Accueil\" et \"Explorer\" (Créer une radio, Nouveautés...)</string>
     <string name="revanced_hide_button_shelf_title">Masquer les barres de boutons</string>
     <string name="revanced_hide_carousel_shelf_summary">Masque les menus déroulants des pages \"Accueil\" et \"Explorer\".</string>
@@ -108,8 +120,10 @@ AVERTISSEMENT : N'activez pas le nouvel arrière-plan du lecteur si cette option
     <string name="revanced_hide_explore_button_title">Masquer le bouton \"Explorer\" dans la barre de navigation</string>
     <string name="revanced_hide_flyout_panel_add_to_queue_title">Masquer le bouton \"Ajouter à la file d\'attente\"</string>
     <string name="revanced_hide_flyout_panel_captions_title">Masquer le menu des sous-titres</string>
+    <string name="revanced_hide_flyout_panel_delete_playlist_title">Masquer \"Supprimer la playlist\"</string>
     <string name="revanced_hide_flyout_panel_dismiss_queue_title">Masquer le bouton \"Retirer de la file d\'attente\"</string>
     <string name="revanced_hide_flyout_panel_download_title">Masquer le bouton \"Télécharger\"</string>
+    <string name="revanced_hide_flyout_panel_edit_playlist_title">Masquer \"Modifier la playlist\"</string>
     <string name="revanced_hide_flyout_panel_go_to_album_title">Masquer le bouton \"Accéder à l\'album\"</string>
     <string name="revanced_hide_flyout_panel_go_to_artist_title">Masquer le bouton \"Accéder à la page de l\'artiste\"</string>
     <string name="revanced_hide_flyout_panel_go_to_episode_title">Masquer le menu \"Épisodes\"</string>
@@ -117,6 +131,7 @@ AVERTISSEMENT : N'activez pas le nouvel arrière-plan du lecteur si cette option
     <string name="revanced_hide_flyout_panel_help_title">Masquer \"Aide et commentaires\"</string>
     <string name="revanced_hide_flyout_panel_like_dislike_title">Masquer les boutons \"J\'aime\" et \"Je n\'aime pas\"</string>
     <string name="revanced_hide_flyout_panel_play_next_title">Masquer le bouton \"Lire ensuite\"</string>
+    <string name="revanced_hide_flyout_panel_quality_title">Masquer le menu de qualité</string>
     <string name="revanced_hide_flyout_panel_remove_from_library_title">Masquer le bouton \"Retirer de la bibliothèque\"</string>
     <string name="revanced_hide_flyout_panel_remove_from_playlist_title">Masquer le bouton \"Supprimer de la playlist\"</string>
     <string name="revanced_hide_flyout_panel_report_title">Masquer le bouton \"Signaler\"</string>
@@ -124,7 +139,9 @@ AVERTISSEMENT : N'activez pas le nouvel arrière-plan du lecteur si cette option
     <string name="revanced_hide_flyout_panel_save_to_library_title">Masquer le bouton \"Enregistrer dans la bibliothèque\"</string>
     <string name="revanced_hide_flyout_panel_save_to_playlist_title">Masquer le bouton \"Enregistrer dans une playlist\"</string>
     <string name="revanced_hide_flyout_panel_share_title">Masquer le bouton \"Partager\"</string>
+    <string name="revanced_hide_flyout_panel_shuffle_play_title">Masquer le menu \"Lecture aléatoire\"</string>
     <string name="revanced_hide_flyout_panel_start_radio_title">Masquer le bouton \"Lancer la radio\"</string>
+    <string name="revanced_hide_flyout_panel_stats_for_nerds_title">Masquer le menu \"Statistiques avancées\"</string>
     <string name="revanced_hide_flyout_panel_view_song_credit_title">Masquer le menu \"Afficher les crédits du titre\"</string>
     <string name="revanced_hide_general_ads_summary">Masque les publicités général</string>
     <string name="revanced_hide_general_ads_title">Les publicités générales</string>
@@ -134,6 +151,8 @@ AVERTISSEMENT : N'activez pas le nouvel arrière-plan du lecteur si cette option
     <string name="revanced_hide_history_button_title">Masquer le bouton \"Historique\"</string>
     <string name="revanced_hide_home_button_summary">Masque le bouton d\'accueil.</string>
     <string name="revanced_hide_home_button_title">Masquer le bouton \"Bibliothèque\"</string>
+    <string name="revanced_hide_interstitial_ads_summary">Masque les publicités interstitielles.</string>
+    <string name="revanced_hide_interstitial_ads_title">Masquer les publicités interstitielles</string>
     <string name="revanced_hide_library_button_summary">Masque le bouton \"Bibliothèque\".</string>
     <string name="revanced_hide_library_button_title">Bouton \"Bibliothèque\"</string>
     <string name="revanced_hide_music_ads_summary">Masque les publicités avant la lecture d\'une musique.</string>
@@ -156,9 +175,14 @@ AVERTISSEMENT : N'activez pas le nouvel arrière-plan du lecteur si cette option
     <string name="revanced_hide_terms_container_title">Masquer le conteneur de termes</string>
     <string name="revanced_hide_upgrade_button_summary">Masque la bouton \"S\'abonner\" dans la barre de navigation.</string>
     <string name="revanced_hide_upgrade_button_title">Masquer la page \"S\'abonner\"</string>
+    <string name="revanced_hook_action_button_download_summary">Remplace le bouton de téléchargement hors-ligne par un bouton de téléchargement externe.</string>
+    <string name="revanced_hook_action_button_download_title">Remplacement du bouton \"Télécharger\"</string>
     <string name="revanced_playback_speed_normal">Normal</string>
     <string name="revanced_playlist_dismiss">Source musicale officielle déjà en cours de lecture.</string>
     <string name="revanced_playlist_error">Source musicale officielle non disponible.</string>
+    <string name="revanced_remove_viewer_discretion_dialog_summary">"Supprimer la boîte de dialogue relative à la discrétion du spectateur.
+Cela ne permet pas de contourner la restriction d'âge, mais de l'accepter automatiquement."</string>
+    <string name="revanced_remove_viewer_discretion_dialog_title">Supprimer le dialogue sur la discrétion du spectateur</string>
     <string name="revanced_restart_first_run">Redémarrez pour charger la mise en page normalement</string>
     <string name="revanced_restart_message">Redémarrer pour appliquer ces changements ?</string>
     <string name="revanced_replace_flyout_panel_dismiss_queue_continue_watch_summary">Regardez sur YouTube, continuez la lecture ici.</string>
