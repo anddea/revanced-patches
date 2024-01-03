@@ -33,7 +33,7 @@ object ReturnYouTubeDislikePatch : ResourcePatch() {
         context.addSwitchPreference("revanced_ryd_compact_layout", "false", "revanced_ryd_enabled")
         context.addSwitchPreference(
             "revanced_ryd_toast_on_connection_error",
-            "true",
+            "false",
             "revanced_ryd_enabled"
         )
         context.addPreferenceCategory("revanced_ryd_about")
