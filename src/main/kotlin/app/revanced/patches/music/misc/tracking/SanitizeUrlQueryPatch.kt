@@ -18,7 +18,12 @@ import app.revanced.patches.shared.patch.tracking.AbstractSanitizeUrlQueryPatch
 )
 @Suppress("unused")
 object SanitizeUrlQueryPatch : AbstractSanitizeUrlQueryPatch(
-    "$MISC_PATH/SanitizeUrlQueryPatch;"
+    "$MISC_PATH/SanitizeUrlQueryPatch;",
+    listOf(
+        CopyTextEndpointFingerprint,
+        ShareLinkFormatterFingerprint
+    ),
+    null
 ) {
     override fun execute(context: BytecodeContext) {
         super.execute(context)
