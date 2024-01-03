@@ -11,6 +11,7 @@ import app.revanced.patches.music.ads.general.fingerprints.FloatingLayoutFingerp
 import app.revanced.patches.music.ads.general.fingerprints.InterstitialsContainerFingerprint
 import app.revanced.patches.music.ads.general.fingerprints.NotifierShelfFingerprint
 import app.revanced.patches.music.ads.music.MusicAdsPatch
+import app.revanced.patches.music.navigation.component.NavigationBarComponentPatch
 import app.revanced.patches.music.utils.integrations.Constants.ADS_PATH
 import app.revanced.patches.music.utils.integrations.Constants.COMPONENTS_PATH
 import app.revanced.patches.music.utils.litho.LithoFilterPatch
@@ -32,6 +33,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
     dependencies = [
         LithoFilterPatch::class,
         MusicAdsPatch::class,
+        NavigationBarComponentPatch::class,
         SettingsPatch::class,
         SharedResourceIdPatch::class
     ],
