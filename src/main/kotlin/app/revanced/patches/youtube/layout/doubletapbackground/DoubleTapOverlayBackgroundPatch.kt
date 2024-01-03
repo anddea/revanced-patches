@@ -1,9 +1,9 @@
 package app.revanced.patches.youtube.layout.doubletapbackground
 
 import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patches.shared.patch.doubletapbackground.AbstractDoubleTapOverlayBackgroundPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 
 @Patch(
@@ -39,37 +39,14 @@ import app.revanced.patches.youtube.utils.settings.SettingsPatch
     use = false
 )
 @Suppress("unused")
-object DoubleTapOverlayBackgroundPatch : ResourcePatch() {
+object DoubleTapOverlayBackgroundPatch : AbstractDoubleTapOverlayBackgroundPatch(
+    arrayOf("quick_seek_overlay.xml"),
+    arrayOf("tap_bloom_view", "dark_background")
+) {
     override fun execute(context: ResourceContext) {
-        context.xmlEditor[RESOURCE_FILE_PATH].use {
-            it.file.getElementsByTagName("merge").item(0).childNodes.apply {
-                val attributes = arrayOf("height", "width")
-                for (i in 1 until length) {
-                    val view = item(i)
-                    if (
-                        view.hasAttributes() &&
-                        view.attributes.getNamedItem("android:id").nodeValue.endsWith("tap_bloom_view")
-                    ) {
-                        attributes.forEach { attribute ->
-                            view.attributes.getNamedItem("android:layout_$attribute").nodeValue =
-                                "0.0dip"
-                        }
-                    }
-                    if (
-                        view.hasAttributes() &&
-                        view.attributes.getNamedItem("android:id").nodeValue.endsWith("dark_background")
-                    ) {
-                        view.attributes.getNamedItem("android:src").nodeValue =
-                            "@color/full_transparent"
-                        break
-                    }
-                }
-            }
-        }
+        super.execute(context)
 
         SettingsPatch.updatePatchStatus("Hide double tap overlay filter")
 
     }
-
-    private const val RESOURCE_FILE_PATH = "res/layout/quick_seek_overlay.xml"
 }
