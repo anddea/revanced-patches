@@ -135,6 +135,7 @@ ReVanced Extended Patches.
 | `Custom package name` | Specifies the package name for YouTube and YT Music in the MicroG build. | 6.21.52+ |
 | `Custom playback speed` | Adds more playback speed options. | 6.21.52+ |
 | `Disable auto captions` | Disables forced auto captions. | 6.21.52+ |
+| `Disable overlay filter` | Disables dark overlay when comment, share, save to playlist, and flyout panels open. | 6.21.52+ |
 | `Enable black navigation bar` | Sets the navigation bar color to black. | 6.21.52+ |
 | `Enable color match player` | Matches the color of the mini player and the fullscreen player. | 6.21.52+ |
 | `Enable compact dialog` | Enable compact dialog on phone. | 6.21.52+ |
@@ -159,6 +160,7 @@ ReVanced Extended Patches.
 | `Hide cast button` | Hides the cast button. | 6.21.52+ |
 | `Hide category bar` | Hides the category bar. | 6.21.52+ |
 | `Hide channel guidelines` | Hides channel guidelines at the top of comments. | 6.21.52+ |
+| `Hide double tap overlay filter` | Hides the double tap dark filter layer. | 6.21.52+ |
 | `Hide emoji picker` | Hides emoji picker at the comments box. | 6.21.52+ |
 | `Hide flyout panel` | Hides flyout panel components. | 6.21.52+ |
 | `Hide general ads` | Hides general ads. | 6.21.52+ |
