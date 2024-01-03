@@ -20,6 +20,7 @@ object SharedResourceIdPatch : ResourcePatch() {
     var ButtonIconPaddingMedium: Long = -1
     var ChipCloud: Long = -1
     var ColorGrey: Long = -1
+    var DesignBottomSheetDialog: Long = -1
     var DialogSolid: Long = -1
     var FloatingLayout: Long = -1
     var HistoryMenuItem: Long = -1
@@ -50,6 +51,7 @@ object SharedResourceIdPatch : ResourcePatch() {
         ButtonIconPaddingMedium = find(DIMEN, "button_icon_padding_medium")
         ChipCloud = find(LAYOUT, "chip_cloud")
         ColorGrey = find(COLOR, "ytm_color_grey_12")
+        DesignBottomSheetDialog = find(LAYOUT, "design_bottom_sheet_dialog")
         DialogSolid = find(STYLE, "Theme.YouTubeMusic.Dialog.Solid")
         FloatingLayout = find(ID, "floating_layout")
         HistoryMenuItem = find(ID, "history_menu_item")
