@@ -1,4 +1,4 @@
-package app.revanced.patches.music.general.branding.icon
+package app.revanced.patches.music.layout.branding.icon
 
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.PatchException
