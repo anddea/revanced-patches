@@ -9,7 +9,7 @@ import app.revanced.patches.music.utils.settings.SettingsPatch
 
 @Patch(
     name = "Enable debug logging",
-    description = "Adds debugging options.",
+    description = "Adds an option to enable debug logging.",
     dependencies = [SettingsPatch::class],
     compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")],
     use = false

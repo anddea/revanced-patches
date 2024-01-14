@@ -26,7 +26,7 @@ import kotlin.math.min
 
 @Patch(
     name = "Hide action bar component",
-    description = "Hides action bar components or replaces the offline download button with an external download button.",
+    description = "Adds options to hide action bar components and replace the offline download button with an external download button.",
     dependencies = [
         IntentHookPatch::class,
         SettingsPatch::class,

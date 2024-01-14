@@ -17,7 +17,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Enable old style miniplayer",
-    description = "Return the miniplayers to old style.",
+    description = "Adds an option to return the miniplayer to the old style.",
     dependencies = [SettingsPatch::class],
     compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")]
 )

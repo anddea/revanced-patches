@@ -29,7 +29,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Hide general ads",
-    description = "Hides general ads.",
+    description = "Adds options to hide general ads.",
     dependencies = [
         LithoFilterPatch::class,
         MusicAdsPatch::class,

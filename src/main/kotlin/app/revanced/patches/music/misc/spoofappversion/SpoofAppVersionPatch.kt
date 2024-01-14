@@ -14,7 +14,8 @@ import app.revanced.util.copyXmlNode
 
 @Patch(
     name = "Spoof app version",
-    description = "Spoof the YouTube Music client version.",
+    description = "Adds options to spoof the YouTube Music client version. " + 
+            "This can remove the radio mode restriction in Canadian regions or disable real-time lyrics.",
     dependencies = [
         IntentHookPatch::class,
         OldStyleLibraryShelfPatch::class,

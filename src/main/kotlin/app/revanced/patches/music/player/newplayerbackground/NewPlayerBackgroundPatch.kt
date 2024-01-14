@@ -13,7 +13,7 @@ import app.revanced.util.exception
 
 @Patch(
     name = "Enable new player background",
-    description = "Enable new player background.",
+    description = "Adds an option to enable the new player background.",
     dependencies = [SettingsPatch::class],
     compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")]
 )

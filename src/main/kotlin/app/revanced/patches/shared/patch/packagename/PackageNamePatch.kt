@@ -8,7 +8,7 @@ import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatc
 
 @Patch(
     name = "Custom package name",
-    description = "Specifies the package name for YouTube and YT Music in the MicroG build.",
+    description = "Changes the package name for the non-root build of YouTube and YouTube Music to the name specified in options.json.",
     compatiblePackages = [
         CompatiblePackage("com.google.android.youtube"),
         CompatiblePackage("com.google.android.apps.youtube.music")

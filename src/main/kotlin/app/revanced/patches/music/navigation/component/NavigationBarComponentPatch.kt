@@ -22,7 +22,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Patch(
     name = "Hide navigation bar component",
-    description = "Hides navigation bar components.",
+    description = "Adds options to hide navigation bar components.",
     dependencies = [
         SettingsPatch::class,
         SharedResourceIdPatch::class

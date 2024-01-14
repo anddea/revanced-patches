@@ -14,7 +14,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Enable force minimized player",
-    description = "Keep player permanently minimized even if another track is played.",
+    description = "Adds an option to keep the miniplayer minimized even when another track is played.",
     dependencies = [SettingsPatch::class],
     compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")]
 )

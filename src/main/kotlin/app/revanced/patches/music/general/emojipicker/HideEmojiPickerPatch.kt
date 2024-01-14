@@ -11,7 +11,7 @@ import app.revanced.patches.music.utils.settings.SettingsPatch
 
 @Patch(
     name = "Hide emoji picker",
-    description = "Hides emoji picker at the comments box.",
+    description = "Adds an option to hide the emoji picker when typing comments.",
     dependencies = [
         LithoFilterPatch::class,
         SettingsPatch::class

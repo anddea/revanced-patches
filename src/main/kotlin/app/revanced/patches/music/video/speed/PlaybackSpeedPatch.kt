@@ -19,7 +19,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 
 @Patch(
     name = "Remember playback speed",
-    description = "Save the playback speed value whenever you change the playback speed.",
+    description = "Adds an option to remember the last playback speed selected.",
     dependencies = [
         OverrideSpeedHookPatch::class,
         SettingsPatch::class

@@ -18,7 +18,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Replace dismiss queue",
-    description = "Replace dismiss queue menu to watch on YouTube.",
+    description = "Adds an option to replace \"Dismiss queue\" with \"Watch on YouTube\" in the flyout menu.",
     dependencies = [
         FlyoutButtonItemResourcePatch::class,
         SettingsPatch::class,

@@ -16,7 +16,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 
 @Patch(
     name = "Hide history button",
-    description = "Hides history button in toolbar.",
+    description = "Adds an option to hide the history button in the toolbar.",
     dependencies = [
         SettingsPatch::class,
         SharedResourceIdPatch::class

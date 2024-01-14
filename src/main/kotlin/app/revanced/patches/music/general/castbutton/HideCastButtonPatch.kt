@@ -21,7 +21,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Hide cast button",
-    description = "Hides the cast button.",
+    description = "Adds an option to hide the cast button.",
     dependencies = [
         SettingsPatch::class,
         SharedResourceIdPatch::class

@@ -23,7 +23,7 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 @Patch(
     name = "Hide ads",
-    description = "Hides ads from the Reddit.",
+    description = "Adds options to hide ads.",
     dependencies = [HideBannerPatch::class, HideCommentAdsPatch::class, SettingsPatch::class],
     compatiblePackages = [CompatiblePackage("com.reddit.frontpage")],
     requiresIntegrations = true,

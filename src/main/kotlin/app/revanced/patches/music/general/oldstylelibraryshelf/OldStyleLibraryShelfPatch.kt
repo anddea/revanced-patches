@@ -16,7 +16,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Patch(
     name = "Enable old style library shelf",
-    description = "Return the library shelf to old style.",
+    description = "Adds an option to return the library tab to the old style.",
     dependencies = [SettingsPatch::class],
     compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")]
 )

@@ -20,7 +20,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 
 @Patch(
     name = "Exclusive audio playback",
-    description = "Enables the option to play music without video.",
+    description = "Unlocks the option to play music without video.",
     compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")]
 )
 @Suppress("unused")

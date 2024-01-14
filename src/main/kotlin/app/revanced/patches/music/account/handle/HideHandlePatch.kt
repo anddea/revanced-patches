@@ -22,7 +22,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Patch(
     name = "Hide handle",
-    description = "Hides the handle in the account switcher.",
+    description = "Adds an option to hide the handle in the account switcher.",
     dependencies = [
         SettingsPatch::class,
         SharedResourceIdPatch::class
