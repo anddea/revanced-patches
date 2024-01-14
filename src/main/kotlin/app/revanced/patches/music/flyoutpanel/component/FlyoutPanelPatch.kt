@@ -21,7 +21,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Patch(
     name = "Hide flyout panel",
-    description = "Hides flyout panel components.",
+    description = "Adds options to hide flyout panel components.",
     dependencies = [
         FlyoutButtonContainerPatch::class,
         SettingsPatch::class

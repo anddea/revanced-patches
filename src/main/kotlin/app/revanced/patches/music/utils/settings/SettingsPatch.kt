@@ -19,7 +19,7 @@ import java.io.Closeable
 
 @Patch(
     name = "Settings",
-    description = "Adds settings for ReVanced Extended to YouTube Music.",
+    description = "Adds ReVanced Extended settings to YouTube Music.",
     dependencies = [SettingsBytecodePatch::class],
     compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")]
 )

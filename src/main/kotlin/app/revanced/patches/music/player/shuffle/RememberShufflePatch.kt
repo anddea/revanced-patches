@@ -31,7 +31,7 @@ import com.android.tools.smali.dexlib2.util.MethodUtil
 
 @Patch(
     name = "Remember shuffle state",
-    description = "Remembers the state of the shuffle.",
+    description = "Adds an option to remember the state of the shuffle toggle.",
     dependencies = [SettingsPatch::class],
     compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")]
 )

@@ -10,7 +10,7 @@ import app.revanced.util.exception
 
 @Patch(
     name = "Premium icon",
-    description = "Unlocks premium icons.",
+    description = "Unlocks premium app icons.",
     compatiblePackages = [CompatiblePackage("com.reddit.frontpage")]
 )
 @Suppress("unused")

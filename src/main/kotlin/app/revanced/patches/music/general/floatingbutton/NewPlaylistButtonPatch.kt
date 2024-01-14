@@ -17,7 +17,7 @@ import app.revanced.util.exception
 
 @Patch(
     name = "Hide new playlist button",
-    description = "Hides the \"New playlist\" button in the library.",
+    description = "Adds an option to hide the \"New playlist\" button in the library.",
     dependencies = [
         SettingsPatch::class,
         SharedResourceIdPatch::class

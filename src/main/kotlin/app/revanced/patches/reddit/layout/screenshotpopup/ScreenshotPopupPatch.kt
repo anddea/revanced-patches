@@ -15,7 +15,7 @@ import app.revanced.util.exception
 
 @Patch(
     name = "Disable screenshot popup",
-    description = "Disables the popup that shows up when taking a screenshot.",
+    description = "Adds an option to disable the popup that shows up when taking a screenshot.",
     dependencies = [SettingsPatch::class, SharedResourceIdPatch::class],
     compatiblePackages = [CompatiblePackage("com.reddit.frontpage")]
 )

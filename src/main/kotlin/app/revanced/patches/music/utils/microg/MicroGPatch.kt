@@ -22,7 +22,7 @@ import app.revanced.patches.shared.patch.packagename.PackageNamePatch
 
 @Patch(
     name = "MicroG support",
-    description = "Allows ReVanced Extended Music to run without root and under a different package name with MicroG.",
+    description = "Allows YouTube Music to run without root and under a different package name with MicroG.",
     dependencies = [
         ClientSpoofPatch::class,
         MainActivityResolvePatch::class,

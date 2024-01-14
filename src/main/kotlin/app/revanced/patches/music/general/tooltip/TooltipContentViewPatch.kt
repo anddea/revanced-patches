@@ -11,7 +11,7 @@ import app.revanced.util.exception
 
 @Patch(
     name = "Hide tooltip content",
-    description = "Hides the tooltip box that appears on first install.",
+    description = "Hides the tooltip box that appears when opening the app for the first time.",
     dependencies = [SharedResourceIdPatch::class],
     compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")]
 )

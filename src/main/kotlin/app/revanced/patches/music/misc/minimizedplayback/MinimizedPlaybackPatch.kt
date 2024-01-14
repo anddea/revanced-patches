@@ -10,7 +10,7 @@ import app.revanced.util.exception
 
 @Patch(
     name = "Enable minimized playback",
-    description = "Enables minimized playback on Kids music.",
+    description = "Enables playback in miniplayer for Kids music.",
     compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")]
 )
 @Suppress("unused")

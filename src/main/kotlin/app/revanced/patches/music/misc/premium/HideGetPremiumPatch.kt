@@ -24,7 +24,7 @@ import com.android.tools.smali.dexlib2.iface.reference.Reference
 
 @Patch(
     name = "Hide get premium",
-    description = "Hides \"Get Premium\" label from the account menu or settings.",
+    description = "Hides the \"Get Music Premium\" label from the account menu and settings.",
     dependencies = [SharedResourceIdPatch::class],
     compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")]
 )

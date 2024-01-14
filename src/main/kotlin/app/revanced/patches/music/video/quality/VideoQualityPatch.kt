@@ -18,7 +18,7 @@ import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction21c
 
 @Patch(
     name = "Remember video quality",
-    description = "Save the video quality value whenever you change the video quality.",
+    description = "Adds an option to remember the last video quality selected.",
     dependencies = [
         OverrideQualityHookPatch::class,
         SettingsPatch::class,

@@ -14,7 +14,7 @@ import app.revanced.util.exception
 
 @Patch(
     name = "Enable landscape mode",
-    description = "Enables entry into landscape mode by screen rotation on the phone.",
+    description = "Adds an option to enable landscape mode when rotating the screen on phones.",
     dependencies = [
         SettingsPatch::class,
         SharedResourceIdPatch::class

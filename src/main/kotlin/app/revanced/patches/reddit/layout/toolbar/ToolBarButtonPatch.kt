@@ -17,7 +17,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Hide toolbar button",
-    description = "Hides 'r/place' button or 'reddit recap' button in the toolbar.",
+    description = "Adds an option to hide the'r/place' button or 'reddit recap' button in the toolbar.",
     dependencies =
     [
         SettingsPatch::class,

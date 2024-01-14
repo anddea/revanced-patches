@@ -11,7 +11,7 @@ import app.revanced.patches.music.utils.settings.SettingsPatch
 
 @Patch(
     name = "Enable custom filter",
-    description = "Enables custom filter to hide layout components.",
+    description = "Adds a custom filter which can be used to hide layout components.",
     dependencies = [
         LithoFilterPatch::class,
         SettingsPatch::class

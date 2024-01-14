@@ -15,7 +15,7 @@ import app.revanced.util.exception
 
 @Patch(
     name = "Enable compact dialog",
-    description = "Enable compact dialog on phone.",
+    description = "Adds an option to enable the compact flyout menu on phones.",
     dependencies = [
         SettingsPatch::class,
         SharedResourceIdPatch::class

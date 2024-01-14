@@ -16,7 +16,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Enable black navigation bar",
-    description = "Sets the navigation bar color to black.",
+    description = "Adds an option to set the navigation bar color to black.",
     dependencies = [
         SettingsPatch::class,
         SharedResourceIdPatch::class

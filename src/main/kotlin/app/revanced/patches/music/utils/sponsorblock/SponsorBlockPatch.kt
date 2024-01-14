@@ -13,7 +13,7 @@ import app.revanced.util.copyResources
 
 @Patch(
     name = "SponsorBlock",
-    description = "Integrates SponsorBlock which allows skipping video segments such as sponsored content.",
+    description = "Adds options to enable and configure SponsorBlock, which can skip undesired video segments such as non-music sections.",
     dependencies = [
         IntentHookPatch::class,
         SettingsPatch::class,

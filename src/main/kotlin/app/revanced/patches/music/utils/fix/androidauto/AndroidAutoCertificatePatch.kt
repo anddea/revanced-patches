@@ -10,7 +10,7 @@ import app.revanced.util.exception
 
 @Patch(
     name = "Certificate spoof",
-    description = "Spoofs the YouTube Music certificate for Android Auto.",
+    description = "Enables YouTube Music to work with Android Auto by spoofing the YouTube Music certificate.",
     compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")]
 )
 @Suppress("unused")

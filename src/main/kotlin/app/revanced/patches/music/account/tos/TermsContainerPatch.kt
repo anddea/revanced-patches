@@ -20,7 +20,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
 
 @Patch(
     name = "Hide terms container",
-    description = "Hides terms of service container at the account menu.",
+    description = "Adds an option to hide the terms of service container in the account menu.",
     dependencies = [
         SettingsPatch::class,
         SharedResourceIdPatch::class

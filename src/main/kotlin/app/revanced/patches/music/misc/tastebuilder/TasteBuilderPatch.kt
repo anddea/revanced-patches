@@ -12,7 +12,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Patch(
     name = "Hide taste builder",
-    description = "Hides the \"Tell us which artists you like\" card from homepage.",
+    description = "Hides the \"Tell us which artists you like\" card from the homepage.",
     compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")]
 )
 @Suppress("unused")

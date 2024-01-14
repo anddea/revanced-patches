@@ -11,7 +11,7 @@ import app.revanced.patches.music.utils.settings.SettingsPatch
 
 @Patch(
     name = "Enable playback speed",
-    description = "Add playback speed button to the flyout panel.",
+    description = "Adds an option to add a playback speed button to the flyout panel.",
     dependencies = [
         FlyoutButtonContainerPatch::class,
         OverrideSpeedHookPatch::class,

@@ -32,7 +32,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Patch(
     name = "Replace cast button",
-    description = "Replace the cast button in the player with the open music button.",
+    description = "Adds an option to replace the cast button in the player with the \"Open music\" button.",
     dependencies = [
         MainActivityResolvePatch::class,
         PlayerResponsePatch::class,

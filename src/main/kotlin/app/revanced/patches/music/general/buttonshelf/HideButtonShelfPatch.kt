@@ -11,7 +11,7 @@ import app.revanced.patches.music.utils.settings.SettingsPatch
 
 @Patch(
     name = "Hide button shelf",
-    description = "Hides the button shelf from homepage and explorer.",
+    description = "Adds an option to hide the button shelf from the homepage and explore tab.",
     dependencies = [
         LithoFilterPatch::class,
         SettingsPatch::class

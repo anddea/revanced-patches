@@ -12,7 +12,7 @@ import org.w3c.dom.Node
 
 @Patch(
     name = "Return YouTube Dislike",
-    description = "Shows the dislike count of videos using the Return YouTube Dislike API.",
+    description = "Adds an option to show the dislike count of songs using the Return YouTube Dislike API.",
     dependencies = [
         ReturnYouTubeDislikeBytecodePatch::class,
         SettingsPatch::class

@@ -7,7 +7,7 @@ import app.revanced.patcher.patch.annotation.Patch
 
 @Patch(
     name = "Disable overlay filter",
-    description = "Disables dark overlay when comment, share, save to playlist, and flyout panels open.",
+    description = "Removes the dark overlay when comment, share, save to playlist, and flyout panels are open.",
     dependencies = [OverlayFilterBytecodePatch::class],
     compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")],
     use = false

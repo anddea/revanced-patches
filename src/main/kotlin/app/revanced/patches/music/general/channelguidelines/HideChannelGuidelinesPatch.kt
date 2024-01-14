@@ -11,7 +11,7 @@ import app.revanced.patches.music.utils.settings.SettingsPatch
 
 @Patch(
     name = "Hide channel guidelines",
-    description = "Hides channel guidelines at the top of comments.",
+    description = "Adds an option to hide the channel guidelines at the top of the comments section.",
     dependencies = [
         LithoFilterPatch::class,
         SettingsPatch::class

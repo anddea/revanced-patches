@@ -7,7 +7,7 @@ import app.revanced.patches.shared.patch.translations.AbstractTranslationsPatch
 
 @Patch(
     name = "Translations",
-    description = "Add Crowdin translations for YouTube Music.",
+    description = "Adds Crowdin translations for YouTube Music.",
     dependencies = [SettingsPatch::class],
     compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")]
 )

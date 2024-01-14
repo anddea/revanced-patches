@@ -11,7 +11,7 @@ import app.revanced.patches.music.utils.settings.SettingsPatch
 
 @Patch(
     name = "Hide playlist card",
-    description = "Hides the playlist card from homepage.",
+    description = "Adds an option to hide the playlist card from the homepage.",
     dependencies = [
         LithoFilterPatch::class,
         SettingsPatch::class

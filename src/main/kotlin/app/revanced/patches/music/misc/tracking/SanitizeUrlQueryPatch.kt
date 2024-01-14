@@ -12,7 +12,7 @@ import app.revanced.patches.shared.patch.tracking.AbstractSanitizeUrlQueryPatch
 
 @Patch(
     name = "Sanitize sharing links",
-    description = "Removes tracking query parameters from the URLs when sharing links.",
+    description = "Adds an option to remove tracking query parameters from URLs when sharing links.",
     dependencies = [SettingsPatch::class],
     compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")]
 )
