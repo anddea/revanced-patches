@@ -17,7 +17,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Disable landscape mode",
-    description = "Disable landscape mode when entering fullscreen.",
+    description = "Adds an option to disable landscape mode when entering fullscreen.",
     dependencies = [SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(

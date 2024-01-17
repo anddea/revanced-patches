@@ -21,7 +21,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Patch(
     name = "Hide feed flyout panel",
-    description = "Hides feed flyout panel components.",
+    description = "Adds the ability to hide feed flyout panel components using a custom filter.",
     dependencies = [
         SettingsPatch::class,
         SharedResourceIdPatch::class

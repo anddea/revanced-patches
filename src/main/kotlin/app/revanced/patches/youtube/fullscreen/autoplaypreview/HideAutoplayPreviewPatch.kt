@@ -20,7 +20,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Hide autoplay preview",
-    description = "Hides the autoplay preview container in the fullscreen.",
+    description = "Adds an option to hide the autoplay preview container when in fullscreen.",
     dependencies = [
         SettingsPatch::class,
         SharedResourceIdPatch::class

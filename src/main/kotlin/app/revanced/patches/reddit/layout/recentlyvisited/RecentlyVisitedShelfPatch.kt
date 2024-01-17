@@ -14,7 +14,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Hide recently visited shelf",
-    description = "Adds an option to hide the recently visited shelf in sidebar.",
+    description = "Adds an option to hide the recently visited shelf in the sidebar.",
     dependencies = [SettingsPatch::class],
     compatiblePackages = [CompatiblePackage("com.reddit.frontpage")]
 )

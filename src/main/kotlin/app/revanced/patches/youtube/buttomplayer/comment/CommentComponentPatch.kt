@@ -10,7 +10,7 @@ import app.revanced.patches.youtube.utils.settings.SettingsPatch
 
 @Patch(
     name = "Hide comment component",
-    description = "Hides components related to comments.",
+    description = "Adds options to hide components related to comments.",
     dependencies = [
         LithoFilterPatch::class,
         SettingsPatch::class

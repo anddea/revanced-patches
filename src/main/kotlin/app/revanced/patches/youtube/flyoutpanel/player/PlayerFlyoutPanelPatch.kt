@@ -23,7 +23,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Hide player flyout panel",
-    description = "Hides player flyout panel components.",
+    description = "Adds options to hide player flyout panel components.",
     dependencies = [
         LithoFilterPatch::class,
         PlayerTypeHookPatch::class,

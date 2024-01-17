@@ -16,7 +16,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Enable compact controls overlay",
-    description = "Enables compact control overlay.",
+    description = "Adds an option to make the fullscreen controls compact.",
     dependencies = [
         SettingsPatch::class,
         SharedResourceIdPatch::class

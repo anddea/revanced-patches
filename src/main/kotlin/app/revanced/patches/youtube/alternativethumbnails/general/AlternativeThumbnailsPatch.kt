@@ -30,7 +30,7 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 
 @Patch(
     name = "Alternative thumbnails",
-    description = "Adds an option to replace video thumbnails with still image captures of the video.",
+    description = "Adds options to replace video thumbnails using the DeArrow API or image captures from the video.",
     dependencies = [SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(

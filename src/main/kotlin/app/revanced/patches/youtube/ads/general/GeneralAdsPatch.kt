@@ -17,7 +17,7 @@ import org.w3c.dom.Element
 
 @Patch(
     name = "Hide general ads",
-    description = "Hides general ads.",
+    description = "Adds options to hide general ads.",
     dependencies = [
         DoubleBackToClosePatch::class,
         GeneralAdsBytecodePatch::class,

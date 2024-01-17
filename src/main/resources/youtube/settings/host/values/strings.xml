@@ -35,7 +35,7 @@ Tap here to learn more about DeArrow."</string>
     <string name="revanced_alt_thumbnail_stills_about_summary">Still captures are taken from the beginning / middle / end of each video. These images are built into YouTube and no external API is used.</string>
     <string name="revanced_alt_thumbnail_stills_about_title">About still video captures</string>
     <string name="revanced_alt_thumbnail_stills_fast_summary_off">Using high quality still captures.</string>
-    <string name="revanced_alt_thumbnail_stills_fast_summary_on">Using medium quality still captures. Thumbnails will load faster, but live streams, unreleased, or very old videos may show blank thumbnails.</string>
+    <string name="revanced_alt_thumbnail_stills_fast_summary_on">Using medium quality still captures. Thumbnails will load faster, but live streams, unreleased, and very old videos may show blank thumbnails.</string>
     <string name="revanced_alt_thumbnail_stills_fast_title">Use fast still captures</string>
     <string name="revanced_alt_thumbnail_stills_summary_off">Not using YouTube still video captures.</string>
     <string name="revanced_alt_thumbnail_stills_summary_on">Using YouTube still video captures.</string>
@@ -70,7 +70,7 @@ Tap here to learn more about DeArrow."</string>
     <string name="revanced_channel_profile_title">Channel profile</string>
     <string name="revanced_close_interstitial_ads_summary">"Automatically close interstitial ads.
 
-Note: It's a feature that hasn't been tested."</string>
+Note: This feature hasn't been tested."</string>
     <string name="revanced_close_interstitial_ads_title">Close interstitial ads</string>
     <string name="revanced_close_interstitial_ads_toast">Closing interstitial ads.</string>
     <string name="revanced_comments_title">Comments</string>
@@ -135,8 +135,8 @@ Note: Disabling the speed overlay restores the 'Slide to seek' behavior of the o
     <string name="revanced_disable_startup_shorts_player_title">Disable shorts player at app startup</string>
     <string name="revanced_double_back_timeout_summary">The amount of seconds the double press back to exit.</string>
     <string name="revanced_double_back_timeout_title">Double back timeout</string>
-    <string name="revanced_enable_bottom_player_gestures_summary_off">Switching to fullscreen by swiping the bottom area of the player has been disabled.</string>
-    <string name="revanced_enable_bottom_player_gestures_summary_on">Switching to fullscreen by swiping the bottom area of the player has been enabled.</string>
+    <string name="revanced_enable_bottom_player_gestures_summary_off">Entering fullscreen when swiping down below the video player is disabled.</string>
+    <string name="revanced_enable_bottom_player_gestures_summary_on">Entering fullscreen when swiping down below the video player is enabled.</string>
     <string name="revanced_enable_bottom_player_gestures_title">Enable bottom player gestures</string>
     <string name="revanced_enable_compact_controls_overlay_summary_off">Compact controls overlay is disabled.</string>
     <string name="revanced_enable_compact_controls_overlay_summary_on">Compact controls overlay is enabled.</string>
@@ -168,8 +168,8 @@ Note: Disabling the speed overlay restores the 'Slide to seek' behavior of the o
     <string name="revanced_enable_new_thumbnail_preview_summary_off">New thumbnail preview is disabled.</string>
     <string name="revanced_enable_new_thumbnail_preview_summary_on">New thumbnail preview is enabled.</string>
     <string name="revanced_enable_new_thumbnail_preview_title">Enable new thumbnail preview</string>
-    <string name="revanced_enable_old_quality_layout_summary_off">New style quality settings are shown.</string>
-    <string name="revanced_enable_old_quality_layout_summary_on">Old style quality settings are shown.</string>
+    <string name="revanced_enable_old_quality_layout_summary_off">New style quality options are shown.</string>
+    <string name="revanced_enable_old_quality_layout_summary_on">Old style quality options are shown.</string>
     <string name="revanced_enable_old_quality_layout_title">Enable old style quality layout</string>
     <string name="revanced_enable_open_links_directly_summary_off">Following default redirect policy.</string>
     <string name="revanced_enable_open_links_directly_summary_on">Bypassing URL redirects.</string>
@@ -254,10 +254,10 @@ You tab > View channel > Menu > Settings."</string>
     <string name="revanced_external_downloader_settings_title">External downloader settings</string>
     <string name="revanced_feed_flyout_panel_title">Feed flyout panel</string>
     <string name="revanced_flyout_menu">Flyout menu</string>
-    <string name="revanced_force_fullscreen_summary">"Video will be switched to fullscreen in the following situations:
+    <string name="revanced_force_fullscreen_summary">"Videos will be switched to fullscreen in the following situations:
 
-• Clicked on the timestamp in the comments.
-• Video has started."</string>
+• When a timestamp in the comments is clicked on.
+• When a video is started."</string>
     <string name="revanced_force_fullscreen_title">Force fullscreen</string>
     <string name="revanced_fullscreen">Fullscreen</string>
     <string name="revanced_general">General</string>
@@ -370,8 +370,8 @@ Some components may not be hidden."</string>
     <string name="revanced_hide_comments_by_members_summary_off">Comments by members banner is shown.</string>
     <string name="revanced_hide_comments_by_members_summary_on">Comments by members banner is hidden.</string>
     <string name="revanced_hide_comments_by_members_title">Hide comments by members banner</string>
-    <string name="revanced_hide_comments_section_summary_off">Comment section is shown.</string>
-    <string name="revanced_hide_comments_section_summary_on">Comment section is hidden.</string>
+    <string name="revanced_hide_comments_section_summary_off">Comments section is shown.</string>
+    <string name="revanced_hide_comments_section_summary_on">Comments section is hidden.</string>
     <string name="revanced_hide_comments_section_title">Hide comments section</string>
     <string name="revanced_hide_community_posts_home_summary_off">Community posts in home feed are shown.</string>
     <string name="revanced_hide_community_posts_home_summary_on">Community posts in home feed are hidden.</string>
@@ -400,10 +400,10 @@ Some components may not be hidden."</string>
     <string name="revanced_hide_expandable_chip_summary_off">Expandable chips are shown.</string>
     <string name="revanced_hide_expandable_chip_summary_on">Expandable chips are hidden.</string>
     <string name="revanced_hide_expandable_chip_title">Hide expandable chip under videos</string>
-    <string name="revanced_hide_feed_flyout_panel_filter_strings_title">Edit feed flyout menus filter</string>
-    <string name="revanced_hide_feed_flyout_panel_summary_off">Feed flyout menus are shown.</string>
-    <string name="revanced_hide_feed_flyout_panel_summary_on">Feed flyout menus are hidden.</string>
-    <string name="revanced_hide_feed_flyout_panel_title">Hide feed flyout menu</string>
+    <string name="revanced_hide_feed_flyout_panel_filter_strings_title">Edit feed flyout filter</string>
+    <string name="revanced_hide_feed_flyout_panel_summary_off">Feed flyout filter is disabled.</string>
+    <string name="revanced_hide_feed_flyout_panel_summary_on">Feed flyout filter is enabled.</string>
+    <string name="revanced_hide_feed_flyout_panel_title">Hide feed flyout components</string>
     <string name="revanced_hide_feed_survey_summary_off">Feed surveys are shown.</string>
     <string name="revanced_hide_feed_survey_summary_on">Feed surveys are hidden.</string>
     <string name="revanced_hide_feed_survey_title">Hide feed surveys</string>
@@ -425,8 +425,8 @@ Some components may not be hidden."</string>
     <string name="revanced_hide_general_ads_summary_off">General ads are shown.</string>
     <string name="revanced_hide_general_ads_summary_on">General ads are hidden.</string>
     <string name="revanced_hide_general_ads_title">Hide general ads</string>
-    <string name="revanced_hide_get_premium_summary_off">YouTube Premium promotion are shown.</string>
-    <string name="revanced_hide_get_premium_summary_on">YouTube Premium promotion are hidden.</string>
+    <string name="revanced_hide_get_premium_summary_off">YouTube Premium promotion is shown.</string>
+    <string name="revanced_hide_get_premium_summary_on">YouTube Premium promotion is hidden.</string>
     <string name="revanced_hide_get_premium_title">Hide YouTube Premium promotion</string>
     <string name="revanced_hide_gray_description_summary_off">Gray description is shown.</string>
     <string name="revanced_hide_gray_description_summary_on">Gray description is hidden.</string>
@@ -725,7 +725,7 @@ Tap and hold to set playback speed to 1.0x."</string>
     <string name="revanced_player_flyout_panel_additional_settings_summary">To hide the additional settings menu, hide all settings in the additional settings category.</string>
     <string name="revanced_player_flyout_panel_additional_settings_title">Player flyout panel (Additional settings)</string>
     <string name="revanced_player_flyout_panel_title">Player flyout panel</string>
-    <string name="revanced_quick_actions_margin_top_summary">Top margin value between 0-64.</string>
+    <string name="revanced_quick_actions_margin_top_summary">Configure the spacing from the seekbar to the quick action container, between 0-64.</string>
     <string name="revanced_quick_actions_margin_top_title">Quick actions top margin</string>
     <string name="revanced_quick_actions_margin_top_warning">Quick actions top margin must be between 0-64. Reset to default values.</string>
     <string name="revanced_quick_actions_title">Quick actions</string>
