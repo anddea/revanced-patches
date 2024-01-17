@@ -111,9 +111,15 @@
         <SwitchPreference android:title="@string/revanced_hide_player_flyout_panel_more_info_title" android:key="revanced_hide_player_flyout_panel_more_info" android:defaultValue="false" android:summaryOn="@string/revanced_hide_player_flyout_panel_more_info_summary_on" android:summaryOff="@string/revanced_hide_player_flyout_panel_more_info_summary_off" />
         <SwitchPreference android:title="@string/revanced_hide_player_flyout_panel_playback_speed_title" android:key="revanced_hide_player_flyout_panel_playback_speed" android:defaultValue="false" android:summaryOn="@string/revanced_hide_player_flyout_panel_playback_speed_summary_on" android:summaryOff="@string/revanced_hide_player_flyout_panel_playback_speed_summary_off" />
         <SwitchPreference android:title="@string/revanced_hide_player_flyout_panel_quality_footer_title" android:key="revanced_hide_player_flyout_panel_quality_footer" android:defaultValue="false" android:summaryOn="@string/revanced_hide_player_flyout_panel_quality_footer_summary_on" android:summaryOff="@string/revanced_hide_player_flyout_panel_quality_footer_summary_off" />
-        <SwitchPreference android:title="@string/revanced_hide_player_flyout_panel_report_title" android:key="revanced_hide_player_flyout_panel_report" android:defaultValue="true" android:summaryOn="@string/revanced_hide_player_flyout_panel_report_summary_on" android:summaryOff="@string/revanced_hide_player_flyout_panel_report_summary_off" />
+        <SwitchPreference android:title="@string/revanced_hide_player_flyout_panel_report_title" android:key="revanced_hide_player_flyout_panel_report" android:defaultValue="true" android:summaryOn="@string/revanced_hide_player_flyout_panel_report_summary_on" android:summaryOff="@string/revanced_hide_player_flyout_panel_report_summary_off" />SETTINGS: HIDE_PLAYER_FLYOUT_PANEL -->
 
-        <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_player_flyout_panel_additional_settings_title" />
+        <!-- SETTINGS: PLAYER_FLYOUT_PANEL_ADDITIONAL_SETTINGS_HEADER
+        <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_player_flyout_panel_additional_settings_title" />SETTINGS: PLAYER_FLYOUT_PANEL_ADDITIONAL_SETTINGS_HEADER -->
+
+        <!-- SETTINGS: CHANGE_PLAYER_FLYOUT_PANEL_TOGGLE
+        <SwitchPreference android:title="@string/revanced_change_player_flyout_panel_toggle_title" android:key="revanced_change_player_flyout_panel_toggle" android:defaultValue="true" android:summaryOn="@string/revanced_change_player_flyout_panel_toggle_summary_on" android:summaryOff="@string/revanced_change_player_flyout_panel_toggle_summary_off" />SETTINGS: CHANGE_PLAYER_FLYOUT_PANEL_TOGGLE -->
+
+        <!-- SETTINGS: HIDE_PLAYER_FLYOUT_PANEL
         <SwitchPreference android:title="@string/revanced_hide_player_flyout_panel_ambient_mode_title" android:key="revanced_hide_player_flyout_panel_ambient_mode" android:defaultValue="false" android:summaryOn="@string/revanced_hide_player_flyout_panel_ambient_mode_summary_on" android:summaryOff="@string/revanced_hide_player_flyout_panel_ambient_mode_summary_off" />
         <SwitchPreference android:title="@string/revanced_hide_player_flyout_panel_help_title" android:key="revanced_hide_player_flyout_panel_help" android:defaultValue="true" android:summaryOn="@string/revanced_hide_player_flyout_panel_help_summary_on" android:summaryOff="@string/revanced_hide_player_flyout_panel_help_summary_off" />
         <SwitchPreference android:title="@string/revanced_hide_player_flyout_panel_listen_with_youtube_music_title" android:key="revanced_hide_player_flyout_panel_listen_with_youtube_music" android:defaultValue="true" android:summaryOn="@string/revanced_hide_player_flyout_panel_listen_with_youtube_music_summary_on" android:summaryOff="@string/revanced_hide_player_flyout_panel_listen_with_youtube_music_summary_off" />
@@ -394,6 +400,7 @@
             <Preference android:title="Hide comment component" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
 
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_flyout_menu" />
+            <Preference android:title="Change player flyout panel toggles" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Enable old quality layout" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Hide feed flyout panel" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Hide player flyout panel" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
