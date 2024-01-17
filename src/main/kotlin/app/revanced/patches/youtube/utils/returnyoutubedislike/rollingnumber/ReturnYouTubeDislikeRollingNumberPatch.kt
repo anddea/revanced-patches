@@ -2,11 +2,13 @@ package app.revanced.patches.youtube.utils.returnyoutubedislike.rollingnumber
 
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.utils.fingerprints.RollingNumberTextViewAnimationUpdateFingerprint
 import app.revanced.patches.youtube.utils.integrations.Constants.UTILS_PATH
 import app.revanced.patches.youtube.utils.returnyoutubedislike.rollingnumber.fingerprints.RollingNumberMeasureAnimatedTextFingerprint
@@ -31,6 +33,7 @@ object ReturnYouTubeDislikeRollingNumberPatch : BytecodePatch(
         RollingNumberSetterFingerprint,
         RollingNumberMeasureTextParentFingerprint,
         RollingNumberTextViewFingerprint,
+        RollingNumberMeasureAnimatedTextFingerprint,
         RollingNumberTextViewAnimationUpdateFingerprint
     )
 ) {
@@ -88,41 +91,42 @@ object ReturnYouTubeDislikeRollingNumberPatch : BytecodePatch(
                 }
             } ?: throw RollingNumberSetterFingerprint.exception
 
-            RollingNumberMeasureTextParentFingerprint.result?.let { parentResult ->
-                // Rolling Number text views use the measured width of the raw string for layout.
-                // Modify the measure text calculation to include the left drawable separator if needed.
-                RollingNumberMeasureAnimatedTextFingerprint.also {
-                    it.resolve(
-                        context,
-                        parentResult.classDef
-                    )
-                }.result?.let {
-                    it.mutableMethod.apply {
-                        val returnInstructionIndex = it.scanResult.patternScanResult!!.endIndex
-                        val measuredTextWidthRegister =
-                            getInstruction<OneRegisterInstruction>(returnInstructionIndex).registerA
+            // Rolling Number text views use the measured width of the raw string for layout.
+            // Modify the measure text calculation to include the left drawable separator if needed.
+            RollingNumberMeasureAnimatedTextFingerprint.result?.let {
+                it.mutableMethod.apply {
+                    val endIndex = it.scanResult.patternScanResult!!.endIndex
+                    val measuredTextWidthIndex = endIndex - 2
+                    val measuredTextWidthRegister =
+                        getInstruction<TwoRegisterInstruction>(measuredTextWidthIndex).registerA
 
-                        replaceInstruction( // Replace instruction to preserve control flow label.
-                            returnInstructionIndex,
-                            "invoke-static {p1, v$measuredTextWidthRegister}, $INTEGRATIONS_RYD_CLASS_DESCRIPTOR->onRollingNumberMeasured(Ljava/lang/String;F)F"
-                        )
-                        addInstructions(
-                            returnInstructionIndex + 1, """
-                                move-result v$measuredTextWidthRegister
-                                return v$measuredTextWidthRegister
-                                """
-                        )
+                    addInstructions(
+                        endIndex + 1, """
+                            invoke-static {p1, v$measuredTextWidthRegister}, $INTEGRATIONS_RYD_CLASS_DESCRIPTOR->onRollingNumberMeasured(Ljava/lang/String;F)F
+                            move-result v$measuredTextWidthRegister
+                            """
+                    )
+
+                    val ifGeIndex = implementation!!.instructions.indexOfFirst { instruction ->
+                        instruction.opcode == Opcode.IF_GE
                     }
-                } ?: throw RollingNumberMeasureAnimatedTextFingerprint.exception
+                    val ifGeInstruction = getInstruction<TwoRegisterInstruction>(ifGeIndex)
+
+                    removeInstruction(ifGeIndex)
+                    addInstructionsWithLabels(
+                        ifGeIndex, """
+                            if-ge v${ifGeInstruction.registerA}, v${ifGeInstruction.registerB}, :jump
+                            """, ExternalLabel("jump", getInstruction(endIndex))
+                    )
+                }
+            } ?: throw RollingNumberMeasureAnimatedTextFingerprint.exception
+
+            RollingNumberMeasureTextParentFingerprint.result?.classDef?.let { parentClassDef ->
+                RollingNumberMeasureStaticLabelFingerprint.resolve(context, parentClassDef)
 
                 // Additional text measurement method. Used if YouTube decides not to animate the likes count
                 // and sometimes used for initial video load.
-                RollingNumberMeasureStaticLabelFingerprint.also {
-                    it.resolve(
-                        context,
-                        parentResult.classDef
-                    )
-                }.result?.let {
+                RollingNumberMeasureStaticLabelFingerprint.result?.let {
                     it.mutableMethod.apply {
                         val measureTextIndex = it.scanResult.patternScanResult!!.startIndex + 1
                         val freeRegister = getInstruction<TwoRegisterInstruction>(0).registerA
