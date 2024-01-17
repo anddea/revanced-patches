@@ -3,7 +3,7 @@ package app.revanced.patches.youtube.layout.doubletapbackground
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.shared.patch.doubletapbackground.AbstractDoubleTapOverlayBackgroundPatch
+import app.revanced.patches.shared.patch.overlaybackground.AbstractOverlayBackgroundPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 
 @Patch(
@@ -39,7 +39,7 @@ import app.revanced.patches.youtube.utils.settings.SettingsPatch
     use = false
 )
 @Suppress("unused")
-object DoubleTapOverlayBackgroundPatch : AbstractDoubleTapOverlayBackgroundPatch(
+object DoubleTapOverlayBackgroundPatch : AbstractOverlayBackgroundPatch(
     arrayOf("quick_seek_overlay.xml"),
     arrayOf("tap_bloom_view", "dark_background")
 ) {
