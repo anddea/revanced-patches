@@ -19,7 +19,7 @@ abstract class AbstractRemoveStringsElementsPatch(
                 replacements.forEach replacementsLoop@{ replacement ->
                     targetXml.writeText(
                         targetXml.readText()
-                            .replace(""".+"$replacement".+""".toRegex(), "")
+                            .replaceFirst(""" {4}<string name="$replacement".+""".toRegex(), "")
                     )
                 }
             }
