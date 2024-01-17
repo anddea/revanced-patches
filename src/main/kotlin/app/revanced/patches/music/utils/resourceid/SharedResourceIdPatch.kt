@@ -32,6 +32,7 @@ object SharedResourceIdPatch : ResourcePatch() {
     var MusicMenuLikeButtons: Long = -1
     var MusicNotifierShelf: Long = -1
     var NamesInactiveAccountThumbnailSize: Long = -1
+    var OfflineSettingsMenuItem: Long = -1
     var PlayerCastMediaRouteButton: Long = -1
     var PlayerOverlayChip: Long = -1
     var PrivacyTosFooter: Long = -1
@@ -65,6 +66,7 @@ object SharedResourceIdPatch : ResourcePatch() {
         MusicMenuLikeButtons = find(LAYOUT, "music_menu_like_buttons")
         MusicNotifierShelf = find(LAYOUT, "music_notifier_shelf")
         NamesInactiveAccountThumbnailSize = find(DIMEN, "names_inactive_account_thumbnail_size")
+        OfflineSettingsMenuItem = find(ID, "offline_settings_menu_item")
         PlayerCastMediaRouteButton = find(LAYOUT, "player_cast_media_route_button")
         PlayerOverlayChip = find(ID, "player_overlay_chip")
         PrivacyTosFooter = find(ID, "privacy_tos_footer")
