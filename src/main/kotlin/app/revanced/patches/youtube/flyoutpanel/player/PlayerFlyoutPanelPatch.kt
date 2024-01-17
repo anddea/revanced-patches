@@ -84,6 +84,7 @@ object PlayerFlyoutPanelPatch : BytecodePatch(
             arrayOf(
                 "PREFERENCE: FLYOUT_PANEL_SETTINGS",
                 "SETTINGS: PLAYER_FLYOUT_PANEL_HEADER",
+                "SETTINGS: PLAYER_FLYOUT_PANEL_ADDITIONAL_SETTINGS_HEADER",
                 "SETTINGS: HIDE_PLAYER_FLYOUT_PANEL"
             )
         )
