@@ -315,6 +315,9 @@
         <SwitchPreference android:title="@string/revanced_bypass_ambient_mode_restrictions_title" android:key="revanced_bypass_ambient_mode_restrictions" android:defaultValue="false" android:summaryOn="@string/revanced_bypass_ambient_mode_restrictions_summary_on" android:summaryOff="@string/revanced_bypass_ambient_mode_restrictions_summary_off" />
         <SwitchPreference android:title="@string/revanced_disable_ambient_mode_title" android:key="revanced_disable_ambient_mode" android:defaultValue="false" android:summary="@string/revanced_disable_ambient_mode_summary" />SETTINGS: AMBIENT_MODE_SWITCH -->
 
+        <!-- SETTINGS: DISABLE_UPDATE_SCREEN
+        <SwitchPreference android:title="@string/revanced_disable_update_screen_title" android:key="revanced_disable_update_screen" android:defaultValue="true" android:summary="@string/revanced_disable_update_screen_summary" />SETTINGS: DISABLE_UPDATE_SCREEN -->
+
         <!-- SETTINGS: DOUBLE_BACK_TIMEOUT
         <ListPreference android:title="@string/revanced_double_back_timeout_title" android:summary="@string/revanced_double_back_timeout_summary" android:key="revanced_double_back_timeout" android:entries="@array/revanced_double_back_timeout_entry" android:defaultValue="2" android:entryValues="@array/revanced_double_back_timeout_value" />SETTINGS: DOUBLE_BACK_TIMEOUT -->
 
@@ -443,6 +446,7 @@
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_misc" />
             <Preference android:title="Ambient mode switch" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Disable QUIC protocol" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="Disable update screen" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Enable debug logging" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Enable external browser" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Enable language switch" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
