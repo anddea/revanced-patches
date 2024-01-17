@@ -12,11 +12,11 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.utils.fingerprints.OrganicPlaybackContextModelFingerprint
+import app.revanced.patches.youtube.utils.fingerprints.VideoEndFingerprint
 import app.revanced.patches.youtube.utils.integrations.Constants.VIDEO_PATH
 import app.revanced.patches.youtube.utils.playerresponse.PlayerResponsePatch
 import app.revanced.patches.youtube.utils.playertype.PlayerTypeHookPatch
 import app.revanced.patches.youtube.utils.videoid.general.fingerprint.PlayerControllerSetTimeReferenceFingerprint
-import app.revanced.patches.youtube.utils.videoid.general.fingerprint.VideoEndFingerprint
 import app.revanced.patches.youtube.utils.videoid.general.fingerprint.VideoIdFingerprint
 import app.revanced.patches.youtube.utils.videoid.general.fingerprint.VideoIdParentFingerprint
 import app.revanced.patches.youtube.utils.videoid.general.fingerprint.VideoLengthFingerprint
@@ -107,7 +107,7 @@ object VideoIdPatch : BytecodePatch(
         videoTimeHook(INTEGRATIONS_CLASS_DESCRIPTOR, "setVideoTime")
 
         /**
-         *
+         * Set current video is livestream
          */
         OrganicPlaybackContextModelFingerprint.result?.let {
             it.mutableMethod.apply {
