@@ -5,10 +5,6 @@ import app.revanced.patcher.patch.Patch
 import java.io.File
 
 internal class ReadmeGenerator : PatchesFileGenerator {
-    private val exception = mapOf(
-        "com.google.android.apps.youtube.music" to "6.21.52"
-    )
-
     private companion object {
         private const val TABLE_HEADER =
             "| \uD83D\uDC8A Patch | \uD83D\uDCDC Description | \uD83C\uDFF9 Target Version |\n" +
@@ -46,9 +42,7 @@ internal class ReadmeGenerator : PatchesFileGenerator {
                                     maxVersion
                                 else
                                     "$minVersion ~ $maxVersion"
-                            } else if (exception.containsKey(pkg))
-                                exception[pkg] + "+"
-                            else
+                            } else
                                 "all"
 
                         appendLine(
