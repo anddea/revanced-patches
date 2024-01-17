@@ -39,6 +39,7 @@ object SharedResourceIdPatch : ResourcePatch() {
     var EndScreenElementLayoutCircle: Long = -1
     var EndScreenElementLayoutIcon: Long = -1
     var EndScreenElementLayoutVideo: Long = -1
+    var EmojiPickerIcon: Long = -1
     var ExpandButtonDown: Long = -1
     var Fab: Long = -1
     var FilterBarHeight: Long = -1
@@ -120,6 +121,7 @@ object SharedResourceIdPatch : ResourcePatch() {
         EndScreenElementLayoutCircle = find(LAYOUT, "endscreen_element_layout_circle")
         EndScreenElementLayoutIcon = find(LAYOUT, "endscreen_element_layout_icon")
         EndScreenElementLayoutVideo = find(LAYOUT, "endscreen_element_layout_video")
+        EmojiPickerIcon = find(ID, "emoji_picker_icon")
         ExpandButtonDown = find(LAYOUT, "expand_button_down")
         Fab = find(ID, "fab")
         FilterBarHeight = find(DIMEN, "filter_bar_height")
