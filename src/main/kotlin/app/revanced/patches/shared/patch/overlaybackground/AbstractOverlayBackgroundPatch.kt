@@ -1,4 +1,4 @@
-package app.revanced.patches.shared.patch.doubletapbackground
+package app.revanced.patches.shared.patch.overlaybackground
 
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.ResourcePatch
@@ -6,7 +6,7 @@ import app.revanced.util.doRecursively
 import org.w3c.dom.Element
 import kotlin.io.path.exists
 
-abstract class AbstractDoubleTapOverlayBackgroundPatch(
+abstract class AbstractOverlayBackgroundPatch(
     private val files: Array<String>,
     private val targetId: Array<String>,
 ) : ResourcePatch() {
