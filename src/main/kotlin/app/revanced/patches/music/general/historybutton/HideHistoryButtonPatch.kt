@@ -7,6 +7,7 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.music.general.historybutton.fingerprints.HistoryMenuItemFingerprint
+import app.revanced.patches.music.general.historybutton.fingerprints.HistoryMenuItemOfflineTabFingerprint
 import app.revanced.patches.music.utils.integrations.Constants.GENERAL
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.music.utils.settings.CategoryType
@@ -25,23 +26,31 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 )
 @Suppress("unused")
 object HideHistoryButtonPatch : BytecodePatch(
-    setOf(HistoryMenuItemFingerprint)
+    setOf(
+        HistoryMenuItemFingerprint,
+        HistoryMenuItemOfflineTabFingerprint
+    )
 ) {
     override fun execute(context: BytecodeContext) {
 
-        HistoryMenuItemFingerprint.result?.let {
-            it.mutableMethod.apply {
-                val insertIndex = it.scanResult.patternScanResult!!.startIndex
-                val insertRegister = getInstruction<FiveRegisterInstruction>(insertIndex).registerD
+        arrayOf(
+            HistoryMenuItemFingerprint,
+            HistoryMenuItemOfflineTabFingerprint
+        ).forEach { fingerprint ->
+            fingerprint.result?.let {
+                it.mutableMethod.apply {
+                    val insertIndex = it.scanResult.patternScanResult!!.startIndex
+                    val insertRegister = getInstruction<FiveRegisterInstruction>(insertIndex).registerD
 
-                addInstructions(
-                    insertIndex, """
-                        invoke-static {v$insertRegister}, $GENERAL->hideHistoryButton(Z)Z
-                        move-result v$insertRegister
-                        """
-                )
-            }
-        } ?: throw HistoryMenuItemFingerprint.exception
+                    addInstructions(
+                        insertIndex, """
+                            invoke-static {v$insertRegister}, $GENERAL->hideHistoryButton(Z)Z
+                            move-result v$insertRegister
+                            """
+                    )
+                }
+            } ?: throw fingerprint.exception
+        }
 
         SettingsPatch.addMusicPreference(
             CategoryType.GENERAL,
