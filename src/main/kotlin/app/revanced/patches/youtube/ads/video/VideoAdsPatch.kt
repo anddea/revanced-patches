@@ -9,7 +9,7 @@ import app.revanced.patches.youtube.utils.settings.SettingsPatch
 
 @Patch(
     name = "Hide video ads",
-    description = "Hides ads in the video player.",
+    description = "Adds an option to hide ads in the video player.",
     dependencies = [SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(

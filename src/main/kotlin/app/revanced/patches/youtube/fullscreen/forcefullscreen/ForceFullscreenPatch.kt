@@ -23,7 +23,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Patch(
     name = "Force fullscreen",
-    description = "Switch the video to fullscreen.",
+    description = "Adds an option to forcefully open videos in fullscreen.",
     dependencies = [SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(

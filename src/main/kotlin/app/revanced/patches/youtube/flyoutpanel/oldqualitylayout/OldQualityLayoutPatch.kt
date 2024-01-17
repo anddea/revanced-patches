@@ -19,7 +19,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Enable old quality layout",
-    description = "Enables the original quality flyout menu.",
+    description = "Adds an option to restore the old video quality menu with specific video resolution options.",
     dependencies = [
         BottomSheetRecyclerViewPatch::class,
         LithoFilterPatch::class,

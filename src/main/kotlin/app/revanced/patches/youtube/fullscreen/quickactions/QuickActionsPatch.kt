@@ -11,7 +11,7 @@ import app.revanced.patches.youtube.utils.settings.SettingsPatch
 
 @Patch(
     name = "Quick actions components",
-    description = "Adds options to customize quick action components in fullscreen.",
+    description = "Adds options to hide and customize components below the seekbar in fullscreen.",
     dependencies = [
         LithoFilterPatch::class,
         QuickActionsHookPatch::class,

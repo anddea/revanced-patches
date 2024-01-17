@@ -26,7 +26,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
 
 @Patch(
     name = "Hide fullscreen panels",
-    description = "Hides video description and comments panel in fullscreen view.",
+    description = "Adds an option to hide panels such as live chat when in fullscreen.",
     dependencies = [
         QuickActionsHookPatch::class,
         SettingsPatch::class

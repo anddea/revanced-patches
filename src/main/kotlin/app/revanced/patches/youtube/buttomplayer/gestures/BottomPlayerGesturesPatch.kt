@@ -15,7 +15,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Enable bottom player gestures",
-    description = "Switching to fullscreen by swiping the bottom area of the player.",
+    description = "Adds an option to enter fullscreen when swiping down below the video player.",
     dependencies = [SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(

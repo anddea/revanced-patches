@@ -16,7 +16,7 @@ import app.revanced.util.exception
 
 @Patch(
     name = "Hide end screen overlay",
-    description = "Hide end screen overlay on swipe controls.",
+    description = "Adds an option to hide the overlay in fullscreen when swiping up and at the end of videos.",
     dependencies = [
         SettingsPatch::class,
         SharedResourceIdPatch::class

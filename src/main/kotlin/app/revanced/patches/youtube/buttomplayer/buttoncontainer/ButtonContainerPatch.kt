@@ -10,7 +10,7 @@ import app.revanced.patches.youtube.utils.settings.SettingsPatch
 
 @Patch(
     name = "Hide button container",
-    description = "Adds the options to hide action buttons under a video.",
+    description = "Adds options to hide action buttons below the video player.",
     dependencies = [
         LithoFilterPatch::class,
         SettingsPatch::class
