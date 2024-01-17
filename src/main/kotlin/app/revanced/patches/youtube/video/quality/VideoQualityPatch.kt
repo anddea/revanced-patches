@@ -112,6 +112,7 @@ object VideoQualityPatch : BytecodePatch(
         SettingsPatch.addPreference(
             arrayOf(
                 "PREFERENCE: VIDEO_SETTINGS",
+                "SETTINGS: VIDEO_EXPERIMENTAL_FLAGS",
                 "SETTINGS: DEFAULT_VIDEO_QUALITY"
             )
         )

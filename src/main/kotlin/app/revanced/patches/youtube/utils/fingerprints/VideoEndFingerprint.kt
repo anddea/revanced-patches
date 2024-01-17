@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.utils.videoid.general.fingerprint
+package app.revanced.patches.youtube.utils.fingerprints
 
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.Opcode
