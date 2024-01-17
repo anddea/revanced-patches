@@ -10,12 +10,16 @@ import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.music.actionbar.component.fingerprints.ActionBarComponentFingerprint
+import app.revanced.patches.music.actionbar.component.fingerprints.LikeDislikeContainerFingerprint
 import app.revanced.patches.music.utils.integrations.Constants.ACTIONBAR
 import app.revanced.patches.music.utils.intenthook.IntentHookPatch
+import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch
+import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.LikeDislikeContainer
 import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.SettingsPatch
 import app.revanced.patches.music.video.information.VideoInformationPatch
 import app.revanced.util.exception
+import app.revanced.util.getWideLiteralInstructionIndex
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -30,13 +34,17 @@ import kotlin.math.min
     dependencies = [
         IntentHookPatch::class,
         SettingsPatch::class,
+        SharedResourceIdPatch::class,
         VideoInformationPatch::class
     ],
     compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")]
 )
 @Suppress("unused")
 object ActionBarComponentPatch : BytecodePatch(
-    setOf(ActionBarComponentFingerprint)
+    setOf(
+        ActionBarComponentFingerprint,
+        LikeDislikeContainerFingerprint
+    )
 ) {
     private var spannedReference = ""
 
@@ -124,6 +132,18 @@ object ActionBarComponentPatch : BytecodePatch(
             }
         } ?: throw ActionBarComponentFingerprint.exception
 
+        LikeDislikeContainerFingerprint.result?.let {
+            it.mutableMethod.apply {
+                val insertIndex = getWideLiteralInstructionIndex(LikeDislikeContainer) + 2
+                val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+
+                addInstruction(
+                    insertIndex + 1,
+                    "invoke-static {v$insertRegister}, $ACTIONBAR->hideLikeDislikeButton(Landroid/view/View;)V"
+                )
+            }
+        } ?: throw LikeDislikeContainerFingerprint.exception
+
         SettingsPatch.addMusicPreference(
             CategoryType.ACTION_BAR,
             "revanced_hide_action_button_add_to_playlist",
@@ -142,6 +162,11 @@ object ActionBarComponentPatch : BytecodePatch(
         SettingsPatch.addMusicPreference(
             CategoryType.ACTION_BAR,
             "revanced_hide_action_button_label",
+            "false"
+        )
+        SettingsPatch.addMusicPreference(
+            CategoryType.ACTION_BAR,
+            "revanced_hide_action_button_like_dislike",
             "false"
         )
         SettingsPatch.addMusicPreference(
