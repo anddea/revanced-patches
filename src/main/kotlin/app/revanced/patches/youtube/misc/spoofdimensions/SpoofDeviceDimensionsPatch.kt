@@ -43,6 +43,7 @@ import com.android.tools.smali.dexlib2.util.MethodUtil
         )
     ]
 )
+@Suppress("unused")
 object SpoofDeviceDimensionsPatch : BytecodePatch(
     setOf(DeviceDimensionsModelToStringFingerprint)
 ) {

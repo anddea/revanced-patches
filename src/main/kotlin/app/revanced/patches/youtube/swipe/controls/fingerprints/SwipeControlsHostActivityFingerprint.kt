@@ -8,6 +8,6 @@ object SwipeControlsHostActivityFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
     parameters = emptyList(),
     customFingerprint = { methodDef, _ ->
-        methodDef.definingClass == "Lapp/revanced/integrations/swipecontrols/SwipeControlsHostActivity;"
+        methodDef.definingClass == "Lapp/revanced/integrations/youtube/swipecontrols/SwipeControlsHostActivity;"
     }
 )

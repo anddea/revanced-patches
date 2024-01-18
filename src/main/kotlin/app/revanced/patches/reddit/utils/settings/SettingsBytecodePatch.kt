@@ -25,7 +25,7 @@ object SettingsBytecodePatch : BytecodePatch(
     )
 ) {
     private const val INTEGRATIONS_METHOD_DESCRIPTOR =
-        "Lapp/revanced/reddit/settingsmenu/ReVancedSettingActivity;->initializeSettings(Landroid/app/Activity;)V"
+        "Lapp/revanced/integrations/reddit/settingsmenu/ReVancedSettingActivity;->initializeSettings(Landroid/app/Activity;)V"
 
     private lateinit var settingsMethod: MutableMethod
 
@@ -33,7 +33,7 @@ object SettingsBytecodePatch : BytecodePatch(
         settingsMethod.apply {
             addInstruction(
                 0,
-                "invoke-static {}, Lapp/revanced/reddit/settingsmenu/SettingsStatus;->$description()V"
+                "invoke-static {}, Lapp/revanced/integrations/reddit/settingsmenu/SettingsStatus;->$description()V"
             )
         }
     }

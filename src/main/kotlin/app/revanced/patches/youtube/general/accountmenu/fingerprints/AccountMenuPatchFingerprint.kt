@@ -8,7 +8,7 @@ object AccountMenuPatchFingerprint : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PRIVATE or AccessFlags.STATIC,
     customFingerprint = { methodDef, _ ->
-        methodDef.definingClass == "Lapp/revanced/integrations/patches/general/GeneralPatch;"
+        methodDef.definingClass == "Lapp/revanced/integrations/youtube/patches/general/GeneralPatch;"
                 && methodDef.name == "hideAccountMenu"
     }
 )
