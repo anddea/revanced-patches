@@ -107,7 +107,7 @@ object SeekbarColorPatch : BytecodePatch(
             val scaleNode = progressNode.getElementsByTagName("scale").item(0) as Element
             val shapeNode = scaleNode.getElementsByTagName("shape").item(0) as Element
             val replacementNode = it.file.createElement(
-                "app.revanced.integrations.patches.utils.ProgressBarDrawable"
+                "app.revanced.integrations.youtube.patches.utils.ProgressBarDrawable"
             )
             scaleNode.replaceChild(replacementNode, shapeNode)
         }
