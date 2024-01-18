@@ -2,7 +2,7 @@ package app.revanced.patches.music.utils.integrations
 
 @Suppress("MemberVisibilityCanBePrivate")
 object Constants {
-    const val INTEGRATIONS_PATH = "Lapp/revanced/music"
+    const val INTEGRATIONS_PATH = "Lapp/revanced/integrations/music"
     const val PATCHES_PATH = "$INTEGRATIONS_PATH/patches"
 
     const val ACCOUNT_PATH = "$PATCHES_PATH/account"

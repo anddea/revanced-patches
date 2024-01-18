@@ -2,7 +2,7 @@ package app.revanced.patches.youtube.utils.integrations
 
 @Suppress("MemberVisibilityCanBePrivate")
 object Constants {
-    const val INTEGRATIONS_PATH = "Lapp/revanced/integrations"
+    const val INTEGRATIONS_PATH = "Lapp/revanced/integrations/youtube"
     const val PATCHES_PATH = "$INTEGRATIONS_PATH/patches"
 
     const val ADS_PATH = "$PATCHES_PATH/ads"

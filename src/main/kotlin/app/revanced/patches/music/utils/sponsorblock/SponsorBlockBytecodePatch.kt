@@ -37,7 +37,7 @@ object SponsorBlockBytecodePatch : BytecodePatch(
     )
 ) {
     private const val INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR =
-        "Lapp/revanced/music/sponsorblock/SegmentPlaybackController;"
+        "Lapp/revanced/integrations/music/sponsorblock/SegmentPlaybackController;"
 
     private lateinit var rectangleFieldName: String
     override fun execute(context: BytecodeContext) {

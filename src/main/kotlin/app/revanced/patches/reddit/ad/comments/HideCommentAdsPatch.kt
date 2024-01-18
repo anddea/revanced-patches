@@ -13,7 +13,7 @@ object HideCommentAdsPatch : BytecodePatch(
     setOf(HideCommentAdsFingerprint)
 ) {
     private const val INTEGRATION_METHOD_DESCRIPTOR =
-        "Lapp/revanced/reddit/patches/GeneralAdsPatch;" +
+        "Lapp/revanced/integrations/reddit/patches/GeneralAdsPatch;" +
                 "->hideCommentAds()Z"
 
     override fun execute(context: BytecodeContext) {

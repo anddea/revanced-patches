@@ -32,13 +32,13 @@
     <!-- PREFERENCE: ALTERNATIVE_THUMBNAILS_SETTINGS
     <PreferenceScreen android:title="@string/revanced_alt_thumbnails" android:key="alt_thumbnails">
         <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_alt_thumbnails" />
-        <app.revanced.integrations.settingsmenu.AlternativeThumbnailsStatusPreference android:title="@string/revanced_alt_thumbnail_about_title" />
+        <app.revanced.integrations.youtube.settingsmenu.AlternativeThumbnailsStatusPreference android:title="@string/revanced_alt_thumbnail_about_title" />
 
         <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_alt_thumbnail_dearrow" />
         <SwitchPreference android:title="@string/revanced_alt_thumbnail_dearrow_title" android:key="revanced_alt_thumbnail_dearrow" android:defaultValue="false" android:summaryOn="@string/revanced_alt_thumbnail_dearrow_summary_on" android:summaryOff="@string/revanced_alt_thumbnail_dearrow_summary_off" />
         <SwitchPreference android:title="@string/revanced_alt_thumbnail_dearrow_connection_toast_title" android:key="revanced_alt_thumbnail_dearrow_connection_toast" android:defaultValue="false" android:summaryOn="@string/revanced_alt_thumbnail_dearrow_connection_toast_summary_on" android:summaryOff="@string/revanced_alt_thumbnail_dearrow_connection_toast_summary_off" />
-        <app.revanced.integrations.settingsmenu.ResettableEditTextPreference android:title="@string/revanced_alt_thumbnail_dearrow_api_url_title" android:key="revanced_alt_thumbnail_dearrow_api_url" android:defaultValue="https://dearrow-thumb.ajay.app/api/v1/getThumbnail" android:summary="@string/revanced_alt_thumbnail_dearrow_api_url_summary" android:inputType="text" />
-        <app.revanced.integrations.settingsmenu.AlternativeThumbnailsAboutDeArrowPreference android:title="@string/revanced_alt_thumbnail_dearrow_about_title" android:selectable="true" android:summary="@string/revanced_alt_thumbnail_dearrow_about_summary" />
+        <app.revanced.integrations.youtube.settingsmenu.ResettableEditTextPreference android:title="@string/revanced_alt_thumbnail_dearrow_api_url_title" android:key="revanced_alt_thumbnail_dearrow_api_url" android:defaultValue="https://dearrow-thumb.ajay.app/api/v1/getThumbnail" android:summary="@string/revanced_alt_thumbnail_dearrow_api_url_summary" android:inputType="text" />
+        <app.revanced.integrations.youtube.settingsmenu.AlternativeThumbnailsAboutDeArrowPreference android:title="@string/revanced_alt_thumbnail_dearrow_about_title" android:selectable="true" android:summary="@string/revanced_alt_thumbnail_dearrow_about_summary" />
 
         <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_alt_thumbnail_stills" />
         <SwitchPreference android:title="@string/revanced_alt_thumbnail_stills_title" android:key="revanced_alt_thumbnail_stills" android:defaultValue="false" android:summaryOn="@string/revanced_alt_thumbnail_stills_summary_on" android:summaryOff="@string/revanced_alt_thumbnail_stills_summary_off" />
@@ -96,7 +96,7 @@
         <!-- SETTINGS: HIDE_FEED_FLYOUT_PANEL
         <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_feed_flyout_panel_title" />
         <SwitchPreference android:title="@string/revanced_hide_feed_flyout_panel_title" android:key="revanced_hide_feed_flyout_panel" android:defaultValue="false" android:summaryOn="@string/revanced_hide_feed_flyout_panel_summary_on" android:summaryOff="@string/revanced_hide_feed_flyout_panel_summary_off" />
-        <app.revanced.integrations.settingsmenu.ResettableEditTextPreference android:title="@string/revanced_hide_feed_flyout_panel_filter_strings_title" android:key="revanced_hide_feed_flyout_panel_filter_strings" android:summary="@string/revanced_hide_feed_flyout_panel_filter_strings_summary" android:defaultValue="" android:inputType="textMultiLine" />SETTINGS: HIDE_FEED_FLYOUT_PANEL -->
+        <app.revanced.integrations.youtube.settingsmenu.ResettableEditTextPreference android:title="@string/revanced_hide_feed_flyout_panel_filter_strings_title" android:key="revanced_hide_feed_flyout_panel_filter_strings" android:summary="@string/revanced_hide_feed_flyout_panel_filter_strings_summary" android:defaultValue="" android:inputType="textMultiLine" />SETTINGS: HIDE_FEED_FLYOUT_PANEL -->
 
         <!-- SETTINGS: PLAYER_FLYOUT_PANEL_HEADER
         <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_player_flyout_panel_title" />SETTINGS: PLAYER_FLYOUT_PANEL_HEADER -->
@@ -165,7 +165,7 @@
         <SwitchPreference android:title="@string/revanced_hide_quick_actions_related_videos_title" android:key="revanced_hide_quick_actions_related_videos" android:defaultValue="false" android:summaryOn="@string/revanced_hide_quick_actions_related_videos_summary_on" android:summaryOff="@string/revanced_hide_quick_actions_related_videos_summary_off" />
         <SwitchPreference android:title="@string/revanced_hide_quick_actions_save_to_playlist_title" android:key="revanced_hide_quick_actions_save_to_playlist" android:defaultValue="false" android:summaryOn="@string/revanced_hide_quick_actions_save_to_playlist_summary_on" android:summaryOff="@string/revanced_hide_quick_actions_save_to_playlist_summary_off" />
         <SwitchPreference android:title="@string/revanced_hide_quick_actions_share_title" android:key="revanced_hide_quick_actions_share" android:defaultValue="false" android:summaryOn="@string/revanced_hide_quick_actions_share_summary_on" android:summaryOff="@string/revanced_hide_quick_actions_share_summary_off" />
-        <app.revanced.integrations.settingsmenu.ResettableEditTextPreference android:hint="12" android:defaultValue="12" android:title="@string/revanced_quick_actions_margin_top_title" android:key="revanced_quick_actions_margin_top" android:summary="@string/revanced_quick_actions_margin_top_summary" android:inputType="number" />SETTINGS: QUICK_ACTIONS_COMPONENTS -->
+        <app.revanced.integrations.youtube.settingsmenu.ResettableEditTextPreference android:hint="12" android:defaultValue="12" android:title="@string/revanced_quick_actions_margin_top_title" android:key="revanced_quick_actions_margin_top" android:summary="@string/revanced_quick_actions_margin_top_summary" android:inputType="number" />SETTINGS: QUICK_ACTIONS_COMPONENTS -->
 
         <!-- SETTINGS: FULLSCREEN_EXPERIMENTAL_FLAGS
         <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_experimental_flag" />SETTINGS: FULLSCREEN_EXPERIMENTAL_FLAGS -->
@@ -208,7 +208,7 @@
 
         <!-- SETTINGS: HIDE_ACCOUNT_MENU
         <SwitchPreference android:title="@string/revanced_hide_account_menu_title" android:key="revanced_hide_account_menu" android:defaultValue="false" android:summary="@string/revanced_hide_account_menu_summary" />
-        <app.revanced.integrations.settingsmenu.ResettableEditTextPreference android:title="@string/revanced_hide_account_menu_filter_strings_title" android:key="revanced_hide_account_menu_filter_strings" android:summary="@string/revanced_hide_account_menu_filter_strings_summary" android:defaultValue="" android:inputType="textMultiLine" />SETTINGS: HIDE_ACCOUNT_MENU -->
+        <app.revanced.integrations.youtube.settingsmenu.ResettableEditTextPreference android:title="@string/revanced_hide_account_menu_filter_strings_title" android:key="revanced_hide_account_menu_filter_strings" android:summary="@string/revanced_hide_account_menu_filter_strings_summary" android:defaultValue="" android:inputType="textMultiLine" />SETTINGS: HIDE_ACCOUNT_MENU -->
 
         <!-- SETTINGS: HIDE_AUTO_PLAYER_POPUP_PANELS
         <SwitchPreference android:title="@string/revanced_hide_auto_player_popup_panels_title" android:key="revanced_hide_auto_player_popup_panels" android:defaultValue="true" android:summaryOn="@string/revanced_hide_auto_player_popup_panels_summary_on" android:summaryOff="@string/revanced_hide_auto_player_popup_panels_summary_off" />SETTINGS: HIDE_AUTO_PLAYER_POPUP_PANELS -->
@@ -257,7 +257,7 @@
         <!-- SETTINGS: HIDE_LAYOUT_COMPONENTS
         <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_layout_title" />
         <SwitchPreference android:title="@string/revanced_custom_filter_title" android:key="revanced_custom_filter" android:defaultValue="false" android:summaryOn="@string/revanced_custom_filter_summary_on" android:summaryOff="@string/revanced_custom_filter_summary_off" />
-        <app.revanced.integrations.settingsmenu.ResettableEditTextPreference android:title="@string/revanced_custom_filter_strings_title" android:key="revanced_custom_filter_strings" android:summary="@string/revanced_custom_filter_strings_summary" android:defaultValue="" android:inputType="textMultiLine" />
+        <app.revanced.integrations.youtube.settingsmenu.ResettableEditTextPreference android:title="@string/revanced_custom_filter_strings_title" android:key="revanced_custom_filter_strings" android:summary="@string/revanced_custom_filter_strings_summary" android:defaultValue="" android:inputType="textMultiLine" />
         <SwitchPreference android:title="@string/revanced_hide_album_card_title" android:key="revanced_hide_album_card" android:defaultValue="true" android:summaryOn="@string/revanced_hide_album_card_summary_on" android:summaryOff="@string/revanced_hide_album_card_summary_off" />
         <SwitchPreference android:title="@string/revanced_hide_chips_shelf_title" android:key="revanced_hide_chips_shelf" android:defaultValue="true" android:summaryOn="@string/revanced_hide_chips_shelf_on" android:summaryOff="@string/revanced_hide_chips_shelf_off" />
         <SwitchPreference android:title="@string/revanced_hide_community_posts_home_title" android:key="revanced_hide_community_posts_home" android:defaultValue="true" android:summaryOn="@string/revanced_hide_community_posts_home_summary_on" android:summaryOff="@string/revanced_hide_community_posts_home_summary_off" />
@@ -343,7 +343,7 @@
             <Preference android:title="@string/revanced_extended_settings_export_title" android:key="revanced_extended_settings_export" android:summary="@string/revanced_extended_settings_export_summary" />
             <Preference android:title="@string/revanced_extended_settings_import_title" android:key="revanced_extended_settings_import" android:summary="@string/revanced_extended_settings_import_summary" />
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_extended_settings_import_export_as_text_title" />
-            <app.revanced.integrations.settingsmenu.ImportExportPreference android:title="@string/revanced_extended_settings_import_export_title" android:summary="@string/revanced_extended_settings_import_export_as_text_summary" android:inputType="textMultiLine" />
+            <app.revanced.integrations.youtube.settingsmenu.ImportExportPreference android:title="@string/revanced_extended_settings_import_export_title" android:summary="@string/revanced_extended_settings_import_export_as_text_summary" android:inputType="textMultiLine" />
         </PreferenceScreen>
 
         <Preference android:title="@string/revanced_default_app_settings_title" android:key="revanced_default_app_settings" android:summary="@string/revanced_default_app_settings_summary" />
@@ -376,7 +376,7 @@
         <!-- SETTINGS: SPOOF_APP_VERSION
         <SwitchPreference android:title="@string/revanced_spoof_app_version_title" android:key="revanced_spoof_app_version" android:defaultValue="false" android:summary="@string/revanced_spoof_app_version_summary" />
         <ListPreference android:title="@string/revanced_spoof_app_version_target_entry_title" android:key="revanced_spoof_app_version_target" android:entries="@array/revanced_spoof_app_version_target_entry" android:defaultValue="18.17.43" android:entryValues="@array/revanced_spoof_app_version_target_entry_value" />
-        <app.revanced.integrations.settingsmenu.ResettableEditTextPreference android:hint="18.17.43" android:title="@string/revanced_spoof_app_version_target_title" android:key="revanced_spoof_app_version_target" android:summary="@string/revanced_spoof_app_version_target_summary" android:inputType="text" android:dependency="revanced_spoof_app_version" />SETTINGS: SPOOF_APP_VERSION -->
+        <app.revanced.integrations.youtube.settingsmenu.ResettableEditTextPreference android:hint="18.17.43" android:title="@string/revanced_spoof_app_version_target_title" android:key="revanced_spoof_app_version_target" android:summary="@string/revanced_spoof_app_version_target_summary" android:inputType="text" android:dependency="revanced_spoof_app_version" />SETTINGS: SPOOF_APP_VERSION -->
 
         <!-- SETTINGS: SPOOF_DEVICE_DIMENSIONS
         <SwitchPreference android:title="@string/revanced_spoof_device_dimensions_title" android:key="revanced_spoof_device_dimensions" android:defaultValue="false" android:summary="@string/revanced_spoof_device_dimensions_summary" />SETTINGS: SPOOF_DEVICE_DIMENSIONS -->
@@ -564,7 +564,7 @@
         <SwitchPreference android:title="@string/revanced_overlay_button_speed_dialog_title" android:key="revanced_overlay_button_speed_dialog" android:defaultValue="false" android:summary="@string/revanced_overlay_button_speed_dialog_summary" />
         <PreferenceScreen android:title="@string/revanced_external_downloader_settings_title" android:key="external_downloader" android:summary="@string/revanced_external_downloader_settings_summary">
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_external_downloader_settings_title" />
-            <app.revanced.integrations.settingsmenu.ResettableEditTextPreference android:hint="com.deniscerri.ytdl" android:defaultValue="com.deniscerri.ytdl" android:title="@string/revanced_external_downloader_package_name_title" android:key="revanced_external_downloader_package_name" android:summary="@string/revanced_external_downloader_package_name_summary" android:inputType="text" />
+            <app.revanced.integrations.youtube.settingsmenu.ResettableEditTextPreference android:hint="com.deniscerri.ytdl" android:defaultValue="com.deniscerri.ytdl" android:title="@string/revanced_external_downloader_package_name_title" android:key="revanced_external_downloader_package_name" android:summary="@string/revanced_external_downloader_package_name_summary" android:inputType="text" />
         </PreferenceScreen>
     </PreferenceScreen>PREFERENCE: OVERLAY_BUTTONS -->
 
@@ -574,7 +574,7 @@
         <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_player" />PREFERENCE: PLAYER_SETTINGS -->
 
         <!-- SETTINGS: CUSTOM_PLAYER_OVERLAY_OPACITY
-        <app.revanced.integrations.settingsmenu.ResettableEditTextPreference android:hint="100" android:defaultValue="100" android:title="@string/revanced_custom_player_overlay_opacity_title" android:key="revanced_custom_player_overlay_opacity" android:summary="@string/revanced_custom_player_overlay_opacity_summary" android:inputType="number" />SETTINGS: CUSTOM_PLAYER_OVERLAY_OPACITY -->
+        <app.revanced.integrations.youtube.settingsmenu.ResettableEditTextPreference android:hint="100" android:defaultValue="100" android:title="@string/revanced_custom_player_overlay_opacity_title" android:key="revanced_custom_player_overlay_opacity" android:summary="@string/revanced_custom_player_overlay_opacity_summary" android:inputType="number" />SETTINGS: CUSTOM_PLAYER_OVERLAY_OPACITY -->
 
         <!-- SETTINGS: DISABLE_SPEED_OVERLAY
         <SwitchPreference android:title="@string/revanced_disable_speed_overlay_title" android:key="revanced_disable_speed_overlay" android:defaultValue="false" android:summary="@string/revanced_disable_speed_overlay_summary" />SETTINGS: DISABLE_SPEED_OVERLAY -->
@@ -649,7 +649,7 @@
 
         <!-- SETTINGS: CUSTOM_SEEKBAR_COLOR
         <SwitchPreference android:title="@string/revanced_enable_custom_seekbar_color_title" android:key="revanced_enable_custom_seekbar_color" android:defaultValue="true" android:summaryOn="@string/revanced_enable_custom_seekbar_color_summary_on" android:summaryOff="@string/revanced_enable_custom_seekbar_color_summary_off" />
-        <app.revanced.integrations.settingsmenu.ResettableEditTextPreference android:title="@string/revanced_custom_seekbar_color_value_title" android:key="revanced_custom_seekbar_color_value" android:summary="@string/revanced_custom_seekbar_color_value_summary" android:defaultValue="#ff0000" android:hint="#ff0000" android:inputType="text" />SETTINGS: CUSTOM_SEEKBAR_COLOR -->
+        <app.revanced.integrations.youtube.settingsmenu.ResettableEditTextPreference android:title="@string/revanced_custom_seekbar_color_value_title" android:key="revanced_custom_seekbar_color_value" android:summary="@string/revanced_custom_seekbar_color_value_summary" android:defaultValue="#ff0000" android:hint="#ff0000" android:inputType="text" />SETTINGS: CUSTOM_SEEKBAR_COLOR -->
 
         <!-- SETTINGS: ENABLE_NEW_THUMBNAIL_PREVIEW
         <SwitchPreference android:title="@string/revanced_enable_new_thumbnail_preview_title" android:key="revanced_enable_new_thumbnail_preview" android:defaultValue="false" android:summaryOn="@string/revanced_enable_new_thumbnail_preview_summary_on" android:summaryOff="@string/revanced_enable_new_thumbnail_preview_summary_off" />SETTINGS: ENABLE_NEW_THUMBNAIL_PREVIEW -->
@@ -717,10 +717,10 @@
         <SwitchPreference android:title="@string/revanced_enable_swipe_press_to_engage_title" android:key="revanced_enable_swipe_press_to_engage" android:defaultValue="false" android:summaryOn="@string/revanced_enable_swipe_press_to_engage_summary_on" android:summaryOff="@string/revanced_enable_swipe_press_to_engage_summary_off" />
         <SwitchPreference android:title="@string/revanced_enable_swipe_haptic_feedback_title" android:key="revanced_enable_swipe_haptic_feedback" android:defaultValue="true" android:summaryOn="@string/revanced_enable_swipe_haptic_feedback_summary_on" android:summaryOff="@string/revanced_enable_swipe_haptic_feedback_summary_off" android:dependency="revanced_enable_swipe_press_to_engage" />
         <SwitchPreference android:title="@string/revanced_swipe_gestures_lock_mode_title" android:key="revanced_swipe_gestures_lock_mode" android:defaultValue="false" android:summaryOn="@string/revanced_swipe_gestures_lock_mode_summary_on" android:summaryOff="@string/revanced_swipe_gestures_lock_mode_summary_off" />
-        <app.revanced.integrations.settingsmenu.ResettableEditTextPreference android:title="@string/revanced_swipe_overlay_background_alpha_title" android:key="revanced_swipe_overlay_background_alpha" android:summary="@string/revanced_swipe_overlay_background_alpha_summary" android:defaultValue="127" android:inputType="number" />
-        <app.revanced.integrations.settingsmenu.ResettableEditTextPreference android:title="@string/revanced_swipe_magnitude_threshold_title" android:key="revanced_swipe_magnitude_threshold" android:summary="@string/revanced_swipe_magnitude_threshold_summary" android:defaultValue="0" android:inputType="number" />
-        <app.revanced.integrations.settingsmenu.ResettableEditTextPreference android:title="@string/revanced_swipe_overlay_text_size_title" android:key="revanced_swipe_overlay_text_size" android:summary="@string/revanced_swipe_overlay_text_size_summary" android:defaultValue="27" android:inputType="number" />
-        <app.revanced.integrations.settingsmenu.ResettableEditTextPreference android:title="@string/revanced_swipe_overlay_timeout_title" android:key="revanced_swipe_overlay_timeout" android:summary="@string/revanced_swipe_overlay_timeout_summary" android:defaultValue="500" android:inputType="number" />
+        <app.revanced.integrations.youtube.settingsmenu.ResettableEditTextPreference android:title="@string/revanced_swipe_overlay_background_alpha_title" android:key="revanced_swipe_overlay_background_alpha" android:summary="@string/revanced_swipe_overlay_background_alpha_summary" android:defaultValue="127" android:inputType="number" />
+        <app.revanced.integrations.youtube.settingsmenu.ResettableEditTextPreference android:title="@string/revanced_swipe_magnitude_threshold_title" android:key="revanced_swipe_magnitude_threshold" android:summary="@string/revanced_swipe_magnitude_threshold_summary" android:defaultValue="0" android:inputType="number" />
+        <app.revanced.integrations.youtube.settingsmenu.ResettableEditTextPreference android:title="@string/revanced_swipe_overlay_text_size_title" android:key="revanced_swipe_overlay_text_size" android:summary="@string/revanced_swipe_overlay_text_size_summary" android:defaultValue="27" android:inputType="number" />
+        <app.revanced.integrations.youtube.settingsmenu.ResettableEditTextPreference android:title="@string/revanced_swipe_overlay_timeout_title" android:key="revanced_swipe_overlay_timeout" android:summary="@string/revanced_swipe_overlay_timeout_summary" android:defaultValue="500" android:inputType="number" />
         <Preference android:title=" " android:selectable="false" android:key="revanced_experimental_flag" android:summary="@string/revanced_experimental_flag" />
         <SwitchPreference android:title="@string/revanced_disable_hdr_auto_brightness_title" android:key="revanced_disable_hdr_auto_brightness" android:defaultValue="true" android:summaryOn="@string/revanced_disable_hdr_auto_brightness_summary_on" android:summaryOff="@string/revanced_disable_hdr_auto_brightness_summary_off" />SETTINGS: SWIPE_CONTROLS -->
 
@@ -748,7 +748,7 @@
         <!-- SETTINGS: CUSTOM_PLAYBACK_SPEED
         <SwitchPreference android:title="@string/revanced_enable_custom_playback_speed_title" android:key="revanced_enable_custom_playback_speed" android:defaultValue="false" android:summaryOn="@string/revanced_enable_custom_playback_speed_summary_on" android:summaryOff="@string/revanced_enable_custom_playback_speed_summary_off" />
         <SwitchPreference android:title="@string/revanced_custom_playback_speed_panel_type_title" android:key="revanced_custom_playback_speed_panel_type" android:defaultValue="false" android:summaryOn="@string/revanced_custom_playback_speed_panel_type_summary_on" android:summaryOff="@string/revanced_custom_playback_speed_panel_type_summary_off" />
-        <app.revanced.integrations.settingsmenu.ResettableEditTextPreference android:title="@string/revanced_custom_playback_speeds_title" android:key="revanced_custom_playback_speeds" android:summary="@string/revanced_custom_playback_speeds_summary" android:defaultValue="0.25\n0.5\n0.75\n1.0\n1.25\n1.5\n1.75\n2.0\n2.25\n2.5" android:inputType="textMultiLine" />SETTINGS: CUSTOM_PLAYBACK_SPEED -->
+        <app.revanced.integrations.youtube.settingsmenu.ResettableEditTextPreference android:title="@string/revanced_custom_playback_speeds_title" android:key="revanced_custom_playback_speeds" android:summary="@string/revanced_custom_playback_speeds_summary" android:defaultValue="0.25\n0.5\n0.75\n1.0\n1.25\n1.5\n1.75\n2.0\n2.25\n2.5" android:inputType="textMultiLine" />SETTINGS: CUSTOM_PLAYBACK_SPEED -->
 
         <!-- SETTINGS: DEFAULT_PLAYBACK_SPEED
         <SwitchPreference android:title="@string/revanced_enable_save_playback_speed_title" android:key="revanced_enable_save_playback_speed" android:defaultValue="false" android:summaryOn="@string/revanced_enable_save_playback_speed_summary_on" android:summaryOff="@string/revanced_enable_save_playback_speed_summary_off" />SETTINGS: DEFAULT_PLAYBACK_SPEED -->

@@ -23,7 +23,7 @@ object RecentlyVisitedShelfPatch : BytecodePatch(
     setOf(CommunityDrawerPresenterFingerprint)
 ) {
     private const val INTEGRATIONS_METHOD_DESCRIPTOR =
-        "Lapp/revanced/reddit/patches/RecentlyVisitedShelfPatch;" +
+        "Lapp/revanced/integrations/reddit/patches/RecentlyVisitedShelfPatch;" +
                 "->hideRecentlyVisitedShelf(Ljava/util/List;)Ljava/util/List;"
 
     override fun execute(context: BytecodeContext) {

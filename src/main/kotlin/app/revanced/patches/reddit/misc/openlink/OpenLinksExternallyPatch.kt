@@ -24,7 +24,7 @@ object OpenLinksExternallyPatch : BytecodePatch(
     setOf(ScreenNavigatorFingerprint)
 ) {
     private const val INTEGRATIONS_METHOD_DESCRIPTOR =
-        "Lapp/revanced/reddit/patches/OpenLinksExternallyPatch;"
+        "Lapp/revanced/integrations/reddit/patches/OpenLinksExternallyPatch;"
 
     override fun execute(context: BytecodeContext) {
         ScreenNavigatorFingerprint.result?.let {

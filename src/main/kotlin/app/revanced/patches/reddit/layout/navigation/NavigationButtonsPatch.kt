@@ -23,7 +23,7 @@ object NavigationButtonsPatch : BytecodePatch(
     setOf(BottomNavScreenFingerprint)
 ) {
     private const val INTEGRATIONS_METHOD_DESCRIPTOR =
-        "Lapp/revanced/reddit/patches/NavigationButtonsPatch;" +
+        "Lapp/revanced/integrations/reddit/patches/NavigationButtonsPatch;" +
                 "->hideNavigationButtons(Landroid/view/ViewGroup;)V"
 
     override fun execute(context: BytecodeContext) {

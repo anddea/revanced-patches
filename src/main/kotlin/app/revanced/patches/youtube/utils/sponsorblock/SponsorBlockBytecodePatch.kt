@@ -218,7 +218,7 @@ object SponsorBlockBytecodePatch : BytecodePatch(
     }
 
     private const val INTEGRATIONS_BUTTON_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/sponsorblock"
+        "Lapp/revanced/integrations/youtube/sponsorblock"
 
     private const val INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR =
         "$INTEGRATIONS_BUTTON_CLASS_DESCRIPTOR/SegmentPlaybackController;"

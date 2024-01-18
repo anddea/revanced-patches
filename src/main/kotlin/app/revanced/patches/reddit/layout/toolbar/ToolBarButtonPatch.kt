@@ -30,7 +30,7 @@ object ToolBarButtonPatch : BytecodePatch(
     setOf(HomePagerScreenFingerprint)
 ) {
     private const val INTEGRATIONS_METHOD_DESCRIPTOR =
-        "Lapp/revanced/reddit/patches/ToolBarButtonPatch;" +
+        "Lapp/revanced/integrations/reddit/patches/ToolBarButtonPatch;" +
                 "->hideToolBarButton(Landroid/view/View;)V"
 
     override fun execute(context: BytecodeContext) {

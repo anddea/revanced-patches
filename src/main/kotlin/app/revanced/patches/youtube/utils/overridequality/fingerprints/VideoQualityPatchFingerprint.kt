@@ -9,7 +9,7 @@ object VideoQualityPatchFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
     parameters = listOf("I"),
     customFingerprint = { methodDef, _ ->
-        methodDef.definingClass == "Lapp/revanced/integrations/patches/video/VideoQualityPatch;"
+        methodDef.definingClass == "Lapp/revanced/integrations/youtube/patches/video/VideoQualityPatch;"
                 && methodDef.name == "overrideQuality"
     }
 )

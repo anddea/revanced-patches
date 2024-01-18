@@ -11,7 +11,7 @@ object SegmentPlaybackControllerFingerprint : MethodFingerprint(
     parameters = listOf("Ljava/lang/Object;"),
     opcodes = listOf(Opcode.CONST_STRING),
     customFingerprint = { methodDef, _ ->
-        methodDef.definingClass == "Lapp/revanced/integrations/sponsorblock/SegmentPlaybackController;"
+        methodDef.definingClass == "Lapp/revanced/integrations/youtube/sponsorblock/SegmentPlaybackController;"
                 && methodDef.name == "setSponsorBarRect"
     }
 )

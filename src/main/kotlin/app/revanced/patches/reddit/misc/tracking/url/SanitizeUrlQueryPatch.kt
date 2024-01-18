@@ -23,7 +23,7 @@ object SanitizeUrlQueryPatch : BytecodePatch(
     setOf(ShareLinkFormatterFingerprint)
 ) {
     private const val SANITIZE_METHOD_DESCRIPTOR =
-        "Lapp/revanced/reddit/patches/SanitizeUrlQueryPatch;" +
+        "Lapp/revanced/integrations/reddit/patches/SanitizeUrlQueryPatch;" +
                 "->stripQueryParameters()Z"
 
     override fun execute(context: BytecodeContext) {

@@ -36,11 +36,11 @@ object HideAdsPatch : BytecodePatch(
     )
 ) {
     private const val INTEGRATIONS_OLD_METHOD_DESCRIPTOR =
-        "Lapp/revanced/reddit/patches/GeneralAdsPatch;" +
+        "Lapp/revanced/integrations/reddit/patches/GeneralAdsPatch;" +
                 "->hideOldPostAds(Ljava/util/List;)Ljava/util/List;"
 
     private const val INTEGRATIONS_NEW_METHOD_DESCRIPTOR =
-        "Lapp/revanced/reddit/patches/GeneralAdsPatch;" +
+        "Lapp/revanced/integrations/reddit/patches/GeneralAdsPatch;" +
                 "->hideNewPostAds()Z"
 
     override fun execute(context: BytecodeContext) {
