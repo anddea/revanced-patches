@@ -19,58 +19,58 @@
     <string name="revanced_change_start_page_entry_home">Главная</string>
     <string name="revanced_change_start_page_entry_library">Библиотека</string>
     <string name="revanced_change_start_page_entry_subscription">Подписки</string>
-    <string name="revanced_change_start_page_summary">Изменяет начальную страницу приложения.</string>
+    <string name="revanced_change_start_page_summary">Выберите, на какой странице открывается приложение.</string>
     <string name="revanced_change_start_page_title">Изменить начальную страницу</string>
-    <string name="revanced_custom_filter_strings_summary">Фильтровать компоненты по названиям через строку.</string>
+    <string name="revanced_custom_filter_strings_summary">Настройте, какие компоненты фильтровать, обозначая конец каждого из них новой строкой.</string>
     <string name="revanced_custom_filter_strings_title">Изменить пользовательский фильтр</string>
-    <string name="revanced_custom_filter_strings_warning">Недопустимый пользовательский фильтр, сброс к данным по умолчанию.</string>
+    <string name="revanced_custom_filter_strings_warning">Недопустимый пользовательский фильтр. Значения сброшены к начальным.</string>
     <string name="revanced_custom_filter_summary">Включает пользовательский фильтр для скрытия компонентов интерфейса.</string>
     <string name="revanced_custom_filter_title">Пользовательский фильтр</string>
-    <string name="revanced_custom_playback_speeds_invalid">Недопустимые скорости. Сброс к значениям по умолчанию.</string>
-    <string name="revanced_custom_playback_speeds_summary">Добавить или изменить доступные скорости воспроизведения.</string>
+    <string name="revanced_custom_playback_speeds_invalid">Недопустимые скорости. Значения сброшены к начальным.</string>
+    <string name="revanced_custom_playback_speeds_summary">Настройте доступные скорости воспроизведения.</string>
     <string name="revanced_custom_playback_speeds_title">Изменить скорости</string>
     <string name="revanced_custom_playback_speeds_warning" formatted="false">Скорости воспроизведения не могут быть больше, чем %sx.</string>
-    <string name="revanced_disable_auto_captions_summary">Отключает автоматическое включение субтитров в проигрывателе видео.</string>
+    <string name="revanced_disable_auto_captions_summary">Отключает автоматическое включение субтитров.</string>
     <string name="revanced_disable_auto_captions_title">Отключить автоматические субтитры</string>
     <string name="revanced_downloader_not_installed" formatted="false">%s не установлен. Пожалуйста, установите его.</string>
     <string name="revanced_enable_black_navigation_bar_summary">Устанавливает чёрный цвет панели навигации.</string>
     <string name="revanced_enable_black_navigation_bar_title">Чёрная панель навигации</string>
     <string name="revanced_enable_color_match_player_summary">Цвет мини-проигрывателя соответствует цвету полноэкранного проигрывателя.</string>
     <string name="revanced_enable_color_match_player_title">Цветовое соответствие проигрывателей</string>
-    <string name="revanced_enable_compact_dialog_summary">"Компактный вид окна на телефоне.
+    <string name="revanced_enable_compact_dialog_summary">"Включает компактное всплывающее меню на телефонах.
 
 Известные проблемы:
-• Заставки альбомов во вкладке \"Библиотека\" становятся меньше.
+• Заставки альбомов во вкладке \"Библиотека\" становятся меньше в виде сетки.
 • Интерфейс \"Автовыключение\" может необычно появляться."</string>
     <string name="revanced_enable_compact_dialog_title">Компактный вид окна</string>
     <string name="revanced_enable_debug_logging_summary">Выводит журнал отладки.</string>
     <string name="revanced_enable_debug_logging_title">Ведение журнала отладки</string>
-    <string name="revanced_enable_flyout_panel_playback_speed_summary">Добавить кнопку \"Скорость воспроизведения\" в выдвижную панель.</string>
+    <string name="revanced_enable_flyout_panel_playback_speed_summary">Добавляет кнопку \"Скорость воспроизведения\" в выдвижную панель.</string>
     <string name="revanced_enable_flyout_panel_playback_speed_title">Кнопка \"Скорость воспроизведения\"</string>
-    <string name="revanced_enable_force_minimized_player_summary">Держать проигрыватель всегда свёрнутым при нажатии на трек с главной страницы.</string>
+    <string name="revanced_enable_force_minimized_player_summary">Держит проигрыватель всегда свёрнутым, даже если играет другой трек.</string>
     <string name="revanced_enable_force_minimized_player_title">Держать проигрыватель свёрнутым</string>
-    <string name="revanced_enable_landscape_mode_summary">Даёт возможность перехода в альбомный режим при повороте экрана телефона.</string>
+    <string name="revanced_enable_landscape_mode_summary">Включает альбомный режим при повороте экрана на телефонах.</string>
     <string name="revanced_enable_landscape_mode_title">Альбомный режим</string>
-    <string name="revanced_enable_new_player_background_summary">Включает новый фон полноэкранного проигрывателя.</string>
+    <string name="revanced_enable_new_player_background_summary">Включает новый фон проигрывателя.</string>
     <string name="revanced_enable_new_player_background_title">Новый фон проигрывателя</string>
-    <string name="revanced_enable_old_player_layout_summary">"Вернуть интерфейс проигрывателя к старому стилю.
-Некоторые настройки могут не работать в старом интерфейсе проигрывателя.
+    <string name="revanced_enable_old_player_layout_summary">"Возвращает интерфейс проигрывателя к старому стилю.
+Некоторые вещи могут работать неправильно в старом интерфейсе проигрывателя.
 
-ВАЖНО: Перед включением этой опции удостоверьтесь, что параметр \"Новый фон проигрывателя\" отключён."</string>
+ВАЖНО: Не включайте \"Новый фон проигрывателя\", когда это включено."</string>
     <string name="revanced_enable_old_player_layout_title">Старый интерфейс проигрывателя</string>
-    <string name="revanced_enable_old_style_library_shelf_summary">Вернуть старый стиль вкладки \"Библиотека\". (Экспериментальная опция)</string>
+    <string name="revanced_enable_old_style_library_shelf_summary">Возвращает вкладку \"Библиотека\" к старому стилю. (Экспериментальная опция)</string>
     <string name="revanced_enable_old_style_library_shelf_title">Старый стиль вкладки \"Библиотека\"</string>
-    <string name="revanced_enable_old_style_mini_player_summary">Вернуть старый стиль мини-проигрывателя.</string>
+    <string name="revanced_enable_old_style_mini_player_summary">Возвращает мини-проигрыватель к старому стилю.</string>
     <string name="revanced_enable_old_style_mini_player_title">Старый стиль мини-проигрывателя</string>
-    <string name="revanced_enable_opus_codec_summary">Использовать кодек аудио Opus вместо кодека аудио mp4a.</string>
+    <string name="revanced_enable_opus_codec_summary">Включает аудиокодек Opus вместо аудиокодека mp4a.</string>
     <string name="revanced_enable_opus_codec_title">Кодек Opus</string>
-    <string name="revanced_enable_save_playback_speed_summary">Сохранять скорость воспроизведения при её изменении.</string>
+    <string name="revanced_enable_save_playback_speed_summary">Запоминает последнюю выбранную скорость воспроизведения.</string>
     <string name="revanced_enable_save_playback_speed_title">Сохранять скорость воспроизведения</string>
-    <string name="revanced_enable_save_video_quality_summary">Сохранять качество видео при его изменении.</string>
+    <string name="revanced_enable_save_video_quality_summary">Запоминает последнее выбранное качество видео.</string>
     <string name="revanced_enable_save_video_quality_title">Сохранять качество видео</string>
-    <string name="revanced_enable_sleep_timer_summary">Добавить пункт \"Автовыключение\" в выдвижное меню.</string>
+    <string name="revanced_enable_sleep_timer_summary">Добавляет пункт \"Автовыключение\" в выдвижное меню.</string>
     <string name="revanced_enable_sleep_timer_title">Пункт \"Автовыключение\"</string>
-    <string name="revanced_enable_zen_mode_summary">Добавляет серый оттенок в проигрыватель видео, чтобы уменьшить нагрузку на глаза.</string>
+    <string name="revanced_enable_zen_mode_summary">Меняет оттенок фона проигрывателя видео на светло-серый, чтобы уменьшить нагрузку на глаза.</string>
     <string name="revanced_enable_zen_mode_title">Режим \"Дзен\"</string>
     <string name="revanced_extended_settings_export_as_file">Извлечь настройки в файл</string>
     <string name="revanced_extended_settings_export_failed">Не удалось извлечь настройки.</string>
@@ -90,23 +90,25 @@
     <string name="revanced_flyout_panel_watch_on_youtube">Открыть в YouTube</string>
     <string name="revanced_hide_account_menu_empty_component_summary">Скрывает пустой пункт в меню аккаунта.</string>
     <string name="revanced_hide_account_menu_empty_component_title">Скрыть пустой пункт</string>
-    <string name="revanced_hide_account_menu_summary">Скрыть элементы меню аккаунта.</string>
+    <string name="revanced_hide_account_menu_summary">Скрывает элементы меню аккаунта в пользовательском фильтре.</string>
     <string name="revanced_hide_account_menu_title">Скрыть меню аккаунта</string>
-    <string name="revanced_hide_action_button_add_to_playlist_summary">Скрывает кнопку \"Сохранить в плейлист\".</string>
-    <string name="revanced_hide_action_button_add_to_playlist_title">Скрыть кнопку \"Сохранить в плейлист\"</string>
+    <string name="revanced_hide_action_button_add_to_playlist_summary">Скрывает кнопку \"Добавить в плейлист\".</string>
+    <string name="revanced_hide_action_button_add_to_playlist_title">Скрыть кнопку \"Добавить в плейлист\"</string>
     <string name="revanced_hide_action_button_comment_summary">Скрывает кнопку \"Комментарии\".</string>
     <string name="revanced_hide_action_button_comment_title">Скрыть кнопку \"Комментарии\"</string>
     <string name="revanced_hide_action_button_download_summary">Скрывает кнопку \"Скачать\".</string>
     <string name="revanced_hide_action_button_download_title">Скрыть кнопку \"Скачать\"</string>
-    <string name="revanced_hide_action_button_label_summary">Скрыть подписи на кнопках действий.</string>
+    <string name="revanced_hide_action_button_label_summary">Скрывает подписи на кнопках действий.</string>
     <string name="revanced_hide_action_button_label_title">Скрыть подписи кнопок действий</string>
+    <string name="revanced_hide_action_button_like_dislike_summary">Скрывает кнопки \"Нравится\" и \"Не нравится\". Не работает в старом интерфейсе проигрывателя.</string>
+    <string name="revanced_hide_action_button_like_dislike_title">Скрыть кнопки \"Нравится\" и \"Не нравится\"</string>
     <string name="revanced_hide_action_button_radio_summary">Скрывает кнопку \"Включить радиостанцию\".</string>
     <string name="revanced_hide_action_button_radio_title">Скрыть кнопку \"Включить радиостанцию\"</string>
     <string name="revanced_hide_action_button_share_summary">Скрывает кнопку \"Поделиться\".</string>
     <string name="revanced_hide_action_button_share_title">Скрыть кнопку \"Поделиться\"</string>
-    <string name="revanced_hide_button_shelf_summary">Скрывает кнопки: \"Новинки\", \"Хит-парады\" и \"Настроения и жанры\", во вкладках \"Главная\" и \"Навигатор\".</string>
-    <string name="revanced_hide_button_shelf_title">Скрыть секцию кнопок</string>
-    <string name="revanced_hide_carousel_shelf_summary">Скрывает карусель треков на главной странице и в навигаторе.</string>
+    <string name="revanced_hide_button_shelf_summary">Скрывает ряд кнопок с главной страницы и со вкладки \"Навигатор\".</string>
+    <string name="revanced_hide_button_shelf_title">Скрыть ряд кнопок</string>
+    <string name="revanced_hide_carousel_shelf_summary">Скрывает карусель треков с главной страницы и со вкладки \"Навигатор\".</string>
     <string name="revanced_hide_carousel_shelf_title">Скрыть карусель треков</string>
     <string name="revanced_hide_cast_button_summary">Скрывает кнопку \"Трансляция\".</string>
     <string name="revanced_hide_cast_button_title">Скрыть кнопку \"Трансляция\"</string>
@@ -114,9 +116,9 @@
     <string name="revanced_hide_category_bar_title">Скрыть панель категорий</string>
     <string name="revanced_hide_channel_guidelines_summary">Скрывает правила канала в верхней части комментариев.</string>
     <string name="revanced_hide_channel_guidelines_title">Скрыть правила канала</string>
-    <string name="revanced_hide_emoji_picker_summary">Скрывает панель эмодзи при комментировании.</string>
-    <string name="revanced_hide_emoji_picker_title">Скрыть панель эмодзи</string>
-    <string name="revanced_hide_explore_button_summary">Скрывает кнопку \"Навигатор\" на панели навигации.</string>
+    <string name="revanced_hide_emoji_picker_summary">Скрывает панель выбора эмодзи при написании комментариев.</string>
+    <string name="revanced_hide_emoji_picker_title">Скрыть панель выбора эмодзи</string>
+    <string name="revanced_hide_explore_button_summary">Скрывает кнопку \"Навигатор\".</string>
     <string name="revanced_hide_explore_button_title">Скрыть кнопку \"Навигатор\"</string>
     <string name="revanced_hide_flyout_panel_add_to_queue_title">Скрыть пункт \"Добавить в очередь\"</string>
     <string name="revanced_hide_flyout_panel_captions_title">Скрыть пункт \"Субтитры\"</string>
@@ -159,7 +161,7 @@
     <string name="revanced_hide_music_ads_title">Скрыть музыкальную рекламу</string>
     <string name="revanced_hide_navigation_bar_summary">Скрывает панель навигации.</string>
     <string name="revanced_hide_navigation_bar_title">Скрыть панель навигации</string>
-    <string name="revanced_hide_navigation_label_summary">Скрыть подписи кнопок на панели навигации.</string>
+    <string name="revanced_hide_navigation_label_summary">Скрывает подписи под кнопками навигации.</string>
     <string name="revanced_hide_navigation_label_title">Скрыть подписи кнопок навигации</string>
     <string name="revanced_hide_new_playlist_button_summary">Скрывает кнопку \"Новый\" во вкладке \"Библиотека\".</string>
     <string name="revanced_hide_new_playlist_button_title">Скрыть кнопку \"Новый\"</string>
@@ -171,6 +173,8 @@
     <string name="revanced_hide_premium_renewal_title">Скрыть баннер продления Premium</string>
     <string name="revanced_hide_samples_button_summary">Скрывает кнопку \"Семплы\".</string>
     <string name="revanced_hide_samples_button_title">Скрыть кнопку \"Семплы\"</string>
+    <string name="revanced_hide_fullscreen_share_button_summary">Скрывает кнопку \"Поделиться\" в полноэкранном проигрывателе.</string>
+    <string name="revanced_hide_fullscreen_share_button_title">Скрыть кнопку \"Поделиться\" в полноэкранном режиме</string>
     <string name="revanced_hide_terms_container_summary">Скрывает пункт \"Конфиденциальность • Условия\".</string>
     <string name="revanced_hide_terms_container_title">Скрыть \"Конфиденциальность • Условия\"</string>
     <string name="revanced_hide_upgrade_button_summary">Скрывает кнопку \"Платные подписки\".</string>
@@ -180,19 +184,21 @@
     <string name="revanced_playback_speed_normal">Обычная</string>
     <string name="revanced_playlist_dismiss">Уже воспроизводится с официального источника музыки.</string>
     <string name="revanced_playlist_error">Официальный источник музыки недоступен.</string>
-    <string name="revanced_remove_viewer_discretion_dialog_summary">"Убрать окно о нежелательном контенте.
+    <string name="revanced_remove_viewer_discretion_dialog_summary">"Убирает окно о нежелательном контенте.
 Не обходит возрастное ограничение, просто принимает его автоматически."</string>
     <string name="revanced_remove_viewer_discretion_dialog_title">Убрать окно о нежелательном контенте</string>
     <string name="revanced_restart_first_run">Перезапустите для правильной загрузки интерфейса</string>
     <string name="revanced_restart_message">Обновите и перезапустите</string>
-    <string name="revanced_replace_flyout_panel_dismiss_queue_continue_watch_summary">При нажатии на пункт \"Открыть в YouTube\" воспроизведение продолжится с текущего времени просмотра.</string>
+    <string name="revanced_replace_flyout_panel_dismiss_queue_continue_watch_summary">Видео продолжается с текущего времени просмотра при переходе на YouTube.</string>
     <string name="revanced_replace_flyout_panel_dismiss_queue_continue_watch_title">Продолжить просмотр</string>
-    <string name="revanced_replace_flyout_panel_dismiss_queue_summary">Заменяет пункт \"Очистить очередь\" на пункт \"Открыть в YouTube\".</string>
+    <string name="revanced_replace_flyout_panel_dismiss_queue_summary">Заменяет \"Очистить очередь\" на \"Открыть в YouTube\".</string>
     <string name="revanced_replace_flyout_panel_dismiss_queue_title">Замена пункта \"Очистить очередь\"</string>
+    <string name="revanced_replace_player_cast_button_summary">"Заменить кнопку \"Трансляция\" в проигрывателе на кнопку \"Открыть трек\". (Экспериментальная опция)
+Известные проблемы: Если в плейлисте не может проигрываться один трек или более, то будет работать неправильно."</string>
     <string name="revanced_replace_player_cast_button_title">Замена кнопки \"Трансляция\"</string>
-    <string name="revanced_remember_repeat_state_summary">Запоминает состояние кнопки \"Повтор воспроизведения\".</string>
+    <string name="revanced_remember_repeat_state_summary">Запоминает состояние переключателя \"Повтор воспроизведения\".</string>
     <string name="revanced_remember_repeat_state_title">Запоминать состояние повтора</string>
-    <string name="revanced_remember_shuffle_state_summary">Запоминает состояние кнопки \"Перемешать\".</string>
+    <string name="revanced_remember_shuffle_state_summary">Запоминает состояние переключателя \"Перемешать\".</string>
     <string name="revanced_remember_shuffle_state_title">Запоминать состояние перемешивания</string>
     <string name="revanced_reset">Сбросить</string>
     <string name="revanced_ryd_about">Об интеграции</string>
@@ -202,14 +208,14 @@
     <string name="revanced_ryd_dislike_percentage_summary">Вместо числа отметок \"Не нравится\", они отображаются как процент.</string>
     <string name="revanced_ryd_dislike_percentage_title">Кол-во отметок \"Не нравится\" в процентах</string>
     <string name="revanced_ryd_enabled_summary">Отображает количество отметок \"Не нравится\" в видео.</string>
-    <string name="revanced_ryd_failure_connection_timeout">Отметки \"Не нравится\" временно недоступны (время API истекло).</string>
+    <string name="revanced_ryd_failure_connection_timeout">Отметки \"Не нравится\" недоступны (время API истекло).</string>
     <string name="revanced_ryd_failure_connection_status_code" formatted="false">Отметки \"Не нравится\" недоступны (состояние %d).</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Отметки \"Не нравится\" недоступны (достигнут лимит клиентов сервера API).</string>
     <string name="revanced_ryd_failure_generic">Отметки \"Не нравится\" недоступны (%s).</string>
-    <string name="revanced_ryd_toast_on_connection_error_summary">Всплывающее уведомление отображено, когда Return YouTube Dislike недоступен.</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary">Отображает всплывающее уведомление, когда API Return YouTube Dislike недоступен.</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Уведомлять, когда API недоступен</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Скрыты</string>
-    <string name="revanced_sanitize_sharing_links_summary">Убирает параметры отслеживания запросов из адреса при отправке ссылки.</string>
+    <string name="revanced_sanitize_sharing_links_summary">Убирает параметры отслеживания запросов из адресов при отправке ссылки.</string>
     <string name="revanced_sanitize_sharing_links_title">Подчищать ссылки</string>
     <string name="revanced_save_playback_speed" formatted="false">Скорость по умолчанию изменена на %s.</string>
     <string name="revanced_save_video_quality_mobile" formatted="false">Качество по умолчанию при моб. сети изменено на %s.</string>
@@ -229,9 +235,9 @@
     <string name="sb_enabled">SponsorBlock</string>
     <string name="sb_enabled_sum">SponsorBlock - это crowd-sourced система для пропуска раздражающих частей видео в YouTube.</string>
     <string name="sb_toast_on_connection_error">Уведомлять, когда API недоступен</string>
-    <string name="sb_toast_on_connection_error_sum">Всплывающее уведомление отображено, когда SponsorBlock недоступен.</string>
+    <string name="sb_toast_on_connection_error_sum">Отображает всплывающее уведомление, когда SponsorBlock недоступен.</string>
     <string name="sb_toast_on_skip">Уведомление при автопропуске</string>
-    <string name="sb_toast_on_skip_sum">Всплывающее уведомление отображено при автоматическом пропуске сегмента.</string>
+    <string name="sb_toast_on_skip_sum">Отображает всплывающее уведомление при автоматическом пропуске сегмента.</string>
     <string name="sb_api_url">Изменить адрес сервера API</string>
     <string name="sb_api_url_sum">Адрес, используемый для связи с сервером SponsorBlock. Не изменяйте его, если не знаете, что делаете.</string>
     <string name="sb_api_url_reset">Адрес сервера API сброшен.</string>
@@ -275,7 +281,7 @@
     <string name="sb_color_dot_label">Цвет:</string>
     <string name="sb_color_changed">Цвет изменён.</string>
     <string name="sb_color_reset">Цвет сброшен.</string>
-    <string name="sb_color_invalid">Неверный код цвета.</string>
+    <string name="sb_color_invalid">Неверный код цвета. Значения сброшены к начальным.</string>
     <string name="sb_reset_color">Сбросить цвет</string>
     <string name="sb_about_api_sum">Данные предоставлены SponsorBlock API. Нажмите здесь, чтобы узнать больше и увидеть опцию загрузки для других платформ.</string>
     <string name="sb_about">Об интеграции</string>
