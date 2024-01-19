@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.fullscreen.landscapemode
+package app.revanced.patches.youtube.fullscreen.landscapemode.disable
 
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
@@ -7,9 +7,9 @@ import app.revanced.patcher.fingerprint.MethodFingerprintResult
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.youtube.fullscreen.landscapemode.fingerprints.OrientationParentFingerprint
-import app.revanced.patches.youtube.fullscreen.landscapemode.fingerprints.OrientationPrimaryFingerprint
-import app.revanced.patches.youtube.fullscreen.landscapemode.fingerprints.OrientationSecondaryFingerprint
+import app.revanced.patches.youtube.fullscreen.landscapemode.disable.fingerprints.OrientationParentFingerprint
+import app.revanced.patches.youtube.fullscreen.landscapemode.disable.fingerprints.OrientationPrimaryFingerprint
+import app.revanced.patches.youtube.fullscreen.landscapemode.disable.fingerprints.OrientationSecondaryFingerprint
 import app.revanced.patches.youtube.utils.integrations.Constants.FULLSCREEN
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.exception
@@ -48,7 +48,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
     use = false
 )
 @Suppress("unused")
-object LandScapeModePatch : BytecodePatch(
+object DisableLandScapeModePatch : BytecodePatch(
     setOf(OrientationParentFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {

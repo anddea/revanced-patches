@@ -179,6 +179,10 @@
         <!-- SETTINGS: FORCE_FULLSCREEN
         <SwitchPreference android:title="@string/revanced_force_fullscreen_title" android:key="revanced_force_fullscreen" android:defaultValue="false" android:summary="@string/revanced_force_fullscreen_summary" />SETTINGS: FORCE_FULLSCREEN -->
 
+        <!-- SETTINGS: KEEP_LANDSCAPE_MODE
+        <SwitchPreference android:title="@string/revanced_keep_landscape_mode_title" android:key="revanced_keep_landscape_mode" android:defaultValue="false" android:summary="@string/revanced_keep_landscape_mode_summary" />
+        <app.revanced.integrations.youtube.settingsmenu.ResettableEditTextPreference android:title="@string/revanced_keep_landscape_mode_timeout_title" android:key="revanced_keep_landscape_mode_timeout" android:summary="@string/revanced_keep_landscape_mode_timeout_summary" android:defaultValue="3000" android:inputType="number" android:dependency="revanced_keep_landscape_mode" />SETTINGS: KEEP_LANDSCAPE_MODE -->
+
     <!-- PREFERENCE: FULLSCREEN_SETTINGS
     </PreferenceScreen>PREFERENCE: FULLSCREEN_SETTINGS -->
 
@@ -416,6 +420,7 @@
             <Preference android:title="Hide autoplay preview" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Hide end screen overlay" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Hide fullscreen panels" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="Keep landscape mode" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Quick actions components" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
 
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_general" />
