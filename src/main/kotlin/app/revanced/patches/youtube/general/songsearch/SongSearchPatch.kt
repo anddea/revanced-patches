@@ -3,12 +3,12 @@ package app.revanced.patches.youtube.general.songsearch
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.youtube.general.songsearch.fingerprints.VoiceSearchConfigFingerprint
 import app.revanced.patches.youtube.utils.integrations.Constants.GENERAL
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
-import app.revanced.util.exception
 
 @Patch(
     name = "Enable song search",
@@ -55,7 +55,7 @@ object SongSearchPatch : BytecodePatch(
                         """
                 )
             }
-        } ?: throw VoiceSearchConfigFingerprint.exception
+        } ?: throw PatchException("This version is not supported. Please use YouTube 18.30.37 or later.")
 
         /**
          * Add settings
