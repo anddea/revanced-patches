@@ -56,6 +56,9 @@ DeArrow hakkında daha fazla bilgi edinmek için buraya dokunun."</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">Güç tasarrufu modundayken ambiyans modu kullanılamıyor.</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">Güç tasarrufu modundayken ambiyans modu kullanılabilir.</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">Ambiyans modu kısıtlamalarını atlayın</string>
+    <string name="revanced_change_player_flyout_panel_toggle_summary_off">Anahtar geçişleri kullanılır.</string>
+    <string name="revanced_change_player_flyout_panel_toggle_summary_on">Yazı geçişleri kullanılır.</string>
+    <string name="revanced_change_player_flyout_panel_toggle_title">Geçiş tipini değiştir</string>
     <string name="revanced_change_start_page_entry_default">Varsayılan</string>
     <string name="revanced_change_start_page_entry_explore">Keşfet</string>
     <string name="revanced_change_start_page_entry_history">Geçmiş</string>
@@ -75,9 +78,9 @@ Not: Test edilmemiş bir özelliktir."</string>
     <string name="revanced_close_interstitial_ads_title">Geçiş reklamlarını kapatın</string>
     <string name="revanced_close_interstitial_ads_toast">Geçiş reklamları kapatılıyor.</string>
     <string name="revanced_comments_title">Yorumlar</string>
-    <string name="revanced_custom_filter_strings_summary">Öğeleri satır satır ayırarak yazın.</string>
+    <string name="revanced_custom_filter_strings_summary">Yeni satırlarla ayrılmış olarak hangi bileşenlerin filtreleneceğini yapılandırın.</string>
     <string name="revanced_custom_filter_strings_title">Özel filtreyi düzenle</string>
-    <string name="revanced_custom_filter_strings_warning">Geçersiz özel filtre, varsayılana dönülüyor</string>
+    <string name="revanced_custom_filter_strings_warning">Geçersiz özel filtre. Filtre varsayılana sıfırlandı.</string>
     <string name="revanced_custom_filter_summary_off">Özel filtre devre dışı</string>
     <string name="revanced_custom_filter_summary_on">Özel filtre etkin</string>
     <string name="revanced_custom_filter_title">Özel filtreyi etkinleştir</string>
@@ -134,9 +137,11 @@ Not: Bu özelliği devre dışı bırakmak, eski arayüzdeki \"Videoyu sarmak i�
     <string name="revanced_disable_startup_shorts_player_summary_off">Uygulamayı açtığınız zaman, karşınıza Shorts videoları çıkabilir</string>
     <string name="revanced_disable_startup_shorts_player_summary_on">Uygulamayı açtığınız zaman, karşınıza Shorts videolarının çıkması engelleniyor</string>
     <string name="revanced_disable_startup_shorts_player_title">Uygulama açılışında Shorts videolarını engelle</string>
+    <string name="revanced_disable_update_screen_summary">Güncel olmayan bir istemci kullanıldığında görüntülenen \"Uygulamanızı güncelleyin\" ekranını devre dışı bırakır.</string>
+    <string name="revanced_disable_update_screen_title">Güncelleme ekranını devre dışı bırak</string>
     <string name="revanced_double_back_timeout_summary">Çıkmak için geri tuşuna çift basmanın arasındaki maksimum saniye sayısı.</string>
     <string name="revanced_double_back_timeout_title">İki defa geriye basma arasındaki süre</string>
-    <string name="revanced_enable_bottom_player_gestures_summary_off">Oynatıcının altından kaydırarak tam ekrana geçme etkin değil.</string>
+    <string name="revanced_enable_bottom_player_gestures_summary_off">Oynatıcının altına doğru kaydırırken tam ekrana giriş devre dışı bırakıldı.</string>
     <string name="revanced_enable_bottom_player_gestures_summary_on">Oynatıcının altından kaydırarak tam ekrana geçme etkin.</string>
     <string name="revanced_enable_bottom_player_gestures_title">Alt oynatıcı hareketlerini etkinleştir</string>
     <string name="revanced_enable_compact_controls_overlay_summary_off">Tam ekran videoda sıkışık oynatıcı etkin değil</string>
@@ -154,6 +159,9 @@ Not: Bu özelliği devre dışı bırakmak, eski arayüzdeki \"Videoyu sarmak i�
     <string name="revanced_enable_debug_logging_summary_off">Hata ayıklama günlükleri devre dışı</string>
     <string name="revanced_enable_debug_logging_summary_on">Hata ayıklama günlükleri etkin</string>
     <string name="revanced_enable_debug_logging_title">Hata ayıklama günlüklerini etkinleştir</string>
+    <string name="revanced_enable_default_playback_speed_shorts_summary_off">Varsayılan oynatma hızı Shorts videolara uygulanmaz.</string>
+    <string name="revanced_enable_default_playback_speed_shorts_summary_on">Varsayılan oynatma hızı Shorts videolara uygulanır.</string>
+    <string name="revanced_enable_default_playback_speed_shorts_title">Shorts videolarında varsayılan oynatma hızını etkinleştir</string>
     <string name="revanced_enable_external_browser_summary_off">Harici tarayıcı devre dışı</string>
     <string name="revanced_enable_external_browser_summary_on">Harici tarayıcı etkin</string>
     <string name="revanced_enable_external_browser_title">Harici tarayıcıyı kullan</string>
@@ -169,8 +177,8 @@ Not: Bu özelliği devre dışı bırakmak, eski arayüzdeki \"Videoyu sarmak i�
     <string name="revanced_enable_new_thumbnail_preview_summary_off">Yeni küçük resim önizlemesi devre dışı</string>
     <string name="revanced_enable_new_thumbnail_preview_summary_on">Yeni küçük resim önizlemesi etkin</string>
     <string name="revanced_enable_new_thumbnail_preview_title">Yeni küçük resim önizlemesini etkinleştir</string>
-    <string name="revanced_enable_old_quality_layout_summary_off">Yeni stil video kalite ayarları kullanılıyor.</string>
-    <string name="revanced_enable_old_quality_layout_summary_on">Eski stil video kalite ayarları kullanılıyor.</string>
+    <string name="revanced_enable_old_quality_layout_summary_off">Yeni stil video kalite ayarları gösteriliyor.</string>
+    <string name="revanced_enable_old_quality_layout_summary_on">Eski stil video kalite ayarları gösteriliyor.</string>
     <string name="revanced_enable_old_quality_layout_title">Eski stil video kalite menüsünü etkinleştir</string>
     <string name="revanced_enable_open_links_directly_summary_off">Varsayılan yönlendirme politikası takip ediliyor.</string>
     <string name="revanced_enable_open_links_directly_summary_on">URL yönlendirmeleri atlanıyor.</string>
@@ -256,8 +264,8 @@ Bu durumda lütfen şu yolu kullanın: Siz sekmesi &gt; Kanalı görüntüle &gt
     <string name="revanced_flyout_menu">Açılır menü</string>
     <string name="revanced_force_fullscreen_summary">"Aşağıdaki durumlarda video tam ekrana geçecektir:
 
-• Yorumlardaki zaman damgasına tıklandı.
-• Video başladı."</string>
+• Yorumlardaki zaman damgasına tıklandığında.
+• Video başladığında."</string>
     <string name="revanced_force_fullscreen_title">Tam ekrana zorla</string>
     <string name="revanced_fullscreen">Tam Ekran</string>
     <string name="revanced_general">Genel</string>
@@ -369,8 +377,8 @@ Bu durumda lütfen şu yolu kullanın: Siz sekmesi &gt; Kanalı görüntüle &gt
     <string name="revanced_hide_comments_by_members_summary_off">Üyeler tarafından yapılan yorumlar afişi gizlenmiyor.</string>
     <string name="revanced_hide_comments_by_members_summary_on">Üyeler tarafından yapılan yorumlar afişi gizleniyor.</string>
     <string name="revanced_hide_comments_by_members_title">Üyeler tarafından yapılan yorumlar afişini gizle</string>
-    <string name="revanced_hide_comments_section_summary_off">Yorumlar gizlenmiyor</string>
-    <string name="revanced_hide_comments_section_summary_on">Yorumlar gizleniyor</string>
+    <string name="revanced_hide_comments_section_summary_off">Yorumlar kısmı gizlenmiyor.</string>
+    <string name="revanced_hide_comments_section_summary_on">Yorumlar kısmı gizleniyor.</string>
     <string name="revanced_hide_comments_section_title">\"Yorumlar\" bölümünü gizle</string>
     <string name="revanced_hide_community_posts_home_summary_off">Topluluk gönderileri Ana Sayfa\'da gösteriliyor.</string>
     <string name="revanced_hide_community_posts_home_summary_on">Topluluk gönderileri Ana Sayfa\'da gösterilmiyor.</string>
@@ -399,10 +407,10 @@ Bu durumda lütfen şu yolu kullanın: Siz sekmesi &gt; Kanalı görüntüle &gt
     <string name="revanced_hide_expandable_chip_summary_off">Genişletilebilir çipler gizlenmiyor.</string>
     <string name="revanced_hide_expandable_chip_summary_on">Genişletilebilir çipler gizleniyor. </string>
     <string name="revanced_hide_expandable_chip_title">Vdeoların altındaki genişletilebilir çipi gizle</string>
-    <string name="revanced_hide_feed_flyout_panel_filter_strings_title">Açılır menü filtresini düzenle</string>
-    <string name="revanced_hide_feed_flyout_panel_summary_off">Açılır menü butonları gizlenmiyor.</string>
-    <string name="revanced_hide_feed_flyout_panel_summary_on">Açılır menü butonları gizleniyor</string>
-    <string name="revanced_hide_feed_flyout_panel_title">Açılır menü filtresi</string>
+    <string name="revanced_hide_feed_flyout_panel_filter_strings_title">Akış açılır menü filtresini düzenle</string>
+    <string name="revanced_hide_feed_flyout_panel_summary_off">Akış açılır menü filtresi devre dışı.</string>
+    <string name="revanced_hide_feed_flyout_panel_summary_on">Akış açılır menü filtresi etkin.</string>
+    <string name="revanced_hide_feed_flyout_panel_title">Akış açılır menü bileşenlerini gizle</string>
     <string name="revanced_hide_feed_survey_summary_off">YouTube\'un anketleri gösteriliyor</string>
     <string name="revanced_hide_feed_survey_summary_on">YouTube\'un anketleri gizleniyor</string>
     <string name="revanced_hide_feed_survey_title">Akışta çıkan anketleri gizle</string>
@@ -424,8 +432,8 @@ Bu durumda lütfen şu yolu kullanın: Siz sekmesi &gt; Kanalı görüntüle &gt
     <string name="revanced_hide_general_ads_summary_off">Genel reklamlar gösteriliyor</string>
     <string name="revanced_hide_general_ads_summary_on">Genel reklamlar gizleniyor</string>
     <string name="revanced_hide_general_ads_title">Genel reklamları gizle</string>
-    <string name="revanced_hide_get_premium_summary_off">YouTube Premium reklamları gösteriliyor</string>
-    <string name="revanced_hide_get_premium_summary_on">YouTube Premium reklamları gizleniyor</string>
+    <string name="revanced_hide_get_premium_summary_off">YouTube Premium promosyonu gösteriliyor.</string>
+    <string name="revanced_hide_get_premium_summary_on">YouTube Premium promosyonu gizleniyor.</string>
     <string name="revanced_hide_get_premium_title">YouTube Premium reklamlarını gizle</string>
     <string name="revanced_hide_gray_description_summary_off">\"Bunu da izlediler\" vb. yazıları gizlenmiyor.</string>
     <string name="revanced_hide_gray_description_summary_on">\"Bunu da izlediler\" vb. yazıları gizleniyor.</string>
@@ -550,6 +558,9 @@ Bu durumda lütfen şu yolu kullanın: Siz sekmesi &gt; Kanalı görüntüle &gt
     <string name="revanced_hide_preview_comment_off">Videonun altındaki Yorumlar yazısının altında gösterilen yorum gizlenmiyor.</string>
     <string name="revanced_hide_preview_comment_on">Videonun altındaki Yorumlar yazısının altında gösterilen yorum gizleniyor.</string>
     <string name="revanced_hide_preview_comment_title">Önizlenen yorumu gizle</string>
+    <string name="revanced_hide_preview_comment_type_off">Bu, yorum bölümünün boyutunu değiştirir, dolayısıyla yorum bölümünde canlı sohbet tekrarını açmak imkansızdır.</string>
+    <string name="revanced_hide_preview_comment_type_on">Bu, yorum bölümünün boyutunu değiştirmez, dolayısıyla yorum bölümünde canlı sohbet tekrarını açmak mümkündür.</string>
+    <string name="revanced_hide_preview_comment_type_title">Önizleme yorumu tipini gizle</string>
     <string name="revanced_hide_previous_next_button_summary_off">Önceki ve Sonraki butonları gizlenmiyor.</string>
     <string name="revanced_hide_previous_next_button_summary_on">Önceki ve Sonraki butonları gizleniyor.</string>
     <string name="revanced_hide_previous_next_button_title">Önceki ve Sonraki butonlarını gizle</string>
@@ -724,12 +735,11 @@ Videoyu zaman damgasıyla kopyalamak için basılı tutun."</string>
     <string name="revanced_player_flyout_panel_additional_settings_summary">Ek ayarlar menüsünü gizlemek için ek ayarlar kategorisindeki tüm ayarları gizleyin.</string>
     <string name="revanced_player_flyout_panel_additional_settings_title">Oynatıcı açılır menüsü (Ek ayarlar)</string>
     <string name="revanced_player_flyout_panel_title">Oynatıcı açılır menüsü</string>
-    <string name="revanced_quick_actions_margin_top_summary">0-64 arası üst boşluk değeri.</string>
+    <string name="revanced_quick_actions_margin_top_summary">Zaman çubuğundan hızlı işlem kapsayıcısına kadar olan aralığı 0-64 arasında yapılandırın.</string>
     <string name="revanced_quick_actions_margin_top_title">Zaman çubuğunun yerden yüksekliği</string>
     <string name="revanced_quick_actions_margin_top_warning">Hızlı eylemler üst kenar boşluğu 0-64 arasında olmalıdır. Varsayılan değerlere sıfırlayın.</string>
     <string name="revanced_quick_actions_title">Hızlı eylemler</string>
-    <string name="revanced_remove_viewer_discretion_dialog_summary">"Görüntüleyicinin takdirine bağlı iletişim kutusunu kaldırın.
-Bu, yaş sınırlamasını atlamaz, yalnızca otomatik olarak kabul eder"</string>
+    <string name="revanced_remove_viewer_discretion_dialog_summary">"İzleyicinin takdirine bağlı iletişim kutusunu kaldırın. Bu yaş sınırlamasını atlamaz. Sadece otomatik olarak kabul ediyor."</string>
     <string name="revanced_remove_viewer_discretion_dialog_title">İzleyicinin takdirine bağlı iletişim kutusunu kaldır</string>
     <string name="revanced_restart_first_run">Düzeni normal şekilde yüklemek için yeniden başlatın</string>
     <string name="revanced_restart_message">Yenileme ve yeniden başlatma?</string>

@@ -35,7 +35,7 @@
     <string name="revanced_alt_thumbnail_stills_about_summary">يتم التقاط اللقطات الثابتة من بداية / وسط / نهاية كل فيديو. هذه الصور مدمجة في YouTube ولا يتم استخدام أي واجهة برمجة تطبيقات خارجية.</string>
     <string name="revanced_alt_thumbnail_stills_about_title">حول لقطات الفيديو الثابتة</string>
     <string name="revanced_alt_thumbnail_stills_fast_summary_off">استخدام لقطات الفيديو الثابتة بجودة عالية.</string>
-    <string name="revanced_alt_thumbnail_stills_fast_summary_on">استخدام اللقطات متوسطة الجودة. سيتم تحميل المُصغَّرات بشكل أسرع، ولكن البث المباشر أو المقاطع التي لم يتم إصدارها أو القديمة جدًا قد تعرض مُصغَّرات فارغة.</string>
+    <string name="revanced_alt_thumbnail_stills_fast_summary_on">استخدام اللقطات متوسطة الجودة. سيتم تحميل المُصغَّرات بشكل أسرع، ولكن البث المباشر أو المقاطع التي لم يتم إصدارها، والقديمة جدًا قد تعرض مُصغَّرات فارغة.</string>
     <string name="revanced_alt_thumbnail_stills_fast_title">استخدم اللقطات الثابتة السريعة</string>
     <string name="revanced_alt_thumbnail_stills_summary_off">عدم استخدام لقطات الفيديو الثابتة على YouTube.</string>
     <string name="revanced_alt_thumbnail_stills_summary_on">استخدام YouTube لالتقاط مقاطع الفيديو الثابتة.</string>
@@ -55,6 +55,9 @@
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">تم تعطيل الإضاءة السينمائية في وضع توفير شحن البطارية</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">تم تمكين الإضاءة السينمائية في وضع توفير شحن البطارية</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">تجاوز قيود الإضاءة السينمائية</string>
+    <string name="revanced_change_player_flyout_panel_toggle_summary_off">يتم استخدام مفتاح التبديل.</string>
+    <string name="revanced_change_player_flyout_panel_toggle_summary_on">يتم استخدام مفتاح التبديل النصي.</string>
+    <string name="revanced_change_player_flyout_panel_toggle_title">تغيير نوع التبديل</string>
     <string name="revanced_change_start_page_entry_default">الافتراضي</string>
     <string name="revanced_change_start_page_entry_explore">اكتشف</string>
     <string name="revanced_change_start_page_entry_history">السجلّ</string>
@@ -70,11 +73,11 @@
     <string name="revanced_channel_profile_title">ملف القناة</string>
     <string name="revanced_close_interstitial_ads_summary">"إغلاق الإعلانات البينية تلقائيًا.
 
-ملاحظة: إنها ميزة لم يتم اختبارها."</string>
+ملاحظة: لم يتم اختبار هذه الميزة."</string>
     <string name="revanced_close_interstitial_ads_title">إغلاق الإعلانات البينية</string>
     <string name="revanced_close_interstitial_ads_toast">غلق الإعلانات البينية.</string>
     <string name="revanced_comments_title">التعليقات</string>
-    <string name="revanced_custom_filter_strings_summary">تصفية أسماء المكونات عن طريق مفصولة بأسطر</string>
+    <string name="revanced_custom_filter_strings_summary">تكوين المكونات التي سيتم تصفيتها، مفصولة بأسطر جديدة.</string>
     <string name="revanced_custom_filter_strings_title">تعديل الفلتر المخصص</string>
     <string name="revanced_custom_filter_strings_warning">فلتر مخصص غير صالح، إعادة التعيين إلى الافتراضي.</string>
     <string name="revanced_custom_filter_summary_off">تم تعطيل الفلتر المخصص</string>
@@ -133,10 +136,12 @@
     <string name="revanced_disable_startup_shorts_player_summary_off">تم تمكين مشغل Shorts عند بَدْء تشغيل التطبيق</string>
     <string name="revanced_disable_startup_shorts_player_summary_on">تم تعطيل مشغل Shorts عند بَدْء تشغيل التطبيق</string>
     <string name="revanced_disable_startup_shorts_player_title">تعطيل مشغل Shorts عند بَدْء تشغيل التطبيق</string>
+    <string name="revanced_disable_update_screen_summary">تعطيل شاشة \"تحديث تطبيقك\" التي تظهر عند استخدام عميل قديم.</string>
+    <string name="revanced_disable_update_screen_title">تعطيل شاشة التحديث</string>
     <string name="revanced_double_back_timeout_summary">مقدار الثواني عند الضغط مرتين للخروج</string>
     <string name="revanced_double_back_timeout_title">مهلة الرجوع المزدوجة</string>
-    <string name="revanced_enable_bottom_player_gestures_summary_off">تم تعطيل التبديل إلى وضع ملء الشاشة عن طريق تمرير المنطقة السفلية للمشغل.</string>
-    <string name="revanced_enable_bottom_player_gestures_summary_on">تم تمكين التبديل إلى وضع ملء الشاشة عن طريق تمرير المنطقة السفلية للمشغل.</string>
+    <string name="revanced_enable_bottom_player_gestures_summary_off">تم تعطيل الدخول إلى وضع ملء الشاشة عن طريق تمرير المنطقة السفلية لمشغل الفيديو.</string>
+    <string name="revanced_enable_bottom_player_gestures_summary_on">تم تمكين الدخول إلى وضع ملء الشاشة عن طريق تمرير المنطقة السفلية لمشغل الفيديو.</string>
     <string name="revanced_enable_bottom_player_gestures_title">تمكين إيماءات المشغل السفلي</string>
     <string name="revanced_enable_compact_controls_overlay_summary_off">تم تعطيل واجهة التحكم المدمج</string>
     <string name="revanced_enable_compact_controls_overlay_summary_on">تم تمكين واجهة التحكم المدمج</string>
@@ -153,6 +158,9 @@
     <string name="revanced_enable_debug_logging_summary_off">تم تعطيل Debug Logs</string>
     <string name="revanced_enable_debug_logging_summary_on">تم تمكين Debug Logs</string>
     <string name="revanced_enable_debug_logging_title">تمكين سجلات التصحيح</string>
+    <string name="revanced_enable_default_playback_speed_shorts_summary_off">لا تنطبق سرعة التشغيل الافتراضية على فيديوهات Shorts.</string>
+    <string name="revanced_enable_default_playback_speed_shorts_summary_on">تنطبق سرعة التشغيل الافتراضية على فيديوهات Shorts.</string>
+    <string name="revanced_enable_default_playback_speed_shorts_title">تمكين سرعة التشغيل الافتراضية لفيديوهات Shorts</string>
     <string name="revanced_enable_external_browser_summary_off">تم تعطيل المتصفح الخارجي</string>
     <string name="revanced_enable_external_browser_summary_on">تم تمكين المتصفح الخارجي</string>
     <string name="revanced_enable_external_browser_title">تمكين المتصفح الخارجي</string>
@@ -168,8 +176,8 @@
     <string name="revanced_enable_new_thumbnail_preview_summary_off">تم تعطيل المعاينة المُصَّغَرة الجديدة</string>
     <string name="revanced_enable_new_thumbnail_preview_summary_on">تم تمكين المعاينة المُصَّغَرة الجديدة</string>
     <string name="revanced_enable_new_thumbnail_preview_title">تمكين المعاينة المُصَّغَرة الجديدة</string>
-    <string name="revanced_enable_old_quality_layout_summary_off">يتم عرض المظهر الجديد لإعدادات جودة الفيديو</string>
-    <string name="revanced_enable_old_quality_layout_summary_on">يتم عرض المظهر القديم لإعدادات جودة الفيديو</string>
+    <string name="revanced_enable_old_quality_layout_summary_off">يتم عرض المظهر الجديد لخيارات جودة الفيديو.</string>
+    <string name="revanced_enable_old_quality_layout_summary_on">يتم عرض المظهر القديم لخيارات جودة الفيديو.</string>
     <string name="revanced_enable_old_quality_layout_title">تمكين المظهر القديم لإعدادات جودة الفيديو</string>
     <string name="revanced_enable_open_links_directly_summary_off">يتبع سياسة إعادة التوجيه الافتراضية</string>
     <string name="revanced_enable_open_links_directly_summary_on">تجاوز عمليات إعادة توجيه URL</string>
@@ -254,10 +262,10 @@
     <string name="revanced_external_downloader_settings_title">إعدادات التنزيل الخارجي</string>
     <string name="revanced_feed_flyout_panel_title">لوحة القائمة المنبثقة للموجز</string>
     <string name="revanced_flyout_menu">القائمة المنبثقة</string>
-    <string name="revanced_force_fullscreen_summary">"سيتم تبديل الفيديو إلى ملء الشاشة في الحالات التالية:
+    <string name="revanced_force_fullscreen_summary">"سيتم تحويل مقاطع الفيديو إلى وضع ملء الشاشة في المواقف التالية:
 
-• الضغط على الطابع الزمني في التعليقات.
-• عندما يبدأ الفيديو."</string>
+• عندما يتم النقر على الطابع الزمني في التعليقات.
+• عند بدء تشغيل الفيديو."</string>
     <string name="revanced_force_fullscreen_title">فرض ملء الشاشة</string>
     <string name="revanced_fullscreen">ملء الشاشة</string>
     <string name="revanced_general">عام</string>
@@ -370,8 +378,8 @@
     <string name="revanced_hide_comments_by_members_summary_off">يتم عرض شعار التعليقات بواسطة الأعضاء.</string>
     <string name="revanced_hide_comments_by_members_summary_on">تم إخفاء تعليقات الأعضاء.</string>
     <string name="revanced_hide_comments_by_members_title">إخفاء تعليقات بانر الأعضاء</string>
-    <string name="revanced_hide_comments_section_summary_off">يتم عرض قسم التعليقات</string>
-    <string name="revanced_hide_comments_section_summary_on">تم إخفاء قسم التعليقات</string>
+    <string name="revanced_hide_comments_section_summary_off">يتم عرض قسم التعليقات.</string>
+    <string name="revanced_hide_comments_section_summary_on">تم إخفاء قسم التعليقات.</string>
     <string name="revanced_hide_comments_section_title">إخفاء قسم التعليقات</string>
     <string name="revanced_hide_community_posts_home_summary_off">يتم عرض مشاركات المجتمع في الصفحة الرئيسية</string>
     <string name="revanced_hide_community_posts_home_summary_on">تم إخفاء مشاركات المجتمع في الصفحة الرئيسية</string>
@@ -401,9 +409,9 @@
     <string name="revanced_hide_expandable_chip_summary_on">تم إخفاء الرقائق القابلة للتوسيع</string>
     <string name="revanced_hide_expandable_chip_title">إخفاء الشريحة القابلة للتوسع تحت مقاطع الفيديو</string>
     <string name="revanced_hide_feed_flyout_panel_filter_strings_title">تعديل فلتر القوائم المنبثقة للموجز</string>
-    <string name="revanced_hide_feed_flyout_panel_summary_off">يتم عرض القوائم المنبثقة للموجز</string>
-    <string name="revanced_hide_feed_flyout_panel_summary_on">تم إخفاء القوائم المنبثقة للموجز</string>
-    <string name="revanced_hide_feed_flyout_panel_title">إخفاء القوائم المنبثقة للموجز</string>
+    <string name="revanced_hide_feed_flyout_panel_summary_off">تم تعطيل فلتر القوائم المنبثقة للموجز.</string>
+    <string name="revanced_hide_feed_flyout_panel_summary_on">تم تمكين فلتر القوائم المنبثقة للموجز.</string>
+    <string name="revanced_hide_feed_flyout_panel_title">إخفاء مكونات القوائم المنبثقة للموجز</string>
     <string name="revanced_hide_feed_survey_summary_off">يتم عرض الاستبيانات</string>
     <string name="revanced_hide_feed_survey_summary_on">تم إخفاء الاستبيانات</string>
     <string name="revanced_hide_feed_survey_title">إخفاء الاستبيانات</string>
@@ -425,8 +433,8 @@
     <string name="revanced_hide_general_ads_summary_off">يتم عرض الإعلانات العامة</string>
     <string name="revanced_hide_general_ads_summary_on">تم إخفاء الإعلانات بشكل عام</string>
     <string name="revanced_hide_general_ads_title">إخفاء الإعلانات العامة</string>
-    <string name="revanced_hide_get_premium_summary_off">يتم عرض ترقية YouTube Premium</string>
-    <string name="revanced_hide_get_premium_summary_on">تم إخفاء ترقية YouTube Premium</string>
+    <string name="revanced_hide_get_premium_summary_off">يتم عرض ترقية YouTube Premium.</string>
+    <string name="revanced_hide_get_premium_summary_on">تم إخفاء ترقية YouTube Premium.</string>
     <string name="revanced_hide_get_premium_title">إخفاء الترقية إلى YouTube Premium</string>
     <string name="revanced_hide_gray_description_summary_off">يتم عرض الوصف الرمادي</string>
     <string name="revanced_hide_gray_description_summary_on">تم إخفاء الوصف الرمادي</string>
@@ -551,6 +559,9 @@
     <string name="revanced_hide_preview_comment_off">يتم عرض تعليق المعاينة</string>
     <string name="revanced_hide_preview_comment_on">تم إخفاء تعليق المعاينة</string>
     <string name="revanced_hide_preview_comment_title">إخفاء تعليق المعاينة</string>
+    <string name="revanced_hide_preview_comment_type_off">يؤدي هذا إلى تغيير حجم قسم التعليقات، لذلك من المستحيل فتح إعادة تشغيل الدردشة المباشرة في قسم التعليقات.</string>
+    <string name="revanced_hide_preview_comment_type_on">لا يغير هذا حجم قسم التعليقات، لذلك من الممكن فتح إعادة الدردشة المباشرة في قسم التعليقات.</string>
+    <string name="revanced_hide_preview_comment_type_title">إخفاء نوع تعليق المعاينة</string>
     <string name="revanced_hide_previous_next_button_summary_off">يتم عرض الأزرار</string>
     <string name="revanced_hide_previous_next_button_summary_on">تم إخفاء الأزرار</string>
     <string name="revanced_hide_previous_next_button_title">إخفاء زر السابق &amp; التالي</string>
@@ -724,12 +735,11 @@
     <string name="revanced_player_flyout_panel_additional_settings_summary">لإخفاء قائمة الإعدادات الإضافية، قم بإخفاء جميع الإعدادات في فئة الإعدادات الإضافية.</string>
     <string name="revanced_player_flyout_panel_additional_settings_title">لوحة المشغل المنبثقة (إعدادات إضافية)</string>
     <string name="revanced_player_flyout_panel_title">لوحة القائمة المنبثقة للمشغل</string>
-    <string name="revanced_quick_actions_margin_top_summary">قيمة الهامش العلوي بين 0-64</string>
+    <string name="revanced_quick_actions_margin_top_summary">تكوين التباعد من شريط التقدم إلى حاوية الإجراء السريع، بين 0-64.</string>
     <string name="revanced_quick_actions_margin_top_title">هامش إجراءات سريعة أعلى</string>
     <string name="revanced_quick_actions_margin_top_warning">يجب أن يكون الهامش العلوي للإجراءات السريعة بين 0-64. إعادة التعيين إلى القيم الافتراضية.</string>
     <string name="revanced_quick_actions_title">الإجراءات السّريعة</string>
-    <string name="revanced_remove_viewer_discretion_dialog_summary">"إزالة مربع حوار تقدير المشاهد.
-وهذا لا يتجاوز القيود العمرية، بل يقبلها تلقائيًا."</string>
+    <string name="revanced_remove_viewer_discretion_dialog_summary">"إزالة مربع حوار تقدير المشاهد. هذا لا يتجاوز القيود العمرية. إنه يقبل ذلك تلقائيًا."</string>
     <string name="revanced_remove_viewer_discretion_dialog_title">إزالة مربع حوار تقدير المشاهد</string>
     <string name="revanced_restart_first_run">إعادة التشغيل لتحميل التصميم بشكل طبيعي</string>
     <string name="revanced_restart_message">تحديث وإعادة تشغيل</string>

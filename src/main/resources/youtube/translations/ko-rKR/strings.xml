@@ -33,16 +33,16 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_alt_thumbnail_preference_screen_summary">동영상 썸네일을 설정할 수 있습니다.</string>
     <string name="revanced_alt_thumbnail_preference_screen_title">대체 썸네일</string>
     <string name="revanced_alt_thumbnail_stills">동영상 스틸 컷 썸네일</string>
-    <string name="revanced_alt_thumbnail_stills_about_summary">동영상 스틸 컷 썸네일은 각 동영상의 시작 / 중간 / 끝에서 캡쳐된 이미지입니다. 이러한 이미지는 YouTube에 내장되어 있으며 외부 API는 사용하지 않습니다.</string>
+    <string name="revanced_alt_thumbnail_stills_about_summary">동영상 스틸 컷 썸네일은 각 동영상의 시작 / 중간 / 끝 부분에서 캡쳐된 이미지입니다. 이러한 이미지는 YouTube에 내장되어 있으며 외부 API는 사용하지 않습니다.</string>
     <string name="revanced_alt_thumbnail_stills_about_title">동영상 스틸 컷 썸네일에 대한 정보</string>
     <string name="revanced_alt_thumbnail_stills_fast_summary_off">고화질 동영상 스틸 컷 썸네일을 표시합니다.</string>
     <string name="revanced_alt_thumbnail_stills_fast_summary_on">일반화질 동영상 스틸 컷 썸네일을 표시합니다. 썸네일을 빠르게 불러오지만 실시간 스트리밍, 비공개, 오래된 동영상에서는 아무것도 표시되지 않은 썸네일이 표시될 수 있습니다.</string>
     <string name="revanced_alt_thumbnail_stills_fast_title">일반화질 동영상 스틸 컷 썸네일 표시하기</string>
     <string name="revanced_alt_thumbnail_stills_summary_off">동영상 스틸 컷 썸네일을 표시하지 않습니다.</string>
     <string name="revanced_alt_thumbnail_stills_summary_on">동영상 스틸 컷 썸네일을 표시합니다.</string>
-    <string name="revanced_alt_thumbnail_stills_time_entry_1">동영상의 첫 부분 이미지</string>
+    <string name="revanced_alt_thumbnail_stills_time_entry_1">동영상의 시작 부분 이미지</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_2">동영상의 중간 부분 이미지</string>
-    <string name="revanced_alt_thumbnail_stills_time_entry_3">동영상의 마지막 부분 이미지</string>
+    <string name="revanced_alt_thumbnail_stills_time_entry_3">동영상의 끝 부분 이미지</string>
     <string name="revanced_alt_thumbnail_stills_time_title">동영상 스틸 컷 썸네일에 표시되는 이미지</string>
     <string name="revanced_alt_thumbnail_stills_title">동영상 스틸 컷 썸네일 표시하기</string>
     <string name="revanced_append_time_stamp_information_summary_off">타임스탬프에서 정보를 표시하지 않습니다.</string>
@@ -56,6 +56,9 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">배터리 절전 모드에서 영화 조명 모드를 비활성화합니다.</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">배터리 절전 모드에서 영화 조명 모드를 활성화합니다.</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">영화 조명 모드 제한 비활성화하기</string>
+    <string name="revanced_change_player_flyout_panel_toggle_summary_off">스위치 토글을 사용합니다.</string>
+    <string name="revanced_change_player_flyout_panel_toggle_summary_on">텍스트 토글을 사용합니다.</string>
+    <string name="revanced_change_player_flyout_panel_toggle_title">토글 타입 변경하기</string>
     <string name="revanced_change_start_page_entry_default">기본</string>
     <string name="revanced_change_start_page_entry_explore">탐색</string>
     <string name="revanced_change_start_page_entry_history">기록</string>
@@ -75,7 +78,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_close_interstitial_ads_title">전면 광고 닫기</string>
     <string name="revanced_close_interstitial_ads_toast">전면 광고를 닫습니다.</string>
     <string name="revanced_comments_title">댓글</string>
-    <string name="revanced_custom_filter_strings_summary">구성요소의 이름을 줄바꿈으로 구분하여 필터링합니다.</string>
+    <string name="revanced_custom_filter_strings_summary">필터링할 구성요소를 줄바꿈로 구분하여 설정합니다.</string>
     <string name="revanced_custom_filter_strings_title">사용자 정의 필터 편집하기</string>
     <string name="revanced_custom_filter_strings_warning">유효하지 않은 필터 값이므로 기본값으로 재설정합니다.</string>
     <string name="revanced_custom_filter_summary_off">사용자 정의 필터를 비활성화합니다.</string>
@@ -134,10 +137,12 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_disable_startup_shorts_player_summary_off">앱 시작할 때 Shorts 플레이어를 활성화합니다.</string>
     <string name="revanced_disable_startup_shorts_player_summary_on">앱 시작할 때 Shorts 플레이어를 비활성화합니다.</string>
     <string name="revanced_disable_startup_shorts_player_title">앱 시작할 때 Shorts 플레이어 비활성화하기</string>
+    <string name="revanced_disable_update_screen_summary">이전 버전 앱을 사용할 때 표시되는 \'앱 업데이트\' 화면을 비활성화합니다.</string>
+    <string name="revanced_disable_update_screen_title">업데이트 화면 비활성화하기</string>
     <string name="revanced_double_back_timeout_summary">앱을 종료하기 위해 내비게이션 바의 뒤로 가기 버튼을 한 번 누르고 한 번 더 다시 누를 때까지의 제한 시간을 설정합니다. 0초로 설정 시 뒤로가기 버튼을 한 번만 누르면 즉시 종료할 수 있습니다.</string>
     <string name="revanced_double_back_timeout_title">뒤로 가기 두 번 누르기 제한 시간</string>
-    <string name="revanced_enable_bottom_player_gestures_summary_off">플레이어 하단에서 스와이프하여 전체 화면으로 전환을 비활성화합니다.</string>
-    <string name="revanced_enable_bottom_player_gestures_summary_on">플레이어 하단에서 스와이프하여 전체 화면으로 전환을 활성화합니다.</string>
+    <string name="revanced_enable_bottom_player_gestures_summary_off">플레이어 하단에서 아래로 스와이프하여 전체 화면으로 전환을 비활성화합니다.</string>
+    <string name="revanced_enable_bottom_player_gestures_summary_on">플레이어 하단에서 아래로 스와이프하여 전체 화면으로 전환을 활성화합니다.</string>
     <string name="revanced_enable_bottom_player_gestures_title">플레이어 하단 제스처 활성화하기</string>
     <string name="revanced_enable_compact_controls_overlay_summary_off">전체 화면에서 재생바 및 일부 버튼들을 더 작게 표시하지 않습니다.</string>
     <string name="revanced_enable_compact_controls_overlay_summary_on">전체 화면에서 재생바 및 일부 버튼들을 더 작게 표시합니다.</string>
@@ -154,6 +159,9 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_enable_debug_logging_summary_off">디버그 로그를 출력하지 않습니다.</string>
     <string name="revanced_enable_debug_logging_summary_on">디버그 로그를 출력합니다.</string>
     <string name="revanced_enable_debug_logging_title">디버그 로깅 활성화하기</string>
+    <string name="revanced_enable_default_playback_speed_shorts_summary_off">기본 동영상 재생 속도를 Shorts에 적용하지 않습니다.</string>
+    <string name="revanced_enable_default_playback_speed_shorts_summary_on">기본 동영상 재생 속도를 Shorts에 적용합니다.</string>
+    <string name="revanced_enable_default_playback_speed_shorts_title">Shorts 기본 동영상 재생 속도 활성화하기</string>
     <string name="revanced_enable_external_browser_summary_off">앱 내에서 외부 링크를 열때 내부 브라우저를 사용합니다.</string>
     <string name="revanced_enable_external_browser_summary_on">앱 내에서 외부 링크를 열때 외부 브라우저를 사용합니다.</string>
     <string name="revanced_enable_external_browser_title">외부 브라우저 사용하기</string>
@@ -373,9 +381,9 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_hide_comments_by_members_summary_off">회원별 댓글 배너가 노출됩니다.</string>
     <string name="revanced_hide_comments_by_members_summary_on">회원별 댓글 배너가 숨겨집니다.</string>
     <string name="revanced_hide_comments_by_members_title">회원별 댓글 배너 숨기기</string>
-    <string name="revanced_hide_comments_section_summary_off">댓글 영역이 노출됩니다.</string>
-    <string name="revanced_hide_comments_section_summary_on">댓글 영역이 숨겨집니다.</string>
-    <string name="revanced_hide_comments_section_title">댓글 영역 숨기기</string>
+    <string name="revanced_hide_comments_section_summary_off">댓글 섹션이 노출됩니다.</string>
+    <string name="revanced_hide_comments_section_summary_on">댓글 섹션이 숨겨집니다.</string>
+    <string name="revanced_hide_comments_section_title">댓글 섹션 숨기기</string>
     <string name="revanced_hide_community_posts_home_summary_off">홈 피드에서 커뮤니티 게시물이 노출됩니다.</string>
     <string name="revanced_hide_community_posts_home_summary_on">홈 피드에서 커뮤니티 게시물이 숨겨집니다.</string>
     <string name="revanced_hide_community_posts_home_title">홈 피드에서 커뮤니티 게시물 숨기기</string>
@@ -554,6 +562,9 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_hide_preview_comment_off">댓글 미리 보기가 노출됩니다.</string>
     <string name="revanced_hide_preview_comment_on">댓글 미리 보기가 숨겨집니다.</string>
     <string name="revanced_hide_preview_comment_title">댓글 미리 보기 숨기기</string>
+    <string name="revanced_hide_preview_comment_type_off">댓글 섹션의 크기가 변경되므로 댓글 섹션에서 실시간 채팅 다시보기를 열 수 없습니다.</string>
+    <string name="revanced_hide_preview_comment_type_on">댓글 섹션의 크기가 변경되지 않으므로 댓글 섹션에서 실시간 채팅 다시보기를 열 수 있습니다.</string>
+    <string name="revanced_hide_preview_comment_type_title">미리 보기 댓글 타입 숨기기</string>
     <string name="revanced_hide_previous_next_button_summary_off">이전 동영상 &amp; 다음 동영상 버튼이 노출됩니다.</string>
     <string name="revanced_hide_previous_next_button_summary_on">이전 동영상 &amp; 다음 동영상 버튼이 숨겨집니다.</string>
     <string name="revanced_hide_previous_next_button_title">이전 동영상 &amp; 다음 동영상 버튼 숨기기</string>
@@ -596,7 +607,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_hide_shorts_button_summary_off">Shorts 버튼이 노출됩니다.</string>
     <string name="revanced_hide_shorts_button_summary_on">Shorts 버튼이 숨겨집니다.</string>
     <string name="revanced_hide_shorts_button_title">Shorts 버튼 숨기기</string>
-    <string name="revanced_hide_shorts_component_summary">Shorts 영역 또는 Shorts 플레이어와 관련된 요소가 숨겨집니다.</string>
+    <string name="revanced_hide_shorts_component_summary">Shorts 섹션 또는 Shorts 플레이어와 관련된 요소가 숨겨집니다.</string>
     <string name="revanced_hide_shorts_component_title">Shorts 요소 숨기기</string>
     <string name="revanced_hide_shorts_player_comments_button_summary_off">댓글 버튼이 노출됩니다.</string>
     <string name="revanced_hide_shorts_player_comments_button_summary_on">댓글 버튼이 숨겨집니다.</string>
@@ -731,7 +742,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_player_flyout_panel_additional_settings_summary">추가 설정 메뉴를 숨기려면, 추가 설정 카테고리에서 모든 설정을 숨겨야 합니다.</string>
     <string name="revanced_player_flyout_panel_additional_settings_title">플레이어 구성요소 패널 (추가 설정)</string>
     <string name="revanced_player_flyout_panel_title">플레이어 구성요소 패널</string>
-    <string name="revanced_quick_actions_margin_top_summary">상단 여백 값은 0-64입니다.</string>
+    <string name="revanced_quick_actions_margin_top_summary">재생바에서 빠른 작업 컨테이너까지의 간격을 0-64 사이로 설정할 수 있습니다.</string>
     <string name="revanced_quick_actions_margin_top_title">빠른 작업 상단 여백</string>
     <string name="revanced_quick_actions_margin_top_warning">상단 여백 값은 0-64 사이어야 하므로 기본값으로 재설정합니다.</string>
     <string name="revanced_quick_actions_title">빠른 작업</string>
@@ -753,7 +764,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_ryd_enable_summary_on">싫어요 개수를 표시합니다.</string>
     <string name="revanced_ryd_enable_title">Return YouTube Dislike 활성화하기</string>
     <string name="revanced_ryd_failure_connection_timeout">싫어요 개수를 일시적으로 표시할 수 없습니다 (응답 시간 초과).</string>
-    <string name="revanced_ryd_failure_connection_status_code" formatted="false">싫어요 개수를 표시할 수 없습니다 (상태 %d).</string>
+    <string name="revanced_ryd_failure_connection_status_code" formatted="false">싫어요 개수를 표시할 수 없습니다 (상태 코드: %d).</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">싫어요 개수를 표시할 수 없습니다. (클라이언트 API 제한 도달)</string>
     <string name="revanced_ryd_failure_generic">싫어요 개수를 표시할 수 없습니다 (%s).</string>
     <string name="revanced_ryd_shorts_summary_disclaimer">한계: 특정 상황에서는 싫어요 개수가 표시되지 않을 수 있습니다.</string>
@@ -949,7 +960,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="sb_skip_seekbaronly">재생바에만 표시하기</string>
     <string name="sb_skip_ignore">아무것도 하지 않기</string>
     <string name="sb_sponsorblock_connection_failure_generic">SponsorBlock을 일시적으로 사용할 수 없습니다.</string>
-    <string name="sb_sponsorblock_connection_failure_status" formatted="false">SponsorBlock을 일시적으로 사용할 수 없습니다 (상태 %d).</string>
+    <string name="sb_sponsorblock_connection_failure_status" formatted="false">SponsorBlock을 일시적으로 사용할 수 없습니다 (상태 코드: %d).</string>
     <string name="sb_sponsorblock_connection_failure_timeout">SponsorBlock을 일시적으로 사용할 수 없습니다 (응답 시간 초과).</string>
     <string name="sb_submit_failed_invalid" formatted="false">구간을 제출할 수 없습니다: %s</string>
     <string name="sb_submit_failed_timeout">구간을 제출할 수 없습니다. (응답 시간 초과)</string>

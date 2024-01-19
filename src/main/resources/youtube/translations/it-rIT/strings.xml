@@ -36,7 +36,7 @@ Tocca qui per saperne di più su DeArrow"</string>
     <string name="revanced_alt_thumbnail_stills_about_summary">I thumbnails alternativi sono presi dall\'inizio, metà o fine di ogni video. Queste immagini sono integrate in YouTube e non viene usato nessun API esterno</string>
     <string name="revanced_alt_thumbnail_stills_about_title">Informazioni sui thumbnails alternativi</string>
     <string name="revanced_alt_thumbnail_stills_fast_summary_off">Ithumbnails alternativi di alta qualità sono attivati</string>
-    <string name="revanced_alt_thumbnail_stills_fast_summary_on">I thumbnails alternativi di media qualità sono attivati. I thumbnails caricheranno più velocemente, ma i video dal vivo, quelli non rilasciati o molto vecchi potrebbero mostrare thumbnails vuoti</string>
+    <string name="revanced_alt_thumbnail_stills_fast_summary_on">I thumbnails alternativi di media qualità sono attivati. I thumbnails caricheranno più velocemente, ma i video dal vivo, quelli non rilasciati e molto vecchi potrebbero mostrare thumbnails vuoti</string>
     <string name="revanced_alt_thumbnail_stills_fast_title">Attiva thumbnails alternativi veloci</string>
     <string name="revanced_alt_thumbnail_stills_summary_off">I thumbnails alternativi sono disattivati</string>
     <string name="revanced_alt_thumbnail_stills_summary_on">I thumbnails alternativi sono attivati</string>
@@ -56,6 +56,9 @@ Tocca qui per saperne di più su DeArrow"</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">La modalità Ambient in modalità risparmio energetico è disattivata</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">La modalità Ambient in modalità risparmio energetico è attivata</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">Bypassa le restrizioni della modalità Ambient</string>
+    <string name="revanced_change_player_flyout_panel_toggle_summary_off">Interruttore</string>
+    <string name="revanced_change_player_flyout_panel_toggle_summary_on">Testo</string>
+    <string name="revanced_change_player_flyout_panel_toggle_title">Cambia il tipo di toggle</string>
     <string name="revanced_change_start_page_entry_default">Predefinito</string>
     <string name="revanced_change_start_page_entry_explore">Esplora</string>
     <string name="revanced_change_start_page_entry_history">Cronologia</string>
@@ -71,26 +74,26 @@ Tocca qui per saperne di più su DeArrow"</string>
     <string name="revanced_channel_profile_title">Profilo canale</string>
     <string name="revanced_close_interstitial_ads_summary">"Chiudi automaticamente gli annunci interstiziali.
 
-Nota: è una funzionalità che non è stata testata"</string>
+Nota: questa funzionalità non è stata testata"</string>
     <string name="revanced_close_interstitial_ads_title">Chiudi gli annunci interstiziali</string>
     <string name="revanced_close_interstitial_ads_toast">Chiudendo annunci interstiziali</string>
     <string name="revanced_comments_title">Commenti</string>
-    <string name="revanced_custom_filter_strings_summary">Filtra i componenti per nomi separati da righe</string>
+    <string name="revanced_custom_filter_strings_summary">Configura quali componenti filtrare separati da nuove righe</string>
     <string name="revanced_custom_filter_strings_title">Modifica il filtro personalizzato</string>
-    <string name="revanced_custom_filter_strings_warning">Filtro personalizzato non valido. Ripristinando ai valori predefiniti</string>
+    <string name="revanced_custom_filter_strings_warning">Filtro personalizzato non valido. Ripristinato ai valori predefiniti</string>
     <string name="revanced_custom_filter_summary_off">Il filtro personalizzato è disattivato</string>
     <string name="revanced_custom_filter_summary_on">Il filtro personalizzato è attivato</string>
     <string name="revanced_custom_filter_title">Attiva il filtro personalizzato</string>
-    <string name="revanced_custom_playback_speeds_invalid">Velocità personalizzate di riproduzione non valide. Ripristinando ai valori predefiniti</string>
+    <string name="revanced_custom_playback_speeds_invalid">Velocità personalizzate di riproduzione non valide. Ripristinato ai valori predefiniti</string>
     <string name="revanced_custom_playback_speeds_summary">È disponibile aggiungere, rimuovere o modificare le velocità di riproduzione</string>
     <string name="revanced_custom_playback_speeds_title">Modifica le velocità personalizzate del video</string>
-    <string name="revanced_custom_playback_speeds_warning" formatted="false">Le velocità personalizzate non possono essere maggiori di %sx. Ripristinando ai valori predefiniti</string>
+    <string name="revanced_custom_playback_speeds_warning" formatted="false">Le velocità personalizzate non possono essere maggiori di %sx. Ripristinato ai valori predefiniti</string>
     <string name="revanced_custom_playback_speed_panel_type_summary_off">Vecchio pannello a comparsa</string>
     <string name="revanced_custom_playback_speed_panel_type_summary_on">Finestra personalizzata</string>
     <string name="revanced_custom_playback_speed_panel_type_title">Il tipo di velocità della riproduzione personalizzata</string>
     <string name="revanced_custom_player_overlay_opacity_summary">Il valore dell\'opacità è compreso tra 0 a 100, dove 0 è trasparente</string>
     <string name="revanced_custom_player_overlay_opacity_title">L\'opacità personalizzata della sovrapposizione del riproduttore</string>
-    <string name="revanced_custom_player_overlay_opacity_warning">L\'opacità della sovrapposizione del riproduttore deve essere compresa tra 0 e 100. Ripristinando ai valori predefiniti</string>
+    <string name="revanced_custom_player_overlay_opacity_warning">L\'opacità della sovrapposizione del riproduttore deve essere compresa tra 0 e 100. Ripristinato ai valori predefiniti</string>
     <string name="revanced_custom_seekbar_color_value_summary">Digita il codice esadecimale del colore della barra di avanzamento</string>
     <string name="revanced_custom_seekbar_color_value_title">Valore del colore personalizzato della barra di avanzamento</string>
     <string name="revanced_default_app_settings_summary">Per aprire ReVanced Extended da un\'applicazione esterna, attiva \"Apri collegamenti supportati\" e abilita gli indirizzi web supportati</string>
@@ -134,6 +137,8 @@ Nota: disattivando la sovrapposizione della velocità verrà ripristinato lo \"S
     <string name="revanced_disable_startup_shorts_player_summary_off">La riproduzione degli Shorts all\'avvio dell\'app è attivata</string>
     <string name="revanced_disable_startup_shorts_player_summary_on">La riproduzione degli Shorts all\'avvio dell\'app è disattivata</string>
     <string name="revanced_disable_startup_shorts_player_title">Disattiva la riproduzione degli Shorts all\'avvio dell\'app</string>
+    <string name="revanced_disable_update_screen_summary">Disattiva la schermata \"Aggiorna la tua app\" visualizzata quando si utilizza un client datato</string>
+    <string name="revanced_disable_update_screen_title">Disattiva la schermata di aggiornamento</string>
     <string name="revanced_double_back_timeout_summary">Il numero di secondi per premere due volte il pulsante Indietro per uscire dall\'app</string>
     <string name="revanced_double_back_timeout_title">Durata del doppio tocco del pulsante Indietro</string>
     <string name="revanced_enable_bottom_player_gestures_summary_off">Il gesto inferiore del riproduttore per passare a schermo intero è disattivato</string>
@@ -148,12 +153,15 @@ Nota: disattivando la sovrapposizione della velocità verrà ripristinato lo \"S
     <string name="revanced_enable_custom_seekbar_color_summary_off">Il colore personalizzato della barra di avanzamento è disattivato</string>
     <string name="revanced_enable_custom_seekbar_color_summary_on">Il colore personalizzato della barra di avanzamento è attivato</string>
     <string name="revanced_enable_custom_seekbar_color_title">Attiva il colore personalizzato della barra di avanzamento</string>
-    <string name="revanced_enable_debug_buffer_logging_summary_off">I log di debug non includono il buffer</string>
-    <string name="revanced_enable_debug_buffer_logging_summary_on">I log di debug includono il buffer</string>
-    <string name="revanced_enable_debug_buffer_logging_title">Attiva il log del buffer debug</string>
-    <string name="revanced_enable_debug_logging_summary_off">Il log di debug è disattivato</string>
-    <string name="revanced_enable_debug_logging_summary_on">Il log di debug è attivato</string>
-    <string name="revanced_enable_debug_logging_title">Attiva il log di debug</string>
+    <string name="revanced_enable_debug_buffer_logging_summary_off">Il registro del debug non include il buffer</string>
+    <string name="revanced_enable_debug_buffer_logging_summary_on">Il registro del debug include il buffer</string>
+    <string name="revanced_enable_debug_buffer_logging_title">Attiva il registro del debug col buffer</string>
+    <string name="revanced_enable_debug_logging_summary_off">Il registro del debug è disattivato</string>
+    <string name="revanced_enable_debug_logging_summary_on">Il registro del debug è attivato</string>
+    <string name="revanced_enable_debug_logging_title">Attiva il registro del debug</string>
+    <string name="revanced_enable_default_playback_speed_shorts_summary_off">La velocità di riproduzione predefinita negli Shorts è disattivata</string>
+    <string name="revanced_enable_default_playback_speed_shorts_summary_on">La velocità di riproduzione predefinita negli Shorts è attivata</string>
+    <string name="revanced_enable_default_playback_speed_shorts_title">Attiva la velocità di riproduzione predefinita negli Shorts</string>
     <string name="revanced_enable_external_browser_summary_off">Il browser esterno è disattivato</string>
     <string name="revanced_enable_external_browser_summary_on">Il browser esterno è attivato</string>
     <string name="revanced_enable_external_browser_title">Attiva il browser esterno</string>
@@ -256,7 +264,7 @@ Scheda Tu &gt; Visualizza canale &gt; Menù &gt; Impostazioni"</string>
     <string name="revanced_feed_flyout_panel_title">Pannello a comparsa nei feed</string>
     <string name="revanced_flyout_menu">Menù a comparsa</string>
     <string name="revanced_force_fullscreen_summary">"Il video passerà automaticamente a schermo intero nelle seguenti situazioni:
-• Toccando sul timestamp nei commenti
+• Toccando su un timestamp nei commenti
 • Appena il video inizia"</string>
     <string name="revanced_force_fullscreen_title">Forza lo schermo intero</string>
     <string name="revanced_fullscreen">Schermo intero</string>
@@ -401,9 +409,9 @@ Alcuni componenti potrebbero non essere nascosti"</string>
     <string name="revanced_hide_expandable_chip_summary_on">Il chip espandibile è nascosto</string>
     <string name="revanced_hide_expandable_chip_title">Nascondi il chip espandibile</string>
     <string name="revanced_hide_feed_flyout_panel_filter_strings_title">Modifica il filtro dei menù a comparsa nei feed</string>
-    <string name="revanced_hide_feed_flyout_panel_summary_off">I menù a comparsa nei feed sono visibili</string>
-    <string name="revanced_hide_feed_flyout_panel_summary_on">I menù a comparsa nei feed sono nascosti</string>
-    <string name="revanced_hide_feed_flyout_panel_title">Nascondi il menù a comparsa nei feed</string>
+    <string name="revanced_hide_feed_flyout_panel_summary_off">Il filtro dei menù a comparsa nei feed è disattivato</string>
+    <string name="revanced_hide_feed_flyout_panel_summary_on">Il filtro dei menù a comparsa nei feed è attivato</string>
+    <string name="revanced_hide_feed_flyout_panel_title">Attiva il filtro dei menù a comparsa nei feed</string>
     <string name="revanced_hide_feed_survey_summary_off">I sondaggi nei feed sono visibili</string>
     <string name="revanced_hide_feed_survey_summary_on">I sondaggi nei feed sono nascosti</string>
     <string name="revanced_hide_feed_survey_title">Nascondi i sondaggi nei feed</string>
@@ -551,6 +559,9 @@ Alcuni componenti potrebbero non essere nascosti"</string>
     <string name="revanced_hide_preview_comment_off">Il commento di anteprima è visibile</string>
     <string name="revanced_hide_preview_comment_on">Il commento di anteprima è nascosto</string>
     <string name="revanced_hide_preview_comment_title">Nascondi il commento di anteprima</string>
+    <string name="revanced_hide_preview_comment_type_off">Questo cambia la dimensione della sezione Commenti, quindi è impossibile aprire Riproduzione Chat Live</string>
+    <string name="revanced_hide_preview_comment_type_on">Questo non cambia la dimensione della sezione Commenti, quindi è possibile aprire Riproduzione Chat Live</string>
+    <string name="revanced_hide_preview_comment_type_title">Nascondi il tipo di commento di anteprima</string>
     <string name="revanced_hide_previous_next_button_summary_off">I pulsanti Precedente e Successivo sono visibili</string>
     <string name="revanced_hide_previous_next_button_summary_on">I pulsanti Precedente e Successivo sono nascosti</string>
     <string name="revanced_hide_previous_next_button_title">Nascondi i pulsanti Precedente e Successivo</string>
@@ -719,9 +730,9 @@ Tocca e tieni premuto per impostare la velocità di riproduzione a 1.0x"</string
     <string name="revanced_player_flyout_panel_additional_settings_summary">Per nascondere il menù Impostazioni Aggiuntive, nascondi tutti i menù di Impostazioni Aggiuntive</string>
     <string name="revanced_player_flyout_panel_additional_settings_title">Impostazioni aggiuntive</string>
     <string name="revanced_player_flyout_panel_title">Pannello a comparsa del riproduttore</string>
-    <string name="revanced_quick_actions_margin_top_summary">Il valore del margine superiore è compreso tra 0 e 64</string>
+    <string name="revanced_quick_actions_margin_top_summary">Configura lo spazio tra la barra di avanzamento e il contenitore delle azioni rapide compreso, il valore è compreso tra 0 e 64</string>
     <string name="revanced_quick_actions_margin_top_title">Margine superiore delle azioni rapide</string>
-    <string name="revanced_quick_actions_margin_top_warning">Il valore del margine superiore deve essere compreso tra 0 e 64. Ripristinando ai valori predefiniti</string>
+    <string name="revanced_quick_actions_margin_top_warning">Il valore del margine superiore deve essere compreso tra 0 e 64. Ripristinato ai valori predefiniti</string>
     <string name="revanced_quick_actions_title">Azioni rapide</string>
     <string name="revanced_remove_viewer_discretion_dialog_summary">"Questo non bypassa la restrizione di età, ma lo accetta automaticamente"</string>
     <string name="revanced_remove_viewer_discretion_dialog_title">Nascondi la finestra di discrezione del visualizzatore</string>
