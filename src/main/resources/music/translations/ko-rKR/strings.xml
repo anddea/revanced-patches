@@ -21,13 +21,13 @@
     <string name="revanced_change_start_page_entry_subscription">구독</string>
     <string name="revanced_change_start_page_summary">앱 메인 페이지를 변경합니다.</string>
     <string name="revanced_change_start_page_title">메인 페이지 변경</string>
-    <string name="revanced_custom_filter_strings_summary">구성요소의 이름을 줄바꿈으로 구분하여 필터링합니다.</string>
+    <string name="revanced_custom_filter_strings_summary">필터링할 구성요소를 줄바꿈로 구분하여 설정합니다.</string>
     <string name="revanced_custom_filter_strings_title">사용자 정의 필터 편집</string>
     <string name="revanced_custom_filter_strings_warning">유효하지 않은 필터 값이므로 기본값으로 재설정합니다.</string>
     <string name="revanced_custom_filter_summary">사용자 정의 필터를 활성화하여 레이아웃 구성요소를 숨깁니다.</string>
     <string name="revanced_custom_filter_title">사용자 정의 필터 활성화</string>
     <string name="revanced_custom_playback_speeds_invalid">유효하지 않은 재생 속도이므로 기본값으로 재설정합니다.</string>
-    <string name="revanced_custom_playback_speeds_summary">사용 가능한 재생 속도를 추가 또는 변경하세요.</string>
+    <string name="revanced_custom_playback_speeds_summary">사용 가능한 재생 속도를 설정할 수 있습니다.</string>
     <string name="revanced_custom_playback_speeds_title">사용자 정의 재생 속도 편집</string>
     <string name="revanced_custom_playback_speeds_warning" formatted="false">재생 속도는 %s배속을 초과할 수 없습니다.</string>
     <string name="revanced_disable_auto_captions_summary">자막 사용이 강제된 동영상에서 자막을 비활성화합니다.</string>
@@ -37,11 +37,11 @@
     <string name="revanced_enable_black_navigation_bar_title">검정 하단바 활성화</string>
     <string name="revanced_enable_color_match_player_summary">최소화 상태의 플레이어와 전체 화면 플레이어의 색상을 통일시킵니다.</string>
     <string name="revanced_enable_color_match_player_title">색상 일치 플레이어 활성화</string>
-    <string name="revanced_enable_compact_dialog_summary">"휴대폰에서 소형 다이얼로그를 활성화합니다.
+    <string name="revanced_enable_compact_dialog_summary">"휴대폰에서 소형 메뉴 구성요소를 활성화합니다.
 
 알려진 문제점:
-• 보관함 선반에서 앨범 커버도 작아집니다.
-• 취침 타이머 레이아웃이 비정상적으로 보일 수 있습니다."</string>
+- 보관함 탭에서 앨범 아트가 그리드로 구성될 때 작아집니다.
+- 취침 타이머 레이아웃이 비정상적으로 보일 수 있습니다."</string>
     <string name="revanced_enable_compact_dialog_title">소형 다이얼로그 활성화</string>
     <string name="revanced_enable_debug_logging_summary">디버그 로그를 출력합니다.</string>
     <string name="revanced_enable_debug_logging_title">디버그 로깅 활성화</string>
@@ -56,17 +56,17 @@
     <string name="revanced_enable_old_player_layout_summary">"이전 플레이어 레이아웃으로 복원합니다.
 이 기능을 활성화하면 일부 설정이 제대로 작동하지 않을 수 있습니다.
 
-경고: 이 기능이 활성화되어 있는 동안에는 새로운 플레이어 배경을 활성화하지 마세요."</string>
+경고: 이 기능이 활성화되어 있는 동안에는 \"새로운 플레이어 배경\"을 활성화하지 마세요."</string>
     <string name="revanced_enable_old_player_layout_title">이전 플레이어 레이아웃 복원</string>
-    <string name="revanced_enable_old_style_library_shelf_summary">이전 보관함 선반으로 복원합니다. (실험적인 기능)</string>
+    <string name="revanced_enable_old_style_library_shelf_summary">이전 보관함 탭으로 복원합니다. (실험적인 기능)</string>
     <string name="revanced_enable_old_style_library_shelf_title">이전 보관함 선반 복원</string>
     <string name="revanced_enable_old_style_mini_player_summary">이전 최소화 상태의 플레이어로 복원합니다.</string>
     <string name="revanced_enable_old_style_mini_player_title">이전 최소화 상태의 플레이어 복원</string>
     <string name="revanced_enable_opus_codec_summary">MP4A 오디오 코덱 대신 Opus 오디오 코덱을 활성화합니다.</string>
     <string name="revanced_enable_opus_codec_title">Opus 코덱 활성화</string>
-    <string name="revanced_enable_save_playback_speed_summary">재생 속도 값을 변경할 때마다 저장합니다.</string>
+    <string name="revanced_enable_save_playback_speed_summary">마지막으로 선택한 재생 속도 값을 저장합니다.</string>
     <string name="revanced_enable_save_playback_speed_title">재생 속도 저장 활성화</string>
-    <string name="revanced_enable_save_video_quality_summary">동영상 품질 값을 변경할 때마다 저장합니다.</string>
+    <string name="revanced_enable_save_video_quality_summary">마지막으로 선택한 동영상 품질 값을 저장합니다.</string>
     <string name="revanced_enable_save_video_quality_title">동영상 품질 저장 활성화</string>
     <string name="revanced_enable_sleep_timer_summary">메뉴 구성요소에 취침 타이머 메뉴를 추가합니다.</string>
     <string name="revanced_enable_sleep_timer_title">취침 타이머 활성화</string>
@@ -100,13 +100,15 @@
     <string name="revanced_hide_action_button_download_title">오프라인 저장 버튼 제거</string>
     <string name="revanced_hide_action_button_label_summary">액션바 버튼 라벨을 숨깁니다.</string>
     <string name="revanced_hide_action_button_label_title">액션바 버튼 라벨 제거</string>
+    <string name="revanced_hide_action_button_like_dislike_summary">좋아요 &amp; 싫어요 버튼을 숨깁니다. 이전 플레이어 레이아웃에서는 작동하지 않습니다.</string>
+    <string name="revanced_hide_action_button_like_dislike_title">좋아요 &amp; 싫어요 버튼 제거</string>
     <string name="revanced_hide_action_button_radio_summary">뮤직 스테이션 버튼을 숨깁니다.</string>
     <string name="revanced_hide_action_button_radio_title">뮤직 스테이션 버튼 제거</string>
     <string name="revanced_hide_action_button_share_summary">공유 버튼을 숨깁니다.</string>
     <string name="revanced_hide_action_button_share_title">공유 버튼 제거</string>
-    <string name="revanced_hide_button_shelf_summary">홈과 둘러보기에서 버튼 선반을 숨깁니다.</string>
+    <string name="revanced_hide_button_shelf_summary">홈 탭과 둘러보기 탭에서 버튼 선반을 숨깁니다.</string>
     <string name="revanced_hide_button_shelf_title">버튼 선반 제거</string>
-    <string name="revanced_hide_carousel_shelf_summary">홈과 둘러보기에서 썸네일 슬라이드 선반을 숨깁니다.</string>
+    <string name="revanced_hide_carousel_shelf_summary">홈 탭과 둘러보기 탭에서 썸네일 슬라이드 선반을 숨깁니다.</string>
     <string name="revanced_hide_carousel_shelf_title">썸네일 슬라이드 선반 제거</string>
     <string name="revanced_hide_cast_button_summary">캐스트 버튼을 숨깁니다.</string>
     <string name="revanced_hide_cast_button_title">캐스트 버튼 제거</string>
@@ -114,7 +116,7 @@
     <string name="revanced_hide_category_bar_title">카테고리 바 제거</string>
     <string name="revanced_hide_channel_guidelines_summary">댓글 상단에서 커뮤니티 가이드라인을 숨깁니다.</string>
     <string name="revanced_hide_channel_guidelines_title">커뮤니티 가이드라인 제거</string>
-    <string name="revanced_hide_emoji_picker_summary">댓글 상자에서 이모지 선택기를 숨깁니다.</string>
+    <string name="revanced_hide_emoji_picker_summary">댓글 입력창에서 이모지 선택기를 숨깁니다.</string>
     <string name="revanced_hide_emoji_picker_title">이모지 선택기 제거</string>
     <string name="revanced_hide_explore_button_summary">둘러보기 버튼을 숨깁니다.</string>
     <string name="revanced_hide_explore_button_title">둘러보기 버튼 제거</string>
@@ -171,6 +173,8 @@
     <string name="revanced_hide_premium_renewal_title">YouTube Premium 갱신 배너 제거</string>
     <string name="revanced_hide_samples_button_summary">샘플 버튼을 숨깁니다.</string>
     <string name="revanced_hide_samples_button_title">샘플 버튼 제거</string>
+    <string name="revanced_hide_fullscreen_share_button_summary">전체 화면에서 공유 버튼을 숨깁니다.</string>
+    <string name="revanced_hide_fullscreen_share_button_title">전체 화면에서 공유 버튼 제거</string>
     <string name="revanced_hide_terms_container_summary">서비스 약관 컨테이너를 숨깁니다.</string>
     <string name="revanced_hide_terms_container_title">서비스 약관 컨테이너 제거</string>
     <string name="revanced_hide_upgrade_button_summary">업그레이드 버튼을 숨깁니다.</string>
@@ -188,12 +192,14 @@
     <string name="revanced_restart_message">새로고침 및 다시 시작</string>
     <string name="revanced_replace_flyout_panel_dismiss_queue_continue_watch_summary">\'YouTube에서 시청\' 메뉴를 누르면 YouTube에서 동영상을 ReVanced Extended Music에서 멈춘 시점부터 이어서 시청합니다.</string>
     <string name="revanced_replace_flyout_panel_dismiss_queue_continue_watch_title">이어서 시청</string>
-    <string name="revanced_replace_flyout_panel_dismiss_queue_summary">현재 재생목록 닫기 메뉴를 YouTube에서 시청 메뉴로 변경합니다.</string>
+    <string name="revanced_replace_flyout_panel_dismiss_queue_summary">\"현재 재생목록 닫기\" 메뉴를 \"YouTube에서 시청\" 메뉴로 변경합니다.</string>
     <string name="revanced_replace_flyout_panel_dismiss_queue_title">YouTube에서 시청 메뉴로 변경</string>
+    <string name="revanced_replace_player_cast_button_summary">"플레이어에서 캐스트 버튼을 \"정식 음원으로 듣기\" 버튼으로 변경합니다. (실험적인 기능)
+알려진 문제: 재생 목록에서 재생할 수 없는 음악이 하나 이상 있는 경우 정상적으로 작동하지 않습니다."</string>
     <string name="revanced_replace_player_cast_button_title">\'정식 음원으로 듣기\' 버튼 표시</string>
-    <string name="revanced_remember_repeat_state_summary">반복 상태를 저장합니다.</string>
+    <string name="revanced_remember_repeat_state_summary">반복 재생 토글 상태를 저장합니다.</string>
     <string name="revanced_remember_repeat_state_title">반복 상태 저장</string>
-    <string name="revanced_remember_shuffle_state_summary">셔플 상태를 저장합니다.</string>
+    <string name="revanced_remember_shuffle_state_summary">셔플 재생 토글 상태를 저장합니다.</string>
     <string name="revanced_remember_shuffle_state_title">셔플 상태 저장</string>
     <string name="revanced_reset">초기화</string>
     <string name="revanced_ryd_about">정보</string>
@@ -204,7 +210,7 @@
     <string name="revanced_ryd_dislike_percentage_title">싫어요 개수를 퍼센트로 표시</string>
     <string name="revanced_ryd_enabled_summary">싫어요 개수를 표시합니다.</string>
     <string name="revanced_ryd_failure_connection_timeout">싫어요 개수를 일시적으로 표시할 수 없습니다 (응답 시간 초과).</string>
-    <string name="revanced_ryd_failure_connection_status_code" formatted="false">싫어요 개수를 표시할 수 없습니다 (상태 %d).</string>
+    <string name="revanced_ryd_failure_connection_status_code" formatted="false">싫어요 개수를 표시할 수 없습니다 (상태 코드: %d).</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">싫어요 개수를 표시할 수 없습니다. (클라이언트 API 제한 도달)</string>
     <string name="revanced_ryd_failure_generic">싫어요 개수를 표시할 수 없습니다 (%s).</string>
     <string name="revanced_ryd_toast_on_connection_error_summary">ReturnYouTubeDislike를 사용할 수 없을 때 팝업 메시지를 표시합니다.</string>
@@ -271,12 +277,12 @@
     <string name="sb_skip_automatically">자동으로 건너뛰기</string>
     <string name="sb_skip_ignore">아무것도 하지 않기</string>
     <string name="sb_sponsorblock_connection_failure_generic">SponsorBlock을 일시적으로 사용할 수 없습니다.</string>
-    <string name="sb_sponsorblock_connection_failure_status" formatted="false">SponsorBlock을 일시적으로 사용할 수 없습니다 (상태 %d).</string>
+    <string name="sb_sponsorblock_connection_failure_status" formatted="false">SponsorBlock을 일시적으로 사용할 수 없습니다 (상태 코드: %d).</string>
     <string name="sb_sponsorblock_connection_failure_timeout">SponsorBlock을 일시적으로 사용할 수 없습니다 (응답 시간 초과).</string>
     <string name="sb_color_dot_label">색상:</string>
     <string name="sb_color_changed">설정한 색상이 적용되었습니다.</string>
     <string name="sb_color_reset">색상이 초기화되었습니다.</string>
-    <string name="sb_color_invalid">잘못된 헥스 코드입니다.</string>
+    <string name="sb_color_invalid">잘못된 헥스 코드이므로 기본값으로 재설정합니다.</string>
     <string name="sb_reset_color">색상 초기화</string>
     <string name="sb_about_api_sum">건너뛸 구간의 데이터는 SponsorBlock API에 의해 제공됩니다. 자세한 내용을 보려면 누르세요.</string>
     <string name="sb_about">정보</string>

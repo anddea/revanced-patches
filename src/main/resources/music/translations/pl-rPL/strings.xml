@@ -19,28 +19,28 @@
     <string name="revanced_change_start_page_entry_home">Strona główna</string>
     <string name="revanced_change_start_page_entry_library">Biblioteka</string>
     <string name="revanced_change_start_page_entry_subscription">Subskrypcje</string>
-    <string name="revanced_change_start_page_summary">Zmienia stronę startową aplikacji.</string>
+    <string name="revanced_change_start_page_summary">Wybierz, na której stronie ma otwierać się aplikacja.</string>
     <string name="revanced_change_start_page_title">Zmień stronę startową</string>
-    <string name="revanced_custom_filter_strings_summary">Filtruj nazwy komponentów, oddzielając je osobnymi liniami.</string>
+    <string name="revanced_custom_filter_strings_summary">Skonfiguruj komponenty, które chcesz filtrować według nazw oddzielonych liniami.</string>
     <string name="revanced_custom_filter_strings_title">Edytuj własny filtr</string>
-    <string name="revanced_custom_filter_strings_warning">Nieprawidłowy własny filtr, przywróć domyślne wartości.</string>
-    <string name="revanced_custom_filter_summary">Włącza własny filtr.</string>
+    <string name="revanced_custom_filter_strings_warning">Nieprawidłowy własny filtr. Przywrócono domyślny filtr.</string>
+    <string name="revanced_custom_filter_summary">Włącza własny filtr do ukrywania komponentów układu aplikacji.</string>
     <string name="revanced_custom_filter_title">Włącz własny filtr</string>
     <string name="revanced_custom_playback_speeds_invalid">Nieprawidłowe niestandardowe prędkości odtwarzania. Przywrócono domyślne wartości.</string>
-    <string name="revanced_custom_playback_speeds_summary">Dodaj lub zmień dostępne prędkości odtwarzania.</string>
+    <string name="revanced_custom_playback_speeds_summary">Skonfiguruj dostępne prędkości odtwarzania.</string>
     <string name="revanced_custom_playback_speeds_title">Edytuj niestandardowe prędkości odtwarzania</string>
     <string name="revanced_custom_playback_speeds_warning" formatted="false">Niestandardowe prędkości nie mogą być większe niż %sx.</string>
-    <string name="revanced_disable_auto_captions_summary">Wyłącza wymuszone napisy w odtwarzaczu wideo.</string>
+    <string name="revanced_disable_auto_captions_summary">Wyłącza automatycznie włączane napisy w odtwarzaczu wideo.</string>
     <string name="revanced_disable_auto_captions_title">Wyłącz automatyczne napisy</string>
     <string name="revanced_downloader_not_installed" formatted="false">%s nie jest zainstalowany. Zainstaluj go.</string>
     <string name="revanced_enable_black_navigation_bar_summary">Ustawia kolor paska nawigacji na czarny.</string>
     <string name="revanced_enable_black_navigation_bar_title">Włącz czarny pasek nawigacji</string>
-    <string name="revanced_enable_color_match_player_summary">Dopasowuje kolor odtwarzacza pełnoekranowego ze zminimalizowanym.</string>
+    <string name="revanced_enable_color_match_player_summary">Dopasowuje kolor miniodtwarzacza do otwarzacza pełnoekranowego.</string>
     <string name="revanced_enable_color_match_player_title">Włącz pasujące kolory odtwarzaczy</string>
     <string name="revanced_enable_compact_dialog_summary">"Włącza kompaktowe dialogi na telefonie.
 
 Znane problemy:
-• okładka albumu w półkach biblioteki również staje się mniejsza.
+• okładka albumu w półkach biblioteki staje się mniejsza, gdy jest ustawiona siatka.
 • układ wyłącznika czasowego może wyglądać nietypowo."</string>
     <string name="revanced_enable_compact_dialog_title">Włącz kompaktowe dialogi</string>
     <string name="revanced_enable_debug_logging_summary">Wyświetla log od debugowania.</string>
@@ -64,9 +64,9 @@ UWAGA: Nie włączaj nowego tła odtwarzacza, jeśli ta opcja jest włączona."<
     <string name="revanced_enable_old_style_mini_player_title">Włącz stary styl miniodtwarzacza</string>
     <string name="revanced_enable_opus_codec_summary">Aplikuje kodek opus zamiast kodeka mp4a.</string>
     <string name="revanced_enable_opus_codec_title">Włącz kodek opus</string>
-    <string name="revanced_enable_save_playback_speed_summary">Zapisuje wybraną prędkość odtwarzania jako domyślną za każdym razem, gdy ją zmienisz.</string>
+    <string name="revanced_enable_save_playback_speed_summary">Zapisuje ostatnio wybraną prędkość odtwarzania.</string>
     <string name="revanced_enable_save_playback_speed_title">Włącz zapisywanie prędkości odtwarzania</string>
-    <string name="revanced_enable_save_video_quality_summary">Zapisuje jakość wideo za każdym razem, gdy ją zmienisz.</string>
+    <string name="revanced_enable_save_video_quality_summary">Zapisuje ostatnio wybraną jakość wideo.</string>
     <string name="revanced_enable_save_video_quality_title">Włącz zapisywanie jakości wideo</string>
     <string name="revanced_enable_sleep_timer_summary">Dodaj przycisk od wyłącznika czasowego do menu.</string>
     <string name="revanced_enable_sleep_timer_title">Włącz wyłącznik czasowy</string>
@@ -100,6 +100,8 @@ UWAGA: Nie włączaj nowego tła odtwarzacza, jeśli ta opcja jest włączona."<
     <string name="revanced_hide_action_button_download_title">Ukryj przycisk pobierania</string>
     <string name="revanced_hide_action_button_label_summary">Ukrywa nazwy przycisków akcji.</string>
     <string name="revanced_hide_action_button_label_title">Ukryj nazwy przycisków akcji</string>
+    <string name="revanced_hide_action_button_like_dislike_summary">Ukrywa przyciski łapki w górę i dół. Nie będzie działać na starym układzie odtwarzacza.</string>
+    <string name="revanced_hide_action_button_like_dislike_title">Ukryj przyciski łapki w górę i dół</string>
     <string name="revanced_hide_action_button_radio_summary">Ukrywa przycisk radia.</string>
     <string name="revanced_hide_action_button_radio_title">Ukryj przycisk radia</string>
     <string name="revanced_hide_action_button_share_summary">Ukrywa przycisk udostępniania.</string>
@@ -171,6 +173,8 @@ UWAGA: Nie włączaj nowego tła odtwarzacza, jeśli ta opcja jest włączona."<
     <string name="revanced_hide_premium_renewal_title">Ukryj baner odnawiania Premium</string>
     <string name="revanced_hide_samples_button_summary">Ukrywa przycisk sampli w pasku nawigacyjnym.</string>
     <string name="revanced_hide_samples_button_title">Ukryj przycisk sampli</string>
+    <string name="revanced_hide_fullscreen_share_button_summary">Ukrywa przycisk udostępniania w trybie pełnoekranowym.</string>
+    <string name="revanced_hide_fullscreen_share_button_title">Ukryj przycisk udostępniania w trybie pełnoekranowym</string>
     <string name="revanced_hide_terms_container_summary">Ukrywa kontener warunków usług z menu konta.</string>
     <string name="revanced_hide_terms_container_title">Ukryj kontener warunków usług</string>
     <string name="revanced_hide_upgrade_button_summary">Ukrywa przycisk uaktualnienia w pasku nawigacji.</string>
@@ -180,7 +184,7 @@ UWAGA: Nie włączaj nowego tła odtwarzacza, jeśli ta opcja jest włączona."<
     <string name="revanced_playback_speed_normal">Normalna</string>
     <string name="revanced_playlist_dismiss">Źródło oryginalnej muzyki już jest odtwarzane.</string>
     <string name="revanced_playlist_error">Oficjalne źródło muzyki jest niedostępne.</string>
-    <string name="revanced_remove_viewer_discretion_dialog_summary">"Usuwa okno dialogowe treści ograniczonej wiekowo.
+    <string name="revanced_remove_viewer_discretion_dialog_summary">"Usuwa okno dialogowe treści ograniczonej do oglądania.
 Nie pomija to ograniczeń wiekowych, lecz akceptuje je automatycznie."</string>
     <string name="revanced_remove_viewer_discretion_dialog_title">Usuń okno dialogowe treści ograniczonej wiekowo</string>
     <string name="revanced_restart_first_run">Uruchom ponownie, aby wczytać układ poprawnie</string>
@@ -189,11 +193,13 @@ Nie pomija to ograniczeń wiekowych, lecz akceptuje je automatycznie."</string>
     <string name="revanced_replace_flyout_panel_dismiss_queue_continue_watch_title">Kontynuuj oglądanie</string>
     <string name="revanced_replace_flyout_panel_dismiss_queue_summary">Zamienia menu czyszczenia kolejek z oglądaniem na YouTube.</string>
     <string name="revanced_replace_flyout_panel_dismiss_queue_title">Zmodyfikuj czyszczenie kolejek</string>
+    <string name="revanced_replace_player_cast_button_summary">"Zastępuje przycisk castowania przyciskiem \"Otwórz muzykę\". (Eksperymentalne)
+Znane problemy: Jeśli na playliście znajduje się jeden bądź więcej utworów, których nie można odtworzyć, to ustawienie te nie działa normalnie."</string>
     <string name="revanced_replace_player_cast_button_title">Zastąp przycisk castowania</string>
     <string name="revanced_remember_repeat_state_summary">Zapisuje stan pętli.</string>
     <string name="revanced_remember_repeat_state_title">Zapamiętaj stan pętli</string>
-    <string name="revanced_remember_shuffle_state_summary">Zapisuje stan tasowania.</string>
-    <string name="revanced_remember_shuffle_state_title">Zapamiętaj stan tasowania</string>
+    <string name="revanced_remember_shuffle_state_summary">Zapisuje stan odtwarzania losowego.</string>
+    <string name="revanced_remember_shuffle_state_title">Zapamiętaj stan odtwarzania losowego</string>
     <string name="revanced_reset">Zresetuj</string>
     <string name="revanced_ryd_about">O integracji</string>
     <string name="revanced_ryd_attribution_summary">Dane są dostarczane dzięki API Return YouTube Dislike. Kliknij tutaj, aby dowiedzieć się więcej.</string>
