@@ -36,7 +36,7 @@ Nhấn vào đây để tìm hiểu thêm về DeArrow."</string>
     <string name="revanced_alt_thumbnail_stills_about_summary">Hình thu nhỏ tự động là ảnh tĩnh ở đầu, giữa hoặc cuối video, được tạo tự động bởi YouTube và không sử dụng bất kỳ API bên ngoài nào.</string>
     <string name="revanced_alt_thumbnail_stills_about_title">Giới thiệu về Hình thu nhỏ tự động</string>
     <string name="revanced_alt_thumbnail_stills_fast_summary_off">Đang sử dụng ảnh tĩnh chất lượng cao làm hình thu nhỏ video.</string>
-    <string name="revanced_alt_thumbnail_stills_fast_summary_on">Đang sử dụng ảnh tĩnh chất lượng trung bình làm hình thu nhỏ video.\n\nLưu ý: Hình thu nhỏ sẽ tải nhanh hơn, tuy nhiên các sự kiện trực tiếp, video sắp xuất bản hoặc video đã rất cũ có thể hiển thị hình thu nhỏ trống.</string>
+    <string name="revanced_alt_thumbnail_stills_fast_summary_on">Đang sử dụng ảnh tĩnh chất lượng trung bình làm hình thu nhỏ video.\n\nLưu ý: Hình thu nhỏ sẽ tải nhanh hơn, tuy nhiên các sự kiện trực tiếp, video sắp xuất bản và video đã rất cũ có thể hiển thị hình thu nhỏ trống.</string>
     <string name="revanced_alt_thumbnail_stills_fast_title">Hình thu nhỏ nhanh</string>
     <string name="revanced_alt_thumbnail_stills_summary_off">Hình thu nhỏ tự động đã tắt.</string>
     <string name="revanced_alt_thumbnail_stills_summary_on">Hình thu nhỏ tự động đã bật.</string>
@@ -56,6 +56,9 @@ Nhấn vào đây để tìm hiểu thêm về DeArrow."</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">Không giới hạn chế độ môi trường xung quanh đã tắt.</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">Đang bỏ qua tự động tắt chế độ môi trường xung quanh khi thiết bị ở chế độ tiết kiệm pin.</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">Không giới hạn chế độ môi trường xung quanh</string>
+    <string name="revanced_change_player_flyout_panel_toggle_summary_off">Đang sử dụng kiểu bật/tắt tuỳ chọn dạng công tắc.</string>
+    <string name="revanced_change_player_flyout_panel_toggle_summary_on">Đang sử dụng kiểu bật/tắt tuỳ chọn dạng văn bản.</string>
+    <string name="revanced_change_player_flyout_panel_toggle_title">Đổi kiểu bật/tắt tuỳ chọn</string>
     <string name="revanced_change_start_page_entry_default">Mặc định</string>
     <string name="revanced_change_start_page_entry_explore">Khám phá</string>
     <string name="revanced_change_start_page_entry_history">Video đã xem</string>
@@ -77,7 +80,7 @@ Lưu ý: Tính năng này chưa được trải qua kiểm thử."</string>
     <string name="revanced_comments_title">Phần Bình luận</string>
     <string name="revanced_custom_filter_strings_summary">Nhập tên các mục mà bạn muốn lọc được phân cách bằng dòng.</string>
     <string name="revanced_custom_filter_strings_title">Chỉnh sửa bộ lọc</string>
-    <string name="revanced_custom_filter_strings_warning">Bộ lọc tuỳ chỉnh không hợp lệ. Đã đặt lại về mặc định.</string>
+    <string name="revanced_custom_filter_strings_warning">Bộ lọc tuỳ chỉnh không hợp lệ. Đã đặt lại bộ lọc về mặc định.</string>
     <string name="revanced_custom_filter_summary_off">Bộ lọc tuỳ chỉnh đã tắt.</string>
     <string name="revanced_custom_filter_summary_on">Đang ẩn các thành phần không mong muốn bằng bộ lọc tuỳ chỉnh.</string>
     <string name="revanced_custom_filter_title">Bộ lọc tuỳ chỉnh</string>
@@ -106,9 +109,9 @@ Lưu ý: Tính năng này chưa được trải qua kiểm thử."</string>
     <string name="revanced_disable_auto_captions_summary_off">Đang tự động hiển thị phụ đề khi phát video có phụ đề.</string>
     <string name="revanced_disable_auto_captions_summary_on">Không tự động hiển thị phụ đề khi phát video có phụ đề.</string>
     <string name="revanced_disable_auto_captions_title">Tắt tự động hiển thị phụ đề</string>
-    <string name="revanced_disable_default_playback_speed_live_summary_off">Đang sử dụng tốc độ phát video mặc định (bạn đã đặt) khi xem sự kiện trực tiếp và buổi công chiếu.\n\nLưu ý: Nếu bạn đặt tốc độ phát video mặc định nhanh hơn mức chuẩn (1.0x), tắt tuỳ chọn này sẽ gây ra vấn đề giật hình khi video bắt kịp luồng phát trực tiếp.</string>
-    <string name="revanced_disable_default_playback_speed_live_summary_on">Đang sử dụng tốc độ phát video chuẩn (1.0x) khi xem sự kiện trực tiếp và buổi công chiếu.</string>
-    <string name="revanced_disable_default_playback_speed_live_title">Tốc độ phát chuẩn khi xem trực tiếp</string>
+    <string name="revanced_disable_default_playback_speed_live_summary_off">Đang áp dụng tốc độ phát video mặc định (bạn đã đặt) khi xem sự kiện trực tiếp và buổi công chiếu.\n\nLưu ý: Nếu bạn đặt tốc độ phát video mặc định nhanh hơn mức bình thường (1.0x), tắt tuỳ chọn này sẽ gây ra vấn đề giật hình khi video bắt kịp luồng phát trực tiếp.</string>
+    <string name="revanced_disable_default_playback_speed_live_summary_on">Đang áp dụng tốc độ phát video bình thường (1.0x) khi xem sự kiện trực tiếp và buổi công chiếu.</string>
+    <string name="revanced_disable_default_playback_speed_live_title">Tốc độ phát bình thường khi xem trực tiếp</string>
     <string name="revanced_disable_haptic_feedback_summary_off">Phản hồi xúc giác đã bật.</string>
     <string name="revanced_disable_haptic_feedback_summary_on">Phản hồi xúc giác đã tắt.</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">Tắt phản hồi xúc giác khi vuốt phân cảnh trong video</string>
@@ -134,6 +137,8 @@ Lưu ý: Bật tuỳ chọn này sẽ khôi phục tính năng Trượt để tu
     <string name="revanced_disable_startup_shorts_player_summary_off">Đang mở thẻ Shorts để phát video ngắn khi khởi động nếu bạn đóng ứng dụng trong lúc xem một video ngắn trước đó.</string>
     <string name="revanced_disable_startup_shorts_player_summary_on">Không mở thẻ Shorts để phát video ngắn khi khởi động ứng dụng.</string>
     <string name="revanced_disable_startup_shorts_player_title">Không mở thẻ Shorts khi khởi động</string>
+    <string name="revanced_disable_update_screen_summary">Tắt màn hình \"Cập nhật ứng dụng của bạn\" xuất hiện khi sử dụng phiên bản YouTube đã cũ.</string>
+    <string name="revanced_disable_update_screen_title">Tắt màn hình cập nhật ứng dụng</string>
     <string name="revanced_double_back_timeout_summary">Số giây để thực hiện thao tác nhấn Quay lại 2 lần để thoát.</string>
     <string name="revanced_double_back_timeout_title">Thời gian chờ nhấn Quay lại 2 lần để thoát (giây)</string>
     <string name="revanced_enable_bottom_player_gestures_summary_off">Cử chỉ vuốt xuống từ khu vực bên dưới trình phát để xem ở chế độ toàn màn hình dọc đã tắt.</string>
@@ -154,6 +159,9 @@ Lưu ý: Bật tuỳ chọn này sẽ khôi phục tính năng Trượt để tu
     <string name="revanced_enable_debug_logging_summary_off">Nhật ký gỡ lỗi đã tắt.</string>
     <string name="revanced_enable_debug_logging_summary_on">Nhật ký gỡ lỗi đã bật.</string>
     <string name="revanced_enable_debug_logging_title">Nhật ký gỡ lỗi</string>
+    <string name="revanced_enable_default_playback_speed_shorts_summary_off">Đang áp dụng tốc độ phát bình thường (1.0x) khi xem video ngắn.</string>
+    <string name="revanced_enable_default_playback_speed_shorts_summary_on">Đang áp dụng tốc độ phát mặc định (bạn đã đặt) khi xem video ngắn.</string>
+    <string name="revanced_enable_default_playback_speed_shorts_title">Tốc độ phát mặc định cho video ngắn</string>
     <string name="revanced_enable_external_browser_summary_off">Đang mở các liên kết xuất hiện trên YouTube trong ứng dụng.</string>
     <string name="revanced_enable_external_browser_summary_on">Đang mở các liên kết xuất hiện trên YouTube bằng trình duyệt bên ngoài.</string>
     <string name="revanced_enable_external_browser_title">Mở liên kết bằng trình duyệt bên ngoài</string>
@@ -552,6 +560,9 @@ Thẻ Bạn &gt; Xem kênh &gt; Trình đơn &gt; Cài đặt."</string>
     <string name="revanced_hide_preview_comment_off">Phần xem trước bình luận được hiển thị.</string>
     <string name="revanced_hide_preview_comment_on">Phần xem trước bình luận đã ẩn.</string>
     <string name="revanced_hide_preview_comment_title">Ẩn phần xem trước bình luận</string>
+    <string name="revanced_hide_preview_comment_type_off">Tuỳ chọn này làm thay đổi kích thước của phần Bình luận, do đó bạn không thể mở phần Phát lại cuộc trò chuyện trực tiếp.</string>
+    <string name="revanced_hide_preview_comment_type_on">Tuỳ chọn này không làm thay đổi kích thước của phần Bình luận nên có thể mở phần Phát lại cuộc trò chuyện trực tiếp.</string>
+    <string name="revanced_hide_preview_comment_type_title">Ẩn xem trước viết bình luận</string>
     <string name="revanced_hide_previous_next_button_summary_off">Các nút Chuyển về video trước và Chuyển đến video tiếp theo được hiển thị.</string>
     <string name="revanced_hide_previous_next_button_summary_on">Các nút Chuyển về video trước và Chuyển đến video tiếp theo đã ẩn.</string>
     <string name="revanced_hide_previous_next_button_title">Ẩn các nút Chuyển đến video trước/tiếp theo</string>
@@ -715,9 +726,9 @@ Sự cố đã biết:
     <string name="revanced_overlay_button_copy_video_url_title">Nút Sao chép URL video</string>
     <string name="revanced_overlay_button_external_downloader_summary">Nhấn để khởi chạy trình tải xuống bên ngoài.</string>
     <string name="revanced_overlay_button_external_downloader_title">Nút Tải xuống bên ngoài</string>
-    <string name="revanced_overlay_button_speed_dialog_reset">Đã đặt lại tốc độ phát chuẩn (1.0x).</string>
+    <string name="revanced_overlay_button_speed_dialog_reset">Đã đặt lại tốc độ phát bình thường (1.0x).</string>
     <string name="revanced_overlay_button_speed_dialog_summary">"- Nhấn để mở hộp thoại Tốc độ phát.
-- Nhấn và giữ để đặt lại tốc độ phát video chuẩn (1.0x)."</string>
+- Nhấn và giữ để đặt lại tốc độ phát video bình thường (1.0x)."</string>
     <string name="revanced_overlay_button_speed_dialog_title">Nút Tốc độ phát</string>
     <string name="revanced_patches_information">Thông tin bản vá</string>
     <string name="revanced_patches_information_summary">Thông tin về các bản vá được áp dụng trong ứng dụng.</string>
@@ -726,7 +737,7 @@ Sự cố đã biết:
     <string name="revanced_player_flyout_panel_additional_settings_summary">Để ẩn danh mục Cài đặt bổ sung, hãy ẩn tất cả các mục trong danh mục này.</string>
     <string name="revanced_player_flyout_panel_additional_settings_title">Trình đơn Cài đặt trình phát (Cài đặt bổ sung)</string>
     <string name="revanced_player_flyout_panel_title">Trình đơn Cài đặt trình phát</string>
-    <string name="revanced_quick_actions_margin_top_summary">Giá trị lề trên của bảng nút thao tác nhanh trong khoảng từ 0 đến 64.</string>
+    <string name="revanced_quick_actions_margin_top_summary">Giá trị khoảng cách từ thanh tiến trình đến bảng nút thao tác nhanh trong khoảng từ 0 đến 64.</string>
     <string name="revanced_quick_actions_margin_top_title">Lề trên bảng nút thao tác nhanh</string>
     <string name="revanced_quick_actions_margin_top_warning">Lề trên của bảng nút thao tác nhanh phải nằm trong khoảng 0 - 64. Đã đặt lại về giá trị mặc định.</string>
     <string name="revanced_quick_actions_title">Bảng nút thao tác nhanh</string>

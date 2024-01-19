@@ -56,6 +56,9 @@ Pulsa aquí para obtener más información sobre DeArrow."</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">El modo ambiente está desactivado en el modo de ahorro de batería</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">El modo ambiente está activado en el modo de ahorro de batería</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">Omitir restricciones del modo ambiente</string>
+    <string name="revanced_change_player_flyout_panel_toggle_summary_off">Se utilizan interruptores.</string>
+    <string name="revanced_change_player_flyout_panel_toggle_summary_on">Se utilizan interruptores de texto.</string>
+    <string name="revanced_change_player_flyout_panel_toggle_title">Cambiar tipo de interruptores</string>
     <string name="revanced_change_start_page_entry_default">Predeterminada</string>
     <string name="revanced_change_start_page_entry_explore">Explorar</string>
     <string name="revanced_change_start_page_entry_history">Historial</string>
@@ -134,6 +137,8 @@ Nota: Al desactivar la superposición de velocidad se restablece el comportamien
     <string name="revanced_disable_startup_shorts_player_summary_off">El reproductor de Shorts está activado al iniciar la aplicación</string>
     <string name="revanced_disable_startup_shorts_player_summary_on">El reproductor de Shorts está desactivado al iniciar la aplicación</string>
     <string name="revanced_disable_startup_shorts_player_title">Desactivar reproductor de Shorts al iniciar la app</string>
+    <string name="revanced_disable_update_screen_summary">Desactiva la pantalla \"Actualiza tu aplicación\" que aparece al utilizar un cliente obsoleto.</string>
+    <string name="revanced_disable_update_screen_title">Desactivar pantalla de actualización</string>
     <string name="revanced_double_back_timeout_summary">La cantidad de segundos de la doble pulsación hacia atrás para salir (segundos)</string>
     <string name="revanced_double_back_timeout_title">Tiempo de espera de doble atrás</string>
     <string name="revanced_enable_bottom_player_gestures_summary_off">El cambio a pantalla completa deslizando el dedo por la zona inferior del reproductor está desactivado.</string>
@@ -154,6 +159,9 @@ Nota: Al desactivar la superposición de velocidad se restablece el comportamien
     <string name="revanced_enable_debug_logging_summary_off">Los registros de depuración están desactivados</string>
     <string name="revanced_enable_debug_logging_summary_on">Los registros de depuración están activados</string>
     <string name="revanced_enable_debug_logging_title">Activar registro de depuración</string>
+    <string name="revanced_enable_default_playback_speed_shorts_summary_off">La velocidad predeterminada de reproducción no se aplica a los Shorts.</string>
+    <string name="revanced_enable_default_playback_speed_shorts_summary_on">La velocidad predeterminada de reproducción se aplica a los Shorts.</string>
+    <string name="revanced_enable_default_playback_speed_shorts_title">Activar velocidad predeterminada de reproducción a Shorts</string>
     <string name="revanced_enable_external_browser_summary_off">El navegador externo está desactivado</string>
     <string name="revanced_enable_external_browser_summary_on">El navegador externo está activado</string>
     <string name="revanced_enable_external_browser_title">Activar navegador externo</string>
@@ -552,6 +560,9 @@ Algunos componentes pueden no estar ocultos."</string>
     <string name="revanced_hide_preview_comment_off">La vista previa de comentarios está visible</string>
     <string name="revanced_hide_preview_comment_on">La vista previa de comentarios está oculta</string>
     <string name="revanced_hide_preview_comment_title">Ocultar vista previa de comentarios</string>
+    <string name="revanced_hide_preview_comment_type_off">Esto cambia el tamaño de la sección de comentarios, por lo que es imposible abrir una repetición del chat en directo en la sección de comentarios.</string>
+    <string name="revanced_hide_preview_comment_type_on">Esto no cambia el tamaño de la sección de comentarios, por lo que es posible abrir la repetición del chat en directo en la sección de comentarios.</string>
+    <string name="revanced_hide_preview_comment_type_title">Ocultar tipo de vista previa de comentarios</string>
     <string name="revanced_hide_previous_next_button_summary_off">Los botones están visibles</string>
     <string name="revanced_hide_previous_next_button_summary_on">Los botones están ocultos.</string>
     <string name="revanced_hide_previous_next_button_title">Ocultar botones de anterior y siguiente</string>
@@ -952,7 +963,7 @@ Problemas conocidos
     <string name="sb_submit_failed_invalid" formatted="false">No se puede enviar el segmento: %s</string>
     <string name="sb_submit_failed_timeout">No se puede enviar segmentos (la API no responde)</string>
     <string name="sb_submit_failed_unknown_error" formatted="false">No se puede enviar segmentos (estado: %d %s)</string>
-    <string name="sb_submit_failed_rate_limit">No se puede enviar el segmento.\nTasa Limitada (demasiados del mismo usuario o IP)</string>
+    <string name="sb_submit_failed_rate_limit">No se puede enviar el segmento.\nTasa limitada (demasiada del mismo usuario o IP).</string>
     <string name="sb_submit_failed_forbidden" formatted="false">No se puede enviar el segmento: %s</string>
     <string name="sb_submit_failed_duplicate">No se puede enviar el segmento.\nYa existe</string>
     <string name="sb_submit_succeeded">Segmento enviado correctamente</string>
