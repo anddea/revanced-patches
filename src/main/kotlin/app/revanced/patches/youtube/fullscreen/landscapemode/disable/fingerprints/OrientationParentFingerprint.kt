@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.fullscreen.landscapemode.fingerprints
+package app.revanced.patches.youtube.fullscreen.landscapemode.disable.fingerprints
 
 import app.revanced.patcher.fingerprint.MethodFingerprint
 
