@@ -10,8 +10,8 @@ import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.SettingsPatch
 
 @Patch(
-    name = "Hide emoji picker",
-    description = "Adds an option to hide the emoji picker when typing comments.",
+    name = "Hide emoji picker and time stamp",
+    description = "Adds an option to hide the emoji picker and time stamp when typing comments.",
     dependencies = [
         LithoFilterPatch::class,
         SettingsPatch::class
