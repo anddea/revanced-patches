@@ -8,7 +8,6 @@ import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.music.flyoutpanel.utils.EnumUtils.getEnumIndex
 import app.revanced.patches.music.utils.fingerprints.MenuItemFingerprint
-import app.revanced.patches.music.utils.flyoutbutton.FlyoutButtonItemResourcePatch
 import app.revanced.patches.music.utils.integrations.Constants.FLYOUT
 import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.SettingsPatch
@@ -20,7 +19,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
     name = "Replace dismiss queue",
     description = "Adds an option to replace \"Dismiss queue\" with \"Watch on YouTube\" in the flyout menu.",
     dependencies = [
-        FlyoutButtonItemResourcePatch::class,
         SettingsPatch::class,
         VideoInformationPatch::class
     ],
