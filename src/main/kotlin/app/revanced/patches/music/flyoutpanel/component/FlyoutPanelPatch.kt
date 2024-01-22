@@ -1,12 +1,14 @@
 package app.revanced.patches.music.flyoutpanel.component
 
 import app.revanced.patcher.data.BytecodeContext
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
+import app.revanced.patches.music.flyoutpanel.component.fingerprints.SleepTimerFingerprint
 import app.revanced.patches.music.flyoutpanel.utils.EnumUtils.getEnumIndex
 import app.revanced.patches.music.utils.fingerprints.MenuItemFingerprint
 import app.revanced.patches.music.utils.flyoutbutton.FlyoutButtonContainerPatch
@@ -46,7 +48,10 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 )
 @Suppress("unused")
 object FlyoutPanelPatch : BytecodePatch(
-    setOf(MenuItemFingerprint)
+    setOf(
+        MenuItemFingerprint,
+        SleepTimerFingerprint
+    )
 ) {
     override fun execute(context: BytecodeContext) {
         MenuItemFingerprint.result?.let {
@@ -71,6 +76,22 @@ object FlyoutPanelPatch : BytecodePatch(
                 )
             }
         } ?: throw MenuItemFingerprint.exception
+
+        /**
+         * Forces sleep timer menu to be enabled.
+         * This method may be deperated in the future.
+         */
+        SleepTimerFingerprint.result?.let {
+            it.mutableMethod.apply {
+                val insertIndex = implementation!!.instructions.size - 1
+                val targetRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+
+                addInstruction(
+                    insertIndex,
+                    "const/4 v$targetRegister, 0x1"
+                )
+            }
+        }
 
         SettingsPatch.addMusicPreferenceWithoutSummary(
             CategoryType.FLYOUT,
