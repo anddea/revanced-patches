@@ -5,6 +5,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWith
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.music.player.zenmode.fingerprints.ZenModeFingerprint
@@ -18,7 +19,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 
 @Patch(
     name = "Enable zen mode",
-    description = "Adds an option to change the player background to light grey to reduce eye strain.",
+    description = "Adds an option to change the player background to light grey to reduce eye strain. Deprecated on YT Music 6.34.51+.",
     dependencies = [SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(
@@ -36,7 +37,8 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
                 "6.33.52"
             ]
         )
-    ]
+    ],
+    use = false
 )
 @Suppress("unused")
 object ZenModePatch : BytecodePatch(
@@ -76,7 +78,7 @@ object ZenModePatch : BytecodePatch(
                     removeInstruction(replaceReferenceIndex)
                 }
             } ?: throw ZenModeFingerprint.exception
-        } ?: throw PlayerColorFingerprint.exception
+        } ?: throw PatchException("This version is not supported. Please use YT Music 6.33.52 or earlier.")
 
         SettingsPatch.addMusicPreference(
             CategoryType.PLAYER,
