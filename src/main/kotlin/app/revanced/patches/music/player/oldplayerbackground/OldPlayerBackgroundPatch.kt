@@ -1,19 +1,19 @@
-package app.revanced.patches.music.player.newplayerbackground
+package app.revanced.patches.music.player.oldplayerbackground
 
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.music.player.newplayerbackground.fingerprints.NewPlayerBackgroundFingerprint
+import app.revanced.patches.music.player.oldplayerbackground.fingerprints.OldPlayerBackgroundFingerprint
 import app.revanced.patches.music.utils.integrations.Constants.PLAYER
 import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.SettingsPatch
-import app.revanced.util.exception
 
 @Patch(
-    name = "Enable new player background",
-    description = "Adds an option to enable the new player background.",
+    name = "Enable old player background",
+    description = "Adds an option to return the player background to the old style. Deprecated on YT Music 6.34.51+.",
     dependencies = [SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(
@@ -31,29 +31,30 @@ import app.revanced.util.exception
                 "6.33.52"
             ]
         )
-    ]
+    ],
+    use = false
 )
 @Suppress("unused")
-object NewPlayerBackgroundPatch : BytecodePatch(
-    setOf(NewPlayerBackgroundFingerprint)
+object OldPlayerBackgroundPatch : BytecodePatch(
+    setOf(OldPlayerBackgroundFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
 
-        NewPlayerBackgroundFingerprint.result?.let {
+        OldPlayerBackgroundFingerprint.result?.let {
             it.mutableMethod.apply {
                 addInstructions(
                     0, """
-                        invoke-static {}, $PLAYER->enableNewPlayerBackground()Z
+                        invoke-static {}, $PLAYER->enableOldPlayerBackground()Z
                         move-result v0
                         return v0
                         """
                 )
             }
-        } ?: throw NewPlayerBackgroundFingerprint.exception
+        } ?: throw PatchException("This version is not supported. Please use YT Music 6.33.52 or earlier.")
 
         SettingsPatch.addMusicPreference(
             CategoryType.PLAYER,
-            "revanced_enable_new_player_background",
+            "revanced_enable_old_player_background",
             "false"
         )
 
