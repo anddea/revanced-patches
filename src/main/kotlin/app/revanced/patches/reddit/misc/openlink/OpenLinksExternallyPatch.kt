@@ -17,7 +17,15 @@ import app.revanced.util.getStringInstructionIndex
     name = "Open links externally",
     description = "Adds an option to always open links in your browser instead of in the in-app-browser.",
     dependencies = [SettingsPatch::class],
-    compatiblePackages = [CompatiblePackage("com.reddit.frontpage")]
+    compatiblePackages = [
+        CompatiblePackage(
+            "com.reddit.frontpage",
+            [
+                "2023.12.0",
+                "2024.04.0"
+            ]
+        )
+    ]
 )
 @Suppress("unused")
 object OpenLinksExternallyPatch : BytecodePatch(

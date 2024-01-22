@@ -23,7 +23,15 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
         SettingsPatch::class,
         SharedResourceIdPatch::class
     ],
-    compatiblePackages = [CompatiblePackage("com.reddit.frontpage")]
+    compatiblePackages = [
+        CompatiblePackage(
+            "com.reddit.frontpage",
+            [
+                "2023.12.0",
+                "2024.04.0"
+            ]
+        )
+    ]
 )
 @Suppress("unused")
 object ToolBarButtonPatch : BytecodePatch(

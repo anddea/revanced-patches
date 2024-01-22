@@ -12,7 +12,15 @@ import java.nio.file.Files
 @Patch(
     name = "Custom branding name Reddit",
     description = "Renames the Reddit app to the name specified in options.json.",
-    compatiblePackages = [CompatiblePackage("com.reddit.frontpage")],
+    compatiblePackages = [
+        CompatiblePackage(
+            "com.reddit.frontpage",
+            [
+                "2023.12.0",
+                "2024.04.0"
+            ]
+        )
+    ],
     use = false
 )
 @Suppress("unused")

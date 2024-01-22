@@ -14,7 +14,15 @@ import app.revanced.util.exception
     name = "Open links directly",
     description = "Adds an option to skip over redirection URLs in external links.",
     dependencies = [SettingsPatch::class],
-    compatiblePackages = [CompatiblePackage("com.reddit.frontpage")]
+    compatiblePackages = [
+        CompatiblePackage(
+            "com.reddit.frontpage",
+            [
+                "2023.12.0",
+                "2024.04.0"
+            ]
+        )
+    ]
 )
 @Suppress("unused")
 object OpenLinksDirectlyPatch : BytecodePatch(
