@@ -1,4 +1,4 @@
-package app.revanced.patches.music.flyoutpanel.sleeptimer.fingerprints
+package app.revanced.patches.music.flyoutpanel.component.fingerprints
 
 import app.revanced.util.fingerprint.LiteralValueFingerprint
 
