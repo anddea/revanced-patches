@@ -29,6 +29,7 @@ object SharedResourceIdPatch : ResourcePatch() {
     var IsTablet: Long = -1
     var LikeDislikeContainer: Long = -1
     var MenuEntry: Long = -1
+    var MiniPlayerMdxPlaying: Long = -1
     var MusicMenuLikeButtons: Long = -1
     var MusicNotifierShelf: Long = -1
     var NamesInactiveAccountThumbnailSize: Long = -1
@@ -63,6 +64,7 @@ object SharedResourceIdPatch : ResourcePatch() {
         IsTablet = find(BOOL, "is_tablet")
         LikeDislikeContainer = find(ID, "like_dislike_container")
         MenuEntry = find(LAYOUT, "menu_entry")
+        MiniPlayerMdxPlaying = find(STRING, "mini_player_mdx_playing")
         MusicMenuLikeButtons = find(LAYOUT, "music_menu_like_buttons")
         MusicNotifierShelf = find(LAYOUT, "music_notifier_shelf")
         NamesInactiveAccountThumbnailSize = find(DIMEN, "names_inactive_account_thumbnail_size")
