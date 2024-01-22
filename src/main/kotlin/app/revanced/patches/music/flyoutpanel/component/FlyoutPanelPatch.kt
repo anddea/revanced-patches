@@ -205,12 +205,22 @@ object FlyoutPanelPatch : BytecodePatch(
         )
         SettingsPatch.addMusicPreferenceWithoutSummary(
             CategoryType.FLYOUT,
+            "revanced_hide_flyout_panel_sleep_timer",
+            "false"
+        )
+        SettingsPatch.addMusicPreferenceWithoutSummary(
+            CategoryType.FLYOUT,
             "revanced_hide_flyout_panel_start_radio",
             "false"
         )
         SettingsPatch.addMusicPreferenceWithoutSummary(
             CategoryType.FLYOUT,
             "revanced_hide_flyout_panel_stats_for_nerds",
+            "false"
+        )
+        SettingsPatch.addMusicPreferenceWithoutSummary(
+            CategoryType.FLYOUT,
+            "revanced_hide_flyout_panel_subscribe",
             "false"
         )
         SettingsPatch.addMusicPreferenceWithoutSummary(
