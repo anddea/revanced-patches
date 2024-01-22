@@ -11,7 +11,15 @@ import app.revanced.util.exception
 @Patch(
     name = "Premium icon",
     description = "Unlocks premium app icons.",
-    compatiblePackages = [CompatiblePackage("com.reddit.frontpage")]
+    compatiblePackages = [
+        CompatiblePackage(
+            "com.reddit.frontpage",
+            [
+                "2023.12.0",
+                "2024.04.0"
+            ]
+        )
+    ]
 )
 @Suppress("unused")
 object PremiumIconPatch : BytecodePatch(

@@ -16,7 +16,15 @@ import kotlin.io.path.exists
         IntegrationsPatch::class,
         SettingsBytecodePatch::class
     ],
-    compatiblePackages = [CompatiblePackage("com.reddit.frontpage")],
+    compatiblePackages = [
+        CompatiblePackage(
+            "com.reddit.frontpage",
+            [
+                "2023.12.0",
+                "2024.04.0"
+            ]
+        )
+    ],
     requiresIntegrations = true,
 )
 object SettingsPatch : ResourcePatch() {
