@@ -5,6 +5,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWith
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
@@ -24,7 +25,7 @@ import kotlin.properties.Delegates
 
 @Patch(
     name = "Enable color match player",
-    description = "Adds an option to match the color of the miniplayer to the fullscreen player.",
+    description = "Adds an option to match the color of the miniplayer to the fullscreen player. Deprecated on YT Music 6.34.51+.",
     dependencies = [SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(
@@ -42,7 +43,8 @@ import kotlin.properties.Delegates
                 "6.33.52"
             ]
         )
-    ]
+    ],
+    use = false
 )
 @Suppress("unused")
 object ColorMatchPlayerPatch : BytecodePatch(
@@ -163,7 +165,7 @@ object ColorMatchPlayerPatch : BytecodePatch(
                     removeInstruction(insertIndex - 1)
                 }
             } ?: throw NewPlayerColorFingerprint.exception
-        } ?: throw PlayerColorFingerprint.exception
+        } ?: throw PatchException("This version is not supported. Please use YT Music 6.33.52 or earlier.")
 
         SettingsPatch.addMusicPreference(
             CategoryType.PLAYER,
