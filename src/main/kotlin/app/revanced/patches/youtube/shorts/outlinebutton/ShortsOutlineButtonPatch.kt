@@ -59,7 +59,11 @@ object ShortsOutlineButtonPatch : ResourcePatch() {
                     "ic_remix_filled_white_shadowed.webp",
                     "ic_right_comment_shadowed.webp",
                     "ic_right_dislike_off_shadowed.webp",
+                    "ic_right_dislike_on_32c.webp",
+                    "ic_right_dislike_on_shadowed.webp",
                     "ic_right_like_off_shadowed.webp",
+                    "ic_right_like_on_32c.webp",
+                    "ic_right_like_on_shadowed.webp",
                     "ic_right_share_shadowed.webp"
                 )
             )
