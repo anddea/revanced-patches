@@ -8,7 +8,7 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.shared.fingerprints.automotive.AutoMotiveFingerprint
+import app.revanced.patches.youtube.navigation.navigationbuttons.fingerprints.AutoMotiveFingerprint
 import app.revanced.patches.youtube.navigation.navigationbuttons.fingerprints.PivotBarEnumFingerprint
 import app.revanced.patches.youtube.navigation.navigationbuttons.fingerprints.PivotBarShortsButtonViewFingerprint
 import app.revanced.patches.youtube.utils.fingerprints.PivotBarCreateButtonViewFingerprint
@@ -17,6 +17,7 @@ import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.ImageOnlyTab
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.exception
+import app.revanced.util.getStringInstructionIndex
 import app.revanced.util.getWideLiteralInstructionIndex
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.Opcode.MOVE_RESULT_OBJECT
@@ -119,7 +120,7 @@ object NavigationButtonsPatch : BytecodePatch(
          */
         AutoMotiveFingerprint.result?.let {
             it.mutableMethod.apply {
-                val insertIndex = it.scanResult.patternScanResult!!.endIndex
+                val insertIndex = getStringInstructionIndex("Android Automotive") - 1
                 val register = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
                 addInstructions(

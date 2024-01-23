@@ -25,7 +25,6 @@ object SharedResourceIdPatch : ResourcePatch() {
     var FloatingLayout: Long = -1
     var HistoryMenuItem: Long = -1
     var InlineTimeBarAdBreakMarkerColor: Long = -1
-    var InterstitialsContainer: Long = -1
     var IsTablet: Long = -1
     var LikeDislikeContainer: Long = -1
     var MenuEntry: Long = -1
@@ -61,7 +60,6 @@ object SharedResourceIdPatch : ResourcePatch() {
         FloatingLayout = find(ID, "floating_layout")
         HistoryMenuItem = find(ID, "history_menu_item")
         InlineTimeBarAdBreakMarkerColor = find(COLOR, "inline_time_bar_ad_break_marker_color")
-        InterstitialsContainer = find(ID, "interstitials_container")
         IsTablet = find(BOOL, "is_tablet")
         LikeDislikeContainer = find(ID, "like_dislike_container")
         MenuEntry = find(LAYOUT, "menu_entry")
