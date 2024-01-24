@@ -9,7 +9,6 @@ import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.shared.patch.litho.ComponentParserPatch
 import app.revanced.patches.youtube.utils.browseid.fingerprints.BrowseIdClassFingerprint
-import app.revanced.patches.youtube.utils.browseid.fingerprints.SetToolBarPaddingFingerprint
 import app.revanced.patches.youtube.utils.integrations.Constants.UTILS_PATH
 import app.revanced.patches.youtube.utils.litho.LithoFilterPatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
@@ -26,10 +25,7 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
     ]
 )
 object BrowseIdHookPatch : BytecodePatch(
-    setOf(
-        BrowseIdClassFingerprint,
-        SetToolBarPaddingFingerprint
-    )
+    setOf(BrowseIdClassFingerprint)
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
         "$UTILS_PATH/BrowseIdPatch;"
