@@ -77,6 +77,15 @@ object SpoofAppVersionPatch : AbstractVersionSpoofPatch(
                             "revanced_spoof_app_version_target_entry_value" to "18.40.34"
                         )
                     )
+
+                    if (SettingsPatch.upward1843) {
+                        contexts.appendChild(
+                            arrayOf(
+                                "revanced_spoof_app_version_target_entry" to "@string/revanced_spoof_app_version_target_entry_18_42_41",
+                                "revanced_spoof_app_version_target_entry_value" to "18.42.41"
+                            )
+                        )
+                    }
                 }
             }
         }
