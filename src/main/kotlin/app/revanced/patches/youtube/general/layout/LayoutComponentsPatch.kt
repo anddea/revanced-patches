@@ -45,6 +45,7 @@ import app.revanced.patches.youtube.utils.settings.SettingsPatch
 @Suppress("unused")
 object LayoutComponentsPatch : BytecodePatch(emptySet()) {
     override fun execute(context: BytecodeContext) {
+        LithoFilterPatch.addFilter("$COMPONENTS_PATH/ChannelBarFilter;")
         LithoFilterPatch.addFilter("$COMPONENTS_PATH/LayoutComponentsFilter;")
 
         /**
