@@ -87,6 +87,13 @@ fun Method.getWideLiteralInstructionIndex(literal: Long) = implementation?.let {
     }
 } ?: -1
 
+fun Method.getEmptyStringInstructionIndex() = implementation?.let {
+    it.instructions.indexOfFirst { instruction ->
+        instruction.opcode == Opcode.CONST_STRING
+                && (instruction as? BuilderInstruction21c)?.reference.toString().isEmpty()
+    }
+} ?: -1
+
 fun Method.getStringInstructionIndex(value: String) = implementation?.let {
     it.instructions.indexOfFirst { instruction ->
         instruction.opcode == Opcode.CONST_STRING
@@ -136,6 +143,15 @@ inline fun <reified T : Reference> Instruction.getReference() =
  * @return The index of the first [Instruction] that matches the predicate.
  */
 fun Method.indexOfFirstInstruction(predicate: Instruction.() -> Boolean) =
+    this.implementation!!.instructions.indexOfFirst(predicate)
+
+/**
+ * Get the index of the last [Instruction] that matches the predicate.
+ *
+ * @param predicate The predicate to match.
+ * @return The index of the first [Instruction] that matches the predicate.
+ */
+fun Method.indexOfLastInstruction(predicate: Instruction.() -> Boolean) =
     this.implementation!!.instructions.indexOfFirst(predicate)
 
 /**

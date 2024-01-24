@@ -26,6 +26,5 @@ object GeneralByteBufferFingerprint : MethodFingerprint(
         Opcode.IPUT,
         Opcode.IPUT,
         Opcode.GOTO
-    ),
-    customFingerprint = { methodDef, _ -> methodDef.name == "f" }
+    )
 )

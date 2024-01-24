@@ -1,11 +1,9 @@
 package app.revanced.patches.youtube.seekbar.append
 
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.youtube.utils.fingerprints.TotalTimeFingerprint
@@ -13,11 +11,16 @@ import app.revanced.patches.youtube.utils.integrations.Constants.SEEKBAR
 import app.revanced.patches.youtube.utils.overridequality.OverrideQualityHookPatch
 import app.revanced.patches.youtube.utils.overridespeed.OverrideSpeedHookPatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
+import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.TotalTime
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.exception
+import app.revanced.util.getReference
+import app.revanced.util.getWideLiteralInstructionIndex
+import app.revanced.util.indexOfFirstInstruction
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Patch(
     name = "Append time stamps information",
@@ -60,36 +63,28 @@ object AppendTimeStampInformationPatch : BytecodePatch(
     setOf(TotalTimeFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
-        TotalTimeFingerprint.result?.let {
-            it.mutableMethod.apply {
-                var setTextIndex = -1
-
-                for ((textViewIndex, textViewInstruction) in implementation!!.instructions.withIndex()) {
-                    if (textViewInstruction.opcode != Opcode.INVOKE_VIRTUAL) continue
-
-                    if (getInstruction<ReferenceInstruction>(textViewIndex).reference.toString() ==
-                        "Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;"
-                    ) {
-                        setTextIndex = textViewIndex + 2
-                        val setTextRegister = getInstruction<Instruction35c>(setTextIndex).registerC
-                        val textViewRegister =
-                            getInstruction<Instruction35c>(textViewIndex).registerC
-
-                        addInstructions(
-                            setTextIndex, """
-                                invoke-static {v$setTextRegister}, $SEEKBAR->appendTimeStampInformation(Ljava/lang/String;)Ljava/lang/String;
-                                move-result-object v$setTextRegister
-                                """
-                        )
-                        addInstruction(
-                            textViewIndex,
-                            "invoke-static {v$textViewRegister}, $SEEKBAR->setContainerClickListener(Landroid/view/View;)V"
-                        )
-                        break
+        TotalTimeFingerprint.result?.let { result ->
+            result.mutableMethod.apply {
+                val constIndex = getWideLiteralInstructionIndex(TotalTime)
+                val charSequenceIndex = implementation!!.instructions.let {
+                    constIndex + it.subList(constIndex, it.size - 1).indexOfFirst { instruction ->
+                        instruction.opcode == Opcode.MOVE_RESULT_OBJECT
                     }
                 }
-                if (setTextIndex == -1)
-                    throw PatchException("target Instruction not found!")
+                val charSequenceRegister = getInstruction<OneRegisterInstruction>(charSequenceIndex).registerA
+                val textViewIndex = indexOfFirstInstruction {
+                    getReference<MethodReference>()?.name == "getText"
+                }
+                val textViewRegister =
+                    getInstruction<Instruction35c>(textViewIndex).registerC
+
+                addInstructions(
+                    textViewIndex, """
+                        invoke-static {v$textViewRegister}, $SEEKBAR->setContainerClickListener(Landroid/view/View;)V
+                        invoke-static {v$charSequenceRegister}, $SEEKBAR->appendTimeStampInformation(Ljava/lang/String;)Ljava/lang/String;
+                        move-result-object v$charSequenceRegister
+                        """
+                )
             }
         } ?: throw TotalTimeFingerprint.exception
 

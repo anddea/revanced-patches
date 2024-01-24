@@ -2,18 +2,18 @@ package app.revanced.patches.youtube.misc.externalbrowser
 
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.youtube.misc.externalbrowser.fingerprints.ExternalBrowserPrimaryFingerprint
-import app.revanced.patches.youtube.misc.externalbrowser.fingerprints.ExternalBrowserSecondaryFingerprint
-import app.revanced.patches.youtube.misc.externalbrowser.fingerprints.ExternalBrowserTertiaryFingerprint
+import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
+import app.revanced.patches.shared.patch.transformation.AbstractTransformInstructionsPatch
 import app.revanced.patches.youtube.utils.integrations.Constants.MISC_PATH
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
-import app.revanced.util.exception
-import app.revanced.util.getStringInstructionIndex
+import com.android.tools.smali.dexlib2.iface.ClassDef
+import com.android.tools.smali.dexlib2.iface.Method
+import com.android.tools.smali.dexlib2.iface.instruction.Instruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.reference.StringReference
 
 @Patch(
     name = "Enable external browser",
@@ -47,35 +47,36 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
     ]
 )
 @Suppress("unused")
-object ExternalBrowserPatch : BytecodePatch(
-    setOf(
-        ExternalBrowserPrimaryFingerprint,
-        ExternalBrowserSecondaryFingerprint,
-        ExternalBrowserTertiaryFingerprint
-    )
+object ExternalBrowserPatch : AbstractTransformInstructionsPatch<Pair<Int, Int>>(
 ) {
+    override fun filterMap(
+        classDef: ClassDef,
+        method: Method,
+        instruction: Instruction,
+        instructionIndex: Int
+    ): Pair<Int, Int>? {
+        if (instruction !is ReferenceInstruction) return null
+        val reference = instruction.reference as? StringReference ?: return null
+
+        if (reference.string != "android.support.customtabs.action.CustomTabsService") return null
+
+        return instructionIndex to (instruction as OneRegisterInstruction).registerA
+    }
+
+    override fun transform(mutableMethod: MutableMethod, entry: Pair<Int, Int>) {
+        val (intentStringIndex, register) = entry
+
+        // Hook the intent string.
+        mutableMethod.addInstructions(
+            intentStringIndex + 1, """
+                invoke-static {v$register}, $MISC_PATH/ExternalBrowserPatch;->enableExternalBrowser(Ljava/lang/String;)Ljava/lang/String;
+                move-result-object v$register
+                """
+        )
+    }
+
     override fun execute(context: BytecodeContext) {
-
-        arrayOf(
-            ExternalBrowserPrimaryFingerprint,
-            ExternalBrowserSecondaryFingerprint,
-            ExternalBrowserTertiaryFingerprint
-        ).forEach { fingerprint ->
-            fingerprint.result?.let {
-                it.mutableMethod.apply {
-                    val targetIndex =
-                        getStringInstructionIndex("android.support.customtabs.action.CustomTabsService")
-                    val register = getInstruction<OneRegisterInstruction>(targetIndex).registerA
-
-                    addInstructions(
-                        targetIndex + 1, """
-                            invoke-static {v$register}, $MISC_PATH/ExternalBrowserPatch;->enableExternalBrowser(Ljava/lang/String;)Ljava/lang/String;
-                            move-result-object v$register
-                            """
-                    )
-                }
-            } ?: throw fingerprint.exception
-        }
+        super.execute(context)
 
         /**
          * Add settings
@@ -87,6 +88,5 @@ object ExternalBrowserPatch : BytecodePatch(
         )
 
         SettingsPatch.updatePatchStatus("Enable external browser")
-
     }
 }

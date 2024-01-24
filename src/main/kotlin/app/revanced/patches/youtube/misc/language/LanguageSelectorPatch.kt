@@ -54,18 +54,18 @@ object LanguageSelectorPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
 
         val result = GeneralPrefsFingerprint.result // YouTube v18.33.xx ~
-            ?: GeneralPrefsLegacyFingerprint.result // ~ YouTube v18.33.xx
+            ?: GeneralPrefsLegacyFingerprint.result // ~ YouTube v18.32.xx
             ?: throw GeneralPrefsFingerprint.exception
 
         result.let {
             it.mutableMethod.apply {
-                val targetIndex = it.scanResult.patternScanResult!!.endIndex
-                val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
+                val insertIndex = it.scanResult.patternScanResult!!.endIndex - 2
+                val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
                 addInstructions(
-                    targetIndex, """
+                    insertIndex, """
                         invoke-static {}, $MISC_PATH/LanguageSelectorPatch;->enableLanguageSwitch()Z
-                        move-result v$targetRegister
+                        move-result v$insertRegister
                         """
                 )
             }

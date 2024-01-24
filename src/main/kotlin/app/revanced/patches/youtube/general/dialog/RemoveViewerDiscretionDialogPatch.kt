@@ -10,7 +10,7 @@ import app.revanced.patches.youtube.utils.settings.SettingsPatch
 
 @Patch(
     name = "Remove viewer discretion dialog",
-    description = "Removes the dialog that appears when you try to watch a video that has been age-restricted " +
+    description = "Adds an option to remove the dialog that appears when opening a video that has been age-restricted " +
             "by accepting it automatically. This does not bypass the age restriction.",
     dependencies = [SettingsPatch::class],
     compatiblePackages = [

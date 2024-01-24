@@ -22,9 +22,11 @@ import app.revanced.patches.youtube.utils.returnyoutubedislike.shorts.ReturnYouT
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.patches.youtube.utils.videoid.general.VideoIdPatch
 import app.revanced.util.exception
+import app.revanced.util.getReference
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 @Patch(
     name = "Return YouTube Dislike",
@@ -100,14 +102,14 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
                 it.mutableMethod.apply {
                     val conversionContextFieldIndex = implementation!!.instructions.indexOfFirst { instruction ->
                         instruction.opcode == Opcode.IGET_OBJECT
-                                && (instruction as ReferenceInstruction).reference.toString().endsWith("Ljava/util/Map;")
+                                && instruction.getReference<FieldReference>()?.type == "Ljava/util/Map;"
                     } - 1
                     val conversionContextFieldReference =
                         getInstruction<ReferenceInstruction>(conversionContextFieldIndex).reference
 
                     val charSequenceIndex = implementation!!.instructions.indexOfFirst { instruction ->
                         instruction.opcode == Opcode.IGET_OBJECT
-                                && (instruction as ReferenceInstruction).reference.toString().endsWith("Ljava/util/BitSet;")
+                                && instruction.getReference<FieldReference>()?.type == "Ljava/util/BitSet;"
                     } - 1
                     val charSequenceRegister = getInstruction<TwoRegisterInstruction>(charSequenceIndex).registerA
                     val freeRegister = getInstruction<TwoRegisterInstruction>(charSequenceIndex).registerB
