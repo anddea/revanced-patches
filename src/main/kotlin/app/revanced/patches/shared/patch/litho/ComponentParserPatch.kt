@@ -4,11 +4,13 @@ import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.fingerprints.litho.EmptyComponentBuilderFingerprint
-import app.revanced.patches.shared.fingerprints.litho.IdentifierFingerprint
 import app.revanced.util.exception
+import app.revanced.util.getEmptyStringInstructionIndex
+import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction35c
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
@@ -17,10 +19,7 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import kotlin.properties.Delegates
 
 object ComponentParserPatch : BytecodePatch(
-    setOf(
-        EmptyComponentBuilderFingerprint,
-        IdentifierFingerprint
-    )
+    setOf(EmptyComponentBuilderFingerprint)
 ) {
     private lateinit var emptyComponentLabel: String
     internal lateinit var insertMethod: MutableMethod
@@ -60,15 +59,28 @@ object ComponentParserPatch : BytecodePatch(
         }
     }
 
+    private fun MutableMethod.getTargetIndexDownTo(
+        startIndex: Int,
+        opcode: Opcode
+    ): Int {
+        for (index in startIndex downTo 0) {
+            if (getInstruction(index).opcode != opcode)
+                continue
+
+            return index
+        }
+        throw PatchException("Failed to find hook method")
+    }
+
     override fun execute(context: BytecodeContext) {
 
         /**
          * Shared fingerprint
          */
-        EmptyComponentBuilderFingerprint.result?.let {
-            it.mutableMethod.apply {
+        EmptyComponentBuilderFingerprint.result?.let { result ->
+            result.mutableMethod.apply {
                 insertMethod = this
-                emptyComponentIndex = it.scanResult.patternScanResult!!.startIndex + 1
+                emptyComponentIndex = result.scanResult.patternScanResult!!.startIndex + 1
 
                 val builderMethodDescriptor =
                     getInstruction<ReferenceInstruction>(emptyComponentIndex).reference
@@ -94,22 +106,19 @@ object ComponentParserPatch : BytecodePatch(
                     getInstruction<TwoRegisterInstruction>(stringBuilderIndex).registerA
 
                 insertIndex = stringBuilderIndex + 1
-            }
-        } ?: throw EmptyComponentBuilderFingerprint.exception
 
-        /**
-         * Only used in YouTube
-         */
-        IdentifierFingerprint.result?.let {
-            it.mutableMethod.apply {
-                val identifierIndex = it.scanResult.patternScanResult!!.startIndex
-                val objectIndex = it.scanResult.patternScanResult!!.endIndex + 1
-
+                val emptyStringIndex = getEmptyStringInstructionIndex()
+                val identifierIndex = getTargetIndexDownTo(emptyStringIndex, Opcode.IPUT_OBJECT)
                 identifierRegister =
-                    getInstruction<OneRegisterInstruction>(identifierIndex).registerA
+                    getInstruction<TwoRegisterInstruction>(identifierIndex).registerA
+
+                val objectIndex = implementation!!.instructions.let {
+                    emptyStringIndex + it.subList(emptyStringIndex, it.size - 1).indexOfFirst { instruction ->
+                        instruction.opcode == Opcode.INVOKE_VIRTUAL
+                    }
+                }
                 objectRegister = getInstruction<BuilderInstruction35c>(objectIndex).registerC
             }
-        }
-
+        } ?: throw EmptyComponentBuilderFingerprint.exception
     }
 }

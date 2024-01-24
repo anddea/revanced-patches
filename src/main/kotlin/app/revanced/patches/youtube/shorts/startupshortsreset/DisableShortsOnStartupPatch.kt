@@ -11,7 +11,6 @@ import app.revanced.patches.youtube.shorts.startupshortsreset.fingerprints.UserW
 import app.revanced.patches.youtube.utils.integrations.Constants.SHORTS
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.exception
-import app.revanced.util.getWideLiteralInstructionIndex
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
@@ -53,7 +52,7 @@ object DisableShortsOnStartupPatch : BytecodePatch(
 
         UserWasInShortsFingerprint.result?.let {
             it.mutableMethod.apply {
-                val insertIndex = getWideLiteralInstructionIndex(45381394)
+                val insertIndex = it.scanResult.patternScanResult!!.startIndex
                 val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
                 addInstructionsWithLabels(

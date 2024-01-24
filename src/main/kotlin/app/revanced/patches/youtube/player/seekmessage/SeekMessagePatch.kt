@@ -19,8 +19,8 @@ import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.WideLiteralInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Patch(
@@ -83,8 +83,8 @@ object SeekMessagePatch : BytecodePatch(
         /**
          * Added in YouTube v18.29.xx~
          */
-        SeekEduUndoOverlayFingerprint.result?.let {
-            it.mutableMethod.apply {
+        SeekEduUndoOverlayFingerprint.result?.let { result ->
+            result.mutableMethod.apply {
                 val seekUndoCalls = implementation!!.instructions.withIndex()
                     .filter { instruction ->
                         (instruction.value as? WideLiteralInstruction)?.wideLiteral == SeekUndoEduOverlayStub
@@ -92,38 +92,31 @@ object SeekMessagePatch : BytecodePatch(
                 val insertIndex = seekUndoCalls.elementAt(seekUndoCalls.size - 1).index
                 val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
-                for (index in insertIndex until implementation!!.instructions.size) {
-                    val targetInstruction = getInstruction(index)
-                    if (targetInstruction.opcode != Opcode.INVOKE_VIRTUAL)
-                        continue
-
-                    if (((targetInstruction as Instruction35c).reference as MethodReference).name != "setOnClickListener")
-                        continue
-
-                    // Force close occurs only in YouTube v18.36.xx unless we add this.
-                    if (SettingsPatch.is1836)
-                        addComponent(insertIndex, index - 1)
-
-                    addInstructionsWithLabels(
-                        insertIndex, fixComponent + """
-                            invoke-static {}, $PLAYER->hideSeekUndoMessage()Z
-                            move-result v$insertRegister
-                            if-nez v$insertRegister, :default
-                            """, ExternalLabel("default", getInstruction(index + 1))
-                    )
-
-                    /**
-                     * Add settings
-                     */
-                    SettingsPatch.addPreference(
-                        arrayOf(
-                            "PREFERENCE: PLAYER_SETTINGS",
-                            "SETTINGS: HIDE_SEEK_UNDO_MESSAGE"
-                        )
-                    )
-
-                    break
+                val jumpIndex = implementation!!.instructions.let {
+                    insertIndex + it.subList(insertIndex, it.size - 1).indexOfFirst { instruction ->
+                        instruction.opcode == Opcode.INVOKE_VIRTUAL
+                                && ((instruction as? ReferenceInstruction)?.reference as? MethodReference)?.name == "setOnClickListener"
+                    }
                 }
+                val constComponent = getConstComponent(insertIndex, jumpIndex - 1)
+
+                addInstructionsWithLabels(
+                    insertIndex, constComponent + """
+                        invoke-static {}, $PLAYER->hideSeekUndoMessage()Z
+                        move-result v$insertRegister
+                        if-nez v$insertRegister, :default
+                        """, ExternalLabel("default", getInstruction(jumpIndex + 1))
+                )
+
+                /**
+                 * Add settings
+                 */
+                SettingsPatch.addPreference(
+                    arrayOf(
+                        "PREFERENCE: PLAYER_SETTINGS",
+                        "SETTINGS: HIDE_SEEK_UNDO_MESSAGE"
+                    )
+                )
             }
         }
 
@@ -141,30 +134,24 @@ object SeekMessagePatch : BytecodePatch(
 
     }
 
-    private var fixComponent: String = ""
-
-    private fun MutableMethod.addComponent(
+    private fun MutableMethod.getConstComponent(
         startIndex: Int,
         endIndex: Int
-    ) {
-        val fixRegister =
+    ): String {
+        val constRegister =
             getInstruction<FiveRegisterInstruction>(endIndex).registerE
 
         for (index in endIndex downTo startIndex) {
-            val opcode = getInstruction(index).opcode
-            if (opcode != Opcode.CONST_16)
+            if (getInstruction(index).opcode != Opcode.CONST_16)
                 continue
 
-            val register = getInstruction<OneRegisterInstruction>(index).registerA
-
-            if (register != fixRegister)
+            if (getInstruction<OneRegisterInstruction>(index).registerA != constRegister)
                 continue
 
-            val fixValue = getInstruction<WideLiteralInstruction>(index).wideLiteral.toInt()
+            val constValue = getInstruction<WideLiteralInstruction>(index).wideLiteral.toInt()
 
-            fixComponent = "const/16 v$fixRegister, $fixValue"
-
-            break
+            return "const/16 v$constRegister, $constValue"
         }
+        return ""
     }
 }
