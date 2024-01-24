@@ -14,9 +14,10 @@ import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.SettingsPatch
 import app.revanced.util.exception
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstruction
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
@@ -57,27 +58,24 @@ object HideHandlePatch : BytecodePatch(
         /**
          * Hide handle in account menu
          */
-        AccountSwitcherAccessibilityLabelFingerprint.result?.let {
-            it.mutableMethod.apply {
-                val textColorIndex = implementation!!.instructions.indexOfFirst { instruction ->
-                    ((instruction as? ReferenceInstruction)?.reference as? MethodReference)?.name == "setTextColor"
+        AccountSwitcherAccessibilityLabelFingerprint.result?.let { result ->
+            result.mutableMethod.apply {
+
+                val textColorIndex = indexOfFirstInstruction {
+                    getReference<MethodReference>()?.name == "setTextColor"
                 }
-
-                for (index in textColorIndex until textColorIndex + 5) {
-                    if (getInstruction(index).opcode != Opcode.INVOKE_VIRTUAL) continue
-
-                    if ((getInstruction<ReferenceInstruction>(index).reference as MethodReference).name == "setVisibility") {
-
-                        val textViewInstruction = getInstruction<Instruction35c>(index)
-
-                        replaceInstruction(
-                            index,
-                            "invoke-static {v${textViewInstruction.registerC}, v${textViewInstruction.registerD}}, $ACCOUNT->hideHandle(Landroid/widget/TextView;I)V"
-                        )
-
-                        break
+                val setTextIndex = implementation!!.instructions.let {
+                    textColorIndex + it.subList(textColorIndex, textColorIndex + 10).indexOfFirst { instruction ->
+                        instruction.opcode == Opcode.INVOKE_VIRTUAL
+                                && instruction.getReference<MethodReference>()?.name == "setVisibility"
                     }
                 }
+                val textViewInstruction = getInstruction<Instruction35c>(setTextIndex)
+
+                replaceInstruction(
+                    setTextIndex,
+                    "invoke-static {v${textViewInstruction.registerC}, v${textViewInstruction.registerD}}, $ACCOUNT->hideHandle(Landroid/widget/TextView;I)V"
+                )
             }
         } ?: throw AccountSwitcherAccessibilityLabelFingerprint.exception
 

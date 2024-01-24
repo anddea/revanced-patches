@@ -78,7 +78,6 @@ object SharedResourceIdPatch : ResourcePatch() {
     var SubtitleMenuSettingsFooterInfo: Long = -1
     var SuggestedAction: Long = -1
     var TabsBarTextTabView: Long = -1
-    var ToolBarPaddingHome: Long = -1
     var ToolTipContentView: Long = -1
     var TotalTime: Long = -1
     var VideoQualityBottomSheet: Long = -1
@@ -162,7 +161,6 @@ object SharedResourceIdPatch : ResourcePatch() {
         SubtitleMenuSettingsFooterInfo = find(STRING, "subtitle_menu_settings_footer_info")
         SuggestedAction = find(LAYOUT, "suggested_action")
         TabsBarTextTabView = find(ID, "tabs_bar_text_tab_view")
-        ToolBarPaddingHome = find(DIMEN, "toolbar_padding_home_action_up")
         ToolTipContentView = find(LAYOUT, "tooltip_content_view")
         TotalTime = find(STRING, "total_time")
         VideoQualityBottomSheet = find(LAYOUT, "video_quality_bottom_sheet_list_fragment_title")
