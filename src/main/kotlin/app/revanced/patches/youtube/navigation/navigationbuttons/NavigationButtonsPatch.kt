@@ -18,6 +18,7 @@ import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.Image
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.exception
 import app.revanced.util.getStringInstructionIndex
+import app.revanced.util.getTargetIndex
 import app.revanced.util.getWideLiteralInstructionIndex
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.Opcode.MOVE_RESULT_OBJECT
@@ -108,13 +109,8 @@ object NavigationButtonsPatch : BytecodePatch(
              * Create Button
              */
             parentResult.mutableMethod.apply {
-                val insertIndex = implementation!!.instructions.let {
-                    val scanStart = getWideLiteralInstructionIndex(ImageOnlyTab)
-
-                    scanStart + it.subList(scanStart, it.size - 1).indexOfFirst { instruction ->
-                        instruction.opcode == Opcode.INVOKE_VIRTUAL
-                    }
-                } + 2
+                val constIndex = getWideLiteralInstructionIndex(ImageOnlyTab)
+                val insertIndex = getTargetIndex(constIndex, Opcode.INVOKE_VIRTUAL) + 2
                 injectHook(CREATE_BUTTON_HOOK, insertIndex)
             }
 

@@ -2,7 +2,7 @@ package app.revanced.util
 
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patcher.patch.PatchException
@@ -145,40 +145,21 @@ inline fun <reified T : Reference> Instruction.getReference() =
 fun Method.indexOfFirstInstruction(predicate: Instruction.() -> Boolean) =
     this.implementation!!.instructions.indexOfFirst(predicate)
 
-/**
- * Get the index of the last [Instruction] that matches the predicate.
- *
- * @param predicate The predicate to match.
- * @return The index of the first [Instruction] that matches the predicate.
- */
-fun Method.indexOfLastInstruction(predicate: Instruction.() -> Boolean) =
-    this.implementation!!.instructions.indexOfFirst(predicate)
-
-/**
- * Return the resolved methods of [MethodFingerprint]s early.
- */
-fun List<MethodFingerprint>.returnEarly(bool: Boolean = false) {
-    val const = if (bool) "0x1" else "0x0"
-    this.forEach { fingerprint ->
-        fingerprint.result?.let { result ->
-            val stringInstructions = when (result.method.returnType.first()) {
-                'L' -> """
-                        const/4 v0, $const
-                        return-object v0
-                        """
-
-                'V' -> "return-void"
-                'I', 'Z' -> """
-                        const/4 v0, $const
-                        return v0
-                        """
-
-                else -> throw Exception("This case should never happen.")
-            }
-
-            result.mutableMethod.addInstructions(0, stringInstructions)
-        } ?: throw fingerprint.exception
+fun MutableMethod.getTargetIndex(startIndex: Int, opcode: Opcode) =
+    implementation!!.instructions.let {
+        startIndex + it.subList(startIndex, it.size - 1).indexOfFirst { instruction ->
+            instruction.opcode == opcode
+        }
     }
+
+fun MutableMethod.getTargetIndexReversed(startIndex: Int, opcode: Opcode): Int {
+    for (index in startIndex downTo 0) {
+        if (getInstruction(index).opcode != opcode)
+            continue
+
+        return index
+    }
+    throw PatchException("Failed to find target index")
 }
 
 fun BytecodeContext.updatePatchStatus(

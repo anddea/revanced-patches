@@ -3,15 +3,19 @@ package app.revanced.patches.youtube.shorts.startupshortsreset
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.shorts.startupshortsreset.fingerprints.UserWasInShortsFingerprint
 import app.revanced.patches.youtube.utils.integrations.Constants.SHORTS
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.exception
-import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import app.revanced.util.getTargetIndexReversed
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Patch(
     name = "Disable shorts on startup",
@@ -57,19 +61,26 @@ object DisableShortsOnStartupPatch : BytecodePatch(
 
         UserWasInShortsFingerprint.result?.let {
             it.mutableMethod.apply {
-                val insertIndex = it.scanResult.patternScanResult!!.startIndex
-                val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+                val startIndex = it.scanResult.patternScanResult!!.startIndex
+                val targetIndex = getTargetIndexReversed(startIndex, Opcode.RETURN_VOID) + 1
+                if (getInstruction(targetIndex).opcode != Opcode.IGET_OBJECT)
+                    throw PatchException("Failed to find insert index")
+
+                val replaceReference = getInstruction<ReferenceInstruction>(targetIndex).reference
+                val replaceInstruction = getInstruction<TwoRegisterInstruction>(targetIndex)
 
                 addInstructionsWithLabels(
-                    insertIndex,
+                    targetIndex + 1,
                     """
                         invoke-static { }, $SHORTS->disableStartupShortsPlayer()Z
-                        move-result v$insertRegister
-                        if-eqz v$insertRegister, :show_startup_shorts_player
+                        move-result v${replaceInstruction.registerA}
+                        if-eqz v${replaceInstruction.registerA}, :show_startup_shorts_player
                         return-void
-                        """,
-                    ExternalLabel("show_startup_shorts_player", getInstruction(insertIndex))
+                        :show_startup_shorts_player
+                        iget-object v${replaceInstruction.registerA}, v${replaceInstruction.registerB}, $replaceReference
+                        """
                 )
+                removeInstruction(targetIndex)
             }
         } ?: throw UserWasInShortsFingerprint.exception
 

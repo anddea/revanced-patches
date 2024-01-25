@@ -14,6 +14,7 @@ import app.revanced.patches.youtube.utils.integrations.Constants.FULLSCREEN
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.exception
 import app.revanced.util.getStringInstructionIndex
+import app.revanced.util.getTargetIndex
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
@@ -63,11 +64,7 @@ object KeepLandScapeModePatch : BytecodePatch(
         BroadcastReceiverFingerprint.result?.let { result ->
             result.mutableMethod.apply {
                 val stringIndex = getStringInstructionIndex("android.intent.action.SCREEN_ON")
-                val insertIndex = implementation!!.instructions.let {
-                    stringIndex + it.subList(stringIndex, it.size - 1).indexOfFirst { instruction ->
-                        instruction.opcode == Opcode.IF_EQZ
-                    } + 1
-                }
+                val insertIndex = getTargetIndex(stringIndex, Opcode.IF_EQZ) + 1
 
                 addInstruction(
                     insertIndex,

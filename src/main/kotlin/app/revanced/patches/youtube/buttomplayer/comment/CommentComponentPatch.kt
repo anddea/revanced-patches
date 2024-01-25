@@ -17,6 +17,7 @@ import app.revanced.patches.youtube.utils.litho.LithoFilterPatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.exception
+import app.revanced.util.getTargetIndex
 import app.revanced.util.getWideLiteralInstructionIndex
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
@@ -86,11 +87,7 @@ object CommentComponentPatch : BytecodePatch(
         ShortsLiveStreamEmojiPickerOnClickListenerFingerprint.result?.let { parentResult ->
             parentResult.mutableMethod.apply {
                 val emojiPickerEndpointIndex = getWideLiteralInstructionIndex(126326492)
-                val emojiPickerOnClickListenerIndex = implementation!!.instructions.let {
-                    emojiPickerEndpointIndex + it.subList(emojiPickerEndpointIndex, it.size - 1).indexOfFirst { instruction ->
-                        instruction.opcode == Opcode.INVOKE_DIRECT
-                    }
-                }
+                val emojiPickerOnClickListenerIndex = getTargetIndex(emojiPickerEndpointIndex, Opcode.INVOKE_DIRECT)
                 val emojiPickerOnClickListenerMethod =
                     context.toMethodWalker(this)
                         .nextMethod(emojiPickerOnClickListenerIndex, true)
