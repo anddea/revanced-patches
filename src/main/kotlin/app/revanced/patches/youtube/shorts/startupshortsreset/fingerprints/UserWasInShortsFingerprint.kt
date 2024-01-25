@@ -9,6 +9,10 @@ object UserWasInShortsFingerprint : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("Ljava/lang/Object;"),
-    opcodes = listOf(Opcode.CONST_WIDE_32),
+    opcodes = listOf(
+        null,
+        Opcode.RETURN_VOID,
+        Opcode.MOVE_EXCEPTION
+    ),
     strings = listOf("Failed to read user_was_in_shorts proto after successful warmup")
 )

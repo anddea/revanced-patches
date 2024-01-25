@@ -4,15 +4,16 @@ import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.fingerprints.litho.EmptyComponentBuilderFingerprint
 import app.revanced.util.exception
 import app.revanced.util.getEmptyStringInstructionIndex
+import app.revanced.util.getReference
+import app.revanced.util.getTargetIndex
+import app.revanced.util.getTargetIndexReversed
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction35c
-import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
@@ -34,12 +35,11 @@ object ComponentParserPatch : BytecodePatch(
     internal fun generalHook(descriptor: String) {
         insertMethod.apply {
             addInstructionsWithLabels(
-                insertIndex,
-                """
-                        invoke-static {v$stringBuilderRegister, v$identifierRegister, v$objectRegister}, $descriptor(Ljava/lang/StringBuilder;Ljava/lang/String;Ljava/lang/Object;)Z
-                        move-result v$stringBuilderRegister
-                        if-eqz v$stringBuilderRegister, :filter
-                        """ + emptyComponentLabel,
+                insertIndex, """
+                    invoke-static {v$stringBuilderRegister, v$identifierRegister, v$objectRegister}, $descriptor(Ljava/lang/StringBuilder;Ljava/lang/String;Ljava/lang/Object;)Z
+                    move-result v$stringBuilderRegister
+                    if-eqz v$stringBuilderRegister, :filter
+                    """ + emptyComponentLabel,
                 ExternalLabel("filter", getInstruction(insertIndex))
             )
         }
@@ -48,28 +48,14 @@ object ComponentParserPatch : BytecodePatch(
     internal fun pathBuilderHook(descriptor: String) {
         insertMethod.apply {
             addInstructionsWithLabels(
-                insertIndex,
-                """
-                        invoke-static {v$stringBuilderRegister}, $descriptor(Ljava/lang/StringBuilder;)Z
-                        move-result v$stringBuilderRegister
-                        if-eqz v$stringBuilderRegister, :filter
-                        """ + emptyComponentLabel,
+                insertIndex, """
+                    invoke-static {v$stringBuilderRegister}, $descriptor(Ljava/lang/StringBuilder;)Z
+                    move-result v$stringBuilderRegister
+                    if-eqz v$stringBuilderRegister, :filter
+                    """ + emptyComponentLabel,
                 ExternalLabel("filter", getInstruction(insertIndex))
             )
         }
-    }
-
-    private fun MutableMethod.getTargetIndexDownTo(
-        startIndex: Int,
-        opcode: Opcode
-    ): Int {
-        for (index in startIndex downTo 0) {
-            if (getInstruction(index).opcode != opcode)
-                continue
-
-            return index
-        }
-        throw PatchException("Failed to find hook method")
     }
 
     override fun execute(context: BytecodeContext) {
@@ -77,10 +63,10 @@ object ComponentParserPatch : BytecodePatch(
         /**
          * Shared fingerprint
          */
-        EmptyComponentBuilderFingerprint.result?.let { result ->
-            result.mutableMethod.apply {
+        EmptyComponentBuilderFingerprint.result?.let {
+            it.mutableMethod.apply {
                 insertMethod = this
-                emptyComponentIndex = result.scanResult.patternScanResult!!.startIndex + 1
+                emptyComponentIndex = it.scanResult.patternScanResult!!.startIndex + 1
 
                 val builderMethodDescriptor =
                     getInstruction<ReferenceInstruction>(emptyComponentIndex).reference
@@ -97,9 +83,7 @@ object ComponentParserPatch : BytecodePatch(
 
                 val stringBuilderIndex =
                     implementation!!.instructions.indexOfFirst { instruction ->
-                        val fieldReference =
-                            (instruction as? ReferenceInstruction)?.reference as? FieldReference
-                        fieldReference?.let { reference -> reference.type == "Ljava/lang/StringBuilder;" } == true
+                        instruction.getReference<FieldReference>()?.type == "Ljava/lang/StringBuilder;"
                     }
 
                 stringBuilderRegister =
@@ -108,15 +92,11 @@ object ComponentParserPatch : BytecodePatch(
                 insertIndex = stringBuilderIndex + 1
 
                 val emptyStringIndex = getEmptyStringInstructionIndex()
-                val identifierIndex = getTargetIndexDownTo(emptyStringIndex, Opcode.IPUT_OBJECT)
+                val identifierIndex = getTargetIndexReversed(emptyStringIndex, Opcode.IPUT_OBJECT)
                 identifierRegister =
                     getInstruction<TwoRegisterInstruction>(identifierIndex).registerA
 
-                val objectIndex = implementation!!.instructions.let {
-                    emptyStringIndex + it.subList(emptyStringIndex, it.size - 1).indexOfFirst { instruction ->
-                        instruction.opcode == Opcode.INVOKE_VIRTUAL
-                    }
-                }
+                val objectIndex = getTargetIndex(emptyStringIndex, Opcode.INVOKE_VIRTUAL)
                 objectRegister = getInstruction<BuilderInstruction35c>(objectIndex).registerC
             }
         } ?: throw EmptyComponentBuilderFingerprint.exception

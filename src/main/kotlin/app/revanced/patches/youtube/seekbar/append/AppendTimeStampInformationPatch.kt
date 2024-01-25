@@ -15,6 +15,7 @@ import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.Total
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.exception
 import app.revanced.util.getReference
+import app.revanced.util.getTargetIndex
 import app.revanced.util.getWideLiteralInstructionIndex
 import app.revanced.util.indexOfFirstInstruction
 import com.android.tools.smali.dexlib2.Opcode
@@ -68,14 +69,10 @@ object AppendTimeStampInformationPatch : BytecodePatch(
     setOf(TotalTimeFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
-        TotalTimeFingerprint.result?.let { result ->
-            result.mutableMethod.apply {
+        TotalTimeFingerprint.result?.let {
+            it.mutableMethod.apply {
                 val constIndex = getWideLiteralInstructionIndex(TotalTime)
-                val charSequenceIndex = implementation!!.instructions.let {
-                    constIndex + it.subList(constIndex, it.size - 1).indexOfFirst { instruction ->
-                        instruction.opcode == Opcode.MOVE_RESULT_OBJECT
-                    }
-                }
+                val charSequenceIndex = getTargetIndex(constIndex, Opcode.MOVE_RESULT_OBJECT)
                 val charSequenceRegister = getInstruction<OneRegisterInstruction>(charSequenceIndex).registerA
                 val textViewIndex = indexOfFirstInstruction {
                     getReference<MethodReference>()?.name == "getText"

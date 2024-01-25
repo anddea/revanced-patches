@@ -36,6 +36,8 @@ import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.ReelR
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.RightComment
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.exception
+import app.revanced.util.getTargetIndex
+import app.revanced.util.getTargetIndexReversed
 import app.revanced.util.getWideLiteralInstructionIndex
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -118,7 +120,7 @@ object ShortsComponentPatch : BytecodePatch(
                 val insertIndex = getWideLiteralInstructionIndex(ReelRightDislikeIcon)
                 val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
-                val jumpIndex = getTargetIndexUpTo(insertIndex, Opcode.CONST_CLASS) + 2
+                val jumpIndex = getTargetIndex(insertIndex, Opcode.CONST_CLASS) + 2
 
                 addInstructionsWithLabels(
                     insertIndex + 1, """
@@ -155,7 +157,7 @@ object ShortsComponentPatch : BytecodePatch(
 
                 val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
-                val jumpIndex = getTargetIndexUpTo(insertIndex, Opcode.CONST_CLASS) + 2
+                val jumpIndex = getTargetIndex(insertIndex, Opcode.CONST_CLASS) + 2
 
                 addInstructionsWithLabels(
                     insertIndex + 1, """
@@ -210,8 +212,8 @@ object ShortsComponentPatch : BytecodePatch(
                 val targetIndex = getWideLiteralInstructionIndex(ReelForcedMuteButton)
                 val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
-                val insertIndex = getTargetIndexDownTo(targetIndex, Opcode.IF_EQZ)
-                val jumpIndex = getTargetIndexUpTo(targetIndex, Opcode.GOTO)
+                val insertIndex = getTargetIndexReversed(targetIndex, Opcode.IF_EQZ)
+                val jumpIndex = getTargetIndex(targetIndex, Opcode.GOTO)
 
                 addInstructionsWithLabels(
                     insertIndex, """
@@ -224,7 +226,7 @@ object ShortsComponentPatch : BytecodePatch(
         } ?: ShortsPivotFingerprint.result?.let {
             it.mutableMethod.apply {
                 val targetIndex = getWideLiteralInstructionIndex(ReelPivotButton)
-                val insertIndex = getTargetIndexDownTo(targetIndex, Opcode.INVOKE_STATIC) + 2
+                val insertIndex = getTargetIndexReversed(targetIndex, Opcode.INVOKE_STATIC) + 2
 
                 hideButtons(
                     insertIndex,
@@ -300,31 +302,5 @@ object ShortsComponentPatch : BytecodePatch(
                 move-result-object v$insertRegister
                 """
         )
-    }
-
-    private fun MutableMethod.getTargetIndexDownTo(
-        startIndex: Int,
-        opcode: Opcode
-    ): Int {
-        for (index in startIndex downTo 0) {
-            if (getInstruction(index).opcode != opcode)
-                continue
-
-            return index
-        }
-        throw PatchException("Failed to find hook method")
-    }
-
-    private fun MutableMethod.getTargetIndexUpTo(
-        startIndex: Int,
-        opcode: Opcode
-    ): Int {
-        for (index in startIndex until implementation!!.instructions.size) {
-            if (getInstruction(index).opcode != opcode)
-                continue
-
-            return index
-        }
-        throw PatchException("Failed to find hook method")
     }
 }

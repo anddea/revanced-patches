@@ -12,6 +12,7 @@ import app.revanced.patches.music.misc.tastebuilder.fingerprints.TasteBuilderSyn
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.MusicTastebuilderShelf
 import app.revanced.util.exception
+import app.revanced.util.getTargetIndex
 import app.revanced.util.getWideLiteralInstructionIndex
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -49,11 +50,7 @@ object TasteBuilderPatch : BytecodePatch(
             parentResult.mutableMethod.apply {
                 val freeRegister = implementation!!.registerCount - parameters.size - 2
                 val constIndex = getWideLiteralInstructionIndex(MusicTastebuilderShelf)
-                val targetIndex = implementation!!.instructions.let {
-                    constIndex + it.subList(constIndex, it.size - 1).indexOfFirst { instruction ->
-                        instruction.opcode == Opcode.MOVE_RESULT_OBJECT
-                    }
-                }
+                val targetIndex = getTargetIndex(constIndex, Opcode.MOVE_RESULT_OBJECT)
                 val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                 addInstructions(
