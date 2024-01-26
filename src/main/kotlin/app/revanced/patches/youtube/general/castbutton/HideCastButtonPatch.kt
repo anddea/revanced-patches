@@ -1,18 +1,18 @@
-package app.revanced.patches.youtube.player.castbutton
+package app.revanced.patches.youtube.general.castbutton
 
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.youtube.player.castbutton.fingerprints.CastButtonFingerprint
-import app.revanced.patches.youtube.utils.integrations.Constants.PLAYER
+import app.revanced.patches.youtube.general.castbutton.fingerprints.CastButtonFingerprint
+import app.revanced.patches.youtube.utils.integrations.Constants.GENERAL
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.exception
 
 @Patch(
     name = "Hide cast button",
-    description = "Hides the cast button in the video player.",
+    description = "Adds an option to hide the cast button.",
     dependencies = [SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(
@@ -55,7 +55,7 @@ object HideCastButtonPatch : BytecodePatch(
             it.mutableMethod.apply {
                 addInstructions(
                     0, """
-                        invoke-static {p1}, $PLAYER->hideCastButton(I)I
+                        invoke-static {p1}, $GENERAL->hideCastButton(I)I
                         move-result p1
                         """
                 )
@@ -67,7 +67,7 @@ object HideCastButtonPatch : BytecodePatch(
          */
         SettingsPatch.addPreference(
             arrayOf(
-                "PREFERENCE: PLAYER_SETTINGS",
+                "PREFERENCE: GENERAL_SETTINGS",
                 "SETTINGS: HIDE_CAST_BUTTON"
             )
         )
