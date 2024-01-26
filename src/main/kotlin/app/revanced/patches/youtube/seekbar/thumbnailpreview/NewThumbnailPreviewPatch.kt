@@ -14,7 +14,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Enable new thumbnail preview",
-    description = "Enables a new type of thumbnail preview.",
+    description = "Adds an option to enables the new seekbar thumbnails preview.",
     dependencies = [SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(

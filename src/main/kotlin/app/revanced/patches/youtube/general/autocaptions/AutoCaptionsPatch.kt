@@ -10,7 +10,7 @@ import app.revanced.patches.youtube.utils.videoid.general.VideoIdPatch
 
 @Patch(
     name = "Disable auto captions",
-    description = "Disables forced auto captions.",
+    description = "Adds an option to disable captions from being automatically enabled.",
     dependencies = [
         SettingsPatch::class,
         VideoIdPatch::class

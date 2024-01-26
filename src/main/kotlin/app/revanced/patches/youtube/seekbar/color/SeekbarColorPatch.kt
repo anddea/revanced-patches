@@ -27,7 +27,7 @@ import org.w3c.dom.Element
 
 @Patch(
     name = "Custom seekbar color",
-    description = "Change seekbar color in video player and video thumbnails.",
+    description = "Adds an option to customize seekbar colors in video players and video thumbnails.",
     dependencies = [
         LithoThemePatch::class,
         SettingsPatch::class,

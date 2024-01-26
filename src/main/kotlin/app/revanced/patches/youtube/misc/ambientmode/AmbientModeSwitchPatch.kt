@@ -21,7 +21,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Patch(
     name = "Ambient mode switch",
-    description = "Bypass the restrictions of ambient mode or disable it completely.",
+    description = "Adds an option to bypass the restrictions of ambient mode or disable it completely.",
     dependencies = [SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(

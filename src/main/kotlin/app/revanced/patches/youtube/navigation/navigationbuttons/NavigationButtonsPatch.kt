@@ -26,7 +26,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Hide navigation buttons",
-    description = "Adds options to hide or change navigation buttons.",
+    description = "Adds options to hide and change navigation buttons (such as the Shorts button).",
     dependencies = [
         SettingsPatch::class,
         SharedResourceIdPatch::class

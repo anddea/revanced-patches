@@ -21,7 +21,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Patch(
     name = "Hide search term thumbnail",
-    description = "Hide thumbnails in the search term history.",
+    description = "Adds an option to hide thumbnails in the search term history.",
     dependencies = [SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(

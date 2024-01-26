@@ -17,7 +17,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Hide suggestions shelf",
-    description = "Hides the suggestions shelf.",
+    description = "Adds an option to hide the suggestions shelf in feed.",
     dependencies = [
         BrowseIdHookPatch::class,
         LithoFilterPatch::class,

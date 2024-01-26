@@ -11,7 +11,7 @@ import app.revanced.patches.youtube.utils.settings.SettingsPatch
 
 @Patch(
     name = "Custom playback speed",
-    description = "Adds more playback speed options.",
+    description = "Adds options to customize available playback speeds.",
     dependencies = [
         OldSpeedLayoutPatch::class,
         OverrideSpeedHookPatch::class,

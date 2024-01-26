@@ -23,7 +23,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Patch(
     name = "Default video quality",
-    description = "Adds ability to set default video quality settings.",
+    description = "Adds an option to set the default video quality.",
     dependencies = [
         OverrideQualityHookPatch::class,
         OverrideSpeedHookPatch::class,

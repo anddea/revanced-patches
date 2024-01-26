@@ -25,7 +25,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Patch(
     name = "Hide seek message",
-    description = "Hides the 'Slide left or right to seek' or 'Release to cancel' message container.",
+    description = "Adds an option to hide the 'Slide left or right to seek' or 'Release to cancel' message container in the video player.",
     dependencies = [
         DisableControlsOverlayConfigPatch::class,
         SettingsPatch::class,

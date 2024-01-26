@@ -18,7 +18,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Patch(
     name = "Hide channel watermark",
-    description = "Hides creator's watermarks on videos.",
+    description = "Adds an option to hide creator's watermarks in the video player.",
     dependencies = [
         LithoFilterPatch::class,
         SettingsPatch::class

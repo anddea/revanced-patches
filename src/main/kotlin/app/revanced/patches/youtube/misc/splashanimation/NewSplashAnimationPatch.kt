@@ -23,7 +23,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Patch(
     name = "Enable new splash animation",
-    description = "Enables a new type of splash animation.",
+    description = "Adds an option to enable a new type of splash animation.",
     dependencies = [
         MainActivityResolvePatch::class,
         SettingsPatch::class,

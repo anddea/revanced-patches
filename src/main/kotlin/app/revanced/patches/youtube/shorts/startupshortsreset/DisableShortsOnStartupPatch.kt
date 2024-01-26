@@ -19,7 +19,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Patch(
     name = "Disable shorts on startup",
-    description = "Disables playing YouTube Shorts when launching YouTube.",
+    description = "Adds an option to disable the Shorts player from resuming on app startup when Shorts were last being watched.",
     dependencies = [SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(

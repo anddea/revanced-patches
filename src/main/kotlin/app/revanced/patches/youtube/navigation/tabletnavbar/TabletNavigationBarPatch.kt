@@ -16,7 +16,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Enable tablet navigation bar",
-    description = "Enables the tablet navigation bar.",
+    description = "Adds an option to enable the tablet navigation bar.",
     dependencies = [SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(

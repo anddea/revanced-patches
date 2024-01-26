@@ -20,7 +20,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Hide autoplay button",
-    description = "Hides the autoplay button in the video player.",
+    description = "Adds an option to hide the autoplay button in the video player.",
     dependencies = [
         SettingsPatch::class,
         SharedResourceIdPatch::class,

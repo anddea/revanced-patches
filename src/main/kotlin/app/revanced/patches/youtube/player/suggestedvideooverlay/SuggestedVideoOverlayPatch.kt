@@ -19,7 +19,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Patch(
     name = "Hide suggested video overlay",
-    description = "Hide the suggested video overlay to play next.",
+    description = "Adds an option to hide the suggested video overlay at the end of videos.",
     dependencies = [
         SettingsPatch::class,
         SharedResourceIdPatch::class

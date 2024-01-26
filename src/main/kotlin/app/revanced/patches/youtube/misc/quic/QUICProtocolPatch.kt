@@ -13,7 +13,7 @@ import app.revanced.util.exception
 
 @Patch(
     name = "Disable QUIC protocol",
-    description = "Disable CronetEngine's QUIC protocol.",
+    description = "Adds an option to disable CronetEngine's QUIC protocol.",
     dependencies = [SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(

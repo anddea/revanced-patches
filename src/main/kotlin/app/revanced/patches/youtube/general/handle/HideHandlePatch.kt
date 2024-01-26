@@ -17,7 +17,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Hide handle",
-    description = "Hides the handle in the account switcher and You tab.",
+    description = "Adds options to hide the handle in the account switcher and You tab.",
     dependencies = [
         LithoFilterPatch::class,
         SettingsPatch::class,

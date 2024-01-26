@@ -16,7 +16,7 @@ import app.revanced.util.exception
 
 @Patch(
     name = "Layout switch",
-    description = "Tricks the dpi to use some tablet/phone layouts.",
+    description = "Adds an option to trick dpi to use tablet or phone layout.",
     dependencies = [SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(

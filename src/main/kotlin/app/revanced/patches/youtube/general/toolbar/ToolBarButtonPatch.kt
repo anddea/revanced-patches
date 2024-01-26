@@ -10,7 +10,7 @@ import app.revanced.patches.youtube.utils.toolbar.ToolBarHookPatch
 
 @Patch(
     name = "Hide toolbar button",
-    description = "Hide the button in the toolbar.",
+    description = "Adds an option to hide the button in the toolbar.",
     dependencies = [
         SettingsPatch::class,
         ToolBarHookPatch::class

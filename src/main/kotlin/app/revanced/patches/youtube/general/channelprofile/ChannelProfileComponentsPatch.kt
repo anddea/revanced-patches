@@ -18,7 +18,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Hide channel profile components",
-    description = "Hides channel profile components.",
+    description = "Adds an option to hide channel profile components.",
     dependencies = [
         LithoFilterPatch::class,
         SettingsPatch::class,

@@ -27,7 +27,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Spoof player parameters",
-    description = "Spoofs player parameters to prevent playback issues.",
+    description = "Adds options to spoof player parameters to prevent playback issues.",
     dependencies = [
         PlayerTypeHookPatch::class,
         PlayerResponsePatch::class,

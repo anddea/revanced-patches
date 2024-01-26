@@ -22,7 +22,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Patch(
     name = "Hide mix playlists",
-    description = "Hides mix playlists in feed.",
+    description = "Adds an option to hide mix playlists in feed.",
     dependencies = [
         LithoFilterPatch::class,
         SettingsPatch::class

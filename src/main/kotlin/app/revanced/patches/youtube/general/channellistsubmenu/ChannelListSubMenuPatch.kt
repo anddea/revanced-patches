@@ -15,7 +15,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Hide channel avatar section",
-    description = "Hides the channel avatar section of the subscription feed.",
+    description = "Adds an option to hide the channel avatar section of the subscription feed.",
     dependencies = [
         SettingsPatch::class,
         SharedResourceIdPatch::class

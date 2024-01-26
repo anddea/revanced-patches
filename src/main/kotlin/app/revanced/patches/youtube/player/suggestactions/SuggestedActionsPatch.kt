@@ -17,7 +17,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Hide suggested actions",
-    description = "Hide the suggested actions bar inside the player.",
+    description = "Adds an option to hide the suggested actions bar inside the player.",
     dependencies = [
         LithoFilterPatch::class,
         PlayerTypeHookPatch::class,

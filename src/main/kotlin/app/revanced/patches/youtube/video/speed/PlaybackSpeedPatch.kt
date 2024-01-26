@@ -23,7 +23,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Default playback speed",
-    description = "Adds ability to set default playback speed settings.",
+    description = "Adds an option to set the default playback speed.",
     dependencies = [
         OverrideSpeedHookPatch::class,
         SettingsPatch::class,

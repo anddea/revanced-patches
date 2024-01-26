@@ -31,7 +31,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Patch(
     name = "Hide filmstrip overlay",
-    description = "Hide filmstrip overlay on swipe controls.",
+    description = "Adds an option to hide filmstrip overlay in the video player.",
     dependencies = [
         DisableControlsOverlayConfigPatch::class,
         SettingsPatch::class,

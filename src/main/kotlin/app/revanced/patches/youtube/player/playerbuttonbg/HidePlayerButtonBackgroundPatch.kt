@@ -10,7 +10,7 @@ import org.w3c.dom.Element
 
 @Patch(
     name = "Hide player button background",
-    description = "Hide player button background.",
+    description = "Hides the dark background surrounding the video player controls.",
     dependencies = [SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(
@@ -60,16 +60,6 @@ object HidePlayerButtonBackgroundPatch : ResourcePatch() {
                 }
             }
         }
-
-        /**
-         * Add settings
-         */
-        SettingsPatch.addPreference(
-            arrayOf(
-                "PREFERENCE: PLAYER_SETTINGS",
-                "SETTINGS: HIDE_PLAYER_BUTTON_BACKGROUND"
-            )
-        )
 
         SettingsPatch.updatePatchStatus("Hide player button background")
 

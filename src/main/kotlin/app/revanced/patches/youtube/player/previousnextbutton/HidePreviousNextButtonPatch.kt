@@ -14,7 +14,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction3rc
 
 @Patch(
     name = "Hide previous next button",
-    description = "Hides the previous and next button in the player controller.",
+    description = "Adds an option to hide the previous and next buttons in the video player.",
     dependencies = [SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(

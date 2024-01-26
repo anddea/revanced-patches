@@ -13,8 +13,7 @@ import com.android.tools.smali.dexlib2.util.MethodUtil
 
 @Patch(
     name = "Spoof device dimensions",
-    description = "Spoofs the device dimensions in order to unlock higher video qualities " +
-            "that may not be available on your device.",
+    description = "Adds an option to spoof the device dimensions which unlocks higher video qualities if they aren't available on the device.",
     dependencies = [SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(

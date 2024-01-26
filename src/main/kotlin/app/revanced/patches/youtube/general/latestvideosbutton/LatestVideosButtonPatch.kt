@@ -15,7 +15,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Hide latest videos button",
-    description = "Hides latest videos button in home feed.",
+    description = "Adds options to hide latest videos button in home feed.",
     dependencies = [
         SettingsPatch::class,
         SharedResourceIdPatch::class

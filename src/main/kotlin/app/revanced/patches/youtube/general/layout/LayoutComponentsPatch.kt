@@ -10,7 +10,7 @@ import app.revanced.patches.youtube.utils.settings.SettingsPatch
 
 @Patch(
     name = "Hide layout components",
-    description = "Hides general layout components.",
+    description = "Adds options to hide general layout components.",
     dependencies = [
         LithoFilterPatch::class,
         SettingsPatch::class

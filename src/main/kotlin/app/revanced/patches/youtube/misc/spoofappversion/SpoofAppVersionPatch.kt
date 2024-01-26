@@ -13,7 +13,8 @@ import org.w3c.dom.Element
 
 @Patch(
     name = "Spoof app version",
-    description = "Spoof the YouTube client version.",
+    description = "Adds options to spoof the YouTube client version. " +
+            "This can be used to restore old UI elements and features.",
     dependencies = [SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(

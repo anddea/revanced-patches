@@ -12,7 +12,7 @@ import app.revanced.patches.youtube.utils.settings.SettingsPatch
 
 @Patch(
     name = "Enable song search",
-    description = "Enables song search in the voice search screen.",
+    description = "Adds an option to enable song search in the voice search screen.",
     dependencies = [SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(
