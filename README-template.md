@@ -16,7 +16,7 @@ Example:
 [
   {
     "name": "Default video quality",
-    "description": "Adds ability to set default video quality settings.",
+    "description": "Adds an option to set the default video quality.",
     "compatiblePackages":[
       {
         "name":"com.google.android.youtube",
@@ -54,7 +54,7 @@ Example:
   },
   {
     "name": "Remember video quality",
-    "description": "Save the video quality value whenever you change the video quality.",
+    "description": "Adds an option to remember the last video quality selected.",
     "compatiblePackages": [
       {
         "name": "com.google.android.apps.youtube.music",
