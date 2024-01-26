@@ -14,7 +14,7 @@ import app.revanced.util.exception
 
 @Patch(
     name = "Hide snack bar",
-    description = "Hides the snack bar action popup.",
+    description = "Adds an option to hide the snack bar action popup.",
     dependencies = [SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(

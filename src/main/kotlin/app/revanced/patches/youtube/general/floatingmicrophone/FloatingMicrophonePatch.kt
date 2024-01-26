@@ -15,7 +15,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Patch(
     name = "Hide floating microphone",
-    description = "Hides the floating microphone button which appears in search.",
+    description = "Adds an option to hide the floating microphone button when searching.",
     dependencies = [
         SettingsPatch::class,
         SharedResourceIdPatch::class

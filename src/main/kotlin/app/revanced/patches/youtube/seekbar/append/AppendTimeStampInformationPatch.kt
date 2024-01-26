@@ -25,7 +25,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Patch(
     name = "Append time stamps information",
-    description = "Add the current video quality or playback speed in brackets next to the current time.",
+    description = "Adds an option to add the current video quality or playback speed in brackets next to the current time.",
     dependencies = [
         OverrideQualityHookPatch::class,
         OverrideSpeedHookPatch::class,

@@ -14,7 +14,7 @@ import app.revanced.util.exception
 
 @Patch(
     name = "Disable HDR video",
-    description = "Disable HDR video.",
+    description = "Adds options to disable HDR video.",
     dependencies = [SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(

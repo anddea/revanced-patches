@@ -18,7 +18,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Hide end screen cards",
-    description = "Hides the suggested video cards at the end of a video in fullscreen.",
+    description = "Adds an option to hide suggested video cards at the end of the video in the video player.",
     dependencies = [
         SettingsPatch::class,
         SharedResourceIdPatch::class,

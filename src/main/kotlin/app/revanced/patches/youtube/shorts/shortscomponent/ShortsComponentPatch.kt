@@ -44,7 +44,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Hide shorts components",
-    description = "Hides other Shorts components.",
+    description = "Adds options to hide components related to YouTube Shorts.",
     dependencies = [
         LithoFilterPatch::class,
         SettingsPatch::class,

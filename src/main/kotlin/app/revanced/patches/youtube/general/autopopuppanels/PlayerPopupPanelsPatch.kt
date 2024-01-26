@@ -14,7 +14,7 @@ import app.revanced.util.exception
 
 @Patch(
     name = "Hide auto player popup panels",
-    description = "Hide automatic popup panels (playlist or live chat) on video player.",
+    description = "Adds an option to hide panels (such as live chat) from opening automatically.",
     dependencies = [SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(

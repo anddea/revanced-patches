@@ -19,7 +19,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Patch(
     name = "Hide category bar",
-    description = "Hides the category bar in feeds.",
+    description = "Adds an option to hide the category bar in feeds.",
     dependencies = [
         SettingsPatch::class,
         SharedResourceIdPatch::class

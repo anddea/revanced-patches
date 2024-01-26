@@ -16,7 +16,7 @@ import app.revanced.util.exception
 
 @Patch(
     name = "Hide seekbar",
-    description = "Hides the seekbar in video player and video thumbnails.",
+    description = "Adds an option to hide the seekbar in video player and video thumbnails.",
     dependencies = [
         SeekbarColorPatch::class,
         SettingsPatch::class

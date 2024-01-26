@@ -24,7 +24,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 
 @Patch(
     name = "Force video codec",
-    description = "Forces the video codec for videos.",
+    description = "Adds an option to force the video codec.",
     dependencies = [SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(

@@ -16,7 +16,7 @@ import app.revanced.util.exception
 
 @Patch(
     name = "Hide time stamp",
-    description = "Hides timestamp in video player.",
+    description = "Adds an option to hide the timestamp in the bottom left of the video player.",
     dependencies = [
         SettingsPatch::class,
         SharedResourceIdPatch::class,

@@ -8,8 +8,8 @@ import app.revanced.patches.youtube.utils.integrations.Constants.MISC_PATH
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 
 @Patch(
-    name = "Force OPUS codec",
-    description = "Forces the OPUS codec for audios.",
+    name = "Force opus codec",
+    description = "Adds an option to force the opus audio codec instead of the mp4a audio codec.",
     dependencies = [SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(
@@ -60,7 +60,7 @@ object ForceOpusCodecPatch : AbstractOpusCodecsPatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("Force OPUS codec")
+        SettingsPatch.updatePatchStatus("Force opus codec")
 
     }
 }

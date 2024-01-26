@@ -16,7 +16,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Enable gradient loading screen",
-    description = "Enables gradient loading screen.",
+    description = "Adds an option to enable gradient loading screen.",
     dependencies = [SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(

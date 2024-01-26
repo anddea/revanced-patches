@@ -17,7 +17,7 @@ import com.android.tools.smali.dexlib2.iface.reference.StringReference
 
 @Patch(
     name = "Enable external browser",
-    description = "Open url outside the app in an external browser.",
+    description = "Adds an option to always open links in your browser instead of in the in-app-browser.",
     dependencies = [SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(

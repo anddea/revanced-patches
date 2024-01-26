@@ -15,7 +15,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 
 @Patch(
     name = "Hide navigation label",
-    description = "Hide navigation bar labels.",
+    description = "Adds an option to hide navigation bar labels.",
     dependencies = [SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(

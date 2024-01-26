@@ -15,7 +15,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Enable language switch",
-    description = "Enable/disable language switch toggle.",
+    description = "Adds an option to enable or disable language switching toggle.",
     dependencies = [SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(

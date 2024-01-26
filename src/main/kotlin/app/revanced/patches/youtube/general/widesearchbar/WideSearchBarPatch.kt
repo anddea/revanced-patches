@@ -19,7 +19,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Enable wide search bar",
-    description = "Replaces the search icon with a wide search bar. This will hide the YouTube logo when active.",
+    description = "Adds an option to replace the search icon with a wide search bar. This will hide the YouTube logo when active.",
     dependencies = [
         SettingsPatch::class,
         SharedResourceIdPatch::class

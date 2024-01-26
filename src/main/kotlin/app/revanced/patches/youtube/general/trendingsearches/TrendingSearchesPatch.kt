@@ -20,7 +20,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Patch(
     name = "Hide trending searches",
-    description = "Hide trending searches in the search bar.",
+    description = "Adds an option to hide trending searches in the search bar.",
     dependencies = [
         SettingsPatch::class,
         SharedResourceIdPatch::class

@@ -15,7 +15,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Disable speed overlay",
-    description = "Disable 'Play at 2x speed' while holding down.",
+    description = "Adds an option to disable 'Play at 2x speed' when pressing and holding in the video player.",
     dependencies = [SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(

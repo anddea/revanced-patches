@@ -19,7 +19,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Hide captions button",
-    description = "Hides the captions button in the video player.",
+    description = "Adds an option to hide the captions button in the video player.",
     dependencies = [
         LithoFilterPatch::class,
         SettingsPatch::class,

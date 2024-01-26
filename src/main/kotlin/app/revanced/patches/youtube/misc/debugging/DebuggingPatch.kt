@@ -8,7 +8,7 @@ import app.revanced.patches.youtube.utils.settings.SettingsPatch
 
 @Patch(
     name = "Enable debug logging",
-    description = "Adds debugging options.",
+    description = "Adds an option to enable debug logging.",
     dependencies = [SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(

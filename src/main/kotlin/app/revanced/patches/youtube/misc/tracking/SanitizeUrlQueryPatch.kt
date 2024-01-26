@@ -18,7 +18,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 
 @Patch(
     name = "Sanitize sharing links",
-    description = "Removes tracking query parameters from the URLs when sharing links.",
+    description = "Adds an option to remove tracking query parameters from URLs when sharing links.",
     dependencies = [SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(

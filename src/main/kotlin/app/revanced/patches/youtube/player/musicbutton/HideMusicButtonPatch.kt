@@ -15,7 +15,7 @@ import app.revanced.util.exception
 
 @Patch(
     name = "Hide music button",
-    description = "Hides the YouTube Music button in the video player.",
+    description = "Adds an option to hide the YouTube Music button in the video player.",
     dependencies = [
         SettingsPatch::class,
         SharedResourceIdPatch::class,

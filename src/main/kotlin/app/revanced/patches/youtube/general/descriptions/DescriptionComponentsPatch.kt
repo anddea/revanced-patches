@@ -10,7 +10,7 @@ import app.revanced.patches.youtube.utils.settings.SettingsPatch
 
 @Patch(
     name = "Hide description components",
-    description = "Hides description components.",
+    description = "Adds an option to hide description components.",
     dependencies = [
         LithoFilterPatch::class,
         SettingsPatch::class

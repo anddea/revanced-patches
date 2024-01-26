@@ -23,7 +23,7 @@ import org.w3c.dom.Element
 
 @Patch(
     name = "Overlay buttons",
-    description = "Add overlay buttons to the player.",
+    description = "Adds an option to display overlay buttons in the video player.",
     dependencies = [
         AlwaysRepeatPatch::class,
         DisablePiPPatch::class,

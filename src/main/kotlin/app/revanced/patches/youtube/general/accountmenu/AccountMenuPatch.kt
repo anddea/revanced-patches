@@ -22,7 +22,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 
 @Patch(
     name = "Hide account menu",
-    description = "Hide elements of the account menu and You tab.",
+    description = "Adds the ability to hide account menu elements using a custom filter in the account menu and You tab.",
     dependencies = [
         SettingsPatch::class,
         SharedResourceIdPatch::class
