@@ -8,7 +8,7 @@
     <string name="revanced_category_account">계정</string>
     <string name="revanced_category_action_bar">액션바</string>
     <string name="revanced_category_ads">광고</string>
-    <string name="revanced_category_flyout">메뉴 구성요소</string>
+    <string name="revanced_category_flyout">구성요소</string>
     <string name="revanced_category_general">일반</string>
     <string name="revanced_category_misc">기타</string>
     <string name="revanced_category_navigation">하단바</string>
@@ -26,10 +26,10 @@
     <string name="revanced_custom_filter_strings_warning">유효하지 않은 필터 값이므로 기본값으로 재설정합니다.</string>
     <string name="revanced_custom_filter_summary">사용자 정의 필터를 활성화하여 레이아웃 구성요소를 숨깁니다.</string>
     <string name="revanced_custom_filter_title">사용자 정의 필터 활성화</string>
-    <string name="revanced_custom_playback_speeds_invalid">유효하지 않은 재생 속도이므로 기본값으로 재설정합니다.</string>
-    <string name="revanced_custom_playback_speeds_summary">사용 가능한 재생 속도를 설정할 수 있습니다.</string>
+    <string name="revanced_custom_playback_speeds_invalid">유효하지 않은 재생 속도 값이므로 기본값으로 재설정합니다.</string>
+    <string name="revanced_custom_playback_speeds_summary">사용하고 싶은 재생 속도 값을 설정할 수 있습니다.</string>
     <string name="revanced_custom_playback_speeds_title">사용자 정의 재생 속도 편집</string>
-    <string name="revanced_custom_playback_speeds_warning" formatted="false">재생 속도는 %s배속을 초과할 수 없습니다.</string>
+    <string name="revanced_custom_playback_speeds_warning" formatted="false">재생 속도 값은 %s배속을 초과할 수 없습니다.</string>
     <string name="revanced_disable_auto_captions_summary">자막 사용이 강제된 동영상에서 자막을 비활성화합니다.</string>
     <string name="revanced_disable_auto_captions_title">자동 자막 비활성화</string>
     <string name="revanced_downloader_not_installed" formatted="false">%s 가 설치되지 않았습니다. 설치해 주세요.</string>
@@ -45,18 +45,16 @@
     <string name="revanced_enable_compact_dialog_title">소형 다이얼로그 활성화</string>
     <string name="revanced_enable_debug_logging_summary">디버그 로그를 출력합니다.</string>
     <string name="revanced_enable_debug_logging_title">디버그 로깅 활성화</string>
-    <string name="revanced_enable_flyout_panel_playback_speed_summary">메뉴 구성요소에 재생 속도 버튼을 추가합니다.</string>
+    <string name="revanced_enable_flyout_panel_playback_speed_summary">패널 구성요소에 재생 속도 버튼을 추가합니다.</string>
     <string name="revanced_enable_flyout_panel_playback_speed_title">재생 속도 활성화</string>
     <string name="revanced_enable_force_minimized_player_summary">다른 트랙이 재생되더라도 플레이어를 항상 최소화 상태로 유지합니다.</string>
     <string name="revanced_enable_force_minimized_player_title">플레이어를 항상 최소화 상태로 유지</string>
     <string name="revanced_enable_landscape_mode_summary">앱을 가로로 회전할 수 있도록 합니다.</string>
     <string name="revanced_enable_landscape_mode_title">가로 모드 활성화</string>
-    <string name="revanced_enable_new_player_background_summary">새로운 플레이어 배경을 활성화합니다.</string>
-    <string name="revanced_enable_new_player_background_title">새로운 플레이어 배경 활성화</string>
+    <string name="revanced_enable_old_player_background_summary">이전 플레이어 배경으로 복원합니다.</string>
+    <string name="revanced_enable_old_player_background_title">이전 플레이어 배경 복원</string>
     <string name="revanced_enable_old_player_layout_summary">"이전 플레이어 레이아웃으로 복원합니다.
-이 기능을 활성화하면 일부 설정이 제대로 작동하지 않을 수 있습니다.
-
-경고: 이 기능이 활성화되어 있는 동안에는 \"새로운 플레이어 배경\"을 활성화하지 마세요."</string>
+이전 플레이어 레이아웃에서는 일부 기능이 제대로 작동하지 않을 수 있습니다."</string>
     <string name="revanced_enable_old_player_layout_title">이전 플레이어 레이아웃 복원</string>
     <string name="revanced_enable_old_style_library_shelf_summary">이전 보관함 탭으로 복원합니다. (실험적인 기능)</string>
     <string name="revanced_enable_old_style_library_shelf_title">이전 보관함 선반 복원</string>
@@ -68,8 +66,6 @@
     <string name="revanced_enable_save_playback_speed_title">재생 속도 저장 활성화</string>
     <string name="revanced_enable_save_video_quality_summary">마지막으로 선택한 동영상 품질 값을 저장합니다.</string>
     <string name="revanced_enable_save_video_quality_title">동영상 품질 저장 활성화</string>
-    <string name="revanced_enable_sleep_timer_summary">메뉴 구성요소에 취침 타이머 메뉴를 추가합니다.</string>
-    <string name="revanced_enable_sleep_timer_title">취침 타이머 활성화</string>
     <string name="revanced_enable_zen_mode_summary">동영상 플레이어의 색상을 회색조로 설정해 눈의 피로를 줄입니다.</string>
     <string name="revanced_enable_zen_mode_title">집중 모드 활성화</string>
     <string name="revanced_extended_settings_export_as_file">파일로 설정 내보내기</string>
@@ -90,7 +86,7 @@
     <string name="revanced_flyout_panel_watch_on_youtube">YouTube에서 시청</string>
     <string name="revanced_hide_account_menu_empty_component_summary">계정 메뉴에서 비어있는 구성요소를 숨깁니다.</string>
     <string name="revanced_hide_account_menu_empty_component_title">비어있는 구성요소 제거</string>
-    <string name="revanced_hide_account_menu_summary">계정 메뉴에서 구성요소를 숨깁니다.</string>
+    <string name="revanced_hide_account_menu_summary">사용자 정의 필터에서 계정 메뉴 구성요소를 숨깁니다.</string>
     <string name="revanced_hide_account_menu_title">계정 메뉴 제거</string>
     <string name="revanced_hide_action_button_add_to_playlist_summary">(재생목록에) 저장 버튼을 숨깁니다.</string>
     <string name="revanced_hide_action_button_add_to_playlist_title">(재생목록에) 저장 버튼 제거</string>
@@ -98,7 +94,7 @@
     <string name="revanced_hide_action_button_comment_title">댓글 버튼 제거</string>
     <string name="revanced_hide_action_button_download_summary">오프라인 저장 버튼을 숨깁니다.</string>
     <string name="revanced_hide_action_button_download_title">오프라인 저장 버튼 제거</string>
-    <string name="revanced_hide_action_button_label_summary">액션바 버튼 라벨을 숨깁니다.</string>
+    <string name="revanced_hide_action_button_label_summary">액션바에서 버튼 라벨을 숨깁니다.</string>
     <string name="revanced_hide_action_button_label_title">액션바 버튼 라벨 제거</string>
     <string name="revanced_hide_action_button_like_dislike_summary">좋아요 &amp; 싫어요 버튼을 숨깁니다. 이전 플레이어 레이아웃에서는 작동하지 않습니다.</string>
     <string name="revanced_hide_action_button_like_dislike_title">좋아요 &amp; 싫어요 버튼 제거</string>
@@ -116,8 +112,8 @@
     <string name="revanced_hide_category_bar_title">카테고리 바 제거</string>
     <string name="revanced_hide_channel_guidelines_summary">댓글 상단에서 커뮤니티 가이드라인을 숨깁니다.</string>
     <string name="revanced_hide_channel_guidelines_title">커뮤니티 가이드라인 제거</string>
-    <string name="revanced_hide_emoji_picker_summary">댓글 입력창에서 이모지 선택기를 숨깁니다.</string>
-    <string name="revanced_hide_emoji_picker_title">이모지 선택기 제거</string>
+    <string name="revanced_hide_emoji_picker_summary">댓글 입력창에서 이모지 선택기 &amp; 타임스탬프를 숨깁니다.</string>
+    <string name="revanced_hide_emoji_picker_title">이모지 선택기 &amp; 타임스탬프 제거</string>
     <string name="revanced_hide_explore_button_summary">둘러보기 버튼을 숨깁니다.</string>
     <string name="revanced_hide_explore_button_title">둘러보기 버튼 제거</string>
     <string name="revanced_hide_flyout_panel_add_to_queue_title">현재 재생목록에 추가 메뉴 제거</string>
@@ -142,19 +138,19 @@
     <string name="revanced_hide_flyout_panel_save_to_playlist_title">재생목록에 저장 메뉴 제거</string>
     <string name="revanced_hide_flyout_panel_share_title">공유 메뉴 제거</string>
     <string name="revanced_hide_flyout_panel_shuffle_play_title">셔플 재생 메뉴 제거</string>
+    <string name="revanced_hide_flyout_panel_sleep_timer_title">취침 타이머 메뉴 제거</string>
     <string name="revanced_hide_flyout_panel_start_radio_title">뮤직 스테이션 시작 메뉴 제거</string>
     <string name="revanced_hide_flyout_panel_stats_for_nerds_title">전문 통계 메뉴 제거</string>
+    <string name="revanced_hide_flyout_panel_subscribe_title">구독 / 구독 취소 메뉴 제거</string>
     <string name="revanced_hide_flyout_panel_view_song_credit_title">노래 크레딧 보기 메뉴 제거</string>
     <string name="revanced_hide_general_ads_summary">일반 레이아웃 광고를 숨깁니다.</string>
     <string name="revanced_hide_general_ads_title">일반 레이아웃 광고 제거</string>
-    <string name="revanced_hide_handle_summary">계정 전환에서 핸들(@사용자 아이디)을 숨깁니다.</string>
+    <string name="revanced_hide_handle_summary">계정 메뉴에서 핸들(@사용자 아이디)을 숨깁니다.</string>
     <string name="revanced_hide_handle_title">핸들(@사용자 아이디) 제거</string>
     <string name="revanced_hide_history_button_summary">툴바에서 최근 감상 기록 버튼을 숨깁니다.</string>
     <string name="revanced_hide_history_button_title">최근 감상 기록 버튼 제거</string>
     <string name="revanced_hide_home_button_summary">홈 버튼을 숨깁니다.</string>
     <string name="revanced_hide_home_button_title">홈 버튼 제거</string>
-    <string name="revanced_hide_interstitial_ads_summary">전면 광고를 숨깁니다.</string>
-    <string name="revanced_hide_interstitial_ads_title">전면 광고 제거</string>
     <string name="revanced_hide_library_button_summary">보관함 버튼을 숨깁니다.</string>
     <string name="revanced_hide_library_button_title">보관함 버튼 제거</string>
     <string name="revanced_hide_music_ads_summary">음악을 재생하기 전 광고를 숨깁니다.</string>
@@ -192,11 +188,12 @@
     <string name="revanced_restart_message">새로고침 및 다시 시작</string>
     <string name="revanced_replace_flyout_panel_dismiss_queue_continue_watch_summary">\'YouTube에서 시청\' 메뉴를 누르면 YouTube에서 동영상을 ReVanced Extended Music에서 멈춘 시점부터 이어서 시청합니다.</string>
     <string name="revanced_replace_flyout_panel_dismiss_queue_continue_watch_title">이어서 시청</string>
-    <string name="revanced_replace_flyout_panel_dismiss_queue_summary">\"현재 재생목록 닫기\" 메뉴를 \"YouTube에서 시청\" 메뉴로 변경합니다.</string>
+    <string name="revanced_replace_flyout_panel_dismiss_queue_summary">\'현재 재생목록 닫기\' 메뉴를 \'YouTube에서 시청\' 메뉴로 변경합니다.</string>
     <string name="revanced_replace_flyout_panel_dismiss_queue_title">YouTube에서 시청 메뉴로 변경</string>
-    <string name="revanced_replace_player_cast_button_summary">"플레이어에서 캐스트 버튼을 \"정식 음원으로 듣기\" 버튼으로 변경합니다. (실험적인 기능)
+    <string name="revanced_replace_player_cast_button_summary">"플레이어에서 캐스트 버튼을 '정식 음원으로 재생' 버튼으로 변경합니다. (실험적인 기능)
+
 알려진 문제: 재생 목록에서 재생할 수 없는 음악이 하나 이상 있는 경우 정상적으로 작동하지 않습니다."</string>
-    <string name="revanced_replace_player_cast_button_title">\'정식 음원으로 듣기\' 버튼 표시</string>
+    <string name="revanced_replace_player_cast_button_title">\'정식 음원으로 재생\' 버튼 표시</string>
     <string name="revanced_remember_repeat_state_summary">반복 재생 토글 상태를 저장합니다.</string>
     <string name="revanced_remember_repeat_state_title">반복 상태 저장</string>
     <string name="revanced_remember_shuffle_state_summary">셔플 재생 토글 상태를 저장합니다.</string>
@@ -218,12 +215,12 @@
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">숨겨짐</string>
     <string name="revanced_sanitize_sharing_links_summary">링크를 공유할 때 URL에서 추적 쿼리 매개변수를 제거합니다.</string>
     <string name="revanced_sanitize_sharing_links_title">추적 쿼리를 제거한 링크 공유</string>
-    <string name="revanced_save_playback_speed" formatted="false">기본 재생 속도를 %s으로 변경합니다.</string>
-    <string name="revanced_save_video_quality_mobile" formatted="false">모바일 네트워크 이용 시 기본 동영상 품질을 %s로 변경합니다.</string>
+    <string name="revanced_save_playback_speed" formatted="false">기본 재생 속도 값을 %s으로 변경합니다.</string>
+    <string name="revanced_save_video_quality_mobile" formatted="false">모바일 네트워크 이용 시 기본 동영상 품질 값을 %s로 변경합니다.</string>
     <string name="revanced_save_video_quality_none">동영상 품질 설정에 실패하였습니다.</string>
-    <string name="revanced_save_video_quality_wifi" formatted="false">Wi-Fi 이용 시 기본 동영상 품질을 %s로 변경합니다.</string>
+    <string name="revanced_save_video_quality_wifi" formatted="false">Wi-Fi 이용 시 기본 동영상 품질 값을 %s로 변경합니다.</string>
     <string name="revanced_share_copy_settings_success">설정이 클립보드에 복사되었습니다.</string>
-    <string name="revanced_spoof_app_version_summary">"클라이언트 버전을 이전 버전으로 변경합니다.
+    <string name="revanced_spoof_app_version_summary">"이전 앱 버전으로 변경합니다.
 
 • 이 기능을 활성화하면 앱 레이아웃이 변경되지만 알려지지 않은 문제점이 발생할 수 있습니다.
 • 나중에 이 기능을 비활성화하면 앱 데이터를 지우기 전까지 이전 레이아웃이 유지될 수 있습니다."</string>

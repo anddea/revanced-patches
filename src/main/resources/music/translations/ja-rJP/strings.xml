@@ -51,12 +51,10 @@
     <string name="revanced_enable_force_minimized_player_title">最小化されたプレーヤーを有効にする</string>
     <string name="revanced_enable_landscape_mode_summary">画面回転で横画面モードに入るようにします</string>
     <string name="revanced_enable_landscape_mode_title">横画面モードを有効化</string>
-    <string name="revanced_enable_new_player_background_summary">新しいプレーヤーの背景</string>
-    <string name="revanced_enable_new_player_background_title">新しいプレーヤーの背景は有効です</string>
-    <string name="revanced_enable_old_player_layout_summary">"プレーヤーのレイアウトを古いスタイルに戻します。　
-古いプレーヤーレイアウトでは、一部の設定が正常に機能しない場合があります。
-
-警告: この機能が有効になっている間は [新しいプレーヤーの背景] を有効にしないでください。"</string>
+    <string name="revanced_enable_old_player_background_summary">プレイヤーの背景を古いスタイルに戻します。</string>
+    <string name="revanced_enable_old_player_background_title">古いプレイヤーの背景を有効化</string>
+    <string name="revanced_enable_old_player_layout_summary">"プレイヤーのレイアウトを古いスタイルに戻します。
+一部の機能は古いプレイヤーのレイアウトで正しく動作しない可能性があります。"</string>
     <string name="revanced_enable_old_player_layout_title">古いプレーヤーのレイアウト</string>
     <string name="revanced_enable_old_style_library_shelf_summary">ライブラリの UI を古いスタイルに戻します (実験的)</string>
     <string name="revanced_enable_old_style_library_shelf_title">古いスタイルのライブラリ</string>
@@ -68,8 +66,6 @@
     <string name="revanced_enable_save_playback_speed_title">再生速度を保存</string>
     <string name="revanced_enable_save_video_quality_summary">画質を変更するたびに、画質を保存します。</string>
     <string name="revanced_enable_save_video_quality_title">画質を保存</string>
-    <string name="revanced_enable_sleep_timer_summary">フライアウトメニューにスリープタイマーを追加します</string>
-    <string name="revanced_enable_sleep_timer_title">スリープタイマーを有効化</string>
     <string name="revanced_enable_zen_mode_summary">動画プレーヤーに灰色の色合いを追加し、目の疲れを軽減します</string>
     <string name="revanced_enable_zen_mode_title">Zen モードを有効化</string>
     <string name="revanced_extended_settings_export_as_file">設定をファイルにエクスポート</string>
@@ -100,6 +96,8 @@
     <string name="revanced_hide_action_button_download_title">ダウンロードボタンを非表示</string>
     <string name="revanced_hide_action_button_label_summary">アクションボタンのラベルを非表示にします。</string>
     <string name="revanced_hide_action_button_label_title">アクションボタンのラベルを非表示</string>
+    <string name="revanced_hide_action_button_like_dislike_summary">「いいね」ボタンや「嫌い」ボタンを非表示にします。古いプレイヤーのレイアウトでは動作しません。</string>
+    <string name="revanced_hide_action_button_like_dislike_title">評価ボタンを非表示</string>
     <string name="revanced_hide_action_button_radio_summary">ラジオボタンを非表示にします。</string>
     <string name="revanced_hide_action_button_radio_title">ラジオボタンを非表示</string>
     <string name="revanced_hide_action_button_share_summary">共有ボタンを非表示にします。</string>
@@ -140,8 +138,10 @@
     <string name="revanced_hide_flyout_panel_save_to_playlist_title">「再生リストに保存」を非表示</string>
     <string name="revanced_hide_flyout_panel_share_title">「共有」を非表示</string>
     <string name="revanced_hide_flyout_panel_shuffle_play_title">シャッフル再生メニューを非表示</string>
+    <string name="revanced_hide_flyout_panel_sleep_timer_title">スリープタイマーメニューを非表示</string>
     <string name="revanced_hide_flyout_panel_start_radio_title">「ラジオを聴く」を非表示</string>
     <string name="revanced_hide_flyout_panel_stats_for_nerds_title">統計情報を非表示</string>
+    <string name="revanced_hide_flyout_panel_subscribe_title">購読/購読解除メニューを非表示</string>
     <string name="revanced_hide_flyout_panel_view_song_credit_title">「曲のクレジットを表示」を非表示</string>
     <string name="revanced_hide_general_ads_summary">一般広告を非表示にします。</string>
     <string name="revanced_hide_general_ads_title">一般広告を非表示</string>
@@ -151,8 +151,6 @@
     <string name="revanced_hide_history_button_title">履歴ボタンを非表示</string>
     <string name="revanced_hide_home_button_summary">ホームボタンを非表示にします</string>
     <string name="revanced_hide_home_button_title">ホームボタンを非表示</string>
-    <string name="revanced_hide_interstitial_ads_summary">全画面広告を非表示にします。</string>
-    <string name="revanced_hide_interstitial_ads_title">全画面広告を非表示</string>
     <string name="revanced_hide_library_button_summary">ライブラリボタンを非表示にします</string>
     <string name="revanced_hide_library_button_title">ライブラリボタンを非表示</string>
     <string name="revanced_hide_music_ads_summary">トラックを再生する前の広告を非表示にします</string>
@@ -171,6 +169,8 @@
     <string name="revanced_hide_premium_renewal_title">プレミアム更新バナーを非表示</string>
     <string name="revanced_hide_samples_button_summary">サンプルボタンを非表示にします</string>
     <string name="revanced_hide_samples_button_title">サンプルボタンを非表示</string>
+    <string name="revanced_hide_fullscreen_share_button_summary">全画面表示のプレイヤーの共有ボタンを非表示にします。</string>
+    <string name="revanced_hide_fullscreen_share_button_title">全画面共有ボタンを非表示</string>
     <string name="revanced_hide_terms_container_summary">利用規約コンテナーを非表示にします</string>
     <string name="revanced_hide_terms_container_title">利用規約を非表示</string>
     <string name="revanced_hide_upgrade_button_summary">アップグレードボタンを非表示にします</string>
@@ -189,6 +189,8 @@
     <string name="revanced_replace_flyout_panel_dismiss_queue_continue_watch_title">視聴を続ける</string>
     <string name="revanced_replace_flyout_panel_dismiss_queue_summary">「キューを閉じる」を「YouTube で視聴」に置き換えます</string>
     <string name="revanced_replace_flyout_panel_dismiss_queue_title">「キューを閉じる」メニューを置き換え</string>
+    <string name="revanced_replace_player_cast_button_summary">"プレイヤーのキャストボタンを「音楽を開く」ボタンに置き換えます。 (実験)
+既知の問題: プレイリストで再生できない音楽が1つ以上ある場合、正常に動作しません。"</string>
     <string name="revanced_replace_player_cast_button_title">キャストボタンを置き換え</string>
     <string name="revanced_remember_repeat_state_summary">リピートの状態を記憶します</string>
     <string name="revanced_remember_repeat_state_title">リピートの状態を保存</string>

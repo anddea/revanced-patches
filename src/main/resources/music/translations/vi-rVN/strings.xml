@@ -51,16 +51,14 @@ Sự cố đã biết:
     <string name="revanced_enable_force_minimized_player_title">Luôn phát trong trình phát thu nhỏ</string>
     <string name="revanced_enable_landscape_mode_summary">Cho phép ứng dụng tự động xoay theo hướng màn hình mà thiết bị được giữ.</string>
     <string name="revanced_enable_landscape_mode_title">Tự động xoay màn hình</string>
-    <string name="revanced_enable_new_player_background_summary">Bật nền trình phát kiểu mới.</string>
-    <string name="revanced_enable_new_player_background_title">Nền trình phát kiểu mới</string>
-    <string name="revanced_enable_old_player_layout_summary">"Khôi phục bố cục trình phát kiểu cũ.
-\nLưu ý: Một số cài đặt có thể không hoạt động chính xác trong bố cục trình phát kiểu cũ.
-
-CẢNH BÁO: Không bật Nền trình phát kiểu mới trong khi tuỳ chọn này được bật."</string>
+    <string name="revanced_enable_old_player_background_summary">Khôi phục nền trình phát về kiểu cũ.</string>
+    <string name="revanced_enable_old_player_background_title">Nền trình phát kiểu cũ</string>
+    <string name="revanced_enable_old_player_layout_summary">"Khôi phục bố cục trình phát về kiểu cũ.
+\nLưu ý: Một số tính năng có thể không hoạt động bình thường trong bố cục trình phát kiểu cũ."</string>
     <string name="revanced_enable_old_player_layout_title">Bố cục trình phát kiểu cũ</string>
-    <string name="revanced_enable_old_style_library_shelf_summary">Khôi phục thẻ Thư viện kiểu cũ (Tính năng thử nghiệm).</string>
+    <string name="revanced_enable_old_style_library_shelf_summary">Khôi phục thẻ Thư viện về kiểu cũ (Tính năng thử nghiệm).</string>
     <string name="revanced_enable_old_style_library_shelf_title">Thẻ Thư viện kiểu cũ</string>
-    <string name="revanced_enable_old_style_mini_player_summary">Khôi phục trình phát thu nhỏ kiểu cũ.</string>
+    <string name="revanced_enable_old_style_mini_player_summary">Khôi phục trình phát thu nhỏ về kiểu cũ.</string>
     <string name="revanced_enable_old_style_mini_player_title">Trình phát thu nhỏ kiểu cũ</string>
     <string name="revanced_enable_opus_codec_summary">Áp dụng codec âm thanh Opus thay vì MP4A.</string>
     <string name="revanced_enable_opus_codec_title">Codec Opus</string>
@@ -68,8 +66,6 @@ CẢNH BÁO: Không bật Nền trình phát kiểu mới trong khi tuỳ chọn
     <string name="revanced_enable_save_playback_speed_title">Lưu tốc độ phát</string>
     <string name="revanced_enable_save_video_quality_summary">Ghi nhớ chất lượng video nhạc được chọn gần đây nhất.</string>
     <string name="revanced_enable_save_video_quality_title">Lưu lại chất lượng video nhạc</string>
-    <string name="revanced_enable_sleep_timer_summary">Thêm mục Hẹn giờ ngủ vào trình đơn tuỳ chọn.</string>
-    <string name="revanced_enable_sleep_timer_title">Hẹn giờ ngủ</string>
     <string name="revanced_enable_zen_mode_summary">Thay đổi nền của trình phát thành màu xám nhạt để giúp bạn giảm mỏi mắt và tập trung hơn.</string>
     <string name="revanced_enable_zen_mode_title">Chế độ tập trung</string>
     <string name="revanced_extended_settings_export_as_file">Xuất cài đặt dưới dạng tệp</string>
@@ -116,8 +112,8 @@ CẢNH BÁO: Không bật Nền trình phát kiểu mới trong khi tuỳ chọn
     <string name="revanced_hide_category_bar_title">Ẩn thanh danh mục</string>
     <string name="revanced_hide_channel_guidelines_summary">Ẩn các nhãn nguyên tắc (Nguyên tắc cộng đồng, Nguyên tắc của kênh,...) trong phần Bình luận.</string>
     <string name="revanced_hide_channel_guidelines_title">Ẩn các nhãn nguyên tắc</string>
-    <string name="revanced_hide_emoji_picker_summary">Ẩn bộ chọn biểu tượng cảm xúc khi viết bình luận.</string>
-    <string name="revanced_hide_emoji_picker_title">Ẩn bộ chọn biểu tượng cảm xúc</string>
+    <string name="revanced_hide_emoji_picker_summary">Ẩn bộ chọn biểu tượng cảm xúc và nút Dấu thời gian khi viết bình luận.</string>
+    <string name="revanced_hide_emoji_picker_title">Ẩn bộ chọn biểu tượng cảm xúc và nút Dấu thời gian</string>
     <string name="revanced_hide_explore_button_summary">Ẩn thẻ Khám phá khỏi thanh điều hướng.</string>
     <string name="revanced_hide_explore_button_title">Ẩn thẻ Khám phá</string>
     <string name="revanced_hide_flyout_panel_add_to_queue_title">Ẩn mục Thêm vào danh sách chờ</string>
@@ -142,8 +138,10 @@ CẢNH BÁO: Không bật Nền trình phát kiểu mới trong khi tuỳ chọn
     <string name="revanced_hide_flyout_panel_save_to_playlist_title">Ẩn mục Lưu vào danh sách phát</string>
     <string name="revanced_hide_flyout_panel_share_title">Ẩn mục Chia sẻ</string>
     <string name="revanced_hide_flyout_panel_shuffle_play_title">Ẩn mục Phát ngẫu nhiên</string>
+    <string name="revanced_hide_flyout_panel_sleep_timer_title">Ẩn mục Hẹn giờ ngủ</string>
     <string name="revanced_hide_flyout_panel_start_radio_title">Ẩn mục Bắt đầu đài phát</string>
     <string name="revanced_hide_flyout_panel_stats_for_nerds_title">Ẩn mục Thống kê chi tiết</string>
+    <string name="revanced_hide_flyout_panel_subscribe_title">Ẩn mục Đăng ký/Huỷ đăng ký</string>
     <string name="revanced_hide_flyout_panel_view_song_credit_title">Ẩn mục Xem thông tin ghi công của bài hát</string>
     <string name="revanced_hide_general_ads_summary">Ẩn quảng cáo xuất hiện trước khi phát.</string>
     <string name="revanced_hide_general_ads_title">Ẩn quảng cáo chung</string>
@@ -153,8 +151,6 @@ CẢNH BÁO: Không bật Nền trình phát kiểu mới trong khi tuỳ chọn
     <string name="revanced_hide_history_button_title">Ẩn nút Video đã xem</string>
     <string name="revanced_hide_home_button_summary">Ẩn thẻ Trang chủ khỏi thanh điều hướng.</string>
     <string name="revanced_hide_home_button_title">Ẩn thẻ Trang chủ</string>
-    <string name="revanced_hide_interstitial_ads_summary">Ẩn các quảng cáo xen kẽ hiển thị trên toàn màn hình.</string>
-    <string name="revanced_hide_interstitial_ads_title">Ẩn quảng cáo xen kẽ</string>
     <string name="revanced_hide_library_button_summary">Ẩn thẻ Thư viện khỏi thanh điều hướng.</string>
     <string name="revanced_hide_library_button_title">Ẩn thẻ Thư viện</string>
     <string name="revanced_hide_music_ads_summary">Ẩn quảng cáo xuất hiện trước khi phát nhạc.</string>
