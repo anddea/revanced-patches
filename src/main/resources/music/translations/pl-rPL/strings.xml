@@ -51,12 +51,10 @@ Znane problemy:
     <string name="revanced_enable_force_minimized_player_title">Włącz wymuszenie zminimalizowanego odtwarzacza</string>
     <string name="revanced_enable_landscape_mode_summary">Pozwala wejść w tryb pełnoekranowy poprzez obrót ekranu telefonu.</string>
     <string name="revanced_enable_landscape_mode_title">Włącz tryb pełnoekranowy</string>
-    <string name="revanced_enable_new_player_background_summary">Włącza nowe tło odtwarzacza.</string>
-    <string name="revanced_enable_new_player_background_title">Włącz nowe tło odtwarzacza</string>
+    <string name="revanced_enable_old_player_background_summary">Przywraca tło odtwarzacza do starego stylu.</string>
+    <string name="revanced_enable_old_player_background_title">Włącz stare tło odtwarzacza</string>
     <string name="revanced_enable_old_player_layout_summary">"Przywraca układ odtwarzacza do starego wyglądu.
-Niektóre ustawienia mogą nie działać poprawnie na starym układzie odtwarzacza.
-
-UWAGA: Nie włączaj nowego tła odtwarzacza, jeśli ta opcja jest włączona."</string>
+Niektóre ustawienia mogą nie działać poprawnie ze starym układem odtwarzacza."</string>
     <string name="revanced_enable_old_player_layout_title">Włącz stary układ odtwarzacza</string>
     <string name="revanced_enable_old_style_library_shelf_summary">Przywraca półki biblioteki do starego stylu. (Eksperymentalne)</string>
     <string name="revanced_enable_old_style_library_shelf_title">Włącz stary styl półek biblioteki</string>
@@ -68,8 +66,6 @@ UWAGA: Nie włączaj nowego tła odtwarzacza, jeśli ta opcja jest włączona."<
     <string name="revanced_enable_save_playback_speed_title">Włącz zapisywanie prędkości odtwarzania</string>
     <string name="revanced_enable_save_video_quality_summary">Zapisuje ostatnio wybraną jakość wideo.</string>
     <string name="revanced_enable_save_video_quality_title">Włącz zapisywanie jakości wideo</string>
-    <string name="revanced_enable_sleep_timer_summary">Dodaj przycisk od wyłącznika czasowego do menu.</string>
-    <string name="revanced_enable_sleep_timer_title">Włącz wyłącznik czasowy</string>
     <string name="revanced_enable_zen_mode_summary">Dodaje szary odcień do odtwarzacza wideo, aby zmniejszyć zmęczenie oczu.</string>
     <string name="revanced_enable_zen_mode_title">Włącz tryb zen</string>
     <string name="revanced_extended_settings_export_as_file">Wyeksportuj ustawienia do pliku</string>
@@ -116,8 +112,8 @@ UWAGA: Nie włączaj nowego tła odtwarzacza, jeśli ta opcja jest włączona."<
     <string name="revanced_hide_category_bar_title">Ukryj panel kategorii</string>
     <string name="revanced_hide_channel_guidelines_summary">Ukrywa wytyczne kanału na górze komentarzy.</string>
     <string name="revanced_hide_channel_guidelines_title">Ukryj wytyczne kanału</string>
-    <string name="revanced_hide_emoji_picker_summary">Ukrywa sugestie emotikon podczas pisania komentarza.</string>
-    <string name="revanced_hide_emoji_picker_title">Ukryj sugestie emotikon</string>
+    <string name="revanced_hide_emoji_picker_summary">Ukrywa sugestie emotikon i czasu wideo podczas pisania komentarza.</string>
+    <string name="revanced_hide_emoji_picker_title">Ukryj sugestie emotikon i czasu wideo</string>
     <string name="revanced_hide_explore_button_summary">Ukrywa przycisk odkrywania w pasku nawigacyjnym.</string>
     <string name="revanced_hide_explore_button_title">Ukryj przycisk odkrywania</string>
     <string name="revanced_hide_flyout_panel_add_to_queue_title">Ukryj menu dodawania do kolejki</string>
@@ -142,8 +138,10 @@ UWAGA: Nie włączaj nowego tła odtwarzacza, jeśli ta opcja jest włączona."<
     <string name="revanced_hide_flyout_panel_save_to_playlist_title">Ukryj menu dodawania do playlisty</string>
     <string name="revanced_hide_flyout_panel_share_title">Ukryj menu udostępniania</string>
     <string name="revanced_hide_flyout_panel_shuffle_play_title">Ukryj menu odtwarzania losowo</string>
+    <string name="revanced_hide_flyout_panel_sleep_timer_title">Ukryj menu wyłącznika czasowego</string>
     <string name="revanced_hide_flyout_panel_start_radio_title">Ukryj menu radia</string>
     <string name="revanced_hide_flyout_panel_stats_for_nerds_title">Ukryj menu statystyk dla nerdów</string>
+    <string name="revanced_hide_flyout_panel_subscribe_title">Ukryj menu subskrypcji / odsubskrybowania</string>
     <string name="revanced_hide_flyout_panel_view_song_credit_title">Ukryj menu twórców piosenki</string>
     <string name="revanced_hide_general_ads_summary">Ukrywa ogólne reklamy.</string>
     <string name="revanced_hide_general_ads_title">Ukryj ogólne reklamy</string>
@@ -153,8 +151,6 @@ UWAGA: Nie włączaj nowego tła odtwarzacza, jeśli ta opcja jest włączona."<
     <string name="revanced_hide_history_button_title">Ukryj przycisk historii</string>
     <string name="revanced_hide_home_button_summary">Ukrywa przycisk strony głównej w pasku nawigacyjnym.</string>
     <string name="revanced_hide_home_button_title">Ukryj przycisk strony głównej</string>
-    <string name="revanced_hide_interstitial_ads_summary">Ukrywa pełnoreklamowe reklamy.</string>
-    <string name="revanced_hide_interstitial_ads_title">Ukryj pełnoreklamowe reklamy</string>
     <string name="revanced_hide_library_button_summary">Ukrywa przycisk biblioteki w pasku nawigacyjnym.</string>
     <string name="revanced_hide_library_button_title">Ukryj przycisk biblioteki</string>
     <string name="revanced_hide_music_ads_summary">Ukrywa reklamy przed odtworzeniem utworu.</string>
@@ -186,7 +182,7 @@ UWAGA: Nie włączaj nowego tła odtwarzacza, jeśli ta opcja jest włączona."<
     <string name="revanced_playlist_error">Oficjalne źródło muzyki jest niedostępne.</string>
     <string name="revanced_remove_viewer_discretion_dialog_summary">"Usuwa okno dialogowe treści ograniczonej do oglądania.
 Nie pomija to ograniczeń wiekowych, lecz akceptuje je automatycznie."</string>
-    <string name="revanced_remove_viewer_discretion_dialog_title">Usuń okno dialogowe treści ograniczonej wiekowo</string>
+    <string name="revanced_remove_viewer_discretion_dialog_title">Usuń okno dialogowe treści ograniczonej do oglądania</string>
     <string name="revanced_restart_first_run">Uruchom ponownie, aby wczytać układ poprawnie</string>
     <string name="revanced_restart_message">Odśwież i uruchom ponownie</string>
     <string name="revanced_replace_flyout_panel_dismiss_queue_continue_watch_summary">Podczas oglądania na YouTube kontynuuj oglądanie od aktualnego czasu.</string>
@@ -194,7 +190,7 @@ Nie pomija to ograniczeń wiekowych, lecz akceptuje je automatycznie."</string>
     <string name="revanced_replace_flyout_panel_dismiss_queue_summary">Zamienia menu czyszczenia kolejek z oglądaniem na YouTube.</string>
     <string name="revanced_replace_flyout_panel_dismiss_queue_title">Zmodyfikuj czyszczenie kolejek</string>
     <string name="revanced_replace_player_cast_button_summary">"Zastępuje przycisk castowania przyciskiem \"Otwórz muzykę\". (Eksperymentalne)
-Znane problemy: Jeśli na playliście znajduje się jeden bądź więcej utworów, których nie można odtworzyć, to ustawienie te nie działa normalnie."</string>
+Znany problem: Jeśli na playliście znajduje się jeden bądź więcej utworów, których nie można odtworzyć, to ustawienie te nie działa normalnie."</string>
     <string name="revanced_replace_player_cast_button_title">Zastąp przycisk castowania</string>
     <string name="revanced_remember_repeat_state_summary">Zapisuje stan pętli.</string>
     <string name="revanced_remember_repeat_state_title">Zapamiętaj stan pętli</string>

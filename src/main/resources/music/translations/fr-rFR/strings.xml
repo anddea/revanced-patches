@@ -51,12 +51,10 @@ Problèmes connus :
     <string name="revanced_enable_force_minimized_player_title">Forcer le lecteur réduit</string>
     <string name="revanced_enable_landscape_mode_summary">Permet de passer en mode paysage par rotation du téléphone.</string>
     <string name="revanced_enable_landscape_mode_title">Activer le mode paysage</string>
-    <string name="revanced_enable_new_player_background_summary">Active le nouvel arrière-plan du lecteur.</string>
-    <string name="revanced_enable_new_player_background_title">Activer le nouvel arrière-plan du lecteur</string>
-    <string name="revanced_enable_old_player_layout_summary">"Revenir à l'ancienne interface du lecteur.
-Certaines fonctionnalités peuvent ne pas fonctionner correctement dans l'ancienne interface du lecteur.
-
-AVERTISSEMENT : N'activez pas le nouvel arrière-plan du lecteur si cette option est activée."</string>
+    <string name="revanced_enable_old_player_background_summary">Remet l\'ancien arrière-plan du lecteur.</string>
+    <string name="revanced_enable_old_player_background_title">Ancien interface</string>
+    <string name="revanced_enable_old_player_layout_summary">"Remet l'ancienne interface du lecteur
+Certaines fonctionnalités peuvent ne pas fonctionner correctement dans l'ancienne disposition du lecteur."</string>
     <string name="revanced_enable_old_player_layout_title">Activer l\'ancienne interface du lecteur</string>
     <string name="revanced_enable_old_style_library_shelf_summary">Revenir à l\'ancienne interface de la bibliothèque. (Expérimental)</string>
     <string name="revanced_enable_old_style_library_shelf_title">Activer l\'ancienne interface de la bibliothèque</string>
@@ -68,8 +66,6 @@ AVERTISSEMENT : N'activez pas le nouvel arrière-plan du lecteur si cette option
     <string name="revanced_enable_save_playback_speed_title">Activer l\'enregistrement de la vitesse de lecture</string>
     <string name="revanced_enable_save_video_quality_summary">Enregistre la qualité vidéo à chaque fois que vous la modifiez.</string>
     <string name="revanced_enable_save_video_quality_title">Activer l\'enregistrement de la qualité vidéo</string>
-    <string name="revanced_enable_sleep_timer_summary">Ajoute un bouton \"Délai de mise en veille\"</string>
-    <string name="revanced_enable_sleep_timer_title">Bouton \"Délai de mise en veille\"</string>
     <string name="revanced_enable_zen_mode_summary">Ajoute une teinte grise au lecteur vidéo pour réduire la fatigue oculaire.</string>
     <string name="revanced_enable_zen_mode_title">Activer le mode zen</string>
     <string name="revanced_extended_settings_export_as_file">Exporter les paramètres vers un fichier</string>
@@ -151,8 +147,6 @@ AVERTISSEMENT : N'activez pas le nouvel arrière-plan du lecteur si cette option
     <string name="revanced_hide_history_button_title">Masquer le bouton \"Historique\"</string>
     <string name="revanced_hide_home_button_summary">Masque le bouton d\'accueil.</string>
     <string name="revanced_hide_home_button_title">Masquer le bouton \"Bibliothèque\"</string>
-    <string name="revanced_hide_interstitial_ads_summary">Masque les publicités interstitielles.</string>
-    <string name="revanced_hide_interstitial_ads_title">Masquer les publicités interstitielles</string>
     <string name="revanced_hide_library_button_summary">Masque le bouton \"Bibliothèque\".</string>
     <string name="revanced_hide_library_button_title">Bouton \"Bibliothèque\"</string>
     <string name="revanced_hide_music_ads_summary">Masque les publicités avant la lecture d\'une musique.</string>
@@ -272,7 +266,7 @@ Cela ne permet pas de contourner la restriction d'âge, mais de l'accepter autom
     <string name="sb_color_dot_label">Couleur (hex) :</string>
     <string name="sb_color_changed">Couleur modifiée.</string>
     <string name="sb_color_reset">Couleur réinitialisée.</string>
-    <string name="sb_color_invalid">Code de couleur invalide.</string>
+    <string name="sb_color_invalid">Code de couleur invalide. Réinitialisation de la couleur par défaut.</string>
     <string name="sb_reset_color">Réinitialiser la couleur</string>
     <string name="sb_about_api_sum">Les données sont fournies par l\'API SponsorBlock. Cliquez ici pour en savoir plus et voir les téléchargements pour d\'autres plateformes.</string>
     <string name="sb_about">À propos</string>

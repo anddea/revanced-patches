@@ -51,12 +51,10 @@ Bilinen sorunlar:
     <string name="revanced_enable_force_minimized_player_title">Zorla küçültülmüş pencereyi aktifleştir</string>
     <string name="revanced_enable_landscape_mode_summary">Telefonlarda ekran döndürme ile manzara moduna geçiş sağlar.</string>
     <string name="revanced_enable_landscape_mode_title">Yatay Modu Etkinleştir</string>
-    <string name="revanced_enable_new_player_background_summary">Yeni oynatıcı arka planını etkinleştirir.</string>
-    <string name="revanced_enable_new_player_background_title">Yeni oynatıcı arka planını etkinleştir</string>
+    <string name="revanced_enable_old_player_background_summary">Oynatıcı arkaplanını eski stile döndürür.</string>
+    <string name="revanced_enable_old_player_background_title">Eski oynatıcı arka planını etkinleştir</string>
     <string name="revanced_enable_old_player_layout_summary">"Oynatıcı düzenini eski stile döndürün. 
-Eski oynatıcı düzeninde bazı ayarlar düzgün çalışmayabilir.
-
-UYARI: Bu etkinken \"Yeni oynatıcı arka planını\" etkinleştirmeyin."</string>
+Eski oynatıcı düzeninde bazı ayarlar düzgün çalışmayabilir."</string>
     <string name="revanced_enable_old_player_layout_title">Eski oynatıcı düzenini etkinleştir</string>
     <string name="revanced_enable_old_style_library_shelf_summary">Kütüphane rafını eski stile döndürün.
 (Deneysel)</string>
@@ -69,8 +67,6 @@ UYARI: Bu etkinken \"Yeni oynatıcı arka planını\" etkinleştirmeyin."</strin
     <string name="revanced_enable_save_playback_speed_title">Çalma hızını kaydetmeyi etkinleştir</string>
     <string name="revanced_enable_save_video_quality_summary">Seçili video kalitesini hatırlar.</string>
     <string name="revanced_enable_save_video_quality_title">Video kalitesini kaydetmeyi etkinleştir</string>
-    <string name="revanced_enable_sleep_timer_summary">Açılır menüye uyku zamanlayıcısı ekle.</string>
-    <string name="revanced_enable_sleep_timer_title">Uyku zamanlayıcısını etkinleştir</string>
     <string name="revanced_enable_zen_mode_summary">Video oynatıcıya açık gri bir ton ekleyerek göz yorgunluğunu azaltır.</string>
     <string name="revanced_enable_zen_mode_title">Zen modunu aç/kapa</string>
     <string name="revanced_extended_settings_export_as_file">Ayarları bir dosyaya dışa aktar</string>
@@ -117,8 +113,8 @@ UYARI: Bu etkinken \"Yeni oynatıcı arka planını\" etkinleştirmeyin."</strin
     <string name="revanced_hide_category_bar_title">Kategor barını Gizle</string>
     <string name="revanced_hide_channel_guidelines_summary">Yorumları bölümünün üst kısmında kanal kurallarını gizler.</string>
     <string name="revanced_hide_channel_guidelines_title">Kanal yönergelerini gizle</string>
-    <string name="revanced_hide_emoji_picker_summary">Yorum yazarkenki emoji seçiciyi gizler.</string>
-    <string name="revanced_hide_emoji_picker_title">Emoji seçiciyi gizle</string>
+    <string name="revanced_hide_emoji_picker_summary">Yorum yazarken emoji seçiciyi ve zaman damgasını gizler.</string>
+    <string name="revanced_hide_emoji_picker_title">Emoji seçiciyi ve zaman damgasını gizle</string>
     <string name="revanced_hide_explore_button_summary">Keşfet düğmesini gizler.</string>
     <string name="revanced_hide_explore_button_title">Keşfet düğmesini gizle</string>
     <string name="revanced_hide_flyout_panel_add_to_queue_title">Kuyruğa ekle menüsünü gizle</string>
@@ -143,8 +139,10 @@ UYARI: Bu etkinken \"Yeni oynatıcı arka planını\" etkinleştirmeyin."</strin
     <string name="revanced_hide_flyout_panel_save_to_playlist_title">Oynatma listesine kaydet menüsünü gizle</string>
     <string name="revanced_hide_flyout_panel_share_title">Paylaş menüsünü gizle</string>
     <string name="revanced_hide_flyout_panel_shuffle_play_title">Karışık çal menüsünü gizle</string>
+    <string name="revanced_hide_flyout_panel_sleep_timer_title">Uyku zamanlayıcısı menüsünü gizle</string>
     <string name="revanced_hide_flyout_panel_start_radio_title">Radyoyu başlat menüsünü gizle</string>
     <string name="revanced_hide_flyout_panel_stats_for_nerds_title">\"Meraklısı için istatikler\" menüsünü gizle</string>
+    <string name="revanced_hide_flyout_panel_subscribe_title">Abone ol / Abonelikten çık menüsünü gizle</string>
     <string name="revanced_hide_flyout_panel_view_song_credit_title">Şarkı kredileri menüsünü görüntüle</string>
     <string name="revanced_hide_general_ads_summary">Genel reklamları gizler.</string>
     <string name="revanced_hide_general_ads_title">Genel reklamları gizle</string>
@@ -154,8 +152,6 @@ UYARI: Bu etkinken \"Yeni oynatıcı arka planını\" etkinleştirmeyin."</strin
     <string name="revanced_hide_history_button_title">Geçmiş düğmesini gizle</string>
     <string name="revanced_hide_home_button_summary">Ev düğmesini gizler.</string>
     <string name="revanced_hide_home_button_title">Ana sayfa düğmesini gizle</string>
-    <string name="revanced_hide_interstitial_ads_summary">Geçiş reklamlarını gizler.</string>
-    <string name="revanced_hide_interstitial_ads_title">Geçiş reklamlarını gizle</string>
     <string name="revanced_hide_library_button_summary">Kitaplık düğmesini gizler.</string>
     <string name="revanced_hide_library_button_title">Kitaplık düğmesini gizle</string>
     <string name="revanced_hide_music_ads_summary">Bir parça çalınmadan önce reklamları gizler.</string>

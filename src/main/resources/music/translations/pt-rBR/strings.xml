@@ -47,16 +47,14 @@ Problemas conhecidos:
     <string name="revanced_enable_debug_logging_title">Ativar o relatório de depuração</string>
     <string name="revanced_enable_flyout_panel_playback_speed_summary">Adicione um botão de velocidade de reprodução ao painel suspenso.</string>
     <string name="revanced_enable_flyout_panel_playback_speed_title">Ativar velocidade de reprodução</string>
-    <string name="revanced_enable_force_minimized_player_summary">Mantém o miniplayer minimizado mesmo quando outra música é reproduzida.</string>
+    <string name="revanced_enable_force_minimized_player_summary">Mantém o reprodutor minimizado mesmo quando outra faixa é reproduzida.</string>
     <string name="revanced_enable_force_minimized_player_title">Ativar reprodutor minimizado forçado</string>
     <string name="revanced_enable_landscape_mode_summary">Ativa o modo paisagem ao girar a tela nos telefones.</string>
     <string name="revanced_enable_landscape_mode_title">Ativar modo paisagem</string>
-    <string name="revanced_enable_new_player_background_summary">Ativa o novo fundo do reprodutor.</string>
-    <string name="revanced_enable_new_player_background_title">Ativar novo fundo do reprodutor</string>
+    <string name="revanced_enable_old_player_background_summary">Retorna o fundo do reprodutor para o estilo antigo.</string>
+    <string name="revanced_enable_old_player_background_title">Ativar fundo antigo do reprodutor</string>
     <string name="revanced_enable_old_player_layout_summary">"Retorna o layout do reprodutor ao estilo antigo.
-Alguns recursos podem não funcionar corretamente no layout antigo do reprodutor.
-
-AVISO: Não ative o \"Novo fundo do reprodutor\" enquanto isto estiver ativado."</string>
+Alguns recursos podem não funcionar corretamente no layout antigo do reprodutor."</string>
     <string name="revanced_enable_old_player_layout_title">Ativar layout antigo do reprodutor</string>
     <string name="revanced_enable_old_style_library_shelf_summary">Retorna a aba da biblioteca para o estilo antigo. (Experimental)</string>
     <string name="revanced_enable_old_style_library_shelf_title">Ativar estilo antigo da biblioteca</string>
@@ -68,8 +66,6 @@ AVISO: Não ative o \"Novo fundo do reprodutor\" enquanto isto estiver ativado."
     <string name="revanced_enable_save_playback_speed_title">Ativar salvar velocidade de reprodução</string>
     <string name="revanced_enable_save_video_quality_summary">Lembra a última qualidade de vídeo selecionada.</string>
     <string name="revanced_enable_save_video_quality_title">Ativar salvar qualidade de vídeo</string>
-    <string name="revanced_enable_sleep_timer_summary">Adiciona o timer de suspensão ao menu suspenso.</string>
-    <string name="revanced_enable_sleep_timer_title">Ativar Timer de suspensão</string>
     <string name="revanced_enable_zen_mode_summary">Muda o fundo do reprodutor para cinza claro para reduzir o cansaço ocular.</string>
     <string name="revanced_enable_zen_mode_title">Ativar modo calmo</string>
     <string name="revanced_extended_settings_export_as_file">Exportar configurações para um arquivo</string>
@@ -116,8 +112,8 @@ AVISO: Não ative o \"Novo fundo do reprodutor\" enquanto isto estiver ativado."
     <string name="revanced_hide_category_bar_title">Ocultar barra de categoria</string>
     <string name="revanced_hide_channel_guidelines_summary">Oculta as diretrizes do canal no topo da seção de comentários.</string>
     <string name="revanced_hide_channel_guidelines_title">Ocultar diretrizes do canal</string>
-    <string name="revanced_hide_emoji_picker_summary">Oculta o seletor de emojis ao digitar comentários.</string>
-    <string name="revanced_hide_emoji_picker_title">Ocultar seletor de emojis</string>
+    <string name="revanced_hide_emoji_picker_summary">Oculta o seletor de emojis e o tempo ao digitar os comentários.</string>
+    <string name="revanced_hide_emoji_picker_title">Ocultar seletor de emojis e hora</string>
     <string name="revanced_hide_explore_button_summary">Oculta o botão de explorar.</string>
     <string name="revanced_hide_explore_button_title">Ocultar botão Explorar</string>
     <string name="revanced_hide_flyout_panel_add_to_queue_title">Ocultar menu Adicionar à fila</string>
@@ -142,8 +138,10 @@ AVISO: Não ative o \"Novo fundo do reprodutor\" enquanto isto estiver ativado."
     <string name="revanced_hide_flyout_panel_save_to_playlist_title">Ocultar menu Salvar na playlist</string>
     <string name="revanced_hide_flyout_panel_share_title">Ocultar menu Compartilhar</string>
     <string name="revanced_hide_flyout_panel_shuffle_play_title">Ocultar menu de reprodução aleatória</string>
+    <string name="revanced_hide_flyout_panel_sleep_timer_title">Ocultar menu de timer de suspensão</string>
     <string name="revanced_hide_flyout_panel_start_radio_title">Ocultar menu Iniciar rádio</string>
     <string name="revanced_hide_flyout_panel_stats_for_nerds_title">Ocultar menu estatísticas para nerds</string>
+    <string name="revanced_hide_flyout_panel_subscribe_title">Ocultar menu de inscrição / cancelar inscrição</string>
     <string name="revanced_hide_flyout_panel_view_song_credit_title">Ocultar menu Mostrar créditos da música</string>
     <string name="revanced_hide_general_ads_summary">Oculta anúncios gerais.</string>
     <string name="revanced_hide_general_ads_title">Ocultar anúncios gerais</string>
@@ -153,8 +151,6 @@ AVISO: Não ative o \"Novo fundo do reprodutor\" enquanto isto estiver ativado."
     <string name="revanced_hide_history_button_title">Ocultar botão de histórico</string>
     <string name="revanced_hide_home_button_summary">Oculta o botão de início.</string>
     <string name="revanced_hide_home_button_title">Ocultar botão Início</string>
-    <string name="revanced_hide_interstitial_ads_summary">Oculta os anúncios intersticiais.</string>
-    <string name="revanced_hide_interstitial_ads_title">Ocultar anúncios intersticiais</string>
     <string name="revanced_hide_library_button_summary">Oculta o botão de biblioteca.</string>
     <string name="revanced_hide_library_button_title">Ocultar botão Biblioteca</string>
     <string name="revanced_hide_music_ads_summary">Oculta os anúncios antes de tocar música.</string>
@@ -193,8 +189,8 @@ Isso não ignora a restrição de idade, apenas aceita isso automaticamente."</s
     <string name="revanced_replace_flyout_panel_dismiss_queue_continue_watch_title">Continuar assistindo</string>
     <string name="revanced_replace_flyout_panel_dismiss_queue_summary">Substitui \"Remover fila\" por \"Assistir no YouTube\".</string>
     <string name="revanced_replace_flyout_panel_dismiss_queue_title">Substituir Remover fila</string>
-    <string name="revanced_replace_player_cast_button_summary">"Substitua o botão de transmissão no reprodutor pelo botão \"Abrir música\". (Experimental)
-Problemas conhecidos: Se uma ou mais músicas que não podem ser tocadas na lista de reprodução, elas não funcionam normalmente."</string>
+    <string name="revanced_replace_player_cast_button_summary">"Substitua o botão de transmissão no reprodutor pelo botão \"Abrir música\". (experimental)
+Problema conhecido: Se uma ou mais músicas não puderem ser reproduzidas na lista de reprodução, ela não funcionará normalmente."</string>
     <string name="revanced_replace_player_cast_button_title">Substituir o botão de transmissão</string>
     <string name="revanced_remember_repeat_state_summary">Lembra o estado da alternância de repetição.</string>
     <string name="revanced_remember_repeat_state_title">Lembrar estado de repetição</string>
