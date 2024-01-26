@@ -247,7 +247,7 @@
     <string name="revanced_extended_settings_import_export_summary">إستيراد أو تصدير الإعدادات.</string>
     <string name="revanced_extended_settings_import_export_title">استيراد / تصدير الإعدادات</string>
     <string name="revanced_extended_settings_import_failed">فشل استيراد الإعدادات.</string>
-    <string name="revanced_extended_settings_import_reset">إعادة تعيين</string>
+    <string name="revanced_extended_settings_import_reset">إعادة ضبط الإعدادات على الوضع الافتراضي.</string>
     <string name="revanced_extended_settings_import_success">تم استيراد الإعدادات بنجاح.</string>
     <string name="revanced_extended_settings_import_summary">استيراد الإعدادات من الملف المحفوظ.</string>
     <string name="revanced_extended_settings_import_title">استيراد الإعدادات</string>
@@ -337,9 +337,6 @@
     <string name="revanced_hide_button_thanks_summary_off">يتم عرض زر شكرًا</string>
     <string name="revanced_hide_button_thanks_summary_on">تم إخفاء زر شكرًا</string>
     <string name="revanced_hide_button_thanks_title">إخفاء زر شكرًا</string>
-    <string name="revanced_hide_button_transcript_summary_off">يتم عرض زر النص</string>
-    <string name="revanced_hide_button_transcript_summary_on">تم إخفاء زر النص</string>
-    <string name="revanced_hide_button_transcript_title">إخفاء زر النص</string>
     <string name="revanced_hide_captions_button_summary_off">يتم عرض زر التَرْجَمَة</string>
     <string name="revanced_hide_captions_button_summary_on">تم إخفاء زر التَرْجَمَة</string>
     <string name="revanced_hide_captions_button_title">إخفاء زر التَرْجَمَة</string>
@@ -396,9 +393,9 @@
     <string name="revanced_hide_crowdfunding_box_summary_off">يتم عرض مربع التمويل الجماعي</string>
     <string name="revanced_hide_crowdfunding_box_summary_on">تم إخفاء مربع التمويل الجماعي</string>
     <string name="revanced_hide_crowdfunding_box_title">إخفاء مربع التمويل الجماعي</string>
-    <string name="revanced_hide_emoji_picker_summary_off">يتم عرض منتقي الرموز التعبيرية</string>
-    <string name="revanced_hide_emoji_picker_summary_on">تم إخفاء منتقي الرموز التعبيرية</string>
-    <string name="revanced_hide_emoji_picker_title">إخفاء منتقي الرموز التعبيرية</string>
+    <string name="revanced_hide_emoji_picker_summary_off">يتم عرض منتقي الرموز التعبيرية والطابع الزمني.</string>
+    <string name="revanced_hide_emoji_picker_summary_on">تم إخفاء منتقي الرموز التعبيرية والطابع الزمني.</string>
+    <string name="revanced_hide_emoji_picker_title">إخفاء منتقي الرموز التعبيرية والطابع الزمني</string>
     <string name="revanced_hide_end_screen_cards_summary_off">يتم عرض بطاقات شاشة النهاية</string>
     <string name="revanced_hide_end_screen_cards_summary_on">تم إخفاء بطاقات شاشة النهاية</string>
     <string name="revanced_hide_end_screen_cards_title">إخفاء بطاقات شاشة النهاية</string>
@@ -561,7 +558,7 @@
     <string name="revanced_hide_preview_comment_title">إخفاء تعليق المعاينة</string>
     <string name="revanced_hide_preview_comment_type_off">يؤدي هذا إلى تغيير حجم قسم التعليقات، لذلك من المستحيل فتح إعادة تشغيل الدردشة المباشرة في قسم التعليقات.</string>
     <string name="revanced_hide_preview_comment_type_on">لا يغير هذا حجم قسم التعليقات، لذلك من الممكن فتح إعادة الدردشة المباشرة في قسم التعليقات.</string>
-    <string name="revanced_hide_preview_comment_type_title">إخفاء نوع تعليق المعاينة</string>
+    <string name="revanced_hide_preview_comment_type_title">إخفاء نوع عرض التعليق</string>
     <string name="revanced_hide_previous_next_button_summary_off">يتم عرض الأزرار</string>
     <string name="revanced_hide_previous_next_button_summary_on">تم إخفاء الأزرار</string>
     <string name="revanced_hide_previous_next_button_title">إخفاء زر السابق &amp; التالي</string>
@@ -709,6 +706,10 @@
     <string name="revanced_hook_download_button_summary">"استبدال زر التنزيل بزر التنزيل الخارجي"</string>
     <string name="revanced_hook_download_button_title">زر خطاف التنزيل</string>
     <string name="revanced_inform">تنبيه</string>
+    <string name="revanced_keep_landscape_mode_summary">يحافظ على الوضع الأفقي عند إيقاف تشغيل الشاشة وتشغيلها في وضع ملء الشاشة.</string>
+    <string name="revanced_keep_landscape_mode_timeout_summary">مقدار اجزاء الثانية التي يتم فرضها على الوضع الأفقي.</string>
+    <string name="revanced_keep_landscape_mode_timeout_title">مهلة إبقاء الوضع الأفقي</string>
+    <string name="revanced_keep_landscape_mode_title">إبقاء الوضع الأفقي</string>
     <string name="revanced_layout_title">التصميم</string>
     <string name="revanced_misc">إعدادات إضافية</string>
     <string name="revanced_navigation">شريط التنقل</string>
@@ -803,6 +804,7 @@
     <string name="revanced_spoof_app_version_target_entry_18_33_40">18.33.40 - استعادة شريط عمل Shorts القديم</string>
     <string name="revanced_spoof_app_version_target_entry_18_38_45">18.38.45 - استعادة سلوك جودة الفيديو الافتراضي القديم</string>
     <string name="revanced_spoof_app_version_target_entry_18_40_34">"18.40.34 - تعطيل تحديث \"المشاهدات\" و\"الإعجابات\" في الوقت الفعلي"</string>
+    <string name="revanced_spoof_app_version_target_entry_18_42_41">18.42.41 - يعمل على إصلاح مشكلة عدم تطبيق السمة في نتائج البحث</string>
     <string name="revanced_spoof_app_version_target_entry_title">الهدف من خِداع إصدار التطبيق</string>
     <string name="revanced_spoof_app_version_target_summary">اكتب هدف إصدار التطبيق المخادع</string>
     <string name="revanced_spoof_app_version_target_title">تعديل خِداع إصدار التطبيق</string>

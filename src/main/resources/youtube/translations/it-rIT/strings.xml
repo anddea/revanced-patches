@@ -137,7 +137,7 @@ Nota: disattivando la sovrapposizione della velocità verrà ripristinato lo \"S
     <string name="revanced_disable_startup_shorts_player_summary_off">La riproduzione degli Shorts all\'avvio dell\'app è attivata</string>
     <string name="revanced_disable_startup_shorts_player_summary_on">La riproduzione degli Shorts all\'avvio dell\'app è disattivata</string>
     <string name="revanced_disable_startup_shorts_player_title">Disattiva la riproduzione degli Shorts all\'avvio dell\'app</string>
-    <string name="revanced_disable_update_screen_summary">Disattiva la schermata \"Aggiorna la tua app\" visualizzata quando si utilizza un client datato</string>
+    <string name="revanced_disable_update_screen_summary">Disattiva la schermata \"Aggiorna l\'app\" visualizzata quando si utilizza un client datato</string>
     <string name="revanced_disable_update_screen_title">Disattiva la schermata di aggiornamento</string>
     <string name="revanced_double_back_timeout_summary">Il numero di secondi per premere due volte il pulsante Indietro per uscire dall\'app</string>
     <string name="revanced_double_back_timeout_title">Durata del doppio tocco del pulsante Indietro</string>
@@ -248,7 +248,7 @@ Scheda Tu &gt; Visualizza canale &gt; Menù &gt; Impostazioni"</string>
     <string name="revanced_extended_settings_import_export_summary">Esporta o importa le impostazioni</string>
     <string name="revanced_extended_settings_import_export_title">Esporta/Importa impostazioni</string>
     <string name="revanced_extended_settings_import_failed">Impossibile importare le impostazioni</string>
-    <string name="revanced_extended_settings_import_reset">Ripristina</string>
+    <string name="revanced_extended_settings_import_reset">Impostazioni ripristinati ai valori predefiniti</string>
     <string name="revanced_extended_settings_import_success">Impostazioni importate correttamente</string>
     <string name="revanced_extended_settings_import_summary">Importa le impostazioni dal file esportato</string>
     <string name="revanced_extended_settings_import_title">Importa impostazioni</string>
@@ -337,9 +337,6 @@ Alcuni componenti potrebbero non essere nascosti"</string>
     <string name="revanced_hide_button_thanks_summary_off">Il pulsante Grazie è visibile</string>
     <string name="revanced_hide_button_thanks_summary_on">Il pulsante Grazie è nascosto</string>
     <string name="revanced_hide_button_thanks_title">Nascondi il pulsante Grazie</string>
-    <string name="revanced_hide_button_transcript_summary_off">Il pulsante Trascrizione è visibile</string>
-    <string name="revanced_hide_button_transcript_summary_on">Il pulsante Trascrizione è nascosto</string>
-    <string name="revanced_hide_button_transcript_title">Nascondi il pulsante Trascrizione</string>
     <string name="revanced_hide_captions_button_summary_off">Il pulsante Sottotitoli è visibile</string>
     <string name="revanced_hide_captions_button_summary_on">Il pulsante Sottotitoli è nascosto</string>
     <string name="revanced_hide_captions_button_title">Nascondi il pulsante Sottotitoli</string>
@@ -396,9 +393,9 @@ Alcuni componenti potrebbero non essere nascosti"</string>
     <string name="revanced_hide_crowdfunding_box_summary_off">Il riquadro della raccolta fondi è visibile</string>
     <string name="revanced_hide_crowdfunding_box_summary_on">Il riquadro della raccolta fondi è nascosto</string>
     <string name="revanced_hide_crowdfunding_box_title">Nascondi il riquadro della raccolta fondi</string>
-    <string name="revanced_hide_emoji_picker_summary_off">Il selettore degli emoji è visibile</string>
-    <string name="revanced_hide_emoji_picker_summary_on">Il selettore degli emoji è nascosto</string>
-    <string name="revanced_hide_emoji_picker_title">Nascondi il selettore degli emoji</string>
+    <string name="revanced_hide_emoji_picker_summary_off">Il selettore degli emoji e il timestamp sono visibili</string>
+    <string name="revanced_hide_emoji_picker_summary_on">Il selettore degli emoji e il timestamp sono nascosti</string>
+    <string name="revanced_hide_emoji_picker_title">Nascondi il selettore degli emoji e il timestamp</string>
     <string name="revanced_hide_end_screen_cards_summary_off">Le schede finali sono visibili</string>
     <string name="revanced_hide_end_screen_cards_summary_on">Le schede finali sono nascoste</string>
     <string name="revanced_hide_end_screen_cards_title">Nascondi le schede finali</string>
@@ -559,8 +556,8 @@ Alcuni componenti potrebbero non essere nascosti"</string>
     <string name="revanced_hide_preview_comment_off">Il commento di anteprima è visibile</string>
     <string name="revanced_hide_preview_comment_on">Il commento di anteprima è nascosto</string>
     <string name="revanced_hide_preview_comment_title">Nascondi il commento di anteprima</string>
-    <string name="revanced_hide_preview_comment_type_off">Questo cambia la dimensione della sezione Commenti, quindi è impossibile aprire Riproduzione Chat Live</string>
-    <string name="revanced_hide_preview_comment_type_on">Questo non cambia la dimensione della sezione Commenti, quindi è possibile aprire Riproduzione Chat Live</string>
+    <string name="revanced_hide_preview_comment_type_off">Questo cambia la dimensione della sezione Commenti, quindi è impossibile aprire \"Riproduzione Chat dal Vivo\"</string>
+    <string name="revanced_hide_preview_comment_type_on">Questo non cambia la dimensione della sezione Commenti, quindi è possibile aprire \"Riproduzione Chat dal Vivo\"</string>
     <string name="revanced_hide_preview_comment_type_title">Nascondi il tipo di commento di anteprima</string>
     <string name="revanced_hide_previous_next_button_summary_off">I pulsanti Precedente e Successivo sono visibili</string>
     <string name="revanced_hide_previous_next_button_summary_on">I pulsanti Precedente e Successivo sono nascosti</string>
@@ -704,6 +701,10 @@ Alcuni video, inclusi quelli dei canali iscritti, potrebbero non essere nascosti
     <string name="revanced_hook_download_button_summary">"Sostituisci il pulsante Download con il pulsante Download Esterno"</string>
     <string name="revanced_hook_download_button_title">Sostituisci il pulsante Download</string>
     <string name="revanced_inform">Informazioni</string>
+    <string name="revanced_keep_landscape_mode_summary">Mantiene la modalità orizzontale quando lo schermo viene spento e acceso a schermo intero</string>
+    <string name="revanced_keep_landscape_mode_timeout_summary">Il tempo in millisecondi in cui viene forzata la modalità orizzontale</string>
+    <string name="revanced_keep_landscape_mode_timeout_title">Il time-out della modalità orizzontale forzata</string>
+    <string name="revanced_keep_landscape_mode_title">Mantieni la modalità orizzontale</string>
     <string name="revanced_layout_title">Interfaccia</string>
     <string name="revanced_misc">Varie</string>
     <string name="revanced_navigation">Barra di navigazione</string>
@@ -799,6 +800,7 @@ Note:
     <string name="revanced_spoof_app_version_target_entry_18_33_40">18.33.40 - Ripristina la vecchia barra d\'azione degli Shorts</string>
     <string name="revanced_spoof_app_version_target_entry_18_38_45">18.38.45 - Ripristina il comportamento della vecchia qualità video predefinita</string>
     <string name="revanced_spoof_app_version_target_entry_18_40_34">"18.40.34 - Disattiva le visualizzazioni e i mi piace dall'essere aggiornati in tempo reale"</string>
+    <string name="revanced_spoof_app_version_target_entry_18_42_41">18.42.41 - Risolve il problema in cui il tema non viene applicato nei risultati di ricerca</string>
     <string name="revanced_spoof_app_version_target_entry_title">La versione dell\'app da simulare</string>
     <string name="revanced_spoof_app_version_target_summary">Digita la versione dell\'app da simulare</string>
     <string name="revanced_spoof_app_version_target_title">Modifica la versione dell\'app da simulare</string>

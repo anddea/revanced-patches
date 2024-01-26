@@ -57,6 +57,9 @@ Ne modifiez pas cette adresse à moins de savoir ce que vous faites."</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">Le mode ambiant est désactivé en mode économie d\'énergie</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">Le mode ambiant est activé en mode économie d\'énergie</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">Contourner les restrictions du mode ambiant</string>
+    <string name="revanced_change_player_flyout_panel_toggle_summary_off">Les boutons de bascule sont utilisés.</string>
+    <string name="revanced_change_player_flyout_panel_toggle_summary_on">Les boutons de bascule avec textes sont utilisés.</string>
+    <string name="revanced_change_player_flyout_panel_toggle_title">Type de bouton de bascule</string>
     <string name="revanced_change_start_page_entry_default">Défaut</string>
     <string name="revanced_change_start_page_entry_explore">Explorer</string>
     <string name="revanced_change_start_page_entry_history">Historique</string>
@@ -133,6 +136,8 @@ Note : Ceci est une fonctionnalité qui n'a pas été testée."</string>
     <string name="revanced_disable_startup_shorts_player_summary_off">Les Shorts sont activés au démarrage de l\'application</string>
     <string name="revanced_disable_startup_shorts_player_summary_on">Les Shorts sont désactivés au démarrage de l\'application</string>
     <string name="revanced_disable_startup_shorts_player_title">Shorts au démarrage de l\'application</string>
+    <string name="revanced_disable_update_screen_summary">Désactive la page \"YouTube a besoin d\'être mise à jour\" qui apparaît quand vous utilisez une version obsolète.</string>
+    <string name="revanced_disable_update_screen_title">Page \"YouTube a besoin d\'être mise à jour\"</string>
     <string name="revanced_double_back_timeout_summary">Le nombre de secondes pour la fermeture en double pression sur le bouton Retour</string>
     <string name="revanced_double_back_timeout_title">Délai de fermeture de l\'application</string>
     <string name="revanced_enable_bottom_player_gestures_summary_off">Le passage en plein écran en faisant glisser la zone inférieure du lecteur a été désactivée.</string>
@@ -153,6 +158,9 @@ Note : Ceci est une fonctionnalité qui n'a pas été testée."</string>
     <string name="revanced_enable_debug_logging_summary_off">Les journaux de débogage sont désactivés</string>
     <string name="revanced_enable_debug_logging_summary_on">Les journaux de débogage sont activés</string>
     <string name="revanced_enable_debug_logging_title">Journaux de débogage</string>
+    <string name="revanced_enable_default_playback_speed_shorts_summary_off">La vitesse de lecture par défaut ne s\'applique pas aux Shorts.</string>
+    <string name="revanced_enable_default_playback_speed_shorts_summary_on">La vitesse de lecture par défaut s\'applique aux Shorts.</string>
+    <string name="revanced_enable_default_playback_speed_shorts_title">Vitesse de lecture par défaut Shorts</string>
     <string name="revanced_enable_external_browser_summary_off">Les liens ne s\'ouvriront pas dans le navigateur externe</string>
     <string name="revanced_enable_external_browser_summary_on">Les liens s\'ouvriront dans le navigateur externe</string>
     <string name="revanced_enable_external_browser_title">Navigateur externe</string>
@@ -239,7 +247,7 @@ Catégorie \"Vous\" &gt; \"Afficher la chaîne\" &gt; Trois points &gt; \"Param�
     <string name="revanced_extended_settings_import_export_summary">Importer ou emporter des paramètres</string>
     <string name="revanced_extended_settings_import_export_title">Importer / Exporter des paramètres</string>
     <string name="revanced_extended_settings_import_failed">Échec de l\'importation des paramètres</string>
-    <string name="revanced_extended_settings_import_reset">Réinitialiser</string>
+    <string name="revanced_extended_settings_import_reset">Réinitialiser les paramètres par défaut.</string>
     <string name="revanced_extended_settings_import_success">Les paramètres ont été importés avec succès</string>
     <string name="revanced_extended_settings_import_summary">Importer les paramètres depuis un fichier enregistré.</string>
     <string name="revanced_extended_settings_import_title">Paramètres d’importation</string>
@@ -328,9 +336,6 @@ Catégorie \"Vous\" &gt; \"Afficher la chaîne\" &gt; Trois points &gt; \"Param�
     <string name="revanced_hide_button_thanks_summary_off">Le bouton \"Merci\" est affiché</string>
     <string name="revanced_hide_button_thanks_summary_on">Le bouton \"Merci\" est masqué</string>
     <string name="revanced_hide_button_thanks_title">Bouton \"Merci\"</string>
-    <string name="revanced_hide_button_transcript_summary_off">Le bouton \"Afficher la transcription\" est affiché</string>
-    <string name="revanced_hide_button_transcript_summary_on">Le bouton \"Afficher la transcription\" est masqué</string>
-    <string name="revanced_hide_button_transcript_title">Bouton \"Afficher la transcription\"</string>
     <string name="revanced_hide_captions_button_summary_off">Le bouton \"Sous-titres\" est affiché</string>
     <string name="revanced_hide_captions_button_summary_on">Le bouton \"Sous-titres\" est masqué</string>
     <string name="revanced_hide_captions_button_title">Bouton \"Sous-titres\"</string>
@@ -387,9 +392,9 @@ Catégorie \"Vous\" &gt; \"Afficher la chaîne\" &gt; Trois points &gt; \"Param�
     <string name="revanced_hide_crowdfunding_box_summary_off">La boîte de dons est affichée</string>
     <string name="revanced_hide_crowdfunding_box_summary_on">Les boîtes de dons sont masqués.</string>
     <string name="revanced_hide_crowdfunding_box_title">Boîtes de dons</string>
-    <string name="revanced_hide_emoji_picker_summary_off">Le sélecteur d\'émoji est affiché</string>
-    <string name="revanced_hide_emoji_picker_summary_on">Le sélecteur d\'émoji est masqué.</string>
-    <string name="revanced_hide_emoji_picker_title">Sélecteur d\'émoji</string>
+    <string name="revanced_hide_emoji_picker_summary_off">Le sélecteur d\'émoji et l\'horodatage sont affichés</string>
+    <string name="revanced_hide_emoji_picker_summary_on">Le sélecteur d\'émoji et l\'horodatage sont masqués.</string>
+    <string name="revanced_hide_emoji_picker_title">Sélecteur d\'émoji et horodatage</string>
     <string name="revanced_hide_end_screen_cards_summary_off">Les vidéos suggérées à la fin d\'une vidéo sont affichées</string>
     <string name="revanced_hide_end_screen_cards_summary_on">Les vidéos suggérées à la fin d\'une vidéo sont masquées</string>
     <string name="revanced_hide_end_screen_cards_title">Vidéos suggérées à la fin d\'une vidéo</string>
@@ -550,6 +555,9 @@ Catégorie \"Vous\" &gt; \"Afficher la chaîne\" &gt; Trois points &gt; \"Param�
     <string name="revanced_hide_preview_comment_off">L\'aperçu des commentaires est affiché</string>
     <string name="revanced_hide_preview_comment_on">L\'aperçu des commentaires est masqué.</string>
     <string name="revanced_hide_preview_comment_title">Aperçu des commentaires</string>
+    <string name="revanced_hide_preview_comment_type_off">Cela modifie la taille de la section commentaires, il est donc impossible d\'ouvrir la section \"Chat en direct\" dans la section commentaires.</string>
+    <string name="revanced_hide_preview_comment_type_on">Cela ne modifie pas la taille de la section commentaires, il est donc possible d\'ouvrir la section \"Chat en direct\" dans la section commentaires.</string>
+    <string name="revanced_hide_preview_comment_type_title">Type de prévisualisation des commentaires</string>
     <string name="revanced_hide_previous_next_button_summary_off">Les boutons sont affichés</string>
     <string name="revanced_hide_previous_next_button_summary_on">Les boutons sont masqués.</string>
     <string name="revanced_hide_previous_next_button_title">Boutons \"Précédent\" &amp; \"Suivant\"</string>
@@ -696,6 +704,10 @@ Certaines vidéos, y compris celles des chaînes auxquelles vous êtes abonné, 
     <string name="revanced_hook_download_button_summary">"Remplace le bouton de téléchargement par le bouton de téléchargement externe"</string>
     <string name="revanced_hook_download_button_title">Bouton \"Téléchargement\"</string>
     <string name="revanced_inform">Info</string>
+    <string name="revanced_keep_landscape_mode_summary">Maintient le mode paysage lorsque l\'écran est éteint et rallumé en mode plein écran.</string>
+    <string name="revanced_keep_landscape_mode_timeout_summary">La durée, en millisecondes, pendant laquelle le mode paysage est imposé.</string>
+    <string name="revanced_keep_landscape_mode_timeout_title">Durée limite du maintien du mode paysage</string>
+    <string name="revanced_keep_landscape_mode_title">Maintenir le mode paysage</string>
     <string name="revanced_layout_title">Interface</string>
     <string name="revanced_misc">Autres paramètres</string>
     <string name="revanced_navigation">Interface de navigation</string>
@@ -790,6 +802,7 @@ Si elle est désactivée ultérieurement, l'ancienne interface utilisateur peut 
     <string name="revanced_spoof_app_version_target_entry_18_33_40">18.33.40 - Restaure l\'ancienne barre d\'action Shorts</string>
     <string name="revanced_spoof_app_version_target_entry_18_38_45">18.38.45 - Restaure l\'ancien fonctionnement par défaut de la qualité vidéo</string>
     <string name="revanced_spoof_app_version_target_entry_18_40_34">"18.40.34 - Désactive les \"vues\" et \"j'aime\" en temps réel"</string>
+    <string name="revanced_spoof_app_version_target_entry_18_42_41">18.42.41 - Correction d\'un problème où le thème n\'est pas appliqué dans les résultats de recherche</string>
     <string name="revanced_spoof_app_version_target_entry_title">Version cible pour la falsification</string>
     <string name="revanced_spoof_app_version_target_summary">Saisissez la version cible de l\'application à falsifier</string>
     <string name="revanced_spoof_app_version_target_title">Falsifier la version de l\'application</string>

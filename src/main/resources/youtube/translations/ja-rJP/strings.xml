@@ -56,6 +56,9 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">バッテリーセーバーモードでは、アンビエントモードが無効になります。</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">バッテリーセーバーモードでも、アンビエントモードが有効になります。</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">アンビエントモードの制限をバイパス</string>
+    <string name="revanced_change_player_flyout_panel_toggle_summary_off">スイッチトグルが使用されます。</string>
+    <string name="revanced_change_player_flyout_panel_toggle_summary_on">テキストトグルが使用されます。</string>
+    <string name="revanced_change_player_flyout_panel_toggle_title">トグルタイプを変更</string>
     <string name="revanced_change_start_page_entry_default">デフォルト</string>
     <string name="revanced_change_start_page_entry_explore">探索</string>
     <string name="revanced_change_start_page_entry_history">履歴</string>
@@ -134,6 +137,8 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_disable_startup_shorts_player_summary_off">アプリ起動時の YouTube ショートプレーヤーは有効です。</string>
     <string name="revanced_disable_startup_shorts_player_summary_on">アプリ起動時の YouTube ショートプレーヤーは無効です。</string>
     <string name="revanced_disable_startup_shorts_player_title">アプリ起動時のショートプレーヤーを無効化</string>
+    <string name="revanced_disable_update_screen_summary">古いクライアントを使用している場合に表示される「アプリを更新」画面を無効にします。</string>
+    <string name="revanced_disable_update_screen_title">更新画面を無効化</string>
     <string name="revanced_double_back_timeout_summary">戻るボタンを2回タップしてアプリを閉じる時のタップの間隔 (秒)</string>
     <string name="revanced_double_back_timeout_title">戻るボタンのダブルタップの間隔</string>
     <string name="revanced_enable_bottom_player_gestures_summary_off">プレイヤーの下部をスワイプして全画面に切り替えることはできません。</string>
@@ -154,6 +159,9 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_enable_debug_logging_summary_off">デバッグログは無効です。</string>
     <string name="revanced_enable_debug_logging_summary_on">デバッグログは有効です。</string>
     <string name="revanced_enable_debug_logging_title">デバッグログを有効化</string>
+    <string name="revanced_enable_default_playback_speed_shorts_summary_off">既定の再生速度はショートには適用されません。</string>
+    <string name="revanced_enable_default_playback_speed_shorts_summary_on">既定の再生速度はショートに適用されます。</string>
+    <string name="revanced_enable_default_playback_speed_shorts_title">ショートのデフォルト再生速度を有効化</string>
     <string name="revanced_enable_external_browser_summary_off">外部ブラウザは無効です。</string>
     <string name="revanced_enable_external_browser_summary_on">外部ブラウザは有効です。</string>
     <string name="revanced_enable_external_browser_title">外部ブラウザ</string>
@@ -330,9 +338,6 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_hide_button_thanks_summary_off">「Thanks」ボタンは表示されます。</string>
     <string name="revanced_hide_button_thanks_summary_on">「Thanks」ボタンは非表示です。</string>
     <string name="revanced_hide_button_thanks_title">Thanks ボタンを非表示</string>
-    <string name="revanced_hide_button_transcript_summary_off">「文字起こし」ボタンは表示されます。</string>
-    <string name="revanced_hide_button_transcript_summary_on">「文字起こし」ボタンは非表示です。</string>
-    <string name="revanced_hide_button_transcript_title">文字起こしボタンを非表示</string>
     <string name="revanced_hide_captions_button_summary_off">字幕ボタンは表示されます。</string>
     <string name="revanced_hide_captions_button_summary_on">字幕ボタンは非表示です。</string>
     <string name="revanced_hide_captions_button_title">字幕ボタンを非表示</string>
@@ -552,6 +557,9 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_hide_preview_comment_off">コメントのプレビューは表示されます。</string>
     <string name="revanced_hide_preview_comment_on">コメントのプレビューを非表示にします。</string>
     <string name="revanced_hide_preview_comment_title">コメントのプレビューを非表示</string>
+    <string name="revanced_hide_preview_comment_type_off">コメ欄のサイズが変更されるので、コメ欄でチャットのリプレイを開くことはできません。</string>
+    <string name="revanced_hide_preview_comment_type_on">コメ欄のサイズは変更されないため、コメ欄でチャットのリプレイを開くことができます。</string>
+    <string name="revanced_hide_preview_comment_type_title">コメントのプレビューを非表示</string>
     <string name="revanced_hide_previous_next_button_summary_off">「前の動画に戻る」「次の動画に進む」ボタンは表示されます。</string>
     <string name="revanced_hide_previous_next_button_summary_on">「前の動画に戻る」「次の動画に進む」ボタンは非表示です。</string>
     <string name="revanced_hide_previous_next_button_title">前の動画に戻る/次の動画に進むボタンを非表示</string>
@@ -699,6 +707,10 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_hook_download_button_summary">"「オフライン」ボタンを外部ダウンローダーに置き換えます。"</string>
     <string name="revanced_hook_download_button_title">ダウンロードボタンをフック</string>
     <string name="revanced_inform">情報</string>
+    <string name="revanced_keep_landscape_mode_summary">全画面表示時にランドスケープモードを維持します。</string>
+    <string name="revanced_keep_landscape_mode_timeout_summary">ランドスケープモードが強制されるミリ秒単位。</string>
+    <string name="revanced_keep_landscape_mode_timeout_title">ランドスケープモードのタイムアウトを維持</string>
+    <string name="revanced_keep_landscape_mode_title">ランドスケープモードを維持</string>
     <string name="revanced_layout_title">レイアウト</string>
     <string name="revanced_misc">その他</string>
     <string name="revanced_navigation">ナビゲーション</string>

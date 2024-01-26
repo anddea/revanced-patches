@@ -9,6 +9,15 @@
     <string name="microg_settings_title">打开 MicroG</string>
     <string name="revanced_ads">广告</string>
     <string name="revanced_alt_thumbnails">替换缩略图</string>
+    <string name="revanced_alt_thumbnail_about_status_dearrow">"显示 DeArrow 缩略图。
+如果视频没有 DeArrow 缩略图，则显示原始 YouTube 缩略图。"</string>
+    <string name="revanced_alt_thumbnail_about_status_dearrow_stills">"显示 DeArrow 缩略图。
+如果视频没有 DeArrow 缩略图，则显示视频静态帧。"</string>
+    <string name="revanced_alt_thumbnail_about_status_disabled">显示原始 YouTube 缩略图</string>
+    <string name="revanced_alt_thumbnail_about_status_stills">显示视频静态帧</string>
+    <string name="revanced_alt_thumbnail_about_title">使用的缩略图</string>
+    <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow 提供 YouTube 视频的众包缩略图。 这些缩略图通常比 YouTube 提供的缩略图更相关。 如果启用，视频链接将发送到 API 服务器，这不会发送其他数据。"</string>
+    <string name="revanced_alt_thumbnail_dearrow_about_title">关于 DeArrow</string>
     <string name="revanced_append_time_stamp_information_summary_off">添加时间戳信息已关闭</string>
     <string name="revanced_append_time_stamp_information_summary_on">添加时间戳信息已显示</string>
     <string name="revanced_append_time_stamp_information_title">添加时间戳信息</string>
@@ -20,6 +29,16 @@
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">省电模式下氛围模式已禁用</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">省电模式下氛围模式已启用</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">解除氛围模式限制</string>
+    <string name="revanced_change_start_page_entry_default">默认</string>
+    <string name="revanced_change_start_page_entry_explore">探索</string>
+    <string name="revanced_change_start_page_entry_history">历史</string>
+    <string name="revanced_change_start_page_entry_library">媒体库</string>
+    <string name="revanced_change_start_page_entry_liked_videos">喜欢的视频</string>
+    <string name="revanced_change_start_page_entry_search">搜索</string>
+    <string name="revanced_change_start_page_entry_shorts">短视频</string>
+    <string name="revanced_change_start_page_entry_subscriptions">订阅</string>
+    <string name="revanced_change_start_page_entry_trending">热门</string>
+    <string name="revanced_change_start_page_title">更改起始页</string>
     <string name="revanced_channel_bar_title">频道栏</string>
     <string name="revanced_comments_title">评论</string>
     <string name="revanced_custom_filter_strings_summary">按行分隔的名称筛选组件</string>
@@ -157,15 +176,34 @@
 你的选项卡 &gt; 查看频道&gt; 菜单&gt; 设置"</string>
     <string name="revanced_enable_wide_search_bar_in_you_tab_title">在你的选项卡中启用宽搜索栏</string>
     <string name="revanced_experimental_flag">实验性功能</string>
+    <string name="revanced_extended_settings_export_failed">导出配置失败</string>
+    <string name="revanced_extended_settings_export_success">导出配置成功</string>
+    <string name="revanced_extended_settings_export_summary">导出配置到文件</string>
+    <string name="revanced_extended_settings_export_title">导出配置</string>
+    <string name="revanced_extended_settings_import">导入</string>
+    <string name="revanced_extended_settings_import_copy">复制</string>
+    <string name="revanced_extended_settings_import_export_as_file_title">导入 / 导出配置文件</string>
+    <string name="revanced_extended_settings_import_export_as_text_summary">导入 / 导出配置文本</string>
+    <string name="revanced_extended_settings_import_export_as_text_title">导入 / 导出配置文件</string>
+    <string name="revanced_extended_settings_import_export_summary">导入或导出配置文件</string>
+    <string name="revanced_extended_settings_import_export_title">导入 / 导出配置</string>
+    <string name="revanced_extended_settings_import_failed">导入配置失败</string>
+    <string name="revanced_extended_settings_import_reset">配置已被重置为默认值</string>
+    <string name="revanced_extended_settings_import_success">导入配置成功</string>
+    <string name="revanced_extended_settings_import_summary">从文件导入配置</string>
+    <string name="revanced_extended_settings_import_title">导入配置</string>
+    <string name="revanced_external_downloader_download">下载器应用</string>
     <string name="revanced_external_downloader_installed">已安装</string>
     <string name="revanced_external_downloader_not_installed">未安装</string>
     <string name="revanced_external_downloader_not_installed_warning" formatted="false">%s未安装，请先安装</string>
     <string name="revanced_external_downloader_package_name_summary">已安装的外部下载器应用的包名，例如 NewPipe 或 YTDLnis</string>
     <string name="revanced_external_downloader_package_name_title">外部下载器应用包名</string>
+    <string name="revanced_external_downloader_set">设置默认下载器</string>
     <string name="revanced_external_downloader_settings_summary">使用外部下载器的设置</string>
     <string name="revanced_external_downloader_settings_title">外部下载器设置</string>
     <string name="revanced_feed_flyout_panel_title">资讯弹出面板</string>
     <string name="revanced_flyout_menu">播放器设置菜单</string>
+    <string name="revanced_force_fullscreen_title">强制全屏</string>
     <string name="revanced_fullscreen">全屏</string>
     <string name="revanced_general">常规设置</string>
     <string name="revanced_haptic_feedback_title">触控反馈</string>
@@ -236,9 +274,6 @@
     <string name="revanced_hide_button_thanks_summary_off">感谢按钮已显示</string>
     <string name="revanced_hide_button_thanks_summary_on">感谢按钮已隐藏</string>
     <string name="revanced_hide_button_thanks_title">感谢按钮</string>
-    <string name="revanced_hide_button_transcript_summary_off">转写文稿按钮已显示</string>
-    <string name="revanced_hide_button_transcript_summary_on">转写文稿按钮已隐藏</string>
-    <string name="revanced_hide_button_transcript_title">转写文稿按钮</string>
     <string name="revanced_hide_captions_button_summary_off">字幕按钮已显示</string>
     <string name="revanced_hide_captions_button_summary_on">字幕按钮已隐藏</string>
     <string name="revanced_hide_captions_button_title">字幕按钮</string>
@@ -274,6 +309,9 @@
     <string name="revanced_hide_collapse_button_summary_off">最小化按钮已显示</string>
     <string name="revanced_hide_collapse_button_summary_on">最小化按钮已隐藏</string>
     <string name="revanced_hide_collapse_button_title">最小化按钮</string>
+    <string name="revanced_hide_comments_by_members_summary_off">会员评论横幅已显示</string>
+    <string name="revanced_hide_comments_by_members_summary_on">会员评论横幅已隐藏</string>
+    <string name="revanced_hide_comments_by_members_title">隐藏会员评论横幅</string>
     <string name="revanced_hide_comments_section_summary_off">评论部分已显示</string>
     <string name="revanced_hide_comments_section_summary_on">评论部分已隐藏</string>
     <string name="revanced_hide_comments_section_title">评论部分</string>
@@ -286,6 +324,9 @@
     <string name="revanced_hide_create_button_summary_off">创建按钮已显示</string>
     <string name="revanced_hide_create_button_summary_on">创建按钮已隐藏</string>
     <string name="revanced_hide_create_button_title">创建按钮</string>
+    <string name="revanced_hide_create_shorts_button_summary_off">制作按钮已显示</string>
+    <string name="revanced_hide_create_shorts_button_summary_on">制作按钮已隐藏</string>
+    <string name="revanced_hide_create_shorts_button_title">制作按钮</string>
     <string name="revanced_hide_crowdfunding_box_summary_off">众筹箱已显示</string>
     <string name="revanced_hide_crowdfunding_box_summary_on">众筹箱已隐藏</string>
     <string name="revanced_hide_crowdfunding_box_title">众筹箱</string>
@@ -314,6 +355,9 @@
     <string name="revanced_hide_floating_microphone_summary_off">弹出麦克风按钮已显示</string>
     <string name="revanced_hide_floating_microphone_summary_on">弹出麦克风按钮已隐藏</string>
     <string name="revanced_hide_floating_microphone_title">弹出麦克风按钮</string>
+    <string name="revanced_hide_for_you_shelf_summary_off">"”个性化“功能架已显示"</string>
+    <string name="revanced_hide_for_you_shelf_summary_on">"”个性化“功能架已隐藏"</string>
+    <string name="revanced_hide_for_you_shelf_title">"”个性化“功能架"</string>
     <string name="revanced_hide_fullscreen_panels_summary_off">全屏面板已显示</string>
     <string name="revanced_hide_fullscreen_panels_summary_on">全屏面板已隐藏</string>
     <string name="revanced_hide_fullscreen_panels_title">全屏面板</string>
@@ -562,6 +606,11 @@
     <string name="revanced_player">播放器</string>
     <string name="revanced_player_flyout_panel_title">播放器弹出面板</string>
     <string name="revanced_quick_actions_title">快捷操作</string>
+    <string name="revanced_remove_viewer_discretion_dialog_summary">"移除查看器的自由裁量对话框。
+这不会绕过年龄限制。它只会自动同意。"</string>
+    <string name="revanced_remove_viewer_discretion_dialog_title">移除查看器的自由裁量对话框</string>
+    <string name="revanced_restart_first_run">重启应用以正常加载界面布局</string>
+    <string name="revanced_restart_message">刷新并重启</string>
     <string name="revanced_ryd_about">关于</string>
     <string name="revanced_ryd_attribution_summary">点踩数据由 Return YouTube Dislike API 提供。点击了解更多信息。</string>
     <string name="revanced_ryd_compact_layout_summary_off">点赞按钮样式：最佳显示</string>
@@ -573,7 +622,10 @@
     <string name="revanced_ryd_enable_summary_off">点踩数已隐藏</string>
     <string name="revanced_ryd_enable_summary_on">点踩数已显示</string>
     <string name="revanced_ryd_enable_title">恢复 YouTube 点踩</string>
+    <string name="revanced_ryd_failure_connection_timeout">点踩数暂时不可用（API 连接超时）</string>
+    <string name="revanced_ryd_failure_connection_status_code" formatted="false">点踩数不可用（状态 %d）</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">点踩数不可用（已达到客户端 API 限制）</string>
+    <string name="revanced_ryd_failure_generic">点踩数不可用（%s）</string>
     <string name="revanced_ryd_shorts_summary_off">点踩已隐藏</string>
     <string name="revanced_ryd_shorts_title">点踩</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">隐藏</string>
@@ -777,6 +829,9 @@
     <string name="sb_stats_self_saved" formatted="false">您已跳过 &lt;b&gt;%s&lt;/b&gt; 个片段</string>
     <string name="sb_stats_self_saved_sum" formatted="false">总计 &lt;b&gt;%s&lt;/b&gt;</string>
     <string name="sb_stats_self_saved_reset_title">是否重置跳过片段的计数？</string>
+    <string name="sb_stats_saved_hour_format" formatted="false">%s小时%s分钟</string>
+    <string name="sb_stats_saved_minute_format" formatted="false">%s分钟%s秒</string>
+    <string name="sb_stats_saved_second_format" formatted="false">%s秒</string>
     <string name="sb_color_dot_label">颜色：</string>
     <string name="sb_color_changed">颜色已更改</string>
     <string name="sb_color_reset">重置颜色</string>
