@@ -248,7 +248,7 @@
     <string name="revanced_extended_settings_import_export_summary">Імпорт або експорт налаштувань.</string>
     <string name="revanced_extended_settings_import_export_title">Імпортувати / Експортувати налаштування</string>
     <string name="revanced_extended_settings_import_failed">Не вдалося імпортувати налаштування.</string>
-    <string name="revanced_extended_settings_import_reset">Скинути</string>
+    <string name="revanced_extended_settings_import_reset">Налаштування скинуто до стандартних.</string>
     <string name="revanced_extended_settings_import_success">Налаштування було вдало імпортовано.</string>
     <string name="revanced_extended_settings_import_summary">Імпорт налаштувань зі збереженого файлу.</string>
     <string name="revanced_extended_settings_import_title">Імпортувати налаштування</string>
@@ -338,9 +338,6 @@
     <string name="revanced_hide_button_thanks_summary_off">Кнопку подяки показується</string>
     <string name="revanced_hide_button_thanks_summary_on">Кнопку подяки приховано</string>
     <string name="revanced_hide_button_thanks_title">Приховати кнопку подяки</string>
-    <string name="revanced_hide_button_transcript_summary_off">Кнопку транскрипту показується</string>
-    <string name="revanced_hide_button_transcript_summary_on">Кнопку транскрипту приховано</string>
-    <string name="revanced_hide_button_transcript_title">Приховати кнопку транскрипту</string>
     <string name="revanced_hide_captions_button_summary_off">Кнопку субтитрів показується</string>
     <string name="revanced_hide_captions_button_summary_on">Кнопку субтитрів приховано</string>
     <string name="revanced_hide_captions_button_title">Приховати кнопку субтитрів</string>
@@ -397,9 +394,9 @@
     <string name="revanced_hide_crowdfunding_box_summary_off">Скриньку фінансування показується.</string>
     <string name="revanced_hide_crowdfunding_box_summary_on">Скринька фінансування приховано</string>
     <string name="revanced_hide_crowdfunding_box_title">Приховати скриню фінансування</string>
-    <string name="revanced_hide_emoji_picker_summary_off">Вибір емодзі показується</string>
-    <string name="revanced_hide_emoji_picker_summary_on">Вибір емодзі приховано</string>
-    <string name="revanced_hide_emoji_picker_title">Приховати емодзі</string>
+    <string name="revanced_hide_emoji_picker_summary_off">Вибір емодзі та мітку часу показується.</string>
+    <string name="revanced_hide_emoji_picker_summary_on">Вибір емодзі та мітку часу приховано.</string>
+    <string name="revanced_hide_emoji_picker_title">Приховати емодзі та мітку часу</string>
     <string name="revanced_hide_end_screen_cards_summary_off">Картки кінцевого екрану показується</string>
     <string name="revanced_hide_end_screen_cards_summary_on">Картки кінцевого екрану приховано</string>
     <string name="revanced_hide_end_screen_cards_title">Приховати картки кінцевого екрану</string>
@@ -711,6 +708,10 @@
     <string name="revanced_hook_download_button_summary">"Поміняти місцями кнопку завантаження з кнопкою зовнішнього завантаження"</string>
     <string name="revanced_hook_download_button_title">Змінити кнопку завантаження</string>
     <string name="revanced_inform">Інформація</string>
+    <string name="revanced_keep_landscape_mode_summary">Зберігається ландшафтний режим під час вимкнення та ввімкнення екрана у повноекранному режимі.</string>
+    <string name="revanced_keep_landscape_mode_timeout_summary">Кількість мілісекунд примусового ландшафтного режиму.</string>
+    <string name="revanced_keep_landscape_mode_timeout_title">Скільки зберігати ландшафтний режим</string>
+    <string name="revanced_keep_landscape_mode_title">Зберігати ландшафтний режим</string>
     <string name="revanced_layout_title">Макет</string>
     <string name="revanced_misc">Різне</string>
     <string name="revanced_navigation">Навігація</string>
@@ -806,6 +807,7 @@
     <string name="revanced_spoof_app_version_target_entry_18_33_40">18.33.40 - відновлення старої панелі дій Коротких</string>
     <string name="revanced_spoof_app_version_target_entry_18_38_45">18.38.45 - Відновлення старої поведінки типової якості відео</string>
     <string name="revanced_spoof_app_version_target_entry_18_40_34">"18.40.34 - Виключає 'переглянуті' та 'вподобані' з оновлення в режимі реального часу"</string>
+    <string name="revanced_spoof_app_version_target_entry_18_42_41">18.42.41 - Виправлення проблеми, коли тему не застосовано в результатах пошуку</string>
     <string name="revanced_spoof_app_version_target_entry_title">Підробити цільову версію програми</string>
     <string name="revanced_spoof_app_version_target_summary">Введіть цільову версію підробки програми</string>
     <string name="revanced_spoof_app_version_target_title">Редагувати підробку версії програми</string>
@@ -930,7 +932,7 @@
     <string name="sb_skip_button_sponsor">Пропустити спонсорську вставку</string>
     <string name="sb_skip_button_selfpromo">Пропустити промо-ролик</string>
     <string name="sb_skip_button_interaction">Пропустити взаємодію</string>
-    <string name="sb_skip_button_highlight">Пропустити Основний момент</string>
+    <string name="sb_skip_button_highlight">Перейти до Основного моменту</string>
     <string name="sb_skip_button_intro_beginning">Пропустити вступ</string>
     <string name="sb_skip_button_outro">Пропустити закінчення</string>
     <string name="sb_skip_button_preview_beginning">Пропустити перед перегляд</string>
@@ -940,7 +942,7 @@
     <string name="sb_skipped_sponsor">Пропущено спонсорську вставку</string>
     <string name="sb_skipped_selfpromo">Пропущено саморекламу</string>
     <string name="sb_skipped_interaction">Пропущено дратівливе нагадування</string>
-    <string name="sb_skipped_highlight">Пропущено Основний момент</string>
+    <string name="sb_skipped_highlight">Перейдено до Основного моменту.</string>
     <string name="sb_skipped_intro_beginning">Пропущено вступ</string>
     <string name="sb_skipped_outro">Пропущено закінчення</string>
     <string name="sb_skipped_preview_beginning">Пропущено перед перегляд</string>

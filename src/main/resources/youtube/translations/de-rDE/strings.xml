@@ -9,6 +9,42 @@
     <string name="microg_settings_title">MicroG öffnen</string>
     <string name="revanced_ads">Werbung</string>
     <string name="revanced_alt_thumbnails">Alternative Thumbnails</string>
+    <string name="revanced_alt_thumbnail_about_status_dearrow">"Zeige DeArrow Thumbnails.
+Wenn ein Video keine DeArrow Thumbnails hat, werden die originalen YouTube-Thumbnails angezeigt."</string>
+    <string name="revanced_alt_thumbnail_about_status_dearrow_stills">"Zeige DeArrow Thumbnails.
+Wenn ein Video keine DeArrow Thumbnails hat, werden immer noch Videoaufnahmen angezeigt."</string>
+    <string name="revanced_alt_thumbnail_about_status_disabled">Zeige originale YouTube-Vorschaubilder.</string>
+    <string name="revanced_alt_thumbnail_about_status_stills">Zeige noch Videoaufnahmen.</string>
+    <string name="revanced_alt_thumbnail_about_title">Vorschaubilder in Verwendung</string>
+    <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow bietet Crowdsourced Thumbnails für YouTube-Videos. Diese Thumbnails sind oft relevanter als die von YouTube. Wenn aktiviert, werden Video-URLs an den API-Server gesendet und keine anderen Daten gesendet.
+
+Hier tippen, um mehr über DeArrow zu erfahren."</string>
+    <string name="revanced_alt_thumbnail_dearrow_about_title">Über DeArrow</string>
+    <string name="revanced_alt_thumbnail_dearrow_api_url_summary">"Die URL des Endpunkts der DeArrow-Thumbnail-Cache. Ändern Sie dies nicht, wenn Sie nicht wissen, was Sie machen."</string>
+    <string name="revanced_alt_thumbnail_dearrow_api_url_title">DeArrow API Endpunkt</string>
+    <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Toast-Benachrichtigung wird nicht angezeigt, wenn DeArrow nicht erreichbar ist.</string>
+    <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">Toast-Benachrichtigung wird angezeigt auch, wenn DeArrow nicht erreichbar ist.</string>
+    <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">Zeige eine Toast-Benachrichtigung, wenn die API nicht erreichbar ist</string>
+    <string name="revanced_alt_thumbnail_dearrow_error">DeArrow ist temporär nicht erreichbar. (Statuscode: %s)</string>
+    <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow ist temporär nicht erreichbar.</string>
+    <string name="revanced_alt_thumbnail_dearrow_summary_off">DeArrow Thumbnails nicht in Benutzung.</string>
+    <string name="revanced_alt_thumbnail_dearrow_summary_on">DeArrow Thumbnails in Benutzung.</string>
+    <string name="revanced_alt_thumbnail_dearrow_title">DeArrow Thumbnails aktivieren</string>
+    <string name="revanced_alt_thumbnail_preference_screen_summary">Video-Thumbnail-Einstellungen.</string>
+    <string name="revanced_alt_thumbnail_preference_screen_title">Alternative Thumbnails</string>
+    <string name="revanced_alt_thumbnail_stills">Zeige noch Videoaufnahmen</string>
+    <string name="revanced_alt_thumbnail_stills_about_summary">Aufnahmen werden von Anfang / Mitte / Ende jedes Videos aufgenommen. Diese Bilder sind in YouTube eingebaut und es wird keine externe API verwendet.</string>
+    <string name="revanced_alt_thumbnail_stills_about_title">Über Videoaufnahmen</string>
+    <string name="revanced_alt_thumbnail_stills_fast_summary_off">Benutze Aufnahmen hoher Qualität.</string>
+    <string name="revanced_alt_thumbnail_stills_fast_summary_on">Benutze Aufnahmen mittlerer Qualität. Thumbnails werden schneller laden, aber Live-Streams, unveröffentlichte, und sehr alte Videos zeigen möglicherweise leere Thumbnails.</string>
+    <string name="revanced_alt_thumbnail_stills_fast_title">Benutze schnelle Still-Aufnahmen</string>
+    <string name="revanced_alt_thumbnail_stills_summary_off">Youtube Stand-Aufnahmen werden nicht benutzt.</string>
+    <string name="revanced_alt_thumbnail_stills_summary_on">Youtube Stand-Aufnahmen werden benutzt.</string>
+    <string name="revanced_alt_thumbnail_stills_time_entry_1">Anfang von einem Video</string>
+    <string name="revanced_alt_thumbnail_stills_time_entry_2">Mitte eines Videos</string>
+    <string name="revanced_alt_thumbnail_stills_time_entry_3">Ende eines Videos</string>
+    <string name="revanced_alt_thumbnail_stills_time_title">Videozeit von der Stand-Aufnahmen aufgenommen werden</string>
+    <string name="revanced_alt_thumbnail_stills_title">Aktiviere Stand-Videoaufnahmen</string>
     <string name="revanced_append_time_stamp_information_summary_off">Das Anhängen von Zeitstempelinformationen ist deaktiviert</string>
     <string name="revanced_append_time_stamp_information_summary_on">Zeitstempelinformationen anhängen ist aktiviert</string>
     <string name="revanced_append_time_stamp_information_title">Zeitstempelinformationen anhängen</string>
@@ -20,7 +56,27 @@
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">Ambient Modus im Energiesparmodus deaktiviert</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">Ambient Modus im Energiesparmodus aktiviert</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">Einschränkungen des Umgebungsmodus umgehen</string>
+    <string name="revanced_change_player_flyout_panel_toggle_summary_off">Wechseln Optionen werden benutzt.</string>
+    <string name="revanced_change_player_flyout_panel_toggle_summary_on">Wechseln Schalter werden benutzt.</string>
+    <string name="revanced_change_player_flyout_panel_toggle_title">Umschalttyp ändern</string>
+    <string name="revanced_change_start_page_entry_default">Standard</string>
+    <string name="revanced_change_start_page_entry_explore">Entdecken</string>
+    <string name="revanced_change_start_page_entry_history">Verlauf</string>
+    <string name="revanced_change_start_page_entry_library">Bibliothek</string>
+    <string name="revanced_change_start_page_entry_liked_videos">Videos die mir gefallen</string>
+    <string name="revanced_change_start_page_entry_search">Suchen</string>
+    <string name="revanced_change_start_page_entry_shorts">Shorts</string>
+    <string name="revanced_change_start_page_entry_subscriptions">Abonnements</string>
+    <string name="revanced_change_start_page_entry_trending">Beliebt</string>
+    <string name="revanced_change_start_page_title">Startseite ändern</string>
+    <string name="revanced_change_start_page_warning">Ungültige Startseite, auf Standard zurücksetzen.</string>
     <string name="revanced_channel_bar_title">Kanalleiste</string>
+    <string name="revanced_channel_profile_title">Kanalprofil</string>
+    <string name="revanced_close_interstitial_ads_summary">"Interstitielle Werbung automatisch schließen.
+
+Hinweis: Diese Funktion wurde nicht getestet."</string>
+    <string name="revanced_close_interstitial_ads_title">Interstitielle Werbung schließen</string>
+    <string name="revanced_close_interstitial_ads_toast">Interstitielle Werbung schließen.</string>
     <string name="revanced_comments_title">Kommentare</string>
     <string name="revanced_custom_filter_strings_summary">Komponenten nach zeilengetrennten Namen filtern</string>
     <string name="revanced_custom_filter_strings_title">Benutzerdefinierten Filter bearbeiten</string>
@@ -32,6 +88,12 @@
     <string name="revanced_custom_playback_speeds_summary">Verfügbare Wiedergabegeschwindigkeiten hinzufügen oder ändern</string>
     <string name="revanced_custom_playback_speeds_title">Benutzerdefinierte Wiedergabegeschwindigkeiten bearbeiten</string>
     <string name="revanced_custom_playback_speeds_warning" formatted="false">Benutzerdefinierte Geschwindigkeiten dürfen nicht mehr als %sx betragen. Auf Standardwerte zurücksetzen.</string>
+    <string name="revanced_custom_playback_speed_panel_type_summary_off">Altes Phylum-Panel wird benutzt.</string>
+    <string name="revanced_custom_playback_speed_panel_type_summary_on">Benutzerdefinierter Dialog wird benutzt.</string>
+    <string name="revanced_custom_playback_speed_panel_type_title">Benutzerdefiniertes Wiedergabegeschwindigkeits-Panel Typ</string>
+    <string name="revanced_custom_player_overlay_opacity_summary">Deckkraft Wert zwischen 0-100, wobei 0 transparent ist.</string>
+    <string name="revanced_custom_player_overlay_opacity_title">Benutzerdefinierte Spieler-Überlagerung Deckkraft</string>
+    <string name="revanced_custom_player_overlay_opacity_warning">Spieler-Overlay-Deckkraft muss zwischen 0-100 liegen. Auf Standardwerte zurücksetzen.</string>
     <string name="revanced_custom_seekbar_color_value_summary">Hex-Code der Suchleisten-Farbe eingeben</string>
     <string name="revanced_custom_seekbar_color_value_title">Benutzerdefinierter Farbwert für die Suchleiste</string>
     <string name="revanced_default_app_settings_summary">Um RVX in einem externen Browser zu öffnen, aktivieren Sie \'Unterstützte Links öffnen\' und aktivieren Sie die unterstützen Web-Adressen</string>
@@ -40,15 +102,22 @@
     <string name="revanced_default_video_quality_mobile_title">Standard Videoqualität im Mobilfunk</string>
     <string name="revanced_default_video_quality_wifi_title">Standard-Videoqualität im Wlan</string>
     <string name="revanced_description_title">Beschreibung</string>
+    <string name="revanced_disable_ambient_mode_in_fullscreen_summary">Deaktiviert den Ambient-Modus im Vollbild.</string>
+    <string name="revanced_disable_ambient_mode_in_fullscreen_title">Ambient-Modus im Vollbildmodus deaktivieren</string>
+    <string name="revanced_disable_ambient_mode_summary">Ambient-Modus immer deaktivieren.</string>
+    <string name="revanced_disable_ambient_mode_title">Ambient-Modus deaktivieren</string>
     <string name="revanced_disable_auto_captions_summary_off">Erzwungene automatische Untertitel sind aktiviert</string>
     <string name="revanced_disable_auto_captions_summary_on">Erzwungene automatische Untertitel sind deaktiviert</string>
     <string name="revanced_disable_auto_captions_title">Deaktiviere erzwungene automatische Untertitel</string>
     <string name="revanced_disable_default_playback_speed_live_summary_off">Standard Wiedergabegeschwindigkeit ist im Live-Stream aktiviert</string>
     <string name="revanced_disable_default_playback_speed_live_summary_on">Standard Wiedergabegeschwindigkeit ist im Live-Stream deaktiviert</string>
     <string name="revanced_disable_default_playback_speed_live_title">Wiedergabegeschwindigkeit im Live-Stream deaktivieren</string>
+    <string name="revanced_disable_haptic_feedback_summary_off">Haptisches Feedback ist aktiviert.</string>
+    <string name="revanced_disable_haptic_feedback_summary_on">Haptisches Feedback ist deaktiviert.</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">Deaktiviere Haptisches Feedback bei Kapiteln</string>
     <string name="revanced_disable_haptic_feedback_scrubbing_title">Deaktiviere haptisches Feedback beim wischen</string>
     <string name="revanced_disable_haptic_feedback_seek_title">Haptisches Suchfeedback deaktivieren</string>
+    <string name="revanced_disable_haptic_feedback_seek_undo_title">Haptisches Suchfeedback deaktivieren</string>
     <string name="revanced_disable_haptic_feedback_zoom_title">Deaktiviere Haptisches Feedback beim Zoomen</string>
     <string name="revanced_disable_hdr_auto_brightness_summary_off">Automatische HDR-Helligkeit ist aktiviert</string>
     <string name="revanced_disable_hdr_auto_brightness_summary_on">Automatische HDR-Helligkeit ist deaktiviert</string>
@@ -61,11 +130,20 @@
     <string name="revanced_disable_landscape_mode_title">Querformat deaktivieren</string>
     <string name="revanced_disable_quic_protocol_summary">"CronetEngine's QUIC-Protokoll deaktivieren"</string>
     <string name="revanced_disable_quic_protocol_title">QUIC-Protokoll deaktivieren</string>
+    <string name="revanced_disable_speed_overlay_summary">"Deaktiviere 'Abspielen mit 2x Geschwindigkeit' während du gedrückt hältst.
+
+Information: Deaktiviere das Geschwindigkeits-Overlay stellt das 'Slide to Suchen' Verhalten des alten Layouts wieder her."</string>
+    <string name="revanced_disable_speed_overlay_title">Geschwindigkeitsüberlagerung deaktivieren</string>
     <string name="revanced_disable_startup_shorts_player_summary_off">Shorts-Player aktiv beim Start der Anwendung</string>
     <string name="revanced_disable_startup_shorts_player_summary_on">Shorts-Player nicht aktiv beim Start der Anwendung</string>
     <string name="revanced_disable_startup_shorts_player_title">Shorts-Player beim App-Start ausblenden</string>
+    <string name="revanced_disable_update_screen_summary">Deaktiviert den Bildschirm \"App aktualisieren\", der erscheint, wenn ein veralteter Client verwendet wird.</string>
+    <string name="revanced_disable_update_screen_title">Update-Bildschirm deaktivieren</string>
     <string name="revanced_double_back_timeout_summary">Die Anzahl an Sekunden, in der doppelt gedrückt werden muss, um zu beenden</string>
     <string name="revanced_double_back_timeout_title">Zeitbegrenzung für \'Doppelt Antippen\'</string>
+    <string name="revanced_enable_bottom_player_gestures_summary_off">Vollbild-Eingabe beim Herunterwischen unter dem Videoplayer ist deaktiviert.</string>
+    <string name="revanced_enable_bottom_player_gestures_summary_on">Vollbild-Eingabe beim Herunterwischen unter dem Videoplayer ist aktiviert.</string>
+    <string name="revanced_enable_bottom_player_gestures_title">Aktiviere Gesten des unteren Spielers</string>
     <string name="revanced_enable_compact_controls_overlay_summary_off">Kompaktsteuerungs-Overlay ist deaktiviert</string>
     <string name="revanced_enable_compact_controls_overlay_summary_on">Kompaktsteuerungs-Overlay ist aktiviert</string>
     <string name="revanced_enable_compact_controls_overlay_title">Kompaktsteuerungs-Overlay aktivieren</string>
@@ -75,12 +153,21 @@
     <string name="revanced_enable_custom_seekbar_color_summary_off">Die benutzerdefinierte Farbe der Suchleiste ist deaktiviert</string>
     <string name="revanced_enable_custom_seekbar_color_summary_on">Die benutzerdefinierte Farbe der Suchleiste ist aktiviert</string>
     <string name="revanced_enable_custom_seekbar_color_title">Eigene Suchleistenfarbe aktivieren</string>
+    <string name="revanced_enable_debug_buffer_logging_summary_off">Debug-Protokolle enthalten keinen Puffer.</string>
+    <string name="revanced_enable_debug_buffer_logging_summary_on">Debug-Protokolle enthalten Puffer.</string>
+    <string name="revanced_enable_debug_buffer_logging_title">Debug-Pufferprotokollierung aktivieren</string>
     <string name="revanced_enable_debug_logging_summary_off">Debug-Logs sind deaktiviert</string>
     <string name="revanced_enable_debug_logging_summary_on">Debug-Logs sind aktiviert</string>
     <string name="revanced_enable_debug_logging_title">Debug-Protokollierung aktivieren</string>
+    <string name="revanced_enable_default_playback_speed_shorts_summary_off">Die Standard-Wiedergabegeschwindigkeit gilt nicht für Shorts.</string>
+    <string name="revanced_enable_default_playback_speed_shorts_summary_on">Die Standard-Wiedergabegeschwindigkeit gilt für Shorts.</string>
+    <string name="revanced_enable_default_playback_speed_shorts_title">Standard Wiedergabegeschwindigkeit für Shorts aktivieren</string>
     <string name="revanced_enable_external_browser_summary_off">Externer Browser ist deaktiviert</string>
     <string name="revanced_enable_external_browser_summary_on">Externer Browser ist aktiviert</string>
     <string name="revanced_enable_external_browser_title">Aktiviere externen Browser</string>
+    <string name="revanced_enable_gradient_loading_screen_summary_off">Ladebildschirm für den Verlauf ist deaktiviert.</string>
+    <string name="revanced_enable_gradient_loading_screen_summary_on">Ladebildschirm für den Verlauf ist aktiviert.</string>
+    <string name="revanced_enable_gradient_loading_screen_title">Farbverlauf-Ladebildschirm aktivieren</string>
     <string name="revanced_enable_language_switch_summary_off">Die Sprachumschaltung ist deaktiviert</string>
     <string name="revanced_enable_language_switch_summary_on">Sprachumschaltung ist aktiviert</string>
     <string name="revanced_enable_language_switch_title">Sprachumschaltung aktivieren</string>
@@ -109,12 +196,21 @@
     <string name="revanced_enable_seekbar_tapping_summary_off">Tippen der Suchleiste ist deaktiviert</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">Tippen der Suchleiste ist aktiviert</string>
     <string name="revanced_enable_seekbar_tapping_title">Aktiviere Suchleisten-Tippen (Video Fortschrittsbalken)</string>
+    <string name="revanced_enable_song_search_summary_off">Songsuche ist deaktiviert.</string>
+    <string name="revanced_enable_song_search_summary_on">Songsuche ist aktiviert.</string>
+    <string name="revanced_enable_song_search_title">Songsuche aktivieren</string>
     <string name="revanced_enable_swipe_auto_brightness_summary_off">Auch wenn die Helligkeit durch Wischen auf 0 gesetzt wird, ist die automatische Helligkeit nicht aktiviert</string>
     <string name="revanced_enable_swipe_auto_brightness_summary_on">Wenn die Helligkeit durch Wischen 0 erreicht wird, wird die automatische Helligkeit aktiviert</string>
     <string name="revanced_enable_swipe_auto_brightness_title">Aktiviere Auto-Helligkeit durch Wischen</string>
     <string name="revanced_enable_swipe_brightness_summary_off">Helligkeit Wischen ist deaktiviert</string>
     <string name="revanced_enable_swipe_brightness_summary_on">Helligkeit Wischen ist aktiviert</string>
     <string name="revanced_enable_swipe_brightness_title">Aktivierung der Helligkeitsgesten</string>
+    <string name="revanced_enable_swipe_haptic_feedback_summary_off">Haptisches Feedback ist deaktiviert.</string>
+    <string name="revanced_enable_swipe_haptic_feedback_summary_on">Haptisches Feedback ist aktiviert.</string>
+    <string name="revanced_enable_swipe_haptic_feedback_title">Haptisches Feedback aktivieren</string>
+    <string name="revanced_enable_swipe_press_to_engage_summary_off">Berühren, um die Wischgeste zu aktivieren.</string>
+    <string name="revanced_enable_swipe_press_to_engage_summary_on">Berühren und halten, um die Wischgeste zu aktivieren.</string>
+    <string name="revanced_enable_swipe_press_to_engage_title">Aktiviere Drücken-zu-Wischgeste</string>
     <string name="revanced_enable_swipe_volume_summary_off">Lautstärkegeste ist deaktiviert</string>
     <string name="revanced_enable_swipe_volume_summary_on">Lautstärkegeste ist aktiviert</string>
     <string name="revanced_enable_swipe_volume_title">Aktiviere Lautstärkegesten</string>
@@ -134,7 +230,21 @@
     <string name="revanced_enable_wide_search_bar_summary_off">Breite Suchleiste ist deaktiviert</string>
     <string name="revanced_enable_wide_search_bar_summary_on">Breite Suchleiste ist aktiviert</string>
     <string name="revanced_enable_wide_search_bar_title">Aktiviere breite Suchleiste</string>
+    <string name="revanced_enable_wide_search_bar_in_you_tab_summary">"Aktivieren dieser Einstellung deaktiviert die Einstellungsschaltfläche in der Registerkarte \"Sie\".
+
+In diesem Fall verwenden Sie bitte den folgenden Pfad:
+Sie Registerkarte &gt; Kanal &gt; Menü &gt; Einstellungen."</string>
+    <string name="revanced_enable_wide_search_bar_in_you_tab_title">Aktiviere breite Suchleiste in deinem Tab</string>
     <string name="revanced_experimental_flag">Experimentelle Fahnen</string>
+    <string name="revanced_extended_settings_export_failed">Fehler beim exportieren der Einstellungen.</string>
+    <string name="revanced_extended_settings_export_success">Einstellungen wurden erfolgreich exportiert.</string>
+    <string name="revanced_extended_settings_export_summary">Exportiere Einstellungen zu Datei.</string>
+    <string name="revanced_extended_settings_export_title">Einstellungen exportieren</string>
+    <string name="revanced_extended_settings_import">Importieren</string>
+    <string name="revanced_extended_settings_import_copy">Kopieren</string>
+    <string name="revanced_extended_settings_import_export_as_file_title">Import / Export als Datei</string>
+    <string name="revanced_extended_settings_import_export_as_text_summary">Einstellungen Importieren/Exportieren als Text.</string>
+    <string name="revanced_extended_settings_import_export_as_text_title">Importieren / Exportieren als Text</string>
     <string name="revanced_external_downloader_installed">Installiert</string>
     <string name="revanced_external_downloader_not_installed">Nicht installiert</string>
     <string name="revanced_external_downloader_not_installed_warning" formatted="false">%s ist nicht installiert. Bitte installieren.</string>
@@ -203,9 +313,6 @@
     <string name="revanced_hide_button_thanks_summary_off">Thanks-Button wird angezeigt</string>
     <string name="revanced_hide_button_thanks_summary_on">Danke-Schaltfläche ist versteckt</string>
     <string name="revanced_hide_button_thanks_title">Verstecke \"Danke\" Schaltfläche</string>
-    <string name="revanced_hide_button_transcript_summary_off">Die Schaltfläche „Transkript“ wird angezeigt</string>
-    <string name="revanced_hide_button_transcript_summary_on">Die Schaltfläche „Transkript“ ist ausgeblendet</string>
-    <string name="revanced_hide_button_transcript_title">Transkript-Schaltfläche ausblenden</string>
     <string name="revanced_hide_captions_button_summary_off">Schaltfläche \"Untertitel\" wird angezeigt</string>
     <string name="revanced_hide_captions_button_summary_on">Schaltfläche \"Untertitel\" ist versteckt</string>
     <string name="revanced_hide_captions_button_title">Verstecke \"Untertitel\" Schaltfläche</string>
@@ -383,12 +490,16 @@
     <string name="revanced_hide_player_flyout_panel_report_summary_off">Berichtsmenü wird angezeigt</string>
     <string name="revanced_hide_player_flyout_panel_report_summary_on">Berichtsmenü ist versteckt</string>
     <string name="revanced_hide_player_flyout_panel_report_title">\'Melden\'-Menü ausblenden</string>
+    <string name="revanced_hide_player_flyout_panel_stable_volume_title">Stabiles Lautstärkenmenü ausblenden</string>
     <string name="revanced_hide_player_flyout_panel_stats_for_nerds_summary_off">Statistiken für Nerds werden angezeigt</string>
     <string name="revanced_hide_player_flyout_panel_stats_for_nerds_summary_on">Statistiken für Nerds sind versteckt</string>
     <string name="revanced_hide_player_flyout_panel_stats_for_nerds_title">Verstecke Statistiken für Nerds</string>
     <string name="revanced_hide_player_flyout_panel_watch_in_vr_summary_off">\'In VR ansehen\'-Menü wird angezeigt</string>
     <string name="revanced_hide_player_flyout_panel_watch_in_vr_summary_on">\'In VR ansehen\'-Menü wird ausgeblendet</string>
     <string name="revanced_hide_player_flyout_panel_watch_in_vr_title">Verstecke \'in VR ansehen\'-Menü</string>
+    <string name="revanced_hide_podcast_section_summary_off">Podcast-Abschnitte werden angezeigt.</string>
+    <string name="revanced_hide_podcast_section_summary_on">Podcast-Abschnitte sind ausgeblendet.</string>
+    <string name="revanced_hide_podcast_section_title">Podcast-Abschnitte ausblenden</string>
     <string name="revanced_hide_preview_comment_off">Vorschau-Kommentar wird angezeigt</string>
     <string name="revanced_hide_preview_comment_on">Vorschau-Kommentar ist versteckt</string>
     <string name="revanced_hide_preview_comment_title">Verstecke Vorschau-Kommentar</string>

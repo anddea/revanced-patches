@@ -248,7 +248,7 @@ Zakładka Ty &gt; Zobacz kanał &gt; Menu &gt; Ustawienia."</string>
     <string name="revanced_extended_settings_import_export_summary">Ustawienia importu oraz eksportu</string>
     <string name="revanced_extended_settings_import_export_title">Ustawienia importu/eksportu</string>
     <string name="revanced_extended_settings_import_failed">Nie udało się zaimportować ustawień.</string>
-    <string name="revanced_extended_settings_import_reset">Zresetuj</string>
+    <string name="revanced_extended_settings_import_reset">Zresetowano ustawienia do domyślnych.</string>
     <string name="revanced_extended_settings_import_success">Ustawienia zostały pomyślnie zaimportowane.</string>
     <string name="revanced_extended_settings_import_summary">Zaimportuj ustawienia z zapisanego pliku</string>
     <string name="revanced_extended_settings_import_title">Zaimportuj ustawienia</string>
@@ -338,9 +338,6 @@ Niektóre komponenty mogą nie być ukryte"</string>
     <string name="revanced_hide_button_thanks_summary_off">Widoczny</string>
     <string name="revanced_hide_button_thanks_summary_on">Ukryty</string>
     <string name="revanced_hide_button_thanks_title">Przycisk od dziękowania</string>
-    <string name="revanced_hide_button_transcript_summary_off">Widoczny</string>
-    <string name="revanced_hide_button_transcript_summary_on">Ukryty</string>
-    <string name="revanced_hide_button_transcript_title">Przycisk do transkrypcji</string>
     <string name="revanced_hide_captions_button_summary_off">Widoczny</string>
     <string name="revanced_hide_captions_button_summary_on">Ukryty</string>
     <string name="revanced_hide_captions_button_title">Przycisk od napisów</string>
@@ -399,7 +396,7 @@ Niektóre komponenty mogą nie być ukryte"</string>
     <string name="revanced_hide_crowdfunding_box_title">Ramki ze zbiórkami</string>
     <string name="revanced_hide_emoji_picker_summary_off">Widoczne</string>
     <string name="revanced_hide_emoji_picker_summary_on">Ukryte</string>
-    <string name="revanced_hide_emoji_picker_title">Sugestie emotikon</string>
+    <string name="revanced_hide_emoji_picker_title">Sugestie emotikon i czas wideo</string>
     <string name="revanced_hide_end_screen_cards_summary_off">Widoczne</string>
     <string name="revanced_hide_end_screen_cards_summary_on">Ukryte</string>
     <string name="revanced_hide_end_screen_cards_title">Karty końcowe wideo</string>
@@ -711,6 +708,10 @@ Niektóre wideo, w tym te z subskrybowanych kanałów, mogą nie zostać ukryte.
     <string name="revanced_hook_download_button_summary">"Zmodyfikuj przycisk od pobierania, by używał zewnętrznej aplikacji"</string>
     <string name="revanced_hook_download_button_title">Zmodyfikuj przycisk od pobierania</string>
     <string name="revanced_inform">Notka</string>
+    <string name="revanced_keep_landscape_mode_summary">Zachowuje tryb poziomy, gdy wyłączysz i włączysz ekran w trybie pełnoekranowym.</string>
+    <string name="revanced_keep_landscape_mode_timeout_summary">Ilość milisekund, podczas których tryb poziomy jest wymuszony.</string>
+    <string name="revanced_keep_landscape_mode_timeout_title">Limit czasu zachowania trybu poziomego</string>
+    <string name="revanced_keep_landscape_mode_title">Zachowaj tryb poziomy</string>
     <string name="revanced_layout_title">Układ</string>
     <string name="revanced_misc">Pozostałe</string>
     <string name="revanced_navigation">Nawigacja</string>
@@ -743,7 +744,7 @@ Stuknij i przytrzymaj, by zmienić prędkość odtwarzania na 1.0x."</string>
     <string name="revanced_quick_actions_title">Pod paskiem wideo</string>
     <string name="revanced_remove_viewer_discretion_dialog_summary">"Usuwa okno dialogowe treści ograniczonej do oglądania.
 Nie pomija to ograniczeń wiekowych, lecz akceptuje je automatycznie."</string>
-    <string name="revanced_remove_viewer_discretion_dialog_title">Usuń okno dialogowe treści ograniczonej wiekowo</string>
+    <string name="revanced_remove_viewer_discretion_dialog_title">Usuń okno dialogowe treści ograniczonej do oglądania</string>
     <string name="revanced_restart_first_run">Uruchom ponownie, aby wczytać poprawnie układ aplikacji</string>
     <string name="revanced_restart_message">Odśwież i uruchom ponownie</string>
     <string name="revanced_ryd_about">O integracji</string>
@@ -806,6 +807,7 @@ Nie pomija to ograniczeń wiekowych, lecz akceptuje je automatycznie."</string>
     <string name="revanced_spoof_app_version_target_entry_18_33_40">18.33.40 - Przywróć stary pasek akcji shortsów</string>
     <string name="revanced_spoof_app_version_target_entry_18_38_45">18.38.45 - Przywróć stare zachowanie domyślnej jakości wideo</string>
     <string name="revanced_spoof_app_version_target_entry_18_40_34">"18.40.34 - Wyłącz aktualizowanie wyświetleń i łapek w górę w czasie rzeczywistym"</string>
+    <string name="revanced_spoof_app_version_target_entry_18_42_41">18.42.41 - Napraw błąd, w którym motyw nie jest stosowany w wynikach wyszukiwania</string>
     <string name="revanced_spoof_app_version_target_entry_title">Oszukana wersja aplikacji</string>
     <string name="revanced_spoof_app_version_target_summary">Wpisz wersję, którą chcesz oszukiwać</string>
     <string name="revanced_spoof_app_version_target_title">Zmień oszukaną wersję aplikacji</string>

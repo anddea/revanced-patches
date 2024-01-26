@@ -62,7 +62,6 @@ object TranslationsPatch : AbstractTranslationsPatch(
         "ko-rKR",
         "pl-rPL",
         "pt-rBR",
-        "ro-rRO",
         "ru-rRU",
         "tr-rTR",
         "uk-rUA",
