@@ -216,6 +216,9 @@
         <!-- SETTINGS: HIDE_AUTO_PLAYER_POPUP_PANELS
         <SwitchPreference android:title="@string/revanced_hide_auto_player_popup_panels_title" android:key="revanced_hide_auto_player_popup_panels" android:defaultValue="true" android:summaryOn="@string/revanced_hide_auto_player_popup_panels_summary_on" android:summaryOff="@string/revanced_hide_auto_player_popup_panels_summary_off" />SETTINGS: HIDE_AUTO_PLAYER_POPUP_PANELS -->
 
+        <!-- SETTINGS: HIDE_CAST_BUTTON
+        <SwitchPreference android:title="@string/revanced_hide_cast_button_title" android:key="revanced_hide_cast_button" android:defaultValue="true" android:summaryOn="@string/revanced_hide_cast_button_summary_on" android:summaryOff="@string/revanced_hide_cast_button_summary_off" />SETTINGS: HIDE_CAST_BUTTON -->
+
         <!-- SETTINGS: HIDE_CATEGORY_BAR
         <SwitchPreference android:title="@string/revanced_hide_category_bar_in_feed_title" android:key="revanced_hide_category_bar_in_feed" android:defaultValue="false" android:summaryOn="@string/revanced_hide_category_bar_summary_on" android:summaryOff="@string/revanced_hide_category_bar_summary_off" />
         <SwitchPreference android:title="@string/revanced_hide_category_bar_in_related_video_title" android:key="revanced_hide_category_bar_in_related_video" android:defaultValue="false" android:summaryOn="@string/revanced_hide_category_bar_summary_on" android:summaryOff="@string/revanced_hide_category_bar_summary_off" />
@@ -431,6 +434,7 @@
             <Preference android:title="Enable wide search bar" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Hide account menu" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Hide auto player popup panels" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="Hide cast button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Hide category bar" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Hide channel avatar section" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Hide crowdfunding box" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
@@ -479,7 +483,6 @@
             <Preference android:title="Disable speed overlay" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Hide autoplay button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Hide captions button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
-            <Preference android:title="Hide cast button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Hide channel watermark" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Hide collapse button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Hide end screen cards" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
@@ -591,9 +594,6 @@
 
         <!-- SETTINGS: HIDE_CAPTIONS_BUTTON
         <SwitchPreference android:title="@string/revanced_hide_captions_button_title" android:key="revanced_hide_captions_button" android:defaultValue="false" android:summaryOn="@string/revanced_hide_captions_button_summary_on" android:summaryOff="@string/revanced_hide_captions_button_summary_off" />SETTINGS: HIDE_CAPTIONS_BUTTON -->
-
-        <!-- SETTINGS: HIDE_CAST_BUTTON
-        <SwitchPreference android:title="@string/revanced_hide_cast_button_title" android:key="revanced_hide_cast_button" android:defaultValue="true" android:summaryOn="@string/revanced_hide_cast_button_summary_on" android:summaryOff="@string/revanced_hide_cast_button_summary_off" />SETTINGS: HIDE_CAST_BUTTON -->
 
         <!-- SETTINGS: HIDE_CHANNEL_WATERMARK
         <SwitchPreference android:title="@string/revanced_hide_channel_watermark_title" android:key="revanced_hide_channel_watermark" android:defaultValue="true" android:summaryOn="@string/revanced_hide_channel_watermark_summary_on" android:summaryOff="@string/revanced_hide_channel_watermark_summary_off" />SETTINGS: HIDE_CHANNEL_WATERMARK -->
