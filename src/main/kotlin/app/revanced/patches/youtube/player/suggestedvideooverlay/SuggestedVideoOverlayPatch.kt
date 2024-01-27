@@ -8,14 +8,17 @@ import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.youtube.player.suggestedvideooverlay.fingerprints.CoreContainerBuilderFingerprint
+import app.revanced.patches.youtube.player.suggestedvideooverlay.fingerprints.TouchAreaOnClickListenerFingerprint
 import app.revanced.patches.youtube.utils.integrations.Constants.PLAYER
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.CoreContainer
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.exception
 import app.revanced.util.getWideLiteralInstructionIndex
+import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.Opcode
 
 @Patch(
     name = "Hide suggested video overlay",
@@ -58,7 +61,10 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 )
 @Suppress("unused")
 object SuggestedVideoOverlayPatch : BytecodePatch(
-    setOf(CoreContainerBuilderFingerprint)
+    setOf(
+        CoreContainerBuilderFingerprint,
+        TouchAreaOnClickListenerFingerprint
+    )
 ) {
     override fun execute(context: BytecodeContext) {
 
@@ -81,13 +87,30 @@ object SuggestedVideoOverlayPatch : BytecodePatch(
             }
         } ?: throw CoreContainerBuilderFingerprint.exception
 
+        TouchAreaOnClickListenerFingerprint.result?.let {
+            it.mutableMethod.apply {
+                val insertMethod = it.mutableClass.methods.find { method -> method.parameters.size == 1 }
+                
+                insertMethod?.apply {            
+                    val targetIndex = insertMethod.implementation!!.instructions
+                        .indexOfFirst { instruction -> instruction.opcode == Opcode.INVOKE_VIRTUAL }
+                    val targetRegister = getInstruction<Instruction35c>(targetIndex).registerC
+
+                    addInstruction(
+                        targetIndex + 1,
+                        "invoke-static {v$targetRegister}, $PLAYER->hideSuggestedVideoOverlay(Landroid/view/View;)V"
+                    )
+                } ?: throw PatchException("Failed to find onClick method")
+
+            }
+        } ?: throw TouchAreaOnClickListenerFingerprint.exception
+
         /**
          * Add settings
          */
         SettingsPatch.addPreference(
             arrayOf(
                 "PREFERENCE: PLAYER_SETTINGS",
-                "SETTINGS: PLAYER_EXPERIMENTAL_FLAGS",
                 "SETTINGS: HIDE_SUGGESTED_VIDEO_OVERLAY"
             )
         )
