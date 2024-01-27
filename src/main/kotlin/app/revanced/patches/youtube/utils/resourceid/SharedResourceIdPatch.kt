@@ -80,6 +80,7 @@ object SharedResourceIdPatch : ResourcePatch() {
     var TabsBarTextTabView: Long = -1
     var ToolTipContentView: Long = -1
     var TotalTime: Long = -1
+    var TouchArea: Long = -1
     var VideoQualityBottomSheet: Long = -1
     var VideoZoomIndicatorLayout: Long = -1
     var YoutubeControlsOverlay: Long = -1
@@ -163,6 +164,7 @@ object SharedResourceIdPatch : ResourcePatch() {
         TabsBarTextTabView = find(ID, "tabs_bar_text_tab_view")
         ToolTipContentView = find(LAYOUT, "tooltip_content_view")
         TotalTime = find(STRING, "total_time")
+        TouchArea = find(ID, "touch_area")
         VideoQualityBottomSheet = find(LAYOUT, "video_quality_bottom_sheet_list_fragment_title")
         VideoZoomIndicatorLayout = find(ID, "video_zoom_indicator_layout")
         YoutubeControlsOverlay = find(ID, "youtube_controls_overlay")
