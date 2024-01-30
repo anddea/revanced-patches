@@ -6,8 +6,10 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.shared.patch.customspeed.AbstractCustomPlaybackSpeedPatch
 import app.revanced.patches.youtube.flyoutpanel.oldspeedlayout.OldSpeedLayoutPatch
 import app.revanced.patches.youtube.utils.integrations.Constants.VIDEO_PATH
+import app.revanced.patches.youtube.utils.integrations.Constants.UTILS_PATH
 import app.revanced.patches.youtube.utils.overridespeed.OverrideSpeedHookPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
+import app.revanced.util.updatePatchStatus
 
 @Patch(
     name = "Custom playback speed",
@@ -66,6 +68,8 @@ object CustomPlaybackSpeedPatch : AbstractCustomPlaybackSpeedPatch(
                 "SETTINGS: CUSTOM_PLAYBACK_SPEED"
             )
         )
+
+        context.updatePatchStatus("$UTILS_PATH/PatchStatus;","VideoSpeed")
 
         SettingsPatch.updatePatchStatus("Custom playback speed")
     }

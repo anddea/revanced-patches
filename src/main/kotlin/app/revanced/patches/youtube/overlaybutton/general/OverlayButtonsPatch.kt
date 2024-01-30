@@ -8,6 +8,7 @@ import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.booleanPat
 import app.revanced.patches.youtube.overlaybutton.alwaysrepeat.AlwaysRepeatPatch
 import app.revanced.patches.youtube.overlaybutton.download.hook.DownloadButtonHookPatch
 import app.revanced.patches.youtube.overlaybutton.download.pip.DisablePiPPatch
+import app.revanced.patches.youtube.overlaybutton.whitelist.WhitelistPatch
 import app.revanced.patches.youtube.utils.integrations.Constants.OVERLAY_BUTTONS_PATH
 import app.revanced.patches.youtube.utils.overridespeed.OverrideSpeedHookPatch
 import app.revanced.patches.youtube.utils.playerbutton.PlayerButtonHookPatch
@@ -33,7 +34,8 @@ import org.w3c.dom.Element
         PlayerControlsPatch::class,
         SettingsPatch::class,
         SharedResourceIdPatch::class,
-        VideoIdPatch::class
+        VideoIdPatch::class,
+        WhitelistPatch::class
     ],
     compatiblePackages = [
         CompatiblePackage(
@@ -94,7 +96,8 @@ object OverlayButtonsPatch : ResourcePatch() {
             "CopyVideoUrl",
             "CopyVideoUrlTimestamp",
             "ExternalDownload",
-            "SpeedDialog"
+            "SpeedDialog",
+            "Whitelists"
         ).forEach { patch ->
             PlayerControlsPatch.initializeControl("$OVERLAY_BUTTONS_PATH/$patch;")
             PlayerControlsPatch.injectVisibility("$OVERLAY_BUTTONS_PATH/$patch;")
@@ -132,6 +135,7 @@ object OverlayButtonsPatch : ResourcePatch() {
                     "revanced_copy_icon_with_time.png",
                     "revanced_download_icon.png",
                     "revanced_speed_icon.png",
+                    "revanced_whitelist_icon.png",
                     "yt_fill_arrow_repeat_white_24.png",
                     "yt_outline_arrow_repeat_1_white_24.png",
                     "yt_outline_arrow_shuffle_1_white_24.png",
@@ -155,6 +159,7 @@ object OverlayButtonsPatch : ResourcePatch() {
                     "revanced_copy_icon_with_time.png",
                     "revanced_download_icon.png",
                     "revanced_speed_icon.png",
+                    "revanced_whitelist_icon.png",
                     "yt_fill_arrow_repeat_white_24.png",
                     "yt_outline_arrow_repeat_1_white_24.png",
                     "yt_outline_arrow_shuffle_1_white_24.png",
