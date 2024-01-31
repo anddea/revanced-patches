@@ -98,7 +98,7 @@ object CustomBrandingIconPatch : ResourcePatch() {
         values = availableIcon,
         title = "App icon",
         description = """
-            The path to a folder containing the following folders:
+            The path to a folder must contain one or more of the following folders matching the DPI of your device:
 
             ${mipmapDirectories.joinToString("\n") { "- $it" }}
 
