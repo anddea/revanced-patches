@@ -16,15 +16,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
     name = "Hide navigation buttons",
     description = "Adds options to hide buttons in the navigation bar.",
     dependencies = [SettingsPatch::class],
-    compatiblePackages = [
-        CompatiblePackage(
-            "com.reddit.frontpage",
-            [
-                "2023.12.0",
-                "2024.04.0"
-            ]
-        )
-    ]
+    compatiblePackages = [CompatiblePackage("com.reddit.frontpage")]
 )
 @Suppress("unused")
 object NavigationButtonsPatch : BytecodePatch(

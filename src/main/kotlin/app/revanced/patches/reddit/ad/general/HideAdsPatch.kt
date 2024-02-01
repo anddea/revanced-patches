@@ -25,15 +25,7 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
     name = "Hide ads",
     description = "Adds options to hide ads.",
     dependencies = [HideBannerPatch::class, HideCommentAdsPatch::class, SettingsPatch::class],
-    compatiblePackages = [
-        CompatiblePackage(
-            "com.reddit.frontpage",
-            [
-                "2023.12.0",
-                "2024.04.0"
-            ]
-        )
-    ],
+    compatiblePackages = [CompatiblePackage("com.reddit.frontpage")],
     requiresIntegrations = true,
 )
 @Suppress("unused")
