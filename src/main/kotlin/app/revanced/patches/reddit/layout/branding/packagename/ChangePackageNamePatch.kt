@@ -12,15 +12,7 @@ import java.io.Closeable
 @Patch(
     name = "Change package name",
     description = "Changes the package name for Reddit to the name specified in options.json.",
-    compatiblePackages = [
-        CompatiblePackage(
-            "com.reddit.frontpage",
-            [
-                "2023.12.0",
-                "2024.04.0"
-            ]
-        )
-    ],
+    compatiblePackages = [CompatiblePackage("com.reddit.frontpage")],
     use = false
 )
 @Suppress("unused")

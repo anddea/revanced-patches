@@ -22,15 +22,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
     name = "Remove subreddit dialog",
     description = "Adds options to remove the NSFW community warning and notifications suggestion dialogs by dismissing them automatically.",
     dependencies = [SettingsPatch::class, SharedResourceIdPatch::class],
-    compatiblePackages = [
-        CompatiblePackage(
-            "com.reddit.frontpage",
-            [
-                "2023.12.0",
-                "2024.04.0"
-            ]
-        )
-    ]
+    compatiblePackages = [CompatiblePackage("com.reddit.frontpage")],
 )
 @Suppress("unused")
 object RemoveSubRedditDialogPatch : BytecodePatch(

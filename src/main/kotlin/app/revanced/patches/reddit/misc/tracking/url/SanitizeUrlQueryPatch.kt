@@ -16,15 +16,7 @@ import app.revanced.util.exception
     name = "Sanitize sharing links",
     description = "Adds an option to remove tracking query parameters from URLs when sharing links.",
     dependencies = [SettingsPatch::class],
-    compatiblePackages = [
-        CompatiblePackage(
-            "com.reddit.frontpage",
-            [
-                "2023.12.0",
-                "2024.04.0"
-            ]
-        )
-    ]
+    compatiblePackages = [CompatiblePackage("com.reddit.frontpage")]
 )
 @Suppress("unused")
 object SanitizeUrlQueryPatch : BytecodePatch(

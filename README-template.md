@@ -75,22 +75,6 @@ Example:
     "use":true,
     "requiresIntegrations":false,
     "options": []
-  },
-  {
-    "name": "Hide ads",
-    "description": "Adds options to hide ads.",
-    "compatiblePackages": [
-      {
-        "name": "com.reddit.frontpage",
-        "versions": [
-          "2023.12.0",
-          "2024.04.0"
-        ]
-      }
-    ],
-    "use":true,
-    "requiresIntegrations":true,
-    "options": []
   }
 ]
 ```
