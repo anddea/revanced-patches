@@ -25,7 +25,7 @@ Tocca qui per saperne di più su DeArrow"</string>
     <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Notifica toast nascosta se l\'API di DeArrow non è disponibile</string>
     <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">Notifica toast visibile se l\'API di DeArrow non è disponibile</string>
     <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">Mostra una notifica toast se l\'API non è disponibile</string>
-    <string name="revanced_alt_thumbnail_dearrow_error">DeArrow temporaneamente non disponibile (stato: %s)</string>
+    <string name="revanced_alt_thumbnail_dearrow_error">DeArrow temporaneamente non disponibile (%s)</string>
     <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow temporaneamente non disponibile</string>
     <string name="revanced_alt_thumbnail_dearrow_summary_off">DeArrow è disattivato</string>
     <string name="revanced_alt_thumbnail_dearrow_summary_on">DeArrow è attivato</string>
@@ -68,8 +68,8 @@ Tocca qui per saperne di più su DeArrow"</string>
     <string name="revanced_change_start_page_entry_shorts">Shorts</string>
     <string name="revanced_change_start_page_entry_subscriptions">Iscrizioni</string>
     <string name="revanced_change_start_page_entry_trending">Tendenze</string>
-    <string name="revanced_change_start_page_title">Cambia la pagina iniziale</string>
-    <string name="revanced_change_start_page_warning">Pagina iniziale non valida, ripristinando al predefinito</string>
+    <string name="revanced_change_start_page_title">Cambia la scheda iniziale</string>
+    <string name="revanced_change_start_page_warning">Scheda iniziale non valida, ripristinata al predefinito</string>
     <string name="revanced_channel_bar_title">Barra del canale</string>
     <string name="revanced_channel_profile_title">Profilo canale</string>
     <string name="revanced_close_interstitial_ads_summary">"Chiudi automaticamente gli annunci interstiziali.
@@ -80,20 +80,22 @@ Nota: questa funzionalità non è stata testata"</string>
     <string name="revanced_comments_title">Commenti</string>
     <string name="revanced_custom_filter_strings_summary">Configura quali componenti filtrare separati da nuove righe</string>
     <string name="revanced_custom_filter_strings_title">Modifica il filtro personalizzato</string>
-    <string name="revanced_custom_filter_strings_warning">Filtro personalizzato non valido. Ripristinato ai valori predefiniti</string>
+    <string name="revanced_custom_filter_toast_invalid_characters" formated="false">Filtro personalizzato non valido, deve essere solo ASCII (%s)</string>
+    <string name="revanced_custom_filter_toast_invalid_syntax" formated="false">Filtro personalizzato non valido (%s)</string>
+    <string name="revanced_custom_filter_toast_reset">Filtro personalizzato ripristinato al predefinito</string>
     <string name="revanced_custom_filter_summary_off">Il filtro personalizzato è disattivato</string>
     <string name="revanced_custom_filter_summary_on">Il filtro personalizzato è attivato</string>
     <string name="revanced_custom_filter_title">Attiva il filtro personalizzato</string>
-    <string name="revanced_custom_playback_speeds_invalid">Velocità personalizzate di riproduzione non valide. Ripristinato ai valori predefiniti</string>
+    <string name="revanced_custom_playback_speeds_invalid">Velocità personalizzate di riproduzione non valide, ripristinate al predefinito</string>
     <string name="revanced_custom_playback_speeds_summary">È disponibile aggiungere, rimuovere o modificare le velocità di riproduzione</string>
     <string name="revanced_custom_playback_speeds_title">Modifica le velocità personalizzate del video</string>
-    <string name="revanced_custom_playback_speeds_warning" formatted="false">Le velocità personalizzate non possono essere maggiori di %sx. Ripristinato ai valori predefiniti</string>
+    <string name="revanced_custom_playback_speeds_warning" formatted="false">Le velocità personalizzate non possono essere maggiori di %sx, ripristinate al predefinito</string>
     <string name="revanced_custom_playback_speed_panel_type_summary_off">Vecchio pannello a comparsa</string>
     <string name="revanced_custom_playback_speed_panel_type_summary_on">Finestra personalizzata</string>
     <string name="revanced_custom_playback_speed_panel_type_title">Il tipo di velocità della riproduzione personalizzata</string>
     <string name="revanced_custom_player_overlay_opacity_summary">Il valore dell\'opacità è compreso tra 0 a 100, dove 0 è trasparente</string>
     <string name="revanced_custom_player_overlay_opacity_title">L\'opacità personalizzata della sovrapposizione del riproduttore</string>
-    <string name="revanced_custom_player_overlay_opacity_warning">L\'opacità della sovrapposizione del riproduttore deve essere compresa tra 0 e 100. Ripristinato ai valori predefiniti</string>
+    <string name="revanced_custom_player_overlay_opacity_warning">L\'opacità della sovrapposizione del riproduttore deve essere compresa tra 0 e 100, ripristinata al predefinito</string>
     <string name="revanced_custom_seekbar_color_value_summary">Digita il codice esadecimale del colore della barra di avanzamento</string>
     <string name="revanced_custom_seekbar_color_value_title">Valore del colore personalizzato della barra di avanzamento</string>
     <string name="revanced_default_app_settings_summary">Per aprire ReVanced Extended da un\'applicazione esterna, attiva \"Apri collegamenti supportati\" e abilita gli indirizzi web supportati</string>
@@ -109,6 +111,9 @@ Nota: questa funzionalità non è stata testata"</string>
     <string name="revanced_disable_auto_captions_summary_off">I sottotitoli automatici forzati sono attivati</string>
     <string name="revanced_disable_auto_captions_summary_on">I sottotitoli automatici forzati sono disattivati</string>
     <string name="revanced_disable_auto_captions_title">Disattiva i sottotitoli automatici forzati</string>
+    <string name="revanced_disable_rolling_number_animations_summary_off">L\'aggiornamento in tempo reale dei contatori è attivato</string>
+    <string name="revanced_disable_rolling_number_animations_summary_on">L\'aggiornamento in tempo reale dei contatori è disattivato</string>
+    <string name="revanced_disable_rolling_number_animations_title">Disattiva l\'aggiornamento in tempo reale dei contatori</string>
     <string name="revanced_disable_default_playback_speed_live_summary_off">La velocità di riproduzione predefinita nei video dal vivo è attivata</string>
     <string name="revanced_disable_default_playback_speed_live_summary_on">La velocità di riproduzione predefinita nei video dal vivo è disattivata</string>
     <string name="revanced_disable_default_playback_speed_live_title">Disattiva la velocità di riproduzione predefinita nei video dal vivo</string>
@@ -248,7 +253,7 @@ Scheda Tu &gt; Visualizza canale &gt; Menù &gt; Impostazioni"</string>
     <string name="revanced_extended_settings_import_export_summary">Esporta o importa le impostazioni</string>
     <string name="revanced_extended_settings_import_export_title">Esporta/Importa impostazioni</string>
     <string name="revanced_extended_settings_import_failed">Impossibile importare le impostazioni</string>
-    <string name="revanced_extended_settings_import_reset">Impostazioni ripristinati ai valori predefiniti</string>
+    <string name="revanced_extended_settings_import_reset">Impostazioni ripristinati al predefinito</string>
     <string name="revanced_extended_settings_import_success">Impostazioni importate correttamente</string>
     <string name="revanced_extended_settings_import_summary">Importa le impostazioni dal file esportato</string>
     <string name="revanced_extended_settings_import_title">Importa impostazioni</string>
@@ -466,9 +471,9 @@ Alcuni componenti potrebbero non essere nascosti"</string>
     <string name="revanced_hide_latest_videos_button_summary_off">Il pulsante Video Recenti è visibile</string>
     <string name="revanced_hide_latest_videos_button_summary_on">Il pulsante Video Recenti è nascosto</string>
     <string name="revanced_hide_latest_videos_button_title">Nascondi il pulsante Video Recenti</string>
-    <string name="revanced_hide_library_button_summary_off">La pagina Raccolta (Tu) è visibile</string>
-    <string name="revanced_hide_library_button_summary_on">La pagina Raccolta (Tu) è nascosta</string>
-    <string name="revanced_hide_library_button_title">Nascondi la pagina Raccolta (Tu)</string>
+    <string name="revanced_hide_library_button_summary_off">La scheda Raccolta (Tu) è visibile</string>
+    <string name="revanced_hide_library_button_summary_on">La scheda Raccolta (Tu) è nascosta</string>
+    <string name="revanced_hide_library_button_title">Nascondi la scheda Raccolta (Tu)</string>
     <string name="revanced_hide_load_more_button_summary_off">Il pulsante Mostra Altro è visibile</string>
     <string name="revanced_hide_load_more_button_summary_on">Il pulsante Mostra Altro è nascosto</string>
     <string name="revanced_hide_load_more_button_title">Nascondi il pulsante Mostra Altro</string>
@@ -490,9 +495,9 @@ Alcuni componenti potrebbero non essere nascosti"</string>
     <string name="revanced_hide_navigation_label_summary_off">Le etichette della barra di navigazione sono visibili</string>
     <string name="revanced_hide_navigation_label_summary_on">Le etichette della barra di navigazione sono nascoste</string>
     <string name="revanced_hide_navigation_label_title">Nascondi le etichette della barra di navigazione</string>
-    <string name="revanced_hide_notifications_button_summary_off">La pagina Notifiche è visibile</string>
-    <string name="revanced_hide_notifications_button_summary_on">La pagina Notifiche è nascosto</string>
-    <string name="revanced_hide_notifications_button_title">Nascondi la pagina Notifiche</string>
+    <string name="revanced_hide_notifications_button_summary_off">La scheda Notifiche è visibile</string>
+    <string name="revanced_hide_notifications_button_summary_on">La scheda Notifiche è nascosto</string>
+    <string name="revanced_hide_notifications_button_title">Nascondi la scheda Notifiche</string>
     <string name="revanced_hide_notify_me_button_summary_off">Il pulsante Avvisami nei feed è visibile</string>
     <string name="revanced_hide_notify_me_button_summary_on">Il pulsante Avvisami nei feed è nascosto</string>
     <string name="revanced_hide_notify_me_button_title">Nascondi il pulsante Avvisami nei feed</string>
@@ -595,9 +600,9 @@ Alcuni componenti potrebbero non essere nascosti"</string>
     <string name="revanced_hide_self_sponsor_cards_summary_off">Le schede autopromozionali sono visibili</string>
     <string name="revanced_hide_self_sponsor_cards_summary_on">Le schede autopromozionali sono nascoste</string>
     <string name="revanced_hide_self_sponsor_cards_title">Nascondi le schede autopromozionali</string>
-    <string name="revanced_hide_shopping_links_summary_off">I link per lo shopping sono visibili</string>
-    <string name="revanced_hide_shopping_links_summary_on">I link per lo shopping sono nascosti</string>
-    <string name="revanced_hide_shopping_links_title">Nascondi i link per lo shopping</string>
+    <string name="revanced_hide_shopping_links_summary_off">La sezione Prodotti è visibile</string>
+    <string name="revanced_hide_shopping_links_summary_on">La sezione Prodotti è nascosta</string>
+    <string name="revanced_hide_shopping_links_title">Nascondi la sezione Prodotti</string>
     <string name="revanced_hide_shorts_button_summary_off">Il pulsante Shorts è visibile</string>
     <string name="revanced_hide_shorts_button_summary_on">Il pulsante Shorts è nascosto</string>
     <string name="revanced_hide_shorts_button_title">Nascondi il pulsante Shorts</string>
@@ -635,25 +640,27 @@ Alcuni componenti potrebbero non essere nascosti"</string>
     <string name="revanced_hide_start_trial_button_summary_off">Il pulsante Avvia Prova è visibile</string>
     <string name="revanced_hide_start_trial_button_summary_on">Il pulsante Avvia Prova è nascosto</string>
     <string name="revanced_hide_start_trial_button_title">Nascondi il pulsante Avvia Prova</string>
-    <string name="revanced_hide_store_tab_summary_off">La pagina Negozio è visibile</string>
-    <string name="revanced_hide_store_tab_summary_on">La pagina Negozio è nascosta</string>
-    <string name="revanced_hide_store_tab_title">Nascondi la pagina Negozio</string>
-    <string name="revanced_hide_subscriptions_button_summary_off">La pagina Iscrizioni è visibile</string>
-    <string name="revanced_hide_subscriptions_button_summary_on">La pagina Iscrizioni è nascosta</string>
-    <string name="revanced_hide_subscriptions_button_title">Nascondi la pagina Iscrizioni</string>
+    <string name="revanced_hide_store_tab_summary_off">La scheda Negozio è visibile</string>
+    <string name="revanced_hide_store_tab_summary_on">La scheda Negozio è nascosta</string>
+    <string name="revanced_hide_store_tab_title">Nascondi la scheda Negozio</string>
+    <string name="revanced_hide_subscriptions_button_summary_off">La scheda Iscrizioni è visibile</string>
+    <string name="revanced_hide_subscriptions_button_summary_on">La scheda Iscrizioni è nascosta</string>
+    <string name="revanced_hide_subscriptions_button_title">Nascondi la scheda Iscrizioni</string>
     <string name="revanced_hide_suggested_actions_summary_off">Le azioni consigliate sono visibili</string>
     <string name="revanced_hide_suggested_actions_summary_on">Le azioni consigliate sono nascoste</string>
     <string name="revanced_hide_suggested_actions_title">Nascondi le azioni consigliate</string>
-    <string name="revanced_hide_suggested_video_overlay_summary">"Problema noto: la riproduzione automatica non funzionerà"</string>
+    <string name="revanced_hide_suggested_video_overlay_summary">Nascondi la sovrapposizione del video suggerito da riprodurre successivamente</string>
     <string name="revanced_hide_suggested_video_overlay_title">Nascondi la sovrapposizione del video suggerito da riprodurre successivamente</string>
+    <string name="revanced_hide_suggested_video_overlay_auto_play_summary">Al termine di un video, ne viene riprodotto automaticamente un altro</string>
+    <string name="revanced_hide_suggested_video_overlay_auto_play_title">Nascondi la sovrapposizione del video suggerito da riprodurre successivamente</string>
     <string name="revanced_hide_suggestions_shelf_method_summary_off">"Identifica gli scaffali dei suggerimenti attraverso il BrowseId.
 
 Problema noto: quando il BrowseId non viene identificato, gli scaffali dei suggerimenti potrebbero non essere nascosti"</string>
-    <string name="revanced_hide_suggestions_shelf_method_summary_on">"Identifica gli scaffali dei suggerimenti attraverso la pagina corrente.
+    <string name="revanced_hide_suggestions_shelf_method_summary_on">"Identifica gli scaffali dei suggerimenti attraverso la scheda corrente.
 
 Problemi noti:
 • Gli scaffali delle playlist potrebbero essere nascosti
-• Altri scaffali potrebbero essere nascosti"</string>
+• Anche altri scaffali potrebbero essere nascosti"</string>
     <string name="revanced_hide_suggestions_shelf_method_title">Seleziona il metodo per nascondere gli scaffali</string>
     <string name="revanced_hide_suggestions_shelf_summary">"Nasconde i seguenti scaffali:
 • Ultime notizie
@@ -720,10 +727,28 @@ Tocca e tieni premuto per copiare il timestamp del video"</string>
     <string name="revanced_overlay_button_copy_video_url_title">Mostra il pulsante Copia URL Video</string>
     <string name="revanced_overlay_button_external_downloader_summary">Tocca per avviare il downloader esterno</string>
     <string name="revanced_overlay_button_external_downloader_title">Mostra il pulsante Download Esterno</string>
-    <string name="revanced_overlay_button_speed_dialog_reset">Velocità di riproduzione ripristinata (1.0x)</string>
+    <string name="revanced_overlay_button_speed_dialog_reset">Velocità di riproduzione ripristinata al predefinito</string>
     <string name="revanced_overlay_button_speed_dialog_summary">"Tocca per aprire la finestra di dialogo della velocità.
 Tocca e tieni premuto per impostare la velocità di riproduzione a 1.0x"</string>
+    <string name="revanced_overlay_button_whitelisting_summary">Tocca per aggiungere un canale alla whitelist dei canali</string>
+    <string name="revanced_overlay_button_whitelisting_title">Mostra il pulsante Whitelist</string>
     <string name="revanced_overlay_button_speed_dialog_title">Mostra la finestra di dialogo della velocità</string>
+    <string name="revanced_whitelisting_added" formatted="false">Il canale %s è stato aggiunto alla whitelist %s</string>
+    <string name="revanced_whitelisting_add_failed" formatted="false">Impossibile aggiungere il canale %s alla whitelist %s</string>
+    <string name="revanced_whitelisting_channel_name">Nome del canale</string>
+    <string name="revanced_whitelisting_empty">Non ci sono canali nella whitelist</string>
+    <string name="revanced_whitelisting_excluded">Non è stato aggiunto alla whitelist</string>
+    <string name="revanced_whitelisting_fetch_failed" formated="false">Impossibile recuperare i dettagli del canale, messaggio ricevuto %d</string>
+    <string name="revanced_whitelisting_included">È stato aggiunto alla whitelist</string>
+    <string name="revanced_whitelisting_reboot">Riavvia per applicare le impostazioni della whitelist dei canali</string>
+    <string name="revanced_whitelisting_removed" formatted="false">Il canale %s è stato rimosso dalla whitelist %s</string>
+    <string name="revanced_whitelisting_remove_failed" formatted="false">Impossibile rimuovere il canale %s dalla whitelist %s</string>
+    <string name="revanced_whitelisting_settings_summary">Controlla o rimuovi l\'elenco dei canali aggiunti alla whitelist</string>
+    <string name="revanced_whitelisting_speed">Velocità video</string>
+    <string name="revanced_whitelisting_speed_button">Velocità</string>
+    <string name="revanced_whitelisting_sponsorblock">SponsorBlock</string>
+    <string name="revanced_whitelisting_sponsorblock_button">SB</string>
+    <string name="revanced_whitelisting_title">Whitelist dei canali</string>
     <string name="revanced_patches_information">Informazioni patch</string>
     <string name="revanced_patches_information_summary">Informazioni sulle patch applicate</string>
     <string name="revanced_playback_speed_normal">Normale</string>
@@ -733,7 +758,7 @@ Tocca e tieni premuto per impostare la velocità di riproduzione a 1.0x"</string
     <string name="revanced_player_flyout_panel_title">Pannello a comparsa del riproduttore</string>
     <string name="revanced_quick_actions_margin_top_summary">Configura lo spazio tra la barra di avanzamento e il contenitore delle azioni rapide compreso, il valore è compreso tra 0 e 64</string>
     <string name="revanced_quick_actions_margin_top_title">Margine superiore delle azioni rapide</string>
-    <string name="revanced_quick_actions_margin_top_warning">Il valore del margine superiore deve essere compreso tra 0 e 64. Ripristinato ai valori predefiniti</string>
+    <string name="revanced_quick_actions_margin_top_warning">Il valore del margine superiore deve essere compreso tra 0 e 64, ripristinato al predefinito</string>
     <string name="revanced_quick_actions_title">Azioni rapide</string>
     <string name="revanced_remove_viewer_discretion_dialog_summary">"Questo non bypassa la restrizione di età, ma lo accetta automaticamente"</string>
     <string name="revanced_remove_viewer_discretion_dialog_title">Nascondi la finestra di discrezione del visualizzatore</string>
@@ -793,9 +818,11 @@ Tocca e tieni premuto per impostare la velocità di riproduzione a 1.0x"</string
 Note:
 • Questo cambierà l'aspetto dell'app, ma potrebbero verificarsi degli effetti collaterali sconosciuti
 • Se in seguito verrà disattivato, la vecchia interfaccia potrebbe rimanere fino a quando i dati dell'app non verranno cancellati"</string>
+    <string name="revanced_spoof_app_version_target_entry_16_08_35">16.08.35 - Ripristina la scheda Esplora</string>
     <string name="revanced_spoof_app_version_target_entry_17_08_35">17.08.35 - Ripristina la vecchia interfaccia</string>
     <string name="revanced_spoof_app_version_target_entry_17_41_37">17.41.37 - Ripristina il vecchio scaffale delle playlist</string>
     <string name="revanced_spoof_app_version_target_entry_18_05_40">18.05.40 - Ripristina la vecchia casella di input dei commenti</string>
+    <string name="revanced_spoof_app_version_target_entry_18_09_39">18.09.39 - Ripristina la scheda Raccolta</string>
     <string name="revanced_spoof_app_version_target_entry_18_17_43">18.17.43 - Ripristina il vecchio pannello a comparsa del riproduttore</string>
     <string name="revanced_spoof_app_version_target_entry_18_33_40">18.33.40 - Ripristina la vecchia barra d\'azione degli Shorts</string>
     <string name="revanced_spoof_app_version_target_entry_18_38_45">18.38.45 - Ripristina il comportamento della vecchia qualità video predefinita</string>
@@ -890,7 +917,7 @@ Note:
     <string name="sb_general_uuid_invalid">Il campo Id utente non può essere vuoto</string>
     <string name="sb_general_api_url">Cambia l\'URL dell\'API</string>
     <string name="sb_general_api_url_sum">L\'indirizzo usato da SponsorBlock per contattare il server. Non cambiarlo a meno che tu non sappia cosa stai facendo</string>
-    <string name="sb_api_url_reset">URL API ripristinato</string>
+    <string name="sb_api_url_reset">URL API ripristinato al predefinito</string>
     <string name="sb_api_url_invalid">URL API non valido</string>
     <string name="sb_api_url_changed">URL API cambiato</string>
     <string name="sb_settings_copy">Copia</string>
@@ -898,8 +925,8 @@ Note:
     <string name="sb_settings_ie_sum_warning">Questo include il tuo Id utente privato. Assicurati di condividerlo con prudenza</string>
     <string name="sb_settings_ie">Esporta/Importa impostazioni</string>
     <string name="sb_settings_import_successful">Impostazioni importate con sucesso</string>
-    <string name="sb_settings_import_failed">Importazione non riuscita: %s</string>
-    <string name="sb_settings_export_failed">Esportazione non riuscita: %s</string>
+    <string name="sb_settings_import_failed">Importazione non riuscita (%s)</string>
+    <string name="sb_settings_export_failed">Esportazione non riuscita (%s)</string>
     <string name="sb_settings_revanced_export_user_id_warning">Le tue impostazioni contengono un Id utente privato di SponsorBlock.\n\nIl tuo Id utente è come una password e non dovrebbe mai essere condiviso\n</string>
     <string name="sb_settings_revanced_export_user_id_warning_dismiss">Non mostrare più questo messaggio</string>
     <string name="sb_diff_segments">Modifica il comportamento dei segmenti</string>
@@ -952,18 +979,18 @@ Note:
     <string name="sb_sponsorblock_connection_failure_generic">SponsorBlock temporaneamente non disponibile</string>
     <string name="sb_sponsorblock_connection_failure_status" formatted="false">SponsorBlock temporaneamente non disponibile (stato: %d)</string>
     <string name="sb_sponsorblock_connection_failure_timeout">SponsorBlock temporaneamente non disponibile (API scaduto)</string>
-    <string name="sb_submit_failed_invalid" formatted="false">Impossibile inviare il segmento: %s</string>
+    <string name="sb_submit_failed_invalid" formatted="false">Impossibile inviare il segmento (%s)</string>
     <string name="sb_submit_failed_timeout">Impossibile inviare i segmenti (API scaduto)</string>
-    <string name="sb_submit_failed_unknown_error" formatted="false">Impossibile inviare i segmenti (stato: %d %s)</string>
+    <string name="sb_submit_failed_unknown_error" formatted="false">Impossibile inviare i segmenti (%d %s)</string>
     <string name="sb_submit_failed_rate_limit">Impossibile inviare il segmento.
 Soglia raggiunta (troppe richieste provenienti dallo stesso utente o IP)</string>
-    <string name="sb_submit_failed_forbidden" formatted="false">Impossibile inviare il segmento: %s</string>
+    <string name="sb_submit_failed_forbidden" formatted="false">Impossibile inviare il segmento (%s)</string>
     <string name="sb_submit_failed_duplicate">Impossibile inviare il segmento.
 È già presente un duplicato</string>
     <string name="sb_submit_succeeded">Segmento correttamente inviato</string>
     <string name="sb_vote_failed_timeout">Impossibile votare per il segmento (API scaduto)</string>
-    <string name="sb_vote_failed_unknown_error" formatted="false">Impossibile votare per il segmento (stato: %d %s)</string>
-    <string name="sb_vote_failed_forbidden" formatted="false">Impossibile votare per il segmento: %s</string>
+    <string name="sb_vote_failed_unknown_error" formatted="false">Impossibile votare per il segmento (%d %s)</string>
+    <string name="sb_vote_failed_forbidden" formatted="false">Impossibile votare per il segmento (%s)</string>
     <string name="sb_vote_upvote">Voto positivo</string>
     <string name="sb_vote_downvote">Voto negativo</string>
     <string name="sb_vote_category">Cambia categoria</string>
@@ -991,7 +1018,7 @@ Il segmento è pronto per l\'invio?</string>
     <string name="sb_stats_sb_disabled">SponsorBlock è disattivato</string>
     <string name="sb_stats_username" formatted="false">Il tuo nome utente: &lt;b&gt;%s&lt;/b&gt;</string>
     <string name="sb_stats_username_change">Tocca qui per cambiare il tuo nome utente</string>
-    <string name="sb_stats_username_change_unknown_error" formatted="false">Impossibile cambiare il nome utente (stato: %d %s)</string>
+    <string name="sb_stats_username_change_unknown_error" formatted="false">Impossibile cambiare il nome utente (%d %s)</string>
     <string name="sb_stats_username_changed">Nome utente cambiato correttamente</string>
     <string name="sb_stats_reputation" formatted="false">La tua reputazione è &lt;b&gt;%.2f&lt;/b&gt;</string>
     <string name="sb_stats_submissions" formatted="false">Hai creato &lt;b&gt;%s&lt;/b&gt; segmenti</string>
@@ -1007,7 +1034,7 @@ Il segmento è pronto per l\'invio?</string>
     <string name="sb_stats_saved_second_format" formatted="false">%s secondi</string>
     <string name="sb_color_dot_label">Colore:</string>
     <string name="sb_color_changed">Colore cambiato</string>
-    <string name="sb_color_reset">Colore ripristinato</string>
+    <string name="sb_color_reset">Colore ripristinato al predefinito</string>
     <string name="sb_color_invalid">Codice colore non valido</string>
     <string name="sb_reset_color">Ripristina colore</string>
     <string name="sb_about">Informazioni</string>

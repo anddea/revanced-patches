@@ -80,7 +80,9 @@ Nota: Es una característica que no ha sido probada."</string>
     <string name="revanced_comments_title">Comentarios</string>
     <string name="revanced_custom_filter_strings_summary">Filtrar los componentes por nombres separados por líneas</string>
     <string name="revanced_custom_filter_strings_title">Editar filtro personalizado</string>
-    <string name="revanced_custom_filter_strings_warning">Filtro personalizado no válido, restableciendo a predeterminado.</string>
+    <string name="revanced_custom_filter_toast_invalid_characters" formated="false">Invalid custom filter (must be ASCII only): %s</string>
+    <string name="revanced_custom_filter_toast_invalid_syntax" formated="false">Filtro personalizado no válido: %s</string>
+    <string name="revanced_custom_filter_toast_reset">Restablecer los filtros personalizados a los valores predeterminados.</string>
     <string name="revanced_custom_filter_summary_off">El filtro personalizado está desactivado</string>
     <string name="revanced_custom_filter_summary_on">El filtro personalizado está activado</string>
     <string name="revanced_custom_filter_title">Activar filtro personalizado</string>
@@ -647,9 +649,7 @@ Problema conocido: Se ocultan las cabeceras oficiales en los resultados de búsq
     <string name="revanced_hide_suggested_actions_summary_off">Las acciones sugeridas están visibles</string>
     <string name="revanced_hide_suggested_actions_summary_on">Las acciones sugeridas están ocultas</string>
     <string name="revanced_hide_suggested_actions_title">Ocultar acciones sugeridas</string>
-    <string name="revanced_hide_suggested_video_overlay_summary">"Oculta la superposición del vídeo sugerido para reproducir a continuación
-
-Problema conocido: La reproducción automática no funciona"</string>
+    <string name="revanced_hide_suggested_video_overlay_summary">Oculta la superposición del vídeo sugerido para reproducir a continuación</string>
     <string name="revanced_hide_suggested_video_overlay_title">Ocultar superposición de vídeo sugerido</string>
     <string name="revanced_hide_suggestions_shelf_method_summary_off">"Identifica la estantería de sugerencias a través del identificador de navegación.
 

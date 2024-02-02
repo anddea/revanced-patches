@@ -75,7 +75,9 @@
     <string name="revanced_comments_title">留言</string>
     <string name="revanced_custom_filter_strings_summary">以換行分隔的名稱來過濾元件</string>
     <string name="revanced_custom_filter_strings_title">編輯自訂篩選</string>
-    <string name="revanced_custom_filter_strings_warning">無效的自訂過濾規則，系統將回復至預設設定。</string>
+    <string name="revanced_custom_filter_toast_invalid_characters" formated="false">Invalid custom filter (must be ASCII only): %s</string>
+    <string name="revanced_custom_filter_toast_invalid_syntax" formated="false">無效的自訂過濾規則: %s</string>
+    <string name="revanced_custom_filter_toast_reset">系統將回復至預設設定。</string>
     <string name="revanced_custom_filter_summary_off">自訂篩選已停用</string>
     <string name="revanced_custom_filter_summary_on">自訂篩選已啟用</string>
     <string name="revanced_custom_filter_title">啟用自訂篩選</string>
@@ -632,8 +634,7 @@
     <string name="revanced_hide_suggested_actions_summary_off">操作建議已顯示</string>
     <string name="revanced_hide_suggested_actions_summary_on">操作建議已隱藏</string>
     <string name="revanced_hide_suggested_actions_title">操作建議</string>
-    <string name="revanced_hide_suggested_video_overlay_summary">"隱藏建議的下一部影片覆蓋層
-已知問題：自動播放不工作"</string>
+    <string name="revanced_hide_suggested_video_overlay_summary">隱藏建議的下一部影片覆蓋層</string>
     <string name="revanced_hide_suggested_video_overlay_title">隱藏建議影片覆蓋層</string>
     <string name="revanced_hide_suggestions_shelf_method_summary_off">"通過瀏覽 ID 識別建議架
 

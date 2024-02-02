@@ -80,7 +80,9 @@ Lưu ý: Tính năng này chưa được trải qua kiểm thử."</string>
     <string name="revanced_comments_title">Phần Bình luận</string>
     <string name="revanced_custom_filter_strings_summary">Nhập tên các mục mà bạn muốn lọc được phân cách bằng dòng.</string>
     <string name="revanced_custom_filter_strings_title">Chỉnh sửa bộ lọc</string>
-    <string name="revanced_custom_filter_strings_warning">Bộ lọc tuỳ chỉnh không hợp lệ. Đã đặt lại bộ lọc về mặc định.</string>
+    <string name="revanced_custom_filter_toast_invalid_characters" formated="false">Bộ lọc tuỳ chỉnh không hợp lệ (chỉ các ký tự ASCII): %s</string>
+    <string name="revanced_custom_filter_toast_invalid_syntax" formated="false">Bộ lọc tuỳ chỉnh không hợp lệ: %s</string>
+    <string name="revanced_custom_filter_toast_reset">Đã đặt lại bộ lọc về mặc định</string>
     <string name="revanced_custom_filter_summary_off">Bộ lọc tuỳ chỉnh đã tắt.</string>
     <string name="revanced_custom_filter_summary_on">Đang ẩn các thành phần không mong muốn bằng bộ lọc tuỳ chỉnh.</string>
     <string name="revanced_custom_filter_title">Bộ lọc tuỳ chỉnh</string>
@@ -109,6 +111,9 @@ Lưu ý: Tính năng này chưa được trải qua kiểm thử."</string>
     <string name="revanced_disable_auto_captions_summary_off">Đang tự động hiển thị phụ đề khi phát video có phụ đề.</string>
     <string name="revanced_disable_auto_captions_summary_on">Không tự động hiển thị phụ đề khi phát video có phụ đề.</string>
     <string name="revanced_disable_auto_captions_title">Tắt tự động hiển thị phụ đề</string>
+    <string name="revanced_disable_rolling_number_animations_summary_off">Lượt xem, lượt thích,... sẽ được cập nhật theo thời gian thực.</string>
+    <string name="revanced_disable_rolling_number_animations_summary_on">Lượt xem, lượt thích,... sẽ không được cập nhật theo thời gian thực.</string>
+    <string name="revanced_disable_rolling_number_animations_title">Cập nhật số liệu video theo thời gian thực</string>
     <string name="revanced_disable_default_playback_speed_live_summary_off">Đang áp dụng tốc độ phát video mặc định (bạn đã đặt) khi xem sự kiện trực tiếp và buổi công chiếu.\n\nLưu ý: Nếu bạn đặt tốc độ phát video mặc định nhanh hơn mức bình thường (1.0x), tắt tuỳ chọn này sẽ gây ra vấn đề giật hình khi video bắt kịp luồng phát trực tiếp.</string>
     <string name="revanced_disable_default_playback_speed_live_summary_on">Đang áp dụng tốc độ phát video bình thường (1.0x) khi xem sự kiện trực tiếp và buổi công chiếu.</string>
     <string name="revanced_disable_default_playback_speed_live_title">Tốc độ phát bình thường khi xem trực tiếp</string>
@@ -647,10 +652,10 @@ Sự cố đã biết: Tiêu đề của thẻ chính chức bị ẩn khỏi k�
     <string name="revanced_hide_suggested_actions_summary_off">Hành động đề xuất được hiển thị.</string>
     <string name="revanced_hide_suggested_actions_summary_on">Hành động đề xuất đã ẩn.</string>
     <string name="revanced_hide_suggested_actions_title">Ẩn hành động đề xuất</string>
-    <string name="revanced_hide_suggested_video_overlay_summary">"Ẩn lớp phủ video được đề xuất để phát tiếp theo.
-
-Sự cố đã biết: Tính năng Tự động phát không hoạt động."</string>
+    <string name="revanced_hide_suggested_video_overlay_summary">Ẩn lớp phủ video được đề xuất để phát tiếp theo.</string>
     <string name="revanced_hide_suggested_video_overlay_title">Ẩn lớp phủ video đề xuất</string>
+    <string name="revanced_hide_suggested_video_overlay_auto_play_summary">Khi bạn xem hết 1 video, video khác sẽ tự động phát</string>
+    <string name="revanced_hide_suggested_video_overlay_auto_play_title">Tự động phát video tiếp theo</string>
     <string name="revanced_hide_suggestions_shelf_method_summary_off">"Ẩn bằng cách nhận dạng các kệ đề xuất thông qua ID Browse.
 
 Sự cố đã biết:
@@ -730,7 +735,25 @@ Sự cố đã biết:
     <string name="revanced_overlay_button_speed_dialog_reset">Đã đặt lại tốc độ phát bình thường (1.0x).</string>
     <string name="revanced_overlay_button_speed_dialog_summary">"- Nhấn để mở hộp thoại Tốc độ phát.
 - Nhấn và giữ để đặt lại tốc độ phát video bình thường (1.0x)."</string>
+    <string name="revanced_overlay_button_whitelisting_summary">Nhấn để thêm kênh vào Danh sách kênh trắng.</string>
+    <string name="revanced_overlay_button_whitelisting_title">Nút Danh sách trắng</string>
     <string name="revanced_overlay_button_speed_dialog_title">Nút Tốc độ phát</string>
+    <string name="revanced_whitelisting_added" formatted="false">Đã thêm kênh %s vào danh sách trắng %s</string>
+    <string name="revanced_whitelisting_add_failed" formatted="false">Thêm kênh %s vào danh sách trắng %s thất bại</string>
+    <string name="revanced_whitelisting_channel_name">Tên kênh</string>
+    <string name="revanced_whitelisting_empty">Không có kênh nào trong danh sách trắng</string>
+    <string name="revanced_whitelisting_excluded">Chưa thêm vào danh sách trắng</string>
+    <string name="revanced_whitelisting_fetch_failed" formated="false">Truy xuất chi tiết kênh thất bại. Đã nhận được mã %d.</string>
+    <string name="revanced_whitelisting_included">Đã thêm vào danh sách trắng</string>
+    <string name="revanced_whitelisting_reboot">Khởi động lại để áp dụng các thiết lập danh sách trắng</string>
+    <string name="revanced_whitelisting_removed" formatted="false">Đã xóa kênh %s khỏi danh sách trắng %s</string>
+    <string name="revanced_whitelisting_remove_failed" formatted="false">Xoá kênh %s khỏi danh sách trắng %s thất bại</string>
+    <string name="revanced_whitelisting_settings_summary">Kiểm tra hoặc xóa các kênh đã thêm vào danh sách trắng</string>
+    <string name="revanced_whitelisting_speed">Tốc độ phát</string>
+    <string name="revanced_whitelisting_speed_button">Tốc độ phát</string>
+    <string name="revanced_whitelisting_sponsorblock">SponsorBlock</string>
+    <string name="revanced_whitelisting_sponsorblock_button">SB</string>
+    <string name="revanced_whitelisting_title">Danh sách trắng</string>
     <string name="revanced_patches_information">Thông tin bản vá</string>
     <string name="revanced_patches_information_summary">Thông tin về các bản vá được áp dụng trong ứng dụng.</string>
     <string name="revanced_playback_speed_normal">Bình thường</string>
@@ -800,9 +823,11 @@ Lưu ý:\n- Khi bạn nhấn nút Phát, sẽ có một độ trễ khoảng 0.7
 
 Lưu ý:\n- Tuỳ chọn này sẽ thay đổi giao diện ứng dụng, tuy nhiên có thể xảy ra các sự cố chưa xác định khác.
 - Nếu tắt tuỳ chọn này sau đó, giao diện cũ có thể vẫn tồn tại cho đến khi bạn xoá dữ liệu ứng dụng."</string>
+    <string name="revanced_spoof_app_version_target_entry_16_08_35">16.08.35 - Khôi phục thẻ Khám phá</string>
     <string name="revanced_spoof_app_version_target_entry_17_08_35">17.08.35 - Khôi phục giao diện YouTube kiểu cũ</string>
     <string name="revanced_spoof_app_version_target_entry_17_41_37">17.41.37 - Khôi phục kệ Danh sách phát kiểu cũ</string>
     <string name="revanced_spoof_app_version_target_entry_18_05_40">18.05.40 - Khôi phục hộp Viết bình luận kiểu cũ</string>
+    <string name="revanced_spoof_app_version_target_entry_18_09_39">18.09.39 - Khôi phục thẻ Thư viện (Tắt thẻ Bạn)</string>
     <string name="revanced_spoof_app_version_target_entry_18_17_43">18.17.43 - Khôi phục trình đơn Cài đặt trình phát kiểu cũ</string>
     <string name="revanced_spoof_app_version_target_entry_18_33_40">18.33.40 - Khôi phục bảng nút thao tác Shorts kiểu cũ</string>
     <string name="revanced_spoof_app_version_target_entry_18_38_45">18.38.45 - Khôi phục phương thức áp dụng chất lượng video mặc định kiểu cũ</string>

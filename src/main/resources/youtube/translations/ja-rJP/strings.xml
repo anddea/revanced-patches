@@ -80,7 +80,9 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_comments_title">コメント</string>
     <string name="revanced_custom_filter_strings_summary">コンポーネント名でフィルター (改行区切り)</string>
     <string name="revanced_custom_filter_strings_title">カスタムフィルターの編集</string>
-    <string name="revanced_custom_filter_strings_warning">無効なカスタムフィルターです。デフォルトにリセットします。</string>
+    <string name="revanced_custom_filter_toast_invalid_characters" formated="false">Invalid custom filter (must be ASCII only): %s</string>
+    <string name="revanced_custom_filter_toast_invalid_syntax" formated="false">無効なカスタムフィルターです: %s</string>
+    <string name="revanced_custom_filter_toast_reset">デフォルトにリセットします。</string>
     <string name="revanced_custom_filter_summary_off">カスタムフィルターは無効です。</string>
     <string name="revanced_custom_filter_summary_on">カスタムフィルターは有効です。</string>
     <string name="revanced_custom_filter_title">カスタムフィルター</string>
@@ -647,9 +649,7 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_hide_suggested_actions_summary_off">プレーヤー上の「Premium のコントロール」などの提案は表示されます。</string>
     <string name="revanced_hide_suggested_actions_summary_on">プレーヤー上の「Premium のコントロール」などの提案は非表示です。</string>
     <string name="revanced_hide_suggested_actions_title">提案されたアクションを非表示</string>
-    <string name="revanced_hide_suggested_video_overlay_summary">"次に再生する動画のオーバーレイを非表示にします
-
-既知の問題: 自動再生が機能しません"</string>
+    <string name="revanced_hide_suggested_video_overlay_summary">次に再生する動画のオーバーレイを非表示にします</string>
     <string name="revanced_hide_suggested_video_overlay_title">関連動画のオーバーレイを非表示</string>
     <string name="revanced_hide_suggestions_shelf_method_summary_off">"ブラウズ ID で提案欄を識別します。
 

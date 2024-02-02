@@ -80,7 +80,9 @@ Nota: Essa função não foi testada."</string>
     <string name="revanced_comments_title">Comentários</string>
     <string name="revanced_custom_filter_strings_summary">Configure quais componentes serão filtrados, separados por novas linhas.</string>
     <string name="revanced_custom_filter_strings_title">Editar filtro personalizado</string>
-    <string name="revanced_custom_filter_strings_warning">Filtro personalizado inválido. Filtro redefinido para o padrão.</string>
+    <string name="revanced_custom_filter_toast_invalid_characters" formated="false">Invalid custom filter (must be ASCII only): %s</string>
+    <string name="revanced_custom_filter_toast_invalid_syntax" formated="false">Filtro personalizado inválido: %s</string>
+    <string name="revanced_custom_filter_toast_reset">Filtro redefinido para o padrão.</string>
     <string name="revanced_custom_filter_summary_off">Filtro personalizado está desativado</string>
     <string name="revanced_custom_filter_summary_on">Filtro personalizado está ativado</string>
     <string name="revanced_custom_filter_title">Ativar filtro personalizado</string>
@@ -647,8 +649,7 @@ Problema conhecido: Cabeçalhos oficiais nos resultados de busca serão ocultos.
     <string name="revanced_hide_suggested_actions_summary_off">As ações sugeridas serão exibidas.</string>
     <string name="revanced_hide_suggested_actions_summary_on">Ações sugeridas ocultas</string>
     <string name="revanced_hide_suggested_actions_title">Ocultar ações sugeridas</string>
-    <string name="revanced_hide_suggested_video_overlay_summary">"Oculta a sobreposição de vídeo sugerida para reproduzir o próximo
-Problema conhecido: a reprodução automática não funciona"</string>
+    <string name="revanced_hide_suggested_video_overlay_summary">Oculta a sobreposição de vídeo sugerida para reproduzir o próximo</string>
     <string name="revanced_hide_suggested_video_overlay_title">Ocultar sobreposição de vídeo sugerida</string>
     <string name="revanced_hide_suggestions_shelf_method_summary_off">"Identifica a estante de sugestões através do ID de navegação.
 

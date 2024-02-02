@@ -78,7 +78,9 @@
     <string name="revanced_comments_title">Коментари</string>
     <string name="revanced_custom_filter_strings_summary">Филтриране на компонентите по разделение на имената</string>
     <string name="revanced_custom_filter_strings_title">Редактиране на потребителския филтъра</string>
-    <string name="revanced_custom_filter_strings_warning">Невалиден персонален филтър, нулиране по подразбиране.</string>
+    <string name="revanced_custom_filter_toast_invalid_characters" formated="false">Invalid custom filter (must be ASCII only): %s</string>
+    <string name="revanced_custom_filter_toast_invalid_syntax" formated="false">Невалиден персонален филтър: %s</string>
+    <string name="revanced_custom_filter_toast_reset">Нулиране по подразбиране.</string>
     <string name="revanced_custom_filter_summary_off">Филтъра по избор е изключен</string>
     <string name="revanced_custom_filter_summary_on">Филтъра по избор е включен</string>
     <string name="revanced_custom_filter_title">Вкл. на филтър по избор</string>
@@ -643,8 +645,7 @@
     <string name="revanced_hide_suggested_actions_summary_off">Предложенията за действе се показват</string>
     <string name="revanced_hide_suggested_actions_summary_on">Предложенията за действе са скрити</string>
     <string name="revanced_hide_suggested_actions_title">Скр. предл. за действие</string>
-    <string name="revanced_hide_suggested_video_overlay_summary">"Скрива предложението за следващ клип
-Известен проблем: автом. възпроизвеждане не работи"</string>
+    <string name="revanced_hide_suggested_video_overlay_summary">Скрива предложението за следващ клип</string>
     <string name="revanced_hide_suggested_video_overlay_title">Скриване на предложените клипове</string>
     <string name="revanced_hide_suggestions_shelf_method_summary_off">"Идентифицира рафта с предложения чрез идентификатора за разглеждане."</string>
     <string name="revanced_hide_suggestions_shelf_method_summary_on">"Идентифицира рафта с предложения през текущия раздел.
