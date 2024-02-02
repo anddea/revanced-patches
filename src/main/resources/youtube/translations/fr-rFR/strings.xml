@@ -81,7 +81,9 @@ Note : Ceci est une fonctionnalité qui n'a pas été testée."</string>
     <string name="revanced_comments_title">Commentaires</string>
     <string name="revanced_custom_filter_strings_summary">Filtrer les noms des composants par une virgule</string>
     <string name="revanced_custom_filter_strings_title">Modifier le filtre personnalisé</string>
-    <string name="revanced_custom_filter_strings_warning">Filtre personnalisé non valide, réinitialisation par défaut.</string>
+    <string name="revanced_custom_filter_toast_invalid_characters" formated="false">Filtre personnalisé invalide (doit être en format fichier ASCII uniquement) : %s</string>
+    <string name="revanced_custom_filter_toast_invalid_syntax" formated="false">Filtre personnalisé invalide : %s</string>
+    <string name="revanced_custom_filter_toast_reset">Réinitialiser le filtre perso. par défaut </string>
     <string name="revanced_custom_filter_summary_off">Le filtre personnalisé est désactivé</string>
     <string name="revanced_custom_filter_summary_on">Le filtre personnalisé est activé</string>
     <string name="revanced_custom_filter_title">Activer le filtre personnalisé</string>
@@ -110,6 +112,9 @@ Note : Ceci est une fonctionnalité qui n'a pas été testée."</string>
     <string name="revanced_disable_auto_captions_summary_off">Les sous-titres automatiques sont forcés</string>
     <string name="revanced_disable_auto_captions_summary_on">Les sous-titres automatiques ne sont pas forcés</string>
     <string name="revanced_disable_auto_captions_title">Désactiver les sous-titres forcés</string>
+    <string name="revanced_disable_rolling_number_animations_summary_off">L\'animation en temps réel des vues et des j\'aime sont activés.</string>
+    <string name="revanced_disable_rolling_number_animations_summary_on">L\'animation en temps réel des vues et des j\'aime sont désactivés.</string>
+    <string name="revanced_disable_rolling_number_animations_title">Animation en temps réel des nombres</string>
     <string name="revanced_disable_default_playback_speed_live_summary_off">La vitesse de lecture par défaut est activée pour les diffusions en direct</string>
     <string name="revanced_disable_default_playback_speed_live_summary_on">La vitesse de lecture par défaut est désactivée pour les diffusions en direct</string>
     <string name="revanced_disable_default_playback_speed_live_title">Vitesse par défaut des diffusions en direct</string>
@@ -596,7 +601,7 @@ Catégorie \"Vous\" &gt; \"Afficher la chaîne\" &gt; Trois points &gt; \"Param�
     <string name="revanced_hide_self_sponsor_cards_title">Cartes autosponsorisées</string>
     <string name="revanced_hide_shopping_links_summary_off">Les liens de shopping sont affichés.</string>
     <string name="revanced_hide_shopping_links_summary_on">Les liens de shopping sont masqués.</string>
-    <string name="revanced_hide_shopping_links_title">Les liens de shopping</string>
+    <string name="revanced_hide_shopping_links_title">Liens de shopping</string>
     <string name="revanced_hide_shorts_button_summary_off">Le bouton \"Shorts\" est affiché</string>
     <string name="revanced_hide_shorts_button_summary_on">Le bouton \"Shorts\" est masqué.</string>
     <string name="revanced_hide_shorts_button_title">Bouton \"Shorts\"</string>
@@ -638,17 +643,17 @@ Problème connu : Les fiches officielles dans les résultats de recherche sont 
     <string name="revanced_hide_start_trial_button_title">Bouton \"Démarrer l\'essai\"</string>
     <string name="revanced_hide_store_tab_summary_off">L\'onglet \"Parcourir\" est affiché.</string>
     <string name="revanced_hide_store_tab_summary_on">L\'onglet \"Parcourir\" est masqué.</string>
-    <string name="revanced_hide_store_tab_title">L\'onglet \"Parcourir</string>
+    <string name="revanced_hide_store_tab_title">L\'onglet \"Parcourir\"</string>
     <string name="revanced_hide_subscriptions_button_summary_off">Le bouton \"Abonnements\" est affiché</string>
     <string name="revanced_hide_subscriptions_button_summary_on">Le bouton \"Abonnements\" est masqué</string>
     <string name="revanced_hide_subscriptions_button_title">Bouton \"Abonnements\"</string>
     <string name="revanced_hide_suggested_actions_summary_off">Les actions suggérées sont affichées</string>
     <string name="revanced_hide_suggested_actions_summary_on">Les actions suggérées sont masquées</string>
     <string name="revanced_hide_suggested_actions_title">Actions suggérées</string>
-    <string name="revanced_hide_suggested_video_overlay_summary">"Masque la superposition de vidéo suggérée pour la lecture suivante
-
-Problème connu : la lecture automatique ne fonctionne pas."</string>
+    <string name="revanced_hide_suggested_video_overlay_summary">Masque la superposition de vidéo suggérée pour la lecture suivante</string>
     <string name="revanced_hide_suggested_video_overlay_title">Superposition vidéo suggérée</string>
+    <string name="revanced_hide_suggested_video_overlay_auto_play_summary">Lorsque vous avez finis une vidéo, une autre se lira automatiquement</string>
+    <string name="revanced_hide_suggested_video_overlay_auto_play_title">Lecture automatique</string>
     <string name="revanced_hide_suggestions_shelf_method_summary_off">"Identifie les étagères suggérées via un id de navigation
 
 Problèmes connus : 
@@ -726,7 +731,25 @@ Appuyez longuement pour copier seulement l'horodatage"</string>
     <string name="revanced_overlay_button_speed_dialog_reset">Vitesse de lecture réinitialisée (1,0x)</string>
     <string name="revanced_overlay_button_speed_dialog_summary">"Appuyez pour ouvrir des paramètres de vitesse
 Appuyez longuement pour régler la vitesse de la vidéo sur 1.0x."</string>
+    <string name="revanced_overlay_button_whitelisting_summary">Appuyez pour ajouter une chaîne à la liste blanche</string>
+    <string name="revanced_overlay_button_whitelisting_title">Bouton de liste blanche</string>
     <string name="revanced_overlay_button_speed_dialog_title">Bouton \"Vitesse de lecture\"</string>
+    <string name="revanced_whitelisting_added" formatted="false">La chaîne %s a été ajoutée à la liste blanche %s</string>
+    <string name="revanced_whitelisting_add_failed" formatted="false">Impossible d\'ajouter la chaîne %s à la liste blanche %s</string>
+    <string name="revanced_whitelisting_channel_name">Nom de la chaîne</string>
+    <string name="revanced_whitelisting_empty">Il n\'y a pas de chaînes dans la liste blanche</string>
+    <string name="revanced_whitelisting_excluded">Non ajouté à la liste blanche</string>
+    <string name="revanced_whitelisting_fetch_failed" formated="false">Impossible de récupérer les détails de la chaîne, message reçu %d</string>
+    <string name="revanced_whitelisting_included">Ajouté à la liste blanche</string>
+    <string name="revanced_whitelisting_reboot">Redémarrer pour appliquer les paramètres de la liste blanche</string>
+    <string name="revanced_whitelisting_removed" formatted="false">La chaîne %s a été retirée de la liste blanche %s</string>
+    <string name="revanced_whitelisting_remove_failed" formatted="false">Impossible de supprimer la chaîne %s de la liste blanche %s</string>
+    <string name="revanced_whitelisting_settings_summary">Vérifier ou supprimer la liste des chaînes ajoutées à la liste blanche</string>
+    <string name="revanced_whitelisting_speed">Vitesse vidéo</string>
+    <string name="revanced_whitelisting_speed_button">Vitesse</string>
+    <string name="revanced_whitelisting_sponsorblock">SponsorBlock</string>
+    <string name="revanced_whitelisting_sponsorblock_button">SB</string>
+    <string name="revanced_whitelisting_title">Liste blanche des chaînes</string>
     <string name="revanced_patches_information">Patchs appliqués</string>
     <string name="revanced_patches_information_summary">Informations sur les patchs appliqués</string>
     <string name="revanced_playback_speed_normal">Normal</string>
@@ -795,9 +818,11 @@ Cela ne contourne pas la restriction d'âge, mais confirme automatiquement."</st
 
 Celle-ci modifiera l'apparence de l'application, mais des effets indésirables inconnus peuvent se produire
 Si elle est désactivée ultérieurement, l'ancienne interface utilisateur peut subsister jusqu'à ce que les données de l'application soient effacées"</string>
+    <string name="revanced_spoof_app_version_target_entry_16_08_35">16.08.35 - Restaure le bouton \"Explorer\"</string>
     <string name="revanced_spoof_app_version_target_entry_17_08_35">17.08.35 - Restaure l\'ancienne interface</string>
     <string name="revanced_spoof_app_version_target_entry_17_41_37">17.41.37 - La catégorie \"Playlist\" dans la \"Bibliothèque\" utilise l\'ancienne interface</string>
     <string name="revanced_spoof_app_version_target_entry_18_05_40">18.05.40 - Restaure l\'ancienne interface de saisie commentaire</string>
+    <string name="revanced_spoof_app_version_target_entry_18_09_39">18.09.39 - Restaure l\'ancien onglet \"Bibliothèque\"(Désactive l\'onglet \"Vous\")</string>
     <string name="revanced_spoof_app_version_target_entry_18_17_43">18.17.43 - Restaure l\'ancienne interface du lecteur</string>
     <string name="revanced_spoof_app_version_target_entry_18_33_40">18.33.40 - Restaure l\'ancienne barre d\'action Shorts</string>
     <string name="revanced_spoof_app_version_target_entry_18_38_45">18.38.45 - Restaure l\'ancien fonctionnement par défaut de la qualité vidéo</string>
@@ -906,7 +931,7 @@ Problèmes connus:
     <string name="sb_settings_revanced_export_user_id_warning">Vos paramètres contiennent un identifiant utilisateur SponsorBlock privé.\n\nVotre identifiant d\'utilisateur est comme un mot de passe et ne doit jamais être partagé.\n</string>
     <string name="sb_settings_revanced_export_user_id_warning_dismiss">Ne plus afficher ce message</string>
     <string name="sb_diff_segments">Options de passage et de couleurs</string>
-    <string name="sb_segments_sponsor">Sponsor</string>
+    <string name="sb_segments_sponsor">Message sponsorisé</string>
     <string name="sb_segments_sponsor_sum">Promotion rémunérée, parrainages rémunérés et publicités directes. Ne concerne pas l\'autopromotion ou les mentions gratuites pour des causes/créateurs/sites web/produits qu\'ils apprécient</string>
     <string name="sb_segments_selfpromo">Auto-promotion / Non Rémunérée</string>
     <string name="sb_segments_selfpromo_sum">Similaire à \'Sponsor\', sauf pour la promotion non rémunérée ou l\'auto-promotion. Comprend des sections sur les marchandises, les dons ou des informations sur les personnes avec qui ils ont collaboré</string>

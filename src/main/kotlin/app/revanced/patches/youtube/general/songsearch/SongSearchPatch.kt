@@ -44,7 +44,6 @@ import app.revanced.patches.youtube.utils.settings.SettingsPatch
             ]
         )
     ],
-    use = false
 )
 @Suppress("unused")
 object SongSearchPatch : BytecodePatch(

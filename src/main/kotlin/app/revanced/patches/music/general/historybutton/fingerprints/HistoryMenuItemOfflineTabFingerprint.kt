@@ -16,7 +16,7 @@ object HistoryMenuItemOfflineTabFingerprint : MethodFingerprint(
         Opcode.INVOKE_INTERFACE,
         Opcode.RETURN_VOID
     ),
-    customFingerprint = { methodDef, classDef ->
+    customFingerprint = { methodDef, _ ->
         methodDef.containsWideLiteralInstructionIndex(HistoryMenuItem)
                 && methodDef.containsWideLiteralInstructionIndex(OfflineSettingsMenuItem)
     }

@@ -35,18 +35,6 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
         CompatiblePackage(
             "com.google.android.youtube",
             [
-                "18.25.40",
-                "18.27.36",
-                "18.29.38",
-                "18.30.37",
-                "18.31.40",
-                "18.32.39",
-                "18.33.40",
-                "18.34.38",
-                "18.35.36",
-                "18.36.39",
-                "18.37.36",
-                "18.38.44",
                 "18.39.41",
                 "18.40.34",
                 "18.41.39",

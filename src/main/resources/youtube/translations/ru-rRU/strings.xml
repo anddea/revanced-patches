@@ -80,7 +80,9 @@
     <string name="revanced_comments_title">Комментарии</string>
     <string name="revanced_custom_filter_strings_summary">Настройте, какие компоненты фильтровать, обозначая конец каждого из них новой строкой.</string>
     <string name="revanced_custom_filter_strings_title">Изменить пользовательский фильтр</string>
-    <string name="revanced_custom_filter_strings_warning">Недопустимый пользовательский фильтр. Значения сброшены к начальным.</string>
+    <string name="revanced_custom_filter_toast_invalid_characters" formated="false">Invalid custom filter (must be ASCII only): %s</string>
+    <string name="revanced_custom_filter_toast_invalid_syntax" formated="false">Недопустимый пользовательский фильтр: %s</string>
+    <string name="revanced_custom_filter_toast_reset">Значения сброшены к начальным.</string>
     <string name="revanced_custom_filter_summary_off">Пользовательский фильтр отключён.</string>
     <string name="revanced_custom_filter_summary_on">Пользовательский фильтр включён.</string>
     <string name="revanced_custom_filter_title">Пользовательский фильтр</string>
@@ -646,9 +648,7 @@
     <string name="revanced_hide_suggested_actions_summary_off">Предлагаемые действия отображены.</string>
     <string name="revanced_hide_suggested_actions_summary_on">Предлагаемые действия скрыты.</string>
     <string name="revanced_hide_suggested_actions_title">Скрыть предлагаемые действия</string>
-    <string name="revanced_hide_suggested_video_overlay_summary">"Скрывает заставку рекомендуемого к воспроизведению следующим видео.
-
-Известная проблема: Автовоспроизведение не работает."</string>
+    <string name="revanced_hide_suggested_video_overlay_summary">Скрывает заставку рекомендуемого к воспроизведению следующим видео.</string>
     <string name="revanced_hide_suggested_video_overlay_title">Скрыть рекомендуемое видео</string>
     <string name="revanced_hide_suggestions_shelf_method_summary_off">"Распознаёт секции рекомендаций через browse id.
 

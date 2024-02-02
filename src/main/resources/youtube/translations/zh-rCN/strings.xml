@@ -43,7 +43,9 @@
     <string name="revanced_comments_title">评论</string>
     <string name="revanced_custom_filter_strings_summary">按行分隔的名称筛选组件</string>
     <string name="revanced_custom_filter_strings_title">编辑自定义筛选</string>
-    <string name="revanced_custom_filter_strings_warning">自定义过滤器无效，重置为默认。</string>
+    <string name="revanced_custom_filter_toast_invalid_characters" formated="false">Invalid custom filter (must be ASCII only): %s</string>
+    <string name="revanced_custom_filter_toast_invalid_syntax" formated="false">自定义过滤器无效: %s</string>
+    <string name="revanced_custom_filter_toast_reset">重置为默认。</string>
     <string name="revanced_custom_filter_summary_off">自定义筛选已禁用</string>
     <string name="revanced_custom_filter_summary_on">自定义筛选已启用</string>
     <string name="revanced_custom_filter_title">自定义筛选</string>
@@ -544,8 +546,7 @@
     <string name="revanced_hide_suggested_actions_summary_off">操作建议已显示</string>
     <string name="revanced_hide_suggested_actions_summary_on">操作建议已隐藏</string>
     <string name="revanced_hide_suggested_actions_title">操作建议</string>
-    <string name="revanced_hide_suggested_video_overlay_summary">"推荐下一个播放视频叠加层隐藏
-已知问题：自动播放不工作"</string>
+    <string name="revanced_hide_suggested_video_overlay_summary">推荐下一个播放视频叠加层隐藏</string>
     <string name="revanced_hide_suggested_video_overlay_title">推荐视频叠加层</string>
     <string name="revanced_hide_suggestions_shelf_summary">"隐藏以下栏目：
 - 重大新闻

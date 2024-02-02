@@ -52,7 +52,7 @@ DeArrow hakkında daha fazla bilgi edinmek için buraya dokunun."</string>
     <string name="revanced_append_time_stamp_information_type_summary_on">Videonun mevcut kalitesi gösteriliyor.</string>
     <string name="revanced_append_time_stamp_information_type_title">Gösterilecek bilgi</string>
     <string name="revanced_bottom_player">Alt oynatıcı</string>
-    <string name="revanced_button_container_title">Butonlar</string>
+    <string name="revanced_button_container_title">Buton kapsayıcısı</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">Güç tasarrufu modundayken ambiyans modu kullanılamıyor.</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">Güç tasarrufu modundayken ambiyans modu kullanılabilir.</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">Ambiyans modu kısıtlamalarını atlayın</string>
@@ -80,7 +80,9 @@ Not: Test edilmemiş bir özelliktir."</string>
     <string name="revanced_comments_title">Yorumlar</string>
     <string name="revanced_custom_filter_strings_summary">Yeni satırlarla ayrılmış olarak hangi bileşenlerin filtreleneceğini yapılandırın.</string>
     <string name="revanced_custom_filter_strings_title">Özel filtreyi düzenle</string>
-    <string name="revanced_custom_filter_strings_warning">Geçersiz özel filtre. Filtre varsayılana sıfırlandı.</string>
+    <string name="revanced_custom_filter_toast_invalid_characters" formated="false">Invalid custom filter (must be ASCII only): %s</string>
+    <string name="revanced_custom_filter_toast_invalid_syntax" formated="false">Geçersiz özel filtre: %s</string>
+    <string name="revanced_custom_filter_toast_reset">Filtre varsayılana sıfırlandı.</string>
     <string name="revanced_custom_filter_summary_off">Özel filtre devre dışı</string>
     <string name="revanced_custom_filter_summary_on">Özel filtre etkin</string>
     <string name="revanced_custom_filter_title">Özel filtreyi etkinleştir</string>
@@ -109,6 +111,9 @@ Not: Test edilmemiş bir özelliktir."</string>
     <string name="revanced_disable_auto_captions_summary_off">Altyazılar kendiliğinden açılabiliyor</string>
     <string name="revanced_disable_auto_captions_summary_on">Altyazıların kendiliğinden açılması kapalı</string>
     <string name="revanced_disable_auto_captions_title">Altyazıların kendiliğinden açılmasını kapat</string>
+    <string name="revanced_disable_rolling_number_animations_summary_off">Yuvarlanan animasyonlar etkin.</string>
+    <string name="revanced_disable_rolling_number_animations_summary_on">Yuvarlanan animasyonlar devre dışı.</string>
+    <string name="revanced_disable_rolling_number_animations_title">Yuvarlanan numara animasyonlarını devre dışı bırak</string>
     <string name="revanced_disable_default_playback_speed_live_summary_off">Canlı yayınlarda varsayılan oynatma hızı etkin</string>
     <string name="revanced_disable_default_playback_speed_live_summary_on">Canlı yayınlarda varsayılan oynatma hızı devre dışı</string>
     <string name="revanced_disable_default_playback_speed_live_title">Canlı yayınlarda varsayılan oynatma hızını devre dışı bırak</string>
@@ -645,10 +650,10 @@ Bilinen sorun: Arama sonuçlarındaki resmi başlıklar da gizlenebiliyor."</str
     <string name="revanced_hide_suggested_actions_summary_off">Gizlenmiyor</string>
     <string name="revanced_hide_suggested_actions_summary_on">Gizleniyor</string>
     <string name="revanced_hide_suggested_actions_title">Önerilen eylemleri gizle</string>
-    <string name="revanced_hide_suggested_video_overlay_summary">"Sonraki oynatmak için önerilen video yerleşimini gizler.
-
-Bilinen sorun: Otomatik oynatma çalışmıyor."</string>
+    <string name="revanced_hide_suggested_video_overlay_summary">Sonraki oynatmak için önerilen video yerleşimini gizler.</string>
     <string name="revanced_hide_suggested_video_overlay_title">\"Önerilen video\"yu gizle</string>
+    <string name="revanced_hide_suggested_video_overlay_auto_play_summary">Videoyu bitirdiğinizde, başka bir video otomatikman oynar</string>
+    <string name="revanced_hide_suggested_video_overlay_auto_play_title">Sonraki videoyu otomatik oynat</string>
     <string name="revanced_hide_suggestions_shelf_method_summary_off">"Göz atma kimliği aracılığıyla öneri rafını tanımlar.
 
 Bilinen Sorunlar:
@@ -728,7 +733,25 @@ Videoyu zaman damgasıyla kopyalamak için basılı tutun."</string>
     <string name="revanced_overlay_button_speed_dialog_reset">Oynatma hızı sıfırlandı (1.0x)</string>
     <string name="revanced_overlay_button_speed_dialog_summary">"Hız iletişim kutusunu açmak için dokunun.
 Çalma hızını 1.0x olarak ayarlamak için dokunun ve basılı tutun."</string>
+    <string name="revanced_overlay_button_whitelisting_summary">Kanal Beyaz listesine kanal eklemek için dokunun.</string>
+    <string name="revanced_overlay_button_whitelisting_title">Beyaz listeyi alma düğmesini göster</string>
     <string name="revanced_overlay_button_speed_dialog_title">Oynatma hızını ayarlama butonunu ekle</string>
+    <string name="revanced_whitelisting_added" formatted="false">%s kanalı %s beyaz listesine eklendi</string>
+    <string name="revanced_whitelisting_add_failed" formatted="false">%s kanalı %s beyaz listesine eklenemedi</string>
+    <string name="revanced_whitelisting_channel_name">Kanal adı</string>
+    <string name="revanced_whitelisting_empty">Beyaz listeye alınmış kanal yok</string>
+    <string name="revanced_whitelisting_excluded">Beyaz listeye eklenmedi</string>
+    <string name="revanced_whitelisting_fetch_failed" formated="false">Kanal ayrıntıları alınamadı, %d mesajı alındı</string>
+    <string name="revanced_whitelisting_included">Beyaz listeye eklendi</string>
+    <string name="revanced_whitelisting_reboot">Kanal beyaz listesi ayarlarını uygulamak için yeniden başlatın</string>
+    <string name="revanced_whitelisting_removed" formatted="false">%s kanalı %s beyaz listesinden kaldırıldı</string>
+    <string name="revanced_whitelisting_remove_failed" formatted="false">%s kanalı %s beyaz listesinden kaldırılamadı</string>
+    <string name="revanced_whitelisting_settings_summary">Beyaz listeye eklenen kanalların listesini kontrol edin veya kaldırın</string>
+    <string name="revanced_whitelisting_speed">Video hızı</string>
+    <string name="revanced_whitelisting_speed_button">Hız</string>
+    <string name="revanced_whitelisting_sponsorblock">SponsorBlock</string>
+    <string name="revanced_whitelisting_sponsorblock_button">SB</string>
+    <string name="revanced_whitelisting_title">Kanal beyaz listesl</string>
     <string name="revanced_patches_information">Yama Bilgileri</string>
     <string name="revanced_patches_information_summary">Uygulanmış Yamalar Hakkında Bilgi.</string>
     <string name="revanced_playback_speed_normal">Normal</string>
@@ -797,9 +820,11 @@ Videoyu zaman damgasıyla kopyalamak için basılı tutun."</string>
 
 • Bu, uygulamanın görünümünü değiştirir, ancak bilinmeyen yan etkiler ortaya çıkabilir
 • Daha sonra kapatılırsa, uygulama verileri temizlenene kadar eski kullanıcı arayüzü kalabilir"</string>
+    <string name="revanced_spoof_app_version_target_entry_16_08_35">16.08.35 - Eski eşfet sekmesini geri getir</string>
     <string name="revanced_spoof_app_version_target_entry_17_08_35">17.08.35 - Eski kullanıcı arayüzü düzenini geri yükle</string>
     <string name="revanced_spoof_app_version_target_entry_17_41_37">17.41.37 - Eski oynatma listesi raf düzenini geri yükle</string>
     <string name="revanced_spoof_app_version_target_entry_18_05_40">18.05.40 - Eski yorum girme düzenini geri yükle</string>
+    <string name="revanced_spoof_app_version_target_entry_18_09_39">18.09.39 - Eski kitaplık sekmesini geri yükle (Siz Sekmesini Devre Dışı Bırakın)</string>
     <string name="revanced_spoof_app_version_target_entry_18_17_43">18.17.43 - Eski tarz oynatıcı açılır panelini geri yükleyin</string>
     <string name="revanced_spoof_app_version_target_entry_18_33_40">18.33.40 - Eski shorts aksiyon çubuğunu geri yükle</string>
     <string name="revanced_spoof_app_version_target_entry_18_38_45">18.38.45 - Eski varsayılan video kalitesi davranışını geri getir</string>
