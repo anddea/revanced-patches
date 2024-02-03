@@ -203,7 +203,8 @@ object OverlayButtonsPatch : ResourcePatch() {
                         "copy_video_url_timestamp_button",
                         "always_repeat_button",
                         "external_download_button",
-                        "fullscreen_button"
+                        "fullscreen_button",
+                        "whitelist_button"
                     ).forEach { targetId ->
                         if (attribute.textContent.endsWith(targetId)) {
                             arrayOf(
