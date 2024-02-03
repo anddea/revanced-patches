@@ -292,6 +292,7 @@
         <SwitchPreference android:title="@string/revanced_hide_suggestions_shelf_method_title" android:key="revanced_hide_suggestions_shelf_method" android:defaultValue="false" android:summaryOn="@string/revanced_hide_suggestions_shelf_method_summary_on" android:summaryOff="@string/revanced_hide_suggestions_shelf_method_summary_off" android:dependency="revanced_hide_suggestions_shelf" />SETTINGS: HIDE_SUGGESTIONS_SHELF -->
 
         <!-- SETTINGS: HIDE_LAYOUT_COMPONENTS
+        <SwitchPreference android:title="@string/revanced_hide_home_feed_membership_video_title" android:key="revanced_hide_home_feed_membership_video" android:defaultValue="false" android:summary="@string/revanced_hide_home_feed_membership_video_summary" />
         <SwitchPreference android:title="@string/revanced_hide_video_with_gray_description_title" android:key="revanced_hide_video_with_gray_description" android:defaultValue="false" android:summary="@string/revanced_hide_video_with_gray_description_summary" />
         <SwitchPreference android:title="@string/revanced_hide_video_with_low_view_title" android:key="revanced_hide_video_with_low_view" android:defaultValue="false" android:summary="@string/revanced_hide_video_with_low_view_summary" />SETTINGS: HIDE_LAYOUT_COMPONENTS -->
 
@@ -397,7 +398,7 @@
         <Preference android:title=" " android:selectable="false" android:summary="@string/pref_about_category" />
         <PreferenceScreen android:title="@string/revanced_patches_information"  android:summary="@string/revanced_patches_information_summary" >
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_tool_used" />
-            <Preference android:title="ReVanced Patches" android:selectable="false" android:summary="2.220.2" />
+            <Preference android:title="ReVanced Patches" android:selectable="false" android:summary="2.220.3" />
             <Preference android:title="ReVanced Integrations" android:selectable="false" android:summary="" />
 
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_ads" />
