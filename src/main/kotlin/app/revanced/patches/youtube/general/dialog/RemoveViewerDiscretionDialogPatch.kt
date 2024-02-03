@@ -42,7 +42,7 @@ import app.revanced.patches.youtube.utils.settings.SettingsPatch
                 "19.01.34",
                 "19.02.39",
                 "19.03.36",
-                "19.04.34"
+                "19.04.37"
             ]
         )
     ]

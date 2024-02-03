@@ -49,7 +49,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
                 "19.01.34",
                 "19.02.39",
                 "19.03.36",
-                "19.04.34"
+                "19.04.37"
             ]
         )
     ]
