@@ -102,7 +102,7 @@ object OverrideQualityHookPatch : BytecodePatch(
 
                 addInstruction(
                     textIndex + 1,
-                    "sput-object v$textRegister, $INTEGRATIONS_VIDEO_HELPER_CLASS_DESCRIPTOR->currentQuality:Ljava/lang/String;"
+                    "invoke-static {v$textRegister}, $INTEGRATIONS_VIDEO_HELPER_CLASS_DESCRIPTOR->onQualityChanges(Ljava/lang/String;)V"
                 )
             }
         } ?: throw VideoQualityTextFingerprint.exception

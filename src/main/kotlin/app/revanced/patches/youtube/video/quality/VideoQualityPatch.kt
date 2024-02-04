@@ -14,7 +14,6 @@ import app.revanced.patches.youtube.utils.overridespeed.OverrideSpeedHookPatch
 import app.revanced.patches.youtube.utils.playertype.PlayerTypeHookPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch.contexts
-import app.revanced.patches.youtube.utils.videoid.general.VideoIdPatch
 import app.revanced.patches.youtube.utils.videoid.withoutshorts.VideoIdWithoutShortsPatch
 import app.revanced.patches.youtube.video.quality.fingerprints.VideoQualitySetterFingerprint
 import app.revanced.util.copyXmlNode
@@ -29,7 +28,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
         OverrideSpeedHookPatch::class,
         PlayerTypeHookPatch::class,
         SettingsPatch::class,
-        VideoIdPatch::class,
         VideoIdWithoutShortsPatch::class
     ],
     compatiblePackages = [
@@ -101,9 +99,6 @@ object VideoQualityPatch : BytecodePatch(
                 )
             } ?: throw PatchException("Failed to find onItemClick method")
         } ?: throw VideoQualitySetterFingerprint.exception
-
-        VideoIdPatch.injectCall("$INTEGRATIONS_VIDEO_QUALITY_CLASS_DESCRIPTOR->newVideoStarted(Ljava/lang/String;)V")
-        VideoIdWithoutShortsPatch.injectCall("$INTEGRATIONS_VIDEO_QUALITY_CLASS_DESCRIPTOR->newVideoStarted(Ljava/lang/String;)V")
 
         VideoIdWithoutShortsPatch.injectCall("$INTEGRATIONS_RELOAD_VIDEO_CLASS_DESCRIPTOR->setVideoId(Ljava/lang/String;)V")
 
