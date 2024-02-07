@@ -176,6 +176,7 @@ ReVanced Extended Patches.
 | `Hide new playlist button` | Adds an option to hide the "New playlist" button in the library. | 6.21.52+ |
 | `Hide player overlay filter` | Removes the dark overlay when single-tapping player. | 6.21.52+ |
 | `Hide playlist card` | Adds an option to hide the playlist card from the homepage. | 6.21.52+ |
+| `Hide tap to update button` | Adds an option to hide the tap to update button. | 6.21.52+ |
 | `Hide taste builder` | Hides the "Tell us which artists you like" card from the homepage. | 6.21.52+ |
 | `Hide terms container` | Adds an option to hide the terms of service container in the account menu. | 6.21.52+ |
 | `Hide tooltip content` | Hides the tooltip box that appears when opening the app for the first time. | 6.21.52+ |
