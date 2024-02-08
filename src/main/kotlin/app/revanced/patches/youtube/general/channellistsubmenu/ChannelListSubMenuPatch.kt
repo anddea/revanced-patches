@@ -7,7 +7,9 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.youtube.general.channellistsubmenu.fingerprints.ChannelListSubMenuFingerprint
+import app.revanced.patches.youtube.utils.integrations.Constants.COMPONENTS_PATH
 import app.revanced.patches.youtube.utils.integrations.Constants.GENERAL
+import app.revanced.patches.youtube.utils.litho.LithoFilterPatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.exception
@@ -17,6 +19,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
     name = "Hide channel avatar section",
     description = "Adds an option to hide the channel avatar section of the subscription feed.",
     dependencies = [
+        LithoFilterPatch::class,
         SettingsPatch::class,
         SharedResourceIdPatch::class
     ],
@@ -59,6 +62,7 @@ object ChannelListSubMenuPatch : BytecodePatch(
     setOf(ChannelListSubMenuFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
+        LithoFilterPatch.addFilter("$COMPONENTS_PATH/ChannelListSubMenuFilter;")
 
         ChannelListSubMenuFingerprint.result?.let {
             it.mutableMethod.apply {
