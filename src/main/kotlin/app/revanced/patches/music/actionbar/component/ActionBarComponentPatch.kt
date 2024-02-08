@@ -2,6 +2,7 @@ package app.revanced.patches.music.actionbar.component
 
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
@@ -11,6 +12,7 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.music.actionbar.component.fingerprints.ActionBarComponentFingerprint
 import app.revanced.patches.music.actionbar.component.fingerprints.LikeDislikeContainerFingerprint
+import app.revanced.patches.music.actionbar.component.fingerprints.LikeDislikeContainerVisibilityFingerprint
 import app.revanced.patches.music.utils.integrations.Constants.ACTIONBAR
 import app.revanced.patches.music.utils.intenthook.IntentHookPatch
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch
@@ -132,8 +134,26 @@ object ActionBarComponentPatch : BytecodePatch(
             }
         } ?: throw ActionBarComponentFingerprint.exception
 
-        LikeDislikeContainerFingerprint.result?.let {
-            it.mutableMethod.apply {
+        LikeDislikeContainerFingerprint.result?.let { parentResult ->
+            /**
+             * Added in YouTube Music v6.35.xx~
+             */
+            LikeDislikeContainerVisibilityFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.let {
+                it.mutableMethod.apply {
+                    val targetIndex = it.scanResult.patternScanResult!!.startIndex + 1
+                    val targetRegister =
+                        getInstruction<OneRegisterInstruction>(targetIndex).registerA
+
+                    addInstructions(
+                        targetIndex + 1, """
+                            invoke-static {v$targetRegister}, $ACTIONBAR->hideLikeDislikeButton(Z)Z
+                            move-result v$targetRegister
+                            """
+                    )
+                }
+            } // Don't throw exception
+
+            parentResult.mutableMethod.apply {
                 val insertIndex = getWideLiteralInstructionIndex(LikeDislikeContainer) + 2
                 val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
