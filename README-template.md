@@ -1,6 +1,6 @@
 ## 🧩 ReVanced Patches
 
-ReVanced Extended Patches.
+ReX Patches.
 
 ## 📋 List of patches in this repository
 
@@ -44,7 +44,9 @@ Example:
           "18.48.39",
           "18.49.37",
           "19.01.34",
-          "19.02.39"
+          "19.02.39",
+          "19.03.36",
+          "19.04.37"
         ]
       }
     ],
@@ -59,16 +61,7 @@ Example:
       {
         "name": "com.google.android.apps.youtube.music",
         "versions": [
-          "6.21.52",
-          "6.22.52",
-          "6.23.56",
-          "6.25.53",
-          "6.26.51",
-          "6.27.54",
-          "6.28.53",
-          "6.29.58",
-          "6.31.55",
-          "6.33.52"
+          "6.21.52+"
         ]
       }
     ],

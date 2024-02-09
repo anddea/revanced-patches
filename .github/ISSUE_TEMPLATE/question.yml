@@ -1,0 +1,42 @@
+name: ❓ Question
+description: Leave your questions about the patches or other things.
+title: 'question: '
+labels: ['Question']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        # ReX question
+
+        Before creating a new question, please keep the following in mind:
+
+        - **Do not submit a duplicate question**: You can review existing questions [here](https://github.com/YT-Advanced/ReX-patches/labels/Question).
+  - type: dropdown
+    attributes:
+      label: Application
+      options:
+        - YouTube
+        - YouTube Music
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Question description
+      description: |
+        - Describe your question in detail
+        - Add images and videos if possible
+  - type: checkboxes
+    id: acknowledgements
+    attributes:
+      label: Acknowledgements
+      description: Your issue will be closed if you haven't done these steps.
+      options:
+        - label: This issue is not a duplicate of an existing question.
+          required: true
+        - label: I have chosen an appropriate title.
+          required: true
+        - label: All requested information has been provided properly.
+          required: true
+        - label: I have written the title and contents in English.
+          required: true
