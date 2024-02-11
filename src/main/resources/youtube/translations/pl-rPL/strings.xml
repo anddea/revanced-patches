@@ -18,7 +18,7 @@ Jeśli wideo nie posiada miniaturki DeArrow, to nadal widoczne są te przechwyco
     <string name="revanced_alt_thumbnail_about_title">Miniaturki w użyciu</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow dostarcza miniaturki wideo z YouTube pochodzące z procesu crowdsourcingu. Miniaturki te są często bardziej trafne niż te dostarczane przez YouTube. Jeśli opcja ta jest włączona, adresy URL filmów będą wysyłane do serwera API i nie będą wysyłane żadne inne dane.
 
-Kliknij tutaj, aby dowiedzieć się więcej o DeArrow."</string>
+Stuknij tutaj, aby dowiedzieć się więcej o DeArrow."</string>
     <string name="revanced_alt_thumbnail_dearrow_about_title">O DeArrow</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_summary">"Adres URL punktu końcowego pamięci podręcznej miniatur DeArrow. Nie zmieniaj tego dopóki nie będziesz wiedzieć co robić."</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_title">Punkt końcowy API DeArrow</string>
@@ -80,9 +80,9 @@ Notka: jest to funkcja, która nie została przetestowana."</string>
     <string name="revanced_comments_title">Komentarze</string>
     <string name="revanced_custom_filter_strings_summary">Skonfiguruj komponenty, które chcesz filtrować według nazw oddzielonych liniami.</string>
     <string name="revanced_custom_filter_strings_title">Edytuj własny filtr</string>
-    <string name="revanced_custom_filter_toast_invalid_characters" formated="false">Invalid custom filter (must be ASCII only): %s</string>
+    <string name="revanced_custom_filter_toast_invalid_characters" formated="false">Nieprawidłowy własny filtr (musi być tylko ASCII): %s</string>
     <string name="revanced_custom_filter_toast_invalid_syntax" formated="false">Nieprawidłowy własny filtr: %s</string>
-    <string name="revanced_custom_filter_toast_reset">Przywrócono domyślny filtr</string>
+    <string name="revanced_custom_filter_toast_reset">Własny filtr został zresetowany do domyślnego ustawienia</string>
     <string name="revanced_custom_filter_summary_off">Wyłączony</string>
     <string name="revanced_custom_filter_summary_on">Włączony</string>
     <string name="revanced_custom_filter_title">Własny filtr</string>
@@ -695,6 +695,8 @@ Znane problemy:
     <string name="revanced_hide_video_ads_summary_off">Widoczne</string>
     <string name="revanced_hide_video_ads_summary_on">Ukryte</string>
     <string name="revanced_hide_video_ads_title">Reklamy podczas wideo</string>
+    <string name="revanced_hide_home_feed_membership_video_summary">Ukryj wideo z tagiem \"Tylko dla wspierających\" na Stronie Głównej</string>
+    <string name="revanced_hide_home_feed_membership_video_title">Ukryj wideo dla wspierających na Stronie Głównej</string>
     <string name="revanced_hide_video_with_gray_description_summary">"Ukrywa wideo z szarymi opisami z wyników wyszukiwania.
 Wideo z szarymi opisami zawierają wideo niezwiązane z wynikami wyszukiwania."</string>
     <string name="revanced_hide_video_with_gray_description_title">Wideo z szarymi opisami</string>
@@ -722,7 +724,7 @@ Niektóre wideo, w tym te z subskrybowanych kanałów, mogą nie zostać ukryte.
     <string name="revanced_navigation">Nawigacja</string>
     <string name="revanced_others">Inne</string>
     <string name="revanced_overlay_button">Przyciski w odtwarzaczu</string>
-    <string name="revanced_overlay_button_always_repeat_summary">"Kliknij, aby przełączyć stan zapętlania wideo.
+    <string name="revanced_overlay_button_always_repeat_summary">"Stuknij, by zmienić stan pętli.
 Stuknij i przytrzymaj, by zmienić stan pętli z pauzą."</string>
     <string name="revanced_overlay_button_always_repeat_title">Przycisk od pętli</string>
     <string name="revanced_overlay_button_copy_video_url_summary">"Stuknij, by skopiować URL wideo.
@@ -757,7 +759,7 @@ Stuknij i przytrzymaj, by zmienić prędkość odtwarzania na 1.0x."</string>
     <string name="revanced_whitelisting_title">Biała lista kanałów</string>
     <string name="revanced_patches_information">Lista Łatek</string>
     <string name="revanced_patches_information_summary">Lista zastosowanych łatek</string>
-    <string name="revanced_playback_speed_normal">Normal</string>
+    <string name="revanced_playback_speed_normal">Normalna</string>
     <string name="revanced_player">Odtwarzacz</string>
     <string name="revanced_player_flyout_panel_additional_settings_summary">Aby ukryć menu ustawień dodatkowych, ukryj wszystkie opcje w kategorii ustawień dodatkowych.</string>
     <string name="revanced_player_flyout_panel_additional_settings_title">Przyciski w menu ustawień wideo (Ustawienia dodatkowe)</string>
