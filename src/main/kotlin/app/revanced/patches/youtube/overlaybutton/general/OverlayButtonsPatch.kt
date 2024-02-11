@@ -75,7 +75,7 @@ import org.w3c.dom.Element
 object OverlayButtonsPatch : ResourcePatch() {
     private val OutlineIcon by booleanPatchOption(
         key = "OutlineIcon",
-        default = false,
+        default = true,
         title = "Outline icons",
         description = "Apply the outline icon",
         required = true
@@ -126,6 +126,11 @@ object OverlayButtonsPatch : ResourcePatch() {
 
         if (OutlineIcon == true) {
             arrayOf(
+                ResourceGroup(
+                    "drawable",
+                    "yt_outline_screen_vertical_vd_theme_24.xml",
+                ),
+
                 ResourceGroup(
                     "drawable-xxhdpi",
                     "ic_fullscreen_vertical_button.png",
