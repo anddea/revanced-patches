@@ -58,7 +58,7 @@ DeArrow hakkında daha fazla bilgi edinmek için buraya dokunun."</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">Ambiyans modu kısıtlamalarını atlayın</string>
     <string name="revanced_change_player_flyout_panel_toggle_summary_off">Anahtar geçişleri kullanılıyor.</string>
     <string name="revanced_change_player_flyout_panel_toggle_summary_on">Yazı geçişleri kullanılıryor.</string>
-    <string name="revanced_change_player_flyout_panel_toggle_title">Geçiş tipini değiştir</string>
+    <string name="revanced_change_player_flyout_panel_toggle_title">Geçiş anahtarı tipini değiştir</string>
     <string name="revanced_change_start_page_entry_default">Varsayılan</string>
     <string name="revanced_change_start_page_entry_explore">Keşfet</string>
     <string name="revanced_change_start_page_entry_history">Geçmiş</string>
@@ -80,9 +80,9 @@ Not: Test edilmemiş bir özelliktir."</string>
     <string name="revanced_comments_title">Yorumlar</string>
     <string name="revanced_custom_filter_strings_summary">Yeni satırlarla ayrılmış olarak hangi bileşenlerin filtreleneceğini yapılandırın.</string>
     <string name="revanced_custom_filter_strings_title">Özel filtreyi düzenle</string>
-    <string name="revanced_custom_filter_toast_invalid_characters" formated="false">Invalid custom filter (must be ASCII only): %s</string>
+    <string name="revanced_custom_filter_toast_invalid_characters" formated="false">Geçersiz özel filtre. (Sadece ASCII olmalı): %s</string>
     <string name="revanced_custom_filter_toast_invalid_syntax" formated="false">Geçersiz özel filtre: %s</string>
-    <string name="revanced_custom_filter_toast_reset">Filtre varsayılana sıfırlandı.</string>
+    <string name="revanced_custom_filter_toast_reset">Özel filtre varsayılana sıfırlandı</string>
     <string name="revanced_custom_filter_summary_off">Özel filtre devre dışı</string>
     <string name="revanced_custom_filter_summary_on">Özel filtre etkin</string>
     <string name="revanced_custom_filter_title">Özel filtreyi etkinleştir</string>
@@ -693,6 +693,8 @@ Bilinen Sorunlar:
     <string name="revanced_hide_video_ads_summary_off">Video reklamları gösteriliyor</string>
     <string name="revanced_hide_video_ads_summary_on">Video reklamları gizleniyor</string>
     <string name="revanced_hide_video_ads_title">Video reklamlarını gizle</string>
+    <string name="revanced_hide_home_feed_membership_video_summary">Ana sayfada \"Üyelere özel\" etiketini gizle</string>
+    <string name="revanced_hide_home_feed_membership_video_title">Ana sayfada üyelik videolarını gizle</string>
     <string name="revanced_hide_video_with_gray_description_summary">"Gri açıklamalı videoları arama sonuçlarından gizleyin.
 Gri açıklaması olan videolar, arama terimleriyle ilgili olmayan videoları içerir."</string>
     <string name="revanced_hide_video_with_gray_description_title">Gri açıklamalı videoları gizle</string>
@@ -720,7 +722,7 @@ Abone olduğunuz kanallardaki videolar da dahil olmak üzere bazı videolar, 1.0
     <string name="revanced_navigation">Navigasyon</string>
     <string name="revanced_others">Diğerleri</string>
     <string name="revanced_overlay_button">Bindirme düğmesi</string>
-    <string name="revanced_overlay_button_always_repeat_summary">"Videoyu döngüye almak veya döngüden çıkarmak için dokunun.
+    <string name="revanced_overlay_button_always_repeat_summary">"Her zaman tekrarlama ayarı için dokunun.
 Tekrarlama durumlarından sonra duraklamayı etkinleştirmek için basılı tutun."</string>
     <string name="revanced_overlay_button_always_repeat_title">Videoyu döngüye alma butonunu ekle</string>
     <string name="revanced_overlay_button_copy_video_url_summary">"Video URL'sini kopyalamak için dokunun.
