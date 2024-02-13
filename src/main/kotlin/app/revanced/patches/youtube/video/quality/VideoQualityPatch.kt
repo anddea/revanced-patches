@@ -99,7 +99,7 @@ object VideoQualityPatch : BytecodePatch(
                 )
             } ?: throw PatchException("Failed to find onItemClick method")
         } ?: throw VideoQualitySetterFingerprint.exception
-
+        VideoIdWithoutShortsPatch.injectCall("$INTEGRATIONS_VIDEO_QUALITY_CLASS_DESCRIPTOR->initialize(Ljava/lang/String;)V")
         VideoIdWithoutShortsPatch.injectCall("$INTEGRATIONS_RELOAD_VIDEO_CLASS_DESCRIPTOR->setVideoId(Ljava/lang/String;)V")
 
         /**
