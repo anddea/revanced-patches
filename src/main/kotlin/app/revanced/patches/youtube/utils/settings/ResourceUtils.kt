@@ -59,7 +59,7 @@ object ResourceUtils {
     }
 
     fun ResourceContext.updatePatchStatusHeader(headerName: String) {
-        updatePatchStatusSettings("Header", headerName)
+        updatePatchStatusSettings("Custom branding heading", headerName)
     }
 
     fun ResourceContext.updatePatchStatusIcon(iconName: String) {
