@@ -5,7 +5,7 @@
     <string name="microg_not_installed_notice">Telepítse a MicroG-t.</string>
     <string name="microg_not_installed_warning">A MicroG nem található.</string>
     <string name="microg_not_running_warning">A MicroG nem fut a háttérben.</string>
-    <string name="microg_settings_summary">Értesítések fogadásához engedélyezze a „Cloud messaging” beállításokat.</string>
+    <string name="microg_settings_summary">Értesítések fogadásához engedélyezze a \'Cloud messaging\' beállításokat.</string>
     <string name="microg_settings_title">MicroG megnyitása</string>
     <string name="revanced_ads">Hirdetések</string>
     <string name="revanced_alt_thumbnails">Alternatív indexképek</string>
@@ -80,9 +80,9 @@ Megjegyzés: ez egy, még teszteletlen funkció."</string>
     <string name="revanced_comments_title">Megjegyzések</string>
     <string name="revanced_custom_filter_strings_summary">Komponensek szűrése sorokkal elválasztott nevekkel.</string>
     <string name="revanced_custom_filter_strings_title">Egyéni szűrő szerkesztése</string>
-    <string name="revanced_custom_filter_toast_invalid_characters" formated="false">Invalid custom filter (must be ASCII only): %s</string>
+    <string name="revanced_custom_filter_toast_invalid_characters" formated="false">Érvénytelen egyéni szűrő (csak ASCII lehet): %s</string>
     <string name="revanced_custom_filter_toast_invalid_syntax" formated="false">Érvénytelen egyéni szűrő: %s</string>
-    <string name="revanced_custom_filter_toast_reset">Az egyéni szűrő visszaállítás az eredetire.</string>
+    <string name="revanced_custom_filter_toast_reset">Egyéni szűrő visszaállítva alapértelmezettre</string>
     <string name="revanced_custom_filter_summary_off">Az egyéni szűrő le van tiltva.</string>
     <string name="revanced_custom_filter_summary_on">Az egyéni szűrő engedélyezett.</string>
     <string name="revanced_custom_filter_title">Egyéni szűrő engedélyezése</string>
@@ -97,7 +97,7 @@ Megjegyzés: ez egy, még teszteletlen funkció."</string>
     <string name="revanced_custom_player_overlay_opacity_title">Egyéni lejátszó fedvény átlátszósága</string>
     <string name="revanced_custom_player_overlay_opacity_warning">A lejátszó átlátszóságának 0 és 100 között kell lennie. Visszaállítás alapértelmezettre.</string>
     <string name="revanced_custom_seekbar_color_value_summary">Írja be a keresősáv színének hexadecimális kódját.</string>
-    <string name="revanced_custom_seekbar_color_value_title">Keresősáv egyéni szín értéke</string>
+    <string name="revanced_custom_seekbar_color_value_title">Keresősáv egyéni színe</string>
     <string name="revanced_default_app_settings_summary">Az RVX külső böngészőben történő megnyitásához kapcsolja be a \'Támogatott linkek megnyitása\' opciót, és engedélyezze a támogatott webcímeket.</string>
     <string name="revanced_default_app_settings_title">Alapértelmezett program beállítások megnyitása</string>
     <string name="revanced_default_playback_speed_title">Alapértelmezett lejátszási sebesség</string>
@@ -151,7 +151,7 @@ Megjegyzés: sebesség átfedés letiltása esetén a régi felület csúsztatá
     <string name="revanced_enable_bottom_player_gestures_title">Engedélyezze a mini lejátszó gesztusait</string>
     <string name="revanced_enable_compact_controls_overlay_summary_off">A kompakt vezérlők átfedés le van tiltva.</string>
     <string name="revanced_enable_compact_controls_overlay_summary_on">A kompakt vezérlők átfedés engedélyezve van.</string>
-    <string name="revanced_enable_compact_controls_overlay_title">Kompakt vezérlők átfedés engedélyezése</string>
+    <string name="revanced_enable_compact_controls_overlay_title">Kompakt vezérlők fedés engedélyezése</string>
     <string name="revanced_enable_custom_playback_speed_summary_off">Az egyéni lejátszási sebesség le van tiltva.</string>
     <string name="revanced_enable_custom_playback_speed_summary_on">Az egyéni lejátszási sebesség engedélyezve van.</string>
     <string name="revanced_enable_custom_playback_speed_title">Egyéni lejátszási sebesség engedélyezése</string>
@@ -695,6 +695,8 @@ Ismert problémák:
     <string name="revanced_hide_video_ads_summary_off">A videó hirdetések láthatóak.</string>
     <string name="revanced_hide_video_ads_summary_on">A videó hirdetések el vannak rejtve.</string>
     <string name="revanced_hide_video_ads_title">Videó hirdetések elrejtése</string>
+    <string name="revanced_hide_home_feed_membership_video_summary">Rejtse el a \'Csak tagoknak\' szóló videókat a kezdőlapon</string>
+    <string name="revanced_hide_home_feed_membership_video_title">\'Csak tagoknak\' szóló videók elrejtése a kezdőlapon</string>
     <string name="revanced_hide_video_with_gray_description_summary">"A szürke leírású videók elrejtése a keresési eredmények közül.
 A szürke leírású videók olyan videókat tartalmaznak, amelyek nem kapcsolódnak a keresési kifejezésekhez."</string>
     <string name="revanced_hide_video_with_gray_description_title">Szürke leírású videók elrejtése</string>
@@ -722,7 +724,7 @@ Előfordulhat, hogy a feliratkozott csatornákról származó videók, nem rejth
     <string name="revanced_navigation">Navigáció</string>
     <string name="revanced_others">Egyéb</string>
     <string name="revanced_overlay_button">Átfedés gomb</string>
-    <string name="revanced_overlay_button_always_repeat_summary">"Koppintson a mindig ismétlődő állapotok közötti váltáshoz.
+    <string name="revanced_overlay_button_always_repeat_summary">"Koppintson a folyamatos ismétlés állapot módosításához.
 Érintse meg és tartsa lenyomva az ismétlés állapot szüneteltetéséhez."</string>
     <string name="revanced_overlay_button_always_repeat_title">Folyamatos ismétlés gomb megjelenítése</string>
     <string name="revanced_overlay_button_copy_video_url_summary">"Érintse meg a videó URL-jének másolásához.
