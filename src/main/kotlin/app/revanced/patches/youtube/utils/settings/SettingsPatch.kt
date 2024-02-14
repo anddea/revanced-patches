@@ -120,7 +120,8 @@ object SettingsPatch : AbstractSettingsResourcePatch(
         arrayOf(
             ResourceGroup(
                 "layout",
-                "revanced_settings_with_toolbar.xml"
+                "revanced_settings_with_toolbar.xml",
+                "speedmaster_icon_edu_overlay.xml"
             ),
             ResourceGroup(
                 "values-v21",
