@@ -190,6 +190,9 @@
     <PreferenceScreen android:title="@string/revanced_general" android:key="general">
         <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_general" />PREFERENCE: GENERAL_SETTINGS -->
 
+        <!-- SETTINGS: HEADER_SWITCH
+        <SwitchPreference android:title="@string/revanced_override_premium_header_title" android:key="revanced_override_premium_header" android:defaultValue="false" android:summaryOn="@string/revanced_override_premium_header_summary_on" android:summaryOff="@string/revanced_override_premium_header_summary_off" />SETTINGS: HEADER_SWITCH -->
+
         <!-- SETTINGS: CHANGE_START_PAGE
         <ListPreference android:entries="@array/revanced_change_start_page_entry" android:title="@string/revanced_change_start_page_title" android:key="revanced_change_start_page" android:defaultValue="" android:entryValues="@array/revanced_change_start_page_entry_value" />SETTINGS: CHANGE_START_PAGE -->
 
@@ -431,6 +434,7 @@
             <Preference android:title="Quick actions components" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
 
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_general" />
+            <Preference android:title="Header switch" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Change start page" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Disable auto captions" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Enable gradient loading screen" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>

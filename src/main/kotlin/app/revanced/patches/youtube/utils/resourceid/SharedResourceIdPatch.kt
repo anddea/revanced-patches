@@ -5,6 +5,7 @@ import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.shared.patch.mapping.ResourceMappingPatch
 import app.revanced.patches.shared.patch.mapping.ResourceType
+import app.revanced.patches.shared.patch.mapping.ResourceType.ATTR
 import app.revanced.patches.shared.patch.mapping.ResourceType.COLOR
 import app.revanced.patches.shared.patch.mapping.ResourceType.DIMEN
 import app.revanced.patches.shared.patch.mapping.ResourceType.DRAWABLE
@@ -84,6 +85,7 @@ object SharedResourceIdPatch : ResourcePatch() {
     var TouchArea: Long = -1
     var VideoQualityBottomSheet: Long = -1
     var VideoZoomIndicatorLayout: Long = -1
+    var WordMarkHeader: Long = -1
     var YoutubeControlsOverlay: Long = -1
     var YoutubeControlsOverlaySubtitleButton: Long = -1
     var YtOutlineArrowTimeBlack: Long = -1
@@ -169,6 +171,7 @@ object SharedResourceIdPatch : ResourcePatch() {
         TouchArea = find(ID, "touch_area")
         VideoQualityBottomSheet = find(LAYOUT, "video_quality_bottom_sheet_list_fragment_title")
         VideoZoomIndicatorLayout = find(ID, "video_zoom_indicator_layout")
+        WordMarkHeader = find(ATTR, "ytWordmarkHeader")
         YoutubeControlsOverlay = find(ID, "youtube_controls_overlay")
         YoutubeControlsOverlaySubtitleButton = find(LAYOUT, "youtube_controls_overlay_subtitle_button")
         YtOutlineArrowTimeBlack = find(DRAWABLE, "yt_outline_arrow_time_black_24")
