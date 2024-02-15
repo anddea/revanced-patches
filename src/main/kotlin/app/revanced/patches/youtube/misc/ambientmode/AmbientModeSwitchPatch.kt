@@ -9,6 +9,8 @@ import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.youtube.misc.ambientmode.fingerprints.AmbientModeInFullscreenFingerprint
 import app.revanced.patches.youtube.misc.ambientmode.fingerprints.PowerSaveModeFingerprint
+import app.revanced.patches.youtube.misc.ambientmode.fingerprints.PowerSaveModeOneFingerprint
+import app.revanced.patches.youtube.misc.ambientmode.fingerprints.PowerSaveModeTwoFingerprint
 import app.revanced.patches.youtube.utils.integrations.Constants.FULLSCREEN
 import app.revanced.patches.youtube.utils.integrations.Constants.MISC_PATH
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
@@ -53,7 +55,6 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
                 "19.02.39",
                 "19.03.36",
                 "19.04.38",
-                "19.05.35",
                 "19.05.36"
             ]
         )
@@ -63,11 +64,14 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 object AmbientModeSwitchPatch : BytecodePatch(
     setOf(
         AmbientModeInFullscreenFingerprint,
-        PowerSaveModeFingerprint
+        PowerSaveModeFingerprint,
+        PowerSaveModeOneFingerprint,
+        PowerSaveModeTwoFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext) {
 
+    if (SettingsPatch.neward1905) {
         PowerSaveModeFingerprint.result?.let {
             it.mutableMethod.apply {
                 var insertIndex = -1
@@ -93,6 +97,40 @@ object AmbientModeSwitchPatch : BytecodePatch(
                     throw PatchException("Couldn't find PowerManager reference")
             }
         } ?: throw PowerSaveModeFingerprint.exception
+    }
+
+    if (SettingsPatch.eqward1905) {
+        arrayOf(
+            PowerSaveModeOneFingerprint,
+            PowerSaveModeTwoFingerprint
+        ).forEach { fingerprint ->
+            fingerprint.result?.let {
+                it.mutableMethod.apply {
+                    var insertIndex = -1
+
+                    for ((index, instruction) in implementation!!.instructions.withIndex()) {
+                        if (instruction.opcode != Opcode.INVOKE_VIRTUAL) continue
+
+                        val invokeInstruction = instruction as Instruction35c
+                        if ((invokeInstruction.reference as MethodReference).name != "isPowerSaveMode") continue
+
+                        val targetRegister = getInstruction<OneRegisterInstruction>(index + 1).registerA
+
+                        insertIndex = index + 2
+
+                        addInstructions(
+                            insertIndex, """
+                                invoke-static {v$targetRegister}, $MISC_PATH/AmbientModePatch;->bypassPowerSaveModeRestrictions(Z)Z
+                                move-result v$targetRegister
+                                """
+                        )
+                    }
+                if (insertIndex == -1)
+                    throw PatchException("Couldn't find PowerManager reference")
+                }
+            } ?: throw fingerprint.exception
+        }
+    }
 
         AmbientModeInFullscreenFingerprint.result?.let {
             it.mutableMethod.apply {
