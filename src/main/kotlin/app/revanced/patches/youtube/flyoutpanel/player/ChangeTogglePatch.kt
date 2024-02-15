@@ -5,6 +5,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.youtube.flyoutpanel.player.fingerprints.AdditionalSettingsConfigFingerprint
@@ -121,6 +122,6 @@ object ChangeTogglePatch : BytecodePatch(
                         """
                 )
             }
-        } ?: throw exception
+        } ?: throw PatchException("This version is not supported. Please use YouTube 19.05.36 or previous ones.")
     }
 }
