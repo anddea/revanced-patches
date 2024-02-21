@@ -97,7 +97,8 @@ object OverlayButtonsPatch : ResourcePatch() {
             "CopyVideoUrlTimestamp",
             "ExternalDownload",
             "SpeedDialog",
-            "Whitelists"
+            "Whitelists",
+            "PlaylistFromChannelVideos"
         ).forEach { patch ->
             PlayerControlsPatch.initializeControl("$OVERLAY_BUTTONS_PATH/$patch;")
             PlayerControlsPatch.injectVisibility("$OVERLAY_BUTTONS_PATH/$patch;")
@@ -136,6 +137,7 @@ object OverlayButtonsPatch : ResourcePatch() {
                     "quantum_ic_fullscreen_exit_white_24.png",
                     "quantum_ic_fullscreen_grey600_24.png",
                     "quantum_ic_fullscreen_white_24.png",
+                    "revanced_time_ordered_playlist.png",
                     "revanced_copy_icon.png",
                     "revanced_copy_icon_with_time.png",
                     "revanced_download_icon.png",
@@ -160,6 +162,7 @@ object OverlayButtonsPatch : ResourcePatch() {
                     "quantum_ic_fullscreen_exit_white_24.png",
                     "quantum_ic_fullscreen_grey600_24.png",
                     "quantum_ic_fullscreen_white_24.png",
+                    "revanced_time_ordered_playlist.png",
                     "revanced_copy_icon.png",
                     "revanced_copy_icon_with_time.png",
                     "revanced_download_icon.png",
