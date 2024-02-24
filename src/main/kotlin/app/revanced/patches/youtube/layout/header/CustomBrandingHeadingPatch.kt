@@ -59,15 +59,15 @@ object CustomBrandingHeadingPatch : ResourcePatch() {
         "YouTube Premium" to PREMIUM_HEADING_NAME,
     )
 
-    private val targetResourceDirectoryNames = arrayOf(
-        "xxxhdpi",
-        "xxhdpi",
-        "xhdpi",
-        "mdpi",
-        "hdpi",
-    ).map { dpi ->
-        "drawable-$dpi"
-    }
+    private val targetResourceDirectoryNames = mapOf(
+        "xxxhdpi" to "512px x 192px",
+        "xxhdpi" to "387px x 144px",
+        "xhdpi" to "258px x 96px",
+        "hdpi" to "194px x 72px",
+        "mdpi" to "129px x 48px",
+    ).map { (dpi, dim) ->
+        "drawable-$dpi" to dim
+    }.toMap()
 
     private val variants = arrayOf("light", "dark")
 
@@ -77,13 +77,17 @@ object CustomBrandingHeadingPatch : ResourcePatch() {
         values = availableHeading,
         title = "Header",
         description = """
-            The path to a folder must contain one or more of the following folders matching the DPI of your device:
-
-            ${targetResourceDirectoryNames.joinToString("\n") { "- $it" }}
-
-            Each of these folders has to have the following files:
-
+            The header to apply to the app.
+            
+            If a path to a folder is provided, the folder must contain one or more of the following folders, depending on the DPI of the device:
+            
+            ${targetResourceDirectoryNames.keys.joinToString("\n") { "- $it" }}
+            
+            Each of the folders must contain all of the following files:
+            
             ${variants.joinToString("\n") { variant -> "- ${DEFAULT_HEADING_NAME}_$variant.png" }}
+            The image dimensions must be as follows:
+            ${targetResourceDirectoryNames.map { (dpi, dim) -> "- $dpi: $dim" }.joinToString("\n")}
         """
         .split("\n")
         .joinToString("\n") { it.trimIndent() } // Remove the leading whitespace from each line.
@@ -94,7 +98,7 @@ object CustomBrandingHeadingPatch : ResourcePatch() {
         context.updatePatchStatusHeader("Default")
 
         // The directories to copy the header to.
-        val targetResourceDirectories = targetResourceDirectoryNames.mapNotNull {
+        val targetResourceDirectories = targetResourceDirectoryNames.keys.mapNotNull {
             context["res"].resolve(it).takeIf(File::exists)
         }
 
@@ -123,22 +127,28 @@ object CustomBrandingHeadingPatch : ResourcePatch() {
         }
 
         val toCustom = {
-            var copiedReplacementImages = false
-            // For all the resource groups in the custom header folder, copy them to the resource directories.
-            File(header!!).listFiles { file -> file.isDirectory }?.forEach { folder ->
-                val targetDirectory = context["res"].resolve(folder.name)
-                // Skip if the target directory (DPI) doesn't exist.
-                if (!targetDirectory.exists()) return@forEach
+            val sourceFolders = File(header!!).listFiles { file -> file.isDirectory }
+                ?: throw PatchException("The provided path is not a directory: $header")
 
-                folder.listFiles { file -> file.isFile }?.forEach {
-                    val targetResourceFile = targetDirectory.resolve(it.name)
+            var copiedFiles = false
 
-                    it.copyTo(targetResourceFile, true)
-                    copiedReplacementImages = true
+            // For each source folder, copy the files to the target resource directories.
+            sourceFolders.forEach { dpiSourceFolder ->
+                val targetDpiFolder = context["res"].resolve(dpiSourceFolder.name)
+                if (!targetDpiFolder.exists()) return@forEach
+
+                val imgSourceFiles = dpiSourceFolder.listFiles { file -> file.isFile }!!
+                imgSourceFiles.forEach { imgSourceFile ->
+                    val imgTargetFile = targetDpiFolder.resolve(imgSourceFile.name)
+                    imgSourceFile.copyTo(imgTargetFile, true)
+
+                    copiedFiles = true
                 }
             }
 
-            if (!copiedReplacementImages) throw PatchException("Could not find any custom images resources in directory: $header")
+            if (!copiedFiles) {
+                throw PatchException("No header files were copied from the provided path: $header.")
+            }
 
             // Overwrite the premium with the custom header as well.
             toHeader()
