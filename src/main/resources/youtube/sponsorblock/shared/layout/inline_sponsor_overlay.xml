@@ -9,6 +9,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="@dimen/inline_controls_bottom_bar_height"
+        android:layout_marginStart="@dimen/margin_start"
         android:focusable="true"
         android:visibility="gone" />
 
@@ -20,6 +21,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="@dimen/inline_controls_bottom_bar_height"
+        android:layout_marginEnd="@dimen/margin_end"
         android:focusable="true"
         android:visibility="gone" />
 
@@ -30,6 +32,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="@dimen/brand_interaction_default_bottom_margin"
+        android:layout_marginStart="@dimen/margin_start"
         android:focusable="true"
         android:visibility="gone" />
 </merge>
