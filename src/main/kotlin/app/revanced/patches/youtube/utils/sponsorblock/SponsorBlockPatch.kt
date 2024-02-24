@@ -68,6 +68,11 @@ object SponsorBlockPatch : ResourcePatch() {
                 "layout",
                 "inline_sponsor_overlay.xml",
                 "skip_sponsor_button.xml"
+            ),
+            ResourceGroup(
+                "drawable",
+                "ns_bg.xml",
+                "sb_btn_bg.xml"
             )
         ).forEach { resourceGroup ->
             context.copyResources("youtube/sponsorblock/shared", resourceGroup)
@@ -88,8 +93,7 @@ object SponsorBlockPatch : ResourcePatch() {
                     "ic_sb_forward.xml",
                     "ic_sb_logo.xml",
                     "ic_sb_publish.xml",
-                    "ic_sb_voting.xml",
-                    "ns_bg.xml"
+                    "ic_sb_voting.xml"
                 )
             ).forEach { resourceGroup ->
                 context.copyResources("youtube/sponsorblock/outline", resourceGroup)
