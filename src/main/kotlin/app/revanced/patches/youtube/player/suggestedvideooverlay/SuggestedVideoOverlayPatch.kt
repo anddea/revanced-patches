@@ -8,6 +8,8 @@ import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.youtube.player.suggestedvideooverlay.fingerprints.CoreContainerBuilderFingerprint
+import app.revanced.patches.youtube.player.suggestedvideooverlay.fingerprints.MainAppAutoNavFingerprint
+import app.revanced.patches.youtube.player.suggestedvideooverlay.fingerprints.MainAppAutoNavParentFingerprint
 import app.revanced.patches.youtube.player.suggestedvideooverlay.fingerprints.TouchAreaOnClickListenerFingerprint
 import app.revanced.patches.youtube.utils.integrations.Constants.PLAYER
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
@@ -17,7 +19,8 @@ import app.revanced.util.exception
 import app.revanced.util.getWideLiteralInstructionIndex
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.Opcode
 
 @Patch(
@@ -63,6 +66,7 @@ import com.android.tools.smali.dexlib2.Opcode
 object SuggestedVideoOverlayPatch : BytecodePatch(
     setOf(
         CoreContainerBuilderFingerprint,
+        MainAppAutoNavParentFingerprint,
         TouchAreaOnClickListenerFingerprint
     )
 ) {
@@ -70,19 +74,12 @@ object SuggestedVideoOverlayPatch : BytecodePatch(
 
         CoreContainerBuilderFingerprint.result?.let {
             it.mutableMethod.apply {
-                val targetIndex = getWideLiteralInstructionIndex(CoreContainer) + 4
-                val targetReference =
-                    getInstruction<ReferenceInstruction>(targetIndex).reference
-
-                if (!targetReference.toString().endsWith("Landroid/view/ViewGroup;"))
-                    throw PatchException("Reference did not match: $targetReference")
-
-                val targetRegister =
-                    getInstruction<TwoRegisterInstruction>(targetIndex).registerA
+                val addOnClickEventListenerIndex = it.scanResult.patternScanResult!!.endIndex - 1
+                val viewRegister = getInstruction<FiveRegisterInstruction>(addOnClickEventListenerIndex).registerC
 
                 addInstruction(
-                    targetIndex,
-                    "invoke-static {v$targetRegister}, $PLAYER->hideSuggestedVideoOverlay(Landroid/view/ViewGroup;)V"
+                    addOnClickEventListenerIndex + 1,
+                    "invoke-static {v$viewRegister}, $PLAYER->hideSuggestedVideoOverlay(Landroid/widget/ImageView;)V"
                 )
             }
         } ?: throw CoreContainerBuilderFingerprint.exception
@@ -104,6 +101,20 @@ object SuggestedVideoOverlayPatch : BytecodePatch(
 
             }
         } ?: throw TouchAreaOnClickListenerFingerprint.exception
+
+        MainAppAutoNavParentFingerprint.result?.mutableClass?.let { mutableClass ->
+            MainAppAutoNavFingerprint.also { it.resolve(context, mutableClass) }.result?.let {
+                it.mutableMethod.apply {
+                    val targetIndex = implementation!!.instructions.size - 1
+                    val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
+
+                    addInstruction(
+                        targetIndex,
+                        "invoke-static {v$targetRegister}, $PLAYER->saveAutoplay(Z)V"
+                    )
+                }
+            } ?: throw MainAppAutoNavFingerprint.exception
+        } ?: throw MainAppAutoNavParentFingerprint.exception
 
         /**
          * Add settings
