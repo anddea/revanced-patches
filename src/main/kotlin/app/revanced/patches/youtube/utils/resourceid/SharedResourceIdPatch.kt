@@ -32,7 +32,6 @@ object SharedResourceIdPatch : ResourcePatch() {
     var CompactLink: Long = -1
     var CompactListItem: Long = -1
     var ControlsLayoutStub: Long = -1
-    var CoreContainer: Long = -1
     var DarkSplashAnimation: Long = -1
     var DislikeButton: Long = -1
     var DonationCompanion: Long = -1
@@ -77,6 +76,7 @@ object SharedResourceIdPatch : ResourcePatch() {
     var Scrubbing: Long = -1
     var SeekUndoEduOverlayStub: Long = -1
     var SettingsBooleanTimeRangeDialog: Long = -1
+    var SizeAdjustableLiteAutoNavOverlay: Long = -1
     var SubtitleMenuSettingsFooterInfo: Long = -1
     var SuggestedAction: Long = -1
     var TabsBarTextTabView: Long = -1
@@ -116,7 +116,6 @@ object SharedResourceIdPatch : ResourcePatch() {
         CompactLink = find(LAYOUT, "compact_link")
         CompactListItem = find(LAYOUT, "compact_list_item")
         ControlsLayoutStub = find(ID, "controls_layout_stub")
-        CoreContainer = find(ID, "core_container")
         DarkSplashAnimation = find(ID, "dark_splash_animation")
         DislikeButton = find(ID, "dislike_button")
         DonationCompanion = find(LAYOUT, "donation_companion")
@@ -163,6 +162,7 @@ object SharedResourceIdPatch : ResourcePatch() {
         Scrubbing = find(DIMEN, "vertical_touch_offset_to_enter_fine_scrubbing")
         SeekUndoEduOverlayStub = find(ID, "seek_undo_edu_overlay_stub")
         SettingsBooleanTimeRangeDialog = find(LAYOUT, "setting_boolean_time_range_dialog")
+        SizeAdjustableLiteAutoNavOverlay = find(LAYOUT, "size_adjustable_lite_autonav_overlay")
         SubtitleMenuSettingsFooterInfo = find(STRING, "subtitle_menu_settings_footer_info")
         SuggestedAction = find(LAYOUT, "suggested_action")
         TabsBarTextTabView = find(ID, "tabs_bar_text_tab_view")
