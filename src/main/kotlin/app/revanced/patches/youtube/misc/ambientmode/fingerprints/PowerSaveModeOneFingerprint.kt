@@ -12,17 +12,17 @@ object PowerSaveModeOneFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("Ljava/lang/Object;"),
     opcodes = listOf(
-		Opcode.INVOKE_VIRTUAL, // isPowerSaveMode
-		Opcode.MOVE_RESULT,
-		Opcode.INVOKE_STATIC,
-		Opcode.MOVE_RESULT_OBJECT,
-		Opcode.IGET_OBJECT,
-		Opcode.CHECK_CAST,
-		Opcode.INVOKE_VIRTUAL,
-		Opcode.RETURN_VOID
+        Opcode.INVOKE_VIRTUAL, // isPowerSaveMode
+        Opcode.MOVE_RESULT,
+        Opcode.INVOKE_STATIC,
+        Opcode.MOVE_RESULT_OBJECT,
+        Opcode.IGET_OBJECT,
+        Opcode.CHECK_CAST,
+        Opcode.INVOKE_VIRTUAL,
+        Opcode.RETURN_VOID
     ),
     customFingerprint = custom@{ methodDef, _ ->
-		if (methodDef.name != "accept")
+        if (methodDef.name != "accept")
             return@custom false
 
         val instructions = methodDef.implementation?.instructions!!

@@ -7,6 +7,7 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
+import app.revanced.patches.youtube.player.musicbutton.fingerprints.MusicAppDeeplinkButtonAlternativeFingerprint
 import app.revanced.patches.youtube.player.musicbutton.fingerprints.MusicAppDeeplinkButtonFingerprint
 import app.revanced.patches.youtube.utils.integrations.Constants.PLAYER
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
@@ -50,14 +51,20 @@ import app.revanced.util.exception
                 "19.02.39",
                 "19.03.36",
                 "19.04.38",
-                "19.05.36"
+                "19.05.36",
+                "19.06.39",
+                "19.07.40",
+                "19.08.35"
             ]
         )
     ]
 )
 @Suppress("unused")
 object HideMusicButtonPatch : BytecodePatch(
-    setOf(MusicAppDeeplinkButtonFingerprint)
+    setOf(
+        MusicAppDeeplinkButtonAlternativeFingerprint,
+        MusicAppDeeplinkButtonFingerprint
+    )
 ) {
     override fun execute(context: BytecodeContext) {
 
@@ -73,7 +80,19 @@ object HideMusicButtonPatch : BytecodePatch(
                     ExternalLabel("hidden", getInstruction(implementation!!.instructions.size - 1))
                 )
             }
-        } ?: throw MusicAppDeeplinkButtonFingerprint.exception
+        } ?: MusicAppDeeplinkButtonAlternativeFingerprint.result?.let {
+            it.mutableMethod.apply {
+                addInstructionsWithLabels(
+                    0,
+                    """
+                        invoke-static {}, $PLAYER->hideMusicButton()Z
+                        move-result v0
+                        if-nez v0, :hidden
+                        """,
+                    ExternalLabel("hidden", getInstruction(implementation!!.instructions.size - 1))
+                )
+            }
+		} ?: throw MusicAppDeeplinkButtonFingerprint.exception
 
         /**
          * Add settings

@@ -55,7 +55,10 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
                 "19.02.39",
                 "19.03.36",
                 "19.04.38",
-                "19.05.36"
+                "19.05.36",
+                "19.06.39",
+                "19.07.40",
+                "19.08.35"
             ]
         )
     ]
@@ -71,7 +74,6 @@ object AmbientModeSwitchPatch : BytecodePatch(
 ) {
     override fun execute(context: BytecodeContext) {
 
-    if (SettingsPatch.neward1905) {
         PowerSaveModeFingerprint.result?.let {
             it.mutableMethod.apply {
                 var insertIndex = -1
@@ -96,11 +98,7 @@ object AmbientModeSwitchPatch : BytecodePatch(
                 if (insertIndex == -1)
                     throw PatchException("Couldn't find PowerManager reference")
             }
-        } ?: throw PowerSaveModeFingerprint.exception
-    }
-
-    if (SettingsPatch.eqward1905) {
-        arrayOf(
+        } ?: arrayOf(
             PowerSaveModeOneFingerprint,
             PowerSaveModeTwoFingerprint
         ).forEach { fingerprint ->
@@ -128,9 +126,8 @@ object AmbientModeSwitchPatch : BytecodePatch(
                 if (insertIndex == -1)
                     throw PatchException("Couldn't find PowerManager reference")
                 }
-            } ?: throw fingerprint.exception
+            } ?: throw PowerSaveModeFingerprint.exception
         }
-    }
 
         AmbientModeInFullscreenFingerprint.result?.let {
             it.mutableMethod.apply {
