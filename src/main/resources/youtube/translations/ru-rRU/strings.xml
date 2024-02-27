@@ -255,8 +255,8 @@
     <string name="revanced_external_downloader_package_name_summary">Имя пакета приложения-загрузчика видео, например NewPipe или YTDLnis</string>
     <string name="revanced_external_downloader_package_name_title">Имя пакета приложения-загрузчика</string>
     <string name="revanced_external_downloader_set">Установить загрузчиком по умолчанию</string>
-    <string name="revanced_external_downloader_settings_summary">Настройки загрузчика по умолчанию</string>
-    <string name="revanced_external_downloader_settings_title">Настройки загрузчика видео</string>
+    <string name="revanced_external_downloader_settings_summary">Настройки внешнего загрузчика по умолчанию</string>
+    <string name="revanced_external_downloader_settings_title">Настройки внешнего загрузчика</string>
     <string name="revanced_feed_flyout_panel_title">Всплывающее меню фида</string>
     <string name="revanced_flyout_menu">Всплывающее меню плеера</string>
     <string name="revanced_force_fullscreen_summary">Видео будет переключено в полноэкранный режим в следующих ситуациях:\n• При нажатии метки времени в комментариях\n• При запуске видео</string>
@@ -375,6 +375,9 @@
     <string name="revanced_hide_community_posts_home_summary_off">Публикации сообщества в \"Главная\" отображены</string>
     <string name="revanced_hide_community_posts_home_summary_on">Публикации сообщества в \"Главная\" скрыты</string>
     <string name="revanced_hide_community_posts_home_title">Скрыть публикации сообщества в \"Главная\"</string>
+    <string name="revanced_hide_community_posts_related_video_summary_off">Публикации сообщества в похожих видео отображены</string>
+    <string name="revanced_hide_community_posts_related_video_summary_on">Публикации сообщества в похожих видео скрыты</string>
+    <string name="revanced_hide_community_posts_related_video_title">Скрыть публикации сообщества в похожих видео</string>
     <string name="revanced_hide_community_posts_subscriptions_summary_off">Публикации сообщества в \"Подписки\" отображены</string>
     <string name="revanced_hide_community_posts_subscriptions_summary_on">Публикации сообщества в \"Подписки\" скрыты</string>
     <string name="revanced_hide_community_posts_subscriptions_title">Скрыть публикации сообщества в \"Подписки\"</string>
@@ -714,6 +717,8 @@
     <string name="revanced_overlay_button_speed_dialog_reset">Скорость воспроизведения сброшена в 1.0x</string>
     <string name="revanced_overlay_button_speed_dialog_summary">Нажмите для открытия выбора скорости.\nНажмите и удерживайте для установки скорости воспроизведения в 1.0x</string>
     <string name="revanced_overlay_button_speed_dialog_title">Кнопка выбора скорости воспроизведения</string>
+    <string name="revanced_overlay_button_time_ordered_playlist_summary">Нажмите, чтобы создать плейлист всех видео канала.\nНажмите и удерживайте, чтобы отменить действие</string>
+    <string name="revanced_overlay_button_time_ordered_playlist_title">Кнопка создания плейлиста канала</string>
     <string name="revanced_overlay_button_whitelisting_summary">Нажмите, чтобы добавить канал в белый список</string>
     <string name="revanced_overlay_button_whitelisting_title">Кнопка \"Белый список\"</string>
     <string name="revanced_override_premium_header_summary_off">Текущий заголовок - YouTube</string>
@@ -836,7 +841,7 @@
     <string name="revanced_whitelisting_reboot">Необходима перезагрузка приложения, чтобы применить настройки белого списка каналов</string>
     <string name="revanced_whitelisting_remove_failed" formatted="false">Не удалось удалить канал %s из белого списка %s</string>
     <string name="revanced_whitelisting_removed" formatted="false">Канал %s был удален из белого списка %s</string>
-    <string name="revanced_whitelisting_settings_summary">Проверить или удалить список каналов, добавленных в белый список</string>
+    <string name="revanced_whitelisting_settings_summary">Посмотреть или удалить каналы, добавленные в белый список</string>
     <string name="revanced_whitelisting_speed">Список \"Скорость видео\"</string>
     <string name="revanced_whitelisting_speed_button">Кнопка \"Скорость видео\"</string>
     <string name="revanced_whitelisting_sponsorblock">Список \"SponsorBlock\"</string>
