@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="accessibility_settings_edu_opt_in_text">Bật các điều khiển trợ năng cho trình phát video?</string>
+
     <string name="accessibility_settings_edu_opt_out_text">Các điều khiển của bạn đã được sửa đổi vì dịch vụ trợ năng đang bật.</string>
     <string name="microg_not_installed_notice">Vui lòng cài đặt MicroG.</string>
     <string name="microg_not_installed_warning">Không tìm thấy MicroG.</string>
@@ -387,6 +388,9 @@ Thẻ Bạn &gt; Xem kênh &gt; Trình đơn &gt; Cài đặt."</string>
     <string name="revanced_hide_community_posts_home_summary_off">Bài đăng được hiển thị trên thẻ Trang chủ.</string>
     <string name="revanced_hide_community_posts_home_summary_on">Bài đăng đã ẩn khỏi thẻ Trang chủ.</string>
     <string name="revanced_hide_community_posts_home_title">Ẩn bài đăng trên thẻ Trang chủ</string>
+    <string name="revanced_hide_community_posts_related_video_summary_off">Bài đăng được hiển thị trên video đề xuất.</string>
+    <string name="revanced_hide_community_posts_related_video_summary_on">Bài đăng đã ẩn khỏi video đề xuất.</string>
+    <string name="revanced_hide_community_posts_related_video_title">Ẩn bài đăng trên video đề xuất</string>
     <string name="revanced_hide_community_posts_subscriptions_summary_off">Bài đăng được hiển thị trên thẻ Kênh đăng ký.</string>
     <string name="revanced_hide_community_posts_subscriptions_summary_on">Bài đăng đã ẩn khỏi thẻ Kênh đăng ký.</string>
     <string name="revanced_hide_community_posts_subscriptions_title">Ẩn bài đăng trên thẻ Kênh đăng ký</string>
@@ -695,6 +699,8 @@ Sự cố đã biết:
     <string name="revanced_hide_video_ads_summary_off">Quảng cáo dạng video được hiển thị.</string>
     <string name="revanced_hide_video_ads_summary_on">Quảng cáo dạng video đã ẩn.</string>
     <string name="revanced_hide_video_ads_title">Ẩn quảng cáo dạng video</string>
+    <string name="revanced_hide_home_feed_membership_video_summary">Ẩn video dành riêng cho hội viên trên thẻ Trang chủ</string>
+    <string name="revanced_hide_home_feed_membership_video_title">Ẩn video cho hội viên trên thẻ Trang chủ</string>
     <string name="revanced_hide_video_with_gray_description_summary">"Ẩn video có hàng chữ đề xuất màu xám khỏi kết quả tìm kiếm.
 \nLưu ý: Video có hàng chữ đề xuất màu xám là những video không liên quan đến cụm từ tìm kiếm."</string>
     <string name="revanced_hide_video_with_gray_description_title">Ẩn video có hàng chữ đề xuất</string>
@@ -733,12 +739,16 @@ Sự cố đã biết:
     <string name="revanced_overlay_button_copy_video_url_title">Nút Sao chép URL video</string>
     <string name="revanced_overlay_button_external_downloader_summary">Nhấn để khởi chạy trình tải xuống bên ngoài.</string>
     <string name="revanced_overlay_button_external_downloader_title">Nút Tải xuống bên ngoài</string>
+    <string name="revanced_overlay_button_time_ordered_playlist_summary">"- Nhấn để tạo danh sách phát
+Lưu ý: Danh sách phát được tạo ra sẽ bao gồm tất cả các video từ kênh (theo trình tự thời gian)\n
+- Nhấn và giữ để quay trở lại video."</string>
+    <string name="revanced_overlay_button_time_ordered_playlist_title">Time-ordered Playlist Button</string>
     <string name="revanced_overlay_button_speed_dialog_reset">Đã đặt lại tốc độ phát bình thường (1.0x).</string>
     <string name="revanced_overlay_button_speed_dialog_summary">"- Nhấn để mở hộp thoại Tốc độ phát.
 - Nhấn và giữ để đặt lại tốc độ phát video bình thường (1.0x)."</string>
+    <string name="revanced_overlay_button_speed_dialog_title">Nút Tốc độ phát</string>
     <string name="revanced_overlay_button_whitelisting_summary">Nhấn để thêm kênh vào Danh sách kênh trắng.</string>
     <string name="revanced_overlay_button_whitelisting_title">Nút Danh sách trắng</string>
-    <string name="revanced_overlay_button_speed_dialog_title">Nút Tốc độ phát</string>
     <string name="revanced_whitelisting_added" formatted="false">Đã thêm kênh %s vào danh sách trắng %s</string>
     <string name="revanced_whitelisting_add_failed" formatted="false">Thêm kênh %s vào danh sách trắng %s thất bại</string>
     <string name="revanced_whitelisting_channel_name">Tên kênh</string>
