@@ -12,13 +12,13 @@ object PowerSaveModeTwoFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("Ljava/lang/Object;"),
     opcodes = listOf(
-		Opcode.INVOKE_VIRTUAL, // isPowerSaveMode
-		Opcode.MOVE_RESULT,
-		Opcode.INVOKE_STATIC,
-		Opcode.MOVE_RESULT_OBJECT,
-		Opcode.IGET_OBJECT,
-		Opcode.CHECK_CAST,
-		Opcode.IGET_OBJECT,
+        Opcode.INVOKE_VIRTUAL, // isPowerSaveMode
+        Opcode.MOVE_RESULT,
+        Opcode.INVOKE_STATIC,
+        Opcode.MOVE_RESULT_OBJECT,
+        Opcode.IGET_OBJECT,
+        Opcode.CHECK_CAST,
+        Opcode.IGET_OBJECT,
         Opcode.INVOKE_VIRTUAL,
         Opcode.RETURN_VOID
     ),
