@@ -5,6 +5,7 @@ import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.booleanPatchOption
+import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatchOption
 import app.revanced.patches.youtube.overlaybutton.alwaysrepeat.AlwaysRepeatPatch
 import app.revanced.patches.youtube.overlaybutton.download.hook.DownloadButtonHookPatch
 import app.revanced.patches.youtube.overlaybutton.download.pip.DisablePiPPatch
@@ -71,6 +72,9 @@ import org.w3c.dom.Element
 )
 @Suppress("unused")
 object OverlayButtonsPatch : ResourcePatch() {
+    private const val DEFAULT_MARGIN = "0.0dip"
+    private const val WIDER_MARGIN = "6.0dip"
+
     private val OutlineIcon by booleanPatchOption(
         key = "OutlineIcon",
         default = true,
@@ -79,11 +83,15 @@ object OverlayButtonsPatch : ResourcePatch() {
         required = true
     )
 
-    private val WiderBottomPadding by booleanPatchOption(
-        key = "WiderBottomPadding",
-        default = false,
-        title = "Wider bottom padding",
-        description = "Apply wider bottom padding. Click effect may not be shown in the correct position."
+    private val BottomMargin by stringPatchOption(
+        key = "BottomMargin",
+        default = DEFAULT_MARGIN,
+        values = mapOf(
+            "Wider" to WIDER_MARGIN,
+            "Default" to DEFAULT_MARGIN
+        ),
+        title = "Bottom margin",
+        description = "Apply bottom margin to Overlay buttons and Timestamp"
     )
 
     override fun execute(context: ResourceContext) {
@@ -189,55 +197,24 @@ object OverlayButtonsPatch : ResourcePatch() {
             "android.support.constraint.ConstraintLayout"
         )
 
-        val bottomPadding = if (WiderBottomPadding == true) "31.0dip" else "22.0dip"
+        val marginBottom = "$BottomMargin"
+        val marginBottomButtons = (marginBottom.substringBefore("dip").toFloat() + 4).toString() + "dip"
+
         context.xmlEditor["res/layout/youtube_controls_bottom_ui_container.xml"].use { editor ->
-            editor.file.doRecursively loop@{
-                if (it !is Element) return@loop
+            editor.file.doRecursively loop@{ node ->
+                if (node !is Element) return@loop
 
-                // Change the relationship between buttons
-                it.getAttributeNode("yt:layout_constraintRight_toLeftOf")?.let { attribute ->
-                    if (attribute.textContent == "@id/fullscreen_button") {
-                        attribute.textContent = "@+id/speed_dialog_button"
-                    }
-                }
-
-                // Adjust Fullscreen Button size and padding
-                it.getAttributeNode("android:id")?.let { attribute ->
-                    arrayOf(
-                        "speed_dialog_button",
-                        "copy_video_url_button",
-                        "copy_video_url_timestamp_button",
-                        "always_repeat_button",
-                        "external_download_button",
-                        "fullscreen_button",
-                        "whitelist_button"
-                    ).forEach { targetId ->
-                        if (attribute.textContent.endsWith(targetId)) {
-                            arrayOf(
-                                "0.0dip" to arrayOf("paddingLeft", "paddingRight"),
-                                bottomPadding to arrayOf("paddingBottom"),
-                                "48.0dip" to arrayOf("layout_height", "layout_width")
-                            ).forEach { (replace, attributes) ->
-                                attributes.forEach { name ->
-                                    it.getAttributeNode("android:$name").textContent = replace
-                                }
-                            }
-                        }
-                    }
-                }
-
-                if (WiderBottomPadding == false) {
-                    // Adjust TimeBar and Chapter bottom padding
-                    arrayOf(
-                        "@id/time_bar_chapter_title" to "14.0dip",
-                        "@id/timestamps_container" to "12.0dip"
-                    ).forEach { (id, replace) ->
-                        it.getAttributeNode("android:id")?.let { attribute ->
-                            if (attribute.textContent == id) {
-                                it.getAttributeNode("android:paddingBottom").textContent = replace
-                            }
-                        }
-                    }
+                if (node.getAttribute("android:id").endsWith("_button")) {
+                    node.setAttribute("android:layout_marginBottom", marginBottomButtons)
+                    node.setAttribute("android:paddingLeft", "0.0dip")
+                    node.setAttribute("android:paddingRight", "0.0dip")
+                    node.setAttribute("android:paddingBottom", "22.0dip")
+                    node.setAttribute("android:layout_height", "48.0dip")
+                    node.setAttribute("android:layout_width", "48.0dip")
+                } else if (node.getAttribute("android:id") == "@id/time_bar_chapter_title_container" ||
+                    node.getAttribute("android:id") == "@id/timestamps_container"
+                ) {
+                    node.setAttribute("android:layout_marginBottom", marginBottom)
                 }
             }
         }
