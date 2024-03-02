@@ -54,7 +54,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
                 "19.03.36",
                 "19.04.38",
                 "19.05.36",
-                "19.06.39"
+                "19.06.36"
             ]
         )
     ]
