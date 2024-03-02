@@ -5,13 +5,16 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
+import app.revanced.patches.youtube.utils.fix.parameter.fingerprints.ParamsMapPutFingerprint
 import app.revanced.patches.youtube.utils.fix.parameter.fingerprints.PlayerResponseModelGeneralStoryboardRendererFingerprint
 import app.revanced.patches.youtube.utils.fix.parameter.fingerprints.PlayerResponseModelLiveStreamStoryboardRendererFingerprint
 import app.revanced.patches.youtube.utils.fix.parameter.fingerprints.PlayerResponseModelStoryboardRecommendedLevelFingerprint
+import app.revanced.patches.youtube.utils.fix.parameter.fingerprints.StatsQueryParameterFingerprint
 import app.revanced.patches.youtube.utils.fix.parameter.fingerprints.StoryboardRendererDecoderRecommendedLevelFingerprint
 import app.revanced.patches.youtube.utils.fix.parameter.fingerprints.StoryboardRendererDecoderSpecFingerprint
 import app.revanced.patches.youtube.utils.fix.parameter.fingerprints.StoryboardRendererSpecFingerprint
@@ -24,6 +27,7 @@ import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.patches.youtube.utils.videoid.general.VideoIdPatch
 import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 
 @Patch(
     name = "Spoof player parameters",
@@ -61,16 +65,22 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
                 "18.48.39",
                 "18.49.37",
                 "19.01.34",
-                "19.02.39"
+                "19.02.39",
+                "19.03.36",
+                "19.04.38",
+                "19.05.36",
+                "19.06.39"
             ]
         )
     ]
 )
 object SpoofPlayerParameterPatch : BytecodePatch(
     setOf(
+        ParamsMapPutFingerprint,
         PlayerResponseModelGeneralStoryboardRendererFingerprint,
         PlayerResponseModelLiveStreamStoryboardRendererFingerprint,
         PlayerResponseModelStoryboardRecommendedLevelFingerprint,
+        StatsQueryParameterFingerprint,
         StoryboardRendererDecoderRecommendedLevelFingerprint,
         StoryboardRendererDecoderSpecFingerprint,
         StoryboardRendererSpecFingerprint,
@@ -197,6 +207,37 @@ object SpoofPlayerParameterPatch : BytecodePatch(
                         """
             )
         } ?: throw StoryboardRendererDecoderSpecFingerprint.exception
+
+        // Fix stats not being tracked.
+        // Due to signature spoofing "adformat" is present in query parameters made for /stats requests,
+        // even though, for regular videos, it should not be.
+        // This breaks stats tracking.
+        // Replace the ad parameter with the video parameter in the query parameters.
+        StatsQueryParameterFingerprint.result?.let {
+            val putMethod = ParamsMapPutFingerprint.result?.method?.toString()
+                ?: throw ParamsMapPutFingerprint.exception
+
+            it.mutableMethod.apply {
+                val adParamIndex = it.scanResult.stringsScanResult!!.matches.first().index
+                val videoParamIndex = adParamIndex + 3
+
+                // Replace the ad parameter with the video parameter.
+                replaceInstruction(adParamIndex, getInstruction(videoParamIndex))
+
+                // Call paramsMap.put instead of paramsMap.putIfNotExist
+                // because the key is already present in the map.
+                val putAdParamIndex = adParamIndex + 1
+                val putIfKeyNotExistsInstruction = getInstruction<FiveRegisterInstruction>(putAdParamIndex)
+                replaceInstruction(
+                    putAdParamIndex,
+                    "invoke-virtual { " +
+                        "v${putIfKeyNotExistsInstruction.registerC}, " +
+                        "v${putIfKeyNotExistsInstruction.registerD}, " +
+                        "v${putIfKeyNotExistsInstruction.registerE} }, " +
+                        putMethod,
+                )
+            }
+        } ?: throw StatsQueryParameterFingerprint.exception
 
         /**
          * Add settings
