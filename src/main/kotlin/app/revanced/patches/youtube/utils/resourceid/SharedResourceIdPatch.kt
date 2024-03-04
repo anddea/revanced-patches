@@ -27,7 +27,6 @@ object SharedResourceIdPatch : ResourcePatch() {
     var BarContainerHeight: Long = -1
     var BottomSheetFooterText: Long = -1
     var BottomUiContainerStub: Long = -1
-    var CinematicLightingToggledOn: Long = -1
     var ChannelListSubMenu: Long = -1
     var CompactLink: Long = -1
     var CompactListItem: Long = -1
@@ -111,7 +110,6 @@ object SharedResourceIdPatch : ResourcePatch() {
         BarContainerHeight = find(DIMEN, "bar_container_height")
         BottomSheetFooterText = find(ID, "bottom_sheet_footer_text")
         BottomUiContainerStub = find(ID, "bottom_ui_container_stub")
-        CinematicLightingToggledOn = find(STRING, "cinematic_lighting_toggled_on")
         ChannelListSubMenu = find(LAYOUT, "channel_list_sub_menu")
         CompactLink = find(LAYOUT, "compact_link")
         CompactListItem = find(LAYOUT, "compact_list_item")
