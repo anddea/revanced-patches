@@ -57,7 +57,8 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
                 "19.05.36",
                 "19.06.39",
                 "19.07.40",
-                "19.08.35"
+                "19.08.36",
+                "19.09.34"
             ]
         )
     ]
