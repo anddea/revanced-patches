@@ -657,8 +657,6 @@
     <string name="revanced_hide_suggested_actions_title">Приховати пропоновані дії</string>
     <string name="revanced_hide_suggested_video_overlay_summary">Приховуються запропоновані відео для наступного відтворення</string>
     <string name="revanced_hide_suggested_video_overlay_title">Приховати пропоновані відео</string>
-    <string name="revanced_hide_suggested_video_overlay_auto_play_summary">Після закінчення відео, подібне відтворювати автоматично</string>
-    <string name="revanced_hide_suggested_video_overlay_auto_play_title">Автоматично відтворювати наступне відео</string>
     <string name="revanced_hide_suggestions_shelf_method_summary_off">"Ідентифікується полицю пропозицій через ідентифікатор перегляду.
 
 Відомі проблеми:
@@ -760,7 +758,7 @@
     <string name="revanced_whitelisting_settings_summary">Перевірити чи вилучити список каналів, доданих до білого списку</string>
     <string name="revanced_whitelisting_speed">Швидкість відео</string>
     <string name="revanced_whitelisting_speed_button">Швидкість</string>
-    <string name="revanced_whitelisting_sponsorblock">Спонсор Блок</string>
+    <string name="revanced_whitelisting_sponsorblock">Спонсорблок</string>
     <string name="revanced_whitelisting_sponsorblock_button">СБ</string>
     <string name="revanced_whitelisting_title">Білий список каналів</string>
     <string name="revanced_patches_information">Інформація про патчі</string>
@@ -885,8 +883,8 @@
     <string name="revanced_video">Відео</string>
     <string name="pref_app_language_dialog_message">&lt;b&gt;%1$s&lt;/b&gt;&lt;br&gt;&lt;br&gt;Це змінить мову, яка використовується на YouTube, включаючи кнопки, текст і діалоги, але не змінить мову налаштувань ReVanced Extended.</string>
     <string name="pref_app_language_dialog_message_no_lang_name">Це змінить мову, яка використовується в додатку, включаючи кнопки, текст і діалоги, але не змінить мову налаштувань ReVanced Extended.</string>
-    <string name="sb_enable_sb">Увімкнути SponsorBlock</string>
-    <string name="sb_enable_sb_sum">SponsorBlock - це краудсорсингова система для пропускання дратівливих частин відео на YouTube</string>
+    <string name="sb_enable_sb">Увімкнути Спонсорблок</string>
+    <string name="sb_enable_sb_sum">Спонсорблок - це краудсорсингова система для пропускання дратівливих частин відео на YouTube</string>
     <string name="sb_appearance_category">Вигляд</string>
     <string name="sb_enable_voting">Показувати кнопку голосування</string>
     <string name="sb_enable_voting_sum_on">Кнопку голосування за сегмент показується</string>
@@ -913,15 +911,15 @@
     <string name="sb_guidelines_preference_title">Переглянути інструкцію</string>
     <string name="sb_guidelines_preference_sum">Інструкція містить правила та поради щодо створення нових сегментів</string>
     <string name="sb_guidelines_popup_title">Дотримуйтесь інструкцій</string>
-    <string name="sb_guidelines_popup_content">Перед створенням нових сегментів прочитайте інструкції SponsorBlock</string>
+    <string name="sb_guidelines_popup_content">Перед створенням нових сегментів прочитайте інструкції Спонсорблок</string>
     <string name="sb_guidelines_popup_already_read">Прочитано</string>
     <string name="sb_guidelines_popup_open">Показати</string>
     <string name="sb_general">Загальні</string>
     <string name="sb_toast_on_connection_error_title">Показувати тост, якщо не доступний API</string>
-    <string name="sb_toast_on_connection_error_summary_on">Тост показується, якщо SponsorBlock не доступний.</string>
-    <string name="sb_toast_on_connection_error_summary_off">Тост не показується, якщо SponsorBlock не доступний.</string>
+    <string name="sb_toast_on_connection_error_summary_on">Тост показується, якщо Спонсорблок не доступний.</string>
+    <string name="sb_toast_on_connection_error_summary_off">Тост не показується, якщо Спонсорблок не доступний.</string>
     <string name="sb_general_skipcount">Увімкнути відстеження кількості пропусків</string>
-    <string name="sb_general_skipcount_sum_on">Дозволяє таблиці лідерів SponsorBlock дізнатися, скільки часу заощаджено. Повідомлення надсилається в таблицю лідерів щоразу, коли сегмент пропущено</string>
+    <string name="sb_general_skipcount_sum_on">Дозволяє таблиці лідерів Спонсорблок дізнатися, скільки часу заощаджено. Повідомлення надсилається в таблицю лідерів щоразу, коли сегмент пропущено</string>
     <string name="sb_general_skipcount_sum_off">Відстеження кількості пропусків не ввімкнено</string>
     <string name="sb_general_min_duration">Мінімальна тривалість сегменту</string>
     <string name="sb_general_min_duration_sum">Сегменти, коротші за це значення (в секундах), не будуть показані або пропущені</string>
@@ -929,18 +927,18 @@
     <string name="sb_general_uuid_sum">Це повинно залишатися конфіденційним. Це як пароль, і його не можна нікому передавати. Якщо хтось має його, він може видавати себе за вас</string>
     <string name="sb_general_uuid_invalid">Id користувача не може бути пустим</string>
     <string name="sb_general_api_url">Змінити API URL</string>
-    <string name="sb_general_api_url_sum">Адреса, яку SponsorBlock використовує для звернень до сервера. &lt;b&gt;Не змінюйте це, якщо не знаєте, що робите&lt;/b&gt;</string>
+    <string name="sb_general_api_url_sum">Адреса, яку Спонсорблок використовує для звернень до сервера. &lt;b&gt;Не змінюйте це, якщо не знаєте, що робите&lt;/b&gt;</string>
     <string name="sb_api_url_reset">Скинути API URL</string>
     <string name="sb_api_url_invalid">API URL недійсна</string>
     <string name="sb_api_url_changed">API URL змінено</string>
     <string name="sb_settings_copy">Копіювати</string>
-    <string name="sb_settings_ie_sum">Ваші конфігурації SponsorBlock JSON, які можуть бути імпортовані / експортовані у ReVanced Extended та інші платформи SponsorBlock. %s</string>
+    <string name="sb_settings_ie_sum">Ваші конфігурації Спонсорблок JSON, які можуть бути імпортовані / експортовані у ReVanced Extended та інші платформи Спонсорблок. %s</string>
     <string name="sb_settings_ie_sum_warning">Це включає Ваш особистий id користувача. Поширюйте його розумно.</string>
     <string name="sb_settings_ie">Імпортувати / Експортувати налаштування</string>
     <string name="sb_settings_import_successful">Налаштування успішно імпортовано</string>
     <string name="sb_settings_import_failed">Не вдалося імпортувати: %s</string>
     <string name="sb_settings_export_failed">Не вдалося експортувати: %s</string>
-    <string name="sb_settings_revanced_export_user_id_warning">Ваші налаштування містять особистий ID користувача Спонсор Блок.\n\nВаш ID користувача це як пароль і його не можна поширювати.\n</string>
+    <string name="sb_settings_revanced_export_user_id_warning">Ваші налаштування містять особистий ID користувача Спонсорблок.\n\nВаш ID користувача це як пароль і його не можна поширювати.\n</string>
     <string name="sb_settings_revanced_export_user_id_warning_dismiss">Не показувати знову</string>
     <string name="sb_diff_segments">Змінити поведінку сегмента</string>
     <string name="sb_segments_sponsor">Спонсор</string>
@@ -989,9 +987,9 @@
     <string name="sb_skip_showbutton">Показувати кнопку пропуску</string>
     <string name="sb_skip_seekbaronly">Показувати в рядку прогресу</string>
     <string name="sb_skip_ignore">Вимкнути</string>
-    <string name="sb_sponsorblock_connection_failure_generic">Спонсор Блок тимчасово недоступний.</string>
-    <string name="sb_sponsorblock_connection_failure_status" formatted="false">Спонсор Блок тимчасово недоступний (статус %d).</string>
-    <string name="sb_sponsorblock_connection_failure_timeout">Спонсор Блок тимчасово недоступний (закінчився час API).</string>
+    <string name="sb_sponsorblock_connection_failure_generic">Спонсорблок тимчасово недоступний.</string>
+    <string name="sb_sponsorblock_connection_failure_status" formatted="false">Спонсорблок тимчасово недоступний (статус %d).</string>
+    <string name="sb_sponsorblock_connection_failure_timeout">Спонсорблок тимчасово недоступний (закінчився час API).</string>
     <string name="sb_submit_failed_invalid" formatted="false">Неможливо відправити сегмент: %s</string>
     <string name="sb_submit_failed_timeout">Не вдалося надіслати сегменти (закінчився час API)</string>
     <string name="sb_submit_failed_unknown_error" formatted="false">Не вдалося надіслати сегменти (статус: %d %s)</string>
@@ -1008,7 +1006,7 @@
     <string name="sb_vote_no_segments">Немає сегментів для голосування</string>
     <string name="sb_new_segment_choose_category">Вибрати категорію сегмента</string>
     <string name="sb_new_segment_disabled_category">Категорія вимкнена у налаштуваннях. Увімкніть категорію, щоб надіслати.</string>
-    <string name="sb_new_segment_title">Новий сегмент SponsorBlock</string>
+    <string name="sb_new_segment_title">Новий сегмент Спонсорблок</string>
     <string name="sb_new_segment_mark_time_as_question" formatted="false">Встановити %02d:%02d:%03d як початок або кінець нового сегмента?</string>
     <string name="sb_new_segment_mark_start">початок</string>
     <string name="sb_new_segment_mark_end">кінець</string>
@@ -1025,14 +1023,14 @@
     <string name="sb_new_segment_edit_by_hand_parse_error">Вказано неправильний час</string>
     <string name="sb_stats">Статистика</string>
     <string name="sb_stats_connection_failure">Статистика тимчасово недоступна (API не працює)</string>
-    <string name="sb_stats_sb_disabled">SponsorBlock вимкнено</string>
+    <string name="sb_stats_sb_disabled">Спонсорблок вимкнено</string>
     <string name="sb_stats_username" formatted="false">Ваше ім\'я користувача: &lt;b&gt;%s&lt;/b&gt;</string>
     <string name="sb_stats_username_change">Натисніть тут, щоб змінити ім\'я користувача</string>
     <string name="sb_stats_username_change_unknown_error" formatted="false">Не вдалося змінити ім\'я користувача: Статус: %d %s</string>
     <string name="sb_stats_username_changed">Ім\'я користувача успішно змінено</string>
     <string name="sb_stats_reputation" formatted="false">Ваша репутація — &lt;b&gt;%.2f&lt;/b&gt;</string>
     <string name="sb_stats_submissions" formatted="false">Ви створили &lt;b&gt;%s&lt;/b&gt; сегментів</string>
-    <string name="sb_stats_saved_zero">Таблиця лідерів SponsorBlock</string>
+    <string name="sb_stats_saved_zero">Таблиця лідерів Спонсорблок</string>
     <string name="sb_stats_saved" formatted="false">Ви врятували людей від &lt;b&gt;%s&lt;/b&gt; сегментів</string>
     <string name="sb_stats_saved_sum_zero">Натисніть тут, щоб побачити глобальну статистику та найкращих учасників</string>
     <string name="sb_stats_saved_sum" formatted="false">Це &lt;b&gt;%s&lt;/b&gt; за весь час. &lt;br&gt; Натисніть тут, щоб побачити лідерську таблицю.</string>
@@ -1049,5 +1047,5 @@
     <string name="sb_reset_color">Скинути колір</string>
     <string name="sb_about">Про СБ</string>
     <string name="sb_reset">Скинути</string>
-    <string name="sb_about_api_sum">Дані надаються SponsorBlock API. Натисніть тут, щоб дізнатися більше та побачити завантаження для інших платформ</string>
+    <string name="sb_about_api_sum">Дані надаються Спонсорблок API. Натисніть тут, щоб дізнатися більше та побачити завантаження для інших платформ</string>
 </resources>
