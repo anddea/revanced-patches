@@ -97,7 +97,7 @@ Megjegyzés: ez egy, még teszteletlen funkció."</string>
     <string name="revanced_custom_player_overlay_opacity_title">Egyéni lejátszó fedvény átlátszósága</string>
     <string name="revanced_custom_player_overlay_opacity_warning">A lejátszó átlátszóságának 0 és 100 között kell lennie. Visszaállítás alapértelmezettre.</string>
     <string name="revanced_custom_seekbar_color_value_summary">Írja be a keresősáv színének hexadecimális kódját.</string>
-    <string name="revanced_custom_seekbar_color_value_title">Keresősáv egyéni színe</string>
+    <string name="revanced_custom_seekbar_color_value_title">Keresősáv egyéni szín értéke</string>
     <string name="revanced_default_app_settings_summary">Az RVX külső böngészőben történő megnyitásához kapcsolja be a \'Támogatott linkek megnyitása\' opciót, és engedélyezze a támogatott webcímeket.</string>
     <string name="revanced_default_app_settings_title">Alapértelmezett program beállítások megnyitása</string>
     <string name="revanced_default_playback_speed_title">Alapértelmezett lejátszási sebesség</string>
@@ -113,7 +113,7 @@ Megjegyzés: ez egy, még teszteletlen funkció."</string>
     <string name="revanced_disable_auto_captions_title">Kényszerített automatikus feliratok letiltása</string>
     <string name="revanced_disable_rolling_number_animations_summary_off">A gördülő animációk engedélyezve vannak.</string>
     <string name="revanced_disable_rolling_number_animations_summary_on">A gördülő animációk le vannak tiltva.</string>
-    <string name="revanced_disable_rolling_number_animations_title">Gördülő animációk engedélyezése</string>
+    <string name="revanced_disable_rolling_number_animations_title">Gördülő animációk letiltása</string>
     <string name="revanced_disable_default_playback_speed_live_summary_off">Az alapértelmezett lejátszási sebesség engedélyezve van az élő közvetítésnél.</string>
     <string name="revanced_disable_default_playback_speed_live_summary_on">Az alapértelmezett lejátszási sebesség le van tiltva élő közvetítésnél.</string>
     <string name="revanced_disable_default_playback_speed_live_title">Lejátszási sebesség letiltása élő közvetítésnél</string>
@@ -151,7 +151,7 @@ Megjegyzés: sebesség átfedés letiltása esetén a régi felület csúsztatá
     <string name="revanced_enable_bottom_player_gestures_title">Engedélyezze a mini lejátszó gesztusait</string>
     <string name="revanced_enable_compact_controls_overlay_summary_off">A kompakt vezérlők átfedés le van tiltva.</string>
     <string name="revanced_enable_compact_controls_overlay_summary_on">A kompakt vezérlők átfedés engedélyezve van.</string>
-    <string name="revanced_enable_compact_controls_overlay_title">Kompakt vezérlők fedés engedélyezése</string>
+    <string name="revanced_enable_compact_controls_overlay_title">Kompakt vezérlők átfedés engedélyezése</string>
     <string name="revanced_enable_custom_playback_speed_summary_off">Az egyéni lejátszási sebesség le van tiltva.</string>
     <string name="revanced_enable_custom_playback_speed_summary_on">Az egyéni lejátszási sebesség engedélyezve van.</string>
     <string name="revanced_enable_custom_playback_speed_title">Egyéni lejátszási sebesség engedélyezése</string>
@@ -387,6 +387,9 @@ Előfordulhat, hogy egyes komponensek nincsenek elrejtve."</string>
     <string name="revanced_hide_community_posts_home_summary_off">A közösségi bejegyzések a kezdőlapon láthatóak.</string>
     <string name="revanced_hide_community_posts_home_summary_on">A közösségi bejegyzések a kezdőlapon el vannak rejtve.</string>
     <string name="revanced_hide_community_posts_home_title">Közösségi bejegyzések elrejtése a kezdőlapon</string>
+    <string name="revanced_hide_community_posts_related_video_summary_off">A közösségi bejegyzések a kezdőlapon láthatóak.</string>
+    <string name="revanced_hide_community_posts_related_video_summary_on">A közösségi bejegyzések a kezdőlapon el vannak rejtve.</string>
+    <string name="revanced_hide_community_posts_related_video_title">Közösségi bejegyzések elrejtése a kapcsolódó videóban</string>
     <string name="revanced_hide_community_posts_subscriptions_summary_off">A közösségi bejegyzések a feliratkozások fülön láthatóak.</string>
     <string name="revanced_hide_community_posts_subscriptions_summary_on">A közösségi bejegyzések a feliratkozások fülön el vannak rejtve.</string>
     <string name="revanced_hide_community_posts_subscriptions_title">Közösségi bejegyzések elrejtése a feliratkozások fülön</string>
@@ -655,7 +658,7 @@ Ismert probléma: a keresési eredményekben a hivatalos fejlécek el lesznek re
     <string name="revanced_hide_suggested_video_overlay_summary">A következő javasolt videó fedést elrejti.</string>
     <string name="revanced_hide_suggested_video_overlay_title">Javasolt videofedés elrejtése</string>
     <string name="revanced_hide_suggested_video_overlay_auto_play_summary">Ha befejezett egy videót, egy másik automatikusan lejátszódik</string>
-    <string name="revanced_hide_suggested_video_overlay_auto_play_title">Automatikusan játsza a következő videót</string>
+    <string name="revanced_hide_suggested_video_overlay_auto_play_title">Automatikusan indítja a következő videót</string>
     <string name="revanced_hide_suggestions_shelf_method_summary_off">"A böngészési azonosítón keresztül azonosítja a javaslatok polcot.
 
 Ismert problémák:
@@ -722,10 +725,9 @@ Előfordulhat, hogy a feliratkozott csatornákról származó videók, nem rejth
     <string name="revanced_layout_title">Elrendezés</string>
     <string name="revanced_misc">Egyéb</string>
     <string name="revanced_navigation">Navigáció</string>
-    <string name="revanced_others">Egyéb</string>
+    <string name="revanced_others">Egyebek</string>
     <string name="revanced_overlay_button">Átfedés gomb</string>
-    <string name="revanced_overlay_button_always_repeat_summary">"Koppintson a folyamatos ismétlés állapot módosításához.
-Érintse meg és tartsa lenyomva az ismétlés állapot szüneteltetéséhez."</string>
+    <string name="revanced_overlay_button_always_repeat_summary">"Koppintson a mindig ismétlődő állapotok közötti váltáshoz."</string>
     <string name="revanced_overlay_button_always_repeat_title">Folyamatos ismétlés gomb megjelenítése</string>
     <string name="revanced_overlay_button_copy_video_url_summary">"Érintse meg a videó URL-jének másolásához.
 Tartsa nyomva a videó URL-jének időbélyeggel való másolásához."</string>
@@ -735,28 +737,31 @@ Tartsa nyomva a videó időbélyegének másolásához."</string>
     <string name="revanced_overlay_button_copy_video_url_title">Videó URL-jének másolása gomb megjelenítése</string>
     <string name="revanced_overlay_button_external_downloader_summary">Érintse meg a külső videóletöltő indításához.</string>
     <string name="revanced_overlay_button_external_downloader_title">A külső letöltés gomb megjelenítése</string>
+    <string name="revanced_overlay_button_time_ordered_playlist_summary">"Koppintson a lejátszási lista létrehozásához a csatorna összes videójával a legrégebbitől a legújabbig.
+Érintse meg és tartsa lenyomva a visszavonáshoz."</string>
+    <string name="revanced_overlay_button_time_ordered_playlist_title">Időpont alapján rendezett lejátszási lista gomb</string>
     <string name="revanced_overlay_button_speed_dialog_reset">A lejátszási sebesség visszaállítva (1.0x).</string>
     <string name="revanced_overlay_button_speed_dialog_summary">"Érintse meg a sebesség ablak megnyitásához.
 Tartsa nyomva a sebesség alaphelyzetbe állításához."</string>
-    <string name="revanced_overlay_button_whitelisting_summary">Koppintson a csatorna felvételéhez a csatorna engedélyezőlistára.</string>
-    <string name="revanced_overlay_button_whitelisting_title">Engedélyezési lista gomb megjelenítése</string>
     <string name="revanced_overlay_button_speed_dialog_title">A lejátszási sebesség gomb megjelenítése</string>
-    <string name="revanced_whitelisting_added" formatted="false">%s csatorna hozzá lett adva a %s fehérlistához</string>
-    <string name="revanced_whitelisting_add_failed" formatted="false">Nem sikerült a %s csatornát hozzáadni a %s fehérlistához</string>
+    <string name="revanced_overlay_button_whitelisting_summary">Koppintson a csatorna engedélyezőlistához való hozzáadásához.</string>
+    <string name="revanced_overlay_button_whitelisting_title">Engedélyezési lista gomb megjelenítése</string>
+    <string name="revanced_whitelisting_added" formatted="false">A(z) %s csatorna hozzá lett adva a(z) %s engedélyezőlistához</string>
+    <string name="revanced_whitelisting_add_failed" formatted="false">Nem sikerült a(z) %s csatornát a(z) %s engedélyezőlistához adni</string>
     <string name="revanced_whitelisting_channel_name">Csatorna neve</string>
     <string name="revanced_whitelisting_empty">Nincsenek engedélyezett csatornák</string>
-    <string name="revanced_whitelisting_excluded">Nem lett hozzáadva a fehérlistához</string>
-    <string name="revanced_whitelisting_fetch_failed" formated="false">Nem sikerült lekérni a csatorna részleteit, hibaüzenet %d</string>
-    <string name="revanced_whitelisting_included">Hozzáadva a fehérlistához</string>
+    <string name="revanced_whitelisting_excluded">Nem lett hozzáadva az engedélyezettekhez</string>
+    <string name="revanced_whitelisting_fetch_failed" formated="false">Nem sikerült lekérni a csatorna adatait, hibakód %d</string>
+    <string name="revanced_whitelisting_included">Hozzáadva a kivétellistához</string>
     <string name="revanced_whitelisting_reboot">Indítsa újra az engedélyezett csatornák beállításához</string>
-    <string name="revanced_whitelisting_removed" formatted="false">%s csatorna el lett távolítva a %s engedélyezettekből</string>
-    <string name="revanced_whitelisting_remove_failed" formatted="false">Nem sikerült a %s csatornát eltávolítani a %s engedélyezettekből</string>
-    <string name="revanced_whitelisting_settings_summary">Ellenőrizze vagy távolítsa el a fehérlistához hozzáadott csatornák listáját</string>
+    <string name="revanced_whitelisting_removed" formatted="false">A(z) %s csatorna le lett véve a(z) %s engedélyezőlistáról</string>
+    <string name="revanced_whitelisting_remove_failed" formatted="false">Nem sikerült eltávolítani a(z) %s csatornát a(z) %s engedélyezőlistáról</string>
+    <string name="revanced_whitelisting_settings_summary">Ellenőrizze vagy távolítsa el az engedélyezett listához hozzáadott csatornák listáját</string>
     <string name="revanced_whitelisting_speed">Videó sebesség</string>
     <string name="revanced_whitelisting_speed_button">Sebesség</string>
     <string name="revanced_whitelisting_sponsorblock">SponsorBlock</string>
     <string name="revanced_whitelisting_sponsorblock_button">SB</string>
-    <string name="revanced_whitelisting_title">Engedélyezett csatorna</string>
+    <string name="revanced_whitelisting_title">Csatorna engedélyezőlista</string>
     <string name="revanced_patches_information">Patch információ</string>
     <string name="revanced_patches_information_summary">Információ az alkalmazott patchekről.</string>
     <string name="revanced_playback_speed_normal">Normál</string>
