@@ -5,12 +5,13 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
+import app.revanced.patches.youtube.utils.fingerprints.RollingNumberTextViewAnimationUpdateFingerprint
 import app.revanced.patches.youtube.utils.integrations.Constants.GENERAL
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
-import app.revanced.patches.youtube.utils.fingerprints.RollingNumberTextViewAnimationUpdateFingerprint
 import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
@@ -74,7 +75,7 @@ object DisableRollingNumberAnimationPatch : BytecodePatch(
                     ExternalLabel("disable_animations", getInstruction(blockEndIndex))
                 )
             }
-        } ?: throw RollingNumberTextViewAnimationUpdateFingerprint.exception
+        } ?: throw PatchException("This version is not supported. Please use YouTube 18.30.37 or later.")
 
         /**
          * Add settings

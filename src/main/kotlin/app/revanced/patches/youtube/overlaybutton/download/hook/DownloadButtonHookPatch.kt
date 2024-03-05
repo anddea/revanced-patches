@@ -75,8 +75,8 @@ object DownloadButtonHookPatch : BytecodePatch(
         PlaylistOfflineDownloadOnClickFingerprint.result?.let {
             it.mutableMethod.apply {
                 val insertIndex = implementation!!.instructions.indexOfFirst { instruction ->
-                        instruction.opcode == Opcode.INVOKE_STATIC
-                                && instruction.getReference<MethodReference>()?.name == "isEmpty"
+                    instruction.opcode == Opcode.INVOKE_STATIC
+                        && instruction.getReference<MethodReference>()?.name == "isEmpty"
                 }
 
                 val insertRegister = getInstruction<Instruction35c>(insertIndex).registerC
@@ -86,7 +86,6 @@ object DownloadButtonHookPatch : BytecodePatch(
                     "invoke-static {v$insertRegister}, $UTILS_PATH/HookDownloadButtonPatch;->startPlaylistDownloadActivity(Ljava/lang/String;)V"
                 )
             }
-        } ?: throw DownloadActionsCommandFingerprint.exception
-
+        } ?: throw PlaylistOfflineDownloadOnClickFingerprint.exception
     }
 }
