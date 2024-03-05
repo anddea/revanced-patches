@@ -80,9 +80,9 @@
     <string name="revanced_comments_title">Комментарии</string>
     <string name="revanced_custom_filter_strings_summary">Настройте, какие компоненты фильтровать, обозначая конец каждого из них новой строкой.</string>
     <string name="revanced_custom_filter_strings_title">Изменить пользовательский фильтр</string>
-    <string name="revanced_custom_filter_toast_invalid_characters" formated="false">Invalid custom filter (must be ASCII only): %s</string>
-    <string name="revanced_custom_filter_toast_invalid_syntax" formated="false">Недопустимый пользовательский фильтр: %s</string>
-    <string name="revanced_custom_filter_toast_reset">Значения сброшены к начальным.</string>
+    <string name="revanced_custom_filter_toast_invalid_characters" formated="false">Неверный пользовательский фильтр (только ASCII): %s</string>
+    <string name="revanced_custom_filter_toast_invalid_syntax" formated="false">Неверный пользовательский фильтр: %s</string>
+    <string name="revanced_custom_filter_toast_reset">Пользовательский фильтр сброшен до значений по умолчанию</string>
     <string name="revanced_custom_filter_summary_off">Пользовательский фильтр отключён.</string>
     <string name="revanced_custom_filter_summary_on">Пользовательский фильтр включён.</string>
     <string name="revanced_custom_filter_title">Пользовательский фильтр</string>
@@ -111,6 +111,9 @@
     <string name="revanced_disable_auto_captions_summary_off">Автоматические субтитры включены.</string>
     <string name="revanced_disable_auto_captions_summary_on">Автоматические субтитры отключены.</string>
     <string name="revanced_disable_auto_captions_title">Отключить автоматические субтитры</string>
+    <string name="revanced_disable_rolling_number_animations_summary_off">Динамические счётчики включены.</string>
+    <string name="revanced_disable_rolling_number_animations_summary_on">Динамические счётчики выключены.</string>
+    <string name="revanced_disable_rolling_number_animations_title">Отключение анимированных счетчиков</string>
     <string name="revanced_disable_default_playback_speed_live_summary_off">Скорость воспроизведения по умолчанию в трансляциях включена.</string>
     <string name="revanced_disable_default_playback_speed_live_summary_on">Скорость воспроизведения по умолчанию в трансляциях отключена.</string>
     <string name="revanced_disable_default_playback_speed_live_title">Отключить скорость в трансляциях</string>
@@ -383,6 +386,9 @@
     <string name="revanced_hide_community_posts_home_summary_off">Записи сообщества во вкладке \"Главная\" отображены.</string>
     <string name="revanced_hide_community_posts_home_summary_on">Записи сообщества во вкладке \"Главная\" скрыты.</string>
     <string name="revanced_hide_community_posts_home_title">Скрыть записи во вкладке \"Главная\"</string>
+    <string name="revanced_hide_community_posts_related_video_summary_off">Записи сообщества в похожих видео отображены.</string>
+    <string name="revanced_hide_community_posts_related_video_summary_on">Записи сообщества в похожих видео скрыты.</string>
+    <string name="revanced_hide_community_posts_related_video_title">Скрыть записи сообщества в похожих видео</string>
     <string name="revanced_hide_community_posts_subscriptions_summary_off">Записи сообщества во вкладке \"Подписки\" отображены.</string>
     <string name="revanced_hide_community_posts_subscriptions_summary_on">Записи сообщества во вкладке \"Подписки\" скрыты.</string>
     <string name="revanced_hide_community_posts_subscriptions_title">Скрыть записи во вкладке \"Подписки\"</string>
@@ -435,8 +441,8 @@
     <string name="revanced_hide_get_premium_summary_off">Реклама YouTube Premium отображена.</string>
     <string name="revanced_hide_get_premium_summary_on">Реклама YouTube Premium скрыта.</string>
     <string name="revanced_hide_get_premium_title">Скрыть рекламу YouTube Premium</string>
-    <string name="revanced_hide_gray_description_summary_off">Серое описание отображено.</string>
-    <string name="revanced_hide_gray_description_summary_on">Серое описание скрыто.</string>
+    <string name="revanced_hide_gray_description_summary_off">Надписи \"Люди так же смотрели\" и \"Видео из плейлиста смотреть позже\" в описании видео показаны.</string>
+    <string name="revanced_hide_gray_description_summary_on">Надписи \"Люди так же смотрели\" и \"Видео из плейлиста смотреть позже\" в описании видео скрыты.</string>
     <string name="revanced_hide_gray_description_title">Скрыть серое описание</string>
     <string name="revanced_hide_gray_separator_summary_off">Серые разделители отображены.</string>
     <string name="revanced_hide_gray_separator_summary_on">Серые разделители скрыты.</string>
@@ -689,6 +695,8 @@
     <string name="revanced_hide_video_ads_summary_off">Реклама в видео отображена.</string>
     <string name="revanced_hide_video_ads_summary_on">Реклама в видео скрыта.</string>
     <string name="revanced_hide_video_ads_title">Скрыть рекламу в видео</string>
+    <string name="revanced_hide_home_feed_membership_video_summary">Скрыть видео с тегом \"Только для участников\" в главной ленте</string>
+    <string name="revanced_hide_home_feed_membership_video_title">Скрыть видео для участников в главной ленте</string>
     <string name="revanced_hide_video_with_gray_description_summary">"Скрыть видео с серым описанием из результатов поиска.
 Видео с серым описанием включают в себя видео не по теме запроса."</string>
     <string name="revanced_hide_video_with_gray_description_title">Скрыть видео с серым описанием</string>
@@ -717,6 +725,7 @@
     <string name="revanced_others">Другое</string>
     <string name="revanced_overlay_button">Кнопки в плеере</string>
     <string name="revanced_overlay_button_always_repeat_summary">"Нажмите, чтобы переключить состояние постоянного повтора.
+
 Нажатие и удержание кнопки переключает паузу после состояния повтора."</string>
     <string name="revanced_overlay_button_always_repeat_title">Кнопка постоянного повтора</string>
     <string name="revanced_overlay_button_copy_video_url_summary">"Нажмите, чтобы скопировать ссылку видео.
@@ -727,10 +736,30 @@
     <string name="revanced_overlay_button_copy_video_url_title">Кнопка копирования ссылки</string>
     <string name="revanced_overlay_button_external_downloader_summary">Нажмите, чтобы запустить внешний загрузчик.</string>
     <string name="revanced_overlay_button_external_downloader_title">Кнопка внешнего загрузчика</string>
+    <string name="revanced_overlay_button_time_ordered_playlist_summary">"Нажмите, чтобы создать плейлист канала в хронологическом порядке, начиная с текущего видео. Нажмите и удерживайте, чтобы отменить действие."</string>
+    <string name="revanced_overlay_button_time_ordered_playlist_title">Кнопка плейлиста канала</string>
     <string name="revanced_overlay_button_speed_dialog_reset">Скорость сброшена (1.0x).</string>
     <string name="revanced_overlay_button_speed_dialog_summary">"Нажмите для открытия окна скорости.
 Нажмите и удержите для установки скорости воспроизведения в 1.0x."</string>
     <string name="revanced_overlay_button_speed_dialog_title">Кнопка окна скорости</string>
+    <string name="revanced_overlay_button_whitelisting_summary">Нажмите, что бы добавить канал в Белый список каналов.</string>
+    <string name="revanced_overlay_button_whitelisting_title">Показывать кнопку Белого списка</string>
+    <string name="revanced_whitelisting_added" formatted="false">Канал %s был добавлен в белый список %s</string>
+    <string name="revanced_whitelisting_add_failed" formatted="false">Не удалось добавить канал %s в \"Белый список\" %s</string>
+    <string name="revanced_whitelisting_channel_name">Название канала</string>
+    <string name="revanced_whitelisting_empty">Каналы в \"Белом списке\" отсутствуют</string>
+    <string name="revanced_whitelisting_excluded">Не удалось добавить в \"Белый список\"</string>
+    <string name="revanced_whitelisting_fetch_failed" formated="false">Не удалось получить данные о канале - полученное сообщение %d</string>
+    <string name="revanced_whitelisting_included">Добавлено в \"Белый список\"</string>
+    <string name="revanced_whitelisting_reboot">Перезапустите для применения настроек белого списка каналов</string>
+    <string name="revanced_whitelisting_removed" formatted="false">Канал %s был удален из \"Белого списка\" %s</string>
+    <string name="revanced_whitelisting_remove_failed" formatted="false">Не удалось удалить канал %s из \"Белого списка\" %s</string>
+    <string name="revanced_whitelisting_settings_summary">Настроить или удалить список каналов, добавленных в \"Белый список\"</string>
+    <string name="revanced_whitelisting_speed">Скорость видео</string>
+    <string name="revanced_whitelisting_speed_button">Скорость</string>
+    <string name="revanced_whitelisting_sponsorblock">SponsorBlock</string>
+    <string name="revanced_whitelisting_sponsorblock_button">SB</string>
+    <string name="revanced_whitelisting_title">\"Белый список\" каналов</string>
     <string name="revanced_patches_information">Информация о патчах</string>
     <string name="revanced_patches_information_summary">Применённые в сборке патчи.</string>
     <string name="revanced_playback_speed_normal">Обычная</string>
@@ -800,9 +829,11 @@
 
 • Это изменит внешний вид приложения, но могут возникнуть неизвестные проблемы.
 • Если отключить данную опцию после её активации, старый интерфейс может оставаться до тех пор, пока данные приложения не будут очищены."</string>
+    <string name="revanced_spoof_app_version_target_entry_16_08_35">16.08.35 - Восстановление старой вкладки \"Навигатор\"</string>
     <string name="revanced_spoof_app_version_target_entry_17_08_35">17.08.35 - Восстановить старый интерфейс</string>
     <string name="revanced_spoof_app_version_target_entry_17_41_37">17.41.37 - Восстановить старую секцию плейлистов</string>
     <string name="revanced_spoof_app_version_target_entry_18_05_40">18.05.40 - Восстановить старое поле ввода комментария</string>
+    <string name="revanced_spoof_app_version_target_entry_18_09_39">18.09.39 - Восстановление старой вкладки библиотеки (Отключить вкладку \"Вы\")</string>
     <string name="revanced_spoof_app_version_target_entry_18_17_43">18.17.43 - Вернуть старую выдвижную панель плеера</string>
     <string name="revanced_spoof_app_version_target_entry_18_33_40">18.33.40 - Восстановить старую панель действий в Shorts</string>
     <string name="revanced_spoof_app_version_target_entry_18_38_45">18.38.45 - Восстановить старое поведение качества по умолчанию</string>
