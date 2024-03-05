@@ -202,7 +202,6 @@ object OverlayButtonsPatch : ResourcePatch() {
         )
 
         val marginBottom = "$BottomMargin"
-        val marginBottomButtons = (marginBottom.substringBefore("dip").toFloat() + 4).toString() + "dip"
 
         context.xmlEditor["res/layout/youtube_controls_bottom_ui_container.xml"].use { editor ->
             editor.file.doRecursively loop@{ node ->
