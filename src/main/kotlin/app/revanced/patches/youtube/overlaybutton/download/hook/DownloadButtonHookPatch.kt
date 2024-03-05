@@ -9,16 +9,21 @@ import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.overlaybutton.download.hook.fingerprints.DownloadActionsFingerprint
 import app.revanced.patches.youtube.overlaybutton.download.hook.fingerprints.DownloadActionsCommandFingerprint
+import app.revanced.patches.youtube.overlaybutton.download.hook.fingerprints.PlaylistOfflineDownloadOnClickFingerprint
 import app.revanced.patches.youtube.utils.integrations.Constants.UTILS_PATH
 import app.revanced.util.exception
+import app.revanced.util.getReference
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.Opcode
 
 object DownloadButtonHookPatch : BytecodePatch(
     setOf(
         DownloadActionsFingerprint,
-        DownloadActionsCommandFingerprint
+        DownloadActionsCommandFingerprint,
+        PlaylistOfflineDownloadOnClickFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext) {
@@ -38,7 +43,7 @@ object DownloadButtonHookPatch : BytecodePatch(
             }
         } ?: throw DownloadActionsFingerprint.exception
 
-        // Get videoId and startDownloadActivity
+        // Get videoId and startVideoDownloadActivity
         DownloadActionsCommandFingerprint.result?.let {
             it.mutableMethod.apply {
                 val insertMethod = it.mutableClass.methods.find { method -> method.name == "run" }
@@ -59,11 +64,29 @@ object DownloadButtonHookPatch : BytecodePatch(
 
                         addInstruction(
                             index + 2,
-                            "invoke-static {v$register}, $UTILS_PATH/HookDownloadButtonPatch;->startDownloadActivity(Ljava/lang/String;)V"
+                            "invoke-static {v$register}, $UTILS_PATH/HookDownloadButtonPatch;->startVideoDownloadActivity(Ljava/lang/String;)V"
                         )
                     }
                 } ?: throw PatchException("Failed to find Runnable method")
             }
         } ?: throw DownloadActionsCommandFingerprint.exception
+
+        // Get playlistId and startPlaylistDownloadActivity
+        PlaylistOfflineDownloadOnClickFingerprint.result?.let {
+            it.mutableMethod.apply {
+                val insertIndex = implementation!!.instructions.indexOfFirst { instruction ->
+                        instruction.opcode == Opcode.INVOKE_STATIC
+                                && instruction.getReference<MethodReference>()?.name == "isEmpty"
+                }
+
+                val insertRegister = getInstruction<Instruction35c>(insertIndex).registerC
+
+                addInstruction(
+                    insertIndex, 
+                    "invoke-static {v$insertRegister}, $UTILS_PATH/HookDownloadButtonPatch;->startPlaylistDownloadActivity(Ljava/lang/String;)V"
+                )
+            }
+        } ?: throw DownloadActionsCommandFingerprint.exception
+
     }
 }

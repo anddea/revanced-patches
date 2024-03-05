@@ -68,8 +68,8 @@ import org.w3c.dom.Element
                 "19.02.39",
                 "19.03.36",
                 "19.04.38",
-                "19.05.36",
-                "19.06.36"
+                "19.05.35",
+                "19.05.36"
             ]
         )
     ]
@@ -202,7 +202,6 @@ object OverlayButtonsPatch : ResourcePatch() {
         )
 
         val marginBottom = "$BottomMargin"
-        val marginBottomButtons = (marginBottom.substringBefore("dip").toFloat() + 4).toString() + "dip"
 
         context.xmlEditor["res/layout/youtube_controls_bottom_ui_container.xml"].use { editor ->
             editor.file.doRecursively loop@{ node ->
