@@ -48,8 +48,7 @@ object ResourceUtils {
         settingArray.forEach preferenceLoop@{ preference ->
             prefs.writeText(
                 prefs.readText()
-                    .replace("<!-- $preference", "")
-                    .replace("$preference -->", "")
+                    .replace("<!-- $preference -->", "")
             )
         }
     }
@@ -102,6 +101,7 @@ object ResourceUtils {
                     it.getAttributeNode("android:key")?.let { attribute ->
                         if (attribute.textContent == "@string/about_key" && it.getAttributeNode("app:iconSpaceReserved").textContent == "false") {
                             it.insertNode("Preference", it) {
+                                setAttribute("android:key", "revanced_" + key + "_key")
                                 setAttribute("android:title", "@string/revanced_" + key + "_title")
                                 this.appendChild(
                                     ownerDocument.createElement("intent").also { intentNode ->
