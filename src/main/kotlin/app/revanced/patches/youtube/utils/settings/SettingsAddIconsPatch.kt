@@ -4,16 +4,19 @@ import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patches.youtube.utils.sponsorblock.SponsorBlockPatch
 import app.revanced.util.ResourceGroup
 import app.revanced.util.copyResources
+import org.w3c.dom.Document
 import org.w3c.dom.Element
+import org.w3c.dom.NodeList
 
 @Patch(
     name = "Settings icons",
     description = "Adds icons to specific preferences in the settings.",
-    dependencies = [SettingsPatch::class],
+    dependencies = [SettingsPatch::class, SponsorBlockPatch::class],
     compatiblePackages = [CompatiblePackage("com.google.android.youtube", [])],
-    use = true
+    use = true,
 )
 @Suppress("unused")
 object SettingsAddIconsPatch : ResourcePatch() {
@@ -27,6 +30,8 @@ object SettingsAddIconsPatch : ResourcePatch() {
             "revanced_enable_swipe_auto_brightness",
             "revanced_enable_swipe_brightness",
             "revanced_enable_swipe_volume",
+            "revanced_extended_settings_key",
+            "revanced_hide_button_create_clip",
             "revanced_hide_button_download",
             "revanced_hide_button_like_dislike",
             "revanced_hide_button_remix",
@@ -41,6 +46,7 @@ object SettingsAddIconsPatch : ResourcePatch() {
             "revanced_hide_player_flyout_panel_audio_track",
             "revanced_hide_player_flyout_panel_captions",
             "revanced_hide_player_flyout_panel_help",
+            "revanced_hide_player_flyout_panel_lock_screen",
             "revanced_hide_player_flyout_panel_loop_video",
             "revanced_hide_player_flyout_panel_more_info",
             "revanced_hide_player_flyout_panel_playback_speed",
@@ -71,6 +77,8 @@ object SettingsAddIconsPatch : ResourcePatch() {
             "revanced_overlay_button_speed_dialog",
             "revanced_overlay_button_time_ordered_playlist",
             "revanced_overlay_button_whitelisting",
+            "revanced_ryd_settings_key",
+            "revanced_sponsorblock_settings_key",
             "revanced_switching_create_notification",
             "sb_enable_create_segment",
             "sb_enable_voting",
@@ -93,27 +101,32 @@ object SettingsAddIconsPatch : ResourcePatch() {
             context.copyResources("youtube/settings", resourceGroup)
         }
 
-        context.xmlEditor["res/xml/revanced_prefs.xml"].use { editor ->
-            val switchPreferences = editor.file.getElementsByTagName("SwitchPreference")
-            for (i in 0 until switchPreferences.length) {
-                val preference = switchPreferences.item(i) as? Element
-                val title = preference?.getAttribute("android:key")
-                if (title in validTitles) {
-                    val drawableName = title + "_icon"
-                    preference?.setAttribute("android:icon", "@drawable/$drawableName")
-                } else if (title in emptyTitles) {
-                    preference?.setAttribute("android:icon", "@drawable/empty_icon")
-                }
-            }
+        val tagNames = listOf("SwitchPreference", "PreferenceScreen", "Preference")
 
-            val preferenceScreens = editor.file.getElementsByTagName("PreferenceScreen")
-            for (i in 0 until preferenceScreens.length) {
-                val preference = preferenceScreens.item(i) as? Element
-                val title = preference?.getAttribute("android:key")
-                if (title in emptyTitles) {
-                    preference?.setAttribute("android:icon", "@drawable/empty_icon")
+        @Suppress("EXTENSION_SHADOWED_BY_MEMBER")
+        fun Document.getElementsByTagName(tagName: String): NodeList {
+            return this.getElementsByTagName(tagName)
+        }
+
+        fun processPreferences(file: Document) {
+            tagNames.forEach { tagName ->
+                val elements = file.getElementsByTagName(tagName)
+                for (i in 0 until elements.length) {
+                    val preference = elements.item(i) as? Element
+                    when (val title = preference?.getAttribute("android:key")) {
+                        in validTitles -> preference?.setAttribute("android:icon", "@drawable/${title}_icon")
+                        in emptyTitles -> preference?.setAttribute("android:icon", "@drawable/empty_icon")
+                    }
                 }
             }
+        }
+
+        context.xmlEditor["res/xml/revanced_prefs.xml"].use { editor ->
+            processPreferences(editor.file)
+        }
+
+        context.xmlEditor["res/xml/settings_fragment.xml"].use { editor ->
+            processPreferences(editor.file)
         }
 
         SettingsPatch.updatePatchStatus("Settings icons")
