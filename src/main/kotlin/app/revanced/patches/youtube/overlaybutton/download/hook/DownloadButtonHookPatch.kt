@@ -7,8 +7,8 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.youtube.overlaybutton.download.hook.fingerprints.DownloadActionsFingerprint
 import app.revanced.patches.youtube.overlaybutton.download.hook.fingerprints.DownloadActionsCommandFingerprint
+import app.revanced.patches.youtube.overlaybutton.download.hook.fingerprints.LegacyDownloadCommandFingerprint
 import app.revanced.patches.youtube.overlaybutton.download.hook.fingerprints.PlaylistOfflineDownloadOnClickFingerprint
 import app.revanced.patches.youtube.utils.integrations.Constants.UTILS_PATH
 import app.revanced.util.exception
@@ -21,28 +21,12 @@ import com.android.tools.smali.dexlib2.Opcode
 
 object DownloadButtonHookPatch : BytecodePatch(
     setOf(
-        DownloadActionsFingerprint,
         DownloadActionsCommandFingerprint,
+        LegacyDownloadCommandFingerprint,
         PlaylistOfflineDownloadOnClickFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext) {
-        // Remove the Default Download dialog of YouTube (called before loading videoId)
-        DownloadActionsFingerprint.result?.let {
-            it.mutableMethod.apply {
-                val targetIndex = it.scanResult.patternScanResult!!.startIndex
-
-                addInstructionsWithLabels(
-                    targetIndex, """
-                        invoke-static {}, $UTILS_PATH/HookDownloadButtonPatch;->shouldHookDownloadButton()Z
-                        move-result v0
-                        if-eqz v0, :default
-                        return-void
-                        """, ExternalLabel("default", getInstruction(targetIndex))
-                )
-            }
-        } ?: throw DownloadActionsFingerprint.exception
-
         // Get videoId and startVideoDownloadActivity
         DownloadActionsCommandFingerprint.result?.let {
             it.mutableMethod.apply {
@@ -71,6 +55,19 @@ object DownloadButtonHookPatch : BytecodePatch(
             }
         } ?: throw DownloadActionsCommandFingerprint.exception
 
+        // Legacy fingerprint is used for old spoofed versions,
+        // or if download playlist is pressed on any version.
+        // Downloading playlists is not yet supported,
+        // as the code this hooks does not easily expost the playlist id.
+        LegacyDownloadCommandFingerprint.result?.let {
+            it.mutableMethod.apply {
+                addInstruction(
+                    0,
+                    "invoke-static/range {p1 .. p1}, $UTILS_PATH/HookDownloadButtonPatch;->startVideoDownloadActivity(Ljava/lang/String;)V"
+                )
+            }
+        }?: throw LegacyDownloadCommandFingerprint.exception
+
         // Get playlistId and startPlaylistDownloadActivity
         PlaylistOfflineDownloadOnClickFingerprint.result?.let {
             it.mutableMethod.apply {
@@ -86,7 +83,6 @@ object DownloadButtonHookPatch : BytecodePatch(
                     "invoke-static {v$insertRegister}, $UTILS_PATH/HookDownloadButtonPatch;->startPlaylistDownloadActivity(Ljava/lang/String;)V"
                 )
             }
-        } ?: throw DownloadActionsCommandFingerprint.exception
-
+        } // Do not throw exception
     }
 }
