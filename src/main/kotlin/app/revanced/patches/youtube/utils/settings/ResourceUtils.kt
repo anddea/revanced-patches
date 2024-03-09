@@ -48,7 +48,8 @@ object ResourceUtils {
         settingArray.forEach preferenceLoop@{ preference ->
             prefs.writeText(
                 prefs.readText()
-                    .replace("<!-- $preference -->", "")
+                    .replace("<!-- $preference", "")
+                    .replace("$preference -->", "")
             )
         }
     }

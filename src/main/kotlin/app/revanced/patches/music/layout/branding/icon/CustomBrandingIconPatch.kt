@@ -14,7 +14,8 @@ import java.nio.file.Files
 @Patch(
     name = "Custom branding icon YouTube Music",
     description = "Changes the YouTube Music app icon to the icon specified in options.json.",
-    compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")]
+    compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")],
+    use = false
 )
 @Suppress("unused")
 object CustomBrandingIconPatch : ResourcePatch() {

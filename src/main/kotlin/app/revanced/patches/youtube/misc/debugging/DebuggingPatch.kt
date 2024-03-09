@@ -45,7 +45,7 @@ import app.revanced.patches.youtube.utils.settings.SettingsPatch
             ]
         )
     ],
-    use = false
+    use = true
 )
 @Suppress("unused")
 object DebuggingPatch : ResourcePatch() {
