@@ -12,7 +12,7 @@ import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.exception
 
 @Patch(
-    name = "Hide player button background",
+    name = "Hide player buttons background",
     description = "Adds an option to hide player button background.",
     dependencies = [
         PlayerButtonHookPatch::class,
@@ -78,7 +78,7 @@ object HidePlayerButtonBackgroundPatch : BytecodePatch(
             )
         )
 
-        SettingsPatch.updatePatchStatus("Hide player button background")
+        SettingsPatch.updatePatchStatus("Hide player buttons background")
 
     }
 }
