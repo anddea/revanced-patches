@@ -52,7 +52,8 @@ import java.nio.file.Files
                 "19.05.36"
             ]
         )
-    ]
+    ],
+    use = false
 )
 @Suppress("unused")
 object CustomBrandingIconPatch : ResourcePatch() {

@@ -48,7 +48,8 @@ import app.revanced.patches.youtube.utils.settings.SettingsPatch
                 "19.05.36"
             ]
         )
-    ]
+    ],
+    use = false
 )
 @Suppress("unused")
 object CustomBrandingNamePatch : AbstractRemoveStringsElementsPatch(

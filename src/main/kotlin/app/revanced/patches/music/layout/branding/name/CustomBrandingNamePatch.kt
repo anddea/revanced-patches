@@ -11,7 +11,8 @@ import app.revanced.patches.shared.patch.elements.AbstractRemoveStringsElementsP
 @Patch(
     name = "Custom branding name YouTube Music",
     description = "Renames the YouTube Music app to the name specified in options.json.",
-    compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")]
+    compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")],
+    use = false
 )
 @Suppress("unused")
 object CustomBrandingNamePatch : AbstractRemoveStringsElementsPatch(
