@@ -1,17 +1,23 @@
 package app.revanced.patches.youtube.player.playerbuttonbg
 
-import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.patch.ResourcePatch
+import app.revanced.patcher.data.BytecodeContext
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patches.youtube.player.playerbuttonbg.fingerprints.PlayerPatchFingerprint
+import app.revanced.patches.youtube.utils.integrations.Constants.INTEGRATIONS_PATH
+import app.revanced.patches.youtube.utils.playerbutton.PlayerButtonHookPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
-import app.revanced.util.doRecursively
-import org.w3c.dom.Element
+import app.revanced.util.exception
 
 @Patch(
     name = "Hide player button background",
-    description = "Hides the dark background surrounding the video player controls.",
-    dependencies = [SettingsPatch::class],
+    description = "Adds an option to hide player button background.",
+    dependencies = [
+        PlayerButtonHookPatch::class,
+        SettingsPatch::class
+    ],
     compatiblePackages = [
         CompatiblePackage(
             "com.google.android.youtube",
@@ -47,23 +53,30 @@ import org.w3c.dom.Element
             ]
         )
     ],
-    use = false
+    use = true
 )
 @Suppress("unused")
-object HidePlayerButtonBackgroundPatch : ResourcePatch() {
-    override fun execute(context: ResourceContext) {
+object HidePlayerButtonBackgroundPatch : BytecodePatch(
+    setOf(PlayerPatchFingerprint)
+) {
+    override fun execute(context: BytecodeContext) {
 
-        context.xmlEditor["res/drawable/player_button_circle_background.xml"].use { editor ->
-            editor.file.doRecursively { node ->
-                arrayOf("color").forEach replacement@{ replacement ->
-                    if (node !is Element) return@replacement
+        PlayerPatchFingerprint.result?.mutableMethod?.addInstruction(
+            0,
+            "invoke-static {p0}, " +
+                "$INTEGRATIONS_PATH/utils/ResourceHelper;->" +
+                "hidePlayerButtonBackground(Landroid/view/View;)V"
+        ) ?: throw PlayerPatchFingerprint.exception
 
-                    node.getAttributeNode("android:$replacement")?.let { attribute ->
-                        attribute.textContent = "@android:color/transparent"
-                    }
-                }
-            }
-        }
+        /**
+         * Add settings
+         */
+        SettingsPatch.addPreference(
+            arrayOf(
+                "PREFERENCE: PLAYER_SETTINGS",
+                "SETTINGS: HIDE_PLAYER_BUTTON_BACKGROUND"
+            )
+        )
 
         SettingsPatch.updatePatchStatus("Hide player button background")
 
