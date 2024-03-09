@@ -47,8 +47,8 @@ Tap here to learn more about DeArrow."</string>
     <string name="revanced_append_time_stamp_information_summary_off">Append time stamp information is disabled.</string>
     <string name="revanced_append_time_stamp_information_summary_on">Append time stamp information is enabled.</string>
     <string name="revanced_append_time_stamp_information_title">Append time stamp information</string>
-    <string name="revanced_append_time_stamp_information_type_summary_off">Append playback speed.</string>
-    <string name="revanced_append_time_stamp_information_type_summary_on">Append video quality.</string>
+    <string name="revanced_append_time_stamp_information_type_summary_off">Append playback speed. Tap and hold on timestamp to change the type while playing the video.</string>
+    <string name="revanced_append_time_stamp_information_type_summary_on">Append video quality. Tap and hold on timestamp to change the type while playing the video.</string>
     <string name="revanced_append_time_stamp_information_type_title">Append information type</string>
     <string name="revanced_bottom_player">Bottom player</string>
     <string name="revanced_button_container_title">Button container</string>
@@ -58,15 +58,22 @@ Tap here to learn more about DeArrow."</string>
     <string name="revanced_change_player_flyout_panel_toggle_summary_off">Switch toggles are used.</string>
     <string name="revanced_change_player_flyout_panel_toggle_summary_on">Text toggles are used.</string>
     <string name="revanced_change_player_flyout_panel_toggle_title">Change toggle type</string>
+    <string name="revanced_change_start_page_entry_browse">Browse channels</string>
     <string name="revanced_change_start_page_entry_default">Default</string>
     <string name="revanced_change_start_page_entry_explore">Explore</string>
+    <string name="revanced_change_start_page_entry_gaming">Gaming</string>
     <string name="revanced_change_start_page_entry_history">History</string>
     <string name="revanced_change_start_page_entry_library">Library</string>
     <string name="revanced_change_start_page_entry_liked_videos">Liked videos</string>
+    <string name="revanced_change_start_page_entry_live">Live</string>
+    <string name="revanced_change_start_page_entry_movies">Movies</string>
+    <string name="revanced_change_start_page_entry_music">Music</string>
     <string name="revanced_change_start_page_entry_search">Search</string>
     <string name="revanced_change_start_page_entry_shorts">Shorts</string>
+    <string name="revanced_change_start_page_entry_sports">Sports</string>
     <string name="revanced_change_start_page_entry_subscriptions">Subscriptions</string>
     <string name="revanced_change_start_page_entry_trending">Trending</string>
+    <string name="revanced_change_start_page_entry_watch_later">Watch later</string>
     <string name="revanced_change_start_page_title">Change start page</string>
     <string name="revanced_change_start_page_warning">Invalid start page, resetting to default.</string>
     <string name="revanced_channel_bar_title">Channel bar</string>
@@ -441,8 +448,18 @@ Some components may not be hidden."</string>
     <string name="revanced_hide_get_premium_summary_off">YouTube Premium promotion is shown.</string>
     <string name="revanced_hide_get_premium_summary_on">YouTube Premium promotion is hidden.</string>
     <string name="revanced_hide_get_premium_title">Hide YouTube Premium promotion</string>
-    <string name="revanced_hide_gray_description_summary_off">Gray description is shown.</string>
-    <string name="revanced_hide_gray_description_summary_on">Gray description is hidden.</string>
+    <string name="revanced_hide_gray_description_summary_off">Gray description is shown.
+
+Gray description refers to:
+• From your Watch Later playlist.
+• People also watched this video.
+• Channel viewers also watch this channel, etc.</string>
+    <string name="revanced_hide_gray_description_summary_on">Gray description is hidden.
+
+Gray description refers to:
+• From your Watch Later playlist.
+• People also watched this video.
+• Channel viewers also watch this channel, etc.</string>
     <string name="revanced_hide_gray_description_title">Hide gray description</string>
     <string name="revanced_hide_gray_separator_summary_off">Gray separators are shown.</string>
     <string name="revanced_hide_gray_separator_summary_on">Gray separators are hidden.</string>
@@ -725,7 +742,7 @@ Some videos, including those from channels you subscribe to, may not be hidden e
     <string name="revanced_misc">Miscellaneous</string>
     <string name="revanced_navigation">Navigation</string>
     <string name="revanced_others">Others</string>
-    <string name="revanced_overlay_button">Overlay button</string>
+    <string name="revanced_overlay_button">Overlay buttons</string>
     <string name="revanced_overlay_button_always_repeat_summary">"Tap to toggle always repeat states.
 Tap and hold to toggle pause after repeat states."</string>
     <string name="revanced_overlay_button_always_repeat_title">Show always repeat button</string>
@@ -739,8 +756,8 @@ Tap and hold to copy video timestamp."</string>
     <string name="revanced_overlay_button_external_downloader_title">Show external download button</string>
     <string name="revanced_overlay_button_time_ordered_playlist_summary">"Tap to generate a playlist of all videos from channel from oldest to newest.
 Tap and hold to undo."</string>
-    <string name="revanced_overlay_button_time_ordered_playlist_title">Time-ordered Playlist Button</string>
-    <string name="revanced_overlay_button_speed_dialog_reset">Playback speed reseted (1.0x).</string>
+    <string name="revanced_overlay_button_time_ordered_playlist_title">Time-ordered playlist button</string>
+    <string name="revanced_overlay_button_speed_dialog_reset">Playback speed reset (1.0x).</string>
     <string name="revanced_overlay_button_speed_dialog_summary">"Tap to open speed dialog.
 Tap and hold to set playback speed to 1.0x."</string>
     <string name="revanced_overlay_button_speed_dialog_title">Show speed dialog button</string>
