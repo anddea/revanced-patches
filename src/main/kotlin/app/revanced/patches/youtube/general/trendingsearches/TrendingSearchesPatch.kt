@@ -11,7 +11,6 @@ import app.revanced.patches.youtube.utils.integrations.Constants.GENERAL
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.YtOutlineArrowTimeBlack
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.YtOutlineFireBlack
-import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.YtOutlineNewSearchBlack
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.YtOutlineSearchBlack
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.exception
@@ -106,7 +105,6 @@ object TrendingSearchesPatch : BytecodePatch(
     private enum class SearchTerm(val resourceId: Long, val value: Int) {
         HISTORY(YtOutlineArrowTimeBlack, 0),
         SEARCH(YtOutlineSearchBlack, 0),
-        NEW_SEARCH(YtOutlineNewSearchBlack, 1),
         TRENDING(YtOutlineFireBlack, 1)
     }
 }
