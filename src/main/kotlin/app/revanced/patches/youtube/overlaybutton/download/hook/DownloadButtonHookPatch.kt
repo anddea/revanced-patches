@@ -71,22 +71,27 @@ object DownloadButtonHookPatch : BytecodePatch(
             }
         } ?: throw DownloadActionsCommandFingerprint.exception
 
-        // Get playlistId and startPlaylistDownloadActivity
-        PlaylistOfflineDownloadOnClickFingerprint.result?.let {
-            it.mutableMethod.apply {
-                val insertIndex = implementation!!.instructions.indexOfFirst { instruction ->
+        try {
+            // Get playlistId and startPlaylistDownloadActivity
+            PlaylistOfflineDownloadOnClickFingerprint.result?.let {
+                it.mutableMethod.apply {
+                    val insertIndex = implementation!!.instructions.indexOfFirst { instruction ->
                         instruction.opcode == Opcode.INVOKE_STATIC
-                                && instruction.getReference<MethodReference>()?.name == "isEmpty"
+                            && instruction.getReference<MethodReference>()?.name == "isEmpty"
+                    }
+
+                    val insertRegister = getInstruction<Instruction35c>(insertIndex).registerC
+
+                    addInstruction(
+                        insertIndex,
+                        "invoke-static {v$insertRegister}, $UTILS_PATH/HookDownloadButtonPatch;->startPlaylistDownloadActivity(Ljava/lang/String;)V"
+                    )
                 }
-
-                val insertRegister = getInstruction<Instruction35c>(insertIndex).registerC
-
-                addInstruction(
-                    insertIndex, 
-                    "invoke-static {v$insertRegister}, $UTILS_PATH/HookDownloadButtonPatch;->startPlaylistDownloadActivity(Ljava/lang/String;)V"
-                )
-            }
-        } ?: throw DownloadActionsCommandFingerprint.exception
+            } ?: throw PlaylistOfflineDownloadOnClickFingerprint.exception
+        } catch (e: Exception) {
+            println("WARNING: Playlist download won't work on this version of YouTube; ${e.message}")
+            return
+        }
 
     }
 }
