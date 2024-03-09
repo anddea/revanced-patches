@@ -13,7 +13,7 @@ ReX Patches.
 | `Alternative thumbnails` | Adds options to replace video thumbnails using the DeArrow API or image captures from the video. | 18.25.40 ~ 19.05.36 |
 | `Ambient mode switch` | Adds an option to bypass the restrictions of ambient mode or disable it completely. | 18.25.40 ~ 19.05.36 |
 | `Append time stamps information` | Adds an option to add the current video quality or playback speed in brackets next to the current time. | 18.25.40 ~ 19.05.36 |
-| `Change player flyout panel toggles` | Adds an option to use text toggles instead of switch toggles within the additional settings menu. | 18.25.40 ~ 19.05.35 |
+| `Change player flyout panel toggles` | Adds an option to use text toggles instead of switch toggles within the additional settings menu. | 18.25.40 ~ 19.05.36 |
 | `Change start page` | Adds an option to set which page the app opens in instead of the homepage. | 18.25.40 ~ 19.05.36 |
 | `Custom branding heading` | Applies a custom heading in the top left corner within the app. | 18.25.40 ~ 19.05.36 |
 | `Custom branding icon YouTube` | Change the YouTube launcher icon to the icon specified in options.json. | 18.25.40 ~ 19.05.36 |
@@ -77,6 +77,7 @@ ReX Patches.
 | `Hide feed flyout panel` | Adds the ability to hide feed flyout panel components using a custom filter. | 18.25.40 ~ 19.05.36 |
 | `Hide filmstrip overlay` | Adds an option to hide filmstrip overlay in the video player. | 18.25.40 ~ 19.05.36 |
 | `Hide floating microphone` | Adds an option to hide the floating microphone button when searching. | 18.25.40 ~ 19.05.36 |
+| `Hide fullscreen button` | Hides fullscreen button in player bottom UI container. | 18.25.40 ~ 19.06.36 |
 | `Hide fullscreen panels` | Adds an option to hide panels such as live chat when in fullscreen. | 18.25.40 ~ 19.05.36 |
 | `Hide general ads` | Adds options to hide general ads. | 18.25.40 ~ 19.05.36 |
 | `Hide handle` | Adds options to hide the handle in the account switcher and You tab. | 18.25.40 ~ 19.05.36 |
@@ -88,7 +89,8 @@ ReX Patches.
 | `Hide music button` | Adds an option to hide the YouTube Music button in the video player. | 18.25.40 ~ 19.05.36 |
 | `Hide navigation buttons` | Adds options to hide and change navigation buttons (such as the Shorts button). | 18.25.40 ~ 19.05.36 |
 | `Hide navigation label` | Adds an option to hide navigation bar labels. | 18.25.40 ~ 19.05.36 |
-| `Hide player button background` | Hides the dark background surrounding the video player controls. | 18.25.40 ~ 19.05.36 |
+| `Hide player button background` | Adds an option to hide player button background. | 18.25.40 ~ 19.05.36 |
+| `Hide player chapters` | Hides chapters in player bottom UI container. | 18.25.40 ~ 19.06.36 |
 | `Hide player flyout panel` | Adds options to hide player flyout panel components. | 18.25.40 ~ 19.05.36 |
 | `Hide previous next button` | Adds an option to hide the previous and next buttons in the video player. | 18.25.40 ~ 19.05.36 |
 | `Hide search term thumbnail` | Adds an option to hide thumbnails in the search term history. | 18.25.40 ~ 19.05.36 |
@@ -115,7 +117,8 @@ ReX Patches.
 | `Return YouTube Dislike` | Shows the dislike count of videos using the Return YouTube Dislike API. | 18.25.40 ~ 19.05.36 |
 | `Sanitize sharing links` | Adds an option to remove tracking query parameters from URLs when sharing links. | 18.25.40 ~ 19.05.36 |
 | `Settings` | Applies mandatory patches to implement ReVanced Extended settings into the application. | 18.25.40 ~ 19.05.36 |
-| `Shorts outline button` | Apply the outline icon to the action button of the Shorts player. | 18.25.40 ~ 19.05.36 |
+| `Settings icons` | Adds icons to specific preferences in the settings. | all |
+| `Shorts overlay buttons` | Apply the new icons to the action buttons of the Shorts player. | 18.25.40 ~ 19.06.36 |
 | `SponsorBlock` | Integrates SponsorBlock which allows skipping video segments such as sponsored content. | 18.25.40 ~ 19.05.36 |
 | `Spoof app version` | Adds options to spoof the YouTube client version. This can be used to restore old UI elements and features. | 18.25.40 ~ 19.05.36 |
 | `Spoof device dimensions` | Adds an option to spoof the device dimensions which unlocks higher video qualities if they aren't available on the device. | 18.25.40 ~ 19.05.36 |
