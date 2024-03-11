@@ -8,6 +8,7 @@ import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.player.musicbutton.fingerprints.MusicAppDeeplinkButtonFingerprint
+import app.revanced.patches.youtube.player.musicbutton.fingerprints.MusicAppDeeplinkButtonParentFingerprint
 import app.revanced.patches.youtube.utils.integrations.Constants.PLAYER
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
@@ -58,23 +59,25 @@ import app.revanced.util.exception
 )
 @Suppress("unused")
 object HideMusicButtonPatch : BytecodePatch(
-    setOf(MusicAppDeeplinkButtonFingerprint)
+    setOf(MusicAppDeeplinkButtonParentFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
 
-        MusicAppDeeplinkButtonFingerprint.result?.let {
-            it.mutableMethod.apply {
-                addInstructionsWithLabels(
-                    0,
-                    """
-                        invoke-static {}, $PLAYER->hideMusicButton()Z
-                        move-result v0
-                        if-nez v0, :hidden
-                        """,
-                    ExternalLabel("hidden", getInstruction(implementation!!.instructions.size - 1))
-                )
-            }
-        } ?: throw MusicAppDeeplinkButtonFingerprint.exception
+        MusicAppDeeplinkButtonParentFingerprint.result?.mutableClass?.let { mutableClass ->
+            MusicAppDeeplinkButtonFingerprint.also { it.resolve(context, mutableClass) }.result?.let {
+                it.mutableMethod.apply {
+                    addInstructionsWithLabels(
+                        0,
+                        """
+                            invoke-static {}, $PLAYER->hideMusicButton()Z
+                            move-result v0
+                            if-nez v0, :hidden
+                            """,
+                        ExternalLabel("hidden", getInstruction(implementation!!.instructions.size - 1))
+                    )
+                }
+            } ?: throw MusicAppDeeplinkButtonFingerprint.exception
+        } ?: throw MusicAppDeeplinkButtonParentFingerprint.exception
 
         /**
          * Add settings
