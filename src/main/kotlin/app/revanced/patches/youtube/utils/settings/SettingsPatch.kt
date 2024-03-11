@@ -57,8 +57,11 @@ import java.util.concurrent.TimeUnit
                 "19.02.39",
                 "19.03.36",
                 "19.04.38",
-                "19.05.35",
-                "19.05.36"
+                "19.05.36",
+                "19.06.39",
+                "19.07.40",
+                "19.08.36",
+                "19.09.37"
             ]
         )
     ],
@@ -101,6 +104,8 @@ object SettingsPatch : AbstractSettingsResourcePatch(
                         upward1839 = 234002000 <= playServicesVersion
                         upward1841 = 234200000 <= playServicesVersion
                         upward1843 = 234400000 <= playServicesVersion
+                        upward1904 = 240502000 <= playServicesVersion
+                        upward1909 = 241002000 > playServicesVersion
 
                         break
                     }
@@ -128,6 +133,27 @@ object SettingsPatch : AbstractSettingsResourcePatch(
             )
         ).forEach { resourceGroup ->
             context.copyResources("youtube/settings", resourceGroup)
+        }
+
+        if (SettingsPatch.upward1843) {
+            arrayOf(
+                ResourceGroup(
+                "layout",
+                "speedmaster_icon_edu_overlay.xml"
+                )
+            ).forEach { resourceGroup ->
+            context.copyResources("youtube/settings/speedmaster_icon/1843", resourceGroup)
+            }
+			if (SettingsPatch.upward1904) {
+				arrayOf(
+					ResourceGroup(
+					"layout",
+					"speedmaster_icon_edu_overlay.xml"
+					)
+				).forEach { resourceGroup ->
+				context.copyResources("youtube/settings/speedmaster_icon/1904", resourceGroup)
+				}
+			}
         }
 
         /**
@@ -171,6 +197,8 @@ object SettingsPatch : AbstractSettingsResourcePatch(
     internal var upward1839: Boolean = false
     internal var upward1841: Boolean = false
     internal var upward1843: Boolean = false
+    internal var upward1904: Boolean = false
+    internal var upward1909: Boolean = false
 
     internal fun addPreference(settingArray: Array<String>) {
         contexts.addPreference(settingArray)

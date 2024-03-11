@@ -20,14 +20,17 @@ object PowerSaveModeFingerprint : MethodFingerprint(
         if (instructions.count() < 20)
             return@custom false
 
+        var count = 0
         for (instruction in instructions) {
             if (instruction.opcode != Opcode.INVOKE_VIRTUAL)
                 continue
 
             val invokeInstruction = instruction as Instruction35c
-            if ((invokeInstruction.reference as MethodReference).name == "isPowerSaveMode")
-                return@custom true
+            if ((invokeInstruction.reference as MethodReference).name != "isPowerSaveMode")
+                continue
+
+            count++
         }
-        return@custom false
+        count == 2
     }
 )

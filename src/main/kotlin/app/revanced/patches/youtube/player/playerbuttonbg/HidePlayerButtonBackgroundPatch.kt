@@ -48,8 +48,11 @@ import app.revanced.util.exception
                 "19.02.39",
                 "19.03.36",
                 "19.04.38",
-                "19.05.35",
-                "19.05.36"
+                "19.05.36",
+                "19.06.39",
+                "19.07.40",
+                "19.08.36",
+                "19.09.37"
             ]
         )
     ],
@@ -64,8 +67,8 @@ object HidePlayerButtonBackgroundPatch : BytecodePatch(
         PlayerPatchFingerprint.result?.mutableMethod?.addInstruction(
             0,
             "invoke-static {p0}, " +
-                "$INTEGRATIONS_PATH/utils/ResourceHelper;->" +
-                "hidePlayerButtonBackground(Landroid/view/View;)V"
+            "$INTEGRATIONS_PATH/utils/ResourceHelper;->" +
+            "hidePlayerButtonBackground(Landroid/view/View;)V"
         ) ?: throw PlayerPatchFingerprint.exception
 
         /**

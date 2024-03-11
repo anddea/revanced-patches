@@ -13,7 +13,7 @@ import app.revanced.patches.shared.patch.customspeed.AbstractCustomPlaybackSpeed
     name = "Custom playback speed",
     description = "Adds an option to customize available playback speeds.",
     dependencies = [IntentHookPatch::class],
-    compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")],
+    compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")]
 )
 @Suppress("unused")
 object CustomPlaybackSpeedPatch : AbstractCustomPlaybackSpeedPatch(

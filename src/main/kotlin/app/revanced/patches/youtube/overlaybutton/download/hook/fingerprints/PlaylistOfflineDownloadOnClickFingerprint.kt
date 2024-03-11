@@ -14,7 +14,8 @@ object PlaylistOfflineDownloadOnClickFingerprint : MethodFingerprint(
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT,
         Opcode.IF_EQZ,
-        Opcode.GOTO
+        null, // Opcode.RETURN_VOID, Opcode.GOTO
+        Opcode.IGET_OBJECT
     ),
     customFingerprint = { methodDef, classDef ->
         methodDef.name == "onClick"

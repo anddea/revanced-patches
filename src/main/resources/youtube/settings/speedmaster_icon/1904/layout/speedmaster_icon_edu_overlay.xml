@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/speedmaster_edu_container" style="@style/PlayerOverlayEduContainerStyle"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout style="@style/PlayerOverlayEduWrapperStyle">
+        <com.google.android.libraries.youtube.common.ui.YouTubeTextView android:id="@id/speedmaster_edu_text" android:text="2x" android:layout_marginHorizontal="4.0dip" style="@style/PlayerOverlayEduTextStyle" />
+        <ImageView android:layout_gravity="center_vertical" android:id="@id/fast_forward_icon" android:layout_width="12.0dip" android:layout_height="12.0dip" android:src="@drawable/yt_fill_fast_forward_vd_theme_24" android:tint="?ytOverlayButtonPrimary" />
+    </LinearLayout>
+</FrameLayout>
