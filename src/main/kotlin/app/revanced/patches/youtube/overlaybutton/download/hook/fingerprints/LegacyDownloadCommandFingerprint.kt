@@ -15,10 +15,11 @@ internal object LegacyDownloadCommandFingerprint : MethodFingerprint(
     strings = listOf(""),
     opcodes = listOf(
         Opcode.MOVE_OBJECT_FROM16,
-        Opcode.MOVE_OBJECT_FROM16,
+        null, // Opcode.MOVE_OBJECT_FROM16 or Opcode.IGET_OBJECT
         Opcode.NEW_INSTANCE,
         Opcode.INVOKE_DIRECT,
         Opcode.IGET_OBJECT,
         Opcode.IF_NEZ,
+        Opcode.SGET_OBJECT,
     )
 )
