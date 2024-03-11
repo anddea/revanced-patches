@@ -5,6 +5,7 @@ import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.shared.patch.mapping.ResourceMappingPatch
 import app.revanced.patches.shared.patch.mapping.ResourceType
+import app.revanced.patches.shared.patch.mapping.ResourceType.ATTR
 import app.revanced.patches.shared.patch.mapping.ResourceType.COLOR
 import app.revanced.patches.shared.patch.mapping.ResourceType.DIMEN
 import app.revanced.patches.shared.patch.mapping.ResourceType.DRAWABLE
@@ -26,12 +27,10 @@ object SharedResourceIdPatch : ResourcePatch() {
     var BarContainerHeight: Long = -1
     var BottomSheetFooterText: Long = -1
     var BottomUiContainerStub: Long = -1
-    var CinematicLightingToggledOn: Long = -1
     var ChannelListSubMenu: Long = -1
     var CompactLink: Long = -1
     var CompactListItem: Long = -1
     var ControlsLayoutStub: Long = -1
-    var CoreContainer: Long = -1
     var DarkSplashAnimation: Long = -1
     var DislikeButton: Long = -1
     var DonationCompanion: Long = -1
@@ -76,6 +75,7 @@ object SharedResourceIdPatch : ResourcePatch() {
     var Scrubbing: Long = -1
     var SeekUndoEduOverlayStub: Long = -1
     var SettingsBooleanTimeRangeDialog: Long = -1
+    var SizeAdjustableLiteAutoNavOverlay: Long = -1
     var SubtitleMenuSettingsFooterInfo: Long = -1
     var SuggestedAction: Long = -1
     var TabsBarTextTabView: Long = -1
@@ -84,6 +84,7 @@ object SharedResourceIdPatch : ResourcePatch() {
     var TouchArea: Long = -1
     var VideoQualityBottomSheet: Long = -1
     var VideoZoomIndicatorLayout: Long = -1
+    var WordMarkHeader: Long = -1
     var YoutubeControlsOverlay: Long = -1
     var YoutubeControlsOverlaySubtitleButton: Long = -1
     var YtOutlineArrowTimeBlack: Long = -1
@@ -109,12 +110,10 @@ object SharedResourceIdPatch : ResourcePatch() {
         BarContainerHeight = find(DIMEN, "bar_container_height")
         BottomSheetFooterText = find(ID, "bottom_sheet_footer_text")
         BottomUiContainerStub = find(ID, "bottom_ui_container_stub")
-        CinematicLightingToggledOn = find(STRING, "cinematic_lighting_toggled_on")
         ChannelListSubMenu = find(LAYOUT, "channel_list_sub_menu")
         CompactLink = find(LAYOUT, "compact_link")
         CompactListItem = find(LAYOUT, "compact_list_item")
         ControlsLayoutStub = find(ID, "controls_layout_stub")
-        CoreContainer = find(ID, "core_container")
         DarkSplashAnimation = find(ID, "dark_splash_animation")
         DislikeButton = find(ID, "dislike_button")
         DonationCompanion = find(LAYOUT, "donation_companion")
@@ -161,6 +160,7 @@ object SharedResourceIdPatch : ResourcePatch() {
         Scrubbing = find(DIMEN, "vertical_touch_offset_to_enter_fine_scrubbing")
         SeekUndoEduOverlayStub = find(ID, "seek_undo_edu_overlay_stub")
         SettingsBooleanTimeRangeDialog = find(LAYOUT, "setting_boolean_time_range_dialog")
+        SizeAdjustableLiteAutoNavOverlay = find(LAYOUT, "size_adjustable_lite_autonav_overlay")
         SubtitleMenuSettingsFooterInfo = find(STRING, "subtitle_menu_settings_footer_info")
         SuggestedAction = find(LAYOUT, "suggested_action")
         TabsBarTextTabView = find(ID, "tabs_bar_text_tab_view")
@@ -169,6 +169,7 @@ object SharedResourceIdPatch : ResourcePatch() {
         TouchArea = find(ID, "touch_area")
         VideoQualityBottomSheet = find(LAYOUT, "video_quality_bottom_sheet_list_fragment_title")
         VideoZoomIndicatorLayout = find(ID, "video_zoom_indicator_layout")
+        WordMarkHeader = find(ATTR, "ytWordmarkHeader")
         YoutubeControlsOverlay = find(ID, "youtube_controls_overlay")
         YoutubeControlsOverlaySubtitleButton = find(LAYOUT, "youtube_controls_overlay_subtitle_button")
         YtOutlineArrowTimeBlack = find(DRAWABLE, "yt_outline_arrow_time_black_24")

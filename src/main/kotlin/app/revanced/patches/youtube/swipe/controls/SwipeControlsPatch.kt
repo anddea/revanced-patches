@@ -71,8 +71,11 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
                 "19.02.39",
                 "19.03.36",
                 "19.04.38",
-                "19.05.35",
-                "19.05.36"
+                "19.05.36",
+                "19.06.39",
+                "19.07.40",
+                "19.08.36",
+                "19.09.37"
             ]
         )
     ]
@@ -126,18 +129,29 @@ object SwipeControlsPatch : BytecodePatch(
             }
         } ?: throw FullScreenEngagementOverlayFingerprint.exception
 
-        HDRBrightnessFingerprint.result?.let {
-            it.mutableMethod.apply {
-                addInstructionsWithLabels(
-                    0, """
-                        invoke-static {}, $INTEGRATIONS_CLASS_DESCRIPTOR->disableHDRAutoBrightness()Z
-                        move-result v0
-                        if-eqz v0, :default
-                        return-void
-                        """, ExternalLabel("default", getInstruction(0))
+        if (SettingsPatch.upward1909) {
+            HDRBrightnessFingerprint.result?.let {
+                it.mutableMethod.apply {
+                    addInstructionsWithLabels(
+                        0, """
+                            invoke-static {}, $INTEGRATIONS_CLASS_DESCRIPTOR->disableHDRAutoBrightness()Z
+                            move-result v0
+                            if-eqz v0, :default
+                            return-void
+                            """, ExternalLabel("default", getInstruction(0))
+                    )
+                }
+            } ?: throw HDRBrightnessFingerprint.exception
+
+            /**
+             * Add settings
+             */
+            SettingsPatch.addPreference(
+                arrayOf(
+                    "SETTINGS: SWIPE_EXPERIMENTAL_FLAGS"
                 )
-            }
-        } ?: throw HDRBrightnessFingerprint.exception
+            )
+        }
 
         /**
          * Add settings

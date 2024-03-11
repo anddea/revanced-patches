@@ -12,7 +12,7 @@ import org.w3c.dom.Element
     name = "Amoled",
     description = "Applies a pure black theme to some components.",
     dependencies = [LithoThemePatch::class],
-    compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")],
+    compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")]
 )
 @Suppress("unused")
 object AmoledPatch : ResourcePatch() {

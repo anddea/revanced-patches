@@ -48,15 +48,18 @@ import org.w3c.dom.Element
                 "19.02.39",
                 "19.03.36",
                 "19.04.38",
-                "19.05.35",
-                "19.05.36"
+                "19.05.36",
+                "19.06.39",
+                "19.07.40",
+                "19.08.36",
+                "19.09.37"
             ]
         )
     ]
 )
 @Suppress("unused")
 object ThemePatch : ResourcePatch() {
-    private const val AMOLED_BLACK_COLOR = "@android:color/black"
+    private const val AMOLED_BLACK_COLOR = "#FF010101"
     private const val CATPPUCCIN_MOCHA_COLOR = "#FF181825"
     private const val DARK_PINK_COLOR = "#FF290025"
     private const val DARK_BLUE_COLOR = "#FF001029"
@@ -65,7 +68,7 @@ object ThemePatch : ResourcePatch() {
     private const val DARK_ORANGE_COLOR = "#FF291800"
     private const val DARK_RED_COLOR = "#FF290000"
 
-    private const val WHITE_COLOR = "@android:color/white"
+    private const val WHITE_COLOR = "#FFFFFFFF"
     private const val CATPPUCCIN_LATTE_COLOR = "#FFE6E9EF"
     private const val LIGHT_PINK_COLOR = "#FFFCCFF3"
     private const val LIGHT_BLUE_COLOR = "#FFD1E0FF"
@@ -74,11 +77,15 @@ object ThemePatch : ResourcePatch() {
     private const val LIGHT_ORANGE_COLOR = "#FFFFE6CC"
     private const val LIGHT_RED_COLOR = "#FFFFD6D6"
 
+    private const val ADVANCED_DARK_COLOR = "#FF252A3A"
+    private const val ADVANCED_LIGHT_COLOR = "#FFF2F8FF"
+
+    private const val SEEKBAR_COLOR = "#FFFF0000"
     private val DarkThemeBackgroundColor by stringPatchOption(
         key = "DarkThemeBackgroundColor",
         default = AMOLED_BLACK_COLOR,
         values = mapOf(
-            "Amoled Black" to AMOLED_BLACK_COLOR,
+            "Black" to AMOLED_BLACK_COLOR,
             "Catppuccin (Mocha)" to CATPPUCCIN_MOCHA_COLOR,
             "Dark Pink" to DARK_PINK_COLOR,
             "Dark Blue" to DARK_BLUE_COLOR,
@@ -88,6 +95,17 @@ object ThemePatch : ResourcePatch() {
             "Dark Red" to DARK_RED_COLOR
         ),
         title = "Dark theme background color",
+        description = "Can be a hex color (#AARRGGBB) or a color resource reference.",
+        required = true
+    )
+
+    private val AdvancedDarkThemeBackgroundColor by stringPatchOption(
+        key = "AdvancedDarkThemeBackgroundColor",
+        default = ADVANCED_DARK_COLOR,
+        values = mapOf(
+            "Advanced Dark Color" to ADVANCED_DARK_COLOR
+        ),
+        title = "Advanced dark theme color",
         description = "Can be a hex color (#AARRGGBB) or a color resource reference.",
         required = true
     )
@@ -109,6 +127,28 @@ object ThemePatch : ResourcePatch() {
         description = "Can be a hex color (#AARRGGBB) or a color resource reference.",
     )
 
+    private val AdvancedLightThemeBackgroundColor by stringPatchOption(
+        key = "AdvancedLightThemeBackgroundColor",
+        default = ADVANCED_LIGHT_COLOR,
+        values = mapOf(
+            "Advanced Light Color" to ADVANCED_LIGHT_COLOR
+        ),
+        title = "Advanced light theme color",
+        description = "Can be a hex color (#AARRGGBB) or a color resource reference.",
+        required = true
+    )
+
+    private val SeekbarBackgroundColor by stringPatchOption(
+        key = "SeekbarBackgroundColor",
+        default = SEEKBAR_COLOR,
+        values = mapOf(
+            "Seekbar Color" to SEEKBAR_COLOR
+        ),
+        title = "Seekbar color",
+        description = "Can be a hex color (#AARRGGBB) or a color resource reference.",
+        required = true
+    )
+
     private fun getThemeString(
         darkThemeColor: String,
         lightThemeColor: String
@@ -121,7 +161,7 @@ object ThemePatch : ResourcePatch() {
 
     private fun getDarkThemeString(darkThemeColor: String) =
         when (darkThemeColor) {
-            AMOLED_BLACK_COLOR -> "Amoled Black"
+            AMOLED_BLACK_COLOR -> "Black"
             CATPPUCCIN_MOCHA_COLOR -> "Catppuccin (Mocha)"
             DARK_PINK_COLOR -> "Dark Pink"
             DARK_BLUE_COLOR -> "Dark Blue"
@@ -129,6 +169,12 @@ object ThemePatch : ResourcePatch() {
             DARK_YELLOW_COLOR -> "Dark Yellow"
             DARK_ORANGE_COLOR -> "Dark Orange"
             DARK_RED_COLOR -> "Dark Red"
+            else -> "Custom"
+        }
+
+    private fun getAdvancedDarkThemeColorString(advancedDarkThemeColor: String) =
+        when (advancedDarkThemeColor) {
+            ADVANCED_DARK_COLOR -> "Advanced Dark Color"
             else -> "Custom"
         }
 
@@ -144,13 +190,34 @@ object ThemePatch : ResourcePatch() {
             else -> "Custom"
         }
 
+    private fun getAdvancedLightThemeColorString(advancedLightThemeColor: String) =
+        when (advancedLightThemeColor) {
+            ADVANCED_LIGHT_COLOR -> "Advanced Light Color"
+            else -> "Custom"
+        }
+
+    private fun getSeekbarString(seekbarColor: String) =
+        when (seekbarColor) {
+            SEEKBAR_COLOR -> "Seekbar Color"
+            else -> "Custom"
+        }
+
     override fun execute(context: ResourceContext) {
 
         val darkThemeColor = DarkThemeBackgroundColor
             ?: throw PatchException("Invalid dark color.")
 
+        val advancedDarkThemeColor = AdvancedDarkThemeBackgroundColor
+            ?: throw PatchException("Invalid advanced dark color.")
+
         val lightThemeColor = LightThemeBackgroundColor
             ?: throw PatchException("Invalid light color.")
+
+        val advancedLightThemeColor = AdvancedLightThemeBackgroundColor
+            ?: throw PatchException("Invalid advanced light color.")
+
+        val seekbarColor = SeekbarBackgroundColor
+            ?: throw PatchException("Invalid seekbar color.")
 
         arrayOf("values", "values-v31").forEach { path ->
             context.xmlEditor["res/$path/colors.xml"].use { editor ->
@@ -161,7 +228,8 @@ object ThemePatch : ResourcePatch() {
 
                     node.textContent = when (node.getAttribute("name")) {
                         "yt_black0", "yt_black1", "yt_black1_opacity95", "yt_black1_opacity98", "yt_black2", "yt_black3",
-                        "yt_black4", "yt_status_bar_background_dark", "material_grey_850" -> darkThemeColor
+                        "yt_black4", "yt_status_bar_background_dark", "material_grey_850", "material_grey_900" -> darkThemeColor
+                        "yt_navy_blue" -> advancedDarkThemeColor
 
                         else -> continue
                     }
@@ -180,14 +248,30 @@ object ThemePatch : ResourcePatch() {
                     "yt_white1", "yt_white1_opacity95", "yt_white1_opacity98",
                     "yt_white2", "yt_white3", "yt_white4",
                     -> lightThemeColor
+                        "yt_pale_blue" -> advancedLightThemeColor
 
-                    else -> continue
-                }
+                        else -> continue
             }
         }
+            }
+
+            context.xmlEditor["res/values/colors.xml"].use { editor ->
+                val resourcesNode = editor.file.getElementsByTagName("resources").item(0) as Element
+
+                val children = resourcesNode.childNodes
+                for (i in 0 until children.length) {
+                    val node = children.item(i) as? Element ?: continue
+
+                    node.textContent = when (node.getAttribute("name")) {
+                        "inline_time_bar_colorized_bar_played_color_dark" -> seekbarColor
+
+                        else -> continue
+                    }
+                }
+            }
 
         val currentTheme = if (isMonetPatchIncluded)
-            "MaterialYou + " + getThemeString(darkThemeColor, lightThemeColor)
+            "MaterialYou " + getThemeString(darkThemeColor, lightThemeColor)
         else
             getThemeString(darkThemeColor, lightThemeColor)
 

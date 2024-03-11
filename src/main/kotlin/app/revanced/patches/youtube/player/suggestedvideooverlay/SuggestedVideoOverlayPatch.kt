@@ -13,7 +13,7 @@ import app.revanced.patches.youtube.player.suggestedvideooverlay.fingerprints.Ma
 import app.revanced.patches.youtube.player.suggestedvideooverlay.fingerprints.TouchAreaOnClickListenerFingerprint
 import app.revanced.patches.youtube.utils.integrations.Constants.PLAYER
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
-import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.CoreContainer
+import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.SizeAdjustableLiteAutoNavOverlay
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.exception
 import app.revanced.util.getWideLiteralInstructionIndex
@@ -60,8 +60,11 @@ import com.android.tools.smali.dexlib2.Opcode
                 "19.02.39",
                 "19.03.36",
                 "19.04.38",
-                "19.05.35",
-                "19.05.36"
+                "19.05.36",
+                "19.06.39",
+                "19.07.40",
+                "19.08.36",
+                "19.09.37"
             ]
         )
     ]

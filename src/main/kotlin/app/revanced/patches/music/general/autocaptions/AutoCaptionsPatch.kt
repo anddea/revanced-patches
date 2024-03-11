@@ -16,7 +16,7 @@ import app.revanced.patches.shared.patch.captions.AbstractAutoCaptionsPatch
         SettingsPatch::class,
         VideoIdPatch::class
     ],
-    compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")],
+    compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")]
 )
 @Suppress("unused")
 object AutoCaptionsPatch : AbstractAutoCaptionsPatch(
