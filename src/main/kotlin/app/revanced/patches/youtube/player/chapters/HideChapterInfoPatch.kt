@@ -10,7 +10,7 @@ import org.w3c.dom.Element
 
 @Patch(
     name = "Hide player chapters",
-    description = "Hides chapters in player bottom UI container.",
+    description = "Forces to hide chapters in player bottom UI container.",
     dependencies = [SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(
