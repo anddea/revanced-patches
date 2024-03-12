@@ -1,4 +1,4 @@
-package app.revanced.patches.music.general.foryoushelf
+package app.revanced.patches.music.general.playlistcards
 
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.patch.BytecodePatch
@@ -10,8 +10,8 @@ import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.SettingsPatch
 
 @Patch(
-    name = "Hide For You shelf",
-    description = "Adds an option to hide the For You shelf from the homepage.",
+    name = "Hide playlist cards",
+    description = "Adds an option to hide playlist cards from the homepage.",
     dependencies = [
         LithoFilterPatch::class,
         SettingsPatch::class
@@ -19,12 +19,12 @@ import app.revanced.patches.music.utils.settings.SettingsPatch
     compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")]
 )
 @Suppress("unused")
-object HideCarouselShelfPatch : BytecodePatch(emptySet()) {
+object HidePlaylistCardsPatch : BytecodePatch(emptySet()) {
     override fun execute(context: BytecodeContext) {
 
         SettingsPatch.addMusicPreference(
             CategoryType.GENERAL,
-            "revanced_hide_for_you_shelf",
+            "revanced_hide_playlist_card",
             "false"
         )
 
@@ -33,5 +33,5 @@ object HideCarouselShelfPatch : BytecodePatch(emptySet()) {
     }
 
     private const val FILTER_CLASS_DESCRIPTOR =
-        "$COMPONENTS_PATH/ForYouShelfFilter;"
+        "$COMPONENTS_PATH/PlaylistCardFilter;"
 }
