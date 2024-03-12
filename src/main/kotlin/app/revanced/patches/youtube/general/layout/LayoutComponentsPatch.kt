@@ -60,6 +60,7 @@ object LayoutComponentsPatch : BytecodePatch(emptySet()) {
         LithoFilterPatch.addFilter("$COMPONENTS_PATH/CustomFilter;")
         LithoFilterPatch.addFilter("$COMPONENTS_PATH/ChannelBarFilter;")
         LithoFilterPatch.addFilter("$COMPONENTS_PATH/LayoutComponentsFilter;")
+        LithoFilterPatch.addFilter("$COMPONENTS_PATH/KeywordContentFilter;")
 
         /**
          * Add settings
