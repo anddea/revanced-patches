@@ -244,8 +244,8 @@ object OverlayButtonsPatch : ResourcePatch() {
 
                 // Adjust TimeBar and Chapter bottom padding
                 arrayOf(
-                    "@id/time_bar_chapter_title" to "14.0dip",
-                    "@id/timestamps_container" to "12.0dip"
+                    "@id/time_bar_chapter_title" to "15.0dip",
+                    "@id/timestamps_container" to "13.0dip"
                 ).forEach { (id, replace) ->
                     node.getAttributeNode("android:id")?.let { attribute ->
                         if (attribute.textContent == id) {
