@@ -204,16 +204,41 @@ object OverlayButtonsPatch : ResourcePatch() {
 
         val marginBottom = "$BottomMargin"
 
+        // For newer versions of YouTube (19.09.xx+), there's a new layout file for fullscreen button
+        try {
+            context.xmlEditor["res/layout/youtube_controls_fullscreen_button.xml"].use { editor ->
+                editor.file.doRecursively loop@{ node ->
+                    if (node !is Element) return@loop
+
+                    if (node.getAttribute("android:id").endsWith("_button")) {
+                        node.setAttribute("android:layout_marginBottom", marginBottom)
+                        node.setAttribute("android:paddingLeft", "0.0dip")
+                        node.setAttribute("android:paddingRight", "0.0dip")
+                        node.setAttribute("android:paddingBottom", "22.0dip")
+                        if (!node.getAttribute("android:layout_height").equals("0.0dip") &&
+                            !node.getAttribute("android:layout_width").equals("0.0dip")
+                        ) {
+                            node.setAttribute("android:layout_height", "48.0dip")
+                            node.setAttribute("android:layout_width", "48.0dip")
+                        }
+                    }
+                }
+            }
+        } catch (e: Exception) {
+            // Do nothing
+        }
+
         context.xmlEditor["res/layout/youtube_controls_bottom_ui_container.xml"].use { editor ->
             editor.file.doRecursively loop@{ node ->
                 if (node !is Element) return@loop
 
                 // Change the relationship between buttons
-                node.getAttributeNode("yt:layout_constraintRight_toLeftOf")?.let { attribute ->
-                    if (attribute.textContent == "@id/fullscreen_button") {
-                        attribute.textContent = "@+id/speed_dialog_button"
+                node.getAttributeNode("yt:layout_constraintRight_toLeftOf")
+                    ?.let { attribute ->
+                        if (attribute.textContent == "@id/fullscreen_button") {
+                            attribute.textContent = "@+id/speed_dialog_button"
+                        }
                     }
-                }
 
                 // Adjust TimeBar and Chapter bottom padding
                 arrayOf(
@@ -222,8 +247,19 @@ object OverlayButtonsPatch : ResourcePatch() {
                 ).forEach { (id, replace) ->
                     node.getAttributeNode("android:id")?.let { attribute ->
                         if (attribute.textContent == id) {
-                            node.getAttributeNode("android:paddingBottom").textContent = replace
+                            node.getAttributeNode("android:paddingBottom").textContent =
+                                replace
                         }
+                    }
+                }
+
+                if (node.getAttribute("android:id") == "@id/youtube_controls_fullscreen_button_stub") {
+                    node.setAttribute("android:layout_marginBottom", marginBottom)
+                    if (!node.getAttribute("android:layout_height").equals("0.0dip") &&
+                        !node.getAttribute("android:layout_width").equals("0.0dip")
+                    ) {
+                        node.setAttribute("android:layout_height", "48.0dip")
+                        node.setAttribute("android:layout_width", "48.0dip")
                     }
                 }
 
@@ -232,9 +268,11 @@ object OverlayButtonsPatch : ResourcePatch() {
                     node.setAttribute("android:paddingLeft", "0.0dip")
                     node.setAttribute("android:paddingRight", "0.0dip")
                     node.setAttribute("android:paddingBottom", "22.0dip")
-                    if (!node.getAttribute("android:layout_height").equals("0.0dip") && !node.getAttribute("android:layout_width").equals("0.0dip")) {
-                        node.setAttribute("android:layout_height", "48.0dip");
-                        node.setAttribute("android:layout_width", "48.0dip");
+                    if (!node.getAttribute("android:layout_height").equals("0.0dip") &&
+                        !node.getAttribute("android:layout_width").equals("0.0dip")
+                    ) {
+                        node.setAttribute("android:layout_height", "48.0dip")
+                        node.setAttribute("android:layout_width", "48.0dip")
                     }
                 } else if (node.getAttribute("android:id") == "@id/time_bar_chapter_title_container" ||
                     node.getAttribute("android:id") == "@id/timestamps_container"
