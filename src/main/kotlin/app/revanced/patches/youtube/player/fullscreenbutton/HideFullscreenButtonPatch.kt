@@ -58,13 +58,32 @@ object FullscreenButtonPatch : ResourcePatch() {
 
         context.xmlEditor["res/layout/youtube_controls_bottom_ui_container.xml"].use { editor ->
             editor.file.doRecursively { node ->
-                if (node is Element && node.getAttributeNode("android:id")?.textContent == "@id/fullscreen_button") {
+                if (node is Element && (
+                    node.getAttribute("android:id") == "@id/fullscreen_button" ||
+                    node.getAttribute("android:id") == "@id/youtube_controls_fullscreen_button_stub")
+                ) {
                     node.apply {
                         setAttribute("android:layout_height", "0.0dip")
                         setAttribute("android:layout_width", "0.0dip")
                     }
                 }
             }
+        }
+
+        // For newer versions of YouTube (19.09.xx+), there's a new layout file for fullscreen button
+        try {
+            context.xmlEditor["res/layout/youtube_controls_fullscreen_button.xml"].use { editor ->
+                editor.file.doRecursively { node ->
+                    if (node is Element && node.getAttribute("android:id") == "@id/fullscreen_button") {
+                        node.apply {
+                            setAttribute("android:layout_height", "0.0dip")
+                            setAttribute("android:layout_width", "0.0dip")
+                        }
+                    }
+                }
+            }
+        } catch (e: Exception) {
+            // Do nothing
         }
 
         SettingsPatch.updatePatchStatus("Hide fullscreen button")
