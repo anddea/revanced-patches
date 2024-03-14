@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="accessibility_settings_edu_opt_in_text">Vuoi attivare i controlli di accessibilità del riproduttore?</string>
-    <string name="accessibility_settings_edu_opt_out_text">I tuoi controlli sono stati modificati poiché un servizio di accessibilità è attivato</string>
+    <string name="accessibility_settings_edu_opt_out_text">I tuoi controlli sono diversi poichè un servizio di accessibilità è attivato</string>
     <string name="microg_not_installed_notice">Per favore installa MicroG</string>
     <string name="microg_not_installed_warning">MicroG non trovato</string>
     <string name="microg_not_running_warning">MicroG non è in esecuzione in background</string>
@@ -510,6 +510,9 @@ Alcuni componenti potrebbero non essere nascosti"</string>
     <string name="revanced_hide_place_section_summary_off">La sezione Luogo è visibile</string>
     <string name="revanced_hide_place_section_summary_on">La sezione Luogo è nascosta</string>
     <string name="revanced_hide_place_section_title">Nascondi la sezione Luogo</string>
+    <string name="revanced_hide_player_button_background_summary_off">Lo sfondo dei pulsanti del riproduttore è visibile</string>
+    <string name="revanced_hide_player_button_background_summary_on">Lo sfondo dei pulsanti del riproduttore è nascosto</string>
+    <string name="revanced_hide_player_button_background_title">Nascondi lo sfondo dei pulsanti del riproduttore</string>
     <string name="revanced_hide_player_flyout_panel_ambient_mode_summary_off">Il menù Modalità Ambient è visibile</string>
     <string name="revanced_hide_player_flyout_panel_ambient_mode_summary_on">Il menù Modalità Ambient è nascosto</string>
     <string name="revanced_hide_player_flyout_panel_ambient_mode_title">Nascondi il menù Modalità Ambient</string>
@@ -742,6 +745,9 @@ Tocca e tieni premuto per impostare la velocità di riproduzione a 1.0x"</string
     <string name="revanced_overlay_button_speed_dialog_title">Mostra la finestra di dialogo della velocità</string>
     <string name="revanced_overlay_button_whitelisting_summary">Tocca per aggiungere un canale alla whitelist dei canali</string>
     <string name="revanced_overlay_button_whitelisting_title">Mostra il pulsante Whitelist</string>
+    <string name="revanced_override_premium_header_summary_off">Predefinita</string>
+    <string name="revanced_override_premium_header_summary_on">Premium</string>
+    <string name="revanced_override_premium_header_title">Il tipo di intestazione</string>
     <string name="revanced_whitelisting_added" formatted="false">Il canale %s è stato aggiunto alla whitelist %s</string>
     <string name="revanced_whitelisting_add_failed" formatted="false">Impossibile aggiungere il canale %s alla whitelist %s</string>
     <string name="revanced_whitelisting_channel_name">Nome del canale</string>
@@ -843,6 +849,9 @@ Note:
     <string name="revanced_spoof_app_version_title">Simula la versione dell\'app</string>
     <string name="revanced_spoof_device_dimensions_summary">Simula le dimensioni del dispositivo per sbloccare qualità video superiori che potrebbero non essere disponibili sul tuo dispositivo</string>
     <string name="revanced_spoof_device_dimensions_title">Simula le dimensioni del dispositivo</string>
+    <string name="revanced_spoof_failure_connection_status_code" formatted="false">"Simulazione dello storyboard non disponibile: "</string>
+    <string name="revanced_spoof_failure_connection_timeout">Simulazione dello storyboard temporaneamente non disponibile (API scaduto)</string>
+    <string name="revanced_spoof_failure_generic">"Simulazione dello storyboard temporaneamente non disponibile: "</string>
     <string name="revanced_spoof_player_parameter_in_feed_summary_off">"I parametri del riproduttore non sono simulati per i video nei feed.
 
 Problema noto: i video nei feed saranno riprodotti per meno di un minuto prima di avere problemi di riproduzione"</string>
