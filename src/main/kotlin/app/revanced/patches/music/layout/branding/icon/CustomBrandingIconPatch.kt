@@ -5,6 +5,7 @@ import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.booleanPatchOption
 import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatchOption
 import app.revanced.util.ResourceGroup
 import app.revanced.util.copyResources
@@ -25,6 +26,14 @@ object CustomBrandingIconPatch : ResourcePatch() {
         "MMT" to "mmt",
         DEFAULT_ICON_KEY to "revancify_blue",
         "Revancify Red" to "revancify_red"
+    )
+
+    private val SplashHeaderIcon by booleanPatchOption(
+        key = "SplashHeaderIcon",
+        default = true,
+        title = "Splash and header icons",
+        description = "Apply custom branding icon to Splash and Header.",
+        required = true
     )
 
     private val mipmapIconResourceFileNames = arrayOf(
@@ -113,59 +122,61 @@ object CustomBrandingIconPatch : ResourcePatch() {
                 }
 
                 // change resource icons.
-                arrayOf(
-                    ResourceGroup(
-                        "drawable-hdpi",
-                        "action_bar_logo_release.png",
-                        "action_bar_logo.png",
-                        "record.png",
-                    ),
+                if (SplashHeaderIcon == true) {
+                    arrayOf(
+                        ResourceGroup(
+                            "drawable-hdpi",
+                            "action_bar_logo_release.png",
+                            "action_bar_logo.png",
+                            "record.png",
+                        ),
 
-                    ResourceGroup(
-                        "drawable-large-hdpi",
-                        "record.png",
-                    ),
+                        ResourceGroup(
+                            "drawable-large-hdpi",
+                            "record.png",
+                        ),
 
-                    ResourceGroup(
-                        "drawable-large-mdpi",
-                        "record.png",
-                    ),
+                        ResourceGroup(
+                            "drawable-large-mdpi",
+                            "record.png",
+                        ),
 
-                    ResourceGroup(
-                        "drawable-large-xhdpi",
-                        "record.png",
-                    ),
+                        ResourceGroup(
+                            "drawable-large-xhdpi",
+                            "record.png",
+                        ),
 
-                    ResourceGroup(
-                        "drawable-xlarge-mdpi",
-                        "record.png",
-                    ),
+                        ResourceGroup(
+                            "drawable-xlarge-mdpi",
+                            "record.png",
+                        ),
 
-                    ResourceGroup(
-                        "drawable-mdpi",
-                        "action_bar_logo.png",
-                        "record.png",
-                    ),
+                        ResourceGroup(
+                            "drawable-mdpi",
+                            "action_bar_logo.png",
+                            "record.png",
+                        ),
 
-                    ResourceGroup(
-                        "drawable-xhdpi",
-                        "action_bar_logo.png",
-                        "record.png",
-                    ),
+                        ResourceGroup(
+                            "drawable-xhdpi",
+                            "action_bar_logo.png",
+                            "record.png",
+                        ),
 
-                    ResourceGroup(
-                        "drawable-xxhdpi",
-                        "action_bar_logo.png",
-                        "record.png",
-                    ),
+                        ResourceGroup(
+                            "drawable-xxhdpi",
+                            "action_bar_logo.png",
+                            "record.png",
+                        ),
 
 
-                    ResourceGroup(
-                        "drawable-xxxhdpi",
-                        "action_bar_logo.png",
-                    ),
-                ).forEach { resourceGroup ->
-                    context.copyResources("$resourcePath/resource", resourceGroup)
+                        ResourceGroup(
+                            "drawable-xxxhdpi",
+                            "action_bar_logo.png",
+                        ),
+                    ).forEach { resourceGroup ->
+                        context.copyResources("$resourcePath/resource", resourceGroup)
+                    }
                 }
             }
         } ?: throw PatchException("Invalid app icon path.")
