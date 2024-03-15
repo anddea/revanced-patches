@@ -59,15 +59,22 @@ Tocca qui per saperne di più su DeArrow"</string>
     <string name="revanced_change_player_flyout_panel_toggle_summary_off">Interruttore</string>
     <string name="revanced_change_player_flyout_panel_toggle_summary_on">Testo</string>
     <string name="revanced_change_player_flyout_panel_toggle_title">Il tipo di toggle</string>
-    <string name="revanced_change_start_page_entry_default">Predefinito</string>
+    <string name="revanced_change_start_page_entry_browse">Esplora canali</string>
+    <string name="revanced_change_start_page_entry_default">Home (predefinita)</string>
     <string name="revanced_change_start_page_entry_explore">Esplora</string>
+    <string name="revanced_change_start_page_entry_gaming">Giochi</string>
     <string name="revanced_change_start_page_entry_history">Cronologia</string>
     <string name="revanced_change_start_page_entry_library">Raccolta (Tu)</string>
     <string name="revanced_change_start_page_entry_liked_videos">Video piaciuti</string>
+    <string name="revanced_change_start_page_entry_live">Dal vivo</string>
+    <string name="revanced_change_start_page_entry_movies">Film e TV</string>
+    <string name="revanced_change_start_page_entry_music">Musica</string>
     <string name="revanced_change_start_page_entry_search">Cerca</string>
     <string name="revanced_change_start_page_entry_shorts">Shorts</string>
+    <string name="revanced_change_start_page_entry_sports">Sport</string>
     <string name="revanced_change_start_page_entry_subscriptions">Iscrizioni</string>
     <string name="revanced_change_start_page_entry_trending">Tendenze</string>
+    <string name="revanced_change_start_page_entry_watch_later">Guarda più tardi</string>
     <string name="revanced_change_start_page_title">Cambia la scheda iniziale</string>
     <string name="revanced_change_start_page_warning">Scheda iniziale non valida, ripristinata al predefinito</string>
     <string name="revanced_channel_bar_title">Barra del canale</string>
@@ -78,7 +85,7 @@ Nota: questa funzionalità non è stata testata"</string>
     <string name="revanced_close_interstitial_ads_title">Chiudi gli annunci interstiziali</string>
     <string name="revanced_close_interstitial_ads_toast">Chiudendo annunci interstiziali</string>
     <string name="revanced_comments_title">Commenti</string>
-    <string name="revanced_custom_filter_strings_summary">Configura quali componenti filtrare separati da nuove righe</string>
+    <string name="revanced_custom_filter_strings_summary">Configura i componenti da nascondere separati da nuove righe</string>
     <string name="revanced_custom_filter_strings_title">Modifica il filtro personalizzato</string>
     <string name="revanced_custom_filter_toast_invalid_characters" formated="false">Filtro personalizzato non valido, deve essere solo ASCII (%s)</string>
     <string name="revanced_custom_filter_toast_invalid_syntax" formated="false">Filtro personalizzato non valido (%s)</string>
@@ -700,7 +707,7 @@ Problemi noti:
     <string name="revanced_hide_home_feed_membership_video_summary">Nascondi i video marchiati con \"Riservato agli abbonati\" nel feed della home</string>
     <string name="revanced_hide_home_feed_membership_video_title">Nascondi i video riservati agli abbonati nel feed della home</string>
     <string name="revanced_hide_video_with_gray_description_summary">"I video con una descrizione grigia includono video che non sono relativi ai termini di ricerca"</string>
-    <string name="revanced_hide_video_with_gray_description_title">Nascondi i video con una descrizione grigia</string>
+    <string name="revanced_hide_video_with_gray_description_title">Nascondi i video con una descrizione grigia dai risultati di ricerca</string>
     <string name="revanced_hide_video_with_low_view_summary">"Nascondi i video con meno di 1.000 visualizzazioni nel feed della home.
 Alcuni video, inclusi quelli dei canali iscritti, potrebbero non essere nascosti anche se hanno meno di 1.000 visualizzazioni"</string>
     <string name="revanced_hide_video_with_low_view_title">Nascondi i video con poche visualizzazioni</string>
@@ -720,6 +727,15 @@ Alcuni video, inclusi quelli dei canali iscritti, potrebbero non essere nascosti
     <string name="revanced_keep_landscape_mode_timeout_summary">Il tempo in millisecondi in cui viene forzata la modalità orizzontale</string>
     <string name="revanced_keep_landscape_mode_timeout_title">Il time-out della modalità orizzontale forzata</string>
     <string name="revanced_keep_landscape_mode_title">Mantieni la modalità orizzontale</string>
+    <string name="revanced_keyword_invalid_length" formatted="false">Lunghezza della parola chiave non valida (deve contenere almeno %s caratteri): %s</string>
+    <string name="revanced_keyword_filter_strings_summary">Configura le parole chiave e le frasi da nascondere separate da nuove righe.
+
+Le parole con lettere maiuscole al centro devono essere inserite con il maiuscolo (es: iPhone, TikTok, LeBlanc)</string>
+    <string name="revanced_keyword_filter_strings_title">Modifica il filtro delle parole chiave</string>
+    <string name="revanced_keyword_filter_summary_off">Il filtro delle parole chiave è disattivato</string>
+    <string name="revanced_keyword_filter_summary_on">Il filtro delle parole chiave è attivato</string>
+    <string name="revanced_keyword_filter_summary">Nasconde i video nei feed e dei risultati di ricerca utilizzando il filtro delle parole chiave</string>
+    <string name="revanced_keyword_filter_title">Attiva il filtro delle parole chiave</string>
     <string name="revanced_layout_title">Interfaccia</string>
     <string name="revanced_misc">Varie</string>
     <string name="revanced_navigation">Barra di navigazione</string>
