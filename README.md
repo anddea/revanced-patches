@@ -161,6 +161,7 @@ ReVanced Extended Patches.
 | `Enable playback speed` | Adds an option to add a playback speed button to the flyout panel. | 6.21.52+ |
 | `Enable zen mode` | Adds an option to change the player background to light grey to reduce eye strain. Deprecated on YT Music 6.34.51+. | 6.21.52 ~ 6.33.52 |
 | `Exclusive audio playback` | Unlocks the option to play music without video. | 6.21.52+ |
+| `Hide "New" button` | Adds an option to hide the "New" button in the library. | 6.21.52+ |
 | `Hide account menu` | Adds the ability to hide account menu elements using a custom filter. | 6.21.52+ |
 | `Hide action bar component` | Adds options to hide action bar components and replace the offline download button with an external download button. | 6.21.52+ |
 | `Hide button shelf` | Adds an option to hide the button shelf from the homepage and explore tab. | 6.21.52+ |
@@ -177,7 +178,6 @@ ReVanced Extended Patches.
 | `Hide handle` | Adds an option to hide the handle in the account menu. | 6.21.52+ |
 | `Hide history button` | Adds an option to hide the history button in the toolbar. | 6.21.52+ |
 | `Hide navigation bar component` | Adds options to hide navigation bar components. | 6.21.52+ |
-| `Hide new playlist button` | Adds an option to hide the "New playlist" button in the library. | 6.21.52+ |
 | `Hide player overlay filter` | Removes the dark overlay when single-tapping player. | 6.21.52+ |
 | `Hide playlist cards` | Adds an option to hide playlist cards from the homepage. | 6.21.52+ |
 | `Hide sample shelf` | Adds an option to hide the sample shelf from the homepage. | 6.21.52+ |
