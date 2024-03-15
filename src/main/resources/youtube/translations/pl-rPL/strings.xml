@@ -48,8 +48,8 @@ Stuknij tutaj, aby dowiedzieć się więcej o DeArrow."</string>
     <string name="revanced_append_time_stamp_information_summary_off">Ukryta</string>
     <string name="revanced_append_time_stamp_information_summary_on">Widoczna</string>
     <string name="revanced_append_time_stamp_information_title">Dodatkowa informacja obok czasu</string>
-    <string name="revanced_append_time_stamp_information_type_summary_off">Prędkość odtwarzania</string>
-    <string name="revanced_append_time_stamp_information_type_summary_on">Jakość wideo</string>
+    <string name="revanced_append_time_stamp_information_type_summary_off">Prędkość odtwarzania. Kliknij i przytrzymaj czas wideo w trakcie odtwarzania wideo, aby zmienić typ informacji.</string>
+    <string name="revanced_append_time_stamp_information_type_summary_on">Jakość wideo. Kliknij i przytrzymaj czas wideo w trakcie odtwarzania wideo, aby zmienić typ informacji.</string>
     <string name="revanced_append_time_stamp_information_type_title">Informacja</string>
     <string name="revanced_bottom_player">Pod odtwarzaczem</string>
     <string name="revanced_button_container_title">Przyciski pod odtwarzaczem</string>
@@ -59,15 +59,22 @@ Stuknij tutaj, aby dowiedzieć się więcej o DeArrow."</string>
     <string name="revanced_change_player_flyout_panel_toggle_summary_off">Przełączniki</string>
     <string name="revanced_change_player_flyout_panel_toggle_summary_on">Tekstowe</string>
     <string name="revanced_change_player_flyout_panel_toggle_title">Typ przełączników</string>
-    <string name="revanced_change_start_page_entry_default">Domyślnie</string>
-    <string name="revanced_change_start_page_entry_explore">Przeglądaj</string>
+    <string name="revanced_change_start_page_entry_browse">Przeglądaj kanały</string>
+    <string name="revanced_change_start_page_entry_default">Domyślna</string>
+    <string name="revanced_change_start_page_entry_explore">Odkrywaj</string>
+    <string name="revanced_change_start_page_entry_gaming">Gry</string>
     <string name="revanced_change_start_page_entry_history">Historia</string>
     <string name="revanced_change_start_page_entry_library">Biblioteka</string>
     <string name="revanced_change_start_page_entry_liked_videos">Polubione wideo</string>
-    <string name="revanced_change_start_page_entry_search">Szukaj</string>
+    <string name="revanced_change_start_page_entry_live">Na żywo</string>
+    <string name="revanced_change_start_page_entry_movies">Filmy</string>
+    <string name="revanced_change_start_page_entry_music">Muzyka</string>
+    <string name="revanced_change_start_page_entry_search">Wyszukiwanie</string>
     <string name="revanced_change_start_page_entry_shorts">Shortsy</string>
+    <string name="revanced_change_start_page_entry_sports">Sport</string>
     <string name="revanced_change_start_page_entry_subscriptions">Subskrypcje</string>
-    <string name="revanced_change_start_page_entry_trending">Popularne</string>
+    <string name="revanced_change_start_page_entry_trending">Na czasie</string>
+    <string name="revanced_change_start_page_entry_watch_later">Do obejrzenia</string>
     <string name="revanced_change_start_page_title">Zmień stronę startową</string>
     <string name="revanced_change_start_page_warning">Nieprawidłowa strona startowa, resetowanie do domyślnych wartości.</string>
     <string name="revanced_channel_bar_title">Pasek kanału</string>
@@ -86,6 +93,13 @@ Notka: jest to funkcja, która nie została przetestowana."</string>
     <string name="revanced_custom_filter_summary_off">Wyłączony</string>
     <string name="revanced_custom_filter_summary_on">Włączony</string>
     <string name="revanced_custom_filter_title">Własny filtr</string>
+    <string name="revanced_keyword_invalid_length" formatted="false">Nueprawidłowa długość słowa kluczowego (musi mieć co najmniej %s znaków): %s.</string>
+    <string name="revanced_keyword_filter_strings_summary">Skonfiguruj słowa kluczowe i frazy do ukrycia, oddzielając je osobnymi liniami\n\nSłowa z wielkimi literami w środku muszą być wprowadzane z zachowaniem pisowni (np. iPhone, TikTok, LeBlanc).</string>
+    <string name="revanced_keyword_filter_strings_title">Edytuj filtr słów kluczowych</string>
+    <string name="revanced_keyword_filter_summary_off">Wyłączony</string>
+    <string name="revanced_keyword_filter_summary_on">Włączony</string>
+    <string name="revanced_keyword_filter_summary">Ukrywa wideo ze strony głównej i wyników wyszukiwania za pomocą filtra słów kluczowych.</string>
+    <string name="revanced_keyword_filter_title">Filtr słów kluczowych</string>
     <string name="revanced_custom_playback_speeds_invalid">Nieprawidłowe niestandardowe prędkości odtwarzania. Przywróć domyślne wartości.</string>
     <string name="revanced_custom_playback_speeds_summary">Dodaj lub zmień dostępne prędkości odtwarzania</string>
     <string name="revanced_custom_playback_speeds_title">Edytuj niestandardowe prędkości odtwarzania</string>
@@ -348,7 +362,7 @@ Niektóre komponenty mogą nie być ukryte."</string>
     <string name="revanced_hide_captions_button_title">Przycisk od napisów</string>
     <string name="revanced_hide_cast_button_summary_off">Widoczny</string>
     <string name="revanced_hide_cast_button_summary_on">Ukryty</string>
-    <string name="revanced_hide_cast_button_title">Przycisk do powielania</string>
+    <string name="revanced_hide_cast_button_title">Przycisk do castowania</string>
     <string name="revanced_hide_category_bar_in_feed_title">Pasek z kategoriami na stronie głównej</string>
     <string name="revanced_hide_category_bar_in_related_video_title">Pasek z kategoriami pod odtwarzaczem</string>
     <string name="revanced_hide_category_bar_in_search_results_title">Pasek z kategoriami w wynikach wyszukiwania</string>
@@ -442,8 +456,15 @@ Niektóre komponenty mogą nie być ukryte."</string>
     <string name="revanced_hide_get_premium_summary_off">Widoczne</string>
     <string name="revanced_hide_get_premium_summary_on">Ukryte</string>
     <string name="revanced_hide_get_premium_title">Promocje YouTube Premium</string>
-    <string name="revanced_hide_gray_description_summary_off">Widoczne</string>
-    <string name="revanced_hide_gray_description_summary_on">Ukryte</string>
+    <string name="revanced_hide_gray_description_summary_off">"Widoczne w:
+• Playliście „Do obejrzenia”
+• Ludziach także oglądających dane wideo
+• Widzów kanału także oglądających dane wideo, itp."</string>
+    <string name="revanced_hide_gray_description_summary_on">"Ukryte w:
+• Playliście „Do obejrzenia”
+• Ludziach także oglądających dane wideo
+• Widzów kanału także oglądających dane wideo, itp."</string>
+
     <string name="revanced_hide_gray_description_title">Szare opisy</string>
     <string name="revanced_hide_gray_separator_summary_off">Widoczne</string>
     <string name="revanced_hide_gray_separator_summary_on">Ukryte</string>
@@ -511,6 +532,9 @@ Niektóre komponenty mogą nie być ukryte."</string>
     <string name="revanced_hide_place_section_summary_off">Widoczne</string>
     <string name="revanced_hide_place_section_summary_on">Ukryte</string>
     <string name="revanced_hide_place_section_title">Nazwy miejsc nad opisami</string>
+    <string name="revanced_hide_player_button_background_summary_off">Widoczne</string>
+    <string name="revanced_hide_player_button_background_summary_on">Ukryte</string>
+    <string name="revanced_hide_player_button_background_title">Tło przycisków odtwarzacza</string>
     <string name="revanced_hide_player_flyout_panel_ambient_mode_summary_off">Widoczne</string>
     <string name="revanced_hide_player_flyout_panel_ambient_mode_summary_on">Ukryte</string>
     <string name="revanced_hide_player_flyout_panel_ambient_mode_title">Menu od oświetlenia kinowego</string>
@@ -543,7 +567,7 @@ Niektóre komponenty mogą nie być ukryte."</string>
     <string name="revanced_hide_player_flyout_panel_playback_speed_title">Menu od prędkości</string>
     <string name="revanced_hide_player_flyout_panel_premium_controls_summary_off">Widoczne</string>
     <string name="revanced_hide_player_flyout_panel_premium_controls_summary_on">Ukryte</string>
-    <string name="revanced_hide_player_flyout_panel_premium_controls_title">Menu od elementów sterujących premium</string>
+    <string name="revanced_hide_player_flyout_panel_premium_controls_title">Menu od elementów sterujących Premium</string>
     <string name="revanced_hide_player_flyout_panel_quality_footer_summary_off">Widoczny</string>
     <string name="revanced_hide_player_flyout_panel_quality_footer_summary_on">Ukryty</string>
     <string name="revanced_hide_player_flyout_panel_quality_footer_title">Opis menu od jakości</string>
@@ -714,7 +738,7 @@ Niektóre wideo, w tym te z subskrybowanych kanałów, mogą nie zostać ukryte.
     <string name="revanced_hide_web_search_results_title">Wyniki wyszukiwania stron internetowych</string>
     <string name="revanced_hide_youtube_music_button_summary_off">Widoczny</string>
     <string name="revanced_hide_youtube_music_button_summary_on">Ukryty</string>
-    <string name="revanced_hide_youtube_music_button_title">Przycisk do odtwarzania na youtube music</string>
+    <string name="revanced_hide_youtube_music_button_title">Przycisk do odtwarzania na YouTube Music</string>
     <string name="revanced_hook_download_button_summary">"Zmodyfikuj przycisk od pobierania, by używał zewnętrznej aplikacji."</string>
     <string name="revanced_hook_download_button_title">Zmodyfikuj przycisk od pobierania</string>
     <string name="revanced_inform">Notka</string>
@@ -747,6 +771,9 @@ Stuknij i przytrzymaj, by zmienić prędkość odtwarzania na 1.0x."</string>
     <string name="revanced_overlay_button_speed_dialog_title">Przycisk od prędkości</string>
     <string name="revanced_overlay_button_whitelisting_summary">Stuknij, by dodać kanał do Białej Listy</string>
     <string name="revanced_overlay_button_whitelisting_title">Przyciski dodawania do białej listy</string>
+    <string name="revanced_override_premium_header_summary_off">Obecne logo: Domyślne</string>
+    <string name="revanced_override_premium_header_summary_on">Obecne logo: Premium</string>
+    <string name="revanced_override_premium_header_title">Logo w aplikacji</string>
     <string name="revanced_whitelisting_added" formatted="false">Kanał %s został dodany do białej listy %s</string>
     <string name="revanced_whitelisting_add_failed" formatted="false">Nie udało się dodać kanału %s do białej listy %s</string>
     <string name="revanced_whitelisting_channel_name">Nazwa Kanału</string>
@@ -758,11 +785,11 @@ Stuknij i przytrzymaj, by zmienić prędkość odtwarzania na 1.0x."</string>
     <string name="revanced_whitelisting_removed" formatted="false">Kanał %s został usunięty z białej listy %s</string>
     <string name="revanced_whitelisting_remove_failed" formatted="false">Nie udało się usunąć kanału %s z białej listy %s</string>
     <string name="revanced_whitelisting_settings_summary">Sprawdź lub usuń listę kanałów dodanych do białej listy</string>
-    <string name="revanced_whitelisting_speed">Prędkość Wideo</string>
+    <string name="revanced_whitelisting_speed">Prędkość wideo</string>
     <string name="revanced_whitelisting_speed_button">Prędkość</string>
     <string name="revanced_whitelisting_sponsorblock">SponsorBlock</string>
     <string name="revanced_whitelisting_sponsorblock_button">SB</string>
-    <string name="revanced_whitelisting_title">Biała Lista Kanałów</string>
+    <string name="revanced_whitelisting_title">Biała lista kanałów</string>
     <string name="revanced_patches_information">Lista Łatek</string>
     <string name="revanced_patches_information_summary">Lista zastosowanych łatek</string>
     <string name="revanced_playback_speed_normal">Normalna</string>
@@ -848,6 +875,9 @@ Nie pomija to ograniczeń wiekowych, lecz akceptuje je automatycznie."</string>
     <string name="revanced_spoof_app_version_title">Oszukaj wersję aplikacji</string>
     <string name="revanced_spoof_device_dimensions_summary">Oszukuje rozdzielczość urządzenia w celu odblokowania wyższych jakości wideo, które mogłyby nie być dostępne na urządzeniu.</string>
     <string name="revanced_spoof_device_dimensions_title">Oszukaj rozdzielczość urządzenia</string>
+    <string name="revanced_spoof_failure_connection_status_code" formatted="false">"Oszukiwanie scenopisu jest niedostępne: "</string>
+    <string name="revanced_spoof_failure_connection_timeout">Oszukiwanie scenopisu jest tymczasowo niedostępne (API nie reaguje).</string>
+    <string name="revanced_spoof_failure_generic">"Oszukiwanie scenopisu jest tymczasowo niedostępne: "</string>
     <string name="revanced_spoof_player_parameter_in_feed_summary_off">"Parametry nie są oszukiwane na stronie głównej.
 
 Znany problem: wideo na stronie głównej będą odtwarzane przez mniej niż minutę przed napotkaniem problemów z odtwarzaniem."</string>
