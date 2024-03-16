@@ -12,10 +12,12 @@ import app.revanced.patches.youtube.shorts.startupshortsreset.fingerprints.UserW
 import app.revanced.patches.youtube.utils.integrations.Constants.SHORTS
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.exception
-import app.revanced.util.getTargetIndexReversed
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstruction
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Patch(
     name = "Disable shorts on startup",
@@ -66,26 +68,29 @@ object DisableShortsOnStartupPatch : BytecodePatch(
 
         UserWasInShortsFingerprint.result?.let {
             it.mutableMethod.apply {
-                val startIndex = it.scanResult.patternScanResult!!.startIndex
-                val targetIndex = getTargetIndexReversed(startIndex, Opcode.RETURN_VOID) + 1
-                if (getInstruction(targetIndex).opcode != Opcode.IGET_OBJECT)
-                    throw PatchException("Failed to find insert index")
+                val listenableInstructionIndex = indexOfFirstInstruction {
+                    opcode == Opcode.INVOKE_INTERFACE &&
+                        getReference<MethodReference>()?.definingClass == "Lcom/google/common/util/concurrent/ListenableFuture;" &&
+                        getReference<MethodReference>()?.name == "isDone"
+                }
+                if (listenableInstructionIndex < 0) throw PatchException("Could not find instruction index")
 
-                val replaceReference = getInstruction<ReferenceInstruction>(targetIndex).reference
-                val replaceInstruction = getInstruction<TwoRegisterInstruction>(targetIndex)
+                val originalInstructionRegister = getInstruction<FiveRegisterInstruction>(listenableInstructionIndex).registerC
+                val freeRegister = getInstruction<OneRegisterInstruction>(listenableInstructionIndex + 1).registerA
 
                 addInstructionsWithLabels(
-                    targetIndex + 1,
+                    listenableInstructionIndex + 1,
                     """
                         invoke-static { }, $SHORTS->disableStartupShortsPlayer()Z
-                        move-result v${replaceInstruction.registerA}
-                        if-eqz v${replaceInstruction.registerA}, :show_startup_shorts_player
+                        move-result v$freeRegister
+                        if-eqz v$freeRegister, :show_startup_shorts_player
                         return-void
                         :show_startup_shorts_player
-                        iget-object v${replaceInstruction.registerA}, v${replaceInstruction.registerB}, $replaceReference
+                        invoke-interface {v$originalInstructionRegister}, Lcom/google/common/util/concurrent/ListenableFuture;->isDone()Z
                         """
                 )
-                removeInstruction(targetIndex)
+                // Remove original instruction to preserve control flow label.
+                removeInstruction(listenableInstructionIndex)
             }
         } ?: throw UserWasInShortsFingerprint.exception
 
