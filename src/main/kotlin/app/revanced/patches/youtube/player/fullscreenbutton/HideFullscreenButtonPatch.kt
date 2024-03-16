@@ -51,7 +51,7 @@ import org.w3c.dom.Element
     use = false
 )
 @Suppress("unused")
-object FullscreenButtonPatch : ResourcePatch() {
+object HideFullscreenButtonPatch : ResourcePatch() {
     override fun execute(context: ResourceContext) {
 
         context.xmlEditor["res/layout/youtube_controls_bottom_ui_container.xml"].use { editor ->
