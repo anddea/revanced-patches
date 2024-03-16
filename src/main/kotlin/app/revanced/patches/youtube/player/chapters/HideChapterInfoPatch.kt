@@ -43,14 +43,15 @@ import org.w3c.dom.Element
                 "19.03.36",
                 "19.04.38",
                 "19.05.36",
-                "19.06.36"
+                "19.06.39",
+                "19.07.40"
             ]
         )
     ],
     use = false
 )
 @Suppress("unused")
-object FullscreenButtonPatch : ResourcePatch() {
+object HideChapterInfoPatch : ResourcePatch() {
     override fun execute(context: ResourceContext) {
 
         context.xmlEditor["res/layout/youtube_controls_bottom_ui_container.xml"].use { editor ->
