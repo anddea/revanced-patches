@@ -11,6 +11,7 @@ import app.revanced.patches.youtube.overlaybutton.download.hook.DownloadButtonHo
 import app.revanced.patches.youtube.overlaybutton.download.pip.DisablePiPPatch
 import app.revanced.patches.youtube.overlaybutton.whitelist.WhitelistPatch
 import app.revanced.patches.youtube.utils.integrations.Constants.OVERLAY_BUTTONS_PATH
+import app.revanced.patches.youtube.utils.mainactivity.MainActivityResolvePatch
 import app.revanced.patches.youtube.utils.overridespeed.OverrideSpeedHookPatch
 import app.revanced.patches.youtube.utils.playerbutton.PlayerButtonHookPatch
 import app.revanced.patches.youtube.utils.playercontrols.PlayerControlsPatch
@@ -30,6 +31,7 @@ import org.w3c.dom.Element
         AlwaysRepeatPatch::class,
         DisablePiPPatch::class,
         DownloadButtonHookPatch::class,
+        MainActivityResolvePatch::class,
         OverrideSpeedHookPatch::class,
         PlayerButtonHookPatch::class,
         PlayerControlsPatch::class,
