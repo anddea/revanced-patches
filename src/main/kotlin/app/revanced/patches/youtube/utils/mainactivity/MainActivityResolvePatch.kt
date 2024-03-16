@@ -16,6 +16,7 @@ object MainActivityResolvePatch : BytecodePatch(
 ) {
     lateinit var mainActivityClassDef: ClassDef
     lateinit var mainActivityMutableClass: MutableClass
+    lateinit var initMethod: MutableMethod
     lateinit var onBackPressedMethod: MutableMethod
     private lateinit var onCreateMethod: MutableMethod
 
@@ -23,6 +24,9 @@ object MainActivityResolvePatch : BytecodePatch(
         MainActivityFingerprint.result?.let {
             mainActivityClassDef = it.classDef
             mainActivityMutableClass = it.mutableClass
+            initMethod =
+                mainActivityMutableClass.methods.find { method -> method.name == "<init>" }
+                    ?: throw PatchException("Could not find initMethod")
             onBackPressedMethod =
                 mainActivityMutableClass.methods.find { method -> method.name == "onBackPressed" }
                     ?: throw PatchException("Could not find onBackPressedMethod")
