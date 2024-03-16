@@ -4,8 +4,13 @@ import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-object DownloadActionsCommandFingerprint : MethodFingerprint(
-    returnType = "V",
+internal object OfflineVideoEndpointFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    strings = listOf("Get download action command resolver execution exception")
+    returnType = "V",
+    parameters = listOf(
+        "Ljava/util/Map;",
+        "L",
+        "Ljava/lang/String", // VideoId
+        "L"),
+    strings = listOf("Object is not an offlineable video: ")
 )
