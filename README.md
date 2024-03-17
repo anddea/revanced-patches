@@ -90,7 +90,7 @@ ReVanced Extended Patches.
 | `Hide music button` | Adds an option to hide the YouTube Music button in the video player. | 18.25.40 ~ 19.09.37 |
 | `Hide navigation buttons` | Adds options to hide and change navigation buttons (such as the Shorts button). | 18.25.40 ~ 19.09.37 |
 | `Hide navigation label` | Adds an option to hide navigation bar labels. | 18.25.40 ~ 19.09.37 |
-| `Hide player buttons background` | Adds an option to hide player button background. | 18.25.40 ~ 19.09.37 |
+| `Hide player buttons background` | Force to hide the dark background surrounding the video player controls. | 18.25.40 ~ 19.09.37 |
 | `Hide player chapters` | Forces to hide chapters in player bottom UI container. | 18.25.40 ~ 19.09.37 |
 | `Hide player flyout panel` | Adds options to hide player flyout panel components. | 18.25.40 ~ 19.09.37 |
 | `Hide previous next button` | Adds an option to hide the previous and next buttons in the video player. | 18.25.40 ~ 19.09.37 |
