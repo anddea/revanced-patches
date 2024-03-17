@@ -48,8 +48,8 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_append_time_stamp_information_summary_off">情報は追加表示されません。</string>
     <string name="revanced_append_time_stamp_information_summary_on">タイムスタンプの横に情報が追加表示されます。</string>
     <string name="revanced_append_time_stamp_information_title">タイムスタンプの追加情報</string>
-    <string name="revanced_append_time_stamp_information_type_summary_off">再生速度を表示します。</string>
-    <string name="revanced_append_time_stamp_information_type_summary_on">画質を表示します。</string>
+    <string name="revanced_append_time_stamp_information_type_summary_off">再生速度を追加します。 動画の再生中にタイムスタンプを長押ししてタイプを変更します。</string>
+    <string name="revanced_append_time_stamp_information_type_summary_on">動画の品質を追加します。 動画の再生中にタイムスタンプを長押ししてタイプを変更します。</string>
     <string name="revanced_append_time_stamp_information_type_title">追加する情報の種類</string>
     <string name="revanced_bottom_player">プレーヤー下部</string>
     <string name="revanced_button_container_title">プレーヤー下部のボタン</string>
@@ -442,8 +442,14 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_hide_get_premium_summary_off">プレーヤーと動画の説明の間にある YouTube Premium プロモーションバナーは表示されます。</string>
     <string name="revanced_hide_get_premium_summary_on">プレーヤーと動画の説明の間にある YouTube Premium プロモーションバナーは非表示です。</string>
     <string name="revanced_hide_get_premium_title">Premium のプロモーションを非表示</string>
-    <string name="revanced_hide_gray_description_summary_off">ホームフィードで表示される「〜の視聴者はこのチャンネルも見ています」などの説明は表示されます。</string>
-    <string name="revanced_hide_gray_description_summary_on">ホームフィードで表示される「〜の視聴者はこのチャンネルも見ています」などの説明は非表示です。</string>
+    <string name="revanced_hide_gray_description_summary_off">"グレーの説明が表示されます。
+• プレイリストから後で見る。
+• 他の人はこの動画も見ています。
+• チャンネルの視聴者はこのチャンネルなども見ています。"</string>
+    <string name="revanced_hide_gray_description_summary_on">"グレーの説明は非表示になっています。
+• プレイリストから後で見る。
+• 他の人はこの動画も見ています。
+• チャンネルの視聴者はこのチャンネルなども見ています。"</string>
     <string name="revanced_hide_gray_description_title">ホームフィードのグレーの説明を非表示</string>
     <string name="revanced_hide_gray_separator_summary_off">ホームフィードの動画の間に表示される、グレーのセパレーターは表示されます。</string>
     <string name="revanced_hide_gray_separator_summary_on">ホームフィードの動画の間に表示される、グレーのセパレーターは非表示です。</string>
@@ -1075,14 +1081,4 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_spoof_failure_connection_status_code" formatted="false">"スプーフ ストーリーボードは利用できません: "</string>
     <string name="revanced_spoof_failure_connection_timeout">スプーフ ストーリーボードは一時的に利用できません (API タイムアウト).</string>
     <string name="revanced_spoof_failure_generic">"スプーフ ストーリーボードは一時的に利用できません: "</string>
-    <string name="revanced_hide_gray_description_summary_off">"グレーの説明が表示されます。
-• プレイリストから後で見る。
-• 他の人はこの動画も見ています。
-• チャンネルの視聴者はこのチャンネルなども見ています。"</string>
-    <string name="revanced_hide_gray_description_summary_on">"グレーの説明は非表示になっています。
-• プレイリストから後で見る。
-• 他の人はこの動画も見ています。
-• チャンネルの視聴者はこのチャンネルなども見ています。"</string>
-    <string name="revanced_append_time_stamp_information_type_summary_off">再生速度を追加します。 動画の再生中にタイムスタンプを長押ししてタイプを変更します。</string>
-    <string name="revanced_append_time_stamp_information_type_summary_on">動画の品質を追加します。 動画の再生中にタイムスタンプを長押ししてタイプを変更します。</string>
 </resources>
