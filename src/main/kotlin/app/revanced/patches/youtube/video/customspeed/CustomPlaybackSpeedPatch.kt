@@ -61,7 +61,7 @@ import app.revanced.util.updatePatchStatus
 @Suppress("unused")
 object CustomPlaybackSpeedPatch : AbstractCustomPlaybackSpeedPatch(
     "$VIDEO_PATH/CustomPlaybackSpeedPatch;",
-    9.0f
+    8.0f
 ) {
     override fun execute(context: BytecodeContext) {
         super.execute(context)
