@@ -212,9 +212,9 @@
     <string name="revanced_enable_swipe_haptic_feedback_summary_off">Виброотклик отключен</string>
     <string name="revanced_enable_swipe_haptic_feedback_summary_on">Виброотклик включен</string>
     <string name="revanced_enable_swipe_haptic_feedback_title">Включить виброотклик</string>
-    <string name="revanced_enable_swipe_press_to_engage_summary_off">Нажатие для активации жеста</string>
-    <string name="revanced_enable_swipe_press_to_engage_summary_on">Нажатие и удержание для активации жеста</string>
-    <string name="revanced_enable_swipe_press_to_engage_title">Активация жеста перемотки видео</string>
+    <string name="revanced_enable_swipe_press_to_engage_summary_off">Активация жеста нажатием</string>
+    <string name="revanced_enable_swipe_press_to_engage_summary_on">Активация жеста нажатием и удержанием</string>
+    <string name="revanced_enable_swipe_press_to_engage_title">Управление жестом перемотки видео</string>
     <string name="revanced_enable_swipe_volume_summary_off">Управление громкостью жестом отключено</string>
     <string name="revanced_enable_swipe_volume_summary_on">Управление громкостью жестом включено</string>
     <string name="revanced_enable_swipe_volume_title">Управление громкостью жестом</string>
@@ -436,8 +436,8 @@
     <string name="revanced_hide_get_premium_summary_off">Акции YouTube Premium отбражены</string>
     <string name="revanced_hide_get_premium_summary_on">Акции YouTube Premium скрыты</string>
     <string name="revanced_hide_get_premium_title">Скрыть акции YouTube Premium</string>
-    <string name="revanced_hide_gray_description_summary_off">Серое описание отображено</string>
-    <string name="revanced_hide_gray_description_summary_on">Серое описание скрыто</string>
+    <string name="revanced_hide_gray_description_summary_off">Серое описание отображено\n• В плейлисте \"Смотреть позже\"\n• Люди смотревшие это видео\n• Люди смотрящие этот канал и т.д.</string>
+    <string name="revanced_hide_gray_description_summary_on">Серое описание скрыто\n• В плейлисте \"Смотреть позже\"\n• Люди смотревшие это видео\n• Люди смотрящие этот канал и т.д.</string>
     <string name="revanced_hide_gray_description_title">Скрыть серое описание</string>
     <string name="revanced_hide_gray_separator_summary_off">Серые разделители отображены</string>
     <string name="revanced_hide_gray_separator_summary_on">Серые разделители скрыты</string>
@@ -708,9 +708,9 @@
     <string name="revanced_keep_landscape_mode_title">Сохранять альбомный режим</string>
     <string name="revanced_keyword_filter_strings_summary">Настройки ключевых слов и фраз, которые нужно скрыть, разделив их новыми строками.\nСлова с заглавными буквами посередине необходимо вводить с регистром (например: iPhone, TikTok, LeBlanc)</string>
     <string name="revanced_keyword_filter_strings_title">Изменить фильтр ключевых слов</string>
+    <string name="revanced_keyword_filter_summary">Скрыть видео из ленты и результатов поиска с помощью фильтра ключевых слов</string>
     <string name="revanced_keyword_filter_summary_off">Фильтр ключевых слов отключен</string>
     <string name="revanced_keyword_filter_summary_on">Фильтр ключевых слов включен</string>
-    <string name="revanced_keyword_filter_summary">Скрыть видео из ленты и результатов поиска с помощью фильтра ключевых слов</string>
     <string name="revanced_keyword_filter_title">Включить фильтр ключевых слов</string>
     <string name="revanced_keyword_invalid_length" formatted="false">Недопустимая длина ключевого слова (должно быть не менее %s символов): %s</string>
     <string name="revanced_label_default">По умолчанию</string>
@@ -835,6 +835,9 @@
     <string name="revanced_swipe_magnitude_threshold_title">Порог величины жеста</string>
     <string name="revanced_swipe_overlay_background_alpha_summary">Настройки видимости фона наложения\nпри жесте (0 - 255)</string>
     <string name="revanced_swipe_overlay_background_alpha_title">Видимость фона наложения при жесте</string>
+    <string name="revanced_swipe_overlay_rect_summary">Процент изменяемой области экрана для жестов</string>
+    <string name="revanced_swipe_overlay_rect_title">Размер области экрана для жестов</string>
+    <string name="revanced_swipe_overlay_rect_warning" formatted="false">Размер изменяемой области экрана не может превышать %s%%. Сброс к значениям по умолчанию.</string>
     <string name="revanced_swipe_overlay_text_size_summary">Настройки размера текста наложения при жесте</string>
     <string name="revanced_swipe_overlay_text_size_title">Размер текста наложения при жесте</string>
     <string name="revanced_swipe_overlay_timeout_summary">Количествово миллисекунд отображения наложения</string>
