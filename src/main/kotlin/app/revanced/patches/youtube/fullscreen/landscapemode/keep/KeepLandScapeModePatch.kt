@@ -54,6 +54,7 @@ object KeepLandScapeModePatch : BytecodePatch(
     )
 ) {
     override fun execute(context: BytecodeContext) {
+
         LandScapeModeConfigFingerprint.result?.let {
             it.mutableMethod.apply {
                 val insertIndex = implementation!!.instructions.size - 1

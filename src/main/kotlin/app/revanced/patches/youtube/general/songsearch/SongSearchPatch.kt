@@ -79,5 +79,6 @@ object SongSearchPatch : BytecodePatch(
         )
 
         SettingsPatch.updatePatchStatus("Enable song search")
+
     }
 }

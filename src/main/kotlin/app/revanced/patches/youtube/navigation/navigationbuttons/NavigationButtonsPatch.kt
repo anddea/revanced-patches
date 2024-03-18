@@ -102,7 +102,7 @@ object NavigationButtonsPatch : BytecodePatch(
                 val buttonViewResult = this[1]
 
                 val enumHookInsertIndex = enumScanResult.startIndex + 2
-                val buttonHookInsertIndex = buttonViewResult.endIndex
+                val buttonHookInsertIndex = buttonViewResult.endIndex - 1
 
                 mapOf(
                     BUTTON_HOOK to buttonHookInsertIndex,
