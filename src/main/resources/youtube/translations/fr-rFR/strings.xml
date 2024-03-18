@@ -145,8 +145,8 @@ Note : Ceci est une fonctionnalité qui n'a pas été testée."</string>
     <string name="revanced_disable_update_screen_title">Page \"YouTube a besoin d\'être mise à jour\"</string>
     <string name="revanced_double_back_timeout_summary">Le nombre de secondes pour la fermeture en double pression sur le bouton Retour</string>
     <string name="revanced_double_back_timeout_title">Délai de fermeture de l\'application</string>
-    <string name="revanced_enable_bottom_player_gestures_summary_off">Le passage en plein écran en faisant glisser la zone inférieure du lecteur a été désactivée.</string>
-    <string name="revanced_enable_bottom_player_gestures_summary_on">Le passage en plein écran en faisant glisser la zone inférieure du lecteur a été activée.</string>
+    <string name="revanced_enable_bottom_player_gestures_summary_off">Le passage en plein écran en faisant glisser la zone inférieure du lecteur est désactivé.</string>
+    <string name="revanced_enable_bottom_player_gestures_summary_on">Le passage en plein écran en faisant glisser la zone inférieure du lecteur est activé.</string>
     <string name="revanced_enable_bottom_player_gestures_title">Geste de lecteur inférieur</string>
     <string name="revanced_enable_compact_controls_overlay_summary_off">La superposition des contrôles compacts est désactivée</string>
     <string name="revanced_enable_compact_controls_overlay_summary_on">La superposition des contrôles compacts est activé</string>
@@ -311,9 +311,9 @@ Catégorie \"Vous\" &gt; \"Afficher la chaîne\" &gt; Trois points &gt; \"Param�
     <string name="revanced_hide_button_like_summary_off">Le bouton \"J\'aime\" est affiché</string>
     <string name="revanced_hide_button_like_summary_on">Le bouton \"J\'aime\" est masqué</string>
     <string name="revanced_hide_button_like_title">Bouton \"J\'aime\"</string>
-    <string name="revanced_hide_button_live_chat_summary_off">Le bouton de chat en direct est affiché</string>
-    <string name="revanced_hide_button_live_chat_summary_on">Le bouton de chat en direct est masqué</string>
-    <string name="revanced_hide_button_live_chat_title">Bouton de chat en direct</string>
+    <string name="revanced_hide_button_live_chat_summary_off">Le bouton \"Chat en direct\" est affiché</string>
+    <string name="revanced_hide_button_live_chat_summary_on">Le bouton \"Chat en direct\" est masqué</string>
+    <string name="revanced_hide_button_live_chat_title">Bouton \"Chat en direct\"</string>
     <string name="revanced_hide_button_open_mix_playlist_summary_off">Le bouton \"Ouvrir la playlist mix\" est affiché</string>
     <string name="revanced_hide_button_open_mix_playlist_summary_on">Le bouton \"Ouvrir la playlist mix\" est masqué</string>
     <string name="revanced_hide_button_open_mix_playlist_title">Bouton \"Ouvrir la playlist mix\"</string>
@@ -422,9 +422,9 @@ Catégorie \"Vous\" &gt; \"Afficher la chaîne\" &gt; Trois points &gt; \"Param�
     <string name="revanced_hide_filmstrip_overlay_summary_off">Les superpositions de bandes de film sont affichées</string>
     <string name="revanced_hide_filmstrip_overlay_summary_on">Les superpositions de bandes de film sont masquées.</string>
     <string name="revanced_hide_filmstrip_overlay_title">Superpositions de bandes de film</string>
-    <string name="revanced_hide_floating_microphone_summary_off">Le bouton \"microphone flottant\" est affiché</string>
-    <string name="revanced_hide_floating_microphone_summary_on">Le bouton \"microphone flottant\" est masqué</string>
-    <string name="revanced_hide_floating_microphone_title">Bouton \"microphone flottant\"</string>
+    <string name="revanced_hide_floating_microphone_summary_off">Le bouton \"Microphone flottant\" est affiché</string>
+    <string name="revanced_hide_floating_microphone_summary_on">Le bouton \"Microphone flottant\" est masqué</string>
+    <string name="revanced_hide_floating_microphone_title">Bouton \"Microphone flottant\"</string>
     <string name="revanced_hide_for_you_shelf_summary_off">"La catégorie \"Pour toi\" est affichée"</string>
     <string name="revanced_hide_for_you_shelf_summary_on">"La catégorie \"Pour toi\" est masquée"</string>
     <string name="revanced_hide_for_you_shelf_title">"Catégorie \"Pour toi\""</string>
@@ -646,7 +646,7 @@ Problème connu : Les fiches officielles dans les résultats de recherche sont 
     <string name="revanced_hide_start_trial_button_title">Bouton \"Démarrer l\'essai\"</string>
     <string name="revanced_hide_store_tab_summary_off">L\'onglet \"Parcourir\" est affiché.</string>
     <string name="revanced_hide_store_tab_summary_on">L\'onglet \"Parcourir\" est masqué.</string>
-    <string name="revanced_hide_store_tab_title">L\'onglet \"Parcourir</string>
+    <string name="revanced_hide_store_tab_title">Onglet \"Parcourir\"</string>
     <string name="revanced_hide_subscriptions_button_summary_off">Le bouton \"Abonnements\" est affiché</string>
     <string name="revanced_hide_subscriptions_button_summary_on">Le bouton \"Abonnements\" est masqué</string>
     <string name="revanced_hide_subscriptions_button_title">Bouton \"Abonnements\"</string>
@@ -1052,4 +1052,30 @@ Est-il prêt à être soumis ?</string>
     <string name="sb_about">À propos</string>
     <string name="sb_reset">Réinitialiser</string>
     <string name="sb_about_api_sum">Les données sont fournies par l\'API SponsorBlock. Cliquez ici pour en savoir plus et voir les téléchargements pour d\'autres plateformes</string>
+
+    <string name="revanced_change_start_page_entry_browse">Chaînes</string>
+    <string name="revanced_change_start_page_entry_gaming">Jeux vidéo</string>
+    <string name="revanced_change_start_page_entry_live">Direct</string>
+    <string name="revanced_change_start_page_entry_movies">Films et séries TV</string>
+    <string name="revanced_change_start_page_entry_music">Musique</string>
+    <string name="revanced_change_start_page_entry_sports">Sport</string>
+    <string name="revanced_change_start_page_entry_watch_later">À regarderplustard</string>
+    <string name="revanced_keyword_invalid_length" formatted="false">Longueur du mot-clé invalide (doit comporter au moins %s caractères) : %s.</string>
+    <string name="revanced_keyword_filter_strings_summary">"Configurez les mots-clés et les phrases à masquer, séparés par une nouvelle ligne.
+
+Les mots avec des majuscules au milieu doivent être écrits avec des majuscules (par exemple, iPhone, TikTok, LeBlanc)."</string>
+    <string name="revanced_keyword_filter_strings_title">Modifier le filtre à mot-clé</string>
+    <string name="revanced_keyword_filter_summary_off">Le filtre à mot-clé est désactivé. </string>
+    <string name="revanced_keyword_filter_summary_on">Le filtre àmot-clé est activé</string>
+    <string name="revanced_keyword_filter_summary">Masque les vidéos du flux et des résultats de recherche à l\'aide du filtre à mot-clé.</string>
+    <string name="revanced_keyword_filter_title">Filtre à mot-clé</string>
+    <string name="revanced_hide_player_button_background_summary_off">L\'arrière-plan des boutons du lecteur est affiché.</string>
+    <string name="revanced_hide_player_button_background_summary_on">L\'arrière-plan des boutons du lecteur est affiché.</string>
+    <string name="revanced_hide_player_button_background_title">Arrière plan des boutons du lecteur</string>
+    <string name="revanced_override_premium_header_summary_off">En-tête : Par défaut</string>
+    <string name="revanced_override_premium_header_summary_on">En-tête : YouTube Premium</string>
+    <string name="revanced_override_premium_header_title">En-tête YouTube Premium</string>
+    <string name="revanced_spoof_failure_connection_status_code" formatted="false">"Falsification du storyboard indisponible :"</string>
+    <string name="revanced_spoof_failure_connection_timeout">Falsificationdu storyboard temporairement indisponible (API obsolète)</string>
+    <string name="revanced_spoof_failure_generic">"Falsificationdu storyboard temporairement indisponible : "</string>
 </resources>

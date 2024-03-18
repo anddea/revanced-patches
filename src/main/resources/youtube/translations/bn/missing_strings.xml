@@ -130,9 +130,6 @@ Words with uppercase letters in the middle must be entered with the casing (ie: 
 <string name="revanced_hide_notifications_button_summary_off">Notifications button in navigation bar is shown.</string>
 <string name="revanced_hide_notifications_button_summary_on">Notifications button in navigation bar is hidden.</string>
 <string name="revanced_hide_notifications_button_title">Hide notifications button</string>
-<string name="revanced_hide_player_button_background_summary_off">Player buttons background is shown.</string>
-<string name="revanced_hide_player_button_background_summary_on">Player buttons background is hidden.</string>
-<string name="revanced_hide_player_button_background_title">Hide player buttons background</string>
 <string name="revanced_hide_podcast_section_summary_off">Podcast sections are shown.</string>
 <string name="revanced_hide_podcast_section_summary_on">Podcast sections are hidden.</string>
 <string name="revanced_hide_podcast_section_title">Hide podcast sections</string>
@@ -230,6 +227,9 @@ Words with uppercase letters in the middle must be entered with the casing (ie: 
 <string name="revanced_swipe_gestures_lock_mode_summary_off">"Swipe gestures are disabled in 'Lock screen' mode."</string>
 <string name="revanced_swipe_gestures_lock_mode_summary_on">"Swipe gestures are enabled in 'Lock screen' mode."</string>
 <string name="revanced_swipe_gestures_lock_mode_title">"Swipe gestures in 'Lock screen' mode"</string>
+<string name="revanced_swipe_overlay_rect_warning" formatted="false">Swiapeable area size can't be more than %s%%. Reset to default value.</string>
+<string name="revanced_swipe_overlay_rect_summary">Percentage of swipeable screen area.</string>
+<string name="revanced_swipe_overlay_rect_title">Swipe overlay screen size</string>
 <string name="revanced_switching_create_notification_summary">"Swap the positions of the create button and notification button by spoofing the device's information.
 <string name="sb_toast_on_connection_error_title">Show a toast if API is not available</string>
 <string name="sb_toast_on_connection_error_summary_on">Toast is shown if SponsorBlock is not available.</string>
