@@ -1,3 +1,16 @@
+# [2.222.0-dev.3](https://github.com/anddea/revanced-patches/compare/v2.222.0-dev.2...v2.222.0-dev.3) (2024-03-18)
+
+
+### Bug Fixes
+
+* **YouTube - Translations:** Update translations info ([c30c031](https://github.com/anddea/revanced-patches/commit/c30c031efea8cf27fae23ad77c45fc4c278f7a94))
+
+
+### Features
+
+* **YouTube - Translations:** Update `Japanese` ([#81](https://github.com/anddea/revanced-patches/issues/81)) ([5191bbe](https://github.com/anddea/revanced-patches/commit/5191bbe6777e11b1d823cdeb004423583259a9e2))
+* **YouTube - Translations:** Update `Spanish` ([#79](https://github.com/anddea/revanced-patches/issues/79)) ([1c3731d](https://github.com/anddea/revanced-patches/commit/1c3731dc8c38b9233fb5fdca804560ff30c15c8b))
+
 # [2.222.0-dev.2](https://github.com/anddea/revanced-patches/compare/v2.222.0-dev.1...v2.222.0-dev.2) (2024-03-18)
 
 
