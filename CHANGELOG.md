@@ -1,3 +1,16 @@
+# [2.222.0-dev.6](https://github.com/anddea/revanced-patches/compare/v2.222.0-dev.5...v2.222.0-dev.6) (2024-03-19)
+
+
+### Bug Fixes
+
+* **YouTube - Change player flyout panel toggles:** Fix for supported versions ([a9fe961](https://github.com/anddea/revanced-patches/commit/a9fe961d9c8a9bce66c2c42e37a55a592411b516))
+* **YouTube - Translations:** Update translations info ([56ad720](https://github.com/anddea/revanced-patches/commit/56ad7205e68ea875a0bef99312d99d1a8d4a2834))
+
+
+### Features
+
+* **YouTube - Translations:** Update `Korean` ([8b11f6a](https://github.com/anddea/revanced-patches/commit/8b11f6a698100b1e1d6ef83b0e6eccb36470ba35))
+
 # [2.222.0-dev.5](https://github.com/anddea/revanced-patches/compare/v2.222.0-dev.4...v2.222.0-dev.5) (2024-03-19)
 
 
