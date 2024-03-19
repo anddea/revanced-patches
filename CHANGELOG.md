@@ -1,3 +1,15 @@
+# [2.222.0-dev.5](https://github.com/anddea/revanced-patches/compare/v2.222.0-dev.4...v2.222.0-dev.5) (2024-03-19)
+
+
+### Bug Fixes
+
+* **YouTube - Translations:** Update translations info ([17a514e](https://github.com/anddea/revanced-patches/commit/17a514ea90d921a269e957ab3cca1da5b742c26f))
+
+
+### Features
+
+* **YouTube - Translations:** Update `Brazillian Portuguese` ([#85](https://github.com/anddea/revanced-patches/issues/85)) ([12ee1e1](https://github.com/anddea/revanced-patches/commit/12ee1e18f03351e551f68c5e0099f7f73208a85e))
+
 # [2.222.0-dev.4](https://github.com/anddea/revanced-patches/compare/v2.222.0-dev.3...v2.222.0-dev.4) (2024-03-18)
 
 
