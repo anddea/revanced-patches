@@ -1,3 +1,20 @@
+# [2.222.0-dev.7](https://github.com/anddea/revanced-patches/compare/v2.222.0-dev.6...v2.222.0-dev.7) (2024-03-21)
+
+
+### Bug Fixes
+
+* **YouTube - Translations:** Update translations info ([9babfd9](https://github.com/anddea/revanced-patches/commit/9babfd978e650742a52e5efa4d4189656ff5fdd5))
+* **YouTube:** Adjusting patches to apply correctly to earlier versions. ([#94](https://github.com/anddea/revanced-patches/issues/94)) ([cb02ba7](https://github.com/anddea/revanced-patches/commit/cb02ba71f5af061a17183540537966e9ccef9332))
+
+
+### Features
+
+* **YouTube - Hide layout components:** Add `Subscriptions` tab and `Comments` to `Keyword filter` ([bbc3217](https://github.com/anddea/revanced-patches/commit/bbc32170b6bf2d94f43ad4782fe27960fa4caf53))
+* **YouTube - Speed overlay:** Change the speed overlay icon and fix patch for applying to earlier versions ([#92](https://github.com/anddea/revanced-patches/issues/92)) ([d547cda](https://github.com/anddea/revanced-patches/commit/d547cda236fc6d97387e5e6422b3a3a787046a2c))
+* **YouTube - Translations:** Update `Japanese` ([#89](https://github.com/anddea/revanced-patches/issues/89)) ([f8b40f8](https://github.com/anddea/revanced-patches/commit/f8b40f81bdac3c1bd7e3d3fee94864b0da7656fd))
+* **YouTube - Translations:** Update `Russian` ([#95](https://github.com/anddea/revanced-patches/issues/95)) ([a00a7b6](https://github.com/anddea/revanced-patches/commit/a00a7b6646c0f75968d683dc224e437debbc1c8d))
+* **YouTube:** Bump support version `19.09.38` - `19.10.39` ([#96](https://github.com/anddea/revanced-patches/issues/96)) ([bd7cb77](https://github.com/anddea/revanced-patches/commit/bd7cb771d0529436b690428316ae89517a6ef435))
+
 # [2.222.0-dev.6](https://github.com/anddea/revanced-patches/compare/v2.222.0-dev.5...v2.222.0-dev.6) (2024-03-19)
 
 
