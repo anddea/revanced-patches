@@ -10,7 +10,7 @@ import app.revanced.util.copyResources
 
 @Patch(
     name = "Hide animated button background",
-    description = "Hides the background of the pause and play animated buttons in the Shorts player.",
+    description = "Force to hide the background of the pause and play animated buttons in the Shorts player.",
     dependencies = [SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(
