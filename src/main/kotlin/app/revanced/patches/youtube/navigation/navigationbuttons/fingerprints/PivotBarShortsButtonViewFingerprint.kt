@@ -7,6 +7,7 @@ object PivotBarShortsButtonViewFingerprint : MethodFingerprint(
     opcodes = listOf(
         Opcode.INVOKE_VIRTUAL_RANGE,
         Opcode.MOVE_RESULT_OBJECT, // target reference
-        Opcode.GOTO,
+        null, // Opcode.GOTO_16 or Opcode.GOTO
+        Opcode.IF_NE
     )
 )

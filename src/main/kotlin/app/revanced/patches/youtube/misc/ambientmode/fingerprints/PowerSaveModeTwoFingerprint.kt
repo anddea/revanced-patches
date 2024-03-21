@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.misc.ambientmode.fingerprints /** #C# Add START */
+package app.revanced.patches.youtube.misc.ambientmode.fingerprints
 
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.MethodFingerprint
@@ -41,4 +41,4 @@ object PowerSaveModeTwoFingerprint : MethodFingerprint(
         }
         count == 1
     }
-) /** #C# Add END */
+)

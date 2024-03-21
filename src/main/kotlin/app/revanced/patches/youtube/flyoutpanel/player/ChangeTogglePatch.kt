@@ -70,7 +70,6 @@ object ChangeTogglePatch : BytecodePatch(
     )
 ) {
     override fun execute(context: BytecodeContext) {
-        if (SettingsPatch.upward1905) throw PatchException("This version is not supported. Please use YouTube 19.05.36 or earlier.")
 
         val additionalSettingsConfigResult = AdditionalSettingsConfigFingerprint.result
             ?: throw AdditionalSettingsConfigFingerprint.exception
@@ -108,6 +107,7 @@ object ChangeTogglePatch : BytecodePatch(
     }
 
     private fun MethodFingerprint.injectCall(descriptor: String) {
+
         result?.let {
             it.mutableMethod.apply {
                 val insertIndex = implementation!!.instructions.indexOfFirst { instruction ->
@@ -124,6 +124,7 @@ object ChangeTogglePatch : BytecodePatch(
                         """
                 )
             }
-        } ?: throw exception
+        } ?: throw PatchException("This version is not supported. Please use YouTube 19.05.36 or earlier.")
+
     }
 }
