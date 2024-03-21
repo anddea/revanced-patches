@@ -101,6 +101,7 @@ object SettingsPatch : AbstractSettingsResourcePatch(
                         upward1828 = 232900000 <= playServicesVersion
                         upward1831 = 233200000 <= playServicesVersion
                         upward1834 = 233502000 <= playServicesVersion
+                        upward1836 = 233700000 <= playServicesVersion
                         upward1839 = 234002000 <= playServicesVersion
                         upward1841 = 234200000 <= playServicesVersion
                         upward1843 = 234400000 <= playServicesVersion
@@ -136,26 +137,6 @@ object SettingsPatch : AbstractSettingsResourcePatch(
             context.copyResources("youtube/settings", resourceGroup)
         }
 
-        if (SettingsPatch.upward1843) {
-            arrayOf(
-                ResourceGroup(
-                "layout",
-                "speedmaster_icon_edu_overlay.xml"
-                )
-            ).forEach { resourceGroup ->
-            context.copyResources("youtube/settings/speedmaster_icon/1843", resourceGroup)
-            }
-			if (SettingsPatch.upward1904) {
-				arrayOf(
-					ResourceGroup(
-					"layout",
-					"speedmaster_icon_edu_overlay.xml"
-					)
-				).forEach { resourceGroup ->
-				context.copyResources("youtube/settings/speedmaster_icon/1904", resourceGroup)
-				}
-			}
-        }
 
         /**
          * initialize ReVanced Extended Settings
@@ -195,6 +176,7 @@ object SettingsPatch : AbstractSettingsResourcePatch(
     internal var upward1828: Boolean = false
     internal var upward1831: Boolean = false
     internal var upward1834: Boolean = false
+    internal var upward1836: Boolean = false
     internal var upward1839: Boolean = false
     internal var upward1841: Boolean = false
     internal var upward1843: Boolean = false
