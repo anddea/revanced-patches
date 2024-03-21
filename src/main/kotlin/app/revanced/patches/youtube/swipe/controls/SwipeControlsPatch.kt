@@ -129,7 +129,7 @@ object SwipeControlsPatch : BytecodePatch(
             }
         } ?: throw FullScreenEngagementOverlayFingerprint.exception
 
-        if (SettingsPatch.upward1909) {
+        try {
             HDRBrightnessFingerprint.result?.let {
                 it.mutableMethod.apply {
                     addInstructionsWithLabels(
@@ -141,7 +141,7 @@ object SwipeControlsPatch : BytecodePatch(
                             """, ExternalLabel("default", getInstruction(0))
                     )
                 }
-            }
+            } ?: throw HDRBrightnessFingerprint.exception
 
             /**
              * Add settings
@@ -151,7 +151,10 @@ object SwipeControlsPatch : BytecodePatch(
                     "SETTINGS: SWIPE_EXPERIMENTAL_FLAGS"
                 )
             )
+        } catch (e: Exception) {
+            println("WARNING: Disable auto HDR brightness is not supported in this version. Use YouTube 19.08.36 or earlier (${e.message})")
         }
+
 
         /**
          * Add settings

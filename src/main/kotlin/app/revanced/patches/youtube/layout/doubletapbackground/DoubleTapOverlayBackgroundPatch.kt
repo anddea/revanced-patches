@@ -47,8 +47,7 @@ import app.revanced.patches.youtube.utils.settings.SettingsPatch
                 "19.09.37"
             ]
         )
-    ],
-    use = true
+    ]
 )
 @Suppress("unused")
 object DoubleTapOverlayBackgroundPatch : AbstractOverlayBackgroundPatch(
