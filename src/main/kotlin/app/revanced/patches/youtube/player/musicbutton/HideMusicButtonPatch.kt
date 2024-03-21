@@ -9,7 +9,6 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.player.musicbutton.fingerprints.MusicAppDeeplinkButtonAlternativeFingerprint
 import app.revanced.patches.youtube.player.musicbutton.fingerprints.MusicAppDeeplinkButtonFingerprint
-import app.revanced.patches.youtube.player.musicbutton.fingerprints.MusicAppDeeplinkButtonParentFingerprint
 import app.revanced.patches.youtube.utils.integrations.Constants.PLAYER
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
@@ -56,32 +55,47 @@ import app.revanced.util.exception
                 "19.06.39",
                 "19.07.40",
                 "19.08.36",
-                "19.09.37"
+                "19.09.38",
+                "19.10.39",
+                "19.11.36"
             ]
         )
     ]
 )
 @Suppress("unused")
 object HideMusicButtonPatch : BytecodePatch(
-    setOf(MusicAppDeeplinkButtonParentFingerprint)
+    setOf(
+        MusicAppDeeplinkButtonAlternativeFingerprint,
+        MusicAppDeeplinkButtonFingerprint
+    )
 ) {
     override fun execute(context: BytecodeContext) {
 
-        MusicAppDeeplinkButtonParentFingerprint.result?.mutableClass?.let { mutableClass ->
-            MusicAppDeeplinkButtonFingerprint.also { it.resolve(context, mutableClass) }.result?.let {
-                it.mutableMethod.apply {
-                    addInstructionsWithLabels(
-                        0,
-                        """
-                            invoke-static {}, $PLAYER->hideMusicButton()Z
-                            move-result v0
-                            if-nez v0, :hidden
-                            """,
-                        ExternalLabel("hidden", getInstruction(implementation!!.instructions.size - 1))
-                    )
-                }
-            } ?: throw MusicAppDeeplinkButtonFingerprint.exception
-        } ?: throw MusicAppDeeplinkButtonParentFingerprint.exception
+        MusicAppDeeplinkButtonFingerprint.result?.let {
+            it.mutableMethod.apply {
+                addInstructionsWithLabels(
+                    0,
+                    """
+                        invoke-static {}, $PLAYER->hideMusicButton()Z
+                        move-result v0
+                        if-nez v0, :hidden
+                        """,
+                    ExternalLabel("hidden", getInstruction(implementation!!.instructions.size - 1))
+                )
+            }
+        } ?: MusicAppDeeplinkButtonAlternativeFingerprint.result?.let {
+            it.mutableMethod.apply {
+                addInstructionsWithLabels(
+                    0,
+                    """
+                        invoke-static {}, $PLAYER->hideMusicButton()Z
+                        move-result v0
+                        if-nez v0, :hidden
+                        """,
+                    ExternalLabel("hidden", getInstruction(implementation!!.instructions.size - 1))
+                )
+            }
+        } ?: throw MusicAppDeeplinkButtonFingerprint.exception
 
         /**
          * Add settings
