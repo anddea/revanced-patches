@@ -2550,12 +2550,8 @@ public final class app/revanced/patches/youtube/player/musicbutton/fingerprints/
 	public static final field INSTANCE Lapp/revanced/patches/youtube/player/musicbutton/fingerprints/MusicAppDeeplinkButtonAlternativeFingerprint;
 }
 
-public final class app/revanced/patches/youtube/player/musicbutton/fingerprints/MusicAppDeeplinkButtonFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
+public final class app/revanced/patches/youtube/player/musicbutton/fingerprints/MusicAppDeeplinkButtonFingerprint : app/revanced/util/fingerprint/LiteralValueFingerprint {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/player/musicbutton/fingerprints/MusicAppDeeplinkButtonFingerprint;
-}
-
-public final class app/revanced/patches/youtube/player/musicbutton/fingerprints/MusicAppDeeplinkButtonParentFingerprint : app/revanced/util/fingerprint/LiteralValueFingerprint {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/player/musicbutton/fingerprints/MusicAppDeeplinkButtonParentFingerprint;
 }
 
 public final class app/revanced/patches/youtube/player/playerbuttonbg/HidePlayerButtonBackgroundPatch : app/revanced/patcher/patch/ResourcePatch {
