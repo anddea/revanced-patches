@@ -10,7 +10,7 @@ import org.w3c.dom.Element
 
 @Patch(
     name = "Hide fullscreen button",
-    description = "Force to hide fullscreen button in player bottom UI container.",
+    description = "Force to hides fullscreen button in player bottom UI container.",
     dependencies = [SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(
