@@ -1024,7 +1024,7 @@ Problemas conocidos
 
     <string name="revanced_change_start_page_entry_browse">Explorar canales</string>
     <string name="revanced_change_start_page_entry_gaming">Videojuegos</string>
-    <string name="revanced_change_start_page_entry_live">En vivo</string>
+    <string name="revanced_change_start_page_entry_live">En directo</string>
     <string name="revanced_change_start_page_entry_movies">Películas</string>
     <string name="revanced_change_start_page_entry_music">Música</string>
     <string name="revanced_change_start_page_entry_sports">Deportes</string>
@@ -1034,9 +1034,9 @@ Problemas conocidos
 
 Las palabras con letras mayúsculas en el medio deben introducirse con las mayúsculas (p. ej.: iPhone, TikTok, LeBlanc)."</string>
     <string name="revanced_keyword_filter_strings_title">Editar filtro de palabras clave</string>
-    <string name="revanced_hide_keyword_content_feed_summary_off">El filtro de palabras clave está desactivado.</string>
-    <string name="revanced_hide_keyword_content_feed_summary_on">El filtro de palabras clave está activado.</string>
-    <string name="revanced_keyword_filter_summary">Oculta vídeos de feeds y resultados de búsqueda mediante filtros de palabras clave.</string>
+    <string name="revanced_hide_keyword_content_feed_summary_off">El filtro de palabras clave para el feed y la búsqueda está desactivado.</string>
+    <string name="revanced_hide_keyword_content_feed_summary_on">El filtro de palabras clave para el feed y la búsqueda está activado.</string>
+    <string name="revanced_keyword_filter_summary">Oculta vídeos mediante un filtro de palabras clave.</string>
     <string name="revanced_hide_keyword_content_feed_title">Activar filtro de palabras clave</string>
     <string name="revanced_disable_rolling_number_animations_summary_off">Las animaciones rodantes están activadas.</string>
     <string name="revanced_disable_rolling_number_animations_summary_on">Las animaciones rodantes están desactivadas.</string>
@@ -1079,4 +1079,13 @@ Las palabras con letras mayúsculas en el medio deben introducirse con las mayú
     <string name="revanced_swipe_overlay_rect_warning" formatted="false">El tamaño del área deslizable no puede ser mayor que %s%%. Restablecer al valor predeterminado.</string>
     <string name="revanced_swipe_overlay_rect_summary">Porcentaje del área de pantalla deslizable.</string>
     <string name="revanced_swipe_overlay_rect_title">Tamaño de pantalla superpuesta deslizante</string>
+    <string name="revanced_hide_keyword_content_about_summary">Los resultados de la búsqueda/inicio/suscripción se filtran para ocultar el contenido que coincide con frases de palabras clave.\n\nLimitaciones\n• Algunos Shorts pueden no estar ocultos.\n• Algunos componentes de la interfaz de usuario pueden no estar ocultos.\n• La búsqueda de una palabra clave puede no mostrar resultados.</string>
+    <string name="revanced_hide_keyword_content_comment_summary_off">El filtro de palabras clave para los comentarios está desactivado.</string>
+    <string name="revanced_hide_keyword_content_comment_summary_on">El filtro de palabras clave para los comentarios está activado.</string>
+    <string name="revanced_hide_keyword_content_comment_title">Activar filtro de palabras clave para comentarios</string>
+    <string name="revanced_hide_keyword_content_sub_summary_off">El filtro de palabras clave para las suscripciones está desactivado.</string>
+    <string name="revanced_hide_keyword_content_sub_summary_on">El filtro de palabras clave para las suscripciones está activado.</string>
+    <string name="revanced_hide_keyword_content_sub_title">Activar filtro de palabras clave para suscripciones</string>
+    <string name="revanced_hide_keyword_toast_invalid_common" formatted="false">Palabra clave no válida. No se puede utilizar \'%s\' como filtro.</string>
+    <string name="revanced_keyword_filter_title">Filtro de palabras clave</string>
 </resources>
