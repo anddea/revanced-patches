@@ -96,10 +96,10 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_hide_keyword_toast_invalid_length" formatted="false">키워드 길이가 너무 짧습니다 (최소 %s 이상이어야 합니다): %s.</string>
     <string name="revanced_keyword_filter_strings_summary">필터링할 키워드 및 구문을 줄바꿈으로 구분하여 설정합니다.\n\n영어 키워드는 대소문자를 구분하여 입력해야 합니다 (예: iPhone, TikTok, LeBlanc).</string>
     <string name="revanced_keyword_filter_strings_title">키워드 필터 편집하기</string>
-    <string name="revanced_hide_keyword_content_feed_summary_off">키워드 필터를 비활성화합니다.</string>
-    <string name="revanced_hide_keyword_content_feed_summary_on">키워드 필터를 활성화합니다.</string>
-    <string name="revanced_keyword_filter_summary">키워드 필터를 사용하여 피드 및 검색 결과 동영상을 숨깁니다.</string>
-    <string name="revanced_hide_keyword_content_feed_title">키워드 필터 활성화하기</string>
+    <string name="revanced_hide_keyword_content_feed_summary_off">홈 피드 &amp; 검색 결과 키워드 필터를 비활성화합니다.</string>
+    <string name="revanced_hide_keyword_content_feed_summary_on">홈 피드 &amp; 검색 결과 키워드 필터를 활성화합니다.</string>
+    <string name="revanced_keyword_filter_summary">키워드 필터를 사용하여 동영상을 숨깁니다.</string>
+    <string name="revanced_keyword_filter_title">키워드 필터 활성화하기</string>
     <string name="revanced_custom_playback_speeds_invalid">유효하지 않은 재생 속도 값이므로 기본값으로 재설정합니다.</string>
     <string name="revanced_custom_playback_speeds_summary">사용하고 싶은 동영상 재생 속도 값을 추가 또는 변경할 수 있습니다.</string>
     <string name="revanced_custom_playback_speeds_title">사용자 정의 동영상 재생 속도 편집하기</string>
@@ -144,8 +144,8 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_disable_hdr_video_summary_off">HDR 동영상을 활성화합니다.</string>
     <string name="revanced_disable_hdr_video_summary_on">HDR 동영상을 비활성화합니다.</string>
     <string name="revanced_disable_hdr_video_title">HDR 동영상 비활성화하기</string>
-    <string name="revanced_disable_landscape_mode_summary_off">전체 화면 버튼을 눌러서 전체 화면 세로 모드로 전환할 수 없습니다.</string>
-    <string name="revanced_disable_landscape_mode_summary_on">전체 화면 버튼을 눌러서 전체 화면 세로 모드로 전환할 수 있습니다.</string>
+    <string name="revanced_disable_landscape_mode_summary_off">전체 화면 버튼을 눌러서 전체 화면 세로 모드로 전환할 수 없습니다.\n\n\'Hide fullscreen button\' 패치가 포함된 앱에서는 이 기능을 사용할 수 없습니다.</string>
+    <string name="revanced_disable_landscape_mode_summary_on">전체 화면 버튼을 눌러서 전체 화면 세로 모드로 전환할 수 있습니다.\n\n\'Hide fullscreen button\' 패치가 포함된 앱에서는 이 기능을 사용할 수 없습니다.</string>
     <string name="revanced_disable_landscape_mode_title">전체 화면 세로 모드 전환하기</string>
     <string name="revanced_disable_quic_protocol_summary">"QUIC 프로토콜을 비활성화해서 동영상을 불러올 때 발생하는 동영상 압축과 푸는 과정을 제거하여 동영상 로딩 속도를 향상시킵니다. 모바일 데이터 사용량이 증가할 수 있으니 주의하세요."</string>
     <string name="revanced_disable_quic_protocol_title">QUIC 프로토콜 비활성화하기</string>
@@ -285,9 +285,9 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_force_fullscreen_summary">"
 다음과 같은 상황에서 동영상이 전체 화면으로 전환됩니다:
 
-• 동영상이 시작되었을 경우.
-• 동영상 설명에서 챕터를 선택했을 경우.
-• 댓글 내용에서 타임스탬프를 눌렀을 경우."</string>
+• 동영상이 시작되었을 경우
+• 동영상 설명에서 챕터를 선택했을 경우
+• 댓글 내용에서 타임스탬프를 눌렀을 경우 ..."</string>
     <string name="revanced_force_fullscreen_title">전체 화면 강제 전환하기</string>
     <string name="revanced_fullscreen">전체 화면</string>
     <string name="revanced_general">일반</string>
@@ -458,12 +458,12 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_hide_get_premium_summary_off">YouTube Premium 광고가 노출됩니다.</string>
     <string name="revanced_hide_get_premium_summary_on">YouTube Premium 광고가 숨겨집니다.</string>
     <string name="revanced_hide_get_premium_title">YouTube Premium 광고 숨기기</string>
-    <string name="revanced_hide_gray_description_summary_off">"피드 썸네일 하단에서 다음 회색 설명이 노출됩니다.
+    <string name="revanced_hide_gray_description_summary_off">"피드 썸네일 하단에서 다음 회색 설명이 노출됩니다:
 • '나중에 볼 동영상' 재생목록의 동영상
 • 내가 좋아할 만한 동영상
 • 이전에 시청한 동영상
 • 시청자가 이 동영상도 시청함 ..."</string>
-    <string name="revanced_hide_gray_description_summary_on">"피드 썸네일 하단에서 다음 회색 설명이 숨겨집니다.
+    <string name="revanced_hide_gray_description_summary_on">"피드 썸네일 하단에서 다음 회색 설명이 숨겨집니다:
 • '나중에 볼 동영상' 재생목록의 동영상
 • 내가 좋아할 만한 동영상
 • 이전에 시청한 동영상 
@@ -697,7 +697,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
 • 더 많은 서랍(인기 급상승, 쇼핑, 음악 ...)의 선반이 숨겨질 수 있습니다.
 • 재생목록 선반이 숨겨질 수 있습니다."</string>
     <string name="revanced_hide_suggestions_shelf_method_title">선반을 숨기는 방법 설정</string>
-    <string name="revanced_hide_suggestions_shelf_summary">"다음 선반들이 숨겨집니다.
+    <string name="revanced_hide_suggestions_shelf_summary">"다음 선반들이 숨겨집니다:
 • 다시 듣기
 • 다시 시청하기
 • 이어서 시청하기
@@ -1093,5 +1093,16 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_swipe_overlay_rect_warning" formatted="false">스와이프 화면 영역은 %s%%를 초과할 수 없으므로 기본값으로 재설정합니다.</string>
     <string name="revanced_swipe_overlay_rect_summary">스와이프 화면 영역을 지정할 수 있습니다. (백분율)</string>
     <string name="revanced_swipe_overlay_rect_title">스와이프 오버레이 화면 크기</string>
+    
+    <string name="revanced_hide_keyword_content_out_summary">검색 결과/홈 피드/구독 피드에서 키워드와 일치하는 콘텐츠가 숨겨집니다.\n\n한계:\n• 일부 Shorts는 숨겨지지 않을 수 있습니다.\n• 일부 화면 구성요소가 숨겨지지 않을 수 있습니다.\n• 키워드를 검색하면 결과가 표시되지 않을 수 있습니다.</string>
+    <string name="revanced_hide_keyword_content_comment_summary_off">댓글 섹션 키워드 필터를 비활성화합니다.</string>
+    <string name="revanced_hide_keyword_content_comment_summary_on">댓글 섹션 키워드 필터를 활성화합니다.</string>
+    <string name="revanced_hide_keyword_content_comment_title">댓글 섹션 키워드 필터 활성화하기</string>
+    <string name="revanced_hide_keyword_content_sub_summary_off">구독 피드 키워드 필터를 비활성화합니다.</string>
+    <string name="revanced_hide_keyword_content_sub_summary_on">구독 피드 키워드 필터를 활성화합니다.</string>
+    <string name="revanced_hide_keyword_content_sub_title">구독 피드 키워드 필터 활성화하기</string>
+    <string name="revanced_hide_keyword_toast_invalid_common" formatted="false">잘못된 키워드입니다. \'%s\'를 필터로 사용할 수 없습니다.</string>
+    <string name="revanced_keyword_filter_title">키워드 필터</string>
+
     
 </resources>
