@@ -4,6 +4,7 @@ import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.music.player.oldstyleminiplayer.fingerprints.MiniPlayerParentFingerprint
@@ -23,7 +24,8 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
         SettingsPatch::class,
         SharedResourceIdPatch::class
     ],
-    compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")]
+    compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")],
+    use = false
 )
 @Suppress("unused")
 object OldStyleMiniPlayerPatch : BytecodePatch(
@@ -53,7 +55,7 @@ object OldStyleMiniPlayerPatch : BytecodePatch(
                             """
                     )
                 }
-            } ?: throw NextButtonVisibilityFingerprint.exception
+            } ?: throw PatchException("This version is not supported. Please use YT Music 6.42 or earlier.")
         } ?: throw MiniPlayerParentFingerprint.exception
 
         SwipeToCloseFingerprint.result?.let {
