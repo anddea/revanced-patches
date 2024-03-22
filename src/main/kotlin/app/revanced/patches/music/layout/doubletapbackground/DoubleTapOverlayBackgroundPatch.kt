@@ -7,8 +7,7 @@ import app.revanced.patches.shared.patch.overlaybackground.AbstractOverlayBackgr
 @Patch(
     name = "Hide double tap overlay filter",
     description = "Removes the dark overlay when double-tapping to seek.",
-    compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")],
-    use = true
+    compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")]
 )
 @Suppress("unused")
 object DoubleTapOverlayBackgroundPatch : AbstractOverlayBackgroundPatch(

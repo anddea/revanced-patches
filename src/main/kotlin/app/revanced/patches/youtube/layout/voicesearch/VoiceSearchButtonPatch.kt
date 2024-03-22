@@ -8,7 +8,7 @@ import app.revanced.patches.youtube.utils.settings.SettingsPatch
 
 @Patch(
     name = "Hide voice search button",
-    description = "Hide voice search button in search bar.",
+    description = "Force to hide voice search button in search bar.",
     dependencies = [SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(
@@ -45,7 +45,8 @@ import app.revanced.patches.youtube.utils.settings.SettingsPatch
                 "19.07.40",
                 "19.08.36",
                 "19.09.38",
-                "19.10.39"
+                "19.10.39",
+                "19.11.38"
             ]
         )
     ],

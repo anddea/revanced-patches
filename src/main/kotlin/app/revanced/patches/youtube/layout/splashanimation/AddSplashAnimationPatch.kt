@@ -47,11 +47,11 @@ import kotlin.io.path.exists
                 "19.07.40",
                 "19.08.36",
                 "19.09.38",
-                "19.10.39"
+                "19.10.39",
+                "19.11.38"
             ]
         )
-    ],
-    use = true
+    ]
 )
 @Suppress("unused")
 object AddSplashAnimationPatch : ResourcePatch() {
