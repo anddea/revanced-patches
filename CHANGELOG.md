@@ -1,3 +1,19 @@
+# [2.222.0-dev.8](https://github.com/anddea/revanced-patches/compare/v2.222.0-dev.7...v2.222.0-dev.8) (2024-03-22)
+
+
+### Bug Fixes
+
+* **YouTube - Translations:** Update translations info ([302ffd6](https://github.com/anddea/revanced-patches/commit/302ffd6b9d0f2b4b5f359dff5fcb769db290413f))
+
+
+### Features
+
+* **YouTube - Translations:** Update `Italian` ([#102](https://github.com/anddea/revanced-patches/issues/102)) ([580883c](https://github.com/anddea/revanced-patches/commit/580883cec8f46e3e0be25995abe575d69739fb2a))
+* **YouTube - Translations:** Update `Japanese` ([#107](https://github.com/anddea/revanced-patches/issues/107)) ([cc87b2d](https://github.com/anddea/revanced-patches/commit/cc87b2db4053adfa583ee75ce88f642e2804fc8c))
+* **YouTube - Translations:** Update `Korean` ([#108](https://github.com/anddea/revanced-patches/issues/108)) ([f29bfa5](https://github.com/anddea/revanced-patches/commit/f29bfa5cb8ed43ce66f3d9b3c1e5abfd74872461))
+* **YouTube:** Bump support version `19.11.38` ([#110](https://github.com/anddea/revanced-patches/issues/110)) ([99142d8](https://github.com/anddea/revanced-patches/commit/99142d89ca4d2e0735b130a504a4d4a394fde605))
+* **YT Music:** Bump new versions ([1fbaeef](https://github.com/anddea/revanced-patches/commit/1fbaeef5cf21ce8b914c8c4cf49a33f1e23abbd9))
+
 # [2.222.0-dev.7](https://github.com/anddea/revanced-patches/compare/v2.222.0-dev.6...v2.222.0-dev.7) (2024-03-21)
 
 
