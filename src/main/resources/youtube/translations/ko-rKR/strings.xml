@@ -96,8 +96,9 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_hide_keyword_toast_invalid_length" formatted="false">키워드 길이가 너무 짧습니다 (최소 %s 이상이어야 합니다): %s.</string>
     <string name="revanced_keyword_filter_strings_summary">필터링할 키워드 및 구문을 줄바꿈으로 구분하여 설정합니다.\n\n영어 키워드는 대소문자를 구분하여 입력해야 합니다 (예: iPhone, TikTok, LeBlanc).</string>
     <string name="revanced_keyword_filter_strings_title">키워드 필터 편집하기</string>
-    <string name="revanced_hide_keyword_content_feed_summary_off">홈 피드 &amp; 검색 결과 키워드 필터를 비활성화합니다.</string>
-    <string name="revanced_hide_keyword_content_feed_summary_on">홈 피드 &amp; 검색 결과 키워드 필터를 활성화합니다.</string>
+    <string name="revanced_hide_keyword_content_feed_summary_off">홈 피드 &amp; 검색 결과에서 키워드 필터를 비활성화합니다.</string>
+    <string name="revanced_hide_keyword_content_feed_summary_on">홈 피드 &amp; 검색 결과에서 키워드 필터를 활성화합니다.</string>
+    <string name="revanced_hide_keyword_content_feed_title">홈 피드 &amp; 검색 결과 키워드 필터 활성화하기</string>
     <string name="revanced_keyword_filter_summary">키워드 필터를 사용하여 동영상을 숨깁니다.</string>
     <string name="revanced_custom_playback_speeds_invalid">유효하지 않은 재생 속도 값이므로 기본값으로 재설정합니다.</string>
     <string name="revanced_custom_playback_speeds_summary">사용하고 싶은 동영상 재생 속도 값을 추가 또는 변경할 수 있습니다.</string>
@@ -1092,16 +1093,14 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_swipe_overlay_rect_warning" formatted="false">스와이프 화면 영역은 %s%%를 초과할 수 없으므로 기본값으로 재설정합니다.</string>
     <string name="revanced_swipe_overlay_rect_summary">스와이프 화면 영역을 지정할 수 있습니다. (백분율)</string>
     <string name="revanced_swipe_overlay_rect_title">스와이프 오버레이 화면 크기</string>
-    
-    <string name="revanced_hide_keyword_content_out_summary">검색 결과/홈 피드/구독 피드에서 키워드와 일치하는 콘텐츠가 숨겨집니다.\n\n한계:\n• 일부 Shorts는 숨겨지지 않을 수 있습니다.\n• 일부 화면 구성요소가 숨겨지지 않을 수 있습니다.\n• 키워드를 검색하면 결과가 표시되지 않을 수 있습니다.</string>
-    <string name="revanced_hide_keyword_content_comment_summary_off">댓글 섹션 키워드 필터를 비활성화합니다.</string>
-    <string name="revanced_hide_keyword_content_comment_summary_on">댓글 섹션 키워드 필터를 활성화합니다.</string>
+    <string name="revanced_hide_keyword_content_about_summary">홈 피드 / 구독 피드 / 검색 결과 / 댓글 섹션에서 키워드와 일치하는 콘텐츠가 숨겨집니다.\n\n한계:\n• 일부 Shorts는 숨겨지지 않을 수 있습니다.\n• 일부 화면 구성요소가 숨겨지지 않을 수 있습니다.\n• 키워드를 검색하면 결과가 표시되지 않을 수 있습니다.</string>
+    <string name="revanced_hide_keyword_content_comment_summary_off">댓글 섹션에서 키워드 필터를 비활성화합니다.</string>
+    <string name="revanced_hide_keyword_content_comment_summary_on">댓글 섹션에서 키워드 필터를 활성화합니다.</string>
     <string name="revanced_hide_keyword_content_comment_title">댓글 섹션 키워드 필터 활성화하기</string>
-    <string name="revanced_hide_keyword_content_sub_summary_off">구독 피드 키워드 필터를 비활성화합니다.</string>
-    <string name="revanced_hide_keyword_content_sub_summary_on">구독 피드 키워드 필터를 활성화합니다.</string>
+    <string name="revanced_hide_keyword_content_sub_summary_off">구독 피드에서 키워드 필터를 비활성화합니다.</string>
+    <string name="revanced_hide_keyword_content_sub_summary_on">구독 피드에서 키워드 필터를 활성화합니다.</string>
     <string name="revanced_hide_keyword_content_sub_title">구독 피드 키워드 필터 활성화하기</string>
     <string name="revanced_hide_keyword_toast_invalid_common" formatted="false">잘못된 키워드입니다. \'%s\'를 필터로 사용할 수 없습니다.</string>
     <string name="revanced_keyword_filter_title">키워드 필터</string>
-
     
 </resources>
