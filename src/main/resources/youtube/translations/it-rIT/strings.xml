@@ -452,9 +452,9 @@ Alcuni componenti potrebbero non essere nascosti"</string>
     <string name="revanced_hide_get_premium_summary_off">La promozione di YouTube Premium è visibile</string>
     <string name="revanced_hide_get_premium_summary_on">La promozione di YouTube Premium è nascosta</string>
     <string name="revanced_hide_get_premium_title">Nascondi la promozione di YouTube Premium</string>
-    <string name="revanced_hide_gray_description_summary_off">La descrizione grigia è visibile</string>
-    <string name="revanced_hide_gray_description_summary_on">La descrizione grigia è nascosta</string>
-    <string name="revanced_hide_gray_description_title">Nascondi la descrizione grigia</string>
+    <string name="revanced_hide_gray_description_summary_off">La descrizione grigia dei video è visibile</string>
+    <string name="revanced_hide_gray_description_summary_on">La descrizione grigia dei video è nascosta</string>
+    <string name="revanced_hide_gray_description_title">Nascondi la descrizione grigia dei video</string>
     <string name="revanced_hide_gray_separator_summary_off">I separatori grigi sono visibili</string>
     <string name="revanced_hide_gray_separator_summary_on">I separatori grigi sono nascosti</string>
     <string name="revanced_hide_gray_separator_title">Nascondi i separatori grigi</string>
@@ -464,6 +464,8 @@ Alcuni componenti potrebbero non essere nascosti"</string>
     <string name="revanced_hide_home_button_summary_off">La scheda Home è visibile</string>
     <string name="revanced_hide_home_button_summary_on">La scheda Home è nascosta</string>
     <string name="revanced_hide_home_button_title">Nascondi la scheda Home</string>
+    <string name="revanced_hide_home_feed_membership_video_summary">Nascondi i video marchiati con \"Riservato agli abbonati\" nel feed della home</string>
+    <string name="revanced_hide_home_feed_membership_video_title">Nascondi i video riservati agli abbonati nel feed della home</string>
     <string name="revanced_hide_image_shelf_summary_off">Lo scaffale delle immagini è visibile</string>
     <string name="revanced_hide_image_shelf_summary_on">Lo scaffale delle immagini è nascosto</string>
     <string name="revanced_hide_image_shelf_title">Nascondi lo scaffale delle immagini</string>
@@ -479,6 +481,23 @@ Alcuni componenti potrebbero non essere nascosti"</string>
     <string name="revanced_hide_join_button_summary_off">Il pulsante Abbonati è visibile</string>
     <string name="revanced_hide_join_button_summary_on">Il pulsante Abbonati è nascosto</string>
     <string name="revanced_hide_join_button_title">Nascondi il pulsante Abbonati</string>
+    <string name="revanced_hide_keyword_content_about_summary">"I risultati di Home, Iscrizioni e Cerca vengono filtrati per nascondere i contenuti che corrispondono alle parole chiave.
+
+Limitazioni:
+• Alcuni Short potrebbero non essere nascosti
+• Alcuni componenti dell'interfaccia potrebbero non essere nascosti
+• La ricerca di una parola chiave potrebbe non mostrare risultati"</string>
+    <string name="revanced_hide_keyword_content_comment_summary_off">Il filtro dei commenti è disattivato</string>
+    <string name="revanced_hide_keyword_content_comment_summary_on">Il filtro dei commenti è attivato</string>
+    <string name="revanced_hide_keyword_content_comment_title">Attiva il filtro dei commenti</string>
+    <string name="revanced_hide_keyword_content_feed_summary_off">Il filtro delle parole chiave è disattivato</string>
+    <string name="revanced_hide_keyword_content_feed_summary_on">Il filtro delle parole chiave è attivato</string>
+    <string name="revanced_hide_keyword_content_feed_title">Attiva il filtro delle parole chiave</string>
+    <string name="revanced_hide_keyword_content_sub_summary_off">Il filtro delle iscrizioni è disattivato</string>
+    <string name="revanced_hide_keyword_content_sub_summary_on">Il filtro delle iscrizioni è attivato</string>
+    <string name="revanced_hide_keyword_content_sub_title">Attiva il filtro delle iscrizioni</string>
+    <string name="revanced_hide_keyword_toast_invalid_common" formatted="false">Parola chiave non valida, non è possibile usare \'%s\' come filtro</string>
+    <string name="revanced_hide_keyword_toast_invalid_length" formatted="false">Lunghezza della parola chiave non valida (deve contenere almeno %s caratteri): %s</string>
     <string name="revanced_hide_latest_posts_summary_off">I post più recenti sono visibili</string>
     <string name="revanced_hide_latest_posts_summary_on">I post più recenti sono nascosti</string>
     <string name="revanced_hide_latest_posts_title">Nascondi i post più recenti</string>
@@ -705,27 +724,8 @@ Problemi noti:
     <string name="revanced_hide_video_ads_summary_off">Gli annunci video sono visibili</string>
     <string name="revanced_hide_video_ads_summary_on">Gli annunci video sono nascosti</string>
     <string name="revanced_hide_video_ads_title">Nascondi gli annunci video</string>
-    <string name="revanced_hide_home_feed_membership_video_summary">Nascondi i video marchiati con \"Riservato agli abbonati\" nel feed della home</string>
-    <string name="revanced_hide_home_feed_membership_video_title">Nascondi i video riservati agli abbonati nel feed della home</string>
-    <string name="revanced_hide_keyword_content_about_summary">"I risultati di Home, Iscrizioni e Cerca vengono filtrati per nascondere i contenuti che corrispondono alle parole chiave.
-
-Limitazioni:
-• Alcuni Short potrebbero non essere nascosti
-• Alcuni componenti dell'interfaccia potrebbero non essere nascosti
-• La ricerca di una parola chiave potrebbe non mostrare risultati"</string>
-    <string name="revanced_hide_keyword_content_comment_summary_off">Il filtro dei commenti è disattivato</string>
-    <string name="revanced_hide_keyword_content_comment_summary_on">Il filtro dei commenti è attivato</string>
-    <string name="revanced_hide_keyword_content_comment_title">Attiva il filtro dei commenti</string>
-    <string name="revanced_hide_keyword_content_feed_summary_off">Il filtro delle parole chiave è disattivato</string>
-    <string name="revanced_hide_keyword_content_feed_summary_on">Il filtro delle parole chiave è attivato</string>
-    <string name="revanced_hide_keyword_content_feed_title">Attiva il filtro delle parole chiave</string>
-    <string name="revanced_hide_keyword_content_sub_summary_off">Il filtro delle iscrizioni è disattivato</string>
-    <string name="revanced_hide_keyword_content_sub_summary_on">Il filtro delle iscrizioni è attivato</string>
-    <string name="revanced_hide_keyword_content_sub_title">Attiva il filtro delle iscrizioni</string>
-    <string name="revanced_hide_keyword_toast_invalid_common" formatted="false">Parola chiave non valida, non è possibile usare \'%s\' come filtro</string>
-    <string name="revanced_hide_keyword_toast_invalid_length" formatted="false">Lunghezza della parola chiave non valida (deve contenere almeno %s caratteri): %s</string>
-    <string name="revanced_hide_video_with_gray_description_summary">I video con una descrizione grigia includono video che non sono relativi ai termini di ricerca</string>
-    <string name="revanced_hide_video_with_gray_description_title">Nascondi i video con una descrizione grigia dai risultati di ricerca</string>
+    <string name="revanced_hide_video_with_gray_description_summary">I video con la descrizione grigia includono video che non sono relativi ai termini di ricerca</string>
+    <string name="revanced_hide_video_with_gray_description_title">Nascondi i video con la descrizione grigia dai risultati di ricerca</string>
     <string name="revanced_hide_video_with_low_view_summary">"Nascondi i video con meno di 1.000 visualizzazioni nel feed della home.
 Alcuni video, inclusi quelli dei canali iscritti, potrebbero non essere nascosti anche se hanno meno di 1.000 visualizzazioni"</string>
     <string name="revanced_hide_video_with_low_view_title">Nascondi i video con poche visualizzazioni</string>
