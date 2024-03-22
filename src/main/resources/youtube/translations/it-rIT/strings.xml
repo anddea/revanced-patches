@@ -7,6 +7,8 @@
     <string name="microg_not_running_warning">MicroG non è in esecuzione in background</string>
     <string name="microg_settings_summary">Attiva le impostazioni di messaggistica cloud per ricevere le notifiche</string>
     <string name="microg_settings_title">Apri MicroG</string>
+    <string name="pref_app_language_dialog_message">&lt;b&gt;%1$s&lt;/b&gt;&lt;br&gt;&lt;br&gt;Questo cambierà la lingua usata da YouTube, pulsanti, testo e finestre di dialogo inclusi, ma non cambierà la lingua delle impostazioni di ReVanced Extended</string>
+    <string name="pref_app_language_dialog_message_no_lang_name">Questo cambierà la lingua usata dall\'app, pulsanti, testo e finestre di dialogo inclusi, ma non cambierà la lingua delle impostazioni di ReVanced Extended</string>
     <string name="revanced_ads">Annunci</string>
     <string name="revanced_alt_thumbnails">Thumbnails alternativi</string>
     <string name="revanced_alt_thumbnail_about_status_dearrow">"Mostrando i thumbnails di DeArrow.
@@ -779,22 +781,6 @@ Tocca e tieni premuto per impostare la velocità di riproduzione a 1.0x"</string
     <string name="revanced_override_premium_header_summary_off">Predefinita</string>
     <string name="revanced_override_premium_header_summary_on">Premium</string>
     <string name="revanced_override_premium_header_title">Il tipo di intestazione</string>
-    <string name="revanced_whitelisting_added" formatted="false">Il canale %s è stato aggiunto alla whitelist %s</string>
-    <string name="revanced_whitelisting_add_failed" formatted="false">Impossibile aggiungere il canale %s alla whitelist %s</string>
-    <string name="revanced_whitelisting_channel_name">Nome del canale</string>
-    <string name="revanced_whitelisting_empty">Non ci sono canali nella whitelist</string>
-    <string name="revanced_whitelisting_excluded">Non è stato aggiunto alla whitelist</string>
-    <string name="revanced_whitelisting_fetch_failed" formated="false">Impossibile recuperare i dettagli del canale, messaggio ricevuto %d</string>
-    <string name="revanced_whitelisting_included">È stato aggiunto alla whitelist</string>
-    <string name="revanced_whitelisting_reboot">Riavvia per applicare le impostazioni della whitelist dei canali</string>
-    <string name="revanced_whitelisting_removed" formatted="false">Il canale %s è stato rimosso dalla whitelist %s</string>
-    <string name="revanced_whitelisting_remove_failed" formatted="false">Impossibile rimuovere il canale %s dalla whitelist %s</string>
-    <string name="revanced_whitelisting_settings_summary">Controlla o rimuovi l\'elenco dei canali aggiunti alla whitelist</string>
-    <string name="revanced_whitelisting_speed">Velocità video</string>
-    <string name="revanced_whitelisting_speed_button">Velocità</string>
-    <string name="revanced_whitelisting_sponsorblock">SponsorBlock</string>
-    <string name="revanced_whitelisting_sponsorblock_button">SB</string>
-    <string name="revanced_whitelisting_title">Whitelist dei canali</string>
     <string name="revanced_patches_information">Informazioni patch</string>
     <string name="revanced_patches_information_summary">Informazioni sulle patch applicate</string>
     <string name="revanced_playback_speed_normal">Normale</string>
@@ -850,7 +836,6 @@ Tocca e tieni premuto per impostare la velocità di riproduzione a 1.0x"</string
     <string name="revanced_shorts_toolbar_title">Barra degli strumenti</string>
     <string name="revanced_show_fullscreen_title_summary">Problema noto: il titolo scompare quando viene toccato</string>
     <string name="revanced_show_fullscreen_title_title">Mostra il titolo a schermo intero</string>
-    <string name="revanced_skipped_preloaded_buffer">Buffer precaricato saltato</string>
     <string name="revanced_skip_preloaded_buffer_summary">"Salta il buffer precaricato all'avvio dei video per bypassare il ritardo della qualità video predefinita forzata.
 
 Note:
@@ -860,6 +845,7 @@ Note:
     <string name="revanced_skip_preloaded_buffer_toast_summary_off">La notifica toast è nascosta</string>
     <string name="revanced_skip_preloaded_buffer_toast_summary_on">La notifica toast è visibile</string>
     <string name="revanced_skip_preloaded_buffer_toast_title">Mostra una notifica toast quando un segmento è saltato</string>
+    <string name="revanced_skipped_preloaded_buffer">Buffer precaricato saltato</string>
     <string name="revanced_spoof_app_version_summary">"Simula la versione del client a una versione precedente.
 
 Note:
@@ -923,176 +909,189 @@ Note:
     <string name="revanced_switching_create_notification_title">Scambia il pulsante Crea con il pulsante Notifiche</string>
     <string name="revanced_tool_used">Tool utilizzati</string>
     <string name="revanced_video">Video</string>
-    <string name="pref_app_language_dialog_message">&lt;b&gt;%1$s&lt;/b&gt;&lt;br&gt;&lt;br&gt;Questo cambierà la lingua usata da YouTube, pulsanti, testo e finestre di dialogo inclusi, ma non cambierà la lingua delle impostazioni di ReVanced Extended</string>
-    <string name="pref_app_language_dialog_message_no_lang_name">Questo cambierà la lingua usata dall\'app, pulsanti, testo e finestre di dialogo inclusi, ma non cambierà la lingua delle impostazioni di ReVanced Extended</string>
+    <string name="revanced_whitelisting_added" formatted="false">Il canale %s è stato aggiunto alla whitelist %s</string>
+    <string name="revanced_whitelisting_add_failed" formatted="false">Impossibile aggiungere il canale %s alla whitelist %s</string>
+    <string name="revanced_whitelisting_channel_name">Nome del canale</string>
+    <string name="revanced_whitelisting_empty">Non ci sono canali nella whitelist</string>
+    <string name="revanced_whitelisting_excluded">Non è stato aggiunto alla whitelist</string>
+    <string name="revanced_whitelisting_fetch_failed" formated="false">Impossibile recuperare i dettagli del canale, messaggio ricevuto %d</string>
+    <string name="revanced_whitelisting_included">È stato aggiunto alla whitelist</string>
+    <string name="revanced_whitelisting_reboot">Riavvia per applicare le impostazioni della whitelist dei canali</string>
+    <string name="revanced_whitelisting_removed" formatted="false">Il canale %s è stato rimosso dalla whitelist %s</string>
+    <string name="revanced_whitelisting_remove_failed" formatted="false">Impossibile rimuovere il canale %s dalla whitelist %s</string>
+    <string name="revanced_whitelisting_settings_summary">Controlla o rimuovi l\'elenco dei canali aggiunti alla whitelist</string>
+    <string name="revanced_whitelisting_speed">Velocità video</string>
+    <string name="revanced_whitelisting_speed_button">Velocità</string>
+    <string name="revanced_whitelisting_sponsorblock">SponsorBlock</string>
+    <string name="revanced_whitelisting_sponsorblock_button">SB</string>
+    <string name="revanced_whitelisting_title">Whitelist dei canali</string>
+    <string name="sb_about">Informazioni</string>
+    <string name="sb_about_api_sum">I dati sono forniti dall\'API di SponsorBlock. Tocca qui per saperne di più e vedere i download per altre piattaforme</string>
+    <string name="sb_api_url_changed">URL API cambiato</string>
+    <string name="sb_api_url_invalid">URL API non valido</string>
+    <string name="sb_api_url_reset">URL API ripristinato al predefinito</string>
+    <string name="sb_appearance_category">Aspetto</string>
+    <string name="sb_color_changed">Colore cambiato</string>
+    <string name="sb_color_dot_label">Colore:</string>
+    <string name="sb_color_invalid">Codice colore non valido</string>
+    <string name="sb_color_reset">Colore ripristinato al predefinito</string>
+    <string name="sb_create_segment_category">Creazione di nuovi segmenti</string>
+    <string name="sb_diff_segments">Modifica il comportamento dei segmenti</string>
+    <string name="sb_enable_auto_hide_skip_segment_button">Nascondi automaticamente il pulsante Salta</string>
+    <string name="sb_enable_auto_hide_skip_segment_button_sum_off">Il pulsante Salta è visibile per tutta la durata del segmento</string>
+    <string name="sb_enable_auto_hide_skip_segment_button_sum_on">Il pulsante Salta scompare dopo alcuni secondi</string>
+    <string name="sb_enable_compact_skip_button">Attiva il pulsante Salta compatto</string>
+    <string name="sb_enable_compact_skip_button_sum_off">Pulsante Salta riadattato per la migliore visualizzazione</string>
+    <string name="sb_enable_compact_skip_button_sum_on">Pulsante Salta riadattato per una dimensione minima</string>
+    <string name="sb_enable_create_segment">Mostra il pulsante Crea Nuovo Segmento</string>
+    <string name="sb_enable_create_segment_sum_off">Il pulsante Crea Nuovo Segmento è nascosto</string>
+    <string name="sb_enable_create_segment_sum_on">Il pulsante Crea Nuovo Segmento è visibile</string>
     <string name="sb_enable_sb">Attiva SponsorBlock</string>
     <string name="sb_enable_sb_sum">SponsorBlock è un sistema collaborativo creato per saltare le parti fastidiose nei video di YouTube</string>
-    <string name="sb_appearance_category">Aspetto</string>
     <string name="sb_enable_voting">Mostra il pulsante Voto</string>
-    <string name="sb_enable_voting_sum_on">Il pulsante Voto è visibile</string>
     <string name="sb_enable_voting_sum_off">Il pulsante Voto è nascosto</string>
-    <string name="sb_enable_compact_skip_button">Attiva il pulsante Salta compatto</string>
-    <string name="sb_enable_compact_skip_button_sum_on">Pulsante Salta riadattato per una dimensione minima</string>
-    <string name="sb_enable_compact_skip_button_sum_off">Pulsante Salta riadattato per la migliore visualizzazione</string>
-    <string name="sb_enable_auto_hide_skip_segment_button">Nascondi automaticamente il pulsante Salta</string>
-    <string name="sb_enable_auto_hide_skip_segment_button_sum_on">Il pulsante Salta scompare dopo alcuni secondi</string>
-    <string name="sb_enable_auto_hide_skip_segment_button_sum_off">Il pulsante Salta è visibile per tutta la durata del segmento</string>
-    <string name="sb_general_skiptoast">Mostra una notifica toast quando un segmento è saltato automaticamente</string>
-    <string name="sb_general_skiptoast_sum_on">Notifica toast visibile quando un segmento è saltato automaticamente. Tocca qui per vedere un esempio</string>
-    <string name="sb_general_skiptoast_sum_off">Notifica toast nascosta quando un segmento è saltato automaticamente. Tocca qui per vedere un esempio</string>
-    <string name="sb_general_time_without">Mostra il tempo senza i segmenti</string>
-    <string name="sb_general_time_without_sum_on">La durata del video meno tutti gli eventuali segmenti. Questo tempo è visibile tra parentesi accanto alla durata del video completo</string>
-    <string name="sb_general_time_without_sum_off">La durata totale del video è visibile</string>
-    <string name="sb_create_segment_category">Creazione di nuovi segmenti</string>
-    <string name="sb_enable_create_segment">Mostra il pulsante Crea Nuovo Segmento</string>
-    <string name="sb_enable_create_segment_sum_on">Il pulsante Crea Nuovo Segmento è visibile</string>
-    <string name="sb_enable_create_segment_sum_off">Il pulsante Crea Nuovo Segmento è nascosto</string>
-    <string name="sb_general_adjusting">Regola il nuovo passo del segmento</string>
-    <string name="sb_general_adjusting_sum">Questo è il tempo in millisecondi che puoi modificare quando usi i pulsanti di regolazione durante l\'aggiunta di nuovi segmenti</string>
-    <string name="sb_general_adjusting_invalid">Il valore deve essere un numero positivo</string>
-    <string name="sb_guidelines_preference_title">Visualizza le linee guida</string>
-    <string name="sb_guidelines_preference_sum">Le linee guida contengono suggerimenti e regole sull\'invio dei segmenti</string>
-    <string name="sb_guidelines_popup_title">Segui le linee guida</string>
-    <string name="sb_guidelines_popup_content">Leggi le linee guida di SponsorBlock prima di creare nuovi segmenti</string>
-    <string name="sb_guidelines_popup_already_read">Già letto</string>
-    <string name="sb_guidelines_popup_open">Mostrami</string>
+    <string name="sb_enable_voting_sum_on">Il pulsante Voto è visibile</string>
     <string name="sb_general">Generali</string>
-    <string name="sb_toast_on_connection_error_title">Mostra una notifica toast se l\'API non è disponibile</string>
-    <string name="sb_toast_on_connection_error_summary_on">Notifica toast visibile se l\'API di SponsorBlock non è disponibile</string>
-    <string name="sb_toast_on_connection_error_summary_off">Notifica toast nascosta se l\'API di SponsorBlock non è disponibile</string>
-    <string name="sb_general_skipcount">Attiva l\'invio del conteggio dei salti</string>
-    <string name="sb_general_skipcount_sum_on">Questo permette al sistema di classifica di SponsorBlock di sapere quanto tempo le persone hanno risparmiato. Viene inviato un messaggio al server ogni volta che un segmento viene saltato</string>
-    <string name="sb_general_skipcount_sum_off">L\'invio del conteggio dei salti è disattivato</string>
-    <string name="sb_general_min_duration">La durata minima del segmento</string>
-    <string name="sb_general_min_duration_sum">I segmenti più brevi di questo valore (in secondi) non verranno mostrati o saltati</string>
-    <string name="sb_general_uuid">Il tuo Id utente privato</string>
-    <string name="sb_general_uuid_sum">Questo dovrebbe essere tenuto al sicuro. È come una password e non dovrebbe essere condiviso con nessuno. Se qualcuno dovesse ottenerlo, potrebbe impersonarti</string>
-    <string name="sb_general_uuid_invalid">Il campo Id utente non può essere vuoto</string>
+    <string name="sb_general_adjusting">Regola il nuovo passo del segmento</string>
+    <string name="sb_general_adjusting_invalid">Il valore deve essere un numero positivo</string>
+    <string name="sb_general_adjusting_sum">Questo è il tempo in millisecondi che puoi modificare quando usi i pulsanti di regolazione durante l\'aggiunta di nuovi segmenti</string>
     <string name="sb_general_api_url">Cambia l\'URL dell\'API</string>
     <string name="sb_general_api_url_sum">L\'indirizzo usato da SponsorBlock per contattare il server. Non cambiarlo a meno che tu non sappia cosa stai facendo</string>
-    <string name="sb_api_url_reset">URL API ripristinato al predefinito</string>
-    <string name="sb_api_url_invalid">URL API non valido</string>
-    <string name="sb_api_url_changed">URL API cambiato</string>
-    <string name="sb_settings_copy">Copia</string>
-    <string name="sb_settings_ie_sum">La tua configurazione di SponsorBlock in JSON che può essere esportata/importata su ReVanced Extended e su altre piattaforme SponsorBlock %s</string>
-    <string name="sb_settings_ie_sum_warning">Questo include il tuo Id utente privato. Assicurati di condividerlo con prudenza</string>
-    <string name="sb_settings_ie">Esporta/Importa le impostazioni</string>
-    <string name="sb_settings_import_successful">Impostazioni importate con sucesso</string>
-    <string name="sb_settings_import_failed">Importazione non riuscita (%s)</string>
-    <string name="sb_settings_export_failed">Esportazione non riuscita (%s)</string>
-    <string name="sb_settings_revanced_export_user_id_warning">"Le tue impostazioni contengono un Id utente privato di SponsorBlock.
-
-Il tuo Id utente è come una password e non dovrebbe mai essere condiviso"</string>
-    <string name="sb_settings_revanced_export_user_id_warning_dismiss">Non mostrare più questo messaggio</string>
-    <string name="sb_diff_segments">Modifica il comportamento dei segmenti</string>
-    <string name="sb_segments_sponsor">Sponsor</string>
-    <string name="sb_segments_sponsor_sum">Promozioni a pagamento, referral a pagamento e pubblicità diretta. Questo non dovrebbe includere autopromozione o ringraziamenti gratuiti a cause, creatori, siti web o prodotti di loro gradimento</string>
-    <string name="sb_segments_selfpromo">Promozione Gratuita/Autopromozione</string>
-    <string name="sb_segments_selfpromo_sum">Simili agli Sponsor, ma sono promozioni non pagate o autopromozioni. Questo include segmenti sul merchandising, donazioni o informazioni dei collaboratori del video</string>
+    <string name="sb_general_min_duration">La durata minima del segmento</string>
+    <string name="sb_general_min_duration_sum">I segmenti più brevi di questo valore (in secondi) non verranno mostrati o saltati</string>
+    <string name="sb_general_skipcount">Attiva l\'invio del conteggio dei salti</string>
+    <string name="sb_general_skipcount_sum_off">L\'invio del conteggio dei salti è disattivato</string>
+    <string name="sb_general_skipcount_sum_on">Questo permette al sistema di classifica di SponsorBlock di sapere quanto tempo le persone hanno risparmiato. Viene inviato un messaggio al server ogni volta che un segmento viene saltato</string>
+    <string name="sb_general_skiptoast">Mostra una notifica toast quando un segmento è saltato automaticamente</string>
+    <string name="sb_general_skiptoast_sum_off">Notifica toast nascosta quando un segmento è saltato automaticamente. Tocca qui per vedere un esempio</string>
+    <string name="sb_general_skiptoast_sum_on">Notifica toast visibile quando un segmento è saltato automaticamente. Tocca qui per vedere un esempio</string>
+    <string name="sb_general_time_without">Mostra il tempo senza i segmenti</string>
+    <string name="sb_general_time_without_sum_off">La durata totale del video è visibile</string>
+    <string name="sb_general_time_without_sum_on">La durata del video meno tutti gli eventuali segmenti. Questo tempo è visibile tra parentesi accanto alla durata del video completo</string>
+    <string name="sb_general_uuid">Il tuo Id utente privato</string>
+    <string name="sb_general_uuid_invalid">Il campo Id utente non può essere vuoto</string>
+    <string name="sb_general_uuid_sum">Questo dovrebbe essere tenuto al sicuro. È come una password e non dovrebbe essere condiviso con nessuno. Se qualcuno dovesse ottenerlo, potrebbe impersonarti</string>
+    <string name="sb_guidelines_popup_already_read">Già letto</string>
+    <string name="sb_guidelines_popup_content">Leggi le linee guida di SponsorBlock prima di creare nuovi segmenti</string>
+    <string name="sb_guidelines_popup_open">Mostrami</string>
+    <string name="sb_guidelines_popup_title">Segui le linee guida</string>
+    <string name="sb_guidelines_preference_sum">Le linee guida contengono suggerimenti e regole sull\'invio dei segmenti</string>
+    <string name="sb_guidelines_preference_title">Visualizza le linee guida</string>
+    <string name="sb_new_segment_choose_category">Scegli la categoria del segmento</string>
+    <string name="sb_new_segment_confirm_content" formatted="false">Il segmento dura da %02d:%02d a %02d:%02d (%d minuti %02d secondi).
+Il segmento è pronto per l\'invio?</string>
+    <string name="sb_new_segment_confirm_title">I valori temporali sono corretti?</string>
+    <string name="sb_new_segment_disabled_category">La categoria è disattivata nelle impostazioni. Attiva la categoria da inviare</string>
+    <string name="sb_new_segment_edit_by_hand_content">Vuoi modificare l\'intervallo temporale di inizio o fine segmento?</string>
+    <string name="sb_new_segment_edit_by_hand_parse_error">Il periodo temporale fornito non è valido</string>
+    <string name="sb_new_segment_edit_by_hand_title">Modifica manualmente il periodo temporale del segmento</string>
+    <string name="sb_new_segment_mark_end">fine</string>
+    <string name="sb_new_segment_mark_locations_first">Segna prima due posizioni sulla barra di avanzamento</string>
+    <string name="sb_new_segment_mark_start">inizio</string>
+    <string name="sb_new_segment_mark_time_as_question" formatted="false">Impostare %02d:%02d:%03d come inizio o fine di un nuovo segmento?</string>
+    <string name="sb_new_segment_now">ora</string>
+    <string name="sb_new_segment_preview_segment_first">Visualizzare in anteprima il segmento e assicurarsi che lo salti senza problemi</string>
+    <string name="sb_new_segment_start_is_before_end">L\'inizio deve essere antecedente alla fine</string>
+    <string name="sb_new_segment_time_end">Il segmento termina a</string>
+    <string name="sb_new_segment_time_start">Il segmento inizia a</string>
+    <string name="sb_new_segment_title">Nuovo segmento SponsorBlock</string>
+    <string name="sb_reset">Ripristina</string>
+    <string name="sb_reset_color">Ripristina colore</string>
+    <string name="sb_segments_filler">Filler Irrelevante/Battute</string>
+    <string name="sb_segments_filler_sum">Scene tangenziali aggiunte solo a scopo riempitivo o per umorismo, non necessarie per comprendere il contenuto principale del video. Questo non dovrebbe includere segmenti che forniscono contesto o dettagli di sfondo</string>
     <string name="sb_segments_interaction">Promemoria Interazione (Iscrizione)</string>
     <string name="sb_segments_interaction_sum">Un breve promemoria per mettere mi piace, iscriversi o seguirli su altre piattaforme durante la visione di un video. Se è lungo o riguarda qualcosa di specifico, dovrebbe essere considerato Autopromozione</string>
-    <string name="sb_segments_highlight">Momento Saliente</string>
-    <string name="sb_segments_highlight_sum">La parte del video che la maggior parte delle persone sta cercando</string>
     <string name="sb_segments_intro">Intervallo/Introduzione</string>
     <string name="sb_segments_intro_sum">Un intervallo senza contenuto effettivo. Potrebbe essere una pausa, un fotogramma statico o un\'animazione ripetuta. Questo non dovrebbe includere transizioni che contengono informazioni</string>
+    <string name="sb_segments_highlight">Momento Saliente</string>
+    <string name="sb_segments_highlight_sum">La parte del video che la maggior parte delle persone sta cercando</string>
+    <string name="sb_segments_nomusic">Musica: Sezione Non-Musicale</string>
+    <string name="sb_segments_nomusic_sum">Solo per video musicali. Dovrebbe essere usato solo per le sezioni di video musicali senza musica che non sono già incluse in un\'altra categoria</string>
     <string name="sb_segments_outro">Schede Finali/Crediti</string>
     <string name="sb_segments_outro_sum">I crediti o quando appaiono le schede finali. Questo non dovrebbe includere conclusioni con informazioni</string>
     <string name="sb_segments_preview">Anteprima/Riepilogo/Pretesto</string>
     <string name="sb_segments_preview_sum">Una breve raccolta di anteprime che mostrano ciò che è in programma o ciò che è successo nel video attuale o in altri video di una serie, dove tutte le informazioni sono ripetute altrove</string>
-    <string name="sb_segments_filler">Filler Irrelevante/Battute</string>
-    <string name="sb_segments_filler_sum">Scene tangenziali aggiunte solo a scopo riempitivo o per umorismo, non necessarie per comprendere il contenuto principale del video. Questo non dovrebbe includere segmenti che forniscono contesto o dettagli di sfondo</string>
-    <string name="sb_segments_nomusic">Musica: Sezione Non-Musicale</string>
-    <string name="sb_segments_nomusic_sum">Solo per video musicali. Dovrebbe essere usato solo per le sezioni di video musicali senza musica che non sono già incluse in un\'altra categoria</string>
-    <string name="sb_skip_button_compact">Salta</string>
-    <string name="sb_skip_button_compact_highlight">Momento Saliente</string>
-    <string name="sb_skip_button_sponsor">Salta Sponsor</string>
-    <string name="sb_skip_button_selfpromo">Salta Autopromozione</string>
-    <string name="sb_skip_button_interaction">Salta Promemoria</string>
-    <string name="sb_skip_button_highlight">Passa al Momento Saliente</string>
-    <string name="sb_skip_button_intro_beginning">Salta Introduzione</string>
-    <string name="sb_skip_button_outro">Salta Crediti</string>
-    <string name="sb_skip_button_preview_beginning">Salta Anteprima</string>
-    <string name="sb_skip_button_filler">Salta Filler</string>
-    <string name="sb_skip_button_nomusic">Salta Sezione Non-Musicale</string>
-    <string name="sb_skip_button_unsubmitted">Salta segmento</string>
-    <string name="sb_skipped_sponsor">Sponsor saltato</string>
-    <string name="sb_skipped_selfpromo">Autopromozione saltata</string>
-    <string name="sb_skipped_interaction">Promemoria saltato</string>
-    <string name="sb_skipped_highlight">Passato al Momento Saliente</string>
-    <string name="sb_skipped_intro_beginning">Introduzione saltata</string>
-    <string name="sb_skipped_outro">Crediti saltati</string>
-    <string name="sb_skipped_preview_beginning">Anteprima saltata</string>
-    <string name="sb_skipped_filler">Filler saltato</string>
-    <string name="sb_skipped_nomusic">Sezione Non-Musicale saltata</string>
-    <string name="sb_skipped_unsubmitted">Segmento non inviato saltato</string>
-    <string name="sb_skipped_multiple_segments">Segmenti multipli saltati</string>
+    <string name="sb_segments_selfpromo">Promozione Gratuita/Autopromozione</string>
+    <string name="sb_segments_selfpromo_sum">Simili agli Sponsor, ma sono promozioni non pagate o autopromozioni. Questo include segmenti sul merchandising, donazioni o informazioni dei collaboratori del video</string>
+    <string name="sb_segments_sponsor">Sponsor</string>
+    <string name="sb_segments_sponsor_sum">Promozioni a pagamento, referral a pagamento e pubblicità diretta. Questo non dovrebbe includere autopromozione o ringraziamenti gratuiti a cause, creatori, siti web o prodotti di loro gradimento</string>
+    <string name="sb_settings_copy">Copia</string>
+    <string name="sb_settings_export_failed">Esportazione non riuscita (%s)</string>
+    <string name="sb_settings_ie">Esporta/Importa le impostazioni</string>
+    <string name="sb_settings_ie_sum">La tua configurazione di SponsorBlock in JSON che può essere esportata/importata su ReVanced Extended e su altre piattaforme SponsorBlock %s</string>
+    <string name="sb_settings_ie_sum_warning">Questo include il tuo Id utente privato. Assicurati di condividerlo con prudenza</string>
+    <string name="sb_settings_import_failed">Importazione non riuscita (%s)</string>
+    <string name="sb_settings_import_successful">Impostazioni importate con sucesso</string>
+    <string name="sb_settings_revanced_export_user_id_warning">"Le tue impostazioni contengono un Id utente privato di SponsorBlock.
+
+Il tuo Id utente è come una password e non dovrebbe mai essere condiviso"</string>
+    <string name="sb_settings_revanced_export_user_id_warning_dismiss">Non mostrare più questo messaggio</string>
     <string name="sb_skip_automatically">Salta automaticamente</string>
     <string name="sb_skip_automatically_once">Salta automaticamente una sola volta</string>
-    <string name="sb_skip_showbutton">Mostra il pulsante Salta</string>
-    <string name="sb_skip_seekbaronly">Mostralo nella barra di avanzamento</string>
+    <string name="sb_skip_button_compact">Salta</string>
+    <string name="sb_skip_button_compact_highlight">Momento Saliente</string>
+    <string name="sb_skip_button_filler">Salta Filler</string>
+    <string name="sb_skip_button_interaction">Salta Promemoria</string>
+    <string name="sb_skip_button_intro_beginning">Salta Introduzione</string>
+    <string name="sb_skip_button_highlight">Passa al Momento Saliente</string>
+    <string name="sb_skip_button_nomusic">Salta Sezione Non-Musicale</string>
+    <string name="sb_skip_button_outro">Salta Crediti</string>
+    <string name="sb_skip_button_preview_beginning">Salta Anteprima</string>
+    <string name="sb_skip_button_selfpromo">Salta Autopromozione</string>
+    <string name="sb_skip_button_sponsor">Salta Sponsor</string>
+    <string name="sb_skip_button_unsubmitted">Salta segmento</string>
     <string name="sb_skip_ignore">Disattiva</string>
+    <string name="sb_skip_seekbaronly">Mostralo nella barra di avanzamento</string>
+    <string name="sb_skip_showbutton">Mostra il pulsante Salta</string>
+    <string name="sb_skipped_filler">Filler saltato</string>
+    <string name="sb_skipped_interaction">Promemoria saltato</string>
+    <string name="sb_skipped_intro_beginning">Introduzione saltata</string>
+    <string name="sb_skipped_highlight">Passato al Momento Saliente</string>
+    <string name="sb_skipped_multiple_segments">Segmenti multipli saltati</string>
+    <string name="sb_skipped_nomusic">Sezione Non-Musicale saltata</string>
+    <string name="sb_skipped_outro">Crediti saltati</string>
+    <string name="sb_skipped_preview_beginning">Anteprima saltata</string>
+    <string name="sb_skipped_selfpromo">Autopromozione saltata</string>
+    <string name="sb_skipped_sponsor">Sponsor saltato</string>
+    <string name="sb_skipped_unsubmitted">Segmento non inviato saltato</string>
     <string name="sb_sponsorblock_connection_failure_generic">SponsorBlock temporaneamente non disponibile</string>
     <string name="sb_sponsorblock_connection_failure_status" formatted="false">SponsorBlock temporaneamente non disponibile (stato: %d)</string>
     <string name="sb_sponsorblock_connection_failure_timeout">SponsorBlock temporaneamente non disponibile (API scaduto)</string>
-    <string name="sb_submit_failed_invalid" formatted="false">Impossibile inviare il segmento (%s)</string>
-    <string name="sb_submit_failed_timeout">Impossibile inviare i segmenti (API scaduto)</string>
-    <string name="sb_submit_failed_unknown_error" formatted="false">Impossibile inviare i segmenti (%d %s)</string>
-    <string name="sb_submit_failed_rate_limit">Impossibile inviare il segmento.
-Soglia raggiunta (troppe richieste provenienti dallo stesso utente o IP)</string>
-    <string name="sb_submit_failed_forbidden" formatted="false">Impossibile inviare il segmento (%s)</string>
-    <string name="sb_submit_failed_duplicate">Impossibile inviare il segmento.
-È già presente un duplicato</string>
-    <string name="sb_submit_succeeded">Segmento correttamente inviato</string>
-    <string name="sb_vote_failed_timeout">Impossibile votare per il segmento (API scaduto)</string>
-    <string name="sb_vote_failed_unknown_error" formatted="false">Impossibile votare per il segmento (%d %s)</string>
-    <string name="sb_vote_failed_forbidden" formatted="false">Impossibile votare per il segmento (%s)</string>
-    <string name="sb_vote_upvote">Voto positivo</string>
-    <string name="sb_vote_downvote">Voto negativo</string>
-    <string name="sb_vote_category">Cambia categoria</string>
-    <string name="sb_vote_no_segments">Non ci sono segmenti da votare</string>
-    <string name="sb_new_segment_choose_category">Scegli la categoria del segmento</string>
-    <string name="sb_new_segment_disabled_category">La categoria è disattivata nelle impostazioni. Attiva la categoria da inviare</string>
-    <string name="sb_new_segment_title">Nuovo segmento SponsorBlock</string>
-    <string name="sb_new_segment_mark_time_as_question" formatted="false">Impostare %02d:%02d:%03d come inizio o fine di un nuovo segmento?</string>
-    <string name="sb_new_segment_mark_start">inizio</string>
-    <string name="sb_new_segment_mark_end">fine</string>
-    <string name="sb_new_segment_now">ora</string>
-    <string name="sb_new_segment_time_start">Il segmento inizia a</string>
-    <string name="sb_new_segment_time_end">Il segmento termina a</string>
-    <string name="sb_new_segment_confirm_title">I valori temporali sono corretti?</string>
-    <string name="sb_new_segment_confirm_content" formatted="false">Il segmento dura da %02d:%02d a %02d:%02d (%d minuti %02d secondi).
-Il segmento è pronto per l\'invio?</string>
-    <string name="sb_new_segment_start_is_before_end">L\'inizio deve essere antecedente alla fine</string>
-    <string name="sb_new_segment_mark_locations_first">Segna prima due posizioni sulla barra di avanzamento</string>
-    <string name="sb_new_segment_preview_segment_first">Visualizzare in anteprima il segmento e assicurarsi che lo salti senza problemi</string>
-    <string name="sb_new_segment_edit_by_hand_title">Modifica manualmente il periodo temporale del segmento</string>
-    <string name="sb_new_segment_edit_by_hand_content">Vuoi modificare l\'intervallo temporale di inizio o fine segmento?</string>
-    <string name="sb_new_segment_edit_by_hand_parse_error">Il periodo temporale fornito non è valido</string>
     <string name="sb_stats">Statistiche</string>
     <string name="sb_stats_connection_failure">Statistiche temporaneamente non disponibili (API down)</string>
+    <string name="sb_stats_reputation" formatted="false">La tua reputazione è &lt;b&gt;%.2f&lt;/b&gt;</string>
+    <string name="sb_stats_saved" formatted="false">Hai salvato le persone da &lt;b&gt;%s&lt;/b&gt; segmenti</string>
+    <string name="sb_stats_saved_hour_format" formatted="false">%s ore %s minuti</string>
+    <string name="sb_stats_saved_minute_format" formatted="false">%s minuti %s secondi</string>
+    <string name="sb_stats_saved_second_format" formatted="false">%s secondi</string>
+    <string name="sb_stats_saved_sum" formatted="false">Per un totale di &lt;b&gt;%s&lt;/b&gt; della loro vita. Tocca qui per vedere la classifica</string>
+    <string name="sb_stats_saved_sum_zero">Tocca qui per vedere le statistiche globali e i migliori contributori</string>
+    <string name="sb_stats_saved_zero">Classifica di SponsorBlock</string>
     <string name="sb_stats_sb_disabled">SponsorBlock è disattivato</string>
+    <string name="sb_stats_self_saved" formatted="false">Hai saltato &lt;b&gt;%s&lt;/b&gt; segmenti</string>
+    <string name="sb_stats_self_saved_reset_title">Ripristinare il contatore dei segmenti saltati?</string>
+    <string name="sb_stats_self_saved_sum" formatted="false">Per un totale di &lt;b&gt;%s&lt;/b&gt;</string>
+    <string name="sb_stats_submissions" formatted="false">Hai creato &lt;b&gt;%s&lt;/b&gt; segmenti</string>
     <string name="sb_stats_username" formatted="false">Il tuo nome utente: &lt;b&gt;%s&lt;/b&gt;</string>
     <string name="sb_stats_username_change">Tocca qui per cambiare il tuo nome utente</string>
     <string name="sb_stats_username_change_unknown_error" formatted="false">Impossibile cambiare il nome utente (%d %s)</string>
     <string name="sb_stats_username_changed">Nome utente cambiato correttamente</string>
-    <string name="sb_stats_reputation" formatted="false">La tua reputazione è &lt;b&gt;%.2f&lt;/b&gt;</string>
-    <string name="sb_stats_submissions" formatted="false">Hai creato &lt;b&gt;%s&lt;/b&gt; segmenti</string>
-    <string name="sb_stats_saved_zero">Classifica di SponsorBlock</string>
-    <string name="sb_stats_saved" formatted="false">Hai salvato le persone da &lt;b&gt;%s&lt;/b&gt; segmenti</string>
-    <string name="sb_stats_saved_sum_zero">Tocca qui per vedere le statistiche globali e i migliori contributori</string>
-    <string name="sb_stats_saved_sum" formatted="false">Per un totale di &lt;b&gt;%s&lt;/b&gt; della loro vita. Tocca qui per vedere la classifica</string>
-    <string name="sb_stats_self_saved" formatted="false">Hai saltato &lt;b&gt;%s&lt;/b&gt; segmenti</string>
-    <string name="sb_stats_self_saved_sum" formatted="false">Per un totale di &lt;b&gt;%s&lt;/b&gt;</string>
-    <string name="sb_stats_self_saved_reset_title">Ripristinare il contatore dei segmenti saltati?</string>
-    <string name="sb_stats_saved_hour_format" formatted="false">%s ore %s minuti</string>
-    <string name="sb_stats_saved_minute_format" formatted="false">%s minuti %s secondi</string>
-    <string name="sb_stats_saved_second_format" formatted="false">%s secondi</string>
-    <string name="sb_color_dot_label">Colore:</string>
-    <string name="sb_color_changed">Colore cambiato</string>
-    <string name="sb_color_reset">Colore ripristinato al predefinito</string>
-    <string name="sb_color_invalid">Codice colore non valido</string>
-    <string name="sb_reset_color">Ripristina colore</string>
-    <string name="sb_about">Informazioni</string>
-    <string name="sb_reset">Ripristina</string>
-    <string name="sb_about_api_sum">I dati sono forniti dall\'API di SponsorBlock. Tocca qui per saperne di più e vedere i download per altre piattaforme</string>
+    <string name="sb_submit_failed_duplicate">Impossibile inviare il segmento perchè è già presente un duplicato</string>
+    <string name="sb_submit_failed_forbidden" formatted="false">Impossibile inviare il segmento (%s)</string>
+    <string name="sb_submit_failed_invalid" formatted="false">Impossibile inviare il segmento (%s)</string>
+    <string name="sb_submit_failed_rate_limit">Impossibile inviare il segmento.
+    <string name="sb_submit_failed_timeout">Impossibile inviare i segmenti (API scaduto)</string>
+    <string name="sb_submit_failed_unknown_error" formatted="false">Impossibile inviare i segmenti (%d %s)</string>
+Soglia raggiunta (troppe richieste provenienti dallo stesso utente o IP)</string>
+    <string name="sb_submit_succeeded">Segmento correttamente inviato</string>
+    <string name="sb_toast_on_connection_error_summary_off">Notifica toast nascosta se l\'API di SponsorBlock non è disponibile</string>
+    <string name="sb_toast_on_connection_error_summary_on">Notifica toast visibile se l\'API di SponsorBlock non è disponibile</string>
+    <string name="sb_toast_on_connection_error_title">Mostra una notifica toast se l\'API non è disponibile</string>
+    <string name="sb_vote_category">Cambia categoria</string>
+    <string name="sb_vote_downvote">Voto negativo</string>
+    <string name="sb_vote_failed_forbidden" formatted="false">Impossibile votare per il segmento (%s)</string>
+    <string name="sb_vote_failed_timeout">Impossibile votare per il segmento (API scaduto)</string>
+    <string name="sb_vote_failed_unknown_error" formatted="false">Impossibile votare per il segmento (%d %s)</string>
+    <string name="sb_vote_no_segments">Non ci sono segmenti da votare</string>
+    <string name="sb_vote_upvote">Voto positivo</string>
 </resources>
