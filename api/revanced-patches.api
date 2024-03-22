@@ -642,8 +642,8 @@ public final class app/revanced/patches/music/utils/intenthook/IntentHookPatch :
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/music/utils/intenthook/fingerprints/FullStackTraceActivityFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
-	public static final field INSTANCE Lapp/revanced/patches/music/utils/intenthook/fingerprints/FullStackTraceActivityFingerprint;
+public final class app/revanced/patches/music/utils/intenthook/fingerprints/GoogleApiActivityFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
+	public static final field INSTANCE Lapp/revanced/patches/music/utils/intenthook/fingerprints/GoogleApiActivityFingerprint;
 }
 
 public final class app/revanced/patches/music/utils/litho/LithoFilterPatch : app/revanced/patcher/patch/BytecodePatch, java/io/Closeable {

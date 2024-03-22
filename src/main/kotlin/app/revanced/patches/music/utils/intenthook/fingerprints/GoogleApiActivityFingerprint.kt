@@ -2,10 +2,10 @@ package app.revanced.patches.music.utils.intenthook.fingerprints
 
 import app.revanced.patcher.fingerprint.MethodFingerprint
 
-object FullStackTraceActivityFingerprint : MethodFingerprint(
+object GoogleApiActivityFingerprint : MethodFingerprint(
     returnType = "V",
     parameters = listOf("Landroid/os/Bundle;"),
     customFingerprint = { methodDef, _ ->
-        methodDef.definingClass.endsWith("/FullStackTraceActivity;") && methodDef.name == "onCreate"
+        methodDef.definingClass.endsWith("/GoogleApiActivity;") && methodDef.name == "onCreate"
     }
 )
