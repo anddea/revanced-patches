@@ -53,19 +53,20 @@ import app.revanced.util.copyResources
                 "19.11.38"
             ]
         )
-    ]
+    ],
+    use = true
 )
 @Suppress("unused")
 object ShortsOverlayButtonsPatch : ResourcePatch() {
-    private const val DEFAULT_ICON_KEY = "Outline"
+    private const val DEFAULT_ICON_KEY = "TikTok"
 
     private val IconType by stringPatchOption(
         key = "IconType",
         default = DEFAULT_ICON_KEY,
         values = mapOf(
-            DEFAULT_ICON_KEY to "outline",
+            "Outline" to "outline",
             "OutlineCircle" to "outlinecircle",
-            "TikTok" to "tiktok"
+            DEFAULT_ICON_KEY to "tiktok"
         ),
         title = "Icon type of Shorts",
         description = "Apply different icons for Shorts action buttons."
