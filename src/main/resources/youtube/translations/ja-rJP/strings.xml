@@ -445,11 +445,11 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_hide_get_premium_summary_off">プレーヤーと動画の説明の間にある YouTube Premium プロモーションバナーは表示されます。</string>
     <string name="revanced_hide_get_premium_summary_on">プレーヤーと動画の説明の間にある YouTube Premium プロモーションバナーは非表示です。</string>
     <string name="revanced_hide_get_premium_title">Premium のプロモーションを非表示</string>
-    <string name="revanced_hide_gray_description_summary_off">"グレーの説明が表示されます。
+    <string name="revanced_hide_gray_description_summary_off">"グレーの説明が表示されます:
 • プレイリストから後で見る。
 • 他の人はこの動画も見ています。
 • チャンネルの視聴者はこのチャンネルなども見ています。"</string>
-    <string name="revanced_hide_gray_description_summary_on">"グレーの説明は非表示になります。
+    <string name="revanced_hide_gray_description_summary_on">"グレーの説明は非表示になります:
 • プレイリストから後で見る。
 • 他の人はこの動画も見ています。
 • チャンネルの視聴者はこのチャンネルなども見ています。"</string>
@@ -1071,10 +1071,19 @@ DeArrow の詳細については、ここをタップしてください。"</str
 
 中央に大文字が含まれる単語は、大文字と小文字を区別して入力する必要があります。 (例: iPhone, TikTok, LeBlanc)"</string>
     <string name="revanced_keyword_filter_strings_title">キーワードフィルターを編集</string>
-    <string name="revanced_hide_keyword_content_feed_summary_off">キーワードフィルターが無効になっています。</string>
-    <string name="revanced_hide_keyword_content_feed_summary_on">キーワードフィルターが有効になっています。</string>
+    <string name="revanced_hide_keyword_content_feed_summary_off">キーワードフィルターは無効です。</string>
+    <string name="revanced_hide_keyword_content_feed_summary_on">キーワードフィルターは有効です。</string>
     <string name="revanced_keyword_filter_summary">キーワードフィルターを使用してフィードと検索結果の動画を非表示にします。</string>
     <string name="revanced_hide_keyword_content_feed_title">キーワードフィルターを有効にする</string>
+    <string name="revanced_hide_keyword_content_about_summary">検索,ホーム,サブスクリプションの結果がフィルタリングされ、キーワードフレーズに一致するコンテンツが非表示になります。\n\n制限事項:\n• 一部のショート動画は非表示にできない場合があります。\n• 一部の UI コンポーネントは非表示にならない場合があります。\n• キーワードを検索しても結果が表示されない場合があります。</string>
+    <string name="revanced_hide_keyword_content_comment_summary_off">コメントのキーワードフィルターは無効です。</string>
+    <string name="revanced_hide_keyword_content_comment_summary_on">コメントのキーワードフィルターは有効です。</string>
+    <string name="revanced_hide_keyword_content_comment_title">コメントキーワードフィルターを有効にする</string>
+    <string name="revanced_hide_keyword_content_sub_summary_off">サブスクリプションキーワードフィルターは無効です。</string>
+    <string name="revanced_hide_keyword_content_sub_summary_on">サブスクリプションキーワードフィルターは無効です。</string>
+    <string name="revanced_hide_keyword_content_sub_title">サブスクリプションキーワードフィルターを有効にする</string>
+    <string name="revanced_hide_keyword_toast_invalid_common" formatted="false">無効なキーワードです。 \'%s\' をフィルタとして使用できません</string>
+    <string name="revanced_keyword_filter_title">キーワードフィルター</string>
     <string name="revanced_hide_player_button_background_summary_off">プレーヤーボタンの背景が表示されます。</string>
     <string name="revanced_hide_player_button_background_summary_on">プレーヤーボタンの背景は非表示になります。</string>
     <string name="revanced_hide_player_button_background_title">プレーヤーのボタンの背景を非表示にする</string>
