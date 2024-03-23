@@ -25,7 +25,11 @@ object CustomBrandingIconPatch : ResourcePatch() {
     private val availableIcon = mapOf(
         "MMT" to "mmt",
         DEFAULT_ICON_KEY to "revancify_blue",
-        "Revancify Red" to "revancify_red"
+        "Revancify Red" to "revancify_red",
+        "AFN Blue" to "afn_blue",
+        "AFN Red" to "afn_red",
+        "Vanced Black" to "vanced_black",
+        "Vanced Light" to "vanced_light"
     )
 
     private val SplashHeaderIcon by booleanPatchOption(
