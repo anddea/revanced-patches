@@ -1,3 +1,23 @@
+# [2.222.0-dev.9](https://github.com/anddea/revanced-patches/compare/v2.222.0-dev.8...v2.222.0-dev.9) (2024-03-23)
+
+
+### Bug Fixes
+
+* **YouTube - Shorts overlay buttons:** Resize icons ([e348565](https://github.com/anddea/revanced-patches/commit/e348565caaa352e4004910d87e43fb612907ae21))
+* **YouTube - Translations:** Update translations info ([12982f4](https://github.com/anddea/revanced-patches/commit/12982f423660b3e9289d04bb0666249b737d2ee9))
+* **YouTube - Translations:** Update translations info ([25ce0a9](https://github.com/anddea/revanced-patches/commit/25ce0a988e2601bf4b61cbd5b1c85bd7f6951ddb))
+
+
+### Features
+
+* **YouTube - Translations:** Update `Italian` ([#115](https://github.com/anddea/revanced-patches/issues/115)) ([31218ed](https://github.com/anddea/revanced-patches/commit/31218ed20367504808ceb061d908f88696cfeafb))
+* **YouTube - Translations:** Update `Italian` ([#119](https://github.com/anddea/revanced-patches/issues/119)) ([148a03e](https://github.com/anddea/revanced-patches/commit/148a03e8d867484450fd141467673c3808ec0e12))
+* **YouTube - Translations:** Update `Japanese` ([#113](https://github.com/anddea/revanced-patches/issues/113)) ([8f2be3a](https://github.com/anddea/revanced-patches/commit/8f2be3af048df72146d81574515f1cd7650cc5df))
+* **YouTube - Translations:** Update `Korean` ([#116](https://github.com/anddea/revanced-patches/issues/116)) ([54516c1](https://github.com/anddea/revanced-patches/commit/54516c1275869cc589a93f3e0b8961c0cc040a48))
+* **YouTube - Translations:** Update `Korean` ([#120](https://github.com/anddea/revanced-patches/issues/120)) ([73e6139](https://github.com/anddea/revanced-patches/commit/73e61391df4a13e7cdbe7528154b624a12d8ebaa))
+* **YouTube - Translations:** Update `Spanish` ([#117](https://github.com/anddea/revanced-patches/issues/117)) ([18f5ac3](https://github.com/anddea/revanced-patches/commit/18f5ac3eb201f6493ff7467ef026c0b63c882df4))
+* **YT Music - Custom branding icon:** Add more options ([86ec325](https://github.com/anddea/revanced-patches/commit/86ec3250cdd5ad40837067923b1eb5ef69f4e37e))
+
 # [2.222.0-dev.8](https://github.com/anddea/revanced-patches/compare/v2.222.0-dev.7...v2.222.0-dev.8) (2024-03-22)
 
 
