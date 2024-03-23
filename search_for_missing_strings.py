@@ -9,7 +9,7 @@ destination_directory = "src/main/resources/youtube/translations"
 
 # Function to extract strings from a file
 def extract_strings(file_path):
-    with open(file_path, 'r') as file:
+    with open(file_path, 'r', encoding='utf-8') as file:
         content = file.read()
         strings = re.findall(r'<string(?:\s+name="([^"]*)")?(.*?)>(.*?)</string>', content, re.DOTALL)
         return set(strings)
