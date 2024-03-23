@@ -1,5 +1,6 @@
 import os
 import re
+import sys
 
 # Define source file path
 source_file = "src/main/resources/youtube/settings/host/values/strings.xml"
@@ -75,3 +76,7 @@ for root, dirs, files in os.walk(destination_directory):
 
             num_missing = len(missing_strings)
             print(f"{language_code} - {num_missing} missing strings.")
+
+# Prompt the user to press a key before closing the terminal window
+input("\nPress Enter to exit...")
+sys.exit(0)  # Optional, but ensures proper termination of the script
