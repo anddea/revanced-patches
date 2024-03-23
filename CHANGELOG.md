@@ -1,3 +1,10 @@
+# [2.222.0-dev.10](https://github.com/anddea/revanced-patches/compare/v2.222.0-dev.9...v2.222.0-dev.10) (2024-03-23)
+
+
+### Features
+
+* **YouTube - Translations:** Update `Italian` ([#123](https://github.com/anddea/revanced-patches/issues/123)) ([73fae53](https://github.com/anddea/revanced-patches/commit/73fae530cd31c630844a0ad2a079756604ef777d))
+
 # [2.222.0-dev.9](https://github.com/anddea/revanced-patches/compare/v2.222.0-dev.8...v2.222.0-dev.9) (2024-03-23)
 
 
