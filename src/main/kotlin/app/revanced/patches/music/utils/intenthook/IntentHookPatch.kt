@@ -7,17 +7,17 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.music.utils.integrations.Constants.INTEGRATIONS_PATH
-import app.revanced.patches.music.utils.intenthook.fingerprints.FullStackTraceActivityFingerprint
+import app.revanced.patches.music.utils.intenthook.fingerprints.GoogleApiActivityFingerprint
 import app.revanced.patches.music.utils.settings.SettingsPatch
 import app.revanced.util.exception
 
 @Patch(dependencies = [SettingsPatch::class])
 object IntentHookPatch : BytecodePatch(
-    setOf(FullStackTraceActivityFingerprint)
+    setOf(GoogleApiActivityFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
 
-        FullStackTraceActivityFingerprint.result?.let {
+        GoogleApiActivityFingerprint.result?.let {
             it.mutableMethod.apply {
                 addInstructionsWithLabels(
                     1, """
@@ -28,7 +28,7 @@ object IntentHookPatch : BytecodePatch(
                         """, ExternalLabel("show", getInstruction(1))
                 )
             }
-        } ?: throw FullStackTraceActivityFingerprint.exception
+        } ?: throw GoogleApiActivityFingerprint.exception
 
     }
 }

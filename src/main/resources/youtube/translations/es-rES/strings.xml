@@ -2,7 +2,7 @@
 <resources>
     <string name="accessibility_settings_edu_opt_in_text">¿Activar los controles de accesibilidad para el reproductor de vídeo?</string>
     <string name="accessibility_settings_edu_opt_out_text">Sus controles se modifican porque un servicio de accesibilidad está activado.</string>
-    <string name="microg_not_installed_notice">Por favor, instale MicroG</string>
+    <string name="microg_not_installed_notice">Por favor, instala MicroG</string>
     <string name="microg_not_installed_warning">MicroG no se encuentra</string>
     <string name="microg_not_running_warning">MicroG no se ejecuta en segundo plano</string>
     <string name="microg_settings_summary">Activa los ajustes de mensajería en la nube para recibir notificaciones</string>
@@ -119,7 +119,7 @@ Nota: Es una característica que no ha sido probada."</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">Desactivar vibración de los capítulos</string>
     <string name="revanced_disable_haptic_feedback_scrubbing_title">Desactivar vibración al deslizar</string>
     <string name="revanced_disable_haptic_feedback_seek_title">Desactivar vibración al desplazarse</string>
-    <string name="revanced_disable_haptic_feedback_seek_undo_title">Desactivar vibración al desplazarse</string>
+    <string name="revanced_disable_haptic_feedback_seek_undo_title">Desactivar vibración al deshacer desplazamiento</string>
     <string name="revanced_disable_haptic_feedback_zoom_title">Desactivar vibración al hacer zoom</string>
     <string name="revanced_disable_hdr_auto_brightness_summary_off">El brillo HDR automático está activado</string>
     <string name="revanced_disable_hdr_auto_brightness_summary_on">El brillo HDR automático está desactivado</string>
@@ -874,7 +874,7 @@ Problemas conocidos
     <string name="sb_general_time_without">Mostrar duración del vídeo sin segmentos</string>
     <string name="sb_general_time_without_sum_on">Duración del vídeo sin todos los segmentos, que se muestran entre paréntesis junto a la duración completa del vídeo</string>
     <string name="sb_general_time_without_sum_off">La duración completa del vídeo está visible</string>
-    <string name="sb_create_segment_category">Crear nuevo segmento</string>
+    <string name="sb_create_segment_category">Creación de nuevo segmento</string>
     <string name="sb_enable_create_segment">Mostrar botón de crear nuevo segmento</string>
     <string name="sb_enable_create_segment_sum_on">El botón de crear nuevo segmento está visible.</string>
     <string name="sb_enable_create_segment_sum_off">El botón de crear nuevo segmento está oculto.</string>
@@ -915,29 +915,29 @@ Problemas conocidos
     <string name="sb_settings_revanced_export_user_id_warning_dismiss">No volver a mostrar</string>
     <string name="sb_diff_segments">¿Qué hacer con los diferentes segmentos?</string>
     <string name="sb_segments_sponsor">Patrocinador</string>
-    <string name="sb_segments_sponsor_sum">Promoción pagada, referencias pagadas y anuncios directos. No para autopromocionarse ni para dar publicidad gratuita a causas, creadores, sitios web o productos que les gustan</string>
-    <string name="sb_segments_selfpromo">Autopromoción/No pagada</string>
-    <string name="sb_segments_selfpromo_sum">Similar a \"Patrocinador\", excepto en el caso de la autopromoción o no pagada. Incluye secciones sobre mercancía, donaciones o información sobre con quién han colaborado</string>
+    <string name="sb_segments_sponsor_sum">Promoción pagada, referencias pagadas y anuncios directos. No para autopromocionarse ni para dar publicidad gratuita a causas, creadores, sitios web o productos que les gustan.</string>
+    <string name="sb_segments_selfpromo">Promoción propia/no pagada</string>
+<string name="sb_segments_selfpromo_sum">Similar a \"Patrocinador\", excepto cuando se trata de promoción propia o no pagada. Incluye secciones sobre mercancía, donaciones o información sobre con quién colaboraron.</string>
     <string name="sb_segments_interaction">Recordatorio de interacción (suscripción)</string>
-    <string name="sb_segments_interaction_sum">Un breve recordatorio para que den me gusta, se suscriban o les sigan en medio del contenido. Si es largo o trata sobre algo específico, debería ir en la sección de autopromoción</string>
+    <string name="sb_segments_interaction_sum">Un breve recordatorio para que des me gusta, te suscribas o les sigas en medio del contenido. Si es largo o trata sobre algo específico, debería ir en la sección de promoción propia.</string>
     <string name="sb_segments_highlight">Destacado</string>
-    <string name="sb_segments_highlight_sum">La parte del vídeo que la mayoría de la gente busca</string>
+    <string name="sb_segments_highlight_sum">La parte del vídeo que la mayoría de la gente busca.</string>
     <string name="sb_segments_intro">Animación de introducción/Intermisión</string>
-    <string name="sb_segments_intro_sum">Un intervalo sin contenido real. Puede ser una pausa, un fotograma estático o una animación que se repite. No incluye transiciones que contengan información</string>
+    <string name="sb_segments_intro_sum">Un intervalo sin contenido real. Puede ser una pausa, un fotograma estático o una animación que se repite. No incluye transiciones que contengan información.</string>
     <string name="sb_segments_outro">Tarjetas finales/Créditos</string>
-    <string name="sb_segments_outro_sum">Créditos o cuando aparecen las tarjetas finales de YouTube. No para conclusiones con información</string>
-    <string name="sb_segments_preview">Vista previa/Resumen/Enganche</string>
-    <string name="sb_segments_preview_sum">Colección de clips que muestran lo que está por venir o lo que sucedió en el vídeo o en otros vídeos de una serie, donde toda la información se repite en otra parte</string>
+    <string name="sb_segments_outro_sum">Créditos o cuando aparecen las tarjetas finales de YouTube. No para conclusiones con información.</string>
+    <string name="sb_segments_preview">Adelanto/Resumen/Enganche</string>
+    <string name="sb_segments_preview_sum">Colección de clips que muestran lo que está por venir o lo que sucedió en el vídeo o en otros vídeos de una serie, donde toda la información se repite en otra parte.</string>
     <string name="sb_segments_filler">Tangente de relleno/Chistes</string>
-    <string name="sb_segments_filler_sum">Escenas tangenciales añadidas solo para relleno o humor que no son necesarias para entender el contenido principal del vídeo. No incluye segmentos que proporcionen contexto o detalles de fondo</string>
+    <string name="sb_segments_filler_sum">Escenas tangenciales añadidas solo para relleno o humor que no son necesarias para entender el contenido principal del vídeo. No incluye segmentos que proporcionen contexto o detalles de fondo.</string>
     <string name="sb_segments_nomusic">Música: Sección sin música</string>
-    <string name="sb_segments_nomusic_sum">Solo para usar en vídeos musicales. Secciones de vídeos musicales sin música, que no estén ya cubiertas por otra categoría</string>
+    <string name="sb_segments_nomusic_sum">Solo para usar en vídeos musicales. Secciones de vídeos musicales sin música, que no estén ya cubiertas por otra categoría.</string>
     <string name="sb_skip_button_compact">Omitir</string>
     <string name="sb_skip_button_compact_highlight">Destacado</string>
     <string name="sb_skip_button_sponsor">Omitir patrocinador</string>
     <string name="sb_skip_button_selfpromo">Omitir promoción</string>
     <string name="sb_skip_button_interaction">Omitir interacción</string>
-    <string name="sb_skip_button_highlight">Ir a destacado</string>
+    <string name="sb_skip_button_highlight">Omitir destacado</string>
     <string name="sb_skip_button_intro_beginning">Omitir introducción</string>
     <string name="sb_skip_button_outro">Omitir créditos</string>
     <string name="sb_skip_button_preview_beginning">Omitir resumen</string>
@@ -945,12 +945,12 @@ Problemas conocidos
     <string name="sb_skip_button_nomusic">Omitir sin música</string>
     <string name="sb_skip_button_unsubmitted">Omitir segmento</string>
     <string name="sb_skipped_sponsor">Patrocinador omitido</string>
-    <string name="sb_skipped_selfpromo">Autopromoción omitida</string>
+    <string name="sb_skipped_selfpromo">Promoción propia omitida</string>
     <string name="sb_skipped_interaction">Recordatorio molesto omitido</string>
-    <string name="sb_skipped_highlight">Saltado a destacado</string>
+    <string name="sb_skipped_highlight">Destacado omitido</string>
     <string name="sb_skipped_intro_beginning">Introducción omitida</string>
     <string name="sb_skipped_outro">Créditos omitidos</string>
-    <string name="sb_skipped_preview_beginning">Resumen omitido</string>
+    <string name="sb_skipped_preview_beginning">Adelanto omitido</string>
     <string name="sb_skipped_filler">Relleno omitido</string>
     <string name="sb_skipped_nomusic">Sección sin música omitida</string>
     <string name="sb_skipped_unsubmitted">Segmento no enviado omitido</string>
@@ -987,12 +987,12 @@ Problemas conocidos
     <string name="sb_new_segment_time_start">Tiempo en que comienza el segmento</string>
     <string name="sb_new_segment_time_end">Tiempo en que finaliza el segmento</string>
     <string name="sb_new_segment_confirm_title">¿Son correctos los tiempos?</string>
-    <string name="sb_new_segment_confirm_content" formatted="false">El segmento dura de %02d:%02d hasta %02d:%02d (%d minutos %02d segundos)\n¿Está listo para enviarlo?</string>
+    <string name="sb_new_segment_confirm_content" formatted="false">El segmento dura de %02d:%02d hasta %02d:%02d (%d minutos %02d segundos)\n¿Está listo para ser enviado?</string>
     <string name="sb_new_segment_start_is_before_end">El inicio debe ser antes del final</string>
-    <string name="sb_new_segment_mark_locations_first">Primero marque dos ubicaciones en la barra de tiempo</string>
-    <string name="sb_new_segment_preview_segment_first">Previsualice el segmento y asegúrese de que salta sin problemas</string>
+    <string name="sb_new_segment_mark_locations_first">Primero marca dos ubicaciones en la barra de tiempo</string>
+    <string name="sb_new_segment_preview_segment_first">Previsualiza el segmento y asegúrate de que se omite sin problemas</string>
     <string name="sb_new_segment_edit_by_hand_title">Editar tiempo del segmento manualmente</string>
-    <string name="sb_new_segment_edit_by_hand_content">¿Desea editar el tiempo para el inicio o el fin del segmento?</string>
+    <string name="sb_new_segment_edit_by_hand_content">¿Quieres editar el tiempo para el inicio o el fin del segmento?</string>
     <string name="sb_new_segment_edit_by_hand_parse_error">Tiempo no válido</string>
     <string name="sb_stats">Estadísticas</string>
     <string name="sb_stats_connection_failure">Estadísticas temporalmente no disponibles (la API está caída)</string>
@@ -1020,5 +1020,72 @@ Problemas conocidos
     <string name="sb_reset_color">Restablecer color</string>
     <string name="sb_about">Información</string>
     <string name="sb_reset">Restablecer</string>
-    <string name="sb_about_api_sum">Los datos son proporcionados por la API de SponsorBlock. Pulsa aquí para aprender más y ver las descargas para otras plataformas</string>
+    <string name="sb_about_api_sum">Los datos son proporcionados por la API de SponsorBlock. Pulsa aquí para aprender más y ver las descargas para otras plataformas.</string>
+
+    <string name="revanced_change_start_page_entry_browse">Explorar canales</string>
+    <string name="revanced_change_start_page_entry_gaming">Videojuegos</string>
+    <string name="revanced_change_start_page_entry_live">En directo</string>
+    <string name="revanced_change_start_page_entry_movies">Películas</string>
+    <string name="revanced_change_start_page_entry_music">Música</string>
+    <string name="revanced_change_start_page_entry_sports">Deportes</string>
+    <string name="revanced_change_start_page_entry_watch_later">Ver más tarde</string>
+    <string name="revanced_hide_keyword_toast_invalid_length" formatted="false">Longitud de palabra clave no válida (debe tener al menos %s caracteres): %s.</string>
+    <string name="revanced_keyword_filter_strings_summary">"Configura las palabras y frases clave que quieres ocultar, separadas por nuevas líneas.
+
+Las palabras con letras mayúsculas en el medio deben introducirse con las mayúsculas (p. ej.: iPhone, TikTok, LeBlanc)."</string>
+    <string name="revanced_keyword_filter_strings_title">Editar filtro de palabras clave</string>
+    <string name="revanced_hide_keyword_content_feed_summary_off">El filtro de palabras clave para el feed y la búsqueda está desactivado.</string>
+    <string name="revanced_hide_keyword_content_feed_summary_on">El filtro de palabras clave para el feed y la búsqueda está activado.</string>
+    <string name="revanced_keyword_filter_summary">Oculta vídeos mediante un filtro de palabras clave.</string>
+    <string name="revanced_hide_keyword_content_feed_title">Activar filtro de palabras clave</string>
+    <string name="revanced_disable_rolling_number_animations_summary_off">Las animaciones rodantes están activadas.</string>
+    <string name="revanced_disable_rolling_number_animations_summary_on">Las animaciones rodantes están desactivadas.</string>
+    <string name="revanced_disable_rolling_number_animations_title">Desactivar animaciones de números rodantes</string>
+    <string name="revanced_hide_community_posts_related_video_summary_off">Las publicaciones comunitarias en vídeos relacionados están visibles.</string>
+    <string name="revanced_hide_community_posts_related_video_summary_on">Las publicaciones comunitarias en vídeos relacionados están ocultas.</string>
+    <string name="revanced_hide_community_posts_related_video_title">Ocultar publicaciones comunitarias en vídeos relacionados</string>
+    <string name="revanced_hide_suggested_video_overlay_auto_play_summary">Cuando termines un vídeo, se reproducirá otro automáticamente</string>
+    <string name="revanced_hide_suggested_video_overlay_auto_play_title">Reproducir automáticamente el siguiente vídeo</string>
+    <string name="revanced_hide_home_feed_membership_video_summary">Oculta los vídeos con la etiqueta \"Solo para miembros\" en la página de inicio</string>
+    <string name="revanced_hide_home_feed_membership_video_title">Ocultar vídeos para miembros en página de inicio</string>
+    <string name="revanced_overlay_button_time_ordered_playlist_summary">"Pulsa para generar una lista de reproducción de todos los vídeos del canal de más antiguo a más reciente".</string>
+    <string name="revanced_overlay_button_time_ordered_playlist_title">Botón de lista de reproducción ordenada por tiempo</string>
+    <string name="revanced_overlay_button_whitelisting_summary">Pulsa para añadir un canal a excepciones de canales.</string>
+    <string name="revanced_overlay_button_whitelisting_title">Botón de excepciones</string>
+    <string name="revanced_override_premium_header_summary_off">Cabecera actual: Cabecera predeterminada</string>
+    <string name="revanced_override_premium_header_summary_on">Cabecera actual: Cabecera Premium</string>
+    <string name="revanced_override_premium_header_title">Cabecera Premium</string>
+    <string name="revanced_whitelisting_added" formatted="false">El canal %s ha sido añadido a la lista %s</string>
+    <string name="revanced_whitelisting_add_failed" formatted="false">Error al añadir el canal %s a la lista %s</string>
+    <string name="revanced_whitelisting_channel_name">Nombre del canal</string>
+    <string name="revanced_whitelisting_empty">No hay canales en esta lista</string>
+    <string name="revanced_whitelisting_excluded">No añadido a esta lista</string>
+    <string name="revanced_whitelisting_fetch_failed" formated="false">Error al recuperar los detalles del canal, mensaje recibido %d</string>
+    <string name="revanced_whitelisting_included">Añadido a esta lista</string>
+    <string name="revanced_whitelisting_reboot">Reiniciar para aplicar los ajustes de excepciones de canales</string>
+    <string name="revanced_whitelisting_removed" formatted="false">El canal %s ha sido eliminado de la lista %s</string>
+    <string name="revanced_whitelisting_remove_failed" formatted="false">Error al eliminar el canal %s de la lista %s</string>
+    <string name="revanced_whitelisting_settings_summary">Comprobar o eliminar la lista de canales añadidos a excepciones</string>
+    <string name="revanced_whitelisting_speed">Velocidad de vídeo</string>
+    <string name="revanced_whitelisting_speed_button">Velocidad</string>
+    <string name="revanced_whitelisting_sponsorblock">SponsorBlock</string>
+    <string name="revanced_whitelisting_sponsorblock_button">SponsorBlock</string>
+    <string name="revanced_whitelisting_title">Excepciones de canales</string>
+    <string name="revanced_spoof_app_version_target_entry_16_08_35">16.08.35 - Restaurar la antigua pestaña de explorar</string>
+    <string name="revanced_spoof_app_version_target_entry_18_09_39">18.09.39 - Restaurar la antigua pestaña de biblioteca (Desactivar la pestaña Tú)</string>
+    <string name="revanced_spoof_failure_connection_status_code" formatted="false">"Modificar guión gráfico no disponible: "</string>
+    <string name="revanced_spoof_failure_connection_timeout">Modificar guión gráfico temporalmente no disponible (la API no responde).</string>
+    <string name="revanced_spoof_failure_generic">"Modificar guión gráfico temporalmente no disponible: "</string>
+    <string name="revanced_swipe_overlay_rect_warning" formatted="false">El tamaño del área deslizable no puede ser mayor que %s%%. Restablecer al valor predeterminado.</string>
+    <string name="revanced_swipe_overlay_rect_summary">Porcentaje del área de pantalla deslizable.</string>
+    <string name="revanced_swipe_overlay_rect_title">Tamaño de pantalla superpuesta deslizante</string>
+    <string name="revanced_hide_keyword_content_about_summary">Los resultados de la búsqueda/inicio/suscripción se filtran para ocultar el contenido que coincide con frases de palabras clave.\n\nLimitaciones\n• Algunos Shorts pueden no estar ocultos.\n• Algunos componentes de la interfaz de usuario pueden no estar ocultos.\n• La búsqueda de una palabra clave puede no mostrar resultados.</string>
+    <string name="revanced_hide_keyword_content_comment_summary_off">El filtro de palabras clave para los comentarios está desactivado.</string>
+    <string name="revanced_hide_keyword_content_comment_summary_on">El filtro de palabras clave para los comentarios está activado.</string>
+    <string name="revanced_hide_keyword_content_comment_title">Activar filtro de palabras clave para comentarios</string>
+    <string name="revanced_hide_keyword_content_sub_summary_off">El filtro de palabras clave para las suscripciones está desactivado.</string>
+    <string name="revanced_hide_keyword_content_sub_summary_on">El filtro de palabras clave para las suscripciones está activado.</string>
+    <string name="revanced_hide_keyword_content_sub_title">Activar filtro de palabras clave para suscripciones</string>
+    <string name="revanced_hide_keyword_toast_invalid_common" formatted="false">Palabra clave no válida. No se puede utilizar \'%s\' como filtro.</string>
+    <string name="revanced_keyword_filter_title">Filtro de palabras clave</string>
 </resources>

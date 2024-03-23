@@ -65,7 +65,9 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
                 "19.06.39",
                 "19.07.40",
                 "19.08.36",
-                "19.09.37"
+                "19.09.38",
+                "19.10.39",
+                "19.11.38"
             ]
         )
     ]
@@ -102,7 +104,7 @@ object NavigationButtonsPatch : BytecodePatch(
                 val buttonViewResult = this[1]
 
                 val enumHookInsertIndex = enumScanResult.startIndex + 2
-                val buttonHookInsertIndex = buttonViewResult.endIndex
+                val buttonHookInsertIndex = buttonViewResult.endIndex - 1
 
                 mapOf(
                     BUTTON_HOOK to buttonHookInsertIndex,
