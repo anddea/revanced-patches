@@ -978,8 +978,8 @@ Note:
     <string name="sb_guidelines_preference_sum">Le linee guida contengono suggerimenti e regole sull\'invio dei segmenti</string>
     <string name="sb_guidelines_preference_title">Visualizza le linee guida</string>
     <string name="sb_new_segment_choose_category">Scegli la categoria del segmento</string>
-    <string name="sb_new_segment_confirm_content" formatted="false">Il segmento dura da %02d:%02d a %02d:%02d (%d minuti %02d secondi).
-Il segmento è pronto per l\'invio?</string>
+    <string name="sb_new_segment_confirm_content" formatted="false">"Il segmento dura da %02d:%02d a %02d:%02d (%d minuti %02d secondi).
+Il segmento è pronto per l\'invio?"</string>
     <string name="sb_new_segment_confirm_title">I valori temporali sono corretti?</string>
     <string name="sb_new_segment_disabled_category">La categoria è disattivata nelle impostazioni. Attiva la categoria da inviare</string>
     <string name="sb_new_segment_edit_by_hand_content">Vuoi modificare l\'intervallo temporale di inizio o fine segmento?</string>
@@ -1076,10 +1076,11 @@ Il tuo Id utente è come una password e non dovrebbe mai essere condiviso"</stri
     <string name="sb_stats_username_change">Tocca qui per cambiare il tuo nome utente</string>
     <string name="sb_stats_username_change_unknown_error" formatted="false">Impossibile cambiare il nome utente (%d %s)</string>
     <string name="sb_stats_username_changed">Nome utente cambiato correttamente</string>
-    <string name="sb_submit_failed_duplicate">Impossibile inviare il segmento perchè è già presente un duplicato</string>
+    <string name="sb_submit_failed_duplicate">Impossibile inviare il segmento perchè è già presente</string>
     <string name="sb_submit_failed_forbidden" formatted="false">Impossibile inviare il segmento (%s)</string>
     <string name="sb_submit_failed_invalid" formatted="false">Impossibile inviare il segmento (%s)</string>
-    <string name="sb_submit_failed_rate_limit">Impossibile inviare il segmento.\nSoglia raggiunta (troppe richieste provenienti dallo stesso utente o IP)</string>
+    <string name="sb_submit_failed_rate_limit">"Impossibile inviare il segmento.
+Soglia raggiunta (troppe richieste provenienti dallo stesso utente o IP)"</string>
     <string name="sb_submit_failed_timeout">Impossibile inviare i segmenti (API scaduto)</string>
     <string name="sb_submit_failed_unknown_error" formatted="false">Impossibile inviare i segmenti (%d %s)</string>
     <string name="sb_submit_succeeded">Segmento correttamente inviato</string>
