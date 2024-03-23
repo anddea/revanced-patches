@@ -1,3 +1,10 @@
+# [2.222.0](https://github.com/anddea/revanced-patches/compare/v2.221.1...v2.222.0) (2024-03-23)
+
+
+### Features
+
+* Bump auto release ([2362fa5](https://github.com/anddea/revanced-patches/commit/2362fa56f46977cc99e294e9e2cd778d0639c3d8))
+
 # [2.222.0-dev.10](https://github.com/anddea/revanced-patches/compare/v2.222.0-dev.9...v2.222.0-dev.10) (2024-03-23)
 
 
