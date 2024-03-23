@@ -75,7 +75,9 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
                 "19.06.39",
                 "19.07.40",
                 "19.08.36",
-                "19.09.37"
+                "19.09.38",
+                "19.10.39",
+                "19.11.38"
             ]
         )
     ]
@@ -129,7 +131,7 @@ object SwipeControlsPatch : BytecodePatch(
             }
         } ?: throw FullScreenEngagementOverlayFingerprint.exception
 
-        if (SettingsPatch.upward1909) {
+        try {
             HDRBrightnessFingerprint.result?.let {
                 it.mutableMethod.apply {
                     addInstructionsWithLabels(
@@ -141,7 +143,7 @@ object SwipeControlsPatch : BytecodePatch(
                             """, ExternalLabel("default", getInstruction(0))
                     )
                 }
-            }
+            } ?: throw HDRBrightnessFingerprint.exception
 
             /**
              * Add settings
@@ -151,7 +153,10 @@ object SwipeControlsPatch : BytecodePatch(
                     "SETTINGS: SWIPE_EXPERIMENTAL_FLAGS"
                 )
             )
+        } catch (e: Exception) {
+            println("WARNING: Disable auto HDR brightness is not supported in this version. Use YouTube 19.08.36 or earlier (${e.message})")
         }
+
 
         /**
          * Add settings

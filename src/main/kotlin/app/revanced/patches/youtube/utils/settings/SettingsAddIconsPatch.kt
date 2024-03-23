@@ -17,7 +17,7 @@ import org.w3c.dom.NodeList
     description = "Adds icons to specific preferences in the settings.",
     dependencies = [SettingsPatch::class, SponsorBlockPatch::class, SwipeControlsPatch::class],
     compatiblePackages = [CompatiblePackage("com.google.android.youtube", [])],
-    use = true,
+    use = true
 )
 @Suppress("unused")
 object SettingsAddIconsPatch : ResourcePatch() {

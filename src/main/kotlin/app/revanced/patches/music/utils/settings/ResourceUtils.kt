@@ -23,7 +23,7 @@ object ResourceUtils {
         "com.google.android.apps.youtube.music.ui.preference.SwitchCompatPreference"
 
     const val YOUTUBE_MUSIC_PREFERENCE_TARGET_CLASS =
-        "com.google.android.libraries.strictmode.penalties.notification.FullStackTraceActivity"
+        "com.google.android.gms.common.api.GoogleApiActivity"
 
     var targetPackage = "com.google.android.apps.youtube.music"
 

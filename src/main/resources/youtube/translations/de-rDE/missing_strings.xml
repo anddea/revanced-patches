@@ -5,15 +5,6 @@
 <string name="revanced_change_start_page_entry_music">Music</string>
 <string name="revanced_change_start_page_entry_sports">Sports</string>
 <string name="revanced_change_start_page_entry_watch_later">Watch later</string>
-<string name="revanced_keyword_invalid_length" formatted="false">Invalid keyword length (must be at least %s characters): %s.</string>
-<string name="revanced_keyword_filter_strings_summary">Configure keywords and phrases to hide, separated by new lines
-
-Words with uppercase letters in the middle must be entered with the casing (ie: iPhone, TikTok, LeBlanc).</string>
-<string name="revanced_keyword_filter_strings_title">Edit keyword filter</string>
-<string name="revanced_keyword_filter_summary_off">Keyword filter is disabled.</string>
-<string name="revanced_keyword_filter_summary_on">Keyword filter is enabled.</string>
-<string name="revanced_keyword_filter_summary">Hides feed and search result videos using keyword filters.</string>
-<string name="revanced_keyword_filter_title">Enable keyword filter</string>
 <string name="revanced_disable_rolling_number_animations_summary_off">Rolling animations are enabled.</string>
 <string name="revanced_disable_rolling_number_animations_summary_on">Rolling animations are disabled.</string>
 <string name="revanced_disable_rolling_number_animations_title">Disable rolling number animations</string>
@@ -27,8 +18,12 @@ Words with uppercase letters in the middle must be entered with the casing (ie: 
 <string name="revanced_external_downloader_download">Download app</string>
 <string name="revanced_external_downloader_set">Set as default downloader</string>
 <string name="revanced_force_fullscreen_summary">"Videos will be switched to fullscreen in the following situations:
+
+• When a timestamp in the comments is clicked on.
+• When a video is started."</string>
 <string name="revanced_force_fullscreen_title">Force fullscreen</string>
 <string name="revanced_hide_account_menu_summary">"Hide elements of the account menu and You tab.
+Some components may not be hidden."</string>
 <string name="revanced_hide_button_open_mix_playlist_summary_off">Open mix playlist button is shown.</string>
 <string name="revanced_hide_button_open_mix_playlist_summary_on">Open mix playlist button is hidden.</string>
 <string name="revanced_hide_button_open_mix_playlist_title">Hide open mix playlist button</string>
@@ -55,6 +50,20 @@ Words with uppercase letters in the middle must be entered with the casing (ie: 
 <string name="revanced_hide_handle_summary_off">Handle is shown.</string>
 <string name="revanced_hide_handle_summary_on">Handle is hidden.</string>
 <string name="revanced_hide_handle_title">Hide handle</string>
+<string name="revanced_hide_home_feed_membership_video_summary">Hide videos with \"Only for Membership\" tag in Home Feed</string>
+<string name="revanced_hide_home_feed_membership_video_title">Hide membership videos in Home Feed</string>
+<string name="revanced_hide_keyword_content_about_summary">Search/Home/Subscription results are filtered to hide content that matches keyword phrases\n\nLimitations\n• Some Shorts may not be hidden\n• Some UI components may not be hidden\n• Searching for a keyword may show no results</string>
+<string name="revanced_hide_keyword_content_comment_summary_off">Keyword filter for comments is disabled.</string>
+<string name="revanced_hide_keyword_content_comment_summary_on">Keyword filter for comments is enabled.</string>
+<string name="revanced_hide_keyword_content_comment_title">Enable comments keyword filter</string>
+<string name="revanced_hide_keyword_content_feed_summary_off">Keyword filter for feed and search is disabled.</string>
+<string name="revanced_hide_keyword_content_feed_summary_on">Keyword filter for feed and search is enabled.</string>
+<string name="revanced_hide_keyword_content_feed_title">Enable keyword filter</string>
+<string name="revanced_hide_keyword_content_sub_summary_off">Keyword filter for subscriptions is disabled.</string>
+<string name="revanced_hide_keyword_content_sub_summary_on">Keyword filter for subscriptions is enabled.</string>
+<string name="revanced_hide_keyword_content_sub_title">Enable subscriptions keyword filter</string>
+<string name="revanced_hide_keyword_toast_invalid_common" formatted="false">Invalid keyword. Cannot use: \'%s\' as a filter</string>
+<string name="revanced_hide_keyword_toast_invalid_length" formatted="false">Invalid keyword length (must be at least %s characters): %s.</string>
 <string name="revanced_hide_notifications_button_summary_off">Notifications button in navigation bar is shown.</string>
 <string name="revanced_hide_notifications_button_summary_on">Notifications button in navigation bar is hidden.</string>
 <string name="revanced_hide_notifications_button_title">Hide notifications button</string>
@@ -102,6 +111,8 @@ Words with uppercase letters in the middle must be entered with the casing (ie: 
 <string name="revanced_hide_shorts_player_subscriptions_button_summary_on">Subscriptions button is hidden.</string>
 <string name="revanced_hide_shorts_player_subscriptions_button_title">Hide subscriptions button</string>
 <string name="revanced_hide_shorts_shelf_summary">"Hides Shorts shelves.
+
+Known issue: Official headers in search results will be hidden."</string>
 <string name="revanced_hide_shorts_toolbar_banner_summary_off">Banner is shown.</string>
 <string name="revanced_hide_shorts_toolbar_banner_summary_on">Banner is hidden.</string>
 <string name="revanced_hide_start_trial_button_summary_off">Start trial button is shown.</string>
@@ -113,13 +124,20 @@ Words with uppercase letters in the middle must be entered with the casing (ie: 
 <string name="revanced_hide_suggested_video_overlay_auto_play_summary">When you finished a video, another play automatically</string>
 <string name="revanced_hide_suggested_video_overlay_auto_play_title">Auto play the next video</string>
 <string name="revanced_hide_suggestions_shelf_method_summary_off">"Identifies the suggestions shelf through the browse id.
+
+Known issues:
+• When Browseid is not identified, suggestions shelf may not be hidden."</string>
 <string name="revanced_hide_suggestions_shelf_method_summary_on">"Identifies the suggestions shelf through the current tab.
+
+Known issues:
+• More drawer shelves may be hidden.
+• Playlist shelves may be hidden."</string>
 <string name="revanced_hide_suggestions_shelf_method_title">Select method to hide shelves</string>
-<string name="revanced_hide_home_feed_membership_video_summary">Hide videos with "Only for Membership" tag in Home Feed</string>
-<string name="revanced_hide_home_feed_membership_video_title">Hide membership videos in Home Feed</string>
 <string name="revanced_hide_video_with_gray_description_summary">"Hide videos with gray description from search results.
+Videos with a gray description include videos that are not related to search terms."</string>
 <string name="revanced_hide_video_with_gray_description_title">Hide videos with gray description</string>
 <string name="revanced_hide_video_with_low_view_summary">"Hide videos with less than 1,000 views exposed to the home feed.
+Some videos, including those from channels you subscribe to, may not be hidden even if they have fewer than 1,000 views."</string>
 <string name="revanced_hide_video_with_low_view_title">Hide videos with low views</string>
 <string name="revanced_hide_view_products_title">Hide view products banner</string>
 <string name="revanced_hide_web_search_results_summary_off">Web search results are shown.</string>
@@ -131,41 +149,34 @@ Words with uppercase letters in the middle must be entered with the casing (ie: 
 <string name="revanced_keep_landscape_mode_timeout_summary">The amount of milliseconds the landscape mode is forced.</string>
 <string name="revanced_keep_landscape_mode_timeout_title">Keep landscape mode timeout</string>
 <string name="revanced_keep_landscape_mode_title">Keep landscape mode</string>
+<string name="revanced_keyword_filter_strings_summary">Configure keywords and phrases to hide, separated by new lines\n\nWords with uppercase letters in the middle must be entered with the casing (ie: iPhone, TikTok, LeBlanc).</string>
+<string name="revanced_keyword_filter_strings_title">Edit keyword filter</string>
+<string name="revanced_keyword_filter_summary">Hides videos using keyword filter.</string>
+<string name="revanced_keyword_filter_title">Keyword filter</string>
 <string name="revanced_layout_title">Layout</string>
 <string name="revanced_overlay_button_always_repeat_summary">"Tap to toggle always repeat states.
+Tap and hold to toggle pause after repeat states."</string>
 <string name="revanced_overlay_button_always_repeat_title">Always repeat button</string>
 <string name="revanced_overlay_button_copy_video_url_summary">"Tap to copy video URL.
+Tap and hold to copy video URL with timestamp."</string>
 <string name="revanced_overlay_button_copy_video_url_timestamp_summary">"Tap to copy video URL with timestamp.
+Tap and hold to copy video timestamp."</string>
 <string name="revanced_overlay_button_copy_video_url_timestamp_title">Copy timestamp URL button</string>
 <string name="revanced_overlay_button_copy_video_url_title">Copy video URL button</string>
 <string name="revanced_overlay_button_external_downloader_summary">Tap to launch external downloader.</string>
 <string name="revanced_overlay_button_external_downloader_title">External download button</string>
-<string name="revanced_overlay_button_time_ordered_playlist_summary">"Tap to generate a playlist of all videos from channel from oldest to newest.
-<string name="revanced_overlay_button_time_ordered_playlist_title">Time-ordered playlist button</string>
 <string name="revanced_overlay_button_speed_dialog_reset">Playback speed reset (1.0x).</string>
 <string name="revanced_overlay_button_speed_dialog_summary">"Tap to open speed dialog.
+Tap and hold to set playback speed to 1.0x."</string>
 <string name="revanced_overlay_button_speed_dialog_title">Speed dialog button</string>
+<string name="revanced_overlay_button_time_ordered_playlist_summary">"Tap to generate a playlist of all videos from channel from oldest to newest.
+Tap and hold to undo."</string>
+<string name="revanced_overlay_button_time_ordered_playlist_title">Time-ordered playlist button</string>
 <string name="revanced_overlay_button_whitelisting_summary">Tap to launch add channel into Channel Whitelist.</string>
 <string name="revanced_overlay_button_whitelisting_title">Whitelist button</string>
 <string name="revanced_override_premium_header_summary_off">Current Header: Default Header</string>
 <string name="revanced_override_premium_header_summary_on">Current Header: Premium Header</string>
 <string name="revanced_override_premium_header_title">Premium Header</string>
-<string name="revanced_whitelisting_added" formatted="false">Channel %s was added to the %s whitelist</string>
-<string name="revanced_whitelisting_add_failed" formatted="false">Failed to add channel %s to the %s whitelist</string>
-<string name="revanced_whitelisting_channel_name">Channel Name</string>
-<string name="revanced_whitelisting_empty">There are no whitelisted channels</string>
-<string name="revanced_whitelisting_excluded">Not added to whitelist</string>
-<string name="revanced_whitelisting_fetch_failed" formated="false">Failed to retrieve channel details, received message %d</string>
-<string name="revanced_whitelisting_included">Added to whitelist</string>
-<string name="revanced_whitelisting_reboot">Reboot to apply channel whitelist settings</string>
-<string name="revanced_whitelisting_removed" formatted="false">Channel %s was removed from the %s whitelist</string>
-<string name="revanced_whitelisting_remove_failed" formatted="false">Failed to remove channel %s from the %s whitelist</string>
-<string name="revanced_whitelisting_settings_summary">Check or remove the list of channels added to the whitelist</string>
-<string name="revanced_whitelisting_speed">Video Speed</string>
-<string name="revanced_whitelisting_speed_button">Speed</string>
-<string name="revanced_whitelisting_sponsorblock">SponsorBlock</string>
-<string name="revanced_whitelisting_sponsorblock_button">SB</string>
-<string name="revanced_whitelisting_title">Channel Whitelist</string>
 <string name="revanced_playback_speed_normal">Normal</string>
 <string name="revanced_player_flyout_panel_additional_settings_summary">To hide the additional settings menu, hide all settings in the additional settings category.</string>
 <string name="revanced_player_flyout_panel_additional_settings_title">Player flyout panel (Additional settings)</string>
@@ -174,20 +185,21 @@ Words with uppercase letters in the middle must be entered with the casing (ie: 
 <string name="revanced_quick_actions_margin_top_warning">Quick actions top margin must be between 0-64. Reset to default values.</string>
 <string name="revanced_quick_actions_title">Quick actions</string>
 <string name="revanced_remove_viewer_discretion_dialog_summary">"Remove viewer discretion dialog.
+This does not bypass the age restriction. It just accepts it automatically."</string>
 <string name="revanced_remove_viewer_discretion_dialog_title">Remove viewer discretion dialog</string>
 <string name="revanced_restart_first_run">Restart to load the layout normally</string>
 <string name="revanced_restart_message">Refresh and restart</string>
 <string name="revanced_ryd_about">About</string>
-<string name="revanced_ryd_failure_connection_timeout">Dislikes temporarily not available (API timed out).</string>
 <string name="revanced_ryd_failure_connection_status_code" formatted="false">Dislikes not available (status %d).</string>
+<string name="revanced_ryd_failure_connection_timeout">Dislikes temporarily not available (API timed out).</string>
 <string name="revanced_ryd_failure_generic">Dislikes not available (%s).</string>
 <string name="revanced_ryd_shorts_summary_disclaimer">Limitation: Dislikes may not appear in certain situations.</string>
 <string name="revanced_ryd_shorts_summary_off">Dislikes hidden on Shorts.</string>
 <string name="revanced_ryd_shorts_summary_on">Dislikes shown on Shorts. %s</string>
 <string name="revanced_ryd_shorts_title">Show dislikes on Shorts</string>
-<string name="revanced_ryd_toast_on_connection_error_title">Show a toast if API is not available</string>
 <string name="revanced_ryd_toast_on_connection_error_summary_off">Toast is not shown if Return YouTube Dislike is not available.</string>
 <string name="revanced_ryd_toast_on_connection_error_summary_on">Toast is shown if Return YouTube Dislike is not available.</string>
+<string name="revanced_ryd_toast_on_connection_error_title">Show a toast if API is not available</string>
 <string name="revanced_sanitize_sharing_links_summary">Removes tracking query parameters from the URLs when sharing links.</string>
 <string name="revanced_sanitize_sharing_links_title">Sanitize sharing links</string>
 <string name="revanced_save_playback_speed" formatted="false">Changing default speed to %s.</string>
@@ -199,13 +211,19 @@ Words with uppercase letters in the middle must be entered with the casing (ie: 
 <string name="revanced_share_copy_url_timestamp_success">URL with timestamp copied to clipboard.</string>
 <string name="revanced_shorts_toolbar_summary">Back button in the toolbar cannot be hidden.</string>
 <string name="revanced_shorts_toolbar_title">Shorts toolbar</string>
-<string name="revanced_skipped_preloaded_buffer">Skipped preloaded buffer.</string>
 <string name="revanced_skip_preloaded_buffer_summary">"Skip preloaded buffer at video start to bypass default video quality enforcement delay.
+
+• When the video starts, there is a delay of approximately 0.7 seconds, but the default video quality is applied immediately.
+• Does not apply to HDR videos, live stream videos, videos shorter than 10 seconds."</string>
 <string name="revanced_skip_preloaded_buffer_title">Skip preloaded buffer</string>
 <string name="revanced_skip_preloaded_buffer_toast_summary_off">Toast is not shown.</string>
 <string name="revanced_skip_preloaded_buffer_toast_summary_on">Toast is shown.</string>
 <string name="revanced_skip_preloaded_buffer_toast_title">Show a toast when skipped</string>
+<string name="revanced_skipped_preloaded_buffer">Skipped preloaded buffer.</string>
 <string name="revanced_spoof_app_version_summary">"Spoofing the client version to the old version.
+
+• This will change the appearance of the app, but unknown side effects may occur.
+• If later turned off, the old UI may remain until clear the app data."</string>
 <string name="revanced_spoof_app_version_target_entry_16_08_35">16.08.35 - Restore old explore tab</string>
 <string name="revanced_spoof_app_version_target_entry_17_08_35">17.08.35 - Restore old UI layout</string>
 <string name="revanced_spoof_app_version_target_entry_17_41_37">17.41.37 - Restore old playlist shelf</string>
@@ -226,90 +244,115 @@ Words with uppercase letters in the middle must be entered with the casing (ie: 
 <string name="revanced_spoof_failure_connection_timeout">Spoof storyboard temporarily not available (API timed out).</string>
 <string name="revanced_spoof_failure_generic">"Spoof storyboard temporarily not available: "</string>
 <string name="revanced_spoof_player_parameter_in_feed_summary_off">"Player parameter not spoofed for feed videos.
+
+Known issue: Feed videos will play for less than 1 minute before encountering playback issues."</string>
 <string name="revanced_spoof_player_parameter_in_feed_summary_on">"Player parameter spoofed for feed videos.
+
+Known issue: Automatically played feed videos will show up in your watch history."</string>
 <string name="revanced_spoof_player_parameter_in_feed_title">Spoof player parameter in feed</string>
 <string name="revanced_spoof_player_parameter_summary">"Spoofs player parameters to prevent playback issues.
+
+Known issues:
+• Enhanced bitrate is not available.
+• No seekbar thumbnails for paid videos.
+• Offline downloads may not work.
+• Video may not start from the last watched time."</string>
 <string name="revanced_spoof_player_parameter_title">Spoof player parameter</string>
 <string name="revanced_swipe_gestures_lock_mode_summary_off">"Swipe gestures are disabled in 'Lock screen' mode."</string>
 <string name="revanced_swipe_gestures_lock_mode_summary_on">"Swipe gestures are enabled in 'Lock screen' mode."</string>
 <string name="revanced_swipe_gestures_lock_mode_title">"Swipe gestures in 'Lock screen' mode"</string>
-<string name="revanced_swipe_overlay_rect_warning" formatted="false">Swiapeable area size can't be more than %s%%. Reset to default value.</string>
 <string name="revanced_swipe_overlay_rect_summary">Percentage of swipeable screen area.</string>
 <string name="revanced_swipe_overlay_rect_title">Swipe overlay screen size</string>
+<string name="revanced_swipe_overlay_rect_warning" formatted="false">Swipeable area size can\'t be more than %s%%. Reset to default value.</string>
 <string name="revanced_switching_create_notification_summary">"Swap the positions of the create button and notification button by spoofing the device's information.
+
+• Even if you change this setting, it may not take effect until you reboot the device.
+• Disabling this setting loads more ads from the server side.
+• You should disable this setting to make video ads visible."</string>
 <string name="revanced_switching_create_notification_title">Switch create with notifications button</string>
+<string name="revanced_whitelisting_add_failed" formatted="false">Failed to add channel %s to the %s whitelist</string>
+<string name="revanced_whitelisting_added" formatted="false">Channel %s was added to the %s whitelist</string>
+<string name="revanced_whitelisting_channel_name">Channel Name</string>
+<string name="revanced_whitelisting_empty">There are no whitelisted channels</string>
+<string name="revanced_whitelisting_excluded">Not added to whitelist</string>
+<string name="revanced_whitelisting_fetch_failed" formated="false">Failed to retrieve channel details, received message %d</string>
+<string name="revanced_whitelisting_included">Added to whitelist</string>
+<string name="revanced_whitelisting_reboot">Reboot to apply channel whitelist settings</string>
+<string name="revanced_whitelisting_remove_failed" formatted="false">Failed to remove channel %s from the %s whitelist</string>
+<string name="revanced_whitelisting_removed" formatted="false">Channel %s was removed from the %s whitelist</string>
+<string name="revanced_whitelisting_settings_summary">Check or remove the list of channels added to the whitelist</string>
+<string name="revanced_whitelisting_speed">Video Speed</string>
+<string name="revanced_whitelisting_speed_button">Speed</string>
+<string name="revanced_whitelisting_sponsorblock">SponsorBlock</string>
+<string name="revanced_whitelisting_sponsorblock_button">SB</string>
+<string name="revanced_whitelisting_title">Channel Whitelist</string>
+<string name="sb_about">About</string>
+<string name="sb_diff_segments">Change segment behavior</string>
+<string name="sb_enable_auto_hide_skip_segment_button">Automatically hide skip button</string>
+<string name="sb_enable_auto_hide_skip_segment_button_sum_off">Skip button displayed for entire segment.</string>
+<string name="sb_enable_auto_hide_skip_segment_button_sum_on">Skip button hides after a few seconds.</string>
+<string name="sb_enable_compact_skip_button">Use compact skip button</string>
+<string name="sb_enable_compact_skip_button_sum_off">Skip button styled for best appearance.</string>
+<string name="sb_enable_compact_skip_button_sum_on">Skip button styled for minimum width.</string>
+<string name="sb_enable_create_segment">Show create new segment button</string>
+<string name="sb_enable_create_segment_sum_off">Create new segment button is not shown.</string>
+<string name="sb_enable_create_segment_sum_on">Create new segment button is shown.</string>
 <string name="sb_enable_sb_sum">SponsorBlock is a crowd-sourced system for skipping annoying parts of YouTube videos.</string>
 <string name="sb_enable_voting">Show voting button</string>
-<string name="sb_enable_voting_sum_on">Segment voting button is shown.</string>
 <string name="sb_enable_voting_sum_off">Segment voting button is not shown.</string>
-<string name="sb_enable_compact_skip_button">Use compact skip button</string>
-<string name="sb_enable_compact_skip_button_sum_on">Skip button styled for minimum width.</string>
-<string name="sb_enable_compact_skip_button_sum_off">Skip button styled for best appearance.</string>
-<string name="sb_enable_auto_hide_skip_segment_button">Automatically hide skip button</string>
-<string name="sb_enable_auto_hide_skip_segment_button_sum_on">Skip button hides after a few seconds.</string>
-<string name="sb_enable_auto_hide_skip_segment_button_sum_off">Skip button displayed for entire segment.</string>
-<string name="sb_general_skiptoast">Show a toast when skipping automatically</string>
-<string name="sb_general_skiptoast_sum_on">Toast is shown when a segment is automatically skipped. Tap here to see an example.</string>
-<string name="sb_general_skiptoast_sum_off">Toast is not shown. Tap here to see an example.</string>
-<string name="sb_general_time_without">Show video length without segments</string>
-<string name="sb_general_time_without_sum_on">Video length minus all segments, shown in parentheses next to the full video length.</string>
-<string name="sb_general_time_without_sum_off">Full video length shown.</string>
-<string name="sb_enable_create_segment">Show create new segment button</string>
-<string name="sb_enable_create_segment_sum_on">Create new segment button is shown.</string>
-<string name="sb_enable_create_segment_sum_off">Create new segment button is not shown.</string>
+<string name="sb_enable_voting_sum_on">Segment voting button is shown.</string>
 <string name="sb_general_adjusting">Adjust new segment step</string>
 <string name="sb_general_adjusting_sum">Number of milliseconds the time adjustment buttons move when creating new segments.</string>
-<string name="sb_toast_on_connection_error_title">Show a toast if API is not available</string>
-<string name="sb_toast_on_connection_error_summary_on">Toast is shown if SponsorBlock is not available.</string>
-<string name="sb_toast_on_connection_error_summary_off">Toast is not shown if SponsorBlock is not available.</string>
-<string name="sb_general_skipcount">Enable skip count tracking</string>
-<string name="sb_general_skipcount_sum_on">Lets the SponsorBlock leaderboard know how much time is saved. A message is sent to the leaderboard each time a segment is skipped.</string>
-<string name="sb_general_skipcount_sum_off">Skip count tracking is not enabled.</string>
+<string name="sb_general_api_url_sum">The address SponsorBlock uses to make calls to the server. Do not change this unless you know what you\'re doing.</string>
 <string name="sb_general_min_duration">Minimum segment duration</string>
 <string name="sb_general_min_duration_sum">Segments shorter than this value (in seconds) will not be shown or skipped.</string>
-<string name="sb_general_api_url_sum">The address SponsorBlock uses to make calls to the server. Do not change this unless you know what you're doing.</string>
-<string name="sb_settings_copy">Copy</string>
-<string name="sb_settings_ie_sum">Your SponsorBlock JSON configuration that can be imported / exported to ReVanced Extended and other SponsorBlock platforms. %s</string>
-<string name="sb_settings_ie_sum_warning">This includes your private user id. Be sure to share this wisely.</string>
-<string name="sb_settings_ie">Import / Export settings</string>
-<string name="sb_settings_import_successful">Settings imported successfully.</string>
-<string name="sb_settings_import_failed">Failed to import: %s.</string>
-<string name="sb_settings_export_failed">Failed to export: %s.</string>
-<string name="sb_settings_revanced_export_user_id_warning">Your settings contain a private SponsorBlock user id.
-
-Your user id is like a password and it should never be shared.
-</string>
-<string name="sb_settings_revanced_export_user_id_warning_dismiss">Do not show again</string>
-<string name="sb_diff_segments">Change segment behavior</string>
-<string name="sb_segments_sponsor_sum">Paid promotion, paid referrals and direct advertisements. Not for self-promotion or free shout-outs to causes / creators / websites / products they like.</string>
-<string name="sb_segments_selfpromo">Unpaid / Self Promotion</string>
-<string name="sb_segments_selfpromo_sum">Similar to 'Sponsor' except for unpaid or self promotion. Includes sections about merchandise, donations, or information about who they collaborated with.</string>
-<string name="sb_segments_interaction">Interaction Reminder (Subscribe)</string>
-<string name="sb_segments_interaction_sum">A short reminder to like, subscribe or follow them in the middle of content. If it is long or about something specific, it should instead be under self promotion.</string>
-<string name="sb_segments_highlight_sum">The part of the video that most people are looking for.</string>
-<string name="sb_segments_intro_sum">An interval without actual content. Could be a pause, static frame, or repeating animation. Does not include transitions containing information.</string>
-<string name="sb_segments_outro_sum">Credits or when the YouTube endcards appear. Not for conclusions with information.</string>
-<string name="sb_segments_preview_sum">Collection of clips that show what is coming up or what happened in the video or in other videos of a series, where all information is repeated elsewhere.</string>
+<string name="sb_general_skipcount">Enable skip count tracking</string>
+<string name="sb_general_skipcount_sum_off">Skip count tracking is not enabled.</string>
+<string name="sb_general_skipcount_sum_on">Lets the SponsorBlock leaderboard know how much time is saved. A message is sent to the leaderboard each time a segment is skipped.</string>
+<string name="sb_general_skiptoast">Show a toast when skipping automatically</string>
+<string name="sb_general_skiptoast_sum_off">Toast is not shown. Tap here to see an example.</string>
+<string name="sb_general_skiptoast_sum_on">Toast is shown when a segment is automatically skipped. Tap here to see an example.</string>
+<string name="sb_general_time_without">Show video length without segments</string>
+<string name="sb_general_time_without_sum_off">Full video length shown.</string>
+<string name="sb_general_time_without_sum_on">Video length minus all segments, shown in parentheses next to the full video length.</string>
+<string name="sb_new_segment_confirm_content" formatted="false">The segment lasts from %02d:%02d to %02d:%02d (%d minutes %02d seconds)\nIs it ready to submit?</string>
+<string name="sb_new_segment_disabled_category">Category is disabled in settings. Enable category to submit.</string>
+<string name="sb_new_segment_mark_locations_first">Mark two locations on the time bar first.</string>
+<string name="sb_new_segment_mark_time_as_question" formatted="false">Set %02d:%02d:%03d as the start or end of a new segment?</string>
+<string name="sb_new_segment_preview_segment_first">Preview the segment, and ensure it skips smoothly.</string>
+<string name="sb_new_segment_start_is_before_end">Start must be before the end.</string>
+<string name="sb_new_segment_time_end">Time the segment ends at</string>
+<string name="sb_new_segment_time_start">Time the segment begins at</string>
 <string name="sb_segments_filler">Filler Tangent / Jokes</string>
 <string name="sb_segments_filler_sum">Tangential scenes added only for filler or humor that are not required to understand the main content of the video. Does not include segments providing context or background details.</string>
-<string name="sb_segments_nomusic_sum">Only for use in music videos. Sections of music videos without music, that aren't already covered by another category.</string>
+<string name="sb_segments_highlight_sum">The part of the video that most people are looking for.</string>
+<string name="sb_segments_interaction">Interaction Reminder (Subscribe)</string>
+<string name="sb_segments_interaction_sum">A short reminder to like, subscribe or follow them in the middle of content. If it is long or about something specific, it should instead be under self promotion.</string>
+<string name="sb_segments_intro_sum">An interval without actual content. Could be a pause, static frame, or repeating animation. Does not include transitions containing information.</string>
+<string name="sb_segments_nomusic_sum">Only for use in music videos. Sections of music videos without music, that aren\'t already covered by another category.</string>
+<string name="sb_segments_outro_sum">Credits or when the YouTube endcards appear. Not for conclusions with information.</string>
+<string name="sb_segments_preview_sum">Collection of clips that show what is coming up or what happened in the video or in other videos of a series, where all information is repeated elsewhere.</string>
+<string name="sb_segments_selfpromo">Unpaid / Self Promotion</string>
+<string name="sb_segments_selfpromo_sum">Similar to \'Sponsor\' except for unpaid or self promotion. Includes sections about merchandise, donations, or information about who they collaborated with.</string>
+<string name="sb_segments_sponsor_sum">Paid promotion, paid referrals and direct advertisements. Not for self-promotion or free shout-outs to causes / creators / websites / products they like.</string>
+<string name="sb_settings_copy">Copy</string>
+<string name="sb_settings_export_failed">Failed to export: %s.</string>
+<string name="sb_settings_ie">Import / Export settings</string>
+<string name="sb_settings_ie_sum">Your SponsorBlock JSON configuration that can be imported / exported to ReVanced Extended and other SponsorBlock platforms. %s</string>
+<string name="sb_settings_ie_sum_warning">This includes your private user id. Be sure to share this wisely.</string>
+<string name="sb_settings_import_failed">Failed to import: %s.</string>
+<string name="sb_settings_import_successful">Settings imported successfully.</string>
+<string name="sb_settings_revanced_export_user_id_warning">Your settings contain a private SponsorBlock user id.\n\nYour user id is like a password and it should never be shared.\n</string>
+<string name="sb_settings_revanced_export_user_id_warning_dismiss">Do not show again</string>
 <string name="sb_sponsorblock_connection_failure_generic">SponsorBlock temporarily not available.</string>
 <string name="sb_sponsorblock_connection_failure_status" formatted="false">SponsorBlock temporarily not available (status %d).</string>
 <string name="sb_sponsorblock_connection_failure_timeout">SponsorBlock temporarily not available (API timed out).</string>
-<string name="sb_submit_failed_invalid" formatted="false">Can't submit the segment: %s.</string>
-<string name="sb_submit_failed_rate_limit">Can't submit the segment.
-Rate Limited (too many from the same user or IP).</string>
-<string name="sb_vote_failed_timeout">Unable to vote for segment (API timed out).</string>
-<string name="sb_new_segment_disabled_category">Category is disabled in settings. Enable category to submit.</string>
-<string name="sb_new_segment_mark_time_as_question" formatted="false">Set %02d:%02d:%03d as the start or end of a new segment?</string>
-<string name="sb_new_segment_time_start">Time the segment begins at</string>
-<string name="sb_new_segment_time_end">Time the segment ends at</string>
-<string name="sb_new_segment_confirm_content" formatted="false">The segment lasts from %02d:%02d to %02d:%02d (%d minutes %02d seconds)
-Is it ready to submit?</string>
-<string name="sb_new_segment_start_is_before_end">Start must be before the end.</string>
-<string name="sb_new_segment_mark_locations_first">Mark two locations on the time bar first.</string>
-<string name="sb_new_segment_preview_segment_first">Preview the segment, and ensure it skips smoothly.</string>
 <string name="sb_stats_saved_hour_format" formatted="false">%s hours %s minutes</string>
 <string name="sb_stats_saved_minute_format" formatted="false">%s minutes %s seconds</string>
 <string name="sb_stats_saved_second_format" formatted="false">%s seconds</string>
-<string name="sb_about">About</string>
+<string name="sb_submit_failed_invalid" formatted="false">Can\'t submit the segment: %s.</string>
+<string name="sb_submit_failed_rate_limit">Can\'t submit the segment.\nRate Limited (too many from the same user or IP).</string>
+<string name="sb_toast_on_connection_error_summary_off">Toast is not shown if SponsorBlock is not available.</string>
+<string name="sb_toast_on_connection_error_summary_on">Toast is shown if SponsorBlock is not available.</string>
+<string name="sb_toast_on_connection_error_title">Show a toast if API is not available</string>
+<string name="sb_vote_failed_timeout">Unable to vote for segment (API timed out).</string>

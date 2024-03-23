@@ -41,7 +41,9 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
                 "19.06.39",
                 "19.07.40",
                 "19.08.36",
-                "19.09.37"
+                "19.09.38",
+                "19.10.39",
+                "19.11.38"
             ]
         )
     ]
@@ -54,6 +56,7 @@ object KeepLandScapeModePatch : BytecodePatch(
     )
 ) {
     override fun execute(context: BytecodeContext) {
+
         LandScapeModeConfigFingerprint.result?.let {
             it.mutableMethod.apply {
                 val insertIndex = implementation!!.instructions.size - 1

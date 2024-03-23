@@ -12,6 +12,7 @@ import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.utils.fingerprints.RollingNumberTextViewAnimationUpdateFingerprint
 import app.revanced.patches.youtube.utils.integrations.Constants.GENERAL
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
+import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
@@ -36,7 +37,9 @@ compatiblePackages = [
                 "19.06.39",
                 "19.07.40",
                 "19.08.36",
-                "19.09.37"
+                "19.09.38",
+                "19.10.39",
+                "19.11.38"
             ]
         )
     ]
@@ -52,29 +55,33 @@ object DisableRollingNumberAnimationPatch : BytecodePatch(
 
         // Animations are disabled by preventing an Image from being applied to the text span,
         // which prevents the animations from appearing.
-        RollingNumberTextViewAnimationUpdateFingerprint.result?.apply {
-            val patternScanResult = scanResult.patternScanResult!!
-            val blockStartIndex = patternScanResult.startIndex
-            val blockEndIndex = patternScanResult.endIndex + 1
-            mutableMethod.apply {
-                val freeRegister = getInstruction<OneRegisterInstruction>(blockStartIndex).registerA
+        if (SettingsPatch.upward1843) {
+            RollingNumberTextViewAnimationUpdateFingerprint.result?.apply {
+                val patternScanResult = scanResult.patternScanResult!!
+                val blockStartIndex = patternScanResult.startIndex
+                val blockEndIndex = patternScanResult.endIndex + 1
+                mutableMethod.apply {
+                    val freeRegister = getInstruction<OneRegisterInstruction>(blockStartIndex).registerA
 
-                // ReturnYouTubeDislike also makes changes to this same method,
-                // and must add control flow label to a noop instruction to
-                // ensure RYD patch adds it's changes after the control flow label.
-                addInstructions(blockEndIndex, "nop")
+                    // ReturnYouTubeDislike also makes changes to this same method,
+                    // and must add control flow label to a noop instruction to
+                    // ensure RYD patch adds it's changes after the control flow label.
+                    addInstructions(blockEndIndex, "nop")
 
-                addInstructionsWithLabels(
-                    blockStartIndex,
-                    """
-                        invoke-static {}, $GENERAL->disableRollingNumberAnimations()Z
-                        move-result v$freeRegister
-                        if-nez v$freeRegister, :disable_animations
-                    """,
-                    ExternalLabel("disable_animations", getInstruction(blockEndIndex))
-                )
-            }
-        } ?: throw PatchException("This version is not supported. Please use YouTube 18.30.37 or later.")
+                    addInstructionsWithLabels(
+                        blockStartIndex,
+                        """
+                            invoke-static {}, $GENERAL->disableRollingNumberAnimations()Z
+                            move-result v$freeRegister
+                            if-nez v$freeRegister, :disable_animations
+                        """,
+                        ExternalLabel("disable_animations", getInstruction(blockEndIndex))
+                    )
+                }
+            } ?: RollingNumberTextViewAnimationUpdateFingerprint.exception
+        } else {
+            throw PatchException("This version is not supported. Please use YouTube 18.43.45 or later.")
+        }
 
         /**
          * Add settings

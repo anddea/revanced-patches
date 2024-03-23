@@ -24,8 +24,4 @@ jobs:
           pr_title: 'chore: ${{ env.MESSAGE }}'
           pr_body: |
             This pull request will ${{ env.MESSAGE }}.
-          
-            ## Dependencies before merge
-
-            - [ ] https://github.com/inotia00/revanced-integrations
           pr_draft: true

@@ -48,8 +48,6 @@ Toque aqui para saber mais sobre o DeArrow."</string>
     <string name="revanced_append_time_stamp_information_summary_off">Adicionar informação de registro de tempo está desativado</string>
     <string name="revanced_append_time_stamp_information_summary_on">Adicionar informação de registro de tempo está ativado</string>
     <string name="revanced_append_time_stamp_information_title">Adicionar informações de registro de tempo</string>
-    <string name="revanced_append_time_stamp_information_type_summary_off">Adicionar velocidade de reprodução</string>
-    <string name="revanced_append_time_stamp_information_type_summary_on">Adicionar qualidade de vídeo</string>
     <string name="revanced_append_time_stamp_information_type_title">Adicionar tipo de informação</string>
     <string name="revanced_bottom_player">Reprodutor inferior</string>
     <string name="revanced_button_container_title">Container de botões</string>
@@ -436,8 +434,6 @@ Alguns componentes podem não ser ocultos"</string>
     <string name="revanced_hide_get_premium_summary_off">A promoção do YouTube Premium será exibida.</string>
     <string name="revanced_hide_get_premium_summary_on">A promoção do YouTube Premium está oculta.</string>
     <string name="revanced_hide_get_premium_title">Ocultar promoção do YouTube Premium</string>
-    <string name="revanced_hide_gray_description_summary_off">A descrição cinza será exibida.</string>
-    <string name="revanced_hide_gray_description_summary_on">A descrição cinza está oculta.</string>
     <string name="revanced_hide_gray_description_title">Ocultar descrição cinza</string>
     <string name="revanced_hide_gray_separator_summary_off">Os separadores cinza serão exibidos.</string>
     <string name="revanced_hide_gray_separator_summary_on">Os separadores cinza estão ocultos.</string>
@@ -853,6 +849,72 @@ Problemas conhecidos
     <string name="revanced_switching_create_notification_title">Alternar botão criar com botão notificações</string>
     <string name="revanced_tool_used">Ferramenta usada</string>
     <string name="revanced_video">Vídeo</string>
+    <string name="revanced_change_start_page_entry_browse">Explorar canais</string>
+    <string name="revanced_change_start_page_entry_gaming">Jogos</string>
+    <string name="revanced_change_start_page_entry_live">Ao vivo</string>
+    <string name="revanced_change_start_page_entry_movies">Filmes</string>
+    <string name="revanced_change_start_page_entry_music">Música</string>
+    <string name="revanced_change_start_page_entry_sports">Esportes</string>
+    <string name="revanced_change_start_page_entry_watch_later">Assistir mais tarde</string>
+    <string name="revanced_disable_rolling_number_animations_summary_off">Animações de rolagem estão ativadas.</string>
+    <string name="revanced_disable_rolling_number_animations_summary_on">Animações de rolagem estão desativadas.</string>
+    <string name="revanced_disable_rolling_number_animations_title">Desativar animações de rolagem de números</string>
+    <string name="revanced_hide_community_posts_related_video_summary_off">Postagens da comunidade em vídeos relacionados são mostradas.</string>
+    <string name="revanced_hide_community_posts_related_video_summary_on">Postagens da comunidade em vídeos relacionados estão ocultas.</string>
+    <string name="revanced_hide_community_posts_related_video_title">Ocultar postagens da comunidade em vídeos relacionados</string>
+    <string name="revanced_hide_home_feed_membership_video_summary">Ocultar vídeos com a tag "Apenas para membros" no Feed de Início</string>
+    <string name="revanced_hide_home_feed_membership_video_title">Ocultar vídeos de adesão no Feed de Início</string>
+    <string name="revanced_hide_suggested_video_overlay_auto_play_summary">Quando você terminar um vídeo, outro será reproduzido automaticamente</string>
+    <string name="revanced_hide_suggested_video_overlay_auto_play_title">Reproduzir automaticamente o próximo vídeo</string>
+    <string name="revanced_keyword_filter_strings_summary">Configure palavras-chave e frases para ocultar, separadas por novas linhas\n\nPalavras com letras maiúsculas no meio devem ser inseridas com a capitalização (ex: iPhone, TikTok, LeBlanc).</string>
+    <string name="revanced_keyword_filter_strings_title">Editar filtro de palavras-chave</string>
+    <string name="revanced_keyword_filter_summary">Oculta vídeos no feed e nos resultados de pesquisa usando filtros de palavras-chave.</string>
+    <string name="revanced_hide_keyword_content_feed_summary_off">Filtro de palavras-chave está desativado.</string>
+    <string name="revanced_hide_keyword_content_feed_summary_on">Filtro de palavras-chave está ativado.</string>
+    <string name="revanced_hide_keyword_content_feed_title">Ativar filtro de palavras-chave</string>
+    <string name="revanced_hide_keyword_toast_invalid_length" formatted="false">Comprimento de palavra-chave inválido (deve ter pelo menos %s caracteres): %s.</string>
+    <string name="revanced_overlay_button_time_ordered_playlist_summary">"Toque para gerar uma playlist de todos os vídeos do canal do mais antigo para o mais recente.
+    Toque e segure para desfazer."</string>
+    <string name="revanced_overlay_button_time_ordered_playlist_title">Botão de playlist ordenada por tempo</string>
+    <string name="revanced_overlay_button_whitelisting_summary">Toque para adicionar o canal à lista de permissões do canal.</string>
+    <string name="revanced_overlay_button_whitelisting_title">Botão de permissão</string>
+    <string name="revanced_override_premium_header_summary_off">Cabeçalho atual: Cabeçalho padrão</string>
+    <string name="revanced_override_premium_header_summary_on">Cabeçalho atual: Cabeçalho premium</string>
+    <string name="revanced_override_premium_header_title">Cabeçalho premium</string>
+    <string name="revanced_spoof_app_version_target_entry_16_08_35">16.08.35 - Restaurar a antiga aba de explorar</string>
+    <string name="revanced_spoof_app_version_target_entry_18_09_39">18.09.39 - Restaurar a antiga aba de biblioteca (Desativar Aba "Você")</string>
+    <string name="revanced_spoof_failure_connection_status_code" formatted="false">"Storyboard de desvio não disponível: "</string>
+    <string name="revanced_spoof_failure_connection_timeout">Storyboard de desvio temporariamente não disponível (API expirou).</string>
+    <string name="revanced_spoof_failure_generic">"Storyboard de desvio temporariamente não disponível: "</string>
+    <string name="revanced_swipe_overlay_rect_summary">Porcentagem da área de tela deslizável.</string>
+    <string name="revanced_swipe_overlay_rect_title">Tamanho da área de tela sobreposta por deslizamento</string>
+    <string name="revanced_swipe_overlay_rect_warning" formatted="false">O tamanho da área deslizável não pode ser superior a %s%%. Redefinir para o valor padrão.</string>
+    <string name="revanced_whitelisting_add_failed" formatted="false">Falha ao adicionar o canal %s à lista de permissões %s</string>
+    <string name="revanced_whitelisting_added" formatted="false">Canal %s foi adicionado à lista de permissões %s</string>
+    <string name="revanced_whitelisting_channel_name">Nome do canal</string>
+    <string name="revanced_whitelisting_empty">Não há canais na lista de permissões</string>
+    <string name="revanced_whitelisting_excluded">Não adicionado à lista de permissões</string>
+    <string name="revanced_whitelisting_fetch_failed" formated="false">Falha ao recuperar detalhes do canal, mensagem recebida %d</string>
+    <string name="revanced_whitelisting_included">Adicionado à lista de permissões</string>
+    <string name="revanced_whitelisting_reboot">Reinicie para aplicar as configurações da lista de permissões do canal</string>
+    <string name="revanced_whitelisting_remove_failed" formatted="false">Falha ao remover o canal %s da lista de permissões %s</string>
+    <string name="revanced_whitelisting_removed" formatted="false">Canal %s foi removido da lista de permissões %s</string>
+    <string name="revanced_whitelisting_settings_summary">Verifique ou remova a lista de canais adicionados à lista de permissões</string>
+    <string name="revanced_whitelisting_speed">Velocidade do vídeo</string>
+    <string name="revanced_whitelisting_speed_button">Velocidade</string>
+    <string name="revanced_whitelisting_sponsorblock">SponsorBlock</string>
+    <string name="revanced_whitelisting_sponsorblock_button">SB</string>
+    <string name="revanced_whitelisting_title">Lista de permissões do canal</string>
+    <string name="revanced_hide_gray_description_summary_off">"Descrição cinza é mostrada.
+• Da sua lista Assistir mais tarde.
+• Pessoas também assistiram a este vídeo.
+• Visualizadores do canal também assistem a este canal, etc."</string>
+    <string name="revanced_hide_gray_description_summary_on">"Descrição cinza está oculta.
+• Da sua lista Assistir mais tarde.
+• Pessoas também assistiram a este vídeo.
+• Visualizadores do canal também assistem a este canal, etc."</string>
+    <string name="revanced_append_time_stamp_information_type_summary_off">Anexar velocidade de reprodução. Toque e segure no carimbo de data/hora para alterar o tipo enquanto reproduz o vídeo.</string>
+    <string name="revanced_append_time_stamp_information_type_summary_on">Anexar qualidade do vídeo. Toque e segure no carimbo de data/hora para alterar o tipo enquanto reproduz o vídeo.</string>
     <string name="pref_app_language_dialog_message">&lt;b&gt;%1$s&lt;/b&gt;&lt;br&gt;&lt;br&gt;Isso mudará o idioma usado no YouTube, incluindo botões, texto e caixas de diálogo, mas não mudará o idioma das configurações do ReVanced Extended.</string>
     <string name="pref_app_language_dialog_message_no_lang_name">Isso mudará o idioma usado no YouTube, incluindo botões, texto e caixas de diálogo, mas não mudará o idioma das configurações do ReVanced Extended.</string>
     <string name="sb_enable_sb">Ativar SponsorBlock</string>

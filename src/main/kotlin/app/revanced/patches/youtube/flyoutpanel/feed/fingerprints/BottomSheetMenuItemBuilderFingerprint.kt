@@ -12,5 +12,5 @@ object BottomSheetMenuItemBuilderFingerprint : MethodFingerprint(
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT_OBJECT
     ),
-    strings = listOf("ElementTransformer, ElementPresenter and InteractionLogger cannot be null")
+    strings = listOf("ElementTransformer")
 )
