@@ -124,7 +124,8 @@
         <!-- SETTINGS: HIDE_LAYOUT_COMPONENTS
         <SwitchPreference android:title="@string/revanced_hide_home_feed_membership_video_title" android:key="revanced_hide_home_feed_membership_video" android:defaultValue="false" android:summary="@string/revanced_hide_home_feed_membership_video_summary" />
         <SwitchPreference android:title="@string/revanced_hide_video_with_gray_description_title" android:key="revanced_hide_video_with_gray_description" android:defaultValue="false" android:summary="@string/revanced_hide_video_with_gray_description_summary" />
-        <SwitchPreference android:title="@string/revanced_hide_video_with_low_view_title" android:key="revanced_hide_video_with_low_view" android:defaultValue="false" android:summary="@string/revanced_hide_video_with_low_view_summary" /> SETTINGS: HIDE_LAYOUT_COMPONENTS -->
+        <SwitchPreference android:title="@string/revanced_hide_video_with_low_view_title" android:key="revanced_hide_video_with_view" android:defaultValue="false" android:summary="@string/revanced_hide_video_with_low_view_summary" />
+        <app.revanced.integrations.youtube.settingsmenu.ResettableEditTextPreference android:title="@string/revanced_hide_video_with_low_view_num_title" android:key="revanced_hide_video_with_view_num" android:defaultValue="1000" android:summary="@string/revanced_hide_video_with_low_view_num_summary" android:inputType="number" /> SETTINGS: HIDE_LAYOUT_COMPONENTS -->
 
         <!-- SETTINGS: HIDE_CHANNEL_PROFILE_COMPONENTS
         <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_channel_profile_title" />
@@ -645,7 +646,7 @@
         <Preference android:title=" " android:selectable="false" android:summary="@string/pref_about_category" />
         <PreferenceScreen android:title="@string/revanced_patches_information"  android:summary="@string/revanced_patches_information_summary" >
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_tool_used" />
-            <Preference android:title="ReVanced Patches" android:selectable="false" android:summary="2.223.0-dev.1" />
+            <Preference android:title="ReVanced Patches" android:selectable="false" android:summary="2.223.0-dev.2" />
             <Preference android:title="ReVanced Integrations" android:selectable="false" android:summary="" />
 
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_ads" />
