@@ -1,5 +1,6 @@
 import os
 import re
+import sys
 
 # Define source file path
 source_file = "src/main/resources/youtube/settings/host/values/strings.xml"
@@ -9,7 +10,7 @@ destination_directory = "src/main/resources/youtube/translations"
 
 # Function to extract strings from a file
 def extract_strings(file_path):
-    with open(file_path, 'r') as file:
+    with open(file_path, 'r', encoding='utf-8') as file:
         content = file.read()
         strings = re.findall(r'<string(?:\s+name="([^"]*)")?(.*?)>(.*?)</string>', content, re.DOTALL)
         return set(strings)
@@ -75,3 +76,7 @@ for root, dirs, files in os.walk(destination_directory):
 
             num_missing = len(missing_strings)
             print(f"{language_code} - {num_missing} missing strings.")
+
+# Prompt the user to press a key before closing the terminal window
+input("\nPress Enter to exit...")
+sys.exit(0)  # Optional, but ensures proper termination of the script
