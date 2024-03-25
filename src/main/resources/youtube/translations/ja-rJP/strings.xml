@@ -726,7 +726,7 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_hook_download_button_summary">"「オフライン」ボタンを外部ダウンローダーに置き換えます。"</string>
     <string name="revanced_hook_download_button_title">ダウンロードボタンをフック</string>
     <string name="revanced_inform">情報</string>
-    <string name="revanced_keep_landscape_mode_summary">全画面表示時にランドスケープモードを維持します。</string>
+    <string name="revanced_keep_landscape_mode_summary">全画面表示時にランドスケープモードを維持します。\n\n既知の問題: ピクチャーインピクチャー(PIP)に問題が発生する可能性があります。</string>
     <string name="revanced_keep_landscape_mode_timeout_summary">ランドスケープモードが強制されるミリ秒単位。</string>
     <string name="revanced_keep_landscape_mode_timeout_title">ランドスケープモードのタイムアウトを維持</string>
     <string name="revanced_keep_landscape_mode_title">ランドスケープモードを維持</string>
@@ -865,7 +865,7 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_spoof_player_parameter_in_feed_title">フィードのパラメーターの偽装</string>
     <string name="revanced_spoof_player_parameter_summary">"プレーヤーのパラメーターを偽装して、再生の問題を防ぎます。
 
-既知の問題
+既知の問題:
 • 拡張ビットレートは利用できません。
 • 有料動画のシークバーサムネイルは機能しません。
 • オフラインへの動画の保存が機能しない場合があります。
@@ -1071,11 +1071,11 @@ DeArrow の詳細については、ここをタップしてください。"</str
 
 中央に大文字が含まれる単語は、大文字と小文字を区別して入力する必要があります。 (例: iPhone, TikTok, LeBlanc)"</string>
     <string name="revanced_keyword_filter_strings_title">キーワードフィルターを編集</string>
-    <string name="revanced_hide_keyword_content_feed_summary_off">キーワードフィルターは無効です。</string>
-    <string name="revanced_hide_keyword_content_feed_summary_on">キーワードフィルターは有効です。</string>
-    <string name="revanced_keyword_filter_summary">キーワードフィルターを使用してフィードと検索結果の動画を非表示にします。</string>
+    <string name="revanced_hide_keyword_content_feed_summary_off">ホームフィードと検索結果のキーワードフィルターは無効です。</string>
+    <string name="revanced_hide_keyword_content_feed_summary_on">ホームフィードと検索結果のキーワードフィルターは有効です。</string>
+    <string name="revanced_keyword_filter_summary">キーワードフィルターを使用してホームと検索結果の動画を非表示にします。</string>
     <string name="revanced_hide_keyword_content_feed_title">キーワードフィルターを有効にする</string>
-    <string name="revanced_hide_keyword_content_about_summary">検索,ホーム,サブスクリプションの結果がフィルタリングされ、キーワードフレーズに一致するコンテンツが非表示になります。\n\n制限事項:\n• 一部のショート動画は非表示にできない場合があります。\n• 一部の UI コンポーネントは非表示にならない場合があります。\n• キーワードを検索しても結果が表示されない場合があります。</string>
+    <string name="revanced_hide_keyword_content_about_summary">検索結果,ホームフィード,サブスクリプションの結果がフィルタリングされ、キーワードフレーズに一致するコンテンツが非表示になります。\n\n制限事項:\n• 一部のショート動画は非表示にできない場合があります。\n• 一部の UI コンポーネントは非表示にならない場合があります。\n• キーワードを検索しても結果が表示されない場合があります。</string>
     <string name="revanced_hide_keyword_content_comment_summary_off">コメントのキーワードフィルターは無効です。</string>
     <string name="revanced_hide_keyword_content_comment_summary_on">コメントのキーワードフィルターは有効です。</string>
     <string name="revanced_hide_keyword_content_comment_title">コメントキーワードフィルターを有効にする</string>
