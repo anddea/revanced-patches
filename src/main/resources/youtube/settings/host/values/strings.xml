@@ -101,7 +101,7 @@ Note: This feature hasn't been tested."</string>
     <string name="revanced_hide_keyword_content_sub_summary_off">Keyword filter for subscriptions is disabled.</string>
     <string name="revanced_hide_keyword_content_sub_summary_on">Keyword filter for subscriptions is enabled.</string>
     <string name="revanced_hide_keyword_content_sub_title">Enable subscriptions keyword filter</string>
-    <string name="revanced_hide_keyword_content_about_summary">Search/Home/Subscription results are filtered to hide content that matches keyword phrases\n\nLimitations\n• Some Shorts may not be hidden\n• Some UI components may not be hidden\n• Searching for a keyword may show no results</string>
+    <string name="revanced_hide_keyword_content_about_summary">Search, Home, Subscription and Comments are filtered to hide content that matches keyword phrases\n\nLimitations\n• Some Shorts may not be hidden\n• Some UI components may not be hidden\n• Searching for a keyword may show no results</string>
     <string name="revanced_hide_keyword_toast_invalid_common" formatted="false">Invalid keyword. Cannot use: \'%s\' as a filter</string>
     <string name="revanced_hide_keyword_toast_invalid_length" formatted="false">Invalid keyword length (must be at least %s characters): %s.</string>
     <string name="revanced_keyword_filter_strings_summary">Configure keywords and phrases to hide, separated by new lines\n\nWords with uppercase letters in the middle must be entered with the casing (ie: iPhone, TikTok, LeBlanc).</string>
@@ -746,7 +746,7 @@ Some videos, including those from channels you subscribe to, may not be hidden e
     <string name="revanced_hook_download_button_summary">"Replace download button with external download button."</string>
     <string name="revanced_hook_download_button_title">Hook download button</string>
     <string name="revanced_inform">Inform</string>
-    <string name="revanced_keep_landscape_mode_summary">Keeps landscape mode when turning the screen off and on in fullscreen.</string>
+    <string name="revanced_keep_landscape_mode_summary">Keeps landscape mode when turning the screen off and on in fullscreen.\n\nKnown issue: It can break Picture-in-Picture (PIP).</string>
     <string name="revanced_keep_landscape_mode_timeout_summary">The amount of milliseconds the landscape mode is forced.</string>
     <string name="revanced_keep_landscape_mode_timeout_title">Keep landscape mode timeout</string>
     <string name="revanced_keep_landscape_mode_title">Keep landscape mode</string>
