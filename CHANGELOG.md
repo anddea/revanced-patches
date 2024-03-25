@@ -1,3 +1,16 @@
+# [2.223.0-dev.3](https://github.com/anddea/revanced-patches/compare/v2.223.0-dev.2...v2.223.0-dev.3) (2024-03-25)
+
+
+### Bug Fixes
+
+* **YouTube - Overlay buttons:** Increase padding of chapter and timestamp ([e3db3e3](https://github.com/anddea/revanced-patches/commit/e3db3e387ce5e48f915fceb0e2a8db983c41b5a3))
+* **YouTube - Translations:** Update translations info ([e8f0731](https://github.com/anddea/revanced-patches/commit/e8f0731832658bd7b12a0909e96dece3c498f27b))
+
+
+### Features
+
+* **YouTube - Layout component filter:** Hide videos based on the number of views ([23fa805](https://github.com/anddea/revanced-patches/commit/23fa805416ccaed1934d05105d89bec74341d09c))
+
 # [2.223.0-dev.2](https://github.com/anddea/revanced-patches/compare/v2.223.0-dev.1...v2.223.0-dev.2) (2024-03-25)
 
 
