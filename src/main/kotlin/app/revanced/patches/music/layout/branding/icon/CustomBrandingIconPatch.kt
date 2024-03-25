@@ -127,59 +127,78 @@ object CustomBrandingIconPatch : ResourcePatch() {
 
                 // change resource icons.
                 if (SplashHeaderIcon == true) {
-                    arrayOf(
-                        ResourceGroup(
-                            "drawable-hdpi",
-                            "action_bar_logo_release.png",
-                            "action_bar_logo.png",
-                            "record.png",
-                        ),
+                    try {
+                        arrayOf(
+                            ResourceGroup(
+                                "drawable-hdpi",
+                                "action_bar_logo_release.png",
+                                "action_bar_logo.png",
+                                "logo_music.png", // 6.32 and earlier
+                                "ytm_logo.png", // 6.33 and later
+                                "record.png",
+                            ),
 
-                        ResourceGroup(
-                            "drawable-large-hdpi",
-                            "record.png",
-                        ),
+                            ResourceGroup(
+                                "drawable-large-hdpi",
+                                "record.png",
+                            ),
 
-                        ResourceGroup(
-                            "drawable-large-mdpi",
-                            "record.png",
-                        ),
+                            ResourceGroup(
+                                "drawable-large-mdpi",
+                                "record.png",
+                            ),
 
-                        ResourceGroup(
-                            "drawable-large-xhdpi",
-                            "record.png",
-                        ),
+                            ResourceGroup(
+                                "drawable-large-xhdpi",
+                                "record.png",
+                            ),
 
-                        ResourceGroup(
-                            "drawable-xlarge-mdpi",
-                            "record.png",
-                        ),
+                            ResourceGroup(
+                                "drawable-xlarge-hdpi",
+                                "record.png",
+                            ),
 
-                        ResourceGroup(
-                            "drawable-mdpi",
-                            "action_bar_logo.png",
-                            "record.png",
-                        ),
+                            ResourceGroup(
+                                "drawable-xlarge-mdpi",
+                                "record.png",
+                            ),
 
-                        ResourceGroup(
-                            "drawable-xhdpi",
-                            "action_bar_logo.png",
-                            "record.png",
-                        ),
+                            ResourceGroup(
+                                "drawable-mdpi",
+                                "action_bar_logo.png",
+                                "logo_music.png", // 6.32 and earlier
+                                "ytm_logo.png", // 6.33 and later
+                                "record.png",
+                            ),
 
-                        ResourceGroup(
-                            "drawable-xxhdpi",
-                            "action_bar_logo.png",
-                            "record.png",
-                        ),
+                            ResourceGroup(
+                                "drawable-xhdpi",
+                                "action_bar_logo.png",
+                                "logo_music.png", // 6.32 and earlier
+                                "ytm_logo.png", // 6.33 and later
+                                "record.png",
+                            ),
+
+                            ResourceGroup(
+                                "drawable-xxhdpi",
+                                "action_bar_logo.png",
+                                "logo_music.png", // 6.32 and earlier
+                                "ytm_logo.png", // 6.33 and later
+                                "record.png",
+                            ),
 
 
-                        ResourceGroup(
-                            "drawable-xxxhdpi",
-                            "action_bar_logo.png",
-                        ),
-                    ).forEach { resourceGroup ->
-                        context.copyResources("$resourcePath/resource", resourceGroup)
+                            ResourceGroup(
+                                "drawable-xxxhdpi",
+                                "action_bar_logo.png",
+                                "logo_music.png", // 6.32 and earlier
+                                "ytm_logo.png", // 6.33 and later
+                            ),
+                        ).forEach { resourceGroup ->
+                            context.copyResources("$resourcePath/resource", resourceGroup)
+                        }
+                    } catch (e: Exception) {
+                        // Do nothing
                     }
                 }
             }
