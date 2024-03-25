@@ -1,3 +1,11 @@
+# [2.223.0-dev.2](https://github.com/anddea/revanced-patches/compare/v2.223.0-dev.1...v2.223.0-dev.2) (2024-03-25)
+
+
+### Bug Fixes
+
+* **YouTube - Translations:** Update translations info ([36b1ed4](https://github.com/anddea/revanced-patches/commit/36b1ed4333cd2ed623eaa1666b7138d37048a9e3))
+* **YT Music - Custom branding icon:** Fix some icons and add Welcome screen logo ([9abf946](https://github.com/anddea/revanced-patches/commit/9abf94624e853e091dd82c9b0bbb71380b5e90ad))
+
 # [2.223.0-dev.1](https://github.com/anddea/revanced-patches/compare/v2.222.0...v2.223.0-dev.1) (2024-03-25)
 
 
