@@ -87,7 +87,7 @@ Tocca qui per saperne di più su DeArrow"</string>
     <string name="revanced_channel_profile_title">Profilo canale</string>
     <string name="revanced_close_interstitial_ads_summary">"Chiudi automaticamente gli annunci interstiziali.
 
-Nota: questa funzionalità non è stata testata"</string>
+Nota: questa funzione non è stata testata"</string>
     <string name="revanced_close_interstitial_ads_title">Chiudi gli annunci interstiziali</string>
     <string name="revanced_close_interstitial_ads_toast">Chiudendo annunci interstiziali</string>
     <string name="revanced_comments_title">Commenti</string>
@@ -728,9 +728,10 @@ Problemi noti:
     <string name="revanced_hide_video_ads_title">Nascondi gli annunci video</string>
     <string name="revanced_hide_video_with_gray_description_summary">I video con la descrizione grigia includono video che non sono relativi ai termini di ricerca</string>
     <string name="revanced_hide_video_with_gray_description_title">Nascondi i video con la descrizione grigia dai risultati di ricerca</string>
-    <string name="revanced_hide_video_with_low_view_summary">"Nascondi i video con meno di 1.000 visualizzazioni nel feed della home.
-Alcuni video, inclusi quelli dei canali iscritti, potrebbero non essere nascosti anche se hanno meno di 1.000 visualizzazioni"</string>
-    <string name="revanced_hide_video_with_low_view_title">Nascondi i video con poche visualizzazioni</string>
+    <string name="revanced_hide_video_with_low_view_num_summary">I video con visualizzazioni inferiori a questo numero verranno nascosti</string>
+    <string name="revanced_hide_video_with_low_view_num_title">Numero di visualizzazioni</string>
+    <string name="revanced_hide_video_with_low_view_summary">Nascondi i video con un numero di visualizzazioni inferiore a quello impostato</string>
+    <string name="revanced_hide_video_with_low_view_title">Nascondi i video in base alle visualizzazioni</string>
     <string name="revanced_hide_view_products_summary_off">Il banner dei prodotti è visibile</string>
     <string name="revanced_hide_view_products_summary_on">Il banner dei prodotti è nascosto</string>
     <string name="revanced_hide_view_products_title">Nascondi il banner dei prodotti</string>
@@ -743,7 +744,8 @@ Alcuni video, inclusi quelli dei canali iscritti, potrebbero non essere nascosti
     <string name="revanced_hook_download_button_summary">Sostituisci il pulsante Download con il pulsante Download Esterno</string>
     <string name="revanced_hook_download_button_title">Sostituisci il pulsante Download</string>
     <string name="revanced_inform">Informazioni</string>
-    <string name="revanced_keep_landscape_mode_summary">Mantiene la modalità orizzontale quando lo schermo viene spento e acceso a schermo intero</string>
+    <string name="revanced_keep_landscape_mode_summary">"Mantiene la modalità orizzontale quando lo schermo viene spento e acceso a schermo intero
+Problema noto: potrebbe rompere la funzione Picture-in-Picture"</string>
     <string name="revanced_keep_landscape_mode_timeout_summary">Il tempo in millisecondi in cui viene forzata la modalità orizzontale</string>
     <string name="revanced_keep_landscape_mode_timeout_title">Il time-out della modalità orizzontale forzata</string>
     <string name="revanced_keep_landscape_mode_title">Mantieni la modalità orizzontale</string>
