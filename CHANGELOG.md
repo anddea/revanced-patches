@@ -1,3 +1,15 @@
+# [2.223.0-dev.7](https://github.com/anddea/revanced-patches/compare/v2.223.0-dev.6...v2.223.0-dev.7) (2024-03-26)
+
+
+### Bug Fixes
+
+* **YouTube - Hide player buttons background:** Update missing supported versions ([57af802](https://github.com/anddea/revanced-patches/commit/57af802e113269bb931cc9b04b651cfd257cec70))
+
+
+### Features
+
+* **YouTube - Translations:** Update `Italian` ([#163](https://github.com/anddea/revanced-patches/issues/163)) ([7cefd8e](https://github.com/anddea/revanced-patches/commit/7cefd8ec5b0348e4c3ddcdd1dadb7492afa8baed))
+
 # [2.223.0-dev.6](https://github.com/anddea/revanced-patches/compare/v2.223.0-dev.5...v2.223.0-dev.6) (2024-03-26)
 
 
