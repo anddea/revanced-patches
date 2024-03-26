@@ -7,7 +7,6 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.shared.patch.microg.MicroGBytecodeHelper
 import app.revanced.patches.shared.patch.packagename.PackageNamePatch
 import app.revanced.patches.youtube.utils.fix.clientspoof.ClientSpoofPatch
-import app.revanced.patches.youtube.utils.fix.parameter.SpoofPlayerParameterPatch
 import app.revanced.patches.youtube.utils.mainactivity.MainActivityResolvePatch
 import app.revanced.patches.youtube.utils.mainactivity.MainActivityResolvePatch.injectInit
 import app.revanced.patches.youtube.utils.microg.Constants.PACKAGE_NAME
@@ -22,8 +21,7 @@ import app.revanced.patches.youtube.utils.microg.fingerprints.ServiceCheckFinger
     dependencies = [
         ClientSpoofPatch::class,
         MainActivityResolvePatch::class,
-        PackageNamePatch::class,
-        SpoofPlayerParameterPatch::class
+        PackageNamePatch::class
     ]
 )
 object MicroGBytecodePatch : BytecodePatch(
