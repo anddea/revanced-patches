@@ -2554,10 +2554,20 @@ public final class app/revanced/patches/youtube/player/musicbutton/fingerprints/
 	public static final field INSTANCE Lapp/revanced/patches/youtube/player/musicbutton/fingerprints/MusicAppDeeplinkButtonFingerprint;
 }
 
-public final class app/revanced/patches/youtube/player/playerbuttonbg/HidePlayerButtonBackgroundPatch : app/revanced/patcher/patch/ResourcePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/player/playerbuttonbg/HidePlayerButtonBackgroundPatch;
+public final class app/revanced/patches/youtube/player/playerbuttonbg/ForceHidePlayerButtonBackgroundPatch : app/revanced/patcher/patch/ResourcePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/player/playerbuttonbg/ForceHidePlayerButtonBackgroundPatch;
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+}
+
+public final class app/revanced/patches/youtube/player/playerbuttonbg/HidePlayerButtonBackgroundPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/player/playerbuttonbg/HidePlayerButtonBackgroundPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
+public final class app/revanced/patches/youtube/player/playerbuttonbg/fingerprints/PlayerPatchFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/player/playerbuttonbg/fingerprints/PlayerPatchFingerprint;
 }
 
 public final class app/revanced/patches/youtube/player/playeroverlay/CustomPlayerOverlayOpacityPatch : app/revanced/patcher/patch/BytecodePatch {
