@@ -1,3 +1,16 @@
+# [2.223.0-dev.4](https://github.com/anddea/revanced-patches/compare/v2.223.0-dev.3...v2.223.0-dev.4) (2024-03-26)
+
+
+### Features
+
+* **MicroG Support:** Switch to GMSCore ([f1f522f](https://github.com/anddea/revanced-patches/commit/f1f522f6f9c0da44ec92bce3d7fdd4fbe74c248f))
+* **YouTube - Hide player buttons baclground:** Add a switch setting `Hide player buttons background` ([5271610](https://github.com/anddea/revanced-patches/commit/5271610584128963d13556a61f6db88d8f10e117))
+* **YouTube - Settings:** Add new settings for Shorts and Player buttons background ([f0a2e69](https://github.com/anddea/revanced-patches/commit/f0a2e6928887baea4e9722d13d6dc6313b6f9d96))
+* **YouTube - Translations:** Update `Italian` ([#157](https://github.com/anddea/revanced-patches/issues/157)) ([4648253](https://github.com/anddea/revanced-patches/commit/4648253b54357835ed3f2ee657c22abee037c7ea))
+* **YouTube - Translations:** Update `Japanese` ([#149](https://github.com/anddea/revanced-patches/issues/149)) ([4497b8d](https://github.com/anddea/revanced-patches/commit/4497b8d4c0812b3af49888c51f0a72ec05b213ec))
+* **YouTube - Translations:** Update `Russian` ([#156](https://github.com/anddea/revanced-patches/issues/156)) ([1f447ad](https://github.com/anddea/revanced-patches/commit/1f447ad6919a031c36b1500b8d7c5ffbe7a76bfb))
+* **YouTube - Translations:** Update `Ukrainian` ([#146](https://github.com/anddea/revanced-patches/issues/146)) ([5af8f4e](https://github.com/anddea/revanced-patches/commit/5af8f4e678814e3003dfb5ae21b1594526b79b00))
+
 # [2.223.0-dev.3](https://github.com/anddea/revanced-patches/compare/v2.223.0-dev.2...v2.223.0-dev.3) (2024-03-25)
 
 
