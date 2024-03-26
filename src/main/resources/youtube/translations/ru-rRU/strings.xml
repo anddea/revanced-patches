@@ -359,7 +359,7 @@
     <string name="revanced_hide_channel_member_shelf_title">Скрыть публикации подписчиков канала</string>
     <string name="revanced_hide_channel_profile_links_summary_off">Ссылки в верхней части профиля канала отображены</string>
     <string name="revanced_hide_channel_profile_links_summary_on">Ссылки в верхней части профиля канала скрыты</string>
-    <string name="revanced_hide_channel_profile_links_title">Скрыть ссылки профилья канала</string>
+    <string name="revanced_hide_channel_profile_links_title">Скрыть ссылки профиля канала</string>
     <string name="revanced_hide_channel_watermark_summary_off">Логотип канала отображен</string>
     <string name="revanced_hide_channel_watermark_summary_on">Логотип канала скрыт</string>
     <string name="revanced_hide_channel_watermark_title">Скрыть логотип канала</string>
@@ -465,6 +465,18 @@
     <string name="revanced_hide_join_button_summary_off">Кнопка \"Присоединиться\" отображена</string>
     <string name="revanced_hide_join_button_summary_on">Кнопка \"Присоединиться\" скрыта</string>
     <string name="revanced_hide_join_button_title">Скрыть кнопку \"Присоединиться\"</string>
+    <string name="revanced_hide_keyword_content_about_summary">Данный фильтр скрывает контент в результатах поиска, фиде, в \"Подписки\" и комментариях, в соответствии с введенными ключевыми словами.\nПримечание:\n• Не все короткие видео и компоненты интерфейса могут быть скрыты\n• Поиск по ключевому слову может не дать результатов</string>
+    <string name="revanced_hide_keyword_content_comment_summary_off">Фильтр ключевых слов в комментариях отключен</string>
+    <string name="revanced_hide_keyword_content_comment_summary_on">Фильтр ключевых слов в комментариях включен</string>
+    <string name="revanced_hide_keyword_content_comment_title">Включить фильтр в комментариях</string>
+    <string name="revanced_hide_keyword_content_feed_summary_off">Фильтр ключевых слов в фиде и результатах поиска отключен</string>
+    <string name="revanced_hide_keyword_content_feed_summary_on">Фильтр ключевых слов в фиде и результатах поиска включен</string>
+    <string name="revanced_hide_keyword_content_feed_title">Включить фильтр</string>
+    <string name="revanced_hide_keyword_content_sub_summary_off">Фильтр ключевых слов в \"Подписки\" отключен</string>
+    <string name="revanced_hide_keyword_content_sub_summary_on">Фильтр ключевых слов в \"Подписки\" включен</string>
+    <string name="revanced_hide_keyword_content_sub_title">Включить фильтр в \"Подписки\"</string>
+    <string name="revanced_hide_keyword_toast_invalid_common" formatted="false">Недопустимое ключевое слово. Невозможно использовать \'%s\' в качестве фильтра.</string>
+    <string name="revanced_hide_keyword_toast_invalid_length" formatted="false">Недопустимая длина ключевого слова (должно быть не менее %s символов): %s</string>
     <string name="revanced_hide_latest_posts_summary_off">Последние публикации отображены</string>
     <string name="revanced_hide_latest_posts_summary_on">Последние публикации скрыты</string>
     <string name="revanced_hide_latest_posts_title">Скрыть последние публикации</string>
@@ -617,9 +629,9 @@
     <string name="revanced_hide_shorts_player_navigation_bar_summary_off">Панель навигации отображена</string>
     <string name="revanced_hide_shorts_player_navigation_bar_summary_on">Панель навигации скрыта</string>
     <string name="revanced_hide_shorts_player_navigation_bar_title">Скрыть панель навигации</string>
-    <string name="revanced_hide_shorts_player_pivot_button_summary_off">Кнопка \"Повтор\" отображена</string>
-    <string name="revanced_hide_shorts_player_pivot_button_summary_on">Кнопка \"Повтор\" скрыта</string>
-    <string name="revanced_hide_shorts_player_pivot_button_title">Скрыть кнопку \"Повтор\"</string>
+    <string name="revanced_hide_shorts_player_pivot_button_summary_off">Кнопка \"Аудио\" отображена</string>
+    <string name="revanced_hide_shorts_player_pivot_button_summary_on">Кнопка \"Аудио\" скрыта</string>
+    <string name="revanced_hide_shorts_player_pivot_button_title">Скрыть кнопку \"Аудио\"</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_off">Кнопка \"Подписки\" отображена</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_on">Кнопка \"Подписки\" скрыта</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_title">Скрыть кнопку \"Подписки\"</string>
@@ -684,7 +696,9 @@
     <string name="revanced_hide_video_ads_title">Скрыть рекламу в видео</string>
     <string name="revanced_hide_video_with_gray_description_summary">Видео не связанные с поисковыми запросами</string>
     <string name="revanced_hide_video_with_gray_description_title">Скрыть видео с серым описанием</string>
-    <string name="revanced_hide_video_with_low_view_summary">Скрывает видео в ленте с числом просмотров менее 1000.\nНекоторые видео, в том числе с каналов, на которые вы подписаны, могут быть не скрыты, даже если у них менее 1000 просмотров</string>
+    <string name="revanced_hide_video_with_low_view_num_summary">Видео с просмотрами меньше заданного числа будут скрыты</string>
+    <string name="revanced_hide_video_with_low_view_num_title">Задать количество просмотров</string>
+    <string name="revanced_hide_video_with_low_view_summary">Скрывает видео в фиде с числом просмотров менее заданного.\nПримечание:\nНекоторые видео, в том числе с каналов, на которые вы подписаны, могут быть не скрыты.</string>
     <string name="revanced_hide_video_with_low_view_title">Скрыть видео с низким просмотром</string>
     <string name="revanced_hide_view_products_summary_off">Баннер просмотра товаров отображен</string>
     <string name="revanced_hide_view_products_summary_on">Баннер просмотра товаров скрыт</string>
@@ -702,17 +716,14 @@
     <string name="revanced_icon_revancify_blue">Revancify синяя</string>
     <string name="revanced_icon_revancify_red">Revancify красная</string>
     <string name="revanced_inform">Информация</string>
-    <string name="revanced_keep_landscape_mode_summary">Сохраняет альбомный режим при выключении и включении экрана в полноэкранном режиме</string>
+    <string name="revanced_keep_landscape_mode_summary">Сохраняет альбомный режим при выключении и включении экрана в полноэкранном режиме.\nПримечание:\nМогут возникать ошибки работы режима \"Картинка в картинке\" (PIP).</string>
     <string name="revanced_keep_landscape_mode_timeout_summary">Количество миллисекунд, в течение которых принудительно работает альбомный режим</string>
     <string name="revanced_keep_landscape_mode_timeout_title">Сохранять таймаут альбомного режима</string>
     <string name="revanced_keep_landscape_mode_title">Сохранять альбомный режим</string>
     <string name="revanced_keyword_filter_strings_summary">Настройки ключевых слов и фраз, которые нужно скрыть, разделив их новыми строками.\nСлова с заглавными буквами посередине необходимо вводить с регистром (например: iPhone, TikTok, LeBlanc)</string>
     <string name="revanced_keyword_filter_strings_title">Изменить фильтр ключевых слов</string>
-    <string name="revanced_keyword_filter_summary">Скрыть видео из ленты и результатов поиска с помощью фильтра ключевых слов</string>
-    <string name="revanced_hide_keyword_content_feed_summary_off">Фильтр ключевых слов отключен</string>
-    <string name="revanced_hide_keyword_content_feed_summary_on">Фильтр ключевых слов включен</string>
-    <string name="revanced_hide_keyword_content_feed_title">Включить фильтр ключевых слов</string>
-    <string name="revanced_hide_keyword_toast_invalid_length" formatted="false">Недопустимая длина ключевого слова (должно быть не менее %s символов): %s</string>
+    <string name="revanced_keyword_filter_summary">Скрыть видео с помощью фильтра ключевых слов</string>
+    <string name="revanced_keyword_filter_title">Фильтр ключевых слов</string>
     <string name="revanced_label_default">По умолчанию</string>
     <string name="revanced_layout_title">Интерфейс</string>
     <string name="revanced_misc">Прочие настройки</string>
