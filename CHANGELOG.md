@@ -1,3 +1,10 @@
+# [2.223.0-dev.6](https://github.com/anddea/revanced-patches/compare/v2.223.0-dev.5...v2.223.0-dev.6) (2024-03-26)
+
+
+### Features
+
+* **YouTube - Translations:** Update `Italian` ([#161](https://github.com/anddea/revanced-patches/issues/161)) ([a356939](https://github.com/anddea/revanced-patches/commit/a35693951910a7a656a28c87f5b6ab37ceaaca83))
+
 # [2.223.0-dev.5](https://github.com/anddea/revanced-patches/compare/v2.223.0-dev.4...v2.223.0-dev.5) (2024-03-26)
 
 
