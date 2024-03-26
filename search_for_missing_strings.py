@@ -65,6 +65,8 @@ def find_missing_strings():
                 updated_strings = extract_strings(updated_strings_file)
                 # Count name attributes in updated strings
                 num_updated = sum(1 for name, _, _ in updated_strings)
+            else:
+                num_updated = 0
 
             # Find missing strings
             missing_strings = []
