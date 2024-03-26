@@ -9,8 +9,8 @@ import app.revanced.util.doRecursively
 import org.w3c.dom.Element
 
 @Patch(
-    name = "Hide player buttons background",
-    description = "Force to hide the dark background surrounding the video player controls.",
+    name = "Force hide player buttons background",
+    description = "Force to hide the dark background surrounding the video player controls. Exclude \"Hide player buttons background\".",
     dependencies = [SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(
@@ -55,7 +55,7 @@ import org.w3c.dom.Element
     use = false
 )
 @Suppress("unused")
-object HidePlayerButtonBackgroundPatch : ResourcePatch() {
+object ForceHidePlayerButtonBackgroundPatch : ResourcePatch() {
     override fun execute(context: ResourceContext) {
 
         context.xmlEditor["res/drawable/player_button_circle_background.xml"].use { editor ->
@@ -70,7 +70,7 @@ object HidePlayerButtonBackgroundPatch : ResourcePatch() {
             }
         }
 
-        SettingsPatch.updatePatchStatus("Hide player buttons background")
+        SettingsPatch.updatePatchStatus("Force hide player buttons background")
 
     }
 }
