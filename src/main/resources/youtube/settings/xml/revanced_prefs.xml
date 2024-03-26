@@ -224,6 +224,9 @@
         <!-- SETTINGS: HIDE_INFO_CARDS
         <SwitchPreference android:title="@string/revanced_hide_info_cards_title" android:key="revanced_hide_info_cards" android:defaultValue="true" android:summaryOn="@string/revanced_hide_info_cards_summary_on" android:summaryOff="@string/revanced_hide_info_cards_summary_off" /> SETTINGS: HIDE_INFO_CARDS -->
 
+        <!-- SETTINGS: HIDE_PLAYER_BUTTON_BACKGROUND
+        <SwitchPreference android:title="@string/revanced_hide_player_button_background_title" android:key="revanced_hide_player_button_background" android:defaultValue="false" android:summaryOn="@string/revanced_hide_player_button_background_summary_on" android:summaryOff="@string/revanced_hide_player_button_background_summary_off" /> SETTINGS: HIDE_PLAYER_BUTTON_BACKGROUND -->
+
         <!-- SETTINGS: HIDE_PREVIOUS_NEXT_BUTTON
         <SwitchPreference android:title="@string/revanced_hide_previous_next_button_title" android:key="revanced_hide_previous_next_button" android:defaultValue="true" android:summaryOn="@string/revanced_hide_previous_next_button_summary_on" android:summaryOff="@string/revanced_hide_previous_next_button_summary_off" /> SETTINGS: HIDE_PREVIOUS_NEXT_BUTTON -->
 
@@ -490,6 +493,9 @@
         <SwitchPreference android:title="@string/revanced_hide_shorts_player_subscriptions_button_title" android:key="revanced_hide_shorts_player_subscriptions_button" android:defaultValue="true" android:summaryOn="@string/revanced_hide_shorts_player_subscriptions_button_summary_on" android:summaryOff="@string/revanced_hide_shorts_player_subscriptions_button_summary_off" />
         <SwitchPreference android:title="@string/revanced_hide_shorts_player_thanks_button_title" android:key="revanced_hide_shorts_player_thanks_button" android:defaultValue="true" android:summaryOn="@string/revanced_hide_shorts_player_thanks_button_summary_on" android:summaryOff="@string/revanced_hide_shorts_player_thanks_button_summary_off" />
         <SwitchPreference android:title="@string/revanced_hide_shorts_player_pivot_button_title" android:key="revanced_hide_shorts_player_pivot_button" android:defaultValue="false" android:summaryOn="@string/revanced_hide_shorts_player_pivot_button_summary_on" android:summaryOff="@string/revanced_hide_shorts_player_pivot_button_summary_off" />
+        <SwitchPreference android:title="@string/revanced_hide_shorts_player_video_title_title" android:key="revanced_hide_shorts_player_video_title" android:defaultValue="false" android:summaryOn="@string/revanced_hide_shorts_player_video_title_summary_on" android:summaryOff="@string/revanced_hide_shorts_player_video_title_summary_off" />
+        <SwitchPreference android:title="@string/revanced_hide_shorts_player_sound_metadata_label_title" android:key="revanced_hide_shorts_player_sound_metadata_label" android:defaultValue="true" android:summaryOn="@string/revanced_hide_shorts_player_sound_metadata_label_summary_on" android:summaryOff="@string/revanced_hide_shorts_player_sound_metadata_label_summary_off" />
+        <SwitchPreference android:title="@string/revanced_hide_shorts_player_video_link_label_title" android:key="revanced_hide_shorts_player_video_link_label" android:defaultValue="true" android:summaryOn="@string/revanced_hide_shorts_player_video_link_label_summary_on" android:summaryOff="@string/revanced_hide_shorts_player_video_link_label_summary_off" />
         <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_shorts_toolbar_title" />
         <SwitchPreference android:title="@string/revanced_hide_shorts_toolbar_banner_title" android:key="revanced_hide_shorts_toolbar_banner" android:defaultValue="false" android:summaryOn="@string/revanced_hide_shorts_toolbar_banner_summary_on" android:summaryOff="@string/revanced_hide_shorts_toolbar_banner_summary_off" />
         <SwitchPreference android:title="@string/revanced_hide_shorts_toolbar_camera_button_title" android:key="revanced_hide_shorts_toolbar_camera_button" android:defaultValue="false" android:summaryOn="@string/revanced_hide_shorts_toolbar_camera_button_summary_on" android:summaryOff="@string/revanced_hide_shorts_toolbar_camera_button_summary_off" />
@@ -646,7 +652,7 @@
         <Preference android:title=" " android:selectable="false" android:summary="@string/pref_about_category" />
         <PreferenceScreen android:title="@string/revanced_patches_information"  android:summary="@string/revanced_patches_information_summary" >
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_tool_used" />
-            <Preference android:title="ReVanced Patches" android:selectable="false" android:summary="2.223.0-dev.2" />
+            <Preference android:title="ReVanced Patches" android:selectable="false" android:summary="2.223.0-dev.3" />
             <Preference android:title="ReVanced Integrations" android:selectable="false" android:summary="" />
 
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_ads" />
@@ -736,6 +742,7 @@
             <Preference android:title="Custom player overlay opacity" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Disable haptic feedback" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Disable speed overlay" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="Force hide player buttons background" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Hide autoplay button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Hide captions button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Hide channel watermark" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
@@ -744,7 +751,7 @@
             <Preference android:title="Hide filmstrip overlay" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Hide info cards" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Hide music button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
-            <Preference android:title="Hide player button background" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="Hide player buttons background" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Hide player chapters" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Hide previous next button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Hide seek message" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
