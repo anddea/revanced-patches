@@ -627,9 +627,9 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_hide_shorts_player_navigation_bar_summary_off">ナビゲーションバーは表示されます。</string>
     <string name="revanced_hide_shorts_player_navigation_bar_summary_on">ナビゲーションバーは非表示です。</string>
     <string name="revanced_hide_shorts_player_navigation_bar_title">ナビゲーションバーを非表示</string>
-    <string name="revanced_hide_shorts_player_pivot_button_summary_off">サウンドアイコンは表示されます。</string>
-    <string name="revanced_hide_shorts_player_pivot_button_summary_on">サウンドアイコンは非表示です。</string>
-    <string name="revanced_hide_shorts_player_pivot_button_title">サウンドアイコンを非表示</string>
+    <string name="revanced_hide_shorts_player_pivot_button_summary_off">オーディオボタンは表示されます。</string>
+    <string name="revanced_hide_shorts_player_pivot_button_summary_on">オーディオボタンは非表示です。</string>
+    <string name="revanced_hide_shorts_player_pivot_button_title">オーディオボタンを非表示</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_off">「チャンネル登録」ボタンは表示されます。</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_on">「チャンネル登録」ボタンは非表示です。</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_title">チャンネル登録ボタンを非表示</string>
@@ -712,8 +712,10 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_hide_video_with_gray_description_summary">"検索結果から灰色の説明付きの動画を非表示にします。
 灰色の説明付きの動画には検索語と関係のない動画が含まれます。"</string>
     <string name="revanced_hide_video_with_gray_description_title">灰色の説明付きの動画を非表示</string>
-    <string name="revanced_hide_video_with_low_view_summary">"ホームフィードで表示される、視聴回数が1,000回未満の動画を非表示にします。チャンネル登録しているチャンネルの動画など、視聴回数が1,000回未満でも非表示にならない動画があります。"</string>
-    <string name="revanced_hide_video_with_low_view_title">視聴回数の少ない動画を非表示</string>
+    <string name="revanced_hide_video_with_low_view_summary">"再生回数が N 未満の動画を非表示にします。"</string>
+    <string name="revanced_hide_video_with_low_view_title">再生回数に基づいて動画を非表示</string>
+    <string name="revanced_hide_video_with_low_view_num_title">視聴回数</string>
+    <string name="revanced_hide_video_with_low_view_num_summary">視聴回数がこの数値未満の動画は非表示になります。</string>
     <string name="revanced_hide_view_products_summary_off">プレーヤー内の商品バナーを非表示にします。</string>
     <string name="revanced_hide_view_products_summary_on">プレーヤー内の商品バナーを非表示にします。</string>
     <string name="revanced_hide_view_products_title">商品バナーを非表示</string>
@@ -1075,7 +1077,7 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_hide_keyword_content_feed_summary_on">ホームフィードと検索結果のキーワードフィルターは有効です。</string>
     <string name="revanced_keyword_filter_summary">キーワードフィルターを使用してホームと検索結果の動画を非表示にします。</string>
     <string name="revanced_hide_keyword_content_feed_title">キーワードフィルターを有効にする</string>
-    <string name="revanced_hide_keyword_content_about_summary">検索結果,ホームフィード,サブスクリプションの結果がフィルタリングされ、キーワードフレーズに一致するコンテンツが非表示になります。\n\n制限事項:\n• 一部のショート動画は非表示にできない場合があります。\n• 一部の UI コンポーネントは非表示にならない場合があります。\n• キーワードを検索しても結果が表示されない場合があります。</string>
+    <string name="revanced_hide_keyword_content_about_summary">検索結果,ホームフィード,サブスクリプション,コメントの結果がフィルタリングされ、キーワードフレーズに一致するコンテンツが非表示になります。\n\n制限事項:\n• 一部のショート動画は非表示にできない場合があります。\n• 一部の UI コンポーネントは非表示にできない場合があります。\n• キーワードを検索しても結果が表示されない場合があります。</string>
     <string name="revanced_hide_keyword_content_comment_summary_off">コメントのキーワードフィルターは無効です。</string>
     <string name="revanced_hide_keyword_content_comment_summary_on">コメントのキーワードフィルターは有効です。</string>
     <string name="revanced_hide_keyword_content_comment_title">コメントキーワードフィルターを有効にする</string>
