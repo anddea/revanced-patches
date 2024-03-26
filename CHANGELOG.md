@@ -1,3 +1,10 @@
+# [2.223.0-dev.10](https://github.com/anddea/revanced-patches/compare/v2.223.0-dev.9...v2.223.0-dev.10) (2024-03-26)
+
+
+### Features
+
+* **YouTube - Translations:** Update `Polish` ([#172](https://github.com/anddea/revanced-patches/issues/172)) ([55ab0cd](https://github.com/anddea/revanced-patches/commit/55ab0cd93c7b9e194cda511a61c6c71ef0d6aed3))
+
 # [2.223.0-dev.9](https://github.com/anddea/revanced-patches/compare/v2.223.0-dev.8...v2.223.0-dev.9) (2024-03-26)
 
 
