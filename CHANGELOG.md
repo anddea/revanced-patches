@@ -1,3 +1,10 @@
+# [2.223.0-dev.8](https://github.com/anddea/revanced-patches/compare/v2.223.0-dev.7...v2.223.0-dev.8) (2024-03-26)
+
+
+### Features
+
+* **YouTube - Translations:** Update `Japanese` ([#164](https://github.com/anddea/revanced-patches/issues/164)) ([96ba623](https://github.com/anddea/revanced-patches/commit/96ba62317099e94467091bfa3c5c9c3c42c06e8a))
+
 # [2.223.0-dev.7](https://github.com/anddea/revanced-patches/compare/v2.223.0-dev.6...v2.223.0-dev.7) (2024-03-26)
 
 
