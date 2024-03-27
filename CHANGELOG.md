@@ -1,3 +1,15 @@
+# [2.223.0-dev.13](https://github.com/anddea/revanced-patches/compare/v2.223.0-dev.12...v2.223.0-dev.13) (2024-03-27)
+
+
+### Bug Fixes
+
+* **YouTube - Translations:** Update translations info ([de428b0](https://github.com/anddea/revanced-patches/commit/de428b00db7ca7bf1cdfbedd84e5c18c9a59e40c))
+
+
+### Features
+
+* **YouTube - Layout component filter:** Add locale support for a video filter based on view count ([689193f](https://github.com/anddea/revanced-patches/commit/689193f6d76255a7e71916a715116409d4858335))
+
 # [2.223.0-dev.12](https://github.com/anddea/revanced-patches/compare/v2.223.0-dev.11...v2.223.0-dev.12) (2024-03-27)
 
 
