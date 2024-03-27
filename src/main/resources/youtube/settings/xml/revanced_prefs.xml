@@ -86,12 +86,12 @@
         <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_layout_title" />
 
         <PreferenceScreen android:title="@string/revanced_keyword_filter_title" android:key="keyword" android:summary="@string/revanced_keyword_filter_summary">
-        <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_keyword_filter_title" />
-        <SwitchPreference android:title="@string/revanced_hide_keyword_content_feed_title" android:key="revanced_hide_keyword_content_feed" android:defaultValue="false" android:summaryOn="@string/revanced_hide_keyword_content_feed_summary_on" android:summaryOff="@string/revanced_hide_keyword_content_feed_summary_off" />
-        <SwitchPreference android:title="@string/revanced_hide_keyword_content_sub_title" android:key="revanced_hide_keyword_content_sub" android:defaultValue="false" android:summaryOn="@string/revanced_hide_keyword_content_sub_summary_on" android:summaryOff="@string/revanced_hide_keyword_content_sub_summary_off" />
-        <SwitchPreference android:title="@string/revanced_hide_keyword_content_comment_title" android:key="revanced_hide_keyword_content_comment" android:defaultValue="false" android:summaryOn="@string/revanced_hide_keyword_content_comment_summary_on" android:summaryOff="@string/revanced_hide_keyword_content_comment_summary_off" />
-        <app.revanced.integrations.youtube.settingsmenu.ResettableEditTextPreference android:title="@string/revanced_keyword_filter_strings_title" android:key="revanced_hide_keyword_content_strings" android:summary="@string/revanced_keyword_filter_strings_summary" android:defaultValue="" android:inputType="textMultiLine" />
-        <Preference android:title="@string/revanced_inform" android:selectable="false" android:summary="@string/revanced_hide_keyword_content_about_summary" />
+            <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_keyword_filter_title" />
+            <SwitchPreference android:title="@string/revanced_hide_keyword_content_feed_title" android:key="revanced_hide_keyword_content_feed" android:defaultValue="false" android:summaryOn="@string/revanced_hide_keyword_content_feed_summary_on" android:summaryOff="@string/revanced_hide_keyword_content_feed_summary_off" />
+            <SwitchPreference android:title="@string/revanced_hide_keyword_content_sub_title" android:key="revanced_hide_keyword_content_sub" android:defaultValue="false" android:summaryOn="@string/revanced_hide_keyword_content_sub_summary_on" android:summaryOff="@string/revanced_hide_keyword_content_sub_summary_off" />
+            <SwitchPreference android:title="@string/revanced_hide_keyword_content_comment_title" android:key="revanced_hide_keyword_content_comment" android:defaultValue="false" android:summaryOn="@string/revanced_hide_keyword_content_comment_summary_on" android:summaryOff="@string/revanced_hide_keyword_content_comment_summary_off" />
+            <app.revanced.integrations.youtube.settingsmenu.ResettableEditTextPreference android:title="@string/revanced_keyword_filter_strings_title" android:key="revanced_hide_keyword_content_strings" android:summary="@string/revanced_keyword_filter_strings_summary" android:defaultValue="" android:inputType="textMultiLine" />
+            <Preference android:title="@string/revanced_inform" android:selectable="false" android:summary="@string/revanced_hide_keyword_content_about_summary" />
         </PreferenceScreen>
 
         <SwitchPreference android:title="@string/revanced_custom_filter_title" android:key="revanced_custom_filter" android:defaultValue="false" android:summaryOn="@string/revanced_custom_filter_summary_on" android:summaryOff="@string/revanced_custom_filter_summary_off" />
@@ -125,8 +125,13 @@
         <!-- SETTINGS: HIDE_LAYOUT_COMPONENTS
         <SwitchPreference android:title="@string/revanced_hide_home_feed_membership_video_title" android:key="revanced_hide_home_feed_membership_video" android:defaultValue="false" android:summary="@string/revanced_hide_home_feed_membership_video_summary" />
         <SwitchPreference android:title="@string/revanced_hide_video_with_gray_description_title" android:key="revanced_hide_video_with_gray_description" android:defaultValue="false" android:summary="@string/revanced_hide_video_with_gray_description_summary" />
-        <SwitchPreference android:title="@string/revanced_hide_video_with_low_view_title" android:key="revanced_hide_video_with_view" android:defaultValue="false" android:summary="@string/revanced_hide_video_with_low_view_summary" />
-        <app.revanced.integrations.youtube.settingsmenu.ResettableEditTextPreference android:title="@string/revanced_hide_video_with_low_view_num_title" android:key="revanced_hide_video_with_view_num" android:defaultValue="1000" android:summary="@string/revanced_hide_video_with_low_view_num_summary" android:inputType="number" /> SETTINGS: HIDE_LAYOUT_COMPONENTS -->
+        <PreferenceScreen android:title="@string/revanced_hide_video_with_low_view_title" android:key="low_view" android:summary="@string/revanced_hide_video_with_low_view_summary">
+            <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_hide_video_with_low_view_title" />
+            <SwitchPreference android:title="@string/revanced_hide_video_with_low_view_title" android:key="revanced_hide_video_with_view" android:defaultValue="false" android:summary="@string/revanced_hide_video_with_low_view_summary" />
+            <app.revanced.integrations.youtube.settingsmenu.ResettableEditTextPreference android:title="@string/revanced_hide_video_with_low_view_num_title" android:key="revanced_hide_video_with_view_num" android:defaultValue="1000" android:summary="@string/revanced_hide_video_with_low_view_num_summary" android:inputType="number" />
+            <app.revanced.integrations.youtube.settingsmenu.ResettableEditTextPreference android:title="@string/revanced_hide_video_with_low_view_num_multiplier_title" android:key="revanced_hide_video_with_low_view_num_multiplier" android:summary="@string/revanced_hide_video_with_low_view_num_multiplier_summary" android:defaultValue="@string/revanced_hide_video_with_low_view_num_multiplier_value" android:inputType="textMultiLine" />
+            <SwitchPreference android:title="@string/revanced_hide_video_with_low_view_old_title" android:key="revanced_hide_video_with_low_view_old" android:defaultValue="false" android:summary="@string/revanced_hide_video_with_low_view_old_summary" />
+        </PreferenceScreen> SETTINGS: HIDE_LAYOUT_COMPONENTS -->
 
         <!-- SETTINGS: HIDE_CHANNEL_PROFILE_COMPONENTS
         <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_channel_profile_title" />
@@ -653,7 +658,7 @@
         <Preference android:title=" " android:selectable="false" android:summary="@string/pref_about_category" />
         <PreferenceScreen android:title="@string/revanced_patches_information"  android:summary="@string/revanced_patches_information_summary" >
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_tool_used" />
-            <Preference android:title="ReVanced Patches" android:selectable="false" android:summary="2.223.0-dev.3" />
+            <Preference android:title="ReVanced Patches" android:selectable="false" android:summary="2.223.0-dev.11" />
             <Preference android:title="ReVanced Integrations" android:selectable="false" android:summary="" />
 
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_ads" />
