@@ -1,3 +1,11 @@
+# [2.223.0-dev.12](https://github.com/anddea/revanced-patches/compare/v2.223.0-dev.11...v2.223.0-dev.12) (2024-03-27)
+
+
+### Features
+
+* **YouTube - Translations:** Update `Russian` ([#181](https://github.com/anddea/revanced-patches/issues/181)) ([0a58307](https://github.com/anddea/revanced-patches/commit/0a5830736a926c52b4948dc5584b705d2587bf39))
+* **YouTube/Settings menu:** Adding a submenu title `Keyword filter` ([#180](https://github.com/anddea/revanced-patches/issues/180)) ([5702b90](https://github.com/anddea/revanced-patches/commit/5702b90d5c6b32685727032b4faefce12221f325))
+
 # [2.223.0-dev.11](https://github.com/anddea/revanced-patches/compare/v2.223.0-dev.10...v2.223.0-dev.11) (2024-03-27)
 
 
