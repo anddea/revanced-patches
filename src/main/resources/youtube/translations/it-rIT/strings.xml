@@ -255,9 +255,9 @@ Scheda Tu &gt; Visualizza canale &gt; Menù &gt; Impostazioni"</string>
     <string name="revanced_enable_wide_search_bar_in_you_tab_title">Attiva la barra di ricerca estesa nella scheda Tu</string>
     <string name="revanced_experimental_flag">Opzioni sperimentali</string>
     <string name="revanced_extended_settings_export_failed">Impossibile esportare le impostazioni</string>
-    <string name="revanced_extended_settings_export_success">Impostazioni esportate correttamente</string>
+    <string name="revanced_extended_settings_export_success">Impostazioni esportate con successo</string>
     <string name="revanced_extended_settings_export_summary">Esporta le impostazioni in un file</string>
-    <string name="revanced_extended_settings_export_title">Esporta impostazioni</string>
+    <string name="revanced_extended_settings_export_title">Esporta le impostazioni</string>
     <string name="revanced_extended_settings_import">Importa</string>
     <string name="revanced_extended_settings_import_copy">Copia</string>
     <string name="revanced_extended_settings_import_export_as_file_title">Esporta/Importa come file</string>
@@ -267,9 +267,9 @@ Scheda Tu &gt; Visualizza canale &gt; Menù &gt; Impostazioni"</string>
     <string name="revanced_extended_settings_import_export_title">Esporta/Importa le impostazioni</string>
     <string name="revanced_extended_settings_import_failed">Impossibile importare le impostazioni</string>
     <string name="revanced_extended_settings_import_reset">Impostazioni ripristinati al predefinito</string>
-    <string name="revanced_extended_settings_import_success">Impostazioni importate correttamente</string>
+    <string name="revanced_extended_settings_import_success">Impostazioni importate con successo</string>
     <string name="revanced_extended_settings_import_summary">Importa le impostazioni dal file esportato</string>
-    <string name="revanced_extended_settings_import_title">Importa impostazioni</string>
+    <string name="revanced_extended_settings_import_title">Importa le impostazioni</string>
     <string name="revanced_external_downloader_download">Scarica l\'app</string>
     <string name="revanced_external_downloader_installed">Installato</string>
     <string name="revanced_external_downloader_not_installed">Non installato</string>
@@ -280,7 +280,7 @@ Scheda Tu &gt; Visualizza canale &gt; Menù &gt; Impostazioni"</string>
     <string name="revanced_external_downloader_settings_summary">Impostazioni per l\'uso di un downloader esterno</string>
     <string name="revanced_external_downloader_settings_title">Impostazioni del downloader esterno</string>
     <string name="revanced_feed_flyout_panel_title">Pannello a comparsa nei feed</string>
-    <string name="revanced_flyout_menu">Menù a comparsa</string>
+    <string name="revanced_flyout_menu">Pannelli a comparsa</string>
     <string name="revanced_force_fullscreen_summary">"Il video passerà automaticamente a schermo intero nelle seguenti situazioni:
 • Toccando su un timestamp nei commenti
 • Appena il video inizia"</string>
@@ -426,10 +426,10 @@ Alcuni componenti potrebbero non essere nascosti"</string>
     <string name="revanced_hide_expandable_chip_summary_off">Il chip espandibile è visibile</string>
     <string name="revanced_hide_expandable_chip_summary_on">Il chip espandibile è nascosto</string>
     <string name="revanced_hide_expandable_chip_title">Nascondi il chip espandibile</string>
-    <string name="revanced_hide_feed_flyout_panel_filter_strings_title">Modifica il filtro dei menù a comparsa nei feed</string>
-    <string name="revanced_hide_feed_flyout_panel_summary_off">Il filtro dei menù a comparsa nei feed è disattivato</string>
-    <string name="revanced_hide_feed_flyout_panel_summary_on">Il filtro dei menù a comparsa nei feed è attivato</string>
-    <string name="revanced_hide_feed_flyout_panel_title">Attiva il filtro dei menù a comparsa nei feed</string>
+    <string name="revanced_hide_feed_flyout_panel_filter_strings_title">Modifica il filtro del pannello a comparsa nei feed</string>
+    <string name="revanced_hide_feed_flyout_panel_summary_off">Il filtro del pannello a comparsa nei feed è disattivato</string>
+    <string name="revanced_hide_feed_flyout_panel_summary_on">Il filtro del pannello a comparsa nei feed è attivato</string>
+    <string name="revanced_hide_feed_flyout_panel_title">Attiva il filtro del pannello a comparsa nei feed</string>
     <string name="revanced_hide_feed_survey_summary_off">I sondaggi nei feed sono visibili</string>
     <string name="revanced_hide_feed_survey_summary_on">I sondaggi nei feed sono nascosti</string>
     <string name="revanced_hide_feed_survey_title">Nascondi i sondaggi nei feed</string>
@@ -740,9 +740,28 @@ Problemi noti:
     <string name="revanced_hide_video_ads_title">Nascondi gli annunci video</string>
     <string name="revanced_hide_video_with_gray_description_summary">I video con la descrizione grigia includono video che non sono relativi ai termini di ricerca</string>
     <string name="revanced_hide_video_with_gray_description_title">Nascondi i video con la descrizione grigia dai risultati di ricerca</string>
+    <string name="revanced_hide_video_with_low_view_num_multiplier_summary">"Specifica le chiavi di visualizzazione della tua lingua come viene mostrato sotto ogni video.
+
+Note:
+• Il valore di ogni chiave deve essere su una nuova riga
+• Le chiavi vanno prima dei simboli "->"
+• Se cambi la lingua dell'app o del sistema, devi ripristinare questa impostazione
+
+Esempi:
+• In inglese: 10K views = "K -> 1000, views -> views"
+• In spagnolo: "10 K vistas = K -> 1000, vistas -> views""</string>
+    <string name="revanced_hide_video_with_low_view_num_multiplier_title">Le chiavi di visualizzazione</string>
+    <string name="revanced_hide_video_with_low_view_num_multiplier_value">"Mio di -> 1000000
+Mrd di -> 1000000000
+visualizzazioni -> views"</string>
     <string name="revanced_hide_video_with_low_view_num_summary">I video con visualizzazioni inferiori a questo numero verranno nascosti</string>
     <string name="revanced_hide_video_with_low_view_num_title">Numero di visualizzazioni</string>
-    <string name="revanced_hide_video_with_low_view_summary">Nascondi i video con un numero di visualizzazioni inferiore a quello impostato</string>
+    <string name="revanced_hide_video_with_low_view_old_summary">"Nascondi i video con meno di 1.000 visualizzazioni nel feed della home.
+Se hai attivato la funzione sopra, non è necessario attivare questa.
+
+Problema noto: alcuni video, inclusi quelli dei canali iscritti, potrebbero non essere nascosti anche se hanno meno di 1.000 visualizzazioni"</string>
+    <string name="revanced_hide_video_with_low_view_old_title">Nascondi i video con poche visualizzazioni</string>
+    <string name="revanced_hide_video_with_low_view_summary">Nascondi i video con visualizzazioni inferiori a quello impostato</string>
     <string name="revanced_hide_video_with_low_view_title">Nascondi i video in base alle visualizzazioni</string>
     <string name="revanced_hide_view_products_summary_off">Il banner dei prodotti è visibile</string>
     <string name="revanced_hide_view_products_summary_on">Il banner dei prodotti è nascosto</string>
@@ -1090,7 +1109,7 @@ Il tuo Id utente è come una password e non dovrebbe mai essere condiviso"</stri
     <string name="sb_stats_username" formatted="false">Il tuo nome utente: &lt;b&gt;%s&lt;/b&gt;</string>
     <string name="sb_stats_username_change">Tocca qui per cambiare il tuo nome utente</string>
     <string name="sb_stats_username_change_unknown_error" formatted="false">Impossibile cambiare il nome utente (%d %s)</string>
-    <string name="sb_stats_username_changed">Nome utente cambiato correttamente</string>
+    <string name="sb_stats_username_changed">Nome utente cambiato con successo</string>
     <string name="sb_submit_failed_duplicate">Impossibile inviare il segmento perchè è già presente</string>
     <string name="sb_submit_failed_forbidden" formatted="false">Impossibile inviare il segmento (%s)</string>
     <string name="sb_submit_failed_invalid" formatted="false">Impossibile inviare il segmento (%s)</string>
@@ -1098,7 +1117,7 @@ Il tuo Id utente è come una password e non dovrebbe mai essere condiviso"</stri
 Limite raggiunto (troppe richieste provenienti dallo stesso utente o IP)"</string>
     <string name="sb_submit_failed_timeout">Impossibile inviare i segmenti (API scaduto)</string>
     <string name="sb_submit_failed_unknown_error" formatted="false">Impossibile inviare i segmenti (%d %s)</string>
-    <string name="sb_submit_succeeded">Segmento correttamente inviato</string>
+    <string name="sb_submit_succeeded">Segmento inviato con successo</string>
     <string name="sb_toast_on_connection_error_summary_off">Notifica toast nascosta se l\'API di SponsorBlock non è disponibile</string>
     <string name="sb_toast_on_connection_error_summary_on">Notifica toast visibile se l\'API di SponsorBlock non è disponibile</string>
     <string name="sb_toast_on_connection_error_title">Mostra una notifica toast se l\'API non è disponibile</string>
