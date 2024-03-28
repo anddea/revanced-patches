@@ -740,12 +740,14 @@ Wideo z szarymi opisami zawierają wideo niezwiązane z wynikami wyszukiwania."<
     <string name="revanced_hide_video_with_low_view_title">Ukryj wideo na bazie wyświetleń</string>
     <string name="revanced_hide_video_with_low_view_num_summary">Wideo z liczbą wyświetleń poniżej tej wartości zostaną ukryte.</string>
     <string name="revanced_hide_video_with_low_view_num_title">Ilość wyświetleń</string>
-    <string name="revanced_hide_video_with_low_view_num_multiplier_summary">Wprowadź klucze wyświetleń dla określonego języka w sposób pokazany dla każdego wideo. Każdy klucz -> wartość musi znajdować się w nowej linii. Klucz musi się znaleźć przed znakiem "->". Jeśli zmienisz język aplikacji lub systemu, musisz zresetować to ustawienie.\n\nPrzykłady:\nAngielski: 10K views = K -> 1000, views -> views\nPolski: 10 tys. wyświetleń = tys. -> 1000, wyświetleń -> views</string>
+    <string name="revanced_hide_video_with_low_view_num_multiplier_summary">Określ szablon języka dla liczby wyświetleń wyświetlanych pod każdym filmem w interfejsie użytkownika. Każdy klucz (litera/słowo w twoim języku) -> wartość (znaczenie klucza) musi znajdować się w nowej linii. Klucze znajdują się przed znakiem "->". Jeśli zmienisz język aplikacji lub systemu, musisz zresetować to ustawienie.\n\nPrzykłady:\nAngielski: 10K views = K -> 1000, views -> views\nPolski: 10 tys. wyświetleń = tys. -> 1000, wyświetleń -> views</string>
     <string name="revanced_hide_video_with_low_view_num_multiplier_title">Zobacz klucze</string>
     <string name="revanced_hide_video_with_low_view_num_multiplier_value">tys. -> 1 000\nmln -> 1 000 000\nmld -> 1 000 000 000\nwyświetleń -> views</string>
-    <string name="revanced_hide_video_with_low_view_old_summary">"Ukrywa wideo z mniej niż 1000 wyświetleń na stronie głównej.
-Niektóre wideo, w tym te z subskrybowanych kanałów, mogą nie zostać ukryte, nawet jeśli mają mniej niż 1000 wyświetleń."</string>
-    <string name="revanced_hide_video_with_low_view_old_title">Ukryj wideo z małą ilością wyświetleń</string>
+   <string name="revanced_hide_video_with_low_view_old_summary">"Ukrywa wideo z mniej niż 1000 wyświetleń wyświetlane na stronie głównej.
+Niektóre wideo, w tym te z subskrybowanych kanałów, mogą nie zostać ukryte, nawet jeśli mają mniej niż 1000 wyświetleń.
+
+To stara wersja ustawienia, jeśli używasz opcji powyżej, nie musisz używać tej."</string>
+    <string name="revanced_hide_video_with_low_view_old_title">[Stare] Ukryj wideo z małą ilością wyświetleń</string>
     <string name="revanced_hide_view_products_summary_off">Widoczne</string>
     <string name="revanced_hide_view_products_summary_on">Ukryte</string>
     <string name="revanced_hide_view_products_title">Banery produktów</string>
