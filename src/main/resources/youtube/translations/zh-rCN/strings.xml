@@ -595,19 +595,19 @@
     <string name="revanced_navigation">导航栏</string>
     <string name="revanced_others">其他</string>
     <string name="revanced_overlay_button">叠加层按钮</string>
-    <string name="revanced_overlay_button_always_repeat_summary">"点按可保持循环播放状态
+    <string name="revanced_overlay_button_always_repeat_summary">"点击可保持循环播放状态
 长按在循环播放后暂停"</string>
     <string name="revanced_overlay_button_always_repeat_title">循环播放按钮</string>
-    <string name="revanced_overlay_button_copy_video_url_summary">"点按复制视频链接
+    <string name="revanced_overlay_button_copy_video_url_summary">"点击复制视频链接
 长按复制带时间戳的视频链接"</string>
-    <string name="revanced_overlay_button_copy_video_url_timestamp_summary">"点按复制带时间戳的视频链接
+    <string name="revanced_overlay_button_copy_video_url_timestamp_summary">"点击复制带时间戳的视频链接
 长按复制时间戳"</string>
     <string name="revanced_overlay_button_copy_video_url_timestamp_title">带时间戳的复制链接按钮</string>
     <string name="revanced_overlay_button_copy_video_url_title">复制链接按钮</string>
     <string name="revanced_overlay_button_external_downloader_summary">点击以打开外部下载器</string>
     <string name="revanced_overlay_button_external_downloader_title">外部下载按钮</string>
     <string name="revanced_overlay_button_speed_dialog_reset">重置播放速度（1.0x）</string>
-    <string name="revanced_overlay_button_speed_dialog_summary">"点按选择视频播放速度
+    <string name="revanced_overlay_button_speed_dialog_summary">"点击选择视频播放速度
 长按设置默认播放速度（1.0x）"</string>
     <string name="revanced_overlay_button_speed_dialog_title">播放速度按钮</string>
     <string name="revanced_patches_information">补丁信息</string>
@@ -898,7 +898,7 @@
     <string name="revanced_disable_rolling_number_animations_summary_off">滚动动画已启用。</string>
     <string name="revanced_disable_rolling_number_animations_summary_on">滚动动画已禁用。</string>
     <string name="revanced_disable_rolling_number_animations_title">禁用滚动数字动画</string>
-    <string name="revanced_disable_speed_overlay_summary">"按住时禁用“以 2 倍速度播放”。
+    <string name="revanced_disable_speed_overlay_summary">"长按时禁用“以 2 倍速度播放”。
 
 注意：禁用速度叠加会恢复旧布局的“滑动查找”行为。"</string>
     <string name="revanced_disable_update_screen_summary">禁用在使用过时客户端时出现的 \"请更新您的应用\" 屏幕。</string>
@@ -1014,8 +1014,10 @@
     <string name="revanced_hide_video_with_low_view_num_summary">播放量低于此数字的视频将被隐藏。</string>
     <string name="revanced_hide_video_with_low_view_num_title">根据播放量隐藏视频</string>
 	<string name="revanced_hide_video_with_low_view_old_summary">"隐藏在主页上显示的播放量少于 1,000 次的视频。
-某些视频（包括您订阅的频道中的视频）即使播放量少于 1,000 次，也可能不会被隐藏。"</string>
-	<string name="revanced_hide_video_with_low_view_old_title">隐藏播放量较低的视频</string>
+某些视频（包括您订阅的频道中的视频）即使播放量少于 1,000 次，也可能不会被隐藏。
+
+这是一个旧版本，如果你使用的是上面的选项，就不需要使用这个了。"</string>
+	<string name="revanced_hide_video_with_low_view_old_title">[旧]隐藏播放量低的视频</string>
 	<string name="revanced_hide_video_with_low_view_summary">"隐藏播放量少于 N 次的视频。"</string>
 	<string name="revanced_hide_video_with_low_view_title">根据播放量隐藏视频</string>
     <string name="revanced_inform">通知</string>
@@ -1028,7 +1030,7 @@
     <string name="revanced_keyword_filter_summary">使用关键词过滤器隐藏视频。</string>
     <string name="revanced_keyword_filter_title">关键词过滤器</string>
     <string name="revanced_overlay_button_time_ordered_playlist_summary">"点击可生成频道中从最旧到最新的所有视频的播放列表。
-点击并按住可撤消。"</string>
+长按可撤消。"</string>
     <string name="revanced_overlay_button_time_ordered_playlist_title">按时间排序的播放列表按钮</string>
     <string name="revanced_overlay_button_whitelisting_summary">点击可将频道添加到频道白名单中。</string>
     <string name="revanced_overlay_button_whitelisting_title">白名单按钮</string>
