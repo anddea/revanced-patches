@@ -1,3 +1,16 @@
+# [2.223.0-dev.14](https://github.com/anddea/revanced-patches/compare/v2.223.0-dev.13...v2.223.0-dev.14) (2024-03-28)
+
+
+### Bug Fixes
+
+* **YouTube - Translations:** Update translations info ([8de81ba](https://github.com/anddea/revanced-patches/commit/8de81ba9ae620a74a5db87fd305ff4c96e0f51c0))
+* **YT Music - Enable old style miniplayer:** Update description ([dee3a45](https://github.com/anddea/revanced-patches/commit/dee3a453b173fab46fb3c1c98026309e5e232bea))
+
+
+### Features
+
+* **YouTube - Layout component filter:** Adjust filter for more patterns ([1163ff7](https://github.com/anddea/revanced-patches/commit/1163ff75ef9013be6b135ea4fc523cd2441dc7da))
+
 # [2.223.0-dev.13](https://github.com/anddea/revanced-patches/compare/v2.223.0-dev.12...v2.223.0-dev.13) (2024-03-27)
 
 
