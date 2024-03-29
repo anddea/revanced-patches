@@ -167,7 +167,6 @@ object CustomBrandingIconPatch : ResourcePatch() {
 
                 if (appIconValue == "mmt") {
                     (arrayOf(
-                        ResourceGroup("values-v31", "style.xml"),
                         ResourceGroup("drawable", "avd_anim.xml", *drawableAnimResourceFileNames)
                     ) + drawableDirectories.map { ResourceGroup(it, *drawableIconResourceFileNames) })
                         .forEach { context.copyResources("$resourcePath/splash", it) }
