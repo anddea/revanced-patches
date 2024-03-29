@@ -3513,12 +3513,6 @@ public final class app/revanced/patches/youtube/utils/settings/ResourceUtils {
 	public final fun updatePatchStatusTheme (Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;)V
 }
 
-public final class app/revanced/patches/youtube/utils/settings/SettingsAddIconsPatch : app/revanced/patcher/patch/ResourcePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/settings/SettingsAddIconsPatch;
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
-}
-
 public final class app/revanced/patches/youtube/utils/settings/SettingsBytecodePatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/settings/SettingsBytecodePatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
@@ -3528,6 +3522,12 @@ public final class app/revanced/patches/youtube/utils/settings/SettingsBytecodeP
 public final class app/revanced/patches/youtube/utils/settings/SettingsPatch : app/revanced/patches/shared/patch/settings/AbstractSettingsResourcePatch, java/io/Closeable {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/settings/SettingsPatch;
 	public fun close ()V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+}
+
+public final class app/revanced/patches/youtube/utils/settings/VisualSettingsIconsPatch : app/revanced/patcher/patch/ResourcePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/settings/VisualSettingsIconsPatch;
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 }
