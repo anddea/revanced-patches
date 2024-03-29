@@ -1,3 +1,10 @@
+# [2.223.0-dev.16](https://github.com/anddea/revanced-patches/compare/v2.223.0-dev.15...v2.223.0-dev.16) (2024-03-29)
+
+
+### Bug Fixes
+
+* **YouTube - Translations:** Update translations info ([e3571d3](https://github.com/anddea/revanced-patches/commit/e3571d3865082e42f276720a42a13f2fb8e45fe8))
+
 # [2.223.0-dev.15](https://github.com/anddea/revanced-patches/compare/v2.223.0-dev.14...v2.223.0-dev.15) (2024-03-29)
 
 
