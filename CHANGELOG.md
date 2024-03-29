@@ -1,3 +1,11 @@
+# [2.223.0-dev.17](https://github.com/anddea/revanced-patches/compare/v2.223.0-dev.16...v2.223.0-dev.17) (2024-03-29)
+
+
+### Features
+
+* **YouTube - Custom branding icon:** Add splash animation for MMT ([bb97a79](https://github.com/anddea/revanced-patches/commit/bb97a7986bfb29a8c1032b3bbb338cf0f59c14ea))
+* **YouTube - Translations:** Update `Chinese Traditional` ([#205](https://github.com/anddea/revanced-patches/issues/205)) ([f83954f](https://github.com/anddea/revanced-patches/commit/f83954f4d6ddf3c0d9fd71f3a8ff024bc5164237))
+
 # [2.223.0-dev.16](https://github.com/anddea/revanced-patches/compare/v2.223.0-dev.15...v2.223.0-dev.16) (2024-03-29)
 
 
