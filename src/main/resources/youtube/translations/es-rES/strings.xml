@@ -1101,4 +1101,12 @@ Las palabras con letras mayúsculas en el medio deben introducirse con las mayú
     <string name="revanced_hide_shorts_player_video_title_title">Ocultar título del vídeo de Shorts</string>
     <string name="revanced_hide_video_with_low_view_num_summary">Los vídeos con menos visualizaciones que este número se ocultarán.</string>
     <string name="revanced_hide_video_with_low_view_num_title">Número de visualizaciones</string>
+    <string name="revanced_hide_video_with_low_view_num_multiplier_summary">Especifica la plantilla de tu idioma para el número de visualizaciones mostradas debajo de cada vídeo en la interfaz de usuario. Cada clave (una letra/palabra en tu idioma) -> valor (significado de la clave) debe estar en una nueva línea. Las claves van antes del signo "->".\n\nEjemplos:\nInglés: 10K views = K -> 1000, views -> views\nEspañol: 10 K visualizaciones = K -> 1000, visualizaciones -> views</string>
+    <string name="revanced_hide_video_with_low_view_num_multiplier_title">Claves de visualización</string>
+    <string name="revanced_hide_video_with_low_view_num_multiplier_value">K -> 1 000\nM de -> 1 000 000\nB de -> 1 000 000 000\nvisualizaciones -> views</string>
+    <string name="revanced_hide_video_with_low_view_old_summary">"Oculta los vídeos con menos de 1.000 visualizaciones expuestos en el feed de inicio.
+Algunos vídeos, incluidos los de canales a los que estás suscrito, pueden no ocultarse aunque tengan menos de 1.000 visualizaciones.
+
+Es una versión antigua, si estás usando la opción anterior, no necesitas usar esta."</string>
+    <string name="revanced_hide_video_with_low_view_old_title">[Antigua] Ocultar vídeos con pocas visualizaciones</string>
 </resources>
