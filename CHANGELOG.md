@@ -1,3 +1,10 @@
+# [2.223.0-dev.19](https://github.com/anddea/revanced-patches/compare/v2.223.0-dev.18...v2.223.0-dev.19) (2024-03-29)
+
+
+### Bug Fixes
+
+* **YouTube - Custom branding icon:** Remove redundant style ([3fe0040](https://github.com/anddea/revanced-patches/commit/3fe00409cc2c141a03c5150f204fdd00be3497c6))
+
 # [2.223.0-dev.18](https://github.com/anddea/revanced-patches/compare/v2.223.0-dev.17...v2.223.0-dev.18) (2024-03-29)
 
 
