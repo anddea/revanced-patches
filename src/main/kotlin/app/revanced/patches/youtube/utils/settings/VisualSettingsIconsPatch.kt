@@ -4,8 +4,6 @@ import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.youtube.swipe.controls.SwipeControlsPatch
-import app.revanced.patches.youtube.utils.sponsorblock.SponsorBlockPatch
 import app.revanced.util.ResourceGroup
 import app.revanced.util.copyResources
 import org.w3c.dom.Document
@@ -13,14 +11,13 @@ import org.w3c.dom.Element
 import org.w3c.dom.NodeList
 
 @Patch(
-    name = "Settings icons",
+    name = "Visual settings icons",
     description = "Adds icons to specific preferences in the settings.",
-    dependencies = [SettingsPatch::class, SponsorBlockPatch::class, SwipeControlsPatch::class],
     compatiblePackages = [CompatiblePackage("com.google.android.youtube", [])],
     use = true
 )
 @Suppress("unused")
-object SettingsAddIconsPatch : ResourcePatch() {
+object VisualSettingsIconsPatch : ResourcePatch() {
     override fun execute(context: ResourceContext) {
 
         val validTitles = setOf(
@@ -130,7 +127,7 @@ object SettingsAddIconsPatch : ResourcePatch() {
             processPreferences(editor.file)
         }
 
-        SettingsPatch.updatePatchStatus("Settings icons")
+        SettingsPatch.updatePatchStatus("Visual settings icons")
 
     }
 }
