@@ -1,3 +1,23 @@
+# [2.223.0-dev.16](https://github.com/anddea/revanced-patches/compare/v2.223.0-dev.15...v2.223.0-dev.16) (2024-03-29)
+
+
+### Bug Fixes
+
+* **YouTube - Translations:** Update translations info ([e3571d3](https://github.com/anddea/revanced-patches/commit/e3571d3865082e42f276720a42a13f2fb8e45fe8))
+
+# [2.223.0-dev.15](https://github.com/anddea/revanced-patches/compare/v2.223.0-dev.14...v2.223.0-dev.15) (2024-03-29)
+
+
+### Features
+
+* **YouTube - Translations:** Update `Chinese Simplified` ([#196](https://github.com/anddea/revanced-patches/issues/196)) ([2711e2a](https://github.com/anddea/revanced-patches/commit/2711e2ab6626bc0bea2638bb411af62e7512660b))
+* **YouTube - Translations:** Update `Italian` ([#198](https://github.com/anddea/revanced-patches/issues/198)) ([13105fa](https://github.com/anddea/revanced-patches/commit/13105fafed92e561d4896a59f9de402d7a89586f))
+* **YouTube - Translations:** Update `Japanese` ([#203](https://github.com/anddea/revanced-patches/issues/203)) ([d05dbf7](https://github.com/anddea/revanced-patches/commit/d05dbf7c900bb2dbdbcfa7792ce0174de585ebe2))
+* **YouTube - Translations:** Update `Korean` ([#204](https://github.com/anddea/revanced-patches/issues/204)) ([3f08691](https://github.com/anddea/revanced-patches/commit/3f08691d5a2cf9fcf686c88506f12080337f003e))
+* **YouTube - Translations:** Update `Polish` ([#185](https://github.com/anddea/revanced-patches/issues/185)) ([1d0bbcb](https://github.com/anddea/revanced-patches/commit/1d0bbcb347cfaf8148b9d749ea07e84955112662))
+* **YouTube - Translations:** Update `Spanish` ([#183](https://github.com/anddea/revanced-patches/issues/183)) ([56dc375](https://github.com/anddea/revanced-patches/commit/56dc37537d4e4e0b9a96b6c89e799e9b5cc62750))
+* **YouTube - Translations:** Update `Ukrainian` ([#191](https://github.com/anddea/revanced-patches/issues/191)) ([24feb05](https://github.com/anddea/revanced-patches/commit/24feb05aac108ffd4a7e09619824dc4723ad44a6))
+
 # [2.223.0-dev.14](https://github.com/anddea/revanced-patches/compare/v2.223.0-dev.13...v2.223.0-dev.14) (2024-03-28)
 
 

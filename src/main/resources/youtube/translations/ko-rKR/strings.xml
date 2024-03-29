@@ -48,8 +48,8 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_append_time_stamp_information_summary_off">타임스탬프에서 정보를 표시하지 않습니다.</string>
     <string name="revanced_append_time_stamp_information_summary_on">타임스탬프에서 정보를 표시합니다.</string>
     <string name="revanced_append_time_stamp_information_title">타임스탬프에서 정보 표시하기</string>
-    <string name="revanced_append_time_stamp_information_type_summary_off">현재 동영상 재생 속도 값을 표시합니다.\n동영상을 재생하는 동안에 타임스탬프 정보를 길게 누르면 다른 정보로 빠르게 전환할 수 있습니다.</string>
-    <string name="revanced_append_time_stamp_information_type_summary_on">현재 동영상 화질 값을 표시합니다.\n동영상을 재생하는 동안에 타임스탬프 정보를 길게 누르면 다른 정보로 빠르게 전환할 수 있습니다.</string>
+    <string name="revanced_append_time_stamp_information_type_summary_off">현재 동영상 재생 속도 값을 표시합니다.\n\n동영상을 재생하는 동안에 타임스탬프 정보를 길게 누르면 다른 정보로 빠르게 전환할 수 있습니다.</string>
+    <string name="revanced_append_time_stamp_information_type_summary_on">현재 동영상 화질 값을 표시합니다.\n\n동영상을 재생하는 동안에 타임스탬프 정보를 길게 누르면 다른 정보로 빠르게 전환할 수 있습니다.</string>
     <string name="revanced_append_time_stamp_information_type_title">타임스탬프에서 표시할 정보 설정</string>
     <string name="revanced_bottom_player">플레이어 하단</string>
     <string name="revanced_button_container_title">버튼 컨테이너</string>
@@ -282,8 +282,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_external_downloader_settings_title">외부 다운로더 설정</string>
     <string name="revanced_feed_flyout_panel_title">피드 구성요소 패널</string>
     <string name="revanced_flyout_menu">메뉴 구성요소</string>
-    <string name="revanced_force_fullscreen_summary">"
-다음과 같은 상황에서 동영상이 전체 화면으로 전환됩니다:
+    <string name="revanced_force_fullscreen_summary">"다음과 같은 상황에서 동영상이 전체 화면으로 전환됩니다:
 
 • 동영상이 시작되었을 경우
 • 동영상 설명에서 챕터를 선택했을 경우
@@ -427,8 +426,8 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_hide_end_screen_overlay_summary_off">최종 화면 오버레이가 노출됩니다.</string>
     <string name="revanced_hide_end_screen_overlay_summary_on">최종 화면 오버레이가 숨겨집니다.</string>
     <string name="revanced_hide_end_screen_overlay_title">최종 화면 오버레이 숨기기</string>
-    <string name="revanced_hide_expandable_chip_summary_off">다음 정보들이 노출됩니다:\n동영상 설명, 챕터, 주요 순간, 스크립트,\n재생목록의 동영상, 이 동영상에 나온 제품 ...</string>
-    <string name="revanced_hide_expandable_chip_summary_on">다음 정보들이 숨겨집니다:\n동영상 설명, 챕터, 주요 순간, 스크립트,\n재생목록의 동영상, 이 동영상에 나온 제품 ...</string>
+    <string name="revanced_hide_expandable_chip_summary_off">다음 정보가 노출됩니다:\n\n동영상 설명, 챕터, 주요 순간, 스크립트,\n재생목록의 동영상, 이 동영상에 나온 제품 ...</string>
+    <string name="revanced_hide_expandable_chip_summary_on">다음 정보가 숨겨집니다:\n\n동영상 설명, 챕터, 주요 순간, 스크립트,\n재생목록의 동영상, 이 동영상에 나온 제품 ...</string>
     <string name="revanced_hide_expandable_chip_title">썸네일 하단에서 동영상 관련 정보 숨기기</string>
     <string name="revanced_hide_feed_flyout_panel_filter_strings_title">피드 패널 구성요소 필터 편집하기</string>
     <string name="revanced_hide_feed_flyout_panel_summary_off">피드 패널 구성요소 필터를 비활성화합니다.</string>
@@ -692,12 +691,10 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_hide_suggestions_shelf_method_summary_off">"browseId를 통해 추천 선반을 식별합니다.
 
 알려진 문제점:
-
 • browseId가 식별되지 않으면 추천 선반이 숨겨지지 않을 수 있습니다."</string>
     <string name="revanced_hide_suggestions_shelf_method_summary_on">"현재 탭을 통해 추천 선반을 식별합니다.
 
 알려진 문제점:
-
 • 더 많은 서랍(인기 급상승, 쇼핑, 음악 ...)의 선반이 숨겨질 수 있습니다.
 • 재생목록 선반이 숨겨질 수 있습니다."</string>
     <string name="revanced_hide_suggestions_shelf_method_title">선반을 숨기는 방법 설정</string>
@@ -736,6 +733,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_hide_home_feed_membership_video_summary">홈 피드에서 \'회원 전용\' 태그가 있는 동영상이 숨겨집니다.</string>
     <string name="revanced_hide_home_feed_membership_video_title">홈 피드에서 멤버십 동영상 숨기기</string>
     <string name="revanced_hide_video_with_gray_description_summary">"검색 결과에서 회색 설명이 있는 동영상이 숨겨집니다.
+    
 회색 설명이 있는 동영상에는 검색어와 관련이 없는 동영상이 포함됩니다."</string>
     <string name="revanced_hide_video_with_gray_description_title">회색 설명이 있는 동영상 숨기기</string>
     <string name="revanced_hide_view_products_summary_off">플레이어 내에서 제품 쇼핑 배너가 노출됩니다.</string>
@@ -818,7 +816,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_restart_first_run">기능 및 레이아웃을 정상적으로 실행시키기 위해 다시 시작합니다.</string>
     <string name="revanced_restart_message">새로고침 및 다시 시작</string>
     <string name="revanced_ryd_about">정보</string>
-    <string name="revanced_ryd_attribution_summary">싫어요 개수의 데이터는 Return YouTube Dislike API에 의해 제공됩니다. 자세한 내용을 보려면 누르세요.</string>
+    <string name="revanced_ryd_attribution_summary">싫어요 개수의 데이터는 Return YouTube Dislike API에 의해 제공됩니다. 자세한 내용을 보려면 여기를 누르세요.</string>
     <string name="revanced_ryd_compact_layout_summary_off">좋아요 버튼에서 구분선을 표시합니다.</string>
     <string name="revanced_ryd_compact_layout_summary_on">좋아요 버튼에서 구분선을 표시하지 않습니다.</string>
     <string name="revanced_ryd_compact_layout_title">좋아요 버튼에서 구분선 숨기기</string>
@@ -899,7 +897,6 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_spoof_player_parameter_summary">"플레이어 매개변수를 변경하여 재생 문제를 방지합니다.
 
 알려진 문제점:
-
 • 향상된 비트 전송률을 사용할 수 없습니다.
 • 유료 동영상에서 재생바 미리 보기 썸네일을 표시할 수 없습니다.
 • 오프라인 저장이 작동하지 않을 수 있습니다.
@@ -940,8 +937,8 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="sb_enable_auto_hide_skip_segment_button_sum_on">건너뛰기 버튼이 몇 초 후에 사라집니다.</string>
     <string name="sb_enable_auto_hide_skip_segment_button_sum_off">건너뛰기 버튼이 해당 구간이 끝날 때까지 노출됩니다.</string>
     <string name="sb_general_skiptoast">자동으로 구간을 건너뛸 때 팝업 메시지 표시하기</string>
-    <string name="sb_general_skiptoast_sum_on">자동으로 구간을 건너뛸 때 팝업 메시지를 표시합니다. 클릭해서 예시를 볼 수 있습니다.</string>
-    <string name="sb_general_skiptoast_sum_off">자동으로 구간을 건너뛸 때 팝업 메시지를 표시하지 않습니다. 클릭해서 예시를 볼 수 있습니다.</string>
+    <string name="sb_general_skiptoast_sum_on">자동으로 구간을 건너뛸 때 팝업 메시지를 표시합니다. 여기를 누르면 예시를 볼 수 있습니다.</string>
+    <string name="sb_general_skiptoast_sum_off">자동으로 구간을 건너뛸 때 팝업 메시지를 표시하지 않습니다. 여기를 누르면 예시를 볼 수 있습니다.</string>
     <string name="sb_general_time_without">건너뛸 구간을 제외한 시간 표시하기</string>
     <string name="sb_general_time_without_sum_on">건너뛸 구간을 제외한 전체 동영상 길이를 타임스탬프에 표시합니다.</string>
     <string name="sb_general_time_without_sum_off">건너뛸 구간을 포함한 전체 동영상 길이를 타임스탬프에 표시합니다.</string>
@@ -1035,14 +1032,14 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="sb_sponsorblock_connection_failure_status" formatted="false">SponsorBlock을 일시적으로 사용할 수 없습니다 (상태 코드: %d).</string>
     <string name="sb_sponsorblock_connection_failure_timeout">SponsorBlock을 일시적으로 사용할 수 없습니다 (응답 시간 초과).</string>
     <string name="sb_submit_failed_invalid" formatted="false">구간을 제출할 수 없습니다: %s</string>
-    <string name="sb_submit_failed_timeout">구간을 제출할 수 없습니다. (응답 시간 초과)</string>
+    <string name="sb_submit_failed_timeout">구간을 제출할 수 없습니다 (응답 시간 초과).</string>
     <string name="sb_submit_failed_unknown_error" formatted="false">구간 제출에 실패하였습니다: 오류 내용: %d %s</string>
     <string name="sb_submit_failed_rate_limit">구간을 제출할 수 없습니다.\n동일 사용자 또는 동일 IP로 부터 제출된 요청이 너무 많습니다.</string>
     <string name="sb_submit_failed_forbidden" formatted="false">구간을 제출할 수 없습니다: %s</string>
-    <string name="sb_submit_failed_duplicate">구간을 제출할 수 없습니다.\n이미 존재하는 구간입니다</string>
-    <string name="sb_submit_succeeded">구간이 성공적으로 제출되었습니다.</string>
+    <string name="sb_submit_failed_duplicate">구간을 제출할 수 없습니다.\n이미 존재하는 구간입니다.</string>
+    <string name="sb_submit_succeeded">구간을 성공적으로 제출하였습니다.</string>
     <string name="sb_vote_failed_timeout">구간에 투표할 수 없습니다 (응답 시간 초과).</string>
-    <string name="sb_vote_failed_unknown_error" formatted="false">구간 투표에 실패하였습니다. (오류 내용: %d %s)</string>
+    <string name="sb_vote_failed_unknown_error" formatted="false">구간 투표에 실패하였습니다 (오류 내용: %d %s).</string>
     <string name="sb_vote_failed_forbidden" formatted="false">구간 투표에 실패하였습니다: %s</string>
     <string name="sb_vote_upvote">좋아요</string>
     <string name="sb_vote_downvote">싫어요</string>
@@ -1066,18 +1063,18 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="sb_new_segment_edit_by_hand_content">구간의 시작이나 끝을 편집하시겠습니까?</string>
     <string name="sb_new_segment_edit_by_hand_parse_error">잘못된 시간 형식입니다.</string>
     <string name="sb_stats">기록</string>
-    <string name="sb_stats_connection_failure">기록을 일시적으로 가져올 수 없습니다. (응답 시간 초과)</string>
-    <string name="sb_stats_sb_disabled">SponsorBlock이 비활성화되었습니다.</string>
+    <string name="sb_stats_connection_failure">기록을 일시적으로 가져올 수 없습니다 (응답 시간 초과).</string>
+    <string name="sb_stats_sb_disabled">SponsorBlock을 비활성화하였습니다.</string>
     <string name="sb_stats_username" formatted="false">사용자 이름: &lt;b&gt;%s&lt;/b&gt;</string>
     <string name="sb_stats_username_change">사용자 이름을 변경하려면 여기를 누르세요.</string>
     <string name="sb_stats_username_change_unknown_error" formatted="false">사용자 이름을 변경하는 데 실패하였습니다: 오류 내용: %d %s</string>
-    <string name="sb_stats_username_changed">사용자 이름이 성공적으로 변경되었습니다.</string>
+    <string name="sb_stats_username_changed">사용자 이름을 성공적으로 변경하였습니다.</string>
     <string name="sb_stats_reputation" formatted="false">사용자의 평판: &lt;b&gt;%.2f&lt;/b&gt;</string>
     <string name="sb_stats_submissions" formatted="false">제출 횟수: &lt;b&gt;%s&lt;/b&gt;</string>
     <string name="sb_stats_saved_zero">SponsorBlock 리더보드</string>
     <string name="sb_stats_saved" formatted="false">다른 분이 &lt;b&gt;%s&lt;/b&gt;개의 구간을 건너뛸 수 있게 해주셨습니다.</string>
     <string name="sb_stats_saved_sum_zero">글로벌 기록 또는 상위 기여자를 확인하려면 여기를 누르세요.</string>
-    <string name="sb_stats_saved_sum" formatted="false">이는 &lt;b&gt;%s&lt;/b&gt;에 해당합니다.\n리더보드를 보려면 클릭하세요.</string>
+    <string name="sb_stats_saved_sum" formatted="false">이는 &lt;b&gt;%s&lt;/b&gt;에 해당합니다.\n리더보드를 보려면 여기를 누르세요.</string>
     <string name="sb_stats_self_saved" formatted="false">구간 &lt;b&gt;%s&lt;/b&gt;개를 건너뛰었습니다.</string>
     <string name="sb_stats_self_saved_sum" formatted="false">이는 &lt;b&gt;%s&lt;/b&gt;에 해당합니다.</string>
     <string name="sb_stats_self_saved_reset_title">건너뛴 횟수 기록을 초기화하겠습니까?</string>
@@ -1091,7 +1088,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="sb_reset_color">색상 초기화</string>
     <string name="sb_about">정보</string>
     <string name="sb_reset">초기화</string>
-    <string name="sb_about_api_sum">건너뛸 구간의 데이터는 SponsorBlock API에 의해 제공됩니다. 자세한 내용을 보려면 누르세요.</string>
+    <string name="sb_about_api_sum">건너뛸 구간의 데이터는 SponsorBlock API에 의해 제공됩니다. 자세한 내용을 보려면 여기를 누르세요.</string>
 
     <string name="revanced_swipe_overlay_rect_warning" formatted="false">스와이프 화면 영역은 %s%%를 초과할 수 없으므로 기본값으로 재설정합니다.</string>
     <string name="revanced_swipe_overlay_rect_summary">스와이프 화면 영역을 지정할 수 있습니다. (백분율)</string>
@@ -1108,7 +1105,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     
     <string name="revanced_hide_video_with_low_view_summary">"아래에서 입력한 숫자보다 낮은 조회수를 가진 동영상을 숨길 수 있습니다."</string>
     <string name="revanced_hide_video_with_low_view_title">조회수에 따라 동영상 숨기기</string>    
-    <string name="revanced_hide_video_with_low_view_num_summary">숨겨질 동영상의 조회수 기준점을 입력하세요.</string>
+    <string name="revanced_hide_video_with_low_view_num_summary">숨겨질 동영상의 조회수 기준점을 입력하세요. (숫자)</string>
     <string name="revanced_hide_video_with_low_view_num_title">조회수 설정</string>
     
     <string name="revanced_hide_shorts_player_sound_metadata_label_summary_off">사운드 메타데이터 라벨이 노출됩니다.</string>
@@ -1121,4 +1118,15 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_hide_shorts_player_video_title_summary_on">Shorts 동영상 제목이 숨겨집니다.</string>
     <string name="revanced_hide_shorts_player_video_title_title">Shorts 동영상 제목 숨기기</string>
 
+    <string name="revanced_hide_video_with_low_view_num_multiplier_title">조회수 키</string>
+    <string name="revanced_hide_video_with_low_view_num_multiplier_value">천회 -> 1000\n만회 -> 10000\n억회 -> 100000000\n조회수 -> views</string>
+    
+    <string name="revanced_hide_video_with_low_view_old_title">[이전 버전] 조회수가 낮은 동영상 숨기기</string>
+    
+    <string name="revanced_hide_video_with_low_view_num_multiplier_summary">화면 구성요소에서 각 동영상 아래에 표시되는 조회수에 대한 언어 템플릿을 지정할 수 있습니다. 각 \'키(해당 언어의 문자/단어) -> 값(키의 의미)\'은 줄바꿈으로 구분하여 입력해야 하고, 키는 \'->\' 기호 앞에 와야 합니다. 앱 언어 또는 시스템 언어를 변경하는 경우 이 설정을 재설정해야 합니다.\n\n예시: \n영어: 10K views = K -> 1000, views -> views\n한국어: 10만회 = 만회 -> 10000</string>
+    <string name="revanced_hide_video_with_low_view_old_summary">"홈 피드에서 노출되는 조회수가 1,000회 미만인 동영상이 숨겨집니다.
+구독하는 채널의 동영상을 포함한 일부 동영상은 조회수가 1,000회 미만이더라도 숨겨지지 않을 수 있습니다.
+
+이전 버전이므로 위의 설정을 사용 중이라면 이 설정을 사용할 필요가 없습니다. "</string>
+  
 </resources>
