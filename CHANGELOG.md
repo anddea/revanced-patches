@@ -1,3 +1,10 @@
+# [2.223.0-dev.18](https://github.com/anddea/revanced-patches/compare/v2.223.0-dev.17...v2.223.0-dev.18) (2024-03-29)
+
+
+### Bug Fixes
+
+* **YouTube - Visual settings icons:** Add missing dependency ([b3b3545](https://github.com/anddea/revanced-patches/commit/b3b35457fc91eed32bb5a9983e94d189e72d5c7b))
+
 # [2.223.0-dev.17](https://github.com/anddea/revanced-patches/compare/v2.223.0-dev.16...v2.223.0-dev.17) (2024-03-29)
 
 
