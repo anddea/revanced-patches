@@ -87,7 +87,7 @@ Tocca qui per saperne di più su DeArrow"</string>
     <string name="revanced_channel_profile_title">Profilo canale</string>
     <string name="revanced_close_interstitial_ads_summary">"Chiudi automaticamente gli annunci interstiziali.
 
-Nota: questa funzionalità non è stata testata"</string>
+Nota: questa funzione non è stata testata"</string>
     <string name="revanced_close_interstitial_ads_title">Chiudi gli annunci interstiziali</string>
     <string name="revanced_close_interstitial_ads_toast">Chiudendo annunci interstiziali</string>
     <string name="revanced_comments_title">Commenti</string>
@@ -542,6 +542,9 @@ Problemi noti:
     <string name="revanced_hide_place_section_summary_off">La sezione Luogo è visibile</string>
     <string name="revanced_hide_place_section_summary_on">La sezione Luogo è nascosta</string>
     <string name="revanced_hide_place_section_title">Nascondi la sezione Luogo</string>
+    <string name="revanced_hide_player_button_background_summary_off">Lo sfondo dei pulsanti del riproduttore è visibile</string>
+    <string name="revanced_hide_player_button_background_summary_on">Lo sfondo dei pulsanti del riproduttore è nascosto</string>
+    <string name="revanced_hide_player_button_background_title">Nascondi lo sfondo dei pulsanti del riproduttore</string>
     <string name="revanced_hide_player_flyout_panel_ambient_mode_summary_off">Il menù Modalità Ambient è visibile</string>
     <string name="revanced_hide_player_flyout_panel_ambient_mode_summary_on">Il menù Modalità Ambient è nascosto</string>
     <string name="revanced_hide_player_flyout_panel_ambient_mode_title">Nascondi il menù Modalità Ambient</string>
@@ -652,9 +655,18 @@ Problemi noti:
     <string name="revanced_hide_shorts_player_pivot_button_summary_off">Il pulsante Suono è visibile</string>
     <string name="revanced_hide_shorts_player_pivot_button_summary_on">Il pulsante Suono è nascosto</string>
     <string name="revanced_hide_shorts_player_pivot_button_title">Nascondi il pulsante Suono</string>
+    <string name="revanced_hide_shorts_player_sound_metadata_label_summary_off">L\'etichetta dei metadati audio è visibile</string>
+    <string name="revanced_hide_shorts_player_sound_metadata_label_summary_on">L\'etichetta dei metadati audio è nascosto</string>
+    <string name="revanced_hide_shorts_player_sound_metadata_label_title">Nascondi l\'etichetta dei metadati audio</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_off">Il pulsante Iscriviti è visibile</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_on">Il pulsante Iscriviti è nascosto</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_title">Nascondi il pulsante Iscriviti</string>
+    <string name="revanced_hide_shorts_player_video_link_label_summary_off">L\'etichetta del link del video è visibile</string>
+    <string name="revanced_hide_shorts_player_video_link_label_summary_on">L\'etichetta del link del video è nascosto</string>
+    <string name="revanced_hide_shorts_player_video_link_label_title">Nascondi l\'etichetta del link del video</string>
+    <string name="revanced_hide_shorts_player_video_title_summary_off">Il titolo del video è visibile</string>
+    <string name="revanced_hide_shorts_player_video_title_summary_on">Il titolo del video è nascosto</string>
+    <string name="revanced_hide_shorts_player_video_title_title">Nascondi il titolo del video</string>
     <string name="revanced_hide_shorts_shelf_summary">Problema noto: l\'intestazione ufficiale nei risultati di ricerca sarà nascosta</string>
     <string name="revanced_hide_shorts_shelf_title">Nascondi lo scaffale degli Shorts</string>
     <string name="revanced_hide_shorts_toolbar_banner_summary_off">Il banner è visibile</string>
@@ -696,7 +708,7 @@ Problema noto: quando il BrowseId non viene identificato, gli scaffali dei sugge
 Problemi noti:
 • Gli scaffali delle playlist potrebbero essere nascosti
 • Anche altri scaffali potrebbero essere nascosti"</string>
-    <string name="revanced_hide_suggestions_shelf_method_title">Seleziona il metodo per nascondere gli scaffali</string>
+    <string name="revanced_hide_suggestions_shelf_method_title">Il metodo per nascondere gli scaffali</string>
     <string name="revanced_hide_suggestions_shelf_summary">"Nasconde i seguenti scaffali:
 • Ultime notizie
 • Continua a guardare
@@ -728,9 +740,10 @@ Problemi noti:
     <string name="revanced_hide_video_ads_title">Nascondi gli annunci video</string>
     <string name="revanced_hide_video_with_gray_description_summary">I video con la descrizione grigia includono video che non sono relativi ai termini di ricerca</string>
     <string name="revanced_hide_video_with_gray_description_title">Nascondi i video con la descrizione grigia dai risultati di ricerca</string>
-    <string name="revanced_hide_video_with_low_view_summary">"Nascondi i video con meno di 1.000 visualizzazioni nel feed della home.
-Alcuni video, inclusi quelli dei canali iscritti, potrebbero non essere nascosti anche se hanno meno di 1.000 visualizzazioni"</string>
-    <string name="revanced_hide_video_with_low_view_title">Nascondi i video con poche visualizzazioni</string>
+    <string name="revanced_hide_video_with_low_view_num_summary">I video con visualizzazioni inferiori a questo numero verranno nascosti</string>
+    <string name="revanced_hide_video_with_low_view_num_title">Numero di visualizzazioni</string>
+    <string name="revanced_hide_video_with_low_view_summary">Nascondi i video con un numero di visualizzazioni inferiore a quello impostato</string>
+    <string name="revanced_hide_video_with_low_view_title">Nascondi i video in base alle visualizzazioni</string>
     <string name="revanced_hide_view_products_summary_off">Il banner dei prodotti è visibile</string>
     <string name="revanced_hide_view_products_summary_on">Il banner dei prodotti è nascosto</string>
     <string name="revanced_hide_view_products_title">Nascondi il banner dei prodotti</string>
@@ -743,7 +756,9 @@ Alcuni video, inclusi quelli dei canali iscritti, potrebbero non essere nascosti
     <string name="revanced_hook_download_button_summary">Sostituisci il pulsante Download con il pulsante Download Esterno</string>
     <string name="revanced_hook_download_button_title">Sostituisci il pulsante Download</string>
     <string name="revanced_inform">Informazioni</string>
-    <string name="revanced_keep_landscape_mode_summary">Mantiene la modalità orizzontale quando lo schermo viene spento e acceso a schermo intero</string>
+    <string name="revanced_keep_landscape_mode_summary">"Mantiene la modalità orizzontale quando lo schermo viene spento e acceso a schermo intero
+
+Problema noto: potrebbe rompere la funzione Picture-in-Picture"</string>
     <string name="revanced_keep_landscape_mode_timeout_summary">Il tempo in millisecondi in cui viene forzata la modalità orizzontale</string>
     <string name="revanced_keep_landscape_mode_timeout_title">Il time-out della modalità orizzontale forzata</string>
     <string name="revanced_keep_landscape_mode_title">Mantieni la modalità orizzontale</string>
@@ -834,8 +849,8 @@ Tocca e tieni premuto per impostare la velocità di riproduzione a 1.0x"</string
     <string name="revanced_shorts_player_title">Riproduttore</string>
     <string name="revanced_shorts_toolbar_summary">Il pulsante Indietro nella barra degli strumenti non può essere nascosto</string>
     <string name="revanced_shorts_toolbar_title">Barra degli strumenti</string>
-    <string name="revanced_show_fullscreen_title_summary">Problema noto: il titolo scompare quando viene toccato</string>
-    <string name="revanced_show_fullscreen_title_title">Mostra il titolo a schermo intero</string>
+    <string name="revanced_show_fullscreen_title_summary">Problema noto: il titolo del video scompare quando viene toccato</string>
+    <string name="revanced_show_fullscreen_title_title">Mostra il titolo del video a schermo intero</string>
     <string name="revanced_skip_preloaded_buffer_summary">"Salta il buffer precaricato all'avvio dei video per bypassare il ritardo della qualità video predefinita forzata.
 
 Note:
@@ -890,7 +905,7 @@ Problemi noti:
     <string name="revanced_swipe_gestures_lock_mode_summary_on">I gesti di trascinamento in modalità Blocca Schermo sono attivati</string>
     <string name="revanced_swipe_gestures_lock_mode_title">Attiva i gesti di trascinamento in modalità Blocca Schermo</string>
     <string name="revanced_swipe_magnitude_threshold_summary">La quantità di interazioni prima che il trascinamento si verifichi</string>
-    <string name="revanced_swipe_magnitude_threshold_title">L\'ampiezza della soglia di trascinamento</string>
+    <string name="revanced_swipe_magnitude_threshold_title">L\'ampiezza del limite di trascinamento</string>
     <string name="revanced_swipe_overlay_background_alpha_summary">La visibilità dello sfondo in sovrapposizione durante il trascinamento</string>
     <string name="revanced_swipe_overlay_background_alpha_title">La visibilità dello sfondo durante il trascinamento</string>
     <string name="revanced_swipe_overlay_rect_warning" formatted="false">La dimensione dell\'area di trascinamento non può essere maggiore di %s%%, ripristinata al predefinito</string>
@@ -1080,7 +1095,7 @@ Il tuo Id utente è come una password e non dovrebbe mai essere condiviso"</stri
     <string name="sb_submit_failed_forbidden" formatted="false">Impossibile inviare il segmento (%s)</string>
     <string name="sb_submit_failed_invalid" formatted="false">Impossibile inviare il segmento (%s)</string>
     <string name="sb_submit_failed_rate_limit">"Impossibile inviare il segmento.
-Soglia raggiunta (troppe richieste provenienti dallo stesso utente o IP)"</string>
+Limite raggiunto (troppe richieste provenienti dallo stesso utente o IP)"</string>
     <string name="sb_submit_failed_timeout">Impossibile inviare i segmenti (API scaduto)</string>
     <string name="sb_submit_failed_unknown_error" formatted="false">Impossibile inviare i segmenti (%d %s)</string>
     <string name="sb_submit_succeeded">Segmento correttamente inviato</string>
