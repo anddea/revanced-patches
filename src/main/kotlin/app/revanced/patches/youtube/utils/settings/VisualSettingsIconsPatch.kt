@@ -13,6 +13,7 @@ import org.w3c.dom.NodeList
 @Patch(
     name = "Visual settings icons",
     description = "Adds icons to specific preferences in the settings.",
+    dependencies = [SettingsPatch::class],
     compatiblePackages = [CompatiblePackage("com.google.android.youtube", [])],
     use = true
 )
