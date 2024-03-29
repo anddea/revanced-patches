@@ -46,8 +46,8 @@
     <string name="revanced_append_time_stamp_information_summary_off">時間戳功能已關閉</string>
     <string name="revanced_append_time_stamp_information_summary_on">時間戳功能已開啟</string>
     <string name="revanced_append_time_stamp_information_title">加入時間戳</string>
-    <string name="revanced_append_time_stamp_information_type_summary_off">顯示播放速度</string>
-    <string name="revanced_append_time_stamp_information_type_summary_on">顯示影片解析度</string>
+    <string name="revanced_append_time_stamp_information_type_summary_off">顯示播放速度，當播放影片時，長按時間戳可變更類型。</string>
+    <string name="revanced_append_time_stamp_information_type_summary_on">顯示影片解析度，當播放影片時，長按時間戳可變更類型。</string>
     <string name="revanced_append_time_stamp_information_type_title">附加的資訊種類</string>
     <string name="revanced_bottom_player">播放器按鈕</string>
     <string name="revanced_button_container_title">功能按鈕欄</string>
@@ -435,8 +435,14 @@
     <string name="revanced_hide_get_premium_summary_off">顯示 YouTube Premium 推廣</string>
     <string name="revanced_hide_get_premium_summary_on">隱藏 YouTube Premium 推廣</string>
     <string name="revanced_hide_get_premium_title">隱藏 YouTube Premium 推廣</string>
-    <string name="revanced_hide_gray_description_summary_off">灰色描述已顯示</string>
-    <string name="revanced_hide_gray_description_summary_on">灰色描述已隱藏</string>
+    <string name="revanced_hide_gray_description_summary_off">灰色描述已顯示。
+• 從您的稍後觀看播放清單。
+• 人們也觀看了這個影片。
+• 頻道觀眾也觀看了這個頻道，等等。"</string>
+    <string name="revanced_hide_gray_description_summary_on">灰色描述已隱藏
+• 從您的稍後觀看播放清單。
+• 人們也觀看了這個影片。
+• 頻道觀眾也觀看了這個頻道，等等。"</string>
     <string name="revanced_hide_gray_description_title">隱藏灰色描述</string>
     <string name="revanced_hide_gray_separator_summary_off">顯示灰色分隔線</string>
     <string name="revanced_hide_gray_separator_summary_on">隱藏灰色分隔線</string>
@@ -462,6 +468,8 @@
     <string name="revanced_hide_join_button_summary_off">顯示加入按鈕</string>
     <string name="revanced_hide_join_button_summary_on">隱藏加入按鈕</string>
     <string name="revanced_hide_join_button_title">隱藏加入按鈕</string>
+    <string name="revanced_hide_keyword_content_feed_summary_off">已停用內容和搜尋的關鍵字篩選功能。</string>
+    <string name="revanced_hide_keyword_content_feed_summary_on">已啟用內容和搜尋的關鍵字篩選功能。</string>
     <string name="revanced_hide_latest_posts_summary_off">最新貼文已顯示</string>
     <string name="revanced_hide_latest_posts_summary_on">最新貼文已隱藏</string>
     <string name="revanced_hide_latest_posts_title">隱藏最新貼文</string>
@@ -611,8 +619,8 @@
     <string name="revanced_hide_shorts_player_navigation_bar_summary_off">顯示導航列</string>
     <string name="revanced_hide_shorts_player_navigation_bar_summary_on">隱藏導航列</string>
     <string name="revanced_hide_shorts_player_navigation_bar_title">隱藏導航列</string>
-    <string name="revanced_hide_shorts_player_pivot_button_summary_off">顯示樞紐按鈕</string>
-    <string name="revanced_hide_shorts_player_pivot_button_summary_on">隱藏樞紐按鈕</string>
+    <string name="revanced_hide_shorts_player_pivot_button_summary_off">樞紐按鈕已顯示</string>
+    <string name="revanced_hide_shorts_player_pivot_button_summary_on">樞紐按鈕已隱藏</string>
     <string name="revanced_hide_shorts_player_pivot_button_title">隱藏樞紐按鈕</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_off">訂閱按鈕已顯示</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_on">訂閱按鈕已隱藏</string>
@@ -696,9 +704,11 @@
     <string name="revanced_hide_video_with_gray_description_summary">"從搜尋結果中隱藏帶有灰色描述的影片。
 帶有灰色描述的影片包括與搜尋字詞無關的影片。"</string>
     <string name="revanced_hide_video_with_gray_description_title">隱藏帶有灰色描述的影片</string>
-    <string name="revanced_hide_video_with_low_view_summary">"隱藏在首頁上顯示的觀看次數少於 1,000 次的影片。
- 某些影片（包括您訂閱的頻道中的影片）即使觀看次數少於 1,000 次，也可能不會被隱藏。"</string>
-    <string name="revanced_hide_video_with_low_view_title">隱藏觀看次數較低的影片</string>
+    <string name="revanced_hide_video_with_low_view_old_summary">"隱藏在首頁上顯示的觀看次數少於 1,000 次的影片。
+某些影片（包括您訂閱的頻道中的影片）即使觀看次數少於 1,000 次，也可能不會被隱藏。"</string>
+    <string name="revanced_hide_video_with_low_view_old_title">隱藏觀看次數較低的影片</string>
+    <string name="revanced_hide_video_with_low_view_summary">"隱藏觀看次數少於N次的影片。"</string>
+    <string name="revanced_hide_video_with_low_view_title">根據觀看次數隱藏影片</string>
     <string name="revanced_hide_view_products_summary_off">觀看商品橫幅已顯示</string>
     <string name="revanced_hide_view_products_summary_on">觀看商品橫幅已隱藏</string>
     <string name="revanced_hide_view_products_title">隱藏檢視商品橫幅</string>
@@ -712,10 +722,11 @@
 僅適用於 YouTube v18.24.37+"</string>
     <string name="revanced_hook_download_button_title">Hook 下載按鈕</string>
     <string name="revanced_inform">提示訊息</string>
-    <string name="revanced_keep_landscape_mode_summary">在全螢幕模式下關閉和開啟螢幕時保持橫向模式。</string>
+    <string name="revanced_keep_landscape_mode_summary">在全螢幕模式下關閉和開啟螢幕時保持橫向模式。\n\n已知問題：可能會導致畫中畫（PIP）功能失效。</string>
     <string name="revanced_keep_landscape_mode_timeout_summary">已強制橫向模式的毫秒數。</string>
     <string name="revanced_keep_landscape_mode_timeout_title">保持橫向模式的超時時間</string>
     <string name="revanced_keep_landscape_mode_title">保持橫向模式</string>
+    <string name="revanced_keyword_filter_summary">使用關鍵字篩選器來隱藏影片。</string>
     <string name="revanced_layout_title">版面</string>
     <string name="revanced_misc">其他設定</string>
     <string name="revanced_navigation">導覽列</string>
