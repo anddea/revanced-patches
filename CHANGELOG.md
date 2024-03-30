@@ -1,3 +1,16 @@
+# [2.223.0-dev.20](https://github.com/anddea/revanced-patches/compare/v2.223.0-dev.19...v2.223.0-dev.20) (2024-03-30)
+
+
+### Bug Fixes
+
+* **YouTube - Translations:** Update `Japanese` ([#214](https://github.com/anddea/revanced-patches/issues/214)) ([bb5318e](https://github.com/anddea/revanced-patches/commit/bb5318e7807632a0136fd54147cedd358b132e96))
+* **YT Music:** Support latest versions ([4575e86](https://github.com/anddea/revanced-patches/commit/4575e86de5405417dead2cc2ab7cc509144fafaf))
+
+
+### Features
+
+* **YouTube - Translations:** Update `Korean` ([#210](https://github.com/anddea/revanced-patches/issues/210)) ([86cff2c](https://github.com/anddea/revanced-patches/commit/86cff2cd21f642878f6b8bed0a24e355c5ffeab0))
+
 # [2.223.0-dev.19](https://github.com/anddea/revanced-patches/compare/v2.223.0-dev.18...v2.223.0-dev.19) (2024-03-29)
 
 
