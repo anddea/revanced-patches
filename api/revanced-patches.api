@@ -308,10 +308,6 @@ public final class app/revanced/patches/music/misc/backgroundplay/BackgroundPlay
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/music/misc/backgroundplay/fingerprints/BackgroundPlaybackParentFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
-	public static final field INSTANCE Lapp/revanced/patches/music/misc/backgroundplay/fingerprints/BackgroundPlaybackParentFingerprint;
-}
-
 public final class app/revanced/patches/music/misc/bitrate/BitrateDefaultValuePatch : app/revanced/patcher/patch/ResourcePatch {
 	public static final field INSTANCE Lapp/revanced/patches/music/misc/bitrate/BitrateDefaultValuePatch;
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
