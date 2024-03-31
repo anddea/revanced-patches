@@ -2084,6 +2084,12 @@ public final class app/revanced/patches/youtube/layout/pipnotification/fingerpri
 	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/pipnotification/fingerprints/PiPNotificationFingerprint;
 }
 
+public final class app/revanced/patches/youtube/layout/settings/HideSettingsPrefsPatch : app/revanced/patcher/patch/ResourcePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/settings/HideSettingsPrefsPatch;
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+}
+
 public final class app/revanced/patches/youtube/layout/splashanimation/AddSplashAnimationPatch : app/revanced/patcher/patch/ResourcePatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/splashanimation/AddSplashAnimationPatch;
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
