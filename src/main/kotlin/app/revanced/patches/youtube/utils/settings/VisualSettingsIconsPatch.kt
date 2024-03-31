@@ -11,7 +11,7 @@ import org.w3c.dom.Element
 import org.w3c.dom.NodeList
 
 @Patch(
-    name = "Visual settings icons",
+    name = "Visual preferences icons",
     description = "Adds icons to specific preferences in the settings.",
     dependencies = [SettingsPatch::class],
     compatiblePackages = [CompatiblePackage("com.google.android.youtube", [])],
@@ -128,7 +128,7 @@ object VisualSettingsIconsPatch : ResourcePatch() {
             processPreferences(editor.file)
         }
 
-        SettingsPatch.updatePatchStatus("Visual settings icons")
+        SettingsPatch.updatePatchStatus("Visual preferences icons")
 
     }
 }
