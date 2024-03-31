@@ -127,7 +127,7 @@ ReVanced Extended Patches.
 | `Swipe controls` | Adds options to enable and configure volume and brightness swipe controls. | 18.25.40 ~ 19.11.38 |
 | `Theme` | Change the app's theme to the values specified in options.json. | 18.25.40 ~ 19.11.38 |
 | `Translations` | Add Crowdin translations for YouTube. | 18.25.40 ~ 19.11.38 |
-| `Visual settings icons` | Adds icons to specific preferences in the settings. | all |
+| `Visual preferences icons` | Adds icons to specific preferences in the settings. | all |
 </details>
 
 ### [📦 `com.google.android.apps.youtube.music`](https://play.google.com/store/apps/details?id=com.google.android.apps.youtube.music)
