@@ -1,3 +1,13 @@
+# [2.223.0-dev.21](https://github.com/anddea/revanced-patches/compare/v2.223.0-dev.20...v2.223.0-dev.21) (2024-03-31)
+
+
+### Features
+
+* **YouTube - Shorts overlay buttons:** Update icons ([62f3785](https://github.com/anddea/revanced-patches/commit/62f37858e550831cd1698be519f02c894a9f8736))
+* **YouTube - Translations:** Update `Italian` ([#219](https://github.com/anddea/revanced-patches/issues/219)) ([f27cf62](https://github.com/anddea/revanced-patches/commit/f27cf62c8172b222f280ec313e03a8b057911777))
+* **YouTube - Translations:** Update `Korean` ([#221](https://github.com/anddea/revanced-patches/issues/221)) ([702d901](https://github.com/anddea/revanced-patches/commit/702d9018b8d0e1079e8d63d5e01facebe0a4b399))
+* **YouTube:** Add `Hide settings preferences` ([d8b1da2](https://github.com/anddea/revanced-patches/commit/d8b1da2180bb9ffbce2d8febd635da41ce06aa36))
+
 # [2.223.0-dev.20](https://github.com/anddea/revanced-patches/compare/v2.223.0-dev.19...v2.223.0-dev.20) (2024-03-30)
 
 
