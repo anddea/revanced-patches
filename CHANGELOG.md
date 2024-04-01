@@ -1,3 +1,10 @@
+# [2.223.0-dev.25](https://github.com/anddea/revanced-patches/compare/v2.223.0-dev.24...v2.223.0-dev.25) (2024-04-01)
+
+
+### Features
+
+* **YouTube - Translations:** Update `Korean` ([#240](https://github.com/anddea/revanced-patches/issues/240)) ([2c18dc5](https://github.com/anddea/revanced-patches/commit/2c18dc569d328e555dc95b0d6b416581bba4bdcd))
+
 # [2.223.0-dev.24](https://github.com/anddea/revanced-patches/compare/v2.223.0-dev.23...v2.223.0-dev.24) (2024-04-01)
 
 
