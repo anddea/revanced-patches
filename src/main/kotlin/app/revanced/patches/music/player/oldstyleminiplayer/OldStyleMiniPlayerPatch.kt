@@ -19,7 +19,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Enable old style miniplayer",
-    description = "Adds an option to return the miniplayer to the old style.",
+    description = "Adds an option to return the miniplayer to the old style. Deprecated in v6.42+.",
     dependencies = [
         SettingsPatch::class,
         SharedResourceIdPatch::class

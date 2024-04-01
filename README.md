@@ -33,7 +33,7 @@ ReVanced Extended Patches.
 | `Disable pip notification` | Disable pip notification when you first launch pip mode. | 18.25.40 ~ 19.11.38 |
 | `Disable rolling number animations` | Adds an option to disable rolling number animations of video view count, user likes, and upload time. | 18.43.45 ~ 19.11.38 |
 | `Disable shorts on startup` | Adds an option to disable the Shorts player from resuming on app startup when Shorts were last being watched. | 18.25.40 ~ 19.11.38 |
-| `Disable speed overlay` | Adds an option to disable 'Play at 2x speed' when pressing and holding in the video player. | 18.25.40 ~ 19.11.38 |
+| `Disable speed overlay` | Adds an option to disable 'Play at 2x speed' when pressing and holding in the video player. | 18.36.39 ~ 19.11.38 |
 | `Disable update screen` | Adds an option to disable the "Update your app" screen that appears when using an outdated client. | 18.25.40 ~ 19.11.38 |
 | `Enable bottom player gestures` | Adds an option to enter fullscreen when swiping down below the video player. | 18.25.40 ~ 19.11.38 |
 | `Enable compact controls overlay` | Adds an option to make the fullscreen controls compact. | 18.25.40 ~ 19.11.38 |
@@ -52,11 +52,12 @@ ReVanced Extended Patches.
 | `Enable tablet navigation bar` | Adds an option to enable the tablet navigation bar. | 18.25.40 ~ 19.11.38 |
 | `Enable wide search bar` | Adds an option to replace the search icon with a wide search bar. This will hide the YouTube logo when active. | 18.25.40 ~ 19.11.38 |
 | `Force fullscreen` | Adds an option to forcefully open videos in fullscreen. | 18.25.40 ~ 19.11.38 |
+| `Force hide player buttons background` | Force to hide the dark background surrounding the video player controls. Exclude "Hide player buttons background". | 18.25.40 ~ 19.11.38 |
 | `Force opus codec` | Adds an option to force the opus audio codec instead of the mp4a audio codec. | 18.25.40 ~ 19.11.38 |
 | `Force video codec` | Adds an option to force the video codec. | 18.25.40 ~ 19.11.38 |
 | `Header switch` | Add switch to change header. | 18.25.40 ~ 19.11.38 |
 | `Hide account menu` | Adds the ability to hide account menu elements using a custom filter in the account menu and You tab. | 18.25.40 ~ 19.11.38 |
-| `Hide animated button background` | Hides the background of the pause and play animated buttons in the Shorts player. | 18.25.40 ~ 19.11.38 |
+| `Hide animated button background` | Force to hide the background of the pause and play animated buttons in the Shorts player. | 18.25.40 ~ 19.11.38 |
 | `Hide auto player popup panels` | Adds an option to hide panels (such as live chat) from opening automatically. | 18.25.40 ~ 19.11.38 |
 | `Hide autoplay button` | Adds an option to hide the autoplay button in the video player. | 18.25.40 ~ 19.11.38 |
 | `Hide autoplay preview` | Adds an option to hide the autoplay preview container when in fullscreen. | 18.25.40 ~ 19.11.38 |
@@ -72,7 +73,7 @@ ReVanced Extended Patches.
 | `Hide crowdfunding box` | Adds an option to hide the crowdfunding box between the player and video description. | 18.25.40 ~ 19.11.38 |
 | `Hide description components` | Adds an option to hide description components. | 18.25.40 ~ 19.11.38 |
 | `Hide double tap overlay filter` | Hides the double tap dark filter layer. | 18.25.40 ~ 19.11.38 |
-| `Hide double tap to like animations` | Hides the like animations when double tap the screen in the Shorts player. | 18.25.40 ~ 19.11.38 |
+| `Hide double tap to like animations` | Force to hide the like animations when double tap the screen in the Shorts player. | 18.25.40 ~ 19.11.38 |
 | `Hide end screen cards` | Adds an option to hide suggested video cards at the end of the video in the video player. | 18.25.40 ~ 19.11.38 |
 | `Hide end screen overlay` | Adds an option to hide the overlay in fullscreen when swiping up and at the end of videos. | 18.25.40 ~ 19.11.38 |
 | `Hide feed flyout panel` | Adds the ability to hide feed flyout panel components using a custom filter. | 18.25.40 ~ 19.11.38 |
@@ -90,8 +91,8 @@ ReVanced Extended Patches.
 | `Hide music button` | Adds an option to hide the YouTube Music button in the video player. | 18.25.40 ~ 19.11.38 |
 | `Hide navigation buttons` | Adds options to hide and change navigation buttons (such as the Shorts button). | 18.25.40 ~ 19.11.38 |
 | `Hide navigation label` | Adds an option to hide navigation bar labels. | 18.25.40 ~ 19.11.38 |
-| `Hide player buttons background` | Force to hide the dark background surrounding the video player controls. | 18.25.40 ~ 19.11.38 |
-| `Hide player chapters` | Forces to hide chapters in player bottom UI container. | 18.25.40 ~ 19.11.38 |
+| `Hide player buttons background` | Adds an option to hide player buttons background. Exclude "Force hide player buttons background". | 18.25.40 ~ 19.11.38 |
+| `Hide player chapters` | Force to hide chapters in player bottom UI container. | 18.25.40 ~ 19.11.38 |
 | `Hide player flyout panel` | Adds options to hide player flyout panel components. | 18.25.40 ~ 19.11.38 |
 | `Hide previous next button` | Adds an option to hide the previous and next buttons in the video player. | 18.25.40 ~ 19.11.38 |
 | `Hide search term thumbnail` | Adds an option to hide thumbnails in the search term history. | 18.25.40 ~ 19.11.38 |
@@ -107,7 +108,7 @@ ReVanced Extended Patches.
 | `Hide tooltip content` | Hides the tooltip box that appears on first install. | 18.25.40 ~ 19.11.38 |
 | `Hide trending searches` | Adds an option to hide trending searches in the search bar. | 18.25.40 ~ 19.11.38 |
 | `Hide video ads` | Adds an option to hide ads in the video player. | 18.25.40 ~ 19.11.38 |
-| `Hide voice search button` | Hide voice search button in search bar. | 18.25.40 ~ 19.11.38 |
+| `Hide voice search button` | Force to hide voice search button in search bar. | 18.25.40 ~ 19.11.38 |
 | `Keep landscape mode` | Adds an option to keep landscape mode when turning the screen off and on in fullscreen. | 18.42.41 ~ 19.11.38 |
 | `Layout switch` | Adds an option to trick dpi to use tablet or phone layout. | 18.25.40 ~ 19.11.38 |
 | `MaterialYou` | Enables MaterialYou theme for Android 12+ | 18.25.40 ~ 19.11.38 |
@@ -118,7 +119,6 @@ ReVanced Extended Patches.
 | `Return YouTube Dislike` | Shows the dislike count of videos using the Return YouTube Dislike API. | 18.25.40 ~ 19.11.38 |
 | `Sanitize sharing links` | Adds an option to remove tracking query parameters from URLs when sharing links. | 18.25.40 ~ 19.11.38 |
 | `Settings` | Applies mandatory patches to implement ReVanced Extended settings into the application. | 18.25.40 ~ 19.11.38 |
-| `Settings icons` | Adds icons to specific preferences in the settings. | all |
 | `Shorts overlay buttons` | Apply the new icons to the action buttons of the Shorts player. | 18.25.40 ~ 19.11.38 |
 | `SponsorBlock` | Integrates SponsorBlock which allows skipping video segments such as sponsored content. | 18.25.40 ~ 19.11.38 |
 | `Spoof app version` | Adds options to spoof the YouTube client version. This can be used to restore old UI elements and features. | 18.25.40 ~ 19.11.38 |
@@ -127,6 +127,7 @@ ReVanced Extended Patches.
 | `Swipe controls` | Adds options to enable and configure volume and brightness swipe controls. | 18.25.40 ~ 19.11.38 |
 | `Theme` | Change the app's theme to the values specified in options.json. | 18.25.40 ~ 19.11.38 |
 | `Translations` | Add Crowdin translations for YouTube. | 18.25.40 ~ 19.11.38 |
+| `Visual preferences icons` | Adds icons to specific preferences in the settings. | all |
 </details>
 
 ### [📦 `com.google.android.apps.youtube.music`](https://play.google.com/store/apps/details?id=com.google.android.apps.youtube.music)
@@ -156,7 +157,7 @@ ReVanced Extended Patches.
 | `Enable old player background` | Adds an option to return the player background to the old style. Deprecated on YT Music 6.34.51+. | 6.21.52 ~ 6.33.52 |
 | `Enable old player layout` | Adds an option to return the player layout to the old style. Deprecated on YT Music 6.31.55+. | 6.21.52 ~ 6.33.52 |
 | `Enable old style library shelf` | Adds an option to return the library tab to the old style. | 6.21.52+ |
-| `Enable old style miniplayer` | Adds an option to return the miniplayer to the old style. | 6.21.52+ |
+| `Enable old style miniplayer` | Adds an option to return the miniplayer to the old style. Deprecated in v6.42+. | 6.21.52+ |
 | `Enable opus codec` | Adds an option use the opus audio codec instead of the mp4a audio codec. | 6.21.52+ |
 | `Enable playback speed` | Adds an option to add a playback speed button to the flyout panel. | 6.21.52+ |
 | `Enable zen mode` | Adds an option to change the player background to light grey to reduce eye strain. Deprecated on YT Music 6.34.51+. | 6.21.52 ~ 6.33.52 |
@@ -185,7 +186,7 @@ ReVanced Extended Patches.
 | `Hide taste builder` | Hides the "Tell us which artists you like" card from the homepage. | 6.21.52+ |
 | `Hide terms container` | Adds an option to hide the terms of service container in the account menu. | 6.21.52+ |
 | `Hide tooltip content` | Hides the tooltip box that appears when opening the app for the first time. | 6.21.52+ |
-| `Hide voice search button` | Hides the voice search button in the search bar. | 6.21.52+ |
+| `Hide voice search button` | Force to hide the voice search button in the search bar. | 6.21.52+ |
 | `MicroG support` | Allows YouTube Music to run without root and under a different package name with MicroG. | 6.21.52+ |
 | `Remember playback speed` | Adds an option to remember the last playback speed selected. | 6.21.52+ |
 | `Remember repeat state` | Adds an option to remember the state of the repeat toggle. | 6.21.52+ |

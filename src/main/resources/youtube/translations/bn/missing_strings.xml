@@ -132,7 +132,7 @@ Some components may not be hidden."</string>
 <string name="revanced_hide_for_you_shelf_title">"Hide 'For You' shelf"</string>
 <string name="revanced_hide_home_feed_membership_video_summary">Hide videos with \"Only for Membership\" tag in Home Feed</string>
 <string name="revanced_hide_home_feed_membership_video_title">Hide membership videos in Home Feed</string>
-<string name="revanced_hide_keyword_content_about_summary">Search/Home/Subscription results are filtered to hide content that matches keyword phrases\n\nLimitations\n• Some Shorts may not be hidden\n• Some UI components may not be hidden\n• Searching for a keyword may show no results</string>
+<string name="revanced_hide_keyword_content_about_summary">Search, Home, Subscription and Comments are filtered to hide content that matches keyword phrases\n\nLimitations\n• Some Shorts may not be hidden\n• Some UI components may not be hidden\n• Searching for a keyword may show no results</string>
 <string name="revanced_hide_keyword_content_comment_summary_off">Keyword filter for comments is disabled.</string>
 <string name="revanced_hide_keyword_content_comment_summary_on">Keyword filter for comments is enabled.</string>
 <string name="revanced_hide_keyword_content_comment_title">Enable comments keyword filter</string>
@@ -147,6 +147,9 @@ Some components may not be hidden."</string>
 <string name="revanced_hide_notifications_button_summary_off">Notifications button in navigation bar is shown.</string>
 <string name="revanced_hide_notifications_button_summary_on">Notifications button in navigation bar is hidden.</string>
 <string name="revanced_hide_notifications_button_title">Hide notifications button</string>
+<string name="revanced_hide_player_button_background_summary_off">Player buttons background is shown.</string>
+<string name="revanced_hide_player_button_background_summary_on">Player buttons background is hidden.</string>
+<string name="revanced_hide_player_button_background_title">Hide player buttons background</string>
 <string name="revanced_hide_podcast_section_summary_off">Podcast sections are shown.</string>
 <string name="revanced_hide_podcast_section_summary_on">Podcast sections are hidden.</string>
 <string name="revanced_hide_podcast_section_title">Hide podcast sections</string>
@@ -162,6 +165,15 @@ Some components may not be hidden."</string>
 <string name="revanced_hide_shopping_links_summary_off">Shopping links are shown.</string>
 <string name="revanced_hide_shopping_links_summary_on">Shopping links are hidden.</string>
 <string name="revanced_hide_shopping_links_title">Hide shopping links</string>
+<string name="revanced_hide_shorts_player_sound_metadata_label_summary_off">Sound metadata label is shown.</string>
+<string name="revanced_hide_shorts_player_sound_metadata_label_summary_on">Sound metadata label is hidden.</string>
+<string name="revanced_hide_shorts_player_sound_metadata_label_title">Hide sound metadata label</string>
+<string name="revanced_hide_shorts_player_video_link_label_summary_off">Video link is shown.</string>
+<string name="revanced_hide_shorts_player_video_link_label_summary_on">Video link label is hidden.</string>
+<string name="revanced_hide_shorts_player_video_link_label_title">Hide video link label</string>
+<string name="revanced_hide_shorts_player_video_title_summary_off">Shorts video title is shown.</string>
+<string name="revanced_hide_shorts_player_video_title_summary_on">Shorts video title is hidden.</string>
+<string name="revanced_hide_shorts_player_video_title_title">Hide Shorts video title</string>
 <string name="revanced_hide_shorts_shelf_summary">"Hides Shorts shelves.
 
 Known issue: Official headers in search results will be hidden."</string>
@@ -183,11 +195,20 @@ Known issues:
 <string name="revanced_hide_video_with_gray_description_summary">"Hide videos with gray description from search results.
 Videos with a gray description include videos that are not related to search terms."</string>
 <string name="revanced_hide_video_with_gray_description_title">Hide videos with gray description</string>
-<string name="revanced_hide_video_with_low_view_summary">"Hide videos with less than 1,000 views exposed to the home feed.
-Some videos, including those from channels you subscribe to, may not be hidden even if they have fewer than 1,000 views."</string>
-<string name="revanced_hide_video_with_low_view_title">Hide videos with low views</string>
+<string name="revanced_hide_video_with_low_view_num_multiplier_summary">Specify your language template for the number of views shown under each video in the user interface. Each key (a letter/word in your language) -> value (meaning of the key) must be on a new line. Keys go before "->" sign. If you switch app or system language you have to reset this setting.\n\nExamples:\nEnglish: 10K views = K -> 1000, views -> views\nSpanish: 10 K vistas = K -> 1000, vistas -> views</string>
+<string name="revanced_hide_video_with_low_view_num_multiplier_title">View keys</string>
+<string name="revanced_hide_video_with_low_view_num_multiplier_value">K -> 1 000\nM -> 1 000 000\nB -> 1 000 000 000\nviews -> views</string>
+<string name="revanced_hide_video_with_low_view_num_summary">Videos with views less than this number will be hidden.</string>
+<string name="revanced_hide_video_with_low_view_num_title">Number of views</string>
+<string name="revanced_hide_video_with_low_view_old_summary">"Hide videos with less than 1,000 views exposed to the home feed.
+Some videos, including those from channels you subscribe to, may not be hidden even if they have fewer than 1,000 views.
+
+It's an old version, if you're using option above, you don't need to use this one."</string>
+<string name="revanced_hide_video_with_low_view_old_title">[Old] Hide videos with low views</string>
+<string name="revanced_hide_video_with_low_view_summary">"Hide videos with less than N views."</string>
+<string name="revanced_hide_video_with_low_view_title">Hide videos based on views</string>
 <string name="revanced_inform">Inform</string>
-<string name="revanced_keep_landscape_mode_summary">Keeps landscape mode when turning the screen off and on in fullscreen.</string>
+<string name="revanced_keep_landscape_mode_summary">Keeps landscape mode when turning the screen off and on in fullscreen.\n\nKnown issue: It can break Picture-in-Picture (PIP).</string>
 <string name="revanced_keep_landscape_mode_timeout_summary">The amount of milliseconds the landscape mode is forced.</string>
 <string name="revanced_keep_landscape_mode_timeout_title">Keep landscape mode timeout</string>
 <string name="revanced_keep_landscape_mode_title">Keep landscape mode</string>

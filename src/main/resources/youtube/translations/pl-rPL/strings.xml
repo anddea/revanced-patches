@@ -93,13 +93,22 @@ Notka: jest to funkcja, która nie została przetestowana."</string>
     <string name="revanced_custom_filter_summary_off">Wyłączony</string>
     <string name="revanced_custom_filter_summary_on">Włączony</string>
     <string name="revanced_custom_filter_title">Własny filtr</string>
-    <string name="revanced_hide_keyword_toast_invalid_length" formatted="false">Nueprawidłowa długość słowa kluczowego (musi mieć co najmniej %s znaków): %s.</string>
-    <string name="revanced_keyword_filter_strings_summary">Skonfiguruj słowa kluczowe i frazy do ukrycia, oddzielając je osobnymi liniami\n\nSłowa z wielkimi literami w środku muszą być wprowadzane z zachowaniem pisowni (np. iPhone, TikTok, LeBlanc).</string>
-    <string name="revanced_keyword_filter_strings_title">Edytuj filtr słów kluczowych</string>
+    <string name="revanced_hide_keyword_content_comment_summary_off">Wyłączony</string>
+    <string name="revanced_hide_keyword_content_comment_summary_on">Włączony</string>
+    <string name="revanced_hide_keyword_content_comment_title">Filtr słów kluczowych dla komentarzy</string>
     <string name="revanced_hide_keyword_content_feed_summary_off">Wyłączony</string>
     <string name="revanced_hide_keyword_content_feed_summary_on">Włączony</string>
-    <string name="revanced_keyword_filter_summary">Ukrywa wideo ze strony głównej i wyników wyszukiwania za pomocą filtra słów kluczowych.</string>
-    <string name="revanced_hide_keyword_content_feed_title">Filtr słów kluczowych</string>
+    <string name="revanced_hide_keyword_content_feed_title">Filtr słów kluczowych dla strony głównej i wyszukiwania</string>
+    <string name="revanced_hide_keyword_content_sub_summary_off">Wyłączony</string>
+    <string name="revanced_hide_keyword_content_sub_summary_on">Włączony</string>
+    <string name="revanced_hide_keyword_content_sub_title">Filtr słów kluczowych dla subskrypcji</string>
+    <string name="revanced_hide_keyword_content_about_summary">Wyniki wyszukiwania/strona główna/subskrypcje są filtrowane w celu ukrycia zawartości pasującej do słów kluczowych\n\nOgraniczenia\n• Niektóre Shortsy mogą nie być ukryte\n• Niektóre elementy interfejsu użytkownika mogą nie być ukryte\n• Wyszukiwanie słowa kluczowego może nie dać żadnych wyników</string>
+    <string name="revanced_hide_keyword_toast_invalid_common" formatted="false">Nieprawidłowe słowo kluczowe. Nie można użyć: \'%s\' jako filtra</string>
+    <string name="revanced_hide_keyword_toast_invalid_length" formatted="false">Nieprawidłowa długość słowa kluczowego (musi mieć co najmniej %s znaków): %s.</string>
+    <string name="revanced_keyword_filter_strings_summary">Skonfiguruj słowa kluczowe i frazy do ukrycia według nazw oddzielonych liniami\n\Słowa z wielkimi literami w środku muszą być wprowadzane z zachowaniem wielkości liter (np. iPhone, TikTok, LeBlanc).</string>
+    <string name="revanced_keyword_filter_strings_title">Edytuj filtr słów kluczowych</string>
+    <string name="revanced_keyword_filter_summary">Ukrywa wideo za pomocą filtra słów kluczowych.</string>
+    <string name="revanced_keyword_filter_title">Filtr słów kluczowych</string>
     <string name="revanced_custom_playback_speeds_invalid">Nieprawidłowe niestandardowe prędkości odtwarzania. Przywróć domyślne wartości.</string>
     <string name="revanced_custom_playback_speeds_summary">Dodaj lub zmień dostępne prędkości odtwarzania</string>
     <string name="revanced_custom_playback_speeds_title">Edytuj niestandardowe prędkości odtwarzania</string>
@@ -644,10 +653,19 @@ Niektóre komponenty mogą nie być ukryte."</string>
     <string name="revanced_hide_shorts_player_navigation_bar_title">Pasek nawigacji</string>
     <string name="revanced_hide_shorts_player_pivot_button_summary_off">Widoczny</string>
     <string name="revanced_hide_shorts_player_pivot_button_summary_on">Ukryty</string>
-    <string name="revanced_hide_shorts_player_pivot_button_title">Przycisk do dźwięku</string>
+    <string name="revanced_hide_shorts_player_pivot_button_title">Przycisk dźwięku</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_off">Widoczny</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_on">Ukryty</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_title">Przycisk do strony subskrypcji</string>
+    <string name="revanced_hide_shorts_player_video_title_summary_off">Widoczny</string>
+    <string name="revanced_hide_shorts_player_video_title_summary_on">Ukryty</string>
+    <string name="revanced_hide_shorts_player_video_title_title">Tytuł Shortsa</string>
+    <string name="revanced_hide_shorts_player_sound_metadata_label_summary_off">Widoczne</string>
+    <string name="revanced_hide_shorts_player_sound_metadata_label_summary_on">Ukryte</string>
+    <string name="revanced_hide_shorts_player_sound_metadata_label_title">Metadane dźwięku</string>
+    <string name="revanced_hide_shorts_player_video_link_label_summary_off">Widoczny</string>
+    <string name="revanced_hide_shorts_player_video_link_label_summary_on">Ukryty</string>
+    <string name="revanced_hide_shorts_player_video_link_label_title">Link do wideo</string>
     <string name="revanced_hide_shorts_shelf_summary">"Ukrywa półki z Shortsami.
 
 Znany problem: nagłówki z tytułami będą ukryte w wynikach wyszukiwania."</string>
@@ -657,13 +675,13 @@ Znany problem: nagłówki z tytułami będą ukryte w wynikach wyszukiwania."</s
     <string name="revanced_hide_shorts_toolbar_banner_title">Banery</string>
     <string name="revanced_hide_shorts_toolbar_camera_button_summary_off">Widoczny</string>
     <string name="revanced_hide_shorts_toolbar_camera_button_summary_on">Ukryty</string>
-    <string name="revanced_hide_shorts_toolbar_camera_button_title">Przycisk do kamery</string>
+    <string name="revanced_hide_shorts_toolbar_camera_button_title">Przycisk kamery</string>
     <string name="revanced_hide_shorts_toolbar_menu_button_summary_off">Widoczny</string>
     <string name="revanced_hide_shorts_toolbar_menu_button_summary_on">Ukryty</string>
     <string name="revanced_hide_shorts_toolbar_menu_button_title">Przycisk menu</string>
     <string name="revanced_hide_shorts_toolbar_search_button_summary_off">Widoczny</string>
     <string name="revanced_hide_shorts_toolbar_search_button_summary_on">Ukryty</string>
-    <string name="revanced_hide_shorts_toolbar_search_button_title">Przycisk do wyszukiwania</string>
+    <string name="revanced_hide_shorts_toolbar_search_button_title">Przycisk wyszukiwania</string>
     <string name="revanced_hide_snack_bar_summary_off">Widoczne</string>
     <string name="revanced_hide_snack_bar_summary_on">Ukryte</string>
     <string name="revanced_hide_snack_bar_title">Komunikaty</string>
@@ -722,14 +740,23 @@ Znane problemy:
     <string name="revanced_hide_video_ads_summary_off">Widoczne</string>
     <string name="revanced_hide_video_ads_summary_on">Ukryte</string>
     <string name="revanced_hide_video_ads_title">Reklamy podczas wideo</string>
-    <string name="revanced_hide_home_feed_membership_video_summary">Ukryj wideo z tagiem \"Tylko dla wspierających\" na Stronie Głównej</string>
+    <string name="revanced_hide_home_feed_membership_video_summary">Ukryj wideo z tagiem \"Tylko dla wspierających\" na stronie głównej</string>
     <string name="revanced_hide_home_feed_membership_video_title">Ukryj wideo dla wspierających na Stronie Głównej</string>
     <string name="revanced_hide_video_with_gray_description_summary">"Ukrywa wideo z szarymi opisami z wyników wyszukiwania.
 Wideo z szarymi opisami zawierają wideo niezwiązane z wynikami wyszukiwania."</string>
     <string name="revanced_hide_video_with_gray_description_title">Wideo z szarymi opisami</string>
-    <string name="revanced_hide_video_with_low_view_summary">"Ukrywa wideo na stronie głównej z wyświetleniami poniżej 1000.
-Niektóre wideo, w tym te z subskrybowanych kanałów, mogą nie zostać ukryte."</string>
-    <string name="revanced_hide_video_with_low_view_title">Ukryj wideo z małą ilością wyświetleń</string>
+    <string name="revanced_hide_video_with_low_view_summary">"Ukrywa wideo z wyświetleniami poniżej N."</string>
+    <string name="revanced_hide_video_with_low_view_title">Ukryj wideo na bazie wyświetleń</string>
+    <string name="revanced_hide_video_with_low_view_num_summary">Wideo z liczbą wyświetleń poniżej tej wartości zostaną ukryte.</string>
+    <string name="revanced_hide_video_with_low_view_num_title">Ilość wyświetleń</string>
+    <string name="revanced_hide_video_with_low_view_num_multiplier_summary">Określ szablon języka dla liczby wyświetleń wyświetlanych pod każdym filmem w interfejsie użytkownika. Każdy klucz (litera/słowo w twoim języku) -> wartość (znaczenie klucza) musi znajdować się w nowej linii. Klucze znajdują się przed znakiem "->". Jeśli zmienisz język aplikacji lub systemu, musisz zresetować to ustawienie.\n\nPrzykłady:\nAngielski: 10K views = K -> 1000, views -> views\nPolski: 10 tys. wyświetleń = tys. -> 1000, wyświetleń -> views</string>
+    <string name="revanced_hide_video_with_low_view_num_multiplier_title">Zobacz klucze</string>
+    <string name="revanced_hide_video_with_low_view_num_multiplier_value">tys. -> 1 000\nmln -> 1 000 000\nmld -> 1 000 000 000\nwyświetleń -> views</string>
+   <string name="revanced_hide_video_with_low_view_old_summary">"Ukrywa wideo z mniej niż 1000 wyświetleń wyświetlane na stronie głównej.
+Niektóre wideo, w tym te z subskrybowanych kanałów, mogą nie zostać ukryte, nawet jeśli mają mniej niż 1000 wyświetleń.
+
+To stara wersja ustawienia, jeśli używasz opcji powyżej, nie musisz używać tej."</string>
+    <string name="revanced_hide_video_with_low_view_old_title">[Stare] Ukryj wideo z małą ilością wyświetleń</string>
     <string name="revanced_hide_view_products_summary_off">Widoczne</string>
     <string name="revanced_hide_view_products_summary_on">Ukryte</string>
     <string name="revanced_hide_view_products_title">Banery produktów</string>
@@ -742,7 +769,7 @@ Niektóre wideo, w tym te z subskrybowanych kanałów, mogą nie zostać ukryte.
     <string name="revanced_hook_download_button_summary">"Zmodyfikuj przycisk od pobierania, by używał zewnętrznej aplikacji."</string>
     <string name="revanced_hook_download_button_title">Zmodyfikuj przycisk od pobierania</string>
     <string name="revanced_inform">Notka</string>
-    <string name="revanced_keep_landscape_mode_summary">Zachowuje tryb poziomy, gdy wyłączysz i włączysz ekran w trybie pełnoekranowym.</string>
+    <string name="revanced_keep_landscape_mode_summary">Zachowuje tryb poziomy, gdy wyłączysz i włączysz ekran w trybie pełnoekranowym.\n\nZnany błąd: Może to zepsuć tryb Picture-in-Picture (PIP).</string>
     <string name="revanced_keep_landscape_mode_timeout_summary">Ilość milisekund, podczas których tryb poziomy jest wymuszony.</string>
     <string name="revanced_keep_landscape_mode_timeout_title">Limit czasu zachowania trybu poziomego</string>
     <string name="revanced_keep_landscape_mode_title">Zachowaj tryb poziomy</string>
@@ -790,7 +817,7 @@ Stuknij i przytrzymaj, by zmienić prędkość odtwarzania na 1.0x."</string>
     <string name="revanced_whitelisting_sponsorblock">SponsorBlock</string>
     <string name="revanced_whitelisting_sponsorblock_button">SB</string>
     <string name="revanced_whitelisting_title">Biała lista kanałów</string>
-    <string name="revanced_patches_information">Lista Łatek</string>
+    <string name="revanced_patches_information">Lista łatek</string>
     <string name="revanced_patches_information_summary">Lista zastosowanych łatek</string>
     <string name="revanced_playback_speed_normal">Normalna</string>
     <string name="revanced_player">Odtwarzacz</string>

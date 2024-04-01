@@ -612,9 +612,9 @@ Algunos componentes pueden no estar ocultos."</string>
     <string name="revanced_hide_shorts_player_navigation_bar_summary_off">La barra de navegación está visible</string>
     <string name="revanced_hide_shorts_player_navigation_bar_summary_on">La barra de navegación está oculta</string>
     <string name="revanced_hide_shorts_player_navigation_bar_title">Ocultar barra de navegación</string>
-    <string name="revanced_hide_shorts_player_pivot_button_summary_off">El botón de pivote está visible.</string>
-    <string name="revanced_hide_shorts_player_pivot_button_summary_on">El botón de pivote está oculto.</string>
-    <string name="revanced_hide_shorts_player_pivot_button_title">Ocultar botón de pivote</string>
+    <string name="revanced_hide_shorts_player_pivot_button_summary_off">El botón de audio está visible.</string>
+    <string name="revanced_hide_shorts_player_pivot_button_summary_on">El botón de audio está oculto.</string>
+    <string name="revanced_hide_shorts_player_pivot_button_title">Ocultar botón de audio</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_off">El botón de suscripciones está visible.</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_on">El botón de suscripciones está oculto.</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_title">Ocultar botón de suscripciones</string>
@@ -693,8 +693,7 @@ Problemas conocidos:
     <string name="revanced_hide_video_with_gray_description_summary">"Oculta los vídeos con descripción gris de los resultados de búsqueda.
 Los vídeos con una descripción gris incluyen vídeos que no están relacionados con los términos de búsqueda."</string>
     <string name="revanced_hide_video_with_gray_description_title">Ocultar vídeos con descripción gris</string>
-    <string name="revanced_hide_video_with_low_view_summary">"Oculta vídeos con menos de 1,000 visualizaciones expuestos en el feed de inicio.
-Es posible que algunos vídeos, incluidos los de canales a los que estás suscrito, no se oculten aunque tengan menos de 1,000 visualizaciones."</string>
+    <string name="revanced_hide_video_with_low_view_summary">"Oculta vídeos con menos de N visualizaciones."</string>
     <string name="revanced_hide_video_with_low_view_title">Ocultar vídeos con pocas visualizaciones</string>
     <string name="revanced_hide_view_products_summary_off">El banner de ver productos está visible</string>
     <string name="revanced_hide_view_products_summary_on">El banner de ver productos está oculto</string>
@@ -718,20 +717,20 @@ Solo disponible en YouTube v18.24.37+"</string>
     <string name="revanced_navigation">Navegación</string>
     <string name="revanced_others">Otros</string>
     <string name="revanced_overlay_button">Botón superpuesto</string>
-    <string name="revanced_overlay_button_always_repeat_summary">"Toque para alternar los estados de repetir siempre.
-Mantenga pulsado para pausar después de estados repetidos."</string>
+    <string name="revanced_overlay_button_always_repeat_summary">"Toca para alternar los estados de repetir siempre.
+Mantén pulsado para pausar después de estados repetidos."</string>
     <string name="revanced_overlay_button_always_repeat_title">Mostrar botón de repetición continua</string>
-    <string name="revanced_overlay_button_copy_video_url_summary">"Pulse para copiar la URL del vídeo
-Mantenga pulsado para copiar la URL del vídeo con la marca de tiempo"</string>
-    <string name="revanced_overlay_button_copy_video_url_timestamp_summary">"Pulse para copiar la URL del vídeo con la marca de tiempo
-Mantenga pulsado para copiar la marca de tiempo del vídeo"</string>
+    <string name="revanced_overlay_button_copy_video_url_summary">"Pulsa para copiar la URL del vídeo.
+Mantén pulsado para copiar la URL del vídeo con la marca de tiempo"</string>
+    <string name="revanced_overlay_button_copy_video_url_timestamp_summary">"Pulsa para copiar la URL del vídeo con la marca de tiempo.
+Mantén pulsado para copiar la marca de tiempo del vídeo."</string>
     <string name="revanced_overlay_button_copy_video_url_timestamp_title">Mostrar botón para copiar URL con marca de tiempo</string>
     <string name="revanced_overlay_button_copy_video_url_title">Mostrar botón para copiar URL del vídeo</string>
-    <string name="revanced_overlay_button_external_downloader_summary">Pulse para iniciar el descargador externo</string>
+    <string name="revanced_overlay_button_external_downloader_summary">Pulsa para iniciar el descargador externo</string>
     <string name="revanced_overlay_button_external_downloader_title">Mostrar botón de descarga externa</string>
     <string name="revanced_overlay_button_speed_dialog_reset">Velocidad de reproducción restablecida (1.0x)</string>
-    <string name="revanced_overlay_button_speed_dialog_summary">"Pulse para abrir el cuadro de diálogo de velocidad
-Mantenga pulsado para ajustar la velocidad de reproducción a 1.0x"</string>
+    <string name="revanced_overlay_button_speed_dialog_summary">"Pulsa para abrir el cuadro de diálogo de velocidad.
+Mantén pulsado para ajustar la velocidad de reproducción a 1.0x"</string>
     <string name="revanced_overlay_button_speed_dialog_title">Mostrar botón de diálogo de velocidad</string>
     <string name="revanced_patches_information">Información de parches</string>
     <string name="revanced_patches_information_summary">Información sobre los parches aplicados</string>
@@ -869,8 +868,8 @@ Problemas conocidos
     <string name="sb_enable_auto_hide_skip_segment_button_sum_on">El botón omitir se oculta después de unos segundos</string>
     <string name="sb_enable_auto_hide_skip_segment_button_sum_off">El botón de omitir se muestra durante todo el segmento.</string>
     <string name="sb_general_skiptoast">Mostrar mensaje al omitir segmento automáticamente</string>
-    <string name="sb_general_skiptoast_sum_on">Mensaje que se muestra cuando un segmento se omite automáticamente. Pulse aquí para ver un ejemplo</string>
-    <string name="sb_general_skiptoast_sum_off">Mensaje no mostrado. Pulse aquí para ver un ejemplo</string>
+    <string name="sb_general_skiptoast_sum_on">Mensaje que se muestra cuando un segmento se omite automáticamente. Pulsa aquí para ver un ejemplo.</string>
+    <string name="sb_general_skiptoast_sum_off">Mensaje no mostrado. Pulsa aquí para ver un ejemplo.</string>
     <string name="sb_general_time_without">Mostrar duración del vídeo sin segmentos</string>
     <string name="sb_general_time_without_sum_on">Duración del vídeo sin todos los segmentos, que se muestran entre paréntesis junto a la duración completa del vídeo</string>
     <string name="sb_general_time_without_sum_off">La duración completa del vídeo está visible</string>
@@ -878,8 +877,8 @@ Problemas conocidos
     <string name="sb_enable_create_segment">Mostrar botón de crear nuevo segmento</string>
     <string name="sb_enable_create_segment_sum_on">El botón de crear nuevo segmento está visible.</string>
     <string name="sb_enable_create_segment_sum_off">El botón de crear nuevo segmento está oculto.</string>
-    <string name="sb_general_adjusting">Ajustar paso de nuevo segmento</string>
-    <string name="sb_general_adjusting_sum">Número de milisegundos que los botones de ajuste de tiempo se mueven al crear nuevos segmentos</string>
+    <string name="sb_general_adjusting">Avance de ajuste de nuevo segmento</string>
+    <string name="sb_general_adjusting_sum">Número de milisegundos que los botones de ajuste de tiempo se mueven al crear nuevos segmentos.</string>
     <string name="sb_general_adjusting_invalid">El valor debe ser un número positivo</string>
     <string name="sb_guidelines_preference_title">Ver normas</string>
     <string name="sb_guidelines_preference_sum">Las normas contienen consejos y reglas sobre el envío de segmentos</string>
@@ -1088,4 +1087,26 @@ Las palabras con letras mayúsculas en el medio deben introducirse con las mayú
     <string name="revanced_hide_keyword_content_sub_title">Activar filtro de palabras clave para suscripciones</string>
     <string name="revanced_hide_keyword_toast_invalid_common" formatted="false">Palabra clave no válida. No se puede utilizar \'%s\' como filtro.</string>
     <string name="revanced_keyword_filter_title">Filtro de palabras clave</string>
+    <string name="revanced_hide_player_button_background_summary_off">El fondo de los botones del reproductor está visible.</string>
+    <string name="revanced_hide_player_button_background_summary_on">El fondo de los botones del reproductor está oculto.</string>
+    <string name="revanced_hide_player_button_background_title">Ocultar fondo de botones del reproductor</string>
+    <string name="revanced_hide_shorts_player_sound_metadata_label_summary_off">La etiqueta de metadatos de sonido está visible.</string>
+    <string name="revanced_hide_shorts_player_sound_metadata_label_summary_on">La etiqueta de metadatos de sonido está oculta.</string>
+    <string name="revanced_hide_shorts_player_sound_metadata_label_title">Ocultar etiqueta de metadatos de sonido</string>
+    <string name="revanced_hide_shorts_player_video_link_label_summary_off">La etiqueta del enlace del vídeo está visible.</string>
+    <string name="revanced_hide_shorts_player_video_link_label_summary_on">La etiqueta del enlace del vídeo está oculta.</string>
+    <string name="revanced_hide_shorts_player_video_link_label_title">Ocultar etiqueta del enlace del vídeo</string>
+    <string name="revanced_hide_shorts_player_video_title_summary_off">El título del vídeo de Shorts está visible.</string>
+    <string name="revanced_hide_shorts_player_video_title_summary_on">El título del vídeo de Shorts está oculto.</string>
+    <string name="revanced_hide_shorts_player_video_title_title">Ocultar título del vídeo de Shorts</string>
+    <string name="revanced_hide_video_with_low_view_num_summary">Los vídeos con menos visualizaciones que este número se ocultarán.</string>
+    <string name="revanced_hide_video_with_low_view_num_title">Número de visualizaciones</string>
+    <string name="revanced_hide_video_with_low_view_num_multiplier_summary">Especifica la plantilla de tu idioma para el número de visualizaciones mostradas debajo de cada vídeo en la interfaz de usuario. Cada clave (una letra/palabra en tu idioma) -> valor (significado de la clave) debe estar en una nueva línea. Las claves van antes del signo "->".\n\nEjemplos:\nInglés: 10K views = K -> 1000, views -> views\nEspañol: 10 K visualizaciones = K -> 1000, visualizaciones -> views</string>
+    <string name="revanced_hide_video_with_low_view_num_multiplier_title">Claves de visualización</string>
+    <string name="revanced_hide_video_with_low_view_num_multiplier_value">K -> 1 000\nM de -> 1 000 000\nB de -> 1 000 000 000\nvisualizaciones -> views</string>
+    <string name="revanced_hide_video_with_low_view_old_summary">"Oculta los vídeos con menos de 1.000 visualizaciones expuestos en el feed de inicio.
+Algunos vídeos, incluidos los de canales a los que estás suscrito, pueden no ocultarse aunque tengan menos de 1.000 visualizaciones.
+
+Es una versión antigua, si estás usando la opción anterior, no necesitas usar esta."</string>
+    <string name="revanced_hide_video_with_low_view_old_title">[Antigua] Ocultar vídeos con pocas visualizaciones</string>
 </resources>

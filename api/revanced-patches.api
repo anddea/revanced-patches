@@ -308,10 +308,6 @@ public final class app/revanced/patches/music/misc/backgroundplay/BackgroundPlay
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/music/misc/backgroundplay/fingerprints/BackgroundPlaybackParentFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
-	public static final field INSTANCE Lapp/revanced/patches/music/misc/backgroundplay/fingerprints/BackgroundPlaybackParentFingerprint;
-}
-
 public final class app/revanced/patches/music/misc/bitrate/BitrateDefaultValuePatch : app/revanced/patcher/patch/ResourcePatch {
 	public static final field INSTANCE Lapp/revanced/patches/music/misc/bitrate/BitrateDefaultValuePatch;
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
@@ -2088,6 +2084,12 @@ public final class app/revanced/patches/youtube/layout/pipnotification/fingerpri
 	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/pipnotification/fingerprints/PiPNotificationFingerprint;
 }
 
+public final class app/revanced/patches/youtube/layout/settings/HideSettingsPrefsPatch : app/revanced/patcher/patch/ResourcePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/settings/HideSettingsPrefsPatch;
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+}
+
 public final class app/revanced/patches/youtube/layout/splashanimation/AddSplashAnimationPatch : app/revanced/patcher/patch/ResourcePatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/splashanimation/AddSplashAnimationPatch;
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
@@ -2554,10 +2556,20 @@ public final class app/revanced/patches/youtube/player/musicbutton/fingerprints/
 	public static final field INSTANCE Lapp/revanced/patches/youtube/player/musicbutton/fingerprints/MusicAppDeeplinkButtonFingerprint;
 }
 
-public final class app/revanced/patches/youtube/player/playerbuttonbg/HidePlayerButtonBackgroundPatch : app/revanced/patcher/patch/ResourcePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/player/playerbuttonbg/HidePlayerButtonBackgroundPatch;
+public final class app/revanced/patches/youtube/player/playerbuttonbg/ForceHidePlayerButtonBackgroundPatch : app/revanced/patcher/patch/ResourcePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/player/playerbuttonbg/ForceHidePlayerButtonBackgroundPatch;
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+}
+
+public final class app/revanced/patches/youtube/player/playerbuttonbg/HidePlayerButtonBackgroundPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/player/playerbuttonbg/HidePlayerButtonBackgroundPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
+public final class app/revanced/patches/youtube/player/playerbuttonbg/fingerprints/PlayerPatchFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/player/playerbuttonbg/fingerprints/PlayerPatchFingerprint;
 }
 
 public final class app/revanced/patches/youtube/player/playeroverlay/CustomPlayerOverlayOpacityPatch : app/revanced/patcher/patch/BytecodePatch {
@@ -3503,12 +3515,6 @@ public final class app/revanced/patches/youtube/utils/settings/ResourceUtils {
 	public final fun updatePatchStatusTheme (Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;)V
 }
 
-public final class app/revanced/patches/youtube/utils/settings/SettingsAddIconsPatch : app/revanced/patcher/patch/ResourcePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/settings/SettingsAddIconsPatch;
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
-}
-
 public final class app/revanced/patches/youtube/utils/settings/SettingsBytecodePatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/settings/SettingsBytecodePatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
@@ -3518,6 +3524,12 @@ public final class app/revanced/patches/youtube/utils/settings/SettingsBytecodeP
 public final class app/revanced/patches/youtube/utils/settings/SettingsPatch : app/revanced/patches/shared/patch/settings/AbstractSettingsResourcePatch, java/io/Closeable {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/settings/SettingsPatch;
 	public fun close ()V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+}
+
+public final class app/revanced/patches/youtube/utils/settings/VisualSettingsIconsPatch : app/revanced/patcher/patch/ResourcePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/settings/VisualSettingsIconsPatch;
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 }
