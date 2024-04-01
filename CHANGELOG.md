@@ -1,3 +1,10 @@
+# [2.223.0-dev.24](https://github.com/anddea/revanced-patches/compare/v2.223.0-dev.23...v2.223.0-dev.24) (2024-04-01)
+
+
+### Bug Fixes
+
+* **YouTube - Tuck away preferences:** Possible fix to hide "Purchases and memberships" ([0b8ec7c](https://github.com/anddea/revanced-patches/commit/0b8ec7ca82688cab3fd3d44930353d95dcb5fe55))
+
 # [2.223.0-dev.23](https://github.com/anddea/revanced-patches/compare/v2.223.0-dev.22...v2.223.0-dev.23) (2024-04-01)
 
 
