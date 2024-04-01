@@ -1,3 +1,17 @@
+# [2.223.0-dev.22](https://github.com/anddea/revanced-patches/compare/v2.223.0-dev.21...v2.223.0-dev.22) (2024-04-01)
+
+
+### Bug Fixes
+
+* **YouTube - Overlay buttons:** Update time-ordered button ([e7a8e30](https://github.com/anddea/revanced-patches/commit/e7a8e302fc42dc60ecb2cf02ac78b1ecae5cb90e))
+* **YouTube - Theme:** Remove redundant code and seekbar color ([46b345c](https://github.com/anddea/revanced-patches/commit/46b345c1e2582507358d9eb477e6a7036e402ee3))
+
+
+### Features
+
+* **YouTube - Shorts overlay buttons:** Add TikTok buttons for older versions ([fd296f3](https://github.com/anddea/revanced-patches/commit/fd296f3017e32720cd901dbd9d578504d49e1909))
+* **YouTube:** Add `Tuck away preferences` for force hide elements from main settings ([82c76f0](https://github.com/anddea/revanced-patches/commit/82c76f09a1882a5aa5792114fc05494bc1a2dda5))
+
 # [2.223.0-dev.21](https://github.com/anddea/revanced-patches/compare/v2.223.0-dev.20...v2.223.0-dev.21) (2024-03-31)
 
 
