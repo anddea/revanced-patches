@@ -19,7 +19,7 @@ object HideSettingsPrefsPatch : ResourcePatch() {
 
     private const val DEFAULT_ELEMENTS = "Data saving, Video quality preferences, Background, Watch on TV, " +
         "Manage all history, Privacy, Try experimental new features, " +
-        "Purchases and memberships, Billing & payments, Notifications, Captions, Connected apps, " +
+        "Purchases and memberships, Billing and payments, Notifications, Captions, Connected apps, " +
         "Live chat, Accessibility, About"
 
     private val SettingElements by stringPatchOption(
@@ -42,8 +42,9 @@ object HideSettingsPrefsPatch : ResourcePatch() {
         "Privacy" to "privacy_key",
         "History & privacy" to "privacy_key",
         "Try experimental new features" to "premium_early_access_browse_page_key",
-        "Purchases and memberships" to "yt_unlimited_post_purchase_key",
+        "Purchases and memberships" to "subscription_product_setting_key",
         "Billing & payments" to "billing_and_payment_key",
+        "Billing and payments" to "billing_and_payment_key",
         "Notifications" to "notification_key",
         "Connected apps" to "connected_accounts_browse_page_key",
         "Live chat" to "live_chat_key",
