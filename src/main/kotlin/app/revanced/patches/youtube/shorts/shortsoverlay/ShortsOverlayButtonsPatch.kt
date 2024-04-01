@@ -87,30 +87,33 @@ object ShortsOverlayButtonsPatch : ResourcePatch() {
                     "youtube/shorts/$selectedIconType",
                     ResourceGroup(
                         "drawable-$dpi",
-                        "ic_remix_filled_white_24.webp", // for older versions only
                         "ic_remix_filled_white_shadowed.webp",
                         "ic_right_comment_shadowed.webp",
                         "ic_right_dislike_off_shadowed.webp",
                         "ic_right_dislike_on_shadowed.webp",
                         "ic_right_like_off_shadowed.webp",
                         "ic_right_like_on_shadowed.webp",
-                        "ic_right_share_shadowed.webp"
+                        "ic_right_share_shadowed.webp",
+
+                        // for older versions only
+                        "ic_remix_filled_white_24.webp",
+                        "ic_right_dislike_on_32c.webp",
+                        "ic_right_like_on_32c.webp"
+                    ),
+
+                    ResourceGroup(
+                        "drawable",
+                        "ic_right_comment_32c.xml",
+                        "ic_right_dislike_off_32c.xml",
+                        "ic_right_like_off_32c.xml",
+                        "ic_right_share_32c.xml"
                     )
                 )
 
                 context.copyResources(
                     "youtube/shorts/outline",
                     ResourceGroup(
-                        "drawable-$dpi",
-                        "ic_right_dislike_on_32c.webp",
-                        "ic_right_like_on_32c.webp"
-                    ),
-                    ResourceGroup(
                         "drawable",
-                        "ic_right_comment_32c.xml",
-                        "ic_right_dislike_off_32c.xml",
-                        "ic_right_like_off_32c.xml",
-                        "ic_right_share_32c.xml",
                         "reel_camera_bold_24dp.xml",
                         "reel_more_vertical_bold_24dp.xml",
                         "reel_search_bold_24dp.xml"
