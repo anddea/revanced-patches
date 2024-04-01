@@ -1,3 +1,10 @@
+# [2.223.0-dev.23](https://github.com/anddea/revanced-patches/compare/v2.223.0-dev.22...v2.223.0-dev.23) (2024-04-01)
+
+
+### Features
+
+* **YouTube/Translations:** Update `Russian` ([#233](https://github.com/anddea/revanced-patches/issues/233)) ([38c6a8c](https://github.com/anddea/revanced-patches/commit/38c6a8c7a218f01a5eb30ad7fe3a1f59f1f6e343))
+
 # [2.223.0-dev.22](https://github.com/anddea/revanced-patches/compare/v2.223.0-dev.21...v2.223.0-dev.22) (2024-04-01)
 
 
