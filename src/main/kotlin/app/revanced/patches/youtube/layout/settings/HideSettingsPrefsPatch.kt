@@ -10,16 +10,17 @@ import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import org.w3c.dom.Element
 
 @Patch(
-    name = "Hide settings preferences",
-    description = "Force to hide settings menu elements. Prefs \"About\" (it won't add ReVanced/SB/RYD settings) and \"Account\" (it will crash the app) will be ignored if you add them.",
+    name = "Tuck away preferences",
+    description = "Force to hide settings menu elements. Prefs \"Account\" and \"Your data in YouTube\" will be ignored if you add them as they may cause a crash.",
     compatiblePackages = [CompatiblePackage("com.google.android.youtube")]
 )
 @Suppress("unused")
 object HideSettingsPrefsPatch : ResourcePatch() {
 
-    private const val DEFAULT_ELEMENTS = "General, Data saving, Autoplay, " +
-        "Video quality preferences, Background, Watch on TV, History & privacy, " +
-        "Try experimental new features, Notifications, Captions, Accessibility"
+    private const val DEFAULT_ELEMENTS = "Data saving, Video quality preferences, Background, Watch on TV, " +
+        "Manage all history, Privacy, Try experimental new features, " +
+        "Purchases and memberships, Billing & payments, Notifications, Captions, Connected apps, " +
+        "Live chat, Accessibility, About"
 
     private val SettingElements by stringPatchOption(
         key = "SettingElements",
@@ -30,17 +31,25 @@ object HideSettingsPrefsPatch : ResourcePatch() {
 
     private val DEFAULT_ELEMENTS_MAP = mapOf(
         "General" to "general_key",
-        "Account" to "account_switcher_key",
+        // "Account" to "account_switcher_key",
         "Data saving" to "data_saving_settings_key",
         "Autoplay" to "auto_play_key",
         "Video quality preferences" to "video_quality_settings_key",
-        "Background" to "offline_key", // no
+        "Background" to "offline_key",
         "Watch on TV" to "pair_with_tv_key",
+        "Manage all history" to "history_key",
+        // "Your data in YouTube" to "your_data_key",
+        "Privacy" to "privacy_key",
         "History & privacy" to "privacy_key",
         "Try experimental new features" to "premium_early_access_browse_page_key",
+        "Purchases and memberships" to "yt_unlimited_post_purchase_key",
+        "Billing & payments" to "billing_and_payment_key",
         "Notifications" to "notification_key",
+        "Connected apps" to "connected_accounts_browse_page_key",
+        "Live chat" to "live_chat_key",
         "Captions" to "captions_key",
-        "Accessibility" to "accessibility_settings_key"
+        "Accessibility" to "accessibility_settings_key",
+        "About" to "about_key"
     )
 
     // Function to parse comma-separated string into a list of strings
@@ -73,6 +82,6 @@ object HideSettingsPrefsPatch : ResourcePatch() {
             }
         }
 
-        SettingsPatch.updatePatchStatus("Hide settings preferences")
+        SettingsPatch.updatePatchStatus("Tuck away preferences")
     }
 }
