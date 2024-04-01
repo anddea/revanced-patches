@@ -5,7 +5,7 @@
     <string name="microg_not_installed_notice">MicroG를 설치해 주세요.</string>
     <string name="microg_not_installed_warning">MicroG가 설치되지 않았습니다.</string>
     <string name="microg_not_running_warning">MicroG가 백그라운드에서 실행되고 있지 않습니다.</string>
-    <string name="microg_settings_summary">알림 수신을 위한 클라우드 메시징 설정을 할 수 있습니다.</string>
+    <string name="microg_settings_summary">알림 수신을 위한 클라우드 메시징 설정을 할 수 있습니다.\n\nReVanced GmsCore를 사용 중, 앱 문제가 발생한다면:\n• GmsCore에 백그라운드에서 실행할 수 있는 권한을 부여하세요. (MicroG 열기 &gt; Self-Check &gt; Permissions Granted 모두 체크)\n• GmsCore를 배터리 최적화 목록에서 제외하세요. (MicroG 열기 &gt; Self-Check &gt; Battery Optimization ignored 체크)\n• 체크박스를 체크할 때 체크박스가 아닌 텍스트를 눌러야 합니다.</string>
     <string name="microg_settings_title">MicroG 열기</string>
     <string name="revanced_ads">광고</string>
     <string name="revanced_alt_thumbnails">대체 썸네일</string>
@@ -255,7 +255,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
 나 탭 &gt; 채널 보기 &gt; 메뉴 더보기 (툴바) &gt; 설정"</string>
     <string name="revanced_enable_wide_search_bar_in_you_tab_title">나 탭에서 넓은 검색 바 활성화하기</string>
     <string name="revanced_experimental_flag">실험적인 기능</string>
-    <string name="revanced_extended_settings_export_failed">설정을 내보내는 데 실패하였습니다.</string>
+    <string name="revanced_extended_settings_export_failed">설정을 내보낼 수 없습니다.</string>
     <string name="revanced_extended_settings_export_success">설정을 성공적으로 내보냈습니다.</string>
     <string name="revanced_extended_settings_export_summary">설정을 파일로 내보낼 수 있습니다.</string>
     <string name="revanced_extended_settings_export_title">설정 내보내기</string>
@@ -266,7 +266,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_extended_settings_import_export_as_text_title">텍스트로 가져오기 / 내보내기</string>
     <string name="revanced_extended_settings_import_export_summary">설정을 가져오거나 내보낼 수 있습니다.</string>
     <string name="revanced_extended_settings_import_export_title">설정 가져오기 / 내보내기</string>
-    <string name="revanced_extended_settings_import_failed">설정을 가져오는 데 실패하였습니다.</string>
+    <string name="revanced_extended_settings_import_failed">설정을 가져올 수 없습니다.</string>
     <string name="revanced_extended_settings_import_reset">설정을 기본값으로 재설정합니다.</string>
     <string name="revanced_extended_settings_import_success">설정을 성공적으로 가져왔습니다.</string>
     <string name="revanced_extended_settings_import_summary">설정을 저장된 파일에서 가져올 수 있습니다.</string>
@@ -838,7 +838,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_sanitize_sharing_links_title">추적 쿼리를 제거한 링크 공유하기</string>
     <string name="revanced_save_playback_speed" formatted="false">기본 동영상 재생 속도 값을 %s으로 변경합니다.</string>
     <string name="revanced_save_video_quality_mobile" formatted="false">모바일 네트워크 이용 시 기본 동영상 화질 값을 %s로 변경합니다.</string>
-    <string name="revanced_save_video_quality_none">동영상 화질 설정에 실패하였습니다.</string>
+    <string name="revanced_save_video_quality_none">동영상 화질 설정을 할 수 없습니다.</string>
     <string name="revanced_save_video_quality_wifi" formatted="false">Wi-Fi 이용 시 기본 동영상 화질 값을 %s로 변경합니다.</string>
     <string name="revanced_seekbar">재생바</string>
     <string name="revanced_share_copy_settings_success">설정이 클립보드에 복사되었습니다.</string>
@@ -885,10 +885,14 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_spoof_failure_generic">스토리보드를 일시적으로 변경할 수 없습니다: </string>
     <string name="revanced_spoof_player_parameter_in_feed_summary_off">"피드 동영상에 대한 플레이어 매개변수를 변경하지 않습니다.
 
-알려진 문제점: 피드 동영상을 1분 정도 재생한 후에 재생 문제가 발생합니다."</string>
+• 알려진 문제점: 피드 동영상을 1분 정도 재생한 후에 재생 문제가 발생합니다.
+
+• ReVanced GmsCore를 사용 중, 동영상 플레이어에서 'Video Not Availiable' 문제가 발생한다면 두 가지 동영상 매개변수 변경 관련 설정을 모두 비활성화하세요. (기본값: 비활성화됨)"</string>
     <string name="revanced_spoof_player_parameter_in_feed_summary_on">"피드 동영상에 대한 플레이어 매개변수를 변경합니다.
     
-알려진 문제점: 자동으로 재생된 피드 동영상이 시청 기록에 저장됩니다."</string>
+• 알려진 문제점: 자동으로 재생된 피드 동영상이 시청 기록에 저장됩니다.
+
+• ReVanced GmsCore를 사용 중, 동영상 플레이어에서 'Video Not Availiable' 문제가 발생한다면 두 가지 동영상 매개변수 변경 관련 설정을 모두 비활성화하세요. (기본값: 비활성화됨)"</string>
     <string name="revanced_spoof_player_parameter_in_feed_title">피드 동영상 플레이어 매개변수 변경하기</string>
     <string name="revanced_spoof_player_parameter_summary">"플레이어 매개변수를 변경하여 재생 문제를 방지합니다.
 
@@ -973,8 +977,8 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="sb_settings_ie_sum_warning">여기에는 비공개 사용자 아이디가 포함됩니다. 이 정보를 현명하게 공유하세요.</string>
     <string name="sb_settings_ie">설정 가져오기 / 내보내기</string>
     <string name="sb_settings_import_successful">설정을 성공적으로 가져왔습니다.</string>
-    <string name="sb_settings_import_failed">가져오기에 실패하였습니다: %s</string>
-    <string name="sb_settings_export_failed">내보내기에 실패하였습니다: %s</string>
+    <string name="sb_settings_import_failed">설정을 가져올 수 없습니다: %s</string>
+    <string name="sb_settings_export_failed">설정을 내보낼 수 없습니다: %s</string>
     <string name="sb_settings_revanced_export_user_id_warning">설정에는 비공개 SponsorBlock 사용자 아이디가 포함되어 있습니다.\n\n절대 다른 이에게 공개하지 마세요.\n</string>
     <string name="sb_settings_revanced_export_user_id_warning_dismiss">다시 보지 않기</string>
     <string name="sb_diff_segments">각 구간에 설정할 동작</string>
@@ -1029,14 +1033,14 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="sb_sponsorblock_connection_failure_timeout">SponsorBlock을 일시적으로 사용할 수 없습니다 (응답 시간 초과).</string>
     <string name="sb_submit_failed_invalid" formatted="false">구간을 제출할 수 없습니다: %s</string>
     <string name="sb_submit_failed_timeout">구간을 제출할 수 없습니다 (응답 시간 초과).</string>
-    <string name="sb_submit_failed_unknown_error" formatted="false">구간 제출에 실패하였습니다: 오류 내용: %d %s</string>
+    <string name="sb_submit_failed_unknown_error" formatted="false">구간을 제출할 수 없습니다: 오류 내용: %d %s</string>
     <string name="sb_submit_failed_rate_limit">구간을 제출할 수 없습니다.\n동일 사용자 또는 동일 IP로 부터 제출된 요청이 너무 많습니다.</string>
     <string name="sb_submit_failed_forbidden" formatted="false">구간을 제출할 수 없습니다: %s</string>
     <string name="sb_submit_failed_duplicate">구간을 제출할 수 없습니다.\n이미 존재하는 구간입니다.</string>
     <string name="sb_submit_succeeded">구간을 성공적으로 제출하였습니다.</string>
     <string name="sb_vote_failed_timeout">구간에 투표할 수 없습니다 (응답 시간 초과).</string>
-    <string name="sb_vote_failed_unknown_error" formatted="false">구간 투표에 실패하였습니다 (오류 내용: %d %s).</string>
-    <string name="sb_vote_failed_forbidden" formatted="false">구간 투표에 실패하였습니다: %s</string>
+    <string name="sb_vote_failed_unknown_error" formatted="false">구간에 투표할 수 없습니다 (오류 내용: %d %s).</string>
+    <string name="sb_vote_failed_forbidden" formatted="false">구간에 투표할 수 없습니다: %s</string>
     <string name="sb_vote_upvote">좋아요</string>
     <string name="sb_vote_downvote">싫어요</string>
     <string name="sb_vote_category">카테고리 변경</string>
@@ -1063,7 +1067,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="sb_stats_sb_disabled">SponsorBlock을 비활성화하였습니다.</string>
     <string name="sb_stats_username" formatted="false">사용자 이름: &lt;b&gt;%s&lt;/b&gt;</string>
     <string name="sb_stats_username_change">사용자 이름을 변경하려면 여기를 누르세요.</string>
-    <string name="sb_stats_username_change_unknown_error" formatted="false">사용자 이름을 변경하는 데 실패하였습니다: 오류 내용: %d %s</string>
+    <string name="sb_stats_username_change_unknown_error" formatted="false">사용자 이름을 변경할 수 없습니다: 오류 내용: %d %s</string>
     <string name="sb_stats_username_changed">사용자 이름을 성공적으로 변경하였습니다.</string>
     <string name="sb_stats_reputation" formatted="false">사용자의 평판: &lt;b&gt;%.2f&lt;/b&gt;</string>
     <string name="sb_stats_submissions" formatted="false">제출 횟수: &lt;b&gt;%s&lt;/b&gt;</string>
@@ -1119,7 +1123,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     
     <string name="revanced_hide_video_with_low_view_old_title">[이전 버전] 조회수가 낮은 동영상 숨기기</string>
     
-    <string name="revanced_hide_video_with_low_view_num_multiplier_summary">화면 구성요소에서 각 동영상 아래에 표시되는 조회수에 대한 언어 템플릿을 설정할 수 있습니다. \n\n• 각 \'키(해당 언어의 문자/단어) -> 값(키의 의미)\'은 줄바꿈으로 구분하여 설정합니다. \n• 키는 \'->\' 기호 앞에 와야 합니다. \n• 편집창 앞 부분에는 숫자 관련 키(예: 만회 -> 10000), 마지막 부분에는 조회수 단어 키(예: 조회수 -> views) 순으로 입력해야 합니다.\n• 편집창에는 하나의 언어에 대한 키만 입력해야 합니다. \n• 앱 언어 또는 시스템 언어를 변경하는 경우 이 설정을 재설정해야 합니다.\n• 실시간 스트리밍 동영상과 \'조회수 없음\' 동영상은 숨길 수 없습니다. \n\n예시: \n영어: 10K views = K -> 1000, views -> views\n한국어: 조회수 10만회 = 만회 -> 10000, 조회수 -> views</string>
+    <string name="revanced_hide_video_with_low_view_num_multiplier_summary">홈 피드에서 노출되는 동영상의 조회수에 대한 언어 템플릿을 설정할 수 있습니다. \n• \'키(해당 언어의 문자/단어) -> 값(키의 의미)\'은 줄바꿈으로 구분하여 설정해야 하고, 키는 \'->\' 기호 앞에 와야 합니다. \n• 편집창은 하나의 언어에 대한 키만 입력 &amp; 앞에는 숫자 관련 키, 마지막에는 조회수 단어 키 순으로 입력해야 합니다. \n• 앱 언어 또는 시스템 언어를 변경하는 경우 이 설정을 재설정해야 합니다.\n• 실시간 스트리밍 동영상과 \'조회수 없음\' 동영상은 숨길 수 없습니다. \n예시: \n한국어: 조회수 10만회 = 만회 -> 10000, 조회수 -> views\n영어: 10K views = K -> 1000, views -> views</string>
     <string name="revanced_hide_video_with_low_view_old_summary">"홈 피드에서 노출되는 조회수가 1,000회 미만인 동영상이 숨겨집니다.
 구독하는 채널의 동영상을 포함한 일부 동영상은 조회수가 1,000회 미만이더라도 숨겨지지 않을 수 있습니다.
 
