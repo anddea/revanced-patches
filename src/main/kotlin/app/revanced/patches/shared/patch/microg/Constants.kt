@@ -8,7 +8,7 @@ object Constants {
      * microG vendor name
      * aka. package prefix / package base
      */
-    const val MICROG_VENDOR = "com.mgoogle"
+    const val MICROG_VENDOR = "app.revanced"
 
     /**
      * microG package name
@@ -52,13 +52,6 @@ object Constants {
      * a list of all (intent) actions in microG
      */
     val ACTIONS = listOf(
-        // location
-        "com.google.android.gms.location.places.ui.PICK_PLACE",
-        "com.google.android.gms.location.places.GeoDataApi",
-        "com.google.android.gms.location.places.PlacesApi",
-        "com.google.android.gms.location.places.PlaceDetectionApi",
-        "com.google.android.gms.wearable.MESSAGE_RECEIVED",
-
         // C2DM / GCM
         "com.google.android.c2dm.intent.REGISTER",
         "com.google.android.c2dm.intent.REGISTRATION",
@@ -66,15 +59,6 @@ object Constants {
         "com.google.android.c2dm.intent.RECEIVE",
         "com.google.iid.TOKEN_REQUEST",
         "com.google.android.gcm.intent.SEND",
-
-        // car
-        "com.google.android.gms.car.service.START",
-
-        // people
-        "com.google.android.gms.people.service.START",
-
-        // wearable
-        "com.google.android.gms.wearable.BIND",
 
         // auth
         "com.google.android.gsf.login",
@@ -90,9 +74,8 @@ object Constants {
         // fido
         "com.google.android.gms.fido.fido2.privileged.START",
 
-        // games
-        "com.google.android.gms.games.service.START",
-        "com.google.android.gms.games.PLAY_GAMES_UPGRADE",
+        // gass
+        "com.google.android.gms.gass.START",
 
         // chimera
         "com.google.android.gms.chimera",
@@ -103,14 +86,21 @@ object Constants {
         // phenotype
         "com.google.android.gms.phenotype.service.START",
 
-        // location
-        "com.google.android.gms.location.reporting.service.START",
-
         // misc
         "com.google.android.gms.gmscompliance.service.START",
         "com.google.android.gms.oss.licenses.service.START",
-        "com.google.android.gms.safetynet.service.START",
-        "com.google.android.gms.tapandpay.service.BIND"
+        "com.google.android.gms.tapandpay.service.BIND",
+        "com.google.android.gms.measurement.START",
+        "com.google.android.gms.languageprofile.service.START",
+        "com.google.android.gms.clearcut.service.START",
+        "com.google.android.gms.icing.LIGHTWEIGHT_INDEX_SERVICE",
+
+        // potoken
+        "com.google.android.gms.potokens.service.START",
+
+        // droidguard/ safetynet
+        "com.google.android.gms.droidguard.service.START",
+        "com.google.android.gms.safetynet.service.START"
     )
 
     /**

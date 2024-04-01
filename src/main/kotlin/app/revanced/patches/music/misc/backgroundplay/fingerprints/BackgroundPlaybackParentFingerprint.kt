@@ -5,17 +5,19 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-object BackgroundPlaybackParentFingerprint : MethodFingerprint(
-    returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    parameters = emptyList(),
-    opcodes = listOf(
-        Opcode.INVOKE_STATIC,
-        Opcode.MOVE_RESULT,
-        Opcode.IF_NEZ,
+internal object BackgroundPlaybackParentFingerprint : MethodFingerprint(
+    "Z",
+    AccessFlags.PUBLIC or AccessFlags.STATIC,
+    listOf("L"),
+    listOf(
         Opcode.CONST_4,
-        Opcode.GOTO,
-        Opcode.NOP
+        Opcode.IF_EQZ,
+        Opcode.IGET,
+        Opcode.AND_INT_LIT16,
+        Opcode.IF_EQZ,
+        Opcode.IGET_OBJECT,
+        Opcode.IF_NEZ,
+        Opcode.SGET_OBJECT,
+        Opcode.IGET,
     ),
-    customFingerprint = { methodDef, _ -> methodDef.definingClass.endsWith("/WatchFragment;") }
 )

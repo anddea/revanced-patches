@@ -2,11 +2,15 @@
 <resources>
     <string name="accessibility_settings_edu_opt_in_text">Увімкнути спеціальні можливості для відеоплеєра?</string>
     <string name="accessibility_settings_edu_opt_out_text">Керування змінено, оскільки служба спеціальних можливостей увімкнена.</string>
-    <string name="microg_not_installed_notice">Будь ласка, встановіть MicroG.</string>
-    <string name="microg_not_installed_warning">MicroG не знайдено</string>
-    <string name="microg_not_running_warning">MicroG не працює у фоновому режимі</string>
+    <string name="microg_not_installed_notice">Будь ласка, встановіть GmsCore.</string>
+    <string name="microg_not_installed_warning">GmsCore не знайдено</string>
+    <string name="microg_not_running_warning">GmsCore не працює у фоновому режимі</string>
     <string name="microg_settings_summary">Увімкніть налаштування спливаючих повідомлень, щоб отримувати сповіщення</string>
-    <string name="microg_settings_title">Відкрити MicroG</string>
+    <string name="microg_settings_title">Відкрити GmsCore</string>
+    <string name="revanced_patches_excluded">Виключено</string>
+    <string name="revanced_patches_included">Включено</string>
+    <string name="revanced_sponsorblock_settings_title">Спонсорблок</string>
+    <string name="revanced_extended_settings_title">Розширені</string>
     <string name="revanced_ads">Реклама</string>
     <string name="revanced_alt_thumbnails">Альтернативні мініатюри</string>
     <string name="revanced_alt_thumbnail_about_status_dearrow">"Показ мініатюр DeArrow.
@@ -440,7 +444,7 @@
     <string name="revanced_hide_get_premium_summary_off">Рекламу YouTube Premium показується.</string>
     <string name="revanced_hide_get_premium_summary_on">Рекламу YouTube Premium приховано</string>
     <string name="revanced_hide_get_premium_title">Приховати рекламу YouTube Premium</string>
-    <string name="revanced_hide_gray_description_title">Приховати сіре в описі</string>
+    <string name="revanced_hide_gray_description_title">Приховати сірий опис</string>
     <string name="revanced_hide_gray_separator_summary_off">Сірі роздільники показується</string>
     <string name="revanced_hide_gray_separator_summary_on">Сірі роздільники приховано</string>
     <string name="revanced_hide_gray_separator_title">Приховати сірий роздільник</string>
@@ -614,9 +618,6 @@
     <string name="revanced_hide_shorts_player_navigation_bar_summary_off">Панель навігації показується</string>
     <string name="revanced_hide_shorts_player_navigation_bar_summary_on">Панель навігації приховано</string>
     <string name="revanced_hide_shorts_player_navigation_bar_title">Приховати панель навігації</string>
-    <string name="revanced_hide_shorts_player_pivot_button_summary_off">Кнопку З цим звуком показується</string>
-    <string name="revanced_hide_shorts_player_pivot_button_summary_on">Кнопку З цим звуком приховано</string>
-    <string name="revanced_hide_shorts_player_pivot_button_title">Приховати кнопку З цим звуком</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_off">Кнопку Підписатися показується.</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_on">Кнопку Підписатися приховано.</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_title">Приховати кнопку Підписатися</string>
@@ -697,9 +698,6 @@
     <string name="revanced_hide_video_with_gray_description_summary">"Приховується відео з сірим описом з результатів пошуку.
 До відео з сірим описом відносяться відео, які не пов'язані з пошуковими запитами."</string>
     <string name="revanced_hide_video_with_gray_description_title">Приховати відео з сірим описом</string>
-    <string name="revanced_hide_video_with_low_view_summary">"Приховуються відео з менш ніж 1 000 переглядів у головній стрічці.
-Деякі відео, у тому числі з каналів, на які ви підписані, можуть бути не прихованими, навіть якщо вони мають менше ніж 1000 переглядів."</string>
-    <string name="revanced_hide_video_with_low_view_title">Приховати відео з малою кількістю переглядів</string>
     <string name="revanced_hide_view_products_summary_off">Банер перегляду товарів показується</string>
     <string name="revanced_hide_view_products_summary_on">Банер перегляду товарів приховано</string>
     <string name="revanced_hide_view_products_title">Приховати банер перегляду товарів</string>
@@ -712,7 +710,6 @@
     <string name="revanced_hook_download_button_summary">"Поміняти місцями кнопку завантаження з кнопкою зовнішнього завантаження"</string>
     <string name="revanced_hook_download_button_title">Змінити кнопку завантаження</string>
     <string name="revanced_inform">Інформація</string>
-    <string name="revanced_keep_landscape_mode_summary">Зберігається ландшафтний режим під час вимкнення та ввімкнення екрана у повноекранному режимі.</string>
     <string name="revanced_keep_landscape_mode_timeout_summary">Кількість мілісекунд примусового ландшафтного режиму.</string>
     <string name="revanced_keep_landscape_mode_timeout_title">Скільки зберігати ландшафтний режим</string>
     <string name="revanced_keep_landscape_mode_title">Зберігати ландшафтний режим</string>
@@ -889,9 +886,6 @@
 
 Слова з великими літерами в середині повинні вводитися відповідно регістру (тобто: iPhone, TikTok, LeBlanc)."</string>
     <string name="revanced_keyword_filter_strings_title">Редагувати фільтр ключових слів</string>
-    <string name="revanced_hide_keyword_content_feed_summary_off">Фільтр ключових слів вимкнено.</string>
-    <string name="revanced_hide_keyword_content_feed_summary_on">Фільтр ключових слів увімкнено.</string>
-    <string name="revanced_keyword_filter_summary">Приховується відео у стрічці та в результатах пошуку використовуючи фільтри ключових слів.</string>
     <string name="revanced_hide_keyword_content_feed_title">Ввімкнути фільтр ключових слів</string>
     <string name="revanced_hide_suggested_video_overlay_auto_play_summary">Після завершення відео, автоматично відтворюється інше</string>
     <string name="revanced_hide_suggested_video_overlay_auto_play_title">Автовідтворення наступного відео</string>
@@ -914,6 +908,46 @@
 • Глядачів каналу також дивляться цей канал, тощо."</string>
     <string name="revanced_append_time_stamp_information_type_summary_off">Додається швидкість відтворення. Натисніть і утримуйте мітку часу під час відтворення відео, щоб змінити тип.</string>
     <string name="revanced_append_time_stamp_information_type_summary_on">Додається якість відео. Натисніть і утримуйте мітку часу під час відтворення відео, щоб змінити тип.</string>
+    <string name="revanced_hide_keyword_content_about_summary">Пошук, Головна, Підписки та Коментарі фільтруються, щоб приховати контент, який відповідає ключовим фразам\n\nОбмеження\n• Деякі Короткі не можливо приховати\n• Деякі компоненти інтерфейсу не можливо приховати\n• Шукання за ключовим словом може не давати результатів</string>
+    <string name="revanced_hide_keyword_content_comment_summary_off">Фільтр ключових слів для коментарів вимкнено.</string>
+    <string name="revanced_hide_keyword_content_comment_summary_on">Фільтр ключових слів для коментарів увімкнено.</string>
+    <string name="revanced_hide_keyword_content_comment_title">Увімкнути фільтр ключових слів коментарів</string>
+    <string name="revanced_hide_keyword_content_sub_summary_off">Фільтр ключових слів для підписок вимкнено.</string>
+    <string name="revanced_hide_keyword_content_sub_summary_on">Фільтр ключових слів для підписок увімкнено.</string>
+    <string name="revanced_hide_keyword_content_sub_title">Увімкнути фільтр ключових слів підписок</string>
+    <string name="revanced_hide_keyword_toast_invalid_common" formatted="false">Невірне ключове слово. Неможливо використати \'%s\' як фільтр</string>
+    <string name="revanced_keyword_filter_title">Фільтр ключових слів</string>
+    <string name="revanced_hide_keyword_content_feed_summary_off">Фільтр ключових слів для стрічки та пошуку вимкнено.</string>
+    <string name="revanced_hide_keyword_content_feed_summary_on">Фільтр ключових слів для стрічки та пошуку увімкнено.</string>
+    <string name="revanced_keyword_filter_summary">Приховується відео з використанням фільтра ключових слів.</string>
+    <string name="revanced_hide_video_with_low_view_num_summary">Відео з менш ніж ця кількість переглядів приховуватиметься.</string>
+    <string name="revanced_hide_video_with_low_view_num_title">Кількість переглядів</string>
+    <string name="revanced_keep_landscape_mode_summary">Зберігається ландшафтний режим під час вимкнення та ввімкнення екрана у повноекранному режимі.\n\nВідома проблема: Це може поламати Картинку в картинці (PIP).</string>
+    <string name="revanced_hide_video_with_low_view_summary">"Приховати відео з менш ніж N переглядами."</string>
+    <string name="revanced_hide_video_with_low_view_title">Приховати відео на основі переглядів</string>
+    <string name="revanced_hide_shorts_player_pivot_button_summary_off">Кнопку звуку показується.</string>
+    <string name="revanced_hide_shorts_player_pivot_button_summary_on">Кнопку звуку приховано.</string>
+    <string name="revanced_hide_shorts_player_pivot_button_title">Приховати кнопку звуку</string>
+    <string name="revanced_hide_player_button_background_summary_off">Фон кнопок плеєра показується.</string>
+    <string name="revanced_hide_player_button_background_summary_on">Фон кнопок плеєра приховано.</string>
+    <string name="revanced_hide_player_button_background_title">Приховати фон кнопок плеєра</string>
+    <string name="revanced_hide_shorts_player_sound_metadata_label_summary_off">Мітку метаданих звуку показується.</string>
+    <string name="revanced_hide_shorts_player_sound_metadata_label_summary_on">Мітку метаданих звуку приховано.</string>
+    <string name="revanced_hide_shorts_player_sound_metadata_label_title">Приховати мітку метаданих звуку</string>
+    <string name="revanced_hide_shorts_player_video_link_label_summary_off">Мітку посилання відео показується.</string>
+    <string name="revanced_hide_shorts_player_video_link_label_summary_on">Мітку посилання відео приховано.</string>
+    <string name="revanced_hide_shorts_player_video_link_label_title">Приховати мітку посилання відео</string>
+    <string name="revanced_hide_shorts_player_video_title_summary_off">Назву відео Коротких показується.</string>
+    <string name="revanced_hide_shorts_player_video_title_summary_on">Назву відео Коротких приховано.</string>
+    <string name="revanced_hide_shorts_player_video_title_title">Приховати назву відео Коротких</string>
+    <string name="revanced_hide_video_with_low_view_num_multiplier_summary">Вкажіть шаблон вашою мовою для кількості переглядів як показується під будь-яким відео в інтерфейсі користувача. Будь-який ключ (літера/слово на вашій мові) -> значення (значення ключа) повинно бути з нового рядка. Ключі йдуть перед позначкою "->". Якщо змінили мову програми або системи, потрібно скинути це налаштування.\n\nЗразок:\nАнглійською: 10K views = K -> 1000, views -> views\nУкраїнською: 10 тис. переглядів = тис. -> 1000, переглядів -> views</string>
+    <string name="revanced_hide_video_with_low_view_num_multiplier_title">Ключі переглядів</string>
+    <string name="revanced_hide_video_with_low_view_num_multiplier_value">тис. -> 1 000\nмлн -> 1 000 000\nмлрд -> 1 000 000 000\nпереглядів -> views</string>
+    <string name="revanced_hide_video_with_low_view_old_summary">"Приховуються відео з менш ніж 1,000 переглядів у головній стрічці.
+Деякі відео, у тому числі з каналів, на які ви підписані, можуть бути не прихованими, навіть якщо вони мають менше ніж 1,000 переглядів.
+
+Це стара версія, якщо ви використовуєте варіант вище, вам не потрібно використовувати це."</string>
+    <string name="revanced_hide_video_with_low_view_old_title">[Старе] Приховати відео з малою кількістю переглядів</string>
     <string name="pref_app_language_dialog_message">&lt;b&gt;%1$s&lt;/b&gt;&lt;br&gt;&lt;br&gt;Це змінить мову, яка використовується на YouTube, включаючи кнопки, текст і діалоги, але не змінить мову налаштувань ReVanced Extended.</string>
     <string name="pref_app_language_dialog_message_no_lang_name">Це змінить мову, яка використовується в додатку, включаючи кнопки, текст і діалоги, але не змінить мову налаштувань ReVanced Extended.</string>
     <string name="sb_enable_sb">Увімкнути Спонсорблок</string>
