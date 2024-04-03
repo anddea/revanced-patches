@@ -19,12 +19,35 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Enable old style miniplayer",
-    description = "Adds an option to return the miniplayer to the old style. Deprecated in v6.42+.",
+    description = "Adds an option to return the miniplayer to the old style. Deprecated in YT Music 6.42.52+.",
     dependencies = [
         SettingsPatch::class,
         SharedResourceIdPatch::class
     ],
-    compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")],
+    compatiblePackages = [
+        CompatiblePackage(
+            "com.google.android.apps.youtube.music",
+            [
+                "6.21.52",
+                "6.22.52",
+                "6.23.56",
+                "6.25.53",
+                "6.26.51",
+                "6.27.54",
+                "6.28.53",
+                "6.29.58",
+                "6.31.55",
+                "6.33.52",
+                "6.34.52",
+                "6.35.52",
+                "6.36.54",
+                "6.37.53",
+                "6.39.50",
+                "6.40.53",
+                "6.41.59"
+            ]
+        )
+    ],
     use = false
 )
 @Suppress("unused")

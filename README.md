@@ -127,6 +127,7 @@ ReVanced Extended Patches.
 | `Swipe controls` | Adds options to enable and configure volume and brightness swipe controls. | 18.25.40 ~ 19.11.38 |
 | `Theme` | Change the app's theme to the values specified in options.json. | 18.25.40 ~ 19.11.38 |
 | `Translations` | Add Crowdin translations for YouTube. | 18.25.40 ~ 19.11.38 |
+| `Tuck away preferences` | Force to hide settings menu elements. Prefs "Account" and "Your data in YouTube" will be ignored if you add them as they may cause a crash. | all |
 | `Visual preferences icons` | Adds icons to specific preferences in the settings. | all |
 </details>
 
@@ -147,20 +148,20 @@ ReVanced Extended Patches.
 | `Disable auto captions` | Adds an option to disable captions from being automatically enabled. | 6.21.52+ |
 | `Disable overlay filter` | Removes the dark overlay when comment, share, save to playlist, and flyout panels are open. | 6.21.52+ |
 | `Enable black navigation bar` | Adds an option to set the navigation bar color to black. | 6.21.52+ |
-| `Enable color match player` | Adds an option to match the color of the miniplayer to the fullscreen player. Deprecated on YT Music 6.34.51+. | 6.21.52 ~ 6.33.52 |
+| `Enable color match player` | Adds an option to match the color of the miniplayer to the fullscreen player. Deprecated in YT Music 6.34.51+. | 6.21.52 ~ 6.33.52 |
 | `Enable compact dialog` | Adds an option to enable the compact flyout menu on phones. | 6.21.52+ |
 | `Enable custom filter` | Adds a custom filter which can be used to hide layout components. | 6.21.52+ |
 | `Enable debug logging` | Adds an option to enable debug logging. | 6.21.52+ |
 | `Enable force minimized player` | Adds an option to keep the miniplayer minimized even when another track is played. | 6.21.52+ |
 | `Enable landscape mode` | Adds an option to enable landscape mode when rotating the screen on phones. | 6.21.52+ |
 | `Enable minimized playback` | Enables playback in miniplayer for Kids music. | 6.21.52+ |
-| `Enable old player background` | Adds an option to return the player background to the old style. Deprecated on YT Music 6.34.51+. | 6.21.52 ~ 6.33.52 |
-| `Enable old player layout` | Adds an option to return the player layout to the old style. Deprecated on YT Music 6.31.55+. | 6.21.52 ~ 6.33.52 |
+| `Enable old player background` | Adds an option to return the player background to the old style. Deprecated in YT Music 6.34.51+. | 6.21.52 ~ 6.33.52 |
+| `Enable old player layout` | Adds an option to return the player layout to the old style. Deprecated in YT Music 6.31.55+. | 6.21.52 ~ 6.33.52 |
 | `Enable old style library shelf` | Adds an option to return the library tab to the old style. | 6.21.52+ |
-| `Enable old style miniplayer` | Adds an option to return the miniplayer to the old style. Deprecated in v6.42+. | 6.21.52+ |
+| `Enable old style miniplayer` | Adds an option to return the miniplayer to the old style. Deprecated in YT Music 6.42.52+. | 6.21.52 ~ 6.41.59 |
 | `Enable opus codec` | Adds an option use the opus audio codec instead of the mp4a audio codec. | 6.21.52+ |
 | `Enable playback speed` | Adds an option to add a playback speed button to the flyout panel. | 6.21.52+ |
-| `Enable zen mode` | Adds an option to change the player background to light grey to reduce eye strain. Deprecated on YT Music 6.34.51+. | 6.21.52 ~ 6.33.52 |
+| `Enable zen mode` | Adds an option to change the player background to light grey to reduce eye strain. Deprecated in YT Music 6.34.51+. | 6.21.52 ~ 6.33.52 |
 | `Exclusive audio playback` | Unlocks the option to play music without video. | 6.21.52+ |
 | `Hide "New" button` | Adds an option to hide the "New" button in the library. | 6.21.52+ |
 | `Hide account menu` | Adds the ability to hide account menu elements using a custom filter. | 6.21.52+ |

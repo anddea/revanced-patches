@@ -13,7 +13,7 @@ import app.revanced.patches.music.utils.settings.SettingsPatch
 
 @Patch(
     name = "Enable old player background",
-    description = "Adds an option to return the player background to the old style. Deprecated on YT Music 6.34.51+.",
+    description = "Adds an option to return the player background to the old style. Deprecated in YT Music 6.34.51+.",
     dependencies = [SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(
