@@ -51,7 +51,8 @@ import kotlin.io.path.exists
                 "19.11.38"
             ]
         )
-    ]
+    ],
+    use = false
 )
 @Suppress("unused")
 object AddSplashAnimationPatch : ResourcePatch() {
