@@ -1,3 +1,16 @@
+# [2.224.0-dev.1](https://github.com/anddea/revanced-patches/compare/v2.223.0...v2.224.0-dev.1) (2024-04-03)
+
+
+### Bug Fixes
+
+* **YouTube:** Update default settings ([69e5998](https://github.com/anddea/revanced-patches/commit/69e5998b577648a88f12d8027e34dffc235ae325))
+
+
+### Features
+
+* **YouTube - Overlay buttons:** Tap and hold the speed button to reset to the default and normal speed back and forth ([67f743f](https://github.com/anddea/revanced-patches/commit/67f743f6e2f88234fbed0a22f9f04e827bb6e882))
+* **YouTube - Visual preferences icons:** Add more icons ([e65b863](https://github.com/anddea/revanced-patches/commit/e65b8631e21173aac15d80091ff96948f3c01c6e))
+
 # [2.223.0](https://github.com/anddea/revanced-patches/compare/v2.222.0...v2.223.0) (2024-04-01)
 
 
