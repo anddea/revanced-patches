@@ -25,7 +25,7 @@ import kotlin.properties.Delegates
 
 @Patch(
     name = "Enable color match player",
-    description = "Adds an option to match the color of the miniplayer to the fullscreen player. Deprecated on YT Music 6.34.51+.",
+    description = "Adds an option to match the color of the miniplayer to the fullscreen player. Deprecated in YT Music 6.34.51+.",
     dependencies = [SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(

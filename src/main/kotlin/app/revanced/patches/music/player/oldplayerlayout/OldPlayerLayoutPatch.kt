@@ -13,7 +13,7 @@ import app.revanced.patches.music.utils.settings.SettingsPatch
 
 @Patch(
     name = "Enable old player layout",
-    description = "Adds an option to return the player layout to the old style. Deprecated on YT Music 6.31.55+.",
+    description = "Adds an option to return the player layout to the old style. Deprecated in YT Music 6.31.55+.",
     dependencies = [SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(
