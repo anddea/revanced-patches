@@ -65,12 +65,27 @@ object CustomBrandingIconPatch : ResourcePatch() {
     private const val DEFAULT_ICON_KEY = "Revancify Blue"
 
     private val availableIcon = mapOf(
+        "AFN Blue" to "afn_blue",
+        "AFN Red" to "afn_red",
         "MMT" to "mmt",
         DEFAULT_ICON_KEY to "revancify_blue",
-        "Revancify Red" to "revancify_red"
+        "Revancify Red" to "revancify_red",
+        "Vanced Black" to "vanced_black",
+        "Vanced Light" to "vanced_light"
     )
 
     private val drawableIconResourceFileNames = arrayOf(
+        "product_logo_youtube_color_24",
+        "product_logo_youtube_color_36",
+        "product_logo_youtube_color_144",
+        "product_logo_youtube_color_192",
+        "yt_premium_wordmark_header_dark",
+        "yt_premium_wordmark_header_light",
+        "yt_wordmark_header_dark",
+        "yt_wordmark_header_light"
+    ).map { "$it.png" }.toTypedArray()
+
+    private val drawableIconResourceFileNamesRevancify = arrayOf(
         "product_logo_youtube_color_24",
         "product_logo_youtube_color_36",
         "product_logo_youtube_color_144",
@@ -165,39 +180,31 @@ object CustomBrandingIconPatch : ResourcePatch() {
                 // change splash icon.
                 val drawableAnimResourceFileNames = Array(5) { index -> "\$avd_anim__$index.xml" }
 
-                if (appIconValue == "mmt") {
-                    (arrayOf(
-                        ResourceGroup("drawable", "avd_anim.xml", *drawableAnimResourceFileNames)
-                    ) + drawableDirectories.map { ResourceGroup(it, *drawableIconResourceFileNames) })
-                        .forEach { context.copyResources("$resourcePath/splash", it) }
-                } else {
-                    drawableDirectories.map { directory ->
-                        ResourceGroup(
-                            directory, *drawableIconResourceFileNames
-                        )
-                    }.let { resourceGroups ->
-                        resourceGroups.forEach {
-                            context.copyResources("$resourcePath/splash", it)
-                        }
-                    }
-
-                    // disable splash animation.
-                    context.xmlEditor["res/values-v31/styles.xml"].use { editor ->
-                        val tags = editor.file.getElementsByTagName("item")
-                        List(tags.length) { tags.item(it) as Element }
-                            .filter { it.getAttribute("name").contains("android:windowSplashScreenAnimatedIcon") }
-                            .forEach { it.parentNode.removeChild(it) }
-                    }
+                val splashResourceGroups: Array<Array<ResourceGroup>> = when (appIconValue) {
+                    "mmt" -> arrayOf(arrayOf(ResourceGroup("drawable", "avd_anim.xml", *drawableAnimResourceFileNames))
+                        .plus(drawableDirectories.map { ResourceGroup(it, *drawableIconResourceFileNames) }))
+                    "revancify_blue", "revancify_red" -> arrayOf(drawableDirectories.map { ResourceGroup(it, *drawableIconResourceFileNamesRevancify) }.toTypedArray())
+                    else -> arrayOf(drawableDirectories.map { ResourceGroup(it, *drawableIconResourceFileNames) }.toTypedArray())
                 }
 
-                // change monochrome icon.
-                arrayOf(
-                    ResourceGroup(
-                        "drawable",
-                        "adaptive_monochrome_ic_youtube_launcher.xml"
-                    )
-                ).forEach { resourceGroup ->
-                    context.copyResources("$resourcePath/monochrome", resourceGroup)
+                splashResourceGroups.forEach { group ->
+                    group.forEach { context.copyResources("$resourcePath/splash", it) }
+                }
+
+                // monochrome
+                val monochromeIcon = ResourceGroup("drawable", "adaptive_monochrome_ic_youtube_launcher.xml")
+                if (appIconValue in listOf("mmt", "revancify_blue", "revancify_red")) {
+                    context.copyResources("$resourcePath/monochrome", monochromeIcon)
+                }
+
+                // disable splash animation
+                if (appIconValue != "mmt") {
+                    context.xmlEditor["res/values-v31/styles.xml"].use { editor ->
+                        val nodeList = editor.file.getElementsByTagName("item")
+                        val tags = (0 until nodeList.length).map { nodeList.item(it) as Element }
+                        tags.filter { it.getAttribute("name").contains("android:windowSplashScreenAnimatedIcon") }
+                            .forEach { it.parentNode.removeChild(it) }
+                    }
                 }
 
                 context.updatePatchStatusIcon(appIconValue)
