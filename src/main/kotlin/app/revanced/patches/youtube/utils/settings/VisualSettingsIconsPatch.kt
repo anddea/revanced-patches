@@ -28,6 +28,14 @@ object VisualSettingsIconsPatch : ResourcePatch() {
         required = true
     )
 
+    private val ExtendedSettings by booleanPatchOption(
+        key = "ExtendedSettings",
+        default = true,
+        title = "Extended settings",
+        description = "Apply icons to extended main screen settings",
+        required = true
+    )
+
     override fun execute(context: ResourceContext) {
 
         val validTitles = setOf(
@@ -94,15 +102,47 @@ object VisualSettingsIconsPatch : ResourcePatch() {
         )
 
         val validMainTitles = setOf(
+            "parent_tools_key",
             "general_key",
             "account_switcher_key",
+            "data_saving_settings_key",
             "auto_play_key",
-            "your_data_key",
+            "video_quality_settings_key",
             "offline_key",
+            "pair_with_tv_key",
+            "history_key",
+            "your_data_key",
+            "privacy_key",
+            "premium_early_access_browse_page_key",
+            "subscription_product_setting_key",
+            "billing_and_payment_key",
+            "notification_key",
+            "connected_accounts_browse_page_key",
+            "live_chat_key",
+            "captions_key",
+            "accessibility_settings_key",
+            "about_key",
 
             "revanced_extended_settings_key",
+        )
+
+        val validExtendedTitles = setOf(
+            "general",
+            "ads",
+            "alt_thumbnails",
+            "player",
+            "overlay_button",
+            "bottom_player",
+            "flyout_menu",
+            "fullscreen",
+            "navigation",
+            "seekbar",
+            "shorts",
+            "swipe_controls",
+            "video",
             "revanced_ryd_settings_key",
             "revanced_sponsorblock_settings_key",
+            "misc",
         )
 
         val emptyTitles = setOf(
@@ -119,16 +159,57 @@ object VisualSettingsIconsPatch : ResourcePatch() {
             "whitelisting",
         )
 
-        arrayOf(
-            ResourceGroup(
-                "drawable-xxhdpi",
-                *validTitles.map { it + "_icon.png" }.toTypedArray(),
-                *validMainTitles.map { it + "_icon.png" }.toTypedArray(),
-                "empty_icon.png"
-            )
-        ).forEach { resourceGroup ->
-            context.copyResources("youtube/settings", resourceGroup)
+        // A lot of mappings here.
+        // The performance impact should be negligible in this context,
+        // as the operations involved are not computationally intensive.
+        val validTitlesIcons = validTitles.associateWith { title ->
+            when (title) {
+                "revanced_disable_hdr_auto_brightness" -> "revanced_disable_hdr_video_icon"
+                "revanced_hide_shorts_player_comments_button" -> "revanced_hide_quick_actions_comment_icon"
+                "revanced_enable_bottom_player_gestures" -> "swipe_controls_icon"
+                "revanced_hide_shorts_button" -> "shorts_icon"
+                "revanced_hide_button_like_dislike" -> "sb_enable_voting_icon"
+                "revanced_hide_shorts_player_like_button" -> "revanced_hide_quick_actions_like_icon"
+                "revanced_hide_shorts_player_dislike_button" -> "revanced_ryd_settings_key_icon"
+                "revanced_hide_quick_actions_dislike" -> "revanced_ryd_settings_key_icon"
+                "revanced_hide_quick_actions_share" -> "revanced_hide_shorts_player_share_button_icon"
+                "revanced_default_playback_speed" -> "revanced_overlay_button_speed_dialog_icon"
+                "revanced_enable_old_quality_layout" -> "revanced_default_video_quality_wifi_icon"
+                "revanced_hide_button_download" -> "revanced_overlay_button_external_downloader_icon"
+                "revanced_hide_button_share" -> "revanced_hide_shorts_player_share_button_icon"
+                "revanced_hide_library_button" -> "video_icon"
+                "revanced_hide_notifications_button" -> "notification_key_icon"
+                "revanced_hide_quick_actions_save_to_playlist" -> "revanced_hide_button_save_to_playlist_icon"
+                "revanced_hide_player_flyout_panel_report" -> "revanced_hide_button_report_icon"
+                "revanced_hide_player_flyout_panel_more_info" -> "about_key_icon"
+                "revanced_hide_player_flyout_panel_captions" -> "captions_key_icon"
+                "revanced_hide_player_flyout_panel_loop_video" -> "revanced_overlay_button_always_repeat_icon"
+                "revanced_hide_button_remix" -> "revanced_hide_shorts_player_remix_button_icon"
+                else -> "${title}_icon"
+            }
         }
+
+        val validMainTitlesIcons = validMainTitles.associateWith { "${it}_icon" }
+
+        val validExtendedTitlesIcons = validExtendedTitles.associateWith { title ->
+            when (title) {
+                "general" -> "general_key_icon"
+                "revanced_sponsorblock_settings_key" -> "sb_enable_create_segment_icon"
+                else -> "${title}_icon"
+            }
+        }
+
+        // Copy resources
+        val emptyIcon = "empty_icon"
+        val resourcesToCopy = mutableListOf(
+            ResourceGroup("drawable-xxhdpi", "$emptyIcon.png"),
+            ResourceGroup("drawable", *validTitlesIcons.values.map { "$it.xml" }.toTypedArray())
+        )
+
+        if (MainSettings!!) resourcesToCopy.add(ResourceGroup("drawable", *validMainTitlesIcons.values.map { "$it.xml" }.toTypedArray()))
+        if (ExtendedSettings!!) resourcesToCopy.add(ResourceGroup("drawable", *validExtendedTitlesIcons.values.map { "$it.xml" }.toTypedArray()))
+
+        resourcesToCopy.forEach { context.copyResources("youtube/settings", it) }
 
         val tagNames = listOf(
             "app.revanced.integrations.youtube.settingsmenu.ResettableEditTextPreference",
@@ -143,17 +224,21 @@ object VisualSettingsIconsPatch : ResourcePatch() {
             return this.getElementsByTagName(tagName)
         }
 
+        // Attach icons to prefs
         fun processPreferences(file: Document) {
             tagNames.forEach { tagName ->
                 val elements = file.getElementsByTagName(tagName)
                 for (i in 0 until elements.length) {
                     val preference = elements.item(i) as? Element
                     val title = preference?.getAttribute("android:key")?.removePrefix("@string/")
-                    when {
-                        title in validTitles -> preference?.setAttribute("android:icon", "@drawable/${title}_icon")
-                        MainSettings == true && title in validMainTitles -> preference?.setAttribute("android:icon", "@drawable/${title}_icon")
-                        title in emptyTitles -> preference?.setAttribute("android:icon", "@drawable/empty_icon")
+                    val icon = when {
+                        title in validTitles -> validTitlesIcons[title]
+                        MainSettings!! && title in validMainTitles -> validMainTitlesIcons[title]
+                        ExtendedSettings!! && title in validExtendedTitles -> validExtendedTitlesIcons[title]
+                        title in emptyTitles -> emptyIcon
+                        else -> null
                     }
+                    icon?.let { preference?.setAttribute("android:icon", "@drawable/$it") }
                 }
             }
         }
