@@ -1,3 +1,18 @@
+# [2.224.0-dev.2](https://github.com/anddea/revanced-patches/compare/v2.224.0-dev.1...v2.224.0-dev.2) (2024-04-06)
+
+
+### Bug Fixes
+
+* **YouTube - Hide shorts components:** Fix new options ([ca22dc9](https://github.com/anddea/revanced-patches/commit/ca22dc9a18e8cf73799c9e9d9e82daf88f65b39e))
+
+
+### Features
+
+* **YouTube - Custom branding icon:** Add more icons ([900f399](https://github.com/anddea/revanced-patches/commit/900f399fda18c3ac872bed3500dd183a4ba90742))
+* **YouTube - Settings:** Move SB and RYD to RVX Settings ([becfe29](https://github.com/anddea/revanced-patches/commit/becfe29d91336282c5baaecda7f7f42337cfc059))
+* **YouTube - Tuck away preferences:** Optimize default options [#277](https://github.com/anddea/revanced-patches/issues/277) ([c48719b](https://github.com/anddea/revanced-patches/commit/c48719b36d7799bd04da3cdfe67298fcb908a554))
+* **YouTube - Visual preferences icons:** New vector icons ([0852283](https://github.com/anddea/revanced-patches/commit/085228305cb75def24031f4c571945a74109ad87))
+
 # [2.224.0-dev.1](https://github.com/anddea/revanced-patches/compare/v2.223.0...v2.224.0-dev.1) (2024-04-03)
 
 
