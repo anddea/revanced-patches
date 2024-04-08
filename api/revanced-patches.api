@@ -2334,22 +2334,17 @@ public final class app/revanced/patches/youtube/navigation/label/fingerprints/Pi
 	public static final field INSTANCE Lapp/revanced/patches/youtube/navigation/label/fingerprints/PivotBarSetTextFingerprint;
 }
 
+public final class app/revanced/patches/youtube/navigation/navigationbuttons/NavigationBarHookPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/navigation/navigationbuttons/NavigationBarHookPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+	public final fun getHookNavigationButtonCreated ()Lkotlin/jvm/functions/Function1;
+}
+
 public final class app/revanced/patches/youtube/navigation/navigationbuttons/NavigationButtonsPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/navigation/navigationbuttons/NavigationButtonsPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-}
-
-public final class app/revanced/patches/youtube/navigation/navigationbuttons/fingerprints/AutoMotiveFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/navigation/navigationbuttons/fingerprints/AutoMotiveFingerprint;
-}
-
-public final class app/revanced/patches/youtube/navigation/navigationbuttons/fingerprints/PivotBarEnumFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/navigation/navigationbuttons/fingerprints/PivotBarEnumFingerprint;
-}
-
-public final class app/revanced/patches/youtube/navigation/navigationbuttons/fingerprints/PivotBarShortsButtonViewFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/navigation/navigationbuttons/fingerprints/PivotBarShortsButtonViewFingerprint;
 }
 
 public final class app/revanced/patches/youtube/navigation/tabletnavbar/TabletNavigationBarPatch : app/revanced/patcher/patch/BytecodePatch {

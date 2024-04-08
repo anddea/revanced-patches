@@ -85,12 +85,14 @@
         <!-- SETTINGS: HIDE_LAYOUT_COMPONENTS
         <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_layout_title" />
 
-        <PreferenceScreen android:title="@string/revanced_keyword_filter_title" android:key="keyword" android:summary="@string/revanced_keyword_filter_summary">
-            <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_keyword_filter_title" />
+        <PreferenceScreen android:title="@string/revanced_hide_keyword_content_filter_title" android:key="keyword" android:summary="@string/revanced_hide_keyword_content_filter_summary">
+            <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_hide_keyword_content_filter_title" />
             <SwitchPreference android:title="@string/revanced_hide_keyword_content_feed_title" android:key="revanced_hide_keyword_content_feed" android:defaultValue="false" android:summaryOn="@string/revanced_hide_keyword_content_feed_summary_on" android:summaryOff="@string/revanced_hide_keyword_content_feed_summary_off" />
+            <SwitchPreference android:title="@string/revanced_hide_keyword_content_home_title" android:key="revanced_hide_keyword_content_home" android:defaultValue="false" android:summaryOn="@string/revanced_hide_keyword_content_home_summary_on" android:summaryOff="@string/revanced_hide_keyword_content_home_summary_off" />
+            <SwitchPreference android:title="@string/revanced_hide_keyword_content_search_title" android:key="revanced_hide_keyword_content_search" android:defaultValue="false" android:summaryOn="@string/revanced_hide_keyword_content_search_summary_on" android:summaryOff="@string/revanced_hide_keyword_content_search_summary_off" />
             <SwitchPreference android:title="@string/revanced_hide_keyword_content_sub_title" android:key="revanced_hide_keyword_content_sub" android:defaultValue="false" android:summaryOn="@string/revanced_hide_keyword_content_sub_summary_on" android:summaryOff="@string/revanced_hide_keyword_content_sub_summary_off" />
             <SwitchPreference android:title="@string/revanced_hide_keyword_content_comment_title" android:key="revanced_hide_keyword_content_comment" android:defaultValue="false" android:summaryOn="@string/revanced_hide_keyword_content_comment_summary_on" android:summaryOff="@string/revanced_hide_keyword_content_comment_summary_off" />
-            <app.revanced.integrations.youtube.settingsmenu.ResettableEditTextPreference android:title="@string/revanced_keyword_filter_strings_title" android:key="revanced_hide_keyword_content_strings" android:summary="@string/revanced_keyword_filter_strings_summary" android:defaultValue="" android:inputType="textMultiLine" />
+            <app.revanced.integrations.youtube.settingsmenu.ResettableEditTextPreference android:title="@string/revanced_hide_keyword_content_filter_strings_title" android:key="revanced_hide_keyword_content_strings" android:summary="@string/revanced_hide_keyword_content_filter_strings_summary" android:defaultValue="" android:inputType="textMultiLine" />
             <Preference android:title="@string/revanced_inform" android:selectable="false" android:summary="@string/revanced_hide_keyword_content_about_summary" />
         </PreferenceScreen>
 
@@ -650,7 +652,7 @@
         <Preference android:title=" " android:selectable="false" android:summary="@string/pref_about_category" />
         <PreferenceScreen android:title="@string/revanced_patches_information"  android:summary="@string/revanced_patches_information_summary" >
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_tool_used" />
-            <Preference android:title="ReVanced Patches" android:selectable="false" android:summary="2.223.0" />
+            <Preference android:title="ReVanced Patches" android:selectable="false" android:summary="2.224.0-dev.2" />
             <Preference android:title="ReVanced Integrations" android:selectable="false" android:summary="" />
 
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_ads" />
