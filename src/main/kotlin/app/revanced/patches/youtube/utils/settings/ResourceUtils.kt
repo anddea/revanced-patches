@@ -91,7 +91,7 @@ object ResourceUtils {
         }
     }
 
-    fun ResourceContext.addReVancedPreference(key: String) {
+    fun ResourceContext.addReVancedPreference(key: String, insertKey: String) {
         val targetClass = "com.google.android.apps.youtube.app.settings.videoquality.VideoQualitySettingsActivity"
         val path = if (key == "extended_settings") YOUTUBE_SETTINGS_PATH else TARGET_PREFERENCE_PATH
 
@@ -114,7 +114,7 @@ object ResourceUtils {
                     }
 
                     when {
-                        key == "extended_settings" && currentKey == "@string/about_key" && node.getAttribute("app:iconSpaceReserved") == "false" -> {
+                        key == "extended_settings" && currentKey == insertKey && node.getAttribute("app:iconSpaceReserved") == "false" -> {
                             node.insertNode("Preference", node) {
                                 setAttribute("android:key", "revanced_${key}_key")
                                 setAttribute("android:title", "@string/revanced_${key}_title")
@@ -128,7 +128,7 @@ object ResourceUtils {
                             }
                             node.setAttribute("app:iconSpaceReserved", "true")
                         }
-                        key != "extended_settings" && currentKey == "misc" -> {
+                        key != "extended_settings" && currentKey == insertKey -> {
                             node.insertNode("PreferenceScreen", node) {
                                 setAttribute("android:key", "revanced_${key}_key")
                                 setAttribute("android:title", "@string/revanced_${key}_title")
