@@ -455,7 +455,7 @@
         <SwitchPreference android:title="@string/revanced_append_time_stamp_information_type_title" android:key="revanced_append_time_stamp_information_type" android:defaultValue="false" android:summaryOn="@string/revanced_append_time_stamp_information_type_summary_on" android:summaryOff="@string/revanced_append_time_stamp_information_type_summary_off" android:dependency="revanced_append_time_stamp_information" /> SETTINGS: APPEND_TIME_STAMP_INFORMATION -->
 
         <!-- SETTINGS: CUSTOM_SEEKBAR_COLOR
-        <SwitchPreference android:title="@string/revanced_enable_custom_seekbar_color_title" android:key="revanced_enable_custom_seekbar_color" android:defaultValue="false" android:summaryOn="@string/revanced_enable_custom_seekbar_color_summary_on" android:summaryOff="@string/revanced_enable_custom_seekbar_color_summary_off" />
+        <SwitchPreference android:title="@string/revanced_enable_custom_seekbar_color_title" android:key="revanced_enable_custom_seekbar_color" android:defaultValue="true" android:summaryOn="@string/revanced_enable_custom_seekbar_color_summary_on" android:summaryOff="@string/revanced_enable_custom_seekbar_color_summary_off" />
         <app.revanced.integrations.youtube.settingsmenu.ResettableEditTextPreference android:title="@string/revanced_custom_seekbar_color_value_title" android:key="revanced_custom_seekbar_color_value" android:summary="@string/revanced_custom_seekbar_color_value_summary" android:defaultValue="#ffff0000" android:hint="#ffff0000" android:inputType="text" /> SETTINGS: CUSTOM_SEEKBAR_COLOR -->
 
         <!-- SETTINGS: ENABLE_NEW_THUMBNAIL_PREVIEW
@@ -561,7 +561,7 @@
 
         <!-- SETTINGS: DEFAULT_PLAYBACK_SPEED
         <SwitchPreference android:title="@string/revanced_disable_default_playback_speed_live_title" android:key="revanced_disable_default_playback_speed_live" android:defaultValue="true" android:summaryOn="@string/revanced_disable_default_playback_speed_live_summary_on" android:summaryOff="@string/revanced_disable_default_playback_speed_live_summary_off" />
-        <SwitchPreference android:title="@string/revanced_enable_default_playback_speed_shorts_title" android:key="revanced_enable_default_playback_speed_shorts" android:defaultValue="true" android:summaryOn="@string/revanced_enable_default_playback_speed_shorts_summary_on" android:summaryOff="@string/revanced_enable_default_playback_speed_shorts_summary_off" /> SETTINGS: DEFAULT_PLAYBACK_SPEED -->
+        <SwitchPreference android:title="@string/revanced_enable_default_playback_speed_shorts_title" android:key="revanced_enable_default_playback_speed_shorts" android:defaultValue="false" android:summaryOn="@string/revanced_enable_default_playback_speed_shorts_summary_on" android:summaryOff="@string/revanced_enable_default_playback_speed_shorts_summary_off" /> SETTINGS: DEFAULT_PLAYBACK_SPEED -->
 
         <!-- SETTINGS: DISABLE_HDR_VIDEO
         <SwitchPreference android:title="@string/revanced_disable_hdr_video_title" android:key="revanced_disable_hdr_video" android:defaultValue="true" android:summaryOn="@string/revanced_disable_hdr_video_summary_on" android:summaryOff="@string/revanced_disable_hdr_video_summary_off" /> SETTINGS: DISABLE_HDR_VIDEO -->
