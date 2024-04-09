@@ -399,8 +399,8 @@
     <string name="revanced_hide_info_cards_summary_off">资料卡已显示</string>
     <string name="revanced_hide_info_cards_summary_on">资料卡已隐藏</string>
     <string name="revanced_hide_info_cards_title">资料卡</string>
-    <string name="revanced_hide_info_panel_summary_off">信息面板已显示</string>
-    <string name="revanced_hide_info_panel_summary_on">信息面板已隐藏</string>
+    <string name="revanced_hide_info_panel_summary_off">信息面板已显示。\n\n它还将隐藏声音元数据标签和视频链接标签。</string>
+    <string name="revanced_hide_info_panel_summary_on">信息面板已隐藏。\n\n它还将隐藏声音元数据标签和视频链接标签。</string>
     <string name="revanced_hide_info_panel_title">信息面板</string>
     <string name="revanced_hide_join_button_summary_off">加入按钮已显示</string>
     <string name="revanced_hide_join_button_summary_on">加入按钮已隐藏</string>
@@ -536,9 +536,9 @@
     <string name="revanced_hide_shorts_player_navigation_bar_summary_off">导航栏已显示</string>
     <string name="revanced_hide_shorts_player_navigation_bar_summary_on">导航栏已隐藏</string>
     <string name="revanced_hide_shorts_player_navigation_bar_title">导航栏</string>
-    <string name="revanced_hide_shorts_player_pivot_button_summary_off">枢纽按钮已显示</string>
-    <string name="revanced_hide_shorts_player_pivot_button_summary_on">枢纽按钮已隐藏</string>
-    <string name="revanced_hide_shorts_player_pivot_button_title">枢纽按钮</string>
+    <string name="revanced_hide_shorts_player_pivot_button_summary_off">声音按钮已显示</string>
+    <string name="revanced_hide_shorts_player_pivot_button_summary_on">声音按钮已隐藏</string>
+    <string name="revanced_hide_shorts_player_pivot_button_title">隐藏声音按钮</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_off">订阅按钮已显示</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_on">订阅按钮已隐藏</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_title">订阅按钮</string>
@@ -607,8 +607,8 @@
     <string name="revanced_overlay_button_external_downloader_summary">点击以打开外部下载器</string>
     <string name="revanced_overlay_button_external_downloader_title">外部下载按钮</string>
     <string name="revanced_overlay_button_speed_dialog_reset">重置播放速度（1.0x）</string>
-    <string name="revanced_overlay_button_speed_dialog_summary">"点击选择视频播放速度
-长按设置默认播放速度（1.0x）"</string>
+    <string name="revanced_overlay_button_speed_dialog_summary">"点击打开播放速度对话框。
+长按可将播放速度重置为1.0倍。再次长按可重置回默认速度。"</string>
     <string name="revanced_overlay_button_speed_dialog_title">播放速度按钮</string>
     <string name="revanced_patches_information">补丁信息</string>
     <string name="revanced_patches_information_summary">已应用补丁信息</string>
@@ -901,8 +901,8 @@
     <string name="revanced_disable_speed_overlay_summary">"长按时禁用“以 2 倍速度播放”。
 
 注意：禁用速度叠加会恢复旧布局的“滑动查找”行为。"</string>
-    <string name="revanced_disable_update_screen_summary">禁用在使用过时客户端时出现的 \"请更新您的应用\" 屏幕。</string>
-    <string name="revanced_disable_update_screen_title">禁用更新屏幕</string>
+    <string name="revanced_disable_update_screen_summary">禁用在使用旧客户端时出现的 \"请更新您的应用\" 提示。</string>
+    <string name="revanced_disable_update_screen_title">禁用更新提示</string>
     <string name="revanced_enable_bottom_player_gestures_summary_off">禁用在视频播放器下方向下滑动时进入全屏。</string>
     <string name="revanced_enable_bottom_player_gestures_summary_on">启用在视频播放器下方向下滑动时进入全屏。</string>
     <string name="revanced_enable_bottom_player_gestures_title">启用底部播放器手势</string>
