@@ -47,7 +47,7 @@ object HideSettingsPrefsPatch : ResourcePatch() {
         "notifications" to "notification_key",
         "connected apps" to "connected_accounts_browse_page_key",
         "live chat" to "live_chat_key",
-        "vaptions" to "captions_key",
+        "captions" to "captions_key",
         "accessibility" to "accessibility_settings_key",
         "about" to "about_key"
     )
