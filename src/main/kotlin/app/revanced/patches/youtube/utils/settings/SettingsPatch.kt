@@ -103,7 +103,7 @@ object SettingsPatch : AbstractSettingsResourcePatch(
         "notifications" to "@string/notification_key",
         "connected apps" to "@string/connected_accounts_browse_page_key",
         "live chat" to "@string/live_chat_key",
-        "vaptions" to "@string/captions_key",
+        "captions" to "@string/captions_key",
         "accessibility" to "@string/accessibility_settings_key",
         "about" to "@string/about_key"
     )
