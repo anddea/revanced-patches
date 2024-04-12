@@ -9,6 +9,8 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
+import app.revanced.patches.youtube.navigation.navigationbuttons.fingerprints.MainActivityOnBackPressedFingerprint
+import app.revanced.patches.youtube.navigation.navigationbuttons.fingerprints.PivotBarButtonsViewSetSelectedFingerprint
 import app.revanced.patches.youtube.navigation.navigationbuttons.fingerprints.*
 import app.revanced.util.exception
 import app.revanced.util.getReference
@@ -33,7 +35,9 @@ object NavigationBarHookPatch : BytecodePatch(
         NavigationEnumFingerprint,
         PivotBarButtonsCreateDrawableViewFingerprint,
         PivotBarButtonsCreateResourceViewFingerprint,
+        PivotBarButtonsViewSetSelectedFingerprint,
         NavigationBarHookCallbackFingerprint,
+        MainActivityOnBackPressedFingerprint,
         ActionBarSearchResultsFingerprint,
     ),
 ) {
@@ -88,6 +92,29 @@ object NavigationBarHookPatch : BytecodePatch(
                     imageResourceTabMethod,
                 )
             }
+        }
+
+        PivotBarButtonsViewSetSelectedFingerprint.getResultOrThrow().mutableMethod.apply {
+            val index = PivotBarButtonsViewSetSelectedFingerprint.indexOfSetViewSelectedInstruction(this)
+            val instruction = getInstruction<FiveRegisterInstruction>(index)
+            val viewRegister = instruction.registerC
+            val isSelectedRegister = instruction.registerD
+
+            addInstruction(
+                index + 1,
+                "invoke-static { v$viewRegister, v$isSelectedRegister }, " +
+                    "$INTEGRATIONS_CLASS_DESCRIPTOR->navigationTabSelected(Landroid/view/View;Z)V",
+            )
+        }
+
+        // Hook onto back button pressed.  Needed to fix race problem with
+        // litho filtering based on navigation tab before the tab is updated.
+        MainActivityOnBackPressedFingerprint.getResultOrThrow().mutableMethod.apply {
+            addInstruction(
+                0,
+                "invoke-static { p0 }, " +
+                    "$INTEGRATIONS_CLASS_DESCRIPTOR->onBackPressed(Landroid/app/Activity;)V",
+            )
         }
 
         // Hook the search bar.
