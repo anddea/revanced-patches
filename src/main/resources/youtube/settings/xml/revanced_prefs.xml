@@ -481,7 +481,7 @@
     <PreferenceScreen android:title="@string/revanced_shorts" android:key="shorts"> PREFERENCE: SHORTS_SETTINGS -->
 
         <!-- SETTINGS: HIDE_SHORTS_SHELF
-        <Preference android:title="@string/revanced_shorts" android:selectable="false" android:summary="@string/revanced_shorts" />
+        <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_shorts" />
         <SwitchPreference android:title="@string/revanced_hide_shorts_shelf_title" android:key="revanced_hide_shorts_shelf" android:defaultValue="false" android:summary="@string/revanced_hide_shorts_shelf_summary" />
         <SwitchPreference android:title="@string/revanced_hide_shorts_shelf_home_title" android:key="revanced_hide_shorts_shelf_home" android:defaultValue="true" android:summaryOff="@string/revanced_hide_shorts_shelf_home_summary_off" android:summaryOn="@string/revanced_hide_shorts_shelf_home_summary_on" />
         <SwitchPreference android:title="@string/revanced_hide_shorts_shelf_search_title" android:key="revanced_hide_shorts_shelf_search" android:defaultValue="true" android:summaryOff="@string/revanced_hide_shorts_shelf_search_summary_off" android:summaryOn="@string/revanced_hide_shorts_shelf_search_summary_on" />
