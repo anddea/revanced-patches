@@ -444,8 +444,8 @@ Algunos componentes pueden no estar ocultos."</string>
     <string name="revanced_hide_info_cards_summary_off">Las tarjetas de información están visibles</string>
     <string name="revanced_hide_info_cards_summary_on">Las tarjetas de información están ocultas</string>
     <string name="revanced_hide_info_cards_title">Ocultar tarjetas de información</string>
-    <string name="revanced_hide_info_panel_summary_off">Los paneles de información están visibles</string>
-    <string name="revanced_hide_info_panel_summary_on">Los paneles de información están ocultos</string>
+    <string name="revanced_hide_info_panel_summary_off">Los paneles de información están visibles.\n\nEsto también ocultará la etiqueta de metadatos de sonido y la etiqueta de enlace de vídeo.</string>
+    <string name="revanced_hide_info_panel_summary_on">Los paneles de información están ocultos.\n\nEsto también ocultará la etiqueta de metadatos de sonido y la etiqueta de enlace de vídeo.</string>
     <string name="revanced_hide_info_panel_title">Ocultar paneles de información</string>
     <string name="revanced_hide_join_button_summary_off">El botón de unirme está visible.</string>
     <string name="revanced_hide_join_button_summary_on">El botón de unirme está oculto.</string>
@@ -599,9 +599,9 @@ Algunos componentes pueden no estar ocultos."</string>
     <string name="revanced_hide_shorts_player_navigation_bar_summary_off">La barra de navegación está visible</string>
     <string name="revanced_hide_shorts_player_navigation_bar_summary_on">La barra de navegación está oculta</string>
     <string name="revanced_hide_shorts_player_navigation_bar_title">Ocultar barra de navegación</string>
-    <string name="revanced_hide_shorts_player_pivot_button_summary_off">El botón de audio está visible.</string>
-    <string name="revanced_hide_shorts_player_pivot_button_summary_on">El botón de audio está oculto.</string>
-    <string name="revanced_hide_shorts_player_pivot_button_title">Ocultar botón de audio</string>
+    <string name="revanced_hide_shorts_player_pivot_button_summary_off">El botón de sonido está visible.</string>
+    <string name="revanced_hide_shorts_player_pivot_button_summary_on">El botón de sonido está oculto.</string>
+    <string name="revanced_hide_shorts_player_pivot_button_title">Ocultar botón de sonido</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_off">El botón de suscripciones está visible.</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_on">El botón de suscripciones está oculto.</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_title">Ocultar botón de suscripciones</string>
@@ -715,9 +715,9 @@ Mantén pulsado para copiar la marca de tiempo del vídeo."</string>
     <string name="revanced_overlay_button_copy_video_url_title">Mostrar botón para copiar URL del vídeo</string>
     <string name="revanced_overlay_button_external_downloader_summary">Pulsa para iniciar el descargador externo</string>
     <string name="revanced_overlay_button_external_downloader_title">Mostrar botón de descarga externa</string>
-    <string name="revanced_overlay_button_speed_dialog_reset">Velocidad de reproducción restablecida (1.0x)</string>
+    <string name="revanced_overlay_button_speed_dialog_reset">Velocidad de reproducción restablecida a: %sx</string>
     <string name="revanced_overlay_button_speed_dialog_summary">"Pulsa para abrir el cuadro de diálogo de velocidad.
-Mantén pulsado para ajustar la velocidad de reproducción a 1.0x"</string>
+Mantén pulsado para restablecer la velocidad de reproducción a 1,0x. Mantén pulsado de nuevo para restablecer la velocidad predeterminada."</string>
     <string name="revanced_overlay_button_speed_dialog_title">Mostrar botón de diálogo de velocidad</string>
     <string name="revanced_patches_information">Información de parches</string>
     <string name="revanced_patches_information_summary">Información sobre los parches aplicados</string>
@@ -864,13 +864,13 @@ Problemas conocidos
     <string name="sb_enable_create_segment">Mostrar botón de crear nuevo segmento</string>
     <string name="sb_enable_create_segment_sum_on">El botón de crear nuevo segmento está visible.</string>
     <string name="sb_enable_create_segment_sum_off">El botón de crear nuevo segmento está oculto.</string>
-    <string name="sb_general_adjusting">Avance de ajuste de nuevo segmento</string>
+    <string name="sb_general_adjusting">Ajuste de nuevo segmento</string>
     <string name="sb_general_adjusting_sum">Número de milisegundos que los botones de ajuste de tiempo se mueven al crear nuevos segmentos.</string>
     <string name="sb_general_adjusting_invalid">El valor debe ser un número positivo</string>
-    <string name="sb_guidelines_preference_title">Ver normas</string>
-    <string name="sb_guidelines_preference_sum">Las normas contienen consejos y reglas sobre el envío de segmentos</string>
-    <string name="sb_guidelines_popup_title">Hay normas</string>
-    <string name="sb_guidelines_popup_content">Se recomienda leer las normas de SponsorBlock antes de enviar cualquier segmento</string>
+    <string name="sb_guidelines_preference_title">Ver guías</string>
+    <string name="sb_guidelines_preference_sum">Las guías contienen consejos y reglas sobre el envío de segmentos</string>
+    <string name="sb_guidelines_popup_title">Hay guías</string>
+    <string name="sb_guidelines_popup_content">Se recomienda leer las guías de SponsorBlock antes de enviar cualquier segmento</string>
     <string name="sb_guidelines_popup_already_read">Ya leído</string>
     <string name="sb_guidelines_popup_open">Muéstrame</string>
     <string name="sb_general">General</string>
@@ -891,9 +891,9 @@ Problemas conocidos
     <string name="sb_api_url_invalid">La URL de la API no es válida</string>
     <string name="sb_api_url_changed">La URL de la API fue cambiada</string>
     <string name="sb_settings_copy">Copiar</string>
-    <string name="sb_settings_ie_sum">Tus ajustes de SponsorBlock en formato JSON que pueden ser importados / exportados a ReVanced Extended y otras plataformas de SponsorBlock. %s</string>
+    <string name="sb_settings_ie_sum">Tus ajustes de SponsorBlock en formato JSON que pueden ser importados/exportados a ReVanced Extended y otras plataformas de SponsorBlock. %s</string>
     <string name="sb_settings_ie_sum_warning">Esto incluye tu ID de usuario privado. Asegúrate de compartir con prudencia.</string>
-    <string name="sb_settings_ie">Importar / Exportar ajustes</string>
+    <string name="sb_settings_ie">Importar/Exportar ajustes</string>
     <string name="sb_settings_import_successful">Ajustes importados correctamente</string>
     <string name="sb_settings_import_failed">Error al importar: %s</string>
     <string name="sb_settings_export_failed">Error al exportar: %s</string>
@@ -908,7 +908,7 @@ Problemas conocidos
     <string name="sb_segments_interaction_sum">Un breve recordatorio para que des me gusta, te suscribas o les sigas en medio del contenido. Si es largo o trata sobre algo específico, debería ir en la sección de promoción propia.</string>
     <string name="sb_segments_highlight">Destacado</string>
     <string name="sb_segments_highlight_sum">La parte del vídeo que la mayoría de la gente busca.</string>
-    <string name="sb_segments_intro">Animación de introducción/Intermisión</string>
+    <string name="sb_segments_intro">Intermedio/Animación de introducción</string>
     <string name="sb_segments_intro_sum">Un intervalo sin contenido real. Puede ser una pausa, un fotograma estático o una animación que se repite. No incluye transiciones que contengan información.</string>
     <string name="sb_segments_outro">Tarjetas finales/Créditos</string>
     <string name="sb_segments_outro_sum">Créditos o cuando aparecen las tarjetas finales de YouTube. No para conclusiones con información.</string>
@@ -1020,8 +1020,8 @@ Problemas conocidos
 
 Las palabras con letras mayúsculas en el medio deben introducirse con las mayúsculas (p. ej.: iPhone, TikTok, LeBlanc)."</string>
     <string name="revanced_hide_keyword_content_filter_strings_title">Editar filtro de palabras clave</string>
-    <string name="revanced_hide_keyword_content_feed_summary_off">El filtro de palabras clave para el feed y la búsqueda está desactivado.</string>
-    <string name="revanced_hide_keyword_content_feed_summary_on">El filtro de palabras clave para el feed y la búsqueda está activado.</string>
+    <string name="revanced_hide_keyword_content_feed_summary_off">El filtro de palabras clave está desactivado.</string>
+    <string name="revanced_hide_keyword_content_feed_summary_on">El filtro de palabras clave está activado.</string>
     <string name="revanced_hide_keyword_content_filter_summary">Oculta vídeos mediante un filtro de palabras clave.</string>
     <string name="revanced_hide_keyword_content_feed_title">Activar filtro de palabras clave</string>
     <string name="revanced_disable_rolling_number_animations_summary_off">Las animaciones rodantes están activadas.</string>
@@ -1096,4 +1096,28 @@ Algunos vídeos, incluidos los de canales a los que estás suscrito, pueden no o
 
 Es una versión antigua, si estás usando la opción anterior, no necesitas usar esta."</string>
     <string name="revanced_hide_video_with_low_view_old_title">[Antigua] Ocultar vídeos con pocas visualizaciones</string>
+	<string name="revanced_alt_thumbnail_home_title">Pestaña de inicio</string>
+	<string name="revanced_alt_thumbnail_library_title">Pestaña "Tú"</string>
+	<string name="revanced_alt_thumbnail_options_entry_1">Miniaturas originales</string>
+	<string name="revanced_alt_thumbnail_options_entry_2">DeArrow y miniaturas originales</string>
+	<string name="revanced_alt_thumbnail_options_entry_3">DeArrow y capturas fijas</string>
+	<string name="revanced_alt_thumbnail_options_entry_4">Capturas fijas</string>
+	<string name="revanced_alt_thumbnail_player_title">Listas de reproducción y recomendaciones</string>
+	<string name="revanced_alt_thumbnail_search_title">Resultados de búsqueda</string>
+	<string name="revanced_alt_thumbnail_subscription_title">Pestaña de suscripciones</string>
+	<string name="revanced_hide_keyword_content_home_summary_off">El filtro de palabras clave para el feed de inicio está desactivado.</string>
+	<string name="revanced_hide_keyword_content_home_summary_on">El filtro de palabras clave para el feed de inicio está activado.</string>
+	<string name="revanced_hide_keyword_content_home_title">Activar filtro de palabras clave en inicio</string>
+	<string name="revanced_hide_keyword_content_search_summary_off">El filtro de palabras clave para los resultados de búsqueda está desactivado.</string>
+	<string name="revanced_hide_keyword_content_search_summary_on">El filtro de palabras clave para los resultados de búsqueda está activado.</string>
+	<string name="revanced_hide_keyword_content_search_title">Activar filtro de palabras clave en búsqueda</string>
+	<string name="revanced_hide_shorts_shelf_home_summary_off">Los Shorts en el feed de inicio están visibles.</string>
+	<string name="revanced_hide_shorts_shelf_home_summary_on">Los Shorts en el feed de inicio están ocultos.</string>
+	<string name="revanced_hide_shorts_shelf_home_title">Ocultar Shorts en feed de inicio</string>
+	<string name="revanced_hide_shorts_shelf_search_summary_off">Los Shorts en los resultados de búsqueda están visibles.</string>
+	<string name="revanced_hide_shorts_shelf_search_summary_on">Los Shorts en los resultados de búsqueda están ocultos.</string>
+	<string name="revanced_hide_shorts_shelf_search_title">Ocultar Shorts en resultados de búsqueda</string>
+	<string name="revanced_hide_shorts_shelf_subscriptions_summary_off">Los Shorts en el feed de suscripciones están visibles.</string>
+	<string name="revanced_hide_shorts_shelf_subscriptions_summary_on">Los Shorts en el feed de suscripciones están ocultos.</string>
+	<string name="revanced_hide_shorts_shelf_subscriptions_title">Ocultar Shorts en feed de Suscripciones</string>
 </resources>
