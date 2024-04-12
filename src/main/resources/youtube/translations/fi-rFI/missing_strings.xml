@@ -1,13 +1,4 @@
-<string name="revanced_alt_thumbnail_about_status_dearrow">"Showing DeArrow thumbnails.
-If a video has no DeArrow thumbnails then the original YouTube thumbnails are shown."</string>
-<string name="revanced_alt_thumbnail_about_status_dearrow_stills">"Showing DeArrow thumbnails.
-If a video has no DeArrow thumbnails then still video captures are shown."</string>
-<string name="revanced_alt_thumbnail_about_status_disabled">Showing original YouTube thumbnails.</string>
-<string name="revanced_alt_thumbnail_about_status_stills">Showing still video captures.</string>
-<string name="revanced_alt_thumbnail_about_title">Thumbnails in use</string>
-<string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow provides crowd-sourced thumbnails for YouTube videos. These thumbnails are often more relevant than those provided by YouTube. If enabled, video URLs will be sent to the API server and no other data is sent.
-
-Tap here to learn more about DeArrow."</string>
+<string name="revanced_alt_thumbnail_dearrow_about_summary">DeArrow provides crowdsourced thumbnails for YouTube videos. These thumbnails are often more relevant than those provided by YouTube. If enabled, video URLs will be sent to the API server and no other data is sent.\n\nTap here to learn more about DeArrow.</string>
 <string name="revanced_alt_thumbnail_dearrow_about_title">About DeArrow</string>
 <string name="revanced_alt_thumbnail_dearrow_api_url_summary">"The URL of the DeArrow thumbnail cache endpoint. Do not change this unless you know what you're doing."</string>
 <string name="revanced_alt_thumbnail_dearrow_api_url_title">DeArrow API endpoint</string>
@@ -16,24 +7,27 @@ Tap here to learn more about DeArrow."</string>
 <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">Show a toast if API is not available</string>
 <string name="revanced_alt_thumbnail_dearrow_error">DeArrow temporarily not available. (status code: %s)</string>
 <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow temporarily not available.</string>
-<string name="revanced_alt_thumbnail_dearrow_summary_off">Not using DeArrow thumbnails.</string>
-<string name="revanced_alt_thumbnail_dearrow_summary_on">Using DeArrow thumbnails.</string>
-<string name="revanced_alt_thumbnail_dearrow_title">Enable DeArrow thumbnails</string>
+<string name="revanced_alt_thumbnail_home_title">Home tab</string>
+<string name="revanced_alt_thumbnail_library_title">\'You\' tab</string>
+<string name="revanced_alt_thumbnail_options_entry_1">Original thumbnails</string>
+<string name="revanced_alt_thumbnail_options_entry_2">DeArrow &amp; Original thumbnails</string>
+<string name="revanced_alt_thumbnail_options_entry_3">DeArrow &amp; Still captures</string>
+<string name="revanced_alt_thumbnail_options_entry_4">Still captures</string>
+<string name="revanced_alt_thumbnail_player_title">Player playlists, recommendations</string>
 <string name="revanced_alt_thumbnail_preference_screen_summary">Video thumbnail settings.</string>
 <string name="revanced_alt_thumbnail_preference_screen_title">Alternative thumbnails</string>
+<string name="revanced_alt_thumbnail_search_title">Search results</string>
 <string name="revanced_alt_thumbnail_stills">Still video captures</string>
 <string name="revanced_alt_thumbnail_stills_about_summary">Still captures are taken from the beginning / middle / end of each video. These images are built into YouTube and no external API is used.</string>
 <string name="revanced_alt_thumbnail_stills_about_title">About still video captures</string>
 <string name="revanced_alt_thumbnail_stills_fast_summary_off">Using high quality still captures.</string>
 <string name="revanced_alt_thumbnail_stills_fast_summary_on">Using medium quality still captures. Thumbnails will load faster, but live streams, unreleased, and very old videos may show blank thumbnails.</string>
 <string name="revanced_alt_thumbnail_stills_fast_title">Use fast still captures</string>
-<string name="revanced_alt_thumbnail_stills_summary_off">Not using YouTube still video captures.</string>
-<string name="revanced_alt_thumbnail_stills_summary_on">Using YouTube still video captures.</string>
 <string name="revanced_alt_thumbnail_stills_time_entry_1">Beginning of video</string>
 <string name="revanced_alt_thumbnail_stills_time_entry_2">Middle of video</string>
 <string name="revanced_alt_thumbnail_stills_time_entry_3">End of video</string>
 <string name="revanced_alt_thumbnail_stills_time_title">Video time to take the still from</string>
-<string name="revanced_alt_thumbnail_stills_title">Enable still video captures</string>
+<string name="revanced_alt_thumbnail_subscription_title">Subscription tab</string>
 <string name="revanced_change_player_flyout_panel_toggle_summary_off">Switch toggles are used.</string>
 <string name="revanced_change_player_flyout_panel_toggle_summary_on">Text toggles are used.</string>
 <string name="revanced_change_player_flyout_panel_toggle_title">Change toggle type</string>
@@ -305,7 +299,7 @@ This does not bypass the age restriction. It just accepts it automatically."</st
 <string name="sb_settings_ie">Import / Export settings</string>
 <string name="sb_settings_ie_sum">Your SponsorBlock JSON configuration that can be imported / exported to ReVanced Extended and other SponsorBlock platforms. %s</string>
 <string name="sb_settings_ie_sum_warning">This includes your private user id. Be sure to share this wisely.</string>
-<string name="sb_settings_revanced_export_user_id_warning">Your settings contain a private SponsorBlock user id.\n\nYour user id is like a password and it should never be shared.\n</string>
+<string name="sb_settings_revanced_export_user_id_warning">Your settings contain a private SponsorBlock user id.\n\nYour user id is like a password, and it should never be shared.</string>
 <string name="sb_settings_revanced_export_user_id_warning_dismiss">Do not show again</string>
 <string name="sb_sponsorblock_connection_failure_generic">SponsorBlock temporarily not available.</string>
 <string name="sb_sponsorblock_connection_failure_status" formatted="false">SponsorBlock temporarily not available (status %d).</string>
