@@ -9,13 +9,6 @@
     <string name="microg_settings_title">فتح MicroG</string>
     <string name="revanced_ads">الإعلانات</string>
     <string name="revanced_alt_thumbnails">مُصغَّرات فيديو بديلة</string>
-    <string name="revanced_alt_thumbnail_about_status_dearrow">"عرض مُصغَّرات فيديو DeArrow.
-إذا لم يكن الفيديو يحتوي على مُصغَّرات فيديو لـ DeArrow، فسيتم عرض مُصغَّرات فيديو YouTube الأصلية."</string>
-    <string name="revanced_alt_thumbnail_about_status_dearrow_stills">"عرض مُصغَّرات فيديو DeArrow.
-إذا لم يكن الفيديو يحتوي على مُصغَّرات فيديو لـ DeArrow، فسيتم عرض لقطات الفيديو."</string>
-    <string name="revanced_alt_thumbnail_about_status_disabled">عرض مُصغَّرات فيديو YouTube الأصلية.</string>
-    <string name="revanced_alt_thumbnail_about_status_stills">عرض لقطات الفيديو الثابتة.</string>
-    <string name="revanced_alt_thumbnail_about_title">يتم استخدام مُصغَّرات الفيديو</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"يوفر DeArrow مُصغَّرات فيديو من مصادر جماعية لمقاطع فيديو YouTube. غالبًا ما تكون مُصغَّرات فيديو هذه ذات صلة أكثر من تلك التي يقدمها موقع YouTube. في حالة التمكين، سيتم إرسال عناوين URL للفيديو إلى خادم API ولن يتم إرسال أي بيانات أخرى.
 
 انقر هنا لمعرفة المزيد عن DeArrow."</string>
@@ -26,9 +19,6 @@
     <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">عرض تنبيه إذا كان API غير متاح</string>
     <string name="revanced_alt_thumbnail_dearrow_error">DeArrow غير متوفر مؤقتًا. (رمز الحالة: %s)</string>
     <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow غير متوفر مؤقتًا.</string>
-    <string name="revanced_alt_thumbnail_dearrow_summary_off">عدم استخدام مصغرات DeArrow.</string>
-    <string name="revanced_alt_thumbnail_dearrow_summary_on">استخدام مصغرات DeArrow.</string>
-    <string name="revanced_alt_thumbnail_dearrow_title">تمكين مصغرات DeArrow</string>
     <string name="revanced_alt_thumbnail_preference_screen_summary">إعدادات مُصغَّرات الفيديو.</string>
     <string name="revanced_alt_thumbnail_preference_screen_title">مُصغَّرات فيديو بديلة</string>
     <string name="revanced_alt_thumbnail_stills">لقطات الفيديو الثابتة</string>
@@ -37,13 +27,10 @@
     <string name="revanced_alt_thumbnail_stills_fast_summary_off">استخدام لقطات الفيديو الثابتة بجودة عالية.</string>
     <string name="revanced_alt_thumbnail_stills_fast_summary_on">استخدام اللقطات متوسطة الجودة. سيتم تحميل المُصغَّرات بشكل أسرع، ولكن البث المباشر أو المقاطع التي لم يتم إصدارها، والقديمة جدًا قد تعرض مُصغَّرات فارغة.</string>
     <string name="revanced_alt_thumbnail_stills_fast_title">استخدم اللقطات الثابتة السريعة</string>
-    <string name="revanced_alt_thumbnail_stills_summary_off">عدم استخدام لقطات الفيديو الثابتة على YouTube.</string>
-    <string name="revanced_alt_thumbnail_stills_summary_on">استخدام YouTube لالتقاط مقاطع الفيديو الثابتة.</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_1">بداية الفيديو</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_2">منتصف الفيديو</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_3">نهاية الفيديو</string>
     <string name="revanced_alt_thumbnail_stills_time_title">وقت الفيديو لأخذ الصورة الثابتة منه</string>
-    <string name="revanced_alt_thumbnail_stills_title">تمكين التقاط مقاطع الفيديو الثابتة</string>
     <string name="revanced_append_time_stamp_information_summary_off">تم تعطيل إضافة معلومات طابع الوقت</string>
     <string name="revanced_append_time_stamp_information_summary_on">تم تمكين إضافة معلومات طابع الوقت</string>
     <string name="revanced_append_time_stamp_information_title">إضافة معلومات طابع الوقت</string>
@@ -1032,13 +1019,13 @@
     <string name="revanced_custom_filter_toast_invalid_syntax" formated="false">الفلتر المخصص غير صالح: %s</string>
     <string name="revanced_custom_filter_toast_reset">إعادة تعيين الفلتر المخصص إلى الوضع الافتراضي</string>
     <string name="revanced_hide_keyword_toast_invalid_length" formatted="false">طول الكلمة الأساسية غير صالح (يجب أن يكون على الأقل %s حرفًا): %s.</string>
-    <string name="revanced_keyword_filter_strings_summary">"قم بتكوين الكلمات الرئيسية والعبارات لإخفائها، مفصولة بأسطر جديدة
+    <string name="revanced_hide_keyword_content_filter_strings_summary">"قم بتكوين الكلمات الرئيسية والعبارات لإخفائها، مفصولة بأسطر جديدة
 
 يجب إدخال الكلمات التي تحتوي على أحرف كبيرة في المنتصف مع الغلاف (على سبيل المثال: iPhone، TikTok، LeBlanc)."</string>
-    <string name="revanced_keyword_filter_strings_title">تحرير مرشح الكلمات الرئيسية</string>
+    <string name="revanced_hide_keyword_content_filter_strings_title">تحرير مرشح الكلمات الرئيسية</string>
     <string name="revanced_hide_keyword_content_feed_summary_off">تم تعطيل فلتر الكلمات الرئيسية.</string>
     <string name="revanced_hide_keyword_content_feed_summary_on">تم تمكين فلتر الكلمات الرئيسية.</string>
-    <string name="revanced_keyword_filter_summary">يخفي مقاطع الفيديو الموجزة ونتائج البحث باستخدام مرشحات الكلمات الرئيسية.</string>
+    <string name="revanced_hide_keyword_content_filter_summary">يخفي مقاطع الفيديو الموجزة ونتائج البحث باستخدام مرشحات الكلمات الرئيسية.</string>
     <string name="revanced_hide_keyword_content_feed_title">تمكين فلتر الكلمات الرئيسية</string>
     <string name="revanced_disable_rolling_number_animations_summary_off">تم تمكين تحديثات عدد مرات المشاهدة والإعجابات في الوقت الفعلي.</string>
     <string name="revanced_disable_rolling_number_animations_summary_on">تم تعطيل تحديثات عدد مرات المشاهدة والإعجابات في الوقت الفعلي.</string>

@@ -9,13 +9,6 @@
     <string name="microg_settings_title">打开 MicroG</string>
     <string name="revanced_ads">广告</string>
     <string name="revanced_alt_thumbnails">替换缩略图</string>
-    <string name="revanced_alt_thumbnail_about_status_dearrow">"显示 DeArrow 缩略图。
-如果视频没有 DeArrow 缩略图，则显示原始 YouTube 缩略图。"</string>
-    <string name="revanced_alt_thumbnail_about_status_dearrow_stills">"显示 DeArrow 缩略图。
-如果视频没有 DeArrow 缩略图，则显示视频静态帧。"</string>
-    <string name="revanced_alt_thumbnail_about_status_disabled">显示原始 YouTube 缩略图</string>
-    <string name="revanced_alt_thumbnail_about_status_stills">显示视频静态帧</string>
-    <string name="revanced_alt_thumbnail_about_title">使用的缩略图</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow 提供 YouTube 视频的众包缩略图。 这些缩略图通常比 YouTube 提供的缩略图更相关。 如果启用，视频链接将发送到 API 服务器，这不会发送其他数据。"</string>
     <string name="revanced_alt_thumbnail_dearrow_about_title">关于 DeArrow</string>
     <string name="revanced_append_time_stamp_information_summary_off">添加时间戳信息已关闭</string>
@@ -857,9 +850,6 @@
     <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">如果 API 不可用，则显示 Toast</string>
     <string name="revanced_alt_thumbnail_dearrow_error">DeArrow 暂时不可用。 (status code: %s)</string>
     <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow 暂时不可用。</string>
-    <string name="revanced_alt_thumbnail_dearrow_summary_off">不使用 DeArrow 缩略图。</string>
-    <string name="revanced_alt_thumbnail_dearrow_summary_on">使用 DeArrow 缩略图。</string>
-    <string name="revanced_alt_thumbnail_dearrow_title">启用 DeArrow 缩略图</string>
     <string name="revanced_alt_thumbnail_preference_screen_summary">视频缩略图设置</string>
     <string name="revanced_alt_thumbnail_preference_screen_title">替代缩略图</string>
     <string name="revanced_alt_thumbnail_stills">静态视频捕获</string>
@@ -868,13 +858,10 @@
     <string name="revanced_alt_thumbnail_stills_fast_summary_off">使用高质量的静态捕捉。</string>
     <string name="revanced_alt_thumbnail_stills_fast_summary_on">使用中等质量仍然可以捕获。缩略图加载速度会更快，但直播、未发布和非常旧的视频可能会显示空白缩略图。</string>
     <string name="revanced_alt_thumbnail_stills_fast_title">使用快速静态捕捉</string>
-    <string name="revanced_alt_thumbnail_stills_summary_off">不使用 YouTube 静态视频截图。</string>
-    <string name="revanced_alt_thumbnail_stills_summary_on">使用 YouTube 静态视频捕获。</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_1">视频开头</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_2">视频中间</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_3">视频结尾</string>
     <string name="revanced_alt_thumbnail_stills_time_title">拍摄静态捕捉的时间</string>
-    <string name="revanced_alt_thumbnail_stills_title">启用静态视频捕捉</string>
     <string name="revanced_change_player_flyout_panel_toggle_summary_off">使用开关切换。</string>
     <string name="revanced_change_player_flyout_panel_toggle_summary_on">使用文本切换。</string>
     <string name="revanced_change_player_flyout_panel_toggle_title">更改切换类型</string>
@@ -1025,10 +1012,10 @@
     <string name="revanced_keep_landscape_mode_timeout_summary">强制横屏模式的毫秒数。</string>
     <string name="revanced_keep_landscape_mode_timeout_title">保持横屏模式超时</string>
     <string name="revanced_keep_landscape_mode_title">保持横屏模式</string>
-    <string name="revanced_keyword_filter_strings_summary">配置要隐藏的关键词和短语，以换行符分隔\n\n中间有大写字母的单词必须使用大小写输入（即：iPhone、TikTok、LeBlanc）。</string>
-    <string name="revanced_keyword_filter_strings_title">编辑关键词过滤器</string>
-    <string name="revanced_keyword_filter_summary">使用关键词过滤器隐藏视频。</string>
-    <string name="revanced_keyword_filter_title">关键词过滤器</string>
+    <string name="revanced_hide_keyword_content_filter_strings_summary">配置要隐藏的关键词和短语，以换行符分隔\n\n中间有大写字母的单词必须使用大小写输入（即：iPhone、TikTok、LeBlanc）。</string>
+    <string name="revanced_hide_keyword_content_filter_strings_title">编辑关键词过滤器</string>
+    <string name="revanced_hide_keyword_content_filter_summary">使用关键词过滤器隐藏视频。</string>
+    <string name="revanced_hide_keyword_content_filter_title">关键词过滤器</string>
     <string name="revanced_overlay_button_time_ordered_playlist_summary">"点击可生成频道中从最旧到最新的所有视频的播放列表。
 长按可撤消。"</string>
     <string name="revanced_overlay_button_time_ordered_playlist_title">按时间排序的播放列表按钮</string>

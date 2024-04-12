@@ -8,16 +8,7 @@
 
     <string name="revanced_ads">Ads</string>
     <string name="revanced_alt_thumbnails">Alternative thumbnails</string>
-    <string name="revanced_alt_thumbnail_about_status_dearrow">"Showing DeArrow thumbnails.
-If a video has no DeArrow thumbnails then the original YouTube thumbnails are shown."</string>
-    <string name="revanced_alt_thumbnail_about_status_dearrow_stills">"Showing DeArrow thumbnails.
-If a video has no DeArrow thumbnails then still video captures are shown."</string>
-    <string name="revanced_alt_thumbnail_about_status_disabled">Showing original YouTube thumbnails.</string>
-    <string name="revanced_alt_thumbnail_about_status_stills">Showing still video captures.</string>
-    <string name="revanced_alt_thumbnail_about_title">Thumbnails in use</string>
-    <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow provides crowd-sourced thumbnails for YouTube videos. These thumbnails are often more relevant than those provided by YouTube. If enabled, video URLs will be sent to the API server and no other data is sent.
-
-Tap here to learn more about DeArrow."</string>
+    <string name="revanced_alt_thumbnail_dearrow_about_summary">DeArrow provides crowdsourced thumbnails for YouTube videos. These thumbnails are often more relevant than those provided by YouTube. If enabled, video URLs will be sent to the API server and no other data is sent.\n\nTap here to learn more about DeArrow.</string>
     <string name="revanced_alt_thumbnail_dearrow_about_title">About DeArrow</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_summary">"The URL of the DeArrow thumbnail cache endpoint. Do not change this unless you know what you're doing."</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_title">DeArrow API endpoint</string>
@@ -26,9 +17,6 @@ Tap here to learn more about DeArrow."</string>
     <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">Show a toast if API is not available</string>
     <string name="revanced_alt_thumbnail_dearrow_error">DeArrow temporarily not available. (status code: %s)</string>
     <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow temporarily not available.</string>
-    <string name="revanced_alt_thumbnail_dearrow_summary_off">Not using DeArrow thumbnails.</string>
-    <string name="revanced_alt_thumbnail_dearrow_summary_on">Using DeArrow thumbnails.</string>
-    <string name="revanced_alt_thumbnail_dearrow_title">Enable DeArrow thumbnails</string>
     <string name="revanced_alt_thumbnail_preference_screen_summary">Video thumbnail settings.</string>
     <string name="revanced_alt_thumbnail_preference_screen_title">Alternative thumbnails</string>
     <string name="revanced_alt_thumbnail_stills">Still video captures</string>
@@ -37,13 +25,19 @@ Tap here to learn more about DeArrow."</string>
     <string name="revanced_alt_thumbnail_stills_fast_summary_off">Using high quality still captures.</string>
     <string name="revanced_alt_thumbnail_stills_fast_summary_on">Using medium quality still captures. Thumbnails will load faster, but live streams, unreleased, and very old videos may show blank thumbnails.</string>
     <string name="revanced_alt_thumbnail_stills_fast_title">Use fast still captures</string>
-    <string name="revanced_alt_thumbnail_stills_summary_off">Not using YouTube still video captures.</string>
-    <string name="revanced_alt_thumbnail_stills_summary_on">Using YouTube still video captures.</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_1">Beginning of video</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_2">Middle of video</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_3">End of video</string>
     <string name="revanced_alt_thumbnail_stills_time_title">Video time to take the still from</string>
-    <string name="revanced_alt_thumbnail_stills_title">Enable still video captures</string>
+    <string name="revanced_alt_thumbnail_home_title">Home tab</string>
+    <string name="revanced_alt_thumbnail_subscription_title">Subscription tab</string>
+    <string name="revanced_alt_thumbnail_library_title">\'You\' tab</string>
+    <string name="revanced_alt_thumbnail_player_title">Player playlists, recommendations</string>
+    <string name="revanced_alt_thumbnail_search_title">Search results</string>
+    <string name="revanced_alt_thumbnail_options_entry_1">Original thumbnails</string>
+    <string name="revanced_alt_thumbnail_options_entry_2">DeArrow &amp; Original thumbnails</string>
+    <string name="revanced_alt_thumbnail_options_entry_3">DeArrow &amp; Still captures</string>
+    <string name="revanced_alt_thumbnail_options_entry_4">Still captures</string>
     <string name="revanced_append_time_stamp_information_summary_off">Append time stamp information is disabled.</string>
     <string name="revanced_append_time_stamp_information_summary_on">Append time stamp information is enabled.</string>
     <string name="revanced_append_time_stamp_information_title">Append time stamp information</string>
@@ -95,19 +89,25 @@ Note: This feature hasn't been tested."</string>
     <string name="revanced_hide_keyword_content_comment_summary_off">Keyword filter for comments is disabled.</string>
     <string name="revanced_hide_keyword_content_comment_summary_on">Keyword filter for comments is enabled.</string>
     <string name="revanced_hide_keyword_content_comment_title">Enable comments keyword filter</string>
-    <string name="revanced_hide_keyword_content_feed_summary_off">Keyword filter for feed and search is disabled.</string>
-    <string name="revanced_hide_keyword_content_feed_summary_on">Keyword filter for feed and search is enabled.</string>
+    <string name="revanced_hide_keyword_content_feed_summary_off">Keyword filter is disabled.</string>
+    <string name="revanced_hide_keyword_content_feed_summary_on">Keyword filter is enabled.</string>
     <string name="revanced_hide_keyword_content_feed_title">Enable keyword filter</string>
+    <string name="revanced_hide_keyword_content_home_summary_off">Keyword filter for home feed is disabled.</string>
+    <string name="revanced_hide_keyword_content_home_summary_on">Keyword filter for home feed is enabled.</string>
+    <string name="revanced_hide_keyword_content_home_title">Enable home keyword filter</string>
+    <string name="revanced_hide_keyword_content_search_summary_off">Keyword filter for search results is disabled.</string>
+    <string name="revanced_hide_keyword_content_search_summary_on">Keyword filter for search results is enabled.</string>
+    <string name="revanced_hide_keyword_content_search_title">Enable search keyword filter</string>
     <string name="revanced_hide_keyword_content_sub_summary_off">Keyword filter for subscriptions is disabled.</string>
     <string name="revanced_hide_keyword_content_sub_summary_on">Keyword filter for subscriptions is enabled.</string>
     <string name="revanced_hide_keyword_content_sub_title">Enable subscriptions keyword filter</string>
     <string name="revanced_hide_keyword_content_about_summary">Search, Home, Subscription and Comments are filtered to hide content that matches keyword phrases\n\nLimitations\n• Some Shorts may not be hidden\n• Some UI components may not be hidden\n• Searching for a keyword may show no results</string>
     <string name="revanced_hide_keyword_toast_invalid_common" formatted="false">Invalid keyword. Cannot use: \'%s\' as a filter</string>
     <string name="revanced_hide_keyword_toast_invalid_length" formatted="false">Invalid keyword length (must be at least %s characters): %s.</string>
-    <string name="revanced_keyword_filter_strings_summary">Configure keywords and phrases to hide, separated by new lines\n\nWords with uppercase letters in the middle must be entered with the casing (ie: iPhone, TikTok, LeBlanc).</string>
-    <string name="revanced_keyword_filter_strings_title">Edit keyword filter</string>
-    <string name="revanced_keyword_filter_summary">Hides videos using keyword filter.</string>
-    <string name="revanced_keyword_filter_title">Keyword filter</string>
+    <string name="revanced_hide_keyword_content_filter_strings_summary">Configure keywords and phrases to hide, separated by new lines\n\nWords with uppercase letters in the middle must be entered with the casing (ie: iPhone, TikTok, LeBlanc).</string>
+    <string name="revanced_hide_keyword_content_filter_strings_title">Edit keyword filter</string>
+    <string name="revanced_hide_keyword_content_filter_summary">Hides videos using keyword filter.</string>
+    <string name="revanced_hide_keyword_content_filter_title">Keyword filter</string>
     <string name="revanced_custom_playback_speeds_invalid">Invalid custom playback speeds. Reset to default values.</string>
     <string name="revanced_custom_playback_speeds_summary">Add or change available playback speeds.</string>
     <string name="revanced_custom_playback_speeds_title">Edit custom playback speeds</string>
@@ -257,7 +257,7 @@ Note: Disabling the speed overlay restores the 'Slide to seek' behavior of the o
     <string name="revanced_enable_wide_search_bar_summary_off">Wide search bar is disabled.</string>
     <string name="revanced_enable_wide_search_bar_summary_on">Wide search bar is enabled.</string>
     <string name="revanced_enable_wide_search_bar_title">Enable wide search bar</string>
-    <string name="revanced_enable_wide_search_bar_in_you_tab_summary">"Enabling this setting will disable the settings button in the You tab.
+    <string name="revanced_enable_wide_search_bar_in_you_tab_summary">"Enabling this setting will disable the settings button in 'You' tab.
 
 In this case, please use the following path:
 You tab > View channel > Menu > Settings."</string>
@@ -491,8 +491,8 @@ Some components may not be hidden."</string>
     <string name="revanced_hide_info_cards_summary_off">Info cards are shown.</string>
     <string name="revanced_hide_info_cards_summary_on">Info cards are hidden.</string>
     <string name="revanced_hide_info_cards_title">Hide info cards</string>
-    <string name="revanced_hide_info_panel_summary_off">Info panels are shown.</string>
-    <string name="revanced_hide_info_panel_summary_on">Info panels are hidden.</string>
+    <string name="revanced_hide_info_panel_summary_off">Info panels are shown.\n\nIt will also hide sound metadata label and video link label.</string>
+    <string name="revanced_hide_info_panel_summary_on">Info panels are hidden.\n\nIt will also hide sound metadata label and video link label.</string>
     <string name="revanced_hide_info_panel_title">Hide info panels</string>
     <string name="revanced_hide_join_button_summary_off">Join button is shown.</string>
     <string name="revanced_hide_join_button_summary_on">Join button is hidden.</string>
@@ -649,9 +649,9 @@ Some components may not be hidden."</string>
     <string name="revanced_hide_shorts_player_navigation_bar_summary_off">Navigation bar is shown.</string>
     <string name="revanced_hide_shorts_player_navigation_bar_summary_on">Navigation bar is hidden.</string>
     <string name="revanced_hide_shorts_player_navigation_bar_title">Hide navigation bar</string>
-    <string name="revanced_hide_shorts_player_pivot_button_summary_off">Audio button is shown.</string>
-    <string name="revanced_hide_shorts_player_pivot_button_summary_on">Audio button is hidden.</string>
-    <string name="revanced_hide_shorts_player_pivot_button_title">Hide audio button</string>
+    <string name="revanced_hide_shorts_player_pivot_button_summary_off">Sound button is shown.</string>
+    <string name="revanced_hide_shorts_player_pivot_button_summary_on">Sound button is hidden.</string>
+    <string name="revanced_hide_shorts_player_pivot_button_title">Hide sound button</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_off">Subscriptions button is shown.</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_on">Subscriptions button is hidden.</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_title">Hide subscriptions button</string>
@@ -664,10 +664,17 @@ Some components may not be hidden."</string>
     <string name="revanced_hide_shorts_player_video_link_label_summary_off">Video link is shown.</string>
     <string name="revanced_hide_shorts_player_video_link_label_summary_on">Video link label is hidden.</string>
     <string name="revanced_hide_shorts_player_video_link_label_title">Hide video link label</string>
-    <string name="revanced_hide_shorts_shelf_summary">"Hides Shorts shelves.
-
-Known issue: Official headers in search results will be hidden."</string>
-    <string name="revanced_hide_shorts_shelf_title">Hide shorts shelf</string>
+    <string name="revanced_hide_shorts_shelf_summary">Hides Shorts shelves.\n\nKnown issue: Official headers in search results will be hidden.</string>
+    <string name="revanced_hide_shorts_shelf_title">Hide Shorts shelf</string>
+    <string name="revanced_hide_shorts_shelf_home_summary_off">Shorts in home feed are shown.</string>
+    <string name="revanced_hide_shorts_shelf_home_summary_on">Shorts in home feed are hidden.</string>
+    <string name="revanced_hide_shorts_shelf_home_title">Hide Shorts in home feed</string>
+    <string name="revanced_hide_shorts_shelf_search_summary_off">Shorts in search results are shown.</string>
+    <string name="revanced_hide_shorts_shelf_search_summary_on">Shorts in search results are hidden.</string>
+    <string name="revanced_hide_shorts_shelf_search_title">Hide Shorts in search results</string>
+    <string name="revanced_hide_shorts_shelf_subscriptions_summary_off">Shorts in subscriptions feed are shown.</string>
+    <string name="revanced_hide_shorts_shelf_subscriptions_summary_on">Shorts in subscriptions feed are hidden.</string>
+    <string name="revanced_hide_shorts_shelf_subscriptions_title">Hide Shorts in subscriptions feed</string>
     <string name="revanced_hide_shorts_toolbar_banner_summary_off">Banner is shown.</string>
     <string name="revanced_hide_shorts_toolbar_banner_summary_on">Banner is hidden.</string>
     <string name="revanced_hide_shorts_toolbar_banner_title">Hide banner</string>
@@ -790,7 +797,7 @@ Tap and hold to copy video timestamp."</string>
     <string name="revanced_overlay_button_time_ordered_playlist_summary">"Tap to generate a playlist of all videos from channel from oldest to newest.
 Tap and hold to undo."</string>
     <string name="revanced_overlay_button_time_ordered_playlist_title">Time-ordered playlist button</string>
-    <string name="revanced_overlay_button_speed_dialog_reset">Playback speed reset (1.0x).</string>
+    <string name="revanced_overlay_button_speed_dialog_reset">Playback speed reset: %sx</string>
     <string name="revanced_overlay_button_speed_dialog_summary">"Tap to open speed dialog.
 Tap and hold to reset playback speed to 1.0x. Tap and hold again to reset back to default speed."</string>
     <string name="revanced_overlay_button_speed_dialog_title">Speed dialog button</string>
@@ -944,7 +951,7 @@ Known issues:
     <string name="revanced_video">Video</string>
 
     <string name="sb_enable_sb">Enable SponsorBlock</string>
-    <string name="sb_enable_sb_sum">SponsorBlock is a crowd-sourced system for skipping annoying parts of YouTube videos.</string>
+    <string name="sb_enable_sb_sum">SponsorBlock is a crowdsourced system for skipping annoying parts of YouTube videos.</string>
 
     <string name="sb_appearance_category">Appearance</string>
     <string name="sb_enable_voting">Show voting button</string>
@@ -1004,16 +1011,16 @@ Known issues:
     <string name="sb_settings_import_failed">Failed to import: %s.</string>
     <string name="sb_settings_export_failed">Failed to export: %s.</string>
 
-    <string name="sb_settings_revanced_export_user_id_warning">Your settings contain a private SponsorBlock user id.\n\nYour user id is like a password and it should never be shared.\n</string>
+    <string name="sb_settings_revanced_export_user_id_warning">Your settings contain a private SponsorBlock user id.\n\nYour user id is like a password, and it should never be shared.</string>
     <string name="sb_settings_revanced_export_user_id_warning_dismiss">Do not show again</string>
 
     <string name="sb_diff_segments">Change segment behavior</string>
     <string name="sb_segments_sponsor">Sponsor</string>
     <string name="sb_segments_sponsor_sum">Paid promotion, paid referrals and direct advertisements. Not for self-promotion or free shout-outs to causes / creators / websites / products they like.</string>
     <string name="sb_segments_selfpromo">Unpaid / Self Promotion</string>
-    <string name="sb_segments_selfpromo_sum">Similar to \'Sponsor\' except for unpaid or self promotion. Includes sections about merchandise, donations, or information about who they collaborated with.</string>
+    <string name="sb_segments_selfpromo_sum">Similar to \'Sponsor\' except for unpaid or self-promotion. Includes sections about merchandise, donations, or information about who they collaborated with.</string>
     <string name="sb_segments_interaction">Interaction Reminder (Subscribe)</string>
-    <string name="sb_segments_interaction_sum">A short reminder to like, subscribe or follow them in the middle of content. If it is long or about something specific, it should instead be under self promotion.</string>
+    <string name="sb_segments_interaction_sum">A short reminder to like, subscribe or follow them in the middle of content. If it is long or about something specific, it should instead be under self-promotion.</string>
     <string name="sb_segments_highlight">Highlight</string>
     <string name="sb_segments_highlight_sum">The part of the video that most people are looking for.</string>
     <string name="sb_segments_intro">Intermission / Intro Animation</string>
@@ -1041,7 +1048,7 @@ Known issues:
     <string name="sb_skip_button_unsubmitted">Skip segment</string>
 
     <string name="sb_skipped_sponsor">Skipped sponsor.</string>
-    <string name="sb_skipped_selfpromo">Skipped self promotion.</string>
+    <string name="sb_skipped_selfpromo">Skipped self-promotion.</string>
     <string name="sb_skipped_interaction">Skipped annoying reminder.</string>
     <string name="sb_skipped_highlight">Skipped to highlight.</string>
     <string name="sb_skipped_intro_beginning">Skipped intro.</string>
