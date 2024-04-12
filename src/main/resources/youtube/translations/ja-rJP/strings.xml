@@ -32,6 +32,15 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_alt_thumbnail_stills_time_entry_2">動画の中間</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_3">動画の最後</string>
     <string name="revanced_alt_thumbnail_stills_time_title">取得する静止画サムネイルの位置</string>
+    <string name="revanced_alt_thumbnail_home_title">ホーム タブ</string>
+    <string name="revanced_alt_thumbnail_library_title">マイページ タブ</string>
+    <string name="revanced_alt_thumbnail_options_entry_1">オリジナルサムネイル</string>
+    <string name="revanced_alt_thumbnail_options_entry_2">DeArrow &amp; オリジナルサムネイル</string>
+    <string name="revanced_alt_thumbnail_options_entry_3">DeArrow &amp; 静止画キャプチャ</string>
+    <string name="revanced_alt_thumbnail_options_entry_4">静止画キャプチャ</string>
+    <string name="revanced_alt_thumbnail_player_title">再生リスト, おすすめ</string>
+    <string name="revanced_alt_thumbnail_search_title">検索結果</string>
+    <string name="revanced_alt_thumbnail_subscription_title">登録チャンネル タブ</string>
     <string name="revanced_append_time_stamp_information_summary_off">情報は追加表示されません。</string>
     <string name="revanced_append_time_stamp_information_summary_on">タイムスタンプの横に情報が追加表示されます。</string>
     <string name="revanced_append_time_stamp_information_title">タイムスタンプの追加情報</string>
@@ -472,13 +481,19 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_hide_join_button_summary_off">「メンバーになる」ボタンは表示されます。</string>
     <string name="revanced_hide_join_button_summary_on">「メンバーになる」ボタンは非表示です。</string>
     <string name="revanced_hide_join_button_title">「メンバーになる」ボタンを非表示</string>
-    <string name="revanced_hide_keyword_content_feed_summary_off">ホームフィードと検索結果のキーワードフィルターは無効です。</string>
-    <string name="revanced_hide_keyword_content_feed_summary_on">ホームフィードと検索結果のキーワードフィルターは有効です。</string>
+    <string name="revanced_hide_keyword_content_feed_summary_off">キーワードフィルターは無効です。</string>
+    <string name="revanced_hide_keyword_content_feed_summary_on">キーワードフィルターは有効です。</string>
     <string name="revanced_hide_keyword_content_feed_title">キーワードフィルターを有効にする</string>
     <string name="revanced_hide_keyword_content_about_summary">検索結果,ホームフィード,サブスクリプション,コメントの結果がフィルタリングされ、キーワードフレーズに一致するコンテンツが非表示になります。\n\n制限事項:\n• 一部のショート動画は非表示にできない場合があります。\n• 一部の UI コンポーネントは非表示にできない場合があります。\n• キーワードを検索しても結果が表示されない場合があります。</string>
     <string name="revanced_hide_keyword_content_comment_summary_off">コメントのキーワードフィルターは無効です。</string>
     <string name="revanced_hide_keyword_content_comment_summary_on">コメントのキーワードフィルターは有効です。</string>
     <string name="revanced_hide_keyword_content_comment_title">コメントキーワードフィルターを有効にする</string>
+    <string name="revanced_hide_keyword_content_home_summary_off">ホームフィードのキーワードフィルターは無効です。</string>
+    <string name="revanced_hide_keyword_content_home_summary_on">ホームフィードのキーワードフィルターは有効です。</string>
+    <string name="revanced_hide_keyword_content_home_title">ホームのキーワードフィルターを有効にする</string>
+    <string name="revanced_hide_keyword_content_search_summary_off">検索結果のキーワードフィルターは無効です。</string>
+    <string name="revanced_hide_keyword_content_search_summary_on">検索結果のキーワードフィルターは有効です。</string>
+    <string name="revanced_hide_keyword_content_search_title">検索のキーワードフィルターを有効にする</string>
     <string name="revanced_hide_keyword_content_sub_summary_off">サブスクリプションキーワードフィルターは無効です。</string>
     <string name="revanced_hide_keyword_content_sub_summary_on">サブスクリプションキーワードフィルターは有効です。</string>
     <string name="revanced_hide_keyword_content_sub_title">サブスクリプションキーワードフィルターを有効にする</string>
@@ -651,6 +666,15 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_off">「チャンネル登録」ボタンは表示されます。</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_on">「チャンネル登録」ボタンは非表示です。</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_title">チャンネル登録ボタンを非表示</string>
+    <string name="revanced_hide_shorts_shelf_home_summary_off">ホームフィードのショート動画は表示されます。</string>
+    <string name="revanced_hide_shorts_shelf_home_summary_on">ホームフィードのショート動画は非表示になります。</string>
+    <string name="revanced_hide_shorts_shelf_home_title">ホームフィードのショート動画を非表示にします</string>
+    <string name="revanced_hide_shorts_shelf_search_summary_off">検索結果のショート動画は表示されます。</string>
+    <string name="revanced_hide_shorts_shelf_search_summary_on">検索結果のショート動画は非表示になります。</string>
+    <string name="revanced_hide_shorts_shelf_search_title">検索結果のショート動画を非表示にします</string>
+    <string name="revanced_hide_shorts_shelf_subscriptions_summary_off">登録チャンネル フィード内のショート動画は表示されます。</string>
+    <string name="revanced_hide_shorts_shelf_subscriptions_summary_on">登録チャンネル フィード内のショート動画は非表示になります。</string>
+    <string name="revanced_hide_shorts_shelf_subscriptions_title">登録チャンネルフィードのショート動画は非表示にします</string>
     <string name="revanced_hide_shorts_shelf_summary">"ショート欄を非表示にします。
 
 既知の問題: 検索結果の公式ヘッダーが非表示になります。"</string>
@@ -782,7 +806,7 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_overlay_button_time_ordered_playlist_summary">"タップすると、チャンネルの古いものから新しいものまですべてのビデオのプレイリストが生成されます。
 元に戻すには、長押しします。"</string>
     <string name="revanced_overlay_button_time_ordered_playlist_title">時間順のプレイリストボタン</string>
-    <string name="revanced_overlay_button_speed_dialog_reset">再生速度をリセットしました (1.0 倍速)</string>
+    <string name="revanced_overlay_button_speed_dialog_reset">再生速度のリセット: %sx</string>
     <string name="revanced_overlay_button_speed_dialog_summary">"タップして速度ダイアログを開きます。
 長押しすると、再生速度が 1.0 倍にリセットされます。デフォルトの速度にリセットするには、もう一度長押しして下さい。"</string>
     <string name="revanced_overlay_button_speed_dialog_title">再生速度のダイアログボタン</string>
