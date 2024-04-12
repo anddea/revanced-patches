@@ -9,13 +9,6 @@
     <string name="microg_settings_title">開啟 MicroG</string>
     <string name="revanced_ads">廣告</string>
     <string name="revanced_alt_thumbnails">替代縮圖</string>
-    <string name="revanced_alt_thumbnail_about_status_dearrow">"顯示 DeArrow 縮圖。
-如果影片沒有 DeArrow 縮圖，則會顯示原始 YouTube 縮圖。"</string>
-    <string name="revanced_alt_thumbnail_about_status_dearrow_stills">"顯示 DeArrow 縮圖。
-如果影片沒有 DeArrow 縮圖，則會顯示靜態影片擷取。"</string>
-    <string name="revanced_alt_thumbnail_about_status_disabled">顯示原始的 YouTube 縮圖。</string>
-    <string name="revanced_alt_thumbnail_about_status_stills">顯示靜態影片擷取。</string>
-    <string name="revanced_alt_thumbnail_about_title">使用中的縮圖</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow 提供 YouTube 影片的外包縮圖。這些縮圖通常比 YouTube 提供的更為相關。如果啟用, 影片 URL 將會被發送到 API 服務器, 但不會發送任何其他數據。點擊此處瞭解更多關於 DeArrow 的信息。"</string>
     <string name="revanced_alt_thumbnail_dearrow_about_title">關於 DeArrow</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_summary">"DeArrow 縮圖快取端點的 URL。 除非您知道自己在做什麼，否則請勿更改此設定。"</string>
@@ -25,9 +18,6 @@
     <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">當API不可用時顯示快顯訊息</string>
     <string name="revanced_alt_thumbnail_dearrow_error">DeArrow 暫時無法使用。(status code: %s)</string>
     <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow 暫時無法使用。</string>
-    <string name="revanced_alt_thumbnail_dearrow_summary_off">未使用 DeArrow。</string>
-    <string name="revanced_alt_thumbnail_dearrow_summary_on">DeArrow 使用中.</string>
-    <string name="revanced_alt_thumbnail_dearrow_title">啟用 DeArrow</string>
     <string name="revanced_alt_thumbnail_preference_screen_summary">影片縮圖設定</string>
     <string name="revanced_alt_thumbnail_preference_screen_title">替代縮圖</string>
     <string name="revanced_alt_thumbnail_stills">靜態影片擷取</string>
@@ -36,13 +26,10 @@
     <string name="revanced_alt_thumbnail_stills_fast_summary_off">使用高品質的靜態捕捉</string>
     <string name="revanced_alt_thumbnail_stills_fast_summary_on">使用中等質量靜態擷取。 縮圖載入速度會更快，但直播、未發布或非常舊的影片可能會顯示空白縮圖。</string>
     <string name="revanced_alt_thumbnail_stills_fast_title">使用快速靜態捕捉</string>
-    <string name="revanced_alt_thumbnail_stills_summary_off">不在使用 YouTube 靜態影片捕獲。</string>
-    <string name="revanced_alt_thumbnail_stills_summary_on">正在使用 YouTube 靜態影片捕獲。</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_1">影片的開頭</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_2">影片的中間</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_3">影片的結尾</string>
     <string name="revanced_alt_thumbnail_stills_time_title">選擇截取靜態圖的影片時間點</string>
-    <string name="revanced_alt_thumbnail_stills_title">啟用靜態影片擷取。</string>
     <string name="revanced_append_time_stamp_information_summary_off">時間戳功能已關閉</string>
     <string name="revanced_append_time_stamp_information_summary_on">時間戳功能已開啟</string>
     <string name="revanced_append_time_stamp_information_title">加入時間戳</string>
@@ -765,10 +752,10 @@
     <string name="revanced_keep_landscape_mode_timeout_summary">已強制橫向模式的毫秒數。</string>
     <string name="revanced_keep_landscape_mode_timeout_title">保持橫向模式的超時時間</string>
     <string name="revanced_keep_landscape_mode_title">保持橫向模式</string>
-    <string name="revanced_keyword_filter_strings_summary">配置要隱藏的關鍵字和詞組，每行輸入一個\n\n中間含有大寫字母的詞彙，必須保持原有的大小寫形式（例如：iPhone、TikTok、LeBlanc）。</string>
-    <string name="revanced_keyword_filter_strings_title">編輯關鍵字篩選器</string>
-    <string name="revanced_keyword_filter_summary">使用關鍵字篩選器來隱藏影片。</string>
-    <string name="revanced_keyword_filter_title">關鍵字篩選器</string>
+    <string name="revanced_hide_keyword_content_filter_strings_summary">配置要隱藏的關鍵字和詞組，每行輸入一個\n\n中間含有大寫字母的詞彙，必須保持原有的大小寫形式（例如：iPhone、TikTok、LeBlanc）。</string>
+    <string name="revanced_hide_keyword_content_filter_strings_title">編輯關鍵字篩選器</string>
+    <string name="revanced_hide_keyword_content_filter_summary">使用關鍵字篩選器來隱藏影片。</string>
+    <string name="revanced_hide_keyword_content_filter_title">關鍵字篩選器</string>
     <string name="revanced_layout_title">版面</string>
     <string name="revanced_misc">其他設定</string>
     <string name="revanced_navigation">導覽列</string>

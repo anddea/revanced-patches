@@ -9,13 +9,6 @@
     <string name="microg_settings_title">MicroG 열기</string>
     <string name="revanced_ads">광고</string>
     <string name="revanced_alt_thumbnails">대체 썸네일</string>
-    <string name="revanced_alt_thumbnail_about_status_dearrow">"DeArrow 썸네일을 표시 중입니다.
-동영상에 DeArrow 썸네일이 없는 경우에는 원본 썸네일을 표시합니다."</string>
-    <string name="revanced_alt_thumbnail_about_status_dearrow_stills">"DeArrow 썸네일을 표시 중입니다.
-동영상에 DeArrow 썸네일이 없는 경우에는 동영상 스틸 컷 썸네일을 표시합니다."</string>
-    <string name="revanced_alt_thumbnail_about_status_disabled">원본 썸네일을 표시 중입니다.</string>
-    <string name="revanced_alt_thumbnail_about_status_stills">동영상 스틸 컷 썸네일을 표시 중입니다.</string>
-    <string name="revanced_alt_thumbnail_about_title">표시 중인 썸네일</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow는 YouTube 동영상에 크라우드 소싱된 썸네일을 제공합니다. 이러한 썸네일은 YouTube에서 제공하는 썸네일보다 관련성이 높은 경우가 많습니다. 이 기능을 활성화하면 동영상 URL이 API 서버로 전송되며 다른 데이터는 전송되지 않습니다.
 
 DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
@@ -27,9 +20,6 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">API를 사용할 수 없을 때 팝업 메시지 표시하기</string>
     <string name="revanced_alt_thumbnail_dearrow_error">DeArrow를 일시적으로 사용할 수 없습니다. (상태 코드: %s)</string>
     <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow를 일시적으로 사용할 수 없습니다.</string>
-    <string name="revanced_alt_thumbnail_dearrow_summary_off">DeArrow 썸네일을 표시하지 않습니다.</string>
-    <string name="revanced_alt_thumbnail_dearrow_summary_on">DeArrow 썸네일을 표시합니다.</string>
-    <string name="revanced_alt_thumbnail_dearrow_title">DeArrow 썸네일 표시하기</string>
     <string name="revanced_alt_thumbnail_preference_screen_summary">동영상 썸네일을 설정할 수 있습니다.</string>
     <string name="revanced_alt_thumbnail_preference_screen_title">대체 썸네일</string>
     <string name="revanced_alt_thumbnail_stills">동영상 스틸 컷 썸네일</string>
@@ -38,13 +28,10 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_alt_thumbnail_stills_fast_summary_off">고화질 동영상 스틸 컷 썸네일을 표시합니다.</string>
     <string name="revanced_alt_thumbnail_stills_fast_summary_on">일반화질 동영상 스틸 컷 썸네일을 표시합니다. 썸네일을 빠르게 불러오지만 실시간 스트리밍, 비공개, 오래된 동영상에서는 아무것도 표시되지 않은 썸네일이 표시될 수 있습니다.</string>
     <string name="revanced_alt_thumbnail_stills_fast_title">일반화질 동영상 스틸 컷 썸네일 표시하기</string>
-    <string name="revanced_alt_thumbnail_stills_summary_off">동영상 스틸 컷 썸네일을 표시하지 않습니다.</string>
-    <string name="revanced_alt_thumbnail_stills_summary_on">동영상 스틸 컷 썸네일을 표시합니다.</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_1">동영상의 시작 부분 이미지</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_2">동영상의 중간 부분 이미지</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_3">동영상의 끝 부분 이미지</string>
     <string name="revanced_alt_thumbnail_stills_time_title">동영상 스틸 컷 썸네일에 표시되는 이미지</string>
-    <string name="revanced_alt_thumbnail_stills_title">동영상 스틸 컷 썸네일 표시하기</string>
     <string name="revanced_append_time_stamp_information_summary_off">타임스탬프에서 정보를 표시하지 않습니다.</string>
     <string name="revanced_append_time_stamp_information_summary_on">타임스탬프에서 정보를 표시합니다.</string>
     <string name="revanced_append_time_stamp_information_title">타임스탬프에서 정보 표시하기</string>
@@ -94,12 +81,12 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_custom_filter_summary_on">사용자 정의 필터를 활성화합니다.</string>
     <string name="revanced_custom_filter_title">사용자 정의 필터 활성화하기</string>
     <string name="revanced_hide_keyword_toast_invalid_length" formatted="false">키워드 길이가 너무 짧습니다 (최소 %s 이상이어야 합니다): %s.</string>
-    <string name="revanced_keyword_filter_strings_summary">필터링할 키워드 및 구문을 줄바꿈으로 구분하여 설정합니다.\n\n영어 키워드는 대소문자를 구분하여 입력해야 합니다 (예: iPhone, TikTok, LeBlanc).</string>
-    <string name="revanced_keyword_filter_strings_title">키워드 필터 편집하기</string>
+    <string name="revanced_hide_keyword_content_filter_strings_summary">필터링할 키워드 및 구문을 줄바꿈으로 구분하여 설정합니다.\n\n영어 키워드는 대소문자를 구분하여 입력해야 합니다 (예: iPhone, TikTok, LeBlanc).</string>
+    <string name="revanced_hide_keyword_content_filter_strings_title">키워드 필터 편집하기</string>
     <string name="revanced_hide_keyword_content_feed_summary_off">홈 피드 &amp; 검색 결과에서 키워드 필터를 비활성화합니다.</string>
     <string name="revanced_hide_keyword_content_feed_summary_on">홈 피드 &amp; 검색 결과에서 키워드 필터를 활성화합니다.</string>
     <string name="revanced_hide_keyword_content_feed_title">홈 피드 &amp; 검색 결과 키워드 필터 활성화하기</string>
-    <string name="revanced_keyword_filter_summary">키워드 필터를 사용하여 콘텐츠를 숨길 수 있습니다.</string>
+    <string name="revanced_hide_keyword_content_filter_summary">키워드 필터를 사용하여 콘텐츠를 숨길 수 있습니다.</string>
     <string name="revanced_custom_playback_speeds_invalid">유효하지 않은 재생 속도 값이므로 기본값으로 재설정합니다.</string>
     <string name="revanced_custom_playback_speeds_summary">사용하고 싶은 동영상 재생 속도 값을 추가 또는 변경할 수 있습니다.</string>
     <string name="revanced_custom_playback_speeds_title">사용자 정의 동영상 재생 속도 편집하기</string>
@@ -1101,7 +1088,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_hide_keyword_content_sub_summary_on">구독 피드에서 키워드 필터를 활성화합니다.</string>
     <string name="revanced_hide_keyword_content_sub_title">구독 피드 키워드 필터 활성화하기</string>
     <string name="revanced_hide_keyword_toast_invalid_common" formatted="false">잘못된 키워드입니다. \'%s\'를 필터로 사용할 수 없습니다.</string>
-    <string name="revanced_keyword_filter_title">키워드 필터</string>
+    <string name="revanced_hide_keyword_content_filter_title">키워드 필터</string>
     
     <string name="revanced_hide_video_with_low_view_summary">"설정한 숫자보다 낮은 조회수를 가진 동영상을 숨길 수 있습니다."</string>
     <string name="revanced_hide_video_with_low_view_title">조회수에 따라 동영상 숨기기</string>    
