@@ -17,9 +17,8 @@ import org.w3c.dom.Element
 @Suppress("unused")
 object HideSettingsPrefsPatch : ResourcePatch() {
 
-    private const val DEFAULT_ELEMENTS = "Data saving, Video quality preferences, Watch on TV, " +
-        "Manage all history, Privacy, Try experimental new features, Purchases and memberships, " +
-        "Billing and payments, Notifications, Captions, Connected apps, Live chat, Accessibility, About"
+    private const val DEFAULT_ELEMENTS = "Data saving, Video quality preferences, Manage all history, Privacy, Try experimental new features, " +
+        "Purchases and memberships, Billing & payments, Connected apps, Live chat, Captions, About"
 
     private val SettingElements by stringPatchOption(
         key = "SettingElements",
@@ -29,27 +28,28 @@ object HideSettingsPrefsPatch : ResourcePatch() {
     )
 
     private val DEFAULT_ELEMENTS_MAP = mapOf(
-        "General" to "general_key",
-        // "Account" to "account_switcher_key",
-        "Data saving" to "data_saving_settings_key",
-        "Autoplay" to "auto_play_key",
-        "Video quality preferences" to "video_quality_settings_key",
-        "Background" to "offline_key",
-        "Watch on TV" to "pair_with_tv_key",
-        "Manage all history" to "history_key",
-        // "Your data in YouTube" to "your_data_key",
-        "Privacy" to "privacy_key",
-        "History & privacy" to "privacy_key",
-        "Try experimental new features" to "premium_early_access_browse_page_key",
-        "Purchases and memberships" to "subscription_product_setting_key",
-        "Billing & payments" to "billing_and_payment_key",
-        "Billing and payments" to "billing_and_payment_key",
-        "Notifications" to "notification_key",
-        "Connected apps" to "connected_accounts_browse_page_key",
-        "Live chat" to "live_chat_key",
-        "Captions" to "captions_key",
-        "Accessibility" to "accessibility_settings_key",
-        "About" to "about_key"
+        "parent settings" to "parent_tools_key",
+        "general" to "general_key",
+        // "account" to "account_switcher_key",
+        "data saving" to "data_saving_settings_key",
+        "autoplay" to "auto_play_key",
+        "video quality preferences" to "video_quality_settings_key",
+        "background" to "offline_key",
+        "watch on tv" to "pair_with_tv_key",
+        "manage all history" to "history_key",
+        // "your data in youtube" to "your_data_key",
+        "privacy" to "privacy_key",
+        "history & privacy" to "privacy_key",
+        "try experimental new features" to "premium_early_access_browse_page_key",
+        "purchases and memberships" to "subscription_product_setting_key",
+        "billing & payments" to "billing_and_payment_key",
+        "billing and payments" to "billing_and_payment_key",
+        "notifications" to "notification_key",
+        "connected apps" to "connected_accounts_browse_page_key",
+        "live chat" to "live_chat_key",
+        "captions" to "captions_key",
+        "accessibility" to "accessibility_settings_key",
+        "about" to "about_key"
     )
 
     // Function to parse comma-separated string into a list of strings
@@ -62,7 +62,7 @@ object HideSettingsPrefsPatch : ResourcePatch() {
         val elementsToHide = mutableListOf<String>()
 
         parseElementsFromString(SettingElements).forEach { element ->
-            val key = DEFAULT_ELEMENTS_MAP[element]
+            val key = DEFAULT_ELEMENTS_MAP[element.lowercase()]
             if (key != null) {
                 elementsToHide.add("@string/$key")
             } else {

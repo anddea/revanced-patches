@@ -49,8 +49,7 @@ import app.revanced.patches.youtube.utils.settings.SettingsPatch
                 "19.11.38"
             ]
         )
-    ],
-    use = false
+    ]
 )
 @Suppress("unused")
 object VoiceSearchButtonPatch : AbstractVoiceSearchButtonPatch(

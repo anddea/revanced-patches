@@ -1,3 +1,34 @@
+# [2.224.0-dev.3](https://github.com/anddea/revanced-patches/compare/v2.224.0-dev.2...v2.224.0-dev.3) (2024-04-12)
+
+
+### Bug Fixes
+
+* **YouTube - Overlay buttons:** Add toast message for speed reset ([c8ba56c](https://github.com/anddea/revanced-patches/commit/c8ba56ca0af37de959f9f57e4fe6e9e6f6c9419e))
+
+
+### Features
+
+* **YouTube - Alternative thumbnails:** Selectively enable for home / subscriptions / search / player / library ([cc211c7](https://github.com/anddea/revanced-patches/commit/cc211c7364777f764c0604c415cbc96e34e510a5))
+* **YouTube - Hide layout components:** Rewrite navigation patch and use new method for keyword filter ([beb9e66](https://github.com/anddea/revanced-patches/commit/beb9e66792182fde380882c0e2b68b22932fe494))
+* **YouTube - Hide Shorts components:** Selectively hide Shorts for home / subscriptions / search ([86c5321](https://github.com/anddea/revanced-patches/commit/86c5321c7645a9a6ae055ba81921ae48c70b8735))
+* **YouTube - Settings:** Specify the setting name before which the RVX setting should be inserted ([7e6658c](https://github.com/anddea/revanced-patches/commit/7e6658cd621cb30f9a67c67299a4a5d06f46fa14))
+* **YouTube - Tuck away preferences:** Add parent settings and make options case-insensitive ([137d680](https://github.com/anddea/revanced-patches/commit/137d68097e60e2338adaa89fb7fc7df49e0e1501))
+
+# [2.224.0-dev.2](https://github.com/anddea/revanced-patches/compare/v2.224.0-dev.1...v2.224.0-dev.2) (2024-04-06)
+
+
+### Bug Fixes
+
+* **YouTube - Hide shorts components:** Fix new options ([ca22dc9](https://github.com/anddea/revanced-patches/commit/ca22dc9a18e8cf73799c9e9d9e82daf88f65b39e))
+
+
+### Features
+
+* **YouTube - Custom branding icon:** Add more icons ([900f399](https://github.com/anddea/revanced-patches/commit/900f399fda18c3ac872bed3500dd183a4ba90742))
+* **YouTube - Settings:** Move SB and RYD to RVX Settings ([becfe29](https://github.com/anddea/revanced-patches/commit/becfe29d91336282c5baaecda7f7f42337cfc059))
+* **YouTube - Tuck away preferences:** Optimize default options [#277](https://github.com/anddea/revanced-patches/issues/277) ([c48719b](https://github.com/anddea/revanced-patches/commit/c48719b36d7799bd04da3cdfe67298fcb908a554))
+* **YouTube - Visual preferences icons:** New vector icons ([0852283](https://github.com/anddea/revanced-patches/commit/085228305cb75def24031f4c571945a74109ad87))
+
 # [2.224.0-dev.1](https://github.com/anddea/revanced-patches/compare/v2.223.0...v2.224.0-dev.1) (2024-04-03)
 
 
