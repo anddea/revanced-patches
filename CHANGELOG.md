@@ -1,3 +1,11 @@
+# [2.224.0-dev.4](https://github.com/anddea/revanced-patches/compare/v2.224.0-dev.3...v2.224.0-dev.4) (2024-04-13)
+
+
+### Features
+
+* **Reddit:** Support new versions ([052dba4](https://github.com/anddea/revanced-patches/commit/052dba4316598cfe70603c17e62208adfb8ccb3a))
+* **YouTube - Hide Shorts components:** Hide `Shop`, `Location` and `Save sound to playlist` buttons ([59a34a5](https://github.com/anddea/revanced-patches/commit/59a34a5ad894fddf136a5d383fe9a3ce8c10369b))
+
 # [2.224.0-dev.3](https://github.com/anddea/revanced-patches/compare/v2.224.0-dev.2...v2.224.0-dev.3) (2024-04-12)
 
 
