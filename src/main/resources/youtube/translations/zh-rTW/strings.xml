@@ -18,8 +18,17 @@
     <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">當API不可用時顯示快顯訊息</string>
     <string name="revanced_alt_thumbnail_dearrow_error">DeArrow 暫時無法使用。(status code: %s)</string>
     <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow 暫時無法使用。</string>
+    <string name="revanced_alt_thumbnail_home_title">首頁標籤</string>
+    <string name="revanced_alt_thumbnail_library_title">\'你\' 標籤</string>    
+    <string name="revanced_alt_thumbnail_options_entry_1">原始縮圖</string>
+    <string name="revanced_alt_thumbnail_options_entry_2">DeArrow &amp; 原始縮圖</string>
+    <string name="revanced_alt_thumbnail_options_entry_3">DeArrow &amp; 靜態截圖</string>
+    <string name="revanced_alt_thumbnail_options_entry_4">靜態截圖</string>
+    <string name="revanced_alt_thumbnail_player_title">播放器播放清單，推薦</string>
     <string name="revanced_alt_thumbnail_preference_screen_summary">影片縮圖設定</string>
     <string name="revanced_alt_thumbnail_preference_screen_title">替代縮圖</string>
+    <string name="revanced_alt_thumbnail_search_title">搜尋結果</string>
+    <string name="revanced_alt_thumbnail_subscription_title">訂閱標籤</string>
     <string name="revanced_alt_thumbnail_stills">靜態影片擷取</string>
     <string name="revanced_alt_thumbnail_stills_about_summary">靜態捕捉是截取每個影片的開頭/中間/結尾作為縮圖。 這些圖像內建於 YouTube 中，不會使用外部 API。</string>
     <string name="revanced_alt_thumbnail_stills_about_title">關於靜態影片擷取。</string>
@@ -459,8 +468,8 @@
     <string name="revanced_hide_info_cards_summary_off">資訊卡已顯示。</string>
     <string name="revanced_hide_info_cards_summary_on">資訊卡已隱藏。</string>
     <string name="revanced_hide_info_cards_title">資訊卡</string>
-    <string name="revanced_hide_info_panel_summary_off">資訊欄已顯示。</string>
-    <string name="revanced_hide_info_panel_summary_on">資訊欄已隱藏。</string>
+    <string name="revanced_hide_info_panel_summary_off">資訊欄已顯示。\n\n這也將隱藏音訊詮釋資料標籤和影片鏈接標籤。</string>
+    <string name="revanced_hide_info_panel_summary_on">資訊欄已隱藏。\n\n這也將隱藏音訊詮釋資料標籤和影片鏈接標籤。</string>
     <string name="revanced_hide_info_panel_title">隱藏資訊欄</string>
     <string name="revanced_hide_join_button_summary_off">加入按鈕已顯示。</string>
     <string name="revanced_hide_join_button_summary_on">加入按鈕已隱藏。</string>
@@ -469,9 +478,15 @@
     <string name="revanced_hide_keyword_content_comment_summary_off">評論的關鍵字篩選功能已停用。</string>
     <string name="revanced_hide_keyword_content_comment_summary_on">評論的關鍵字篩選功能已啟用。</string>
     <string name="revanced_hide_keyword_content_comment_title">啟用評論的關鍵字篩選功能</string>
-    <string name="revanced_hide_keyword_content_feed_summary_off">內容和搜尋的關鍵字篩選功能已停用。</string>
-    <string name="revanced_hide_keyword_content_feed_summary_on">內容和搜尋的關鍵字篩選功能已啟用。</string>
-    <string name="revanced_hide_keyword_content_feed_title">啟用鍵字篩選功能</string>
+    <string name="revanced_hide_keyword_content_feed_summary_off">關鍵字篩選功能已停用。</string>
+    <string name="revanced_hide_keyword_content_feed_summary_on">關鍵字篩選功能已啟用。</string>
+    <string name="revanced_hide_keyword_content_feed_title">啟用關鍵字篩選功能</string>
+    <string name="revanced_hide_keyword_content_home_summary_off">首頁關鍵字篩選功能已停用。</string>
+    <string name="revanced_hide_keyword_content_home_summary_on">首頁關鍵字篩選功能已啟用。</string>
+    <string name="revanced_hide_keyword_content_home_title">啟用首頁關鍵字篩選功能</string>
+    <string name="revanced_hide_keyword_content_search_summary_off">搜尋關鍵字篩選功能已停用。</string>
+    <string name="revanced_hide_keyword_content_search_summary_on">搜尋關鍵字篩選功能已啟用。</string>
+    <string name="revanced_hide_keyword_content_search_title">啟用搜尋關鍵字篩選功能</string>
     <string name="revanced_hide_keyword_content_sub_summary_off">訂閱的關鍵字過濾功能已停用。</string>
     <string name="revanced_hide_keyword_content_sub_summary_on">訂閱的關鍵字過濾功能已啟用。</string>
     <string name="revanced_hide_keyword_content_sub_title">啟用訂閱的關鍵字篩選功能</string>
@@ -629,9 +644,9 @@
     <string name="revanced_hide_shorts_player_navigation_bar_summary_off">導航列已顯示。</string>
     <string name="revanced_hide_shorts_player_navigation_bar_summary_on">導航列已隱藏。</string>
     <string name="revanced_hide_shorts_player_navigation_bar_title">隱藏導航列</string>
-    <string name="revanced_hide_shorts_player_pivot_button_summary_off">樞紐按鈕已顯示。</string>
-    <string name="revanced_hide_shorts_player_pivot_button_summary_on">樞紐按鈕已隱藏。</string>
-    <string name="revanced_hide_shorts_player_pivot_button_title">隱藏樞紐按鈕</string>
+    <string name="revanced_hide_shorts_player_pivot_button_summary_off">聲音按鈕已顯示。</string>
+    <string name="revanced_hide_shorts_player_pivot_button_summary_on">聲音按鈕已隱藏。</string>
+    <string name="revanced_hide_shorts_player_pivot_button_title">隱藏聲音按鈕</string>
     <string name="revanced_hide_shorts_player_sound_metadata_label_summary_off">音訊詮釋資料標籤已顯示。</string>
     <string name="revanced_hide_shorts_player_sound_metadata_label_summary_on">音訊詮釋資料標籤已隱藏。</string>
     <string name="revanced_hide_shorts_player_sound_metadata_label_title">隱藏音訊詮釋資料標籤</string>
@@ -643,8 +658,17 @@
     <string name="revanced_hide_shorts_player_video_link_label_title">隱藏影片連結標籤</string>
     <string name="revanced_hide_shorts_player_video_title_summary_off">Shorts影片標題已顯示。</string>
     <string name="revanced_hide_shorts_player_video_title_summary_on">Shorts影片標題已隱藏。</string>
-    <string name="revanced_hide_shorts_player_video_title_title">隱藏Shorts影片標題</string>
-    <string name="revanced_hide_shorts_shelf_summary">"可隱藏「短片貨架」
+    <string name="revanced_hide_shorts_player_video_title_title">隱藏Shorts影片標題</string>    
+    <string name="revanced_hide_shorts_shelf_home_summary_off">首頁的 Shorts 已顯示。</string>
+    <string name="revanced_hide_shorts_shelf_home_summary_on">首頁的 Shorts 已隱藏。</string>
+    <string name="revanced_hide_shorts_shelf_home_title">隱藏首頁的 Shorts</string>
+    <string name="revanced_hide_shorts_shelf_search_summary_off">搜尋結果中的 Shorts 已顯示。</string>
+    <string name="revanced_hide_shorts_shelf_search_summary_on">搜尋結果中的 Shorts 已隱藏。</string>
+    <string name="revanced_hide_shorts_shelf_search_title">隱藏搜尋結果中的 Shorts</string>
+    <string name="revanced_hide_shorts_shelf_subscriptions_summary_off">訂閱內容中的 Shorts 已顯示。</string>
+    <string name="revanced_hide_shorts_shelf_subscriptions_summary_on">訂閱內容中的 Shorts 已隱藏。</string>
+    <string name="revanced_hide_shorts_shelf_subscriptions_title">隱藏訂閱內容中的 Shorts</string>
+    <string name="revanced_hide_shorts_shelf_summary">"可隱藏「Shorts 貨架」
 
 但須知道一個已知的問題：這會導致搜索結果中的官方標題也被隱藏。"</string>
     <string name="revanced_hide_shorts_shelf_title">Shorts 功能列</string>
@@ -772,7 +796,7 @@
     <string name="revanced_overlay_button_copy_video_url_title">顯示複製影片網址按鈕</string>
     <string name="revanced_overlay_button_external_downloader_summary">點按以啟動外部下載程式</string>
     <string name="revanced_overlay_button_external_downloader_title">顯示外部下載按鈕</string>
-    <string name="revanced_overlay_button_speed_dialog_reset">已重設播放速度（1.0x）</string>
+    <string name="revanced_overlay_button_speed_dialog_reset">已重設播放速度：%sx</string>
     <string name="revanced_overlay_button_speed_dialog_summary">"點擊以開啟速度對話框
 長按以將播放速度重置為 1.0x。再次長按則會恢復到預設的播放速度。"</string>
     <string name="revanced_overlay_button_time_ordered_playlist_summary">"點擊可產生該頻道從最舊到最新的所有影片的播放清單。
