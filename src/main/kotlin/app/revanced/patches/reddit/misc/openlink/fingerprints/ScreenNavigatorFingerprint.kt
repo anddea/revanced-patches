@@ -14,6 +14,6 @@ object ScreenNavigatorFingerprint : MethodFingerprint(
         Opcode.CONST_STRING,
         Opcode.INVOKE_STATIC
     ),
-    strings = listOf("uri", "android.intent.action.VIEW", "com.reddit"),
+    strings = listOf("activity", "uri"),
     customFingerprint = { _, classDef -> classDef.sourceFile == "RedditScreenNavigator.kt" }
 )
