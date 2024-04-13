@@ -80,7 +80,7 @@ object SettingsPatch : AbstractSettingsResourcePatch(
         key = "SettingElement",
         default = DEFAULT_ELEMENT,
         title = "Insert position",
-        description = "Specify the setting name(Do not write "Account" and "Your data on YouTube"!) before which the RVX setting should be inserted."
+        description = "Specify the setting name before which the RVX setting should be inserted.(Must not inject "Account" and "Your data on YouTube"!)"
     )
 
     private val SETTINGS_ELEMENTS_MAP = mapOf(
