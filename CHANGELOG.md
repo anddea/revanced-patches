@@ -1,3 +1,15 @@
+# [2.224.0-dev.5](https://github.com/anddea/revanced-patches/compare/v2.224.0-dev.4...v2.224.0-dev.5) (2024-04-15)
+
+
+### Bug Fixes
+
+* **YouTube - Settings:** Update `Insert position` to work with "Account" and "Your data" and fallback to "About" if specified key does not exist ([1c5b0bc](https://github.com/anddea/revanced-patches/commit/1c5b0bc28f214518f7a28df66ef5d211a3ec93b3))
+
+
+### Features
+
+* **YouTube:** Use new Navigation Bar fingerprint for Suggestions Shelves and Community posts instead of BrowseID ([5c21b93](https://github.com/anddea/revanced-patches/commit/5c21b934b875df2ee729c9db36a3a823714c550e))
+
 # [2.224.0-dev.4](https://github.com/anddea/revanced-patches/compare/v2.224.0-dev.3...v2.224.0-dev.4) (2024-04-13)
 
 
