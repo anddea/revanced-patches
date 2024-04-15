@@ -7,7 +7,7 @@
     <string name="microg_settings_title">MicroG</string>
     <string name="revanced_ads">Διαφημίσεις</string>
     <string name="revanced_alt_thumbnails">Εναλλακτικές μικρογραφίες</string>
-    <string name="revanced_alt_thumbnail_dearrow_about_summary">"Το DeArrow παρέχει μικρογραφίες από το πλήθος για τα βίντεο στο YouTube. Αυτές οι μικρογραφίες είναι συχνά πιο σχετικές από εκείνες που παρέχονται από το YouTube. Εάν ενεργοποιηθεί, οι διευθύνσεις URL των βίντεο θα αποστέλλονται στον διακομιστή API και δεν θα αποστέλλονται άλλα δεδομένα.\n\nΠατήστε για να μάθετε περισσότερα για το DeArrow."</string>
+    <string name="revanced_alt_thumbnail_dearrow_about_summary">"Το DeArrow παρέχει μικρογραφίες από το πλήθος για τα βίντεο στο YouTube. Αυτές οι μικρογραφίες είναι συχνά πιο σχετικές από εκείνες που παρέχονται από το YouTube\n\nΕάν ενεργοποιηθεί, οι διευθύνσεις URL των βίντεο θα αποστέλλονται στον διακομιστή API χωρίς να αποστέλλονται άλλα δεδομένα. Αν κάποιο βίντεο δεν έχει μικρογραφίες DeArrow, τότε θα εμφανιστούν είτε οι αρχικές του μικρογραφίες είτε λήψεις ακίνητων καρέ.\n\nΠατήστε για να μάθετε περισσότερα για το DeArrow."</string>
     <string name="revanced_alt_thumbnail_dearrow_about_title">Σχετικά με το DeArrow</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_summary">"Η διεύθυνση URL του τελικού σημείου αποθήκευσης μικρογραφιών DeArrow. Μην το αλλάξετε αν δεν ξέρετε τι κάνετε."</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_title">Τελικό σημείο του DeArrow API</string>
@@ -70,7 +70,7 @@
     <string name="revanced_close_interstitial_ads_title">Κλείσιμο ενδιάμεσων διαφημίσεων</string>
     <string name="revanced_close_interstitial_ads_toast">Γίνεται κλείσιμο ενδιάμεσων διαφημίσεων.</string>
     <string name="revanced_comments_title">Σχόλια</string>
-    <string name="revanced_custom_filter_strings_summary">Ρύθμιση λίστας των συμβολοσειρών διαδρομής στοιχείων που θα φιλτραριστούν, διαχωρισμένες με νέες γραμμές.</string>
+    <string name="revanced_custom_filter_strings_summary">Λίστα από συμβολοσειρές στοιχείων που θα φιλτραριστούν, διαχωρισμένες με νέες γραμμές.</string>
     <string name="revanced_custom_filter_strings_title">Επεξεργασία προσαρμοσμένου φίλτρου</string>
     <string name="revanced_custom_filter_toast_invalid_characters" formated="false">Μη έγκυρο προσαρμοσμένο φίλτρο (πρέπει να είναι μόνο χαρακτήρες ASCII): %s</string>
     <string name="revanced_custom_filter_toast_invalid_syntax" formated="false">Μη έγκυρο προσαρμοσμένο φίλτρο: %s</string>
@@ -342,9 +342,9 @@
     <string name="revanced_hide_cast_button_summary_off">Εμφανίζεται.</string>
     <string name="revanced_hide_cast_button_summary_on">Κρυμμένο.</string>
     <string name="revanced_hide_cast_button_title">Κουμπί μετάδοσης</string>
-    <string name="revanced_hide_category_bar_in_feed_title">Γραμμή φίλτρων στη ροή</string>
-    <string name="revanced_hide_category_bar_in_related_video_title">Γραμμή φίλτρων στα σχετικά βίντεο</string>
-    <string name="revanced_hide_category_bar_in_search_results_title">Γραμμή φίλτρων στα αποτελέσματα αναζήτησης</string>
+    <string name="revanced_hide_category_bar_in_feed_title">Γραμμή κατηγοριών στη ροή</string>
+    <string name="revanced_hide_category_bar_in_related_video_title">Γραμμή κατηγοριών στα σχετικά βίντεο</string>
+    <string name="revanced_hide_category_bar_in_search_results_title">Γραμμή κατηγοριών στα αποτελέσματα αναζήτησης</string>
     <string name="revanced_hide_category_bar_summary_off">Εμφανίζεται.</string>
     <string name="revanced_hide_category_bar_summary_on">Κρυμμένη.</string>
     <string name="revanced_hide_channel_guidelines_summary_off">Εμφανίζονται.</string>
@@ -394,7 +394,7 @@
     <string name="revanced_hide_create_shorts_button_title">Κουμπί δημιουργίας Shorts</string>
     <string name="revanced_hide_crowdfunding_box_summary_off">Εμφανίζεται.</string>
     <string name="revanced_hide_crowdfunding_box_summary_on">Κρυμμένο.</string>
-    <string name="revanced_hide_crowdfunding_box_title">Κουτί δωρεάς</string>
+    <string name="revanced_hide_crowdfunding_box_title">Πλαίσιο δωρεών</string>
     <string name="revanced_hide_emoji_picker_summary_off">Εμφανίζονται.</string>
     <string name="revanced_hide_emoji_picker_summary_on">Κρυμμένα.</string>
     <string name="revanced_hide_emoji_picker_title">Επιλογέας emoji και χρονική σήμανση</string>
@@ -434,7 +434,7 @@
     <string name="revanced_hide_general_ads_title">Γενικές διαφημίσεις</string>
     <string name="revanced_hide_get_premium_summary_off">Εμφανίζονται.</string>
     <string name="revanced_hide_get_premium_summary_on">Κρυμμένες.</string>
-    <string name="revanced_hide_get_premium_title">Διαφημίσεις YouTube Premium</string>
+    <string name="revanced_hide_get_premium_title">Προωθήσεις YouTube Premium</string>
     <string name="revanced_hide_gray_description_summary_off">"Εμφανίζεται:
 • Στη λίστα αναπαραγωγής σας «Παρακολούθηση αργότερα».
 • «Άλλοι χρήστες παρακολούθησαν αυτό το βίντεο».
@@ -479,10 +479,10 @@
     <string name="revanced_hide_library_button_title">Κουμπί «Βιβλιοθήκη»</string>
     <string name="revanced_hide_load_more_button_summary_off">Εμφανίζεται.</string>
     <string name="revanced_hide_load_more_button_summary_on">Κρυμμένο.</string>
-    <string name="revanced_hide_load_more_button_title">Κουμπί «Φόρτωση περισσότερων»</string>
+    <string name="revanced_hide_load_more_button_title">Κουμπί «Εμφάνιση περισσότερων»</string>
     <string name="revanced_hide_medical_panel_summary_off">Εμφανίζονται.</string>
     <string name="revanced_hide_medical_panel_summary_on">Κρυμμένα.</string>
-    <string name="revanced_hide_medical_panel_title">Ιατρικά πάνελ</string>
+    <string name="revanced_hide_medical_panel_title">Πάνελ ιατρικών πληροφοριών</string>
     <string name="revanced_hide_merchandise_shelf_summary_off">Εμφανίζεται.</string>
     <string name="revanced_hide_merchandise_shelf_summary_on">Κρυμμένη.</string>
     <string name="revanced_hide_merchandise_shelf_title">Ενότητα προϊόντων</string>
@@ -503,7 +503,7 @@
     <string name="revanced_hide_notifications_button_title">Κουμπί «Ειδοποιήσεις»</string>
     <string name="revanced_hide_notify_me_button_summary_off">Εμφανίζεται.</string>
     <string name="revanced_hide_notify_me_button_summary_on">Κρυμμένο.</string>
-    <string name="revanced_hide_notify_me_button_title">Κουμπί «Ειδοποίησε με»</string>
+    <string name="revanced_hide_notify_me_button_title">Κουμπί «Να λαμβάνω ειδοποιήσεις»</string>
     <string name="revanced_hide_paid_promotion_banner_summary_off">Εμφανίζεται.</string>
     <string name="revanced_hide_paid_promotion_banner_summary_on">Κρυμμένη.</string>
     <string name="revanced_hide_paid_promotion_banner_title">Ετικέτα πληρωμένων προωθήσεων</string>
@@ -569,7 +569,7 @@
     <string name="revanced_hide_preview_comment_type_title">Τύπος απόκρυψης προεπισκόπησης σχολίου</string>
     <string name="revanced_hide_previous_next_button_summary_off">Εμφανίζονται.</string>
     <string name="revanced_hide_previous_next_button_summary_on">Κρυμμένα.</string>
-    <string name="revanced_hide_previous_next_button_title">Κουμπιάre προηγούμενου &amp; επόμενου βίντεο</string>
+    <string name="revanced_hide_previous_next_button_title">Κουμπιά προηγούμενου &amp; επόμενου βίντεο</string>
     <string name="revanced_hide_quick_actions_comment_summary_off">Εμφανίζεται.</string>
     <string name="revanced_hide_quick_actions_comment_summary_on">Κρυμμένο.</string>
     <string name="revanced_hide_quick_actions_comment_title">Κουμπί σχολίου</string>
@@ -618,8 +618,8 @@
     <string name="revanced_hide_shorts_player_save_sound_button_summary_on">Κρυμμένο.</string>
     <string name="revanced_hide_shorts_player_save_sound_button_title">Κουμπί αποθήκευσης ήχου σε λίστα αναπαραγωγής</string>
     <string name="revanced_hide_shorts_player_location_button_summary_off">Εμφανίζεται.</string>
-    <string name="revanced_hide_shorts_player_location_button_summary_on">Κρυμμένο.</string>
-    <string name="revanced_hide_shorts_player_location_button_title">Κουμπί τοποθεσίας</string>
+    <string name="revanced_hide_shorts_player_location_button_summary_on">Κρυμμένη.</string>
+    <string name="revanced_hide_shorts_player_location_button_title">Ετικέτα τοποθεσίας</string>
     <string name="revanced_hide_shorts_player_shop_button_summary_off">Εμφανίζεται.</string>
     <string name="revanced_hide_shorts_player_shop_button_summary_on">Κρυμμένο.</string>
     <string name="revanced_hide_shorts_player_shop_button_title">Κουμπί καταστήματος</string>
@@ -683,19 +683,9 @@
     <string name="revanced_hide_suggested_video_overlay_title">Τελική οθόνη προτεινόμενου βίντεο</string>
     <string name="revanced_hide_suggested_video_overlay_auto_play_summary">Όταν τελειώνει ένα βίντεο, το επόμενο θα αναπαράγεται αυτόματα.</string>
     <string name="revanced_hide_suggested_video_overlay_auto_play_title">Αυτόματη αναπαραγωγή επόμενου βίντεο</string>
-    <string name="revanced_hide_suggestions_shelf_method_summary_off">"Προσδιορισμός της ενότητας προτάσεων μέσω του αναγνωριστικό περιήγησης.
-
-Γνωστά θέματα:
-• Όταν το αναγνωριστικό περιήγησης (Browseid) δεν αναγνωρίζεται, οι ενότητες προτάσεων ενδέχεται να εμφανίζονται."</string>
-    <string name="revanced_hide_suggestions_shelf_method_summary_on">"Προσδιορισμός της ενότητας προτάσεων μέσω της τρέχουσας καρτέλας.
-
-Γνωστά θέματα:
-• Ενδέχεται να είναι κρυμμένες περισσότερες ενότητες.
-• Ενδέχεται να είναι κρυμμένες οι ενότητες λίστας αναπαραγωγής."</string>
-    <string name="revanced_hide_suggestions_shelf_method_title">Επιλέξτε μέθοδο για την απόκρυψη των ενοτήτων</string>
     <string name="revanced_hide_suggestions_shelf_summary">"Απόκρυψη των παρακάτω ενοτήτων:
 • Έκτακτες ειδήσεις
-• Συνεχίστε να παρακολουθείτε
+• Συνέχεια παρακολούθησης
 • Εξερευνήστε περισσότερα κανάλια
 • Ακούστε ξανά
 • Αγορές
@@ -794,7 +784,7 @@
     <string name="revanced_patches_information">Πληροφορίες Τροποποιήσεων</string>
     <string name="revanced_patches_information_summary">Πληροφορίες σχετικά με τις εφαρμοσμένες τροποποιήσεις.</string>
     <string name="revanced_playback_speed_normal">Κανονική</string>
-    <string name="revanced_player">Αναπαραγωγέας</string>
+    <string name="revanced_player">Οθόνη αναπαραγωγής</string>
     <string name="revanced_player_flyout_panel_additional_settings_summary">Για απόκρυψη του μενού πρόσθετων ρυθμίσεων, ενεργοποιήστε όλες τις ρυθμίσεις απόκρυψης στοιχείων στην κατηγορία «Πρόσθετες ρυθμίσεις».</string>
     <string name="revanced_player_flyout_panel_additional_settings_title">Αναδυόμενος πίνακας του αναπαραγωγέα (Πρόσθετες ρυθμίσεις)</string>
     <string name="revanced_player_flyout_panel_title">Αναδυόμενος πίνακας του αναπαραγωγέα</string>
@@ -847,7 +837,7 @@
     <string name="revanced_shorts_toolbar_title">Γραμμή εργαλείων Shorts</string>
     <string name="revanced_show_fullscreen_title_summary">Γνωστό θέμα: ο τίτλος εξαφανίζεται όταν πατηθεί.</string>
     <string name="revanced_show_fullscreen_title_title">Εμφάνιση τίτλου σε πλήρη οθόνη</string>
-    <string name="revanced_skipped_preloaded_buffer">Έγινε παράλειψη προφορτωμένου buffer.</string>
+    <string name="revanced_skipped_preloaded_buffer">Η προφόρτωση βίντεο παραλείφθηκε.</string>
     <string name="revanced_skip_preloaded_buffer_summary">"Παράλειψη της προφόρτωσης στην αρχή του βίντεο, για να γίνει παράκαμψη της καθυστέρησης στην εφαρμογή της προεπιλεγμένης ποιότητας.
 
 • Υπάρχει μια καθυστέρηση περίπου 0,7 δευτερολέπτων κατά την έναρξη του βίντεο, αλλά η προεπιλεγμένη ποιότητα εφαρμόζεται αμέσως.
@@ -897,7 +887,7 @@
     <string name="revanced_swipe_gestures_lock_mode_title">"Χρήση στη λειτουργία «Οθόνη κλειδώματος»"</string>
     <string name="revanced_swipe_magnitude_threshold_summary">Ελάχιστο πλάτος κίνησης αναγνωρίσιμο ως χειρονομία σάρωσης.</string>
     <string name="revanced_swipe_magnitude_threshold_title">Κατώτατο όριο μεγέθους σάρωσης</string>
-    <string name="revanced_swipe_overlay_background_alpha_summary">Η ορατότητα φόντου των στοιχείων ελέγχου κατά τη χρήση σάρωσης.</string>
+    <string name="revanced_swipe_overlay_background_alpha_summary">Η ορατότητα του φόντου σάρωσης στο παρασκήνιο.</string>
     <string name="revanced_swipe_overlay_background_alpha_title">Ορατότητα φόντου σάρωσης</string>
     <string name="revanced_swipe_overlay_text_size_summary">Το μέγεθος κειμένου στοιχείων ελέγχου του φόντου σάρωσης.</string>
     <string name="revanced_swipe_overlay_text_size_title">Μέγεθος κειμένου φόντου σάρωσης</string>
