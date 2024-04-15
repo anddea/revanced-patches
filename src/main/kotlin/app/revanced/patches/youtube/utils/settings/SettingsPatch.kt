@@ -76,8 +76,8 @@ object SettingsPatch : AbstractSettingsResourcePatch(
 ), Closeable {
     private const val DEFAULT_ELEMENT = "About"
 
-    private val SettingElement by stringPatchOption(
-        key = "SettingElement",
+    private val InsertPosition by stringPatchOption(
+        key = "InsertPosition",
         default = DEFAULT_ELEMENT,
         title = "Insert position",
         description = "Specify the setting name before which the RVX setting should be inserted."
@@ -86,14 +86,14 @@ object SettingsPatch : AbstractSettingsResourcePatch(
     private val SETTINGS_ELEMENTS_MAP = mapOf(
         "parent settings" to "@string/parent_tools_key",
         "general" to "@string/general_key",
-        // "account" to "@string/account_switcher_key",
+        "account" to "@string/account_switcher_key",
         "data saving" to "@string/data_saving_settings_key",
         "autoplay" to "@string/auto_play_key",
         "video quality preferences" to "@string/video_quality_settings_key",
         "background" to "@string/offline_key",
         "watch on tv" to "@string/pair_with_tv_key",
         "manage all history" to "@string/history_key",
-        // "your data in youtube" to "@string/your_data_key",
+        "your data in youtube" to "@string/your_data_key",
         "privacy" to "@string/privacy_key",
         "history & privacy" to "@string/privacy_key",
         "try experimental new features" to "@string/premium_early_access_browse_page_key",
@@ -176,7 +176,9 @@ object SettingsPatch : AbstractSettingsResourcePatch(
         /**
          * initialize ReVanced Extended Settings
          */
-        SETTINGS_ELEMENTS_MAP[SettingElement?.lowercase()]?.let { addReVancedPreference("extended_settings", it) }
+        val positionKey = InsertPosition?.lowercase()
+        val elementKey = SETTINGS_ELEMENTS_MAP[positionKey] ?: SETTINGS_ELEMENTS_MAP[DEFAULT_ELEMENT.lowercase()]
+        elementKey?.let { addReVancedPreference("extended_settings", it) }
 
         /**
          * remove ReVanced Extended Settings divider
