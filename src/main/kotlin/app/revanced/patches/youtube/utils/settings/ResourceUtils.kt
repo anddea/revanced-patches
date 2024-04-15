@@ -114,7 +114,7 @@ object ResourceUtils {
                     }
 
                     when {
-                        key == "extended_settings" && currentKey == insertKey && node.getAttribute("app:iconSpaceReserved") == "false" -> {
+                        key == "extended_settings" && currentKey == insertKey -> {
                             node.insertNode("Preference", node) {
                                 setAttribute("android:key", "revanced_${key}_key")
                                 setAttribute("android:title", "@string/revanced_${key}_title")
