@@ -2815,16 +2815,6 @@ public final class app/revanced/patches/youtube/swipe/controls/fingerprints/Swip
 	public static final field INSTANCE Lapp/revanced/patches/youtube/swipe/controls/fingerprints/SwipeControlsHostActivityFingerprint;
 }
 
-public final class app/revanced/patches/youtube/utils/browseid/BrowseIdHookPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/browseid/BrowseIdHookPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-}
-
-public final class app/revanced/patches/youtube/utils/browseid/fingerprints/BrowseIdClassFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/browseid/fingerprints/BrowseIdClassFingerprint;
-}
-
 public final class app/revanced/patches/youtube/utils/controlsoverlay/DisableControlsOverlayConfigPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/controlsoverlay/DisableControlsOverlayConfigPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
@@ -3097,24 +3087,6 @@ public final class app/revanced/patches/youtube/utils/microg/fingerprints/PrimeF
 
 public final class app/revanced/patches/youtube/utils/microg/fingerprints/ServiceCheckFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/microg/fingerprints/ServiceCheckFingerprint;
-}
-
-public final class app/revanced/patches/youtube/utils/navbarindex/NavBarIndexHookPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/navbarindex/NavBarIndexHookPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-}
-
-public final class app/revanced/patches/youtube/utils/navbarindex/fingerprints/MobileTopBarButtonOnClickFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/navbarindex/fingerprints/MobileTopBarButtonOnClickFingerprint;
-}
-
-public final class app/revanced/patches/youtube/utils/navbarindex/fingerprints/PivotBarIndexFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/navbarindex/fingerprints/PivotBarIndexFingerprint;
-}
-
-public final class app/revanced/patches/youtube/utils/navbarindex/fingerprints/SettingsActivityOnBackPressedFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/navbarindex/fingerprints/SettingsActivityOnBackPressedFingerprint;
 }
 
 public final class app/revanced/patches/youtube/utils/overridequality/OverrideQualityHookPatch : app/revanced/patcher/patch/BytecodePatch {
