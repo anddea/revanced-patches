@@ -117,11 +117,11 @@
         <SwitchPreference android:title="@string/revanced_hide_ticket_shelf_title" android:key="revanced_hide_ticket_shelf" android:defaultValue="true" android:summaryOn="@string/revanced_hide_ticket_shelf_summary_on" android:summaryOff="@string/revanced_hide_ticket_shelf_summary_off" />
         <SwitchPreference android:title="@string/revanced_hide_timed_reactions_title" android:key="revanced_hide_timed_reactions" android:defaultValue="false" android:summaryOn="@string/revanced_hide_timed_reactions_summary_on" android:summaryOff="@string/revanced_hide_timed_reactions_summary_off" /> SETTINGS: HIDE_LAYOUT_COMPONENTS -->
 
-        <!-- SETTINGS: GENERAL_EXPERIMENTAL_FLAGS
-        <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_experimental_flag" /> SETTINGS: GENERAL_EXPERIMENTAL_FLAGS -->
-
         <!-- SETTINGS: HIDE_SUGGESTIONS_SHELF
         <SwitchPreference android:title="@string/revanced_hide_suggestions_shelf_title" android:key="revanced_hide_suggestions_shelf" android:defaultValue="true" android:summary="@string/revanced_hide_suggestions_shelf_summary" /> SETTINGS: HIDE_SUGGESTIONS_SHELF -->
+
+        <!-- SETTINGS: GENERAL_EXPERIMENTAL_FLAGS
+        <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_experimental_flag" /> SETTINGS: GENERAL_EXPERIMENTAL_FLAGS -->
 
         <!-- SETTINGS: HIDE_LAYOUT_COMPONENTS
         <SwitchPreference android:title="@string/revanced_hide_home_feed_membership_video_title" android:key="revanced_hide_home_feed_membership_video" android:defaultValue="false" android:summary="@string/revanced_hide_home_feed_membership_video_summary" />
@@ -660,7 +660,7 @@
         <Preference android:title=" " android:selectable="false" android:summary="@string/pref_about_category" />
         <PreferenceScreen android:title="@string/revanced_patches_information"  android:summary="@string/revanced_patches_information_summary" >
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_tool_used" />
-            <Preference android:title="ReVanced Patches" android:selectable="false" android:summary="2.224.0-dev.4" />
+            <Preference android:title="ReVanced Patches" android:selectable="false" android:summary="2.224.0-dev.5" />
             <Preference android:title="ReVanced Integrations" android:selectable="false" android:summary="" />
 
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_ads" />
