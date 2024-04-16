@@ -1,3 +1,30 @@
+# [2.224.0-dev.6](https://github.com/anddea/revanced-patches/compare/v2.224.0-dev.5...v2.224.0-dev.6) (2024-04-16)
+
+
+### Features
+
+* **YouTube - Visual preferences icons:** Icon for Extended setting based on `Custom branding icon` ([a674b1a](https://github.com/anddea/revanced-patches/commit/a674b1af1cf0a326ba6a3678f0da26d6ba7558ce))
+
+# [2.224.0-dev.5](https://github.com/anddea/revanced-patches/compare/v2.224.0-dev.4...v2.224.0-dev.5) (2024-04-15)
+
+
+### Bug Fixes
+
+* **YouTube - Settings:** Update `Insert position` to work with "Account" and "Your data" and fallback to "About" if specified key does not exist ([1c5b0bc](https://github.com/anddea/revanced-patches/commit/1c5b0bc28f214518f7a28df66ef5d211a3ec93b3))
+
+
+### Features
+
+* **YouTube:** Use new Navigation Bar fingerprint for Suggestions Shelves and Community posts instead of BrowseID ([5c21b93](https://github.com/anddea/revanced-patches/commit/5c21b934b875df2ee729c9db36a3a823714c550e))
+
+# [2.224.0-dev.4](https://github.com/anddea/revanced-patches/compare/v2.224.0-dev.3...v2.224.0-dev.4) (2024-04-13)
+
+
+### Features
+
+* **Reddit:** Support new versions ([052dba4](https://github.com/anddea/revanced-patches/commit/052dba4316598cfe70603c17e62208adfb8ccb3a))
+* **YouTube - Hide Shorts components:** Hide `Shop`, `Location` and `Save sound to playlist` buttons ([59a34a5](https://github.com/anddea/revanced-patches/commit/59a34a5ad894fddf136a5d383fe9a3ce8c10369b))
+
 # [2.224.0-dev.3](https://github.com/anddea/revanced-patches/compare/v2.224.0-dev.2...v2.224.0-dev.3) (2024-04-12)
 
 
