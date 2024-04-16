@@ -5,6 +5,7 @@ import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.booleanPatchOption
+import app.revanced.patches.youtube.layout.branding.icon.CustomBrandingIconPatch
 import app.revanced.util.ResourceGroup
 import app.revanced.util.copyResources
 import org.w3c.dom.Document
@@ -32,7 +33,15 @@ object VisualSettingsIconsPatch : ResourcePatch() {
         key = "ExtendedSettings",
         default = true,
         title = "Extended settings",
-        description = "Apply icons to extended main screen settings",
+        description = "Apply icons to Extended main screen settings",
+        required = true
+    )
+
+    private val ExtendedBrand by booleanPatchOption(
+        key = "ExtendedBrand",
+        default = false,
+        title = "Extended brand icon",
+        description = "Icon for Extended setting based on \"Custom branding icon\". If this option is enabled but \"Custom branding icon\" patch is excluded, it will use default custom branding icon.",
         required = true
     )
 
@@ -122,8 +131,6 @@ object VisualSettingsIconsPatch : ResourcePatch() {
             "captions_key",
             "accessibility_settings_key",
             "about_key",
-
-            "revanced_extended_settings_key",
         )
 
         val validExtendedTitles = setOf(
@@ -143,6 +150,10 @@ object VisualSettingsIconsPatch : ResourcePatch() {
             "revanced_ryd_settings_key",
             "revanced_sponsorblock_settings_key",
             "misc",
+        )
+
+        val validExtendedBrand = setOf(
+            "revanced_extended_settings_key",
         )
 
         val emptyTitles = setOf(
@@ -190,6 +201,7 @@ object VisualSettingsIconsPatch : ResourcePatch() {
         }
 
         val validMainTitlesIcons = validMainTitles.associateWith { "${it}_icon" }
+        val validExtendedBrandIcon = validExtendedBrand.associateWith { "${it}_icon" }
 
         val validExtendedTitlesIcons = validExtendedTitles.associateWith { title ->
             when (title) {
@@ -208,6 +220,23 @@ object VisualSettingsIconsPatch : ResourcePatch() {
 
         if (MainSettings!!) resourcesToCopy.add(ResourceGroup("drawable", *validMainTitlesIcons.values.map { "$it.xml" }.toTypedArray()))
         if (ExtendedSettings!!) resourcesToCopy.add(ResourceGroup("drawable", *validExtendedTitlesIcons.values.map { "$it.xml" }.toTypedArray()))
+
+        CustomBrandingIconPatch.AppIcon?.let { appIcon ->
+            val appIconValue = appIcon.lowercase().replace(" ", "_")
+            val resourcePath = "youtube/branding/$appIconValue"
+
+            if (ExtendedBrand!!) {
+                arrayOf(
+                    ResourceGroup(
+                        "drawable", "revanced_extended_settings_key_icon.xml"
+                    )
+                ).forEach { resourceGroup ->
+                    context.copyResources("$resourcePath/launcher", resourceGroup)
+                }
+            } else {
+                resourcesToCopy.add(ResourceGroup("drawable", *validExtendedBrandIcon.values.map { "$it.xml" }.toTypedArray()))
+            }
+        }
 
         resourcesToCopy.forEach { context.copyResources("youtube/settings", it) }
 
@@ -235,6 +264,7 @@ object VisualSettingsIconsPatch : ResourcePatch() {
                         title in validTitles -> validTitlesIcons[title]
                         MainSettings!! && title in validMainTitles -> validMainTitlesIcons[title]
                         ExtendedSettings!! && title in validExtendedTitles -> validExtendedTitlesIcons[title]
+                        title in validExtendedBrand -> validExtendedBrandIcon[title]
                         title in emptyTitles -> emptyIcon
                         else -> null
                     }
