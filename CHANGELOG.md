@@ -1,3 +1,10 @@
+# [2.224.0-dev.6](https://github.com/anddea/revanced-patches/compare/v2.224.0-dev.5...v2.224.0-dev.6) (2024-04-16)
+
+
+### Features
+
+* **YouTube - Visual preferences icons:** Icon for Extended setting based on `Custom branding icon` ([a674b1a](https://github.com/anddea/revanced-patches/commit/a674b1af1cf0a326ba6a3678f0da26d6ba7558ce))
+
 # [2.224.0-dev.5](https://github.com/anddea/revanced-patches/compare/v2.224.0-dev.4...v2.224.0-dev.5) (2024-04-15)
 
 
