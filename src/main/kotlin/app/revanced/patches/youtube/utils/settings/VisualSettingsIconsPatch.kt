@@ -221,24 +221,30 @@ object VisualSettingsIconsPatch : ResourcePatch() {
         if (MainSettings!!) resourcesToCopy.add(ResourceGroup("drawable", *validMainTitlesIcons.values.map { "$it.xml" }.toTypedArray()))
         if (ExtendedSettings!!) resourcesToCopy.add(ResourceGroup("drawable", *validExtendedTitlesIcons.values.map { "$it.xml" }.toTypedArray()))
 
+        // Always copy default icon even if ExtendedBrand is true, as a fallback method
+        resourcesToCopy.add(ResourceGroup("drawable", *validExtendedBrandIcon.values.map { "$it.xml" }.toTypedArray()))
+        resourcesToCopy.forEach { context.copyResources("youtube/settings", it) }
+
         CustomBrandingIconPatch.AppIcon?.let { appIcon ->
             val appIconValue = appIcon.lowercase().replace(" ", "_")
             val resourcePath = "youtube/branding/$appIconValue"
 
             if (ExtendedBrand!!) {
-                arrayOf(
-                    ResourceGroup(
-                        "drawable", "revanced_extended_settings_key_icon.xml"
-                    )
-                ).forEach { resourceGroup ->
-                    context.copyResources("$resourcePath/launcher", resourceGroup)
+                // Try to copy custom branding icon and override default icon if it exists,
+                // otherwise it will use a fallback default icon.
+                try {
+                    arrayOf(
+                        ResourceGroup(
+                            "drawable", "revanced_extended_settings_key_icon.xml"
+                        )
+                    ).forEach { resourceGroup ->
+                        context.copyResources("$resourcePath/launcher", resourceGroup)
+                    }
+                } catch (_: Exception) {
+                    // Icon does not exist, just skip without error as it fallbacks to default
                 }
-            } else {
-                resourcesToCopy.add(ResourceGroup("drawable", *validExtendedBrandIcon.values.map { "$it.xml" }.toTypedArray()))
             }
         }
-
-        resourcesToCopy.forEach { context.copyResources("youtube/settings", it) }
 
         val tagNames = listOf(
             "app.revanced.integrations.youtube.settingsmenu.ResettableEditTextPreference",
