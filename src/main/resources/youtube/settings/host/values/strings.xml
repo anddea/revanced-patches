@@ -646,6 +646,15 @@ Some components may not be hidden."</string>
     <string name="revanced_hide_shorts_player_comments_button_summary_off">Comments button is shown.</string>
     <string name="revanced_hide_shorts_player_comments_button_summary_on">Comments button is hidden.</string>
     <string name="revanced_hide_shorts_player_comments_button_title">Hide comments button</string>
+    <string name="revanced_hide_shorts_player_save_sound_button_summary_off">Save sound to playlist button is shown.</string>
+    <string name="revanced_hide_shorts_player_save_sound_button_summary_on">Save sound to playlist button is hidden.</string>
+    <string name="revanced_hide_shorts_player_save_sound_button_title">Hide save sound to playlist button</string>
+    <string name="revanced_hide_shorts_player_location_button_summary_off">Location button is shown.</string>
+    <string name="revanced_hide_shorts_player_location_button_summary_on">Location button is hidden.</string>
+    <string name="revanced_hide_shorts_player_location_button_title">Hide location button</string>
+    <string name="revanced_hide_shorts_player_shop_button_summary_off">Shop button is shown.</string>
+    <string name="revanced_hide_shorts_player_shop_button_summary_on">Shop button is hidden.</string>
+    <string name="revanced_hide_shorts_player_shop_button_title">Hide shop button</string>
     <string name="revanced_hide_shorts_player_navigation_bar_summary_off">Navigation bar is shown.</string>
     <string name="revanced_hide_shorts_player_navigation_bar_summary_on">Navigation bar is hidden.</string>
     <string name="revanced_hide_shorts_player_navigation_bar_title">Hide navigation bar</string>
@@ -666,8 +675,8 @@ Some components may not be hidden."</string>
     <string name="revanced_hide_shorts_player_video_link_label_title">Hide video link label</string>
     <string name="revanced_hide_shorts_shelf_summary">Hides Shorts shelves.\n\nKnown issue: Official headers in search results will be hidden.</string>
     <string name="revanced_hide_shorts_shelf_title">Hide Shorts shelf</string>
-    <string name="revanced_hide_shorts_shelf_home_summary_off">Shorts in home feed are shown.</string>
-    <string name="revanced_hide_shorts_shelf_home_summary_on">Shorts in home feed are hidden.</string>
+    <string name="revanced_hide_shorts_shelf_home_summary_off">Shorts in home feed are shown.\n\nThis will also hide:\n• Shorts shelf in related videos under video player\n• Shorts section in description</string>
+    <string name="revanced_hide_shorts_shelf_home_summary_on">Shorts in home feed are hidden.\n\nThis will also hide:\n• Shorts shelf in related videos under video player\n• Shorts section in description</string>
     <string name="revanced_hide_shorts_shelf_home_title">Hide Shorts in home feed</string>
     <string name="revanced_hide_shorts_shelf_search_summary_off">Shorts in search results are shown.</string>
     <string name="revanced_hide_shorts_shelf_search_summary_on">Shorts in search results are hidden.</string>
@@ -706,16 +715,6 @@ Some components may not be hidden."</string>
     <string name="revanced_hide_suggested_video_overlay_title">Hide suggested video overlay</string>
     <string name="revanced_hide_suggested_video_overlay_auto_play_summary">When you finished a video, another play automatically</string>
     <string name="revanced_hide_suggested_video_overlay_auto_play_title">Auto play the next video</string>
-    <string name="revanced_hide_suggestions_shelf_method_summary_off">"Identifies the suggestions shelf through the browse id.
-
-Known issues:
-• When Browseid is not identified, suggestions shelf may not be hidden."</string>
-    <string name="revanced_hide_suggestions_shelf_method_summary_on">"Identifies the suggestions shelf through the current tab.
-
-Known issues:
-• More drawer shelves may be hidden.
-• Playlist shelves may be hidden."</string>
-    <string name="revanced_hide_suggestions_shelf_method_title">Select method to hide shelves</string>
     <string name="revanced_hide_suggestions_shelf_summary">"Hides following shelves:
 • Breaking news
 • Continue watching
