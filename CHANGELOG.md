@@ -1,3 +1,17 @@
+# [2.224.0-dev.7](https://github.com/anddea/revanced-patches/compare/v2.224.0-dev.6...v2.224.0-dev.7) (2024-04-17)
+
+
+### Bug Fixes
+
+* **YouTube - Visual preferences icons:** Fallback to default icon for ExtendedBrand if custom branding icon does not exist ([c47dc23](https://github.com/anddea/revanced-patches/commit/c47dc23e5dbc06534cfdc568d2edd23b62d3f7a6))
+
+
+### Features
+
+* **YouTube - Hide layout components:** Hide playables ([5ffdeca](https://github.com/anddea/revanced-patches/commit/5ffdecaee690cd5c5ed3d4402c95cc4a3ef642d5))
+* **YouTube - Hide Shorts components:** Hide live chat messages and header in Shorts ([71de5f4](https://github.com/anddea/revanced-patches/commit/71de5f4e857dca35b08440ac7313f7a97d05844c))
+* **YouTube - Hide Shorts components:** Hide tagged products, hide search suggestions, fix subscribe button not hidden ([4d997f8](https://github.com/anddea/revanced-patches/commit/4d997f8a098446d36a58bc89772ff32dbec3e22b))
+
 # [2.224.0-dev.6](https://github.com/anddea/revanced-patches/compare/v2.224.0-dev.5...v2.224.0-dev.6) (2024-04-16)
 
 
