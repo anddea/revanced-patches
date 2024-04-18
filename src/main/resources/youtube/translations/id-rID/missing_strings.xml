@@ -118,6 +118,9 @@ Note: This feature hasn't been tested."</string>
 <string name="revanced_hide_notifications_button_summary_off">Notifications button in navigation bar is shown.</string>
 <string name="revanced_hide_notifications_button_summary_on">Notifications button in navigation bar is hidden.</string>
 <string name="revanced_hide_notifications_button_title">Hide notifications button</string>
+<string name="revanced_hide_playables_summary_off">Playables are shown</string>
+<string name="revanced_hide_playables_summary_on">Playables are hidden</string>
+<string name="revanced_hide_playables_title">Hide playables</string>
 <string name="revanced_hide_player_button_background_summary_off">Player buttons background is shown.</string>
 <string name="revanced_hide_player_button_background_summary_on">Player buttons background is hidden.</string>
 <string name="revanced_hide_player_button_background_title">Hide player buttons background</string>
@@ -127,6 +130,21 @@ Note: This feature hasn't been tested."</string>
 <string name="revanced_hide_shopping_links_summary_off">Shopping links are shown.</string>
 <string name="revanced_hide_shopping_links_summary_on">Shopping links are hidden.</string>
 <string name="revanced_hide_shopping_links_title">Hide shopping links</string>
+<string name="revanced_hide_shorts_live_chat_summary_off">Live chat messages are shown</string>
+<string name="revanced_hide_shorts_live_chat_summary_on">Live chat messages are hidden</string>
+<string name="revanced_hide_shorts_live_chat_title">Hide live chat messages</string>
+<string name="revanced_hide_shorts_live_header_summary_off">Live chat header is shown.\n\nBack button in header won\'t be hidden.</string>
+<string name="revanced_hide_shorts_live_header_summary_on">Live chat header is hidden.\n\nBack button in header won\'t be hidden.</string>
+<string name="revanced_hide_shorts_live_header_title">Hide live chat header</string>
+<string name="revanced_hide_shorts_location_label_summary_off">Location label is shown.</string>
+<string name="revanced_hide_shorts_location_label_summary_on">Location label is hidden.</string>
+<string name="revanced_hide_shorts_location_label_title">Hide location label</string>
+<string name="revanced_hide_shorts_player_save_sound_button_summary_off">Save sound to playlist button is shown.</string>
+<string name="revanced_hide_shorts_player_save_sound_button_summary_on">Save sound to playlist button is hidden.</string>
+<string name="revanced_hide_shorts_player_save_sound_button_title">Hide save sound to playlist button</string>
+<string name="revanced_hide_shorts_player_shop_button_summary_off">Shop button is shown.</string>
+<string name="revanced_hide_shorts_player_shop_button_summary_on">Shop button is hidden.</string>
+<string name="revanced_hide_shorts_player_shop_button_title">Hide shop button</string>
 <string name="revanced_hide_shorts_player_sound_metadata_label_summary_off">Sound metadata label is shown.</string>
 <string name="revanced_hide_shorts_player_sound_metadata_label_summary_on">Sound metadata label is hidden.</string>
 <string name="revanced_hide_shorts_player_sound_metadata_label_title">Hide sound metadata label</string>
@@ -136,8 +154,11 @@ Note: This feature hasn't been tested."</string>
 <string name="revanced_hide_shorts_player_video_title_summary_off">Shorts video title is shown.</string>
 <string name="revanced_hide_shorts_player_video_title_summary_on">Shorts video title is hidden.</string>
 <string name="revanced_hide_shorts_player_video_title_title">Hide Shorts video title</string>
-<string name="revanced_hide_shorts_shelf_home_summary_off">Shorts in home feed are shown.</string>
-<string name="revanced_hide_shorts_shelf_home_summary_on">Shorts in home feed are hidden.</string>
+<string name="revanced_hide_shorts_search_suggestions_summary_off">Search suggestions are shown</string>
+<string name="revanced_hide_shorts_search_suggestions_summary_on">Search suggestions are hidden</string>
+<string name="revanced_hide_shorts_search_suggestions_title">Hide search suggestions</string>
+<string name="revanced_hide_shorts_shelf_home_summary_off">Shorts in home feed are shown.\n\nThis will also hide:\n• Shorts shelf in related videos under video player\n• Shorts section in description</string>
+<string name="revanced_hide_shorts_shelf_home_summary_on">Shorts in home feed are hidden.\n\nThis will also hide:\n• Shorts shelf in related videos under video player\n• Shorts section in description</string>
 <string name="revanced_hide_shorts_shelf_home_title">Hide Shorts in home feed</string>
 <string name="revanced_hide_shorts_shelf_search_summary_off">Shorts in search results are shown.</string>
 <string name="revanced_hide_shorts_shelf_search_summary_on">Shorts in search results are hidden.</string>
@@ -145,21 +166,17 @@ Note: This feature hasn't been tested."</string>
 <string name="revanced_hide_shorts_shelf_subscriptions_summary_off">Shorts in subscriptions feed are shown.</string>
 <string name="revanced_hide_shorts_shelf_subscriptions_summary_on">Shorts in subscriptions feed are hidden.</string>
 <string name="revanced_hide_shorts_shelf_subscriptions_title">Hide Shorts in subscriptions feed</string>
+<string name="revanced_hide_shorts_subscribe_button_summary_off">Subscribe button is shown</string>
+<string name="revanced_hide_shorts_subscribe_button_summary_on">Subscribe button is hidden</string>
+<string name="revanced_hide_shorts_subscribe_button_title">Hide subscribe button</string>
+<string name="revanced_hide_shorts_tagged_products_summary_off">Tagged products are shown</string>
+<string name="revanced_hide_shorts_tagged_products_summary_on">Tagged products are hidden</string>
+<string name="revanced_hide_shorts_tagged_products_title">Hide tagged products</string>
 <string name="revanced_hide_store_tab_summary_off">Store tab is shown.</string>
 <string name="revanced_hide_store_tab_summary_on">Store tab is hidden.</string>
 <string name="revanced_hide_store_tab_title">Hide store tab</string>
 <string name="revanced_hide_suggested_video_overlay_auto_play_summary">When you finished a video, another play automatically</string>
 <string name="revanced_hide_suggested_video_overlay_auto_play_title">Auto play the next video</string>
-<string name="revanced_hide_suggestions_shelf_method_summary_off">"Identifies the suggestions shelf through the browse id.
-
-Known issues:
-• When Browseid is not identified, suggestions shelf may not be hidden."</string>
-<string name="revanced_hide_suggestions_shelf_method_summary_on">"Identifies the suggestions shelf through the current tab.
-
-Known issues:
-• More drawer shelves may be hidden.
-• Playlist shelves may be hidden."</string>
-<string name="revanced_hide_suggestions_shelf_method_title">Select method to hide shelves</string>
 <string name="revanced_hide_video_with_gray_description_summary">"Hide videos with gray description from search results.
 Videos with a gray description include videos that are not related to search terms."</string>
 <string name="revanced_hide_video_with_gray_description_title">Hide videos with gray description</string>
@@ -200,7 +217,7 @@ This does not bypass the age restriction. It just accepts it automatically."</st
 <string name="revanced_ryd_toast_on_connection_error_title">Show a toast if API is not available</string>
 <string name="revanced_share_copy_settings_success">Settings copied to clipboard.</string>
 <string name="revanced_shorts_toolbar_summary">Back button in the toolbar cannot be hidden.</string>
-<string name="revanced_spoof_app_version_target_entry_16_08_35">16.08.35 - Restore old explore tab</string>
+<string name="revanced_spoof_app_version_target_entry_17_33_42">17.33.42 - Restore old UI layout</string>
 <string name="revanced_spoof_app_version_target_entry_18_09_39">18.09.39 - Restore old library tab (Disable You Tab)</string>
 <string name="revanced_spoof_app_version_target_entry_18_42_41">18.42.41 - Fixes issue where theme is not applied in search results</string>
 <string name="revanced_spoof_failure_connection_status_code" formatted="false">"Spoof storyboard not available: "</string>
