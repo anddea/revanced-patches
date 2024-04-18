@@ -22,9 +22,27 @@
 <string name="revanced_hide_keyword_content_sub_summary_on">Keyword filter for subscriptions is enabled.</string>
 <string name="revanced_hide_keyword_content_sub_title">Enable subscriptions keyword filter</string>
 <string name="revanced_hide_keyword_toast_invalid_common" formatted="false">Invalid keyword. Cannot use: \'%s\' as a filter</string>
+<string name="revanced_hide_playables_summary_off">Playables are shown</string>
+<string name="revanced_hide_playables_summary_on">Playables are hidden</string>
+<string name="revanced_hide_playables_title">Hide playables</string>
 <string name="revanced_hide_player_button_background_summary_off">Player buttons background is shown.</string>
 <string name="revanced_hide_player_button_background_summary_on">Player buttons background is hidden.</string>
 <string name="revanced_hide_player_button_background_title">Hide player buttons background</string>
+<string name="revanced_hide_shorts_live_chat_summary_off">Live chat messages are shown</string>
+<string name="revanced_hide_shorts_live_chat_summary_on">Live chat messages are hidden</string>
+<string name="revanced_hide_shorts_live_chat_title">Hide live chat messages</string>
+<string name="revanced_hide_shorts_live_header_summary_off">Live chat header is shown.\n\nBack button in header won't be hidden.</string>
+<string name="revanced_hide_shorts_live_header_summary_on">Live chat header is hidden.\n\nBack button in header won't be hidden.</string>
+<string name="revanced_hide_shorts_live_header_title">Hide live chat header</string>
+<string name="revanced_hide_shorts_location_label_summary_off">Location label is shown.</string>
+<string name="revanced_hide_shorts_location_label_summary_on">Location label is hidden.</string>
+<string name="revanced_hide_shorts_location_label_title">Hide location label</string>
+<string name="revanced_hide_shorts_player_save_sound_button_summary_off">Save sound to playlist button is shown.</string>
+<string name="revanced_hide_shorts_player_save_sound_button_summary_on">Save sound to playlist button is hidden.</string>
+<string name="revanced_hide_shorts_player_save_sound_button_title">Hide save sound to playlist button</string>
+<string name="revanced_hide_shorts_player_shop_button_summary_off">Shop button is shown.</string>
+<string name="revanced_hide_shorts_player_shop_button_summary_on">Shop button is hidden.</string>
+<string name="revanced_hide_shorts_player_shop_button_title">Hide shop button</string>
 <string name="revanced_hide_shorts_player_sound_metadata_label_summary_off">Sound metadata label is shown.</string>
 <string name="revanced_hide_shorts_player_sound_metadata_label_summary_on">Sound metadata label is hidden.</string>
 <string name="revanced_hide_shorts_player_sound_metadata_label_title">Hide sound metadata label</string>
@@ -34,8 +52,11 @@
 <string name="revanced_hide_shorts_player_video_title_summary_off">Shorts video title is shown.</string>
 <string name="revanced_hide_shorts_player_video_title_summary_on">Shorts video title is hidden.</string>
 <string name="revanced_hide_shorts_player_video_title_title">Hide Shorts video title</string>
-<string name="revanced_hide_shorts_shelf_home_summary_off">Shorts in home feed are shown.</string>
-<string name="revanced_hide_shorts_shelf_home_summary_on">Shorts in home feed are hidden.</string>
+<string name="revanced_hide_shorts_search_suggestions_summary_off">Search suggestions are shown</string>
+<string name="revanced_hide_shorts_search_suggestions_summary_on">Search suggestions are hidden</string>
+<string name="revanced_hide_shorts_search_suggestions_title">Hide search suggestions</string>
+<string name="revanced_hide_shorts_shelf_home_summary_off">Shorts in home feed are shown.\n\nThis will also hide:\n• Shorts shelf in related videos under video player\n• Shorts section in description</string>
+<string name="revanced_hide_shorts_shelf_home_summary_on">Shorts in home feed are hidden.\n\nThis will also hide:\n• Shorts shelf in related videos under video player\n• Shorts section in description</string>
 <string name="revanced_hide_shorts_shelf_home_title">Hide Shorts in home feed</string>
 <string name="revanced_hide_shorts_shelf_search_summary_off">Shorts in search results are shown.</string>
 <string name="revanced_hide_shorts_shelf_search_summary_on">Shorts in search results are hidden.</string>
@@ -43,6 +64,12 @@
 <string name="revanced_hide_shorts_shelf_subscriptions_summary_off">Shorts in subscriptions feed are shown.</string>
 <string name="revanced_hide_shorts_shelf_subscriptions_summary_on">Shorts in subscriptions feed are hidden.</string>
 <string name="revanced_hide_shorts_shelf_subscriptions_title">Hide Shorts in subscriptions feed</string>
+<string name="revanced_hide_shorts_subscribe_button_summary_off">Subscribe button is shown</string>
+<string name="revanced_hide_shorts_subscribe_button_summary_on">Subscribe button is hidden</string>
+<string name="revanced_hide_shorts_subscribe_button_title">Hide subscribe button</string>
+<string name="revanced_hide_shorts_tagged_products_summary_off">Tagged products are shown</string>
+<string name="revanced_hide_shorts_tagged_products_summary_on">Tagged products are hidden</string>
+<string name="revanced_hide_shorts_tagged_products_title">Hide tagged products</string>
 <string name="revanced_hide_video_with_low_view_num_multiplier_summary">Specify your language template for the number of views shown under each video in the user interface. Each key (a letter/word in your language) -> value (meaning of the key) must be on a new line. Keys go before "->" sign. If you switch app or system language you have to reset this setting.\n\nExamples:\nEnglish: 10K views = K -> 1000, views -> views\nSpanish: 10 K vistas = K -> 1000, vistas -> views</string>
 <string name="revanced_hide_video_with_low_view_num_multiplier_title">View keys</string>
 <string name="revanced_hide_video_with_low_view_num_multiplier_value">K -> 1 000\nM -> 1 000 000\nB -> 1 000 000 000\nviews -> views</string>
