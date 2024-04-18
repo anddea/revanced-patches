@@ -157,9 +157,9 @@
     <string name="revanced_enable_debug_logging_summary_off">Η καταγραφή εντοπισμού σφαλμάτων είναι απενεργοποιημένη.</string>
     <string name="revanced_enable_debug_logging_summary_on">Η καταγραφή εντοπισμού σφαλμάτων είναι ενεργοποιημένη.</string>
     <string name="revanced_enable_debug_logging_title">Καταγραφή εντοπισμού σφαλμάτων</string>
-    <string name="revanced_enable_default_playback_speed_shorts_summary_off">Η προεπιλεγμένη ταχύτητα αναπαραγωγής δεν ισχύει για τα Shorts.</string>
-    <string name="revanced_enable_default_playback_speed_shorts_summary_on">Η προεπιλεγμένη ταχύτητα αναπαραγωγής ισχύει για τα Shorts.</string>
-    <string name="revanced_enable_default_playback_speed_shorts_title">Αλλαγή ταχύτητας αναπαραγωγής Shorts</string>
+    <string name="revanced_enable_default_playback_speed_shorts_summary_off">Η προεπιλεγμένη ταχύτητα αναπαραγωγής δεν θα ισχύει για τα Shorts.</string>
+    <string name="revanced_enable_default_playback_speed_shorts_summary_on">Η προεπιλεγμένη ταχύτητα αναπαραγωγής θα ισχύει για τα Shorts.</string>
+    <string name="revanced_enable_default_playback_speed_shorts_title">Εφαρμογή της ταχύτητας σε Shorts</string>
     <string name="revanced_enable_external_browser_summary_off">Οι συνδέσμοι ανοίγουν εσωτερικά στην εφαρμογή.</string>
     <string name="revanced_enable_external_browser_summary_on">Οι συνδέσμοι ανοίγουν σε εξωτερικό πρόγραμμα περιήγησης.</string>
     <string name="revanced_enable_external_browser_title">Εξωτερικό πρόγραμμα περιήγησης</string>
@@ -750,7 +750,7 @@
     <string name="revanced_hook_download_button_title">Μετατροπή κουμπιού «Λήψη»</string>
     <string name="revanced_inform">Πληροφορίες</string>
     <string name="revanced_keep_landscape_mode_summary">Διατήρηση της οριζόντιας λειτουργίας στο κλείσιμο και άνοιγμα της οθόνης ενώ βρίσκεστε σε λειτουργία πλήρους οθόνης.\n\nΓνωστό θέμα: Μπορεί να προκαλέσει θέματα με τη λειτουργία Picture-in-Picture (PIP).</string>
-    <string name="revanced_keep_landscape_mode_timeout_summary">Το ποσό των χιλιοστών δευτερολέπτου που θα εξαναγκάζεται η οριζόντια λειτουργία.</string>
+    <string name="revanced_keep_landscape_mode_timeout_summary">Ο αριθμός των χιλιοστών δευτερολέπτου που θα εξαναγκάζεται η οριζόντια λειτουργία.</string>
     <string name="revanced_keep_landscape_mode_timeout_title">Χρονικό όριο οριζόντιας λειτουργίας</string>
     <string name="revanced_keep_landscape_mode_title">Διατήρηση οριζόντιας λειτουργίας</string>
     <string name="revanced_layout_title">Εμφάνιση</string>
@@ -918,11 +918,11 @@
     <string name="revanced_tool_used">Χρησιμοποιούμενο εργαλείο</string>
     <string name="revanced_video">Βίντεο</string>
     <string name="sb_enable_sb">Ενεργοποίηση του SponsorBlock</string>
-    <string name="sb_enable_sb_sum">Το SponsorBlock είναι ένα σύστημα που προέρχεται από το κοινό για παράβλεψη ενοχλητικών τμημάτων σε βίντεο YouTube.</string>
+    <string name="sb_enable_sb_sum">Το SponsorBlock είναι ένα σύστημα που προέρχεται από το κοινό για παράλειψη ενοχλητικών τμημάτων σε βίντεο YouTube.</string>
     <string name="sb_appearance_category">Εμφάνιση</string>
-    <string name="sb_enable_voting">Εμφάνιση κουμπιού ψηφοφορίας τμήματος</string>
-    <string name="sb_enable_voting_sum_on">Το κουμπί ψηφοφορίας τμήματος εμφανίζεται.</string>
-    <string name="sb_enable_voting_sum_off">Το κουμπί ψηφοφορίας τμήματος δεν εμφανίζεται.</string>
+    <string name="sb_enable_voting">Εμφάνιση κουμπιού ψηφοφορίας τμημάτων</string>
+    <string name="sb_enable_voting_sum_on">Το κουμπί ψηφοφορίας τμημάτων εμφανίζεται.</string>
+    <string name="sb_enable_voting_sum_off">Το κουμπί ψηφοφορίας τμημάτων δεν εμφανίζεται.</string>
     <string name="sb_enable_compact_skip_button">Κουμπί παράλειψης μικρότερου στυλ</string>
     <string name="sb_enable_compact_skip_button_sum_on">Το κουμπί παράλειψης είναι διαμορφωμένο για ελάχιστο μέγεθος.</string>
     <string name="sb_enable_compact_skip_button_sum_off">Το κουμπί παράλειψης είναι διαμορφωμένο για καλύτερη εμφάνιση.</string>
@@ -940,7 +940,7 @@
     <string name="sb_enable_create_segment_sum_on">Το κουμπί δημιουργίας νέου τμήματος εμφανίζεται.</string>
     <string name="sb_enable_create_segment_sum_off">Το κουμπί δημιουργίας νέου τμήματος δεν εμφανίζεται.</string>
     <string name="sb_general_adjusting">Ρύθμιση βήματος νέου τμήματος</string>
-    <string name="sb_general_adjusting_sum">Αριθμός χιλιοστών του δευτερολέπτου που μετακινούνται τα κουμπιά ρύθμισης χρόνου κατά τη δημιουργία νέων τμημάτων.</string>
+    <string name="sb_general_adjusting_sum">Ο αριθμός των χιλιοστών του δευτερολέπτου που μετακινούνται τα κουμπιά ρύθμισης χρόνου κατά τη δημιουργία νέων τμημάτων.</string>
     <string name="sb_general_adjusting_invalid">Η τιμή πρέπει να είναι θετικός αριθμός.</string>
     <string name="sb_guidelines_preference_title">Προβολή οδηγιών</string>
     <string name="sb_guidelines_preference_sum">Οι οδηγίες περιέχουν κανόνες και συμβουλές σχετικά με την υποβολή τμημάτων.</string>
@@ -956,9 +956,9 @@
     <string name="sb_general_skipcount_sum_on">Επιτρέπει στον πίνακα κατάταξης SponsorBlock να γνωρίζει πόσος χρόνος εξοικονομήθηκε. Ένα μήνυμα αποστέλλεται στον πίνακα κατάταξης κάθε φορά που παραλείπεται ένα τμήμα.</string>
     <string name="sb_general_skipcount_sum_off">Ο μετρητής παραλείψεων δεν είναι ενεργός.</string>
     <string name="sb_general_min_duration">Ελάχιστη διάρκεια τμήματος</string>
-    <string name="sb_general_min_duration_sum">Τμήματα μικρότερα από την καθορισμένη τιμή (σε δευτερόλεπτα) δε θα παραβλεφθούν ούτε θα εμφανίζονται στο πρόγραμμα αναπαραγωγής.</string>
+    <string name="sb_general_min_duration_sum">Τμήματα μικρότερα από την καθορισμένη τιμή (σε δευτερόλεπτα) δε θα παραλείπονται ούτε θα εμφανίζονται στο πρόγραμμα αναπαραγωγής.</string>
     <string name="sb_general_uuid">Το ιδιωτικό σας αναγνωριστικό χρήστη</string>
-    <string name="sb_general_uuid_sum">Αυτό θα πρέπει να παραμείνει μυστικό. Είναι σαν έναν κωδικό πρόσβασης που δεν πρέπει να μοιραστείτε με κανέναν. Αν κάποιος το έχει, μπορεί να σας υποδυθεί.</string>
+    <string name="sb_general_uuid_sum">Αυτό πρέπει να μείνει μυστικό. Είναι σαν έναν κωδικό που δεν πρέπει να μοιραστείτε με κανέναν. Αν κάποιος έχει αυτόν τον κωδικό, μπορεί να σας υποδυθεί.</string>
     <string name="sb_general_uuid_invalid">Το αναγνωριστικό χρήστη δεν μπορεί να είναι κενό.</string>
     <string name="sb_general_api_url">Αλλαγή διεύθυνσης URL του API</string>
     <string name="sb_general_api_url_sum">Η διεύθυνση που χρησιμοποιείται για επικοινωνία με τον διακομιστή του SponsorBlock. Μην το αλλάξετε αν δεν ξέρετε τι κάνετε.</string>
@@ -990,7 +990,7 @@
     <string name="sb_segments_preview">Προεπισκόπηση / Περίληψη</string>
     <string name="sb_segments_preview_sum">Συλλογή από κλιπ που δείχνουν τι έρχεται ή τι συνέβη στο βίντεο ή σε άλλα βίντεο μιας σειράς, όπου όλες οι πληροφορίες επαναλαμβάνονται αλλού.</string>
     <string name="sb_segments_filler">Εφαπτομενικές Σκηνές / Αστεία</string>
-    <string name="sb_segments_filler_sum">Παρεμβατικές σκηνές που προστίθενται μόνο για γέμισμα ή χιούμορ και δεν είναι απαραίτητες για την κατανόηση του κύριου περιεχομένου του βίντεο. Δεν περιλαμβάνει τμήματα που παρέχουν πλαίσιο ή λεπτομέρειες υποβάθρου.</string>
+    <string name="sb_segments_filler_sum">Παρεμβατικές σκηνές που προστίθενται μόνο για γέμισμα ή χιούμορ και δεν είναι απαραίτητες για την κατανόηση του κύριου περιεχομένου του βίντεο. Δεν περιλαμβάνει τμήματα που παρέχουν συνάφεια ή λεπτομέρειες υποβάθρου.</string>
     <string name="sb_segments_nomusic">Μουσική: Τμήμα χωρίς μουσική</string>
     <string name="sb_segments_nomusic_sum">Μόνο για χρήση σε βίντεο μουσικής. Τμήματα χωρίς μουσική σε βίντεο μουσικής, που δεν καλύπτονται ήδη από άλλη κατηγορία.</string>
     <string name="sb_skip_button_compact">Παράλειψη</string>
