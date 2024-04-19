@@ -1,3 +1,17 @@
+# [2.224.0-dev.9](https://github.com/anddea/revanced-patches/compare/v2.224.0-dev.8...v2.224.0-dev.9) (2024-04-18)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof app version:** Remove broken versions ([6b72ef2](https://github.com/anddea/revanced-patches/commit/6b72ef221b09a47f6f23cad0057a60b5146440d7))
+
+# [2.224.0-dev.8](https://github.com/anddea/revanced-patches/compare/v2.224.0-dev.7...v2.224.0-dev.8) (2024-04-17)
+
+
+### Bug Fixes
+
+* Unescaped character ([a4b8466](https://github.com/anddea/revanced-patches/commit/a4b846684bc8b0c1f3746f8cf34e7112a3c4e212))
+
 # [2.224.0-dev.7](https://github.com/anddea/revanced-patches/compare/v2.224.0-dev.6...v2.224.0-dev.7) (2024-04-17)
 
 
