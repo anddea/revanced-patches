@@ -109,7 +109,7 @@ object OverrideQualityHookPatch : BytecodePatch(
     }
 
     private const val INTEGRATIONS_VIDEO_QUALITY_CLASS_DESCRIPTOR =
-        "$VIDEO_PATH/VideoQualityPatch;"
+        "$VIDEO_PATH/RememberVideoQualityPatch;"
 
     private const val INTEGRATIONS_VIDEO_HELPER_CLASS_DESCRIPTOR =
         "$INTEGRATIONS_PATH/utils/VideoHelpers;"
