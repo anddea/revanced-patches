@@ -1,3 +1,10 @@
+# [2.224.0-dev.10](https://github.com/anddea/revanced-patches/compare/v2.224.0-dev.9...v2.224.0-dev.10) (2024-04-20)
+
+
+### Bug Fixes
+
+* **YouTube - Default video quality:** Match original ReVanced code ([1ee2743](https://github.com/anddea/revanced-patches/commit/1ee2743c452795dba4c7a52a7779e35568fe3e6a))
+
 # [2.224.0-dev.9](https://github.com/anddea/revanced-patches/compare/v2.224.0-dev.8...v2.224.0-dev.9) (2024-04-18)
 
 
