@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="microg_not_installed_notice">MicroG를 설치해 주세요.</string>
-    <string name="microg_not_installed_warning">MicroG가 설치되지 않았습니다.</string>
-    <string name="microg_not_running_warning">MicroG가 백그라운드에서 실행되고 있지 않습니다.</string>
+    <string name="microg_not_installed_notice">GmsCore를 설치해 주세요.</string>
+    <string name="microg_not_installed_warning">GmsCore가 설치되지 않았습니다.</string>
+    <string name="microg_not_running_warning">GmsCore가 백그라운드에서 실행되고 있지 않습니다.</string>
     <string name="microg_settings_summary">알림 수신을 위한 클라우드 메시징 설정을 할 수 있습니다.</string>
-    <string name="microg_settings_title">MicroG 열기</string>
+    <string name="microg_settings_title">GmsCore 열기</string>
     <string name="revanced_category_account">계정</string>
     <string name="revanced_category_action_bar">액션바</string>
     <string name="revanced_category_ads">광고</string>
@@ -29,10 +29,10 @@
     <string name="revanced_change_start_page_title">메인 페이지 변경</string>
     <string name="revanced_custom_filter_strings_summary">필터링할 구성요소를 줄바꿈로 구분하여 설정합니다.</string>
     <string name="revanced_custom_filter_strings_title">사용자 정의 필터 편집</string>
-    <string name="revanced_custom_filter_strings_warning">유효하지 않은 필터 값이므로 기본값으로 재설정합니다.</string>
+    <string name="revanced_custom_filter_strings_warning">잘못된 필터 값이므로 기본값으로 재설정합니다.</string>
     <string name="revanced_custom_filter_summary">사용자 정의 필터를 활성화하여 레이아웃 구성요소를 숨깁니다.</string>
     <string name="revanced_custom_filter_title">사용자 정의 필터 활성화</string>
-    <string name="revanced_custom_playback_speeds_invalid">유효하지 않은 재생 속도 값이므로 기본값으로 재설정합니다.</string>
+    <string name="revanced_custom_playback_speeds_invalid">잘못된 재생 속도 값이므로 기본값으로 재설정합니다.</string>
     <string name="revanced_custom_playback_speeds_summary">사용하고 싶은 재생 속도 값을 설정할 수 있습니다.</string>
     <string name="revanced_custom_playback_speeds_title">사용자 정의 재생 속도 편집</string>
     <string name="revanced_custom_playback_speeds_warning" formatted="false">재생 속도 값은 %s배속을 초과할 수 없습니다.</string>
@@ -46,8 +46,8 @@
     <string name="revanced_enable_compact_dialog_summary">"휴대폰에서 소형 메뉴 구성요소를 활성화합니다.
 
 알려진 문제점:
-- 보관함 탭에서 앨범 아트가 그리드로 구성될 때 작아집니다.
-- 취침 타이머 레이아웃이 비정상적으로 보일 수 있습니다."</string>
+• 보관함 탭에서 앨범 아트가 그리드로 구성될 때 작아집니다.
+• 취침 타이머 레이아웃이 비정상적으로 보일 수 있습니다."</string>
     <string name="revanced_enable_compact_dialog_title">소형 다이얼로그 활성화</string>
     <string name="revanced_enable_debug_logging_summary">디버그 로그를 출력합니다.</string>
     <string name="revanced_enable_debug_logging_title">디버그 로깅 활성화</string>
@@ -55,7 +55,7 @@
     <string name="revanced_enable_flyout_panel_playback_speed_title">재생 속도 활성화</string>
     <string name="revanced_enable_force_minimized_player_summary">다른 트랙이 재생되더라도 플레이어를 항상 최소화 상태로 유지합니다.</string>
     <string name="revanced_enable_force_minimized_player_title">플레이어를 항상 최소화 상태로 유지</string>
-    <string name="revanced_enable_landscape_mode_summary">앱을 가로로 회전할 수 있도록 합니다.</string>
+    <string name="revanced_enable_landscape_mode_summary">앱을 가로로 회전할 수 있습니다.</string>
     <string name="revanced_enable_landscape_mode_title">가로 모드 활성화</string>
     <string name="revanced_enable_old_player_background_summary">이전 플레이어 배경으로 복원합니다.</string>
     <string name="revanced_enable_old_player_background_title">이전 플레이어 배경 복원</string>
@@ -72,10 +72,10 @@
     <string name="revanced_enable_save_playback_speed_title">재생 속도 저장 활성화</string>
     <string name="revanced_enable_save_video_quality_summary">마지막으로 선택한 동영상 품질 값을 저장합니다.</string>
     <string name="revanced_enable_save_video_quality_title">동영상 품질 저장 활성화</string>
-    <string name="revanced_enable_zen_mode_summary">동영상 플레이어의 색상을 회색조로 설정해 눈의 피로를 줄입니다.</string>
+    <string name="revanced_enable_zen_mode_summary">동영상 플레이어의 색상을 회색조로 설정해 눈의 피로를 줄일 수 있습니다.</string>
     <string name="revanced_enable_zen_mode_title">집중 모드 활성화</string>
     <string name="revanced_extended_settings_export_as_file">파일로 설정 내보내기</string>
-    <string name="revanced_extended_settings_export_failed">설정을 내보내는 데 실패하였습니다.</string>
+    <string name="revanced_extended_settings_export_failed">설정을 내보낼 수 없습니다.</string>
     <string name="revanced_extended_settings_export_success">설정을 성공적으로 내보냈습니다.</string>
     <string name="revanced_extended_settings_import">가져오기</string>
     <string name="revanced_extended_settings_import_as_file">파일에서 설정 가져오기</string>
@@ -83,7 +83,7 @@
     <string name="revanced_extended_settings_import_export_as_text">텍스트로 설정 가져오기 / 내보내기</string>
     <string name="revanced_extended_settings_import_export_summary">설정을 가져오거나 내보낼 수 있습니다.</string>
     <string name="revanced_extended_settings_import_export_title">설정 가져오기 / 내보내기</string>
-    <string name="revanced_extended_settings_import_failed">가져오기를 실패하였습니다: %s</string>
+    <string name="revanced_extended_settings_import_failed">설정을 가져올 수 없습니다: %s</string>
     <string name="revanced_extended_settings_import_reset">설정을 기본값으로 초기화합니다.</string>
     <string name="revanced_extended_settings_import_success">%d 설정을 가져왔습니다.</string>
     <string name="revanced_external_downloader_not_installed_warning" formatted="false">%s가 설치되지 않았습니다. 설치해 주세요.</string>
@@ -192,7 +192,7 @@
     <string name="revanced_playlist_error">정식 음원으로 재생할 수 없습니다.</string>
     <string name="revanced_remove_viewer_discretion_dialog_summary">"시청 경고 다이얼로그를 제거합니다.
 
-이 설정은 다이얼로그를 자동으로 허용하기만 하며 연령 제한(성인인증 절차)을 우회할 수는 없습니다."</string>
+이 설정은 다이얼로그를 자동으로 허용하기만 하며 연령 제한(성인인증 절차)을 우회할 수 없습니다."</string>
     <string name="revanced_remove_viewer_discretion_dialog_title">시청 경고 다이얼로그 제거</string>
     <string name="revanced_restart_first_run">기능 및 레이아웃을 정상적으로 실행시키기 위해 다시 시작합니다.</string>
     <string name="revanced_restart_message">새로고침 및 다시 시작</string>
@@ -210,7 +210,7 @@
     <string name="revanced_remember_shuffle_state_title">셔플 상태 저장</string>
     <string name="revanced_reset">초기화</string>
     <string name="revanced_ryd_about">정보</string>
-    <string name="revanced_ryd_attribution_summary">싫어요 개수의 데이터는 Return YouTube Dislike API에 의해 제공됩니다. 자세한 내용을 보려면 누르세요.</string>
+    <string name="revanced_ryd_attribution_summary">싫어요 개수의 데이터는 Return YouTube Dislike API에 의해 제공됩니다. 자세한 내용을 보려면 여기를 누르세요.</string>
     <string name="revanced_ryd_compact_layout_summary">좋아요 버튼에서 구분선을 숨깁니다.</string>
     <string name="revanced_ryd_compact_layout_title">좋아요 버튼에서 구분선 제거</string>
     <string name="revanced_ryd_dislike_percentage_summary">싫어요 개수를 숫자가 아닌 퍼센트로 표시합니다.</string>
@@ -227,9 +227,9 @@
     <string name="revanced_sanitize_sharing_links_title">추적 쿼리를 제거한 링크 공유</string>
     <string name="revanced_save_playback_speed" formatted="false">기본 재생 속도 값을 %s으로 변경합니다.</string>
     <string name="revanced_save_video_quality_mobile" formatted="false">모바일 네트워크 이용 시 기본 동영상 품질 값을 %s로 변경합니다.</string>
-    <string name="revanced_save_video_quality_none">동영상 품질 설정에 실패하였습니다.</string>
+    <string name="revanced_save_video_quality_none">동영상 품질을 설정할 수 없습니다.</string>
     <string name="revanced_save_video_quality_wifi" formatted="false">Wi-Fi 이용 시 기본 동영상 품질 값을 %s로 변경합니다.</string>
-    <string name="revanced_share_copy_settings_success">설정이 클립보드에 복사되었습니다.</string>
+    <string name="revanced_share_copy_settings_success">설정을 클립보드에 복사하였습니다.</string>
     <string name="revanced_spoof_app_version_summary">"이전 앱 버전으로 변경합니다.
 
 • 이 기능을 활성화하면 앱 레이아웃이 변경되지만 알려지지 않은 문제점이 발생할 수 있습니다.
@@ -239,7 +239,7 @@
     <string name="revanced_spoof_app_version_target_summary">변경할 앱 버전을 선택하세요.</string>
     <string name="revanced_spoof_app_version_target_title">변경할 앱 버전 설정</string>
     <string name="revanced_spoof_app_version_title">앱 버전 변경</string>
-    <string name="revanced_watch_on_youtube_warning">유효하지 않은 동영상 URL입니다.</string>
+    <string name="revanced_watch_on_youtube_warning">잘못된 동영상 URL입니다.</string>
     <string name="sb_enabled">SponsorBlock 활성화</string>
     <string name="sb_enabled_sum">SponsorBlock은 YouTube 동영상 내 성가신 구간을 건너뛰게 해주는 크라우드소싱 시스템입니다.</string>
     <string name="sb_toast_on_connection_error">API를 사용할 수 없을 때 팝업 메시지 표시</string>
@@ -249,7 +249,7 @@
     <string name="sb_api_url">API URL 변경</string>
     <string name="sb_api_url_sum">SponsorBlock이 요청을 보낼 서버 URL입니다. 이것이 무슨 역할을 하는지 알고 있는 경우에만 이 URL을 변경하세요.</string>
     <string name="sb_api_url_reset">API URL을 초기화하였습니다.</string>
-    <string name="sb_api_url_invalid">유효하지 않은 API URL입니다.</string>
+    <string name="sb_api_url_invalid">잘못된 API URL입니다.</string>
     <string name="sb_api_url_changed">API URL을 변경하였습니다.</string>
     <string name="sb_diff_segments">각 구간에 설정할 동작</string>
     <string name="sb_segments_sponsor">스폰서 광고</string>
@@ -265,7 +265,7 @@
     <string name="sb_segments_preview">미리 보기 / 요약 / 흥미 유발</string>
     <string name="sb_segments_preview_sum">이전 에피소드를 간략히 요약하거나 현재 동영상의 하이라이트를 미리 보여줍니다.</string>
     <string name="sb_segments_filler">주제와 관련 없는 구간</string>
-    <string name="sb_segments_filler_sum">전반적인 동영상의 주제를 이해하는 데 필요 없는 내용을 포함합니다.</string>
+    <string name="sb_segments_filler_sum">전반적인 동영상의 주제를 이해하는 데 필요 없는 내용을 포함하고 있습니다.</string>
     <string name="sb_segments_nomusic">음악이 아닌 구간</string>
     <string name="sb_segments_nomusic_sum">정식 음원이 아닌 동영상 음원에서 음악이 아닌 구간이 해당합니다.</string>
     <string name="sb_skipped_sponsor">스폰서 광고를 건너뛰었습니다.</string>
@@ -287,10 +287,10 @@
     <string name="sb_sponsorblock_connection_failure_status" formatted="false">SponsorBlock을 일시적으로 사용할 수 없습니다 (상태 코드: %d).</string>
     <string name="sb_sponsorblock_connection_failure_timeout">SponsorBlock을 일시적으로 사용할 수 없습니다 (응답 시간 초과).</string>
     <string name="sb_color_dot_label">색상:</string>
-    <string name="sb_color_changed">설정한 색상이 적용되었습니다.</string>
-    <string name="sb_color_reset">색상이 초기화되었습니다.</string>
+    <string name="sb_color_changed">설정한 색상을 적용하였습니다.</string>
+    <string name="sb_color_reset">색상을 초기화하였습니다.</string>
     <string name="sb_color_invalid">잘못된 헥스 코드이므로 기본값으로 재설정합니다.</string>
     <string name="sb_reset_color">색상 초기화</string>
-    <string name="sb_about_api_sum">건너뛸 구간의 데이터는 SponsorBlock API에 의해 제공됩니다. 자세한 내용을 보려면 누르세요.</string>
+    <string name="sb_about_api_sum">건너뛸 구간의 데이터는 SponsorBlock API에 의해 제공됩니다. 자세한 내용을 보려면 여기를 누르세요.</string>
     <string name="sb_about">정보</string>
 </resources>
