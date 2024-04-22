@@ -25,5 +25,6 @@ object OpenLinksDirectlyFingerprintPrimary : MethodFingerprint(
     customFingerprint = { methodDef, classDef ->
         methodDef.name == "a"
                 && classDef.methods.count() == 3
+                || classDef.methods.count() == 2
     }
 )

@@ -12,6 +12,7 @@ import app.revanced.patches.youtube.utils.integrations.Constants.UTILS_PATH
 import app.revanced.patches.youtube.utils.fingerprints.SeekbarFingerprint
 import app.revanced.patches.youtube.utils.fingerprints.SeekbarOnDrawFingerprint
 import app.revanced.patches.youtube.utils.fingerprints.TotalTimeFingerprint
+import app.revanced.patches.youtube.utils.fingerprints.TotalTimeLegacyFingerprint
 import app.revanced.patches.youtube.utils.fingerprints.YouTubeControlsOverlayFingerprint
 import app.revanced.patches.youtube.utils.overridespeed.OverrideSpeedHookPatch
 import app.revanced.patches.youtube.utils.playercontrols.PlayerControlsPatch
@@ -49,6 +50,7 @@ object SponsorBlockBytecodePatch : BytecodePatch(
         SeekbarFingerprint,
         SegmentPlaybackControllerFingerprint,
         TotalTimeFingerprint,
+        TotalTimeLegacyFingerprint,
         YouTubeControlsOverlayFingerprint
     )
 ) {
@@ -150,9 +152,21 @@ object SponsorBlockBytecodePatch : BytecodePatch(
         /**
          * Append the new time to the player layout
          */
-        TotalTimeFingerprint.result?.let {
+        TotalTimeLegacyFingerprint.result?.let {
             it.mutableMethod.apply {
                 val targetIndex = getWideLiteralInstructionIndex(TotalTime) + 2
+                val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
+
+                addInstructions(
+                    targetIndex + 1, """
+                        invoke-static {v$targetRegister}, $INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR->appendTimeWithoutSegments(Ljava/lang/String;)Ljava/lang/String;
+                        move-result-object v$targetRegister
+                        """
+                )
+            }
+        } ?: TotalTimeFingerprint.result?.let {
+            it.mutableMethod.apply {
+                val targetIndex = getWideLiteralInstructionIndex(TotalTime) + 4
                 val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                 addInstructions(
