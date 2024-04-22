@@ -11,5 +11,5 @@ object RenderBottomNavigationBarFingerprint : MethodFingerprint(
         Opcode.CONST_STRING,
         Opcode.INVOKE_VIRTUAL
     ),
-    strings = listOf("r_as")
+    strings = listOf("r_eod")
 )

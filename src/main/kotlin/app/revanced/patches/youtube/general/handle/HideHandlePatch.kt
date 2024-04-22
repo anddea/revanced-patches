@@ -6,6 +6,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patches.youtube.general.handle.fingerprints.AccountSwitcherAccessibilityLabelAlternativeFingerprint
 import app.revanced.patches.youtube.general.handle.fingerprints.AccountSwitcherAccessibilityLabelFingerprint
 import app.revanced.patches.youtube.utils.integrations.Constants.COMPONENTS_PATH
 import app.revanced.patches.youtube.utils.integrations.Constants.GENERAL
@@ -59,14 +60,20 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
                 "19.08.36",
                 "19.09.38",
                 "19.10.39",
-                "19.11.38"
+                "19.11.43",
+                "19.12.41",
+                "19.13.37",
+                "19.14.43"
             ]
         )
     ]
 )
 @Suppress("unused")
 object HideHandlePatch : BytecodePatch(
-    setOf(AccountSwitcherAccessibilityLabelFingerprint)
+    setOf(
+        AccountSwitcherAccessibilityLabelAlternativeFingerprint,
+        AccountSwitcherAccessibilityLabelFingerprint
+    )
 ) {
     private const val FILTER_CLASS_DESCRIPTOR =
         "$COMPONENTS_PATH/HandlesFilter;"
@@ -80,6 +87,18 @@ object HideHandlePatch : BytecodePatch(
 
                 addInstructions(
                     targetIndex + 2, """
+                        invoke-static {v$targetRegister}, $GENERAL->hideHandle(I)I
+                        move-result v$targetRegister
+                        """
+                )
+            }
+        } ?: AccountSwitcherAccessibilityLabelAlternativeFingerprint.result?.let {
+            it.mutableMethod.apply {
+                val targetIndex = it.scanResult.patternScanResult!!.endIndex - 1
+                val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
+
+                addInstructions(
+                    targetIndex + 1, """
                         invoke-static {v$targetRegister}, $GENERAL->hideHandle(I)I
                         move-result v$targetRegister
                         """

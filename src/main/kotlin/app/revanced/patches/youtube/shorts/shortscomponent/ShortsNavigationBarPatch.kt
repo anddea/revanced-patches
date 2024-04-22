@@ -45,12 +45,12 @@ object ShortsNavigationBarPatch : BytecodePatch(
                 .toMethodWalker(it.method)
                 .nextMethod(it.scanResult.patternScanResult!!.endIndex, true)
                 .getMethod() as MutableMethod
-                    ).apply {
-                    addInstruction(
-                        0,
-                        "invoke-static {}, $SHORTS->hideShortsPlayerNavigationBar()V"
-                    )
-                }
+            ).apply {
+                addInstruction(
+                0,
+                "invoke-static {}, $SHORTS->hideShortsPlayerNavigationBar()V"
+                )
+            }
         } ?: throw RenderBottomNavigationBarFingerprint.exception
 
         BottomNavigationBarFingerprint.result?.let {
