@@ -1,3 +1,10 @@
+# [2.224.0-dev.12](https://github.com/anddea/revanced-patches/compare/v2.224.0-dev.11...v2.224.0-dev.12) (2024-04-22)
+
+
+### Bug Fixes
+
+* **YouTube:** Possible fix for Shorts looping ([05b2eb7](https://github.com/anddea/revanced-patches/commit/05b2eb771ad90a1a458724d617d0a76d0495fe84))
+
 # [2.224.0-dev.11](https://github.com/anddea/revanced-patches/compare/v2.224.0-dev.10...v2.224.0-dev.11) (2024-04-22)
 
 
