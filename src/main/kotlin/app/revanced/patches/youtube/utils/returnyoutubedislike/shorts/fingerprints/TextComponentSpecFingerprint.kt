@@ -8,7 +8,8 @@ object TextComponentSpecFingerprint : MethodFingerprint(
     opcodes = listOf(
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT_OBJECT,
-        Opcode.CONST_4
+        null, // Opcode.CONST_4 or Opcode.MOVE
+        Opcode.INVOKE_INTERFACE_RANGE
     ),
     strings = listOf("Failed to set PB Style Run Extension in TextComponentSpec. Extension id: %s")
 )
