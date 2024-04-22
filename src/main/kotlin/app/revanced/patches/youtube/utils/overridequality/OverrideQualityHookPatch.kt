@@ -15,15 +15,10 @@ import app.revanced.patches.youtube.utils.overridequality.fingerprints.VideoQual
 import app.revanced.patches.youtube.utils.overridequality.fingerprints.VideoQualityPatchFingerprint
 import app.revanced.patches.youtube.utils.overridequality.fingerprints.VideoQualityTextFingerprint
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
-import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.QualityAuto
 import app.revanced.util.exception
-import app.revanced.util.getWideLiteralInstructionIndex
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.immutable.ImmutableField
-import com.android.tools.smali.dexlib2.util.MethodUtil
 
 @Patch(dependencies = [SharedResourceIdPatch::class])
 object OverrideQualityHookPatch : BytecodePatch(
@@ -36,40 +31,12 @@ object OverrideQualityHookPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
 
         VideoQualityListFingerprint.result?.let {
-            val constructorMethod =
-                it.mutableClass.methods.first { method -> MethodUtil.isConstructor(method) }
             val overrideMethod =
                 it.mutableClass.methods.find { method -> method.parameterTypes.first() == "I" }
 
             QUALITY_CLASS = it.method.definingClass
             QUALITY_METHOD = overrideMethod?.name
                 ?: throw PatchException("Failed to find hook method")
-
-            constructorMethod.apply {
-                addInstruction(
-                    2,
-                    "sput-object p0, $INTEGRATIONS_VIDEO_QUALITY_CLASS_DESCRIPTOR->qualityClass:$QUALITY_CLASS"
-                )
-            }
-
-            it.mutableMethod.apply {
-                val listIndex = it.scanResult.patternScanResult!!.startIndex
-                val listRegister = getInstruction<FiveRegisterInstruction>(listIndex).registerD
-
-                val qualityAutoIndex = getWideLiteralInstructionIndex(QualityAuto) + 2
-                val qualityAutoRegister =
-                    getInstruction<OneRegisterInstruction>(qualityAutoIndex).registerA
-
-                addInstruction(
-                    listIndex,
-                    "invoke-static {v$listRegister}, $INTEGRATIONS_VIDEO_QUALITY_CLASS_DESCRIPTOR->setVideoQualityList([Ljava/lang/Object;)V"
-                )
-
-                addInstruction(
-                    qualityAutoIndex + 1,
-                    "sput-object v$qualityAutoRegister, $INTEGRATIONS_VIDEO_HELPER_CLASS_DESCRIPTOR->qualityAutoString:Ljava/lang/String;"
-                )
-            }
         } ?: throw VideoQualityListFingerprint.exception
 
         VideoQualityPatchFingerprint.result?.let {
