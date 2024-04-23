@@ -8,11 +8,12 @@ import com.android.tools.smali.dexlib2.Opcode
 object CodecSelectorFingerprint : MethodFingerprint(
     returnType = "L",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
+    parameters = listOf("L", "L", "L", "L", "Ljava/lang/String;"),
     opcodes = listOf(
         Opcode.NEW_INSTANCE,
         Opcode.NEW_INSTANCE,
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT_OBJECT
     ),
-    strings = listOf("eac3_supported")
+    strings = listOf("Audio track id %s not in audio streams")
 )
