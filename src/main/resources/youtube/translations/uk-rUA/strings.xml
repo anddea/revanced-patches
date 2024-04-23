@@ -130,21 +130,21 @@
     <string name="revanced_custom_filter_summary_off">Користувацький фільтр вимкнено</string>
     <string name="revanced_custom_filter_summary_on">Користувацький фільтр увімкнено</string>
     <string name="revanced_custom_filter_title">Увімкнути користувацький фільтр</string>
-    <string name="revanced_custom_playback_speeds_invalid">Неправильні користувацькі швидкості відтворення. Скинуто до значень за замовчуванням.</string>
+    <string name="revanced_custom_playback_speeds_invalid">Неправильні користувацькі швидкості відтворення. Скинуто.</string>
     <string name="revanced_custom_playback_speeds_summary">Додати або змінити доступні швидкості відтворення</string>
     <string name="revanced_custom_playback_speeds_title">Редагувати користувацькі швидкості відтворення</string>
-    <string name="revanced_custom_playback_speeds_warning" formatted="false">Користувацькі швидкості не можуть бути більше ніж %sx. Скинуто до стандартних значень.</string>
+    <string name="revanced_custom_playback_speeds_warning" formatted="false">Користувацькі швидкості не можуть бути більше ніж %sx. Скинуто.</string>
     <string name="revanced_custom_playback_speed_panel_type_summary_off">Використовується висувна панель старого стилю.</string>
     <string name="revanced_custom_playback_speed_panel_type_summary_on">Використовується специфічний діалог.</string>
     <string name="revanced_custom_playback_speed_panel_type_title">Тип панелі користувацької швидкості відтворення</string>
     <string name="revanced_custom_player_overlay_opacity_summary">Значення непрозорості в межах 0-100, де 0 це прозорий</string>
     <string name="revanced_custom_player_overlay_opacity_title">Користувацька непрозорість затемнення плеєра</string>
-    <string name="revanced_custom_player_overlay_opacity_warning">Непрозорість затемнення плеєра має бути в межах 0-100. Скинуто до стандартних значень.</string>
+    <string name="revanced_custom_player_overlay_opacity_warning">Непрозорість затемнення плеєра має бути в межах 0-100. Скинуто.</string>
     <string name="revanced_custom_seekbar_color_value_summary">Введіть hex код кольору рядка прогресу.</string>
     <string name="revanced_custom_seekbar_color_value_title">Користувацьке значення кольору панелі прогресу</string>
     <string name="revanced_default_app_settings_summary">Щоб відкривати додаток у зовнішньому перегляді, увімкніть \"Відкривати підтримувані посилання\" та підтримувані вебадреси</string>
-    <string name="revanced_default_app_settings_title">Відкрити налаштування за замовчуванням</string>
-    <string name="revanced_default_playback_speed_title">Стандартна швидкість відтворення</string>
+    <string name="revanced_default_app_settings_title">Відкрити налаштування</string>
+    <string name="revanced_default_playback_speed_title">Типова швидкість відтворення</string>
     <string name="revanced_default_video_quality_mobile_title">Типова якість відео в мобільній мережі</string>
     <string name="revanced_default_video_quality_wifi_title">Типова якість відео в Wi-Fi мережі</string>
     <string name="revanced_description_title">Опис</string>
@@ -158,8 +158,8 @@
     <string name="revanced_disable_rolling_number_animations_summary_off">Анімації ввімкнено.</string>
     <string name="revanced_disable_rolling_number_animations_summary_on">Анімації вимкнено.</string>
     <string name="revanced_disable_rolling_number_animations_title">Вимкнути анімації лічильників</string>
-    <string name="revanced_disable_default_playback_speed_live_summary_off">Стандартну швидкість відтворення увімкнено в прямих трансляціях</string>
-    <string name="revanced_disable_default_playback_speed_live_summary_on">Стандартну швидкість відтворення вимкнено в прямих трансляціях</string>
+    <string name="revanced_disable_default_playback_speed_live_summary_off">Типову швидкість відтворення увімкнено в прямих трансляціях</string>
+    <string name="revanced_disable_default_playback_speed_live_summary_on">Типову швидкість відтворення вимкнено в прямих трансляціях</string>
     <string name="revanced_disable_default_playback_speed_live_title">Вимкнути швидкість відтворення в прямих трансляціях</string>
     <string name="revanced_disable_haptic_feedback_summary_off">Вібрацію увімкнуто</string>
     <string name="revanced_disable_haptic_feedback_summary_on">Вібрацію вимкнуто</string>
@@ -229,7 +229,7 @@
     <string name="revanced_enable_old_quality_layout_summary_off">Використовується новий стиль параметрів якості відео.</string>
     <string name="revanced_enable_old_quality_layout_summary_on">Використовується старий стиль параметрів якості відео.</string>
     <string name="revanced_enable_old_quality_layout_title">Увімкнути старий стиль якості</string>
-    <string name="revanced_enable_open_links_directly_summary_off">Політика перенаправлення за замовчуванням</string>
+    <string name="revanced_enable_open_links_directly_summary_off">Політика перенаправлення</string>
     <string name="revanced_enable_open_links_directly_summary_on">Обхід URL переадресацій</string>
     <string name="revanced_enable_open_links_directly_title">Увімкнути безпосереднє відкриття посилань</string>
     <string name="revanced_enable_opus_codec_summary">Застосовувати аудіокодек opus замість mp4a аудіо кодека</string>
@@ -766,7 +766,7 @@
     <string name="revanced_overlay_button_time_ordered_playlist_title">Кнопка впорядкованого за часом списку відтворення</string>
     <string name="revanced_overlay_button_speed_dialog_reset">Швидкість відтворення скинуто: %sx</string>
     <string name="revanced_overlay_button_speed_dialog_summary">"Натисніть, щоб відкрити діалог швидкості.
-Натисніть і утримуйте, щоб скинути швидкість відтворення до 1.0x. Натисніть і утримуйте ще раз, щоб скинути швидкість назад до стандартної."</string>
+Натисніть і утримуйте, щоб скинути швидкість відтворення до 1.0x. Натисніть і утримуйте ще раз, щоб скинути швидкість назад до типової."</string>
     <string name="revanced_overlay_button_speed_dialog_title">Показувати кнопку Діалог швидкості</string>
     <string name="revanced_overlay_button_whitelisting_summary">Натисніть, щоб додати канал до Білого списку каналів.</string>
     <string name="revanced_overlay_button_whitelisting_title">Показувати кнопку Білого списку</string>
@@ -795,7 +795,7 @@
     <string name="revanced_player_flyout_panel_title">Спливаюча панель плеєра</string>
     <string name="revanced_quick_actions_margin_top_summary">Налаштуйте відстань від панелі пошуку до контейнера швидких дій, діапазон 0-64.</string>
     <string name="revanced_quick_actions_margin_top_title">Верхній відступ швидких дій</string>
-    <string name="revanced_quick_actions_margin_top_warning">Верхній відступ швидких дій повинен бути в межах 0-64. Скидання до стандартних значень.</string>
+    <string name="revanced_quick_actions_margin_top_warning">Верхній відступ швидких дій повинен бути в межах 0-64. Скидання.</string>
     <string name="revanced_quick_actions_title">Швидкі дії</string>
     <string name="revanced_remove_viewer_discretion_dialog_summary">"Вилучається діалогове вікно.
 Це не обходить вікові обмеження, а просто приймається автоматично."</string>
@@ -843,9 +843,9 @@
     <string name="revanced_show_fullscreen_title_summary">Відома проблема: заголовок зникає при натисканні</string>
     <string name="revanced_show_fullscreen_title_title">Показати заголовок повноекранного режиму</string>
     <string name="revanced_skipped_preloaded_buffer">Пропущено перед вантажений буфер</string>
-    <string name="revanced_skip_preloaded_buffer_summary">"Пропуск перед вантаженого буфера під час запуску відео для обходу затримки примусового застосування стандартної якості відео.
+    <string name="revanced_skip_preloaded_buffer_summary">"Пропуск перед вантаженого буфера під час запуску відео для обходу затримки примусового застосування типової якості відео.
 
-• Під час запуску відео є затримка приблизно 0.7 секунди, але стандартна якість відео застосовується відразу.
+• Під час запуску відео є затримка приблизно 0.7 секунди, але типова якість відео застосовується відразу.
 • Не застосовується на відео HDR, прямі трансляції, менші ніж 10 секунд."</string>
     <string name="revanced_skip_preloaded_buffer_title">Пропустити перед вантажений буфер</string>
     <string name="revanced_skip_preloaded_buffer_toast_summary_off">Тост не показується.</string>
@@ -926,7 +926,7 @@
     <string name="revanced_spoof_failure_connection_status_code" formatted="false">"Spoof storyboard not available: "</string>
     <string name="revanced_spoof_failure_connection_timeout">Підроблення розкадрування тимчасово недоступно (закінчився час API).</string>
     <string name="revanced_spoof_failure_generic">"Підроблення розкадрування тимчасово недоступно: "</string>
-    <string name="revanced_swipe_overlay_rect_warning" formatted="false">Розмір площі для проведення не може бути більшим, ніж %s%%. Скинуто до стандартного значення.</string>
+    <string name="revanced_swipe_overlay_rect_warning" formatted="false">Розмір площі для проведення не може бути більшим, ніж %s%%. Скинуто.</string>
     <string name="revanced_swipe_overlay_rect_summary">Відсоток площі екрана для проведення.</string>
     <string name="revanced_swipe_overlay_rect_title">Розмір екрана накладки проведення</string>
     <string name="revanced_hide_gray_description_summary_off">"Сірий опис показується.
