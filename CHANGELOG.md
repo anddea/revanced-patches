@@ -1,3 +1,15 @@
+# [2.224.0-dev.13](https://github.com/anddea/revanced-patches/compare/v2.224.0-dev.12...v2.224.0-dev.13) (2024-04-23)
+
+
+### Bug Fixes
+
+* **YouTube - Settings:** Refactor InsertPosition for Extended preference ([3d3c9e0](https://github.com/anddea/revanced-patches/commit/3d3c9e0592bf6731d948750ae74e2b3f45a12fe7))
+
+
+### Features
+
+* **YouTube - Visual preferences icons:** Add selectable icons for Extended preference (Extension, Gear, ReVanced, Custom branding icon) ([96d9167](https://github.com/anddea/revanced-patches/commit/96d9167664bcc48c4d85f477db21582584675fdc))
+
 # [2.224.0-dev.12](https://github.com/anddea/revanced-patches/compare/v2.224.0-dev.11...v2.224.0-dev.12) (2024-04-22)
 
 
