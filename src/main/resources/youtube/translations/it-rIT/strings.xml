@@ -11,6 +11,13 @@
     <string name="pref_app_language_dialog_message_no_lang_name">Questo cambierà la lingua usata dall\'app, pulsanti, testo e finestre di dialogo inclusi, ma non cambierà la lingua delle impostazioni di ReVanced Extended</string>
     <string name="revanced_ads">Annunci</string>
     <string name="revanced_alt_thumbnails">Thumbnails alternativi</string>
+    <string name="revanced_alt_thumbnail_about_status_dearrow">"Mostrando i thumbnails di DeArrow.
+Se un video non ha i thumbnails di DeArrow, verranno mostrati i thumbnails originali di YouTube"</string>
+    <string name="revanced_alt_thumbnail_about_status_dearrow_stills">"Mostrando i thumbnails di DeArrow.
+Se un video non ha i thumbnails di DeArrow, verranno mostrati i thumbnails alternativi"</string>
+    <string name="revanced_alt_thumbnail_about_status_disabled">Mostrando i thumbnails originali di YouTube</string>
+    <string name="revanced_alt_thumbnail_about_status_stills">Mostrando i thumbnails alternativi</string>
+    <string name="revanced_alt_thumbnail_about_title">DeArrow</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow fornisce thumbnails provenienti da crowdsourcing per i video di YouTube. Questi thumbnails sono spesso più rilevanti di quelle fornite da YouTube. Se attivato, gli URL dei video verranno inviati al server API e non vengono inviati altri dati.
 
 Tocca qui per saperne di più su DeArrow"</string>
@@ -22,6 +29,9 @@ Tocca qui per saperne di più su DeArrow"</string>
     <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">Mostra una notifica toast se l\'API non è disponibile</string>
     <string name="revanced_alt_thumbnail_dearrow_error">DeArrow temporaneamente non disponibile (%s)</string>
     <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow temporaneamente non disponibile</string>
+    <string name="revanced_alt_thumbnail_dearrow_summary_off">DeArrow è disattivato</string>
+    <string name="revanced_alt_thumbnail_dearrow_summary_on">DeArrow è attivato</string>
+    <string name="revanced_alt_thumbnail_dearrow_title">Attiva DeArrow</string>
     <string name="revanced_alt_thumbnail_preference_screen_summary">Impostazioni dei thumbnails dei video</string>
     <string name="revanced_alt_thumbnail_preference_screen_title">Thumbnails alternativi</string>
     <string name="revanced_alt_thumbnail_stills">Thumbnails alternativi</string>
@@ -30,10 +40,13 @@ Tocca qui per saperne di più su DeArrow"</string>
     <string name="revanced_alt_thumbnail_stills_fast_summary_off">Ithumbnails alternativi di alta qualità sono attivati</string>
     <string name="revanced_alt_thumbnail_stills_fast_summary_on">I thumbnails alternativi di media qualità sono attivati. I thumbnails caricheranno più velocemente, ma i video dal vivo, quelli non rilasciati e molto vecchi potrebbero mostrare thumbnails vuoti</string>
     <string name="revanced_alt_thumbnail_stills_fast_title">Attiva thumbnails alternativi veloci</string>
+    <string name="revanced_alt_thumbnail_stills_summary_off">I thumbnails alternativi sono disattivati</string>
+    <string name="revanced_alt_thumbnail_stills_summary_on">I thumbnails alternativi sono attivati</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_1">Inizio video</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_2">Metà video</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_3">Fine video</string>
     <string name="revanced_alt_thumbnail_stills_time_title">Il tempo del video da cui prendere il fotogramma</string>
+    <string name="revanced_alt_thumbnail_stills_title">Attiva i thumbnails alternativi</string>
     <string name="revanced_append_time_stamp_information_summary_off">L\'informazione nel timestamp è nascosto</string>
     <string name="revanced_append_time_stamp_information_summary_on">L\'informazione nel timestamp è visibile</string>
     <string name="revanced_append_time_stamp_information_title">Mostra l\'informazione nel timestamp</string>
@@ -465,7 +478,9 @@ Alcuni componenti potrebbero non essere nascosti"</string>
     <string name="revanced_hide_info_cards_summary_on">Le schede informative sono nascoste</string>
     <string name="revanced_hide_info_cards_title">Nascondi le schede informative</string>
     <string name="revanced_hide_info_panel_summary_off">I pannelli informativi sono visibili</string>
-    <string name="revanced_hide_info_panel_summary_on">I pannelli informativi sono nascosti</string>
+    <string name="revanced_hide_info_panel_summary_on">"I pannelli informativi sono nascosti.
+
+Problema noto: anche le etichette dei metadati audio e del link del video saranno nascoste"</string>
     <string name="revanced_hide_info_panel_title">Nascondi i pannelli informativi</string>
     <string name="revanced_hide_join_button_summary_off">Il pulsante Abbonati è visibile</string>
     <string name="revanced_hide_join_button_summary_on">Il pulsante Abbonati è nascosto</string>
@@ -490,9 +505,9 @@ Problemi noti:
     <string name="revanced_hide_latest_posts_summary_off">I post più recenti sono visibili</string>
     <string name="revanced_hide_latest_posts_summary_on">I post più recenti sono nascosti</string>
     <string name="revanced_hide_latest_posts_title">Nascondi i post più recenti</string>
-    <string name="revanced_hide_latest_videos_button_summary_off">Il pulsante Video Recenti è visibile</string>
-    <string name="revanced_hide_latest_videos_button_summary_on">Il pulsante Video Recenti è nascosto</string>
-    <string name="revanced_hide_latest_videos_button_title">Nascondi il pulsante Video Recenti</string>
+    <string name="revanced_hide_latest_videos_button_summary_off">Il pulsante Video Più Recenti è visibile</string>
+    <string name="revanced_hide_latest_videos_button_summary_on">Il pulsante Video Più Recenti è nascosto</string>
+    <string name="revanced_hide_latest_videos_button_title">Nascondi il pulsante Video Più Recenti</string>
     <string name="revanced_hide_library_button_summary_off">La scheda Raccolta (Tu) è visibile</string>
     <string name="revanced_hide_library_button_summary_on">La scheda Raccolta (Tu) è nascosta</string>
     <string name="revanced_hide_library_button_title">Nascondi la scheda Raccolta (Tu)</string>
@@ -645,9 +660,9 @@ Problemi noti:
     <string name="revanced_hide_shorts_player_sound_metadata_label_summary_off">L\'etichetta dei metadati audio è visibile</string>
     <string name="revanced_hide_shorts_player_sound_metadata_label_summary_on">L\'etichetta dei metadati audio è nascosto</string>
     <string name="revanced_hide_shorts_player_sound_metadata_label_title">Nascondi l\'etichetta dei metadati audio</string>
-    <string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">Il pulsante Iscriviti è visibile</string>
-    <string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">Il pulsante Iscriviti è nascosto</string>
-    <string name="revanced_hide_shorts_paused_overlay_buttons_title">Nascondi il pulsante Iscriviti</string>
+    <string name="revanced_hide_shorts_player_subscriptions_button_summary_off">Il pulsante Iscriviti è visibile</string>
+    <string name="revanced_hide_shorts_player_subscriptions_button_summary_on">Il pulsante Iscriviti è nascosto</string>
+    <string name="revanced_hide_shorts_player_subscriptions_button_title">Nascondi il pulsante Iscriviti</string>
     <string name="revanced_hide_shorts_player_video_link_label_summary_off">L\'etichetta del link del video è visibile</string>
     <string name="revanced_hide_shorts_player_video_link_label_summary_on">L\'etichetta del link del video è nascosto</string>
     <string name="revanced_hide_shorts_player_video_link_label_title">Nascondi l\'etichetta del link del video</string>
@@ -687,6 +702,15 @@ Problemi noti:
     <string name="revanced_hide_suggested_video_overlay_title">Nascondi la sovrapposizione del video suggerito da riprodurre successivamente</string>
     <string name="revanced_hide_suggested_video_overlay_auto_play_summary">Al termine di un video, ne viene riprodotto automaticamente un altro</string>
     <string name="revanced_hide_suggested_video_overlay_auto_play_title">Riproduci automaticamente il prossimo video</string>
+    <string name="revanced_hide_suggestions_shelf_method_summary_off">"Identifica gli scaffali dei suggerimenti attraverso il BrowseId.
+
+Problema noto: quando il BrowseId non viene identificato, gli scaffali dei suggerimenti potrebbero non essere nascosti"</string>
+    <string name="revanced_hide_suggestions_shelf_method_summary_on">"Identifica gli scaffali dei suggerimenti attraverso la scheda corrente.
+
+Problemi noti:
+• Gli scaffali delle playlist potrebbero essere nascosti
+• Anche altri scaffali potrebbero essere nascosti"</string>
+    <string name="revanced_hide_suggestions_shelf_method_title">Il metodo per nascondere gli scaffali</string>
     <string name="revanced_hide_suggestions_shelf_summary">"Nasconde i seguenti scaffali:
 • Ultime notizie
 • Continua a guardare
@@ -744,9 +768,9 @@ Problema noto: alcuni video, inclusi quelli dei canali iscritti, potrebbero non 
     <string name="revanced_hide_view_products_summary_off">Il banner dei prodotti è visibile</string>
     <string name="revanced_hide_view_products_summary_on">Il banner dei prodotti è nascosto</string>
     <string name="revanced_hide_view_products_title">Nascondi il banner dei prodotti</string>
-    <string name="revanced_hide_web_search_results_summary_off">I risultati della ricerca web sono visibili</string>
-    <string name="revanced_hide_web_search_results_summary_on">I risultati della ricerca web sono nascosti</string>
-    <string name="revanced_hide_web_search_results_title">Nascondi i risultati della ricerca web</string>
+    <string name="revanced_hide_web_search_results_summary_off">I risultati di ricerca del web sono visibili</string>
+    <string name="revanced_hide_web_search_results_summary_on">I risultati di ricerca del web sono nascosti</string>
+    <string name="revanced_hide_web_search_results_title">Nascondi i risultati di ricerca del web</string>
     <string name="revanced_hide_youtube_music_button_summary_off">Il pulsante YouTube Music è visibile</string>
     <string name="revanced_hide_youtube_music_button_summary_on">Il pulsante YouTube Music è nascosto</string>
     <string name="revanced_hide_youtube_music_button_title">Nascondi il pulsante YouTube Music</string>
@@ -759,12 +783,12 @@ Problema noto: potrebbe rompere la funzione Picture-in-Picture"</string>
     <string name="revanced_keep_landscape_mode_timeout_summary">Il tempo in millisecondi in cui viene forzata la modalità orizzontale</string>
     <string name="revanced_keep_landscape_mode_timeout_title">Il time-out della modalità orizzontale forzata</string>
     <string name="revanced_keep_landscape_mode_title">Mantieni la modalità orizzontale</string>
-    <string name="revanced_hide_keyword_content_filter_strings_summary">"Configura le parole chiave e le frasi da nascondere separate da nuove righe.
+    <string name="revanced_keyword_filter_strings_summary">"Configura le parole chiave e le frasi da nascondere separate da nuove righe.
 
 Le parole con lettere maiuscole al centro devono essere inserite con il maiuscolo (es: iPhone, TikTok, LeBlanc)"</string>
-    <string name="revanced_hide_keyword_content_filter_strings_title">Modifica il filtro delle parole chiave</string>
-    <string name="revanced_hide_keyword_content_filter_summary">Nasconde i video nei feed e dei risultati di ricerca utilizzando il filtro delle parole chiave</string>
-    <string name="revanced_hide_keyword_content_filter_title">Filtri delle parole chiave</string>
+    <string name="revanced_keyword_filter_strings_title">Modifica il filtro delle parole chiave</string>
+    <string name="revanced_keyword_filter_summary">Nasconde i video nei feed e dei risultati di ricerca utilizzando il filtro delle parole chiave</string>
+    <string name="revanced_keyword_filter_title">Filtro delle parole chiave</string>
     <string name="revanced_layout_title">Interfaccia</string>
     <string name="revanced_misc">Varie</string>
     <string name="revanced_navigation">Barra di navigazione</string>
@@ -786,7 +810,8 @@ Tocca e tieni premuto per annullare"</string>
     <string name="revanced_overlay_button_time_ordered_playlist_title">Mostra il pulsante Playlist Ordinato-per-Data</string>
     <string name="revanced_overlay_button_speed_dialog_reset">Velocità di riproduzione ripristinata al predefinito</string>
     <string name="revanced_overlay_button_speed_dialog_summary">"Tocca per aprire la finestra di dialogo della velocità.
-Tocca e tieni premuto per impostare la velocità di riproduzione a 1.0x"</string>
+Tocca e tieni premuto per impostare la velocità di riproduzione a 1.0x.
+Tocca e tieni premuto di nuovo per ripristinare la velocità a quella predefinita"</string>
     <string name="revanced_overlay_button_speed_dialog_title">Mostra la finestra di dialogo della velocità</string>
     <string name="revanced_overlay_button_whitelisting_summary">Tocca per aggiungere un canale alla whitelist dei canali</string>
     <string name="revanced_overlay_button_whitelisting_title">Mostra il pulsante Whitelist</string>
@@ -863,6 +888,8 @@ Note:
 Note:
 • Questo cambierà l'aspetto dell'app, ma potrebbero verificarsi degli effetti collaterali sconosciuti
 • Se in seguito verrà disattivato, la vecchia interfaccia potrebbe rimanere fino a quando i dati dell'app non verranno cancellati"</string>
+    <string name="revanced_spoof_app_version_target_entry_16_08_35">16.08.35 - Ripristina la scheda Esplora</string>
+    <string name="revanced_spoof_app_version_target_entry_17_08_35">17.08.35 - Ripristina la vecchia interfaccia</string>
     <string name="revanced_spoof_app_version_target_entry_17_41_37">17.41.37 - Ripristina il vecchio scaffale delle playlist</string>
     <string name="revanced_spoof_app_version_target_entry_18_05_40">18.05.40 - Ripristina la vecchia casella di input dei commenti</string>
     <string name="revanced_spoof_app_version_target_entry_18_09_39">18.09.39 - Ripristina la scheda Raccolta</string>
