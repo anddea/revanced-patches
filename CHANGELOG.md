@@ -1,3 +1,21 @@
+# [2.224.0-dev.14](https://github.com/anddea/revanced-patches/compare/v2.224.0-dev.13...v2.224.0-dev.14) (2024-04-24)
+
+
+### Features
+
+* **YouTube - Translations:** Update `Arabic` ([#322](https://github.com/anddea/revanced-patches/issues/322), [#323](https://github.com/anddea/revanced-patches/issues/323)) ([a3e06ed](https://github.com/anddea/revanced-patches/commit/a3e06ed4f4f42e4b3c9c053db9ebb3ed75d50720))
+* **Youtube - Translations:** Update `Brazillian Portuguese` ([#337](https://github.com/anddea/revanced-patches/issues/337)) ([9afe90f](https://github.com/anddea/revanced-patches/commit/9afe90f50fa64e7dcb8fd81bd956be79b254f949))
+* **YouTube - Translations:** Update `Chinese Traditional` ([#345](https://github.com/anddea/revanced-patches/issues/345)) ([7ed62db](https://github.com/anddea/revanced-patches/commit/7ed62dbaa7fd18ce281b313368f0b9c1f20a29d7))
+* **YouTube - Translations:** Update `French` ([#237](https://github.com/anddea/revanced-patches/issues/237), [#284](https://github.com/anddea/revanced-patches/issues/284)) ([4aaacfb](https://github.com/anddea/revanced-patches/commit/4aaacfbeb3f0b5fe23512793f3040f7d0730834c))
+* **YouTube - Translations:** Update `Greek` ([#291](https://github.com/anddea/revanced-patches/issues/291)) ([9d37c99](https://github.com/anddea/revanced-patches/commit/9d37c99fc8e62a184bbe10d3b4e4fd879d6bd106))
+* **YouTube - Translations:** Update `Italian` ([#286](https://github.com/anddea/revanced-patches/issues/286)) ([755d004](https://github.com/anddea/revanced-patches/commit/755d004d2ffc262f12531caa3db2fe27c1c49481))
+* **YouTube - Translations:** Update `Japanese` ([#268](https://github.com/anddea/revanced-patches/issues/268)) ([2699410](https://github.com/anddea/revanced-patches/commit/26994103f165e6ca4473e92a9ec3a22f8187d885))
+* **YouTube - Translations:** Update `Korean` ([#349](https://github.com/anddea/revanced-patches/issues/349)) ([fa18e08](https://github.com/anddea/revanced-patches/commit/fa18e08aa1fdc561fe1655dbdf5471b453f92581))
+* **YouTube - Translations:** Update `Polish` ([#341](https://github.com/anddea/revanced-patches/issues/341)) ([da7847d](https://github.com/anddea/revanced-patches/commit/da7847d96207a791606d36e04eaba5e5788583ca))
+* **YouTube - Translations:** Update `Russian` ([#362](https://github.com/anddea/revanced-patches/issues/362)) ([3e8a225](https://github.com/anddea/revanced-patches/commit/3e8a225430a10c53a4b7155db5a314d46a1df035))
+* **YouTube - Translations:** Update `Spanish` ([#304](https://github.com/anddea/revanced-patches/issues/304)) ([7584652](https://github.com/anddea/revanced-patches/commit/7584652708a60d2e357a3234d507a295be0bf3a6))
+* **YouTube - Translations:** Update `Ukrainian` ([#263](https://github.com/anddea/revanced-patches/issues/263)) ([6a56f68](https://github.com/anddea/revanced-patches/commit/6a56f68009457b87ab25ba008c52fcf52d30b80b))
+
 # [2.224.0-dev.13](https://github.com/anddea/revanced-patches/compare/v2.224.0-dev.12...v2.224.0-dev.13) (2024-04-23)
 
 
