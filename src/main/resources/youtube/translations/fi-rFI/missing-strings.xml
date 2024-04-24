@@ -50,9 +50,7 @@
 <string name="revanced_change_start_page_title">Change start page</string>
 <string name="revanced_change_start_page_warning">Invalid start page, resetting to default.</string>
 <string name="revanced_channel_profile_title">Channel profile</string>
-<string name="revanced_close_interstitial_ads_summary">"Automatically close interstitial ads.
-
-Note: This feature hasn't been tested."</string>
+<string name="revanced_close_interstitial_ads_summary">Automatically close interstitial ads.\n\nNote: This feature is only available for older devices.</string>
 <string name="revanced_close_interstitial_ads_title">Close interstitial ads</string>
 <string name="revanced_close_interstitial_ads_toast">Closing interstitial ads.</string>
 <string name="revanced_custom_filter_toast_invalid_characters" formated="false">Invalid custom filter (must be ASCII only): %s</string>
@@ -108,8 +106,8 @@ Note: Disabling the speed overlay restores the 'Slide to seek' behavior of the o
 <string name="revanced_external_downloader_set">Set as default downloader</string>
 <string name="revanced_force_fullscreen_summary">"Videos will be switched to fullscreen in the following situations:
 
-â€¢ When a timestamp in the comments is clicked on.
-â€¢ When a video is started."</string>
+• When a timestamp in the comments is clicked on.
+• When a video is started."</string>
 <string name="revanced_force_fullscreen_title">Force fullscreen</string>
 <string name="revanced_hide_account_menu_summary">"Hide elements of the account menu and You tab.
 Some components may not be hidden."</string>
@@ -127,7 +125,7 @@ Some components may not be hidden."</string>
 <string name="revanced_hide_for_you_shelf_title">"Hide 'For You' shelf"</string>
 <string name="revanced_hide_home_feed_membership_video_summary">Hide videos with \"Only for Membership\" tag in Home Feed</string>
 <string name="revanced_hide_home_feed_membership_video_title">Hide membership videos in Home Feed</string>
-<string name="revanced_hide_keyword_content_about_summary">Search, Home, Subscription and Comments are filtered to hide content that matches keyword phrases\n\nLimitations\nâ€¢ Some Shorts may not be hidden\nâ€¢ Some UI components may not be hidden\nâ€¢ Searching for a keyword may show no results</string>
+<string name="revanced_hide_keyword_content_about_summary">Search, Home, Subscription and Comments are filtered to hide content that matches keyword phrases\n\nLimitations\n• Some Shorts may not be hidden\n• Some UI components may not be hidden\n• Searching for a keyword may show no results</string>
 <string name="revanced_hide_keyword_content_comment_summary_off">Keyword filter for comments is disabled.</string>
 <string name="revanced_hide_keyword_content_comment_summary_on">Keyword filter for comments is enabled.</string>
 <string name="revanced_hide_keyword_content_comment_title">Enable comments keyword filter</string>
@@ -200,8 +198,8 @@ Some components may not be hidden."</string>
 <string name="revanced_hide_shorts_search_suggestions_summary_off">Search suggestions are shown</string>
 <string name="revanced_hide_shorts_search_suggestions_summary_on">Search suggestions are hidden</string>
 <string name="revanced_hide_shorts_search_suggestions_title">Hide search suggestions</string>
-<string name="revanced_hide_shorts_shelf_home_summary_off">Shorts in home feed are shown.\n\nThis will also hide:\nâ€¢ Shorts shelf in related videos under video player\nâ€¢ Shorts section in description</string>
-<string name="revanced_hide_shorts_shelf_home_summary_on">Shorts in home feed are hidden.\n\nThis will also hide:\nâ€¢ Shorts shelf in related videos under video player\nâ€¢ Shorts section in description</string>
+<string name="revanced_hide_shorts_shelf_home_summary_off">Shorts in home feed are shown.\n\nThis will also hide:\n• Shorts shelf in related videos under video player\n• Shorts section in description</string>
+<string name="revanced_hide_shorts_shelf_home_summary_on">Shorts in home feed are hidden.\n\nThis will also hide:\n• Shorts shelf in related videos under video player\n• Shorts section in description</string>
 <string name="revanced_hide_shorts_shelf_home_title">Hide Shorts in home feed</string>
 <string name="revanced_hide_shorts_shelf_search_summary_off">Shorts in search results are shown.</string>
 <string name="revanced_hide_shorts_shelf_search_summary_on">Shorts in search results are hidden.</string>
@@ -294,9 +292,9 @@ This does not bypass the age restriction. It just accepts it automatically."</st
 <string name="revanced_swipe_overlay_rect_warning" formatted="false">Swipeable area size can\'t be more than %s%%. Reset to default value.</string>
 <string name="revanced_switching_create_notification_summary">"Swap the positions of the create button and notification button by spoofing the device's information.
 
-â€¢ Even if you change this setting, it may not take effect until you reboot the device.
-â€¢ Disabling this setting loads more ads from the server side.
-â€¢ You should disable this setting to make video ads visible."</string>
+• Even if you change this setting, it may not take effect until you reboot the device.
+• Disabling this setting loads more ads from the server side.
+• You should disable this setting to make video ads visible."</string>
 <string name="revanced_whitelisting_add_failed" formatted="false">Failed to add channel %s to the %s whitelist</string>
 <string name="revanced_whitelisting_added" formatted="false">Channel %s was added to the %s whitelist</string>
 <string name="revanced_whitelisting_channel_name">Channel Name</string>

@@ -1,4 +1,3 @@
-<string name="revanced_alt_thumbnail_dearrow_api_url_summary">"The URL of the DeArrow thumbnail cache endpoint. Do not change this unless you know what you're doing."</string>
 <string name="revanced_alt_thumbnail_home_title">Home tab</string>
 <string name="revanced_alt_thumbnail_library_title">\'You\' tab</string>
 <string name="revanced_alt_thumbnail_options_entry_1">Original thumbnails</string>
@@ -8,10 +7,23 @@
 <string name="revanced_alt_thumbnail_player_title">Player playlists, recommendations</string>
 <string name="revanced_alt_thumbnail_search_title">Search results</string>
 <string name="revanced_alt_thumbnail_subscription_title">Subscription tab</string>
-<string name="revanced_hide_keyword_content_about_summary">Search, Home, Subscription and Comments are filtered to hide content that matches keyword phrases\n\nLimitations\nâ€¢ Some Shorts may not be hidden\nâ€¢ Some UI components may not be hidden\nâ€¢ Searching for a keyword may show no results</string>
+<string name="revanced_change_start_page_entry_browse">Browse channels</string>
+<string name="revanced_change_start_page_entry_gaming">Gaming</string>
+<string name="revanced_change_start_page_entry_live">Live</string>
+<string name="revanced_change_start_page_entry_movies">Movies</string>
+<string name="revanced_change_start_page_entry_music">Music</string>
+<string name="revanced_change_start_page_entry_sports">Sports</string>
+<string name="revanced_change_start_page_entry_watch_later">Watch later</string>
+<string name="revanced_hide_keyword_content_about_summary">Search, Home, Subscription and Comments are filtered to hide content that matches keyword phrases\n\nLimitations\n• Some Shorts may not be hidden\n• Some UI components may not be hidden\n• Searching for a keyword may show no results</string>
 <string name="revanced_hide_keyword_content_comment_summary_off">Keyword filter for comments is disabled.</string>
 <string name="revanced_hide_keyword_content_comment_summary_on">Keyword filter for comments is enabled.</string>
 <string name="revanced_hide_keyword_content_comment_title">Enable comments keyword filter</string>
+<string name="revanced_hide_keyword_content_feed_summary_off">Keyword filter is disabled.</string>
+<string name="revanced_hide_keyword_content_feed_summary_on">Keyword filter is enabled.</string>
+<string name="revanced_hide_keyword_content_feed_title">Enable keyword filter</string>
+<string name="revanced_hide_keyword_content_filter_strings_summary">Configure keywords and phrases to hide, separated by new lines\n\nWords with uppercase letters in the middle must be entered with the casing (ie: iPhone, TikTok, LeBlanc).</string>
+<string name="revanced_hide_keyword_content_filter_strings_title">Edit keyword filter</string>
+<string name="revanced_hide_keyword_content_filter_summary">Hides videos using keyword filter.</string>
 <string name="revanced_hide_keyword_content_filter_title">Keyword filter</string>
 <string name="revanced_hide_keyword_content_home_summary_off">Keyword filter for home feed is disabled.</string>
 <string name="revanced_hide_keyword_content_home_summary_on">Keyword filter for home feed is enabled.</string>
@@ -23,9 +35,13 @@
 <string name="revanced_hide_keyword_content_sub_summary_on">Keyword filter for subscriptions is enabled.</string>
 <string name="revanced_hide_keyword_content_sub_title">Enable subscriptions keyword filter</string>
 <string name="revanced_hide_keyword_toast_invalid_common" formatted="false">Invalid keyword. Cannot use: \'%s\' as a filter</string>
+<string name="revanced_hide_keyword_toast_invalid_length" formatted="false">Invalid keyword length (must be at least %s characters): %s.</string>
 <string name="revanced_hide_playables_summary_off">Playables are shown</string>
 <string name="revanced_hide_playables_summary_on">Playables are hidden</string>
 <string name="revanced_hide_playables_title">Hide playables</string>
+<string name="revanced_hide_player_button_background_summary_off">Player buttons background is shown.</string>
+<string name="revanced_hide_player_button_background_summary_on">Player buttons background is hidden.</string>
+<string name="revanced_hide_player_button_background_title">Hide player buttons background</string>
 <string name="revanced_hide_shorts_live_chat_summary_off">Live chat messages are shown</string>
 <string name="revanced_hide_shorts_live_chat_summary_on">Live chat messages are hidden</string>
 <string name="revanced_hide_shorts_live_chat_title">Hide live chat messages</string>
@@ -53,8 +69,8 @@
 <string name="revanced_hide_shorts_search_suggestions_summary_off">Search suggestions are shown</string>
 <string name="revanced_hide_shorts_search_suggestions_summary_on">Search suggestions are hidden</string>
 <string name="revanced_hide_shorts_search_suggestions_title">Hide search suggestions</string>
-<string name="revanced_hide_shorts_shelf_home_summary_off">Shorts in home feed are shown.\n\nThis will also hide:\nâ€¢ Shorts shelf in related videos under video player\nâ€¢ Shorts section in description</string>
-<string name="revanced_hide_shorts_shelf_home_summary_on">Shorts in home feed are hidden.\n\nThis will also hide:\nâ€¢ Shorts shelf in related videos under video player\nâ€¢ Shorts section in description</string>
+<string name="revanced_hide_shorts_shelf_home_summary_off">Shorts in home feed are shown.\n\nThis will also hide:\n• Shorts shelf in related videos under video player\n• Shorts section in description</string>
+<string name="revanced_hide_shorts_shelf_home_summary_on">Shorts in home feed are hidden.\n\nThis will also hide:\n• Shorts shelf in related videos under video player\n• Shorts section in description</string>
 <string name="revanced_hide_shorts_shelf_home_title">Hide Shorts in home feed</string>
 <string name="revanced_hide_shorts_shelf_search_summary_off">Shorts in search results are shown.</string>
 <string name="revanced_hide_shorts_shelf_search_summary_on">Shorts in search results are hidden.</string>
