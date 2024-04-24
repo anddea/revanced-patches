@@ -11,7 +11,7 @@ object CinematicLightingFingerprint : MethodFingerprint(
     parameters = listOf("Ljava/lang/Object;"),
     opcodes = listOf(
         Opcode.CONST_STRING, // "menu_item_cinematic_lighting"
-        null, //  Opcode.INVOKE_INTERFACE, Opcode.INVOKE_VIRTUAL
+        null, //  Opcode.INVOKE_INTERFACE or Opcode.INVOKE_VIRTUAL
         Opcode.IGET_OBJECT,
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT,

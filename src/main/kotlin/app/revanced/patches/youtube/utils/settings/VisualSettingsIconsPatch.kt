@@ -5,7 +5,9 @@ import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.booleanPatchOption
+import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatchOption
 import app.revanced.patches.youtube.layout.branding.icon.CustomBrandingIconPatch
+import app.revanced.patches.youtube.shorts.shortsoverlay.ShortsOverlayButtonsPatch
 import app.revanced.util.ResourceGroup
 import app.revanced.util.copyResources
 import org.w3c.dom.Document
@@ -37,12 +39,20 @@ object VisualSettingsIconsPatch : ResourcePatch() {
         required = true
     )
 
-    private val ExtendedBrand by booleanPatchOption(
-        key = "ExtendedBrand",
-        default = false,
-        title = "Extended brand icon",
-        description = "Icon for Extended setting based on \"Custom branding icon\". If this option is enabled but \"Custom branding icon\" patch is excluded, it will use default custom branding icon.",
-        required = true
+    private const val DEFAULT_ICON_KEY = "Extension"
+
+    private val ExtendedIcon by stringPatchOption(
+        key = "ExtendedIcon",
+        default = DEFAULT_ICON_KEY,
+        values = mapOf(
+            "Custom branding icon" to "custom_branding_icon",
+            DEFAULT_ICON_KEY to "extension",
+            "Gear" to "gear",
+            "ReVanced" to "revanced",
+            "ReVanced Colored" to "revanced_colored",
+        ),
+        title = "Extended icon",
+        description = "Apply different icons for Extended preference."
     )
 
     override fun execute(context: ResourceContext) {
@@ -218,33 +228,44 @@ object VisualSettingsIconsPatch : ResourcePatch() {
             ResourceGroup("drawable", *validTitlesIcons.values.map { "$it.xml" }.toTypedArray())
         )
 
-        if (MainSettings!!) resourcesToCopy.add(ResourceGroup("drawable", *validMainTitlesIcons.values.map { "$it.xml" }.toTypedArray()))
-        if (ExtendedSettings!!) resourcesToCopy.add(ResourceGroup("drawable", *validExtendedTitlesIcons.values.map { "$it.xml" }.toTypedArray()))
+        fun copyResourcesWithFallback(iconPath: String) {
+            try {
+                context.copyResources(iconPath, ResourceGroup("drawable", "revanced_extended_settings_key_icon.xml"))
+            } catch (_: Exception) {
+                // Ignore if resource copy fails
 
-        // Always copy default icon even if ExtendedBrand is true, as a fallback method
-        resourcesToCopy.add(ResourceGroup("drawable", *validExtendedBrandIcon.values.map { "$it.xml" }.toTypedArray()))
-        resourcesToCopy.forEach { context.copyResources("youtube/settings", it) }
+                // Add a fallback extended icon
+                // It's needed if someone provides custom path to icon(s) folder
+                // but custom branding icons for Extended setting are predefined,
+                // so it won't copy custom branding icon
+                // and will raise an error without fallback icon
+                context.copyResources("youtube/settings/icons/extension", ResourceGroup("drawable", "revanced_extended_settings_key_icon.xml"))
+            }
+        }
 
-        CustomBrandingIconPatch.AppIcon?.let { appIcon ->
-            val appIconValue = appIcon.lowercase().replace(" ", "_")
-            val resourcePath = "youtube/branding/$appIconValue"
+        MainSettings?.let {
+            resourcesToCopy.add(ResourceGroup("drawable", *validMainTitlesIcons.values.map { "$it.xml" }.toTypedArray()))
+            ExtendedIcon?.let { iconType ->
+                val selectedIconType = iconType.lowercase().replace(" ", "_")
+                CustomBrandingIconPatch.AppIcon?.let { appIcon ->
+                    val appIconValue = appIcon.lowercase().replace(" ", "_")
+                    val resourcePath = "youtube/branding/$appIconValue"
 
-            if (ExtendedBrand!!) {
-                // Try to copy custom branding icon and override default icon if it exists,
-                // otherwise it will use a fallback default icon.
-                try {
-                    arrayOf(
-                        ResourceGroup(
-                            "drawable", "revanced_extended_settings_key_icon.xml"
-                        )
-                    ).forEach { resourceGroup ->
-                        context.copyResources("$resourcePath/launcher", resourceGroup)
+                    val iconPath = when {
+                        selectedIconType == "custom_branding_icon" -> "$resourcePath/launcher"
+                        else -> "youtube/settings/icons/$selectedIconType"
                     }
-                } catch (_: Exception) {
-                    // Icon does not exist, just skip without error as it fallbacks to default
+
+                    copyResourcesWithFallback(iconPath)
                 }
             }
         }
+
+        ExtendedSettings?.let {
+            resourcesToCopy.add(ResourceGroup("drawable", *validExtendedTitlesIcons.values.map { "$it.xml" }.toTypedArray()))
+        }
+
+        resourcesToCopy.forEach { context.copyResources("youtube/settings/icons", it) }
 
         val tagNames = listOf(
             "app.revanced.integrations.youtube.settingsmenu.ResettableEditTextPreference",
@@ -270,7 +291,9 @@ object VisualSettingsIconsPatch : ResourcePatch() {
                         title in validTitles -> validTitlesIcons[title]
                         MainSettings!! && title in validMainTitles -> validMainTitlesIcons[title]
                         ExtendedSettings!! && title in validExtendedTitles -> validExtendedTitlesIcons[title]
-                        title in validExtendedBrand -> validExtendedBrandIcon[title]
+
+                        // Add custom extended icon (only if main settings icons applied)
+                        MainSettings!! && title in validExtendedBrand -> validExtendedBrandIcon[title]
                         title in emptyTitles -> emptyIcon
                         else -> null
                     }

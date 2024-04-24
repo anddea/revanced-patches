@@ -1,3 +1,43 @@
+# [2.224.0-dev.13](https://github.com/anddea/revanced-patches/compare/v2.224.0-dev.12...v2.224.0-dev.13) (2024-04-23)
+
+
+### Bug Fixes
+
+* **YouTube - Settings:** Refactor InsertPosition for Extended preference ([3d3c9e0](https://github.com/anddea/revanced-patches/commit/3d3c9e0592bf6731d948750ae74e2b3f45a12fe7))
+
+
+### Features
+
+* **YouTube - Visual preferences icons:** Add selectable icons for Extended preference (Extension, Gear, ReVanced, Custom branding icon) ([96d9167](https://github.com/anddea/revanced-patches/commit/96d9167664bcc48c4d85f477db21582584675fdc))
+
+# [2.224.0-dev.12](https://github.com/anddea/revanced-patches/compare/v2.224.0-dev.11...v2.224.0-dev.12) (2024-04-22)
+
+
+### Bug Fixes
+
+* **YouTube:** Possible fix for Shorts looping ([05b2eb7](https://github.com/anddea/revanced-patches/commit/05b2eb771ad90a1a458724d617d0a76d0495fe84))
+
+# [2.224.0-dev.11](https://github.com/anddea/revanced-patches/compare/v2.224.0-dev.10...v2.224.0-dev.11) (2024-04-22)
+
+
+### Features
+
+* **YouTube:** Bump support version `19.12.41` - `19.14.43` ([#352](https://github.com/anddea/revanced-patches/issues/352)) ([2d99fff](https://github.com/anddea/revanced-patches/commit/2d99fff951eaec3125b03a583751e8a203aa1c15))
+
+# [2.224.0-dev.10](https://github.com/anddea/revanced-patches/compare/v2.224.0-dev.9...v2.224.0-dev.10) (2024-04-20)
+
+
+### Bug Fixes
+
+* **YouTube - Default video quality:** Match original ReVanced code ([1ee2743](https://github.com/anddea/revanced-patches/commit/1ee2743c452795dba4c7a52a7779e35568fe3e6a))
+
+# [2.224.0-dev.9](https://github.com/anddea/revanced-patches/compare/v2.224.0-dev.8...v2.224.0-dev.9) (2024-04-18)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof app version:** Remove broken versions ([6b72ef2](https://github.com/anddea/revanced-patches/commit/6b72ef221b09a47f6f23cad0057a60b5146440d7))
+
 # [2.224.0-dev.8](https://github.com/anddea/revanced-patches/compare/v2.224.0-dev.7...v2.224.0-dev.8) (2024-04-17)
 
 
