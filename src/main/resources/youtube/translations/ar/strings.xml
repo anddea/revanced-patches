@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="accessibility_settings_edu_opt_in_text">هل تريد تشغيل عناصر التحكم في إمكانية الوصول لمشغل الفيديو؟</string>
-    <string name="accessibility_settings_edu_opt_out_text">تم تعديل عناصر التحكم الخاصة بك لأن خدمة إمكانية الوصول قيد التشغيل.</string>
     <string name="microg_not_installed_notice">الرجاء تثبيت MicroG</string>
     <string name="microg_not_installed_warning">لم يتم العثور على MicroG</string>
     <string name="microg_not_running_warning">لا يعمل MicroG في الخلفية</string>
@@ -813,8 +811,6 @@
     <string name="revanced_switching_create_notification_title">تبديل زر الإنشاء بزر الإشعارات</string>
     <string name="revanced_tool_used">الأداة المستخدمة</string>
     <string name="revanced_video">الفيديو</string>
-    <string name="pref_app_language_dialog_message">&lt;b&gt;%1$s&lt;/b&gt;&lt;br&gt;&lt;br&gt;سيؤدي هذا إلى تغيير اللغة المستخدمة على YouTube، بما في ذلك الأزرار والنصوص ومربعات الحوار، ولكنه لن يغير لغة إعدادات ReVanced Extended.</string>
-    <string name="pref_app_language_dialog_message_no_lang_name">سيؤدي هذا إلى تغيير اللغة المستخدمة في التطبيق بما في ذلك الأزرار والنصوص ومربعات الحوار، ولكنه لن يغير لغة إعدادات ReVanced Extended.</string>
     <string name="sb_enable_sb">تمكين مانِع الرُعَاة SponsorBlock</string>
     <string name="sb_enable_sb_sum">مانِع الرُعَاة هو نظام جماعي لتخطي الأجزاء المُمِلَّة في مقاطع اليوتيوب</string>
     <string name="sb_appearance_category">المظهر</string>
@@ -1091,18 +1087,16 @@
     <string name="revanced_swipe_overlay_rect_title">حجم واجهة شاشة السحب</string>
     <string name="revanced_swipe_overlay_rect_warning" formatted="false">لا يمكن أن يزيد حجم المنطقة القابلة للتمرير السريع عن %s%%.  إعادة التعيين إلى القيمة الافتراضية.</string>
     <string name="revanced_hide_gray_description_summary_off">"يتم عرض الوصف الرمادي.
-        • من قائمة التشغيل "مشاهدة لاحقًا".
-        • شاهد الأشخاص هذا الفيديو أيضًا.
-        • يشاهد مشاهدو القناة هذه القناة أيضًا، وما إلى ذلك."</string>
+• من قائمة التشغيل "مشاهدة لاحقًا".
+• شاهد الأشخاص هذا الفيديو أيضًا.
+• يشاهد مشاهدو القناة هذه القناة أيضًا، وما إلى ذلك."</string>
     <string name="revanced_hide_gray_description_summary_on">"الوصف الرمادي مخفي.
-        • من قائمة التشغيل "مشاهدة لاحقًا".
-        • شاهد الأشخاص هذا الفيديو أيضًا.
-        • يشاهد مشاهدو القناة هذه القناة أيضًا، وما إلى ذلك."</string>
+• من قائمة التشغيل "مشاهدة لاحقًا".
+• شاهد الأشخاص هذا الفيديو أيضًا.
+• يشاهد مشاهدو القناة هذه القناة أيضًا، وما إلى ذلك."</string>
 
     <string name="revanced_append_time_stamp_information_type_summary_off">إلحاق سرعة التشغيل.  انقر مع الاستمرار على الطابع الزمني لتغيير النوع أثناء تشغيل الفيديو.</string>
     <string name="revanced_append_time_stamp_information_type_summary_on">إلحاق جودة الفيديو.  انقر مع الاستمرار على الطابع الزمني لتغيير النوع أثناء تشغيل الفيديو.</string>
-    <string name="revanced_hide_keyword_content_feed_summary_off">تم تعطيل تصفية الكلمات الرئيسية للموجز والبحث.</string>
-    <string name="revanced_hide_keyword_content_feed_summary_on">تم تمكين تصفية الكلمات الرئيسية للموجز والبحث.</string>
 
     <string name="revanced_hide_keyword_content_filter_summary">إخفاء مقاطع الفيديو باستخدام فلتر الكلمات الرئيسية.</string>
 
@@ -1110,12 +1104,8 @@
 
     <string name="revanced_hide_video_with_low_view_summary">"إخفاء مقاطع الفيديو التي تقل مشاهداتها عن N."</string>
     <string name="revanced_hide_video_with_low_view_title">إخفاء مقاطع الفيديو بناءً على المشاهدات</string>
-    <string name="revanced_hide_shorts_player_pivot_button_summary_off">يتم عرض زر الصوت.</string>
-    <string name="revanced_hide_shorts_player_pivot_button_summary_on">تم إخفاء زر الصوت</string>
-    <string name="revanced_hide_shorts_player_pivot_button_title">إخفاء زر الصوت</string>
-
     <string name="revanced_overlay_button_speed_dialog_summary">"انقر لفتح مربع حوار السرعة.
-        انقر مع الاستمرار لإعادة ضبط سرعة التشغيل إلى 1.0x.  انقر مع الاستمرار مرة أخرى لإعادة ضبط السرعة الافتراضية."</string>
+انقر مع الاستمرار لإعادة ضبط سرعة التشغيل إلى 1.0x.  انقر مع الاستمرار مرة أخرى لإعادة ضبط السرعة الافتراضية."</string>
 
     <string name="revanced_hide_info_panel_summary_off">يتم عرض لوحات المعلومات.\n\nوستؤدي أيضًا إلى إخفاء تسمية بيانات تعريف الصوت وتسمية رابط الفيديو.</string>
     <string name="revanced_hide_info_panel_summary_on">تم إخفاء لوحات المعلومات.\n\nستؤدي أيضًا إلى إخفاء تسمية بيانات تعريف الصوت وتسمية رابط الفيديو.</string>
