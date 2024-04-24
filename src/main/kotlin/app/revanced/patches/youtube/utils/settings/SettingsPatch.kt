@@ -64,7 +64,10 @@ import java.util.concurrent.TimeUnit
                 "19.08.36",
                 "19.09.38",
                 "19.10.39",
-                "19.11.38"
+                "19.11.43",
+                "19.12.41",
+                "19.13.37",
+                "19.14.43"
             ]
         )
     ],
@@ -76,36 +79,37 @@ object SettingsPatch : AbstractSettingsResourcePatch(
 ), Closeable {
     private const val DEFAULT_ELEMENT = "About"
 
+    private val SETTINGS_ELEMENTS_MAP = mapOf(
+        "Parent settings" to "@string/parent_tools_key",
+        "General" to "@string/general_key",
+        "Account" to "@string/account_switcher_key",
+        "Data saving" to "@string/data_saving_settings_key",
+        "Autoplay" to "@string/auto_play_key",
+        "Video quality preferences" to "@string/video_quality_settings_key",
+        "Background" to "@string/offline_key",
+        "Watch on TV" to "@string/pair_with_tv_key",
+        "Manage all history" to "@string/history_key",
+        "Your data in YouTube" to "@string/your_data_key",
+        "Privacy" to "@string/privacy_key",
+        "History & privacy" to "@string/privacy_key",
+        "Try experimental new features" to "@string/premium_early_access_browse_page_key",
+        "Purchases and memberships" to "@string/subscription_product_setting_key",
+        "Billing & payments" to "@string/billing_and_payment_key",
+        "Billing and payments" to "@string/billing_and_payment_key",
+        "Notifications" to "@string/notification_key",
+        "Connected apps" to "@string/connected_accounts_browse_page_key",
+        "Live chat" to "@string/live_chat_key",
+        "Captions" to "@string/captions_key",
+        "Accessibility" to "@string/accessibility_settings_key",
+        DEFAULT_ELEMENT to "@string/about_key"
+    )
+
     private val InsertPosition by stringPatchOption(
         key = "InsertPosition",
         default = DEFAULT_ELEMENT,
+        values = SETTINGS_ELEMENTS_MAP,
         title = "Insert position",
         description = "Specify the setting name before which the RVX setting should be inserted."
-    )
-
-    private val SETTINGS_ELEMENTS_MAP = mapOf(
-        "parent settings" to "@string/parent_tools_key",
-        "general" to "@string/general_key",
-        "account" to "@string/account_switcher_key",
-        "data saving" to "@string/data_saving_settings_key",
-        "autoplay" to "@string/auto_play_key",
-        "video quality preferences" to "@string/video_quality_settings_key",
-        "background" to "@string/offline_key",
-        "watch on tv" to "@string/pair_with_tv_key",
-        "manage all history" to "@string/history_key",
-        "your data in youtube" to "@string/your_data_key",
-        "privacy" to "@string/privacy_key",
-        "history & privacy" to "@string/privacy_key",
-        "try experimental new features" to "@string/premium_early_access_browse_page_key",
-        "purchases and memberships" to "@string/subscription_product_setting_key",
-        "billing & payments" to "@string/billing_and_payment_key",
-        "billing and payments" to "@string/billing_and_payment_key",
-        "notifications" to "@string/notification_key",
-        "connected apps" to "@string/connected_accounts_browse_page_key",
-        "live chat" to "@string/live_chat_key",
-        "captions" to "@string/captions_key",
-        "accessibility" to "@string/accessibility_settings_key",
-        "about" to "@string/about_key"
     )
 
     override fun execute(context: ResourceContext) {
@@ -172,12 +176,10 @@ object SettingsPatch : AbstractSettingsResourcePatch(
             context.copyResources("youtube/settings", resourceGroup)
         }
 
-
         /**
          * initialize ReVanced Extended Settings
          */
-        val positionKey = InsertPosition?.lowercase()
-        val elementKey = SETTINGS_ELEMENTS_MAP[positionKey] ?: SETTINGS_ELEMENTS_MAP[DEFAULT_ELEMENT.lowercase()]
+        val elementKey = SETTINGS_ELEMENTS_MAP[InsertPosition] ?: SETTINGS_ELEMENTS_MAP[DEFAULT_ELEMENT]
         elementKey?.let { addReVancedPreference("extended_settings", it) }
 
         /**
