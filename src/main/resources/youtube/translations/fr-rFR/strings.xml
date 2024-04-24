@@ -2,13 +2,20 @@
 <resources>
     <string name="accessibility_settings_edu_opt_in_text">Activer les contrôles d\'accessibilité du lecteur ?</string>
     <string name="accessibility_settings_edu_opt_out_text">Vos contrôles sont modifiés car un service d\'accessibilité est activé.</string>
-    <string name="microg_not_installed_notice">Veuillez installer MicroG</string>
-    <string name="microg_not_installed_warning">MicroG n’est pas installé</string>
-    <string name="microg_not_running_warning">MicroG ne s\'exécute pas en arrière-plan</string>
+    <string name="microg_not_installed_notice">Veuillez installer GMSCore</string>
+    <string name="microg_not_installed_warning">GMSCore n’est pas installé</string>
+    <string name="microg_not_running_warning">GMSCore ne s\'exécute pas en arrière-plan</string>
     <string name="microg_settings_summary">Activez les paramètres de messagerie cloud pour recevoir les notifications</string>
-    <string name="microg_settings_title">Ouvrir MicroG</string>
+    <string name="microg_settings_title">Ouvrir GMSCore</string>
     <string name="revanced_ads">Pubs</string>
     <string name="revanced_alt_thumbnails">Miniatures alternatives</string>
+    <string name="revanced_alt_thumbnail_about_status_dearrow">"Affichages de miniature DeArrow
+Si une vidéo n'a pas de miniature DeArrow, les miniatures originales seront affichés"</string>
+    <string name="revanced_alt_thumbnail_about_status_dearrow_stills">"Affichage de miniature DeArrow
+Si une vidéo n'a pas de miniature DeArrow, des miniatures alternatives seront affichés"</string>
+    <string name="revanced_alt_thumbnail_about_status_disabled">Affichage des miniatures originelles</string>
+    <string name="revanced_alt_thumbnail_about_status_stills">Affichage de miniature alternative</string>
+    <string name="revanced_alt_thumbnail_about_title">Miniatures utilisées</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow fournit des miniatures externes pour les vidéos YouTube. Ces miniatures sont souvent plus pertinentes que celles fournies par YouTube. Si elle est activée, les URL vidéo seront envoyées au serveur API et aucune autre donnée n’est envoyée.
 
 Cliquez ici pour en savoir plus sur DeArrow."</string>
@@ -21,6 +28,9 @@ Ne modifiez pas cette adresse à moins de savoir ce que vous faites."</string>
     <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">Message si l\'API n\'est pas disponible</string>
     <string name="revanced_alt_thumbnail_dearrow_error">DeArrow est temporairement indisponible (code de statut : %s)</string>
     <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow est temporairement indisponible.</string>
+    <string name="revanced_alt_thumbnail_dearrow_summary_off">N\'utilise pas les miniatures DeArrow.</string>
+    <string name="revanced_alt_thumbnail_dearrow_summary_on">Utilisation de miniatures DeArrow.</string>
+    <string name="revanced_alt_thumbnail_dearrow_title">Miniature DeArrow</string>
     <string name="revanced_alt_thumbnail_preference_screen_summary">Paramètres des miniatures des vidéos</string>
     <string name="revanced_alt_thumbnail_preference_screen_title">Miniatures alternatives</string>
     <string name="revanced_alt_thumbnail_stills">Miniatures alternatives extraites de la vidéo</string>
@@ -29,15 +39,18 @@ Ne modifiez pas cette adresse à moins de savoir ce que vous faites."</string>
     <string name="revanced_alt_thumbnail_stills_fast_summary_off">Utilisation de miniature de haute qualité.</string>
     <string name="revanced_alt_thumbnail_stills_fast_summary_on">Utilisation de miniatures alternatives de qualité moyenne. Les miniatures se chargeront plus rapidement, mais les diffusions en direct, les vidéos non publiées ou très anciennes peuvent afficher des miniatures vides.</string>
     <string name="revanced_alt_thumbnail_stills_fast_title">Utilisation de miniature rapide</string>
+    <string name="revanced_alt_thumbnail_stills_summary_off">N\'utilise pas de miniature alternative.</string>
+    <string name="revanced_alt_thumbnail_stills_summary_on">Utilisation de miniature YouTube.</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_1">Début de la vidéo</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_2">Milieu de la vidéo</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_3">Fin de la vidéo</string>
     <string name="revanced_alt_thumbnail_stills_time_title">De quel moment de la vidéo doit être prise</string>
+    <string name="revanced_alt_thumbnail_stills_title">Miniatures alternatives</string>
     <string name="revanced_append_time_stamp_information_summary_off">L\'ajout d\'infos supplémentaires tel que la qualité vidéo ou la vitesse vidéo est désactivé</string>
     <string name="revanced_append_time_stamp_information_summary_on">L\'ajout d\'infos supplémentaires tel que la qualité vidéo ou la vitesse vidéo est activé</string>
     <string name="revanced_append_time_stamp_information_title">Rajout d\'infos supplémentaires sur la vidéo</string>
-    <string name="revanced_append_time_stamp_information_type_summary_off">Ajout de la vitesse de lecture à côté de la durée de la vidéo</string>
-    <string name="revanced_append_time_stamp_information_type_summary_on">Ajout de la qualité vidéo à côté de la durée de la vidéo</string>
+    <string name="revanced_append_time_stamp_information_type_summary_off">Ajout de la vitesse de lecture. Appuyez et maintenez l'horodatage pour changer la vitesse pendant la lecture de la vidéo.</string>
+    <string name="revanced_append_time_stamp_information_type_summary_on">Ajout de la qualité vidéo. Appuyez et maintenez l'horodatage pour changer la qualité vidéo pendant la lecture de la vidéo.</string>
     <string name="revanced_append_time_stamp_information_type_title">Ajout de type d\'information</string>
     <string name="revanced_bottom_player">Boutons sous le lecteur vidéo</string>
     <string name="revanced_button_container_title">Boutons sous le lecteur vidéo</string>
@@ -56,7 +69,6 @@ Ne modifiez pas cette adresse à moins de savoir ce que vous faites."</string>
     <string name="revanced_change_start_page_entry_shorts">Shorts</string>
     <string name="revanced_change_start_page_entry_subscriptions">Abonnements</string>
     <string name="revanced_change_start_page_entry_trending">Tendances</string>
-    <string name="revanced_change_start_page_entry_watch_later">À regarder plus tard</string>
     <string name="revanced_change_start_page_title">Page de démarrage</string>
     <string name="revanced_change_start_page_warning">Page d\'accueil invalide, réinitialisation par défaut.</string>
     <string name="revanced_channel_bar_title">Barre de la chaîne</string>
@@ -428,8 +440,14 @@ Catégorie \"Vous\" &gt; \"Afficher la chaîne\" &gt; Trois points &gt; \"Param�
     <string name="revanced_hide_get_premium_summary_off">Publicités pour YouTube Premium affichées.</string>
     <string name="revanced_hide_get_premium_summary_on">Publicités pour YouTube Premium masquées</string>
     <string name="revanced_hide_get_premium_title">Publicités pour YouTube Premium</string>
-    <string name="revanced_hide_gray_description_summary_off">Les séparateurs gris sont affichés</string>
-    <string name="revanced_hide_gray_description_summary_on">Les séparateurs gris sont masqués</string>
+    <string name="revanced_hide_gray_description_summary_off">"La description en grise est affichée.
+    • A partir de regarder plus tard de votre playlist.
+    • Les spectateurs ont également regardé cette vidéo.
+    • Les spectateurs de la chaîne regardent également cette chaîne, etc."</string>
+    <string name="revanced_hide_gray_description_summary_on">"La description en grise est masquée.
+    • A partir de regarder plus tard de votre playlist.
+    • Les spectateurs ont également regardé cette vidéo.
+    • Les spectateurs de la chaîne regardent également cette chaîne, etc."</string>
     <string name="revanced_hide_gray_description_title">Séparateurs gris de la description</string>
     <string name="revanced_hide_gray_separator_summary_off">Les séparateurs gris sont affichés</string>
     <string name="revanced_hide_gray_separator_summary_on">Les séparateurs gris sont masqués</string>
@@ -604,12 +622,12 @@ Catégorie \"Vous\" &gt; \"Afficher la chaîne\" &gt; Trois points &gt; \"Param�
     <string name="revanced_hide_shorts_player_navigation_bar_summary_off">La barre de navigation est affichée</string>
     <string name="revanced_hide_shorts_player_navigation_bar_summary_on">La barre de navigation est masqué.</string>
     <string name="revanced_hide_shorts_player_navigation_bar_title">Barre de navigation</string>
-    <string name="revanced_hide_shorts_player_pivot_button_summary_off">Le bouton \"Son\" est affiché.</string>
-    <string name="revanced_hide_shorts_player_pivot_button_summary_on">Le bouton \"Son\" est masqué.</string>
-    <string name="revanced_hide_shorts_player_pivot_button_title">Bouton \"Son\"</string>
-    <string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">Le bouton \"S\'abonner\" est affiché</string>
-    <string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">Le bouton \"S\'abonner\" est masqué.</string>
-    <string name="revanced_hide_shorts_paused_overlay_buttons_title">Bouton \"S\'abonner\"</string>
+    <string name="revanced_hide_shorts_player_pivot_button_summary_off">Le bouton audio est affiché.</string>
+    <string name="revanced_hide_shorts_player_pivot_button_summary_on">Le bouton audio est masqué.</string>
+    <string name="revanced_hide_shorts_player_pivot_button_title">Masque le bouton audio.</string>
+    <string name="revanced_hide_shorts_player_subscriptions_button_summary_off">Le bouton \"S\'abonner\" est affiché</string>
+    <string name="revanced_hide_shorts_player_subscriptions_button_summary_on">Le bouton \"S\'abonner\" est masqué.</string>
+    <string name="revanced_hide_shorts_player_subscriptions_button_title">Bouton \"S\'abonner\"</string>
     <string name="revanced_hide_shorts_shelf_summary">"Proposition de Shorts
 
 Problème connu : Les fiches officielles dans les résultats de recherche sont masquées"</string>
@@ -645,6 +663,16 @@ Problème connu : Les fiches officielles dans les résultats de recherche sont 
     <string name="revanced_hide_suggested_video_overlay_title">Superposition vidéo suggérée</string>
     <string name="revanced_hide_suggested_video_overlay_auto_play_summary">Lorsque vous avez finis une vidéo, une autre se lira automatiquement</string>
     <string name="revanced_hide_suggested_video_overlay_auto_play_title">Lecture automatique</string>
+    <string name="revanced_hide_suggestions_shelf_method_summary_off">"Identifie les étagères suggérées via un id de navigation
+
+Problèmes connus : 
+• Lorsque l'id n'est pas identifié les étagères suggérées ne peuvent pas être masqué."</string>
+    <string name="revanced_hide_suggestions_shelf_method_summary_on">"Identifie les étagères suggérées dans l'onglet actuel.
+
+Problèmes connus : 
+• D'autres étagères peuvent être masqués
+• La section \"Playlist\" peut être masqué"</string>
+    <string name="revanced_hide_suggestions_shelf_method_title">Méthode de masquage des étagères</string>
     <string name="revanced_hide_suggestions_shelf_summary">"Masque les étagères suivantes :
 - Actualités
 - Continuer à regarder
@@ -679,7 +707,7 @@ Problème connu : Les fiches officielles dans les résultats de recherche sont 
     <string name="revanced_hide_video_with_gray_description_title">Vidéos avec une description grise</string>
     <string name="revanced_hide_video_with_low_view_summary">"Masque les vidéos avec moins de 1000 vues
 Certaines vidéos, y compris celles des chaînes auxquelles vous êtes abonné, peuvent ne pas être masquées même si elles ont moins de 1000 vues."</string>
-    <string name="revanced_hide_video_with_low_view_title">Vidéos avec peu de vue</string>
+    <string name="revanced_hide_video_with_low_view_title">Masque les vidéos en fonction du nombre de vues.</string>
     <string name="revanced_hide_view_products_summary_off">La bannière \"Voir les produits\" est affichée</string>
     <string name="revanced_hide_view_products_summary_on">La bannière \"Voir les produits\" est masquée</string>
     <string name="revanced_hide_view_products_title">Bannière \"Voir les produits\"</string>
@@ -692,7 +720,7 @@ Certaines vidéos, y compris celles des chaînes auxquelles vous êtes abonné, 
     <string name="revanced_hook_download_button_summary">"Remplace le bouton de téléchargement par le bouton de téléchargement externe"</string>
     <string name="revanced_hook_download_button_title">Bouton \"Téléchargement\"</string>
     <string name="revanced_inform">Info</string>
-    <string name="revanced_keep_landscape_mode_summary">Maintient le mode paysage lorsque l\'écran est éteint et rallumé en mode plein écran.</string>
+    <string name="revanced_keep_landscape_mode_summary">Conserve le mode paysage lorsque l'écran est éteint et rallumé en mode plein écran. Problème connu : cela peut perturber le picture in picture (PIP).</string>
     <string name="revanced_keep_landscape_mode_timeout_summary">La durée, en millisecondes, pendant laquelle le mode paysage est imposé.</string>
     <string name="revanced_keep_landscape_mode_timeout_title">Durée limite du maintien du mode paysage</string>
     <string name="revanced_keep_landscape_mode_title">Maintenir le mode paysage</string>
@@ -716,8 +744,7 @@ Appuyez longuement pour copier seulement l'horodatage"</string>
 Appuyez longuement pour annuler."</string>
     <string name="revanced_overlay_button_time_ordered_playlist_title">Bouton de playlist chronologique </string>
     <string name="revanced_overlay_button_speed_dialog_reset">Vitesse de lecture réinitialisée (1,0x)</string>
-    <string name="revanced_overlay_button_speed_dialog_summary">"Appuyez pour ouvrir des paramètres de vitesse
-Appuyez longuement pour régler la vitesse de la vidéo sur 1.0x."</string>
+    <string name="revanced_overlay_button_speed_dialog_summary">"Appuyez pour ouvrir la boîte de dialogue de vitesse. Appuyez et maintenez pour réinitialiser la vitesse de lecture à 1,0x. Appuyez à nouveau et maintenez pour revenir à la vitesse par défaut."</string>
     <string name="revanced_overlay_button_speed_dialog_title">Bouton \"Vitesse de lecture\"</string>
     <string name="revanced_overlay_button_whitelisting_summary">Appuyez pour ajouter une chaîne à la liste blanche</string>
     <string name="revanced_overlay_button_whitelisting_title">Bouton de liste blanche</string>
@@ -805,6 +832,8 @@ Cela ne contourne pas la restriction d'âge, mais confirme automatiquement."</st
 
 Celle-ci modifiera l'apparence de l'application, mais des effets indésirables inconnus peuvent se produire
 Si elle est désactivée ultérieurement, l'ancienne interface utilisateur peut subsister jusqu'à ce que les données de l'application soient effacées"</string>
+    <string name="revanced_spoof_app_version_target_entry_16_08_35">16.08.35 - Restaure le bouton \"Explorer\"</string>
+    <string name="revanced_spoof_app_version_target_entry_17_08_35">17.08.35 - Restaure l\'ancienne interface</string>
     <string name="revanced_spoof_app_version_target_entry_17_41_37">17.41.37 - La catégorie \"Playlist\" dans la \"Bibliothèque\" utilise l\'ancienne interface</string>
     <string name="revanced_spoof_app_version_target_entry_18_05_40">18.05.40 - Restaure l\'ancienne interface de saisie commentaire</string>
     <string name="revanced_spoof_app_version_target_entry_18_09_39">18.09.39 - Restaure l\'ancien onglet \"Bibliothèque\" (Désactive l\'onglet \"Vous\")</string>
@@ -832,7 +861,7 @@ Problèmes connus
 
 Problèmes connus:
 • Les hautes qualités vidéos ne sont pas disponibles
-• Les miniatures sur la barre de proggresion ne sont pas affichés sur les vidéos payantes 
+• Les miniatures sur la barre de proggresion ne sont pas affichés sur les vidéos payantes
 • Les téléchargements hors ligne peuvent ne pas fonctionner
 • Les vidéos pourrait démarrer à la fin."</string>
     <string name="revanced_spoof_player_parameter_title">Falsifier les paramètres du lecteur</string>
@@ -1035,15 +1064,15 @@ Est-il prêt à être soumis ?</string>
     <string name="revanced_change_start_page_entry_movies">Films et séries TV</string>
     <string name="revanced_change_start_page_entry_music">Musique</string>
     <string name="revanced_change_start_page_entry_sports">Sport</string>
-    <string name="revanced_change_start_page_entry_watch_later">À regarderplustard</string>
+    <string name="revanced_change_start_page_entry_watch_later">À regarder plus tard</string>
     <string name="revanced_hide_keyword_toast_invalid_length" formatted="false">Longueur du mot-clé invalide (doit comporter au moins %s caractères) : %s.</string>
-    <string name="revanced_hide_keyword_content_filter_strings_summary">"Configurez les mots-clés et les phrases à masquer, séparés par une nouvelle ligne.
+    <string name="revanced_keyword_filter_strings_summary">"Configurez les mots-clés et les phrases à masquer, séparés par une nouvelle ligne.
 
 Les mots avec des majuscules au milieu doivent être écrits avec des majuscules (par exemple, iPhone, TikTok, LeBlanc)."</string>
-    <string name="revanced_hide_keyword_content_filter_strings_title">Modifier le filtre à mot-clé</string>
+    <string name="revanced_keyword_filter_strings_title">Modifier le filtre à mot-clé</string>
     <string name="revanced_hide_keyword_content_feed_summary_off">Le filtre à mot-clé est désactivé. </string>
     <string name="revanced_hide_keyword_content_feed_summary_on">Le filtre àmot-clé est activé</string>
-    <string name="revanced_hide_keyword_content_filter_summary">Masque les vidéos du flux et des résultats de recherche à l\'aide du filtre à mot-clé.</string>
+    <string name="revanced_keyword_filter_summary">Masque les vidéos du flux et des résultats de recherche à l\'aide du filtre à mot-clé.</string>
     <string name="revanced_hide_keyword_content_feed_title">Filtre à mot-clé</string>
     <string name="revanced_hide_player_button_background_summary_off">L\'arrière-plan des boutons du lecteur est affiché.</string>
     <string name="revanced_hide_player_button_background_summary_on">L\'arrière-plan des boutons du lecteur est affiché.</string>
@@ -1052,6 +1081,43 @@ Les mots avec des majuscules au milieu doivent être écrits avec des majuscules
     <string name="revanced_override_premium_header_summary_on">En-tête : YouTube Premium</string>
     <string name="revanced_override_premium_header_title">En-tête YouTube Premium</string>
     <string name="revanced_spoof_failure_connection_status_code" formatted="false">"Falsification du storyboard indisponible :"</string>
-    <string name="revanced_spoof_failure_connection_timeout">Falsificationdu storyboard temporairement indisponible (API obsolète)</string>
-    <string name="revanced_spoof_failure_generic">"Falsificationdu storyboard temporairement indisponible : "</string>
+    <string name="revanced_spoof_failure_connection_timeout">Falsification du storyboard temporairement indisponible (API obsolète)</string>
+    <string name="revanced_spoof_failure_generic">"Falsification du storyboard temporairement indisponible : "</string>
+   
+    <string name="revanced_hide_keyword_content_feed_summary_off">Le filtre de mots clés pour le flux et la recherche est désactivé.</string>
+    <string name="revanced_hide_keyword_content_feed_summary_on">Le filtre de mots clés pour le flux et la recherche est activé.</string>
+
+    <string name="revanced_keyword_filter_summary">Masque les vidéos a l'aide d'un filtre de mots clés.</string>
+
+    <string name="revanced_hide_keyword_content_about_summary">La recherche, l'accueil, l'abonnement et les commentaires sont filtrés pour masquer le contenu correspondant aux expressions de mots clés.\n\nLimitations\n• Certains courts métrages ne peuvent pas être masqués.\n• Certains composants de l'interface utilisateur peuvent ne pas être masqués.\n• La recherche d'un mot clé peut ne donner aucun résultat.</string>
+    <string name="revanced_hide_keyword_content_comment_summary_off">Le filtre de mots clés pour les commentaires est désactivé.</string>
+    <string name="revanced_hide_keyword_content_comment_summary_on">Le filtre de mots clés pour les commentaires est activé.</string>
+    <string name="revanced_hide_keyword_content_comment_title">Active le filtre par mot-clé des commentaires</string>
+    <string name="revanced_hide_keyword_content_sub_summary_off">Le filtre de mots clés pour les abonnements est désactivé.</string>
+    <string name="revanced_hide_keyword_content_sub_summary_on">Le filtre de mots clés pour les abonnements est activé.</string>
+    <string name="revanced_hide_keyword_content_sub_title">Active le filtre de mots clés des abonnements</string>
+    <string name="revanced_hide_keyword_toast_invalid_common" formatted="false">Mot clé invalide. Impossible d'utiliser : \'%s\' comme filtre</string>
+    <string name="revanced_hide_shorts_player_sound_metadata_label_summary_off">L’étiquette des métadonnées sonores est affichée.</string>
+    <string name="revanced_hide_shorts_player_sound_metadata_label_summary_on">L’étiquette des métadonnées sonores est masquée.</string>
+    <string name="revanced_hide_shorts_player_sound_metadata_label_title">Masque l'étiquette des métadonnées sonores</string>
+    <string name="revanced_hide_shorts_player_video_link_label_summary_off">L'étiquette du lien vidéo est affiché.</string>
+    <string name="revanced_hide_shorts_player_video_link_label_summary_on">L'étiquette du lien vidéo est masquée.</string>
+    <string name="revanced_hide_shorts_player_video_link_label_title">Masque l'étiquette du lien vidéo/string>
+    <string name="revanced_hide_shorts_player_video_title_summary_off">Le titre de la vidéo du short est affiché.</string>
+    <string name="revanced_hide_shorts_player_video_title_summary_on">Le titre de la vidéo du short est masqué.</string>
+    <string name="revanced_hide_shorts_player_video_title_title">Masque le titre du short</string>
+    <string name="revanced_hide_video_with_low_view_num_multiplier_summary">Spécifiez votre modèle de langue pour le nombre de vues affichées sous chaque vidéo dans l'interface utilisateur. Chaque clé (une lettre/un mot dans votre langue) -> valeur (signification de la clé) doit être sur une nouvelle ligne. Les clés vont avant le signe "->". Si vous changez de langue d'application ou de système, vous devez réinitialiser ce paramètre.\n\nExemples :\nAnglais : 10 000 vues = K -> 1 000, vues -> vues\nEspagnol : 10 000 vues = K -> 1 000, vues -> vues</string>
+    <string name="revanced_hide_video_with_low_view_num_multiplier_title">Afficher les clés</string>
+    <string name="revanced_hide_video_with_low_view_num_multiplier_value">K -> 1 000\nM -> 1 000 000\nM -> 1 000 000 000\nvues -> vues</string>
+    <string name="revanced_hide_video_with_low_view_num_summary">Les vidéos dont les vues sont inférieures à ce nombre seront masquées.</string>
+    <string name="revanced_hide_video_with_low_view_num_title">Nombre de vues</string>
+    <string name="revanced_hide_video_with_low_view_old_summary">"Masque les vidéos avec moins de 1 000 vues exposées au flux d'accueil.
+Certaines vidéos, y compris celles des chaînes auxquelles vous êtes abonné peuvent ne pas être masquées même si elles ont été vues moins de 1 000 fois.
+
+C'est une ancienne version, si vous utilisez l'option ci-dessus, vous n'avez pas besoin d'utiliser celle-ci."</string>
+    <string name="revanced_hide_video_with_low_view_old_title">[Old] Masque les vidéos avec des faibles vues/string>
+    <string name="revanced_keyword_filter_title">Filtre les mots clés.</string>
+    <string name="revanced_swipe_overlay_rect_summary">Pourcentage de la zone d'écran balayable.</string>
+    <string name="revanced_swipe_overlay_rect_title">Taille de l'écran de superposition par balayage</string>
+    <string name="revanced_swipe_overlay_rect_warning" formatted="false">La taille de la zone pouvant être balayée ne peut pas être supérieure à un certain %. Réinitialiser à la valeur par défaut.</string>
 </resources>
