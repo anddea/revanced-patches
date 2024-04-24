@@ -9,9 +9,7 @@
     <string name="microg_settings_title">Otwórz MicroG</string>
     <string name="revanced_ads">Reklamy</string>
     <string name="revanced_alt_thumbnails">Alternatywne miniaturki</string>
-    <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow dostarcza miniaturki wideo z YouTube pochodzące z procesu crowdsourcingu. Miniaturki te są często bardziej trafne niż te dostarczane przez YouTube. Jeśli opcja ta jest włączona, adresy URL filmów będą wysyłane do serwera API i nie będą wysyłane żadne inne dane.
-
-Stuknij tutaj, aby dowiedzieć się więcej o DeArrow."</string>
+    <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow dostarcza miniaturki wideo z YouTube pochodzące z procesu crowdsourcingu. Miniaturki te są często bardziej trafne niż te dostarczane przez YouTube. Jeśli opcja ta jest włączona, adresy URL filmów będą wysyłane do serwera API i nie będą wysyłane żadne inne dane.\n\nStuknij tutaj, aby dowiedzieć się więcej o DeArrow."</string>
     <string name="revanced_alt_thumbnail_dearrow_about_title">O DeArrow</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_summary">"Adres URL punktu końcowego pamięci podręcznej miniatur DeArrow. Nie zmieniaj tego dopóki nie będziesz wiedzieć co robić."</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_title">Punkt końcowy API DeArrow</string>
@@ -32,6 +30,15 @@ Stuknij tutaj, aby dowiedzieć się więcej o DeArrow."</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_2">Środek wideo</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_3">Koniec wideo</string>
     <string name="revanced_alt_thumbnail_stills_time_title">Czas miniaturki</string>
+    <string name="revanced_alt_thumbnail_home_title">Strona główna</string>
+    <string name="revanced_alt_thumbnail_subscription_title">Zakładka subskrypcji</string>
+    <string name="revanced_alt_thumbnail_library_title">Zakładka 'Ty'</string>
+    <string name="revanced_alt_thumbnail_player_title">Playlisty użytkownika, rekomendacje</string>
+    <string name="revanced_alt_thumbnail_search_title">Wyniki wyszukiwania</string>
+    <string name="revanced_alt_thumbnail_options_entry_1">Oryginalne miniaturki</string>
+    <string name="revanced_alt_thumbnail_options_entry_2">DeArrow i oryginalne miniaturki</string>
+    <string name="revanced_alt_thumbnail_options_entry_3">DeArrow i miniaturki przechwycone z wideo</string>
+    <string name="revanced_alt_thumbnail_options_entry_4">Miniaturki przechwycone z wideo</string>
     <string name="revanced_append_time_stamp_information_summary_off">Ukryta</string>
     <string name="revanced_append_time_stamp_information_summary_on">Widoczna</string>
     <string name="revanced_append_time_stamp_information_title">Dodatkowa informacja obok czasu</string>
@@ -85,7 +92,13 @@ Notka: jest to funkcja, która nie została przetestowana."</string>
     <string name="revanced_hide_keyword_content_comment_title">Filtr słów kluczowych dla komentarzy</string>
     <string name="revanced_hide_keyword_content_feed_summary_off">Wyłączony</string>
     <string name="revanced_hide_keyword_content_feed_summary_on">Włączony</string>
-    <string name="revanced_hide_keyword_content_feed_title">Filtr słów kluczowych dla strony głównej i wyszukiwania</string>
+    <string name="revanced_hide_keyword_content_feed_title">Filtr słów kluczowych</string>
+    <string name="revanced_hide_keyword_content_home_summary_off">Wyłączony</string>
+    <string name="revanced_hide_keyword_content_home_summary_on">Włączony</string>
+    <string name="revanced_hide_keyword_content_home_title">Filtr słów kluczowych dla strony głównej</string>
+    <string name="revanced_hide_keyword_content_search_summary_off">Wyłączony</string>
+    <string name="revanced_hide_keyword_content_search_summary_on">Włączony</string>
+    <string name="revanced_hide_keyword_content_search_title">Filtr słów kluczowych dla wyszukiwań</string>
     <string name="revanced_hide_keyword_content_sub_summary_off">Wyłączony</string>
     <string name="revanced_hide_keyword_content_sub_summary_on">Włączony</string>
     <string name="revanced_hide_keyword_content_sub_title">Filtr słów kluczowych dla subskrypcji</string>
@@ -480,8 +493,8 @@ Niektóre komponenty mogą nie być ukryte."</string>
     <string name="revanced_hide_info_cards_summary_off">Widoczne</string>
     <string name="revanced_hide_info_cards_summary_on">Ukryte</string>
     <string name="revanced_hide_info_cards_title">Karty z informacjami</string>
-    <string name="revanced_hide_info_panel_summary_off">Widoczne</string>
-    <string name="revanced_hide_info_panel_summary_on">Ukryte</string>
+    <string name="revanced_hide_info_panel_summary_off">Widoczne\n\nMoże to ukryć także metadane dźwięku oraz link do wideo.</string>
+    <string name="revanced_hide_info_panel_summary_on">Ukryte\n\nMoże to ukryć także metadane dźwięku oraz link do wideo.</string>
     <string name="revanced_hide_info_panel_title">Panele z informacjami</string>
     <string name="revanced_hide_join_button_summary_off">Widoczny</string>
     <string name="revanced_hide_join_button_summary_on">Ukryty</string>
@@ -530,6 +543,9 @@ Niektóre komponenty mogą nie być ukryte."</string>
     <string name="revanced_hide_place_section_title">Nazwy miejsc nad opisami</string>
     <string name="revanced_hide_player_button_background_summary_off">Widoczne</string>
     <string name="revanced_hide_player_button_background_summary_on">Ukryte</string>
+    <string name="revanced_hide_playables_title">Pokój Gier</string>
+    <string name="revanced_hide_playables_summary_on">Ukryty</string>
+    <string name="revanced_hide_playables_summary_off">Widoczny</string>
     <string name="revanced_hide_player_button_background_title">Tło przycisków odtwarzacza</string>
     <string name="revanced_hide_player_flyout_panel_ambient_mode_summary_off">Widoczne</string>
     <string name="revanced_hide_player_flyout_panel_ambient_mode_summary_on">Ukryte</string>
@@ -631,19 +647,34 @@ Niektóre komponenty mogą nie być ukryte."</string>
     <string name="revanced_hide_shorts_button_summary_on">Ukryty</string>
     <string name="revanced_hide_shorts_button_title">Przycisk do shortsów</string>
     <string name="revanced_hide_shorts_component_summary">Ukryj Shortsy lub przyciski w odtwarzaczu Shortsów</string>
-    <string name="revanced_hide_shorts_component_title">Ukryj shortsy</string>
+    <string name="revanced_hide_shorts_component_title">Ukryj Shortsy</string>
+    <string name="revanced_hide_shorts_live_chat_title">Wiadomości z czatu transmisji na żywo</string>
+    <string name="revanced_hide_shorts_live_chat_summary_on">Ukryte</string>
+    <string name="revanced_hide_shorts_live_chat_summary_off">Widoczne</string>
+    <string name="revanced_hide_shorts_live_header_title">Nagłówek czatu transmisji na żywo</string>
+    <string name="revanced_hide_shorts_live_header_summary_on">Ukryty\n\nPrzycisk cofania w nagłówku nie będzie ukryty.</string>
+    <string name="revanced_hide_shorts_live_header_summary_off">Widoczny\n\nPrzycisk cofania w nagłówku nie będzie ukryty.</string>
     <string name="revanced_hide_shorts_player_comments_button_summary_off">Widoczny</string>
     <string name="revanced_hide_shorts_player_comments_button_summary_on">Ukryty</string>
     <string name="revanced_hide_shorts_player_comments_button_title">Przycisk do komentarzy</string>
+    <string name="revanced_hide_shorts_player_save_sound_button_summary_off">Widoczny</string>
+    <string name="revanced_hide_shorts_player_save_sound_button_summary_on">Ukryty</string>
+    <string name="revanced_hide_shorts_player_save_sound_button_title">Przycisk zapisywania do playlisty</string>
+    <string name="revanced_hide_shorts_player_location_label_summary_off">Widoczny</string>
+    <string name="revanced_hide_shorts_player_location_label_summary_on">Ukryty</string>
+    <string name="revanced_hide_shorts_player_location_label_title">Przycisk lokalizacji</string>
+    <string name="revanced_hide_shorts_player_shop_button_summary_off">Widoczny</string>
+    <string name="revanced_hide_shorts_player_shop_button_summary_on">Ukryty</string>
+    <string name="revanced_hide_shorts_player_shop_button_title">Przycisk sklepu</string>
     <string name="revanced_hide_shorts_player_navigation_bar_summary_off">Widoczny</string>
     <string name="revanced_hide_shorts_player_navigation_bar_summary_on">Ukryty</string>
     <string name="revanced_hide_shorts_player_navigation_bar_title">Pasek nawigacji</string>
     <string name="revanced_hide_shorts_player_pivot_button_summary_off">Widoczny</string>
     <string name="revanced_hide_shorts_player_pivot_button_summary_on">Ukryty</string>
     <string name="revanced_hide_shorts_player_pivot_button_title">Przycisk dźwięku</string>
-    <string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">Widoczny</string>
-    <string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">Ukryty</string>
-    <string name="revanced_hide_shorts_paused_overlay_buttons_title">Przycisk do strony subskrypcji</string>
+    <string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">Widoczne</string>
+    <string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">Ukryte</string>
+    <string name="revanced_hide_shorts_paused_overlay_buttons_title">Przyciski po wstrzymaniu wideo</string>
     <string name="revanced_hide_shorts_player_video_title_summary_off">Widoczny</string>
     <string name="revanced_hide_shorts_player_video_title_summary_on">Ukryty</string>
     <string name="revanced_hide_shorts_player_video_title_title">Tytuł Shortsa</string>
@@ -653,10 +684,26 @@ Niektóre komponenty mogą nie być ukryte."</string>
     <string name="revanced_hide_shorts_player_video_link_label_summary_off">Widoczny</string>
     <string name="revanced_hide_shorts_player_video_link_label_summary_on">Ukryty</string>
     <string name="revanced_hide_shorts_player_video_link_label_title">Link do wideo</string>
-    <string name="revanced_hide_shorts_shelf_summary">"Ukrywa półki z Shortsami.
-
-Znany problem: nagłówki z tytułami będą ukryte w wynikach wyszukiwania."</string>
-    <string name="revanced_hide_shorts_shelf_title">Półki z shortsami</string>
+    <string name="revanced_hide_shorts_search_suggestions_title">Sugestie wyszukiwania</string>
+    <string name="revanced_hide_shorts_search_suggestions_summary_on">Ukryte</string>
+    <string name="revanced_hide_shorts_search_suggestions_summary_off">Widoczne</string>
+    <string name="revanced_hide_shorts_shelf_summary">"Ukrywa półki z Shortsami.\n\nZnany problem: nagłówki z tytułami będą ukryte w wynikach wyszukiwania."</string>
+    <string name="revanced_hide_shorts_shelf_title">Półki z Shortsami</string>
+    <string name="revanced_hide_shorts_shelf_home_summary_off">Widoczne</string>
+    <string name="revanced_hide_shorts_shelf_home_summary_on">Ukryte</string>
+    <string name="revanced_hide_shorts_shelf_home_title">Shortsy na stronie głównej</string>
+    <string name="revanced_hide_shorts_shelf_search_summary_off">Widoczne</string>
+    <string name="revanced_hide_shorts_shelf_search_summary_on">Ukryte</string>
+    <string name="revanced_hide_shorts_shelf_search_title">Shortsy w wynikach wyszukiwania</string>
+    <string name="revanced_hide_shorts_shelf_subscriptions_summary_off">Widoczne</string>
+    <string name="revanced_hide_shorts_shelf_subscriptions_summary_on">Ukryte</string>
+    <string name="revanced_hide_shorts_shelf_subscriptions_title">Shortsy w zakładce subskrypcji</string>
+    <string name="revanced_hide_shorts_subscribe_button_title">Przycisk subskrypcji</string>
+    <string name="revanced_hide_shorts_subscribe_button_summary_on">Ukryty</string>
+    <string name="revanced_hide_shorts_subscribe_button_summary_off">Widoczny</string>
+    <string name="revanced_hide_shorts_tagged_products_title">Oznaczone produkty</string>
+    <string name="revanced_hide_shorts_tagged_products_summary_on">Ukryte</string>
+    <string name="revanced_hide_shorts_tagged_products_summary_off">Widoczne</string>
     <string name="revanced_hide_shorts_toolbar_banner_summary_off">Widoczne</string>
     <string name="revanced_hide_shorts_toolbar_banner_summary_on">Ukryte</string>
     <string name="revanced_hide_shorts_toolbar_banner_title">Banery</string>
@@ -769,7 +816,7 @@ Stuknij i przytrzymaj, by skopiować czas wideo."</string>
     <string name="revanced_overlay_button_time_ordered_playlist_summary">"Stuknij, aby stworzyć playlistę z wszystkimi wideo z kanału od najstarszych do najnowszych.
 Stuknij i przytrzymaj, aby cofnąć."</string>
     <string name="revanced_overlay_button_time_ordered_playlist_title">Przycisk od czasowo uporządkowanych Playlist</string>
-    <string name="revanced_overlay_button_speed_dialog_reset">Prędkość odtwarzania została zresetowana (1.0x).</string>
+    <string name="revanced_overlay_button_speed_dialog_reset">Prędkość odtwarzania została zresetowana: %sx.</string>
     <string name="revanced_overlay_button_speed_dialog_summary">"Stuknij, by zmienić prędkość odtwarzania.
 Stuknij i przytrzymaj, by zmienić prędkość odtwarzania na 1.0x."</string>
     <string name="revanced_overlay_button_speed_dialog_title">Przycisk od prędkości</string>
@@ -863,6 +910,7 @@ Nie pomija to ograniczeń wiekowych, lecz akceptuje je automatycznie."</string>
 
 • Zmieni to wygląd aplikacji, lecz mogą wystąpić nieznane efekty uboczne.
 • Jeśli później opcja ta zostanie wyłączona, stare UI może pozostać do czasu usunięcia danych aplikacji."</string>
+    <string name="revanced_spoof_app_version_target_entry_17_33_42">17.33.42 - Przywraca stary wygląd interfejsu</string>
     <string name="revanced_spoof_app_version_target_entry_17_41_37">17.41.37 - Przywraca starą półkę do playlist</string>
     <string name="revanced_spoof_app_version_target_entry_18_05_40">18.05.40 - Przywraca stare pole od pisania komentarzy</string>
     <string name="revanced_spoof_app_version_target_entry_18_09_39">18.09.39 - Przywraca starą kartę biblioteki (Wyłącza Twoją Kartę)</string>
