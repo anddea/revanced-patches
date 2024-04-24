@@ -61,7 +61,7 @@ def find_missing_strings():
             language_code = os.path.basename(destination_folder)
 
             # Output file path
-            output_file = os.path.join(destination_folder, "missing_strings.xml")
+            output_file = os.path.join(destination_folder, "missing-strings.xml")
 
             # Locate updated-strings.xml file
             updated_strings_file = os.path.join(destination_folder, "updated-strings.xml")
