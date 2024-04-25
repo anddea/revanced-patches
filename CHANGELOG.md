@@ -1,3 +1,10 @@
+# [2.224.0-dev.15](https://github.com/anddea/revanced-patches/compare/v2.224.0-dev.14...v2.224.0-dev.15) (2024-04-25)
+
+
+### Features
+
+* **YouTube:** Bump support version `19.15.36 - 19.16.38` ([#368](https://github.com/anddea/revanced-patches/issues/368)) ([5b5115e](https://github.com/anddea/revanced-patches/commit/5b5115e36a137f7d625d8420654f2c654d4d15ff))
+
 # [2.224.0-dev.14](https://github.com/anddea/revanced-patches/compare/v2.224.0-dev.13...v2.224.0-dev.14) (2024-04-24)
 
 
