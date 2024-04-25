@@ -91,45 +91,63 @@ object ResourceUtils {
         }
     }
 
-    fun ResourceContext.addReVancedPreference(key: String) {
-        val targetClass =
-            "com.google.android.apps.youtube.app.settings.videoquality.VideoQualitySettingsActivity"
+    fun ResourceContext.addReVancedPreference(key: String, insertKey: String) {
+        val targetClass = "com.google.android.apps.youtube.app.settings.videoquality.VideoQualitySettingsActivity"
+        val path = if (key == "extended_settings") YOUTUBE_SETTINGS_PATH else TARGET_PREFERENCE_PATH
 
-        this.xmlEditor[YOUTUBE_SETTINGS_PATH].use { editor ->
+        this.xmlEditor[path].use { editor ->
             with(editor.file) {
-                doRecursively loop@{
-                    if (it !is Element) return@loop
-                    it.getAttributeNode("android:key")?.let { attribute ->
-                        if (attribute.textContent == "@string/about_key" && it.getAttributeNode("app:iconSpaceReserved").textContent == "false") {
-                            it.insertNode("Preference", it) {
-                                setAttribute("android:key", "revanced_" + key + "_key")
-                                setAttribute("android:title", "@string/revanced_" + key + "_title")
+                val processedKeys = mutableSetOf<String>() // To track processed keys
+
+                doRecursively loop@{ node ->
+                    if (node !is Element) return@loop // Skip if not an element
+
+                    val attributeNode = node.getAttributeNode("android:key") ?: return@loop // Skip if no key attribute
+
+                    val currentKey = attributeNode.textContent
+
+                    // Check if the current key has already been processed
+                    if (processedKeys.contains(currentKey)) {
+                        return@loop // Skip if already processed
+                    } else {
+                        processedKeys.add(currentKey) // Add the current key to processedKeys
+                    }
+
+                    when {
+                        key == "extended_settings" && currentKey == insertKey -> {
+                            node.insertNode("Preference", node) {
+                                setAttribute("android:key", "revanced_${key}_key")
+                                setAttribute("android:title", "@string/revanced_${key}_title")
                                 this.appendChild(
                                     ownerDocument.createElement("intent").also { intentNode ->
-                                        intentNode.setAttribute(
-                                            "android:targetPackage",
-                                            targetPackage
-                                        )
+                                        intentNode.setAttribute("android:targetPackage", targetPackage)
                                         intentNode.setAttribute("android:data", key)
                                         intentNode.setAttribute("android:targetClass", targetClass)
-                                    })
+                                    }
+                                )
                             }
-                            it.getAttributeNode("app:iconSpaceReserved").textContent = "true"
-                            return@loop
+                            node.setAttribute("app:iconSpaceReserved", "true")
                         }
-                    }
-                }
-
-                doRecursively loop@{
-                    if (it !is Element) return@loop
-
-                    it.getAttributeNode("app:iconSpaceReserved")?.let { attribute ->
-                        if (attribute.textContent == "true") {
-                            attribute.textContent = "false"
+                        key != "extended_settings" && currentKey == insertKey -> {
+                            node.insertNode("PreferenceScreen", node) {
+                                setAttribute("android:key", "revanced_${key}_key")
+                                setAttribute("android:title", "@string/revanced_${key}_title")
+                                this.appendChild(
+                                    ownerDocument.createElement("intent").also { intentNode ->
+                                        intentNode.setAttribute("android:targetPackage", targetPackage)
+                                        intentNode.setAttribute("android:data", key)
+                                        intentNode.setAttribute("android:targetClass", targetClass)
+                                    }
+                                )
+                            }
+                        }
+                        currentKey == "true" -> {
+                            attributeNode.textContent = "false"
                         }
                     }
                 }
             }
         }
     }
+
 }

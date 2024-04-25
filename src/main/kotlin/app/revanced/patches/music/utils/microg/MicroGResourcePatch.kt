@@ -23,7 +23,7 @@ import app.revanced.patches.shared.patch.packagename.PackageNamePatch
     ]
 )
 object MicroGResourcePatch : ResourcePatch() {
-    private const val MICROG_TARGET_CLASS = "org.microg.gms.ui.SettingsActivity"
+    private const val MICROG_TARGET_CLASS = "org.microg.gms.ui.MainSettingsActivity"
     override fun execute(context: ResourceContext) {
         val packageName = PackageNamePatch.PackageNameYouTubeMusic
             ?: throw PatchException("Invalid package name.")

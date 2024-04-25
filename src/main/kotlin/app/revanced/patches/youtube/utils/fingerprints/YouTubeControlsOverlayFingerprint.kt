@@ -11,9 +11,11 @@ object YouTubeControlsOverlayFingerprint : LiteralValueFingerprint(
     accessFlags = AccessFlags.PRIVATE or AccessFlags.FINAL,
     parameters = emptyList(),
     opcodes = listOf(
+        Opcode.INVOKE_VIRTUAL,
+        Opcode.IGET_OBJECT,
         Opcode.INVOKE_STATIC,
-        Opcode.MOVE_RESULT,
-        Opcode.IF_EQZ
+        Opcode.MOVE_RESULT
+        // Opcode.IF_EQZ
     ),
     literalSupplier = { YoutubeControlsOverlay }
 )

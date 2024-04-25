@@ -16,7 +16,9 @@ import app.revanced.patches.youtube.alternativethumbnails.general.fingerprints.c
 import app.revanced.patches.youtube.alternativethumbnails.general.fingerprints.cronet.request.callback.OnFailureFingerprint
 import app.revanced.patches.youtube.alternativethumbnails.general.fingerprints.cronet.request.callback.OnResponseStartedFingerprint
 import app.revanced.patches.youtube.alternativethumbnails.general.fingerprints.cronet.request.callback.OnSucceededFingerprint
+import app.revanced.patches.youtube.navigation.navigationbuttons.NavigationBarHookPatch
 import app.revanced.patches.youtube.utils.integrations.Constants.ALTERNATIVE_THUMBNAILS
+import app.revanced.patches.youtube.utils.playertype.PlayerTypeHookPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch.contexts
 import app.revanced.util.copyXmlNode
@@ -31,7 +33,11 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 @Patch(
     name = "Alternative thumbnails",
     description = "Adds options to replace video thumbnails using the DeArrow API or image captures from the video.",
-    dependencies = [SettingsPatch::class],
+    dependencies = [
+        SettingsPatch::class,
+        NavigationBarHookPatch::class,
+        PlayerTypeHookPatch::class
+    ],
     compatiblePackages = [
         CompatiblePackage(
             "com.google.android.youtube",
@@ -68,7 +74,12 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
                 "19.08.36",
                 "19.09.38",
                 "19.10.39",
-                "19.11.38"
+                "19.11.43",
+                "19.12.41",
+                "19.13.37",
+                "19.14.43",
+                "19.15.36",
+                "19.16.38"
             ]
         )
     ]

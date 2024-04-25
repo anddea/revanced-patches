@@ -3,6 +3,7 @@ package app.revanced.patches.youtube.utils.settings
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatchOption
 import app.revanced.patches.shared.patch.mapping.ResourceMappingPatch
 import app.revanced.patches.shared.patch.settings.AbstractSettingsResourcePatch
 import app.revanced.patches.youtube.utils.integrations.IntegrationsPatch
@@ -63,7 +64,12 @@ import java.util.concurrent.TimeUnit
                 "19.08.36",
                 "19.09.38",
                 "19.10.39",
-                "19.11.38"
+                "19.11.43",
+                "19.12.41",
+                "19.13.37",
+                "19.14.43",
+                "19.15.36",
+                "19.16.38"
             ]
         )
     ],
@@ -73,6 +79,41 @@ import java.util.concurrent.TimeUnit
 object SettingsPatch : AbstractSettingsResourcePatch(
     "youtube/settings"
 ), Closeable {
+    private const val DEFAULT_ELEMENT = "About"
+
+    private val SETTINGS_ELEMENTS_MAP = mapOf(
+        "Parent settings" to "@string/parent_tools_key",
+        "General" to "@string/general_key",
+        "Account" to "@string/account_switcher_key",
+        "Data saving" to "@string/data_saving_settings_key",
+        "Autoplay" to "@string/auto_play_key",
+        "Video quality preferences" to "@string/video_quality_settings_key",
+        "Background" to "@string/offline_key",
+        "Watch on TV" to "@string/pair_with_tv_key",
+        "Manage all history" to "@string/history_key",
+        "Your data in YouTube" to "@string/your_data_key",
+        "Privacy" to "@string/privacy_key",
+        "History & privacy" to "@string/privacy_key",
+        "Try experimental new features" to "@string/premium_early_access_browse_page_key",
+        "Purchases and memberships" to "@string/subscription_product_setting_key",
+        "Billing & payments" to "@string/billing_and_payment_key",
+        "Billing and payments" to "@string/billing_and_payment_key",
+        "Notifications" to "@string/notification_key",
+        "Connected apps" to "@string/connected_accounts_browse_page_key",
+        "Live chat" to "@string/live_chat_key",
+        "Captions" to "@string/captions_key",
+        "Accessibility" to "@string/accessibility_settings_key",
+        DEFAULT_ELEMENT to "@string/about_key"
+    )
+
+    private val InsertPosition by stringPatchOption(
+        key = "InsertPosition",
+        default = DEFAULT_ELEMENT,
+        values = SETTINGS_ELEMENTS_MAP,
+        title = "Insert position",
+        description = "Specify the setting name before which the RVX setting should be inserted."
+    )
+
     override fun execute(context: ResourceContext) {
         super.execute(context)
         contexts = context
@@ -137,11 +178,11 @@ object SettingsPatch : AbstractSettingsResourcePatch(
             context.copyResources("youtube/settings", resourceGroup)
         }
 
-
         /**
          * initialize ReVanced Extended Settings
          */
-        addReVancedPreference("extended_settings")
+        val elementKey = SETTINGS_ELEMENTS_MAP[InsertPosition] ?: InsertPosition ?: SETTINGS_ELEMENTS_MAP[DEFAULT_ELEMENT]
+        elementKey?.let { addReVancedPreference("extended_settings", it) }
 
         /**
          * remove ReVanced Extended Settings divider
@@ -186,8 +227,8 @@ object SettingsPatch : AbstractSettingsResourcePatch(
         contexts.addPreference(settingArray)
     }
 
-    internal fun addReVancedPreference(key: String) {
-        contexts.addReVancedPreference(key)
+    internal fun addReVancedPreference(key: String, insertKey: String = "misc") {
+        contexts.addReVancedPreference(key, insertKey)
     }
 
     internal fun updatePatchStatus(patchTitle: String) {

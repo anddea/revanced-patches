@@ -51,8 +51,8 @@ abstract class AbstractOpusCodecsPatch(
                 addInstructionsWithLabels(
                     targetIndex + 1, """
                         invoke-static {}, $descriptor
-                        move-result v7
-                        if-eqz v7, :mp4a
+                        move-result v3
+                        if-eqz v3, :mp4a
                         invoke-static {}, $targetReference
                         move-result-object v$targetRegister
                         """, ExternalLabel("mp4a", getInstruction(targetIndex + 1))

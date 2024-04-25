@@ -51,7 +51,12 @@ import app.revanced.patches.youtube.utils.settings.SettingsPatch
                 "19.08.36",
                 "19.09.38",
                 "19.10.39",
-                "19.11.38"
+                "19.11.43",
+                "19.12.41",
+                "19.13.37",
+                "19.14.43",
+                "19.15.36",
+                "19.16.38"
             ]
         )
     ]
@@ -66,7 +71,7 @@ object DescriptionComponentsPatch : BytecodePatch(emptySet()) {
          */
         SettingsPatch.addPreference(
             arrayOf(
-                "PREFERENCE: GENERAL_SETTINGS",
+                "PREFERENCE: PLAYER_SETTINGS",
                 "SETTINGS: HIDE_DESCRIPTION_COMPONENTS"
             )
         )

@@ -7,10 +7,9 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.youtube.general.suggestions.fingerprints.BreakingNewsFingerprint
-import app.revanced.patches.youtube.utils.browseid.BrowseIdHookPatch
+import app.revanced.patches.youtube.navigation.navigationbuttons.NavigationBarHookPatch
 import app.revanced.patches.youtube.utils.integrations.Constants.COMPONENTS_PATH
 import app.revanced.patches.youtube.utils.litho.LithoFilterPatch
-import app.revanced.patches.youtube.utils.navbarindex.NavBarIndexHookPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -19,9 +18,8 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
     name = "Hide suggestions shelf",
     description = "Adds an option to hide the suggestions shelf in feed.",
     dependencies = [
-        BrowseIdHookPatch::class,
         LithoFilterPatch::class,
-        NavBarIndexHookPatch::class,
+        NavigationBarHookPatch::class,
         SettingsPatch::class
     ],
     compatiblePackages = [
@@ -60,7 +58,12 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
                 "19.08.36",
                 "19.09.38",
                 "19.10.39",
-                "19.11.38"
+                "19.11.43",
+                "19.12.41",
+                "19.13.37",
+                "19.14.43",
+                "19.15.36",
+                "19.16.38"
             ]
         )
     ]

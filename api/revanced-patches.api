@@ -1850,6 +1850,10 @@ public final class app/revanced/patches/youtube/general/handle/HideHandlePatch :
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
+public final class app/revanced/patches/youtube/general/handle/fingerprints/AccountSwitcherAccessibilityLabelAlternativeFingerprint : app/revanced/util/fingerprint/LiteralValueFingerprint {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/general/handle/fingerprints/AccountSwitcherAccessibilityLabelAlternativeFingerprint;
+}
+
 public final class app/revanced/patches/youtube/general/handle/fingerprints/AccountSwitcherAccessibilityLabelFingerprint : app/revanced/util/fingerprint/LiteralValueFingerprint {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/general/handle/fingerprints/AccountSwitcherAccessibilityLabelFingerprint;
 }
@@ -2042,6 +2046,8 @@ public final class app/revanced/patches/youtube/layout/branding/icon/CustomBrand
 	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/branding/icon/CustomBrandingIconPatch;
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+	public final fun getAppIcon ()Ljava/lang/String;
+	public final fun setAppIcon (Ljava/lang/String;)V
 }
 
 public final class app/revanced/patches/youtube/layout/branding/name/CustomBrandingNamePatch : app/revanced/patches/shared/patch/elements/AbstractRemoveStringsElementsPatch {
@@ -2334,22 +2340,17 @@ public final class app/revanced/patches/youtube/navigation/label/fingerprints/Pi
 	public static final field INSTANCE Lapp/revanced/patches/youtube/navigation/label/fingerprints/PivotBarSetTextFingerprint;
 }
 
+public final class app/revanced/patches/youtube/navigation/navigationbuttons/NavigationBarHookPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/navigation/navigationbuttons/NavigationBarHookPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+	public final fun getHookNavigationButtonCreated ()Lkotlin/jvm/functions/Function1;
+}
+
 public final class app/revanced/patches/youtube/navigation/navigationbuttons/NavigationButtonsPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/navigation/navigationbuttons/NavigationButtonsPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-}
-
-public final class app/revanced/patches/youtube/navigation/navigationbuttons/fingerprints/AutoMotiveFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/navigation/navigationbuttons/fingerprints/AutoMotiveFingerprint;
-}
-
-public final class app/revanced/patches/youtube/navigation/navigationbuttons/fingerprints/PivotBarEnumFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/navigation/navigationbuttons/fingerprints/PivotBarEnumFingerprint;
-}
-
-public final class app/revanced/patches/youtube/navigation/navigationbuttons/fingerprints/PivotBarShortsButtonViewFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/navigation/navigationbuttons/fingerprints/PivotBarShortsButtonViewFingerprint;
 }
 
 public final class app/revanced/patches/youtube/navigation/tabletnavbar/TabletNavigationBarPatch : app/revanced/patcher/patch/BytecodePatch {
@@ -2738,6 +2739,10 @@ public final class app/revanced/patches/youtube/shorts/shortscomponent/fingerpri
 	public static final field INSTANCE Lapp/revanced/patches/youtube/shorts/shortscomponent/fingerprints/ShortsCommentFingerprint;
 }
 
+public final class app/revanced/patches/youtube/shorts/shortscomponent/fingerprints/ShortsCommentLegacyFingerprint : app/revanced/util/fingerprint/LiteralValueFingerprint {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/shorts/shortscomponent/fingerprints/ShortsCommentLegacyFingerprint;
+}
+
 public final class app/revanced/patches/youtube/shorts/shortscomponent/fingerprints/ShortsDislikeFingerprint : app/revanced/util/fingerprint/LiteralValueFingerprint {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/shorts/shortscomponent/fingerprints/ShortsDislikeFingerprint;
 }
@@ -2768,6 +2773,10 @@ public final class app/revanced/patches/youtube/shorts/shortscomponent/fingerpri
 
 public final class app/revanced/patches/youtube/shorts/shortscomponent/fingerprints/ShortsShareFingerprint : app/revanced/util/fingerprint/LiteralValueFingerprint {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/shorts/shortscomponent/fingerprints/ShortsShareFingerprint;
+}
+
+public final class app/revanced/patches/youtube/shorts/shortscomponent/fingerprints/ShortsShareLegacyFingerprint : app/revanced/util/fingerprint/LiteralValueFingerprint {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/shorts/shortscomponent/fingerprints/ShortsShareLegacyFingerprint;
 }
 
 public final class app/revanced/patches/youtube/shorts/shortscomponent/fingerprints/ShortsSubscriptionsFingerprint : app/revanced/util/fingerprint/LiteralValueFingerprint {
@@ -2818,16 +2827,6 @@ public final class app/revanced/patches/youtube/swipe/controls/fingerprints/HDRB
 
 public final class app/revanced/patches/youtube/swipe/controls/fingerprints/SwipeControlsHostActivityFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/swipe/controls/fingerprints/SwipeControlsHostActivityFingerprint;
-}
-
-public final class app/revanced/patches/youtube/utils/browseid/BrowseIdHookPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/browseid/BrowseIdHookPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-}
-
-public final class app/revanced/patches/youtube/utils/browseid/fingerprints/BrowseIdClassFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/browseid/fingerprints/BrowseIdClassFingerprint;
 }
 
 public final class app/revanced/patches/youtube/utils/controlsoverlay/DisableControlsOverlayConfigPatch : app/revanced/patcher/patch/BytecodePatch {
@@ -2898,6 +2897,10 @@ public final class app/revanced/patches/youtube/utils/fingerprints/ThumbnailPrev
 
 public final class app/revanced/patches/youtube/utils/fingerprints/TotalTimeFingerprint : app/revanced/util/fingerprint/LiteralValueFingerprint {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/fingerprints/TotalTimeFingerprint;
+}
+
+public final class app/revanced/patches/youtube/utils/fingerprints/TotalTimeLegacyFingerprint : app/revanced/util/fingerprint/LiteralValueFingerprint {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/fingerprints/TotalTimeLegacyFingerprint;
 }
 
 public final class app/revanced/patches/youtube/utils/fingerprints/VideoEndFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
@@ -3102,24 +3105,6 @@ public final class app/revanced/patches/youtube/utils/microg/fingerprints/PrimeF
 
 public final class app/revanced/patches/youtube/utils/microg/fingerprints/ServiceCheckFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/microg/fingerprints/ServiceCheckFingerprint;
-}
-
-public final class app/revanced/patches/youtube/utils/navbarindex/NavBarIndexHookPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/navbarindex/NavBarIndexHookPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-}
-
-public final class app/revanced/patches/youtube/utils/navbarindex/fingerprints/MobileTopBarButtonOnClickFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/navbarindex/fingerprints/MobileTopBarButtonOnClickFingerprint;
-}
-
-public final class app/revanced/patches/youtube/utils/navbarindex/fingerprints/PivotBarIndexFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/navbarindex/fingerprints/PivotBarIndexFingerprint;
-}
-
-public final class app/revanced/patches/youtube/utils/navbarindex/fingerprints/SettingsActivityOnBackPressedFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/navbarindex/fingerprints/SettingsActivityOnBackPressedFingerprint;
 }
 
 public final class app/revanced/patches/youtube/utils/overridequality/OverrideQualityHookPatch : app/revanced/patcher/patch/BytecodePatch {
@@ -3503,7 +3488,7 @@ public final class app/revanced/patches/youtube/utils/settings/ResourceUtils {
 	public static final field YOUTUBE_SETTINGS_PATH Ljava/lang/String;
 	public final fun addEntryValues (Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 	public final fun addPreference (Lapp/revanced/patcher/data/ResourceContext;[Ljava/lang/String;)V
-	public final fun addReVancedPreference (Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;)V
+	public final fun addReVancedPreference (Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;Ljava/lang/String;)V
 	public final fun getTargetPackage ()Ljava/lang/String;
 	public final fun setMicroG (Ljava/lang/String;)V
 	public final fun setTargetPackage (Ljava/lang/String;)V
@@ -3627,14 +3612,10 @@ public final class app/revanced/patches/youtube/video/hdr/fingerprints/HdrCapabi
 	public static final field INSTANCE Lapp/revanced/patches/youtube/video/hdr/fingerprints/HdrCapabilitiesFingerprint;
 }
 
-public final class app/revanced/patches/youtube/video/quality/VideoQualityPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/video/quality/VideoQualityPatch;
+public final class app/revanced/patches/youtube/video/quality/RememberVideoQualityPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/video/quality/RememberVideoQualityPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-}
-
-public final class app/revanced/patches/youtube/video/quality/fingerprints/VideoQualitySetterFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/video/quality/fingerprints/VideoQualitySetterFingerprint;
 }
 
 public final class app/revanced/patches/youtube/video/speed/PlaybackSpeedPatch : app/revanced/patcher/patch/BytecodePatch {
