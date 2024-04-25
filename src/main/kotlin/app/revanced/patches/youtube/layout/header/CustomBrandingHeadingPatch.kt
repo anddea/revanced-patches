@@ -6,14 +6,12 @@ import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatchOption
-import app.revanced.util.ResourceGroup
-import app.revanced.util.copyResources
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.updatePatchStatusHeader
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import java.io.File
 
 @Patch(
-    name = "Custom branding heading",
+    name = "Custom branding wordmark header",
     description = "Applies a custom heading in the top left corner within the app.",
     dependencies = [SettingsPatch::class],
     compatiblePackages = [
@@ -52,7 +50,12 @@ import java.io.File
                 "19.08.36",
                 "19.09.38",
                 "19.10.39",
-                "19.11.38"
+                "19.11.43",
+                "19.12.41",
+                "19.13.37",
+                "19.14.43",
+                "19.15.36",
+                "19.16.38"
             ]
         )
     ],

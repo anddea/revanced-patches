@@ -28,6 +28,24 @@ def add_string_to_files(string):
                 stripped_lines = '\n'.join(line.strip() for line in string.split('\n'))
                 f.write(stripped_lines + '\n')
 
+def delete_string_from_files(string):
+    for root, dirs, files in os.walk(destination_directory):
+        for file in files:
+            if file.endswith(".xml"):
+                destination_file = os.path.join(root, file)
+                # Read the content of the updated strings file
+                with open(destination_file, 'r') as f:
+                    content = f.read()
+                # Extract name attribute values
+                name_attributes = re.findall(r'<string\s+name="([^"]*)"\s*>', string)
+                # Remove all occurrences of each name attribute if it exists
+                updated_content = content
+                for name_attr in name_attributes:
+                    updated_content = re.sub(rf'\n?\s*?<string\s+name="{re.escape(name_attr)}"\s*>.*?</string>', '', updated_content, flags=re.DOTALL)
+                # Rewrite the updated content to the file
+                with open(destination_file, 'w') as f:
+                    f.write(updated_content)
+
 # Function to find missing strings
 def find_missing_strings():
     num_missing = 0  # Initialize num_missing to 0
@@ -43,7 +61,7 @@ def find_missing_strings():
             language_code = os.path.basename(destination_folder)
 
             # Output file path
-            output_file = os.path.join(destination_folder, "missing_strings.xml")
+            output_file = os.path.join(destination_folder, "missing-strings.xml")
 
             # Locate updated-strings.xml file
             updated_strings_file = os.path.join(destination_folder, "updated-strings.xml")
@@ -102,6 +120,27 @@ def find_missing_strings():
             # Print the result
             print(f"{language_code} - {num_missing} missing strings, {num_updated} updated strings.")
 
+# Function to sort strings alphabetically by name attribute value
+def sort_strings():
+    for root, dirs, files in os.walk(destination_directory):
+        for file in files:
+            if file == "strings.xml":
+                destination_file = os.path.join(root, file)
+                # Read the content of the destination file
+                with open(destination_file, 'r') as f:
+                    content = f.read()
+                # Extract strings from the file
+                strings = re.findall(r'<string(?:\s+name="([^"]*)")?(.*?)>(.*?)</string>', content, re.DOTALL)
+                # Sort strings alphabetically by name attribute value
+                strings.sort(key=lambda x: x[0] if x[0] else "")
+                # Reconstruct the XML content with sorted strings
+                sorted_content = '<?xml version="1.0" encoding="utf-8"?>\n<resources>\n'
+                sorted_content += '\n'.join(f'\t<string name="{name}"{attr}>{value}</string>' for name, attr, value in strings)
+                sorted_content += '\n</resources>'
+                # Rewrite the sorted content to the file
+                with open(destination_file, 'w') as f:
+                    f.write(sorted_content + "\n")
+
 # If there are no arguments, call the original script
 if len(sys.argv) == 1:
     find_missing_strings()
@@ -111,11 +150,22 @@ elif len(sys.argv) == 3 and sys.argv[1] == '-n':
     string = sys.argv[2]
     add_string_to_files(string)
 
+# If the argument is -d, call the string deletion function
+elif len(sys.argv) == 3 and sys.argv[1] == '-d':
+    string = sys.argv[2]
+    delete_string_from_files(string)
+
+# If the argument is -s, call the string sorting function
+elif len(sys.argv) == 2 and sys.argv[1] == '-s':
+    sort_strings()
+
 # If neither condition is met, print a warning
 else:
     print("Invalid arguments. Usage:")
     print("To run original script: script.py")
     print("To add a string to files: script.py -n 'string'")
+    print("To delete a string from files: script.py -d 'string'")
+    print("To sort strings alphabetically: script.py -s")
 
 # Prompt the user to press a key before closing the terminal window
 input("\nPress Enter to exit...")

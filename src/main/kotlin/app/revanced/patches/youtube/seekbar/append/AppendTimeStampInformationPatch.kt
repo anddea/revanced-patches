@@ -7,6 +7,7 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.youtube.utils.fingerprints.TotalTimeFingerprint
+import app.revanced.patches.youtube.utils.fingerprints.TotalTimeLegacyFingerprint
 import app.revanced.patches.youtube.utils.integrations.Constants.SEEKBAR
 import app.revanced.patches.youtube.utils.overridequality.OverrideQualityHookPatch
 import app.revanced.patches.youtube.utils.overridespeed.OverrideSpeedHookPatch
@@ -68,19 +69,46 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
                 "19.08.36",
                 "19.09.38",
                 "19.10.39",
-                "19.11.38"
+                "19.11.43",
+                "19.12.41",
+                "19.13.37",
+                "19.14.43",
+                "19.15.36",
+                "19.16.38"
             ]
         )
     ]
 )
 @Suppress("unused")
 object AppendTimeStampInformationPatch : BytecodePatch(
-    setOf(TotalTimeFingerprint)
+    setOf(
+        TotalTimeFingerprint,
+        TotalTimeLegacyFingerprint
+    )
 ) {
     override fun execute(context: BytecodeContext) {
-        TotalTimeFingerprint.result?.let {
+        TotalTimeLegacyFingerprint.result?.let {
             it.mutableMethod.apply {
                 val constIndex = getWideLiteralInstructionIndex(TotalTime)
+                val charSequenceIndex = getTargetIndex(constIndex, Opcode.MOVE_RESULT_OBJECT)
+                val charSequenceRegister = getInstruction<OneRegisterInstruction>(charSequenceIndex).registerA
+                val textViewIndex = indexOfFirstInstruction {
+                    getReference<MethodReference>()?.name == "getText"
+                }
+                val textViewRegister =
+                    getInstruction<Instruction35c>(textViewIndex).registerC
+
+                addInstructions(
+                    textViewIndex, """
+                        invoke-static {v$textViewRegister}, $SEEKBAR->setContainerClickListener(Landroid/view/View;)V
+                        invoke-static {v$charSequenceRegister}, $SEEKBAR->appendTimeStampInformation(Ljava/lang/String;)Ljava/lang/String;
+                        move-result-object v$charSequenceRegister
+                        """
+                )
+            }
+        } ?: TotalTimeFingerprint.result?.let {
+            it.mutableMethod.apply {
+                val constIndex = getWideLiteralInstructionIndex(TotalTime) + 3
                 val charSequenceIndex = getTargetIndex(constIndex, Opcode.MOVE_RESULT_OBJECT)
                 val charSequenceRegister = getInstruction<OneRegisterInstruction>(charSequenceIndex).registerA
                 val textViewIndex = indexOfFirstInstruction {

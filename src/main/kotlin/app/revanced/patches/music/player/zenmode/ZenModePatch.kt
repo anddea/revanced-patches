@@ -19,7 +19,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 
 @Patch(
     name = "Enable zen mode",
-    description = "Adds an option to change the player background to light grey to reduce eye strain. Deprecated on YT Music 6.34.51+.",
+    description = "Adds an option to change the player background to light grey to reduce eye strain. Deprecated in YT Music 6.34.51+.",
     dependencies = [SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(
