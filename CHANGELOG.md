@@ -1,3 +1,10 @@
+# [2.224.0-dev.16](https://github.com/anddea/revanced-patches/compare/v2.224.0-dev.15...v2.224.0-dev.16) (2024-04-25)
+
+
+### Bug Fixes
+
+* **YouTube - Settings:** Fix RVX insert position selectable in dropdown menu in Manager ([4afd5ea](https://github.com/anddea/revanced-patches/commit/4afd5ea82cfad397ed1bbeb7f1b49732f754a948))
+
 # [2.224.0-dev.15](https://github.com/anddea/revanced-patches/compare/v2.224.0-dev.14...v2.224.0-dev.15) (2024-04-25)
 
 
