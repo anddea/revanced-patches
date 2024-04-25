@@ -71,7 +71,7 @@ object DescriptionComponentsPatch : BytecodePatch(emptySet()) {
          */
         SettingsPatch.addPreference(
             arrayOf(
-                "PREFERENCE: GENERAL_SETTINGS",
+                "PREFERENCE: PLAYER_SETTINGS",
                 "SETTINGS: HIDE_DESCRIPTION_COMPONENTS"
             )
         )
