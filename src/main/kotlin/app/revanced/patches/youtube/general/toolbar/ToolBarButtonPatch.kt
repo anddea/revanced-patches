@@ -54,7 +54,9 @@ import app.revanced.patches.youtube.utils.toolbar.ToolBarHookPatch
                 "19.11.43",
                 "19.12.41",
                 "19.13.37",
-                "19.14.43"
+                "19.14.43",
+                "19.15.36",
+                "19.16.38"
             ]
         )
     ]
