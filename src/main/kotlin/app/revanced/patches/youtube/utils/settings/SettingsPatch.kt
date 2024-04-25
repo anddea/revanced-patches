@@ -181,7 +181,7 @@ object SettingsPatch : AbstractSettingsResourcePatch(
         /**
          * initialize ReVanced Extended Settings
          */
-        val elementKey = SETTINGS_ELEMENTS_MAP[InsertPosition] ?: SETTINGS_ELEMENTS_MAP[DEFAULT_ELEMENT]
+        val elementKey = SETTINGS_ELEMENTS_MAP[InsertPosition] ?: InsertPosition ?: SETTINGS_ELEMENTS_MAP[DEFAULT_ELEMENT]
         elementKey?.let { addReVancedPreference("extended_settings", it) }
 
         /**
