@@ -246,6 +246,17 @@
         <!-- SETTINGS: HIDE_SUGGESTED_VIDEO_OVERLAY
         <SwitchPreference android:title="@string/revanced_hide_suggested_video_overlay_title" android:key="revanced_hide_suggested_video_overlay" android:defaultValue="true" android:summary="@string/revanced_hide_suggested_video_overlay_summary" /> SETTINGS: HIDE_SUGGESTED_VIDEO_OVERLAY -->
 
+        <!-- SETTINGS: HIDE_DESCRIPTION_COMPONENTS
+        <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_description_title" />
+        <SwitchPreference android:title="@string/revanced_hide_chapters_title" android:key="revanced_hide_chapters" android:defaultValue="false" android:summaryOn="@string/revanced_hide_chapters_summary_on" android:summaryOff="@string/revanced_hide_chapters_summary_off" />
+        <SwitchPreference android:title="@string/revanced_hide_game_section_title" android:key="revanced_hide_game_section" android:defaultValue="false" android:summaryOn="@string/revanced_hide_game_section_summary_on" android:summaryOff="@string/revanced_hide_game_section_summary_off" />
+        <SwitchPreference android:title="@string/revanced_hide_info_cards_section_title" android:key="revanced_hide_info_cards_section" android:defaultValue="false" android:summaryOn="@string/revanced_hide_info_cards_section_summary_on" android:summaryOff="@string/revanced_hide_info_cards_section_summary_off" />
+        <SwitchPreference android:title="@string/revanced_hide_music_section_title" android:key="revanced_hide_music_section" android:defaultValue="false" android:summaryOn="@string/revanced_hide_music_section_summary_on" android:summaryOff="@string/revanced_hide_music_section_summary_off" />
+        <SwitchPreference android:title="@string/revanced_hide_place_section_title" android:key="revanced_hide_place_section" android:defaultValue="false" android:summaryOn="@string/revanced_hide_place_section_summary_on" android:summaryOff="@string/revanced_hide_place_section_summary_off" />
+        <SwitchPreference android:title="@string/revanced_hide_podcast_section_title" android:key="revanced_hide_podcast_section" android:defaultValue="false" android:summaryOn="@string/revanced_hide_podcast_section_summary_on" android:summaryOff="@string/revanced_hide_podcast_section_summary_off" />
+        <SwitchPreference android:title="@string/revanced_hide_shopping_links_title" android:key="revanced_hide_shopping_links" android:defaultValue="true" android:summaryOn="@string/revanced_hide_shopping_links_summary_on" android:summaryOff="@string/revanced_hide_shopping_links_summary_off" />
+        <SwitchPreference android:title="@string/revanced_hide_transcript_section_title" android:key="revanced_hide_transcript_section" android:defaultValue="false" android:summaryOn="@string/revanced_hide_transcript_section_summary_on" android:summaryOff="@string/revanced_hide_transcript_section_summary_off" /> SETTINGS: HIDE_DESCRIPTION_COMPONENTS -->
+
         <!-- SETTINGS: PLAYER_EXPERIMENTAL_FLAGS
         <Preference android:title=" " android:selectable="false" android:key="revanced_experimental_flag" android:summary="@string/revanced_experimental_flag" /> SETTINGS: PLAYER_EXPERIMENTAL_FLAGS -->
 
@@ -288,17 +299,6 @@
         <!-- SETTINGS: ENABLE_BOTTOM_PLAYER_GESTURES
         <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_bottom_player" />
         <SwitchPreference android:title="@string/revanced_enable_bottom_player_gestures_title" android:key="revanced_enable_bottom_player_gestures" android:defaultValue="true" android:summaryOn="@string/revanced_enable_bottom_player_gestures_summary_on" android:summaryOff="@string/revanced_enable_bottom_player_gestures_summary_off" /> SETTINGS: ENABLE_BOTTOM_PLAYER_GESTURES -->
-
-        <!-- SETTINGS: HIDE_DESCRIPTION_COMPONENTS
-        <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_description_title" />
-        <SwitchPreference android:title="@string/revanced_hide_chapters_title" android:key="revanced_hide_chapters" android:defaultValue="false" android:summaryOn="@string/revanced_hide_chapters_summary_on" android:summaryOff="@string/revanced_hide_chapters_summary_off" />
-        <SwitchPreference android:title="@string/revanced_hide_game_section_title" android:key="revanced_hide_game_section" android:defaultValue="false" android:summaryOn="@string/revanced_hide_game_section_summary_on" android:summaryOff="@string/revanced_hide_game_section_summary_off" />
-        <SwitchPreference android:title="@string/revanced_hide_info_cards_section_title" android:key="revanced_hide_info_cards_section" android:defaultValue="false" android:summaryOn="@string/revanced_hide_info_cards_section_summary_on" android:summaryOff="@string/revanced_hide_info_cards_section_summary_off" />
-        <SwitchPreference android:title="@string/revanced_hide_music_section_title" android:key="revanced_hide_music_section" android:defaultValue="false" android:summaryOn="@string/revanced_hide_music_section_summary_on" android:summaryOff="@string/revanced_hide_music_section_summary_off" />
-        <SwitchPreference android:title="@string/revanced_hide_place_section_title" android:key="revanced_hide_place_section" android:defaultValue="false" android:summaryOn="@string/revanced_hide_place_section_summary_on" android:summaryOff="@string/revanced_hide_place_section_summary_off" />
-        <SwitchPreference android:title="@string/revanced_hide_podcast_section_title" android:key="revanced_hide_podcast_section" android:defaultValue="false" android:summaryOn="@string/revanced_hide_podcast_section_summary_on" android:summaryOff="@string/revanced_hide_podcast_section_summary_off" />
-        <SwitchPreference android:title="@string/revanced_hide_shopping_links_title" android:key="revanced_hide_shopping_links" android:defaultValue="true" android:summaryOn="@string/revanced_hide_shopping_links_summary_on" android:summaryOff="@string/revanced_hide_shopping_links_summary_off" />
-        <SwitchPreference android:title="@string/revanced_hide_transcript_section_title" android:key="revanced_hide_transcript_section" android:defaultValue="false" android:summaryOn="@string/revanced_hide_transcript_section_summary_on" android:summaryOff="@string/revanced_hide_transcript_section_summary_off" /> SETTINGS: HIDE_DESCRIPTION_COMPONENTS -->
 
         <!-- SETTINGS: HIDE_CHANNEL_BAR_BUTTON
         <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_channel_bar_title" />
