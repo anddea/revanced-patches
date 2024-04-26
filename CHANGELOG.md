@@ -1,3 +1,10 @@
+## [2.224.1-dev.1](https://github.com/anddea/revanced-patches/compare/v2.224.0...v2.224.1-dev.1) (2024-04-26)
+
+
+### Bug Fixes
+
+* **Reddit - Hide toolbar button:** Latest version support information ([#378](https://github.com/anddea/revanced-patches/issues/378)) ([0c0752d](https://github.com/anddea/revanced-patches/commit/0c0752d6df50549578dcd0b3ea5c0288e8a6d8d0))
+
 # [2.224.0](https://github.com/anddea/revanced-patches/compare/v2.223.0...v2.224.0) (2024-04-25)
 
 
