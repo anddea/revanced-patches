@@ -120,7 +120,7 @@ object SettingsPatch : AbstractSettingsResourcePatch(
         key = "CustomName",
         default = DEFAULT_NAME,
         title = "Setting Name",
-        description = "Specify a custom name for the patch settings."
+        description = "Specify a custom name for the Extended preference."
     )
 
     override fun execute(context: ResourceContext) {
