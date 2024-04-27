@@ -15,6 +15,7 @@ import app.revanced.patches.youtube.utils.settings.ResourceUtils.updatePatchStat
 import app.revanced.util.ResourceGroup
 import app.revanced.util.copyResources
 import org.w3c.dom.Element
+import org.w3c.dom.Node
 import java.io.Closeable
 import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
@@ -80,6 +81,7 @@ object SettingsPatch : AbstractSettingsResourcePatch(
     "youtube/settings"
 ), Closeable {
     private const val DEFAULT_ELEMENT = "About"
+    private const val DEFAULT_NAME = "ReVanced Extended"
 
     private val SETTINGS_ELEMENTS_MAP = mapOf(
         "Parent settings" to "@string/parent_tools_key",
@@ -112,6 +114,13 @@ object SettingsPatch : AbstractSettingsResourcePatch(
         values = SETTINGS_ELEMENTS_MAP,
         title = "Insert position",
         description = "Specify the setting name before which the RVX setting should be inserted."
+    )
+
+    private val CustomName by stringPatchOption(
+        key = "CustomName",
+        default = DEFAULT_NAME,
+        title = "Setting Name",
+        description = "Specify a custom name for the patch settings."
     )
 
     override fun execute(context: ResourceContext) {
@@ -183,6 +192,23 @@ object SettingsPatch : AbstractSettingsResourcePatch(
          */
         val elementKey = SETTINGS_ELEMENTS_MAP[InsertPosition] ?: InsertPosition ?: SETTINGS_ELEMENTS_MAP[DEFAULT_ELEMENT]
         elementKey?.let { addReVancedPreference("extended_settings", it) }
+
+        /**
+         *  change ReVanced Extended title
+         */
+        context.xmlEditor["res/values-v21/strings.xml"].use { editor ->
+                with(editor.file) {
+                    val nodeList = getElementsByTagName("string")
+
+                    for (i in 0 until nodeList.length) {
+                        val node: Node = nodeList.item(i)
+                        if (node.attributes.getNamedItem("name").nodeValue != "revanced_extended_settings_title")
+                            continue
+                        node.textContent = CustomName
+                        break
+                    }
+                }
+            }
 
         /**
          * remove ReVanced Extended Settings divider
