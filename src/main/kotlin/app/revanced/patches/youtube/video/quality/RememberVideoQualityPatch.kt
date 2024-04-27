@@ -12,6 +12,7 @@ import app.revanced.patches.youtube.utils.integrations.Constants.VIDEO_PATH
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch.contexts
 import app.revanced.patches.youtube.utils.videoid.general.VideoIdPatch
+import app.revanced.patches.youtube.utils.videoid.withoutshorts.VideoIdWithoutShortsPatch
 import app.revanced.patches.youtube.video.quality.fingerprints.NewVideoQualityChangedFingerprint
 import app.revanced.patches.youtube.video.quality.fingerprints.SetQualityByIndexMethodClassFieldReferenceFingerprint
 import app.revanced.patches.youtube.video.quality.fingerprints.VideoQualityItemOnClickParentFingerprint
@@ -27,7 +28,8 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
     description = "Adds an option to remember the last video quality selected.",
     dependencies = [
         SettingsPatch::class,
-        VideoIdPatch::class
+        VideoIdPatch::class,
+        VideoIdWithoutShortsPatch::class
     ],
     compatiblePackages = [
         CompatiblePackage(
@@ -84,6 +86,9 @@ object RememberVideoQualityPatch : BytecodePatch(
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
         "$VIDEO_PATH/RememberVideoQualityPatch;"
+
+    private const val INTEGRATIONS_RELOAD_VIDEO_CLASS_DESCRIPTOR =
+        "$VIDEO_PATH/ReloadVideoPatch;"
 
     override fun execute(context: BytecodeContext) {
 
@@ -170,6 +175,7 @@ object RememberVideoQualityPatch : BytecodePatch(
                 )
             }
         } ?: throw NewVideoQualityChangedFingerprint.exception
+        VideoIdWithoutShortsPatch.injectCall("$INTEGRATIONS_RELOAD_VIDEO_CLASS_DESCRIPTOR->setVideoId(Ljava/lang/String;)V")
 
         /**
          * Copy arrays
