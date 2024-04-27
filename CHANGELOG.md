@@ -1,3 +1,10 @@
+## [2.224.1-dev.2](https://github.com/anddea/revanced-patches/compare/v2.224.1-dev.1...v2.224.1-dev.2) (2024-04-27)
+
+
+### Bug Fixes
+
+* **Youtube - Tablet Miniplayer:** Broken controls ([#386](https://github.com/anddea/revanced-patches/issues/386)) ([1b60113](https://github.com/anddea/revanced-patches/commit/1b601130b5bcb3dfa03f590fbc512dbf6a4b841d))
+
 ## [2.224.1-dev.1](https://github.com/anddea/revanced-patches/compare/v2.224.0...v2.224.1-dev.1) (2024-04-26)
 
 
