@@ -1,3 +1,11 @@
+## [2.224.1-dev.3](https://github.com/anddea/revanced-patches/compare/v2.224.1-dev.2...v2.224.1-dev.3) (2024-04-27)
+
+
+### Bug Fixes
+
+* **YouTube - Default video quality:** Fix `Skip preloaded buffer` ([fb54626](https://github.com/anddea/revanced-patches/commit/fb54626ee6c0d7b7033b796b5317f0abdd299893))
+* **YouTube - Return YouTube Dislike:** Fix some RYD issues ([32d6c25](https://github.com/anddea/revanced-patches/commit/32d6c254ffffbc8b09bbf45890cd39488f396123))
+
 ## [2.224.1-dev.2](https://github.com/anddea/revanced-patches/compare/v2.224.1-dev.1...v2.224.1-dev.2) (2024-04-27)
 
 
