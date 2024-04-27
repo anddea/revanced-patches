@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.utils.returnyoutubedislike.rollingnumber.fingerprints
+package app.revanced.patches.youtube.utils.returnyoutubedislike.fingerprints
 
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.MethodFingerprint
@@ -6,9 +6,9 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 /**
- * Resolves to class found in [RollingNumberMeasureTextParentFingerprint].
+ * Resolves to class found in [RollingNumberMeasureStaticLabelParentFingerprint].
  */
-object RollingNumberMeasureStaticLabelFingerprint : MethodFingerprint(
+internal object RollingNumberMeasureStaticLabelFingerprint : MethodFingerprint(
     returnType = "F",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("Ljava/lang/String;"),
