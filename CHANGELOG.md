@@ -1,3 +1,10 @@
+## [2.224.1-dev.4](https://github.com/anddea/revanced-patches/compare/v2.224.1-dev.3...v2.224.1-dev.4) (2024-04-28)
+
+
+### Bug Fixes
+
+* **YouTube:** Fix app crashing for some people by reverting fix Shorts looping for some people ([a6f5dd5](https://github.com/anddea/revanced-patches/commit/a6f5dd5d997bd25c8bac130ed5135e57fc74bd9f))
+
 ## [2.224.1-dev.3](https://github.com/anddea/revanced-patches/compare/v2.224.1-dev.2...v2.224.1-dev.3) (2024-04-27)
 
 
