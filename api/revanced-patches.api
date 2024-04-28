@@ -3538,10 +3538,14 @@ public final class app/revanced/patches/youtube/video/hdr/fingerprints/HdrCapabi
 	public static final field INSTANCE Lapp/revanced/patches/youtube/video/hdr/fingerprints/HdrCapabilitiesFingerprint;
 }
 
-public final class app/revanced/patches/youtube/video/quality/RememberVideoQualityPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/video/quality/RememberVideoQualityPatch;
+public final class app/revanced/patches/youtube/video/quality/VideoQualityPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/video/quality/VideoQualityPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
+public final class app/revanced/patches/youtube/video/quality/fingerprints/VideoQualitySetterFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/video/quality/fingerprints/VideoQualitySetterFingerprint;
 }
 
 public final class app/revanced/patches/youtube/video/speed/PlaybackSpeedPatch : app/revanced/patcher/patch/BytecodePatch {
