@@ -1,3 +1,25 @@
+## [2.224.1-dev.5](https://github.com/anddea/revanced-patches/compare/v2.224.1-dev.4...v2.224.1-dev.5) (2024-04-28)
+
+
+### Bug Fixes
+
+* **YouTube:** Separate `Hide info panels` and `Hide Shorts info panels` ([808d3fb](https://github.com/anddea/revanced-patches/commit/808d3fb89cb27a2d317be2d1f54933aef95b32dc))
+
+## [2.224.1-dev.4](https://github.com/anddea/revanced-patches/compare/v2.224.1-dev.3...v2.224.1-dev.4) (2024-04-28)
+
+
+### Bug Fixes
+
+* **YouTube:** Fix app crashing for some people by reverting fix Shorts looping for some people ([a6f5dd5](https://github.com/anddea/revanced-patches/commit/a6f5dd5d997bd25c8bac130ed5135e57fc74bd9f))
+
+## [2.224.1-dev.3](https://github.com/anddea/revanced-patches/compare/v2.224.1-dev.2...v2.224.1-dev.3) (2024-04-27)
+
+
+### Bug Fixes
+
+* **YouTube - Default video quality:** Fix `Skip preloaded buffer` ([fb54626](https://github.com/anddea/revanced-patches/commit/fb54626ee6c0d7b7033b796b5317f0abdd299893))
+* **YouTube - Return YouTube Dislike:** Fix some RYD issues ([32d6c25](https://github.com/anddea/revanced-patches/commit/32d6c254ffffbc8b09bbf45890cd39488f396123))
+
 ## [2.224.1-dev.2](https://github.com/anddea/revanced-patches/compare/v2.224.1-dev.1...v2.224.1-dev.2) (2024-04-27)
 
 

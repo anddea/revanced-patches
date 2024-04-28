@@ -120,26 +120,30 @@ def find_missing_strings():
             # Print the result
             print(f"{language_code} - {num_missing} missing strings, {num_updated} updated strings.")
 
-# Function to sort strings alphabetically by name attribute value
-def sort_strings():
-    for root, dirs, files in os.walk(destination_directory):
+# Function to sort strings in a file alphabetically by name attribute value
+def sort_strings_in_file(file_path):
+    # Read the content of the file
+    with open(file_path, 'r') as f:
+        content = f.read()
+    # Extract strings from the file
+    strings = re.findall(r'<string(?:\s+name="([^"]*)")?(.*?)>(.*?)</string>', content, re.DOTALL)
+    # Sort strings alphabetically by name attribute value
+    strings.sort(key=lambda x: x[0] if x[0] else "")
+    # Reconstruct the XML content with sorted strings
+    sorted_content = '<?xml version="1.0" encoding="utf-8"?>\n<resources>\n'
+    sorted_content += '\n'.join(f'\t<string name="{name}"{attr}>{value}</string>' for name, attr, value in strings)
+    sorted_content += '\n</resources>'
+    # Rewrite the sorted content to the file
+    with open(file_path, 'w') as f:
+        f.write(sorted_content + "\n")
+
+# Function to sort strings in all files within a directory
+def sort_strings_in_directory(directory):
+    for root, dirs, files in os.walk(directory):
         for file in files:
             if file == "strings.xml":
-                destination_file = os.path.join(root, file)
-                # Read the content of the destination file
-                with open(destination_file, 'r') as f:
-                    content = f.read()
-                # Extract strings from the file
-                strings = re.findall(r'<string(?:\s+name="([^"]*)")?(.*?)>(.*?)</string>', content, re.DOTALL)
-                # Sort strings alphabetically by name attribute value
-                strings.sort(key=lambda x: x[0] if x[0] else "")
-                # Reconstruct the XML content with sorted strings
-                sorted_content = '<?xml version="1.0" encoding="utf-8"?>\n<resources>\n'
-                sorted_content += '\n'.join(f'\t<string name="{name}"{attr}>{value}</string>' for name, attr, value in strings)
-                sorted_content += '\n</resources>'
-                # Rewrite the sorted content to the file
-                with open(destination_file, 'w') as f:
-                    f.write(sorted_content + "\n")
+                file_path = os.path.join(root, file)
+                sort_strings_in_file(file_path)
 
 # If there are no arguments, call the original script
 if len(sys.argv) == 1:
@@ -157,7 +161,9 @@ elif len(sys.argv) == 3 and sys.argv[1] == '-d':
 
 # If the argument is -s, call the string sorting function
 elif len(sys.argv) == 2 and sys.argv[1] == '-s':
-    sort_strings()
+    # Call the sorting function for both source file and destination directory
+    sort_strings_in_file(source_file)
+    sort_strings_in_directory(destination_directory)
 
 # If neither condition is met, print a warning
 else:
