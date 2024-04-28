@@ -14,8 +14,8 @@ import app.revanced.patches.youtube.utils.settings.ResourceUtils.updatePatchStat
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.updatePatchStatusSettings
 import app.revanced.util.ResourceGroup
 import app.revanced.util.copyResources
+import org.w3c.dom.Attr
 import org.w3c.dom.Element
-import org.w3c.dom.Node
 import java.io.Closeable
 import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
@@ -194,19 +194,13 @@ object SettingsPatch : AbstractSettingsResourcePatch(
         elementKey?.let { addReVancedPreference("extended_settings", it) }
 
         /**
-         *  change ReVanced Extended title
+         *  change ReVanced Extended title in the toolbar
          */
-        context.xmlEditor["res/values-v21/strings.xml"].use { editor ->
+        context.xmlEditor["res/layout/revanced_settings_with_toolbar.xml"].use { editor ->
                 with(editor.file) {
-                    val nodeList = getElementsByTagName("string")
-
-                    for (i in 0 until nodeList.length) {
-                        val node: Node = nodeList.item(i)
-                        if (node.attributes.getNamedItem("name").nodeValue != "revanced_extended_settings_title")
-                            continue
-                        node.textContent = CustomName
-                        break
-                    }
+                    val toolbarNode: Element = getElementsByTagName("android.support.v7.widget.Toolbar").item(0) as Element
+                    val appTitle: Attr = toolbarNode.getAttributeNode("app:title")
+                    appTitle.nodeValue = CustomName
                 }
             }
 
@@ -254,7 +248,7 @@ object SettingsPatch : AbstractSettingsResourcePatch(
     }
 
     internal fun addReVancedPreference(key: String, insertKey: String = "misc") {
-        contexts.addReVancedPreference(key, insertKey)
+        contexts.addReVancedPreference(key, insertKey, CustomName)
     }
 
     internal fun updatePatchStatus(patchTitle: String) {

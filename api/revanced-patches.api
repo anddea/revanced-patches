@@ -3414,7 +3414,8 @@ public final class app/revanced/patches/youtube/utils/settings/ResourceUtils {
 	public static final field YOUTUBE_SETTINGS_PATH Ljava/lang/String;
 	public final fun addEntryValues (Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 	public final fun addPreference (Lapp/revanced/patcher/data/ResourceContext;[Ljava/lang/String;)V
-	public final fun addReVancedPreference (Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;Ljava/lang/String;)V
+	public final fun addReVancedPreference (Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public static synthetic fun addReVancedPreference$default (Lapp/revanced/patches/youtube/utils/settings/ResourceUtils;Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)V
 	public final fun getTargetPackage ()Ljava/lang/String;
 	public final fun setMicroG (Ljava/lang/String;)V
 	public final fun setTargetPackage (Ljava/lang/String;)V

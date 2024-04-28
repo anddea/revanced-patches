@@ -91,7 +91,7 @@ object ResourceUtils {
         }
     }
 
-    fun ResourceContext.addReVancedPreference(key: String, insertKey: String) {
+    fun ResourceContext.addReVancedPreference(key: String, insertKey: String, customName: String? = null) {
         val targetClass = "com.google.android.apps.youtube.app.settings.videoquality.VideoQualitySettingsActivity"
         val path = if (key == "extended_settings") YOUTUBE_SETTINGS_PATH else TARGET_PREFERENCE_PATH
 
@@ -117,7 +117,7 @@ object ResourceUtils {
                         key == "extended_settings" && currentKey == insertKey -> {
                             node.insertNode("Preference", node) {
                                 setAttribute("android:key", "revanced_${key}_key")
-                                setAttribute("android:title", "@string/revanced_${key}_title")
+                                setAttribute("android:title", customName ?: "@string/revanced_${key}_title")
                                 this.appendChild(
                                     ownerDocument.createElement("intent").also { intentNode ->
                                         intentNode.setAttribute("android:targetPackage", targetPackage)
