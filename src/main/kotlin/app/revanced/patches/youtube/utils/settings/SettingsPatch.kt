@@ -14,8 +14,8 @@ import app.revanced.patches.youtube.utils.settings.ResourceUtils.updatePatchStat
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.updatePatchStatusSettings
 import app.revanced.util.ResourceGroup
 import app.revanced.util.copyResources
-import org.w3c.dom.Attr
 import org.w3c.dom.Element
+import org.w3c.dom.Node
 import java.io.Closeable
 import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
@@ -190,19 +190,18 @@ object SettingsPatch : AbstractSettingsResourcePatch(
         /**
          * initialize ReVanced Extended Settings
          */
-        val elementKey = SETTINGS_ELEMENTS_MAP[InsertPosition] ?: InsertPosition ?: SETTINGS_ELEMENTS_MAP[DEFAULT_ELEMENT]
-        elementKey?.let { addReVancedPreference("extended_settings", it) }
+        val elementKey =
+            SETTINGS_ELEMENTS_MAP[InsertPosition] ?: InsertPosition ?: SETTINGS_ELEMENTS_MAP[DEFAULT_ELEMENT]
 
-        /**
-         *  change ReVanced Extended title in the toolbar
-         */
-        context.xmlEditor["res/layout/revanced_settings_with_toolbar.xml"].use { editor ->
-                with(editor.file) {
-                    val toolbarNode: Element = getElementsByTagName("android.support.v7.widget.Toolbar").item(0) as Element
-                    val appTitle: Attr = toolbarNode.getAttributeNode("app:title")
-                    appTitle.nodeValue = CustomName
-                }
+        elementKey?.let { insertKey ->
+            CustomName?.let { customName ->
+                addReVancedPreference(
+                    "extended_settings",
+                    insertKey,
+                    customName
+                )
             }
+        }
 
         /**
          * remove ReVanced Extended Settings divider
@@ -230,6 +229,22 @@ object SettingsPatch : AbstractSettingsResourcePatch(
 
     }
 
+    private fun setCustomNameInValueXML(context: ResourceContext, valuefile: String, customName: String) {
+        context.xmlEditor["res/$valuefile/strings.xml"].use { editor ->
+            with(editor.file) {
+                val nodeList = getElementsByTagName("string")
+
+                for (i in 0 until nodeList.length) {
+                    val node: Node = nodeList.item(i)
+                    if (node.attributes.getNamedItem("name").nodeValue != "revanced_extended_settings_title")
+                        continue
+                    node.textContent = customName
+                    return
+                }
+            }
+        }
+    }
+
     private val THREAD_COUNT = Runtime.getRuntime().availableProcessors()
     private val threadPoolExecutor = Executors.newFixedThreadPool(THREAD_COUNT)
 
@@ -247,8 +262,12 @@ object SettingsPatch : AbstractSettingsResourcePatch(
         contexts.addPreference(settingArray)
     }
 
-    internal fun addReVancedPreference(key: String, insertKey: String = "misc") {
-        contexts.addReVancedPreference(key, insertKey, CustomName)
+    internal fun addReVancedPreference(
+        key: String,
+        insertKey: String = "misc",
+        customName: String = CustomName.toString()
+    ) {
+        contexts.addReVancedPreference(key, insertKey, if (customName != DEFAULT_NAME) customName else null)
     }
 
     internal fun updatePatchStatus(patchTitle: String) {
@@ -279,5 +298,16 @@ object SettingsPatch : AbstractSettingsResourcePatch(
                     )
             )
         }
+
+        if (CustomName == DEFAULT_NAME) return
+
+        /**
+         * change ReVanced Extended title:
+         * everything points to `revanced_extended_settings_title` in the values files
+         */
+        CustomName?.let { setCustomNameInValueXML(contexts, "values-v21", it) }
+        // these files are not available in the `execute()` function
+        CustomName?.let { setCustomNameInValueXML(contexts, "values-ru-rRU-v21", it) }
+        CustomName?.let { setCustomNameInValueXML(contexts, "values-uk-rUA-v21", it) }
     }
 }
