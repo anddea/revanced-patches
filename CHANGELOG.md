@@ -1,3 +1,10 @@
+## [2.224.1-dev.5](https://github.com/anddea/revanced-patches/compare/v2.224.1-dev.4...v2.224.1-dev.5) (2024-04-28)
+
+
+### Bug Fixes
+
+* **YouTube:** Separate `Hide info panels` and `Hide Shorts info panels` ([808d3fb](https://github.com/anddea/revanced-patches/commit/808d3fb89cb27a2d317be2d1f54933aef95b32dc))
+
 ## [2.224.1-dev.4](https://github.com/anddea/revanced-patches/compare/v2.224.1-dev.3...v2.224.1-dev.4) (2024-04-28)
 
 
