@@ -194,13 +194,10 @@ object SettingsPatch : AbstractSettingsResourcePatch(
             SETTINGS_ELEMENTS_MAP[InsertPosition] ?: InsertPosition ?: SETTINGS_ELEMENTS_MAP[DEFAULT_ELEMENT]
 
         elementKey?.let { insertKey ->
-            CustomName?.let { customName ->
-                addReVancedPreference(
-                    "extended_settings",
-                    insertKey,
-                    customName
-                )
-            }
+            addReVancedPreference(
+                "extended_settings",
+                insertKey
+            )
         }
 
         /**
@@ -262,12 +259,8 @@ object SettingsPatch : AbstractSettingsResourcePatch(
         contexts.addPreference(settingArray)
     }
 
-    internal fun addReVancedPreference(
-        key: String,
-        insertKey: String = "misc",
-        customName: String = CustomName.toString()
-    ) {
-        contexts.addReVancedPreference(key, insertKey, if (customName != DEFAULT_NAME) customName else null)
+    internal fun addReVancedPreference(key: String, insertKey: String = "misc") {
+        contexts.addReVancedPreference(key, insertKey)
     }
 
     internal fun updatePatchStatus(patchTitle: String) {
