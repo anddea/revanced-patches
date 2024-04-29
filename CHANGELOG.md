@@ -1,3 +1,11 @@
+# [2.225.0-dev.1](https://github.com/anddea/revanced-patches/compare/v2.224.1-dev.5...v2.225.0-dev.1) (2024-04-29)
+
+
+### Features
+
+* **YouTube - Hide shorts components:** Hide comments button if disabled or with label "0" ([299e20b](https://github.com/anddea/revanced-patches/commit/299e20b774408d6f8ec9dc3c6e4274cf43db0bc5))
+* **YouTube:** Hide live chat replay button/label in fullscreen ([0cd9b96](https://github.com/anddea/revanced-patches/commit/0cd9b96c70a1eb5e17d9b3ee6ca81ce313a89eee))
+
 ## [2.224.1-dev.5](https://github.com/anddea/revanced-patches/compare/v2.224.1-dev.4...v2.224.1-dev.5) (2024-04-28)
 
 
