@@ -6,6 +6,7 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatchOption
 import app.revanced.patches.shared.patch.mapping.ResourceMappingPatch
 import app.revanced.patches.shared.patch.settings.AbstractSettingsResourcePatch
+import app.revanced.patches.youtube.misc.translations.LANGUAGES
 import app.revanced.patches.youtube.utils.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
@@ -13,6 +14,7 @@ import app.revanced.patches.youtube.utils.settings.ResourceUtils.addReVancedPref
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.updatePatchStatus
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.updatePatchStatusSettings
 import app.revanced.util.ResourceGroup
+import app.revanced.util.classLoader
 import app.revanced.util.copyResources
 import org.w3c.dom.Element
 import org.w3c.dom.Node
@@ -226,22 +228,6 @@ object SettingsPatch : AbstractSettingsResourcePatch(
 
     }
 
-    private fun setCustomNameInValueXML(context: ResourceContext, valuefile: String, customName: String) {
-        context.xmlEditor["res/$valuefile/strings.xml"].use { editor ->
-            with(editor.file) {
-                val nodeList = getElementsByTagName("string")
-
-                for (i in 0 until nodeList.length) {
-                    val node: Node = nodeList.item(i)
-                    if (node.attributes.getNamedItem("name").nodeValue != "revanced_extended_settings_title")
-                        continue
-                    node.textContent = customName
-                    return
-                }
-            }
-        }
-    }
-
     private val THREAD_COUNT = Runtime.getRuntime().availableProcessors()
     private val threadPoolExecutor = Executors.newFixedThreadPool(THREAD_COUNT)
 
@@ -298,9 +284,25 @@ object SettingsPatch : AbstractSettingsResourcePatch(
          * change ReVanced Extended title:
          * everything points to `revanced_extended_settings_title` in the values files
          */
-        CustomName?.let { setCustomNameInValueXML(contexts, "values-v21", it) }
-        // these files are not available in the `execute()` function
-        CustomName?.let { setCustomNameInValueXML(contexts, "values-ru-rRU-v21", it) }
-        CustomName?.let { setCustomNameInValueXML(contexts, "values-uk-rUA-v21", it) }
+        setOf(
+            "", // used for the default values-v21
+            *LANGUAGES
+        ).forEach {
+            val valueFilePath: String = if (it != "") "res/values-$it-v21/strings.xml" else "res/values-v21/strings.xml"
+
+            contexts.xmlEditor[valueFilePath].use { editor ->
+                with(editor.file) {
+                    val nodeList = getElementsByTagName("string")
+
+                    for (i in 0 until nodeList.length) {
+                        val node: Node = nodeList.item(i)
+                        if (node.attributes.getNamedItem("name").nodeValue != "revanced_extended_settings_title")
+                            continue
+                        node.textContent = CustomName
+                        break
+                    }
+                }
+            }
+        }
     }
 }

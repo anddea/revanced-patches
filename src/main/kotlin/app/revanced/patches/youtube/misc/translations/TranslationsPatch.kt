@@ -6,6 +6,31 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.shared.patch.translations.AbstractTranslationsPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 
+val LANGUAGES = arrayOf(
+    "ar",
+    "bg-rBG",
+    "bn",
+    "de-rDE",
+    "el-rGR",
+    "es-rES",
+    "fi-rFI",
+    "fr-rFR",
+    "hu-rHU",
+    "id-rID",
+    "in",
+    "it-rIT",
+    "ja-rJP",
+    "ko-rKR",
+    "pl-rPL",
+    "pt-rBR",
+    "ru-rRU",
+    "tr-rTR",
+    "uk-rUA",
+    "vi-rVN",
+    "zh-rCN",
+    "zh-rTW"
+)
+
 @Patch(
     name = "Translations",
     description = "Add Crowdin translations for YouTube.",
@@ -59,30 +84,7 @@ import app.revanced.patches.youtube.utils.settings.SettingsPatch
 @Suppress("unused")
 object TranslationsPatch : AbstractTranslationsPatch(
     "youtube",
-    arrayOf(
-        "ar",
-        "bg-rBG",
-        "bn",
-        "de-rDE",
-        "el-rGR",
-        "es-rES",
-        "fi-rFI",
-        "fr-rFR",
-        "hu-rHU",
-        "id-rID",
-        "in",
-        "it-rIT",
-        "ja-rJP",
-        "ko-rKR",
-        "pl-rPL",
-        "pt-rBR",
-        "ru-rRU",
-        "tr-rTR",
-        "uk-rUA",
-        "vi-rVN",
-        "zh-rCN",
-        "zh-rTW"
-    )
+    LANGUAGES
 ) {
     override fun execute(context: ResourceContext) {
         super.execute(context)
