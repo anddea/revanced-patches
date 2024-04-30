@@ -60,7 +60,9 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
                 "19.11.43",
                 "19.12.41",
                 "19.13.37",
-                "19.14.43"
+                "19.14.43",
+                "19.15.36",
+                "19.16.38"
             ]
         )
     ]
@@ -75,7 +77,7 @@ object CompactControlsOverlayPatch : BytecodePatch(
             with(
                 context
                     .toMethodWalker(it.method)
-                    .nextMethod(it.scanResult.patternScanResult!!.startIndex, true)
+                    .nextMethod(it.scanResult.patternScanResult!!.startIndex + 2, true)
                     .getMethod() as MutableMethod
             ) {
                 val insertIndex = implementation!!.instructions.size - 1

@@ -3402,84 +3402,10 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public final fun setYtOutlineSearchBlack (J)V
 }
 
-public final class app/revanced/patches/youtube/utils/returnyoutubedislike/general/ReturnYouTubeDislikePatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/returnyoutubedislike/general/ReturnYouTubeDislikePatch;
+public final class app/revanced/patches/youtube/utils/returnyoutubedislike/ReturnYouTubeDislikePatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/returnyoutubedislike/ReturnYouTubeDislikePatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-}
-
-public final class app/revanced/patches/youtube/utils/returnyoutubedislike/general/fingerprints/DislikeFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/returnyoutubedislike/general/fingerprints/DislikeFingerprint;
-}
-
-public final class app/revanced/patches/youtube/utils/returnyoutubedislike/general/fingerprints/LikeFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/returnyoutubedislike/general/fingerprints/LikeFingerprint;
-}
-
-public final class app/revanced/patches/youtube/utils/returnyoutubedislike/general/fingerprints/RemoveLikeFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/returnyoutubedislike/general/fingerprints/RemoveLikeFingerprint;
-}
-
-public final class app/revanced/patches/youtube/utils/returnyoutubedislike/general/fingerprints/TextComponentConstructorFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/returnyoutubedislike/general/fingerprints/TextComponentConstructorFingerprint;
-}
-
-public final class app/revanced/patches/youtube/utils/returnyoutubedislike/general/fingerprints/TextComponentContextFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/returnyoutubedislike/general/fingerprints/TextComponentContextFingerprint;
-}
-
-public final class app/revanced/patches/youtube/utils/returnyoutubedislike/oldlayout/ReturnYouTubeDislikeOldLayoutPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/returnyoutubedislike/oldlayout/ReturnYouTubeDislikeOldLayoutPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-}
-
-public final class app/revanced/patches/youtube/utils/returnyoutubedislike/oldlayout/fingerprints/ButtonTagFingerprint : app/revanced/util/fingerprint/LiteralValueFingerprint {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/returnyoutubedislike/oldlayout/fingerprints/ButtonTagFingerprint;
-}
-
-public final class app/revanced/patches/youtube/utils/returnyoutubedislike/rollingnumber/ReturnYouTubeDislikeRollingNumberPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/returnyoutubedislike/rollingnumber/ReturnYouTubeDislikeRollingNumberPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-}
-
-public final class app/revanced/patches/youtube/utils/returnyoutubedislike/rollingnumber/fingerprints/RollingNumberMeasureAnimatedTextFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/returnyoutubedislike/rollingnumber/fingerprints/RollingNumberMeasureAnimatedTextFingerprint;
-}
-
-public final class app/revanced/patches/youtube/utils/returnyoutubedislike/rollingnumber/fingerprints/RollingNumberMeasureStaticLabelFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/returnyoutubedislike/rollingnumber/fingerprints/RollingNumberMeasureStaticLabelFingerprint;
-}
-
-public final class app/revanced/patches/youtube/utils/returnyoutubedislike/rollingnumber/fingerprints/RollingNumberMeasureTextParentFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/returnyoutubedislike/rollingnumber/fingerprints/RollingNumberMeasureTextParentFingerprint;
-}
-
-public final class app/revanced/patches/youtube/utils/returnyoutubedislike/rollingnumber/fingerprints/RollingNumberSetterFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/returnyoutubedislike/rollingnumber/fingerprints/RollingNumberSetterFingerprint;
-}
-
-public final class app/revanced/patches/youtube/utils/returnyoutubedislike/rollingnumber/fingerprints/RollingNumberTextViewFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/returnyoutubedislike/rollingnumber/fingerprints/RollingNumberTextViewFingerprint;
-}
-
-public final class app/revanced/patches/youtube/utils/returnyoutubedislike/shorts/ReturnYouTubeDislikeShortsPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/returnyoutubedislike/shorts/ReturnYouTubeDislikeShortsPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-}
-
-public final class app/revanced/patches/youtube/utils/returnyoutubedislike/shorts/fingerprints/IncognitoFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/returnyoutubedislike/shorts/fingerprints/IncognitoFingerprint;
-}
-
-public final class app/revanced/patches/youtube/utils/returnyoutubedislike/shorts/fingerprints/ShortsTextViewFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/returnyoutubedislike/shorts/fingerprints/ShortsTextViewFingerprint;
-}
-
-public final class app/revanced/patches/youtube/utils/returnyoutubedislike/shorts/fingerprints/TextComponentSpecFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/returnyoutubedislike/shorts/fingerprints/TextComponentSpecFingerprint;
 }
 
 public final class app/revanced/patches/youtube/utils/settings/ResourceUtils {
@@ -3612,10 +3538,14 @@ public final class app/revanced/patches/youtube/video/hdr/fingerprints/HdrCapabi
 	public static final field INSTANCE Lapp/revanced/patches/youtube/video/hdr/fingerprints/HdrCapabilitiesFingerprint;
 }
 
-public final class app/revanced/patches/youtube/video/quality/RememberVideoQualityPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/video/quality/RememberVideoQualityPatch;
+public final class app/revanced/patches/youtube/video/quality/VideoQualityPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/video/quality/VideoQualityPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
+public final class app/revanced/patches/youtube/video/quality/fingerprints/VideoQualitySetterFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/video/quality/fingerprints/VideoQualitySetterFingerprint;
 }
 
 public final class app/revanced/patches/youtube/video/speed/PlaybackSpeedPatch : app/revanced/patcher/patch/BytecodePatch {
