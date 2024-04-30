@@ -1,3 +1,10 @@
+# [2.225.0-dev.2](https://github.com/anddea/revanced-patches/compare/v2.225.0-dev.1...v2.225.0-dev.2) (2024-04-30)
+
+
+### Features
+
+* **YouTube - Settings:** Add custom name for Extended preference ([#389](https://github.com/anddea/revanced-patches/issues/389)) ([8804b92](https://github.com/anddea/revanced-patches/commit/8804b924ac5db841e458e62cfe69be8424e3b968))
+
 # [2.225.0-dev.1](https://github.com/anddea/revanced-patches/compare/v2.224.1-dev.5...v2.225.0-dev.1) (2024-04-29)
 
 
