@@ -6,6 +6,7 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatchOption
 import app.revanced.patches.shared.patch.mapping.ResourceMappingPatch
 import app.revanced.patches.shared.patch.settings.AbstractSettingsResourcePatch
+import app.revanced.patches.youtube.misc.translations.LANGUAGES
 import app.revanced.patches.youtube.utils.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
@@ -13,8 +14,10 @@ import app.revanced.patches.youtube.utils.settings.ResourceUtils.addReVancedPref
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.updatePatchStatus
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.updatePatchStatusSettings
 import app.revanced.util.ResourceGroup
+import app.revanced.util.classLoader
 import app.revanced.util.copyResources
 import org.w3c.dom.Element
+import org.w3c.dom.Node
 import java.io.Closeable
 import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
@@ -80,6 +83,7 @@ object SettingsPatch : AbstractSettingsResourcePatch(
     "youtube/settings"
 ), Closeable {
     private const val DEFAULT_ELEMENT = "About"
+    private const val DEFAULT_NAME = "ReVanced Extended"
 
     private val SETTINGS_ELEMENTS_MAP = mapOf(
         "Parent settings" to "@string/parent_tools_key",
@@ -112,6 +116,13 @@ object SettingsPatch : AbstractSettingsResourcePatch(
         values = SETTINGS_ELEMENTS_MAP,
         title = "Insert position",
         description = "Specify the setting name before which the RVX setting should be inserted."
+    )
+
+    private val CustomName by stringPatchOption(
+        key = "CustomName",
+        default = DEFAULT_NAME,
+        title = "Setting Name",
+        description = "Specify a custom name for the Extended preference."
     )
 
     override fun execute(context: ResourceContext) {
@@ -181,8 +192,15 @@ object SettingsPatch : AbstractSettingsResourcePatch(
         /**
          * initialize ReVanced Extended Settings
          */
-        val elementKey = SETTINGS_ELEMENTS_MAP[InsertPosition] ?: InsertPosition ?: SETTINGS_ELEMENTS_MAP[DEFAULT_ELEMENT]
-        elementKey?.let { addReVancedPreference("extended_settings", it) }
+        val elementKey =
+            SETTINGS_ELEMENTS_MAP[InsertPosition] ?: InsertPosition ?: SETTINGS_ELEMENTS_MAP[DEFAULT_ELEMENT]
+
+        elementKey?.let { insertKey ->
+            addReVancedPreference(
+                "extended_settings",
+                insertKey
+            )
+        }
 
         /**
          * remove ReVanced Extended Settings divider
@@ -258,6 +276,33 @@ object SettingsPatch : AbstractSettingsResourcePatch(
                         ""
                     )
             )
+        }
+
+        if (CustomName == DEFAULT_NAME) return
+
+        /**
+         * change ReVanced Extended title:
+         * everything points to `revanced_extended_settings_title` in the values files
+         */
+        setOf(
+            "", // used for the default values-v21
+            *LANGUAGES
+        ).forEach {
+            val valueFilePath: String = if (it != "") "res/values-$it-v21/strings.xml" else "res/values-v21/strings.xml"
+
+            contexts.xmlEditor[valueFilePath].use { editor ->
+                with(editor.file) {
+                    val nodeList = getElementsByTagName("string")
+
+                    for (i in 0 until nodeList.length) {
+                        val node: Node = nodeList.item(i)
+                        if (node.attributes.getNamedItem("name").nodeValue != "revanced_extended_settings_title")
+                            continue
+                        node.textContent = CustomName
+                        break
+                    }
+                }
+            }
         }
     }
 }
