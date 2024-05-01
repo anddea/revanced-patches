@@ -1,3 +1,10 @@
+# [2.225.0-dev.3](https://github.com/anddea/revanced-patches/compare/v2.225.0-dev.2...v2.225.0-dev.3) (2024-05-01)
+
+
+### Bug Fixes
+
+* **YouTube - Hide Shorts components:** Exclude `Hide sound metadata label` and `Hide video link label` from `Hide info panel` ([4f5bdcc](https://github.com/anddea/revanced-patches/commit/4f5bdccacee834782525fdcc9367ed39106fa4a8))
+
 # [2.225.0-dev.2](https://github.com/anddea/revanced-patches/compare/v2.225.0-dev.1...v2.225.0-dev.2) (2024-04-30)
 
 
