@@ -1,3 +1,10 @@
+# [2.225.0-dev.5](https://github.com/anddea/revanced-patches/compare/v2.225.0-dev.4...v2.225.0-dev.5) (2024-05-02)
+
+
+### Bug Fixes
+
+* **YouTube - Settings Custom Name:** Fix resource files not found ([#416](https://github.com/anddea/revanced-patches/issues/416)) ([cc4566a](https://github.com/anddea/revanced-patches/commit/cc4566a5499ce7fbe95c82d4c5d27e12fc671c1b))
+
 # [2.225.0-dev.4](https://github.com/anddea/revanced-patches/compare/v2.225.0-dev.3...v2.225.0-dev.4) (2024-05-02)
 
 
