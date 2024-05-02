@@ -19,6 +19,7 @@ import app.revanced.util.copyResources
 import org.w3c.dom.Element
 import org.w3c.dom.Node
 import java.io.Closeable
+import java.io.FileNotFoundException
 import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
 
@@ -290,19 +291,22 @@ object SettingsPatch : AbstractSettingsResourcePatch(
         ).forEach {
             val valueFilePath: String = if (it != "") "res/values-$it-v21/strings.xml" else "res/values-v21/strings.xml"
 
-            contexts.xmlEditor[valueFilePath].use { editor ->
-                with(editor.file) {
-                    val nodeList = getElementsByTagName("string")
+            try {
+                contexts.xmlEditor[valueFilePath].use { editor ->
+                    with(editor.file) {
+                        val nodeList = getElementsByTagName("string")
 
-                    for (i in 0 until nodeList.length) {
-                        val node: Node = nodeList.item(i)
-                        if (node.attributes.getNamedItem("name").nodeValue != "revanced_extended_settings_title")
-                            continue
-                        node.textContent = CustomName
-                        break
+                        for (i in 0 until nodeList.length) {
+                            val node: Node = nodeList.item(i)
+                            if (node.attributes.getNamedItem("name").nodeValue != "revanced_extended_settings_title")
+                                continue
+                            node.textContent = CustomName
+                            break
+                        }
                     }
                 }
             }
+            catch (_: FileNotFoundException) { /* ignore missing files */ }
         }
     }
 }
