@@ -1,3 +1,10 @@
+# [2.225.0-dev.4](https://github.com/anddea/revanced-patches/compare/v2.225.0-dev.3...v2.225.0-dev.4) (2024-05-02)
+
+
+### Features
+
+* **YouTube - Collapse Button:** Hide collapse button margin ([#415](https://github.com/anddea/revanced-patches/issues/415)) ([6419978](https://github.com/anddea/revanced-patches/commit/6419978ce76fa48cbf157bf4a752af7c291a63c8))
+
 # [2.225.0-dev.3](https://github.com/anddea/revanced-patches/compare/v2.225.0-dev.2...v2.225.0-dev.3) (2024-05-01)
 
 
