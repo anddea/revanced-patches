@@ -1,3 +1,13 @@
+# [2.225.0-dev.6](https://github.com/anddea/revanced-patches/compare/v2.225.0-dev.5...v2.225.0-dev.6) (2024-05-03)
+
+
+### Features
+
+* **YouTube - Hide shorts components:** Add separate option to hide in player ([7b60297](https://github.com/anddea/revanced-patches/commit/7b60297b0ed5096a9f7533837691d96df4809630))
+* **YouTube - Overlay buttons:** Add `Rounded` (old curvy) buttons ([73ab950](https://github.com/anddea/revanced-patches/commit/73ab950ce251e673860826cf32239c451de64122))
+* **YouTube:** Add `Force disable Shorts dim` ([8a529ff](https://github.com/anddea/revanced-patches/commit/8a529ffe2efea270348d27d8c1970b02c12adea5))
+* **YouTube:** Add `Force snackbar theme` ([2606187](https://github.com/anddea/revanced-patches/commit/2606187a0dca6fa3390a4d66931d70c927e893c9))
+
 # [2.225.0-dev.5](https://github.com/anddea/revanced-patches/compare/v2.225.0-dev.4...v2.225.0-dev.5) (2024-05-02)
 
 
