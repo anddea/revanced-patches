@@ -1934,6 +1934,12 @@ public final class app/revanced/patches/youtube/general/searchterm/fingerprints/
 	public static final field INSTANCE Lapp/revanced/patches/youtube/general/searchterm/fingerprints/CreateSearchSuggestionsFingerprint;
 }
 
+public final class app/revanced/patches/youtube/general/snackbar/ForceSnackbarTheme : app/revanced/patcher/patch/ResourcePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/general/snackbar/ForceSnackbarTheme;
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+}
+
 public final class app/revanced/patches/youtube/general/snackbar/HideSnackBarPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/general/snackbar/HideSnackBarPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
@@ -2449,8 +2455,8 @@ public final class app/revanced/patches/youtube/player/captionsbutton/fingerprin
 	public static final field INSTANCE Lapp/revanced/patches/youtube/player/captionsbutton/fingerprints/YouTubeControlsOverlaySubtitleButtonFingerprint;
 }
 
-public final class app/revanced/patches/youtube/player/chapters/HideChapterInfoPatch : app/revanced/patcher/patch/ResourcePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/player/chapters/HideChapterInfoPatch;
+public final class app/revanced/patches/youtube/player/chapters/ForceHidePlayerChaptersPatch : app/revanced/patcher/patch/ResourcePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/player/chapters/ForceHidePlayerChaptersPatch;
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 }
@@ -2511,8 +2517,8 @@ public final class app/revanced/patches/youtube/player/filmstripoverlay/fingerpr
 	public static final field INSTANCE Lapp/revanced/patches/youtube/player/filmstripoverlay/fingerprints/FineScrubbingOverlayFingerprint;
 }
 
-public final class app/revanced/patches/youtube/player/fullscreenbutton/HideFullscreenButtonPatch : app/revanced/patcher/patch/ResourcePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/player/fullscreenbutton/HideFullscreenButtonPatch;
+public final class app/revanced/patches/youtube/player/fullscreenbutton/ForceHideFullscreenButtonPatch : app/revanced/patcher/patch/ResourcePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/player/fullscreenbutton/ForceHideFullscreenButtonPatch;
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 }

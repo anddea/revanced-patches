@@ -754,13 +754,15 @@
 
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_overlay_button" />
             <Preference android:title="Overlay buttons" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
-            <Preference android:title="Hide fullscreen button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="Force hide fullscreen button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
 
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_player" />
             <Preference android:title="Custom player overlay opacity" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Disable haptic feedback" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Disable speed overlay" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="Force hide collapse button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Force hide player buttons background" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="Force hide player chapters" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Hide autoplay button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Hide captions button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Hide channel watermark" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
@@ -770,7 +772,6 @@
             <Preference android:title="Hide info cards" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Hide music button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Hide player buttons background" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
-            <Preference android:title="Hide player chapters" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Hide previous next button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Hide seek message" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="Hide suggested actions" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>

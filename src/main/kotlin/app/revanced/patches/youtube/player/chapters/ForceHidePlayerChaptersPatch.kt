@@ -9,7 +9,7 @@ import app.revanced.util.doRecursively
 import org.w3c.dom.Element
 
 @Patch(
-    name = "Hide player chapters",
+    name = "Force hide player chapters",
     description = "Force to hide chapters in player bottom UI container.",
     dependencies = [SettingsPatch::class],
     compatiblePackages = [
@@ -60,7 +60,7 @@ import org.w3c.dom.Element
     use = false
 )
 @Suppress("unused")
-object HideChapterInfoPatch : ResourcePatch() {
+object ForceHidePlayerChaptersPatch : ResourcePatch() {
     override fun execute(context: ResourceContext) {
 
         context.xmlEditor["res/layout/youtube_controls_bottom_ui_container.xml"].use { editor ->
@@ -74,7 +74,7 @@ object HideChapterInfoPatch : ResourcePatch() {
             }
         }
 
-        SettingsPatch.updatePatchStatus("Hide player chapters")
+        SettingsPatch.updatePatchStatus("Force hide player chapters")
 
     }
 }
