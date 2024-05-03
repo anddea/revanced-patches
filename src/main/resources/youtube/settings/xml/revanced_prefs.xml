@@ -486,7 +486,8 @@
         <SwitchPreference android:title="@string/revanced_hide_shorts_shelf_title" android:key="revanced_hide_shorts_shelf" android:defaultValue="false" android:summary="@string/revanced_hide_shorts_shelf_summary" />
         <SwitchPreference android:title="@string/revanced_hide_shorts_shelf_home_title" android:key="revanced_hide_shorts_shelf_home" android:defaultValue="true" android:summaryOff="@string/revanced_hide_shorts_shelf_home_summary_off" android:summaryOn="@string/revanced_hide_shorts_shelf_home_summary_on" />
         <SwitchPreference android:title="@string/revanced_hide_shorts_shelf_search_title" android:key="revanced_hide_shorts_shelf_search" android:defaultValue="true" android:summaryOff="@string/revanced_hide_shorts_shelf_search_summary_off" android:summaryOn="@string/revanced_hide_shorts_shelf_search_summary_on" />
-        <SwitchPreference android:title="@string/revanced_hide_shorts_shelf_subscriptions_title" android:key="revanced_hide_shorts_shelf_subscriptions" android:defaultValue="true" android:summaryOff="@string/revanced_hide_shorts_shelf_subscriptions_summary_off" android:summaryOn="@string/revanced_hide_shorts_shelf_subscriptions_summary_on" /> SETTINGS: HIDE_SHORTS_SHELF -->
+        <SwitchPreference android:title="@string/revanced_hide_shorts_shelf_subscriptions_title" android:key="revanced_hide_shorts_shelf_subscriptions" android:defaultValue="true" android:summaryOff="@string/revanced_hide_shorts_shelf_subscriptions_summary_off" android:summaryOn="@string/revanced_hide_shorts_shelf_subscriptions_summary_on" />
+        <SwitchPreference android:title="@string/revanced_hide_shorts_shelf_player_title" android:key="revanced_hide_shorts_shelf_player" android:defaultValue="true" android:summaryOff="@string/revanced_hide_shorts_shelf_player_summary_off" android:summaryOn="@string/revanced_hide_shorts_shelf_player_summary_on" /> SETTINGS: HIDE_SHORTS_SHELF -->
 
         <!-- SETTINGS: SHORTS_PLAYER_PARENT
         <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_shorts_player_title" /> SETTINGS: SHORTS_PLAYER_PARENT -->
@@ -668,7 +669,7 @@
         <Preference android:title=" " android:selectable="false" android:summary="@string/pref_about_category" />
         <PreferenceScreen android:title="@string/revanced_patches_information"  android:summary="@string/revanced_patches_information_summary" >
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_tool_used" />
-            <Preference android:title="ReVanced Patches" android:selectable="false" android:summary="2.225.0-dev.3" />
+            <Preference android:title="ReVanced Patches" android:selectable="false" android:summary="2.225.0-dev.5" />
             <Preference android:title="ReVanced Integrations" android:selectable="false" android:summary="" />
 
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_ads" />
