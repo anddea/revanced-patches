@@ -9,7 +9,7 @@ import app.revanced.util.doRecursively
 import org.w3c.dom.Element
 
 @Patch(
-    name = "Hide fullscreen button",
+    name = "Force hide fullscreen button",
     description = "Force to hide fullscreen button in player bottom UI container.",
     dependencies = [SettingsPatch::class],
     compatiblePackages = [
@@ -60,7 +60,7 @@ import org.w3c.dom.Element
     use = false
 )
 @Suppress("unused")
-object HideFullscreenButtonPatch : ResourcePatch() {
+object ForceHideFullscreenButtonPatch : ResourcePatch() {
     override fun execute(context: ResourceContext) {
 
         context.xmlEditor["res/layout/youtube_controls_bottom_ui_container.xml"].use { editor ->
@@ -93,7 +93,7 @@ object HideFullscreenButtonPatch : ResourcePatch() {
             // Do nothing
         }
 
-        SettingsPatch.updatePatchStatus("Hide fullscreen button")
+        SettingsPatch.updatePatchStatus("Force hide fullscreen button")
 
     }
 }
