@@ -4,7 +4,6 @@ import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.booleanPatchOption
 import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatchOption
 import app.revanced.patches.youtube.overlaybutton.alwaysrepeat.AlwaysRepeatPatch
 import app.revanced.patches.youtube.overlaybutton.download.hook.DownloadButtonHookPatch
@@ -91,12 +90,20 @@ object OverlayButtonsPatch : ResourcePatch() {
     private const val DEFAULT_MARGIN = "0.0dip"
     private const val WIDER_MARGIN = "6.0dip"
 
-    private val OutlineIcon by booleanPatchOption(
-        key = "OutlineIcon",
-        default = true,
-        title = "Outline icons",
-        description = "Apply the outline icon",
-        required = true
+    private const val DEFAULT_ICON_KEY = "Rounded"
+
+    private val iconTypes = mapOf(
+        "Bold" to "bold",
+        DEFAULT_ICON_KEY to "rounded",
+        "Thin" to "thin"
+    )
+
+    private val IconType by stringPatchOption(
+        key = "IconType",
+        default = DEFAULT_ICON_KEY,
+        values = iconTypes,
+        title = "Icon type",
+        description = "Apply icon type"
     )
 
     private val BottomMargin by stringPatchOption(
@@ -147,60 +154,36 @@ object OverlayButtonsPatch : ResourcePatch() {
             context.copyResources("youtube/overlaybuttons/shared", resourceGroup)
         }
 
-        if (OutlineIcon == true) {
-            arrayOf(
-                ResourceGroup(
-                    "drawable",
-                    "yt_outline_screen_vertical_vd_theme_24.xml",
-                ),
-
-                ResourceGroup(
-                    "drawable-xxhdpi",
-                    "ic_fullscreen_vertical_button.png",
-                    "quantum_ic_fullscreen_exit_grey600_24.png",
-                    "quantum_ic_fullscreen_exit_white_24.png",
-                    "quantum_ic_fullscreen_grey600_24.png",
-                    "quantum_ic_fullscreen_white_24.png",
-                    "revanced_time_ordered_playlist.png",
-                    "revanced_copy_icon.png",
-                    "revanced_copy_icon_with_time.png",
-                    "revanced_download_icon.png",
-                    "revanced_speed_icon.png",
-                    "revanced_whitelist_icon.png",
-                    "yt_fill_arrow_repeat_white_24.png",
-                    "yt_outline_arrow_repeat_1_white_24.png",
-                    "yt_outline_arrow_shuffle_1_white_24.png",
-                    "yt_outline_screen_full_exit_white_24.png",
-                    "yt_outline_screen_full_white_24.png"
-                )
-            ).forEach { resourceGroup ->
-                context.copyResources("youtube/overlaybuttons/outline", resourceGroup)
+        IconType?.let { iconType ->
+            val iconValue = iconType.lowercase()
+            val commonResources = arrayOf(
+                "ic_fullscreen_vertical_button.png",
+                "ic_vr.png",
+                "quantum_ic_fullscreen_exit_grey600_24.png",
+                "quantum_ic_fullscreen_exit_white_24.png",
+                "quantum_ic_fullscreen_grey600_24.png",
+                "quantum_ic_fullscreen_white_24.png",
+                "revanced_time_ordered_playlist.png",
+                "revanced_copy_icon.png",
+                "revanced_copy_icon_with_time.png",
+                "revanced_download_icon.png",
+                "revanced_speed_icon.png",
+                "revanced_whitelist_icon.png",
+                "yt_fill_arrow_repeat_white_24.png",
+                "yt_outline_arrow_repeat_1_white_24.png",
+                "yt_outline_arrow_shuffle_1_white_24.png",
+                "yt_outline_screen_full_exit_white_24.png",
+                "yt_outline_screen_full_white_24.png"
+            )
+            val specificResources = if (iconValue == "thin") {
+                arrayOf("yt_outline_screen_vertical_vd_theme_24.xml")
+            } else {
+                arrayOf("yt_outline_screen_vertical_vd_theme_24.png")
             }
-        } else {
-            arrayOf(
-                ResourceGroup(
-                    "drawable-xxhdpi",
-                    "ic_fullscreen_vertical_button.png",
-                    "ic_vr.png",
-                    "quantum_ic_fullscreen_exit_grey600_24.png",
-                    "quantum_ic_fullscreen_exit_white_24.png",
-                    "quantum_ic_fullscreen_grey600_24.png",
-                    "quantum_ic_fullscreen_white_24.png",
-                    "revanced_time_ordered_playlist.png",
-                    "revanced_copy_icon.png",
-                    "revanced_copy_icon_with_time.png",
-                    "revanced_download_icon.png",
-                    "revanced_speed_icon.png",
-                    "revanced_whitelist_icon.png",
-                    "yt_fill_arrow_repeat_white_24.png",
-                    "yt_outline_arrow_repeat_1_white_24.png",
-                    "yt_outline_arrow_shuffle_1_white_24.png",
-                    "yt_outline_screen_full_exit_white_24.png",
-                    "yt_outline_screen_full_white_24.png",
-                    "yt_outline_screen_vertical_vd_theme_24.png"
-                )
-            ).forEach { resourceGroup ->
-                context.copyResources("youtube/overlaybuttons/default", resourceGroup)
+            val resources = commonResources + specificResources
+            resources.forEach { resource ->
+                val folderName = if (resource.endsWith(".xml")) "drawable" else "drawable-xxhdpi"
+                context.copyResources("youtube/overlaybuttons/$iconValue", ResourceGroup(folderName, resource))
             }
         }
 
