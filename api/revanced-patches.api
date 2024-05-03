@@ -2811,6 +2811,12 @@ public final class app/revanced/patches/youtube/shorts/shortscomponent/fingerpri
 	public static final field INSTANCE Lapp/revanced/patches/youtube/shorts/shortscomponent/fingerprints/ToolBarBannerFingerprint;
 }
 
+public final class app/revanced/patches/youtube/shorts/shortsdim/ForceDisableShortsDimPatch : app/revanced/patcher/patch/ResourcePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/shorts/shortsdim/ForceDisableShortsDimPatch;
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+}
+
 public final class app/revanced/patches/youtube/shorts/shortsoverlay/ShortsOverlayButtonsPatch : app/revanced/patcher/patch/ResourcePatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/shorts/shortsoverlay/ShortsOverlayButtonsPatch;
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
