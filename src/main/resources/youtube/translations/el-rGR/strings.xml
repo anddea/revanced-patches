@@ -6,15 +6,15 @@
 	<string name="microg_settings_summary">Ενεργοποιήστε τις ρυθμίσεις cloud messaging για να λαμβάνετε ειδοποιήσεις.</string>
 	<string name="microg_settings_title">MicroG</string>
 	<string name="revanced_ads">Διαφημίσεις</string>
-	<string name="revanced_alt_thumbnail_dearrow_about_summary">"Το DeArrow παρέχει μικρογραφίες από το κοινό για τα βίντεο στο YouTube. Αυτές οι μικρογραφίες είναι συχνά πιο σχετικές από εκείνες που παρέχονται από το YouTube\n\nΕάν ενεργοποιηθεί, οι διευθύνσεις URL των βίντεο θα αποστέλλονται στον διακομιστή API χωρίς να αποστέλλονται άλλα δεδομένα. Αν κάποιο βίντεο δεν έχει μικρογραφίες DeArrow, τότε θα εμφανιστούν είτε οι αρχικές του μικρογραφίες είτε λήψεις ακίνητων καρέ.\n\nΠατήστε για να μάθετε περισσότερα για το DeArrow."</string>
+	<string name="revanced_alt_thumbnail_dearrow_about_summary">"Το DeArrow παρέχει μικρογραφίες από το κοινό για τα βίντεο. Οι μικρογραφίες αυτές είναι συχνά πιο σχετικές από εκείνες που παρέχει το ίδιο το YouTube.\n\nΑν ενεργοποιηθεί, οι διευθύνσεις URL των βίντεο θα στέλνονται στον διακομιστή API χωρίς να στέλνονται άλλα δεδομένα. Αν ένα βίντεο δεν έχει μικρογραφίες DeArrow, θα εμφανιστούν είτε οι αρχικές του μικρογραφίες είτε λήψεις ακίνητων καρέ.\n\nΠατήστε για να μάθετε περισσότερα για το DeArrow."</string>
 	<string name="revanced_alt_thumbnail_dearrow_about_title">Σχετικά με το DeArrow</string>
 	<string name="revanced_alt_thumbnail_dearrow_api_url_summary">"Η διεύθυνση URL του τελικού σημείου αποθήκευσης μικρογραφιών DeArrow. Μην το αλλάξετε αν δεν ξέρετε τι κάνετε."</string>
 	<string name="revanced_alt_thumbnail_dearrow_api_url_title">Διεύθυνση API του DeArrow</string>
 	<string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Να μην εμφανίζεται μήνυμα στο κάτω μέρος της οθόνης αν το DeArrow δεν είναι διαθέσιμο.</string>
 	<string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">Να εμφανίζεται μήνυμα στο κάτω μέρος της οθόνης αν το DeArrow δεν είναι διαθέσιμο.</string>
 	<string name="revanced_alt_thumbnail_dearrow_connection_toast_title">Εμφάνιση μηνύματος αν το API δεν είναι διαθέσιμο</string>
-	<string name="revanced_alt_thumbnail_dearrow_error">DeArrow προσωρινά μή διαθέσιμο. (κωδικός κατάστασης: %s)</string>
-	<string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow προσωρινά μή διαθέσιμο.</string>
+	<string name="revanced_alt_thumbnail_dearrow_error">DeArrow προσωρινά μη διαθέσιμο. (κωδικός: %s)</string>
+	<string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow προσωρινά μη διαθέσιμο.</string>
 	<string name="revanced_alt_thumbnail_home_title">Καρτέλα «Αρχική»</string>
 	<string name="revanced_alt_thumbnail_library_title">Καρτέλα «Εσείς»</string>
 	<string name="revanced_alt_thumbnail_options_entry_1">Αρχικές μικρογραφίες</string>
@@ -82,7 +82,7 @@
 	<string name="revanced_custom_filter_summary_off">Το προσαρμοσμένο φίλτρο χρήστη είναι απενεργοποιημένο.</string>
 	<string name="revanced_custom_filter_summary_on">Το προσαρμοσμένο φίλτρο χρήστη είναι απενεργοποιημένο.</string>
 	<string name="revanced_custom_filter_title">Χρήση προσαρμοσμένου φίλτρου</string>
-	<string name="revanced_custom_filter_toast_invalid_characters" formated="false">Μη έγκυρο προσαρμοσμένο φίλτρο (πρέπει να είναι μόνο χαρακτήρες ASCII): %s</string>
+	<string name="revanced_custom_filter_toast_invalid_characters" formated="false">Μη έγκυρο φίλτρο (πρέπει μόνο χαρακτήρες ASCII): %s</string>
 	<string name="revanced_custom_filter_toast_invalid_syntax" formated="false">Μη έγκυρο προσαρμοσμένο φίλτρο: %s</string>
 	<string name="revanced_custom_filter_toast_reset">Το προσαρμοσμένο φίλτρο επαναφέρθηκε στην προεπιλογή</string>
 	<string name="revanced_custom_playback_speed_panel_type_summary_off">Αναδυόμενο μενού παλιού στυλ.</string>
@@ -266,7 +266,7 @@
 	<string name="revanced_external_downloader_set">Ορισμός ως προεπιλεγμένο πρόγραμμα λήψης</string>
 	<string name="revanced_external_downloader_settings_summary">Ρυθμίσεις για τη χρήση εξωτερικού προγράμματος λήψης.</string>
 	<string name="revanced_external_downloader_settings_title">Ρυθμίσεις εξωτερικού προγράμματος λήψης</string>
-	<string name="revanced_feed_flyout_panel_title">Αναδυόμενος πίνακας στη ροή</string>
+	<string name="revanced_feed_flyout_panel_title">Χρήση φίλτρου αναδυόμενου μενού ροής</string>
 	<string name="revanced_flyout_menu">Αναδυόμενο μενού ρυθμίσεων</string>
 	<string name="revanced_force_fullscreen_summary">"Τα βίντεο θα αναπαραχθούν σε λειτουργία πλήρους οθόνης στις ακόλουθες περιπτώσεις:
 
@@ -276,7 +276,7 @@
 	<string name="revanced_fullscreen">Λειτουργία πλήρους οθόνης</string>
 	<string name="revanced_general">Γενικά</string>
 	<string name="revanced_haptic_feedback_title">Απόκριση δόνησης</string>
-	<string name="revanced_hide_account_menu_filter_strings_title">Επεξεργασία φίλτρου στοιχείων μενού λογαριασμού</string>
+	<string name="revanced_hide_account_menu_filter_strings_title">Αλλαγή φίλτρου μενού λογαριασμού</string>
 	<string name="revanced_hide_account_menu_summary">"Απόκρυψη στοιχείων του μενού λογαριασμού και της καρτέλας «Εσείς»
 Κάποια στοιχεία ενδέχεται να μην αποκρύπτονται."</string>
 	<string name="revanced_hide_account_menu_title">Στοιχεία μενού λογαριασμού</string>
@@ -414,7 +414,7 @@
 	<string name="revanced_hide_expandable_chip_summary_off">Εμφανίζονται.</string>
 	<string name="revanced_hide_expandable_chip_summary_on">Κρυμμένα.</string>
 	<string name="revanced_hide_expandable_chip_title">Επεκτάσιμα πλαίσια κάτω από τα βίντεο</string>
-	<string name="revanced_hide_feed_flyout_panel_filter_strings_title">Αλλαγή φιλτραρίσματος αναδυόμενου μενού στη ροή</string>
+	<string name="revanced_hide_feed_flyout_panel_filter_strings_title">Αλλαγή φίλτρου αναδυόμενων μενού ροής</string>
 	<string name="revanced_hide_feed_flyout_panel_summary_off">Το φιλτάρισμα αναδυόμενων μενού στη ροή είναι απενεργοποιημένο.</string>
 	<string name="revanced_hide_feed_flyout_panel_summary_on">Το φιλτάρισμα αναδυόμενων μενού στη ροή είναι ενεργοποιημένο.</string>
 	<string name="revanced_hide_feed_flyout_panel_title">Φιλτράρισμα αναδυόμενου μενού στη ροή</string>
@@ -681,8 +681,8 @@
 	<string name="revanced_hide_shorts_player_shop_button_summary_off">Εμφανίζεται.</string>
 	<string name="revanced_hide_shorts_player_shop_button_summary_on">Κρυμμένο.</string>
 	<string name="revanced_hide_shorts_player_shop_button_title">Κουμπί καταστήματος</string>
-	<string name="revanced_hide_shorts_player_info_panel_summary_off">Εμφανίζονται.</string>
-	<string name="revanced_hide_shorts_player_info_panel_summary_on">Κρυμμένα.</string>
+	<string name="revanced_hide_shorts_player_info_panel_summary_off">Εμφανίζονται.\n\nΗ ενεργοποίηση της ρύθμισης αυτής θα αφαιρέσει επίσης τις ετικέτες μεταδεδομένων ήχου και συνδέσμου πλήρους βίντεο.</string>
+	<string name="revanced_hide_shorts_player_info_panel_summary_on">Κρυμμένα.\n\nΗ ενεργοποίηση της ρύθμισης αυτής θα αφαιρέσει επίσης τις ετικέτες μεταδεδομένων ήχου και συνδέσμου πλήρους βίντεο.</string>
 	<string name="revanced_hide_shorts_player_info_panel_title">Πάνελ πληροφοριών</string>
 	<string name="revanced_hide_shorts_player_sound_metadata_label_summary_off">Εμφανίζεται.</string>
 	<string name="revanced_hide_shorts_player_sound_metadata_label_summary_on">Κρυμμένη.</string>
@@ -776,7 +776,7 @@
 	<string name="revanced_hide_video_with_gray_description_summary">"Απόκρυψη γκριζαρισμένων βίντεο από τα αποτελέσματα αναζήτησης.
 Τα γκριζαρισμένα βίντεο περιλαμβάνουν βίντεο που δεν σχετίζονται με τους όρους αναζήτησης."</string>
 	<string name="revanced_hide_video_with_gray_description_title">Βίντεο με γκρι περιγραφή</string>
-	<string name="revanced_hide_video_with_low_view_num_multiplier_summary">Γλωσσικό πρότυπο για τον αριθμό προβολών κάτω από κάθε βίντεο. Κάθε κλειδί (λέξη ή γράμμα στη γλώσσα σας) -> τιμή (σημασία του κλειδιού) βρίσκεται σε νέα γραμμή. Τα κλειδιά μπαίνουν πριν από "->". Αν αλλάξετε γλώσσα εφαρμογής ή συστήματος, θα χρειαστεί επαναρύθμιση.\n\nΠαραδείγματα:\nΕλληνικά: 10 χιλιάδες προβολές = χιλ. -> 1000, προβολές -> views\nΑγγλικά: 10K views = K -> 1000, views -> views</string>
+	<string name="revanced_hide_video_with_low_view_num_multiplier_summary">Γλωσσικό πρότυπο για τον αριθμό προβολών κάτω από κάθε βίντεο. Κάθε κλειδί (λέξη ή γράμμα στη γλώσσα σας) -> τιμή (σημασία του κλειδιού) βρίσκεται σε νέα γραμμή. Τα κλειδιά μπαίνουν πριν από το "->". Αν αλλάξετε γλώσσα εφαρμογής ή συστήματος, θα χρειαστεί επαναρύθμιση.\n\nΠαραδείγματα:\nΕλληνικά: 10 χιλιάδες προβολές = χιλ. -> 1000, προβολές -> views\nΑγγλικά: 10K views = K -> 1000, views -> views</string>
 	<string name="revanced_hide_video_with_low_view_num_multiplier_title">Επεξεργασία κλειδιών</string>
 	<string name="revanced_hide_video_with_low_view_num_multiplier_value">χιλ. -> 1 000\nεκ. -> 1 000 000\nδισ. -> 1 000 000 000\nπροβολές -> views</string>
 	<string name="revanced_hide_video_with_low_view_num_summary">Τα βίντεο με προβολές λιγότερες από αυτόν τον αριθμό δεν θα εμφανίζονται.</string>
@@ -921,9 +921,9 @@
 	<string name="revanced_spoof_app_version_title">Τροποποίηση έκδοσης εφαρμογής</string>
 	<string name="revanced_spoof_device_dimensions_summary">Η παραποίηση διαστάσεων συσκευής μπορεί να ξεκλειδώσει υψηλότερες ποιότητες βίντεο αλλά ενδέχεται να εμφανιστούν άγνωστες παρενέργειες.</string>
 	<string name="revanced_spoof_device_dimensions_title">Παραποίηση διαστάσεων συσκευής</string>
-	<string name="revanced_spoof_failure_connection_status_code" formatted="false">"Storyboard μή διαθέσιμο: "</string>
-	<string name="revanced_spoof_failure_connection_timeout">Storyboard προσωρινά μή διαθέσιμο (χρονοκαθυστέρηση API).</string>
-	<string name="revanced_spoof_failure_generic">"Storyboard προσωρινά μή διαθέσιμο: "</string>
+	<string name="revanced_spoof_failure_connection_status_code" formatted="false">"Storyboard μη διαθέσιμο: "</string>
+	<string name="revanced_spoof_failure_connection_timeout">Storyboard προσωρινά μη διαθέσιμο (καθυστέρηση API).</string>
+	<string name="revanced_spoof_failure_generic">"Storyboard προσωρινά μη διαθέσιμο: "</string>
 	<string name="revanced_spoof_player_parameter_in_feed_summary_off">"Η παράμετρος του αναπαραγωγέα δε θα τροποποιηθεί για βίντεο στη ροή.
 
 Γνωστό θέμα: Τα βίντεο στη ροή θα αναπαράγονται για λιγότερο από 1 λεπτό πριν αντιμετωπίσουν προβλήματα αναπαραγωγής."</string>
@@ -937,7 +937,7 @@
 • Δεν είναι διαθέσιμος ο υψηλός ρυθμός bitrate.
 • Οι μικρογραφίες της γραμμής προόδου δεν λειτουργούν σε πληρωμένα βίντεο.
 • Η λήψη εκτός σύνδεσης ενδέχεται να μη λειτουργεί.
-• Τα βίντεο ενδέχεται να μην ξεκινούν από το τελευταίο μέρος που παρακολουθήσατε."</string>
+• Τα βίντεο ενδέχεται να μην ξεκινούν από το σημείο που τα αφήσατε."</string>
 	<string name="revanced_spoof_player_parameter_title">Τροποποίηση παραμέτρου αναπαραγωγέα</string>
 	<string name="revanced_swipe_controls">Έλεγχος με σάρωση οθόνης</string>
 	<string name="revanced_swipe_gestures_lock_mode_summary_off">"Οι χειρονομίες σάρωσης είναι απενεργοποιημένες στη λειτουργία «Οθόνη κλειδώματος»."</string>
@@ -1103,9 +1103,9 @@
 	<string name="sb_skipped_selfpromo">Παραλείφθηκε η αυτοπροώθηση.</string>
 	<string name="sb_skipped_sponsor">Παραλείφθηκε ο χορηγός.</string>
 	<string name="sb_skipped_unsubmitted">Παραλείφθηκε μη υποβληθέν τμήμα.</string>
-	<string name="sb_sponsorblock_connection_failure_generic">SponsorBlock προσωρινά μή διαθέσιμο.</string>
-	<string name="sb_sponsorblock_connection_failure_status" formatted="false">SponsorBlock προσωρινά μή διαθέσιμο (κατάσταση %d).</string>
-	<string name="sb_sponsorblock_connection_failure_timeout">SponsorBlock προσωρινά μή διαθέσιμο (χρονοκαθυστέρηση API).</string>
+	<string name="sb_sponsorblock_connection_failure_generic">SponsorBlock προσωρινά μη διαθέσιμο.</string>
+	<string name="sb_sponsorblock_connection_failure_status" formatted="false">SponsorBlock προσωρινά μη διαθέσιμο (κατάσταση %d).</string>
+	<string name="sb_sponsorblock_connection_failure_timeout">SponsorBlock προσωρινά μη διαθέσιμο (καθυστέρηση API).</string>
 	<string name="sb_stats">Στατιστικά</string>
 	<string name="sb_stats_connection_failure">Τα στατιστικά είναι προσωρινά μή διαθέσιμα (το API είναι εκτός λειτουργίας).</string>
 	<string name="sb_stats_reputation" formatted="false">Η φήμη σας είναι &lt;b&gt;%.2f&lt;/b&gt;</string>
@@ -1129,7 +1129,7 @@
 	<string name="sb_submit_failed_forbidden" formatted="false">Αδυναμία υποβολής του τμήματος: %s.</string>
 	<string name="sb_submit_failed_invalid" formatted="false">Αδυναμία υποβολής του τμήματος: %s.</string>
 	<string name="sb_submit_failed_rate_limit">Αδυναμία υποβολής του τμήματος.\nΌριο συχνότητας (Πάρα πολλά από τον ίδιο χρήστη ή την ίδια IP).</string>
-	<string name="sb_submit_failed_timeout">Αδυναμία υποβολής τμημάτων (χρονοκαθυστέρηση API).</string>
+	<string name="sb_submit_failed_timeout">Αδυναμία υποβολής τμημάτων (καθυστέρηση API).</string>
 	<string name="sb_submit_failed_unknown_error" formatted="false">Αδυναμία υποβολής τμημάτων (κατάσταση: %d %s).</string>
 	<string name="sb_submit_succeeded">Το τμήμα υποβλήθηκε επιτυχώς.</string>
 	<string name="sb_toast_on_connection_error_summary_off">Να μην εμφανίζεται μήνυμα στο κάτω μέρος της οθόνης αν το SponsorBlock δεν είναι διαθέσιμο.</string>
@@ -1138,7 +1138,7 @@
 	<string name="sb_vote_category">Αλλαγή κατηγορίας</string>
 	<string name="sb_vote_downvote">Αρνητική ψήφος</string>
 	<string name="sb_vote_failed_forbidden" formatted="false">Αδυναμία ψηφοφορίας για το τμήμα: %s.</string>
-	<string name="sb_vote_failed_timeout">Αδυναμία ψηφοφορίας για το τμήμα (χρονοκαθυστέρηση API).</string>
+	<string name="sb_vote_failed_timeout">Αδυναμία ψηφοφορίας για το τμήμα (καθυστέρηση API).</string>
 	<string name="sb_vote_failed_unknown_error" formatted="false">Αδυναμία ψηφοφορίας για το τμήμα (κατάσταση: %d %s).</string>
 	<string name="sb_vote_no_segments">Δεν υπάρχουν τμήματα προς ψήφιση.</string>
 	<string name="sb_vote_upvote">Θετική ψήφος</string>
