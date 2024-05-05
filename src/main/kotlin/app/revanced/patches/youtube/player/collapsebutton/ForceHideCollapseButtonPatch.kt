@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.player.fullscreenbutton
+package app.revanced.patches.youtube.player.collapsebutton
 
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.ResourcePatch
@@ -9,8 +9,8 @@ import app.revanced.util.doRecursively
 import org.w3c.dom.Element
 
 @Patch(
-    name = "Hide fullscreen button",
-    description = "Force to hide fullscreen button in player bottom UI container.",
+    name = "Force hide collapse button",
+    description = "Force to hide the collapse button in player top UI container. Exclude \"Hide collapse button\".",
     dependencies = [SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(
@@ -60,40 +60,28 @@ import org.w3c.dom.Element
     use = false
 )
 @Suppress("unused")
-object HideFullscreenButtonPatch : ResourcePatch() {
+object ForceHideCollapseButtonPatch : ResourcePatch() {
     override fun execute(context: ResourceContext) {
+        val hide = "0.0dip"
 
-        context.xmlEditor["res/layout/youtube_controls_bottom_ui_container.xml"].use { editor ->
+        context.xmlEditor["res/layout/youtube_controls_layout.xml"].use { editor ->
             editor.file.doRecursively { node ->
-                if (node is Element && (
-                    node.getAttribute("android:id") == "@id/fullscreen_button" ||
-                    node.getAttribute("android:id") == "@id/youtube_controls_fullscreen_button_stub")
-                ) {
-                    node.apply {
-                        setAttribute("android:layout_height", "0.0dip")
-                        setAttribute("android:layout_width", "0.0dip")
-                    }
-                }
-            }
-        }
+                if (node !is Element) return@doRecursively
 
-        // For newer versions of YouTube (19.09.xx+), there's a new layout file for fullscreen button
-        try {
-            context.xmlEditor["res/layout/youtube_controls_fullscreen_button.xml"].use { editor ->
-                editor.file.doRecursively { node ->
-                    if (node is Element && node.getAttribute("android:id") == "@id/fullscreen_button") {
+                when (node.getAttributeNode("android:id")?.textContent) {
+                    "@id/player_collapse_button" -> {
                         node.apply {
-                            setAttribute("android:layout_height", "0.0dip")
-                            setAttribute("android:layout_width", "0.0dip")
+                            setAttribute("android:layout_height", hide)
+                            setAttribute("android:layout_width", hide)
                         }
                     }
+                    "@id/title_anchor" -> {
+                        node.setAttribute("android:layout_marginStart", hide)
+                    }
                 }
             }
-        } catch (e: Exception) {
-            // Do nothing
         }
 
-        SettingsPatch.updatePatchStatus("Hide fullscreen button")
-
+        SettingsPatch.updatePatchStatus("Force hide collapse button")
     }
 }

@@ -1,3 +1,35 @@
+# [2.225.0-dev.7](https://github.com/anddea/revanced-patches/compare/v2.225.0-dev.6...v2.225.0-dev.7) (2024-05-05)
+
+
+### Features
+
+* **YouTube - Hide layout components:** Add `Hide videos based on duration` ([ebd6955](https://github.com/anddea/revanced-patches/commit/ebd69550544d5446bdd98a4257912bd18ec478ef))
+* **YouTube - Hide layout components:** Add an option to hide videos with views greater than specified value ([98c2f99](https://github.com/anddea/revanced-patches/commit/98c2f9942dd03f48aee00013307533430306152f))
+
+# [2.225.0-dev.6](https://github.com/anddea/revanced-patches/compare/v2.225.0-dev.5...v2.225.0-dev.6) (2024-05-03)
+
+
+### Features
+
+* **YouTube - Hide shorts components:** Add separate option to hide in player ([7b60297](https://github.com/anddea/revanced-patches/commit/7b60297b0ed5096a9f7533837691d96df4809630))
+* **YouTube - Overlay buttons:** Add `Rounded` (old curvy) buttons ([73ab950](https://github.com/anddea/revanced-patches/commit/73ab950ce251e673860826cf32239c451de64122))
+* **YouTube:** Add `Force disable Shorts dim` ([8a529ff](https://github.com/anddea/revanced-patches/commit/8a529ffe2efea270348d27d8c1970b02c12adea5))
+* **YouTube:** Add `Force snackbar theme` ([2606187](https://github.com/anddea/revanced-patches/commit/2606187a0dca6fa3390a4d66931d70c927e893c9))
+
+# [2.225.0-dev.5](https://github.com/anddea/revanced-patches/compare/v2.225.0-dev.4...v2.225.0-dev.5) (2024-05-02)
+
+
+### Bug Fixes
+
+* **YouTube - Settings Custom Name:** Fix resource files not found ([#416](https://github.com/anddea/revanced-patches/issues/416)) ([cc4566a](https://github.com/anddea/revanced-patches/commit/cc4566a5499ce7fbe95c82d4c5d27e12fc671c1b))
+
+# [2.225.0-dev.4](https://github.com/anddea/revanced-patches/compare/v2.225.0-dev.3...v2.225.0-dev.4) (2024-05-02)
+
+
+### Features
+
+* **YouTube - Collapse Button:** Hide collapse button margin ([#415](https://github.com/anddea/revanced-patches/issues/415)) ([6419978](https://github.com/anddea/revanced-patches/commit/6419978ce76fa48cbf157bf4a752af7c291a63c8))
+
 # [2.225.0-dev.3](https://github.com/anddea/revanced-patches/compare/v2.225.0-dev.2...v2.225.0-dev.3) (2024-05-01)
 
 

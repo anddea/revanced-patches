@@ -7,7 +7,6 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.booleanPatchOption
 import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatchOption
 import app.revanced.patches.youtube.layout.branding.icon.CustomBrandingIconPatch
-import app.revanced.patches.youtube.shorts.shortsoverlay.ShortsOverlayButtonsPatch
 import app.revanced.util.ResourceGroup
 import app.revanced.util.copyResources
 import org.w3c.dom.Document
@@ -21,7 +20,7 @@ import org.w3c.dom.NodeList
     compatiblePackages = [CompatiblePackage("com.google.android.youtube")]
 )
 @Suppress("unused")
-object VisualSettingsIconsPatch : ResourcePatch() {
+object VisualPreferencesIconsPatch : ResourcePatch() {
 
     private val MainSettings by booleanPatchOption(
         key = "MainSettings",
@@ -270,6 +269,7 @@ object VisualSettingsIconsPatch : ResourcePatch() {
 
         resourcesToCopy.forEach { context.copyResources("youtube/settings/icons", it) }
 
+        // Edit Preferences / add icon attribute
         val tagNames = listOf(
             "app.revanced.integrations.youtube.settingsmenu.ResettableEditTextPreference",
             "ListPreference",
