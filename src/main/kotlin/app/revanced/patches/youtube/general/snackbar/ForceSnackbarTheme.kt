@@ -64,8 +64,8 @@ object ForceSnackbarTheme : ResourcePatch() {
     override fun execute(context: ResourceContext) {
 
         fun editXml(xmlPath: String, tagName: String, attribute: String, value: String) {
-            context.xmlEditor[xmlPath].use { editor ->
-                editor.file.doRecursively { node ->
+            context.document[xmlPath].use { editor ->
+                editor.doRecursively { node ->
                     if (node is Element && (tagName.isEmpty() || node.tagName == tagName)) {
                         node.setAttribute(attribute, value)
                     }
