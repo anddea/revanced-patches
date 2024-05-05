@@ -149,11 +149,10 @@ object SeekMessagePatch : BytecodePatch(
             getInstruction<FiveRegisterInstruction>(endIndex).registerE
 
         for (index in endIndex downTo startIndex) {
-            if (getInstruction(index).opcode != Opcode.CONST_16)
-                continue
 
-            if (getInstruction<OneRegisterInstruction>(index).registerA != constRegister)
-                continue
+            if (getInstruction(index).opcode != Opcode.CONST_16) continue
+
+            if (getInstruction<OneRegisterInstruction>(index).registerA != constRegister) continue
 
             val constValue = getInstruction<WideLiteralInstruction>(index).wideLiteral.toInt()
 
