@@ -27,11 +27,12 @@ object PlayerResponsePatch : BytecodePatch(
         playerResponseMethod.apply {
             freeRegister = implementation!!.registerCount - parameters.size - 2
             shouldApplyNewMethod = freeRegister > 2
-            if (shouldApplyNewMethod) {
-                IS_SHORT_AND_OPENING_OR_PLAYING_PARAMETER = freeRegister
-                PLAYER_PARAMETER = freeRegister - 1
-                VIDEO_ID_PARAMETER = freeRegister - 2
-            }
+
+            if (!shouldApplyNewMethod) return
+
+            IS_SHORT_AND_OPENING_OR_PLAYING_PARAMETER = freeRegister
+            PLAYER_PARAMETER = freeRegister - 1
+            VIDEO_ID_PARAMETER = freeRegister - 2
         }
     }
 
@@ -80,15 +81,15 @@ object PlayerResponsePatch : BytecodePatch(
         videoIdHooks.forEach(::hookVideoId)
         beforeVideoIdHooks.forEach(::hookPlayerParameter)
 
-        if (shouldApplyNewMethod) {
-            playerResponseMethod.addInstructions(
-                0, """
-                    move-object v$VIDEO_ID_PARAMETER, p1
-                    move-object v$PLAYER_PARAMETER, p3
-                    move/from16 v$IS_SHORT_AND_OPENING_OR_PLAYING_PARAMETER, p11
-                    """
-            )
-        }
+        if (!shouldApplyNewMethod) return
+
+        playerResponseMethod.addInstructions(
+            0, """
+                move-object v$VIDEO_ID_PARAMETER, p1
+                move-object v$PLAYER_PARAMETER, p3
+                move/from16 v$IS_SHORT_AND_OPENING_OR_PLAYING_PARAMETER, p11
+                """
+        )
     }
 
     internal abstract class Hook(private val methodDescriptor: String) {
