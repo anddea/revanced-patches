@@ -1,3 +1,11 @@
+# [2.225.0-dev.7](https://github.com/anddea/revanced-patches/compare/v2.225.0-dev.6...v2.225.0-dev.7) (2024-05-05)
+
+
+### Features
+
+* **YouTube - Hide layout components:** Add `Hide videos based on duration` ([ebd6955](https://github.com/anddea/revanced-patches/commit/ebd69550544d5446bdd98a4257912bd18ec478ef))
+* **YouTube - Hide layout components:** Add an option to hide videos with views greater than specified value ([98c2f99](https://github.com/anddea/revanced-patches/commit/98c2f9942dd03f48aee00013307533430306152f))
+
 # [2.225.0-dev.6](https://github.com/anddea/revanced-patches/compare/v2.225.0-dev.5...v2.225.0-dev.6) (2024-05-03)
 
 
