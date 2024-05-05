@@ -85,7 +85,7 @@ object MaterialYouPatch : ResourcePatch() {
                 "new_content_count.xml"
             )
         ).forEach {
-            context["res/${it.resourceDirectoryName}"].mkdirs()
+            context["res/${it.resourceDirectoryName}", false].mkdirs()
             context.copyResources("youtube/materialyou", it)
         }
 
