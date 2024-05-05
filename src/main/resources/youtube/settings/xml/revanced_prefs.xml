@@ -135,6 +135,12 @@
             <app.revanced.integrations.youtube.settingsmenu.ResettableEditTextPreference android:title="@string/revanced_hide_video_with_greater_than_views_num_title" android:key="revanced_hide_video_with_greater_than_views_num" android:defaultValue="1 000 000 000 000" android:summary="@string/revanced_hide_video_with_greater_than_views_num_summary" android:inputType="number" />
             <app.revanced.integrations.youtube.settingsmenu.ResettableEditTextPreference android:title="@string/revanced_hide_video_with_low_view_num_multiplier_title" android:key="revanced_hide_video_with_low_view_num_multiplier" android:summary="@string/revanced_hide_video_with_low_view_num_multiplier_summary" android:defaultValue="@string/revanced_hide_video_with_low_view_num_multiplier_value" android:inputType="textMultiLine" />
             <SwitchPreference android:title="@string/revanced_hide_video_with_low_view_old_title" android:key="revanced_hide_video_with_low_view_old" android:defaultValue="false" android:summary="@string/revanced_hide_video_with_low_view_old_summary" />
+        </PreferenceScreen>
+        <PreferenceScreen android:title="@string/revanced_hide_video_with_duration_title" android:key="duration" android:summary="@string/revanced_hide_video_with_duration_summary">
+            <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_hide_video_with_duration_title" />
+            <SwitchPreference android:title="@string/revanced_hide_video_with_duration_title" android:key="revanced_hide_video_with_duration" android:defaultValue="false" android:summary="@string/revanced_hide_video_with_duration_summary" />
+            <app.revanced.integrations.youtube.settingsmenu.ResettableEditTextPreference android:title="@string/revanced_hide_video_with_duration_shorter_than_title" android:key="revanced_hide_video_with_duration_shorter_than" android:defaultValue="0:10" android:summary="@string/revanced_hide_video_with_duration_shorter_than_summary" android:inputType="text" />
+            <app.revanced.integrations.youtube.settingsmenu.ResettableEditTextPreference android:title="@string/revanced_hide_video_with_duration_longer_than_title" android:key="revanced_hide_video_with_duration_longer_than" android:defaultValue="10:10:10:10" android:summary="@string/revanced_hide_video_with_duration_longer_than_summary" android:inputType="text" />
         </PreferenceScreen> SETTINGS: HIDE_LAYOUT_COMPONENTS -->
 
         <!-- SETTINGS: HIDE_CHANNEL_PROFILE_COMPONENTS
