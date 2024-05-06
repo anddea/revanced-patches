@@ -66,39 +66,40 @@ object SpeedOverlayPatch : BytecodePatch(
 ) {
     override fun execute(context: BytecodeContext) {
 
-        if (SettingsPatch.upward1836) {
-            arrayOf(
-                RestoreSlideToSeekBehaviorFingerprint,
-                SpeedOverlayFingerprint
-            ).forEach { fingerprint ->
-                fingerprint.result?.let {
-                    it.mutableMethod.apply {
-                        val insertIndex = it.scanResult.patternScanResult!!.endIndex + 1
-                        val insertRegister =
-                            getInstruction<OneRegisterInstruction>(insertIndex).registerA
+        if (!SettingsPatch.upward1836)
+            throw PatchException("This version is not supported. Please use YouTube 18.36.39 or later.")
 
-                        addInstructions(
-                            insertIndex, """
+        arrayOf(
+            RestoreSlideToSeekBehaviorFingerprint,
+            SpeedOverlayFingerprint
+        ).forEach { fingerprint ->
+            fingerprint.result?.let {
+                it.mutableMethod.apply {
+                    val insertIndex = it.scanResult.patternScanResult!!.endIndex + 1
+                    val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+
+                    addInstructions(
+                        insertIndex, """
                                 invoke-static {v$insertRegister}, $PLAYER->disableSpeedOverlay(Z)Z
                                 move-result v$insertRegister
                                 """
-                        )
-                    }
-                } ?: throw fingerprint.exception
-            }
-        } else {
-            throw PatchException("This version is not supported. Please use YouTube 18.36.39 or later.")
+                    )
+                }
+            } ?: throw fingerprint.exception
         }
 
         if (SettingsPatch.upward1839) {
-            SettingsPatch.contexts.xmlEditor["res/layout/speedmaster_icon_edu_overlay.xml"].use { editor ->
-                editor.file.doRecursively {
+            SettingsPatch.contexts.document["res/layout/speedmaster_icon_edu_overlay.xml"].use { editor ->
+                editor.doRecursively { node ->
                     arrayOf("height", "width").forEach replacement@{ replacement ->
-                        if (it !is Element) return@replacement
 
-                        if (it.attributes.getNamedItem("android:src")?.nodeValue?.endsWith("_24") == true) {
-                            it.getAttributeNode("android:layout_$replacement")
-                                ?.let { attribute -> attribute.textContent = "12.0dip" }
+                        if (node !is Element) return@replacement
+
+                        if (node.attributes.getNamedItem("android:src")?.nodeValue?.endsWith("_24") != true)
+                            return@replacement
+
+                        node.getAttributeNode("android:layout_$replacement")?.let {
+                            attribute -> attribute.textContent = "12.0dip"
                         }
                     }
                 }
@@ -116,6 +117,5 @@ object SpeedOverlayPatch : BytecodePatch(
         )
 
         SettingsPatch.updatePatchStatus("Disable speed overlay")
-
     }
 }

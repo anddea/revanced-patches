@@ -1,7 +1,7 @@
 package app.revanced.util
 
 import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.util.DomFileEditor
+import app.revanced.patcher.util.Document
 import org.w3c.dom.Element
 import org.w3c.dom.Node
 import java.nio.file.Files
@@ -54,9 +54,9 @@ fun ResourceContext.copyResources(
     sourceResourceDirectory: String,
     vararg resources: ResourceGroup
 ) {
-    val targetResourceDirectory = this["res"]
+    val targetResourceDirectory = this["res", false]
 
-    for (resourceGroup in resources) {
+    resources.forEach { resourceGroup ->
         resourceGroup.resources.forEach { resource ->
             val resourceFile = "${resourceGroup.resourceDirectoryName}/$resource"
             Files.copy(
@@ -91,26 +91,25 @@ fun ResourceContext.copyXmlNode(
 
     // Copy nodes from the resources node to the real resource node
     elementTag.copyXmlNode(
-        this.xmlEditor[stringsResourceInputStream],
-        this.xmlEditor["res/$targetResource"]
+        this.document[stringsResourceInputStream],
+        this.document["res/$targetResource"]
     ).close()
 }
 
 /**
- * Copies the specified node of the source [DomFileEditor] to the target [DomFileEditor].
- * @param source the source [DomFileEditor].
- * @param target the target [DomFileEditor]-
- * @return AutoCloseable that closes the target [DomFileEditor]s.
+ * Copies the specified node of the source [Document] to the target [Document].
+ * @param source the source [Document].
+ * @param target the target [Document]-
+ * @return AutoCloseable that closes the target [Document]s.
  */
-fun String.copyXmlNode(source: DomFileEditor, target: DomFileEditor): AutoCloseable {
-    val hostNodes = source.file.getElementsByTagName(this).item(0).childNodes
+fun String.copyXmlNode(source: Document, target: Document): AutoCloseable {
+    val hostNodes = source.getElementsByTagName(this).item(0).childNodes
 
-    val destinationResourceFile = target.file
-    val destinationNode = destinationResourceFile.getElementsByTagName(this).item(0)
+    val destinationNode = target.getElementsByTagName(this).item(0)
 
     for (index in 0 until hostNodes.length) {
         val node = hostNodes.item(index).cloneNode(true)
-        destinationResourceFile.adoptNode(node)
+        target.adoptNode(node)
         destinationNode.appendChild(node)
     }
 

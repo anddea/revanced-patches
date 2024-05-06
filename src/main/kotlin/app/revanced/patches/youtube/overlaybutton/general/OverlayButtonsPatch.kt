@@ -89,6 +89,9 @@ import org.w3c.dom.Element
 object OverlayButtonsPatch : ResourcePatch() {
     private const val DEFAULT_MARGIN = "0.0dip"
     private const val WIDER_MARGIN = "6.0dip"
+    private const val LAYOUT_HEIGHT = "android:layout_height"
+    private const val LAYOUT_WIDTH = "android:layout_width"
+    private const val ANDROID_ID = "android:id"
 
     private const val DEFAULT_ICON_KEY = "Rounded"
 
@@ -175,14 +178,15 @@ object OverlayButtonsPatch : ResourcePatch() {
                 "yt_outline_screen_full_exit_white_24.png",
                 "yt_outline_screen_full_white_24.png"
             )
-            val specificResources = if (iconValue == "thin") {
+            val specificResources = if (iconValue == "thin")
                 arrayOf("yt_outline_screen_vertical_vd_theme_24.xml")
-            } else {
+            else
                 arrayOf("yt_outline_screen_vertical_vd_theme_24.png")
-            }
+
             val resources = commonResources + specificResources
             resources.forEach { resource ->
                 val folderName = if (resource.endsWith(".xml")) "drawable" else "drawable-xxhdpi"
+
                 context.copyResources("youtube/overlaybuttons/$iconValue", ResourceGroup(folderName, resource))
             }
         }
@@ -200,39 +204,28 @@ object OverlayButtonsPatch : ResourcePatch() {
 
         // For newer versions of YouTube (19.09.xx+), there's a new layout file for fullscreen button
         try {
-            context.xmlEditor["res/layout/youtube_controls_fullscreen_button.xml"].use { editor ->
-                editor.file.doRecursively loop@{ node ->
+            context.document["res/layout/youtube_controls_fullscreen_button.xml"].use { editor ->
+                editor.doRecursively loop@{ node ->
                     if (node !is Element) return@loop
 
-                    if (node.getAttribute("android:id").endsWith("_button")) {
-                        node.setAttribute("android:layout_marginBottom", marginBottom)
-                        node.setAttribute("android:paddingLeft", "0.0dip")
-                        node.setAttribute("android:paddingRight", "0.0dip")
-                        node.setAttribute("android:paddingBottom", "22.0dip")
-                        if (!node.getAttribute("android:layout_height").equals("0.0dip") &&
-                            !node.getAttribute("android:layout_width").equals("0.0dip")
-                        ) {
-                            node.setAttribute("android:layout_height", "48.0dip")
-                            node.setAttribute("android:layout_width", "48.0dip")
-                        }
-                    }
+                    if (!node.getAttribute(ANDROID_ID).endsWith("_button")) return@loop
+
+                    adjustNodeMargins(node, marginBottom)
                 }
             }
-        } catch (e: Exception) {
-            // Do nothing
-        }
+        } catch (_: Exception) { /* Do nothing */ }
 
-        context.xmlEditor["res/layout/youtube_controls_bottom_ui_container.xml"].use { editor ->
-            editor.file.doRecursively loop@{ node ->
+        context.document["res/layout/youtube_controls_bottom_ui_container.xml"].use { editor ->
+
+            editor.doRecursively loop@{ node ->
+
                 if (node !is Element) return@loop
 
                 // Change the relationship between buttons
-                node.getAttributeNode("yt:layout_constraintRight_toLeftOf")
-                    ?.let { attribute ->
-                        if (attribute.textContent == "@id/fullscreen_button") {
+                node.getAttributeNode("yt:layout_constraintRight_toLeftOf")?.let { attribute ->
+                        if (attribute.textContent == "@id/fullscreen_button")
                             attribute.textContent = "@+id/speed_dialog_button"
-                        }
-                    }
+                }
 
                 // Adjust TimeBar and Chapter bottom padding
                 arrayOf(
@@ -240,38 +233,31 @@ object OverlayButtonsPatch : ResourcePatch() {
                     "@id/timestamps_container" to "14.0dip"
                 ).forEach { (id, replace) ->
                     node.getAttributeNode("android:id")?.let { attribute ->
-                        if (attribute.textContent == id) {
-                            node.getAttributeNode("android:paddingBottom").textContent =
-                                replace
-                        }
+                        if (attribute.textContent == id)
+                            node.getAttributeNode("android:paddingBottom").textContent = replace
                     }
                 }
 
-                if (node.getAttribute("android:id") == "@id/youtube_controls_fullscreen_button_stub") {
+                val nodeId = node.getAttribute(ANDROID_ID)
+
+                if (nodeId == "@id/youtube_controls_fullscreen_button_stub") {
                     node.setAttribute("android:layout_marginBottom", marginBottom)
-                    if (!node.getAttribute("android:layout_height").equals("0.0dip") &&
-                        !node.getAttribute("android:layout_width").equals("0.0dip")
-                    ) {
-                        node.setAttribute("android:layout_height", "48.0dip")
-                        node.setAttribute("android:layout_width", "48.0dip")
+
+
+                    if (node.getAttribute(LAYOUT_HEIGHT) != DEFAULT_MARGIN &&
+                        node.getAttribute(LAYOUT_WIDTH) != DEFAULT_MARGIN) {
+
+                        node.setAttribute(LAYOUT_HEIGHT, "48.0dip")
+                        node.setAttribute(LAYOUT_WIDTH, "48.0dip")
                     }
                 }
 
-                if (node.getAttribute("android:id").endsWith("_button")) {
-                    node.setAttribute("android:layout_marginBottom", marginBottom)
-                    node.setAttribute("android:paddingLeft", "0.0dip")
-                    node.setAttribute("android:paddingRight", "0.0dip")
-                    node.setAttribute("android:paddingBottom", "22.0dip")
-                    if (!node.getAttribute("android:layout_height").equals("0.0dip") &&
-                        !node.getAttribute("android:layout_width").equals("0.0dip")
-                    ) {
-                        node.setAttribute("android:layout_height", "48.0dip")
-                        node.setAttribute("android:layout_width", "48.0dip")
-                    }
-                } else if (node.getAttribute("android:id") == "@id/time_bar_chapter_title_container" ||
-                    node.getAttribute("android:id") == "@id/timestamps_container"
-                ) {
-                    node.setAttribute("android:layout_marginBottom", marginBottom)
+                when {
+                    nodeId == "@id/time_bar_chapter_title_container" || nodeId == "@id/timestamps_container" ->
+                        node.setAttribute("android:layout_marginBottom", marginBottom)
+
+                    nodeId.endsWith("_button") ->
+                        adjustNodeMargins(node, marginBottom)
                 }
             }
         }
@@ -288,5 +274,22 @@ object OverlayButtonsPatch : ResourcePatch() {
 
         SettingsPatch.updatePatchStatus("Overlay buttons")
 
+    }
+
+    /**
+     * Adjust the margins of the node with the custom margin bottom, and sets the padding for the node
+     */
+    private fun adjustNodeMargins(node: Element, marginBottom: String) {
+        node.setAttribute("android:layout_marginBottom", marginBottom)
+        node.setAttribute("android:paddingLeft", DEFAULT_MARGIN)
+        node.setAttribute("android:paddingRight", DEFAULT_MARGIN)
+        node.setAttribute("android:paddingBottom", "22.0dip")
+
+        if (node.getAttribute(LAYOUT_HEIGHT) != DEFAULT_MARGIN &&
+            node.getAttribute(LAYOUT_WIDTH) != DEFAULT_MARGIN) {
+
+            node.setAttribute(LAYOUT_HEIGHT, "48.0dip")
+            node.setAttribute(LAYOUT_WIDTH, "48.0dip")
+        }
     }
 }

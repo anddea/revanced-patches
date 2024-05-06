@@ -6,6 +6,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.utils.fingerprints.TotalTimeFingerprint
 import app.revanced.patches.youtube.utils.fingerprints.TotalTimeLegacyFingerprint
 import app.revanced.patches.youtube.utils.integrations.Constants.SEEKBAR
@@ -90,32 +91,12 @@ object AppendTimeStampInformationPatch : BytecodePatch(
         TotalTimeLegacyFingerprint.result?.let {
             it.mutableMethod.apply {
                 val constIndex = getWideLiteralInstructionIndex(TotalTime)
-                val charSequenceIndex = getTargetIndex(constIndex, Opcode.MOVE_RESULT_OBJECT)
-                val charSequenceRegister = getInstruction<OneRegisterInstruction>(charSequenceIndex).registerA
-                val textViewIndex = indexOfFirstInstruction {
-                    getReference<MethodReference>()?.name == "getText"
-                }
-                val textViewRegister =
-                    getInstruction<Instruction35c>(textViewIndex).registerC
-
-                addInstructions(
-                    textViewIndex, """
-                        invoke-static {v$textViewRegister}, $SEEKBAR->setContainerClickListener(Landroid/view/View;)V
-                        invoke-static {v$charSequenceRegister}, $SEEKBAR->appendTimeStampInformation(Ljava/lang/String;)Ljava/lang/String;
-                        move-result-object v$charSequenceRegister
-                        """
-                )
+                appendTimeStampToTextView(constIndex)
             }
         } ?: TotalTimeFingerprint.result?.let {
             it.mutableMethod.apply {
                 val constIndex = getWideLiteralInstructionIndex(TotalTime) + 3
-                val charSequenceIndex = getTargetIndex(constIndex, Opcode.MOVE_RESULT_OBJECT)
-                val charSequenceRegister = getInstruction<OneRegisterInstruction>(charSequenceIndex).registerA
-                val textViewIndex = indexOfFirstInstruction {
-                    getReference<MethodReference>()?.name == "getText"
-                }
-                val textViewRegister =
-                    getInstruction<Instruction35c>(textViewIndex).registerC
+                val (charSequenceRegister, textViewIndex, textViewRegister) = retrieveViewAttributes(constIndex)
 
                 addInstructions(
                     textViewIndex, """
@@ -138,6 +119,28 @@ object AppendTimeStampInformationPatch : BytecodePatch(
         )
 
         SettingsPatch.updatePatchStatus("Append time stamps information")
+    }
 
+    private fun MutableMethod.retrieveViewAttributes(constIndex: Int): Triple<Int, Int, Int> {
+        val charSequenceIndex = getTargetIndex(constIndex, Opcode.MOVE_RESULT_OBJECT)
+        val charSequenceRegister = getInstruction<OneRegisterInstruction>(charSequenceIndex).registerA
+        val textViewIndex = indexOfFirstInstruction {
+            getReference<MethodReference>()?.name == "getText"
+        }
+        val textViewRegister =
+            getInstruction<Instruction35c>(textViewIndex).registerC
+        return Triple(charSequenceRegister, textViewIndex, textViewRegister)
+    }
+
+    private fun MutableMethod.appendTimeStampToTextView(constIndex: Int) {
+        val (charSequenceRegister, textViewIndex, textViewRegister) = retrieveViewAttributes(constIndex)
+
+        addInstructions(
+            textViewIndex, """
+                            invoke-static {v$textViewRegister}, $SEEKBAR->setContainerClickListener(Landroid/view/View;)V
+                            invoke-static {v$charSequenceRegister}, $SEEKBAR->appendTimeStampInformation(Ljava/lang/String;)Ljava/lang/String;
+                            move-result-object v$charSequenceRegister
+                            """
+        )
     }
 }

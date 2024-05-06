@@ -65,8 +65,8 @@ object ForceDisableShortsDimPatch : ResourcePatch() {
         val hide = "0.0dip"
 
         fun hideLayoutAttributes(layoutFile: String, targetId: String) {
-            context.xmlEditor[layoutFile].use { editor ->
-                editor.file.doRecursively { node ->
+            context.document[layoutFile].use { editor ->
+                editor.doRecursively { node ->
                     if (node !is Element) return@doRecursively
 
                     when (node.getAttributeNode("android:id")?.textContent) {

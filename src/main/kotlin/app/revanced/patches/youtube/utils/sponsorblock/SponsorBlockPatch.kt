@@ -135,38 +135,32 @@ object SponsorBlockPatch : ResourcePatch() {
         /**
          * merge xml nodes from the host to their real xml files
          */
+
         // copy nodes from host resources to their real xml files
-        val hostingResourceStream =
-            this.javaClass.classLoader.getResourceAsStream("youtube/sponsorblock/shared/host/layout/youtube_controls_layout.xml")!!
-
-        val targetXmlEditor = context.xmlEditor["res/layout/youtube_controls_layout.xml"]
-
-        "RelativeLayout".copyXmlNode(
-            context.xmlEditor[hostingResourceStream],
-            targetXmlEditor
+        context.copyXmlNode(
+            "youtube/sponsorblock/shared/host",
+            "layout/youtube_controls_layout.xml",
+            "RelativeLayout"
         ).also {
-            val children = targetXmlEditor.file.getElementsByTagName("RelativeLayout")
-                .item(0).childNodes
+            val children = context.document["res/layout/youtube_controls_layout.xml"]
+                .getElementsByTagName("RelativeLayout").item(0).childNodes
 
             // Replace the startOf with the voting button view so that the button does not overlap
             for (i in 1 until children.length) {
                 val view = children.item(i)
 
                 // Replace the attribute for a specific node only
-                if (!(view.hasAttributes() && view.attributes.getNamedItem("android:id").nodeValue.endsWith(
-                        "player_video_heading"
-                    ))
-                ) continue
+                if (view.hasAttributes() &&
+                    view.attributes.getNamedItem("android:id").nodeValue.endsWith("player_video_heading")) {
+                    // voting button id from the voting button view from the youtube_controls_layout.xml host file
+                    val votingButtonId = "@+id/sb_voting_button"
 
-                // voting button id from the voting button view from the youtube_controls_layout.xml host file
-                val votingButtonId = "@+id/sb_voting_button"
+                    view.attributes.getNamedItem("android:layout_toStartOf").nodeValue = votingButtonId
 
-                view.attributes.getNamedItem("android:layout_toStartOf").nodeValue =
-                    votingButtonId
-
-                break
+                    break
+                }
             }
-        }.close() // close afterwards
+        }
 
 
         /**
@@ -175,6 +169,5 @@ object SponsorBlockPatch : ResourcePatch() {
         SettingsPatch.addReVancedPreference("sponsorblock_settings")
 
         SettingsPatch.updatePatchStatus("SponsorBlock")
-
     }
 }

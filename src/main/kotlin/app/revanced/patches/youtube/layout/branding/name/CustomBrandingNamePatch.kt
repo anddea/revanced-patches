@@ -84,18 +84,16 @@ object CustomBrandingNamePatch : AbstractRemoveStringsElementsPatch(
         super.execute(context)
 
         AppName?.let {
-            context.xmlEditor["res/values/strings.xml"].use { editor ->
-                val document = editor.file
-
+            context.document["res/values/strings.xml"].use { editor ->
                 mapOf(
                     "application_name" to it
                 ).forEach { (k, v) ->
-                    val stringElement = document.createElement("string")
+                    val stringElement = editor.createElement("string")
 
                     stringElement.setAttribute("name", k)
                     stringElement.textContent = v
 
-                    document.getElementsByTagName("resources").item(0).appendChild(stringElement)
+                    editor.getElementsByTagName("resources").item(0).appendChild(stringElement)
                 }
             }
             context.updatePatchStatusLabel(it)

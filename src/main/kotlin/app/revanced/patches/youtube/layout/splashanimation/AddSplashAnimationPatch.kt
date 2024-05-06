@@ -62,44 +62,43 @@ import kotlin.io.path.exists
 object AddSplashAnimationPatch : ResourcePatch() {
     override fun execute(context: ResourceContext) {
 
-        val resDirectory = context["res"]
+        val resDirectory = context["res", false]
         val targetXml = resDirectory.resolve("drawable").resolve("avd_anim.xml").toPath()
 
         /**
          * avd_anim.xml removed from YouTube v18.19.36+
          */
-        if (!targetXml.exists()) {
+        if (targetXml.exists()) return
 
-            /**
-             * merge Splash animation drawables to main drawables
-             * extract from YouTube v18.18.39
-             */
-            arrayOf(
-                ResourceGroup(
-                    "drawable",
-                    "\$\$avd_anim__1__0.xml",
-                    "\$\$avd_anim__1__1.xml",
-                    "\$\$avd_anim__2__0.xml",
-                    "\$\$avd_anim__2__1.xml",
-                    "\$\$avd_anim__3__0.xml",
-                    "\$\$avd_anim__3__1.xml",
-                    "\$avd_anim__0.xml",
-                    "\$avd_anim__1.xml",
-                    "\$avd_anim__2.xml",
-                    "\$avd_anim__3.xml",
-                    "\$avd_anim__4.xml",
-                    "avd_anim.xml"
-                )
-            ).forEach { resourceGroup ->
-                context.copyResources("youtube/splashscreen", resourceGroup)
-            }
-
-            /**
-             * merge Splash animation styles to main styles
-             * extract from YouTube v18.18.39
-             */
-            context.copyXmlNode("youtube/splashscreen", "values-v31/styles.xml", "resources")
+        /**
+         * merge Splash animation drawables to main drawables
+         * extract from YouTube v18.18.39
+         */
+        arrayOf(
+            ResourceGroup(
+                "drawable",
+                "\$\$avd_anim__1__0.xml",
+                "\$\$avd_anim__1__1.xml",
+                "\$\$avd_anim__2__0.xml",
+                "\$\$avd_anim__2__1.xml",
+                "\$\$avd_anim__3__0.xml",
+                "\$\$avd_anim__3__1.xml",
+                "\$avd_anim__0.xml",
+                "\$avd_anim__1.xml",
+                "\$avd_anim__2.xml",
+                "\$avd_anim__3.xml",
+                "\$avd_anim__4.xml",
+                "avd_anim.xml"
+            )
+        ).forEach { resourceGroup ->
+            context.copyResources("youtube/splashscreen", resourceGroup)
         }
+
+        /**
+         * merge Splash animation styles to main styles
+         * extract from YouTube v18.18.39
+         */
+        context.copyXmlNode("youtube/splashscreen", "values-v31/styles.xml", "resources")
 
     }
 }
