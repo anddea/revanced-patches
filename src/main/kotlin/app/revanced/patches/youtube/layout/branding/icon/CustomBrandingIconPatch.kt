@@ -150,7 +150,7 @@ object CustomBrandingIconPatch : ResourcePatch() {
                 }.let { resourceGroups ->
                     try {
                         val path = File(appIcon)
-                        val resourceDirectory = context["res"]
+                        val resourceDirectory = context["res", false]
 
                         resourceGroups.forEach { group ->
                             val fromDirectory = path.resolve(group.resourceDirectoryName)
@@ -164,56 +164,57 @@ object CustomBrandingIconPatch : ResourcePatch() {
                             }
                         }
                         context.updatePatchStatusIcon("custom")
-                    } catch (_: Exception) {
-                        throw PatchException("Invalid app icon path: $appIcon")
-                    }
+                    } catch (_: Exception) { throw PatchException("Invalid app icon path: $appIcon") }
                 }
-            } else {
-                val resourcePath = "youtube/branding/$appIconValue"
-
-                // change launcher icon.
-                mipmapDirectories.map { directory ->
-                    ResourceGroup(
-                        directory, *mipmapIconResourceFileNames
-                    )
-                }.let { resourceGroups ->
-                    resourceGroups.forEach {
-                        context.copyResources("$resourcePath/launcher", it)
-                    }
-                }
-
-                // change splash icon.
-                val drawableAnimResourceFileNames = Array(5) { index -> "\$avd_anim__$index.xml" }
-
-                val splashResourceGroups: Array<Array<ResourceGroup>> = when (appIconValue) {
-                    "mmt" -> arrayOf(arrayOf(ResourceGroup("drawable", "avd_anim.xml", *drawableAnimResourceFileNames))
-                        .plus(drawableDirectories.map { ResourceGroup(it, *drawableIconResourceFileNames) }))
-                    "revancify_blue", "revancify_red" -> arrayOf(drawableDirectories.map { ResourceGroup(it, *drawableIconResourceFileNamesRevancify) }.toTypedArray())
-                    else -> arrayOf(drawableDirectories.map { ResourceGroup(it, *drawableIconResourceFileNames) }.toTypedArray())
-                }
-
-                splashResourceGroups.forEach { group ->
-                    group.forEach { context.copyResources("$resourcePath/splash", it) }
-                }
-
-                // monochrome
-                val monochromeIcon = ResourceGroup("drawable", "adaptive_monochrome_ic_youtube_launcher.xml")
-                if (appIconValue in listOf("mmt", "revancify_blue", "revancify_red")) {
-                    context.copyResources("$resourcePath/monochrome", monochromeIcon)
-                }
-
-                // disable splash animation
-                if (appIconValue != "mmt") {
-                    context.xmlEditor["res/values-v31/styles.xml"].use { editor ->
-                        val nodeList = editor.file.getElementsByTagName("item")
-                        val tags = (0 until nodeList.length).map { nodeList.item(it) as Element }
-                        tags.filter { it.getAttribute("name").contains("android:windowSplashScreenAnimatedIcon") }
-                            .forEach { it.parentNode.removeChild(it) }
-                    }
-                }
-
-                context.updatePatchStatusIcon(appIconValue)
+                return
             }
+
+            val resourcePath = "youtube/branding/$appIconValue"
+
+            // change launcher icon.
+            mipmapDirectories.map { directory ->
+                ResourceGroup(
+                    directory, *mipmapIconResourceFileNames
+                )
+            }.let { resourceGroups ->
+                resourceGroups.forEach {
+                    context.copyResources("$resourcePath/launcher", it)
+                }
+            }
+
+            // change splash icon.
+            val drawableAnimResourceFileNames = Array(5) { index -> "\$avd_anim__$index.xml" }
+
+            val splashResourceGroups: Array<Array<ResourceGroup>> = when (appIconValue) {
+                "mmt" -> arrayOf(arrayOf(ResourceGroup("drawable", "avd_anim.xml", *drawableAnimResourceFileNames))
+                    .plus(drawableDirectories.map { ResourceGroup(it, *drawableIconResourceFileNames) }))
+                "revancify_blue", "revancify_red" -> arrayOf(drawableDirectories.map { ResourceGroup(it, *drawableIconResourceFileNamesRevancify) }.toTypedArray())
+                else -> arrayOf(drawableDirectories.map { ResourceGroup(it, *drawableIconResourceFileNames) }.toTypedArray())
+            }
+
+            splashResourceGroups.forEach { group ->
+                group.forEach { context.copyResources("$resourcePath/splash", it) }
+            }
+
+            // monochrome
+            val monochromeIcon = ResourceGroup("drawable", "adaptive_monochrome_ic_youtube_launcher.xml")
+
+            if (appIconValue in listOf("mmt", "revancify_blue", "revancify_red"))
+                context.copyResources("$resourcePath/monochrome", monochromeIcon)
+
+
+            if (appIconValue == "mmt") return
+
+            // disable splash animation
+            context.document["res/values-v31/styles.xml"].use { editor ->
+                val nodeList = editor.getElementsByTagName("item")
+                val tags = (0 until nodeList.length).map { nodeList.item(it) as Element }
+                tags.filter { it.getAttribute("name").contains("android:windowSplashScreenAnimatedIcon") }
+                    .forEach { it.parentNode.removeChild(it) }
+            }
+
+            context.updatePatchStatusIcon(appIconValue)
+
         } ?: throw PatchException("Invalid app icon path.")
     }
 }

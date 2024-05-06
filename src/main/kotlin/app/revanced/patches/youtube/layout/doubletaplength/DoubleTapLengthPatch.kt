@@ -91,8 +91,9 @@ object DoubleTapLengthPatch : ResourcePatch() {
             ?: throw PatchException("Invalid double-tap length array.")
 
         val splits = length.replace(" ", "").split(",")
-        if (splits.isEmpty()) throw IllegalArgumentException("Invalid double-tap length elements")
+        require(splits.isNotEmpty()) { "Invalid double-tap length elements" }
         val lengthElements = splits.map { it }
+
         for (index in 0 until splits.count()) {
             context.addEntryValues(arrayPath, lengthElements[index], entryValueName)
             context.addEntryValues(arrayPath, lengthElements[index], entriesName)

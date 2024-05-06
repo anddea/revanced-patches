@@ -70,15 +70,14 @@ object HideSettingsPrefsPatch : ResourcePatch() {
             }
         }
 
-        context.xmlEditor["res/xml/settings_fragment.xml"].use { editor ->
-            val preferenceElements = editor.file.getElementsByTagName("Preference")
+        context.document["res/xml/settings_fragment.xml"].use { editor ->
+            val preferenceElements = editor.getElementsByTagName("Preference")
 
             for (i in preferenceElements.length - 1 downTo 0) {
                 val item = preferenceElements.item(i) as? Element
                 val titleAttribute = item?.getAttribute("android:key")
-                if (titleAttribute in elementsToHide) {
-                    item?.parentNode?.removeChild(item)
-                }
+
+                if (titleAttribute in elementsToHide) item?.parentNode?.removeChild(item)
             }
         }
 
