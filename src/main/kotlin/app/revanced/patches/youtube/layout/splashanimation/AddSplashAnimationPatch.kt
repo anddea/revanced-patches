@@ -62,7 +62,7 @@ import kotlin.io.path.exists
 object AddSplashAnimationPatch : ResourcePatch() {
     override fun execute(context: ResourceContext) {
 
-        val resDirectory = context["res"]
+        val resDirectory = context["res", false]
         val targetXml = resDirectory.resolve("drawable").resolve("avd_anim.xml").toPath()
 
         /**
