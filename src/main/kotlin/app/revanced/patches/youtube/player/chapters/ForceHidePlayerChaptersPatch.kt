@@ -9,7 +9,7 @@ import app.revanced.util.doRecursively
 import org.w3c.dom.Element
 
 @Patch(
-    name = "Hide player chapters",
+    name = "Force hide player chapters",
     description = "Force to hide chapters in player bottom UI container.",
     dependencies = [SettingsPatch::class],
     compatiblePackages = [
@@ -60,21 +60,23 @@ import org.w3c.dom.Element
     use = false
 )
 @Suppress("unused")
-object HideChapterInfoPatch : ResourcePatch() {
+object ForceHidePlayerChaptersPatch : ResourcePatch() {
     override fun execute(context: ResourceContext) {
 
-        context.xmlEditor["res/layout/youtube_controls_bottom_ui_container.xml"].use { editor ->
-            editor.file.doRecursively { node ->
-                if (node is Element && node.getAttributeNode("android:id")?.textContent == "@id/time_bar_chapter_title_container") {
-                    node.apply {
-                        setAttribute("android:layout_height", "0.0dip")
-                        setAttribute("android:layout_width", "0.0dip")
-                    }
+        context.document["res/layout/youtube_controls_bottom_ui_container.xml"].use { editor ->
+            editor.doRecursively { node ->
+                if (node !is Element) return@doRecursively
+
+                if (node.getAttributeNode("android:id")?.textContent != "@id/time_bar_chapter_title_container")
+                    return@doRecursively
+
+                node.apply {
+                    setAttribute("android:layout_height", "0.0dip")
+                    setAttribute("android:layout_width", "0.0dip")
                 }
             }
         }
 
-        SettingsPatch.updatePatchStatus("Hide player chapters")
-
+        SettingsPatch.updatePatchStatus("Force hide player chapters")
     }
 }

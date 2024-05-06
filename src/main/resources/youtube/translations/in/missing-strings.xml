@@ -143,9 +143,9 @@
 <string name="revanced_hide_shorts_player_comments_disabled_button_summary_off">Disabled comments button or with label \"0\" is shown.</string>
 <string name="revanced_hide_shorts_player_comments_disabled_button_summary_on">Disabled comments button or with label \"0\" is hidden.</string>
 <string name="revanced_hide_shorts_player_comments_disabled_button_title">Hide disabled comments button</string>
-<string name="revanced_hide_shorts_player_info_panel_summary_off">Info panels are shown.\n\nIt will also hide sound metadata label and video link label.</string>
-<string name="revanced_hide_shorts_player_info_panel_summary_on">Info panels are hidden.\n\nIt will also hide sound metadata label and video link label.</string>
-<string name="revanced_hide_shorts_player_info_panel_title">Hide info panels</string>
+<string name="revanced_hide_shorts_player_info_panel_summary_off">Info panel is shown.</string>
+<string name="revanced_hide_shorts_player_info_panel_summary_on">Info panel is hidden.</string>
+<string name="revanced_hide_shorts_player_info_panel_title">Hide info panel</string>
 <string name="revanced_hide_shorts_player_save_sound_button_summary_off">Save sound to playlist button is shown.</string>
 <string name="revanced_hide_shorts_player_save_sound_button_summary_on">Save sound to playlist button is hidden.</string>
 <string name="revanced_hide_shorts_player_save_sound_button_title">Hide save sound to playlist button</string>
@@ -167,6 +167,9 @@
 <string name="revanced_hide_shorts_shelf_home_summary_off">Shorts in home feed are shown.\n\nThis will also hide:\n• Shorts shelf in related videos under video player\n• Shorts section in description</string>
 <string name="revanced_hide_shorts_shelf_home_summary_on">Shorts in home feed are hidden.\n\nThis will also hide:\n• Shorts shelf in related videos under video player\n• Shorts section in description</string>
 <string name="revanced_hide_shorts_shelf_home_title">Hide Shorts in home feed</string>
+<string name="revanced_hide_shorts_shelf_player_summary_off">Shorts in player are shown.</string>
+<string name="revanced_hide_shorts_shelf_player_summary_on">Shorts in player are hidden.</string>
+<string name="revanced_hide_shorts_shelf_player_title">Hide Shorts in player</string>
 <string name="revanced_hide_shorts_shelf_search_summary_off">Shorts in search results are shown.</string>
 <string name="revanced_hide_shorts_shelf_search_summary_on">Shorts in search results are hidden.</string>
 <string name="revanced_hide_shorts_shelf_search_title">Hide Shorts in search results</string>
@@ -184,14 +187,22 @@
 <string name="revanced_hide_store_tab_title">Hide store tab</string>
 <string name="revanced_hide_suggested_video_overlay_auto_play_summary">When you finished a video, another play automatically</string>
 <string name="revanced_hide_suggested_video_overlay_auto_play_title">Auto play the next video</string>
+<string name="revanced_hide_video_with_duration_longer_than_summary">Videos with duration longer than this number will be hidden.</string>
+<string name="revanced_hide_video_with_duration_longer_than_title">Longer than duration</string>
+<string name="revanced_hide_video_with_duration_shorter_than_summary">Videos with duration shorter than this number will be hidden.</string>
+<string name="revanced_hide_video_with_duration_shorter_than_title">Shorter than duration</string>
+<string name="revanced_hide_video_with_duration_summary">Hide videos with shorter than or longer than duration.</string>
+<string name="revanced_hide_video_with_duration_title">Hide videos based on duration</string>
 <string name="revanced_hide_video_with_gray_description_summary">"Hide videos with gray description from search results.
 Videos with a gray description include videos that are not related to search terms."</string>
 <string name="revanced_hide_video_with_gray_description_title">Hide videos with gray description</string>
+<string name="revanced_hide_video_with_greater_than_views_num_summary">Videos with views greater than this number will be hidden.</string>
+<string name="revanced_hide_video_with_greater_than_views_num_title">Greater than views</string>
+<string name="revanced_hide_video_with_less_than_views_num_summary">Videos with views less than this number will be hidden.</string>
+<string name="revanced_hide_video_with_less_than_views_num_title">Less than views</string>
 <string name="revanced_hide_video_with_low_view_num_multiplier_summary">Specify your language template for the number of views shown under each video in the user interface. Each key (a letter/word in your language) -> value (meaning of the key) must be on a new line. Keys go before "->" sign. If you switch app or system language you have to reset this setting.\n\nExamples:\nEnglish: 10K views = K -> 1000, views -> views\nSpanish: 10 K vistas = K -> 1000, vistas -> views</string>
 <string name="revanced_hide_video_with_low_view_num_multiplier_title">View keys</string>
 <string name="revanced_hide_video_with_low_view_num_multiplier_value">K -> 1 000\nM -> 1 000 000\nB -> 1 000 000 000\nviews -> views</string>
-<string name="revanced_hide_video_with_low_view_num_summary">Videos with views less than this number will be hidden.</string>
-<string name="revanced_hide_video_with_low_view_num_title">Number of views</string>
 <string name="revanced_hide_video_with_low_view_old_summary">"Hide videos with less than 1,000 views exposed to the home feed.
 Some videos, including those from channels you subscribe to, may not be hidden even if they have fewer than 1,000 views.
 

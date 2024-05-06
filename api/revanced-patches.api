@@ -1934,6 +1934,12 @@ public final class app/revanced/patches/youtube/general/searchterm/fingerprints/
 	public static final field INSTANCE Lapp/revanced/patches/youtube/general/searchterm/fingerprints/CreateSearchSuggestionsFingerprint;
 }
 
+public final class app/revanced/patches/youtube/general/snackbar/ForceSnackbarTheme : app/revanced/patcher/patch/ResourcePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/general/snackbar/ForceSnackbarTheme;
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+}
+
 public final class app/revanced/patches/youtube/general/snackbar/HideSnackBarPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/general/snackbar/HideSnackBarPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
@@ -2320,6 +2326,10 @@ public final class app/revanced/patches/youtube/misc/translations/TranslationsPa
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 }
 
+public final class app/revanced/patches/youtube/misc/translations/TranslationsPatchKt {
+	public static final fun getLANGUAGES ()[Ljava/lang/String;
+}
+
 public final class app/revanced/patches/youtube/misc/updatescreen/UpdateScreenPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/updatescreen/UpdateScreenPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
@@ -2445,8 +2455,14 @@ public final class app/revanced/patches/youtube/player/captionsbutton/fingerprin
 	public static final field INSTANCE Lapp/revanced/patches/youtube/player/captionsbutton/fingerprints/YouTubeControlsOverlaySubtitleButtonFingerprint;
 }
 
-public final class app/revanced/patches/youtube/player/chapters/HideChapterInfoPatch : app/revanced/patcher/patch/ResourcePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/player/chapters/HideChapterInfoPatch;
+public final class app/revanced/patches/youtube/player/chapters/ForceHidePlayerChaptersPatch : app/revanced/patcher/patch/ResourcePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/player/chapters/ForceHidePlayerChaptersPatch;
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+}
+
+public final class app/revanced/patches/youtube/player/collapsebutton/ForceHideCollapseButtonPatch : app/revanced/patcher/patch/ResourcePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/player/collapsebutton/ForceHideCollapseButtonPatch;
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 }
@@ -2501,8 +2517,8 @@ public final class app/revanced/patches/youtube/player/filmstripoverlay/fingerpr
 	public static final field INSTANCE Lapp/revanced/patches/youtube/player/filmstripoverlay/fingerprints/FineScrubbingOverlayFingerprint;
 }
 
-public final class app/revanced/patches/youtube/player/fullscreenbutton/HideFullscreenButtonPatch : app/revanced/patcher/patch/ResourcePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/player/fullscreenbutton/HideFullscreenButtonPatch;
+public final class app/revanced/patches/youtube/player/fullscreenbutton/ForceHideFullscreenButtonPatch : app/revanced/patcher/patch/ResourcePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/player/fullscreenbutton/ForceHideFullscreenButtonPatch;
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 }
@@ -2793,6 +2809,12 @@ public final class app/revanced/patches/youtube/shorts/shortscomponent/fingerpri
 
 public final class app/revanced/patches/youtube/shorts/shortscomponent/fingerprints/ToolBarBannerFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/shorts/shortscomponent/fingerprints/ToolBarBannerFingerprint;
+}
+
+public final class app/revanced/patches/youtube/shorts/shortsdim/ForceDisableShortsDimPatch : app/revanced/patcher/patch/ResourcePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/shorts/shortsdim/ForceDisableShortsDimPatch;
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 }
 
 public final class app/revanced/patches/youtube/shorts/shortsoverlay/ShortsOverlayButtonsPatch : app/revanced/patcher/patch/ResourcePatch {
@@ -3439,8 +3461,8 @@ public final class app/revanced/patches/youtube/utils/settings/SettingsPatch : a
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 }
 
-public final class app/revanced/patches/youtube/utils/settings/VisualSettingsIconsPatch : app/revanced/patcher/patch/ResourcePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/settings/VisualSettingsIconsPatch;
+public final class app/revanced/patches/youtube/utils/settings/VisualPreferencesIconsPatch : app/revanced/patcher/patch/ResourcePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/settings/VisualPreferencesIconsPatch;
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 }
@@ -3590,7 +3612,7 @@ public final class app/revanced/util/ResourceUtilsKt {
 	public static final fun cloneNodes (Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)V
 	public static final fun copyResources (Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;[Lapp/revanced/util/ResourceGroup;)V
 	public static final fun copyXmlNode (Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-	public static final fun copyXmlNode (Ljava/lang/String;Lapp/revanced/patcher/util/DomFileEditor;Lapp/revanced/patcher/util/DomFileEditor;)Ljava/lang/AutoCloseable;
+	public static final fun copyXmlNode (Ljava/lang/String;Lapp/revanced/patcher/util/Document;Lapp/revanced/patcher/util/Document;)Ljava/lang/AutoCloseable;
 	public static final fun doRecursively (Lorg/w3c/dom/Node;Lkotlin/jvm/functions/Function1;)V
 	public static final fun getClassLoader ()Ljava/lang/ClassLoader;
 	public static final fun insertNode (Lorg/w3c/dom/Node;Ljava/lang/String;Lorg/w3c/dom/Node;Lkotlin/jvm/functions/Function1;)V
