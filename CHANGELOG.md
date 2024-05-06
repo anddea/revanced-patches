@@ -1,3 +1,10 @@
+# [2.225.0-dev.8](https://github.com/anddea/revanced-patches/compare/v2.225.0-dev.7...v2.225.0-dev.8) (2024-05-06)
+
+
+### Features
+
+* **YouTube - Force snackbar theme:** Add options for corner radius, background and stroke colors ([eafb7b2](https://github.com/anddea/revanced-patches/commit/eafb7b222c2a39ff2a301a3975838e3e675529a8))
+
 # [2.225.0-dev.7](https://github.com/anddea/revanced-patches/compare/v2.225.0-dev.6...v2.225.0-dev.7) (2024-05-05)
 
 
