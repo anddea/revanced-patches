@@ -1,3 +1,10 @@
+# [2.225.0-dev.9](https://github.com/anddea/revanced-patches/compare/v2.225.0-dev.8...v2.225.0-dev.9) (2024-05-07)
+
+
+### Bug Fixes
+
+* Patching failed because of RVX CLI incompatibility ([922d364](https://github.com/anddea/revanced-patches/commit/922d36408b74dc7f9b085e656564df9f01a406ab))
+
 # [2.225.0-dev.8](https://github.com/anddea/revanced-patches/compare/v2.225.0-dev.7...v2.225.0-dev.8) (2024-05-06)
 
 
