@@ -81,7 +81,7 @@ object ForceSnackbarTheme : ResourcePatch() {
             "Base" to "?ytBaseBackground"
         ),
         title = "Background color",
-        description = "Specify a background color for the snackbar."
+        description = "Specify a background color for the snackbar. You can specify hex color."
     )
 
     private val StrokeColor by stringPatchOption(
@@ -93,7 +93,7 @@ object ForceSnackbarTheme : ResourcePatch() {
             "Inverted" to "?attr/ytInvertedBackground"
         ),
         title = "Stroke color",
-        description = "Specify a stroke color for the snackbar."
+        description = "Specify a stroke color for the snackbar. You can specify hex color."
     )
 
     override fun execute(context: ResourceContext) {
