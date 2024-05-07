@@ -660,9 +660,9 @@ Las palabras con letras mayúsculas en el medio deben introducirse con las mayú
 	<string name="revanced_hide_shorts_player_comments_button_summary_off">El botón de los comentarios está visible</string>
 	<string name="revanced_hide_shorts_player_comments_button_summary_on">El botón de los comentarios está oculto</string>
 	<string name="revanced_hide_shorts_player_comments_button_title">Ocultar botón de comentarios</string>
-	<string name="revanced_hide_shorts_player_info_panel_summary_off">Los paneles de información están visibles.\n\nEsto también ocultará la etiqueta de metadatos de sonido y la etiqueta de enlace de vídeo.</string>
-	<string name="revanced_hide_shorts_player_info_panel_summary_on">Los paneles de información están ocultos.\n\nEsto también ocultará la etiqueta de metadatos de sonido y la etiqueta de enlace de vídeo.</string>
-	<string name="revanced_hide_shorts_player_info_panel_title">Ocultar paneles de información</string>
+	<string name="revanced_hide_shorts_player_info_panel_summary_off">El panel de información está visible.</string>
+	<string name="revanced_hide_shorts_player_info_panel_summary_on">El panel de información está oculto.</string>
+	<string name="revanced_hide_shorts_player_info_panel_title">Ocultar panel de información</string>
 	<string name="revanced_hide_shorts_player_navigation_bar_summary_off">La barra de navegación está visible</string>
 	<string name="revanced_hide_shorts_player_navigation_bar_summary_on">La barra de navegación está oculta</string>
 	<string name="revanced_hide_shorts_player_navigation_bar_title">Ocultar barra de navegación</string>
@@ -996,7 +996,7 @@ Problemas conocidos
 	<string name="sb_enable_voting_sum_off">El botón de votación del segmento no está visible</string>
 	<string name="sb_enable_voting_sum_on">El botón de votación del segmento está visible</string>
 	<string name="sb_general">General</string>
-	<string name="sb_general_adjusting">Avance de ajuste de nuevo segmento</string>
+	<string name="sb_general_adjusting">Ajuste de nuevo segmento</string>
 	<string name="sb_general_adjusting_invalid">El valor debe ser un número positivo</string>
 	<string name="sb_general_adjusting_sum">Número de milisegundos que los botones de ajuste de tiempo se mueven al crear nuevos segmentos.</string>
 	<string name="sb_general_api_url">Cambiar la URL de la API</string>
@@ -1046,7 +1046,7 @@ Problemas conocidos
 	<string name="sb_segments_highlight_sum">La parte del vídeo que la mayoría de la gente busca.</string>
 	<string name="sb_segments_interaction">Recordatorio de interacción (suscripción)</string>
 	<string name="sb_segments_interaction_sum">Un breve recordatorio para que des me gusta, te suscribas o les sigas en medio del contenido. Si es largo o trata sobre algo específico, debería ir en la sección de promoción propia.</string>
-	<string name="sb_segments_intro">Animación de introducción/Intermisión</string>
+	<string name="sb_segments_intro">Intermedio/Animación de introducción</string>
 	<string name="sb_segments_intro_sum">Un intervalo sin contenido real. Puede ser una pausa, un fotograma estático o una animación que se repite. No incluye transiciones que contengan información.</string>
 	<string name="sb_segments_nomusic">Música: Sección sin música</string>
 	<string name="sb_segments_nomusic_sum">Solo para usar en vídeos musicales. Secciones de vídeos musicales sin música, que no estén ya cubiertas por otra categoría.</string>
@@ -1134,4 +1134,21 @@ Problemas conocidos
 	<string name="sb_vote_failed_unknown_error" formatted="false">No se puede votar por el segmento (estado: %d %s)</string>
 	<string name="sb_vote_no_segments">No hay segmentos por los cuales votar</string>
 	<string name="sb_vote_upvote">Voto positivo</string>
+	<string name="revanced_hide_live_chat_replay_summary_off">El botón de repetición del chat en directo en la esquina inferior derecha está visible.\n\nAparece en pantalla completa al cerrar el chat en directo.</string>
+	<string name="revanced_hide_live_chat_replay_summary_on">El botón de repetición del chat en directo en la esquina inferior derecha está oculto.\n\nAparece en pantalla completa al cerrar el chat en directo.</string>
+	<string name="revanced_hide_live_chat_replay_title">Ocultar botón de repetición del chat en directo</string>
+	<string name="revanced_hide_shorts_player_comments_disabled_button_summary_off">El botón de comentarios desactivados o con la etiqueta \"0\" está visible.</string>
+	<string name="revanced_hide_shorts_player_comments_disabled_button_summary_on">El botón de comentarios desactivados o con la etiqueta \"0\" está oculto.</string>
+	<string name="revanced_hide_shorts_player_comments_disabled_button_title">Ocultar botón de comentarios desactivados</string>
+	<string name="revanced_hide_shorts_shelf_player_summary_off">Los Shorts en el reproductor están visibles.</string>
+	<string name="revanced_hide_shorts_shelf_player_summary_on">Los Shorts en el reproductor están ocultos.</string>
+	<string name="revanced_hide_shorts_shelf_player_title">Ocultar Shorts en el reproductor</string>
+	<string name="revanced_hide_video_with_duration_longer_than_summary">Los vídeos con una duración superior a este número se ocultarán.</string>
+	<string name="revanced_hide_video_with_duration_longer_than_title">Duración mayor</string>
+	<string name="revanced_hide_video_with_duration_shorter_than_summary">Los vídeos con una duración inferior a este número se ocultarán.</string>
+	<string name="revanced_hide_video_with_duration_shorter_than_title">Duración menor</string>
+	<string name="revanced_hide_video_with_duration_summary">Oculta los vídeos de duración inferior o superior.</string>
+	<string name="revanced_hide_video_with_duration_title">Ocultar vídeos según su duración</string>
+	<string name="revanced_hide_video_with_greater_than_views_num_summary">Los vídeos con más visualizaciones que este número se ocultarán.</string>
+	<string name="revanced_hide_video_with_greater_than_views_num_title">Visualizaciones mayores</string>
 </resources>
