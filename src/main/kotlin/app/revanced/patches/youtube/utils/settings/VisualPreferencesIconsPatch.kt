@@ -305,12 +305,12 @@ object VisualPreferencesIconsPatch : ResourcePatch() {
             }
         }
 
-        context.document["res/xml/revanced_prefs.xml"].use { editor ->
-            processPreferences(editor)
+        context.xmlEditor["res/xml/revanced_prefs.xml"].use { editor ->
+            processPreferences(editor.file)
         }
 
-        context.document["res/xml/settings_fragment.xml"].use { editor ->
-            processPreferences(editor)
+        context.xmlEditor["res/xml/settings_fragment.xml"].use { editor ->
+            processPreferences(editor.file)
         }
 
         SettingsPatch.updatePatchStatus("Visual preferences icons")

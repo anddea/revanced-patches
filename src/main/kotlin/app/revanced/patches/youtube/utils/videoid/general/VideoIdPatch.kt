@@ -67,11 +67,11 @@ object VideoIdPatch : BytecodePatch(
 
                 seekHelperMethod.addInstructions(
                     0, """
-                        sget-object v0, $seekSourceEnumType->a:$seekSourceEnumType
-                        invoke-virtual {p0, p1, p2, v0}, ${definingClass}->${name}(J$seekSourceEnumType)Z
-                        move-result p1
-                        return p1
-                        """
+                            sget-object v0, $seekSourceEnumType->a:$seekSourceEnumType
+                            invoke-virtual {p0, p1, p2, v0}, ${definingClass}->${name}(J$seekSourceEnumType)Z
+                            move-result p1
+                            return p1
+                            """
                 )
                 it.mutableClass.methods.add(seekHelperMethod)
 
@@ -107,7 +107,7 @@ object VideoIdPatch : BytecodePatch(
         videoTimeHook(INTEGRATIONS_CLASS_DESCRIPTOR, "setVideoTime")
 
         /**
-         * Set current video is live stream
+         * Set current video is livestream
          */
         OrganicPlaybackContextModelFingerprint.result?.let {
             it.mutableMethod.apply {

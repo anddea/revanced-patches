@@ -117,15 +117,15 @@ object SeekbarColorPatch : BytecodePatch(
 
         LithoThemePatch.injectCall("$SEEKBAR->getLithoColor(I)I")
 
-        contexts.document["res/drawable/resume_playback_progressbar_drawable.xml"].use {
-            val layerList = it.getElementsByTagName("layer-list").item(0) as Element
+        contexts.xmlEditor["res/drawable/resume_playback_progressbar_drawable.xml"].use {
+            val layerList = it.file.getElementsByTagName("layer-list").item(0) as Element
             val progressNode = layerList.getElementsByTagName("item").item(1) as Element
             if (!progressNode.getAttributeNode("android:id").value.endsWith("progress")) {
                 throw PatchException("Could not find progress bar")
             }
             val scaleNode = progressNode.getElementsByTagName("scale").item(0) as Element
             val shapeNode = scaleNode.getElementsByTagName("shape").item(0) as Element
-            val replacementNode = it.createElement(
+            val replacementNode = it.file.createElement(
                 "app.revanced.integrations.youtube.patches.utils.ProgressBarDrawable"
             )
             scaleNode.replaceChild(replacementNode, shapeNode)
@@ -142,6 +142,7 @@ object SeekbarColorPatch : BytecodePatch(
         )
 
         SettingsPatch.updatePatchStatus("Custom seekbar color")
+
     }
 
     private fun MutableMethod.hook(insertIndex: Int) {

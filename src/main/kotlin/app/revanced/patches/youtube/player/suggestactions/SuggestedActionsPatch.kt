@@ -83,6 +83,7 @@ object SuggestedActionsPatch : BytecodePatch(
                 addInstruction(
                     targetIndex + 1,
                     "invoke-static {v$targetRegister}, $FILTER_CLASS_DESCRIPTOR->hideSuggestedActions(Landroid/view/View;)V"
+
                 )
             }
         } ?: throw SuggestedActionsFingerprint.exception
@@ -100,7 +101,9 @@ object SuggestedActionsPatch : BytecodePatch(
         )
 
         SettingsPatch.updatePatchStatus("Hide suggested actions")
+
     }
 
-    private const val FILTER_CLASS_DESCRIPTOR = "$COMPONENTS_PATH/SuggestedActionFilter;"
+    private const val FILTER_CLASS_DESCRIPTOR =
+        "$COMPONENTS_PATH/SuggestedActionFilter;"
 }

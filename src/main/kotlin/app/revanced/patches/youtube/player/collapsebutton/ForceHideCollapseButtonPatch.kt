@@ -64,8 +64,8 @@ object ForceHideCollapseButtonPatch : ResourcePatch() {
     override fun execute(context: ResourceContext) {
         val hide = "0.0dip"
 
-        context.document["res/layout/youtube_controls_layout.xml"].use { editor ->
-            editor.doRecursively { node ->
+        context.xmlEditor["res/layout/youtube_controls_layout.xml"].use { editor ->
+            editor.file.doRecursively { node ->
                 if (node !is Element) return@doRecursively
 
                 when (node.getAttributeNode("android:id")?.textContent) {

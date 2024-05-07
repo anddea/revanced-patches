@@ -63,10 +63,9 @@ import org.w3c.dom.Element
 object ForceHidePlayerButtonBackgroundPatch : ResourcePatch() {
     override fun execute(context: ResourceContext) {
 
-        context.document["res/drawable/player_button_circle_background.xml"].use { editor ->
-            editor.doRecursively { node ->
+        context.xmlEditor["res/drawable/player_button_circle_background.xml"].use { editor ->
+            editor.file.doRecursively { node ->
                 arrayOf("color").forEach replacement@{ replacement ->
-
                     if (node !is Element) return@replacement
 
                     node.getAttributeNode("android:$replacement")?.let { attribute ->
@@ -77,5 +76,6 @@ object ForceHidePlayerButtonBackgroundPatch : ResourcePatch() {
         }
 
         SettingsPatch.updatePatchStatus("Force hide player buttons background")
+
     }
 }

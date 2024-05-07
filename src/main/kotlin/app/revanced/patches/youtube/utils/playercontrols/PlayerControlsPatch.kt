@@ -46,30 +46,21 @@ object PlayerControlsPatch : BytecodePatch(
             val targetIndex = getStringInstructionIndex(targetString) + 2
             val targetOpcode = getInstruction(targetIndex).opcode
 
-            when (targetOpcode) {
-                Opcode.INVOKE_VIRTUAL -> {
-                    val targetRegister = getInstruction<Instruction35c>(targetIndex).registerD
+            if (targetOpcode == Opcode.INVOKE_VIRTUAL) {
+                val targetRegister = getInstruction<Instruction35c>(targetIndex).registerD
 
-                    val instructions = implementation!!.instructions
+                val instructions = implementation!!.instructions
+                for ((index, instruction) in instructions.withIndex()) {
+                    if (instruction.opcode != Opcode.IGET_BOOLEAN) continue
 
-                    instructions.forEachIndexed { index, instruction ->
-
-                        if (instruction.opcode != Opcode.IGET_BOOLEAN) return@forEachIndexed
-
-                        if (getInstruction<TwoRegisterInstruction>(index).registerA != targetRegister)
-                            return@forEachIndexed
-
+                    if (getInstruction<TwoRegisterInstruction>(index).registerA == targetRegister)
                         return getInstruction<ReferenceInstruction>(index).reference
-                    }
                 }
-                Opcode.IGET_BOOLEAN -> {
-                    return getInstruction<ReferenceInstruction>(targetIndex).reference
-                }
-
-                else -> throw PatchException("Reference not found: $targetString")
+            } else if (targetOpcode == Opcode.IGET_BOOLEAN) {
+                return getInstruction<ReferenceInstruction>(targetIndex).reference
             }
-            // unreachable code
-            throw PatchException("[Unreachable] Reference not found: $targetString")
+
+            throw PatchException("Reference not found: $targetString")
         }
 
         PlayerControlsVisibilityModelFingerprint.result?.classDef?.let { classDef ->
@@ -174,7 +165,6 @@ object PlayerControlsPatch : BytecodePatch(
     ) {
         fullscreenEngagementSpeedEduVisibleMutableMethod.apply {
             for ((index, instruction) in implementation!!.instructions.withIndex()) {
-
                 if (instruction.opcode != Opcode.IPUT_BOOLEAN) continue
                 if (getInstruction<ReferenceInstruction>(index).reference != reference) continue
 

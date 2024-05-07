@@ -170,8 +170,8 @@ object ThemePatch : ResourcePatch() {
             ?: throw PatchException("Invalid light color.")
 
         arrayOf("values", "values-v31").forEach { path ->
-            context.document["res/$path/colors.xml"].use { editor ->
-                val resourcesNode = editor.getElementsByTagName("resources").item(0) as Element
+            context.xmlEditor["res/$path/colors.xml"].use { editor ->
+                val resourcesNode = editor.file.getElementsByTagName("resources").item(0) as Element
 
                 for (i in 0 until resourcesNode.childNodes.length) {
                     val node = resourcesNode.childNodes.item(i) as? Element ?: continue
@@ -186,8 +186,8 @@ object ThemePatch : ResourcePatch() {
             }
         }
 
-        context.document["res/values/colors.xml"].use { editor ->
-            val resourcesNode = editor.getElementsByTagName("resources").item(0) as Element
+        context.xmlEditor["res/values/colors.xml"].use { editor ->
+            val resourcesNode = editor.file.getElementsByTagName("resources").item(0) as Element
 
             val children = resourcesNode.childNodes
             for (i in 0 until children.length) {
