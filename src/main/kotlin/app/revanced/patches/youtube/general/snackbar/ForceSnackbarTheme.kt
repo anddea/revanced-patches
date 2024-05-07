@@ -111,8 +111,8 @@ object ForceSnackbarTheme : ResourcePatch() {
         fun editXml(xmlPath: String, tagName: String, vararg attributesAndValues: String?) {
             require(attributesAndValues.size % 2 == 0) { "Number of attributes and values must be even." }
 
-            context.document[xmlPath].use { editor ->
-                editor.doRecursively { node ->
+            context.xmlEditor[xmlPath].use { editor ->
+                editor.file.doRecursively { node ->
                     if (node is Element && (tagName.isEmpty() || node.tagName == tagName)) {
                         setAttributes(node, *attributesAndValues)
                     }
@@ -123,8 +123,8 @@ object ForceSnackbarTheme : ResourcePatch() {
         fun insert(xmlPath: String, tagName: String, insertTagName: String, vararg attributesAndValues: String?) {
             require(attributesAndValues.size % 2 == 0) { "Number of attributes and values must be even." }
 
-            context.document[xmlPath].use { editor ->
-                editor.doRecursively { node ->
+            context.xmlEditor[xmlPath].use { editor ->
+                editor.file.doRecursively { node ->
                     if (node is Element && node.tagName == insertTagName) {
                         node.insertNode(tagName, node) {
                             setAttributes(this, *attributesAndValues)

@@ -61,19 +61,17 @@ import org.w3c.dom.Element
 )
 @Suppress("unused")
 object ForceHideFullscreenButtonPatch : ResourcePatch() {
-    private const val ANDROID_ID = "android:id"
-    private const val HIDE = "0.0dip"
     override fun execute(context: ResourceContext) {
 
-        context.document["res/layout/youtube_controls_bottom_ui_container.xml"].use { editor ->
-            editor.doRecursively { node ->
+        context.xmlEditor["res/layout/youtube_controls_bottom_ui_container.xml"].use { editor ->
+            editor.file.doRecursively { node ->
                 if (node is Element && (
-                    node.getAttribute(ANDROID_ID) == "@id/fullscreen_button" ||
-                    node.getAttribute(ANDROID_ID) == "@id/youtube_controls_fullscreen_button_stub")
+                    node.getAttribute("android:id") == "@id/fullscreen_button" ||
+                    node.getAttribute("android:id") == "@id/youtube_controls_fullscreen_button_stub")
                 ) {
                     node.apply {
-                        setAttribute("android:layout_height", HIDE)
-                        setAttribute("android:layout_width", HIDE)
+                        setAttribute("android:layout_height", "0.0dip")
+                        setAttribute("android:layout_width", "0.0dip")
                     }
                 }
             }
@@ -81,21 +79,21 @@ object ForceHideFullscreenButtonPatch : ResourcePatch() {
 
         // For newer versions of YouTube (19.09.xx+), there's a new layout file for fullscreen button
         try {
-            context.document["res/layout/youtube_controls_fullscreen_button.xml"].use { editor ->
-                editor.doRecursively { node ->
-
-                    if (node !is Element) return@doRecursively
-
-                    if (node.getAttribute(ANDROID_ID) != "@id/fullscreen_button") return@doRecursively
-
-                    node.apply {
-                        setAttribute("android:layout_height", HIDE)
-                        setAttribute("android:layout_width", HIDE)
+            context.xmlEditor["res/layout/youtube_controls_fullscreen_button.xml"].use { editor ->
+                editor.file.doRecursively { node ->
+                    if (node is Element && node.getAttribute("android:id") == "@id/fullscreen_button") {
+                        node.apply {
+                            setAttribute("android:layout_height", "0.0dip")
+                            setAttribute("android:layout_width", "0.0dip")
+                        }
                     }
                 }
             }
-        } catch (e: Exception) { /* Do nothing */ }
+        } catch (e: Exception) {
+            // Do nothing
+        }
 
         SettingsPatch.updatePatchStatus("Force hide fullscreen button")
+
     }
 }

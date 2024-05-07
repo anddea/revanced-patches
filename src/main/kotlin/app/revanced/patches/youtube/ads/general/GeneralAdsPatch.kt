@@ -103,8 +103,8 @@ object GeneralAdsPatch : ResourcePatch() {
             if (!it.name.startsWithAny(*resourceFileNames)) return@forEach
 
             // for each file in the "layouts" directory replace all necessary attributes content
-            context.document[it.absolutePath].use { editor ->
-                editor.doRecursively {
+            context.xmlEditor[it.absolutePath].use { editor ->
+                editor.file.doRecursively {
                     replacements.forEach replacement@{ replacement ->
                         if (it !is Element) return@replacement
 
@@ -116,8 +116,8 @@ object GeneralAdsPatch : ResourcePatch() {
             }
         }
 
-        context.document["res/layout/simple_text_section.xml"].use { editor ->
-            editor.doRecursively {
+        context.xmlEditor["res/layout/simple_text_section.xml"].use { editor ->
+            editor.file.doRecursively {
                 additionalReplacements.forEach replacement@{ replacement ->
                     if (it !is Element) return@replacement
 

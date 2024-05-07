@@ -201,29 +201,28 @@ object ShortsComponentPatch : BytecodePatch(
             it.mutableMethod.apply {
                 val primaryIndex = getWideLiteralInstructionIndex(ReelPlayerBadge) + 3
                 val secondaryIndex = getWideLiteralInstructionIndex(ReelPlayerBadge2) + 3
-                val hidePromotionBannerSignature = "hideShortsPlayerPaidPromotionBanner(Landroid/view/ViewStub;)Landroid/view/ViewStub;"
 
                 if (primaryIndex > secondaryIndex) {
                     hideButtons(
                         primaryIndex,
                         1,
-                        hidePromotionBannerSignature
+                        "hideShortsPlayerPaidPromotionBanner(Landroid/view/ViewStub;)Landroid/view/ViewStub;"
                     )
                     hideButtons(
                         secondaryIndex,
                         1,
-                        hidePromotionBannerSignature
+                        "hideShortsPlayerPaidPromotionBanner(Landroid/view/ViewStub;)Landroid/view/ViewStub;"
                     )
                 } else {
                     hideButtons(
                         secondaryIndex,
                         1,
-                        hidePromotionBannerSignature
+                        "hideShortsPlayerPaidPromotionBanner(Landroid/view/ViewStub;)Landroid/view/ViewStub;"
                     )
                     hideButtons(
                         primaryIndex,
                         1,
-                        hidePromotionBannerSignature
+                        "hideShortsPlayerPaidPromotionBanner(Landroid/view/ViewStub;)Landroid/view/ViewStub;"
                     )
                 }
             }

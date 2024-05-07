@@ -112,7 +112,7 @@ object CustomBrandingHeadingPatch : ResourcePatch() {
 
         // The directories to copy the header to.
         val targetResourceDirectories = targetResourceDirectoryNames.keys.mapNotNull {
-            context["res", false].resolve(it).takeIf(File::exists)
+            context["res"].resolve(it).takeIf(File::exists)
         }
 
         /**
@@ -135,7 +135,9 @@ object CustomBrandingHeadingPatch : ResourcePatch() {
             context.updatePatchStatusHeader("Premium")
         }
 
-        val toHeader = { overwriteFromTo(DEFAULT_HEADING_NAME, PREMIUM_HEADING_NAME) }
+        val toHeader = {
+            overwriteFromTo(DEFAULT_HEADING_NAME, PREMIUM_HEADING_NAME)
+        }
 
         val toCustom = {
             val sourceFolders = File(header!!).listFiles { file -> file.isDirectory }
@@ -145,8 +147,7 @@ object CustomBrandingHeadingPatch : ResourcePatch() {
 
             // For each source folder, copy the files to the target resource directories.
             sourceFolders.forEach { dpiSourceFolder ->
-                val targetDpiFolder = context["res", false].resolve(dpiSourceFolder.name)
-
+                val targetDpiFolder = context["res"].resolve(dpiSourceFolder.name)
                 if (!targetDpiFolder.exists()) return@forEach
 
                 val imgSourceFiles = dpiSourceFolder.listFiles { file -> file.isFile }!!

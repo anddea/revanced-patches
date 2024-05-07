@@ -31,33 +31,32 @@ object PlayerButtonHookPatch : BytecodePatch(
                     )!!
                     .mutableClass
 
-            imageButtonClass.methods.forEach { method ->
+            for (method in imageButtonClass.methods) {
                 imageButtonClass.findMutableMethodOf(method).apply {
                     var jumpInstruction = true
 
                     implementation!!.instructions.forEachIndexed { index, instructions ->
+                        if (instructions.opcode == Opcode.INVOKE_VIRTUAL) {
+                            val definedInstruction = (instructions as? BuilderInstruction35c)
 
-                        if (instructions.opcode != Opcode.INVOKE_VIRTUAL) return@forEachIndexed
+                            if (definedInstruction?.reference.toString() ==
+                                "Landroid/view/View;->setVisibility(I)V"
+                            ) {
 
-                        val definedInstruction = (instructions as? BuilderInstruction35c)
+                                jumpInstruction = !jumpInstruction
+                                if (jumpInstruction) return@forEachIndexed
 
-                        if (definedInstruction?.reference.toString() != "Landroid/view/View;->setVisibility(I)V")
-                            return@forEachIndexed
+                                val firstRegister = definedInstruction?.registerC
+                                val secondRegister = definedInstruction?.registerD
 
-                        jumpInstruction = !jumpInstruction
-
-                        if (jumpInstruction) return@forEachIndexed
-
-                        val firstRegister = definedInstruction?.registerC
-                        val secondRegister = definedInstruction?.registerD
-
-                        addInstructions(
-                            index,
-                            """
-                            invoke-static {v$firstRegister, v$secondRegister}, $PLAYER->hidePlayerButton(Landroid/view/View;I)I
-                            move-result v$secondRegister
-                            """
-                        )
+                                addInstructions(
+                                    index, """
+                                        invoke-static {v$firstRegister, v$secondRegister}, $PLAYER->hidePlayerButton(Landroid/view/View;I)I
+                                        move-result v$secondRegister
+                                        """
+                                )
+                            }
+                        }
                     }
                 }
             }

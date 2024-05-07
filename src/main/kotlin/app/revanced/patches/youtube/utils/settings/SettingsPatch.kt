@@ -130,12 +130,12 @@ object SettingsPatch : AbstractSettingsResourcePatch(
         super.execute(context)
         contexts = context
 
-        val resourceXmlFile = context["res/values/integers.xml", false].readBytes()
+        val resourceXmlFile = context["res/values/integers.xml"].readBytes()
 
         for (threadIndex in 0 until THREAD_COUNT) {
             threadPoolExecutor.execute thread@{
-                context.document[resourceXmlFile.inputStream()].use { editor ->
-                    val resources = editor.documentElement.childNodes
+                context.xmlEditor[resourceXmlFile.inputStream()].use { editor ->
+                    val resources = editor.file.documentElement.childNodes
                     val resourcesLength = resources.length
                     val jobSize = resourcesLength / THREAD_COUNT
 
@@ -175,7 +175,7 @@ object SettingsPatch : AbstractSettingsResourcePatch(
         /**
          * create directory for the untranslated language resources
          */
-        context["res/values-v21", false].mkdirs()
+        context["res/values-v21"].mkdirs()
 
         arrayOf(
             ResourceGroup(
@@ -207,8 +207,8 @@ object SettingsPatch : AbstractSettingsResourcePatch(
          * remove ReVanced Extended Settings divider
          */
         arrayOf("Theme.YouTube.Settings", "Theme.YouTube.Settings.Dark").forEach { themeName ->
-            context.document["res/values/styles.xml"].use { editor ->
-                with(editor) {
+            context.xmlEditor["res/values/styles.xml"].use { editor ->
+                with(editor.file) {
                     val resourcesNode = getElementsByTagName("resources").item(0) as Element
 
                     val newElement: Element = createElement("item")
@@ -269,7 +269,7 @@ object SettingsPatch : AbstractSettingsResourcePatch(
             }
         }
 
-        contexts["res/xml/revanced_prefs.xml", false].apply {
+        contexts["res/xml/revanced_prefs.xml"].apply {
             writeText(
                 readText()
                     .replace(
@@ -292,8 +292,8 @@ object SettingsPatch : AbstractSettingsResourcePatch(
             val valueFilePath: String = if (it != "") "res/values-$it-v21/strings.xml" else "res/values-v21/strings.xml"
 
             try {
-                contexts.document[valueFilePath].use { editor ->
-                    with(editor) {
+                contexts.xmlEditor[valueFilePath].use { editor ->
+                    with(editor.file) {
                         val nodeList = getElementsByTagName("string")
 
                         for (i in 0 until nodeList.length) {

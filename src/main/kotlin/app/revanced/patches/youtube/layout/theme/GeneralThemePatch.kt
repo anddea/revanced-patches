@@ -20,27 +20,28 @@ object GeneralThemePatch : ResourcePatch() {
             "res/values-v31/styles.xml", // Android 12 (and above)
         )
 
-        context.document[attrsPath].use { editor ->
+        context.xmlEditor[attrsPath].use { editor ->
+            val file = editor.file
 
-            (editor.getElementsByTagName("resources").item(0) as Element)
-                .appendChild(
-                    editor.createElement("attr").apply {
-                        setAttribute("format", "reference")
-                        setAttribute("name", "splashScreenColor")
-                    }
-                )
+            (file.getElementsByTagName("resources").item(0) as Element).appendChild(
+                file.createElement("attr").apply {
+                    setAttribute("format", "reference")
+                    setAttribute("name", "splashScreenColor")
+                }
+            )
         }
         stylesPaths.forEachIndexed { pathIndex, stylesPath ->
-            context.document[stylesPath].use { editor ->
+            context.xmlEditor[stylesPath].use { editor ->
+                val file = editor.file
 
                 val childNodes =
-                    (editor.getElementsByTagName("resources").item(0) as Element).childNodes
+                    (file.getElementsByTagName("resources").item(0) as Element).childNodes
 
                 for (i in 0 until childNodes.length) {
                     val node = childNodes.item(i) as? Element ?: continue
                     val nodeAttributeName = node.getAttribute("name")
 
-                    editor.createElement("item").apply {
+                    file.createElement("item").apply {
                         setAttribute(
                             "name",
                             when (pathIndex) {
@@ -51,7 +52,7 @@ object GeneralThemePatch : ResourcePatch() {
                         )
 
                         appendChild(
-                            editor.createTextNode(
+                            file.createTextNode(
                                 when (pathIndex) {
                                     0 -> when (nodeAttributeName) {
                                         "Base.Theme.YouTube.Launcher.Dark" -> "@color/yt_black1"
@@ -69,20 +70,22 @@ object GeneralThemePatch : ResourcePatch() {
                             )
                         )
 
-                        if (this.textContent != "null") node.appendChild(this)
+                        if (this.textContent != "null")
+                            node.appendChild(this)
                     }
                 }
             }
         }
 
         arrayOf("drawable", "drawable-sw600dp").forEach { quantumLaunchScreenPath ->
-            context.document["res/$quantumLaunchScreenPath/quantum_launchscreen_youtube.xml"].use { editor ->
-                val resourcesNode = editor.getElementsByTagName("item").item(0) as Element
+            context.xmlEditor["res/$quantumLaunchScreenPath/quantum_launchscreen_youtube.xml"].use { editor ->
+                val resourcesNode = editor.file.getElementsByTagName("item").item(0) as Element
 
                 if (resourcesNode.attributes.getNamedItem("android:drawable") != null)
                     resourcesNode.setAttribute("android:drawable", "?attr/splashScreenColor")
             }
         }
+
     }
 
     internal var isMonetPatchIncluded: Boolean = false
