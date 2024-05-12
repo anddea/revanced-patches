@@ -7,22 +7,25 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patches.music.utils.integrations.Constants.UTILS_PATH
 import app.revanced.patches.music.utils.videotype.fingerprint.VideoTypeFingerprint
 import app.revanced.patches.music.utils.videotype.fingerprint.VideoTypeParentFingerprint
-import app.revanced.util.exception
+import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 
-@Suppress("unused")
+@Suppress("SpellCheckingInspection", "unused")
 object VideoTypeHookPatch : BytecodePatch(
     setOf(VideoTypeParentFingerprint)
 ) {
+    private const val INTEGRATIONS_CLASS_DESCRIPTOR =
+        "$UTILS_PATH/VideoTypeHookPatch;"
+
     override fun execute(context: BytecodeContext) {
 
-        VideoTypeParentFingerprint.result?.let { parentResult ->
+        VideoTypeParentFingerprint.resultOrThrow().let { parentResult ->
             VideoTypeFingerprint.also {
                 it.resolve(
                     context,
                     parentResult.classDef
                 )
-            }.result?.let {
+            }.resultOrThrow().let {
                 it.mutableMethod.apply {
                     val insertIndex = it.scanResult.patternScanResult!!.startIndex + 3
                     val referenceIndex = insertIndex + 1
@@ -38,10 +41,7 @@ object VideoTypeHookPatch : BytecodePatch(
                             """
                     )
                 }
-            } ?: throw VideoTypeFingerprint.exception
-        } ?: throw VideoTypeParentFingerprint.exception
+            }
+        }
     }
-
-    private const val INTEGRATIONS_CLASS_DESCRIPTOR =
-        "$UTILS_PATH/VideoTypeHookPatch;"
 }

@@ -11,7 +11,7 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
  * This fingerprint is quite complex to be compatible with all versions from YouTube v18.25.40 to the latest version.
  * If you drop supporting the old version, please change the fingerprint to be more intuitive.
  */
-object ShareLinkFormatterFingerprint : MethodFingerprint(
+internal object ShareLinkFormatterFingerprint : MethodFingerprint(
     opcodes = listOf(
         Opcode.IGET_OBJECT,
         Opcode.CHECK_CAST,

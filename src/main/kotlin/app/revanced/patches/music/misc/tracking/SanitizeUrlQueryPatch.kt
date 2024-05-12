@@ -1,34 +1,24 @@
 package app.revanced.patches.music.misc.tracking
 
-import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.patch.annotation.CompatiblePackage
-import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.music.misc.tracking.fingerprints.ShareLinkFormatterFingerprint
-import app.revanced.patches.music.utils.integrations.Constants.MISC_PATH
+import app.revanced.patcher.data.ResourceContext
+import app.revanced.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.SettingsPatch
-import app.revanced.patches.shared.fingerprints.tracking.CopyTextEndpointFingerprint
-import app.revanced.patches.shared.patch.tracking.AbstractSanitizeUrlQueryPatch
+import app.revanced.util.patch.BaseResourcePatch
 
-@Patch(
+@Suppress("unused")
+object SanitizeUrlQueryPatch : BaseResourcePatch(
     name = "Sanitize sharing links",
     description = "Adds an option to remove tracking query parameters from URLs when sharing links.",
-    dependencies = [SettingsPatch::class],
-    compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")]
-)
-@Suppress("unused")
-object SanitizeUrlQueryPatch : AbstractSanitizeUrlQueryPatch(
-    "$MISC_PATH/SanitizeUrlQueryPatch;",
-    listOf(
-        CopyTextEndpointFingerprint,
-        ShareLinkFormatterFingerprint
+    dependencies = setOf(
+        SanitizeUrlQueryBytecodePatch::class,
+        SettingsPatch::class
     ),
-    null
+    compatiblePackages = COMPATIBLE_PACKAGE
 ) {
-    override fun execute(context: BytecodeContext) {
-        super.execute(context)
+    override fun execute(context: ResourceContext) {
 
-        SettingsPatch.addMusicPreference(
+        SettingsPatch.addSwitchPreference(
             CategoryType.MISC,
             "revanced_sanitize_sharing_links",
             "true"
