@@ -7,7 +7,7 @@ import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.Inlin
 import app.revanced.util.containsWideLiteralInstructionIndex
 import com.android.tools.smali.dexlib2.AccessFlags
 
-object PlayerSeekbarColorFingerprint : MethodFingerprint(
+internal object PlayerSeekbarColorFingerprint : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
     customFingerprint = { methodDef, _ ->

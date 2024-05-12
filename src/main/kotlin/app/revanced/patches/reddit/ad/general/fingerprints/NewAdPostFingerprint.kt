@@ -5,12 +5,10 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-object NewAdPostFingerprint : MethodFingerprint(
+internal object NewAdPostFingerprint : MethodFingerprint(
     returnType = "L",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    opcodes = listOf(
-        Opcode.INVOKE_VIRTUAL,
-    ),
+    opcodes = listOf(Opcode.INVOKE_VIRTUAL),
     strings = listOf(
         "chain",
         "feedElement"

@@ -1,27 +1,24 @@
 package app.revanced.patches.youtube.utils.settings
 
 import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.patch.ResourcePatch
-import app.revanced.patcher.patch.annotation.CompatiblePackage
-import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.booleanPatchOption
 import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatchOption
 import app.revanced.patches.youtube.layout.branding.icon.CustomBrandingIconPatch
+import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.util.ResourceGroup
 import app.revanced.util.copyResources
+import app.revanced.util.patch.BaseResourcePatch
 import org.w3c.dom.Document
 import org.w3c.dom.Element
 import org.w3c.dom.NodeList
 
-@Patch(
+@Suppress("DEPRECATION", "unused")
+object VisualPreferencesIconsPatch : BaseResourcePatch(
     name = "Visual preferences icons",
     description = "Adds icons to specific preferences in the settings.",
-    dependencies = [SettingsPatch::class],
-    compatiblePackages = [CompatiblePackage("com.google.android.youtube")]
-)
-@Suppress("unused")
-object VisualPreferencesIconsPatch : ResourcePatch() {
-
+    dependencies = setOf(SettingsPatch::class),
+    compatiblePackages = COMPATIBLE_PACKAGE
+) {
     private val MainSettings by booleanPatchOption(
         key = "MainSettings",
         default = true,
@@ -65,7 +62,7 @@ object VisualPreferencesIconsPatch : ResourcePatch() {
             "revanced_enable_bottom_player_gestures",
             "revanced_enable_default_playback_speed_shorts",
             "revanced_enable_old_quality_layout",
-            "revanced_enable_swipe_auto_brightness",
+            "revanced_enable_swipe_lowest_value_auto_brightness",
             "revanced_enable_swipe_brightness",
             "revanced_enable_swipe_volume",
             "revanced_hide_button_create_clip",
@@ -91,19 +88,19 @@ object VisualPreferencesIconsPatch : ResourcePatch() {
             "revanced_hide_player_flyout_panel_stable_volume",
             "revanced_hide_player_flyout_panel_stats_for_nerds",
             "revanced_hide_player_flyout_panel_watch_in_vr",
-            "revanced_hide_quick_actions_comment",
-            "revanced_hide_quick_actions_dislike",
-            "revanced_hide_quick_actions_like",
-            "revanced_hide_quick_actions_live_chat",
-            "revanced_hide_quick_actions_more",
-            "revanced_hide_quick_actions_save_to_playlist",
-            "revanced_hide_quick_actions_share",
+            "revanced_hide_quick_actions_comment_button",
+            "revanced_hide_quick_actions_dislike_button",
+            "revanced_hide_quick_actions_like_button",
+            "revanced_hide_quick_actions_live_chat_button",
+            "revanced_hide_quick_actions_more_button",
+            "revanced_hide_quick_actions_save_to_playlist_button",
+            "revanced_hide_quick_actions_share_button",
             "revanced_hide_shorts_button",
-            "revanced_hide_shorts_player_comments_button",
-            "revanced_hide_shorts_player_dislike_button",
-            "revanced_hide_shorts_player_like_button",
-            "revanced_hide_shorts_player_remix_button",
-            "revanced_hide_shorts_player_share_button",
+            "revanced_hide_shorts_comments_button",
+            "revanced_hide_shorts_dislike_button",
+            "revanced_hide_shorts_like_button",
+            "revanced_hide_shorts_remix_button",
+            "revanced_hide_shorts_share_button",
             "revanced_hide_shorts_toolbar_camera_button",
             "revanced_hide_shorts_toolbar_menu_button",
             "revanced_hide_shorts_toolbar_search_button",
@@ -114,10 +111,18 @@ object VisualPreferencesIconsPatch : ResourcePatch() {
             "revanced_overlay_button_external_downloader",
             "revanced_overlay_button_speed_dialog",
             "revanced_overlay_button_time_ordered_playlist",
-            "revanced_overlay_button_whitelisting",
+            "revanced_overlay_button_whitelist",
             "revanced_switching_create_notification",
             "sb_enable_create_segment",
             "sb_enable_voting",
+
+            "revanced_preference_screen_player_buttons",
+            "revanced_preference_screen_action_buttons",
+            "revanced_preference_screen_comments",
+            "revanced_preference_screen_player_flyout_menu",
+            "revanced_preference_screen_fullscreen",
+            "revanced_preference_screen_navigation_buttons",
+            "revanced_preference_screen_seekbar",
         )
 
         val validMainTitles = setOf(
@@ -144,22 +149,16 @@ object VisualPreferencesIconsPatch : ResourcePatch() {
         )
 
         val validExtendedTitles = setOf(
-            "general",
-            "ads",
-            "alt_thumbnails",
-            "player",
-            "overlay_button",
-            "bottom_player",
-            "flyout_menu",
-            "fullscreen",
-            "navigation",
-            "seekbar",
-            "shorts",
-            "swipe_controls",
-            "video",
-            "revanced_ryd_settings_key",
-            "revanced_sponsorblock_settings_key",
-            "misc",
+            "revanced_preference_screen_general",
+            "revanced_preference_screen_ads",
+            "revanced_preference_screen_alt_thumbnails",
+            "revanced_preference_screen_player",
+            "revanced_preference_screen_shorts",
+            "revanced_preference_screen_swipe_controls",
+            "revanced_preference_screen_video",
+            "revanced_preference_screen_ryd",
+            "revanced_preference_screen_sb",
+            "revanced_preference_screen_misc",
         )
 
         val validExtendedBrand = setOf(
@@ -168,18 +167,17 @@ object VisualPreferencesIconsPatch : ResourcePatch() {
 
         val emptyTitles = setOf(
             "revanced_custom_playback_speeds",
-            "revanced_custom_playback_speed_panel_type",
+            "revanced_custom_playback_speed_menu_type",
             "revanced_default_video_quality_mobile",
             "revanced_disable_default_playback_speed_live",
             "external_downloader",
             "revanced_enable_custom_playback_speed",
-            "revanced_enable_save_playback_speed",
-            "revanced_enable_save_video_quality",
-            "revanced_hide_live_chat_replay",
-            "revanced_hide_shorts_player_comments_disabled_button",
+            "revanced_hide_shorts_comments_disabled_button",
             "revanced_hide_player_flyout_panel_captions_footer",
             "revanced_hide_player_flyout_panel_quality_footer",
-            "whitelisting",
+            "revanced_remember_playback_speed_last_selected",
+            "revanced_remember_video_quality_last_selected",
+            "revanced_restore_old_video_quality_menu",
         )
 
         // A lot of mappings here.
@@ -188,26 +186,27 @@ object VisualPreferencesIconsPatch : ResourcePatch() {
         val validTitlesIcons = validTitles.associateWith { title ->
             when (title) {
                 "revanced_disable_hdr_auto_brightness" -> "revanced_disable_hdr_video_icon"
-                "revanced_hide_shorts_player_comments_button" -> "revanced_hide_quick_actions_comment_icon"
-                "revanced_enable_bottom_player_gestures" -> "swipe_controls_icon"
-                "revanced_hide_shorts_button" -> "shorts_icon"
+                "revanced_hide_shorts_comments_button" -> "revanced_hide_quick_actions_comment_button_icon"
+                "revanced_enable_bottom_player_gestures" -> "revanced_preference_screen_swipe_controls_icon"
+                "revanced_hide_shorts_button" -> "revanced_preference_screen_shorts_icon"
                 "revanced_hide_button_like_dislike" -> "sb_enable_voting_icon"
-                "revanced_hide_shorts_player_like_button" -> "revanced_hide_quick_actions_like_icon"
-                "revanced_hide_shorts_player_dislike_button" -> "revanced_ryd_settings_key_icon"
-                "revanced_hide_quick_actions_dislike" -> "revanced_ryd_settings_key_icon"
-                "revanced_hide_quick_actions_share" -> "revanced_hide_shorts_player_share_button_icon"
+                "revanced_hide_shorts_like_button" -> "revanced_hide_quick_actions_like_button_icon"
+                "revanced_hide_shorts_dislike_button" -> "revanced_preference_screen_ryd_icon"
+                "revanced_hide_quick_actions_dislike_button" -> "revanced_preference_screen_ryd_icon"
+                "revanced_hide_quick_actions_share_button" -> "revanced_hide_shorts_share_button_icon"
                 "revanced_default_playback_speed" -> "revanced_overlay_button_speed_dialog_icon"
                 "revanced_enable_old_quality_layout" -> "revanced_default_video_quality_wifi_icon"
                 "revanced_hide_button_download" -> "revanced_overlay_button_external_downloader_icon"
-                "revanced_hide_button_share" -> "revanced_hide_shorts_player_share_button_icon"
-                "revanced_hide_library_button" -> "video_icon"
+                "revanced_hide_button_share" -> "revanced_hide_shorts_share_button_icon"
+                "revanced_hide_library_button" -> "revanced_preference_screen_video_icon"
                 "revanced_hide_notifications_button" -> "notification_key_icon"
-                "revanced_hide_quick_actions_save_to_playlist" -> "revanced_hide_button_save_to_playlist_icon"
+                "revanced_hide_quick_actions_save_to_playlist_button" -> "revanced_hide_button_save_to_playlist_icon"
                 "revanced_hide_player_flyout_panel_report" -> "revanced_hide_button_report_icon"
                 "revanced_hide_player_flyout_panel_more_info" -> "about_key_icon"
                 "revanced_hide_player_flyout_panel_captions" -> "captions_key_icon"
                 "revanced_hide_player_flyout_panel_loop_video" -> "revanced_overlay_button_always_repeat_icon"
-                "revanced_hide_button_remix" -> "revanced_hide_shorts_player_remix_button_icon"
+                "revanced_hide_button_remix" -> "revanced_hide_shorts_remix_button_icon"
+                "revanced_preference_screen_comments" -> "revanced_hide_quick_actions_comment_button_icon"
                 else -> "${title}_icon"
             }
         }
@@ -217,8 +216,8 @@ object VisualPreferencesIconsPatch : ResourcePatch() {
 
         val validExtendedTitlesIcons = validExtendedTitles.associateWith { title ->
             when (title) {
-                "general" -> "general_key_icon"
-                "revanced_sponsorblock_settings_key" -> "sb_enable_create_segment_icon"
+                "revanced_preference_screen_general" -> "general_key_icon"
+                "revanced_preference_screen_sb" -> "sb_enable_create_segment_icon"
                 else -> "${title}_icon"
             }
         }
@@ -271,7 +270,8 @@ object VisualPreferencesIconsPatch : ResourcePatch() {
 
         // Edit Preferences / add icon attribute
         val tagNames = listOf(
-            "app.revanced.integrations.youtube.settingsmenu.ResettableEditTextPreference",
+            "app.revanced.integrations.shared.settings.preference.ResettableEditTextPreference",
+            "app.revanced.integrations.youtube.settings.preference.ExternalDownloaderPreference",
             "ListPreference",
             "Preference",
             "PreferenceScreen",
@@ -314,6 +314,5 @@ object VisualPreferencesIconsPatch : ResourcePatch() {
         }
 
         SettingsPatch.updatePatchStatus("Visual preferences icons")
-
     }
 }

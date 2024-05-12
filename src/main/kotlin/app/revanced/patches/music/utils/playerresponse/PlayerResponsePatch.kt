@@ -5,7 +5,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.music.utils.playerresponse.fingerprints.PlaybackStartDescriptorFingerprint
-import app.revanced.util.exception
+import app.revanced.util.resultOrThrow
 
 object PlayerResponsePatch : BytecodePatch(
     setOf(PlaybackStartDescriptorFingerprint)
@@ -37,9 +37,7 @@ object PlayerResponsePatch : BytecodePatch(
 
     override fun execute(context: BytecodeContext) {
 
-        PlaybackStartDescriptorFingerprint.result?.let {
-            insertMethod = it.mutableMethod
-        } ?: throw PlaybackStartDescriptorFingerprint.exception
+        insertMethod = PlaybackStartDescriptorFingerprint.resultOrThrow().mutableMethod
 
     }
 

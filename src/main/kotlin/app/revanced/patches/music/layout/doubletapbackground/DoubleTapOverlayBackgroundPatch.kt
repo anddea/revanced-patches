@@ -1,16 +1,21 @@
 package app.revanced.patches.music.layout.doubletapbackground
 
-import app.revanced.patcher.patch.annotation.CompatiblePackage
-import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.shared.patch.overlaybackground.AbstractOverlayBackgroundPatch
+import app.revanced.patcher.data.ResourceContext
+import app.revanced.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.revanced.patches.shared.overlaybackground.OverlayBackgroundUtils.removeOverlayBackground
+import app.revanced.util.patch.BaseResourcePatch
 
-@Patch(
-    name = "Hide double tap overlay filter",
-    description = "Removes the dark overlay when double-tapping to seek.",
-    compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")]
-)
 @Suppress("unused")
-object DoubleTapOverlayBackgroundPatch : AbstractOverlayBackgroundPatch(
-    arrayOf("quick_seek_overlay.xml"),
-    arrayOf("tap_bloom_view", "dark_background")
-)
+object DoubleTapOverlayBackgroundPatch : BaseResourcePatch(
+    name = "Hide double tap overlay filter",
+    description = "Hides the dark overlay when double-tapping to seek.",
+    compatiblePackages = COMPATIBLE_PACKAGE,
+    use = false
+) {
+    override fun execute(context: ResourceContext) {
+        context.removeOverlayBackground(
+            arrayOf("quick_seek_overlay.xml"),
+            arrayOf("tap_bloom_view", "dark_background")
+        )
+    }
+}

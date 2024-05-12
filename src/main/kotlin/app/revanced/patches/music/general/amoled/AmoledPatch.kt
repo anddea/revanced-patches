@@ -1,24 +1,22 @@
 package app.revanced.patches.music.general.amoled
 
 import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.patch.ResourcePatch
-import app.revanced.patcher.patch.annotation.CompatiblePackage
-import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.music.utils.integrations.Constants.UTILS_PATH
-import app.revanced.patches.shared.patch.litho.LithoThemePatch
+import app.revanced.patches.shared.drawable.DrawableColorPatch
+import app.revanced.util.patch.BaseResourcePatch
 import org.w3c.dom.Element
 
-@Patch(
+@Suppress("DEPRECATION", "unused")
+object AmoledPatch : BaseResourcePatch(
     name = "Amoled",
     description = "Applies a pure black theme to some components.",
-    dependencies = [LithoThemePatch::class],
-    compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")]
-)
-@Suppress("unused")
-object AmoledPatch : ResourcePatch() {
+    dependencies = setOf(DrawableColorPatch::class),
+    compatiblePackages = COMPATIBLE_PACKAGE
+) {
     override fun execute(context: ResourceContext) {
 
-        LithoThemePatch.injectCall("$UTILS_PATH/LithoThemePatch;->applyLithoTheme(I)I")
+        DrawableColorPatch.injectCall("$UTILS_PATH/DrawableColorPatch;->getColor(I)I")
 
         context.xmlEditor["res/values/colors.xml"].use { editor ->
             val resourcesNode = editor.file.getElementsByTagName("resources").item(0) as Element

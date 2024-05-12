@@ -6,7 +6,7 @@ import app.revanced.patches.reddit.utils.resourceid.SharedResourceIdPatch.Cancel
 import app.revanced.util.containsWideLiteralInstructionIndex
 import com.android.tools.smali.dexlib2.AccessFlags
 
-object FrequentUpdatesSheetScreenFingerprint : MethodFingerprint(
+internal object FrequentUpdatesSheetScreenFingerprint : MethodFingerprint(
     returnType = "Landroid/view/View;",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     customFingerprint = { methodDef, classDef ->
