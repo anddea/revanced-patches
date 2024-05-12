@@ -1045,12 +1045,6 @@ public final class app/revanced/patches/youtube/layout/theme/ThemePatch : app/re
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 }
 
-public final class app/revanced/patches/youtube/layout/translations/TranslationsPatch : app/revanced/util/patch/BaseResourcePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/translations/TranslationsPatch;
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
-}
-
 public final class app/revanced/patches/youtube/misc/debugging/DebuggingPatch : app/revanced/util/patch/BaseResourcePatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/debugging/DebuggingPatch;
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V

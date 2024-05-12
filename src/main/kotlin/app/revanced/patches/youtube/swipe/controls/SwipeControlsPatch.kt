@@ -151,7 +151,7 @@ object SwipeControlsPatch : BaseBytecodePatch(
             SettingsPatch.addPreference(
                 arrayOf(
                     "PREFERENCE_CATEGORY: SWIPE_CONTROLS_EXPERIMENTAL_FLAGS",
-                    "SETTINGS: ENABLE_WATCH_PANEL_GESTEURES"
+                    "SETTINGS: ENABLE_WATCH_PANEL_GESTURES"
                 )
             )
         } ?: println("WARNING: Failed to resolve WatchPanelGesturesFingerprint")
