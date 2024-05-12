@@ -2,7 +2,7 @@ package app.revanced.patches.music.utils.fix.fileprovider.fingerprints
 
 import app.revanced.patcher.fingerprint.MethodFingerprint
 
-object FileProviderResolverFingerprint : MethodFingerprint(
+internal object FileProviderResolverFingerprint : MethodFingerprint(
     returnType = "L",
     strings = listOf(
         "android.support.FILE_PROVIDER_PATHS",

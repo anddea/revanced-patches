@@ -15,51 +15,12 @@ Example:
 ```json
 [
   {
-    "name": "Default video quality",
-    "description": "Adds an option to set the default video quality.",
+    "name": "Alternative thumbnails",
+    "description": "Adds options to replace video thumbnails using the DeArrow API or image captures from the video.",
     "compatiblePackages":[
       {
-        "name":"com.google.android.youtube",
-        "versions":[
-          "18.25.40",
-          "18.27.36",
-          "18.29.38",
-          "18.30.37",
-          "18.31.40",
-          "18.32.39",
-          "18.33.40",
-          "18.34.38",
-          "18.35.36",
-          "18.36.39",
-          "18.37.36",
-          "18.38.44",
-          "18.39.41",
-          "18.40.34",
-          "18.41.39",
-          "18.42.41",
-          "18.43.45",
-          "18.44.41",
-          "18.45.43",
-          "18.46.45",
-          "18.48.39",
-          "18.49.37",
-          "19.01.34",
-          "19.02.39",
-          "19.03.36",
-          "19.04.38",
-          "19.05.36",
-          "19.06.39",
-          "19.07.40",
-          "19.08.36",
-          "19.09.38",
-          "19.10.39",
-          "19.11.43",
-          "19.12.41",
-          "19.13.37",
-          "19.14.43",
-          "19.15.36",
-          "19.16.38"
-        ]
+        "name": "com.google.android.youtube",
+        "versions": "COMPATIBLE_PACKAGE_YOUTUBE"
       }
     ],
     "use":true,
@@ -67,18 +28,29 @@ Example:
     "options": []
   },
   {
-    "name": "Remember video quality",
-    "description": "Adds an option to remember the last video quality selected.",
+    "name": "Bitrate default value",
+    "description": "Sets the audio quality to 'Always High' when you first install the app.",
     "compatiblePackages": [
       {
         "name": "com.google.android.apps.youtube.music",
-        "versions": [
-          "6.21.52+"
-        ]
+        "versions": "COMPATIBLE_PACKAGE_MUSIC"
       }
     ],
     "use":true,
     "requiresIntegrations":false,
+    "options": []
+  },
+  {
+    "name": "Hide ads",
+    "description": "Adds options to hide ads.",
+    "compatiblePackages": [
+      {
+        "name": "com.reddit.frontpage",
+        "versions": "COMPATIBLE_PACKAGE_REDDIT"
+      }
+    ],
+    "use":true,
+    "requiresIntegrations":true,
     "options": []
   }
 ]

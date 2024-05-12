@@ -2,7 +2,7 @@ package app.revanced.patches.music.utils.mainactivity.fingerprints
 
 import app.revanced.patcher.fingerprint.MethodFingerprint
 
-object MainActivityFingerprint : MethodFingerprint(
+internal object MainActivityFingerprint : MethodFingerprint(
     returnType = "V",
     parameters = listOf("Landroid/os/Bundle;"),
     strings = listOf(

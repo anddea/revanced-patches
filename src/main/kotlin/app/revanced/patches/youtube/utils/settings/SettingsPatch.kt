@@ -1,88 +1,45 @@
 package app.revanced.patches.youtube.utils.settings
 
 import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.patch.annotation.CompatiblePackage
-import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatchOption
-import app.revanced.patches.shared.patch.mapping.ResourceMappingPatch
-import app.revanced.patches.shared.patch.settings.AbstractSettingsResourcePatch
+import app.revanced.patches.shared.elements.StringsElementsUtils.removeStringsElements
+import app.revanced.patches.shared.mapping.ResourceMappingPatch
 import app.revanced.patches.youtube.misc.translations.LANGUAGES
+import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
-import app.revanced.patches.youtube.utils.settings.ResourceUtils.addReVancedPreference
+import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreferenceFragment
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.updatePatchStatus
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.updatePatchStatusSettings
 import app.revanced.util.ResourceGroup
 import app.revanced.util.classLoader
 import app.revanced.util.copyResources
+import app.revanced.util.copyXmlNode
+import app.revanced.util.patch.BaseBytecodePatch
+import app.revanced.util.patch.BaseResourcePatch
 import org.w3c.dom.Element
 import org.w3c.dom.Node
 import java.io.Closeable
 import java.io.FileNotFoundException
 import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
+import java.util.jar.Manifest
 
-@Patch(
+@Suppress("DEPRECATION", "unused")
+object SettingsPatch : BaseResourcePatch(
     name = "Settings",
     description = "Applies mandatory patches to implement ReVanced Extended settings into the application.",
-    dependencies = [
+    dependencies = setOf(
         IntegrationsPatch::class,
         ResourceMappingPatch::class,
         SharedResourceIdPatch::class,
         SettingsBytecodePatch::class
-    ],
-    compatiblePackages = [
-        CompatiblePackage(
-            "com.google.android.youtube",
-            [
-                "18.25.40",
-                "18.27.36",
-                "18.29.38",
-                "18.30.37",
-                "18.31.40",
-                "18.32.39",
-                "18.33.40",
-                "18.34.38",
-                "18.35.36",
-                "18.36.39",
-                "18.37.36",
-                "18.38.44",
-                "18.39.41",
-                "18.40.34",
-                "18.41.39",
-                "18.42.41",
-                "18.43.45",
-                "18.44.41",
-                "18.45.43",
-                "18.46.45",
-                "18.48.39",
-                "18.49.37",
-                "19.01.34",
-                "19.02.39",
-                "19.03.36",
-                "19.04.38",
-                "19.05.36",
-                "19.06.39",
-                "19.07.40",
-                "19.08.36",
-                "19.09.38",
-                "19.10.39",
-                "19.11.43",
-                "19.12.41",
-                "19.13.37",
-                "19.14.43",
-                "19.15.36",
-                "19.16.38"
-            ]
-        )
-    ],
+    ),
+    compatiblePackages = COMPATIBLE_PACKAGE,
     requiresIntegrations = true
-)
-@Suppress("unused")
-object SettingsPatch : AbstractSettingsResourcePatch(
-    "youtube/settings"
 ), Closeable {
+
     private const val DEFAULT_ELEMENT = "About"
     private const val DEFAULT_NAME = "ReVanced Extended"
 
@@ -126,8 +83,19 @@ object SettingsPatch : AbstractSettingsResourcePatch(
         description = "Specify a custom name for the Extended preference."
     )
 
+    private val THREAD_COUNT = Runtime.getRuntime().availableProcessors()
+    private val threadPoolExecutor = Executors.newFixedThreadPool(THREAD_COUNT)
+
+    internal lateinit var contexts: ResourceContext
+    internal var upward1831 = false
+    internal var upward1834 = false
+    internal var upward1839 = false
+    internal var upward1842 = false
+    internal var upward1849 = false
+    internal var upward1902 = false
+    internal var upward1912 = false
+
     override fun execute(context: ResourceContext) {
-        super.execute(context)
         contexts = context
 
         val resourceXmlFile = context["res/values/integers.xml"].readBytes()
@@ -153,14 +121,13 @@ object SettingsPatch : AbstractSettingsResourcePatch(
 
                         val playServicesVersion = node.textContent.toInt()
 
-                        upward1828 = 232900000 <= playServicesVersion
                         upward1831 = 233200000 <= playServicesVersion
-                        upward1834 = 233502000 <= playServicesVersion
-                        upward1836 = 233700000 <= playServicesVersion
-                        upward1839 = 234002000 <= playServicesVersion
-                        upward1841 = 234200000 <= playServicesVersion
-                        upward1843 = 234400000 <= playServicesVersion
-                        upward1904 = 240502000 <= playServicesVersion
+                        upward1834 = 233500000 <= playServicesVersion
+                        upward1839 = 234000000 <= playServicesVersion
+                        upward1842 = 234302000 <= playServicesVersion
+                        upward1849 = 235000000 <= playServicesVersion
+                        upward1902 = 240204000 < playServicesVersion
+                        upward1912 = 241302000 <= playServicesVersion
 
                         break
                     }
@@ -173,18 +140,41 @@ object SettingsPatch : AbstractSettingsResourcePatch(
             .awaitTermination(Long.MAX_VALUE, TimeUnit.SECONDS)
 
         /**
-         * create directory for the untranslated language resources
+         * remove strings duplicated with RVX resources
+         *
+         * YouTube does not provide translations for these strings.
+         * That's why it's been added to RVX resources.
+         * This string also exists in RVX resources, so it must be removed to avoid being duplicated.
          */
-        context["res/values-v21"].mkdirs()
+        context.removeStringsElements(
+            arrayOf("values"),
+            arrayOf(
+                "accessibility_settings_edu_opt_in_text",
+                "accessibility_settings_edu_opt_out_text"
+            )
+        )
+
+        /**
+         * copy arrays, strings and preference
+         */
+        arrayOf(
+            "arrays.xml",
+            "dimens.xml",
+            "strings.xml",
+            "styles.xml"
+        ).forEach { xmlFile ->
+            context.copyXmlNode("youtube/settings/host", "values/$xmlFile", "resources")
+        }
 
         arrayOf(
             ResourceGroup(
                 "layout",
-                "revanced_settings_with_toolbar.xml"
+                "revanced_settings_preferences_category.xml",
+                "revanced_settings_with_toolbar.xml",
             ),
             ResourceGroup(
-                "values-v21",
-                "strings.xml"
+                "xml",
+                "revanced_prefs.xml",
             )
         ).forEach { resourceGroup ->
             context.copyResources("youtube/settings", resourceGroup)
@@ -197,8 +187,8 @@ object SettingsPatch : AbstractSettingsResourcePatch(
             SETTINGS_ELEMENTS_MAP[InsertPosition] ?: InsertPosition ?: SETTINGS_ELEMENTS_MAP[DEFAULT_ELEMENT]
 
         elementKey?.let { insertKey ->
-            addReVancedPreference(
-                "extended_settings",
+            context.addPreferenceFragment(
+                "revanced_extended_settings",
                 insertKey
             )
         }
@@ -229,25 +219,16 @@ object SettingsPatch : AbstractSettingsResourcePatch(
 
     }
 
-    private val THREAD_COUNT = Runtime.getRuntime().availableProcessors()
-    private val threadPoolExecutor = Executors.newFixedThreadPool(THREAD_COUNT)
-
-    internal lateinit var contexts: ResourceContext
-    internal var upward1828: Boolean = false
-    internal var upward1831: Boolean = false
-    internal var upward1834: Boolean = false
-    internal var upward1836: Boolean = false
-    internal var upward1839: Boolean = false
-    internal var upward1841: Boolean = false
-    internal var upward1843: Boolean = false
-    internal var upward1904: Boolean = false
-
     internal fun addPreference(settingArray: Array<String>) {
         contexts.addPreference(settingArray)
     }
 
-    internal fun addReVancedPreference(key: String, insertKey: String = "misc") {
-        contexts.addReVancedPreference(key, insertKey)
+    internal fun updatePatchStatus(patch: BaseResourcePatch) {
+        updatePatchStatus(patch.name!!)
+    }
+
+    internal fun updatePatchStatus(patch: BaseBytecodePatch) {
+        updatePatchStatus(patch.name!!)
     }
 
     internal fun updatePatchStatus(patchTitle: String) {
@@ -255,31 +236,32 @@ object SettingsPatch : AbstractSettingsResourcePatch(
     }
 
     override fun close() {
-        SettingsBytecodePatch.contexts.classes.forEach { classDef ->
-            if (classDef.sourceFile != "BuildConfig.java")
-                return@forEach
 
-            classDef.fields.forEach { field ->
-                if (field.name == "VERSION_NAME") {
-                    contexts.updatePatchStatusSettings(
-                        "ReVanced Integrations",
-                        field.initialValue.toString().trim()
-                    )
-                }
-            }
-        }
+        // region set ReVanced Patches Version
 
-        contexts["res/xml/revanced_prefs.xml"].apply {
-            writeText(
-                readText()
-                    .replace(
-                        "&quot;",
-                        ""
-                    )
+        val jarManifest = classLoader.getResources("META-INF/MANIFEST.MF")
+        while (jarManifest.hasMoreElements())
+            contexts.updatePatchStatusSettings(
+                "ReVanced Patches",
+                Manifest(jarManifest.nextElement().openStream())
+                    .mainAttributes
+                    .getValue("Version") + ""
             )
-        }
 
-        if (CustomName == DEFAULT_NAME) return
+        // endregion
+
+        // region set ReVanced Integrations Version
+
+        val buildConfigMutableClass = SettingsBytecodePatch.contexts.findClass { it.sourceFile == "BuildConfig.java" }!!.mutableClass
+        val versionNameField = buildConfigMutableClass.fields.single { it.name == "VERSION_NAME" }
+        val versionName = versionNameField.initialValue.toString().trim().replace("\"","").replace("&quot;", "")
+
+        contexts.updatePatchStatusSettings(
+            "ReVanced Integrations",
+            versionName
+        )
+
+        // endregion
 
         /**
          * change ReVanced Extended title:
@@ -289,7 +271,7 @@ object SettingsPatch : AbstractSettingsResourcePatch(
             "", // used for the default values-v21
             *LANGUAGES
         ).forEach {
-            val valueFilePath: String = if (it != "") "res/values-$it-v21/strings.xml" else "res/values-v21/strings.xml"
+            val valueFilePath: String = if (it != "") "res/values-$it-v21/strings.xml" else "res/values/strings.xml"
 
             try {
                 contexts.xmlEditor[valueFilePath].use { editor ->
@@ -308,5 +290,6 @@ object SettingsPatch : AbstractSettingsResourcePatch(
             }
             catch (_: FileNotFoundException) { /* ignore missing files */ }
         }
+
     }
 }

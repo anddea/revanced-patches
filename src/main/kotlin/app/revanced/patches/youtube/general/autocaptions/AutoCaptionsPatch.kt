@@ -1,86 +1,37 @@
 package app.revanced.patches.youtube.general.autocaptions
 
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.patch.annotation.CompatiblePackage
-import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.shared.patch.captions.AbstractAutoCaptionsPatch
-import app.revanced.patches.youtube.utils.integrations.Constants.GENERAL
+import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.revanced.patches.youtube.utils.integrations.Constants.GENERAL_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
-import app.revanced.patches.youtube.utils.videoid.general.VideoIdPatch
+import app.revanced.patches.youtube.video.information.VideoInformationPatch
+import app.revanced.util.patch.BaseBytecodePatch
 
-@Patch(
+@Suppress("unused")
+object AutoCaptionsPatch : BaseBytecodePatch(
     name = "Disable auto captions",
     description = "Adds an option to disable captions from being automatically enabled.",
-    dependencies = [
+    dependencies = setOf(
+        AutoCaptionsBytecodePatch::class,
         SettingsPatch::class,
-        VideoIdPatch::class
-    ],
-    compatiblePackages = [
-        CompatiblePackage(
-            "com.google.android.youtube",
-            [
-                "18.25.40",
-                "18.27.36",
-                "18.29.38",
-                "18.30.37",
-                "18.31.40",
-                "18.32.39",
-                "18.33.40",
-                "18.34.38",
-                "18.35.36",
-                "18.36.39",
-                "18.37.36",
-                "18.38.44",
-                "18.39.41",
-                "18.40.34",
-                "18.41.39",
-                "18.42.41",
-                "18.43.45",
-                "18.44.41",
-                "18.45.43",
-                "18.46.45",
-                "18.48.39",
-                "18.49.37",
-                "19.01.34",
-                "19.02.39",
-                "19.03.36",
-                "19.04.38",
-                "19.05.36",
-                "19.06.39",
-                "19.07.40",
-                "19.08.36",
-                "19.09.38",
-                "19.10.39",
-                "19.11.43",
-                "19.12.41",
-                "19.13.37",
-                "19.14.43",
-                "19.15.36",
-                "19.16.38"
-            ]
-        )
-    ]
-)
-@Suppress("unused")
-object AutoCaptionsPatch : AbstractAutoCaptionsPatch(
-    GENERAL
+        VideoInformationPatch::class
+    ),
+    compatiblePackages = COMPATIBLE_PACKAGE
 ) {
     override fun execute(context: BytecodeContext) {
-        super.execute(context)
 
-        VideoIdPatch.injectCall("$GENERAL->newVideoStarted(Ljava/lang/String;)V")
+        VideoInformationPatch.hookBackgroundPlay("$GENERAL_CLASS_DESCRIPTOR->newVideoStarted(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JZ)V")
 
         /**
          * Add settings
          */
         SettingsPatch.addPreference(
             arrayOf(
-                "PREFERENCE: GENERAL_SETTINGS",
+                "PREFERENCE_SCREEN: GENERAL",
                 "SETTINGS: DISABLE_AUTO_CAPTIONS"
             )
         )
 
-        SettingsPatch.updatePatchStatus("Disable auto captions")
-
+        SettingsPatch.updatePatchStatus(this)
     }
 }

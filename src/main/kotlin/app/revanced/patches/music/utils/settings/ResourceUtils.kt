@@ -7,39 +7,28 @@ import app.revanced.util.doRecursively
 import app.revanced.util.insertNode
 import org.w3c.dom.Element
 
-@Suppress("MemberVisibilityCanBePrivate")
+@Suppress("DEPRECATION")
 object ResourceUtils {
 
-    const val YOUTUBE_MUSIC_SETTINGS_PATH = "res/xml/settings_headers.xml"
+    private const val RVX_SETTINGS_KEY = "revanced_extended_settings"
 
-    const val YOUTUBE_MUSIC_SETTINGS_KEY = "revanced_extended_settings"
+    const val SETTINGS_HEADER_PATH = "res/xml/settings_headers.xml"
 
-    const val RETURN_YOUTUBE_DISLIKE_SETTINGS_KEY = "revanced_ryd_settings"
-
-    const val YOUTUBE_MUSIC_PREFERENCE_SCREEN_TAG_NAME =
+    const val PREFERENCE_SCREEN_TAG_NAME =
         "PreferenceScreen"
 
-    const val YOUTUBE_MUSIC_PREFERENCE_TAG_NAME =
+    const val PREFERENCE_CATEGORY_TAG_NAME =
+        "com.google.android.apps.youtube.music.ui.preference.PreferenceCategoryCompat"
+
+    const val SWITCH_PREFERENCE_TAG_NAME =
         "com.google.android.apps.youtube.music.ui.preference.SwitchCompatPreference"
 
-    const val YOUTUBE_MUSIC_PREFERENCE_TARGET_CLASS =
+    const val ACTIVITY_HOOK_TARGET_CLASS =
         "com.google.android.gms.common.api.GoogleApiActivity"
 
-    var targetPackage = "com.google.android.apps.youtube.music"
+    var musicPackageName = "com.google.android.apps.youtube.music"
 
-    fun ResourceContext.setMicroG(newPackage: String) {
-        targetPackage = newPackage
-        replacePackageName()
-    }
-
-    fun setMusicPreferenceCategory(newCategory: String) {
-        CategoryType.entries.forEach { preference ->
-            if (newCategory == preference.value)
-                preference.added = true
-        }
-    }
-
-    fun included(category: String): Boolean {
+    private fun isIncludedCategory(category: String): Boolean {
         CategoryType.entries.forEach { preference ->
             if (category == preference.value)
                 return preference.added
@@ -47,34 +36,70 @@ object ResourceUtils {
         return false
     }
 
-    fun ResourceContext.addMusicPreferenceCategory(
+    private fun ResourceContext.replacePackageName() {
+        this[SETTINGS_HEADER_PATH].writeText(
+            this[SETTINGS_HEADER_PATH].readText()
+                .replace("\"com.google.android.apps.youtube.music\"", "\"" + musicPackageName + "\"")
+        )
+    }
+
+    private fun setPreferenceCategory(newCategory: String) {
+        CategoryType.entries.forEach { preference ->
+            if (newCategory == preference.value)
+                preference.added = true
+        }
+    }
+
+    fun ResourceContext.updatePackageName(newPackage: String) {
+        musicPackageName = newPackage
+        replacePackageName()
+    }
+
+    fun ResourceContext.addPreferenceCategory(
         category: String
     ) {
-        this.xmlEditor[YOUTUBE_MUSIC_SETTINGS_PATH].use { editor ->
-            val tags = editor.file.getElementsByTagName("PreferenceScreen")
+        this.xmlEditor[SETTINGS_HEADER_PATH].use { editor ->
+            val tags = editor.file.getElementsByTagName(PREFERENCE_SCREEN_TAG_NAME)
             List(tags.length) { tags.item(it) as Element }
-                .filter { it.getAttribute("android:key").contains(YOUTUBE_MUSIC_SETTINGS_KEY) }
+                .filter { it.getAttribute("android:key").contains(RVX_SETTINGS_KEY) }
                 .forEach {
-                    if (!included(category)) {
-                        it.adoptChild(YOUTUBE_MUSIC_PREFERENCE_SCREEN_TAG_NAME) {
-                            setAttribute("android:title", "@string/revanced_category_$category")
-                            setAttribute("android:key", "revanced_settings_$category")
+                    if (!isIncludedCategory(category)) {
+                        it.adoptChild(PREFERENCE_SCREEN_TAG_NAME) {
+                            setAttribute("android:title", "@string/revanced_preference_screen_$category" + "_title")
+                            setAttribute("android:key", "revanced_preference_screen_$category")
                         }
-                        setMusicPreferenceCategory(category)
+                        setPreferenceCategory(category)
                     }
                 }
         }
     }
 
-    fun ResourceContext.sortMusicPreferenceCategory(
+    fun ResourceContext.addPreferenceCategoryUnderPreferenceScreen(
+        preferenceScreenKey: String,
         category: String
     ) {
-        this.xmlEditor[YOUTUBE_MUSIC_SETTINGS_PATH].use { editor ->
+        this.xmlEditor[SETTINGS_HEADER_PATH].use { editor ->
+            val tags = editor.file.getElementsByTagName(PREFERENCE_SCREEN_TAG_NAME)
+            List(tags.length) { tags.item(it) as Element }
+                .filter { it.getAttribute("android:key").contains(preferenceScreenKey) }
+                .forEach {
+                    it.adoptChild(PREFERENCE_CATEGORY_TAG_NAME) {
+                        setAttribute("android:title", "@string/$category")
+                        setAttribute("android:key", category)
+                    }
+                }
+        }
+    }
+
+    fun ResourceContext.sortPreferenceCategory(
+        category: String
+    ) {
+        this.xmlEditor[SETTINGS_HEADER_PATH].use { editor ->
             editor.file.doRecursively loop@{
                 if (it !is Element) return@loop
 
                 it.getAttributeNode("android:key")?.let { attribute ->
-                    if (attribute.textContent == "revanced_settings_$category") {
+                    if (attribute.textContent == "revanced_preference_screen_$category") {
                         it.cloneNodes(it.parentNode)
                     }
                 }
@@ -83,23 +108,16 @@ object ResourceUtils {
         replacePackageName()
     }
 
-    fun ResourceContext.replacePackageName() {
-        this[YOUTUBE_MUSIC_SETTINGS_PATH].writeText(
-            this[YOUTUBE_MUSIC_SETTINGS_PATH].readText()
-                .replace("\"com.google.android.apps.youtube.music\"", "\"" + targetPackage + "\"")
-        )
-    }
-
     fun ResourceContext.addMicroGPreference(
         category: String,
         key: String,
         packageName: String,
         targetClassName: String
     ) {
-        this.xmlEditor[YOUTUBE_MUSIC_SETTINGS_PATH].use { editor ->
-            val tags = editor.file.getElementsByTagName(YOUTUBE_MUSIC_PREFERENCE_SCREEN_TAG_NAME)
+        this.xmlEditor[SETTINGS_HEADER_PATH].use { editor ->
+            val tags = editor.file.getElementsByTagName(PREFERENCE_SCREEN_TAG_NAME)
             List(tags.length) { tags.item(it) as Element }
-                .filter { it.getAttribute("android:key").contains("revanced_settings_$category") }
+                .filter { it.getAttribute("android:key").contains("revanced_preference_screen_$category") }
                 .forEach {
                     it.adoptChild("Preference") {
                         setAttribute("android:title", "@string/$key" + "_title")
@@ -117,20 +135,23 @@ object ResourceUtils {
         }
     }
 
-    fun ResourceContext.addMusicPreference(
+    fun ResourceContext.addSwitchPreference(
         category: String,
         key: String,
         defaultValue: String,
-        dependencyKey: String
+        dependencyKey: String,
+        setSummary: Boolean
     ) {
-        this.xmlEditor[YOUTUBE_MUSIC_SETTINGS_PATH].use { editor ->
-            val tags = editor.file.getElementsByTagName(YOUTUBE_MUSIC_PREFERENCE_SCREEN_TAG_NAME)
+        this.xmlEditor[SETTINGS_HEADER_PATH].use { editor ->
+            val tags = editor.file.getElementsByTagName(PREFERENCE_SCREEN_TAG_NAME)
             List(tags.length) { tags.item(it) as Element }
-                .filter { it.getAttribute("android:key").contains("revanced_settings_$category") }
+                .filter { it.getAttribute("android:key").contains("revanced_preference_screen_$category") }
                 .forEach {
-                    it.adoptChild(YOUTUBE_MUSIC_PREFERENCE_TAG_NAME) {
+                    it.adoptChild(SWITCH_PREFERENCE_TAG_NAME) {
                         setAttribute("android:title", "@string/$key" + "_title")
-                        setAttribute("android:summary", "@string/$key" + "_summary")
+                        if (setSummary) {
+                            setAttribute("android:summary", "@string/$key" + "_summary")
+                        }
                         setAttribute("android:key", key)
                         setAttribute("android:defaultValue", defaultValue)
                         if (dependencyKey != "") {
@@ -141,15 +162,15 @@ object ResourceUtils {
         }
     }
 
-    fun ResourceContext.addMusicPreferenceWithIntent(
+    fun ResourceContext.addPreferenceWithIntent(
         category: String,
         key: String,
         dependencyKey: String
     ) {
-        this.xmlEditor[YOUTUBE_MUSIC_SETTINGS_PATH].use { editor ->
-            val tags = editor.file.getElementsByTagName(YOUTUBE_MUSIC_PREFERENCE_SCREEN_TAG_NAME)
+        this.xmlEditor[SETTINGS_HEADER_PATH].use { editor ->
+            val tags = editor.file.getElementsByTagName(PREFERENCE_SCREEN_TAG_NAME)
             List(tags.length) { tags.item(it) as Element }
-                .filter { it.getAttribute("android:key").contains("revanced_settings_$category") }
+                .filter { it.getAttribute("android:key").contains("revanced_preference_screen_$category") }
                 .forEach {
                     it.adoptChild("Preference") {
                         setAttribute("android:title", "@string/$key" + "_title")
@@ -159,11 +180,11 @@ object ResourceUtils {
                             setAttribute("android:dependency", dependencyKey)
                         }
                         this.adoptChild("intent") {
-                            setAttribute("android:targetPackage", targetPackage)
+                            setAttribute("android:targetPackage", musicPackageName)
                             setAttribute("android:data", key)
                             setAttribute(
                                 "android:targetClass",
-                                YOUTUBE_MUSIC_PREFERENCE_TARGET_CLASS
+                                ACTIVITY_HOOK_TARGET_CLASS
                             )
                         }
                     }
@@ -171,29 +192,8 @@ object ResourceUtils {
         }
     }
 
-    fun ResourceContext.addMusicPreferenceWithoutSummary(
-        category: String,
-        key: String,
-        defaultValue: String
-    ) {
-        this.xmlEditor[YOUTUBE_MUSIC_SETTINGS_PATH].use { editor ->
-            val tags = editor.file.getElementsByTagName(YOUTUBE_MUSIC_PREFERENCE_SCREEN_TAG_NAME)
-            List(tags.length) { tags.item(it) as Element }
-                .filter { it.getAttribute("android:key").contains("revanced_settings_$category") }
-                .forEach {
-                    it.adoptChild(YOUTUBE_MUSIC_PREFERENCE_TAG_NAME) {
-                        setAttribute("android:title", "@string/$key" + "_title")
-                        setAttribute("android:key", key)
-                        setAttribute("android:defaultValue", defaultValue)
-                    }
-                }
-        }
-    }
-
-    fun ResourceContext.addReVancedMusicPreference(
-        key: String
-    ) {
-        this.xmlEditor[YOUTUBE_MUSIC_SETTINGS_PATH].use { editor ->
+    fun ResourceContext.addRVXSettingsPreference() {
+        this.xmlEditor[SETTINGS_HEADER_PATH].use { editor ->
             with(editor.file) {
                 doRecursively loop@{
                     if (it !is Element) return@loop
@@ -202,56 +202,12 @@ object ResourceUtils {
                                 "app:allowDividerBelow"
                             ).textContent == "false"
                         ) {
-                            it.insertNode("PreferenceScreen", it) {
+                            it.insertNode(PREFERENCE_SCREEN_TAG_NAME, it) {
                                 setAttribute(
                                     "android:title",
-                                    "@string/" + key + "_title"
+                                    "@string/revanced_extended_settings_title"
                                 )
-                                setAttribute("android:key", key)
-                                setAttribute("app:allowDividerAbove", "false")
-                                setAttribute("app:allowDividerAbove", "false")
-                            }
-                            it.getAttributeNode("app:allowDividerBelow").textContent = "true"
-                            return@loop
-                        }
-                    }
-                }
-
-                doRecursively loop@{
-                    if (it !is Element) return@loop
-
-                    it.getAttributeNode("app:allowDividerBelow")?.let { attribute ->
-                        if (attribute.textContent == "true") {
-                            attribute.textContent = "false"
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    fun ResourceContext.hookPreference(
-        key: String,
-        fragment: String
-    ) {
-        this.xmlEditor[YOUTUBE_MUSIC_SETTINGS_PATH].use { editor ->
-            with(editor.file) {
-                doRecursively loop@{
-                    if (it !is Element) return@loop
-                    it.getAttributeNode("android:key")?.let { attribute ->
-                        if (attribute.textContent == "settings_header_about_youtube_music" && it.getAttributeNode(
-                                "app:allowDividerBelow"
-                            ).textContent == "false"
-                        ) {
-                            it.insertNode("Preference", it) {
-                                setAttribute("android:persistent", "false")
-                                setAttribute(
-                                    "android:title",
-                                    "@string/" + key + "_title"
-                                )
-                                setAttribute("android:key", key)
-                                setAttribute("android:fragment", fragment)
-                                setAttribute("app:allowDividerAbove", "false")
+                                setAttribute("android:key", "revanced_extended_settings")
                                 setAttribute("app:allowDividerAbove", "false")
                             }
                             it.getAttributeNode("app:allowDividerBelow").textContent = "true"

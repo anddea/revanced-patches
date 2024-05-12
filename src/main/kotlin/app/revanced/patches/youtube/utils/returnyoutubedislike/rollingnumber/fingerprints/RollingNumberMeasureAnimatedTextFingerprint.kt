@@ -1,13 +1,12 @@
 package app.revanced.patches.youtube.utils.returnyoutubedislike.rollingnumber.fingerprints
 
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.util.fingerprint.ReferenceFingerprint
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 
 /**
- * Compatible with YouTube v18.30.xx to v18.49.xx
+ * This fingerprint is compatible with YouTube v18.30.xx+
  */
-object RollingNumberMeasureAnimatedTextFingerprint : MethodFingerprint(
+internal object RollingNumberMeasureAnimatedTextFingerprint : ReferenceFingerprint(
     opcodes = listOf(
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT,
@@ -15,20 +14,5 @@ object RollingNumberMeasureAnimatedTextFingerprint : MethodFingerprint(
         Opcode.ADD_INT_LIT8,
         Opcode.GOTO
     ),
-    customFingerprint = custom@{ methodDef, _ ->
-        if (methodDef.implementation == null)
-            return@custom false
-
-        for (instruction in methodDef.implementation!!.instructions) {
-            if (instruction.opcode != Opcode.INVOKE_VIRTUAL)
-                continue
-
-            val invokeInstruction = instruction as ReferenceInstruction
-            if (!invokeInstruction.reference.toString().endsWith("Landroid/text/TextPaint;->measureText([CII)F"))
-                continue
-
-            return@custom true
-        }
-        return@custom false
-    }
+    reference = { "Landroid/text/TextPaint;->measureText([CII)F" }
 )

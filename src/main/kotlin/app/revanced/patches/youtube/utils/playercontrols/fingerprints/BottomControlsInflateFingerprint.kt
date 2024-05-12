@@ -6,7 +6,7 @@ import app.revanced.util.fingerprint.LiteralValueFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-object BottomControlsInflateFingerprint : LiteralValueFingerprint(
+internal object BottomControlsInflateFingerprint : LiteralValueFingerprint(
     returnType = "Ljava/lang/Object;",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL or AccessFlags.SYNTHETIC,
     parameters = emptyList(),

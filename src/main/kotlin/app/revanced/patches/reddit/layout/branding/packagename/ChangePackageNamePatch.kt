@@ -1,35 +1,33 @@
 package app.revanced.patches.reddit.layout.branding.packagename
 
 import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.patch.PatchException
-import app.revanced.patcher.patch.ResourcePatch
-import app.revanced.patcher.patch.annotation.CompatiblePackage
-import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatchOption
+import app.revanced.patches.reddit.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.revanced.util.patch.BaseResourcePatch
 import org.w3c.dom.Element
 import java.io.Closeable
 
-@Patch(
+@Suppress("DEPRECATION", "unused")
+object ChangePackageNamePatch : BaseResourcePatch(
     name = "Change package name",
     description = "Changes the package name for Reddit to the name specified in options.json.",
-    compatiblePackages = [CompatiblePackage("com.reddit.frontpage")],
+    compatiblePackages = COMPATIBLE_PACKAGE,
     use = false
-)
-@Suppress("unused")
-object ChangePackageNamePatch : ResourcePatch(), Closeable {
+), Closeable {
     private const val PACKAGE_NAME_REDDIT = "com.reddit.frontpage"
     private const val CLONE_PACKAGE_NAME_REDDIT = "$PACKAGE_NAME_REDDIT.revanced"
     private const val DEFAULT_PACKAGE_NAME_REDDIT = "$PACKAGE_NAME_REDDIT.rvx"
 
     private lateinit var context: ResourceContext
-    private lateinit var redditPackageName: String
+    private var redditPackageName = PACKAGE_NAME_REDDIT
 
     private val PackageNameReddit by stringPatchOption(
         key = "PackageNameReddit",
-        default = DEFAULT_PACKAGE_NAME_REDDIT,
+        default = PACKAGE_NAME_REDDIT,
         values = mapOf(
             "Clone" to CLONE_PACKAGE_NAME_REDDIT,
-            "Default" to DEFAULT_PACKAGE_NAME_REDDIT
+            "Default" to DEFAULT_PACKAGE_NAME_REDDIT,
+            "Original" to PACKAGE_NAME_REDDIT,
         ),
         title = "Package name of Reddit",
         description = "The name of the package to rename the app to."
@@ -38,35 +36,44 @@ object ChangePackageNamePatch : ResourcePatch(), Closeable {
     override fun execute(context: ResourceContext) {
         this.context = context
 
-        redditPackageName = PackageNameReddit
-            ?: throw PatchException("Invalid package name.")
+        if (PackageNameReddit != null) {
+            redditPackageName = PackageNameReddit!!
+        } else {
+            println("WARNING: Invalid package name. Does not apply patches.")
+        }
 
-        // Ensure device runs Android.
-        try {
-            // RVX Manager
-            // ====
-            // For some reason, in Android AAPT2, a compilation error occurs when changing the [strings.xml] of the Reddit
-            // This only affects RVX Manager, and has not yet found a valid workaround
-            Class.forName("android.os.Environment")
-        } catch (_: ClassNotFoundException) {
-            // CLI
-            context.replacePackageName(redditPackageName)
+        if (redditPackageName != PACKAGE_NAME_REDDIT) {
+            // Ensure device runs Android.
+            try {
+                // RVX Manager
+                // ====
+                // For some reason, in Android AAPT2, a compilation error occurs when changing the [strings.xml] of the Reddit
+                // This only affects RVX Manager, and has not yet found a valid workaround
+                Class.forName("android.os.Environment")
+            } catch (_: ClassNotFoundException) {
+                // CLI
+                context.replacePackageName(redditPackageName)
+            }
+        } else {
+            println("INFO: Package name will remain unchanged as it matches the original.")
         }
     }
 
     override fun close() {
-        context["AndroidManifest.xml"].apply {
-            writeText(
-                readText()
-                    .replace(
-                        "package=\"$PACKAGE_NAME_REDDIT",
-                        "package=\"$redditPackageName"
-                    )
-                    .replace(
-                        "$PACKAGE_NAME_REDDIT.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION",
-                        "$redditPackageName.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
-                    )
-            )
+        if (redditPackageName != PACKAGE_NAME_REDDIT) {
+            context["AndroidManifest.xml"].apply {
+                writeText(
+                    readText()
+                        .replace(
+                            "package=\"$PACKAGE_NAME_REDDIT",
+                            "package=\"$redditPackageName"
+                        )
+                        .replace(
+                            "$PACKAGE_NAME_REDDIT.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION",
+                            "$redditPackageName.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+                        )
+                )
+            }
         }
     }
 

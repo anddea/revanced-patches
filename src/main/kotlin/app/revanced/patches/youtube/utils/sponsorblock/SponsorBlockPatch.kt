@@ -1,70 +1,26 @@
 package app.revanced.patches.youtube.utils.sponsorblock
 
 import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.patch.ResourcePatch
-import app.revanced.patcher.patch.annotation.CompatiblePackage
-import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.booleanPatchOption
+import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.ResourceGroup
 import app.revanced.util.copyResources
 import app.revanced.util.copyXmlNode
+import app.revanced.util.inputStreamFromBundledResource
+import app.revanced.util.patch.BaseResourcePatch
 
-@Patch(
+@Suppress("DEPRECATION", "unused")
+object SponsorBlockPatch : BaseResourcePatch(
     name = "SponsorBlock",
     description = "Integrates SponsorBlock which allows skipping video segments such as sponsored content.",
-    dependencies = [
+    dependencies = setOf(
         SettingsPatch::class,
         SponsorBlockBytecodePatch::class
-    ],
-    compatiblePackages = [
-        CompatiblePackage(
-            "com.google.android.youtube",
-            [
-                "18.25.40",
-                "18.27.36",
-                "18.29.38",
-                "18.30.37",
-                "18.31.40",
-                "18.32.39",
-                "18.33.40",
-                "18.34.38",
-                "18.35.36",
-                "18.36.39",
-                "18.37.36",
-                "18.38.44",
-                "18.39.41",
-                "18.40.34",
-                "18.41.39",
-                "18.42.41",
-                "18.43.45",
-                "18.44.41",
-                "18.45.43",
-                "18.46.45",
-                "18.48.39",
-                "18.49.37",
-                "19.01.34",
-                "19.02.39",
-                "19.03.36",
-                "19.04.38",
-                "19.05.36",
-                "19.06.39",
-                "19.07.40",
-                "19.08.36",
-                "19.09.38",
-                "19.10.39",
-                "19.11.43",
-                "19.12.41",
-                "19.13.37",
-                "19.14.43",
-                "19.15.36",
-                "19.16.38"
-            ]
-        )
-    ]
-)
-@Suppress("unused")
-object SponsorBlockPatch : ResourcePatch() {
+    ),
+    compatiblePackages = COMPATIBLE_PACKAGE
+) {
     private val OutlineIcon by booleanPatchOption(
         key = "OutlineIcon",
         default = true,
@@ -80,13 +36,13 @@ object SponsorBlockPatch : ResourcePatch() {
         arrayOf(
             ResourceGroup(
                 "layout",
-                "inline_sponsor_overlay.xml",
-                "skip_sponsor_button.xml"
+                "revanced_sb_inline_sponsor_overlay.xml",
+                "revanced_sb_skip_sponsor_button.xml"
             ),
             ResourceGroup(
                 "drawable",
-                "ns_bg.xml",
-                "sb_btn_bg.xml"
+                "revanced_sb_new_segment_background.xml",
+                "revanced_sb_skip_sponsor_button_background.xml"
             )
         ).forEach { resourceGroup ->
             context.copyResources("youtube/sponsorblock/shared", resourceGroup)
@@ -96,18 +52,18 @@ object SponsorBlockPatch : ResourcePatch() {
             arrayOf(
                 ResourceGroup(
                     "layout",
-                    "new_segment.xml"
+                    "revanced_sb_new_segment.xml"
                 ),
                 ResourceGroup(
                     "drawable",
-                    "ic_sb_adjust.xml",
-                    "ic_sb_backward.xml",
-                    "ic_sb_compare.xml",
-                    "ic_sb_edit.xml",
-                    "ic_sb_forward.xml",
-                    "ic_sb_logo.xml",
-                    "ic_sb_publish.xml",
-                    "ic_sb_voting.xml"
+                    "revanced_sb_adjust.xml",
+                    "revanced_sb_backward.xml",
+                    "revanced_sb_compare.xml",
+                    "revanced_sb_edit.xml",
+                    "revanced_sb_forward.xml",
+                    "revanced_sb_logo.xml",
+                    "revanced_sb_publish.xml",
+                    "revanced_sb_voting.xml"
                 )
             ).forEach { resourceGroup ->
                 context.copyResources("youtube/sponsorblock/outline", resourceGroup)
@@ -116,16 +72,16 @@ object SponsorBlockPatch : ResourcePatch() {
             arrayOf(
                 ResourceGroup(
                     "layout",
-                    "new_segment.xml"
+                    "revanced_sb_new_segment.xml"
                 ),
                 ResourceGroup(
                     "drawable",
-                    "ic_sb_adjust.xml",
-                    "ic_sb_compare.xml",
-                    "ic_sb_edit.xml",
-                    "ic_sb_logo.xml",
-                    "ic_sb_publish.xml",
-                    "ic_sb_voting.xml"
+                    "revanced_sb_adjust.xml",
+                    "revanced_sb_compare.xml",
+                    "revanced_sb_edit.xml",
+                    "revanced_sb_logo.xml",
+                    "revanced_sb_publish.xml",
+                    "revanced_sb_voting.xml"
                 )
             ).forEach { resourceGroup ->
                 context.copyResources("youtube/sponsorblock/default", resourceGroup)
@@ -137,44 +93,59 @@ object SponsorBlockPatch : ResourcePatch() {
          */
         // copy nodes from host resources to their real xml files
         val hostingResourceStream =
-            this.javaClass.classLoader.getResourceAsStream("youtube/sponsorblock/shared/host/layout/youtube_controls_layout.xml")!!
+            inputStreamFromBundledResource(
+                "youtube/sponsorblock",
+                "shared/host/layout/youtube_controls_layout.xml",
+            )!!
 
-        val targetXmlEditor = context.xmlEditor["res/layout/youtube_controls_layout.xml"]
+        var modifiedControlsLayout = false
+        val editor = context.xmlEditor["res/layout/youtube_controls_layout.xml"]
+
+        // voting button id from the voting button view from the youtube_controls_layout.xml host file
+        val votingButtonId = "@+id/revanced_sb_voting_button"
 
         "RelativeLayout".copyXmlNode(
             context.xmlEditor[hostingResourceStream],
-            targetXmlEditor
+            editor
         ).also {
-            val children = targetXmlEditor.file.getElementsByTagName("RelativeLayout")
-                .item(0).childNodes
+            val document = editor.file
+            val children = document.getElementsByTagName("RelativeLayout").item(0).childNodes
 
             // Replace the startOf with the voting button view so that the button does not overlap
             for (i in 1 until children.length) {
                 val view = children.item(i)
 
                 // Replace the attribute for a specific node only
-                if (!(view.hasAttributes() && view.attributes.getNamedItem("android:id").nodeValue.endsWith(
-                        "player_video_heading"
-                    ))
-                ) continue
-
-                // voting button id from the voting button view from the youtube_controls_layout.xml host file
-                val votingButtonId = "@+id/sb_voting_button"
+                if (!(
+                            view.hasAttributes() &&
+                                    view.attributes.getNamedItem(
+                                        "android:id",
+                                    ).nodeValue.endsWith("player_video_heading")
+                            )
+                ) {
+                    continue
+                }
 
                 view.attributes.getNamedItem("android:layout_toStartOf").nodeValue =
                     votingButtonId
 
+                modifiedControlsLayout = true
                 break
             }
-        }.close() // close afterwards
+        }.close()
 
+        if (!modifiedControlsLayout) throw PatchException("Could not modify controls layout")
 
         /**
-         * Add ReVanced Extended Settings
+         * Add settings
          */
-        SettingsPatch.addReVancedPreference("sponsorblock_settings")
+        SettingsPatch.addPreference(
+            arrayOf(
+                "PREFERENCE_SCREEN: SPONSOR_BLOCK"
+            )
+        )
 
-        SettingsPatch.updatePatchStatus("SponsorBlock")
+        SettingsPatch.updatePatchStatus(this)
 
     }
 }

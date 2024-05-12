@@ -86,9 +86,9 @@ Some components may not be hidden."</string>
 <string name="revanced_hide_live_chat_messages_summary_off">Live chat messages are shown</string>
 <string name="revanced_hide_live_chat_messages_summary_on">Live chat messages are hidden</string>
 <string name="revanced_hide_live_chat_messages_title">Hide live chat messages</string>
-<string name="revanced_hide_live_chat_replay_summary_off">Live chat replay button in bottom right corner is shown.\n\nIt appears in fullscreen when closing live chat.</string>
-<string name="revanced_hide_live_chat_replay_summary_on">Live chat replay button in bottom right corner is hidden.\n\nIt appears in fullscreen when closing live chat.</string>
-<string name="revanced_hide_live_chat_replay_title">Hide live chat replay button</string>
+<string name="revanced_hide_fullscreen_live_chat_replay_summary_off">Live chat replay button in bottom right corner is shown.\n\nIt appears in fullscreen when closing live chat.</string>
+<string name="revanced_hide_fullscreen_live_chat_replay_summary_on">Live chat replay button in bottom right corner is hidden.\n\nIt appears in fullscreen when closing live chat.</string>
+<string name="revanced_hide_fullscreen_live_chat_replay_title">Hide live chat replay button</string>
 <string name="revanced_hide_notifications_button_summary_off">Notifications button in navigation bar is shown.</string>
 <string name="revanced_hide_notifications_button_summary_on">Notifications button in navigation bar is hidden.</string>
 <string name="revanced_hide_notifications_button_title">Hide notifications button</string>
@@ -144,9 +144,9 @@ Some components may not be hidden."</string>
 <string name="revanced_hide_shorts_player_comments_button_summary_off">Comments button is shown.</string>
 <string name="revanced_hide_shorts_player_comments_button_summary_on">Comments button is hidden.</string>
 <string name="revanced_hide_shorts_player_comments_button_title">Hide comments button</string>
-<string name="revanced_hide_shorts_player_comments_disabled_button_summary_off">Disabled comments button or with label \"0\" is shown.</string>
-<string name="revanced_hide_shorts_player_comments_disabled_button_summary_on">Disabled comments button or with label \"0\" is hidden.</string>
-<string name="revanced_hide_shorts_player_comments_disabled_button_title">Hide disabled comments button</string>
+<string name="revanced_hide_shorts_comments_disabled_button_summary_off">Disabled comments button or with label \"0\" is shown.</string>
+<string name="revanced_hide_shorts_comments_disabled_button_summary_on">Disabled comments button or with label \"0\" is hidden.</string>
+<string name="revanced_hide_shorts_comments_disabled_button_title">Hide disabled comments button</string>
 <string name="revanced_hide_shorts_player_info_panel_summary_off">Info panel is shown.</string>
 <string name="revanced_hide_shorts_player_info_panel_summary_on">Info panel is hidden.</string>
 <string name="revanced_hide_shorts_player_info_panel_title">Hide info panel</string>
@@ -200,19 +200,19 @@ Some components may not be hidden."</string>
 <string name="revanced_hide_store_tab_title">Hide store tab</string>
 <string name="revanced_hide_suggested_video_overlay_auto_play_summary">When you finished a video, another play automatically</string>
 <string name="revanced_hide_suggested_video_overlay_auto_play_title">Auto play the next video</string>
-<string name="revanced_hide_video_with_duration_longer_than_summary">Videos with duration longer than this number will be hidden.</string>
-<string name="revanced_hide_video_with_duration_longer_than_title">Longer than duration</string>
-<string name="revanced_hide_video_with_duration_shorter_than_summary">Videos with duration shorter than this number will be hidden.</string>
-<string name="revanced_hide_video_with_duration_shorter_than_title">Shorter than duration</string>
-<string name="revanced_hide_video_with_duration_summary">Hide videos with shorter than or longer than duration.</string>
-<string name="revanced_hide_video_with_duration_title">Hide videos based on duration</string>
+<string name="revanced_hide_video_by_duration_longer_than_summary">Videos with duration longer than this number will be hidden.</string>
+<string name="revanced_hide_video_by_duration_longer_than_title">Longer than duration</string>
+<string name="revanced_hide_video_by_duration_shorter_than_summary">Videos with duration shorter than this number will be hidden.</string>
+<string name="revanced_hide_video_by_duration_shorter_than_title">Shorter than duration</string>
+<string name="revanced_hide_video_by_duration_summary">Hide videos with shorter than or longer than duration.</string>
+<string name="revanced_hide_video_by_duration_title">Hide videos based on duration</string>
 <string name="revanced_hide_video_with_gray_description_summary">"Hide videos with gray description from search results.
 Videos with a gray description include videos that are not related to search terms."</string>
 <string name="revanced_hide_video_with_gray_description_title">Hide videos with gray description</string>
-<string name="revanced_hide_video_with_greater_than_views_num_summary">Videos with views greater than this number will be hidden.</string>
-<string name="revanced_hide_video_with_greater_than_views_num_title">Greater than views</string>
-<string name="revanced_hide_video_with_less_than_views_num_summary">Videos with views less than this number will be hidden.</string>
-<string name="revanced_hide_video_with_less_than_views_num_title">Less than views</string>
+<string name="revanced_hide_video_view_counts_greater_than_summary">Videos with views greater than this number will be hidden.</string>
+<string name="revanced_hide_video_view_counts_greater_than_title">Greater than views</string>
+<string name="revanced_hide_video_view_counts_less_than_summary">Videos with views less than this number will be hidden.</string>
+<string name="revanced_hide_video_view_counts_less_than_title">Less than views</string>
 <string name="revanced_hide_video_with_low_view_num_multiplier_summary">Specify your language template for the number of views shown under each video in the user interface. Each key (a letter/word in your language) -> value (meaning of the key) must be on a new line. Keys go before "->" sign. If you switch app or system language you have to reset this setting.\n\nExamples:\nEnglish: 10K views = K -> 1000, views -> views\nSpanish: 10 K vistas = K -> 1000, vistas -> views</string>
 <string name="revanced_hide_video_with_low_view_num_multiplier_title">View keys</string>
 <string name="revanced_hide_video_with_low_view_num_multiplier_value">K -> 1 000\nM -> 1 000 000\nB -> 1 000 000 000\nviews -> views</string>
@@ -252,8 +252,8 @@ Tap and hold to reset playback speed to 1.0x. Tap and hold again to reset back t
 <string name="revanced_overlay_button_time_ordered_playlist_summary">"Tap to generate a playlist of all videos from channel from oldest to newest.
 Tap and hold to undo."</string>
 <string name="revanced_overlay_button_time_ordered_playlist_title">Time-ordered playlist button</string>
-<string name="revanced_overlay_button_whitelisting_summary">Tap to launch add channel into Channel Whitelist.</string>
-<string name="revanced_overlay_button_whitelisting_title">Whitelist button</string>
+<string name="revanced_overlay_button_whitelist_summary">Tap to launch add channel into Channel Whitelist.</string>
+<string name="revanced_overlay_button_whitelist_title">Whitelist button</string>
 <string name="revanced_override_premium_header_summary_off">Current Header: Default Header</string>
 <string name="revanced_override_premium_header_summary_on">Current Header: Premium Header</string>
 <string name="revanced_override_premium_header_title">Premium Header</string>
@@ -340,9 +340,9 @@ Known issues:
 <string name="revanced_swipe_gestures_lock_mode_summary_off">"Swipe gestures are disabled in 'Lock screen' mode."</string>
 <string name="revanced_swipe_gestures_lock_mode_summary_on">"Swipe gestures are enabled in 'Lock screen' mode."</string>
 <string name="revanced_swipe_gestures_lock_mode_title">"Swipe gestures in 'Lock screen' mode"</string>
-<string name="revanced_swipe_overlay_rect_summary">Percentage of swipeable screen area.</string>
-<string name="revanced_swipe_overlay_rect_title">Swipe overlay screen size</string>
-<string name="revanced_swipe_overlay_rect_warning" formatted="false">Swipeable area size can\'t be more than %s%%. Reset to default value.</string>
+<string name="revanced_swipe_overlay_rect_size_summary">Percentage of swipeable screen area.</string>
+<string name="revanced_swipe_overlay_rect_size_title">Swipe overlay screen size</string>
+<string name="revanced_swipe_overlay_rect_size_warning" formatted="false">Swipeable area size can\'t be more than %s%%. Reset to default value.</string>
 <string name="revanced_switching_create_notification_summary">"Swap the positions of the create button and notification button by spoofing the device's information.
 
 • Even if you change this setting, it may not take effect until you reboot the device.

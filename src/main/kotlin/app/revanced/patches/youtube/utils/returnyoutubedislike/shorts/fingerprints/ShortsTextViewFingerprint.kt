@@ -3,7 +3,7 @@ package app.revanced.patches.youtube.utils.returnyoutubedislike.shorts.fingerpri
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.Opcode
 
-object ShortsTextViewFingerprint : MethodFingerprint(
+internal object ShortsTextViewFingerprint : MethodFingerprint(
     returnType = "V",
     parameters = listOf("L", "L"),
     opcodes = listOf(

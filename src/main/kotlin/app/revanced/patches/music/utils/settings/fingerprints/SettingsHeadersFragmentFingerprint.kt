@@ -3,7 +3,7 @@ package app.revanced.patches.music.utils.settings.fingerprints
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.Opcode
 
-object SettingsHeadersFragmentFingerprint : MethodFingerprint(
+internal object SettingsHeadersFragmentFingerprint : MethodFingerprint(
     returnType = "V",
     parameters = listOf("L"),
     opcodes = listOf(

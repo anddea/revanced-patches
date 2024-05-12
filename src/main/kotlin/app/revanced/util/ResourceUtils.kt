@@ -1,9 +1,12 @@
+@file:Suppress("DEPRECATION", "MemberVisibilityCanBePrivate", "SpellCheckingInspection")
+
 package app.revanced.util
 
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.util.DomFileEditor
 import org.w3c.dom.Element
 import org.w3c.dom.Node
+import java.io.InputStream
 import java.nio.file.Files
 import java.nio.file.StandardCopyOption
 
@@ -47,12 +50,13 @@ fun String.startsWithAny(vararg prefixes: String): Boolean {
 
 /**
  * Copy resources from the current class loader to the resource directory.
+ *
  * @param sourceResourceDirectory The source resource directory name.
  * @param resources The resources to copy.
  */
 fun ResourceContext.copyResources(
     sourceResourceDirectory: String,
-    vararg resources: ResourceGroup
+    vararg resources: ResourceGroup,
 ) {
     val targetResourceDirectory = this["res"]
 
@@ -60,13 +64,18 @@ fun ResourceContext.copyResources(
         resourceGroup.resources.forEach { resource ->
             val resourceFile = "${resourceGroup.resourceDirectoryName}/$resource"
             Files.copy(
-                classLoader.getResourceAsStream("$sourceResourceDirectory/$resourceFile")!!,
+                inputStreamFromBundledResource(sourceResourceDirectory, resourceFile)!!,
                 targetResourceDirectory.resolve(resourceFile).toPath(),
-                StandardCopyOption.REPLACE_EXISTING
+                StandardCopyOption.REPLACE_EXISTING,
             )
         }
     }
 }
+
+internal fun inputStreamFromBundledResource(
+    sourceResourceDirectory: String,
+    resourceFile: String,
+): InputStream? = classLoader.getResourceAsStream("$sourceResourceDirectory/$resourceFile")
 
 /**
  * Resource names mapped to their corresponding resource data.
@@ -87,7 +96,7 @@ fun ResourceContext.copyXmlNode(
     elementTag: String
 ) {
     val stringsResourceInputStream =
-        classLoader.getResourceAsStream("$resourceDirectory/$targetResource")!!
+        inputStreamFromBundledResource(resourceDirectory, targetResource)!!
 
     // Copy nodes from the resources node to the real resource node
     elementTag.copyXmlNode(

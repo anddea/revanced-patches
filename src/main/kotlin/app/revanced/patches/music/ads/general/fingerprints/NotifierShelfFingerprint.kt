@@ -7,7 +7,7 @@ import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.MusicNo
 import app.revanced.util.containsWideLiteralInstructionIndex
 import com.android.tools.smali.dexlib2.AccessFlags
 
-object NotifierShelfFingerprint : MethodFingerprint(
+internal object NotifierShelfFingerprint : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
     customFingerprint = { methodDef, _ ->

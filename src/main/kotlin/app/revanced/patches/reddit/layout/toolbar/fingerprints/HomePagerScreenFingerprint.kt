@@ -6,7 +6,7 @@ import app.revanced.patches.reddit.utils.resourceid.SharedResourceIdPatch.ToolBa
 import app.revanced.util.containsWideLiteralInstructionIndex
 import com.android.tools.smali.dexlib2.AccessFlags
 
-object HomePagerScreenFingerprint : MethodFingerprint(
+internal object HomePagerScreenFingerprint : MethodFingerprint(
     returnType = "Landroid/view/View;",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("Landroid/view/LayoutInflater;", "Landroid/view/ViewGroup;"),

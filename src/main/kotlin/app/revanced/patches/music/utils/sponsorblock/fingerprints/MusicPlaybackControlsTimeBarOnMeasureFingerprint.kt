@@ -1,9 +1,9 @@
-package app.revanced.patches.music.utils.sponsorblock.bytecode.fingerprints
+package app.revanced.patches.music.utils.sponsorblock.fingerprints
 
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.Opcode
 
-object MusicPlaybackControlsTimeBarOnMeasureFingerprint : MethodFingerprint(
+internal object MusicPlaybackControlsTimeBarOnMeasureFingerprint : MethodFingerprint(
     returnType = "V",
     opcodes = listOf(
         Opcode.IGET_OBJECT,

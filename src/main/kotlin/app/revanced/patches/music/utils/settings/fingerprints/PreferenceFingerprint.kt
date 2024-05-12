@@ -4,7 +4,7 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-object PreferenceFingerprint : MethodFingerprint(
+internal object PreferenceFingerprint : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PROTECTED.value,
     parameters = listOf("Z"),

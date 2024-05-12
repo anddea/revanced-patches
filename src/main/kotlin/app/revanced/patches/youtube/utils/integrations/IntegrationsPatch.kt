@@ -1,8 +1,7 @@
 package app.revanced.patches.youtube.utils.integrations
 
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.shared.patch.integrations.AbstractIntegrationsPatch
-import app.revanced.patches.youtube.utils.integrations.Constants.INTEGRATIONS_PATH
+import app.revanced.patches.shared.integrations.BaseIntegrationsPatch
 import app.revanced.patches.youtube.utils.integrations.fingerprints.APIPlayerServiceFingerprint
 import app.revanced.patches.youtube.utils.integrations.fingerprints.ApplicationInitFingerprint
 import app.revanced.patches.youtube.utils.integrations.fingerprints.EmbeddedPlayerControlsOverlayFingerprint
@@ -12,8 +11,7 @@ import app.revanced.patches.youtube.utils.integrations.fingerprints.RemoteEmbedd
 import app.revanced.patches.youtube.utils.integrations.fingerprints.StandalonePlayerActivityFingerprint
 
 @Patch(requiresIntegrations = true)
-object IntegrationsPatch : AbstractIntegrationsPatch(
-    "$INTEGRATIONS_PATH/utils/ReVancedUtils;",
+object IntegrationsPatch : BaseIntegrationsPatch(
     setOf(
         ApplicationInitFingerprint,
         StandalonePlayerActivityFingerprint,
