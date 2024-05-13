@@ -17,7 +17,7 @@ internal object EndpointUrlBuilderFingerprint : MethodFingerprint(
     opcodes = listOf(
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT_OBJECT,
-        Opcode.INVOKE_VIRTUAL,    // Uri.toString(String formatStreamData)
+        Opcode.INVOKE_VIRTUAL,    // Uri.toString()
         Opcode.MOVE_RESULT_OBJECT,
     ),
     strings = listOf("asig"),
