@@ -5,7 +5,7 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-object PlayerTypeFingerprint : MethodFingerprint(
+internal object PlayerTypeFingerprint : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("L"),
@@ -13,5 +13,7 @@ object PlayerTypeFingerprint : MethodFingerprint(
         Opcode.IF_NE,
         Opcode.RETURN_VOID
     ),
-    customFingerprint = { methodDef, _ -> methodDef.definingClass.endsWith("/YouTubePlayerOverlaysLayout;") }
+    customFingerprint = { methodDef, _ ->
+        methodDef.definingClass.endsWith("/YouTubePlayerOverlaysLayout;")
+    }
 )

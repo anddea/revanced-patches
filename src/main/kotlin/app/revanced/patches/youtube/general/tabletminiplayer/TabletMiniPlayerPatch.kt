@@ -3,161 +3,187 @@ package app.revanced.patches.youtube.general.tabletminiplayer
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.fingerprint.MethodFingerprintResult
-import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.annotation.CompatiblePackage
-import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.general.tabletminiplayer.fingerprints.MiniPlayerDimensionsCalculatorFingerprint
 import app.revanced.patches.youtube.general.tabletminiplayer.fingerprints.MiniPlayerOverrideFingerprint
 import app.revanced.patches.youtube.general.tabletminiplayer.fingerprints.MiniPlayerOverrideNoContextFingerprint
 import app.revanced.patches.youtube.general.tabletminiplayer.fingerprints.MiniPlayerResponseModelSizeCheckFingerprint
-import app.revanced.patches.youtube.utils.integrations.Constants.GENERAL
+import app.revanced.patches.youtube.general.tabletminiplayer.fingerprints.ModernMiniPlayerConfigFingerprint
+import app.revanced.patches.youtube.general.tabletminiplayer.fingerprints.ModernMiniPlayerConstructorFingerprint
+import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.revanced.patches.youtube.utils.integrations.Constants.GENERAL_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
+import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.ModernMiniPlayerForwardButton
+import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.ModernMiniPlayerRewindButton
+import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.YtOutlinePiPWhite
+import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.YtOutlineXWhite
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
-import app.revanced.util.exception
+import app.revanced.util.REGISTER_TEMPLATE_REPLACEMENT
+import app.revanced.util.getReference
 import app.revanced.util.getStringInstructionIndex
+import app.revanced.util.getTargetIndex
+import app.revanced.util.getTargetIndexReversed
+import app.revanced.util.getWalkerMethod
+import app.revanced.util.indexOfFirstInstruction
+import app.revanced.util.literalInstructionHook
+import app.revanced.util.literalInstructionViewHook
+import app.revanced.util.patch.BaseBytecodePatch
+import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
-@Patch(
+@Suppress("unused")
+object TabletMiniPlayerPatch : BaseBytecodePatch(
     name = "Enable tablet mini player",
     description = "Adds an option to enable the tablet mini player layout.",
-    dependencies = [
+    dependencies = setOf(
         SettingsPatch::class,
         SharedResourceIdPatch::class
-    ],
-    compatiblePackages = [
-        CompatiblePackage(
-            "com.google.android.youtube",
-            [
-                "18.25.40",
-                "18.27.36",
-                "18.29.38",
-                "18.30.37",
-                "18.31.40",
-                "18.32.39",
-                "18.33.40",
-                "18.34.38",
-                "18.35.36",
-                "18.36.39",
-                "18.37.36",
-                "18.38.44",
-                "18.39.41",
-                "18.40.34",
-                "18.41.39",
-                "18.42.41",
-                "18.43.45",
-                "18.44.41",
-                "18.45.43",
-                "18.46.45",
-                "18.48.39",
-                "18.49.37",
-                "19.01.34",
-                "19.02.39",
-                "19.03.36",
-                "19.04.38",
-                "19.05.36",
-                "19.06.39",
-                "19.07.40",
-                "19.08.36",
-                "19.09.38",
-                "19.10.39",
-                "19.11.43",
-                "19.12.41",
-                "19.13.37",
-                "19.14.43",
-                "19.15.36",
-                "19.16.38"
-            ]
-        )
-    ]
-)
-@Suppress("unused")
-object TabletMiniPlayerPatch : BytecodePatch(
-    setOf(
+    ),
+    compatiblePackages = COMPATIBLE_PACKAGE,
+    fingerprints = setOf(
         MiniPlayerDimensionsCalculatorFingerprint,
         MiniPlayerResponseModelSizeCheckFingerprint,
-        MiniPlayerOverrideFingerprint
+        MiniPlayerOverrideFingerprint,
+        ModernMiniPlayerConfigFingerprint,
+        ModernMiniPlayerConstructorFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext) {
 
-        MiniPlayerDimensionsCalculatorFingerprint.result?.let { parentResult ->
-            MiniPlayerOverrideNoContextFingerprint.also {
-                it.resolve(
-                    context,
-                    parentResult.classDef
-                )
-            }.result?.let { result ->
-                val (method, _, parameterRegister) = result.addProxyCall()
-                method.insertOverride(
-                    method.implementation!!.instructions.size - 1,
-                    parameterRegister
-                )
-            } ?: throw MiniPlayerOverrideNoContextFingerprint.exception
-        } ?: throw MiniPlayerDimensionsCalculatorFingerprint.exception
-
-        MiniPlayerOverrideFingerprint.result?.let {
+        MiniPlayerOverrideNoContextFingerprint.resolve(
+            context,
+            MiniPlayerDimensionsCalculatorFingerprint.resultOrThrow().classDef
+        )
+        MiniPlayerOverrideNoContextFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                (context.toMethodWalker(this)
-                    .nextMethod(getStringInstructionIndex("appName") + 2, true)
-                    .getMethod() as MutableMethod)
-                    .instructionProxyCall()
+                hook(getTargetIndex(Opcode.RETURN))
+                hook(getTargetIndexReversed(Opcode.RETURN))
             }
-        } ?: throw MiniPlayerOverrideFingerprint.exception
+        }
 
-        MiniPlayerResponseModelSizeCheckFingerprint.result?.addProxyCall()
-            ?: throw MiniPlayerResponseModelSizeCheckFingerprint.exception
+        if (SettingsPatch.upward1912) {
+            ModernMiniPlayerConfigFingerprint.resultOrThrow().let {
+                it.mutableMethod.apply {
+                    hook(it.scanResult.patternScanResult!!.endIndex)
+                }
+            }
+
+            ModernMiniPlayerConstructorFingerprint.resultOrThrow().let {
+                it.mutableClass.methods.forEach { mutableMethod ->
+                    mutableMethod.hookModernMiniPlayer()
+                }
+            }
+
+            // In ModernMiniPlayer, the drawables of the close button and expand button are reversed.
+            // OnClickListener appears to be applied normally, so this appears to be a bug in YouTube.
+            // To solve this, swap the drawables of the close and expand buttons.
+            // This Drawable will be used in multiple Classes, so instead of using LiteralValueFingerprint to patch only specific methods,
+            // Apply the patch to all methods where literals are used.
+            mapOf(
+                YtOutlineXWhite to "replaceCloseButtonDrawableId",
+                YtOutlinePiPWhite to "replaceExpandButtonDrawableId"
+            ).forEach { (literal, methodName) ->
+                val smaliInstruction = """
+                    invoke-static {v$REGISTER_TEMPLATE_REPLACEMENT}, $GENERAL_CLASS_DESCRIPTOR->$methodName(I)I
+                    move-result v$REGISTER_TEMPLATE_REPLACEMENT
+                    """
+
+                context.literalInstructionHook(literal, smaliInstruction)
+            }
+
+            arrayOf(
+                ModernMiniPlayerForwardButton,
+                ModernMiniPlayerRewindButton
+            ).forEach { literal ->
+                val smaliInstruction = """
+                    invoke-static {v$REGISTER_TEMPLATE_REPLACEMENT}, $GENERAL_CLASS_DESCRIPTOR->hideRewindAndForwardButton(Landroid/view/View;)V
+                    """
+
+                context.literalInstructionViewHook(literal, smaliInstruction)
+            }
+
+            SettingsPatch.addPreference(
+                arrayOf(
+                    "SETTINGS: ENABLE_MODERN_MINI_PLAYER"
+                )
+            )
+        } else {
+            MiniPlayerOverrideFingerprint.resultOrThrow().let {
+                it.mutableMethod.apply {
+                    val walkerMethod = getWalkerMethod(context, getStringInstructionIndex("appName") + 2)
+
+                    walkerMethod.apply {
+                        hook(getTargetIndex(Opcode.RETURN))
+                        hook(getTargetIndexReversed(Opcode.RETURN))
+                    }
+                }
+            }
+
+            MiniPlayerResponseModelSizeCheckFingerprint.resultOrThrow().let {
+                it.mutableMethod.apply {
+                    hook(it.scanResult.patternScanResult!!.endIndex)
+                }
+            }
+        }
 
         /**
          * Add settings
          */
         SettingsPatch.addPreference(
             arrayOf(
-                "PREFERENCE: GENERAL_SETTINGS",
+                "PREFERENCE_SCREEN: GENERAL",
                 "SETTINGS: ENABLE_TABLET_MINI_PLAYER"
             )
         )
 
-        SettingsPatch.updatePatchStatus("Enable tablet mini player")
-
+        SettingsPatch.updatePatchStatus(this)
     }
 
-    // helper methods
-    private fun MethodFingerprintResult.addProxyCall(): Triple<MutableMethod, Int, Int> {
-        val (method, scanIndex, parameterRegister) = this.unwrap()
-        method.insertOverride(scanIndex, parameterRegister)
+    private fun MutableMethod.hook(index: Int) =
+        hook(index, "enableTabletMiniPlayer")
 
-        return Triple(method, scanIndex, parameterRegister)
-    }
+    private fun MutableMethod.hook(
+        index: Int,
+        methodName: String
+    ) {
+        val register = getInstruction<OneRegisterInstruction>(index).registerA
 
-    private fun MutableMethod.insertOverride(index: Int, overrideRegister: Int) {
-        this.addInstructions(
+        addInstructions(
             index, """
-                invoke-static {v$overrideRegister}, $GENERAL->enableTabletMiniPlayer(Z)Z
-                move-result v$overrideRegister
+                invoke-static {v$register}, $GENERAL_CLASS_DESCRIPTOR->$methodName(Z)Z
+                move-result v$register
                 """
         )
     }
 
-    private fun MutableMethod.instructionProxyCall() {
-        val insertInstructions = this.implementation!!.instructions
-        for ((index, instruction) in insertInstructions.withIndex()) {
-            if (instruction.opcode != Opcode.RETURN) continue
-            val parameterRegister = this.getInstruction<OneRegisterInstruction>(index).registerA
-            this.insertOverride(index, parameterRegister)
-            this.insertOverride(insertInstructions.size - 1, parameterRegister)
-            break
+    private fun MutableMethod.hookModernMiniPlayer() {
+        if (returnType == "Z") {
+            hook(getTargetIndexReversed(Opcode.RETURN), "enableModernMiniPlayer")
+            hook(getTargetIndex(Opcode.RETURN), "enableModernMiniPlayer")
         }
-    }
 
-    private fun MethodFingerprintResult.unwrap(): Triple<MutableMethod, Int, Int> {
-        val scanIndex = this.scanResult.patternScanResult!!.endIndex
-        val method = this.mutableMethod
-        val parameterRegister =
-            method.getInstruction<OneRegisterInstruction>(scanIndex).registerA
+        val iPutIndex = indexOfFirstInstruction {
+            this.opcode == Opcode.IPUT
+                    && this.getReference<FieldReference>()?.type == "I"
+        }
 
-        return Triple(method, scanIndex, parameterRegister)
+        if (iPutIndex < 0) return
+
+        val targetReference = getInstruction<ReferenceInstruction>(iPutIndex).reference
+        val targetInstruction = getInstruction<TwoRegisterInstruction>(iPutIndex)
+
+        addInstructions(
+            iPutIndex + 1, """
+                invoke-static {v${targetInstruction.registerA}}, $GENERAL_CLASS_DESCRIPTOR->enableModernMiniPlayer(I)I
+                move-result v${targetInstruction.registerA}
+                iput v${targetInstruction.registerA}, v${targetInstruction.registerB}, $targetReference
+                """
+        )
+        removeInstruction(iPutIndex)
     }
 }

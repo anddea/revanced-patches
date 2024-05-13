@@ -6,7 +6,7 @@ import app.revanced.patches.reddit.utils.resourceid.SharedResourceIdPatch.LabelA
 import app.revanced.util.containsWideLiteralInstructionIndex
 import com.android.tools.smali.dexlib2.AccessFlags
 
-object AcknowledgementsLabelBuilderFingerprint : MethodFingerprint(
+internal object AcknowledgementsLabelBuilderFingerprint : MethodFingerprint(
     returnType = "Z",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("Landroidx/preference/Preference;"),

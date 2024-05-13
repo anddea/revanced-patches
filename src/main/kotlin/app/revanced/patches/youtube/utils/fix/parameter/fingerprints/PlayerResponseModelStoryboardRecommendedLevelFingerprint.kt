@@ -1,8 +1,8 @@
 package app.revanced.patches.youtube.utils.fix.parameter.fingerprints
 
-import app.revanced.util.containsWideLiteralInstructionIndex
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.util.containsWideLiteralInstructionIndex
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 

@@ -7,7 +7,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patches.youtube.utils.integrations.Constants.UTILS_PATH
 import app.revanced.patches.youtube.utils.lockmodestate.fingerprint.LockModeStateFingerprint
-import app.revanced.util.exception
+import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 object LockModeStateHookPatch : BytecodePatch(
@@ -15,7 +15,7 @@ object LockModeStateHookPatch : BytecodePatch(
 ) {
     override fun execute(context: BytecodeContext) {
 
-        LockModeStateFingerprint.result?.let {
+        LockModeStateFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
                 val insertIndex = it.scanResult.patternScanResult!!.endIndex
                 val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
@@ -28,7 +28,7 @@ object LockModeStateHookPatch : BytecodePatch(
                 )
                 removeInstruction(insertIndex)
             }
-        } ?: throw LockModeStateFingerprint.exception
+        }
 
     }
 
