@@ -10,7 +10,6 @@ object DoubleTapOverlayBackgroundPatch : BaseResourcePatch(
     name = "Hide double tap overlay filter",
     description = "Hides the dark overlay when double-tapping to seek.",
     compatiblePackages = COMPATIBLE_PACKAGE,
-    use = false
 ) {
     override fun execute(context: ResourceContext) {
         context.removeOverlayBackground(
