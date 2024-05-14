@@ -110,6 +110,10 @@ object VisualPreferencesIconsPatch : BaseResourcePatch(
             "revanced_hide_navigation_notifications_button",
             "revanced_hide_navigation_shorts_button",
             "revanced_hide_navigation_subscriptions_button",
+            "revanced_hide_player_autoplay_button",
+            "revanced_hide_player_captions_button",
+            "revanced_hide_player_cast_button",
+            "revanced_hide_player_collapse_button",
             "revanced_hide_player_flyout_menu_ambient_mode",
             "revanced_hide_player_flyout_menu_audio_track",
             "revanced_hide_player_flyout_menu_captions",
@@ -123,6 +127,9 @@ object VisualPreferencesIconsPatch : BaseResourcePatch(
             "revanced_hide_player_flyout_menu_stable_volume",
             "revanced_hide_player_flyout_menu_stats_for_nerds",
             "revanced_hide_player_flyout_menu_watch_in_vr",
+            "revanced_hide_player_fullscreen_button",
+            "revanced_hide_player_previous_next_button",
+            "revanced_hide_player_youtube_music_button",
             "revanced_hide_playlist_button",
             "revanced_hide_quick_actions_comment_button",
             "revanced_hide_quick_actions_dislike_button",
@@ -236,12 +243,15 @@ object VisualPreferencesIconsPatch : BaseResourcePatch(
                 "revanced_hide_navigation_library_button" -> "revanced_preference_screen_video_icon"
                 "revanced_hide_navigation_notifications_button" -> "notification_key_icon"
                 "revanced_hide_navigation_shorts_button" -> "revanced_preference_screen_shorts_icon"
+                "revanced_hide_player_autoplay_button" -> "revanced_change_player_flyout_menu_toggle_icon"
+                "revanced_hide_player_captions_button" -> "captions_key_icon"
                 "revanced_hide_player_flyout_menu_ambient_mode" -> "revanced_preference_screen_ambient_mode_icon"
                 "revanced_hide_player_flyout_menu_captions" -> "captions_key_icon"
                 "revanced_hide_player_flyout_menu_loop_video" -> "revanced_overlay_button_always_repeat_icon"
                 "revanced_hide_player_flyout_menu_more_info" -> "about_key_icon"
                 "revanced_hide_player_flyout_menu_quality_footer" -> "revanced_default_video_quality_wifi_icon"
                 "revanced_hide_player_flyout_menu_report" -> "revanced_hide_report_button_icon"
+                "revanced_hide_player_fullscreen_button" -> "revanced_preference_screen_fullscreen_icon"
                 "revanced_hide_quick_actions_dislike_button" -> "revanced_preference_screen_ryd_icon"
                 "revanced_hide_quick_actions_live_chat_button" -> "live_chat_key_icon"
                 "revanced_hide_quick_actions_save_to_playlist_button" -> "revanced_hide_playlist_button_icon"
