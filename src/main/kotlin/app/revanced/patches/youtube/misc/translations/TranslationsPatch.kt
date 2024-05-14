@@ -15,6 +15,7 @@ import javax.xml.transform.TransformerFactory
 import javax.xml.transform.dom.DOMSource
 import javax.xml.transform.stream.StreamResult
 
+// Array of supported languages, each represented by its language code.
 val LANGUAGES = arrayOf(
     "ar",
     "bg-rBG",
@@ -60,6 +61,13 @@ object TranslationsPatch : BaseResourcePatch(
             .trimIndent(), // Remove the leading newline.
     )
 
+    private var SelectedLanguages by stringPatchOption(
+        key = "SelectedLanguages",
+        default = LANGUAGES.joinToString(", "),
+        title = "Selected languages",
+        description = "",
+    )
+
     override fun execute(context: ResourceContext) {
         CustomLanguage?.let { customLang ->
             if (customLang.isNotEmpty()) {
@@ -84,9 +92,20 @@ object TranslationsPatch : BaseResourcePatch(
                 }
             }
             else {
+                // Split the selected languages string into a list and filter the LANGUAGES array.
+                val selectedLanguagesArray = SelectedLanguages!!
+                    .split(",").map { it.trim() }.toTypedArray()
+                val filteredLanguages = LANGUAGES.filter { it in selectedLanguagesArray }.toTypedArray()
+
+                /**
+                 * Copies XML translation files for the selected languages from the source directory.
+                 *
+                 * sourceDirectory The source directory containing the translation files.
+                 * languageArray The array of language codes to process.
+                 */
                 context.copyXml(
                     "youtube",
-                    LANGUAGES
+                    filteredLanguages
                 )
             }
         }
