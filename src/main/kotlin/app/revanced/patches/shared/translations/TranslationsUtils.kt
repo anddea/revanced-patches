@@ -7,6 +7,12 @@ import java.nio.file.StandardCopyOption
 
 @Suppress("DEPRECATION")
 object TranslationsUtils {
+    /**
+     * Extension function to ResourceContext to copy XML translation files.
+     *
+     * @param sourceDirectory The source directory containing the translation files.
+     * @param languageArray The array of language codes to process.
+     */
     internal fun ResourceContext.copyXml(
         sourceDirectory: String,
         languageArray: Array<String>
