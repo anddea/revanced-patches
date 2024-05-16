@@ -315,6 +315,7 @@ public final class app/revanced/patches/music/utils/resourceid/SharedResourceIdP
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 	public final fun getAccountSwitcherAccessibility ()J
+	public final fun getAudioVideoSwitchToggle ()J
 	public final fun getButtonContainer ()J
 	public final fun getButtonIconPaddingMedium ()J
 	public final fun getChipCloud ()J
@@ -352,6 +353,7 @@ public final class app/revanced/patches/music/utils/resourceid/SharedResourceIdP
 	public final fun getTrimSilenceSwitch ()J
 	public final fun getVarispeedUnavailableTitle ()J
 	public final fun setAccountSwitcherAccessibility (J)V
+	public final fun setAudioVideoSwitchToggle (J)V
 	public final fun setButtonContainer (J)V
 	public final fun setButtonIconPaddingMedium (J)V
 	public final fun setChipCloud (J)V
