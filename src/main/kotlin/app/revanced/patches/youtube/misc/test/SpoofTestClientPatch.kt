@@ -6,20 +6,23 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWith
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.util.smali.ExternalLabel
+import app.revanced.patches.shared.spoofappversion.fingerprints.ClientInfoFingerprint
+import app.revanced.patches.shared.spoofappversion.fingerprints.ClientInfoParentFingerprint
 import app.revanced.patches.youtube.misc.test.fingerprints.ClientNamelEnumConstructorFingerprint
-import app.revanced.patches.youtube.misc.test.fingerprints.OverrideBuildVersionFingerprint
 import app.revanced.patches.youtube.misc.test.fingerprints.SetClientNameFingerprint
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.integrations.Constants.MISC_PATH
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.getStringInstructionIndex
 import app.revanced.util.getTargetIndex
+import app.revanced.util.getTargetIndexReversed
+import app.revanced.util.getTargetIndexWithFieldReferenceName
 import app.revanced.util.getWalkerMethod
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Suppress("unused")
@@ -29,9 +32,9 @@ object SpoofTestClientPatch : BaseBytecodePatch(
     dependencies = setOf(SettingsPatch::class),
     compatiblePackages = COMPATIBLE_PACKAGE,
     fingerprints = setOf(
+        ClientInfoParentFingerprint,
         ClientNamelEnumConstructorFingerprint,
-        OverrideBuildVersionFingerprint,
-        SetClientNameFingerprint
+        SetClientNameFingerprint,
     )
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
@@ -80,17 +83,22 @@ object SpoofTestClientPatch : BaseBytecodePatch(
 
         // region override client version
 
-        OverrideBuildVersionFingerprint.resultOrThrow().let {
-            it.mutableMethod.apply {
-                val insertIndex = it.scanResult.patternScanResult!!.startIndex + 1
-                val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex + 1).registerA
+        ClientInfoParentFingerprint.resultOrThrow().let { parentResult ->
+            ClientInfoFingerprint.resolve(context, parentResult.classDef)
 
-                addInstructions(
-                    insertIndex, """
-                        invoke-static {v$insertRegister}, $INTEGRATIONS_CLASS_DESCRIPTOR->spoofTestClient(Ljava/lang/String;)Ljava/lang/String;
-                        move-result-object v$insertRegister
-                        """
-                )
+            ClientInfoFingerprint.resultOrThrow().let {
+                it.mutableMethod.apply {
+                    val versionIndex = getTargetIndexWithFieldReferenceName("RELEASE") + 1
+                    val insertIndex = getTargetIndexReversed(versionIndex, Opcode.IPUT_OBJECT)
+                    val insertRegister = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
+
+                    addInstructions(
+                        insertIndex, """
+                            invoke-static {v$insertRegister}, $INTEGRATIONS_CLASS_DESCRIPTOR->spoofTestClient(Ljava/lang/String;)Ljava/lang/String;
+                            move-result-object v$insertRegister
+                            """
+                    )
+                }
             }
         }
 
