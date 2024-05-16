@@ -28,7 +28,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 @Suppress("unused")
 object SpoofTestClientPatch : BaseBytecodePatch(
     name = "Spoof test client",
-    description = "Adds an option to spoof as test client.",
+    description = "Adds an option to spoof the client as a test client.",
     dependencies = setOf(SettingsPatch::class),
     compatiblePackages = COMPATIBLE_PACKAGE,
     fingerprints = setOf(

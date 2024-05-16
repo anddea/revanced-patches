@@ -22,7 +22,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 @Suppress("unused")
 object HapticFeedBackPatch : BaseBytecodePatch(
     name = "Disable haptic feedback",
-    description = "Adds an option to disable haptic feedback when swiping the video player.",
+    description = "Adds options to disable haptic feedback when swiping in the video player.",
     dependencies = setOf(SettingsPatch::class),
     compatiblePackages = COMPATIBLE_PACKAGE,
     fingerprints = setOf(

@@ -25,7 +25,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 @Suppress("unused")
 object AmbientModeSwitchPatch : BaseBytecodePatch(
     name = "Ambient mode control",
-    description = "Adds an option to bypass the restrictions of ambient mode or disable it completely.",
+    description = "Adds options to disable ambient mode and to bypass ambient mode restrictions.",
     dependencies = setOf(SettingsPatch::class),
     compatiblePackages = COMPATIBLE_PACKAGE,
     fingerprints = setOf(

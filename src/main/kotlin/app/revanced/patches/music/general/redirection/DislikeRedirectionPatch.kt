@@ -27,7 +27,7 @@ import com.android.tools.smali.dexlib2.iface.reference.Reference
 @Suppress("unused")
 object DislikeRedirectionPatch : BaseBytecodePatch(
     name = "Disable dislike redirection",
-    description = "Adds an option to disable redirection to the next track when clicking dislike button.",
+    description = "Adds an option to disable redirection to the next track when clicking the dislike button.",
     dependencies = setOf(SettingsPatch::class),
     compatiblePackages = COMPATIBLE_PACKAGE,
     fingerprints = setOf(

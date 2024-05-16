@@ -80,7 +80,7 @@ import kotlin.properties.Delegates
 @Suppress("unused", "LocalVariableName")
 object PlayerComponentsPatch : BaseBytecodePatch(
     name = "Player components",
-    description = "Adds options to hide or change components related to player.",
+    description = "Adds options to hide or change components related to the player.",
     dependencies = setOf(
         LithoFilterPatch::class,
         PlayerComponentsResourcePatch::class,

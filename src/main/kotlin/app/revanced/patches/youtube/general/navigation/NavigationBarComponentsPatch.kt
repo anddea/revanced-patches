@@ -22,7 +22,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 @Suppress("unused")
 object NavigationBarComponentsPatch : BaseBytecodePatch(
     name = "Navigation bar components",
-    description = "Adds options to hide or change components related to navigation bar.",
+    description = "Adds options to hide or change components related to the navigation bar.",
     dependencies = setOf(
         SettingsPatch::class,
         NavigationBarHookPatch::class

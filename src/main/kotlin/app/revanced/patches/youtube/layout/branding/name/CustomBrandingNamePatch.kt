@@ -12,7 +12,7 @@ import app.revanced.util.patch.BaseResourcePatch
 @Suppress("DEPRECATION", "unused")
 object CustomBrandingNamePatch : BaseResourcePatch(
     name = "Custom branding name YouTube",
-    description = "Rename the YouTube app to the name specified in options.json.",
+    description = "Renames the YouTube app to the name specified in options.json.",
     dependencies = setOf(SettingsPatch::class),
     compatiblePackages = COMPATIBLE_PACKAGE,
     use = false,

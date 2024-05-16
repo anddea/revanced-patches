@@ -47,8 +47,8 @@ import com.android.tools.smali.dexlib2.util.MethodUtil
 @Suppress("unused")
 object VideoPlaybackPatch : BaseBytecodePatch(
     name = "Video playback",
-    description = "Adds options to customize settings related to video playback," +
-            "such as default video quality and playback speed, etc.",
+    description = "Adds options to customize settings related to video playback, " +
+            "such as default video quality and playback speed.",
     dependencies = setOf(
         BottomSheetRecyclerViewPatch::class,
         CustomPlaybackSpeedPatch::class,

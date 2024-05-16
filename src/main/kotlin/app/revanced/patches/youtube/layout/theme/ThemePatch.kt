@@ -13,7 +13,7 @@ import org.w3c.dom.Element
 @Suppress("DEPRECATION", "unused")
 object ThemePatch : BaseResourcePatch(
     name = "Theme",
-    description = "Change the app's theme to the values specified in options.json.",
+    description = "Changes the app's theme to the values specified in options.json.",
     dependencies = setOf(
         BaseThemePatch::class,
         SettingsPatch::class

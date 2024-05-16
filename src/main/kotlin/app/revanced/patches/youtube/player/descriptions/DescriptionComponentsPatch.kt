@@ -27,7 +27,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 @Suppress("unused")
 object DescriptionComponentsPatch : BaseBytecodePatch(
     name = "Description components",
-    description = "Adds an option to hide or disable description components.",
+    description = "Adds options to hide and disable description components.",
     dependencies = setOf(
         BottomSheetRecyclerViewPatch::class,
         LithoFilterPatch::class,

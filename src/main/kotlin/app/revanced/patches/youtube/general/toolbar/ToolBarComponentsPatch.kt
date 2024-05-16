@@ -62,7 +62,7 @@ import org.w3c.dom.Element
 @Suppress("DEPRECATION", "unused")
 object ToolBarComponentsPatch : BaseBytecodePatch(
     name = "Toolbar components",
-    description = "Adds options to hide or change components located on the toolbar such as toolbar buttons, search bar, and header.",
+    description = "Adds options to hide or change components located on the toolbar, such as toolbar buttons, search bar, and header.",
     dependencies = setOf(
         CastButtonPatch::class,
         SettingsPatch::class,

@@ -16,7 +16,7 @@ import java.nio.file.Files
 @Suppress("DEPRECATION", "unused")
 object CustomBrandingIconPatch : BaseResourcePatch(
     name = "Custom branding icon YouTube",
-    description = "Change the YouTube launcher icon to the icon specified in options.json.",
+    description = "Changes the YouTube app icon to the icon specified in options.json.",
     dependencies = setOf(SettingsPatch::class),
     compatiblePackages = COMPATIBLE_PACKAGE,
     use = false,
