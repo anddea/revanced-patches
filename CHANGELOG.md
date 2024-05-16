@@ -1,3 +1,10 @@
+# [2.225.0-dev.14](https://github.com/anddea/revanced-patches/compare/v2.225.0-dev.13...v2.225.0-dev.14) (2024-05-16)
+
+
+### Features
+
+* **YouTube - Translations:** Update `Ukrainian` ([#474](https://github.com/anddea/revanced-patches/issues/474)) ([70d9386](https://github.com/anddea/revanced-patches/commit/70d9386b3eb1a4774f9f3f2f394d3d02d29bea90))
+
 # [2.225.0-dev.13](https://github.com/anddea/revanced-patches/compare/v2.225.0-dev.12...v2.225.0-dev.13) (2024-05-16)
 
 
