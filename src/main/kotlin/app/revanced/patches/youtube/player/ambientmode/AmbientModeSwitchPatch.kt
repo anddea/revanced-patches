@@ -61,7 +61,8 @@ object AmbientModeSwitchPatch : BaseBytecodePatch(
             context.findClass(className)?.mutableClass?.methods?.first { method ->
                 method.name == "accept"
             }?.apply {
-                for ((index, instruction) in implementation!!.instructions.withIndex()) {
+                for (index in implementation!!.instructions.size - 1 downTo 0) {
+                    val instruction = getInstruction(index)
                     if (instruction.opcode != Opcode.INVOKE_VIRTUAL)
                         continue
 
