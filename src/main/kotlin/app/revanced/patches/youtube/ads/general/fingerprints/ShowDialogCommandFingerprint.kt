@@ -5,6 +5,5 @@ import app.revanced.util.fingerprint.LiteralValueFingerprint
 
 internal object ShowDialogCommandFingerprint : LiteralValueFingerprint(
     returnType = "V",
-    parameters = listOf("[B", "L"),
     literalSupplier = { SlidingDialogAnimation }
 )
