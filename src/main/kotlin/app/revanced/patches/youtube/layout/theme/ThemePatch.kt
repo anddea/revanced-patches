@@ -2,71 +2,25 @@ package app.revanced.patches.youtube.layout.theme
 
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.PatchException
-import app.revanced.patcher.patch.ResourcePatch
-import app.revanced.patcher.patch.annotation.CompatiblePackage
-import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatchOption
-import app.revanced.patches.youtube.layout.theme.GeneralThemePatch.isMonetPatchIncluded
+import app.revanced.patches.youtube.layout.theme.BaseThemePatch.isMonetPatchIncluded
+import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.updatePatchStatusTheme
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
+import app.revanced.util.patch.BaseResourcePatch
 import org.w3c.dom.Element
 
-@Patch(
+@Suppress("DEPRECATION", "unused")
+object ThemePatch : BaseResourcePatch(
     name = "Theme",
-    description = "Change the app's theme to the values specified in options.json.",
-    dependencies = [
-        GeneralThemePatch::class,
+    description = "Changes the app's theme to the values specified in options.json.",
+    dependencies = setOf(
+        BaseThemePatch::class,
         SettingsPatch::class
-    ],
-    compatiblePackages = [
-        CompatiblePackage(
-            "com.google.android.youtube",
-            [
-                "18.25.40",
-                "18.27.36",
-                "18.29.38",
-                "18.30.37",
-                "18.31.40",
-                "18.32.39",
-                "18.33.40",
-                "18.34.38",
-                "18.35.36",
-                "18.36.39",
-                "18.37.36",
-                "18.38.44",
-                "18.39.41",
-                "18.40.34",
-                "18.41.39",
-                "18.42.41",
-                "18.43.45",
-                "18.44.41",
-                "18.45.43",
-                "18.46.45",
-                "18.48.39",
-                "18.49.37",
-                "19.01.34",
-                "19.02.39",
-                "19.03.36",
-                "19.04.38",
-                "19.05.36",
-                "19.06.39",
-                "19.07.40",
-                "19.08.36",
-                "19.09.38",
-                "19.10.39",
-                "19.11.43",
-                "19.12.41",
-                "19.13.37",
-                "19.14.43",
-                "19.15.36",
-                "19.16.38"
-            ]
-        )
-    ]
-)
-@Suppress("unused")
-object ThemePatch : ResourcePatch() {
-    private const val AMOLED_BLACK_COLOR = "#FF010101"
+    ),
+    compatiblePackages = COMPATIBLE_PACKAGE
+) {
+    private const val AMOLED_BLACK_COLOR = "@android:color/black"
     private const val CATPPUCCIN_MOCHA_COLOR = "#FF181825"
     private const val DARK_PINK_COLOR = "#FF290025"
     private const val DARK_BLUE_COLOR = "#FF001029"
@@ -75,7 +29,7 @@ object ThemePatch : ResourcePatch() {
     private const val DARK_ORANGE_COLOR = "#FF291800"
     private const val DARK_RED_COLOR = "#FF290000"
 
-    private const val WHITE_COLOR = "#FFFFFFFF"
+    private const val WHITE_COLOR = "@android:color/white"
     private const val CATPPUCCIN_LATTE_COLOR = "#FFE6E9EF"
     private const val LIGHT_PINK_COLOR = "#FFFCCFF3"
     private const val LIGHT_BLUE_COLOR = "#FFD1E0FF"
@@ -84,15 +38,11 @@ object ThemePatch : ResourcePatch() {
     private const val LIGHT_ORANGE_COLOR = "#FFFFE6CC"
     private const val LIGHT_RED_COLOR = "#FFFFD6D6"
 
-    private const val ADVANCED_DARK_COLOR = "#FF252A3A"
-    private const val ADVANCED_LIGHT_COLOR = "#FFF2F8FF"
-
     private val DarkThemeBackgroundColor by stringPatchOption(
         key = "DarkThemeBackgroundColor",
         default = AMOLED_BLACK_COLOR,
         values = mapOf(
-            "Advanced Dark Color" to ADVANCED_DARK_COLOR,
-            "Black" to AMOLED_BLACK_COLOR,
+            "Amoled Black" to AMOLED_BLACK_COLOR,
             "Catppuccin (Mocha)" to CATPPUCCIN_MOCHA_COLOR,
             "Dark Pink" to DARK_PINK_COLOR,
             "Dark Blue" to DARK_BLUE_COLOR,
@@ -110,7 +60,6 @@ object ThemePatch : ResourcePatch() {
         key = "LightThemeBackgroundColor",
         default = WHITE_COLOR,
         values = mapOf(
-            "Advanced Light Color" to ADVANCED_LIGHT_COLOR,
             "White" to WHITE_COLOR,
             "Catppuccin (Latte)" to CATPPUCCIN_LATTE_COLOR,
             "Light Pink" to LIGHT_PINK_COLOR,
@@ -136,8 +85,7 @@ object ThemePatch : ResourcePatch() {
 
     private fun getDarkThemeString(darkThemeColor: String) =
         when (darkThemeColor) {
-            ADVANCED_DARK_COLOR -> "Advanced Dark Color"
-            AMOLED_BLACK_COLOR -> "Black"
+            AMOLED_BLACK_COLOR -> "Amoled Black"
             CATPPUCCIN_MOCHA_COLOR -> "Catppuccin (Mocha)"
             DARK_PINK_COLOR -> "Dark Pink"
             DARK_BLUE_COLOR -> "Dark Blue"
@@ -150,7 +98,6 @@ object ThemePatch : ResourcePatch() {
 
     private fun getLightThemeString(lightThemeColor: String) =
         when (lightThemeColor) {
-            ADVANCED_LIGHT_COLOR -> "Advanced Light Color"
             CATPPUCCIN_LATTE_COLOR -> "Catppuccin (Latte)"
             LIGHT_PINK_COLOR -> "Light Pink"
             LIGHT_BLUE_COLOR -> "Light Blue"
@@ -170,15 +117,15 @@ object ThemePatch : ResourcePatch() {
             ?: throw PatchException("Invalid light color.")
 
         arrayOf("values", "values-v31").forEach { path ->
-            context.document["res/$path/colors.xml"].use { editor ->
-                val resourcesNode = editor.getElementsByTagName("resources").item(0) as Element
+            context.xmlEditor["res/$path/colors.xml"].use { editor ->
+                val resourcesNode = editor.file.getElementsByTagName("resources").item(0) as Element
 
                 for (i in 0 until resourcesNode.childNodes.length) {
                     val node = resourcesNode.childNodes.item(i) as? Element ?: continue
 
                     node.textContent = when (node.getAttribute("name")) {
                         "yt_black0", "yt_black1", "yt_black1_opacity95", "yt_black1_opacity98", "yt_black2", "yt_black3",
-                        "yt_black4", "yt_navy_blue", "yt_status_bar_background_dark", "material_grey_850", "material_grey_900" -> darkThemeColor
+                        "yt_black4", "yt_status_bar_background_dark", "material_grey_850" -> darkThemeColor
 
                         else -> continue
                     }
@@ -186,15 +133,15 @@ object ThemePatch : ResourcePatch() {
             }
         }
 
-        context.document["res/values/colors.xml"].use { editor ->
-            val resourcesNode = editor.getElementsByTagName("resources").item(0) as Element
+        context.xmlEditor["res/values/colors.xml"].use { editor ->
+            val resourcesNode = editor.file.getElementsByTagName("resources").item(0) as Element
 
             val children = resourcesNode.childNodes
             for (i in 0 until children.length) {
                 val node = children.item(i) as? Element ?: continue
 
                 node.textContent = when (node.getAttribute("name")) {
-                    "yt_pale_blue", "yt_white1", "yt_white1_opacity95", "yt_white1_opacity98",
+                    "yt_white1", "yt_white1_opacity95", "yt_white1_opacity98",
                     "yt_white2", "yt_white3", "yt_white4",
                     -> lightThemeColor
 
@@ -204,7 +151,7 @@ object ThemePatch : ResourcePatch() {
         }
 
         val currentTheme = if (isMonetPatchIncluded)
-            "MaterialYou " + getThemeString(darkThemeColor, lightThemeColor)
+            "MaterialYou + " + getThemeString(darkThemeColor, lightThemeColor)
         else
             getThemeString(darkThemeColor, lightThemeColor)
 

@@ -5,17 +5,30 @@ import app.revanced.util.doRecursively
 import app.revanced.util.insertNode
 import org.w3c.dom.Element
 
-@Suppress("MemberVisibilityCanBePrivate")
+@Suppress("DEPRECATION", "MemberVisibilityCanBePrivate")
 object ResourceUtils {
 
     const val TARGET_PREFERENCE_PATH = "res/xml/revanced_prefs.xml"
 
     const val YOUTUBE_SETTINGS_PATH = "res/xml/settings_fragment.xml"
 
-    var targetPackage = "com.google.android.youtube"
+    var youtubePackageName = "com.google.android.youtube"
 
-    fun setMicroG(newPackage: String) {
-        targetPackage = newPackage
+    fun ResourceContext.updatePackageName(
+        fromPackageName: String,
+        toPackageName: String
+    ) {
+        youtubePackageName = toPackageName
+
+        val prefs = this["res/xml/settings_fragment.xml"]
+
+        prefs.writeText(
+            prefs.readText()
+                .replace(
+                    "android:targetPackage=\"$fromPackageName",
+                    "android:targetPackage=\"$toPackageName"
+                )
+        )
     }
 
     fun ResourceContext.addEntryValues(
@@ -23,8 +36,8 @@ object ResourceUtils {
         speedEntryValues: String,
         attributeName: String
     ) {
-        document[path].use {
-            with(it) {
+        xmlEditor[path].use {
+            with(it.file) {
                 val resourcesNode = getElementsByTagName("resources").item(0) as Element
 
                 val newElement: Element = createElement("item")
@@ -43,7 +56,7 @@ object ResourceUtils {
     }
 
     fun ResourceContext.addPreference(settingArray: Array<String>) {
-        val prefs = this[TARGET_PREFERENCE_PATH, false]
+        val prefs = this[TARGET_PREFERENCE_PATH]
 
         settingArray.forEach preferenceLoop@{ preference ->
             prefs.writeText(
@@ -56,10 +69,6 @@ object ResourceUtils {
 
     fun ResourceContext.updatePatchStatus(patchTitle: String) {
         updatePatchStatusSettings(patchTitle, "@string/revanced_patches_included")
-    }
-
-    fun ResourceContext.updatePatchStatusHeader(headerName: String) {
-        updatePatchStatusSettings("Custom branding heading", headerName)
     }
 
     fun ResourceContext.updatePatchStatusIcon(iconName: String) {
@@ -78,8 +87,8 @@ object ResourceUtils {
         patchTitle: String,
         updateText: String
     ) {
-        this.document[TARGET_PREFERENCE_PATH].use { editor ->
-            editor.doRecursively loop@{
+        this.xmlEditor[TARGET_PREFERENCE_PATH].use { editor ->
+            editor.file.doRecursively loop@{
                 if (it !is Element) return@loop
 
                 it.getAttributeNode("android:title")?.let { attribute ->
@@ -91,39 +100,43 @@ object ResourceUtils {
         }
     }
 
-    fun ResourceContext.addReVancedPreference(key: String, insertKey: String) {
-        val targetClass = "com.google.android.apps.youtube.app.settings.videoquality.VideoQualitySettingsActivity"
-        val path = if (key == "extended_settings") YOUTUBE_SETTINGS_PATH else TARGET_PREFERENCE_PATH
+    fun ResourceContext.addPreferenceFragment(key: String, insertKey: String) {
+        val targetClass =
+            "com.google.android.apps.youtube.app.settings.videoquality.VideoQualitySettingsActivity"
 
-        this.document[path].use { editor ->
-            with(editor) {
+        this.xmlEditor[YOUTUBE_SETTINGS_PATH].use { editor ->
+            with(editor.file) {
                 val processedKeys = mutableSetOf<String>() // To track processed keys
 
                 doRecursively loop@{ node ->
-
                     if (node !is Element) return@loop // Skip if not an element
-                    val attributeNode = node.getAttributeNode("android:key") ?: return@loop // Skip if no key attribute
 
+                    val attributeNode = node.getAttributeNode("android:key") ?: return@loop // Skip if no key attribute
                     val currentKey = attributeNode.textContent
 
                     // Check if the current key has already been processed
-                    if (processedKeys.contains(currentKey)) return@loop // Skip if already processed
+                    if (processedKeys.contains(currentKey)) {
+                        return@loop // Skip if already processed
+                    } else {
+                        processedKeys.add(currentKey) // Add the current key to processedKeys
+                    }
 
-                    processedKeys.add(currentKey) // Add the current key to processedKeys
-
-                    when {
-                        key == "extended_settings" && currentKey == insertKey -> {
+                    when (currentKey) {
+                        insertKey -> {
                             node.insertNode("Preference", node) {
-                                createReVancedPreferenceAttributes(key, targetClass)
+                                setAttribute("android:key", "${key}_key")
+                                setAttribute("android:title", "@string/${key}_title")
+                                this.appendChild(
+                                    ownerDocument.createElement("intent").also { intentNode ->
+                                        intentNode.setAttribute("android:targetPackage", youtubePackageName)
+                                        intentNode.setAttribute("android:data", key + "_intent")
+                                        intentNode.setAttribute("android:targetClass", targetClass)
+                                    }
+                                )
                             }
                             node.setAttribute("app:iconSpaceReserved", "true")
                         }
-                        key != "extended_settings" && currentKey == insertKey -> {
-                            node.insertNode("PreferenceScreen", node) {
-                                createReVancedPreferenceAttributes(key, targetClass)
-                            }
-                        }
-                        currentKey == "true" -> {
+                        "true" -> {
                             attributeNode.textContent = "false"
                         }
                     }
@@ -131,17 +144,4 @@ object ResourceUtils {
             }
         }
     }
-
-    private fun Element.createReVancedPreferenceAttributes(key: String, targetClass: String) {
-        setAttribute("android:key", "revanced_${key}_key")
-        setAttribute("android:title", "@string/revanced_${key}_title")
-        this.appendChild(
-            ownerDocument.createElement("intent").also { intentNode ->
-                intentNode.setAttribute("android:targetPackage", targetPackage)
-                intentNode.setAttribute("android:data", key)
-                intentNode.setAttribute("android:targetClass", targetClass)
-            }
-        )
-    }
-
 }

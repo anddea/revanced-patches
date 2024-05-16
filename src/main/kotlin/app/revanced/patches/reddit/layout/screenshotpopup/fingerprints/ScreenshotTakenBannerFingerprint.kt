@@ -6,7 +6,7 @@ import app.revanced.patches.reddit.utils.resourceid.SharedResourceIdPatch.Screen
 import app.revanced.util.containsWideLiteralInstructionIndex
 import com.android.tools.smali.dexlib2.AccessFlags
 
-object ScreenshotTakenBannerFingerprint : MethodFingerprint(
+internal object ScreenshotTakenBannerFingerprint : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     customFingerprint = { methodDef, classDef ->

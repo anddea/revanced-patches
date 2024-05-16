@@ -2,71 +2,25 @@ package app.revanced.patches.youtube.layout.branding.icon
 
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.PatchException
-import app.revanced.patcher.patch.ResourcePatch
-import app.revanced.patcher.patch.annotation.CompatiblePackage
-import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatchOption
+import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.updatePatchStatusIcon
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.ResourceGroup
 import app.revanced.util.copyResources
+import app.revanced.util.patch.BaseResourcePatch
 import org.w3c.dom.Element
 import java.io.File
 import java.nio.file.Files
 
-@Patch(
+@Suppress("DEPRECATION", "unused")
+object CustomBrandingIconPatch : BaseResourcePatch(
     name = "Custom branding icon YouTube",
-    description = "Change the YouTube launcher icon to the icon specified in options.json.",
-    dependencies = [SettingsPatch::class],
-    compatiblePackages = [
-        CompatiblePackage(
-            "com.google.android.youtube",
-            [
-                "18.25.40",
-                "18.27.36",
-                "18.29.38",
-                "18.30.37",
-                "18.31.40",
-                "18.32.39",
-                "18.33.40",
-                "18.34.38",
-                "18.35.36",
-                "18.36.39",
-                "18.37.36",
-                "18.38.44",
-                "18.39.41",
-                "18.40.34",
-                "18.41.39",
-                "18.42.41",
-                "18.43.45",
-                "18.44.41",
-                "18.45.43",
-                "18.46.45",
-                "18.48.39",
-                "18.49.37",
-                "19.01.34",
-                "19.02.39",
-                "19.03.36",
-                "19.04.38",
-                "19.05.36",
-                "19.06.39",
-                "19.07.40",
-                "19.08.36",
-                "19.09.38",
-                "19.10.39",
-                "19.11.43",
-                "19.12.41",
-                "19.13.37",
-                "19.14.43",
-                "19.15.36",
-                "19.16.38"
-            ]
-        )
-    ],
-    use = false
-)
-@Suppress("unused")
-object CustomBrandingIconPatch : ResourcePatch() {
+    description = "Changes the YouTube app icon to the icon specified in options.json.",
+    dependencies = setOf(SettingsPatch::class),
+    compatiblePackages = COMPATIBLE_PACKAGE,
+    use = false,
+) {
     private const val DEFAULT_ICON_KEY = "Revancify Blue"
 
     private val availableIcon = mapOf(
@@ -150,7 +104,7 @@ object CustomBrandingIconPatch : ResourcePatch() {
                 }.let { resourceGroups ->
                     try {
                         val path = File(appIcon)
-                        val resourceDirectory = context["res", false]
+                        val resourceDirectory = context["res"]
 
                         resourceGroups.forEach { group ->
                             val fromDirectory = path.resolve(group.resourceDirectoryName)
@@ -164,57 +118,56 @@ object CustomBrandingIconPatch : ResourcePatch() {
                             }
                         }
                         context.updatePatchStatusIcon("custom")
-                    } catch (_: Exception) { throw PatchException("Invalid app icon path: $appIcon") }
+                    } catch (_: Exception) {
+                        throw PatchException("Invalid app icon path: $appIcon")
+                    }
                 }
-                return
-            }
+            } else {
+                val resourcePath = "youtube/branding/$appIconValue"
 
-            val resourcePath = "youtube/branding/$appIconValue"
-
-            // change launcher icon.
-            mipmapDirectories.map { directory ->
-                ResourceGroup(
-                    directory, *mipmapIconResourceFileNames
-                )
-            }.let { resourceGroups ->
-                resourceGroups.forEach {
-                    context.copyResources("$resourcePath/launcher", it)
+                // change launcher icon.
+                mipmapDirectories.map { directory ->
+                    ResourceGroup(
+                        directory, *mipmapIconResourceFileNames
+                    )
+                }.let { resourceGroups ->
+                    resourceGroups.forEach {
+                        context.copyResources("$resourcePath/launcher", it)
+                    }
                 }
+
+                // change splash icon.
+                val drawableAnimResourceFileNames = Array(5) { index -> "\$avd_anim__$index.xml" }
+
+                val splashResourceGroups: Array<Array<ResourceGroup>> = when (appIconValue) {
+                    "mmt" -> arrayOf(arrayOf(ResourceGroup("drawable", "avd_anim.xml", *drawableAnimResourceFileNames))
+                        .plus(drawableDirectories.map { ResourceGroup(it, *drawableIconResourceFileNames) }))
+                    "revancify_blue", "revancify_red" -> arrayOf(drawableDirectories.map { ResourceGroup(it, *drawableIconResourceFileNamesRevancify) }.toTypedArray())
+                    else -> arrayOf(drawableDirectories.map { ResourceGroup(it, *drawableIconResourceFileNames) }.toTypedArray())
+                }
+
+                splashResourceGroups.forEach { group ->
+                    group.forEach { context.copyResources("$resourcePath/splash", it) }
+                }
+
+                // monochrome
+                val monochromeIcon = ResourceGroup("drawable", "adaptive_monochrome_ic_youtube_launcher.xml")
+                if (appIconValue in listOf("mmt", "revancify_blue", "revancify_red")) {
+                    context.copyResources("$resourcePath/monochrome", monochromeIcon)
+                }
+
+                // disable splash animation
+                if (appIconValue != "mmt") {
+                    context.xmlEditor["res/values-v31/styles.xml"].use { editor ->
+                        val nodeList = editor.file.getElementsByTagName("item")
+                        val tags = (0 until nodeList.length).map { nodeList.item(it) as Element }
+                        tags.filter { it.getAttribute("name").contains("android:windowSplashScreenAnimatedIcon") }
+                            .forEach { it.parentNode.removeChild(it) }
+                    }
+                }
+
+                context.updatePatchStatusIcon(appIconValue)
             }
-
-            // change splash icon.
-            val drawableAnimResourceFileNames = Array(5) { index -> "\$avd_anim__$index.xml" }
-
-            val splashResourceGroups: Array<Array<ResourceGroup>> = when (appIconValue) {
-                "mmt" -> arrayOf(arrayOf(ResourceGroup("drawable", "avd_anim.xml", *drawableAnimResourceFileNames))
-                    .plus(drawableDirectories.map { ResourceGroup(it, *drawableIconResourceFileNames) }))
-                "revancify_blue", "revancify_red" -> arrayOf(drawableDirectories.map { ResourceGroup(it, *drawableIconResourceFileNamesRevancify) }.toTypedArray())
-                else -> arrayOf(drawableDirectories.map { ResourceGroup(it, *drawableIconResourceFileNames) }.toTypedArray())
-            }
-
-            splashResourceGroups.forEach { group ->
-                group.forEach { context.copyResources("$resourcePath/splash", it) }
-            }
-
-            // monochrome
-            val monochromeIcon = ResourceGroup("drawable", "adaptive_monochrome_ic_youtube_launcher.xml")
-
-            if (appIconValue in listOf("mmt", "revancify_blue", "revancify_red"))
-                context.copyResources("$resourcePath/monochrome", monochromeIcon)
-
-
-            if (appIconValue == "mmt") return
-
-            // disable splash animation
-            context.document["res/values-v31/styles.xml"].use { editor ->
-                val nodeList = editor.getElementsByTagName("item")
-                val tags = (0 until nodeList.length).map { nodeList.item(it) as Element }
-                tags.filter { it.getAttribute("name").contains("android:windowSplashScreenAnimatedIcon") }
-                    .forEach { it.parentNode.removeChild(it) }
-            }
-
-            context.updatePatchStatusIcon(appIconValue)
-
         } ?: throw PatchException("Invalid app icon path.")
     }
 }

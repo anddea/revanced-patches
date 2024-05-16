@@ -3,251 +3,179 @@ package app.revanced.patches.youtube.utils.playercontrols
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.fingerprint.MethodFingerprintResult
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.youtube.utils.fingerprints.PlayerControlsVisibilityModelFingerprint
-import app.revanced.patches.youtube.utils.fingerprints.ThumbnailPreviewConfigFingerprint
+import app.revanced.patches.youtube.utils.fingerprints.PlayerButtonsResourcesFingerprint
+import app.revanced.patches.youtube.utils.fingerprints.PlayerButtonsVisibilityFingerprint
 import app.revanced.patches.youtube.utils.fingerprints.YouTubeControlsOverlayFingerprint
+import app.revanced.patches.youtube.utils.integrations.Constants.UTILS_PATH
 import app.revanced.patches.youtube.utils.playercontrols.fingerprints.BottomControlsInflateFingerprint
 import app.revanced.patches.youtube.utils.playercontrols.fingerprints.ControlsLayoutInflateFingerprint
-import app.revanced.patches.youtube.utils.playercontrols.fingerprints.FullscreenEngagementSpeedEduVisibleFingerprint
-import app.revanced.patches.youtube.utils.playercontrols.fingerprints.FullscreenEngagementSpeedEduVisibleParentFingerprint
+import app.revanced.patches.youtube.utils.playercontrols.fingerprints.MotionEventFingerprint
+import app.revanced.patches.youtube.utils.playercontrols.fingerprints.PlayerControlsVisibilityEntityModelFingerprint
 import app.revanced.patches.youtube.utils.playercontrols.fingerprints.PlayerControlsVisibilityFingerprint
-import app.revanced.patches.youtube.utils.playercontrols.fingerprints.QuickSeekVisibleFingerprint
-import app.revanced.patches.youtube.utils.playercontrols.fingerprints.SeekEDUVisibleFingerprint
-import app.revanced.patches.youtube.utils.playercontrols.fingerprints.UserScrubbingFingerprint
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
-import app.revanced.util.exception
-import app.revanced.util.getStringInstructionIndex
+import app.revanced.util.getTargetIndex
+import app.revanced.util.getTargetIndexWithMethodReferenceName
+import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
-import com.android.tools.smali.dexlib2.iface.reference.Reference
 
-@Patch(dependencies = [SharedResourceIdPatch::class])
+@Patch(
+    dependencies = [
+        PlayerControlsVisibilityHookPatch::class,
+        SharedResourceIdPatch::class
+    ]
+)
 object PlayerControlsPatch : BytecodePatch(
     setOf(
+        PlayerButtonsResourcesFingerprint,
+        PlayerControlsVisibilityEntityModelFingerprint,
         BottomControlsInflateFingerprint,
         ControlsLayoutInflateFingerprint,
-        FullscreenEngagementSpeedEduVisibleParentFingerprint,
-        PlayerControlsVisibilityModelFingerprint,
-        ThumbnailPreviewConfigFingerprint,
         YouTubeControlsOverlayFingerprint
     )
 ) {
+    private const val INTEGRATIONS_CLASS_DESCRIPTOR =
+        "$UTILS_PATH/PlayerControlsPatch;"
+
+    private lateinit var changeVisibilityMethod: MutableMethod
+    private lateinit var changeVisibilityNegatedImmediatelyMethod: MutableMethod
+    private lateinit var initializeOverlayButtonsMethod: MutableMethod
+    private lateinit var initializeSponsorBlockButtonsMethod: MutableMethod
+
     override fun execute(context: BytecodeContext) {
 
-        fun MutableMethod.findReference(targetString: String): Reference {
-            val targetIndex = getStringInstructionIndex(targetString) + 2
-            val targetOpcode = getInstruction(targetIndex).opcode
+        // region patch for hook visibility of play control buttons (e.g. pause, play button, etc)
 
-            when (targetOpcode) {
-                Opcode.INVOKE_VIRTUAL -> {
-                    val targetRegister = getInstruction<Instruction35c>(targetIndex).registerD
-
-                    val instructions = implementation!!.instructions
-
-                    instructions.forEachIndexed { index, instruction ->
-
-                        if (instruction.opcode != Opcode.IGET_BOOLEAN) return@forEachIndexed
-
-                        if (getInstruction<TwoRegisterInstruction>(index).registerA != targetRegister)
-                            return@forEachIndexed
-
-                        return getInstruction<ReferenceInstruction>(index).reference
-                    }
-                }
-                Opcode.IGET_BOOLEAN -> {
-                    return getInstruction<ReferenceInstruction>(targetIndex).reference
-                }
-
-                else -> throw PatchException("Reference not found: $targetString")
-            }
-            // unreachable code
-            throw PatchException("[Unreachable] Reference not found: $targetString")
-        }
-
-        PlayerControlsVisibilityModelFingerprint.result?.classDef?.let { classDef ->
-            quickSeekVisibleMutableMethod =
-                QuickSeekVisibleFingerprint.also {
-                    it.resolve(
-                        context,
-                        classDef
-                    )
-                }.result?.mutableMethod ?: throw QuickSeekVisibleFingerprint.exception
-
-            seekEDUVisibleMutableMethod =
-                SeekEDUVisibleFingerprint.also {
-                    it.resolve(
-                        context,
-                        classDef
-                    )
-                }.result?.mutableMethod ?: throw SeekEDUVisibleFingerprint.exception
-
-            userScrubbingMutableMethod =
-                UserScrubbingFingerprint.also {
-                    it.resolve(
-                        context,
-                        classDef
-                    )
-                }.result?.mutableMethod ?: throw UserScrubbingFingerprint.exception
-        } ?: throw PlayerControlsVisibilityModelFingerprint.exception
-
-        YouTubeControlsOverlayFingerprint.result?.classDef?.let { classDef ->
-            playerControlsVisibilityMutableMethod =
-                PlayerControlsVisibilityFingerprint.also {
-                    it.resolve(
-                        context,
-                        classDef
-                    )
-                }.result?.mutableMethod
-                    ?: throw PlayerControlsVisibilityFingerprint.exception
-        } ?: throw YouTubeControlsOverlayFingerprint.exception
-
-        controlsLayoutInflateResult =
-            ControlsLayoutInflateFingerprint.result
-                ?: throw ControlsLayoutInflateFingerprint.exception
-
-        inflateResult =
-            BottomControlsInflateFingerprint.result
-                ?: throw BottomControlsInflateFingerprint.exception
-
-        FullscreenEngagementSpeedEduVisibleParentFingerprint.result?.let { parentResult ->
-            parentResult.mutableMethod.apply {
-                fullscreenEngagementViewVisibleReference =
-                    findReference(", isFullscreenEngagementViewVisible=")
-                speedEDUVisibleReference = findReference(", isSpeedmasterEDUVisible=")
-            }
-
-            fullscreenEngagementSpeedEduVisibleMutableMethod =
-                FullscreenEngagementSpeedEduVisibleFingerprint.also {
-                    it.resolve(
-                        context,
-                        parentResult.classDef
-                    )
-                }.result?.mutableMethod
-                    ?: throw FullscreenEngagementSpeedEduVisibleFingerprint.exception
-        } ?: throw FullscreenEngagementSpeedEduVisibleParentFingerprint.exception
-
-        ThumbnailPreviewConfigFingerprint.result?.let {
+        PlayerButtonsVisibilityFingerprint.resolve(
+            context,
+            PlayerButtonsResourcesFingerprint.resultOrThrow().mutableClass
+        )
+        PlayerButtonsVisibilityFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                bigBoardsVisibilityMutableMethod = this
+                val viewIndex = getTargetIndex(Opcode.INVOKE_INTERFACE)
+                val viewRegister = getInstruction<FiveRegisterInstruction>(viewIndex).registerD
 
                 addInstruction(
-                    0,
-                    "const/4 v0, 0x1"
+                    viewIndex + 1,
+                    "invoke-static {p1, p2, v$viewRegister}, $INTEGRATIONS_CLASS_DESCRIPTOR->changeVisibility(ZZLandroid/view/View;)V"
                 )
             }
-        } ?: throw ThumbnailPreviewConfigFingerprint.exception
-    }
+        }
 
-    private lateinit var controlsLayoutInflateResult: MethodFingerprintResult
-    private lateinit var inflateResult: MethodFingerprintResult
+        // endregion
 
-    private lateinit var bigBoardsVisibilityMutableMethod: MutableMethod
-    private lateinit var playerControlsVisibilityMutableMethod: MutableMethod
-    private lateinit var quickSeekVisibleMutableMethod: MutableMethod
-    private lateinit var seekEDUVisibleMutableMethod: MutableMethod
-    private lateinit var userScrubbingMutableMethod: MutableMethod
+        // region patch for hook visibility of play controls layout
 
-    private lateinit var fullscreenEngagementSpeedEduVisibleMutableMethod: MutableMethod
-    private lateinit var fullscreenEngagementViewVisibleReference: Reference
-    private lateinit var speedEDUVisibleReference: Reference
+        PlayerControlsVisibilityFingerprint.resolve(
+            context,
+            YouTubeControlsOverlayFingerprint.resultOrThrow().mutableClass
+        )
+        PlayerControlsVisibilityFingerprint.resultOrThrow().mutableMethod.addInstruction(
+            0,
+            "invoke-static {p1}, $INTEGRATIONS_CLASS_DESCRIPTOR->changeVisibility(Z)V"
+        )
 
-    private fun injectBigBoardsVisibilityCall(descriptor: String) {
-        bigBoardsVisibilityMutableMethod.apply {
+        // endregion
+
+        // region patch for detecting motion events in play controls layout
+
+        MotionEventFingerprint.resolve(
+            context,
+            YouTubeControlsOverlayFingerprint.resultOrThrow().mutableClass
+        )
+        MotionEventFingerprint.resultOrThrow().mutableMethod.apply {
+            val insertIndex = getTargetIndexWithMethodReferenceName("setTranslationY") + 1
+
             addInstruction(
-                1,
-                "invoke-static {v0}, $descriptor->changeVisibilityNegatedImmediate(Z)V"
+                insertIndex,
+                "invoke-static {}, $INTEGRATIONS_CLASS_DESCRIPTOR->changeVisibilityNegatedImmediate()V"
             )
         }
-    }
 
-    private fun injectFullscreenEngagementSpeedEduViewVisibilityCall(
-        reference: Reference,
-        descriptor: String
-    ) {
-        fullscreenEngagementSpeedEduVisibleMutableMethod.apply {
-            for ((index, instruction) in implementation!!.instructions.withIndex()) {
+        // endregion
 
-                if (instruction.opcode != Opcode.IPUT_BOOLEAN) continue
-                if (getInstruction<ReferenceInstruction>(index).reference != reference) continue
+        // region patch initialize of overlay button or SponsorBlock button
 
-                val register = getInstruction<TwoRegisterInstruction>(index).registerA
+        mapOf(
+            BottomControlsInflateFingerprint to "initializeOverlayButtons",
+            ControlsLayoutInflateFingerprint to "initializeSponsorBlockButtons"
+        ).forEach { (fingerprint, methodName) ->
+            fingerprint.resultOrThrow().let {
+                it.mutableMethod.apply {
+                    val endIndex = it.scanResult.patternScanResult!!.endIndex
+                    val viewRegister = getInstruction<OneRegisterInstruction>(endIndex).registerA
 
-                addInstruction(
-                    index,
-                    "invoke-static {v$register}, $descriptor->changeVisibilityNegatedImmediate(Z)V"
-                )
-                break
+                    addInstruction(
+                        endIndex + 1,
+                        "invoke-static {v$viewRegister}, $INTEGRATIONS_CLASS_DESCRIPTOR->$methodName(Landroid/view/View;)V"
+                    )
+                }
             }
         }
+
+        // endregion
+
+        // region set methods to inject into integration
+
+        val playerControlsMutableClass =
+            context.findClass(INTEGRATIONS_CLASS_DESCRIPTOR)!!.mutableClass
+
+        changeVisibilityMethod =
+            playerControlsMutableClass.methods.single { method ->
+                method.name == "changeVisibility"
+                        && method.parameters == listOf("Z", "Z")
+            }
+
+        changeVisibilityNegatedImmediatelyMethod =
+            playerControlsMutableClass.methods.single { method ->
+                method.name == "changeVisibilityNegatedImmediately"
+            }
+
+        initializeOverlayButtonsMethod =
+            playerControlsMutableClass.methods.single { method ->
+                method.name == "initializeOverlayButtons"
+            }
+
+        initializeSponsorBlockButtonsMethod =
+            playerControlsMutableClass.methods.single { method ->
+                method.name == "initializeSponsorBlockButtons"
+            }
+
+        // endregion
+
     }
 
-    private fun MutableMethod.injectVisibilityCall(
-        descriptor: String,
-        fieldName: String
-    ) {
+    private fun MutableMethod.initializeHook(classDescriptor: String) =
         addInstruction(
             0,
-            "invoke-static {p1}, $descriptor->$fieldName(Z)V"
+            "invoke-static {p0}, $classDescriptor->initialize(Landroid/view/View;)V"
         )
+
+    private fun changeVisibilityHook(classDescriptor: String) =
+        changeVisibilityMethod.addInstruction(
+            0,
+            "invoke-static {p0, p1}, $classDescriptor->changeVisibility(ZZ)V"
+        )
+
+    private fun changeVisibilityNegatedImmediateHook(classDescriptor: String) =
+        changeVisibilityNegatedImmediatelyMethod.addInstruction(
+            0,
+            "invoke-static {}, $classDescriptor->changeVisibilityNegatedImmediate()V"
+        )
+
+    internal fun hookOverlayButtons(classDescriptor: String) {
+        initializeOverlayButtonsMethod.initializeHook(classDescriptor)
+        changeVisibilityHook(classDescriptor)
+        changeVisibilityNegatedImmediateHook(classDescriptor)
     }
 
-    private fun MethodFingerprintResult.injectCalls(
-        descriptor: String
-    ) {
-        mutableMethod.apply {
-            val endIndex = scanResult.patternScanResult!!.endIndex
-            val viewRegister = getInstruction<OneRegisterInstruction>(endIndex).registerA
-
-            addInstruction(
-                endIndex + 1,
-                "invoke-static {v$viewRegister}, $descriptor->initialize(Ljava/lang/Object;)V"
-            )
-        }
-    }
-
-    internal fun injectVisibility(descriptor: String) {
-        playerControlsVisibilityMutableMethod.injectVisibilityCall(
-            descriptor,
-            "changeVisibility"
-        )
-        quickSeekVisibleMutableMethod.injectVisibilityCall(
-            descriptor,
-            "changeVisibilityNegatedImmediate"
-        )
-        seekEDUVisibleMutableMethod.injectVisibilityCall(
-            descriptor,
-            "changeVisibilityNegatedImmediate"
-        )
-        userScrubbingMutableMethod.injectVisibilityCall(
-            descriptor,
-            "changeVisibilityNegatedImmediate"
-        )
-
-        injectBigBoardsVisibilityCall(descriptor)
-
-        injectFullscreenEngagementSpeedEduViewVisibilityCall(
-            fullscreenEngagementViewVisibleReference,
-            descriptor
-        )
-        injectFullscreenEngagementSpeedEduViewVisibilityCall(
-            speedEDUVisibleReference,
-            descriptor
-        )
-    }
-
-    internal fun initializeSB(descriptor: String) {
-        controlsLayoutInflateResult.injectCalls(descriptor)
-    }
-
-    internal fun initializeControl(descriptor: String) {
-        inflateResult.injectCalls(descriptor)
+    internal fun hookSponsorBlockButtons(classDescriptor: String) {
+        initializeSponsorBlockButtonsMethod.initializeHook(classDescriptor)
+        changeVisibilityHook(classDescriptor)
+        changeVisibilityNegatedImmediateHook(classDescriptor)
     }
 }

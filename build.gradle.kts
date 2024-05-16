@@ -53,18 +53,6 @@ tasks {
         }
     }
 
-    register("updatePrefsXml") {
-        description = "Update revanced_prefs.xml with the new version"
-
-        doLast {
-            val prefsFile = file("src/main/resources/youtube/settings/xml/revanced_prefs.xml")
-            val old = Regex("""Patches" (.*)summary="[^"]*"""")
-            val new = """Patches" $1summary="$version""""
-
-            prefsFile.writeText(prefsFile.readText().replace(old, new))
-        }
-    }
-
     register("buildDexJar") {
         description = "Build and add a DEX to the JAR file"
         group = "build"
@@ -96,7 +84,7 @@ tasks {
         dependsOn(build)
 
         classpath = sourceSets["main"].runtimeClasspath
-        mainClass.set("app.revanced.meta.PatchesFileGenerator")
+        mainClass.set("app.revanced.generator.MainKt")
     }
 
     // Needed by gradle-semantic-release-plugin.
@@ -155,8 +143,4 @@ signing {
     useGpgCmd()
 
     sign(publishing.publications["revanced-patches-publication"])
-}
-
-tasks.named("processResources") {
-    dependsOn("updatePrefsXml")
 }

@@ -2,67 +2,22 @@ package app.revanced.patches.youtube.layout.doubletaplength
 
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.PatchException
-import app.revanced.patcher.patch.ResourcePatch
-import app.revanced.patcher.patch.annotation.CompatiblePackage
-import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatchOption
+import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addEntryValues
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.ResourceGroup
 import app.revanced.util.copyResources
+import app.revanced.util.patch.BaseResourcePatch
+import java.nio.file.Files
 
-@Patch(
+@Suppress("DEPRECATION", "unused")
+object DoubleTapLengthPatch : BaseResourcePatch(
     name = "Custom double tap length",
-    description = "Add 'double-tap to seek' value.",
-    dependencies = [SettingsPatch::class],
-    compatiblePackages = [
-        CompatiblePackage(
-            "com.google.android.youtube",
-            [
-                "18.25.40",
-                "18.27.36",
-                "18.29.38",
-                "18.30.37",
-                "18.31.40",
-                "18.32.39",
-                "18.33.40",
-                "18.34.38",
-                "18.35.36",
-                "18.36.39",
-                "18.37.36",
-                "18.38.44",
-                "18.39.41",
-                "18.40.34",
-                "18.41.39",
-                "18.42.41",
-                "18.43.45",
-                "18.44.41",
-                "18.45.43",
-                "18.46.45",
-                "18.48.39",
-                "18.49.37",
-                "19.01.34",
-                "19.02.39",
-                "19.03.36",
-                "19.04.38",
-                "19.05.36",
-                "19.06.39",
-                "19.07.40",
-                "19.08.36",
-                "19.09.38",
-                "19.10.39",
-                "19.11.43",
-                "19.12.41",
-                "19.13.37",
-                "19.14.43",
-                "19.15.36",
-                "19.16.38"
-            ]
-        )
-    ]
-)
-@Suppress("unused")
-object DoubleTapLengthPatch : ResourcePatch() {
+    description = "Adds 'double-tap to seek' values that are specified in options.json.",
+    dependencies = setOf(SettingsPatch::class),
+    compatiblePackages = COMPATIBLE_PACKAGE
+) {
     private val DoubleTapLengthArrays by stringPatchOption(
         key = "DoubleTapLengthArrays",
         default = "3, 5, 10, 15, 20, 30, 60, 120, 180",
@@ -75,6 +30,10 @@ object DoubleTapLengthPatch : ResourcePatch() {
         val arrayPath = "res/values-v21/arrays.xml"
         val entriesName = "double_tap_length_entries"
         val entryValueName = "double_tap_length_values"
+
+        val valuesV21Directory = context["res"].resolve("values-v21")
+        if (!valuesV21Directory.isDirectory)
+            Files.createDirectories(valuesV21Directory.toPath())
 
         /**
          * Copy arrays
@@ -91,15 +50,13 @@ object DoubleTapLengthPatch : ResourcePatch() {
             ?: throw PatchException("Invalid double-tap length array.")
 
         val splits = length.replace(" ", "").split(",")
-        require(splits.isNotEmpty()) { "Invalid double-tap length elements" }
+        if (splits.isEmpty()) throw IllegalArgumentException("Invalid double-tap length elements")
         val lengthElements = splits.map { it }
-
         for (index in 0 until splits.count()) {
             context.addEntryValues(arrayPath, lengthElements[index], entryValueName)
             context.addEntryValues(arrayPath, lengthElements[index], entriesName)
         }
 
-        SettingsPatch.updatePatchStatus("Custom double tap length")
-
+        SettingsPatch.updatePatchStatus(this)
     }
 }

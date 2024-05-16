@@ -159,21 +159,31 @@ def find_missing_strings():
 
 # Function to sort strings in a file alphabetically by name attribute value
 def sort_strings_in_file(file_path):
+    """
+    Sorts the <string> elements in an XML file alphabetically by their 'name' attribute, 
+    while preserving any other attributes, regardless of their order.
+    
+    Parameters:
+    file_path (str): The path to the XML file.
+    """
     # Read the content of the file
     with open(file_path, 'r') as f:
         content = f.read()
-    # Extract strings from the file
-    strings = re.findall(r'<string(?:\s+name="([^"]*)")?(.*?)>(.*?)</string>', content, re.DOTALL)
-    # Sort strings alphabetically by name attribute value
-    strings.sort(key=lambda x: x[0] if x[0] else "")
+
+    # Extract strings from the file with attributes in any order
+    strings = re.findall(r'<string([^>]*)>(.*?)</string>', content, re.DOTALL)
+
+    # Sort strings alphabetically by 'name' attribute value
+    strings.sort(key=lambda x: re.search(r'name="([^"]*)"', x[0]).group(1) if re.search(r'name="([^"]*)"', x[0]) else "")
+
     # Reconstruct the XML content with sorted strings
     sorted_content = '<?xml version="1.0" encoding="utf-8"?>\n<resources>\n'
-    sorted_content += '\n'.join(f'\t<string name="{name}"{attr}>{value}</string>' for name, attr, value in strings)
+    sorted_content += '\n'.join(f'\t<string{attributes}>{value}</string>' for attributes, value in strings)
     sorted_content += '\n</resources>'
+
     # Rewrite the sorted content to the file
     with open(file_path, 'w') as f:
         f.write(sorted_content + "\n")
-
 
 # Function to sort strings in all files within a directory
 def sort_strings_in_directory(directory):

@@ -8,7 +8,7 @@ import app.revanced.util.fingerprint.LiteralValueFingerprint
  * When this value is TRUE, new control overlay is used.
  * In this case, the associated patches no longer work, so set this value to FALSE.
  */
-object ControlsOverlayConfigFingerprint : LiteralValueFingerprint(
+internal object ControlsOverlayConfigFingerprint : LiteralValueFingerprint(
     returnType = "Z",
     literalSupplier = { 45427491 }
 )

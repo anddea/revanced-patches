@@ -12,7 +12,7 @@
     <string name="revanced_category_general">Γενικά</string>
     <string name="revanced_category_misc">Διάφορα</string>
     <string name="revanced_category_navigation">Γραμμή πλοήγησης</string>
-    <string name="revanced_category_player">Αναπαραγωγέας</string>
+    <string name="revanced_category_player">Οθόνη αναπαραγωγής</string>
     <string name="revanced_category_video">Βίντεο</string>
     <string name="revanced_change_start_page_entry_chart">Διαγράμματα</string>
     <string name="revanced_change_start_page_entry_downloads">Λήψεις</string>
@@ -29,10 +29,10 @@
     <string name="revanced_change_start_page_title">Αλλαγή αρχικής σελίδας</string>
     <string name="revanced_custom_filter_strings_summary">Λίστα από συμβολοσειρές στοιχείων που θα φιλτραριστούν, διαχωρισμένες με νέες γραμμές.</string>
     <string name="revanced_custom_filter_strings_title">Επεξεργασία προσαρμοσμένου φίλτρου</string>
-    <string name="revanced_custom_filter_strings_warning">Μη έγκυρο προσαρμοσμένο φίλτρο. Έγινε επαναφορά στην προεπιλογή.</string>
+    <string name="revanced_custom_filter_strings_warning">Μη έγκυρο προσαρμοσμένο φίλτρο, επαναφέρθηκε.</string>
     <string name="revanced_custom_filter_summary">Χρήση προσαρμοσμένου φίλτρου για απόκρυψη στοιχείων διεπαφής.</string>
     <string name="revanced_custom_filter_title">Χρήση προσαρμοσμένου φίλτρου</string>
-    <string name="revanced_custom_playback_speeds_invalid">Μη έγκυρες ταχύτητες αναπαραγωγής. Έγινε επαναφορά στις προεπιλεγμένες ταχύτητες.</string>
+    <string name="revanced_custom_playback_speeds_invalid">Μη έγκυρες ταχύτητες αναπαραγωγής, επαναφέρθηκαν.</string>
     <string name="revanced_custom_playback_speeds_summary">Ρύθμιση των διαθέσιμων ταχυτήτων αναπαραγωγής.</string>
     <string name="revanced_custom_playback_speeds_title">Επεξεργασία ταχυτήτων αναπαραγωγής</string>
     <string name="revanced_custom_playback_speeds_warning" formatted="false">Οι ταχύτητες δε μπορούν να είναι μεγαλύτερες από %sx.</string>
@@ -81,10 +81,10 @@
     <string name="revanced_extended_settings_import_as_file">Εισαγωγή ρυθμίσεων από αρχείο</string>
     <string name="revanced_extended_settings_import_copy">Αντιγραφή</string>
     <string name="revanced_extended_settings_import_export_as_text">Εισαγωγή / Εξαγωγή ρυθμίσεων ως κείμενο</string>
-    <string name="revanced_extended_settings_import_export_summary">Εισαγωγή ή εξαγωγή ρυθμίσεων ως κείμενο.</string>
+    <string name="revanced_extended_settings_import_export_summary">Εισαγωγή ή εξαγωγή των ρυθμίσεών σας.</string>
     <string name="revanced_extended_settings_import_export_title">Εισαγωγή / Εξαγωγή</string>
     <string name="revanced_extended_settings_import_failed">Η εισαγωγή απέτυχε: %s.</string>
-    <string name="revanced_extended_settings_import_reset">Έγινε επαναφορά στις προεπιλεγμένες ρυθμίσεις.</string>
+    <string name="revanced_extended_settings_import_reset">Οι ρυθμίσεις επαναφέρθηκαν στις προεπιλογές.</string>
     <string name="revanced_extended_settings_import_success">Έγινε εισαγωγή %d ρυθμίσεων.</string>
     <string name="revanced_external_downloader_not_installed_warning" formatted="false">%s δεν έχει εγκατασταθεί. Παρακαλούμε εγκαταστήστε το.</string>
     <string name="revanced_external_downloader_package_name_summary">Όνομα πακέτου της εγκατεστημένης εξωτερικής εφαρμογής λήψης (π.χ NewPipe, Seal).</string>
@@ -214,19 +214,19 @@
     <string name="revanced_ryd_dislike_percentage_summary">Αντί για τον αριθμό των dislike, θα εμφανίζεται το ποσοστό τους.</string>
     <string name="revanced_ryd_dislike_percentage_title">Εμφάνιση ως ποσοστό</string>
     <string name="revanced_ryd_enabled_summary">Εμφάνιση της ποσότητας των «Δεν μου αρέσει» των βίντεο.</string>
-    <string name="revanced_ryd_failure_connection_timeout">Δεδομένα dislike προσωρινά μή διαθέσιμα (χρονοκαθυστέρηση API).</string>
-    <string name="revanced_ryd_failure_connection_status_code" formatted="false">Δεδομένα dislike μή διαθέσιμα (κατάσταση %d).</string>
-    <string name="revanced_ryd_failure_client_rate_limit_requested">Δεδομένα dislike μή διαθέσιμα (το όριο API του πελάτη έχει επιτευχθεί).</string>
-    <string name="revanced_ryd_failure_generic">Δεδομένα dislike μή διαθέσιμα (%s).</string>
+    <string name="revanced_ryd_failure_connection_timeout">Δεδομένα dislike προσωρινά μη διαθέσιμα (καθυστέρηση API).</string>
+    <string name="revanced_ryd_failure_connection_status_code" formatted="false">Δεδομένα dislike μη διαθέσιμα (κατάσταση %d).</string>
+    <string name="revanced_ryd_failure_client_rate_limit_requested">Δεδομένα dislike μη διαθέσιμα (το όριο API έχει επιτευχθεί).</string>
+    <string name="revanced_ryd_failure_generic">Δεδομένα dislike μη διαθέσιμα (%s).</string>
     <string name="revanced_ryd_toast_on_connection_error_summary">Να εμφανίζεται μήνυμα στο κάτω μέρος της οθόνης αν το Return YouTube Dislike API δεν είναι διαθέσιμο.</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Εμφάνιση μηνύματος αν το API δεν είναι διαθέσιμο</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Κρυμμένα</string>
     <string name="revanced_sanitize_sharing_links_summary">Αφαίρεση των παραμέτρων παρακολούθησης από τις διευθύνσεις URL κατά την κοινή χρήση συνδέσμων.</string>
     <string name="revanced_sanitize_sharing_links_title">Καθαρισμός συνδέσμων κοινοποίησης</string>
-    <string name="revanced_save_playback_speed" formatted="false">Αλλαγή της προεπιλεγμένης ταχύτητας σε %s.</string>
-    <string name="revanced_save_video_quality_mobile" formatted="false">Αλλαγή της προεπιλεγμένης ποιότητας με σύνδεση δεδομένων σε %s.</string>
+    <string name="revanced_save_playback_speed" formatted="false">Η προεπιλεγμένη ταχύτητα άλλαξε σε %s.</string>
+    <string name="revanced_save_video_quality_mobile" formatted="false">Η προεπιλεγμένη ποιότητα δεδομένων άλλαξε σε %s.</string>
     <string name="revanced_save_video_quality_none">Αποτυχία ρύθμισης της ποιότητας.</string>
-    <string name="revanced_save_video_quality_wifi" formatted="false">Αλλαγή της προεπιλεγμένης ποιότητας με σύνδεση Wi-Fi σε %s.</string>
+    <string name="revanced_save_video_quality_wifi" formatted="false">Η προεπιλεγμένη ποιότητα με Wi-Fi άλλαξε σε %s.</string>
     <string name="revanced_share_copy_settings_success">Οι ρυθμίσεις αντιγράφηκαν στο πρόχειρο.</string>
     <string name="revanced_spoof_app_version_summary">"Τροποποίηση έκδοσης εφαρμογής σε παλιότερη έκδοση.
 
@@ -251,13 +251,13 @@
     <string name="sb_api_url_changed">Η διεύθυνση URL του API άλλαξε.</string>
     <string name="sb_diff_segments">Αλλαγή συμπεριφοράς τμημάτων</string>
     <string name="sb_segments_sponsor">Χορηγός</string>
-    <string name="sb_segments_sponsor_sum">Προσφορές πληρωμών, παραπομπές πληρωμών, και άμεσες διαφημίσεις. Όχι για αυτοπροώθηση ή δωρεάν αναφορές σε αιτίες/δημιουργούς/ιστοσελίδες/προϊόντα που τους αρέσουν.</string>
+    <string name="sb_segments_sponsor_sum">Προώθηση επί πληρωμή, παραπομπές επί πληρωμή και άμεσες διαφημίσεις. Όχι για αυτοπροώθηση ή δωρεάν αναφορές σε σκοπούς / δημιουργούς / ιστοσελίδες / προϊόντα που τους αρέσουν.</string>
     <string name="sb_segments_selfpromo">Αφιλοκέρδεια / Αυτοπροώθηση</string>
     <string name="sb_segments_selfpromo_sum">Παρόμοιο με το «Χορηγός» αλλά για μη κερδοσκοπικό σκοπό ή για προσωπική προώθηση. Περιλαμβάνει τμήματα σχετικά με εμπορεύματα, δωρεές ή πληροφορίες για το με ποιους συνεργάστηκαν.</string>
     <string name="sb_segments_interaction">Υπενθύμιση αλληλεπίδρασης (Εγγραφή)</string>
     <string name="sb_segments_interaction_sum">Όταν υπάρχει μια σύντομη υπενθύμιση για να προσθέσετε το βίντεο στα βίντεο που σας αρέσουν, να εγγραφείτε ή να τους ακολουθήσετε στην μέση του περιεχομένου. Αν είναι μεγάλο ή αφορά κάτι συγκεκριμένο, θα πρέπει να είναι στην κατηγορία αυτοπροώθησης.</string>
     <string name="sb_segments_intro">Διάλειμμα / Εισαγωγή</string>
-    <string name="sb_segments_intro_sum">Ένα διάστημα χωρίς πραγματικό περιεχόμενο. Θα μπορούσε να είναι μια παύση, ένα στατικό καρέ ή μια επαναλαμβανόμενη κίνηση. Δεν περιλαμβάνει μεταβάσεις που περιέχουν πληροφορίες.</string>
+    <string name="sb_segments_intro_sum">Χρονικό διάστημα χωρίς πραγματικό περιεχόμενο. Θα μπορούσε να είναι μια παύση, ένα στατικό καρέ ή μια επαναλαμβανόμενη κίνηση. Δεν περιλαμβάνει μεταβάσεις που περιέχουν πληροφορίες.</string>
     <string name="sb_segments_outro">Τελική Οθόνη / Συντελεστές</string>
     <string name="sb_segments_outro_sum">Όταν εμφανίζονται οι συντελεστές ή τα προτεινόμενα βίντεο των καναλιών. Όχι για επίλογους που περιέχουν πληροφορίες.</string>
     <string name="sb_segments_preview">Προεπισκόπηση / Περίληψη</string>
@@ -276,18 +276,18 @@
     <string name="sb_skipped_preview_beginning">Παραλείφθηκε η προεπισκόπηση.</string>
     <string name="sb_skipped_preview_middle">Παραλείφθηκε η προεπισκόπηση.</string>
     <string name="sb_skipped_preview_end">Παραλείφθηκε η ανακεφαλαίωση.</string>
-    <string name="sb_skipped_filler">Παραλείφθηκε το πληρωτικό.</string>
+    <string name="sb_skipped_filler">Παραλείφθηκε η σπατάλη χρόνου.</string>
     <string name="sb_skipped_nomusic">Παραλείφθηκε τμήμα χωρίς μουσική.</string>
     <string name="sb_skipped_multiple_segments">Παραλείφθηκαν πολλαπλά τμήματα.</string>
     <string name="sb_skip_automatically">Αυτόματη παράλειψη</string>
     <string name="sb_skip_ignore">Απενεργοποίηση</string>
-    <string name="sb_sponsorblock_connection_failure_generic">SponsorBlock προσωρινά μή διαθέσιμο.</string>
-    <string name="sb_sponsorblock_connection_failure_status" formatted="false">SponsorBlock προσωρινά μή διαθέσιμο (κατάσταση %d).</string>
-    <string name="sb_sponsorblock_connection_failure_timeout">SponsorBlock προσωρινά μή διαθέσιμο (χρονοκαθυστέρηση API).</string>
+    <string name="sb_sponsorblock_connection_failure_generic">SponsorBlock προσωρινά μη διαθέσιμο.</string>
+    <string name="sb_sponsorblock_connection_failure_status" formatted="false">SponsorBlock προσωρινά μη διαθέσιμο (κατάσταση %d).</string>
+    <string name="sb_sponsorblock_connection_failure_timeout">SponsorBlock προσωρινά μη διαθέσιμο (καθυστέρηση API).</string>
     <string name="sb_color_dot_label">Χρώμα:</string>
     <string name="sb_color_changed">Το χρώμα άλλαξε.</string>
     <string name="sb_color_reset">Το χρώμα επαναφέρθηκε.</string>
-    <string name="sb_color_invalid">Μη έγκυρος κωδικός χρώματος. Έγινε επαναφορά χρώματος στην προεπιλογή.</string>
+    <string name="sb_color_invalid">Μη έγκυρος κωδικός χρώματος, επαναφέρθηκε.</string>
     <string name="sb_reset_color">Επαναφορά χρώματος</string>
     <string name="sb_about_api_sum">Τα δεδομένα παρέχονται από το SponsorBlock API. Πατήστε για να μάθετε περισσότερα και να δείτε λήψεις για άλλες πλατφόρμες.</string>
     <string name="sb_about">Σχετικά με</string>
