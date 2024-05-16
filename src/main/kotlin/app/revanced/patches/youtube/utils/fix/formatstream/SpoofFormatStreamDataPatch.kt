@@ -19,6 +19,7 @@ import app.revanced.patches.youtube.video.information.VideoInformationPatch
 import app.revanced.util.getReference
 import app.revanced.util.getStringInstructionIndex
 import app.revanced.util.getTargetIndex
+import app.revanced.util.getWalkerMethod
 import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
@@ -61,6 +62,7 @@ object SpoofFormatStreamDataPatch : BaseBytecodePatch(
         "Lcom/google/protos/youtube/api/innertube/StreamingDataOuterClass\$StreamingData;"
 
     private lateinit var hookMethod: MutableMethod
+    private lateinit var uriMethod: MutableMethod
 
     private fun MutableMethod.replaceFieldName(
         index: Int,
@@ -90,7 +92,6 @@ object SpoofFormatStreamDataPatch : BaseBytecodePatch(
 
         FormatStreamModelConstructorFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-
                 // Find the field name that will be used for reflection.
                 val urlIndex = it.scanResult.patternScanResult!!.startIndex
                 val itagIndex = getTargetIndex(urlIndex + 1, Opcode.IGET)
@@ -98,6 +99,17 @@ object SpoofFormatStreamDataPatch : BaseBytecodePatch(
                 replaceFieldName(urlIndex, "replaceMeWithUrlFieldName")
                 replaceFieldName(itagIndex, "replaceMeWithITagFieldName")
             }
+
+            it.mutableClass.methods.find { method ->
+                method.parameters == listOf("Ljava/lang/String;")
+                        && method.returnType == "Landroid/net/Uri;"
+            }?.apply {
+                val walkerIndex = indexOfFirstInstruction {
+                    opcode == Opcode.INVOKE_VIRTUAL
+                            && getReference<MethodReference>()?.returnType == "Landroid/net/Uri;"
+                }
+                uriMethod = getWalkerMethod(context, walkerIndex)
+            } ?: throw PatchException("Uri method not found")
         }
 
         // endregion
@@ -164,6 +176,18 @@ object SpoofFormatStreamDataPatch : BaseBytecodePatch(
                     """, ExternalLabel("ignore", getInstruction(insertIndex))
                 )
             }
+        }
+
+        uriMethod.apply {
+            val insertIndex = implementation!!.instructions.size - 1
+            val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+
+            addInstructions(
+                insertIndex, """
+                    invoke-static { v$insertRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->hookUri(Landroid/net/Uri;)Landroid/net/Uri;
+                    move-result-object v$insertRegister
+                    """
+            )
         }
 
         // endregion
