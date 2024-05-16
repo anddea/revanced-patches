@@ -1,19 +1,21 @@
 package app.revanced.patches.youtube.utils.fix.formatstream
 
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
+import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.utils.compatibility.Constants
+import app.revanced.patches.youtube.utils.fix.formatstream.fingerprints.EndpointUrlBuilderFingerprint
 import app.revanced.patches.youtube.utils.fix.formatstream.fingerprints.FormatStreamModelConstructorFingerprint
-import app.revanced.patches.youtube.utils.fix.formatstream.fingerprints.PlaybackStartFingerprint
+import app.revanced.patches.youtube.utils.fix.formatstream.fingerprints.PlaybackStartConstructorFingerprint
+import app.revanced.patches.youtube.utils.fix.formatstream.fingerprints.PlaybackStartParentFingerprint
 import app.revanced.patches.youtube.utils.integrations.Constants.MISC_PATH
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.patches.youtube.video.information.VideoInformationPatch
-import app.revanced.patches.youtube.video.playerresponse.PlayerResponseMethodHookPatch
-import app.revanced.patches.youtube.video.videoid.VideoIdPatch
 import app.revanced.util.getReference
 import app.revanced.util.getStringInstructionIndex
 import app.revanced.util.getTargetIndex
@@ -26,21 +28,21 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.iface.reference.Reference
 
 @Suppress("unused")
 object SpoofFormatStreamDataPatch : BaseBytecodePatch(
     name = "Spoof format stream data",
     description = "Adds options to spoof format stream data to prevent playback issues.",
     dependencies = setOf(
-        PlayerResponseMethodHookPatch::class,
         SettingsPatch::class,
-        VideoIdPatch::class,
         VideoInformationPatch::class,
     ),
     compatiblePackages = Constants.COMPATIBLE_PACKAGE,
     fingerprints = setOf(
+        EndpointUrlBuilderFingerprint,
         FormatStreamModelConstructorFingerprint,
-        PlaybackStartFingerprint
+        PlaybackStartParentFingerprint
     )
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
@@ -80,8 +82,7 @@ object SpoofFormatStreamDataPatch : BaseBytecodePatch(
 
     override fun execute(context: BytecodeContext) {
 
-        // Hook player response video id, to start loading format stream data sooner in the background.
-        VideoIdPatch.hookPlayerResponseVideoId("$INTEGRATIONS_CLASS_DESCRIPTOR->newPlayerResponseVideoId(Ljava/lang/String;Z)V")
+        // region set field name
 
         hookMethod = context.findClass(INTEGRATIONS_CLASS_DESCRIPTOR)!!
             .mutableClass.methods.find { method -> method.name == INTEGRATIONS_METHOD_DESCRIPTOR }
@@ -93,18 +94,24 @@ object SpoofFormatStreamDataPatch : BaseBytecodePatch(
                 // Find the field name that will be used for reflection.
                 val urlIndex = it.scanResult.patternScanResult!!.startIndex
                 val itagIndex = getTargetIndex(urlIndex + 1, Opcode.IGET)
-                val audioCodecParameterIndex = getTargetIndex(urlIndex + 1, Opcode.IGET_OBJECT)
 
                 replaceFieldName(urlIndex, "replaceMeWithUrlFieldName")
                 replaceFieldName(itagIndex, "replaceMeWithITagFieldName")
-                replaceFieldName(audioCodecParameterIndex, "replaceMeWithAudioCodecParameterFieldName")
             }
         }
 
-        PlaybackStartFingerprint.resultOrThrow().mutableMethod.apply {
+        // endregion
 
-            // Type of object being invoked is protobufList.
-            // Find the class name of protobufList.
+        // region set protobufList reference
+
+        lateinit var nonDashProtobufListReference: Reference
+        lateinit var dashProtobufListReference: Reference
+
+        val streamingDataOutClassConstructorMethod = context.findClass(STREAMING_DATA_OUTER_CLASS)!!
+            .mutableClass.methods.find { method -> method.name == "<init>" }
+            ?: throw PatchException("StreamingDataOutClass not found")
+
+        streamingDataOutClassConstructorMethod.apply {
             val protobufListIndex = indexOfFirstInstruction {
                 opcode == Opcode.INVOKE_STATIC
                         && getReference<MethodReference>()?.definingClass == STREAMING_DATA_OUTER_CLASS
@@ -116,34 +123,77 @@ object SpoofFormatStreamDataPatch : BaseBytecodePatch(
             val protobufListReference = getInstruction<ReferenceInstruction>(protobufListIndex).reference
             val protobufListClass = (protobufListReference as MethodReference).returnType
 
-            // Hooks all instructions that load or save protobufList.
-            for (index in implementation!!.instructions.size - 1 downTo 0) {
-                val instruction = getInstruction(index)
+            val protobufListCalls = implementation!!.instructions.withIndex()
+                .filter { instruction ->
+                    ((instruction.value as? ReferenceInstruction)?.reference as? FieldReference)?.type == protobufListClass
+                }
 
-                if (instruction.opcode != Opcode.IGET_OBJECT
-                            && instruction.opcode != Opcode.IPUT_OBJECT)
-                    continue
+            nonDashProtobufListReference =
+                getInstruction<ReferenceInstruction>(protobufListCalls.elementAt(0).index).reference
+            dashProtobufListReference =
+                getInstruction<ReferenceInstruction>(protobufListCalls.elementAt(1).index).reference
+        }
 
-                val fieldReference = instruction.getReference<FieldReference>()
-                if (fieldReference?.definingClass != STREAMING_DATA_OUTER_CLASS)
-                    continue
-                if (fieldReference.type != protobufListClass)
-                    continue
+        // endregion
 
-                val insertRegister = getInstruction<TwoRegisterInstruction>(index).registerA
-                val insertIndex =
-                    if (instruction.opcode == Opcode.IPUT_OBJECT)
-                        index
-                    else
-                        index + 1
+        // region hook stream data
 
-                addInstruction(
+        PlaybackStartConstructorFingerprint.resolve(
+            context,
+            PlaybackStartParentFingerprint.resultOrThrow().classDef
+        )
+        PlaybackStartConstructorFingerprint.resultOrThrow().let {
+            it.mutableMethod.apply {
+                val streamingDataOuterClassIndex = it.scanResult.patternScanResult!!.startIndex + 1
+                val streamingDataOuterClassReference = getInstruction<ReferenceInstruction>(streamingDataOuterClassIndex).reference
+                if (!streamingDataOuterClassReference.toString().endsWith(STREAMING_DATA_OUTER_CLASS))
+                    throw PatchException("Type does not match: $streamingDataOuterClassReference")
+
+                val insertIndex = streamingDataOuterClassIndex + 1
+                val streamingDataOuterClassRegister = getInstruction<TwoRegisterInstruction>(streamingDataOuterClassIndex).registerA
+                val freeRegister = implementation!!.registerCount - parameters.size - 2
+
+                addInstructionsWithLabels(
                     insertIndex,
-                    "invoke-static { v$insertRegister }, " +
-                            INTEGRATIONS_METHOD_CALL
+                    """
+                        if-eqz v$streamingDataOuterClassRegister, :ignore
+                        iget-object v$freeRegister, v$streamingDataOuterClassRegister, $nonDashProtobufListReference
+                        invoke-static { v$freeRegister }, $INTEGRATIONS_METHOD_CALL
+                        iget-object v$freeRegister, v$streamingDataOuterClassRegister, $dashProtobufListReference
+                        invoke-static { v$freeRegister }, $INTEGRATIONS_METHOD_CALL
+                    """, ExternalLabel("ignore", getInstruction(insertIndex))
                 )
             }
         }
+
+        // endregion
+
+        // region hook endpoint url
+
+        EndpointUrlBuilderFingerprint.resultOrThrow().let {
+            it.mutableMethod.apply {
+                val uriIndex = indexOfFirstInstruction {
+                    opcode == Opcode.INVOKE_VIRTUAL
+                            && getReference<MethodReference>()?.definingClass == "Landroid/net/Uri;"
+                            && getReference<MethodReference>()?.name == "toString"
+                }
+                val uriStringIndex = getTargetIndex(uriIndex, Opcode.IPUT_OBJECT)
+                val uriStringReference = getInstruction<ReferenceInstruction>(uriStringIndex).reference
+
+                it.mutableClass.methods.find { method ->
+                    method.parameters == listOf("Lcom/google/protobuf/MessageLite;")
+                            && method.returnType == "V"
+                }?.addInstructions(
+                    0,
+                    """
+                        iget-object v0, p0, $uriStringReference
+                        invoke-static { v0 }, $INTEGRATIONS_CLASS_DESCRIPTOR->newEndpointUrlResponse(Ljava/lang/String;)V
+                    """
+                ) ?: throw PatchException("PlaybackStart method not found")
+            }
+        }
+
+        // endregion
 
         /**
          * Add settings

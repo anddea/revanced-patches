@@ -4,7 +4,7 @@ import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal object PlaybackStartFingerprint : MethodFingerprint(
+internal object PlaybackStartParentFingerprint : MethodFingerprint(
     returnType = "Lcom/google/android/libraries/youtube/innertube/model/media/VideoStreamingData;",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = emptyList(),
