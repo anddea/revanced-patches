@@ -48,7 +48,7 @@ import org.w3c.dom.Element
 @Suppress("DEPRECATION", "unused")
 object SeekbarComponentsPatch : BaseBytecodePatch(
     name = "Seekbar components",
-    description = "Adds options to hide or change components related to player.",
+    description = "Adds options to hide or change components related to the seekbar.",
     dependencies = setOf(
         DrawableColorPatch::class,
         FlyoutMenuHookPatch::class,

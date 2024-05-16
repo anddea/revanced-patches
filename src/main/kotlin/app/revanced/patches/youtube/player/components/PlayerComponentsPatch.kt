@@ -57,7 +57,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.WideLiteralInstruction
 @Suppress("unused")
 object PlayerComponentsPatch : BaseBytecodePatch(
     name = "Player components",
-    description = "Adds options to hide or change components related to player.",
+    description = "Adds options to hide or change components related to the video player.",
     dependencies = setOf(
         ControlsOverlayConfigPatch::class,
         LithoFilterPatch::class,

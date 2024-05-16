@@ -19,7 +19,7 @@ import org.w3c.dom.Element
 @Suppress("DEPRECATION", "unused")
 object OverlayButtonsPatch : BaseResourcePatch(
     name = "Overlay buttons",
-    description = "Adds an option to display overlay buttons in the video player.",
+    description = "Adds options to display overlay buttons in the video player.",
     dependencies = setOf(
         FullscreenButtonViewStubPatch::class,
         PlayerControlsPatch::class,

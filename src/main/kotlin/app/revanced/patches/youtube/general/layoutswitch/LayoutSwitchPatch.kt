@@ -20,7 +20,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 @Suppress("unused")
 object LayoutSwitchPatch : BaseBytecodePatch(
     name = "Layout switch",
-    description = "Adds an option to trick dpi to use tablet or phone layout.",
+    description = "Adds an option to spoof the dpi in order to use a tablet or phone layout.",
     dependencies = setOf(SettingsPatch::class),
     compatiblePackages = COMPATIBLE_PACKAGE,
     fingerprints = setOf(

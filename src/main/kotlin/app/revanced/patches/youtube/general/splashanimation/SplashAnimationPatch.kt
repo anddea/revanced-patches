@@ -18,7 +18,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 @Suppress("unused")
 object SplashAnimationPatch : BaseBytecodePatch(
     name = "Disable splash animation",
-    description = "Adds an option to disable splash animation.",
+    description = "Adds an option to disable the splash animation on app startup.",
     dependencies = setOf(
         SettingsPatch::class,
         SharedResourceIdPatch::class

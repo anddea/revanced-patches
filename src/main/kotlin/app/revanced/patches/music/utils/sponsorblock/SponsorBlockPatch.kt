@@ -18,7 +18,7 @@ import org.w3c.dom.Element
 @Suppress("DEPRECATION", "SameParameterValue", "unused")
 object SponsorBlockPatch : BaseResourcePatch(
     name = "SponsorBlock",
-    description = "Adds options to enable and configure SponsorBlock, which can skip undesired video segments such as non-music sections.",
+    description = "Adds options to enable and configure SponsorBlock, which can skip undesired video segments, such as non-music sections.",
     dependencies = setOf(
         SettingsPatch::class,
         SponsorBlockBytecodePatch::class

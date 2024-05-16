@@ -12,7 +12,7 @@ import app.revanced.util.patch.BaseBytecodePatch
 @Suppress("unused")
 object GradientLoadingScreenPatch : BaseBytecodePatch(
     name = "Enable gradient loading screen",
-    description = "Adds an option to enable gradient loading screen.",
+    description = "Adds an option to enable the gradient loading screen.",
     dependencies = setOf(SettingsPatch::class),
     compatiblePackages = COMPATIBLE_PACKAGE,
     fingerprints = setOf(

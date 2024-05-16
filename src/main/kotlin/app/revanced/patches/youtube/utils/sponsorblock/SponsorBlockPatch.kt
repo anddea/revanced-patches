@@ -14,7 +14,7 @@ import app.revanced.util.patch.BaseResourcePatch
 @Suppress("DEPRECATION", "unused")
 object SponsorBlockPatch : BaseResourcePatch(
     name = "SponsorBlock",
-    description = "Integrates SponsorBlock which allows skipping video segments such as sponsored content.",
+    description = "Adds options to enable and configure SponsorBlock, which can skip undesired video segments, such as sponsored content.",
     dependencies = setOf(
         SettingsPatch::class,
         SponsorBlockBytecodePatch::class

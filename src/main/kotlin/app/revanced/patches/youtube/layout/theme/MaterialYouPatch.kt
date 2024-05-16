@@ -13,7 +13,7 @@ import app.revanced.util.patch.BaseResourcePatch
 @Suppress("DEPRECATION", "unused")
 object MaterialYouPatch : BaseResourcePatch(
     name = "MaterialYou",
-    description = "Enables MaterialYou theme for Android 12+",
+    description = "Enables MaterialYou theme for Android 12+.",
     dependencies = setOf(
         BaseThemePatch::class,
         SettingsPatch::class,

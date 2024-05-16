@@ -24,7 +24,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 @Suppress("unused")
 object AccountComponentsPatch : BaseBytecodePatch(
     name = "Hide account components",
-    description = "Adds the options to hide components related to account menu.",
+    description = "Adds options to hide components related to the account menu.",
     dependencies = setOf(
         SettingsPatch::class,
         SharedResourceIdPatch::class
