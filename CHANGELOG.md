@@ -1,3 +1,10 @@
+# [2.225.0-dev.13](https://github.com/anddea/revanced-patches/compare/v2.225.0-dev.12...v2.225.0-dev.13) (2024-05-16)
+
+
+### Bug Fixes
+
+* **YouTube:** Speed toast showed fixed value on reset ([2aae719](https://github.com/anddea/revanced-patches/commit/2aae7197aa517f36f0d614b7b419382191d9f1e8))
+
 # [2.225.0-dev.12](https://github.com/anddea/revanced-patches/compare/v2.225.0-dev.11...v2.225.0-dev.12) (2024-05-16)
 
 
