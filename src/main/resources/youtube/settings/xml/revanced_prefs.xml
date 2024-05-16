@@ -311,7 +311,7 @@
 
             <!-- SETTINGS: KEEP_LANDSCAPE_MODE
             <SwitchPreference android:title="@string/revanced_keep_landscape_mode_title" android:key="revanced_keep_landscape_mode" android:defaultValue="false" android:summary="@string/revanced_keep_landscape_mode_summary" />
-            <app.revanced.integrations.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_keep_landscape_mode_timeout_title" android:key="revanced_keep_landscape_mode_timeout" android:summary="@string/revanced_keep_landscape_mode_timeout_summary" android:defaultValue="3000" android:inputType="number" android:dependency="revanced_keep_landscape_mode" />SETTINGS: KEEP_LANDSCAPE_MODE -->
+            <app.revanced.integrations.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_keep_landscape_mode_timeout_title" android:key="revanced_keep_landscape_mode_timeout" android:summary="@string/revanced_keep_landscape_mode_timeout_summary" android:defaultValue="30000" android:inputType="number" android:dependency="revanced_keep_landscape_mode" />SETTINGS: KEEP_LANDSCAPE_MODE -->
 
         <!-- SETTINGS: FULLSCREEN_COMPONENTS
         </PreferenceScreen>SETTINGS: FULLSCREEN_COMPONENTS -->
