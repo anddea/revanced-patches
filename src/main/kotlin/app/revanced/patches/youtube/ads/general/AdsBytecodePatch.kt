@@ -57,8 +57,7 @@ object AdsBytecodePatch : BytecodePatch(
                 addInstructionsWithLabels(
                     0,
                     """
-                        move-object v0, p2
-                        invoke-static {v0}, $ADS_CLASS_DESCRIPTOR->hideFullscreenAds(Ljava/lang/Object;)Z
+                        invoke-static/range {p2 .. p2}, $ADS_CLASS_DESCRIPTOR->hideFullscreenAds(Ljava/lang/Object;)Z
                         move-result v0
                         if-eqz v0, :show
                         return-void
